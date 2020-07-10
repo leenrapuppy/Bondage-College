@@ -18,6 +18,25 @@ function ElementContent(ID, Content) {
 			document.getElementById(ID).innerHTML = Content;
 }
 
+function ElementCreateButton(ID, label, image, hoverText, func) {
+
+	if (document.getElementById(ID) == null) {
+		console.log("Button: " + ID);
+		var button = document.createElement("button");
+		button.className = "button";
+		button.setAttribute("type", "button");
+		button.setAttribute("ID", ID);
+		button.setAttribute("Name", ID);
+		if (image != "") {
+			console.log(DrawGetImage(image).src);
+			button.style.backgroundImage = "url(" + DrawGetImage(image).src + ")";
+		}
+		if (label != "") button.value = label;
+		if (func != null) button.addEventListener("click", func);
+		document.body.appendChild(button);
+	}
+}
+
 // Creates a new text area element in the main document
 function ElementCreateTextArea(ID) {
 	if (document.getElementById(ID) == null) {
@@ -115,7 +134,18 @@ function ElementPositionFix(ElementID, Font, X, Y, W, H) {
 	}
 
 	// Sets the element style
-	document.getElementById(ElementID).setAttribute("style", "font-size:" + Font + "px; font-family:Arial; position:absolute; padding-left:10px; left:" + Left + "px; top:" + Top + "px; width:" + Width + "px; height:" + Height + "px; resize: none;");
+	// document.getElementById(ElementID).setAttribute("style", "font-size:" + Font + "px; font-family:Arial; position:absolute; padding-left:10px; left:" + Left + "px; top:" + Top + "px; width:" + Width + "px; height:" + Height + "px; resize: none;" + style);
+	var E = document.getElementById(ElementID);
+	E.style.fontSize = Font + "px";
+	E.style.fontFamily = "Arial";
+	E.style.position = "absolute";
+	E.style.paddingLeft = "10px";
+	E.style.left = Left + "px";
+	E.style.top = Top + "px";
+	E.style.width = Width + "px";
+	E.style.height = Height + "px";
+	E.style.resize = "none";
+
 
 }
 

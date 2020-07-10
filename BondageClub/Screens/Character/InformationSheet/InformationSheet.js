@@ -22,6 +22,29 @@ function InformationSheetGetLove(Love) {
 	return TextGet("Relationship") + " " + Love.toString() + " " + TextGet("RelationshipAtrocious");
 }
 
+function InformationSheetLoad() {
+	ElementCreateButton("btnExit", "", "Icons/Exit.png", "", InformationSheetExit);
+	ElementCreateButton("btnTitle", "", "Icons/Title.png", "", function () {
+		CommonSetScreen("Character", "Title");
+		InformationSheetButtonsRemove();
+	});
+	ElementCreateButton("btnPref", "", "Icons/Preference.png", "", function () {
+		InformationSheetButtonsRemove();
+		CommonSetScreen("Character", "Preference");
+	});
+	ElementCreateButton("btnFriends", "", "Icons/FriendList.png", "", function () {
+		InformationSheetButtonsRemove();
+		CommonSetScreen("Character", "FriendList");
+	});
+	ElementCreateButton("btnIntro", "", "Icons/Introduction.png", "", function () {
+		InformationSheetButtonsRemove();
+		CommonSetScreen("Character", "OnlineProfile");
+	});
+	ElementCreateButton("btnNext", "", "Icons/Next.png", "", function () {
+		InformationSheetSecondScreen = !InformationSheetSecondScreen;
+	});
+}
+
 /**
  * Main function of the character info screen. It's called continuously, so be careful 
  * to add time consuming functions or loops here
@@ -73,16 +96,16 @@ function InformationSheetRun() {
 
 	// Draw the buttons on the right side
 	MainCanvas.textAlign = "center";
-	DrawButton(1815, 75, 90, 90, "", "White", "Icons/Exit.png");
+	ElementPositionFix("btnExit", 36, 1815, 75, 90, 90);
 	if (C.ID == 0) {
-		if (!TitleIsForced(CurrentTitle)) DrawButton(1815, 190, 90, 90, "", "White", "Icons/Title.png");
-		DrawButton(1815, 305, 90, 90, "", "White", "Icons/Preference.png");
-		DrawButton(1815, 420, 90, 90, "", "White", "Icons/FriendList.png");
-		DrawButton(1815, 535, 90, 90, "", "White", "Icons/Introduction.png");
-		DrawButton(1815, 765, 90, 90, "", "White", "Icons/Next.png");
+		if (!TitleIsForced(CurrentTitle)) ElementPositionFix("btnTitle", 36, 1815, 190, 90, 90);
+		ElementPositionFix("btnPref", 36, 1815, 305, 90, 90);
+		ElementPositionFix("btnFriends", 36, 1815, 420, 90, 90);
+		ElementPositionFix("btnIntro", 36, 1815, 535, 90, 90);
+		ElementPositionFix("btnNext", 36, 1815, 765, 90, 90);
 	} else if (OnlinePlayer) {
-		DrawButton(1815, 190, 90, 90, "", "White", "Icons/Introduction.png");
-		DrawButton(1815, 765, 90, 90, "", "White", "Icons/Next.png");
+		ElementPositionFix("btnIntro", 36, 1815, 190, 90, 90);
+		ElementPositionFix("btnNext", 36, 1815, 765, 90, 90);
 	}
 
 	// Draw the second screen for reputation & skills
@@ -176,7 +199,8 @@ function InformationSheetSecondScreenRun() {
  * @returns {void} - Nothing
  */
 function InformationSheetClick() {
-	var C = InformationSheetSelection;
+/* 	var C = InformationSheetSelection;
+	
 	if (CommonIsClickAt(1815, 75, 90, 90)) InformationSheetExit();
 	if (C.ID == 0) {
 		if (CommonIsClickAt(1815, 190, 90, 90) && !TitleIsForced(TitleGet(C))) CommonSetScreen("Character", "Title");
@@ -188,6 +212,15 @@ function InformationSheetClick() {
 		if (CommonIsClickAt(1815, 190, 90, 90)) CommonSetScreen("Character", "OnlineProfile");
 		if (CommonIsClickAt(1815, 765, 90, 90)) InformationSheetSecondScreen = !InformationSheetSecondScreen;
 	}
+ */}
+
+function InformationSheetButtonsRemove() {
+	ElementRemove("btnExit");
+	ElementRemove("btnTitle");
+	ElementRemove("btnPref");
+	ElementRemove("btnFriends");
+	ElementRemove("btnIntro");
+	ElementRemove("btnNext");
 }
 
 /**
@@ -195,6 +228,8 @@ function InformationSheetClick() {
  * @returns {void} - Nothing
  */
 function InformationSheetExit() {
+	// clean up
+	InformationSheetButtonsRemove();
 	InformationSheetSecondScreen = false;
 	CommonSetScreen(InformationSheetPreviousModule, InformationSheetPreviousScreen);
 }
