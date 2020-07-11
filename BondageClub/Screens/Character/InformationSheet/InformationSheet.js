@@ -23,24 +23,24 @@ function InformationSheetGetLove(Love) {
 }
 
 function InformationSheetLoad() {
-	ElementCreateButton("btnExit", "", "Icons/Exit.png", "Exit", InformationSheetExit);
-	ElementCreateButton("btnTitle", "", "Icons/Title.png", "Title", function () {
+	ElementCreateButton("btnExit", "", "Icons/Exit.png", "Exit", "left", InformationSheetExit);
+	ElementCreateButton("btnTitle", "", "Icons/Title.png", "Title", "left", function () {
 		CommonSetScreen("Character", "Title");
 		InformationSheetButtonsRemove();
 	});
-	ElementCreateButton("btnPref", "", "Icons/Preference.png", "Preferences", function () {
+	ElementCreateButton("btnPref", "", "Icons/Preference.png", "Preferences", "right", function () {
 		InformationSheetButtonsRemove();
 		CommonSetScreen("Character", "Preference");
 	});
-	ElementCreateButton("btnFriends", "", "Icons/FriendList.png", "Friends", function () {
+	ElementCreateButton("btnFriends", "", "Icons/FriendList.png", "Friends", "bottom", function () {
 		InformationSheetButtonsRemove();
 		CommonSetScreen("Character", "FriendList");
 	});
-	ElementCreateButton("btnIntro", "", "Icons/Introduction.png", "Online Profile", function () {
+	ElementCreateButton("btnIntro", "", "Icons/Introduction.png", "Online Profile", "top", function () {
 		InformationSheetButtonsRemove();
 		CommonSetScreen("Character", "OnlineProfile");
 	});
-	ElementCreateButton("btnNext", "", "Icons/Next.png", "Next Page", function () {
+	ElementCreateButton("btnNext", "", "Icons/Next.png", "Next Page", "left", function () {
 		InformationSheetSecondScreen = !InformationSheetSecondScreen;
 	});
 }
@@ -54,6 +54,7 @@ function InformationSheetRun() {
 
 	// Draw the character base values
 	var C = InformationSheetSelection;
+	var FontSize = 36;
 	var CurrentTitle = TitleGet(C);
 	DrawCharacter(C, 50, 50, 0.9);
 	MainCanvas.textAlign = "left";
@@ -96,16 +97,16 @@ function InformationSheetRun() {
 
 	// Draw the buttons on the right side
 	MainCanvas.textAlign = "center";
-	ElementPositionFix("btnExit", 36, 1815, 75, 90, 90);
+	ElementPositionFix("btnExit", FontSize, 1815, 75, 90, 90);
 	if (C.ID == 0) {
-		if (!TitleIsForced(CurrentTitle)) ElementPositionFix("btnTitle", 36, 1815, 190, 90, 90);
-		ElementPositionFix("btnPref", 36, 1815, 305, 90, 90);
-		ElementPositionFix("btnFriends", 36, 1815, 420, 90, 90);
-		ElementPositionFix("btnIntro", 36, 1815, 535, 90, 90);
-		ElementPositionFix("btnNext", 36, 1815, 765, 90, 90);
+		if (!TitleIsForced(CurrentTitle)) ElementPositionFix("btnTitle", FontSize, 1815, 190, 90, 90);
+		ElementPositionFix("btnPref", FontSize, 1815, 305, 90, 90);
+		ElementPositionFix("btnFriends", FontSize, 1815, 420, 90, 90);
+		ElementPositionFix("btnIntro", FontSize, 1815, 535, 90, 90);
+		ElementPositionFix("btnNext", FontSize, 1815, 765, 90, 90);
 	} else if (OnlinePlayer) {
-		ElementPositionFix("btnIntro", 36, 1815, 190, 90, 90);
-		ElementPositionFix("btnNext", 36, 1815, 765, 90, 90);
+		ElementPositionFix("btnIntro", FontSize, 1815, 190, 90, 90);
+		ElementPositionFix("btnNext", FontSize, 1815, 765, 90, 90);
 	}
 
 	// Draw the second screen for reputation & skills

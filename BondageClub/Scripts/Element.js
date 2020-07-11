@@ -18,7 +18,7 @@ function ElementContent(ID, Content) {
 			document.getElementById(ID).innerHTML = Content;
 }
 
-function ElementCreateButton(ID, label, image, toolTip, func) {
+function ElementCreateButton(ID, label, image, hoverText, hoverPos, func) {
 
 	if (document.getElementById(ID) == null) {
 		var button = document.createElement("button");
@@ -28,7 +28,34 @@ function ElementCreateButton(ID, label, image, toolTip, func) {
 		button.setAttribute("Name", ID);
 		if (image != "") button.style.backgroundImage = "url(" + DrawGetImage(image).src + ")";
 		if (label != "") button.value = label;
-		if (toolTip != "") button.after(toolTip);
+		if (toolTip != "") {
+			if (hoverPos === "") hoverPos = "left";
+			var toolTip = document.createElement(ID + "_tooltip");
+			toolTip.className = "tooltip";
+			toolTip.innerText = hoverText;
+			switch (hoverPos) {
+				case "right":
+					toolTip.style.top = "-5px";
+					toolTip.style.left = "105%";
+					break;
+				case "top":
+					toolTip.style.bottom = "100%";
+					toolTip.style.left = "50%";
+					toolTip.style.marginLeft = "-60px";
+					break;
+				case "bottom":
+					toolTip.style.top = "100%";
+					toolTip.style.left = "50%";
+					toolTip.style.marginLeft = "-60px";
+					break;
+				default:
+					// Left is the default
+					toolTip.style.top = "-5px";
+					toolTip.style.right = "105%";
+
+			}
+			button.appendChild(toolTip);
+		}
 		if (func != null) button.addEventListener("click", func);
 		document.body.appendChild(button);
 	}

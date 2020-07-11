@@ -147,3 +147,21 @@ TextArea {
 	background-color: cyan;
 	color: white;
 }
+
+button > .tooltip {
+    position: absolute;
+	background-color: #fffb8f;
+	border-radius: 5px;
+	visibility: hidden;
+	color: black;
+	z-index: 1;
+    padding: .25em;
+	border: 2px solid;
+	opacity: 0;
+  	transition: opacity 1s;
+}
+
+button:hover > .tooltip {
+	visibility: visible;
+	opacity: 1;
+}
