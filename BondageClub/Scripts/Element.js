@@ -134,19 +134,19 @@ function ElementPositionFix(ElementID, Font, X, Y, W, H) {
 	}
 
 	// Sets the element style
-	// document.getElementById(ElementID).setAttribute("style", "font-size:" + Font + "px; font-family:Arial; position:absolute; padding-left:10px; left:" + Left + "px; top:" + Top + "px; width:" + Width + "px; height:" + Height + "px; resize: none;" + style);
 	var E = document.getElementById(ElementID);
-	E.style.fontSize = Font + "px";
-	E.style.fontFamily = "Arial";
-	E.style.position = "absolute";
-	E.style.paddingLeft = "10px";
-	E.style.left = Left + "px";
-	E.style.top = Top + "px";
-	E.style.width = Width + "px";
-	E.style.height = Height + "px";
-	E.style.resize = "none";
-
-
+	Object.assign(E.style, {
+		fontSize: Font + "px",
+		fontFamily: "Arial",
+		position: "absolute",
+		left: Left + "px",
+		top: Top + "px",
+		width: Width + "px",
+		height: Height + "px",
+		padding: "0.15em",
+		backgroundOrigin: "content-box",
+		backgroundRepeat: "no-repeat"
+	});
 }
 
 // Sets a custom data-attribute to a specified value on a specified element

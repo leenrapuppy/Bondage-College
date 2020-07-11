@@ -131,14 +131,13 @@ TextArea {
 
 .button {
   border: 2px solid black;
+  color: black;
   background: none;
   background-color: white;
   background-size: cover;
-  color: black;
-  padding-left: 2px;
-  padding-top: 2px;
   text-align: center;
   text-decoration: none;
+  resize: "none";
 }
 
 .button:hover {
