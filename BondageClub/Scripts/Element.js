@@ -18,20 +18,17 @@ function ElementContent(ID, Content) {
 			document.getElementById(ID).innerHTML = Content;
 }
 
-function ElementCreateButton(ID, label, image, hoverText, func) {
+function ElementCreateButton(ID, label, image, toolTip, func) {
 
 	if (document.getElementById(ID) == null) {
-		console.log("Button: " + ID);
 		var button = document.createElement("button");
 		button.className = "button";
 		button.setAttribute("type", "button");
 		button.setAttribute("ID", ID);
 		button.setAttribute("Name", ID);
-		if (image != "") {
-			console.log(DrawGetImage(image).src);
-			button.style.backgroundImage = "url(" + DrawGetImage(image).src + ")";
-		}
+		if (image != "") button.style.backgroundImage = "url(" + DrawGetImage(image).src + ")";
 		if (label != "") button.value = label;
+		if (toolTip != "") button.after(toolTip);
 		if (func != null) button.addEventListener("click", func);
 		document.body.appendChild(button);
 	}
@@ -143,9 +140,6 @@ function ElementPositionFix(ElementID, Font, X, Y, W, H) {
 		top: Top + "px",
 		width: Width + "px",
 		height: Height + "px",
-		padding: "0.15em",
-		backgroundOrigin: "content-box",
-		backgroundRepeat: "no-repeat"
 	});
 }
 

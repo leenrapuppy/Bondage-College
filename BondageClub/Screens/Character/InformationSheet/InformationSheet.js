@@ -23,24 +23,24 @@ function InformationSheetGetLove(Love) {
 }
 
 function InformationSheetLoad() {
-	ElementCreateButton("btnExit", "", "Icons/Exit.png", "", InformationSheetExit);
-	ElementCreateButton("btnTitle", "", "Icons/Title.png", "", function () {
+	ElementCreateButton("btnExit", "", "Icons/Exit.png", "Exit", InformationSheetExit);
+	ElementCreateButton("btnTitle", "", "Icons/Title.png", "Title", function () {
 		CommonSetScreen("Character", "Title");
 		InformationSheetButtonsRemove();
 	});
-	ElementCreateButton("btnPref", "", "Icons/Preference.png", "", function () {
+	ElementCreateButton("btnPref", "", "Icons/Preference.png", "Preferences", function () {
 		InformationSheetButtonsRemove();
 		CommonSetScreen("Character", "Preference");
 	});
-	ElementCreateButton("btnFriends", "", "Icons/FriendList.png", "", function () {
+	ElementCreateButton("btnFriends", "", "Icons/FriendList.png", "Friends", function () {
 		InformationSheetButtonsRemove();
 		CommonSetScreen("Character", "FriendList");
 	});
-	ElementCreateButton("btnIntro", "", "Icons/Introduction.png", "", function () {
+	ElementCreateButton("btnIntro", "", "Icons/Introduction.png", "Online Profile", function () {
 		InformationSheetButtonsRemove();
 		CommonSetScreen("Character", "OnlineProfile");
 	});
-	ElementCreateButton("btnNext", "", "Icons/Next.png", "", function () {
+	ElementCreateButton("btnNext", "", "Icons/Next.png", "Next Page", function () {
 		InformationSheetSecondScreen = !InformationSheetSecondScreen;
 	});
 }

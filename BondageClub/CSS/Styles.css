@@ -135,9 +135,12 @@ TextArea {
   background: none;
   background-color: white;
   background-size: cover;
+  background-origin: content-box;
+  background-repeat: no-repeat;
   text-align: center;
   text-decoration: none;
   resize: "none";
+  padding: 0.15em;
 }
 
 .button:hover {
