@@ -22,6 +22,11 @@ function InformationSheetGetLove(Love) {
 	return TextGet("Relationship") + " " + Love.toString() + " " + TextGet("RelationshipAtrocious");
 }
 
+/**
+ * This function is executed, when the information screen is loaded. Defines the buttons on the right hand side
+ * and adds functions for the event handlers. These can either be existing functions or on the fly defined inline functions
+ * @returns {vois} - Nothing
+ */
 function InformationSheetLoad() {
 	ElementCreateButton("btnExit", "", "Icons/Exit.png", "Exit", "left", InformationSheetExit);
 	ElementCreateButton("btnTitle", "", "Icons/Title.png", "Title", "left", function () {

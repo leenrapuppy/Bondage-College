@@ -18,6 +18,19 @@ function ElementContent(ID, Content) {
 			document.getElementById(ID).innerHTML = Content;
 }
 
+/**
+ * Function to add a button to the current screen.
+ * @param {string} ID - A name for the button to create.
+ * @param {string} label - Text that should be displayed on the button. Use either this or an image.
+ * @param {string} image - Path to an image that should be displayed within the button. 
+ * Use either this or assign a label to the button
+ * @param {string} hoverText - Text for a tool tip that is shown, when the mouse hovers over the button
+ * @param {string} hoverPos - Hint for the positioning of the tool tip. 
+ * Valid values are "bottom", "top", "right" or "left". If no value is given, "left" is used
+ * @param {function} func - A function for the 'click' event handler. Code withhin this function is executed, 
+ * as sson as the user clicks on the button
+ * @returns {void} - Nothing
+ */
 function ElementCreateButton(ID, label, image, hoverText, hoverPos, func) {
 
 	if (document.getElementById(ID) == null) {
@@ -52,10 +65,9 @@ function ElementCreateButton(ID, label, image, hoverText, hoverPos, func) {
 					// Left is the default
 					toolTip.style.top = "-5px";
 					toolTip.style.right = "105%";
-
-			}
+			} // switch
 			button.appendChild(toolTip);
-		}
+		} // if (toolTip)
 		if (func != null) button.addEventListener("click", func);
 		document.body.appendChild(button);
 	}
