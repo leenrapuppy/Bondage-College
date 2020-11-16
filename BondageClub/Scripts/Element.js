@@ -75,8 +75,8 @@ function ElementCreateButton(ID, label, image, hoverText, hoverPos, func) {
 					break;
 				default:
 					// Left is the default
-					toolTip.style.top = "-5px";
-					toolTip.style.right = "105%";
+					toolTip.style.top = "5px";
+					toolTip.style.right = "80%";
 			} // switch
 			button.appendChild(toolTip);
 		} // if (toolTip)

@@ -33,15 +33,15 @@ function InformationSheetLoad() {
 		CommonSetScreen("Character", "Title");
 		InformationSheetButtonsRemove();
 	});
-	ElementCreateButton("btnPref", "", "Icons/Preference.png", "Preferences", "right", function () {
+	ElementCreateButton("btnPref", "", "Icons/Preference.png", "Preferences", "left", function () {
 		InformationSheetButtonsRemove();
 		CommonSetScreen("Character", "Preference");
 	});
-	ElementCreateButton("btnFriends", "", "Icons/FriendList.png", "Friends", "bottom", function () {
+	ElementCreateButton("btnFriends", "", "Icons/FriendList.png", "Friends", "left", function () {
 		InformationSheetButtonsRemove();
 		CommonSetScreen("Character", "FriendList");
 	});
-	ElementCreateButton("btnIntro", "", "Icons/Introduction.png", "Online Profile", "top", function () {
+	ElementCreateButton("btnIntro", "", "Icons/Introduction.png", "Online Profile", "left", function () {
 		InformationSheetButtonsRemove();
 		CommonSetScreen("Character", "OnlineProfile");
 	});
