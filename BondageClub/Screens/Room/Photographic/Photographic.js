@@ -7,6 +7,14 @@ var PhotographicCurrendGroup = null;
 var PhotographicSubAppearance = null;
 var PhotographicSelectText = "";
 
+
+// Returns TRUE if the player has maids disabled
+/**
+ * Checks if the player is helpless (maids disabled) or not.
+ * @returns {boolean} - Returns true if the player still has time remaining after asking the maids to stop helping
+ */
+function PhotographicIsMaidsDisabled() { var expire = LogValue("MaidsDisabled", "Maid") - CurrentTime ; return (expire > 0 ) }
+
 function PhotographicPlayerCanChangeCloth() {return Player.CanChange() && !Player.IsRestrained()}
 function PhotographicPlayerHatAvailable() {return PhotographicAppearanceAvailable(Player, "Hat");}
 function PhotographicPlayerGlovesAvailable() {return PhotographicAppearanceAvailable(Player, "Gloves");}
@@ -30,8 +38,11 @@ function PhotographicSubCanAskForPhoto() {return Player.CanTalk() && !Photograph
 function PhotographicSubCanWinkForPhoto() {return !Player.CanTalk() && !PhotographicSub.IsRestrained()}
 function PhotographicSubCanKeel() {return PhotographicSub.CanKneel()}
 
-function PhotographicIsRestrainedWithLock() { return (Player.IsRestrained() && InventoryCharacterHasLockedRestraint(Player)) };
+function PhotographicIsRestrainedWithLock() { return (Player.IsRestrained() && (InventoryCharacterHasLockedRestraint(Player))) };
 function PhotographicIsRestrainedWithoutLock() { return (Player.IsRestrained() && !InventoryCharacterHasLockedRestraint(Player)) };
+function PhotographicIsRestrainedWithLockAndMaidsNotDisabled() { return (Player.IsRestrained() && (InventoryCharacterHasLockedRestraint(Player)) && !PhotographicIsMaidsDisabled()) };
+function PhotographicIsRestrainedWithoutLockAndMaidsNotDisabled() { return (Player.IsRestrained() && !InventoryCharacterHasLockedRestraint(Player) && !PhotographicIsMaidsDisabled()) };
+function PhotographicIsMaidsDisabledAndRestrained() { return (Player.IsRestrained() && PhotographicIsMaidsDisabled() ) }
 
 function PhotographicLoad() {
 	if (PhotographicSub == null) {
@@ -60,7 +71,7 @@ function PhotographicClick() {
 	}
 	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 145) && (MouseY < 235)) InformationSheetLoadCharacter(Player);
 	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 265) && (MouseY < 355) && Player.CanInteract()) PhotographicCanvasToPng(750);
-	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 385) && (MouseY < 475)  && Player.CanKneel()) CharacterSetActivePose(Player, (Player.ActivePose == null) ? "Kneel" : null);
+	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 385) && (MouseY < 475)  && Player.CanKneel()) CharacterSetActivePose(Player, (Player.ActivePose == null) ? "Kneel" : null, true);
 	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 505) && (MouseY < 595) && Player.CanChange()) CharacterAppearanceLoadCharacter(Player);
 }
 
@@ -89,7 +100,7 @@ function PhotographicPlayerClothRemove(Group) {
 }
 
 function PhotographicAppearanceAvailable(C, Group) {
-	for (var I = 0; I < C.Appearance.length; I++) {
+	for (let I = 0; I < C.Appearance.length; I++) {
 		if (C.Appearance[I].Asset.Group.Name == Group) {
 			return true;
 		}
@@ -98,7 +109,7 @@ function PhotographicAppearanceAvailable(C, Group) {
 }
 
 function PhotographicPlayerAssetAvailable(Asset, Group) {
-	for (var I = Player.Inventory.length - 1; I > -1; I--)
+	for (let I = Player.Inventory.length - 1; I > -1; I--)
 		if ((Player.Inventory[I].Name == Asset) && (Player.Inventory[I].Group == Group)) {return true;}
 	return false;	
 }
@@ -127,7 +138,7 @@ function PhotographicSubDressBack() {
 }
 
 function PhotographicSubChangePose() {
-	CharacterSetActivePose(PhotographicSub, (PhotographicSub.ActivePose == null) ? "Kneel" : null);
+	CharacterSetActivePose(PhotographicSub, (PhotographicSub.ActivePose == null) ? "Kneel" : null, true);
 }
 
 
@@ -137,7 +148,7 @@ function PhotographicSubClothRemove(Group) {
 
 function PhotographicStartInventoryPlayer(ItemGroup) {
 	DialogLeaveItemMenu();
-	for (var A = 0; A < AssetGroup.length; A++) {
+	for (let A = 0; A < AssetGroup.length; A++) {
 		if (AssetGroup[A].Name == ItemGroup) {
 			Player.FocusGroup = AssetGroup[A];
 			DialogItemToLock = null;

@@ -19,30 +19,49 @@ function ActivityAllowed() { return ((CurrentScreen == "ChatRoom") || ((CurrentS
  * @return {void} - Nothing
  */
 function ActivityDictionaryLoad() {
-	if (ActivityDictionary == null) {
 
-		// Tries to read it from cache first
-		var FullPath = "Screens/Character/Preference/ActivityDictionary.csv";
-		if (CommonCSVCache[FullPath]) {
-			ActivityDictionary = CommonCSVCache[FullPath];
-			return;
-		}
-
+	// Tries to read it from cache first
+	var FullPath = "Screens/Character/Preference/ActivityDictionary.csv";
+	var TranslationPath = FullPath.replace(".csv", "_" + TranslationLanguage + ".txt");
+	
+	if (CommonCSVCache[FullPath]) {
+		ActivityDictionary = JSON.parse(JSON.stringify(CommonCSVCache[FullPath]));
+	} else {
 		// Opens the file, parse it and returns the result in an object
 		CommonGet(FullPath, function () {
 			if (this.status == 200) {
 				CommonCSVCache[FullPath] = CommonParseCSV(this.responseText);
-				ActivityDictionary = CommonCSVCache[FullPath];
+				ActivityDictionary = JSON.parse(JSON.stringify(CommonCSVCache[FullPath]));
 			}
 		});
+	}
+	
+	// If a translation file is available, we open the txt file and keep it in cache
+	if (TranslationAvailable(TranslationPath)) 
+		CommonGet(TranslationPath, function () {
+			if (this.status == 200) {
+				TranslationCache[TranslationPath] = TranslationParseTXT(this.responseText);
+				ActivityTranslate(TranslationPath);
+			}
+		});
+		
+	ActivityTranslate(TranslationPath);
+}
 
-		// If a translation file is available, we open the txt file and keep it in cache
-		var TranslationPath = FullPath.replace(".csv", "_" + TranslationLanguage + ".txt");
-		if (TranslationAvailable(TranslationPath))
-			CommonGet(TranslationPath, function() {
-				if (this.status == 200) TranslationCache[TranslationPath] = TranslationParseTXT(this.responseText);
-			});
-
+/**
+ * Translates the activity dictionary.
+ * @param {string} CachePath - Path to the language cache. 
+ */
+function ActivityTranslate(CachePath) { 
+	if (!Array.isArray(TranslationCache[CachePath])) return;
+	
+	for (let T = 0; T < ActivityDictionary.length; T++) { 
+		if (ActivityDictionary[T][1]) {
+			let indexText = TranslationCache[CachePath].indexOf(ActivityDictionary[T][1].trim());
+			if (indexText >= 0) {
+				ActivityDictionary[T][1] = TranslationCache[CachePath][indexText + 1];
+			}
+		}
 	}
 }
 
@@ -52,7 +71,7 @@ function ActivityDictionaryLoad() {
  * @returns {string} - Description associated to the given keyword
  */
 function ActivityDictionaryText(KeyWord) {
-	for (var D = 0; D < ActivityDictionary.length; D++)
+	for (let D = 0; D < ActivityDictionary.length; D++)
 		if (ActivityDictionary[D][0] == KeyWord)
 			return ActivityDictionary[D][1].trim();
 	return "MISSING ACTIVITY DESCRIPTION FOR KEYWORD " + KeyWord;
@@ -70,7 +89,7 @@ function ActivityDialogBuild(C) {
 	if ((C.FocusGroup != null) && (C.FocusGroup.Activity != null)) {
 
 		// For each activities
-		for (var A = 0; A < C.FocusGroup.Activity.length; A++) {
+		for (let A = 0; A < C.FocusGroup.Activity.length; A++) {
 
 			// Make sure the activity is valid for that player asset family
 			var Activity = AssetGetActivity(C.AssetFamily, C.FocusGroup.Activity[A]);
@@ -82,12 +101,23 @@ function ActivityDialogBuild(C) {
 
 				// Make sure all the prerequisites are met
 				if (Allow && (Activity.Prerequisite != null))
-					for (var P = 0; P < Activity.Prerequisite.length; P++) {
+					for (let P = 0; P < Activity.Prerequisite.length; P++) {
 						if ((Activity.Prerequisite[P] == "UseMouth") && (Player.IsMouthBlocked() || !Player.CanTalk())) Allow = false;
 						else if ((Activity.Prerequisite[P] == "UseTongue") && Player.IsMouthBlocked()) Allow = false;
+						else if ((Activity.Prerequisite[P] == "TargetMouthBlocked") && !C.IsMouthBlocked()) Allow = false;
+						else if ((Activity.Prerequisite[P] == "IsGagged") && Player.CanTalk()) Allow = false;
+						else if ((Activity.Prerequisite[P] == "SelfOnly") && C.ID != 0) Allow = false;
+						else if ((Activity.Prerequisite[P] == "TargetKneeling") && !C.IsKneeling()) Allow = false;
 						else if ((Activity.Prerequisite[P] == "UseHands") && !Player.CanInteract()) Allow = false;
+						else if ((Activity.Prerequisite[P] == "UseArms") && (!Player.CanInteract() && (InventoryGet(Player, "ItemArms") || InventoryGroupIsBlocked(Player, "ItemArms")))) Allow = false;
 						else if ((Activity.Prerequisite[P] == "UseFeet") && !Player.CanWalk()) Allow = false;
+						else if ((Activity.Prerequisite[P] == "CantUseArms") && !(!Player.CanInteract() && (InventoryGet(Player, "ItemArms") || InventoryGroupIsBlocked(Player, "ItemArms")))) Allow = false;
+						else if ((Activity.Prerequisite[P] == "CantUseFeet") && Player.CanWalk()) Allow = false;
 						else if ((Activity.Prerequisite[P] == "TargetCanUseTongue") && C.IsMouthBlocked()) Allow = false;
+						else if ((Activity.Prerequisite[P] == "TargetMouthOpen") && (C.FocusGroup.Name == "ItemMouth") && (InventoryGet(C, "ItemMouth") && !C.IsMouthOpen())) Allow = false;
+						else if ((Activity.Prerequisite[P] == "VulvaEmpty")  && (C.FocusGroup.Name == "ItemVulva") && C.IsVulvaFull()) Allow = false;
+						else if ((Activity.Prerequisite[P] == "ZoneAccessible") && InventoryGroupIsBlocked(C, C.FocusGroup.Name)) Allow = false;
+						else if ((Activity.Prerequisite[P] == "WearingPenetrationItem") && (!CharacterHasItemForActivity(Player, "Penetrate") || Player.IsEnclose())) Allow = false;
 						else if ((Activity.Prerequisite[P] == "ZoneNaked") && (C.FocusGroup.Name == "ItemButt") && ((InventoryPrerequisiteMessage(C, "AccessButt") != "") || C.IsPlugged())) Allow = false;
 						else if ((Activity.Prerequisite[P] == "ZoneNaked") && (C.FocusGroup.Name == "ItemVulva") && ((InventoryPrerequisiteMessage(C, "AccessVulva") != "") || C.IsVulvaChaste())) Allow = false;
 						else if ((Activity.Prerequisite[P] == "ZoneNaked") && ((C.FocusGroup.Name == "ItemBreast") || (C.FocusGroup.Name == "ItemNipples")) && ((InventoryPrerequisiteMessage(C, "AccessBreast") != "") || C.IsBreastChaste())) Allow = false;
@@ -97,13 +127,13 @@ function ActivityDialogBuild(C) {
 
 				// Make sure the current player has permission to do this activity
 				if (Allow && (Player.ArousalSettings != null) && (Player.ArousalSettings.Activity != null))
-					for (var P = 0; P < Player.ArousalSettings.Activity.length; P++)
+					for (let P = 0; P < Player.ArousalSettings.Activity.length; P++)
 						if ((Player.ArousalSettings.Activity[P].Name == C.FocusGroup.Activity[A]) && (Player.ArousalSettings.Activity[P].Other != null) && (Player.ArousalSettings.Activity[P].Other == 0))
 							Allow = false;
 
 				// Make sure the target player gives permission for this activity
 				if (Allow && (C.ArousalSettings != null) && (C.ArousalSettings.Activity != null))
-					for (var P = 0; P < C.ArousalSettings.Activity.length; P++)
+					for (let P = 0; P < C.ArousalSettings.Activity.length; P++)
 						if ((C.ArousalSettings.Activity[P].Name == C.FocusGroup.Activity[A]) && (C.ArousalSettings.Activity[P].Self != null) && (C.ArousalSettings.Activity[P].Self == 0))
 							Allow = false;
 
@@ -124,19 +154,24 @@ function ActivityDialogBuild(C) {
  * @param {Character} C - The character on which the activity is performed
  * @param {string} A - The activity performed
  * @param {string} Z - The group/zone name where the activity was performed
+ * @param {number} [count=1] - If the activity is done repeatedly, this defines the number of times, the activity is done. 
+ * If you don't want an activity to modify arousal, set this parameter to '0'
  * @return {void} - Nothing
  */
-function ActivityEffect(S, C, A, Z) {
+function ActivityEffect(S, C, A, Z, Count) {
 
 	// Converts from activity name to the activity object
 	if (typeof A === "string") A = AssetGetActivity(C.AssetFamily, A);
 	if ((A == null) || (typeof A === "string")) return;
+	if ((Count == null) || (Count == undefined) || (Count == 0)) Count = 1;
 
 	// Calculates the next progress factor
 	var Factor = (PreferenceGetActivityFactor(C, A.Name, (C.ID == 0)) * 5) - 10; // Check how much the character likes the activity, from -10 to +10
 	Factor = Factor + (PreferenceGetZoneFactor(C, Z) * 5) - 10; // The zone used also adds from -10 to +10
 	Factor = Factor + Math.floor((Math.random() * 8)); // Random 0 to 7 bonus
 	if ((C.ID != S.ID) && (((C.ID != 0) && C.IsLoverOfPlayer()) || ((C.ID == 0) && S.IsLoverOfPlayer()))) Factor = Factor + Math.floor((Math.random() * 8)); // Another random 0 to 7 bonus if the target is the player's lover
+	Factor = Factor + ActivityFetishFactor(C) * 2; // Adds a fetish factor based on the character preferences
+	Factor = Factor + Math.round(Factor * (Count - 1) / 3); // if the action is done repeatedly, we apply a multiplication factor based on the count
 	ActivitySetArousalTimer(C, A, Z, Factor);
 
 }
@@ -148,7 +183,7 @@ function ActivityEffect(S, C, A, Z) {
  */
 function ActivityChatRoomArousalSync(C) {
 	if ((C.ID == 0) && (CurrentScreen == "ChatRoom"))
-		ServerSend("ChatRoomCharacterArousalUpdate", { OrgasmTimer: C.ArousalSettings.OrgasmTimer, Progress: C.ArousalSettings.Progress, ProgressTimer: C.ArousalSettings.ProgressTimer });
+		ServerSend("ChatRoomCharacterArousalUpdate", { OrgasmTimer: C.ArousalSettings.OrgasmTimer, Progress: C.ArousalSettings.Progress, ProgressTimer: C.ArousalSettings.ProgressTimer, OrgasmCount: C.ArousalSettings.OrgasmCount });
 }
 
 /**
@@ -232,16 +267,17 @@ function ActivityOrgasmWillpowerProgress(C) {
  * @returns {void} - Nothing
  */
 function ActivityOrgasmStart(C) {
-	if ((C.ID == 0) || (C.AccountName.substring(0, 4) == "NPC_") || (C.AccountName.substring(0, 4) == "NPC-")) {
+	if ((C.ID == 0) || C.IsNpc()) {
 		if (C.ID == 0) ActivityOrgasmGameResistCount = 0;
 		ActivityOrgasmWillpowerProgress(C);
 		C.ArousalSettings.OrgasmTimer = CurrentTime + (Math.random() * 10000) + 5000;
 		C.ArousalSettings.OrgasmStage = 2;
+		C.ArousalSettings.OrgasmCount = (C.ArousalSettings.OrgasmCount == null) ? 1 : C.ArousalSettings.OrgasmCount + 1;
 		ActivityOrgasmGameTimer = C.ArousalSettings.OrgasmTimer - CurrentTime;
 		if ((C.ID == 0) && (CurrentScreen == "ChatRoom")) {
 			var Dictionary = [];
-			Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
-			ServerSend("ChatRoomChat", {Content: "Orgasm" + (Math.floor(Math.random() * 10)).toString(), Type: "Activity", Dictionary: Dictionary});
+			Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+			ServerSend("ChatRoomChat", { Content: "Orgasm" + (Math.floor(Math.random() * 10)).toString(), Type: "Activity", Dictionary: Dictionary });
 			ActivityChatRoomArousalSync(C);
 		}
 	}
@@ -254,7 +290,7 @@ function ActivityOrgasmStart(C) {
  * @returns {void} - Nothing
  */
 function ActivityOrgasmStop(C, Progress) {
-	if ((C.ID == 0) || (C.AccountName.substring(0, 4) == "NPC_") || (C.AccountName.substring(0, 4) == "NPC-")) {
+	if ((C.ID == 0) || C.IsNpc()) {
 		ActivityOrgasmWillpowerProgress(C);
 		C.ArousalSettings.OrgasmTimer = 0;
 		C.ArousalSettings.OrgasmStage = 0;
@@ -283,8 +319,8 @@ function ActivityOrgasmGameGenerate(Progress) {
 	if (Progress >= ActivityOrgasmGameDifficulty) {
 		if (CurrentScreen == "ChatRoom") {
 			var Dictionary = [];
-			Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
-			ServerSend("ChatRoomChat", {Content: "OrgasmResist" + (Math.floor(Math.random() * 10)).toString(), Type: "Activity", Dictionary: Dictionary});
+			Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+			ServerSend("ChatRoomChat", { Content: "OrgasmResist" + (Math.floor(Math.random() * 10)).toString(), Type: "Activity", Dictionary: Dictionary });
 		}
 		ActivityOrgasmGameResistCount++;
 		ActivityOrgasmStop(Player, 70);
@@ -303,7 +339,12 @@ function ActivityOrgasmGameGenerate(Progress) {
  * @returns {void} - Nothing
  */
 function ActivityOrgasmPrepare(C) {
-	if ((C.ID == 0) || (C.AccountName.substring(0, 4) == "NPC_") || (C.AccountName.substring(0, 4) == "NPC-")) {
+	if (C.IsEdged()) {
+		C.ArousalSettings.Progress = 95;
+		return;
+	}
+
+	if ((C.ID == 0) || C.IsNpc()) {
 
 		// Starts the timer and exits from dialog if necessary
 		C.ArousalSettings.OrgasmTimer = (C.ID == 0) ? CurrentTime + 5000 : CurrentTime + (Math.random() * 10000) + 5000;
@@ -313,7 +354,7 @@ function ActivityOrgasmPrepare(C) {
 		ActivityChatRoomArousalSync(C);
 
 		// If an NPC orgasmed, it will raise her love based on the horny trait
-		if ((C.AccountName.substring(0, 4) == "NPC_") || (C.AccountName.substring(0, 4) == "NPC-"))
+		if (C.IsNpc())
 			if ((C.Love == null) || (C.Love < 60) || (C.IsOwner()) || (C.IsOwnedByPlayer()) || C.IsLoverPrivate())
 				NPCLoveChange(C, Math.floor((NPCTraitGet(C, "Horny") + 100) / 20) + 1);
 
@@ -330,7 +371,7 @@ function ActivityExpression(C, Progress) {
 
 	// Floors the progress to the nearest 10 to pick the expression
 	Progress = Math.floor(Progress / 10) * 10;
-	
+
 	// The blushes goes to red progressively
 	var Blush = null;
 	if ((Progress == 10) || (Progress == 30) || (Progress == 50) || (Progress == 70)) Blush = "Low";
@@ -356,11 +397,12 @@ function ActivityExpression(C, Progress) {
 	if (Progress == 100) Eyes = "Closed";
 
 	// Find the expression in the character appearance and alters it
-	for (var A = 0; A < C.Appearance.length; A++) {
+	for (let A = 0; A < C.Appearance.length; A++) {
 		if (C.Appearance[A].Asset.Group.Name == "Blush") C.Appearance[A].Property = { Expression: Blush };
 		if (C.Appearance[A].Asset.Group.Name == "Eyebrows") C.Appearance[A].Property = { Expression: Eyebrows };
 		if (C.Appearance[A].Asset.Group.Name == "Fluids") C.Appearance[A].Property = { Expression: Fluids };
 		if (C.Appearance[A].Asset.Group.Name == "Eyes") C.Appearance[A].Property = { Expression: Eyes };
+		if (C.Appearance[A].Asset.Group.Name == "Eyes2") C.Appearance[A].Property = { Expression: Eyes };
 	}
 
 	// Refreshes the character
@@ -378,8 +420,21 @@ function ActivityTimerProgress(C, Progress) {
 
 	// Changes the current arousal progress value
 	C.ArousalSettings.Progress = C.ArousalSettings.Progress + Progress;
+	// Decrease the vibratorlevel to 0 if not being aroused, while also updating the change time to reset the vibrator animation
+	if (Progress < 0) {
+		if (C.ArousalSettings.VibratorLevel != 0) {
+			C.ArousalSettings.VibratorLevel = 0
+			C.ArousalSettings.ChangeTime = CommonTime()
+		}
+	}
+	
 	if (C.ArousalSettings.Progress < 0) C.ArousalSettings.Progress = 0;
 	if (C.ArousalSettings.Progress > 100) C.ArousalSettings.Progress = 100;
+	
+	// Update the recent change time, so that on other player's screens the character's arousal meter will vibrate again when vibes start
+	if (C.ArousalSettings.Progress == 0) {
+		C.ArousalSettings.ChangeTime = CommonTime()
+	}
 
 	// Out of orgasm mode, it can affect facial expressions at every 10 steps
 	if ((C.ArousalSettings.OrgasmTimer == null) || (typeof C.ArousalSettings.OrgasmTimer !== "number") || isNaN(C.ArousalSettings.OrgasmTimer) || (C.ArousalSettings.OrgasmTimer < CurrentTime))
@@ -390,6 +445,22 @@ function ActivityTimerProgress(C, Progress) {
 	if (C.ArousalSettings.Progress == 100) ActivityOrgasmPrepare(C);
 
 }
+
+/**
+ * Set the current vibrator level for drawing purposes 
+ * @param {Character} C - Character for which the timer is progressing
+ * @param {number} Level - Level from 0 to 4 (higher = more vibration)
+ * @returns {void} - Nothing
+ */
+function ActivityVibratorLevel(C, Level) {
+	if (C.ArousalSettings != null) {
+		if (Level != C.ArousalSettings.VibratorLevel) {
+			C.ArousalSettings.VibratorLevel = Level
+			C.ArousalSettings.ChangeTime = CommonTime()
+		}
+	}
+}
+
 
 /**
  * Calculates the progress one character does on another right away
@@ -417,7 +488,7 @@ function ActivityRun(C, Activity) {
 
 	// If the player does the activity on herself or an NPC, we calculate the result right away
 	if ((C.ArousalSettings.Active == "Hybrid") || (C.ArousalSettings.Active == "Automatic"))
-		if ((C.ID == 0) || (C.AccountName.substring(0, 4) == "NPC_") || (C.AccountName.substring(0, 4) == "NPC-"))
+		if ((C.ID == 0) || C.IsNpc())
 			ActivityEffect(Player, C, Activity, C.FocusGroup.Name);
 
 	// If the player does the activity on someone else, we calculate the progress for the player right away
@@ -428,11 +499,11 @@ function ActivityRun(C, Activity) {
 
 		// Publishes the activity to the chatroom
 		var Dictionary = [];
-		Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
-		Dictionary.push({Tag: "TargetCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
-		Dictionary.push({Tag: "ActivityGroup", Text: C.FocusGroup.Name});
-		Dictionary.push({Tag: "ActivityName", Text: Activity.Name});
-		ServerSend("ChatRoomChat", {Content: ((C.ID == 0) ? "ChatSelf-" : "ChatOther-") + C.FocusGroup.Name + "-" + Activity.Name, Type: "Activity", Dictionary: Dictionary});
+		Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+		Dictionary.push({ Tag: "TargetCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
+		Dictionary.push({ Tag: "ActivityGroup", Text: C.FocusGroup.Name });
+		Dictionary.push({ Tag: "ActivityName", Text: Activity.Name });
+		ServerSend("ChatRoomChat", { Content: ((C.ID == 0) ? "ChatSelf-" : "ChatOther-") + C.FocusGroup.Name + "-" + Activity.Name, Type: "Activity", Dictionary: Dictionary });
 
 		// Exits from dialog to see the result
 		DialogLeave();
@@ -443,7 +514,7 @@ function ActivityRun(C, Activity) {
 
 /**
  * Checks if a used asset should trigger an activity/arousal progress on the target character
- * @param {Character} Source- The character who used the item
+ * @param {Character} Source - The character who used the item
  * @param {Character} Target - The character on which the item was used
  * @param {object} Asset - Asset used
  * @return {void} - Nothing
@@ -453,7 +524,39 @@ function ActivityArousalItem(Source, Target, Asset) {
 	if (AssetActivity != null) {
 		var Activity = AssetGetActivity(Target.AssetFamily, AssetActivity);
 		if ((Source.ID == 0) && (Target.ID != 0)) ActivityRunSelf(Source, Target, Activity);
-		if (((Target.ArousalSettings != null) && ((Target.ArousalSettings.Active == "Hybrid") || (Target.ArousalSettings.Active == "Automatic"))) && ((Target.ID == 0) || (Target.AccountName.substring(0, 4) == "NPC_") || (Target.AccountName.substring(0, 4) == "NPC-")))
+		if (((Target.ArousalSettings != null) && ((Target.ArousalSettings.Active == "Hybrid") || (Target.ArousalSettings.Active == "Automatic"))) && ((Target.ID == 0) || (Target.IsNpc())))
 			ActivityEffect(Source, Target, AssetActivity, Asset.Group.Name);
 	}
+}
+
+/**
+ * Checks if the character is wearing an item tagged with the fetish type name and returns the love factor for it
+ * @param {Character} C - The character to validate
+ * @param {string} Type - The fetish type name
+ * @return {number} - From -2 (hate it) to 2 (adore it) based on the player preferences
+ */
+function ActivityFetishItemFactor(C, Type) {
+	var Factor = (PreferenceGetFetishFactor(C, Type) - 2);
+	if (Factor != 0)
+		for (let A = 0; A < C.Appearance.length; A++)
+			if ((C.Appearance[A].Asset != null) && (C.Appearance[A].Asset.Fetish != null))
+				if (C.Appearance[A].Asset.Fetish.indexOf(Type) >= 0)
+					return Factor;
+	return 0;
+}
+
+/**
+ * Loops in all fetishes for a character and calculates the total fetish factor
+ * @param {Character} C - The character to validate
+ * @return {number} - The negative/positive number will have negative/positive impact on arousal
+ */
+function ActivityFetishFactor(C) {
+	var Factor = 0;
+	if ((C.ArousalSettings != null) && (C.ArousalSettings.Fetish != null))
+		for (let A = 0; A < C.ArousalSettings.Fetish.length; A++)
+			if (C.ArousalSettings.Fetish[A].Factor != 2)
+				for (let F = 0; F < FetishFemale3DCG.length; F++)
+					if (FetishFemale3DCG[F].Name == C.ArousalSettings.Fetish[A].Name)
+						Factor = Factor + FetishFemale3DCG[F].GetFactor(C);
+	return Factor;
 }

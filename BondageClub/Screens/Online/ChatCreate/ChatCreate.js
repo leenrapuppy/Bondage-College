@@ -7,11 +7,14 @@ var ChatCreateBackgroundIndex = 0;
 var ChatCreateBackgroundSelect = "";
 var ChatCreateBackgroundList = null;
 
-// When the chat creation screens loads
+/**
+ * Loads the chat creation screen properties and creates the inputs
+ * @returns {void} - Nothing
+ */
 function ChatCreateLoad() {
 
 	// Resets the room game statuses
-	if ((ChatRoomSpace == "LARP") && (Player.Game.LARP.Status != "")) {
+	if ((ChatRoomGame == "LARP") && (Player.Game.LARP.Status != "")) {
 		Player.Game.LARP.Status = "";
 		ServerSend("AccountUpdate", { Game: Player.Game });
 	}
@@ -36,7 +39,10 @@ function ChatCreateLoad() {
 
 }
 
-// When the chat creation screen runs
+/**
+ * When the chat creation screen runs, draws the screen
+ * @returns {void} - Nothing
+ */
 function ChatCreateRun() {
 
 	// Draw the controls
@@ -55,11 +61,16 @@ function ChatCreateRun() {
 	DrawBackNextButton(900, 640, 350, 65, DialogFind(Player, ChatCreateBackgroundSelect), "White", null,
 		() => DialogFind(Player, (ChatCreateBackgroundIndex == 0) ? ChatCreateBackgroundList[ChatCreateBackgroundList.length - 1] : ChatCreateBackgroundList[ChatCreateBackgroundIndex - 1]),
 		() => DialogFind(Player, (ChatCreateBackgroundIndex >= ChatCreateBackgroundList.length - 1) ? ChatCreateBackgroundList[0] : ChatCreateBackgroundList[ChatCreateBackgroundIndex + 1]));
-	DrawButton(600, 800, 300, 65, TextGet("Create"), "White");
-	DrawButton(1100, 800, 300, 65, TextGet("Cancel"), "White");
+	DrawButton(850, 775, 300, 65, TextGet("BlockItems"), "White");
+	DrawButton(600, 900, 300, 65, TextGet("Create"), "White");
+	DrawButton(1100, 900, 300, 65, TextGet("Cancel"), "White");
+
 }
 
-// When the player clicks in the chat creation screen
+/**
+ * Handles the click events on the chat creation screen. Is called from CommonClick()
+ * @returns {void} - Nothing
+ */
 function ChatCreateClick() {
 
 	// When the private box is checked
@@ -76,29 +87,31 @@ function ChatCreateClick() {
 
 	// Show backgrounds in grid
 	if ((MouseX >= 1300) && (MouseX < 1600) && (MouseY >= 640) && (MouseY < 705)) {
-		BackgroundSelectionMake(ChatCreateBackgroundList, ChatCreateBackgroundIndex, Name => ChatCreateBackgroundSelect = Name);
+		BackgroundSelectionMake(ChatCreateBackgroundList, ChatCreateBackgroundIndex, Name => ChatCreateBackgroundSelect = Name, ChatRoomSpace === "Asylum");
 		document.getElementById("InputName").style.display = "none";
 		document.getElementById("InputDescription").style.display = "none";
 		document.getElementById("InputSize").style.display = "none";
 	}
 
-	// If the user wants to create a room
-	if ((MouseX >= 600) && (MouseX < 900) && (MouseY >= 800) && (MouseY < 865)) {
-		ChatCreateRoom();
-	}
+	// When the bottom buttons are used
+	if (MouseIn(850, 775, 300, 65)) ChatCreateBlockItems();
+	if (MouseIn(600, 900, 300, 65)) ChatCreateRoom();
+	if (MouseIn(1100, 900, 300, 65)) ChatCreateExit();
 
-	// When the user cancels
-	if ((MouseX >= 1100) && (MouseX < 1400) && (MouseY >= 800) && (MouseY < 865)) {
-		ChatCreateExit();
-	}
 }
 
-// When the user press "enter", we create the room
+/**
+ * Handles the key presses while in the creation screen. When the user presses enter, we create the room.
+ * @returns {void} - Nothing
+ */
 function ChatCreateKeyDown() {
 	if (KeyPress == 13) ChatCreateRoom();
 }
 
-// When the user exit from this screen
+/**
+ * Handles exiting from the chat creation screen, removes the inputs and resets the state of the variable
+ * @returns {void} - Nothing
+ */
 function ChatCreateExit() {
 	ChatCreatePrivate = null;
 	ElementRemove("InputName");
@@ -107,25 +120,45 @@ function ChatCreateExit() {
 	CommonSetScreen("Online", "ChatSearch");
 }
 
-// When the server sends a response
+/**
+ * Handles the reception of the server response after attempting to create a chatroom: shows the error message, if applicable
+ * @param {string} data - Response from the server
+ * @returns {void} - Nothing
+ */
 function ChatCreateResponse(data) {
 	if ((data != null) && (typeof data === "string") && (data != ""))
 		ChatCreateMessage = "Response" + data;
 }
 
-// Creates the chat room
+/**
+ * Sends the chat room data packet to the server and prepares the player to join a room. The response will be handled by ChatCreateResponse once it is received
+ * @returns {void} - Nothing
+ */
 function ChatCreateRoom() {
 	ChatRoomPlayerCanJoin = true;
 	ChatRoomPlayerJoiningAsAdmin = true;
-	// Push the new room
 	var NewRoom = {
 		Name: ElementValue("InputName").trim(),
 		Description: ElementValue("InputDescription").trim(),
 		Background: ChatCreateBackgroundSelect,
 		Private: ChatCreatePrivate,
 		Space: ChatRoomSpace,
-		Limit: ElementValue("InputSize").trim()
+		Game: ChatRoomGame,
+		Limit: ElementValue("InputSize").trim(),
+		BlockCategory: ChatBlockItemCategory
 	};
 	ServerSend("ChatRoomCreate", NewRoom);
 	ChatCreateMessage = "CreatingRoom";
+}
+
+/**
+ * When we need to enter the item blocking screen
+ * @returns {void} - Nothing
+ */
+function ChatCreateBlockItems() {
+	ChatBlockItemReturnData = { Screen: "ChatCreate", Name: ElementValue("InputName"), Description: ElementValue("InputDescription"), Limit: ElementValue("InputSize") };
+	ElementRemove("InputName");
+	ElementRemove("InputDescription");
+	ElementRemove("InputSize");
+	CommonSetScreen("Online", "ChatBlockItem");
 }

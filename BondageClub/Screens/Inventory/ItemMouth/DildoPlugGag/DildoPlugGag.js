@@ -5,14 +5,14 @@ var InventoryItemMouthDildoPlugGagOptions = [
 		Name: "Open",
 		Property: {
 			Type: null,
-			Effect: ["GagEasy"],
+			Effect: ["GagEasy", "OpenMouth"],
 		},
 	},
 	{
 		Name: "Plug",
 		Property: {
 			Type: "Plug",
-			Effect: ["BlockMouth", "GagVeryHeavy"],
+			Effect: ["BlockMouth", "GagTotal2"],
 		},
 	},
 ];

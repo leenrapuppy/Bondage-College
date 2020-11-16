@@ -5,7 +5,6 @@ var SkillModifierMin = -10
 var SkillLevelMaximum = 10;
 var SkillLevelMinimum = 0;
 var SkillBondageRatio = 1;
-var SkillBondageRatio = 1;
 
 /**
  * When the player progresses in a skill. Also validates the values to make sure they are within the proper ranges once changed. (level 0-10, progress 0-100)
@@ -24,7 +23,7 @@ function SkillChange(SkillType, SkillLevel, SkillProgress, Push) {
 	if ((SkillLevel < 0) || (SkillLevel > 10)) SkillLevel = 0;
 
 	// If the skill already exists, we updated it
-	for (var S = 0; S < Player.Skill.length; S++)
+	for (let S = 0; S < Player.Skill.length; S++)
 		if (Player.Skill[S].Type == SkillType) {
 			Player.Skill[S].Level = SkillLevel;
 			Player.Skill[S].Progress = SkillProgress;
@@ -54,7 +53,7 @@ function SkillLoad(NewSkill) {
 	if (NewSkill != null) {
 
 		// Add each skill entry one by one
-		for (var S = 0; S < NewSkill.length; S++) {
+		for (let S = 0; S < NewSkill.length; S++) {
 			SkillChange(NewSkill[S].Type, NewSkill[S].Level, NewSkill[S].Progress, false);
 			if (NewSkill[S].Ratio != null) SkillSetRatio(NewSkill[S].Type, NewSkill[S].Ratio, false);
 		}
@@ -70,7 +69,7 @@ function SkillLoad(NewSkill) {
  * @returns {number} - Current level for the given skill.
  */
 function SkillGetLevel(C, SkillType) {
-	for (var S = 0; S < C.Skill.length; S++)
+	for (let S = 0; S < C.Skill.length; S++)
 		if (C.Skill[S].Type == SkillType) {
 
 			// Skills modifier only apply to bondage and evasion
@@ -105,7 +104,7 @@ function SkillGetLevel(C, SkillType) {
  * @returns {number} - Current real level for the given skill.
  */
 function SkillGetLevelReal(C, SkillType) {
-	for (var S = 0; S < C.Skill.length; S++)
+	for (let S = 0; S < C.Skill.length; S++)
 		if (C.Skill[S].Type == SkillType)
 			return C.Skill[S].Level;
 	return 0;
@@ -118,7 +117,7 @@ function SkillGetLevelReal(C, SkillType) {
  * @returns {number} - Current progress for the given skill.
  */
 function SkillGetProgress(C, SkillType) {
-	for (var S = 0; S < C.Skill.length; S++)
+	for (let S = 0; S < C.Skill.length; S++)
 		if (C.Skill[S].Type == SkillType)
 			return C.Skill[S].Progress;
 	return 0;
@@ -161,7 +160,7 @@ function SkillProgress(SkillType, SkillProgress) {
 function SkillSetRatio(SkillType, Ratio, Push) {
 	if (Ratio < 0) Ratio = 0;
 	if (Ratio > 1) Ratio = 1;
-	for (var S = 0; S < Player.Skill.length; S++)
+	for (let S = 0; S < Player.Skill.length; S++)
 		if (Player.Skill[S].Type == SkillType) {
 			if (Ratio == 1) delete Player.Skill[S].Ratio;
 			else Player.Skill[S].Ratio = Ratio;
@@ -176,7 +175,7 @@ function SkillSetRatio(SkillType, Ratio, Push) {
  */
 function SkillGetRatio(SkillType) {
 	var Ratio = 1;
-	for (var S = 0; S < Player.Skill.length; S++)
+	for (let S = 0; S < Player.Skill.length; S++)
 		if ((Player.Skill[S].Type == SkillType) && (Player.Skill[S].Ratio != null))
 			Ratio = Player.Skill[S].Ratio;
 	if (Ratio < 0) Ratio = 0;

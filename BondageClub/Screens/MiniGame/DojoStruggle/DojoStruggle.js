@@ -4,16 +4,22 @@ var DojoStrugglePosition = 450;
 var DojoStruggleImpulse = 0;
 var DojoStruggleRope = [];
 
-// Loads the dojo struggle mini game and prepare the rope walls
+/**
+ * Loads the dojo struggle mini game and prepare the rope walls
+ * @returns {void} - Nothing
+ */
 function DojoStruggleLoad() {
 	DojoStrugglePosition = 450;
 	if (MiniGameProgress < 0) MiniGameProgress = 0;
 	DojoStruggleRope = [];
-	for (var P = 0; P < 25; P++)
+	for (let P = 0; P < 25; P++)
 		DojoStruggleRope.push(Math.floor(Math.random() * 651) + 175);
 }
 
-// Runs the dojo struggle mini game
+/**
+ * Runs the dojo struggle mini game and draws the relevant information on screen
+ * @returns {void} - Nothing
+ */
 function DojoStruggleRun() {
 
 	// Draw the character
@@ -44,7 +50,7 @@ function DojoStruggleRun() {
 
 			// Draw the obstacles
 			var C = 25;
-			for (var P = 0; P < 25; P++) {
+			for (let P = 0; P < 25; P++) {
 				var X = 1000 + (P * 500) + ((5000 - MiniGameTimer) / 5);
 				if (X < 150) C--;
 				if ((X > 0) && (X < 1200) && (DojoStruggleRope[P] > 150)) DrawImageZoomCanvas("Screens/MiniGame/DojoStruggle/RopeVertical.png", MainCanvas, 0, 0, 50, DojoStruggleRope[P] - 150, X, 0, 50, DojoStruggleRope[P] - 150);
@@ -89,7 +95,10 @@ function DojoStruggleRun() {
 
 }
 
-// When the user clicks in the dojo struggle mini game
+/**
+ * Handles clicks during the dojo struggle mini game
+ * @returns {void} - Nothing
+ */
 function DojoStruggleClick() {
 
 	// If the game is over, clicking on the image will end it
@@ -102,7 +111,10 @@ function DojoStruggleClick() {
 
 }
 
-// When the space bar is used, we do the same as a click
+/**
+ * Handles key presses during the dojo struggle mini game. A space bar is handled just like a click is.
+ * @returns {void} - Nothing
+ */
 function DojoStruggleKeyDown() {
 	if (!MiniGameEnded && (KeyPress == 32))
 		DojoStruggleImpulse = 86;

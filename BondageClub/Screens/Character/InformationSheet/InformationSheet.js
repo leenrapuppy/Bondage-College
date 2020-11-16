@@ -79,7 +79,7 @@ function InformationSheetRun() {
 
 	// Shows the LARP class
 	if ((C.Game != null) && (C.Game.LARP != null) && (C.Game.LARP.Class != null))
-		DrawText(TextGet("LARPClass") + " " + TextGet("LARPClass" + C.Game.LARP.Class), 550, 500, "Black", "Gray");
+		DrawText(TextGet("LARPClass") + " " + TextGet("LARPClass" + C.Game.LARP.Class) + " (" + GameLARPGetClassLevel(C.Game.LARP) + ")", 550, 500, "Black", "Gray");
 
 	// For the current player or an online player
 	var OnlinePlayer = C.AccountName.indexOf("Online-") >= 0;
@@ -122,7 +122,7 @@ function InformationSheetRun() {
 	if ((C.ID == 0) || OnlinePlayer) {
 		DrawText(TextGet("Relationships"), 1200, 125, "Black", "Gray");
 		if (C.Lovership.length < 1) DrawText(TextGet("Lover") + " " + TextGet("LoverNone"), 1200, 200, "Black", "Gray");
-		for (var L = 0; L < C.Lovership.length; L++) {
+		for (let L = 0; L < C.Lovership.length; L++) {
 			if (C.Lovership[L].MemberNumber == null) DrawText(TextGet("Lover") + " " + C.Lovership[L].Name.replace("NPC-", ""), 1200, 200 + L * 150, "Black", "Gray");
 			else {
 				DrawText(TextGet("Lover") + " " + C.Lovership[L].Name + " (" + C.Lovership[L].MemberNumber + ")", 1200, 200 + L * 150, "Black", "Gray");
@@ -140,11 +140,11 @@ function InformationSheetRun() {
 
 		// After one week we show the traits, after two weeks we show the level
 		if (CurrentTime >= NPCEventGet(C, "PrivateRoomEntry") * CheatFactor("AutoShowTraits", 0) + 604800000) {
-			var pos = 0;
-			for (var T = 0; T < C.Trait.length; T++)
-				if ((C.Trait[T].Value != null) && (C.Trait[T].Value > 0)) {
-					DrawText(TextGet("Trait" + C.Trait[T].Name) + " " + ((CurrentTime >= NPCEventGet(C, "PrivateRoomEntry") * CheatFactor("AutoShowTraits", 0) + 1209600000) ? C.Trait[T].Value.toString() : "??"), 1000, 200 + pos * 75, "Black", "Gray");
-					pos++;
+			let Pos = 0;
+			for (let T = 0; T < C.Trait.length; T++)
+				if ((C.Trait[T].Value != null) && (C.Trait[T].Value != 0)) {
+					DrawText(TextGet("Trait" + ((C.Trait[T].Value > 0) ? C.Trait[T].Name : NPCTraitReverse(C.Trait[T].Name))) + " " + ((CurrentTime >= NPCEventGet(C, "PrivateRoomEntry") * CheatFactor("AutoShowTraits", 0) + 1209600000) ? Math.abs(C.Trait[T].Value).toString() : "??"), 1000, 200 + Pos * 75, "Black", "Gray");
+					Pos++;
 				}
 		} else DrawText(TextGet("TraitUnknown"), 1000, 200, "Black", "Gray");
 
@@ -167,7 +167,7 @@ function InformationSheetSecondScreenRun() {
 		// Draw the reputation section
 		DrawText(TextGet("Reputation"), 1000, 125, "Black", "Gray");
 		var pos = 0;
-		for (var R = 0; R < C.Reputation.length; R++)
+		for (let R = 0; R < C.Reputation.length; R++)
 			if (C.Reputation[R].Value != 0) {
 				DrawText(TextGet("Reputation" + C.Reputation[R].Type + ((C.Reputation[R].Value > 0) ? "Positive" : "Negative")) + " " + Math.abs(C.Reputation[R].Value).toString(), 1000, 200 + pos * 75, "Black", "Gray");
 				pos++;
@@ -180,7 +180,7 @@ function InformationSheetSecondScreenRun() {
 			DrawText(TextGet("Unknown"), 1425, 200, "Black", "Gray");
 		}
 		else {
-			for (var S = 0; S < C.Skill.length; S++)
+			for (let S = 0; S < C.Skill.length; S++)
 				DrawText(TextGet("Skill" + C.Skill[S].Type) + " " + C.Skill[S].Level.toString() + " (" + Math.floor(C.Skill[S].Progress / 10) + "%)", 1425, 200 + S * 75, ((C.Skill[S].Ratio != null) && (C.Skill[S].Ratio != 1)) ? "Red" : "Black", "Gray");
 			if (C.Skill.length == 0) DrawText(TextGet("SkillNone"), 1425, 200, "Black", "Gray");
 		}
@@ -208,17 +208,20 @@ function InformationSheetClick() {
 /* 	var C = InformationSheetSelection;
 	
 	if (CommonIsClickAt(1815, 75, 90, 90)) InformationSheetExit();
+	var C = InformationSheetSelection;
+	if (MouseIn(1815, 75, 90, 90)) InformationSheetExit();
 	if (C.ID == 0) {
-		if (CommonIsClickAt(1815, 190, 90, 90) && !TitleIsForced(TitleGet(C))) CommonSetScreen("Character", "Title");
-		if (CommonIsClickAt(1815, 305, 90, 90)) CommonSetScreen("Character", "Preference");
-		if (CommonIsClickAt(1815, 420, 90, 90)) CommonSetScreen("Character", "FriendList");
-		if (CommonIsClickAt(1815, 535, 90, 90)) CommonSetScreen("Character", "OnlineProfile");
-		if (CommonIsClickAt(1815, 765, 90, 90)) InformationSheetSecondScreen = !InformationSheetSecondScreen;
+		if (MouseIn(1815, 190, 90, 90) && !TitleIsForced(TitleGet(C))) CommonSetScreen("Character", "Title");
+		if (MouseIn(1815, 305, 90, 90)) CommonSetScreen("Character", "Preference");
+		if (MouseIn(1815, 420, 90, 90)) CommonSetScreen("Character", "FriendList");
+		if (MouseIn(1815, 535, 90, 90)) CommonSetScreen("Character", "OnlineProfile");
+		if (MouseIn(1815, 765, 90, 90)) InformationSheetSecondScreen = !InformationSheetSecondScreen;
 	} else if (C.AccountName.indexOf("Online-") >= 0) {
-		if (CommonIsClickAt(1815, 190, 90, 90)) CommonSetScreen("Character", "OnlineProfile");
-		if (CommonIsClickAt(1815, 765, 90, 90)) InformationSheetSecondScreen = !InformationSheetSecondScreen;
+		if (MouseIn(1815, 190, 90, 90)) CommonSetScreen("Character", "OnlineProfile");
+		if (MouseIn(1815, 765, 90, 90)) InformationSheetSecondScreen = !InformationSheetSecondScreen;
 	}
- */}
+ */
+}
 
 function InformationSheetButtonsRemove() {
 	ElementRemove("btnExit");

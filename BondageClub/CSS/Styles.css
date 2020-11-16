@@ -23,6 +23,7 @@ TextArea {
 .ChatMessage {
 	position: relative;
 	padding-left: 0.4em;
+	overflow: hidden;
 }
 .ChatMessage::before {
 	content: attr(data-time);
@@ -89,11 +90,14 @@ TextArea {
 	text-shadow: none;
 	font-weight: bold;
 }
-#TextAreaChatLog[data-coloractions=false] .ChatMessageAction {
+#TextAreaChatLog[data-coloractions=false] .ChatMessageAction,
+#TextAreaChatLog[data-coloremotes=false] .ChatMessageEmote,
+#TextAreaChatLog[data-coloractivities=false] .ChatMessageActivity {
 	background-color: transparent !important;
 }
-#TextAreaChatLog[data-coloremotes=false] .ChatMessageEmote {
-	background-color: transparent !important;
+#TextAreaChatLog[data-whitespace=preserve] {
+	white-space: pre-wrap;
+    overflow-wrap: break-word;
 }
 #FriendList {
 	border: 2px solid white;
@@ -164,4 +168,54 @@ button > .tooltip {
 button:hover > .tooltip {
 	visibility: visible;
 	opacity: 1;
+}
+.custom-select {
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: white;
+  color: black;
+  background-image: url('../Icons/Dropdown.png');
+  background-repeat: no-repeat, repeat;
+  background-position: right .7em top 50%, 0 0;
+  background-size: .65em auto, 100%;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+  color: black;
+  padding: 0.2em;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: cyan;
+}
+
+/* Custom fonts */
+@font-face {
+    font-family: 'Calligraffitti';
+    src: url('../Fonts/Calligraffitti/Calligraffitti-Regular.ttf');
 }

@@ -42,7 +42,7 @@ function WardrobeLoadCharacters(Fast) {
 	var W = null;
 	WardrobeLoadCharacterNames();
 	if (Player.Wardrobe == null) Player.Wardrobe = [];
-	for (var P = 0; P < WardrobeSize; P++) {
+	for (let P = 0; P < WardrobeSize; P++) {
 		if (WardrobeCharacter.length <= P && ((W == null) || !Fast)) {
 
 			// Creates a character
@@ -103,7 +103,7 @@ function WardrobeRun() {
 	DrawButton(1000, 25, 60, 60, "", "White", "Icons/Small/Next.png");
 	DrawButton(1750, 25, 225, 60, TextGet("Return"), "White");
 	DrawText(TextGet("SelectAppareance"), 1405, 60, "White", "Gray");
-	for (var C = 0; C < 12; C++)
+	for (let C = 0; C < 12; C++)
 		if (C < 6) {
 			DrawCharacter(WardrobeCharacter[C + WardrobeOffset], 500 + C * 250, 100, 0.45);
 			if (WardrobeSelection == C + WardrobeOffset) DrawEmptyRect(500 + C * 250, 105, 225, 440, "Cyan");
@@ -140,7 +140,7 @@ function WardrobeClick() {
 
 	// If we must select a different wardrobe
 	if ((MouseX >= 500) && (MouseX < 2000) && (MouseY >= 100) && (MouseY < 1000))
-		for (var C = 0; C < 12; C++)
+		for (let C = 0; C < 12; C++)
 			if (C < 6) {
 				if ((MouseX >= 500 + C * 250) && (MouseX <= 725 + C * 250) && (MouseY >= 100) && (MouseY <= 450))
 					WardrobeSelection = C + WardrobeOffset;
@@ -181,9 +181,10 @@ function WardrobeSetCharacterName(W, Name, Push) {
  * @returns {string} - bundle.Name - The name of the asset in the bundle
  * @returns {string} - bundle.Group - The name of the asste group, the bundled asset belongs to
  * @returns {string} - bundle.Color - The string representation of the color in the format "#rrggbb"
+ * @returns {Object} - bundle.Property - The asset property object
  */
 function WardrobeAssetBundle(A) {
-	return { Name: A.Asset.Name, Group: A.Asset.Group.Name, Color: A.Color };
+	return { Name: A.Asset.Name, Group: A.Asset.Group.Name, Color: A.Color, Property: A.Property };
 }
 
 /**
@@ -197,9 +198,8 @@ function WardrobeFastLoad(C, W, Update) {
 	var savedExpression = {};
 	if (C == Player) savedExpression = WardrobeGetExpression(Player);
 	if ((Player.Wardrobe != null) && (Player.Wardrobe[W] != null) && (Player.Wardrobe[W].length > 0)) {
-		var AddAll = C.ID == 0 || C.AccountName.indexOf("Wardrobe-") == 0;
 		C.Appearance = C.Appearance
-			.filter(a => a.Asset.Group.Category != "Appearance" || (!a.Asset.Group.Clothing && !AddAll))
+			.filter(a => a.Asset.Group.Category != "Appearance" || !WardrobeGroupAccessible(C, a.Asset.Group, { ExcludeNonCloth: true }))
 		Player.Wardrobe[W]
 			.filter(w => w.Name != null && w.Group != null)
 			.filter(w => C.Appearance.find(a => a.Asset.Group.Name == w.Group) == null)
@@ -207,17 +207,29 @@ function WardrobeFastLoad(C, W, Update) {
 				var A = Asset.find(a =>
 					a.Group.Name == w.Group
 					&& a.Group.Category == "Appearance"
-					&& (AddAll || a.Group.Clothing)
+					&& WardrobeGroupAccessible(C, a.Group, { ExcludeNonCloth: true })
 					&& a.Name == w.Name
 					&& (a.Value == 0 || InventoryAvailable(Player, a.Name, a.Group.Name)));
-				if (A != null) CharacterAppearanceSetItem(C, w.Group, A, w.Color, 0, false);
+				if (A != null) {
+					CharacterAppearanceSetItem(C, w.Group, A, w.Color, 0, null, false);
+					if (w.Property && InventoryGet(C, w.Group)) { 
+						var item = InventoryGet(C, w.Group);
+						if (item.Property == null) item.Property = {};
+						for (const key in w.Property) item.Property[key] = w.Property[key];
+					}
+				}
 			});
 		// Adds any critical appearance asset that could be missing, adds the default one
 		AssetGroup
 			.filter(g => g.Category == "Appearance" && !g.AllowNone)
 			.forEach(g => {
 				if (C.Appearance.find(a => a.Asset.Group.Name == g.Name) == null) {
-					C.Appearance.push({ Asset: Asset.find(a => a.Group.Name == g.Name), Difficulty: 0, Color: "Default" });
+					// For a group with a mirrored group, we copy the opposite if it exists
+					if (g.MirrorGroup && InventoryGet(C, g.MirrorGroup)) {
+						C.Appearance.push({ Asset: Asset.find(a => a.Group.Name == g.Name && a.Name == InventoryGet(C, g.MirrorGroup).Asset.Name), Difficulty: 0, Color: InventoryGet(C, g.MirrorGroup).Color });
+					} else {
+						C.Appearance.push({ Asset: Asset.find(a => a.Group.Name == g.Name), Difficulty: 0, Color: "Default" });
+					}
 				}
 			});
 		// Restores the expressions the player had previously per item in the appearance
@@ -243,13 +255,14 @@ function WardrobeFastLoad(C, W, Update) {
  * @param {Character} C - The character, whose appearance should be saved
  * @param {number} W - The spot in the wardrobe the current outfit should be saved to
  * @param {boolean} [Push=false] - If set to true, the wardrobe is saved on the server
+ * @returns {void} - Nothing
  */
 function WardrobeFastSave(C, W, Push) {
 	if (Player.Wardrobe != null) {
 		var AddAll = C.ID == 0 || C.AccountName.indexOf("Wardrobe-") == 0;
 		Player.Wardrobe[W] = C.Appearance
 			.filter(a => a.Asset.Group.Category == "Appearance")
-			.filter(a => AddAll || a.Asset.Group.Clothing)
+			.filter(a => WardrobeGroupAccessible(C, a.Asset.Group, { ExcludeNonCloth: AddAll }))
 			.map(WardrobeAssetBundle);
 		if (!AddAll) {
 			// Using Player's body as base
@@ -273,4 +286,30 @@ function WardrobeGetExpression(C) {
 	var characterExpression = {}
 	ServerAppearanceBundle(C.Appearance).filter(item => item.Property != null && item.Property.Expression != null).forEach(item => characterExpression[item.Group] = item.Property.Expression);
 	return characterExpression;
+}
+
+/**
+ * Checks if a given group of a character can be accessed.
+ * @param {Character} C - The character in the wardrobe
+ * @param {object} Group - The group to check for accessibility 
+ * @returns {boolean} - Whether the zone can be altered or not.
+ */
+function WardrobeGroupAccessible(C, Group, Options) { 
+	
+	// You can always edit yourself.
+	if (C.ID == 0 || C.AccountName.indexOf("Wardrobe-") == 0) return true;
+	
+	// You cannot always change body cosplay
+	if (Group.BodyCosplay && C.OnlineSharedSettings && C.OnlineSharedSettings.BlockBodyCosplay) return false;
+	
+	// Clothes can always be edited
+	if (Group.Clothing) return true;
+		
+	// You can filter out non-clothing options
+	if (!Options || !Options.ExcludeNonCloth) { 
+		// If the player allows all
+		if (C.OnlineSharedSettings && C.OnlineSharedSettings.AllowFullWardrobeAccess) return true;
+	}
+	
+	return false;
 }

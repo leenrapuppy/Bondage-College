@@ -7,7 +7,8 @@ PlayerGagged,,,(You don't have access to use or remove items on her.),,!DialogDo
 0,10,(Manage your relationship.),"(You can give more access to your items by putting her on your whitelist, or less control by putting her on your blacklist.)",CheckRelationships(),
 0,20,(Check her drink tray.),(There's a variety of drinks.  Some are offered by the club and some are more expensive.),,CanTakeDrink()
 0,30,(Room administrator action.),"(As a room administrator, you can take these actions with her.)",,PlayerIsAdmin()
-0,,(Help her to struggle free.),,StruggleAssist(),CanAssistStruggle()
+0,40,(Character actions.),(Possible character actions.),,CanPerformCharacterAction()
+0,,(Stop her from leaving.),,StopLeave(),CanStopSlowPlayer()
 0,,(Leave this menu.),,DialogLeave(),
 10,,(Add to item whitelist.),(This member is now on your item permission whitelist.  She will have higher access to restrain or free you.),"ListManage(""Add"", ""WhiteList"")",CanAddWhiteList()
 10,,(Remove from item whitelist.),(This member is no longer on your item permission whitelist.),"ListManage(""Remove"", ""WhiteList"")",CanRemoveWhiteList()
@@ -79,12 +80,17 @@ PlayerGagged,,,(You don't have access to use or remove items on her.),,!DialogDo
 31,,(Move her to the right.),(DialogCharacterName as been moved to the right at position CharacterPosition.  Would you like to move her further?),"AdminAction(""MoveRight"", ""false"")",
 31,0,(Back to main menu.),,,
 31,0,(Leave this menu.),,DialogLeave(),
+40,0,(Help her stand.),(You help her up on her feet.),KneelStandAssist(),CanAssistStand()
+40,0,(Help her kneel.),(You help her down on her knees.),KneelStandAssist(),CanAssistKneel()
+40,0,(Help her to struggle free.),,StruggleAssist(),CanAssistStruggle()
+40,0,(Back to main menu.),(Main menu.),,
 100,110,(Wardrobe access.),(Select her wardrobe access.),,
 100,120,(Whisper rules.),(Select her rules for whispering when you're in the same room.),,
 100,130,(Key and locks restrictions.),(Select her restrictions for keys and locks.),,
 100,140,(Remote restrictions.),(Select her restrictions for remotes.),,
 100,150,(Timer cell punishment.),"(For how long do you want to lock her up?  She will be isolated, and you won't be able to unlock her.)",,
 100,160,(Forced labor.),(What kind of labor will she be forced to do?  Her salary will be given to you.),,
+100,170,(Collar options.),(Select the option.),,
 100,0,(Back to main menu.),(Main menu.),,
 110,100,(Allow her wardrobe access.),(She can now access her wardrobe and change clothes.),"SendRule(""ChangeAllow"")",
 110,100,(Block her wardrobe for 1 hour.),(Her wardrobe access will be blocked for the next hour.),"SendRule(""ChangeBlock1Hour"")",
@@ -117,3 +123,6 @@ PlayerGagged,,,(You don't have access to use or remove items on her.),,!DialogDo
 160,100,(Force her to serve drinks as a maid.),(She will be sent to the maid quarters to prepare drinks.  You will earn her salary.),"SendRule(""LaborMaidDrinks"", ""Quest"")",CanServeDrink()
 160,,(Force her to serve drinks as a maid.),"(She needs to be a maid in the sorority, be able to talk and be able to walk to do that job for you.)",,!CanServeDrink()
 160,0,(Back to main menu.),(Main menu.),,
+170,100,(Release her from the slave collar.),(You remove her slave collar.),"SendRule(""CollarRelease"")",
+170,100,(Give her the slave collar.),(You lock the slave collar back on her.),"SendRule(""CollarWear"")",
+170,0,(Back to main menu.),(Main menu.),,

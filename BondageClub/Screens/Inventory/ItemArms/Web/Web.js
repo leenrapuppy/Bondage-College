@@ -105,9 +105,7 @@ function InventoryItemArmsWebClick() {
 	ExtendedItemClick(InventoryItemArmsWebOptions);
 }
 
-function InventoryItemArmsWebValidate(Option) {
-	var C = CharacterGetCurrent();
-
+function InventoryItemArmsWebValidate(C, Option) {
 	// Validates some prerequisites before allowing more advanced poses
 	if (Option.Prerequisite) {
 		var Allowed = true;
@@ -124,9 +122,10 @@ function InventoryItemArmsWebValidate(Option) {
 
 		// Re-add the web
 		var DifficultyFactor = Web.Difficulty - Web.Asset.Difficulty;
-		CharacterAppearanceSetItem(C, "ItemArms", Web.Asset, Web.Color, DifficultyFactor, false);
+		CharacterAppearanceSetItem(C, "ItemArms", Web.Asset, Web.Color, DifficultyFactor, null, false);
 		InventoryGet(C, "ItemArms").Property = Web.Property;
 		CharacterRefresh(C);
+		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 
 		return Allowed;
 	}

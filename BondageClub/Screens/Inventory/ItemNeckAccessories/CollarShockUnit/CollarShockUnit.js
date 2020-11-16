@@ -13,11 +13,11 @@ function InventoryItemNeckAccessoriesCollarShockUnitDraw() {
 	DrawImageResize("Assets/" + DialogFocusItem.Asset.Group.Family + "/" + DialogFocusItem.Asset.Group.Name + "/Preview/" + DialogFocusItem.Asset.Name + ".png", 1389, 227, 221, 221);
 	DrawTextFit(DialogFocusItem.Asset.Description, 1500, 475, 221, "black");
 	DrawText(DialogFind(Player, "Intensity" + DialogFocusItem.Property.Intensity.toString()).replace("Item", DialogFocusItem.Asset.Description), 1500, 600, "White", "Gray");
-	if(DialogFocusItem.Property.Intensity > 0) DrawButton(1200, 650, 200, 55, DialogFind(Player, "Low"), "White");
-	if(DialogFocusItem.Property.Intensity < 1 || DialogFocusItem.Property.Intensity > 1) DrawButton(1550, 650, 200, 55, DialogFind(Player, "Medium"), "White");
-	if(DialogFocusItem.Property.Intensity < 2) DrawButton(1375, 710, 200, 55, DialogFind(Player, "High"), "White");
-	if( CurrentScreen == "ChatRoom") DrawButton(1325, 800, 64, 64, "", "White", DialogFocusItem.Property.ShowText ? "Icons/Checked.png" : "");
-	if( CurrentScreen == "ChatRoom") DrawText(DialogFind(Player, "ShockCollarShowChat"), 1570, 833, "White", "Gray");
+	if (DialogFocusItem.Property.Intensity > 0) DrawButton(1200, 650, 200, 55, DialogFind(Player, "Low"), "White");
+	if (DialogFocusItem.Property.Intensity < 1 || DialogFocusItem.Property.Intensity > 1) DrawButton(1550, 650, 200, 55, DialogFind(Player, "Medium"), "White");
+	if (DialogFocusItem.Property.Intensity < 2) DrawButton(1375, 710, 200, 55, DialogFind(Player, "High"), "White");
+	if (CurrentScreen == "ChatRoom") DrawButton(1325, 800, 64, 64, "", "White", DialogFocusItem.Property.ShowText ? "Icons/Checked.png" : "");
+	if (CurrentScreen == "ChatRoom") DrawText(DialogFind(Player, "ShockCollarShowChat"), 1570, 833, "White", "Gray");
 	DrawButton(1375, 900, 200, 55, DialogFind(Player, "TriggerShock"), "White");
 }
 
@@ -26,13 +26,11 @@ function InventoryItemNeckAccessoriesCollarShockUnitClick() {
 	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogFocusItem = null;
 	if ((MouseX >= 1325) && (MouseX <= 1389) && (MouseY >= 800) && (MouseY <= 864) && (CurrentScreen == "ChatRoom")) {
 		DialogFocusItem.Property.ShowText = !DialogFocusItem.Property.ShowText;
-		DialogLeave();
 	}
 	if ((MouseX >= 1200) && (MouseX <= 1400) && (MouseY >= 650) && (MouseY <= 705) && (DialogFocusItem.Property.Intensity > 0)) InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(0 - DialogFocusItem.Property.Intensity);
 	if ((MouseX >= 1550) && (MouseX <= 1750) && (MouseY >= 650) && (MouseY <= 705) && (DialogFocusItem.Property.Intensity < 1 || DialogFocusItem.Property.Intensity > 1)) InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(1 - DialogFocusItem.Property.Intensity);
 	if ((MouseX >= 1375) && (MouseX <= 1575) && (MouseY >= 710) && (MouseY <= 765) && (DialogFocusItem.Property.Intensity < 2)) InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(2 - DialogFocusItem.Property.Intensity);
-	
-	if(Player.CanInteract() && (MouseX >= 1375) && (MouseX <= 1575) && (MouseY >= 900) && (MouseY <= 955)) InventoryItemNeckAccessoriesCollarShockUnitTrigger();
+	if (Player.CanInteract() && (MouseX >= 1375) && (MouseX <= 1575) && (MouseY >= 900) && (MouseY <= 955)) InventoryItemNeckAccessoriesCollarShockUnitTrigger();
 }
 
 // Sets the shock collar intensity
@@ -50,7 +48,7 @@ function InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(Modifier) {
 		var Dictionary = [];
 		Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
 		Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
-		Dictionary.push({Tag: "AssetName", Text: DialogFocusItem.Asset.Description.toLowerCase()});
+		Dictionary.push({Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
 		ChatRoomPublishCustomAction("ShockCollarSet" + DialogFocusItem.Property.Intensity, true, Dictionary);
 	}
 	else
@@ -68,11 +66,48 @@ function InventoryItemNeckAccessoriesCollarShockUnitTrigger() {
 	}
 
 	var Dictionary = [];
-	Dictionary.push({Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber});
-	Dictionary.push({Tag: "AssetName", Text: DialogFocusItem.Asset.Description.toLowerCase()});
+	Dictionary.push({ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber });
+	Dictionary.push({ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
+	Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+	Dictionary.push({Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
+	Dictionary.push({ Tag: "ActivityName", Text: "ShockItem" });
+	Dictionary.push({ Tag: "ActivityGroup", Text: DialogFocusItem.Asset.Group.Name });
+	Dictionary.push({ AssetName: DialogFocusItem.Asset.Name });
+	Dictionary.push({ AssetGroupName: DialogFocusItem.Asset.Group.Name });
+		
 	ChatRoomPublishCustomAction("TriggerShock" + DialogFocusItem.Property.Intensity, true, Dictionary);
+		
+	if (C.ID == Player.ID) {
+		// The Player shocks herself
+		ActivityArousalItem(C, C, DialogFocusItem.Asset);
+	}
 	
     CharacterSetFacialExpression(C, "Eyebrows", "Soft", 10);
     CharacterSetFacialExpression(C, "Blush", "Soft", 15);
     CharacterSetFacialExpression(C, "Eyes", "Closed", 5);
+}
+
+function AssetsItemNeckAccessoriesCollarShockUnitBeforeDraw(data) {
+	return data.L === "_Light" ? { Color: "#2f0" } : null;
+}
+
+function AssetsItemNeckAccessoriesCollarShockUnitScriptDraw(data) {
+	var persistentData = data.PersistentData();
+	var property = (data.Item.Property = data.Item.Property || {});
+	if (typeof persistentData.ChangeTime !== "number") persistentData.ChangeTime = CommonTime() + 4000;
+
+	if (persistentData.ChangeTime < CommonTime()) {
+		var wasBlinking = property.Type === "Blink";
+		property.Type = wasBlinking ? null : "Blink";
+		var timeToNextRefresh = wasBlinking ? 4000 : 1000;
+		persistentData.ChangeTime = CommonTime() + timeToNextRefresh;
+		AnimationRequestRefreshRate(data.C, 5000 - timeToNextRefresh);
+		AnimationRequestDraw(data.C);
+	}
+}
+
+function InventoryItemNeckAccessoriesCollarShockUnitDynamicAudio(data) { 
+	var Modifier = parseInt(data.Content.substr(data.Content.length - 1));
+	if (isNaN(Modifier)) Modifier = 0;
+	return ["Shocks", Modifier * 3];
 }

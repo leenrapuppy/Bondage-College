@@ -65,7 +65,7 @@ function FriendListExit() {
 // 
 /**
  * Loads the friend list data into the HTML div element.
- * @param {Array.*} data - An array of data, we recieve from the server
+ * @param {Array.<*>} data - An array of data, we receive from the server
  * @param {string} data.MemberName - The name of the player
  * @param {number} data.MemberNumber - The ID of the player
  * @param {string} data.ChatRoomName - The name of the ChatRoom
@@ -88,7 +88,7 @@ function FriendListLoadFriendList(data) {
 
 	// In Friend List mode, we show the friend list and allow doing beeps
 	if (FriendListMode[FriendListModeIndex] == "Friends")
-		for (var F = 0; F < data.length; F++) {
+		for (let F = 0; F < data.length; F++) {
 			FriendListContent += "<div class='FriendListRow'>";
 			FriendListContent += "<div class='FriendListTextColumn FriendListFirstColumn'>" + data[F].MemberName + "</div>";
 			FriendListContent += "<div class='FriendListTextColumn'>" + data[F].MemberNumber.toString() + "</div>";
@@ -99,7 +99,7 @@ function FriendListLoadFriendList(data) {
 
 	// In Beeps mode, we show all the beeps sent and received
 	if (FriendListMode[FriendListModeIndex] == "Beeps")
-		for (var B = FriendListBeepLog.length - 1; B >= 0; B--) {
+		for (let B = FriendListBeepLog.length - 1; B >= 0; B--) {
 			FriendListContent += "<div class='FriendListRow'>";
 			FriendListContent += "<div class='FriendListTextColumn FriendListFirstColumn'>" + FriendListBeepLog[B].MemberName + "</div>";
 			FriendListContent += "<div class='FriendListTextColumn'>" + ((FriendListBeepLog[B].MemberNumber != null) ? FriendListBeepLog[B].MemberNumber.toString() : "-") + "</div>";
@@ -110,7 +110,7 @@ function FriendListLoadFriendList(data) {
 
 	// In Delete mode, we show the friend list and allow the user to remove them
 	if (FriendListMode[FriendListModeIndex] == "Delete")
-		for (var F = 0; F < data.length; F++)
+		for (let F = 0; F < data.length; F++)
 			if ((data[F].Type == null) || (data[F].Type != "Submissive")) {
 				FriendListContent += "<div class='FriendListRow'>";
 				FriendListContent += "<div class='FriendListTextColumn FriendListFirstColumn'>" + data[F].MemberName + "</div>";
