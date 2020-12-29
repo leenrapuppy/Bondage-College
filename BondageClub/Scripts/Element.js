@@ -39,48 +39,34 @@ function ElementContent(ID, Content) {
  * @param {string} hoverText - Text for a tool tip that is shown, when the mouse hovers over the button
  * @param {string} hoverPos - Hint for the positioning of the tool tip. 
  * Valid values are "bottom", "top", "right" or "left". If no value is given, "left" is used
- * @param {function} func - A function for the 'click' event handler. Code withhin this function is executed, 
- * as sson as the user clicks on the button
+ * @param {function} func - A function for the 'click' event handler. Code within this function is executed,
+ * as soon as the user clicks on the button (or hits enter on the button)
  * @returns {void} - Nothing
  */
 function ElementCreateButton(ID, label, image, hoverText, hoverPos, func) {
-
-	if (document.getElementById(ID) == null) {
-		var button = document.createElement("button");
+	if (!document.getElementById(ID)) {
+		const button = document.createElement("button");
 		button.className = "button";
 		button.setAttribute("type", "button");
 		button.setAttribute("ID", ID);
 		button.setAttribute("Name", ID);
-		if (image != "") button.style.backgroundImage = "url(" + DrawGetImage(image).src + ")";
-		if (label != "") button.value = label;
-		if (toolTip != "") {
-			if (hoverPos === "") hoverPos = "left";
+		if (image) button.style.backgroundImage = "url(" + DrawGetImage(image).src + ")";
+		if (label) {
+			const span = document.createElement("span");
+			span.classList.add("buttonContent")
+			span.innerText = label;
+			button.appendChild(span);
+		} else if (hoverText) {
+			button.setAttribute("aria-label", hoverText);
+		}
+		if (hoverText) {
+			if (!["left", "right", "top", "bottom"].includes(hoverPos)) hoverPos = "left";
 			var toolTip = document.createElement(ID + "_tooltip");
-			toolTip.className = "tooltip";
+			toolTip.classList.add("tooltip", hoverPos);
 			toolTip.innerText = hoverText;
-			switch (hoverPos) {
-				case "right":
-					toolTip.style.top = "-5px";
-					toolTip.style.left = "105%";
-					break;
-				case "top":
-					toolTip.style.bottom = "100%";
-					toolTip.style.left = "50%";
-					toolTip.style.marginLeft = "-60px";
-					break;
-				case "bottom":
-					toolTip.style.top = "100%";
-					toolTip.style.left = "50%";
-					toolTip.style.marginLeft = "-60px";
-					break;
-				default:
-					// Left is the default
-					toolTip.style.top = "5px";
-					toolTip.style.right = "80%";
-			} // switch
 			button.appendChild(toolTip);
-		} // if (toolTip)
-		if (func != null) button.addEventListener("click", func);
+		}
+		if (typeof func === "function") button.addEventListener("click", func);
 		document.body.appendChild(button);
 	}
 }

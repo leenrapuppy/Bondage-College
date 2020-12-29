@@ -25,29 +25,27 @@ function InformationSheetGetLove(Love) {
 /**
  * This function is executed, when the information screen is loaded. Defines the buttons on the right hand side
  * and adds functions for the event handlers. These can either be existing functions or on the fly defined inline functions
- * @returns {vois} - Nothing
+ * @returns {void} - Nothing
  */
 function InformationSheetLoad() {
 	ElementCreateButton("btnExit", "", "Icons/Exit.png", "Exit", "left", InformationSheetExit);
-	ElementCreateButton("btnTitle", "", "Icons/Title.png", "Title", "left", function () {
-		CommonSetScreen("Character", "Title");
+	ElementCreateButton("btnTitle", "", "Icons/Title.png", "Title", "left", InformationSheetCurrySetScreen("Title"));
+	ElementCreateButton("btnPref", "", "Icons/Preference.png", "Preferences", "left", InformationSheetCurrySetScreen("Preference"));
+	ElementCreateButton("btnFriends", "", "Icons/FriendList.png", "Friends", "left", InformationSheetCurrySetScreen("FriendList"));
+	ElementCreateButton("btnIntro", "", "Icons/Introduction.png", "Online Profile", "left", InformationSheetCurrySetScreen("OnlineProfile"));
+	ElementCreateButton("btnNext", "", "Icons/Next.png", "Next Page", "left", () => (InformationSheetSecondScreen = !InformationSheetSecondScreen));
+}
+
+/**
+ * Creates a curried callback for setting the information sheet screen
+ * @param {string} ScreenName - The name of the screen that the curried function should switch to
+ * @returns {function(): void} - A curried function that clears information sheet buttons and sets the relevant screen
+ */
+function InformationSheetCurrySetScreen(ScreenName) {
+	return () => {
 		InformationSheetButtonsRemove();
-	});
-	ElementCreateButton("btnPref", "", "Icons/Preference.png", "Preferences", "left", function () {
-		InformationSheetButtonsRemove();
-		CommonSetScreen("Character", "Preference");
-	});
-	ElementCreateButton("btnFriends", "", "Icons/FriendList.png", "Friends", "left", function () {
-		InformationSheetButtonsRemove();
-		CommonSetScreen("Character", "FriendList");
-	});
-	ElementCreateButton("btnIntro", "", "Icons/Introduction.png", "Online Profile", "left", function () {
-		InformationSheetButtonsRemove();
-		CommonSetScreen("Character", "OnlineProfile");
-	});
-	ElementCreateButton("btnNext", "", "Icons/Next.png", "Next Page", "left", function () {
-		InformationSheetSecondScreen = !InformationSheetSecondScreen;
-	});
+		CommonSetScreen("Character", ScreenName);
+	};
 }
 
 /**
