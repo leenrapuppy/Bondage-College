@@ -20,6 +20,13 @@ var ChatRoomStruggleAssistBonus = 0;
 var ChatRoomStruggleAssistTimer = 0;
 var ChatRoomSlowtimer = 0;
 var ChatRoomSlowStop = false;
+var ChatRoomLastName = ""
+var ChatRoomLastBG = ""
+var ChatRoomLastPrivate = false
+var ChatRoomLastSize = 0
+var ChatRoomLastDesc = ""
+var ChatRoomLastAdmin = []
+var ChatRoomNewRoomToUpdate = null
 
 var ChatRoomLeashList = []
 var ChatRoomLeashPlayer = null
@@ -208,6 +215,14 @@ function ChatRoomCanBeLeashedBy(sourceMemberNumber, C) {
 }
 
 /**
+ * Checks if the player has waited long enough to be able to call the maids
+ * @returns {boolean} - TRUE if the current character has been in the last chat room for more than 30 minutes 
+ */
+function DialogCanCallMaids() { return (CurrentScreen == "ChatRoom" && (ChatRoomData && ChatRoomData.Game == "" && !(LogValue("Committed", "Asylum") >= CurrentTime)) &&  !Player.CanWalk()) && !MainHallIsMaidsDisabled()}
+
+
+
+/**
  * Creates the chat room input elements.
  * @returns {void} - Nothing.
  */
@@ -256,6 +271,8 @@ function ChatRoomLoad() {
 	ChatRoomCreateElement();
 	ChatRoomCharacterUpdate(Player);
 	ActivityChatRoomArousalSync(Player);
+	
+
 }
 
 /**
@@ -312,6 +329,7 @@ function ChatRoomStart(Space, Game, LeaveRoom, Background, BackgroundTagList) {
 	ChatCreateBackgroundList = BackgroundsGenerateList(BackgroundTagList);
 	BackgroundSelectionTagList = BackgroundTagList;
 	CommonSetScreen("Online", "ChatSearch");
+	
 }
 
 /**
@@ -508,10 +526,90 @@ function ChatRoomTarget() {
 }
 
 /**
+ * Updates the account to set the last chat room
+ * @param {string} room - room to set it to. "" to reset.
+ * @returns {void} - Nothing
+ */
+function ChatRoomSetLastChatRoom(room) {
+	if (room != "") {
+		if (ChatRoomData && ChatRoomData.Background)
+			Player.LastChatRoomBG = ChatRoomData.Background
+		if (ChatRoomData && ChatRoomData.Private)
+			Player.LastChatRoomPrivate = ChatRoomData.Private
+		if (ChatRoomData && ChatRoomData.Limit)
+			Player.LastChatRoomSize = ChatRoomData.Limit
+		if (ChatRoomData && ChatRoomData.Description != null)
+			Player.LastChatRoomDesc = ChatRoomData.Description
+		if (ChatRoomData && ChatRoomData.Admin)
+			Player.LastChatRoomAdmin = ChatRoomData.Admin
+
+	} else {
+		Player.LastChatRoomBG = ""
+		Player.LastChatRoomPrivate = false
+	}
+	Player.LastChatRoom = room
+	var P = {
+		LastChatRoom: Player.LastChatRoom,
+		LastChatRoomBG: Player.LastChatRoomBG,
+		LastChatRoomPrivate: Player.LastChatRoomPrivate,
+		LastChatRoomSize: Player.LastChatRoomSize,
+		LastChatRoomDesc: Player.LastChatRoomDesc,
+		LastChatRoomAdmin: Player.LastChatRoomAdmin.toString(),
+		
+	};
+	ServerSend("AccountUpdate", P);
+}
+
+
+/**
  * Runs the chatroom screen.
  * @returns {void} - Nothing.
  */
 function ChatRoomRun() {
+	
+	// Set the admins of the new room
+	if (Player.ImmersionSettings && ChatRoomData && Player.ImmersionSettings.ReturnToChatRoomAdmin && Player.ImmersionSettings.ReturnToChatRoom && Player.LastChatRoomAdmin && ChatRoomNewRoomToUpdate) {
+		/*if (Player.LastChatRoomAdmin.indexOf(Player.MemberNumber) < 0) { // Add the player if they are not an admin
+			Player.LastChatRoomAdmin.push(Player.MemberNumber)
+		}*/
+		var UpdatedRoom = {
+			Name: ChatRoomData.Name,
+			Description: ChatRoomData.Description,
+			Background: ChatRoomData.Background,
+			Limit: ChatRoomData.Limit,
+			Admin: Player.LastChatRoomAdmin,
+			Ban: ChatRoomData.Ban,
+			BlockCategory: ChatRoomData.BlockCategory,
+			Game: ChatRoomData.Game,
+			Private: ChatRoomData.Private,
+			Locked: ChatRoomData.Locked
+		};
+		ServerSend("ChatRoomAdmin", { MemberNumber: Player.ID, Room: UpdatedRoom, Action: "Update" });
+		ChatRoomNewRoomToUpdate = null
+	}
+	 
+	var OnlyPersonBlacklisted = (ChatRoomCharacter.length > 1) ? true : false;
+	
+	for (let I = 0; I < ChatRoomCharacter.length; I++) {
+		if (ChatRoomCharacter[I].ID != 0 && (Player.BlackList.indexOf(ChatRoomCharacter[I].MemberNumber) < 0 || Player.FriendList.indexOf(ChatRoomCharacter[I].MemberNumber) >= 0 || Player.IsOwnedByMemberNumber(ChatRoomCharacter[I].MemberNumber))) {
+			OnlyPersonBlacklisted = false
+		}
+	}
+	if (!(ChatRoomData && (!Player.BlackList || !OnlyPersonBlacklisted))) {
+		ChatRoomSetLastChatRoom("")
+	}
+	else if (Player.ImmersionSettings 
+		&& (ChatRoomLastName != ChatRoomData.Name || ChatRoomLastBG != ChatRoomData.Background || ChatRoomLastSize != ChatRoomData.Limit || ChatRoomLastPrivate != ChatRoomData.Private || ChatRoomLastDesc != ChatRoomData.Description || ChatRoomLastAdmin != ChatRoomData.Admin)) {
+		ChatRoomLastName = ChatRoomData.Name
+		ChatRoomLastBG = ChatRoomData.Background
+		ChatRoomLastSize = ChatRoomData.Limit
+		ChatRoomLastPrivate = ChatRoomData.Private
+		ChatRoomLastDesc = ChatRoomData.Description
+		ChatRoomLastAdmin = ChatRoomData.Admin
+		
+		ChatRoomSetLastChatRoom(ChatRoomData.Name)
+	}
+	
 
 	// Draws the chat room controls
 	ChatRoomCreateElement();
@@ -540,6 +638,7 @@ function ChatRoomRun() {
 			ChatRoomClearAllElements();
 			ServerSend("ChatRoomLeave", "");
 			CommonSetScreen("Online", "ChatSearch");
+			ChatRoomSetLastChatRoom("")
 		}
 	}
 
@@ -620,7 +719,7 @@ function ChatRoomClick() {
 		ServerSend("ChatRoomLeave", "");
 		CommonSetScreen("Online", "ChatSearch");
 		CharacterDeleteAllOnline();
-		
+		ChatRoomSetLastChatRoom("")		
 		// Clear leash since the player has escaped
 		ChatRoomLeashPlayer = null
 	}
@@ -1253,6 +1352,7 @@ function ChatRoomSync(data) {
 			if (ChatRoomCharacter.length == data.Character.length + 1) {
 				ChatRoomCharacter = ChatRoomCharacter.filter(A => data.Character.some(B => A.MemberNumber == B.MemberNumber));
 				ChatRoomData = data;
+				
 				return;
 			}
 			else if (ChatRoomCharacter.length == data.Character.length - 1) {
@@ -1509,6 +1609,16 @@ function ChatRoomViewProfile() {
 }
 
 /**
+ * Brings the player into the main hall and starts the maid punishment sequence
+ * @returns {void}
+ */
+function DialogCallMaids() { 
+	MainHallPunishFromChatroom();
+	CommonSetScreen("Room", "MainHall");
+}
+
+
+/**
  * Triggered when the player assists another player to struggle out, the bonus is evasion / 2 + 1, with penalties if the player is restrained.
  * @returns {void} - Nothing.
  */
@@ -1561,7 +1671,7 @@ function ChatRoomStopHoldLeash() {
  * Triggered when a dom enters the room
  * @returns {void} - Nothing.
  */
-function ChatRoomPingLeashedPlayers() {
+function ChatRoomPingLeashedPlayers(NoBeep) {
 	if (ChatRoomLeashList && ChatRoomLeashList.length > 0) {
 		for (let P = 0; P < ChatRoomLeashList.length; P++) {
 			ServerSend("ChatRoomChat", { Content: "PingHoldLeash", Type: "Hidden", Target: ChatRoomLeashList[P] });

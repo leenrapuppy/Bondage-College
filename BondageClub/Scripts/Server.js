@@ -116,17 +116,7 @@ function ServerDisconnect(data) {
 		if (CurrentScreen != "Relog") {
 
 			// Exits out of the chat room or a sub screen of the chatroom, so we'll be able to get in again when we log back
-			if (
-				(CurrentScreen == "ChatRoom")
-				|| (CurrentScreen == "ChatAdmin")
-				|| (CurrentScreen == "GameLARP")
-				|| ((CurrentScreen == "Appearance") && (CharacterAppearanceReturnRoom == "ChatRoom"))
-				|| ((CurrentScreen == "InformationSheet") && (InformationSheetPreviousScreen == "ChatRoom"))
-				|| ((CurrentScreen == "Title") && (InformationSheetPreviousScreen == "ChatRoom"))
-				|| ((CurrentScreen == "OnlineProfile") && (InformationSheetPreviousScreen == "ChatRoom"))
-				|| ((CurrentScreen == "FriendList") && (InformationSheetPreviousScreen == "ChatRoom") && (FriendListReturn == null))
-				|| ((CurrentScreen == "Preference") && (InformationSheetPreviousScreen == "ChatRoom"))
-			) {
+			if (ServerPlayerIsInChatRoom()) {
 				RelogChatLog = document.getElementById("TextAreaChatLog").cloneNode(true);
 				RelogChatLog.id = "RelogChatLog";
 				RelogChatLog.name = "RelogChatLog";
@@ -144,6 +134,22 @@ function ServerDisconnect(data) {
 
 		}
 	}
+}
+
+/**
+ * Returns whether the player is currently in a chatroom or viewing a subscreen while in a chatroom
+ * @returns {boolean} - True if in a chatroom 
+ */
+function ServerPlayerIsInChatRoom() {
+	return (CurrentScreen == "ChatRoom")
+		|| (CurrentScreen == "ChatAdmin")
+		|| (CurrentScreen == "GameLARP")
+		|| ((CurrentScreen == "Appearance") && (CharacterAppearanceReturnRoom == "ChatRoom"))
+		|| ((CurrentScreen == "InformationSheet") && (InformationSheetPreviousScreen == "ChatRoom"))
+		|| ((CurrentScreen == "Title") && (InformationSheetPreviousScreen == "ChatRoom"))
+		|| ((CurrentScreen == "OnlineProfile") && (InformationSheetPreviousScreen == "ChatRoom"))
+		|| ((CurrentScreen == "FriendList") && (InformationSheetPreviousScreen == "ChatRoom") && (FriendListReturn == null))
+		|| ((CurrentScreen == "Preference") && (InformationSheetPreviousScreen == "ChatRoom"));
 }
 
 /** Sends a message with the given data to the server via socket.emit */
@@ -681,7 +687,6 @@ function ServerAccountBeep(data) {
 		} else if (data.BeepType == "Leash" && ChatRoomLeashPlayer == data.MemberNumber && data.ChatRoomName) {
 			if (Player.OnlineSharedSettings && Player.OnlineSharedSettings.AllowPlayerLeashing != false && ( CurrentScreen != "ChatRoom" || !ChatRoomData || (CurrentScreen == "ChatRoom" && ChatRoomData.Name != data.ChatRoomName))) {
 				if (ChatRoomCanBeLeashedBy(data.MemberNumber, Player)) {
-					
 					ChatRoomJoinLeash = data.ChatRoomName
 					
 					DialogLeave()
@@ -691,7 +696,6 @@ function ServerAccountBeep(data) {
 						CommonSetScreen("Online", "ChatSearch");
 					}
 					else ChatRoomStart("", "", "MainHall", "IntroductionDark", BackgroundsTagList) //CommonSetScreen("Room", "ChatSearch")
-					
 				} else {
 					ChatRoomLeashPlayer = null
 				}

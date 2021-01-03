@@ -268,6 +268,16 @@ function PreferenceInit(C) {
 	// Sets the default immersion settings
 	if (!C.ImmersionSettings) C.ImmersionSettings = {};
 	if (typeof C.ImmersionSettings.BlockGaggedOOC !== "boolean") C.ImmersionSettings.BlockGaggedOOC = false;
+	if (typeof C.ImmersionSettings.ReturnToChatRoom !== "boolean") C.ImmersionSettings.ReturnToChatRoom = false;
+	if ((C.ID == 0) && (C.GetDifficulty() >= 2)) C.ImmersionSettings.ReturnToChatRoom = true;
+	if (typeof C.ImmersionSettings.ReturnToChatRoomAdmin !== "boolean") C.ImmersionSettings.ReturnToChatRoomAdmin = false;
+	if ((C.ID == 0) && (C.GetDifficulty() >= 2)) C.ImmersionSettings.ReturnToChatRoomAdmin = true;
+	if (typeof C.LastChatRoom !== "string") C.LastChatRoom = "";
+	if (typeof C.LastChatRoomBG !== "string") C.LastChatRoomBG = "";
+	if (typeof C.LastChatRoomPrivate !== "boolean") C.LastChatRoomPrivate = false;
+	if (typeof C.LastChatRoomSize !== "number") C.LastChatRoomSize = 10;
+	if (typeof C.LastChatRoomDesc !== "string") C.LastChatRoomDesc = "";
+	if (!C.LastChatRoomAdmin) C.LastChatRoomAdmin = [];
 
 	// Sets the default restriction settings
 	if (!C.RestrictionSettings) C.RestrictionSettings = {};
@@ -288,6 +298,8 @@ function PreferenceInit(C) {
 		Player.GameplaySettings.BlindDisableExamine = true;
 		Player.GameplaySettings.DisableAutoRemoveLogin = true;
 		Player.ImmersionSettings.BlockGaggedOOC = true;
+		Player.ImmersionSettings.ReturnToChatRoom = true;
+		Player.ImmersionSettings.ReturnToChatRoomAdmin = true;
 		Player.GameplaySettings.ImmersionLockSetting = true;
 		Player.OnlineSharedSettings.AllowPlayerLeashing = true;
 		PreferenceSettingsSensDepIndex = PreferenceSettingsSensDepList.length - 1;
@@ -694,6 +706,11 @@ function PreferenceSubscreenRestrictionClick() {
  */
 function PreferenceSubscreenImmersionRun() {
 
+	// Draw the online preferences
+	MainCanvas.textAlign = "left";
+	DrawText(TextGet("ImmersionPreferences"), 500, 125, "Black", "Gray");
+	if (PreferenceMessage != "") DrawText(TextGet(PreferenceMessage), 865, 125, "Red", "Black");
+	
 	// Draw the player & base controls
 	DrawCharacter(Player, 50, 50, 0.9);
 	DrawButton(1815, 75, 90, 90, "", "White", "Icons/Exit.png");
@@ -706,7 +723,10 @@ function PreferenceSubscreenImmersionRun() {
 		DrawCheckbox(500, 352, 64, 64, TextGet("DisableAutoRemoveLogin"), Player.GameplaySettings.DisableAutoRemoveLogin);
 		DrawCheckbox(500, 432, 64, 64, TextGet("BlockGaggedOOC"), Player.ImmersionSettings.BlockGaggedOOC);
 		DrawCheckbox(500, 512, 64, 64, TextGet("AllowPlayerLeashing"), Player.OnlineSharedSettings.AllowPlayerLeashing);
-		DrawCheckbox(500, 800, 64, 64, TextGet("ImmersionLockSetting"), Player.GameplaySettings.ImmersionLockSetting);
+		DrawCheckbox(500, 592, 64, 64, TextGet("ReturnToChatRoom"), Player.ImmersionSettings.ReturnToChatRoom);
+		if (Player.ImmersionSettings.ReturnToChatRoom)
+			DrawCheckbox(1300, 592, 64, 64, TextGet("ReturnToChatRoomAdmin"), Player.ImmersionSettings.ReturnToChatRoomAdmin);
+		DrawCheckbox(500, 832, 64, 64, TextGet("ImmersionLockSetting"), Player.GameplaySettings.ImmersionLockSetting);
 		DrawText(TextGet("SensDepSetting"), 800, 228, "Black", "Gray");
 		MainCanvas.textAlign = "center";
 		DrawBackNextButton(500, 192, 250, 64, TextGet(Player.GameplaySettings.SensDepChatLog), "White", "",
@@ -750,7 +770,11 @@ function PreferenceSubscreenImmersionClick() {
 		}
 		if (MouseIn(500, 512, 64, 64) && (!Player.GameplaySettings.ImmersionLockSetting || (!Player.IsRestrained())))
 			Player.OnlineSharedSettings.AllowPlayerLeashing = !Player.OnlineSharedSettings.AllowPlayerLeashing;
-		if (MouseIn(500, 800, 64, 64) && (!Player.GameplaySettings.ImmersionLockSetting || (!Player.IsRestrained())))
+		if (MouseIn(500, 592, 64, 64) && (!Player.GameplaySettings.ImmersionLockSetting || (!Player.IsRestrained())))
+				Player.ImmersionSettings.ReturnToChatRoom = !Player.ImmersionSettings.ReturnToChatRoom;
+		if (Player.ImmersionSettings.ReturnToChatRoom && MouseIn(1300, 592, 64, 64) && (!Player.GameplaySettings.ImmersionLockSetting || (!Player.IsRestrained())))
+				Player.ImmersionSettings.ReturnToChatRoomAdmin = !Player.ImmersionSettings.ReturnToChatRoomAdmin;
+		if (MouseIn(500, 832, 64, 64) && (!Player.GameplaySettings.ImmersionLockSetting || (!Player.IsRestrained())))
 			Player.GameplaySettings.ImmersionLockSetting = !Player.GameplaySettings.ImmersionLockSetting;
 
 	}

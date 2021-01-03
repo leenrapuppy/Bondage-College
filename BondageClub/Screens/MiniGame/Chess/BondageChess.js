@@ -3,12 +3,20 @@ var ChessBackground = "CollegeClassDark";
 var ChessCharacterLeft = null;
 var ChessCharacterRight = null;
 var ChessEndStatus = "";
+var ChessMinorPieceWhite = 8;
+var ChessMajorPieceWhite = 8;
+var ChessMinorPieceBlack = 8;
+var ChessMajorPieceBlack = 8;
 
 /**
  * Loads the chess mini game and sets the difficulty ratio before serving the first ball
  * @returns {void} - Nothing
  */
 function ChessLoad() {
+	ChessMinorPieceWhite = 8;
+	ChessMajorPieceWhite = 8;
+	ChessMinorPieceBlack = 8;
+	ChessMajorPieceBlack = 8;
 	MiniGameChessStart(MiniGameDifficulty);
 }
 
@@ -20,6 +28,9 @@ function ChessRun() {
 
 	// Resize the board if needed
 	MiniGameChessResize();
+
+	// Applies restraints or strip if there are special rules
+	CollegeChessGameProgress();
 
 	// Draw the characters
 	DrawCharacter(ChessCharacterLeft, 0, 0, 1);
@@ -53,6 +64,7 @@ function ChessClick() {
 	if (!MiniGameEnded && MouseIn(125, 800, 250, 60)) {
 		ChessEndStatus = "Defeat";
 		ElementRemove("DivChessBoard");
+		CollegeChessGameConcede();
 		CommonDynamicFunction(MiniGameReturnFunction + "()");
 	}
 
