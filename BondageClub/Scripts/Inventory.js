@@ -355,7 +355,7 @@ function InventoryGet(C, AssetGroup) {
 */
 function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNumber) {
 	for (let A = 0; A < Asset.length; A++)
-		if ((Asset[A].Name == AssetName) && (Asset[A].Group.Name == AssetGroup)) {
+		if ((Asset[A].Name === AssetName) && (Asset[A].Group.Name === AssetGroup)) {
 			if (!Asset[A].Consumable) {
 				CharacterAppearanceSetItem(C, AssetGroup, Asset[A], ((ItemColor == null) || (ItemColor == "Default")) ? Asset[A].DefaultColor : ItemColor, Difficulty, MemberNumber);
 				InventoryExpressionTrigger(C, InventoryGet(C, AssetGroup));

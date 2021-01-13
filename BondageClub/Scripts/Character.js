@@ -325,6 +325,7 @@ function CharacterOnlineRefresh(Char, data, SourceMemberNumber) {
 	Char.LimitedItems = Array.isArray(data.LimitedItems) ? data.LimitedItems : [];
 	if (Char.ID != 0) Char.WhiteList = data.WhiteList;
 	Char.Appearance = ServerAppearanceLoadFromBundle(Char, "Female3DCG", data.Appearance, SourceMemberNumber);
+	Char.Conditions = data.Conditions;
 	if (Char.ID == 0) LoginValidCollar();
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.Inventory == null) || (Char.Inventory.length == 0))) InventoryLoad(Char, data.Inventory);
 	CharacterLoadEffect(Char);
@@ -390,7 +391,8 @@ function CharacterLoadOnline(data, SourceMemberNumber) {
 			else
 				for (let C = 0; C < ChatRoomData.Character.length; C++)
 					if (ChatRoomData.Character[C].ID == data.ID)
-						if (ChatRoomData.Character[C].Appearance.length != data.Appearance.length)
+						if ((ChatRoomData.Character[C].Appearance.length != data.Appearance.length) ||
+							(ChatRoomData.Character[C].Conditions.length != data.Conditions.length))
 							Refresh = true;
 						else
 							for (let A = 0; A < data.Appearance.length && !Refresh; A++) {
@@ -598,6 +600,11 @@ function CharacterLoadEffect(C) {
 		else
 			if (C.Appearance[A].Asset.Group.Effect != null)
 				CharacterAddEffect(C, C.Appearance[A].Asset.Group.Effect);
+	}
+	if (C.Conditions) {
+		for (let i = 0; i < C.Conditions.length; i++) {
+			CharacterAddEffect(C, [C.Conditions[i].Effect]);
+		}
 	}
 }
 
@@ -1007,6 +1014,8 @@ function CharacterSetFacialExpression(C, AssetGroup, Expression, Timer) {
 function CharacterSetTimedCondition(C, Effect, Timer) {
 	CharacterAddEffect(C, Effect);
 	TimerCharacterRemoveConditionSet(C, Effect, Timer);
+	ChatRoomCharacterUpdate(C);
+
 }
 
 /**

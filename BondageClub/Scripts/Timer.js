@@ -89,7 +89,7 @@ function TimerInventoryRemove() {
 							else
 								CharacterRefresh(Character[C]);
 
-						// Sync with the server and exit
+						// Sync with the server
 						if (Character[C].ID == 0) ChatRoomCharacterUpdate(Character[C]);
 						else ServerPrivateCharacterSync();
 					}
@@ -105,6 +105,8 @@ function TimerInventoryRemove() {
 						Character[C].Conditions.splice(i, 1);
 					}
 				} // for Conditions
+				if (Character[C].ID == 0) ChatRoomCharacterUpdate(Character[C]);
+				else ServerPrivateCharacterSync();
 			}
 		}	
 

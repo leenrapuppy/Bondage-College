@@ -155,6 +155,8 @@ function ServerPlayerIsInChatRoom() {
 
 /** Sends a message with the given data to the server via socket.emit */
 function ServerSend(Message, Data) {
+	console.log(Message);
+	console.log(Data);
 	ServerSocket.emit(Message, Data);
 }
 
@@ -614,6 +616,7 @@ function ServerPlayerAppearanceSync() {
 		var D = {};
 		D.AssetFamily = Player.AssetFamily;
 		D.Appearance = ServerAppearanceBundle(Player.Appearance);
+		D.Conditions = Player.Conditions;
 		ServerSend("AccountUpdate", D);
 	}
 
