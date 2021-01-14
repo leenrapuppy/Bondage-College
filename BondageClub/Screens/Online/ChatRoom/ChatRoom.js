@@ -142,12 +142,16 @@ function ChatRoomCanPerformCharacterAction() { return ChatRoomCanAssistStand() |
  * Checks if the target character can be helped back on her feet. This is different than CurrentCharacter.CanKneel() because it listens for the current active pose and removes certain checks that are not required for someone else to help a person kneel down.
  * @returns {boolean} - Whether or not the target character can stand
  */
-function ChatRoomCanAssistStand() { return Player.CanInteract() && CurrentCharacter.AllowItem && CurrentCharacter.CanKneel() && CurrentCharacter.IsKneeling() }
+function ChatRoomCanAssistStand() {
+	return Player.CanInteract() && CurrentCharacter.AllowItem && CharacterItemsHavePoseAvailable(CurrentCharacter, "BodyLower", "Kneel") && !CharacterDoItemsSetPose(CurrentCharacter, "Kneel") && CurrentCharacter.IsKneeling()
+}
 /**
  * Checks if the target character can be helped down on her knees. This is different than CurrentCharacter.CanKneel() because it listens for the current active pose and removes certain checks that are not required for someone else to help a person kneel down.
  * @returns {boolean} - Whether or not the target character can stand
  */
-function ChatRoomCanAssistKneel() { return Player.CanInteract() && CurrentCharacter.AllowItem && CurrentCharacter.CanKneel() && !CurrentCharacter.IsKneeling() }
+function ChatRoomCanAssistKneel() {
+	return Player.CanInteract() && CurrentCharacter.AllowItem && CharacterItemsHavePoseAvailable(CurrentCharacter, "BodyLower", "Kneel") && !CharacterDoItemsSetPose(CurrentCharacter, "Kneel") && !CurrentCharacter.IsKneeling()
+}
 /**
  * Checks if the player can stop the current character from leaving.
  * @returns {boolean} - TRUE if the current character is slowed down and can be interacted with.
@@ -357,28 +361,22 @@ function ChatRoomDrawCharacter(DoClick) {
 	// The darkness factors varies with blindness level (1 is bright, 0 is pitch black)
 	var DarkFactor = 1.0;
 	
-	var RenderSingle = false
+	// The number of characters to show in the room
+	var RenderSingle = Player.GameplaySettings && (Player.GameplaySettings.SensDepChatLog == "SensDepExtreme" && Player.GameplaySettings.BlindDisableExamine) && (Player.GetBlindLevel() >= 3);
+	var CharacterCount = RenderSingle ? 1 : ChatRoomCharacter.length;
 
 	// Determine the horizontal & vertical position and zoom levels to fit all characters evenly in the room
-	var Space = ChatRoomCharacter.length >= 2 ? 1000 / Math.min(ChatRoomCharacter.length, 5) : 500;
-	var Zoom = ChatRoomCharacter.length >= 3 ? Space / 400 : 1;
-	var X = ChatRoomCharacter.length >= 3 ? (Space - 500 * Zoom) / 2 : 0;
-	var Y = ChatRoomCharacter.length <= 5 ? 1000 * (1 - Zoom) / 2 : 0;
+	var Space = CharacterCount >= 2 ? 1000 / Math.min(CharacterCount, 5) : 500;
+	var Zoom = CharacterCount >= 3 ? Space / 400 : 1;
+	var X = CharacterCount >= 3 ? (Space - 500 * Zoom) / 2 : 0;
+	var Y = CharacterCount <= 5 ? 1000 * (1 - Zoom) / 2 : 0;
+	var InvertRoom = Player.GraphicsSettings && Player.GraphicsSettings.InvertRoom && Player.IsInverted();
 	
-	
-	if (Player.GameplaySettings && (Player.GameplaySettings.SensDepChatLog == "SensDepExtreme" && Player.GameplaySettings.BlindDisableExamine) && (Player.GetBlindLevel() >= 3)) {
-		RenderSingle = true
-		Space = 500
-		Zoom = 1
-		X = 0
-		Y = 0
-	}
-
 	// If there's more than 2 characters, we apply a zoom factor, also apply the darkness factor if the player is blindfolded
 	if (!DoClick && Player.GetBlindLevel() < 3) {
 
 		// Draws the zoomed background
-		DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + ".jpg", MainCanvas, 500 * (2 - 1 / Zoom), 0, 1000 / Zoom, 1000, 0, Y, 1000, 1000 * Zoom);
+		DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + ".jpg", MainCanvas, 500 * (2 - 1 / Zoom), 0, 1000 / Zoom, 1000, 0, Y, 1000, 1000 * Zoom, InvertRoom);
 
 		// Draws a black overlay if the character is blind
 		if (Player.GetBlindLevel() == 2) DarkFactor = 0.15;
@@ -464,7 +462,7 @@ function ChatRoomDrawCharacter(DoClick) {
 
 			// Draw the background a second time for characters 6 to 10 (we do it here to correct clipping errors from the first part)
 			if ((C == 5) && (Player.GetBlindLevel() < 3)) {
-				DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + ".jpg", MainCanvas, 0, 0, 2000, 1000, 0, 500, 1000, 500);
+				DrawImageZoomCanvas("Backgrounds/" + ChatRoomData.Background + ".jpg", MainCanvas, 0, 0, 2000, 1000, 0, 500, 1000, 500, InvertRoom);
 				if (DarkFactor < 1.0) DrawRect(0, 500, 1000, 500, "rgba(0,0,0," + (1.0 - DarkFactor) + ")");
 			}
 
@@ -569,19 +567,19 @@ function ChatRoomRun() {
 	
 	// Set the admins of the new room
 	if (Player.ImmersionSettings && ChatRoomData && Player.ImmersionSettings.ReturnToChatRoomAdmin && Player.ImmersionSettings.ReturnToChatRoom && Player.LastChatRoomAdmin && ChatRoomNewRoomToUpdate) {
-		/*if (Player.LastChatRoomAdmin.indexOf(Player.MemberNumber) < 0) { // Add the player if they are not an admin
+		if (Player.LastChatRoomAdmin.indexOf(Player.MemberNumber) < 0 && Player.LastChatRoomPrivate) { // Add the player if they are not an admin
 			Player.LastChatRoomAdmin.push(Player.MemberNumber)
-		}*/
+		}
 		var UpdatedRoom = {
-			Name: ChatRoomData.Name,
-			Description: ChatRoomData.Description,
-			Background: ChatRoomData.Background,
-			Limit: ChatRoomData.Limit,
+			Name: Player.LastChatRoom,
+			Description: Player.LastChatRoomDesc,
+			Background: Player.LastChatRoomBG,
+			Limit: "" + Player.LastChatRoomSize,
 			Admin: Player.LastChatRoomAdmin,
 			Ban: ChatRoomData.Ban,
 			BlockCategory: ChatRoomData.BlockCategory,
 			Game: ChatRoomData.Game,
-			Private: ChatRoomData.Private,
+			Private: Player.LastChatRoomPrivate,
 			Locked: ChatRoomData.Locked
 		};
 		ServerSend("ChatRoomAdmin", { MemberNumber: Player.ID, Room: UpdatedRoom, Action: "Update" });
@@ -636,9 +634,9 @@ function ChatRoomRun() {
 			ChatRoomSlowtimer = 0;
 			ChatRoomSlowStop = false;
 			ChatRoomClearAllElements();
+			ChatRoomSetLastChatRoom("")
 			ServerSend("ChatRoomLeave", "");
 			CommonSetScreen("Online", "ChatSearch");
-			ChatRoomSetLastChatRoom("")
 		}
 	}
 
@@ -717,11 +715,11 @@ function ChatRoomClick() {
 	if (MouseIn(1005, 0, 120, 62) && ChatRoomCanLeave() && !Player.IsSlow()) {
 		ChatRoomClearAllElements();
 		ServerSend("ChatRoomLeave", "");
-		CommonSetScreen("Online", "ChatSearch");
-		CharacterDeleteAllOnline();
 		ChatRoomSetLastChatRoom("")		
 		// Clear leash since the player has escaped
 		ChatRoomLeashPlayer = null
+		CommonSetScreen("Online", "ChatSearch");
+		CharacterDeleteAllOnline();
 	}
 
 	// When the player is slow and attempts to leave

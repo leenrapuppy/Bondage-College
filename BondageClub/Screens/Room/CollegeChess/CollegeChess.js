@@ -165,3 +165,17 @@ function CollegeChessRestoreAppearance() {
 function CollegeChessOpponentBlush() {
 	CharacterSetFacialExpression(CollegeChessOpponent, "Blush", "Medium", 10);
 }
+
+/**
+ * The player can be restrained by the opponent after losing a bondage chess game
+ * @returns {void} - Nothing
+ */
+function CollegeChessPlayerFullBondage() {
+	CharacterRelease(CollegeChessOpponent);
+	CharacterRelease(Player);
+	CharacterNaked(Player);
+	CharacterFullRandomRestrain(Player, "ALL");
+	InventoryWearRandom(Player, "ItemTorso");
+	InventoryRemove(Player, "ItemHead");
+	InventoryWearRandom(Player, "ItemMouth");
+}
