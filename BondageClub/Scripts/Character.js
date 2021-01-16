@@ -1026,6 +1026,13 @@ function CharacterSetFacialExpression(C, AssetGroup, Expression, Timer, Color) {
 	}
 }
 
+/**
+ * Creates a timed condition by adding the appropriate effect to the character and then sets an expiration timer.
+ * @param {Character} C - The character to apply the condition on
+ * @param {Array.<string>} Effect - An array of effects that should be applied to the character
+ * @param {number} Timer - The time the effect should last (iin seconds)
+ * @returns {void} - Nothing
+ */
 function CharacterSetTimedCondition(C, Effect, Timer) {
 	CharacterAddEffect(C, Effect);
 	TimerCharacterRemoveConditionSet(C, Effect, Timer);
