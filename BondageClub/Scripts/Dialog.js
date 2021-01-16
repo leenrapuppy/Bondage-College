@@ -1223,7 +1223,7 @@ function DialogClick() {
 
 
 	if (DialogColor != null && CurrentCharacter.FocusGroup && InventoryGet(CurrentCharacter, CurrentCharacter.FocusGroup.Name) && MouseIn(1300, 25, 675, 950)) {
-		return ItemColorClick(CurrentCharacter, CurrentCharacter.FocusGroup.Name, 1300, 25, 675, 950);
+		return ItemColorClick(CurrentCharacter, CurrentCharacter.FocusGroup.Name, 1200, 25, 775, 950, true);
 	}
 
 	// If the user clicked on the interaction character or herself, we check to build the item menu
@@ -1520,7 +1520,7 @@ function DialogDrawItemMenu(C) {
 	const FocusItem = InventoryGet(C, C.FocusGroup.Name);
 
 	if (DialogColor != null && FocusItem) {
-		return ItemColorDraw(C, C.FocusGroup.Name, 1300, 25, 675, 950);
+		return ItemColorDraw(C, C.FocusGroup.Name, 1200, 25, 775, 950, true);
 	}
 
 	// Gets the default text that will reset after 5 seconds
@@ -1861,7 +1861,7 @@ function DialogClickExpressionMenu() {
 			Player.FocusGroup = AssetGroupGet(Player.AssetFamily, GroupName);
 			DialogColor = "";
 			DialogExpressionColor = "";
-			ItemColorLoad(Player, Item, 1300, 25, 675, 950);
+			ItemColorLoad(Player, Item, 1200, 25, 775, 950, true);
 			ItemColorOnExit((save) => {
 				DialogColor = null;
 				DialogExpressionColor = null;
