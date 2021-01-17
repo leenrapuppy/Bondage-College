@@ -199,26 +199,11 @@ function InformationSheetSecondScreenRun() {
 }
 
 /**
- * Handles the click events on the screen
+ * Handles the click events on the screen. Not really used anymore, because we now have DOM buttons.
+ * Just kept around for consistency reasons.
  * @returns {void} - Nothing
  */
 function InformationSheetClick() {
-/* 	var C = InformationSheetSelection;
-	
-	if (CommonIsClickAt(1815, 75, 90, 90)) InformationSheetExit();
-	var C = InformationSheetSelection;
-	if (MouseIn(1815, 75, 90, 90)) InformationSheetExit();
-	if (C.ID == 0) {
-		if (MouseIn(1815, 190, 90, 90) && !TitleIsForced(TitleGet(C))) CommonSetScreen("Character", "Title");
-		if (MouseIn(1815, 305, 90, 90)) CommonSetScreen("Character", "Preference");
-		if (MouseIn(1815, 420, 90, 90)) CommonSetScreen("Character", "FriendList");
-		if (MouseIn(1815, 535, 90, 90)) CommonSetScreen("Character", "OnlineProfile");
-		if (MouseIn(1815, 765, 90, 90)) InformationSheetSecondScreen = !InformationSheetSecondScreen;
-	} else if (C.AccountName.indexOf("Online-") >= 0) {
-		if (MouseIn(1815, 190, 90, 90)) CommonSetScreen("Character", "OnlineProfile");
-		if (MouseIn(1815, 765, 90, 90)) InformationSheetSecondScreen = !InformationSheetSecondScreen;
-	}
- */
 }
 
 function InformationSheetButtonsRemove() {
