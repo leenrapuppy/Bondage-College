@@ -326,7 +326,7 @@ function CharacterOnlineRefresh(Char, data, SourceMemberNumber) {
 	Char.LimitedItems = Array.isArray(data.LimitedItems) ? data.LimitedItems : [];
 	if (Char.ID != 0) Char.WhiteList = data.WhiteList;
 	Char.Appearance = ServerAppearanceLoadFromBundle(Char, "Female3DCG", data.Appearance, SourceMemberNumber);
-	Char.Conditions = data.Conditions;
+	Char.Conditions = Array.isArray(data.Conditions) ? data.Conditions : [];
 	if (Char.ID == 0) LoginValidCollar();
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.Inventory == null) || (Char.Inventory.length == 0))) InventoryLoad(Char, data.Inventory);
 	CharacterLoadEffect(Char);
