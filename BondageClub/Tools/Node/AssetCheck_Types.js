@@ -126,7 +126,7 @@ const AssetType = {
 	FreezeActivePose: "[String]",
 	Layer: "[Object]",
 	Consumable: "Boolean",
-	Condition: "[Object]"
+	Condition: "[{Effect: Maybe [String], Timer: Number}]"
 };
 
 const AssetLayerType = {
