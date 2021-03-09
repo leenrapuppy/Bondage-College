@@ -394,6 +394,7 @@ function ChatSearchResultResponse(data) {
 		if (!found) {
 			if (Player.ImmersionSettings.ReturnToChatRoomAdmin
 			&& Player.LastChatRoomAdmin
+			&& Player.LastChatRoomVip
 			&& Player.LastChatRoomBG
 			&& Player.LastChatRoomPrivate != null
 			&& Player.LastChatRoomSize
@@ -427,6 +428,10 @@ function ChatSearchResultResponse(data) {
 				
 				if (Player.ImmersionSettings.ReturnToChatRoomAdmin && Player.LastChatRoomAdmin) {
 					NewRoom.Admin = Player.LastChatRoomAdmin
+					ChatRoomNewRoomToUpdate = NewRoom
+				}
+				if (Player.ImmersionSettings.ReturnToChatRoomAdmin && Player.LastChatRoomVip) {
+					NewRoom.Vip = Player.LastChatRoomVip
 					ChatRoomNewRoomToUpdate = NewRoom
 				}
 			} else {

@@ -29,6 +29,7 @@ var ChatRoomLastPrivate = false;
 var ChatRoomLastSize = 0;
 var ChatRoomLastDesc = "";
 var ChatRoomLastAdmin = [];
+var ChatRoomLastVip = [];
 var ChatRoomNewRoomToUpdate = null;
 var ChatRoomLeashList = [];
 var ChatRoomLeashPlayer = null;
@@ -160,6 +161,11 @@ function ChatRoomCanGiveMoneyForOwner() { return ((ChatRoomMoneyForOwner > 0) &&
  * @returns {boolean} - TRUE if the player is an admin of the current chatroom.
  */
 function ChatRoomPlayerIsAdmin() { return ((ChatRoomData != null && ChatRoomData.Admin != null) && (ChatRoomData.Admin.indexOf(Player.MemberNumber) >= 0)) }
+/**
+ * Checks if the player is a chatroom vip.
+ * @returns {boolean} - TRUE if the player is an vip of the current chatroom.
+ */
+function ChatRoomPlayerIsVip() { return ((ChatRoomData != null && ChatRoomData.Vip != null) && (ChatRoomData.Vip.indexOf(Player.MemberNumber) >= 0)) }
 /**
  * Checks if the current character is an admin of the chatroom.
  * @returns {boolean} - TRUE if the current character is an admin.
@@ -612,6 +618,9 @@ function ChatRoomDrawCharacterOverlay(C, CharX, CharY, Zoom, Pos) {
 		if (Array.isArray(ChatRoomData.Admin) && ChatRoomData.Admin.includes(C.MemberNumber)) {
 			DrawImageResize("Icons/Small/Admin.png", CharX + 125 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
 		}
+		else if (Array.isArray(ChatRoomData.Vip) && ChatRoomData.Vip.includes(C.MemberNumber)) {
+			DrawImageResize("Icons/Small/Vip.png", CharX + 125 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
+		}
 		// Warning icon when game versions don't match
 		if (C.OnlineSharedSettings && C.OnlineSharedSettings.GameVersion !== GameVersion) {
 			DrawImageResize("Icons/Small/Warning.png", CharX + 325 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
@@ -852,6 +861,8 @@ function ChatRoomSetLastChatRoom(room) {
 			Player.LastChatRoomDesc = ChatRoomData.Description
 		if (ChatRoomData && ChatRoomData.Admin)
 			Player.LastChatRoomAdmin = ChatRoomData.Admin
+		if (ChatRoomData && ChatRoomData.Vip)
+			Player.LastChatRoomVip = ChatRoomData.Vip
 
 	} else {
 		Player.LastChatRoomBG = ""
@@ -865,8 +876,10 @@ function ChatRoomSetLastChatRoom(room) {
 		LastChatRoomSize: Player.LastChatRoomSize,
 		LastChatRoomDesc: Player.LastChatRoomDesc,
 		LastChatRoomAdmin: Player.LastChatRoomAdmin.toString(),
+		LastChatRoomVip: Player.LastChatRoomVip.toString(),
 		
 	};
+	console.log(P)
 	ServerSend("AccountUpdate", P);
 }
 
@@ -1006,7 +1019,7 @@ function ChatRoomStimulationMessage(Context) {
 function ChatRoomRun() {
 	
 	// Set the admins of the new room
-	if (Player.ImmersionSettings && ChatRoomData && Player.ImmersionSettings.ReturnToChatRoomAdmin && Player.ImmersionSettings.ReturnToChatRoom && Player.LastChatRoomAdmin && ChatRoomNewRoomToUpdate) {
+	if (Player.ImmersionSettings && ChatRoomData && Player.ImmersionSettings.ReturnToChatRoomAdmin && Player.ImmersionSettings.ReturnToChatRoom && Player.LastChatRoomAdmin && Player.LastChatRoomVip && ChatRoomNewRoomToUpdate) {
 		if (Player.LastChatRoomAdmin.indexOf(Player.MemberNumber) < 0 && Player.LastChatRoomPrivate) { // Add the player if they are not an admin
 			Player.LastChatRoomAdmin.push(Player.MemberNumber)
 		}
@@ -1017,6 +1030,7 @@ function ChatRoomRun() {
 			Limit: "" + Player.LastChatRoomSize,
 			Admin: Player.LastChatRoomAdmin,
 			Ban: ChatRoomData.Ban,
+			Vip: Player.LastChatRoomVip,
 			BlockCategory: ChatRoomData.BlockCategory,
 			Game: ChatRoomData.Game,
 			Private: Player.LastChatRoomPrivate,
@@ -1044,6 +1058,7 @@ function ChatRoomRun() {
 		ChatRoomLastPrivate = ChatRoomData.Private
 		ChatRoomLastDesc = ChatRoomData.Description
 		ChatRoomLastAdmin = ChatRoomData.Admin
+		ChatRoomLastVip = ChatRoomData.Vip
 		
 		ChatRoomSetLastChatRoom(ChatRoomData.Name)
 	}
@@ -1335,7 +1350,7 @@ function ChatRoomAttemptStandMinigameEnd() {
  */
 function ChatRoomCanLeave() {
 	if (!Player.CanWalk()) return false; // Cannot leave if cannot walk
-	if (!ChatRoomData.Locked || ChatRoomPlayerIsAdmin()) return true; // Can leave if the room isn't locked or is an administrator
+	if (!ChatRoomData.Locked || ChatRoomPlayerIsAdmin() || ChatRoomPlayerIsVip()) return true; // Can leave if the room isn't locked or is an administrator
 	for (let C = 0; C < ChatRoomCharacter.length; C++)
 		if (ChatRoomData.Admin.indexOf(ChatRoomCharacter[C].MemberNumber) >= 0)
 			return false; // Cannot leave if the room is locked and there's an administrator inside
@@ -2706,6 +2721,20 @@ function ChatRoomConcatenateBanList(IncludesBlackList, IncludesGhostList, Existi
 	if (IncludesBlackList) BanList = BanList.concat(Player.BlackList);
 	if (IncludesGhostList) BanList = BanList.concat(Player.GhostList);
 	return BanList.filter((MemberNumber, Idx, Arr) => Arr.indexOf(MemberNumber) == Idx);
+}
+
+/**
+ * Concatenates the list of users to add to vip list.
+ * @param {boolean} IncludesFriendList - Adds the friendlist to the viplist
+ * @param {boolean} IncludesWhiteList - Adds the whitelist to the viplist
+ * @param {number[]} [ExistingList] - The existing Viplist, if applicable
+ * @returns {number[]} Complete array of vip members
+ */
+function ChatRoomConcatenateVipList(IncludesFriendList, IncludesWhiteList, ExistingList) {
+	var VipList = Array.isArray(ExistingList) ? ExistingList : [];
+	if (IncludesFriendList) VipList = VipList.concat(Player.FriendList);
+	if (IncludesWhiteList) VipList = VipList.concat(Player.WhiteList);
+	return VipList.filter((MemberNumber, Idx, Arr) => Arr.indexOf(MemberNumber) == Idx);
 }
 
 /**
