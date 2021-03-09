@@ -879,7 +879,6 @@ function ChatRoomSetLastChatRoom(room) {
 		LastChatRoomVip: Player.LastChatRoomVip.toString(),
 		
 	};
-	console.log(P)
 	ServerSend("AccountUpdate", P);
 }
 
