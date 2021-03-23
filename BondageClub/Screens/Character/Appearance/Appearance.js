@@ -15,6 +15,7 @@ var CharacterAppearanceReturnRoom = "MainHall";
 var CharacterAppearanceReturnModule = "Room";
 var CharacterAppearanceWardrobeOffset = 0;
 var CharacterAppearanceWardrobeText = "";
+var CharacterAppearanceWardrobeName = "";
 var CharacterAppearanceForceUpCharacter = -1;
 var CharacterAppearancePreviousEmoticon = "";
 var CharacterAppearanceMode = "";
@@ -678,7 +679,7 @@ function AppearanceRun() {
 			const Hidden = CharacterAppearanceItemIsHidden(Item.Asset.Name, Item.Asset.Group.Name);
 
 			if (Hidden) DrawPreviewBox(X, Y, "Icons/HiddenItem.png", Item.Asset.Description, { Background });
-			else if (C.FocusGroup.PreviewZone) {
+			else if (C.FocusGroup && C.FocusGroup.PreviewZone) {
 				const Z = C.FocusGroup.PreviewZone;
 				const PreviewCanvas = DrawCharacterSegment(AppearancePreviews[I], Z[0], Z[1], Z[2], Z[3]);
 				DrawCanvasPreview(X, Y, PreviewCanvas, Item.Asset.Description, { Background });
@@ -1001,8 +1002,10 @@ function AppearanceClick() {
 		// In warehouse mode, we draw the 12 possible warehouse slots for the character to save & load
 		if ((MouseX >= 1300) && (MouseX < 1800) && (MouseY >= 430) && (MouseY < 970))
 			for (let W = CharacterAppearanceWardrobeOffset; W < Player.Wardrobe.length && W < CharacterAppearanceWardrobeOffset + 6; W++)
-				if ((MouseY >= 430 + (W - CharacterAppearanceWardrobeOffset) * 95) && (MouseY <= 495 + (W - CharacterAppearanceWardrobeOffset) * 95))
+				if ((MouseY >= 430 + (W - CharacterAppearanceWardrobeOffset) * 95) && (MouseY <= 495 + (W - CharacterAppearanceWardrobeOffset) * 95)) {
 					WardrobeFastLoad(C, W, false);
+					ElementValue("InputWardrobeName", Player.WardrobeCharacterNames[W]);
+				}
 		if ((MouseX >= 1820) && (MouseX < 1975) && (MouseY >= 430) && (MouseY < 970))
 			for (let W = CharacterAppearanceWardrobeOffset; W < Player.Wardrobe.length && W < CharacterAppearanceWardrobeOffset + 6; W++)
 				if ((MouseY >= 430 + (W - CharacterAppearanceWardrobeOffset) * 95) && (MouseY <= 495 + (W - CharacterAppearanceWardrobeOffset) * 95)) {
@@ -1089,10 +1092,12 @@ function AppearanceMenuClick(C) {
 					if (Button === "Cancel") {
 						CharacterAppearanceRestore(C, CharacterAppearanceInProgressBackup);
 						CharacterRefresh(C, false);
+						CharacterAppearanceWardrobeName = "";
 						CharacterAppearanceInProgressBackup = null;
 						AppearanceExit();
 					}
 					if (Button === "Accept") {
+						CharacterAppearanceWardrobeName = ElementValue("InputWardrobeName");
 						CharacterAppearanceInProgressBackup = null;
 						AppearanceExit();
 					}
@@ -1136,7 +1141,6 @@ function AppearanceMenuClick(C) {
 							CharacterRefresh(C, false);
 						}
 						if (C.FocusGroup.PreviewZone) AppearancePreviewCleanup();
-						C.FocusGroup = null;
 						AppearanceExit();
 					}
 
@@ -1149,7 +1153,6 @@ function AppearanceMenuClick(C) {
 						}
 						else {
 							if (C.FocusGroup.PreviewZone) AppearancePreviewCleanup();
-							C.FocusGroup = null;
 							AppearanceExit();
 						}
 					}
@@ -1183,6 +1186,8 @@ function AppearanceExit() {
 		CharacterAppearanceHeaderText = "";
 		ElementRemove("InputWardrobeName");
 	} else CharacterAppearanceExit(CharacterAppearanceSelection);
+
+	CharacterAppearanceSelection.FocusGroup = null;
 }
 
 /**
@@ -1205,6 +1210,7 @@ function CharacterAppearanceExit(C) {
 	CharacterAppearanceReturnModule = "Room";
 	CharacterAppearanceHeaderText = "";
 	AppearancePreviewCleanup();
+	CharacterAppearanceWardrobeName = "";
 }
 
 /**
@@ -1281,7 +1287,7 @@ function CharacterAppearanceWardrobeLoad(C) {
 		WardrobeLoadCharacters(true);
 	else
 		WardrobeLoadCharacterNames();
-	ElementCreateInput("InputWardrobeName", "text", C.Name, "20");
+	ElementCreateInput("InputWardrobeName", "text", CharacterAppearanceWardrobeName || C.Name, "20");
 	CharacterAppearanceMode = "Wardrobe";
 	CharacterAppearanceWardrobeText = TextGet("WardrobeNameInfo");
 	CharacterAppearanceInProgressBackup = CharacterAppearanceStringify(C);
