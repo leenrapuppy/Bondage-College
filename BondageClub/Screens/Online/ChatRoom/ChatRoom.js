@@ -2900,7 +2900,7 @@ function ChatRoomRecreate() {
 			Limit: "" + Player.LastChatRoomSize,
 			Admin: Player.LastChatRoomAdmin,
 			Ban: ChatRoomData.Ban,
-			Vip: ChatRoomData.Vip,
+			Vip: Player.LastChatRoomVip,
 			BlockCategory: ChatRoomData.BlockCategory,
 			Game: ChatRoomData.Game,
 			Private: Player.LastChatRoomPrivate,
@@ -2945,5 +2945,6 @@ function ChatRoomDataChanged() {
 	       ChatRoomLastSize != ChatRoomData.Limit ||
 	       ChatRoomLastPrivate != ChatRoomData.Private ||
 	       ChatRoomLastDesc != ChatRoomData.Description ||
-	       !CommonArraysEqual(ChatRoomLastAdmin, ChatRoomData.Admin);
+	       !CommonArraysEqual(ChatRoomLastAdmin, ChatRoomData.Admin) ||
+	       !CommonArraysEqual(ChatRoomLastVip, ChatRoomData.Vip);
 }
