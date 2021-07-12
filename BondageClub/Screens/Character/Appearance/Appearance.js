@@ -1092,10 +1092,9 @@ function AppearanceClick() {
 				// In permission mode, we toggle the settings for an item
 				if (DialogItemPermissionMode) {
 
-					var CurrentItem = InventoryGet(C, C.FocusGroup.Name);
-
-					if (CurrentItem && (CurrentItem.Asset.Name == Item.Asset.Name)) return;
-					DialogInventoryTogglePermission(Item);
+					const CurrentItem = InventoryGet(C, C.FocusGroup.Name);
+					const worn = (CurrentItem && (CurrentItem.Asset.Name == Item.Asset.Name));
+					DialogInventoryTogglePermission(Item, worn);
 
 				} else {
 					if (InventoryBlockedOrLimited(C, Item)) return;
