@@ -890,7 +890,11 @@ function PreferenceSubscreenImmersionRun() {
 
 	if (PreferencePageCurrent === 1) {
 		DrawText(TextGet("SensDepSetting"), 800, 308, "Black", "Gray"); CheckHeight += CheckSpacing;
-		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("BlindDisableExamine"), Player.GameplaySettings.BlindDisableExamine, disableButtons); CheckHeight += CheckSpacing;
+		// Disable the BlindDisableExamine checkbox when the SensDep setting overrides its behaviour
+		const bdeForceOff = PreferenceSettingsSensDepIndex === PreferenceSettingsSensDepList.indexOf("SensDepLight");
+		const bdeForceOn = PreferenceSettingsSensDepIndex === PreferenceSettingsSensDepList.indexOf("SensDepExtreme");
+		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("BlindDisableExamine"), (Player.GameplaySettings.BlindDisableExamine && !bdeForceOff) || bdeForceOn, disableButtons || bdeForceOff || bdeForceOn);
+		CheckHeight += CheckSpacing;
 		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("BlindAdjacent"), Player.ImmersionSettings.BlindAdjacent, disableButtons); CheckHeight += CheckSpacing;
 		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("ChatRoomMuffle"), Player.ImmersionSettings.ChatRoomMuffle, disableButtons);	CheckHeight += CheckSpacing;
 		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("DisableAutoRemoveLogin"), Player.GameplaySettings.DisableAutoRemoveLogin, disableButtons); CheckHeight += CheckSpacing;
@@ -944,8 +948,8 @@ function PreferenceSubscreenImmersionClick() {
 				if (Player.GameplaySettings.SensDepChatLog == "SensDepExtreme") ChatRoomSetTarget(null);
 			}
 			CheckHeight += CheckSpacing;
-			// Sensory Deprivation
-			if (MouseIn(500, CheckHeight, 64, 64)) Player.GameplaySettings.BlindDisableExamine = !Player.GameplaySettings.BlindDisableExamine;
+			if (MouseIn(500, CheckHeight, 64, 64) && ![PreferenceSettingsSensDepList.indexOf("SensDepLight"), PreferenceSettingsSensDepList.indexOf("SensDepExtreme")].includes(PreferenceSettingsSensDepIndex))
+				Player.GameplaySettings.BlindDisableExamine = !Player.GameplaySettings.BlindDisableExamine;
 			CheckHeight += CheckSpacing;
 			if (MouseIn(500, CheckHeight, 64, 64)) Player.ImmersionSettings.BlindAdjacent = !Player.ImmersionSettings.BlindAdjacent; 
 			CheckHeight += CheckSpacing;
