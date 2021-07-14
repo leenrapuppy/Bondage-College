@@ -517,10 +517,11 @@ function DialogEndExpression() {
 
 /**
  * Leaves the item menu for both characters. De-initializes global variables, sets the FocusGroup of
- * player andd current character to null and calls various cleanup functions
+ * player and current character to null and calls various cleanup functions
+ * @param {boolean} [resetPermissionsMode=true] - If TRUE and in permissions mode, exits the mode
  * @returns {void} - Nothing
  */
-function DialogLeaveItemMenu() {
+function DialogLeaveItemMenu(resetPermissionsMode = true) {
 	DialogEndExpression();
 	DialogItemToLock = null;
 	Player.FocusGroup = null;
@@ -534,7 +535,7 @@ function DialogLeaveItemMenu() {
 	DialogColor = null;
 	DialogMenuButton = [];
 	if (DialogItemPermissionMode && CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
-	DialogItemPermissionMode = false;
+	if (resetPermissionsMode) DialogItemPermissionMode = false;
 	DialogActivityMode = false;
 	DialogTextDefault = "";
 	DialogTextDefaultTimer = 0;
@@ -1342,8 +1343,11 @@ function DialogClick() {
 
 	// If the user clicked on the interaction character or herself, we check to build the item menu
 	if ((CurrentCharacter.AllowItem || (MouseX < 500)) && MouseIn(0, 0, 1000, 1000) && ((CurrentCharacter.ID != 0) || (MouseX > 500)) && (DialogIntro() != "") && DialogAllowItemScreenException()) {
-		DialogLeaveItemMenu();
+		DialogLeaveItemMenu(false);
 		DialogLeaveFocusItem();
+		if (DialogItemPermissionMode && C.ID !== (MouseX < 500 ? Player.ID : CurrentCharacter.ID)) {
+			DialogItemPermissionMode = false;
+		}
 		C = (MouseX < 500) ? Player : CurrentCharacter;
 		let X = MouseX < 500 ? 0 : 500;
 		for (let A = 0; A < AssetGroup.length; A++)
