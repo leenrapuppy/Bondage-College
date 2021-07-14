@@ -422,29 +422,39 @@ function InventoryLocked(C, AssetGroup, CheckProperties) {
  * be used
  * @param {boolean} [Extend=true] - Whether or not to randomly extend the item (i.e. set the item type), provided it has
  * an archetype that supports random extension
+ * @param {string[]} [AllowedAssets=null] - A list of assets from which one must be selected
+ * @param {boolean} [IgnoreRequirements=false] - If True, the group being blocked and prerequisites will not prevent the item being added.
+ *  NOTE: Long-term this should be replaced with better checks before calling this function.
  * @returns {void} - Nothing
  */
-function InventoryWearRandom(C, GroupName, Difficulty, Refresh = true, MustOwn = false, Extend = true) {
+function InventoryWearRandom(C, GroupName, Difficulty, Refresh = true, MustOwn = false, Extend = true, AllowedAssets = null, IgnoreRequirements = false) {
 	if (InventoryLocked(C, GroupName, true)) {
 		return;
 	}
 
 	// Finds the asset group and make sure it's not blocked
 	const Group = AssetGroupGet(C.AssetFamily, GroupName);
-	if (!Group || InventoryGroupIsBlocked(C, GroupName)) {
+	if (!IgnoreRequirements && (!Group || InventoryGroupIsBlocked(C, GroupName))) {
 		return;
 	}
 	const IsClothes = Group.Clothing;
 
-	// Restrict the options to assets owned by the character if required
 	let AssetList = null;
+	if (AllowedAssets) {
+		AssetList = AllowedAssets.map(assetName => Asset.find(A => A.Group.Name == GroupName && A.Name == assetName));
+	}
+	// Restrict the options to assets owned by the character
 	if (MustOwn) {
 		CharacterAppearanceBuildAssets(C);
-		AssetList = CharacterAppearanceAssets;
+		if (AssetList) {
+			AssetList.filter(A => CharacterAppearanceAssets.some(CAA => CAA.Group.Name == A.Group.Name && CAA.Name == A.Name));
+		} else {
+			AssetList = CharacterAppearanceAssets;
+		}
 	}
 
 	// Get and apply a random asset
-	const SelectedAsset = InventoryGetRandom(C, GroupName, AssetList);
+	const SelectedAsset = InventoryGetRandom(C, GroupName, AssetList, IgnoreRequirements);
 
 	// Pick a random color for clothes from their schema
 	const SelectedColor = IsClothes ? SelectedAsset.Group.ColorSchema[Math.floor(Math.random() * SelectedAsset.Group.ColorSchema.length)] : null;
@@ -487,12 +497,14 @@ function InventoryRandomExtend(C, GroupName) {
  * Select a random asset from a group, narrowed to the most preferable available options (i.e
  * unblocked/visible/unlimited) based on their binary "rank"
  * @param {Character} C - The character to pick the asset for
- * @param {String} GroupName - The asset group to pick the asset from. Set to an empty string to not filter by group.
- * @param {Array} AllowedAssets - Optional parameter: A list of assets from which one can be selected. If not provided,
+ * @param {string} GroupName - The asset group to pick the asset from. Set to an empty string to not filter by group.
+ * @param {Asset[]} [AllowedAssets] - Optional parameter: A list of assets from which one can be selected. If not provided,
  *     the full list of all assets is used.
+ * @param {boolean} [IgnorePrerequisites=false] - If True, skip the step to check whether prerequisites are met
+ *  NOTE: Long-term this should be replaced with better checks before calling this function.
  * @returns {Asset} - The randomly selected asset
  */
-function InventoryGetRandom(C, GroupName, AllowedAssets) {
+function InventoryGetRandom(C, GroupName, AllowedAssets, IgnorePrerequisites = false) {
 	var List = [];
 	var AssetList = AllowedAssets || Asset;
 	var RandomOnly = (AllowedAssets == null);
@@ -503,7 +515,11 @@ function InventoryGetRandom(C, GroupName, AllowedAssets) {
 	var LimitedRank = Math.pow(2, 0);
 
 	for (let A = 0; A < AssetList.length; A++)
-		if (((AssetList[A].Group.Name == GroupName && AssetList[A].Wear) || GroupName == null || GroupName == "") && (RandomOnly == false || AssetList[A].Random) && AssetList[A].Enable && InventoryAllow(C, AssetList[A].Prerequisite, false)) {
+		if (((AssetList[A].Group.Name == GroupName && AssetList[A].Wear) || GroupName == null || GroupName == "")
+			&& (RandomOnly == false || AssetList[A].Random)
+			&& AssetList[A].Enable
+			&& (IgnorePrerequisites || InventoryAllow(C, AssetList[A].Prerequisite, false)))
+		{
 			var CurrRank = 0;
 
 			if (InventoryIsPermissionBlocked(C, AssetList[A].Name, AssetList[A].Group.Name)) {

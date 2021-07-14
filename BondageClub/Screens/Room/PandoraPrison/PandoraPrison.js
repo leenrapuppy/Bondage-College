@@ -169,11 +169,11 @@ function PandoraPrisonPlayerStrip(Level) {
  */
 function PandoraPrisonPlayerChastity(LockType) {
 	if (InventoryGet(Player, "ItemPelvis") == null) {
-		InventoryWear(Player, CommonRandomItemFromList("", ["MetalChastityBelt", "LeatherChastityBelt", "SleekLeatherChastityBelt", "StuddedChastityBelt", "PolishedChastityBelt", "SteelChastityPanties"]), "ItemPelvis");
+		InventoryWearRandom(Player, "ItemPelvis", null, null, false, true, ["MetalChastityBelt", "LeatherChastityBelt", "SleekLeatherChastityBelt", "StuddedChastityBelt", "PolishedChastityBelt", "SteelChastityPanties"], true);
 		InventoryLock(Player, "ItemPelvis", LockType);
 	}
 	if (InventoryGet(Player, "ItemBreast") == null) {
-		InventoryWear(Player, CommonRandomItemFromList("", ["MetalChastityBra", "PolishedChastityBra", "LeatherBreastBinder"]), "ItemBreast");
+		InventoryWearRandom(Player, "ItemBreast", null, null, false, true, ["MetalChastityBra", "PolishedChastityBra", "LeatherBreastBinder"], true);
 		InventoryLock(Player, "ItemBreast", LockType);
 	}
 }
