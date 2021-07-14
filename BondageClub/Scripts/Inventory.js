@@ -417,14 +417,14 @@ function InventoryLocked(C, AssetGroup, CheckProperties) {
  * @param {Character} C - The character that must wear the item
  * @param {string} GroupName - The name of the asset group (body area)
  * @param {number} [Difficulty] - The difficulty, on top of the base asset difficulty, to assign to the item
- * @param {boolean} [Refresh] - Do not call CharacterRefresh if false
+ * @param {boolean} [Refresh=true] - Do not call CharacterRefresh if false
  * @param {boolean} [MustOwn=false] - If TRUE, only assets that the character owns can be worn. Otherwise any asset can
  * be used
  * @param {boolean} [Extend=true] - Whether or not to randomly extend the item (i.e. set the item type), provided it has
  * an archetype that supports random extension
  * @returns {void} - Nothing
  */
-function InventoryWearRandom(C, GroupName, Difficulty, Refresh, MustOwn = false, Extend = true) {
+function InventoryWearRandom(C, GroupName, Difficulty, Refresh = true, MustOwn = false, Extend = true) {
 	if (InventoryLocked(C, GroupName, true)) {
 		return;
 	}
