@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-Changelog last updated: 2021-07-13
+Changelog last updated: 2021-07-15
 
-Last recorded PR: [#2729](https://github.com/Ben987/Bondage-College/pull/2729)
+Last recorded PR: [#2742](https://github.com/Ben987/Bondage-College/pull/2742)
 
 ## [R70]
 
@@ -87,6 +87,8 @@ Last recorded PR: [#2729](https://github.com/Ben987/Bondage-College/pull/2729)
 * Ada - Improved the responsiveness of several futuristic items ([#2694](https://github.com/Ben987/Bondage-College/pull/2694))
 * Ada - Increased the number of times players can attempt locks with a lent lockpick ([#2696](https://github.com/Ben987/Bondage-College/pull/2696))
 * Ace - Updated the Shock Collar animation to trigger a red light when the shock collar is activated ([#2712](https://github.com/Ben987/Bondage-College/pull/2712))
+* Nina - UI improvements around sensory deprivation preferences ([#2734](https://github.com/Ben987/Bondage-College/pull/2734))
+* Nina - Changed the behavior of the item permission screen to stay in permission mode when selecting another item slot ([#2737](https://github.com/Ben987/Bondage-College/pull/2737))
 
 ### [Fixed]
 
@@ -118,7 +120,10 @@ Last recorded PR: [#2729](https://github.com/Ben987/Bondage-College/pull/2729)
 * Ace - Fixed an issue with the Wired Egg which prevented it from working properly ([#2709](https://github.com/Ben987/Bondage-College/pull/2709))
 * Ace - Fixed an issue where certain assets for the Barefoot Sandals would not render ([#2718](https://github.com/Ben987/Bondage-College/pull/2718))
 * Ace - Fixed an issue where the Collar Ropes would not render in several poses ([#2721](https://github.com/Ben987/Bondage-College/pull/2721))
-* Nina - Fixed non-transparent areas of the Breast Binder's preview image ([#2727](https://github.com/Ben987/Bondage-College/pull/2727)) 
+* Nina - Fixed non-transparent areas of the Breast Binder's preview image ([#2727](https://github.com/Ben987/Bondage-College/pull/2727))
+* Ace - Fixed a 404 error for the Bit Gag when locked ([#2730](https://github.com/Ben987/Bondage-College/pull/2730))
+* Nina - Fixed several spelling mistakes across the game ([#2735](https://github.com/Ben987/Bondage-College/pull/2735))
+* Nina - Improved several NPCs to better respect players' blocked item settings ([#2742](https://github.com/Ben987/Bondage-College/pull/2742))
 
 ### [Technical]
 
@@ -128,7 +133,7 @@ Last recorded PR: [#2729](https://github.com/Ben987/Bondage-College/pull/2729)
 * Technical changes, fixes & improvements:
     * Ellie - [#2595](https://github.com/Ben987/Bondage-College/pull/2595), [#2597](https://github.com/Ben987/Bondage-College/pull/2597), [#2623](https://github.com/Ben987/Bondage-College/pull/2623), [#2622](https://github.com/Ben987/Bondage-College/pull/2626), [#2652](https://github.com/Ben987/Bondage-College/pull/2652)
     * Ada - [#2574](https://github.com/Ben987/Bondage-College/pull/2574)
-    * Ace- [#2635](https://github.com/Ben987/Bondage-College/pull/2635), [#2656](https://github.com/Ben987/Bondage-College/pull/2656), [#2658](https://github.com/Ben987/Bondage-College/pull/2658), [#2659](https://github.com/Ben987/Bondage-College/pull/2659), [#2660](https://github.com/Ben987/Bondage-College/pull/2660), [#2662](https://github.com/Ben987/Bondage-College/pull/2662), [#2668](https://github.com/Ben987/Bondage-College/pull/2668), [#2669](https://github.com/Ben987/Bondage-College/pull/2669), [#2671](https://github.com/Ben987/Bondage-College/pull/2671), [#2675](https://github.com/Ben987/Bondage-College/pull/2675), [#2676](https://github.com/Ben987/Bondage-College/pull/2676), [#2678](https://github.com/Ben987/Bondage-College/pull/2678), [#2681](https://github.com/Ben987/Bondage-College/pull/2681), [#2684](https://github.com/Ben987/Bondage-College/pull/2684), [#2685](https://github.com/Ben987/Bondage-College/pull/2685), [#2688](https://github.com/Ben987/Bondage-College/pull/2688), [#2689](https://github.com/Ben987/Bondage-College/pull/2689)
+    * Ace- [#2635](https://github.com/Ben987/Bondage-College/pull/2635), [#2656](https://github.com/Ben987/Bondage-College/pull/2656), [#2658](https://github.com/Ben987/Bondage-College/pull/2658), [#2659](https://github.com/Ben987/Bondage-College/pull/2659), [#2660](https://github.com/Ben987/Bondage-College/pull/2660), [#2662](https://github.com/Ben987/Bondage-College/pull/2662), [#2668](https://github.com/Ben987/Bondage-College/pull/2668), [#2669](https://github.com/Ben987/Bondage-College/pull/2669), [#2671](https://github.com/Ben987/Bondage-College/pull/2671), [#2675](https://github.com/Ben987/Bondage-College/pull/2675), [#2676](https://github.com/Ben987/Bondage-College/pull/2676), [#2678](https://github.com/Ben987/Bondage-College/pull/2678), [#2681](https://github.com/Ben987/Bondage-College/pull/2681), [#2684](https://github.com/Ben987/Bondage-College/pull/2684), [#2685](https://github.com/Ben987/Bondage-College/pull/2685), [#2688](https://github.com/Ben987/Bondage-College/pull/2688), [#2689](https://github.com/Ben987/Bondage-College/pull/2689), [#2731](https://github.com/Ben987/Bondage-College/pull/2731), [#2732](https://github.com/Ben987/Bondage-College/pull/2732)
     * Jomshir - [#2648](https://github.com/Ben987/Bondage-College/pull/2648), [#2663](https://github.com/Ben987/Bondage-College/pull/2663), [#2665](https://github.com/Ben987/Bondage-College/pull/2665), [#2666](https://github.com/Ben987/Bondage-College/pull/2666), [#2715](https://github.com/Ben987/Bondage-College/pull/2715), [#2716](https://github.com/Ben987/Bondage-College/pull/2716), [#2717](https://github.com/Ben987/Bondage-College/pull/2717)
 
 ### [Beta Fixes]
@@ -149,6 +154,12 @@ Last recorded PR: [#2729](https://github.com/Ben987/Bondage-College/pull/2729)
 * Nina - Fixed an issue where players would sometimes not be able to sell bracelets or garters back to the shop ([#2725](https://github.com/Ben987/Bondage-College/pull/2725))
 * Natsuki - Fixed a bug where players would not be able to modify bracelets on other players ([#2726](https://github.com/Ben987/Bondage-College/pull/2726))
 * Natsuki - Fixed some missing bracelet assets in the over-the-head pose ([#2729](https://github.com/Ben987/Bondage-College/pull/2729))
+* Nina - Fixed an issue with manual color picker input ([#2733](https://github.com/Ben987/Bondage-College/pull/2733))
+* Ellie - Fixed a bug where NPC-added items wouldn't render immediately ([#2736](https://github.com/Ben987/Bondage-College/pull/2736))
+* Ada - Fixed a bug where the Futuristic Training Belt would not update properly when another player changed it ([#2738](https://github.com/Ben987/Bondage-College/pull/2738))
+* Jomshir - Fixed a bug with text not loading properly on the relog screen ([#2739](https://github.com/Ben987/Bondage-College/pull/2739))
+* Ada - Fixed some more clipping on the Futuristic Crate ([#2740](https://github.com/Ben987/Bondage-College/pull/2740))
+* Ada - Fixed an issue with layer coloring for the Futuristic Chastity Bra ([#2743](https://github.com/Ben987/Bondage-College/pull/2743))
 
 ## [R69]
 
