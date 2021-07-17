@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-Changelog last updated: 2021-07-15
+Changelog last updated: 2021-07-16
 
-Last recorded PR: [#2742](https://github.com/Ben987/Bondage-College/pull/2742)
+Last recorded PR: [#2749](https://github.com/Ben987/Bondage-College/pull/2749)
 
 ## [R70]
 
@@ -124,6 +124,7 @@ Last recorded PR: [#2742](https://github.com/Ben987/Bondage-College/pull/2742)
 * Ace - Fixed a 404 error for the Bit Gag when locked ([#2730](https://github.com/Ben987/Bondage-College/pull/2730))
 * Nina - Fixed several spelling mistakes across the game ([#2735](https://github.com/Ben987/Bondage-College/pull/2735))
 * Nina - Improved several NPCs to better respect players' blocked item settings ([#2742](https://github.com/Ben987/Bondage-College/pull/2742))
+* Ace - Fixed an issue where handheld items could fail to render or be incorrectly named when wearing some mittens ([#2742](https://github.com/Ben987/Bondage-College/pull/2742))
 
 ### [Technical]
 
@@ -149,7 +150,7 @@ Last recorded PR: [#2742](https://github.com/Ben987/Bondage-College/pull/2742)
 * Nina - Fixed an issue where parts of the color picker would not update when selecting a color ([#2708](https://github.com/Ben987/Bondage-College/pull/2708))
 * Ace - Adjusted the Kennel so that the door can always be opened ([#2710](https://github.com/Ben987/Bondage-College/pull/2710))
 * Ace - Added a dialogue option in the shop to view the available garters ([#2711](https://github.com/Ben987/Bondage-College/pull/2711))
-* Ada - Fixed a couple of issues with the Futuristic Training Belt ([#2714](https://github.com/Ben987/Bondage-College/pull/2714), [#2719](https://github.com/Ben987/Bondage-College/pull/2719))
+* Ada - Fixed a couple of issues with the Futuristic Training Belt ([#2714](https://github.com/Ben987/Bondage-College/pull/2714), [#2719](https://github.com/Ben987/Bondage-College/pull/2719), [#2749](https://github.com/Ben987/Bondage-College/pull/2749))
 * Ada - Fixed an issue where the Futuristic Crate would muffle players more than intended ([#2724](https://github.com/Ben987/Bondage-College/pull/2724))
 * Nina - Fixed an issue where players would sometimes not be able to sell bracelets or garters back to the shop ([#2725](https://github.com/Ben987/Bondage-College/pull/2725))
 * Natsuki - Fixed a bug where players would not be able to modify bracelets on other players ([#2726](https://github.com/Ben987/Bondage-College/pull/2726))
@@ -160,6 +161,9 @@ Last recorded PR: [#2742](https://github.com/Ben987/Bondage-College/pull/2742)
 * Jomshir - Fixed a bug with text not loading properly on the relog screen ([#2739](https://github.com/Ben987/Bondage-College/pull/2739))
 * Ada - Fixed some more clipping on the Futuristic Crate ([#2740](https://github.com/Ben987/Bondage-College/pull/2740))
 * Ada - Fixed an issue with layer coloring for the Futuristic Chastity Bra ([#2743](https://github.com/Ben987/Bondage-College/pull/2743))
+* Verity - Improved the preview image for the Blouse ([#2745](https://github.com/Ben987/Bondage-College/pull/2745))
+* Ace - Fixed an issue with chastity belts which would allow players to modify them when locked ([#2746](https://github.com/Ben987/Bondage-College/pull/2746))
+* RedStacey - Adjusted the positioning of the Fur Scarf ([#2748](https://github.com/Ben987/Bondage-College/pull/2748))
 
 ## [R69]
 
