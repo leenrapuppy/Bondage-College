@@ -170,7 +170,6 @@ function CafeConsumeSpeciiality() {
 	}
 }
 
-//
 /**
  * The cafe maid applies chosen bondage
  * @param {"Shibari" | "Tape" | "Leather" | "Latex" | "Heavy"} Style - The style of bondage chosen by the player
@@ -254,10 +253,7 @@ function CafeServiceBound(Style) {
 		InventoryWear(Player, Bondage, "ItemLegs", RandomColor);
 
 		if (Bondage == "LeatherLegCuffs") {
-            Player.FocusGroup = AssetGroupGet("Female3DCG", "ItemLegs");
-			DialogExtendItem(InventoryGet(Player, "ItemLegs"));
-			const Option = InventoryItemLegsLeatherLegCuffsOptions.find(O => O.Name === "Closed");
-			ExtendedItemSetType(Player, InventoryItemLegsLeatherLegCuffsOptions, Option);
+			TypedItemSetOptionByName(Player, "ItemLegs", "Closed");
 		}
 
 		// Gag
@@ -271,7 +267,7 @@ function CafeServiceBound(Style) {
 		InventoryWear(Player, Bondage, "ItemMouth", RandomColor);
 
 		// Locks
-		InventoryFullLockRandom(Player);
+		InventoryFullLockRandom(Player, false);
 	}
 
 	if (Style == "Latex") {
@@ -336,10 +332,7 @@ function CafeServiceBound(Style) {
 			InventoryWear(Player, Bondage, "ItemLegs", RandomColor);
 
 			if (Bondage == "LeatherLegCuffs") {
-                Player.FocusGroup = AssetGroupGet("Female3DCG", "ItemLegs");
-				DialogExtendItem(InventoryGet(Player, "ItemLegs"));
-				const Option = InventoryItemLegsLeatherLegCuffsOptions.find(O => O.Name === "Closed");
-				ExtendedItemSetType(Player, InventoryItemLegsLeatherLegCuffsOptions, Option);
+				TypedItemSetOptionByName(Player, "ItemLegs", "Closed");
 			}
 		}
 
@@ -377,7 +370,7 @@ function CafeServiceBound(Style) {
 		if (RandomNumber >= 4 && RandomNumber < 8) InventoryWear(Player, Bondage, "ItemHead");
 
 		// Locks
-		InventoryFullLockRandom(Player);
+		InventoryFullLockRandom(Player, false);
 	}
 
 	CharacterRefresh(Player);
