@@ -2292,6 +2292,9 @@ ClothChineseDress2Select,,,Select a dress pattern.
 ClothChineseDress2Red,,,Style 1
 ClothChineseDress2Purple,,,Style 2
 ClothChineseDress2Pink,,,Style 3
+ClothLatexLacedSuitSelect,,,Select your style.
+ClothLatexLacedSuitLaced,,,Laced body.
+ClothLatexLacedSuitNonLaced,,,Non-Laced body.
 BraSwimsuit1Select,,,Select an option.
 BraSwimsuit1Shiny,,,Shiny
 BraSwimsuit1Dull,,,No shine
