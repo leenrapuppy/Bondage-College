@@ -2347,6 +2347,21 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { AssetName: "SexyBikini1" },
 		}, // CuteBikini1
+		Swimsuit1: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Shiny",
+						Property: { Type: null},
+					},
+					{
+						Name: "Dull",
+						Property: { Type: "Dull"},
+					},
+				],		
+			},
+		}, // ChineseDress2
 	}, // Bra
 	Panties: {
 		SilkStraps: {
