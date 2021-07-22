@@ -28,7 +28,7 @@ function InventoryItemVulvaFuturisticVibratorDraw() {
 	} else {
 		// Draw the preview & current mode
 		DrawAssetPreview(1387, 50, DialogFocusItem.Asset);
-		const mode = DialogFindPlayer(DialogFocusItem.Property.Mode || "Off");
+		const mode = DialogFindPlayer((DialogFocusItem.Property.Mode && typeof DialogFocusItem.Property.Mode === "string" ) || "Off");
 		DrawText(DialogFindPlayer("CurrentMode") + mode, 1500, 375, "white", "gray");
 		// Draw each of the triggers and position their inputs
 		ItemVulvaFuturisticVibratorTriggers.forEach((trigger, i) => {
@@ -97,7 +97,7 @@ function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
 		let regexString = TriggerValues[I].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 		// Allow `*` wildcard, and normalize case
-		regexString = regexString.replaceAll("\\*", ".*")
+		regexString = regexString.replace(/\*/g, ".*")//regexString.replaceAll("\\*", ".*")
 		regexString = regexString.toUpperCase()
 
 		const triggerRegex = new RegExp(`\\b${regexString}\\b`);
