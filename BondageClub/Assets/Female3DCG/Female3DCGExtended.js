@@ -2595,17 +2595,17 @@ var AssetFemale3DCGExtended = {
 			Config: {
 				Options: [
 					{
-						Name: "Detached",
-						Property: {
-							Type: "Detached",
-							Effect: ["OpenMouth"]
-						},
-					},
-					{
 						Name: "Attached",
 						Property: {
 							Type: null,
 							Effect: ["BlockMouth", "GagLight"]
+						},
+					},
+					{
+						Name: "Detached",
+						Property: {
+							Type: "Detached",
+							Effect: ["OpenMouth"]
 						},
 					},
 				],

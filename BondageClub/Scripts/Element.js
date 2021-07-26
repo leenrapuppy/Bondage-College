@@ -171,7 +171,7 @@ function ElementCreateDropdown(ID, Options, ClickEventListener) {
 			Select.appendChild(Option);
 			DivOptions.appendChild(InnerDiv);
 		}
-		// Cretae the div for the selected item
+		// Create the div for the selected item
 		var SelectedItem = document.createElement("DIV");
 		SelectedItem.setAttribute("class", "select-selected");
 		SelectedItem.innerHTML = Select.options[0].innerHTML;
