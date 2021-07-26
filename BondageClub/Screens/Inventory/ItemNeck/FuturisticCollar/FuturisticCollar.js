@@ -12,9 +12,6 @@ function InventoryItemNeckFuturisticCollarLoad() {
 	}
 }
 
-
-
-
 // Draw the item extension screen
 function InventoryItemNeckFuturisticCollarDraw() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
@@ -50,14 +47,14 @@ function InventoryItemNeckFuturisticCollarDraw() {
 		DrawText(DialogFindPlayer("FuturisticCollarOptions" + FuturisticCollarStatus), 1500, 560, "White", "Gray");
 
 		if (FuturisticCollarItems.length > 0 && lockedItems < FuturisticCollarItems.length) {
-			if (InventoryItemNeckFuturisticCollarCanLock(C, "MetalPadlock", "ItemMisc")) DrawButton(1250, 590, 200, 55, DialogFindPlayer("FuturisticCollarLockMetal"), "White");
-			if (InventoryItemNeckFuturisticCollarCanLock(C, "ExclusivePadlock", "ItemMisc")) DrawButton(1550, 590, 200, 55, DialogFindPlayer("FuturisticCollarLockExclusive"), "White");
-			if (InventoryItemNeckFuturisticCollarCanLock(C, "IntricatePadlock", "ItemMisc")) DrawButton(1250, 650, 200, 55, DialogFindPlayer("FuturisticCollarLockIntricate"), "White");
-			if (InventoryItemNeckFuturisticCollarCanLock(C, "HighSecurityPadlock", "ItemMisc")) DrawButton(1550, 650, 200, 55, DialogFindPlayer("FuturisticCollarLockHighSec"), "White");
-			if (InventoryItemNeckFuturisticCollarCanLock(C, "TimerPadlock", "ItemMisc")) DrawButton(1250, 710, 200, 55, DialogFindPlayer("FuturisticCollarLockTimer"), "White");
-			if (InventoryItemNeckFuturisticCollarCanLock(C, "MistressPadlock", "ItemMisc")) DrawButton(1550, 710, 200, 55, DialogFindPlayer("FuturisticCollarLockMistress"), "White");
-			if (InventoryItemNeckFuturisticCollarCanLock(C, "LoversPadlock", "ItemMisc")) DrawButton(1250, 770, 200, 55, DialogFindPlayer("FuturisticCollarLockLover"), "White");
-			if (InventoryItemNeckFuturisticCollarCanLock(C, "OwnerPadlock", "ItemMisc")) DrawButton(1550, 770, 200, 55, DialogFindPlayer("FuturisticCollarLockOwner"), "White");
+			if (InventoryItemNeckFuturisticCollarCanLock(C, "MetalPadlock")) DrawButton(1250, 590, 200, 55, DialogFindPlayer("FuturisticCollarLockMetal"), "White");
+			if (InventoryItemNeckFuturisticCollarCanLock(C, "ExclusivePadlock")) DrawButton(1550, 590, 200, 55, DialogFindPlayer("FuturisticCollarLockExclusive"), "White");
+			if (InventoryItemNeckFuturisticCollarCanLock(C, "IntricatePadlock")) DrawButton(1250, 650, 200, 55, DialogFindPlayer("FuturisticCollarLockIntricate"), "White");
+			if (InventoryItemNeckFuturisticCollarCanLock(C, "HighSecurityPadlock")) DrawButton(1550, 650, 200, 55, DialogFindPlayer("FuturisticCollarLockHighSec"), "White");
+			if (InventoryItemNeckFuturisticCollarCanLock(C, "TimerPadlock")) DrawButton(1250, 710, 200, 55, DialogFindPlayer("FuturisticCollarLockTimer"), "White");
+			if (InventoryItemNeckFuturisticCollarCanLock(C, "MistressPadlock")) DrawButton(1550, 710, 200, 55, DialogFindPlayer("FuturisticCollarLockMistress"), "White");
+			if (InventoryItemNeckFuturisticCollarCanLock(C, "LoversPadlock")) DrawButton(1250, 770, 200, 55, DialogFindPlayer("FuturisticCollarLockLover"), "White");
+			if (InventoryItemNeckFuturisticCollarCanLock(C, "OwnerPadlock")) DrawButton(1550, 770, 200, 55, DialogFindPlayer("FuturisticCollarLockOwner"), "White");
 		}
 
 		if (FuturisticCollarItemsUnlockable.length > 0) {
@@ -74,7 +71,6 @@ function InventoryItemNeckFuturisticCollarDraw() {
 function InventoryItemNeckFuturisticCollarExit() {
 	InventoryItemMouthFuturisticPanelGagExitAccessDenied();
 }
-
 
 // Catches the item extension clicks
 function InventoryItemNeckFuturisticCollarClick() {
@@ -102,38 +98,23 @@ function InventoryItemNeckFuturisticCollarClick() {
 			if (FuturisticCollarItems.length > 0 ) {
 
 				if (lockedItems < FuturisticCollarItems.length) {
-					if (MouseIn(1250, 590, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "MetalPadlock", "ItemMisc")) { InventoryItemNeckFuturisticCollarLockdown(C, "MetalPadlock"); CollarAction = 1;}
-					else if (MouseIn(1550, 590, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "ExclusivePadlock", "ItemMisc")) { InventoryItemNeckFuturisticCollarLockdown(C, "ExclusivePadlock"); CollarAction = 1;}
-					if (MouseIn(1250, 650, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "IntricatePadlock", "ItemMisc")) { InventoryItemNeckFuturisticCollarLockdown(C, "IntricatePadlock"); CollarAction = 1;}
-					else if (MouseIn(1550, 650, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "HighSecurityPadlock", "ItemMisc")) { InventoryItemNeckFuturisticCollarLockdown(C, "HighSecurityPadlock"); CollarAction = 1;}
-					else if (MouseIn(1250, 710, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "TimerPadlock", "ItemMisc")) { InventoryItemNeckFuturisticCollarLockdown(C, "TimerPadlock"); CollarAction = 1;}
-					else if (MouseIn(1550, 710, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "MistressPadlock", "ItemMisc")) { InventoryItemNeckFuturisticCollarLockdown(C, "MistressPadlock"); CollarAction = 1;}
-					else if (MouseIn(1250, 770, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "LoversPadlock", "ItemMisc")) { InventoryItemNeckFuturisticCollarLockdown(C, "LoversPadlock"); CollarAction = 1;}
-					else if (MouseIn(1550, 770, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "OwnerPadlock", "ItemMisc")) { InventoryItemNeckFuturisticCollarLockdown(C, "OwnerPadlock"); CollarAction = 1;}
+					if (MouseIn(1250, 590, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "MetalPadlock")) { InventoryItemNeckFuturisticCollarLockdown(C, "MetalPadlock"); CollarAction = 1;}
+					else if (MouseIn(1550, 590, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "ExclusivePadlock")) { InventoryItemNeckFuturisticCollarLockdown(C, "ExclusivePadlock"); CollarAction = 1;}
+					if (MouseIn(1250, 650, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "IntricatePadlock")) { InventoryItemNeckFuturisticCollarLockdown(C, "IntricatePadlock"); CollarAction = 1;}
+					else if (MouseIn(1550, 650, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "HighSecurityPadlock")) { InventoryItemNeckFuturisticCollarLockdown(C, "HighSecurityPadlock"); CollarAction = 1;}
+					else if (MouseIn(1250, 710, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "TimerPadlock")) { InventoryItemNeckFuturisticCollarLockdown(C, "TimerPadlock"); CollarAction = 1;}
+					else if (MouseIn(1550, 710, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "MistressPadlock")) { InventoryItemNeckFuturisticCollarLockdown(C, "MistressPadlock"); CollarAction = 1;}
+					else if (MouseIn(1250, 770, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "LoversPadlock")) { InventoryItemNeckFuturisticCollarLockdown(C, "LoversPadlock"); CollarAction = 1;}
+					else if (MouseIn(1550, 770, 200, 55) && InventoryItemNeckFuturisticCollarCanLock(C, "OwnerPadlock")) { InventoryItemNeckFuturisticCollarLockdown(C, "OwnerPadlock"); CollarAction = 1;}
 				}
 			}
 			if (MouseIn(1400, 850, 200, 55) && FuturisticCollarItemsUnlockable.length > 0) { InventoryItemNeckFuturisticCollarUnlock(C); CollarAction = 2;}
 			if (MouseIn(1400, 910, 200, 55) && FuturisticCollarItems.length > 0 && DialogFocusItem) { InventoryItemNeckFuturisticCollarColor(C, DialogFocusItem); CollarAction = 3;}
 
-			if (CollarAction > 0) {
-				InventoryItemNeckFuturisticCollarExit();
-
-				/*var vol = 1
-				if (Player.AudioSettings && Player.AudioSettings.Volume) {
-					vol = Player.AudioSettings.Volume
-				}
-				if (CollarAction == 1)
-					AudioPlayInstantSound("Audio/HydraulicLock.mp3", vol)
-				else
-					AudioPlayInstantSound("Audio/HydraulicUnlock.mp3", vol)*/
-
-			}
+			if (CollarAction > 0) InventoryItemNeckFuturisticCollarExit();
 		}
 	}
 }
-
-
-
 
 function InventoryItemNeckFuturisticCollarCanLock(C, LockType) {
 	InventoryAvailable(Player, LockType, "ItemMisc");
@@ -187,7 +168,6 @@ function InventoryItemNeckFuturisticCollarValidate(C, Item) {
 	return InventoryItemMouthFuturisticPanelGagValidate(C, Item);
 }
 
-
 function InventoryItemNeckFuturisticCollarLockdown(C, LockType) {
 	for (let E = C.Appearance.length - 1; E >= 0; E--)
 		if (((C.Appearance[E].Asset.Name.indexOf("Futuristic") >= 0 || C.Appearance[E].Asset.Name.indexOf("Interactive") >= 0 || C.Appearance[E].Asset.Name.indexOf("Electronic") >= 0) &&
@@ -201,18 +181,14 @@ function InventoryItemNeckFuturisticCollarLockdown(C, LockType) {
 
 
 
-	if (CurrentScreen == "ChatRoom")	{
-		var Message;
+	if (CurrentScreen == "ChatRoom") {
 		var Dictionary = [
 			{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
 			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
 		];
 
-		Message = "FuturisticCollarTriggerLockdown";
-
-		ServerSend("ChatRoomChat", { Content: Message, Type: "Action", Dictionary });
+		ServerSend("ChatRoomChat", { Content: "FuturisticCollarTriggerLockdown", Type: "Action", Dictionary });
 	}
-		//ServerSend("ChatRoomChat", { Content: " feels her bindings tightening around her body with a hiss as they lock themselves automatically.", Type: "Emote" });
 }
 
 function InventoryItemNeckFuturisticCollarUnlock(C) {
@@ -226,19 +202,14 @@ function InventoryItemNeckFuturisticCollarUnlock(C) {
 	CharacterRefresh(C, true);
 
 	if (CurrentScreen == "ChatRoom")	{
-		var Message;
 		var Dictionary = [
 			{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
 			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
 		];
 
-		Message = "FuturisticCollarTriggerUnlock";
-
-		ServerSend("ChatRoomChat", { Content: Message, Type: "Action", Dictionary });
+		ServerSend("ChatRoomChat", { Content: "FuturisticCollarTriggerUnlock", Type: "Action", Dictionary });
 	}
 
-	//if (CurrentScreen == "ChatRoom")
-	// ServerSend("ChatRoomChat", { Content: " 's bindings unlock with a hiss.", Type: "Emote" });
 }
 
 function InventoryItemNeckFuturisticCollarColor(C, Item) {
@@ -252,29 +223,25 @@ function InventoryItemNeckFuturisticCollarColor(C, Item) {
 					C.Appearance[E].Color.push(color);
 				}
 			}
+			
 			for (let L = C.Appearance[E].Asset.Layer.length - 1; L >= 0; L--) {
 
 				if (C.Appearance[E].Asset.Layer[L].Name != "Light" && C.Appearance[E].Asset.Layer[L].Name != "Shine") {
 					if (!C.Appearance[E].Asset.Layer[L].Name) {
 						if (Item.Color[3] != "Default")
 							C.Appearance[E].Color = (C.Appearance[E].Asset.FuturisticRecolorDisplay) ? Item.Color[0] : Item.Color[3];
-						//C.Appearance[E].Asset.Layer[L].ColorIndex = Item.Asset.Layer[2].ColorIndex
 					} else if (C.Appearance[E].Asset.Layer[L].Name == "Lock") {
 						if (Item.Color[3] != "Default")
 							C.Appearance[E].Color[L] = Item.Color[3];
-						//C.Appearance[E].Asset.Layer[L].ColorIndex = Item.Asset.Layer[2].ColorIndex
 					} else if (C.Appearance[E].Asset.Layer[L].Name == "Display" || C.Appearance[E].Asset.Layer[L].Name == "Screen" || C.Appearance[E].Asset.Layer[L].Name == "Ball") {
 						if (Item.Color[0] != "Default")
 							C.Appearance[E].Color[L] = Item.Color[0];
-						//C.Appearance[E].Asset.Layer[L].ColorIndex = Item.Asset.Layer[0].ColorIndex
 					} else if (C.Appearance[E].Asset.Layer[L].Name != "Mesh" && C.Appearance[E].Asset.Layer[L].Name != "Text") {
 						if (Item.Color[1] != "Default")
 							C.Appearance[E].Color[L] = Item.Color[1];
-						//C.Appearance[E].Asset.Layer[L].ColorIndex = Item.Asset.Layer[1].ColorIndex
 					} else if (C.Appearance[E].Asset.Layer[L].Name != "Text") {
 						if (Item.Color[2] != "Default")
 							C.Appearance[E].Color[L] = Item.Color[2];
-						//C.Appearance[E].Asset.Layer[L].ColorIndex = Item.Asset.Layer[2].ColorIndex
 					}
 				}
 			}
@@ -284,19 +251,14 @@ function InventoryItemNeckFuturisticCollarColor(C, Item) {
 	CharacterRefresh(C, true);
 
 	if (CurrentScreen == "ChatRoom")	{
-		var Message;
 		var Dictionary = [
 			{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
 			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
 		];
 
-		Message = "FuturisticCollarTriggerColor";
-
-		ServerSend("ChatRoomChat", { Content: Message, Type: "Action", Dictionary });
+		ServerSend("ChatRoomChat", { Content: "FuturisticCollarTriggerColor", Type: "Action", Dictionary });
 	}
 
-	//if (CurrentScreen == "ChatRoom")
-	// ServerSend("ChatRoomChat", { Content: " 's bindings unlock with a hiss.", Type: "Emote" });
 }
 
 function InventoryItemNeckFuturisticCollarTogglePermission(C, Item) {
@@ -307,21 +269,17 @@ function InventoryItemNeckFuturisticCollarTogglePermission(C, Item) {
 		CharacterRefresh(C, true);
 
 		if (CurrentScreen == "ChatRoom")	{
-			var Message;
+			var Message = "FuturisticCollarSetOpenPermission" + (Item.Property.OpenPermission ? "On" : "Off");
+			
 			var Dictionary = [
 				{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
 				{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
 			];
 
-			Message = "FuturisticCollarSetOpenPermission";
-			if (Item.Property.OpenPermission) Message = Message + "On";
-			else Message = Message + "Off";
-
 			ServerSend("ChatRoomChat", { Content: Message, Type: "Action", Dictionary });
 		}
 	}
 }
-
 
 function InventoryItemNeckFuturisticCollarToggleRemotes(C, Item) {
 	if (Item.Property && Item.Property.BlockRemotes != null) {
@@ -355,15 +313,12 @@ function InventoryItemNeckFuturisticCollarToggleRemotes(C, Item) {
 		CharacterRefresh(C, true);
 
 		if (CurrentScreen == "ChatRoom")	{
-			var Message;
+			var Message = "FuturisticCollarSetBlockRemotes" + (Item.Property.BlockRemotes ? "On" : "Off");
+			
 			var Dictionary = [
 				{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
 				{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
 			];
-
-			Message = "FuturisticCollarSetBlockRemotes";
-			if (Item.Property.BlockRemotes) Message = Message + "On";
-			else Message = Message + "Off";
 
 			ServerSend("ChatRoomChat", { Content: Message, Type: "Action", Dictionary });
 		}

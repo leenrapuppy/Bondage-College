@@ -294,33 +294,9 @@ function InventoryItemPelvisFuturisticTrainingBeltValidate(C, Item) {
 	return InventoryItemMouthFuturisticPanelGagValidate(C, Item); // All futuristic items refer to the gag
 }
 
-/*
-function InventoryItemPelvisFuturisticTrainingBeltRunOrgasmControl(C) {
-	if (CurrentScreen == "ChatRoom" || CurrentScreen == "Private" && (C.ArousalSettings != null) && (C.ArousalSettings.Active != null) && (C.ArousalSettings.Active != "Inactive") && (C.ArousalSettings.Active != "NoMeter")) {
-		if ((C.ArousalSettings.OrgasmTimer != null) && (typeof C.ArousalSettings.OrgasmTimer === "number") && !isNaN(C.ArousalSettings.OrgasmTimer) && (C.ArousalSettings.OrgasmTimer > 0)) {
-			if (C.ArousalSettings.OrgasmStage == 0) {
-				ActivityOrgasmGameGenerate(0); // We generate the orgasm stage to deny the player the opportunity to surrender
-			}
-		}
-	}
-	if ((ActivityOrgasmGameTimer != null) && (ActivityOrgasmGameTimer > 0) && (CurrentTime < C.ArousalSettings.OrgasmTimer)) {
-		// Ruin the orgasm
-		if (ActivityOrgasmGameProgress >= ActivityOrgasmGameDifficulty - 3 || CurrentTime > C.ArousalSettings.OrgasmTimer - 3200) {
-			if (CurrentScreen == "ChatRoom") {
-				if (CurrentTime > C.ArousalSettings.OrgasmTimer - 3200) {
-					ChatRoomMessage({ Content: "FuturisticTrainingBeltOrgasmEdgedTimeout", Type: "Action", Sender: Player.MemberNumber });
-				} else {
-					ChatRoomMessage({ Content: "FuturisticTrainingBeltOrgasmEdged", Type: "Action", Sender: Player.MemberNumber });
-				}
-			}
-			ActivityOrgasmGameResistCount++;
-			ActivityOrgasmStop(C, 65 + Math.ceil(Math.random()*20));
-		}
-	}
-	
-}*/
-
-function InventoryItemPelvisFuturisticTrainingBeltNpcDialog(C, Option) { InventoryItemPelvisMetalChastityBeltNpcDialog(C, Option); }
+function InventoryItemPelvisFuturisticTrainingBeltNpcDialog(C, Option) {
+	InventoryItemPelvisMetalChastityBeltNpcDialog(C, Option);
+}
 
 function InventoryItemPelvisFuturisticTrainingBeltGetVibeMode(C, State, First) {
 	const ArousalActive = C.ArousalSettings && C.ArousalSettings.Progress && ["Manual", "Hybrid", "Automatic"].includes(C.ArousalSettings.Active);
@@ -387,7 +363,8 @@ function InventoryItemPelvisFuturisticTrainingBeltUpdateVibeMode(C, Item, Force)
 				CharacterSetFacialExpression(C, "Blush", "Extreme", 5);
 			else if (Item.Property.Intensity > 1)
 				CharacterSetFacialExpression(C, "Blush", "VeryHigh", 5);
-			else CharacterSetFacialExpression(C, "Blush", "Medium", 5);
+			else
+				CharacterSetFacialExpression(C, "Blush", "Medium", 5);
 		}
 	}
 }

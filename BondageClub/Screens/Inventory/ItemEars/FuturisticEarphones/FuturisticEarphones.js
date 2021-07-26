@@ -83,8 +83,6 @@ function InventoryItemEarsFuturisticEarphonesExit() {
  * @returns {void} - Nothing
  */
 function InventoryItemEarsFuturisticEarphonesPublishAction(C, Option, PreviousOption) {
-	var NewIndex = InventoryItemEarsFuturisticEarphonesOptions.indexOf(Option);
-	var PreviousIndex = InventoryItemEarsFuturisticEarphonesOptions.indexOf(PreviousOption);
 	var msg = "HeadphoneEarPlugsRestrain" + Option.Name;
 	var Dictionary = [
 		{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },

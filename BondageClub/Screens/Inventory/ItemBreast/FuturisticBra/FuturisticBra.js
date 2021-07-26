@@ -38,15 +38,12 @@ function InventoryItemBreastFuturisticBraLoad() {
 	if (DialogFocusItem.Property == null) DialogFocusItem.Property = { HeartRate: 0, HeartIcon: false };
 	if (DialogFocusItem.Property.HeartRate == null) DialogFocusItem.Property.HeartRate = 0;
 	if (DialogFocusItem.Property.HeartIcon == null) DialogFocusItem.Property.HeartIcon = false;
-
 }
 
 function InventoryItemBreastFuturisticBraUpdate(C) {
 	var current_bpm = 65;
 	var current_breathing = "Low";
 	var current_temp = 37;
-
-
 
 	if (C.MemberNumber) {
 		current_bpm += C.MemberNumber % 20; // 'Pseudo random baseline'
@@ -69,7 +66,7 @@ function InventoryItemBreastFuturisticBraUpdate(C) {
 		}
 
 	}
-	return {bpm: current_bpm, breathing: current_breathing, temp: current_temp};
+	return { bpm: current_bpm, breathing: current_breathing, temp: current_temp };
 }
 
 // Draw the item extension screen
@@ -102,15 +99,6 @@ function InventoryItemBreastFuturisticBraDraw() {
 		}
 	}
 
-
-	/*
-	DrawText(DialogFindPlayer("Intensity" + DialogFocusItem.Property.Intensity.toString()).replace("Item", DialogFocusItem.Asset.Description), 1500, 600, "White", "Gray");
-	if (DialogFocusItem.Property.Intensity > 0) DrawButton(1200, 650, 200, 55, DialogFindPlayer("Low"), "White");
-	if (DialogFocusItem.Property.Intensity < 1 || DialogFocusItem.Property.Intensity > 1) DrawButton(1550, 650, 200, 55, DialogFindPlayer("Medium"), "White");
-	if (DialogFocusItem.Property.Intensity < 2) DrawButton(1375, 710, 200, 55, DialogFindPlayer("High"), "White");
-	if (CurrentScreen == "ChatRoom") DrawButton(1325, 800, 64, 64, "", "White", DialogFocusItem.Property.ShowText ? "Icons/Checked.png" : "");
-	if (CurrentScreen == "ChatRoom") DrawText(DialogFindPlayer("ShockCollarShowChat"), 1570, 833, "White", "Gray");
-	DrawButton(1375, 900, 200, 55, DialogFindPlayer("TriggerShock"), "White");*/
 }
 
 // Catches the item extension clicks
@@ -144,7 +132,6 @@ function InventoryItemBreastFuturisticBraClick() {
 			ChatRoomCharacterUpdate(C);
 		}
 	}
-
 }
 
 function InventoryItemBreastFuturisticBraPublishAction(C, Option) {
@@ -155,74 +142,6 @@ function InventoryItemBreastFuturisticBraPublishAction(C, Option) {
 	];
 	ChatRoomPublishCustomAction(msg, true, Dictionary);
 }
-
-/*
-
-
-
-
-// Sets the shock collar intensity
-function InventoryItemBreastFuturisticBraSetIntensity(Modifier) {
-
-	// Gets the current item and character
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
-		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
-		InventoryItemBreastFuturisticBraLoad();
-	}
-
-	DialogFocusItem.Property.Intensity = DialogFocusItem.Property.Intensity + Modifier;
-	if (DialogFocusItem.Property.ShowText) {
-		var Dictionary = [];
-		Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
-		Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
-		Dictionary.push({Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
-		ChatRoomPublishCustomAction("ShockCollarSet" + DialogFocusItem.Property.Intensity, true, Dictionary);
-	}
-	else
-		DialogLeave();
-
-}
-
-// Trigger a shock from the dialog menu
-function InventoryItemBreastFuturisticBraTrigger() {
-	// Gets the current item and character
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
-		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
-		InventoryItemBreastFuturisticBraLoad();
-	}
-
-	var Dictionary = [];
-	Dictionary.push({ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber });
-	Dictionary.push({ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
-	Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
-	Dictionary.push({Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
-	Dictionary.push({ Tag: "ActivityName", Text: "ShockItem" });
-	Dictionary.push({ Tag: "ActivityGroup", Text: DialogFocusItem.Asset.Group.Name });
-	Dictionary.push({ AssetName: DialogFocusItem.Asset.Name });
-	Dictionary.push({ AssetGroupName: DialogFocusItem.Asset.Group.Name });
-
-	ChatRoomPublishCustomAction("TriggerShock" + DialogFocusItem.Property.Intensity, true, Dictionary);
-
-	if (C.ID == Player.ID) {
-		// The Player shocks herself
-		ActivityArousalItem(C, C, DialogFocusItem.Asset);
-	}
-
-    CharacterSetFacialExpression(C, "Eyebrows", "Soft", 10);
-    CharacterSetFacialExpression(C, "Blush", "Soft", 15);
-    CharacterSetFacialExpression(C, "Eyes", "Closed", 5);
-}
-
-
-
-function InventoryItemBreastFuturisticBraDynamicAudio(data) {
-	var Modifier = parseInt(data.Content.substr(data.Content.length - 1));
-	if (isNaN(Modifier)) Modifier = 0;
-	return ["Shocks", Modifier * 3];
-}
-*/
 
 // Drawing function for the text on the bra
 function AssetsItemBreastFuturisticBraAfterDraw({
@@ -257,7 +176,6 @@ function AssetsItemBreastFuturisticBraAfterDraw({
 
 		// We print the canvas to the character based on the asset position
 		drawCanvas(TempCanvas, X + 47, Y + 103.5 + offset, AlphaMasks);
-
 		drawCanvasBlink(TempCanvas, X + 47, Y + 103.5 + offset, AlphaMasks);
 	}
 }

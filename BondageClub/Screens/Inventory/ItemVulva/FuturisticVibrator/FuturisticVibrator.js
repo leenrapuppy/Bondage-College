@@ -28,8 +28,8 @@ function InventoryItemVulvaFuturisticVibratorDraw() {
 	} else {
 		// Draw the preview & current mode
 		DrawAssetPreview(1387, 50, DialogFocusItem.Asset);
-		const mode = DialogFindPlayer((DialogFocusItem.Property.Mode && typeof DialogFocusItem.Property.Mode === "string" ) || "Off");
-		DrawText(DialogFindPlayer("CurrentMode") + mode, 1500, 375, "white", "gray");
+		const mode = DialogFindPlayer((DialogFocusItem.Property.Mode && typeof DialogFocusItem.Property.Mode === "string" ) ? DialogFocusItem.Property.Mode : "Off");
+		DrawText(`${DialogFindPlayer("CurrentMode")} ${mode}`, 1500, 375, "white", "gray");
 		// Draw each of the triggers and position their inputs
 		ItemVulvaFuturisticVibratorTriggers.forEach((trigger, i) => {
 			MainCanvas.textAlign = "right";
@@ -73,8 +73,6 @@ function InventoryItemVulvaFuturisticVibratorClickSet() {
 			}
 			InventoryItemVulvaFuturisticVibratorExit();
 		}
-
-
 	}
 }
 
@@ -145,8 +143,7 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 	if (C.OnlineSharedSettings && C.OnlineSharedSettings.ItemsAffectExpressions) {
 		if (Item.Property.Intensity > -1) {
 			CharacterSetFacialExpression(C, "Blush", "Medium", 5);
-		}
-		else {
+		} else {
 			CharacterSetFacialExpression(C, "Eyebrows", "Soft", 5);
 		}
 	}
@@ -156,11 +153,11 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 function InventoryItemVulvaFuturisticVibratorTriggerShock(C, Item) {
 
 	if (CurrentScreen == "ChatRoom") {
-			var Dictionary = [];
-			Dictionary.push({ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber });
-			Dictionary.push({ Tag: "AssetName", AssetName: Item.Asset.Name});
+		var Dictionary = [];
+		Dictionary.push({ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber });
+		Dictionary.push({ Tag: "AssetName", AssetName: Item.Asset.Name});
 
-			ServerSend("ChatRoomChat", { Content: "FuturisticVibratorShockTrigger", Type: "Action", Dictionary });
+		ServerSend("ChatRoomChat", { Content: "FuturisticVibratorShockTrigger", Type: "Action", Dictionary });
 	}
 
 	InventoryShockExpression(C);
@@ -211,7 +208,6 @@ function AssetsItemVulvaFuturisticVibratorScriptDraw(data) {
 	let lastMsgIndex = ChatRoomChatLog.length - 1
 	if (lastMsgIndex >= 0 && ChatRoomChatLog[lastMsgIndex].Time > PersistentData.CheckTime) {
 		InventoryItemVulvaFuturisticVibratorHandleChat(C, Item, PersistentData.CheckTime);
-
 		PersistentData.CheckTime = ChatRoomChatLog[lastMsgIndex].Time;
 	}
 
