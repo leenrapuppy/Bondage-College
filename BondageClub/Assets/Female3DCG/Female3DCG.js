@@ -3124,9 +3124,9 @@ var AssetFemale3DCG = [
 		Top: 190,
 		Zone: [[300, 200, 100, 70]],
 		Asset: [
-			{ Name: "CollarChainLong", Fetish: ["Metal"], Value: 30, Difficulty: 6, Time: 5, Random: false, AllowLock: true, BuyGroup: "CollarChain", Audio: "ChainLong", Prerequisite: ["Collared", "NotSuspended"], AllowPose: ["Kneel", "Horse", "KneelingSpread", "AllFours"], Effect: ["Tethered", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }] },
-			{ Name: "CollarChainShort", Fetish: ["Metal"], Value: -1, Difficulty: 6, Time: 5, Random: false, AllowLock: true, BuyGroup: "CollarChain", Audio: "ChainLong", Prerequisite: ["Collared", "AllFours", "NotSuspended", "NotMounted", "CanKneel"], AllowPose: ["AllFours"], SetPose: ["Kneel"], Effect: ["Freeze", "ForceKneel", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
-			{ Name: "Post", Fetish: ["Metal"], Value: 130, Difficulty: 9, Time: 5, Random: false, AllowLock: true, Audio: "ChainShort", Prerequisite: ["Collared", "AllFours", "NotSuspended", "NotMounted", "CanKneel"], AllowPose: ["AllFours"], SetPose: ["Kneel"], Effect: ["Freeze", "ForceKneel", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }], 
+			{ Name: "CollarChainLong", Fetish: ["Metal"], Value: 30, Difficulty: 6, Time: 5, Random: false, AllowLock: true, BuyGroup: "CollarChain", Audio: "ChainLong", Prerequisite: ["Collared", "NotSuspended"], AllowPose: ["Kneel", "Horse", "KneelingSpread", "AllFours", "Hogtied"], Effect: ["Tethered", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }] },
+			{ Name: "CollarChainShort", Fetish: ["Metal"], Value: -1, Difficulty: 6, Time: 5, Random: false, AllowLock: true, BuyGroup: "CollarChain", Audio: "ChainLong", Prerequisite: ["Collared", "AllFours", "NotSuspended", "NotMounted", "CanKneel"], AllowPose: ["AllFours", "Hogtied"], SetPose: ["Kneel"], Effect: ["Freeze", "ForceKneel", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
+			{ Name: "Post", Fetish: ["Metal"], Value: 130, Difficulty: 9, Time: 5, Random: false, AllowLock: true, Audio: "ChainShort", Prerequisite: ["Collared", "AllFours", "NotSuspended", "NotMounted", "CanKneel"], AllowPose: ["AllFours", "Hogtied"], SetPose: ["Kneel"], Effect: ["Freeze", "ForceKneel", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }], 
 			Layer: [
 					{ Name: "Chain", Priority: 40 },
 					{ Name: "Base", Priority: 54 },
@@ -3138,23 +3138,23 @@ var AssetFemale3DCG = [
 			{ Name: "CollarLeashTaken", Fetish: ["Leather"], Value: -1, Difficulty: 6, Time: 5, Random: false, AllowLock: true, Audio: "LockSmall", Prerequisite: "Collared", AllowPose: ["AllFours"], Effect: ["Tethered", "Leash"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }] },
 			{ Name: "ChainLeash", Fetish: ["Leather"], Value: 25, Difficulty: 6, Time: 5, Random: false, AllowLock: true, Prerequisite: "Collared", Audio: "LockSmall", AllowPose: ["AllFours"], Effect: ["Leash"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }] },
 			{ Name: "ChainLeashTaken", Fetish: ["Leather"], Value: -1, Difficulty: 6, Time: 5, Random: false, AllowLock: true, Audio: "LockSmall", Prerequisite: "Collared", AllowPose: ["AllFours"], Effect: ["Tethered", "Leash"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }] },
-			{ Name: "CollarChainMedium", Fetish: ["Metal"], Value: -1, Difficulty: 6, Time: 5, Random: false, AllowLock: true, BuyGroup: "CollarChain", Audio: "ChainLong", Prerequisite: ["Collared", "NotSuspended"], AllowPose: ["AllFours", "Horse", "Kneel", "KneelingSpread"], Effect: ["Tethered", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }] },
+			{ Name: "CollarChainMedium", Fetish: ["Metal"], Value: -1, Difficulty: 6, Time: 5, Random: false, AllowLock: true, BuyGroup: "CollarChain", Audio: "ChainLong", Prerequisite: ["Collared", "NotSuspended"], AllowPose: ["AllFours", "Horse", "Kneel", "KneelingSpread", "Hogtied"], Effect: ["Tethered", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }] },
 			{
-				Name: "CollarRopeLong", Fetish: ["Rope"], Value: 30, Difficulty: 5, Time: 5, Random: false, DefaultColor: "#956B1C", BuyGroup: "CollarRope", Prerequisite: ["Collared", "NotSuspended"], AllowPose: ["AllFours", "Horse", "Kneel", "KneelingSpread"], Effect: ["Tethered", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }], DrawLocks: false,
+				Name: "CollarRopeLong", Fetish: ["Rope"], Value: 30, Difficulty: 5, Time: 5, Random: false, DefaultColor: "#956B1C", BuyGroup: "CollarRope", Prerequisite: ["Collared", "NotSuspended"], AllowPose: ["AllFours", "Horse", "Kneel", "KneelingSpread", "Hogtied"], Effect: ["Tethered", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }], DrawLocks: false,
 				Layer: [
 					{ Name: "Rope", },
 					{ Name: "Plate", AllowColorize: false, },
 				],
 			},
 			{
-				Name: "CollarRopeShort", Fetish: ["Rope"], Value: -1, Difficulty: 5, Time: 5, Random: false, DefaultColor: "#956B1C", BuyGroup: "CollarRope", Prerequisite: ["Collared", "AllFours", "NotSuspended", "NotMounted", "CanKneel"], AllowPose: ["AllFours"], SetPose: ["Kneel"], Effect: ["Freeze", "ForceKneel", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 },],  DrawLocks: false,
+				Name: "CollarRopeShort", Fetish: ["Rope"], Value: -1, Difficulty: 5, Time: 5, Random: false, DefaultColor: "#956B1C", BuyGroup: "CollarRope", Prerequisite: ["Collared", "AllFours", "NotSuspended", "NotMounted", "CanKneel", "Hogtied"], AllowPose: ["AllFours"], SetPose: ["Kneel"], Effect: ["Freeze", "ForceKneel", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 },],  DrawLocks: false,
 				Layer: [
 					{ Name: "Rope", },
 					{ Name: "Plate", AllowColorize: false, },
 				],
 			},
 			{
-				Name: "CollarRopeMedium", Fetish: ["Rope"], Value: -1, Difficulty: 6, Time: 5, Random: false, DefaultColor: "#956B1C", BuyGroup: "CollarRope", Prerequisite: ["Collared", "NotSuspended"], AllowPose: ["AllFours", "Horse", "Kneel", "KneelingSpread"], Effect: ["Tethered", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }], DrawLocks: false,
+				Name: "CollarRopeMedium", Fetish: ["Rope"], Value: -1, Difficulty: 6, Time: 5, Random: false, DefaultColor: "#956B1C", BuyGroup: "CollarRope", Prerequisite: ["Collared", "NotSuspended"], AllowPose: ["AllFours", "Horse", "Kneel", "KneelingSpread", "Hogtied"], Effect: ["Tethered", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }], DrawLocks: false,
 				Layer: [
 					{ Name: "Rope", },
 					{ Name: "Plate", AllowColorize: false, },
