@@ -259,6 +259,11 @@ function ModularItemMapOptionToButtonDefinition(option, optionIndex, module,
  * @returns {void} - Nothing
  */
 function ModularItemDrawCommon(moduleName, buttonDefinitions, { asset, pages, drawData }) {
+	if (ExtendedItemSubscreen) {
+		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Draw");
+		return;
+	}
+	
 	DrawAssetPreview(1387, 55, asset);
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 
@@ -354,6 +359,11 @@ function ModularItemClickModule(module, data) {
  * @returns {void} - Nothing
  */
 function ModularItemClickCommon({ paginate, positions }, exitCallback, itemCallback, paginateCallback) {
+	if (ExtendedItemSubscreen) {
+		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Click");
+		return;
+	}
+	
 	// Exit button
 	if (MouseIn(1885, 25, 90, 90)) {
 		return exitCallback();
@@ -523,7 +533,13 @@ function ModularItemSetType(module, index, data) {
 		}
 	}
 
-	ModularItemModuleTransition(ModularItemBase, data);
+	// If the module's option has a subscreen, transition to that screen instead of the main page of the item.
+	if (option.HasSubscreen) {
+		ExtendedItemSubscreen = module.Name + index;
+		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load", C);
+	} else {
+		ModularItemModuleTransition(ModularItemBase, data);
+	}
 }
 
 /**
@@ -590,11 +606,21 @@ function ModularItemGenerateLayerAllowTypes(layer, data) {
 			}
 			return values;
 		});
-		layer.AllowTypes = ModularItemGenerateAllowType(data, (combination) => {
+		
+		const GeneratedAllowTypes = ModularItemGenerateAllowType(data, (combination) => {
 			return allowedModuleCombinations.some(allowedCombination => {
 				return allowedCombination.every(combo => combination[combo[0]] === combo[1]);
 			});
 		});
+		
+		// Append to the existing AllowTypes
+		layer.AllowTypes = Array.isArray(layer.AllowTypes) ? layer.AllowTypes : [];	
+		layer.AllowTypes = layer.AllowTypes.concat(GeneratedAllowTypes);
+		
+		// When option 0 is an allowed module, it means the undefined/null type is allowed.
+		if (allowedModuleCombinations.find(arr => arr.find(combo => combo[1] === 0))) {
+			layer.AllowTypes.push("");
+		}
 	}
 }
 

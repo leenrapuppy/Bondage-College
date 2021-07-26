@@ -195,6 +195,7 @@ const ModularItemOption = {
 		HideItem: "Maybe [String]",
 		Property: "Maybe Object",
 		ChangeWhenLocked: "Maybe Boolean",
+		HasSubscreen: "Maybe Boolean",
 }
 
 const TypedItemConfig = {
