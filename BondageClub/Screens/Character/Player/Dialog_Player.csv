@@ -2320,7 +2320,9 @@ PantiesDiapers4StrawBerry,,,Strawberries
 PantiesDiapers4Flower,,,Flowers
 PantiesDiapers4Butterflies,,,Butterflies
 PantiesDiapers4Spots,,,Spots
-PreviewIconFavorite,,,Favorited
+PreviewIconFavorite,,,Favorite
+PreviewIconFavoritePlayer,,,Favorite (yours)
+PreviewIconFavoriteBoth,,,Favorite (theirs & yours)
 PreviewIconHandheld,,,Held
 PreviewIconLocked,,,Locked
 PreviewIconLoverOnly,,,Lovers only

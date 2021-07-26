@@ -734,7 +734,8 @@ function AppearanceGetPreviewImageColor(C, item, hover) {
 		return item.Worn ? "gray" : AppearancePermissionColors[permission][hover ? 1 : 0];
 	} else {
 		const Unusable = item.SortOrder.startsWith(DialogSortOrder.Unusable.toString())
-			|| item.SortOrder.startsWith(DialogSortOrder.FavoriteUnusable.toString());
+			|| item.SortOrder.startsWith(DialogSortOrder.TargetFavoriteUnusable.toString())
+			|| item.SortOrder.startsWith(DialogSortOrder.PlayerFavoriteUnusable.toString());
 		const Blocked = item.SortOrder.startsWith(DialogSortOrder.Blocked.toString());
 		if (hover && !Blocked) return "cyan";
 		else if (item.Worn) return "pink";
