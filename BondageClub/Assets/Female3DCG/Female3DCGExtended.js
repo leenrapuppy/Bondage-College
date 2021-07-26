@@ -2609,6 +2609,12 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 				],
+				Dialog: {
+					Load: "ItemMouthHarnessPonyBitsSelect",
+					TypePrefix: "ItemMouthHarnessPonyBits",
+					ChatPrefix: "ItemMouthHarnessPonyBitsSet",
+					NpcPrefix: "ItemMouthHarnessPonyBits",
+				}
 			},
 		}, // PonyBit
 		DentalGag: {
@@ -2678,6 +2684,10 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "BallGag" },
 		},
+		HarnessPonyBits: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "HarnessPonyBits" },
+		},
 		DuctTape: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "DuctTape" },
@@ -2707,6 +2717,10 @@ var AssetFemale3DCGExtended = {
 		HarnessBallGag: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "BallGag" },
+		},
+		HarnessPonyBits: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "HarnessPonyBits" },
 		},
 		DuctTape: {
 			Archetype: ExtendedArchetype.TYPED,
