@@ -402,11 +402,11 @@ function InventoryFuturisticTrainingBeltCheckPunishSpeech(Item, LastTime) {
 		if (ChatRoomChatLog[CH].Time <= LastTime) break
 
 		// If the message is OOC, just return immediately
-		if (ChatRoomChatLog[CH].Chat.indexOf('(') == 0) return "";
+		if (ChatRoomChatLog[CH].Original.indexOf('(') == 0) return "";
 
 		if (ChatRoomChatLog[CH].SenderMemberNumber == Player.MemberNumber) {
-			let msg = ChatRoomChatLog[CH].Chat.toUpperCase().replace(/[^a-z0-9]/gmi, " ").replace(/\s+/g, " ");
-			let msgTruncated = ChatRoomChatLog[CH].Chat.toUpperCase().replace(/[^a-z0-9]/gmi, "").replace(/\s+/g, "");
+			let msg = ChatRoomChatLog[CH].Original.toUpperCase().replace(/[^a-z0-9]/gmi, " ").replace(/\s+/g, " ");
+			let msgTruncated = ChatRoomChatLog[CH].Original.toUpperCase().replace(/[^a-z0-9]/gmi, "").replace(/\s+/g, "");
 
 			if (Item.Property.PunishSpeech > 0 && msgTruncated.length > FuturisticTrainingBeltSpeechCharacterLimit) return "Speech";
 			
@@ -414,7 +414,7 @@ function InventoryFuturisticTrainingBeltCheckPunishSpeech(Item, LastTime) {
 			if (Item.Property.PunishRequiredSpeech > 0 && Item.Property.PunishRequiredSpeechWord && msg.length > 0) {
 				let gagLevel = SpeechGetTotalGagLevel(Player)
 				if (gagLevel < 8) {
-					let checkWord = SpeechGarble(Player, Item.Property.PunishRequiredSpeechWord, true).replace(/[^a-z0-9]/gmi, " ").replace(/\s+/g, " ").toUpperCase();
+					let checkWord = Item.Property.PunishRequiredSpeechWord.replace(/[^a-z0-9]/gmi, " ").replace(/\s+/g, " ").toUpperCase();
 					if (!msg.includes(checkWord)) return "RequiredSpeech";
 				}
 			}
