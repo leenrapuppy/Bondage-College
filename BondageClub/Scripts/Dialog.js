@@ -27,7 +27,7 @@ var DialogItemPermissionMode = false;
 var DialogExtendedMessage = "";
 var DialogActivityMode = false;
 var DialogActivity = [];
-/** @enum {number} */
+/** @type {Record<"Enabled" | "Equipped" | "BothFavoriteUsable" | "TargetFavoriteUsable" | "PlayerFavoriteUsable" | "Usable" | "TargetFavoriteUnusable" | "PlayerFavoriteUnusable" | "Unusable" | "Blocked", DialogSortOrder>} */
 var DialogSortOrder = {
 	Enabled: 1, Equipped: 2, BothFavoriteUsable: 3,
 	TargetFavoriteUsable: 4, PlayerFavoriteUsable: 5, Usable: 6,

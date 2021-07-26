@@ -1,3 +1,4 @@
+//@ts-check
 "use strict";
 // *** Item value guidelines ***
 // First, check if there's a similar item and use that price.  If there isn't, use the real price in US dollars
@@ -20,12 +21,19 @@
 // Don't create anything that could be viewed by lots of players as racist, sexist, anti-LGBT, pedophilic, religious or political
 // If you change an item or a piece of code made by someone else, make sure to get their approval first
 
-// Spanking Toys Asset
+/**
+ * Spanking Toys Asset
+ * @type {AssetDefinition}
+ */
 var AssetSpankingToys = {
 	Name: "SpankingToys", Random: false, Wear: false, BuyGroup: "SpankingToys",
 	DynamicAllowInventoryAdd: C => InventoryIsWorn(Player, "SpankingToys", "ItemHands") && InventorySpankingToysActivityAllowed(C),
 	DynamicDescription: C => InventorySpankingToysGetDescription(C),
-	DynamicExpressionTrigger: () => InventoryItemHandsSpankingToysOptions.find(x => x.Name == InventorySpankingToysGetType(Player)).ExpressionTrigger,
+	DynamicExpressionTrigger: () => {
+		const Type = InventorySpankingToysGetType(Player);
+		const Option = InventoryItemHandsSpankingToysOptions.find(x => x.Name === Type);
+		return Option && Option.ExpressionTrigger;
+	},
 	DynamicPreviewImage: () => InventorySpankingToysGetType(Player),
 	DynamicName: C => "SpankingToys" + InventorySpankingToysGetType(C),
 	DynamicGroupName: "ItemHands",
@@ -38,10 +46,15 @@ var AssetSpankingToys = {
 };
 
 // Alpha mask regions based on Appearance.js CanvasUpperOverflow and CanvasLowerOverflow values
+/** @type {[number, number, number, number]} */
 const AssetUpperOverflowAlpha = [0, -700, 500, 700];
+/** @type {[number, number, number, number]} */
 const AssetLowerOverflowAlpha = [0, 1000, 500, 1000 + 150];
 
-// 3D Custom Girl based assets
+/**
+ * 3D Custom Girl based assets
+ * @type {AssetGroupDefinition[]}
+ */
 var AssetFemale3DCG = [
 
 	// Appearance specific
@@ -2011,7 +2024,7 @@ var AssetFemale3DCG = [
 					} else if (InventoryItemPelvisLoveChastityBeltLastAction == "Shock") {
 						return [{ Name: "Medium", Group: "Blush", Timer: 10 }];
 					} else if (InventoryItemPelvisLoveChastityBeltLastAction == "ShockTriggered") {
-						var belt = InventoryGet(CharacterGetCurrent(), "ItemPelvis");
+						var belt = InventoryGet(C, "ItemPelvis");
 						var intensity = belt && belt.Property && belt.Property.Intensity;
 						if (intensity == 0) {
 							return [{ Name: "Low", Group: "Blush", Timer: 10 }];
@@ -5217,7 +5230,10 @@ var ActivityFemale3DCG = [
 	}
 ];
 
-// 3D Custom Girl based fetishes
+/**
+ * 3D Custom Girl based fetishes
+ * @type {{Name: string; GetFactor(C: Character): number; }[]}
+ */
 var FetishFemale3DCG = [
 	{
 		Name: "Bondage",

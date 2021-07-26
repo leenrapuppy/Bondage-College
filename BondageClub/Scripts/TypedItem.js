@@ -36,8 +36,7 @@ const TypedItemDataLookup = {};
  * - TO_ONLY - The item has one chatroom message per type (indicating that the type has been selected)
  * - FROM_TO - The item has a chatroom message for from/to type pairing
  * - SILENT - The item doesn't publish an action when a type is selected.
- * @type {{TO_ONLY: string, FROM_TO: string, SILENT: string}}
- * @enum {string}
+ * @type {Record<"TO_ONLY"|"FROM_TO"|"SILENT", TypedItemChatSetting>}
  */
 const TypedItemChatSetting = {
 	TO_ONLY: "toOnly",
