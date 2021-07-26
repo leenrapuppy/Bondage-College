@@ -430,7 +430,7 @@ function ChatSearchResultResponse(data) {
 					ChatRoomName = Player.Name + Player.MemberNumber
 					ChatRoomDesc = ""
 				} else*/
-				if (roomIsFull && ChatSearchRejoinIncrement < 50) {
+				if ((ChatCreateMessage === "ResponseRoomAlreadyExist" || roomIsFull) && ChatSearchRejoinIncrement < 50) {
 					ChatSearchRejoinIncrement += 1;
 					let ChatRoomSuffix = " " + ChatSearchRejoinIncrement;
 					ChatRoomName = ChatRoomName.substring(0, Math.min(ChatRoomName.length, 19 - ChatRoomSuffix.length)) + ChatRoomSuffix; // Added
