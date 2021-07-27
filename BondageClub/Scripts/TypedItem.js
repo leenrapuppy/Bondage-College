@@ -71,7 +71,7 @@ function TypedItemRegister(asset, config) {
  * @returns {TypedItemData} - The generated typed item data for the asset
  */
 function TypedItemCreateTypedItemData(asset,
-	{ Options, Dialog, ChatTags, ChatSetting, DrawImages, ChangeWhenLocked, Validate }
+	{ Options, Dialog, ChatTags, Dictionary, ChatSetting, DrawImages, ChangeWhenLocked, Validate }
 ) {
 	Dialog = Dialog || {};
 	const key = `${asset.Group.Name}${asset.Name}`;
@@ -90,6 +90,7 @@ function TypedItemCreateTypedItemData(asset,
 			CommonChatTags.SOURCE_CHAR,
 			CommonChatTags.DEST_CHAR,
 		],
+		dictionary: Dictionary || [],
 		chatSetting: ChatSetting || TypedItemChatSetting.TO_ONLY,
 		drawImages: typeof DrawImages === "boolean" ? DrawImages : true,
 		changeWhenLocked: typeof ChangeWhenLocked === "boolean" ? ChangeWhenLocked : true,
@@ -157,23 +158,31 @@ function TypedItemCreateValidateFunction({ changeWhenLocked, options, functionPr
 
 /**
  * Creates an asset's extended item chatroom message publishing function
- * @param {TypedItemData} data - The typed item data for the asset
+ * @param {TypedItemData} typedItemData - The typed item data for the asset
  * @returns {void} - Nothing
  */
-function TypedItemCreatePublishFunction(data) {
-	const { options, functionPrefix, dialog, chatSetting } = data;
+function TypedItemCreatePublishFunction(typedItemData) {
+	const { options, functionPrefix, dialog, chatSetting } = typedItemData;
 	if (chatSetting === TypedItemChatSetting.SILENT) return;
 	const publishFunctionName = `${functionPrefix}PublishAction`;
 	window[publishFunctionName] = function (C, newOption, previousOption) {
+		const chatData = {
+			C,
+			previousOption,
+			newOption,
+			previousIndex: options.indexOf(previousOption),
+			newIndex:  options.indexOf(newOption),
+		};
+		
 		let msg = dialog.chatPrefix;
 		if (typeof msg === "function") {
-			const previousIndex = options.indexOf(previousOption);
-			const newIndex = options.indexOf(newOption);
-			msg = msg({ C, previousOption, newOption, previousIndex, newIndex });
+			msg = msg(chatData);
 		}
+		
 		if (chatSetting === TypedItemChatSetting.FROM_TO) msg += `${previousOption.Name}To`;
 		msg += newOption.Name;
-		const dictionary = TypedItemBuildChatMessageDictionary(C, data);
+		
+		const dictionary = TypedItemBuildChatMessageDictionary(chatData, typedItemData);
 		ChatRoomPublishCustomAction(msg, true, dictionary);
 	};
 }
@@ -227,14 +236,18 @@ function TypedItemGenerateAllowBlock({asset, options}) {
 
 /**
  * Constructs the chat message dictionary for the typed item based on the items configuration data.
- * @param {Character} C - The target character
+ * @param {TypedItemChatData} ChatData - The chat data that triggered the message.
  * @param {TypedItemData} data - The typed item data for the asset
  * @returns {object[]} - The dictionary for the item based on its required chat tags
  */
-function TypedItemBuildChatMessageDictionary(C, { asset, chatTags }) {
-	return chatTags
-		.map((tag) => TypedItemMapChatTagToDictionaryEntry(C, asset, tag))
+function TypedItemBuildChatMessageDictionary(ChatData, { asset, chatTags, dictionary }) {
+	const BuiltDictionary = chatTags
+		.map((tag) => TypedItemMapChatTagToDictionaryEntry(ChatData.C, asset, tag))
 		.filter(Boolean);
+	
+	dictionary.forEach(entry => BuiltDictionary.push(entry(ChatData)));
+	
+	return BuiltDictionary;
 }
 
 /**

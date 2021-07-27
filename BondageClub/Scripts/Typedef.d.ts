@@ -931,6 +931,10 @@ interface TypedItemConfig {
 	 * items to run additional validation for cases that aren't covered by configuration
 	 */
 	Validate?: TypedItemValidateCallback;
+	/**
+	 * Contains custom dictionary entries in the event that the base ones do not suffice.
+	 */
+	Dictionary?: TypedItemDictionaryCallback[];
 }
 
 interface TypedItemDialogConfig {
@@ -990,6 +994,10 @@ interface TypedItemData {
 	 */
 	chatTags: CommonChatTags[];
 	/**
+	 * Contains custom dictionary entries in the event that the base ones do not suffice.
+	 */
+	dictionary?: TypedItemDictionaryCallback[];
+	/**
 	 * The chat message setting for the item. This can be provided to allow
 	 * finer-grained chatroom message keys for the item. Defaults to {@link TypedItemChatSetting.TO_ONLY}
 	 */
@@ -1009,6 +1017,31 @@ interface TypedItemData {
 }
 
 /**
+ * An object containing data about the type change that triggered the chat message
+ * @param {Character} C - A reference to the character wearing the item
+ * @param {ExtendedItemOption} previousOption - The previously selected type option
+ * @param {ExtendedItemOption} newOption - The newly selected type option
+ * @param {number} previousIndex - The index of the previously selected type option in the item's options
+ * config
+ * @param {number} newIndex - The index of the newly selected type option in the item's options config
+ */
+interface TypedItemChatData {
+	C: Character;
+	previousOption: ExtendedItemOption;
+	newOption: ExtendedItemOption;
+	previousIndex: number;
+	newIndex: number;
+}
+
+/**
+ * @param {TypedItemChatData} chatData - An object containing data about the type change that triggered the chat message
+ * @returns {string} - The chat prefix that should be used for this type change
+ */
+type TypedItemChatCallback = (
+	chatData: TypedItemChatData
+) => string;
+
+/**
  * @param {object} chatData - An object containing data about the type change that triggered the chat message
  * @param {Character} chatData.C - A reference to the character wearing the item
  * @param {ExtendedItemOption} chatData.previousOption - The previously selected type option
@@ -1016,17 +1049,11 @@ interface TypedItemData {
  * @param {number} chatData.previousIndex - The index of the previously selected type option in the item's options
  * config
  * @param {number} chatData.newIndex - The index of the newly selected type option in the item's options config
- * @returns {string} - The chat prefix that should be used for this type change
+ * @returns {[{ Tag: string, Text: string }]} - The dictionary entry to append to the dictionary.
  */
-type TypedItemChatCallback = (
-	chatData: {
-		C: Character;
-		previousOption: ExtendedItemOption;
-		newOption: ExtendedItemOption;
-		previousIndex: number;
-		newIndex: number;
-	}
-) => string;
+type TypedItemDictionaryCallback = (
+	chatData: TypedItemChatData
+) => { Tag: string, Text: string };
 
 /**
  * @param {Character} C - A reference to the character wearing the item
