@@ -7,10 +7,9 @@ function InventoryItemButtAnalBeads2Load() {
 		DialogFocusItem.Property.Type = DialogFocusItem.Property.Type || "Base";
 		DialogFocusItem.Property.InsertedBeads = DialogFocusItem.Property.Type == "Base" ? 1 : DialogFocusItem.Property.Type.split('')[1];
 	}
-	if (DialogFocusItem.Property.ShowText == null) DialogFocusItem.Property.ShowText = true;
 	var beadsNum = DialogFocusItem.Property.InsertedBeads;
 	if (DialogFocusItem.Property.Type == null)
-		DialogFocusItem.Property.Type = beadsNum > 1 ? "_" + beadsNum + "in" : ["Base"];
+		DialogFocusItem.Property.Type = beadsNum > 1 ? "_" + beadsNum + "in" : "Base";
 }
 
 // Draw the item extension screen

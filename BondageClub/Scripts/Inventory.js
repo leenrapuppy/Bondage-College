@@ -202,7 +202,7 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 			? "RemoveClothesForItem" : "";
 
 		// Ensure crotch is empty
-		case "VulvaEmpty": return ((InventoryGet(C, "ItemVulva") != null)) ? "MustFreeVulvaFirst" : "";
+		case "VulvaEmpty": return ((InventoryGet(C, "ItemVulva") != null) || C.Effect.includes("FillVulva")) ? "MustFreeVulvaFirst" : "";
 		case "ClitEmpty": return ((InventoryGet(C, "ItemVulvaPiercings") != null)) ? "MustFreeClitFirst" : "";
 		case "ButtEmpty": return ((InventoryGet(C, "ItemButt") != null)) ? "MustFreeButtFirst" : "";
 
