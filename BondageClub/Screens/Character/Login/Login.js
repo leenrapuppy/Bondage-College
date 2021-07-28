@@ -657,11 +657,7 @@ function LoginClick() {
 	if (ServerIsConnected && MouseIn(825, 740, 350, 60)) {
 		ElementRemove("InputName");
 		ElementRemove("InputPassword");
-		CharacterAppearanceSetDefault(Player);
-		InventoryRemove(Player, "ItemFeet");
-		InventoryRemove(Player, "ItemLegs");
-		InventoryRemove(Player, "ItemArms");
-		CharacterAppearanceLoadCharacter(Player);
+		CommonSetScreen("Character", "Disclaimer");
 	}
 
 	// Try to login
