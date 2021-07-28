@@ -1299,6 +1299,12 @@ var AssetFemale3DCG = [
 			{ Name: "MouseTailStrap2", Fetish: ["Pet"], Value: 20 },
 			{ Name: "CowtailStrap", Fetish: ["Pet"], BuyGroup: "CowTails", Value: 20, AllowPose: ["AllFours"] },
 			{ Name: "BunnyTailStrap", Fetish: ["Pet"], Value: 1, Visible: false, },
+			{ Name: "DragonTailStrap1", Fetish: ["Pet"], Value: 20,
+				Layer: [
+					{ Name: "Primary" },
+					{ Name: "Secondary" }
+				]
+			},
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
