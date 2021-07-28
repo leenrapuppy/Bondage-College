@@ -82,7 +82,6 @@ function SpeechGetTotalGagLevel(C, NoDeaf=false) {
 	GagEffect += SpeechGetGagLevel(C, "ItemHood");
 	GagEffect += SpeechGetGagLevel(C, "ItemNeck");
 	GagEffect += SpeechGetGagLevel(C, "ItemDevices");
-	GagEffect += SpeechGetGagLevel(C, "ItemHoodAddon");
 
 	if (C.ID != 0 && !NoDeaf) {
 		if (Player.GetDeafLevel() >= 7) GagEffect = Math.max(GagEffect, 20);
