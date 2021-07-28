@@ -185,7 +185,7 @@ function ItemColorDrawDefault(x, y) {
 		} else {
 			let currentColors;
 			const layerPage = ItemColorLayerPages[colorGroup.name];
-			const colorGroupName = ItemColorGroupNames.get(colorGroup.name);
+			const colorGroupName = ItemColorGroupNames.get(asset.Group.Name + asset.Name+ colorGroup.name);
 			if (layerPage === 0) {
 				currentColors = colorGroup.layers.map(layer => colors[layer.ColorIndex]);
 				groupName = colorGroupName + ": " + ItemColorText.get("All");
