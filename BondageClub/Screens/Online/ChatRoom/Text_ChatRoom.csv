@@ -16,3 +16,11 @@ OrgasmResist,Resist!
 OrgasmTryResist,Try to resist
 OrgasmSurrender,Surrender
 OrgasmRecovering,Recovering from an orgasm...
+CommandHelp,<strong>Help: KeyWord</strong>
+CommandNoSuchCommand,command: no such command
+CommandPrerequisiteFailed,command: prerequisite check failed
+CommandHelpMissing,HELP IS MISSING
+CommandFriendlist,Blacklist: 
+CommandGhostlist,Ghostlist: 
+CommandWhitelist,Whitelist: 
+CommandBlacklist,Blacklist: 

@@ -589,6 +589,7 @@ interface PlayerCharacter extends Character {
 		ColorActivities: boolean;
 		ShrinkNonDialogue: boolean;
 		MuStylePoses: boolean;
+		ShowChatHelp: boolean;
 	};
 	VisualSettings?: {
 		ForceFullHeight: boolean;
@@ -1129,3 +1130,15 @@ interface AppearanceValidationWrapper {
 }
 
 //#endregion
+
+type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
+interface ICommand {
+	Tag: string;
+	Description?: string;
+	Reference?: string;
+	Action?: (this: Optional<ICommand, 'Tag'>, args: string, msg: string, parsed: string[]) => void
+	Prerequisite?: (this: Optional<ICommand, 'Tag'>) => boolean;
+	AutoComplete?: (this: Optional<ICommand, 'Tag'>, parsed: string[], low: string, msg: string) => void;
+	Clear?: false;
+}

@@ -315,6 +315,7 @@ function PreferenceInitPlayer() {
 	if (typeof C.ChatSettings.ColorActivities !== "boolean") C.ChatSettings.ColorActivities = true;
 	if (typeof C.ChatSettings.ShrinkNonDialogue !== "boolean") C.ChatSettings.ShrinkNonDialogue = false;
 	if (typeof C.ChatSettings.MuStylePoses !== "boolean") C.ChatSettings.MuStylePoses = false;
+	if (typeof C.ChatSettings.ShowChatHelp !== "boolean") C.ChatSettings.ShowChatHelp = true;
 
 	// Visual settings
 	if (!C.VisualSettings) C.VisualSettings = {};
@@ -884,10 +885,10 @@ function PreferenceSubscreenImmersionRun() {
 		// Cannot change any value under the Extreme difficulty mode
 		DrawText(TextGet("ImmersionLocked"), 500, 205, "Red", "Gray");
 	}
-	
-	
+
+
 	DrawEmptyRect(500, 255, 1400, 0, "Black", 1);
-	
+
 	let CheckHeight = 272;
 	let CheckSpacing = 80;
 
@@ -909,7 +910,7 @@ function PreferenceSubscreenImmersionRun() {
 		CheckHeight += CheckSpacing;
 		const canHideMessages = Player.GameplaySettings.SensDepChatLog !== "SensDepLight";
 		DrawCheckbox(1300, 272, 64, 64, TextGet("SenseDepMessages"), canHideMessages && Player.ImmersionSettings.SenseDepMessages, !canHideMessages || disableButtons);
-				
+
 		MainCanvas.textAlign = "center";
 
 		DrawBackNextButton(500, 272, 250, 64, TextGet(Player.GameplaySettings.SensDepChatLog), "White", "",
@@ -938,10 +939,10 @@ function PreferenceSubscreenImmersionClick() {
 	if (Player.GetDifficulty() <= 2 && (!Player.GameplaySettings.ImmersionLockSetting || (!Player.IsRestrained()))) {
 		let CheckHeight = 272;
 		let CheckSpacing = 80;
-		
+
 		// Preference check boxes
 		if (MouseIn(500, 172, 64, 64)) Player.GameplaySettings.ImmersionLockSetting = !Player.GameplaySettings.ImmersionLockSetting;
-		
+
 		if (PreferencePageCurrent === 1) {
 			// If we must change sens dep settings
 			if (MouseIn(500, CheckHeight, 250, 64)) {
@@ -954,26 +955,26 @@ function PreferenceSubscreenImmersionClick() {
 			if (MouseIn(500, CheckHeight, 64, 64) && ![PreferenceSettingsSensDepList.indexOf("SensDepLight"), PreferenceSettingsSensDepList.indexOf("SensDepExtreme")].includes(PreferenceSettingsSensDepIndex))
 				Player.GameplaySettings.BlindDisableExamine = !Player.GameplaySettings.BlindDisableExamine;
 			CheckHeight += CheckSpacing;
-			if (MouseIn(500, CheckHeight, 64, 64)) Player.ImmersionSettings.BlindAdjacent = !Player.ImmersionSettings.BlindAdjacent; 
+			if (MouseIn(500, CheckHeight, 64, 64)) Player.ImmersionSettings.BlindAdjacent = !Player.ImmersionSettings.BlindAdjacent;
 			CheckHeight += CheckSpacing;
-			if (MouseIn(500, CheckHeight, 64, 64)) Player.ImmersionSettings.ChatRoomMuffle = !Player.ImmersionSettings.ChatRoomMuffle; 
+			if (MouseIn(500, CheckHeight, 64, 64)) Player.ImmersionSettings.ChatRoomMuffle = !Player.ImmersionSettings.ChatRoomMuffle;
 			CheckHeight += CheckSpacing;
-			
+
 			// Room control
-			if (MouseIn(500, CheckHeight, 64, 64)) Player.GameplaySettings.DisableAutoRemoveLogin = !Player.GameplaySettings.DisableAutoRemoveLogin; 
+			if (MouseIn(500, CheckHeight, 64, 64)) Player.GameplaySettings.DisableAutoRemoveLogin = !Player.GameplaySettings.DisableAutoRemoveLogin;
 			CheckHeight += CheckSpacing;
 			if (MouseIn(500, CheckHeight, 64, 64)) {
 				Player.ImmersionSettings.BlockGaggedOOC = !Player.ImmersionSettings.BlockGaggedOOC;
 				if (Player.ImmersionSettings.BlockGaggedOOC) ChatRoomSetTarget(null);
 			}
 			CheckHeight += CheckSpacing;
-			if (MouseIn(500, CheckHeight, 64, 64)) Player.OnlineSharedSettings.AllowPlayerLeashing = !Player.OnlineSharedSettings.AllowPlayerLeashing; 
+			if (MouseIn(500, CheckHeight, 64, 64)) Player.OnlineSharedSettings.AllowPlayerLeashing = !Player.OnlineSharedSettings.AllowPlayerLeashing;
 			CheckHeight += CheckSpacing;
 			if (MouseIn(500, CheckHeight, 64, 64)) Player.ImmersionSettings.ReturnToChatRoom = !Player.ImmersionSettings.ReturnToChatRoom;
 			if (MouseIn(1300, CheckHeight, 64, 64) && Player.ImmersionSettings.ReturnToChatRoom)
 				Player.ImmersionSettings.ReturnToChatRoomAdmin = !Player.ImmersionSettings.ReturnToChatRoomAdmin;
 			CheckHeight += CheckSpacing;
-			
+
 			if (MouseIn(1300, 272, 64, 64) && Player.GameplaySettings.SensDepChatLog !== "SensDepLight")
 				Player.ImmersionSettings.SenseDepMessages = !Player.ImmersionSettings.SenseDepMessages;
 		}
@@ -1137,6 +1138,7 @@ function PreferenceSubscreenChatRun() {
 	DrawCheckbox(500, 652, 64, 64, TextGet("ColorActions"), Player.ChatSettings.ColorActions);
 	DrawCheckbox(500, 732, 64, 64, TextGet("ColorEmotes"), Player.ChatSettings.ColorEmotes);
 	DrawCheckbox(500, 812, 64, 64, TextGet("ShowActivities"), Player.ChatSettings.ShowActivities);
+	DrawCheckbox(500, 892, 64, 64, TextGet("ShowChatRoomHelp"), Player.ChatSettings.ShowChatHelp);
 	DrawCheckbox(1200, 492, 64, 64, TextGet("ShowAutomaticMessages"), Player.ChatSettings.ShowAutomaticMessages);
 	DrawCheckbox(1200, 572, 64, 64, TextGet("PreserveWhitespace"), Player.ChatSettings.WhiteSpace == "Preserve");
 	DrawCheckbox(1200, 652, 64, 64, TextGet("ColorActivities"), Player.ChatSettings.ColorActivities);
@@ -1190,7 +1192,7 @@ function PreferenceSubscreenArousalRun() {
 	DrawText(TextGet("ArousalStutter"), 550, 460, "Black", "Gray");
 	DrawCheckbox(550, 276, 64, 64, TextGet("ArousalShowOtherMeter"), Player.ArousalSettings.ShowOtherMeter);
 	DrawCheckbox(550, 356, 64, 64, TextGet("ArousalDisableAdvancedVibes"), Player.ArousalSettings.DisableAdvancedVibes, Player.GetDifficulty() >= 3);
-	
+
 
 	// The other controls are only drawn if the arousal is active
 	if (PreferenceArousalIsActive()) {
@@ -1312,13 +1314,13 @@ function PreferenceSubscreenGraphicsRun() {
 	// Character and exit button
 	DrawCharacter(Player, 50, 50, 0.9);
 	DrawButton(1815, 75, 90, 90, "", "White", "Icons/Exit.png");
-	
+
 	MainCanvas.textAlign = "center";
 	PreferencePageChangeDraw(1595, 75, 2); // Uncomment when adding a 2nd page
-	
+
 	MainCanvas.textAlign = "left";
 	DrawText(TextGet("VFXPreferences"), 500, 125, "Black", "Gray");
-	
+
 	if (PreferencePageCurrent === 1) {
 		DrawText(TextGet("VFX"), 800, 216, "Black", "Gray");
 		DrawText(TextGet("GraphicsFont"), 800, 306, "Black", "Gray");
@@ -1333,7 +1335,7 @@ function PreferenceSubscreenGraphicsRun() {
 		} else {
 			DrawText(TextGet("GraphicsNoWebGL"), 700, 810, "Red", "Gray");
 		}
-		
+
 		MainCanvas.textAlign = "center";
 		DrawBackNextButton(500, 182, 250, 64, TextGet(Player.ArousalSettings.VFX), "White", "",
 			() => TextGet(PreferenceSettingsVFXList[(PreferenceSettingsVFXIndex + PreferenceSettingsVFXList.length - 1) % PreferenceSettingsVFXList.length]),
@@ -1353,7 +1355,7 @@ function PreferenceSubscreenGraphicsRun() {
 		}
 	} else if (PreferencePageCurrent === 2) {
 		DrawText(TextGet("VFXFilter"), 1000, 216, "Black", "Gray");
-		
+
 		MainCanvas.textAlign = "center";
 		DrawBackNextButton(500, 182, 450, 64, TextGet(Player.ArousalSettings.VFXFilter), "White", "",
 			() => TextGet(PreferenceSettingsVFXFilterList[(PreferenceSettingsVFXFilterIndex + PreferenceSettingsVFXFilterList.length - 1) % PreferenceSettingsVFXFilterList.length]),
@@ -1368,7 +1370,7 @@ function PreferenceSubscreenGraphicsRun() {
 function PreferenceSubscreenGraphicsClick() {
 	// If the user clicked the exit icon to return to the main screen
 	if (MouseIn(1815, 75, 90, 90)) PreferenceSubscreenGraphicsExit();
-	
+
 	// Change page
 	PreferencePageChangeClick(1595, 75, 2); // Uncomment when adding a 2nd page
 
@@ -1527,6 +1529,7 @@ function PreferenceSubscreenChatClick() {
 		if (MouseYIn(652, 64)) Player.ChatSettings.ColorActions = !Player.ChatSettings.ColorActions;
 		if (MouseYIn(732, 64)) Player.ChatSettings.ColorEmotes = !Player.ChatSettings.ColorEmotes;
 		if (MouseYIn(812, 64)) Player.ChatSettings.ShowActivities = !Player.ChatSettings.ShowActivities;
+		if (MouseYIn(892, 64)) Player.ChatSettings.ShowChatHelp = !Player.ChatSettings.ShowChatHelp;
 	}
 
 	if (MouseXIn(1200, 64)) {
@@ -1535,7 +1538,7 @@ function PreferenceSubscreenChatClick() {
 		if (MouseYIn(652, 64)) Player.ChatSettings.ColorActivities = !Player.ChatSettings.ColorActivities;
 		if (MouseYIn(732, 64)) Player.ChatSettings.ShrinkNonDialogue = !Player.ChatSettings.ShrinkNonDialogue;
 		if (MouseYIn(812, 64)) Player.ChatSettings.MuStylePoses = !Player.ChatSettings.MuStylePoses;
-		
+
 	}
 
 	// If the user used one of the BackNextButtons
@@ -1615,7 +1618,7 @@ function PreferenceSubscreenArousalClick() {
 	// Show other player meter check box
 	if (MouseIn(550, 276, 64, 64))
 		Player.ArousalSettings.ShowOtherMeter = !Player.ArousalSettings.ShowOtherMeter;
-	
+
 	// Block advanced modes check box
 	if (MouseIn(550, 356, 64, 64) && Player.GetDifficulty() < 3)
 		Player.ArousalSettings.DisableAdvancedVibes = !Player.ArousalSettings.DisableAdvancedVibes;
