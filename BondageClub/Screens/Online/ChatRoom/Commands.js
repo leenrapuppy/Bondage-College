@@ -59,19 +59,22 @@ function CommandCombine(add) {
 
 /**
  * Parse the input chat message
- * @param {string} msg
+ * @param {string} msg - Input string, cannot be empty
  */
 function CommandParse(msg) {
-	if (msg.startsWith(CommandsKey)) {
+	if (msg.startsWith(CommandsKey + CommandsKey)) {
+		msg = msg.substr(1);
+	} else if (msg.startsWith(CommandsKey)) {
 		CommandExecute(msg);
 		return;
-	} if (msg.startsWith("*") || (Player.ChatSettings.MuStylePoses && msg.indexOf(":") == 0 && msg.length > 3)) {
+	}
+	if (msg.startsWith("*") || (Player.ChatSettings.MuStylePoses && msg.startsWith(":") && msg.length > 3)) {
 		ChatRoomSendEmote(msg);
 		ElementValue("InputChat", "");
 		return;
 	}
 	const WhisperTarget = ChatRoomCharacter.find(C => C.MemberNumber == ChatRoomTargetMemberNumber);
-	if (msg != "" && !((ChatRoomTargetMemberNumber != null || msg.indexOf("(") >= 0) && Player.ImmersionSettings && (Player.ImmersionSettings.BlockGaggedOOC && (!(Player.Effect.includes("HideRestraints") && Player.Effect.includes("VRAvatars")) || !WhisperTarget || !WhisperTarget.Effect.includes("VRAvatars"))) && !Player.CanTalk())) {
+	if (!ChatRoomShouldBlockGaggedOOCMessage(msg, WhisperTarget)) {
 		if (ChatRoomTargetMemberNumber == null) {
 			// Regular chat
 			ServerSend("ChatRoomChat", { Content: msg, Type: "Chat" });
@@ -139,7 +142,7 @@ function CommandExecute(msg) {
 	const [key, ...parsed] = low.replace(/\s{2,}/g, ' ').split(' ');
 	const flt = GetCommands().filter(C => key.indexOf(CommandsKey + C.Tag) == 0);
 	let C = flt[0];
-	
+
 	if (flt.length > 1) C = null;
 	if (C && C.Reference) C = GetCommands().find(D => D.Tag == C.Reference);
 	if (C == null) {
@@ -171,7 +174,7 @@ function CommandAutoComplete(msg) {
 	if (CS.length == 0) return;
 
 	if (CS.length == 1) {
-		if (forward.length == 0) {
+		if (key != (CommandsKey + CS[0].Tag)) {
 			ElementValue("InputChat", CommandsKey + CS[0].Tag + " ");
 			ElementFocus("InputChat");
 		} else if (CS[0].AutoComplete) {
@@ -255,7 +258,7 @@ const CommonCommands = [
 	},
 	{
 		Tag: '/',
-		Action: (_, msg) => { ServerSend("ChatRoomChat", { Content: msg.substring(1), Type: "Chat" }); }
+		Action: () => { /* This Action will never be called */ }
 	},
 	{
 		Tag: 'safeword',
