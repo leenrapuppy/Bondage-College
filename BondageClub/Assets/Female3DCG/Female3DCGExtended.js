@@ -3805,6 +3805,7 @@ var AssetFemale3DCGExtended = {
 					ChatPrefix: "CeilingChainSet",
 					NpcPrefix: "CeilingChain",
 				},
+				ChangeWhenLocked: false,
 			}
 		}, // CeilingChain
 		CeilingRope: {
