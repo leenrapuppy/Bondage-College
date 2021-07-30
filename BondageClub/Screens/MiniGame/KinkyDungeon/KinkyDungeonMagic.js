@@ -18,7 +18,7 @@ var KinkyDungeonCurrentPage = 0;
 var KinkyDungeonBooks = ["Elements", "Conjure", "Illusion"];
 
 // Glossary of spell effects
-// exhaustion: Number of turns of no stamina regen after casting the spell. Stacks
+// manacost: Number of turns of no stamina regen after casting the spell. Stacks
 // Components: Components required to cast the spell. All of them need to be met
 // Level: Determines mana cost and availability. On enemies, increases cooldown
 // Power: Determines damage
@@ -32,8 +32,10 @@ var KinkyDungeonBooks = ["Elements", "Conjure", "Illusion"];
 // onhit: What happens on AoE. Deals aoepower damage, or just power otherwise 
 
 var KinkyDungeonSpellsStart = [
-	{name: "Firebolt", exhaustion: 1, components: ["Arms"], level:1, type:"bolt", projectile:true, onhit:"", power: 3, delay: 0, range: 50, damage: "fire", speed: 1, playerEffect: {name: "Damage"}}, // Throws a fireball in a direction that moves 1 square each turn
-	{name: "Snare", exhaustion: 1, components: ["Legs"], level:1, type:"inert", projectile:false, onhit:"lingering", lifetime:-1, time: 10, delay: 3, range: 1, damage: "stun", playerEffect: {name: "MagicRope", time: 3}}, // Creates a magic rope trap that creates magic ropes on anything that steps on it. They are invisible once placed. Enemies get rooted, players get fully tied!
+	{name: "Firebolt", manacost: 6, components: ["Arms"], level:1, type:"bolt", projectile:true, onhit:"", power: 3, delay: 0, range: 50, damage: "fire", speed: 1, playerEffect: {name: "Damage"}}, // Throws a fireball in a direction that moves 1 square each turn
+	{name: "Snare", manacost: 5, components: ["Legs"], level:1, type:"inert", projectile:false, onhit:"lingering", lifetime:-1, time: 10, delay: 3, range: 1, damage: "stun", playerEffect: {name: "MagicRope", time: 3}}, // Creates a magic rope trap that creates magic ropes on anything that steps on it. They are invisible once placed. Enemies get rooted, players get fully tied!
+	{name: "Flash", manacost: 5, components: ["Verbal"], level:2, type:"inert", projectile:false, onhit:"aoe", time: 3, delay: 1, power: 1, range: 2.5, size: 3, aoe: 1.5, lifetime: 1, damage: "stun", playerEffect: {name: "Blind", time: 3}}, // Start with flash, an explosion with a 1 turn delay and a 1.5 tile radius. If you are caught in the radius, you also get blinded temporarily!
+
 ];
 
 
@@ -41,33 +43,34 @@ var KinkyDungeonSpellChoices = [0, 1, 2];
 var KinkyDungeonSpellChoiceCount = 3;
 var KinkyDungeonSpellList = { // List of spells you can unlock in the 3 books. When you plan to use a mystic seal, you get 3 spells to choose from.
 	"Elements": [
-		{name: "Fireball", exhaustion: 6, components: ["Arms"], level:4, type:"bolt", projectile:true, onhit:"aoe", power: 4, delay: 0, range: 50, aoe: 1.5, size: 3, lifetime:1, damage: "fire", speed: 1, playerEffect: {name: "Damage"}}, // Throws a fireball in a direction that moves 1 square each turn
-		{name: "Icebolt", exhaustion: 4, components: ["Arms"], level:2, type:"bolt", projectile:true, onhit:"", time: 4,  power: 2, delay: 0, range: 50, damage: "ice", speed: 2, playerEffect: {name: "Damage"}}, // Throws a blast of ice which stuns the target for 4 turns
-		{name: "Electrify", exhaustion: 2, components: ["Arms"], level:2, type:"inert", projectile:false, onhit:"aoe", power: 5, time: 1, delay: 1, range: 4, size: 1, aoe: 0.75, lifetime: 1, damage: "electric", playerEffect: {name: "Shock", time: 1}}, // A series of light shocks incapacitate you
-		{name: "Shield", exhaustion: 3, components: ["Legs"], level:1, type:"inert", projectile:false, block: 5, onhit:"", power: 0, delay: 1, range: 1.5, size: 1, damage: ""}, // Creates a shield that blocks projectiles for 1 turn
-		{name: "GreaterShield", exhaustion: 4, components: ["Legs"], level:2, type:"inert", projectile:false, block: 10, onhit:"", power: 0, delay: 5, range: 2, size: 1, damage: ""}, // Creates a shield that blocks projectiles for 5 turns
+		{name: "Fireball", manacost: 15, components: ["Arms"], level:4, type:"bolt", projectile:true, onhit:"aoe", power: 4, delay: 0, range: 50, aoe: 1.5, size: 3, lifetime:1, damage: "fire", speed: 1, playerEffect: {name: "Damage"}}, // Throws a fireball in a direction that moves 1 square each turn
+		{name: "Icebolt", manacost: 10, components: ["Arms"], level:2, type:"bolt", projectile:true, onhit:"", time: 4,  power: 2, delay: 0, range: 50, damage: "ice", speed: 2, playerEffect: {name: "Damage"}}, // Throws a blast of ice which stuns the target for 4 turns
+		{name: "Electrify", manacost: 7, components: ["Verbal"], level:2, type:"inert", projectile:false, onhit:"aoe", power: 5, time: 1, delay: 1, range: 4, size: 1, aoe: 0.75, lifetime: 1, damage: "electric", playerEffect: {name: "Shock", time: 1}}, // A series of light shocks incapacitate you
+		{name: "Shield", manacost: 2, components: ["Legs"], level:1, type:"inert", projectile:false, block: 5, onhit:"", power: 0, delay: 1, range: 1.5, size: 1, damage: ""}, // Creates a shield that blocks projectiles for 1 turn
+		{name: "GreaterShield", manacost: 4, components: ["Legs"], level:2, type:"inert", projectile:false, block: 10, onhit:"", power: 0, delay: 5, range: 2, size: 1, damage: ""}, // Creates a shield that blocks projectiles for 5 turns
 		
 		],
 	"Conjure": [
-		{name: "Slime", exhaustion: 5, components: ["Legs"], level:3, type:"inert", projectile:false, onhit:"lingering", time: 2, delay: 1, range: 4, size: 3, aoe: 2, lifetime: 3, lifetimeHitBonus: 12, damage: "stun", playerEffect: {name: "SlimeTrap", time: 3}}, // Creates a huge pool of slime, slowing enemies that try to enter. If you step in it, you have a chance of getting trapped!
-		//{name: "PinkGas", exhaustion: 4, components: ["Verbal"], level:2, type:"inert", projectile:false, onhit:"lingering", time: 1, delay: 2, range: 4, size: 3, aoe: 2.5, lifetime: 9999, damage: "stun", playerEffect: {name: "PinkGas", time: 3}}, // Dizzying gas, increases arousal
-		{name: "ChainBolt", exhaustion: 1, components: ["Arms"], level:1, type:"bolt", projectile:true, onhit:"", time: 1,  power: 2, delay: 0, range: 50, damage: "chain", speed: 2, playerEffect: {name: "SingleChain", time: 1}}, // Throws a chain which stuns the target for 1 turn
-		{name: "SlimeBall", exhaustion: 4, components: ["Arms"], level:2, type:"bolt", projectile:true, onhit:"", time: 2,  power: 2.5, delay: 0, range: 50, damage: "glue", speed: 1, trailLifetime: 10, trailDamage:"stun", trail:"lingering", trailChance: 1.0, playerEffect: {name: "SlimeTrap", time: 3}}, // Throws a ball of slime which oozes more slime
-		{name: "Leap", exhaustion: 5, components: ["Legs"], level:2, type:"inert", projectile:false, onhit:"teleport", delay: 1, lifetime:1, range: 5, damage: ""}, // A quick blink which takes effect instantly, but requires legs to be free
-		{name: "Blink", exhaustion: 3, components: ["Verbal"], level:2, type:"inert", projectile:false, onhit:"teleport", delay: 3, range: 3, damage: ""}, // A slow blink with short range, but it uses verbal components
+		{name: "Slime", manacost: 7, components: ["Legs"], level:3, type:"inert", projectile:false, onhit:"lingering", time: 2, delay: 1, range: 4, size: 3, aoe: 2, lifetime: 3, lifetimeHitBonus: 12, damage: "stun", playerEffect: {name: "SlimeTrap", time: 3}}, // Creates a huge pool of slime, slowing enemies that try to enter. If you step in it, you have a chance of getting trapped!
+		//{name: "PinkGas", manacost: 4, components: ["Verbal"], level:2, type:"inert", projectile:false, onhit:"lingering", time: 1, delay: 2, range: 4, size: 3, aoe: 2.5, lifetime: 9999, damage: "stun", playerEffect: {name: "PinkGas", time: 3}}, // Dizzying gas, increases arousal
+		{name: "ChainBolt", manacost: 7, components: ["Arms"], level:1, type:"bolt", projectile:true, onhit:"", time: 1,  power: 2, delay: 0, range: 50, damage: "chain", speed: 2, playerEffect: {name: "SingleChain", time: 1}}, // Throws a chain which stuns the target for 1 turn
+		{name: "SlimeBall", manacost: 5, components: ["Arms"], level:2, type:"bolt", projectile:true, onhit:"", time: 2,  power: 2.5, delay: 0, range: 50, damage: "glue", speed: 1, trailLifetime: 10, trailDamage:"stun", trail:"lingering", trailChance: 1.0, playerEffect: {name: "SlimeTrap", time: 3}}, // Throws a ball of slime which oozes more slime
+		{name: "Leap", manacost: 8, components: ["Legs"], level:2, type:"inert", projectile:false, onhit:"teleport", delay: 1, lifetime:1, range: 5, damage: ""}, // A quick blink which takes effect instantly, but requires legs to be free
+		{name: "Blink", manacost: 3, components: ["Verbal"], level:2, type:"inert", projectile:false, onhit:"teleport", delay: 3, lifetime:1, range: 3, damage: ""}, // A slow blink with short range, but it uses verbal components
 
 	],
 	"Illusion": [
-		{name: "Flash", exhaustion: 3, components: ["Verbal"], level:2, type:"inert", projectile:false, onhit:"aoe", time: 3, delay: 1, range: 2.5, size: 3, aoe: 1.5, lifetime: 1, damage: "stun", playerEffect: {name: "Blind", time: 3}}, // Start with flash, an explosion with a 1 turn delay and a 1.5 tile radius. If you are caught in the radius, you also get blinded temporarily!
-		{name: "GreaterFlash", exhaustion: 5, components: ["Verbal"], level:3, type:"inert", projectile:false, onhit:"aoe", time: 4, delay: 1, range: 2.5, size: 5, aoe: 2.5, lifetime: 1, damage: "stun", playerEffect: {name: "Blind", time: 3}}, // Much greater AoE. Careful not to get caught!
-		{name: "FocusedFlash", exhaustion: 6, components: ["Verbal"], level:4, type:"inert", projectile:false, onhit:"aoe", time: 12, delay: 2, range: 2.5, size: 3, aoe: 1.5, lifetime: 1, damage: "stun", playerEffect: {name: "Blind", time: 12}}, // Longer delay, but the stun lasts much longer.
-		{name: "Shroud", exhaustion: 4, components: ["Verbal"], level:3, type:"inert", projectile:false, buffs: [{type: "Evasion", power: 0.75, player: true, enemies: true, tags: ["darkness"], range: 1.5}], onhit:"", time:8, aoe: 1.5, power: 0, delay: 8, range: 4, size: 3, damage: ""}, // Creates a shroud. Enemies within are hard to hit with melee attacks.
+		{name: "GreaterFlash", manacost: 7, components: ["Verbal"], level:3, type:"inert", projectile:false, onhit:"aoe", time: 4, delay: 1, power: 1, range: 2.5, size: 5, aoe: 2.5, lifetime: 1, damage: "stun", playerEffect: {name: "Blind", time: 3}}, // Much greater AoE. Careful not to get caught!
+		{name: "FocusedFlash", manacost: 12, components: ["Verbal"], level:4, type:"inert", projectile:false, onhit:"aoe", time: 12, delay: 2, power: 1, range: 2.5, size: 3, aoe: 1.5, lifetime: 1, damage: "stun", playerEffect: {name: "Blind", time: 12}}, // Longer delay, but the stun lasts much longer.
+		{name: "Shroud", manacost: 12, components: ["Verbal"], level:3, type:"inert", projectile:false, buffs: [{type: "Evasion", power: 0.75, player: true, enemies: true, tags: ["darkness"], range: 1.5}], onhit:"", time:8, aoe: 1.5, power: 0, delay: 8, range: 4, size: 3, damage: ""}, // Creates a shroud. Enemies within are hard to hit with melee attacks.
 	],
 };
 var KinkyDungeonSpellListEnemies = [
-{name: "WitchSlime", exhaustion: 5, components: ["Legs"], level:2, type:"inert", projectile:false, onhit:"lingering", time: 2, delay: 1, range: 4, size: 3, aoe: 1, lifetime: 1, lifetimeHitBonus: 9, damage: "glue", playerEffect: {name: "SlimeTrap", time: 3}}, // Creates a huge pool of slime, slowing enemies that try to enter. If you step in it, you have a chance of getting trapped!
-{name: "WitchSlimeBall", exhaustion: 5, components: ["Arms"], level:2, type:"bolt", projectile:true, onhit:"", time: 2,  power: 2, delay: 0, range: 50, damage: "glue", speed: 1, trailLifetime: 10, trailDamage:"glue", trail:"lingering", trailChance: 1.0, playerEffect: {name: "SlimeTrap", time: 3}}, // Throws a ball of slime which oozes more slime
-			
+{enemySpell: true, name: "WitchSlime", manacost: 2, components: ["Legs"], level:2, type:"inert", projectile:false, onhit:"lingering", time: 2, delay: 1, range: 4, size: 3, aoe: 1, lifetime: 1, lifetimeHitBonus: 9, damage: "glue", playerEffect: {name: "SlimeTrap", time: 3}}, // Creates a huge pool of slime, slowing enemies that try to enter. If you step in it, you have a chance of getting trapped!
+{enemySpell: true, name: "WitchSlimeBall", manacost: 4, components: ["Arms"], level:2, type:"bolt", projectile:true, onhit:"", time: 2,  power: 2, delay: 0, range: 50, damage: "glue", speed: 1, trailLifetime: 10, trailDamage:"glue", trail:"lingering", trailChance: 1.0, playerEffect: {name: "SlimeTrap", time: 3}}, // Throws a ball of slime which oozes more slime
+{enemySpell: true, name: "WitchElectrify", manacost: 3, components: ["Arms"], level:2, type:"inert", projectile:false, onhit:"aoe", power: 5, time: 1, delay: 1, range: 4, size: 1, aoe: 0.75, lifetime: 1, damage: "electric", playerEffect: {name: "Shock", time: 1}}, // A series of light shocks incapacitate you		
+{enemySpell: true, name: "SummonSkeleton", manacost: 4, components: ["Verbal"], level:3, type:"inert", projectile:false, onhit:"summon:LesserSkeleton", count: 1, power: 0, time: 1, delay: 1, range: 4, size: 3, aoe: 2.1, lifetime: 1, damage: "fire"},
+{enemySpell: true, name: "SummonSkeletons", manacost: 12, components: ["Verbal"], level:4, type:"inert", projectile:false, onhit:"summon:LesserSkeleton", count: 4, power: 0, time: 1, delay: 1, range: 4, size: 3, aoe: 2.6, lifetime: 1, damage: "fire"},		
 ]
 
 function KinkyDungeonSearchSpell(list, name) {
@@ -167,9 +170,9 @@ function KinkyDungeoCheckComponents(spell) {
 function KinkyDungeonHandleSpellChoice(SpellChoice) {
 	let spell = null;
 	if (KinkyDungeoCheckComponents(KinkyDungeonSpells[SpellChoice]).length == 0) {
-		if (KinkyDungeonGetCost(KinkyDungeonSpells[SpellChoice].level) <= KinkyDungeonStatStamina)
+		if (KinkyDungeonHasStamina(KinkyDungeonGetCost(KinkyDungeonSpells[SpellChoice].level)))
 			spell = KinkyDungeonSpells[SpellChoice];
-		else KinkyDungeonSendActionMessage(3, TextGet("KinkyDungeonNoMana"), "red", 1);
+		else KinkyDungeonSendActionMessage(8, TextGet("KinkyDungeonNoMana"), "red", 1);
 	} else {
 		KinkyDungeonTargetingSpell = "";
 		KinkyDungeonSendActionMessage(7, TextGet("KinkyDungeonComponentsFail" + KinkyDungeoCheckComponents(KinkyDungeonSpells[SpellChoice])[0]), "red", 1);
@@ -189,7 +192,7 @@ function KinkyDungeonHandleSpell() {
 	if (spell) {
 		// Handle spell activation
 		KinkyDungeonTargetingSpell = spell;
-		KinkyDungeonSendActionMessage(5, TextGet("KinkyDungeonSpellTarget" + spell.name).replace("SpellArea", Math.floor(spell.aoe)), "white", 1);
+		KinkyDungeonSendActionMessage(5, TextGet("KinkyDungeonSpellTarget" + spell.name).replace("SpellArea", "" + Math.floor(spell.aoe)), "white", 1);
 		return true;
 	}
 	return false;
@@ -229,9 +232,11 @@ function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player) {
 		
 	if (spell.type == "bolt") {
 		var size = (spell.size) ? spell.size : 1;
-		KinkyDungeonLaunchBullet(entity.x + moveDirection.x, entity.y + moveDirection.y,
+		let b = KinkyDungeonLaunchBullet(entity.x + moveDirection.x, entity.y + moveDirection.y,
 			tX-entity.x,tY - entity.y,
 			spell.speed, {name:spell.name, block: spell.block, width:size, height:size, lifetime:-1, passthrough:false, hit:spell.onhit, damage: {damage:spell.power, type:spell.damage, time:spell.time}, spell: spell}, miscast);
+		b.visual_x = entity.x;
+		b.visual_y = entity.y;
 	} else if (spell.type == "inert") {
 		var sz = spell.size;
 		if (!sz) sz = 1;
@@ -245,10 +250,11 @@ function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player) {
 		
 		let cost = KinkyDungeonGetCost(spell.level);
 		
-		KinkyDungeonStatWillpowerExhaustion += spell.exhaustion + 1;
+		//KinkyDungeonStatWillpowerExhaustion += spell.exhaustion + 1;
 		KinkyDungeonStatStamina -= cost;
+		KinkyDungeonStatStaminaMana += spell.manacost;
 		
-		KinkyDungeonChargeVibrators(cost)
+		KinkyDungeonChargeVibrators(spell.manacost)
 	}
 	
 }
@@ -296,7 +302,7 @@ function KinkyDungeonHandleMagic() {
 			}
 		}
 	}
-	return false;
+	return true;
 }
 
 // https://stackoverflow.com/questions/14484787/wrap-text-in-javascript
@@ -339,9 +345,10 @@ function KinkyDungeonDrawMagic() {
 
 		DrawText(TextGet("KinkyDungeonSpell"+ spell.name), canvasOffsetX + 640*KinkyDungeonBookScale/3.35, canvasOffsetY + 483*KinkyDungeonBookScale/5, "black", "silver");
 		DrawText(TextGet("KinkyDungeonMagicLevel") + spell.level, canvasOffsetX + 640*KinkyDungeonBookScale/3.35, canvasOffsetY + 483*KinkyDungeonBookScale/2, "black", "silver");
-		DrawText(TextGet("KinkyDungeonMagicCost") + KinkyDungeonGetCost(spell.level), canvasOffsetX + 640*KinkyDungeonBookScale/3.35, canvasOffsetY + 483*KinkyDungeonBookScale/2 + 105, "black", "silver");
-		DrawText(TextGet("KinkyDungeonMagicExhaustion").replace("TimeTaken", spell.exhaustion), canvasOffsetX + 640*KinkyDungeonBookScale/3.35, canvasOffsetY + 483*KinkyDungeonBookScale/2 + 150, "black", "silver");
-		DrawText(TextGet("KinkyDungeonMagicExhaustion2").replace("TimeTaken", spell.exhaustion), canvasOffsetX + 640*KinkyDungeonBookScale/3.35, canvasOffsetY + 483*KinkyDungeonBookScale/2 + 195, "black", "silver");
+		DrawText(TextGet("KinkyDungeonMagicCost") + KinkyDungeonGetCost(spell.level), canvasOffsetX + 640*KinkyDungeonBookScale/3.35, canvasOffsetY + 483*KinkyDungeonBookScale/2 + 150, "black", "silver");
+		DrawText(TextGet("KinkyDungeonMagicManaCost") + spell.manacost, canvasOffsetX + 640*KinkyDungeonBookScale/3.35, canvasOffsetY + 483*KinkyDungeonBookScale/2 + 195, "black", "silver");
+		//DrawText(TextGet("KinkyDungeonMagicExhaustion").replace("TimeTaken", spell.exhaustion), canvasOffsetX + 640*KinkyDungeonBookScale/3.35, canvasOffsetY + 483*KinkyDungeonBookScale/2 + 150, "black", "silver");
+		//DrawText(TextGet("KinkyDungeonMagicExhaustion2").replace("TimeTaken", spell.exhaustion), canvasOffsetX + 640*KinkyDungeonBookScale/3.35, canvasOffsetY + 483*KinkyDungeonBookScale/2 + 195, "black", "silver");
 		var textSplit = KinkyDungeonWordWrap(TextGet("KinkyDungeonSpellDescription"+ spell.name).replace("DamageDealt", spell.power).replace("Duration", spell.time).replace("DelayTime", spell.delay).replace("BlockAmount", spell.block), 15).split('\n');
 		var i = 0;
 		for (let N = 0; N < textSplit.length; N++) {

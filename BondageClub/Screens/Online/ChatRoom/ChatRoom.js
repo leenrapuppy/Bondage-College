@@ -1156,9 +1156,10 @@ function ChatRoomResize(load) {
  * @param {Width} - Width of filter
  * @returns {void} - Nothing.
  */
-function ChatRoomDrawArousalScreenFilter(y1, h, Width) {
-	let amplitude = 0.24 * Math.min(1, 2 - 1.5 * Player.ArousalSettings.Progress/100); // Amplitude of the oscillation
-	let percent = Player.ArousalSettings.Progress/100.0;
+function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride) {	
+	let Progress = (ArousalOverride) ? ArousalOverride : Player.ArousalSettings.Progress;
+	let amplitude = 0.24 * Math.min(1, 2 - 1.5 * Progress/100); // Amplitude of the oscillation
+	let percent = Progress/100.0;
 	let level = Math.min(0.5, percent) + 0.5 * Math.pow(Math.max(0, percent*2 - 1), 4);
 	let oscillation = Math.sin(CommonTime() / 1000 % Math.PI);
 	let alpha = 0.6 * level * (0.99 - amplitude + amplitude * oscillation);
@@ -1175,7 +1176,7 @@ function ChatRoomDrawArousalScreenFilter(y1, h, Width) {
 		MainCanvas.fillRect(0, y1, Width, h);
 	} else {
 		if (Player.ArousalSettings.VFXFilter != "VFXFilterMedium") {
-			alpha = (Player.ArousalSettings.Progress >= 91) ? 0.25 : 0;
+			alpha = (Progress >= 91) ? 0.25 : 0;
 		} else alpha /= 2;
 		if (alpha > 0)
 			DrawRect(0, y1, Width, h, `rgba(255, 176, 176, ${alpha})`);

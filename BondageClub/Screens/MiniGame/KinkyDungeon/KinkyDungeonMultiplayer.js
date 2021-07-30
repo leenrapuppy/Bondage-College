@@ -17,13 +17,6 @@ function KinkyDungeonMultiplayerUpdate(Delay) {
 		if (MN.length > 0) {
 			let data = KinkyDungeonPackData(KinkyDungeonGrid_Last != KinkyDungeonGrid, true, KinkyDungeonMultiplayerInventoryFlag, CommonTime() > KinkyDungeonNextDataSendStatsTime + KinkyDungeonNextDataSendStatsTimeDelay);
 			KinkyDungeonSendData(data);
-			//KinkyDungeonStreamingPlayers = [];
-			
-			//for (let C = 0; C < MN.length; C++) {
-				//KinkyDungeonStreamingPlayers.push(MN[C].MemberNumber); // Clean out the KinkyDungeonStreamingPlayers array
-				//ServerSend("ChatRoomChat", { Content: data, Type: "Hidden", Target: MN[C].MemberNumber });
-				
-			//}
 		}
 		
 		KinkyDungeonNextDataSendTime = CommonTime();
@@ -40,15 +33,14 @@ function KinkyDungeonMultiplayerUpdate(Delay) {
  * Converts a string into Kinky Game Data
  * @returns {void}
  */
- 
 function KinkyDungeonUnpackData(KinkyData) {
-	if (CurrentScreen != "KinkyDungeon" || KinkyDungeonState != "Game" || !KinkyDungeonPlayerCharacter) return false;
-	if (KinkyDungeonIsPlayer()) return false; // Prevent griefing
-	let data = JSON.parse(LZString.decompressFromBase64(KinkyData))//);
+	if (CurrentScreen != "KinkyDungeon" || KinkyDungeonState != "Game" || !KinkyDungeonPlayerCharacter) return;
+	if (KinkyDungeonIsPlayer()) return; // Prevent griefing
+	let data = JSON.parse(LZString.decompressFromBase64(KinkyData));
 	
 	if (!KinkyDungeonGameData) KinkyDungeonGameData = {};
 
-	if (!data) return false;
+	if (!data) return;
 	
 	if (data.enemies != null) {
 		KinkyDungeonGameData.enemies = data.enemies;
@@ -71,7 +63,6 @@ function KinkyDungeonUnpackData(KinkyData) {
 	
 	KinkyDungeonUpdateFromData();
 	KinkyDungeonNextDataLastTimeReceived = CommonTime();
-	
 }
 
 function KinkyDungeonUpdateFromData() {
@@ -147,6 +138,7 @@ function KinkyDungeonUpdateFromData() {
 		
 		if (KinkyDungeonGameData.meta.wp != null) KinkyDungeonStatWillpower = Math.round(KinkyDungeonGameData.meta.wp);
 		if (KinkyDungeonGameData.meta.sp != null) KinkyDungeonStatStamina = Math.round(KinkyDungeonGameData.meta.sp);
+		if (KinkyDungeonGameData.meta.mp != null) KinkyDungeonStatStaminaMana = Math.round(KinkyDungeonGameData.meta.mp);
 		if (KinkyDungeonGameData.meta.ap != null) KinkyDungeonStatArousal = Math.round(KinkyDungeonGameData.meta.ap);
 		if (KinkyDungeonGameData.meta.rk != null) KinkyDungeonRedKeys = Math.round(KinkyDungeonGameData.meta.rk);
 		if (KinkyDungeonGameData.meta.gk != null) KinkyDungeonGreenKeys = Math.round(KinkyDungeonGameData.meta.gk);
@@ -158,7 +150,6 @@ function KinkyDungeonUpdateFromData() {
 		if (KinkyDungeonGameData.meta.lv != null) MiniGameKinkyDungeonLevel = Math.round(KinkyDungeonGameData.meta.lv);
 	}
 }
- 
 
 /**
  * Turns the game state into a string that can be sent over
@@ -208,6 +199,7 @@ function KinkyDungeonPackData(IncludeMap, IncludeItems, IncludeInventory, Includ
 	if (IncludeStats) {
 		meta.wp = Math.round(KinkyDungeonStatWillpower);
 		meta.sp = Math.round(KinkyDungeonStatStamina);
+		meta.mp = Math.round(KinkyDungeonStatStaminaMana);
 		meta.ap = Math.round(KinkyDungeonStatArousal);
 		meta.rk = KinkyDungeonRedKeys;
 		meta.gk = KinkyDungeonGreenKeys;
@@ -228,7 +220,7 @@ function KinkyDungeonPackData(IncludeMap, IncludeItems, IncludeInventory, Includ
 		meta: meta,
 	};
 	let stringToSend = LZString.compressToBase64(JSON.stringify(result))// The replace is needed to avoid artifacts during decompression
-	//console.log(stringToSend);
+	
 	return stringToSend;
 }
 

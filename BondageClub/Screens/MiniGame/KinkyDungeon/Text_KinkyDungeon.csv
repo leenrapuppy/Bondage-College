@@ -5,9 +5,9 @@ Intro3,"Will you prevail against forces unknown, or succumb to its dark secrets?
 DeviousChallenge,"Devious Dungeon Challenge is enabled."
 KinkyDungeonLoading,"Waiting for game data..."
 
-End,"Today the dungeon claims another helpless girl."
+End,"Today the dungeon claims yet another adventurer."
 End2,"Bound and exhausted, you cannot hope to continue."
-End3,"Perhaps you may come to enjoy your new life."
+End3,"Perhaps another adventurer may rescue you some day."
 
 EndWin,"You have reached the end of the playable portion."
 EndWin2,"Come back later for new dungeons!"
@@ -16,7 +16,8 @@ StatArousal,"Arousal: "
 StatStamina,"Stamina: "
 StatWillpower,"Willpower: "
 
-Wait,"You are exhausted."
+Wait,"You wait."
+WaitExhaustion,"You are exhausted."
 WaitSpellExhaustion,"You are exhausted from spellcasting."
 
 GameStart,Start New Game
@@ -75,8 +76,61 @@ LootChestSpell,"You find a magic scroll, which you place in your spellbook. (+Sp
 LootChestTrapMagic,"You find gold and a magic trap! (+RestraintType) (+XXX gold)"
 LootChestTrapMagicVibe,"You find gold and a tormenting magical trap! (+RestraintType) (+XXX gold)"
 
+LootPotionHealth,"You find a red potion with a sweet scent."
+LootPotionMana,"You find a blue potion that glows with magical essence."
+LootPotionsHealth,"You find several health potions."
+LootPotionsMana,"You find several mana potions."
+LootPotionStamina,"You find a green potion, glowing warm with energy."
+LootPotionFrigid,"You find a snow-like potion that's cold to the touch."
+LootPotionsMedley,"You find a medley of potions."
+
+KinkyDungeonRarity,"Rarity: "
+KinkyDungeonRarity0,Trifle
+KinkyDungeonRarity1,Lesser
+KinkyDungeonRarity2,Common
+KinkyDungeonRarity3,Uncommon
+KinkyDungeonRarity4,Rare
+KinkyDungeonRarity5,Very Rare
+KinkyDungeonRarity6,Epic
+KinkyDungeonRarity7,Legendary
+KinkyDungeonRarity8,Mythical
+KinkyDungeonRarity9,Godlike
+
+KinkyDungeonConsumableQuantity,Quantity:
+KinkyDungeonConsume,Use Item (Consumes 1) 
+
+KinkyDungeonInventoryItemPotionHealth,Lssr. Will Potion
+KinkyDungeonInventoryItemPotionHealthUse,You sip the potion and feel motivated to continue.
+KinkyDungeonInventoryItemPotionHealthDesc,"It smells slightly sweet."
+KinkyDungeonInventoryItemPotionHealthDesc2,"Restores 10 willpower and 20 more over 10 turns. Effect does not stack."
+KinkyDungeonInventoryItemPotionHealthGreater,Will Potion
+KinkyDungeonInventoryItemPotionHealthGreaterUse,You sip the potion and feel restored with willpower.
+KinkyDungeonInventoryItemPotionHealthGreaterDesc,"It smells like some sort of mythic ambrosia."
+KinkyDungeonInventoryItemPotionHealthGreaterDesc2,"Restores 10 willpower and 40 more over 10 turns. Effect does not stack."
+KinkyDungeonInventoryItemPotionHealthUltimate,Great Will Potion
+KinkyDungeonInventoryItemPotionHealthUltimateUse,You sip the potion and feel godlike.
+KinkyDungeonInventoryItemPotionHealthUltimateDesc,"It smells like some sort of mythic ambrosia."
+KinkyDungeonInventoryItemPotionHealthUltimateDesc2,"Restores 20 willpower and 80 more over 10 turns. Effect does not stack."
+KinkyDungeonInventoryItemPotionMana,Mana Potion
+KinkyDungeonInventoryItemPotionManaUse,You sip the mana potion and feel empowered.
+KinkyDungeonInventoryItemPotionManaDesc,"A rare essence used to reverse magical paralysis."
+KinkyDungeonInventoryItemPotionManaDesc2,"Restores 10 mana and 40 more over 20 turns. Effect does not stack."
+KinkyDungeonInventoryItemPotionStamina,Stamina Potion
+KinkyDungeonInventoryItemPotionStaminaUse,You drink the stamina potion and feel invigorated.
+KinkyDungeonInventoryItemPotionStaminaDesc,"A potion brimming with heat and energy."
+KinkyDungeonInventoryItemPotionStaminaDesc2,"Restores stamina by 100 over 10 turns. Effect does not stack."
+KinkyDungeonInventoryItemPotionFrigid,Frigid Potion
+KinkyDungeonInventoryItemPotionFrigidUse,You chug the frigid concoction and feel less distracted.
+KinkyDungeonInventoryItemPotionFrigidDesc,"A freezing cold bottle with a bitter scent."
+KinkyDungeonInventoryItemPotionFrigidDesc2,"Reduces arousal by 50 over 5 turns. Effect does not stack."
+
 KinkyDungeonTorsoGrab,The EnemyName grabs you by the harness and keeps you in place!
 KinkyDungeonAttackMiss,The EnemyName misses you!
+
+KinkyDungeonHearDoorOpenNear,You hear a door creak open nearby!
+KinkyDungeonHearDoorOpenFar,You hear the faint sound of a door opening.
+KinkyDungeonHearDoorCloseNear,You hear a door slam shut nearby!
+KinkyDungeonHearDoorCloseFar,You hear a door being shut in the distance.
 
 
 NameBlindZombie,Moaning Zombie
@@ -88,6 +142,25 @@ NameFastZombie,Ravenous Zombie
 KillFastZombie,"The zombie screeches and tumbles to the floor."
 AttackFastZombieBind,"The zombie viciously wraps you in charms (+RestraintAdded)"
 AttackFastZombie,"The zombie gropes your body! (-DamageTaken WP)"
+
+NameAnimatedArmor,Animated Armor
+KillAnimatedArmor,"The Animated Armor falls into pieces."
+AttackAnimatedArmorBind,"The Animated Armor restrains you with shackles (+RestraintAdded)"
+AttackAnimatedArmor,"The Animated Armor hugs your body with an iron grip! (-DamageTaken WP)"
+
+NameSkeleton,Skeleton
+KillSkeleton,"The Skeleton falls into pieces."
+AttackSkeletonBind,"The Skeleton restrains you! (+RestraintAdded)"
+AttackSkeleton,"The Skeleton tackles you! (-DamageTaken WP)"
+
+NameGreaterSkeleton,Skeleton Warrior
+KillGreaterSkeleton,"The Skeleton Warrior collapses and falls into pieces."
+AttackGreaterSkeleton,"The Skeleton lands a wide, crippling blow! (-DamageTaken WP)"
+
+NameLesserSkeleton,Skeleton
+KillLesserSkeleton,"The Skeleton falls into pieces."
+AttackLesserSkeletonBind,"The Skeleton restrains you! (+RestraintAdded)"
+AttackLesserSkeleton,"The Skeleton latches onto you!"
 
 NameRopeSnake,Magic Rope
 KillRopeSnake,"The magic rope returns to being a normal rope."
@@ -105,6 +178,12 @@ AttackWitchChain,"The chain witch tugs sensually at your restraints!"
 NameWitchSlime,Slime Witch
 KillWitchSlime,"The slime witch vanishes into a pool of pink slime, leaving behind a keyring."
 
+
+NameNecromancer,Necromancer
+KillNecromancer,"The necromancer perishes. Ironic that she couldn't save herself."
+AttackNecromancerLock,"The necromancer locks all of your restraints!"
+AttackNecromancer,"The necromancer tugs sensually at your restraints!"
+
 NameRat,Filthy Rat
 KillRat,"The rat skitters back into a hole in the wall."
 AttackRat,"The filthy rat nibbles at you! (-DamageTaken WP)"
@@ -114,6 +193,7 @@ PlayerAttack,"You attack the TargetEnemy for DamageDealt damage!"
 PlayerRanged,"AttackName hits the TargetEnemy for DamageDealt damage!"
 KinkyDungeonBasicAttack,attack
 PlayerMiss,"You miss the TargetEnemy!"
+PlayerMissArmor,"Your attack is too feeble to hurt the TargetEnemy!"
 KinkyDungeonStruggleStruggleFail,"You tug on the TargetRestraint but fail to make progress."
 KinkyDungeonStrugglePickFail,"You try to unlock the TargetRestraint but can't reach the lock."
 KinkyDungeonStrugglePickBreak,"You try to unlock the TargetRestraint but break your lockpick."
@@ -127,8 +207,9 @@ KinkyDungeonStruggleUnlockFail,"You try to unlock the TargetRestraint but you ca
 KinkyDungeonStruggleUnlockNoRedKey,"The red padlock only accepts red keys."
 KinkyDungeonStruggleUnlockNoGreenKey,"The green padlock only accepts green keys."
 KinkyDungeonStruggleUnlockNoYellowKey,"The yellow padlock requires a red and a green key."
-KinkyDungeonStruggleUnlockNoBlueKey,"The magical lock only accepts blue keys."
+KinkyDungeonStruggleUnlockNoBlueKey,"The magical lock only accepts blue keys and can't be picked."
 KinkyDungeonStruggleUnlockNoUnknownKey,"You don't have a key for this lock."
+KinkyDungeonStruggleCantPickBlueLock,"The lock seems to be magical and rejects all picking attempts!"
 
 KinkyDungeonStruggleUnlockJammed,"The key sticks in the lock and jams!"
 
@@ -139,6 +220,26 @@ KinkyDungeonAttemptPickSuccess,"You pick the lock on the TargetRestraint!"
 KinkyDungeonStruggleRemoveSuccess,"You unfasten the TargetRestraint and get it off your body!"
 KinkyDungeonStruggleCutSuccess,"You cut the TargetRestraint off!"
 
+KinkyDungeonStruggleStruggleImpossible,"The item is too secure to struggle out."
+KinkyDungeonStruggleStruggleImpossibleBound,"You are too tightly bound to have a chance."
+KinkyDungeonStruggleUnlockImpossible,"There is no keyhole."
+KinkyDungeonStruggleUnlockImpossibleBound,"You can't hold the key."
+KinkyDungeonStrugglePickImpossible,"There is no visible mechanism to pick."
+KinkyDungeonStrugglePickImpossibleBound,"You are too heavily bound to even attempt picking."
+KinkyDungeonStruggleRemoveImpossible,"There are no visible clasps or fasteners."
+KinkyDungeonStruggleRemoveImpossibleBound,"You are too tightly bound to manipulate that item."
+KinkyDungeonStruggleCutImpossible,"The item resists the knife without a scratch."
+KinkyDungeonStruggleCutImpossibleBound,"You can't hold a knife, let alone cut the thing."
+
+KinkyLockable,Lockable
+KinkyNonLockable,Non-Lockable
+
+KinkyUnlocked,"Unlocked"
+KinkyLocked,"Lock Type: "
+KinkyRedLockType,"Red"
+KinkyGreenLockType,"Green"
+KinkyBlueLockType,"Blue"
+KinkyYellowLockType,"Yellow"
 KinkyRedLock,"Red Lock"
 KinkyGreenLock,"Green Lock"
 KinkyBlueLock,"Blue Lock"
@@ -158,6 +259,7 @@ KinkyDungeonPayShrineFail,"You do not have enough for a proper offering."
 KinkyDungeonPayShrineRemoveRestraints,"The goddess removes some of your restraints!"
 KinkyDungeonPayShrineHeal,"The goddess restores your mental and physical state!"
 KinkyDungeonPayShrineSpell,"Glowing runes on the altar teach you how to cast SpellLearned."
+KinkyDungeonPayShrineCommerce,"You leave the coins on the altar and they transform into a ItemBought!"
 KinkyDungeonObject,"object"
 
 KinkyDungeonObjectLock,"That object is locked"
@@ -167,48 +269,168 @@ KinkyDungeonCloseDoorDone,"You slam the door and jam it shut!"
 KinkyDungeonShrineCharms,"mummies"
 KinkyDungeonShrineLeather,"leather"
 KinkyDungeonShrineMetal,"metal"
-KinkyDungeonShrineWill,"willpower"
+KinkyDungeonShrineWill,"Restoration"
 KinkyDungeonShrineElements,"the elements"
 KinkyDungeonShrineConjure,"conjuration"
 KinkyDungeonShrineIllusion,"illusions"
+KinkyDungeonShrineCommerce,"commerce"
+
+KinkyDungeonCommerceBuy,"The goddess offers a ItemTraded for ItemCost (NumCurrent/NumMax)"
+KinkyDungeonCommerceNext,"Next Offer"
+KinkyDungeonCommercePurchase,"Pay ItemCost"
 
 ClimbDown,"You climb down to the next level"
 
+KinkyDungeonRestraintLevel,Level RestraintLevel (Rarity)
+
+KinkyDungeonCategoryFilterConsumables,Consumable
+KinkyDungeonCategoryFilterEquipped,Equipped
+KinkyDungeonCategoryFilterWeapons,Weapons
+KinkyDungeonCategoryFilterOutfits,Outfits
+KinkyDungeonCategoryFilterRestraints,Restraints
+KinkyDungeonCategoryFilterMisc,Miscellaneous
+
+KinkyDungeonInventoryItemTrapArmbinder,Armbinder
+
+KinkyDungeonInventoryItemTrapCuffs,Handcuffs
+
+KinkyDungeonInventoryItemTrapHarness,Harness
+
+KinkyDungeonInventoryItemTrapGag,Ball Gag
+
+KinkyDungeonInventoryItemTrapBoots,Slave Heels
+
+KinkyDungeonInventoryItemTrapLegirons,Leg Irons
+
+KinkyDungeonInventoryItemTrapBlindfold,Blindfold
+
+KinkyDungeonInventoryItemTrapBelt,Steel Belt
+
+KinkyDungeonInventoryItemTrapVibe,Egg Vibe
 
 RestraintDuctTapeArms,Charms
+RestraintDuctTapeArmsDesc,"A band of faintly magic ribbon wrapped tight around your arms."
+RestraintDuctTapeArmsDesc2,"It clings, almost of its own accord, but seems vulnerable to both cutting and stretching."
 RestraintDuctTapeLegs,Charms
+RestraintDuctTapeLegsDesc,"A band of faintly magic ribbon wrapped tight around your thighs."
+RestraintDuctTapeLegsDesc2,"It clings, almost of its own accord, but seems vulnerable to both cutting and stretching."
 RestraintDuctTapeFeet,Charms
+RestraintDuctTapeFeetDesc,"A band of faintly magic ribbon wrapped tight around your ankles."
+RestraintDuctTapeFeetDesc2,"It clings, almost of its own accord, but seems vulnerable to both cutting and stretching."
 RestraintDuctTapeHead,Charms
+RestraintDuctTapeHeadDesc,"A band of faintly magic ribbon wrapped tight around your eyes."
+RestraintDuctTapeHeadDesc2,"It clings, almost of its own accord, but seems vulnerable to both cutting and stretching."
 RestraintDuctTapeMouth,Charms
+RestraintDuctTapeMouthDesc,"A band of faintly magic ribbon wrapped tight around your mouth."
+RestraintDuctTapeMouthDesc2,"It clings, almost of its own accord, but seems vulnerable to both cutting and stretching."
 RestraintDuctTapeBoots,Charms
-RestraintDuctTapeFeet,Charms
+RestraintDuctTapeBootsDesc,"A layer of faintly magic ribbon wrapped tight around your feet."
+RestraintDuctTapeBootsDesc2,"It clings, almost of its own accord, but seems vulnerable to both cutting and stretching."
 RestraintDuctTapeHeadMummy,Charms
+RestraintDuctTapeHeadMummyDesc,"A layer of faintly magic ribbon wrapped tight around your face."
+RestraintDuctTapeHeadMummyDesc2,"It clings, almost of its own accord, but seems vulnerable to both cutting and stretching."
 RestraintDuctTapeArmsMummy,Charms
+RestraintDuctTapeArmsMummyDesc,"A layer of faintly magic ribbon wrapped tight around your body."
+RestraintDuctTapeArmsMummyDesc2,"It clings, almost of its own accord, but seems vulnerable to both cutting and stretching."
 RestraintDuctTapeFeetMummy,Charms
+RestraintDuctTapeFeetMummyDesc,"A layer of faintly magic ribbon wrapped tight around your shins."
+RestraintDuctTapeFeetMummyDesc2,"It clings, almost of its own accord, but seems vulnerable to both cutting and stretching."
 RestraintDuctTapeLegsMummy,Charms
+RestraintDuctTapeLegsMummyDesc,"A layer of faintly magic ribbon wrapped tight around your thighs."
+RestraintDuctTapeLegsMummyDesc2,"It clings, almost of its own accord, but seems vulnerable to both cutting and stretching."
 RestraintStuffing,Stuffing
+RestraintStuffingDesc,"A stuffing of cloth."
+RestraintStuffingDesc2,"You could spit it out easily, provided nothing's covering it."
 RestraintWeakMagicRopeArms,Magic Rope
+RestraintWeakMagicRopeArmsDesc,"Faintly glowing ropes from a magic trap."
+RestraintWeakMagicRopeArmsDesc2,"I wonder who was responsible?"
 RestraintWeakMagicRopeLegs,Magic Rope
+RestraintWeakMagicRopeLegsDesc,"Faintly glowing ropes from a magic trap."
+RestraintWeakMagicRopeLegsDesc2,"I wonder who was responsible?"
 RestraintStickySlime,Sticky Slime
+RestraintStickySlimeDesc,"A sticky layer of slime keeping you anchored to the ground."
+RestraintStickySlimeDesc2,"It will slow you for a single turn."
 RestraintTrapArmbinder,Armbinder
+RestraintTrapArmbinderDesc,"A tight leather armbinder enclosing your hands and arms completely."
+RestraintTrapArmbinderDesc2,"It's quite snug and secured by lockable buckles in the back. Picking the locks yourself is impossible."
 RestraintTrapCuffs,Handcuffs
+RestraintTrapCuffsDesc,"A pair of steel cuffs locked securely around your wrists."
+RestraintTrapCuffsDesc2,"The lock doesn't seem very complicated."
 RestraintTrapHarness,Harness
+RestraintTrapHarnessDesc,"A leather harness of tight straps buckled around your torso."
+RestraintTrapHarnessDesc2,"It provides an anchor point for enemies to grab onto!"
 RestraintTrapGag,Ball Gag
-RestraintTrapBoots,Slave Heels
+RestraintTrapGagDesc,"A gag made of a red squishy material."
+RestraintTrapGagDesc2,"You can't seem to enunciate your spells properly with this in."
+RestraintTrapBoots,Ballet Heels
+RestraintTrapBootsDesc,"A pair of shoes with heels so tall it forces you on your toes."
+RestraintTrapBootsDesc2,"These will take some getting used to."
 RestraintTrapLegirons,Leg Irons
+RestraintTrapLegironsDesc,"A pair of solid steel cuffs connecting your ankles inescapably."
+RestraintTrapLegironsDesc2,"The lock doesn't seem very complicated."
 RestraintTrapBlindfold,Blindfold
+RestraintTrapBlindfoldDesc,"A leather strap secured onto your face and blocking vision."
+RestraintTrapBlindfoldDesc2,"You can still see through the gap around your nose."
 RestraintTrapBelt,Steel Belt
-RestraintTrapVibe,Egg Vibe
+RestraintTrapBeltDesc,"A cruel device used for locking magical vibrators in place."
+RestraintTrapBeltDesc2,"It won't stop the dungeon's little curses, but will keep you from removing them."
+RestraintTrapVibe,Magic Egg
+RestraintTrapVibeDesc,"An energetic little friend that likes to tease you."
+RestraintTrapVibeDesc2,"It is charged by residual magic from your spells."
 RestraintRopeSnakeArms,Rope Tie
+RestraintRopeSnakeArmsDesc,"A box tie keeping your arms secured behind your back."
+RestraintRopeSnakeArmsDesc2,"The remaining magic squeezes you gently."
 RestraintRopeSnakeArmsWrist,Rope Tie
+RestraintRopeSnakeArmsWristDesc,"A wrist and elbow tie keeping your arms secured behind your back."
+RestraintRopeSnakeArmsWristDesc2,"The remaining magic squeezes you gently."
 RestraintRopeSnakeLegs,Rope Tie
+RestraintRopeSnakeLegsDesc,"A tie that hobbles your legs together.."
+RestraintRopeSnakeLegsDesc2,"The remaining magic squeezes you gently."
 RestraintRopeSnakeFeet,Rope Tie
-RestraintRopeSnakeLegs,Rope Tie
-RestraintRopeSnakeFeet,Rope Tie
+RestraintRopeSnakeFeetDesc,"A tie keeping your feet secured together."
+RestraintRopeSnakeFeetDesc2,"The remaining magic squeezes you gently."
 RestraintChainArms,Chains
+RestraintChainArmsDesc,"Heavy chains keeping your arms securely behind your back."
+RestraintChainArmsDesc2,"It doesn't look like a knife is up to the task..."
 RestraintChainLegs,Chains
+RestraintChainLegsDesc,"Heavy chains keeping your legs firmly hobbled."
+RestraintChainLegsDesc2,"It doesn't look like a knife is up to the task..."
 RestraintChainFeet,Chains
+RestraintChainFeetDesc,"Heavy chains keeping your feet bound together."
+RestraintChainFeetDesc2,"It doesn't look like a knife is up to the task..."
 RestraintChainCrotch,Chains
+RestraintChainCrotchDesc,"Heavy chains that serve as an anchor point around your waist."
+RestraintChainCrotchDesc2,"It doesn't look like a knife is up to the task..."
+
+RestraintClothBlindfold,Cloth Blindfold
+RestraintClothBlindfoldDesc,"A piece of cloth secured onto your face and blocking vision."
+RestraintClothBlindfoldDesc2,"You can still see through the gap around your nose."
+RestraintClothGag,Cloth Gag
+RestraintClothGagDesc,"A piece of cloth tightened over your mouth."
+RestraintClothGagDesc2,"On its own it's not very restrictive."
+
+RestraintSturdyLeatherBeltsArms,Belt Bindings
+RestraintSturdyLeatherBeltsArmsDesc,"A ludicrous amount of belts secured with a buckle."
+RestraintSturdyLeatherBeltsArmsDesc2,"Lockable and fully adjustable to ensure snugness."
+RestraintSturdyLeatherBeltsLegs,Belt Bindings
+RestraintSturdyLeatherBeltsLegsDesc,"A ludicrous amount of belts secured with a buckle."
+RestraintSturdyLeatherBeltsLegsDesc2,"Lockable and fully adjustable to ensure snugness."
+RestraintSturdyLeatherBeltsFeet,Belt Bindings
+RestraintSturdyLeatherBeltsFeetDesc,"A ludicrous amount of belts secured with a buckle."
+RestraintSturdyLeatherBeltsFeetDesc2,"Lockable and fully adjustable to ensure snugness."
+
+RestraintWristShackles,Wrist Shackles
+RestraintWristShacklesDesc,"Heavy shackles with a rudimentary lock."
+RestraintWristShacklesDesc2,"You could pick these with a hairpin."
+RestraintAnkleShackles,Ankle Shackles
+RestraintAnkleShacklesDesc,"Heavy shackles with a rudimentary lock."
+RestraintAnkleShacklesDesc2,"You could pick these with a hairpin."
+RestraintLegShackles,Leg Shackles
+RestraintLegShacklesDesc,"Heavy shackles with a rudimentary lock."
+RestraintLegShacklesDesc2,"You could pick these with a hairpin."
+RestraintSteelMuzzleGag,Steel Muzzle
+RestraintSteelMuzzleGagDesc,"A heavy muzzle with a rudimentary lock."
+RestraintSteelMuzzleGagDesc2,"You could pick this with a hairpin."
 
 KinkyDungeonGroupItemHead,Face
 KinkyDungeonGroupItemHood,Head
@@ -237,6 +459,7 @@ ItemPickupGold,"You picked up XXX gold."
 ItemPickupRedKey,"You picked up a red key."
 ItemPickupGreenKey,"You picked up a green key."
 ItemPickupBlueKey,"You picked up a blue key."
+ItemPickupPotionHealth,"You picked up a willpower potion."
 
 
 KinkyDungeonBookElements,Ars Pyrotecnica
@@ -266,12 +489,12 @@ KinkyDungeonSpellDescriptionFirebolt,A slow moving ball of flame that does Damag
 KinkyDungeonSpellCastFirebolt,You a hurl a firebolt!
 KinkyDungeonSpellTargetFirebolt,Choose aim direction
 
-KinkyDungeonSpellBlink,Mistcall
+KinkyDungeonSpellBlink,Blink
 KinkyDungeonSpellDescriptionBlink,Teleport to a nearby location after DelayTime turns.
 KinkyDungeonSpellCastBlink,You call upon the mists to transport you!
 KinkyDungeonSpellTargetBlink,Choose target location
 
-KinkyDungeonSpellLeap,Rift Leap
+KinkyDungeonSpellLeap,Riftwalk
 KinkyDungeonSpellDescriptionLeap,Teleport to a location next turn.
 KinkyDungeonSpellCastLeap,You jump through a mystic portal!
 KinkyDungeonSpellTargetLeap,Choose target location
@@ -297,6 +520,7 @@ KinkyDungeonSpellCastGreaterShield,You create a temporary shield!
 KinkyDungeonSpellTargetGreaterShield,Choose shield location
 
 KinkyDungeonSpellElectrify,Electrify
+KinkyDungeonSpellWitchElectrify,Witch's Electricity
 KinkyDungeonSpellDescriptionElectrify,A delayed shock that deals DamageDealt damage and stuns for Duration turns.
 KinkyDungeonSpellCastElectrify,You charge up a burst of electricty!
 KinkyDungeonSpellTargetElectrify,Choose target location
@@ -343,9 +567,15 @@ KinkyDungeonSpellDescriptionSlimeBall,A ball of slime leaves a trail of sticky s
 KinkyDungeonSpellCastSlimeBall,You hurl a ball of slime!
 KinkyDungeonSpellTargetSlimeBall,Choose aim direction
 
+KinkyDungeonSpellSummonSkeleton,Summon Skeleton
+KinkyDungeonSpellSummonSkeletons,Mass Summon Skeleton
+KinkyDungeonSummonSingleLesserSkeleton,A skeleton arises from bones on the floor!
+KinkyDungeonSummonMultiLesserSkeleton,A gang of SummonCount skeletons forms around you!
+
 KinkyDungeonStartVibe,You feel your toys start to to buzz...
 KinkyDungeonPlugged,You feel the plugs inside you whil walking.
-KinkyDungeonVibing1,Your toys tease you gently..
+KinkyDungeonVibing0,You feel a gentle buzz...
+KinkyDungeonVibing1,Your toys tease you gently...
 KinkyDungeonVibing2,Your toys are vibrating.
 KinkyDungeonVibing3,Your toys are buzzing strongly!
 KinkyDungeonVibing4,Your toys vibrate intensely!
@@ -373,8 +603,7 @@ KinkyDungeonGame,"Return to Game"
 
 KinkyDungeonMagicLevel,"Level: "
 KinkyDungeonMagicCost,"Stamina Cost: "
-KinkyDungeonMagicExhaustion, "Blocks regen"
-KinkyDungeonMagicExhaustion2, "for TimeTaken turns"
+KinkyDungeonMagicManaCost, "Mana Cost: "
 
 KinkyDungeonSpell0,"Choose as Spell 1"
 KinkyDungeonSpell1,"Choose as Spell 2"

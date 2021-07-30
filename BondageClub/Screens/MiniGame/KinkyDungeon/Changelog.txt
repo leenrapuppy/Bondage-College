@@ -53,6 +53,26 @@ Other
 Features
 - Streaming mode to watch your friends play!
 
+1.5 (Aug 2021)
+Features
+- Enhanced graphics. Bullets, enemies, and the player all move fluidly across the screen now!
+- Mana system: Casting spells builds up mana, which lowers your stamina until you drink a mana potion or restore it at a shrine.
+- Enemy AI is now more diverse. Minion-type enemies such as zombies will now ignore you if you are harmless (cant cast any spells + arms and legs bound)
+- Removed the mummies shrine to focus on lockable restraint types
+- Restraints are now saved in the inventory and can be viewed
+- Added the Goddess of commerce, who has an item shop that sells potions
+- Inventory system with potions! Willpower potions keep you in the fight, stamina potions enhance your drive for combat, mana potions reduce the paralyzing effects of mana exposure, and bitter potions help suppress distractions
+- New floor: The catacombs, full of skeletons and rats and necromancers! 
+ - Skeletons utilize a variety of ropes and chains
+ - Necromancers can summon more skeletons
+ - (WIP) Trapped floors and doors
+ - (WIP) Bondage gates which require you to be wearing a certain type of restraint to pass
+- (WIP) Can put on certain types of restraints as part of self bondage 
+- (WIP) Having hands covered or bound ought to do something
+- (WIP) Dropping potions, items, etc, especially while naked
+
+TODO ValidationFindBlockCycles to prevent bugs
+
 Future content planned:
 - Exit stair puzzles (like for example a button or special key somewhere in the level, maybe with a high likelihood of traps)
 - Inescapable yoke that needs keys, but the trap also summons rats that steal the keys and run away
@@ -82,6 +102,10 @@ Future content planned:
 - Enemies that grab your melee weapon and disarm you
 - Inventory management system T_T
 - Vines in the undergrorund jungle (when it gets implemented)
+- Some sort of end state for high arousal... maybe an orgasm button that lets you succumb to the effects for several turns to bring it down to zero, and maybe "edging" items that prevent this from happening and instead cause increased stamina drain or constant random interruptions
+- Im also thinking... locked doors that trigger when you step on an obvious looking brickwork that's only generated on tiles you can avoid, maybe with some sort of sleep gas hazard or something to force a time limit if you cant progress
+- Stamina costs of spells are reduced, but they turn the stamina bar blue, which is basically stamina that has been magically drained and won't regenerate for a while / until you enter the next floor
+- Monster Encyclopedia
 
 Spell Ideas:
 - Clear Jam spell, which clears jammed green locks from either an object or the player, depending on where it is cast
