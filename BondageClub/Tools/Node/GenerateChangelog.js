@@ -1,20 +1,40 @@
+// @ts-check
 "use strict";
 const fs = require("fs");
 const path = require("path");
 const util = require("util");
 const cheerio = require("cheerio");
 const marked = require("marked");
+const simpleGit = require("simple-git");
 
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
 
 const bcRoot = path.resolve(__dirname, "../..");
+const htmlPath = path.join(bcRoot, "changelog.html");
+const markdownPath = path.join(bcRoot, "CHANGELOG.md");
 
-generateChangelogHtml();
+/** @type {Record<string, string>} */
+const CONTRIBUTOR_NAMES = {
+	"Ben987": "Ben987",
+	"ace-1331": "Ace",
+	"Ada18980": "Ada",
+	"Ayesha-678": "Ayesha",
+	"Elda": "Elda",
+	"Ellie": "Ellie",
+	"EmilyR42": "Emily R",
+	"fleisch11": "fleisch11",
+	"gatetrek": "gatetrek",
+	"jomshir98": "Jomshir",
+	"Kimei Nishimura": "Kimei",
+	"Natsuki": "Natsuki",
+	"Nina-1474": "Nina",
+	"NoneNoname": "Sekkmer",
+	"Verity": "Verity",
+	"wildsj": "wildsj",
+};
 
 async function generateChangelogHtml() {
-	const htmlPath = path.join(bcRoot, "changelog.html");
-	const markdownPath = path.join(bcRoot, "CHANGELOG.md");
 
 	const [sourceHtml, sourceMarkdown] = await Promise.all([
 		readFileAsync(htmlPath, "utf-8"),
@@ -27,20 +47,154 @@ async function generateChangelogHtml() {
 
 	const $ = cheerio.load(sourceHtml);
 	$("body").empty()
-		.append("<h1>Bondage Club - Changelog</h1>")
-		.append("<h2>Table of Contents</h2>")
-		.append(generateToc(sourceMarkdown))
+		.append("<h1>Bondage Club - Changelog</h1>\n")
+		.append("<h2>Table of Contents</h2>\n")
+		.append(generateToc(sourceMarkdown) + "\n")
 		.append(renderedMarkdown);
 
 	await writeFileAsync(htmlPath, $.root().html());
 }
 
 function generateToc(sourceMarkdown) {
-	const $ = cheerio.load("<ul></ul>");
+	const $ = cheerio.load("<ul>\n</ul>");
 	const matches = sourceMarkdown.match(/^## \[R[0-9A-Z]+]/gim);
 	matches.forEach((match, i) => {
 		const version = match.match(/\[(R[0-9A-Z]+)]/)[1];
-		$("ul").append(`<li><a href="#${version.toLowerCase()}">${version}${i === 0 ? " (Current)" : ""}</a></li>`);
+		$("ul").append(`\t<li><a href="#${version.toLowerCase()}">${version}${i === 0 ? " (Current)" : ""}</a></li>\n`);
 	});
 	return $.root().html();
+}
+
+async function prepareChangelog(release = "") {
+	const originalMarkdown = fs.readFileSync(markdownPath, "utf-8");
+	let lines = originalMarkdown.split(/\n/g);
+
+	const lastUpdateRegex = /^\* Changelog last updated: /;
+	const lastUpdateLine = lines.findIndex(line => lastUpdateRegex.test(line));
+
+	if (lastUpdateLine < 0) {
+		console.error("ERROR: Failed to find last upate date in changelog");
+		return;
+	}
+	console.log(lines[lastUpdateLine].substr(12));
+
+	const lastPRRegex = /^\* Last recorded PR: \[#(\d+)\]/;
+	const lastPRLine = lines.findIndex(line => lastPRRegex.test(line));
+	const lastPRRegexResult = lastPRLine >= 0 && lastPRRegex.exec(lines[lastPRLine]);
+
+	if (lastPRLine < 0 || !lastPRRegexResult) {
+		console.error("ERROR: Failed to find last PR in changelog");
+		return;
+	}
+	const lastPR = lastPRRegexResult[1];
+	console.log(`Last recorded PR: #${lastPR}`);
+
+	const lastCommitRegex = /^\* Last recorded commit hash: `([0-f]+)`/;
+	const lastCommitLine = lines.findIndex(line => lastCommitRegex.test(line));
+	const lastCommitRegexResult = lastCommitLine >= 0 && lastCommitRegex.exec(lines[lastCommitLine]);
+
+	if (lastCommitLine < 0 || !lastCommitRegexResult) {
+		console.error("ERROR: Failed to find last commit in changelog");
+		return;
+	}
+	const lastCommit = lastCommitRegexResult[1];
+	console.log(`Last recorded commit: ${lastCommit}`);
+
+	/** @type {simpleGit.SimpleGit} */
+	// @ts-ignore
+	const git = simpleGit(bcRoot);
+
+	const commits = (await git.log()).all;
+
+	const lastPos = commits.findIndex(c => c.hash === lastCommit);
+
+	if (lastPos < 0) {
+		console.error("ERROR: Last recorded commit not found in history!");
+		return;
+	}
+
+	console.log("Processing new commits...\n");
+
+	/** @type {string[]} */
+	const resAdd = [];
+
+	let newLastPR = lastPR;
+	let newLastCommit = lastCommit;
+
+	for (let i = lastPos - 1; i >= 0; i--) {
+		const commit = commits[i];
+
+		const PRresult = /^(.*)\(#(\d+)\)$/.exec(commit.message);
+		const PR = PRresult && PRresult[2];
+		const PRText = PR ? `([#${PR}](https://github.com/Ben987/Bondage-College/pull/${PR}))` : `(PR not found)`;
+		const message = (PRresult ? PRresult[1] : commit.message).trim();
+
+		if (PR) {
+			newLastPR = PR;
+		}
+		newLastCommit = commit.hash;
+
+		if (CONTRIBUTOR_NAMES[commit.author_name] === undefined) {
+			console.warn(`Unknown commit author "${commit.author_name}"`);
+			CONTRIBUTOR_NAMES[commit.author_name] = commit.author_name;
+		}
+
+		resAdd.push(`* ${CONTRIBUTOR_NAMES[commit.author_name]} - ${message} ${PRText}`);
+	}
+
+	const now = new Date();
+	const num = ( /** @type {number} */ n) => `${n}`.padStart(2, '0');
+
+	lines[lastUpdateLine] = `* Changelog last updated: ${now.getFullYear()}-${num(now.getMonth()+1)}-${num(now.getDate())}`;
+	lines[lastPRLine] = `* Last recorded PR: [#${newLastPR}](https://github.com/Ben987/Bondage-College/pull/${newLastPR})`;
+	lines[lastCommitLine] = `* Last recorded commit hash: \`${newLastCommit}\``;
+
+	const releaseAdd = release ? `
+## [${release}]
+
+### [Added]
+
+* Nothing this release
+
+### [Removed]
+
+* Nothing this release
+
+### [Changed]
+
+* Nothing this release
+
+### [Fixed]
+
+* Nothing this release
+
+### [Technical]
+
+* Nothing this release
+
+### [Beta Fixes]
+
+* Nothing... yet
+` : "";
+
+	lines = [
+		...lines.slice(0, lastCommitLine+1),
+		"",
+		"## [Generated]",
+		...resAdd,
+		releaseAdd,
+		...lines.slice(lastCommitLine+1)
+	];
+
+	fs.writeFileSync(markdownPath, lines.join("\n"), "utf-8");
+
+	console.log(`\nDone! ${resAdd.length} commits processed`);
+}
+
+if (process.argv.length < 3) {
+	console.log(`Expected usage: node ${process.argv[1]} <generate|prepare> [release]`);
+} else if (process.argv[2].toLocaleLowerCase() === "generate") {
+	generateChangelogHtml();
+} else if (process.argv[2].toLocaleLowerCase() === "prepare") {
+	prepareChangelog(process.argv[3]);
 }
