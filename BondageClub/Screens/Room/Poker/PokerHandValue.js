@@ -1,4 +1,5 @@
 "use strict";
+
 // Sort the current hand from highest to lowest
 function PokerHandValueSortHand(Hand) {
 	let swapped = true;

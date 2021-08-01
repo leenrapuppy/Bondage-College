@@ -1,1 +1,7 @@
-NotEnoughMoney,Sorry miss. You don't have enough money for that right now.
+ShowPlayer,View yourself
+RulesTexasHoldem,Texas Hold'em
+RulesTwoCards,Two Cards
+OpponentNone,None
+OpponentFriend,Private Friend
+OpponentImageSet,Image Set
+OpponentModelSet,Real Model
