@@ -235,6 +235,8 @@ function LoginMaidItems() {
 		InventoryAdd(Player, "MaidOutfit2", "Cloth", false);
 		InventoryAdd(Player, "MaidHairband1", "Cloth", false);
 		InventoryAdd(Player, "MaidApron1", "Cloth", false);
+		InventoryAdd(Player, "MaidApron2", "Cloth", false);
+		InventoryAdd(Player, "FrillyApron", "ClothAccessory", false);
 		InventoryAdd(Player, "MaidHairband1", "Hat", false);
 		InventoryAdd(Player, "ServingTray", "ItemMisc", false);
 	} else {
@@ -242,6 +244,8 @@ function LoginMaidItems() {
 		InventoryDelete(Player, "MaidOutfit2", "Cloth", false);
 		InventoryDelete(Player, "MaidHairband1", "Cloth", false);
 		InventoryDelete(Player, "MaidApron1", "Cloth", false);
+		InventoryDelete(Player, "MaidApron2", "Cloth", false);
+		InventoryDelete(Player, "FrillyApron", "ClothAccessory", false);
 		InventoryDelete(Player, "MaidHairband1", "Hat", false);
 		InventoryDelete(Player, "ServingTray", "ItemMisc", false);
 	}
