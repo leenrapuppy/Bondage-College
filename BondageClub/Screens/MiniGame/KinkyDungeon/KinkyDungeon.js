@@ -84,7 +84,7 @@ function KinkyDungeonLoad() {
 
 /**
  * Restricts Devious Dungeon Challenge to only occur when inside the arcade
- * @returns {bool} - If the player is in the arcade
+ * @returns {boolean} - If the player is in the arcade
  */
 function KinkyDungeonDeviousDungeonAvailable() {
 	return KinkyDungeonIsPlayer() && (DialogGamingPreviousRoom == "Arcade" || MiniGameReturnFunction == "ArcadeKinkyDungeonEnd");
@@ -92,7 +92,7 @@ function KinkyDungeonDeviousDungeonAvailable() {
 
 /**
  * Returns whether or not the player is the one playing, which determines whether or not to draw the UI and struggle groups
- * @returns {bool} - If the player is the game player
+ * @returns {boolean} - If the player is the game player
  */
 function KinkyDungeonIsPlayer() {
 	return (!KinkyDungeonPlayerCharacter || KinkyDungeonPlayerCharacter == Player) ;
@@ -276,6 +276,7 @@ function KinkyDungeonExit() {
 			{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
 			{ Tag: "KinkyDungeonLevel", Text: String(MiniGameKinkyDungeonLevel)},
 		];
+		// @ts-ignore
 		ChatRoomPublishCustomAction("KinkyDungeonLose", false, Dictionary);
 	}
 }
@@ -291,7 +292,9 @@ function KinkyDungeonKeyDown() {
 	if (KinkyDungeonState == "Game")
 		if (KinkyDungeonIsPlayer())
 			KinkyDungeonGameKeyDown();
+	// @ts-ignore
 	else if (KinkyDungeonState == "Keybindings") 
+		// @ts-ignore
 		KinkyDungeonKeybindingCurrentKey = KeyPress;
 	
 }

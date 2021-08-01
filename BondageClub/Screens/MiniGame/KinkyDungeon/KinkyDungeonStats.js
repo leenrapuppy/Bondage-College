@@ -79,8 +79,6 @@ var KinkyDungeonKeyJamChance = 0.33;
 var KinkyDungeonKeyPickBreakChance = 0.25;
 
 // Combat
-var KinkyDungeonPlayerDamageDefault = {dmg: 2, chance: 0.8, type: "unarmed", unarmed: true};
-var KinkyDungeonPlayerDamage = KinkyDungeonPlayerDamageDefault;
 var KinkyDungeonTorsoGrabChance = 0.33;
 
 // Your inventory contains items that are on you
@@ -99,15 +97,6 @@ var KinkyDungeonDresses = {};
 
 // Temp - for multiplayer in future
 var KinkyDungeonPlayers = []
-
-function KinkyDungeonGetPlayerWeaponDamage(HandsFree) {
-	if (!HandsFree || (KinkyDungeonNormalBlades + KinkyDungeonEnchantedBlades < 1 || !KinkyDungeonPlayerWeapon)) {KinkyDungeonPlayerDamage = {}; Object.assign(KinkyDungeonPlayerDamage, KinkyDungeonPlayerDamageDefault); return KinkyDungeonPlayerDamage; }
-	else if (KinkyDungeonNormalBlades + KinkyDungeonEnchantedBlades >= 1 && !KinkyDungeonPlayerWeapon) return {dmg: 2.5, chance: 0.8, type: "unarmed", unarmed: false};
-	else if (KinkyDungeonPlayerWeapon == "sword") return {dmg: 3, chance: 1.0, type: "slash", unarmed: false};
-	else if (KinkyDungeonPlayerWeapon == "axe") return {dmg: 4.5, chance: 0.67, type: "slash", unarmed: false};
-	else if (KinkyDungeonPlayerWeapon == "hammer") return {dmg: 4, chance: 0.75, type: "crush", unarmed: false};
-	return KinkyDungeonPlayerDamage;
-}
 
 function KinkyDungeonDefaultStats() {
 	KinkyDungeonGold = 0;
@@ -132,6 +121,7 @@ function KinkyDungeonDefaultStats() {
 	KinkyDungeonMovePoints = 0;
 	KinkyDungeonInventory = [];
 	KinkyDungeonChangeConsumable(KinkyDungeonConsumables.PotionMana, 1);
+	KinkyDungeonInventoryAddWeapon("Knife");
 	KinkyDungeonPlayerTags = [];
 
 	KinkyDungeonPlayerDamage = KinkyDungeonPlayerDamageDefault;

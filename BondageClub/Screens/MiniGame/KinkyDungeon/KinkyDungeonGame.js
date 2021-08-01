@@ -665,7 +665,7 @@ function KinkyDungeonLightGet(X, Y) {
 	var height = KinkyDungeonLightGrid.split('\n').length;
 	var width = KinkyDungeonLightGrid.split('\n')[0].length;
 
-	return KinkyDungeonLightGrid[X + Y*(width+1)];
+	return parseFloat(KinkyDungeonLightGrid[X + Y*(width+1)]);
 }
 
 const canvasOffsetX = 500;
@@ -809,7 +809,9 @@ function KinkyDungeonGameKeyDown() {
 
 	if (moveDirection) {
 		KinkyDungeonMove(moveDirection, 1);
+	// @ts-ignore
 	} else if (KinkyDungeonKeySpell.includes(KeyPress)) {
+		// @ts-ignore
 		KinkyDungeonSpellPress = KeyPress;
 		KinkyDungeonHandleSpell();
 	}
@@ -844,12 +846,18 @@ function KinkyDungeonMove(moveDirection, delta, AllowInteract) {
 	var moveY = moveDirection.y + KinkyDungeonPlayerEntity.y;
 	let moved = false;
 	var Enemy = KinkyDungeonEnemyAt(moveX, moveY);
-	if (Enemy && KinkyDungeonHasStamina(Math.abs(KinkyDungeonStatStaminaCostAttack), true)) {
+	if (Enemy) {
 		if (AllowInteract) {
-			KinkyDungeonAttackEnemy(Enemy, {damage: KinkyDungeonPlayerDamage.dmg, type: KinkyDungeonPlayerDamage.type});
+			if (KinkyDungeonHasStamina(Math.abs(KinkyDungeonStatStaminaCostAttack), true)) {
+				KinkyDungeonAttackEnemy(Enemy, {damage: KinkyDungeonPlayerDamage.dmg, type: KinkyDungeonPlayerDamage.type});
 
-			KinkyDungeonStatStamina += KinkyDungeonStatStaminaCostAttack;
+				KinkyDungeonStatStamina += KinkyDungeonStatStaminaCostAttack;
 
+			} else {
+				KinkyDungeonWaitMessage();
+			}
+			
+			
 			KinkyDungeonAdvanceTime(1);
 		}
 	} else {

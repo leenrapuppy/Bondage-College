@@ -30,7 +30,7 @@ function KinkyDungeonNewLore() {
 		}
 		
 		if (Math.random() < KinkyDungeonRepeatLoreChance) {
-			if (Math.random > KinkyDungeonGenericLoreChance) {
+			if (Math.random() > KinkyDungeonGenericLoreChance) {
 				availableLore = KinkyDungeonLore;
 			} else {
 				availableLore = [];

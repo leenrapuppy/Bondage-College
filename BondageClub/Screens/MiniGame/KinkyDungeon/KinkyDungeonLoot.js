@@ -236,7 +236,7 @@ function KinkyDungeonLootEvent(Loot, Index, Replacemsg) {
 
 	if (value > 0) {
 		if (Replacemsg)
-			KinkyDungeonActionMessage = KinkyDungeonActionMessage.replace("XXX", value);
+			KinkyDungeonActionMessage = KinkyDungeonActionMessage.replace("XXX", "" + value);
 		KinkyDungeonAddGold(value);
 	}
 }

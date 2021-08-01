@@ -704,6 +704,7 @@ interface PlayerCharacter extends Character {
 	FriendNames?: Map<number, string>;
 	SubmissivesList?: Set<number>;
 	KinkyDungeonKeybindings?: any;
+	KinkyDungeonExploredLore: any[];
 	Infiltration?: any;
 }
 

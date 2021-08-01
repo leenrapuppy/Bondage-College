@@ -8,24 +8,32 @@ var KinkyDungeonBulletsID = {}; // Bullets on the game board
 var KinkyDungeonOpenObjects = KinkyDungeonTransparentObjects; // Objects bullets can pass thru
 var KinkyDungeonMeleeDamageTypes = ["unarmed", "crush", "slash", "pierce", "grope", "pain", "chain"]
 
+// Weapons
 var KinkyDungeonPlayerWeapon = null;
-
+var KinkyDungeonPlayerDamageDefault = {dmg: 2, chance: 0.8, type: "unarmed", unarmed: true};
+var KinkyDungeonPlayerDamage = KinkyDungeonPlayerDamageDefault;
 var KinkyDungeonWeapons = {
+	"Knife": {name: "Knife", dmg: 2.5, chance: 0.8, type: "unarmed", unarmed: false, rarity: 0, shop: false, noequip: true},
 	"Sword": {name: "Sword", dmg: 3, chance: 1.0, type: "slash", unarmed: false, rarity: 2, shop: true},
-	"Axe": {name: "Axe", dmg: 4.5, chance: 0.67, type: "slash", unarmed: false, rarity: 2, shop: true},
-	"Hammer": {name: "Hammer", dmg: 4, chance: 0.75, type: "crush", unarmed: false, rarity: 2, shop: true},
+	"Axe": {name: "Axe", dmg: 4, chance: 0.75, type: "slash", unarmed: false, rarity: 2, shop: true},
+	"Hammer": {name: "Hammer", dmg: 5, chance: 0.6, type: "crush", unarmed: false, rarity: 2, shop: true},
 }
 
 function KinkyDungeonGetPlayerWeaponDamage(HandsFree) {
-	if (!HandsFree || (KinkyDungeonNormalBlades + KinkyDungeonEnchantedBlades < 1 && !KinkyDungeonPlayerWeapon)) {KinkyDungeonPlayerDamage = {}; Object.assign(KinkyDungeonPlayerDamage, KinkyDungeonPlayerDamageDefault); return KinkyDungeonPlayerDamage; }
-	else if (KinkyDungeonNormalBlades + KinkyDungeonEnchantedBlades >= 1 && !KinkyDungeonPlayerWeapon) return {dmg: 2.5, chance: 0.8, type: "unarmed", unarmed: false};
-	else if (KinkyDungeonPlayerWeapon && KinkyDungeonWeapons[KinkyDungeonPlayerWeapon]) return KinkyDungeonWeapons[KinkyDungeonPlayerWeapon];
+	let damage = KinkyDungeonPlayerDamageDefault;
+	// @ts-ignore
+	KinkyDungeonPlayerDamage = {};
+	if (!HandsFree || (KinkyDungeonNormalBlades + KinkyDungeonEnchantedBlades < 1 && !KinkyDungeonPlayerWeapon)) { damage = KinkyDungeonPlayerDamageDefault;}
+	else if (KinkyDungeonNormalBlades + KinkyDungeonEnchantedBlades >= 1 && !KinkyDungeonPlayerWeapon) damage = KinkyDungeonWeapons.Knife;
+	else if (KinkyDungeonPlayerWeapon && KinkyDungeonWeapons[KinkyDungeonPlayerWeapon]) damage = KinkyDungeonWeapons[KinkyDungeonPlayerWeapon];
+
+	Object.assign(KinkyDungeonPlayerDamage, KinkyDungeonPlayerDamageDefault);
 	return KinkyDungeonPlayerDamage;
 }
 
 function KinkyDungeonEvasion(Enemy) {
 	var hitChance = (Enemy && Enemy.buffs && Enemy.buffs.Evasion) ? Enemy.buffs.Evasion.power : 1.0;
-	if (Enemy.Enemy && Enemy.Enemy.evasion && !Enemy.stun > 0) hitChance *= (1 - Enemy.Enemy.evasion);
+	if (Enemy.Enemy && Enemy.Enemy.evasion && !(Enemy.stun > 0)) hitChance *= (1 - Enemy.Enemy.evasion);
 	hitChance *= KinkyDungeonPlayerDamage.chance;
 
 	hitChance -= Math.min(3, KinkyDungeonPlayer.GetBlindLevel()) * KinkyDungeonMissChancePerBlind;
@@ -314,7 +322,7 @@ function KinkyDungeonBulletsCheckCollision(bullet, AoE) {
 			}
 		}
 	}
-	if (!bullet.bullet.block > 0 && bullet.vx != 0 || bullet.vy != 0) {
+	if (!(bullet.bullet.block > 0) && bullet.vx != 0 || bullet.vy != 0) {
 		
 		for (let E = 0; E < KinkyDungeonBullets.length; E++) {
 			let b2 = KinkyDungeonBullets[E];
@@ -359,7 +367,7 @@ function KinkyDungeonDrawFight(canvasOffsetX, canvasOffsetY, CamX, CamY) {
 
 		}
 
-		var Img = DrawGetImage(KinkyDungeonRootDirectory + "Bullets/" + sprite + ".png", 0, 0);
+		var Img = DrawGetImage(KinkyDungeonRootDirectory + "Bullets/" + sprite + ".png");
 
 		var spriteContext = spriteCanvas.getContext("2d");
 		var direction = Math.atan2(KinkyDungeonBullets[E].vy, KinkyDungeonBullets[E].vx);
