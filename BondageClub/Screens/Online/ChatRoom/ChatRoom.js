@@ -502,6 +502,9 @@ function ChatRoomLoad() {
 		ChatRoomHideIconState = 0;
 	}
 	ChatRoomMenuBuild();
+
+	TextPrefetch("Character", "FriendList");
+	TextPrefetch("Online", "ChatAdmin");
 }
 
 /**

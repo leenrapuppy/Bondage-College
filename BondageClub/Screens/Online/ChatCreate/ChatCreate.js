@@ -39,6 +39,7 @@ function ChatCreateLoad() {
 	ChatCreateMessage = "";
 	ChatCreatePrivate = ChatCreatePrivate || false;
 
+	TextPrefetch("Online", "ChatBlockItem");
 }
 
 /**

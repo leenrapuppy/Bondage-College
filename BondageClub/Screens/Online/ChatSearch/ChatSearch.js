@@ -34,8 +34,12 @@ function ChatSearchLoad() {
 	ChatSearchQuery();
 	ChatSearchMessage = "";
 	ChatRoomNotificationReset();
-	
+
 	ChatSearchRejoinIncrement = 1;
+
+	TextPrefetch("Character", "FriendList");
+	TextPrefetch("Online", "ChatCreate");
+	TextPrefetch("Online", "ChatRoom");
 }
 
 /**
@@ -434,9 +438,9 @@ function ChatSearchResultResponse(data) {
 					ChatSearchRejoinIncrement += 1;
 					let ChatRoomSuffix = " " + ChatSearchRejoinIncrement;
 					ChatRoomName = ChatRoomName.substring(0, Math.min(ChatRoomName.length, 19 - ChatRoomSuffix.length)) + ChatRoomSuffix; // Added
-					
+
 					Player.LastChatRoom = ChatRoomName;
-					
+
 					ChatSearchQuery();
 				} else {
 					if (ChatBlockItemCategory) block = ChatBlockItemCategory;

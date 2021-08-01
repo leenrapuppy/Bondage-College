@@ -62,6 +62,8 @@ function ChatAdminLoad() {
 		ChatAdminMessage = "AdminOnly";
 	} else ChatAdminMessage = "UseMemberNumbers";
 	ChatAdminInitialLoad = true;
+
+	TextPrefetch("Online", "ChatBlockItem");
 }
 
 /**

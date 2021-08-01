@@ -1,5 +1,9 @@
 "use strict";
-var TextData = null;
+
+/** @type {TextCache | null} */
+let TextScreenCache = null;
+/** @type {Map<string, TextCache>} */
+const TextAllScreenCache = new Map;
 
 /**
  * Finds the text value linked to the tag in the buffer
@@ -7,39 +11,8 @@ var TextData = null;
  * @returns {string} - Returns the text associated to the tag, will return a missing tag text if the tag was not found.
  */
 function TextGet(TextTag) {
-	if (TextData == null) return "";
-	for (let T = 0; T < TextData.length; T++)
-		if (TextData[T].Tag == TextTag)
-			return TextData[T].Value;
-	return "MISSING VALUE FOR TAG: " + TextTag;
+	return TextScreenCache ? TextScreenCache.get(TextTag) : "";
 }
-
-/**
- * Builds the text objects from the CSV file, then applies the translation to the text.
- * @param {string[][]} CSV - The content of the CSV file to parse (List of tag-text pairs)
- * @returns {void} - Nothing
- */
-function TextBuild(CSV) {
-
-	// For each lines in the file
-	TextData = [];
-	for (let L = 0; L < CSV.length; L++)
-		if ((CSV[L][0] != null) && (CSV[L][0] != "")) {
-
-			// Creates a text object and adds it to the buffer
-			var T = {};
-			T.Tag = CSV[L][0].trim();
-			if ((CSV[L][1] != null) && (CSV[L][1].trim() != "")) T.Value = CSV[L][1].trim();
-			else T.Value = "";
-			TextData.push(T);
-
-		}
-
-	// Translate the text
-	TranslationText(TextData);
-
-}
-
 
 /**
  * Loads the CSV text file of the current screen into the buffer. It will get the CSV from the cache if the file was already fetched from
@@ -50,22 +23,26 @@ function TextBuild(CSV) {
 function TextLoad(TextGroup) {
 
 	// Finds the full path of the CSV file to use cache
-	TextData = null;
 	if ((TextGroup == null) || (TextGroup = "")) TextGroup = CurrentScreen;
-	var FullPath = "Screens/" + CurrentModule + "/" + TextGroup + "/Text_" + TextGroup + ".csv";
-	if (CommonCSVCache[FullPath]) {
-		TextBuild(CommonCSVCache[FullPath]);
-		return;
+	const FullPath = "Screens/" + CurrentModule + "/" + TextGroup + "/Text_" + TextGroup + ".csv";
+
+	TextScreenCache = TextAllScreenCache.get(FullPath);
+	if (!TextScreenCache) {
+		TextScreenCache = new TextCache(FullPath, "MISSING VALUE FOR TAG: ");
+		TextAllScreenCache.set(FullPath, TextScreenCache);
 	}
+}
 
-	// Opens the file, parse it and returns the result it to build the dialog
-	CommonGet(FullPath, function () {
-		if (this.status == 200) {
-			CommonCSVCache[FullPath] = CommonParseCSV(this.responseText);
-			TextBuild(CommonCSVCache[FullPath]);
-		}
-	});
-
+/**
+ * Cache the Module and TextGroup for later use, speeds up first use
+ * @param {string} Module
+ * @param {string} TextGroup
+ */
+ function TextPrefetch(Module, TextGroup) {
+	const FullPath = "Screens/" + Module + "/" + TextGroup + "/Text_" + TextGroup + ".csv";
+	if (TextAllScreenCache.has(FullPath)) {
+		TextAllScreenCache.set(FullPath, new TextCache(FullPath, "MISSING VALUE FOR TAG: "));
+	}
 }
 
 /**
@@ -76,11 +53,14 @@ class TextCache {
 	/**
 	 * Creates a new TextCache from the provided CSV file path.
 	 * @param {string} path - The path to the CSV lookup file for this TextCache instance
+	 * @param {string} [warn] - prefix for warning when key is not found
 	 */
-	constructor(path) {
+	constructor(path, warn = "") {
 		this.path = path;
+		this.warn = warn;
 		this.language = TranslationLanguage;
 		this.cache = {};
+		this.loaded = false;
 		this.buildCache();
 	}
 
@@ -92,10 +72,11 @@ class TextCache {
 	 * @returns {string} - The text value corresponding to the provided key, translated into the current language, if available
 	 */
 	get(key) {
+		if (!this.loaded) return "";
 		if (TranslationLanguage !== this.language) {
 			this.buildCache();
 		}
-		return this.cache[key] || key;
+		return this.cache[key] || (this.warn + key);
 	}
 
 	/**
@@ -134,6 +115,7 @@ class TextCache {
 	 */
 	cacheLines(lines) {
 		lines.forEach((line) => (this.cache[line[0]] = line[1]));
+		this.loaded = true;
 	}
 
 	/**

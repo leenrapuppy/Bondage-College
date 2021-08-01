@@ -23,6 +23,16 @@ function InformationSheetGetLove(Love) {
 }
 
 /**
+ * Loads the Information Sheet, cache the sub screens
+ * @returns {void} - Nothing
+ */
+function InformationSheetLoad() {
+	TextPrefetch("Character", "FriendList");
+	TextPrefetch("Character", "Preference");
+	TextPrefetch("Character", "Title");
+}
+
+/**
  * Main function of the character info screen. It's called continuously, so be careful
  * to add time consuming functions or loops here
  * @returns {void} - Nothing
