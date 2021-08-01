@@ -3577,6 +3577,32 @@ var AssetFemale3DCGExtended = {
 				}
 			},
 		}, // EyePatch1
+		CatGlasses: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Front",
+						Property: {
+							Type: null,
+							OverridePriority: 53
+						},
+					},
+					{
+						Name: "Back",
+						Property: {
+							Type: "Back",
+							OverridePriority: 27
+						},
+					},
+				],
+				Dialog: {
+					Load: "CatGlassesSelectStyle",
+					TypePrefix: "CatGlassesStyle",
+				},
+				DrawImages: false,
+			},
+		}, // CatGlasses
 	}, // Glasses
 	Bracelet: {
 		Band1: {

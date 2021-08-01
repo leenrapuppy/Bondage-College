@@ -2127,10 +2127,13 @@ ItemDevicesPoleSetTied,,,SourceCharacter ties TargetCharacter to the pole.,,
 SelectEyePatchType,,,Select an eyepatch style.
 EyePatchTypeLeft,,,Left,,
 EyePatchTypeRight,,,Right,,
+CatGlassesSelectStyle,,,Select a style.
+CatGlassesStyleFront,,,Front of hair
+CatGlassesStyleBack,,,Behind hair
 BraceletBand1Select,,,Select the style.
-BraceletBand1Left,,,<- This side,,
-BraceletBand1Both,,,<- Both sides ->,,
-BraceletBand1Right,,,That side ->,,
+BraceletBand1Left,,,← This side,,
+BraceletBand1Both,,,← Both sides →,,
+BraceletBand1Right,,,That side →,,
 GartersGarterBeltSelect,,,Select the style.
 GartersGarterBeltBoth,,,Both,,
 GartersGarterBeltLeft,,,Left,,
