@@ -76,7 +76,8 @@ class TextCache {
 		if (TranslationLanguage !== this.language) {
 			this.buildCache();
 		}
-		return this.cache[key] || (this.warn + key);
+		const value = this.cache[key];
+		return (value != null) ? value : (this.warn + key);
 	}
 
 	/**
