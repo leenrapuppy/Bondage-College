@@ -3,25 +3,62 @@ var KinkyDungeonGroundItems = []; // Tracking all items on the ground
 
 function KinkyDungeonItemDrop(x, y, dropTable) {
 	if (dropTable) {
-		var dropWeightTotal = 0;
-		var dropWeights = [];
+		let dropWeightTotal = 0;
+		let dropWeights = [];
 
 		for (let L = 0; L < dropTable.length; L++) {
-			var drop = dropTable[L];
+			let drop = dropTable[L];
+			let weight = drop.weight;
 			dropWeights.push({drop: drop, weight: dropWeightTotal});
-			dropWeightTotal += drop.weight;
+			if (drop.ignoreInInventory && KinkyDungeonInventoryGet(drop.name)) weight = 0;
+			dropWeightTotal += weight;
 		}
 
-		var selection = Math.random() * dropWeightTotal;
+		let selection = Math.random() * dropWeightTotal;
 
 		for (let L = dropWeights.length - 1; L >= 0; L--) {
 			if (selection > dropWeights[L].weight) {
-				var dropped = {x:x, y:y, name: dropWeights[L].drop.name, amount: dropWeights[L].drop.amountMin + Math.floor(Math.random()*dropWeights[L].drop.amountMax)};
+				let dropped = {x:x, y:y, name: dropWeights[L].drop.name, amount: dropWeights[L].drop.amountMin + Math.floor(Math.random()*dropWeights[L].drop.amountMax)};
 				KinkyDungeonGroundItems.push(dropped);
 				return dropped;
 			}
 		}
 	}
+	return false;
+}
+
+function KinkyDungeonDropItem(Item) {
+	let slots = [];
+	for (let X = -Math.ceil(1); X <= Math.ceil(1); X++)
+		for (let Y = -Math.ceil(1); Y <= Math.ceil(1); Y++) {
+			slots.push({x:X, y:Y});
+		}
+		
+	let foundslot = null;
+	for (let C = 0; C < 100; C++) {
+		let slot = slots[Math.floor(Math.random() * slots.length)];
+		if (KinkyDungeonMovableTilesEnemy.includes(KinkyDungeonMapGet(KinkyDungeonPlayerEntity.x+slot.x, KinkyDungeonPlayerEntity.y+slot.y)) && KinkyDungeonNoEnemy(KinkyDungeonPlayerEntity.x+slot.x, KinkyDungeonPlayerEntity.y+slot.y, true)) {
+			foundslot = {x: KinkyDungeonPlayerEntity.x+slot.x, y: KinkyDungeonPlayerEntity.y+slot.y};
+
+			C = 100;
+		} else slots.splice(C, 1);
+	}
+	
+	if (foundslot) {
+		
+		let dropped = {x:foundslot.x, y:foundslot.y, name: Item.name};
+		if (Item.amountMin && Item.amountMax) {
+			dropped.amount = Item.amountMin + Math.floor(Math.random()*Item.amountMax); 
+		} else if (Item.amount) {
+			dropped.amount = Item.amount;
+		}
+
+		KinkyDungeonGroundItems.push(dropped);
+		KinkyDungeonSendTextMessage(9, TextGet("KinkyDungeonDrop" + Item.name), "red", 2);
+
+		return true;
+	}
+
 	return false;
 }
 
@@ -31,6 +68,24 @@ function KinkyDungeonItemEvent(Item) {
 	if (Item.name == "Gold") {
 		color = "yellow";
 		KinkyDungeonAddGold(Item.amount);
+	} else if (Item.name == "Lore") {
+		KinkyDungeonNewLore();
+	} else if (Item.name == "Pick") {
+		priority = 2;
+		color = "lightgreen";
+		KinkyDungeonLockpicks += 1;
+	} else if (Item.name == "Hammer") {
+		priority = 4;
+		color = "orange";
+		KinkyDungeonInventoryAddWeapon("Hammer");
+	} else if (Item.name == "Knife") {
+		priority = 2;
+		color = "lightgreen";
+		KinkyDungeonNormalBlades += 1;
+	} else if (Item.name == "EnchKnife") {
+		priority = 2;
+		color = "lightgreen";
+		KinkyDungeonEnchantedBlades += 1;
 	} else if (Item.name == "RedKey") {
 		priority = 2;
 		color = "lightgreen";

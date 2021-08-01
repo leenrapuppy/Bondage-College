@@ -8,9 +8,24 @@ var KinkyDungeonBulletsID = {}; // Bullets on the game board
 var KinkyDungeonOpenObjects = KinkyDungeonTransparentObjects; // Objects bullets can pass thru
 var KinkyDungeonMeleeDamageTypes = ["unarmed", "crush", "slash", "pierce", "grope", "pain", "chain"]
 
+var KinkyDungeonPlayerWeapon = null;
+
+var KinkyDungeonWeapons = {
+	"Sword": {name: "Sword", dmg: 3, chance: 1.0, type: "slash", unarmed: false, rarity: 2, shop: true},
+	"Axe": {name: "Axe", dmg: 4.5, chance: 0.67, type: "slash", unarmed: false, rarity: 2, shop: true},
+	"Hammer": {name: "Hammer", dmg: 4, chance: 0.75, type: "crush", unarmed: false, rarity: 2, shop: true},
+}
+
+function KinkyDungeonGetPlayerWeaponDamage(HandsFree) {
+	if (!HandsFree || (KinkyDungeonNormalBlades + KinkyDungeonEnchantedBlades < 1 && !KinkyDungeonPlayerWeapon)) {KinkyDungeonPlayerDamage = {}; Object.assign(KinkyDungeonPlayerDamage, KinkyDungeonPlayerDamageDefault); return KinkyDungeonPlayerDamage; }
+	else if (KinkyDungeonNormalBlades + KinkyDungeonEnchantedBlades >= 1 && !KinkyDungeonPlayerWeapon) return {dmg: 2.5, chance: 0.8, type: "unarmed", unarmed: false};
+	else if (KinkyDungeonPlayerWeapon && KinkyDungeonWeapons[KinkyDungeonPlayerWeapon]) return KinkyDungeonWeapons[KinkyDungeonPlayerWeapon];
+	return KinkyDungeonPlayerDamage;
+}
+
 function KinkyDungeonEvasion(Enemy) {
 	var hitChance = (Enemy && Enemy.buffs && Enemy.buffs.Evasion) ? Enemy.buffs.Evasion.power : 1.0;
-	if (Enemy.Enemy && Enemy.Enemy.evasion) hitChance *= (1 - Enemy.Enemy.evasion);
+	if (Enemy.Enemy && Enemy.Enemy.evasion && !Enemy.stun > 0) hitChance *= (1 - Enemy.Enemy.evasion);
 	hitChance *= KinkyDungeonPlayerDamage.chance;
 
 	hitChance -= Math.min(3, KinkyDungeonPlayer.GetBlindLevel()) * KinkyDungeonMissChancePerBlind;

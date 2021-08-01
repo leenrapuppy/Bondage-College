@@ -53,7 +53,7 @@ Other
 Features
 - Streaming mode to watch your friends play!
 
-1.5 (Aug 2021)
+1.51 (Aug 2021)
 Features
 - Enhanced graphics. Bullets, enemies, and the player all move fluidly across the screen now!
 - Mana system: Casting spells builds up mana, which lowers your stamina until you drink a mana potion or restore it at a shrine.
@@ -62,6 +62,9 @@ Features
 - Restraints are now saved in the inventory and can be viewed
 - Added the Goddess of commerce, who has an item shop that sells potions
 - Inventory system with potions! Willpower potions keep you in the fight, stamina potions enhance your drive for combat, mana potions reduce the paralyzing effects of mana exposure, and bitter potions help suppress distractions
+- You can't use potions if your hands are covered or unavailable
+- (WIP TODO) Struggling shouldnt be harder if your hands are covered, and arms being bound should have less effect
+- (WIP TODO) The shop costs more as the game goes on
 - New floor: The catacombs, full of skeletons and rats and necromancers! 
  - Skeletons utilize a variety of ropes and chains
  - Necromancers can summon more skeletons
@@ -74,41 +77,43 @@ Features
 TODO ValidationFindBlockCycles to prevent bugs
 
 Future content planned:
+- Items like swords and wands which improve melee attack damage or stamina cost
+- Witches should drop their respective spells sometimes if you don't already have them
+- Slimes which clean up items, dissolve doors, and potentially corrupt traps and such
+- SLimes that catch your sword and trap it
+- Enemies that grab your melee weapon and disarm you
+- Perk system with perks that allow you to decrease or increase spawns of certain restraints, affect your stats, etc. Maybe a One Punch perk that drastically increases melee damage but makes it so you can't use magic
 - Exit stair puzzles (like for example a button or special key somewhere in the level, maybe with a high likelihood of traps)
 - Inescapable yoke that needs keys, but the trap also summons rats that steal the keys and run away
 - Trapdoor that drops you into the above bonus level, with no enemies other than the rats. You wake up feeling stiff, and a yoke is on your arms...
 - Rats should have a kleptomaniac AI that steals items and holds them, drops them on death, and runs away from the player when confronted
-- Battery life system for plugs
 - jail bars that block movement but not vision and spells
 - Tranquilizer/stamina drain
-- Boss rooms/shop rooms
-- Item shops scattered around the map, allowing you to buy swords and outfits
+- Boss rooms
 - Magical rope traps which require enchanted knives to cut
 - Enchanted knives, which are found only in chests
 - Latex witches that cast latex imprisonment spells at you from a distance
-- Inventory system which lets you view special items and restraints (shows you how hard it is to break free from them... after you've struggled enough)
+- Mummification from the feet up in an egyptian style level
 - Mana-boosting mittens which increase spell power and decrease mana costs, but make it harder to struggle out of things
 - Enchanted heels of various sorts (immunity to slow, immunity to slime, bonus to kick attacks, etc)
-- Items like swords and wands which improve melee attack damage or stamina cost
 - Chastity belt trap that puts a plug in you, increasing your arousal while walking
-- Chastity belt trap that puts a magic toy in you. Toys are powered by casting magic
 - New shrine: chastity goddess. Places you in a set of magic cuffs that prevent you from being restrained. However if your willpower falls below maximum, the cuffs snap together until you get back to full willpower!
 - Traps that look slightly different. Usually found on brickwork, so if you avoid brickwork you can avoid them.
-- Witches should drop their respective spells sometimes if you don't already have them
 - Locked doors; need to find a way to prevent the player from being trapped
 - Bombs
-- Slimes which clean up items, dissolve doors, and potentially corrupt traps and such
-- SLimes that catch your sword and trap it
-- Enemies that grab your melee weapon and disarm you
-- Inventory management system T_T
 - Vines in the undergrorund jungle (when it gets implemented)
 - Some sort of end state for high arousal... maybe an orgasm button that lets you succumb to the effects for several turns to bring it down to zero, and maybe "edging" items that prevent this from happening and instead cause increased stamina drain or constant random interruptions
 - Im also thinking... locked doors that trigger when you step on an obvious looking brickwork that's only generated on tiles you can avoid, maybe with some sort of sleep gas hazard or something to force a time limit if you cant progress
-- Stamina costs of spells are reduced, but they turn the stamina bar blue, which is basically stamina that has been magically drained and won't regenerate for a while / until you enter the next floor
 - Monster Encyclopedia
+- A way to fix jammed locks, or a goddess of locks
+- Bolt cutters that allow cutting jammed green locks
 
 Spell Ideas:
 - Clear Jam spell, which clears jammed green locks from either an object or the player, depending on where it is cast
 - Divine Cuffs, a spell which gives you glowing arm and leg cuffs that block low level restraints from being put on you. Lasts 10 turns.
 - Ice Storm, a temporary AoE which has a chance to deal damage and stun creatures inside. Drains player willpower but does not slow or restraint the player.
 - Sleep, puts nearby creatures with low willpower to sleep until they take damage. Works on zombies, and also the player if the player is at low willpower (<30).
+- Clairvoyance: Cost 30 mana to be able to see inside of a chest
+- Conjure time Bombs
+- Icicle traps that deal ice damagee if enemies step on them
+- Temporary Wall spell

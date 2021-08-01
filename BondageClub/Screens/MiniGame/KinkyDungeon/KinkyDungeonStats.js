@@ -81,7 +81,6 @@ var KinkyDungeonKeyPickBreakChance = 0.25;
 // Combat
 var KinkyDungeonPlayerDamageDefault = {dmg: 2, chance: 0.8, type: "unarmed", unarmed: true};
 var KinkyDungeonPlayerDamage = KinkyDungeonPlayerDamageDefault;
-var KinkyDungeonPlayerWeapon = null;
 var KinkyDungeonTorsoGrabChance = 0.33;
 
 // Your inventory contains items that are on you
@@ -132,6 +131,7 @@ function KinkyDungeonDefaultStats() {
 
 	KinkyDungeonMovePoints = 0;
 	KinkyDungeonInventory = [];
+	KinkyDungeonChangeConsumable(KinkyDungeonConsumables.PotionMana, 1);
 	KinkyDungeonPlayerTags = [];
 
 	KinkyDungeonPlayerDamage = KinkyDungeonPlayerDamageDefault;
@@ -238,7 +238,7 @@ function KinkyDungeonUpdateStats(delta) {
 	KinkyDungeonCalculateSlowLevel();
 
 	// Unarmed damage calc
-	KinkyDungeonPlayerDamage = KinkyDungeonGetPlayerWeaponDamage(InventoryItemHasEffect(InventoryGet(KinkyDungeonPlayer, "ItemHands"), "Block", true) || InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, "ItemHands"));
+	KinkyDungeonPlayerDamage = KinkyDungeonGetPlayerWeaponDamage(!InventoryItemHasEffect(InventoryGet(KinkyDungeonPlayer, "ItemHands"), "Block", true) && !InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, "ItemHands"));
 	
 	if (!KinkyDungeonPlayer.CanInteract()) {
 		KinkyDungeonPlayerDamage.chance /= 2;

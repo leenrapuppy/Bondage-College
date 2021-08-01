@@ -14,6 +14,7 @@
 var KinkyDungeonRestraintsLocked = [];
 
 var KinkyDungeonMultiplayerInventoryFlag = false;
+var KinkyDungeonItemDropChanceArmsBound = 0.2; // Chance to drop item with just bound arms and not bound hands.
 
 var KinkyDungeonRestraints = [
 	{name: "DuctTapeArms", Asset: "DuctTape", Color: "#AA2222", Group: "ItemArms", magic: false, power: -2, weight: 0, escapeChance: {"Struggle": 0.5, "Cut": 0.9, "Remove": 0.3}, enemyTags: {"ribbonRestraints":5}, playerTags: {"ItemArmsFull":8}, minLevel: 0, floors: [0, 1, 2, 3], shrine: ["Charms"]},
@@ -148,10 +149,26 @@ function KinkyDungeonPlayerGetLockableRestraints() {
 
 function KinkyDungeonRemoveKeys(lock) {
 	if (lock.includes("Red")) KinkyDungeonRedKeys -= 1;
+	if (lock.includes("Green")) KinkyDungeonGreenKeys -= 1;
 	if (lock.includes("Yellow")) {KinkyDungeonRedKeys -= 1; KinkyDungeonGreenKeys -= 1; }
 	if (lock.includes("Blue")) KinkyDungeonBlueKeys -= 1;
 }
 
+function KinkyDungeonGetKey(lock) {
+	if (lock.includes("Red")) return "Red"
+	if (lock.includes("Green")) return "Green"
+	if (lock.includes("Yellow")) {return Math.random() > 0.5 ? "Red" : "Green"}
+	if (lock.includes("Blue")) return "Blue";
+	return "";
+}
+
+function KinkyDungeonIsHandsBound() {
+	return InventoryItemHasEffect(InventoryGet(KinkyDungeonPlayer, "ItemHands"), "Block", true) || InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, "ItemHands");
+}
+
+function KinkyDungeonIsArmsBound() {
+	return InventoryItemHasEffect(InventoryGet(KinkyDungeonPlayer, "ItemArms"), "Block", true) || InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, "ItemArms");
+}
 
 function KinkyDungeonGetPickBaseChance() {
 	return 0.2 / (1.0 + 0.005 * MiniGameKinkyDungeonLevel);
@@ -163,7 +180,7 @@ function KinkyDungeonPickAttempt() {
 	var cost = KinkyDungeonStatStaminaCostTool;
 	let lock = KinkyDungeonTargetTile.Lock;
 
-	if (StruggleType == "Pick" && (lock.includes("Blue") && KinkyDungeonBlueKeys < 1)) {
+	if (lock.includes("Blue") && KinkyDungeonBlueKeys < 1) {
 		if ((KinkyDungeonPlayer.IsBlind() < 1) || !lock.includes("Blue"))
 			KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonStruggleUnlockNo" + ((KinkyDungeonPlayer.IsBlind() > 0) ? "Unknown" : lock) + "Key"), "orange", 2);
 		else
@@ -171,9 +188,11 @@ function KinkyDungeonPickAttempt() {
 		Pass = "Fail";
 	}
 
+	let handsBound = KinkyDungeonIsHandsBound();
+	let armsBound = KinkyDungeonIsArmsBound();
 	if (!KinkyDungeonPlayer.CanInteract()) escapeChance /= 2;
-	if (InventoryItemHasEffect(InventoryGet(KinkyDungeonPlayer, "ItemArms"), "Block", true) || InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, "ItemArms")) escapeChance = Math.max(0.0, escapeChance - 0.25);
-	if (InventoryItemHasEffect(InventoryGet(KinkyDungeonPlayer, "ItemHands"), "Block", true) || InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, "ItemHands")) escapeChance = Math.max(0, escapeChance - 0.5);
+	if (armsBound) escapeChance = Math.max(0.0, escapeChance - 0.25);
+	if (handsBound) escapeChance = Math.max(0, escapeChance - 0.5);
 
 	escapeChance /= 1.0 + KinkyDungeonStatArousal/KinkyDungeonStatArousalMax*KinkyDungeonArousalUnlockSuccessMod;
 
@@ -185,6 +204,9 @@ function KinkyDungeonPickAttempt() {
 	} else if (Math.random() < KinkyDungeonKeyPickBreakChance || lock.includes("Blue")) { // Blue locks cannot be picked or cut!
 		Pass = "Break";
 		KinkyDungeonLockpicks -= 1;
+	} else if (handsBound || (armsBound && Math.random() < KinkyDungeonItemDropChanceArmsBound)) {
+		KinkyDungeonDropItem({name: "Pick"});
+		KinkyDungeonLockpicks -= 1;
 	}
 	KinkyDungeonSendActionMessage(2, TextGet("KinkyDungeonAttemptPick" + Pass).replace("TargetRestraint", TextGet("KinkyDungeonObject")), (Pass == "Success") ? "lightgreen" : "red", 1);
 	return Pass == "Success";
@@ -194,9 +216,11 @@ function KinkyDungeonUnlockAttempt(lock) {
 	let Pass = "Fail";
 	let escapeChance = 1.0;
 
+	let handsBound = KinkyDungeonIsHandsBound();
+	let armsBound = KinkyDungeonIsArmsBound();
 	if (!KinkyDungeonPlayer.CanInteract()) escapeChance /= 2;
-	if (InventoryItemHasEffect(InventoryGet(KinkyDungeonPlayer, "ItemArms"), "Block", true) || InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, "ItemArms")) escapeChance = Math.max(0.1, escapeChance - 0.25);
-	if (InventoryItemHasEffect(InventoryGet(KinkyDungeonPlayer, "ItemHands"), "Block", true) || InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, "ItemHands")) escapeChance = Math.max(0, escapeChance - 0.5);
+	if (armsBound) escapeChance = Math.max(0.1, escapeChance - 0.25);
+	if (handsBound) escapeChance = Math.max(0, escapeChance - 0.5);
 
 	if (Math.random() < escapeChance)
 		Pass = "Success";
@@ -204,6 +228,12 @@ function KinkyDungeonUnlockAttempt(lock) {
 	if (Pass == "Success") {
 		KinkyDungeonRemoveKeys(lock);
 		return true;
+	} else if (handsBound || (armsBound && Math.random() < KinkyDungeonItemDropChanceArmsBound)) {
+		let keytype = KinkyDungeonGetKey(lock);
+		KinkyDungeonDropItem({name: keytype+"Key"});
+		if (keytype == "Blue") KinkyDungeonBlueKeys -= 1;
+		else if (keytype == "Red") KinkyDungeonRedKeys -= 1;
+		else if (keytype == "Green") KinkyDungeonGreenKeys -= 1;
 	}
 	return false;
 }
@@ -223,17 +253,22 @@ function KinkyDungeonStruggle(struggleGroup, StruggleType) {
 		return false;
 	}
 
-	if ((struggleGroup.group != "ItemArms" && struggleGroup.group != "ItemHands" ) && !KinkyDungeonPlayer.CanInteract()) escapeChance /= 2;
-	if (struggleGroup.group != "ItemArms" && (InventoryItemHasEffect(InventoryGet(KinkyDungeonPlayer, "ItemArms"), "Block", true) || InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, "ItemArms"))) escapeChance = Math.max(0.1 - Math.max(0, 0.01*restraint.restraint.power), escapeChance - 0.25);
+	let handsBound = KinkyDungeonIsHandsBound();
+	let armsBound = KinkyDungeonIsArmsBound();
+
+	// Struggling is unaffected by having arms bound
+	if (StruggleType != "Struggle" && (struggleGroup.group != "ItemArms" && struggleGroup.group != "ItemHands" ) && !KinkyDungeonPlayer.CanInteract()) escapeChance /= 2;
+	if (StruggleType != "Struggle" && struggleGroup.group != "ItemArms" && armsBound) escapeChance = Math.max(0.1 - Math.max(0, 0.01*restraint.restraint.power), escapeChance - 0.25);
 	
 	// Covered hands makes it harder to unlock, and twice as hard to remove
-	if ((StruggleType == "Pick" || StruggleType == "Unlock" || StruggleType == "Remove") && struggleGroup.group != "ItemHands" && (InventoryItemHasEffect(InventoryGet(KinkyDungeonPlayer, "ItemHands"), "Block", true) || InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, "ItemHands")))
+	if ((StruggleType == "Pick" || StruggleType == "Unlock" || StruggleType == "Remove") && struggleGroup.group != "ItemHands" && handsBound)
 		escapeChance = StruggleType == "Pick" ? Math.max(0, escapeChance - 0.5) : ((StruggleType == "Remove") ? escapeChance / 2 : Math.max(0.1 - Math.max(0, 0.01*restraint.restraint.power), escapeChance - 0.25));
 
 	if (StruggleType == "Pick" || StruggleType == "Unlock") escapeChance /= 1.0 + KinkyDungeonStatArousal/KinkyDungeonStatArousalMax*KinkyDungeonArousalUnlockSuccessMod;
 
 	if (InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, struggleGroup.group)) escapeChance = 0;
 
+	// Struggling is affected by tightness
 	if (escapeChance > 0 && StruggleType == "Struggle") {
 		for (let T = 0; T < restraint.tightness; T++) {
 			escapeChance *= 0.8; // Tougher for each tightness, however struggling will reduce the tightness
@@ -300,13 +335,35 @@ function KinkyDungeonStruggle(struggleGroup, StruggleType) {
 								KinkyDungeonEnchantedBlades -= 1;
 							}
 						}
-					}
-				} else {
-					if (StruggleType == "Pick") {
-						if (Math.random() < KinkyDungeonKeyPickBreakChance || restraint.lock == "Blue") { // Blue locks cannot be picked or cut!
-							Pass = "Break";
-							KinkyDungeonLockpicks -= 1;
+					} else if (handsBound || (armsBound && Math.random() < KinkyDungeonItemDropChanceArmsBound)) {
+						if (restraint.restraint.magic && KinkyDungeonEnchantedBlades > 0) {
+							KinkyDungeonDropItem({name: "EnchKnife"});
+							KinkyDungeonEnchantedBlades -= 1;
+						} else {
+							if (KinkyDungeonNormalBlades > 0) {
+								KinkyDungeonDropItem({name: "Knife"});
+								KinkyDungeonNormalBlades -= 1;
+							} else if (KinkyDungeonEnchantedBlades > 0) {
+								KinkyDungeonDropItem({name: "EnchKnife"});
+								KinkyDungeonEnchantedBlades -= 1;
+							}
 						}
+					}
+				} else if (StruggleType == "Pick") {
+					if (Math.random() < KinkyDungeonKeyPickBreakChance || restraint.lock == "Blue") { // Blue locks cannot be picked or cut!
+						Pass = "Break";
+						KinkyDungeonLockpicks -= 1;
+					} else if (handsBound || (armsBound && Math.random() < KinkyDungeonItemDropChanceArmsBound)) {
+						KinkyDungeonDropItem({name: "Pick"});
+						KinkyDungeonLockpicks -= 1;
+					}
+				} else if (StruggleType == "Unlock") {
+					if (handsBound || (armsBound && Math.random() < KinkyDungeonItemDropChanceArmsBound)) {
+						let keytype = KinkyDungeonGetKey(restraint.lock);
+						KinkyDungeonDropItem({name: keytype+"Key"});
+						if (keytype == "Blue") KinkyDungeonBlueKeys -= 1;
+						else if (keytype == "Red") KinkyDungeonRedKeys -= 1;
+						else if (keytype == "Green") KinkyDungeonGreenKeys -= 1;
 					}
 				}
 			}
@@ -323,7 +380,7 @@ function KinkyDungeonStruggle(struggleGroup, StruggleType) {
 
 					for (let I = 0; I < KinkyDungeonInventory.length; I++) {
 						if (KinkyDungeonInventory[I].restraint) {
-							tightness_reduction *= 0.8; // Reduced tightness reduction for each restraint
+							tightness_reduction *= 0.85; // Reduced tightness reduction for each restraint currently worn
 						}
 					}
 

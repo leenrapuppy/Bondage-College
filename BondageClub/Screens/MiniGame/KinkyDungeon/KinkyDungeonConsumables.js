@@ -18,7 +18,7 @@ function KinkyDungeonGetInventoryItem(Name, Filter = "Consumables") {
 	return null;
 }
 
-function KinkyDungeonGetShopConsumable(Level, Rarity, Shop) {
+function KinkyDungeonGetShopItem(Level, Rarity, Shop) {
 	let Table = [];
 	let params = KinkyDungeonMapParams[KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]];
 	if (params.ShopExclusives) {
@@ -28,7 +28,15 @@ function KinkyDungeonGetShopConsumable(Level, Rarity, Shop) {
 	}
 	let Shopable = Object.entries(KinkyDungeonConsumables).filter(([k, v]) => (v.shop));
 	for (let S = 0; S < Shopable.length; S++) {
-		Table.push(Shopable[S][1]);
+		let s = Shopable[S][1];
+		s.shoptype = "Consumable";
+		Table.push(s);
+	}
+	Shopable = Object.entries(KinkyDungeonWeapons).filter(([k, v]) => (v.shop));
+	for (let S = 0; S < Shopable.length; S++) {
+		let s = Shopable[S][1];
+		s.shoptype = "Weapon";
+		Table.push(s);
 	}
 	
 	for (let R = Rarity; R >= 0; R--) {

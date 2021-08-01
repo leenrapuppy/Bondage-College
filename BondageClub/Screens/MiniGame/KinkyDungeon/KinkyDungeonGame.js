@@ -108,6 +108,7 @@ function KinkyDungeonInitialize(Level, Random) {
 
 	KinkyDungeonMapIndex = [];
 
+
 	for (let I = 1; I < 10; I++)
 		KinkyDungeonMapIndex.push(I);
 
@@ -198,6 +199,7 @@ function KinkyDungeonCreateMap(MapParams, Floor) {
 	KinkyDungeonPlaceDoors(doorchance, width, height); // Place treasure chests inside dead ends
 	KinkyDungeonPlaceShrines(shrinechance, shrinecount, Floor, width, height); // Place treasure chests inside dead ends
 	KinkyDungeonPlaceBrickwork(brickchance, Floor, width, height); // Place treasure chests inside dead ends
+	KinkyDungeonPlaceLore(width, height);
 
 	// Place the player!
 	KinkyDungeonPlayerEntity = {MemberNumber:Player.MemberNumber, x: 1, y:startpos};
@@ -342,6 +344,24 @@ function KinkyDungeonPlaceChests(treasurechance, treasurecount, rubblechance, Fl
 				else KinkyDungeonMapSet(chest.x, chest.y, 'r');
 		}
 		chestlist.splice(N, 1);
+	}
+}
+
+
+function KinkyDungeonPlaceLore(width, height) {
+	let loreList = [];
+
+	// Populate the lore
+	for (let X = 1; X < width; X += 1)
+		for (let Y = 1; Y < height; Y += 1)
+			if (KinkyDungeonGroundTiles.includes(KinkyDungeonMapGet(X, Y)) && Math.random()) loreList.push({x:X, y:Y});
+
+	// Truncate down to max chest count in a location-neutral way
+    let count = 0;
+    while (loreList.length > 0) {
+		let N = Math.floor(Math.random()*loreList.length);
+		KinkyDungeonGroundItems.push({x:loreList[N].x, y:loreList[N].y, name: "Lore"});
+		return true;
 	}
 
 }

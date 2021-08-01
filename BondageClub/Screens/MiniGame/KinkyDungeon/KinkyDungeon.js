@@ -39,6 +39,8 @@ function KinkyDungeonLoad() {
 	
 	if (!KinkyDungeonIsPlayer()) KinkyDungeonGameRunning = false;
 	
+	if (!Player.KinkyDungeonExploredLore) Player.KinkyDungeonExploredLore = [];
+	
 	if (!KinkyDungeonGameRunning) {
 		if (!KinkyDungeonPlayer)
 			KinkyDungeonPlayer = CharacterLoadNPC("NPC_Avatar");

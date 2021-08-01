@@ -124,6 +124,19 @@ KinkyDungeonInventoryItemPotionFrigidUse,You chug the frigid concoction and feel
 KinkyDungeonInventoryItemPotionFrigidDesc,"A freezing cold bottle with a bitter scent."
 KinkyDungeonInventoryItemPotionFrigidDesc2,"Reduces arousal by 50 over 5 turns. Effect does not stack."
 
+KinkyDungeonInventoryItemHammer,Hammer
+KinkyDungeonInventoryItemHammerDesc,"A rather simplistic bludgeoning weapon."
+KinkyDungeonInventoryItemHammerDesc2,"Hard to hit with, but deals good damage."
+KinkyDungeonInventoryItemSword,Sword
+KinkyDungeonInventoryItemSwordDesc,"The blade is strong, its edge sharp."
+KinkyDungeonInventoryItemSwordDesc2,"A fast and accurate weapon, a superior choice to a knife."
+KinkyDungeonInventoryItemAxe,Axe
+KinkyDungeonInventoryItemAxeDesc,"Popular among raiders and lumberjacks."
+KinkyDungeonInventoryItemAxeDesc2,"A respectable weapon with a mix of damage and agility."
+
+KinkyDungeonWeaponDamage,"Damage: "
+KinkyDungeonWeaponAccuracy,"Accuracy: "
+
 KinkyDungeonTorsoGrab,The EnemyName grabs you by the harness and keeps you in place!
 KinkyDungeonAttackMiss,The EnemyName misses you!
 
@@ -195,9 +208,9 @@ KinkyDungeonBasicAttack,attack
 PlayerMiss,"You miss the TargetEnemy!"
 PlayerMissArmor,"Your attack is too feeble to hurt the TargetEnemy!"
 KinkyDungeonStruggleStruggleFail,"You tug on the TargetRestraint but fail to make progress."
-KinkyDungeonStrugglePickFail,"You try to unlock the TargetRestraint but can't reach the lock."
-KinkyDungeonStrugglePickBreak,"You try to unlock the TargetRestraint but break your lockpick."
-KinkyDungeonAttemptPickFail,"You work on picking the TargetRestraint."
+KinkyDungeonStrugglePickFail,"You work on picking the TargetRestraint..."
+KinkyDungeonStrugglePickBreak,"You try to pick open the TargetRestraint but break your lockpick."
+KinkyDungeonAttemptPickFail,"You work on picking the TargetRestraint..."
 KinkyDungeonAttemptPickBreak,"You break your lockpick trying to open the TargetRestraint."
 KinkyDungeonStruggleRemoveFail,"You try to undo the TargetRestraint but can't reach far enough."
 KinkyDungeonStruggleCutFail,"You try to cut the TargetRestraint but can't get through the material."
@@ -248,6 +261,14 @@ KinkyRedLockAbr,"(R)"
 KinkyGreenLockAbr,"(G)"
 KinkyBlueLockAbr,"(B)"
 KinkyYellowLockAbr,"(Y)"
+
+KinkyDungeonCantUsePotions,"You can't drink potions with your hands bound."
+KinkyDungeonDropPick,"You drop the pick due to your bound hands!"
+KinkyDungeonDropKnife,"You drop your knife due to your bound hands!"
+KinkyDungeonDropEnchKnife,"You drop the precious knife due to your bound hands!"
+KinkyDungeonDropRedKey,"You drop the red key due to your bound hands!"
+KinkyDungeonDropBlueKey,"You drop the green key due to your bound hands!"
+KinkyDungeonDropGreenKey,"You drop the magic key due to your bound hands!"
 
 KinkyDungeonCloseDoor,"Close Door"
 KinkyDungeonUnlockDoor,"Unlock"
@@ -456,11 +477,21 @@ KinkyDungeonGroupItemBoots,Feet
 KinkyDungeonGroupItemDevices,Device
 
 ItemPickupGold,"You picked up XXX gold."
+ItemPickupKnife,"You picked up a knife."
+ItemPickupEnchKnife,"You picked up an enchanted knife."
+ItemPickupPick,"You picked up a lockpick."
 ItemPickupRedKey,"You picked up a red key."
 ItemPickupGreenKey,"You picked up a green key."
 ItemPickupBlueKey,"You picked up a blue key."
 ItemPickupPotionHealth,"You picked up a willpower potion."
+ItemPickupLore,"You found a peculiar note on the ground."
+ItemPickupHammer,"You pick up a heavy hammer."
 
+KinkyDungeonUnEquipWeapon,"You put away the WEAPONNAME"
+KinkyDungeonEquipWeapon,"You equip the WEAPONNAME"
+KinkyDungeonUnEquip,"Unequip"
+KinkyDungeonEquip,"Equip"
+KinkyDungeonEquipped,"Equipped"
 
 KinkyDungeonBookElements,Ars Pyrotecnica
 KinkyDungeonBookConjure,Codex Imaginus
@@ -611,3 +642,27 @@ KinkyDungeonSpell2,"Choose as Spell 3"
 KinkyDungeonSpellChoice0, "Current Spell 1: "
 KinkyDungeonSpellChoice1, "Current Spell 2: "
 KinkyDungeonSpellChoice2, "Current Spell 3: "
+
+KinkyDungeonLore0,"(Preface from the journal of Catherine Willows, well-known explorer who vanished in the dungeon 30 years ago): I am writing this journal in the off chance that I do not come back in my search for the Mistress' staff. If you find this, please make an effort to deliver it back to the surface for the good of all the young women lured by its secrets."
+KinkyDungeonLore1,"(Pg. 24 from the journal of Catherine Willows): Many who trowel the upper levels of the Mistress' tomb often ask rhetorically: 'Why are there weird kinky traps guarding treasure chests? Why not have real, deadly traps if the purpose is to dissuade intruders?'"
+KinkyDungeonLore2,"(Pg. 25 from the journal of Catherine Willows): ...They make a crucial mistake: The treasure chests aren't trapped. Rather, they are full of gold. And we know that gold is pleasing to the gods: our economy runs on it, and the gods only make interventions in our day-to-day affairs because we give them gold.     Lesser gods, known as spirits, also love gold, but unlike the gods we know, these lesser spirits cannot consume gold on an altar in one fell swoop like the gods can. Therefore, they need to physically inhabit the place where the gold sits, slowly draining it of its pleasing essence."
+KinkyDungeonLore3,"(Pg. 26 from the journal of Catherine Willows): So the question is not "why did somebody lay these traps." The answer is that they are not traps at all. I surmise that the upper floors were once a place of offering for the dead. And when the old civilization perished and the entire complex sank into the ground, there was no longer anyone to drive the spirits away and keep them from inhabiting the upstairs.      As for why there are so many restraints in general rather than your typical sort of spirits... well we know what the Mistress surrounded herself with."
+KinkyDungeonLore4,"(The note starts with a drawing of a witch with many chains hanging from her body) The chains make her resistant to fire and she can use them to block melee attacks. However, they conduct lightning directly to her body."
+KinkyDungeonLore5,"(The note starts with a drawing of a witch with lightning crackling from her fingertips) Water will cause her to short-circuit. I can't seem to hit her with lightning, though. She always redirects it."
+KinkyDungeonLore6,"(The note starts with a drawing of a witch whose body is partly gelatinous) The slime is non-flammable and my attacks pass right through her body... Lightning and ice seem to be effective!"
+
+KinkyDungeonLore101,"(A drawing of a suit of armor. It reads: DANGER!!!)"
+KinkyDungeonLore102,"(The note starts with a drawing of a witch in dark robes with bright pink hair) A necromancer. Powerful spellcaster, weak up close."
+KinkyDungeonLore103,"I can't count how many skeletons I've bashed with my hammer today. They seem so fragile..."
+
+
+KinkyDungeonLore-1,"(The note is blank)"
+KinkyDungeonLore-2,"The note reads: Mmmmmmmph! Mmmm! MMMMMPH!!!!-- (The entire note is just gagged mumblings...)"
+KinkyDungeonLore-3,"(The note is illegible)"
+KinkyDungeonLore-4,"(The note contains a map of a previous floor)"
+KinkyDungeonLore-5,"(The note is smeared with some kind of liquid)"
+KinkyDungeonLore-6,"(The note contains a cryptic riddle that makes no sense)"
+KinkyDungeonLore-7,"(The note contains a list of the writer's likes/dislikes and hard limits)"
+KinkyDungeonLore-8,"The note reads: Please take this beautiful doll somewhere and play with her~"
+KinkyDungeonLore-9,"(The note contains a manual on fencing. You have always been a terrible fencer)"
+KinkyDungeonLore-10,"(The note contains a magic spell you were taught to never-ever cast in magic school)"

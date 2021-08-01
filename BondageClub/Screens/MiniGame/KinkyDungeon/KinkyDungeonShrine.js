@@ -53,20 +53,21 @@ function KinkyDungeonGenerateShop(Level) {
 		if (items_high == 0 && Math.random() > 0.4) {Rarity = MiniGameKinkyDungeonCheckpoint; items_high += 1;}
 		else if (items_mid < 2 && Math.random() > 0.6) {Rarity += Math.ceil(Math.random() * 3); items_mid += 1;}
 		
-		KinkyDungeonShopItems.push(KinkyDungeonGetShopConsumable(Level, Rarity, true).name);
+		let item = KinkyDungeonGetShopItem(Level, Rarity, true);
+		KinkyDungeonShopItems.push({name: item.name, shoptype: item.shoptype, rarity: item.rarity, cost: item.cost});
 	}
 }
 
 function KinkyDungeonShrineCost(type) {
 	if (type == "Commerce" && KinkyDungeonShopIndex < KinkyDungeonShopItems.length) {
-		let item = KinkyDungeonConsumables[KinkyDungeonShopItems[KinkyDungeonShopIndex]];
-		if (item.cost) return item.cost;
-		if (item.rarity) {
-			let costt = 10 + item.rarity * item.rarity * 10;
+		let item = KinkyDungeonShopItems[KinkyDungeonShopIndex];
+		if (item.cost != null) return item.cost;
+		if (item.rarity != null) {
+			let costt = 5 * Math.round((1 + MiniGameKinkyDungeonLevel/10)*(20 + 2 * item.rarity * item.rarity * 10)/5);
 			if (costt > 100) costt = 50 * Math.round(costt / 50);
 			return costt;
 		}
-		return 10;
+		return 15;
 	}
 	
 	let mult = 1.0;
@@ -103,8 +104,12 @@ function KinkyDungeonPayShrine(type) {
 
 		ShrineMsg = TextGet("KinkyDungeonPayShrineHeal");
 	} else if (type == "Commerce") {
-		KinkyDungeonChangeConsumable(KinkyDungeonConsumables[KinkyDungeonShopItems[KinkyDungeonShopIndex]], 1);
-		ShrineMsg = TextGet("KinkyDungeonPayShrineCommerce").replace("ItemBought", TextGet("KinkyDungeonInventoryItem" + KinkyDungeonShopItems[KinkyDungeonShopIndex]));
+		let item = KinkyDungeonShopItems[KinkyDungeonShopIndex]
+		if (item.shoptype == "Consumable")
+			KinkyDungeonChangeConsumable(KinkyDungeonConsumables[item.name], 1);
+		else if (item.shoptype == "Weapon")
+			KinkyDungeonInventoryAddWeapon(item.name);
+		ShrineMsg = TextGet("KinkyDungeonPayShrineCommerce").replace("ItemBought", TextGet("KinkyDungeonInventoryItem" + item.name));
 		KinkyDungeonShopItems.splice(KinkyDungeonShopIndex, 1);
 		if (KinkyDungeonShopIndex > 0) KinkyDungeonShopIndex -= 1;
 		
@@ -173,7 +178,7 @@ function KinkyDungeonDrawShrine() {
 		} else {
 			DrawButton(825, 825, 112, 60, TextGet("KinkyDungeonCommercePurchase").replace("ItemCost", cost), (cost <= KinkyDungeonGold) ? "White" : "Pink", "", "");
 			DrawButton(963, 825, 112, 60, TextGet("KinkyDungeonCommerceNext"), "White", "", "");
-			DrawText(TextGet("KinkyDungeonInventoryItem" + KinkyDungeonShopItems[KinkyDungeonShopIndex]), 650, 850, "white", "silver");
+			DrawText(TextGet("KinkyDungeonInventoryItem" + KinkyDungeonShopItems[KinkyDungeonShopIndex].name), 650, 850, "white", "silver");
 		}
 	} else {
 		if (cost == 0) DrawText(TextGet("KinkyDungeonLockedShrine"), 850, 850, "white", "silver");
