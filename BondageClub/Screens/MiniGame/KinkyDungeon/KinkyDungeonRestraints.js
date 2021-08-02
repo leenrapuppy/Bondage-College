@@ -433,15 +433,15 @@ function KinkyDungeonStruggle(struggleGroup, StruggleType) {
 				} else if (StruggleType == "Pick") {
 					restraint.struggleProgress = Math.max(0, restraint.struggleProgress * 0.8 - 0.01);
 					restraint.removeProgress = Math.max(0, restraint.removeProgress * 0.8 - 0.01);
-					restraint.unlockProgress = Math.max(0, restraint.unlockProgress * 0.9 - 0.01);;
+					restraint.unlockProgress = Math.max(0, restraint.unlockProgress * 0.9 - 0.01);
 				} else if (StruggleType == "Unlock") {
 					restraint.pickProgress = Math.max(0, restraint.pickProgress - 0.01);
 					restraint.removeProgress = Math.max(0, restraint.removeProgress * 0.8 - 0.01);
-					restraint.struggleProgress = Math.max(0, restraint.struggleProgress * 0.8 - 0.01);;
+					restraint.struggleProgress = Math.max(0, restraint.struggleProgress * 0.8 - 0.01);
 				} if (StruggleType == "Remove") {
 					restraint.pickProgress = Math.max(0, restraint.pickProgress - 0.01);
 					restraint.struggleProgress = Math.max(0, restraint.struggleProgress * 0.8 - 0.01);
-					restraint.unlockProgress = Math.max(0, restraint.unlockProgress * 0.9 - 0.01);;
+					restraint.unlockProgress = Math.max(0, restraint.unlockProgress * 0.9 - 0.01);
 				}
 
 				// reduces the tightness of the restraint slightly
