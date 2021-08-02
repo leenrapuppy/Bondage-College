@@ -1,3 +1,5 @@
+// @ts-nocheck
+/* This file is old and currently unused */
 "use strict";
 var renderer;
 var scene;

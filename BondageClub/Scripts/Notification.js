@@ -311,5 +311,5 @@ function NotificationDrawFavicon(resetingAll) {
 		// Convert the image into a Data URL
 		iconUrl = IconCanvas.canvas.toDataURL("image/x-icon");
 	}
-	document.getElementById('favicon').href = iconUrl;
+	/** @type {HTMLLinkElement} */ (document.getElementById('favicon')).href = iconUrl;
 }

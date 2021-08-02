@@ -329,7 +329,7 @@ function CharacterRandomName(C) {
 /**
  * Builds the dialog objects from the character CSV file
  * @param {Character} C - Character for which to build the dialog
- * @param {string} CSV - Content of the CSV file
+ * @param {string[][]} CSV - Content of the CSV file
  * @returns {void} - Nothing
  */
 function CharacterBuildDialog(C, CSV) {

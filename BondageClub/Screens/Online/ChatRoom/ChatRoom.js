@@ -1675,7 +1675,7 @@ function ChatRoomCharacterItemUpdate(C, Group) {
  * Publishes a custom action to the chat
  * @param {string} msg - Tag of the action to send
  * @param {boolean} LeaveDialog - Whether or not the dialog should be left.
- * @param {Array.<{Tag: string, Text: string, MemberNumber: number}>} Dictionary - Dictionary of tags and data to send
+ * @param {ChatMessageDictionary} Dictionary - Dictionary of tags and data to send
  *     to the room.
  * @returns {void} - Nothing.
  */

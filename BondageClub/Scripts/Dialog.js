@@ -1254,7 +1254,7 @@ function DialogPublishAction(C, ClickItem) {
 		var TargetItem = (InventoryGet(C, C.FocusGroup.Name));
 		if (InventoryItemHasEffect(ClickItem, "TriggerShock") && InventoryItemHasEffect(TargetItem, "ReceiveShock")) {
 			if (TargetItem.Property && typeof TargetItem.Property.TriggerCount == "number")
-				TargetItem.Property.TriggerCount++
+				TargetItem.Property.TriggerCount++;
 			if (CurrentScreen == "ChatRoom") {
 				let intensity = TargetItem.Property ? TargetItem.Property.Intensity : 0;
 				InventoryExpressionTrigger(C, ClickItem);
@@ -1944,17 +1944,17 @@ function DialogDraw() {
 				DrawTextWrap(SpeechGarble(CurrentCharacter, CurrentCharacter.CurrentDialog), 1025, -5, 840, 165, "white", null, 3);
 				DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png");
 			} else DrawTextWrap(SpeechGarble(CurrentCharacter, CurrentCharacter.CurrentDialog), 1025, -5, 950, 165, "white", null, 3);
-			
-		// Draws the possible answers
-		var pos = 0;
-		for (let D = 0; D < CurrentCharacter.Dialog.length; D++)
-			if ((CurrentCharacter.Dialog[D].Stage == CurrentCharacter.Stage) && (CurrentCharacter.Dialog[D].Option != null) && DialogPrerequisite(D)) {
-				DrawTextWrap(SpeechGarble(Player, CurrentCharacter.Dialog[D].Option), 1025, 160 + 105 * pos, 950, 90, "black", ((MouseX >= 1025) && (MouseX <= 1975) && (MouseY >= 160 + pos * 105) && (MouseY <= 250 + pos * 105) && !CommonIsMobile) ? "cyan" : "white", 2);
-				pos++;
-			}
 
-		// The more time you spend with an NPC, the more the love will rise
-		NPCInteraction();
+			// Draws the possible answers
+			var pos = 0;
+			for (let D = 0; D < CurrentCharacter.Dialog.length; D++)
+				if ((CurrentCharacter.Dialog[D].Stage == CurrentCharacter.Stage) && (CurrentCharacter.Dialog[D].Option != null) && DialogPrerequisite(D)) {
+					DrawTextWrap(SpeechGarble(Player, CurrentCharacter.Dialog[D].Option), 1025, 160 + 105 * pos, 950, 90, "black", ((MouseX >= 1025) && (MouseX <= 1975) && (MouseY >= 160 + pos * 105) && (MouseY <= 250 + pos * 105) && !CommonIsMobile) ? "cyan" : "white", 2);
+					pos++;
+				}
+
+			// The more time you spend with an NPC, the more the love will rise
+			NPCInteraction();
 
 		}
 	}

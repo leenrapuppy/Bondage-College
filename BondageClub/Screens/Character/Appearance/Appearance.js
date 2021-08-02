@@ -864,7 +864,7 @@ function CharacterAppearanceSetItem(C, Group, ItemAsset, NewColor, DifficultyFac
  * Cycle in the appearance assets to find the next item in a group and wear it
  * @param {Character} C - The character whose assets are used
  * @param {string} Group - The name of the group to cycle
- * @param {boolean} Forward - Sets the direction of the cycling
+ * @param {boolean} [Forward=true] - Sets the direction of the cycling
  * @param {boolean} [Description = false] - Determines, wether the description of the item should be returned or not.
  * @returns {string} - The Description of the worn item
  */

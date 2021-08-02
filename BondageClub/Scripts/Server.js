@@ -552,9 +552,9 @@ function ServerAccountQueryResult(data) {
 	if ((data != null) && (typeof data === "object") && !Array.isArray(data) && (data.Query != null) && (typeof data.Query === "string") && (data.Result != null)) {
 		if (data.Query == "OnlineFriends") FriendListLoadFriendList(data.Result);
 		if (data.Query == "EmailStatus" && data.Result && document.getElementById("InputEmailOld"))
-			document.getElementById("InputEmailOld").placeholder = TextGet("UpdateEmailLinked");
+			/** @type {HTMLInputElement} */ (document.getElementById("InputEmailOld")).placeholder = TextGet("UpdateEmailLinked");
 		if (data.Query == "EmailStatus" && !data.Result && document.getElementById("InputEmailNew"))
-			document.getElementById("InputEmailNew").placeholder = TextGet("UpdateEmailEmpty");
+			/** @type {HTMLInputElement} */ (document.getElementById("InputEmailNew")).placeholder = TextGet("UpdateEmailEmpty");
 		if (data.Query == "EmailUpdate") ElementValue("InputEmailNew", TextGet(data.Result ? "UpdateEmailSuccess" : "UpdateEmailFailure"));
 	}
 }

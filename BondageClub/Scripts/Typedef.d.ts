@@ -36,6 +36,10 @@ interface HTMLCanvasElement {
 	GL?: WebGL2RenderingContext;
 }
 
+interface HTMLImageElement {
+	errorcount?: number;
+}
+
 //#endregion
 
 //#region Enums
@@ -345,6 +349,15 @@ interface Pose {
 	MovePosition?: { Group: string; X: number; Y: number; }[];
 }
 
+interface ChatMessageDictionaryEntry {
+	[k: string]: any;
+	Tag?: string;
+	Text?: string;
+	MemberNumber?: number;
+}
+
+type ChatMessageDictionary = ChatMessageDictionaryEntry[];
+
 interface Activity {
 	Name: string;
 	MaxProgress: number;
@@ -375,6 +388,12 @@ interface DialogInventoryItem extends Item {
 	Vibrating: boolean;
 }
 
+interface InventoryItem {
+	Group: string;
+	Name: string;
+	Asset: Asset;
+}
+
 interface Skill {
 	Type: string;
 	Level: number;
@@ -399,6 +418,10 @@ interface Lovership {
 	MemberNumber?: number;
 	Stage?: number;
 	Start?: number;
+	// Bad data sometimes received from server
+	BeginDatingOfferedByMemberNumber?: unknown;
+	BeginEngagementOfferedByMemberNumber?: unknown;
+	BeginWeddingOfferedByMemberNumber?: unknown;
 }
 
 interface ScreenFunctions {
@@ -443,7 +466,7 @@ interface Character {
 	Owner: string;
 	Lover: string;
 	Money: number;
-	Inventory: any[];
+	Inventory: InventoryItem[];
 	Appearance: Item[];
 	Stage: string;
 	CurrentDialog: string;

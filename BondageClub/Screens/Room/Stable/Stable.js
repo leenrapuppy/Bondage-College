@@ -67,7 +67,7 @@ function StableLoad() {
 		StablePony = CharacterLoadNPC("NPC_Stable_Pony");
 		CharacterNaked(StablePony);
 		InventoryWear(StablePony, "LeatherCollar", "ItemNeck");
-		StableWearPonyEquipment(StablePony, 0);
+		StableWearPonyEquipment(StablePony);
 		if (StablePlayerIsExamTrainer) {
 			StablePony.AllowItem = false;
 		} else {
@@ -450,7 +450,7 @@ function StablePlayerTrainingCarrotsEnd() {
 function StablePlayerTrainingPass(Behavior) {
 	StablePlayerTrainingBehavior += parseInt(Behavior);
 	if (StablePlayerTrainingBehavior <= 0) {
-		StableCheckEquipment(Player);
+		StableCheckEquipment();
 	} else {
 		var PassSelection = Math.random() * 7;
 		if (PassSelection < 1) {
@@ -491,7 +491,7 @@ function StablePlayerTrainingPass(Behavior) {
 function StablePlayerTrainingFail(Behavior) {
 	StablePlayerTrainingBehavior += parseInt(Behavior);
 	if (StablePlayerTrainingBehavior >= 0) {
-		StableCheckEquipment(Player);
+		StableCheckEquipment();
 	} else {
 		var FailSelection = Math.random() * 8;
 		if (FailSelection < 1) {
@@ -578,9 +578,9 @@ function StableDressBackPlayer() {
 	CharacterNaked(Player);
 	//Release Harnes, Plug, Ears2
 	for (let E = Player.Appearance.length - 1; E >= 0; E--)
-	if ((Player.Appearance[E].Asset.Group.Name == "ItemTorso") || (Player.Appearance[E].Asset.Group.Name == "Hat") || (Player.Appearance[E].Asset.Group.Name == "ItemButt")) {
-		Player.Appearance.splice(E, 1);
-	}
+		if ((Player.Appearance[E].Asset.Group.Name == "ItemTorso") || (Player.Appearance[E].Asset.Group.Name == "Hat") || (Player.Appearance[E].Asset.Group.Name == "ItemButt")) {
+			Player.Appearance.splice(E, 1);
+		}
 	CharacterDress(Player, StablePlayerAppearance);
 	StablePlayerDressOff = false;
 	StablePony.AllowItem = false;

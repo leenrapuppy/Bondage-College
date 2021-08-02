@@ -40,10 +40,12 @@ var VibratorModeState = {
 /**
  * An enum for the vibrator configuration sets that a vibrator can have
  * @readonly
- * @enum {string}
+ * @enum {"Standard"|"Advanced"}
  */
 var VibratorModeSet = {
+	/** @type {"Standard"} */
 	STANDARD: "Standard",
+	/** @type {"Advanced"} */
 	ADVANCED: "Advanced",
 };
 
@@ -275,6 +277,7 @@ function VibratorModeSetMode(Option) {
 	ChatRoomCharacterItemUpdate(C, C.FocusGroup.Name);
 
 	var Message;
+	/** @type {ChatMessageDictionary} */
 	var Dictionary = [
 		{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
 		{ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name },
@@ -590,6 +593,7 @@ function VibratorModePublish(C, Item, OldIntensity, Intensity) {
 	if (OldIntensity === Intensity) return;
 
 	var Direction = Intensity > OldIntensity ? "Increase" : "Decrease";
+	/** @type {ChatMessageDictionary} */
 	var Dictionary = [
 		{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
 		{ Tag: "AssetName", AssetName: Item.Asset.Name },

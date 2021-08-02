@@ -14,6 +14,7 @@ var CurrentCharacter = null;
 var CurrentOnlinePlayers = 0;
 var CurrentDarkFactor = 1.0;
 var CommonIsMobile = false;
+/** @type {Record<string, string[][]>} */
 var CommonCSVCache = {};
 var CutsceneStage = 0;
 

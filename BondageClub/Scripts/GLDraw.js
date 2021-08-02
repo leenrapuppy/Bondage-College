@@ -53,6 +53,7 @@ function GLDrawLoad() {
 		// Keep a backup of the original CharacterAppearanceBuildCanvas function in case we need to revert
 		GLDrawBuildCanvasBackup = CharacterAppearanceBuildCanvas;
 	}
+	// @ts-ignore: Intentional function overwrite
 	CharacterAppearanceBuildCanvas = GLDrawAppearanceBuild;
 
 	// Attach context listeners
@@ -66,14 +67,15 @@ function GLDrawLoad() {
  */
 function GLDrawGetOptions() {
 	let antialias = true;
+	/** @type {WebGLPowerPreference} */
 	let powerPreference = "default";
-	
+
 	if (localStorage.getItem("GLDraw-antialiasOff")) antialias = false;
 	let savedPowerMode = localStorage.getItem("GLDraw-powerPreference");
 	if (savedPowerMode && (savedPowerMode == "high-performance" || savedPowerMode == "low-power")) {
 		powerPreference = savedPowerMode;
 	}
-	
+
 	return { antialias, powerPreference};
 }
 
@@ -112,6 +114,7 @@ function GLDrawRevertToCanvas2D() {
 	clearTimeout(GLDrawCrashTimeout);
 	GLDrawCanvas.remove();
 	GLDrawImageCache.clear();
+	// @ts-ignore: Intentional function overwrite
 	CharacterAppearanceBuildCanvas = GLDrawBuildCanvasBackup;
 	GLDrawRebuildCharacters();
 }

@@ -9,7 +9,11 @@ var AssetCurrentGroup;
 /** @type {Pose[]} */
 var Pose = [];
 
-// Adds a new asset group to the main list
+/**
+ * Adds a new asset group to the main list
+ * @param {IAssetFamily} NewAssetFamily
+ * @param {AssetGroupDefinition} NewAsset
+ */
 function AssetGroupAdd(NewAssetFamily, NewAsset) {
 	/** @type {AssetGroup} */
 	var A = {
@@ -55,7 +59,12 @@ function AssetGroupAdd(NewAssetFamily, NewAsset) {
 	AssetCurrentGroup = A;
 }
 
-// Adds a new asset to the main list
+/**
+ * Adds a new asset to the main list
+ * @param {AssetDefinition} NewAsset
+ * @param {ExtendedItemConfig} ExtendedConfig
+ * @returns {void} - Nothing
+ */
 function AssetAdd(NewAsset, ExtendedConfig) {
 	/** @type {Asset} */
 	var A = Object.assign({
@@ -221,7 +230,7 @@ function AssetFindExtendedConfig(ExtendedConfig, GroupName, AssetName) {
  * Builds the layer array for an asset based on the asset definition. One layer is created for each drawable part of
  * the asset (excluding the lock). If the asset definition contains no layer definitions, a default layer definition
  * will be created.
- * @param {Object} AssetDefinition - The raw asset definition
+ * @param {AssetDefinition} AssetDefinition - The raw asset definition
  * @param {Asset} A - The built asset
  * @return {AssetLayer[]} - An array of layer objects representing the drawable layers of the asset
  */
@@ -232,8 +241,8 @@ function AssetBuildLayer(AssetDefinition, A) {
 
 /**
  * Maps a layer definition to a drawable layer object
- * @param {Object} Layer - The raw layer definition
- * @param {Object} AssetDefinition - The raw asset definition
+ * @param {AssetLayerDefinition} Layer - The raw layer definition
+ * @param {AssetDefinition} AssetDefinition - The raw asset definition
  * @param {Asset} A - The built asset
  * @param {number} I - The index of the layer within the asset
  * @return {AssetLayer} - A Layer object representing the drawable properties of the given layer
@@ -276,7 +285,7 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 
 /**
  * Resolves the AllowPose and HideForPose properties on a layer or an asset
- * @param {Asset | AssetLayer} obj - The asset or layer object
+ * @param {Asset | AssetLayerDefinition} obj - The asset or layer object
  * @param {string[] | null} defaultAllowPose - A fallback value for the AllowPose property if it's not defined on the
  * object
  * @return {{AllowPose?: string[], HideForPose: string[]}} - A partial object containing AllowPose and HideForPose
@@ -293,6 +302,11 @@ function AssetParsePoseProperties(obj, defaultAllowPose = null) {
 	return {AllowPose, HideForPose};
 }
 
+/**
+ * Parses and validates asset's opacity
+ * @param {number|undefined} opacity
+ * @returns {number}
+ */
 function AssetParseOpacity(opacity) {
 	if (typeof opacity === "number" && !isNaN(opacity)) {
 		return Math.max(0, Math.min(1, opacity));
@@ -302,8 +316,8 @@ function AssetParseOpacity(opacity) {
 
 /**
  * Determines whether a layer can be colorized, based on the layer definition and its parent asset/group definitions
- * @param {Object} Layer - The raw layer definition
- * @param {Object} NewAsset - The raw asset definition
+ * @param {AssetLayerDefinition} Layer - The raw layer definition
+ * @param {AssetDefinition} NewAsset - The raw asset definition
  * @return {boolean} - Whether or not the layer should be permit colors
  */
 function AssetLayerAllowColorize(Layer, NewAsset) {
@@ -314,8 +328,8 @@ function AssetLayerAllowColorize(Layer, NewAsset) {
 
 /**
  * Builds the alpha mask definitions for a layer, based on the
- * @param {Object} Layer - The raw layer definition
- * @param {Object} NewAsset - The raw asset definition
+ * @param {AssetLayerDefinition} Layer - The raw layer definition
+ * @param {AssetDefinition} NewAsset - The raw asset definition
  * @param {number} I - The index of the layer within its asset
  * @return {AlphaDefinition[]} - a list of alpha mask definitions for the layer
  */
@@ -352,9 +366,14 @@ function AssetAssignColorIndices(A) {
 	A.ColorableLayerCount = colorIndex;
 }
 
-// Builds the asset description from the CSV file
+/**
+ * Builds the asset description from the CSV file
+ * @param {IAssetFamily} Family
+ * @param {string[][]} CSV
+ */
 function AssetBuildDescription(Family, CSV) {
 
+	/** @type {Map<string, string>} */
 	const map = new Map();
 
 	for (const line of CSV) {
@@ -401,7 +420,7 @@ function AssetBuildDescription(Family, CSV) {
 
 /**
  * Loads the description of the assets in a specific language
- * @param {string} Family The asset family to load the description for
+ * @param {IAssetFamily} Family The asset family to load the description for
  */
 function AssetLoadDescription(Family) {
 
@@ -422,7 +441,12 @@ function AssetLoadDescription(Family) {
 
 }
 
-// Loads a specific asset file
+/**
+ * Loads a specific asset file
+ * @param {AssetGroupDefinition[]} A
+ * @param {IAssetFamily} Family
+ * @param {ExtendedItemConfig} ExtendedConfig
+ */
 function AssetLoad(A, Family, ExtendedConfig) {
 
 	// For each group in the asset file

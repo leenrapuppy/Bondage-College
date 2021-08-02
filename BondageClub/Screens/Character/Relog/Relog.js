@@ -2,6 +2,7 @@
 var RelogBackground = "";
 var RelogCanvas = document.createElement("canvas");
 var RelogData = null;
+/** @type {HTMLDivElement | null} */
 var RelogChatLog = null;
 var RelogInputText = "";
 

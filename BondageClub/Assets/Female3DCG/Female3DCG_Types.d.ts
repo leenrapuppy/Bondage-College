@@ -2,7 +2,7 @@ interface AssetGroupDefinition {
 	Asset: (AssetDefinition | string)[];
 	Group: string;
 	ParentGroup?: string;
-	Category?: string;
+	Category?: 'Appearance' | 'Item';
 	Default?: boolean;
 	IsRestraint?: boolean;
 	AllowNone?: boolean;
@@ -105,7 +105,7 @@ interface AssetDefinition {
 	IsRestraint?: boolean;
 	BodyCosplay?: boolean;
 	OverrideBlinking?: boolean;
-	DialogSortOverride?: number;
+	DialogSortOverride?: DialogSortOrder;
 	DynamicDescription?: (C: Character) => string;
 	DynamicPreviewImage?: (C: Character) => string;
 	DynamicAllowInventoryAdd?: (C: Character) => boolean;
