@@ -13,4 +13,7 @@
 		"../../Assets/**/*",
 		"../../Backgrounds/**/*.js",
 	],
+	"exclude": [
+		"../../Scripts/lib/**/*.js"
+	]
 }
