@@ -100,7 +100,7 @@ function KinkyDungeonGetUnlearnedSpells(minlevel, maxlevel, SpellList) {
 			SpellsUnlearned.push(SpellList[S]);
 		}
 	}
-	
+
 	for (let SS = 0; SS < KinkyDungeonSpells.length; SS++) {
 		for (let S = 0; S < SpellsUnlearned.length; S++) {
 			if (KinkyDungeonSpells[SS].name == SpellsUnlearned[S].name) {
@@ -113,7 +113,7 @@ function KinkyDungeonGetUnlearnedSpells(minlevel, maxlevel, SpellList) {
 }
 
 /*
-You find a scrap of a journal! (pg. 24) 
+You find a scrap of a journal! (pg. 24)
 From the journal of Catherine Edgar Willows, well-known explorer (who vanished in the dungeon 30 years ago)
 
 "Many who trowel the upper levels of the Mistress' tomb often ask rhetorically: 'Why are there weird kinky traps guarding treasure chests? Why not have real, deadly traps if the purpose is to dissuade intruders?'
@@ -227,7 +227,7 @@ function KinkyDungeonLootEvent(Loot, Index, Replacemsg) {
 			KinkyDungeonActionMessage = KinkyDungeonActionMessage.replace("RestraintType", TextGet("RestraintTrapLegirons"));
 	} else if (Loot.name == "trap_belt") {
 		value = Math.ceil((40 + 40 * Math.random()) * (1 + Index/2));
-		KinkyDungeonAddRestraintIfWeaker(KinkyDungeonGetRestraintByName("TrapVibe"), MiniGameKinkyDungeonCheckpoint, true, false)
+		KinkyDungeonAddRestraintIfWeaker(KinkyDungeonGetRestraintByName("TrapVibe"), MiniGameKinkyDungeonCheckpoint, true, false);
 		if (KinkyDungeonAddRestraintIfWeaker(KinkyDungeonGetRestraintByName("TrapBelt"), MiniGameKinkyDungeonCheckpoint, true, true) > 0)
 			KinkyDungeonLock(KinkyDungeonGetRestraintItem("ItemPelvis"), KinkyDungeonGenerateLock(true));
 		if (Replacemsg)

@@ -9,15 +9,15 @@ function KinkyDungeonInitializeDresses() {
 	KinkyDungeonUndress = 0;
 	KinkyDungeonDresses = {
 		"Default" : [
-		{Item: "WitchHat1", Group: "Hat", Color: "Default", Lost: false},
-		{Item: "LeatherCorsetTop1", Group: "Cloth", Color: "Default", Lost: false},
-		{Item: "LatexSkirt1", Group: "ClothLower", Color: "Default", Lost: false, Skirt: true},
-		{Item: "Socks4", Group: "Socks", Color: "#444444", Lost: false},
-		{Item: "Heels3", Group: "Shoes", Color: "#222222", Lost: false},
-		{Item: "KittyPanties1", Group: "Panties", Color: "#222222", Lost: false},
-		{Item: "FrameBra2", Group: "Bra", Color: "Default", Lost: false},
-		{Item: "LatexElbowGloves", Group: "Gloves", Color: "Default", Lost: false},
-		{Item: "Necklace4", Group: "Necklace", Color: "#222222", Lost: false},
+			{Item: "WitchHat1", Group: "Hat", Color: "Default", Lost: false},
+			{Item: "LeatherCorsetTop1", Group: "Cloth", Color: "Default", Lost: false},
+			{Item: "LatexSkirt1", Group: "ClothLower", Color: "Default", Lost: false, Skirt: true},
+			{Item: "Socks4", Group: "Socks", Color: "#444444", Lost: false},
+			{Item: "Heels3", Group: "Shoes", Color: "#222222", Lost: false},
+			{Item: "KittyPanties1", Group: "Panties", Color: "#222222", Lost: false},
+			{Item: "FrameBra2", Group: "Bra", Color: "Default", Lost: false},
+			{Item: "LatexElbowGloves", Group: "Gloves", Color: "Default", Lost: false},
+			{Item: "Necklace4", Group: "Necklace", Color: "#222222", Lost: false},
 		]
 	};
 }
@@ -60,7 +60,7 @@ function KinkyDungeonDressPlayer() {
 				CharacterAppearanceSetColorForGroup(KinkyDungeonPlayer, clothes.Color, clothes.Group);
 			}
 		}
-		
+
 		if (clothes.Group == "Panties" && !KinkyDungeonGetRestraintItem("ItemPelvis")) clothes.Lost = false; // A girl's best friend never leaves her
 	}
 
@@ -90,7 +90,7 @@ function KinkyDungeonDressPlayer() {
 				CharacterRefresh(KinkyDungeonPlayer);
 			}
 		}
-			
+
 	}
 
 }

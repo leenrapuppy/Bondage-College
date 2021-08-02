@@ -7,7 +7,7 @@ var KinkyDungeonConsumables = {
 	"PotionMana" : {name: "PotionMana", rarity: 0, shop: true, type: "restore", mp_instant: -10, mp_gradual: -40, duration: 20},
 	"PotionStamina" : {name: "PotionStamina", rarity: 1, shop: true, type: "restore", sp_gradual: 100, duration: 10},
 	"PotionFrigid" : {name: "PotionFrigid", rarity: 1, shop: true, type: "restore", ap_instant: 0, ap_gradual: -50, duration: 5},
-}
+};
 
 function KinkyDungeonGetInventoryItem(Name, Filter = "Consumables") {
 	let Filtered = KinkyDungeonFilterInventory(Filter);
@@ -32,13 +32,14 @@ function KinkyDungeonGetShopItem(Level, Rarity, Shop) {
 		s.shoptype = "Consumable";
 		Table.push(s);
 	}
+	// @ts-ignore
 	Shopable = Object.entries(KinkyDungeonWeapons).filter(([k, v]) => (v.shop));
 	for (let S = 0; S < Shopable.length; S++) {
 		let s = Shopable[S][1];
 		s.shoptype = "Weapon";
 		Table.push(s);
 	}
-	
+
 	for (let R = Rarity; R >= 0; R--) {
 		let available = Table.filter((item) => (item.rarity == R));
 		if (available.length > 0) return available[Math.floor(Math.random() * available.length)];
@@ -61,15 +62,15 @@ function KinkyDungeonChangeConsumable(Consumable, Quantity) {
 						return true;
 					}
 				}
-			} 
+			}
 			return true;
 		}
 	}
-	
+
 	if (Quantity >= 0) {
 		KinkyDungeonInventory.push({consumable: Consumable, quantity: Quantity});
 	}
-	
+
 	return false;
 }
 
@@ -79,7 +80,7 @@ function KinkyDungeonConsumableEffect(Consumable) {
 		if (Consumable.mp_instant) KinkyDungeonStatStaminaMana += Consumable.mp_instant;
 		if (Consumable.sp_instant) KinkyDungeonStatStamina += Consumable.sp_instant;
 		if (Consumable.ap_instant) KinkyDungeonStatArousal += Consumable.ap_instant;
-		
+
 		if (Consumable.wp_gradual) KinkyDungeonApplyBuff(KinkyDungeonPlayerBuffs, {name: "PotionHealth", type: "restore_wp", power: Consumable.wp_gradual/Consumable.duration, duration: Consumable.duration}, true);
 		if (Consumable.mp_gradual) KinkyDungeonApplyBuff(KinkyDungeonPlayerBuffs, {name: "PotionMana", type: "restore_mp", power: Consumable.mp_gradual/Consumable.duration, duration: Consumable.duration}, true);
 		if (Consumable.sp_gradual) KinkyDungeonApplyBuff(KinkyDungeonPlayerBuffs, {name: "PotionStamina", type: "restore_sp", power: Consumable.sp_gradual/Consumable.duration, duration: Consumable.duration}, true);
@@ -90,12 +91,12 @@ function KinkyDungeonConsumableEffect(Consumable) {
 function KinkyDungeonUseConsumable(Name, Quantity) {
 	let item = KinkyDungeonGetInventoryItem(Name, "Consumables");
 	if (!item || item.item.quantity < Quantity) return false;
-	
+
 	for (let I = 0; I < Quantity; I++) {
 		KinkyDungeonConsumableEffect(item.item.consumable);
 	}
 	KinkyDungeonChangeConsumable(item.item.consumable, -Quantity);
-	
+
 	KinkyDungeonSendActionMessage(9, TextGet("KinkyDungeonInventoryItem" + Name + "Use"), "#88FF88", 1);
 	return true;
 }

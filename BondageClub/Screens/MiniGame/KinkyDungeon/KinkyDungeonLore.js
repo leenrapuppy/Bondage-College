@@ -28,43 +28,43 @@ function KinkyDungeonNewLore() {
 		for (let L = 0; L < KinkyDungeonCheckpointLore[KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]].length; L++) {
 			availableLore.push(KinkyDungeonCheckpointLore[KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]][L]);
 		}
-		
+
 		if (Math.random() < KinkyDungeonRepeatLoreChance) {
 			if (Math.random() > KinkyDungeonGenericLoreChance) {
 				availableLore = KinkyDungeonLore;
 			} else {
 				availableLore = [];
 			}
-			
+
 		} else availableLore = KinkyDungeonLore.filter(element => !Player.KinkyDungeonExploredLore.includes(element));
-		
+
 	}
-	
+
 	if (availableLore.length > 0) {
 		KinkyDungeonCurrentLore = availableLore[Math.floor(Math.random() * availableLore.length)];
 		if (!Player.KinkyDungeonExploredLore.includes(KinkyDungeonCurrentLore)) {
 			Player.KinkyDungeonExploredLore.push(KinkyDungeonCurrentLore);
 			ServerAccountUpdate.QueueData({ KinkyDungeonExploredLore: Player.KinkyDungeonExploredLore });
 		}
-		
+
 		return true;
 	}
 	KinkyDungeonCurrentLore = -(1 + Math.floor(Math.random() * 10));
-	
+
 	return false;
 }
 
 function KinkyDungeonDrawLore() {
 	DrawImageZoomCanvas(KinkyDungeonRootDirectory + "MagicBook.png", MainCanvas, 0, 0, 640, 483, canvasOffsetX, canvasOffsetY, 640*KinkyDungeonLoreScale, 483*KinkyDungeonLoreScale, false);
-	
+
 	MainCanvas.textAlign = "left";
-	
+
 	let lore = KinkyDungeonWordWrap(TextGet("KinkyDungeonLore" + KinkyDungeonCurrentLore), 45).split('\n');
 	let i = 0;
 	for (let N = 0; N < lore.length; N++) {
 		DrawText(lore[N],
-			canvasOffsetX + 640*KinkyDungeonLoreScale/8, canvasOffsetY + 483*KinkyDungeonLoreScale/6 + i * 40, "black", "silver"); i++}
-	
+			canvasOffsetX + 640*KinkyDungeonLoreScale/8, canvasOffsetY + 483*KinkyDungeonLoreScale/6 + i * 40, "black", "silver"); i++;}
+
 	MainCanvas.textAlign = "center";
 }
 

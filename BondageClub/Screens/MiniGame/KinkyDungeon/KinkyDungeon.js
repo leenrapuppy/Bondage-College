@@ -33,18 +33,18 @@ var KinkyDungeonInitTime = 0;
  */
 function KinkyDungeonLoad() {
 	CurrentDarkFactor = 0;
-	
+
 	KinkyDungeonInitTime = CommonTime();
 	KinkyDungeonGameKey.load();
-	
+
 	if (!KinkyDungeonIsPlayer()) KinkyDungeonGameRunning = false;
-	
+
 	if (!Player.KinkyDungeonExploredLore) Player.KinkyDungeonExploredLore = [];
-	
+
 	if (!KinkyDungeonGameRunning) {
 		if (!KinkyDungeonPlayer)
 			KinkyDungeonPlayer = CharacterLoadNPC("NPC_Avatar");
-	
+
 		var appearance = CharacterAppearanceStringify(KinkyDungeonPlayerCharacter ? KinkyDungeonPlayerCharacter : Player);
 		CharacterAppearanceRestore(KinkyDungeonPlayer, appearance);
 		CharacterReleaseTotal(KinkyDungeonPlayer);
@@ -57,7 +57,7 @@ function KinkyDungeonLoad() {
 		if (KinkyDungeonIsPlayer()) {
 			KinkyDungeonState = "Menu";
 			KinkyDungeonGameData = null;
-			
+
 			CharacterAppearancePreviousEmoticon = WardrobeGetExpression(Player).Emoticon;
 			ServerSend("ChatRoomCharacterExpressionUpdate", { Name: "Gaming", Group: "Emoticon", Appearance: ServerAppearanceBundle(Player.Appearance) });
 		} else {
@@ -75,7 +75,7 @@ function KinkyDungeonLoad() {
 				if (InventoryGet(Player, "ItemMouth3"))
 					KinkyDungeonRestraintsLocked.push("ItemMouth3");
 			}
-			
+
 			if (InventoryGet(Player, group))
 				KinkyDungeonRestraintsLocked.push(group);
 		}
@@ -174,7 +174,7 @@ function KinkyDungeonClick() {
 	if (MouseIn(1885, 25, 90, 90) && (KinkyDungeonDrawState == "Game" || KinkyDungeonState != "Game")) {
 		KinkyDungeonExit();
 	}
-	
+
 	if (KinkyDungeonState == "Menu" || KinkyDungeonState == "Lose") {
 		if (MouseIn(875, 750, 350, 64)) {
 			KinkyDungeonInitialize(1);
@@ -190,11 +190,11 @@ function KinkyDungeonClick() {
 				KinkyDungeonGameKey.KEY_DOWNLEFT = "Key"+String.fromCharCode(KinkyDungeonKeybindings.DownLeft).toUpperCase();
 				KinkyDungeonGameKey.KEY_UPRIGHT = "Key"+String.fromCharCode(KinkyDungeonKeybindings.UpRight).toUpperCase();
 				KinkyDungeonGameKey.KEY_DOWNRIGHT = "Key"+String.fromCharCode(KinkyDungeonKeybindings.DownRight).toUpperCase();
-				
+
 				//var KinkyDungeonKeyNumpad = [56, 52, 50, 54, 55, 57, 49, 51]; // Numpad
 				KinkyDungeonKeySpell = [KinkyDungeonKeybindings.Spell1, KinkyDungeonKeybindings.Spell2, KinkyDungeonKeybindings.Spell3]; // ! @ #
 				KinkyDungeonKeyWait = [KinkyDungeonKeybindings.Wait]; // Space and 5 (53)
-				
+
 				KinkyDungeonGameKey.KEY_WAIT = "Key"+String.fromCharCode(KinkyDungeonKeybindings.Wait).toUpperCase();
 			}
 		}
@@ -260,12 +260,12 @@ function KinkyDungeonClick() {
  */
 function KinkyDungeonExit() {
 	CommonDynamicFunction(MiniGameReturnFunction + "()");
-	
+
 	if (CharacterAppearancePreviousEmoticon) {
 		CharacterSetFacialExpression(Player, "Emoticon", CharacterAppearancePreviousEmoticon);
 		CharacterAppearancePreviousEmoticon = "";
 	}
-	
+
 	if (MiniGameKinkyDungeonLevel > Math.max(KinkyDungeonRep, ReputationGet("Gaming")) || Math.max(KinkyDungeonRep, ReputationGet("Gaming")) > KinkyDungeonMaxLevel) {
 		KinkyDungeonRep = Math.max(KinkyDungeonRep, MiniGameKinkyDungeonLevel);
 		DialogSetReputation("Gaming", KinkyDungeonRep);
@@ -282,21 +282,20 @@ function KinkyDungeonExit() {
 }
 
 
- 
+
 
 /**
  * Handles key presses during the mini game. (Both keyboard and mobile)
  * @returns {void} - Nothing
  */
 function KinkyDungeonKeyDown() {
-	if (KinkyDungeonState == "Game")
+	if (KinkyDungeonState == "Game") {
 		if (KinkyDungeonIsPlayer())
 			KinkyDungeonGameKeyDown();
-	// @ts-ignore
-	else if (KinkyDungeonState == "Keybindings") 
+	} else if (KinkyDungeonState == "Keybindings")
 		// @ts-ignore
 		KinkyDungeonKeybindingCurrentKey = KeyPress;
-	
+
 }
 
 
@@ -306,123 +305,123 @@ function KinkyDungeonKeyDown() {
  * @type {object} - The game keyboard input handler object. Contains the functions and properties required to handle key press events.
  */
 let KinkyDungeonGameKey = {
-    keyPressed : [false, false, false, false, false, false, false, false],
+	keyPressed : [false, false, false, false, false, false, false, false],
 
-    KEY_UP : 'KeyB',
-    KEY_DOWN : 'KeyV',
-    KEY_LEFT : 'KeyC',
-    KEY_RIGHT : 'KeyX',
-    KEY_UPLEFT : 'KeyC',
-    KEY_UPRIGHT : 'KeyB',
-    KEY_DOWNLEFT : 'KeyX',
-    KEY_DOWNRIGHT : 'KeyV',
-    KEY_WAIT : 'KeyV',
+	KEY_UP : 'KeyB',
+	KEY_DOWN : 'KeyV',
+	KEY_LEFT : 'KeyC',
+	KEY_RIGHT : 'KeyX',
+	KEY_UPLEFT : 'KeyC',
+	KEY_UPRIGHT : 'KeyB',
+	KEY_DOWNLEFT : 'KeyX',
+	KEY_DOWNRIGHT : 'KeyV',
+	KEY_WAIT : 'KeyV',
 
-    load : function(){
-        KinkyDungeonGameKey.keyPressed = [false, false, false, false, false, false, false, false];
-        KinkyDungeonGameKey.addKeyListener();
-    },
+	load : function(){
+		KinkyDungeonGameKey.keyPressed = [false, false, false, false, false, false, false, false];
+		KinkyDungeonGameKey.addKeyListener();
+	},
 
-    addKeyListener : function () {
-        window.addEventListener('keydown', KinkyDungeonGameKey.keyDownEvent);
-        window.addEventListener('keyup', KinkyDungeonGameKey.keyUpEvent);
-    },
-    removeKeyListener : function () {
-        window.removeEventListener('keydown', KinkyDungeonGameKey.keyDownEvent);
-        window.removeEventListener('keyup', KinkyDungeonGameKey.keyUpEvent);
-    },
-    keyDownEvent : {
-        handleEvent : function (event) {
-            switch(event.code){
-                case KinkyDungeonGameKey.KEY_UP:
-                    if(!KinkyDungeonGameKey.keyPressed[0]){
-                        KinkyDungeonGameKey.keyPressed[0] = true;
-                    }
-                    break;
-                case KinkyDungeonGameKey.KEY_DOWN:
-                    if(!KinkyDungeonGameKey.keyPressed[1]){
-                        KinkyDungeonGameKey.keyPressed[1] = true;
-                    }
-                    break;
-                case KinkyDungeonGameKey.KEY_LEFT:
-                    if(!KinkyDungeonGameKey.keyPressed[2]){
-                        KinkyDungeonGameKey.keyPressed[2] = true;
-                    }
-                    break;
-                case KinkyDungeonGameKey.KEY_RIGHT:
-                    if(!KinkyDungeonGameKey.keyPressed[3]){
-                        KinkyDungeonGameKey.keyPressed[3] = true;
-                    }
-                    break;
-                case KinkyDungeonGameKey.KEY_UPLEFT:
-                    if(!KinkyDungeonGameKey.keyPressed[4]){
-                        KinkyDungeonGameKey.keyPressed[4] = true;
-                    }
-                    break;
-                case KinkyDungeonGameKey.KEY_UPRIGHT:
-                    if(!KinkyDungeonGameKey.keyPressed[5]){
-                        KinkyDungeonGameKey.keyPressed[5] = true;
-                    }
-                    break;
-                case KinkyDungeonGameKey.KEY_DOWNLEFT:
-                    if(!KinkyDungeonGameKey.keyPressed[6]){
-                        KinkyDungeonGameKey.keyPressed[6] = true;
-                    }
-                    break;
-                case KinkyDungeonGameKey.KEY_DOWNRIGHT:
-                    if(!KinkyDungeonGameKey.keyPressed[7]){
-                        KinkyDungeonGameKey.keyPressed[7] = true;
-                    }
-                    break;
-                case KinkyDungeonGameKey.KEY_WAIT:
-                    if(!KinkyDungeonGameKey.keyPressed[8]){
-                        KinkyDungeonGameKey.keyPressed[8] = true;
-                    }
-                    break;
-            }
-        }
-    },
-    keyUpEvent : {
-        handleEvent : function (event) {
-            switch(event.code){
-                case KinkyDungeonGameKey.KEY_UP:
+	addKeyListener : function () {
+		window.addEventListener('keydown', KinkyDungeonGameKey.keyDownEvent);
+		window.addEventListener('keyup', KinkyDungeonGameKey.keyUpEvent);
+	},
+	removeKeyListener : function () {
+		window.removeEventListener('keydown', KinkyDungeonGameKey.keyDownEvent);
+		window.removeEventListener('keyup', KinkyDungeonGameKey.keyUpEvent);
+	},
+	keyDownEvent : {
+		handleEvent : function (event) {
+			switch(event.code){
+				case KinkyDungeonGameKey.KEY_UP:
+					if(!KinkyDungeonGameKey.keyPressed[0]){
+						KinkyDungeonGameKey.keyPressed[0] = true;
+					}
+					break;
+				case KinkyDungeonGameKey.KEY_DOWN:
+					if(!KinkyDungeonGameKey.keyPressed[1]){
+						KinkyDungeonGameKey.keyPressed[1] = true;
+					}
+					break;
+				case KinkyDungeonGameKey.KEY_LEFT:
+					if(!KinkyDungeonGameKey.keyPressed[2]){
+						KinkyDungeonGameKey.keyPressed[2] = true;
+					}
+					break;
+				case KinkyDungeonGameKey.KEY_RIGHT:
+					if(!KinkyDungeonGameKey.keyPressed[3]){
+						KinkyDungeonGameKey.keyPressed[3] = true;
+					}
+					break;
+				case KinkyDungeonGameKey.KEY_UPLEFT:
+					if(!KinkyDungeonGameKey.keyPressed[4]){
+						KinkyDungeonGameKey.keyPressed[4] = true;
+					}
+					break;
+				case KinkyDungeonGameKey.KEY_UPRIGHT:
+					if(!KinkyDungeonGameKey.keyPressed[5]){
+						KinkyDungeonGameKey.keyPressed[5] = true;
+					}
+					break;
+				case KinkyDungeonGameKey.KEY_DOWNLEFT:
+					if(!KinkyDungeonGameKey.keyPressed[6]){
+						KinkyDungeonGameKey.keyPressed[6] = true;
+					}
+					break;
+				case KinkyDungeonGameKey.KEY_DOWNRIGHT:
+					if(!KinkyDungeonGameKey.keyPressed[7]){
+						KinkyDungeonGameKey.keyPressed[7] = true;
+					}
+					break;
+				case KinkyDungeonGameKey.KEY_WAIT:
+					if(!KinkyDungeonGameKey.keyPressed[8]){
+						KinkyDungeonGameKey.keyPressed[8] = true;
+					}
+					break;
+			}
+		}
+	},
+	keyUpEvent : {
+		handleEvent : function (event) {
+			switch(event.code){
+				case KinkyDungeonGameKey.KEY_UP:
 					if (KinkyDungeonGameKey.keyPressed[0]) KinkyDungeonLastMoveTimerStart = 0;
-                    KinkyDungeonGameKey.keyPressed[0] = false;
-                    break;
-                case KinkyDungeonGameKey.KEY_DOWN:
+					KinkyDungeonGameKey.keyPressed[0] = false;
+					break;
+				case KinkyDungeonGameKey.KEY_DOWN:
 					if (KinkyDungeonGameKey.keyPressed[1]) KinkyDungeonLastMoveTimerStart = 0;
-                    KinkyDungeonGameKey.keyPressed[1] = false;
-                    break;
-                case KinkyDungeonGameKey.KEY_LEFT:
+					KinkyDungeonGameKey.keyPressed[1] = false;
+					break;
+				case KinkyDungeonGameKey.KEY_LEFT:
 					if (KinkyDungeonGameKey.keyPressed[2]) KinkyDungeonLastMoveTimerStart = 0;
-                    KinkyDungeonGameKey.keyPressed[2] = false;
-                    break;
-                case KinkyDungeonGameKey.KEY_RIGHT:
+					KinkyDungeonGameKey.keyPressed[2] = false;
+					break;
+				case KinkyDungeonGameKey.KEY_RIGHT:
 					if (KinkyDungeonGameKey.keyPressed[3]) KinkyDungeonLastMoveTimerStart = 0;
-                    KinkyDungeonGameKey.keyPressed[3] = false;
-                    break;
-                case KinkyDungeonGameKey.KEY_UPLEFT:
+					KinkyDungeonGameKey.keyPressed[3] = false;
+					break;
+				case KinkyDungeonGameKey.KEY_UPLEFT:
 					if (KinkyDungeonGameKey.keyPressed[4]) KinkyDungeonLastMoveTimerStart = 0;
-                    KinkyDungeonGameKey.keyPressed[4] = false;
-                    break;
-                case KinkyDungeonGameKey.KEY_UPRIGHT:
+					KinkyDungeonGameKey.keyPressed[4] = false;
+					break;
+				case KinkyDungeonGameKey.KEY_UPRIGHT:
 					if (KinkyDungeonGameKey.keyPressed[5]) KinkyDungeonLastMoveTimerStart = 0;
-                    KinkyDungeonGameKey.keyPressed[5] = false;
-                    break;
-                case KinkyDungeonGameKey.KEY_DOWNLEFT:
+					KinkyDungeonGameKey.keyPressed[5] = false;
+					break;
+				case KinkyDungeonGameKey.KEY_DOWNLEFT:
 					if (KinkyDungeonGameKey.keyPressed[6]) KinkyDungeonLastMoveTimerStart = 0;
-                    KinkyDungeonGameKey.keyPressed[6] = false;
-                    break;
-                case KinkyDungeonGameKey.KEY_DOWNRIGHT:
+					KinkyDungeonGameKey.keyPressed[6] = false;
+					break;
+				case KinkyDungeonGameKey.KEY_DOWNRIGHT:
 					if (KinkyDungeonGameKey.keyPressed[7]) KinkyDungeonLastMoveTimerStart = 0;
-                    KinkyDungeonGameKey.keyPressed[7] = false;
-                    break;
-                case KinkyDungeonGameKey.KEY_WAIT:
+					KinkyDungeonGameKey.keyPressed[7] = false;
+					break;
+				case KinkyDungeonGameKey.KEY_WAIT:
 					if (KinkyDungeonGameKey.keyPressed[8]) KinkyDungeonLastMoveTimerStart = 0;
-                    KinkyDungeonGameKey.keyPressed[8] = false;
-                    break;
-            }
+					KinkyDungeonGameKey.keyPressed[8] = false;
+					break;
+			}
 
-        }
-    },
+		}
+	},
 };

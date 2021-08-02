@@ -29,7 +29,7 @@ var KinkyDungeonBooks = ["Elements", "Conjure", "Illusion"];
 // speed: speed of a "bolt" projectile
 // playerEffect: What happens when the effect hits a player
 // trail, trailchance, traildamage, traillifetime: for lingering projectiles left behind the projectile
-// onhit: What happens on AoE. Deals aoepower damage, or just power otherwise 
+// onhit: What happens on AoE. Deals aoepower damage, or just power otherwise
 
 var KinkyDungeonSpellsStart = [
 	{name: "Firebolt", manacost: 6, components: ["Arms"], level:1, type:"bolt", projectile:true, onhit:"", power: 3, delay: 0, range: 50, damage: "fire", speed: 1, playerEffect: {name: "Damage"}}, // Throws a fireball in a direction that moves 1 square each turn
@@ -48,8 +48,8 @@ var KinkyDungeonSpellList = { // List of spells you can unlock in the 3 books. W
 		{name: "Electrify", manacost: 7, components: ["Verbal"], level:2, type:"inert", projectile:false, onhit:"aoe", power: 5, time: 1, delay: 1, range: 4, size: 1, aoe: 0.75, lifetime: 1, damage: "electric", playerEffect: {name: "Shock", time: 1}}, // A series of light shocks incapacitate you
 		{name: "Shield", manacost: 2, components: ["Legs"], level:1, type:"inert", projectile:false, block: 5, onhit:"", power: 0, delay: 1, range: 1.5, size: 1, damage: ""}, // Creates a shield that blocks projectiles for 1 turn
 		{name: "GreaterShield", manacost: 4, components: ["Legs"], level:2, type:"inert", projectile:false, block: 10, onhit:"", power: 0, delay: 5, range: 2, size: 1, damage: ""}, // Creates a shield that blocks projectiles for 5 turns
-		
-		],
+
+	],
 	"Conjure": [
 		{name: "Slime", manacost: 7, components: ["Legs"], level:3, type:"inert", projectile:false, onhit:"lingering", time: 2, delay: 1, range: 4, size: 3, aoe: 2, lifetime: 3, lifetimeHitBonus: 12, damage: "stun", playerEffect: {name: "SlimeTrap", time: 3}}, // Creates a huge pool of slime, slowing enemies that try to enter. If you step in it, you have a chance of getting trapped!
 		//{name: "PinkGas", manacost: 4, components: ["Verbal"], level:2, type:"inert", projectile:false, onhit:"lingering", time: 1, delay: 2, range: 4, size: 3, aoe: 2.5, lifetime: 9999, damage: "stun", playerEffect: {name: "PinkGas", time: 3}}, // Dizzying gas, increases arousal
@@ -66,12 +66,12 @@ var KinkyDungeonSpellList = { // List of spells you can unlock in the 3 books. W
 	],
 };
 var KinkyDungeonSpellListEnemies = [
-{enemySpell: true, name: "WitchSlime", manacost: 2, components: ["Legs"], level:2, type:"inert", projectile:false, onhit:"lingering", time: 2, delay: 1, range: 4, size: 3, aoe: 1, lifetime: 1, lifetimeHitBonus: 9, damage: "glue", playerEffect: {name: "SlimeTrap", time: 3}}, // Creates a huge pool of slime, slowing enemies that try to enter. If you step in it, you have a chance of getting trapped!
-{enemySpell: true, name: "WitchSlimeBall", manacost: 4, components: ["Arms"], level:2, type:"bolt", projectile:true, onhit:"", time: 2,  power: 2, delay: 0, range: 50, damage: "glue", speed: 1, trailLifetime: 10, trailDamage:"glue", trail:"lingering", trailChance: 1.0, playerEffect: {name: "SlimeTrap", time: 3}}, // Throws a ball of slime which oozes more slime
-{enemySpell: true, name: "WitchElectrify", manacost: 3, components: ["Arms"], level:2, type:"inert", projectile:false, onhit:"aoe", power: 5, time: 1, delay: 1, range: 4, size: 1, aoe: 0.75, lifetime: 1, damage: "electric", playerEffect: {name: "Shock", time: 1}}, // A series of light shocks incapacitate you		
-{enemySpell: true, name: "SummonSkeleton", manacost: 4, components: ["Verbal"], level:3, type:"inert", projectile:false, onhit:"summon:LesserSkeleton", count: 1, power: 0, time: 1, delay: 1, range: 4, size: 3, aoe: 2.1, lifetime: 1, damage: "fire"},
-{enemySpell: true, name: "SummonSkeletons", manacost: 12, components: ["Verbal"], level:4, type:"inert", projectile:false, onhit:"summon:LesserSkeleton", count: 4, power: 0, time: 1, delay: 1, range: 4, size: 3, aoe: 2.6, lifetime: 1, damage: "fire"},		
-]
+	{enemySpell: true, name: "WitchSlime", manacost: 2, components: ["Legs"], level:2, type:"inert", projectile:false, onhit:"lingering", time: 2, delay: 1, range: 4, size: 3, aoe: 1, lifetime: 1, lifetimeHitBonus: 9, damage: "glue", playerEffect: {name: "SlimeTrap", time: 3}}, // Creates a huge pool of slime, slowing enemies that try to enter. If you step in it, you have a chance of getting trapped!
+	{enemySpell: true, name: "WitchSlimeBall", manacost: 4, components: ["Arms"], level:2, type:"bolt", projectile:true, onhit:"", time: 2,  power: 2, delay: 0, range: 50, damage: "glue", speed: 1, trailLifetime: 10, trailDamage:"glue", trail:"lingering", trailChance: 1.0, playerEffect: {name: "SlimeTrap", time: 3}}, // Throws a ball of slime which oozes more slime
+	{enemySpell: true, name: "WitchElectrify", manacost: 3, components: ["Arms"], level:2, type:"inert", projectile:false, onhit:"aoe", power: 5, time: 1, delay: 1, range: 4, size: 1, aoe: 0.75, lifetime: 1, damage: "electric", playerEffect: {name: "Shock", time: 1}}, // A series of light shocks incapacitate you
+	{enemySpell: true, name: "SummonSkeleton", manacost: 4, components: ["Verbal"], level:3, type:"inert", projectile:false, onhit:"summon:LesserSkeleton", count: 1, power: 0, time: 1, delay: 1, range: 4, size: 3, aoe: 2.1, lifetime: 1, damage: "fire"},
+	{enemySpell: true, name: "SummonSkeletons", manacost: 12, components: ["Verbal"], level:4, type:"inert", projectile:false, onhit:"summon:LesserSkeleton", count: 4, power: 0, time: 1, delay: 1, range: 4, size: 3, aoe: 2.6, lifetime: 1, damage: "fire"},
+];
 
 function KinkyDungeonSearchSpell(list, name) {
 	for (let L = 0; L < list.length; L++) {
@@ -121,9 +121,9 @@ function KinkyDungeonPlayerEffect(playerEffect, spell) {
 			KinkyDungeonSendTextMessage(5, TextGet("KinkyDungeonMagicRopeSelf"), "red", playerEffect.time);
 		} else if (playerEffect.name == "SlimeTrap") {
 			KinkyDungeonAddRestraintIfWeaker(KinkyDungeonGetRestraintByName("StickySlime"));
-			KinkyDungeonMovePoints = -1
+			KinkyDungeonMovePoints = -1;
 			KinkyDungeonSendTextMessage(5, TextGet("KinkyDungeonSlime"), "red", playerEffect.time);
-			
+
 			if (spell.power > 0) {
 				KinkyDungeonDealDamage({damage: spell.power*2, type: spell.damage});
 			}
@@ -142,7 +142,7 @@ function KinkyDungeonPlayerEffect(playerEffect, spell) {
 				KinkyDungeonSendTextMessage(3, TextGet("KinkyDungeonSlowedBySpell"), "yellow", playerEffect.time);
 				KinkyDungeonDealDamage({damage: spell.power*2, type: spell.damage});
 			}
-			
+
 		} else if (playerEffect.name == "SingleRope") {
 			let restraintAdd = KinkyDungeonGetRestraint({tags: "ropeRestraints"}, MiniGameKinkyDungeonCheckpoint + spell.power, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]);
 			if (restraintAdd) {
@@ -153,7 +153,7 @@ function KinkyDungeonPlayerEffect(playerEffect, spell) {
 				KinkyDungeonSendTextMessage(3, TextGet("KinkyDungeonSlowedBySpell"), "yellow", playerEffect.time);
 				KinkyDungeonDealDamage({damage: spell.power*2, type: spell.damage});
 			}
-			
+
 		}
 	}
 }
@@ -218,18 +218,18 @@ function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player) {
 	if (enemy) {
 		entity = enemy;
 		moveDirection = KinkyDungeonGetDirection(player.x - entity.x, player.y - entity.y);
-		miscastChance = 0
+		miscastChance = 0;
 	}
 	if (Math.random() < miscastChance) {
-		
+
 		KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonSpellMiscast"), "#FF8800", 2);
-		
-		moveDirection = {x:0, y:0, delta:1}
+
+		moveDirection = {x:0, y:0, delta:1};
 		tX = entity.x;
 		tY = entity.y;
 		miscast = true;
 	}
-		
+
 	if (spell.type == "bolt") {
 		var size = (spell.size) ? spell.size : 1;
 		let b = KinkyDungeonLaunchBullet(entity.x + moveDirection.x, entity.y + moveDirection.y,
@@ -247,16 +247,16 @@ function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player) {
 
 	if (!enemy) { // Costs for the player
 		KinkyDungeonSendActionMessage(5, TextGet("KinkyDungeonSpellCast"+spell.name), "#88AAFF", 2);
-		
+
 		let cost = KinkyDungeonGetCost(spell.level);
-		
+
 		//KinkyDungeonStatWillpowerExhaustion += spell.exhaustion + 1;
 		KinkyDungeonStatStamina -= cost;
 		KinkyDungeonStatStaminaMana += spell.manacost;
-		
-		KinkyDungeonChargeVibrators(spell.manacost)
+
+		KinkyDungeonChargeVibrators(spell.manacost);
 	}
-	
+
 }
 
 function KinkyDungeonChargeVibrators(cost) {
@@ -265,7 +265,7 @@ function KinkyDungeonChargeVibrators(cost) {
 		if (vibe && vibe.maxbattery > 0) {
 			if (vibe.battery == 0)
 				if (!KinkyDungeonSendTextMessage(5, TextGet("KinkyDungeonStartVibe"), "#FFaadd", 2)) KinkyDungeonSendActionMessage(5, TextGet("KinkyDungeonStartVibe"), "#FFaadd", 2);
-				
+
 			vibe.battery = Math.min(vibe.maxbattery, vibe.battery + cost);
 		}
 	}
@@ -284,9 +284,9 @@ function KinkyDungeonHandleMagic() {
 		}
 	} else if (MouseIn(canvasOffsetX + 640*KinkyDungeonBookScale/2 - 250, canvasOffsetY + 483*KinkyDungeonBookScale, 500, 60)) {
 		KinkyDungeonCurrentPage = Math.floor(Math.random()*KinkyDungeonSpells.length);
-        KinkyDungeonAdvanceTime(1);
-        if (KinkyDungeonTextMessageTime > 0)
-            KinkyDungeonDrawState = "Game";
+		KinkyDungeonAdvanceTime(1);
+		if (KinkyDungeonTextMessageTime > 0)
+			KinkyDungeonDrawState = "Game";
 		return true;
 	}
 
@@ -307,34 +307,33 @@ function KinkyDungeonHandleMagic() {
 
 // https://stackoverflow.com/questions/14484787/wrap-text-in-javascript
 function KinkyDungeonWordWrap(str, maxWidth) {
-    let newLineStr = "\n";
-    let done = false;
-    let res = '';
-    while (str.length > maxWidth) {
-        let found = false;
-        // Inserts new line at first whitespace of the line
-        for (let i = maxWidth - 1; i >= 0; i--) {
-            if (KinkyDungeonTestWhite(str.charAt(i))) {
-                res = res + [str.slice(0, i), newLineStr].join('');
-                str = str.slice(i + 1);
-                found = true;
-                break;
-            }
-        }
-        // Inserts new line at maxWidth position, the word is too long to wrap
-        if (!found) {
-            res += [str.slice(0, maxWidth), newLineStr].join('');
-            str = str.slice(maxWidth);
-        }
+	let newLineStr = "\n";
+	let res = '';
+	while (str.length > maxWidth) {
+		let found = false;
+		// Inserts new line at first whitespace of the line
+		for (let i = maxWidth - 1; i >= 0; i--) {
+			if (KinkyDungeonTestWhite(str.charAt(i))) {
+				res = res + [str.slice(0, i), newLineStr].join('');
+				str = str.slice(i + 1);
+				found = true;
+				break;
+			}
+		}
+		// Inserts new line at maxWidth position, the word is too long to wrap
+		if (!found) {
+			res += [str.slice(0, maxWidth), newLineStr].join('');
+			str = str.slice(maxWidth);
+		}
 
-    }
+	}
 
-    return res + str;
+	return res + str;
 }
 
 function KinkyDungeonTestWhite(x) {
-    var white = new RegExp(/^\s$/);
-    return white.test(x.charAt(0));
+	var white = new RegExp(/^\s$/);
+	return white.test(x.charAt(0));
 }
 
 function KinkyDungeonDrawMagic() {

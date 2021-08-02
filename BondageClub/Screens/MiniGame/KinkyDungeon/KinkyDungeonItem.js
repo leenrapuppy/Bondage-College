@@ -33,7 +33,7 @@ function KinkyDungeonDropItem(Item) {
 		for (let Y = -Math.ceil(1); Y <= Math.ceil(1); Y++) {
 			slots.push({x:X, y:Y});
 		}
-		
+
 	let foundslot = null;
 	for (let C = 0; C < 100; C++) {
 		let slot = slots[Math.floor(Math.random() * slots.length)];
@@ -43,12 +43,12 @@ function KinkyDungeonDropItem(Item) {
 			C = 100;
 		} else slots.splice(C, 1);
 	}
-	
+
 	if (foundslot) {
-		
+
 		let dropped = {x:foundslot.x, y:foundslot.y, name: Item.name};
 		if (Item.amountMin && Item.amountMax) {
-			dropped.amount = Item.amountMin + Math.floor(Math.random()*Item.amountMax); 
+			dropped.amount = Item.amountMin + Math.floor(Math.random()*Item.amountMax);
 		} else if (Item.amount) {
 			dropped.amount = Item.amount;
 		}

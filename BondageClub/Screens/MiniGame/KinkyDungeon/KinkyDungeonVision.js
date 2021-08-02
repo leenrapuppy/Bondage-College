@@ -39,7 +39,7 @@ function KinkyDungeonMakeLightMap(width, height, Lights) {
 	for (let E = 0; E < KinkyDungeonEntities.length; E++) {
 		let EE = KinkyDungeonEntities[E];
 		let Enemy = EE.Enemy;
-		if (Enemy && Enemy.blockVision || (Enemy.blockVisionWhileStationary && !EE.moved && EE.idle)) // Add 
+		if (Enemy && Enemy.blockVision || (Enemy.blockVisionWhileStationary && !EE.moved && EE.idle)) // Add
 			visionBlockers[EE.x + "," + EE.y] = true;
 	}
 
