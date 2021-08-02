@@ -71,8 +71,11 @@ Features
  - (WIP) Trapped floors and doors
  - (WIP) Bondage gates which require you to be wearing a certain type of restraint to pass
 - (WIP) Can put on certain types of restraints as part of self bondage 
-- (WIP) Having hands covered or bound ought to do something
 - (WIP) Dropping potions, items, etc, especially while naked
+
+1.52 (Aug 2021)
+Features
+- Some balance changes to struggling, too many to count. Should be less random now.
 
 TODO ValidationFindBlockCycles to prevent bugs
 

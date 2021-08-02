@@ -227,7 +227,7 @@ KinkyDungeonStruggleUnlockNoBlueKey,"The magical lock only accepts blue keys and
 KinkyDungeonStruggleUnlockNoUnknownKey,"You don't have a key for this lock."
 KinkyDungeonStruggleCantPickBlueLock,"The lock seems to be magical and rejects all picking attempts!"
 
-KinkyDungeonStruggleUnlockJammed,"The key sticks in the lock and jams!"
+KinkyDungeonStruggleUnlockJammed,"The key sticks in the lock and jams, mangling the key!"
 
 KinkyDungeonStruggleUnlockSuccess,"You unlock the TargetRestraint."
 KinkyDungeonStruggleStruggleSuccess,"You manage to squeeze out of the TargetRestraint!"
@@ -655,6 +655,8 @@ KinkyDungeonLore3,"(Pg. 26 from Catherine Willows' journal): So the question is 
 KinkyDungeonLore4,"(The note starts with a drawing of a witch with many chains hanging from her body) The chains make her resistant to fire and she can use them to block melee attacks. However, they conduct lightning directly to her body."
 KinkyDungeonLore5,"(The note starts with a drawing of a witch with lightning crackling from her fingertips) Water will cause her to short-circuit. I can't seem to hit her with lightning, though. She always redirects it."
 KinkyDungeonLore6,"(The note starts with a drawing of a witch whose body is partly gelatinous) The slime is non-flammable and my attacks pass right through her body... Lightning and ice seem to be effective!"
+KinkyDungeonLore7,"(The note is from a famous escape artist) Many restraints are applied quite tightly by a skilled rigger. However, anything that isn't made of metal will loosen with enough effort. Just be sure that you give it a good effort and aren't tired, and eventually you will get out!"
+KinkyDungeonLore8,"(The note is from a famous escape artist) Anything can be unbuckled with enough patience. Having a finger extension such as a lockpick will help. Ultimately, though, what matters is that you have a calm state of mind, free from distraction and hopelessness. Stay resolute and you'll get there."
 
 KinkyDungeonLore101,"(A drawing of a suit of armor. It reads: DANGER!!!)"
 KinkyDungeonLore102,"(The note starts with a drawing of a witch in dark robes with bright pink hair) A necromancer. Powerful spellcaster, weak up close."
