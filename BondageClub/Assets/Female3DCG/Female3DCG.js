@@ -4499,6 +4499,7 @@ var AssetFemale3DCG = [
 				SetPose: ["BaseUpper", "BaseLower"],
 				Effect: ["Prone", "Freeze", "Block", "Mounted"],
 				FreezeActivePose: ["BodyUpper", "BodyLower"],
+				DrawLocks: false,
 				AllowType: ["ArmsDownLegsTogether","ArmsUpLegsSpread","ArmsUpLegsTogether"],
 				AllowPose: ["Yoked","BaseLower","LegsClosed"],
 				AllowEffect: ["Prone", "Freeze", "Block", "Mounted"],
