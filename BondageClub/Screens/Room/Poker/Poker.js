@@ -1,15 +1,31 @@
 "use strict";
 var PokerBackground = "White";
 var PokerPlayer = [
-	{ Type: "Character", Name: "Player", Money: 100 },
-	{ Type: "ImageSet", Name: "Amanda", Money: 100 },
-	{ Type: "ImageSet", Name: "Sarah", Money: 100 },
-	{ Type: "ImageSet", Name: "Sophie", Money: 100 }
+	{ Type: "Character", Family: "Player", Name: "Player", Money: 100 },
+	{ Type: "Set", Family: "Comic", Name: "Amanda", Money: 100 },
+	{ Type: "Set", Family: "Comic", Name: "Sarah", Money: 100 },
+	{ Type: "Set", Family: "Comic", Name: "Sophie", Money: 100 }
 ];
 var PokerMode = "";
 var PokerGame = "TexasHoldem"
 var PokerShowPlayer = true;
-var PokerOpponentType = ["None", "Friend", "ImageSet", "ModelSet"];
+var PokerAsset = [
+	{
+		Family: "None",
+		Type: "None",
+		Opponent: ["None"]
+	},
+	{
+		Family: "Comic",
+		Type: "Set",
+		Opponent: ["Amanda", "Sarah", "Sophie"]
+	},
+	{
+		Family: "Drawing",
+		Type: "Set",
+		Opponent: ["Ann"]
+	}
+];
 
 /**
  * Loads the Bondage Poker room
@@ -25,8 +41,46 @@ function PokerLoad() {
  */
 function PokerDrawPlayer(P, X, Y) {
 	if ((P == null) || (P.Type == null) || (P.Name == null) || (P.Money == null)) return;
-	if (P.Type == "ImageSet") DrawImageEx("Screens/Room/Poker/" + P.Name + "/" + P.Name + "3.jpg", X, Y, {Canvas: MainCanvas, Zoom: 1.5});
-	if (P.Type == "Character") DrawCharacter(P.Character, X - 150, Y - 60, 1.2, false);
+	if (P.Type == "Set") {
+		
+		// Loads the data
+		if (P.Data == null) {
+			let FullPath = "Screens/Room/Poker/" + P.Name + "/Data.csv";
+			let TextScreenCache = TextAllScreenCache.get(FullPath);
+			if (!TextScreenCache) {
+				TextScreenCache = new TextCache(FullPath, "MISSING VALUE FOR TAG: ");
+				TextAllScreenCache.set(FullPath, TextScreenCache);
+			} else P.Data = TextScreenCache;
+		}
+		else {
+			if (P.Image == null) {
+				let X = 0;
+				let Images = [];
+				while (P.Data.cache[X] != null) {
+					if (P.Data.cache[X].substr(8, 9) == "Opponent=") {
+						let From = P.Data.cache[X].substr(0, 3);
+						let To = P.Data.cache[X].substr(4, 3);
+						let Progress = 50;
+						if (!isNaN(parseInt(From)) && !isNaN(parseInt(To)))
+							if ((Progress >= parseInt(From)) && (Progress <= parseInt(To)))
+								Images.push(P.Data.cache[X].substr(17, 100));
+					}
+					X++;
+				}
+				if (Images.length > 0)
+					P.Image = "Screens/Room/Poker/" + CommonRandomItemFromList("", Images);
+			}
+			if (P.Image != null) {
+				let W = 300;
+				if (DrawCacheImage.get(P.Image) != null)
+					W = DrawCacheImage.get(P.Image).width;
+				DrawImageEx(P.Image, X + 250 - W / 2, Y, {Canvas: MainCanvas, Zoom: 1.25});
+			}
+		}
+			
+		
+	}
+	if (P.Type == "Character") DrawCharacter(P.Character, X, Y - 60, 1, false);
 }
 
 /**
@@ -35,17 +89,54 @@ function PokerDrawPlayer(P, X, Y) {
  */
 function PokerRun() {
 	for (let P = (PokerShowPlayer ? 0 : 1); P < PokerPlayer.length; P++)
-		PokerDrawPlayer(PokerPlayer[P], (PokerShowPlayer ? 100 : -125) + P * 450, 20);
+		if (PokerPlayer[P].Type != "None")
+			PokerDrawPlayer(PokerPlayer[P], (PokerShowPlayer ? 0 : -250) + P * 500, 100);
 	DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png");
 	DrawImage("Screens/Room/Poker/Table.png", 0, 650);
 	if (PokerMode == "") {
 		DrawButton(100, 790, 64, 64, "", "White", PokerShowPlayer ? "Icons/Checked.png" : "");
 		DrawText(TextGet("ShowPlayer"), 300, 822, "white", "gray");
 		DrawBackNextButton(50, 880, 400, 60, TextGet("Rules" + PokerGame), "White", "", () => "", () => "");
-		DrawBackNextButton(550, 790, 400, 60, TextGet("Opponent" + PokerPlayer[1].Type), "White", "", () => "", () => "");
-		DrawBackNextButton(1050, 790, 400, 60, TextGet("Opponent" + PokerPlayer[2].Type), "White", "", () => "", () => "");
-		DrawBackNextButton(1550, 790, 400, 60, TextGet("Opponent" + PokerPlayer[3].Type), "White", "", () => "", () => "");
+		DrawBackNextButton(550, 790, 400, 60, TextGet("Family" + PokerPlayer[1].Family), "White", "", () => "", () => "");
+		DrawBackNextButton(1050, 790, 400, 60, TextGet("Family" + PokerPlayer[2].Family), "White", "", () => "", () => "");
+		DrawBackNextButton(1550, 790, 400, 60, TextGet("Family" + PokerPlayer[3].Family), "White", "", () => "", () => "");
+		for (let P = 1; P < PokerPlayer.length; P++)
+			if (PokerPlayer[P].Type != "None") 
+				DrawBackNextButton(50 + P * 500, 880, 400, 60, PokerPlayer[P].Name, "White", "", () => "", () => "");
 	}
+}
+
+// Picks the next opponent family for a player P
+function PokerChangeOpponentFamily(P, Next) {
+	for (let A = (Next ? 0 : 1); A < PokerAsset.length + (Next ? -1 : 0); A++)
+		if (PokerAsset[A].Family == P.Family) {
+			P.Family = PokerAsset[A + (Next ? 1 : -1)].Family;
+			P.Type = PokerAsset[A + (Next ? 1 : -1)].Type;
+			P.Name = PokerAsset[A + (Next ? 1 : -1)].Opponent[0];
+			P.Data = null;
+			P.Image = null;
+			return;
+		}
+	P.Family = PokerAsset[(Next ? 0 : PokerAsset.length - 1)].Family;
+	P.Type = PokerAsset[(Next ? 0 : PokerAsset.length - 1)].Type;
+	P.Name = PokerAsset[(Next ? 0 : PokerAsset.length - 1)].Opponent[0];
+	P.Data = null;
+	P.Image = null;
+}
+
+// Picks the next opponent for a player P
+function PokerChangeOpponent(P, Next) {
+	for (let A = 0; A < PokerAsset.length; A++)
+		if (PokerAsset[A].Family == P.Family) {
+			let Pos = PokerAsset[A].Opponent.indexOf(P.Name);
+			Pos = Pos + (Next ? 1 : -1);
+			if (Pos < 0) Pos = PokerAsset[A].Opponent.length - 1;
+			if (Pos > PokerAsset[A].Opponent.length - 1) Pos = 0;
+			P.Name = PokerAsset[A].Opponent[Pos];
+			P.Data = null;
+			P.Image = null;
+			return;
+		}
 }
 
 /**
@@ -56,6 +147,12 @@ function PokerClick() {
 	if (MouseIn(100, 790, 64, 64)) PokerShowPlayer = !PokerShowPlayer;
 	if (MouseIn(50, 880, 400, 60)) PokerGame = (PokerGame == "TexasHoldem") ? "TwoCards" : "TexasHoldem";
 	if (MouseIn(1885, 25, 90, 90)) CommonSetScreen("Room", "MainHall");
+	for (let P = 1; P < PokerPlayer.length; P++) {
+		if (MouseIn(50 + P * 500, 790, 400, 60))
+			PokerChangeOpponentFamily(PokerPlayer[P], (MouseX >= 250 + P * 500));
+		if ((PokerPlayer[P].Type != "None") && MouseIn(50 + P * 500, 880, 400, 60))
+			PokerChangeOpponent(PokerPlayer[P], (MouseX >= 250 + P * 500));
+	}
 }
 
 /**

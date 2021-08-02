@@ -1,7 +1,8 @@
 ShowPlayer,View yourself
 RulesTexasHoldem,Texas Hold'em
 RulesTwoCards,Two Cards
-OpponentNone,None
-OpponentFriend,Private Friend
-OpponentImageSet,Image Set
-OpponentModelSet,Real Model
+FamilyNone,None
+FamilyFriend,Private Friend
+FamilyComic,Comic Set
+FamilyDrawing,Drawing Set
+FamilyModel,Real Model
