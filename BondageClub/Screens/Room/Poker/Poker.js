@@ -98,7 +98,7 @@ function PokerDrawPlayer(P, X, Y) {
  * @returns {void} - Nothing
  */
 function PokerStartingText(P) {
-	if ((P.Type == "None") || (P.Family == "Player")) return P.Text = "";;
+	if ((P.Type == "None") || (P.Family == "Player")) return P.Text = "";
 	P.Text = "TEST";
 }
 
