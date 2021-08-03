@@ -976,6 +976,8 @@ ItemNeck,HeartLinkChoker, Heart-Link Choker
 ItemNeck,NeckRope,Neck Rope
 ItemNeck,NylonCollar,Nylon Collar
 ItemNeck,GothicCollar,Gothic Collar
+ItemNeck,LatexCollar1,Inflated Latex Collar
+ItemNeck,LatexCollar2,Latex Collar
 ItemNeckAccessories,,Collar
 ItemNeckAccessories,CustomCollarTag,Custom Tag
 ItemNeckAccessories,ElectronicTag,Electronic Tag
