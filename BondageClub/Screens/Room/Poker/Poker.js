@@ -1,4 +1,5 @@
 "use strict";
+/* eslint-disable */
 var PokerBackground = "White";
 var PokerPlayer = [
 	{ Type: "Character", Family: "Player", Name: "Player", Chip: 100 },
@@ -26,6 +27,7 @@ var PokerAsset = [
 		Opponent: ["Ann"]
 	}
 ];
+var PokerPlayerCount = 4;
 
 /**
  * Loads the Bondage Poker room
@@ -60,11 +62,11 @@ function PokerDrawPlayer(P, X, Y) {
 			if (P.Image == null) {
 				let X = 0;
 				let Images = [];
+				let Progress = PokerGetProgress(P);
 				while (P.Data.cache[X] != null) {
 					if (P.Data.cache[X].substr(8, 9) == "Opponent=") {
 						let From = P.Data.cache[X].substr(0, 3);
 						let To = P.Data.cache[X].substr(4, 3);
-						let Progress = 50;
 						if (!isNaN(parseInt(From)) && !isNaN(parseInt(To)))
 							if ((Progress >= parseInt(From)) && (Progress <= parseInt(To)))
 								Images.push(P.Data.cache[X].substr(17, 100));
@@ -85,11 +87,49 @@ function PokerDrawPlayer(P, X, Y) {
 
 		}
 
+		// Loads the text single data if needed
+		if (P.TextSingle == null) {
+			let FullPath = "Screens/Room/Poker/" + P.Name + "/Text_Single.csv";
+			let TextScreenCache = TextAllScreenCache.get(FullPath);
+			if (!TextScreenCache) {
+				TextScreenCache = new TextCache(FullPath, "MISSING VALUE FOR TAG: ");
+				TextAllScreenCache.set(FullPath, TextScreenCache);
+			} else P.TextSingle = TextScreenCache;
+		}
+
+		// Loads the text multiple data if needed
+		if (P.TextMultiple == null) {
+			let FullPath = "Screens/Room/Poker/" + P.Name + "/Text_Multiple.csv";
+			let TextScreenCache = TextAllScreenCache.get(FullPath);
+			if (!TextScreenCache) {
+				TextScreenCache = new TextCache(FullPath, "MISSING VALUE FOR TAG: ");
+				TextAllScreenCache.set(FullPath, TextScreenCache);
+			} else P.TextMultiple = TextScreenCache;
+		}
+
 	}
 
 	// For regular bondage club characters
 	if (P.Type == "Character") DrawCharacter(P.Character, X, Y - 60, 1, false);
-	if (PokerMode != "") DrawText(P.Text, X + 250, Y - 50, "black", "gray");
+	if ((PokerMode != "") && (P.Text != "")) {
+		if ((P.TextColor == null) && (P.Data != null) && (P.Data.cache != null) && (P.Data.cache["TextColor"] != null))
+			P.TextColor = P.Data.cache["TextColor"];
+		DrawTextWrap(P.Text, X + 10, Y - 82, 480, 60, (P.TextColor == null) ? "black" : "#" + P.TextColor, null, 2);
+	}
+
+}
+
+/**
+ * Gets the chip progress of the current player P
+ * @returns {number} - The progress as a %
+ */
+function PokerGetProgress(P) {
+
+	// At 100 chips or less (or 2 players only), we cut the value in half to get the %
+	if ((P.Chip <= 100) || (PokerPlayerCount <= 2)) return Math.floor(P.Chip / 2);
+
+	// At more than 100 chips, the % varies based on the number of players
+	return 50 + Math.floor((P.Chip - 100) / (PokerPlayerCount - 1));
 
 }
 
@@ -97,9 +137,43 @@ function PokerDrawPlayer(P, X, Y) {
  * Gets a possible starting text for a poker player P
  * @returns {void} - Nothing
  */
-function PokerStartingText(P) {
+function PokerGetText(P, Tag) {
+	
+	// Exits right away if data is missing
 	if ((P.Type == "None") || (P.Family == "Player")) return P.Text = "";
-	P.Text = "TEST";
+	let T;
+	T = (PokerPlayerCount <= 2) ? P.TextSingle : P.TextMultiple;
+	if (T == null) return P.Text = "";
+
+	// If there's a tag, we search for it specifically
+	let Texts = [];
+	let X = 0;
+	if (Tag != null) {
+		while (T.cache[X] != null) {
+			if (T.cache[X].substr(0, Tag.length + 1) == Tag + "=")
+				Texts.push(T.cache[X].substr(Tag.length + 1, 500));
+			X++;
+		}
+	} else {
+
+		// Without a tag, we find all values within the player progress
+		let Progress = PokerGetProgress(P);
+		while (T.cache[X] != null) {
+			if (T.cache[X].substr(8, 5) == "Chat=") {
+				let From = T.cache[X].substr(0, 3);
+				let To = T.cache[X].substr(4, 3);
+				if (!isNaN(parseInt(From)) && !isNaN(parseInt(To)))
+					if ((Progress >= parseInt(From)) && (Progress <= parseInt(To)))
+						Images.push(T.cache[X].substr(13, 500));
+			}
+			X++;
+		}
+
+	}
+
+	// Sets the final text at random from all possible values
+	P.Text = (Texts.length > 0) ? CommonRandomItemFromList("", Texts) : "";
+
 }
 
 /**
@@ -143,6 +217,9 @@ function PokerChangeOpponentFamily(P, Next) {
 			P.Name = PokerAsset[A + (Next ? 1 : -1)].Opponent[0];
 			P.Data = null;
 			P.Image = null;
+			P.TextColor = null;
+			P.TextSingle = null;
+			P.TextMultiple = null;
 			return;
 		}
 	P.Family = PokerAsset[(Next ? 0 : PokerAsset.length - 1)].Family;
@@ -150,6 +227,9 @@ function PokerChangeOpponentFamily(P, Next) {
 	P.Name = PokerAsset[(Next ? 0 : PokerAsset.length - 1)].Opponent[0];
 	P.Data = null;
 	P.Image = null;
+	P.TextColor = null;
+	P.TextSingle = null;
+	P.TextMultiple = null;
 }
 
 /**
@@ -166,6 +246,9 @@ function PokerChangeOpponent(P, Next) {
 			P.Name = PokerAsset[A].Opponent[Pos];
 			P.Data = null;
 			P.Image = null;
+			P.TextColor = null;
+			P.TextSingle = null;
+			P.TextMultiple = null;
 			return;
 		}
 }
@@ -186,11 +269,13 @@ function PokerClick() {
 				PokerChangeOpponent(PokerPlayer[P], (MouseX >= 250 + P * 500));
 		}
 	if (MouseIn(1885, 140, 90, 90) && (PokerMode == "")) {
+		PokerPlayerCount = 0;
 		for (let P = 0; P < PokerPlayer.length; P++) {
 			PokerPlayer[P].Chip = (PokerPlayer[P].Type != "None") ? 100 : 0;
-			PokerStartingText(PokerPlayer[P]);
+			PokerGetText(PokerPlayer[P], "Intro");
+			if (PokerPlayer[P].Type != "None") PokerPlayerCount++;
 		}
-		PokerMode = "Play";
+		if (PokerPlayerCount >= 2) PokerMode = "Play";
 	}
 }
 

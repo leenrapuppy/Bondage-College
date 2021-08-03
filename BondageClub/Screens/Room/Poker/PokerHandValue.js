@@ -1,4 +1,5 @@
 "use strict";
+/* eslint-disable */
 
 // Sort the current hand from highest to lowest
 function PokerHandValueSortHand(Hand) {
