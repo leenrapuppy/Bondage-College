@@ -1,45 +1,33 @@
-Intro=*Made by Ann: assistantann.deviant.com*<br>So you want to play strip poker?
-
-Win=Now you're in big trouble.
-Win=I know how to use this crop
-Win=I'm going to keep you tied up slave
-
-081-099-Chat=Oh my! I'm winning!
-081-099-Chat=You have to strip.
-081-099-Chat=Come on!  Take it off.
-
-061-080-Chat=Is my butt big?
-061-080-Chat=See what happens if you lose again.
-061-080-Chat=Do you like my naked body?
-
-043-060-Chat=I like skimpy costumes.
-043-060-Chat=No fair!  I'm already half naked.
-043-060-Chat=Clothes are so constricting.
-
-037-042-Chat=Is this considered one article of clothing or two?
-037-042-Chat=If i loose again i'm going to be naked.
-037-042-Chat=Do you want to see my breasts?
-
-031-036-Chat=I imagine that I'm naked already.
-031-036-Chat=Is my butt big?
-031-036-Chat=So what happens if I lose again.
-031-036-Chat=Do you like my naked body?
-031-036-Chat=What is that rope for?
-
-025-030-Chat=Oohh!  Bondage is kinky fun.
-025-030-Chat=You will have to untie me when I win.
-
-019-024-Chat=Don't you dare hang me up.
-019-024-Chat=Wait, are you going to whip me?
-
-013-018-Chat=Good thing my body is flexible.
-013-018-Chat=This is kind of uncomfortable.
-
-007-012-Chat=Oh this is humiliating.
-007-012-Chat=Everyone can see my pussy!
-
-001-006-Chat=Aarrrggghhhhhgg!  Oww!
-001-006-Chat=That hurt!
-
-Lose=(She wiggles in her bonds)
-Lose=(She waits helpless and silent for your next move)
+0,Intro=*Made by Ann: assistantann.deviant.com*  So you want to play strip poker?
+1,Win=Now you're in big trouble.
+2,Win=I know how to use this crop
+3,Win=I'm going to keep you tied up slave
+4,081-099-Chat=Oh my! I'm winning!
+5,081-099-Chat=You have to strip.
+6,081-099-Chat=Come on!  Take it off.
+7,061-080-Chat=Is my butt big?
+8,061-080-Chat=See what happens if you lose again.
+9,061-080-Chat=Do you like my naked body?
+10,043-060-Chat=I like skimpy costumes.
+11,043-060-Chat=No fair!  I'm already half naked.
+12,043-060-Chat=Clothes are so constricting.
+13,037-042-Chat=Is this considered one article of clothing or two?
+14,037-042-Chat=If i loose again i'm going to be naked.
+15,037-042-Chat=Do you want to see my breasts?
+16,031-036-Chat=I imagine that I'm naked already.
+17,031-036-Chat=Is my butt big?
+18,031-036-Chat=So what happens if I lose again.
+19,031-036-Chat=Do you like my naked body?
+20,031-036-Chat=What is that rope for?
+21,025-030-Chat=Oohh!  Bondage is kinky fun.
+22,025-030-Chat=You will have to untie me when I win.
+23,019-024-Chat=Don't you dare hang me up.
+24,"019-024-Chat=Wait, are you going to whip me?"
+25,013-018-Chat=Good thing my body is flexible.
+26,013-018-Chat=This is kind of uncomfortable.
+27,007-012-Chat=Oh this is humiliating.
+28,007-012-Chat=Everyone can see my pussy!
+29,001-006-Chat=Aarrrggghhhhhgg!  Oww!
+30,001-006-Chat=That hurt!
+31,Lose=(She wiggles in her bonds)
+32,Lose=(She waits helpless and silent for your next move)
