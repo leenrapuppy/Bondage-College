@@ -170,6 +170,7 @@ function PokerGetText(P, Tag) {
  * @returns {void} - Nothing
  */
 function PokerGetImage(P) {
+	if ((P.Type == "None") || (P.Family == "Player")) return;
 	let X = 0;
 	let Images = [];
 	let Progress = PokerGetProgress(P);
@@ -197,13 +198,12 @@ function PokerRun() {
 	for (let P = (PokerShowPlayer ? 0 : 1); P < PokerPlayer.length; P++)
 		PokerDrawPlayer(PokerPlayer[P], (PokerShowPlayer ? 0 : -250) + P * 500, 100);
 	DrawImage("Screens/Room/Poker/Table.png", 0, 650);
-	
-	// The buttons on the top right are active before the game
-	if (PokerMode == "") DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
-	if (PokerMode == "") DrawButton(1885, 140, 90, 90, "", "White", "Icons/Poker.png", TextGet("Start"));
-	
+
 	// Draws the control to pick the opponent
 	if (PokerMode == "") {
+		DrawText(TextGet("IntroTitle"), 950, 45, "black", "gray");
+		DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
+		DrawButton(1885, 140, 90, 90, "", "White", "Icons/Poker.png", TextGet("Start"));
 		DrawButton(100, 790, 64, 64, "", "White", PokerShowPlayer ? "Icons/Checked.png" : "");
 		DrawText(TextGet("ShowPlayer"), 300, 822, "white", "gray");
 		DrawBackNextButton(50, 880, 400, 60, TextGet("Rules" + PokerGame), "White", "", () => "", () => "");
@@ -250,6 +250,12 @@ function PokerRun() {
 	if (PokerMode == "RESULT") {
 		DrawText(PokerMessage, 1600, 940, "white", "gray");
 		DrawButton(1800, 875, 175, 60, TextGet("Deal"), "White");
+	}
+	
+	// In End mode, we present the winner and allow to restart
+	if (PokerMode == "END") {
+		DrawText(PokerMessage, 1000, 800, "white", "gray");
+		DrawButton(800, 875, 400, 60, TextGet("EndGame"), "White");		
 	}
 
 }
@@ -333,7 +339,26 @@ function PokerClick() {
 	if (MouseIn(1800, 875, 175, 60) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) return PokerProcess("Fold");
 	if (MouseIn(1800, 875, 175, 60) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip <= 0)) return PokerProcess("Watch");
 	if (MouseIn(1800, 875, 175, 60) && (PokerMode == "RESULT")) return PokerDealHands();
+	if (MouseIn(800, 875, 400, 60) && (PokerMode == "END")) {		
+		PokerMode = "";
+		for (let P = 0; P < PokerPlayer.length; P++) {
+			PokerPlayer[P].Chip = 100;
+			PokerGetImage(PokerPlayer[P]);
+		}
+	}
 
+}
+
+/**
+ * Handles key presses during the bondage poker game
+ * @returns {void} - Nothing
+ */
+function PokerKeyDown() {
+	if (((KeyPress == 66) || (KeyPress == 98)) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) return PokerProcess("Bet"); // B to bet
+	if (((KeyPress == 82) || (KeyPress == 114)) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) return PokerProcess("Raise"); // R to raise
+	if (((KeyPress == 70) || (KeyPress == 102)) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) return PokerProcess("Fold"); // F to fold
+	if (((KeyPress == 87) || (KeyPress == 119)) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip <= 0)) return PokerProcess("Watch"); // W to watch
+	if (((KeyPress == 68) || (KeyPress == 100)) && (PokerMode == "RESULT")) return PokerDealHands(); // D to deal
 }
 
 /**
@@ -388,7 +413,7 @@ function PokerProcess(Action) {
 	let Winner = 0;
 	let MaxValue = -1;
 	let Pot = 0;
-	for (let P = 0; P < PokerPlayer.length; P++) 
+	for (let P = 0; P < PokerPlayer.length; P++)
 		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Chip > 0)) {
 			PokerPlayer[P].HandValue = PokerHandValueCalcHandValue(PokerPlayer[P].Hand[0], PokerPlayer[P].Hand[1], PokerGame, PokerMode, PokerTableCards);
 			if ((P == 0) && (Action == "Fold")) PokerPlayer[P].HandValue = -1;
@@ -398,7 +423,7 @@ function PokerProcess(Action) {
 				Winner = P;
 			}
 			let Bet = 10;
-			if ((Action == "Raise") || (Action == "Watch")) Bet = 20;
+			if ((Action == "Raise") || (Action == "Watch")) Bet = 50;
 			if (PokerPlayer[P].Chip < Bet) Bet = PokerPlayer[P].Chip;
 			Pot = Pot + Bet;
 			PokerPlayer[P].Chip = PokerPlayer[P].Chip - Bet;
@@ -408,11 +433,28 @@ function PokerProcess(Action) {
 	PokerMessage = PokerPlayer[Winner].Name + " " + TextGet("Win");
 	PokerPlayer[Winner].Chip = PokerPlayer[Winner].Chip + Pot;
 	PokerMode = "RESULT";
-	
+
 	// Reloads the opponents text and images
 	for (let P = 1; P < PokerPlayer.length; P++) {
 		PokerGetImage(PokerPlayer[P]);
 		PokerGetText(PokerPlayer[P]);
+	}
+
+	// If there's only 1 active player, we stop the game
+	let PlayerCount = 0;
+	for (let P = 0; P < PokerPlayer.length; P++)
+		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Chip > 0))
+			PlayerCount++;
+	if (PlayerCount <= 1) {
+		for (let P = 1; P < PokerPlayer.length; P++)
+			if (PokerPlayer[P].Type != "None") {
+				let TextType = "Win";
+				if (PokerPlayer[P].Chip == 0) TextType = "Lose";
+				if ((PokerPlayer[P].Chip == 0) && (PokerPlayer[0].Chip == 0)) TextType = "LoseOther";
+				PokerGetText(PokerPlayer[P], TextType);
+			}
+		PokerMessage = PokerPlayer[Winner].Name + " " + TextGet("WinGame");
+		PokerMode = "END";
 	}
 
 }

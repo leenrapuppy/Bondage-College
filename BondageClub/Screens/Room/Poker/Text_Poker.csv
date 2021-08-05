@@ -1,3 +1,4 @@
+IntroTitle,Welcome to Bondage Poker!  Select your game type and opponents below.
 Exit,Return to the main hall
 Start,Start the game
 ShowPlayer,View yourself
@@ -15,3 +16,5 @@ Raise,Raise
 Fold,Fold
 Watch,Watch
 Win,won
+WinGame,won the game!
+EndGame,Finish this game
