@@ -111,6 +111,8 @@ function PokerDrawPlayer(P, X, Y) {
 
 	// For regular bondage club characters
 	if (P.Type == "Character") DrawCharacter(P.Character, X, Y - 60, 1, false);
+	
+	// Draw the top text
 	if ((PokerMode != "") && (P.Text != "")) {
 		if ((P.TextColor == null) && (P.Data != null) && (P.Data.cache != null) && (P.Data.cache["TextColor"] != null))
 			P.TextColor = P.Data.cache["TextColor"];
@@ -181,11 +183,17 @@ function PokerGetText(P, Tag) {
  * @returns {void} - Nothing
  */
 function PokerRun() {
+	
+	// Shows the players and table
 	for (let P = (PokerShowPlayer ? 0 : 1); P < PokerPlayer.length; P++)
 		PokerDrawPlayer(PokerPlayer[P], (PokerShowPlayer ? 0 : -250) + P * 500, 100);
+	DrawImage("Screens/Room/Poker/Table.png", 0, 650);
+	
+	// The buttons on the top right are active before the game
 	if (PokerMode == "") DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
 	if (PokerMode == "") DrawButton(1885, 140, 90, 90, "", "White", "Icons/Poker.png", TextGet("Start"));
-	DrawImage("Screens/Room/Poker/Table.png", 0, 650);
+	
+	// Draws the control to pick the opponent
 	if (PokerMode == "") {
 		DrawButton(100, 790, 64, 64, "", "White", PokerShowPlayer ? "Icons/Checked.png" : "");
 		DrawText(TextGet("ShowPlayer"), 300, 822, "white", "gray");
@@ -197,12 +205,28 @@ function PokerRun() {
 			if (PokerPlayer[P].Type != "None")
 				DrawBackNextButton(50 + P * 500, 880, 400, 60, PokerPlayer[P].Name, "White", "", () => "", () => "");
 	}
-	if (PokerMode == "Play") {
-		for (let P = (PokerShowPlayer ? 0 : 1); P < PokerPlayer.length; P++)
-			DrawText(TextGet("Chip") + ": " + PokerPlayer[P].Chip.toString(), (PokerShowPlayer ? 250 : 0) + P * 500, 685, "white", "gray");
-		if (!PokerShowPlayer)
-			DrawText(TextGet("Chip") + ": " + PokerPlayer[0].Chip.toString(), 175, 970, "white", "gray");
+	
+	// Draws the cards and chips
+	if (PokerMode != "") {
+		for (let P = (PokerShowPlayer ? 0 : 1); P < PokerPlayer.length; P++) 
+			if (PokerPlayer[P].Type != "None") {
+				DrawText(TextGet("Chip") + ": " + PokerPlayer[P].Chip.toString(), (PokerShowPlayer ? 250 : 0) + P * 500, 685, "white", "gray");
+				if (PokerPlayer[P].Family != "Player") DrawImageEx("Screens/Room/Poker/Cards/OpponentCards.gif", (PokerShowPlayer ? 250 : 0) + P * 500 - 75, 720, {Canvas: MainCanvas, Zoom: 1.5});
+				else {
+					DrawImageEx(PokerCardFileName(PokerPlayer[P].Hand[0]), (PokerShowPlayer ? 250 : 0) + P * 500 - 135, 720, {Canvas: MainCanvas, Zoom: 0.75});
+					DrawImageEx(PokerCardFileName(PokerPlayer[P].Hand[1]), (PokerShowPlayer ? 250 : 0) + P * 500 + 20, 720, {Canvas: MainCanvas, Zoom: 0.75});
+				}
+			}
+		if (!PokerShowPlayer) {
+			DrawText(TextGet("Chip") + ": " + PokerPlayer[0].Chip.toString(), 1885, 970, "white", "gray");
+			DrawImageEx(PokerCardFileName(PokerPlayer[0].Hand[0]), 25, 800, {Canvas: MainCanvas, Zoom: 1.25});
+			DrawImageEx(PokerCardFileName(PokerPlayer[0].Hand[1]), 250, 800, {Canvas: MainCanvas, Zoom: 1.25});
+		}
+		DrawButton(1400, 875, 175, 60, TextGet("Bet"), "White");
+		DrawButton(1600, 875, 175, 60, TextGet("Raise"), "White");
+		DrawButton(1800, 875, 175, 60, TextGet("Fold"), "White");
 	}
+
 }
 
 /**
@@ -270,12 +294,18 @@ function PokerClick() {
 		}
 	if (MouseIn(1885, 140, 90, 90) && (PokerMode == "")) {
 		PokerPlayerCount = 0;
+		for (let P = 0; P < PokerPlayer.length; P++)
+			PokerPlayer[P].Hand = [];
 		for (let P = 0; P < PokerPlayer.length; P++) {
 			PokerPlayer[P].Chip = (PokerPlayer[P].Type != "None") ? 100 : 0;
 			PokerGetText(PokerPlayer[P], "Intro");
-			if (PokerPlayer[P].Type != "None") PokerPlayerCount++;
+			if (PokerPlayer[P].Type != "None") {
+				PokerPlayerCount++;
+				PokerDrawCard(PokerPlayer[P]);
+				PokerDrawCard(PokerPlayer[P]);
+			}
 		}
-		if (PokerPlayerCount >= 2) PokerMode = "Play";
+		if (PokerPlayerCount >= 2) PokerMode = "First";
 	}
 }
 
@@ -285,4 +315,38 @@ function PokerClick() {
  */
 function PokerExit() {
 	if (PokerMode == "") CommonSetScreen("Room", "MainHall");
+}
+
+/**
+ * Draws a card for a poker player PP
+ * @returns {void} - Nothing
+ */
+function PokerDrawCard(PP) {
+
+	// Finds a card that's not already picked
+	let Draw = true;
+	let Card = -1;
+	while (Draw) {
+		Draw = false;
+		Card = Math.floor(Math.random() * 52) + 1;
+		for (let P = 0; P < PokerPlayer.length; P++)
+			if (PokerPlayer[P].Hand.indexOf(Card) >= 0)
+				Draw = true;
+	}
+
+	// Add that card to the player hand
+	PP.Hand.push(Card);
+
+}
+
+/**
+ * Returns the file name associated with the card
+ * @returns {String} - The file name of the card image
+ */
+function PokerCardFileName(Card) {
+	if (Card <= 13) return "Screens/Room/Poker/Cards/" + (Card + 1) + "C.png";
+	else if (Card <= 26) return "Screens/Room/Poker/Cards/" + (Card - 12) + "D.png";
+	else if (Card <= 39) return "Screens/Room/Poker/Cards/" + (Card - 25) + "H.png";
+	else if (Card <= 52) return "Screens/Room/Poker/Cards/" + (Card - 38) + "S.png";
+	return "";
 }
