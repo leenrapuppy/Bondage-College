@@ -28,6 +28,8 @@ var PokerAsset = [
 	}
 ];
 var PokerPlayerCount = 4;
+var PokerTableCards = [];
+var PokerMessage = "";
 
 /**
  * Loads the Bondage Poker room
@@ -35,6 +37,7 @@ var PokerPlayerCount = 4;
  */
 function PokerLoad() {
 	PokerPlayer[0].Character = Player;
+	PokerPlayer[0].Name = Player.Name;
 }
 
 /**
@@ -59,23 +62,7 @@ function PokerDrawPlayer(P, X, Y) {
 		else {
 			
 			// If there's no image loaded, we fetch a possible one based on the chip progress
-			if (P.Image == null) {
-				let X = 0;
-				let Images = [];
-				let Progress = PokerGetProgress(P);
-				while (P.Data.cache[X] != null) {
-					if (P.Data.cache[X].substr(8, 9) == "Opponent=") {
-						let From = P.Data.cache[X].substr(0, 3);
-						let To = P.Data.cache[X].substr(4, 3);
-						if (!isNaN(parseInt(From)) && !isNaN(parseInt(To)))
-							if ((Progress >= parseInt(From)) && (Progress <= parseInt(To)))
-								Images.push(P.Data.cache[X].substr(17, 100));
-					}
-					X++;
-				}
-				if (Images.length > 0)
-					P.Image = "Screens/Room/Poker/" + CommonRandomItemFromList("", Images);
-			}
+			if (P.Image == null) PokerGetImage(P);
 			
 			// If a valid image is loaded, we show it
 			if (P.Image != null) {
@@ -131,12 +118,12 @@ function PokerGetProgress(P) {
 	if ((P.Chip <= 100) || (PokerPlayerCount <= 2)) return Math.floor(P.Chip / 2);
 
 	// At more than 100 chips, the % varies based on the number of players
-	return 50 + Math.floor((P.Chip - 100) / (PokerPlayerCount - 1));
+	return 50 + Math.floor((P.Chip - 100) / ((PokerPlayerCount - 1) * 2));
 
 }
 
 /**
- * Gets a possible starting text for a poker player P
+ * Gets a possible text for a poker player P
  * @returns {void} - Nothing
  */
 function PokerGetText(P, Tag) {
@@ -166,7 +153,7 @@ function PokerGetText(P, Tag) {
 				let To = T.cache[X].substr(4, 3);
 				if (!isNaN(parseInt(From)) && !isNaN(parseInt(To)))
 					if ((Progress >= parseInt(From)) && (Progress <= parseInt(To)))
-						Images.push(T.cache[X].substr(13, 500));
+						Texts.push(T.cache[X].substr(13, 500));
 			}
 			X++;
 		}
@@ -176,6 +163,28 @@ function PokerGetText(P, Tag) {
 	// Sets the final text at random from all possible values
 	P.Text = (Texts.length > 0) ? CommonRandomItemFromList("", Texts) : "";
 
+}
+
+/**
+ * Gets a possible image for a poker player P
+ * @returns {void} - Nothing
+ */
+function PokerGetImage(P) {
+	let X = 0;
+	let Images = [];
+	let Progress = PokerGetProgress(P);
+	while (P.Data.cache[X] != null) {
+		if (P.Data.cache[X].substr(8, 9) == "Opponent=") {
+			let From = P.Data.cache[X].substr(0, 3);
+			let To = P.Data.cache[X].substr(4, 3);
+			if (!isNaN(parseInt(From)) && !isNaN(parseInt(To)))
+				if ((Progress >= parseInt(From)) && (Progress <= parseInt(To)))
+					Images.push(P.Data.cache[X].substr(17, 100));
+		}
+		X++;
+	}
+	if (Images.length > 0)
+		P.Image = "Screens/Room/Poker/" + CommonRandomItemFromList("", Images);
 }
 
 /**
@@ -205,26 +214,42 @@ function PokerRun() {
 			if (PokerPlayer[P].Type != "None")
 				DrawBackNextButton(50 + P * 500, 880, 400, 60, PokerPlayer[P].Name, "White", "", () => "", () => "");
 	}
-	
+
 	// Draws the cards and chips
-	if (PokerMode != "") {
+	if ((PokerMode == "DEAL") || (PokerMode == "RESULT")) {
 		for (let P = (PokerShowPlayer ? 0 : 1); P < PokerPlayer.length; P++) 
-			if (PokerPlayer[P].Type != "None") {
+			if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Hand.length > 0)) {
 				DrawText(TextGet("Chip") + ": " + PokerPlayer[P].Chip.toString(), (PokerShowPlayer ? 250 : 0) + P * 500, 685, "white", "gray");
-				if (PokerPlayer[P].Family != "Player") DrawImageEx("Screens/Room/Poker/Cards/OpponentCards.gif", (PokerShowPlayer ? 250 : 0) + P * 500 - 75, 720, {Canvas: MainCanvas, Zoom: 1.5});
+				if ((PokerPlayer[P].Family != "Player") && (PokerMode != "RESULT"))
+					DrawImageEx("Screens/Room/Poker/Cards/OpponentCards.gif", (PokerShowPlayer ? 250 : 0) + P * 500 - 75, 720, {Canvas: MainCanvas, Zoom: 1.5});
 				else {
 					DrawImageEx(PokerCardFileName(PokerPlayer[P].Hand[0]), (PokerShowPlayer ? 250 : 0) + P * 500 - 135, 720, {Canvas: MainCanvas, Zoom: 0.75});
 					DrawImageEx(PokerCardFileName(PokerPlayer[P].Hand[1]), (PokerShowPlayer ? 250 : 0) + P * 500 + 20, 720, {Canvas: MainCanvas, Zoom: 0.75});
 				}
 			}
-		if (!PokerShowPlayer) {
+		if ((!PokerShowPlayer) && (PokerPlayer[0].Hand.length > 0)) {
 			DrawText(TextGet("Chip") + ": " + PokerPlayer[0].Chip.toString(), 1885, 970, "white", "gray");
 			DrawImageEx(PokerCardFileName(PokerPlayer[0].Hand[0]), 25, 800, {Canvas: MainCanvas, Zoom: 1.25});
 			DrawImageEx(PokerCardFileName(PokerPlayer[0].Hand[1]), 250, 800, {Canvas: MainCanvas, Zoom: 1.25});
 		}
+		
+	}
+
+	// In deal mode, we allow the regular actions when the player has chips
+	if ((PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) {
 		DrawButton(1400, 875, 175, 60, TextGet("Bet"), "White");
 		DrawButton(1600, 875, 175, 60, TextGet("Raise"), "White");
 		DrawButton(1800, 875, 175, 60, TextGet("Fold"), "White");
+	}
+
+	// In deal mode, we can only watch without chips
+	if ((PokerMode == "DEAL") && (PokerPlayer[0].Chip <= 0))
+		DrawButton(1800, 875, 175, 60, TextGet("Watch"), "White");
+	
+	// In result mode, we show the winner and allow to deal new cards
+	if (PokerMode == "RESULT") {
+		DrawText(PokerMessage, 1600, 940, "white", "gray");
+		DrawButton(1800, 875, 175, 60, TextGet("Deal"), "White");
 	}
 
 }
@@ -294,19 +319,21 @@ function PokerClick() {
 		}
 	if (MouseIn(1885, 140, 90, 90) && (PokerMode == "")) {
 		PokerPlayerCount = 0;
-		for (let P = 0; P < PokerPlayer.length; P++)
-			PokerPlayer[P].Hand = [];
 		for (let P = 0; P < PokerPlayer.length; P++) {
 			PokerPlayer[P].Chip = (PokerPlayer[P].Type != "None") ? 100 : 0;
 			PokerGetText(PokerPlayer[P], "Intro");
-			if (PokerPlayer[P].Type != "None") {
-				PokerPlayerCount++;
-				PokerDrawCard(PokerPlayer[P]);
-				PokerDrawCard(PokerPlayer[P]);
-			}
+			if (PokerPlayer[P].Type != "None") PokerPlayerCount++;
 		}
-		if (PokerPlayerCount >= 2) PokerMode = "First";
+		if (PokerPlayerCount >= 2) PokerDealHands();
 	}
+
+	// If we can process to the next step
+	if (MouseIn(1400, 875, 175, 60) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) return PokerProcess("Bet");
+	if (MouseIn(1600, 875, 175, 60) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) return PokerProcess("Raise");
+	if (MouseIn(1800, 875, 175, 60) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) return PokerProcess("Fold");
+	if (MouseIn(1800, 875, 175, 60) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip <= 0)) return PokerProcess("Watch");
+	if (MouseIn(1800, 875, 175, 60) && (PokerMode == "RESULT")) return PokerDealHands();
+
 }
 
 /**
@@ -349,4 +376,59 @@ function PokerCardFileName(Card) {
 	else if (Card <= 39) return "Screens/Room/Poker/Cards/" + (Card - 25) + "H.png";
 	else if (Card <= 52) return "Screens/Room/Poker/Cards/" + (Card - 38) + "S.png";
 	return "";
+}
+
+/**
+ * When we must process an action to advance the poker game, the action can be Bet, Raise, Fold or Watch
+ * @returns {String} - The file name of the card image
+ */
+function PokerProcess(Action) {
+
+	// Gets the hand values and round winner
+	let Winner = 0;
+	let MaxValue = -1;
+	let Pot = 0;
+	for (let P = 0; P < PokerPlayer.length; P++) 
+		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Chip > 0)) {
+			PokerPlayer[P].HandValue = PokerHandValueCalcHandValue(PokerPlayer[P].Hand[0], PokerPlayer[P].Hand[1], PokerGame, PokerMode, PokerTableCards);
+			if ((P == 0) && (Action == "Fold")) PokerPlayer[P].HandValue = -1;
+			console.log(P.toString() + " " + PokerPlayer[P].HandValue.toString());
+			if (PokerPlayer[P].HandValue > MaxValue) {
+				MaxValue = PokerPlayer[P].HandValue;
+				Winner = P;
+			}
+			let Bet = 10;
+			if ((Action == "Raise") || (Action == "Watch")) Bet = 20;
+			if (PokerPlayer[P].Chip < Bet) Bet = PokerPlayer[P].Chip;
+			Pot = Pot + Bet;
+			PokerPlayer[P].Chip = PokerPlayer[P].Chip - Bet;
+		}
+
+	// Shows the winner and awards the chips
+	PokerMessage = PokerPlayer[Winner].Name + " " + TextGet("Win");
+	PokerPlayer[Winner].Chip = PokerPlayer[Winner].Chip + Pot;
+	PokerMode = "RESULT";
+	
+	// Reloads the opponents text and images
+	for (let P = 1; P < PokerPlayer.length; P++) {
+		PokerGetImage(PokerPlayer[P]);
+		PokerGetText(PokerPlayer[P]);
+	}
+
+}
+
+/**
+ * Deals a fresh new hand for all poker players
+ * @returns {void} - Nothing
+ */
+function PokerDealHands() {
+	PokerGame = "TwoCards"; // To remove
+	for (let P = 0; P < PokerPlayer.length; P++)
+		PokerPlayer[P].Hand = [];
+	for (let P = 0; P < PokerPlayer.length; P++)
+		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Chip > 0)) {
+			PokerDrawCard(PokerPlayer[P]);
+			PokerDrawCard(PokerPlayer[P]);
+		}
+	PokerMode = "DEAL";
 }

@@ -392,11 +392,11 @@ function PokerHandValueHighestCards(Hand) {
 }
 
 // Return a decimal to express the hand value
-function PokerHandValueCalcHandValue(C1, C2, GameType, CurrentMode, Cards) {
+function PokerHandValueCalcHandValue(C1, C2, GameType, CurrentMode, TableCards) {
 	let Value = 0;
 	
 	// In a two cards game, the value is the card * 10000 for a pair or the highest card * 100 + lowest card
-	if (GameType == "TWOCARD") {
+	if (GameType == "TwoCards") {
 		C1 = ((C1 - 1) % 13) + 2;
 		C2 = ((C2 - 1) % 13) + 2;
 		if (C1 == C2) Value = C1 * 10000;
@@ -405,17 +405,17 @@ function PokerHandValueCalcHandValue(C1, C2, GameType, CurrentMode, Cards) {
 	}
 	
 	// In a Texas Hold 'em game, the value before the decimal is the type of hand (straight, flush), after the decimals are the highest remaining cards
-	if (GameType == "TEXAS") {
+	if (GameType == "TexasHoldem") {
 
 		// Allocate the full hand to calculate it's value
 		let Hand = [-1, -1, -1, -1, -1, -1, -1];
 		Hand[0] = C1;
 		Hand[1] = C2;
-		if ((CurrentMode == "FLOP") || (CurrentMode == "TURN") || (CurrentMode == "RIVER") || (CurrentMode == "RESULT")) Hand[2] = Cards[8];
-		if ((CurrentMode == "FLOP") || (CurrentMode == "TURN") || (CurrentMode == "RIVER") || (CurrentMode == "RESULT")) Hand[3] = Cards[9];
-		if ((CurrentMode == "FLOP") || (CurrentMode == "TURN") || (CurrentMode == "RIVER") || (CurrentMode == "RESULT")) Hand[4] = Cards[10];
-		if ((CurrentMode == "TURN") || (CurrentMode == "RIVER") || (CurrentMode == "RESULT")) Hand[5] = Cards[11];
-		if ((CurrentMode == "RIVER") || (CurrentMode == "RESULT")) Hand[6] = Cards[12];
+		if ((CurrentMode == "FLOP") || (CurrentMode == "TURN") || (CurrentMode == "RIVER") || (CurrentMode == "RESULT")) Hand[2] = TableCards[0];
+		if ((CurrentMode == "FLOP") || (CurrentMode == "TURN") || (CurrentMode == "RIVER") || (CurrentMode == "RESULT")) Hand[3] = TableCards[1];
+		if ((CurrentMode == "FLOP") || (CurrentMode == "TURN") || (CurrentMode == "RIVER") || (CurrentMode == "RESULT")) Hand[4] = TableCards[2];
+		if ((CurrentMode == "TURN") || (CurrentMode == "RIVER") || (CurrentMode == "RESULT")) Hand[5] = TableCards[3];
+		if ((CurrentMode == "RIVER") || (CurrentMode == "RESULT")) Hand[6] = TableCards[4];
 
 		// Sort the hand from highest to lowest before beginning
 		PokerHandValueSortHand(Hand);
