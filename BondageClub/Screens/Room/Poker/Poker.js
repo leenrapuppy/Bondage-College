@@ -30,8 +30,10 @@ var PokerAsset = [
 var PokerPlayerCount = 4;
 var PokerTableCards = [];
 var PokerMessage = "";
+var PokerResultMessage = "";
 var PokerAnte = 2;
 var PokerAnteCount = 0;
+var PokerPot = 0;
 
 /**
  * Loads the Bondage Poker room
@@ -218,28 +220,38 @@ function PokerRun() {
 	}
 
 	// Draws the cards and chips
-	if ((PokerMode == "DEAL") || (PokerMode == "RESULT")) {
-		for (let P = (PokerShowPlayer ? 0 : 1); P < PokerPlayer.length; P++) 
+	if ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER") || (PokerMode == "RESULT")) {
+		for (let P = (PokerShowPlayer ? 0 : 1); P < PokerPlayer.length; P++)
 			if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Hand.length > 0)) {
-				DrawText(TextGet("Chip") + ": " + PokerPlayer[P].Chip.toString(), (PokerShowPlayer ? 250 : 0) + P * 500, 685, "white", "gray");
+				DrawText(TextGet("Chip") + ": " + PokerPlayer[P].Chip.toString(), (PokerShowPlayer ? 250 : 0) + P * 500, 682, "white", "gray");
 				if ((PokerPlayer[P].Family != "Player") && (PokerMode != "RESULT"))
 					DrawImageEx("Screens/Room/Poker/Cards/OpponentCards.gif", (PokerShowPlayer ? 250 : 0) + P * 500 - 75, 720, {Canvas: MainCanvas, Zoom: 1.5});
 				else {
-					DrawImageEx(PokerCardFileName(PokerPlayer[P].Hand[0]), (PokerShowPlayer ? 250 : 0) + P * 500 - 135, 720, {Canvas: MainCanvas, Zoom: 0.75});
-					DrawImageEx(PokerCardFileName(PokerPlayer[P].Hand[1]), (PokerShowPlayer ? 250 : 0) + P * 500 + 20, 720, {Canvas: MainCanvas, Zoom: 0.75});
+					DrawImageEx(PokerCardFileName(PokerPlayer[P].Hand[0]), (PokerShowPlayer ? 250 : 0) + P * 500 - 135, 710, {Canvas: MainCanvas, Zoom: 0.6});
+					DrawImageEx(PokerCardFileName(PokerPlayer[P].Hand[1]), (PokerShowPlayer ? 250 : 0) + P * 500 + 20, 710, {Canvas: MainCanvas, Zoom: 0.6});
 				}
 			}
 		if ((!PokerShowPlayer) && (PokerPlayer[0].Hand.length > 0)) {
 			DrawText(TextGet("Chip") + ": " + PokerPlayer[0].Chip.toString(), 1885, 970, "white", "gray");
-			DrawImageEx(PokerCardFileName(PokerPlayer[0].Hand[0]), 25, 800, {Canvas: MainCanvas, Zoom: 1.25});
-			DrawImageEx(PokerCardFileName(PokerPlayer[0].Hand[1]), 250, 800, {Canvas: MainCanvas, Zoom: 1.25});
+			if (PokerMode == "RESULT") {
+				DrawImageEx(PokerCardFileName(PokerPlayer[0].Hand[0]), 50, 825, {Canvas: MainCanvas, Zoom: 0.6});
+				DrawImageEx(PokerCardFileName(PokerPlayer[0].Hand[1]), 200, 825, {Canvas: MainCanvas, Zoom: 0.6});
+			} else {
+				DrawImageEx(PokerCardFileName(PokerPlayer[0].Hand[0]), 25, 800, {Canvas: MainCanvas, Zoom: 1.25});
+				DrawImageEx(PokerCardFileName(PokerPlayer[0].Hand[1]), 250, 800, {Canvas: MainCanvas, Zoom: 1.25});
+			}
 		}
-		
+	}
+	
+	// Draws the table cards
+	if ((PokerTableCards.length > 0) && ((PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER") || (PokerMode == "RESULT"))) {
+		for (let C = 0; C < PokerTableCards.length; C++)
+			DrawImageEx(PokerCardFileName(PokerTableCards[C]), C * 150 + 640, 850, {Canvas: MainCanvas, Zoom: 0.6});
 	}
 
 	// In deal mode, we allow the regular actions when the player has chips
-	if ((PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) {
-		DrawText(TextGet("Ante") + " " + PokerAnte.toString(), 1487, 970, "white", "gray");
+	if (((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Chip > 0)) {
+		DrawText((PokerMode == "DEAL") ? (TextGet("Ante") + " " + PokerAnte.toString()) : (TextGet("Pot") + " " + PokerPot.toString()), 1487, 970, "white", "gray");
 		DrawButton(1400, 875, 175, 60, TextGet("Bet"), "White");
 		DrawButton(1600, 875, 175, 60, TextGet("Raise"), "White");
 		DrawButton(1800, 875, 175, 60, TextGet("Fold"), "White");
@@ -253,7 +265,8 @@ function PokerRun() {
 
 	// In result mode, we show the winner and allow to deal new cards
 	if (PokerMode == "RESULT") {
-		DrawText(PokerMessage, 1600, 940, "white", "gray");
+		DrawText(PokerResultMessage, 1600, 910, "white", "gray");
+		DrawText(PokerMessage, 1600, 960, "white", "gray");
 		DrawButton(1800, 875, 175, 60, TextGet("Deal"), "White");
 	}
 	
@@ -351,10 +364,10 @@ function PokerClick() {
 	}
 
 	// If we can process to the next step
-	if (MouseIn(1400, 875, 175, 60) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) return PokerProcess("Bet");
-	if (MouseIn(1600, 875, 175, 60) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) return PokerProcess("Raise");
-	if (MouseIn(1800, 875, 175, 60) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) return PokerProcess("Fold");
-	if (MouseIn(1800, 875, 175, 60) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip <= 0)) return PokerProcess("Watch");
+	if (MouseIn(1400, 875, 175, 60) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Chip > 0)) return PokerProcess("Bet");
+	if (MouseIn(1600, 875, 175, 60) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Chip > 0)) return PokerProcess("Raise");
+	if (MouseIn(1800, 875, 175, 60) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Chip > 0)) return PokerProcess("Fold");
+	if (MouseIn(1800, 875, 175, 60) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Chip <= 0)) return PokerProcess("Watch");
 	if (MouseIn(1800, 875, 175, 60) && (PokerMode == "RESULT")) return PokerDealHands();
 	if (MouseIn(800, 875, 400, 60) && (PokerMode == "END")) {
 		PokerMode = "";
@@ -371,10 +384,10 @@ function PokerClick() {
  * @returns {void} - Nothing
  */
 function PokerKeyDown() {
-	if (((KeyPress == 66) || (KeyPress == 98)) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) return PokerProcess("Bet"); // B to bet
-	if (((KeyPress == 82) || (KeyPress == 114)) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) return PokerProcess("Raise"); // R to raise
-	if (((KeyPress == 70) || (KeyPress == 102)) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip > 0)) return PokerProcess("Fold"); // F to fold
-	if (((KeyPress == 87) || (KeyPress == 119)) && (PokerMode == "DEAL") && (PokerPlayer[0].Chip <= 0)) return PokerProcess("Watch"); // W to watch
+	if (((KeyPress == 66) || (KeyPress == 98)) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Chip > 0)) return PokerProcess("Bet"); // B to bet
+	if (((KeyPress == 82) || (KeyPress == 114)) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Chip > 0)) return PokerProcess("Raise"); // R to raise
+	if (((KeyPress == 70) || (KeyPress == 102)) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Chip > 0)) return PokerProcess("Fold"); // F to fold
+	if (((KeyPress == 87) || (KeyPress == 119)) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Chip <= 0)) return PokerProcess("Watch"); // W to watch
 	if (((KeyPress == 68) || (KeyPress == 100)) && (PokerMode == "RESULT")) return PokerDealHands(); // D to deal
 }
 
@@ -433,15 +446,65 @@ function PokerCardFileName(Card) {
 }
 
 /**
+ * Draw one card on the poker table, only used in Texas Hold'em
+ * @returns {void} - Nothing
+ */
+function PokerTableDraw() {
+
+	// Draw until we find a card that's not picked yet
+	let Draw = true;
+	let Card = -1;
+	while (Draw) {
+		Draw = false;
+		Card = Math.floor(Math.random() * 52) + 1;
+		for (let P = 0; P < PokerPlayer.length; P++)
+			if (PokerPlayer[P].Hand.indexOf(Card) >= 0)
+				Draw = true;
+		if (PokerTableCards.indexOf(Card) >= 0)
+			Draw = true;
+	}
+
+	// Add that card to the player hand
+	PokerTableCards.push(Card);
+
+}
+
+/**
  * When we must process an action to advance the poker game, the action can be Bet, Raise, Fold or Watch
  * @returns {String} - The file name of the card image
  */
 function PokerProcess(Action) {
+	
+	// In Texas, watching the game resolves it fully
+	if ((PokerGame == "TexasHoldem") && (Action == "Watch")) {
+		PokerMode = "RIVER";
+		while (PokerTableCards.length < 5)
+			PokerTableDraw();
+	}
+
+	// In Texas Hold'em, we go: deal, flop, turn, river, result
+	if ((PokerGame == "TexasHoldem") && (PokerMode != "RIVER")) {
+		if (PokerMode == "TURN") {
+			PokerMode = "RIVER";
+			PokerTableDraw();
+		}
+		if (PokerMode == "FLOP") {
+			PokerMode = "TURN";
+			PokerTableDraw();
+		}
+		if (PokerMode == "DEAL") {
+			PokerMode = "FLOP";
+			PokerTableDraw();
+			PokerTableDraw();
+			PokerTableDraw();
+		}
+		return;
+	}
 
 	// Gets the hand values and round winner
 	let Winner = 0;
 	let MaxValue = -1;
-	let Pot = 0;
+	let Pot = PokerPot;
 	for (let P = 0; P < PokerPlayer.length; P++)
 		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Chip > 0)) {
 			PokerPlayer[P].HandValue = PokerHandValueCalcHandValue(PokerPlayer[P].Hand[0], PokerPlayer[P].Hand[1], PokerGame, PokerMode, PokerTableCards);
@@ -468,8 +531,11 @@ function PokerProcess(Action) {
 			PokerPlayer[P].Chip = PokerPlayer[P].Chip + Math.floor(Pot / WinnerCount);
 	PokerMessage = (WinnerCount > 1) ? TextGet("SplitPot") : (PokerPlayer[Winner].Name + " " + TextGet("Win"));
 
-	// Raises the ante after 5 rounds
+	// Gets the final result
+	PokerResultMessage = TextGet("Hand" + PokerHandValueTextHandValue(MaxValue));
 	PokerMode = "RESULT";
+
+	// Raises the ante after 5 rounds
 	PokerAnteCount++;
 	if (PokerAnteCount >= 5) {
 		PokerAnte = PokerAnte + 2;
@@ -506,7 +572,7 @@ function PokerProcess(Action) {
  * @returns {void} - Nothing
  */
 function PokerDealHands() {
-	PokerGame = "TwoCards"; // To remove
+	PokerTableCards = [];
 	for (let P = 0; P < PokerPlayer.length; P++)
 		PokerPlayer[P].Hand = [];
 	for (let P = 0; P < PokerPlayer.length; P++)
@@ -515,4 +581,5 @@ function PokerDealHands() {
 			PokerDrawCard(PokerPlayer[P]);
 		}
 	PokerMode = "DEAL";
+	PokerPot = 0;
 }

@@ -261,7 +261,8 @@ function PokerHandValueThreeOfAKind(Hand) {
 
 			// Fetch the highest card
 			let High = 0;
-			for (X = 0; X < 7; X++)
+			let Pos = 0;
+			for (let X = 0; X < 7; X++)
 				if ((Used[X] == false) && (((Hand[X] - 1) % 13) + 2 > High)) {
 					High = ((Hand[X] - 1) % 13) + 2;
 					Pos = X;
@@ -294,8 +295,10 @@ function PokerHandValueTwoPairs(Hand) {
 					LowPair = HighPair;
 					HighPair = ((Hand[X] - 1) % 13) + 2;
 				}
-				else
-					LowPair = ((Hand[X] - 1) % 13) + 2;
+				else {
+					if (((Hand[X] - 1) % 13) + 2 > LowPair)
+						LowPair = ((Hand[X] - 1) % 13) + 2;
+				}
 
 				Used[X] = true;
 				Used[Y] = true;
@@ -439,14 +442,14 @@ function PokerHandValueCalcHandValue(C1, C2, GameType, CurrentMode, TableCards) 
 // Return a text version of a decimal hand value
 function PokerHandValueTextHandValue(Value) {
 	if (Value < 2) return "Nothing";
-	else if (Value < 3) return "One pair";
-	else if (Value < 4) return "Two pairs";
-	else if (Value < 5) return "Three of a kind";
+	else if (Value < 3) return "OnePair";
+	else if (Value < 4) return "TwoPairs";
+	else if (Value < 5) return "ThreeOfAKind";
 	else if (Value < 6) return "Straight";
 	else if (Value < 7) return "Flush";
-	else if (Value < 8) return "Full house";
-	else if (Value < 9) return "Four of a kind";
-	else if (Value < 10) return "Straight flush";
-	else if (Value < 11) return "Royal flush";
+	else if (Value < 8) return "FullHouse";
+	else if (Value < 9) return "FourOfAKind";
+	else if (Value < 10) return "StraightFlush";
+	else if (Value < 11) return "RoyalFlush";
 	return "";
 }

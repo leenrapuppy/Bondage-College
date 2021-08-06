@@ -20,3 +20,14 @@ WinGame,won the game!
 EndGame,Finish this game
 Ante,Ante:
 SplitPot,Split pot
+Pot,Pot:
+HandNothing,Nothing
+HandOnePair,One pair
+HandTwoPairs,Two pairs
+HandThreeOfAKind,Three of a kind
+HandStraight,Straight
+HandFlush,Flush
+HandFullHouse,Full house
+HandFourOfAKind,Four of a kind
+HandStraightFlush,Straight flush
+HandRoyalFlush,Royal flush
