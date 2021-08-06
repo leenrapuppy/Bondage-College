@@ -458,9 +458,17 @@ function PokerProcess(Action) {
 			PokerPlayer[P].Chip = PokerPlayer[P].Chip - Bet;
 		}
 
-	// Shows the winner and awards the chips
-	PokerMessage = PokerPlayer[Winner].Name + " " + TextGet("Win");
-	PokerPlayer[Winner].Chip = PokerPlayer[Winner].Chip + Pot;
+	// Gets the number of winners and split the chips between them
+	let WinnerCount = 0;
+	for (let P = 0; P < PokerPlayer.length; P++)
+		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Hand.length > 0) && (PokerPlayer[P].HandValue == MaxValue))
+			WinnerCount++;
+	for (let P = 0; P < PokerPlayer.length; P++)
+		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Hand.length > 0) && (PokerPlayer[P].HandValue == MaxValue))
+			PokerPlayer[P].Chip = PokerPlayer[P].Chip + Math.floor(Pot / WinnerCount);
+	PokerMessage = (WinnerCount > 1) ? TextGet("SplitPot") : (PokerPlayer[Winner].Name + " " + TextGet("Win"));
+
+	// Raises the ante after 5 rounds
 	PokerMode = "RESULT";
 	PokerAnteCount++;
 	if (PokerAnteCount >= 5) {
