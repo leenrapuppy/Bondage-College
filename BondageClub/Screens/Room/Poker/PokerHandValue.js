@@ -441,15 +441,20 @@ function PokerHandValueCalcHandValue(C1, C2, GameType, CurrentMode, TableCards) 
 
 // Return a text version of a decimal hand value
 function PokerHandValueTextHandValue(Value) {
-	if (Value < 2) return "Nothing";
-	else if (Value < 3) return "OnePair";
-	else if (Value < 4) return "TwoPairs";
-	else if (Value < 5) return "ThreeOfAKind";
-	else if (Value < 6) return "Straight";
-	else if (Value < 7) return "Flush";
-	else if (Value < 8) return "FullHouse";
-	else if (Value < 9) return "FourOfAKind";
-	else if (Value < 10) return "StraightFlush";
-	else if (Value < 11) return "RoyalFlush";
-	return "";
+	if (PokerGame == "TwoCards") {
+		if (Value >= 10000) return "OnePair";
+		return "HighestCards";
+	}
+	if (PokerGame == "TexasHoldem") {
+		if (Value < 3) return "OnePair";
+		else if (Value < 4) return "TwoPairs";
+		else if (Value < 5) return "ThreeOfAKind";
+		else if (Value < 6) return "Straight";
+		else if (Value < 7) return "Flush";
+		else if (Value < 8) return "FullHouse";
+		else if (Value < 9) return "FourOfAKind";
+		else if (Value < 10) return "StraightFlush";
+		else if (Value < 11) return "RoyalFlush";
+		return "HighestCards";
+	}
 }
