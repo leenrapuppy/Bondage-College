@@ -740,7 +740,7 @@ ItemArmsDuctTapeSetTop,,,SourceCharacter creates a duct tape top on TargetCharac
 ItemArmsDuctTapeSetFull,,,SourceCharacter creates a duct tape mummy on TargetCharacter and traps her arms in it.,,
 ItemArmsDuctTapeSetComplete,,,SourceCharacter creates a completed duct tape mummy on TargetCharacter and traps her entire upper body in it.,,
 ItemArmsDuctTapeSetExposedComplete,,,SourceCharacter creates a completed duct tape mummy on TargetCharacter and cuts a hole so that her breasts are exposed.,,
-ItemArmsDuctTapeSetPetTape,,,SourceCharacter creates a duct tape pet crawler on TargetCharacter arms and legs to trap her.,,
+ItemArmsDuctTapeSetPetTape,,,SourceCharacter folds TargetCharacter arms and wraps duct tape around them.,,
 ItemArmsWristShacklesInFront,,,In-front of body,,
 ItemArmsWristShacklesBehind,,,Behind back,,
 ItemArmsWristShacklesOverhead,,,Above head,,
