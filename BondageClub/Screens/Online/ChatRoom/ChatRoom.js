@@ -1159,7 +1159,7 @@ function ChatRoomResize(load) {
  * @param {Width} - Width of filter
  * @returns {void} - Nothing.
  */
-function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride) {	
+function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride) {
 	let Progress = (ArousalOverride) ? ArousalOverride : Player.ArousalSettings.Progress;
 	let amplitude = 0.24 * Math.min(1, 2 - 1.5 * Progress/100); // Amplitude of the oscillation
 	let percent = Progress/100.0;
@@ -1580,7 +1580,7 @@ function ChatRoomSendLocal(Content, Timeout) {
  * @returns {void} - Nothing
  */
 function ChatRoomSendEmote(msg) {
-	if (Player.ChatSettings.MuStylePoses) msg = msg.replace(":", "");
+	if (Player.ChatSettings.MuStylePoses && msg.startsWith(":")) msg = msg.substring(1);
 	else if (msg.indexOf("**") == 0) {
 		msg = "*" + msg.replace(/\*/g, "");
 	} else {
@@ -1861,7 +1861,7 @@ function ChatRoomMessage(data) {
 								for (let T = 0; T < ChatRoomCharacter.length; T++)
 									if (ChatRoomCharacter[T].MemberNumber == dictionary[D].MemberNumber)
 										SourceCharacter = ChatRoomCharacter[T];
-									msg = msg.replace(dictionary[D].Tag, (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && (dictionary[D].MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SourceCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(dictionary[D].Text));
+								msg = msg.replace(dictionary[D].Tag, (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && (dictionary[D].MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SourceCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(dictionary[D].Text));
 
 							}
 
@@ -3403,7 +3403,7 @@ function ChatRoomRefreshFontSize() {
  * @param {Character} WhisperTarget
  * @returns {boolean}
  */
- function ChatRoomShouldBlockGaggedOOCMessage(Message, WhisperTarget) {
+function ChatRoomShouldBlockGaggedOOCMessage(Message, WhisperTarget) {
 	if (ChatRoomTargetMemberNumber == null && !Message.includes("(")) return false;
 	if (Player.ImmersionSettings == null || !Player.ImmersionSettings.BlockGaggedOOC) return false;
 	if (Player.CanTalk()) return false;
