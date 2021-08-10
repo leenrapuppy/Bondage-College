@@ -174,22 +174,49 @@ function PokerGetText(P, Tag) {
  * @returns {void} - Nothing
  */
 function PokerGetImage(P) {
-	if ((P.Type == "None") || (P.Family == "Player")) return;
-	let X = 0;
-	let Images = [];
+	
+	// Skip if there's no player
+	if (P.Type == "None") return;
 	let Progress = PokerGetProgress(P);
-	while (P.Data.cache[X] != null) {
-		if (P.Data.cache[X].substr(8, 9) == "Opponent=") {
-			let From = P.Data.cache[X].substr(0, 3);
-			let To = P.Data.cache[X].substr(4, 3);
-			if (!isNaN(parseInt(From)) && !isNaN(parseInt(To)))
-				if ((Progress >= parseInt(From)) && (Progress <= parseInt(To)))
-					Images.push(P.Data.cache[X].substr(17, 100));
-		}
-		X++;
+
+	// For a regular Bondage Club character, we can add or remove restraints
+	if (P.Type == "Character") {
+		if ((Progress > 40) && (P.Cloth != null) && (InventoryGet(P.Character, "Cloth") == null)) InventoryWear(P.Character, P.Cloth.Asset.Name, "Cloth", P.Cloth.Color);
+		if ((Progress > 40) && (P.ClothLower != null) && (InventoryGet(P.Character, "ClothLower") == null)) InventoryWear(P.Character, P.ClothLower.Asset.Name, "ClothLower", P.ClothLower.Color);
+		if ((Progress > 40) && (P.ClothAccessory != null) && (InventoryGet(P.Character, "ClothAccessory") == null)) InventoryWear(P.Character, P.ClothAccessory.Asset.Name, "ClothAccessory", P.ClothAccessory.Color);
+		if ((Progress <= 40) && (InventoryGet(P.Character, "Cloth") != null)) InventoryRemove(P.Character, "Cloth");
+		if ((Progress <= 40) && (InventoryGet(P.Character, "ClothLower") != null)) InventoryRemove(P.Character, "ClothLower");
+		if ((Progress <= 40) && (InventoryGet(P.Character, "ClothAccessory") != null)) InventoryRemove(P.Character, "ClothAccessory");
+		if ((Progress > 30) && (InventoryGet(P.Character, "ItemLegs") != null)) InventoryRemove(P.Character, 'ItemLegs');
+		if ((Progress <= 30) && (InventoryGet(P.Character, "ItemLegs") == null)) InventoryWearRandom(P.Character, 'ItemLegs');
+		if ((Progress > 20) && (InventoryGet(P.Character, "ItemMouth") != null)) InventoryRemove(P.Character, 'ItemMouth');
+		if ((Progress <= 20) && (InventoryGet(P.Character, "ItemMouth") == null)) InventoryWearRandom(P.Character, 'ItemMouth');
+		if ((Progress > 10) && (P.Panties != null) && (InventoryGet(P.Character, "Panties") == null)) InventoryWear(P.Character, P.Panties.Asset.Name, "Panties", P.Panties.Color);
+		if ((Progress > 10) && (P.Bra != null) && (InventoryGet(P.Character, "Bra") == null)) InventoryWear(P.Character, P.Bra.Asset.Name, "Bra", P.Bra.Color);
+		if ((Progress <= 10) && (InventoryGet(P.Character, "Panties") != null)) InventoryRemove(P.Character, "Panties");
+		if ((Progress <= 10) && (InventoryGet(P.Character, "Bra") != null)) InventoryRemove(P.Character, "Bra");
+		if ((Progress > 0) && (InventoryGet(P.Character, "ItemArms") != null)) InventoryRemove(P.Character, 'ItemArms');
+		if ((Progress <= 0) && (InventoryGet(P.Character, "ItemArms") == null)) InventoryWearRandom(P.Character, 'ItemArms');
+		CharacterRefresh(P.Character);
 	}
-	if (Images.length > 0)
-		P.Image = "Screens/Room/Poker/" + CommonRandomItemFromList("", Images);
+
+	if (P.Type == "Set") {
+		let X = 0;
+		let Images = [];
+		while (P.Data.cache[X] != null) {
+			if (P.Data.cache[X].substr(8, 9) == "Opponent=") {
+				let From = P.Data.cache[X].substr(0, 3);
+				let To = P.Data.cache[X].substr(4, 3);
+				if (!isNaN(parseInt(From)) && !isNaN(parseInt(To)))
+					if ((Progress >= parseInt(From)) && (Progress <= parseInt(To)))
+						Images.push(P.Data.cache[X].substr(17, 100));
+			}
+			X++;
+		}
+		if (Images.length > 0)
+			P.Image = "Screens/Room/Poker/" + CommonRandomItemFromList("", Images);
+	}
+
 }
 
 /**
@@ -354,6 +381,13 @@ function PokerClick() {
 		PokerPlayerCount = 0;
 		for (let P = 0; P < PokerPlayer.length; P++) {
 			PokerPlayer[P].Chip = (PokerPlayer[P].Type != "None") ? 100 : 0;
+			if (PokerPlayer[P].Type == "Character") {
+				PokerPlayer[P].Cloth = InventoryGet(PokerPlayer[P].Character, "Cloth");
+				PokerPlayer[P].ClothLower = InventoryGet(PokerPlayer[P].Character, "ClothLower");
+				PokerPlayer[P].ClothAccessory = InventoryGet(PokerPlayer[P].Character, "ClothAccessory");
+				PokerPlayer[P].Panties = InventoryGet(PokerPlayer[P].Character, "Panties");
+				PokerPlayer[P].Bra = InventoryGet(PokerPlayer[P].Character, "Bra");
+			}
 			PokerGetText(PokerPlayer[P], "Intro");
 			if (PokerPlayer[P].Type != "None") PokerPlayerCount++;
 		}
@@ -555,7 +589,6 @@ function PokerProcess(Action) {
 	PokerMessage = (WinnerCount > 1) ? TextGet("SplitPot") : (PokerPlayer[Winner].Name + " " + TextGet("Win"));
 
 	// Gets the final result
-	console.log(PokerHandValueTextHandValue(MaxValue));
 	PokerResultMessage = TextGet("Hand" + PokerHandValueTextHandValue(MaxValue));
 	PokerMode = "RESULT";
 
@@ -567,7 +600,7 @@ function PokerProcess(Action) {
 	}
 
 	// Reloads the opponents text and images
-	for (let P = 1; P < PokerPlayer.length; P++) {
+	for (let P = 0; P < PokerPlayer.length; P++) {
 		PokerGetImage(PokerPlayer[P]);
 		PokerGetText(PokerPlayer[P]);
 	}
