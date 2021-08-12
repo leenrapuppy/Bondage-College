@@ -1457,7 +1457,7 @@ var AssetFemale3DCG = [
 		Left: 235,
 		Top: 180,
 		AllowNone: false,
-		AllowExpression: ["Frown", "Sad", "Pained", "Angry", "HalfOpen", "Open", "Ahegao", "Moan", "TonguePinch", "LipBite", "Happy", "Devious", "Laughing", "Grin", "Smirk"],
+		AllowExpression: ["Frown", "Sad", "Pained", "Angry", "HalfOpen", "Open", "Ahegao", "Moan", "TonguePinch", "LipBite", "Happy", "Devious", "Laughing", "Grin", "Smirk", "Pout"],
 		PreviewZone: [190, 100, 120, 120],
 		Asset: [
 			{
