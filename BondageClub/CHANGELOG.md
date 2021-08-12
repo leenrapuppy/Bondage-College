@@ -11,10 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2021-08-09
-* Last recorded PR: [#2836](https://github.com/Ben987/Bondage-College/pull/2836)
-* Last recorded commit hash: `1f54a29c5ba6171a915a66e28943e202e692346e`
-
+* Changelog last updated: 2021-08-12
+* Last recorded PR: [#2847](https://github.com/Ben987/Bondage-College/pull/2847)
+* Last recorded commit hash: `c03552790c6c91e05213cec557f1e878e38974bc`
 
 ## [R71]
 
@@ -50,6 +49,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Natsuki - Added 2 new latex collar items ([#2831](https://github.com/Ben987/Bondage-College/pull/2831))
 * Ada - Added new word-banning functions to the Futuristic Training Belt ([#2834](https://github.com/Ben987/Bondage-College/pull/2834))
 * Emily R - Added multicolor support to the Student Black dress ([#2835](https://github.com/Ben987/Bondage-College/pull/2835))
+* Verity - Added a new pouting mouth expression ([#2845](https://github.com/Ben987/Bondage-College/pull/2845))
 
 ### [Removed]
 
@@ -70,6 +70,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Ace - Changed the Lovers Timer Padlock to allow owners to change the settings (provided they are allowed by lover rules) ([#2804](https://github.com/Ben987/Bondage-College/pull/2804))
 * Kimei - Changed the Ceiling Chain so that it cannot be changed when locked (unless the player can unlock it) ([#2810](https://github.com/Ben987/Bondage-College/pull/2810))
 * Elda - Modified the Duct Tape arms item to allow nipple piercing items to be visible underneath it ([#2836](https://github.com/Ben987/Bondage-College/pull/2836))
+* Ace - Updated the chat message for the Duct Tape pet wrap in the arms slot ([#2839](https://github.com/Ben987/Bondage-College/pull/2839))
 
 ### [Fixed]
 
@@ -101,7 +102,13 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 ### [Beta Fixes]
 
-* Nothing... yet
+* Ace - Fixed a bug with the Fuck Machine not being dismountable ([#2837](https://github.com/Ben987/Bondage-College/pull/2837))
+* Ace - Fixed a bug where the `/me` command wouldn't work when MU-style emotes are enabled ([#2838](https://github.com/Ben987/Bondage-College/pull/2838))
+* Ayesha - Removed some potentially offensive dialog from Bondage Poker ([#2840](https://github.com/Ben987/Bondage-College/pull/2840))
+* Ace - Fixed an issue where the some item combinations with the Fuck Machine which could make some items unremovable ([#2841](https://github.com/Ben987/Bondage-College/pull/2841))
+* Natsuki - Fixed an oversight in the Inflated Latex Collar which prevented players from being able to nod their head ([#2842](https://github.com/Ben987/Bondage-College/pull/2842))
+* Ace - Fixed the text for the Arousal Screen Filter preference where it would display "undefined" for some players ([#2843](https://github.com/Ben987/Bondage-College/pull/2843))
+* Ada - Fixed a bug with Kinky Dungeon where it would not save the game state when leaving VR ([#2847](https://github.com/Ben987/Bondage-College/pull/2847))
 
 ## [R70]
 
