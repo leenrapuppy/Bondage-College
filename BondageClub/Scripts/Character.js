@@ -722,7 +722,7 @@ function CharacterItemsHavePoseAvailable(C, Type, Pose) {
 		if (WhitelistActivePose != null && WhitelistActivePose.includes(Pose)) continue;
 
 		const AllowActivePose = InventoryGetItemProperty(Item, "AllowActivePose");
-		if (AllowActivePose != null && AllowActivePose.find(P => C.AllowedActivePose.includes(P))) continue;
+		if (AllowActivePose != null && AllowActivePose.includes(Pose)) continue;
 
 		const SetPose = InventoryGetItemProperty(Item, "SetPose", true);
 		if (SetPose != null && SetPose.find(P => ConflictingPoses.includes(P))) return false;
