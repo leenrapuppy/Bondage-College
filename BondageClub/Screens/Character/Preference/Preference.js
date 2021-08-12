@@ -1357,7 +1357,7 @@ function PreferenceSubscreenGraphicsRun() {
 		DrawText(TextGet("VFXFilter"), 1000, 216, "Black", "Gray");
 
 		MainCanvas.textAlign = "center";
-		DrawBackNextButton(500, 182, 450, 64, TextGet(Player.ArousalSettings.VFXFilter), "White", "",
+		DrawBackNextButton(500, 182, 450, 64, TextGet(Player.ArousalSettings.VFXFilter || PreferenceSettingsVFXFilterList[PreferenceSettingsVFXFilterIndex]), "White", "",
 			() => TextGet(PreferenceSettingsVFXFilterList[(PreferenceSettingsVFXFilterIndex + PreferenceSettingsVFXFilterList.length - 1) % PreferenceSettingsVFXFilterList.length]),
 			() => TextGet(PreferenceSettingsVFXFilterList[(PreferenceSettingsVFXFilterIndex + 1) % PreferenceSettingsVFXFilterList.length]));
 	}
