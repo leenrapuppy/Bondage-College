@@ -3091,7 +3091,7 @@ var AssetFemale3DCG = [
 					{ Name: "Flowers"}
 				]
 			},
-			{ Name: "LatexCollar1", Fetish: ["Latex"], Value: 40, Difficulty: 50, Time: 5},
+			{ Name: "LatexCollar1", Fetish: ["Latex"], Value: 40, Difficulty: 50, Time: 5, Effect: ["FixedHead"]},
 			{ Name: "LatexCollar2", Fetish: ["Latex"], Value: 40, Difficulty: 50, Time: 5, AllowLock: true},
 			AssetSpankingToys
 		],
