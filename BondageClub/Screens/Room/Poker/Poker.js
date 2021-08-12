@@ -67,13 +67,16 @@ function PokerDrawPlayer(P, X, Y) {
 			
 			// If there's no image loaded, we fetch a possible one based on the chip progress
 			if (P.Image == null) PokerGetImage(P);
-			
+
 			// If a valid image is loaded, we show it
 			if (P.Image != null) {
 				let W = 300;
 				if (DrawCacheImage.get(P.Image) != null)
 					W = DrawCacheImage.get(P.Image).width;
-				DrawImageEx(P.Image, X + 210 - W / 2, Y, {Canvas: MainCanvas, Zoom: 1.25});
+				if (W >= 800)
+					DrawImageEx(P.Image, (PokerShowPlayer ? 1250 - W / 2 : 1000 - W / 2), Y + 30, {Canvas: MainCanvas, Zoom: 1});
+				else
+					DrawImageEx(P.Image, X + 210 - W / 2, Y, {Canvas: MainCanvas, Zoom: 1.25});
 			}
 
 		}
@@ -200,18 +203,34 @@ function PokerGetImage(P) {
 		CharacterRefresh(P.Character);
 	}
 
+	// For set images, a single opponent can have a large image, else we find a valid image from the game progress
 	if (P.Type == "Set") {
-		let X = 0;
 		let Images = [];
-		while (P.Data.cache[X] != null) {
-			if (P.Data.cache[X].substr(8, 9) == "Opponent=") {
-				let From = P.Data.cache[X].substr(0, 3);
-				let To = P.Data.cache[X].substr(4, 3);
-				if (!isNaN(parseInt(From)) && !isNaN(parseInt(To)))
-					if ((Progress >= parseInt(From)) && (Progress <= parseInt(To)))
-						Images.push(P.Data.cache[X].substr(17, 100));
+		if (PokerPlayerCount == 2) {
+			let X = 0;
+			while (P.Data.cache[X] != null) {
+				if (P.Data.cache[X].substr(8, 14) == "OpponentLarge=") {
+					let From = P.Data.cache[X].substr(0, 3);
+					let To = P.Data.cache[X].substr(4, 3);
+					if (!isNaN(parseInt(From)) && !isNaN(parseInt(To)))
+						if ((Progress >= parseInt(From)) && (Progress <= parseInt(To)))
+							Images.push(P.Data.cache[X].substr(22, 100));
+				}
+				X++;
 			}
-			X++;
+		}
+		if (Images.length == 0) {
+			let X = 0;
+			while (P.Data.cache[X] != null) {
+				if (P.Data.cache[X].substr(8, 9) == "Opponent=") {
+					let From = P.Data.cache[X].substr(0, 3);
+					let To = P.Data.cache[X].substr(4, 3);
+					if (!isNaN(parseInt(From)) && !isNaN(parseInt(To)))
+						if ((Progress >= parseInt(From)) && (Progress <= parseInt(To)))
+							Images.push(P.Data.cache[X].substr(17, 100));
+				}
+				X++;
+			}
 		}
 		if (Images.length > 0)
 			P.Image = "Screens/Room/Poker/" + CommonRandomItemFromList("", Images);
@@ -238,12 +257,15 @@ function PokerRun() {
 		DrawButton(100, 790, 64, 64, "", "White", PokerShowPlayer ? "Icons/Checked.png" : "");
 		DrawText(TextGet("ShowPlayer"), 300, 822, "white", "gray");
 		DrawBackNextButton(50, 880, 400, 60, TextGet("Rules" + PokerGame), "White", "", () => "", () => "");
-		DrawBackNextButton(550, 790, 400, 60, TextGet("Family" + PokerPlayer[1].Family), "White", "", () => "", () => "");
-		DrawBackNextButton(1050, 790, 400, 60, TextGet("Family" + PokerPlayer[2].Family), "White", "", () => "", () => "");
-		DrawBackNextButton(1550, 790, 400, 60, TextGet("Family" + PokerPlayer[3].Family), "White", "", () => "", () => "");
+		DrawBackNextButton(550, 760, 400, 60, TextGet("Family" + PokerPlayer[1].Family), "White", "", () => "", () => "");
+		DrawBackNextButton(1050, 760, 400, 60, TextGet("Family" + PokerPlayer[2].Family), "White", "", () => "", () => "");
+		DrawBackNextButton(1550, 760, 400, 60, TextGet("Family" + PokerPlayer[3].Family), "White", "", () => "", () => "");
 		for (let P = 1; P < PokerPlayer.length; P++)
-			if (PokerPlayer[P].Type != "None")
-				DrawBackNextButton(50 + P * 500, 880, 400, 60, PokerPlayer[P].Name, "White", "", () => "", () => "");
+			if (PokerPlayer[P].Type != "None") {
+				DrawBackNextButton(50 + P * 500, 840, 400, 60, PokerPlayer[P].Name, "White", "", () => "", () => "");
+				if ((PokerPlayer[P].WebLink == null) && (PokerPlayer[P].Data != null)) PokerPlayer[P].WebLink = PokerPlayer[P].Data.cache["WebLink"];
+				if ((PokerPlayer[P].WebLink != null) && (PokerPlayer[P].WebLink != "")) DrawButton(50 + P * 500, 920, 400, 60, TextGet("VisitArtist"), "White");
+			}
 	}
 
 	// Draws the cards and chips
@@ -307,6 +329,20 @@ function PokerRun() {
 }
 
 /**
+ * Clears the player data for player P
+ * @returns {void} - Nothing
+ */
+function PokerClearData(P) {
+	P.Difficulty = null;
+	P.Data = null;
+	P.Image = null;
+	P.TextColor = null;
+	P.TextSingle = null;
+	P.TextMultiple = null;
+	P.WebLink = null;
+}
+
+/**
  * Picks the next/previous opponent family for a player P
  * @returns {void} - Nothing
  */
@@ -316,23 +352,12 @@ function PokerChangeOpponentFamily(P, Next) {
 			P.Family = PokerAsset[A + (Next ? 1 : -1)].Family;
 			P.Type = PokerAsset[A + (Next ? 1 : -1)].Type;
 			P.Name = PokerAsset[A + (Next ? 1 : -1)].Opponent[0];
-			P.Difficulty = null;
-			P.Data = null;
-			P.Image = null;
-			P.TextColor = null;
-			P.TextSingle = null;
-			P.TextMultiple = null;
-			return;
+			return PokerClearData(P);
 		}
 	P.Family = PokerAsset[(Next ? 0 : PokerAsset.length - 1)].Family;
 	P.Type = PokerAsset[(Next ? 0 : PokerAsset.length - 1)].Type;
 	P.Name = PokerAsset[(Next ? 0 : PokerAsset.length - 1)].Opponent[0];
-	P.Difficulty = null;
-	P.Data = null;
-	P.Image = null;
-	P.TextColor = null;
-	P.TextSingle = null;
-	P.TextMultiple = null;
+	PokerClearData(P);
 }
 
 /**
@@ -347,13 +372,7 @@ function PokerChangeOpponent(P, Next) {
 			if (Pos < 0) Pos = PokerAsset[A].Opponent.length - 1;
 			if (Pos > PokerAsset[A].Opponent.length - 1) Pos = 0;
 			P.Name = PokerAsset[A].Opponent[Pos];
-			P.Difficulty = null;
-			P.Data = null;
-			P.Image = null;
-			P.TextColor = null;
-			P.TextSingle = null;
-			P.TextMultiple = null;
-			return;
+			return PokerClearData(P);
 		}
 }
 
@@ -369,10 +388,12 @@ function PokerClick() {
 		if (MouseIn(50, 880, 400, 60)) PokerGame = (PokerGame == "TexasHoldem") ? "TwoCards" : "TexasHoldem";
 		if (MouseIn(1885, 25, 90, 90)) PokerExit();
 		for (let P = 1; P < PokerPlayer.length; P++) {
-			if (MouseIn(50 + P * 500, 790, 400, 60))
+			if (MouseIn(50 + P * 500, 760, 400, 60))
 				PokerChangeOpponentFamily(PokerPlayer[P], (MouseX >= 250 + P * 500));
-			if ((PokerPlayer[P].Type != "None") && MouseIn(50 + P * 500, 880, 400, 60))
+			if ((PokerPlayer[P].Type != "None") && MouseIn(50 + P * 500, 840, 400, 60))
 				PokerChangeOpponent(PokerPlayer[P], (MouseX >= 250 + P * 500));
+			if ((PokerPlayer[P].Type != "None") && MouseIn(50 + P * 500, 920, 400, 60) && (PokerPlayer[P].WebLink != null) && (PokerPlayer[P].WebLink != ""))
+				window.open(PokerPlayer[P].WebLink);
 		}
 	}
 
@@ -380,7 +401,6 @@ function PokerClick() {
 	if (MouseIn(1885, 140, 90, 90) && (PokerMode == "")) {
 		PokerPlayerCount = 0;
 		for (let P = 0; P < PokerPlayer.length; P++) {
-			PokerPlayer[P].Chip = (PokerPlayer[P].Type != "None") ? 100 : 0;
 			if (PokerPlayer[P].Type == "Character") {
 				PokerPlayer[P].Cloth = InventoryGet(PokerPlayer[P].Character, "Cloth");
 				PokerPlayer[P].ClothLower = InventoryGet(PokerPlayer[P].Character, "ClothLower");
@@ -392,6 +412,8 @@ function PokerClick() {
 			if (PokerPlayer[P].Type != "None") PokerPlayerCount++;
 		}
 		if (PokerPlayerCount >= 2) {
+			for (let P = 0; P < PokerPlayer.length; P++)
+				PokerPlayer[P].Chip = (PokerPlayer[P].Type != "None") ? 100 : 0;
 			PokerAnte = (PokerGame == "TwoCards") ? 2 : 1;
 			PokerAnteCount = 0;
 			PokerDealHands();
