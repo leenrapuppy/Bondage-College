@@ -147,7 +147,10 @@ function KinkyDungeonUpdateFromData() {
 		if (KinkyDungeonGameData.meta.eb != null) KinkyDungeonEnchantedBlades = Math.round(KinkyDungeonGameData.meta.eb);
 		if (KinkyDungeonGameData.meta.lp != null) KinkyDungeonLockpicks = Math.round(KinkyDungeonGameData.meta.lp);
 		if (KinkyDungeonGameData.meta.gp != null) KinkyDungeonGold = Math.round(KinkyDungeonGameData.meta.gp);
-		if (KinkyDungeonGameData.meta.lv != null) MiniGameKinkyDungeonLevel = Math.round(KinkyDungeonGameData.meta.lv);
+		if (KinkyDungeonGameData.meta.lv != null) {
+			MiniGameKinkyDungeonLevel = Math.round(KinkyDungeonGameData.meta.lv);
+			KinkyDungeonSetCheckPoint();
+		}
 	}
 }
 
