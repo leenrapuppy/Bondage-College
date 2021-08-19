@@ -3108,7 +3108,7 @@ var AssetFemale3DCG = [
 		Zone: [[100, 200, 100, 70]],
 		Asset: [
 			{
-				Name: "CustomCollarTag", Value: 50, Difficulty: 20, Time: 5, Random: false, IsRestraint: false, AllowLock: true, DefaultColor: ["#aaa366", "#000000"], Prerequisite: "Collared", DynamicAfterDraw: true, Extended: true,
+				Name: "CustomCollarTag", Value: 50, Difficulty: 20, Time: 5, Random: false, IsRestraint: false, AllowLock: true, DefaultColor: ["#aaa366", "#000000"], Prerequisite: "Collared", DynamicAfterDraw: true, Extended: true, DrawLocks: false,
 				Layer: [
 					{ Name: "Tag", HasType: false, AllowModuleTypes: ["t0"] },
 					{ Name: "Tag2", HasType: false, CopyLayerColor: "Tag", AllowModuleTypes:["t1"]},
