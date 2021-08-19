@@ -178,7 +178,11 @@ function KinkyDungeonDrawShrine() {
 		} else {
 			DrawButton(825, 825, 112, 60, TextGet("KinkyDungeonCommercePurchase").replace("ItemCost", "" + cost), (cost <= KinkyDungeonGold) ? "White" : "Pink", "", "");
 			DrawButton(963, 825, 112, 60, TextGet("KinkyDungeonCommerceNext"), "White", "", "");
-			DrawText(TextGet("KinkyDungeonInventoryItem" + KinkyDungeonShopItems[KinkyDungeonShopIndex].name), 650, 850, "white", "silver");
+			if (KinkyDungeonShopIndex > KinkyDungeonShopItems.length) {
+				KinkyDungeonShopIndex = 0;
+			} else if (KinkyDungeonShopItems.length > 0) {
+				DrawText(TextGet("KinkyDungeonInventoryItem" + KinkyDungeonShopItems[KinkyDungeonShopIndex].name), 650, 850, "white", "silver");
+			}
 		}
 	} else {
 		if (cost == 0) DrawText(TextGet("KinkyDungeonLockedShrine"), 850, 850, "white", "silver");
