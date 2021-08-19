@@ -183,7 +183,7 @@ function KinkyDungeonPackData(IncludeMap, IncludeItems, IncludeInventory, Includ
 				return "B/" + value.bullet.name + "/"+value.x+"/"+value.y + "/"+(Math.round(value.vx*10)/10)+"/"+(Math.round(value.vy*10)/10 + "/"+value.bullet.width + "/"+value.bullet.height);
 			}
 		}
-		return value;
+		return "";
 	});
 
 	let map = IncludeMap ? KinkyDungeonGrid : "";
