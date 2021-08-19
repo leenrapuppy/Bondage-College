@@ -298,7 +298,7 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 0,,,"Cool room you have there.  So, what's up?",,,Intro,Rude
 0,,,You have a lovely room Miss.  What's on your mind?,,,Intro,Submissive
 0,,,You have a nice lair to kidnap subs.  What would you like to do?,,,Intro,Dominant
-0,,,This room is certainly worth the 2$50 rent.  Now tell me what's on your mind.,,,Intro,Wise
+0,,,This room is certainly worth the $250 rent.  Now tell me what's on your mind.,,,Intro,Wise
 0,,,(She hums a happy song.)  I love your private room!  What could we do to have fun?,,,Intro,Playful
 0,,I love you!,I love you too.  You're the best.,LoveYou(),IsLoverHappy(),LoveYouHappy,
 0,,I love you!,I love you girl.  Don't change.,LoveYou(),IsLoverHappy(),LoveYouHappy,Dominant|Violent
