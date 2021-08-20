@@ -92,12 +92,14 @@ function KinkyDungeonUpdateFromData() {
 
 		for (let N = 0; N < inventory.length; N++) {
 			let item = inventory[N].split('/');
-			let i = 1;
-			let restraint = KinkyDungeonGetRestraintByName(item[i++]);
-			KinkyDungeonAddRestraint(restraint, 0, true); // Add the item
-			let createdrestraint = KinkyDungeonGetRestraintItem(restraint.Group);
-			if (createdrestraint)
-				createdrestraint.lock = ""; // Lock if applicable
+			if (item.length > 1) {
+				let i = 1;
+				let restraint = KinkyDungeonGetRestraintByName(item[i++]);
+				KinkyDungeonAddRestraint(restraint, 0, true); // Add the item
+				let createdrestraint = KinkyDungeonGetRestraintItem(restraint.Group);
+				if (createdrestraint)
+					createdrestraint.lock = ""; // Lock if applicable
+			}
 		}
 		KinkyDungeonUpdateStats(0);
 		KinkyDungeonDressPlayer();
@@ -183,7 +185,7 @@ function KinkyDungeonPackData(IncludeMap, IncludeItems, IncludeInventory, Includ
 				return "B/" + value.bullet.name + "/"+value.x+"/"+value.y + "/"+(Math.round(value.vx*10)/10)+"/"+(Math.round(value.vy*10)/10 + "/"+value.bullet.width + "/"+value.bullet.height);
 			}
 		}
-		return value;
+		return "";
 	});
 
 	let map = IncludeMap ? KinkyDungeonGrid : "";
