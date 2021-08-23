@@ -171,6 +171,21 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // BunnyCollarCuffs
+		Bib: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+				{
+				Name: "Pattern", Key: "p",
+				Options: [{}, {}, {}, {}, {}, {}],
+				},
+				{
+				Name: "Txt", Key: "x",
+				Options: [{}, { HasSubscreen: true }],
+				},
+			]
+			}
+		}, // Bib
 	}, // ClothAccessory
 	ItemBreast: {
 		Ribbons: {

@@ -35,6 +35,10 @@ ClothAccessoryBouquetBase,Holder
 ClothAccessoryBouquetFlowers,Flowers
 ClothAccessoryCapeFront,Front
 ClothAccessoryCapeBack,Back
+ClothAccessoryBibBase,Bib
+ClothAccessoryBibTrim,Trim
+ClothAccessoryBibPacis,Pattern
+ClothAccessoryBibText,Text
 NecklaceNecklaceLockChain,Chain
 NecklaceNecklaceLockLock,Lock
 NecklaceNecklaceKeyChain,Chain

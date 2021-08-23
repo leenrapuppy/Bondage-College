@@ -423,3 +423,7 @@ input[type=range][data-thumb=player]::-moz-range-thumb {
   font-family: 'Saira Stencil One';
   src: url('../Fonts/Saira Stencil One/SairaStencilOne-Regular.ttf');
 }
+@font-face {
+	font-family: 'Pacifico';
+	src: url('../Fonts/Pacifico/Pacifico-regular.ttf');
+}
