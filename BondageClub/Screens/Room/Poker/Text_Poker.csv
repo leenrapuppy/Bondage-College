@@ -22,7 +22,7 @@ EndGame,Finish this game
 Ante,Ante:
 SplitPot,Split pot
 Pot,Pot:
-HandHighestCards,Highest cards
+HandHighestCards,High card
 HandOnePair,One pair
 HandTwoPairs,Two pairs
 HandThreeOfAKind,Three of a kind

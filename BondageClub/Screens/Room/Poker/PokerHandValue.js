@@ -446,7 +446,8 @@ function PokerHandValueTextHandValue(Value) {
 		return "HighestCards";
 	}
 	if (PokerGame == "TexasHoldem") {
-		if (Value < 3) return "OnePair";
+		if (Value < 2) return "HighestCards";
+		else if (Value < 3) return "OnePair";
 		else if (Value < 4) return "TwoPairs";
 		else if (Value < 5) return "ThreeOfAKind";
 		else if (Value < 6) return "Straight";
