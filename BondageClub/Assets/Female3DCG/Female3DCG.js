@@ -980,8 +980,28 @@ var AssetFemale3DCG = [
 			{ Name: "Veil2", Fetish: ["Lingerie"], Value: 40 },
 			{ Name: "BakerBoyHat", Value: 40, },
 			{ Name: "ReindeerBand", Value: 10 },
-			{ Name: "FurHeadband", Value: 5}
-
+			{ Name: "FurHeadband", Value: 5},
+			{
+				Name: "RoseCrown", Value: 20, DefaultColor: ["#1B7E1B", "#BE2B2B"], Layer: [
+					{ Name: "Leaves" },
+					{ Name: "Roses" }
+				]
+			},
+			{
+				Name: "FlowerCrown", Value: 20, DefaultColor: ["#AA7386", "#B25576"], Layer: [
+					{ Name: "MainFlowers" },
+					{ Name: "Petals" }
+				]
+			},
+			{
+				Name: "PoppyCrown", Value: 20, DefaultColor: ["#F7B405", "#D816DA", "#2635C4", "#54BF28", "#F7B405"], Layer: [
+					{ Name: "EndFlowers" },
+					{ Name: "MainFlower" },
+					{ Name: "SideFlowers" },
+					{ Name: "Leaves" },
+					{ Name: "Center" }
+				]
+			}
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -1014,7 +1034,7 @@ var AssetFemale3DCG = [
 					{ Name: "Base", MinOpacity: 1 },
 					{ Name: "Core", Opacity: 0, }
 				]
-			}
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
