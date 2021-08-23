@@ -200,6 +200,16 @@ var AssetFemale3DCG = [
 					{ Name: "Layer1" }
 				]
 			},
+			{
+				Name: "GrandMage", Value: 90, DefaultColor: ["#720DBB", "#3C0C5E", "#DFDFEC", "#682E0F", "#858482"], HideItem: [ "ClothLowerSkirt2", "ClothLowerSkirt3", "ClothLowerTennisSkirt1", "ClothLowerPencilSkirt", "ClothLowerShortPencilSkirt", "BraCamisole"], AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "OverTheHead"],
+				Layer: [
+					{ Name: "Base" },
+					{ Name: "BackSkirt", ParentGroup: null,  Priority: 3 },
+					{ Name: "Trim" },
+					{ Name: "Belt" },
+					{ Name: "Buckle" }
+				]
+			},
 			{ Name: "Blouse1", Value: 20, Top: 1, BuyGroup: "Blouse1", HideItem: ["ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump"]},
 			{ Name: "LatexTop", Value: 30, Hide: ["ItemNipples"], HideItem: ["ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump"]},
 			{ Name: "LatexLacedSuit", Priority: 22, Value: 35, Hide: ["Corset", "ItemNipples"], HideItem: ["ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump"], Extended: true},
