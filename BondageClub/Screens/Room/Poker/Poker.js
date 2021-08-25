@@ -210,7 +210,41 @@ function PokerGetImage(P) {
 
 	// For set images, a single opponent can have a large image, else we find a valid image from the game progress
 	if (P.Type == "Set") {
+		
+		// First try to get an alternate version of the image
 		let Images = [];
+		if ((P.Alternate == null) && (P.Data != null) && (P.Data.cache["Alternate"] != null))
+			P.Alternate = Math.floor(Math.random() * parseInt(P.Data.cache["Alternate"])) + 1;
+		if (P.Alternate != null) {
+			if (PokerPlayerCount == 2) {
+				let X = 0;
+				while (P.Data.cache[X] != null) {
+					if (P.Data.cache[X].substr(8, 19) == "OpponentLarge-Alt" + P.Alternate.toString() + "=") {
+						let From = P.Data.cache[X].substr(0, 3);
+						let To = P.Data.cache[X].substr(4, 3);
+						if (!isNaN(parseInt(From)) && !isNaN(parseInt(To)))
+							if ((Progress >= parseInt(From)) && (Progress <= parseInt(To)))
+								Images.push(P.Data.cache[X].substr(27, 100));
+					}
+					X++;
+				}
+			}
+			if (Images.length == 0) {
+				let X = 0;
+				while (P.Data.cache[X] != null) {
+					if (P.Data.cache[X].substr(8, 14) == "Opponent-Alt" + P.Alternate.toString() + "=") {
+						let From = P.Data.cache[X].substr(0, 3);
+						let To = P.Data.cache[X].substr(4, 3);
+						if (!isNaN(parseInt(From)) && !isNaN(parseInt(To)))
+							if ((Progress >= parseInt(From)) && (Progress <= parseInt(To)))
+								Images.push(P.Data.cache[X].substr(22, 100));
+					}
+					X++;
+				}
+			}
+		}
+
+		// Sets the non alternative images
 		if (PokerPlayerCount == 2) {
 			let X = 0;
 			while (P.Data.cache[X] != null) {
@@ -237,8 +271,11 @@ function PokerGetImage(P) {
 				X++;
 			}
 		}
+
+		// If an image was found
 		if (Images.length > 0)
 			P.Image = "Screens/Room/Poker/" + CommonRandomItemFromList("", Images);
+
 	}
 
 }
@@ -345,6 +382,7 @@ function PokerClearData(P) {
 	P.TextSingle = null;
 	P.TextMultiple = null;
 	P.WebLink = null;
+	P.Alternate = null;
 }
 
 /**
