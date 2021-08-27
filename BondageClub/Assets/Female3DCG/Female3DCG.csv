@@ -1272,6 +1272,7 @@ ItemMisc,WoodenMaidTrayFull,Wooden Maid Tray Full
 ItemMisc,WoodenPaddle,Wooden Paddle
 ItemMisc,WoodenSign,Wooden Sign
 ItemMisc,ServingTray,Serving Tray
+ItemMisc,TeddyBear,Teddy Bear Set
 ItemDevices,,Body
 ItemDevices,WoodenBox,Wooden Box
 ItemDevices,SmallWoodenBox,Small Wooden Box
@@ -1283,7 +1284,6 @@ ItemDevices,SaddleStand,Saddle Stand
 ItemDevices,BurlapSack,Burlap Sack
 ItemDevices,InflatableBodyBag,Inflatable Body Bag
 ItemDevices,BondageBench,Bondage Bench
-ItemDevices,TeddyBear,Teddy Bear Set
 ItemDevices,BBQ,Grill
 ItemDevices,LittleMonster,Halloween Monster Set
 ItemDevices,Familiar,Halloween Familiar Set

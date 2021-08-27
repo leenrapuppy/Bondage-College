@@ -1509,6 +1509,7 @@ var AssetFemale3DCGExtended = {
 						Name: "Hold",
 						Property: {
 							Type: null,
+							HideItem: ["ItemMiscTeddyBear"],
 						},
 					},
 					{
@@ -1550,38 +1551,6 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // Crib
-		TeddyBear: {
-			Archetype: ExtendedArchetype.TYPED,
-			Config: {
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR],
-				Options: [
-					{
-						Name: "Bear",
-						Property: { Type: null },
-					},
-					{
-						Name: "Fox",
-						Property: { Type: "Fox" },
-					},
-					{
-						Name: "Pup",
-						Property: { Type: "Pup" },
-					},
-					{
-						Name: "Pony",
-						Property: { Type: "Pony" },
-					},
-					{
-						Name: "Kitty",
-						Property: { Type: "Kitty" },
-					},
-					{
-						Name: "Bunny",
-						Property: { Type: "Bunny" },
-					},
-				],
-			},
-		}, // TeddyBear
 		PetBed: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
@@ -1599,6 +1568,7 @@ var AssetFemale3DCGExtended = {
 							Type: "Blanket",
 							SetPose: ["AllFours"],
 							Hide: ["ItemArms", "ItemButt", "TailStraps", "Wings"],
+							HideItem: ["ItemMiscTeddyBear"],
 							Block: [
 								"ItemArms", "ItemBreast", "ItemButt", "ItemFeet", "ItemBoots",
 								"ItemLegs", "ItemMisc", "ItemNipples", "ItemNipplesPiercings",
@@ -3285,6 +3255,38 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // WoodenMaidTray
+		TeddyBear: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR],
+				Options: [
+					{
+						Name: "Bear",
+						Property: { Type: null },
+					},
+					{
+						Name: "Fox",
+						Property: { Type: "Fox" },
+					},
+					{
+						Name: "Pup",
+						Property: { Type: "Pup" },
+					},
+					{
+						Name: "Pony",
+						Property: { Type: "Pony" },
+					},
+					{
+						Name: "Kitty",
+						Property: { Type: "Kitty" },
+					},
+					{
+						Name: "Bunny",
+						Property: { Type: "Bunny" },
+					},
+				],
+			},
+		}, // TeddyBear
 	}, // ItemMisc
 	ItemPelvis: {
 		SilkStraps: {
