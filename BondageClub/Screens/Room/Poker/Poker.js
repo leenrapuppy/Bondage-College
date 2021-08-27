@@ -29,7 +29,7 @@ var PokerAsset = [
 	{
 		Family: "Model",
 		Type: "Set",
-		Opponent: ["Andrea", "Akira"]
+		Opponent: ["Andrea", "Akira", "Becky"]
 	}
 ];
 var PokerPlayerCount = 4;
