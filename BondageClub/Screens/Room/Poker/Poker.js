@@ -132,11 +132,15 @@ function PokerDrawPlayer(P, X, Y) {
  */
 function PokerGetProgress(P) {
 
-	// At 100 chips or less (or 2 players only), we cut the value in half to get the %
-	if ((P.Chip <= 100) || (PokerPlayerCount <= 2)) return Math.floor(P.Chip / 2);
-
 	// At more than 100 chips, the % varies based on the number of players
-	return 50 + Math.floor((P.Chip - 100) / ((PokerPlayerCount - 1) * 2));
+	let Progress = 50 + Math.floor((P.Chip - 100) / ((PokerPlayerCount - 1) * 2));
+
+	// At 100 chips or less (or 2 players only), we cut the value in half to get the %
+	if ((P.Chip <= 100) || (PokerPlayerCount <= 2)) Progress = Math.floor(P.Chip / 2);
+
+	// Can't be at fully zero if there are remaining chips
+	if ((Progress == 0) && (P.Chip > 0)) Progress = 1;
+	return Progress;
 
 }
 
