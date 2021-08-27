@@ -29,7 +29,7 @@ var PokerAsset = [
 	{
 		Family: "Model",
 		Type: "Set",
-		Opponent: ["Andrea", "Akira", "Becky"]
+		Opponent: ["Andrea", "Akira", "Becky", "Dita"]
 	}
 ];
 var PokerPlayerCount = 4;
@@ -152,8 +152,37 @@ function PokerGetText(P, Tag) {
 	T = (PokerPlayerCount <= 2) ? P.TextSingle : P.TextMultiple;
 	if (T == null) return P.Text = "";
 
+	// If there's an alternative text, we search for it first
+	let Texts = [];	
+	if ((P.Alternate == null) && (P.Data != null) && (P.Data.cache["Alternate"] != null))
+		P.Alternate = Math.floor(Math.random() * parseInt(P.Data.cache["Alternate"])) + 1;
+	if (P.Alternate != null) {
+		let X = 0;
+		if (Tag != null) {
+			while (T.cache[X] != null) {
+				if (T.cache[X].substr(0, Tag.length + 6) == Tag + "-Alt" + P.Alternate.toString() + "=")
+					Texts.push(T.cache[X].substr(Tag.length + 6, 500));
+				X++;
+			}
+		} else {
+
+			// Without a tag, we find all values within the player progress
+			let Progress = PokerGetProgress(P);
+			while (T.cache[X] != null) {
+				if (T.cache[X].substr(8, 10) == "Chat-Alt" + P.Alternate.toString() + "=") {
+					let From = T.cache[X].substr(0, 3);
+					let To = T.cache[X].substr(4, 3);
+					if (!isNaN(parseInt(From)) && !isNaN(parseInt(To)))
+						if ((Progress >= parseInt(From)) && (Progress <= parseInt(To)))
+							Texts.push(T.cache[X].substr(18, 500));
+				}
+				X++;
+			}
+
+		}		
+	}
+		
 	// If there's a tag, we search for it specifically
-	let Texts = [];
 	let X = 0;
 	if (Tag != null) {
 		while (T.cache[X] != null) {
