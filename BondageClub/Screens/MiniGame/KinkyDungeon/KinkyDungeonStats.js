@@ -105,6 +105,8 @@ function KinkyDungeonDefaultStats() {
 	KinkyDungeonNormalBlades = 1;
 	KinkyDungeonEnchantedBlades = 0;
 
+	KinkyDungeonPlayerWeapon = null;
+
 	KinkyDungeonStatArousalMax = 100;
 	KinkyDungeonStatStaminaMax = 100;
 	KinkyDungeonStatWillpowerMax = 100;

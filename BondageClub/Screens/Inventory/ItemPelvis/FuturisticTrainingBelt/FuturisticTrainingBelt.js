@@ -352,7 +352,7 @@ function InventoryItemPelvisFuturisticTrainingBeltUpdateVibeMode(C, PersistentDa
 	var State = (Item.Property && PersistentData.DeviceState) ? FuturisticTrainingBeltStates[PersistentData.DeviceState] : "None";
 	var VibeMode = InventoryItemPelvisFuturisticTrainingBeltGetVibeMode(C, State, OldIntensity < 0);
 
-	if (Force || PersistentData.DeviceVibeMode != VibeMode) {
+	if (Force || PersistentData.DeviceVibeMode != VibeMode || (OldIntensity > -1 && VibeMode == "Off")) {
 		PersistentData.DeviceVibeMode = VibeMode;
 
 		var Option = VibratorModeGetOption(VibeMode);
@@ -583,7 +583,10 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptStateMachine(data) {
 					DeviceSetToState = FuturisticTrainingBeltStates.indexOf("LowPriorityTease");
 					DeviceTimer = FuturisticTrainingBeltRandomTeaseDurationMin + (FuturisticTrainingBeltRandomTeaseDurationMax - FuturisticTrainingBeltRandomTeaseDurationMin) * r * r * r;
 				}
-			} else DeviceTimer = 1;
+			} else {
+				DeviceTimer = 1;
+				if (StateTimerOver) DeviceSetToState = 0;
+			}
 		} else if (Mode == "RandomOrgasm") {
 			if (State != "LowPriorityMax")
 				DeviceSetToState = 0;
@@ -594,7 +597,10 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptStateMachine(data) {
 					DeviceSetToState = FuturisticTrainingBeltStates.indexOf("LowPriorityMax");
 					DeviceTimer = FuturisticTrainingBeltRandomOrgasmDurationMin + (FuturisticTrainingBeltRandomOrgasmDurationMax - FuturisticTrainingBeltRandomOrgasmDurationMin) * r * r * r;
 				} else DeviceSetToState = -1;
-			} else DeviceTimer = 1;
+			} else {
+				DeviceTimer = 1;
+				if (StateTimerOver) DeviceSetToState = 0;
+			}
 		} else if (Mode == "FullPower") {
 			DeviceSetToState = FuturisticTrainingBeltStates.indexOf("LowPriorityMax");
 		} else if (Mode == "Tease") {
@@ -617,6 +623,7 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptStateMachine(data) {
 		}
 	} else if (State == "Cooldown" && StateTimerReady) PersistentData.DeviceState = FuturisticTrainingBeltStates.indexOf("None"); // Return to None state
 
+    if (State == "None" && Property.Intensity >= 0) update = true;
 	// In the cooldown state we decide when to get ready for another round of good vibrations
 	if (State == "Cooldown") {
 		var Cooldown = 0;
