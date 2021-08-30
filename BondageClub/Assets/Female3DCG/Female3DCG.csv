@@ -70,6 +70,7 @@ ClothAccessory,Camera1,Camera
 ClothAccessory,Cape,Cape
 ClothAccessory,LeatherStraps,Leather Straps
 ClothAccessory,FurBolero,Fur Bolero
+ClothAccessory,FacePaint, Face Paint
 ClothAccessory,Bib,Bib
 Necklace,,Necklace
 Necklace,Necklace1,Fancy Necklace
@@ -308,6 +309,7 @@ Hat,Veil2,Veil Full Face
 Hat,BakerBoyHat,Baker Boy Hat
 Hat,ReindeerBand,Reindeer Hairband
 Hat,FurHeadband,Fur Headband
+Hat,FacePaint, Face Paint
 Hat,RoseCrown,Rose Crown
 Hat,FlowerCrown,Flower Crown
 Hat,PoppyCrown,Poppy Crown
@@ -429,6 +431,7 @@ Mask,LaceMask2,Venice Festival Mask
 Mask,FuturisticVisor,Futuristic Visor
 Mask,OpenFaceHood,Open Face Hood
 Mask,FaceVeil,Face Veil
+Mask,FacePaint, Face Paint
 TailStraps,,Tail Strap
 TailStraps,TailStrap,Kitty Tail Strap
 TailStraps,HorseTailStrap,Horse Tail Strap
