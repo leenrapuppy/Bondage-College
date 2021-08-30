@@ -541,6 +541,9 @@ ItemMouthGasMaskGagSides,Sides
 ItemMouthGasMaskGagHighlights,Highlights
 ItemMouthCageMuzzleStrap,Straps
 ItemMouthCageMuzzleMuzzle,Cage
+ItemMouthPaciGagBase,Pacifier
+ItemMouthPaciGagStraps,Straps
+ItemMouthPaciGagMetal,Buckles
 ItemMouth2WiffleGagStrap,Strap
 ItemMouth2WiffleGagBall,Ball
 ItemMouth2HarnessBallGagBall,Ball
@@ -600,6 +603,9 @@ ItemMouth2GasMaskGagSides,Sides
 ItemMouth2GasMaskGagHighlights,Highlights
 ItemMouth2CageMuzzleStrap,Straps
 ItemMouth2CageMuzzleMuzzle,Cage
+ItemMouth2PaciGagBase,Pacifier
+ItemMouth2PaciGagStraps,Straps
+ItemMouth2PaciGagMetal,Buckles
 ItemMouth3WiffleGagStrap,Strap
 ItemMouth3WiffleGagBall,Ball
 ItemMouth3HarnessBallGagBall,Ball
@@ -659,6 +665,9 @@ ItemMouth3CageMuzzleMuzzle,Cage
 ItemMouth3GasMaskGagMask,Mask
 ItemMouth3GasMaskGagSides,Sides
 ItemMouth3GasMaskGagHighlights,Highlights
+ItemMouth3PaciGagBase,Pacifier
+ItemMouth3PaciGagStraps,Straps
+ItemMouth3PaciGagMetal,Buckles
 MaskFoxMaskUpper,Upper
 MaskFoxMaskLower,Lower
 MaskKittyMask3Highlights,Highlights

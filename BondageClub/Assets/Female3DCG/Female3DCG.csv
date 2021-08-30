@@ -1092,6 +1092,7 @@ ItemMouth,DentalGag,Dental Gag
 ItemMouth,Ribbons,Ribbons
 ItemMouth,CropGag,Crop
 ItemMouth,CaneGag,Cane
+ItemMouth,PaciGag,Pacifier Gag
 ItemMouth2,,Mouth
 ItemMouth2,ClothGag,Cloth Gag
 ItemMouth2,WiffleGag,Wiffle Ball Gag
@@ -1138,6 +1139,7 @@ ItemMouth2,PlasticWrap, Plastic Wrap
 ItemMouth2,FuturisticMuzzle,Futuristic Muzzle
 ItemMouth2,CageMuzzle,Iron Cage Muzzle
 ItemMouth2,Ribbons,Ribbons
+ItemMouth2,PaciGag,Pacifier Gag
 ItemMouth3,,Mouth
 ItemMouth3,ClothGag,Cloth Gag
 ItemMouth3,WiffleGag,Wiffle Ball Gag
@@ -1184,6 +1186,7 @@ ItemMouth3,FuturisticMuzzle,Futuristic Muzzle
 ItemMouth3,CageMuzzle,Iron Cage Muzzle
 ItemMouth3,PlasticWrap, Plastic Wrap
 ItemMouth3,Ribbons,Ribbons
+ItemMouth3,PaciGag,Pacifier Gag
 ItemHead,,Eyes
 ItemHead,ClothBlindfold,Cloth Blindfold
 ItemHead,LeatherBlindfold,Leather Blindfold
