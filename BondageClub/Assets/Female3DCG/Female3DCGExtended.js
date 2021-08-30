@@ -728,7 +728,7 @@ var AssetFemale3DCGExtended = {
 					}
 				],
 			},
-		}, // SteelCuffs	
+		}, // SteelCuffs
 		StraitJacket: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
@@ -1251,8 +1251,8 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Lenses", Key: "l",
 						Options: [
-							{}, 
-							{ Property: { Effect: ["BlindHeavy"] } }, 
+							{},
+							{ Property: { Effect: ["BlindHeavy"] } },
 						],
 					},
 					{
@@ -2943,7 +2943,7 @@ var AssetFemale3DCGExtended = {
 						Name: "Mermaid",
 						BondageLevel: 4,
 						Property: { Type: "Mermaid", SetPose: ["LegsClosed"], Difficulty: 4 }
-					}					
+					}
 				],
 				Dialog: {
 					Load: "SelectRopeBondage",
@@ -2966,7 +2966,7 @@ var AssetFemale3DCGExtended = {
 						Name: "Strict",
 						BondageLevel: 2,
 						Property: { Type: "Strict", Difficulty: 2 }
-					}					
+					}
 				],
 				Dialog: {
 					Load: "SelectChainBondage",
@@ -3164,7 +3164,7 @@ var AssetFemale3DCGExtended = {
 		SturdyLeatherBelts: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemArms", AssetName: "SturdyLeatherBelts" },
-		}, // SturdyLeatherBelts 
+		}, // SturdyLeatherBelts
 		LeatherAnkleCuffs: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { AssetName: "SteelAnkleCuffs" },
@@ -3498,7 +3498,7 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Open",
 						Property: {
-							Type: null, 
+							Type: null,
 						},
 					},
 					{
@@ -3530,7 +3530,7 @@ var AssetFemale3DCGExtended = {
 						Name: "Dull",
 						Property: { Type: "Dull"},
 					},
-				],		
+				],
 			},
 		}, // ChineseDress2
 	}, // Bra
@@ -3767,7 +3767,6 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: "Mummy",
 							Hide: ["HairFront", "HairBack"],
-							Alpha: [{ Group: ["ItemMouth", "ItemMouth2", "ItemMouth3"], Masks: [[0, 220, 500, 500]] }],
 							Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemHood", "ItemNose"],
 							Effect: ["GagNormal", "BlindNormal", "Prone", "BlockMouth"],
 						},
@@ -3777,7 +3776,6 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: "Open",
 							Hide: ["HairFront", "HairBack"],
-							Alpha: [{ Group: ["ItemMouth", "ItemMouth2", "ItemMouth3"], Masks: [[0, 220, 500, 500]] }],
 							Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemHood"],
 							Effect: ["GagNormal", "BlockMouth"],
 						},
@@ -3850,7 +3848,7 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: null, Difficulty: 6, Effect: []}
 					}, {
 						Name: "Suspended",
-							Property: { 
+							Property: {
 							Type: "Suspended", Difficulty: 7,
 							OverrideHeight: { Height: 30, Priority: 51, HeightRatioProportion: 0 },
 							Effect: ["Lifted"],
@@ -3876,7 +3874,7 @@ var AssetFemale3DCGExtended = {
 						Property: { Type: null, Difficulty: 6}
 					}, {
 						Name: "Suspended",
-						Property: { 
+						Property: {
 							Type: "Suspended", Difficulty: 7,
 							OverrideHeight: { Height: 30, Priority: 51, HeightRatioProportion: 0 },
 							Effect: ["Lifted"],

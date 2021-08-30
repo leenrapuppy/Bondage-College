@@ -214,6 +214,9 @@ alpha masks will be applied to every layer underneath the present one. */
 	/** A list of the poses that the given alpha masks should be applied to. If empty or not present, the alpha
 masks will be applied regardless of character pose. */
 	Pose?: string[];
+	/** A list of the extended types that the given alpha masks should be applied to. If empty or not present, the alpha
+masks will be applied regardless of the extended type. */
+	Type?: string[];
 	/** A list of alpha mask definitions. A definition is a 4-tuple of numbers defining the top left coordinate of
 a rectangle and the rectangle's width and height - e.g. [left, top, width, height] */
 	Masks: [number, number, number, number][];

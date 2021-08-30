@@ -322,25 +322,13 @@ function CharacterAppearanceSortLayers(C) {
 					var drawLayer = Object.assign({}, layer);
 					// Store any group-level alpha mask definitions
 					drawLayer.Alpha.forEach(alphaDef => {
-						if (alphaDef.Group && alphaDef.Group.length) {
+						if ((alphaDef.Group && alphaDef.Group.length) && (!alphaDef.Type || !Array.isArray(alphaDef.Type) || alphaDef.Type.includes(type))) {
 							alphaDef.Group.forEach(groupName => {
 								groupAlphas[groupName] = groupAlphas[groupName] || [];
 								groupAlphas[groupName].push({Pose: alphaDef.Pose, Masks: alphaDef.Masks});
 							});
 						}
 					});
-					if (item.Property) {
-						if (item.Property.Alpha) {
-							item.Property.Alpha.forEach(alphaDef => {
-								if (alphaDef.Group && alphaDef.Group.length) {
-									alphaDef.Group.forEach(groupName => {
-										groupAlphas[groupName] = groupAlphas[groupName] || [];
-										groupAlphas[groupName].push({ Pose: alphaDef.Pose, Masks: alphaDef.Masks });
-									});
-								}
-							});
-						}
-					}
 					// If the item has an OverridePriority property, it completely overrides the layer priority
 					if (item.Property && typeof item.Property.OverridePriority === "number") drawLayer.Priority = item.Property.OverridePriority;
 					return drawLayer;
