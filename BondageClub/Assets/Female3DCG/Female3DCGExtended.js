@@ -2893,12 +2893,16 @@ var AssetFemale3DCGExtended = {
 					}, {
 						Name: "CompleteLegs",
 						Prerequisite: ["NoClothLower"],
-						Property: { Type: "CompleteLegs", Hide: ["ClothLower"], Difficulty: 6 }
+						Property: { Type: "CompleteLegs", Hide: ["ClothLower"], Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Difficulty: 6 }
 					}, {
 						Name: "PetLegs",
 						Prerequisite: ["NoClothLower", "NotSuspended", "CanKneel"],
 						Property: { Type: "PetLegs", Hide: ["ClothLower"], SetPose: ["Kneel"], Block: ["ItemFeet"], Effect: ["ForceKneel"], Difficulty: 6 },
 						Random: false,
+					}, {
+						Name: "CutOut",
+						Prerequisite: ["NoClothLower"],
+						Property: { Type: "CutOut", Hide: ["ClothLower"], Difficulty: 6 }
 					}
 				],
 				Dialog: {
