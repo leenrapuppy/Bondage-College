@@ -29,7 +29,7 @@ var PokerAsset = [
 	{
 		Family: "Model",
 		Type: "Set",
-		Opponent: ["Andrea", "Akira", "Becky", "Dita", "Emily", "Hannah", "Isanne", "Jasmine"]
+		Opponent: ["Andrea", "Akira", "Becky", "Dita", "Emily", "Hannah", "Isanne", "Jasmine", "Jelena"]
 	}
 ];
 var PokerPlayerCount = 4;
@@ -255,7 +255,7 @@ function PokerGetImage(P) {
 		if ((P.Alternate == null) && (P.Data != null) && (P.Data.cache["Alternate"] != null))
 			P.Alternate = Math.floor(Math.random() * parseInt(P.Data.cache["Alternate"])) + 1;
 		if (P.Alternate != null) {
-			if (PokerPlayerCount == 2) {
+			if ((PokerPlayerCount == 2) && (PokerMode != "")) {
 				let X = 0;
 				while (P.Data.cache[X] != null) {
 					if (P.Data.cache[X].substr(8, 19) == "OpponentLarge-Alt" + P.Alternate.toString() + "=") {
@@ -284,7 +284,7 @@ function PokerGetImage(P) {
 		}
 
 		// Sets the non alternative images
-		if (PokerPlayerCount == 2) {
+		if ((PokerPlayerCount == 2) && (PokerMode != "")) {
 			let X = 0;
 			while (P.Data.cache[X] != null) {
 				if (P.Data.cache[X].substr(8, 14) == "OpponentLarge=") {
