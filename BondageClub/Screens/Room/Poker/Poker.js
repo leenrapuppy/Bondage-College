@@ -3,9 +3,9 @@
 var PokerBackground = "White";
 var PokerPlayer = [
 	{ Type: "Character", Family: "Player", Name: "Player", Chip: 100 },
-	{ Type: "Set", Family: "Comic", Name: "Amanda", Chip: 100 },
-	{ Type: "Set", Family: "Comic", Name: "Sarah", Chip: 100 },
-	{ Type: "Set", Family: "Comic", Name: "Sophie", Chip: 100 }
+	{ Type: "Set", Family: "Illustration", Name: "Amanda", Chip: 100 },
+	{ Type: "Set", Family: "Illustration", Name: "Sarah", Chip: 100 },
+	{ Type: "Set", Family: "Illustration", Name: "Sophie", Chip: 100 }
 ];
 var PokerMode = "";
 var PokerGame = "TexasHoldem"
@@ -17,14 +17,9 @@ var PokerAsset = [
 		Opponent: ["None"]
 	},
 	{
-		Family: "Comic",
+		Family: "Illustration",
 		Type: "Set",
-		Opponent: ["Amanda", "Sarah", "Sophie"]
-	},
-	{
-		Family: "Drawing",
-		Type: "Set",
-		Opponent: ["Ann"]
+		Opponent: ["Amanda", "Ann", "Sally", "Sarah", "Sophie"]
 	},
 	{
 		Family: "Model",

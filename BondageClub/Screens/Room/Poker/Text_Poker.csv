@@ -6,10 +6,9 @@ RulesTexasHoldem,Texas Hold'em
 RulesTwoCards,Two Cards
 VisitArtist,Visit the artist
 FamilyNone,None
-FamilyFriend,Private Friend
-FamilyComic,Comic Set
-FamilyDrawing,Drawing Set
-FamilyModel,Real Model
+FamilyFriend,Private Friends
+FamilyIllustration,Illustrations
+FamilyModel,Real Models
 Chip,Chip
 Deal,Deal
 Bet,Bet
