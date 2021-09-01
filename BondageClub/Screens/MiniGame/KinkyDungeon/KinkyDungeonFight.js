@@ -79,7 +79,7 @@ function KinkyDungeonDamageEnemy(Enemy, Damage, Ranged, NoMsg, Spell) {
 			} else if (resistDamage == -1) {
 				dmgDealt = Math.max(dmg+1, Math.floor(dmg*1.5)); // Enemies that are vulnerable take either dmg+1 or 1.5x damage, whichever is greater
 				dmgDealt = Math.max(dmgDealt - armor, 0); // Armor comes after vulnerability
-			}else {
+			} else {
 				dmgDealt = Math.max(dmg - armor, 0);
 			}
 
@@ -90,7 +90,7 @@ function KinkyDungeonDamageEnemy(Enemy, Damage, Ranged, NoMsg, Spell) {
 			effect = true;
 			if (!Enemy.stun) Enemy.stun = 0;
 			if (resistStun == 1)
-				Enemy.stun = Math.max(Enemy.stun, Math.min(1, Damage.time-1)); // Enemies with stun resistance can't be stunned more than one turn, and anything that stuns them for one turn doesn't affect them
+				Enemy.stun = Math.max(Enemy.stun, Math.min(Math.floor(Damage.time/3), Damage.time-1)); // Enemies with stun resistance have stuns reduced to 1/3rd, and anything that stuns them for one turn doesn't affect them
 			else Enemy.stun = Math.max(Enemy.stun, Damage.time);
 		}
 	}

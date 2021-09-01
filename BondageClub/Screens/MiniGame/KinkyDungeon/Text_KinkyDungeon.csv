@@ -97,7 +97,7 @@ KinkyDungeonRarity8,Mythical
 KinkyDungeonRarity9,Godlike
 
 KinkyDungeonConsumableQuantity,Quantity:
-KinkyDungeonConsume,Use Item (Consumes 1) 
+KinkyDungeonConsume,Use Item (Consumes 1)
 
 KinkyDungeonInventoryItemPotionHealth,Lssr. Will Potion
 KinkyDungeonInventoryItemPotionHealthUse,You sip the potion and feel motivated to continue.
@@ -588,7 +588,7 @@ KinkyDungeonSpellCastFocusedFlash,You slowly charge up a powerful flash!
 
 KinkyDungeonSpellShroud,Shroud
 KinkyDungeonSpellTargetShroud,Select where to center the shroud (SpellArea radius)
-KinkyDungeonSpellDescriptionShroud,A shroud of darkness in which melee is difficult for Duration turns
+KinkyDungeonSpellDescriptionShroud,A shroud of darkness in which melee is impossible for Duration turns
 KinkyDungeonSpellCastShroud,You exhale a misty shroud
 
 KinkyDungeonSpellSlime,Conjure Slime

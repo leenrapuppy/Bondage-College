@@ -1430,6 +1430,87 @@ var AssetFemale3DCGExtended = {
 		}, // GwenHood
 	}, // ItemHood
 	ItemDevices: {
+		FuturisticCrate: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Window", Key: "w",
+						Options: [
+							{}, // d0 - Open
+							{
+								Property: {
+									Difficulty: 10,
+									Effect: ["BlindLight", "GagLight", "Prone", "Freeze", "Enclose"]
+								},
+							}, // d1 - Smallwindow
+							{
+								Property: {
+									Difficulty: 10,
+									Effect: ["BlindNormal", "GagLight", "Prone", "Freeze", "Enclose"]
+								},
+							}, // d2 - Normal window
+							{
+								Property: {
+									Difficulty: 50,
+									Effect: ["BlindHeavy", "GagLight", "Prone", "Freeze", "Enclose"]
+								},
+							}, // d3 - Closed
+						],
+					},
+					{
+						Name: "Straps", Key: "s",
+						Options: [
+							{}, // s0 - No straps
+							{ // s1 - Arm straps
+								Prerequisite: ["CuffedArmsOrEmpty", "NotKneeling"],
+								Property: {
+									Difficulty: 19,
+									SetPose: ["OverTheHead", "BaseLower"],
+									AllowActivePose: ["Spread", "LegsClosed", "BaseLower"],
+									Block: ["ItemArms"],
+									Effect: ["Prone", "Freeze", "Block", "BlockKneel", "Mounted"],
+								},
+							},
+							{ // s2 - Leg straps
+								Prerequisite: ["LegsOpen", "CuffedLegsOrEmpty", "CuffedFeetOrEmpty", "NotSuspended", "NotHogtied", "NotHorse", "NotKneeling"],
+								Property: {
+									Difficulty: 19,
+									SetPose: ["Spread"],
+									Block: ["ItemFeet", "ItemLegs"],
+									Effect: ["Prone", "Freeze", "BlockKneel", "Mounted"],
+								},
+							},
+							{ // s3 - Full straps
+								Prerequisite: ["LegsOpen", "CuffedArmsOrEmpty", "CuffedLegsOrEmpty", "CuffedFeetOrEmpty", "NotSuspended", "NotHogtied", "NotHorse", "NotKneeling"],
+								Property: {
+									Difficulty: 19,
+									SetPose: ["OverTheHead", "Spread"],
+									Block: ["ItemFeet", "ItemLegs", "ItemArms"],
+									Effect: ["Prone", "Freeze", "Block", "BlockKneel", "Mounted"],
+								},
+							},
+						],
+					},
+					{
+						Name: "Device", Key: "d",
+						Options: [
+							{}, // d0 - No devvice
+							{ // s1 - Pleasure module
+								HasSubscreen: true,
+								Property: {
+									SetPose: ["BaseLower"],
+									AllowActivePose: ["Spread", "LegsClosed", "BaseLower"],
+									Effect: ["Egged", "Prone", "Freeze", "BlockKneel"]
+								}
+							},
+						],
+					},
+				],
+				ChangeWhenLocked: false,
+			},
+		}, // FuturisticCrate
+
 		BondageBench: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
@@ -2783,6 +2864,45 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // Ribbons
+		FuturisticMuzzle: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Nose", Key: "n",
+						Options: [
+							{}, // n0 - No nose
+							{ // n1 - OTN
+								Property: {
+									Difficulty: 1,
+								},
+							},
+						],
+					},
+					{
+						Name: "Harness", Key: "h",
+						Options: [
+							{}, // h0 - No straps
+							{ // h1 - Harness straps
+								Property: {
+									Difficulty: 1,
+								},
+							},
+						],
+					},
+					{
+						Name: "Symbol", Key: "s",
+						Options: [
+							{}, // s0 - Nothing
+							{}, // s1 - Lock symbol
+							{}, // s2 - Mute symbol
+							{}, // s3 - X symbol
+						],
+					},
+				],
+				ChangeWhenLocked: false,
+			},
+		}, // FuturisticMuzzle
 	}, // ItemMouth
 	ItemMouth2: {
 		ClothGag: {
@@ -2817,6 +2937,10 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "Ribbons" },
 		},
+		FuturisticMuzzle: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticMuzzle" },
+		},
 	}, // ItemMouth2
 	ItemMouth3: {
 		ClothGag: {
@@ -2850,6 +2974,10 @@ var AssetFemale3DCGExtended = {
 		Ribbons: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "Ribbons" },
+		},
+		FuturisticMuzzle: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticMuzzle" },
 		},
 	}, // ItemMouth3
 	Mask: {
