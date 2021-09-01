@@ -29,7 +29,7 @@ var PokerAsset = [
 	{
 		Family: "Model",
 		Type: "Set",
-		Opponent: ["Andrea", "Akira", "Becky", "Dita", "Emily", "Hannah", "Isanne", "Jasmine", "Jelena", "Masuimi", "Missey", "Nadia", "Natalia", "Petra", "Sasha", "Supergirl"]
+		Opponent: ["Andrea", "Akira", "Becky", "Dita", "Emily", "Hannah", "Isanne", "Jasmine", "Jelena", "Masuimi", "Missey", "Nadia", "Natalia", "Petra", "Sasha", "Supergirl", "Tasha"]
 	}
 ];
 var PokerPlayerCount = 4;
@@ -56,6 +56,7 @@ function PokerLoad() {
 function PokerDrawPlayer(P, X, Y) {
 	
 	// For set images from the classic Bondage Poker game
+	let Large = false;
 	if ((P == null) || (P.Type == null) || (P.Type == "None") || (P.Name == null)) return;
 	if (P.Type == "Set") {
 		
@@ -82,6 +83,7 @@ function PokerDrawPlayer(P, X, Y) {
 				if (DrawCacheImage.get(P.Image) != null) H = DrawCacheImage.get(P.Image).height;
 				if (W >= 800) {
 					Y2 = (440 - H) * 0.5;
+					Large = true;
 					DrawImageEx(P.Image, (PokerShowPlayer ? 1250 - W / 2 : 1000 - W / 2), Y + Y2 + 50, {Canvas: MainCanvas, Zoom: 1});
 				}
 				else {
@@ -121,6 +123,7 @@ function PokerDrawPlayer(P, X, Y) {
 	if ((PokerMode != "") && (P.Text != "")) {
 		if ((P.TextColor == null) && (P.Data != null) && (P.Data.cache != null) && (P.Data.cache["TextColor"] != null))
 			P.TextColor = P.Data.cache["TextColor"];
+		if (Large) X = (PokerShowPlayer ? 0 : -250) + 1000
 		DrawTextWrap(P.Text, X + 10, Y - 82, 480, 60, (P.TextColor == null) ? "black" : "#" + P.TextColor, null, 2);
 	}
 
