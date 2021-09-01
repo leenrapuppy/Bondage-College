@@ -19,7 +19,7 @@ var PokerAsset = [
 	{
 		Family: "Illustration",
 		Type: "Set",
-		Opponent: ["Amanda", "Ann", "Sally", "Sarah", "Sophie"]
+		Opponent: ["Amanda", "Ann", "Aoi", "Sally", "Sarah", "Sophie"]
 	},
 	{
 		Family: "Model",
