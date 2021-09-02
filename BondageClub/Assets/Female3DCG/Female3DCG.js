@@ -314,6 +314,12 @@ var AssetFemale3DCG = [
 
 			},
 			{ Name: "BlackHeart", Value: 40, Left: 148, Top: 70, ParentGroup: null },
+			{
+				Name: "NecklaceBallGag", Value: -1, Priority: 43, DefaultColor: "#BC3030", BuyGroup: "BallGag", Left: 150, Top: 10, ParentGroup: null, Layer: [
+					{ Name: "Strap" },
+					{ Name: "Ball" },
+				]
+			},
 			{ Name: "FurScarf", Priority: 35, Value: 40, Left: 0, Top: 0, ParentGroup: null },
 			{ Name: "ElegantHeartNecklace", Value: 30, Left:155, Top: 152, ParentGroup: null,
 				Layer: [
