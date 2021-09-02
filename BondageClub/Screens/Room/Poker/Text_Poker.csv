@@ -1,6 +1,7 @@
-IntroTitle,Welcome to Bondage Poker!  Select your game type and opponents below.
+IntroTitle,Select your options & opponents below or challenge a new girl to unlock her.
 Exit,Return to the main hall
-Start,Start the game
+Challenge,Challenge a new girl
+Custom,Start a custom game
 ShowPlayer,View yourself
 RulesTexasHoldem,Texas Hold'em
 RulesTwoCards,Two Cards
@@ -17,6 +18,7 @@ Fold,Fold
 Watch,Watch
 Win,won
 WinGame,won the game!
+WinChallenge,You won $MoneyAmount and unlocked OpponentName.  You can challenge another girl.
 EndGame,Finish this game
 Ante,Ante:
 SplitPot,Split pot

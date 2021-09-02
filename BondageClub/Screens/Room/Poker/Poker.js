@@ -3,9 +3,9 @@
 var PokerBackground = "White";
 var PokerPlayer = [
 	{ Type: "Character", Family: "Player", Name: "Player", Chip: 100 },
-	{ Type: "Set", Family: "Illustration", Name: "Amanda", Chip: 100 },
-	{ Type: "Set", Family: "Illustration", Name: "Sarah", Chip: 100 },
-	{ Type: "Set", Family: "Illustration", Name: "Sophie", Chip: 100 }
+	{ Type: "None", Family: "None", Name: "None", Chip: 100 },
+	{ Type: "None", Family: "None", Name: "None", Chip: 100 },
+	{ Type: "None", Family: "None", Name: "None", Chip: 100 }
 ];
 var PokerMode = "";
 var PokerGame = "TexasHoldem"
@@ -34,6 +34,8 @@ var PokerResultMessage = "";
 var PokerAnte = 2;
 var PokerAnteCount = 0;
 var PokerPot = 0;
+var PokerChallenge = ["Sarah", "Jasmine", "Ann", "Andrea", "Sally", "Isanne", "Sasha", "Amanda", "Emily", "Nadia", "Tasha", "Aoi", "Becky", "Tigerr", "Jelena", "Ornella", "Natalia", "Akira", "Hannah", "Missey", "Masuimi", "Lua", "Dita", "Petra", "Supergirl", "Lia", "Sophie"];
+var PokerOpponentList = ["None"];
 
 /**
  * Loads the Bondage Poker room
@@ -42,6 +44,8 @@ var PokerPot = 0;
 function PokerLoad() {
 	PokerPlayer[0].Character = Player;
 	PokerPlayer[0].Name = Player.Name;
+	if (Player.Game == null) Player.Game = {};
+	if (Player.Game.Poker == null) Player.Game.Poker = {};
 }
 
 /**
@@ -52,7 +56,7 @@ function PokerDrawPlayer(P, X, Y) {
 	
 	// For set images from the classic Bondage Poker game
 	let Large = false;
-	if ((P == null) || (P.Type == null) || (P.Type == "None") || (P.Name == null)) return;
+	if ((P == null) || (P.Type == null) || (P.Type == "None") || (P.Name == "None") || (P.Name == null)) return;
 	if (P.Type == "Set") {
 		
 		// If data isn't loaded yet, we fetch the CSV file
@@ -83,7 +87,7 @@ function PokerDrawPlayer(P, X, Y) {
 				}
 				else {
 					if (H < 440) Y2 = (440 - H) * 1.25;
-					DrawImageEx(P.Image, X + 210 - W / 2, Y + Y2, {Canvas: MainCanvas, Zoom: 1.25});
+					DrawImageEx(P.Image, X + 215 - W / 2, Y + Y2, {Canvas: MainCanvas, Zoom: 1.25});
 				}
 			}
 
@@ -122,6 +126,10 @@ function PokerDrawPlayer(P, X, Y) {
 		DrawTextWrap(P.Text, X + 10, Y - 82, 480, 60, (P.TextColor == null) ? "black" : "#" + P.TextColor, null, 2);
 	}
 
+	// If no text is loaded, we load the intro
+	if ((PokerMode != "") && ((P.Text == null) || (P.Text == "")))
+		PokerGetText(P, "Intro");
+
 }
 
 /**
@@ -149,7 +157,7 @@ function PokerGetProgress(P) {
 function PokerGetText(P, Tag) {
 	
 	// Exits right away if data is missing
-	if ((P.Type == "None") || (P.Family == "Player")) return P.Text = "";
+	if ((P.Type == "None") || (P.Name == "None") || (P.Family == "Player")) return P.Text = "";
 	let T;
 	T = (PokerPlayerCount <= 2) ? P.TextSingle : P.TextMultiple;
 	if (T == null) return P.Text = "";
@@ -221,7 +229,7 @@ function PokerGetText(P, Tag) {
 function PokerGetImage(P) {
 	
 	// Skip if there's no player
-	if (P.Type == "None") return;
+	if ((P.Type == "None") || (P.Name == "None")) return;
 	let Progress = PokerGetProgress(P);
 
 	// For a regular Bondage Club character, we can add or remove restraints
@@ -246,7 +254,7 @@ function PokerGetImage(P) {
 	}
 
 	// For set images, a single opponent can have a large image, else we find a valid image from the game progress
-	if (P.Type == "Set") {
+	if ((P.Type == "Set") && (P.Data != null)) {
 		
 		// First try to get an alternate version of the image
 		let Images = [];
@@ -332,7 +340,8 @@ function PokerRun() {
 	if (PokerMode == "") {
 		DrawText(TextGet("IntroTitle"), 950, 45, "black", "gray");
 		DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
-		DrawButton(1885, 140, 90, 90, "", "White", "Icons/Poker.png", TextGet("Start"));
+		DrawButton(1885, 140, 90, 90, "", "White", "Icons/Poker.png", TextGet("Challenge"));
+		DrawButton(1885, 265, 90, 90, "", "White", "Icons/Preference.png", TextGet("Custom"));
 		DrawButton(100, 790, 64, 64, "", "White", PokerShowPlayer ? "Icons/Checked.png" : "");
 		DrawText(TextGet("ShowPlayer"), 300, 822, "white", "gray");
 		DrawBackNextButton(50, 880, 400, 60, TextGet("Rules" + PokerGame), "White", "", () => "", () => "");
@@ -350,7 +359,7 @@ function PokerRun() {
 	// Draws the cards and chips
 	if ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER") || (PokerMode == "RESULT")) {
 		for (let P = (PokerShowPlayer ? 0 : 1); P < PokerPlayer.length; P++)
-			if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Hand.length > 0)) {
+			if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Name != "None") && (PokerPlayer[P].Hand.length > 0)) {
 				DrawText(TextGet("Chip") + ": " + PokerPlayer[P].Chip.toString(), (PokerShowPlayer ? 250 : 0) + P * 500, 682, "white", "gray");
 				if ((PokerPlayer[P].Family != "Player") && (PokerMode != "RESULT"))
 					DrawImageEx("Screens/Room/Poker/Cards/OpponentCards.gif", (PokerShowPlayer ? 250 : 0) + P * 500 - 75, 720, {Canvas: MainCanvas, Zoom: 1.5});
@@ -423,21 +432,48 @@ function PokerClearData(P) {
 }
 
 /**
+ * Returns TRUE if the opponent has been unlocked and can be faced
+ * @returns {void} - Nothing
+ */
+function PokerChallengeUnlocked(Opponent) {
+	if (Player.Game.Poker.Challenge == null) return false;
+	let OpponentPos = PokerChallenge.indexOf(Opponent);
+	let ProgressPos = PokerChallenge.indexOf(Player.Game.Poker.Challenge);
+	return (ProgressPos >= OpponentPos);
+}
+
+/**
  * Picks the next/previous opponent family for a player P
  * @returns {void} - Nothing
  */
 function PokerChangeOpponentFamily(P, Next) {
+
+	// Picks the next/previous family
+	let Found = false;
 	for (let A = (Next ? 0 : 1); A < PokerAsset.length + (Next ? -1 : 0); A++)
-		if (PokerAsset[A].Family == P.Family) {
+		if (!Found && (PokerAsset[A].Family == P.Family)) {
 			P.Family = PokerAsset[A + (Next ? 1 : -1)].Family;
 			P.Type = PokerAsset[A + (Next ? 1 : -1)].Type;
-			P.Name = PokerAsset[A + (Next ? 1 : -1)].Opponent[0];
-			return PokerClearData(P);
+			Found = true;
 		}
-	P.Family = PokerAsset[(Next ? 0 : PokerAsset.length - 1)].Family;
-	P.Type = PokerAsset[(Next ? 0 : PokerAsset.length - 1)].Type;
-	P.Name = PokerAsset[(Next ? 0 : PokerAsset.length - 1)].Opponent[0];
+	if (!Found) {
+		P.Family = PokerAsset[(Next ? 0 : PokerAsset.length - 1)].Family;
+		P.Type = PokerAsset[(Next ? 0 : PokerAsset.length - 1)].Type;
+	}
+
+	// Builds the opponent list
+	PokerOpponentList = [];
+	for (let A = 0; A < PokerAsset.length; A++)
+		if (PokerAsset[A].Family == P.Family)
+			for (let O = 0; O < PokerAsset[A].Opponent.length; O++)
+				if (PokerChallengeUnlocked(PokerAsset[A].Opponent[O]))
+					PokerOpponentList.push(PokerAsset[A].Opponent[O]);
+	if (PokerOpponentList.length == 0) PokerOpponentList.push("None");
+
+	// Sets the first opponent
+	P.Name = PokerOpponentList[0];
 	PokerClearData(P);
+
 }
 
 /**
@@ -445,15 +481,26 @@ function PokerChangeOpponentFamily(P, Next) {
  * @returns {void} - Nothing
  */
 function PokerChangeOpponent(P, Next) {
-	for (let A = 0; A < PokerAsset.length; A++)
-		if (PokerAsset[A].Family == P.Family) {
-			let Pos = PokerAsset[A].Opponent.indexOf(P.Name);
-			Pos = Pos + (Next ? 1 : -1);
-			if (Pos < 0) Pos = PokerAsset[A].Opponent.length - 1;
-			if (Pos > PokerAsset[A].Opponent.length - 1) Pos = 0;
-			P.Name = PokerAsset[A].Opponent[Pos];
-			return PokerClearData(P);
-		}
+	let Pos = PokerOpponentList.indexOf(P.Name);
+	Pos = Pos + (Next ? 1 : -1);
+	if (Pos < 0) Pos = PokerOpponentList.length - 1;
+	if (Pos > PokerOpponentList.length - 1) Pos = 0;
+	P.Name = PokerOpponentList[Pos];
+	return PokerClearData(P);
+}
+
+/**
+ * Picks the next challenge in the list
+ * @returns {void} - Nothing
+ */
+function PokerNextChallenge() {
+	let ProgressPos = PokerChallenge.indexOf(Player.Game.Poker.Challenge) + 1;
+	if (ProgressPos <= PokerChallenge.length)
+		for (let A = 0; A < PokerAsset.length; A++)
+			for (let O = 0; O < PokerAsset[A].Opponent.length; O++)
+				if (PokerAsset[A].Opponent[O] == PokerChallenge[ProgressPos])
+					return { Type: "Set", Family: PokerAsset[A].Family, Name: PokerAsset[A].Opponent[O], Chip: 100 };
+	return { Type: "None", Family: "None", Name: "None", Chip: 100 };
 }
 
 /**
@@ -472,13 +519,21 @@ function PokerClick() {
 				PokerChangeOpponentFamily(PokerPlayer[P], (MouseX >= 250 + P * 500));
 			if ((PokerPlayer[P].Type != "None") && MouseIn(50 + P * 500, 840, 400, 60))
 				PokerChangeOpponent(PokerPlayer[P], (MouseX >= 250 + P * 500));
-			if ((PokerPlayer[P].Type != "None") && MouseIn(50 + P * 500, 920, 400, 60) && (PokerPlayer[P].WebLink != null) && (PokerPlayer[P].WebLink != ""))
+			if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Name != "None") && MouseIn(50 + P * 500, 920, 400, 60) && (PokerPlayer[P].WebLink != null) && (PokerPlayer[P].WebLink != ""))
 				window.open(PokerPlayer[P].WebLink);
 		}
 	}
 
-	// If we must start a new game
-	if (MouseIn(1885, 140, 90, 90) && (PokerMode == "")) {
+	// If we must challenge a new opponent, we select it and click on the start game button
+	if (MouseIn(1885, 145, 90, 90) && (PokerMode == "")) {
+		PokerPlayer[1] = { Type: "None", Family: "None", Name: "None", Chip: 100 };
+		PokerPlayer[2] = PokerNextChallenge();
+		PokerPlayer[3] = { Type: "None", Family: "None", Name: "None", Chip: 100 };
+		if (PokerPlayer[2].Name != "None") MouseY = 300;
+	}
+
+	// If we must start a new custom game
+	if (MouseIn(1885, 265, 90, 90) && (PokerMode == "")) {
 		PokerPlayerCount = 0;
 		for (let P = 0; P < PokerPlayer.length; P++) {
 			if (PokerPlayer[P].Type == "Character") {
@@ -489,11 +544,11 @@ function PokerClick() {
 				PokerPlayer[P].Bra = InventoryGet(PokerPlayer[P].Character, "Bra");
 			}
 			PokerGetText(PokerPlayer[P], "Intro");
-			if (PokerPlayer[P].Type != "None") PokerPlayerCount++;
+			if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Name != "None")) PokerPlayerCount++;
 		}
 		if (PokerPlayerCount >= 2) {
 			for (let P = 0; P < PokerPlayer.length; P++)
-				PokerPlayer[P].Chip = (PokerPlayer[P].Type != "None") ? 100 : 0;
+				PokerPlayer[P].Chip = ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Name != "None")) ? 100 : 0;
 			PokerAnte = (PokerGame == "TwoCards") ? 2 : 1;
 			PokerAnteCount = 0;
 			PokerDealHands();
@@ -507,6 +562,8 @@ function PokerClick() {
 	if (MouseIn(1800, 875, 175, 60) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length <= 0)) return PokerProcess("Watch");
 	if (MouseIn(1800, 875, 175, 60) && (PokerMode == "RESULT")) return PokerDealHands();
 	if (MouseIn(800, 875, 400, 60) && (PokerMode == "END")) {
+		if ((PokerPlayerCount == 2) && (PokerPlayer[2].Type != "None") && (PokerPlayer[2].Name != "None"))
+			PokerPlayer[2] = { Type: "None", Family: "None", Name: "None", Chip: 100 };
 		PokerMode = "";
 		for (let P = 0; P < PokerPlayer.length; P++) {
 			PokerPlayer[P].Chip = 100;
@@ -612,12 +669,30 @@ function PokerTableDraw() {
  */
 function PokerAddPot(Multiplier, StartPos) {
 	for (let P = StartPos; P < PokerPlayer.length; P++)
-		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Chip > 0)) {
+		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Name != "None") && (PokerPlayer[P].Chip > 0)) {
 			let Bet = PokerAnte * Multiplier;
 			if (PokerPlayer[P].Chip < Bet) Bet = PokerPlayer[P].Chip;
 			PokerPot = PokerPot + Bet;
 			PokerPlayer[P].Chip = PokerPlayer[P].Chip - Bet;
 		}
+}
+
+/**
+ * When the player wins, she can unlock new opponents and win money
+ * @returns {String} - The file name of the card image
+ */
+function PokerChallengeDone() {
+	if ((PokerPlayerCount == 2) && (PokerPlayer[2].Type != "None") && (PokerPlayer[2].Name != "None")) {
+		let OpponentPos = PokerChallenge.indexOf(PokerPlayer[2].Name);
+		let ProgressPos = PokerChallenge.indexOf(Player.Game.Poker.Challenge);
+		if (OpponentPos > ProgressPos) {
+			let Money = 4 + OpponentPos;
+			CharacterChangeMoney(Player, Money);
+			PokerMessage = TextGet("WinChallenge").replace("MoneyAmount", Money.toString()).replace("OpponentName", PokerPlayer[2].Name);
+			Player.Game.Poker.Challenge = PokerPlayer[2].Name;
+			ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+		}
+	}
 }
 
 /**
@@ -670,10 +745,9 @@ function PokerProcess(Action) {
 	let Winner = 0;
 	let MaxValue = -1;
 	for (let P = 0; P < PokerPlayer.length; P++)
-		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Hand.length > 0)) {
+		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Name != "None") && (PokerPlayer[P].Hand.length > 0)) {
 			PokerPlayer[P].HandValue = PokerHandValueCalcHandValue(PokerPlayer[P].Hand[0], PokerPlayer[P].Hand[1], PokerGame, PokerMode, PokerTableCards);
 			if ((P == 0) && (Action == "Fold")) PokerPlayer[P].HandValue = -1;
-			//console.log(P.toString() + " " + PokerPlayer[P].HandValue.toString());
 			if (PokerPlayer[P].HandValue > MaxValue) {
 				MaxValue = PokerPlayer[P].HandValue;
 				Winner = P;
@@ -683,10 +757,10 @@ function PokerProcess(Action) {
 	// Gets the number of winners and split the chips between them
 	let WinnerCount = 0;
 	for (let P = 0; P < PokerPlayer.length; P++)
-		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Hand.length > 0) && (PokerPlayer[P].HandValue == MaxValue))
+		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Name != "None") && (PokerPlayer[P].Hand.length > 0) && (PokerPlayer[P].HandValue == MaxValue))
 			WinnerCount++;
 	for (let P = 0; P < PokerPlayer.length; P++)
-		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Hand.length > 0) && (PokerPlayer[P].HandValue == MaxValue))
+		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Name != "None") && (PokerPlayer[P].Hand.length > 0) && (PokerPlayer[P].HandValue == MaxValue))
 			PokerPlayer[P].Chip = PokerPlayer[P].Chip + Math.floor(PokerPot / WinnerCount);
 	PokerMessage = (WinnerCount > 1) ? TextGet("SplitPot") : (PokerPlayer[Winner].Name + " " + TextGet("Win"));
 
@@ -710,17 +784,18 @@ function PokerProcess(Action) {
 	// If there's only 1 active player, we stop the game
 	let PlayerCount = 0;
 	for (let P = 0; P < PokerPlayer.length; P++)
-		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Chip > 0))
+		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Name != "None") && (PokerPlayer[P].Chip > 0))
 			PlayerCount++;
 	if (PlayerCount <= 1) {
 		for (let P = 1; P < PokerPlayer.length; P++)
-			if (PokerPlayer[P].Type != "None") {
+			if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Name != "None")) {
 				let TextType = "Win";
 				if (PokerPlayer[P].Chip == 0) TextType = "Lose";
 				if ((PokerPlayer[P].Chip == 0) && (PokerPlayer[0].Chip == 0)) TextType = "LoseOther";
 				PokerGetText(PokerPlayer[P], TextType);
 			}
 		PokerMessage = PokerPlayer[Winner].Name + " " + TextGet("WinGame");
+		if (Winner == 0) PokerChallengeDone();
 		PokerMode = "END";
 	}
 
@@ -735,7 +810,7 @@ function PokerDealHands() {
 	for (let P = 0; P < PokerPlayer.length; P++)
 		PokerPlayer[P].Hand = [];
 	for (let P = 0; P < PokerPlayer.length; P++)
-		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Chip > 0)) {
+		if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Name != "None") && (PokerPlayer[P].Chip > 0)) {
 			PokerDrawCard(PokerPlayer[P]);
 			PokerDrawCard(PokerPlayer[P]);
 		}
