@@ -91,6 +91,7 @@ function ModularItemRegister(asset, config) {
 	ModularItemCreateLoadFunction(data);
 	ModularItemCreateDrawFunction(data);
 	ModularItemCreateClickFunction(data);
+	ModularItemCreateExitFunction(data);
 	ModularItemGenerateValidationProperties(data);
 }
 
@@ -101,7 +102,7 @@ function ModularItemRegister(asset, config) {
  */
 function ModularItemCreateLoadFunction(data) {
 	const loadFunctionName = `${data.functionPrefix}Load`;
-	window[loadFunctionName] = function () {
+	const loadFunction = function () {
 		if (!DialogFocusItem.Property) {
 			const C = CharacterGetCurrent();
 			const currentModuleValues = ModularItemParseCurrent(data);
@@ -111,6 +112,11 @@ function ModularItemCreateLoadFunction(data) {
 		}
 		DialogExtendedMessage = DialogFindPlayer(`${data.dialogSelectPrefix}${ModularItemBase}`);
 	};
+	if (data.scriptHooks && data.scriptHooks.load) {
+		window[loadFunctionName] = function () {
+			data.scriptHooks.load(loadFunction);
+		};
+	} else window[loadFunctionName] = loadFunction;
 }
 
 /**
@@ -120,11 +126,16 @@ function ModularItemCreateLoadFunction(data) {
  */
 function ModularItemCreateDrawFunction(data) {
 	const drawFunctionName = `${data.functionPrefix}Draw`;
-	window[drawFunctionName] = function () {
+	const drawFunction = function () {
 		const currentModule = data.currentModule || ModularItemBase;
 		const drawFunction = data.drawFunctions[currentModule];
 		return drawFunction();
 	};
+	if (data.scriptHooks && data.scriptHooks.draw) {
+		window[drawFunctionName] = function () {
+			data.scriptHooks.draw(drawFunction);
+		};
+	} else window[drawFunctionName] = drawFunction;
 }
 
 /**
@@ -134,11 +145,30 @@ function ModularItemCreateDrawFunction(data) {
  */
 function ModularItemCreateClickFunction(data) {
 	const clickFunctionName = `${data.functionPrefix}Click`;
-	window[clickFunctionName] = function () {
+	const clickFunction = function () {
 		const currentModule = data.currentModule || ModularItemBase;
 		const clickFunction = data.clickFunctions[currentModule];
 		return clickFunction();
 	};
+	if (data.scriptHooks && data.scriptHooks.click) {
+		window[clickFunctionName] = function () {
+			data.scriptHooks.click(clickFunction);
+		};
+	} else window[clickFunctionName] = clickFunction;
+}
+
+/**
+ * Creates an asset's extended item exit function
+ * @param {ModularItemData} data - The typed item data for the asset
+ * @returns {void} - Nothing
+ */
+ function ModularItemCreateExitFunction(data) {
+	const exitFunctionName = `${data.functionPrefix}Exit`;
+	if (data.scriptHooks && data.scriptHooks.exit) {
+		window[exitFunctionName] = function () {
+			data.scriptHooks.exit();
+		};
+	}
 }
 
 /**
@@ -147,7 +177,7 @@ function ModularItemCreateClickFunction(data) {
  * @param {ModularItemConfig} config - The item's extended item configuration
  * @returns {ModularItemData} - The generated modular item data for the asset
  */
-function ModularItemCreateModularData(asset, { Modules, ChatSetting, ChangeWhenLocked }) {
+function ModularItemCreateModularData(asset, { Modules, ChatSetting, ChangeWhenLocked, ScriptHooks }) {
 	const key = `${asset.Group.Name}${asset.Name}`;
 	/** @type {ModularItemData} */
 	const data = ModularItemDataLookup[key] = {
@@ -164,6 +194,12 @@ function ModularItemCreateModularData(asset, { Modules, ChatSetting, ChangeWhenL
 		pages: { [ModularItemBase]: 0 },
 		drawData: { [ModularItemBase]: ModularItemCreateDrawData(Modules.length) },
 		changeWhenLocked: typeof ChangeWhenLocked === "boolean" ? ChangeWhenLocked : true,
+		scriptHooks: {
+			load: ScriptHooks ? ScriptHooks.Load : undefined,
+			click: ScriptHooks ? ScriptHooks.Click : undefined,
+			draw: ScriptHooks ? ScriptHooks.Draw : undefined,
+			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
+		},
 		drawFunctions: {},
 		clickFunctions: {},
 	};
@@ -263,7 +299,7 @@ function ModularItemDrawCommon(moduleName, buttonDefinitions, { asset, pages, dr
 		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Draw");
 		return;
 	}
-	
+
 	DrawAssetPreview(1387, 55, asset);
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 
@@ -363,7 +399,7 @@ function ModularItemClickCommon({ paginate, positions }, exitCallback, itemCallb
 		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Click");
 		return;
 	}
-	
+
 	// Exit button
 	if (MouseIn(1885, 25, 90, 90)) {
 		return exitCallback();
@@ -435,6 +471,7 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
 	return options.reduce((mergedProperty, { Property }) => {
 		Property = Property || {};
 		mergedProperty.Difficulty += (Property.Difficulty || 0);
+		if (Property.CustomBlindBackground) mergedProperty.CustomBlindBackground = Property.CustomBlindBackground;
 		if (Property.Block) CommonArrayConcatDedupe(mergedProperty.Block, Property.Block);
 		if (Property.Effect) CommonArrayConcatDedupe(mergedProperty.Effect, Property.Effect);
 		if (Property.Hide) CommonArrayConcatDedupe(mergedProperty.Hide, Property.Hide);
@@ -446,6 +483,7 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
 	}, {
 		Type: ModularItemConstructType(modules, moduleValues),
 		Difficulty: asset.Difficulty,
+		CustomBlindBackground: "",
 		Block: Array.isArray(asset.Block) ? asset.Block.slice() : [],
 		Effect: Array.isArray(asset.Effect) ? asset.Effect.slice() : [],
 		Hide: Array.isArray(asset.Hide) ? asset.Hide.slice() : [],
@@ -606,17 +644,17 @@ function ModularItemGenerateLayerAllowTypes(layer, data) {
 			}
 			return values;
 		});
-		
+
 		const GeneratedAllowTypes = ModularItemGenerateAllowType(data, (combination) => {
 			return allowedModuleCombinations.some(allowedCombination => {
 				return allowedCombination.every(combo => combination[combo[0]] === combo[1]);
 			});
 		});
-		
+
 		// Append to the existing AllowTypes
-		layer.AllowTypes = Array.isArray(layer.AllowTypes) ? layer.AllowTypes : [];	
+		layer.AllowTypes = Array.isArray(layer.AllowTypes) ? layer.AllowTypes : [];
 		layer.AllowTypes = layer.AllowTypes.concat(GeneratedAllowTypes);
-		
+
 		// When option 0 is an allowed module, it means the undefined/null type is allowed.
 		if (allowedModuleCombinations.find(arr => arr.find(combo => combo[1] === 0))) {
 			layer.AllowTypes.push("");

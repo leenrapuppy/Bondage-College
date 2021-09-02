@@ -360,8 +360,7 @@ function DialogPrerequisite(D) {
  * @returns {boolean} - Whether or not the player is wearing a VR headset with Gaming type
  */
 function DialogHasGamingHeadset() {
-	let head = InventoryGet(Player, "ItemHead");
-	if (head && head.Property && head.Property.Type == "Gaming") return true;
+	if (Player.Effect.includes("KinkyDungeonParty")) return true;
 
 	return false;
 }
@@ -371,8 +370,7 @@ function DialogHasGamingHeadset() {
  */
 function DialogCanWatchKinkyDungeon() {
 	if (CurrentCharacter) {
-		let head = InventoryGet(CurrentCharacter, "ItemHead");
-		if (!(head && head.Property && head.Property.Type == "Gaming")) return false;
+		if (!CurrentCharacter.Effect.includes("KinkyDungeonParty")) return false;
 
 		if (Player.Effect.includes("VR")) return true;
 	}

@@ -78,8 +78,8 @@ var InventoryItemPelvisFuturisticChastityBeltOptions = [
 
 function InventoryItemPelvisFuturisticChastityBeltLoad() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagLoadAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticLoadAccessDenied();
 	} else{
 		if (DialogFocusItem.Property == null) DialogFocusItem.Property = { NextShockTime: 0, PunishStruggle: false , PunishStruggleOther: false , PunishOrgasm: false, ChatMessage: false,  CloseBack: false, };
 		if (DialogFocusItem.Property.NextShockTime == null) DialogFocusItem.Property.NextShockTime = 0;
@@ -92,8 +92,8 @@ function InventoryItemPelvisFuturisticChastityBeltLoad() {
 
 function InventoryItemPelvisFuturisticChastityBeltDraw() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagDrawAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticDrawAccessDenied();
 	} else if (DialogFocusItem && DialogFocusItem.Property) {
 		DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
 
@@ -128,8 +128,8 @@ function InventoryItemPelvisFuturisticChastityBeltDraw() {
 
 function InventoryItemPelvisFuturisticChastityBeltClick() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagClickAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticClickAccessDenied();
 	} else {
 		if (MouseIn(1885, 25, 90, 90)) InventoryItemPelvisFuturisticChastityBeltExit();
 
@@ -192,7 +192,7 @@ function InventoryItemPelvisFuturisticChastityBeltExit() {
 	if (FuturisticChastityBeltConfigure) {
 		FuturisticChastityBeltConfigure = false;
 		InventoryItemPelvisFuturisticChastityBeltPublishGeneric(CurrentCharacter, "FuturisticChastityBeltSetGeneric");
-	} else InventoryItemMouthFuturisticPanelGagExitAccessDenied();
+	} else InventoryItemFuturisticExitAccessDenied();
 }
 
 function InventoryItemPelvisFuturisticChastityBeltPublishAction(C, Option) {
@@ -218,7 +218,7 @@ function InventoryItemPelvisFuturisticChastityBeltPublishGeneric(C, msg) {
 }
 
 function InventoryItemPelvisFuturisticChastityBeltValidate(C, Item) {
-	return InventoryItemMouthFuturisticPanelGagValidate(C, Item); // All futuristic items refer to the gag
+	return InventoryItemFuturisticValidate(C, Item); // All futuristic items refer to the gag
 }
 
 

@@ -87,7 +87,7 @@ function InventoryItemBreastFuturisticBraDraw() {
 	DrawText(DialogFindPlayer("FuturisticBraPlayerTracking"), 1500, 830, "White", "Gray");
 
 	// If the player can modify
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) == "") {
+	if (InventoryItemFuturisticValidate(C) == "") {
 		if (DialogFocusItem.Property.Type != null) {
 			DrawButton(1150, 900, 150, 64, DialogFindPlayer("FuturisticBraPlayerShow"), "White", "");
 		} if (DialogFocusItem.Property.Type != "Solid") {
@@ -109,7 +109,7 @@ function InventoryItemBreastFuturisticBraClick() {
 		var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
 
 		// If the player can modify
-		if (InventoryItemMouthFuturisticPanelGagValidate(C) == "") {
+		if (InventoryItemFuturisticValidate(C) == "") {
 			if (DialogFocusItem.Property.Type != null && MouseIn(1150, 900, 150, 64)) {
 				DialogFocusItem.Property.Type = "";
 				if (CurrentScreen == "ChatRoom")

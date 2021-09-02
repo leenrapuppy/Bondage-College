@@ -34,24 +34,24 @@ var InventoryItemHeadInteractiveVisorOptions = [
 
 function InventoryItemHeadInteractiveVisorLoad() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagLoadAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticLoadAccessDenied();
 	} else
 		ExtendedItemLoad(InventoryItemHeadInteractiveVisorOptions, "SelectVisorType");
 }
 
 function InventoryItemHeadInteractiveVisorDraw() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagDrawAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticDrawAccessDenied();
 	} else
 		ExtendedItemDraw(InventoryItemHeadInteractiveVisorOptions, "InteractiveVisorHeadType");
 }
 
 function InventoryItemHeadInteractiveVisorClick() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagClickAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticClickAccessDenied();
 	} else
 		ExtendedItemClick(InventoryItemHeadInteractiveVisorOptions);
 }
@@ -68,11 +68,11 @@ function InventoryItemHeadInteractiveVisorPublishAction(C, Option) {
 
 
 function InventoryItemHeadInteractiveVisorExit() {
-	InventoryItemMouthFuturisticPanelGagExitAccessDenied();
+	InventoryItemFuturisticExitAccessDenied();
 }
 
 function InventoryItemHeadInteractiveVisorValidate(C, Item) {
-	return InventoryItemMouthFuturisticPanelGagValidate(C, Item); // All futuristic items refer to the gag
+	return InventoryItemFuturisticValidate(C, Item); // All futuristic items refer to the gag
 }
 
 function InventoryItemHeadInteractiveVisorNpcDialog(C, Option) {

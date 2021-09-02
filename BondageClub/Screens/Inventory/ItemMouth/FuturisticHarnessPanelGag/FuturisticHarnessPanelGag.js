@@ -20,7 +20,7 @@ function InventoryItemMouthFuturisticHarnessPanelGagExit() {
 }
 
 function InventoryItemMouthFuturisticHarnessPanelGagValidate(C, Item) {
-	return InventoryItemMouthFuturisticPanelGagValidate(C, Item);
+	return InventoryItemFuturisticValidate(C, Item);
 }
 
 

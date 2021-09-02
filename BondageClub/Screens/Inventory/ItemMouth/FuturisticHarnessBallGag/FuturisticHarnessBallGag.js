@@ -30,8 +30,8 @@ var InventoryItemMouthFuturisticBallGagOptions = [
  */
 function InventoryItemMouthFuturisticHarnessBallGagLoad() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagLoadAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticLoadAccessDenied();
 	} else {
 		ExtendedItemLoad(InventoryItemMouthFuturisticBallGagOptions, "SelectGagType");
 		if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Type: null, Option: InventoryItemMouthFuturisticBallGagOptions[0],
@@ -55,8 +55,8 @@ function InventoryItemMouthFuturisticHarnessBallGagExit() {
 */
 function InventoryItemMouthFuturisticHarnessBallGagDraw() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagDrawAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticDrawAccessDenied();
 	} else {
 		DrawAssetPreview(1387, 75, DialogFocusItem.Asset);
 
@@ -111,8 +111,8 @@ function InventoryItemMouthFuturisticHarnessBallGagDraw() {
  */
 function InventoryItemMouthFuturisticHarnessBallGagClick() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagClickAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticClickAccessDenied();
 	} else {
 		if (MouseIn(1885, 25, 90, 90)) InventoryItemMouthFuturisticPanelGagExit();
 
@@ -161,7 +161,7 @@ function InventoryItemMouthFuturisticHarnessBallGagClick() {
  * @returns {string} - Returns false and sets DialogExtendedMessage, if the chosen option is not possible.
  */
 function InventoryItemMouthFuturisticHarnessBallGagValidate(C, Item) {
-	return InventoryItemMouthFuturisticPanelGagValidate(C, Item) ;
+	return InventoryItemFuturisticValidate(C, Item) ;
 }
 
 

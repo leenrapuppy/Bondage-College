@@ -3,8 +3,8 @@
 // Loads the item extension properties
 function InventoryItemNeckFuturisticCollarLoad() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagLoadAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticLoadAccessDenied();
 	} else {
 		if (DialogFocusItem.Property == null) DialogFocusItem.Property = { OpenPermission: false };
 		if (DialogFocusItem.Property.OpenPermission == null) DialogFocusItem.Property.OpenPermission = false;
@@ -15,8 +15,8 @@ function InventoryItemNeckFuturisticCollarLoad() {
 // Draw the item extension screen
 function InventoryItemNeckFuturisticCollarDraw() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagDrawAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticDrawAccessDenied();
 	} else {
 		DrawAssetPreview(1387, 65, DialogFocusItem.Asset);
 
@@ -69,15 +69,15 @@ function InventoryItemNeckFuturisticCollarDraw() {
 }
 
 function InventoryItemNeckFuturisticCollarExit() {
-	InventoryItemMouthFuturisticPanelGagExitAccessDenied();
+	InventoryItemFuturisticExitAccessDenied();
 }
 
 // Catches the item extension clicks
 function InventoryItemNeckFuturisticCollarClick() {
 
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagClickAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticClickAccessDenied();
 	} else {
 
 		if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) InventoryItemNeckFuturisticCollarExit();
@@ -165,7 +165,7 @@ function InventoryItemNeckFuturisticCollarGetItems(C, OnlyUnlockable) {
 }
 
 function InventoryItemNeckFuturisticCollarValidate(C, Item) {
-	return InventoryItemMouthFuturisticPanelGagValidate(C, Item);
+	return InventoryItemFuturisticValidate(C, Item);
 }
 
 function InventoryItemNeckFuturisticCollarLockdown(C, LockType) {

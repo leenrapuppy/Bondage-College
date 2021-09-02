@@ -51,47 +51,7 @@ var AutoPunishKeywords = [
 ];
 
 var AutoPunishGagActionFlag = false;
-
-// How to make your item futuristic!
-
-// In the load function, add this before your load function, without changing functions from the
-// futuristic panel gag functions. Just make sure your item loads after the panel gag and not before in index.html:
-/*
- 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagLoadAccessDenied()
-	} else
-*/
-
-// In the draw function, add:
-/*
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagDrawAccessDenied()
-	} else
-*/
-
-// In the click function, add:
-/*
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagClickAccessDenied()
-	} else
-*/
-
-// In the exit function, add:
-/*
-	InventoryItemMouthFuturisticPanelGagExitAccessDenied()
-*/
-
-// In the validate function, add:
-/*
- 	return InventoryItemMouthFuturisticPanelGagValidate(C, Item)
-*/
-
-
 var AutoPunishUndoCD = 300000; // Five minutes of being gagged, resetting each time the user does a violation
-var FuturisticAccessDeniedMessage = "";
 
 /**
  * Loads the item extension properties
@@ -99,8 +59,8 @@ var FuturisticAccessDeniedMessage = "";
  */
 function InventoryItemMouthFuturisticPanelGagLoad() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagLoadAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticLoadAccessDenied();
 	} else {
 		ExtendedItemLoad(InventoryItemMouthFuturisticPanelGagOptions, "SelectGagType");
 		if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Type: null, Option: InventoryItemMouthFuturisticPanelGagOptions[0],
@@ -114,70 +74,8 @@ function InventoryItemMouthFuturisticPanelGagLoad() {
 	}
 }
 
-
-// Load the futuristic item ACCESS DENIED screen
-function InventoryItemMouthFuturisticPanelGagLoadAccessDenied() {
-	ElementCreateInput("PasswordField", "text", "", "12");
-	if (!FuturisticAccessDeniedMessage)
-		FuturisticAccessDeniedMessage = "";
-}
-
-// Draw the futuristic item ACCESS DENIED screen
-function InventoryItemMouthFuturisticPanelGagDrawAccessDenied() {
-	DrawAssetPreview(1387, 225, DialogFocusItem.Asset);
-
-	DrawText(DialogFindPlayer("FuturisticItemLoginScreen"), 1500, 600, "White", "Gray");
-
-	ElementPosition("PasswordField", 1505, 750, 350);
-	DrawText(DialogFindPlayer("FuturisticItemPassword"), 1500, 700, "White", "Gray");
-	DrawButton(1400, 800, 200, 64, DialogFindPlayer("FuturisticItemLogIn"), "White", "");
-
-	if (FuturisticAccessDeniedMessage && FuturisticAccessDeniedMessage != "") DrawText(FuturisticAccessDeniedMessage, 1500, 963, "Red", "Black");
-
-}
-
-// Click the futuristic item ACCESS DENIED screen
-function InventoryItemMouthFuturisticPanelGagClickAccessDenied() {
-	if (MouseIn(1885, 25, 90, 90)) InventoryItemMouthFuturisticPanelGagExit();
-
-	if (MouseIn(1400, 800, 200, 64)) {
-		var pw = ElementValue("PasswordField").toUpperCase();
-		if (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.LockedBy == "PasswordPadlock" && pw == DialogFocusItem.Property.Password) {
-			let C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-			CommonPadlockUnlock(C, DialogFocusItem);
-			DialogFocusItem = null;
-			Player.FocusGroup = null;
-			InventoryItemMouthFuturisticPanelGagExit();
-		} else if (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.LockedBy == "TimerPasswordPadlock" && pw == DialogFocusItem.Property.Password) {
-			let C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-			CommonPadlockUnlock(C, DialogFocusItem);
-			DialogFocusItem = null;
-			Player.FocusGroup = null;
-			InventoryItemMouthFuturisticPanelGagExit();
-		} else if (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.LockedBy == "CombinationPadlock" && pw == DialogFocusItem.Property.CombinationNumber) {
-			let C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-			InventoryItemMiscCombinationPadlockUnlock(C, DialogFocusItem);
-			DialogFocusItem = null;
-			Player.FocusGroup = null;
-			InventoryItemMouthFuturisticPanelGagExit();
-		} else {
-			FuturisticAccessDeniedMessage = DialogFindPlayer("CantChangeWhileLockedFuturistic");
-			AudioPlayInstantSound("Audio/AccessDenied.mp3");
-			if (CurrentScreen == "ChatRoom") {
-				InventoryItemMouthFuturisticPanelGagPublishAccessDenied((Player.FocusGroup != null) ? Player : CurrentCharacter);
-			}
-		}
-	}
-}
-
-function InventoryItemMouthFuturisticPanelGagExitAccessDenied() {
-	ElementRemove("PasswordField");
-	FuturisticAccessDeniedMessage = "";
-	DialogFocusItem = null;
-}
-
 function InventoryItemMouthFuturisticPanelGagExit() {
-	InventoryItemMouthFuturisticPanelGagExitAccessDenied();
+	InventoryItemFuturisticExitAccessDenied();
 }
 
 /**
@@ -186,8 +84,8 @@ function InventoryItemMouthFuturisticPanelGagExit() {
 */
 function InventoryItemMouthFuturisticPanelGagDraw() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagDrawAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticDrawAccessDenied();
 	} else {
 		DrawAssetPreview(1387, 75, DialogFocusItem.Asset);
 
@@ -241,8 +139,8 @@ function InventoryItemMouthFuturisticPanelGagDraw() {
  */
 function InventoryItemMouthFuturisticPanelGagClick() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryItemMouthFuturisticPanelGagValidate(C) !== "") {
-		InventoryItemMouthFuturisticPanelGagClickAccessDenied();
+	if (InventoryItemFuturisticValidate(C) !== "") {
+		InventoryItemFuturisticClickAccessDenied();
 	} else {
 		if (MouseIn(1885, 25, 90, 90)) InventoryItemMouthFuturisticPanelGagExit();
 
@@ -299,16 +197,7 @@ function InventoryItemMouthFuturisticPanelGagClick() {
  * @returns {string} - Returns false and sets DialogExtendedMessage, if the chosen option is not possible.
  */
 function InventoryItemMouthFuturisticPanelGagValidate(C, Item = DialogFocusItem) {
-	var Allowed = "";
-
-	if (Item && Item.Property && Item.Property.LockedBy && !DialogCanUnlock(C, Item)) {
-		var collar = InventoryGet(C, "ItemNeck");
-		if (!collar || (!collar.Property || collar.Property.OpenPermission != true)) {
-			Allowed = DialogExtendedMessage = DialogFindPlayer("CantChangeWhileLockedFuturistic");
-		}
-	}
-
-	return Allowed;
+	return InventoryItemFuturisticValidate(C, Item);
 }
 
 function InventoryItemMouthFuturisticPanelGagGetOption(Options, OptionType) {
@@ -364,17 +253,6 @@ function InventoryItemMouthFuturisticPanelGagPublishAction(C, Option) {
 		{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
 		{ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber },
 	];
-	ChatRoomPublishCustomAction(msg, true, Dictionary);
-}
-
-function InventoryItemMouthFuturisticPanelGagPublishAccessDenied(C) {
-	var msg = "FuturisticItemLoginLoginAttempt";
-	var Dictionary = [
-		{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-		{ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber },
-		{ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name}
-	];
-
 	ChatRoomPublishCustomAction(msg, true, Dictionary);
 }
 
@@ -503,7 +381,7 @@ function AssetsItemMouthFuturisticPanelGagScriptDraw(data) {
 	if (typeof persistentData.LastMessageLen !== "number") persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;
 	if (typeof property.BlinkState !== "number") property.BlinkState = 0;
 
-	if (ChatRoomLastMessage && ChatRoomLastMessage.length != persistentData.LastMessageLen && data.Item && data.Item.Property && data.Item.Property.Sensitivity > 0) 
+	if (ChatRoomLastMessage && ChatRoomLastMessage.length != persistentData.LastMessageLen && data.Item && data.Item.Property && data.Item.Property.Sensitivity > 0)
 		persistentData.ChangeTime = Math.min(persistentData.ChangeTime, CommonTime() + 400); // Trigger shortly after if the user speaks
 
 	if (persistentData.UpdateTime < CommonTime() && data.C == Player) {

@@ -153,7 +153,7 @@ var AudioActions = [
 	},
 	{
 		IsAction: (data) => [
-			"InteractiveVisorHeadSet"
+			"InteractiveVisorSet"
 		].find(A => data.Content.includes(A)),
 		Sound: "SciFiEffect"
 	},

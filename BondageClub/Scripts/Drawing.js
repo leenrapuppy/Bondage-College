@@ -29,7 +29,7 @@ var DrawLastDarkFactor = 0;
 var DrawLastCharacters = [];
 
 /**
- * A list of elements to draw at the end of the drawing process. 
+ * A list of elements to draw at the end of the drawing process.
  * Mostly used for hovering button labels.
  * @type {Function[]}
  */
@@ -1204,18 +1204,10 @@ function DrawGetCustomBackground() {
 	const hood = InventoryGet(Player, "ItemHood");
 	let customBG = "";
 
-	if (blindfold && blindfold.Asset && blindfold.Asset.CustomBlindBackground) {
-		let type = "None";
-		if (blindfold.Property && blindfold.Property.Type && blindfold.Asset.CustomBlindBackground[blindfold.Property.Type] != null)
-			type = blindfold.Property.Type;
-		if (blindfold.Asset.CustomBlindBackground[type])
-			customBG = blindfold.Asset.CustomBlindBackground[type];
-	} else if (hood && hood.Asset && hood.Asset.CustomBlindBackground) {
-		let type = "None";
-		if (hood.Property && hood.Property.Type && hood.Asset.CustomBlindBackground[hood.Property.Type])
-			type = hood.Property.Type;
-		if (hood.Asset.CustomBlindBackground[type])
-			customBG = hood.Asset.CustomBlindBackground[type];
+	if (blindfold && blindfold.Property && blindfold.Property.CustomBlindBackground) {
+		customBG = blindfold.Property.CustomBlindBackground;
+	} else if (hood && hood.Property && hood.Property.CustomBlindBackground) {
+		customBG = hood.Property.CustomBlindBackground;
 	}
 
 	return customBG;
@@ -1270,10 +1262,10 @@ function DrawProcess(time) {
 
 	// Draw Hovering text so they can be above everything else
 	DrawProcessHoverElements();
-	
+
 	// Draws beep from online player sent by the server
 	ServerDrawBeep();
-	
+
 
 	// Checks for screen resize/position change and calls appropriate function
 	const newCanvasPosition = [MainCanvas.canvas.offsetLeft, MainCanvas.canvas.offsetTop, MainCanvas.canvas.clientWidth, MainCanvas.canvas.clientHeight];
