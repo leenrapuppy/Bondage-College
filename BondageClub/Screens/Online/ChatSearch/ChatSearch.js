@@ -47,7 +47,6 @@ function ChatSearchLoad() {
  * @returns {void} - Nothing
  */
 function ChatSearchRun() {
-
 	if (ChatSearchMode == "")
 		ChatSearchNormalDraw();
 	else if (ChatSearchMode == "Filter")

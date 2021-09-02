@@ -694,6 +694,7 @@ interface PlayerCharacter extends Character {
 		DoBlindFlash: boolean;
 		AnimationQuality: number;
 		StimulationFlash: boolean;
+		NoSmoothZoom: boolean;
 	}
 	NotificationSettings?: {
 		/** @deprecated */

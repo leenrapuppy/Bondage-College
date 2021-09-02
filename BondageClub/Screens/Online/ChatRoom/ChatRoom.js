@@ -86,6 +86,12 @@ const ChatRoomFontSizes = {
 	Large: 44,
 };
 
+var ChatRoomCharacterX_Upper = 0;
+var ChatRoomCharacterX_Lower = 0;
+var ChatRoomCharacterZoom = 1;
+var ChatRoomSlideWeight = 9;
+var ChatRoomCharacterInitialize = true;
+
 /**
  * Chat room resize manager object: Handles resize events for the chat log.
  * @constant
@@ -503,6 +509,8 @@ function ChatRoomLoad() {
 	}
 	ChatRoomMenuBuild();
 
+	ChatRoomCharacterInitialize = true;
+
 	TextPrefetch("Character", "FriendList");
 	TextPrefetch("Online", "ChatAdmin");
 }
@@ -656,7 +664,18 @@ function ChatRoomDrawCharacter(DoClick) {
 
 	// Determine the horizontal & vertical position and zoom levels to fit all characters evenly in the room
 	const Space = ChatRoomCharacterCount >= 2 ? 1000 / Math.min(ChatRoomCharacterCount, 5) : 500;
-	const Zoom = ChatRoomCharacterCount >= 3 ? Space / 400 : 1;
+
+	// Gradually slide the characters around to make room
+	let weight = ChatRoomSlideWeight;
+	if (ChatRoomCharacterInitialize || !(Player.GraphicsSettings && Player.GraphicsSettings.SmoothZoom)) {
+		ChatRoomCharacterInitialize = false;
+		weight = 0;
+	}
+	ChatRoomCharacterZoom = (ChatRoomCharacterZoom * weight + ((ChatRoomCharacterCount >= 3 ? Space / 400 : 1))) / (weight + 1);
+	ChatRoomCharacterX_Upper = (ChatRoomCharacterX_Upper * weight + 500 - 0.5 * Space * Math.min(ChatRoomCharacterCount, 5))/(weight + 1);
+	ChatRoomCharacterX_Lower = (ChatRoomCharacterX_Lower * weight + 500 - 0.5 * Space * Math.max(1, ChatRoomCharacterCount - 5))/(weight + 1);
+
+	const Zoom = ChatRoomCharacterZoom;
 	const X = ChatRoomCharacterCount >= 3 ? (Space - 500 * Zoom) / 2 : 0;
 	const Y = ChatRoomCharacterCount <= 5 ? 1000 * (1 - Zoom) / 2 : 0;
 	const InvertRoom = Player.GraphicsSettings.InvertRoom && Player.IsInverted();
@@ -668,7 +687,10 @@ function ChatRoomDrawCharacter(DoClick) {
 
 	// Draw the characters (in click mode, we can open the character menu or start whispering to them)
 	for (let C = 0; C < ChatRoomCharacterDrawlist.length; C++) {
-		const CharX = ChatRoomCharacterCount == 1 ? 0 : X + (C % 5) * Space;
+		let ChatRoomCharacterX = C >= 5 ? ChatRoomCharacterX_Lower : ChatRoomCharacterX_Upper;
+		if (!(Player.GraphicsSettings && Player.GraphicsSettings.CenterChatrooms)) ChatRoomCharacterX = 0;
+
+		const CharX = ChatRoomCharacterX + (ChatRoomCharacterCount == 1 ? 0 : X + (C % 5) * Space);
 		const CharY = ChatRoomCharacterCount == 1 ? 0 : Y + Math.floor(C / 5) * 500;
 		if (ChatRoomCharacterCount == 1 && ChatRoomCharacterDrawlist[C].ID !== 0) { // Only render the player!
 			continue;
