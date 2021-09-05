@@ -1603,10 +1603,8 @@ function ChatRoomSendLocal(Content, Timeout) {
  */
 function ChatRoomSendEmote(msg) {
 	if (Player.ChatSettings.MuStylePoses && msg.startsWith(":")) msg = msg.substring(1);
-	else if (msg.indexOf("**") == 0) {
-		msg = "*" + msg.replace(/\*/g, "");
-	} else {
-		msg = msg.replace(/\*/g, "");
+	else {
+		msg = msg.replace(/^\*/, "").replace(/\*$/, "");
 		if (msg.startsWith(CommandsKey + "me ")) msg = msg.replace(CommandsKey + "me ", "");
 		if (msg.startsWith(CommandsKey + "action ")) msg = msg.replace(CommandsKey + "action ", "*");
 	}
