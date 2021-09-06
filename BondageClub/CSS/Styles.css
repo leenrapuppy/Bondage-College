@@ -16,7 +16,11 @@ canvas {
     height: 100%;
   }
 }
-TextArea {
+input {
+	background: white;
+}
+textarea {
+	background: white;
 	resize: none;
 }
 * { -webkit-tap-highlight-color:rgba(0,0,0,0); }
