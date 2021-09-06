@@ -2,6 +2,14 @@
 var Character = [];
 var CharacterNextId = 1;
 
+/** @type Map<string, number> */
+const CharacterDeafLevels = new Map([
+	["DeafTotal", 4],
+	["DeafHeavy", 3],
+	["DeafNormal", 2],
+	["DeafLight", 1],
+]);
+
 /**
  * Loads a character into the buffer, creates it if it does not exist
  * @param {number} CharacterID - ID of the character
@@ -198,14 +206,13 @@ function CharacterReset(CharacterID, CharacterAssetFamily) {
 			return CharacterGetLoversNumbers(this, MembersOnly);
 		},
 		GetDeafLevel: function () {
-			var deafLevel = 0;
-			for (let A = 0; A < this.Appearance.length; A++) {
-				// Sum up the various level of deafness and returns the final value, Light: 1, Normal: 2, Heavy: 3, Total: 4
-				if (this.Appearance[A].Asset.Effect != null) {
-					if (this.Appearance[A].Asset.Effect.indexOf("DeafLight") >= 0 || (this.Appearance[A].Property != null && Array.isArray(this.Appearance[A].Property.Effect) && this.Appearance[A].Property.Effect.indexOf("DeafLight") >= 0)) deafLevel += 1;
-					else if (this.Appearance[A].Asset.Effect.indexOf("DeafNormal") >= 0 || (this.Appearance[A].Property != null && Array.isArray(this.Appearance[A].Property.Effect) && this.Appearance[A].Property.Effect.indexOf("DeafNormal") >= 0)) deafLevel += 2;
-					else if (this.Appearance[A].Asset.Effect.indexOf("DeafHeavy") >= 0 || (this.Appearance[A].Property != null && Array.isArray(this.Appearance[A].Property.Effect) && this.Appearance[A].Property.Effect.indexOf("DeafHeavy") >= 0)) deafLevel += 3;
-					else if (this.Appearance[A].Asset.Effect.indexOf("DeafTotal") >= 0 || (this.Appearance[A].Property != null && Array.isArray(this.Appearance[A].Property.Effect) && this.Appearance[A].Property.Effect.indexOf("DeafTotal") >= 0)) deafLevel += 4;
+			let deafLevel = 0;
+			for (const item of this.Appearance) {
+				for (const [effect, level] of CharacterDeafLevels.entries()) {
+					if (InventoryItemHasEffect(item, effect)) {
+						deafLevel += level;
+						break; // Only count the highest deafness level defined on the item
+					}
 				}
 			}
 			return deafLevel;

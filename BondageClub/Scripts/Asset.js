@@ -42,7 +42,7 @@ function AssetGroupAdd(NewAssetFamily, NewAsset) {
 		SetPose: NewAsset.SetPose,
 		AllowPose: Array.isArray(NewAsset.AllowPose) ? NewAsset.AllowPose : [],
 		AllowExpression: NewAsset.AllowExpression,
-		Effect: NewAsset.Effect,
+		Effect: Array.isArray(NewAsset.Effect) ? NewAsset.Effect : [],
 		MirrorGroup: (NewAsset.MirrorGroup == null) ? "" : NewAsset.MirrorGroup,
 		RemoveItemOnRemove: (NewAsset.RemoveItemOnRemove == null) ? [] : NewAsset.RemoveItemOnRemove,
 		DrawingPriority: (NewAsset.Priority == null) ? AssetGroup.length : NewAsset.Priority,
