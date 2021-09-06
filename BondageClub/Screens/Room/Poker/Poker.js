@@ -360,7 +360,7 @@ function PokerRun() {
 	if ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER") || (PokerMode == "RESULT")) {
 		for (let P = (PokerShowPlayer ? 0 : 1); P < PokerPlayer.length; P++)
 			if ((PokerPlayer[P].Type != "None") && (PokerPlayer[P].Name != "None") && (PokerPlayer[P].Hand.length > 0)) {
-				DrawText(TextGet("Chip") + ": " + PokerPlayer[P].Chip.toString(), (PokerShowPlayer ? 250 : 0) + P * 500, 682, "white", "gray");
+				DrawText(PokerPlayer[P].Name + ": " + PokerPlayer[P].Chip.toString(), (PokerShowPlayer ? 250 : 0) + P * 500, 682, "white", "gray");
 				if ((PokerPlayer[P].Family != "Player") && (PokerMode != "RESULT"))
 					DrawImageEx("Screens/Room/Poker/Cards/OpponentCards.gif", (PokerShowPlayer ? 250 : 0) + P * 500 - 75, 720, {Canvas: MainCanvas, Zoom: 1.5});
 				else {
