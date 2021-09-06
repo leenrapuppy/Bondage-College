@@ -5,6 +5,7 @@
   "scripts": {
     "changelog": "node GenerateChangelog generate",
     "changelogPrepare": "node GenerateChangelog prepare",
+    "checks": "npm run lintscripts && npm run assetcheck-typescript && npm run assetcheck",
     "lint": "eslint --config ./.eslintrc.js ../../Assets/Female3DCG/Female3DCG.js",
     "lint:fix": "eslint --fix --config ./.eslintrc.js ../../Assets/Female3DCG/Female3DCG.js",
     "lintscripts": "eslint --quiet \"../../Scripts/**/*.js\" \"../../Screens/**/*.js\" \"../../Assets/**/*.js\" \"../../Tools/**/*.js\" \"../../Backgrounds/Backgrounds.js\"",
