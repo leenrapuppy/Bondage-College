@@ -672,6 +672,7 @@ function DialogInventoryCreateItem(C, item, isWorn, sortOrder) {
 	let icons = [];
 	if (favoriteStateDetails.Icon) icons.push(favoriteStateDetails.Icon);
 	if (InventoryItemHasEffect(item, "Lock", true)) icons.push(isWorn ? "Locked" : "Unlocked");
+	if (C.ID !== 0 && !InventoryBlockedOrLimited(C, item) && InventoryIsPermissionLimited(C, item.Asset.Name, item.Asset.Group.Name)) icons.push("AllowedLimited");
 	icons = icons.concat(DialogGetAssetIcons(asset));
 
 	/** @type {DialogInventoryItem} */
@@ -690,11 +691,12 @@ function DialogInventoryCreateItem(C, item, isWorn, sortOrder) {
  * Returns settings for an item based on whether the player and target have favorited it, if any
  * @param {Character} C - The targeted character
  * @param {Asset} asset - The asset to check favorite settings for
+ * @param {string} [type=null] - The type of the asset to check favorite settings for
  * @returns {any} - The details to use for the asset
  */
-function DialogGetFavoriteStateDetails(C, asset) {
-	const isTargetFavorite = InventoryIsFavorite(C, asset.Name, asset.Group.Name, null);
-	const isPlayerFavorite = C.ID !== 0 && InventoryIsFavorite(Player, asset.Name, asset.Group.Name, null);
+function DialogGetFavoriteStateDetails(C, asset, type = null) {
+	const isTargetFavorite = InventoryIsFavorite(C, asset.Name, asset.Group.Name, type);
+	const isPlayerFavorite = C.ID !== 0 && InventoryIsFavorite(Player, asset.Name, asset.Group.Name, type);
 	const details = DialogFavoriteStateDetails.find(F => F.TargetFavorite == isTargetFavorite && F.PlayerFavorite == isPlayerFavorite);
 	return details;
 }

@@ -152,7 +152,11 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages = tr
 		DrawButton(X, Y, 225, 55 + ImageHeight, "", ButtonColor, null, null, IsSelected);
 		if (ShowImages) {
 			DrawImage(`${AssetGetInventoryPath(Asset)}/${Option.Name}.png`, X + 2, Y);
-			const icons = IsFavorite ? ["Favorite"] : null;
+			const icons = [];
+			if (C.ID !== 0 && !InventoryBlockedOrLimited(C, DialogFocusItem, Option.Property.Type) && InventoryIsPermissionLimited(C, Asset.Name, Asset.Group.Name, Option.Property.Type))
+				icons.push("AllowedLimited");
+			const FavoriteDetails = DialogGetFavoriteStateDetails(C, Asset, Option.Property.Type);
+			if (FavoriteDetails && FavoriteDetails.Icon) icons.push(FavoriteDetails.Icon);
 			DrawPreviewIcons(icons, X + 2, Y);
 		}
 		DrawTextFit((IsFavorite && !ShowImages ? "★ " : "") + DialogFindPlayer(DialogPrefix + Option.Name), X + 112, Y + 30 + ImageHeight, 225, "black");
