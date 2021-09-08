@@ -207,6 +207,8 @@ interface AssetLayer {
 	/** Any group-specific alpha masks that should be applied when drawing the layer. Only available on layers that have
 	been created prior to drawing */
 	GroupAlpha?: AlphaDefinition[];
+	/** A module for which the layer can have types. */
+	ModuleType?: string[];
 }
 
 /** An object defining a group of alpha masks to be applied when drawing an asset layer */

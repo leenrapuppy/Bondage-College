@@ -10,7 +10,7 @@ function InventoryItemNeckAccessoriesCustomCollarTagTxt0Draw() {
 	// Draw the header and item
 	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
 
-    // Tag data
+	// Tag data
 	ElementPosition("TagText", 1375, 680, 250);
 	DrawButton(1500, 651, 350, 64, DialogFindPlayer("CustomTagText"), ElementValue("TagText").match(InventoryItemNeckAccessoriesCustomCollarTagAllowedChars) ? "White" : "#888", "");
 }
@@ -25,7 +25,7 @@ function InventoryItemNeckAccessoriesCustomCollarTagTxt0Click() {
 		DialogFocusItem.Property.Text = ElementValue("TagText");
 		InventoryItemNeckAccessoriesCustomCollarTagChange();
 	}
-	
+
 	// Exits the screen
 	if (MouseIn(1885, 25, 90, 90)) {
 		InventoryItemNeckAccessoriesCustomCollarTagExit();
@@ -40,14 +40,14 @@ function InventoryItemNeckAccessoriesCustomCollarTagExit() {
 
 // When the tag is changed
 function InventoryItemNeckAccessoriesCustomCollarTagChange() {
-    var C = CharacterGetCurrent();
-    CharacterRefresh(C);
-    if (CurrentScreen == "ChatRoom") {
-        var Dictionary = [];
-        Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
-        Dictionary.push({ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
-        ChatRoomPublishCustomAction("ChangeCustomTag", false, Dictionary);
-    }
+	var C = CharacterGetCurrent();
+	CharacterRefresh(C);
+	if (CurrentScreen == "ChatRoom") {
+		var Dictionary = [];
+		Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+		Dictionary.push({ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
+		ChatRoomPublishCustomAction("ChangeCustomTag", false, Dictionary);
+	}
 	InventoryItemNeckAccessoriesCustomCollarTagExit();
 }
 
@@ -57,16 +57,16 @@ function AssetsItemNeckAccessoriesCustomCollarTagAfterDraw({
 }) {
 	if (L === "_Text") {
 		// Determine the canvas position and size
-		const Properties = Property || {}
-		const Type = Properties.Type || "t0"
-		
+		const Properties = Property || {};
+		const Type = Properties.Type || "t0";
+
 		// We set up a canvas
 		let Height = 50;
 		let Width = 45;
 		let YOffset = 30;
 		const FontName = "sans-serif";
 		const TempCanvas = AnimationGenerateTempCanvas(C, A, Width, Height);
-		
+
 		if (Type.includes("t1")) {
 			YOffset = 45;
 		} else if (Type.includes("t3")) {
@@ -76,7 +76,7 @@ function AssetsItemNeckAccessoriesCustomCollarTagAfterDraw({
 		} else if (Type.includes("t5")) {
 			YOffset = 31;
 		}
-		
+
 		const text = Property && typeof Property.Text === "string" && InventoryItemNeckAccessoriesCustomCollarTagAllowedChars.test(Property.Text) ? Property.Text : "Tag";
 
 		// We draw the desired info on that canvas

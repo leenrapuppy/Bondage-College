@@ -165,4 +165,5 @@ interface AssetLayerDefinition {
 	MirrorExpression?: string;
 	HideForPose?: string[];
 	AllowModuleTypes?: string[];
+	ModuleType?: string[];
 }

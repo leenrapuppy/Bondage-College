@@ -172,6 +172,15 @@ function CommonDrawAppearanceBuild(C, {
 		let LayerType = Type;
 		if (Layer.Name) L = "_" + Layer.Name;
 		if (!Layer.HasType) LayerType = "";
+		if (Layer.ModuleType) {
+			const parsedTypes = Type.split(/([0-9]+)/);
+			LayerType = Layer.ModuleType.map(key => {
+				if (!Type) return key + "0";
+				const keyIndex = parsedTypes.indexOf(key);
+				const moduleOption = keyIndex === -1 ? "0" : parsedTypes[keyIndex + 1];
+				return Layer.ModuleType + moduleOption;
+			}).join("");
+		}
 		let Opacity = (Property && typeof Property.Opacity === "number") ? Property.Opacity : Layer.Opacity;
 		Opacity = Math.min(Layer.MaxOpacity, Math.max(Layer.MinOpacity, Opacity));
 		const BlinkExpression = (A.OverrideBlinking ? !AG.DrawingBlink : AG.DrawingBlink) ? "Closed/" : Expression;

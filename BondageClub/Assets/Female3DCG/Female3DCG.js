@@ -3309,12 +3309,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "CustomCollarTag", Value: 50, Difficulty: 20, Time: 5, Random: false, IsRestraint: false, AllowLock: true, DefaultColor: ["#aaa366", "#000000"], Prerequisite: "Collared", DynamicAfterDraw: true, Extended: true, DrawLocks: false,
 				Layer: [
-					{ Name: "Tag", HasType: false, AllowModuleTypes: ["t0"] },
-					{ Name: "Tag2", HasType: false, CopyLayerColor: "Tag", AllowModuleTypes:["t1"]},
-					{ Name: "Tag3", HasType: false, CopyLayerColor: "Tag", AllowModuleTypes:["t2"]},
-					{ Name: "Tag4", HasType: false, CopyLayerColor: "Tag", AllowModuleTypes:["t3"]},
-					{ Name: "Tag5", HasType: false, CopyLayerColor: "Tag", AllowModuleTypes:["t4"]},
-					{ Name: "Tag6", HasType: false, CopyLayerColor: "Tag", AllowModuleTypes:["t5"]},
+					{ Name: "Tag", ModuleType: ["t"], AllowModuleTypes: ["t0", "t1", "t2", "t3", "t4", "t5"] },
 					{ Name: "Text", HasType: false },
 					{ Name: "Lock", AllowColorize: false, LockLayer: true, HasType: false },
 				]
