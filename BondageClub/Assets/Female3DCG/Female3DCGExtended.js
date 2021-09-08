@@ -267,6 +267,7 @@ var AssetFemale3DCGExtended = {
 							SetPose: ["LegsClosed", "BackElbowTouch"],
 							Effect: ["Block", "Freeze", "Prone"],
 							Block: ["ItemTorso", "ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"],
+							HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"],
 						},
 					},
 					{
@@ -280,6 +281,7 @@ var AssetFemale3DCGExtended = {
 							SetPose: ["LegsClosed", "BackElbowTouch"],
 							Effect: ["Block", "Freeze", "Prone"],
 							Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemPelvis", "ItemTorso", "ItemHands", "ItemLegs", "ItemFeet", "ItemBoots", "ItemNipples", "ItemNipplesPiercings", "ItemBreast"],
+							HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"],
 						},
 						Random: false,
 					},
@@ -310,6 +312,7 @@ var AssetFemale3DCGExtended = {
 							SetPose: ["LegsClosed", "BackElbowTouch", "Suspension"],
 							Effect: ["Block", "Freeze", "Prone"],
 							Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemPelvis", "ItemTorso", "ItemHands", "ItemLegs", "ItemFeet", "ItemBoots", "ItemNipples", "ItemNipplesPiercings", "ItemBreast"],
+							HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"],
 						},
 						Random: false,
 					},
@@ -938,6 +941,7 @@ var AssetFemale3DCGExtended = {
 							Type: "Bottom",
 							SetPose: ["BackElbowTouch"],
 							Block: ["ItemVulva", "ItemButt", "ItemPelvis", "ItemVulvaPiercings"],
+							HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"],
 							Difficulty: 2,
 						},
 					},
@@ -960,6 +964,7 @@ var AssetFemale3DCGExtended = {
 							Type: "Full",
 							SetPose: ["BackElbowTouch"],
 							Block: ["ItemVulva", "ItemButt", "ItemPelvis", "ItemTorso", "ItemBreast", "ItemNipples", "ItemVulvaPiercings", "ItemNipplesPiercings"],
+							HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"],
 							Difficulty: 6,
 						}
 					},
@@ -971,6 +976,7 @@ var AssetFemale3DCGExtended = {
 							Type: "Complete",
 							SetPose: ["BackElbowTouch"],
 							Block: ["ItemVulva", "ItemButt", "ItemPelvis", "ItemTorso", "ItemBreast", "ItemNipples", "ItemVulvaPiercings", "ItemNipplesPiercings"],
+							HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"],
 							Difficulty: 7,
 						}
 					},
@@ -982,6 +988,7 @@ var AssetFemale3DCGExtended = {
 							Type: "ExposedComplete",
 							SetPose: ["BackElbowTouch"],
 							Block: ["ItemVulva", "ItemButt", "ItemPelvis", "ItemTorso", "ItemVulvaPiercings", "ItemBreast"],
+							HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"],
 							Difficulty: 7,
 						}
 					},
@@ -1723,6 +1730,7 @@ var AssetFemale3DCGExtended = {
 							SetPose: ["LegsClosed", "BaseUpper"],
 							Effect: ["Block", "Prone", "Freeze", "Mounted"],
 							Hide: ["HairBack", "Wings", "TailStraps", "ItemButt"],
+							HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"],
 						},
 					},
 					{
@@ -1735,6 +1743,7 @@ var AssetFemale3DCGExtended = {
 							SetPose: ["LegsClosed", "BaseUpper"],
 							Effect: ["Block", "Prone", "Freeze", "Mounted"],
 							Hide: ["HairBack", "Wings", "TailStraps", "ItemButt"],
+							HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"],
 						},
 					},
 				],
@@ -3223,11 +3232,11 @@ var AssetFemale3DCGExtended = {
 					}, {
 						Name: "MostLegs",
 						Prerequisite: ["NoClothLower"],
-						Property: { Type: "MostLegs", Hide: ["ClothLower"], Difficulty: 4 }
+						Property: { Type: "MostLegs", Hide: ["ClothLower"], Difficulty: 4, HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"], }
 					}, {
 						Name: "CompleteLegs",
 						Prerequisite: ["NoClothLower"],
-						Property: { Type: "CompleteLegs", Hide: ["ClothLower"], Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Difficulty: 6 }
+						Property: { Type: "CompleteLegs", Hide: ["ClothLower"], Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Difficulty: 6, HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"], }
 					}, {
 						Name: "PetLegs",
 						Prerequisite: ["NoClothLower", "NotSuspended", "CanKneel"],
@@ -3796,6 +3805,22 @@ var AssetFemale3DCGExtended = {
 				}
 			},
 		}, // HempRope
+		PoofyDiaper: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.DEST_CHAR_NAME],
+				Options: [
+					{
+						Name: "RegularPadding",
+						Property: { Type: null, },
+					},
+					{
+						Name: "ExtraPadding",
+						Property: { Type: "Poofy", HideItem: ["ClothLowerSkirt3", "ClothLowerTennisSkirt1"]	, },
+					},
+				],
+			},
+		}, // PoofyDiaper
 	}, // ItemPelvis
 	ItemEars: {
 		FuturisticEarphones: {
@@ -4022,6 +4047,22 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // Diapers4
+		PoofyDiaper: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.DEST_CHAR_NAME],
+				Options: [
+					{
+						Name: "RegularPadding",
+						Property: { Type: null, },
+					},
+					{
+						Name: "ExtraPadding",
+						Property: { Type: "Poofy", HideItem: ["ClothLowerSkirt3", "ClothLowerTennisSkirt1"], },
+					},
+				],
+			},
+		}, // PoofyDiaper
 	}, // Panties
 	Glasses: {
 		EyePatch1: {

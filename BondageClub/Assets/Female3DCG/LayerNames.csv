@@ -89,6 +89,14 @@ PantiesDiapers2Cover,Plastic Cover
 PantiesDiapers4Diaper,Diaper
 PantiesDiapers4Tape,Tape
 PantiesDiapers4Pattern,Pattern
+PantiesBulkyDiaperBase,Diaper
+PantiesBulkyDiaperCrotchPiece,Crotch Padding
+PantiesBulkyDiaperWaistBand,Waist Band
+PantiesBulkyDiaperTape,Tape
+PantiesPoofyDiaperBase,Diaper
+PantiesPoofyDiaperCrotchPatch,Crotch Padding
+PantiesPoofyDiaperFrills,Frills
+PantiesPoofyDiaperTape,Tape
 PantiesFlowerPantiesPanties,Panties
 PantiesFlowerPantiesFlowers,Flowers
 PantiesFloralPanties2Base,Base
@@ -224,6 +232,14 @@ ItemButtFoxTailsBases,Tails
 ItemButtFoxTailsTips,Tips
 ItemPelvisOrnateChastityBeltBelt,Belt
 ItemPelvisOrnateChastityBeltGems,Gems
+ItemPelvisBulkyDiaperBase,Diaper
+ItemPelvisBulkyDiaperCrotchPiece,Crotch Padding
+ItemPelvisBulkyDiaperWaistBand,Waist Band
+ItemPelvisBulkyDiaperTape,Tape
+ItemPelvisPoofyDiaperBase,Diaper
+ItemPelvisPoofyDiaperCrotchPatch,Crotch Padding
+ItemPelvisPoofyDiaperFrills,Frills
+ItemPelvisPoofyDiaperTape,Tape
 ItemNipplesTapedVibeEggsEgg1,Left Vibe Egg
 ItemNipplesTapedVibeEggsEgg2,Right Vibe Egg
 ItemNipplesTapedVibeEggsTape1,Left Tape Strip
