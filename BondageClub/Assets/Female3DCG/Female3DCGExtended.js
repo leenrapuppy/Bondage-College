@@ -2331,6 +2331,27 @@ var AssetFemale3DCGExtended = {
 				DrawImages: false,
 			},
 		}, // ClitSuctionCup
+		DoubleEndDildo: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.DEST_CHAR_NAME, CommonChatTags.ASSET_NAME],
+				Options: [
+					{
+						Name: "Normal",
+						Property: {
+							Type: null,
+						},
+					},
+					{
+						Name: "Large",
+						Property: {
+							Type: "Large",
+						},
+					},
+				],
+				DrawImages: false,
+			},
+		},
 	}, // ItemVulva
 	ItemVulvaPiercings: {
 		ClitRing: {
