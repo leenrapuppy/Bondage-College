@@ -1380,6 +1380,7 @@ var AssetFemale3DCGExtended = {
 		StraitLeotard: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatTags: [CommonChatTags.DEST_CHAR_NAME, CommonChatTags.ASSET_NAME],
 				Modules: [
 					{
 						Name: "Cloth", Key: "cl",
