@@ -95,7 +95,7 @@ function ChatAdminRun() {
 		() => DialogFindPlayer((ChatAdminBackgroundIndex == 0) ? ChatCreateBackgroundList[ChatCreateBackgroundList.length - 1] : ChatCreateBackgroundList[ChatAdminBackgroundIndex - 1]),
 		() => DialogFindPlayer((ChatAdminBackgroundIndex >= ChatCreateBackgroundList.length - 1) ? ChatCreateBackgroundList[0] : ChatCreateBackgroundList[ChatAdminBackgroundIndex + 1]), !ChatRoomPlayerIsAdmin());
 	DrawButton(1840, 450, 60, 60, "", ChatRoomPlayerIsAdmin() ? "White" : "#ebebe4", "Icons/Small/Preference.png", null, !ChatRoomPlayerIsAdmin());
-	DrawButton(1300, 575, 275, 60, TextGet("BlockCategory"), ChatRoomPlayerIsAdmin() ? "White" : "#ebebe4", null, null, !ChatRoomPlayerIsAdmin());
+	DrawButton(1300, 575, 275, 60, TextGet("BlockCategory"), "White");
 	DrawBackNextButton(1625, 575, 275, 60, TextGet("Game" + ChatAdminGame), ChatRoomPlayerIsAdmin() ? "White" : "#ebebe4", null, () => "", () => "");
 
 	// Private and Locked check boxes
@@ -118,6 +118,31 @@ function ChatAdminClick() {
 	// When the user cancels/exits
 	if (MouseIn(1625, 840, 250, 65)) ChatAdminExit();
 
+	// Background selection button (admin only) and item block button (anyone)
+	// Saves values before entering.
+	if ((ChatRoomPlayerIsAdmin() && (MouseIn(1300, 75, 600, 350) || MouseIn(1840, 450, 60, 60))) || MouseIn(1300, 575, 275, 60)) {
+		ChatAdminTemporaryData = {
+			Name: ElementValue("InputName"),
+			Description: ElementValue("InputDescription"),
+			Limit: ElementValue("InputSize"),
+			AdminList: ElementValue("InputAdminList"),
+			BanList: ElementValue("InputBanList"),
+			Private: ChatAdminPrivate,
+			Locked: ChatAdminLocked,
+		};
+		ElementRemove("InputName");
+		ElementRemove("InputDescription");
+		ElementRemove("InputSize");
+		ElementRemove("InputAdminList");
+		ElementRemove("InputBanList");
+		if (MouseIn(1300, 575, 275, 60)) {
+			ChatBlockItemEditable = ChatRoomPlayerIsAdmin();
+			ChatBlockItemReturnData = { Screen: "ChatAdmin" };
+			ChatBlockItemCategory = ChatAdminBlockCategory;
+			CommonSetScreen("Online", "ChatBlockItem");
+		} else BackgroundSelectionMake(ChatCreateBackgroundList, ChatAdminBackgroundIndex, Name => ChatAdminBackgroundSelected = Name);
+	}
+
 	// All other controls are for administrators only
 	if (ChatRoomPlayerIsAdmin()) {
 
@@ -136,29 +161,6 @@ function ChatAdminClick() {
 			if (Index < 0) Index = ChatAdminGameList.length - 1;
 			if (Index >= ChatAdminGameList.length) Index = 0;
 			ChatAdminGame = ChatAdminGameList[Index];
-		}
-
-		// Background selection button and item block button (Save values before entering)
-		if (MouseIn(1300, 75, 600, 350) || MouseIn(1840, 450, 60, 60) || MouseIn(1300, 575, 275, 60)) {
-			ChatAdminTemporaryData = {
-				Name: ElementValue("InputName"),
-				Description: ElementValue("InputDescription"),
-				Limit: ElementValue("InputSize"),
-				AdminList: ElementValue("InputAdminList"),
-				BanList: ElementValue("InputBanList"),
-				Private: ChatAdminPrivate,
-				Locked: ChatAdminLocked,
-			};
-			ElementRemove("InputName");
-			ElementRemove("InputDescription");
-			ElementRemove("InputSize");
-			ElementRemove("InputAdminList");
-			ElementRemove("InputBanList");
-			if (MouseIn(1300, 575, 275, 60)) {
-				ChatBlockItemReturnData = { Screen: "ChatAdmin" };
-				ChatBlockItemCategory = ChatAdminBlockCategory;
-				CommonSetScreen("Online", "ChatBlockItem");
-			} else BackgroundSelectionMake(ChatCreateBackgroundList, ChatAdminBackgroundIndex, Name => ChatAdminBackgroundSelected = Name);
 		}
 
 		// Private & Locked check boxes + save button + quickban buttons

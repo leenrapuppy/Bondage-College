@@ -2,6 +2,7 @@
 var ChatBlockItemBackground = "Sheet";
 var ChatBlockItemList = ["ABDL", "SciFi", "Leashing", "Photos", "Arousal"];
 var ChatBlockItemCategory = [];
+var ChatBlockItemEditable = true;
 var ChatBlockItemReturnData = {};
 
 /**
@@ -18,7 +19,9 @@ function ChatBlockItemLoad() {
 function ChatBlockItemRun() {
 	DrawText(TextGet("Title"), 1000, 150, "Black", "Gray");
 	for (let L = 0; L < ChatBlockItemList.length; L++) {
-		DrawButton(600, 200 + L * 100, 64, 64, "", "White", (ChatBlockItemCategory.indexOf(ChatBlockItemList[L]) >= 0) ? "Icons/Checked.png" : "");
+		DrawButton(600, 200 + L * 100, 64, 64, "",
+			ChatBlockItemEditable ? "White" : "#ebebe4",
+			(ChatBlockItemCategory.indexOf(ChatBlockItemList[L]) >= 0) ? "Icons/Checked.png" : null, null, !ChatBlockItemEditable);
 		DrawText(TextGet(ChatBlockItemList[L]), 1000, 232 + L * 100, "Black", "Gray");
 	}
 	DrawButton(850, 800, 300, 65, TextGet("Return"), "White");
@@ -29,12 +32,14 @@ function ChatBlockItemRun() {
  * @returns {void} - Nothing
  */
 function ChatBlockItemClick() {
-	for (let L = 0; L < ChatBlockItemList.length; L++)
-		if (MouseIn(600, 200 + L * 100, 64, 64))
-			if (ChatBlockItemCategory.indexOf(ChatBlockItemList[L]) < 0)
-				ChatBlockItemCategory.push(ChatBlockItemList[L]);
-			else
-				ChatBlockItemCategory.splice(ChatBlockItemCategory.indexOf(ChatBlockItemList[L]), 1);
+	if (ChatBlockItemEditable) {
+		for (let L = 0; L < ChatBlockItemList.length; L++)
+			if (MouseIn(600, 200 + L * 100, 64, 64))
+				if (ChatBlockItemCategory.indexOf(ChatBlockItemList[L]) < 0)
+					ChatBlockItemCategory.push(ChatBlockItemList[L]);
+				else
+					ChatBlockItemCategory.splice(ChatBlockItemCategory.indexOf(ChatBlockItemList[L]), 1);
+	}
 	if (MouseIn(850, 800, 300, 65)) ChatBlockItemExit();
 }
 
@@ -44,6 +49,7 @@ function ChatBlockItemClick() {
  */
 function ChatBlockItemExit() {
 	CommonSetScreen("Online", ChatBlockItemReturnData.Screen);
+	ChatBlockItemEditable = true;
 	if (ChatBlockItemReturnData.Screen == "ChatCreate") {
 		ElementValue("InputName", ChatBlockItemReturnData.Name);
 		ElementValue("InputDescription", ChatBlockItemReturnData.Description);
