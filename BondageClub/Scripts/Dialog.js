@@ -22,6 +22,7 @@ var DialogAllowFluids = false;
 var DialogFacialExpressions = [];
 var DialogFacialExpressionsSelected = -1;
 var DialogFacialExpressionsSelectedBlindnessLevel = 2;
+var DialogSavedExpressionPreviews = [];
 var DialogActivePoses = [];
 var DialogItemPermissionMode = false;
 var DialogExtendedMessage = "";
@@ -78,7 +79,12 @@ var DialogFavoriteStateDetails = [
 /**
  * The list of menu types available when clicking on yourself
  * @const
- * @type {Array.<object>}
+ * @type {Array.<{
+ *	Name: string,
+ *	IsAvailable: () => boolean,
+ *	Draw: () => void,
+ *	Click: () => void
+ * }>}
  */
 var DialogSelfMenuOptions = [
 	{
@@ -494,6 +500,7 @@ function DialogLeave() {
 	DialogInventory = null;
 	CurrentCharacter = null;
 	DialogSelfMenuSelected = null;
+	DialogSavedExpressionPreviews = [];
 	DialogFacialExpressionsSelected = -1;
 	ClearButtons();
 }
@@ -982,19 +989,23 @@ function DialogFacialExpressionsBuild() {
 }
 
 /**
- * saves the expressions to a slot
- * @param {any} Slot slot 0-4
+ * Saves the expressions to a slot
+ * @param {number} Slot - Index of saved expression (0 to 4)
  */
 function DialogFacialExpressionsSave(Slot) {
 	Player.SavedExpressions[Slot] = [];
 	for (let x = 0; x < DialogFacialExpressions.length; x++) {
 		Player.SavedExpressions[Slot].push({ Group: DialogFacialExpressions[x].Group, CurrentExpression: DialogFacialExpressions[x].CurrentExpression });
 	}
+	if (Player.SavedExpressions[Slot].every(expression => !expression.CurrentExpression))
+		Player.SavedExpressions[Slot] = null;
 	ServerAccountUpdate.QueueData({ SavedExpressions: Player.SavedExpressions });
+	DialogBuildSavedExpressionsMenu();
 }
+
 /**
- * loads expressions from a slot
- * @param {any} Slot slot 0-4
+ * Loads expressions from a slot
+ * @param {number} Slot - Index of saved expression (0 to 4)
  */
 function DialogFacialExpressionsLoad(Slot) {
 	if (Player.SavedExpressions[Slot] != null) {
@@ -1004,28 +1015,70 @@ function DialogFacialExpressionsLoad(Slot) {
 		DialogFacialExpressionsBuild();
 	}
 }
-/**draws the savedexpressions menu */
+
+/**
+ * Builds the savedexpressions menu previews.
+ * @returns {void} - Nothing
+ */
+function DialogBuildSavedExpressionsMenu() {
+	const ExcludedGroups = ["Mask"];
+	const AppearanceItems = Player.Appearance.filter(A => A.Asset.Group.Category === "Appearance" && !ExcludedGroups.includes(A.Asset.Group.Name));
+	const BaseAppearance = AppearanceItems.filter(A => !A.Asset.Group.AllowExpression);
+	const ExpressionGroups = AppearanceItems.filter(A => A.Asset.Group.AllowExpression);
+	Player.SavedExpressions.forEach((expression, i) => {
+		if (expression) {
+			const PreviewCharacter = CharacterLoadSimple("SavedExpressionPreview-" + i);
+			PreviewCharacter.Appearance = BaseAppearance.slice();
+			ExpressionGroups.forEach(I =>
+				PreviewCharacter.Appearance.push({ Asset: I.Asset, Color: I.Color })
+			);
+
+			for (let x = 0; x < expression.length; x++) {
+				CharacterSetFacialExpression(PreviewCharacter, expression[x].Group, expression[x].CurrentExpression);
+			}
+
+			DialogSavedExpressionPreviews[i] = PreviewCharacter;
+		}
+	});
+}
+
+/**
+ * Draws the savedexpressions menu
+ * @returns {void} - Nothing
+ */
 function DialogDrawSavedExpressionsMenu() {
-	DrawText(DialogFindPlayer("SavedExpressions"), 195, 25, "White", "Black");
-	DrawText(DialogFindPlayer("SavedExpressionsSave"), 140, 180, "White", "Black");
-	DrawText(DialogFindPlayer("SavedExpressionsLoad"), 260, 180, "White", "Black");
+	DrawText(DialogFindPlayer("SavedExpressions"), 210, 90, "White", "Black");
+
+	if ((!DialogSavedExpressionPreviews || !DialogSavedExpressionPreviews.length) && Player.SavedExpressions.some(expression => expression != null))
+		DialogBuildSavedExpressionsMenu();
+
 	for (let x = 0; x < 5; x++) {
-		DrawButton(100, 200 + (x * 100), 80, 80, x + 1, "White");
-		DrawButton(220, 200 + (x * 100), 80, 80, x + 1, "White");
+		if (Player.SavedExpressions[x] == null) {
+			DrawText(DialogFindPlayer("SavedExpressionsEmpty"), 160, 216 + (x * 170), "White", "Black");
+		} else {
+			const PreviewCanvas = DrawCharacterSegment(DialogSavedExpressionPreviews[x], 100, 30, 300, 220);
+			MainCanvas.drawImage(PreviewCanvas, 20, 92 + (x * 175), 260, 190);
+		}
+
+		DrawButton(290, 160 + (x * 170), 120, 50, DialogFindPlayer("SavedExpressionsSave"), "White");
+		DrawButton(290, 220 + (x * 170), 120, 50, DialogFindPlayer("SavedExpressionsLoad"), "White");
 	}
 }
-/**handles clicks in the savedexpressions menu */
+
+/** Handles clicks in the savedexpressions menu
+ * @returns {void} - Nothing
+ */
 function DialogClickSavedExpressionsMenu() {
-	if (MouseXIn(100, 80)) {
+	if (MouseXIn(290, 120)) {
 		for (let x = 0; x < 5; x++) {
-			if (MouseYIn(200 + (x * 100), 80)) {
+			if (MouseYIn(160 + (x * 170), 50)) {
 				DialogFacialExpressionsSave(x);
 			}
 		}
 	}
-	if (MouseXIn(220, 80)) {
+	if (MouseXIn(290, 120)) {
 		for (let x = 0; x < 5; x++) {
-			if (MouseYIn(200 + (x * 100), 80)) {
+			if (MouseYIn(220 + (x * 170), 50)) {
 				DialogFacialExpressionsLoad(x);
 			}
 		}
