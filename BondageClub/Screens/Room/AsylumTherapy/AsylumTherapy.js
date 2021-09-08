@@ -247,15 +247,15 @@ function AsylumTherapyTherapyMiniGameEnd() {
 	}
 	if (MiniGameVictory && (MiniGameDifficulty == "Easy")) {
 		DialogChangeReputation("Asylum", 2);
-		CharacterChangeMoney(Player, 10);
+		CharacterChangeMoney(Player, 15);
 	}
 	if (MiniGameVictory && (MiniGameDifficulty == "Normal")) {
 		DialogChangeReputation("Asylum", 4);
-		CharacterChangeMoney(Player, 15);
+		CharacterChangeMoney(Player, 20);
 	}
 	if (MiniGameVictory && (MiniGameDifficulty == "Hard")) {
 		DialogChangeReputation("Asylum", 6);
-		CharacterChangeMoney(Player, 20);
+		CharacterChangeMoney(Player, 25);
 	}
 	if (MiniGameVictory) IntroductionJobProgress("DomTrainer");
 }

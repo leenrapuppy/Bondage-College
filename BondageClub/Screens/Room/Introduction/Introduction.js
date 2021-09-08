@@ -221,7 +221,7 @@ function IntroductionCompleteRescue() {
  * @returns {void} - Nothing
  */
 function IntroductionJobDone() {
-	CharacterChangeMoney(Player, 100);
+	CharacterChangeMoney(Player, 120);
 	var NextDay = Math.floor(CurrentTime / (24 * 60 * 60 * 1000)) + 1;
 	LogAdd("DailyJobDone", "Introduction", NextDay * 24 * 60 * 60 * 1000);
 	IntroductionJobCurrent = "";

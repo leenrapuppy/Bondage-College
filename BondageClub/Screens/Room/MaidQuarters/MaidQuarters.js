@@ -259,7 +259,7 @@ function MaidQuartersMiniGameEnd() {
  */
 function MaidQuartersMiniGamePay() {
 	ReputationProgress("Maid", 4);
-	var M = 10;
+	var M = 14;
 	if (MiniGameDifficulty == "Normal") M = M * 1.5;
 	if (MiniGameDifficulty == "Hard") M = M * 2;
 	MaidQuartersMaid.CurrentDialog = MaidQuartersMaid.CurrentDialog.replace("REPLACEMONEY", M.toString());
@@ -285,7 +285,7 @@ function MaidQuartersMiniGamePayAdvanced() {
 function MaidQuartersRescuePay() {
 	MaidQuartersRemoveMaidUniform();
 	ReputationProgress("Maid", 4);
-	var M = 10 + Math.floor(Math.random() * 11);
+	var M = 15 + Math.floor(Math.random() * 11);
 	MaidQuartersMaid.CurrentDialog = MaidQuartersMaid.CurrentDialog.replace("REPLACEMONEY", M.toString());
 	CharacterChangeMoney(Player, M);
 	IntroductionJobProgress("SubMaid");
@@ -452,7 +452,7 @@ function MaidQuartersOnlineDrinkPick(MemberNumber, DrinkValue) {
  * @returns {void} - Nothing
  */
 function MaidQuartersOnlineDrinkPay() {
-	var M = 10 + Math.floor(MaidQuartersOnlineDrinkValue * 0.4);
+	var M = 15 + Math.floor(MaidQuartersOnlineDrinkValue * 0.4);
 	MaidQuartersMaid.CurrentDialog = MaidQuartersMaid.CurrentDialog.replace("REPLACEMONEY", M.toString());
 	if (!MaidQuartersOnlineDrinkFromOwner) CharacterChangeMoney(Player, M);
 	else ChatRoomMoneyForOwner = M;

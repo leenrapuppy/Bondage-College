@@ -221,15 +221,15 @@ JobDojoIntro2203,,,Konichiwa!  (She smiles and bows politely.)  I trust you want
 370,,Do you have any work for me?,(She giggles and shakes her head no.)  We are not in a good situation to hire you.,,CannotTakeJobRestrained()
 370,300,I want to practice freeing myself.,Again?  Well of course.  Are you ready to struggle now?,,
 400,,,These are the special jobs you could do for us.  Pick something you like.  (She shows you a notepad.),,
-400,,What's the salary?,"Since it's a special job that I can only offer once per day, the salary is $100.",DialogRemove(),
-400,410,Tell me about the puppy care job.,A club Mistress is too busy to take her puppy girls for a walk.  She's offering $100 if you take good care of them.  Are you up for it?,,"JobAvailable(""DomPuppy"")"
-400,420,Tell me about the lock promotion job.,The shop wants to promote a specific lock.  They offer $100 if you use it on five different girls in the chat rooms.  Are you up for it?,,"JobAvailable(""DomLock"")"
-400,430,Tell me about the kidnapper job.,The club wants to teach a lesson to one of our members.  They will give you $100 if you kidnap and humiliate her.  Are you up for it?,,"JobAvailable(""DomKidnap"")"
-400,440,Tell me about the nurse and trainer job.,We need nurses and trainers right now.  You will get a $100 bonus if you train three slaves or treat three patients.  Are you up for it?,,"JobAvailable(""DomTrainer"")"
-400,510,Tell me about the missing jewelry job.,A member lost a piece of jewelry somewhere in the club.  She offers $100 to whoever finds it.  Are you up for it?,,"JobAvailable(""SubSearch"")"
-400,520,Tell me about the dojo assistant job.,"One of the Shibari Dojo assistant called in sick, so we need a replacement quick.  You need to be flexible and the salary is $100.  Are you up for it?",,"JobAvailable(""SubDojo"")"
-400,530,Tell me about the pleasure giver job.,"The club members in the chat rooms need some extra care today.  If you're willing to give pleasure to five of them, you'll be paid $100.  Are you up for it?",,"JobAvailable(""SubActivity"")"
-400,540,Tell me about the maid helper job.,The Maid Sorority is getting swamped with work.  They offer a $100 bonus if you complete three chores for them.  Are you up for it?,,"JobAvailable(""SubMaid"")"
+400,,What's the salary?,"Since it's a special job that I can only offer once per day, the salary is $120.",DialogRemove(),
+400,410,Tell me about the puppy care job.,A club Mistress is too busy to take her puppy girls for a walk.  She's offering $120 if you take good care of them.  Are you up for it?,,"JobAvailable(""DomPuppy"")"
+400,420,Tell me about the lock promotion job.,The shop wants to promote a specific lock.  They offer $120 if you use it on five different girls in the chat rooms.  Are you up for it?,,"JobAvailable(""DomLock"")"
+400,430,Tell me about the kidnapper job.,The club wants to teach a lesson to one of our members.  They will give you $120 if you kidnap and humiliate her.  Are you up for it?,,"JobAvailable(""DomKidnap"")"
+400,440,Tell me about the nurse and trainer job.,We need nurses and trainers right now.  You will get a $120 bonus if you train three slaves or treat three patients.  Are you up for it?,,"JobAvailable(""DomTrainer"")"
+400,510,Tell me about the missing jewelry job.,A member lost a piece of jewelry somewhere in the club.  She offers $120 to whoever finds it.  Are you up for it?,,"JobAvailable(""SubSearch"")"
+400,520,Tell me about the dojo assistant job.,"One of the Shibari Dojo assistant called in sick, so we need a replacement quick.  You need to be flexible and the salary is $120.  Are you up for it?",,"JobAvailable(""SubDojo"")"
+400,530,Tell me about the pleasure giver job.,"The club members in the chat rooms need some extra care today.  If you're willing to give pleasure to five of them, you'll be paid $120.  Are you up for it?",,"JobAvailable(""SubActivity"")"
+400,540,Tell me about the maid helper job.,The Maid Sorority is getting swamped with work.  They offer a $120 bonus if you complete three chores for them.  Are you up for it?,,"JobAvailable(""SubMaid"")"
 400,,Can I take another job?,"Sorry, come back tomorrow and I might have something else for you.",DialogRemove(),
 400,,There's nothing else to do?,"Not here, but there's lots of work to do in the club.  You can start by checking with the Maid Sorority.",DialogRemove(),
 400,0,I won't take any job now.,"Very well, you can always come back tomorrow to check for new assignments.  Would you like to know more about the club then?",,

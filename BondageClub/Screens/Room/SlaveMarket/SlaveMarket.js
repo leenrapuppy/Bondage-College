@@ -179,7 +179,7 @@ function SlaveMarketAuctionPlayerStart() {
 function SlaveMarketPlayerAuctionEnd() {
 	CharacterRelease(Player);
 	LogAdd("Auctioned", "SlaveMarket", CurrentTime + 604800000);
-	CharacterChangeMoney(Player, PlayerAuctionBidAmount / 2);
+	CharacterChangeMoney(Player, (PlayerAuctionBidAmount / 2) + 5);
 	CommonSetScreen("Room", "SlaveMarket");
 	SlaveMarketBuyer.AllowItem = false;
 	SlaveMarketBuyer.Appearance = PlayerAuctionCustomer[PlayerAuctionBidCurrent].Appearance.slice(0);

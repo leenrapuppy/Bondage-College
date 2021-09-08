@@ -413,7 +413,7 @@ function ShopJobRestrain() {
 	// Add a random item on that body part and creates a customer
 	InventoryWearRandom(Player, ShopDemoItemGroup, 3);
 	ShopDemoItemPayment = Math.round(InventoryGet(Player, ShopDemoItemGroup).Asset.Value / 10);
-	if ((ShopDemoItemPayment == null) || (ShopDemoItemPayment < 5)) ShopDemoItemPayment = 5;
+	if ((ShopDemoItemPayment == null) || (ShopDemoItemPayment < 7)) ShopDemoItemPayment = 7;
 	ShopCustomer = CharacterLoadNPC("NPC_Shop_Customer");
 	ShopCustomer.AllowItem = false;
 	ShopCustomer.Stage = ShopDemoItemGroup + "0";
