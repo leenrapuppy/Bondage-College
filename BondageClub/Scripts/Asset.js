@@ -164,7 +164,7 @@ function AssetAdd(NewAsset, ExtendedConfig) {
 		FixedPosition: typeof NewAsset.FixedPosition === "boolean" ? NewAsset.FixedPosition : false,
 		Layer: [],
 		ColorableLayerCount: 0,
-		CustomBlindBackground: typeof NewAsset.CustomBlindBackground === 'string' ? NewAsset.CustomBlindBackground : "",
+		CustomBlindBackground: typeof NewAsset.CustomBlindBackground === 'string' ? NewAsset.CustomBlindBackground : undefined,
 		FuturisticRecolor: typeof NewAsset.FuturisticRecolor === 'boolean' ? NewAsset.FuturisticRecolor : false,
 		FuturisticRecolorDisplay: typeof NewAsset.FuturisticRecolorDisplay === 'boolean' ? NewAsset.FuturisticRecolorDisplay : false,
 		Attribute: NewAsset.Attribute || [],

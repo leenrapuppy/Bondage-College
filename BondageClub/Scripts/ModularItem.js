@@ -162,7 +162,7 @@ function ModularItemCreateClickFunction(data) {
  * @param {ModularItemData} data - The typed item data for the asset
  * @returns {void} - Nothing
  */
- function ModularItemCreateExitFunction(data) {
+function ModularItemCreateExitFunction(data) {
 	const exitFunctionName = `${data.functionPrefix}Exit`;
 	if (data.scriptHooks && data.scriptHooks.exit) {
 		window[exitFunctionName] = function () {
@@ -483,7 +483,7 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
 	}, {
 		Type: ModularItemConstructType(modules, moduleValues),
 		Difficulty: asset.Difficulty,
-		CustomBlindBackground: "",
+		CustomBlindBackground: asset.CustomBlindBackground,
 		Block: Array.isArray(asset.Block) ? asset.Block.slice() : [],
 		Effect: Array.isArray(asset.Effect) ? asset.Effect.slice() : [],
 		Hide: Array.isArray(asset.Hide) ? asset.Hide.slice() : [],
