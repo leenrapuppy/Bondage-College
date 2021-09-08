@@ -29,6 +29,35 @@ const ExtendedArchetype = {
  * @const
  */
 var AssetFemale3DCGExtended = {
+	Hat: {
+		Bandana: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Plain",
+						Property: { Type: null, },
+					},
+					{
+						Name: "Circles",
+						Property: { Type: "Circles", },
+					},
+					{
+						Name: "Flowers",
+						Property: { Type: "Flowers", },
+					},
+					{
+						Name: "Dots",
+						Property: { Type: "PolkaDots", },
+					},
+					{
+						Name: "Triangles",
+						Property: { Type: "Triangles", },
+					},
+				],
+			},
+		}, //Bandana
+	},
 	Cloth: {
 		TShirt2: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -175,15 +204,15 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
 				Modules: [
-				{
-				Name: "Pattern", Key: "p",
-				Options: [{}, {}, {}, {}, {}, {}],
-				},
-				{
-				Name: "Txt", Key: "x",
-				Options: [{}, { HasSubscreen: true }],
-				},
-			]
+					{
+						Name: "Pattern", Key: "p",
+						Options: [{}, {}, {}, {}, {}, {}],
+					},
+					{
+						Name: "Txt", Key: "x",
+						Options: [{}, { HasSubscreen: true }],
+					},
+				]
 			}
 		}, // Bib
 	}, // ClothAccessory
@@ -249,7 +278,7 @@ var AssetFemale3DCGExtended = {
 			Config: {
 				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR],
 				Dictionary: [
-					({ newIndex, previousIndex }) => { return  { Tag: "Action", Text: newIndex > previousIndex ? "tightens" : "loosens" }},
+					({ newIndex, previousIndex }) => { return  { Tag: "Action", Text: newIndex > previousIndex ? "tightens" : "loosens" };},
 				],
 				Options: [
 					{
