@@ -431,3 +431,7 @@ input[type=range][data-thumb=player]::-moz-range-thumb {
 	font-family: 'Pacifico';
 	src: url('../Fonts/Pacifico/Pacifico-regular.ttf');
 }
+@font-face {
+    font-family: 'Satisfy';
+    src: url('../Fonts/Satisfy/Satisfy-Regular.ttf');
+}
