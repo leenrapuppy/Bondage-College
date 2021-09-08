@@ -58,6 +58,8 @@ NecklaceIDCardString,Lanyard
 NecklaceIDCardCard,Card
 NecklaceElegantHeartNecklaceNecklace,Necklace
 NecklaceElegantHeartNecklaceJewels,Jewels
+NecklaceFlowerGarlandCenter,Center
+NecklaceFlowerGarlandPetals,Petals
 NecklaceNecklaceBallGagBall,Ball
 NecklaceNecklaceBallGagStrap,Strap
 SuitCatsuitBase,Suit
@@ -86,6 +88,9 @@ ClothLowerAdmiralSkirtStripe,Trim
 ClothLowerHaremPantsPanty,Panty
 ClothLowerHaremPantsVeil,Veil
 ClothLowerHaremPantsPantyline,Panty Line
+ClothLowerHulaSkirtBackLeaves,Leaves
+ClothLowerHulaSkirtFlowers,Flowers
+ClothLowerHulaSkirtPollen,Pollen
 SuitLowerCatsuitBase,Suit
 SuitLowerCatsuitZip,Zip
 SuitLowerSeethroughSuitZipBase,Suit
