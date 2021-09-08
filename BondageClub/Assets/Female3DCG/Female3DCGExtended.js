@@ -1631,6 +1631,88 @@ var AssetFemale3DCGExtended = {
 				DrawImages: false,
 			},
 		}, // GwenHood
+		TechnoHelmet1: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Visor", Key: "v",
+						Options:[
+							{
+								Property: {
+									CustomBlindBackground: "",
+									Effect: [],
+								}
+							}, //v0 No Visor
+							{
+								Property: {
+									CustomBlindBackground: "",
+									Effect: [],
+								}
+							}, // v1 Transparent Visor
+							{
+								Property: {
+									CustomBlindBackground: "",
+									Effect: ["BlindLight", "Prone"]
+								},
+							}, // v2 Lightly Tinted Visor
+							{
+								Property: {
+									CustomBlindBackground: "",
+									Effect: ["BlindNormal", "Prone"]
+								},
+							}, // v3 Heavily Tinted Visor
+							{
+								Property: {
+									CustomBlindBackground: "",
+									Effect: ["BlindHeavy", "Prone"]
+								},
+							}, // v4 Opaque Visor
+							{
+								Property: {
+									CustomBlindBackground: "HypnoSpiral2",
+									Effect: ["BlindHeavy", "Prone"]
+								},
+							}, // v5 Hypnotic Visor
+						],
+
+					},
+					{
+						Name: "DeafeningModule", Key: "d",
+						Options: [
+							{}, //h0 Disabled
+							{
+								Property: {
+									Effect: ["DeafLight"]
+								},
+							}, //h1 Light
+							{
+								Property: {
+									Effect: ["DeafHeavy"],
+								},
+							}, //h2 Heavy
+							{
+								Property: {
+									Effect: ["DeafTotal"]
+								}, 
+							}, //h3 Noise-Cancelling
+						],
+					},
+					{
+						Name: "ChinStrap", Key: "c",
+						Options: [
+							{}, //c0 No Chin Strap
+							{
+								Property: {
+									Difficulty: 10
+								}
+							}, //h1 Chin Strap
+						],
+					},
+				],
+				ChangeWhenLocked: false,
+			}
+		}, // TechnoHelmet1
 	}, // ItemHood
 	ItemDevices: {
 		FuturisticCrate: {

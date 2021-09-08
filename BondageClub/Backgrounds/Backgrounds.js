@@ -186,6 +186,7 @@ var BackgroundsList = [
 	{ Name: "OutdoorPool2", Tag: [BackgroundsTagOutdoor, BackgroundsTagAquatic] },
 	{ Name: "SynthWave", Tag: [BackgroundsTagOutdoor, BackgroundsTagSciFiFantasy] },
 	{ Name: "HypnoticSpiral", Tag: [BackgroundsTagSciFiFantasy] },
+	{ Name: "HypnoSpiral2", Tag: [BackgroundsTagSciFiFantasy] },
 	{ Name: "Infiltration", Tag: [BackgroundsTagClub, BackgroundsTagIndoor, BackgroundsTagSciFiFantasy] },
 	{ Name: "MovieStudio", Tag: [BackgroundsTagClub, BackgroundsTagIndoor] },
 	{ Name: "CollegeTennis", Tag: [BackgroundsTagClub, BackgroundsTagOutdoor] },
