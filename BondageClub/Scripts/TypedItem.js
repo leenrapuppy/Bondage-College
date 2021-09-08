@@ -209,6 +209,7 @@ function TypedItemCreatePublishFunction(typedItemData) {
 	if (chatSetting === TypedItemChatSetting.SILENT) return;
 	const publishFunctionName = `${functionPrefix}PublishAction`;
 	window[publishFunctionName] = function (C, newOption, previousOption) {
+		/** @type ExtendedItemChatData<ExtendedItemOption> */
 		const chatData = {
 			C,
 			previousOption,
@@ -279,41 +280,18 @@ function TypedItemGenerateAllowBlock({asset, options}) {
 
 /**
  * Constructs the chat message dictionary for the typed item based on the items configuration data.
- * @param {TypedItemChatData} ChatData - The chat data that triggered the message.
+ * @param {ExtendedItemChatData<ExtendedItemOption>} ChatData - The chat data that triggered the message.
  * @param {TypedItemData} data - The typed item data for the asset
  * @returns {object[]} - The dictionary for the item based on its required chat tags
  */
 function TypedItemBuildChatMessageDictionary(ChatData, { asset, chatTags, dictionary }) {
 	const BuiltDictionary = chatTags
-		.map((tag) => TypedItemMapChatTagToDictionaryEntry(ChatData.C, asset, tag))
+		.map((tag) => ExtendedItemMapChatTagToDictionaryEntry(ChatData.C, asset, tag))
 		.filter(Boolean);
 
 	dictionary.forEach(entry => BuiltDictionary.push(entry(ChatData)));
 
 	return BuiltDictionary;
-}
-
-/**
- * Maps a chat tag to a dictionary entry for use in item chatroom messages.
- * @param {Character} C - The target character
- * @param {Asset} asset - The asset for the typed item
- * @param {CommonChatTags} tag - The tag to map to a dictionary entry
- * @returns {object} - The constructed dictionary entry for the tag
- */
-function TypedItemMapChatTagToDictionaryEntry(C, asset, tag) {
-	switch (tag) {
-		case CommonChatTags.SOURCE_CHAR:
-			return { Tag: tag, Text: Player.Name, MemberNumber: Player.MemberNumber };
-		case CommonChatTags.DEST_CHAR:
-		case CommonChatTags.DEST_CHAR_NAME:
-		case CommonChatTags.TARGET_CHAR:
-		case CommonChatTags.TARGET_CHAR_NAME:
-			return { Tag: tag, Text: C.Name, MemberNumber: C.MemberNumber };
-		case CommonChatTags.ASSET_NAME:
-			return { Tag: tag, AssetName: asset.Name };
-		default:
-			return null;
-	}
 }
 
 /**

@@ -74,7 +74,7 @@ function InventoryItemDevicesLockerClick() {
 		const y = ExtendedXY[ItemDevicesLockerOptions.length][i][1] + 80;
 
 		if (MouseIn(x, y, 225, 275)) {
-			ExtendedItemHandleOptionClick(C, ItemDevicesLockerOptions, option, false);
+			ExtendedItemHandleOptionClick(C, ItemDevicesLockerOptions, option);
 		}
 	});
 }

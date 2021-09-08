@@ -177,18 +177,24 @@ function ModularItemCreateExitFunction(data) {
  * @param {ModularItemConfig} config - The item's extended item configuration
  * @returns {ModularItemData} - The generated modular item data for the asset
  */
-function ModularItemCreateModularData(asset, { Modules, ChatSetting, ChangeWhenLocked, ScriptHooks }) {
+function ModularItemCreateModularData(asset,
+	{ Modules, ChatSetting, ChatTags, ChangeWhenLocked, Dialog, ScriptHooks }) {
 	const key = `${asset.Group.Name}${asset.Name}`;
+	Dialog = Dialog || {};
 	/** @type {ModularItemData} */
 	const data = ModularItemDataLookup[key] = {
 		asset,
 		chatSetting: ChatSetting || ModularItemChatSetting.PER_OPTION,
 		key,
 		functionPrefix: `Inventory${key}`,
-		dialogSelectPrefix: `${key}Select`,
-		dialogModulePrefix: `${key}Module`,
-		dialogOptionPrefix: `${key}Option`,
-		chatMessagePrefix: `${key}Set`,
+		dialogSelectPrefix: Dialog.Select || `${key}Select`,
+		dialogModulePrefix: Dialog.ModulePrefix || `${key}Module`,
+		dialogOptionPrefix: Dialog.OptionPrefix || `${key}Option`,
+		chatMessagePrefix: Dialog.ChatPrefix || `${key}Set`,
+		chatTags: Array.isArray(ChatTags) ? ChatTags : [
+			CommonChatTags.SOURCE_CHAR,
+			CommonChatTags.DEST_CHAR,
+		],
 		modules: Modules,
 		currentModule: ModularItemBase,
 		pages: { [ModularItemBase]: 0 },
@@ -259,6 +265,7 @@ function ModularItemCreateDrawBaseFunction(data) {
 		const buttonDefinitions = data.modules.map((module, i) => ([
 			`${AssetGetInventoryPath(data.asset)}/${module.Key}${currentModuleValues[i]}.png`,
 			`${data.dialogModulePrefix}${module.Name}`,
+			CharacterGetCurrent().ID === 0 && module.AllowSelfSelect === false ? "pink" : "white",
 		]));
 		return ModularItemDrawCommon(ModularItemBase, buttonDefinitions, data);
 	};
@@ -354,7 +361,13 @@ function ModularItemCreateClickBaseFunction(data) {
 				const pageStart = pageNumber * ModularItemsPerPage;
 				const page = data.modules.slice(pageStart, pageStart + ModularItemsPerPage);
 				const module = page[i];
-				if (module) ModularItemModuleTransition(module.Name, data);
+				if (module) {
+					if (CharacterGetCurrent().ID === 0 && module.AllowSelfSelect === false) {
+						DialogExtendedMessage = DialogFindPlayer("CannotSelfSelect");
+						return;
+					}
+					ModularItemModuleTransition(module.Name, data);
+				}
 			},
 			(delta) => ModularItemChangePage(ModularItemBase, delta, data)
 		);
@@ -563,7 +576,7 @@ function ModularItemSetType(module, index, data) {
 		ChatRoomCharacterItemUpdate(C, groupName);
 
 		if (ServerPlayerIsInChatRoom()) {
-			ModularItemChatRoomMessage(module, index, data);
+			ModularItemChatRoomMessage(module, currentModuleValues[moduleIndex], index, data);
 		} else if (C.ID === 0) {
 			DialogMenuButtonBuild(C);
 		} else {
@@ -583,13 +596,25 @@ function ModularItemSetType(module, index, data) {
 /**
  * Publishes the chatroom message for a modular item when one of its modules has changed.
  * @param {ModularItemModule} module - The module that changed
+ * @param {number} previousIndex - The index of the previously selected option within the module
  * @param {number} index - The index of the newly chosen option within the module
  * @param {ModularItemData} data - The modular item's data
  * @returns {void} - Nothing
  */
-function ModularItemChatRoomMessage(module, index, { chatSetting, chatMessagePrefix }) {
+function ModularItemChatRoomMessage(module, previousIndex, index, { asset, chatSetting, chatTags, chatMessagePrefix }) {
 	const C = CharacterGetCurrent();
 	let msg = chatMessagePrefix;
+	if (typeof msg === "function") {
+		/** @type ExtendedItemChatData<ModularItemOption> */
+		const chatData = {
+			C,
+			previousOption: module.Options[previousIndex],
+			newOption: module.Options[index],
+			previousIndex,
+			newIndex: index,
+		};
+		msg = msg(chatData);
+	}
 	switch (chatSetting) {
 		case ModularItemChatSetting.PER_OPTION:
 			msg += `${module.Key}${index}`;
@@ -598,10 +623,10 @@ function ModularItemChatRoomMessage(module, index, { chatSetting, chatMessagePre
 			msg += module.Name;
 			break;
 	}
-	var dictionary = [
-		{ Tag: CommonChatTags.SOURCE_CHAR, Text: Player.Name, MemberNumber: Player.MemberNumber },
-		{ Tag: CommonChatTags.DEST_CHAR, Text: C.Name, MemberNumber: C.MemberNumber },
-	];
+
+	const dictionary = chatTags
+		.map((tag) => ExtendedItemMapChatTagToDictionaryEntry(C, asset, tag))
+		.filter(Boolean);
 	ChatRoomPublishCustomAction(msg, false, dictionary);
 }
 
@@ -677,7 +702,7 @@ function ModularItemRequirementMessageCheck(option, currentOption, changeWhenLoc
 	if (!changeWhenLocked && itemLocked && !DialogCanUnlock(C, DialogFocusItem)) {
 		return DialogFindPlayer("CantChangeWhileLocked");
 	} else {
-		return ExtendedItemRequirementCheckMessage(option, currentOption, C.ID === 0);
+		return ExtendedItemRequirementCheckMessage(option, currentOption);
 	}
 }
 

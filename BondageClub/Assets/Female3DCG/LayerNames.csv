@@ -336,6 +336,10 @@ ItemArmsTransportJacketText,Text
 ItemArmsTransportJacketStripes,Jacket
 ItemArmsTransportJacketStripesLegs,Shorts
 ItemArmsTransportJacketStraps,Straps
+ItemArmsBitchSuitLatex,Suit
+ItemArmsBitchSuitLockKneel,Locks
+ItemArmsBitchSuitExposedLatex,Suit
+ItemArmsBitchSuitExposedLock,Locks
 ItemHandsFuturisticMittensBody,Body
 ItemHandsFuturisticMittensMesh,Mesh
 ItemHandsFuturisticMittensDisplay,Display
