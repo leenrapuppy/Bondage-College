@@ -1285,6 +1285,8 @@ ItemMisc,MetalCuffsKey,Metal Cuffs Key
 ItemMisc,Lockpicks,Lockpicks
 ItemMisc,WoodenMaidTray,Wooden Maid Tray
 ItemMisc,WoodenMaidTrayFull,Wooden Maid Tray Full
+ItemMisc,BountySuitcase,Secret Suitcase
+ItemMisc,BountySuitcaseEmpty,Unlocked Suitcase
 ItemMisc,WoodenPaddle,Wooden Paddle
 ItemMisc,WoodenSign,Wooden Sign
 ItemMisc,ServingTray,Serving Tray

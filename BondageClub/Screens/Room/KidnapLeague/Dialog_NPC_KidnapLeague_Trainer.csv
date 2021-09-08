@@ -42,11 +42,21 @@ ClubSlave,,(Leave her.),,DialogLeave(),
 0,20,I want to join the Kidnappers League.,Excellent!  We are always eager to get new members.  Do you know the league rules and accept them?,,"DialogReputationLess(""Kidnap"", 0)"
 0,29,I want to leave the league.,"I'm sorry to hear that, but you can come back later.  You will lose your reputation in the league though. Are you sure you want to leave?",,"DialogReputationGreater(""Kidnap"", 1)"
 0,50,I'll take a bounty hunter job.,"We have many kidnapping bounties available.  Are you looking for an easy target, or more of a challenge?",,CanTakeBounty()
+0,OnlineBountyStart,Do you have other jobs?,"Yes, we need someone to hand over a package to an agent in the field. You'll have to carry this suitcase into the online public chatrooms and have your permissions set to public.",,CanStartOnlineBounty()
 0,,Who's my bounty target again?,,BountyRemind(),BountyTaken()
 0,55,"I've succeeded, my bounty was kidnapped.",,BountyPay(),BountyWasVictory()
 0,,I've failed to kidnap my bounty.,Maybe the challenge was too tough for you.  You can take a break or pick up another bounty if you want.,BountyReset(),BountyWasDefeat()
+0,,(Return the suitcase),Maybe the challenge was too tough for you.  You can take a break or pick up a bounty if you want.,OnlineBountyCancel(),OnlineBountyOngoing()
+0,OnlineBountyEnd,(Return the ransacked laptop),"Oh, it looks like someone got ahold of the package...",,OnlineBountyEnded()
 0,10,I want to practice kidnappings with you.,Great!  I can go easy on you or use all my tricks if you're confident enough.  Which will it be?,ResetTrainer(),AllowKidnap()
 0,,Let's talk later.  (Leave her.),,DialogLeave(),
+OnlineBountyStart,OnlineBountyStart2,What do I do then?,"Well, we haven't heard back from the agent yet. But I'm sure they'll find you in time.",,HasBountyPermissions()
+OnlineBountyStart,0,I need to change my permissions first.,Sounds good! See you soon.,,DoesNotHaveBountyPermissions()
+OnlineBountyStart,0,This is not for me.,It's fine.  Would you like to talk then?,,
+OnlineBountyStart,OnlineBountyStart2,It's a laptop, isn't it?,Oh... I guess you know what you're doing.,,DoesNotHaveBountyPermissions()
+OnlineBountyStart2,0,"I will deliver it.",(She attaches a suitcase to your hand with a cable),OnlineBountyStart(),
+OnlineBountyStart2,0,I've changed my mind.,It's fine.  Would you like to talk then?,,
+OnlineBountyEnd,0,(Nod yes),"That's alright. You put your body on the line, so you'll get paid for the trouble. (She gives you MONEYAMOUNT$)",OnlineBountyFinish(),
 10,,Please go easy on me.,,StartKidnap(-3),
 10,,A regular match please.,,StartKidnap(0),
 10,,Give me a tough fight.,,StartKidnap(4),

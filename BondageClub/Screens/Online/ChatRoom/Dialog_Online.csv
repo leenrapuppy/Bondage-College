@@ -6,6 +6,10 @@ PlayerGagged,,,(You don't have access to use or remove items on her.),,!DialogDo
 0,,(Change her clothes.),,ChangeClothes(),ChatRoomCanChangeClothes()
 0,10,(Manage your relationship.),"(You can give more access to your items by putting her on your whitelist, or less control by putting her on your blacklist.)",,
 0,20,(Check her drink tray.),(There's a variety of drinks.  Some are offered by the club and some are more expensive.),,CanTakeDrink()
+0,0,(Try to take her suitcase.),(It will take 10 minutes to get the suitcase open and steal the cash. Make sure she is secure!),TryToTakeSuitcase(),CanTakeSuitcase()
+0,0,(Try to take her suitcase.),(You will need to tie her first so she can't escape or resist!),,CantTakeSuitcase()
+0,0,(Use the laptop to steal data.),(It will take 10 minutes to get the suitcase open and steal the cash. Make sure she is secure!),TryToTakeSuitcase(),CanTakeSuitcaseOpened()
+0,0,(Use the laptop to steal data.),(You will need to tie her first so she can't escape or resist!),,CantTakeSuitcaseOpened()
 0,30,(Room administrator action.),"(As a room administrator, you can take these actions with her.)",,PlayerIsAdmin()
 0,40,(Character actions.),(Possible character actions.),,CanPerformCharacterAction()
 0,,(Stop her from leaving.),,StopLeave(),CanStopSlowPlayer()

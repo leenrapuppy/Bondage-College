@@ -4530,6 +4530,8 @@ var AssetFemale3DCG = [
 			{ Name: "Lockpicks", Value: 25, Time: 5, Wear: false, Effect: ["Unlock-"] },
 			{ Name: "WoodenMaidTray", Value: -1, Enable: false },
 			{ Name: "WoodenMaidTrayFull", Value: -1, Enable: false },
+			{ Name: "BountySuitcase", Value: -1, Enable: false },
+			{ Name: "BountySuitcaseEmpty", Value: -1, Enable: false },
 			{ Name: "WoodenPaddle", Value: -1, Enable: false },
 			{
 				Name: "WoodenSign", Value: 90, Top: 0, Left: 0, Priority: 57, Difficulty: 1, Time: 5, Random: false, Prerequisite: ["NoMaidTray"], Hide: ["ItemNipples", "ItemNipplesPiercings"], AllowPose: ["Suspension"], Extended: true, DynamicAfterDraw: true, Layer: [

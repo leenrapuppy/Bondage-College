@@ -16,6 +16,12 @@ var KidnapLeagueBountyLocationList = ["Introduction", "MaidQuarters", "Shibari",
 var KidnapLeagueBountyVictory = null;
 var KidnapLeagueVisitRoom = false;
 
+var KidnapLeagueSearchingPlayers = [];
+var KidnapLeagueSearchFinishTime = 0;
+var KidnapLeagueSearchFinishDuration = 15*60*1000; // 15 mins
+var KidnapLeagueOnlineBountyTarget = 0;
+var KidnapLeagueOnlineBountyTargetStartedTime = 0;
+
 /**
  * Checks if the player can be kidnapped
  * @returns {boolean} - Returns TRUE if the player is restrained and the trainer is not.
@@ -61,6 +67,89 @@ function KidnapLeagueWontVisitRoom() { return (!KidnapLeagueVisitRoom && KidnapL
  * @returns {boolean} - Returns TRUE if both players are able to talk which means they can kiss.
  */
 function KidnapLeagueCanKiss() { return (Player.CanTalk() && CurrentCharacter.CanTalk()); }
+
+
+/**
+ * Checks if the player has public permissions (up to Owners, Whitelist, and Dominants)
+ * @returns {boolean} - Returns TRUE if the player can start the online bounty game
+ */
+ function KidnapLeagueHasBountyPermissions() {
+	return (Player.ItemPermission <= 2);
+}
+/**
+ * Checks if the player has public permissions (up to Owners, Whitelist, and Dominants)
+ * @returns {boolean} - Returns TRUE if the player cannot start the online bounty game
+ */
+ function KidnapLeagueDoesNotHaveBountyPermissions() {
+	return (Player.ItemPermission > 2);
+}
+/**
+ * Checks if the player can take up the online bounty quest
+ * @returns {boolean} - Returns TRUE if the player can start the online bounty game
+ */
+ function KidnapLeagueCanStartOnlineBounty() {
+	let misc = InventoryGet(Player, "ItemMisc");
+	return (ReputationGet("Kidnap") > 0 && Player.CanTalk() && CurrentCharacter.CanTalk() && CurrentCharacter.CanInteract() && !misc);
+}
+/**
+ * Checks if the player can end early the online bounty quest
+ * @returns {boolean} - Returns TRUE if the player can end the online bounty game
+ */
+ function KidnapLeagueOnlineBountyOngoing() {
+	let misc = InventoryGet(Player, "ItemMisc");
+	return (CurrentCharacter.CanTalk() && CurrentCharacter.CanInteract() && misc && misc.Asset && misc.Asset.Name == "BountySuitcase");
+}
+/**
+ * Checks if the player can end the online bounty quest
+ * @returns {boolean} - Returns TRUE if the player can end the online bounty game
+ */
+ function KidnapLeagueOnlineBountyEnded() {
+	let misc = InventoryGet(Player, "ItemMisc");
+	return (CurrentCharacter.CanTalk() && CurrentCharacter.CanInteract() && misc && misc.Asset && misc.Asset.Name == "BountySuitcaseEmpty");
+}
+
+/**
+ * Starts the online bounty game
+ * @returns {void} - Nothing
+ */
+ function KidnapLeagueOnlineBountyStart() {
+	InventoryWear(Player, "BountySuitcase", "ItemMisc");
+	KidnapLeagueSearchingPlayers = [];
+}
+/**
+ * Ends the online bounty game early
+ * @returns {void} - Nothing
+ */
+ function KidnapLeagueOnlineBountyCancel() {
+	InventoryRemove(Player, "ItemMisc");
+}
+/**
+ * Ends the online bounty game and pays
+ * @returns {void} - Nothing
+ */
+ function KidnapLeagueOnlineBountyFinish() {
+	let money = 65;
+	let misc = InventoryGet(Player, "ItemMisc");
+	if (misc && misc.Property && misc.Property.Iterations && typeof misc.Property.Iterations === "number") {
+		money += 75 * misc.Property.Iterations;
+	}
+
+	InventoryRemove(Player, "ItemMisc");
+	KidnapLeagueTrainer.CurrentDialog = KidnapLeagueTrainer.CurrentDialog.replace("MONEYAMOUNT", (money).toString());
+	CharacterChangeMoney(Player, money);
+	ReputationProgress("Kidnap", 1);
+}
+
+/**
+ * Ends the online bounty game for the kidnapper
+ * @returns {void} - Nothing
+ */
+ function KidnapLeagueResetOnlineBountyProgress() {
+	KidnapLeagueSearchingPlayers = [];
+	KidnapLeagueOnlineBountyTarget = 0;
+}
+
+
 
 /**
  * Loads the kidnap league NPC

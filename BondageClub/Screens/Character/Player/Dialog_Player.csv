@@ -448,6 +448,15 @@ ServerShuffle,,,SourceCharacter shuffles the position of everyone in the room ra
 ServerPromoteAdmin,,,TargetCharacterName was promoted to administrator by SourceCharacter.,,
 ServerDemoteAdmin,,,TargetCharacterName was demoted from administration by SourceCharacter.,,
 ServerUpdateRoom,,,SourceCharacter updated the room. Name: ChatRoomName. Limit: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.,,
+OnlineBountySuitcaseStart,,,"SourceCharacter starts unlocking DestinationCharacterName suitcase! She will finish in 15 minutes."
+OnlineBountySuitcaseStartOpened,,,"SourceCharacter starts stealing more data from DestinationCharacterName laptop! She will finish in 15 minutes."
+OnlineBountySuitcaseEndEarly,,,"SourceCharacter suitcase is safe... for now."
+OnlineBountySuitcaseEndEarlyOpened,,,"SourceCharacter data is safe... for now."
+OnlineBountySuitcaseOngoing,,,"Her suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!"
+OnlineBountySuitcaseOngoingOpened,,,"The data will be ready in TIMEREMAINING minutes. Make sure she is secure until then!"
+OnlineBountySuitcaseFinish,,,"You find confidential club secrets worth MONEYAMOUNT$ on the black market."
+OnlineBountySuitcaseEnd,,,"The kidnappers opened your suitcase, which contains a laptop with a bunch of secret information. You better get back to the league to warn them."
+OnlineBountySuitcaseEndOpened,,,"The kidnappers have stolen even more data using your laptop."
 ChatRoomBlockGaggedOOC,,,You have disabled OOC/whispers while gagged. You can change this in the Immersion preferences screen.,,
 ChatRoomStimulationMessageGag0,,,You choke momentarily on the gag inside your throat.,,
 ChatRoomStimulationMessageGag1,,,It is difficult to breath with the gag pushing inside your throat.,,

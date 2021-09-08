@@ -47,6 +47,8 @@ function ChatSearchLoad() {
  * @returns {void} - Nothing
  */
 function ChatSearchRun() {
+	KidnapLeagueResetOnlineBountyProgress();
+
 	if (ChatSearchMode == "")
 		ChatSearchNormalDraw();
 	else if (ChatSearchMode == "Filter")
