@@ -1384,7 +1384,48 @@ var AssetFemale3DCGExtended = {
 				],
 				DrawImages: false
 			}
-		} // ShinySteelCollar
+		}, // ShinySteelCollar
+		TechnoCollar: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "CollarType", Key: "c",
+						Options: [
+							{}, // c0 Slender Collar
+							{
+								Property: {
+									Difficulty: 65,
+								},
+							}, //c1 Choker Collar
+							{
+								Property: {
+									Difficulty: 70,
+								},
+							}, //c2 Full Collar
+							{
+								Property: {
+									Difficulty: 75,
+								},
+							}, //c3 Posture Collar
+							{
+								Property: {
+									Difficulty: 80,
+								},
+							}, //c4 Strict Posture Collar
+						],
+					},
+					{
+						Name: "ShockModule", Key: "s",
+						Options: [
+							{}, // s0 No Shock Module
+							{ HasSubscreen: true }, // s1 Shock Module
+						],
+					},
+				],
+				ChangeWhenLocked: false,
+			},
+		}, //TechnoCollar
 	}, // ItemNeck
 	ItemNeckAccessories: {
 		CustomCollarTag: {

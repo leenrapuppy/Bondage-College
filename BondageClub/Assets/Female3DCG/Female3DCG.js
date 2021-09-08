@@ -3218,6 +3218,25 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "LatexCollar1", Fetish: ["Latex"], Value: 40, Difficulty: 50, Time: 5, Effect: ["FixedHead"]},
 			{ Name: "LatexCollar2", Fetish: ["Latex"], Value: 40, Difficulty: 50, Time: 5, AllowLock: true},
+			{ Name: "TechnoCollar", Category: ["SciFi"], Fetish: ["Metal"], Value: 70, DefaultColor: ["#959595","#3976AE"], Difficulty: 60, Time: 4, AllowLock: true, DrawLocks: false, Extended: true,
+				Layer: [
+					{ Name: "SlenderCollarBase", HasType: false, AllowModuleTypes: ["c0"] },
+					{ Name: "ChokerCollarBase", HasType: false, CopyLayerColor: "SlenderCollarBase", AllowModuleTypes: ["c1"] },
+					{ Name: "FullCollarBase", HasType: false, CopyLayerColor: "SlenderCollarBase", AllowModuleTypes: ["c2"] },
+					{ Name: "PostureCollarBase", HasType: false, CopyLayerColor: "SlenderCollarBase", AllowModuleTypes: ["c3"] },
+					{ Name: "StrictPostureCollarBase", HasType: false, CopyLayerColor: "SlenderCollarBase", AllowModuleTypes: ["c4"] },
+					{ Name: "SlenderCollarSides", HasType: false, AllowModuleTypes: ["c0"] },
+					{ Name: "ChokerCollarSides", HasType: false, CopyLayerColor: "SlenderCollarSides", AllowModuleTypes: ["c1"] },
+					{ Name: "FullCollarSides", HasType: false, CopyLayerColor: "SlenderCollarSides", AllowModuleTypes: ["c2"] },
+					{ Name: "PostureCollarSides", HasType: false, CopyLayerColor: "SlenderCollarSides", AllowModuleTypes: ["c3"] },
+					{ Name: "StrictPostureCollarSides", HasType: false, CopyLayerColor: "SlenderCollarSides", AllowModuleTypes: ["c4"] },
+					{ Name: "SlenderCollarShine", HasType: false, AllowColorize: false, AllowModuleTypes: ["c0"] },
+					{ Name: "ChokerCollarShine", HasType: false, AllowColorize: false, AllowModuleTypes: ["c1"] },
+					{ Name: "FullCollarShine", HasType: false, AllowColorize: false, AllowModuleTypes: ["c2"] },
+					{ Name: "PostureCollarShine", HasType: false, AllowColorize: false, AllowModuleTypes: ["c3"] },
+					{ Name: "StrictPostureCollarShine", HasType: false, AllowColorize: false, AllowModuleTypes: ["c4"] },
+				]
+			},
 			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
