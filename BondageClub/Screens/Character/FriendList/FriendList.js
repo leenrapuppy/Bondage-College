@@ -9,6 +9,7 @@ var FriendListModeIndex = 0;
 var FriendListBeepLog = [];
 /** @type {number|null} MemberNumber of the player to send beep to */
 let FriendListBeepTarget = null;
+var FriendListBeepShowRoom = true;
 
 /**
  * @typedef {Object} FriendListBeepLogMessage
@@ -91,6 +92,16 @@ function FriendListBeep(MemberNumber, data = null) {
 	closeBtn.onclick = FriendListBeepMenuClose;
 	footer.append(closeBtn);
 	if (data === null) {
+		if (ServerPlayerIsInChatRoom()) {
+			const showRoomBtn = document.createElement("a");
+			showRoomBtn.innerText = FriendListBeepShowRoom ? TextGet("ToggleRoomOn") : TextGet("ToggleRoomOff");
+			showRoomBtn.onclick = () => {
+				FriendListBeepShowRoom = !FriendListBeepShowRoom;
+				showRoomBtn.innerText = FriendListBeepShowRoom ? TextGet("ToggleRoomOn") : TextGet("ToggleRoomOff");
+			};
+			footer.append(showRoomBtn);
+		}
+
 		const sendBtn = document.createElement("a");
 		sendBtn.innerText = "Send";
 		sendBtn.onclick = FriendListBeepMenuSend;
@@ -111,6 +122,7 @@ function FriendListBeep(MemberNumber, data = null) {
 function FriendListBeepMenuClose() {
 	ElementRemove("FriendListBeep");
 	FriendListBeepTarget = null;
+	FriendListBeepShowRoom = true;
 }
 
 /**
@@ -121,15 +133,15 @@ function FriendListBeepMenuSend() {
 		const textarea = /** @type {HTMLTextAreaElement} */ (document.getElementById("FriendListBeepTextArea"));
 		if (textarea) {
 			const msg = textarea.value;
-			if (msg) {
-				ServerSend("AccountBeep", { MemberNumber: FriendListBeepTarget, BeepType: "", Message: msg });
-			} else {
-				ServerSend("AccountBeep", { MemberNumber: FriendListBeepTarget, BeepType: "" });
-			}
+			const beep = { MemberNumber: FriendListBeepTarget, BeepType: "" };
+			if (msg) beep.Message = msg;
+			if (!FriendListBeepShowRoom) beep.IsSecret = true;
+			ServerSend("AccountBeep", beep);
+
 			FriendListBeepLog.push({
 				MemberNumber: FriendListBeepTarget,
 				MemberName: Player.FriendNames.get(FriendListBeepTarget),
-				ChatRoomName: Player.LastChatRoom || null,
+				ChatRoomName: !FriendListBeepShowRoom ? null : (Player.LastChatRoom || null),
 				Sent: true,
 				Time: new Date(),
 				Message: msg || undefined

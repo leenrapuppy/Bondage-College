@@ -7,6 +7,8 @@ FriendType,Friend type
 ActionFriends,Send a beep
 ActionDelete,Delete a friend
 Refresh,Refresh
+ToggleRoomOn,Room name: included
+ToggleRoomOff,Room name: excluded
 TypeOwner,Owner
 TypeLover,Lover
 TypeSubmissive,Submissive
