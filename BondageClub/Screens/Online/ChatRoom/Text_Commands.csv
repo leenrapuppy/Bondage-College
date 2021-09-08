@@ -23,6 +23,7 @@ showblacklist,: View your blacklist
 showfriendlist,: View you friendlist
 showghostlist,: View your ghostlist
 showwhitelist,: View your whitelist
+openfriendlist,: Open the friendlist screen
 unban,[MemberNumber]: Remove a ban on a player
 whitelistadd,[MemberNumber]: Add a player to your whitelist
 whitelistremove,[MemberNumber]: Remove a player from your whitelist

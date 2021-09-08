@@ -617,6 +617,7 @@ interface PlayerCharacter extends Character {
 		ShrinkNonDialogue: boolean;
 		MuStylePoses: boolean;
 		ShowChatHelp: boolean;
+		ShowBeepChat: boolean;
 	};
 	VisualSettings?: {
 		ForceFullHeight: boolean;

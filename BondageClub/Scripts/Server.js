@@ -230,7 +230,7 @@ function ServerPlayerIsInChatRoom() {
 		|| ((CurrentScreen == "InformationSheet") && (InformationSheetPreviousScreen == "ChatRoom"))
 		|| ((CurrentScreen == "Title") && (InformationSheetPreviousScreen == "ChatRoom"))
 		|| ((CurrentScreen == "OnlineProfile") && (InformationSheetPreviousScreen == "ChatRoom"))
-		|| ((CurrentScreen == "FriendList") && (InformationSheetPreviousScreen == "ChatRoom") && (FriendListReturn == null))
+		|| ((CurrentScreen == "FriendList") && (InformationSheetPreviousScreen == "ChatRoom") && (FriendListReturn == null || FriendListReturn.IsInChatRoom))
 		|| ((CurrentScreen == "Preference") && (InformationSheetPreviousScreen == "ChatRoom"))
 		|| ((CurrentModule == "MiniGame") && (DialogGamingPreviousRoom == "ChatRoom"));
 }
@@ -560,7 +560,7 @@ function ServerAccountQueryResult(data) {
 }
 
 /**
- * Callback used to parse received information related to ta beep from another account
+ * Callback used to parse received information related to a beep from another account
  * @param {object} data - Data object containing the beep object which contain at the very least a name and a member
  *     number
  * @returns {void} - Nothing
@@ -582,9 +582,10 @@ function ServerAccountBeep(data) {
 			}
 			ServerBeep.Message = `${DialogFindPlayer("BeepFrom")} ${ServerBeep.MemberName} (${ServerBeep.MemberNumber})`;
 			if (ServerBeep.ChatRoomName != null)
-				ServerBeep.Message = ServerBeep.Message + " " + DialogFindPlayer("InRoom") + " \"" + ServerBeep.ChatRoomName + "\" " + (data.ChatRoomSpace === "Asylum" ? DialogFindPlayer("InAsylum") : '');
+				ServerBeep.Message = ServerBeep.Message + " " + DialogFindPlayer("InRoom") + " \"" + ServerBeep.ChatRoomName + "\"" + (data.ChatRoomSpace === "Asylum" ? " " + DialogFindPlayer("InAsylum") : '');
 			if (data.Message) {
 				ServerBeep.Message += `; ${DialogFindPlayer("BeepWithMessage")}`;
+				ServerBeep.IsMail = true;
 			}
 			FriendListBeepLog.push({
 				MemberNumber: data.MemberNumber,
@@ -596,6 +597,8 @@ function ServerAccountBeep(data) {
 				Message: data.Message
 			});
 			if (CurrentScreen == "FriendList") ServerSend("AccountQuery", { Query: "OnlineFriends" });
+			if (!Player.ChatSettings || Player.ChatSettings.ShowBeepChat)
+				ChatRoomSendLocal(`<a onclick="ServerOpenFriendList()">(${ServerBeep.Message})</a>`);
 			if (!document.hasFocus()) {
 				NotificationRaise(NotificationEventType.BEEP, {
 					memberNumber: data.MemberNumber,
@@ -634,6 +637,28 @@ function ServerDrawBeep() {
 			NotificationReset(NotificationEventType.BEEP);
 		}
 	}
+}
+
+/** Handles a click on the beep rectangle if mail is included */
+function ServerClickBeep() {
+	if (
+		ServerBeep.IsMail &&
+		MouseIn((CurrentScreen == "ChatRoom") ? 0 : 500, 0, 1000, 50) &&
+		ServerBeep.Timer != null && ServerBeep.Timer > CurrentTime &&
+		CurrentScreen !== "FriendList"
+	) {
+		ServerOpenFriendList();
+		FriendListModeIndex = 1;
+		FriendListShowBeep(FriendListBeepLog.length - 1);
+	}
+}
+
+/** Opens the friendlist from any screen */
+function ServerOpenFriendList() {
+	DialogLeave();
+	ElementToggleGeneratedElements(CurrentScreen, false);
+	FriendListReturn = { Screen: CurrentScreen , Module: CurrentModule, IsInChatRoom: ServerPlayerIsInChatRoom() };
+	CommonSetScreen("Character", "FriendList");
 }
 
 /**
