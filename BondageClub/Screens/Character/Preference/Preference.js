@@ -394,6 +394,7 @@ function PreferenceInitPlayer() {
 	if (typeof C.LastChatRoomSize !== "number") C.LastChatRoomSize = 10;
 	if (typeof C.LastChatRoomDesc !== "string") C.LastChatRoomDesc = "";
 	if (!C.LastChatRoomAdmin) C.LastChatRoomAdmin = [];
+	if (!C.LastChatRoomBan) C.LastChatRoomBan = [];
 
 	// Restriction settings
 	if (!C.RestrictionSettings) C.RestrictionSettings = {};

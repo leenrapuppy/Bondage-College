@@ -6,10 +6,10 @@ var LoginCreditsPosition = 0;
 var LoginThankYou = "";
 /* eslint-disable */
 var LoginThankYouList = [
-						"Aceffect", "Anna", "Aylea", "BlueWinter", "Brian", "Bryce", "Chennifer", "Christian", "Clash", "DarkStar", 
-						"Dini", "Edwin", "Elcriminal", "Epona", "Escurse", "FanRunner", "Greendragon", "JoeyDubDee", "KamiKaze", "Kimuriel", 
-						"Longwave", "Michal", "Michel", "Mike", "Mindtie", "Misa", "MrUniver", "Nick", "Nightcore", "Rashiash", 
-						"Ray", "Rika", "Robin", "Rutherford", "Ryner", "Samuel", "SeraDenoir", "Shadow", "Tam", "TBoneShark", 
+						"Aceffect", "Anna", "Aylea", "BlueWinter", "Brian", "Bryce", "Chennifer", "Christian", "Clash", "DarkStar",
+						"Dini", "Edwin", "Elcriminal", "Epona", "Escurse", "FanRunner", "Greendragon", "JoeyDubDee", "KamiKaze", "Kimuriel",
+						"Longwave", "Michal", "Michel", "Mike", "Mindtie", "Misa", "MrUniver", "Nick", "Nightcore", "Rashiash",
+						"Ray", "Rika", "Robin", "Rutherford", "Ryner", "Samuel", "SeraDenoir", "Shadow", "Tam", "TBoneShark",
 						"TKSonix", "TopHat", "Troubadix", "William", "Xepherio", "Yuna", "Znarf"];
 /* eslint-enable */
 var LoginThankYouNext = 0;
@@ -473,6 +473,8 @@ function LoginResponse(C) {
 			Player.LastChatRoomTimer = C.LastChatRoomTimer;
 			if (typeof C.LastChatRoomAdmin == "string")
 				Player.LastChatRoomAdmin = CommonConvertStringToArray(C.LastChatRoomAdmin);
+			if (typeof C.LastChatRoomBan == "string")
+				Player.LastChatRoomBan = CommonConvertStringToArray(C.LastChatRoomBan);
 
 			// Loads the ownership data
 			Player.Ownership = C.Ownership;
