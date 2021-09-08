@@ -16,6 +16,7 @@ var FriendListBeepShowRoom = true;
  * @property {number} [MemberNumber]
  * @property {string} MemberName
  * @property {string|null} ChatRoomName
+ * @property {boolean} Private
  * @property {string|null} [ChatRoomSpace]
  * @property {boolean} Sent
  * @property {Date} Time
@@ -143,6 +144,7 @@ function FriendListBeepMenuSend() {
 				MemberName: Player.FriendNames.get(FriendListBeepTarget),
 				ChatRoomName: !FriendListBeepShowRoom ? null : (Player.LastChatRoom || null),
 				Sent: true,
+				Private: false,
 				Time: new Date(),
 				Message: msg || undefined
 			});
@@ -218,6 +220,7 @@ function FriendListChatSearch(room) {
  * MemberNumber: number;
  * ChatRoomName: string | null;
  * ChatRoomSpace: string | null;
+ * Private?: boolean
  * Type: "Submissive" | "Friend";
  * }[]} data - An array of data, we receive from the server
  *
@@ -234,7 +237,6 @@ function FriendListChatSearch(room) {
  * @returns {void} - Nothing
  */
 function FriendListLoadFriendList(data) {
-
 	// Loads the header caption
 	const BeepCaption = DialogFindPlayer("Beep");
 	const DeleteCaption = DialogFindPlayer("Delete");
@@ -274,16 +276,19 @@ function FriendListLoadFriendList(data) {
 	if (mode === "Friends") {
 		// In Friend List mode, we show the friend list and allow doing beeps
 		for (const friend of data) {
+			const originalChatRoomName = friend.ChatRoomName || "";
 			FriendListContent += "<div class='FriendListRow'>";
 			FriendListContent += `<div class='FriendListTextColumn FriendListFirstColumn'> ${friend.MemberName} </div>`;
 			FriendListContent += `<div class='FriendListTextColumn'> ${friend.MemberNumber} </div>`;
 			if (friend.ChatRoomName == null) friend.ChatRoomName = "-";
+			friend.ChatRoomName = ChatSearchMuffle(friend.ChatRoomName);
+			if (friend.Private) friend.ChatRoomName = "- " + PrivateRoomCaption + " " + friend.ChatRoomName;
 			if (friend.ChatRoomName.startsWith("-")) {
-				FriendListContent += `<div class='FriendListTextColumn'> ${friend.ChatRoomName.replace("-Private-", PrivateRoomCaption)} </div>`;
+				FriendListContent += `<div class='FriendListTextColumn'> ${friend.ChatRoomName} </div>`;
 			} else {
-				const Caption = `${friend.ChatRoomSpace ? friend.ChatRoomSpace.replace("Asylum", SpaceAsylumCaption) + " - " : ''} ${ChatSearchMuffle(friend.ChatRoomName)}`;
+				const Caption = `${friend.ChatRoomSpace ? friend.ChatRoomSpace.replace("Asylum", SpaceAsylumCaption) + " - " : ''} ${friend.ChatRoomName}`;
 				if (FriendListReturn && FriendListReturn.Screen === "ChatSearch" && ChatRoomSpace === (friend.ChatRoomSpace || "")) {
-					FriendListContent += `<div class='FriendListLinkColumn' onClick='FriendListChatSearch("${friend.ChatRoomName}")'> ${Caption} </div>`;
+					FriendListContent += `<div class='FriendListLinkColumn' onClick='FriendListChatSearch("${originalChatRoomName}")'> ${Caption} </div>`;
 				} else {
 					FriendListContent += `<div class='FriendListTextColumn'> ${Caption} </div>`;
 				}
@@ -298,12 +303,13 @@ function FriendListLoadFriendList(data) {
 			FriendListContent += `<div class='FriendListRow'>`;
 			FriendListContent += `<div class='FriendListTextColumn FriendListFirstColumn'> ${B.MemberName}</div>`;
 			FriendListContent += `<div class='FriendListTextColumn'>${B.MemberNumber != null ? B.MemberNumber : "-"}</div>`;
-			const Caption = (B.ChatRoomName == null ? "-" : (B.ChatRoomSpace ? B.ChatRoomSpace.replace("Asylum", SpaceAsylumCaption) + " - " : "") + B.ChatRoomName.replace("-Private-", PrivateRoomCaption));
+			const Caption = (B.ChatRoomName == null ? "-" : (B.ChatRoomSpace ? B.ChatRoomSpace.replace("Asylum", SpaceAsylumCaption) + " - " : "") + (B.Private ? PrivateRoomCaption + " - " : "") +  B.ChatRoomName);
 			if (FriendListReturn && FriendListReturn.Screen === "ChatSearch" && B.ChatRoomSpace !== undefined && ChatRoomSpace === (B.ChatRoomSpace || "") && B.ChatRoomName && !B.ChatRoomName.startsWith("-")) {
 				FriendListContent += `<div class='FriendListLinkColumn' onClick='FriendListChatSearch("${B.ChatRoomName}")'> ${Caption} </div>`;
 			} else {
 				FriendListContent += `<div class='FriendListTextColumn'> ${Caption} </div>`;
 			}
+
 			if (B.Message) {
 				FriendListContent += `<div class='FriendListLinkColumn' onclick="FriendListShowBeep(${i})">${B.Sent ? SentCaption : ReceivedCaption} ${TimerHourToString(B.Time)} ${MailCaption}</div>`;
 			} else {

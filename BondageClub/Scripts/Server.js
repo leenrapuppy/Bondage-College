@@ -592,6 +592,7 @@ function ServerAccountBeep(data) {
 				MemberName: data.MemberName,
 				ChatRoomName: data.ChatRoomName,
 				ChatRoomSpace: data.ChatRoomSpace,
+				Private: data.Private,
 				Sent: false,
 				Time: new Date(),
 				Message: data.Message
