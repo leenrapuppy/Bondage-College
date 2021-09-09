@@ -100,7 +100,7 @@ function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
 
 		const triggerRegex = new RegExp(`\\b${regexString}\\b`);
 		const success = triggerRegex.test(msg);
-		
+
 		if (success) commandsReceived.push(ItemVulvaFuturisticVibratorTriggers[I]);
 	}
 	return commandsReceived;
@@ -156,6 +156,7 @@ function InventoryItemVulvaFuturisticVibratorTriggerShock(C, Item) {
 		var Dictionary = [];
 		Dictionary.push({ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber });
 		Dictionary.push({ Tag: "AssetName", AssetName: Item.Asset.Name});
+		Dictionary.push({ ShockIntensity : 2});
 
 		ServerSend("ChatRoomChat", { Content: "FuturisticVibratorShockTrigger", Type: "Action", Dictionary });
 	}
@@ -187,7 +188,7 @@ function InventoryItemVulvaFuturisticVibratorHandleChat(C, Item, LastTime) {
 			else if (msg.includes("Disable")) InventoryItemVulvaFuturisticVibratorSetMode(C, Item, VibratorModeGetOption(VibratorMode.OFF));
 			else if (msg.includes("Increase")) InventoryItemVulvaFuturisticVibratorSetMode(C, Item, VibratorModeGetOption(InventoryItemVulvaFuturisticVibratorGetMode(Item, true)), true);
 			else if (msg.includes("Decrease")) InventoryItemVulvaFuturisticVibratorSetMode(C, Item, VibratorModeGetOption(InventoryItemVulvaFuturisticVibratorGetMode(Item, false)), true);
-			
+
 			//triggered actions
 			if (msg.includes("Shock")) InventoryItemVulvaFuturisticVibratorTriggerShock(C, Item);
 		}

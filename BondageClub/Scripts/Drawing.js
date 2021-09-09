@@ -164,7 +164,7 @@ function DrawGetImageOnError(Img, IsAsset) {
  * @returns {string} - alpha of screen flash
  */
 function DrawGetScreenFlash(FlashTime) {
-	let alpha = Math.max(0, Math.min(255, Math.floor(140 * (1 - Math.exp(-FlashTime/2500))))).toString(16);
+	let alpha = Math.max(0, Math.min(255, Math.floor(ChatRoomPinkFlashAlphaStrength * (1 - Math.exp(-FlashTime/2500))))).toString(16);
 	if (alpha.length < 2) alpha = "0" + alpha;
 	return alpha;
 }

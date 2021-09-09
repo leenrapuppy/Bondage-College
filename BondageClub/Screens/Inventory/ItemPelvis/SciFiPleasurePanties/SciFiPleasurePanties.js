@@ -225,6 +225,7 @@ function InventoryItemPelvisSciFiPleasurePantiesShockTrigger() {
 	var Dictionary = [];
 	Dictionary.push({ Tag: "AssetName", Text: DialogFocusItem.Asset.Description.toLowerCase() });
 	Dictionary.push({ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber });
+	Dictionary.push({ ShockIntensity : DialogFocusItem.Property.Intensity * 1.5});
     ChatRoomPublishCustomAction("SciFiPleasurePantiesShockTrigger" + DialogFocusItem.Property.ShockLevel, true, Dictionary);
 
 	InventoryShockExpression(C);

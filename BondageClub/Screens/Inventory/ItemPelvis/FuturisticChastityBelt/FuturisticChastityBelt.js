@@ -113,7 +113,7 @@ function InventoryItemPelvisFuturisticChastityBeltDraw() {
 		if (DialogFocusItem.Property.Type != "ClosedBack1" && DialogFocusItem.Property.Type != "ClosedBack2" && DialogFocusItem.Property.Type != "ClosedBack3") {
 			DrawButton(1625, 910, 150, 64, DialogFindPlayer("FuturisticChastityBeltClosedBack"), "White", "");
 		}
-		
+
 		if (DialogFocusItem.Property.Type != null && DialogFocusItem.Property.Type != "OpenBoth1" && DialogFocusItem.Property.Type != "ClosedBack1") {
 			DrawButton(1225, 840, 150, 64, DialogFindPlayer("FuturisticChastityBeltModel1"), "White", "");
 		}
@@ -145,16 +145,16 @@ function InventoryItemPelvisFuturisticChastityBeltClick() {
 		} else if (MouseIn(1100, 760, 64, 64)) {
 			DialogFocusItem.Property.PunishOrgasm = !DialogFocusItem.Property.PunishOrgasm;
 			FuturisticChastityBeltConfigure = true;
-		} else if (MouseIn(1200, 840, 600, 138)) {		
+		} else if (MouseIn(1200, 840, 600, 138)) {
 			let FuturisticTypeOffset = 0;
 			let FuturisticModelOffset = 0;
-			
+
 			if (DialogFocusItem.Property.Type == "OpenBoth1" || DialogFocusItem.Property.Type == "OpenBoth2" || DialogFocusItem.Property.Type == "OpenBoth3") FuturisticTypeOffset = 1;
 			else if (DialogFocusItem.Property.Type == "ClosedBack1" || DialogFocusItem.Property.Type == "ClosedBack2" || DialogFocusItem.Property.Type == "ClosedBack3") FuturisticTypeOffset = 2;
-			
+
 			if (DialogFocusItem.Property.Type == "OpenBack2" || DialogFocusItem.Property.Type == "OpenBoth2" || DialogFocusItem.Property.Type == "ClosedBack2") FuturisticModelOffset = 3;
 			else if (DialogFocusItem.Property.Type == "OpenBack3" || DialogFocusItem.Property.Type == "OpenBoth3" || DialogFocusItem.Property.Type == "ClosedBack3") FuturisticModelOffset = 6;
-		
+
 			if (MouseIn(1225, 910, 150, 64) && DialogFocusItem.Property.Type != null && DialogFocusItem.Property.Type != "OpenBack2" && DialogFocusItem.Property.Type != "OpenBack3") {
 				ExtendedItemSetType(C, InventoryItemPelvisFuturisticChastityBeltOptions, InventoryItemPelvisFuturisticChastityBeltOptions[0+FuturisticModelOffset]);
 			}
@@ -242,12 +242,12 @@ function InventoryFuturisticChastityBeltCheckPunish(Item) {
 			return "Struggle";
 		}
 	}
-	
+
 	// Punish the player if they struggle anywhere
 	if (Item.Property.PunishStruggleOther && Player.FocusGroup && StruggleProgressPrevItem != null && StruggleProgressStruggleCount > 0 && (StruggleProgress > 50 || StruggleLockPickProgressCurrentTries > 2)) {
 		return "StruggleOther";
 	}
-	
+
 	// Punish the player if they orgasm
 	if (Item.Property.NextShockTime - CurrentTime <= 0 && Item.Property.PunishOrgasm && Player.ArousalSettings && Player.ArousalSettings.OrgasmStage > 1) {
 		// Punish the player if they orgasm
@@ -258,7 +258,7 @@ function InventoryFuturisticChastityBeltCheckPunish(Item) {
 
 function AssetsItemPelvisFuturisticChastityBeltScriptUpdatePlayer(data) {
 	var Item = data.Item;
-	
+
 	const punishment = InventoryFuturisticChastityBeltCheckPunish(Item);
 	if (punishment) {
 		if (punishment == "Orgasm") {
@@ -273,7 +273,7 @@ function AssetsItemPelvisFuturisticChastityBeltScriptUpdatePlayer(data) {
 			AssetsItemPelvisFuturisticChastityBeltScriptTrigger(Player, Item, "Struggle");
 			StruggleProgressStruggleCount = 0;
 			DialogLeaveDueToItem = true;
-		} 
+		}
 	}
 }
 
@@ -284,7 +284,7 @@ function AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, ShockType,
 		if (!NoShock)
 			AudioPlayInstantSound("Audio/Shocks.mp3");
 	} else {
-		
+
 		var Dictionary = [];
 		Dictionary.push({ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber });
 		Dictionary.push({ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
@@ -297,6 +297,7 @@ function AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, ShockType,
 		Dictionary.push({ AssetName: Item.Asset.Name });
 		Dictionary.push({ AssetGroupName: Item.Asset.Group.Name });
 		let ShockPhrase = !NoShock ? "Shock" : "Punish"
+		if (!NoShock) Dictionary.push({ ShockIntensity : 2});
 		if (Item.Property && Item.Property.ChatMessage) {
 			Dictionary.push({ Automatic: true });
 			ServerSend("ChatRoomChat", { Content: "FuturisticChastityBelt" + ShockPhrase + ShockType, Type: "Action", Dictionary });

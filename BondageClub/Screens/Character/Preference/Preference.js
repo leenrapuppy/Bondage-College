@@ -436,7 +436,7 @@ function PreferenceInitPlayer() {
 	if (!C.GraphicsSettings) C.GraphicsSettings = {};
 	if (typeof C.GraphicsSettings.Font !== "string") C.GraphicsSettings.Font = "Arial";
 	if (typeof C.GraphicsSettings.InvertRoom !== "boolean") C.GraphicsSettings.InvertRoom = true;
-	if (typeof C.GraphicsSettings.StimulationFlashes !== "boolean") C.GraphicsSettings.StimulationFlashes = true;
+	if (typeof C.GraphicsSettings.StimulationFlash !== "boolean") C.GraphicsSettings.StimulationFlash = false;
 	if (typeof C.GraphicsSettings.DoBlindFlash !== "boolean") C.GraphicsSettings.DoBlindFlash = false;
 	if (typeof C.GraphicsSettings.AnimationQuality !== "number") C.GraphicsSettings.AnimationQuality = 100;
 	if (typeof C.GraphicsSettings.SmoothZoom !== "boolean") C.GraphicsSettings.SmoothZoom = true;

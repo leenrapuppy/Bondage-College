@@ -269,7 +269,7 @@ Georgia,Georgia
 CourierNew,Courier New
 Copperplate,Copperplate
 GraphicsInvertRoom,Flip the room vertically when upside-down
-GraphicsStimulationFlash,Screen filters when stimulated by events
+GraphicsStimulationFlash,Flash the screen for certain effects
 GraphicsAntialiasing,"Enable antialiasing (For this browser, if supported)"
 GraphicsNoWebGL,"Not running on WebGL, cannot edit rendering configurations."
 GraphicsPowerMode,"Preferred power consumption mode (For this browser, if supported)"

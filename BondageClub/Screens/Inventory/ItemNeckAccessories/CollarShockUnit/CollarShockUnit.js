@@ -28,32 +28,32 @@ function InventoryItemNeckAccessoriesCollarShockUnitClick() {
 		DialogFocusItem.Property.ShowText = !DialogFocusItem.Property.ShowText;
 		return;
 	}
-	
+
 	if (MouseIn(1200, 650, 200, 55) && (DialogFocusItem.Property.Intensity > 0)) {
 		InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(0 - DialogFocusItem.Property.Intensity);
 		return;
 	}
-	
+
 	if (MouseIn(1550, 650, 200, 55) && (DialogFocusItem.Property.Intensity < 1 || DialogFocusItem.Property.Intensity > 1)) {
 		InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(1 - DialogFocusItem.Property.Intensity);
 		return;
 	}
-	
+
 	if (MouseIn(1375, 710, 200, 55) && (DialogFocusItem.Property.Intensity < 2)) {
 		InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(2 - DialogFocusItem.Property.Intensity);
 		return;
 	}
-	
+
 	if (Player.CanInteract() && MouseIn(1500, 900, 200, 55)) {
 		InventoryItemNeckAccessoriesCollarShockUnitTrigger();
 		return;
 	}
-	
+
 	if (Player.CanInteract() && DialogFocusItem.Property.TriggerCount > 0 && MouseIn(1250, 900, 200, 55)) {
 		InventoryItemNeckAccessoriesCollarShockUnitResetCount();
 		return;
 	}
-	
+
 	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogFocusItem = null;
 }
 
@@ -65,7 +65,7 @@ function InventoryItemNeckAccessoriesCollarShockUnitResetCount() {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 		InventoryItemNeckAccessoriesCollarShockUnitLoad();
 	}
-	
+
 	DialogFocusItem.Property.TriggerCount = 0;
 
 	var Dictionary = [];
@@ -111,7 +111,7 @@ function InventoryItemNeckAccessoriesCollarShockUnitTrigger() {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 		InventoryItemNeckAccessoriesCollarShockUnitLoad();
 	}
-	
+
 	DialogFocusItem.Property.TriggerCount++;
 
 	var Dictionary = [];
@@ -121,6 +121,7 @@ function InventoryItemNeckAccessoriesCollarShockUnitTrigger() {
 	Dictionary.push({Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
 	Dictionary.push({ Tag: "ActivityName", Text: "ShockItem" });
 	Dictionary.push({ Tag: "ActivityGroup", Text: DialogFocusItem.Asset.Group.Name });
+	Dictionary.push({ ShockIntensity : DialogFocusItem.Property.Intensity * 1.5});
 	Dictionary.push({ AssetName: DialogFocusItem.Asset.Name });
 	Dictionary.push({ AssetGroupName: DialogFocusItem.Asset.Group.Name });
 
@@ -159,12 +160,12 @@ function AssetsItemNeckAccessoriesCollarShockUnitScriptDraw(data) {
 	if (typeof persistentData.DisplayCount !== "number") persistentData.DisplayCount = 0;
 	if (typeof persistentData.LastTriggerCount !== "number") persistentData.LastTriggerCount = property.TriggerCount;
 
-	
+
 	var isTriggered = persistentData.LastTriggerCount < property.TriggerCount;
 	var newlyTriggered = isTriggered && persistentData.DisplayCount == 0;
 	if (newlyTriggered)
 		persistentData.ChangeTime = Math.min(persistentData.ChangeTime, CommonTime());
-	
+
 	if (persistentData.ChangeTime < CommonTime()) {
 		if (persistentData.LastTriggerCount > property.TriggerCount) persistentData.LastTriggerCount = 0;
 		var wasBlinking = property.Type === "Blink";

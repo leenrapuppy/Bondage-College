@@ -158,6 +158,8 @@ function InventoryItemPelvisLoveChastityBeltTriggerShock() {
   var Dictionary = [];
   Dictionary.push({Tag: "DestinationCharacterName", Text: CharacterGetCurrent().Name, MemberNumber: CharacterGetCurrent().MemberNumber});
   Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
+  Dictionary.push({ ShockIntensity : DialogFocusItem.Property.Intensity * 1.5});
+
   ChatRoomPublishCustomAction("LoveChastityBeltShockTrigger" + DialogFocusItem.Property.Intensity, true, Dictionary);
 }
 

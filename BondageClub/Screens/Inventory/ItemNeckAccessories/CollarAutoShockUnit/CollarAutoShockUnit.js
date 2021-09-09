@@ -167,6 +167,7 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitTriggerAutomatic(data) {
 		var Dictionary = [
 			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
 			{ Tag: "AssetName", AssetName: data.Item.Asset.Name },
+			{ ShockIntensity : data.Item.Property.Intensity * 1.5},
 		];
 		ServerSend("ChatRoomChat", { Content: msg, Type: "Action", Dictionary });
 		ChatRoomCharacterItemUpdate(C, data.Item.Asset.Group.Name);
@@ -213,8 +214,8 @@ function AssetsItemNeckAccessoriesCollarAutoShockUnitScriptDraw(data) {
 	var property = (data.Item.Property = data.Item.Property || {});
 	if (typeof persistentData.ChangeTime !== "number") persistentData.ChangeTime = CommonTime() + 4000;
 	if (typeof persistentData.LastMessageLen !== "number") persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;
-	
-	if (ChatRoomLastMessage && ChatRoomLastMessage.length != persistentData.LastMessageLen && data.Item && data.Item.Property && data.Item.Property.Sensitivity > 0) 
+
+	if (ChatRoomLastMessage && ChatRoomLastMessage.length != persistentData.LastMessageLen && data.Item && data.Item.Property && data.Item.Property.Sensitivity > 0)
 		persistentData.ChangeTime = Math.min(persistentData.ChangeTime, CommonTime()); // Trigger immediately if the user speaks
 
 	if (persistentData.ChangeTime < CommonTime()) {
