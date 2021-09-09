@@ -2611,11 +2611,9 @@ var AssetFemale3DCG = [
 				HasType: false,
 				Alpha: [{Group: ["BodyLower"], Pose: ["Kneel"], Masks: [[140, 462, 75, 238], [285, 462, 75, 238], [215 ,545, 70, 155]]}],
 				Layer: [
-					{ Name: "Latex", AllowModuleTypes: ["z0"] },
-					{ Name: "LatexUnzip", AllowModuleTypes: ["z1"] },
-					{ Name: "StrapsAllFours", CopyLayerColor: "Latex", ParentGroup: null, HasType: false, AllowModuleTypes: ["p1"] },
-					{ Name: "LockKneel", AllowModuleTypes: ["p0"], ParentGroup: null, HasType: false, LockLayer: true },
-					{ Name: "LockAllFours", AllowModuleTypes: ["p1"], ParentGroup: null, HasType: false, LockLayer: true, CopyLayerColor: "LockKneel" },
+					{ Name: "Latex", ModuleType: ["z"], AllowModuleTypes: ["z0", "z1"] },
+					{ Name: "Straps", AllowModuleTypes: ["p1"], CopyLayerColor: "Latex", ParentGroup: null, HasType: false },
+					{ Name: "Lock", AllowModuleTypes: ["p0", "p1"], ParentGroup: null, HasType: false, LockLayer: true },
 				],
 				SelfUnlock: false
 			},
