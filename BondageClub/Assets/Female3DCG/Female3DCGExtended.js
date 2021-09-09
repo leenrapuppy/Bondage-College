@@ -1764,7 +1764,7 @@ var AssetFemale3DCGExtended = {
 							{
 								Property: {
 									Effect: ["DeafTotal"]
-								}, 
+								},
 							}, //h3 Noise-Cancelling
 						],
 					},
@@ -2130,6 +2130,37 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // InflatableBodyBag
+		FurBlanketWrap: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR_NAME],
+				Options: [
+					{
+						Name: "Loose",
+						Property: {
+							Type: null,
+							Difficulty: 3,
+						},
+					},
+					{
+						Name: "Tight",
+						Property: {
+							Type: "Tight",
+							Difficulty: 5,
+						},
+					},
+					{
+						Name: "Belts",
+						Property: {
+							Type: "Belts",
+							Difficulty: 8,
+						},
+					},
+				],
+				DrawImages: false,
+				ChangeWhenLocked: false,
+			},
+		}, // FurBlanketWrap
 		Pole: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
