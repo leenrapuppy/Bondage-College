@@ -431,7 +431,6 @@ function ChatSearchResultResponse(data) {
 			&& Player.LastChatRoomSize
 			&& Player.LastChatRoomDesc != null) {
 				ChatRoomPlayerCanJoin = true;
-				ChatRoomPlayerJoiningAsAdmin = true;
 				var block = [];
 				var ChatRoomName = Player.LastChatRoom;
 				var ChatRoomDesc = Player.LastChatRoomDesc;
