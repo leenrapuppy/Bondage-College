@@ -175,6 +175,10 @@ VFXInactive,Bare Meter
 VFXSolid,Solid Glow
 VFXAnimatedTemp,Temporary Animation
 VFXAnimated,Constant Animation
+VFXVibrator,Vibrator Screen Filters
+VFXVibratorInactive,None
+VFXVibratorSolid,Solid Glow
+VFXVibratorAnimated,Flickering Glow
 VFXFilter,Arousal Screen Filter
 VFXFilterHeavy,Strong Gradient
 VFXFilterMedium,Solid Color Filter

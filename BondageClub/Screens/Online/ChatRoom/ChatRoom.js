@@ -1276,10 +1276,10 @@ function ChatRoomResize(load) {
  * @param {number} y1 - Y to draw filter at.
  * @param {number} h - Height of filter
  * @param {number} Width - Width of filter
- * @param {number} ArousalOverride - Whether or not to override progress
+ * @param {number} ArousalOverride - Override to the existing arousal value
  * @returns {void} - Nothing.
  */
-function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride) {
+ function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride) {
 	let Progress = (ArousalOverride) ? ArousalOverride : Player.ArousalSettings.Progress;
 	let amplitude = 0.24 * Math.min(1, 2 - 1.5 * Progress/100); // Amplitude of the oscillation
 	let percent = Progress/100.0;
@@ -1303,6 +1303,81 @@ function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride) {
 		} else alpha /= 2;
 		if (alpha > 0)
 			DrawRect(0, y1, Width, h, `rgba(255, 176, 176, ${alpha})`);
+	}
+}
+/**
+ * Draws vibration screen filter for the specified player
+ * @param {number} y1 - Y to draw filter at.
+ * @param {number} h - Height of filter
+ * @param {number} Width - Width of filter
+ * @param {Character} C - Player to draw it for
+ * @returns {void} - Nothing.
+ */
+function ChatRoomVibrationScreenFilter(y1, h, Width, C) {
+	let VibratorLevelLower = 0;
+	let VibratorLevelUpper = 0;
+	for (let A = 0; A < C.Appearance.length; A++) {
+		if (C.Appearance[A] && C.Appearance[A].Property) {
+			let property = C.Appearance[A].Property;
+			if (property.Effect && property.Effect.includes("Vibrating") && property.Intensity >= 0) {
+				let intensity = property.Intensity + 1;
+				let group = (C.Appearance[A].Asset && C.Appearance[A].Asset.Group) ? C.Appearance[A].Asset.Group.Name : "";
+				if (group == "ItemVulva" || group == "ItemPelvis" || group == "ItemButt" || group == "ItemVulvaPiercings") {
+					VibratorLevelLower += (100 -VibratorLevelLower) * 0.7*Math.min(1, intensity/4);
+				} else {
+					VibratorLevelUpper += (100 -VibratorLevelUpper) * 0.7*Math.min(1, intensity/4);
+				}
+			}
+		}
+	}
+	ChatRoomDrawVibrationScreenFilter(y1, h, Width, VibratorLevelLower, VibratorLevelUpper);
+}
+
+/**
+ * Draws vibration screen filter
+ * @param {number} y1 - Y to draw filter at.
+ * @param {number} h - Height of filter
+ * @param {number} Width - Width of filter
+ * @param {number} VibratorLower - 1-100 Strength of the vibrator "Down There"
+ * @param {number} VibratorSides - 1-100 Strength of the vibrator at the breasts/nipples
+ * @returns {void} - Nothing.
+ */
+ function ChatRoomDrawVibrationScreenFilter(y1, h, Width, VibratorLower, VibratorSides) {
+	let amplitude = 0.24; // Amplitude of the oscillation
+	let percentLower = VibratorLower/100.0;
+	let percentSides = VibratorSides/100.0;
+	let level = Math.min(0.5, Math.max(percentLower, percentSides)) + 0.5 * Math.pow(Math.max(0, Math.max(percentLower, percentSides)*2 - 1), 4);
+	let oscillation = Math.sin(CommonTime() / 1000 % Math.PI);
+	if (Player.ArousalSettings.VFXVibrator != "VFXVibratorAnimated") oscillation = 0;
+	let alpha = 0.6 * level * (0.99 - amplitude + amplitude * oscillation);
+
+	if (VibratorLower > 0) {
+		const Grad = MainCanvas.createRadialGradient(Width/2, y1, 0, Width/2, y1, h);
+		let alphamin = Math.max(0, alpha / 2 - 0.05);
+		let modifier = (Player.ArousalSettings.VFXVibrator == "VFXVibratorAnimated") ? Math.random() * 0.01: 0;
+		Grad.addColorStop(VibratorLower / 100 * (0.7 + modifier), `rgba(255, 100, 176, 0)`);
+		Grad.addColorStop(VibratorLower / 100 * (0.85 - 0.1*percentLower * (0.5 * oscillation)), `rgba(255, 100, 176, ${alphamin})`);
+		Grad.addColorStop(1, `rgba(255, 100, 176, ${alpha})`);
+		MainCanvas.fillStyle = Grad;
+		MainCanvas.fillRect(0, y1, Width, h);
+	}
+	if (VibratorSides > 0) {
+		let Grad = MainCanvas.createRadialGradient(0, 0, 0, 0, 0, Math.sqrt(h*h + Width*Width));
+		let alphamin = Math.max(0, alpha / 2 - 0.05);
+		let modifier = (Player.ArousalSettings.VFXVibrator == "VFXVibratorAnimated") ? Math.random() * 0.01: 0;
+		Grad.addColorStop(VibratorSides / 100 * (0.8 + modifier), `rgba(255, 100, 176, 0)`);
+		Grad.addColorStop(VibratorSides / 100 * (0.9 - 0.07*percentSides * (0.5 * oscillation)), `rgba(255, 100, 176, ${alphamin})`);
+		Grad.addColorStop(1, `rgba(255, 100, 176, ${alpha})`);
+		MainCanvas.fillStyle = Grad;
+		MainCanvas.fillRect(0, y1, Width, h);
+
+		Grad = MainCanvas.createRadialGradient(Width, 0, 0, Width, 0, Math.sqrt(h*h + Width*Width));
+		modifier = (Player.ArousalSettings.VFXVibrator == "VFXVibratorAnimated") ? Math.random() * 0.01: 0;
+		Grad.addColorStop(VibratorSides / 100 * (0.8 + modifier), `rgba(255, 100, 176, 0)`);
+		Grad.addColorStop(VibratorSides / 100 * (0.9 - 0.07*percentSides * (0.5 * oscillation)), `rgba(255, 100, 176, ${alphamin})`);
+		Grad.addColorStop(1, `rgba(255, 100, 176, ${alpha})`);
+		MainCanvas.fillStyle = Grad;
+		MainCanvas.fillRect(0, y1, Width, h);
 	}
 }
 
@@ -1461,8 +1536,19 @@ function ChatRoomRun() {
 			else if (ChatRoomCharacterCount == 4) {y1 = 150; h = 700;}
 			else if (ChatRoomCharacterCount == 5) {y1 = 250; h = 500;}
 
-			ChatRoomDrawArousalScreenFilter(y1, h, 1003);
+			ChatRoomDrawArousalScreenFilter(y1, h, 1003, Player.ArousalSettings.Progress);
 		}
+	}
+
+	if (Player.ArousalSettings.VFXVibrator == "VFXVibratorSolid" || Player.ArousalSettings.VFXVibrator == "VFXVibratorAnimated") {
+		let y1 = 0;
+		let h = 1000;
+
+		if (ChatRoomCharacterCount == 3) {y1 = 50; h = 900;}
+		else if (ChatRoomCharacterCount == 4) {y1 = 150; h = 700;}
+		else if (ChatRoomCharacterCount == 5) {y1 = 250; h = 500;}
+
+		ChatRoomVibrationScreenFilter(y1, h, 1003, Player);
 	}
 
 	if ((Player.ImmersionSettings != null && Player.GraphicsSettings != null) && (Player.ImmersionSettings.StimulationEvents && Player.GraphicsSettings.StimulationFlash) && ChatRoomPinkFlashTime > CommonTime()) {

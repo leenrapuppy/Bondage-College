@@ -564,6 +564,7 @@ interface Character {
 		AffectExpression: boolean;
 		AffectStutter: string;
 		VFX: string;
+		VFXVibrator: string;
 		VFXFilter: string;
 		Progress: number;
 		ProgressTimer: number;

@@ -18,6 +18,8 @@ var PreferenceSettingsSensDepList = ["SensDepLight", "Normal", "SensDepNames", "
 var PreferenceSettingsSensDepIndex = 0;
 var PreferenceSettingsVFXList = ["VFXInactive", "VFXSolid", "VFXAnimatedTemp", "VFXAnimated"];
 var PreferenceSettingsVFXIndex = 0;
+var PreferenceSettingsVFXVibratorList = ["VFXVibratorInactive", "VFXVibratorSolid", "VFXVibratorAnimated"];
+var PreferenceSettingsVFXVibratorIndex = 0;
 var PreferenceSettingsVFXFilterList = ["VFXFilterLight", "VFXFilterMedium", "VFXFilterHeavy"];
 var PreferenceSettingsVFXFilterIndex = 0;
 var PreferenceSettingsVolumeList = [1, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
@@ -222,6 +224,7 @@ function PreferenceInit(C) {
 	if (typeof C.ArousalSettings.AffectExpression !== "boolean") C.ArousalSettings.AffectExpression = true;
 	if (typeof C.ArousalSettings.AffectStutter !== "string") C.ArousalSettings.AffectStutter = "All";
 	if (typeof C.ArousalSettings.VFX !== "string") C.ArousalSettings.VFX = "VFXAnimatedTemp";
+	if (typeof C.ArousalSettings.VFXVibrator !== "string") C.ArousalSettings.VFXVibrator = "VFXAnimated";
 	if (typeof C.ArousalSettings.Progress !== "number" || isNaN(C.ArousalSettings.Progress)) C.ArousalSettings.Progress = 0;
 	if (typeof C.ArousalSettings.ProgressTimer !== "number" || isNaN(C.ArousalSettings.ProgressTimer)) C.ArousalSettings.ProgressTimer = 0;
 	if (typeof C.ArousalSettings.VibratorLevel !== "number" || isNaN(C.ArousalSettings.VibratorLevel)) C.ArousalSettings.VibratorLevel = 0;
@@ -578,7 +581,8 @@ function PreferenceLoad() {
 	PreferenceSettingsSensDepIndex = (PreferenceSettingsSensDepList.indexOf(Player.GameplaySettings.SensDepChatLog) < 0) ? 0 : PreferenceSettingsSensDepList.indexOf(Player.GameplaySettings.SensDepChatLog);
 	PreferenceSettingsVolumeIndex = (PreferenceSettingsVolumeList.indexOf(Player.AudioSettings.Volume) < 0) ? 0 : PreferenceSettingsVolumeList.indexOf(Player.AudioSettings.Volume);
 	PreferenceArousalActiveIndex = (PreferenceArousalActiveList.indexOf(Player.ArousalSettings.Active) < 0) ? 0 : PreferenceArousalActiveList.indexOf(Player.ArousalSettings.Active);
-	PreferenceSettingsVFXIndex = (PreferenceSettingsVFXList.indexOf(Player.ArousalSettings.VFXIndex) < 0) ? 0 : PreferenceSettingsVFXList.indexOf(Player.ArousalSettings.VFX);
+	PreferenceSettingsVFXIndex = (PreferenceSettingsVFXList.indexOf(Player.ArousalSettings.VFX) < 0) ? 0 : PreferenceSettingsVFXList.indexOf(Player.ArousalSettings.VFX);
+	PreferenceSettingsVFXVibratorIndex = (PreferenceSettingsVFXVibratorList.indexOf(Player.ArousalSettings.VFXVibrator) < 0) ? 0 : PreferenceSettingsVFXVibratorList.indexOf(Player.ArousalSettings.VFXVibrator);
 	PreferenceSettingsVFXFilterIndex = (PreferenceSettingsVFXFilterList.indexOf(Player.ArousalSettings.VFXFilter) < 0) ? 0 : PreferenceSettingsVFXFilterList.indexOf(Player.ArousalSettings.VFXFilter);
 	PreferenceArousalVisibleIndex = (PreferenceArousalVisibleList.indexOf(Player.ArousalSettings.Visible) < 0) ? 0 : PreferenceArousalVisibleList.indexOf(Player.ArousalSettings.Visible);
 	PreferenceArousalAffectStutterIndex = (PreferenceArousalAffectStutterList.indexOf(Player.ArousalSettings.AffectStutter) < 0) ? 0 : PreferenceArousalAffectStutterList.indexOf(Player.ArousalSettings.AffectStutter);
@@ -1361,6 +1365,7 @@ function PreferenceSubscreenGraphicsRun() {
 		}
 	} else if (PreferencePageCurrent === 2) {
 		DrawText(TextGet("VFXFilter"), 1000, 216, "Black", "Gray");
+		DrawText(TextGet("VFXVibrator"), 1000, 456, "Black", "Gray");
 		DrawCheckbox(500, 270, 64, 64, TextGet("SmoothZoom"), Player.GraphicsSettings.SmoothZoom);
 		DrawCheckbox(500, 350, 64, 64, TextGet("CenterChatrooms"), Player.GraphicsSettings.CenterChatrooms);
 
@@ -1368,6 +1373,11 @@ function PreferenceSubscreenGraphicsRun() {
 		DrawBackNextButton(500, 182, 450, 64, TextGet(Player.ArousalSettings.VFXFilter || PreferenceSettingsVFXFilterList[PreferenceSettingsVFXFilterIndex]), "White", "",
 			() => TextGet(PreferenceSettingsVFXFilterList[(PreferenceSettingsVFXFilterIndex + PreferenceSettingsVFXFilterList.length - 1) % PreferenceSettingsVFXFilterList.length]),
 			() => TextGet(PreferenceSettingsVFXFilterList[(PreferenceSettingsVFXFilterIndex + 1) % PreferenceSettingsVFXFilterList.length]));
+
+		DrawBackNextButton(500, 422, 450, 64, TextGet(Player.ArousalSettings.VFXVibrator), "White", "",
+			() => TextGet(PreferenceSettingsVFXVibratorList[(PreferenceSettingsVFXVibratorIndex + PreferenceSettingsVFXVibratorList.length - 1) % PreferenceSettingsVFXVibratorList.length]),
+			() => TextGet(PreferenceSettingsVFXVibratorList[(PreferenceSettingsVFXVibratorIndex + 1) % PreferenceSettingsVFXVibratorList.length]));
+
 	}
 }
 
@@ -1427,6 +1437,11 @@ function PreferenceSubscreenGraphicsClick() {
 			if (MouseX <= 825) PreferenceSettingsVFXFilterIndex = (PreferenceSettingsVFXFilterList.length + PreferenceSettingsVFXFilterIndex - 1) % PreferenceSettingsVFXFilterList.length;
 			else PreferenceSettingsVFXFilterIndex = (PreferenceSettingsVFXFilterIndex + 1) % PreferenceSettingsVFXFilterList.length;
 			Player.ArousalSettings.VFXFilter = PreferenceSettingsVFXFilterList[PreferenceSettingsVFXFilterIndex];
+		}
+		if (MouseIn(500, 422, 450, 64)) {
+			if (MouseX <= 825) PreferenceSettingsVFXVibratorIndex = (PreferenceSettingsVFXVibratorList.length + PreferenceSettingsVFXVibratorIndex - 1) % PreferenceSettingsVFXVibratorList.length;
+			else PreferenceSettingsVFXVibratorIndex = (PreferenceSettingsVFXVibratorIndex + 1) % PreferenceSettingsVFXVibratorList.length;
+			Player.ArousalSettings.VFXVibrator = PreferenceSettingsVFXVibratorList[PreferenceSettingsVFXVibratorIndex];
 		}
 		if (MouseIn(500, 270, 64, 64)) Player.GraphicsSettings.SmoothZoom = !Player.GraphicsSettings.SmoothZoom;
 		if (MouseIn(500, 350, 64, 64)) Player.GraphicsSettings.CenterChatrooms = !Player.GraphicsSettings.CenterChatrooms;

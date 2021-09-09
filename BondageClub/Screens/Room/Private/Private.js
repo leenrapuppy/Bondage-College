@@ -389,7 +389,7 @@ function PrivateDrawCharacter() {
 
 				// If the character is kidnapped by Pandora's Box, a ransom note will be shown
 				if (NPCEventGet(PrivateCharacter[C], "Kidnap") <= CurrentTime) {
-			
+
 					// Draw the NPC and the cage if needed
 					if (PrivateCharacter[C].Cage != null) DrawImage("Screens/Room/Private/CageBack.png", X + (C - PrivateCharacterOffset) * 470, 0);
 					DrawCharacter(PrivateCharacter[C], X + (C - PrivateCharacterOffset) * 470, 0, 1);
@@ -398,7 +398,7 @@ function PrivateDrawCharacter() {
 						if ((Player.Cage == null) || (C == 0))
 							if (!PrivateCharacter[C].IsOwner())
 								DrawButton(X + 205 + (C - PrivateCharacterOffset) * 470, 900, 90, 90, "", "White", "Icons/Cage.png");
-							
+
 				} else DrawImage("Screens/Room/PrivateRansom/RansomNote.png", X + 160 + (C - PrivateCharacterOffset) * 470, 375);
 
 			} else {
@@ -465,8 +465,13 @@ function PrivateRun() {
 			if (ActivityOrgasmRuined) ActivityOrgasmControl();
 			if (Player.ArousalSettings.OrgasmStage == 2) DrawText(TextGet("OrgasmRecovering"), 1000, 500, "White", "Black");
 			ActivityOrgasmProgressBar(550, 970);
-		} else if ((Player.ArousalSettings.Progress != null) && (Player.ArousalSettings.Progress >= 1) && (Player.ArousalSettings.Progress <= 99)) ChatRoomDrawArousalScreenFilter(0, 1000, 2000);
+		} else if ((Player.ArousalSettings.Progress != null) && (Player.ArousalSettings.Progress >= 1) && (Player.ArousalSettings.Progress <= 99)) ChatRoomDrawArousalScreenFilter(0, 1000, 2000, Player.ArousalSettings.Progress);
 	}
+
+	if (Player.ArousalSettings.VFXVibrator == "VFXVibratorSolid" || Player.ArousalSettings.VFXVibrator == "VFXVibratorAnimated") {
+		ChatRoomVibrationScreenFilter(0, 1000, 2000, Player);
+	}
+
 
 	// If we must save a character status after a dialog
 	if (PrivateCharacterToSave > 0) {
