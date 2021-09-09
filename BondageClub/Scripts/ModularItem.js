@@ -492,6 +492,7 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
 		if (Property.SetPose) mergedProperty.SetPose = CommonArrayConcatDedupe(mergedProperty.SetPose || [], Property.SetPose);
 		if (typeof Property.OverridePriority === "number") mergedProperty.OverridePriority = Property.OverridePriority;
 		if (typeof Property.HeightModifier === "number") mergedProperty.HeightModifier = (mergedProperty.HeightModifier || 0) + Property.HeightModifier;
+		if (Property.OverrideHeight) mergedProperty.OverrideHeight = ModularItemMergeOverrideHeight(mergedProperty.OverrideHeight, Property.OverrideHeight);
 		return mergedProperty;
 	}, {
 		Type: ModularItemConstructType(modules, moduleValues),
@@ -502,6 +503,19 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
 		Hide: Array.isArray(asset.Hide) ? asset.Hide.slice() : [],
 		HideItem: Array.isArray(asset.HideItem) ? asset.HideItem.slice() : [],
 	});
+}
+
+/**
+ * Generates the type string for a modular item from its modules and their current values.
+ * @param {Record<string, { Height: number, Priority: number}>} currentValue - The OverrideHeight for the future item
+ * @param {Record<string, { Height: number, Priority: number}>} newValue - The OverrideHeight being merged
+ * @returns {Record<string, { Height: number, Priority: number}> | undefined} - A string type generated from the selected option values for each module
+ */
+function ModularItemMergeOverrideHeight(currentValue, newValue) {
+	if (typeof newValue.Height === "number" && typeof newValue.Priority === "number" &&
+	(!currentValue || (currentValue.Priority < currentValue.Priority)))
+		return {Height: newValue.Height, Priority: newValue.Priority};
+	return currentValue;
 }
 
 /**

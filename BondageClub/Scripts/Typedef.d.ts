@@ -706,7 +706,7 @@ interface PlayerCharacter extends Character {
 		DoBlindFlash: boolean;
 		AnimationQuality: number;
 		StimulationFlash: boolean;
-		NoSmoothZoom: boolean;
+		SmoothZoom: boolean;
 	}
 	NotificationSettings?: {
 		/** @deprecated */
@@ -1003,6 +1003,8 @@ interface ModularItemOption {
 	ChangeWhenLocked?: boolean;
 	/** Whether or not the option should open a subscreen in the extended item menu */
 	HasSubscreen?: boolean;
+	/** Override height, uses the highest priority of all modules*/
+	OverrideHeight?: Record<string, { Height: number, Priority: number}>;
 	/** Whether or not this option can be selected by the wearer */
 	AllowSelfSelect?: boolean;
 }
