@@ -529,6 +529,8 @@ ItemMouthCupholderGagHolder,Holder
 ItemMouthCupholderGagCup,Cup
 ItemMouthDildoGagStrap,Strap
 ItemMouthDildoGagDildo,Dildo
+ItemMouthDildoPlugGagStrap,Strap
+ItemMouthDildoPlugGagClose,Close
 ItemMouthBambooGagRod,Rod
 ItemMouthBambooGagRope,Rope
 ItemMouthHarnessBallGag1Ball,Ball
@@ -809,6 +811,9 @@ CorsetCorset6Leather,Leather
 CorsetCorset6Buttons,Buttons
 ItemEarsHeadphonesDark,Dark
 ItemEarsHeadphonesLight,Light
+ItemEarsFuturisticEarphonesBand,Band
+ItemEarsFuturisticEarphonesDisplay,Display
+ItemEarsFuturisticEarphonesLock,Lock
 ItemHandsPaddedMittensGloves,Gloves
 ItemHandsPaddedMittensStraps,Straps
 ItemHandsPaddedMittensBuckles,Buckles
