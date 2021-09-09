@@ -13,13 +13,19 @@ var ServerBeep = {};
 var ServerIsConnected = false;
 var ServerReconnectCount = 0;
 
+const ServerScriptMessage = "WARNING! Console scripts can break your account or steal your data. Only run scripts if " +
+	"you know what you're doing and you trust the source. See " +
+	"https://github.com/Ben987/Bondage-College/wiki/Player-Safety#scripts--browser-extensions to learn more about " +
+	"script safety.";
+const ServerScriptWarningStyle = "display: inline-block; color: black; background: #ffe3ad; margin: 16px 0 8px 0; " +
+	"padding: 8px 4px; font-size: 20px; border: 6px solid #ffa600; font-family: 'Arial', sans-serif; line-height: 1.6;";
+
 /** Loads the server by attaching the socket events and their respective callbacks */
 function ServerInit() {
 	ServerSocket = io(ServerURL);
 	ServerSocket.on("connect", ServerConnect);
 	ServerSocket.on("disconnect", function () { ServerDisconnect(); });
 	ServerSocket.io.on("reconnect_attempt", ServerReconnecting);
-	ServerSocket.on("ServerMessage", function (data) { console.log(data); });
 	ServerSocket.on("ServerInfo", function (data) { ServerInfo(data); });
 	ServerSocket.on("CreationResponse", function (data) { CreationResponse(data); });
 	ServerSocket.on("LoginResponse", function (data) { LoginResponse(data); });
@@ -138,6 +144,14 @@ function ServerSetConnected(connected, errorMessage) {
 function ServerConnect() {
 	//console.info("Server connection established");
 	ServerSetConnected(true);
+	console.info("Connected to the Bondage Club Server.");
+
+	const userAgent = navigator.userAgent.toLowerCase();
+	if (userAgent.includes("chrome") || userAgent.includes("firefox")) {
+		console.log(`\n%c${ServerScriptMessage}%c \n`, ServerScriptWarningStyle, "");
+	} else {
+		console.log(ServerScriptMessage);
+	}
 }
 
 /**
