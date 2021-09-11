@@ -190,11 +190,11 @@ function FriendListClick() {
 function FriendListExit() {
 	FriendListBeepMenuClose();
 	ElementRemove("FriendList");
-	if (FriendListReturn != null) {
+	if (FriendListReturn != null && FriendListReturn.Screen != "FriendList") {
 		ElementToggleGeneratedElements(FriendListReturn.Screen, true);
 		CommonSetScreen(FriendListReturn.Module, FriendListReturn.Screen);
-		FriendListReturn = null;
 	} else CommonSetScreen("Character", "InformationSheet");
+	FriendListReturn = null;
 	FriendListModeIndex = 0;
 }
 

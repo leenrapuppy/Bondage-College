@@ -90,8 +90,8 @@ function ChatSearchClick() {
 	}
 	if (MouseIn(1785, 885, 90, 90)) {
 		ElementRemove("InputSearch");
-		CommonSetScreen("Character", "FriendList");
 		FriendListReturn = { Screen: CurrentScreen , Module: CurrentModule };
+		CommonSetScreen("Character", "FriendList");
 	}
 	if (MouseIn(1885, 885, 90, 90)) ChatSearchExit();
 }
