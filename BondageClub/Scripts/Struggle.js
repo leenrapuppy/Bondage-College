@@ -885,13 +885,15 @@ function StruggleLockPickClick(C) {
 							}
 						}
 						if (StruggleLockPickProgressCurrentTries < StruggleLockPickProgressMaxTries) {
+							let incrementTries = false;
 							for (let PP = 0; PP < StruggleLockPickSetFalse.length; PP++) {
 								if (P != PP && StruggleLockPickSetFalse[PP] == true && Math.random() < unset_false_set_chance) {
 									StruggleLockPickSetFalse[PP] = false;
-									StruggleLockPickProgressCurrentTries += 1;
+									incrementTries = true;
 									break;
 								}
 							}
+							if (incrementTries) StruggleLockPickProgressCurrentTries += 1;
 						}
 						var order = Math.max(0, StruggleLockPickOrder.indexOf(P)-current_pins)/Math.max(1, StruggleLockPickSet.length-current_pins) * (0.25+0.75*skill/10); // At higher skills you can see which pins are later in the order
 						StruggleLockPickOffsetTarget[P] = (StruggleLockPickSet[P] || StruggleLockPickSetFalse[P]) ? PinHeight : PinHeight*(0.1+0.8*order);

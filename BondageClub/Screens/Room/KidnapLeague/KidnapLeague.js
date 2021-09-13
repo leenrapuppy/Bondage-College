@@ -18,7 +18,7 @@ var KidnapLeagueVisitRoom = false;
 
 var KidnapLeagueSearchingPlayers = [];
 var KidnapLeagueSearchFinishTime = 0;
-var KidnapLeagueSearchFinishDuration = 15*60*1000; // 15 mins
+var KidnapLeagueSearchFinishDuration = 5*60*1000; // 15 mins
 var KidnapLeagueOnlineBountyTarget = 0;
 var KidnapLeagueOnlineBountyTargetStartedTime = 0;
 
@@ -128,10 +128,10 @@ function KidnapLeagueCanKiss() { return (Player.CanTalk() && CurrentCharacter.Ca
  * @returns {void} - Nothing
  */
  function KidnapLeagueOnlineBountyFinish() {
-	let money = 65;
+	let money = 25;
 	let misc = InventoryGet(Player, "ItemMisc");
 	if (misc && misc.Property && misc.Property.Iterations && typeof misc.Property.Iterations === "number") {
-		money += 75 * misc.Property.Iterations;
+		money += 15 * misc.Property.Iterations;
 	}
 
 	InventoryRemove(Player, "ItemMisc");

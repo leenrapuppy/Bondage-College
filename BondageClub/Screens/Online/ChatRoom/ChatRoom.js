@@ -302,7 +302,7 @@ function ChatRoomTryToTakeSuitcase() {
  * @returns {void}
  */
 function ChatRoomReceiveSuitcaseMoney() {
-	let money = Math.max(1, Math.ceil(45 * Math.min(1, Math.max(0, (CommonTime() - KidnapLeagueOnlineBountyTargetStartedTime)/KidnapLeagueSearchFinishDuration))));
+	let money = Math.max(1, Math.ceil(15 * Math.min(1, Math.max(0, (CommonTime() - KidnapLeagueOnlineBountyTargetStartedTime)/KidnapLeagueSearchFinishDuration))));
 	CharacterChangeMoney(Player, money);
 	ChatRoomMessage({ Content: "OnlineBountySuitcaseFinish", Type: "Action", Dictionary: [{Tag: "MONEYAMOUNT", Text: ""+Math.ceil(money)}], Sender: Player.MemberNumber });
 	KidnapLeagueOnlineBountyTarget = 0;
@@ -1386,9 +1386,7 @@ function ChatRoomVibrationScreenFilter(y1, h, Width, C) {
  * @returns {void} - Nothing.
  */
 function ChatRoomUpdateOnlineBounty() {
-	if (Player.CanInteract()) {
-		KidnapLeagueSearchingPlayers = [];
-	} else if (KidnapLeagueSearchingPlayers.length > 0) {
+	if (KidnapLeagueSearchingPlayers.length > 0) {
 		let misc = InventoryGet(Player, "ItemMisc");
 		if (misc && misc.Asset && (misc.Asset.Name == "BountySuitcase" || misc.Asset.Name == "BountySuitcaseEmpty")) {
 			if (KidnapLeagueSearchFinishTime > 0 && CommonTime() > KidnapLeagueSearchFinishTime) {
