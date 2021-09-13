@@ -247,28 +247,28 @@ function ChatRoomCanTakePhotos() { return (ChatRoomData && ChatRoomData.BlockCat
  * @returns {boolean} - Returns TRUE if the player can start searching a player
  */
  function ChatRoomCanTakeSuitcase() {
-	return ChatRoomCarryingBounty(CurrentCharacter) && CurrentCharacter.AllowItem;
+	return ChatRoomCarryingBounty(CurrentCharacter) && !C.CanInteract();
 }
 /**
  * Checks if the player can start searching a player
  * @returns {boolean} - Returns TRUE if the player can start searching a player
  */
  function ChatRoomCanTakeSuitcaseOpened() {
-	return ChatRoomCarryingBountyOpened(CurrentCharacter) && CurrentCharacter.AllowItem;
+	return ChatRoomCarryingBountyOpened(CurrentCharacter) && !C.CanInteract();
 }
 /**
  * Checks if the player can start searching a player
  * @returns {boolean} - Returns TRUE if the player can start searching a player
  */
  function ChatRoomCarryingBounty(C) {
-	return (ReputationGet("Kidnap") > 0 && Player.CanInteract() && C.AllowItem != false && !C.CanInteract() && InventoryIsWorn(C,"BountySuitcase", "ItemMisc"));
+	return (ReputationGet("Kidnap") > 0 && Player.CanInteract() && C.AllowItem != false && InventoryIsWorn(C,"BountySuitcase", "ItemMisc"));
 }
 /**
  * Checks if the player can start searching a player
  * @returns {boolean} - Returns TRUE if the player can start searching a player
  */
  function ChatRoomCarryingBountyOpened(C) {
-	return (ReputationGet("Kidnap") > 0 && Player.CanInteract() && C.AllowItem != false && !C.CanInteract() && InventoryIsWorn(C,"BountySuitcaseEmpty", "ItemMisc"));
+	return (ReputationGet("Kidnap") > 0 && Player.CanInteract() && C.AllowItem != false && InventoryIsWorn(C,"BountySuitcaseEmpty", "ItemMisc"));
 }
 /**
  * Checks if the player can start searching a player but the player is unbound
