@@ -11,9 +11,168 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2021-08-12
-* Last recorded PR: [#2847](https://github.com/Ben987/Bondage-College/pull/2847)
-* Last recorded commit hash: `c03552790c6c91e05213cec557f1e878e38974bc`
+* Changelog last updated: 2021-09-11
+* Last recorded PR: [#2930](https://github.com/Ben987/Bondage-College/pull/2930)
+* Last recorded commit hash: `86a8d65072d7aac9bec91dd3d34009b27981c989`
+
+
+## [R72]
+
+### [Added]
+
+> ![Information](./Icons/Information.svg) There is a new page on [Player Safety](https://github.com/Ben987/Bondage-College/wiki/Player-Safety) in the game's wiki,
+containing safety & security tips for players. We'd encourage all players to give it a read.
+
+* Daddy Daubeny - Added 2 new items ([#2846](https://github.com/Ben987/Bondage-College/pull/2846)
+  , [#2864](https://github.com/Ben987/Bondage-College/pull/2864))
+    * Bib (Cloth Accessory)
+    * Pacifier Gag
+* Titania/Aeren - Added 7 new items ([#2848](https://github.com/Ben987/Bondage-College/pull/2848)
+  , [#2856](https://github.com/Ben987/Bondage-College/pull/2856)
+  , [#2867](https://github.com/Ben987/Bondage-College/pull/2867)
+  , [#2887](https://github.com/Ben987/Bondage-College/pull/2887)
+  , [#2923](https://github.com/Ben987/Bondage-College/pull/2923))
+    * Grand Mage Dress (Clothing item)
+    * 3 different flower crown items (Hat item)
+    * Bulky Diaper & Poofy Diaper (Panties/Pelvis items)
+    * Doll Box (Devices item)
+* Rui - Added a new item: Bra Style 4 ([#2852](https://github.com/Ben987/Bondage-College/pull/2852))
+* Natsuki - Added a new "Open Mummy" variation for the Duct Tape head item ([#2861](https://github.com/Ben987/Bondage-College/pull/2861))
+* Aeren - Added a new Face Paint item ([#2844](https://github.com/Ben987/Bondage-College/pull/2844), [#2901](https://github.com/Ben987/Bondage-College/pull/2901))
+* Natsuki - Added a new "Cut out" variation for the Duct Tape legs
+  item ([#2866](https://github.com/Ben987/Bondage-College/pull/2866))
+* Ada - Several futuristic item additions and improvements ([#2871](https://github.com/Ben987/Bondage-College/pull/2871)
+  , [#2925](https://github.com/Ben987/Bondage-College/pull/2925))
+    * New options for the Futuristic Crate
+    * Added a new Futuristic Mask item
+    * New options for the Futuristic Muzzle
+* Titania/Ace - Added 7 new items ([#2875](https://github.com/Ben987/Bondage-College/pull/2875)
+  , [#2876](https://github.com/Ben987/Bondage-College/pull/2876)
+  , [#2903](https://github.com/Ben987/Bondage-College/pull/2903)
+  , [#2882](https://github.com/Ben987/Bondage-College/pull/2882)
+  , [#2884](https://github.com/Ben987/Bondage-College/pull/2884))
+    * Pig Nose (Nose item)
+    * Gag Necklace (Necklace item)
+    * Bandana (Hat item)
+    * Hula Skirt (Cloth Lower item)
+    * Coconut Bra (Bra item)
+    * Flower Garland (Necklace item)
+    * Tutu (Cloth Lower item)
+* lunamoon/Ace - Added 2 new items ([#2877](https://github.com/Ben987/Bondage-College/pull/2877))
+    * Crotchless Latex Panties 2
+    * Bow Panties
+* Ada - Added graphical preferences to center players in chatrooms and to smoothly zoom chatrooms when players enter/leave ([#2874](https://github.com/Ben987/Bondage-College/pull/2874))
+* Ace - Added multicolor support for the Foxy Mask in the hood slot ([#2895](https://github.com/Ben987/Bondage-College/pull/2895))
+* Verity - Added a new Mobile Phone handheld item ([#2902](https://github.com/Ben987/Bondage-College/pull/2902))
+* Ace - Clicking on a worn piece of clothing in the wardrobe will now open its extended options menu if it has
+  one ([#2898](https://github.com/Ben987/Bondage-College/pull/2898))
+* Jomshir - Added the ability for owners to release their
+  submissives ([#2537](https://github.com/Ben987/Bondage-College/pull/2537)
+  , [Server #91](https://github.com/Ben987/Bondage-Club-Server/pull/91))
+    * To release a submissive, you need to first remove any collar they might be wearing
+* Ace - Added an icon to items to indicate when they are a limited permission item that you have access
+  to ([#2905](https://github.com/Ben987/Bondage-College/pull/2905))
+* Ada - Added a new multiplayer minigame that can be accessed from the Kidnapper's League ([#2878](https://github.com/Ben987/Bondage-College/pull/2878))
+* Ayesha - Added 2 new items ([#2881](https://github.com/Ben987/Bondage-College/pull/2881), [#2896](https://github.com/Ben987/Bondage-College/pull/2896))
+  * Techno Collar
+  * Techno helmet
+* Ace - Added the ability to view blocked categories from the chatroom admin screen, even for
+  non-admins ([#2885](https://github.com/Ben987/Bondage-College/pull/2885))
+* Ace - Several friend list/beep improvements ([#2886](https://github.com/Ben987/Bondage-College/pull/2886)
+  , [#2893](https://github.com/Ben987/Bondage-College/pull/2893)
+  , [Server #103](https://github.com/Ben987/Bondage-Club-Server/pull/103))
+  , [#2930](https://github.com/Ben987/Bondage-College/pull/2930)
+    * Ability to click on beeps to open them
+    * New `/openfriendlist` chat command to open the friend list
+    * Beeps can now show up as a chat message to help prevent missed beeps (can be toggled via chat preferences)
+    * Option to hide room names from beeps
+* Ace - Added previews to saved expressions ([#2904](https://github.com/Ben987/Bondage-College/pull/2904))
+* Akita/Aeren - Added 10 new back hair variants ([#2908](https://github.com/Ben987/Bondage-College/pull/2908))
+* Titania/Aeren - Added 2 new front hair variants ([#2908](https://github.com/Ben987/Bondage-College/pull/2908))
+* Dordimar/Ace - Added multicolor support to the Bows Dress and the Summer Flower
+  Dress ([#2912](https://github.com/Ben987/Bondage-College/pull/2912))
+* Cecilia/Ellie - Added new all fours options to the Pet Suit & Pet Suit
+  Exposed ([#2892](https://github.com/Ben987/Bondage-College/pull/2892)
+  , [#2921](https://github.com/Ben987/Bondage-College/pull/2921))
+* Ace - Added labels to private rooms so that they are marked as private, even when revealed to
+  owners/lovers ([#2897](https://github.com/Ben987/Bondage-College/pull/2897)
+  , [Server #104](https://github.com/Ben987/Bondage-Club-Server/pull/104))
+* Ace - Room recreation now preserves the room's ban list ([#2914](https://github.com/Ben987/Bondage-College/pull/2914)
+  , [#2916](https://github.com/Ben987/Bondage-College/pull/2916)
+  , [Server #106](https://github.com/Ben987/Bondage-Club-Server/pull/106))
+* Aeren - Added a new large variant of the Double Ended
+  Dildo ([#2915](https://github.com/Ben987/Bondage-College/pull/2915))
+* Ada - Added a new screen flash visual effect to shocks - controlled by the screen flash graphics
+  preference ([#2918](https://github.com/Ben987/Bondage-College/pull/2918))
+* Ada - Added a screen glow when wearing a vibrating item (configurable in graphics
+  preferences) ([#2919](https://github.com/Ben987/Bondage-College/pull/2919))
+* RedStacey/Ace - Added 2 new items ([#2924](https://github.com/Ben987/Bondage-College/pull/2924))
+    * Fur Straitjacket (Arms item)
+    * Fur Blanket Wrap (Devices item)
+
+### [Removed]
+
+* Nothing this release
+
+### [Changed]
+
+* Daddy Daubeny - Moved the Teddy Bear Set to the Miscellaneous slot (players will need to re-buy the item) ([#2863](https://github.com/Ben987/Bondage-College/pull/2863))
+* Ayesha - Modified the Vibrating Clit Egg to be a little bigger, and added multi-coloring ([#2865](https://github.com/Ben987/Bondage-College/pull/2865))
+* Verity - Renamed the "Handheld Toys" item to "Handheld Items" ([#2900](https://github.com/Ben987/Bondage-College/pull/2900))
+* Natsuki - Tweaked several money sources to increase the money players can earn from them ([#2872](https://github.com/Ben987/Bondage-College/pull/2872))
+* Aeren - Improved some of the chat room messages for the Latex Strait Leotard ([#2907](https://github.com/Ben987/Bondage-College/pull/2907))
+
+### [Fixed]
+
+* Nina - Fixed an issue where poker would report "One Pair" when it should be "High Card" ([#2860](https://github.com/Ben987/Bondage-College/pull/2860))
+* Ada - Fixed a bug where the Futuristic Training Belt would not turn off properly ([#2862](https://github.com/Ben987/Bondage-College/pull/2862))
+* Nina - Fixed a bug where players would receive a notification when someone with the same name as their owner entered
+  the room ([#2890](https://github.com/Ben987/Bondage-College/pull/2890))
+* Nina - Fixed an issue where all asterisks were getting stripped from chat
+  messages ([#2891](https://github.com/Ben987/Bondage-College/pull/2891))
+* Nina - Fixed an issue with the arousal meter glow sometimes rendering in the wrong
+  place ([#2894](https://github.com/Ben987/Bondage-College/pull/2894))
+* Jomshir - Fixed an issue where text boxes would appear transparent on Android
+  Chrome ([#2906](https://github.com/Ben987/Bondage-College/pull/2906))
+* Ace - Fixed a crash that could occur when taking a photo with a popup blocker
+  enabled ([#2883](https://github.com/Ben987/Bondage-College/pull/2883))
+* Ace - Fixed a bug where names would not be hidden in activities when in sensory
+  deprivation ([#2910](https://github.com/Ben987/Bondage-College/pull/2910))
+* Ace - Fixed an issue which could sometimes cause the color picker to
+  crash ([#2911](https://github.com/Ben987/Bondage-College/pull/2911))
+* T-Bone Shark - Fixed some missing layer names for the Dildo Plug Gag & Futuristic Earphones, and fixed several
+  chatroom action typos ([#2917](https://github.com/Ben987/Bondage-College/pull/2917))
+* Jomshir - Fixed an issue where shared settings (e.g. item permissions, whitelist/blacklist changes) would not properly
+  take effect immediately ([Server #97](https://github.com/Ben987/Bondage-Club-Server/pull/97))
+* Ace - Fixed a bug where lovers would incorrectly be labelled as submissives in the friend
+  list ([Server #99](https://github.com/Ben987/Bondage-Club-Server/pull/99))
+* Ace - Fixed an issue where players would sometimes appear to repeatedly join/leave a
+  chatroom ([Server #107](https://github.com/Ben987/Bondage-Club-Server/pull/107))
+
+### [Technical]
+
+* Ellie - Added a new npm script to run all Github checks locally [#2889](https://github.com/Ben987/Bondage-College/pull/2889)
+  * Contributors with Node.js & npm installed can run checks locally by navigating to `BondageClub/Tools/Node` and running `npm run checks` (after running an `npm install` if necessary)
+* Technical changes, fixes & improvements:
+    * fleisch11 - [#2868](https://github.com/Ben987/Bondage-College/pull/2868)
+    * Ace - [#2869](https://github.com/Ben987/Bondage-College/pull/2869)
+      , [#2870](https://github.com/Ben987/Bondage-College/pull/2870)
+      , [#2880](https://github.com/Ben987/Bondage-College/pull/2880)
+      , [#2909](https://github.com/Ben987/Bondage-College/pull/2909)
+      , [#2879](https://github.com/Ben987/Bondage-College/pull/2879)
+      , [#2913](https://github.com/Ben987/Bondage-College/pull/2913)
+      , [Server #108](https://github.com/Ben987/Bondage-Club-Server/pull/108)
+    * Ada - [#2873](https://github.com/Ben987/Bondage-College/pull/2873)
+      , [#2926](https://github.com/Ben987/Bondage-College/pull/2926)
+    * Ellie - [#2888](https://github.com/Ben987/Bondage-College/pull/2888)
+      , [#2920](https://github.com/Ben987/Bondage-College/pull/2920)
+  * Jomshir - [Server #98](https://github.com/Ben987/Bondage-Club-Server/pull/98)
+  * TessaTech - [Server #93](https://github.com/Ben987/Bondage-Club-Server/pull/93)
+
+### [Beta Fixes]
+
+* Nothing... yet
+
 
 ## [R71]
 
@@ -109,6 +268,13 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Natsuki - Fixed an oversight in the Inflated Latex Collar which prevented players from being able to nod their head ([#2842](https://github.com/Ben987/Bondage-College/pull/2842))
 * Ace - Fixed the text for the Arousal Screen Filter preference where it would display "undefined" for some players ([#2843](https://github.com/Ben987/Bondage-College/pull/2843))
 * Ada - Fixed a bug with Kinky Dungeon where it would not save the game state when leaving VR ([#2847](https://github.com/Ben987/Bondage-College/pull/2847))
+* Ace - Fixed an issue with some missing layer names for the Gas Mask ([#2851](https://github.com/Ben987/Bondage-College/pull/2851))
+* Ada - Fixed a bug where the game would load the wrong tileset when spectating kinky dungeon ([#2850](https://github.com/Ben987/Bondage-College/pull/2850))
+* Ace - Fixed some 404 errors for the Custom Collar Tag lock ([#2853](https://github.com/Ben987/Bondage-College/pull/2853))
+* Ada - Fixed a Kinky Dungeon crash ([#2855](https://github.com/Ben987/Bondage-College/pull/2855))
+* Ace - Fixed a typo in private room dialogue where 2$50 should have been $250 ([#2857](https://github.com/Ben987/Bondage-College/pull/2857))
+* Ada - Fixed a crash when spectating Kinky Dungeeon ([#2858](https://github.com/Ben987/Bondage-College/pull/2858))
+* Kimei - Fixed an issue in the new chat commands where "Friendlist" was showing up as "Blacklist" ([#2859](https://github.com/Ben987/Bondage-College/pull/2859))
 
 ## [R70]
 

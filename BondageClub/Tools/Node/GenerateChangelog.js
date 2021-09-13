@@ -18,6 +18,7 @@ const markdownPath = path.join(bcRoot, "CHANGELOG.md");
 const CONTRIBUTOR_NAMES = {
 	"Ben987": "Ben987",
 	"ace-1331": "Ace",
+	"Ace": "Ace",
 	"Ada18980": "Ada",
 	"Ayesha-678": "Ayesha",
 	"Elda": "Elda",
@@ -26,12 +27,17 @@ const CONTRIBUTOR_NAMES = {
 	"fleisch11": "fleisch11",
 	"gatetrek": "gatetrek",
 	"jomshir98": "Jomshir",
+	"Jomshir98": "Jomshir",
 	"Kimei Nishimura": "Kimei",
 	"Natsuki": "Natsuki",
 	"Nina-1474": "Nina",
 	"NoneNoname": "Sekkmer",
 	"Verity": "Verity",
 	"wildsj": "wildsj",
+	"Ruilov3": "Rui",
+	"Shiranui-Izayoi": "Aeren",
+	"DaddyDaubeny": "Daddy Daubeny",
+	"T-Bone Shark": "T-Bone Shark",
 };
 
 async function generateChangelogHtml() {
