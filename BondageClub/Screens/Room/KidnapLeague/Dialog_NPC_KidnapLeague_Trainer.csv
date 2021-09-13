@@ -53,7 +53,7 @@ ClubSlave,,(Leave her.),,DialogLeave(),
 OnlineBountyStart,OnlineBountyStart2,What do I do then?,"Well, we haven't heard back from the agent yet. But I'm sure they'll find you in time.",,HasBountyPermissions()
 OnlineBountyStart,0,I need to change my permissions first.,Sounds good! See you soon.,,DoesNotHaveBountyPermissions()
 OnlineBountyStart,0,This is not for me.,It's fine.  Would you like to talk then?,,
-OnlineBountyStart,OnlineBountyStart2,It's a laptop, isn't it?,Oh... I guess you know what you're doing.,,DoesNotHaveBountyPermissions()
+OnlineBountyStart,OnlineBountyStart2,"It's a laptop, isn't it?",Oh... I guess you know what you're doing.,,DoesNotHaveBountyPermissions()
 OnlineBountyStart2,0,"I will deliver it.",(She attaches a suitcase to your hand with a cable),OnlineBountyStart(),
 OnlineBountyStart2,0,I've changed my mind.,It's fine.  Would you like to talk then?,,
 OnlineBountyEnd,0,(Nod yes),"That's alright. You put your body on the line, so you'll get paid for the trouble. (She gives you MONEYAMOUNT$)",OnlineBountyFinish(),
