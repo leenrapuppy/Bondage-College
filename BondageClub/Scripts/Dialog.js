@@ -1378,7 +1378,12 @@ function DialogItemClick(ClickItem) {
 	// Cannot change item if the previous one is locked or blocked by another group
 	if ((CurrentItem == null) || !InventoryItemHasEffect(CurrentItem, "Lock", true)) {
 		if (!InventoryGroupIsBlocked(C, null, true) && (!InventoryGroupIsBlocked(C) || !ClickItem.Worn))
-			if (InventoryAllow(C, ClickItem.Asset.Prerequisite) && InventoryChatRoomAllow(ClickItem.Asset.Category))
+			if (InventoryAllow(C, ClickItem.Asset.Prerequisite)) {
+				if (!InventoryChatRoomAllow(ClickItem.Asset.Category)) {
+					DialogSetText("BlockedByRoom");
+					return;
+				}
+
 				if ((CurrentItem == null) || (CurrentItem.Asset.Name != ClickItem.Asset.Name)) {
 					if (ClickItem.Asset.Wear) {
 
@@ -1402,6 +1407,7 @@ function DialogItemClick(ClickItem) {
 				}
 				else if ((CurrentItem.Asset.Name == ClickItem.Asset.Name) && CurrentItem.Asset.Extended)
 					DialogExtendItem(CurrentItem);
+			}
 		return;
 	}
 
