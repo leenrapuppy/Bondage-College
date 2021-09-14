@@ -371,7 +371,7 @@ function ItemColorSaveAndExit() {
  * @returns {void} - Nothing
  */
 function ItemColorCancelAndExit() {
-	if (ItemColorBackup && ItemColorCharacter) {
+	if (ItemColorItem && ItemColorBackup && ItemColorCharacter) {
 		Object.assign(ItemColorItem, AppearanceItemParse(ItemColorBackup));
 		CharacterLoadCanvas(ItemColorCharacter);
 	}
@@ -511,7 +511,7 @@ function ItemColorStateBuild(c, item, x, y, width, height, includeResetButton = 
 	ItemColorCharacter = c;
 	ItemColorItem = item;
 	const itemKey = AppearanceItemStringify({ item, x, y, width, height });
-	if (ItemColorState && ItemColorStateKey === itemKey) {
+	if (!item || (ItemColorState && ItemColorStateKey === itemKey)) {
 		return;
 	}
 
