@@ -872,6 +872,7 @@ ItemMouthFuturisticMuzzleSetn0,,,SourceCharacter removes the nose cover from Des
 ItemMouthFuturisticMuzzleSets0,,,SourceCharacter removes the icon from DestinationCharacter muzzle.,,
 ItemMouthFuturisticMuzzleSets1,,,SourceCharacter chooses the icon on DestinationCharacter muzzle.,,
 ItemMouthFuturisticMuzzleSets2,,,SourceCharacter chooses the icon on DestinationCharacter muzzle.,,
+ItemMouthFuturisticMuzzleSets3,,,SourceCharacter chooses the icon on DestinationCharacter muzzle.,,
 ItemMouth2FuturisticMuzzleModuleNose,,,Mask,,
 ItemMouth2FuturisticMuzzleModuleHarness,,,Straps,,
 ItemMouth2FuturisticMuzzleModuleSymbol,,,Icon,,
