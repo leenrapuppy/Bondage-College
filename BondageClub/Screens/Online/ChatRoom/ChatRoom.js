@@ -247,14 +247,14 @@ function ChatRoomCanTakePhotos() { return (ChatRoomData && ChatRoomData.BlockCat
  * @returns {boolean} - Returns TRUE if the player can start searching a player
  */
  function ChatRoomCanTakeSuitcase() {
-	return ChatRoomCarryingBounty(CurrentCharacter) && !C.CanInteract();
+	return ChatRoomCarryingBounty(CurrentCharacter) && !CurrentCharacter.CanInteract();
 }
 /**
  * Checks if the player can start searching a player
  * @returns {boolean} - Returns TRUE if the player can start searching a player
  */
  function ChatRoomCanTakeSuitcaseOpened() {
-	return ChatRoomCarryingBountyOpened(CurrentCharacter) && !C.CanInteract();
+	return ChatRoomCarryingBountyOpened(CurrentCharacter) && !CurrentCharacter.CanInteract();
 }
 /**
  * Checks if the player can start searching a player
