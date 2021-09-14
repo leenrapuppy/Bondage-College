@@ -169,6 +169,7 @@ function AssetAdd(NewAsset, ExtendedConfig) {
 		FuturisticRecolorDisplay: typeof NewAsset.FuturisticRecolorDisplay === 'boolean' ? NewAsset.FuturisticRecolorDisplay : false,
 		Attribute: NewAsset.Attribute || [],
 		PreviewIcons: NewAsset.PreviewIcons || [],
+		PoseMapping: NewAsset.PoseMapping || {},
 	}, AssetParsePoseProperties(NewAsset, AssetCurrentGroup.AllowPose.slice()));
 
 	// Ensure opacity value is valid
@@ -274,7 +275,8 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 		LockLayer: typeof Layer.LockLayer === "boolean" ? Layer.LockLayer : false,
 		MirrorExpression: Layer.MirrorExpression,
 		AllowModuleTypes: Layer.AllowModuleTypes,
-		ColorIndex: 0
+		ColorIndex: 0,
+		PoseMapping: Layer.PoseMapping || A.PoseMapping,
 	}, AssetParsePoseProperties(
 		Layer,
 		Array.isArray(AssetDefinition.AllowPose) ? AssetDefinition.AllowPose.slice() : null)

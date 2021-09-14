@@ -60,6 +60,7 @@ interface AssetDefinition {
 	SetPose?: string[];
 	AllowPose?: string[];
 	HideForPose?: string[];
+	PoseMapping?: { [index: string]: string};
 	AllowActivePose?: string[];
 	WhitelistActivePose?: string[];
 	Value?: number;
@@ -164,6 +165,7 @@ interface AssetLayerDefinition {
 	LockLayer?: boolean;
 	MirrorExpression?: string;
 	HideForPose?: string[];
+	PoseMapping?: { [index: string]: string };
 	AllowModuleTypes?: string[];
 	ModuleType?: string[];
 }

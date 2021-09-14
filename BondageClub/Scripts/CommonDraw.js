@@ -108,7 +108,6 @@ function CommonDrawAppearanceBuild(C, {
 
 		// If there's a pose style we must add (items take priority over groups, layers may override completely)
 		let Pose = CommonDrawResolveAssetPose(C, A, Layer);
-		if (Pose) Pose += "/";
 
 		// Check if we need to draw a different expression (for facial features)
 		let Expression = "";
@@ -292,30 +291,33 @@ function CommonDrawAppearanceBuild(C, {
 		// const HideForPose = !!Pose && (A.HideForPose.find(P => Pose === P + "/") || Layer.HideForPose.find(P => Pose === P + "/"));
 		const ItemLocked = !!(Property && Property.LockedBy);
 
+		let PoseFolder = typeof Layer.PoseMapping[Pose] === "string" ? Layer.PoseMapping[Pose] : Pose;
+		if (PoseFolder) PoseFolder += '/';
 		// if (!HideForPose) {
 		if (Layer.HasImage && (!Layer.LockLayer || ItemLocked)) {
 			// Draw the item on the canvas (default or empty means no special color, # means apply a color, regular text means we apply
 			// that text)
 			if ((Color != null) && (Color.indexOf("#") == 0) && Layer.AllowColorize) {
+
 				drawImageColorize(
-					"Assets/" + AG.Family + "/" + GroupName + "/" + Pose + Expression + A.Name + G + LayerType + L + ".png", X, Y,
+					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + G + LayerType + L + ".png", X, Y,
 					Color,
 					AG.DrawingFullAlpha, AlphaMasks, Opacity, Rotate
 				);
 				drawImageColorizeBlink(
-					"Assets/" + AG.Family + "/" + GroupName + "/" + Pose + BlinkExpression + A.Name + G + LayerType + L + ".png", X, Y,
+					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + BlinkExpression + A.Name + G + LayerType + L + ".png", X, Y,
 					Color, AG.DrawingFullAlpha, AlphaMasks, Opacity, Rotate
 				);
 			} else {
 				var ColorName = ((Color == null) || (Color == "Default") || (Color == "") || (Color.length == 1) ||
 					(Color.indexOf("#") == 0)) ? "" : "_" + Color;
 				drawImage(
-					"Assets/" + AG.Family + "/" + GroupName + "/" + Pose + Expression + A.Name + G + LayerType + ColorName + L + ".png",
+					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + G + LayerType + ColorName + L + ".png",
 					X, Y,
 					AlphaMasks, Opacity, Rotate
 				);
 				drawImageBlink(
-					"Assets/" + AG.Family + "/" + GroupName + "/" + Pose + BlinkExpression + A.Name + G + LayerType + ColorName + L +
+					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + BlinkExpression + A.Name + G + LayerType + ColorName + L +
 					".png",
 					X, Y, AlphaMasks, Opacity, Rotate
 				);
@@ -330,12 +332,12 @@ function CommonDrawAppearanceBuild(C, {
 			// If we just drew the last drawable layer for this asset, draw the lock too (never colorized)
 			if (DrawableLayerCount === LayerCounts[CountKey]) {
 				drawImage(
-					"Assets/" + AG.Family + "/" + GroupName + "/" + Pose + Expression + A.Name + (A.HasType ? Type : "") +
+					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + (A.HasType ? Type : "") +
 					"_Lock.png",
 					X, Y, AlphaMasks
 				);
 				drawImageBlink(
-					"Assets/" + AG.Family + "/" + GroupName + "/" + Pose + BlinkExpression + A.Name + (A.HasType ? Type : "") +
+					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + BlinkExpression + A.Name + (A.HasType ? Type : "") +
 					"_Lock.png", X, Y, AlphaMasks);
 			}
 		}

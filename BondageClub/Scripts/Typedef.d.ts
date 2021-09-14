@@ -185,6 +185,8 @@ interface AssetLayer {
 	AllowPose: string[] | null;
 	/** An array of poses that this layer should be hidden for. */
 	HideForPose: string[];
+	/** An array of objects mapping poses to other poses to determine their draw folder */
+	PoseMapping?: { [index: string]: string };
 	/** The drawing priority of this layer. Inherited from the parent asset/group if not specified in the layer
 	definition. */
 	Priority: number;
@@ -259,6 +261,7 @@ interface Asset {
 	SetPose?: string[];
 	AllowPose: string[];
 	HideForPose: string[];
+	PoseMapping?: { [index: string]: string };
 	AllowActivePose?: string[];
 	WhitelistActivePose?: string[];
 	Value: number;
