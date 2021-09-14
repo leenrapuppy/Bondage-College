@@ -3530,10 +3530,11 @@ function ChatRoomPhotoFullRoom() {
 	let Space = ChatRoomCharacterCount >= 2 ? 1000 / Math.min(ChatRoomCharacterCount, 5) : 500;
 	let Zoom = ChatRoomCharacterCount >= 3 && ChatRoomCharacterCount < 6 ? Space / 400 : 1;
 	let Y = ChatRoomCharacterCount <= 5 ? 1000 * (1 - Zoom) / 2 : 0;
+	let X = ChatRoomCharacterCount === 1 ? 250 : 0;
 	let Width = ChatRoomCharacterCount === 1 ? 500 : 1000;
 
 	// Take the photo
-	ChatRoomPhoto(0, Y, Width, 1000 * Zoom, ChatRoomCharacter);
+	ChatRoomPhoto(X, Y, Width, 1000 * Zoom, ChatRoomCharacter);
 }
 
 /**
