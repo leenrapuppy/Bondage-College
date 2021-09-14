@@ -23,7 +23,7 @@ function TextGet(TextTag) {
 function TextLoad(TextGroup) {
 
 	// Finds the full path of the CSV file to use cache
-	if ((TextGroup == null) || (TextGroup = "")) TextGroup = CurrentScreen;
+	if ((TextGroup == null) || (TextGroup == "")) TextGroup = CurrentScreen;
 	const FullPath = "Screens/" + CurrentModule + "/" + TextGroup + "/Text_" + TextGroup + ".csv";
 
 	TextScreenCache = TextAllScreenCache.get(FullPath);
@@ -38,7 +38,7 @@ function TextLoad(TextGroup) {
  * @param {string} Module
  * @param {string} TextGroup
  */
- function TextPrefetch(Module, TextGroup) {
+function TextPrefetch(Module, TextGroup) {
 	const FullPath = "Screens/" + Module + "/" + TextGroup + "/Text_" + TextGroup + ".csv";
 	if (TextAllScreenCache.has(FullPath)) {
 		TextAllScreenCache.set(FullPath, new TextCache(FullPath, "MISSING VALUE FOR TAG: "));

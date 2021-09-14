@@ -279,7 +279,7 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 		PoseMapping: Layer.PoseMapping || A.PoseMapping,
 	}, AssetParsePoseProperties(
 		Layer,
-		Array.isArray(AssetDefinition.AllowPose) ? AssetDefinition.AllowPose.slice() : null)
+		Array.isArray(A.AllowPose) ? A.AllowPose.slice() : null)
 	);
 	if (L.MinOpacity > L.Opacity) L.MinOpacity = L.Opacity;
 	if (L.MaxOpacity < L.Opacity) L.MaxOpacity = L.Opacity;
