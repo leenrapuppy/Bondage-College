@@ -644,7 +644,7 @@ var AssetFemale3DCGExtended = {
 						Key: "z",
 						Options: [
 							{ // z0 - Zipped up
-								Property: { Block: ["ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"] },
+								Property: { Block: ["ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"], Hide: ["ItemNipples"] },
 							},
 							{ // z1 - Unzipped
 								Property: { Block: [] },
@@ -686,7 +686,7 @@ var AssetFemale3DCGExtended = {
 						Name: "AllFours",
 						Property: {
 							Type: "AllFours",
-							SetPose: ["AllFours"]
+							SetPose: ["AllFours"],
 						}
 					}
 				],
