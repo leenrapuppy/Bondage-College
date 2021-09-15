@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2021-09-14
-* Last recorded PR: [#2932](https://github.com/Ben987/Bondage-College/pull/2932)
-* Last recorded commit hash: `b2dc2a2cbe8054a99cbadb5f3eaf4eb908e1099b`
+* Changelog last updated: 2021-09-15
+* Last recorded PR: [#2971](https://github.com/Ben987/Bondage-College/pull/2971)
+* Last recorded commit hash: `2a3b85887761dc4679c6c04d94199a9be606c130`
 
 ## [R72]
 
@@ -121,6 +121,7 @@ containing safety & security tips for players. We'd encourage all players to giv
 * Verity - Renamed the "Handheld Toys" item to "Handheld Items" ([#2900](https://github.com/Ben987/Bondage-College/pull/2900))
 * Natsuki - Tweaked several money sources to increase the money players can earn from them ([#2872](https://github.com/Ben987/Bondage-College/pull/2872))
 * Aeren - Improved some of the chat room messages for the Latex Strait Leotard ([#2907](https://github.com/Ben987/Bondage-College/pull/2907))
+* Verity - Modified the shopkeeper's dialogue to refer to "items for hands" rather than "hand restraints" ([#2970](https://github.com/Ben987/Bondage-College/pull/2970))
 
 ### [Fixed]
 
@@ -150,6 +151,7 @@ containing safety & security tips for players. We'd encourage all players to giv
   chatroom ([Server #107](https://github.com/Ben987/Bondage-Club-Server/pull/107))
 * Ace - Fixed a bug where clothing changes inside the wardrobe would be visible to other players in a chatroom ([#2951](https://github.com/Ben987/Bondage-College/pull/2951))
 * Ace - Fixed a crash in the color picker that could occur when the item being colored was removed by someone else ([#2935](https://github.com/Ben987/Bondage-College/pull/2935))
+* Ada - Fixed an issue with the Futuristic Training Belt's speech recognition functionality ([#2964](https://github.com/Ben987/Bondage-College/pull/2964))
 
 ### [Technical]
 
@@ -191,6 +193,16 @@ containing safety & security tips for players. We'd encourage all players to giv
 * Ace - Fixed a missing asset for the large Double Ended Dildo option ([#2942](https://github.com/Ben987/Bondage-College/pull/2942))
 * Ace - Fixed a bug which could cause crashes when opening extended clothing in the wardrobe ([#2939](https://github.com/Ben987/Bondage-College/pull/2939))
 * Ace - Fixed a missing chatroom message for the Futuristic Muzzle ([#2937](https://github.com/Ben987/Bondage-College/pull/2937))
+* Ace - Fixed an issue where clicking on room names the friend list wouldn't work ([#2956](https://github.com/Ben987/Bondage-College/pull/2956))
+* Daddy Daubeny - Graphical improvements to the Bib ([#2959](https://github.com/Ben987/Bondage-College/pull/2959))
+* Ace - Fixed a 404 error for the Bib ([#2960](https://github.com/Ben987/Bondage-College/pull/2960))
+* Ace - Changed the Fur Blanket Wrap to show feet/footwear ([#2961](https://github.com/Ben987/Bondage-College/pull/2961))
+* Ada - Fixed a bug where the setting Futuristic Crate's intensity to low would turn it off ([#2965](https://github.com/Ben987/Bondage-College/pull/2965))
+* Ellie - Fixed a bug where the pet suit in the all fours position would not hide gloves ([#2966](https://github.com/Ben987/Bondage-College/pull/2966))
+* Ada - Fixed grammatical errors in the Futuristic Crate's chatroom messages ([#2967](https://github.com/Ben987/Bondage-College/pull/2967))
+* Ada - Increased some of the cooldowns for the Futuristic Training Belt ([#2968](https://github.com/Ben987/Bondage-College/pull/2968))
+* Ada - Fixed some missing lock icons on the Futuristic Bra ([#2969](https://github.com/Ben987/Bondage-College/pull/2969))
+* Ada - Fixed a typo in the suitcase minigame ([#2971](https://github.com/Ben987/Bondage-College/pull/2971))
 
 ## [R71]
 
