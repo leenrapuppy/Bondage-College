@@ -411,7 +411,7 @@ input[type=range][data-thumb=lightbulb]::-moz-range-thumb {
   background-image: url("../Icons/Lightbulb.png");
   width: 0.6em;
 }
-	
+
 input[type=range][data-thumb=player]::-moz-range-thumb {
   background-image: url("../Icons/Player.png");
   width: 0.8em;
@@ -429,7 +429,7 @@ input[type=range][data-thumb=player]::-moz-range-thumb {
 }
 @font-face {
 	font-family: 'Pacifico';
-	src: url('../Fonts/Pacifico/Pacifico-regular.ttf');
+	src: url('../Fonts/Pacifico/Pacifico-Regular.ttf');
 }
 @font-face {
     font-family: 'Satisfy';
