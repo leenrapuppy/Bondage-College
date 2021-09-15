@@ -451,7 +451,7 @@ ServerPromoteAdmin,,,TargetCharacterName was promoted to administrator by Source
 ServerDemoteAdmin,,,TargetCharacterName was demoted from administration by SourceCharacter.,,
 ServerUpdateRoom,,,SourceCharacter updated the room. Name: ChatRoomName. Limit: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.,,
 OnlineBountySuitcaseStart,,,"SourceCharacter starts unlocking DestinationCharacterName suitcase! She will finish in 5 minutes."
-OnlineBountySuitcaseStartOpened,,,"SourceCharacter starts stealing more data from DestinationCharacterName laptop! She will finish in 15 minutes."
+OnlineBountySuitcaseStartOpened,,,"SourceCharacter starts stealing more data from DestinationCharacterName laptop! She will finish in 5 minutes."
 OnlineBountySuitcaseEndEarly,,,"SourceCharacter's suitcase is safe... for now."
 OnlineBountySuitcaseEndEarlyOpened,,,"SourceCharacter's data is safe... for now."
 OnlineBountySuitcaseOngoing,,,"Her suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!"
