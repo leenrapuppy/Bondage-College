@@ -407,7 +407,7 @@ function InventoryFuturisticTrainingBeltCheckPunishSpeech(Item, LastTime) {
 		if (ChatRoomChatLog[CH].Original.indexOf('(') == 0) return "";
 
 		if (ChatRoomChatLog[CH].SenderMemberNumber == Player.MemberNumber) {
-			let msg = ChatRoomChatLog[CH].Original.toUpperCase().replace(/[^a-z0-9]/gmi, " ").replace(/\s+/g, " ");
+			let msg = ChatRoomChatLog[CH].Original.toUpperCase().replace(/[^a-z0-9]/gmi, " ");
 			let msgTruncated = ChatRoomChatLog[CH].Original.toUpperCase().replace(/[^a-z0-9]/gmi, "").replace(/\s+/g, "");
 
 			if (Item.Property.PunishSpeech > 0 && msgTruncated.length > FuturisticTrainingBeltSpeechCharacterLimit) return "Speech";
@@ -419,8 +419,8 @@ function InventoryFuturisticTrainingBeltCheckPunishSpeech(Item, LastTime) {
 				if (gagLevel < 8) {
 					let pass = false;
 					for (let W = 0; W <  words.length; W++) {
-						let checkWord = words[W].replace(/[^a-z0-9]/gmi, " ").replace(/\s+/g, " ").toUpperCase();
-						if (msg.match(`\\b${checkWord}\\b`)) {pass = true; break;}
+						let checkWord = words[W].replace(/[^a-z0-9]/gmi, " ").replace(/\s+/g, '').toUpperCase();
+						if (msgTruncated.includes(checkWord)) {pass = true; break;}
 					}
 					if (!pass) return "RequiredSpeech";
 				}
@@ -431,7 +431,7 @@ function InventoryFuturisticTrainingBeltCheckPunishSpeech(Item, LastTime) {
 				let words =  Item.Property.PunishProhibitedSpeechWords.split(",");
 				if (gagLevel < 8) {
 					for (let W = 0; W <  words.length; W++) {
-						let checkWord = words[W].replace(/[^a-z0-9]/gmi, " ").replace(/\s+/g, " ").toUpperCase();
+						let checkWord = words[W].replace(/[^a-z0-9]/gmi, " ").replace(/\s+/g, '').toUpperCase();
 						if (msg.match(`\\b${checkWord}\\b`)) return {name: "ProhibitedSpeech", word: checkWord};
 					}
 				}
@@ -504,7 +504,7 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptUpdatePlayer(data, LastTime
 					InventoryItemPelvisFuturisticTrainingBeltUpdateVibeMode(C, PersistentData, Item);
 				}
 
-				AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, "RequiredSpeech", Item.Property.PunishRequiredSpeechWord.replace(/[^a-z0-9,]/gmi, " ").replace(/\s+/g, " ").replace(",", "/"), NoShock);
+				AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, "RequiredSpeech", Item.Property.PunishRequiredSpeechWord.replace(/[^a-z0-9,]/gmi, " ").replace(/\s+/g, '').replace(/,/g, "/"), NoShock);
 			// @ts-ignore
 			} else if (punishment && punishment.name == "ProhibitedSpeech" && punishment.word)  {
 				let NoShock = true;
