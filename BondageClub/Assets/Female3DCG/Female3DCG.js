@@ -2578,7 +2578,7 @@ var AssetFemale3DCG = [
 				Block: ["ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemHands"],
 				AllowBlock: ["ItemPelvis", "ItemBreast"],
 				HideItem: ["ItemButtAnalBeads2"],
-				SetPose: ["BackElbowTouch"], FuturisticRecolor: true, Effect: [ "Block", "Prone"], SelfUnlock: false, Extended: true, AllowType: ["HandsBack","HandsFront","HandsBackChastity"],
+				SetPose: ["BackElbowTouch"], FuturisticRecolor: true, Effect: [ "Block", "Prone"], SelfUnlock: false, Extended: true,
 				Layer: [
 					{ Name: "Lower", AllowColorize: true , HasType: false},
 					{ Name: "Mesh", AllowColorize: true , HasType: false},

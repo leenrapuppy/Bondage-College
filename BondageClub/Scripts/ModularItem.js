@@ -729,7 +729,8 @@ function ModularItemRequirementMessageCheck(option, currentOption, changeWhenLoc
 function ModularItemGenerateValidationProperties(data) {
 	const {asset, modules} = data;
 	asset.AllowType = ModularItemGenerateAllowType(data);
-	asset.AllowEffect = Array.isArray(asset.Effect) ? asset.Effect.slice() : [];
+	asset.AllowEffect = Array.isArray(asset.AllowEffect) ? asset.AllowEffect.slice() : [];
+	CommonArrayConcatDedupe(asset.AllowEffect, asset.Effect);
 	asset.AllowBlock = Array.isArray(asset.Block) ? asset.Block.slice() : [];
 	modules.forEach((module) => {
 		module.Options.forEach(({Property}) => {

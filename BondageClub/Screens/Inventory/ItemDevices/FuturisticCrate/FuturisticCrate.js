@@ -2,14 +2,14 @@
 
 function InventoryItemDevicesFuturisticCrateDevice1Load() {
 	if (DialogFocusItem && DialogFocusItem.Property) {
-		if (!DialogFocusItem.Property.Intensity) DialogFocusItem.Property.Intensity = -1;
+		if (DialogFocusItem.Property.Intensity == undefined) DialogFocusItem.Property.Intensity = -1;
 	}
 	VibratorModeLoad([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 }
 
 function InventoryItemDevicesFuturisticCrateDevice1Draw() {
 	if (DialogFocusItem && DialogFocusItem.Property) {
-		if (!DialogFocusItem.Property.Intensity) DialogFocusItem.Property.Intensity = -1;
+		if (DialogFocusItem.Property.Intensity == undefined) DialogFocusItem.Property.Intensity = -1;
 	}
 	VibratorModeDraw([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 }
@@ -42,21 +42,22 @@ function AssetsItemDevicesFuturisticCrateBeforeDraw({ PersistentData, L, X, Y, P
 	const Intensity = typeof Properties.Intensity === "number" ? Properties.Intensity : -1;
 
 
-	const FuckLength = 20;
+	const FuckLength = 15;
+	const TimeModifier = 0.007;
 	const AnimationQualityRatio = (Player.GraphicsSettings ? Math.max(Player.GraphicsSettings.AnimationQuality * 0.6, 30) : 30) / 30;
 	Data.Speed = (Intensity + 1) * 2;
-	if (Data.DildoState >= FuckLength && Intensity > -1) {
+	if (Data.DildoState >= 1 && Intensity > -1) {
 		Data.Modifier = -1;
-	} else if (Data.DildoState <= -FuckLength) {
+	} else if (Data.DildoState <= 0) {
 		Data.Modifier = 1;
-	} else if (Data.DildoState <= FuckLength && Intensity === -1) {
+	} else if (Data.DildoState <= 1 && Intensity === -1) {
 		Data.Modifier = 1;
 		Data.Speed = 1;
 	}
 
-	Data.DildoState += Data.Modifier * Data.Speed * AnimationQualityRatio;
+	Data.DildoState += Data.Modifier * Data.Speed * AnimationQualityRatio * TimeModifier;
 
-	return { Y: Y + Data.DildoState };
+	return { Y: Y + FuckLength * (-Math.cos(Data.DildoState * 2 * Math.PI)) };
 }
 
 function AssetsItemDevicesFuturisticCrateScriptDraw(data) {
