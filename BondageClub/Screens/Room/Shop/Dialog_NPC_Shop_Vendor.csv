@@ -109,7 +109,7 @@ ItemPelvisLeatherCrop,,,(You lash the leather crop pretty hard on her butt.)  Da
 201,90,What else do you have?,We have many items available.,,BuyMode
 201,90,Actually it's something else.,What kind of item is it?,,!BuyMode
 210,,Arm restraints.,,Start(ItemArms),CanShow(ItemArms)
-210,,Hand restraints.,,Start(ItemHands),CanShow(ItemHands)
+210,,Items for hands.,,Start(ItemHands),CanShow(ItemHands)
 210,,Items for breasts.,,Start(ItemBreast),CanShow(ItemBreast)
 210,,Toys for the nipples.,,Start(ItemNipples),CanShow(ItemNipples)
 210,,Items to decorate the nipples.,,Start(ItemNipplesPiercings),CanShow(ItemNipplesPiercings)
