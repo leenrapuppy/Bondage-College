@@ -2223,7 +2223,7 @@ var AssetFemale3DCGExtended = {
 		FurBlanketWrap: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR_NAME],
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR_NAME],
 				Options: [
 					{
 						Name: "Loose",
