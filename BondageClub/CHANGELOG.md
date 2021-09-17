@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2021-09-15
-* Last recorded PR: [#2971](https://github.com/Ben987/Bondage-College/pull/2971)
-* Last recorded commit hash: `2a3b85887761dc4679c6c04d94199a9be606c130`
+* Changelog last updated: 2021-09-17
+* Last recorded PR: [#2984](https://github.com/Ben987/Bondage-College/pull/2984)
+* Last recorded commit hash: `d171ab57c04063573dad104807e44ca58a5c69f5`
 
 ## [R72]
 
@@ -122,6 +122,9 @@ containing safety & security tips for players. We'd encourage all players to giv
 * Natsuki - Tweaked several money sources to increase the money players can earn from them ([#2872](https://github.com/Ben987/Bondage-College/pull/2872))
 * Aeren - Improved some of the chat room messages for the Latex Strait Leotard ([#2907](https://github.com/Ben987/Bondage-College/pull/2907))
 * Verity - Modified the shopkeeper's dialogue to refer to "items for hands" rather than "hand restraints" ([#2970](https://github.com/Ben987/Bondage-College/pull/2970))
+* Estsanatlehi - Renamed the handheld rope coil items ([#2981](https://github.com/Ben987/Bondage-College/pull/2981))
+  * "Rope Coil (Long)" is now "Long Coiled Rope"
+  * "Rope Coil (Short)" is now "Short Coiled Rope"
 
 ### [Fixed]
 
@@ -152,6 +155,8 @@ containing safety & security tips for players. We'd encourage all players to giv
 * Ace - Fixed a bug where clothing changes inside the wardrobe would be visible to other players in a chatroom ([#2951](https://github.com/Ben987/Bondage-College/pull/2951))
 * Ace - Fixed a crash in the color picker that could occur when the item being colored was removed by someone else ([#2935](https://github.com/Ben987/Bondage-College/pull/2935))
 * Ada - Fixed an issue with the Futuristic Training Belt's speech recognition functionality ([#2964](https://github.com/Ben987/Bondage-College/pull/2964))
+* Nina - Fixed a bug where helping someone to kneel would reset their arm position to the default ([#2978](https://github.com/Ben987/Bondage-College/pull/2978))
+* Nina - Fixed the grammar for the chatroom messages of several items ([#2976](https://github.com/Ben987/Bondage-College/pull/2976))
 
 ### [Technical]
 
@@ -203,6 +208,9 @@ containing safety & security tips for players. We'd encourage all players to giv
 * Ada - Increased some of the cooldowns for the Futuristic Training Belt ([#2968](https://github.com/Ben987/Bondage-College/pull/2968))
 * Ada - Fixed some missing lock icons on the Futuristic Bra ([#2969](https://github.com/Ben987/Bondage-College/pull/2969))
 * Ada - Fixed a typo in the suitcase minigame ([#2971](https://github.com/Ben987/Bondage-College/pull/2971))
+* Titania/Ace - Tutu asset fixes ([#2982](https://github.com/Ben987/Bondage-College/pull/2982))
+* Nina - Renamed another reference to handheld toys ([#2974](https://github.com/Ben987/Bondage-College/pull/2974))
+* Estsanatlehi - Fixed a crash when using the Techno Collar's shock module ([#2984](https://github.com/Ben987/Bondage-College/pull/2984))
 
 ## [R71]
 

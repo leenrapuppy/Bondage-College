@@ -38,6 +38,7 @@ const CONTRIBUTOR_NAMES = {
 	"Shiranui-Izayoi": "Aeren",
 	"DaddyDaubeny": "Daddy Daubeny",
 	"T-Bone Shark": "T-Bone Shark",
+	"zorgjbe": "Estsanatlehi",
 };
 
 async function generateChangelogHtml() {
