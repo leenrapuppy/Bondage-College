@@ -1339,6 +1339,13 @@ var AssetFemale3DCG = [
 			{ Name: "SunGlassesClear", Value: 15 },
 			{ Name: "EyePatch1", Value: 10, Priority: 29, Extended: true },
 			{ Name: "CatGlasses", Value: 15, Priority: 53, Left: 182, Extended: true},
+			{
+				Name: "VGlasses", Value: 20, DefaultColor: ["#93861F", "#7F0202"],
+				Layer: [
+					{ Name: "Frame" },
+					{ Name: "Glass" }
+				]
+			},
 		],
 		Color: ["#303030", "#808080", "#e0e0e0", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"],
 	},
