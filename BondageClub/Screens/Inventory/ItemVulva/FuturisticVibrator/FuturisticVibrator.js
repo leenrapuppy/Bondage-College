@@ -3,6 +3,13 @@
 var ItemVulvaFuturisticVibratorTriggers = ["Increase", "Decrease", "Disable", "Edge", "Random", "Deny", "Tease", "Shock"];
 var ItemVulvaFuturisticVibratorTriggerValues = [];
 
+const ItemVulvaFuturisticVibratorAccessMode = {
+	EVERYONE: "",
+	PROHIBIT_SELF: "ProhibitSelf",
+	LOCK_MEMBER_ONLY: "LockMember",
+}
+const ItemVulvaFuturisticVibratorAccessModes = Object.values(ItemVulvaFuturisticVibratorAccessMode);
+
 function InventoryItemVulvaFuturisticVibratorLoad() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
 	if (InventoryItemFuturisticValidate(C) !== "") {
@@ -23,6 +30,7 @@ function InventoryItemVulvaFuturisticVibratorLoad() {
 
 function InventoryItemVulvaFuturisticVibratorDraw() {
 	var C = CharacterGetCurrent();
+	var Item = DialogFocusItem;
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticDrawAccessDenied();
 	} else {
@@ -38,15 +46,35 @@ function InventoryItemVulvaFuturisticVibratorDraw() {
 			ElementPosition("FuturisticVibe" + trigger, 1650, 450 + 60 * i, 400);
 		});
 		// Draw the save button
-		DrawButton(1325, 450 + 60 * ItemVulvaFuturisticVibratorTriggers.length, 350, 64, DialogFindPlayer("FuturisticVibratorSaveVoiceCommands"), "White", "");
+		DrawButton(1525, 450 + 60 * ItemVulvaFuturisticVibratorTriggers.length, 350, 64, DialogFindPlayer("FuturisticVibratorSaveVoiceCommands"), "White", "");
+
+		DrawBackNextButton(1100, 450 + 60 * ItemVulvaFuturisticVibratorTriggers.length, 350, 64, DialogFindPlayer("FuturisticVibratorPermissions" + (Item.Property.AccessMode || "")), "White", "",
+			() => DialogFindPlayer("FuturisticVibratorPermissions" + InventoryItemVulvaFuturisticVibratorPreviousAccessMode(Item.Property.AccessMode || "")),
+			() => DialogFindPlayer("FuturisticVibratorPermissions" + InventoryItemVulvaFuturisticVibratorNextAccessMode(Item.Property.AccessMode || "")));
 	}
+}
+
+function InventoryItemVulvaFuturisticVibratorPreviousAccessMode(current) {
+	return ItemVulvaFuturisticVibratorAccessModes[(ItemVulvaFuturisticVibratorAccessModes.indexOf(current) + ItemVulvaFuturisticVibratorAccessModes.length - 1) % ItemVulvaFuturisticVibratorAccessModes.length];
+}
+
+function InventoryItemVulvaFuturisticVibratorNextAccessMode(current) {
+	return ItemVulvaFuturisticVibratorAccessModes[(ItemVulvaFuturisticVibratorAccessModes.indexOf(current) + 1) % ItemVulvaFuturisticVibratorAccessModes.length];
 }
 
 function InventoryItemVulvaFuturisticVibratorClick() {
 	var C = CharacterGetCurrent();
+	var Item = DialogFocusItem;
 	if (InventoryItemFuturisticValidate(C) !== "") InventoryItemFuturisticClickAccessDenied();
 	else if (MouseIn(1885, 25, 90, 90)) InventoryItemVulvaFuturisticVibratorExit();
-	else if (MouseIn(1325, 450 + 60 * ItemVulvaFuturisticVibratorTriggers.length, 350, 64)) InventoryItemVulvaFuturisticVibratorClickSet();
+	else if (MouseIn(1525, 450 + 60 * ItemVulvaFuturisticVibratorTriggers.length, 350, 64)) InventoryItemVulvaFuturisticVibratorClickSet();
+	else if (MouseIn(1100, 450 + 60 * ItemVulvaFuturisticVibratorTriggers.length, 350, 64)) {
+		if (MouseX < 1100 + (350 / 2)) {
+			InventoryItemVulvaFuturisticVibratorSetAccessMode(C, Item, InventoryItemVulvaFuturisticVibratorPreviousAccessMode(Item.Property.AccessMode || ""));
+		} else {
+			InventoryItemVulvaFuturisticVibratorSetAccessMode(C, Item, InventoryItemVulvaFuturisticVibratorNextAccessMode(Item.Property.AccessMode || ""));
+		}
+	}
 }
 
 
@@ -104,6 +132,13 @@ function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
 		if (success) commandsReceived.push(ItemVulvaFuturisticVibratorTriggers[I]);
 	}
 	return commandsReceived;
+}
+
+function InventoryItemVulvaFuturisticVibratorSetAccessMode(C, Item, Option) {
+	if (!Item.Property) VibratorModeSetProperty(Item, VibratorModeOptions[VibratorModeSet.STANDARD][0].Property);
+	Item.Property.AccessMode = Option;
+	CharacterRefresh(C);
+	ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 }
 
 function InventoryItemVulvaFuturisticVibratorGetMode(Item, Increase) {
@@ -176,6 +211,10 @@ function InventoryItemVulvaFuturisticVibratorHandleChat(C, Item, LastTime) {
 
 		// Messages are in order, no need to keep looping
 		if (ChatRoomChatLog[CH].Time <= LastTime) break
+
+		// Skip messages from unauthorized users
+		if (Item.Property.AccessMode === ItemVulvaFuturisticVibratorAccessMode.PROHIBIT_SELF && ChatRoomChatLog[CH].SenderMemberNumber === Player.MemberNumber) continue;
+		if (Item.Property.AccessMode === ItemVulvaFuturisticVibratorAccessMode.LOCK_MEMBER_ONLY && ChatRoomChatLog[CH].SenderMemberNumber !== Item.Property.LockMemberNumber) continue;
 
 		var msg = InventoryItemVulvaFuturisticVibratorDetectMsg(ChatRoomChatLog[CH].Chat.toUpperCase(), TriggerValues);
 
