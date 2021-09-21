@@ -6,6 +6,8 @@ var GLDrawImageCache = new Map();
 var GLDrawCacheLoadedImages = 0;
 var GLDrawCacheTotalImages = 0;
 
+var GLDrawRetryTimers = [1000, 10000, 30000, 60000, 120000, 300000];
+
 /** @type {"webgl2"|"webgl"|"No WebGL"} */
 var GLVersion;
 
@@ -491,11 +493,11 @@ function GLDrawLoadImage(gl, url) {
 			Img.addEventListener('error', function () {
 				if (Img.errorcount == null) Img.errorcount = 0;
 				Img.errorcount += 1;
-				if (Img.errorcount < 3) {
+				if (Img.errorcount < GLDrawRetryTimers.length) {
 					// eslint-disable-next-line no-self-assign
-					Img.src = Img.src;
+					setTimeout(() => Img.src = Img.src, GLDrawRetryTimers[Img.errorcount - 1]);
 				} else {
-					console.log("Error loading image " + Img.src);
+					console.log(`Error loading image (end of retries): ${Img.src} `);
 					++GLDrawCacheLoadedImages;
 					if (GLDrawCacheLoadedImages == GLDrawCacheTotalImages) CharacterLoadCanvasAll();
 				}
