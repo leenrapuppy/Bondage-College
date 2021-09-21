@@ -857,7 +857,7 @@ function StruggleLockPickClick(C) {
 	var skill = Math.min(10, SkillGetWithRatio("LockPicking"));
 	var current_pins = StruggleLockPickSet.filter(x => x==true).length;
 	var false_set_chance = 0.75 - 0.15 * skill/10;
-	var unset_false_set_chance = 0.1 + 0.1 * skill/10;
+	var unset_false_set_chance = 0.1 + 0.2 * skill/10;
 	if (current_pins < StruggleLockPickSet.length && LogValue("FailedLockPick", "LockPick") < CurrentTime)
 		for (let P = 0; P < StruggleLockPickSet.length; P++) {
 			if (!StruggleLockPickSet[P]) {
