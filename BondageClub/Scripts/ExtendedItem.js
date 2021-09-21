@@ -84,7 +84,7 @@ function ExtendedItemLoad(Options, DialogKey) {
 		DialogFocusItem.Property = JSON.parse(JSON.stringify(Options[0].Property));
 		// If the default type is not the null type, update the item to use this type
 		if (Options[0].Property.Type != null) {
-			const C = CharacterGetCurrent() || CharacterAppearanceSelection;
+			const C = CharacterGetCurrent();
 			// If the first option is blocked by the character, switch to the null type option
 			if (InventoryBlockedOrLimited(C, DialogFocusItem, Options[0].Property.Type)) {
 				const BaseOption = Options.find(O => O.Property.Type == null);
@@ -117,7 +117,7 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages = tr
 		return;
 	}
 
-	const C = CharacterGetCurrent() || CharacterAppearanceSelection;
+	const C = CharacterGetCurrent();
 	const Asset = DialogFocusItem.Asset;
 	const ItemOptionsOffset = ExtendedItemGetOffset();
 	const XYPositions = !Asset.Group.Clothing ? (ShowImages ? ExtendedXY : ExtendedXYWithoutImages) : ExtendedXYClothes;
@@ -228,7 +228,7 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected)
  * @returns {void} Nothing
  */
 function ExtendedItemClick(Options, OptionsPerPage, ShowImages = true) {
-	const C = CharacterGetCurrent() || CharacterAppearanceSelection;
+	const C = CharacterGetCurrent();
 
 	// If an option's subscreen is open, pass the click into it
 	if (ExtendedItemSubscreen) {
@@ -384,7 +384,7 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
  * of the requirements they do not meet
  */
 function ExtendedItemRequirementCheckMessage(Option, CurrentOption) {
-	const C = CharacterGetCurrent() || CharacterAppearanceSelection;
+	const C = CharacterGetCurrent();
 	return TypedItemValidateOption(C, DialogFocusItem, Option, CurrentOption)
 		|| ExtendedItemCheckSelfSelect(C, Option)
 		|| ExtendedItemCheckSkillRequirements(C, DialogFocusItem, Option);

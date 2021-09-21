@@ -102,7 +102,7 @@ function InventoryItemPelvisSciFiPleasurePantiesClick() {
 }
 
 function InventoryItemPelvisSciFiPleasurePantiesLockOrgasm(OrgasmLock, DenyMode) {
-	let C = CharacterGetCurrent() || CharacterAppearanceSelection;
+	let C = CharacterGetCurrent();
 
     if (OrgasmLock == true && !DialogFocusItem.Property.Effect.includes("DenialMode")) {
 		DialogFocusItem.Property.Effect.push("DenialMode");
@@ -166,7 +166,7 @@ function InventoryItemPelvisSciFiPleasurePantiesLockCrotch() {
 }
 
 function InventoryItemPelvisSciFiPleasurePantiesSetIntensity(Modifier) {
-	var C = CharacterGetCurrent() || CharacterAppearanceSelection;
+	var C = CharacterGetCurrent();
 
 	DialogFocusItem.Property.Intensity = DialogFocusItem.Property.Intensity + Modifier;
 
@@ -192,7 +192,7 @@ function InventoryItemPelvisSciFiPleasurePantiesSetIntensity(Modifier) {
 function InventoryItemPelvisSciFiPleasurePantiesSetShockLevel(Modifier) {
 
 	// Gets the current item and character
-	var C = CharacterGetCurrent() || CharacterAppearanceSelection;
+	var C = CharacterGetCurrent();
 	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 		InventoryItemPelvisSciFiPleasurePantiesLoad();
@@ -211,7 +211,7 @@ function InventoryItemPelvisSciFiPleasurePantiesSetShockLevel(Modifier) {
 
 function InventoryItemPelvisSciFiPleasurePantiesShockTrigger() {
 	// Gets the current item and character
-	var C = CharacterGetCurrent() || CharacterAppearanceSelection;
+	var C = CharacterGetCurrent();
 	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 		InventoryItemPelvisSciFiPleasurePantiesLoad();

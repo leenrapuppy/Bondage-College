@@ -84,7 +84,7 @@ function InventoryHairAccessory1HaloClick() {
 		return InventoryHairAccessory1HaloExit();
 	}
 
-	const C = CharacterGetCurrent() || CharacterAppearanceSelection;
+	const C = CharacterGetCurrent();
 
 	InventoryHairAccessory1HaloOptions.forEach((option, i) => {
 		const x = ExtendedXY[InventoryHairAccessory1HaloOptions.length][i][0];
