@@ -157,6 +157,37 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // LatexLacedSuit
+		ReverseBunnySuit: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "NoGloves",
+						Property: {
+							Type: null,
+						},
+					},
+					{
+						Name: "Solid",
+						Property: {
+							Type: "Gloves",
+							Hide: ["Hands"],
+						},
+					},
+					{
+						Name: "Seethrough",
+						Property: {
+							Type: "AltGloves",
+						},
+					},
+				],
+				Dialog: {
+					Load: "SelectSuitGloves",
+					TypePrefix: "SuitGloveType",
+				},
+				DrawImages: false,
+			},
+		}, // ReverseBunnySuit
 	}, // Cloth
 	ClothAccessory: {
 		LeatherStraps: {
@@ -4592,6 +4623,188 @@ var AssetFemale3DCGExtended = {
 			CopyConfig: { AssetName: "NecklaceKey" },
 		}, // NecklaceLock
 	}, // Necklace
+	Suit: {
+		Catsuit: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "NoGloves",
+						Property: {
+							Type: null,
+						},
+					},
+					{
+						Name: "Solid",
+						Property: {
+							Type: "Gloves",
+							Hide: ["Hands"],
+						},
+					},
+				],
+				Dialog: {
+					Load: "SelectSuitGloves",
+					TypePrefix: "SuitGloveType",
+				},
+				DrawImages: false,
+			},
+		}, // Catsuit
+		SeamlessCatsuit: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "NoGloves",
+						Property: {
+							Type: null,
+						},
+					},
+					{
+						Name: "Solid",
+						Property: {
+							Type: "Gloves",
+							Hide: ["Hands"],
+						},
+					},
+					{
+						Name: "Seethrough",
+						Property: {
+							Type: "AltGloves",
+						},
+					},
+				],
+				Dialog: {
+					Load: "SelectSuitGloves",
+					TypePrefix: "SuitGloveType",
+				},
+				DrawImages: false,
+			},
+		}, // SeamlessCatsuit
+		PilotSuit: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "NoGloves",
+						Property: {
+							Type: null,
+						},
+					},
+					{
+						Name: "Solid",
+						Property: {
+							Type: "Gloves",
+							Hide: ["Hands"],
+						},
+					},
+					{
+						Name: "Seethrough",
+						Property: {
+							Type: "AltGloves",
+						},
+					},
+				],
+				Dialog: {
+					Load: "SelectSuitGloves",
+					TypePrefix: "SuitGloveType",
+				},
+				DrawImages: false,
+			},
+		}, // PilotSuit
+		SeethroughSuit: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "NoGloves",
+						Property: {
+							Type: null,
+						},
+					},
+					{
+						Name: "Seethrough",
+						Property: {
+							Type: "AltGloves",
+						},
+					},
+					{
+						Name: "Solid",
+						Property: {
+							Type: "Gloves",
+							Hide: ["Hands"],
+						},
+					},
+				],
+				Dialog: {
+					Load: "SelectSuitGloves",
+					TypePrefix: "SuitGloveType",
+				},
+				DrawImages: false,
+			},
+		}, // SeethroughSuit
+		SeethroughSuitZip: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "NoGloves",
+						Property: {
+							Type: null,
+						},
+					},
+					{
+						Name: "Seethrough",
+						Property: {
+							Type: "AltGloves",
+						},
+					},
+					{
+						Name: "Solid",
+						Property: {
+							Type: "Gloves",
+							Hide: ["Hands"],
+						},
+					},
+				],
+				Dialog: {
+					Load: "SelectSuitGloves",
+					TypePrefix: "SuitGloveType",
+				},
+				DrawImages: false,
+			},
+		}, // SeethroughSuitZip
+		ReverseBunnySuit: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "NoGloves",
+						Property: {
+							Type: null,
+						},
+					},
+					{
+						Name: "Solid",
+						Property: {
+							Type: "Gloves", 
+							Hide: ["Hands"],
+						},
+					},
+					{
+						Name: "Seethrough",
+						Property: {
+							Type: "AltGloves",
+						},
+					},
+				],
+				Dialog: {
+					Load: "SelectSuitGloves",
+					TypePrefix: "SuitGloveType",
+				},
+				DrawImages: false,
+			},
+		}, // ReverseBunnySuit
+	}, // Suit
 	ItemHead: {
 		DuctTape: {
 			Archetype: ExtendedArchetype.TYPED,

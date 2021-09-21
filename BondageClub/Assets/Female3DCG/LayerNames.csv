@@ -42,6 +42,8 @@ ClothAdultBabyDress2Bow,Bow
 ClothAdultBabyDress3Dress,Dress
 ClothAdultBabyDress3Belt,Belt
 ClothAdultBabyDress3Collar,Collar
+ClothReverseBunnySuitSuit,Suit
+ClothReverseBunnySuitGloves,Gloves
 ClothAccessoryBouquetBase,Holder
 ClothAccessoryBouquetFlowers,Flowers
 ClothAccessoryCapeFront,Front
@@ -64,8 +66,15 @@ NecklaceNecklaceBallGagBall,Ball
 NecklaceNecklaceBallGagStrap,Strap
 SuitCatsuitBase,Suit
 SuitCatsuitZip,Zip
+SuitCatsuitGloves,Gloves
 SuitSeethroughSuitZipBase,Suit
 SuitSeethroughSuitZipZip,Zip
+SuitSeamlessCatsuitSuit,Suit
+SuitSeamlessCatsuitGloves,Gloves
+SuitSeethroughSuitSuit,Suit
+SuitSeethroughSuitGloves,Gloves
+SuitReverseBunnySuitSuit,Suit
+SuitReverseBunnySuitGloves,Gloves
 BraHaremBraFabric,Fabric
 BraHaremBraStraps,Straps
 BraHaremBraJewel,Jewel
@@ -807,6 +816,7 @@ SuitLowerPilotSuitLayer1,Suit
 SuitLowerPilotSuitLayer2,Highlights
 SuitLowerPilotSuitLayer3,Center
 SuitLowerPilotSuitLayer4,Underlayment
+SuitLowerPilotSuitGloves,Gloves
 SuitPilotSuitLayer1,Suit
 SuitPilotSuitLayer2,Highlights
 SuitPilotSuitLayer3,Center
