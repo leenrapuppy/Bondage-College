@@ -938,6 +938,8 @@ function ValidationResolveCyclicBlocks(appearance, diffMap) {
  * ["ItemArms", "ItemDevices", "ItemArms"]
  * This indicates that the item in the ItemArms group blocks the item in the ItemDevices group, and vice versa. This
  * function returns an array of such block cycles, or an empty array if none were found.
+ * Be advised that cyclic block checking is relatively expensive, so should only be run when needed - don't run it every
+ * frame!
  * @param {Item[]} appearance - The appearance array to check
  * @returns {string[][]} - A list of block cycles, each cycle being represented as an array of group names.
  */
@@ -945,12 +947,27 @@ function ValidationFindBlockCycles(appearance) {
 	const groups = appearance.map((item) => item.Asset.Group.Name);
 	/** @type {[string, string][]} */
 	const edges = [];
+	/** @type {Map<string, string>} */
+	const edgeMap = new Map();
+	/** @type {(from: string, to: string) => void} */
+	const recordEdge = (from, to) => {
+		if (!edgeMap.get(from)) {
+			edgeMap.set(from, to);
+			edges.push([from, to]);
+		}
+	};
+
 	for (const item of appearance) {
 		const blockedGroups = ValidationGetBlockedGroups(item, groups);
 		for (const group of blockedGroups) {
-			edges.push([item.Asset.Group.Name, group]);
+			recordEdge(item.Asset.Group.Name, group);
+		}
+		const blockingGroups = ValidationGetPrerequisiteBlockingGroups(item, appearance);
+		for (const group of blockingGroups) {
+			recordEdge(group, item.Asset.Group.Name);
 		}
 	}
+
 	const graph = new DirectedGraph(groups, edges);
 	return graph.findCycles();
 }
@@ -975,4 +992,37 @@ function ValidationGetBlockedGroups(item, groupNames) {
 		blockedGroups = blockedGroups.concat(item.Property.Block);
 	}
 	return blockedGroups.filter(groupName => groupNames.includes(groupName));
+}
+
+/**
+ * Finds the groups from the provided appearance array that block a given item due to prerequisites. In this situation,
+ * an item is considered to be blocking if the target item can't be added with it, but can without it.
+ * @param {Item} item - The item to check
+ * @param {Item[]} appearance - The appearance array to check
+ * @returns {string[]} - A list of group names corresponding to items from the appearance array that block the given
+ * item due to prerequisites
+ */
+function ValidationGetPrerequisiteBlockingGroups(item, appearance) {
+	if (!item.Asset.Prerequisite) return [];
+
+	appearance = appearance.filter((appearanceItem) => appearanceItem.Asset !== item.Asset);
+	const char = CharacterLoadSimple(`PrerequisiteCheck${item.Asset.Group.Name}`);
+	/** @type {string[]} */
+	const blockingGroups = [];
+
+	for (const checkItem of appearance) {
+		char.Appearance = appearance;
+		CharacterRefresh(char, false);
+		const allowedWithCheckItem = InventoryAllow(char, item.Asset.Prerequisite, false);
+		if (!allowedWithCheckItem) {
+			char.Appearance = appearance.filter((appearanceItem) => appearanceItem.Asset !== checkItem.Asset);
+			CharacterRefresh(char, false);
+			const allowedWithoutCheckItem = InventoryAllow(char, item.Asset.Prerequisite, false);
+			if (allowedWithoutCheckItem) {
+				blockingGroups.push(checkItem.Asset.Group.Name);
+			}
+		}
+	}
+
+	return blockingGroups;
 }
