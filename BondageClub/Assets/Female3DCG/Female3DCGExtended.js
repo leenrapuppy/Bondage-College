@@ -1520,7 +1520,14 @@ var AssetFemale3DCGExtended = {
 						Name: "ShockModule", Key: "s",
 						Options: [
 							{}, // s0 No Shock Module
-							{ HasSubscreen: true }, // s1 Shock Module
+							{
+                HasSubscreen: true,
+                Property: {
+                  Intensity: 0,
+                  TriggerCount: 0,
+                  ShowText: true,
+                }
+              }, // s1 Shock Module
 						],
 					},
 				],
@@ -2688,7 +2695,6 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: "Chain",
 							Difficulty: 0,
-							Block: ["ItemNeck"],
 						},
 					},
 					{
@@ -2707,7 +2713,6 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: "WeightedChain",
 							Difficulty: 0,
-							Block: ["ItemNeck"],
 						},
 					},
 				],
