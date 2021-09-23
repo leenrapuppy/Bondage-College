@@ -2856,6 +2856,11 @@ function ChatRoomSyncItem(data) {
 			let { item, valid } = ValidationResolveAppearanceDiff(previousItem, newItem, updateParams);
 
 			ChatRoomAllowCharacterUpdate = false;
+
+			if (!item || (previousItem && previousItem.Asset.Name !== item.Asset.Name)) {
+				InventoryRemove(ChatRoomCharacter[C], data.Item.Group, false);
+			}
+
 			if (item) {
 				CharacterAppearanceSetItem(
 					ChatRoomCharacter[C], data.Item.Group, item.Asset, item.Color, item.Difficulty, null, false);
@@ -2876,8 +2881,6 @@ function ChatRoomSyncItem(data) {
 				const cyclicBlockSanitizationResult = ValidationResolveCyclicBlocks(ChatRoomCharacter[C].Appearance, diffMap);
 				ChatRoomCharacter[C].Appearance = cyclicBlockSanitizationResult.appearance;
 				valid = valid && cyclicBlockSanitizationResult.valid;
-			} else {
-				InventoryRemove(ChatRoomCharacter[C], data.Item.Group);
 			}
 
 			ChatRoomAllowCharacterUpdate = true;
