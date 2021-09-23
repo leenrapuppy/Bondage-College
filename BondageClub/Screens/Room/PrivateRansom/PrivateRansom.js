@@ -8,8 +8,8 @@ var PrivateRansomCharacter = null;
  */
 function PrivateRansomStart() {
 
-	// Nothing to check if the player is alone
-	if (!LogQuery("RentRoom", "PrivateRoom") || (PrivateCharacter.length <= 1)) return false;
+	// Nothing to check if the player is alone or security is active
+	if (!LogQuery("RentRoom", "PrivateRoom") || (PrivateCharacter.length <= 1) || LogQuery("Security", "PrivateRoom")) return false;
 
 	// The odds of a kidnapping are 1% everyday for each character + 0.4% for each skill points in infiltration (max 5%)
 	let Odds = 0.01 + (SkillGetLevel(Player, "Infiltration") / 250);

@@ -712,6 +712,23 @@ function PrivateGetSecondExpansion() {
 }
 
 /**
+ * Triggered when the player gets the security service against Pandora's kidnappings.
+ * @returns {void} - Nothing.
+ */
+function PrivateGetSecurity() {
+	CharacterChangeMoney(Player, -200);
+	LogAdd("Security", "PrivateRoom");
+}
+
+/**
+ * Triggered when the player cancels the security service against Pandora's kidnappings.
+ * @returns {void} - Nothing.
+ */
+function PrivateCancelSecurity() {
+	LogDelete("Security", "PrivateRoom");
+}
+
+/**
  * Loads a given private room character.
  * @param {number} C - Index of the private character to load.
  * @returns {boolean} - Update required.
