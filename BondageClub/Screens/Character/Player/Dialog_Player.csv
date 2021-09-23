@@ -2656,3 +2656,6 @@ ItemHoodTechnoHelmet1Setd2,,,SourceCharacter turns the deafening module on Desti
 ItemHoodTechnoHelmet1Setd3,,,SourceCharacter turns the deafening module on DestinationCharacter on noise cancelling mode.,,
 ItemHoodTechnoHelmet1Setc0,,,SourceCharacter removes the chin strap on DestinationCharacter helmet.,,
 ItemHoodTechnoHelmet1Setc1,,,SourceCharacter adds the chin strap on DestinationCharacter helmet.,,
+WingsSteampunkWingsSelect,,,Select the state.
+WingsSteampunkWingsOff,,,Off
+WingsSteampunkWingsOn,,,On

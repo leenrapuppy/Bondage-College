@@ -5229,4 +5229,26 @@ var AssetFemale3DCGExtended = {
 			}
 		}, // NoseRing
 	}, // ItemNose
+	Wings: {
+		SteampunkWings: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				DrawImages: false,
+				Options: [
+					{
+						Name: "Off",
+						Property: {
+							Type: null,
+						},
+					},
+					{
+						Name: "On",
+						Property: {
+							Type: "On",
+						},
+					},
+				],
+			}
+		}, // SteampunkWings
+	}, // Wings
 };
