@@ -50,9 +50,4 @@ function ChatBlockItemClick() {
 function ChatBlockItemExit() {
 	CommonSetScreen("Online", ChatBlockItemReturnData.Screen);
 	ChatBlockItemEditable = true;
-	if (ChatBlockItemReturnData.Screen == "ChatCreate") {
-		ElementValue("InputName", ChatBlockItemReturnData.Name);
-		ElementValue("InputDescription", ChatBlockItemReturnData.Description);
-		ElementValue("InputSize", ChatBlockItemReturnData.Limit);
-	}
 }

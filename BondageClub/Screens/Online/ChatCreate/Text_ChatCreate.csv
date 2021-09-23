@@ -1,15 +1,30 @@
 EnterRoomInfo,Enter your room information
-RoomName,Room Name (Letters & numbers only)
-RoomDescription,A short description or what's going on
+RoomName,Room Name
+NameExplanation,(Letters & numbers only)
+RoomDescription,Description
+DescriptionExplanation,Description of the room (Letters & numbers only)
+RoomBanList,Ban List
+RoomAdminList,Administrator List
 RoomPrivate,Private (Need exact name to find it)
+RoomLocked,Locked (Only admins can leave or enter)
 RoomBackground,Select the background
-RoomSize,"Room maximum size, from 2 to 10 members"
-BlockItems,Block Categories
+RoomSize,Size (2-10)
 Create,Create
-Cancel,Cancel
+Exit, Exit
 ShowAll,Selection
 CreatingRoom,Creating your room...
 ResponseRoomAlreadyExist,This room name is already taken
 ResponseAccountError,"Account error, try to relog"
 ResponseInvalidRoomData,Invalid room data
 ResponseChatRoomCreated,"Room created, joining it..."
+UseMemberNumbersAdmin,"Use member numbers separated by commas (ex: 2313, 12401, ...)"
+UseMemberNumbersBan,"Use member numbers separated by commas (ex: 16780, ...)"
+QuickbanBlackList,Ban blacklist
+QuickbanGhostList,Ban ghostlist
+AddOwnerAdminList,Add Owner
+AddLoverAdminList,Add Lovers
+Background,Background
+BlockCategory,Block Categories
+Game,No Game
+GameLARP,LARP
+ReturnMenu,(Click anywhere to return)
