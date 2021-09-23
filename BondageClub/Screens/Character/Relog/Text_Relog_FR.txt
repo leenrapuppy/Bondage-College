@@ -6,9 +6,9 @@ Account name:
 Nom de compte:
 Password:
 Mot de passe:
-Log back
+Log back in
 Reconnecter
-Give up
+Leave
 Abandonner
 Validating name and password...
 Validation du nom et du mot de passe...

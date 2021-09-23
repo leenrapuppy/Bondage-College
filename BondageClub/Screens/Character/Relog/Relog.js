@@ -56,8 +56,8 @@ function RelogRun() {
 	DrawText(TextGet("Account") + "  " + Player.AccountName, 1000, 400, "White", "Black");
 	DrawText(TextGet("Password"), 1000, 500, "White", "Black");
 	ElementPosition("InputPassword", 1000, 550, 500);
-	DrawButton(675, 750, 300, 60, TextGet("LogBack"), CanLogin ? "White" : "Grey", "");
-	DrawButton(1025, 750, 300, 60, TextGet("GiveUp"), "White", "");
+	DrawButton(675, 750, 300, 60, TextGet("LogBackIn"), CanLogin ? "White" : "Grey", "");
+	DrawButton(1025, 750, 300, 60, TextGet("Leave"), "White", "");
 
 	// Reset any disconnect notifications
 	if (document.hasFocus()) NotificationReset(NotificationEventType.DISCONNECT);
