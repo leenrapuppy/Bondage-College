@@ -13,7 +13,7 @@ function InventoryItemDevicesFuckMachineClick() {
 }
 
 
-function AssetsItemDevicesFuckMachineBeforeDraw({ PersistentData, L, X, Y, Property }) {
+function AssetsItemDevicesFuckMachineBeforeDraw({ PersistentData, L, Y, Property }) {
 	const Data = PersistentData();
 	if (typeof Data.DildoState !== "number") Data.DildoState = 0;
 	if (typeof Data.Modifier !== "number") Data.Modifier = 1;
@@ -38,6 +38,7 @@ function AssetsItemDevicesFuckMachineBeforeDraw({ PersistentData, L, X, Y, Prope
 	}
 
 	Data.DildoState += Data.Modifier * Data.Speed * AnimationQualityRatio;
+	if (AnimationQualityRatio > FuckLength) Data.DildoState = Math.random() * FuckLength;
 
 	return { Y: Y + Data.DildoState };
 }

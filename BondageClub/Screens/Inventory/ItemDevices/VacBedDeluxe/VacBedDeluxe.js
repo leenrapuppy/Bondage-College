@@ -142,7 +142,7 @@ const InventoryItemDevicesVacBedDeluxeOpacityChange = CommonLimitFunction((chara
 	item = DialogFocusItem || item;
 	item.Property.Opacity = Number(opacity);
 	CharacterRefresh(character, false);
-});
+}, 0, 1000);
 
 /**
  * Publishes an action if the vac bed's type changes

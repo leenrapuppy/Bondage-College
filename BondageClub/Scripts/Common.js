@@ -598,14 +598,20 @@ function CommonThrottle(func) {
  * allowed frequency. Below 100 ms the function will be throttled and above will be debounced.
  * @param {function} func - The function to limit calls of
  * @param {number} [minWait=0] - A lower bound for how long the wait interval can be, 0 by default
+ * @param {number} [maxWait=Infinity] - An upper bound for how long the wait interval can be, none by default
  * @returns {function} - A debounced or throttled version of the function
  */
-function CommonLimitFunction(func, minWait = 0) {
+function CommonLimitFunction(func, minWait = 0, maxWait = Infinity) {
 	const funcDebounced = CommonDebounce(func);
 	const funcThrottled = CommonThrottle(func);
 
 	return function () {
-		const wait = Math.max(Player.GraphicsSettings ? Player.GraphicsSettings.AnimationQuality : 100 , minWait);
+		const wait = Math.min(
+			Math.max(
+				Player.GraphicsSettings ? Player.GraphicsSettings.AnimationQuality : 100, minWait
+			),
+			maxWait,
+		);
 		const args = [wait].concat(Array.from(arguments));
 		return wait < 100 ? funcThrottled.apply(this, args) : funcDebounced.apply(this, args);
 	};

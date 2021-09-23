@@ -56,6 +56,7 @@ function AssetsItemDevicesFuturisticCrateBeforeDraw({ PersistentData, L, X, Y, P
 	}
 
 	Data.DildoState += Data.Modifier * Data.Speed * AnimationQualityRatio * TimeModifier;
+	if (AnimationQualityRatio > FuckLength) Data.DildoState = Math.random();
 
 	return { Y: Y + FuckLength * (-Math.cos(Data.DildoState * 2 * Math.PI)) };
 }

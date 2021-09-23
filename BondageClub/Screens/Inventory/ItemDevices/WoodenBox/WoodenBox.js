@@ -180,7 +180,7 @@ const InventoryItemDevicesWoodenBoxOpacityChange = CommonLimitFunction((C, item,
 	item = DialogFocusItem || item;
 	item.Property.Opacity = Number(opacity);
 	CharacterLoadCanvas(C);
-});
+}, 0, 1000);
 
 /**
  * Handles wooden box text changes. Refreshes the character locally
@@ -192,7 +192,7 @@ const InventoryItemDevicesWoodenBoxTextChange = CommonLimitFunction((C, item, te
 		item.Property.Text = text.substring(0, InventoryItemDevicesWoodenBoxMaxLength);
 		CharacterLoadCanvas(C);
 	}
-});
+}, 0, 1000);
 
 /**
  * Fetches the current text input value, trimmed appropriately

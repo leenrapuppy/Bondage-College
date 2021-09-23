@@ -75,7 +75,7 @@ const InventoryItemArmsHempRopeSuspensionHogtiedHeightChange = CommonLimitFuncti
 
 	// Reload to see the change
 	CharacterLoadCanvas(C);
-});
+}, 0, 1000);
 
 /**
  * Handles drawing the extended item's screen

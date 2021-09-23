@@ -60,7 +60,7 @@ var PreferenceGraphicsFontIndex = 0;
 var PreferenceGraphicsAnimationQualityIndex = null;
 var PreferenceGraphicsPowerModeIndex = null;
 var PreferenceGraphicsWebGLOptions = null;
-var PreferenceGraphicsAnimationQualityList = [200, 100, 50, 0];
+var PreferenceGraphicsAnimationQualityList = [10000, 2000, 200, 100, 50, 0];
 var PreferenceCalibrationStage = 0;
 
 /**

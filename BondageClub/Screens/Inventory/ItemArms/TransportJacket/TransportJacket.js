@@ -93,7 +93,7 @@ const InventoryItemArmsTransportJacketTextChange = CommonLimitFunction((C, item,
 		item.Property.Text = text.substring(0, InventoryItemDevicesWoodenBoxMaxLength);
 		CharacterLoadCanvas(C);
 	}
-});
+}, 0, 1000);
 
 function InventoryItemArmsTransportJacketExit() {
 	const C = CharacterGetCurrent();
