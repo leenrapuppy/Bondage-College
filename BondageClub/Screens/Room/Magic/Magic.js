@@ -190,7 +190,7 @@ function MagicShowStart() {
  * @returns {void} - Nothing
  */
 function MagicShowIncomeAdd() {
-	var I = (MagicTrickCounter < 15) ? MagicTrickCounter : 15;
+	var I = (MagicTrickCounter < 10) ? MagicTrickCounter : 10;
 	MagicShowIncome = MagicShowIncome + I;
 }
 
