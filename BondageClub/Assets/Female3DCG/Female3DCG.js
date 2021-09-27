@@ -5140,6 +5140,20 @@ var AssetFemale3DCG = [
 					{ Name: "Pussy", AllowColorize: false, Top: 408, Left: 125, Priority: 11 },
 				],
 			},
+			{
+				Name: "Net", Value: 50, Difficulty: 20, Random: false, Top: 0, AllowLock: false,
+				Prerequisite: ["NotSuspended", "NotMounted", "NoFeetSpreader", "CanKneel",],
+				AllowPose: ["Kneel","AllFours","Yoked","Hogtied"],
+				SetPose: ["Kneel"],
+				Effect: ["Freeze","Block", "Prone", "ForceKneel",],
+				Extended: true,
+				Layer: [
+					{ Name: "Front"},
+					{ Name: "Back", Priority: 3, CopyLayerColor: "Front"},
+					{ Name: "WeightsFront", HideForPose:["Hogtied"]},
+					{ Name: "WeightsBack", Priority: 3, CopyLayerColor:"WeightsFront", HideForPose:["Hogtied"]},
+				]
+			}
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},

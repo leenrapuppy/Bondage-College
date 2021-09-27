@@ -2376,6 +2376,46 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // Coffin
+		Net: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR_NAME],
+				Options: [
+					{
+						Name: "Kneel",
+						Property: {
+							Type: "Kneel",
+							Difficulty: 3,
+							Effect: ["Freeze", "Prone", "ForceKneel"],
+							SetPose: ["Kneel"],
+						},
+					},
+					{
+						Name: "AllFours",
+						Property: {
+							Type: "AllFours",
+							Difficulty: 6,
+							Effect: ["Freeze", "Prone"],
+							SetPose: ["AllFours"],
+						},
+					},
+					{
+						Name: "Suspended",
+						Property: {
+							Type: "Suspended",
+							Difficulty: 7,
+							Effect: ["Block","Freeze", "Prone",],
+							SetPose: ["Hogtied"],
+							OverrideHeight: { Height: 25, Priority: 51, HeightRatioProportion: 0 },
+						},
+					},
+				],
+				Dialog: {
+					Load: "SelectBondagePosition",
+					TypePrefix: "ItemDevicesNet",
+				},
+			},
+		}, // Net
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {
