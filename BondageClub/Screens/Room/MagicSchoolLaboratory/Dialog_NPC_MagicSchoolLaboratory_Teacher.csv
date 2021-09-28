@@ -1,4 +1,6 @@
 PlayerGagged,,,(She looks at your gag and smiles.)  You'll need to find a spell to remove that gag.,
+PracticeSuccess,,,Well done.  Would you like to practice another spell?,
+PracticeFail,,,Don't be ashamed.  Would you like to practice another spell?,
 0,,,(She nods slowly.)  Welcome to the Bondage Club Magic School.,
 0,,Who are you?,"I'm grey witch DialogCharacterName, teacher of spells.",DialogRemove()
 0,,What is this place?,You are in the Bondage Club Magical School.  This laboratory is where we teach magic.,DialogRemove()
@@ -12,8 +14,8 @@ PlayerGagged,,,(She looks at your gag and smiles.)  You'll need to find a spell 
 10,,What do spells do?,"It depends on the spell.  Physical spells can dress up or strip down, animate restraints and gags.  Mental spells can arouse, charm or hypnotize someone.",
 10,20,Can I practice a spell?,(She takes a step back and nods.)  Which spell would you like to practice?,
 10,0,Enough questions.,(She nods.)  Is there anything else I can help you with?,
-20,,Pallium Exuere (Cloth Stripping),TO DO,SpellPractice(0)
-20,,Animatus Funem (Animate Rope),TO DO,SpellPractice(1)
-20,,Funem Tensis (Rope Tightening),TO DO,SpellPractice(2)
-20,,Oratio Angustos (Block Speech),TO DO,SpellPractice(3)
+20,,Pallium Exuere (Cloth Stripping),,SpellPractice(0)
+20,,Animatus Funem (Animate Rope),,SpellPractice(1)
+20,,Funem Tensis (Rope Tightening),,SpellPractice(2)
+20,,Oratio Angustos (Block Speech),,SpellPractice(3)
 20,0,Enough practice.,(She nods.)  Is there anything else I can help you with?,

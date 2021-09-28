@@ -50,4 +50,16 @@ function MagicSchoolLaboratoryClick() {
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratorySpellPractice(SpellNumber) {
+	MagicPuzzleSpell = SpellNumber;
+	MiniGameStart("MagicPuzzle", 0, "MagicSchoolLaboratorySpellPracticeEnd");
+}
+
+/**
+ * When the magic spell practice puzzle ends
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratorySpellPracticeEnd() {
+	CommonSetScreen("Room", "MagicSchoolLaboratory");
+	CharacterSetCurrent(MagicSchoolLaboratoryTeacher);
+	MagicSchoolLaboratoryTeacher.CurrentDialog = DialogFind(MagicSchoolLaboratoryTeacher, MiniGameVictory ? "PracticeSuccess" : "PracticeFail");
 }

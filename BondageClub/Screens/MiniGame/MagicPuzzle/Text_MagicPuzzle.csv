@@ -1,0 +1,4 @@
+StartMessage,Stay fully in the green zone before starting.  Starts in
+GameMessage,Reach the red zone.  Never touch the black zone.  Current time is
+SuccessMessage,You've succeeded.  Click here to return.  Your time was
+FailMessage,You've failed.  Click here to return.  Your time was
