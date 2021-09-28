@@ -5,17 +5,26 @@ PracticeFail,,,Don't be ashamed.  Would you like to practice another spell?,
 0,,Who are you?,"I'm grey witch DialogCharacterName, teacher of spells.",DialogRemove()
 0,,What is this place?,You are in the Bondage Club Magical School.  This laboratory is where we teach magic.,DialogRemove()
 0,10,Tell me about magic.,"My pleasure, what would you like to know?",
-0,20,Can I practice a spell?,(She takes a step back and nods.)  Which spell would you like to practice?,
+0,20,About magic battles...,What would you like to know?,
+0,30,Can I practice a spell?,(She takes a step back and nods.)  Which spell would you like to practice?,
 0,,I need to go.  (Leave her.),,DialogLeave()
 10,,Do you do real magic?,"(She giggles.)  Of course not, don't be silly.  It's all roleplay.  Magic is created when everyone pretend it works.  Background work needs to be done for the spell to work.",
 10,,Can I join the school?,"Not right now, but new places will be available soon.",
-10,,Can I do magic?,Only if you believe in it.  Anyone that can speak and that's wielding a wand can do magic.,
-10,,How do I do magic?,"Using your wand, you'll need to do the exact moves of the spell you want to cast.  (Use your mouse or finger to follow the spell pattern.)",
+10,,Can I do magic?,Only if you believe in it and you can speak clearly.  You cannot cast a spell while gagged.  It requires lots of focus.,
+10,,How do I do magic?,"Using your hands and words, you'll need to do the exact moves of the spell to cast.  (Use your mouse or finger to follow the spell pattern.)",
 10,,What do spells do?,"It depends on the spell.  Physical spells can dress up or strip down, animate restraints and gags.  Mental spells can arouse, charm or hypnotize someone.",
-10,20,Can I practice a spell?,(She takes a step back and nods.)  Which spell would you like to practice?,
+10,20,About magic battles...,What would you like to know?,
+10,30,Can I practice a spell?,(She takes a step back and nods.)  Which spell would you like to practice?,
 10,0,Enough questions.,(She nods.)  Is there anything else I can help you with?,
-20,,Pallium Exuere (Cloth Stripping),,SpellPractice(0)
-20,,Animatus Funem (Animate Rope),,SpellPractice(1)
-20,,Funem Tensis (Rope Tightening),,SpellPractice(2)
-20,,Oratio Angustos (Block Speech),,SpellPractice(3)
-20,0,Enough practice.,(She nods.)  Is there anything else I can help you with?,
+20,,How do I battle against another magician?,"You and the other magician will try to cast a spell, the first one to succeed wins the round.  Each round you win is a step toward the four steps victory.",
+20,,What are the four steps?,"There are four steps to win a battle: use a stripping spell, animate a restraint, tighten it and use a gag spell.",
+20,,Why not use a gag spell right away?,Your adversary will counter the gag spell easily if she's not properly restrained.,
+20,,Does it get harder?,"(She nods.)  Each step that's affecting you will make it harder for you to cast a spell.  (The blue square will be bigger, making it easier to fail.)",
+20,,What do I do after I win?,"(She laughs.)  That's up to you, we are an adult club after all.  Use your imagination.",
+20,30,Can I practice a spell?,(She takes a step back and nods.)  Which spell would you like to practice?,
+20,0,Enough questions.,(She nods.)  Is there anything else I can help you with?,
+30,,Pallium Exuere (Cloth Stripping),,SpellPractice(0)
+30,,Animatus Funem (Animate Rope),,SpellPractice(1)
+30,,Funem Tensis (Rope Tightening),,SpellPractice(2)
+30,,Oratio Angustos (Block Speech),,SpellPractice(3)
+30,0,Enough practice.,(She nods.)  Is there anything else I can help you with?,

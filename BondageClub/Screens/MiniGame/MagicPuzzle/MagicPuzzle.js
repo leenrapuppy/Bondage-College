@@ -14,7 +14,10 @@ function MagicPuzzleLoad() {
 	MagicPuzzleBackground = "MagicPuzzle/" + MagicPuzzleSpell;
 	MagicPuzzleStart = CommonTime() + 5000;
 	MagicPuzzleFinish = 0;
-	MagicPuzzleSize = 20 + MiniGameDifficulty * 5;
+	MagicPuzzleSize = 10;
+	if (InventoryGet(Player, "Cloth") == null) MagicPuzzleSize = MagicPuzzleSize + 5;
+	if (InventoryGet(Player, "ItemLegs") != null) MagicPuzzleSize = MagicPuzzleSize + 5;
+	if (InventoryGet(Player, "ItemArms") != null) MagicPuzzleSize = MagicPuzzleSize + 5;
 	MagicPuzzleStarted = false;
 	MiniGameVictory = false;
 }
