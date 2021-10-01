@@ -63,3 +63,24 @@ function MagicSchoolLaboratorySpellPracticeEnd() {
 	CharacterSetCurrent(MagicSchoolLaboratoryTeacher);
 	MagicSchoolLaboratoryTeacher.CurrentDialog = DialogFind(MagicSchoolLaboratoryTeacher, MiniGameVictory ? "PracticeSuccess" : "PracticeFail");
 }
+
+/**
+ * Check if someone is a member of a magic house or not
+ * @returns {boolean} - TRUE if a member, FALSE if not
+ */
+function MagicSchoolLaboratoryInHouse(House) {
+	if (House == "") return ((ReputationGet("HouseMaiestas") <= 0) && (ReputationGet("HouseVincula") <= 0) && (ReputationGet("HouseAmplector") <= 0) && (ReputationGet("HouseCorporis") <= 0));
+	return (ReputationGet("House" + House) > 0);
+}
+
+/**
+ * Joins a specific magic house, sets the reputation to 1 and clear all other reputations
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryJoinHouse(House) {
+	DialogSetReputation("HouseMaiestas", 0);
+	DialogSetReputation("HouseVincula", 0);
+	DialogSetReputation("HouseAmplector", 0);
+	DialogSetReputation("HouseCorporis", 0);
+	if (House != "") DialogSetReputation("House" + House, 1);
+}

@@ -1,6 +1,6 @@
 "use strict";
 
-var ReputationValidReputations = ["Dominant", "Kidnap", "ABDL", "Gaming", "Maid", "LARP", "Asylum", "Gambling"];
+var ReputationValidReputations = ["Dominant", "Kidnap", "ABDL", "Gaming", "Maid", "LARP", "Asylum", "Gambling", "HouseMaiestas", "HouseVincula", "HouseAmplector", "HouseCorporis"];
 
 /**
  * Alters a given reputation value for the player

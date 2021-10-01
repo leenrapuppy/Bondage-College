@@ -77,6 +77,10 @@ ReputationAsylumNegative,Asylum Patient:
 ReputationLARPPositive,LARP Battles:
 ReputationGamblingPositive,Gambling Hall:
 ReputationABDLPositive,ABDL:
+ReputationHouseMaiestasPositive,House Maiestas:
+ReputationHouseVinculaPositive,House Vincula:
+ReputationHouseAmplectorPositive,House Amplector:
+ReputationHouseCorporisPositive,House Corporis:
 DifficultyTitle,difficulty for NumberOfDays day(s)
 DifficultyLevel0,Roleplay
 DifficultyLevel1,Regular
