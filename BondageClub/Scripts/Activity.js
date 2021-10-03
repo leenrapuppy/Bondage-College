@@ -195,6 +195,10 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			if (group.Name === "ItemVulva")
 				return !acted.IsVulvaFull();
 			break;
+		case "AssEmpty":
+			if (group.Name === "ItemButt")
+				return !acted.IsPlugged();
+			break;
 		case "MoveHead":
 			if (group.Name === "ItemHead")
 				return !acted.IsFixedHead();

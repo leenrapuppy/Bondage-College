@@ -7721,13 +7721,13 @@ var ActivityFemale3DCG = [
 	{
 		Name: "PenetrateSlow",
 		MaxProgress: 80,
-		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "Needs-PenetrateItem", "ZoneNaked"],
+		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "AssEmpty", "Needs-PenetrateItem", "ZoneNaked"],
 		Target: ["ItemButt", "ItemMouth", "ItemVulva"],
 	},
 	{
 		Name: "PenetrateFast",
 		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "Needs-PenetrateItem", "ZoneNaked"],
+		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "AssEmpty", "Needs-PenetrateItem", "ZoneNaked"],
 		Target: ["ItemButt", "ItemMouth", "ItemVulva"],
 	},
 ];
