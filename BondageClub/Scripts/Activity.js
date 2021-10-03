@@ -218,9 +218,6 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 				return InventoryPrerequisiteMessage(acted, "NakedHands") === "";
 			break;
 		default:
-			if (prereq.startsWith("Needs-")) {
-				return !acting.IsEnclose() && !acted.IsEnclose() && CharacterHasItemForActivity(acting, prereq.substring(6));
-			}
 			break;
 	}
 	return true;
@@ -245,10 +242,9 @@ function ActivityCheckPrerequisites(activity, acting, acted, group) {
  * Builds the allowed activities on a group given the character's settings.
  * @param {Character} character - The character for which to build the activity dialog options
  * @param {string} groupname - The group to check
- * @param {boolean} [allowItem] - Should item-related activities be checked
- * @return {Array} - The list of allowed activities
+ * @return {ItemActivity[]} - The list of allowed activities
  */
-function ActivityAllowedForGroup(character, groupname, allowItem = false) {
+function ActivityAllowedForGroup(character, groupname) {
 	// Get the group and all possible activities
 	let activities = AssetAllActivities(character.AssetFamily);
 	let group = ActivityGetGroupOrMirror(character.AssetFamily, groupname);
@@ -258,30 +254,39 @@ function ActivityAllowedForGroup(character, groupname, allowItem = false) {
 	if (!ActivityPossibleOnGroup(character, groupname))
 		return [];
 
-	let allowed = activities.filter(activity => {
-		// Item-related activity, skip
-		if (!allowItem && activity.Name.indexOf("Item") >= 0)
-			return false;
+	/** @type {ItemActivity[]} */
+	let allowed = [];
 
+	activities.forEach(activity => {
 		// Validate that this activity can be done
 		if (!ActivityHasValidTarget(character, activity, group))
-			return false;
+			return;
 
 		// Make sure all the prerequisites are met
 		if (!ActivityCheckPrerequisites(activity, Player, character, group))
-			return false;
+			return;
 
 		// Ensure this activity is permitted for both actors
 		if (!ActivityCheckPermissions(activity, Player, true)
 			|| !ActivityCheckPermissions(activity, character, false))
-			return false;
+			return;
 
 		// All checks complete, this activity is allowed
-		return true;
+		let needsItem = activity.Prerequisite.find(p => p.startsWith("Needs-"));
+		if (needsItem && !Player.IsEnclose() && !character.IsEnclose()) {
+			needsItem = needsItem.substring(6);
+
+			const items = CharacterItemsForActivity(Player, needsItem);
+			for (const item of items) {
+				allowed.push({Activity: activity, Item: item});
+			}
+		} else {
+			allowed.push({ Activity: activity });
+		}
 	});
 
 	// Sort allowed activities by their group declaration order
-	return allowed.sort((a, b) => Math.sign(ActivityFemale3DCGOrdering.indexOf(a.Name) - ActivityFemale3DCGOrdering.indexOf(b.Name)));
+	return allowed.sort((a, b) => Math.sign(ActivityFemale3DCGOrdering.indexOf(a.Activity.Name) - ActivityFemale3DCGOrdering.indexOf(b.Activity.Name)));
 }
 
 /**
@@ -294,7 +299,7 @@ function ActivityAllowedForGroup(character, groupname, allowItem = false) {
 function ActivityCanBeDone(C, Activity, Group) {
 	let ActList = ActivityAllowedForGroup(C, Group);
 	for (let A = 0; A < ActList.length; A++)
-		if (ActList[A].Name == Activity)
+		if (ActList[A].Activity.Name == Activity)
 			return true;
 	return false;
 }
@@ -710,7 +715,7 @@ function ActivityVibratorLevel(C, Level) {
  * Calculates the progress one character does on another right away
  * @param {Character} Source - The character who performed the activity
  * @param {Character} Target - The character on which the activity was performed
- * @param {object} Activity - The activity performed
+ * @param {Activity} Activity - The activity performed
  * @returns {void} - Nothing
  */
 function ActivityRunSelf(Source, Target, Activity) {
@@ -735,10 +740,11 @@ function ActivityBuildChatTag(character, group, activity, is_label = false) {
 /**
  * Launches a sexual activity for a character and sends the chatroom message if applicable.
  * @param {Character} C - Character on which the activity was triggered
- * @param {object} Activity - Activity performed
+ * @param {ItemActivity} ItemActivity - Activity performed
  * @returns {void} - Nothing
  */
-function ActivityRun(C, Activity) {
+function ActivityRun(C, ItemActivity) {
+	const Activity = ItemActivity.Activity;
 
 	let group = ActivityGetGroupOrMirror(C.AssetFamily, C.FocusGroup.Name);
 	// If the player does the activity on herself or an NPC, we calculate the result right away
@@ -760,11 +766,17 @@ function ActivityRun(C, Activity) {
 	if (CurrentScreen == "ChatRoom") {
 
 		// Publishes the activity to the chatroom
-		var Dictionary = [];
-		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
-		Dictionary.push({ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		Dictionary.push({ Tag: "ActivityGroup", Text: group.Name });
-		Dictionary.push({ Tag: "ActivityName", Text: Activity.Name });
+		/** @type {ChatMessageDictionary} */
+		const Dictionary = [
+			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+			{ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+			{ Tag: "ActivityGroup", Text: group.Name },
+			{ Tag: "ActivityName", Text: Activity.Name },
+		];
+		if (ItemActivity.Item) {
+			const A = ItemActivity.Item.Asset;
+			Dictionary.push({ Tag: "UsedAsset", Text: A.DynamicDescription(Player).toLowerCase() });
+		}
 		ServerSend("ChatRoomChat", { Content: ActivityBuildChatTag(C, group, Activity), Type: "Activity", Dictionary: Dictionary });
 
 		// If the activity is a stimulation trigger, run it if the target is the player

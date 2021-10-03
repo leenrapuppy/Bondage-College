@@ -795,6 +795,13 @@ interface Activity {
 	StimulationAction?: StimulationAction;
 }
 
+interface ItemActivity {
+	/** The activity performed */
+	Activity: Activity;
+	/** An optional item used for the activity. Null if the player is used their hand, for example. */
+	Item?: Item;
+}
+
 interface LogRecord {
 	Name: string;
 	Group: string;

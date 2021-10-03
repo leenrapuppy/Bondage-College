@@ -30,7 +30,7 @@ var DialogActivePoses = [];
 var DialogItemPermissionMode = false;
 var DialogExtendedMessage = "";
 var DialogActivityMode = false;
-/** @type {Array<Activity>} */
+/** @type {ItemActivity[]} */
 var DialogActivity = [];
 /** @type {Record<"Enabled" | "Equipped" | "BothFavoriteUsable" | "TargetFavoriteUsable" | "PlayerFavoriteUsable" | "Usable" | "TargetFavoriteUnusable" | "PlayerFavoriteUnusable" | "Unusable" | "Blocked", DialogSortOrder>} */
 var DialogSortOrder = {
@@ -1769,7 +1769,7 @@ function DialogClick() {
 
 				// If this specific activity is clicked, we run it
 				if ((MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275)) {
-					IntroductionJobProgress("SubActivity", DialogActivity[A].MaxProgress.toString(), true);
+					IntroductionJobProgress("SubActivity", DialogActivity[A].Activity.MaxProgress.toString(), true);
 					ActivityRun(C, DialogActivity[A]);
 					return;
 				}
@@ -2047,11 +2047,18 @@ function DialogDrawActivityMenu(C) {
 	var X = 1000;
 	var Y = 125;
 	for (let A = DialogInventoryOffset; (A < DialogActivity.length) && (A < DialogInventoryOffset + 12); A++) {
-		var Act = DialogActivity[A];
+		const itemAct = DialogActivity[A];
+		const Act = itemAct.Activity;
 		let group = ActivityGetGroupOrMirror(CharacterGetCurrent().AssetFamily, CharacterGetCurrent().FocusGroup.Name);
 		let label = ActivityBuildChatTag(CharacterGetCurrent(), group, Act, true);
 		let image = "Assets/" + C.AssetFamily + "/Activity/" + Act.Name + ".png";
-		DrawPreviewBox(X, Y, image, ActivityDictionaryText(label), {Hover: !CommonIsMobile});
+		let icons = [];
+		if (itemAct.Item) {
+			image = `${AssetGetPreviewPath(itemAct.Item.Asset)}/${itemAct.Item.Asset.Name}.png`;
+			icons.push("Handheld");
+		}
+
+		DrawPreviewBox(X, Y, image, ActivityDictionaryText(label), {Hover: !CommonIsMobile, Icons: icons});
 		X = X + 250;
 		if (X > 1800) {
 			X = 1000;

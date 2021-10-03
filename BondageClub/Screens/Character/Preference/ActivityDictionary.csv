@@ -26,18 +26,18 @@ ActivityMasturbateTongue,Tongue Masturbation
 ActivityMasturbateHand,Hand Masturbation
 ActivityMasturbateFist,Fist Masturbation
 ActivityMasturbateFoot,Foot Masturbation
-ActivityMasturbateItem,Item Masturbation
+ActivityMasturbateItem,Masturbate
 ActivityPenetrateSlow,Slow Penetration
 ActivityPenetrateFast,Fast Penetration
 ActivityHandGag,Hand Gag
 ActivityRestHead,Rest Head
-ActivitySpankItem,Item Spank
-ActivityTickleItem,Item Tickle
-ActivityRubItem,Item Rub
-ActivityRollItem,Item Roll
-ActivityPourItem,Item Pour
-ActivityShockItem,Item Shock
-ActivityInject,Item Inject
+ActivitySpankItem,Spank
+ActivityTickleItem,Tickle
+ActivityRubItem,Rub
+ActivityRollItem,Roll
+ActivityPourItem,Pour
+ActivityShockItem,Shock
+ActivityInject,Inject
 ActivityMoanGag,Moan into Gag
 ActivityMoanGagWhimper,Whimper into Gag
 ActivityMoanGagAngry,Shout into Gag
@@ -474,8 +474,8 @@ ChatOther-ItemVulva-GaggedKiss,SourceCharacter pushes her gag into TargetCharact
 ChatOther-ItemVulva-Lick,SourceCharacter licks TargetCharacter's pussy lips.
 ChatOther-ItemVulva-Nibble,SourceCharacter nibbles TargetCharacter's pussy lips.
 ChatOther-ItemVulva-MasturbateItem,SourceCharacter uses the device to masturbate TargetCharacter's pussy lips.
-ChatOther-ItemVulva-PenetrateSlow,SourceCharacter penetrates TargetCharacter's vagina at a slow pace.
-ChatOther-ItemVulva-PenetrateFast,SourceCharacter penetrates TargetCharacter's vagina at a fast pace.
+ChatOther-ItemVulva-PenetrateSlow,SourceCharacter slowly penetrates TargetCharacter's vagina with her UsedAsset.
+ChatOther-ItemVulva-PenetrateFast,SourceCharacter roughly penetrates TargetCharacter's vagina with her UsedAsset.
 ChatSelf-ItemVulvaPiercings-MasturbateHand,SourceCharacter masturbates her clitoris.
 ChatSelf-ItemVulvaPiercings-Caress,SourceCharacter caresses her clitoris.
 ChatSelf-ItemVulvaPiercings-Slap,SourceCharacter slaps her clitoris.
@@ -507,8 +507,8 @@ ChatOther-ItemButt-MasturbateTongue,SourceCharacter uses her tongue to masturbat
 ChatOther-ItemButt-Spank,SourceCharacter spanks TargetCharacter's butt.
 ChatOther-ItemButt-Caress,SourceCharacter caresses TargetCharacter's butt.
 ChatOther-ItemButt-Grope,SourceCharacter gropes TargetCharacter's butt.
-ChatOther-ItemButt-PenetrateSlow,SourceCharacter penetrates TargetCharacter's butt at a slow pace.
-ChatOther-ItemButt-PenetrateFast,SourceCharacter penetrates TargetCharacter's butt at a fast pace.
+ChatOther-ItemButt-PenetrateSlow,SourceCharacter slowly penetrates TargetCharacter's butt with her UsedAsset.
+ChatOther-ItemButt-PenetrateFast,SourceCharacter roughly penetrates TargetCharacter's butt with her UsedAsset.
 ChatOther-ItemButt-Step,SourceCharacter presses her foot into TargetCharacter's ass.
 ChatOther-ItemButt-Inject,SourceCharacter injects TargetCharacter's butt.
 ChatSelf-ItemPelvis-Tickle,SourceCharacter tickles her own tummy.
@@ -662,8 +662,8 @@ ChatOther-ItemMouth-Lick,SourceCharacter licks TargetCharacter's lips.
 ChatOther-ItemMouth-Nibble,SourceCharacter nibbles TargetCharacter's lips.
 ChatOther-ItemMouth-Caress,SourceCharacter caresses and cleans TargetCharacter's mouth.
 ChatOther-ItemMouth-HandGag,SourceCharacter clamps her hand over TargetCharacter's mouth.
-ChatOther-ItemMouth-PenetrateSlow,SourceCharacter penetrates TargetCharacter's mouth at a slow pace.
-ChatOther-ItemMouth-PenetrateFast,SourceCharacter penetrates TargetCharacter's mouth at a fast pace.
+ChatOther-ItemMouth-PenetrateSlow,SourceCharacter slowly penetrates TargetCharacter's mouth with her UsedAsset.
+ChatOther-ItemMouth-PenetrateFast,SourceCharacter roughly penetrates TargetCharacter's mouth with her UsedAsset.
 ChatSelf-ItemHead-Slap,SourceCharacter slaps herself on the face.
 ChatSelf-ItemHead-Caress,SourceCharacter caresses her face.
 ChatSelf-ItemHead-TakeCare,SourceCharacter brushes her hair.
