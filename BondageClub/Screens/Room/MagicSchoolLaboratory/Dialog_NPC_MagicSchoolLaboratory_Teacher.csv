@@ -1,6 +1,8 @@
 PlayerGagged,,,(She looks at your gag and smiles.)  You'll need to find a spell to remove that gag.,,
 PracticeSuccess,,,Well done.  Would you like to practice another spell?,,
 PracticeFail,,,Don't be ashamed.  Would you like to practice another spell?,,
+BattleSuccess,,,Congratulations on that victory.  Continue to do battles to become the best witch.  Would you like to practice another battle?,,
+BattleFail,,,Don't worry about losing.  It takes time and effort to become a Mistress of magic.  Would you like to practice another battle?,,
 0,,,(She salutes you politely.)  Welcome to the Bondage Club Magic School.  It's an honor to meet a member of the prestigious House Maiestas.,,"InHouse(""Maiestas"")"
 0,,,(She nods slowly.)  Welcome to the Bondage Club Magic School.  It's a pleasure to meet a member of the great House Vincula.,,"InHouse(""Vincula"")"
 0,,,(She smiles at you.)  Welcome to the Bondage Club Magic School.  It's heart-warming to meet a member of the wonderful House Amplector.,,"InHouse(""Amplector"")"
@@ -29,10 +31,10 @@ PracticeFail,,,Don't be ashamed.  Would you like to practice another spell?,,
 20,,What do I do after I win?,"(She laughs.)  That's up to you, we are an adult club after all.  Use your imagination.",,
 20,21,Can we practice a battle?,(She grins.)  We certainly can.  Should I go easy on you or use all my tricks?,,
 20,0,Enough questions.,(She nods.)  Is there anything else I can help you with?,,
-21,,Go easy on me.  (Easy battle.),TO DO,,
-21,,Let's do a casual battle.  (Regular battle.),TO DO,,
-21,,I can take a challenge.  (Hard battle.),TO DO,,
-21,,Give me all you got.  (Extreme battle.),TO DO,,
+21,,Go easy on me.  (Easy battle.),,MagicBattleStart(0),
+21,,Let's do a casual battle.  (Regular battle.),,MagicBattleStart(3),
+21,,I can take a challenge.  (Hard battle.),,MagicBattleStart(6),
+21,,Give me all you got.  (Extreme battle.),,MagicBattleStart(9),
 21,20,Let's talk about battles.,What would you like to know?,,
 21,0,Let's not do any battle.,(She nods.)  Is there anything else I can help you with?,,
 30,,Pallium Exuere (Cloth Stripping),,SpellPractice(0),

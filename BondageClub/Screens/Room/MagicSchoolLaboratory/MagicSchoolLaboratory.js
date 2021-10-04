@@ -84,3 +84,21 @@ function MagicSchoolLaboratoryJoinHouse(House) {
 	DialogSetReputation("HouseCorporis", 0);
 	if (House != "") DialogSetReputation("House" + House, 1);
 }
+
+/**
+ * Starts a practice battle against the school teacher
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryMagicBattleStart(Difficulty) {
+	MagicBattleStart(MagicSchoolLaboratoryTeacher, Difficulty, MagicSchoolLaboratoryBackground, "MagicSchoolLaboratoryMagicBattleEnd");
+}
+
+/**
+ * When the magic battle practice ends
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryMagicBattleEnd() {
+	CommonSetScreen("Room", "MagicSchoolLaboratory");
+	CharacterSetCurrent(MagicSchoolLaboratoryTeacher);
+	MagicSchoolLaboratoryTeacher.CurrentDialog = DialogFind(MagicSchoolLaboratoryTeacher, MiniGameVictory ? "BattleSuccess" : "BattleFail");
+}
