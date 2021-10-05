@@ -241,7 +241,7 @@ JobDojoIntro2203,,,Konichiwa!  (She smiles and bows politely.)  I trust you want
 421,,,You need to use a specific lock on five different members in the chat rooms.,,
 421,,Which lock should I use?,The shop wants you to promote the LockType.  Use them on at least five different members in the chat rooms.,JobLockType(),
 421,400,I give up.  I cannot do it.,"(She sighs.)  Too bad, is there anything else you'd like to know about our special jobs?  (She shows you a notepad.)",JobGiveUp(),!JobIsComplete()
-421,500,The job is done!,Congratulations!  Here's your money.  (She gives you $100.)  Well done.,JobDone(),JobIsComplete()
+421,500,The job is done!,Congratulations!  Here's your money.  (She gives you $120.)  Well done.,JobDone(),JobIsComplete()
 421,,I'll be back later.  (Leave her.),,DialogLeave(),
 430,431,I'll do it!,This won't be an easy task.  You'll need to kidnap and humiliate a girl.  Are you ready to fight her?,"JobStart(""DomKidnap"", 1)",
 430,400,Let me think about it.,"Of course, is there anything else you'd like to know about our special jobs?  (She shows you a notepad.)",,
@@ -251,14 +251,14 @@ JobDojoIntro2203,,,Konichiwa!  (She smiles and bows politely.)  I trust you want
 431,500,The job is done!,,JobDone(),JobIsComplete()
 431,,Give me a minute.  (Leave her.),,DialogLeave(),
 432,,,Congratulations!  I've heard of your victory and her humiliation.  You've done a great job.,,
-432,500,Thanks a lot!,(She smiles and gives you $100.)  Well done.,JobDone(),
-432,500,She deserved it.,(She nods and gives you $100.)  Well done.,JobDone(),
-432,500,Where's my money?,(She frowns and gives you $100.)  Well done.,JobDone(),
+432,500,Thanks a lot!,(She smiles and gives you $120.)  Well done.,JobDone(),
+432,500,She deserved it.,(She nods and gives you $120.)  Well done.,JobDone(),
+432,500,Where's my money?,(She frowns and gives you $120.)  Well done.,JobDone(),
 440,441,I'll do it!,Great news!  Please train three submissives from the slave auction room or treat three asylum patients and come back to me.,"JobStart(""DomTrainer"", 3)",
 440,400,Let me think about it.,"Of course, is there anything else you'd like to know about our special jobs?  (She shows you a notepad.)",,
 441,,,Please train three submissives from the slave auction room or treat three asylum patients and come back to me.,,
 441,400,I give up.  I cannot do it.,"(She sighs.)  Too bad, is there anything else you'd like to know about our special jobs?  (She shows you a notepad.)",JobGiveUp(),!JobIsComplete()
-441,500,The job is done!,Congratulations!  Here's your money.  (She gives you $100.)  Well done.,JobDone(),JobIsComplete()
+441,500,The job is done!,Congratulations!  Here's your money.  (She gives you $120.)  Well done.,JobDone(),JobIsComplete()
 441,,I'll be back later.  (Leave her.),,DialogLeave(),
 500,0,Is there anything else I can do?,"Sorry, there's nothing left for you.  Please come back tomorrow, I might have something else to do.",,
 500,0,I don't deserve such praises Miss.,"Of course, you deserve it girl.  Come back tomorrow, I might have something else for you.","DialogChangeReputation(""Dominant"", -4)",
@@ -268,7 +268,7 @@ JobDojoIntro2203,,,Konichiwa!  (She smiles and bows politely.)  I trust you want
 511,,,(She takes a British accent.)  Bum a detective hat Sherlock.  Search for that missing jewelry mate.,,
 511,,Where should I search?,"We think it could be in the Maid Quarters, the Kidnappers League, the LARP instructor room or the Slave Market.  (Click everywhere in these places to search.)",,
 511,400,I give up.  I cannot do it.,"(She sighs.)  Too bad, is there anything else you'd like to know about our special jobs?  (She shows you a notepad.)",JobGiveUp(),!JobIsComplete()
-511,500,The job is done!,Congratulations!  Here's your money.  (She gives you $100.)  Well done.,JobDone(),JobIsComplete()
+511,500,The job is done!,Congratulations!  Here's your money.  (She gives you $120.)  Well done.,JobDone(),JobIsComplete()
 511,,I'll be back later.  (Leave her.),,DialogLeave(),
 520,521,I'll do it!,Wonderful!  You will meet the Shujin at the Shibari Dojo.  She will give you the instructions.,"JobStart(""SubDojo"", 1)",
 520,400,Let me think about it.,"Of course, is there anything else you'd like to know about our special jobs?  (She shows you a notepad.)",,
@@ -277,13 +277,13 @@ JobDojoIntro2203,,,Konichiwa!  (She smiles and bows politely.)  I trust you want
 530,400,Let me think about it.,"Of course, is there anything else you'd like to know about our special jobs?  (She shows you a notepad.)",,
 531,,,You need to masturbate at least five different chat room members and come back to me.,,
 531,400,I give up.  I cannot do it.,"(She sighs.)  Too bad, is there anything else you'd like to know about our special jobs?  (She shows you a notepad.)",JobGiveUp(),!JobIsComplete()
-531,500,The job is done!,Congratulations!  Here's your money.  (She gives you $100.)  Well done.,JobDone(),JobIsComplete()
+531,500,The job is done!,Congratulations!  Here's your money.  (She gives you $120.)  Well done.,JobDone(),JobIsComplete()
 531,,I'll be back later.  (Leave her.),,DialogLeave(),
 540,541,I'll do it!,(She nods happily.)  You'll need to complete three chores or more for the maid sorority.  Come back when everything is done.,"JobStart(""SubMaid"", 3)",
 540,400,Let me think about it.,"Of course, is there anything else you'd like to know about our special jobs?  (She shows you a notepad.)",,
 541,,,You need to complete three chores or more for the maid sorority.  Come back when everything is done.,,
 541,400,I give up.  I cannot do it.,"(She sighs.)  Too bad, is there anything else you'd like to know about our special jobs?  (She shows you a notepad.)",JobGiveUp(),!JobIsComplete()
-541,500,The job is done!,Congratulations!  Here's your money.  (She gives you $100.)  Well done.,JobDone(),JobIsComplete()
+541,500,The job is done!,Congratulations!  Here's your money.  (She gives you $120.)  Well done.,JobDone(),JobIsComplete()
 541,,I'll be back later.  (Leave her.),,DialogLeave(),
 MaidRescue,,,(She struggles and tries to get out.)  Can you please help me?,,IsMaidRestrained()
 MaidRescue,,,(She bows her head respectfully.)  Can you also help our friend here?,,!IsBothFree()
