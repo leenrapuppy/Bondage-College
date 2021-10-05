@@ -1,23 +1,21 @@
 "use strict";
-var MagicPuzzleBackground = "MagicPuzzle/0";
+var MagicPuzzleBackground = "MagicSchoolLaboratory";
 var MagicPuzzleStart = 0;
 var MagicPuzzleFinish = 0;
 var MagicPuzzleSize = 0;
 var MagicPuzzleSpell = 0;
 var MagicPuzzleStarted = false;
+var MagicPuzzleTimer = 0;
 
 /**
  * Loads the magic puzzle mini game and sets the difficulty ratio
  * @returns {void} - Nothing
  */
 function MagicPuzzleLoad() {
-	MagicPuzzleBackground = "MagicPuzzle/" + MagicPuzzleSpell;
 	MagicPuzzleStart = CommonTime() + 5000;
 	MagicPuzzleFinish = 0;
-	MagicPuzzleSize = 10;
-	if (InventoryGet(Player, "Cloth") == null) MagicPuzzleSize = MagicPuzzleSize + 5;
-	if (InventoryGet(Player, "ItemLegs") != null) MagicPuzzleSize = MagicPuzzleSize + 5;
-	if (InventoryGet(Player, "ItemArms") != null) MagicPuzzleSize = MagicPuzzleSize + 5;
+	MagicPuzzleSize = 10 + MagicBattleGetDifficulty(Player) * 2;
+	MagicPuzzleTimer = (MiniGameDifficulty > 0) ? CommonTime() + 5000 + MiniGameDifficulty * 1000 : 0;
 	MagicPuzzleStarted = false;
 	MiniGameVictory = false;
 }
@@ -46,8 +44,8 @@ function MagicPuzzleValidate(X, Y) {
 	if ((Y < 0) || (Y > 999)) Y = 0;
 	let Data = MainCanvas.getImageData(X, Y, 1, 1).data;
 	
-	// In the black zone, ends in failure
-	if (Data[0] + Data[1] + Data[2] < 100) {
+	// In the dark zone, ends in failure
+	if ((Data[0] < 100) && (Data[1] < 100) && (Data[2] < 100)) {
 		MiniGameEnded = true;
 		MagicPuzzleFinish = CommonTime();
 		return;
@@ -76,6 +74,9 @@ function MagicPuzzleValidate(X, Y) {
  */
 function MagicPuzzleRun() {
 
+	// Draw the puzzle over the background
+	DrawImage("Screens/MiniGame/MagicPuzzle/" + MagicPuzzleSpell + ".png", 0, 0);
+
 	// When the game is running, we make sure the end borders never hit the black zone
 	if (!MiniGameEnded && (CommonTime() >= MagicPuzzleStart)) {
 		MagicPuzzleValidate(MouseX - MagicPuzzleSize, MouseY - MagicPuzzleSize);
@@ -83,6 +84,12 @@ function MagicPuzzleRun() {
 		MagicPuzzleValidate(MouseX + MagicPuzzleSize, MouseY - MagicPuzzleSize);
 		MagicPuzzleValidate(MouseX + MagicPuzzleSize, MouseY + MagicPuzzleSize);
 		MagicPuzzleStarted = true;
+	}
+	
+	// If there's a timer and it runs out
+	if (!MiniGameEnded && (MagicPuzzleTimer > 0) && (CommonTime() > MagicPuzzleTimer)) {
+		MagicPuzzleFinish = CommonTime();
+		MiniGameEnded = true;
 	}
 
 	// Draw the game text and square
@@ -95,7 +102,13 @@ function MagicPuzzleRun() {
 		if (CommonTime() < MagicPuzzleStart)
 			DrawText(TextGet("StartMessage") + " " + MagicPuzzleTime((MagicPuzzleStart - CommonTime()) / 1000), 1000, 975, "#FFFFFF", "grey");
 		else
-			DrawText(TextGet("GameMessage") + " " + MagicPuzzleTime((CommonTime() - MagicPuzzleStart) / 1000), 1000, 975, "#C0C0FF", "grey");
+			if (MagicPuzzleTimer == 0)
+				DrawText(TextGet("GameMessage") + " " + MagicPuzzleTime((CommonTime() - MagicPuzzleStart) / 1000), 1000, 975, "#C0C0FF", "grey");
+			else {
+				let Pos = 100 - (CommonTime() - MagicPuzzleStart) / (MagicPuzzleTimer - MagicPuzzleStart) * 100;
+				DrawProgressBar(0, 950, 2000, 50, Pos);
+				DrawText(TextGet("GameMessage") + " " + MagicPuzzleTime((CommonTime() - MagicPuzzleStart) / 1000), 1000, 975, "black", "white");
+			}
 	}
 	if (MouseIn(0, 0, 2000, 950))
 		DrawRect(MouseX - MagicPuzzleSize, MouseY - MagicPuzzleSize, MagicPuzzleSize * 2, MagicPuzzleSize * 2, "Blue");

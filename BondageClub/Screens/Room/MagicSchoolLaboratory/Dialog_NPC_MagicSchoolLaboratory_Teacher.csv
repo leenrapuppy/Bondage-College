@@ -1,8 +1,8 @@
 PlayerGagged,,,(She looks at your gag and smiles.)  You'll need to find a spell to remove that gag.,,
 PracticeSuccess,,,Well done.  Would you like to practice another spell?,,
 PracticeFail,,,Don't be ashamed.  Would you like to practice another spell?,,
-BattleSuccess,,,Congratulations on that victory.  Continue to do battles to become the best witch.  Would you like to practice another battle?,,
-BattleFail,,,Don't worry about losing.  It takes time and effort to become a Mistress of magic.  Would you like to practice another battle?,,
+BattleSuccess,,,(You release her.)  Congratulations on that victory.  Continue to do battles to become the best witch.  Would you like to practice another battle?,,
+BattleFail,,,(She releases you.)  Don't worry about losing.  It takes time and effort to become a Mistress of magic.  Would you like to practice another battle?,,
 0,,,(She salutes you politely.)  Welcome to the Bondage Club Magic School.  It's an honor to meet a member of the prestigious House Maiestas.,,"InHouse(""Maiestas"")"
 0,,,(She nods slowly.)  Welcome to the Bondage Club Magic School.  It's a pleasure to meet a member of the great House Vincula.,,"InHouse(""Vincula"")"
 0,,,(She smiles at you.)  Welcome to the Bondage Club Magic School.  It's heart-warming to meet a member of the wonderful House Amplector.,,"InHouse(""Amplector"")"

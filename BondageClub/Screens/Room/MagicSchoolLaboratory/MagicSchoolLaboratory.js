@@ -1,6 +1,8 @@
 "use strict";
 var MagicSchoolLaboratoryBackground = "MagicSchoolLaboratory";
 var MagicSchoolLaboratoryTeacher = null;
+var MagicSchoolLaboratoryPlayerAppearance = null;
+var MagicSchoolLaboratoryTeacherAppearance = null;
 
 /**
  * Loads the magic school laboratory and the teacher
@@ -12,7 +14,7 @@ function MagicSchoolLaboratoryLoad() {
 	if (MagicSchoolLaboratoryTeacher == null) {
 		MagicSchoolLaboratoryTeacher = CharacterLoadNPC("NPC_MagicSchoolLaboratory_Teacher");
 		MagicSchoolLaboratoryTeacher.AllowItem = false;
-		CharacterNaked(MagicSchoolLaboratoryTeacher);
+		InventoryRemove(MagicSchoolLaboratoryTeacher, "ClothAccessory");
 		InventoryWear(MagicSchoolLaboratoryTeacher, "SpankingToys", "ItemHands");
 		InventoryGet(MagicSchoolLaboratoryTeacher, "ItemHands").Property = { Type: "Broom" };
 		InventoryWear(MagicSchoolLaboratoryTeacher, "GrandMage", "Cloth", "#555555");
@@ -90,6 +92,8 @@ function MagicSchoolLaboratoryJoinHouse(House) {
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratoryMagicBattleStart(Difficulty) {
+	MagicSchoolLaboratoryPlayerAppearance = CharacterAppearanceStringify(Player);
+	MagicSchoolLaboratoryTeacherAppearance = CharacterAppearanceStringify(MagicSchoolLaboratoryTeacher);
 	MagicBattleStart(MagicSchoolLaboratoryTeacher, Difficulty, MagicSchoolLaboratoryBackground, "MagicSchoolLaboratoryMagicBattleEnd");
 }
 
@@ -99,6 +103,10 @@ function MagicSchoolLaboratoryMagicBattleStart(Difficulty) {
  */
 function MagicSchoolLaboratoryMagicBattleEnd() {
 	CommonSetScreen("Room", "MagicSchoolLaboratory");
+	CharacterAppearanceRestore(Player, MagicSchoolLaboratoryPlayerAppearance);
+	CharacterRefresh(Player);
+	CharacterAppearanceRestore(MagicSchoolLaboratoryTeacher, MagicSchoolLaboratoryTeacherAppearance);
+	CharacterRefresh(MagicSchoolLaboratoryTeacher);
 	CharacterSetCurrent(MagicSchoolLaboratoryTeacher);
 	MagicSchoolLaboratoryTeacher.CurrentDialog = DialogFind(MagicSchoolLaboratoryTeacher, MiniGameVictory ? "BattleSuccess" : "BattleFail");
 }

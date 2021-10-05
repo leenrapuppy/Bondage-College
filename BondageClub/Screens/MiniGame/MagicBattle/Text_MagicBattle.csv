@@ -1,4 +1,13 @@
 MagicBattle,Magic Battle
 SelectSpell,Select your spell.
-Won,You won.  Click here to return.
-Lost,You lost.  Click here to return.
+Won,You are victorious.
+Lost,You were defeated.
+EndBattle,End the battle.
+Spell0Name,Pallium Exuere
+Spell1Name,Animatus Funem
+Spell2Name,Funem Tensis
+Spell3Name,Oratio Angustos
+Spell0Hover,Cloth Stripping
+Spell1Hover,Animate Rope
+Spell2Hover,Rope Tightening
+Spell3Hover,Block Speech
