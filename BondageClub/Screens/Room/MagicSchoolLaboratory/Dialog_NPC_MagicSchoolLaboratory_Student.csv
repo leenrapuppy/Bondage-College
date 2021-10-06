@@ -22,4 +22,21 @@ BattleFail,,,"You're a pathetic magician, unworthy of House Corporis.  (She span
 0,,I'm DialogPlayerName.  Who are you?,"My name is DialogCharacterName, I'm a battle mage from House Vincula.",DialogRemove(),"FromHouse(""Vincula"")"
 0,,I'm DialogPlayerName.  Who are you?,"Sweetheart, I'm known as Lady DialogCharacterName, from House Amplector.",DialogRemove(),"FromHouse(""Amplector"")"
 0,,I'm DialogPlayerName.  Who are you?,"(She cracks her knuckles.)  I'm witch DialogCharacterName, from House Corporis.  Are you looking for trouble?",DialogRemove(),"FromHouse(""Corporis"")"
+0,10,Let's do a magic battle for fun.,"(She nods.)  Very well, we can battle for fun and bondage.  Get ready!",,
+0,20,Care to bet on who's the best mage?,(She smirks.)  Alright.  I bet you $25 that I can beat you in a magic fight.,,
+0,30,Maiestas is full of snob bitches.,"Oh really?  (She seems insulted.)  Let's do a great battle to represent our houses then.  Laurels for the winner, shame for the loser.",,"FromRivalHouse(""Maiestas"")"
+0,30,You peasants from Vincula cannot cast a square knot.,Enough!  I'll show you which house is best.  Let's do a great fight for both our houses honor.,,"FromRivalHouse(""Vincula"")"
+0,30,"Girls from Amplector are pathetic, worthless in battle.",Amplector has something you will never have: a heart.  Fight me now!  And prove who's best once and for all.,,"FromRivalHouse(""Amplector"")"
+0,30,Why are there so many bullies in House Corporis?,"So I'm a bully?  (She smirks.)  Tell you what, let's do a great battle to show our houses strength.  I'll crush you.",,"FromRivalHouse(""Corporis"")"
 0,,I need to go.  (Leave her.),,DialogLeave(),
+10,,(Fight her for fun.),,"BattleStudentStart(""Normal"")",
+10,,Forget it.  (Leave her.),,DialogLeave(),
+20,,(Fight her and wage $25.),,"BattleStudentStart(""Wage25"")",DialogMoneyGreater(25)
+20,,I don't have enough money.,Don't bet if you're broke.  Find some money and we'll meet again.,DialogRemove(),!DialogMoneyGreater(25)
+20,,Forget it.  (Leave her.),,DialogLeave(),
+30,,(Fight her for your house honor.),,"BattleStudentStart(""Honor"")",
+30,,Forget it.  (Leave her.),,DialogLeave(),
+100,,TO DO,TO DO,,
+100,,(Leave her.),,DialogLeave(),
+200,,TO DO,TO DO,,
+200,,(Leave her.),,DialogLeave(),

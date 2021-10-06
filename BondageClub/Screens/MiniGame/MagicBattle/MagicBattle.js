@@ -6,12 +6,16 @@ var MagicBattleDifficulty = 0;
 var MagicBattleVictory = false;
 var MagicBattleAvailSpell = [];
 var MagicBattleOpponentSpell = 0;
+var MagicBattlePlayerAppearance = null;
+var MagicBattleOpponentAppearance = null;
 
 /**
  * Start a magic battle against an opponent
  * @returns {void} - Nothing
  */
 function MagicBattleStart(Opponent, Difficulty, Background, FunctionName) {
+	MagicBattlePlayerAppearance = CharacterAppearanceStringify(Player);
+	MagicBattleOpponentAppearance = CharacterAppearanceStringify(Opponent);
 	MagicBattleOpponent = Opponent;
 	MagicBattleBackground = Background;
 	MagicBattleReturnFunction = FunctionName;

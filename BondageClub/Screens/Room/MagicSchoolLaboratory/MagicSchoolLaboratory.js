@@ -1,12 +1,13 @@
 "use strict";
 var MagicSchoolLaboratoryBackground = "MagicSchoolLaboratory";
 var MagicSchoolLaboratoryTeacher = null;
-var MagicSchoolLaboratoryPlayerAppearance = null;
-var MagicSchoolLaboratoryTeacherAppearance = null;
 var MagicSchoolLaboratoryStudent = null;
+var MagicSchoolLaboratoryBattleWage = "";
 
 /**
  * Dresses a character C as a witch, the colors and clothes can changes based on the house
+ * @param {Character} C - The character that will wear the clothes
+ * @param {String} House - The house name
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratoryPrepareNPC(C, House) {
@@ -98,6 +99,7 @@ function MagicSchoolLaboratoryClick() {
 
 /**
  * When the user wants to practice a spell
+ * @param {number} S - The spell number (0 to strip, etc.)
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratorySpellPractice(SpellNumber) {
@@ -117,6 +119,7 @@ function MagicSchoolLaboratorySpellPracticeEnd() {
 
 /**
  * Check if someone is a member of a magic house or not
+ * @param {string} House - The house name
  * @returns {boolean} - TRUE if a member, FALSE if not
  */
 function MagicSchoolLaboratoryInHouse(House) {
@@ -126,6 +129,7 @@ function MagicSchoolLaboratoryInHouse(House) {
 
 /**
  * Joins a specific magic house, sets the reputation to 1 and clear all other reputations
+ * @param {string} House - The house name
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratoryJoinHouse(House) {
@@ -154,6 +158,7 @@ function MagicSchoolLaboratoryDressHouse() {
 
 /**
  * Check if a NPC is a member of a magic house or not
+ * @param {string} House - The house name
  * @returns {boolean} - TRUE if a member, FALSE if not
  */
 function MagicSchoolLaboratoryFromHouse(House) {
@@ -163,7 +168,8 @@ function MagicSchoolLaboratoryFromHouse(House) {
 
 /**
  * Check if a NPC is a member of the player's house
- * @returns {boolean} - TRUE if a rival, FALSE if not
+ * @param {string} House - The house name
+ * @returns {boolean} - TRUE if from same house, FALSE if not
  */
 function MagicSchoolLaboratoryFromSameHouse(House) {
 	if ((CurrentCharacter == null) || (CurrentCharacter.House == null) || (CurrentCharacter.House == "")) return false;
@@ -176,6 +182,7 @@ function MagicSchoolLaboratoryFromSameHouse(House) {
 
 /**
  * Check if a NPC is a member of the player's rival house
+ * @param {string} House - The house name
  * @returns {boolean} - TRUE if a rival, FALSE if not
  */
 function MagicSchoolLaboratoryFromRivalHouse(House) {
@@ -190,11 +197,10 @@ function MagicSchoolLaboratoryFromRivalHouse(House) {
 
 /**
  * Starts a practice battle against the school teacher
+ * @param {number} Difficulty - The difficulty level from 0 to 10 (hardest)
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratoryMagicBattleStart(Difficulty) {
-	MagicSchoolLaboratoryPlayerAppearance = CharacterAppearanceStringify(Player);
-	MagicSchoolLaboratoryTeacherAppearance = CharacterAppearanceStringify(MagicSchoolLaboratoryTeacher);
 	MagicBattleStart(MagicSchoolLaboratoryTeacher, Difficulty, MagicSchoolLaboratoryBackground, "MagicSchoolLaboratoryMagicBattleEnd");
 }
 
@@ -204,9 +210,9 @@ function MagicSchoolLaboratoryMagicBattleStart(Difficulty) {
  */
 function MagicSchoolLaboratoryMagicBattleEnd() {
 	CommonSetScreen("Room", "MagicSchoolLaboratory");
-	CharacterAppearanceRestore(Player, MagicSchoolLaboratoryPlayerAppearance);
+	CharacterAppearanceRestore(Player, MagicBattlePlayerAppearance);
 	CharacterRefresh(Player);
-	CharacterAppearanceRestore(MagicSchoolLaboratoryTeacher, MagicSchoolLaboratoryTeacherAppearance);
+	CharacterAppearanceRestore(MagicSchoolLaboratoryTeacher, MagicBattleOpponentAppearance);
 	CharacterRefresh(MagicSchoolLaboratoryTeacher);
 	CharacterSetCurrent(MagicSchoolLaboratoryTeacher);
 	MagicSchoolLaboratoryTeacher.CurrentDialog = DialogFind(MagicSchoolLaboratoryTeacher, MiniGameVictory ? "BattleSuccess" : "BattleFail");
@@ -256,4 +262,51 @@ function MagicSchoolLaboratoryFindStudent() {
 	MagicSchoolLaboratoryPrepareNPC(MagicSchoolLaboratoryStudent, CommonRandomItemFromList("", Houses));
 	setTimeout(() => CharacterSetCurrent(MagicSchoolLaboratoryStudent), 500);
 	
+}
+
+/**
+ * When a fight begins between the player and a student
+ * @param {string} Type - The type of battle to do (Normal, Wage or Honor)
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryBattleStudentStart(Type) {
+	MagicSchoolLaboratoryBattleWage = Type;
+	if (Type == "Wage25") CharacterChangeMoney(Player, -25);
+	let Difficulty = 2;
+	if (Type == "Wage25") Difficulty = 5;
+	if (Type == "Honor") Difficulty = 8;
+	MagicBattleStart(MagicSchoolLaboratoryStudent, Difficulty, MagicSchoolLaboratoryBackground, "MagicSchoolLaboratoryBattleStudentEnd");
+}
+
+/**
+ * When a student battle ends, we release the winner, change reputation or give some money based on the wage
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryBattleStudentEnd() {
+	CommonSetScreen("Room", "MagicSchoolLaboratory");
+	CharacterSetCurrent(MagicSchoolLaboratoryStudent);
+	if (MiniGameVictory) {
+		MagicSchoolLaboratoryStudent.AllowItem = true;
+		CharacterAppearanceRestore(Player, MagicBattlePlayerAppearance);
+		CharacterRefresh(Player);
+		if (MagicSchoolLaboratoryBattleWage == "Wage25") CharacterChangeMoney(Player, 50);
+		let RepGain = (MagicSchoolLaboratoryBattleWage == "Honor") ? 6 : 3;
+		if (ReputationGet("HouseMaiestas") > 0) DialogChangeReputation("HouseMaiestas", RepGain);
+		if (ReputationGet("HouseVincula") > 0) DialogChangeReputation("HouseVincula", RepGain);
+		if (ReputationGet("HouseAmplector") > 0) DialogChangeReputation("HouseAmplector", RepGain);
+		if (ReputationGet("HouseCorporis") > 0) DialogChangeReputation("HouseCorporis", RepGain);
+		MagicSchoolLaboratoryStudent.Stage = "100";
+		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleSuccess");
+	} else {
+		CharacterAppearanceRestore(MagicSchoolLaboratoryStudent, MagicBattleOpponentAppearance);
+		CharacterRefresh(MagicSchoolLaboratoryStudent);
+		if (MagicSchoolLaboratoryBattleWage == "Honor") {
+			if (ReputationGet("HouseMaiestas") >= 3) DialogChangeReputation("HouseMaiestas", -2);
+			if (ReputationGet("HouseVincula") >= 3) DialogChangeReputation("HouseVincula", -2);
+			if (ReputationGet("HouseAmplector") >= 3) DialogChangeReputation("HouseAmplector", -2);
+			if (ReputationGet("HouseCorporis") >= 3) DialogChangeReputation("HouseCorporis", -2);
+		}
+		MagicSchoolLaboratoryStudent.Stage = "200";
+		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleFail");
+	}
 }
