@@ -47,11 +47,13 @@ BattleFail,,,(She releases you.)  Don't worry about losing.  It takes time and e
 40,,House Amplector.,"The caring House Amplector focuses on charms, enchantments and love magic.  You will see them hug and cuddle all the time.  They greatly help and care about each other.",,
 40,,House Corporis.,"House Corporis believes that true magic comes from the physical realm.  They use magic to inflict or endure pain, trigger arousal or orgasms.  They don't play soft.",,
 40,,Are there rivalries between houses?,House Maiestas and House Vincula are in a constant magic war.  And there's no truce in sight between House Amplector and House Corporis.,,
-40,50,I want to join a house.,(She smiles.)  Which house would you like to join?  Please note that joining a new house will reset your reputation.,,
+40,,I'd like to dress as a member from my house.,(She nods and dresses you with the official clothes.)  Be proud to represent your house.,DressHouse(),"!InHouse("""")"
+40,50,I want to join a house.,"(She smiles.)  By joining a house, you will be able to climb its ladder.  Which house would you like to join?",,"InHouse("""")"
+40,50,I want to change my house.,(She frowns.)  Joining a new house will reset your reputation.  Which house would you like to join?,,"!InHouse("""")"
 40,0,That's enough about houses.,(She nods.)  Is there anything else I can help you with?,,
-50,0,I will join House Maiestas.,"(She takes a few notes.)  Very good, you will now be known as a member of House Maiestas.","JoinHouse(""Maiestas"")","!InHouse(""Maiestas"")"
-50,0,I will join House Vincula.,"(She takes a few notes.)  Very good, you will now be known as a member of House Vincula.","JoinHouse(""Vincula"")","!InHouse(""Vincula"")"
-50,0,I will join House Amplector.,"(She takes a few notes.)  Very good, you will now be known as a member of House Amplector.","JoinHouse(""Amplector"")","!InHouse(""Amplector"")"
-50,0,I will join House Corporis.,"(She takes a few notes.)  Very good, you will now be known as a member of House Corporis.","JoinHouse(""Corporis"")","!InHouse(""Corporis"")"
+50,0,I will join House Maiestas.,"(She takes a few notes and dresses you with the official clothes.)  Very good, you will now be known as a member of House Maiestas.","JoinHouse(""Maiestas"")","!InHouse(""Maiestas"")"
+50,0,I will join House Vincula.,"(She takes a few notes and dresses you with the official clothes.)  Very good, you will now be known as a member of House Vincula.","JoinHouse(""Vincula"")","!InHouse(""Vincula"")"
+50,0,I will join House Amplector.,"(She takes a few notes and dresses you with the official clothes.)  Very good, you will now be known as a member of House Amplector.","JoinHouse(""Amplector"")","!InHouse(""Amplector"")"
+50,0,I will join House Corporis.,"(She takes a few notes and dresses you with the official clothes.)  Very good, you will now be known as a member of House Corporis.","JoinHouse(""Corporis"")","!InHouse(""Corporis"")"
 50,0,I want to leave my house and the magic school.,"(She sighs and takes a few notes.)  Alright, you are not part of the magic school anymore.","JoinHouse("""")","!InHouse("""")"
 50,0,I've changed my mind.,(She nods.)  Is there anything else I can help you with?,,
