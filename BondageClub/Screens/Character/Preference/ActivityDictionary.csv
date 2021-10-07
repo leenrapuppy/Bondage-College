@@ -290,6 +290,7 @@ ChatOther-ItemNeck-Caress,SourceCharacter caresses TargetCharacter's neck.
 ChatOther-ItemNeck-MassageHands,SourceCharacter massages TargetCharacter's neck.
 ChatOther-ItemNeck-Choke,SourceCharacter chokes TargetCharacter's neck.
 ChatOther-ItemNeck-Step,SourceCharacter gently places her foot over TargetCharacter's neck.
+ChatOther-ItemNeck-Tickle,SourceCharacter tickles TargetCharacter's neck.
 ChatSelf-ItemMouth-Lick,SourceCharacter licks her lips.
 ChatSelf-ItemMouth-Nibble,SourceCharacter nibbles her lips.
 ChatSelf-ItemMouth-Caress,SourceCharacter caresses and wipes her mouth clean.
