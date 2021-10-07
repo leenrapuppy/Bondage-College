@@ -1,0 +1,10 @@
+Enter your online description (10000 characters maximum)
+输入你的在线描述(限1000字符)
+CharacterName's online description
+CharacterName的在线描述
+Exit profile
+退出档案
+Accept changes
+接受改动
+Cancel changes
+取消改动

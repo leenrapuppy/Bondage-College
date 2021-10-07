@@ -1,0 +1,61 @@
+[Message]: Send a message starting with /. Example: //message will send /message
+[Message]: 发送一条包含/的消息. 如: //message会发送 /message
+[Message]: Display the message as an action
+[Message]: 显示动作信息，但不包含你的名字. **[Message]也是同样的效果
+: Toggle AFK emote
+:切换AFK表情
+[MemberNumber]: Ban the player from the room
+[MemberNumber]:将玩家从本房间封禁
+[MemberNumber]: Send a beep to the player
+[MemberNumber]:对玩家发送一次提示音
+[MemberNumber]: Add the player to your blacklist
+[MemberNumber]:将玩家添加到黑名单
+[MemberNumber]: Remove the player from your blacklist
+[MemberNumber]:将玩家从黑名单移除
+[Message]: sends hidden message to bots
+[Message]:对机器人发送隐藏消息
+: Toss a coin
+:丢一枚硬币
+[MemberNumber]: Demote the player from room administrator
+[MemberNumber]:取消玩家房管权限
+[Number]: Roll a 6-sided die. Adding “[Number]” after the command for any number between 2 and 100 will roll a die of that many sides instead. Adding “[Number]d[Number]” will roll multiple dice and sum the total.
+[Number]:丢一个6面骰.追加一个“[Number]”在命令后将会丢一个D[Number]的骰子.添加“[Number]d[Number]”会丢出多枚多面骰.
+[MemberNumber]: Add the player to your friendlist
+[MemberNumber]:将玩家添加到好友列表
+[MemberNumber]: Remove the player from your friendlist
+[MemberNumber]:将玩家从好友列表移除
+[MemberNumber]: Add the player to your ghostlist
+[MemberNumber]:将玩家添加到忽视列表
+[MemberNumber]: Remove the player from your ghostlist
+[MemberNumber]:将玩家从忽视列表移除
+[Keyword]: Display help for the command with prefix Keyword. Exclude [Keyword] to view all valid commands
+[Keyword]:显示符合本关键字前缀的命令,不输入关键词可查看所有命令
+do nothing
+什么都不做
+[MemberNumber]: Kick the player out of the room
+[MemberNumber]:将玩家踢出房间
+[Message]: Display “[PlayerName] Message” as an action. *[Message] does the same
+[Message]:显示“[PlayerName] Message”为动作.*[Message]也是同样的效果
+[MemberNumber]: Promote the user to room administrator
+[MemberNumber]:使玩家成为房管
+use safeword
+使用安全词
+: View your blacklist
+:查看黑名单
+: View you friendlist
+:查看好友列表
+: View your ghostlist
+:查看忽视列表
+: View your whitelist
+:查看白名单
+: Open the friendlist screen
+:打开好友列表
+[MemberNumber]: Remove a ban on a player
+[MemberNumber]:移除玩家的封禁
+[MemberNumber]: Add a player to your whitelist
+[MemberNumber]:将玩家添加到白名单
+[MemberNumber]: Remove a player from your whitelist
+[MemberNumber]:将玩家从白名单移除
+
+[Message]: Display the message as an action,without including your name. **[Message] does the same
+[Message]: 显示动作信息，但不包含你的名字. **[Message]也是同样的效果

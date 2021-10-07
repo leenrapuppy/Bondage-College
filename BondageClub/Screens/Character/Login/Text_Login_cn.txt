@@ -1,0 +1,52 @@
+Welcome to the Bondage Club
+欢迎来到束缚俱乐部
+Enter your name and password
+请输入你的用户名和密码
+Account Name
+用户名
+Password
+密码
+Login
+登录
+Language
+语言
+Or create a new character
+或创建一个新角色
+New Character
+新建角色
+Connecting to server...
+正在连接服务器...
+Waiting in queue on position: QUEUE_POS
+正在排队,目前位置: QUEUE_POS
+Error loading character data
+读取角色数据错误
+Disconnected from server. Retrying...
+与服务器失去连接,正在重连...
+Disconnected for duplicated login
+因重复登录而失去连接
+Unable to connect to server. Retrying...
+无法连接到服务器,正在重试...
+Connection rejected: Too many connections from your address
+拒绝连接:同时连接数量过多
+Validating name and password...
+认证用户名和密码中...
+Error:
+错误:
+Invalid name or password
+用户名或密码无效
+Select Cheats
+选择作弊码
+Reset Password
+重置密码
+Thank you
+感谢
+Developers
+制作者
+Translators
+翻译者
+Support
+协助者
+Sponsors
+赞助者
+And a huge thanks to the fans!
+以及作为粉丝的大家!

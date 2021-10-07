@@ -1,0 +1,54 @@
+No chat room found.  You can create a new one.
+没有找打聊天室.你可以新建一个.
+Search for a room by name:
+按照一下名称搜索:
+Search for a room
+搜索房间
+Create your room
+创建房间
+Friends in room:
+在房内的好友:
+This room is already full
+房间已满
+This room is locked
+房间上锁
+You're banned from this room
+你被该房间封禁
+You've been kicked out
+你被踢出了房间
+Room doesn't exist anymore
+房间已消失
+Account Error
+账号错误
+Invalid Room Data
+无效的房间数据
+Entering the room...
+正在进入房间...
+Duplicate join request
+重复的加入请求
+Filter Rooms
+过滤房间
+Return to room view
+返回房间界面
+Leave room search
+离开房间搜索
+Friends
+好友
+Next page
+下一页
+Block:
+屏蔽:
+ABDL
+尿布癖
+Player Leashing
+牵走玩家
+Sci-Fi
+科幻
+Photographs
+拍照
+Arousal Activities
+性活动
+Game:
+游戏:
+LARP
+LARP

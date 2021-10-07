@@ -1,0 +1,30 @@
+Online friends
+在线好友
+All friends
+全部好友
+Beep history
+提示音历史
+Member number
+会员号
+Chat room
+聊天室
+Friend type
+好友类型
+Send a beep
+发送提示音
+Delete a friend
+删除好友
+Refresh
+刷新
+Room name: included
+房间名:包含
+Room name: excluded
+房间名:不含
+Owner
+主人
+Lover
+恋人
+Submissive
+臣服者
+Friend
+朋友

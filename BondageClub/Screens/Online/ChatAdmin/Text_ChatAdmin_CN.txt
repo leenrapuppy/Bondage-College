@@ -1,0 +1,48 @@
+Room Name
+房间名
+Description
+描述
+Ban List
+封禁列表
+Administrator List
+房管列表
+Private
+私有
+Locked
+锁定
+Size (2-10)
+大小(2-10)
+Use member numbers, separated by commas (ex: 3571,541,7001)
+使用逗号分隔的用户号(如: 3571,541,7001)
+Ban blacklist
+封禁黑名单成员
+Ban ghostlist
+封禁忽视列表成员
+Add Owner
+添加主人
+Add Lovers
+添加恋人
+Room settings can only be updated by administrators
+房间选项仅能被房管修改
+Background
+背景
+Save
+保存
+Exit
+退出
+Cancel
+取消
+Updating the chat room...
+更新聊天室...
+This room name is already taken
+该房间名已被占用
+Account error, please try to relog
+账号错误,请重新登录
+Invalid chat room data detected
+无效的聊天室数据
+Block Categories
+背景分类
+No Game
+无游戏
+LARP
+LARP
