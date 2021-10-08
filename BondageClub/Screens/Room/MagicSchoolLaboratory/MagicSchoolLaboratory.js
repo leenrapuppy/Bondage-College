@@ -3,6 +3,8 @@ var MagicSchoolLaboratoryBackground = "MagicSchoolLaboratory";
 var MagicSchoolLaboratoryTeacher = null;
 var MagicSchoolLaboratoryStudent = null;
 var MagicSchoolLaboratoryBattleWage = "";
+var MagicSchoolLaboratoryLastSpell = "";
+var MagicSchoolLaboratorySpellCount = 0;
 
 /**
  * Dresses a character C as a witch, the colors and clothes can changes based on the house
@@ -296,7 +298,7 @@ function MagicSchoolLaboratoryBattleStudentEnd() {
 		if (ReputationGet("HouseAmplector") > 0) DialogChangeReputation("HouseAmplector", RepGain);
 		if (ReputationGet("HouseCorporis") > 0) DialogChangeReputation("HouseCorporis", RepGain);
 		MagicSchoolLaboratoryStudent.Stage = "100";
-		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleSuccess");
+		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleSuccess" + MagicSchoolLaboratoryStudent.House);
 	} else {
 		CharacterAppearanceRestore(MagicSchoolLaboratoryStudent, MagicBattleOpponentAppearance);
 		CharacterRefresh(MagicSchoolLaboratoryStudent);
@@ -306,9 +308,19 @@ function MagicSchoolLaboratoryBattleStudentEnd() {
 			if (ReputationGet("HouseAmplector") >= 3) DialogChangeReputation("HouseAmplector", -2);
 			if (ReputationGet("HouseCorporis") >= 3) DialogChangeReputation("HouseCorporis", -2);
 		}
+		MagicSchoolLaboratorySpellCount = 0;
 		MagicSchoolLaboratoryStudent.Stage = "200";
-		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleFail");
+		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleFail" + MagicSchoolLaboratoryStudent.House);
 	}
+}
+
+/**
+ * Sets an emote for the student when there's an activity
+ * @returns {boolean} - Returns true, if the player can
+ */
+function MagicSchoolLaboratoryStudentEmote(Blush, Eyes) { 
+	CharacterSetFacialExpression(MagicSchoolLaboratoryStudent, "Blush", Blush, 5);
+	CharacterSetFacialExpression(MagicSchoolLaboratoryStudent, "Eyes", Eyes, 5);
 }
 
 /**
@@ -335,4 +347,55 @@ function MagicSchoolLaboratoryTransferToRoom() {
  */
 function MagicSchoolLaboratoryUngagStudent() {
 	InventoryRemove(MagicSchoolLaboratoryStudent, "ItemMouth");
+	InventoryRemove(MagicSchoolLaboratoryStudent, "ItemMouth2");
+	InventoryRemove(MagicSchoolLaboratoryStudent, "ItemMouth3");
+}
+
+/**
+ * Triggered when the player lost and get ungagged by the student, can affect reputation
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryUngagPlayer(RepChange) {
+	if ((RepChange != "") && (RepChange != "0")) DialogChangeReputation("Dominant", parseInt(RepChange));
+	InventoryRemove(Player, "ItemMouth");
+	InventoryRemove(Player, "ItemMouth2");
+	InventoryRemove(Player, "ItemMouth3");
+}
+
+/**
+ * Triggered when the player lost and get untied by the student, can affect reputation
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryReleasePlayer(RepChange) {
+	if ((RepChange != "") && (RepChange != "0")) DialogChangeReputation("Dominant", parseInt(RepChange));
+	CharacterRelease(Player);
+}
+
+/**
+ * When the player lost a battle and the student tests a spell on her
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryLoserSpell(RepChange) {
+	if ((RepChange != "") && (RepChange != "0")) DialogChangeReputation("Dominant", parseInt(RepChange));
+	if (MagicSchoolLaboratorySpellCount >= 4) {
+		MagicSchoolLaboratoryStudent.Stage = "240";
+		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "SpellEnd");
+		return;
+	}
+	let Spell = "";
+	while (Spell == "") {
+		Spell = CommonRandomItemFromList(MagicSchoolLaboratoryLastSpell, ["Hogtie", "FlyingHogtie", "Arousal", "Tickle", "Rope", "Chain"]);
+	}
+	MagicSchoolLaboratoryStudent.Stage = "Spell" + Spell;
+	MagicSchoolLaboratorySpellCount++;
+	MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "Spell" + Spell + "Intro");
+}
+
+/**
+ * Returns the player in the main hall in her current bondage
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryPlayerMainHall() {
+	DialogLeave();
+	CommonSetScreen("Room", "MainHall");
 }

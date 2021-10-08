@@ -2,14 +2,14 @@ PlayerGagged,,,"A gag will control your mouth, while I control your mind.",,"Fro
 PlayerGagged,,,The tighter the better!  This also applies to gags.,,"FromHouse(""Vincula"")"
 PlayerGagged,,,A silenced magician cannot do any harm.,,"FromHouse(""Amplector"")"
 PlayerGagged,,,Stop your futile mumblings.,,"FromHouse(""Corporis"")"
-BattleSuccess,,,(She barely struggles and tries to keep her dignity.)  Well done.,,"FromHouse(""Maiestas"")"
-BattleSuccess,,,(She struggles hard to test your bondage and surrenders from exhaustion after a while.),,"FromHouse(""Vincula"")"
-BattleSuccess,,,(She tugs on the restraints playfully and bows her head.)  You're a good magician.,,"FromHouse(""Amplector"")"
-BattleSuccess,,,"(She thrashes in her bondage, almost hurting herself to get free.)",,"FromHouse(""Corporis"")"
-BattleFail,,,You truly thought you could defeat the prestigious House Maiestas?  (She looks at you and laughs.),,"FromHouse(""Maiestas"")"
-BattleFail,,,(She uses a special Vincula spell to make it even tighter.)  House Vincula wins again!,,"FromHouse(""Vincula"")"
-BattleFail,,,"(She gets close to you and kisses your forehead.)  That was a fun battle, but House Amplector will always prevail.",,"FromHouse(""Amplector"")"
-BattleFail,,,"You're a pathetic magician, unworthy of House Corporis.  (She spanks your butt and laughs at you.)",,"FromHouse(""Corporis"")"
+BattleSuccessMaiestas,,,(She barely struggles and tries to keep her dignity.)  Well done.,,
+BattleSuccessVincula,,,(She struggles hard to test your bondage and surrenders from exhaustion after a while.),,
+BattleSuccessAmplector,,,(She tugs on the restraints playfully and bows her head.)  You're a good magician.,,
+BattleSuccessCorporis,,,"(She thrashes in her bondage, almost hurting herself to get free.)",,
+BattleFailMaiestas,,,You truly thought you could defeat the prestigious House Maiestas?  (She looks at you and laughs.),,
+BattleFailVincula,,,(She uses a special Vincula spell to make it even tighter.)  House Vincula wins again!,,
+BattleFailAmplector,,,"(She gets close to you and kisses your forehead.)  That was a fun battle, but House Amplector will always prevail.",,
+BattleFailCorporis,,,"You're a pathetic magician, unworthy of House Corporis.  (She spanks your butt and laughs at you.)",,
 ItemMouth,,,(She sighs and reluctantly allows you to gag her.),,
 RemoveItemMouth,,,(You remove her gag and she grumbles.)  Your next spell will be your last.,,
 ItemMouth2,,,(She sighs and reluctantly allows you to gag her.),,
@@ -84,13 +84,43 @@ RemoveItemNipples,,,(She takes a deep breath and stays silent as you remove the 
 110,,Come with me.  (Bring her to your room.),,TransferToRoom(),CanTransferToRoom()
 110,,(Let her go.),,DialogLeave(),
 120,,,120,,
-120,,(Tickle her.),"(You tickle her on the ribs and tummy.  She giggles, laughs, and squirms.)  Unfair!  Eeeeeaahahaha!",,Player.CanInteract()
-120,,(Caress her.),"(She moans silently as you caress her sensually.)  Mmmmhh, now that is nice.",,Player.CanInteract()
-120,,(Kiss her.),(You grab her head and exchange a long and loving kiss with her.),,Player.CanTalk()
-120,,(Fondle her.),(You playfully fondle her breasts and butt as she moans softly and blushes.),,Player.CanInteract()
-120,,(Slap her.),(You slap her swiftly on the face.  She bows her head and whimpers.),,Player.CanInteract()
-120,,(Spank her.),(You spank her butt a few times as she jumps from the pain.),,Player.CanInteract()
-120,,(Masturbate her.),(You grab and masturbate her skillfully as she gets slowly aroused.),,Player.CanInteract()
+120,,(Tickle her.),"(You tickle her on the ribs and tummy.  She giggles, laughs, and squirms.)  Unfair!  Eeeeeaahahaha!","StudentEmote(""Low"", ""Dazed"")",Player.CanInteract()
+120,,(Caress her.),"(She moans silently as you caress her sensually.)  Mmmmhh, now that is nice.","StudentEmote(""Low"", ""Closed"")",Player.CanInteract()
+120,,(Kiss her.),(You grab her head and exchange a long and loving kiss with her.),"StudentEmote(""Low"", ""Horny"")",Player.CanTalk()
+120,,(Fondle her.),(You playfully fondle her breasts and butt as she moans softly and blushes.),"StudentEmote(""Medium"", ""Closed"")",Player.CanInteract()
+120,,(Slap her.),(You slap her swiftly on the face.  She bows her head and whimpers.),"StudentEmote(""High"", ""Angry"")",Player.CanInteract()
+120,,(Spank her.),(You spank her butt a few times as she jumps from the pain.),"StudentEmote(""Medium"", ""Closed"")",Player.CanInteract()
+120,,(Masturbate her.),(You grab and masturbate her skillfully as she gets slowly aroused.),"StudentEmote(""High"", ""Horny"")",Player.CanInteract()
 120,,(Let her go.),,DialogLeave(),
-200,,TO DO,TO DO,,
-200,,(Leave her.),,DialogLeave(),
+200,210,(Struggle and test your bondage.),(She smiles and removes your gag.)  You're cute when you struggle.  I won't let you go that easily.,UngagPlayer(0),
+200,210,(Bow your head and whimper silently.),(She smirks and removes your gag.)  Such a cute subbie in bondage.  I won't let you go easily.,UngagPlayer(-3),
+200,210,(Stare at her and grumble in your gag.),(She stares at you and removes your gag.)  You're a feisty one.  I won't let you go that easily.,UngagPlayer(1),
+210,220,What do you have in mind?,I have some new spells I want to try on you.  You will be my guinea pig.,,
+210,220,You have to let me go.,"Not yet, I have some new spells I want to try on you.  You will be my guinea pig.",,
+210,220,The great House Maiestas will avenge me.,This has nothing to do with your house.  I have some new spells I want to try on you.  You will be my guinea pig.,,"InHouse(""Maiestas"")"
+210,220,House Vincula will track you down.,This has nothing to do with your house.  I have some new spells I want to try on you.  You will be my guinea pig.,,"InHouse(""Vincula"")"
+210,220,House Amplector will rescue me.,This has nothing to do with your house.  I have some new spells I want to try on you.  You will be my guinea pig.,,"InHouse(""Amplector"")"
+210,220,You will suffer House Corporis wrath.,This has nothing to do with your house.  I have some new spells I want to try on you.  You will be my guinea pig.,,"InHouse(""Corporis"")"
+220,230,"Fine, try your spell quick and let me go.",,LoserSpell(1),
+220,230,"Alright, lets see your magic.",,LoserSpell(0),
+220,230,(Bow your head.),,LoserSpell(-1),
+SpellHogtieIntro,,,SpellHogtieIntro,,
+SpellHogtie,,TO DO,,LoserSpell(0),
+SpellFlyingHogtieIntro,,,SpellFlyingHogtieIntro,,
+SpellFlyingHogtie,,TO DO,,LoserSpell(0),
+SpellArousalIntro,,,SpellArousalIntro,,
+SpellArousal,,TO DO,,LoserSpell(0),
+SpellTickleIntro,,,SpellTickleIntro,,
+SpellTickle,,TO DO,,LoserSpell(0),
+SpellRopeIntro,,,SpellRopeIntro,,
+SpellRope,,TO DO,,LoserSpell(0),
+SpellChainIntro,,,SpellChainIntro,,
+SpellChain,,TO DO,,LoserSpell(0),
+SpellEnd,,,"That's enough.  If you promise to be good, I will release you.",,
+240,250,"Very well, I will be good.",(She nods and releases you.)  Study your spells harder.  (She starts to walk away.),ReleasePlayer(0),
+240,250,"Fine, can you release me now?",(She sighs and releases you.)  Don't cross my path again.  (She starts to walk away.),ReleasePlayer(1),
+240,250,Yes Miss.  I will be a good girl.,(She pets your head and releases you.)  I'm sure you will.  (She starts to walk away.),ReleasePlayer(-2),
+240,260,Fuck you!,"(She snobs you and walks away, leaving you in your bondage.)","DialogChangeReputation(""Dominant"", 2)",
+240,260,We will meet again.,"Struggle in your bondage then, you can call a maid for help.  (She starts to walk away.)",,
+250,,(Leave her.),,DialogLeave(),
+260,,(Leave her.),,PlayerMainHall(),
