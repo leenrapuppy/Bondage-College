@@ -310,3 +310,29 @@ function MagicSchoolLaboratoryBattleStudentEnd() {
 		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleFail");
 	}
 }
+
+/**
+ * Checks, if the player can bring the student to her private room
+ * @returns {boolean} - Returns true, if the player can
+ */
+function MagicSchoolLaboratoryCanTransferToRoom() { 
+	return (LogQuery("RentRoom", "PrivateRoom") && (PrivateCharacter.length < PrivateCharacterMax) && !LogQuery("LockOutOfPrivateRoom", "Rule"));
+}
+
+/**
+ * Triggered when the player transfers the student to her private room
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryTransferToRoom() {
+	DialogLeave();
+	CommonSetScreen("Room", "Private");
+	PrivateAddCharacter(MagicSchoolLaboratoryStudent, "");
+}
+
+/**
+ * Triggered when the player won and ungag the student to talk with her
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryUngagStudent() {
+	InventoryRemove(MagicSchoolLaboratoryStudent, "ItemMouth");
+}
