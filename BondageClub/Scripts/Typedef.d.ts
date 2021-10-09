@@ -123,6 +123,7 @@ interface AssetGroup {
 	Family: IAssetFamily;
 	Name: string;
 	Description: string;
+	Asset: Asset[];
 	ParentGroupName: string;
 	Category: 'Appearance' | 'Item';
 	IsDefault: boolean;
