@@ -39,6 +39,9 @@ const CONTRIBUTOR_NAMES = {
 	"DaddyDaubeny": "Daddy Daubeny",
 	"T-Bone Shark": "T-Bone Shark",
 	"zorgjbe": "Estsanatlehi",
+	"Atasly": "Atasly",
+	"diaperand": "diaperand",
+	"Tsubasahane": "Tsubasahane",
 };
 
 async function generateChangelogHtml() {
