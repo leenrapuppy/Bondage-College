@@ -4028,10 +4028,10 @@ DestinationCharacter pelvis and vulva items are now hidden when wearing their le
 DestinationCharacter pelvis and vulva items are now hidden when wearing their leotard.
 DestinationCharacter pelvis and vulva items are now visible when wearing their leotard.
 DestinationCharacter pelvis and vulva items are now visible when wearing their leotard.
-DestinationCharacter are now in front.
-DestinationCharacter are now in front.
-DestinationCharacter are now behind.
-DestinationCharacter are now behind.
+DestinationCharacter arms are now in front of them.
+DestinationCharacter arms are now in front of them.
+DestinationCharacter arms are now behind of them.
+DestinationCharacter arms are now behind of them.
 Configure mask
 设置面罩
 Configure eyes
