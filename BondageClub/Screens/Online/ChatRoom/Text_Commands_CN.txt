@@ -7,7 +7,7 @@
 [MemberNumber]: Ban the player from the room
 [MemberNumber]:将玩家从本房间封禁
 [MemberNumber]: Send a beep to the player
-[MemberNumber]:对玩家发送一次提示音
+[MemberNumber]:对玩家发送一次好友私聊
 [MemberNumber]: Add the player to your blacklist
 [MemberNumber]:将玩家添加到黑名单
 [MemberNumber]: Remove the player from your blacklist

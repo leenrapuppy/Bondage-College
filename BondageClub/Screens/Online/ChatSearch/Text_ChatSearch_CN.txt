@@ -1,7 +1,7 @@
 No chat room found.  You can create a new one.
 没有找打聊天室.你可以新建一个.
 Search for a room by name:
-按照一下名称搜索:
+按照以下名称搜索:
 Search for a room
 搜索房间
 Create your room

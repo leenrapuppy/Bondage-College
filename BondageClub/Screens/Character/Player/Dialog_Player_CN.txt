@@ -130,7 +130,7 @@
 (释放角色.)
 ###_NPC
 (This will immediately release you of ALL restraints you are wearing and return you to the Main Lobby. Use this only if you are stuck in restraints and nobody can or wants to help you. Are you sure about this?)
-(这会立即摘除你身上的所有限制性装备并把你送回大厅. 仅在被卡在束缚具中且没有人能够帮助的情况下使用它. 你确定要使用吗?)
+(这会立即摘除你身上的所有限制性装备并把你送回大厅. 请仅在被卡在束缚具中且没有人能够帮助的情况下使用它. 你确定要使用吗?)
 ###_PLAYER
 (Don't use Safeword.)
 (不要使用安全词.)
@@ -168,11 +168,11 @@ Select Blanket Bondage
 Normal
 通常
 Shoulders Wrapped
-肩部被包裹
+肩部包裹
 Feet Wrapped
-脚部被包裹
+脚部包裹
 Fully Wrapped
-全身被包裹
+全身包裹
 SourceCharacter wraps TargetCharacter in a blanket.
 SourceCharacter将TargetCharacter包在了毯子里。
 SourceCharacter wraps TargetCharacter with her shoulders in a blanket.
@@ -184,11 +184,11 @@ SourceCharacter将TargetCharacter完全包在了毯子里。
 Select an item to use.
 选择物品以使用.
 Select an item to use on the GroupName.
-选择要用在GroupName上的物品.
+请选择要用在GroupName的物品.
 Select an activity.
-选择动作.
+请选择动作.
 Select an activity to use on the GroupName.
-选择要在GroupName上做的动作.
+请选择要对GroupName做的动作.
 Cannot use on yourself.
 不能对自己使用.
 Requires self-bondage 1.
@@ -330,7 +330,7 @@ Exit permission mode
 Edit item permissions
 编辑物品权限
 Sexual activities
-性活动
+交互动作
 Show all zones
 显示所有区域
 Use the butt plug's pump
@@ -362,7 +362,7 @@ Struggling...
 Unlocking...
 解锁中…
 Removing...
-移出中…
+移除中…
 Dismounting...
 正在离开…
 Escaping...
@@ -428,7 +428,7 @@ Hair out & Accessories out
  Hair in & Accessories in 
 头发&配饰在内
 SourceCharacter changes the style of DestinationCharacter gwen hood.
-SourceCharacter changes the style of DestinationCharacter gwen hood.
+SourceCharacter改变了DestinationCharacter的gwen hood的外观.
 Pump gag level: Empty
 充气口塞等级: 空的
 Pump gag level: Light
@@ -496,11 +496,11 @@ Heads
 Tails
 反面
 her
-她
+她的
 herself
 她自己
 Someone
-有人
+某人
 SourceCharacter kneels down
 SourceCharacter跪了下来
 SourceCharacter stands up
@@ -540,15 +540,15 @@ Delete
 Confirm
 确认
 Beep
-BEEP
+发送私聊
 Beep from
-提示音来自
+好友私聊来自
 With Message
 以及以下信息
 (Mail)
 (邮件)
 Beep from your owner in your private room
-来自你私人房间的主人的提示音
+来自你私人房中主人的私聊
 Sent at
 发送自
 <i>Asylum</i>
@@ -672,7 +672,7 @@ Ship Wreck
 Captain Cabin
 船长室
 Underwater One
-水下一
+水下1
 Beach Hotel
 海滩酒店
 Dystopian City
@@ -948,27 +948,27 @@ SourceCharacter被SourceCharacter给BAN掉了.
 SourceCharacter called the maids to escort TargetCharacterName out of the room.
 SourceCharacter呼叫女仆把TargetCharacterName从房间里轰了出去。
 TargetCharacterName was moved to the left by SourceCharacter.
-TargetCharacterName was moved to the left by SourceCharacter.
+TargetCharacterName被SourceCharacter移到了左边.
 TargetCharacterName was moved to the right by SourceCharacter.
-TargetCharacterName was moved to the right by SourceCharacter.
+TargetCharacterName被SourceCharacter移到了右边.
 SourceCharacter swapped TargetCharacterName and DestinationCharacterName places.
-SourceCharacter swapped TargetCharacterName and DestinationCharacterName places.
+SourceCharacter交换了TargetCharacterName和DestinationCharacterName的位置.
 SourceCharacter shuffles the position of everyone in the room randomly.
-SourceCharacter shuffles the position of everyone in the room randomly.
+SourceCharacter重新随机了房间中所有人的位置.
 TargetCharacterName was promoted to administrator by SourceCharacter.
-TargetCharacterName was promoted to administrator by SourceCharacter.
+TargetCharacterName被SourceCharacter设为了房管.
 TargetCharacterName was demoted from administration by SourceCharacter.
-TargetCharacterName was demoted from administration by SourceCharacter.
+TargetCharacterName被SourceCharacter取消了房管权限.
 SourceCharacter updated the room. Name: ChatRoomName. Limit: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
-SourceCharacter updated the room. Name: ChatRoomName. Limit: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
+SourceCharacter更新了房间信息. 名称: ChatRoomName. 禁止: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
 SourceCharacter starts unlocking DestinationCharacterName suitcase! She will finish in 5 minutes.
-SourceCharacter starts unlocking DestinationCharacterName suitcase! She will finish in 5 minutes.
+SourceCharacter开始打开DestinationCharacterName的箱子! 他会在5分钟内成功.
 SourceCharacter starts stealing more data from DestinationCharacterName laptop! She will finish in 5 minutes.
-SourceCharacter starts stealing more data from DestinationCharacterName laptop! She will finish in 5 minutes.
+SourceCharacter开始从DestinationCharacterName的笔记本里偷取更多数据! 他会在5分钟内成功.
 SourceCharacter's suitcase is safe... for now.
-SourceCharacter's suitcase is safe... for now.
+SourceCharacter的箱子安全了...暂时性的.
 SourceCharacter's data is safe... for now.
-SourceCharacter's data is safe... for now.
+SourceCharacter的数据...暂时性的.
 Her suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!
 Her suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!
 The data will be ready in TIMEREMAINING minutes. Make sure she is secure until then!
@@ -1034,27 +1034,27 @@ Type /help for a list of commands
 You are not on that member's friendlist; ask her to friend you before leashing her.
 You are not on that member's friendlist; ask her to friend you before leashing her.
 SourceCharacter swaps a PrevAsset for a NextAsset on DestinationCharacter FocusAssetGroup.
-SourceCharacter swaps a PrevAsset for a NextAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter把DestinationCharacterFocusAssetGroup上的PrevAsset换成了NextAsset.
 SourceCharacter uses a NextAsset on DestinationCharacter FocusAssetGroup.
-SourceCharacter uses a NextAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter在DestinationCharacterFocusAssetGroup上使用了NextAsset.
 SourceCharacter changes the color of NextAsset on DestinationCharacter FocusAssetGroup.
-SourceCharacter changes the color of NextAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter改变了DestinationCharacterFocusAssetGroup上NextAsset的颜色.
 SourceCharacter locks a NextAsset on DestinationCharacter FocusAssetGroup.
-SourceCharacter locks a NextAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter把DestinationCharacterFocusAssetGroup上NextAsset上了锁.
 SourceCharacter adds a NextAsset on DestinationCharacter FocusAssetGroup PrevAsset.
-SourceCharacter adds a NextAsset on DestinationCharacter FocusAssetGroup PrevAsset.
+SourceCharacter在DestinationCharacterFocusAssetGroup上PrevAsset上加了NextAsset.
 SourceCharacter removes the PrevAsset from DestinationCharacter FocusAssetGroup.
-SourceCharacter removes the PrevAsset from DestinationCharacter FocusAssetGroup.
+SourceCharacter从DestinationCharacterFocusAssetGroup移除了PrevAsset.
 SourceCharacter unlocks the PrevAsset on DestinationCharacter FocusAssetGroup.
-SourceCharacter unlocks the PrevAsset on DestinationCharacter FocusAssetGroup.
+SourceCharacter打开了DestinationCharacterFocusAssetGroup上PrevAsset的锁.
 SourceCharacter picks the lock on DestinationCharacter PrevAsset.
 SourceCharacter picks the lock on DestinationCharacter PrevAsset.
 SourceCharacter unlocks and removes the PrevAsset from DestinationCharacter FocusAssetGroup.
-SourceCharacter unlocks and removes the PrevAsset from DestinationCharacter FocusAssetGroup.
+SourceCharacter打开并移除了DestinationCharacterFocusAssetGroup上的PrevAsset.
 SourceCharacter rolls DiceType. The result is: DiceResult.
-SourceCharacter rolls DiceType. The result is: DiceResult.
+SourceCharacter丢了DiceType.结果是: DiceResult.
 SourceCharacter flips a coin. The result is: CoinResult.
-SourceCharacter flips a coin. The result is: CoinResult.
+SourceCharacter丢了一枚硬币.结果是: CoinResult.
 SourceCharacter used her safeword. Please check for her well-being.
 SourceCharacter used her safeword. Please check for her well-being.
 SourceCharacter used her safeword and wants to be released. She is guided out of the room for her safety.
@@ -1160,7 +1160,7 @@ SourceCharacter updates the key settings for the lock on DestinationCharacter Fo
 Save key list
 保存钥匙列表
 Enter keyholders' member numbers separated by commas.
-Enter keyholders' member numbers separated by commas.
+输入钥匙持有者的会员编号,以逗号分隔.
 You don't have keys, saving will remove your access
 你没有钥匙, 保存后将移除你的使用权限
 Append lovers
@@ -1536,7 +1536,7 @@ Mummy
 Full Mummy
 木乃伊全包
 Exposed Full Mummy
-暴露木乃伊
+木乃伊全包·改
 Pet Tape
 四肢着地
 SourceCharacter wraps duct tape around DestinationCharacter hands.
@@ -1798,7 +1798,7 @@ No Arm Restraint
 Hand Cuffs
 手铐
 Boxtie Cuffs
-交叉手铐
+Boxtie Cuffs
 Overhead Restraints
 拘束过头顶
 No Leg Restraint
@@ -2274,7 +2274,7 @@ Double
 Wrap
 环绕
 Open Mummy
-暴露木乃伊
+木乃伊·改
 SourceCharacter takes a piece of duct tape for TargetCharacter and places it on her face.
 SourceCharacter takes a piece of duct tape for TargetCharacter and places it on her face.
 SourceCharacter wraps some duct tape onto DestinationCharacter face.
@@ -2314,17 +2314,17 @@ Basic Tie
 Mermaid Tie
 美人鱼缚
 Full Binding Tie
-完全束缚
+Full Binding Tie
 Link Tie
-连接缚
+Link Tie
 Frogtie Tie
 蛙缚
 Crossed Tie
-交叉束缚
+Crossed Tie
 Box Tie
-箱式缚
+Box Tie
 Tight Box Tie
-复杂箱式缚
+Tight Box Tie
 Hogtie
 驷马
 Swiss Seat
@@ -3106,7 +3106,7 @@ Gavel
 Feather
 羽毛
 Feather Duster
-鸡毛掸
+毛掸
 Long Duster
 Long Duster
 Ice Cube
@@ -3118,7 +3118,7 @@ Vibrating Wand
 Small Vibe Wand
 小号振动棒
 Candle Wax
-烛蜡
+蜡烛
 Large Dildo
 大号阳具
 Pet Toy
@@ -3166,9 +3166,9 @@ Spatula
 Broom
 扫帚
 Mobile Phone
-Mobile Phone
+手机
 Mobile Phone 2
-Mobile Phone 2
+手机2
 SourceCharacter takes out a ItemUsed
 SourceCharacter takes out a ItemUsed
 SourceCharacter gives TargetCharacter a ItemUsed
@@ -3548,7 +3548,7 @@ SourceCharacter uses a NameTagType livestock name tag on DestinationCharacter co
 Animal
 动物
 BreedMe
-包养我
+喂饱我
 Cow
 Cow
 MilkMe
@@ -3574,17 +3574,17 @@ SourceCharacter adds weights and attaches a chain from DestinationCharacter roun
 adds
 添加
 detaches
-detaches
+去除
 Legs
-Legs
+腿
 Half
-Half
+一半
 Most
-Most
+大多
 Complete
-Complete
+完全
 Cut out
-Cut out
+带洞
 SourceCharacter wraps duct tape around DestinationCharacter legs.
 SourceCharacter wraps duct tape around DestinationCharacter legs.
 SourceCharacter wraps more duct tape on DestinationCharacter legs trapping them firmly.
@@ -3598,7 +3598,7 @@ SourceCharacter wraps duct tape on DestinationCharacter legs frog tying them.
 SourceCharacter wraps an extreme amount of duct tape on DestinationCharacter legs while leaving a small hole in it.
 SourceCharacter wraps an extreme amount of duct tape on DestinationCharacter legs while leaving a small hole in it.
 Feet
-Feet
+脚
 SourceCharacter wraps duct tape around DestinationCharacter feet.
 SourceCharacter wraps duct tape around DestinationCharacter feet.
 SourceCharacter wraps more duct tape on DestinationCharacter feet trapping them firmly.
@@ -3616,9 +3616,9 @@ Select the type of monster
 Black
 黑色
 Red
-Red
+红色
 Green
-Green
+绿色
 Blue
 蓝色
 SourceCharacter gives TargetCharacter a Scary Black Monster teddy.
@@ -3758,19 +3758,19 @@ Suspension Cocooned
 Suspension Hogtied
 驷马悬挂
 SourceCharacter Action the webbing on TargetCharacter
-SourceCharacter Action the webbing on TargetCharacter
+SourceCharacter用网把TargetCharacter包了起来
 SourceCharacter Action the webbing on TargetCharacter, leaving them fully wrapped
-SourceCharacter Action the webbing on TargetCharacter, leaving them fully wrapped
+SourceCharacter用网把TargetCharacter包成了一团
 SourceCharacter Action the webbing on TargetCharacter, forming a cocoon
-SourceCharacter Action the webbing on TargetCharacter, forming a cocoon
+SourceCharacter用网把TargetCharacter包成了茧状
 SourceCharacter wraps TargetCharacter in webbing, forming a hogtie
-SourceCharacter wraps TargetCharacter in webbing, forming a hogtie
+SourceCharacter用网把TargetCharacter包成了驷马
 SourceCharacter fully wraps TargetCharacter in webbing and uses it to suspend her
-SourceCharacter fully wraps TargetCharacter in webbing and uses it to suspend her
+SourceCharacter用网把TargetCharacter包成了一团,顺手把她挂了起来
 SourceCharacter cocoons TargetCharacter in webbing and hangs her from the ceiling
-SourceCharacter cocoons TargetCharacter in webbing and hangs her from the ceiling
+SourceCharacter用网把TargetCharacter包成了茧状,顺手把她挂了起来
 SourceCharacter hogties TargetCharacter with the webbing and uses it to suspend her
-SourceCharacter hogties TargetCharacter with the webbing and uses it to suspend her
+SourceCharacter用网把TargetCharacter包成了驷马,顺手把她挂了起来
 tightens
 捆紧
 loosens
@@ -3780,9 +3780,10 @@ Blindfold
 Cocoon
 茧
 SourceCharacter creates a blindfold out of web for TargetCharacter
-SourceCharacter creates a blindfold out of web for TargetCharacter
+SourceCharacter用网给TargetCharacter织了一副眼罩
 SourceCharacter creates a cocoon out of web for TargetCharacter
-SourceCharacter creates a cocoon out of web for TargetCharacter
+SourceCharacter把argetCharacter的头完全裹在了茧里
+###_AgePlay?
 Make the cutie comfortable.
 Make the cutie comfortable.
 Open/close the gate.
@@ -3818,7 +3819,7 @@ SourceCharacter holds DestinationCharacter bottle up.
 SourceCharacter holds DestinationCharacter bottle high above her head.
 SourceCharacter holds DestinationCharacter bottle high above her head.
 Select a corset style.
-Select a corset style.
+选择束腰风格.
 Garter Straps
 腿环束带
 SourceCharacter unhooks the garter straps from DestinationCharacter heavy latex corset.
@@ -3894,7 +3895,7 @@ SourceCharacter removes the polish from DestinationCharacter latex leotard
 SourceCharacter polishes the latex of DestinationCharacter leotard until it's shiny
 SourceCharacter polishes the latex of DestinationCharacter leotard until it's shiny
 Select suit options
-Select suit options
+选择套装选项
 Configure suit restraints
 选择套装拘束
 Restraints
@@ -4044,7 +4045,7 @@ Configure eyebrows
 Configure opacity
 设置透明度
 Configure mask between a solid kirugumi & hollywood silicone mask
-Configure mask between a solid kirugumi & hollywood silicone mask
+选择Kirugumi样式或好莱坞硅胶样式面罩
 Eyes
 眼睛
 Mouth
@@ -4086,7 +4087,7 @@ SourceCharacter changes the opacity on DestinationCharacter mask
 SourceCharacter changes the type of mask DestinationCharacter is wearing
 SourceCharacter changes the type of mask DestinationCharacter is wearing
 Select the visibility
-Select the visibility
+选择可见性
 Revealed
 已显示
 Tucked in
@@ -4114,7 +4115,7 @@ DestinationCharacterName AssetName starts buzzing strongly!
 DestinationCharacterName AssetName jumps up to maximum intensity!
 DestinationCharacterName AssetName jumps up to maximum intensity!
 SourceCharacter changes the settings on DestinationCharacterName AssetName
-SourceCharacter changes the settings on DestinationCharacterName AssetName
+SourceCharacter修改了DestinationCharacterName的AssetName的设置
 DestinationCharacterName owner releases her from the slave collar.
 DestinationCharacterName owner releases her from the slave collar.
 TargetCharacterName is given her slave collar again.
@@ -4168,7 +4169,7 @@ Shorts
 Shorts & Straps
 Shorts & Straps
 Change jacket text:
-更换夹克文字:
+Change jacket text:
 SourceCharacter removes the shorts from DestinationCharacter AssetName
 SourceCharacter removes the shorts from DestinationCharacter AssetName
 SourceCharacter attaches shorts to DestinationCharacter AssetName
@@ -4330,13 +4331,13 @@ SourceCharacter wraps some ribbons on DestinationCharacter legs.
 SourceCharacter wraps some ribbons on DestinationCharacter legs to have as a crossed style tie.
 SourceCharacter wraps some ribbons on DestinationCharacter legs to have as a crossed style tie.
 Bow
-弓形
+打结
 SourceCharacter uses some ribbons on DestinationCharacter face.
 SourceCharacter uses some ribbons on DestinationCharacter face.
 SourceCharacter uses some more ribbons on DestinationCharacter face.
 SourceCharacter uses some more ribbons on DestinationCharacter face.
 Cross
-Cross
+交叉
 SourceCharacter uses some ribbons on DestinationCharacter arms.
 SourceCharacter uses some ribbons on DestinationCharacter arms.
 SourceCharacter uses some more ribbons on DestinationCharacter arms.
@@ -4378,11 +4379,11 @@ Cake
 SourceCharacter fills DestinationCharacter tray with a cake.
 SourceCharacter fills DestinationCharacter tray with a cake.
 Cookies
-Cookies
+饼干
 SourceCharacter fills DestinationCharacter tray with cookies.
 SourceCharacter fills DestinationCharacter tray with cookies.
 Toys
-Toys
+玩具
 SourceCharacter fills DestinationCharacter tray with sex toys.
 SourceCharacter fills DestinationCharacter tray with sex toys.
 Select the type of Teddy Bear
@@ -4390,7 +4391,7 @@ Select the type of Teddy Bear
 Bear
 熊
 Fox
-Fox
+狐狸
 SourceCharacter gives TargetCharacter a cute teddy bear.
 SourceCharacter gives TargetCharacter a cute teddy bear.
 SourceCharacter gives TargetCharacter a cute foxy teddy.
@@ -4460,7 +4461,7 @@ Thong
 Select strap bondage.
 Select strap bondage.
 Boxtie
-领结
+Boxtie
 Wrist And Elbow Tie
 Wrist And Elbow Tie
 Wrist And Elbow Harness Tie
@@ -4540,7 +4541,7 @@ Butterflies
 Spots
 斑点
 Favorite
-喜爱
+最爱
 Favorite (yours)
 最爱(你的)
 Favorite (theirs & yours)

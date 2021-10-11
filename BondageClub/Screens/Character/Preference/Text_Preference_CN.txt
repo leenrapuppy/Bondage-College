@@ -11,7 +11,7 @@
 - Audio Preferences -
 - 音频设置 -
 - Arousal Meter & Sexual Activities Preferences -
-- 性奋量表&性相关设置 -
+- 性奋量表&交互相关设置 -
 - Security Preferences -
 - 安全设置 -
 - Item Preferences -
@@ -199,7 +199,7 @@ Color Activities
 Shrink all messages except dialogue
 缩小除对话外所有信息
 Show sexual activities & orgasms
-显示性活动&高潮
+显示交互动作&高潮
 Use : as alias for /me and *
 使用 : 作为 /me 和 * 的同义词
 Ban blacklist when creating a room
@@ -219,17 +219,17 @@ Preserve whitespace in messages
 Show help on first enter
 第一次进入时显示帮助
 Show beep notifications in chat
-在聊天中显示提示音提示
+在聊天中显示好友私聊提示
 Audio volume
 音量
 Audio alarm for beeps
-播放提示音
+播放好友私聊提示音
 Play item sounds in chatrooms
 播放聊天室内的物品声音
 Only play item sounds if you're involved
 仅播放与你有关的物品声音
 Allow audio alerts for notifications
-允许提示音同时发送通知
+允许好友私聊同时发送通知
 Lock this menu while bound
 被束缚时锁定本菜单
 Return to chatrooms on relog
@@ -335,7 +335,7 @@ Affect your facial expressions
 Activation:
 启用:
 Disable sexual activities
-禁用性行为
+禁用交互动作
 Allow without a meter
 无量表时允许
 Allow with a manual meter
@@ -343,7 +343,7 @@ Allow with a manual meter
 Allow with a hybrid meter
 混合量表时允许
 Allow with a locked meter
-量表锁定时运行
+量表锁定时允许
 Arousal meter visuals
 性奋量表外观
 Bare Meter
@@ -611,7 +611,7 @@ the first occurrence of an event
 Only:
 仅:
 Beeps
-好友提示音
+好友私聊
 Messages in chat rooms
 聊天室消息
 Normal Messages

@@ -3,15 +3,15 @@ Online friends
 All friends
 全部好友
 Beep history
-提示音历史
+好友私聊历史
 Member number
-会员号
+会员编号
 Chat room
 聊天室
 Friend type
 好友类型
 Send a beep
-发送提示音
+发送好友私聊
 Delete a friend
 删除好友
 Refresh
@@ -25,6 +25,6 @@ Owner
 Lover
 恋人
 Submissive
-臣服者
+服从者
 Friend
 朋友
