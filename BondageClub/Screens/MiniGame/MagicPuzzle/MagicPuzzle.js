@@ -6,6 +6,8 @@ var MagicPuzzleSize = 0;
 var MagicPuzzleSpell = 0;
 var MagicPuzzleStarted = false;
 var MagicPuzzleTimer = 0;
+var MagicPuzzleLastMouseX = 0;
+var MagicPuzzleLastMouseY = 0;
 
 /**
  * Loads the magic puzzle mini game and sets the difficulty ratio
@@ -69,6 +71,22 @@ function MagicPuzzleValidate(X, Y) {
 }
 
 /**
+ * Prevents cheats in the mini-game by validating the last X and Y positions
+ * @returns {void} - Nothing
+ */
+function MagicPuzzleAntiCheat() {
+	if (MagicPuzzleStarted) {
+		if ((Math.abs(MouseX - MagicPuzzleLastMouseX) >= 200) || (Math.abs(MouseY - MagicPuzzleLastMouseY) >= 200) || (Math.abs(MouseX + MouseY - MagicPuzzleLastMouseX - MagicPuzzleLastMouseY) >= 300)) {
+			MiniGameEnded = true;
+			MagicPuzzleFinish = CommonTime();
+			return;
+		}
+	}
+	MagicPuzzleLastMouseX = MouseX;
+	MagicPuzzleLastMouseY = MouseY;		
+}
+
+/**
  * Runs the magic puzzle mini game
  * @returns {void} - Nothing
  */
@@ -79,6 +97,7 @@ function MagicPuzzleRun() {
 
 	// When the game is running, we make sure the end borders never hit the black zone
 	if (!MiniGameEnded && (CommonTime() >= MagicPuzzleStart)) {
+		MagicPuzzleAntiCheat();
 		MagicPuzzleValidate(MouseX - MagicPuzzleSize, MouseY - MagicPuzzleSize);
 		MagicPuzzleValidate(MouseX - MagicPuzzleSize, MouseY + MagicPuzzleSize);
 		MagicPuzzleValidate(MouseX + MagicPuzzleSize, MouseY - MagicPuzzleSize);
