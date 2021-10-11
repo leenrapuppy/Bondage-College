@@ -861,3 +861,11 @@ function CommonPadlockUnlock(C, Item) {
 	InventoryUnlock(C, C.FocusGroup.Name);
 	ChatRoomPublishAction(C, Item, null, true, "ActionUnlock");
 }
+
+/**
+ * Common noop function
+ * @returns {void} - Nothing
+ */
+function CommonNoop() {
+	// Noop function
+}

@@ -18,6 +18,7 @@ var LoginSubmitted = false;
 var LoginIsRelog = false;
 var LoginErrorMessage = "";
 var LoginCharacter = null;
+let LoginTextCacheUnsubscribeCallback;
 
 /* DEBUG: To measure FPS - uncomment this and change the + 4000 to + 40
 var LoginLastCT = 0;
@@ -106,13 +107,13 @@ function LoginLoad() {
 	LoginDoNextThankYou();
 	LoginStatusReset();
 	LoginErrorMessage = "";
-	LoginUpdateMessage();
 	if (LoginCredits == null) CommonReadCSV("LoginCredits", CurrentModule, CurrentScreen, "GameCredits");
 	ActivityDictionaryLoad();
 	OnlneGameDictionaryLoad();
 	ElementCreateInput("InputName", "text", "", "20");
 	ElementCreateInput("InputPassword", "password", "", "20");
 	TextPrefetch("Room", "Mainhall");
+	LoginTextCacheUnsubscribeCallback = TextScreenCache.onRebuild(LoginUpdateMessage);
 
 }
 
@@ -125,7 +126,6 @@ function LoginRun() {
 	// Draw the credits
 	if (LoginCredits != null) LoginDrawCredits();
 
-	if (!LoginMessage) LoginUpdateMessage();
 	const CanLogin = ServerIsConnected && !LoginSubmitted;
 
 	// Draw the login controls
@@ -679,7 +679,6 @@ function LoginClick() {
 		TextLoad();
 		ActivityDictionaryLoad();
 		AssetLoadDescription("Female3DCG");
-		LoginUpdateMessage();
 	}
 
 }
@@ -750,4 +749,14 @@ function LoginGetMessageKey() {
 	else if (!ServerIsConnected) return "ConnectingToServer";
 	else if (LoginSubmitted) return "ValidatingNamePassword";
 	else return LoginIsRelog ? "EnterPassword" : "EnterNamePassword";
+}
+
+/**
+ * Exit function - called when leaving the login page
+ * @returns {void} - Nothing
+ */
+function LoginExit() {
+	if (LoginTextCacheUnsubscribeCallback) {
+		LoginTextCacheUnsubscribeCallback();
+	}
 }
