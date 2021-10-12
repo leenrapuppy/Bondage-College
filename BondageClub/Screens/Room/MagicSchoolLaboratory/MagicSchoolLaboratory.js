@@ -381,7 +381,7 @@ function MagicSchoolLaboratoryLoserSpell(RepChange) {
 	if ((RepChange != "") && (RepChange != "0")) DialogChangeReputation("Dominant", parseInt(RepChange));
 	
 	// After many spells, the event ends CHANGE TO 5
-	if (MagicSchoolLaboratorySpellCount >= 20) {
+	if (MagicSchoolLaboratorySpellCount >= 5) {
 		MagicSchoolLaboratoryStudent.Stage = "240";
 		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "SpellEnd");
 		return;
@@ -390,12 +390,12 @@ function MagicSchoolLaboratoryLoserSpell(RepChange) {
 	// Finds a valid spell based on the player current predicament.  Some spells can only be done by specific houses.
 	let Spell = "";
 	while (Spell == "") {
-		Spell = CommonRandomItemFromList(MagicSchoolLaboratoryLastSpell, ["Hogtie", "ReleaseHogtie", "FlyingHogtie", "Arousal", "Tickle", "Pain", "SwitchRope", "SwitchChain"]);
+		Spell = CommonRandomItemFromList(MagicSchoolLaboratoryLastSpell, ["Hogtie", "ReleaseHogtie", "FlyingHogtie", "Arousal", "Tickle", "Pain", "SwitchRope", "SwitchChain", "Fail", "Tight"]);
 		if ((Spell == "Hogtie") && Player.Pose.includes("Hogtied")) Spell = "";
 		if ((Spell == "ReleaseHogtie") && !Player.Pose.includes("Hogtied")) Spell = "";
 		if ((Spell == "FlyingHogtie") && !Player.Pose.includes("Hogtied")) Spell = "";
-		if ((Spell == "SwitchRope") && (InventoryGet(Player, "ItemArms").Asset.Name == "HempRope")) Spell = "";
-		if ((Spell == "SwitchChain") && (InventoryGet(Player, "ItemArms").Asset.Name == "Chains")) Spell = "";
+		if ((Spell == "SwitchRope") && ((InventoryGet(Player, "ItemArms").Asset.Name == "HempRope") || Player.Pose.includes("Hogtied"))) Spell = "";
+		if ((Spell == "SwitchChain") && ((InventoryGet(Player, "ItemArms").Asset.Name == "Chains") || Player.Pose.includes("Hogtied"))) Spell = "";
 		if ((Spell == "Arousal") && (MagicSchoolLaboratoryStudent.House != "Maiestas")) Spell = "";
 		if ((Spell == "FlyingHogtie") && (MagicSchoolLaboratoryStudent.House != "Vincula")) Spell = "";
 		if ((Spell == "Tickle") && (MagicSchoolLaboratoryStudent.House != "Amplector")) Spell = "";
@@ -406,6 +406,33 @@ function MagicSchoolLaboratoryLoserSpell(RepChange) {
 	if (Spell == "Arousal") { CharacterSetFacialExpression(Player, "Blush", "High", 8); CharacterSetFacialExpression(Player, "Eyes", "Horny", 8); }
 	if (Spell == "Tickle") { CharacterSetFacialExpression(Player, "Blush", "Medium", 8); CharacterSetFacialExpression(Player, "Eyes", "Surprised", 8); }
 	if (Spell == "Pain") { CharacterSetFacialExpression(Player, "Blush", "Medium", 8); CharacterSetFacialExpression(Player, "Eyes", "Closed", 8); }
+	if (Spell == "Tight") { CharacterSetFacialExpression(Player, "Blush", "Low", 8); CharacterSetFacialExpression(Player, "Eyes", "Closed", 8); }
+	if (Spell == "Fail") { CharacterSetFacialExpression(MagicSchoolLaboratoryStudent, "Blush", "Medium", 8); CharacterSetFacialExpression(MagicSchoolLaboratoryStudent, "Eyes", "Angry", 8); }
+	if (Spell == "FlyingHogtie") {
+		let SuspensionHogtiedProperty = Object.assign({}, InventoryItemArmsHempRopeOptions.find(O => O.Name === "SuspensionHogtied").Property);
+		let Height = 0.67 * Math.random();
+		SuspensionHogtiedProperty.Difficulty = 5;
+		SuspensionHogtiedProperty.OverrideHeight.Height = Height * Pose.find(p => p.Name == "Hogtied").OverrideHeight.Height;
+		SuspensionHogtiedProperty.OverrideHeight.HeightRatioProportion = Height;
+		InventoryGet(Player, "ItemArms").Property = SuspensionHogtiedProperty;
+		CharacterSetFacialExpression(Player, "Blush", "High", 8);
+		CharacterSetFacialExpression(Player, "Eyes", "Surprised", 8);
+	}
+	if (Spell == "Hogtie") InventoryGet(Player, "ItemArms").Property = { Type: "Hogtied", SetPose: ["Hogtied"], Difficulty: 5, Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], Effect: ["Block", "Freeze", "Prone"] };
+	if (Spell == "ReleaseHogtie") InventoryGet(Player, "ItemArms").Property = { Type: null };
+	if (Spell == "SwitchRope") {
+		if (InventoryGet(Player, "ItemLegs") != "") InventoryWear(Player, "HempRope", "ItemLegs");
+		if (InventoryGet(Player, "ItemFeet") != "") InventoryWear(Player, "HempRope", "ItemFeet");
+		if (InventoryGet(Player, "ItemTorso") != "") InventoryWear(Player, "HempRopeHarness", "ItemTorso");
+		if (InventoryGet(Player, "ItemArms") != "") InventoryWear(Player, "HempRope", "ItemArms");
+	}
+	if (Spell == "SwitchChain") {
+		if (InventoryGet(Player, "ItemLegs") != "") InventoryWear(Player, "Chains", "ItemLegs");
+		if (InventoryGet(Player, "ItemFeet") != "") InventoryWear(Player, "Chains", "ItemFeet");
+		if (InventoryGet(Player, "ItemTorso") != "") InventoryWear(Player, "CrotchChain", "ItemTorso");
+		if (InventoryGet(Player, "ItemArms") != "") InventoryWear(Player, "Chains", "ItemArms");
+	}
+	if ((Spell == "FlyingHogtie") || (Spell == "Hogtie") || (Spell == "ReleaseHogtie") || (Spell == "SwitchRope") || (Spell == "SwitchChain")) CharacterRefresh(Player);
 	
 	// Shows the spell dialog
 	MagicSchoolLaboratoryLastSpell = Spell;
