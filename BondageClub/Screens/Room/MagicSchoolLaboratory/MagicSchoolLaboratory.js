@@ -376,19 +376,43 @@ function MagicSchoolLaboratoryReleasePlayer(RepChange) {
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratoryLoserSpell(RepChange) {
+	
+	// If we must change the player dom/sub reputation
 	if ((RepChange != "") && (RepChange != "0")) DialogChangeReputation("Dominant", parseInt(RepChange));
-	if (MagicSchoolLaboratorySpellCount >= 4) {
+	
+	// After many spells, the event ends CHANGE TO 5
+	if (MagicSchoolLaboratorySpellCount >= 20) {
 		MagicSchoolLaboratoryStudent.Stage = "240";
 		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "SpellEnd");
 		return;
 	}
+	
+	// Finds a valid spell based on the player current predicament.  Some spells can only be done by specific houses.
 	let Spell = "";
 	while (Spell == "") {
-		Spell = CommonRandomItemFromList(MagicSchoolLaboratoryLastSpell, ["Hogtie", "FlyingHogtie", "Arousal", "Tickle", "Rope", "Chain"]);
+		Spell = CommonRandomItemFromList(MagicSchoolLaboratoryLastSpell, ["Hogtie", "ReleaseHogtie", "FlyingHogtie", "Arousal", "Tickle", "Pain", "SwitchRope", "SwitchChain"]);
+		if ((Spell == "Hogtie") && Player.Pose.includes("Hogtied")) Spell = "";
+		if ((Spell == "ReleaseHogtie") && !Player.Pose.includes("Hogtied")) Spell = "";
+		if ((Spell == "FlyingHogtie") && !Player.Pose.includes("Hogtied")) Spell = "";
+		if ((Spell == "SwitchRope") && (InventoryGet(Player, "ItemArms").Asset.Name == "HempRope")) Spell = "";
+		if ((Spell == "SwitchChain") && (InventoryGet(Player, "ItemArms").Asset.Name == "Chains")) Spell = "";
+		if ((Spell == "Arousal") && (MagicSchoolLaboratoryStudent.House != "Maiestas")) Spell = "";
+		if ((Spell == "FlyingHogtie") && (MagicSchoolLaboratoryStudent.House != "Vincula")) Spell = "";
+		if ((Spell == "Tickle") && (MagicSchoolLaboratoryStudent.House != "Amplector")) Spell = "";
+		if ((Spell == "Pain") && (MagicSchoolLaboratoryStudent.House != "Corporis")) Spell = "";
 	}
+	
+	// Applies the spell effect
+	if (Spell == "Arousal") { CharacterSetFacialExpression(Player, "Blush", "High", 8); CharacterSetFacialExpression(Player, "Eyes", "Horny", 8); }
+	if (Spell == "Tickle") { CharacterSetFacialExpression(Player, "Blush", "Medium", 8); CharacterSetFacialExpression(Player, "Eyes", "Surprised", 8); }
+	if (Spell == "Pain") { CharacterSetFacialExpression(Player, "Blush", "Medium", 8); CharacterSetFacialExpression(Player, "Eyes", "Closed", 8); }
+	
+	// Shows the spell dialog
+	MagicSchoolLaboratoryLastSpell = Spell;
 	MagicSchoolLaboratoryStudent.Stage = "Spell" + Spell;
 	MagicSchoolLaboratorySpellCount++;
 	MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "Spell" + Spell + "Intro");
+
 }
 
 /**
