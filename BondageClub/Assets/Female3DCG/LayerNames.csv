@@ -822,11 +822,11 @@ SuitLowerPilotSuitLayer1,Suit
 SuitLowerPilotSuitLayer2,Highlights
 SuitLowerPilotSuitLayer3,Center
 SuitLowerPilotSuitLayer4,Underlayment
-SuitLowerPilotSuitGloves,Gloves
 SuitPilotSuitLayer1,Suit
 SuitPilotSuitLayer2,Highlights
 SuitPilotSuitLayer3,Center
 SuitPilotSuitLayer4,Arms
+SuitPilotSuitGloves,Gloves
 SuitPilotSuitFeet,Feet
 CorsetCorset6Cloth,Cloth
 CorsetCorset6Leather,Leather
