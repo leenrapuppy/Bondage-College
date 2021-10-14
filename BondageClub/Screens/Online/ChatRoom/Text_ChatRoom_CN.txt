@@ -15,7 +15,7 @@ Kneel down / Stand up
 Show / hide character icons
 显示/隐藏角色图标
 Take a picture
-截图
+拍照
 Dress your character
 更换服装
 Leave this chat room

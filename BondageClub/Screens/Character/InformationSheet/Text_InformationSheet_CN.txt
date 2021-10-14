@@ -37,7 +37,7 @@ Lady Luck
 Patron
 赞助者
 College Student
-大学生
+学生
 Nawashi
 绳师
 Houdini
@@ -81,7 +81,7 @@ Bondage Baby
 Duchess
 女公爵
 Switch
-双向(Switch)
+转换者(Switch)
 Kitten
 猫咪
 Puppy
@@ -99,7 +99,7 @@ Angel
 Succubus
 魅魔
 Member Number:
-成员号:
+成员编号:
 -
 -
 - Relationships -
@@ -143,11 +143,11 @@ Maid Sorority:
 Kidnappers League:
 绑匪联盟：
 Asylum Nurse:
-庇护所护士：
+收容所护士：
 Asylum Patient:
-庇护所病员：
+收容所病员：
 LARP Battles:
-实况动作扮演：
+体感对战：
 Gambling Hall:
 赌场：
 ABDL:

@@ -244,7 +244,7 @@ A collar must be fitted first to attach accessories to.
 Must be on a bed to attach addons to.
 必须在床上才能添加配件.
 Must have an arm/torso/pelvis item to use ceiling tethers.
-手臂/躯干/骨盆部位必须有物品才能使用牵引绳.
+手臂/躯干/小腹必须有物品才能使用牵引绳.
 Must be wearing a set of arm cuffs first.
 必须要先戴上一副手臂铐.
 Must be wearing a set of ankle cuffs first.
@@ -276,7 +276,7 @@ Must empty vulva first.
 Must remove clit piercings first
 必须先移除阴蒂穿刺物.
 Must empty butt first.
-必须先清空菊花.
+必须先清空后庭.
 The use of remotes is forbidden by your owner
 你的主人禁止你使用遥控器.
 Cannot be used over the applied gags.
@@ -522,7 +522,7 @@ SourceCharacter换掉了DestinationCharacter的衣服.
 SourceCharacter selects her team and class.
 SourceCharacter选择了她的队伍和班级.
 SourceCharacter has started the LARP game.
-SourceCharacter开始了LARP游戏.
+SourceCharacter开始了体感对战.
 Your safeword is disabled, it cannot be used at the moment.
 你的安全词被禁用了, 现在无法使用.
 Private
@@ -552,11 +552,11 @@ Beep from your owner in your private room
 Sent at
 发送自
 <i>Asylum</i>
-<i>庇护所</i>
+<i>收容所</i>
 in the Asylum
-在庇护所
+在收容所
 in LARP
-在LARP
+在体感对战
 Received at
 接收于
 <i>Your private room</i>
@@ -838,7 +838,7 @@ Tennis Court
 Theater
 剧场
 College Classroom
-大学教室
+学院教室
 School Hallway
 学校走廊
 Hotel Bedroom
@@ -1876,7 +1876,7 @@ SourceCharacter configures DestinationCharacter harness to surround the whole bo
 Belt
 腰带
 Pelvis
-盆部
+小腹
 Chest
 胸部
 Total
@@ -3500,9 +3500,9 @@ Violent
 Worm
 Worm
 AnalSlut
-菊花奴
+AnalSlut
 ButtSlut
-屁屁奴
+ButtSlut
 SourceCharacter uses a NameTagType pet name tag on DestinationCharacter collar.
 SourceCharacter uses a NameTagType pet name tag on DestinationCharacter collar.
 Bunny
@@ -4239,7 +4239,7 @@ Test Notification
  from ChatRoomName
 来自ChatRoomName
 LARP - Your turn
-LARP-你的回合
+体感对战-你的回合
 Select Tightness
 选择松紧度
 SourceCharacter loosens DestinationCharacter clamps.

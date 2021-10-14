@@ -1,7 +1,7 @@
 Cloth
 衣服
 College
-大学
+学院
 Maid
 女仆
 Maid Exposed
@@ -175,7 +175,7 @@ Fur Scarf
 Flower Garland
 Flower Garland
 Upper Suit
-上装
+套装(上身)
 Catsuit
 Catsuit
  Seamless Catsuit
@@ -189,7 +189,7 @@ See-through Zipsuit
 Reverse Bunny Suit
 Reverse Bunny Suit
 Bottom
-Bottom
+下装
 Skirt
 Skirt
 Student Skirt
@@ -251,7 +251,7 @@ Harem Pants
 Short Plaid Skirt
 Short Plaid Skirt
 Suit Lower
-下装
+套装(下身)
 Pantyhose
 Pantyhose
 Crotchless Pantyhose
@@ -477,7 +477,7 @@ Ribbon Bow
 Anklet (Left)
 踝绳 (左)
 Garters
-吊袜带
+袜带
 Leather Garter Belts
 Leather Garter Belts
 Leather Garter Belt
@@ -1229,7 +1229,7 @@ Hollow Butt Plug
 Locking Vibrating Butt Plug
 Locking Vibrating Butt Plug
 Pelvis
-盆部
+小腹
 Strap-On Panties
 Strap-On Panties
 Leather Chastity Belt

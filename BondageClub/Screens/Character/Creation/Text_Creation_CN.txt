@@ -25,7 +25,7 @@ Invalid character, account name, password or email
 Both passwords do not match
 两次密码不匹配
 Import Bondage College data
-导入紧缚大学数据
+导入紧缚学院数据
 Invalid server answer, it could be outdated.
 服务器返回错误,游戏版本是否有误?
 Your character name

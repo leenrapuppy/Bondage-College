@@ -171,7 +171,7 @@ Smaller
 Hidden
 隐藏
 Display member numbers:
-显示成员号:
+显示成员编号:
 Always
 总是
 Never
@@ -467,7 +467,7 @@ Upper Legs
 Clitoris & Vagina
 阴道&阴核
 Butt / Anal
-臀部/菊花
+臀部/后庭
 Pelvis & Belly
 腹部&小腹
 Torso & Ribs
@@ -633,7 +633,7 @@ Owned Subs
 Disconnect from the game
 失去连接
 Your turn in a LARP game
-你的实境动作角色扮演回合
+你的体感对战回合
 Raise a test notification
 发送测试通知
 Clear raised notifications
