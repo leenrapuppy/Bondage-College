@@ -158,10 +158,12 @@ function PokerGetProgress(P) {
 function PokerGetText(P, Tag) {
 	
 	// Exits right away if data is missing
-	if ((P.Type == "None") || (P.Name == "None") || (P.Family == "Player")) return P.Text = "";
-	let T;
-	T = (PokerPlayerCount <= 2) ? P.TextSingle : P.TextMultiple;
-	if (T == null) return P.Text = "";
+	if ((P.Type == "None") || (P.Name == "None") || (P.Family == "Player")) {
+		P.Text = "";
+		return;
+	}
+	let T = (PokerPlayerCount <= 2) ? P.TextSingle : P.TextMultiple;
+	if (!T) return;
 
 	// If there's an alternative text, we search for it first
 	let Texts = [];	
@@ -560,11 +562,22 @@ function PokerClick() {
 	}
 
 	// If we can process to the next step
-	if (MouseIn(1400, 875, 175, 60) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length > 0)) return PokerProcess("Bet");
-	if (MouseIn(1600, 875, 175, 60) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length > 0)) return PokerProcess("Raise");
-	if (MouseIn(1800, 875, 175, 60) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length > 0)) return PokerProcess("Fold");
-	if (MouseIn(1800, 875, 175, 60) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length <= 0)) return PokerProcess("Watch");
-	if (MouseIn(1800, 875, 175, 60) && (PokerMode == "RESULT")) return PokerDealHands();
+	let modeCheck = ["DEAL", "FLOP", "TURN", "RIVER"].includes(PokerMode);
+	if (MouseIn(1400, 875, 175, 60) && modeCheck && (PokerPlayer[0].Hand.length > 0))
+		PokerProcess("Bet");
+
+	if (MouseIn(1600, 875, 175, 60) && modeCheck && (PokerPlayer[0].Hand.length > 0))
+		PokerProcess("Raise");
+
+	if (MouseIn(1800, 875, 175, 60) && modeCheck && (PokerPlayer[0].Hand.length > 0))
+		PokerProcess("Fold");
+
+	if (MouseIn(1800, 875, 175, 60) && modeCheck && (PokerPlayer[0].Hand.length <= 0))
+		PokerProcess("Watch");
+
+	if (MouseIn(1800, 875, 175, 60) && (PokerMode == "RESULT"))
+		PokerDealHands();
+
 	if (MouseIn(800, 875, 400, 60) && (PokerMode == "END")) {
 		if ((PokerPlayerCount == 2) && (PokerPlayer[2].Type != "None") && (PokerPlayer[2].Name != "None"))
 			PokerPlayer[2] = { Type: "None", Family: "None", Name: "None", Chip: 100 };
@@ -574,7 +587,6 @@ function PokerClick() {
 			PokerGetImage(PokerPlayer[P]);
 		}
 	}
-
 }
 
 /**
@@ -582,11 +594,23 @@ function PokerClick() {
  * @returns {void} - Nothing
  */
 function PokerKeyDown() {
-	if (((KeyPress == 66) || (KeyPress == 98)) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length > 0)) return PokerProcess("Bet"); // B to bet
-	if (((KeyPress == 82) || (KeyPress == 114)) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length > 0)) return PokerProcess("Raise"); // R to raise
-	if (((KeyPress == 70) || (KeyPress == 102)) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length > 0)) return PokerProcess("Fold"); // F to fold
-	if (((KeyPress == 87) || (KeyPress == 119)) && ((PokerMode == "DEAL") || (PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER")) && (PokerPlayer[0].Hand.length <= 0)) return PokerProcess("Watch"); // W to watch
-	if (((KeyPress == 68) || (KeyPress == 100)) && (PokerMode == "RESULT")) return PokerDealHands(); // D to deal
+	let modeCheck = ["DEAL", "FLOP", "TURN", "RIVER"].includes(PokerMode);
+	let handSize = PokerPlayer[0].Hand.length;
+
+	if ((KeyPress == 66 || KeyPress == 98) && modeCheck && handSize > 0)
+		PokerProcess("Bet"); // B to bet
+
+	if ((KeyPress == 82 || KeyPress == 114) && modeCheck && handSize > 0)
+		PokerProcess("Raise"); // R to raise
+
+	if ((KeyPress == 70 || KeyPress == 102) && modeCheck && handSize > 0)
+		PokerProcess("Fold"); // F to fold
+
+	if ((KeyPress == 87 || KeyPress == 119) && modeCheck && handSize <= 0)
+		PokerProcess("Watch"); // W to watch
+
+	if ((KeyPress == 68 || KeyPress == 100) && PokerMode === "RESULT")
+		PokerDealHands(); // D to deal
 }
 
 /**
