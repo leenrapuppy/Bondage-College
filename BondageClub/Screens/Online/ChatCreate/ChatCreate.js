@@ -5,7 +5,7 @@ var ChatCreateMessage = "";
 var ChatCreatePrivate = null;
 var ChatCreateLocked = null;
 var ChatCreateGame = "";
-var ChatCreateGameList = ["", "LARP"];
+var ChatCreateGameList = ["", "LARP", "MagicBattle"];
 var ChatCreateBackgroundIndex = 0;
 var ChatCreateBackgroundSelect = "";
 var ChatCreateBackgroundList = null;
@@ -18,9 +18,15 @@ var ChatCreateIsHidden = false;
  */
 function ChatCreateLoad() {
 
-	// Resets the room game statuses
-	if ((ChatRoomGame == "LARP") && (Player.Game.LARP.Status != "")) {
+	// Resets the LARP game status
+	if ((ChatRoomGame == "LARP") && (Player.Game != null) && (Player.Game.LARP != null) && (Player.Game.LARP.Status != "")) {
 		Player.Game.LARP.Status = "";
+		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+	}
+
+	// Resets the Magic Battle game status
+	if ((ChatRoomGame == "MagicBattle") && (Player.Game != null) && (Player.Game.MagicBattle != null) && (Player.Game.MagicBattle.Status != "")) {
+		Player.Game.MagicBattle.Status = "";
 		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 	}
 

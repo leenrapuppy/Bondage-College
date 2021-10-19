@@ -1,0 +1,8 @@
+Title,Magic Battle Configuration
+StartConditionHouse,A room administrator can start the battle if two houses or more are represented.
+StartConditionFreeForAll,A room administrator can start the battle if two players or more are present.
+RunningGame,A magic battle is already in progress.
+TeamType,Teaming:
+House,By houses
+FreeForAll,Free for all
+StartGame,Start the battle

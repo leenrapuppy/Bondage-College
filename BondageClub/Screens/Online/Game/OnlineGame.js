@@ -52,6 +52,7 @@ function OnlineGameDictionaryText(KeyWord) {
  */
 function OnlineGameClickCharacter(C) {
 	if ((ChatRoomGame == "LARP") && (GameLARPStatus != "")) return GameLARPCharacterClick(C);
+	if ((ChatRoomGame == "MagicBattle") && (GameMagicBattleStatus != "")) return GameMagicBattleCharacterClick(C);
 	return false;
 }
 
@@ -61,6 +62,7 @@ function OnlineGameClickCharacter(C) {
  */
 function OnlineGameClick() {
 	if ((ChatRoomGame == "LARP") && (GameLARPStatus != "")) return GameLARPClickProcess();
+	if ((ChatRoomGame == "MagicBattle") && (GameMagicBattleStatus != "")) return GameMagicBattleClickProcess();
 	return false;
 }
 
@@ -72,6 +74,7 @@ function OnlineGameRun() {
 
 	// In LARP, the player turn can be skipped by an administrator after 20 seconds
 	if (ChatRoomGame == "LARP") GameLARPRunProcess();
+	if (ChatRoomGame == "MagicBattle") GameMagicBattleRunProcess();
 
 }
 
@@ -81,6 +84,7 @@ function OnlineGameRun() {
  */
 function OnlineGameAllowChange() {
 	if ((ChatRoomGame == "LARP") && (GameLARPStatus != "")) return false;
+	if ((ChatRoomGame == "MagicBattle") && (GameMagicBattleStatus != "")) return false;
 	return true;
 }
 
@@ -90,21 +94,30 @@ function OnlineGameAllowChange() {
  */
 function OnlineGameAllowBlockItems() {
 	if ((ChatRoomGame == "LARP") && (GameLARPStatus != "")) return false;
+	if ((ChatRoomGame == "MagicBattle") && (GameMagicBattleStatus != "")) return false;
 	return true;
 }
 
 /**
- * Retrieves the current status of online games and stores it in GameLARPStatus
+ * Retrieves the current status of online games and stores it
  * @returns {void} - Nothing
  */
 function OnlineGameLoadStatus() {
 	if (ChatRoomGame == "LARP") {
 		for (let C = 0; C < ChatRoomCharacter.length; C++)
-			if ((ChatRoomData.Admin.indexOf(ChatRoomCharacter[C].MemberNumber) >= 0) && (ChatRoomCharacter[C].Game.LARP.Status != "")) {
+			if ((ChatRoomData.Admin.indexOf(ChatRoomCharacter[C].MemberNumber) >= 0) && (ChatRoomCharacter[C].Game != null) && (ChatRoomCharacter[C].Game.LARP != null) && (ChatRoomCharacter[C].Game.LARP.Status != "")) {
 				GameLARPStatus = ChatRoomCharacter[C].Game.LARP.Status;
 				return;
 			}
 		GameLARPReset();
+	}
+	if (ChatRoomGame == "MagicBattle") {
+		for (let C = 0; C < ChatRoomCharacter.length; C++)
+			if ((ChatRoomData.Admin.indexOf(ChatRoomCharacter[C].MemberNumber) >= 0) && (ChatRoomCharacter[C].Game != null) && (ChatRoomCharacter[C].Game.MagicBattle != null) && (ChatRoomCharacter[C].Game.MagicBattle.Status != "")) {
+				GameMagicBattleStatus = ChatRoomCharacter[C].Game.MagicBattle.Status;
+				return;
+			}
+		GameMagicBattleReset();
 	}
 }
 
@@ -114,6 +127,7 @@ function OnlineGameLoadStatus() {
  */
 function OnlineGameReset() {
 	if (ChatRoomGame != "LARP") GameLARPReset();
+	if (ChatRoomGame != "MagicBattle") GameMagicBattleReset();
 }
 
 /**

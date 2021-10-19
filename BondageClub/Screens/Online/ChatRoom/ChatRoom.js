@@ -3404,6 +3404,7 @@ function ChatRoomGameResponse(data) {
 	else if (KidnapLeagueOnlineBountyTarget && data.Data.OnlineBounty && !Player.GhostList.includes(data.sender))
 		ChatRoomOnlineBountyHandleData(data.Data.OnlineBounty);
 	else if (ChatRoomGame == "LARP") GameLARPProcess(data);
+	else if (ChatRoomGame == "MagicBattle") GameMagicBattleProcess(data);
 }
 
 /**
