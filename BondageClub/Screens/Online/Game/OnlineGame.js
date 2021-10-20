@@ -160,4 +160,26 @@ function OnlineGameDrawCharacter(C, X, Y, Zoom) {
 			MainCanvas.font = CommonGetFont(36);
 		}
 	}
+	if ((CurrentModule == "Online") && (CurrentScreen == "ChatRoom") && (ChatRoomGame == "MagicBattle")) {
+		GameMagicBattleDrawIcon(C, X + 70 * Zoom, Y + 800 * Zoom, 0.6 * Zoom);
+		if (Player.CanTalk() && (GameMagicBattleStatus == "Running")) {
+			if (C.MemberNumber == Player.MemberNumber) {
+				MainCanvas.font = CommonGetFont(72);
+				let Time = Math.ceil((GameMagicBattleTurnTimer - TimerGetTime()) / 1000);
+				let Color = "#00FF00";
+				if (Time <= 15) Color = "#FFFF00";
+				if (Time <= 6) Color = "#FF0000";
+				DrawText(((Time < 0) || (Time > GameMagicBattleTimerDelay)) ? OnlineGameDictionaryText("TimerNA") : Time.toString(), X + 250 * Zoom, Y + 830 * Zoom, Color, "Black");
+				MainCanvas.font = CommonGetFont(36);
+			}
+			if ((GameMagicBattleFocusCharacter != null) && (C.MemberNumber == GameMagicBattleFocusCharacter.MemberNumber) && (GameMagicBattleStatus == "Running")) {
+				GameMagicBattleButton = [];
+				for (let S = 0; S < MagicBattleAvailSpell.length; S++) {
+					let B = { X: X + 50 * Zoom, Y: Y + 400 + (S * 100) * Zoom, W: 400 * Zoom, H: 60 * Zoom };
+					GameMagicBattleButton.push(B);
+					DrawButton(B.X, B.Y, B.W, B.H, OnlineGameDictionaryText("Spell" + MagicBattleAvailSpell[S].toString() + "Name"), "White");
+				}
+			}
+		}
+	}
 }

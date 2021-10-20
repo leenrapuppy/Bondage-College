@@ -4,6 +4,7 @@ var MagicPuzzleStart = 0;
 var MagicPuzzleFinish = 0;
 var MagicPuzzleSize = 0;
 var MagicPuzzleSpell = 0;
+var MagicPuzzleAutoExit = false;
 var MagicPuzzleStarted = false;
 var MagicPuzzleTimer = 0;
 var MagicPuzzleLastMouseX = 0;
@@ -113,6 +114,7 @@ function MagicPuzzleRun() {
 
 	// Draw the game text and square
 	if (MiniGameEnded) {
+		if (MagicPuzzleAutoExit) return CommonDynamicFunction(MiniGameReturnFunction + "()");
 		if (MiniGameVictory)
 			DrawText(TextGet("SuccessMessage") + " " + MagicPuzzleTime((MagicPuzzleFinish - MagicPuzzleStart) / 1000), 1000, 975, "#C0FFC0", "grey");
 		else

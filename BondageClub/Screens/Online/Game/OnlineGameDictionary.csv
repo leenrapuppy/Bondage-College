@@ -72,3 +72,12 @@ LARPOptionDress,Dress (OptionOdds %)
 LARPOptionDressSuccess,SourceName (SourceNumber) dresses back using: ItemDesc.
 LARPOptionSupport,Support (OptionOdds %)
 LARPOptionSupportSuccess,"SourceName (SourceNumber) supports her team, giving a 25% defensive bonus for a full cycle."
+MagicBattleTurnStart,The magic battle has begun.  Select your first target.
+MagicBattleTurnNext,"The turn is over, pick your next target."
+MagicBattleTimerNA,0
+MagicBattleSpell0Name,Pallium Exuere
+MagicBattleSpell1Name,Animatus Funem
+MagicBattleSpell2Name,Funem Tensis
+MagicBattleSpell3Name,Oratio Angustos
+MagicBattleSpellSuccess,SourceName (SourceNumber) successfully cast SpellDesc on TargetName (TargetNumber) in SpellTime seconds.
+MagicBattleSpellFail,SourceName (SourceNumber) fails to cast SpellDesc on TargetName (TargetNumber) in SpellTime seconds.

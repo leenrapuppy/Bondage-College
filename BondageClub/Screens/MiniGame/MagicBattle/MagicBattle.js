@@ -54,6 +54,7 @@ function MagicBattleGetDifficulty(C) {
  * @returns {void} - Nothing
  */
 function MagicBattleGetAvailSpells(C) {
+	if (C == null) return [];
 	if ((InventoryGet(C, "Cloth") != null) || (InventoryGet(C, "ClothLower") != null) || (InventoryGet(C, "ClothAccessory") != null) || (InventoryGet(C, "Shoes") != null)) {
 		return [0];
 	} else {
@@ -116,6 +117,7 @@ function MagicBattleSpellStart(S) {
 
 	// Launches the magic puzzle mini game for that spell
 	MagicPuzzleSpell = S;
+	MagicPuzzleAutoExit = false;
 	MiniGameStart("MagicPuzzle", Difficulty, "MagicBattleSpellEnd");
 
 }

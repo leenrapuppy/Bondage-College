@@ -70,6 +70,7 @@ function MagicSchoolLaboratoryPrepareNPC(C, House) {
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratoryLoad() {
+	MagicPuzzleBackground = MagicSchoolLaboratoryBackground;
 	if (MagicSchoolLaboratoryTeacher == null) {
 		MagicSchoolLaboratoryTeacher = CharacterLoadNPC("NPC_MagicSchoolLaboratory_Teacher");
 		MagicSchoolLaboratoryPrepareNPC(MagicSchoolLaboratoryTeacher, "");
@@ -106,6 +107,7 @@ function MagicSchoolLaboratoryClick() {
  */
 function MagicSchoolLaboratorySpellPractice(SpellNumber) {
 	MagicPuzzleSpell = SpellNumber;
+	MagicPuzzleAutoExit = false;
 	MiniGameStart("MagicPuzzle", 0, "MagicSchoolLaboratorySpellPracticeEnd");
 }
 
