@@ -177,6 +177,10 @@ const InventoryItemHandsSpankingToysOptions = [
 		Name: "Phone2",
 		Property: { Type: "Phone2" },
 		ExpressionTrigger: []
+	},{
+		Name: "Scissors",
+		Property: { Type: "Scissors" },
+		ExpressionTrigger: []
 	},
 ];
 
