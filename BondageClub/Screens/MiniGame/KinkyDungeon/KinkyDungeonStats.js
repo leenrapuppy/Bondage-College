@@ -175,12 +175,12 @@ function KinkyDungeonDrawStats(x, y, width, heightPerBar) {
 
 	// Draw arousal
 	if (KinkyDungeonStatArousal > 0)
-		DrawProgressBarColor(x, y + heightPerBar/2, width, heightPerBar/3, 100*KinkyDungeonStatArousal/KinkyDungeonStatArousalMax, "pink", "#111111");
-	DrawProgressBarColor(x, y + heightPerBar + heightPerBar/2, width, heightPerBar/3, 100*KinkyDungeonStatStamina/KinkyDungeonStatStaminaMax, "#22AA22", "#111111");
+		DrawProgressBar(x, y + heightPerBar/2, width, heightPerBar/3, 100*KinkyDungeonStatArousal/KinkyDungeonStatArousalMax, "pink", "#111111");
+	DrawProgressBar(x, y + heightPerBar + heightPerBar/2, width, heightPerBar/3, 100*KinkyDungeonStatStamina/KinkyDungeonStatStaminaMax, "#22AA22", "#111111");
 
 	DrawRect(x + 2 + Math.max(0, Math.floor((width - 4) * (KinkyDungeonStatStamina - KinkyDungeonStatStaminaMana)/KinkyDungeonStatStaminaMax)), y + heightPerBar + heightPerBar/2 + 2,
 		Math.floor((width - 4) * Math.min(KinkyDungeonStatStaminaMana, KinkyDungeonStatStamina)/KinkyDungeonStatStaminaMax),  heightPerBar/3 - 4, "#3377AA");
-	DrawProgressBarColor(x, y + 2*heightPerBar + heightPerBar/2, width, heightPerBar/3, 100*KinkyDungeonStatWillpower/KinkyDungeonStatWillpowerMax, "#DDCCCC", "#881111");
+	DrawProgressBar(x, y + 2*heightPerBar + heightPerBar/2, width, heightPerBar/3, 100*KinkyDungeonStatWillpower/KinkyDungeonStatWillpowerMax, "#DDCCCC", "#881111");
 
 	var i = 3;
 	DrawText(TextGet("CurrentGold") + KinkyDungeonGold, x+width/2, y + 25 + i * heightPerBar, "white", "silver"); i+= 0.5;

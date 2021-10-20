@@ -1178,35 +1178,22 @@ function DrawCircle(CenterX, CenterY, Radius, LineWidth, LineColor, FillColor, C
 }
 
 /**
- * Draws a progress bar
- * @param {number} X - Position of the bar on the X axis
- * @param {number} Y - Position of the bar on the Y axis
- * @param {number} W - Width of the bar
- * @param {number} H - Height of the bar
- * @param {number} Progress - Current progress to display on the bar
- * @returns {void} - Nothing
- */
-function DrawProgressBar(X, Y, W, H, Progress) {
-	DrawRect(X, Y, W, H, "white");
-	DrawRect(X + 2, Y + 2, Math.floor((W - 4) * Progress / 100), H - 4, "#66FF66");
-	DrawRect(Math.floor(X + 2 + (W - 4) * Progress / 100), Y + 2, Math.floor((W - 4) * (100 - Progress) / 100), H - 4, "red");
-}
-
-/**
  * Draws a progress bar with color
- * @param {number} X - Position of the bar on the X axis
- * @param {number} Y - Position of the bar on the Y axis
- * @param {number} W - Width of the bar
- * @param {number} H - Height of the bar
- * @param {number} Progress - Current progress to display on the bar
- * @param {string} ColorFG - Color of the first part of the bar
- * @param {string} ColorFG - Color of the bar background
+ * @param {number} x - Position of the bar on the X axis
+ * @param {number} y - Position of the bar on the Y axis
+ * @param {number} w - Width of the bar
+ * @param {number} h - Height of the bar
+ * @param {number} value - Current progress to display on the bar
+ * @param {string} [foreground="#66FF66"] - Color of the first part of the bar
+ * @param {string} [background="red"] - Color of the bar background
  * @returns {void} - Nothing
  */
-function DrawProgressBarColor(X, Y, W, H, Progress, ColorFG, ColorBG) {
-	DrawRect(X, Y, W, H, "white");
-	DrawRect(X + 2, Y + 2, Math.floor((W - 4) * Progress / 100), H - 4, ColorFG);
-	DrawRect(Math.floor(X + 2 + (W - 4) * Progress / 100), Y + 2, Math.floor((W - 4) * (100 - Progress) / 100), H - 4, ColorBG);
+function DrawProgressBar(x, y, w, h, value, foreground = "#66FF66", background = "red") {
+	if (value < 0) value = 0;
+	if (value > 100) value = 100;
+	DrawRect(x, y, w, h, "white");
+	DrawRect(x + 2, y + 2, Math.floor((w - 4) * value / 100), h - 4, foreground);
+	DrawRect(Math.floor(x + 2 + (w - 4) * value / 100), y + 2, Math.floor((w - 4) * (100 - value) / 100), h - 4, background);
 }
 
 /**
