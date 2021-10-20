@@ -335,6 +335,38 @@ function GameMagicBattleBuildPlayerList() {
  * @returns {void} - Nothing
  */
 function GameMagicBattleCalculateTurnWinner() {
+	
+	// Fetches the best time and the round winner
+	let WinTime = 999999;
+	let WinNum = null;
+	let TieRound = false;
+	for (let L = 0; L < GameMagicBattleLog.length; L++)
+		if ((GameMagicBattleLog[L] != null) && (GameMagicBattleLog[L].Data != null) && (GameMagicBattleLog[L].Data.Action == "SpellSuccess"))
+			if ((GameMagicBattleLog[L].Data.Spell != null) && (GameMagicBattleLog[L].Data.Time != null) && (GameMagicBattleLog[L].Data.Time <= WinTime)) {
+				if (WinTime == GameMagicBattleLog[L].Data.Time) TieRound = true;
+				WinTime = GameMagicBattleLog[L].Data.Time;
+				WinNum = L;
+			}
+
+	// If there's no winner, we show a chat log, if there's one, we apply the effects on the loser
+	if (WinNum == null)
+		GameMagicBattleAddChatLog("NoWinner", Player, Player, null, "#000000");
+	else
+		if (TieRound)
+			GameMagicBattleAddChatLog("TieRound", Player, Player, null, "#000000");
+		else {
+			let Source = GameMagicBattleGetPlayer(GameMagicBattleLog[WinNum].Sender);
+			let Target = GameMagicBattleGetPlayer(GameMagicBattleLog[WinNum].Data.Target);
+			if ((Source != null) && (Target != null)) {
+				GameMagicBattleAddChatLog("RoundWinner", Source, Target, GameMagicBattleLog[WinNum].Data, "#000000");
+				if (Target.MemberNumber == Player.MemberNumber) {
+					MagicSpellEffect(Player, GameMagicBattleLog[WinNum].Data.Spell);
+					ChatRoomCharacterUpdate(Player);
+				}
+			}
+		}
+
+	// Returns the game status for the next round
 	return GameMagicBattleStatus;
 }
 
@@ -366,8 +398,8 @@ function GameMagicBattleProcess(P) {
 			GameMagicBattleLog.push({ Sender: P.Sender, Data: P.Data });
 
 			// Before we process it, we make sure the action is valid by checking all possible options
-			var Source = GameMagicBattleGetPlayer(P.Sender);
-			var Target = GameMagicBattleGetPlayer(P.Data.Target);
+			let Source = GameMagicBattleGetPlayer(P.Sender);
+			let Target = GameMagicBattleGetPlayer(P.Data.Target);
 			if ((Source != null) && (Target != null))
 				GameMagicBattleAddChatLog(P.Data.Action, Source, Target, P.Data, (P.Data.Action == "SpellFail") ? "#A00000" : "#00A000");
 
@@ -382,5 +414,9 @@ function GameMagicBattleProcess(P) {
  */
 function GameMagicBattleReset() {
 	GameMagicBattleStatus = "";
-	if ((Player.Game != null) && (Player.Game.MagicBattle != null)) Player.Game.MagicBattle.Status = "";
+	if ((Player.Game != null) && (Player.Game.MagicBattle != null) && (Player.Game.MagicBattle.Status != null) && (Player.Game.MagicBattle.Status != "")) {
+		Player.Game.MagicBattle.Status = "";
+		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+		ChatRoomCharacterUpdate(Player);
+	}
 }

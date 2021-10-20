@@ -17,7 +17,7 @@ var MagicPuzzleLastMouseY = 0;
 function MagicPuzzleLoad() {
 	MagicPuzzleStart = CommonTime() + 5000;
 	MagicPuzzleFinish = 0;
-	MagicPuzzleSize = 10 + MagicBattleGetDifficulty(Player) * 2;
+	MagicPuzzleSize = 10 + Math.round(MagicBattleGetDifficulty(Player) * 1.5);
 	MagicPuzzleTimer = (MiniGameDifficulty > 0) ? CommonTime() + 5000 + MiniGameDifficulty * 1000 : 0;
 	MagicPuzzleStarted = false;
 	MiniGameVictory = false;

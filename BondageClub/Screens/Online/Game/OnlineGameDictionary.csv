@@ -81,3 +81,6 @@ MagicBattleSpell2Name,Funem Tensis
 MagicBattleSpell3Name,Oratio Angustos
 MagicBattleSpellSuccess,SourceName (SourceNumber) successfully cast SpellDesc on TargetName (TargetNumber) in SpellTime seconds.
 MagicBattleSpellFail,SourceName (SourceNumber) fails to cast SpellDesc on TargetName (TargetNumber) in SpellTime seconds.
+MagicBattleNoWinner,Nobody was able to cast a spell successfully.
+MagicBattleTieRound,Two spells were cast at the same time, there's no winner.
+MagicBattleRoundWinner,SpellDesc from SourceName (SourceNumber) affects TargetName (TargetNumber).

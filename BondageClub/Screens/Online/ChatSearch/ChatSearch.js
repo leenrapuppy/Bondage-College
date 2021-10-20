@@ -24,7 +24,10 @@ var ChatSearchRejoinIncrement = 1;
  */
 function ChatSearchLoad() {
 	CurrentDarkFactor = 0.5;
-	if (ChatSearchLeaveRoom == "MainHall") ChatRoomGame = "";
+	if (ChatSearchLeaveRoom == "MainHall") {
+		ChatRoomGame = "";
+		OnlineGameReset();
+	}
 	if (ChatSearchSafewordAppearance == null) {
 		ChatSearchSafewordAppearance = Player.Appearance.slice(0);
 		ChatSearchSafewordPose = Player.ActivePose;

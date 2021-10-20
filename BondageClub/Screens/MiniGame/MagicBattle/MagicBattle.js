@@ -123,12 +123,10 @@ function MagicBattleSpellStart(S) {
 }
 
 /**
- * When the spell ends, we apply the effect of the spell on the loser
+ * Applies the effect of a magic spell (Spell) on a character (C)
  * @returns {void} - Nothing
  */
-function MagicBattleSpellEnd() {
-	let Spell = MiniGameVictory ? MagicPuzzleSpell : MagicBattleOpponentSpell;
-	let C = MiniGameVictory ? MagicBattleOpponent : Player;
+function MagicSpellEffect(C, Spell) {
 	if (Spell == 0) {
 		if ((InventoryGet(C, "Cloth") != null) || (InventoryGet(C, "ClothLower") != null) || (InventoryGet(C, "ClothAccessory") != null) || (InventoryGet(C, "Shoes") != null)) {
 			InventoryRemove(C, "Cloth", false);
@@ -160,6 +158,16 @@ function MagicBattleSpellEnd() {
 	}
 	if (Spell == 3)
 		InventoryWearRandom(C, "ItemMouth", MagicBattleDifficulty);
+}
+
+/**
+ * When the spell ends, we apply the effect of the spell on the loser
+ * @returns {void} - Nothing
+ */
+function MagicBattleSpellEnd() {
+	let Spell = MiniGameVictory ? MagicPuzzleSpell : MagicBattleOpponentSpell;
+	let C = MiniGameVictory ? MagicBattleOpponent : Player;
+	MagicSpellEffect(C, Spell);
 	if (MiniGameVictory) MagicBattleAvailSpell = MagicBattleGetAvailSpells(MagicBattleOpponent);
 	CommonSetScreen("MiniGame", "MagicBattle");
 }

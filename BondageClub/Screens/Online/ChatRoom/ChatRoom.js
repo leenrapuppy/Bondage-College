@@ -2468,6 +2468,7 @@ function ChatRoomSync(data) {
 	ChatRoomData = data;
 	if (ChatRoomData.Game != null) {
 		ChatRoomGame = ChatRoomData.Game;
+		OnlineGameReset();
 	}
 
 	// Check whether the player's last chatroom data needs updating
