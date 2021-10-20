@@ -47,8 +47,8 @@ function MagicBattleGetDifficulty(C) {
 	if (InventoryGet(C, "ItemFeet") != null) D++;
 	if (InventoryIsWorn(C, "HempRope", "ItemArms")) D++;
 	if (InventoryIsWorn(C, "Chains", "ItemArms")) D = D + 3;
-	if (InventoryIsWorn(C, "HempRopeHarness", "ItemTorso")) D++;
-	if (InventoryIsWorn(C, "CrotchChain", "ItemTorso")) D = D + 3;
+	if (InventoryIsWorn(C, "HempRopeHarness", "ItemTorso")) D = D + 2;
+	if (InventoryIsWorn(C, "CrotchChain", "ItemTorso")) D = D + 4;
 	return D;
 }
 

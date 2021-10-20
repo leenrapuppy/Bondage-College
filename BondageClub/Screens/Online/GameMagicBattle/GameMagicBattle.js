@@ -3,7 +3,6 @@ var GameMagicBattleBackground = "Sheet";
 var GameMagicBattleTimerDelay = 30;
 var GameMagicBattleStatus = "";
 var GameMagicBattlePlayer = [];
-var GameMagicBattleTeamType = "";
 var GameMagicBattleAction = "";
 var GameMagicBattleTurnAdmin = null;
 var GameMagicBattleTurnDone = false;
@@ -42,8 +41,37 @@ function GameMagicBattleLoad() {
 	if (Player.Game == null) Player.Game = {};
 	if (Player.Game.MagicBattle == null) Player.Game.MagicBattle = {};
 	if (Player.Game.MagicBattle.House == null) Player.Game.MagicBattle.House = "NotPlaying";
-	if ((GameMagicBattleTeamType == "") && (Player.Game.MagicBattle.TeamType != null)) GameMagicBattleTeamType = Player.Game.MagicBattle.TeamType;
-	if (GameMagicBattleTeamType != "FreeForAll") GameMagicBattleTeamType = "House";
+	if (Player.Game.MagicBattle.TeamType != "FreeForAll") Player.Game.MagicBattle.TeamType = "House";
+}
+
+/**
+ * Returns the team setup for the online magic battle.
+ * @returns {string} - "FreeForAll" or "House", depending on the team setup
+ */
+function GameMagicBattleGetTeamType() {
+	
+	// If the game is running, we return the setup from the game admin
+	if ((GameMagicBattleStatus == "Running") && (GameMagicBattleTurnAdmin != null))
+		for (let C = 0; C < GameMagicBattlePlayer.length; C++)
+			if (GameMagicBattlePlayer[C].MemberNumber == GameMagicBattleTurnAdmin)
+				if ((GameMagicBattlePlayer[C].Game != null) && (GameMagicBattlePlayer[C].Game.MagicBattle != null) && (GameMagicBattlePlayer[C].Game.MagicBattle.TeamType != null))
+					return GameMagicBattlePlayer[C].Game.MagicBattle.TeamType;
+
+	// When the game isn't running, the player team type is returned if admin
+	if ((GameMagicBattleStatus == "") && GameMagicBattleIsAdmin(Player))
+		if ((Player.Game != null) && (Player.Game.MagicBattle != null) && (Player.Game.MagicBattle.TeamType != null))
+			return Player.Game.MagicBattle.TeamType;
+
+	// When the game isn't running, the first admin team type is returned
+	if ((GameMagicBattleStatus == "") && !GameMagicBattleIsAdmin(Player))
+		for (let C = 0; C < ChatRoomCharacter.length; C++)
+			if (GameMagicBattleIsAdmin(ChatRoomCharacter[C]))
+				if ((ChatRoomCharacter[C].Game != null) && (ChatRoomCharacter[C].Game.MagicBattle != null) && (ChatRoomCharacter[C].Game.MagicBattle.TeamType != null))
+					return ChatRoomCharacter[C].Game.MagicBattle.TeamType;
+
+	// With no setup, we return "House"
+	return "House";
+
 }
 
 /**
@@ -53,13 +81,14 @@ function GameMagicBattleLoad() {
 function GameMagicBattleRun() {
 
 	// Draw the character, text and buttons to configure the game, admins can start the game from here
+	let TeamType = GameMagicBattleGetTeamType();
 	DrawCharacter(Player, 50, 50, 0.9);
 	DrawText(TextGet("Title"), 1200, 125, "Black", "Gray");
 	if (GameMagicBattleStatus == "") DrawBackNextButton(900, 218, 600, 64, TextGet("PlayType" + Player.Game.MagicBattle.House), "White", "", () => "", () => "");
 	else DrawText(TextGet("PlayType" + Player.Game.MagicBattle.House), 1200, 250, "Black", "Gray");
-	if ((GameMagicBattleStatus == "") && GameMagicBattleIsAdmin(Player)) DrawBackNextButton(900, 343, 600, 64, TextGet("TeamType") + " " + TextGet(GameMagicBattleTeamType), "White", "", () => "", () => "");
-	else DrawText(TextGet("TeamType") + " " + TextGet(GameMagicBattleTeamType), 1200, 375, "Black", "Gray");
-	if (GameMagicBattleStatus == "") DrawText(TextGet("StartCondition" + GameMagicBattleTeamType), 1200, 500, "Black", "Gray");
+	if ((GameMagicBattleStatus == "") && GameMagicBattleIsAdmin(Player)) DrawBackNextButton(900, 343, 600, 64, TextGet("TeamType") + " " + TextGet(TeamType), "White", "", () => "", () => "");
+	else DrawText(TextGet("TeamType") + " " + TextGet(TeamType), 1200, 375, "Black", "Gray");
+	if (GameMagicBattleStatus == "") DrawText(TextGet("StartCondition" + TeamType), 1200, 500, "Black", "Gray");
 	else DrawText(TextGet("RunningGame"), 1200, 500, "Black", "Gray");
 	if (GameMagicBattleCanLaunchGame()) DrawButton(1000, 600, 400, 65, TextGet("StartGame"), "White");
 	GameMagicBattleDrawIcon(Player, 600, 210, 2);
@@ -180,18 +209,15 @@ function GameMagicBattleClick() {
 		}
 
 	}
-	
-	// When the user selects a new team configuration
-	if (MouseIn(900, 343, 600, 64) && (GameMagicBattleStatus == "") && GameMagicBattleIsAdmin(Player))
-		GameMagicBattleTeamType = (GameMagicBattleTeamType == "House") ? "FreeForAll" : "House";
+
+	// When the user selects a new team configuration, we update that player for everyone
+	if (MouseIn(900, 343, 600, 64) && (GameMagicBattleStatus == "") && GameMagicBattleIsAdmin(Player)) {
+		Player.Game.MagicBattle.TeamType = (Player.Game.MagicBattle.TeamType == "House") ? "FreeForAll" : "House";
+		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+	}
 
 	// If the administrator wants to start the game
 	if (MouseIn(1000, 600, 400, 65) && GameMagicBattleCanLaunchGame()) {
-
-		// Updates the player data
-		Player.Game.MagicBattle.TeamType = GameMagicBattleTeamType;
-		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
-		ChatRoomCharacterUpdate(Player);
 
 		// Starts the game
 		CommonSetScreen("Online", "ChatRoom");
@@ -223,14 +249,14 @@ function GameMagicBattleExit() {
 function GameMagicBattleCanLaunchGame() {
 	if (GameMagicBattleStatus != "") return false;
 	if (!GameMagicBattleIsAdmin(Player)) return false;
-	if ((GameMagicBattleTeamType != "House") && (GameMagicBattleTeamType != "FreeForAll")) return false;
+	if ((Player.Game.MagicBattle.TeamType != "House") && (Player.Game.MagicBattle.TeamType != "FreeForAll")) return false;
 	var House = "";
 	for (let C = 0; C < ChatRoomCharacter.length; C++)
 		if ((ChatRoomCharacter[C].Game != null) && (ChatRoomCharacter[C].Game.MagicBattle != null) && (ChatRoomCharacter[C].Game.MagicBattle.House != null) && (ChatRoomCharacter[C].Game.MagicBattle.House != "NotPlaying") && ChatRoomCharacter[C].CanTalk()) {
 			if (House == "")
 				House = ChatRoomCharacter[C].Game.MagicBattle.House;
 			else
-				if ((House != ChatRoomCharacter[C].Game.MagicBattle.House) || (ChatRoomCharacter[C].Game.MagicBattle.House == "Independent") || (GameMagicBattleTeamType == "FreeForAll"))
+				if ((House != ChatRoomCharacter[C].Game.MagicBattle.House) || (ChatRoomCharacter[C].Game.MagicBattle.House == "Independent") || (Player.Game.MagicBattle.TeamType == "FreeForAll"))
 					return true;
 		}
 	return false;
@@ -268,12 +294,17 @@ function GameMagicBattleGetPlayer(MemberNumber) {
  */
 function GameMagicBattleCharacterClick(C) {
 
-	// If the turn is already done, we skip any click
-	if (GameMagicBattleTurnDone) return true;
+	// If the turn is already done or the player is gagged, we skip any click
+	if (GameMagicBattleTurnDone || !Player.CanTalk())
+		return true;
 
-	// If it's the player turn, we allow clicking on a character to get the abilities menu
+	// We allow clicking on a participating room member
 	if ((GameMagicBattleStatus == "Running") && (C.Game != null) && (C.Game.MagicBattle != null) && (C.Game.MagicBattle.House != null) && (C.Game.MagicBattle.House != "NotPlaying"))
 		GameMagicBattleFocusCharacter = (C.MemberNumber == Player.MemberNumber) ? null : C;
+
+	// Cannot target a player from it's own house if playing in teams by houses
+	if ((GameMagicBattleFocusCharacter != null) && (GameMagicBattleGetTeamType() == "House") && (GameMagicBattleFocusCharacter.Game.MagicBattle.House != "Independent") && (GameMagicBattleFocusCharacter.Game.MagicBattle.House == Player.Game.MagicBattle.House))
+		GameMagicBattleFocusCharacter = null;
 
 	// Gets the spells that are available on that target
 	MagicBattleAvailSpell = MagicBattleGetAvailSpells(GameMagicBattleFocusCharacter);
@@ -359,13 +390,25 @@ function GameMagicBattleCalculateTurnWinner() {
 			let Target = GameMagicBattleGetPlayer(GameMagicBattleLog[WinNum].Data.Target);
 			if ((Source != null) && (Target != null)) {
 				GameMagicBattleAddChatLog("RoundWinner", Source, Target, GameMagicBattleLog[WinNum].Data, "#000000");
-				if (Target.MemberNumber == Player.MemberNumber) {
-					MagicSpellEffect(Player, GameMagicBattleLog[WinNum].Data.Spell);
-					ChatRoomCharacterUpdate(Player);
-				}
+				MagicSpellEffect(Player, GameMagicBattleLog[WinNum].Data.Spell);
+				if (Target.MemberNumber == Player.MemberNumber) ChatRoomCharacterUpdate(Player);
 			}
 		}
 
+	// Checks if there is a winning team/player, based on the team type setup
+	let TeamType = GameMagicBattleGetTeamType();
+	let House = "";
+	for (let C = 0; C < GameMagicBattlePlayer.length; C++)
+		if (GameMagicBattlePlayer[C].CanTalk()) {
+			if (House == "")
+				House = GameMagicBattlePlayer[C].Game.MagicBattle.House;
+			else
+				if ((GameMagicBattlePlayer[C].Game.MagicBattle.House != House) || (GameMagicBattlePlayer[C].Game.MagicBattle.House == "Independent") || (TeamType == "FreeForAll")) {
+					GameMagicBattleAddChatLog("GameOver", Player, Player, null, "#0000A0");
+					GameMagicBattleStatus = "";
+				}
+		}
+		
 	// Returns the game status for the next round
 	return GameMagicBattleStatus;
 }

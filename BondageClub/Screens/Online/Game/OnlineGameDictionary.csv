@@ -86,3 +86,4 @@ MagicBattleSpellFail,SourceName (SourceNumber) fails to cast SpellDesc on Target
 MagicBattleNoWinner,Nobody was able to cast a spell successfully.
 MagicBattleTieRound,Two spells were cast at the same time, there's no winner.
 MagicBattleRoundWinner,SpellDesc from SourceName (SourceNumber) affects TargetName (TargetNumber).
+MagicBattleGameOver,The battle is over!  Enjoy your spoils of war.
