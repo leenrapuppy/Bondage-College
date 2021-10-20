@@ -598,10 +598,10 @@ function CommonThrottle(func) {
  * allowed frequency. Below 100 ms the function will be throttled and above will be debounced.
  * @param {function} func - The function to limit calls of
  * @param {number} [minWait=0] - A lower bound for how long the wait interval can be, 0 by default
- * @param {number} [maxWait=Infinity] - An upper bound for how long the wait interval can be, none by default
+ * @param {number} [maxWait=1000] - An upper bound for how long the wait interval can be, 1 second by default
  * @returns {function} - A debounced or throttled version of the function
  */
-function CommonLimitFunction(func, minWait = 0, maxWait = Infinity) {
+function CommonLimitFunction(func, minWait = 0, maxWait = 1000) {
 	const funcDebounced = CommonDebounce(func);
 	const funcThrottled = CommonThrottle(func);
 

@@ -219,7 +219,7 @@ const ItemColorOnPickerChange = CommonLimitFunction((color) => {
 	ItemColorPickerIndices.forEach(i => newColors[i] = color);
 	ItemColorItem.Color = newColors;
 	CharacterLoadCanvas(ItemColorCharacter);
-}, 0, 1000);
+});
 
 /**
  * Click handler for the item color UI according to its current state
