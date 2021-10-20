@@ -417,6 +417,5 @@ function GameMagicBattleReset() {
 	if ((Player.Game != null) && (Player.Game.MagicBattle != null) && (Player.Game.MagicBattle.Status != null) && (Player.Game.MagicBattle.Status != "")) {
 		Player.Game.MagicBattle.Status = "";
 		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
-		ChatRoomCharacterUpdate(Player);
 	}
 }

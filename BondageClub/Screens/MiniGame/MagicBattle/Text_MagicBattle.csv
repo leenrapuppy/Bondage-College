@@ -7,7 +7,11 @@ Spell0Name,Pallium Exuere
 Spell1Name,Animatus Funem
 Spell2Name,Funem Tensis
 Spell3Name,Oratio Angustos
+Spell4Name,Animatus Ferrum
+Spell5Name,Ferrum Tensis
 Spell0Hover,Cloth Stripping
 Spell1Hover,Animate Rope
 Spell2Hover,Rope Tightening
 Spell3Hover,Block Speech
+Spell4Hover,Animate Chain
+Spell5Hover,Chain Tightening

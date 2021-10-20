@@ -8,6 +8,7 @@ var MagicBattleAvailSpell = [];
 var MagicBattleOpponentSpell = 0;
 var MagicBattlePlayerAppearance = null;
 var MagicBattleOpponentAppearance = null;
+var MagicBattleSpellDifficulty = [3, 5, 7, 9, 6, 8];
 
 /**
  * Start a magic battle against an opponent
@@ -40,12 +41,14 @@ function MagicBattleLoad() {
  */
 function MagicBattleGetDifficulty(C) {
 	let D = 0;
-	if ((InventoryGet(C, "Cloth") == null) && (InventoryGet(C, "ClothLower") == null) && (InventoryGet(C, "ClothAccessory") == null) && (InventoryGet(C, "Shoes") == null)) D = D + 2;		
-	if ((InventoryGet(C, "Bra") == null) && (InventoryGet(C, "Panties") == null) && (InventoryGet(C, "Socks") == null) && (InventoryGet(C, "Gloves") == null) && (InventoryGet(C, "Garters") == null) && (InventoryGet(C, "Corset") == null)) D = D + 2;
-	if (InventoryGet(C, "ItemLegs") != null) D++; 
+	if ((InventoryGet(C, "Cloth") == null) && (InventoryGet(C, "ClothLower") == null) && (InventoryGet(C, "ClothAccessory") == null) && (InventoryGet(C, "Shoes") == null)) D++;
+	if ((InventoryGet(C, "Bra") == null) && (InventoryGet(C, "Panties") == null) && (InventoryGet(C, "Socks") == null) && (InventoryGet(C, "Gloves") == null) && (InventoryGet(C, "Garters") == null) && (InventoryGet(C, "Corset") == null)) D = D + 3;
+	if (InventoryGet(C, "ItemLegs") != null) D++;
 	if (InventoryGet(C, "ItemFeet") != null) D++;
-	if (InventoryGet(C, "ItemArms") != null) D = D + 2;
-	if (InventoryGet(C, "ItemTorso") != null) D = D + 2;
+	if (InventoryIsWorn(C, "HempRope", "ItemArms")) D++;
+	if (InventoryIsWorn(C, "Chains", "ItemArms")) D = D + 3;
+	if (InventoryIsWorn(C, "HempRopeHarness", "ItemTorso")) D++;
+	if (InventoryIsWorn(C, "CrotchChain", "ItemTorso")) D = D + 3;
 	return D;
 }
 
@@ -60,14 +63,18 @@ function MagicBattleGetAvailSpells(C) {
 	} else {
 		let Spells = [];
 		if ((InventoryGet(C, "Bra") != null) || (InventoryGet(C, "Panties") != null) || (InventoryGet(C, "Socks") != null) || (InventoryGet(C, "Gloves") != null) || (InventoryGet(C, "Garters") != null) || (InventoryGet(C, "Corset") != null))
-			Spells.push(0);
-		if ((InventoryGet(C, "ItemLegs") == null) || (InventoryGet(C, "ItemFeet") == null))
-			Spells.push(1);
-		else
-			if ((InventoryGet(C, "ItemArms") == null) || (InventoryGet(C, "ItemTorso") == null))
-				Spells.push(2);
+			Spells.push(0); // Strip spell
+		if ((InventoryGet(C, "ItemLegs") == null) || (InventoryGet(C, "ItemFeet") == null)) {
+			Spells.push(1); // Rope legs spell
+			Spells.push(4); // Rope arms/torso spell
+		} else {
+			if ((InventoryGet(C, "ItemArms") == null) || (InventoryGet(C, "ItemTorso") == null)) {
+				Spells.push(2); // Rope legs spell
+				Spells.push(5); // Chain arms/torso spell
+			}
+		}
 		if (InventoryGet(C, "ItemArms") != null)
-			Spells.push(3);
+			Spells.push(3); // Random gag spell
 		return Spells;
 	}
 }
@@ -113,7 +120,7 @@ function MagicBattleSpellStart(S) {
 	// Gets the timer difficulty based on the spell cast by the opponent
 	let Spells = MagicBattleGetAvailSpells(Player);
 	MagicBattleOpponentSpell = Spells[Math.floor(Spells.length * Math.random())];
-	let Difficulty = (3 + (MagicBattleOpponentSpell * 2)) * (2 - MagicBattleDifficulty * 0.1) * (1 + MagicBattleGetDifficulty(MagicBattleOpponent) * 0.1);
+	let Difficulty = MagicBattleSpellDifficulty[MagicBattleOpponentSpell] * (2 - MagicBattleDifficulty * 0.1) * (1 + MagicBattleGetDifficulty(MagicBattleOpponent) * 0.1);
 
 	// Launches the magic puzzle mini game for that spell
 	MagicPuzzleSpell = S;
@@ -127,6 +134,8 @@ function MagicBattleSpellStart(S) {
  * @returns {void} - Nothing
  */
 function MagicSpellEffect(C, Spell) {
+	
+	// Strip spell
 	if (Spell == 0) {
 		if ((InventoryGet(C, "Cloth") != null) || (InventoryGet(C, "ClothLower") != null) || (InventoryGet(C, "ClothAccessory") != null) || (InventoryGet(C, "Shoes") != null)) {
 			InventoryRemove(C, "Cloth", false);
@@ -143,10 +152,14 @@ function MagicSpellEffect(C, Spell) {
 		}
 		CharacterRefresh(C);
 	}
+
+	// Rope legs spell
 	if (Spell == 1) {
 		InventoryWear(C, "HempRope", "ItemLegs");
 		InventoryWear(C, "HempRope", "ItemFeet");
 	}
+
+	// Rope arms/torso spell
 	if (Spell == 2) {
 		if (InventoryGet(C, "ItemArms") == null) {
 			InventoryWear(C, "HempRope", "ItemArms");
@@ -156,8 +169,25 @@ function MagicSpellEffect(C, Spell) {
 			CharacterRefresh(C);
 		}
 	}
+
+	// Random gag spell
 	if (Spell == 3)
 		InventoryWearRandom(C, "ItemMouth", MagicBattleDifficulty);
+
+	// Chain legs spell
+	if (Spell == 4) {
+		InventoryWear(C, "Chains", "ItemLegs");
+		InventoryWear(C, "Chains", "ItemFeet");
+	}
+
+	// Chain arms/torso spell
+	if (Spell == 5) {
+		if (InventoryGet(C, "ItemArms") == null)
+			InventoryWear(C, "Chains", "ItemArms");
+		else
+			InventoryWear(C, "CrotchChain", "ItemTorso");
+	}
+
 }
 
 /**

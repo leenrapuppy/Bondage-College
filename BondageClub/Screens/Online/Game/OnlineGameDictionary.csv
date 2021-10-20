@@ -79,6 +79,8 @@ MagicBattleSpell0Name,Pallium Exuere
 MagicBattleSpell1Name,Animatus Funem
 MagicBattleSpell2Name,Funem Tensis
 MagicBattleSpell3Name,Oratio Angustos
+MagicBattleSpell4Name,Animatus Ferrum
+MagicBattleSpell5Name,Ferrum Tensis
 MagicBattleSpellSuccess,SourceName (SourceNumber) successfully cast SpellDesc on TargetName (TargetNumber) in SpellTime seconds.
 MagicBattleSpellFail,SourceName (SourceNumber) fails to cast SpellDesc on TargetName (TargetNumber) in SpellTime seconds.
 MagicBattleNoWinner,Nobody was able to cast a spell successfully.

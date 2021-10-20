@@ -1001,6 +1001,5 @@ function GameLARPReset() {
 	if ((Player.Game != null) && (Player.Game.LARP != null) && (Player.Game.LARP.Status != null) && (Player.Game.LARP.Status != "")) {
 		Player.Game.LARP.Status = "";
 		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
-		ChatRoomCharacterUpdate(Player);
 	}
 }
