@@ -175,7 +175,7 @@ function OnlineGameDrawCharacter(C, X, Y, Zoom) {
 			if ((GameMagicBattleFocusCharacter != null) && (C.MemberNumber == GameMagicBattleFocusCharacter.MemberNumber) && (GameMagicBattleStatus == "Running")) {
 				GameMagicBattleButton = [];
 				for (let S = 0; S < MagicBattleAvailSpell.length; S++) {
-					let B = { X: X + 50 * Zoom, Y: Y + 400 + (S * 100) * Zoom, W: 400 * Zoom, H: 60 * Zoom };
+					let B = { X: X + 50 * Zoom, Y: Y + (400 + (S * 100)) * Zoom, W: 400 * Zoom, H: 60 * Zoom };
 					GameMagicBattleButton.push(B);
 					DrawButton(B.X, B.Y, B.W, B.H, OnlineGameDictionaryText("Spell" + MagicBattleAvailSpell[S].toString() + "Name"), "White");
 				}

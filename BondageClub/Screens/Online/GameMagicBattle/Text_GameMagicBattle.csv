@@ -6,6 +6,7 @@ TeamType,Teaming:
 House,By houses
 FreeForAll,Free for all
 StartGame,Start the battle
+StopGame,Stop the battle
 PlayTypeNotPlaying,Not playing
 PlayTypeIndependent,Playing as Independent
 PlayTypeHouseMaiestas,Representing House Maiestas

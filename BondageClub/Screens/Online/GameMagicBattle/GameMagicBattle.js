@@ -91,6 +91,7 @@ function GameMagicBattleRun() {
 	if (GameMagicBattleStatus == "") DrawText(TextGet("StartCondition" + TeamType), 1200, 500, "Black", "Gray");
 	else DrawText(TextGet("RunningGame"), 1200, 500, "Black", "Gray");
 	if (GameMagicBattleCanLaunchGame()) DrawButton(1000, 600, 400, 65, TextGet("StartGame"), "White");
+	if (GameMagicBattleIsAdmin(Player) && (GameMagicBattleStatus != "")) DrawButton(1000, 600, 400, 65, TextGet("StopGame"), "White");
 	GameMagicBattleDrawIcon(Player, 600, 210, 2);
 
 	// Draw the right side buttons
@@ -154,7 +155,8 @@ function GameMagicBattlePuzzleEnd() {
  */
 function GameMagicBattleStartProcess() {
 
-	// Gives a delay in seconds, based on the player preference
+	// Gives a delay in seconds, based on the player preference, returns to the chat screen
+	CommonSetScreen("Online", "ChatRoom");
 	GameMagicBattleTurnTimer = TimerGetTime() + (GameMagicBattleTimerDelay * 1000);
 
 	// Notices everyone in the room that the game starts
@@ -166,7 +168,6 @@ function GameMagicBattleStartProcess() {
 	ServerSend("ChatRoomGame", { GameProgress: "Start" });
 	Player.Game.MagicBattle.Status = "Running";
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
-	ChatRoomCharacterUpdate(Player);
 
 }
 
@@ -216,13 +217,11 @@ function GameMagicBattleClick() {
 		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 	}
 
-	// If the administrator wants to start the game
-	if (MouseIn(1000, 600, 400, 65) && GameMagicBattleCanLaunchGame()) {
-
-		// Starts the game
+	// If the administrator wants to start the game or end the game
+	if (MouseIn(1000, 600, 400, 65) && GameMagicBattleCanLaunchGame()) GameMagicBattleStartProcess();
+	if (MouseIn(1000, 600, 400, 65) && GameMagicBattleIsAdmin(Player) && (GameMagicBattleStatus != "")) {
 		CommonSetScreen("Online", "ChatRoom");
-		GameMagicBattleStartProcess();
-
+		ServerSend("ChatRoomGame", { GameProgress: "Stop" });
 	}
 
 }
@@ -295,11 +294,11 @@ function GameMagicBattleGetPlayer(MemberNumber) {
 function GameMagicBattleCharacterClick(C) {
 
 	// If the turn is already done or the player is gagged, we skip any click
-	if (GameMagicBattleTurnDone || !Player.CanTalk())
-		return true;
+	if ((Player.Game == null) || (Player.Game.MagicBattle == null) || (Player.Game.MagicBattle.House == null) || (Player.Game.MagicBattle.House == "NotPlaying")) return true;
+	if (GameMagicBattleTurnDone || !Player.CanTalk()) return true;
 
-	// We allow clicking on a participating room member
-	if ((GameMagicBattleStatus == "Running") && (C.Game != null) && (C.Game.MagicBattle != null) && (C.Game.MagicBattle.House != null) && (C.Game.MagicBattle.House != "NotPlaying"))
+	// We allow clicking on a participating room member that's not gagged
+	if ((GameMagicBattleStatus == "Running") && (C.Game != null) && (C.Game.MagicBattle != null) && (C.Game.MagicBattle.House != null) && (C.Game.MagicBattle.House != "NotPlaying") && C.CanTalk())
 		GameMagicBattleFocusCharacter = (C.MemberNumber == Player.MemberNumber) ? null : C;
 
 	// Cannot target a player from it's own house if playing in teams by houses
@@ -390,7 +389,7 @@ function GameMagicBattleCalculateTurnWinner() {
 			let Target = GameMagicBattleGetPlayer(GameMagicBattleLog[WinNum].Data.Target);
 			if ((Source != null) && (Target != null)) {
 				GameMagicBattleAddChatLog("RoundWinner", Source, Target, GameMagicBattleLog[WinNum].Data, "#000000");
-				MagicSpellEffect(Player, GameMagicBattleLog[WinNum].Data.Spell);
+				MagicSpellEffect(Target, GameMagicBattleLog[WinNum].Data.Spell);
 				if (Target.MemberNumber == Player.MemberNumber) ChatRoomCharacterUpdate(Player);
 			}
 		}
@@ -398,17 +397,26 @@ function GameMagicBattleCalculateTurnWinner() {
 	// Checks if there is a winning team/player, based on the team type setup
 	let TeamType = GameMagicBattleGetTeamType();
 	let House = "";
+	let HouseCount = 0;
 	for (let C = 0; C < GameMagicBattlePlayer.length; C++)
 		if (GameMagicBattlePlayer[C].CanTalk()) {
-			if (House == "")
+			if (House == "") {
 				House = GameMagicBattlePlayer[C].Game.MagicBattle.House;
-			else
-				if ((GameMagicBattlePlayer[C].Game.MagicBattle.House != House) || (GameMagicBattlePlayer[C].Game.MagicBattle.House == "Independent") || (TeamType == "FreeForAll")) {
-					GameMagicBattleAddChatLog("GameOver", Player, Player, null, "#0000A0");
-					GameMagicBattleStatus = "";
-				}
+				HouseCount++;
+			} else {
+				if ((GameMagicBattlePlayer[C].Game.MagicBattle.House != House) || (GameMagicBattlePlayer[C].Game.MagicBattle.House == "Independent") || (TeamType == "FreeForAll"))
+					HouseCount++;
+			}
 		}
-		
+
+	// If there's a winner, we announce it, if the player was representing a house, she can rain reputation
+	if (HouseCount <= 1) {
+		GameMagicBattleAddChatLog("GameOver", Player, Player, null, "#0000A0");
+		GameMagicBattleStatus = "";
+		if (Player.CanTalk() && (Player.Game != null) && (Player.Game.MagicBattle != null) && (Player.Game.MagicBattle.House != null) && (Player.Game.MagicBattle.House.indexOf("House") == 0))
+			DialogChangeReputation(Player.Game.MagicBattle.House, 3);
+	}
+
 	// Returns the game status for the next round
 	return GameMagicBattleStatus;
 }
@@ -421,14 +429,25 @@ function GameMagicBattleCalculateTurnWinner() {
 function GameMagicBattleProcess(P) {
 	if ((P != null) && (typeof P === "object") && (P.Data != null) && (typeof P.Data === "object") && (P.Sender != null) && (typeof P.Sender === "number") && (P.RNG != null) && (typeof P.RNG === "number")) {
 
-		// The administrator can start the Magic Battle game, he becomes the turn admin in the process
+		// An administrator can start the Magic Battle game, he becomes the turn admin in the process
 		if ((ChatRoomData.Admin.indexOf(P.Sender) >= 0) && (P.Data.GameProgress == "Start")) {
 			GameMagicBattleStatus = "Running";
 			GameMagicBattleTurnAdmin = P.Sender;
 			GameMagicBattleBuildPlayerList();
-			GameMagicBattleNewTurn("TurnStart");
+			GameMagicBattleNewTurn("GameStart" + GameMagicBattleGetTeamType());
 		}
 
+		// An administrator can stop the game
+		if ((ChatRoomData.Admin.indexOf(P.Sender) >= 0) && (P.Data.GameProgress == "Stop")) {
+			let Source = GameMagicBattleGetPlayer(P.Sender);
+			if (Source != null) {
+				GameMagicBattleAddChatLog("GameStop", Source, Source, null, "#0000A0");
+				GameMagicBattleStatus = "";
+				Player.Game.MagicBattle.Status = "";
+				ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+			}
+		}
+		
 		// When the turn administrator sends the message to end the turn, we calculate the outcome
 		if ((GameMagicBattleStatus == "Running") && (GameMagicBattleTurnAdmin == P.Sender) && (P.Data.GameProgress == "Next"))
 			if (GameMagicBattleCalculateTurnWinner() == "Running")

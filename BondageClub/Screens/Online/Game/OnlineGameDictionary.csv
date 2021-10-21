@@ -72,7 +72,9 @@ LARPOptionDress,Dress (OptionOdds %)
 LARPOptionDressSuccess,SourceName (SourceNumber) dresses back using: ItemDesc.
 LARPOptionSupport,Support (OptionOdds %)
 LARPOptionSupportSuccess,"SourceName (SourceNumber) supports her team, giving a 25% defensive bonus for a full cycle."
-MagicBattleTurnStart,The magic battle has begun.  Select your first target.
+MagicBattleGameStartFreeForAll,"A free for all magic battle has begun.  To win, gag all other magicians using your spells.  Select your first target."
+MagicBattleGameStartHouse,"A team magic battle has begun.  To win, gag all magicians from other houses using your spells.  Select your first target."
+MagicBattleGameStop,Administrator SourceName (SourceNumber) ended the magic battle manually.
 MagicBattleTurnNext,"The turn is over, pick your next target."
 MagicBattleTimerNA,0
 MagicBattleSpell0Name,Pallium Exuere
