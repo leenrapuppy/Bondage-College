@@ -205,6 +205,11 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 			|| InventoryDoesItemBlockGroup(C, "Socks", "ItemVulva")
 			? "RemoveClothesForItem" : "";
 
+		// Some chastity belts have removable vulva shields. This checks for those for items that wish to add something externally.
+		case "VulvaNotBlockedByBelt": return InventoryDoesItemBlockGroup(C, "ItemPelvis", "ItemVulva")
+			|| InventoryDoesItemBlockGroup(C, "ItemVulvaPiercings", "ItemVulva")
+			? "RemoveChastityFirst" : "";
+
 		// Ensure crotch is empty
 		case "VulvaEmpty": return (InventoryGet(C, "ItemVulva") != null) ? "MustFreeVulvaFirst" : "";
 		case "ClitEmpty": return ((InventoryGet(C, "ItemVulvaPiercings") != null)) ? "MustFreeClitFirst" : "";

@@ -1932,7 +1932,7 @@ var AssetFemale3DCGExtended = {
 							{}, // d0 - No devvice
 							{ // s1 - Pleasure module
 								HasSubscreen: true,
-								Prerequisite: ["AccessVulva", "VulvaEmpty"],
+								Prerequisite: ["AccessVulva", "VulvaEmpty", "VulvaNotBlockedByBelt"],
 								Property: {
 									SetPose: ["BaseLower"],
 									AllowActivePose: ["Spread", "LegsClosed", "BaseLower"],
@@ -4903,7 +4903,7 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Solid",
 						Property: {
-							Type: "Gloves", 
+							Type: "Gloves",
 							Hide: ["Hands"],
 						},
 					},
