@@ -13,6 +13,7 @@ function InventoryItemMiscPasswordPadlockLoad() {
 	if (Property.Password == null) Property.Password = "PASSWORD";
 	if (Property.Hint == null) Property.Hint = "Take a guess...";
 	if (Property.LockSet == null) Property.LockSet = false;
+	if (Property.RemoveOnUnlock == null) Property.RemoveOnUnlock = false;
 
 	// Only create the inputs if the zone isn't blocked
 	if (InventoryGroupIsBlocked(C, C.FocusGroup.Name)) return;
@@ -82,8 +83,13 @@ function InventoryItemMiscPasswordPadlockDrawControls() {
 		DrawText(DialogFindPlayer("PasswordPadlockSetHint"), 1100, 705, "white", "gray");
 		DrawText(DialogFindPlayer("PasswordPadlockSetPassword"), 1100, 775, "white", "gray");
 		MainCanvas.textAlign = "center";
-		DrawButton(1360, 871, 250, 64, DialogFindPlayer("PasswordPadlockChangePassword"), "White", "");
+		DrawButton(1360, 891, 250, 64, DialogFindPlayer("PasswordPadlockChangePassword"), "White", "");
 		if (PreferenceMessage != "") DrawText(DialogFindPlayer(PreferenceMessage), 1500, 963, "Red", "Black");
+
+		if (Property) {
+			DrawButton(1600, 820, 64, 64, "", "White", Property.RemoveOnUnlock ? "Icons/Checked.png" : "");
+			DrawText(DialogFindPlayer("PasswordPadlockRemoveOnUnlock"), 1400, 855, "White", "Gray");
+		}
 	}
 }
 
@@ -105,7 +111,9 @@ function InventoryItemMiscPasswordPadlockControlsClick(ExitCallback) {
 
 	if (InventoryItemMiscPasswordPadlockIsSet() && MouseIn(1360, 871, 250, 64)) {
 		InventoryItemMiscPasswordPadlockHandleOpenClick(ExitCallback);
-	} else if (MouseIn(1360, 871, 250, 64)) {
+	} else if (MouseIn(1600, 820, 250, 64)) {
+		DialogFocusSourceItem.Property.RemoveOnUnlock = !DialogFocusSourceItem.Property.RemoveOnUnlock;
+	} else if (MouseIn(1360, 891, 250, 64)) {
 		InventoryItemMiscPasswordPadlockHandleFirstSet(ExitCallback);
 	}
 }
@@ -116,6 +124,12 @@ function InventoryItemMiscPasswordPadlockHandleOpenClick(ExitCallback) {
 
 	// Opens the padlock
 	if (ElementValue("Password").toUpperCase() === Property.Password) {
+		if (DialogFocusSourceItem.Property.RemoveOnUnlock) {
+			InventoryRemove(CurrentCharacter, C.FocusGroup.Name, true);
+			if (CurrentScreen == "ChatRoom") {
+				ChatRoomCharacterUpdate(C);
+			}
+		}
 		CommonPadlockUnlock(C, DialogFocusSourceItem);
 		ExitCallback();
 	}

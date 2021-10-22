@@ -39,6 +39,11 @@
 
 var FuturisticAccessDeniedMessage = "";
 
+var FuturisticAccessCollarGroups = ["ItemNeck"];
+var FuturisticAccessArmGroups = ["ItemArms", "ItemHands"];
+var FuturisticAccessLegGroups = ["ItemLegs", "ItemFeet", "ItemBoots"];
+var FuturisticAccessChastityGroups = ["ItemPelvis", "ItemTorso", "ItemButt", "ItemVulva", "ItemVulvaPiercings", "ItemBreast", "ItemNipples", "ItemNipplesPiercings"];
+
 /**
  * Hook script for injecting futuristic features into an archetypical item
  * @param {function} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
@@ -173,7 +178,11 @@ function InventoryItemFuturisticValidate(C, Item = DialogFocusItem) {
 
 	if (Item && Item.Property && Item.Property.LockedBy && !DialogCanUnlock(C, Item)) {
 		var collar = InventoryGet(C, "ItemNeck");
-		if (!collar || (!collar.Property || collar.Property.OpenPermission != true)) {
+		if (!collar || (!collar.Property ||
+			(FuturisticAccessCollarGroups.includes(Item.Asset.Group.Name) && collar.Property.OpenPermission != true) ||
+			(FuturisticAccessArmGroups.includes(Item.Asset.Group.Name) && collar.Property.OpenPermissionArm != true) ||
+			(FuturisticAccessLegGroups.includes(Item.Asset.Group.Name) && collar.Property.OpenPermissionLeg != true) ||
+			(FuturisticAccessChastityGroups.includes(Item.Asset.Group.Name) && collar.Property.OpenPermissionChastity != true))) {
 			Allowed = DialogExtendedMessage = DialogFindPlayer("CantChangeWhileLockedFuturistic");
 		}
 	}
