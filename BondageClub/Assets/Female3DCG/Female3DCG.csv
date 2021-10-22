@@ -89,6 +89,7 @@ Necklace,FlowerGarland,Flower Garland
 Suit,,Upper Suit
 Suit,Catsuit,Catsuit
 Suit,SeamlessCatsuit, Seamless Catsuit
+Suit,SleevelessCatsuit, Sleeveless Catsuit
 Suit,PilotSuit,Pilot Suit
 Suit,SeethroughSuit,See-through Suit
 Suit,SeethroughSuitZip,See-through Zipsuit
@@ -129,6 +130,7 @@ ClothLower,ShortPlaidSkirt,Short Plaid Skirt
 SuitLower,,Suit Lower
 SuitLower,Catsuit,Catsuit
 SuitLower,SeamlessCatsuit, Seamless Catsuit
+SuitLower,CatsuitPanties, Catsuit Panties
 SuitLower,PilotSuit,Pilot Suit
 SuitLower,PilotPanties,Pilot Suit Panties
 SuitLower,SeethroughSuit,See-through Suit
