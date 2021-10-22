@@ -150,6 +150,6 @@ function MagicPuzzleClick() {
  * @returns {void} - Nothing
  */
 function MagicPuzzleKeyDown() {
-	if (MiniGameCheatKeyDown() && (MagicPuzzleTimer > 0))
+	if (MiniGameCheatKeyDown() && (MagicPuzzleTimer > 0) && !MagicPuzzleAutoExit)
 		MagicPuzzleTimer = MagicPuzzleTimer + 5000;
 }

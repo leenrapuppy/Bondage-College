@@ -1,0 +1,37 @@
+PlayerGagged,,,"A gag will control your mouth, while I control your mind.",,"FromHouse(""Maiestas"")"
+PlayerGagged,,,The tighter the better!  This also applies to gags.,,"FromHouse(""Vincula"")"
+PlayerGagged,,,A silenced magician cannot do any harm.,,"FromHouse(""Amplector"")"
+PlayerGagged,,,Stop your futile mumblings.,,"FromHouse(""Corporis"")"
+BattleSuccess,,,"(She catches her breath, barely struggles and seems very proud of you.)",,
+BattleFail,,,"(She releases and you dress back up.)  Sorry, you failed the test, you're not ready to learn yet.",,
+0,,,"(A prestigious wizard from House Maiestas salutes you.)  Your reputation preceeds you, great wizard DialogPlayerName.",,"FromHouse(""Maiestas"")"
+0,,,(A Mistress of magic from House Vincula rushes to you.)  I've heard about you!  You're the powerful DialogPlayerName.,,"FromHouse(""Vincula"")"
+0,,,"(You meet one of the high sages from House Amplector.)  Sweetheart, you're a legend now.  (She gives you a hug.)",,"FromHouse(""Amplector"")"
+0,,,"(A powerful witch from House Corporis does a secret handshake with you.)  It's an honor to meet you, witch DialogPlayerName.",,"FromHouse(""Corporis"")"
+0,10,"The pleasure is reciprocal, high wizard.",(You exchange a few words on the magic school and she changes subject.)  Have you heard of House Maiestas secret technique?,,"FromHouse(""Maiestas"")"
+0,10,Hey!  Great to see you!,"(You do a high five and chat a little, the subject changes quickly.)  You might be ready to learn Vincula's forbiden spell.",,"FromHouse(""Vincula"")"
+0,10,(Give her a long warm hug.),(You share a warm and loving hug.)  The sages have been talking.  Would you like to learn House Amplector ritual?,,"FromHouse(""Amplector"")"
+0,10,"The honor is mine, dark witch.","(You talk about houses wars and she changes subject.)  The witch circle is ready to teach you a dark spell, are you ready to learn it?",,"FromHouse(""Corporis"")"
+0,,"Sorry, I must hurry.  (Leave her.)",,DialogLeave(),
+10,20,Tell me of that secret technique.,House Maiestas masters control and self-control.  We have developped a technique to cast much easier while being restrained.,,"FromHouse(""Maiestas"")"
+10,20,Really?  What forbiden spell?,"We created a forbiden spell: the Stricta Lorum.  This magic will create, strap and tighten a magic armbinder on your opponent.",,"FromHouse(""Vincula"")"
+10,20,I would love to learn more on that ritual.,"Our sages perfected the ritual of the flesh.  We repeat it everyday, and being stripped doesn't affect our spellcasting ability.",,"FromHouse(""Amplector"")"
+10,20,The dark spell sounds interesting.,"The dark spell name is: Nuda Caro.  It fully strips your opponent in one incantation, leaving only naked flesh to burn.",,"FromHouse(""Corporis"")"
+10,,"Sorry, I must hurry.  (Leave her.)",,DialogLeave(),
+20,30,Can I learn this?,"(She nods.)  You could, but you must face me in battle first.  I must make sure you're ready.",,
+20,,"Sorry, I must hurry.  (Leave her.)",,DialogLeave(),
+30,,I'm ready!  (Fight her.),,BattleMasterStart(),
+30,,Forget it.  (Leave her.),,DialogLeave(),
+100,110,(Release her.),(You release her and she nods slowly.)  You're ready to learn House Maestas secret self-control technique.,LearnMastery(),"FromHouse(""Maiestas"")"
+100,110,(Release her.),(You release her and she gives you a high five.)  I'll teach you House Vincula forbiden armbinder spell: the Stricta Lorum.,LearnMastery(),"FromHouse(""Vincula"")"
+100,110,(Release and hug her.),"(You release her and exchange a long hug.)  You're a true sage, I will teach you House Amplector ritual of the flesh.",LearnMastery(),"FromHouse(""Amplector"")"
+100,110,(Spank and release her.),"(She jumps from the pain as you release her.)  Witch, you're ready for House Corporis dark spell: Nuda Caro.",LearnMastery(),"FromHouse(""Corporis"")"
+110,120,(Learn the self-control technique.),"(After hours and hours of bondage training, you feel that restraints won't hamper your spells too much.)  Congratulations, you did it.",,"FromHouse(""Maiestas"")"
+110,120,(Learn the Stricta Lorum spell.),"(After hours and hours of spell casting, you master the Stricta Lorum spell.)  Alright!  You're ready for bondage magic battles.",,"FromHouse(""Vincula"")"
+110,120,(Learn the ritual of the flesh.),"(After hours and hours of nude training, you feel that being stripped won't affect your spells at all.)  Sweetie, you're the best.",,"FromHouse(""Amplector"")"
+110,120,(Learn the Nuda Caro spell.),"(After hours and hours of spell casting, you master the Nuda Caro spell.)  Strike first and your opponents won't stand a chance.",,"FromHouse(""Corporis"")"
+120,,Thank you so much.,It's been my pleasure.  Stay with us if you don't want to lose that knowledge.,DialogRemove(),
+120,,(Leave her.),,DialogLeave(),
+200,,I will do better next time.,(She nods.)  I'm sure you will.,DialogRemove(),
+200,,Can you teach me anyway?,(She shakes her head from left to right.),DialogRemove(),
+200,,(Leave her.),,DialogLeave(),

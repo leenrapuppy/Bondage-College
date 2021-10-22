@@ -141,6 +141,11 @@ function MagicSchoolLaboratoryJoinHouse(House) {
 	DialogSetReputation("HouseVincula", 0);
 	DialogSetReputation("HouseAmplector", 0);
 	DialogSetReputation("HouseCorporis", 0);
+	LogDelete("Mastery", "MagicSchool");
+	if ((Player.Game != null) && (Player.Game.MagicBattle != null)) {
+		delete Player.Game.MagicBattle;
+		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+	}
 	if (House != "") {
 		DialogSetReputation("House" + House, 1);
 		MagicSchoolLaboratoryPrepareNPC(Player, House);
@@ -235,37 +240,43 @@ function MagicSchoolLaboratoryFindStudent() {
 		Houses.push("Vincula");
 		Houses.push("Amplector");
 		Houses.push("Corporis");
+		if ((ReputationGet("HouseMaiestas") >= 100) && !LogQuery("Mastery", "MagicSchool"))	Houses.push("Maiestas");
 	}
 	if (ReputationGet("HouseVincula") > 0) {
 		Houses.push("Maiestas");
 		Houses.push("Maiestas");
 		Houses.push("Amplector");
 		Houses.push("Corporis");
+		if ((ReputationGet("HouseVincula") >= 100) && !LogQuery("Mastery", "MagicSchool")) Houses.push("Vincula");
 	}
 	if (ReputationGet("HouseAmplector") > 0) {
 		Houses.push("Maiestas");
 		Houses.push("Vincula");
 		Houses.push("Corporis");
 		Houses.push("Corporis");
+		if ((ReputationGet("HouseAmplector") >= 100) && !LogQuery("Mastery", "MagicSchool")) Houses.push("Amplector");
 	}
 	if (ReputationGet("HouseCorporis") > 0) {
 		Houses.push("Maiestas");
 		Houses.push("Vincula");
 		Houses.push("Amplector");
 		Houses.push("Amplector");
+		if ((ReputationGet("HouseCorporis") >= 100) && !LogQuery("Mastery", "MagicSchool")) Houses.push("Corporis");
 	}
 
 	// Creates the student NPC and gives her a house
-	CharacterDelete("NPC_MagicSchoolLaboratory_Student");
+	let NPCHouse = CommonRandomItemFromList("", Houses);
+	let NPCType = (ReputationGet("House" + NPCHouse) >= 100) ? "Master" : "Student";
+	CharacterDelete("NPC_MagicSchoolLaboratory_" + NPCType);
 	if (MagicSchoolLaboratoryStudent != null) {
-		delete CommonCSVCache["Screens/Room/MagicSchoolLaboratory/Dialog_NPC_MagicSchoolLaboratory_Student.csv"];
+		delete CommonCSVCache["Screens/Room/MagicSchoolLaboratory/Dialog_NPC_MagicSchoolLaboratory_" + NPCType + ".csv"];
 		CharacterRandomName(MagicSchoolLaboratoryStudent);
 	}
-	MagicSchoolLaboratoryStudent = CharacterLoadNPC("NPC_MagicSchoolLaboratory_Student");
+	MagicSchoolLaboratoryStudent = CharacterLoadNPC("NPC_MagicSchoolLaboratory_" + NPCType);
 	CharacterRelease(MagicSchoolLaboratoryStudent);
-	MagicSchoolLaboratoryPrepareNPC(MagicSchoolLaboratoryStudent, CommonRandomItemFromList("", Houses));
+	MagicSchoolLaboratoryPrepareNPC(MagicSchoolLaboratoryStudent, NPCHouse);
 	setTimeout(() => CharacterSetCurrent(MagicSchoolLaboratoryStudent), 500);
-	
+
 }
 
 /**
@@ -451,4 +462,42 @@ function MagicSchoolLaboratoryLoserSpell(RepChange) {
 function MagicSchoolLaboratoryPlayerMainHall() {
 	DialogLeave();
 	CommonSetScreen("Room", "MainHall");
+}
+
+/**
+ * Starts a max difficulty battle against the master
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryBattleMasterStart() {
+	MagicBattleStart(MagicSchoolLaboratoryStudent, 10, MagicSchoolLaboratoryBackground, "MagicSchoolLaboratoryBattleMasterEnd");
+}
+
+/**
+ * When the magic battle against the master ends
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryBattleMasterEnd() {
+	CommonSetScreen("Room", "MagicSchoolLaboratory");
+	CharacterSetCurrent(MagicSchoolLaboratoryStudent);
+	CharacterAppearanceRestore(Player, MagicBattlePlayerAppearance);
+	CharacterRefresh(Player);
+	if (MiniGameVictory) {
+		MagicSchoolLaboratoryStudent.Stage = "100";
+		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleSuccess");
+	} else {
+		CharacterAppearanceRestore(MagicSchoolLaboratoryStudent, MagicBattleOpponentAppearance);
+		CharacterRefresh(MagicSchoolLaboratoryStudent);
+		MagicSchoolLaboratoryStudent.Stage = "200";
+		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleFail");
+	}
+}
+
+/**
+ * When the player learns the master technique from it's house
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryLearnMastery() {
+	CharacterAppearanceRestore(MagicSchoolLaboratoryStudent, MagicBattleOpponentAppearance);
+	CharacterRefresh(MagicSchoolLaboratoryStudent);
+	LogAdd("Mastery", "MagicSchool");
 }

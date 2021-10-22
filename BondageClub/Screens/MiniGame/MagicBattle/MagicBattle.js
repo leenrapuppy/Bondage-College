@@ -41,14 +41,21 @@ function MagicBattleLoad() {
  */
 function MagicBattleGetDifficulty(C) {
 	let D = 0;
-	if ((InventoryGet(C, "Cloth") == null) && (InventoryGet(C, "ClothLower") == null) && (InventoryGet(C, "ClothAccessory") == null) && (InventoryGet(C, "Shoes") == null)) D++;
-	if ((InventoryGet(C, "Bra") == null) && (InventoryGet(C, "Panties") == null) && (InventoryGet(C, "Socks") == null) && (InventoryGet(C, "Gloves") == null) && (InventoryGet(C, "Garters") == null) && (InventoryGet(C, "Corset") == null)) D = D + 3;
-	if (InventoryGet(C, "ItemLegs") != null) D++;
-	if (InventoryGet(C, "ItemFeet") != null) D++;
-	if (InventoryIsWorn(C, "HempRope", "ItemArms")) D++;
-	if (InventoryIsWorn(C, "Chains", "ItemArms")) D = D + 3;
-	if (InventoryIsWorn(C, "HempRopeHarness", "ItemTorso")) D = D + 2;
-	if (InventoryIsWorn(C, "CrotchChain", "ItemTorso")) D = D + 4;
+	let NF = ((C.ID == 0) && (ReputationGet("HouseAmplector") >= 100) && LogQuery("Mastery", "MagicSchool")) ? 0 : 1; // House Amplector masters aren't affected by nudity
+	let BF = ((C.ID == 0) && (ReputationGet("HouseMaiestas") >= 100) && LogQuery("Mastery", "MagicSchool")) ? 0.5 : 1; // House Maiestas masters are half affected by bondage items
+	if ((InventoryGet(C, "Cloth") == null) && (InventoryGet(C, "ClothLower") == null) && (InventoryGet(C, "ClothAccessory") == null) && (InventoryGet(C, "Shoes") == null)) D = D + 2 * NF;
+	if ((InventoryGet(C, "Bra") == null) && (InventoryGet(C, "Panties") == null) && (InventoryGet(C, "Socks") == null) && (InventoryGet(C, "Gloves") == null) && (InventoryGet(C, "Garters") == null) && (InventoryGet(C, "Corset") == null)) D = D + 3 * NF;
+	if (InventoryGet(C, "ItemLegs") != null) D = D + 1 * BF;
+	if (InventoryGet(C, "ItemFeet") != null) D = D + 1 * BF;
+	if (InventoryIsWorn(C, "HempRope", "ItemArms")) D = D + 1 * BF;
+	if (InventoryIsWorn(C, "Chains", "ItemArms")) D = D + 3 * BF;
+	if (InventoryIsWorn(C, "Chains", "LeatherArmbinder")) D = D + 4 * BF;
+	if (InventoryIsWorn(C, "Chains", "ArmbinderJacket")) D = D + 4 * BF;
+	if (InventoryIsWorn(C, "Chains", "BoxTieArmbinder")) D = D + 4 * BF;
+	if (InventoryIsWorn(C, "Chains", "LatexArmbinder")) D = D + 4 * BF;
+	if (InventoryIsWorn(C, "Chains", "SeamlessLatexArmbinder")) D = D + 4 * BF;
+	if (InventoryIsWorn(C, "HempRopeHarness", "ItemTorso")) D = D + 2 * BF;
+	if (InventoryIsWorn(C, "CrotchChain", "ItemTorso")) D = D + 4 * BF;
 	return D;
 }
 
@@ -59,19 +66,24 @@ function MagicBattleGetDifficulty(C) {
 function MagicBattleGetAvailSpells(C) {
 	if (C == null) return [];
 	if ((InventoryGet(C, "Cloth") != null) || (InventoryGet(C, "ClothLower") != null) || (InventoryGet(C, "ClothAccessory") != null) || (InventoryGet(C, "Shoes") != null)) {
-		return [0];
+		if ((ReputationGet("HouseCorporis") >= 100) && LogQuery("Mastery", "MagicSchool"))
+			return [0, 6]; // Strip & double-strip spell if Corporis master
+		else
+			return [0]; // Strip spell
 	} else {
 		let Spells = [];
 		if ((InventoryGet(C, "Bra") != null) || (InventoryGet(C, "Panties") != null) || (InventoryGet(C, "Socks") != null) || (InventoryGet(C, "Gloves") != null) || (InventoryGet(C, "Garters") != null) || (InventoryGet(C, "Corset") != null))
 			Spells.push(0); // Strip spell
 		if ((InventoryGet(C, "ItemLegs") == null) || (InventoryGet(C, "ItemFeet") == null)) {
 			Spells.push(1); // Rope legs spell
-			Spells.push(4); // Rope arms/torso spell
+			Spells.push(4); // Chain legs spell
 		} else {
 			if ((InventoryGet(C, "ItemArms") == null) || (InventoryGet(C, "ItemTorso") == null)) {
-				Spells.push(2); // Rope legs spell
+				Spells.push(2); // Rope arms/torso spell
 				Spells.push(5); // Chain arms/torso spell
 			}
+			if ((ReputationGet("HouseVincula") >= 100) && LogQuery("Mastery", "MagicSchool") && (InventoryGet(C, "ItemArms") == null))
+				Spells.push(7); // Armbinder spell
 		}
 		if (InventoryGet(C, "ItemArms") != null)
 			Spells.push(3); // Random gag spell
@@ -187,6 +199,25 @@ function MagicSpellEffect(C, Spell) {
 		else
 			InventoryWear(C, "CrotchChain", "ItemTorso");
 	}
+
+	// Double strip spell (House Corporis only)
+	if (Spell == 6) {
+		InventoryRemove(C, "Cloth", false);
+		InventoryRemove(C, "ClothLower", false);
+		InventoryRemove(C, "ClothAccessory", false);
+		InventoryRemove(C, "Shoes", false);
+		InventoryRemove(C, "Bra", false);
+		InventoryRemove(C, "Panties", false);
+		InventoryRemove(C, "Socks", false);
+		InventoryRemove(C, "Gloves", false);
+		InventoryRemove(C, "Corset", false);
+		InventoryRemove(C, "Garters", false);
+		CharacterRefresh(C);
+	}
+
+	// Armbinder spell (House Vincula only)
+	if (Spell == 7)
+		InventoryWear(C, CommonRandomItemFromList("", ["LeatherArmbinder", "ArmbinderJacket", "BoxTieArmbinder", "LatexArmbinder", "SeamlessLatexArmbinder"]), "ItemArms");
 
 }
 

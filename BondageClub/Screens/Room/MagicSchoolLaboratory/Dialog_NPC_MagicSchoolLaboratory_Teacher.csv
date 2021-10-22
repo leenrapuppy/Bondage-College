@@ -14,6 +14,10 @@ BattleFail,,,(She releases you.)  Don't worry about losing.  It takes time and e
 0,20,About magic battles...,What would you like to know?,,
 0,30,Can I practice a spell?,(She takes a step back and nods.)  Which spell would you like to practice?,,
 0,40,On magic school houses...,"The current houses are Maiestas, Vincula, Amplector and Corporis.  Do you need details, or would you like to join any of them?",,
+0,,There's a rumor on a secret technique.,"(She lowers her voice.)  Yes, House Maiestas has a secret self-control technique, but they only teach it to their most acclaimed members.",,"DialogReputationGreater(""HouseMaiestas"", 50)"
+0,,There's a rumor on a secret bondage spell.,"(She lowers her voice.)  Yes, House Vincula knows the armbinder spell, but they only teach it to their most acclaimed members.",,"DialogReputationGreater(""HouseVincula"", 50)"
+0,,There's a rumor on a secret ritual.,"(She lowers her voice.)  Yes, House Amplector has a secret ritual to cast naked, but they only teach it to their most acclaimed members.",,"DialogReputationGreater(""HouseAmplector"", 50)"
+0,,There's a rumor on a secret strip spell.,"(She lowers her voice.)  Yes, House Corporis knows a spell to fully strip, but they only teach it to their most acclaimed members.",,"DialogReputationGreater(""HouseCorporis"", 50)"
 0,,I need to go.  (Leave her.),,DialogLeave(),
 10,,Do you do real magic?,"(She giggles.)  Of course not, don't be silly.  It's all roleplay.  Magic is created when everyone pretend it works.  Background work needs to be done for the spell to work.",,
 10,,Can I join the school?,"We don't take new students right now, but you can join a house to battle other magicians.",,
