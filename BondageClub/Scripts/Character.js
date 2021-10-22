@@ -11,12 +11,26 @@ const CharacterDeafLevels = new Map([
 ]);
 
 /**
+ * An enum representing the various character archetypes
+ * ONLINE: The player, or a character representing another online player
+ * NPC: Any NPC
+ * SIMPLE: Any simple character, generally used internally and not to represent an actual in-game character
+ * @type {Record<"ONLINE"|"NPC"|"SIMPLE", CharacterType>}
+ */
+var CharacterType = {
+	ONLINE: "online",
+	NPC: "npc",
+	SIMPLE: "simple",
+};
+
+/**
  * Loads a character into the buffer, creates it if it does not exist
  * @param {number} CharacterID - ID of the character
  * @param {string} CharacterAssetFamily - Name of the asset family of the character
- * @returns {void} - Nothing
+ * @param {CharacterType} [Type=CharacterType.ONLINE] - The character type
+ * @returns {Character} - The newly loaded character
  */
-function CharacterReset(CharacterID, CharacterAssetFamily) {
+function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.ONLINE) {
 
 	// Prepares the character sheet
 	/** @type {Character} */
@@ -24,6 +38,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily) {
 		ID: CharacterID,
 		Hooks: null,
 		Name: "",
+		Type,
 		AssetFamily: CharacterAssetFamily,
 		AccountName: "",
 		Owner: "",
@@ -235,8 +250,17 @@ function CharacterReset(CharacterID, CharacterAssetFamily) {
 		IsEdged: function () {
 			return CharacterIsEdged(this);
 		},
+		IsPlayer: function() {
+			return this.ID === 0;
+		},
+		IsOnline: function() {
+			return this.Type === CharacterType.ONLINE;
+		},
 		IsNpc: function () {
-			return (this.AccountName.substring(0, 4) === "NPC_" || this.AccountName.substring(0, 4) === "NPC-");
+			return this.Type === CharacterType.NPC;
+		},
+		IsSimple: function() {
+			return this.Type === CharacterType.SIMPLE;
 		},
 		GetDifficulty: function () {
 			return (
@@ -304,6 +328,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily) {
 	// Load the character image
 	CharacterLoadCanvas(NewCharacter);
 
+	return NewCharacter;
 }
 
 /**
@@ -475,7 +500,7 @@ function CharacterLoadNPC(NPCType) {
 			return Character[C];
 
 	// Randomize the new character
-	CharacterReset(CharacterNextId++, "Female3DCG");
+	CharacterReset(CharacterNextId++, "Female3DCG", CharacterType.NPC);
 	let C = Character[Character.length - 1];
 	C.AccountName = NPCType;
 	CharacterLoadCSVDialog(C);
@@ -505,8 +530,7 @@ function CharacterLoadSimple(AccName) {
 			return Character[C];
 
 	// Create the new character
-	CharacterReset(CharacterNextId++, "Female3DCG");
-	let C = Character[Character.length - 1];
+	const C = CharacterReset(CharacterNextId++, "Female3DCG", CharacterType.SIMPLE);
 	C.AccountName = AccName;
 
 	// Returns the new character

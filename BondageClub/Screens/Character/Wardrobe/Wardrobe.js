@@ -46,9 +46,7 @@ function WardrobeLoadCharacters(Fast) {
 		if (WardrobeCharacter.length <= P && ((W == null) || !Fast)) {
 
 			// Creates a character
-			CharacterReset(CharacterNextId++, "Female3DCG");
-			var C = Character[Character.length - 1];
-			C.AccountName = "Wardrobe-" + P.toString();
+			const C = CharacterLoadSimple(`Wardrobe-${P}`);
 			C.Name = Player.WardrobeCharacterNames[P];
 			CharacterAppearanceBuildAssets(C);
 

@@ -51,7 +51,7 @@ function TimerInventoryRemove() {
 
 	// Cycles through all items items for all offline characters (player + NPC)
 	for (let C = 0; C < Character.length; C++)
-		if ((Character[C].ID == 0) || (Character[C].MemberNumber == null))
+		if (Character[C].IsPlayer() || Character[C].IsNpc())
 			for (let A = 0; A < Character[C].Appearance.length; A++)
 				if ((Character[C].Appearance[A].Property != null) && (Character[C].Appearance[A].Property.RemoveTimer != null))
 					if ((typeof Character[C].Appearance[A].Property.RemoveTimer == "number") && (Character[C].Appearance[A].Property.RemoveTimer <= CurrentTime)) {

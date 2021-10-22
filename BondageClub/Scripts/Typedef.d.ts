@@ -60,6 +60,8 @@ type NotificationAlertType = 0 | 1 | 3 | 2;
 
 type DialogSortOrder = | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
+type CharacterType = "online" | "npc" | "simple";
+
 //#endregion
 
 //#region index.html
@@ -476,6 +478,7 @@ interface Character {
 	ID: number;
 	/** Only on `Player` */
 	OnlineID?: string;
+	Type: CharacterType;
 	Name: string;
 	AssetFamily: IAssetFamily | string;
 	AccountName: string;
@@ -548,7 +551,10 @@ interface Character {
 	GetDeafLevel: () => number;
 	IsLoverPrivate: () => boolean;
 	IsEdged: () => boolean;
+	IsPlayer: () => this is PlayerCharacter;
+	IsOnline: () => boolean;
 	IsNpc: () => boolean;
+	IsSimple: () => boolean;
 	GetDifficulty: () => number;
 	IsInverted: () => boolean;
 	CanChangeToPose: (Pose: string) => boolean;
