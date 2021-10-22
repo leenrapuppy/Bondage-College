@@ -199,10 +199,12 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "AccessBreastSuitZip": return !InventoryDoesItemExposeGroup(C, "Cloth", "ItemNipplesPiercings") || !InventoryDoesItemExposeGroup(C, "Suit", "ItemNipplesPiercings") ? "UnZipSuitForItem" : "";
 
 		// Vulva/Butt items can be blocked by clothes, panties and some socks
-		case "AccessVulva": return InventoryDoesItemBlockGroup(C, "Cloth", "ItemVulva")
+		case "AccessVulva": return (InventoryDoesItemBlockGroup(C, "Cloth", "ItemVulva")
 			|| !InventoryDoesItemExposeGroup(C, "ClothLower", "ItemVulva")
 			|| !InventoryDoesItemExposeGroup(C, "Panties", "ItemVulva")
 			|| InventoryDoesItemBlockGroup(C, "Socks", "ItemVulva")
+			|| InventoryDoesItemBlockGroup(C, "ItemPelvis", "ItemVulva")
+			|| InventoryDoesItemBlockGroup(C, "ItemVulvaPiercings", "ItemVulva"))
 			? "RemoveClothesForItem" : "";
 
 		// Some chastity belts have removable vulva shields. This checks for those for items that wish to add something externally.
