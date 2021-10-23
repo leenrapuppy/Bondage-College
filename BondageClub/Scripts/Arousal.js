@@ -757,7 +757,6 @@ function ArousalMinigameControl() {
 				const dictionary = [];
 				dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
 				ServerSend("ChatRoomChat", { Content: "OrgasmFailTimeout" + (Math.floor(Math.random() * 3)).toString(), Type: "Activity", Dictionary: dictionary });
-				ChatRoomCharacterArousalSync(Player);
 			}
 		}
 		ArousalMinigameResistCount++;
@@ -813,7 +812,6 @@ function ArousalMinigameStartOrgasm(character) {
 				const dictionary = [];
 				dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
 				ServerSend("ChatRoomChat", { Content: "Orgasm" + (Math.floor(Math.random() * 10)).toString(), Type: "Activity", Dictionary: dictionary });
-				ChatRoomCharacterArousalSync(character);
 			}
 		} else {
 			if ((character.ID == 0) && (CurrentScreen == "ChatRoom")) {
@@ -821,7 +819,6 @@ function ArousalMinigameStartOrgasm(character) {
 				const chatModifier = ArousalGetOrgasmStage(character) == ArousalOrgasmStage.Resisting ? "Timeout" : "Surrender";
 				dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
 				ServerSend("ChatRoomChat", { Content: ("OrgasmFail" + chatModifier + (Math.floor(Math.random() * 3))).toString(), Type: "Activity", Dictionary: dictionary });
-				ChatRoomCharacterArousalSync(character);
 			}
 
 			ArousalMinigameStopOrgasm(Player, 65 + Math.ceil(Math.random()*20));
@@ -841,7 +838,6 @@ function ArousalMinigameStopOrgasm(character, finalProgress) {
 		ArousalSetOrgasmStage(character, ArousalOrgasmStage.Normal);
 		ArousalSetProgress(character, finalProgress);
 		ArousalTimerTick(character, 0);
-		ChatRoomCharacterArousalSync(character);
 	}
 }
 
