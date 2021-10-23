@@ -488,22 +488,16 @@ function ArousalTimerProcess() {
 	// Arousal/Activity events only occur in allowed rooms
 	if (!ChatRoomAllowsArousalActivities()) return;
 
+	// Handle the minigame state machine
+	ArousalMinigameControl();
+
 	// Arousal can change every second, based on ProgressTimer
 	if ((ArousalTimerPreviousTime + ArousalTimerDuration < CurrentTime) || (ArousalTimerPreviousTime - ArousalTimerDuration > CurrentTime)) {
 		ArousalTimerPreviousTime = CurrentTime;
 		ArousalTimerProcessCount++;
 
 		for (const character of Character) {
-			// If the character is having an orgasm and the timer ran out,
-			// we move to the next orgasm stage
-			const orgasmTimer = ArousalGetOrgasmTimer(character);
-			if (orgasmTimer > 0 && orgasmTimer < CurrentTime) {
-				if (ArousalGetOrgasmStage(character) <= 1) {
-					ArousalMinigameStartOrgasm(character);
-				} else {
-					ArousalMinigameStopOrgasm(character, 20);
-				}
-			} else {
+			{
 
 				// Depending on the character settings, we progress the arousal meter
 				if (ArousalIsInMode(character, ["Automatic", "Hybrid"])) {
@@ -691,7 +685,6 @@ function ArousalOrgasmMinigameRun() {
 				DrawButton(550 + offset, 532, 250, 64, TextGet("OrgasmSurrender"), "White");
 			}
 			if (stage == ArousalOrgasmStage.Resisting) DrawButton(ArousalMinigameButton.x + offset, ArousalMinigameButton.y, 250, 64, ArousalMinigameButton.label, "White");
-			if (ArousalOrgasmShouldRuin) ArousalMinigameControl();
 			if (stage == ArousalOrgasmStage.Orgasming) DrawText(TextGet("OrgasmRecovering"), 500 + offset, 500, "White", "Black");
 
 			ArousalMinigameProgressBarDraw(50 + offset, 970);
@@ -717,7 +710,7 @@ function ArousalOrgasmMinigameClick() {
 		// On stage 0, the player can choose to resist the orgasm or not.  At 1, the player plays a mini-game to fight her orgasm
 		if (stage == ArousalOrgasmStage.Selecting) {
 			if (MouseIn(200 + offset, 532, 250, 68)) {
-				ArousalMinigameGenerate(0);
+				ArousalMinigameGenerate(true);
 				return true;
 			}
 			if (MouseIn(550 + offset, 532, 250, 68)) {
@@ -727,7 +720,7 @@ function ArousalOrgasmMinigameClick() {
 		} else if (stage == ArousalOrgasmStage.Resisting) {
 			// The player plays a mini-game to fight her orgasm
 			if (MouseIn(ArousalMinigameButton.x + offset, ArousalMinigameButton.y, 250, 64)) {
-				ArousalMinigameGenerate(ArousalMinigameStep + 1);
+				ArousalMinigameGenerate(false);
 				return true;
 			}
 		}
@@ -740,58 +733,80 @@ function ArousalOrgasmMinigameClick() {
  * @return {void} - Nothing
  */
 function ArousalMinigameControl() {
+	const stage = ArousalGetOrgasmStage(Player);
 	const orgasmTimer = ArousalGetOrgasmTimer(Player);
-	if (orgasmTimer > 0 && CurrentTime < orgasmTimer) {
-		if (ArousalMinigameStep >= ArousalMinigameDifficulty - 1) {
-			// Game completed, player managed to resist
-			if (CurrentScreen == "ChatRoom") {
-				const dictionary = [];
-				dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
-				ServerSend("ChatRoomChat", { Content: ("OrgasmFailResist" + (Math.floor(Math.random() * 3))).toString(), Type: "Activity", Dictionary: dictionary });
-			}
-		} else if (CurrentTime > orgasmTimer - ArousalMinigameRuinTimeout && CurrentScreen === "ChatRoom") {
-			// Ruin the orgasm
-			if (Player.ArousalSettings.OrgasmStage == ArousalOrgasmStage.Selecting) {
+	const timerExpired = orgasmTimer < CurrentTime;
+
+	switch (stage) {
+		case ArousalOrgasmStage.Normal:
+			// Not having to handle the minigame
+			// This is not supposed to be needed, so WIP
+			Player.ArousalSettings.OrgasmTimer = 0;
+			break;
+
+		case ArousalOrgasmStage.Selecting:
+			// Failed to select in time
+			if (timerExpired && ArousalOrgasmShouldRuin) {
 				ChatRoomMessage({ Content: "OrgasmFailPassive" + (Math.floor(Math.random() * 3)).toString(), Type: "Action", Sender: Player.MemberNumber });
-			} else {
-				const dictionary = [];
-				dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
-				ServerSend("ChatRoomChat", { Content: "OrgasmFailTimeout" + (Math.floor(Math.random() * 3)).toString(), Type: "Activity", Dictionary: dictionary });
+				ArousalMinigameStopOrgasm(Player, 65 + Math.ceil(Math.random() * 20));
+			} else if (timerExpired) {
+				ArousalMinigameStartOrgasm(Player);
 			}
-		}
-		ArousalMinigameResistCount++;
-		ArousalMinigameStopOrgasm(Player, 65 + Math.ceil(Math.random()*20));
+			break;
+
+		case ArousalOrgasmStage.Resisting:
+			if (!timerExpired && ArousalMinigameStep >= ArousalMinigameDifficulty) {
+				// Game completed, player managed to resist all steps
+				ArousalMinigameResistCount++;
+				ArousalMinigameWillpowerProgress(Player);
+				ArousalMinigameStopOrgasm(Player, 65 + Math.ceil(Math.random() * 20));
+
+				if (CurrentScreen == "ChatRoom") {
+					const dictionary = [];
+					dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+					ServerSend("ChatRoomChat", { Content: "OrgasmResist" + (Math.floor(Math.random() * 10)).toString(), Type: "Activity", Dictionary: dictionary });
+				}
+			} else if (ArousalOrgasmShouldRuin && CurrentTime > orgasmTimer - ArousalMinigameRuinTimeout) {
+				// We're supposed to ruin all attempts
+				ArousalMinigameStopOrgasm(Player, 85 + Math.ceil(Math.random() * 10));
+
+				if (CurrentScreen === "ChatRoom") {
+					const dictionary = [];
+					dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+					ServerSend("ChatRoomChat", { Content: ("OrgasmFailResist" + (Math.floor(Math.random() * 3))).toString(), Type: "Activity", Dictionary: dictionary });
+				}
+			} else if (timerExpired) {
+				ArousalMinigameStartOrgasm(Player);
+			}
+			break;
+
+		case ArousalOrgasmStage.Orgasming:
+			// Reset the game on timer expiration
+			if (timerExpired) {
+				ArousalMinigameStopOrgasm(Player, 10 + Math.ceil(Math.random() * 10));
+			}
+			break;
 	}
 }
 
 /**
- * Generates an orgasm button and progresses in the orgasm mini-game. Handles the resets and success/failures
- * @param {number} step - Progress of the currently running mini-game
+ * Generates a resist button to progress in the mini-game.
+ * @param {boolean} reset - Generate a new minigame
  * @returns {void} - Nothing
  */
-function ArousalMinigameGenerate(step) {
-
-	// If we must reset the mini-game
-	if (step == 0) {
+function ArousalMinigameGenerate(reset) {
+	// Initial step, reset the mini-game
+	if (reset) {
 		ArousalSetOrgasmStage(Player, ArousalOrgasmStage.Resisting);
 		ArousalMinigameDifficulty = (6 + (ArousalMinigameResistCount * 2)) * (CommonIsMobile ? 1.5 : 1);
+	} else {
+		ArousalMinigameStep++;
 	}
 
-	// Runs the game or finish it if the threshold is reached, it can trigger a chatroom message for everyone to see
-	if (step >= ArousalMinigameDifficulty) {
-		if (CurrentScreen == "ChatRoom") {
-			const dictionary = [];
-			dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
-			ServerSend("ChatRoomChat", { Content: "OrgasmResist" + (Math.floor(Math.random() * 10)).toString(), Type: "Activity", Dictionary: dictionary });
-		}
-		ArousalMinigameResistCount++;
-		ArousalMinigameStopOrgasm(Player, 70);
-	} else {
-		ArousalMinigameStep = step;
-		ArousalMinigameButton.x = 50 + Math.floor(Math.random() * 650);
-		ArousalMinigameButton.y = 50 + Math.floor(Math.random() * 836);
-		ArousalMinigameButton.label = TextGet("OrgasmResist") + " (" + (ArousalMinigameDifficulty - step).toString() + ")";
-	}
+	// Generate the next button
+	ArousalMinigameButton.x = 50 + Math.floor(Math.random() * 650);
+	ArousalMinigameButton.y = 50 + Math.floor(Math.random() * 836);
+	ArousalMinigameButton.label = TextGet("OrgasmResist") + " (" + (ArousalMinigameDifficulty - ArousalMinigameStep).toString() + ")";
 }
 
 /**
@@ -801,12 +816,15 @@ function ArousalMinigameGenerate(step) {
  */
 function ArousalMinigameStartOrgasm(character) {
 	if ((character.ID == 0) || character.IsNpc()) {
-		if (character.ID == 0 && !ArousalOrgasmShouldRuin) ArousalMinigameResistCount = 0;
 		AsylumGGTSTOrgasm(character);
-		ArousalMinigameWillpowerProgress(character);
 
 		if (!ArousalOrgasmShouldRuin) {
+			// Character managed to orgasm, change the state, update skills
+			// and send message in chat.
 			ArousalSetOrgasmStage(character, ArousalOrgasmStage.Orgasming);
+			ArousalMinigameWillpowerProgress(character);
+			if (character.ID == 0)
+				ArousalMinigameResistCount = 0;
 
 			if ((character.ID == 0) && (CurrentScreen == "ChatRoom")) {
 				const dictionary = [];
