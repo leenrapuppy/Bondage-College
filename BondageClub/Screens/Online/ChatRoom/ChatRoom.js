@@ -978,14 +978,10 @@ function ChatRoomClickCharacter(C, CharX, CharY, Zoom, ClickX, ClickY, Pos) {
 	}
 
 	// If the arousal meter is shown for that character, we can interact with it
-	if (C.ArousalSettings && ["Manual", "Hybrid", "Automatic"].includes(C.ArousalSettings.Active)) {
+	if (ArousalIsActive(C)) {
 		let MeterShow = C.ID === 0;
-		if (C.ID !== 0 && Player.ArousalSettings.ShowOtherMeter && C.ArousalSettings) {
-			if (C.ArousalSettings.Visible === "Access") {
-				MeterShow = C.AllowItem;
-			} else if (C.ArousalSettings.Visible === "All") {
-				MeterShow = true;
-			}
+		if (C.ID !== 0 && ArousalShowsMeter(Player)) {
+			MeterShow = ArousalCanChangeMeter(C);
 		}
 		if (MeterShow) {
 			// The arousal meter can be maximized or minimized by clicking on it
@@ -994,10 +990,10 @@ function ChatRoomClickCharacter(C, CharX, CharY, Zoom, ClickX, ClickY, Pos) {
 
 			// If the player can manually control her arousal, we set the progress manual and change the facial expression, it can trigger an orgasm at 100%
 			if (C.ID === 0 && MouseIn(CharX + 50 * Zoom, CharY + 200 * Zoom, 100 * Zoom, 500 * Zoom) && C.ArousalZoom) {
-				if (Player.ArousalSettings.Active === "Manual" || Player.ArousalSettings.Active === "Hybrid") {
+				if (ArousalIsInMode(Player, ["Manual", "Hybrid"])) {
 					var Arousal = Math.round((CharY + 625 * Zoom - MouseY) / (4 * Zoom));
 					ArousalSetProgress(Player, Arousal);
-					if (Player.ArousalSettings.AffectExpression) ArousalSetExpression(Player, Player.ArousalSettings.Progress);
+					if (Player.ArousalSettings.AffectExpression) ArousalUpdateExpression(Player, Player.ArousalSettings.Progress);
 					if (Player.ArousalSettings.Progress == 100) ArousalTriggerOrgasm(Player);
 				}
 				return;
@@ -1215,8 +1211,9 @@ function ChatRoomStimulationMessage(Context, Color = "#FFB0B0", FlashIntensity =
 							else trigPlug = "Back";
 						}
 					}
-					if (trigMsgTemp != "" && Player.ArousalSettings && Player.ArousalSettings.Progress > 0) {
-						trigChance += modArousal * Player.ArousalSettings.Progress/100;
+					let progress = ArousalGetProgress(Player);
+					if (trigMsgTemp != "" && progress > 0) {
+						trigChance += modArousal * progress / 100;
 					}
 					if (trigMsgTemp != "") {
 						const Inflation = InventoryGetItemProperty(C.Appearance[A], "InflateLevel", true);
@@ -1265,7 +1262,7 @@ function ChatRoomStimulationMessage(Context, Color = "#FFB0B0", FlashIntensity =
 				ChatRoomPinkFlashAlphaStrength = AlphaStrength;
 			} else {
 				// Increase player arousal to the zone
-				if (!Player.IsEdged() && Player.ArousalSettings && Player.ArousalSettings.Progress && Player.ArousalSettings.Progress < 70 - arousalAmount && trigMsgTemp != "Gag")
+				if (!Player.IsEdged() && ArousalIsArousalBetween(Player, null, 70 - arousalAmount) && trigMsgTemp != "Gag")
 					ActivityEffectFlat(Player, Player, arousalAmount, trigGroup, 1);
 				ChatRoomPinkFlashTime = CommonTime() + (Math.random() + arousalAmount/2.4) * 500;
 				ChatRoomPinkFlashColor = Color;
@@ -1304,14 +1301,14 @@ function ChatRoomResize(load) {
  * @returns {void} - Nothing.
  */
  function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride) {
-	let Progress = (ArousalOverride) ? ArousalOverride : Player.ArousalSettings.Progress;
+	let Progress = (ArousalOverride) ? ArousalOverride : ArousalGetProgress(Player);
 	let amplitude = 0.24 * Math.min(1, 2 - 1.5 * Progress/100); // Amplitude of the oscillation
 	let percent = Progress/100.0;
 	let level = Math.min(0.5, percent) + 0.5 * Math.pow(Math.max(0, percent*2 - 1), 4);
 	let oscillation = Math.sin(CommonTime() / 1000 % Math.PI);
 	let alpha = 0.6 * level * (0.99 - amplitude + amplitude * oscillation);
 
-	if (Player.ArousalSettings.VFXFilter == "VFXFilterHeavy") {
+	if (ArousalGetVFXFilterSetting(Player) == ArousalVFXFilter.Heavy) {
 		const Grad = MainCanvas.createLinearGradient(0, y1, 0, h);
 		let alphamin = Math.max(0, alpha / 2 - 0.05);
 		Grad.addColorStop(0, `rgba(255, 100, 176, ${alpha})`);
@@ -1322,7 +1319,7 @@ function ChatRoomResize(load) {
 		MainCanvas.fillStyle = Grad;
 		MainCanvas.fillRect(0, y1, Width, h);
 	} else {
-		if (Player.ArousalSettings.VFXFilter != "VFXFilterMedium") {
+		if (ArousalGetVFXFilterSetting(Player) == ArousalVFXFilter.Light) {
 			alpha = (Progress >= 91) ? 0.25 : 0;
 		} else alpha /= 2;
 		if (alpha > 0)
@@ -1538,21 +1535,21 @@ function ChatRoomRun() {
 	ChatRoomMenuDraw();
 
 	// In orgasm mode, we add a pink filter and different controls depending on the stage.  The pink filter shows a little above 90
-	if ((Player.ArousalSettings != null) && (Player.ArousalSettings.Active != null) && (Player.ArousalSettings.Active != "Inactive") && (Player.ArousalSettings.Active != "NoMeter")) {
-		if ((Player.ArousalSettings.OrgasmTimer != null) && (typeof Player.ArousalSettings.OrgasmTimer === "number") && !isNaN(Player.ArousalSettings.OrgasmTimer) && (Player.ArousalSettings.OrgasmTimer > 0)) {
+	if (ArousalIsActive(Player)) {
+		if (ArousalGetOrgasmTimer(Player) > 0) {
+			let stage = ArousalGetOrgasmStage(Player);
 			DrawRect(0, 0, 1003, 1000, "#FFB0B0B0");
 			DrawRect(1003, 0, 993, 63, "#FFB0B0B0");
-			if (Player.ArousalSettings.OrgasmStage == null) Player.ArousalSettings.OrgasmStage = 0;
-			if (Player.ArousalSettings.OrgasmStage == 0) {
+			if (stage == 0) {
 				DrawText(TextGet("OrgasmComing"), 500, 410, "White", "Black");
 				DrawButton(200, 532, 250, 64, TextGet("OrgasmTryResist"), "White");
 				DrawButton(550, 532, 250, 64, TextGet("OrgasmSurrender"), "White");
 			}
-			if (Player.ArousalSettings.OrgasmStage == 1) DrawButton(ActivityOrgasmGameButtonX, ActivityOrgasmGameButtonY, 250, 64, ActivityOrgasmResistLabel, "White");
+			if (stage == 1) DrawButton(ActivityOrgasmGameButtonX, ActivityOrgasmGameButtonY, 250, 64, ActivityOrgasmResistLabel, "White");
 			if (ActivityOrgasmRuined) ArousalMinigameControl();
-			if (Player.ArousalSettings.OrgasmStage == 2) DrawText(TextGet("OrgasmRecovering"), 500, 500, "White", "Black");
+			if (stage == 2) DrawText(TextGet("OrgasmRecovering"), 500, 500, "White", "Black");
 			ArousalProgressBarDraw(50, 970);
-		} else if ((Player.ArousalSettings.Progress != null) && (Player.ArousalSettings.Progress >= 1) && (Player.ArousalSettings.Progress <= 99) && !CommonPhotoMode) {
+		} else if (ArousalIsArousalBetween(Player, 0, 100) && !CommonPhotoMode) {
 			let y1 = 0;
 			let h = 1000;
 
@@ -1560,7 +1557,7 @@ function ChatRoomRun() {
 			else if (ChatRoomCharacterCount == 4) {y1 = 150; h = 700;}
 			else if (ChatRoomCharacterCount == 5) {y1 = 250; h = 500;}
 
-			ChatRoomDrawArousalScreenFilter(y1, h, 1003, Player.ArousalSettings.Progress);
+			ChatRoomDrawArousalScreenFilter(y1, h, 1003, ArousalGetProgress(Player));
 		}
 	}
 
@@ -1633,14 +1630,18 @@ function ChatRoomClick() {
 
 	// In orgasm mode, we do not allow any clicks expect the chat
 	if (MouseIn(1905, 910, 90, 90)) ChatRoomSendChat();
-	if ((Player.ArousalSettings != null) && (Player.ArousalSettings.OrgasmTimer != null) && (typeof Player.ArousalSettings.OrgasmTimer === "number") && !isNaN(Player.ArousalSettings.OrgasmTimer) && (Player.ArousalSettings.OrgasmTimer > 0)) {
+	if (ArousalGetOrgasmTimer(Player) > 0) {
 
+		let stage = ArousalGetOrgasmStage(Player);
 		// On stage 0, the player can choose to resist the orgasm or not.  At 1, the player plays a mini-game to fight her orgasm
-		if (MouseIn(200, 532, 250, 68) && (Player.ArousalSettings.OrgasmStage == 0)) ArousalMinigameGenerate(0);
-		if (MouseIn(550, 532, 250, 68) && (Player.ArousalSettings.OrgasmStage == 0)) ArousalMinigameStartOrgasm(Player);
-		if ((MouseX >= ActivityOrgasmGameButtonX) && (MouseX <= ActivityOrgasmGameButtonX + 250) && (MouseY >= ActivityOrgasmGameButtonY) && (MouseY <= ActivityOrgasmGameButtonY + 64) && (Player.ArousalSettings.OrgasmStage == 1)) ArousalMinigameGenerate(ActivityOrgasmGameProgress + 1);
-		return;
-
+		if (stage == 0) {
+			if (MouseIn(200, 532, 250, 68)) ArousalMinigameGenerate(0);
+			if (MouseIn(550, 532, 250, 68)) ArousalMinigameStartOrgasm(Player);
+		} else if (stage == 1) {
+			if (MouseIn(ActivityOrgasmGameButtonX, ActivityOrgasmGameButtonY, 250, 64))
+				ArousalMinigameGenerate(ActivityOrgasmGameProgress + 1);
+			return;
+		}
 	}
 
 	// When the user chats or clicks on a character
@@ -2244,7 +2245,7 @@ function ChatRoomMessage(data) {
 					// If another player is using an item which applies an activity on the current player, apply the effect here
 					AsylumGGTSActivity(SenderCharacter, Player, ActivityName, GroupName, ActivityCounter);
 					if ((ActivityName != null) && (TargetMemberNumber != null) && (TargetMemberNumber == Player.MemberNumber) && (SenderCharacter.MemberNumber != Player.MemberNumber))
-						if ((Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic"))
+						if (ArousalIsInMode(Player, ["Hybrid", "Automatic"]))
 							ActivityEffect(SenderCharacter, Player, ActivityName, GroupName, ActivityCounter);
 
 					// Launches the audio file if allowed
@@ -2354,7 +2355,7 @@ function ChatRoomMessage(data) {
 				// If the player does the activity on herself or an NPC, we calculate the result right away
 				AsylumGGTSActivity(SenderCharacter, Player, ActivityName, ActivityGroup, ActivityCounter);
 				if ((data.Type === "Action") || ((TargetMemberNumber == Player.MemberNumber) && (SenderCharacter.MemberNumber != Player.MemberNumber)))
-					if ((Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic"))
+					if (ArousalIsInMode(Player, ["Hybrid", "Automatic"]))
 						ActivityEffect(SenderCharacter, Player, ActivityName, ActivityGroup, ActivityCounter);
 
 				// When the player is in total sensory deprivation, hide messages if the player is not involved
@@ -2849,7 +2850,7 @@ function ChatRoomSyncArousal(data) {
 			ChatRoomCharacter[C].ArousalSettings.OrgasmCount = data.OrgasmCount;
 			ChatRoomCharacter[C].ArousalSettings.Progress = data.Progress;
 			ChatRoomCharacter[C].ArousalSettings.ProgressTimer = data.ProgressTimer;
-			if ((ChatRoomCharacter[C].ArousalSettings.AffectExpression == null) || ChatRoomCharacter[C].ArousalSettings.AffectExpression) ArousalSetExpression(ChatRoomCharacter[C], ChatRoomCharacter[C].ArousalSettings.Progress);
+			if (ArousalAffectsExpression(ChatRoomCharacter[C])) ArousalUpdateExpression(ChatRoomCharacter[C], ChatRoomCharacter[C].ArousalSettings.Progress);
 
 			// Keeps a copy of the previous version
 			for (let C = 0; C < ChatRoomData.Character.length; C++)

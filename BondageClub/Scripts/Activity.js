@@ -339,7 +339,7 @@ function ActivityEffectFlat(S, C, Amount, Z, Count) {
  * @returns {void} - Nothing
  */
 function ActivityRunSelf(Source, Target, Activity) {
-	if (((Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic")) && (Source.ID == 0) && (Target.ID != 0)) {
+	if (ArousalIsInMode(Player, ["Hybrid", "Automatic"]) && (Source.ID == 0) && (Target.ID != 0)) {
 		var Factor = (PreferenceGetActivityFactor(Player, Activity.Name, false) * 5) - 10; // Check how much the player likes the activity, from -10 to +10
 		Factor = Factor + Math.floor((Math.random() * 8)); // Random 0 to 7 bonus
 		if (Target.IsLoverOfPlayer()) Factor = Factor + Math.floor((Math.random() * 8)); // Another random 0 to 7 bonus if the target is the player's lover
@@ -357,7 +357,7 @@ function ActivityRun(C, Activity) {
 
 	let group = ActivityGetGroupOrMirror(C.AssetFamily, C.FocusGroup.Name);
 	// If the player does the activity on herself or an NPC, we calculate the result right away
-	if ((C.ArousalSettings.Active == "Hybrid") || (C.ArousalSettings.Active == "Automatic"))
+	if (ArousalIsInMode(C, ["Hybrid", "Automatic"]))
 		if ((C.ID == 0) || C.IsNpc())
 			ActivityEffect(Player, C, Activity, group.Name);
 
@@ -405,7 +405,7 @@ function ActivityArousalItem(Source, Target, Asset) {
 	if (AssetActivity != null) {
 		var Activity = AssetGetActivity(Target.AssetFamily, AssetActivity);
 		if ((Source.ID == 0) && (Target.ID != 0)) ActivityRunSelf(Source, Target, Activity);
-		if (((Target.ArousalSettings != null) && ((Target.ArousalSettings.Active == "Hybrid") || (Target.ArousalSettings.Active == "Automatic"))) && ((Target.ID == 0) || (Target.IsNpc())))
+		if (ArousalIsInMode(Target, ["Hybrid", "Automatic"]) && ((Target.ID == 0) || (Target.IsNpc())))
 			ActivityEffect(Source, Target, AssetActivity, Asset.Group.Name);
 	}
 }

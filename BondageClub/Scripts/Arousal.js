@@ -1,5 +1,76 @@
 "use strict";
 
+/** @type {Record<"Inactive"|"NoMeter"|"Manual"|"Hybrid"|"Automatic", ArousalMeterMode>} */
+const ArousalMode = {
+	Inactive: "Inactive",
+	NoMeter: "NoMeter",
+	Manual: "Manual",
+	Hybrid: "Hybrid",
+	Automatic: "Automatic",
+};
+
+/** @type {Record<"All"|"Access"|"Self", ArousalAccessMode>} */
+const ArousalAccess = {
+	All: "All",
+	Access: "Access",
+	Self: "Self",
+};
+
+/** @type {Record<"Inactive"|"Animated"|"AnimatedTemp", ArousalVFXMode>} */
+const ArousalVFX = {
+	Inactive: "VFXInactive",
+	Animated: "VFXAnimated",
+	AnimatedTemp: "VFXAnimatedTemp",
+};
+
+/** @type {Record<"Light"|"Medium"|"Heavy", ArousalVFXFilterMode>} */
+const ArousalVFXFilter = {
+	Light: "VFXFilterLight",
+	Medium: "VFXFilterMedium",
+	Heavy: "VFXFilterHeavy",
+};
+
+/** @type {Record<"None"|"Arousal"|"Vibration"|"All", ArousalStutterMode>} */
+const ArousalStutter = {
+	None: "None",
+	Arousal: "Arousal",
+	Vibration: "Vibration",
+	All: "All"
+};
+
+/**
+ * Check a player or character's arousal mode against a list.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @param {Array<ArousalMeterMode>} modes - The arousal modes
+ * @returns {boolean|null}
+ */
+function ArousalIsInMode(character, modes) {
+	if (character.ArousalSettings && character.ArousalSettings.Active)
+		return modes.includes(character.ArousalSettings.Active);
+	return false;
+}
+
+/**
+ * Check whether a player or character's can be aroused.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @returns {boolean|null}
+ */
+function ArousalIsActive(character) {
+	return ArousalIsInMode(character, [ArousalMode.Manual, ArousalMode.Hybrid, ArousalMode.Automatic]);
+}
+
+/**
+ * Returns a player or character's arousal progress value.
+ * @param {Character|Player} character - The character to read arousal from
+ * @returns {number|null}
+ */
+function ArousalGetProgress(character) {
+	if (!ArousalIsActive(character)) return 0;
+	if (character.ArousalSettings && typeof character.ArousalSettings.Progress === "number" && !isNaN(character.ArousalSettings.Progress))
+		return character.ArousalSettings.Progress;
+	return null;
+}
+
 /**
  * Sets the character arousal level and validates the value
  * @param {Character} character - The character for which to set the arousal progress of
@@ -16,6 +87,130 @@ function ArousalSetProgress(character, value) {
 		character.ArousalSettings.ProgressTimer = 0;
 		ChatRoomCharacterArousalSync(character);
 	}
+}
+
+/**
+ * Returns a player or character's arousal access mode.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @returns {ArousalAccessMode|null}
+ */
+function ArousalGetAccessMode(character) {
+	if (character.ArousalSettings && character.ArousalSettings.Visible)
+		return character.ArousalSettings.Visible;
+	return null;
+}
+
+/**
+ * Returns a player or character's arousal progress value.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @param {number|null} lower - The lower bound, excluded
+ * @param {number|null} upper - The upper bound, excluded
+ * @returns {boolean}
+ */
+function ArousalIsArousalBetween(character, lower, upper) {
+	const arousal = ArousalGetProgress(character);
+	return (
+		arousal !== null &&
+		(lower === null || arousal > lower) &&
+		(upper === null || arousal < upper)
+	);
+}
+
+/**
+ * Returns a player or character's auto-stuttering setting.
+ * @param {Character|Player} character
+ * @returns {ArousalStutterMode}
+ */
+function ArousalGetStutterSetting(character) {
+	if (character.ArousalSettings && character.ArousalSettings.AffectStutter)
+		return character.ArousalSettings.AffectStutter;
+	return ArousalStutter.All;
+}
+
+/**
+ * Returns a player or character's orgasm stage value.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @returns {number} - 0 is no orgasm, 1 means minigame is in progress, 2 means is orgasming
+ */
+function ArousalGetOrgasmStage(character) {
+	if (character.ArousalSettings && character.ArousalSettings.OrgasmStage)
+		return character.ArousalSettings.OrgasmStage;
+	return 0;
+}
+
+/**
+ * Returns a player or character's orgasm timer value.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @returns {number}
+ */
+function ArousalGetOrgasmTimer(character) {
+	if (character.ArousalSettings && character.ArousalSettings.OrgasmTimer)
+		return character.ArousalSettings.OrgasmTimer;
+	return 0;
+}
+
+/**
+ * Returns a player or character's orgasm count.
+ * @param {Character|Player} character
+ * @returns {number}
+ */
+function ArousalGetOrgasmCount(character) {
+	if (character.ArousalSettings && typeof character.ArousalSettings.OrgasmCount === "number")
+		return character.ArousalSettings.OrgasmCount;
+	return 0;
+}
+
+/**
+ * Returns whether a player or character's arousal affects its expression.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @returns {boolean}
+ */
+function ArousalAffectsExpression(character) {
+	if (character.ArousalSettings && character.ArousalSettings.AffectExpression)
+		return !!character.ArousalSettings.AffectExpression;
+	return false;
+}
+
+/**
+ * Returns whether a player or character's can see others' arousal meters.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @returns {boolean}
+ */
+function ArousalShowsMeter(character) {
+	if (character.ArousalSettings && character.ArousalSettings.ShowOtherMeter)
+		return !!character.ArousalSettings.ShowOtherMeter;
+	return false;
+}
+
+/**
+ * Returns whether a player or character's can see others' arousal meters.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @returns {boolean}
+ */
+function ArousalCanChangeMeter(character) {
+	const access = ArousalGetAccessMode(character);
+	return (access === ArousalAccess.Access && character.AllowItem) || access === ArousalAccess.All;
+}
+
+/**
+ * Does the character allow advanced vibrating modes on itself?
+ * @param {Character|Player} character
+ */
+function ArousalHasAdvancedVibesDisabled(character) {
+	if (character.ArousalSettings && typeof character.ArousalSettings.DisableAdvancedVibes === "boolean")
+		return character.ArousalSettings.DisableAdvancedVibes;
+	return false;
+}
+
+/**
+ * Returns the current timed progress for a character.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @returns {number}
+ */
+function ArousalGetTimedProgress(character) {
+	if (character.ArousalSettings)
+		return character.ArousalSettings.ProgressTimer;
+	return 0;
 }
 
 /**
@@ -47,6 +242,17 @@ function ArousalSetTimedProgress(character, activity, zone, progressDelta) {
 }
 
 /**
+ * Get the character current vibration level.
+ * @param {Character} character
+ * @return {number}
+ */
+function ArousalGetVibratorLevel(character) {
+	if (character.ArousalSettings && typeof character.ArousalSettings.VibratorLevel === "number" && !isNaN(character.ArousalSettings.VibratorLevel))
+		return character.ArousalSettings.VibratorLevel;
+	return 0;
+}
+
+/**
  * Set the current vibrator level for drawing purposes
  * @param {Character} character - Character for which the timer is progressing
  * @param {number} level - Level from 0 to 4 (higher = more vibration)
@@ -59,6 +265,37 @@ function ArousalSetVibratorLevel(character, level) {
 			character.ArousalSettings.ChangeTime = CommonTime();
 		}
 	}
+}
+
+/**
+ * Get the characters' arousal effect visual setting.
+ * @param {Character} character
+ * @return {ArousalVFXMode}
+ */
+function ArousalGetVFXSetting(character) {
+	if (character.ArousalSettings && character.ArousalSettings.VFX)
+		return character.ArousalSettings.VFX;
+	return ArousalVFX.Inactive;
+}
+
+/**
+ * Has the character arousal effect enabled?
+ * @param {Character} character
+ * @return {boolean}
+ */
+function ArousalVFXActive(character) {
+	return ArousalGetVFXSetting(character) !== ArousalVFX.Inactive;
+}
+
+/**
+ * Get the characters' arousal effect visual filter.
+ * @param {Character} character
+ * @return {ArousalVFXFilterMode}
+ */
+function ArousalGetVFXFilterSetting(character) {
+	if (character.ArousalSettings && character.ArousalSettings.VFXFilter)
+		return character.ArousalSettings.VFXFilter;
+	return ArousalVFXFilter.Light;
 }
 
 /**
