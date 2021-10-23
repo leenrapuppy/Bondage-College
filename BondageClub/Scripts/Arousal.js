@@ -89,9 +89,10 @@ function ArousalGetProgress(character) {
  * Sets the character arousal level and validates the value
  * @param {Character} character - The character for which to set the arousal progress of
  * @param {number} value - Progress to set for the character (Ranges from 0 to 100)
+ * @param {boolean} [resetTimer=true] - Force the progress timer to 0, stopping all arousal
  * @return {void} - Nothing
  */
-function ArousalSetProgress(character, value) {
+function ArousalSetProgress(character, value, resetTimer = true) {
 	if (!ArousalIsActive(character)) return;
 
 	// Clamp arousal values to [0, 100]
@@ -111,7 +112,8 @@ function ArousalSetProgress(character, value) {
 	if (character.ArousalSettings.Progress == value) return;
 
 	character.ArousalSettings.Progress = value;
-	character.ArousalSettings.ProgressTimer = 0;
+	if (resetTimer)
+		character.ArousalSettings.ProgressTimer = 0;
 
 	ChatRoomCharacterArousalSync(character);
 }
@@ -408,7 +410,7 @@ function ArousalTimerTick(character, progressDelta) {
 
 	// Changes the current arousal progress value
 	const newProgress = ArousalGetProgress(character) + progressDelta;
-	ArousalSetProgress(character, newProgress);
+	ArousalSetProgress(character, newProgress, false);
 
 	// Out of orgasm mode, it can affect facial expressions at every 10 steps
 	if (ArousalGetOrgasmTimer(character) < CurrentTime && (newProgress % 10 == 0))
