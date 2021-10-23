@@ -419,6 +419,10 @@ function ArousalGetVFXFilterSetting(character) {
  * @returns {void} - Nothing
  */
 function ArousalTriggerOrgasm(character, shouldRuin) {
+	// Already orgasming, bail out
+	if (ArousalGetOrgasmStage(character) != ArousalOrgasmStage.Normal)
+		return;
+
 	if (character.ID == 0)
 		ArousalOrgasmShouldRuin = false;
 
