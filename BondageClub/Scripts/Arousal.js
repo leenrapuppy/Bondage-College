@@ -427,6 +427,93 @@ function ArousalUpdateExpression(character, progress) {
 /** Arousal Minigame */
 
 /**
+ * Main loop for the orgasm minigame
+ * @returns {void}
+ */
+function ArousalOrgasmMinigameRun() {
+	let offset = 0;
+	const screenFilter = {y: 0, h: 0, w: 0};
+	if (CurrentScreen == "Private") {
+		offset = 500;
+		screenFilter.y = 0;
+		screenFilter.h = 1000;
+		screenFilter.w = 2000;
+	} else {
+		screenFilter.y = 0;
+		screenFilter.h = 1000;
+		if (ChatRoomCharacterCount == 3) {
+			screenFilter.y = 50;
+			screenFilter.h = 900;
+		} else if (ChatRoomCharacterCount == 4) {
+			screenFilter.y = 150;
+			screenFilter.h = 700;
+		} else if (ChatRoomCharacterCount == 5) {
+			screenFilter.y = 250;
+			screenFilter.h = 500;
+		}
+		screenFilter.w = 1003;
+	}
+
+	// In orgasm mode, we add a pink filter and different controls
+	// depending on the stage.  The pink filter shows a little above 90.
+	if (ArousalIsActive(Player)) {
+		if (ArousalGetOrgasmTimer(Player) > 0) {
+			const stage = ArousalGetOrgasmStage(Player);
+			// Gradient over the main area
+			DrawRect(0, screenFilter.y, screenFilter.w, screenFilter.h, "#FFB0B0B0");
+			if (CurrentScreen == "ChatRoom") {
+				// Gradient over the menu items
+				DrawRect(1003, 0, 993, 63, "#FFB0B0B0");
+			}
+			if (stage == 0) {
+				DrawText(TextGet("OrgasmComing"), 500 + offset, 410, "White", "Black");
+				DrawButton(200 + offset, 532, 250, 64, TextGet("OrgasmTryResist"), "White");
+				DrawButton(550 + offset, 532, 250, 64, TextGet("OrgasmSurrender"), "White");
+			}
+			if (stage == 1) DrawButton(ActivityOrgasmGameButtonX + offset, ActivityOrgasmGameButtonY, 250, 64, ActivityOrgasmResistLabel, "White");
+			if (ActivityOrgasmRuined) ArousalMinigameControl();
+			if (stage == 2) DrawText(TextGet("OrgasmRecovering"), 500 + offset, 500, "White", "Black");
+			ArousalMinigameProgressBarDraw(50 + offset, 970);
+		} else if (ArousalIsArousalBetween(Player, 0, 100) && !CommonPhotoMode) {
+			ChatRoomDrawArousalScreenFilter(screenFilter.y, screenFilter.h, screenFilter.w);
+		}
+	}
+
+	if (Player.ArousalSettings.VFXVibrator == "VFXVibratorSolid" || Player.ArousalSettings.VFXVibrator == "VFXVibratorAnimated") {
+		ChatRoomVibrationScreenFilter(screenFilter.y, screenFilter.h, screenFilter.w, Player);
+	}
+}
+
+/**
+ * Click handler for the arousal minigame
+ * @returns {boolean} - Whether the click was handled
+ */
+function ArousalOrgasmMinigameClick() {
+	if (ArousalGetOrgasmTimer(Player) > 0) {
+		const stage = ArousalGetOrgasmStage(Player);
+		// X offset for the private room
+		const offset = (CurrentScreen == "Private" ? 500 : 0);
+		// On stage 0, the player can choose to resist the orgasm or not.  At 1, the player plays a mini-game to fight her orgasm
+		if (stage == 0) {
+			if (MouseIn(200 + offset, 532, 250, 68)) {
+				ArousalMinigameGenerate(0);
+				return true;
+			}
+			if (MouseIn(550 + offset, 532, 250, 68)) {
+				ArousalMinigameStartOrgasm(Player);
+				return true;
+			}
+		} else if (stage == 1) {
+			if (MouseIn(ActivityOrgasmGameButtonX + offset, ActivityOrgasmGameButtonY, 250, 64)) {
+				ArousalMinigameGenerate(ActivityOrgasmGameProgress + 1);
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+/**
  * Ends the orgasm early if progress is close or progress is sufficient
  * @return {void} - Nothing
  */

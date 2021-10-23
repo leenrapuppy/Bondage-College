@@ -1297,10 +1297,10 @@ function ChatRoomResize(load) {
  * @param {number} y1 - Y to draw filter at.
  * @param {number} h - Height of filter
  * @param {number} Width - Width of filter
- * @param {number} ArousalOverride - Override to the existing arousal value
+ * @param {number} [ArousalOverride] - Override to the existing arousal value
  * @returns {void} - Nothing.
  */
- function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride) {
+ function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride = null) {
 	let Progress = (ArousalOverride) ? ArousalOverride : ArousalGetProgress(Player);
 	let amplitude = 0.24 * Math.min(1, 2 - 1.5 * Progress/100); // Amplitude of the oscillation
 	let percent = Progress/100.0;
@@ -1534,43 +1534,7 @@ function ChatRoomRun() {
 	// Draw the buttons at the top-right
 	ChatRoomMenuDraw();
 
-	// In orgasm mode, we add a pink filter and different controls depending on the stage.  The pink filter shows a little above 90
-	if (ArousalIsActive(Player)) {
-		if (ArousalGetOrgasmTimer(Player) > 0) {
-			let stage = ArousalGetOrgasmStage(Player);
-			DrawRect(0, 0, 1003, 1000, "#FFB0B0B0");
-			DrawRect(1003, 0, 993, 63, "#FFB0B0B0");
-			if (stage == 0) {
-				DrawText(TextGet("OrgasmComing"), 500, 410, "White", "Black");
-				DrawButton(200, 532, 250, 64, TextGet("OrgasmTryResist"), "White");
-				DrawButton(550, 532, 250, 64, TextGet("OrgasmSurrender"), "White");
-			}
-			if (stage == 1) DrawButton(ActivityOrgasmGameButtonX, ActivityOrgasmGameButtonY, 250, 64, ActivityOrgasmResistLabel, "White");
-			if (ActivityOrgasmRuined) ArousalMinigameControl();
-			if (stage == 2) DrawText(TextGet("OrgasmRecovering"), 500, 500, "White", "Black");
-			ArousalProgressBarDraw(50, 970);
-		} else if (ArousalIsArousalBetween(Player, 0, 100) && !CommonPhotoMode) {
-			let y1 = 0;
-			let h = 1000;
-
-			if (ChatRoomCharacterCount == 3) {y1 = 50; h = 900;}
-			else if (ChatRoomCharacterCount == 4) {y1 = 150; h = 700;}
-			else if (ChatRoomCharacterCount == 5) {y1 = 250; h = 500;}
-
-			ChatRoomDrawArousalScreenFilter(y1, h, 1003, ArousalGetProgress(Player));
-		}
-	}
-
-	if (Player.ArousalSettings.VFXVibrator == "VFXVibratorSolid" || Player.ArousalSettings.VFXVibrator == "VFXVibratorAnimated") {
-		let y1 = 0;
-		let h = 1000;
-
-		if (ChatRoomCharacterCount == 3) {y1 = 50; h = 900;}
-		else if (ChatRoomCharacterCount == 4) {y1 = 150; h = 700;}
-		else if (ChatRoomCharacterCount == 5) {y1 = 250; h = 500;}
-
-		ChatRoomVibrationScreenFilter(y1, h, 1003, Player);
-	}
+	ArousalOrgasmMinigameRun();
 
 	if ((Player.ImmersionSettings != null && Player.GraphicsSettings != null) && (Player.ImmersionSettings.StimulationEvents && Player.GraphicsSettings.StimulationFlash) && ChatRoomPinkFlashTime > CommonTime()) {
 		let FlashTime = ChatRoomPinkFlashTime - CommonTime(); // ChatRoomPinkFlashTime is the end of the flash. The flash is brighter based on the distance to the end.
@@ -1630,19 +1594,8 @@ function ChatRoomClick() {
 
 	// In orgasm mode, we do not allow any clicks expect the chat
 	if (MouseIn(1905, 910, 90, 90)) ChatRoomSendChat();
-	if (ArousalGetOrgasmTimer(Player) > 0) {
 
-		let stage = ArousalGetOrgasmStage(Player);
-		// On stage 0, the player can choose to resist the orgasm or not.  At 1, the player plays a mini-game to fight her orgasm
-		if (stage == 0) {
-			if (MouseIn(200, 532, 250, 68)) ArousalMinigameGenerate(0);
-			if (MouseIn(550, 532, 250, 68)) ArousalMinigameStartOrgasm(Player);
-		} else if (stage == 1) {
-			if (MouseIn(ActivityOrgasmGameButtonX, ActivityOrgasmGameButtonY, 250, 64))
-				ArousalMinigameGenerate(ActivityOrgasmGameProgress + 1);
-			return;
-		}
-	}
+	if (ArousalOrgasmMinigameClick()) return;
 
 	// When the user chats or clicks on a character
 	if (MouseIn(0, 0, 1000, 1000)) ChatRoomDrawCharacter(true);

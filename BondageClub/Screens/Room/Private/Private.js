@@ -456,29 +456,7 @@ function PrivateRun() {
 		DrawButton(1885, 865, 90, 90, "", "White", "Icons/BedroomBackground.png", TextGet("PrivateRoomBackground"));
 	}
 
-	// In orgasm mode, we add a pink filter and different controls depending on the stage
-	if (ArousalIsActive(Player)) {
-		if (ArousalGetOrgasmTimer(Player) > 0) {
-			DrawRect(0, 0, 2000, 1000, "#FFB0B0B0");
-			let stage = ArousalGetOrgasmStage(Player);
-			if (stage == 0) {
-				DrawText(TextGet("OrgasmComing"), 1000, 410, "White", "Black");
-				DrawButton(700, 532, 250, 64, TextGet("OrgasmTryResist"), "White");
-				DrawButton(1050, 532, 250, 64, TextGet("OrgasmSurrender"), "White");
-			}
-			if (stage == 1) DrawButton(ActivityOrgasmGameButtonX + 500, ActivityOrgasmGameButtonY, 250, 64, ActivityOrgasmResistLabel, "White");
-			if (ActivityOrgasmRuined) ArousalMinigameControl();
-			if (stage == 2) DrawText(TextGet("OrgasmRecovering"), 1000, 500, "White", "Black");
-			ArousalProgressBarDraw(550, 970);
-		} else if (ArousalIsArousalBetween(Player, 0, 100)) {
-			ChatRoomDrawArousalScreenFilter(0, 1000, 2000, ArousalGetProgress(Player));
-		}
-	}
-
-	if (Player.ArousalSettings.VFXVibrator == "VFXVibratorSolid" || Player.ArousalSettings.VFXVibrator == "VFXVibratorAnimated") {
-		ChatRoomVibrationScreenFilter(0, 1000, 2000, Player);
-	}
-
+	ArousalOrgasmMinigameRun();
 
 	// If we must save a character status after a dialog
 	if (PrivateCharacterToSave > 0) {
@@ -628,19 +606,7 @@ function PrivateClickCharacter() {
  */
 function PrivateClick() {
 
-	// If the player is having an orgasm, only the orgasm controls are available
-	if (ArousalGetOrgasmTimer(Player) > 0) {
-		let stage = ArousalGetOrgasmStage(Player);
-		// On stage 0, the player can choose to resist the orgasm or not.  At 1, the player plays a mini-game to fight her orgasm
-		if (stage == 0) {
-			if (MouseIn(700, 532, 250, 68)) ArousalOrgasmMinigameGenerate(0);
-			if (MouseIn(1050, 532, 250, 68)) ArousalOrgasmMinigameStartOrgasm(Player);
-		} else if (stage == 1) {
-			if (MouseIn(ActivityOrgasmGameButtonX + 500, ActivityOrgasmGameButtonY, 200, 64))
-				ArousalMinigameGenerate(ActivityOrgasmGameProgress + 1);
-		}
-		return;
-	}
+	if (ArousalOrgasmMinigameClick()) return;
 
 	// Main screens buttons
 	if (MouseIn(500, 0, 500, 1000) && !LogQuery("RentRoom", "PrivateRoom")) CharacterSetCurrent(Player);
