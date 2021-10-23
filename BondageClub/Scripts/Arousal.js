@@ -249,21 +249,45 @@ function ArousalGetTimedProgress(character) {
  * @return {void} - Nothing
  */
 function ArousalSetTimedProgress(character, activity, zone, progressDelta) {
-	// If there's already a progress timer running, we add it's value but divide it by 2 to lessen the impact, the progress must be between -25 and 25
-	if ((character.ArousalSettings.ProgressTimer == null) || (typeof character.ArousalSettings.ProgressTimer !== "number") || isNaN(character.ArousalSettings.ProgressTimer)) character.ArousalSettings.ProgressTimer = 0;
-	progressDelta = Math.round((character.ArousalSettings.ProgressTimer / 2) + progressDelta);
+	// The progress delta must be between -25 and 25
 	if (progressDelta < -25) progressDelta = -25;
 	if (progressDelta > 25) progressDelta = 25;
 
-	// Make sure we do not allow orgasms if the activity (MaxProgress) or the zone (AllowOrgasm) doesn't allow it
-	let maxProgress = ((activity == null || activity.MaxProgress == null) || (activity.MaxProgress > 100)) ? 100 : activity.MaxProgress;
-	if ((maxProgress > 95) && !PreferenceGetZoneOrgasm(character, zone)) maxProgress = 95;
-	if ((maxProgress > 67) && (zone == "ActivityOnOther")) maxProgress = 67;
-	if ((progressDelta > 0) && (character.ArousalSettings.Progress + progressDelta > maxProgress)) progressDelta = (maxProgress - character.ArousalSettings.Progress >= 0) ? maxProgress - character.ArousalSettings.Progress : 0;
+	// Maximum arousal value
+	let maxProgress = 100;
+	// If the activity has a MaxProgress value set, account for it
+	if (activity && activity.MaxProgress != null) {
+		maxProgress = Math.max(Math.min(100, activity.MaxProgress), 0);
+	}
+
+	// Do not allow orgasms if the zone doesn't allow it
+	if ((maxProgress > 95) && !PreferenceGetZoneOrgasm(character, zone)) {
+		maxProgress = 95;
+	}
+
+	// This is a specific marker for activities done on yourself
+	if (maxProgress > 67 && zone == "ActivityOnOther") {
+		maxProgress = 67;
+	}
+
+	// If progress is positive, clamp its value so it doesn't
+	// go over the calculated maximum.
+	const charProgress = ArousalGetProgress(character);
+	if (progressDelta > 0 && (charProgress + progressDelta) > maxProgress) {
+		const remaining = maxProgress - charProgress;
+		progressDelta = (remaining >= 0 ? remaining : 0);
+	}
+
+	// Update the progress timer
+	let progressTimer = ArousalGetTimedProgress(character);
+
+	// If there's already a progress timer running, divide it by 2 to lessen the impact
+	if (progressTimer != 0)
+		progressTimer = Math.round(progressTimer / 2);
 
 	// If we must apply a progress timer change, we publish it
-	if ((character.ArousalSettings.ProgressTimer == null) || (character.ArousalSettings.ProgressTimer != progressDelta)) {
-		character.ArousalSettings.ProgressTimer = progressDelta;
+	if ((progressTimer + progressDelta) != progressTimer) {
+		character.ArousalSettings.ProgressTimer = progressTimer + progressDelta;
 		ChatRoomCharacterArousalSync(character);
 	}
 }
