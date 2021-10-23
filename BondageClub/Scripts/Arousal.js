@@ -745,9 +745,9 @@ function ArousalMinigameGenerate(step) {
 
 	// If we must reset the mini-game
 	if (step == 0) {
-		Player.ArousalSettings.OrgasmStage = 1;
-		Player.ArousalSettings.OrgasmTimer = CurrentTime + 5000 + (SkillGetLevel(Player, "Willpower") * 1000);
-		ArousalMinigameTimer = Player.ArousalSettings.OrgasmTimer - CurrentTime;
+		const orgasmDuration = ArousalOrgasmDuration + (SkillGetLevel(Player, "Willpower") * 1000);
+		ArousalSetOrgasmState(Player, 1, CurrentTime + orgasmDuration);
+		ArousalMinigameTimer = orgasmDuration;
 		ArousalMinigameDifficulty = (6 + (ArousalMinigameResistCount * 2)) * (CommonIsMobile ? 1.5 : 1);
 	}
 
@@ -780,11 +780,10 @@ function ArousalMinigameStartOrgasm(character) {
 		ArousalMinigameWillpowerProgress(character);
 
 		if (!ArousalOrgasmShouldRuin) {
-
-			character.ArousalSettings.OrgasmTimer = CurrentTime + (Math.random() * 10000) + 5000;
-			character.ArousalSettings.OrgasmStage = 2;
-			character.ArousalSettings.OrgasmCount = (character.ArousalSettings.OrgasmCount == null) ? 1 : character.ArousalSettings.OrgasmCount + 1;
-			ArousalMinigameTimer = character.ArousalSettings.OrgasmTimer - CurrentTime;
+			let orgasmDuration = ArousalOrgasmDuration + (Math.random() * 10000);
+			ArousalSetOrgasmState(character, 2, CurrentTime + orgasmDuration);
+			ArousalMinigameTimer = orgasmDuration;
+			character.ArousalSettings.OrgasmCount++;
 
 			if ((character.ID == 0) && (CurrentScreen == "ChatRoom")) {
 				const dictionary = [];
@@ -815,8 +814,7 @@ function ArousalMinigameStartOrgasm(character) {
 function ArousalMinigameStopOrgasm(character, finalProgress) {
 	if ((character.ID == 0) || character.IsNpc()) {
 		ArousalMinigameWillpowerProgress(character);
-		character.ArousalSettings.OrgasmTimer = 0;
-		character.ArousalSettings.OrgasmStage = 0;
+		ArousalSetOrgasmState(character, 0, 0);
 		ArousalSetProgress(character, finalProgress);
 		ArousalTimerTick(character, 0);
 		ChatRoomCharacterArousalSync(character);
