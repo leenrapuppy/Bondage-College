@@ -223,7 +223,7 @@ function DrawArousalMeter(C, X, Y, Zoom) {
 			if (C.ID == 0 || ArousalShowsMeter(Player)) {
 				ArousalSetProgress(C, C.ArousalSettings.Progress);
 
-				if (ArousalVFXActive(Player) && C.ArousalSettings.Progress > 0 && ArousalIsInMode(C, ["Automatic", "Hybrid"])) {
+				if (ArousalVFXActive(Player) && ArousalGetProgress(C) > 0 && ArousalIsInMode(C, ["Automatic", "Hybrid"])) {
 					let Progress = ArousalGetVibratorLevel(C);
 
 					if (Progress > 0) { // -1 is disabled
@@ -245,7 +245,7 @@ function DrawArousalMeter(C, X, Y, Zoom) {
 					X + (C.ArousalZoom ? 50 : 90) * Zoom,
 					Y + (C.ArousalZoom ? 200 : 400) * Zoom,
 					C.ArousalZoom ? Zoom : Zoom * 0.2,
-					C.ArousalSettings.Progress,
+					ArousalGetProgress(C),
 					ArousalIsInMode(C, ["Automatic"]),
 					ArousalGetOrgasmTimer(C) > 0);
 
