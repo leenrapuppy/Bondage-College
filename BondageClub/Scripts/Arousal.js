@@ -66,6 +66,9 @@ let ArousalOrgasmShouldRuin = false;
 /** Duration cutoff for a ruined orgasm */
 const ArousalMinigameRuinTimeout = 500;
 
+/** Duration of an orgasm */
+const ArousalOrgasmDuration = 5000;
+
 /**
  * Check a player or character's arousal mode against a list.
  * @param {Character|Player} character - The character or player to read arousal from
@@ -201,6 +204,19 @@ function ArousalGetOrgasmCount(character) {
 	if (character.ArousalSettings && typeof character.ArousalSettings.OrgasmCount === "number")
 		return character.ArousalSettings.OrgasmCount;
 	return 0;
+}
+
+/**
+ * Sets a player or character orgasm state.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @param {number} stage - The stage of orgasm
+ * @param {number} timer - The duration of the orgasm
+ * @returns {void}
+ */
+function ArousalSetOrgasmState(character, stage, timer) {
+	character.ArousalSettings.OrgasmStage = stage;
+	character.ArousalSettings.OrgasmTimer = timer;
+	ChatRoomCharacterArousalSync(character);
 }
 
 /**
@@ -376,16 +392,14 @@ function ArousalTriggerOrgasm(character, shouldRuin) {
 	if (character.ID == 0)
 		ArousalOrgasmShouldRuin = false;
 
-	if (character.Effect.includes("DenialMode")) {
-		character.ArousalSettings.Progress = 99;
-		if (character.ID == 0 && (shouldRuin || character.Effect.includes("RuinOrgasms"))) ArousalOrgasmShouldRuin = true;
-		else return;
-	}
-
-	if (character.IsEdged()) {
-		character.ArousalSettings.Progress = 95;
-		if (character.ID == 0 && shouldRuin) ArousalOrgasmShouldRuin = true;
-		else return;
+	// If the character is being denied, or kept on edge
+	if (character.IsDenied() || character.IsEdged()) {
+		const maxProgress = character.IsDenied() ? 99 : 95;
+		ArousalSetProgress(character, maxProgress);
+		if (character.ID == 0 && (shouldRuin || character.Effect.includes("RuinOrgasms")))
+			ArousalOrgasmShouldRuin = true;
+		else
+			return;
 	}
 
 	if (character.ID == 0 && ArousalOrgasmShouldRuin) {
@@ -393,19 +407,25 @@ function ArousalTriggerOrgasm(character, shouldRuin) {
 	}
 
 	if ((character.ID == 0) || character.IsNpc()) {
+		// Starts the timer depending on the character type (player or NPC)
+		if (character.ID == 0) {
+			const orgasmDuration = ArousalOrgasmDuration;
+			ArousalSetOrgasmState(character, 0, CurrentTime + orgasmDuration);
+			ArousalMinigameTimer = orgasmDuration;
+		} else {
+			const orgasmDuration = ArousalOrgasmDuration + (Math.random() * 10000);
+			ArousalSetOrgasmState(character, 2, CurrentTime + orgasmDuration);
+		}
 
-		// Starts the timer and exits from dialog if necessary
-		character.ArousalSettings.OrgasmTimer = (character.ID == 0) ? CurrentTime + 5000 : CurrentTime + (Math.random() * 10000) + 5000;
-		character.ArousalSettings.OrgasmStage = (character.ID == 0) ? 0 : 2;
-		if (character.ID == 0) ArousalMinigameTimer = character.ArousalSettings.OrgasmTimer - CurrentTime;
-		if ((CurrentCharacter != null) && ((character.ID == 0) || (CurrentCharacter.ID == character.ID))) DialogLeave();
-		ChatRoomCharacterArousalSync(character);
+		// Exits from dialog if necessary
+		if (CurrentCharacter != null && CurrentCharacter.ID == character.ID)
+			DialogLeave();
 
 		// If an NPC orgasmed, it will raise her love based on the horny trait
-		if (character.IsNpc())
+		if (character.IsNpc()) {
 			if ((character.Love == null) || (character.Love < 60) || (character.IsOwner()) || (character.IsOwnedByPlayer()) || character.IsLoverPrivate())
 				NPCLoveChange(character, Math.floor((NPCTraitGet(character, "Horny") + 100) / 20) + 1);
-
+		}
 	}
 }
 

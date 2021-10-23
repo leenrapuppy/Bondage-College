@@ -176,6 +176,9 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		IsEgged: function () {
 			return (this.Effect.indexOf("Egged") >= 0);
 		},
+		IsDenied: function () {
+			return this.Effect.includes("DenialMode");
+		},
 		IsMouthBlocked: function () {
 			return this.Effect.indexOf("BlockMouth") >= 0;
 		},

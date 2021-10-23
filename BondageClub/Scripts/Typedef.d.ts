@@ -535,6 +535,7 @@ interface Character {
 	IsVulvaChaste: () => boolean;
 	IsBreastChaste: () => boolean;
 	IsEgged: () => boolean;
+	IsDenied: () => boolean;
 	IsOwned: () => boolean;
 	IsOwnedByPlayer: () => boolean;
 	IsOwner: () => boolean;
