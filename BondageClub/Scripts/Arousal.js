@@ -497,80 +497,77 @@ function ArousalTimerProcess() {
 		ArousalTimerProcessCount++;
 
 		for (const character of Character) {
-			{
-
-				// Depending on the character settings, we progress the arousal meter
-				if (ArousalIsInMode(character, ["Automatic", "Hybrid"])) {
-					// Activity impacts the progress slowly over time.
-					// If there's an activity running, vibrations are ignored
-					const progressTimer = ArousalGetTimedProgress(character);
-					if (progressTimer != 0) {
-						if (progressTimer < 0) {
-							character.ArousalSettings.ProgressTimer++;
-							ArousalTimerTick(character, -1);
-							ArousalSetVibratorLevel(character, 0);
-						}
-						else {
-							character.ArousalSettings.ProgressTimer--;
-							ArousalTimerTick(character, 1);
-							ArousalSetVibratorLevel(character, 4);
-						}
-					} else if (character.IsEgged()) {
-						// If the character is egged, we find the highest intensity
-						// factor and affect the progress, low and medium vibrations
-						// have a cap
-						let factor = -1;
-						for (const item of character.Appearance) {
-							let zoneFactor = PreferenceGetZoneFactor(character, item.Asset.ArousalZone) - 2;
-							if (InventoryItemHasEffect(item, "Egged", true) && (item.Property != null) && (item.Property.Intensity != null) && (typeof item.Property.Intensity === "number") && !isNaN(item.Property.Intensity) && (item.Property.Intensity >= 0) && (zoneFactor >= 0) && (item.Property.Intensity + zoneFactor > factor)){
-								if (ArousalIsArousalBetween(character, null, 95) || PreferenceGetZoneOrgasm(character, item.Asset.ArousalZone))
-									factor = item.Property.Intensity + zoneFactor;
-							}
-						}
-
-						// Adds the fetish value to the factor
-						if (factor >= 0) {
-							const fetish = ActivityFetishFactor(character);
-							if (fetish > 0)
-								factor = factor + Math.ceil(fetish / 3);
-							if (fetish < 0)
-								factor = factor + Math.floor(fetish / 3);
-						}
-
-						// Kicks the arousal timer faster from personal arousal
-						let progress = ArousalGetProgress(character);
-						if (factor >= 4) {
-							ArousalSetVibratorLevel(character, 4);
-							if (ArousalTimerProcessCount % 2 == 0)
-								ArousalTimerTick(character, 1);
-						}
-						if (factor == 3) {
-							ArousalSetVibratorLevel(character, 3);
-							if (ArousalTimerProcessCount % 3 == 0)
-								ArousalTimerTick(character, 1);
-						}
-						if (factor == 2) {
-							ArousalSetVibratorLevel(character, 2);
-							if (progress <= 95 && ArousalTimerProcessCount % 4 == 0)
-								ArousalTimerTick(character, 1);
-						}
-						if (factor == 1) {
-							ArousalSetVibratorLevel(character, 1);
-							if (progress <= 65 && ArousalTimerProcessCount % 6 == 0)
-								ArousalTimerTick(character, 1);
-						}
-						if (factor == 0) {
-							ArousalSetVibratorLevel(character, 1);
-							if (progress <= 35 && ArousalTimerProcessCount % 8 == 0)
-								ArousalTimerTick(character, 1);
-						}
-						if (factor == -1) {
-							ArousalSetVibratorLevel(character, 0);
+			// Depending on the character settings, we progress the arousal meter
+			if (ArousalIsInMode(character, ["Automatic", "Hybrid"])) {
+				// Activity impacts the progress slowly over time.
+				// If there's an activity running, vibrations are ignored
+				const progressTimer = ArousalGetTimedProgress(character);
+				if (progressTimer != 0) {
+					if (progressTimer < 0) {
+						character.ArousalSettings.ProgressTimer++;
+						ArousalTimerTick(character, -1);
+						ArousalSetVibratorLevel(character, 0);
+					}
+					else {
+						character.ArousalSettings.ProgressTimer--;
+						ArousalTimerTick(character, 1);
+						ArousalSetVibratorLevel(character, 4);
+					}
+				} else if (character.IsEgged()) {
+					// If the character is egged, we find the highest intensity
+					// factor and affect the progress, low and medium vibrations
+					// have a cap
+					let factor = -1;
+					for (const item of character.Appearance) {
+						let zoneFactor = PreferenceGetZoneFactor(character, item.Asset.ArousalZone) - 2;
+						if (InventoryItemHasEffect(item, "Egged", true) && (item.Property != null) && (item.Property.Intensity != null) && (typeof item.Property.Intensity === "number") && !isNaN(item.Property.Intensity) && (item.Property.Intensity >= 0) && (zoneFactor >= 0) && (item.Property.Intensity + zoneFactor > factor)){
+							if (ArousalIsArousalBetween(character, null, 95) || PreferenceGetZoneOrgasm(character, item.Asset.ArousalZone))
+							factor = item.Property.Intensity + zoneFactor;
 						}
 					}
-				} else {
-					ArousalSetVibratorLevel(character, 0);
+
+					// Adds the fetish value to the factor
+					if (factor >= 0) {
+						const fetish = ActivityFetishFactor(character);
+						if (fetish > 0)
+							factor = factor + Math.ceil(fetish / 3);
+						if (fetish < 0)
+							factor = factor + Math.floor(fetish / 3);
+					}
+
+					// Kicks the arousal timer faster from personal arousal
+					let progress = ArousalGetProgress(character);
+					if (factor >= 4) {
+						ArousalSetVibratorLevel(character, 4);
+						if (ArousalTimerProcessCount % 2 == 0)
+							ArousalTimerTick(character, 1);
+					}
+					if (factor == 3) {
+						ArousalSetVibratorLevel(character, 3);
+						if (ArousalTimerProcessCount % 3 == 0)
+							ArousalTimerTick(character, 1);
+					}
+					if (factor == 2) {
+						ArousalSetVibratorLevel(character, 2);
+						if (progress <= 95 && ArousalTimerProcessCount % 4 == 0)
+							ArousalTimerTick(character, 1);
+					}
+					if (factor == 1) {
+						ArousalSetVibratorLevel(character, 1);
+						if (progress <= 65 && ArousalTimerProcessCount % 6 == 0)
+							ArousalTimerTick(character, 1);
+					}
+					if (factor == 0) {
+						ArousalSetVibratorLevel(character, 1);
+						if (progress <= 35 && ArousalTimerProcessCount % 8 == 0)
+							ArousalTimerTick(character, 1);
+					}
+					if (factor == -1) {
+						ArousalSetVibratorLevel(character, 0);
+					}
 				}
+			} else {
+				ArousalSetVibratorLevel(character, 0);
 			}
 		}
 	}
