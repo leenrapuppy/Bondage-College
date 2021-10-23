@@ -733,6 +733,7 @@ function ArousalMinigameControl() {
 	const stage = ArousalGetOrgasmStage(Player);
 	const orgasmTimer = ArousalGetOrgasmTimer(Player);
 	const timerExpired = orgasmTimer < CurrentTime;
+	const ruinedTimerExpired = ArousalOrgasmShouldRuin && orgasmTimer < CurrentTime + ArousalMinigameRuinTimeout;
 
 	switch (stage) {
 		case ArousalOrgasmStage.Normal:
@@ -743,7 +744,7 @@ function ArousalMinigameControl() {
 
 		case ArousalOrgasmStage.Selecting:
 			// Failed to select in time
-			if (timerExpired && ArousalOrgasmShouldRuin) {
+			if (ruinedTimerExpired) {
 				ChatRoomMessage({ Content: "OrgasmFailPassive" + (Math.floor(Math.random() * 3)).toString(), Type: "Action", Sender: Player.MemberNumber });
 				ArousalMinigameStopOrgasm(Player, 65 + Math.ceil(Math.random() * 20));
 			} else if (timerExpired) {
@@ -763,7 +764,7 @@ function ArousalMinigameControl() {
 					dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
 					ServerSend("ChatRoomChat", { Content: "OrgasmResist" + (Math.floor(Math.random() * 10)).toString(), Type: "Activity", Dictionary: dictionary });
 				}
-			} else if (ArousalOrgasmShouldRuin && CurrentTime > orgasmTimer - ArousalMinigameRuinTimeout) {
+			} else if (ruinedTimerExpired) {
 				// We're supposed to ruin all attempts
 				ArousalMinigameStopOrgasm(Player, 85 + Math.ceil(Math.random() * 10));
 
