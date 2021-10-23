@@ -450,7 +450,7 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptUpdatePlayer(data, LastTime
 		let punishment = InventoryFuturisticChastityBeltCheckPunish(Item);
 		if (punishment != "") {
 			if (punishment == "Orgasm") {
-				if (Item.Property.PunishOrgasm && ArousalGetOrgasmStage(C) > 1) {
+				if (Item.Property.PunishOrgasm && ArousalGetOrgasmStage(C) > ArousalOrgasmStage.Selecting) {
 					AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, "Orgasm");
 					Item.Property.NextShockTime = CurrentTime + FuturisticChastityBeltShockCooldownOrgasm; // Difficult to have two orgasms in 10 seconds
 				}

@@ -73,6 +73,7 @@ type ArousalAccessMode = "All" | "Access" | "Self";
 type ArousalVFXMode = "VFXInactive" | "VFXAnimated" | "VFXAnimatedTemp";
 type ArousalVFXFilterMode = "VFXFilterLight" | "VFXFilterMedium" | "VFXFilterHeavy";
 type ArousalStutterMode = "None" | "Arousal" | "Vibration" | "All";
+type ArousalOrgasmStages = 0 | 1 | 2 | 3;
 
 //#endregion
 
@@ -599,7 +600,7 @@ interface Character {
 		Zone: any[];
 		Fetish: any[];
 		OrgasmTimer?: number;
-		OrgasmStage?: number;
+		OrgasmStage?: ArousalOrgasmStages;
 		OrgasmCount?: number;
 		DisableAdvancedVibes: boolean;
 	};
