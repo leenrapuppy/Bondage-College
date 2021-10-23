@@ -1,14 +1,5 @@
 "use strict";
 var ActivityDictionary = null;
-var ActivityOrgasmGameButtonX = 0;
-var ActivityOrgasmGameButtonY = 0;
-var ActivityOrgasmGameProgress = 0;
-var ActivityOrgasmGameDifficulty = 0;
-var ActivityOrgasmGameResistCount = 0;
-var ActivityOrgasmGameTimer = 0;
-var ActivityOrgasmResistLabel = "";
-
-var ActivityOrgasmRuined = false; // If set to true, the orgasm will be ruined right before it happens
 
 /**
  * Loads the activity dictionary that will be used throughout the game to output messages. Loads from cache first if possible.
