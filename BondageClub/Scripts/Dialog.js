@@ -1516,7 +1516,7 @@ function DialogClick() {
 				// If this specific activity is clicked, we run it
 				if ((MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275)) {
 					IntroductionJobProgress("SubActivity", DialogActivity[A].MaxProgress.toString(), true);
-					ActivityRun(C, DialogActivity[A]);
+					ActivityRun(C, DialogActivity[A], C.FocusGroup.Name);
 					return;
 				}
 

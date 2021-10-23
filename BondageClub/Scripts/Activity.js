@@ -340,27 +340,26 @@ function ActivityRunSelf(Source, Target, Activity) {
 
 /**
  * Launches a sexual activity for a character and sends the chatroom message if applicable.
- * @param {Character} C - Character on which the activity was triggered
- * @param {object} Activity - Activity performed
+ * @param {Character} character - Character on which the activity was triggered
+ * @param {Activity} activity - Activity performed
+ * @param {string} groupname - Where is the activity performed
  * @returns {void} - Nothing
  */
-function ActivityRun(C, Activity) {
-
-	let group = ActivityGetGroupOrMirror(C.AssetFamily, C.FocusGroup.Name);
+function ActivityRun(character, activity, groupname) {
+	let group = ActivityGetGroupOrMirror(character.AssetFamily, groupname);
 	// If the player does the activity on herself or an NPC, we calculate the result right away
-	if (ArousalIsInMode(C, ["Hybrid", "Automatic"]))
-		if ((C.ID == 0) || C.IsNpc())
-			ActivityEffect(Player, C, Activity, group.Name);
+	if (ArousalIsInMode(character, ["Hybrid", "Automatic"]) && ((character.ID == 0) || character.IsNpc()))
+			ActivityEffect(Player, character, activity, group.Name);
 
-	if (C.ID == 0) {
-		if (Activity.MakeSound) {
+	if (character.ID == 0) {
+		if (activity.MakeSound) {
 			AutoPunishGagActionFlag = true;
 			AutoShockGagActionFlag = true;
 		}
 	}
 
 	// If the player does the activity on someone else, we calculate the progress for the player right away
-	ActivityRunSelf(Player, C, Activity);
+	ActivityRunSelf(Player, character, activity);
 
 	// The text result can be outputted in the chatroom or in the NPC dialog
 	if (CurrentScreen == "ChatRoom") {
@@ -368,12 +367,12 @@ function ActivityRun(C, Activity) {
 		// Publishes the activity to the chatroom
 		var Dictionary = [];
 		Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
-		Dictionary.push({ Tag: "TargetCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
+		Dictionary.push({ Tag: "TargetCharacter", Text: character.Name, MemberNumber: character.MemberNumber });
 		Dictionary.push({ Tag: "ActivityGroup", Text: group.Name });
-		Dictionary.push({ Tag: "ActivityName", Text: Activity.Name });
-		ServerSend("ChatRoomChat", { Content: ((C.ID == 0) ? "ChatSelf-" : "ChatOther-") + group.Name + "-" + Activity.Name, Type: "Activity", Dictionary: Dictionary });
+		Dictionary.push({ Tag: "ActivityName", Text: activity.Name });
+		ServerSend("ChatRoomChat", { Content: ((character.ID == 0) ? "ChatSelf-" : "ChatOther-") + group.Name + "-" + activity.Name, Type: "Activity", Dictionary: Dictionary });
 
-		if (C.ID == 0 && Activity.Name.indexOf("Struggle") >= 0)
+		if (character.ID == 0 && activity.Name.indexOf("Struggle") >= 0)
 
 			ChatRoomStimulationMessage("StruggleAction");
 
