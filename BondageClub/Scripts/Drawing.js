@@ -221,8 +221,6 @@ function DrawArousalMeter(C, X, Y, Zoom) {
 	if (ChatRoomAllowsArousalActivities() && ArousalIsActive(C))
 		if (C.ID == 0 || ArousalCanChangeMeter(C))
 			if (C.ID == 0 || ArousalShowsMeter(Player)) {
-				ArousalSetProgress(C, C.ArousalSettings.Progress);
-
 				if (ArousalVFXActive(Player) && ArousalGetProgress(C) > 0 && ArousalIsInMode(C, ["Automatic", "Hybrid"])) {
 					let Progress = ArousalGetVibratorLevel(C);
 
