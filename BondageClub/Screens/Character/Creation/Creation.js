@@ -100,7 +100,7 @@ function CreationResponse(data) {
 
 			// Load/initialise player settings and global variables
 			PreferenceInitPlayer();
-			ActivitySetArousal(Player, 0);
+			ArousalSetProgress(Player, 0);
 			NotificationLoad();
 
 			// New accounts aren't updating from old version

@@ -688,7 +688,7 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptStateMachine(data) {
 	if (ArousalActive) {
 		if (EdgeMode && C.ArousalSettings.Progress > 96 && !((ActivityOrgasmGameTimer != null) && (ActivityOrgasmGameTimer > 0) && (CurrentTime < C.ArousalSettings.OrgasmTimer))) { // Manually trigger orgasm at this stage
 			DialogLeave();
-			ActivityOrgasmPrepare(C, true);
+			ArousalTriggerOrgasm(C, true);
 			// Continuous edging~
 			if (Mode == "EdgeAndDeny")
 				C.ArousalSettings.Progress = 80;

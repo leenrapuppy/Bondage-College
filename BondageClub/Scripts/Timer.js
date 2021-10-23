@@ -153,8 +153,8 @@ function TimerProcess(Timestamp) {
 				// If the character is having an orgasm and the timer ran out, we move to the next orgasm stage
 				if ((Character[C].ArousalSettings != null) && (Character[C].ArousalSettings.OrgasmTimer != null) && (Character[C].ArousalSettings.OrgasmTimer > 0)) {
 					if (Character[C].ArousalSettings.OrgasmTimer < CurrentTime) {
-						if ((Character[C].ArousalSettings.OrgasmStage == null) || (Character[C].ArousalSettings.OrgasmStage <= 1)) ActivityOrgasmStart(Character[C]);
-						else ActivityOrgasmStop(Character[C], 20);
+						if ((Character[C].ArousalSettings.OrgasmStage == null) || (Character[C].ArousalSettings.OrgasmStage <= 1)) ArousalMinigameStartOrgasm(Character[C]);
+						else ArousalMinigameStopOrgasm(Character[C], 20);
 					}
 				} else {
 
@@ -165,13 +165,13 @@ function TimerProcess(Timestamp) {
 						if ((Character[C].ArousalSettings.ProgressTimer != null) && (typeof Character[C].ArousalSettings.ProgressTimer === "number") && !isNaN(Character[C].ArousalSettings.ProgressTimer) && (Character[C].ArousalSettings.ProgressTimer != 0)) {
 							if (Character[C].ArousalSettings.ProgressTimer < 0) {
 								Character[C].ArousalSettings.ProgressTimer++;
-								ActivityTimerProgress(Character[C], -1);
-								ActivityVibratorLevel(Character[C], 0);
+								ArousalTimerTick(Character[C], -1);
+								ArousalSetVibratorLevel(Character[C], 0);
 							}
 							else {
 								Character[C].ArousalSettings.ProgressTimer--;
-								ActivityTimerProgress(Character[C], 1);
-								ActivityVibratorLevel(Character[C], 4);
+								ArousalTimerTick(Character[C], 1);
+								ArousalSetVibratorLevel(Character[C], 4);
 							}
 						} else if (Character[C].IsEgged()) {
 
@@ -194,16 +194,16 @@ function TimerProcess(Timestamp) {
 							}
 
 							// Kicks the arousal timer faster from personal arousal
-							if ((Factor >= 4)) {ActivityVibratorLevel(Character[C], 4); if (TimerLastArousalProgressCount % 2 == 0)ActivityTimerProgress(Character[C], 1);}
-							if ((Factor == 3)) {ActivityVibratorLevel(Character[C], 3); if (TimerLastArousalProgressCount % 3 == 0) ActivityTimerProgress(Character[C], 1);}
-							if ((Factor == 2)) {ActivityVibratorLevel(Character[C], 2); if (Character[C].ArousalSettings.Progress <= 95 && TimerLastArousalProgressCount % 4 == 0) ActivityTimerProgress(Character[C], 1);}
-							if ((Factor == 1)) {ActivityVibratorLevel(Character[C], 1); if (Character[C].ArousalSettings.Progress <= 65 && TimerLastArousalProgressCount % 6 == 0) ActivityTimerProgress(Character[C], 1);}
-							if ((Factor == 0)) {ActivityVibratorLevel(Character[C], 1); if (Character[C].ArousalSettings.Progress <= 35 && TimerLastArousalProgressCount % 8 == 0) ActivityTimerProgress(Character[C], 1);}
-							if ((Factor == -1)) {ActivityVibratorLevel(Character[C], 0);}
+							if ((Factor >= 4)) {ArousalSetVibratorLevel(Character[C], 4); if (TimerLastArousalProgressCount % 2 == 0)ArousalTimerTick(Character[C], 1);}
+							if ((Factor == 3)) {ArousalSetVibratorLevel(Character[C], 3); if (TimerLastArousalProgressCount % 3 == 0) ArousalTimerTick(Character[C], 1);}
+							if ((Factor == 2)) {ArousalSetVibratorLevel(Character[C], 2); if (Character[C].ArousalSettings.Progress <= 95 && TimerLastArousalProgressCount % 4 == 0) ArousalTimerTick(Character[C], 1);}
+							if ((Factor == 1)) {ArousalSetVibratorLevel(Character[C], 1); if (Character[C].ArousalSettings.Progress <= 65 && TimerLastArousalProgressCount % 6 == 0) ArousalTimerTick(Character[C], 1);}
+							if ((Factor == 0)) {ArousalSetVibratorLevel(Character[C], 1); if (Character[C].ArousalSettings.Progress <= 35 && TimerLastArousalProgressCount % 8 == 0) ArousalTimerTick(Character[C], 1);}
+							if ((Factor == -1)) {ArousalSetVibratorLevel(Character[C], 0);}
 
 						}
 					} else {
-						ActivityVibratorLevel(Character[C], 0);
+						ArousalSetVibratorLevel(Character[C], 0);
 					}
 				}
 			}
@@ -228,7 +228,7 @@ function TimerProcess(Timestamp) {
 							}
 
 							// No decay if there's a vibrating item running
-							if (Factor < 0) ActivityTimerProgress(Character[C], -1);
+							if (Factor < 0) ArousalTimerTick(Character[C], -1);
 
 						}
 		}

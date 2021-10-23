@@ -467,9 +467,9 @@ function PrivateRun() {
 				DrawButton(1050, 532, 250, 64, TextGet("OrgasmSurrender"), "White");
 			}
 			if (Player.ArousalSettings.OrgasmStage == 1) DrawButton(ActivityOrgasmGameButtonX + 500, ActivityOrgasmGameButtonY, 250, 64, ActivityOrgasmResistLabel, "White");
-			if (ActivityOrgasmRuined) ActivityOrgasmControl();
+			if (ActivityOrgasmRuined) ArousalMinigameControl();
 			if (Player.ArousalSettings.OrgasmStage == 2) DrawText(TextGet("OrgasmRecovering"), 1000, 500, "White", "Black");
-			ActivityOrgasmProgressBar(550, 970);
+			ArousalProgressBarDraw(550, 970);
 		} else if ((Player.ArousalSettings.Progress != null) && (Player.ArousalSettings.Progress >= 1) && (Player.ArousalSettings.Progress <= 99)) ChatRoomDrawArousalScreenFilter(0, 1000, 2000, Player.ArousalSettings.Progress);
 	}
 
@@ -563,9 +563,9 @@ function PrivateClickCharacter() {
 								if ((Player.ArousalSettings != null) && (Player.ArousalSettings.Active != null) && (Player.ArousalSettings.Progress != null)) {
 									if ((Player.ArousalSettings.Active == "Manual") || (Player.ArousalSettings.Active == "Hybrid")) {
 										var Arousal = Math.round((625 - MouseY) / 4, 0);
-										ActivitySetArousal(Player, Arousal);
-										if ((Player.ArousalSettings.AffectExpression == null) || Player.ArousalSettings.AffectExpression) ActivityExpression(Player, Player.ArousalSettings.Progress);
-										if (Player.ArousalSettings.Progress == 100) ActivityOrgasmPrepare(Player);
+										ArousalSetProgress(Player, Arousal);
+										if ((Player.ArousalSettings.AffectExpression == null) || Player.ArousalSettings.AffectExpression) ArousalSetExpression(Player, Player.ArousalSettings.Progress);
+										if (Player.ArousalSettings.Progress == 100) ArousalTriggerOrgasm(Player);
 									}
 									return;
 								}
@@ -625,9 +625,9 @@ function PrivateClick() {
 	if ((Player.ArousalSettings != null) && (Player.ArousalSettings.OrgasmTimer != null) && (typeof Player.ArousalSettings.OrgasmTimer === "number") && !isNaN(Player.ArousalSettings.OrgasmTimer) && (Player.ArousalSettings.OrgasmTimer > 0)) {
 
 		// On stage 0, the player can choose to resist the orgasm or not.  At 1, the player plays a mini-game to fight her orgasm
-		if ((MouseX >= 700) && (MouseX <= 950) && (MouseY >= 532) && (MouseY <= 600) && (Player.ArousalSettings.OrgasmStage == 0)) ActivityOrgasmGameGenerate(0);
-		if ((MouseX >= 1050) && (MouseX <= 1300) && (MouseY >= 532) && (MouseY <= 600) && (Player.ArousalSettings.OrgasmStage == 0)) ActivityOrgasmStart(Player);
-		if ((MouseX >= ActivityOrgasmGameButtonX + 500) && (MouseX <= ActivityOrgasmGameButtonX + 700) && (MouseY >= ActivityOrgasmGameButtonY) && (MouseY <= ActivityOrgasmGameButtonY + 64) && (Player.ArousalSettings.OrgasmStage == 1)) ActivityOrgasmGameGenerate(ActivityOrgasmGameProgress + 1);
+		if ((MouseX >= 700) && (MouseX <= 950) && (MouseY >= 532) && (MouseY <= 600) && (Player.ArousalSettings.OrgasmStage == 0)) ArousalMinigameGenerate(0);
+		if ((MouseX >= 1050) && (MouseX <= 1300) && (MouseY >= 532) && (MouseY <= 600) && (Player.ArousalSettings.OrgasmStage == 0)) ArousalMinigameStartOrgasm(Player);
+		if ((MouseX >= ActivityOrgasmGameButtonX + 500) && (MouseX <= ActivityOrgasmGameButtonX + 700) && (MouseY >= ActivityOrgasmGameButtonY) && (MouseY <= ActivityOrgasmGameButtonY + 64) && (Player.ArousalSettings.OrgasmStage == 1)) ArousalMinigameGenerate(ActivityOrgasmGameProgress + 1);
 		return;
 
 	}
@@ -766,7 +766,7 @@ function PrivateLoadCharacter(C) {
 		N.Love = (PrivateCharacter[C].Love == null) ? 0 : parseInt(PrivateCharacter[C].Love);
 		NPCTraitDialog(N);
 		NPCArousal(N);
-		ActivityTimerProgress(N, 0);
+		ArousalTimerTick(N, 0);
 		CharacterRefresh(N);
 		if (NPCEventGet(N, "PrivateRoomEntry") == 0) NPCEventAdd(N, "PrivateRoomEntry", CurrentTime);
 		PrivateCharacter[C] = N;

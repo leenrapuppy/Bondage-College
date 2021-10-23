@@ -560,8 +560,8 @@ function LoginResponse(C) {
 				if (Player.VisualSettings.PrivateRoomBackground) PrivateBackground = Player.VisualSettings.PrivateRoomBackground;
 				if (Player.VisualSettings.MainHallBackground) MainHallBackground = Player.VisualSettings.MainHallBackground;
 			}
-			ActivitySetArousal(Player, 0);
-			ActivityTimerProgress(Player, 0);
+			ArousalSetProgress(Player, 0);
+			ArousalTimerTick(Player, 0);
 			NotificationLoad();
 
 			// Loads the dialog and removes the login controls

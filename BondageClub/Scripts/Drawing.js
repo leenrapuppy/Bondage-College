@@ -221,7 +221,7 @@ function DrawArousalMeter(C, X, Y, Zoom) {
 	if (ChatRoomAllowsArousalActivities() && C.ArousalSettings && (C.ArousalSettings.Active == "Manual" || C.ArousalSettings.Active == "Hybrid" || C.ArousalSettings.Active == "Automatic"))
 		if (C.ID == 0 || (C.ArousalSettings.Visible == "Access" && C.AllowItem) || C.ArousalSettings.Visible == "All")
 			if (C.ID == 0 || (Player.ArousalSettings.ShowOtherMeter == null) || Player.ArousalSettings.ShowOtherMeter) {
-				ActivitySetArousal(C, C.ArousalSettings.Progress);
+				ArousalSetProgress(C, C.ArousalSettings.Progress);
 
 				if (Player.ArousalSettings.VFX != "VFXInactive" && C.ArousalSettings.Progress > 0 && (C.ArousalSettings.Active == "Automatic" || C.ArousalSettings.Active == "Hybrid")) {
 					let Progress = 0;

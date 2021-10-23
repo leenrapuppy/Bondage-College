@@ -996,9 +996,9 @@ function ChatRoomClickCharacter(C, CharX, CharY, Zoom, ClickX, ClickY, Pos) {
 			if (C.ID === 0 && MouseIn(CharX + 50 * Zoom, CharY + 200 * Zoom, 100 * Zoom, 500 * Zoom) && C.ArousalZoom) {
 				if (Player.ArousalSettings.Active === "Manual" || Player.ArousalSettings.Active === "Hybrid") {
 					var Arousal = Math.round((CharY + 625 * Zoom - MouseY) / (4 * Zoom));
-					ActivitySetArousal(Player, Arousal);
-					if (Player.ArousalSettings.AffectExpression) ActivityExpression(Player, Player.ArousalSettings.Progress);
-					if (Player.ArousalSettings.Progress == 100) ActivityOrgasmPrepare(Player);
+					ArousalSetProgress(Player, Arousal);
+					if (Player.ArousalSettings.AffectExpression) ArousalSetExpression(Player, Player.ArousalSettings.Progress);
+					if (Player.ArousalSettings.Progress == 100) ArousalTriggerOrgasm(Player);
 				}
 				return;
 			}
@@ -1549,9 +1549,9 @@ function ChatRoomRun() {
 				DrawButton(550, 532, 250, 64, TextGet("OrgasmSurrender"), "White");
 			}
 			if (Player.ArousalSettings.OrgasmStage == 1) DrawButton(ActivityOrgasmGameButtonX, ActivityOrgasmGameButtonY, 250, 64, ActivityOrgasmResistLabel, "White");
-			if (ActivityOrgasmRuined) ActivityOrgasmControl();
+			if (ActivityOrgasmRuined) ArousalMinigameControl();
 			if (Player.ArousalSettings.OrgasmStage == 2) DrawText(TextGet("OrgasmRecovering"), 500, 500, "White", "Black");
-			ActivityOrgasmProgressBar(50, 970);
+			ArousalProgressBarDraw(50, 970);
 		} else if ((Player.ArousalSettings.Progress != null) && (Player.ArousalSettings.Progress >= 1) && (Player.ArousalSettings.Progress <= 99) && !CommonPhotoMode) {
 			let y1 = 0;
 			let h = 1000;
@@ -1636,9 +1636,9 @@ function ChatRoomClick() {
 	if ((Player.ArousalSettings != null) && (Player.ArousalSettings.OrgasmTimer != null) && (typeof Player.ArousalSettings.OrgasmTimer === "number") && !isNaN(Player.ArousalSettings.OrgasmTimer) && (Player.ArousalSettings.OrgasmTimer > 0)) {
 
 		// On stage 0, the player can choose to resist the orgasm or not.  At 1, the player plays a mini-game to fight her orgasm
-		if (MouseIn(200, 532, 250, 68) && (Player.ArousalSettings.OrgasmStage == 0)) ActivityOrgasmGameGenerate(0);
-		if (MouseIn(550, 532, 250, 68) && (Player.ArousalSettings.OrgasmStage == 0)) ActivityOrgasmStart(Player);
-		if ((MouseX >= ActivityOrgasmGameButtonX) && (MouseX <= ActivityOrgasmGameButtonX + 250) && (MouseY >= ActivityOrgasmGameButtonY) && (MouseY <= ActivityOrgasmGameButtonY + 64) && (Player.ArousalSettings.OrgasmStage == 1)) ActivityOrgasmGameGenerate(ActivityOrgasmGameProgress + 1);
+		if (MouseIn(200, 532, 250, 68) && (Player.ArousalSettings.OrgasmStage == 0)) ArousalMinigameGenerate(0);
+		if (MouseIn(550, 532, 250, 68) && (Player.ArousalSettings.OrgasmStage == 0)) ArousalMinigameStartOrgasm(Player);
+		if ((MouseX >= ActivityOrgasmGameButtonX) && (MouseX <= ActivityOrgasmGameButtonX + 250) && (MouseY >= ActivityOrgasmGameButtonY) && (MouseY <= ActivityOrgasmGameButtonY + 64) && (Player.ArousalSettings.OrgasmStage == 1)) ArousalMinigameGenerate(ActivityOrgasmGameProgress + 1);
 		return;
 
 	}
@@ -2849,7 +2849,7 @@ function ChatRoomSyncArousal(data) {
 			ChatRoomCharacter[C].ArousalSettings.OrgasmCount = data.OrgasmCount;
 			ChatRoomCharacter[C].ArousalSettings.Progress = data.Progress;
 			ChatRoomCharacter[C].ArousalSettings.ProgressTimer = data.ProgressTimer;
-			if ((ChatRoomCharacter[C].ArousalSettings.AffectExpression == null) || ChatRoomCharacter[C].ArousalSettings.AffectExpression) ActivityExpression(ChatRoomCharacter[C], ChatRoomCharacter[C].ArousalSettings.Progress);
+			if ((ChatRoomCharacter[C].ArousalSettings.AffectExpression == null) || ChatRoomCharacter[C].ArousalSettings.AffectExpression) ArousalSetExpression(ChatRoomCharacter[C], ChatRoomCharacter[C].ArousalSettings.Progress);
 
 			// Keeps a copy of the previous version
 			for (let C = 0; C < ChatRoomData.Character.length; C++)
