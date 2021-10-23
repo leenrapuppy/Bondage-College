@@ -681,7 +681,7 @@ function ArousalOrgasmMinigameRun() {
 				DrawButton(200 + offset, 532, 250, 64, TextGet("OrgasmTryResist"), "White");
 				DrawButton(550 + offset, 532, 250, 64, TextGet("OrgasmSurrender"), "White");
 			}
-			if (stage == ArousalOrgasmStage.Resisting) DrawButton(ArousalMinigameButton.x + offset, ArousalMinigameButton.y, 250, 64, ArousalMinigameButton.label, "White");
+			if (stage == ArousalOrgasmStage.Resisting && ArousalMinigameStep < ArousalMinigameDifficulty) DrawButton(ArousalMinigameButton.x + offset, ArousalMinigameButton.y, 250, 64, ArousalMinigameButton.label, "White");
 			if (stage == ArousalOrgasmStage.Orgasming) DrawText(TextGet("OrgasmRecovering"), 500 + offset, 500, "White", "Black");
 
 			ArousalMinigameProgressBarDraw(50 + offset, 970);
