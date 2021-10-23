@@ -63,6 +63,9 @@ const ArousalMinigameButton = { x: 0, y: 0, label: null };
 /** Should the next orgasm be ruined right before it happens */
 let ArousalOrgasmShouldRuin = false;
 
+/** Duration cutoff for a ruined orgasm */
+const ArousalMinigameRuinTimeout = 500;
+
 /**
  * Check a player or character's arousal mode against a list.
  * @param {Character|Player} character - The character or player to read arousal from
@@ -685,34 +688,28 @@ function ArousalOrgasmMinigameClick() {
  * @return {void} - Nothing
  */
 function ArousalMinigameControl() {
-	if ((ArousalMinigameTimer != null) && (ArousalMinigameTimer > 0) && (CurrentTime < Player.ArousalSettings.OrgasmTimer)) {
-		// Ruin the orgasm
-		if (ArousalMinigameStep >= ArousalMinigameDifficulty - 1 || CurrentTime > Player.ArousalSettings.OrgasmTimer - 500) {
+	const orgasmTimer = ArousalGetOrgasmTimer(Player);
+	if ((ArousalMinigameTimer != null) && (ArousalMinigameTimer > 0) && (CurrentTime < orgasmTimer)) {
+		if (ArousalMinigameStep >= ArousalMinigameDifficulty - 1) {
+			// Game completed, player managed to resist
 			if (CurrentScreen == "ChatRoom") {
-				if (CurrentTime > Player.ArousalSettings.OrgasmTimer - 500) {
-					if (Player.ArousalSettings.OrgasmStage == 0) {
-						if ((CurrentScreen == "ChatRoom"))
-							ChatRoomMessage({ Content: "OrgasmFailPassive" + (Math.floor(Math.random() * 3)).toString(), Type: "Action", Sender: Player.MemberNumber });
-					} else {
-						if ((CurrentScreen == "ChatRoom")) {
-							const dictionary = [];
-							dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
-							ServerSend("ChatRoomChat", { Content: "OrgasmFailTimeout" + (Math.floor(Math.random() * 3)).toString(), Type: "Activity", Dictionary: dictionary });
-							ChatRoomCharacterArousalSync(Player);
-						}
-					}
-				} else {
-					if ((CurrentScreen == "ChatRoom")) {
-						const dictionary = [];
-						dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
-						ServerSend("ChatRoomChat", { Content: ("OrgasmFailResist" + (Math.floor(Math.random() * 3))).toString(), Type: "Activity", Dictionary: dictionary });
-						ChatRoomCharacterArousalSync(Player);
-					}
-				}
+				const dictionary = [];
+				dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+				ServerSend("ChatRoomChat", { Content: ("OrgasmFailResist" + (Math.floor(Math.random() * 3))).toString(), Type: "Activity", Dictionary: dictionary });
 			}
-			ArousalMinigameResistCount++;
-			ArousalMinigameStopOrgasm(Player, 65 + Math.ceil(Math.random()*20));
+		} else if (CurrentTime > orgasmTimer - ArousalMinigameRuinTimeout && CurrentScreen === "ChatRoom") {
+			// Ruin the orgasm
+			if (Player.ArousalSettings.OrgasmStage == 0) {
+				ChatRoomMessage({ Content: "OrgasmFailPassive" + (Math.floor(Math.random() * 3)).toString(), Type: "Action", Sender: Player.MemberNumber });
+			} else {
+				const dictionary = [];
+				dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+				ServerSend("ChatRoomChat", { Content: "OrgasmFailTimeout" + (Math.floor(Math.random() * 3)).toString(), Type: "Activity", Dictionary: dictionary });
+				ChatRoomCharacterArousalSync(Player);
+			}
 		}
+		ArousalMinigameResistCount++;
+		ArousalMinigameStopOrgasm(Player, 65 + Math.ceil(Math.random()*20));
 	}
 }
 
