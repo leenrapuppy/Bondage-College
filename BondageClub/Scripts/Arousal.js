@@ -816,8 +816,6 @@ function ArousalMinigameStartOrgasm(character) {
 				ChatRoomCharacterArousalSync(character);
 			}
 		} else {
-			ArousalMinigameStopOrgasm(Player, 65 + Math.ceil(Math.random()*20));
-
 			if ((character.ID == 0) && (CurrentScreen == "ChatRoom")) {
 				const dictionary = [];
 				const chatModifier = ArousalGetOrgasmStage(character) == ArousalOrgasmStage.Resisting ? "Timeout" : "Surrender";
@@ -825,6 +823,8 @@ function ArousalMinigameStartOrgasm(character) {
 				ServerSend("ChatRoomChat", { Content: ("OrgasmFail" + chatModifier + (Math.floor(Math.random() * 3))).toString(), Type: "Activity", Dictionary: dictionary });
 				ChatRoomCharacterArousalSync(character);
 			}
+
+			ArousalMinigameStopOrgasm(Player, 65 + Math.ceil(Math.random()*20));
 		}
 	}
 }
