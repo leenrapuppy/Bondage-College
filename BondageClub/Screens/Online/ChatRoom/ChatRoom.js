@@ -993,7 +993,7 @@ function ChatRoomClickCharacter(C, CharX, CharY, Zoom, ClickX, ClickY, Pos) {
 				if (ArousalIsInMode(Player, ["Manual", "Hybrid"])) {
 					var Arousal = Math.round((CharY + 625 * Zoom - MouseY) / (4 * Zoom));
 					ArousalSetProgress(Player, Arousal);
-					if (Player.ArousalSettings.AffectExpression) ArousalUpdateExpression(Player, Player.ArousalSettings.Progress);
+					ArousalUpdateExpression(Player);
 					if (Player.ArousalSettings.Progress == 100) ArousalTriggerOrgasm(Player);
 				}
 				return;
@@ -2803,7 +2803,7 @@ function ChatRoomSyncArousal(data) {
 			ChatRoomCharacter[C].ArousalSettings.OrgasmCount = data.OrgasmCount;
 			ChatRoomCharacter[C].ArousalSettings.Progress = data.Progress;
 			ChatRoomCharacter[C].ArousalSettings.ProgressTimer = data.ProgressTimer;
-			if (ArousalAffectsExpression(ChatRoomCharacter[C])) ArousalUpdateExpression(ChatRoomCharacter[C], ChatRoomCharacter[C].ArousalSettings.Progress);
+			ArousalUpdateExpression(ChatRoomCharacter[C]);
 
 			// Keeps a copy of the previous version
 			for (let C = 0; C < ChatRoomData.Character.length; C++)

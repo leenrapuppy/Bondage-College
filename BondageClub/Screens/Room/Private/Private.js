@@ -549,7 +549,7 @@ function PrivateClickCharacter() {
 								if (ArousalIsInMode(Player, ["Manual", "Hybrid"])) {
 									let arousal = Math.round((625 - MouseY) / 4);
 									ArousalSetProgress(Player, arousal);
-									if (ArousalAffectsExpression(Player)) ArousalUpdateExpression(Player, Player.ArousalSettings.Progress);
+									ArousalUpdateExpression(Player);
 									if (Player.ArousalSettings.Progress == 100) ArousalTriggerOrgasm(Player);
 								}
 								return;

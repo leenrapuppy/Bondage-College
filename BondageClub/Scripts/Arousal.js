@@ -383,8 +383,8 @@ function ArousalTimerTick(character, progressDelta) {
 
 	// Out of orgasm mode, it can affect facial expressions at every 10 steps
 	if ((character.ArousalSettings.OrgasmTimer == null) || (typeof character.ArousalSettings.OrgasmTimer !== "number") || isNaN(character.ArousalSettings.OrgasmTimer) || (character.ArousalSettings.OrgasmTimer < CurrentTime))
-		if (((character.ArousalSettings.AffectExpression == null) || character.ArousalSettings.AffectExpression) && ((character.ArousalSettings.Progress + ((progressDelta < 0) ? 1 : 0)) % 10 == 0))
-			ArousalUpdateExpression(character, character.ArousalSettings.Progress);
+		if ((character.ArousalSettings.Progress + ((progressDelta < 0) ? 1 : 0)) % 10 == 0)
+			ArousalUpdateExpression(character);
 
 	// Can trigger an orgasm
 	if (character.ArousalSettings.Progress == 100) ArousalTriggerOrgasm(character);
@@ -393,13 +393,13 @@ function ArousalTimerTick(character, progressDelta) {
 /**
  * Sets a character's facial expressions based on their arousal level if their settings allow it.
  * @param {Character} character - Character for which to set the facial expressions
- * @param {number} progress - Current arousal progress
  * @returns {void} - Nothing
  */
-function ArousalUpdateExpression(character, progress) {
+function ArousalUpdateExpression(character) {
+	if (!ArousalAffectsExpression(character)) return;
 
 	// Floors the progress to the nearest 10 to pick the expression
-	progress = Math.floor(progress / 10) * 10;
+	const progress = Math.floor(ArousalGetProgress(character) / 10) * 10;
 
 	// The blushes goes to red progressively
 	let blush = null;
