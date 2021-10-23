@@ -458,17 +458,10 @@ function ArousalOrgasmMinigameRun() {
 		screenFilter.w = 2000;
 	} else {
 		screenFilter.y = 0;
-		screenFilter.h = 1000;
-		if (ChatRoomCharacterCount == 3) {
-			screenFilter.y = 50;
-			screenFilter.h = 900;
-		} else if (ChatRoomCharacterCount == 4) {
-			screenFilter.y = 150;
-			screenFilter.h = 700;
-		} else if (ChatRoomCharacterCount == 5) {
-			screenFilter.y = 250;
-			screenFilter.h = 500;
+		if (ChatRoomCharacterCount <= 5) {
+			screenFilter.y = 1000 * (1 - ChatRoomCharacterZoom) / 2;
 		}
+		screenFilter.h = 1000 - 2 * screenFilter.y;
 		screenFilter.w = 1003;
 	}
 
