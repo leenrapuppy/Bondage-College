@@ -46,12 +46,8 @@ let ArousalMinigameDifficulty = 0;
 let ArousalMinigameResistCount = 0;
 /** The arousal game time */
 let ArousalMinigameTimer = 0;
-/** X coordinate of the Resist button */
-let ArousalMinigameButtonX = 0;
-/** Y coordinate of the Resist button */
-let ArousalMinigameButtonY = 0;
-/** Label of the resist button */
-let ArousalMinigameButtonLabel = "";
+/** The current minigame Resist button values */
+const ArousalMinigameButton = { x: 0, y: 0, label: null };
 
 /** Should the next orgasm be ruined right before it happens */
 let ArousalOrgasmShouldRuin = false;
@@ -481,7 +477,7 @@ function ArousalOrgasmMinigameRun() {
 				DrawButton(200 + offset, 532, 250, 64, TextGet("OrgasmTryResist"), "White");
 				DrawButton(550 + offset, 532, 250, 64, TextGet("OrgasmSurrender"), "White");
 			}
-			if (stage == 1) DrawButton(ArousalMinigameButtonX + offset, ArousalMinigameButtonY, 250, 64, ArousalMinigameButtonLabel, "White");
+			if (stage == 1) DrawButton(ArousalMinigameButton.x + offset, ArousalMinigameButton.y, 250, 64, ArousalMinigameButton.label, "White");
 			if (ArousalOrgasmShouldRuin) ArousalMinigameControl();
 			if (stage == 2) DrawText(TextGet("OrgasmRecovering"), 500 + offset, 500, "White", "Black");
 			ArousalMinigameProgressBarDraw(50 + offset, 970);
@@ -515,7 +511,7 @@ function ArousalOrgasmMinigameClick() {
 				return true;
 			}
 		} else if (stage == 1) {
-			if (MouseIn(ArousalMinigameButtonX + offset, ArousalMinigameButtonY, 250, 64)) {
+			if (MouseIn(ArousalMinigameButton.x + offset, ArousalMinigameButton.y, 250, 64)) {
 				ArousalMinigameGenerate(ArousalMinigameStep + 1);
 				return true;
 			}
@@ -585,10 +581,10 @@ function ArousalMinigameGenerate(step) {
 		ArousalMinigameResistCount++;
 		ArousalMinigameStopOrgasm(Player, 70);
 	} else {
-		ArousalMinigameButtonLabel = TextGet("OrgasmResist") + " (" + (ArousalMinigameDifficulty - step).toString() + ")";
 		ArousalMinigameStep = step;
-		ArousalMinigameButtonX = 50 + Math.floor(Math.random() * 650);
-		ArousalMinigameButtonY = 50 + Math.floor(Math.random() * 836);
+		ArousalMinigameButton.x = 50 + Math.floor(Math.random() * 650);
+		ArousalMinigameButton.y = 50 + Math.floor(Math.random() * 836);
+		ArousalMinigameButton.label = TextGet("OrgasmResist") + " (" + (ArousalMinigameDifficulty - step).toString() + ")";
 	}
 }
 
