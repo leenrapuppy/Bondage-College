@@ -218,7 +218,7 @@ function DrawArousalThermometer(X, Y, Zoom, Progress, Automatic, Orgasm) {
  * @returns {void} - Nothing
  */
 function DrawArousalMeter(C, X, Y, Zoom) {
-	if (ActivityAllowed() && C.ArousalSettings && (C.ArousalSettings.Active == "Manual" || C.ArousalSettings.Active == "Hybrid" || C.ArousalSettings.Active == "Automatic"))
+	if (ChatRoomAllowsArousalActivities() && C.ArousalSettings && (C.ArousalSettings.Active == "Manual" || C.ArousalSettings.Active == "Hybrid" || C.ArousalSettings.Active == "Automatic"))
 		if (C.ID == 0 || (C.ArousalSettings.Visible == "Access" && C.AllowItem) || C.ArousalSettings.Visible == "All")
 			if (C.ID == 0 || (Player.ArousalSettings.ShowOtherMeter == null) || Player.ArousalSettings.ShowOtherMeter) {
 				ActivitySetArousal(C, C.ArousalSettings.Progress);

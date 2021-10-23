@@ -142,7 +142,7 @@ function TimerProcess(Timestamp) {
 	}
 
 	// Arousal/Activity events only occur in allowed rooms
-	if (ActivityAllowed()) {
+	if (ChatRoomAllowsArousalActivities()) {
 
 		// Arousal can change every second, based on ProgressTimer
 		if ((TimerLastArousalProgress + 1000 < CurrentTime) || (TimerLastArousalProgress - 1000 > CurrentTime)) {

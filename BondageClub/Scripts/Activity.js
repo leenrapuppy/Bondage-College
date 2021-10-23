@@ -11,14 +11,6 @@ var ActivityOrgasmResistLabel = "";
 var ActivityOrgasmRuined = false; // If set to true, the orgasm will be ruined right before it happens
 
 /**
- * Checks if the current room allows for activities. (They can only be done in certain rooms)
- * @returns {boolean} - Whether or not activities can be done
- */
-function ActivityAllowed() {
-	return (CurrentScreen == "ChatRoom" && !(ChatRoomData && ChatRoomData.BlockCategory && ChatRoomData.BlockCategory.includes("Arousal")))
-		|| ((CurrentScreen == "Private") && LogQuery("RentRoom", "PrivateRoom")); }
-
-/**
  * Loads the activity dictionary that will be used throughout the game to output messages. Loads from cache first if possible.
  * @return {void} - Nothing
  */
@@ -117,7 +109,7 @@ function ActivityGetAllMirrorGroups(family, groupName) {
  */
 function ActivityPossibleOnGroup(char, groupname) {
 	const characterNotEnclosedOrSelfActivity = ((!char.IsEnclose() && !Player.IsEnclose()) || char.ID == 0);
-	if (!characterNotEnclosedOrSelfActivity || !ActivityAllowed() || !CharacterHasArousalEnabled(char))
+	if (!characterNotEnclosedOrSelfActivity || !ChatRoomAllowsArousalActivities() || !CharacterHasArousalEnabled(char))
 		return false;
 
 	const group = ActivityGetGroupOrMirror(char.AssetFamily, groupname);
@@ -339,16 +331,6 @@ function ActivityEffectFlat(S, C, Amount, Z, Count) {
 }
 
 /**
- * Syncs the player arousal with everyone in chatroom
- * @param {Character} C - The character for which to sync the arousal data
- * @return {void} - Nothing
- */
-function ActivityChatRoomArousalSync(C) {
-	if ((C.ID == 0) && (CurrentScreen == "ChatRoom"))
-		ServerSend("ChatRoomCharacterArousalUpdate", { OrgasmTimer: C.ArousalSettings.OrgasmTimer, Progress: C.ArousalSettings.Progress, ProgressTimer: C.ArousalSettings.ProgressTimer, OrgasmCount: C.ArousalSettings.OrgasmCount });
-}
-
-/**
  * Sets the character arousal level and validates the value
  * @param {Character} C - The character for which to set the arousal progress of
  * @param {number} Progress - Progress to set for the character (Ranges from 0 to 100)
@@ -362,7 +344,7 @@ function ActivitySetArousal(C, Progress) {
 	if (C.ArousalSettings.Progress != Progress) {
 		C.ArousalSettings.Progress = Progress;
 		C.ArousalSettings.ProgressTimer = 0;
-		ActivityChatRoomArousalSync(C);
+		ChatRoomCharacterArousalSync(C);
 	}
 }
 
@@ -391,7 +373,7 @@ function ActivitySetArousalTimer(C, Activity, Zone, Progress) {
 	// If we must apply a progress timer change, we publish it
 	if ((C.ArousalSettings.ProgressTimer == null) || (C.ArousalSettings.ProgressTimer != Progress)) {
 		C.ArousalSettings.ProgressTimer = Progress;
-		ActivityChatRoomArousalSync(C);
+		ChatRoomCharacterArousalSync(C);
 	}
 
 }
@@ -430,7 +412,7 @@ function ActivityOrgasmControl() {
 							let Dictionary = [];
 							Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
 							ServerSend("ChatRoomChat", { Content: "OrgasmFailTimeout" + (Math.floor(Math.random() * 3)).toString(), Type: "Activity", Dictionary: Dictionary });
-							ActivityChatRoomArousalSync(Player);
+							ChatRoomCharacterArousalSync(Player);
 						}
 					}
 				} else {
@@ -438,7 +420,7 @@ function ActivityOrgasmControl() {
 						let Dictionary = [];
 						Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
 						ServerSend("ChatRoomChat", { Content: ("OrgasmFailResist" + (Math.floor(Math.random() * 3))).toString(), Type: "Activity", Dictionary: Dictionary });
-						ActivityChatRoomArousalSync(Player);
+						ChatRoomCharacterArousalSync(Player);
 					}
 				}
 			}
@@ -480,7 +462,7 @@ function ActivityOrgasmStart(C) {
 				let Dictionary = [];
 				Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
 				ServerSend("ChatRoomChat", { Content: "Orgasm" + (Math.floor(Math.random() * 10)).toString(), Type: "Activity", Dictionary: Dictionary });
-				ActivityChatRoomArousalSync(C);
+				ChatRoomCharacterArousalSync(C);
 			}
 		} else {
 			ActivityOrgasmStop(Player, 65 + Math.ceil(Math.random() * 20));
@@ -489,7 +471,7 @@ function ActivityOrgasmStart(C) {
 				let ChatModifier = C.ArousalSettings.OrgasmStage == 1 ? "Timeout" : "Surrender";
 				Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
 				ServerSend("ChatRoomChat", { Content: ("OrgasmFail" + ChatModifier + (Math.floor(Math.random() * 3))).toString(), Type: "Activity", Dictionary: Dictionary });
-				ActivityChatRoomArousalSync(C);
+				ChatRoomCharacterArousalSync(C);
 			}
 		}
 	}
@@ -508,7 +490,7 @@ function ActivityOrgasmStop(C, Progress) {
 		C.ArousalSettings.OrgasmStage = 0;
 		ActivitySetArousal(C, Progress);
 		ActivityTimerProgress(C, 0);
-		ActivityChatRoomArousalSync(C);
+		ChatRoomCharacterArousalSync(C);
 	}
 }
 
@@ -578,7 +560,7 @@ function ActivityOrgasmPrepare(C, Bypass) {
 		C.ArousalSettings.OrgasmStage = (C.ID == 0) ? 0 : 2;
 		if (C.ID == 0) ActivityOrgasmGameTimer = C.ArousalSettings.OrgasmTimer - CurrentTime;
 		if ((CurrentCharacter != null) && ((C.ID == 0) || (CurrentCharacter.ID == C.ID))) DialogLeave();
-		ActivityChatRoomArousalSync(C);
+		ChatRoomCharacterArousalSync(C);
 
 		// If an NPC orgasmed, it will raise her love based on the horny trait
 		if (C.IsNpc())

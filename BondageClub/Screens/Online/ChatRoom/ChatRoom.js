@@ -604,7 +604,7 @@ function ChatRoomLoad() {
 	ChatRoomRefreshFontSize();
 	ChatRoomCreateElement();
 	ChatRoomCharacterUpdate(Player);
-	ActivityChatRoomArousalSync(Player);
+	ChatRoomCharacterArousalSync(Player);
 	if (!ChatRoomData || ChatRoomData.Name !== Player.LastChatRoom) {
 		ChatRoomHideIconState = 0;
 	}
@@ -3780,4 +3780,22 @@ function ChatRoomShouldBlockGaggedOOCMessage(Message, WhisperTarget) {
 			return false;
 
 	return true;
+}
+
+/**
+ * Checks if the current room allows for activities. (They can only be done in certain rooms)
+ * @returns {boolean} - Whether or not activities can be done
+ */
+function ChatRoomAllowsArousalActivities() {
+    return (CurrentScreen == "ChatRoom" && !(ChatRoomData && ChatRoomData.BlockCategory && ChatRoomData.BlockCategory.includes("Arousal")))
+        || ((CurrentScreen == "Private") && LogQuery("RentRoom", "PrivateRoom"));
+}
+
+/** * Syncs the player arousal with everyone in chatroom
+ * @param {Character} char - The character for which to sync the arousal data
+ * @return {void} - Nothing
+ */
+function ChatRoomCharacterArousalSync(char) {
+    if ((char.ID == 0) && (CurrentScreen == "ChatRoom"))
+        ServerSend("ChatRoomCharacterArousalUpdate", { OrgasmTimer: char.ArousalSettings.OrgasmTimer, Progress: char.ArousalSettings.Progress, ProgressTimer: char.ArousalSettings.ProgressTimer, OrgasmCount: char.ArousalSettings.OrgasmCount });
 }

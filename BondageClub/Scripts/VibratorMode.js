@@ -717,6 +717,6 @@ function VibratorModePublish(C, Item, OldIntensity, Intensity) {
 		ServerSend("ChatRoomChat", { Content: "Vibe" + Direction + "To" + Intensity, Type: "Action", Dictionary });
 		CharacterLoadEffect(C);
 		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
-		ActivityChatRoomArousalSync(C);
+		ChatRoomCharacterArousalSync(C);
 	}
 }
