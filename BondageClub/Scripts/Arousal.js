@@ -432,10 +432,6 @@ function ArousalTriggerOrgasm(character, shouldRuin) {
 			return;
 	}
 
-	if (character.ID == 0 && ArousalOrgasmShouldRuin) {
-		ArousalMinigameGenerate(0); // Resets the game
-	}
-
 	if ((character.ID == 0) || character.IsNpc()) {
 		// Starts the timer depending on the character type (player or NPC)
 		if (character.ID == 0) {
