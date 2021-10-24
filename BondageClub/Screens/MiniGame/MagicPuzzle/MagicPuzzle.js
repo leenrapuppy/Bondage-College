@@ -18,6 +18,7 @@ var MagicPuzzleTrailRainbow = false;
  * @returns {void} - Nothing
  */
 function MagicPuzzleLoad() {
+	if (CommonIsMobile) document.addEventListener("touchmove", MagicPuzzleTouchMove);
 	MagicPuzzleStart = CommonTime() + 5000;
 	MagicPuzzleFinish = 0;
 	MagicPuzzleSize = 10 + Math.round(MagicBattleGetDifficulty(Player) * 1.5);
@@ -95,6 +96,17 @@ function MagicPuzzleAntiCheat() {
 }
 
 /**
+ * On mobile only, when the finger is dragged on the screen, we change the MouseX & MouseY to process the game
+ * @param {TouchEvent} Event - contains the X & Y coordinates on where the finger is positioned
+ * @returns {void} - Nothing
+ */
+function MagicPuzzleTouchMove(Event) {
+	if ((Event == null) || (Event.changedTouches == null) || (Event.changedTouches.length == 0) || (Event.changedTouches[0].clientX == null) || (Event.changedTouches[0].clientY == null)) return;
+	MouseX = (Event.changedTouches[0].clientX - MainCanvas.canvas.offsetLeft) / MainCanvas.canvas.clientWidth * 2000;
+	MouseY = (Event.changedTouches[0].clientY - MainCanvas.canvas.offsetTop) / MainCanvas.canvas.clientHeight * 1000;
+}
+
+/**
  * Runs the magic puzzle mini game
  * @returns {void} - Nothing
  */
@@ -104,10 +116,8 @@ function MagicPuzzleRun() {
 	DrawImage("Screens/MiniGame/MagicPuzzle/" + MagicPuzzleSpell + ".png", 0, 0);
 
 	// Build the trail following the square position
-	if (!CommonIsMobile) {
-		MagicPuzzleBuildTrail();
-	}
-	
+	MagicPuzzleBuildTrail();
+
 	// When the game is running, we make sure the end borders never hit the black zone
 	if (!MiniGameEnded && (CommonTime() >= MagicPuzzleStart)) {
 		MagicPuzzleAntiCheat();
@@ -126,7 +136,7 @@ function MagicPuzzleRun() {
 
 	// Draw the game text
 	if (MiniGameEnded) {
-		if (MagicPuzzleAutoExit) return CommonDynamicFunction(MiniGameReturnFunction + "()");
+		if (MagicPuzzleAutoExit) return MagicPuzzleEnd();
 		if (MiniGameVictory)
 			DrawText(TextGet("SuccessMessage") + " " + MagicPuzzleTime((MagicPuzzleFinish - MagicPuzzleStart) / 1000), 1000, 975, "#C0FFC0", "grey");
 		else
@@ -145,9 +155,7 @@ function MagicPuzzleRun() {
 	}
 
 	// Draw the trail of previous square positions
-	if (!CommonIsMobile && MagicPuzzleStart <= CommonTime()) {
-		MagicPuzzleDrawTrail();
-	}
+	if (MagicPuzzleStart <= CommonTime()) MagicPuzzleDrawTrail();
 
 	// Draw the current square position
 	if (MouseIn(0, 0, 2000, 950))
@@ -226,10 +234,8 @@ function MagicPuzzleTransitionToColor(startingColor, targetColor, progressPercen
  * @returns {void} - Nothing
  */
 function MagicPuzzleClick() {
-	if (MiniGameEnded && (MouseIn(0, 950, 2000, 50))) {
-		MagicPuzzleTrail = [];
-		CommonDynamicFunction(MiniGameReturnFunction + "()");
-	}
+	if (MiniGameEnded && (MouseIn(0, 950, 2000, 50)))
+		MagicPuzzleEnd();
 }
 
 /**
@@ -239,4 +245,14 @@ function MagicPuzzleClick() {
 function MagicPuzzleKeyDown() {
 	if (MiniGameCheatKeyDown() && (MagicPuzzleTimer > 0) && !MagicPuzzleAutoExit)
 		MagicPuzzleTimer = MagicPuzzleTimer + 5000;
+}
+
+/**
+ * When the magic puzzle must end
+ * @returns {void} - Nothing
+ */
+function MagicPuzzleEnd() {
+	MagicPuzzleTrail = [];
+	if (CommonIsMobile) document.removeEventListener("touchmove", MagicPuzzleTouchMove);
+	CommonDynamicFunction(MiniGameReturnFunction + "()");
 }
