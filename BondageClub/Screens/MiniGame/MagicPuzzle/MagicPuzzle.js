@@ -9,6 +9,9 @@ var MagicPuzzleStarted = false;
 var MagicPuzzleTimer = 0;
 var MagicPuzzleLastMouseX = 0;
 var MagicPuzzleLastMouseY = 0;
+var MagicPuzzleTrail = [];
+var MagicPuzzleTrailLimit = 20;
+var MagicPuzzleTrailRainbow = false;
 
 /**
  * Loads the magic puzzle mini game and sets the difficulty ratio
@@ -21,6 +24,10 @@ function MagicPuzzleLoad() {
 	MagicPuzzleTimer = (MiniGameDifficulty > 0) ? CommonTime() + 5000 + MiniGameDifficulty * 1000 : 0;
 	MagicPuzzleStarted = false;
 	MiniGameVictory = false;
+	MagicPuzzleTrailRainbow = ReputationGet("HouseMaiestas") >= 75
+		|| ReputationGet("HouseVincula") >= 75
+		|| ReputationGet("HouseAmplector") >= 75
+		|| ReputationGet("HouseCorporis") >= 75;
 }
 
 /**
@@ -84,7 +91,7 @@ function MagicPuzzleAntiCheat() {
 		}
 	}
 	MagicPuzzleLastMouseX = MouseX;
-	MagicPuzzleLastMouseY = MouseY;		
+	MagicPuzzleLastMouseY = MouseY;
 }
 
 /**
@@ -96,6 +103,11 @@ function MagicPuzzleRun() {
 	// Draw the puzzle over the background
 	DrawImage("Screens/MiniGame/MagicPuzzle/" + MagicPuzzleSpell + ".png", 0, 0);
 
+	// Build the trail following the square position
+	if (!CommonIsMobile) {
+		MagicPuzzleBuildTrail();
+	}
+	
 	// When the game is running, we make sure the end borders never hit the black zone
 	if (!MiniGameEnded && (CommonTime() >= MagicPuzzleStart)) {
 		MagicPuzzleAntiCheat();
@@ -112,7 +124,7 @@ function MagicPuzzleRun() {
 		MiniGameEnded = true;
 	}
 
-	// Draw the game text and square
+	// Draw the game text
 	if (MiniGameEnded) {
 		if (MagicPuzzleAutoExit) return CommonDynamicFunction(MiniGameReturnFunction + "()");
 		if (MiniGameVictory)
@@ -131,9 +143,82 @@ function MagicPuzzleRun() {
 				DrawText(TextGet("GameMessage") + " " + MagicPuzzleTime((CommonTime() - MagicPuzzleStart) / 1000), 1000, 975, "black", "white");
 			}
 	}
+
+	// Draw the trail of previous square positions
+	if (!CommonIsMobile && MagicPuzzleStart <= CommonTime()) {
+		MagicPuzzleDrawTrail();
+	}
+
+	// Draw the current square position
 	if (MouseIn(0, 0, 2000, 950))
 		DrawRect(MouseX - MagicPuzzleSize, MouseY - MagicPuzzleSize, MagicPuzzleSize * 2, MagicPuzzleSize * 2, "Blue");
-	
+
+}
+
+/**
+ * Add the current square position onto the trail and trim the end
+ * @returns {void} - Nothing
+ */
+function MagicPuzzleBuildTrail() {
+	if (MagicPuzzleStart <= CommonTime()) {
+		let nextSquare = null;
+		if (!MiniGameEnded || MagicPuzzleTrail.length == 0) {
+			nextSquare = { X: MouseX, Y: MouseY };
+		}
+		else {
+			const lastSquare = MagicPuzzleTrail[MagicPuzzleTrail.length - 1];
+			nextSquare = { X: lastSquare.X, Y: lastSquare.Y };
+		}
+		MagicPuzzleTrail.push(nextSquare);
+	}
+
+	if (MagicPuzzleTrail.length > MagicPuzzleTrailLimit) {
+		MagicPuzzleTrail.shift();
+	}
+}
+
+/**
+ * Draw a trail of faded past squares following the current square's position
+ * @returns {void} - Nothing
+ */
+function MagicPuzzleDrawTrail() {
+	if (MagicPuzzleTrail.length > 0) {
+		const initialSquares = { first: MagicPuzzleTrail[0], second: MagicPuzzleTrail[0] };
+		
+		MagicPuzzleTrail.reduce((prevSquares, currSquare, index) => {
+			const startingColor = MagicPuzzleTrailRainbow ? ColorPickerHSVToCSS({ H: Math.random(), S: 1, V: 1 }) : "#0000FF";
+			const pseudoIndex = index + (MagicPuzzleTrailLimit - MagicPuzzleTrail.length);
+			const fadePercentage = pseudoIndex * 0.8 / MagicPuzzleTrail.length;
+			const squareColor = MagicPuzzleTransitionToColor(startingColor, "#FFFFFF", fadePercentage);
+
+			DrawLineCorner(currSquare.X, currSquare.Y,
+				prevSquares.first.X, prevSquares.first.Y,
+				prevSquares.second.X, prevSquares.second.Y,
+				MagicPuzzleSize * 2,
+				squareColor);
+
+			return { first: currSquare, second: prevSquares.first };
+		}, initialSquares);
+	}
+}
+
+/**
+ * Adjust one colour to be closer to another
+ * @param {HexColor} startingColor - Hex code of the starting colour
+ * @param {HexColor} targetColor - Hex code of the colour to transition to
+ * @param {number} progressPercentage - The percentage the colour should transition, with 0 = none and 1 = fully
+ * @returns {HexColor} - The final composed colour
+ */
+function MagicPuzzleTransitionToColor(startingColor, targetColor, progressPercentage) {
+	const startRgb = DrawHexToRGB(startingColor);
+	const targetRgb = DrawHexToRGB(targetColor);
+
+	const newR = Math.round(targetRgb.r - (targetRgb.r - startRgb.r) * progressPercentage);
+	const newG = Math.round(targetRgb.g - (targetRgb.g - startRgb.g) * progressPercentage);
+	const newB = Math.round(targetRgb.b - (targetRgb.b - startRgb.b) * progressPercentage);
+
+	const finalColor = DrawRGBToHex([newR, newG, newB]);
+	return finalColor;
 }
 
 /**
@@ -141,8 +226,10 @@ function MagicPuzzleRun() {
  * @returns {void} - Nothing
  */
 function MagicPuzzleClick() {
-	if (MiniGameEnded && (MouseIn(0, 950, 2000, 50)))
+	if (MiniGameEnded && (MouseIn(0, 950, 2000, 50))) {
+		MagicPuzzleTrail = [];
 		CommonDynamicFunction(MiniGameReturnFunction + "()");
+	}
 }
 
 /**

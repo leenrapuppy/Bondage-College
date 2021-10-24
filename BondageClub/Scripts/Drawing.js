@@ -1197,6 +1197,28 @@ function DrawProgressBar(x, y, w, h, value, foreground = "#66FF66", background =
 }
 
 /**
+ * Draws two lines, from one point to a second point then to a third point
+ * @param {number} x0 - X co-ordinate of starting point
+ * @param {number} y0 - Y co-ordinate of starting point
+ * @param {number} x1 - X co-ordinate of mid point
+ * @param {number} y1 - Y co-ordinate of mid point
+ * @param {number} x2 - X co-ordinate of end point
+ * @param {number} y2 - Y co-ordinate of end point
+ * @param {number} lineWidth - The width of the lines
+ * @param {string} color - The color of the lines
+ * @returns {void} - Nothing
+ */
+function DrawLineCorner(x0, y0, x1, y1, x2, y2, lineWidth = 2, color = "black") {
+	MainCanvas.beginPath();
+	MainCanvas.lineWidth = lineWidth;
+	MainCanvas.moveTo(x0, y0);
+	MainCanvas.lineTo(x1, y1);
+	MainCanvas.lineTo(x2, y2);
+	MainCanvas.strokeStyle = color;
+	MainCanvas.stroke();
+}
+
+/**
  * Gets the player's custom background based on type
  * @returns {string} - Custom background if applicable, otherwise ""
  */
