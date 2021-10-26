@@ -1732,6 +1732,26 @@ var AssetFemale3DCGExtended = {
 				DrawImages: false,
 			},
 		}, // GwenHood
+			OpenFaceHood: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "HideBackHair",
+						Property: { Type: "HideBackHair", Hide: "HairBack" },
+					},
+					{
+						Name: "ShowBackHair",
+						Property: { Type: null },
+					},
+				],
+				Dialog: {
+					Load: "SelectOpenFaceHoodStyle",
+					TypePrefix: "OpenFaceHoodStyle",
+				},
+					DrawImages: false,
+			}
+		}, // OpenFaceHood	
 		TechnoHelmet1: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
@@ -3652,7 +3672,27 @@ var AssetFemale3DCGExtended = {
 					TypePrefix: "BunnyMaskType",
 				},
 			}
-		} // BunnyMask1
+		}, // BunnyMask1
+		OpenFaceHood: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "HideBackHair",
+						Property: { Type: "HideBackHair", Hide: "HairBack" },
+					},
+					{
+						Name: "ShowBackHair",
+						Property: { Type: null },
+					},
+				],
+				Dialog: {
+					Load: "SelectOpenFaceHoodStyle",
+					TypePrefix: "OpenFaceHoodStyle",
+				},
+					DrawImages: false,
+			}
+		} // OpenFaceHood	
 	}, // Mask
 	ItemLegs: {
 		DuctTape: {
