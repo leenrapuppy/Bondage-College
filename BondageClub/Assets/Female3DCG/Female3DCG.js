@@ -1340,7 +1340,8 @@ var AssetFemale3DCG = [
 			{ Name: "Catsuit", Hide: ["Hands"], Fetish: ["Nylon"], Value: -1, BuyGroup: "Catsuit" },
 			{ Name: "SeethroughSuit", Fetish: ["Nylon"], Value: -1, BuyGroup: "SeethroughSuit" },
 			{ Name: "CowPrintedGloves", Value: 15, Alpha: [{ Group: ["BodyUpper"], Pose: ["OverTheHead"],  Masks: [[90, 125, 30, 70], [370, 125, 30, 70]] }] },
-			{ Name: "LatexElbowGloves", Fetish: ["Latex"], Value: 75 }
+			{ Name: "LatexElbowGloves", Fetish: ["Latex"], Value: 75 },
+			{ Name: "FishnetGloves", Value: 10, DefaultColor: ["#151515"] },
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
