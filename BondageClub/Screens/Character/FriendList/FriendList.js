@@ -282,7 +282,7 @@ function FriendListLoadFriendList(data) {
 			FriendListContent += `<div class='FriendListTextColumn'> ${friend.MemberNumber} </div>`;
 			if (friend.ChatRoomName == null) friend.ChatRoomName = "-";
 			friend.ChatRoomName = ChatSearchMuffle(friend.ChatRoomName);
-			if (friend.Private) friend.ChatRoomName = "- " + PrivateRoomCaption + " - " + friend.ChatRoomName;
+			if (friend.Private) friend.ChatRoomName = "- " + PrivateRoomCaption + " -" + (friend.ChatRoomName == "-" ? "" : " " + friend.ChatRoomName);
 			if (!originalChatRoomName) {
 				FriendListContent += `<div class='FriendListTextColumn'> ${friend.ChatRoomName} </div>`;
 			} else {
