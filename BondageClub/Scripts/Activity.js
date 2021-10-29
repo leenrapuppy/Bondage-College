@@ -82,75 +82,196 @@ function ActivityDictionaryText(KeyWord) {
 }
 
 /**
- * Builds the possible dialog activity options based on the character settings
- * @param {Character} C - The character for which to build the activity dialog options
- * @return {void} - Nothing
+ * Resolve a group name to the correct group for activities
+ * @param {string} family - The character on which the check is done
+ * @param {string} groupname - The group to check access on
+ * @returns {AssetGroup?} The resolved group
  */
-function ActivityDialogBuild(C) {
-
-	// Clears the current activities to rebuild them
-	DialogActivity = [];
-	if ((C.FocusGroup != null) && (C.FocusGroup.Activity != null)) {
-
-		// For each activities
-		for (let A = 0; A < C.FocusGroup.Activity.length; A++) {
-
-			// Make sure the activity is valid for that player asset family
-			var Activity = AssetGetActivity(C.AssetFamily, C.FocusGroup.Activity[A]);
-			if (Activity != null && Activity.Name.indexOf("Item") < 0) {
-
-				// If the player is targeting herself, we validate that this activity can be done on self
-				var Allow = true;
-				if ((C.ID == 0) && ((Activity.TargetSelf == null) || (Activity.TargetSelf.indexOf(C.FocusGroup.Name) < 0))) Allow = false;
-
-				// Make sure all the prerequisites are met
-				if (Allow && (Activity.Prerequisite != null))
-					for (let P = 0; P < Activity.Prerequisite.length; P++) {
-						if ((Activity.Prerequisite[P] == "UseMouth") && (Player.IsMouthBlocked() || !Player.CanTalk())) Allow = false;
-						else if ((Activity.Prerequisite[P] == "UseTongue") && Player.IsMouthBlocked()) Allow = false;
-						else if ((Activity.Prerequisite[P] == "TargetMouthBlocked") && !C.IsMouthBlocked()) Allow = false;
-						else if ((Activity.Prerequisite[P] == "IsGagged") && Player.CanTalk()) Allow = false;
-						else if ((Activity.Prerequisite[P] == "SelfOnly") && C.ID != 0) Allow = false;
-						else if ((Activity.Prerequisite[P] == "TargetKneeling") && !C.IsKneeling()) Allow = false;
-						else if ((Activity.Prerequisite[P] == "UseHands") && !Player.CanInteract()) Allow = false;
-						else if ((Activity.Prerequisite[P] == "UseArms") && (!Player.CanInteract() && (InventoryGet(Player, "ItemArms") || InventoryGroupIsBlocked(Player, "ItemArms")))) Allow = false;
-						else if ((Activity.Prerequisite[P] == "UseFeet") && !Player.CanWalk()) Allow = false;
-						else if ((Activity.Prerequisite[P] == "CantUseArms") && !(!Player.CanInteract() && (InventoryGet(Player, "ItemArms") || InventoryGroupIsBlocked(Player, "ItemArms")))) Allow = false;
-						else if ((Activity.Prerequisite[P] == "CantUseFeet") && Player.CanWalk()) Allow = false;
-						else if ((Activity.Prerequisite[P] == "TargetCanUseTongue") && C.IsMouthBlocked()) Allow = false;
-						else if ((Activity.Prerequisite[P] == "TargetMouthOpen") && (C.FocusGroup.Name == "ItemMouth") && (InventoryGet(C, "ItemMouth") && !C.IsMouthOpen())) Allow = false;
-						else if ((Activity.Prerequisite[P] == "VulvaEmpty") && (C.FocusGroup.Name == "ItemVulva") && C.IsVulvaFull()) Allow = false;
-						else if ((Activity.Prerequisite[P] == "MoveHead") && (C.FocusGroup.Name == "ItemHead") && C.Effect != null && C.Effect.includes("FixedHead")) Allow = false;
-						else if ((Activity.Prerequisite[P] == "ZoneAccessible") && InventoryGroupIsBlocked(C, C.FocusGroup.Name, true)) Allow = false;
-						else if ((Activity.Prerequisite[P] == "WearingPenetrationItem") && (!CharacterHasItemForActivity(Player, "Penetrate") || Player.IsEnclose())) Allow = false;
-						else if ((Activity.Prerequisite[P] == "ZoneNaked") && (C.FocusGroup.Name == "ItemButt") && ((InventoryPrerequisiteMessage(C, "AccessButt") != "") || C.IsPlugged())) Allow = false;
-						else if ((Activity.Prerequisite[P] == "ZoneNaked") && (C.FocusGroup.Name == "ItemVulva") && ((InventoryPrerequisiteMessage(C, "AccessVulva") != "") || C.IsVulvaChaste())) Allow = false;
-						else if ((Activity.Prerequisite[P] == "ZoneNaked") && ((C.FocusGroup.Name == "ItemBreast") || (C.FocusGroup.Name == "ItemNipples")) && ((InventoryPrerequisiteMessage(C, "AccessBreast") != "") || C.IsBreastChaste())) Allow = false;
-						else if ((Activity.Prerequisite[P] == "ZoneNaked") && (C.FocusGroup.Name == "ItemBoots") && (InventoryPrerequisiteMessage(C, "NakedFeet") != "")) Allow = false;
-						else if ((Activity.Prerequisite[P] == "ZoneNaked") && (C.FocusGroup.Name == "ItemHands") && (InventoryPrerequisiteMessage(C, "NakedHands") != "")) Allow = false;
-					}
-
-				// Make sure the current player has permission to do this activity
-				if (Allow && (Player.ArousalSettings != null) && (Player.ArousalSettings.Activity != null))
-					for (let P = 0; P < Player.ArousalSettings.Activity.length; P++)
-						if ((Player.ArousalSettings.Activity[P].Name == C.FocusGroup.Activity[A]) && (Player.ArousalSettings.Activity[P].Other != null) && (Player.ArousalSettings.Activity[P].Other == 0))
-							Allow = false;
-
-				// Make sure the target player gives permission for this activity
-				if (Allow && (C.ArousalSettings != null) && (C.ArousalSettings.Activity != null))
-					for (let P = 0; P < C.ArousalSettings.Activity.length; P++)
-						if ((C.ArousalSettings.Activity[P].Name == C.FocusGroup.Activity[A]) && (C.ArousalSettings.Activity[P].Self != null) && (C.ArousalSettings.Activity[P].Self == 0))
-							Allow = false;
-
-				// Adds the activity to the dialog if it's allowed
-				if (Allow) DialogActivity.push(Activity);
-
-			}
-
+function ActivityGetGroupOrMirror(family, groupname) {
+	const group = AssetGroupGet(family, groupname);
+	if (group.MirrorActivitiesFrom != null) {
+		const mirror = AssetGroupGet(family, group.MirrorActivitiesFrom);
+		if (mirror) {
+			return mirror;
 		}
-
 	}
+	return group;
+}
 
+/**
+ * Check if any activities are possible for a character's given group.
+ * @param {Character} char - The character on which the check is done
+ * @param {string} groupname - The group to check access on
+ * @returns {boolean} Whether any activity is possible
+ */
+function ActivityPossibleOnGroup(char, groupname) {
+	const characterNotEnclosedOrSelfActivity = ((!char.IsEnclose() && !Player.IsEnclose()) || char.ID == 0);
+	if (!characterNotEnclosedOrSelfActivity || !ActivityAllowed() || !CharacterHasArousalEnabled(char))
+		return false;
+
+	const group = ActivityGetGroupOrMirror(char.AssetFamily, groupname);
+	const zone = char.ArousalSettings.Zone.find(z => z.Name === group.Name);
+	return zone && zone.Factor > 0;
+}
+
+/**
+ * Check whether a given activity can be performed on a group
+ * @param {Character} char - The character being targeted
+ * @param {Activity} act - The activity to consider
+ * @param {AssetGroup} group - The group to check
+ * @returns {boolean} whether that activity's target is valid
+ */
+function ActivityHasValidTarget(char, act, group) {
+	let targets = [];
+	// If the player is targeting herself
+	if (char.ID == 0) {
+		if (act.TargetSelf || act.Prerequisite.includes("OnlySelf"))
+			return act.TargetSelf.includes(group.Name);
+	} else {
+		targets = group.Activity;
+	}
+	return targets.includes(act.Name);
+}
+
+/**
+ * Check that an activity is permitted by an actor's settings.
+ * @param {Activity} activity - The activity to consider
+ * @param {Character|PlayerCharacter} character - The character to check with
+ * @param {boolean} onOther - Whether we look at doing to or being done on
+ * @returns {boolean} whether the activity is permitted
+ */
+function ActivityCheckPermissions(activity, character, onOther) {
+	if (character.ArousalSettings == null || character.ArousalSettings.Activity == null)
+		return true;
+
+	const activitySettings = character.ArousalSettings.Activity.find(a => a.Name === activity.Name);
+	if (!activitySettings
+		|| (onOther && activitySettings.Other != null && activitySettings.Other > 0)
+		|| (!onOther && activitySettings.Self != null && activitySettings.Self > 0))
+		return true;
+
+	return false;
+}
+
+/**
+ * Check that that a given prerequisite is met.
+ * @param {string} prereq - The prerequisite to consider
+ * @param {Character|PlayerCharacter} acting - The character performing the activity
+ * @param {Character|PlayerCharacter} acted - The character being acted on
+ * @param {AssetGroup} group - The group being acted on
+ * @returns {boolean} whether the given activity's prerequisite are satisfied
+ */
+function ActivityCheckPrerequisite(prereq, acting, acted, group) {
+	switch (prereq) {
+		case "UseMouth":
+			return (!acting.IsMouthBlocked() && acting.CanTalk());
+		case "UseTongue":
+			return !acting.IsMouthBlocked();
+		case "TargetMouthBlocked":
+			return acted.IsMouthBlocked();
+		case "IsGagged":
+			return !acting.CanTalk();
+		case "SelfOnly":
+			return (acted.ID == 0);
+		case "TargetKneeling":
+			return acted.IsKneeling();
+		case "UseHands":
+			return acting.CanInteract();
+		case "UseArms":
+			return (acting.CanInteract()
+				&& (InventoryGet(acting, "ItemArms") == null || !InventoryGroupIsBlocked(acting, "ItemArms")));
+		case "UseFeet":
+			return acting.CanWalk();
+		case "CantUseArms":
+			return !(acting.CanInteract()
+				&& (InventoryGet(acting, "ItemArms") == null || !InventoryGroupIsBlocked(acting, "ItemArms")));
+		case "CantUseFeet":
+			return !acting.CanWalk();
+		case "TargetCanUseTongue":
+			return !acted.IsMouthBlocked();
+		case "TargetMouthOpen":
+			if (group.Name === "ItemMouth")
+				return (InventoryGet(acted, "ItemMouth") && acted.IsMouthOpen());
+			break;
+		case "VulvaEmpty":
+			if (group.Name === "ItemVulva")
+				return !acted.IsVulvaFull();
+			break;
+		case "MoveHead":
+			if (group.Name === "ItemHead")
+				return !acted.IsFixedHead();
+			break;
+		case "ZoneAccessible":
+			return !InventoryGroupIsBlocked(acted, group.Name, true);
+		case "WearingPenetrationItem":
+			return CharacterHasItemForActivity(acting, "Penetrate") && !acting.IsEnclose();
+		case "ZoneNaked":
+			if (group.Name === "ItemButt")
+				return (InventoryPrerequisiteMessage(acted, "AccessButt") === "" && !acted.IsPlugged());
+			else if (group.Name === "ItemVulva")
+				return ((InventoryPrerequisiteMessage(acted, "AccessVulva") === "") && !acted.IsVulvaChaste());
+			else if (group.Name === "ItemBreast" || group.Name === "ItemNipples")
+				return ((InventoryPrerequisiteMessage(acted, "AccessBreast") === "") && !acted.IsBreastChaste());
+			else if (group.Name === "ItemBoots")
+				return (InventoryPrerequisiteMessage(acted, "NakedFeet") === "");
+			else if (group.Name === "ItemHands")
+				return (InventoryPrerequisiteMessage(acted, "NakedHands") === "");
+			break;
+	}
+	return true;
+}
+
+/**
+ * Check that an activity's prerequisites are met.
+ * @param {Activity} activity - The activity to consider
+ * @param {Character|PlayerCharacter} acting - The character performing the activity
+ * @param {Character|PlayerCharacter} acted - The character being acted on
+ * @param {AssetGroup} group - The group being acted on
+ * @returns {boolean} whether the given activity's prerequisite are satisfied
+ */
+function ActivityCheckPrerequisites(activity, acting, acted, group) {
+	if (!activity.Prerequisite)
+		return true;
+
+	return activity.Prerequisite.every((pre) => ActivityCheckPrerequisite(pre, acting, acted, group));
+}
+
+/**
+ * Builds the allowed activities on a group given the character's settings.
+ * @param {Character} character - The character for which to build the activity dialog options
+ * @param {string} groupname - The group to check
+ * @return {Array} - The list of allowed activities
+ */
+function ActivityAllowedForGroup(character, groupname) {
+	// Get the group and all possible activities
+	let activities = AssetAllActivities(character.AssetFamily);
+	let group = ActivityGetGroupOrMirror(character.AssetFamily, groupname);
+	if (!activities || !group) return [];
+
+	let allowed = activities.filter(activity => {
+		// Item-related activity, skip
+		if (activity.Name.indexOf("Item") >= 0)
+			return false;
+
+		// Validate that this activity can be done
+		if (!ActivityHasValidTarget(character, activity, group))
+			return false;
+
+		// Make sure all the prerequisites are met
+		if (!ActivityCheckPrerequisites(activity, Player, character, group))
+			return false;
+
+		// Ensure this activity is permitted for both actors
+		if (!ActivityCheckPermissions(activity, Player, true)
+			|| !ActivityCheckPermissions(activity, character, false))
+			return false;
+
+		// All checks complete, this activity is allowed
+		return true;
+	});
+
+	// Sort allowed activities by their group declaration order
+	return allowed.sort((a, b) => Math.sign(group.Activity.indexOf(a.Name) - group.Activity.indexOf(b.Name)));
 }
 
 /**
@@ -586,10 +707,11 @@ function ActivityRunSelf(Source, Target, Activity) {
  */
 function ActivityRun(C, Activity) {
 
+	let group = ActivityGetGroupOrMirror(C.AssetFamily, C.FocusGroup.Name);
 	// If the player does the activity on herself or an NPC, we calculate the result right away
 	if ((C.ArousalSettings.Active == "Hybrid") || (C.ArousalSettings.Active == "Automatic"))
 		if ((C.ID == 0) || C.IsNpc())
-			ActivityEffect(Player, C, Activity, C.FocusGroup.Name);
+			ActivityEffect(Player, C, Activity, group.Name);
 
 	if (C.ID == 0) {
 		if (Activity.MakeSound) {
@@ -608,11 +730,11 @@ function ActivityRun(C, Activity) {
 		var Dictionary = [];
 		Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
 		Dictionary.push({ Tag: "TargetCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
-		Dictionary.push({ Tag: "ActivityGroup", Text: C.FocusGroup.Name });
+		Dictionary.push({ Tag: "ActivityGroup", Text: group.Name });
 		Dictionary.push({ Tag: "ActivityName", Text: Activity.Name });
-		ServerSend("ChatRoomChat", { Content: ((C.ID == 0) ? "ChatSelf-" : "ChatOther-") + C.FocusGroup.Name + "-" + Activity.Name, Type: "Activity", Dictionary: Dictionary });
+		ServerSend("ChatRoomChat", { Content: ((C.ID == 0) ? "ChatSelf-" : "ChatOther-") + group.Name + "-" + Activity.Name, Type: "Activity", Dictionary: Dictionary });
 
-		if (C.ID == 0 && Activity.Name.indexOf("Struggle") >= 0 )
+		if (C.ID == 0 && Activity.Name.indexOf("Struggle") >= 0)
 
 			ChatRoomStimulationMessage("StruggleAction");
 

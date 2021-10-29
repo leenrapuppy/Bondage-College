@@ -27,6 +27,7 @@ var DialogActivePoses = [];
 var DialogItemPermissionMode = false;
 var DialogExtendedMessage = "";
 var DialogActivityMode = false;
+/** @type {Array<Activity>} */
 var DialogActivity = [];
 /** @type {Record<"Enabled" | "Equipped" | "BothFavoriteUsable" | "TargetFavoriteUsable" | "PlayerFavoriteUsable" | "Usable" | "TargetFavoriteUnusable" | "PlayerFavoriteUnusable" | "Unusable" | "Blocked", DialogSortOrder>} */
 var DialogSortOrder = {
@@ -769,6 +770,19 @@ function DialogCanInspectLockWhileBlind(lockName) {
 }
 
 /**
+ * Builds the possible dialog activity options based on the character settings
+ * @param {Character} C - The character for which to build the activity dialog options
+ * @return {void} - Nothing
+ */
+function DialogBuildActivities(C) {
+	if (C.FocusGroup == null) {
+		DialogActivity = [];
+	} else {
+		DialogActivity = ActivityAllowedForGroup(C, C.FocusGroup.Name);
+	}
+}
+
+/**
  * Build the buttons in the top menu
  * @param {Character} C - The character for whom the dialog is prepared
  * @returns {void} - Nothing
@@ -852,12 +866,10 @@ function DialogMenuButtonBuild(C) {
 			if (DialogCanColor(C, Item)) DialogMenuButton.push(ItemBlockedOrLimited ? "ColorPickDisabled" : "ColorPick");
 
 			// Make sure the target player zone is allowed for an activity
-			if ((C.FocusGroup.Activity != null) && ((!C.IsEnclose() && !Player.IsEnclose()) || C.ID == 0) && ActivityAllowed() && (C.ArousalSettings != null) && (C.ArousalSettings.Zone != null) && (C.ArousalSettings.Active != null) && (C.ArousalSettings.Active != "Inactive"))
-				for (let Z = 0; Z < C.ArousalSettings.Zone.length; Z++)
-					if ((C.ArousalSettings.Zone[Z].Name == C.FocusGroup.Name) && (C.ArousalSettings.Zone[Z].Factor != null) && (C.ArousalSettings.Zone[Z].Factor > 0)) {
-						ActivityDialogBuild(C);
-						if (DialogActivity.length > 0) DialogMenuButton.push("Activity");
-					}
+			if (ActivityPossibleOnGroup(C, C.FocusGroup.Name)) {
+				DialogBuildActivities(C);
+				if (DialogActivity.length > 0) DialogMenuButton.push("Activity");
+			}
 
 			// Item permission enter/exit
 			if (C.ID == 0) {

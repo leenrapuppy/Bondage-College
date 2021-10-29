@@ -59,6 +59,7 @@ function AssetGroupAdd(NewAssetFamily, NewAsset) {
 		FreezeActivePose: Array.isArray(NewAsset.FreezeActivePose) ? NewAsset.FreezeActivePose : [],
 		PreviewZone: NewAsset.PreviewZone,
 		DynamicGroupName: NewAsset.DynamicGroupName || NewAsset.Group,
+		MirrorActivitiesFrom: NewAsset.MirrorActivitiesFrom || null,
 	};
 	AssetGroupMap.set(A.Name, A);
 	AssetGroup.push(A);
@@ -503,17 +504,24 @@ function AssetGet(Family, Group, Name) {
 }
 
 /**
+ * Gets all activities on a family and name
+ * @param {string} family - The family to search in
+ * @returns {Activity[]}
+ */
+function AssetAllActivities(family) {
+	if (family == "Female3DCG")
+		return ActivityFemale3DCG;
+	return [];
+}
+
+/**
  * Gets an activity asset by family and name
- * @param {string} Family - The family to search in
- * @param {string} Name - Name of activity to search for
+ * @param {string} family - The family to search in
+ * @param {string} name - Name of activity to search for
  * @returns {Activity|null}
  */
-function AssetGetActivity(Family, Name) {
-	if (Family == "Female3DCG")
-		for (let A = 0; A < ActivityFemale3DCG.length; A++)
-			if (ActivityFemale3DCG[A].Name == Name)
-				return ActivityFemale3DCG[A];
-	return null;
+function AssetGetActivity(family, name) {
+	return AssetAllActivities(family).find(a => (a.Name === name));
 }
 
 /**

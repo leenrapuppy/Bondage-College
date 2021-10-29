@@ -3434,6 +3434,7 @@ var AssetFemale3DCG = [
 		Left: 0,
 		Top: 190,
 		Zone: [[100, 200, 100, 70]],
+		MirrorActivitiesFrom: "ItemNeck",
 		Asset: [
 			{
 				Name: "CustomCollarTag", Value: 50, Difficulty: 20, Time: 5, Random: false, IsRestraint: false, AllowLock: true, DefaultColor: ["#aaa366", "#000000"], Prerequisite: "Collared", DynamicAfterDraw: true, Extended: true, DrawLocks: false,
@@ -3493,6 +3494,7 @@ var AssetFemale3DCG = [
 		Left: 0,
 		Top: 190,
 		Zone: [[300, 200, 100, 70]],
+		MirrorActivitiesFrom: "ItemNeck",
 		Asset: [
 			{ Name: "CollarChainLong", Fetish: ["Metal"], Value: 30, Difficulty: 6, Time: 5, Random: false, AllowLock: true, BuyGroup: "CollarChain", Audio: "ChainLong", Prerequisite: ["Collared", "NotSuspended"], AllowPose: ["Kneel", "Horse", "KneelingSpread", "AllFours", "Hogtied"], Effect: ["Tethered", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }] },
 			{ Name: "CollarChainShort", Fetish: ["Metal"], Value: -1, Difficulty: 6, Time: 5, Random: false, AllowLock: true, BuyGroup: "CollarChain", Audio: "ChainLong", Prerequisite: ["Collared", "AllFours", "NotSuspended", "NotMounted", "CanKneel"], AllowPose: ["AllFours", "Hogtied"], SetPose: ["Kneel"], Effect: ["Freeze", "ForceKneel", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
@@ -3944,6 +3946,7 @@ var AssetFemale3DCG = [
 		Effect: ["BlockMouth", "GagNormal"],
 		Zone: [[200, 130, 100, 70]],
 		DynamicGroupName: "ItemMouth",
+		MirrorActivitiesFrom: "ItemMouth",
 		Asset: [
 			{ Name: "ClothGag", Value: -1, Difficulty: -4, Time: 10, Random: false, DefaultColor: "#B0B0B0", BuyGroup: "ClothGag", Prerequisite: "GagFlat", Effect: ["BlockMouth", "GagVeryLight"], ExpressionTrigger: [{ Name: "DroolSides", Group: "Fluids", Timer: 30 }], Extended: true },
 			{
@@ -4198,6 +4201,7 @@ var AssetFemale3DCG = [
 		Effect: ["BlockMouth", "GagNormal"],
 		Zone: [[300, 130, 100, 70]],
 		DynamicGroupName: "ItemMouth",
+		MirrorActivitiesFrom: "ItemMouth",
 		Asset: [
 			{ Name: "ClothGag", Value: -1, Difficulty: -4, Time: 10, Random: false, DefaultColor: "#B0B0B0", BuyGroup: "ClothGag", Effect: ["BlockMouth", "GagVeryLight"], ExpressionTrigger: [{ Name: "DroolSides", Group: "Fluids", Timer: 30 }], Extended: true },
 			{
@@ -4683,7 +4687,7 @@ var AssetFemale3DCG = [
 		Left: 150,
 		Top: 50,
 		Zone: [[100, 0, 75, 130]],
-		Activity: ["Kiss", "GaggedKiss", "Lick", "Nibble", "Pinch", "Caress", "Whisper", "TickleItem", "RubItem", "RollItem", "Wiggle"],
+		Activity: ["Kiss", "GaggedKiss", "Lick", "Nibble", "Bite", "Pinch", "Caress", "Whisper", "TickleItem", "RubItem", "RollItem", "Wiggle"],
 		Asset: [
 			{ Name: "LightDutyEarPlugs", Value: 15, Difficulty: 50, Time: 5, Visible: false, Effect: ["DeafLight"] },
 			{ Name: "HeavyDutyEarPlugs", Value: 30, Difficulty: 50, Time: 5, Visible: false, Effect: ["DeafHeavy"] },
@@ -5465,7 +5469,7 @@ var ActivityFemale3DCG = [
 	{
 		Name: "Suck",
 		MaxProgress: 60,
-		TargetSelf: ["ItemHands", "ItemArms", "ItemBoots", "ItemNipples"],
+		TargetSelf: ["ItemHands", "ItemBoots", "ItemNipples"],
 		Prerequisite: ["ZoneAccessible", "UseMouth", "ZoneNaked"]
 	},
 	{
@@ -5488,13 +5492,13 @@ var ActivityFemale3DCG = [
 	{
 		Name: "Tickle",
 		MaxProgress: 50,
-		TargetSelf: ["ItemTorso", "ItemPelvis", "ItemBreast", "ItemNipples", "ItemLegs", "ItemFeet", "ItemBoots", "ItemArms", "ItemHands"],
+		TargetSelf: ["ItemTorso", "ItemPelvis", "ItemBreast", "ItemLegs", "ItemFeet", "ItemBoots", "ItemArms"],
 		Prerequisite: ["ZoneAccessible", "UseHands"]
 	},
 	{
 		Name: "Caress",
 		MaxProgress: 80,
-		TargetSelf: ["ItemTorso", "ItemPelvis", "ItemBreast", "ItemNipples", "ItemLegs", "ItemFeet", "ItemBoots", "ItemArms", "ItemHands", "ItemButt", "ItemVulva", "ItemHead", "ItemNeck", "ItemMouth", "ItemEars", "ItemNose"],
+		TargetSelf: ["ItemTorso", "ItemPelvis", "ItemBreast", "ItemNipples", "ItemLegs", "ItemFeet", "ItemArms", "ItemHands", "ItemButt", "ItemVulva", "ItemHead", "ItemNeck", "ItemMouth", "ItemEars", "ItemNose"],
 		Prerequisite: ["ZoneAccessible", "UseHands"]
 	},
 	{
@@ -5523,7 +5527,7 @@ var ActivityFemale3DCG = [
 	{
 		Name: "MassageHands",
 		MaxProgress: 60,
-		TargetSelf: ["ItemTorso", "ItemPelvis", "ItemBreast", "ItemLegs", "ItemFeet", "ItemBoots", "ItemArms", "ItemHands", "ItemButt", "ItemVulva", "ItemHead", "ItemNeck"],
+		TargetSelf: ["ItemTorso", "ItemPelvis", "ItemLegs", "ItemFeet", "ItemBoots", "ItemArms", "ItemNeck"],
 		Prerequisite: ["ZoneAccessible", "UseHands"]
 	},
 	{

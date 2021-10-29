@@ -160,6 +160,7 @@ interface AssetGroup {
 	FreezeActivePose: string[];
 	PreviewZone?: [number, number, number, number];
 	DynamicGroupName: string;
+	MirrorActivitiesFrom?: string;
 }
 
 /** An object defining a drawable layer of an asset */
@@ -545,6 +546,7 @@ interface Character {
 	IsMouthBlocked: () => boolean;
 	IsMouthOpen: () => boolean;
 	IsVulvaFull: () => boolean;
+	IsFixedHead: () => boolean;
 	IsOwnedByMemberNumber: (memberNumber: number) => boolean;
 	IsLover: (C: Character) => boolean;
 	IsLoverOfMemberNumber: (memberNumber: number) => boolean;

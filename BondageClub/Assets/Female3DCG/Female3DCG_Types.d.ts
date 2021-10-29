@@ -35,6 +35,7 @@ interface AssetGroupDefinition {
 	FreezeActivePose?: string[];
 	PreviewZone?: [number, number, number, number];
 	DynamicGroupName?: string;
+	MirrorActivitiesFrom?: string;
 }
 
 interface AssetDefinition {
