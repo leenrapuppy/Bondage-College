@@ -39,7 +39,7 @@ function AssetGroupAdd(NewAssetFamily, NewAsset) {
 		Clothing: (NewAsset.Clothing == null) ? false : NewAsset.Clothing,
 		Underwear: (NewAsset.Underwear == null) ? false : NewAsset.Underwear,
 		BodyCosplay: (NewAsset.BodyCosplay == null) ? false : NewAsset.BodyCosplay,
-		Activity: NewAsset.Activity,
+		Activity: Array.isArray(NewAsset.Activity) ? NewAsset.Activity : [],
 		AllowActivityOn: NewAsset.AllowActivityOn,
 		Hide: NewAsset.Hide,
 		Block: NewAsset.Block,

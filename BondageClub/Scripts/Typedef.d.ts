@@ -140,7 +140,7 @@ interface AssetGroup {
 	Clothing: boolean;
 	Underwear: boolean;
 	BodyCosplay: boolean;
-	Activity?: string[];
+	Activity: string[];
 	AllowActivityOn?: string[];
 	Hide?: string[];
 	Block?: string[];
@@ -248,7 +248,7 @@ interface Asset {
 	Enable: boolean;
 	Visible: boolean;
 	Wear: boolean;
-	Activity?: string[] | string;
+	Activity: string[] | string;
 	AllowActivity?: string[];
 	AllowActivityOn?: string[];
 	BuyGroup?: string;
