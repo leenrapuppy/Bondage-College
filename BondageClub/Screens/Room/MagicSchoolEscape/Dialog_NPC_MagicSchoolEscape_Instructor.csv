@@ -1,14 +1,28 @@
 PlayerGagged,,,(She looks at your gag and smiles.)  You'll need to find a spell to remove that gag.,
+EscapeSuccess,,,(She congratulates you.)  Well done!  You're a true escape artist.  Here's your salary.  (She gives you $MoneyAmount.),
+EscapeFail,,,"(She releases you.)  Sorry you failed, I hope you will try again.",
 0,,,Hello!  Are you ready to try a magical escape challenge?,
 0,,Who are you?,"I'm grey witch DialogCharacterName, challenger of wizards.",DialogRemove()
 0,,What is this place?,You're in the escape challenge oubliette.  We prepare escape challenges and magic puzzles for kinky sorcerers.,DialogRemove()
 0,10,Tell me about the challenge.,(She nods.)  What would you like to know?,
 0,20,I'd like to do an escape challenge.,Perfect!  What kind of challenge will you try?,
 0,,I need to go.  (Leave her.),,DialogLeave()
-10,,TO DO,TO DO,
+10,,How does it work?,"First, we restrain you from head to toe and lock you up in the oubliette.  Then you try to escape using magic.",
+10,,How do I escape from bondage?,"Your first spell is to remove your gag, then free your arms and legs.  The last spell is to unlock the door.",
+10,,What if I fail my spell?,"If you fail your spell, it will backfire on you and strip you, or restrain you tigther.  Too many backfires will make it impossible.",
+10,,Is there a reward for escaping?,"It's a race against the clock.  The faster you escape, the higher the salary.  Your attempt will certainly please our customers.",
 10,0,That's all I wanted to know.,(She smiles.)  Are you ready to try a magical escape challenge then?,
-20,,An easy one please.,TO DO,
-20,,A regular one I guess.,TO DO,
-20,,Give me a true challenge.,TO DO,
-20,,Send me to magic hell.,TO DO,
+20,21,An easy one please.,(She nods.)  You'll have 6 minutes to escape.  Are you ready to begin?  (She opens a box of bondage gear.),SetTime(6)
+20,21,A regular one I guess.,(She smiles.)  You'll have 4 minutes to escape.  Are you ready to begin?  (She opens a box of bondage gear.),SetTime(4)
+20,21,Give me a true challenge.,(She grins.)  You'll have 3 minutes to escape.  Are you ready to begin?  (She opens a box of bondage gear.),SetTime(3)
+20,21,Send me to magic hell.,(She smirks.)  You'll have 2 minutes to escape.  Are you ready to begin?  (She opens a box of bondage gear.),SetTime(2)
+21,,I'm ready!  (Start the challenge.),,Start()
+21,0,Wait!  I need more time.,(She sighs.)  Is there anything else you need from me?,
 20,0,I can't right now.,(She nods.)  No problem.  Is there anything else you need from me?,
+100,0,That was a fun challenge.,(She smiles.)  I'm glad you had fun.  Let me know if you want to try another challenge.,
+100,0,Nothing can stop a true Domme.,(She bows her head.)  Yes Miss.  Let me know if you want to try another challenge.,"DialogChangeReputation(""Dominant"", 3)"
+100,0,A subbie needs the best escape techniques.,(She pets your head.)  Good girl.  Let me know if you want to try another challenge.,"DialogChangeReputation(""Dominant"", -3)"
+100,0,It was kind of easy.,Try to beat your current time then.  Challenging yourself is the best way to learn.,"DialogChangeReputation(""Dominant"", 1)"
+200,0,That was a fun challenge.,(She smiles.)  I'm glad you had fun.  Let me know if you want to try another challenge.,
+200,0,I got too aroused to focus.  (Blush.),(She pets your head.)  You did fine.  Let me know if you want to try another challenge.,"DialogChangeReputation(""Dominant"", -2)"
+200,0,It was too hard.,Try an easier challenge or take more time to focus.  Let me know if you want to try another challenge.,"DialogChangeReputation(""Dominant"", -1)"
