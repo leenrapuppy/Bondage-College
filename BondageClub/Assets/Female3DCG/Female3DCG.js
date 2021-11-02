@@ -372,7 +372,7 @@ var AssetFemale3DCG = [
 		PreviewZone: [75, 150, 350, 350],
 		Asset: [
 			{
-				Name: "Catsuit", Fetish: ["Latex"], Value: 100, BuyGroup: "Catsuit", Hide: ["BodyUpper"], HideItem: ["ItemNipplesChopStickNippleClamps"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HasType: false, Extended: true,
+				Name: "Catsuit", Fetish: ["Latex"], Value: 100, BuyGroup: "Catsuit", Hide: ["ItemNipplesPiercings"], HideItem: ["ItemNipplesChopStickNippleClamps"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HasType: false, Extended: true,
 				Layer: [
 					{ Name: "Base" },
 					{ Name: "Zip" },
@@ -381,7 +381,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "SeamlessCatsuit", Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", Hide: ["BodyUpper"], HideItem: ["ItemNipplesChopStickNippleClamps"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HasType: false, Extended: true,
+				Name: "SeamlessCatsuit", Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", Hide: ["ItemNipplesPiercings"], HideItem: ["ItemNipplesChopStickNippleClamps"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HasType: false, Extended: true,
 				Layer: [
 					{ Name: "Suit", AllowColorize: true },
 					{ Name: "Gloves", AllowColorize: true, Priority: 27, AllowTypes: ["Gloves"] },
@@ -392,7 +392,7 @@ var AssetFemale3DCG = [
 				Name: "SleevelessCatsuit", Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", HideItem: ["ItemNipplesChopStickNippleClamps"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HasType: false,
 			},
 			{
-				Name: "PilotSuit", Fetish: ["Latex"], Value: 150, BuyGroup: "PilotSuit", DefaultColor: ["#3270C1", "#2B408B", "#969696", "#2B408B", "#2B408B"], Hide: ["BodyUpper"], HideItem: ["ItemNipplesChopStickNippleClamps"], HasType: false, Extended: true,
+				Name: "PilotSuit", Fetish: ["Latex"], Value: 150, BuyGroup: "PilotSuit", DefaultColor: ["#3270C1", "#2B408B", "#969696", "#2B408B", "#2B408B"], Hide: ["ItemNipplesPiercings"], HideItem: ["ItemNipplesChopStickNippleClamps"], HasType: false, Extended: true,
 				Layer: [
 					{ Name: "Layer1", AllowColorize: true },
 					{ Name: "Layer2", AllowColorize: true },
