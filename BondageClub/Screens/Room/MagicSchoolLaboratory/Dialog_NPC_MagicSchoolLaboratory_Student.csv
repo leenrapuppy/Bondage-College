@@ -6,10 +6,12 @@ BattleSuccessMaiestas,,,(She barely struggles and tries to keep her dignity.)  W
 BattleSuccessVincula,,,(She struggles hard to test your bondage and surrenders from exhaustion after a while.),,
 BattleSuccessAmplector,,,(She tugs on the restraints playfully and bows her head.)  You're a good magician.,,
 BattleSuccessCorporis,,,"(She thrashes in her bondage, almost hurting herself to get free.)",,
+BattleSuccessRainbowWand,,,(You pick up the rainbow wand as she struggles in her bondage.)  Keep it.,,
 BattleFailMaiestas,,,You truly thought you could defeat the prestigious House Maiestas?  (She looks at you and laughs.),,
 BattleFailVincula,,,(She uses a special Vincula spell to make it even tighter.)  House Vincula wins again!,,
 BattleFailAmplector,,,"(She gets close to you and kisses your forehead.)  That was a fun battle, but House Amplector will always prevail.",,
 BattleFailCorporis,,,"You're a pathetic magician, unworthy of House Corporis.  (She spanks your butt and laughs at you.)",,
+BattleFailRainbowWand,,,(She keeps the wand and invites members from your house to shame you.)  I hope you will remember this lesson.,,
 ItemMouth,,,(She sighs and reluctantly allows you to gag her.),,
 RemoveItemMouth,,,(You remove her gag and she grumbles.)  Your next spell will be your last.,,
 ItemMouth2,,,(She sighs and reluctantly allows you to gag her.),,
@@ -62,6 +64,7 @@ RemoveItemNipples,,,(She takes a deep breath and stays silent as you remove the 
 0,30,You peasants from Vincula cannot cast a square knot.,Enough!  I'll show you which house is best.  Let's do a great fight for both our houses honor.,,"FromRivalHouse(""Vincula"")"
 0,30,"Girls from Amplector are pathetic, worthless in battle.",Amplector has something you will never have: a heart.  Fight me now!  And prove who's best once and for all.,,"FromRivalHouse(""Amplector"")"
 0,30,Why are there so many bullies in House Corporis?,"So, I'm a bully?  (She smirks.)  Tell you what, let's do a great battle to show our houses strength.  I'll crush you.",,"FromRivalHouse(""Corporis"")"
+0,40,What is that wand?,"(She shakes her wand and it sparkles some rainbow dust.)  I won this cool wand in a school contest, it does rainbow spells.",,CanWageWand()
 0,,I need to go.  (Leave her.),,DialogLeave(),
 10,,(Fight her for fun.),,"BattleStudentStart(""Normal"")",
 10,,Forget it.  (Leave her.),,DialogLeave(),
@@ -70,6 +73,11 @@ RemoveItemNipples,,,(She takes a deep breath and stays silent as you remove the 
 20,,Forget it.  (Leave her.),,DialogLeave(),
 30,,(Fight her for your house honor.),,"BattleStudentStart(""Honor"")",
 30,,Forget it.  (Leave her.),,DialogLeave(),
+40,41,Can I have it?,"(She ponders.)  Only if you defeat me in battle.  But if I win, I get to shame you publicly in front of your own house.",,
+40,41,Do you want to wage it in battle?,"(She nods.)  Fine, if you defeat me in battle you get the wand.  If I win, I get to shame you publicly in front of your own house.",,
+40,,I don't care about that.  (Leave her.),,DialogLeave(),
+41,,Deal!  (Fight her for the wand.),,"BattleStudentStart(""RainbowWand"")",
+41,,Forget it.  (Leave her.),,DialogLeave(),
 100,110,(Remove her gag.),"(You slowly remove her gag.)  Thanks, you're a fair magician.",UngagStudent(),
 100,120,(Play with her.),(She stares at you as you get closer.),,
 100,,(Bring her to your room.),,TransferToRoom(),CanTransferToRoom()

@@ -31,12 +31,14 @@ function MagicSchoolLaboratoryPrepareNPC(C, House) {
 	InventoryRemove(C, "Necklace");
 	InventoryRemove(C, "Gloves");
 	InventoryRemove(C, "Socks");
-	InventoryWear(C, "SpankingToys", "ItemHands");
-	if (House == "Maiestas") InventoryGet(C, "ItemHands").Property = { Type: "Whip" };
-	else if (House == "Vincula") InventoryGet(C, "ItemHands").Property = { Type: "Belt" };
-	else if (House == "Amplector") InventoryGet(C, "ItemHands").Property = { Type: "Feather" };
-	else if (House == "Corporis") InventoryGet(C, "ItemHands").Property = { Type: "CandleWax" };
-	else InventoryGet(C, "ItemHands").Property = { Type: "Broom" };
+	if ((InventoryGet(C, "ItemHands") == null) || (InventoryGet(C, "ItemHands").Property == null) || (InventoryGet(C, "ItemHands").Property.Type != "RainbowWand")) {
+		InventoryWear(C, "SpankingToys", "ItemHands");
+		if (House == "Maiestas") InventoryGet(C, "ItemHands").Property = { Type: "Whip" };
+		else if (House == "Vincula") InventoryGet(C, "ItemHands").Property = { Type: "Belt" };
+		else if (House == "Amplector") InventoryGet(C, "ItemHands").Property = { Type: "Feather" };
+		else if (House == "Corporis") InventoryGet(C, "ItemHands").Property = { Type: "CandleWax" };
+		else InventoryGet(C, "ItemHands").Property = { Type: "Broom" };
+	}
 	InventoryWear(C, "Bra1", "Bra", LightColor);
 	InventoryWear(C, "Panties1", "Panties", LightColor);
 	InventoryWear(C, "LongSkirt1", "ClothLower", LightColor);
@@ -86,7 +88,8 @@ function MagicSchoolLaboratoryRun() {
 	DrawCharacter(MagicSchoolLaboratoryTeacher, 1000, 0, 1);
 	DrawButton(1885, 25, 90, 90, "", Player.CanWalk() ? "White" : "Pink", "Icons/Exit.png", TextGet("Exit"));
 	DrawButton(1885, 145, 90, 90, "", "White", "Icons/Character.png", TextGet("Profile"));
-	if (!MagicSchoolLaboratoryInHouse("")) DrawButton(1885, 265, 90, 90, "", "White", "Icons/Explore.png", TextGet("Explore"));
+	if (!MagicSchoolLaboratoryInHouse("")) DrawButton(1885, 265, 90, 90, "", "White", "Icons/Wardrobe.png", TextGet("Dress"));
+	if (!MagicSchoolLaboratoryInHouse("")) DrawButton(1885, 385, 90, 90, "", "White", "Icons/Explore.png", TextGet("Explore"));
 }
 
 /**
@@ -97,7 +100,8 @@ function MagicSchoolLaboratoryClick() {
 	if (MouseIn(1000, 0, 500, 1000)) CharacterSetCurrent(MagicSchoolLaboratoryTeacher);
 	if (MouseIn(1885, 25, 90, 90) && Player.CanWalk()) CommonSetScreen("Room", "MainHall");
 	if (MouseIn(1885, 145, 90, 90)) InformationSheetLoadCharacter(Player);
-	if (MouseIn(1885, 265, 90, 90) && !MagicSchoolLaboratoryInHouse("")) MagicSchoolLaboratoryFindStudent();
+	if (MouseIn(1885, 265, 90, 90) && !MagicSchoolLaboratoryInHouse("")) MagicSchoolLaboratoryDressHouse();
+	if (MouseIn(1885, 385, 90, 90) && !MagicSchoolLaboratoryInHouse("")) MagicSchoolLaboratoryFindStudent();
 }
 
 /**
@@ -240,28 +244,28 @@ function MagicSchoolLaboratoryFindStudent() {
 		Houses.push("Vincula");
 		Houses.push("Amplector");
 		Houses.push("Corporis");
-		if ((ReputationGet("HouseMaiestas") >= 100) && !LogQuery("Mastery", "MagicSchool"))	Houses.push("Maiestas");
+		if ((ReputationGet("HouseMaiestas") >= 100) && !LogQuery("Mastery", "MagicSchool") && InventoryAvailable(Player, "SpankingToysRainbowWand", "ItemHands"))	Houses.push("Maiestas");
 	}
 	if (ReputationGet("HouseVincula") > 0) {
 		Houses.push("Maiestas");
 		Houses.push("Maiestas");
 		Houses.push("Amplector");
 		Houses.push("Corporis");
-		if ((ReputationGet("HouseVincula") >= 100) && !LogQuery("Mastery", "MagicSchool")) Houses.push("Vincula");
+		if ((ReputationGet("HouseVincula") >= 100) && !LogQuery("Mastery", "MagicSchool") && InventoryAvailable(Player, "SpankingToysRainbowWand", "ItemHands")) Houses.push("Vincula");
 	}
 	if (ReputationGet("HouseAmplector") > 0) {
 		Houses.push("Maiestas");
 		Houses.push("Vincula");
 		Houses.push("Corporis");
 		Houses.push("Corporis");
-		if ((ReputationGet("HouseAmplector") >= 100) && !LogQuery("Mastery", "MagicSchool")) Houses.push("Amplector");
+		if ((ReputationGet("HouseAmplector") >= 100) && !LogQuery("Mastery", "MagicSchool") && InventoryAvailable(Player, "SpankingToysRainbowWand", "ItemHands")) Houses.push("Amplector");
 	}
 	if (ReputationGet("HouseCorporis") > 0) {
 		Houses.push("Maiestas");
 		Houses.push("Vincula");
 		Houses.push("Amplector");
 		Houses.push("Amplector");
-		if ((ReputationGet("HouseCorporis") >= 100) && !LogQuery("Mastery", "MagicSchool")) Houses.push("Corporis");
+		if ((ReputationGet("HouseCorporis") >= 100) && !LogQuery("Mastery", "MagicSchool") && InventoryAvailable(Player, "SpankingToysRainbowWand", "ItemHands")) Houses.push("Corporis");
 	}
 
 	// Creates the student NPC and gives her a house
@@ -275,6 +279,13 @@ function MagicSchoolLaboratoryFindStudent() {
 	MagicSchoolLaboratoryStudent = CharacterLoadNPC("NPC_MagicSchoolLaboratory_" + NPCType);
 	CharacterRelease(MagicSchoolLaboratoryStudent);
 	MagicSchoolLaboratoryPrepareNPC(MagicSchoolLaboratoryStudent, NPCHouse);
+
+	// At 50 reputation or more, can randomly span the rainbow wand (15% odds)
+	if ((Math.random() > 0.85) && !InventoryAvailable(Player, "SpankingToysRainbowWand", "ItemHands") && ((ReputationGet("HouseMaiestas") >= 50) || (ReputationGet("HouseVincula") >= 50) || (ReputationGet("HouseAmplector") >= 50) || (ReputationGet("HouseCorporis") >= 50))) {
+		InventoryWear(MagicSchoolLaboratoryStudent, "SpankingToys", "ItemHands");
+		InventoryGet(MagicSchoolLaboratoryStudent, "ItemHands").Property = { Type: "RainbowWand" };
+		CharacterRefresh(MagicSchoolLaboratoryStudent);
+	}
 	setTimeout(() => CharacterSetCurrent(MagicSchoolLaboratoryStudent), 500);
 
 }
@@ -288,8 +299,9 @@ function MagicSchoolLaboratoryBattleStudentStart(Type) {
 	MagicSchoolLaboratoryBattleWage = Type;
 	if (Type == "Wage25") CharacterChangeMoney(Player, -25);
 	let Difficulty = 2;
-	if (Type == "Wage25") Difficulty = 5;
-	if (Type == "Honor") Difficulty = 8;
+	if (Type == "Wage25") Difficulty = 4;
+	if (Type == "Honor") Difficulty = 6;
+	if (Type == "RainbowWand") Difficulty = 8;
 	MagicBattleStart(MagicSchoolLaboratoryStudent, Difficulty, MagicSchoolLaboratoryBackground, "MagicSchoolLaboratoryBattleStudentEnd");
 }
 
@@ -305,25 +317,38 @@ function MagicSchoolLaboratoryBattleStudentEnd() {
 		CharacterAppearanceRestore(Player, MagicBattlePlayerAppearance);
 		CharacterRefresh(Player);
 		if (MagicSchoolLaboratoryBattleWage == "Wage25") CharacterChangeMoney(Player, 50);
+		if (MagicSchoolLaboratoryBattleWage == "RainbowWand") {
+			InventoryAdd(Player, "SpankingToysRainbowWand", "ItemHands");
+			InventoryWear(Player, "SpankingToys", "ItemHands");
+			InventoryGet(Player, "ItemHands").Property = { Type: "RainbowWand" };
+			CharacterRefresh(Player);
+		}
 		let RepGain = (MagicSchoolLaboratoryBattleWage == "Honor") ? 6 : 3;
 		if (ReputationGet("HouseMaiestas") > 0) DialogChangeReputation("HouseMaiestas", RepGain);
 		if (ReputationGet("HouseVincula") > 0) DialogChangeReputation("HouseVincula", RepGain);
 		if (ReputationGet("HouseAmplector") > 0) DialogChangeReputation("HouseAmplector", RepGain);
 		if (ReputationGet("HouseCorporis") > 0) DialogChangeReputation("HouseCorporis", RepGain);
 		MagicSchoolLaboratoryStudent.Stage = "100";
-		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleSuccess" + MagicSchoolLaboratoryStudent.House);
+		if (MagicSchoolLaboratoryBattleWage == "RainbowWand")
+			MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleSuccessRainbowWand");
+		else
+			MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleSuccess" + MagicSchoolLaboratoryStudent.House);
 	} else {
 		CharacterAppearanceRestore(MagicSchoolLaboratoryStudent, MagicBattleOpponentAppearance);
 		CharacterRefresh(MagicSchoolLaboratoryStudent);
-		if (MagicSchoolLaboratoryBattleWage == "Honor") {
-			if (ReputationGet("HouseMaiestas") >= 3) DialogChangeReputation("HouseMaiestas", -2);
-			if (ReputationGet("HouseVincula") >= 3) DialogChangeReputation("HouseVincula", -2);
-			if (ReputationGet("HouseAmplector") >= 3) DialogChangeReputation("HouseAmplector", -2);
-			if (ReputationGet("HouseCorporis") >= 3) DialogChangeReputation("HouseCorporis", -2);
+		if ((MagicSchoolLaboratoryBattleWage == "Honor") || (MagicSchoolLaboratoryBattleWage == "RainbowWand")) {
+			let RepChange = (MagicSchoolLaboratoryBattleWage == "Honor") ? -2 : -5;
+			if (ReputationGet("HouseMaiestas") >= 3) DialogChangeReputation("HouseMaiestas", RepChange);
+			if (ReputationGet("HouseVincula") >= 3) DialogChangeReputation("HouseVincula", RepChange);
+			if (ReputationGet("HouseAmplector") >= 3) DialogChangeReputation("HouseAmplector", RepChange);
+			if (ReputationGet("HouseCorporis") >= 3) DialogChangeReputation("HouseCorporis", RepChange);
 		}
 		MagicSchoolLaboratorySpellCount = 0;
 		MagicSchoolLaboratoryStudent.Stage = "200";
-		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleFail" + MagicSchoolLaboratoryStudent.House);
+		if (MagicSchoolLaboratoryBattleWage == "RainbowWand")
+			MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleFailRainbowWand");
+		else
+			MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "BattleFail" + MagicSchoolLaboratoryStudent.House);
 	}
 }
 
@@ -500,4 +525,12 @@ function MagicSchoolLaboratoryLearnMastery() {
 	CharacterAppearanceRestore(MagicSchoolLaboratoryStudent, MagicBattleOpponentAppearance);
 	CharacterRefresh(MagicSchoolLaboratoryStudent);
 	LogAdd("Mastery", "MagicSchool");
+}
+
+/**
+ * Returns TRUE if the rainbow wand can be waged in a magic fight
+ * @returns {boolean} - TRUE if it can be waged
+ */
+function MagicSchoolLaboratoryCanWageWand() {
+	return ((InventoryGet(MagicSchoolLaboratoryStudent, "ItemHands") != null) && (InventoryGet(MagicSchoolLaboratoryStudent, "ItemHands").Property.Type == "RainbowWand"));
 }

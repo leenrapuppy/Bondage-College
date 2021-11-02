@@ -25,10 +25,7 @@ function MagicPuzzleLoad() {
 	MagicPuzzleTimer = (MiniGameDifficulty > 0) ? CommonTime() + 5000 + MiniGameDifficulty * 1000 : 0;
 	MagicPuzzleStarted = false;
 	MiniGameVictory = false;
-	MagicPuzzleTrailRainbow = ReputationGet("HouseMaiestas") >= 75
-		|| ReputationGet("HouseVincula") >= 75
-		|| ReputationGet("HouseAmplector") >= 75
-		|| ReputationGet("HouseCorporis") >= 75;
+	MagicPuzzleTrailRainbow = ((InventoryGet(Player, "ItemHands") != null) && (InventoryGet(Player, "ItemHands").Property != null) && (InventoryGet(Player, "ItemHands").Property.Type == "RainbowWand"));
 }
 
 /**
