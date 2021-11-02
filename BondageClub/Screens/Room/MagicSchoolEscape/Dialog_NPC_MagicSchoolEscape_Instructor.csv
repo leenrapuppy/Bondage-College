@@ -1,0 +1,14 @@
+PlayerGagged,,,(She looks at your gag and smiles.)  You'll need to find a spell to remove that gag.,
+0,,,Hello!  Are you ready to try a magical escape challenge?,
+0,,Who are you?,"I'm grey witch DialogCharacterName, challenger of wizards.",DialogRemove()
+0,,What is this place?,You're in the escape challenge oubliette.  We prepare escape challenges and magic puzzles for kinky sorcerers.,DialogRemove()
+0,10,Tell me about the challenge.,(She nods.)  What would you like to know?,
+0,20,I'd like to do an escape challenge.,Perfect!  What kind of challenge will you try?,
+0,,I need to go.  (Leave her.),,DialogLeave()
+10,,TO DO,TO DO,
+10,0,That's all I wanted to know.,(She smiles.)  Are you ready to try a magical escape challenge then?,
+20,,An easy one please.,TO DO,
+20,,A regular one I guess.,TO DO,
+20,,Give me a true challenge.,TO DO,
+20,,Send me to magic hell.,TO DO,
+20,0,I can't right now.,(She nods.)  No problem.  Is there anything else you need from me?,
