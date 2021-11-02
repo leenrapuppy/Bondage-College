@@ -8,7 +8,7 @@ var MagicBattleAvailSpell = [];
 var MagicBattleOpponentSpell = 0;
 var MagicBattlePlayerAppearance = null;
 var MagicBattleOpponentAppearance = null;
-var MagicBattleSpellDifficulty = [3, 5, 7, 9, 6, 8];
+var MagicBattleSpellDifficulty = [3, 5, 7, 9, 6, 8, 4, 8];
 
 /**
  * Start a magic battle against an opponent
