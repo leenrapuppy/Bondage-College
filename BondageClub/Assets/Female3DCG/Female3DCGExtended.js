@@ -159,34 +159,7 @@ var AssetFemale3DCGExtended = {
 		}, // LatexLacedSuit
 		ReverseBunnySuit: {
 			Archetype: ExtendedArchetype.TYPED,
-			Config: {
-				Options: [
-					{
-						Name: "NoGloves",
-						Property: {
-							Type: null,
-						},
-					},
-					{
-						Name: "Solid",
-						Property: {
-							Type: "Gloves",
-							Hide: ["Hands"],
-						},
-					},
-					{
-						Name: "Seethrough",
-						Property: {
-							Type: "AltGloves",
-						},
-					},
-				],
-				Dialog: {
-					Load: "SelectSuitGloves",
-					TypePrefix: "SuitGloveType",
-				},
-				DrawImages: false,
-			},
+			CopyConfig: { GroupName: "Suit", AssetName: "Catsuit" },
 		}, // ReverseBunnySuit
 	}, // Cloth
 	ClothAccessory: {
@@ -1751,7 +1724,7 @@ var AssetFemale3DCGExtended = {
 				},
 					DrawImages: false,
 			}
-		}, // OpenFaceHood	
+		}, // OpenFaceHood
 		TechnoHelmet1: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
@@ -3692,7 +3665,7 @@ var AssetFemale3DCGExtended = {
 				},
 					DrawImages: false,
 			}
-		} // OpenFaceHood	
+		} // OpenFaceHood
 	}, // Mask
 	ItemLegs: {
 		DuctTape: {
@@ -4808,65 +4781,11 @@ var AssetFemale3DCGExtended = {
 		}, // Catsuit
 		SeamlessCatsuit: {
 			Archetype: ExtendedArchetype.TYPED,
-			Config: {
-				Options: [
-					{
-						Name: "NoGloves",
-						Property: {
-							Type: null,
-						},
-					},
-					{
-						Name: "Solid",
-						Property: {
-							Type: "Gloves",
-							Hide: ["Hands"],
-						},
-					},
-					{
-						Name: "Seethrough",
-						Property: {
-							Type: "AltGloves",
-						},
-					},
-				],
-				Dialog: {
-					Load: "SelectSuitGloves",
-					TypePrefix: "SuitGloveType",
-				},
-				DrawImages: false,
-			},
+			CopyConfig: { GroupName: "Suit", AssetName: "Catsuit" },
 		}, // SeamlessCatsuit
 		PilotSuit: {
 			Archetype: ExtendedArchetype.TYPED,
-			Config: {
-				Options: [
-					{
-						Name: "NoGloves",
-						Property: {
-							Type: null,
-						},
-					},
-					{
-						Name: "Solid",
-						Property: {
-							Type: "Gloves",
-							Hide: ["Hands"],
-						},
-					},
-					{
-						Name: "Seethrough",
-						Property: {
-							Type: "AltGloves",
-						},
-					},
-				],
-				Dialog: {
-					Load: "SelectSuitGloves",
-					TypePrefix: "SuitGloveType",
-				},
-				DrawImages: false,
-			},
+			CopyConfig: { GroupName: "Suit", AssetName: "Catsuit" },
 		}, // PilotSuit
 		SeethroughSuit: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -4901,65 +4820,11 @@ var AssetFemale3DCGExtended = {
 		}, // SeethroughSuit
 		SeethroughSuitZip: {
 			Archetype: ExtendedArchetype.TYPED,
-			Config: {
-				Options: [
-					{
-						Name: "NoGloves",
-						Property: {
-							Type: null,
-						},
-					},
-					{
-						Name: "Seethrough",
-						Property: {
-							Type: "Gloves",
-						},
-					},
-					{
-						Name: "Solid",
-						Property: {
-							Type: "AltGloves",
-							Hide: ["Hands"],
-						},
-					},
-				],
-				Dialog: {
-					Load: "SelectSuitGloves",
-					TypePrefix: "SuitGloveType",
-				},
-				DrawImages: false,
-			},
+			CopyConfig: { GroupName: "Suit", AssetName: "SeethroughSuit" },
 		}, // SeethroughSuitZip
 		ReverseBunnySuit: {
 			Archetype: ExtendedArchetype.TYPED,
-			Config: {
-				Options: [
-					{
-						Name: "NoGloves",
-						Property: {
-							Type: null,
-						},
-					},
-					{
-						Name: "Solid",
-						Property: {
-							Type: "Gloves",
-							Hide: ["Hands"],
-						},
-					},
-					{
-						Name: "Seethrough",
-						Property: {
-							Type: "AltGloves",
-						},
-					},
-				],
-				Dialog: {
-					Load: "SelectSuitGloves",
-					TypePrefix: "SuitGloveType",
-				},
-				DrawImages: false,
-			},
+			CopyConfig: { GroupName: "Suit", AssetName: "Catsuit" },
 		}, // ReverseBunnySuit
 	}, // Suit
 	ItemHead: {
