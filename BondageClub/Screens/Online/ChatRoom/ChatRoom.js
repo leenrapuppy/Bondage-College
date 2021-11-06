@@ -1675,7 +1675,7 @@ function ChatRoomMenuClick() {
 				case "Kneel":
 					// When the user character kneels
 					if (Player.CanKneel()) {
-						const PlayerIsKneeling = Player.ActivePose && Player.ActivePose.includes("Kneel");
+						const PlayerIsKneeling = Player.IsKneeling();
 						ServerSend("ChatRoomChat", { Content: PlayerIsKneeling ? "StandUp" : "KneelDown", Type: "Action", Dictionary: [{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber }] });
 						FuturisticTrainingBeltStandUpFlag = Player.IsKneeling();
 						CharacterSetActivePose(Player, PlayerIsKneeling ? "BaseLower" : "Kneel");

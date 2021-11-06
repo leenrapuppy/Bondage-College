@@ -239,7 +239,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 			return ((NPCEventGet(this, "Girlfriend") > 0) || (Player.GetLoversNumbers().indexOf("NPC-" + this.Name) >= 0));
 		},
 		IsKneeling: function () {
-			return ((this.Pose != null) && (this.Pose.indexOf("Kneel") >= 0));
+			return (this.Pose != null && (this.Pose.includes("Kneel") || this.Pose.includes("KneelingSpread")));
 		},
 		IsNaked: function () {
 			return CharacterIsNaked(this);
