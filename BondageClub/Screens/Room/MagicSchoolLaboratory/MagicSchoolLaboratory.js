@@ -234,10 +234,33 @@ function MagicSchoolLaboratoryMagicBattleEnd() {
 }
 
 /**
+ * Generates a random student from the same house as the player (sister)
+ * @returns {void} - Nothing
+ */
+function MagicSchoolLaboratoryBuildSister() {
+	let NPCHouse = "Maiestas";
+	if (ReputationGet("HouseVincula") > 0) NPCHouse = "Vincula";
+	if (ReputationGet("HouseAmplector") > 0) NPCHouse = "Amplector";
+	if (ReputationGet("HouseCorporis") > 0) NPCHouse = "Corporis";
+	CharacterDelete("NPC_MagicSchoolLaboratory_Sister");
+	if (MagicSchoolLaboratoryStudent != null) {
+		delete CommonCSVCache["Screens/Room/MagicSchoolLaboratory/Dialog_NPC_MagicSchoolLaboratory_Sister.csv"];
+		CharacterRandomName(MagicSchoolLaboratoryStudent);
+	}
+	MagicSchoolLaboratoryStudent = CharacterLoadNPC("NPC_MagicSchoolLaboratory_Sister");
+	CharacterRelease(MagicSchoolLaboratoryStudent);
+	MagicSchoolLaboratoryPrepareNPC(MagicSchoolLaboratoryStudent, NPCHouse);
+	setTimeout(() => CharacterSetCurrent(MagicSchoolLaboratoryStudent), 500);
+}
+
+/**
  * Generates a random student that will meet the player
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratoryFindStudent() {
+	
+	// 20% odds of spawning a friendly student from the same house
+	if (Math.random() > 0.80) return MagicSchoolLaboratoryBuildSister();
 
 	// Builds a list of all possible houses for that student, based on the player house
 	let Houses = [];

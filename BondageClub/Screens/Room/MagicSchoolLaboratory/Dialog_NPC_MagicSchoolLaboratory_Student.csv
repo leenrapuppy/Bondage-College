@@ -93,12 +93,12 @@ RemoveItemNipples,,,(She takes a deep breath and stays silent as you remove the 
 110,,(Let her go.),,DialogLeave(),
 120,,,120,,
 120,,(Tickle her.),"(You tickle her on the ribs and tummy.  She giggles, laughs, and squirms.)  Unfair!  Eeeeeaahahaha!","StudentEmote(""Low"", ""Surprised"")",Player.CanInteract()
-120,,(Caress her.),"(She moans silently as you caress her sensually.)  Mmmmhh, now that is nice.","StudentEmote(""Low"", ""Closed"")",Player.CanInteract()
 120,,(Kiss her.),(You grab her head and exchange a long and loving kiss with her.),"StudentEmote(""Low"", ""Horny"")",Player.CanTalk()
 120,,(Fondle her.),(You playfully fondle her breasts and butt as she moans softly and blushes.),"StudentEmote(""Medium"", ""Closed"")",Player.CanInteract()
 120,,(Slap her.),(You slap her swiftly on the face.  She bows her head and whimpers.),"StudentEmote(""High"", ""Angry"")",Player.CanInteract()
 120,,(Spank her.),(You spank her butt a few times as she jumps from the pain.),"StudentEmote(""Medium"", ""Closed"")",Player.CanInteract()
 120,,(Masturbate her.),(You grab and masturbate her skillfully as she gets slowly aroused.),"StudentEmote(""High"", ""Horny"")",Player.CanInteract()
+120,,(Bring her to your room.),,TransferToRoom(),CanTransferToRoom()
 120,,(Let her go.),,DialogLeave(),
 200,210,(Struggle and test your bondage.),(She smiles and removes your gag.)  You're cute when you struggle.  I won't let you go that easily.,UngagPlayer(0),
 200,210,(Bow your head and whimper silently.),(She smirks and removes your gag.)  Such a cute subbie in bondage.  I won't let you go easily.,UngagPlayer(-3),

@@ -1,0 +1,94 @@
+PlayerGagged,,,"A gag will control your mouth, while I control your mind.",,"FromHouse(""Maiestas"")"
+PlayerGagged,,,The tighter the better!  This also applies to gags.,,"FromHouse(""Vincula"")"
+PlayerGagged,,,A silenced magician cannot do any harm.,,"FromHouse(""Amplector"")"
+PlayerGagged,,,Stop your futile mumblings.,,"FromHouse(""Corporis"")"
+BattleSuccessMaiestas,,,(She barely struggles and tries to keep her dignity.)  Well done.,,
+BattleSuccessVincula,,,(She struggles hard to test your bondage and surrenders from exhaustion after a while.),,
+BattleSuccessAmplector,,,(She tugs on the restraints playfully and bows her head.)  You're a good magician.,,
+BattleSuccessCorporis,,,"(She thrashes in her bondage, almost hurting herself to get free.)",,
+BattleSuccessRainbowWand,,,(You pick up the rainbow wand as she struggles in her bondage.)  Keep it.,,
+BattleFailMaiestas,,,You truly thought you could defeat the prestigious House Maiestas?  (She looks at you and laughs.),,
+BattleFailVincula,,,(She uses a special Vincula spell to make it even tighter.)  House Vincula wins again!,,
+BattleFailAmplector,,,"(She gets close to you and kisses your forehead.)  That was a fun battle, but House Amplector will always prevail.",,
+BattleFailCorporis,,,"You're a pathetic magician, unworthy of House Corporis.  (She spanks your butt and laughs at you.)",,
+BattleFailRainbowWand,,,(She keeps the wand and invites members from your house to shame you.)  I hope you will remember this lesson.,,
+ItemMouth,,,(She sighs and reluctantly allows you to gag her.),,
+RemoveItemMouth,,,(You remove her gag and she grumbles.)  Your next spell will be your last.,,
+ItemMouth2,,,(She sighs and reluctantly allows you to gag her.),,
+RemoveItemMouth2,,,(You remove her gag and she grumbles.)  Your next spell will be your last.,,
+ItemMouth3,,,(She sighs and reluctantly allows you to gag her.),,
+RemoveItemMouth3,,,(You remove her gag and she grumbles.)  Your next spell will be your last.,,
+ItemEars,,,(She seems angry as you push earplugs inside.)  How can I hear your spells now?,,
+RemoveItemEars,,,(You pull the earplugs out as she nods.),,
+ItemArms,,,(She struggles as you restrain her arms securely.)  Bondage is the best magic.,,
+RemoveItemArms,,,(You free her arms and she stretches.),,
+ItemLegs,,,(She thrashes as you restrain her legs.)  I'll need a levitation spell now.,,
+RemoveItemLegs,,,(You release her legs.)  That was some nice bondage.,,
+ItemFeet,,,"(She grumbles as you restrain her feet.)  Snug, but not tight.",,
+RemoveItemFeet,,,(You release her feet.)  My house will avenge me.,,
+ItemBoots,,,"(She grumbles as you restrain her feet.)  Snug, but not tight.",,
+RemoveItemBoots,,,(You release her feet.)  My house will avenge me.,,
+ItemNeck,,,(She adjusts her neck to the new collar.)  Hey!  There's no collar spell!,,
+RemoveItemNeck,,,(You remove the collar from her neck.)  Much better.,,
+ItemPelvis,,,(She struggles to avoid the belt but you're able to strap it on her.),,
+RemoveItemPelvis,,,(She sighs as you unlock the belt.)  Let's hope they don't invent a magic chastity belt.,,
+ItemHead,,,(She stays silent as you strap the device on her head.),,
+RemoveItemHead,,,(You release her head as she nods rapidly.)  That's better.,,
+ItemHood,,,(You put the hood on her head as she goes silent.),,
+RemoveItemHood,,,(She grins as you remove the hood from her head.)  Magical vengeance will be sweet.,,
+ItemNose,,,(You strap the item on her nose as she sighs.)  This won't prevent magic!,,
+RemoveItemNose,,,(She nods as you remove the device.)  My nose was getting itchy.,,
+ItemTorso,,,(You strap the harness on her torso.)  Magical harnesses are the best.,,
+RemoveItemTorso,,,(She stretches as you release her from the harness.)  That was kinky.,,
+ItemButt,,,(She jumps as you slide the device inside.)  Woah!  That was uncalled for.,,
+RemoveItemButt,,,(She sighs as you remove the plug.)  You're quite a kinky wizard.,,
+ItemBreast,,,(She holds her breath as you use the item.)  What are you planning?,,
+RemoveItemBreast,,,(She wiggles her breast slowly as you remove the device.)  Thanks.,,
+ItemNipples,,,(She whimpers as you use the device on her breast.)  Nnnng!  That's painful.,,
+RemoveItemNipples,,,(She takes a deep breath and stays silent as you remove the device.),,
+0,,,(A girl from House Maiestas crosses your path.)  It's an honor to see you sister.  I hope you're doing well.,,"FromHouse(""Maiestas"")"
+0,,,(A girl from House Vincula is reviewing her battle spells.)  Hey sis!  Would you like a fun battle?,,"FromHouse(""Vincula"")"
+0,,,(You meet a girl from House Amplector.)  Sister!  (She gives you a long and warm hug.),,"FromHouse(""Amplector"")"
+0,,,"(A girl from House Corporis taps on your shoulder.)  Sister, a witch should always cover her back.  (She winks at you.)",,"FromHouse(""Corporis"")"
+0,10,Let's practice a magic battle.,(She nods.)  Good idea sister.  We can battle for fun and practice our spells.  Are you ready?,,
+0,20,Care to bet on who's the best mage?,(She smirks.)  Alright sis.  I bet you $25 that I can beat you in a magic fight.,,
+0,30,"Sister, would you like to visit my room?",(She nods.)  Absolutely.  Please lead the way.,,CanTransferToRoom()
+0,,I need to go.  (Leave her.),,DialogLeave(),
+10,,(Fight her for fun.),,"BattleStudentStart(""Normal"")",
+10,,Forget it.  (Leave her.),,DialogLeave(),
+20,,(Fight her and wage $25.),,"BattleStudentStart(""Wage25"")",DialogMoneyGreater(25)
+20,,I don't have enough money.,Don't bet if you're broke.  Find some money and we'll meet again.,DialogRemove(),!DialogMoneyGreater(25)
+20,,Forget it.  (Leave her.),,DialogLeave(),
+30,,Come with me.  (Bring her to your room.),,TransferToRoom(),
+30,,Maybe later.  (Leave her.),,DialogLeave(),
+100,110,(Remove her gag.),(You slowly remove her gag.)  Thanks sis!  You're a great wizard.,UngagStudent(),
+100,120,(Play with her.),(She stares at you as you get closer.),,
+100,,(Bring her to your room.),,TransferToRoom(),CanTransferToRoom()
+100,,(Let her go.),,DialogLeave(),
+110,120,That was a fun battle.,(She nods slowly and looks at you as you get closer.),,
+110,120,House Maiestas will rule the school soon.,(She nods happily as you get closer.),"DialogChangeReputation(""HouseMaiestas"", 2)","InHouse(""Maiestas"")"
+110,120,House Vincula has the best bondage spells.,(She nods happily as you get closer.),"DialogChangeReputation(""HouseVincula"", 2)","InHouse(""Vincula"")"
+110,120,(Give her a hug.)  House Amplector knows love and magic.,(She nods happily as you get closer.),"DialogChangeReputation(""HouseAmplector"", 2)","InHouse(""Amplector"")"
+110,120,(Spank her butt.)  House Corporis has the best witches.,(She nods happily as you get closer.),"DialogChangeReputation(""HouseCorporis"", 2)","InHouse(""Corporis"")"
+110,120,"Sister, you're in big trouble.",(She gulps and bows her head as you get closer.),"DialogChangeReputation(""Dominant"", 3)",
+110,120,I was lucky on that battle.,"(She shakes her head no, as you get closer.)","DialogChangeReputation(""Dominant"", -1)",
+110,,Come with me.  (Bring her to your room.),,TransferToRoom(),CanTransferToRoom()
+110,,(Let her go.),,DialogLeave(),
+120,,,120,,
+120,,(Tickle her.),"(You tickle her on the ribs and tummy.  She giggles, laughs, and squirms.)  Unfair!  Eeeeeaahahaha!","StudentEmote(""Low"", ""Surprised"")",Player.CanInteract()
+120,,(Kiss her.),(You grab her head and exchange a long and loving kiss with her.),"StudentEmote(""Low"", ""Horny"")",Player.CanTalk()
+120,,(Fondle her.),(You playfully fondle her breasts and butt as she moans softly and blushes.),"StudentEmote(""Medium"", ""Closed"")",Player.CanInteract()
+120,,(Slap her.),(You slap her swiftly on the face.  She bows her head and whimpers.),"StudentEmote(""High"", ""Angry"")",Player.CanInteract()
+120,,(Spank her.),(You spank her butt a few times as she jumps from the pain.),"StudentEmote(""Medium"", ""Closed"")",Player.CanInteract()
+120,,(Masturbate her.),(You grab and masturbate her skillfully as she gets slowly aroused.),"StudentEmote(""High"", ""Horny"")",Player.CanInteract()
+120,,(Bring her to your room.),,TransferToRoom(),CanTransferToRoom()
+120,,(Let her go.),,DialogLeave(),
+200,210,(Struggle and test your bondage.),"(She smiles and removes your gag.)  You're cute when you struggle.  Don't worry sister, I will release you.",UngagPlayer(0),
+200,210,(Bow your head and whimper silently.),"(She smirks and removes your gag.)  Such a cute subbie in bondage.  Don't worry sister, I will release you.",UngagPlayer(-3),
+200,210,(Stare at her and grumble in your gag.),"(She stares at you and removes your gag.)  You're a feisty one.  Don't worry sister, I will release you.",UngagPlayer(1),
+210,220,Thanks sis!,(She smiles and releases you.)  Let's do another battle soon.,ReleasePlayer(0),
+210,220,You better do it.,(She bows her head and releases you.)  Let's do another battle soon.,ReleasePlayer(2),
+210,220,(Nod slowly.),(She smirks and releases you.)  Let's do another battle soon.,ReleasePlayer(-1),
+220,,I hope we can fight again.,"We will, just search the magic school for the cutest mage.  (She winks at you.)",DialogRemove(),
+220,30,Would you like to visit my room?,(She nods.)  Absolutely.  Please lead the way.,,CanTransferToRoom()
+220,,(Leave her.),,DialogLeave(),
