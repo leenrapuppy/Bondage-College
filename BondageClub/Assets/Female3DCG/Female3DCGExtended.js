@@ -331,7 +331,6 @@ var AssetFemale3DCGExtended = {
 							Hide: ["Cloth", "ClothLower", "ClothAccessory", "Necklace", "Shoes", "Socks"],
 							Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemPelvis", "ItemTorso", "ItemHands", "ItemLegs", "ItemFeet", "ItemBoots", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemDevices"],
 						},
-						SelfBlockCheck: true,
 						Random: false,
 					},
 					{
@@ -378,7 +377,6 @@ var AssetFemale3DCGExtended = {
 							Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemPelvis", "ItemTorso", "ItemHands", "ItemLegs", "ItemFeet", "ItemBoots", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemDevices"],
 							OverrideHeight: { Height: 0, Priority: 51, HeightRatioProportion: 0 },
 						},
-						SelfBlockCheck: true,
 						Random: false,
 					},
 				],
@@ -495,7 +493,6 @@ var AssetFemale3DCGExtended = {
 						Prerequisite: ["NotMounted", "NotSuspended"],
 						Property: { Type: "KneelingHogtie", Effect: ["Block", "Freeze", "Prone", "NotSelfPickable"], Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots", "ItemDevices"], AllowActivityOn: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], SetPose: ["Kneel", "BackElbowTouch"], Difficulty: 3 },
 						Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
-						SelfBlockCheck: true,
 						Random: false,
 					}, {
 						Name: "Hogtied",
@@ -503,7 +500,6 @@ var AssetFemale3DCGExtended = {
 						Prerequisite: ["NotMounted", "NotSuspended"],
 						Property: { Type: "Hogtied", Effect: ["Block", "Freeze", "Prone", "NotSelfPickable"], Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots", "ItemDevices"], AllowActivityOn: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], SetPose: ["Hogtied"], Difficulty: 3 },
 						Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
-						SelfBlockCheck: true,
 						Random: false,
 					}, {
 						Name: "AllFours",
@@ -511,7 +507,6 @@ var AssetFemale3DCGExtended = {
 						Prerequisite: ["NotMounted", "NotSuspended"],
 						Property: { Type: "AllFours", Effect: ["ForceKneel", "NotSelfPickable"], Block: ["ItemLegs", "ItemFeet", "ItemBoots", "ItemDevices"],  AllowActivityOn: ["ItemLegs", "ItemFeet", "ItemBoots"], SetPose: ["AllFours"], Difficulty: 3 },
 						Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
-						SelfBlockCheck: true,
 						Random: false,
 					}, {
 						Name: "SuspensionHogtied",

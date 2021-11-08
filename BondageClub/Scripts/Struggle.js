@@ -173,7 +173,8 @@ function StruggleProgressAutoDraw(C, Offset) {
 	if (StruggleProgress < 0) StruggleProgress = 0;
 
 	// We cancel out if at least one of the following cases apply: a new item conflicts with this, the player can no longer interact, something else was added first, the item was already removed
-	if (InventoryGroupIsBlocked(C) || (C != Player && !Player.CanInteract()) || (StruggleProgressNextItem == null && !InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name)) || (StruggleProgressNextItem != null && !InventoryAllow(C, StruggleProgressNextItem.Asset.Prerequisite)) || (StruggleProgressNextItem != null && StruggleProgressPrevItem != null && ((InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name) && InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name).Asset.Name != StruggleProgressPrevItem.Asset.Name) || !InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name))) || (StruggleProgressNextItem != null && StruggleProgressPrevItem == null && InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name))) {
+	if (InventoryGroupIsBlocked(C) || (C != Player && !Player.CanInteract()) || (StruggleProgressNextItem == null && !InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name)) || (StruggleProgressNextItem != null && !InventoryAllow(
+		C, StruggleProgressNextItem.Asset)) || (StruggleProgressNextItem != null && StruggleProgressPrevItem != null && ((InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name) && InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name).Asset.Name != StruggleProgressPrevItem.Asset.Name) || !InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name))) || (StruggleProgressNextItem != null && StruggleProgressPrevItem == null && InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name))) {
 		if (StruggleProgress > 0)
 			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true, "interrupted");
 		else

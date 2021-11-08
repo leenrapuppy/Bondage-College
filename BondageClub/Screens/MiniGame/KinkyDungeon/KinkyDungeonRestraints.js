@@ -548,7 +548,8 @@ function KinkyDungeonAddRestraint(restraint, Tightness, Bypass) {
 			InventoryWear(KinkyDungeonPlayer, restraint.Asset, restraint.Group, restraint.power);
 			let placed = InventoryGet(KinkyDungeonPlayer, restraint.Group);
 			let placedOnPlayer = false;
-			if (placed && ArcadeDeviousChallenge && KinkyDungeonDeviousDungeonAvailable() && !KinkyDungeonRestraintsLocked.includes(restraint.Group) && restraint.Group != "ItemHead" && InventoryAllow(Player, placed.Asset.Prerequisite) &&
+			if (placed && ArcadeDeviousChallenge && KinkyDungeonDeviousDungeonAvailable() && !KinkyDungeonRestraintsLocked.includes(restraint.Group) && restraint.Group != "ItemHead" && InventoryAllow(
+					Player, placed.Asset) &&
 				(!InventoryGetLock(InventoryGet(Player, restraint.Group))
 				|| (InventoryGetLock(InventoryGet(Player, restraint.Group)).Asset.OwnerOnly == false && InventoryGetLock(InventoryGet(Player, restraint.Group)).Asset.LoverOnly == false))) {
 				InventoryWear(Player, restraint.Asset, restraint.Group, restraint.power);

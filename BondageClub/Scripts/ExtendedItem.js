@@ -435,17 +435,14 @@ function ExtendedItemCheckSkillRequirements(C, Item, Option) {
  * @param {ExtendedItemOption|ModularItemOption} CurrentOption - The currently applied option on the item
  * @returns {string} - Returns a non-empty message string if the item failed validation, or an empty string otherwise
  */
-function ExtendedItemValidate(C, Item, { Prerequisite, SelfBlockCheck, Property }, CurrentOption) {
+function ExtendedItemValidate(C, Item, { Prerequisite, Property }, CurrentOption) {
 	const CurrentProperty = Item && Item.Property;
 	const CurrentLockedBy = CurrentProperty && CurrentProperty.LockedBy;
 
 	if (CurrentOption && CurrentOption.ChangeWhenLocked === false && CurrentLockedBy && !DialogCanUnlock(C, Item)) {
 		// If the option can't be changed when locked, ensure that the player can unlock the item (if it's locked)
 		return DialogFindPlayer("CantChangeWhileLocked");
-	} else if (Prerequisite && SelfBlockCheck && !ExtendedItemSelfProofRequirementCheck(C, Prerequisite)) {
-		// If SelfBlockCheck is required, do a self-proof prerequisite check
-		return DialogText;
-	} else if (Prerequisite && !SelfBlockCheck && !InventoryAllow(C, Prerequisite, true)) {
+	} else if (Prerequisite && !InventoryAllow(C, Item.Asset, Prerequisite, true)) {
 		// Otherwise use the standard prerequisite check
 		return DialogText;
 	} else {
@@ -456,32 +453,6 @@ function ExtendedItemValidate(C, Item, { Prerequisite, SelfBlockCheck, Property 
 	}
 
 	return "";
-}
-
-/**
- * Removes the item temporarily before validation in case the current type fails the prerequisite check, since it will
- * be replaced
- * @param {Character} C - The character wearing the item
- * @param {(Array|String)} Prerequisite - An array of prerequisites or a string for a single prerequisite
- * @returns {boolean} - Whether the new option passes validation
- */
-function ExtendedItemSelfProofRequirementCheck(C, Prerequisite) {
-	let Allowed = true;
-
-	// Remove the item temporarily for prerequisite-checking
-	let CurrentItem = InventoryGet(C, C.FocusGroup.Name);
-	C.Appearance = C.Appearance.filter(Item => Item !== CurrentItem);
-	CharacterRefresh(C, false, false);
-
-	if (!InventoryAllow(C, Prerequisite, true)) {
-		Allowed = false;
-	}
-
-	// Re-add the item
-	C.Appearance.push(CurrentItem);
-	CharacterRefresh(C, false, false);
-
-	return Allowed;
 }
 
 /**

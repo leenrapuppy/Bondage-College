@@ -220,11 +220,11 @@ function ValidationResolveLockModification(previousItem, newItem, params, itemBl
 
 	const previousProperty = previousItem.Property || {};
 	const newProperty = newItem.Property = newItem.Property || {};
-	
+
 	const previousLock = InventoryGetLock(previousItem);
 	const newLock = InventoryGetLock(newItem);
 	const notLocked = !previousLock && !newLock;
-	
+
 	if (notLocked || !ValidationLockWasModified(previousProperty, newProperty)) {
 		return true;
 	}
@@ -1014,12 +1014,12 @@ function ValidationGetPrerequisiteBlockingGroups(item, appearance) {
 		char.Appearance = appearance;
 		CharacterLoadEffect(char);
 		CharacterLoadPose(char);
-		const allowedWithCheckItem = InventoryAllow(char, item.Asset.Prerequisite, false);
+		const allowedWithCheckItem = InventoryAllow(char, item.Asset, undefined, false);
 		if (!allowedWithCheckItem) {
 			char.Appearance = appearance.filter((appearanceItem) => appearanceItem.Asset !== checkItem.Asset);
 			CharacterLoadEffect(char);
 			CharacterLoadPose(char);
-			const allowedWithoutCheckItem = InventoryAllow(char, item.Asset.Prerequisite, false);
+			const allowedWithoutCheckItem = InventoryAllow(char, item.Asset, undefined, false);
 			if (allowedWithoutCheckItem) {
 				blockingGroups.push(checkItem.Asset.Group.Name);
 			}

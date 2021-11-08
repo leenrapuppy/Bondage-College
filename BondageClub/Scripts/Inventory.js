@@ -341,29 +341,38 @@ function InventoryPrerequisiteConflictingGags(C, BlockingPrereqs) {
 }
 
 /**
-* Returns TRUE if we can add the item, no other items must block that prerequisite
-* @param {Character} C - The character on which we check for prerequisites
-* @param {string|string[]} Prerequisite - An array of prerequisites or a string for a single prerequisite
-* @param {boolean} [SetDialog=true] - If TRUE, set the screen dialog message at the same time
-* @returns {boolean} - TRUE if the item can be added to the character
-*/
-function InventoryAllow(C, Prerequisite, SetDialog) {
+ * Returns TRUE if we can add the item, no other items must block that prerequisite
+ * @param {Character} C - The character on which we check for prerequisites
+ * @param {Asset} asset - The asset for which prerequisites should be checked. Any item equipped in the asset's group
+ * will be ignored for the purposes of the prerequisite check.
+ * @param {string|string[]} [prerequisites=asset.Prerequisite] - An array of prerequisites or a string for a single
+ * prerequisite. If nothing is provided, the asset's default prerequisites will be used
+ * @param {boolean} [setDialog=true] - If TRUE, set the screen dialog message at the same time
+ * @returns {boolean} - TRUE if the item can be added to the character
+ */
+function InventoryAllow(C, asset, prerequisites = asset.Prerequisite, setDialog = true) {
+	// Prerequisite can be a string
+	if (typeof prerequisites === "string") {
+		prerequisites = [prerequisites];
+	}
 
-	// Prerequisite can be a string, in that case there's only one check
-	var Msg = "";
-	if (Prerequisite == null) return true;
-	if ((typeof Prerequisite === "string") && (Prerequisite != ""))
-		Msg = InventoryPrerequisiteMessage(C, Prerequisite);
+	// If prerequisite isn't a valid array, return true
+	if (!Array.isArray(prerequisites)) {
+		return true;
+	}
 
-	// Prerequisite can be an array of strings, in that case we check all items in the array and get the first error message
-	if (Array.isArray(Prerequisite) && (Prerequisite.length > 0))
-		for (let P = 0; ((P < Prerequisite.length) && (Msg == "")); P++)
-			Msg = InventoryPrerequisiteMessage(C, Prerequisite[P]);
+	// Create/load a simple character for prerequisite checking
+	const checkCharacter = CharacterLoadSimple("InventoryAllow");
+	checkCharacter.Appearance = C.Appearance.filter((item) => item.Asset.Group.Name !== asset.Group.Name);
+	CharacterLoadEffect(checkCharacter);
+	CharacterLoadPose(checkCharacter);
+
+	let Msg = "";
+	prerequisites.some((prerequisite) => (Msg = InventoryPrerequisiteMessage(checkCharacter, prerequisite)));
 
 	// If no error message was found, we return TRUE, if a message was found, we can show it in the dialog
-	if (Msg != "" && (SetDialog == null || SetDialog)) DialogSetText(Msg);
-	return (Msg == "");
-
+	if (Msg && setDialog) DialogSetText(Msg);
+	return !Msg;
 }
 
 /**
@@ -528,7 +537,7 @@ function InventoryGetRandom(C, GroupName, AllowedAssets, IgnorePrerequisites = f
 		if (((AssetList[A].Group.Name == GroupName && AssetList[A].Wear) || GroupName == null || GroupName == "")
 			&& (RandomOnly == false || AssetList[A].Random)
 			&& AssetList[A].Enable
-			&& (IgnorePrerequisites || InventoryAllow(C, AssetList[A].Prerequisite, false)))
+			&& (IgnorePrerequisites || InventoryAllow(C, AssetList[A], undefined, false)))
 		{
 			var CurrRank = 0;
 

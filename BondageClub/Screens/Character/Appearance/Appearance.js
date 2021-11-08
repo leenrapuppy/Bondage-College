@@ -1098,7 +1098,7 @@ function AppearanceClick() {
 					DialogInventoryTogglePermission(Item, worn);
 				} else {
 					if (InventoryBlockedOrLimited(C, Item)) return;
-					if (InventoryAllow(C, Item.Asset.Prerequisite)) {
+					if (InventoryAllow(C, Item.Asset)) {
 						if (worn && CurrentItem.Asset.Extended) {
 							DialogExtendItem(CurrentItem);
 						} else {

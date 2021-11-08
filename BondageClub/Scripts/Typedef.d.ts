@@ -809,12 +809,6 @@ interface ExtendedItemOption {
 	SelfBondageLevel?: number;
 	/** The required prerequisites that must be met before this option can be selected */
 	Prerequisite?: string | string[];
-	/**
-	 * Whether or not prerequisites should be considered on the character's
-	 * appearance without the item equipped. Should be set to `true` if the item itself might interfere with prerequisites on
-	 * some of its options
-	 */
-	SelfBlockCheck?: boolean;
 	/** A custom background for this option that overrides the default */
 	CustomBlindBackground? : string;
 	/**
@@ -991,12 +985,6 @@ interface ModularItemOption {
 	SelfBondageLevel?: number;
 	/** The required prerequisites that must be met before this option can be selected */
 	Prerequisite?: string | string[];
-	/**
-	 * Whether or not prerequisites should be considered on the character's
-	 * appearance without the item equipped. Should be set to `true` if the item itself might interfere with prerequisites on
-	 * some of its options
-	 */
-	SelfBlockCheck?: boolean;
 	/** A custom background for this option that overrides the default */
 	CustomBlindBackground? : string;
 	/** A list of groups that this option blocks - defaults to [] */
