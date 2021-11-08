@@ -378,7 +378,7 @@ function MagicSchoolLaboratoryCanTransferToRoom() {
 function MagicSchoolLaboratoryTransferToRoom() {
 	DialogLeave();
 	CommonSetScreen("Room", "Private");
-	PrivateAddCharacter(MagicSchoolLaboratoryStudent, "");
+	PrivateAddCharacter(MagicSchoolLaboratoryStudent, MagicSchoolLaboratoryStudent.House);
 }
 
 /**

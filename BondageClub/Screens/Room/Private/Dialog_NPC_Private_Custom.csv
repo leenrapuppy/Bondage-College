@@ -460,6 +460,10 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 10,0,Enough chit-chat.,"We can speak again, whenever you want.  We can also play some chess later, if you like the game of course.",,,EndTalk,Wise
 10,0,Enough chit-chat.,Yeah!  Let's go find some beer or something else to drink.,,,EndTalk,Dumb
 10,,(Leave her.),,DialogLeave(),,,
+11,0,Wear your House Maiestas outfit.,(She nods and wears her magic school outfit.)  We will rule the school one day.,"Change(""Maiestas"")","TitleIs(""Maiestas"")",,
+11,0,Wear your House Vincula outfit.,(She giggles and wears her magic school outfit.)  Let's do a magic battle soon.,"Change(""Vincula"")","TitleIs(""Vincula"")",,
+11,0,Wear your House Amplector outfit.,(She smiles and wears her magic school outfit.)  Would you like a famous Amplector hug?,"Change(""Amplector"")","TitleIs(""Amplector"")",,
+11,0,Wear your House Corporis outfit.,(She smirks and wears her magic school outfit.)  Pain and pleasure is the name of the game.,"Change(""Corporis"")","TitleIs(""Corporis"")",,
 11,0,Get fully dressed.,(She nods and makes sure she's wearing all her clothes.)  I hope it looks fine.,"Change(""Cloth"")",,,
 11,0,Get in your underwear.,(She nods and makes sure she's wearing only her underwear.)  I'm not sure where this is going.,"Change(""Underwear"")",,,
 11,0,Get naked.,(She blushes and gets fully naked.)  Something kinky is brewing!,"Change(""Naked"")",,,
@@ -1425,6 +1429,10 @@ PunishCell,1000,It's fair Mistress.  (Go to the cell.),,RunPunishment(1),,,
 2030,2000,"No, you can stay.",You got me scared Mistress.  What would you like to do?,NPCInteraction(-5),,SubCancelKickOut,Submissive|Peaceful
 2030,2000,"No, you can stay.","Make up your mind Mistress.  So, what's up?",NPCInteraction(-5),,SubCancelKickOut,Dominant|Rude
 2030,2000,"No, you can stay.","Sorry, I'm kind of confused Mistress.  What would you like to do?",NPCInteraction(-5),,SubCancelKickOut,Dumb|Polite
+2040,2000,Wear your House Maiestas outfit.,(She nods and wears her magic school outfit.)  We will rule the school one day.,"Change(""Maiestas"")","TitleIs(""Maiestas"")",,
+2040,2000,Wear your House Vincula outfit.,(She giggles and wears her magic school outfit.)  Let's do a magic battle soon.,"Change(""Vincula"")","TitleIs(""Vincula"")",,
+2040,2000,Wear your House Amplector outfit.,(She smiles and wears her magic school outfit.)  Would you like a famous Amplector hug?,"Change(""Amplector"")","TitleIs(""Amplector"")",,
+2040,2000,Wear your House Corporis outfit.,(She smirks and wears her magic school outfit.)  Pain and pleasure is the name of the game.,"Change(""Corporis"")","TitleIs(""Corporis"")",,
 2040,2000,Get fully dressed.,(She nods and makes sure she's wearing all her clothes.)  I hope it looks fine.,"Change(""Cloth"")",,,
 2040,2000,Get in your underwear.,(She nods and makes sure she's wearing only her underwear.)  I'm not sure where this is going.,"Change(""Underwear"")",,,
 2040,2000,Get naked.,(She blushes and gets fully naked.)  Something kinky is brewing.,"Change(""Naked"")",,,
