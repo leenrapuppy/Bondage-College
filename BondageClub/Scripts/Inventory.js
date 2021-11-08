@@ -177,7 +177,6 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "Collared": return (InventoryGet(C, "ItemNeck") == null) ? "MustCollaredFirst" : "";
 		case "CannotHaveWand": return InventoryIsItemInList(C, "ItemArms", ["FullLatexSuit"]) ? "CannotHaveWand" : "";
 		case "CannotBeSuited": return InventoryIsItemInList(C, "ItemVulva", ["WandBelt", "HempRopeBelt"]) ? "CannotHaveWand" : "";
-		case "CannotBeHogtiedWithAlphaHood": return InventoryDoesItemHavePrerequisite(C, "ItemHood", "CanUseAlphaHood") ? Prerequisite : "";
 		case "AllFours": return CharacterItemsHavePose(C, "AllFours") ? "CannotUse" : "";
 		case "OnBed": return !C.Effect.includes("OnBed") ? "MustBeOnBed" : "";
 		case "CuffedArms": return  !C.Effect.includes("CuffedArms") ? "MustBeArmCuffedFirst" : "";

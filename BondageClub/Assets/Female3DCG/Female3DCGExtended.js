@@ -322,7 +322,7 @@ var AssetFemale3DCGExtended = {
 						Name: "Hogtied",
 						BondageLevel: 3,
 						SelfBondageLevel: 6,
-						Prerequisite: ["NotSuspended", "NoFeetSpreader", "CannotBeHogtiedWithAlphaHood"],
+						Prerequisite: ["NotSuspended", "NoFeetSpreader"],
 						Property: {
 							Type: "Hogtied",
 							Difficulty: 4,
@@ -368,7 +368,7 @@ var AssetFemale3DCGExtended = {
 						Name: "SuspensionHogtied",
 						BondageLevel: 5,
 						SelfBondageLevel: 9,
-						Prerequisite: ["NotSuspended", "NoFeetSpreader", "NotChained", "CannotBeHogtiedWithAlphaHood"],
+						Prerequisite: ["NotSuspended", "NoFeetSpreader", "NotChained"],
 						Property: {
 							Type: "SuspensionHogtied",
 							Difficulty: 11,
@@ -500,7 +500,7 @@ var AssetFemale3DCGExtended = {
 					}, {
 						Name: "Hogtied",
 						BondageLevel: 4,
-						Prerequisite: ["NotMounted", "NotSuspended", "CannotBeHogtiedWithAlphaHood"],
+						Prerequisite: ["NotMounted", "NotSuspended"],
 						Property: { Type: "Hogtied", Effect: ["Block", "Freeze", "Prone", "NotSelfPickable"], Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots", "ItemDevices"], AllowActivityOn: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], SetPose: ["Hogtied"], Difficulty: 3 },
 						Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
 						SelfBlockCheck: true,
@@ -508,7 +508,7 @@ var AssetFemale3DCGExtended = {
 					}, {
 						Name: "AllFours",
 						BondageLevel: 6,
-						Prerequisite: ["NotMounted", "NotSuspended", "CannotBeHogtiedWithAlphaHood"],
+						Prerequisite: ["NotMounted", "NotSuspended"],
 						Property: { Type: "AllFours", Effect: ["ForceKneel", "NotSelfPickable"], Block: ["ItemLegs", "ItemFeet", "ItemBoots", "ItemDevices"],  AllowActivityOn: ["ItemLegs", "ItemFeet", "ItemBoots"], SetPose: ["AllFours"], Difficulty: 3 },
 						Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
 						SelfBlockCheck: true,
@@ -516,7 +516,7 @@ var AssetFemale3DCGExtended = {
 					}, {
 						Name: "SuspensionHogtied",
 						BondageLevel: 8,
-						Prerequisite: ["NotMounted", "NotChained", "NotSuspended", "CannotBeHogtiedWithAlphaHood"],
+						Prerequisite: ["NotMounted", "NotChained", "NotSuspended"],
 						Property: { Type: "SuspensionHogtied", Effect: ["Block", "Freeze", "Prone", "NotSelfPickable"], Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], AllowActivityOn: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], SetPose: ["Hogtied", "SuspensionHogtied"], Difficulty: 6,
 							OverrideHeight: { Height: 0, Priority: 51, HeightRatioProportion: 0 } },
 						Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
@@ -1171,7 +1171,7 @@ var AssetFemale3DCGExtended = {
 						Random: false,
 					}, {
 						Name: "ZipHogtie",
-						Prerequisite: ["NotMounted", "NotSuspended", "CannotBeHogtiedWithAlphaHood"],
+						Prerequisite: ["NotMounted", "NotSuspended"],
 						Property: {
 							Type: "ZipHogtied",
 							Effect: ["Block", "Freeze", "Prone"],
@@ -1183,7 +1183,7 @@ var AssetFemale3DCGExtended = {
 						Random: false,
 					}, {
 						Name: "ZipAllFours",
-						Prerequisite: ["NotMounted", "NotSuspended", "CannotBeHogtiedWithAlphaHood"],
+						Prerequisite: ["NotMounted", "NotSuspended"],
 						Property: {
 							Type: "ZipAllFours", Effect: ["ForceKneel"],
 							Block: ["ItemLegs", "ItemFeet", "ItemBoots", "ItemDevices"],

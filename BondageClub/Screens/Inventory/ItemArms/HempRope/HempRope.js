@@ -28,7 +28,7 @@ var InventoryItemArmsHempRopeOptions = [
 	}, {
 		Name: "SimpleHogtie",
 		BondageLevel: 2,
-		Prerequisite: ["NotMounted", "NotSuspended", "CannotBeHogtiedWithAlphaHood"],
+		Prerequisite: ["NotMounted", "NotSuspended"],
 		Property: { Type: "SimpleHogtie", Effect: ["Block", "Prone"], SetPose: ["Hogtied"], Difficulty: 2 },
 		Expression: [{ Group: "Blush", Name: "Medium", Timer: 5 }],
 		SelfBlockCheck: true,
@@ -52,21 +52,21 @@ var InventoryItemArmsHempRopeOptions = [
 	}, {
 		Name: "Hogtied",
 		BondageLevel: 4,
-		Prerequisite: ["NotMounted", "NotSuspended", "CannotBeHogtiedWithAlphaHood"],
+		Prerequisite: ["NotMounted", "NotSuspended"],
 		Property: { Type: "Hogtied", Effect: ["Block", "Freeze", "Prone"], Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots", "ItemDevices"], AllowActivityOn: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], SetPose: ["Hogtied"], Difficulty: 3 },
 		Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
 		SelfBlockCheck: true,
 	}, {
 		Name: "AllFours",
 		BondageLevel: 6,
-		Prerequisite: ["NotMounted", "NotSuspended", "CannotBeHogtiedWithAlphaHood"],
+		Prerequisite: ["NotMounted", "NotSuspended"],
 		Property: { Type: "AllFours", Effect: ["ForceKneel"], Block: ["ItemLegs", "ItemFeet", "ItemBoots", "ItemDevices"], AllowActivityOn: ["ItemLegs", "ItemFeet", "ItemBoots"], SetPose: ["AllFours"], Difficulty: 3 },
 		Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
 		SelfBlockCheck: true,
 	}, {
 		Name: "SuspensionHogtied",
 		BondageLevel: 8,
-		Prerequisite: ["NotMounted", "NotChained", "NotReverseSuspended", "CannotBeHogtiedWithAlphaHood"],
+		Prerequisite: ["NotMounted", "NotChained", "NotReverseSuspended"],
 		Property: { Type: "SuspensionHogtied", Effect: ["Block", "Freeze", "Prone"], Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], AllowActivityOn: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], SetPose: ["Hogtied", "SuspensionHogtied"], Difficulty: 6,
 			OverrideHeight: { Height: -575, Priority: 51, HeightRatioProportion: 1 } },
 		Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
