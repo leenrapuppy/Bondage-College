@@ -969,11 +969,22 @@ var AssetFemale3DCG = [
 			{ Name: "Shoes1", Height: 6, HideForPose: ["KneelingSpread"] },
 			{ Name: "Shoes2", Height: 6, HideForPose: ["KneelingSpread"] },
 			{ Name: "Shoes4", Height: 6, HideForPose: ["KneelingSpread"] },
-			{ Name: "Sneakers1", Height: 3, HideForPose: ["KneelingSpread"]},
-			{ Name: "Sneakers2", Height: 3, HideForPose: ["KneelingSpread"] },
-			{ Name: "Heels1", Height: 15, HideForPose: ["KneelingSpread"] },
-			{ Name: "Heels2", Height: 15, HideForPose: ["KneelingSpread"] },
-			{ Name: "Boots1", Height: 9, HideItem: ["LeftAnkletRibbon1", "RightAnkletRibbon1"], HideForPose: ["KneelingSpread"],
+			{ Name: "Sneakers1", Height: 3, HideForPose: ["Kneel", "KneelingSpread"],
+				Layer: [
+					{ Name: "Main", AllowColorize: true},
+					{ Name: "Front", AllowColorize: true, HideForPose: ["Hogtied"]},
+					{ Name: "Laces", AllowColorize: true, HideForPose: ["Hogtied"]}
+				]
+			},			
+			{ Name: "Sneakers2", Height: 3, HideForPose: ["Kneel", "KneelingSpread"],
+				Layer: [
+					{ Name: "Shoes", AllowColorize: true},
+					{ Name: "Laces", AllowColorize: true, HideForPose: ["Hogtied"]}
+				]
+			},			
+			{ Name: "Heels1", Height: 15, HideForPose: ["Kneel", "KneelingSpread"], },
+			{ Name: "Heels2", Height: 15, HideForPose: ["Kneel", "KneelingSpread"], },
+			{ Name: "Boots1", Height: 9, HideForPose: ["Kneel", "KneelingSpread"], HideItem: ["LeftAnkletRibbon1", "RightAnkletRibbon1"],
 				Layer: [
 					{ Name: "Shoes", AllowColorize: true},
 					{ Name: "Sides", AllowColorize: true},
@@ -982,14 +993,14 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "MistressBoots", Fetish: ["Leather"], Value: -1, HideItem: ["SocksSocks4", "SocksSocks5", "LeftAnkletRibbon1", "RightAnkletRibbon1"], Alpha: [{ Group: ["BodyLower", "Socks", "SuitLower"], Masks: [[75, 875, 350, 200]] }], Height: 35, HideForPose: ["KneelingSpread"] },
 			{ Name: "PonyBoots", Fetish: ["Pony"], Value: -1, Alpha: [{ Group: ["BodyLower", "Socks", "SuitLower"], Masks: [[75, 875, 350, 200]] }], Height: 35, HideForPose: ["KneelingSpread"] },
-			{ Name: "Sandals", Priority: 22, Value: 30, HideItem: ["SocksSocks0", "SocksSocks1", "SocksSocks2", "SocksSocks3", "SocksSocks4", "SocksSocks5", "SocksSocks6", "SocksSocksFur"], Height: 3, HideForPose: ["KneelingSpread"] },
-			{ Name: "SandalsRS", Priority: 22, Value: 30, DefaultColor:["#AA9977", "#999999"], HideItem: ["SocksSocks0", "SocksSocks1", "SocksSocks2", "SocksSocks3", "SocksSocks4", "SocksSocks5", "SocksSocks6", "SocksSocksFur"], Height: 1, Alpha: [{ Group: ["BodyUpper"], Pose: ["Hogtied"], Masks: [[0, 0, 500, 70]] }], HideForPose: ["KneelingSpread"],
+			{ Name: "Sandals", Priority: 22, Value: 30, HideItem: ["SocksSocks0", "SocksSocks1", "SocksSocks2", "SocksSocks3", "SocksSocks4", "SocksSocks5", "SocksSocks6", "SocksSocksFur"], Height: 3, HideForPose: ["Kneel", "KneelingSpread"] },
+			{ Name: "SandalsRS", Priority: 22, Value: 30, DefaultColor:["#AA9977", "#999999"], HideItem: ["SocksSocks0", "SocksSocks1", "SocksSocks2", "SocksSocks3", "SocksSocks4", "SocksSocks5", "SocksSocks6", "SocksSocksFur"], Height: 1, Alpha: [{ Group: ["BodyUpper"], Pose: ["Hogtied"], Masks: [[0, 0, 500, 70]] }], HideForPose: ["Kneel", "KneelingSpread"],
 				Layer: [
 					{ Name: "Soles",  Priority: 6 },
 					{ Name: "Top",  Priority: 22 }
 				]
 			},
-			{ Name: "PawBoots", Fetish: ["Pet"], Value: 45, HideItem: ["LeftAnkletRibbon1", "RightAnkletRibbon1"], Height: 3, HideForPose: ["KneelingSpread"] },
+			{ Name: "PawBoots", Fetish: ["Pet"], Value: 45, HideItem: ["LeftAnkletRibbon1", "RightAnkletRibbon1"], Height: 3, HideForPose: ["Kneel", "KneelingSpread"] },
 			{ Name: "WoollyBootsTall", Fetish: ["Pet"], Value: 60, HideItem: ["LeftAnkletRibbon1", "RightAnkletRibbon1"], Height: 9, HideForPose: ["KneelingSpread"] },
 			{ Name: "ThighHighLatexHeels", Fetish: ["Latex"], Value: 80, HideItem: ["LeftAnkletRibbon1", "RightAnkletRibbon1"], BuyGroup: "ThighHighLatexHeels",
 				Alpha: [
@@ -997,10 +1008,10 @@ var AssetFemale3DCG = [
 					{ Group: ["BodyLower", "Socks", "SuitLower"], Pose: ["LegsClosed"], Masks: [[75, 650, 350, 350]] },
 				], Height: 30, HideForPose: ["KneelingSpread"]
 			},
-			{ Name: "Heels3", Height: 15, Value: 30, HideForPose: ["KneelingSpread"] },
-			{ Name: "BarefootSandals1", Hide: ["Socks"], Value: 10, HideForPose: ["KneelingSpread"] },
-			{ Name: "LatexAnkleShoes", Fetish: ["Latex"], Value: 60, DefaultColor: ["#373636"], HideForPose: ["KneelingSpread"], },
-			{ Name: "Flippers", Height: 40, Value: 25, HideItem: ["LeftAnkletRibbon1", "RightAnkletRibbon1"], Left: 84, Random: false, HideForPose: ["KneelingSpread"],
+			{ Name: "Heels3", Height: 15, Value: 30, HideForPose: ["Kneel", "KneelingSpread"], },
+			{ Name: "BarefootSandals1", Hide: ["Socks"], Value: 10, HideForPose: ["Kneel", "KneelingSpread"], },
+			{ Name: "LatexAnkleShoes", Fetish: ["Latex"], Value: 60, HideForPose: ["Kneel", "KneelingSpread"], DefaultColor: ["#373636"], },
+			{ Name: "Flippers", Height: 40, Value: 25, HideForPose: ["Kneel", "KneelingSpread"], HideItem: ["LeftAnkletRibbon1", "RightAnkletRibbon1"], Left: 84, Random: false,
 				Layer: [
 					{ Name: "Fins",  AllowColorize: true },
 					{ Name: "Shoes",  AllowColorize: false }
@@ -1015,12 +1026,12 @@ var AssetFemale3DCG = [
 					{ Name: "Buckles", AllowColorize: false},
 				]
 			},
-			{ Name: "AnkleStrapShoes", Priority: 22, Value: 30, Alpha: [{ Group: ["Socks"], Masks: [[130, 925, 270, 130]] }], Height: 4, HideForPose: ["KneelingSpread"] },
-			{ Name: "Shoes5", Value: 30, Alpha: [{ Group: ["Socks"], Masks: [[130, 925, 270, 130]] }], Height: 4, HideForPose: ["KneelingSpread"] },
+			{ Name: "AnkleStrapShoes", Priority: 22, Value: 30, HideForPose: ["Kneel", "KneelingSpread"], Alpha: [{ Group: ["Socks"], Masks: [[130, 925, 270, 130]] }], Height: 4 },
+			{ Name: "Shoes5", Value: 30, HideForPose: ["Kneel", "KneelingSpread"], Alpha: [{ Group: ["Socks"], Masks: [[130, 925, 270, 130]] }], Height: 4 },
 			{ Name: "FuturisticHeels2", Value: 50, Difficulty: 7, Time: 10, RemoveTime: 20,
 				Left: 75, DefaultColor: ["Default", "#50913C", "Default", "Default", "Default", "#aaaaaa", "Default"], Random: false, AllowLock: true, DrawLocks: false, Audio: "FuturisticApply", BuyGroup: "FuturisticHeels", DynamicGroupName: "ItemBoots", Extended: true, FuturisticRecolor: true, Effect: [],
 				AllowPose: ["LegsClosed", "Kneel", "Hogtied", "Spread"],
-				HideForPose: ["KneelingSpread"],
+				HideForPose: ["Kneel", "KneelingSpread"],
 				Layer: [
 					{ Name: "Mesh", ParentGroup: null, HasType: false },
 					{ Name: "Shine", ParentGroup: null, HasType: false, AllowTypes:[""]},
