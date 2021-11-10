@@ -1045,11 +1045,8 @@ function DialogMenuButtonBuild(C) {
 			// Color selection
 			if (DialogCanColor(C, Item)) DialogMenuButton.push(ItemBlockedOrLimited ? "ColorPickDisabled" : "ColorPick");
 
-			// Make sure the target player zone is allowed for an activity
-			if (ActivityPossibleOnGroup(C, C.FocusGroup.Name)) {
-				DialogBuildActivities(C);
-				if (DialogActivity.length > 0) DialogMenuButton.push("Activity");
-			}
+			DialogBuildActivities(C);
+			if (DialogActivity.length > 0) DialogMenuButton.push("Activity");
 
 			// Item permission enter/exit
 			if (C.ID == 0) {

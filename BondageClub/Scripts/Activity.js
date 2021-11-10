@@ -254,6 +254,10 @@ function ActivityAllowedForGroup(character, groupname, allowItem = false) {
 	let group = ActivityGetGroupOrMirror(character.AssetFamily, groupname);
 	if (!activities || !group) return [];
 
+	// Make sure the target player zone is allowed for an activity
+	if (!ActivityPossibleOnGroup(character, groupname))
+		return [];
+
 	let allowed = activities.filter(activity => {
 		// Item-related activity, skip
 		if (!allowItem && activity.Name.indexOf("Item") >= 0)
