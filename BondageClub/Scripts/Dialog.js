@@ -1045,7 +1045,6 @@ function DialogMenuButtonBuild(C) {
 			// Color selection
 			if (DialogCanColor(C, Item)) DialogMenuButton.push(ItemBlockedOrLimited ? "ColorPickDisabled" : "ColorPick");
 
-			DialogBuildActivities(C);
 			if (DialogActivity.length > 0) DialogMenuButton.push("Activity");
 
 			// Item permission enter/exit
@@ -1099,6 +1098,10 @@ function DialogInventoryBuild(C, Offset, redrawPreviews = false) {
 
 	// Make sure there's a focused group
 	DialogInventoryOffset = Offset == null ? 0 : Offset;
+
+	// Refresh the list of activities
+	DialogBuildActivities(C);
+
 	const DialogInventoryBefore = DialogInventoryStringified(C);
 	DialogInventory = [];
 	if (C.FocusGroup != null) {
