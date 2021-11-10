@@ -586,8 +586,7 @@ var AssetFemale3DCG = [
 					{ Name: "Layer4", AllowColorize: true }
 				]
 			},
-			{ Name: "PilotPanties", Fetish: ["Latex"], Value: -1, BuyGroup: "PilotSuit", DefaultColor: ["#3270C1", "#2B408B", "#969696", "#282828"], Hide: ["ItemVulvaPiercings"], DynamicGroupName: "Panties",
-				HideForPose: ["KneelingSpread"],
+			{ Name: "PilotPanties", Fetish: ["Latex"], Value: -1, BuyGroup: "PilotSuit", DefaultColor: ["#3270C1", "#2B408B", "#969696", "#282828"], Hide: ["ItemVulvaPiercings"], DynamicGroupName: "Panties", AllowPose: [],
 				Layer: [
 					{ Name: "Layer1", AllowColorize: true },
 					{ Name: "Layer2", AllowColorize: true },
@@ -975,13 +974,13 @@ var AssetFemale3DCG = [
 					{ Name: "Front", AllowColorize: true, HideForPose: ["Hogtied"]},
 					{ Name: "Laces", AllowColorize: true, HideForPose: ["Hogtied"]}
 				]
-			},			
+			},
 			{ Name: "Sneakers2", Height: 3, HideForPose: ["Kneel", "KneelingSpread"],
 				Layer: [
 					{ Name: "Shoes", AllowColorize: true},
 					{ Name: "Laces", AllowColorize: true, HideForPose: ["Hogtied"]}
 				]
-			},			
+			},
 			{ Name: "Heels1", Height: 15, HideForPose: ["Kneel", "KneelingSpread"], },
 			{ Name: "Heels2", Height: 15, HideForPose: ["Kneel", "KneelingSpread"], },
 			{ Name: "Boots1", Height: 9, HideForPose: ["Kneel", "KneelingSpread"], HideItem: ["LeftAnkletRibbon1", "RightAnkletRibbon1"],
