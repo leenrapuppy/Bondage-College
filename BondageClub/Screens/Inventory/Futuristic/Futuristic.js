@@ -39,7 +39,7 @@
 
 var FuturisticAccessDeniedMessage = "";
 
-var FuturisticAccessCollarGroups = ["ItemNeck"];
+var FuturisticAccessCollarGroups = ["ItemNeck", "ItemNeckAccessories", "ItemEars", "ItemHead", "ItemHood", "ItemMouth", "ItemMouth2", "ItemMouth3", "ItemDevices"];
 var FuturisticAccessArmGroups = ["ItemArms", "ItemHands"];
 var FuturisticAccessLegGroups = ["ItemLegs", "ItemFeet", "ItemBoots"];
 var FuturisticAccessChastityGroups = ["ItemPelvis", "ItemTorso", "ItemButt", "ItemVulva", "ItemVulvaPiercings", "ItemBreast", "ItemNipples", "ItemNipplesPiercings"];
