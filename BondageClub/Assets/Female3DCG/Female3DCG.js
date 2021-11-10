@@ -4768,6 +4768,21 @@ var AssetFemale3DCG = [
 				],
 				Alpha: [{ Group: ["ItemHead"], Masks: [[0, 0, 500, 1000], [0, 0, 203, 250], [295, 0, 205, 250]] }],
 			},
+			{
+				Name: "LampHeadHood", Fetish: ["Forniphilia"], Value: 40, Difficulty: 3, Time: 8, RemoveTime: 5, Top: 25, Left: 135, Priority: 57, DefaultColor: ["Default", "#a13f75", "#ad4c81"],
+				Effect: ["BlindLight"],
+				Block: ["ItemHead"],
+				Hide: ["Hat"],
+				HideItem: ["HairAccessory1HairFeathers1", "HairAccessory1HairFlower1", "HairAccessory3HairFeathers1", "HairAccessory3HairFlower1"],
+				HideItemExclude: ["HatBandana", "HatBunnySuccubus2", "HatCrown1", "HatCrown2", "HatFacePaint", "HatFurHeadband"],
+				Alpha: [{Group: ["HairFront", "Mask", "ItemHead", "ItemEars"], Masks: [[0, 0, 500, 165]]}],
+				Layer: [
+					{ Name: "Inside", Priority: 1 },
+					{ Name: "Cord", AllowColorize: false, HideForPose: ["Suspension"] },
+					{ Name: "Switch", HideForPose: ["Suspension"] },
+					{ Name: "Lamp" },
+				],
+			},
 			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -5902,5 +5917,9 @@ var FetishFemale3DCG = [
 	{
 		Name: "ABDL",
 		GetFactor: function (C) { return ActivityFetishItemFactor(C, "ABDL"); }
-	}
+	},
+	{
+		Name: "Forniphilia",
+		GetFactor: function (C) {return ActivityFetishItemFactor(C, "Forniphilia"); }
+	},
 ];
