@@ -191,24 +191,28 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "CanBeCeilingTethered": return InventoryHasItemInAnyGroup(C, ["ItemArms", "ItemTorso", "ItemPelvis"]) ? "" : "AddItemsToUse";
 
 		// Checks for torso access based on clothes
-		case "AccessTorso": return !InventoryDoesItemExposeGroup(C, "Cloth", "ItemTorso") ? "RemoveClothesForItem" : "";
+		case "AccessTorso": return !InventoryDoItemsExposeGroup(C, "ItemTorso", ["Cloth"]) ? "RemoveClothesForItem" : "";
 
 		// Breast items can be blocked by clothes
-		case "AccessBreast": return !InventoryDoesItemExposeGroup(C, "Cloth", "ItemBreast") || !InventoryDoesItemExposeGroup(C, "Bra", "ItemBreast") ? "RemoveClothesForItem" : "";
-		case "AccessBreastSuitZip": return !InventoryDoesItemExposeGroup(C, "Cloth", "ItemNipplesPiercings") || !InventoryDoesItemExposeGroup(C, "Suit", "ItemNipplesPiercings") ? "UnZipSuitForItem" : "";
+		case "AccessBreast": return !InventoryDoItemsExposeGroup(C, "ItemBreast", ["Cloth"]) || !InventoryDoItemsExposeGroup(
+			C, "ItemBreast", ["Bra"]) ? "RemoveClothesForItem" : "";
+		case "AccessBreastSuitZip": return !InventoryDoItemsExposeGroup(C, "ItemNipplesPiercings", ["Cloth"]) || !InventoryDoItemsExposeGroup(
+			C, "ItemNipplesPiercings", ["Suit"]) ? "UnZipSuitForItem" : "";
 
 		// Vulva/Butt items can be blocked by clothes, panties and some socks
-		case "AccessVulva": return (InventoryDoesItemBlockGroup(C, "Cloth", "ItemVulva")
-			|| !InventoryDoesItemExposeGroup(C, "ClothLower", "ItemVulva")
-			|| !InventoryDoesItemExposeGroup(C, "Panties", "ItemVulva")
-			|| InventoryDoesItemBlockGroup(C, "Socks", "ItemVulva")
-			|| InventoryDoesItemBlockGroup(C, "ItemPelvis", "ItemVulva")
-			|| InventoryDoesItemBlockGroup(C, "ItemVulvaPiercings", "ItemVulva"))
-			? "RemoveClothesForItem" : "";
+		case "AccessVulva": return (
+			InventoryDoItemsBlockGroup(C, "ItemVulva", ["Cloth", "Socks", "ItemPelvis", "ItemVulvaPiercings"])
+			|| !InventoryDoItemsExposeGroup(C, "ItemVulva", ["ClothLower", "Panties"])
+		) ? "RemoveClothesForItem" : "";
+
+		case "AccessButt": return (
+			InventoryDoItemsBlockGroup(C, "ItemButt", ["Cloth", "Socks", "ItemPelvis", "ItemVulvaPiercings"])
+			|| !InventoryDoItemsExposeGroup(C, "ItemButt", ["ClothLower", "Panties"])
+		) ? "RemoveClothesForItem" : "";
 
 		// Some chastity belts have removable vulva shields. This checks for those for items that wish to add something externally.
-		case "VulvaNotBlockedByBelt": return InventoryDoesItemBlockGroup(C, "ItemPelvis", "ItemVulva")
-			|| InventoryDoesItemBlockGroup(C, "ItemVulvaPiercings", "ItemVulva")
+		case "VulvaNotBlockedByBelt": return InventoryDoItemsBlockGroup(C, "ItemVulva", ["ItemPelvis"])
+		|| InventoryDoItemsBlockGroup(C, "ItemVulva", ["ItemVulvaPiercings"])
 			? "RemoveChastityFirst" : "";
 
 		// Ensure crotch is empty
@@ -277,31 +281,35 @@ function InventoryDoesItemHavePrerequisite(C, ItemGroup, Prerequisite) {
 }
 
 /**
- * Prerequisite utility function that returns TRUE if the given character has an item equipped in the provided group
- * which blocks the target group.
+ * Prerequisite utility function to check whether the target group for the given character is blocked by any of the
+ * given groups to check.
  * @param {Character} C - The character whose items should be checked
- * @param {String} ItemGroup - The name of the group whose item should be checked
  * @param {String} TargetGroup - The name of the group that should be checked for being blocked
- * @returns {boolean} - TRUE if the character has an item equipped in the named slot which blocks the target group,
- * FALSE otherwise
+ * @param {String[]} GroupsToCheck - The name(s) of the groups whose items should be checked
+ * @returns {boolean} - TRUE if the character has an item equipped in any of the given groups to check which blocks the
+ * target group, FALSE otherwise.
  */
-function InventoryDoesItemBlockGroup(C, ItemGroup, TargetGroup) {
-	const Item = InventoryGet(C, ItemGroup);
-	return Item && Item.Asset.Block && Item.Asset.Block.includes(TargetGroup);
+function InventoryDoItemsBlockGroup(C, TargetGroup, GroupsToCheck) {
+	return GroupsToCheck.some((Group) => {
+		const Item = InventoryGet(C, Group);
+		return Item && Item.Asset.Block && Item.Asset.Block.includes(TargetGroup);
+	});
 }
 
 /**
- * Prerequisite utility function that returns TRUE if the given character has an item equipped in the provided group
- * which exposes the target group.
+ * Prerequisite utility function to check whether the target group for the given character is exposed by all of the
+ * given groups to check.
  * @param {Character} C - The character whose items should be checked
- * @param {String} ItemGroup - The name of the group whose item should be checked
  * @param {String} TargetGroup - The name of the group that should be checked for being exposed
- * @returns {boolean} - TRUE if the character has an item equipped in the named slot which exposes the target group,
- * FALSE otherwise
+ * @param {String[]} GroupsToCheck - The name(s) of the groups whose items should be checked
+ * @returns {boolean} - FALSE if the character has an item equipped in ANY of the given groups to check that does not
+ * expose the target group. Returns TRUE otherwise.
  */
-function InventoryDoesItemExposeGroup(C, ItemGroup, TargetGroup) {
-	const Item = InventoryGet(C, ItemGroup);
-	return !Item || Item.Asset.Expose.includes(TargetGroup);
+function InventoryDoItemsExposeGroup(C, TargetGroup, GroupsToCheck) {
+	return GroupsToCheck.every((Group) => {
+		const Item = InventoryGet(C, Group);
+		return !Item || Item.Asset.Expose.includes(TargetGroup);
+	});
 }
 
 /**
