@@ -164,6 +164,20 @@ function InventoryItemMouthFuturisticHarnessBallGagValidate(C, Item) {
 	return InventoryItemFuturisticValidate(C, Item) ;
 }
 
+/**
+ * Publishes the message to the chat
+ * @param {Character} C - The target character
+ * @param {Option} Option - The currently selected Option
+ * @returns {void} - Nothing
+ */
+ function InventoryItemMouthFuturisticHarnessBallGagPublishAction(C, Option) {
+	var msg = "FuturisticPanelGagMouthSet" + Option.Name;
+	var Dictionary = [
+		{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
+		{ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber },
+	];
+	ChatRoomPublishCustomAction(msg, true, Dictionary);
+}
 
 /**
  * The NPC dialog is for what the NPC says to you when you make a change to their restraints - the dialog lookup is on a
@@ -186,7 +200,7 @@ function AssetsItemMouthFuturisticHarnessBallGagScriptDraw(data) {
 	if (typeof persistentData.LastMessageLen !== "number") persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;
 	if (typeof property.BlinkState !== "number") property.BlinkState = 0;
 
-	if (ChatRoomLastMessage && ChatRoomLastMessage.length != persistentData.LastMessageLen && data.Item && data.Item.Property && data.Item.Property.Sensitivity > 0) 
+	if (ChatRoomLastMessage && ChatRoomLastMessage.length != persistentData.LastMessageLen && data.Item && data.Item.Property && data.Item.Property.Sensitivity > 0)
 		persistentData.ChangeTime = Math.min(persistentData.ChangeTime, CommonTime() + 400); // Trigger shortly after if the user speaks
 
 	if (persistentData.UpdateTime < CommonTime() && data.C == Player) {

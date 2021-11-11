@@ -282,7 +282,7 @@ function InventoryItemNeckFuturisticCollarLockdown(C, LockType) {
 					if (Property.ShowTimer == null) Property.ShowTimer = true;
 					if (Property.EnableRandomInput == null) Property.EnableRandomInput = false;
 					if (Property.MemberNumberList == null) Property.MemberNumberList = [];
-					let maxTimer = LockItem.Asset.MaxTimer ? LockItem.Asset.MaxTimer : 5;
+					let maxTimer = LockItem.Asset.MaxTimer ? LockItem.Asset.MaxTimer/60 : 5;
 					Property.RemoveTimer = CurrentTime + 60000*Math.max(1, Math.min(maxTimer, parseInt(ElementValue("FutureCollarTimeField"))));
 				}
 			}
