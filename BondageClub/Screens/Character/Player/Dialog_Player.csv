@@ -182,6 +182,8 @@ GwenHoodChangeStyleHairInAccIn,,,SourceCharacter changes the style of Destinatio
 SelectOpenFaceHoodStyle,,,Select a hood style.,,
 OpenFaceHoodStyleHideBackHair,,,Hair in,,
 OpenFaceHoodStyleShowBackHair,,,Hair out,,
+ItemHoodOpenFaceHoodSetHideBackHair,,,SourceCharacter changes the style of DestinationCharacter hood.,,
+ItemHoodOpenFaceHoodSetShowBackHair,,,SourceCharacter changes the style of DestinationCharacter hood.,,
 PumpLevel0,,,Pump gag level: Empty,,
 PumpLevel1,,,Pump gag level: Light,,
 PumpLevel2,,,Pump gag level: Inflated,,
