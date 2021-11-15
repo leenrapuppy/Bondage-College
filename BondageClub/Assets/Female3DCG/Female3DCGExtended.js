@@ -3831,7 +3831,7 @@ var AssetFemale3DCGExtended = {
 							Type: "Closed",
 							SetPose: ["LegsClosed"],
 							Effect: ["Prone", "KneelFreeze", "Slow"],
-							FreezeActivePose: ["BodyLower"],
+							AllowActivePose: ["Kneel", "LegsClosed"],
 							Difficulty: 6,
 						},
 					},
