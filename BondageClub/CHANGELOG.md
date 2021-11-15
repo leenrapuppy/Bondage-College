@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2021-11-12
-* Last recorded PR: [#3075](https://github.com/Ben987/Bondage-College/pull/3075)
-* Last recorded commit hash: `97705eb4c1b79a38afee367dc89213978cf3d5f5`
+* Changelog last updated: 2021-11-15
+* Last recorded PR: [#3080](https://github.com/Ben987/Bondage-College/pull/3080)
+* Last recorded commit hash: `41756fe550f0e821ad3daead21a84e4295abd9ff`
 
 ## [R74]
 
@@ -82,6 +82,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Ellie - Fixed a bug where the Kigurumi Mask would hide blindfolds when in latex mode ([#3069](https://github.com/Ben987/Bondage-College/pull/3069))
 * Ada - Fixed a bug where the Futuristic Collar would set the time on timer locks too high ([#3070](https://github.com/Ben987/Bondage-College/pull/3070))
 * Ada - Added the Catsuit Panties to the panties slot ([#3075](https://github.com/Ben987/Bondage-College/pull/3075))
+* Estsanatlehi - Fixed leg cuffs and boots appearing in the wrong place in the kneeling spread pose ([#3076](https://github.com/Ben987/Bondage-College/pull/3076), [#3079](https://github.com/Ben987/Bondage-College/pull/3079))
+* Emily R - Fixed missing chatroom messages and menu issues with the Open Face Hood ([#3077](https://github.com/Ben987/Bondage-College/pull/3077))
+* Ellie - Fixed clipping issues on the large Sleeveless Catsuit in the boxtie pose ([#3080](https://github.com/Ben987/Bondage-College/pull/3080))
 
 ## [R73]
 
@@ -1126,8 +1129,6 @@ containing safety & security tips for players. We'd encourage all players to giv
 * Ada - [#2070](https://github.com/Ben987/Bondage-College/pull/2070), [#2072](https://github.com/Ben987/Bondage-College/pull/2072), [#2077](https://github.com/Ben987/Bondage-College/pull/2077), [#2078](https://github.com/Ben987/Bondage-College/pull/2078), [#2080](https://github.com/Ben987/Bondage-College/pull/2080), [#2100](https://github.com/Ben987/Bondage-College/pull/2100), [#2103](https://github.com/Ben987/Bondage-College/pull/2103), [#2110](https://github.com/Ben987/Bondage-College/pull/2110), [#2120](https://github.com/Ben987/Bondage-College/pull/2121), [#2140](https://github.com/Ben987/Bondage-College/pull/2140)
 * Natsuki - [#2079](https://github.com/Ben987/Bondage-College/pull/2079), [#2086](https://github.com/Ben987/Bondage-College/pull/2086), [#2091](https://github.com/Ben987/Bondage-College/pull/2091)
 * TessaTech - [#2143](https://github.com/Ben987/Bondage-College/pull/2143)
-
-###
 
 ## [R64]
 
