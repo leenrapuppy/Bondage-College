@@ -126,7 +126,7 @@ function PreferenceGetArousalZone(C, ZoneName) {
 	}
 	const Group = AssetGroupGet(C.AssetFamily, ZoneName);
 	return C.ArousalSettings.Zone.find((Z) => {
-		if (Group.MirrorActivitiesFrom) {
+		if ((Group != null) && (Group.MirrorActivitiesFrom)) {
 			return Z.Name === Group.MirrorActivitiesFrom;
 		}
 		return Z.Name === ZoneName;
