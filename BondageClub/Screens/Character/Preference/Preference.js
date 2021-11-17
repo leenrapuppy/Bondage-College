@@ -113,17 +113,38 @@ function PreferenceSetActivityFactor(C, Type, Self, Factor) {
 }
 
 /**
+ * Gets the corresponding arousal zone definition from a player's preferences (if the group's activities are mirrored,
+ * returns the arousal zone definition for the mirrored group).
+ * @param {Character} C - The character for whom to get the arousal zone
+ * @param {string} ZoneName - The name of the zone to get
+ * @returns {null|any} - Returns the arousal zone preference object, or null if a corresponding zone definition could
+ * not be found.
+ */
+function PreferenceGetArousalZone(C, ZoneName) {
+	if (!C.ArousalSettings || !C.ArousalSettings.Zone) {
+		return null;
+	}
+	const Group = AssetGroupGet(C.AssetFamily, ZoneName);
+	return C.ArousalSettings.Zone.find((Z) => {
+		if (Group.MirrorActivitiesFrom) {
+			return Z.Name === Group.MirrorActivitiesFrom;
+		}
+		return Z.Name === ZoneName;
+	});
+}
+
+/**
  * Gets the love factor of a zone for the character
  * @param {Character} C - The character for whom the love factor of a particular zone should be gotten
- * @param {string} Zone - The name of the zone to get the love factor for
+ * @param {string} ZoneName - The name of the zone to get the love factor for
  * @returns {number} - Returns the love factor of a zone for the character (0 is horrible, 2 is normal, 4 is great)
  */
-function PreferenceGetZoneFactor(C, Zone) {
-	var Factor = 2;
-	if ((C.ArousalSettings != null) && (C.ArousalSettings.Zone != null))
-		for (let Z = 0; Z < C.ArousalSettings.Zone.length; Z++)
-			if (C.ArousalSettings.Zone[Z].Name == Zone)
-				Factor = C.ArousalSettings.Zone[Z].Factor;
+function PreferenceGetZoneFactor(C, ZoneName) {
+	let Factor = 2;
+	const Zone = PreferenceGetArousalZone(C, ZoneName);
+	if (Zone) {
+		Factor = Zone.Factor;
+	}
 	if ((Factor == null) || (typeof Factor !== "number") || (Factor < 0) || (Factor > 4)) Factor = 2;
 	return Factor;
 }
@@ -145,15 +166,12 @@ function PreferenceSetZoneFactor(C, Zone, Factor) {
 /**
  * Determines, if a player can reach on orgasm from a particular zone
  * @param {Character} C - The character whose ability to orgasm we check
- * @param {string} Zone - The name of the zone to check
+ * @param {string} ZoneName - The name of the zone to check
  * @returns {boolean} - Returns true if the zone allows orgasms for a character, false otherwise
  */
-function PreferenceGetZoneOrgasm(C, Zone) {
-	if ((C.ArousalSettings != null) && (C.ArousalSettings.Zone != null))
-		for (let Z = 0; Z < C.ArousalSettings.Zone.length; Z++)
-			if (C.ArousalSettings.Zone[Z].Name == Zone)
-				return ((C.ArousalSettings.Zone[Z].Orgasm != null) && (typeof C.ArousalSettings.Zone[Z].Orgasm === "boolean") && C.ArousalSettings.Zone[Z].Orgasm);
-	return false;
+function PreferenceGetZoneOrgasm(C, ZoneName) {
+	const Zone = PreferenceGetArousalZone(C, ZoneName);
+	return !!Zone && !!Zone.Orgasm;
 }
 
 /**
@@ -1217,7 +1235,7 @@ function PreferenceSubscreenArousalRun() {
 
 		// Draws all the available character zones
 		for (let A = 0; A < AssetGroup.length; A++)
-			if ((AssetGroup[A].Zone != null) && (AssetGroup[A].Activity != null))
+			if ((AssetGroup[A].Zone != null) && (AssetGroup[A].Activity != null) && !AssetGroup[A].MirrorActivitiesFrom)
 				DrawAssetGroupZone(Player, AssetGroup[A].Zone, 0.9, 50, 50, 1, "#808080FF", 3, PreferenceGetFactorColor(PreferenceGetZoneFactor(Player, AssetGroup[A].Name)));
 
 		// The zones can be selected and drawn on the character
@@ -1712,7 +1730,7 @@ function PreferenceSubscreenArousalClick() {
 
 		// In arousal mode, the player can click on her zones
 		for (let A = 0; A < AssetGroup.length; A++)
-			if ((AssetGroup[A].Zone != null) && (AssetGroup[A].Activity != null))
+			if ((AssetGroup[A].Zone != null) && (AssetGroup[A].Activity != null) && !AssetGroup[A].MirrorActivitiesFrom)
 				for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
 					if (DialogClickedInZone(Player, AssetGroup[A].Zone[Z], 0.9, 50, 50, 1)) {
 						Player.FocusGroup = AssetGroup[A];
