@@ -4182,6 +4182,7 @@ var AssetFemale3DCGExtended = {
 							{
 								Property: {
 									Block: ["ItemVulva", "ItemVulvaPiercings"],
+									Effect: ["Chaste"],
 								},
 							},
 						],

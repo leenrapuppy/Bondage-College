@@ -2250,7 +2250,7 @@ var AssetFemale3DCG = [
 				DefaultColor: ["#93C48C", "#3B7F2C", "Default", "Default", "Default", "Default", "#222222", "Default"], FuturisticRecolor: true,
 				Audio: "FuturisticApply", Prerequisite: "AccessVulva",
 				HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaPenisDildo", "ItemVulvaShockDildo", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"],
-				Effect: [ "Chaste", "UseRemote"],
+				Effect: [ "UseRemote"],
 				AllowBlock: ["ItemVulvaPiercings", "ItemButt", "ItemVulva"],
 				AllowType: ["ClosedBack1","OpenBoth1", "OpenBack2", "ClosedBack2","OpenBoth2", "OpenBack3", "ClosedBack3","OpenBoth3", "ChatMessage", "PunishOrgasm", "PunishStruggle", "PunishStrugleOther"],
 				Block: [],
