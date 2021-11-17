@@ -1165,6 +1165,7 @@ ItemPelvisFuturisticChastityBeltSetb0,,,SourceCharacter opens the back of Destin
 ItemPelvisFuturisticChastityBeltSetf0,,,SourceCharacter opens the front of DestinationCharacter belt.,,
 ItemPelvisFuturisticChastityBeltSetb1,,,SourceCharacter locks the rear shield of DestinationCharacter belt.,,
 ItemPelvisFuturisticChastityBeltSetf1,,,SourceCharacter locks the front shield of DestinationCharacter belt.,,
+ItemPelvisFuturisticChastityBeltSetGeneric,,,SourceCharacter configures DestinationCharacter belt.,,
 FuturisticChastityBeltTime,,,Time until recharged:,,
 FuturisticChastityBeltTimeReady,,,Punishment Charged,,
 FuturisticChastityBeltShockStandup,,,DestinationCharacterName belt shocks her for standing up without permission!,,
