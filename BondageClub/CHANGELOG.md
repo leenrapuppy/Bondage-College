@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2021-11-15
-* Last recorded PR: [#3080](https://github.com/Ben987/Bondage-College/pull/3080)
-* Last recorded commit hash: `41756fe550f0e821ad3daead21a84e4295abd9ff`
+* Changelog last updated: 2021-11-17
+* Last recorded PR: [#3085](https://github.com/Ben987/Bondage-College/pull/3085)
+* Last recorded commit hash: `0b4b08a2df43cbf0bc4358203efefd64bbc865f2`
 
 ## [R74]
 
@@ -66,6 +66,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Ada - Fixed missing chat messages for the Futuristic Ball Gag ([#3071](https://github.com/Ben987/Bondage-College/pull/3071))
 * Ellie - Fixed several 404 errors that could occur when mounted on the Wooden Horse ([#3062](https://github.com/Ben987/Bondage-College/pull/3062)) 
 * Ellie - Fixed some minor graphical artefacts on the Display Frame ([#3063](https://github.com/Ben987/Bondage-College/pull/3063))
+* Ellie - Fixed a bug where the Techno Collar could emit `(MISSING PLAYER DIALOG: TriggerShock-1)` messages ([#3086](https://github.com/Ben987/Bondage-College/pull/3086))
 
 ### [Technical]
 
@@ -83,8 +84,11 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Ada - Fixed a bug where the Futuristic Collar would set the time on timer locks too high ([#3070](https://github.com/Ben987/Bondage-College/pull/3070))
 * Ada - Added the Catsuit Panties to the panties slot ([#3075](https://github.com/Ben987/Bondage-College/pull/3075))
 * Estsanatlehi - Fixed leg cuffs and boots appearing in the wrong place in the kneeling spread pose ([#3076](https://github.com/Ben987/Bondage-College/pull/3076), [#3079](https://github.com/Ben987/Bondage-College/pull/3079))
-* Emily R - Fixed missing chatroom messages and menu issues with the Open Face Hood ([#3077](https://github.com/Ben987/Bondage-College/pull/3077))
+* Emily R - Fixed missing chatroom messages and menu issues with the Open Face Hood ([#3077](https://github.com/Ben987/Bondage-College/pull/3077), [#3085](https://github.com/Ben987/Bondage-College/pull/3085))
 * Ellie - Fixed clipping issues on the large Sleeveless Catsuit in the boxtie pose ([#3080](https://github.com/Ben987/Bondage-College/pull/3080))
+* Ellie - Fixed missing assets for the arms DuctTape item in the legs spread and Wooden Horse poses ([#3089](https://github.com/Ben987/Bondage-College/pull/3089))
+* Ellie - Fixed an issue where the Futuristic Chastity Belt wouldn't allow vulva access for activities when the front was open ([#3088](https://github.com/Ben987/Bondage-College/pull/3088))
+* Ellie - Fixed a bug where the Metal Leg Spreader wouldn't set characters' poses properly on first equip ([#3087](https://github.com/Ben987/Bondage-College/pull/3087))
 
 ## [R73]
 
