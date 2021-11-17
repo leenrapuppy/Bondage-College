@@ -3647,7 +3647,7 @@ var AssetFemale3DCGExtended = {
 				Options: [
 					{
 						Name: "HideBackHair",
-						Property: { Type: "HideBackHair", Hide: "HairBack" },
+						Property: { Type: "HideBackHair", Hide: ["HairBack"] },
 					},
 					{
 						Name: "ShowBackHair",
