@@ -1,0 +1,53 @@
+PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",
+0,,,"(The computer fans are humming silently and the screen is black, it's oddly quiet in that room.)",
+0,10,Is there anyone there?,"(After a few seconds of silence, you hear a robotic voice from a nearby spearker.)  Are you good girl?",
+0,10,Hello computer.,"(After a few seconds of silence, you hear a robotic voice from a nearby spearker.)  Are you good girl?",
+0,10,(Touch the screen.),"(After tapping the screen without much results, you hear a robotic voice in a nearby spearker.)  Are you a good girl?",
+0,10,(Inspect the machine.),"(As you inspect the machine without finding much, you hear a robotic voice in a nearby spearker.)  Are you a good girl?",
+0,,(Leave.),,DialogLeave()
+10,,What broken language are you speaking?,Invalid answer.  GGTS query mode.  Are you good girl?,
+10,20,I'm a good girl Sir.,(A green light starts to blink.)  Are you consenting to prove good girl?,
+10,20,Yeah.,(A green light starts to blink.)  Are you consenting to prove good girl?,
+10,,Why do you ask?,Invalid answer.  GGTS query mode.  Are you good girl?,DialogRemove()
+10,25,Not really.,(A red light starts to blink.)  Will you become good girl?,
+10,25,I'm bad to the bone.,(A red light starts to blink.)  Will you become good girl?,
+10,,Good and evil is subjective,Invalid answer.  GGTS query mode.  Are you good girl?,DialogRemove()
+20,30,I can prove it.,Complete GGTS to prove good girl.  Register to GGTS?,
+20,30,"Sure, you can test me.",Complete GGTS to prove good girl.  Register to GGTS?,
+20,,How can I prove that?,Invalid answer.  GGTS query mode.  Are you consenting to prove good girl?,DialogRemove()
+20,99,I don't have anything to prove.,(The computer seems to go to sleep.  Staying silent.),
+20,99,No way!,(The computer seems to go to sleep.  Staying silent.),
+25,30,I'd like to be good.,Good girl when complete GGTS.  Register to GGTS?,
+25,30,I guess I could try.,Good girl when complete GGTS.  Register to GGTS?,
+25,,Where did you learn to talk?,Invalid answer.  GGTS query mode.  Will you become good girl?,DialogRemove()
+25,99,I will never change.,(The computer seems to go to sleep.  Staying silent.),
+25,99,I don't have time for that.,(The computer seems to go to sleep.  Staying silent.),
+30,,,(A robotic voice speaks to you as you approach.)  Register to GGTS?,
+30,,What is GGTS?,GGTS is Good Girl Training System.  GGTS trains girls to serve.  GGTS cannot fail.  GGTS teaches obedience and manners.,
+30,,How do you train girls?,GGTS training is progressive.  GGTS has many levels.  Each level more rules.  New girl start level one.,
+30,31,What are the rules at level one?,Level one rule.  Good girl must wear or remove GGTS arms restraints.  GGTS lock and unlock restraints.,
+30,,How do I complete the training?,"Three hours, level one complete.  Fail a rule, get strike.  Three strikes, fail level one, punishment, restart level one.",
+30,,What if I succeed the training?,Good girl come here.  Good girl graduate.  Good girl start level two.,
+30,,What's the consequence for failing?,Good girl come here.  Good girl punished.  Punishment undisclosed.  Good girl restart level one time zero.,
+30,,I want to register in GGTS.,TO DO,
+30,,(Leave.),,DialogLeave()
+31,32,(Listen.),Level one rule.  Good girl must wear restrain from inventory.  Good girl can remove after.,
+32,33,(Listen.),"Level one rule.  Good girl must answer: ""I'm a good girl"" when GGTS query: ""Name, what are you?"".",
+33,34,(Listen.),Level one rule.  Good girl must not speak.  Good girl silent until allowed talk again.  Good girl can emote.,
+34,35,(Listen.),Level one rule.  Good girl kneel.  Good girl stay on knees.  Good girl stand up.,
+35,36,(Listen.),Level one rule.  Good girl remove shoes.  Good girl wear high heels.,
+36,37,(Listen.),Level one rules listing complete.  GGTS query mode.  Register to GGTS?,
+99,,Did you crash?,(The computer remain silent.),
+99,,Wake up!,(The computer remain silent.),
+99,,(Touch the screen.),(You touch the screen but nothing happens.),
+99,,(Kick the computer.),(You kick it as hard as you can but you only end up hurting yourself.),
+99,,(Try to unplug it.),(You search for a power cord to unplug it but they are all bolted in the walls.),
+99,0,(Leave.),,DialogLeave()
+1000,,,"(The computer lights starts to blink as you approach it, but it stays silent.)",
+1000,,(Leave.),,DialogLeave()
+2000,,,"(The computer screen shows a big ""Good Girl"" as you come closer, but it stays silent.)",
+2000,,(Leave.),,DialogLeave()
+3000,,,(A computer voice greets you as you approach it.)  Hello girl.,
+3000,,(Leave.),,DialogLeave()
+4000,,,(A familiar computer voice greets you as you come closer.)  Welcome my girl.,
+4000,,(Leave.),,DialogLeave()
