@@ -7,6 +7,7 @@ const gulp = require("gulp");
 const gulpCount = require("gulp-count");
 const gulpIf = require("gulp-if");
 const size = require("gulp-size");
+const filter = require("gulp-filter");
 const imagemin = require("gulp-imagemin");
 const jpegtran = require("imagemin-jpegtran");
 const cache = require("gulp-cache");
@@ -14,6 +15,7 @@ const through = require("through2");
 const rimraf = require("rimraf");
 const { table } = require("table");
 const prettyBytes = require("pretty-bytes");
+const StreamCounter = require("stream-counter");
 
 const BASE_DIR = path.resolve(__dirname, "..", "..");
 const CACHE_DIR = path.resolve(__dirname, ".imagemin-cache");
@@ -147,7 +149,7 @@ function colorizeSizeDifference(before, after) {
 function colorizeSizePercentage(before, after) {
 	const color = getRAGColor(before, after);
 	const reduction = before - after;
-	const percentage = 100 * reduction / before;
+	const percentage = before !== 0 ? 100 * reduction / before : 0;
 	return color(`${percentage.toFixed(2)}%`);
 }
 
@@ -179,7 +181,10 @@ function minifyBatches(cb) {
 }
 
 function minifyBatch(batch) {
+	const sizesBefore = fileSizes();
+	const sizesAfter = fileSizes();
 	return gulp.src(batch, { base: BASE_DIR })
+		.pipe(sizesBefore)
 		.pipe(cache(
 			configureImagemin(),
 			{
@@ -190,7 +195,16 @@ function minifyBatch(batch) {
 				}),
 			},
 		))
-		.pipe(gulp.dest("../../"));
+		.pipe(sizesAfter)
+		.pipe(filter((file) => {
+			const sizeBefore = sizesBefore.sizes.get(file.path);
+			const sizeAfter = sizesAfter.sizes.get(file.path);
+			if (sizeAfter > sizeBefore) {
+				log(`Omitting file "${c.magenta(file.path)}": size after minification is greater than original size.`);
+			}
+			return sizeAfter <= sizeBefore;
+		}))
+		.pipe(gulp.dest(BASE_DIR));
 }
 
 function configureImagemin() {
@@ -238,4 +252,41 @@ function gulpLog(...messages) {
 			cb();
 		},
 	);
+}
+
+function fileSizes() {
+	const sizes = new Map();
+
+	return through.obj(
+		async function (file, enc, cb) {
+			if (!this.sizes) {
+				this.sizes = sizes;
+			}
+
+			if (file.isNull()) {
+				cb(null, file);
+				return;
+			}
+
+			let size = 0;
+
+			if (file.isStream()) {
+				size = await getStreamSize(file);
+			} else if (file.isBuffer()) {
+				size = file.contents.length;
+			}
+
+			sizes.set(file.path, size);
+
+			cb(null, file);
+		},
+	);
+}
+
+function getStreamSize(file) {
+	return new Promise((resolve, reject) => {
+		const stream = file.contents.pipe(new StreamCounter());
+		stream.on("finish", () => resolve(stream.bytes))
+			.on("error", (error) => reject(error));
+	});
 }
