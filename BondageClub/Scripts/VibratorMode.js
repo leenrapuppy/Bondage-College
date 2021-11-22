@@ -20,8 +20,7 @@ var VibratorMode = {
 
 /**
  * An enum for the possible vibrator states when a vibrator is in a state machine mode
- * @readonly
- * @enum {string}
+ * @type {{DEFAULT: "Default", DENY: "Deny", ORGASM: "Orgasm", REST: "Rest"}}
  */
 var VibratorModeState = {
 	DEFAULT: "Default",
@@ -31,21 +30,11 @@ var VibratorModeState = {
 };
 
 /**
- * A wrapper object defining a vibrator state and intensity
- * @typedef {Object} StateAndIntensity
- * @property {VibratorModeState} State - The vibrator state
- * @property {number} Intensity - The vibrator intensity
- */
-
-/**
  * An enum for the vibrator configuration sets that a vibrator can have
- * @readonly
- * @enum {"Standard"|"Advanced"}
+ * @type {{STANDARD: "Standard", ADVANCED: "Advanced"}}
  */
 var VibratorModeSet = {
-	/** @type {"Standard"} */
 	STANDARD: "Standard",
-	/** @type {"Advanced"} */
 	ADVANCED: "Advanced",
 };
 
@@ -145,8 +134,132 @@ var VibratorModeOptions = {
 };
 
 /**
+ * A lookup for the vibrator configurations for each registered vibrator item
+ * @const
+ * @type {Record<string, VibratingItemData>}
+ */
+const VibratorModeDataLookup = {};
+
+/**
+ * Registers a vibrator item. This automatically creates the item's load, draw, click and scriptDraw functions.
+ * @param {Asset} asset - The asset being registered
+ * @param {VibratingItemConfig} config - The item's vibrator item configuration
+ * @returns {void} - Nothing
+ */
+function VibratorModeRegister(asset, config) {
+	const data = VibratorModeCreateData(asset, {
+		Options: [VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]
+	});
+	VibratorModeCreateLoadFunction(data);
+	VibratorModeCreateDrawFunction(data);
+	VibratorModeCreateClickFunction(data);
+	VibratorModeCreateScriptDrawFunction(data);
+	VibratorModeSetAssetProperties(data);
+}
+
+/**
+ * Generates an asset's vibrating item data
+ * @param {Asset} asset - The asset to generate vibrating item data for
+ * @param {VibratingItemConfig} config - The item's extended item configuration
+ * @returns {VibratingItemData} - The generated vibrating item data for the asset
+ */
+function VibratorModeCreateData(asset, {
+	Options = [VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]
+} = {}) {
+	const key = `${asset.Group.Name}${asset.Name}`;
+	return VibratorModeDataLookup[key] = {
+		key,
+		asset,
+		options: Options,
+		functionPrefix: `Inventory${key}`,
+		dynamicAssetsFunctionPrefix: `Assets${key}`,
+	};
+}
+
+/**
+ * Creates an asset's extended item load function
+ * @param {VibratingItemData} data - The vibrating item data for the asset
+ * @returns {void} - Nothing
+ */
+function VibratorModeCreateLoadFunction({ options, functionPrefix }) {
+	const loadFunctionName = `${functionPrefix}Load`;
+	window[loadFunctionName] = function() {
+		VibratorModeLoad(options);
+	};
+}
+
+/**
+ * Creates an asset's extended item draw function
+ * @param {VibratingItemData} data - The vibrating item data for the asset
+ * @returns {void} - Nothing
+ */
+function VibratorModeCreateDrawFunction({ options, functionPrefix }) {
+	const drawFunctionName = `${functionPrefix}Draw`;
+	window[drawFunctionName] = function() {
+		VibratorModeDraw(options);
+	};
+}
+
+/**
+ * Creates an asset's extended item click function
+ * @param {VibratingItemData} data - The vibrating item data for the asset
+ * @returns {void} - Nothing
+ */
+function VibratorModeCreateClickFunction({ options, functionPrefix }) {
+	const clickFunctionName = `${functionPrefix}Click`;
+	window[clickFunctionName] = function() {
+		VibratorModeClick(options);
+	};
+}
+
+/**
+ * Creates an asset's dynamic script draw function
+ * @param {VibratingItemData} data - The vibrating item data for the asset
+ * @returns {void} - Nothing
+ */
+function VibratorModeCreateScriptDrawFunction({ dynamicAssetsFunctionPrefix }) {
+	const scriptDrawFunctionName = `${dynamicAssetsFunctionPrefix}ScriptDraw`;
+	window[scriptDrawFunctionName] = VibratorModeScriptDraw;
+}
+
+/**
+ * Sets asset properties common to all vibrating items
+ * @param {VibratingItemData} data - The vibrating item data for the asset
+ * @returns {void} - Nothing
+ */
+function VibratorModeSetAssetProperties(data) {
+	const { asset } = data;
+	asset.DynamicScriptDraw = true;
+	VibratorModeSetAllowEffect(data);
+	VibratorModeSetEffect(data);
+}
+
+/**
+ * Sets the AllowEffect property for a vibrating item
+ * @param {VibratingItemData} data - The vibrating item data for the asset
+ * @returns {void} - Nothing
+ */
+function VibratorModeSetAllowEffect({asset, options}) {
+	asset.AllowEffect = Array.isArray(asset.AllowEffect) ? [...asset.AllowEffect] : [];
+	CommonArrayConcatDedupe(asset.AllowEffect, ["Egged", "Vibrating"]);
+	if (options.includes(VibratorModeSet.ADVANCED)) {
+		CommonArrayConcatDedupe(asset.AllowEffect, ["Edged"]);
+	}
+}
+
+/**
+ * Sets the Effect property for a vibrating item
+ * @param {VibratingItemData} data - The vibrating item data for the asset
+ * @returns {void} - Nothing
+ */
+function VibratorModeSetEffect({asset}) {
+	asset.Effect = Array.isArray(asset.Effect) ? [...asset.Effect] : [];
+	CommonArrayConcatDedupe(asset.Effect, ["Egged"]);
+}
+
+/**
  * Common load function for vibrators
- * @param {VibratorModeSet[]} Options - The vibrator mode sets to load the item with
+ * @param {VibratorModeSet[]} [Options] - The vibrator mode sets to load the item with
  * @returns {void} - Nothing
  */
 function VibratorModeLoad(Options) {

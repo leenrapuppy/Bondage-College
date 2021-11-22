@@ -14,13 +14,14 @@
 /**
  * An enum encapsulating the available extended item archetypes
  * MODULAR - Indicates that this item is modular, with several independently configurable modules
- * @type {{MODULAR: "modular", TYPED: "typed"}}
+ * @type {{MODULAR: "modular", TYPED: "typed", VIBRATING: "vibrating"}}
  * @see {@link ModularItemConfig}
  * @see {@link TypedItemConfig}
  */
 const ExtendedArchetype = {
 	MODULAR: "modular",
 	TYPED: "typed",
+	VIBRATING: "vibrating",
 };
 
 /**
@@ -2535,7 +2536,31 @@ var AssetFemale3DCGExtended = {
 				],
 				DrawImages: false,
 			},
-		},
+		}, // DoubleEndDildo
+		VibratingDildo: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // VibratingDildo
+		ClitoralStimulator: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // ClitoralStimulator
+		VibratingEgg: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // VibratingEgg
+		VibratingLatexPanties: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // VibratingLatexPanties
+		WandBelt: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // WandBelt
+		FullLatexSuitWand: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // FullLatexSuitWand
+		HempRopeBelt: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // HempRopeBelt
+		WiredEgg: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // WiredEgg
 	}, // ItemVulva
 	ItemVulvaPiercings: {
 		ClitRing: {

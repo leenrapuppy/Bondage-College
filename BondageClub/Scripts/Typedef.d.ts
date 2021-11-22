@@ -43,7 +43,7 @@ interface HTMLImageElement {
 //#endregion
 
 //#region Enums
-type ExtendedArchetype = "modular" | "typed";
+type ExtendedArchetype = "modular" | "typed" | "vibrating";
 
 type TypedItemChatSetting = "toOnly" | "fromTo" | "silent";
 type ModularItemChatSetting = "perModule" | "perOption";
@@ -61,6 +61,12 @@ type NotificationAlertType = 0 | 1 | 3 | 2;
 type DialogSortOrder = | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
 type CharacterType = "online" | "npc" | "simple";
+
+type VibratorIntensity = -1 | 0 | 1 | 2 | 3;
+
+type VibratorModeSet = "Standard" | "Advanced";
+
+type VibratorModeState = "Default" | "Deny" | "Orgasm" | "Rest";
 
 //#endregion
 
@@ -787,11 +793,16 @@ interface ExtendedItemAssetConfig<Archetype extends ExtendedArchetype, Config> {
 }
 
 /**
+ * Valid extended item configuration types
+ */
+type AssetArchetypeConfig = TypedItemAssetConfig | ModularItemAssetConfig | VibratingItemAssetConfig;
+
+/**
  * An object containing extended item definitions for a group.
  * Maps asset names within the group to their extended item configuration
  * @see {@link ExtendedItemAssetConfig}
  */
-type ExtendedItemGroupConfig = Record<string, TypedItemAssetConfig | ModularItemAssetConfig>;
+type ExtendedItemGroupConfig = Record<string, AssetArchetypeConfig>;
 
 /**
  * An object containing extended item configurations keyed by group name.
@@ -1293,6 +1304,42 @@ interface AppearanceValidationWrapper {
 	 * remedial appearance update should be made by the target player.
 	 */
 	valid: boolean;
+}
+
+//#endregion
+
+//#region Vibrating Items
+
+/** An object containing the extended item definition for a vibrating asset. */
+type VibratingItemAssetConfig = ExtendedItemAssetConfig<"vibrating", VibratingItemConfig>;
+
+/** An object defining all of the required configuration for registering a vibrator item */
+interface VibratingItemConfig {
+	/** The list of vibrator mode sets that are available on this item */
+	Options?: VibratorModeSet[];
+}
+
+interface VibratingItemData {
+	/** A key uniquely identifying the asset */
+	key: string;
+	/** The asset reference */
+	asset: Asset;
+	/** The list of extended item options available for the item */
+	options: VibratorModeSet[];
+	/** The common prefix used for all extended item screen functions associated with the asset */
+	functionPrefix: string;
+	/** The common prefix used for all dynamic asset hook functions for the asset */
+	dynamicAssetsFunctionPrefix: string;
+}
+
+/**
+ * A wrapper object defining a vibrator state and intensity
+ */
+interface StateAndIntensity {
+	/** The vibrator state */
+	State: VibratorModeState;
+	/** The vibrator intensity */
+	Intensity: VibratorIntensity;
 }
 
 //#endregion

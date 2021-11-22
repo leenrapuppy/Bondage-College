@@ -190,7 +190,7 @@ function AssetAdd(NewAsset, ExtendedConfig) {
 	AssetCurrentGroup.Asset.push(A);
 	AssetMap.set(AssetCurrentGroup.Name + "/" + A.Name, A);
 	Asset.push(A);
-	if (A.Extended && ExtendedConfig) AssetBuildExtended(A, ExtendedConfig);
+	if (ExtendedConfig) AssetBuildExtended(A, ExtendedConfig);
 }
 
 /**
@@ -201,7 +201,12 @@ function AssetAdd(NewAsset, ExtendedConfig) {
  */
 function AssetBuildExtended(A, ExtendedConfig) {
 	let AssetConfig = AssetFindExtendedConfig(ExtendedConfig, AssetCurrentGroup.Name, A.Name);
-	if (AssetConfig && AssetConfig.CopyConfig) {
+
+	if (!AssetConfig) {
+		return;
+	}
+
+	if (AssetConfig.CopyConfig) {
 		const Overrides = AssetConfig.Config;
 		const { GroupName, AssetName } = AssetConfig.CopyConfig;
 		AssetConfig = AssetFindExtendedConfig(ExtendedConfig, GroupName || AssetCurrentGroup.Name, AssetName);
@@ -210,17 +215,19 @@ function AssetBuildExtended(A, ExtendedConfig) {
 			AssetConfig = Object.assign({}, AssetConfig, {Config: MergedConfig});
 		}
 	}
-	if (AssetConfig) {
-		switch (AssetConfig.Archetype) {
-			case ExtendedArchetype.MODULAR:
-				ModularItemRegister(A, /** @type {ModularItemConfig} */ (AssetConfig.Config));
-				break;
-			case ExtendedArchetype.TYPED:
-				TypedItemRegister(A, /** @type {TypedItemConfig} */ (AssetConfig.Config));
-				break;
-		}
-		A.Archetype = AssetConfig.Archetype;
+
+	switch (AssetConfig.Archetype) {
+		case ExtendedArchetype.MODULAR:
+			ModularItemRegister(A, AssetConfig.Config);
+			break;
+		case ExtendedArchetype.TYPED:
+			TypedItemRegister(A, AssetConfig.Config);
+			break;
+		case ExtendedArchetype.VIBRATING:
+			VibratorModeRegister(A, AssetConfig.Config);
+			break;
 	}
+	A.Archetype = AssetConfig.Archetype;
 }
 
 /**
@@ -228,7 +235,7 @@ function AssetBuildExtended(A, ExtendedConfig) {
  * @param {ExtendedItemConfig} ExtendedConfig - The full extended item configuration object
  * @param {string} GroupName - The name of the asset group to find extended configuration for
  * @param {string} AssetName - The name of the asset to find extended configuration fo
- * @returns {ExtendedItemAssetConfig | undefined} - The extended asset configuration object for the specified asset, if
+ * @returns {AssetArchetypeConfig | undefined} - The extended asset configuration object for the specified asset, if
  * any exists, or undefined otherwise
  */
 function AssetFindExtendedConfig(ExtendedConfig, GroupName, AssetName) {
