@@ -94,6 +94,32 @@ var ChatRoomCharacterZoom = 1;
 var ChatRoomSlideWeight = 9;
 var ChatRoomCharacterInitialize = true;
 
+/** Sets whether an add/remove for one list automatically triggers an add/remove for another list */
+const ChatRoomListOperationTriggers = () => [
+	{
+		list: Player.WhiteList, adding: true, triggers: [
+			{ list: Player.BlackList, add: false },
+			{ list: Player.GhostList, add: false }
+		]
+	},
+	{
+		list: Player.BlackList, adding: true, triggers: [
+			{ list: Player.WhiteList, add: false }
+		]
+	},
+	{
+		list: Player.GhostList, adding: true, triggers: [
+			{ list: Player.WhiteList, add: false },
+			{ list: Player.BlackList, add: true }
+		]
+	},
+	{
+		list: Player.GhostList, adding: false, triggers: [
+			{ list: Player.BlackList, add: false }
+		]
+	}
+];
+
 /**
  * Chat room resize manager object: Handles resize events for the chat log.
  * @constant
@@ -3115,34 +3141,56 @@ function ChatRoomGetTransparentColor(Color) {
  * @returns {void} - Nothing
  */
 function ChatRoomListManage(Operation, ListType) {
-	if (((Operation == "Add" || Operation == "Remove")) && (CurrentCharacter != null) && (CurrentCharacter.MemberNumber != null) && (Player[ListType] != null) && Array.isArray(Player[ListType])) {
-		if ((Operation == "Add") && (Player[ListType].indexOf(CurrentCharacter.MemberNumber) < 0)) Player[ListType].push(CurrentCharacter.MemberNumber);
-		if ((Operation == "Remove") && (Player[ListType].indexOf(CurrentCharacter.MemberNumber) >= 0)) Player[ListType].splice(Player[ListType].indexOf(CurrentCharacter.MemberNumber), 1);
-		ServerPlayerRelationsSync();
-		setTimeout(() => ChatRoomCharacterUpdate(Player), 5000);
-	}
-	if (ListType == "GhostList") {
-		CharacterRefresh(CurrentCharacter, false);
-		ChatRoomListManage(Operation, "BlackList");
+	if (CurrentCharacter && CurrentCharacter.MemberNumber && Array.isArray(Player[ListType])) {
+		ChatRoomListUpdate(Player[ListType], Operation == "Add", CurrentCharacter.MemberNumber);
 	}
 }
 
 /**
- * Adds or removes an online member to/from a specific list. (From a typed message.)
- * @param {number[]|null} Add - List to add to.
- * @param {number[]|null} Remove - List to remove from.
+ * Adds or removes an online member to/from a specific list from a typed message.
+ * @param {number[]|null} List - List to add to or remove from.
+ * @param {boolean} Adding - If TRUE adding to the list, if FALSE removing from the list.
  * @param {string} Argument - Member number to add/remove.
  * @returns {void} - Nothing
  */
-function ChatRoomListManipulation(Add, Remove, Argument) {
+function ChatRoomListManipulation(List, Adding, Argument) {
 	var C = parseInt(Argument);
 	if (!isNaN(C) && (C > 0) && (C != Player.MemberNumber)) {
-		if ((Add != null) && (Add.indexOf(C) < 0)) Add.push(C);
-		if ((Remove != null) && (Remove.indexOf(C) >= 0)) Remove.splice(Remove.indexOf(C), 1);
-		if ((Player.GhostList == Add || Player.GhostList == Remove) && Character.find(Char => Char.MemberNumber == C)) CharacterRefresh(Character.find(Char => Char.MemberNumber == C), false);
-		ServerPlayerRelationsSync();
-		setTimeout(() => ChatRoomCharacterUpdate(Player), 5000);
+		ChatRoomListUpdate(List, Adding, C);
 	}
+}
+
+/**
+ * Updates character lists for the player and saves the change
+ * @param {number[]} list - The array of member numbers to update
+ * @param {boolean} adding - If TRUE adding to the list, if FALSE removing from the list
+ * @param {number} memberNumber - The member number to add/remove
+ * @returns {void} - Nothing
+ */
+function ChatRoomListUpdate(list, adding, memberNumber) {
+	if (adding && list.indexOf(memberNumber) < 0) {
+		list.push(memberNumber);
+	}
+	else if (!adding && list.indexOf(memberNumber) >= 0) {
+		list.splice(list.indexOf(memberNumber), 1);
+	}
+
+	const triggeredOperations = ChatRoomListOperationTriggers().find(w => w.list == list && w.adding == adding);
+	if (triggeredOperations) {
+		triggeredOperations.triggers.forEach(op => {
+			ChatRoomListUpdate(op.list, op.add, memberNumber);
+		});
+	}
+
+	if (list == Player.GhostList) {
+		const C = Character.find(Char => Char.MemberNumber == memberNumber);
+		if (C) {
+			CharacterRefresh(C, false);
+		}
+	}
+
+	ServerPlayerRelationsSync();
+	setTimeout(() => ChatRoomCharacterUpdate(Player), 5000);
 }
 
 /**

@@ -266,35 +266,35 @@ const CommonCommands = [
 	},
 	{
 		Tag: 'friendlistadd',
-		Action: args => ChatRoomListManipulation(Player.FriendList, null, args),
+		Action: args => ChatRoomListManipulation(Player.FriendList, true, args),
 	},
 	{
 		Tag: 'friendlistremove',
-		Action: args => ChatRoomListManipulation(null, Player.FriendList, args),
+		Action: args => ChatRoomListManipulation(Player.FriendList, false, args),
 	},
 	{
 		Tag: 'ghostadd',
-		Action: args => ChatRoomListManipulation(Player.GhostList, null, args),
+		Action: args => ChatRoomListManipulation(Player.GhostList, true, args),
 	},
 	{
 		Tag: 'ghostremove',
-		Action: args => ChatRoomListManipulation(null, Player.GhostList, args),
+		Action: args => ChatRoomListManipulation(Player.GhostList, false, args),
 	},
 	{
 		Tag: 'whitelistadd',
-		Action: args => ChatRoomListManipulation(Player.WhiteList, Player.BlackList, args),
+		Action: args => ChatRoomListManipulation(Player.WhiteList, true, args),
 	},
 	{
 		Tag: 'whitelistremove',
-		Action: args => ChatRoomListManipulation(null, Player.WhiteList, args),
+		Action: args => ChatRoomListManipulation(Player.WhiteList, false, args),
 	},
 	{
 		Tag: 'blacklistadd',
-		Action: args => ChatRoomListManipulation(Player.BlackList, Player.WhiteList, args),
+		Action: args => ChatRoomListManipulation(Player.BlackList, true, args),
 	},
 	{
 		Tag: 'blacklistremove',
-		Action: args => ChatRoomListManipulation(null, Player.BlackList, args),
+		Action: args => ChatRoomListManipulation(Player.BlackList, false, args),
 	},
 	{
 		Tag: 'showblacklist',
