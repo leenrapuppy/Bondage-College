@@ -685,7 +685,7 @@ function ChatRoomStart(Space, Game, LeaveRoom, Background, BackgroundTagList) {
 function ChatRoomMenuBuild() {
 	ChatRoomMenuButtons = [];
 	ChatRoomMenuButtons.push("Exit");
-	if (ChatRoomGame === "") ChatRoomMenuButtons.push("Cut");
+	if ((ChatRoomGame === "") || (ChatRoomGame === "GGTS")) ChatRoomMenuButtons.push("Cut");
 	else ChatRoomMenuButtons.push("GameOption");
 	ChatRoomMenuButtons.push("Kneel", "Icons");
 	if (ChatRoomCanTakePhotos()) ChatRoomMenuButtons.push("Camera");
@@ -1473,7 +1473,9 @@ function ChatRoomUpdateOnlineBounty() {
  * @returns {void} - Nothing.
  */
 function ChatRoomRun() {
-	// Handles online bounty game
+
+	// Handles online GGTS & bounty game
+	AsylumGGTSProcess();
 	ChatRoomUpdateOnlineBounty();
 
 	// Draws the chat room controls
@@ -1749,6 +1751,7 @@ function ChatRoomMenuClick() {
 					break;
 				case "Admin":
 					// When the user enters the room administration screen
+					if ((ChatRoomData != null) && ChatRoomData.Private && (ChatSearchReturnToScreen == "AsylumGGTS")) return AsylumGGTSMessage("GGTSNoAdminPrivate");
 					document.getElementById("InputChat").style.display = "none";
 					document.getElementById("TextAreaChatLog").style.display = "none";
 					CommonSetScreen("Online", "ChatAdmin");

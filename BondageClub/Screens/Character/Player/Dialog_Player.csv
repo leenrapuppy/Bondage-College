@@ -362,6 +362,7 @@ AsylumMeeting,,,Meeting,,
 AsylumTherapy,,,Therapy,,
 PaddedCell,,,Padded Cell,,
 PaddedCell2,,,Padded Cell 2,,
+AsylumGGTSRoom,,,GGTS Computer Room,,
 Ranch,,,Ranch,,
 OutdoorPool2,,,Luxury Pool,,
 Wagons,,,Wagon Circle,,
@@ -2712,3 +2713,6 @@ ItemHoodTechnoHelmet1Setc1,,,SourceCharacter adds the chin strap on DestinationC
 WingsSteampunkWingsSelect,,,Select the state.
 WingsSteampunkWingsOff,,,Off
 WingsSteampunkWingsOn,,,On
+GGTSIntroPublic,,,[GGTS Speaker] GGTS public room.  Good girl follow commands.  Three strikes equal punishment.  GGTS in control.  Be good girl SourceCharacter.
+GGTSIntroPrivate,,,[GGTS Speaker] Launching GGTS private room.  Time counts triple.  GGTS more active.  Good girl follow commands.  Three strikes equal punishment.  GGTS in control.  Be good girl SourceCharacter.
+GGTSNoAdminPrivate,,,[GGTS Speaker] Good girl SourceCharacter do not administrate room.

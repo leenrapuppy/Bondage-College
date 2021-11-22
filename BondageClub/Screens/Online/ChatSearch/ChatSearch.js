@@ -15,14 +15,20 @@ var ChatSearchSafewordPose = null;
 var ChatSearchPreviousActivePose = null;
 var ChatSearchIgnoredRooms = [];
 var ChatSearchMode = "";
-var ChatRoomJoinLeash = "";
 var ChatSearchRejoinIncrement = 1;
+var ChatSearchReturnToScreen = null;
+var ChatRoomJoinLeash = "";
 
 /**
  * Loads the chat search screen properties, creates the inputs and loads up the first 24 rooms.
  * @returns {void} - Nothing
  */
 function ChatSearchLoad() {
+	if (ChatSearchReturnToScreen != null) {
+		CommonSetScreen("Room", ChatSearchReturnToScreen);
+		ChatSearchReturnToScreen = null;
+		return;
+	}
 	CurrentDarkFactor = 0.5;
 	if (ChatSearchLeaveRoom == "MainHall") {
 		ChatRoomGame = "";
@@ -37,9 +43,7 @@ function ChatSearchLoad() {
 	ChatSearchQuery();
 	ChatSearchMessage = "";
 	ChatRoomNotificationReset();
-
 	ChatSearchRejoinIncrement = 1;
-
 	TextPrefetch("Character", "FriendList");
 	TextPrefetch("Online", "ChatCreate");
 	TextPrefetch("Online", "ChatRoom");
