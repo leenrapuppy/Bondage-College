@@ -7,7 +7,7 @@ const ItemDevicesLockerOptions = [
 		Property: { Type: null }
 	}, {
 		Name: "Ventless",
-		Property: { Type: "Ventless", Effect: ["GagLight"] }
+		Property: { Type: "Ventless", Effect: ["GagLight", "BlindHeavy"] }
 	}
 ];
 
