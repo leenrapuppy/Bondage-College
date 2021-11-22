@@ -389,7 +389,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "SleevelessCatsuit", Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", HideItem: ["ItemNipplesChopStickNippleClamps"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HasType: false,
+				Name: "SleevelessCatsuit", Fetish: ["Latex"], Value: -1, BuyGroup: "Catsuit", HideItem: ["ItemNipplesChopStickNippleClamps"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HasType: false, AllowPose: ["BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"],
 			},
 			{
 				Name: "PilotSuit", Fetish: ["Latex"], Value: 150, BuyGroup: "PilotSuit", DefaultColor: ["#3270C1", "#2B408B", "#969696", "#2B408B", "#2B408B"], Hide: ["ItemNipplesPiercings"], HideItem: ["ItemNipplesChopStickNippleClamps"], HasType: false, Extended: true,
