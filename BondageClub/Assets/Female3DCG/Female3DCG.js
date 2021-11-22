@@ -5586,7 +5586,7 @@ var ActivityFemale3DCG = [
 	{
 		Name: "GaggedKiss",
 		MaxProgress: 40,
-		Prerequisite: ["ZoneAccessible", "IsGagged"]
+		Prerequisite: ["IsGagged"]
 	},
 	{
 		Name: "Lick",
