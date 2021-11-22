@@ -191,7 +191,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			return !acted.IsMouthBlocked();
 		case "TargetMouthOpen":
 			if (group.Name === "ItemMouth")
-				return (InventoryGet(acted, "ItemMouth") && acted.IsMouthOpen());
+				return (!InventoryGet(acted, "ItemMouth") || acted.IsMouthOpen());
 			break;
 		case "VulvaEmpty":
 			if (group.Name === "ItemVulva")
