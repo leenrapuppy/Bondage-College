@@ -2710,9 +2710,16 @@ ItemHoodTechnoHelmet1Setd2,,,SourceCharacter turns the deafening module on Desti
 ItemHoodTechnoHelmet1Setd3,,,SourceCharacter turns the deafening module on DestinationCharacter on noise cancelling mode.,,
 ItemHoodTechnoHelmet1Setc0,,,SourceCharacter removes the chin strap on DestinationCharacter helmet.,,
 ItemHoodTechnoHelmet1Setc1,,,SourceCharacter adds the chin strap on DestinationCharacter helmet.,,
-WingsSteampunkWingsSelect,,,Select the state.
-WingsSteampunkWingsOff,,,Off
-WingsSteampunkWingsOn,,,On
-GGTSIntroPublic,,,[GGTS Speaker] GGTS public room.  Good girl follow commands.  Three strikes equal punishment.  GGTS in control.  Be good girl SourceCharacter.
-GGTSIntroPrivate,,,[GGTS Speaker] Launching GGTS private room.  Time counts triple.  GGTS more active.  Good girl follow commands.  Three strikes equal punishment.  GGTS in control.  Be good girl SourceCharacter.
-GGTSNoAdminPrivate,,,[GGTS Speaker] Good girl SourceCharacter do not administrate room.
+WingsSteampunkWingsSelect,,,Select the state.,,
+WingsSteampunkWingsOff,,,Off,,
+WingsSteampunkWingsOn,,,On,,
+GGTSIntroPublic,,,[GGTS Speaker] GGTS public room.  Good girl follow commands.  Three strikes equal punishment.  GGTS in control.  Be good girl SourceCharacter.,,
+GGTSIntroPrivate,,,[GGTS Speaker] Launching GGTS private room.  Time counts triple.  GGTS more active.  Good girl follow commands.  Three strikes equal punishment.  GGTS in control.  Be good girl SourceCharacter.,,
+GGTSNoAdminPrivate,,,"[GGTS Speaker] Good girl SourceCharacter do not administrate room.",,
+GGTSTimeOverStrike,,,"[GGTS Speaker] SourceCharacter, task time over.  Failure strike added to record.  Three strikes equal punishment.",,
+GGTSTaskDone,,,"[GGTS Speaker] Good girl SourceCharacter.  Task done.  GGTS pleased.",,
+GGTSTaskClothHeels,,,"[GGTS Speaker] SourceCharacter, GGTS commands you.  Wear high heels.",,
+GGTSTaskClothSocks,,,"[GGTS Speaker] SourceCharacter, GGTS commands you.  Wear only socks.",,
+GGTSTaskClothBarefoot,,,"[GGTS Speaker] SourceCharacter, GGTS commands you.  Get barefoot.",,
+GGTSTaskNoTalking,,,"[GGTS Speaker] SourceCharacter, GGTS commands you.  Stay silent one minute.  No talking allowed.",,
+GGTSTaskQueryWhatAreYou,,,"[GGTS Speaker] SourceCharacter, what are you?",,
