@@ -1751,7 +1751,7 @@ function ChatRoomMenuClick() {
 					break;
 				case "Admin":
 					// When the user enters the room administration screen
-					if ((ChatRoomData != null) && ChatRoomData.Private && (ChatSearchReturnToScreen == "AsylumGGTS")) return AsylumGGTSMessage("GGTSNoAdminPrivate");
+					if ((ChatRoomData != null) && ChatRoomData.Private && (ChatSearchReturnToScreen == "AsylumGGTS")) return AsylumGGTSMessage("NoAdminPrivate");
 					document.getElementById("InputChat").style.display = "none";
 					document.getElementById("TextAreaChatLog").style.display = "none";
 					CommonSetScreen("Online", "ChatAdmin");

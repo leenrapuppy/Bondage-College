@@ -6,9 +6,10 @@ var AsylumGGTSTimer = 0;
 var AsylumGGTSTask = null;
 var AsylumGGTSLastTask = "";
 var AsylumGGTSTaskStart = 0;
+var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
 	[], // Level 0 tasks
-	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatAreYou"], // Level 1 tasks
+	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatAreYou", "PoseKneel", "PoseStand"], // Level 1 tasks
 	[], // Level 2 tasks
 	[], // Level 3 tasks
 	[] // Level 4 tasks
@@ -114,7 +115,7 @@ function AsylumGGTSMessage(Msg) {
 	if ((Level >= 2) && (Level <= 2)) Name = Player.Name + "-" + Player.MemberNumber.toString();
 	if ((Level >= 3) && (Level <= 3)) Name = Player.Name + "-GG-" + Player.MemberNumber.toString();
 	if ((Level >= 4) && (Level <= 10)) Name = "GG-" + Player.MemberNumber.toString();
-	ChatRoomMessage({ Content: Msg, Type: "Action", Sender: Player.MemberNumber, Dictionary: [{Tag: "SourceCharacter", Text: Name, MemberNumber: Player.MemberNumber}] });
+	ServerSend("ChatRoomChat", { Content: "GGTS" + Msg, Type: "Action", Dictionary: [{ Tag: "SourceCharacter", Text: Name, MemberNumber: Player.MemberNumber }] });
 }
 
 /**
@@ -159,6 +160,8 @@ function AsylumGGTSTaskDone(C, T) {
 	if ((T == "ClothHeels") && (InventoryGet(C, "ItemBoots") != null) && (InventoryGet(C, "ItemBoots").Asset.Name.indexOf("Heels") >= 0)) return true;
 	if ((T == "ClothSocks") && (InventoryGet(C, "Socks") != null) && (InventoryGet(C, "Shoes") == null) && (InventoryGet(C, "ItemBoots") == null)) return true;
 	if ((T == "ClothBarefoot") && (InventoryGet(C, "Socks") == null) && (InventoryGet(C, "Shoes") == null) && (InventoryGet(C, "ItemBoots") == null)) return true;
+	if ((T == "PoseKneel") && C.IsKneeling()) return true;
+	if ((T == "PoseStand") && !C.IsKneeling()) return true;
 	if (T == "QueryWhatAreYou") return AsylumGGTSQueryDone(C.MemberNumber, "imagoodgirl");
 	return false;
 }
@@ -172,6 +175,7 @@ function AsylumGGTSTaskDone(C, T) {
 function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T.substr(0, 5) == "Query") && !C.CanTalk()) return false; // Query tasks cannot be done if gagged
 	if ((T.substr(0, 5) == "Cloth") && !C.CanChange()) return false; // Cloth tasks cannot be done if cannot change
+	if ((T.substr(0, 4) == "Pose") && !C.CanKneel()) return false; // If cannot kneel, we skip pose change activities
 	if (AsylumGGTSTaskDone(C, T)) return false; // If task is already done, we do not pick it
 	return true;
 }
@@ -183,6 +187,8 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 function AsylumGGTSNewTask() {
 	AsylumGGTSTask = null;
 	AsylumGGTSTimer = Math.round(CommonTime() + 60000);
+	if (AsylumGGTSGetLevel(Player) <= 0) return;
+	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) return;
 	let TaskList = [];
 	let Level = AsylumGGTSGetLevel(Player);
 	for (let L = 0; L < AsylumGGTSTaskList.length; L++)
@@ -193,7 +199,7 @@ function AsylumGGTSNewTask() {
 		AsylumGGTSTask = CommonRandomItemFromList(AsylumGGTSLastTask, TaskList);
 		if (!AsylumGGTSTaskCanBeDone(Player, AsylumGGTSTask)) AsylumGGTSTask = null;
 	}
-	AsylumGGTSMessage("GGTSTask" + AsylumGGTSTask);
+	AsylumGGTSMessage("Task" + AsylumGGTSTask);
 	AsylumGGTSLastTask = AsylumGGTSTask;
 	AsylumGGTSTaskStart = CommonTime();
 }
@@ -207,8 +213,14 @@ function AsylumGGTSEndTaskSave() {
 	AsylumGGTSTask = null;
 	let Factor = 1;
 	if (ChatRoomData.Private && (ChatSearchReturnToScreen == "AsylumGGTS")) Factor = 3;
-	Player.Game.GGTS.Time = Player.Game.GGTS.Time + (CommonTime() - AsylumGGTSTaskStart) * Factor;
+	let AddedTime;
+	if (AsylumGGTSTaskEnd > 0) AddedTime = CommonTime() - AsylumGGTSTaskEnd;
+	else AddedTime = CommonTime() - AsylumGGTSTaskStart;
+	if (AddedTime < 0) AddedTime = 0;
+	if (AddedTime > 120000) AddedTime = 120000;
+	Player.Game.GGTS.Time = Math.round(Player.Game.GGTS.Time + (AddedTime * Factor));
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+	AsylumGGTSTaskEnd = CommonTime();
 }
 
 /**
@@ -217,12 +229,13 @@ function AsylumGGTSEndTaskSave() {
  */
 function AsylumGGTSEndTask() {
 	if (AsylumGGTSTaskDone(Player, AsylumGGTSTask)) {
-		AsylumGGTSMessage("GGTSTaskDone");
+		AsylumGGTSMessage("TaskDone");
 		return AsylumGGTSEndTaskSave();
 	}
 	if (CommonTime() >= AsylumGGTSTimer) {
-		AsylumGGTSMessage("GGTSTimeOverStrike");
 		Player.Game.GGTS.Strike++;
+		if (Player.Game.GGTS.Strike > 3) Player.Game.GGTS.Strike = 3;
+		AsylumGGTSMessage("TimeOverStrike" + Player.Game.GGTS.Strike.toString());
 		return AsylumGGTSEndTaskSave();
 	}
 }
@@ -234,10 +247,13 @@ function AsylumGGTSEndTask() {
 function AsylumGGTSProcess() {
 	if ((ChatRoomData == null) || (ChatRoomData.Game == null) || (ChatRoomData.Game != "GGTS")) return;
 	if (!AsylumGGTSIntroDone) {
+		AsylumGGTSTaskEnd = CommonTime();
 		AsylumGGTSTimer = 0;
 		AsylumGGTSSetTimer();
-		if (ChatRoomData.Private && (ChatSearchReturnToScreen == "AsylumGGTS")) AsylumGGTSMessage("GGTSIntroPrivate");
-		else AsylumGGTSMessage("GGTSIntroPublic");
+		if (AsylumGGTSGetLevel(Player) <= 0) AsylumGGTSMessage("IntroNotPlaying");
+		else if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) AsylumGGTSMessage("IntroPendingPunishment");
+		else if (ChatRoomData.Private && (ChatSearchReturnToScreen == "AsylumGGTS")) AsylumGGTSMessage("IntroPrivate");
+		else AsylumGGTSMessage("IntroPublic");
 		AsylumGGTSIntroDone = true;
 		return;
 	}

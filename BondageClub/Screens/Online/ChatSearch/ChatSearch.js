@@ -38,6 +38,7 @@ function ChatSearchLoad() {
 		ChatSearchSafewordAppearance = Player.Appearance.slice(0);
 		ChatSearchSafewordPose = Player.ActivePose;
 	}
+	AsylumGGTSIntroDone = false;
 	Player.ArousalSettings.OrgasmCount = 0;
 	ElementCreateInput("InputSearch", "text", "", "20");
 	ChatSearchQuery();
