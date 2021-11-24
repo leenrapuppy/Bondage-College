@@ -151,6 +151,24 @@ function OnlineGameCharacterInChatRoom(MemberNumber) {
  * @returns {void} - Nothing
  */
 function OnlineGameDrawCharacter(C, X, Y, Zoom) {
+
+	// GGTS Draws the level, the number of strikes and a progress bar
+	if ((CurrentModule == "Online") && (CurrentScreen == "ChatRoom") && (ChatRoomGame == "GGTS")) {
+		let Level = AsylumGGTSGetLevel(C);
+		if ((Level > 0) && (C.Game != null) && (C.Game.GGTS != null)) {
+			if (C.Game.GGTS.Strike >= 1) DrawImageZoomCanvas("Screens/Room/AsylumGGTS/Strike" + C.Game.GGTS.Strike.toString() + ".png", MainCanvas, 0, 0, 100, 50, X, Y + 800 * Zoom, 100 * Zoom, 50 * Zoom);
+			MainCanvas.font = CommonGetFont(Math.round(36 * Zoom));
+			let Progress = Math.floor(C.Game.GGTS.Time / AsylumGGTSLevelTime[Level] * 100);
+			if (C.Game.GGTS.Strike >= 3) Progress = 0;
+			if (Progress >= 100) DrawRect(X, Y + 860 * Zoom, 100 * Zoom, 40 * Zoom, "White");
+			else DrawProgressBar(X, Y + 860 * Zoom, 100 * Zoom, 40 * Zoom, Progress);
+			if (Progress >= 50) DrawText(Level.toString(), X + 50 * Zoom, Y + 881 * Zoom, "Black", "White");
+			else DrawText(Level.toString(), X + 51 * Zoom, Y + 882 * Zoom, "White", "Black");
+			MainCanvas.font = CommonGetFont(36);
+		}
+	}
+
+	// LARP draws the timer if needed and the icon linked to team and class
 	if ((CurrentModule == "Online") && (CurrentScreen == "ChatRoom") && (ChatRoomGame == "LARP")) {
 		GameLARPDrawIcon(C, X + 70 * Zoom, Y + 800 * Zoom, 0.6 * Zoom);
 		if ((GameLARPPlayer.length > 0) && (C.MemberNumber == GameLARPPlayer[GameLARPTurnPosition].MemberNumber) && (GameLARPStatus == "Running") && (GameLARPTurnFocusCharacter == null)) {
@@ -160,6 +178,8 @@ function OnlineGameDrawCharacter(C, X, Y, Zoom) {
 			MainCanvas.font = CommonGetFont(36);
 		}
 	}
+
+	// Magic battle draws the timer and the spell buttons
 	if ((CurrentModule == "Online") && (CurrentScreen == "ChatRoom") && (ChatRoomGame == "MagicBattle")) {
 		GameMagicBattleDrawIcon(C, X + 70 * Zoom, Y + 800 * Zoom, 0.6 * Zoom);
 		if (Player.CanTalk() && (GameMagicBattleStatus == "Running")) {
@@ -182,4 +202,5 @@ function OnlineGameDrawCharacter(C, X, Y, Zoom) {
 			}
 		}
 	}
+
 }

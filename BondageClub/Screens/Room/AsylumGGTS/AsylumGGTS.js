@@ -14,6 +14,7 @@ var AsylumGGTSTaskList = [
 	[], // Level 3 tasks
 	[] // Level 4 tasks
 ];
+var AsylumGGTSLevelTime = [0, 10800000, 18000000, 28800000, 46800000];
 
 /**
  * Returns the character GGTS level
@@ -220,6 +221,7 @@ function AsylumGGTSEndTaskSave() {
 	if (AddedTime > 120000) AddedTime = 120000;
 	Player.Game.GGTS.Time = Math.round(Player.Game.GGTS.Time + (AddedTime * Factor));
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+	ChatRoomCharacterUpdate(Player);
 	AsylumGGTSTaskEnd = CommonTime();
 }
 
