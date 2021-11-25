@@ -237,7 +237,7 @@ function ValidationResolveLockModification(previousItem, newItem, params, itemBl
 		C, sourceMemberNumber, newLock.Asset.Group.Name, newLock.Asset.Name,
 	);
 
-	const lockChangeInvalid = (lockRemoved && !ValidationIsLockChangePermitted(previousLock, params)) ||
+	const lockChangeInvalid = (lockRemoved && !ValidationIsLockChangePermitted(previousLock, params, true)) ||
 		(lockAdded && !ValidationIsLockChangePermitted(newLock, params)) ||
 		((lockAdded || lockModified || lockSwapped) && (newLockBlocked || itemBlocked));
 
@@ -264,6 +264,9 @@ function ValidationResolveLockModification(previousItem, newItem, params, itemBl
 		const hasLockPermissions = ValidationIsLockChangePermitted(previousLock, params) && !newLockBlocked;
 		return !ValidationRollbackInvalidLockProperties(previousProperty, newProperty, hasLockPermissions);
 	}
+
+	// If there are no other issues, the change is valid
+	return true;
 }
 
 /**
@@ -296,7 +299,7 @@ function ValidationItemWarningMessage(item, { C, sourceMemberNumber }) {
  * @param {boolean} [remove] - Whether the lock change is a removal
  * @returns {boolean} - TRUE if the lock can be modified, FALSE otherwise
  */
-function ValidationIsLockChangePermitted(lock, { C, fromOwner, fromLover }, remove) {
+function ValidationIsLockChangePermitted(lock, { C, fromOwner, fromLover }, remove = false) {
 	if (!lock) return true;
 	if (lock.Asset.OwnerOnly && !fromOwner) return false;
 	if (lock.Asset.LoverOnly) {
