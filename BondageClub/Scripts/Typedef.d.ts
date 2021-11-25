@@ -764,6 +764,7 @@ interface PlayerCharacter extends Character {
 	KinkyDungeonKeybindings?: any;
 	KinkyDungeonExploredLore: any[];
 	Infiltration?: any;
+	ChatSearchFilterTerms?: string;
 }
 
 interface NPCTrait {

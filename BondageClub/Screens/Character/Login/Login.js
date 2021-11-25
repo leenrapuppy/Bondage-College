@@ -459,6 +459,7 @@ function LoginResponse(C) {
 			if (Array.isArray(C.BlockItems) || Array.isArray(C.LimitedItems)) {
 				ServerPlayerBlockItemsSync();
 			}
+			Player.ChatSearchFilterTerms = C.ChatSearchFilterTerms || "";
 
 			Player.Difficulty = C.Difficulty;
 			Player.WardrobeCharacterNames = C.WardrobeCharacterNames;

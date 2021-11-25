@@ -14,6 +14,8 @@ ResponseJoinedRoom,Entering the room...
 ResponseAlreadyInRoom,Duplicate join request
 FilterMode,Filter Rooms
 NormalMode,Return to room view
+FilterExcludeTerms,Filter out terms (comma-separated):
+FilterRefresh,Refresh rooms
 Exit,Leave room search
 FriendList,Friends
 Next,Next page
