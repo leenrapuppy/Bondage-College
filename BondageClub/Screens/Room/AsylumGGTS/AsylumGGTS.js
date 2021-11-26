@@ -111,6 +111,7 @@ function AsylumGGTSQuit() {
  * @returns {void} - Nothing
  */
 function AsylumGGTSBuildPrivate() {
+	ChatRoomSpace = "Asylum";
 	AsylumGGTSTimer = 0;
 	AsylumGGTSTask = null;
 	ChatCreateBackgroundList = BackgroundsGenerateList([BackgroundsTagAsylum]);
@@ -238,6 +239,7 @@ function AsylumGGTSNewTask() {
 	AsylumGGTSTask = null;
 	AsylumGGTSTimer = Math.round(CommonTime() + 60000);
 	if (AsylumGGTSGetLevel(Player) <= 0) return;
+	if ((ChatRoomSpace == null) || (ChatRoomSpace != "Asylum")) return;
 	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) return;
 	let TaskList = [];
 	let Level = AsylumGGTSGetLevel(Player);
@@ -282,6 +284,8 @@ function AsylumGGTSEndTaskSave() {
  * @returns {void} - Nothing
  */
 function AsylumGGTSEndTask() {
+	if ((ChatRoomSpace == null) || (ChatRoomSpace != "Asylum")) return;
+	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) return;
 	if (AsylumGGTSTaskDone(Player, AsylumGGTSTask)) {
 		AsylumGGTSMessage("TaskDone");
 		return AsylumGGTSEndTaskSave();
@@ -304,7 +308,8 @@ function AsylumGGTSProcess() {
 		AsylumGGTSTaskEnd = CommonTime();
 		AsylumGGTSTimer = 0;
 		AsylumGGTSSetTimer();
-		if (AsylumGGTSGetLevel(Player) <= 0) AsylumGGTSMessage("IntroNotPlaying");
+		if ((ChatRoomSpace == null) || (ChatRoomSpace != "Asylum")) AsylumGGTSMessage("IntroOnlyInAsylum");
+		else if (AsylumGGTSGetLevel(Player) <= 0) AsylumGGTSMessage("IntroNotPlaying");
 		else if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) AsylumGGTSMessage("IntroPendingPunishment");
 		else if (ChatRoomData.Private && (ChatSearchReturnToScreen == "AsylumGGTS")) AsylumGGTSMessage("IntroPrivate");
 		else AsylumGGTSMessage("IntroPublic");
@@ -359,4 +364,16 @@ function AsylumGGTSStartPunishment() {
 	if (ReputationGet("Asylum") <= -50) AsylumEntrancePlayerJacket("Normal");
 	DialogLeave();
 	CommonSetScreen("Room", "AsylumBedroom");
+}
+
+/**
+ * Returns TRUE if the item is controlled by GGTS, so the player should not have control
+ * @returns {boolean} - TRUE if the item is controlled by GGTS
+ */
+function AsylumGGTSControlItem(Item) {
+	if ((ChatRoomSpace == null) || (ChatRoomSpace != "Asylum")) return false;
+	if ((ChatRoomData == null) || (ChatRoomData.Game == null) || (ChatRoomData.Game != "GGTS")) return false;
+	if ((Item == null) || (Item.Asset == null) || (Item.Asset.Name == null)) return false;
+	if (Item.Asset.Name.substr(0, 10) == "Futuristic") return true;
+	return false;
 }
