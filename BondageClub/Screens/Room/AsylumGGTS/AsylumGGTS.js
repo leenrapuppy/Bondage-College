@@ -9,7 +9,7 @@ var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
 	[], // Level 0 tasks
-	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatAreYou", "QueryWhoControl", "NoTalking", "PoseKneel", "PoseStand", "ActivityHandGag", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs"], // Level 1 tasks
+	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatAreYou", "QueryWhoControl", "NoTalking", "PoseKneel", "PoseStand", "ActivityHandGag", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove"], // Level 1 tasks
 	[], // Level 2 tasks
 	[], // Level 3 tasks
 	[] // Level 4 tasks
@@ -232,6 +232,38 @@ function AsylumGGTSTaskFail(C, T) {
 }
 
 /**
+ * Processes the tasks that doesn't need any player input.  GGTS does everything and ends the task automatically.
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSAutomaticTask() {
+	
+	// The ItemPose task automatically changes the futuristic items pose
+	if (AsylumGGTSTask == "ItemPose") {
+		let Item = InventoryGet(Player, "ItemArms");
+		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name != null) && (Item.Asset.Name == "FuturisticCuffs")) {
+			let Pose = ((Item.Property != null) && (Item.Property.SetPose != null) && (Item.Property.SetPose.length > 0)) ? Item.Property.SetPose[0] : "";
+			Pose = [CommonRandomItemFromList(Pose, ["BackBoxTie", "BackElbowTouch", ""])];
+			if (Pose == "") Item.Property = { SetPose: null, Difficulty: 0, Effect: [] };
+			else Item.Property = { SetPose: Pose, Difficulty: 10, Effect: ["Block", "Prone"] };
+			CharacterRefresh(Player);
+			ChatRoomCharacterUpdate(Player);
+		}
+		return AsylumGGTSEndTaskSave();
+	}
+
+	// The ItemRemove task automatically removes all futuristic items
+	if (AsylumGGTSTask == "ItemRemove") {
+		let Item = InventoryGet(Player, "ItemArms");
+		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name != null) && (Item.Asset.Name == "FuturisticCuffs")) {
+			InventoryRemove(Player, "ItemArms");
+			ChatRoomCharacterUpdate(Player);
+		}
+		return AsylumGGTSEndTaskSave();
+	}
+
+}
+
+/**
  * Generates a new GGTS Task for the player and publishes it
  * @returns {void} - Nothing
  */
@@ -253,10 +285,11 @@ function AsylumGGTSNewTask() {
 		if (!AsylumGGTSTaskCanBeDone(Player, AsylumGGTSTask)) AsylumGGTSTask = null;
 		Count++;
 	}
-	if (Count >= 50) return;
+	if ((Count >= 50) || (AsylumGGTSTask == null)) return;
 	AsylumGGTSMessage("Task" + AsylumGGTSTask);
 	AsylumGGTSLastTask = AsylumGGTSTask;
 	AsylumGGTSTaskStart = CommonTime();
+	AsylumGGTSAutomaticTask();
 }
 
 /**
