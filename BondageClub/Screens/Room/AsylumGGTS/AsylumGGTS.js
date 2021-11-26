@@ -17,6 +17,25 @@ var AsylumGGTSTaskList = [
 var AsylumGGTSLevelTime = [0, 10800000, 18000000, 28800000, 46800000];
 
 /**
+ * Returns TRUE if the player has three strikes on record
+ * @returns {boolean} - TRUE if three strikes or more
+ */
+function AsylumGGTSHasThreeStrikes() {
+	return ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike != null) && (Player.Game.GGTS.Strike >= 3));
+}
+
+/**
+ * Returns TRUE if the player has completed the required time for the current level
+ * @returns {boolean} - TRUE if level is completed with 3 strikes on record
+ */
+function AsylumGGTSLevelCompleted() {
+	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike != null) && (Player.Game.GGTS.Strike >= 3)) return false;
+	let Level = AsylumGGTSGetLevel(Player);
+	if ((Level <= 0) || (Level >= 4)) return false;
+	return ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Time != null) && (Player.Game.GGTS.Time >= AsylumGGTSLevelTime[Level]));
+}
+
+/**
  * Returns the character GGTS level
  * @param {Character} C - The character to evaluate
  * @returns {void} - Nothing
@@ -74,6 +93,15 @@ function AsylumGGTSStartLevel(Level) {
 	Player.Game.GGTS.Time = 0;
 	Player.Game.GGTS.Strike = 0;
 	if (Level == 1) InventoryAdd(Player, "FuturisticCuffs", "ItemArms");
+	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+}
+
+/**
+ * Quits GGTS and deletes the player data for the game
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSQuit() {
+	delete Player.Game.GGTS;
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 }
 
@@ -262,4 +290,28 @@ function AsylumGGTSProcess() {
 	if (AsylumGGTSTimer <= 0) return AsylumGGTSSetTimer();
 	if ((CommonTime() >= AsylumGGTSTimer) && (AsylumGGTSTask == null)) return AsylumGGTSNewTask();
 	if (AsylumGGTSTask != null) return AsylumGGTSEndTask();
+}
+
+/**
+ * Sets the punishment time for failing GGTS
+ * @param {number} Minute - The number of minutes for the punishment
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSPunishmentTime(Minute) {
+	LogAdd("Isolated", "Asylum", Math.round(CurrentTime + parseInt(Minute) * 60000));
+	Player.Game.GGTS.Time = 0;
+	Player.Game.GGTS.Strike = 0;
+	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+}
+
+/**
+ * Starts the isolation punishment and go to the player room
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSStartPunishment() {
+	CharacterRelease(Player);
+	AsylumEntranceWearPatientClothes(Player);
+	if (ReputationGet("Asylum") <= -50) AsylumEntrancePlayerJacket("Normal");
+	DialogLeave();
+	CommonSetScreen("Room", "AsylumBedroom");
 }
