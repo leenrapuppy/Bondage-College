@@ -10,7 +10,7 @@ var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
 	[], // Level 0 tasks
 	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatAreYou", "QueryWhoControl", "NoTalking", "PoseKneel", "PoseStand", "ActivityHandGag", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove"], // Level 1 tasks
-	[], // Level 2 tasks
+	["ItemArmsFeetFuturisticCuffs"], // Level 2 tasks
 	[], // Level 3 tasks
 	[] // Level 4 tasks
 ];
@@ -56,7 +56,9 @@ function AsylumGGTSLoad() {
 		AsylumGGTSComputer.AllowItem = false;
 		AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/Computer.png";
 		AsylumGGTSComputer.Stage = "0";
-		if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Level != null) && (Player.Game.GGTS.Level == 1)) AsylumGGTSComputer.Stage = "100";
+		let Level = AsylumGGTSGetLevel(Player);
+		if (Level == 1) AsylumGGTSComputer.Stage = "100";
+		if (Level == 2) AsylumGGTSComputer.Stage = "1000";
 	}
 }
 
@@ -94,6 +96,8 @@ function AsylumGGTSStartLevel(Level) {
 	Player.Game.GGTS.Time = 0;
 	Player.Game.GGTS.Strike = 0;
 	if (Level == 1) InventoryAdd(Player, "FuturisticCuffs", "ItemArms");
+	if (Level == 2) InventoryAdd(Player, "FuturisticAnkleCuffs", "ItemFeet");
+	if (Level >= 2) CharacterChangeMoney(Player, 100 * (Level - 1));
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 }
 
@@ -187,12 +191,14 @@ function AsylumGGTSQueryDone(M, T) {
  * @returns {boolean} - TRUE if the is done
  */
 function AsylumGGTSTaskDone(C, T) {
+	let Level = AsylumGGTSGetLevel(C);
 	if ((T == "ClothHeels") && (InventoryGet(C, "Shoes") != null) && (InventoryGet(C, "Shoes").Asset.Name.indexOf("Heels") >= 0)) return true;
 	if ((T == "ClothHeels") && (InventoryGet(C, "ItemBoots") != null) && (InventoryGet(C, "ItemBoots").Asset.Name.indexOf("Heels") >= 0)) return true;
 	if ((T == "ClothSocks") && (InventoryGet(C, "Socks") != null) && (InventoryGet(C, "Shoes") == null) && (InventoryGet(C, "ItemBoots") == null)) return true;
 	if ((T == "ClothBarefoot") && (InventoryGet(C, "Socks") == null) && (InventoryGet(C, "Shoes") == null) && (InventoryGet(C, "ItemBoots") == null)) return true;
 	if ((T == "RestrainLegs") && ((InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return true;
-	if ((T == "ItemArmsFuturisticCuffs") && InventoryIsWorn(Player, "FuturisticCuffs", "ItemArms")) return true;
+	if ((T == "ItemArmsFuturisticCuffs") && ((Level != 1) || InventoryIsWorn(C, "FuturisticCuffs", "ItemArms"))) return true;
+	if ((T == "ItemArmsFeetFuturisticCuffs") && InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return true;
 	if ((T == "PoseKneel") && C.IsKneeling()) return true;
 	if ((T == "PoseStand") && !C.IsKneeling()) return true;
 	if (T == "QueryWhatAreYou") return AsylumGGTSQueryDone(C.MemberNumber, "imagoodgirl");
@@ -211,6 +217,8 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T.substr(0, 5) == "Cloth") && !C.CanChange()) return false; // Cloth tasks cannot be done if cannot change
 	if ((T.substr(0, 4) == "Pose") && !C.CanKneel()) return false; // If cannot kneel, we skip pose change activities
 	if ((T.substr(0, 8) == "Activity") && (!C.CanInteract() || (Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Inactive"))) return false; // Must allow activities
+	if ((T == "ItemPose") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return false;
+	if ((T == "ItemRemove") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return false;
 	if (AsylumGGTSTaskDone(C, T)) return false; // If task is already done, we do not pick it
 	return true;
 }
@@ -239,12 +247,24 @@ function AsylumGGTSAutomaticTask() {
 	
 	// The ItemPose task automatically changes the futuristic items pose
 	if (AsylumGGTSTask == "ItemPose") {
+		let Refresh = false;
 		let Item = InventoryGet(Player, "ItemArms");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name != null) && (Item.Asset.Name == "FuturisticCuffs")) {
 			let Pose = ((Item.Property != null) && (Item.Property.SetPose != null) && (Item.Property.SetPose.length > 0)) ? Item.Property.SetPose[0] : "";
 			Pose = [CommonRandomItemFromList(Pose, ["BackBoxTie", "BackElbowTouch", ""])];
 			if (Pose == "") Item.Property = { SetPose: null, Difficulty: 0, Effect: [] };
 			else Item.Property = { SetPose: Pose, Difficulty: 10, Effect: ["Block", "Prone"] };
+			Refresh = true;
+		}
+		Item = InventoryGet(Player, "ItemFeet");
+		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name != null) && (Item.Asset.Name == "FuturisticAnkleCuffs")) {
+			let Pose = ((Item.Property != null) && (Item.Property.SetPose != null) && (Item.Property.SetPose.length > 0)) ? Item.Property.SetPose[0] : "";
+			Pose = [CommonRandomItemFromList(Pose, ["LegsClosed", ""])];
+			if (Pose == "") Item.Property = { SetPose: null, Difficulty: 0, Effect: [] };
+			else Item.Property = { SetPose: Pose, Difficulty: 10, Effect: ["Freeze", "Prone"] };
+			Refresh = true;
+		}
+		if (Refresh) {
 			CharacterRefresh(Player);
 			ChatRoomCharacterUpdate(Player);
 		}
@@ -253,11 +273,18 @@ function AsylumGGTSAutomaticTask() {
 
 	// The ItemRemove task automatically removes all futuristic items
 	if (AsylumGGTSTask == "ItemRemove") {
+		let Refresh = false;
 		let Item = InventoryGet(Player, "ItemArms");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name != null) && (Item.Asset.Name == "FuturisticCuffs")) {
 			InventoryRemove(Player, "ItemArms");
-			ChatRoomCharacterUpdate(Player);
+			Refresh = true;
 		}
+		Item = InventoryGet(Player, "ItemFeet");
+		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name != null) && (Item.Asset.Name == "FuturisticAnkleCuffs")) {
+			InventoryRemove(Player, "ItemFeet");
+			Refresh = true;
+		}
+		if (Refresh) ChatRoomCharacterUpdate(Player);
 		return AsylumGGTSEndTaskSave();
 	}
 
