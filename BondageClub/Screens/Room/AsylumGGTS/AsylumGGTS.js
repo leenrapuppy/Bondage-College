@@ -9,7 +9,7 @@ var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
 	[], // Level 0 tasks
-	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatAreYou", "QueryWhoControl", "NoTalking", "PoseKneel", "PoseStand", "ActivityHandGag", "ActivityPinch"], // Level 1 tasks
+	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatAreYou", "QueryWhoControl", "NoTalking", "PoseKneel", "PoseStand", "ActivityHandGag", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs"], // Level 1 tasks
 	[], // Level 2 tasks
 	[], // Level 3 tasks
 	[] // Level 4 tasks
@@ -190,6 +190,8 @@ function AsylumGGTSTaskDone(C, T) {
 	if ((T == "ClothHeels") && (InventoryGet(C, "ItemBoots") != null) && (InventoryGet(C, "ItemBoots").Asset.Name.indexOf("Heels") >= 0)) return true;
 	if ((T == "ClothSocks") && (InventoryGet(C, "Socks") != null) && (InventoryGet(C, "Shoes") == null) && (InventoryGet(C, "ItemBoots") == null)) return true;
 	if ((T == "ClothBarefoot") && (InventoryGet(C, "Socks") == null) && (InventoryGet(C, "Shoes") == null) && (InventoryGet(C, "ItemBoots") == null)) return true;
+	if ((T == "RestrainLegs") && ((InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return true;
+	if ((T == "ItemArmsFuturisticCuffs") && InventoryIsWorn(Player, "FuturisticCuffs", "ItemArms")) return true;
 	if ((T == "PoseKneel") && C.IsKneeling()) return true;
 	if ((T == "PoseStand") && !C.IsKneeling()) return true;
 	if (T == "QueryWhatAreYou") return AsylumGGTSQueryDone(C.MemberNumber, "imagoodgirl");
@@ -243,10 +245,13 @@ function AsylumGGTSNewTask() {
 		for (let T = 0; T < AsylumGGTSTaskList[L].length; T++)
 			TaskList.push(AsylumGGTSTaskList[L][T]);
 	if (TaskList.length == 0) return;
-	while (AsylumGGTSTask == null) {
+	let Count = 0;
+	while ((AsylumGGTSTask == null) && (Count < 50)) {
 		AsylumGGTSTask = CommonRandomItemFromList(AsylumGGTSLastTask, TaskList);
 		if (!AsylumGGTSTaskCanBeDone(Player, AsylumGGTSTask)) AsylumGGTSTask = null;
+		Count++;
 	}
+	if (Count >= 50) return;
 	AsylumGGTSMessage("Task" + AsylumGGTSTask);
 	AsylumGGTSLastTask = AsylumGGTSTask;
 	AsylumGGTSTaskStart = CommonTime();
