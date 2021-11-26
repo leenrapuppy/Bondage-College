@@ -9,7 +9,7 @@ var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
 	[], // Level 0 tasks
-	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatAreYou", "PoseKneel", "PoseStand"], // Level 1 tasks
+	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatAreYou", "QueryWhoControl", "NoTalking", "PoseKneel", "PoseStand", "ActivityHandGag", "ActivityPinch"], // Level 1 tasks
 	[], // Level 2 tasks
 	[], // Level 3 tasks
 	[] // Level 4 tasks
@@ -50,6 +50,7 @@ function AsylumGGTSGetLevel(C) {
  */
 function AsylumGGTSLoad() {
 	AsylumGGTSIntroDone = false;
+	AsylumGGTSTask = null;
 	if (AsylumGGTSComputer == null) {
 		AsylumGGTSComputer = CharacterLoadNPC("NPC_AsylumGGTS_Computer");
 		AsylumGGTSComputer.AllowItem = false;
@@ -168,7 +169,7 @@ function AsylumGGTSQueryDone(M, T) {
 	if (ChatRoomChatLog == null) return false;
 	for (let L = 0; L < ChatRoomChatLog.length; L++)
 		if ((ChatRoomChatLog[L].SenderMemberNumber == M) && (ChatRoomChatLog[L].Time >= AsylumGGTSTaskStart)) {
-			let Chat = ChatRoomChatLog[L].Chat.trim().toLowerCase();
+			let Chat = ChatRoomChatLog[L].Original.trim().toLowerCase();
 			Chat = Chat.replace(/\s/g, "");
 			Chat = Chat.replace(/\./g, "");
 			Chat = Chat.replace(/,/g, "");
@@ -192,6 +193,8 @@ function AsylumGGTSTaskDone(C, T) {
 	if ((T == "PoseKneel") && C.IsKneeling()) return true;
 	if ((T == "PoseStand") && !C.IsKneeling()) return true;
 	if (T == "QueryWhatAreYou") return AsylumGGTSQueryDone(C.MemberNumber, "imagoodgirl");
+	if (T == "QueryWhoControl") return AsylumGGTSQueryDone(C.MemberNumber, "ggtsisincontrol");
+	if ((T == "NoTalking") && (CommonTime() >= AsylumGGTSTimer - 1000)) return true;
 	return false;
 }
 
@@ -202,11 +205,27 @@ function AsylumGGTSTaskDone(C, T) {
  * @returns {boolean} - TRUE if the task can be done
  */
 function AsylumGGTSTaskCanBeDone(C, T) {
-	if ((T.substr(0, 5) == "Query") && !C.CanTalk()) return false; // Query tasks cannot be done if gagged
 	if ((T.substr(0, 5) == "Cloth") && !C.CanChange()) return false; // Cloth tasks cannot be done if cannot change
 	if ((T.substr(0, 4) == "Pose") && !C.CanKneel()) return false; // If cannot kneel, we skip pose change activities
+	if ((T.substr(0, 8) == "Activity") && (!C.CanInteract() || (Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Inactive"))) return false; // Must allow activities
 	if (AsylumGGTSTaskDone(C, T)) return false; // If task is already done, we do not pick it
 	return true;
+}
+
+/**
+ * Returns TRUE if the task T was failed by character C
+ * @param {Character} C - The character to evaluate
+ * @param {string} T - The task to evaluate
+ * @returns {boolean} - TRUE if the task was failed
+ */
+function AsylumGGTSTaskFail(C, T) {
+	if (T == "NoTalking") {
+		if (ChatRoomChatLog == null) return false;
+		for (let L = 0; L < ChatRoomChatLog.length; L++)
+			if ((ChatRoomChatLog[L].SenderMemberNumber == C.MemberNumber) && (ChatRoomChatLog[L].Time >= AsylumGGTSTaskStart))
+				return true;
+	}
+	return false;
 }
 
 /**
@@ -220,7 +239,7 @@ function AsylumGGTSNewTask() {
 	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) return;
 	let TaskList = [];
 	let Level = AsylumGGTSGetLevel(Player);
-	for (let L = 0; L < AsylumGGTSTaskList.length; L++)
+	for (let L = 0; (L < AsylumGGTSTaskList.length) && (L <= Level); L++)
 		for (let T = 0; T < AsylumGGTSTaskList[L].length; T++)
 			TaskList.push(AsylumGGTSTaskList[L][T]);
 	if (TaskList.length == 0) return;
@@ -262,10 +281,10 @@ function AsylumGGTSEndTask() {
 		AsylumGGTSMessage("TaskDone");
 		return AsylumGGTSEndTaskSave();
 	}
-	if (CommonTime() >= AsylumGGTSTimer) {
+	if ((CommonTime() >= AsylumGGTSTimer) || (AsylumGGTSTaskFail(Player, AsylumGGTSTask))) {
 		Player.Game.GGTS.Strike++;
 		if (Player.Game.GGTS.Strike > 3) Player.Game.GGTS.Strike = 3;
-		AsylumGGTSMessage("TimeOverStrike" + Player.Game.GGTS.Strike.toString());
+		AsylumGGTSMessage(((CommonTime() >= AsylumGGTSTimer) ? "TimeOver" : "Failure") + "Strike" + Player.Game.GGTS.Strike.toString());
 		return AsylumGGTSEndTaskSave();
 	}
 }
@@ -290,6 +309,27 @@ function AsylumGGTSProcess() {
 	if (AsylumGGTSTimer <= 0) return AsylumGGTSSetTimer();
 	if ((CommonTime() >= AsylumGGTSTimer) && (AsylumGGTSTask == null)) return AsylumGGTSNewTask();
 	if (AsylumGGTSTask != null) return AsylumGGTSEndTask();
+}
+
+/**
+ * Processes the sexual activity in GGTS
+ * @param {Character} S - The character performing the activity
+ * @param {Character} C - The character on which the activity is performed
+ * @param {string} A - The name of the activity performed
+ * @param {string} Z - The group/zone name where the activity was performed
+ * @param {number} [Count=1] - If the activity is done repeatedly, this defines the number of times, the activity is done.
+ * @return {void} - Nothing
+ */
+function AsylumGGTSActivity(S, C, A, Z, Count) {
+	if ((AsylumGGTSTask == null) || (AsylumGGTSTask.substr(0, 8) != "Activity")) return;
+	if ((ChatRoomData == null) || (ChatRoomData.Game == null) || (ChatRoomData.Game != "GGTS")) return;
+	if ((S == null) || (S.ID != 0)) return;
+	let Level = AsylumGGTSGetLevel(Player);
+	if (Level <= 0) return;
+	if (AsylumGGTSTask.substr(8, 100) === A) {
+		AsylumGGTSMessage("TaskDone");
+		return AsylumGGTSEndTaskSave();
+	}
 }
 
 /**
