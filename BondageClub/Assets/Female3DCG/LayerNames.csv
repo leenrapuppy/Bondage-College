@@ -44,6 +44,8 @@ ClothAdultBabyDress3Belt,Belt
 ClothAdultBabyDress3Collar,Collar
 ClothReverseBunnySuitSuit,Suit
 ClothReverseBunnySuitGloves,Gloves
+ClothFuzzyDressDress,Dress
+ClothFuzzyDressTopFur,Fur
 ClothAccessoryBouquetBase,Holder
 ClothAccessoryBouquetFlowers,Flowers
 ClothAccessoryCapeFront,Front
@@ -544,6 +546,9 @@ ShoesDeluxeBootsLaces,Inner & Laces
 ShoesDeluxeBootsHeels,Heels
 ShoesDeluxeBootsStraps,Straps
 ShoesDeluxeBootsBuckles,Buckles
+ShoesFuzzyBootsHeels,Heels
+ShoesFuzzyBootsBoots,Boots
+ShoesFuzzyBootsFur,Fur
 ItemMouthWiffleGagStrap,Strap
 ItemMouthWiffleGagBall,Ball
 ItemMouthHarnessBallGagBall,Ball

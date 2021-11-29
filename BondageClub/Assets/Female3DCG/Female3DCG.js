@@ -243,6 +243,20 @@ var AssetFemale3DCG = [
 					{ Name: "Lower", Top: 462, Left: 0, CopyLayerColor:"Upper", AllowPose: ["Spread", "KneelingSpread", "LegsClosed", "Horse", "Kneel"], HideForPose: ["Hogtied", "AllFours"] },
 				]
 			},
+			{
+				Name: "FuzzyDress", Value: 70, Priority: 32, Top: 0, Left: 0, DefaultColor: ["#cf2828", "#666"],
+				HideItemAttribute: ["Skirt"],
+				HideItem: ["ClothLowerPajama1", "ClothLowerHaremPants"],
+				HideForPose: ["Hogtied", "AllFours", "KneelingSpread", "Horse", "OverTheHead"],
+				Layer: [
+					{ Name: "Dress", AllowPose: [], Priority: 26 },
+					{ Name: "TopFur", AllowPose: ["Yoked"] },
+					{ Name: "BottomFur", CopyLayerColor: "TopFur", AllowPose: [] },
+				],
+				Alpha: [
+					{ Group: ["ClothLower"], Masks: [[0, 320, 500, 300]] },
+				],
+			}
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -1046,6 +1060,21 @@ var AssetFemale3DCG = [
 					{ Group: ["BodyLower", "Socks", "SuitLower"], Masks: [[75, 860, 350, 120]] },
 					{ Group: ["BodyLower", "Socks", "SuitLower"], Pose: ["LegsClosed"], Masks: [[75, 870, 350, 150]] },
 				], Height: 30
+			},
+			{
+				Name: "FuzzyBoots", Value: 60, Top: 462, Left: 0, DefaultColor: ["#444", "#941a1a", "#666"],
+				HideForPose: ["Kneel", "Hogtied", "KneelingSpread"],
+				Hide: ["LeftAnklet", "RightAnklet"],
+				Layer: [
+					{ Name: "Heels", ParentGroup: null },
+					{ Name: "Boots" },
+					{ Name: "Fur" },
+				],
+				Alpha: [
+					{ Group: ["BodyLower", "Socks", "SuitLower"], Masks: [[0, 805, 500, 195]] },
+					{ Group: ["BodyLower", "Socks", "SuitLower"], Pose: ["LegsClosed"], Masks: [[0, 795, 500, 205]] },
+					{ Group: ["BodyLower", "Socks", "SuitLower"], Pose: ["Spread"], Masks: [[0, 790, 500, 210]] },
+				],
 			},
 		],
 		Color: ["Default", "#bbbbbb", "#808080", "#202020", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]

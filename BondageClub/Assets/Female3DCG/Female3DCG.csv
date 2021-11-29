@@ -58,6 +58,7 @@ Cloth,Blouse1,Blouse
 Cloth,LatexTop,Laced Latex Top
 Cloth,LatexLacedSuit,Latex Laced Suit
 Cloth,FurCoat,Fur Coat
+Cloth,FuzzyDress,Fuzzy Dress
 ClothAccessory,,Cloth Accessory
 ClothAccessory,StudentOutfit3Scarf,Student Scarf
 ClothAccessory,StudentOutfit3Bow1,Student Bow 1
@@ -295,6 +296,7 @@ Shoes,DeluxeBoots,Deluxe Mistress Boots
 Shoes,AnkleStrapShoes,Ankle Strap Shoes
 Shoes,Shoes5,Style 4
 Shoes,FuturisticHeels2,Futuristic Heels
+Shoes,FuzzyBoots,Fuzzy Boots
 Hat,,Hat
 Hat,Band1,Hair Band
 Hat,Band2,Jeweled Band
