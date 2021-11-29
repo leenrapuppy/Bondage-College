@@ -9,8 +9,8 @@ var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
 	[], // Level 0 tasks
-	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatAreYou", "QueryWhoControl", "NoTalking", "PoseKneel", "PoseStand", "ActivityHandGag", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove"], // Level 1 tasks
-	["ItemArmsFeetFuturisticCuffs"], // Level 2 tasks
+	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatIsGGTS", "QueryWhatAreYou", "NoTalking", "PoseKneel", "PoseStand", "ActivityHandGag", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove"], // Level 1 tasks
+	["QueryWhoControl", "QueryCanFail", "ItemArmsFeetFuturisticCuffs"], // Level 2 tasks
 	[], // Level 3 tasks
 	[] // Level 4 tasks
 ];
@@ -201,8 +201,10 @@ function AsylumGGTSTaskDone(C, T) {
 	if ((T == "ItemArmsFeetFuturisticCuffs") && InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return true;
 	if ((T == "PoseKneel") && C.IsKneeling()) return true;
 	if ((T == "PoseStand") && !C.IsKneeling()) return true;
+	if (T == "QueryWhatIsGGTS") return AsylumGGTSQueryDone(C.MemberNumber, "goodgirltrainingsystem");
 	if (T == "QueryWhatAreYou") return AsylumGGTSQueryDone(C.MemberNumber, "imagoodgirl");
 	if (T == "QueryWhoControl") return AsylumGGTSQueryDone(C.MemberNumber, "ggtsisincontrol");
+	if (T == "QueryCanFail") return AsylumGGTSQueryDone(C.MemberNumber, "ggtscannotfail");
 	if ((T == "NoTalking") && (CommonTime() >= AsylumGGTSTimer - 1000)) return true;
 	return false;
 }
