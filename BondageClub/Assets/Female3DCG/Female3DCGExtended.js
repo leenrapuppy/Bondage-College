@@ -3685,7 +3685,40 @@ var AssetFemale3DCGExtended = {
 				},
 					DrawImages: false,
 			}
-		} // OpenFaceHood
+		}, // OpenFaceHood
+		PetNose: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{ Name: "Nose", Key: "n",
+						Options: [
+							{}, // n0 - Nose
+							{}, // n1 - No Nose
+						]
+					},
+					{ Name: "Cheeks", Key: "c",
+						Options: [
+							{}, // c0 - No Cheeks
+							{}, // c1 - Small Cheeks
+							{}, // c2 - Big Cheeks
+						]
+					},
+					{ Name: "Whiskers", Key: "w",
+						Options: [
+							{}, // w0 - No Whiskers
+							{}, // w1 - Short Whiskers
+							{}, // w2 - Long Whiskers
+						]
+					},
+					{ Name: "Mouth", Key: "m",
+						Options: [
+							{}, // m0 - Show Mouth
+							{ Property: { Hide: ["Mouth"] } }, // m1 - Hide Mouth
+						]
+					},
+				],
+			},
+		}, //PetNose
 	}, // Mask
 	ItemLegs: {
 		DuctTape: {

@@ -1472,6 +1472,21 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "FacePaint", Value: 10, Left: 150, Top: 20, Priority: 7, BuyGroup: "FacePaint", DefaultColor: ["#9A7F76"], Hide: ["Head"] },
+			{
+				Name: "PetNose", Fetish: ["Pet"], Value: 50, Left: 185, Top: 167, Priority: 24, Extended: true, HasType: false,
+				DefaultColor: ["#D19D55","#2F2E2E","#BEBEBE","#111111"],
+				BodyCosplay: true, Layer: [
+					{ Name: "CheeksNone", ColorGroup: "Cheeks", AllowModuleTypes: ["c0"], },
+					{ Name: "CheeksSmall", CopyLayerColor: "CheeksNone", AllowModuleTypes: ["c1"], },
+					{ Name: "CheeksBig", CopyLayerColor: "CheeksNone", AllowModuleTypes: ["c2"], },
+					{ Name: "Nose", ColorGroup: "Nose", AllowModuleTypes: ["n0"], },
+					{ Name: "NoseNone", CopyLayerColor: "Nose", AllowModuleTypes: ["n1"], },
+					{ Name: "Gloss", ColorGroup: "Gloss", AllowModuleTypes: ["n0"], }, // Show only with nose
+					{ Name: "WhiskersNone", ColorGroup: "Whiskers",	AllowModuleTypes: ["w0"], },
+					{ Name: "WhiskersShort", CopyLayerColor: "WhiskersNone", AllowModuleTypes: ["w1"], },
+					{ Name: "WhiskersLong", CopyLayerColor: "WhiskersNone", AllowModuleTypes: ["w2"], },
+				],
+			}, //PetNose
 		],
 		Color: ["Default", "#303030", "#808080", "#e0e0e0", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"],
 	},

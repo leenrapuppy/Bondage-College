@@ -766,6 +766,10 @@ MaskFoxMaskUpper,Upper
 MaskFoxMaskLower,Lower
 MaskKittyMask3Highlights,Highlights
 MaskKittyMask3Mask,Mask
+MaskPetNoseCheeks,Cheeks
+MaskPetNoseNose,Nose
+MaskPetNoseGloss,Nose Gloss
+MaskPetNoseWhiskers,Whiskers
 ItemTorsoHighSecurityHarnessStrapsHarness,Straps
 ItemTorsoHighSecurityHarnessClampsHarness,Clasps
 ItemTorsoFuturisticHarnessBand,Straps
