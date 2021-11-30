@@ -165,6 +165,9 @@ function OnlineGameDrawCharacter(C, X, Y, Zoom) {
 			if (Progress >= 50) DrawText(Level.toString(), X + 50 * Zoom, Y + 881 * Zoom, "Black", "White");
 			else DrawText(Level.toString(), X + 51 * Zoom, Y + 882 * Zoom, "White", "Black");
 			MainCanvas.font = CommonGetFont(36);
+			if (C.Game.GGTS.Rule != null)
+				for (let R = 0; R < C.Game.GGTS.Rule.length; R++)
+					DrawImageZoomCanvas("Screens/Room/AsylumGGTS/Rule" + C.Game.GGTS.Rule[R] + ".png", MainCanvas, 0, 0, 33, 33, X + R * 33 * Zoom, Y + 902 * Zoom, 33 * Zoom, 33 * Zoom);
 		}
 	}
 

@@ -10,11 +10,12 @@ var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
 	[], // Level 0 tasks
 	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatIsGGTS", "QueryWhatAreYou", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove"], // Level 1 tasks
-	["QueryWhoControl", "QueryCanFail", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "ActivityHandGag"], // Level 2 tasks
+	["QueryWhoControl", "QueryCanFail", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "UndoRuleKeepPose"], // Level 2 tasks
 	[], // Level 3 tasks
 	[] // Level 4 tasks
 ];
 var AsylumGGTSLevelTime = [0, 10800000, 18000000, 28800000, 46800000];
+var AsylumGGTSPreviousPose = "";
 
 /**
  * Returns TRUE if the player has three strikes on record
@@ -191,6 +192,7 @@ function AsylumGGTSQueryDone(M, T) {
  * @returns {boolean} - TRUE if the is done
  */
 function AsylumGGTSTaskDone(C, T) {
+	if ((C == null) || (T == null)) return false;
 	let Level = AsylumGGTSGetLevel(C);
 	if ((T == "ClothHeels") && (InventoryGet(C, "Shoes") != null) && (InventoryGet(C, "Shoes").Asset.Name.indexOf("Heels") >= 0)) return true;
 	if ((T == "ClothHeels") && (InventoryGet(C, "ItemBoots") != null) && (InventoryGet(C, "ItemBoots").Asset.Name.indexOf("Heels") >= 0)) return true;
@@ -208,6 +210,8 @@ function AsylumGGTSTaskDone(C, T) {
 	if ((T == "NoTalking") && (CommonTime() >= AsylumGGTSTimer - 1000)) return true;
 	if ((T == "PoseOverHead") && ((C.Pose.indexOf("Yoked") >= 0) || (C.Pose.indexOf("OverTheHead") >= 0))) return true;
 	if ((T == "PoseBehindBack") && ((C.Pose.indexOf("BackBoxTie") >= 0) || (C.Pose.indexOf("BackElbowTouch") >= 0) || (C.Pose.indexOf("BackCuffs") >= 0))) return true;
+	if ((T == "PoseLegsClosed") && (C.Pose.indexOf("LegsClosed") >= 0)) return true;
+	if ((T == "PoseLegsOpen") && (C.Pose.indexOf("LegsClosed") < 0)) return true;
 	return false;
 }
 
@@ -218,13 +222,16 @@ function AsylumGGTSTaskDone(C, T) {
  * @returns {boolean} - TRUE if the task can be done
  */
 function AsylumGGTSTaskCanBeDone(C, T) {
+	if ((T.substr(0, 8) == "UndoRule") && ((C.Game.GGTS.Rule == null) || (C.Game.GGTS.Rule.indexOf(T.substr(8, 100)) < 0))) return false; // Rules cannot be removed if not active
 	if ((T.substr(0, 5) == "Cloth") && !C.CanChange()) return false; // Cloth tasks cannot be done if cannot change
 	if ((T.substr(0, 4) == "Pose") && !C.CanKneel()) return false; // If cannot kneel, we skip pose change activities
 	if ((T.substr(0, 8) == "Activity") && (!C.CanInteract() || (Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Inactive"))) return false; // Must allow activities
 	if ((T == "ItemPose") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return false;
 	if ((T == "ItemRemove") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return false;
-	if ((T == "PoseOverHead") && !C.CanInteract()) return false;
-	if ((T == "PoseBehindBack") && !C.CanInteract()) return false;
+	if ((T == "PoseOverHead") && !C.CanInteract()) return false; // Must be able to use hands for hands poses
+	if ((T == "PoseBehindBack") && !C.CanInteract()) return false; // Must be able to use hands for hands poses
+	if ((T == "PoseLegsClosed") && (C.IsKneeling() || (InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return false; // Close legs only without restraints and not kneeling
+	if ((T == "PoseLegsOpen") && (C.IsKneeling() || (InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return false; // Open legs only without restraints and not kneeling
 	if (AsylumGGTSTaskDone(C, T)) return false; // If task is already done, we do not pick it
 	return true;
 }
@@ -294,6 +301,12 @@ function AsylumGGTSAutomaticTask() {
 		return AsylumGGTSEndTaskSave();
 	}
 
+	// The UndoRule tasks removes a rule set by GGTS for the player to obey
+	if (AsylumGGTSTask.substr(0, 8) == "UndoRule") {
+		AsylumGGTSRemoveRule(AsylumGGTSTask.substr(8, 100));
+		return AsylumGGTSEndTaskSave();
+	}
+
 }
 
 /**
@@ -323,6 +336,7 @@ function AsylumGGTSNewTask() {
 	AsylumGGTSLastTask = AsylumGGTSTask;
 	AsylumGGTSTaskStart = CommonTime();
 	AsylumGGTSAutomaticTask();
+	AsylumGGTSPreviousPose = JSON.stringify(Player.Pose);
 }
 
 /**
@@ -343,6 +357,34 @@ function AsylumGGTSEndTaskSave() {
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 	ChatRoomCharacterUpdate(Player);
 	AsylumGGTSTaskEnd = CommonTime();
+	AsylumGGTSPreviousPose = JSON.stringify(Player.Pose);
+}
+
+/**
+ * Adds a new rule for the player to follow or get strikes, syncs with the chatroom
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSAddRule(NewRule) {
+	if (Player.Game.GGTS.Rule == null) Player.Game.GGTS.Rule = [];
+	if (Player.Game.GGTS.Rule.indexOf(NewRule) < 0) {
+		Player.Game.GGTS.Rule.push(NewRule);
+		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+		ChatRoomCharacterUpdate(Player);
+		AsylumGGTSMessage("Rule" + NewRule);
+	}
+}
+
+/**
+ * Removes a rule for the player to follow, syncs with the chatroom
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSRemoveRule(Rule) {
+	if (Player.Game.GGTS.Rule == null) Player.Game.GGTS.Rule = [];
+	if (Player.Game.GGTS.Rule.indexOf(Rule) >= 0) {
+		Player.Game.GGTS.Rule.splice(Player.Game.GGTS.Rule.indexOf(Rule), 1);
+		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+		ChatRoomCharacterUpdate(Player);
+	}
 }
 
 /**
@@ -354,6 +396,7 @@ function AsylumGGTSEndTask() {
 	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) return;
 	if (AsylumGGTSTaskDone(Player, AsylumGGTSTask)) {
 		AsylumGGTSMessage("TaskDone");
+		if ((Math.random() >= 0.05) && (["PoseOverHead", "PoseKneel", "PoseBehindBack", "PoseLegsClosed"].indexOf(AsylumGGTSTask) >= 0) && (AsylumGGTSGetLevel(Player) >= 2)) AsylumGGTSAddRule("KeepPose");
 		return AsylumGGTSEndTaskSave();
 	}
 	if ((CommonTime() >= AsylumGGTSTimer) || (AsylumGGTSTaskFail(Player, AsylumGGTSTask))) {
@@ -369,6 +412,8 @@ function AsylumGGTSEndTask() {
  * @returns {void} - Nothing
  */
 function AsylumGGTSProcess() {
+	
+	// If intro isn't done, we introduce the character and show her status
 	if ((ChatRoomData == null) || (ChatRoomData.Game == null) || (ChatRoomData.Game != "GGTS")) return;
 	if (!AsylumGGTSIntroDone) {
 		AsylumGGTSTaskEnd = CommonTime();
@@ -382,9 +427,22 @@ function AsylumGGTSProcess() {
 		AsylumGGTSIntroDone = true;
 		return;
 	}
+
+	// Validates that the pose rule isn't broken
+	if ((Player.Game.GGTS.Rule != null) && (Player.Game.GGTS.Rule.indexOf("KeepPose") >= 0) && (AsylumGGTSPreviousPose != JSON.stringify(Player.Pose)))
+		if (!AsylumGGTSTaskDone(Player, AsylumGGTSTask)) {
+			Player.Game.GGTS.Strike++;
+			if (Player.Game.GGTS.Strike > 3) Player.Game.GGTS.Strike = 3;
+			AsylumGGTSMessage("KeepPoseStrike" + Player.Game.GGTS.Strike.toString());
+			AsylumGGTSRemoveRule("KeepPose");
+			return AsylumGGTSEndTaskSave();
+		}
+
+	// If the timer ticks, we prepare a new task or check to end the current task
 	if (AsylumGGTSTimer <= 0) return AsylumGGTSSetTimer();
 	if ((CommonTime() >= AsylumGGTSTimer) && (AsylumGGTSTask == null)) return AsylumGGTSNewTask();
 	if (AsylumGGTSTask != null) return AsylumGGTSEndTask();
+
 }
 
 /**
