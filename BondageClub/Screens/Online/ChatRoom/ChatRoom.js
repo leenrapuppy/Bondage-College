@@ -1752,6 +1752,7 @@ function ChatRoomMenuClick() {
 				case "Admin":
 					// When the user enters the room administration screen
 					if ((ChatRoomData != null) && ChatRoomData.Private && (ChatSearchReturnToScreen == "AsylumGGTS")) return AsylumGGTSMessage("NoAdminPrivate");
+					if ((ChatRoomData != null) && ChatRoomData.Locked && (ChatRoomData.Game == "GGTS")) return AsylumGGTSMessage("NoAdminLocked");
 					document.getElementById("InputChat").style.display = "none";
 					document.getElementById("TextAreaChatLog").style.display = "none";
 					CommonSetScreen("Online", "ChatAdmin");
@@ -1796,6 +1797,7 @@ function ChatRoomCanLeave() {
 		} else ChatRoomLeashPlayer = null;
 	}
 	if (!Player.CanWalk()) return false; // Cannot leave if cannot walk
+	if (ChatRoomData.Locked && (ChatRoomData.Game == "GGTS")) return false; // GGTS game can forbid anyone to leave
 	if (!ChatRoomData.Locked || ChatRoomPlayerIsAdmin()) return true; // Can leave if the room isn't locked or is an administrator
 	for (let C = 0; C < ChatRoomCharacter.length; C++)
 		if (ChatRoomData.Admin.indexOf(ChatRoomCharacter[C].MemberNumber) >= 0)

@@ -9,8 +9,8 @@ var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
 	[], // Level 0 tasks
-	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatIsGGTS", "QueryWhatAreYou", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove"], // Level 1 tasks
-	["QueryWhoControl", "QueryCanFail", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "UndoRuleKeepPose"], // Level 2 tasks
+	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatIsGGTS", "QueryWhatAreYou", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "UnlockRoom"], // Level 1 tasks
+	["QueryWhoControl", "QueryCanFail", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "UndoRuleKeepPose", "LockRoom"], // Level 2 tasks
 	[], // Level 3 tasks
 	[] // Level 4 tasks
 ];
@@ -232,6 +232,8 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T == "PoseBehindBack") && !C.CanInteract()) return false; // Must be able to use hands for hands poses
 	if ((T == "PoseLegsClosed") && (C.IsKneeling() || (InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return false; // Close legs only without restraints and not kneeling
 	if ((T == "PoseLegsOpen") && (C.IsKneeling() || (InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return false; // Open legs only without restraints and not kneeling
+	if ((T == "LockRoom") && (((ChatRoomData != null) && (ChatRoomData.Locked == true)) || !ChatRoomPlayerIsAdmin())) return false; // Can only lock/unlock if admin
+	if ((T == "UnlockRoom") && (((ChatRoomData != null) && (ChatRoomData.Locked == false)) || !ChatRoomPlayerIsAdmin())) return false; // Can only lock/unlock if admin
 	if (AsylumGGTSTaskDone(C, T)) return false; // If task is already done, we do not pick it
 	return true;
 }
@@ -304,6 +306,24 @@ function AsylumGGTSAutomaticTask() {
 	// The UndoRule tasks removes a rule set by GGTS for the player to obey
 	if (AsylumGGTSTask.substr(0, 8) == "UndoRule") {
 		AsylumGGTSRemoveRule(AsylumGGTSTask.substr(8, 100));
+		return AsylumGGTSEndTaskSave();
+	}
+
+	// If we must lock or unlock the chat room, we send a server update room packet
+	if ((AsylumGGTSTask == "LockRoom") || (AsylumGGTSTask == "UnlockRoom")) {
+		var UpdatedRoom = {
+			Name: ChatRoomData.Name,
+			Description: ChatRoomData.Description,
+			Background: ChatRoomData.Background,
+			Limit: ChatRoomData.Limit.toString(),
+			Admin: ChatRoomData.Admin,
+			Ban: ChatRoomData.Ban,
+			BlockCategory: ChatRoomData.BlockCategory,
+			Game: ChatRoomData.Game,
+			Private: ChatRoomData.Private,
+			Locked: (AsylumGGTSTask == "LockRoom")
+		};
+		ServerSend("ChatRoomAdmin", { MemberNumber: Player.ID, Room: UpdatedRoom, Action: "Update" });
 		return AsylumGGTSEndTaskSave();
 	}
 
