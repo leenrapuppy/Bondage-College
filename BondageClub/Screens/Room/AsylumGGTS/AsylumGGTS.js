@@ -9,8 +9,8 @@ var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
 	[], // Level 0 tasks
-	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatIsGGTS", "QueryWhatAreYou", "NoTalking", "PoseKneel", "PoseStand", "ActivityHandGag", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove"], // Level 1 tasks
-	["QueryWhoControl", "QueryCanFail", "ItemArmsFeetFuturisticCuffs"], // Level 2 tasks
+	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatIsGGTS", "QueryWhatAreYou", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove"], // Level 1 tasks
+	["QueryWhoControl", "QueryCanFail", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "ActivityHandGag"], // Level 2 tasks
 	[], // Level 3 tasks
 	[] // Level 4 tasks
 ];
@@ -206,6 +206,8 @@ function AsylumGGTSTaskDone(C, T) {
 	if (T == "QueryWhoControl") return AsylumGGTSQueryDone(C.MemberNumber, "ggtsisincontrol");
 	if (T == "QueryCanFail") return AsylumGGTSQueryDone(C.MemberNumber, "ggtscannotfail");
 	if ((T == "NoTalking") && (CommonTime() >= AsylumGGTSTimer - 1000)) return true;
+	if ((T == "PoseOverHead") && ((C.Pose.indexOf("Yoked") >= 0) || (C.Pose.indexOf("OverTheHead") >= 0))) return true;
+	if ((T == "PoseBehindBack") && ((C.Pose.indexOf("BackBoxTie") >= 0) || (C.Pose.indexOf("BackElbowTouch") >= 0) || (C.Pose.indexOf("BackCuffs") >= 0))) return true;
 	return false;
 }
 
@@ -221,6 +223,8 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T.substr(0, 8) == "Activity") && (!C.CanInteract() || (Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Inactive"))) return false; // Must allow activities
 	if ((T == "ItemPose") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return false;
 	if ((T == "ItemRemove") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return false;
+	if ((T == "PoseOverHead") && !C.CanInteract()) return false;
+	if ((T == "PoseBehindBack") && !C.CanInteract()) return false;
 	if (AsylumGGTSTaskDone(C, T)) return false; // If task is already done, we do not pick it
 	return true;
 }
