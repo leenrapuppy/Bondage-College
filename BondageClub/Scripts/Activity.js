@@ -83,19 +83,30 @@ function ActivityDictionaryText(KeyWord) {
 
 /**
  * Resolve a group name to the correct group for activities
- * @param {string} family - The character on which the check is done
- * @param {string} groupname - The group to check access on
- * @returns {AssetGroup?} The resolved group
+ * @param {string} family - The asset family for the named group
+ * @param {string} groupname - The name of the group to resolve
+ * @returns {AssetGroup | null} - The resolved group
  */
 function ActivityGetGroupOrMirror(family, groupname) {
 	const group = AssetGroupGet(family, groupname);
-	if (group.MirrorActivitiesFrom != null) {
+	if (group && group.MirrorActivitiesFrom != null) {
 		const mirror = AssetGroupGet(family, group.MirrorActivitiesFrom);
 		if (mirror) {
 			return mirror;
 		}
 	}
 	return group;
+}
+
+/**
+ * Gets all groups that mirror or are mirrored by the given group name for activities. The returned array includes the
+ * named group.
+ * @param {string} family - The asset family for the named group
+ * @param {string} groupName - The name of the group to resolve
+ * @returns {AssetGroup[]} - The group and all groups from the same family that mirror or are mirrored by it
+ */
+function ActivityGetAllMirrorGroups(family, groupName) {
+	return AssetActivityMirrorGroups.get(groupName) || [];
 }
 
 /**
@@ -202,7 +213,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 				return !acted.IsFixedHead();
 			break;
 		case "ZoneAccessible":
-			return !InventoryGroupIsBlocked(acted, group.Name, true);
+			return ActivityGetAllMirrorGroups(acted.AssetFamily, group.Name).some((g) => !InventoryGroupIsBlocked(acted, g.Name, true));
 		case "WearingPenetrationItem":
 			return CharacterHasItemForActivity(acting, "Penetrate") && !acting.IsEnclose();
 		case "ZoneNaked":
