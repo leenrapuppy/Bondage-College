@@ -9,9 +9,9 @@ var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
 	[], // Level 0 tasks
-	["ClothHeels", "ClothSocks", "ClothBarefoot", "QueryWhatIsGGTS", "QueryWhatAreYou", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "UnlockRoom"], // Level 1 tasks
-	["QueryWhoControl", "QueryCanFail", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "UndoRuleKeepPose", "LockRoom"], // Level 2 tasks
-	[], // Level 3 tasks
+	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "UnlockRoom"], // Level 1 tasks
+	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"], // Level 2 tasks
+	["QueryCanFail", "QuerySurrender"], // Level 3 tasks
 	[] // Level 4 tasks
 ];
 var AsylumGGTSLevelTime = [0, 10800000, 18000000, 28800000, 46800000];
@@ -55,11 +55,13 @@ function AsylumGGTSLoad() {
 	if (AsylumGGTSComputer == null) {
 		AsylumGGTSComputer = CharacterLoadNPC("NPC_AsylumGGTS_Computer");
 		AsylumGGTSComputer.AllowItem = false;
-		AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/Computer.png";
 		AsylumGGTSComputer.Stage = "0";
 		let Level = AsylumGGTSGetLevel(Player);
 		if (Level == 1) AsylumGGTSComputer.Stage = "100";
 		if (Level == 2) AsylumGGTSComputer.Stage = "1000";
+		if (Level == 3) AsylumGGTSComputer.Stage = "2000";
+		if (Level <= 2) AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/Computer.png";
+		else AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGG.png";
 	}
 }
 
@@ -98,6 +100,11 @@ function AsylumGGTSStartLevel(Level) {
 	Player.Game.GGTS.Strike = 0;
 	if (Level == 1) InventoryAdd(Player, "FuturisticCuffs", "ItemArms");
 	if (Level == 2) InventoryAdd(Player, "FuturisticAnkleCuffs", "ItemFeet");
+	if (Level == 3) {
+		InventoryAdd(Player, "FuturisticHarnessPanelGag", "ItemMouth");
+		InventoryAdd(Player, "FuturisticHarnessBallGag", "ItemMouth");
+		AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGG.png";
+	}
 	if (Level >= 2) CharacterChangeMoney(Player, 100 * (Level - 1));
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 }
@@ -119,6 +126,7 @@ function AsylumGGTSBuildPrivate() {
 	ChatRoomSpace = "Asylum";
 	AsylumGGTSTimer = 0;
 	AsylumGGTSTask = null;
+	AsylumGGTSPreviousPose = JSON.stringify(Player.Pose);
 	ChatCreateBackgroundList = BackgroundsGenerateList([BackgroundsTagAsylum]);
 	ChatSearchReturnToScreen = "AsylumGGTS";
 	ChatCreateLoad();
@@ -198,6 +206,8 @@ function AsylumGGTSTaskDone(C, T) {
 	if ((T == "ClothHeels") && (InventoryGet(C, "ItemBoots") != null) && (InventoryGet(C, "ItemBoots").Asset.Name.indexOf("Heels") >= 0)) return true;
 	if ((T == "ClothSocks") && (InventoryGet(C, "Socks") != null) && (InventoryGet(C, "Shoes") == null) && (InventoryGet(C, "ItemBoots") == null)) return true;
 	if ((T == "ClothBarefoot") && (InventoryGet(C, "Socks") == null) && (InventoryGet(C, "Shoes") == null) && (InventoryGet(C, "ItemBoots") == null)) return true;
+	if ((T == "ClothUpperLowerOn") && (InventoryGet(C, "Cloth") != null)) return true;
+	if ((T == "ClothUpperLowerOff") && (InventoryGet(C, "Cloth") == null) && (InventoryGet(C, "ClothLower") == null)) return true;
 	if ((T == "RestrainLegs") && ((InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return true;
 	if ((T == "ItemArmsFuturisticCuffs") && ((Level != 1) || InventoryIsWorn(C, "FuturisticCuffs", "ItemArms"))) return true;
 	if ((T == "ItemArmsFeetFuturisticCuffs") && InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return true;
@@ -206,7 +216,9 @@ function AsylumGGTSTaskDone(C, T) {
 	if (T == "QueryWhatIsGGTS") return AsylumGGTSQueryDone(C.MemberNumber, "goodgirltrainingsystem");
 	if (T == "QueryWhatAreYou") return AsylumGGTSQueryDone(C.MemberNumber, "imagoodgirl");
 	if (T == "QueryWhoControl") return AsylumGGTSQueryDone(C.MemberNumber, "ggtsisincontrol");
+	if (T == "QueryLove") return AsylumGGTSQueryDone(C.MemberNumber, "iloveggts");
 	if (T == "QueryCanFail") return AsylumGGTSQueryDone(C.MemberNumber, "ggtscannotfail");
+	if (T == "QuerySurrender") return AsylumGGTSQueryDone(C.MemberNumber, "isurrendertoggts");	
 	if ((T == "NoTalking") && (CommonTime() >= AsylumGGTSTimer - 1000)) return true;
 	if ((T == "PoseOverHead") && ((C.Pose.indexOf("Yoked") >= 0) || (C.Pose.indexOf("OverTheHead") >= 0))) return true;
 	if ((T == "PoseBehindBack") && ((C.Pose.indexOf("BackBoxTie") >= 0) || (C.Pose.indexOf("BackElbowTouch") >= 0) || (C.Pose.indexOf("BackCuffs") >= 0))) return true;
@@ -416,12 +428,11 @@ function AsylumGGTSEndTask() {
 	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) return;
 	if (AsylumGGTSTaskDone(Player, AsylumGGTSTask)) {
 		AsylumGGTSMessage("TaskDone");
-		if ((Math.random() >= 0.05) && (["PoseOverHead", "PoseKneel", "PoseBehindBack", "PoseLegsClosed"].indexOf(AsylumGGTSTask) >= 0) && (AsylumGGTSGetLevel(Player) >= 2)) AsylumGGTSAddRule("KeepPose");
+		if ((Math.random() >= 0.5) && (["PoseOverHead", "PoseKneel", "PoseBehindBack", "PoseLegsClosed"].indexOf(AsylumGGTSTask) >= 0) && (AsylumGGTSGetLevel(Player) >= 2)) AsylumGGTSAddRule("KeepPose");
 		return AsylumGGTSEndTaskSave();
 	}
 	if ((CommonTime() >= AsylumGGTSTimer) || (AsylumGGTSTaskFail(Player, AsylumGGTSTask))) {
-		Player.Game.GGTS.Strike++;
-		if (Player.Game.GGTS.Strike > 3) Player.Game.GGTS.Strike = 3;
+		AsylumGGTSAddStrike();
 		AsylumGGTSMessage(((CommonTime() >= AsylumGGTSTimer) ? "TimeOver" : "Failure") + "Strike" + Player.Game.GGTS.Strike.toString());
 		return AsylumGGTSEndTaskSave();
 	}
@@ -451,8 +462,7 @@ function AsylumGGTSProcess() {
 	// Validates that the pose rule isn't broken
 	if ((Player.Game.GGTS.Rule != null) && (Player.Game.GGTS.Rule.indexOf("KeepPose") >= 0) && (AsylumGGTSPreviousPose != JSON.stringify(Player.Pose)))
 		if (!AsylumGGTSTaskDone(Player, AsylumGGTSTask)) {
-			Player.Game.GGTS.Strike++;
-			if (Player.Game.GGTS.Strike > 3) Player.Game.GGTS.Strike = 3;
+			AsylumGGTSAddStrike();
 			AsylumGGTSMessage("KeepPoseStrike" + Player.Game.GGTS.Strike.toString());
 			AsylumGGTSRemoveRule("KeepPose");
 			return AsylumGGTSEndTaskSave();
@@ -520,4 +530,14 @@ function AsylumGGTSControlItem(Item) {
 	if ((Item == null) || (Item.Asset == null) || (Item.Asset.Name == null)) return false;
 	if (Item.Asset.Name.substr(0, 10) == "Futuristic") return true;
 	return false;
+}
+
+/**
+ * Adds a strike to the player game info
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSAddStrike() {
+	Player.Game.GGTS.Strike++;
+	if (Player.Game.GGTS.Strike > 3) Player.Game.GGTS.Strike = 3;
+	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 }

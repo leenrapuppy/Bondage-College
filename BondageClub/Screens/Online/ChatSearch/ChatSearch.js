@@ -40,6 +40,7 @@ function ChatSearchLoad() {
 	}
 	AsylumGGTSIntroDone = false;
 	AsylumGGTSTask = null;
+	AsylumGGTSPreviousPose = JSON.stringify(Player.Pose);
 	Player.ArousalSettings.OrgasmCount = 0;
 	ElementCreateInput("InputSearch", "text", "", "20");
 	ChatSearchQuery();
