@@ -165,7 +165,7 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 2000,2010,(Inspect the machine.),(The machine wakes up.)  Level three in progress.  Good girl proof require eight hours.  Private time counts triple time.  Good girl follow progress in chat room.,,
 2000,,(Leave.),,DialogLeave(),
 2010,,,Level three in progress.  Good girl proof require eight hours.  Private time counts triple time.  Good girl follow progress in chat room.,,
-2010,2011,What rules are added in level three?,Level three rule.  Good girl must wear futuristic gag.  GGTS control restraints.,,
+2010,2011,What rules are added in level three?,Level three rule.  Good girl must wear futuristic ball or panel gag.  GGTS control gag.,,
 2010,,(Do GGTS in private.),,BuildPrivate(),!AsylumGGTSHasThreeStrikes()
 2010,,I'll do GGTS in public.,Good girl enter asylum entrance.  Good girl create or join public chat room.  Good girl selects GGTS.  GGTS takes control.,,!AsylumGGTSHasThreeStrikes()
 2010,,I'll do GGTS in private.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()

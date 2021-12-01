@@ -11,7 +11,7 @@ var AsylumGGTSTaskList = [
 	[], // Level 0 tasks
 	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "UnlockRoom"], // Level 1 tasks
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"], // Level 2 tasks
-	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked"], // Level 3 tasks
+	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "ItemUngag"], // Level 3 tasks
 	[] // Level 4 tasks
 ];
 var AsylumGGTSLevelTime = [0, 10800000, 18000000, 28800000, 46800000];
@@ -101,6 +101,7 @@ function AsylumGGTSStartLevel(Level) {
 	if (Level == 1) InventoryAdd(Player, "FuturisticCuffs", "ItemArms");
 	if (Level == 2) InventoryAdd(Player, "FuturisticAnkleCuffs", "ItemFeet");
 	if (Level == 3) {
+		InventoryAdd(Player, "FuturisticPanelGag", "ItemMouth");
 		InventoryAdd(Player, "FuturisticHarnessPanelGag", "ItemMouth");
 		InventoryAdd(Player, "FuturisticHarnessBallGag", "ItemMouth");
 		AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGG.png";
@@ -213,6 +214,8 @@ function AsylumGGTSTaskDone(C, T) {
 	if ((T == "RestrainLegs") && ((InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return true;
 	if ((T == "ItemArmsFuturisticCuffs") && ((Level != 1) || InventoryIsWorn(C, "FuturisticCuffs", "ItemArms"))) return true;
 	if ((T == "ItemArmsFeetFuturisticCuffs") && InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return true;
+	if ((T == "ItemMouthFuturisticBallGag") && (InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth") || InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth2") || InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth3"))) return true;
+	if ((T == "ItemMouthFuturisticPanelGag") && (InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth") || InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth2") || InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth3") || InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth") || InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth2") || InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth3"))) return true;
 	if ((T == "PoseKneel") && C.IsKneeling()) return true;
 	if ((T == "PoseStand") && !C.IsKneeling()) return true;
 	if (T == "QueryWhatIsGGTS") return AsylumGGTSQueryDone(C.MemberNumber, "goodgirltrainingsystem");
@@ -241,13 +244,22 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T.substr(0, 4) == "Pose") && !C.CanKneel()) return false; // If cannot kneel, we skip pose change activities
 	if ((T.substr(0, 8) == "Activity") && (!C.CanInteract() || (Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Inactive"))) return false; // Must allow activities
 	if ((T == "ItemPose") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return false;
-	if ((T == "ItemRemove") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return false;
+	if ((T == "ItemRemove") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticArmbinder", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return false;
+	if ((T == "ItemUngag") && (
+	((InventoryGet(C, "ItemMouth") == null) || (InventoryGet(C, "ItemMouth").Asset.Name.substr(0, 10) != "Futuristic")) &&
+	((InventoryGet(C, "ItemMouth2") == null) || (InventoryGet(C, "ItemMouth2").Asset.Name.substr(0, 10) != "Futuristic")) &&
+	((InventoryGet(C, "ItemMouth3") == null) || (InventoryGet(C, "ItemMouth3").Asset.Name.substr(0, 10) != "Futuristic")))) return false;
 	if ((T == "PoseOverHead") && !C.CanInteract()) return false; // Must be able to use hands for hands poses
 	if ((T == "PoseBehindBack") && !C.CanInteract()) return false; // Must be able to use hands for hands poses
 	if ((T == "PoseLegsClosed") && (C.IsKneeling() || (InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return false; // Close legs only without restraints and not kneeling
 	if ((T == "PoseLegsOpen") && (C.IsKneeling() || (InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return false; // Open legs only without restraints and not kneeling
 	if ((T == "LockRoom") && (((ChatRoomData != null) && (ChatRoomData.Locked == true)) || !ChatRoomPlayerIsAdmin())) return false; // Can only lock/unlock if admin
 	if ((T == "UnlockRoom") && (((ChatRoomData != null) && (ChatRoomData.Locked == false)) || !ChatRoomPlayerIsAdmin())) return false; // Can only lock/unlock if admin
+	if ((T == "RestrainLegs") && !C.CanInteract()) return false;
+	if ((T == "ItemArmsFuturisticCuffs") && !C.CanInteract()) return false;
+	if ((T == "ItemArmsFeetFuturisticCuffs") && !C.CanInteract()) return false;
+	if ((T == "ItemMouthFuturisticBallGag") && (!C.CanInteract() || (InventoryGet(C, "ItemMouth") != null) || (InventoryGet(C, "ItemMouth2") != null) || (InventoryGet(C, "ItemMouth3") != null))) return false;
+	if ((T == "ItemMouthFuturisticPanelGag") && (!C.CanInteract() || (InventoryGet(C, "ItemMouth") != null) || (InventoryGet(C, "ItemMouth2") != null) || (InventoryGet(C, "ItemMouth3") != null))) return false;
 	if (AsylumGGTSTaskDone(C, T)) return false; // If task is already done, we do not pick it
 	return true;
 }
@@ -266,6 +278,17 @@ function AsylumGGTSTaskFail(C, T) {
 				return true;
 	}
 	return false;
+}
+
+/**
+ * Checks if there's a futuristic item in the group slot and remove it if it's the case
+ * @param {string} Group - The group name to validate
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSTaskRemoveFuturisticItem(Group) {
+	let Item = InventoryGet(Player, Group);
+	if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name != null) && (Item.Asset.Name.substr(0, 10) == "Futuristic"))
+		InventoryRemove(Player, Group);
 }
 
 /**
@@ -300,23 +323,23 @@ function AsylumGGTSAutomaticTask() {
 		return AsylumGGTSEndTaskSave();
 	}
 
-	// The ItemRemove task automatically removes all futuristic items
+	// The ItemRemove task automatically removes all futuristic arms and legs items
 	if (AsylumGGTSTask == "ItemRemove") {
-		let Refresh = false;
-		let Item = InventoryGet(Player, "ItemArms");
-		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name != null) && (Item.Asset.Name == "FuturisticCuffs")) {
-			InventoryRemove(Player, "ItemArms");
-			Refresh = true;
-		}
-		Item = InventoryGet(Player, "ItemFeet");
-		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name != null) && (Item.Asset.Name == "FuturisticAnkleCuffs")) {
-			InventoryRemove(Player, "ItemFeet");
-			Refresh = true;
-		}
-		if (Refresh) ChatRoomCharacterUpdate(Player);
+		AsylumGGTSTaskRemoveFuturisticItem("ItemArms");
+		AsylumGGTSTaskRemoveFuturisticItem("ItemFeet");
+		ChatRoomCharacterUpdate(Player);
 		return AsylumGGTSEndTaskSave();
 	}
 
+	// The ItemUngag task automatically removes all futuristic gags
+	if (AsylumGGTSTask == "ItemUngag") {
+		AsylumGGTSTaskRemoveFuturisticItem("ItemMouth");
+		AsylumGGTSTaskRemoveFuturisticItem("ItemMouth2");
+		AsylumGGTSTaskRemoveFuturisticItem("ItemMouth3");
+		ChatRoomCharacterUpdate(Player);
+		return AsylumGGTSEndTaskSave();
+	}
+	
 	// The UndoRule tasks removes a rule set by GGTS for the player to obey
 	if (AsylumGGTSTask.substr(0, 8) == "UndoRule") {
 		AsylumGGTSRemoveRule(AsylumGGTSTask.substr(8, 100));
@@ -396,6 +419,7 @@ function AsylumGGTSEndTaskSave() {
 
 /**
  * Adds a new rule for the player to follow or get strikes, syncs with the chatroom
+ * @param {string} Rule - The rule name to add
  * @returns {void} - Nothing
  */
 function AsylumGGTSAddRule(NewRule) {
@@ -410,6 +434,7 @@ function AsylumGGTSAddRule(NewRule) {
 
 /**
  * Removes a rule for the player to follow, syncs with the chatroom
+ * @param {string} Rule - The rule name to remove
  * @returns {void} - Nothing
  */
 function AsylumGGTSRemoveRule(Rule) {
