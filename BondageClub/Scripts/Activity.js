@@ -164,7 +164,7 @@ function ActivityCheckPermissions(activity, character, onOther) {
 function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 	switch (prereq) {
 		case "UseMouth":
-			return (!acting.IsMouthBlocked() && acting.CanTalk());
+			return !acting.IsMouthBlocked() && acting.CanTalk();
 		case "UseTongue":
 			return !acting.IsMouthBlocked();
 		case "TargetMouthBlocked":
@@ -172,26 +172,26 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 		case "IsGagged":
 			return !acting.CanTalk();
 		case "SelfOnly":
-			return (acted.ID == 0);
+			return acting.IsPlayer() ? acted.IsPlayer()
+				: acting.IsOnline() ? acting.MemberNumber === acted.MemberNumber
+				: acting.AccountName === acted.AccountName;
 		case "TargetKneeling":
 			return acted.IsKneeling();
 		case "UseHands":
 			return acting.CanInteract();
 		case "UseArms":
-			return (acting.CanInteract()
-				&& (InventoryGet(acting, "ItemArms") == null || !InventoryGroupIsBlocked(acting, "ItemArms")));
+			return acting.CanInteract() || (!InventoryGet(acting, "ItemArms") && !InventoryGroupIsBlocked(acting, "ItemArms"));
 		case "UseFeet":
 			return acting.CanWalk();
 		case "CantUseArms":
-			return !(acting.CanInteract()
-				&& (InventoryGet(acting, "ItemArms") == null || !InventoryGroupIsBlocked(acting, "ItemArms")));
+			return !acting.CanInteract() && (InventoryGet(Player, "ItemArms") || InventoryGroupIsBlocked(Player, "ItemArms"));
 		case "CantUseFeet":
 			return !acting.CanWalk();
 		case "TargetCanUseTongue":
 			return !acted.IsMouthBlocked();
 		case "TargetMouthOpen":
 			if (group.Name === "ItemMouth")
-				return (!InventoryGet(acted, "ItemMouth") || acted.IsMouthOpen());
+				return !InventoryGet(acted, "ItemMouth") || acted.IsMouthOpen();
 			break;
 		case "VulvaEmpty":
 			if (group.Name === "ItemVulva")
@@ -207,15 +207,15 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			return CharacterHasItemForActivity(acting, "Penetrate") && !acting.IsEnclose();
 		case "ZoneNaked":
 			if (group.Name === "ItemButt")
-				return (InventoryPrerequisiteMessage(acted, "AccessButt") === "" && !acted.IsPlugged());
+				return InventoryPrerequisiteMessage(acted, "AccessButt") === "" && !acted.IsPlugged();
 			else if (group.Name === "ItemVulva")
-				return ((InventoryPrerequisiteMessage(acted, "AccessVulva") === "") && !acted.IsVulvaChaste());
+				return (InventoryPrerequisiteMessage(acted, "AccessVulva") === "") && !acted.IsVulvaChaste();
 			else if (group.Name === "ItemBreast" || group.Name === "ItemNipples")
-				return ((InventoryPrerequisiteMessage(acted, "AccessBreast") === "") && !acted.IsBreastChaste());
+				return (InventoryPrerequisiteMessage(acted, "AccessBreast") === "") && !acted.IsBreastChaste();
 			else if (group.Name === "ItemBoots")
-				return (InventoryPrerequisiteMessage(acted, "NakedFeet") === "");
+				return InventoryPrerequisiteMessage(acted, "NakedFeet") === "";
 			else if (group.Name === "ItemHands")
-				return (InventoryPrerequisiteMessage(acted, "NakedHands") === "");
+				return InventoryPrerequisiteMessage(acted, "NakedHands") === "";
 			break;
 	}
 	return true;
