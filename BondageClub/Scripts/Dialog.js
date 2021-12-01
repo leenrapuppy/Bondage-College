@@ -854,7 +854,7 @@ function DialogMenuButtonBuild(C) {
 				DialogMenuButton.push("Struggle");
 
 			// If the Asylum GGTS controls the item, we show a disabled button and hide the other buttons
-			if (AsylumGGTSControlItem(Item)) {
+			if (AsylumGGTSControlItem(C, Item)) {
 				DialogMenuButton.push("GGTSControl");
 			} else {
 				if ((Item != null) && !IsItemLocked && Player.CanInteract() && InventoryAllow(C, Item.Asset) && !IsGroupBlocked)
@@ -1369,7 +1369,7 @@ function DialogItemClick(ClickItem) {
 	// Gets the current character and item
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
 	var CurrentItem = InventoryGet(C, C.FocusGroup.Name);
-	if (AsylumGGTSControlItem(CurrentItem)) return;
+	if (AsylumGGTSControlItem(C, CurrentItem)) return;
 
 	// In permission mode, the player can allow or block items for herself
 	if ((C.ID == 0) && DialogItemPermissionMode) {
@@ -1693,8 +1693,8 @@ function DialogSetText(NewText) {
  * @returns {void} - Nothing
  */
 function DialogExtendItem(Item, SourceItem) {
-	if (AsylumGGTSControlItem(Item)) return;
 	const C = CharacterGetCurrent();
+	if (AsylumGGTSControlItem(C, Item)) return;
 	if (InventoryBlockedOrLimited(C, Item)) return;
 	StruggleProgress = -1;
 	StruggleLockPickOrder = null;

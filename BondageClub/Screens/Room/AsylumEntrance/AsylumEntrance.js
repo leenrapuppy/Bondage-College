@@ -109,9 +109,13 @@ function AsylumEntranceWearNurseClothes(C) {
 /**
  * Dresses a given character as a patient. Removes all clothes and respects cosplay rules
  * @param {"Player" | Character} C - The character to dress
+ * @param {boolean} ExtraEvent - Should we process extra events for login or GGTS
  * @returns {void} - Nothing
  */
-function AsylumEntranceWearPatientClothes(C) {
+function AsylumEntranceWearPatientClothes(C, ExtraEvent) {
+	let FutureArms = InventoryIsWorn(C, "FuturisticCuffs", "ItemArms");
+	let FutureFeet = InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet");
+	if (ExtraEvent) CharacterRelease(C);
 	if ((typeof C === "string") && (C == "Player")) C = Player;
 	InventoryWear(C, "TShirt1", "Cloth", "#500028");
 	InventoryWear(C, "Pajama1", "ClothLower", "#FF0080");
@@ -126,6 +130,14 @@ function AsylumEntranceWearPatientClothes(C) {
 	}
 	InventoryRemove(C, "HairAccessory3");
 	InventoryRemove(C, "Hat");
+	if (ExtraEvent) {
+		if (AsylumGGTSGetLevel(C) >= 3) {
+			if (LogQuery("Isolated", "Asylum")) CharacterNaked(C);
+			if (FutureArms) InventoryWear(C, "FuturisticCuffs", "ItemArms");
+			if (FutureFeet) InventoryWear(C, "FuturisticAnkleCuffs", "ItemFeet");
+		}
+		if ((ReputationGet("Asylum") <= -50) && (InventoryGet(C, "ItemArms") == null)) AsylumEntrancePlayerJacket("Normal");
+	}
 }
 
 /**

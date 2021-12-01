@@ -513,22 +513,29 @@ function AsylumGGTSPunishmentTime(Minute) {
  * @returns {void} - Nothing
  */
 function AsylumGGTSStartPunishment() {
-	CharacterRelease(Player);
-	AsylumEntranceWearPatientClothes(Player);
-	if (ReputationGet("Asylum") <= -50) AsylumEntrancePlayerJacket("Normal");
+	AsylumEntranceWearPatientClothes(Player, true);
 	DialogLeave();
 	CommonSetScreen("Room", "AsylumBedroom");
 }
 
 /**
- * Returns TRUE if the item is controlled by GGTS, so the player should not have control
+ * Returns TRUE if the item is controlled by GGTS, so the player should not have control.  The rules changes on level 3 and GGTS takes control throughout the asylum.
  * @returns {boolean} - TRUE if the item is controlled by GGTS
  */
-function AsylumGGTSControlItem(Item) {
-	if ((ChatRoomSpace == null) || (ChatRoomSpace != "Asylum")) return false;
-	if ((ChatRoomData == null) || (ChatRoomData.Game == null) || (ChatRoomData.Game != "GGTS")) return false;
-	if ((Item == null) || (Item.Asset == null) || (Item.Asset.Name == null)) return false;
-	if (Item.Asset.Name.substr(0, 10) == "Futuristic") return true;
+function AsylumGGTSControlItem(C, Item) {
+	let Level = AsylumGGTSGetLevel(C);
+	if (AsylumGGTSGetLevel(Player) > Level) Level = AsylumGGTSGetLevel(Player);
+	if (Level <= 2) {
+		if ((ChatRoomSpace == null) || (ChatRoomSpace != "Asylum")) return false;
+		if ((ChatRoomData == null) || (ChatRoomData.Game == null) || (ChatRoomData.Game != "GGTS")) return false;
+		if ((Item == null) || (Item.Asset == null) || (Item.Asset.Name == null)) return false;
+		if (Item.Asset.Name.substr(0, 10) == "Futuristic") return true;
+	} else {
+		if ((Item == null) || (Item.Asset == null) || (Item.Asset.Name == null)) return false;
+		if (Item.Asset.Name.substr(0, 10) != "Futuristic") return false;
+		if ((CurrentScreen == "ChatRoom") && (ChatRoomSpace == "Asylum")) return true;
+		if (CurrentScreen.substr(0, 6) == "Asylum") return true;
+	}
 	return false;
 }
 
