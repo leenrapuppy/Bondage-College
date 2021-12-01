@@ -30,6 +30,6 @@ CostumeBlocksFun,There's no time for that.|I'm already wearing my armor.
 TakeKey,"A subbie like you shouldn't have any|keys, I'll take it.  (She takes your cuffs key.)"
 UncuffAccept,You're cute in these cuffs but I can help.|(She takes her key and unlocks your cuffs.)
 UncuffRefuse,"Nope!  (She dangles her key in front of you.)|Struggle some more, maybe you'll slip out."
-CannotFree,(She points to her own restrains and sighs.)
+CannotFree,(She points to her own restraints and sighs.)
 CannotFreeGagged,(She shakes her head from left to right.)
-HelpWhileGagged,(She slowly helps you out of your|restrains while giggling in her gag.)
+HelpWhileGagged,(She slowly helps you out of your|restraints while giggling in her gag.)

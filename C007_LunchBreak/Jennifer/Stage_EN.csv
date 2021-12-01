@@ -15,7 +15,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 10,0,0,,I wish I could but|I'm horrible at tennis.,You'll never get good with this attitude.|(She takes her stuff and leaves for tennis.),90,0,-1,EndLunch()
 15,0,0,,"Ok, let's play a|game tomorrow.",It's a deal!  Have a great lunch.|(She packs her stuff and goes play tennis.),90,0,0,EndLunch()
 15,0,0,,No!  I want to play now!,"There's no deal then, have a good lunch.|(She packs her stuff and goes play tennis.)",90,-1,0,EndLunch()
-20,0,0,,The loser will be the|winner slave for lunch.,Slave?  You mean the loser pays for lunch?,30,0,1,
+20,0,0,,The loser will be the|winner's slave for lunch.,Slave?  You mean the loser pays for lunch?,30,0,1,
 20,0,0,,The loser submits to|the winner for lunch.,Submits?  You mean the loser pays for lunch?,30,0,0,
 20,0,0,,On second thoughts.|I don't want to play.,"Alright then, see you later.|(She packs and leaves for tennis.)",90,0,0,EndLunch()
 30,0,0,HasSeduction,Lovely Jennifer.  You|can't resist a challenge.,(She blushes and looks at the floor.)|Indeed.  Are you ready to play now?,40,1,1,
@@ -194,7 +194,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 460,0,0,,(Close your eyes.)ADD_MINUTES:1,(You close your eyes while she hits|you pretty good with her racket.),460,0,0,RacketHit(2)
 460,0,0,,(Raise your butt.)ADD_MINUTES:1,(You position yourself to be hit and she|lands a really good smash on your butt.),460,0,0,RacketHit(3)
 460,0,0,,(Try to dodge her.)ADD_MINUTES:1,(You move at the last second but|she's still able to hit you clumsily.),460,0,0,RacketHit(1)
-460,0,0,HasRestrainsAvail,Wait!  Check in my|bag. ADD_MINUTES:1,(She checks in your bag and|find some restrains for you.),460,0,0,CheckBag()
+460,0,0,HasRestrainsAvail,Wait!  Check in my|bag. ADD_MINUTES:1,(She checks in your bag and|find some restraints for you.),460,0,0,CheckBag()
 460,0,1,,"Forget it, let's head|back.  (Back to college.)",,0,0,0,EndChapter()
 470,0,0,,"Yes, it was fair.",Alright!  Dress back up and let's go.|(You pick up your clothes and dress back.),480,0,0,DressBack()
 470,0,0,,You'll never be|a good Domme.,That sucks.  Dress back up and let's go.|(You pick up your clothes and dress back.),480,-1,0,DressBack()

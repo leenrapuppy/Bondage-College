@@ -169,18 +169,18 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 320,0,0,CanAbuse,(Tickle her.)ADD_MINUTES:1,(She giggles and struggles lightly.|She doesn't seem very ticklish.),320,0,0,Tickle()
 320,0,0,CanAbuse,(Spank her.)ADD_MINUTES:1,(You spank her pretty hard on the butt.|She frowns at you but seems in pain.),320,0,0,Spank()
 320,0,0,CanAbuse,(Masturbate her.)ADD_MINUTES:1,,320,0,0,Masturbate()
-320,0,0,CanAddUnderwear,"Jen, put your|underwear back.",(She nods slowly and puts|her underwar back on.),320,0,0,"Strip(""Underwear"")"
+320,0,0,CanAddUnderwear,"Jen, put your|underwear back.",(She nods slowly and puts|her underwear back on.),320,0,0,"Strip(""Underwear"")"
 320,0,0,CanRemoveUnderwear,Get naked girl.,(She nods slowly and gets naked.),320,0,0,"Strip(""Naked"")"
 320,0,0,!IsChaste,That's enough.|Dress back up.,"(She nods and you help her to dress back.)|That was quite an experience, very daring.",180,0,0,ReleaseJennifer()
 320,0,0,IsChaste,That's enough.|Dress back up.,(She nods and you help her to dress back.)|Do you want the belt back?  How do I remove it?,181,0,0,ReleaseJennifer()
 400,0,0,Common_PlayerGagged,@Uuumph!,(She giggles.)  You'll have quite an|adventure wandering in the library now.,400,0,0,
 400,0,0,Common_PlayerGagged,@Nnoong gnoou!,Since you're new in school.|It's a good time to explore.,400,0,0,
-400,0,0,Common_PlayerRestrained,(Struggle in|your restrains.),"You came with these, you should try them.|Go and have fun little bondage adventurer.",400,0,0,
+400,0,0,Common_PlayerRestrained,(Struggle in|your restraints.),"You came with these, you should try them.|Go and have fun little bondage adventurer.",400,0,0,
 400,0,0,Common_PlayerRestrained,(Tug to escape.),"If you don't mind, I|would like to finish this book.",400,0,0,
 400,0,0,,(Walk away.),,400,0,0,PlayerLeave()
 410,0,0,Common_PlayerGagged,@Uuumph!,(She giggles.)  You'll have quite an|adventure wandering in the library now.,410,0,0,
 410,0,0,Common_PlayerGagged,@Nnoong gnoou!,Since you're new in school.|It's a good time to explore.,410,0,0,
-410,0,0,Common_PlayerRestrained,(Struggle in|your restrains.),"You came with these, you should try them.|Go and have fun little bondage adventurer.",410,0,0,
+410,0,0,Common_PlayerRestrained,(Struggle in|your restraints.),"You came with these, you should try them.|Go and have fun little bondage adventurer.",410,0,0,
 410,0,0,Common_PlayerRestrained,(Tug to escape.),"If you don't mind, I|would like to finish this book.",410,0,0,
 410,0,0,Common_PlayerRestrained,"Jen, can you|help me out?","Sorry, I will not help you.",410,0,0,TestRelease()
 410,0,0,Common_PlayerRestrained,(Get on your|knees and beg.),"Sorry, I will not help you.",410,0,0,TestRelease()

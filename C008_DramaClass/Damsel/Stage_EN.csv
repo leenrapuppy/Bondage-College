@@ -46,8 +46,8 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 400,0,0,,It would be even|kinkier in your undies.,Yes!  That's a great idea.  I'll remove it.|(She removes her gown and throws it away.),410,1,-1,Strip()
 410,0,0,!IsRestrained,Dance for me sweet|damsel. ADD_MINUTES:1,(She giggles and performs|a ballerina tip toe dance.),410,0,0,
 410,0,0,!IsRestrained,Danceth f'r me sweet|damoiselle. ADD_MINUTES:1,(She giggles and performs|a ballerina tip toe dance.),410,0,0,
-410,0,0,IsRestrained,Dance for me sweet|damsel. ADD_MINUTES:1,"(She does a very clumsy dance in|her restrains, laughing all the way.)",410,0,0,
-410,0,0,IsRestrained,Danceth f'r me sweet|damoiselle. ADD_MINUTES:1,"(She does a very clumsy dance in|her restrains, laughing all the way.)",410,0,0,
+410,0,0,IsRestrained,Dance for me sweet|damsel. ADD_MINUTES:1,"(She does a very clumsy dance in|her restraints, laughing all the way.)",410,0,0,
+410,0,0,IsRestrained,Danceth f'r me sweet|damoiselle. ADD_MINUTES:1,"(She does a very clumsy dance in|her restraints, laughing all the way.)",410,0,0,
 410,0,0,CanUntie,(Untie her.)ADD_MINUTES:1,(She resists to stay tied up but you're|able to undo the knots and release her.),410,0,0,Untie()
 410,0,0,CanUnstrap,(Unstrap her.)ADD_MINUTES:1,(She resists to keep her binder|on but you're able to unstrap it.),410,0,0,Untie()
 410,0,0,CanUngag,(Ungag her.)ADD_MINUTES:1,(You remove the gag and she looks at you.)|Can this lovely damsel get another gag?,410,0,0,Ungag()

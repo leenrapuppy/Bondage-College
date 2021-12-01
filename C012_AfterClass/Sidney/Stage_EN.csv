@@ -8,7 +8,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 0,0,-5,!Common_ActorIsOwner,Miss Sidney.|I admire you.,"Don't talk like that, you sound like a loser.|(You need -20 submission to submit to Sidney.)",0,0,0,TestSub()
 0,0,0,Common_PlayerGagged,@Om nnnuoogn mh!,Oh yeah.  I fucking understood|what you said.  (She laughs.),0,0,0,TestUnbind()
 0,0,0,Common_ActorIsOwner,(Hum a sexy song|and dance for fun.),Not now my little bitch.|(She checks her cell phone.),0,0,0,RandomSidneyDommeEvent()
-0,0,0,Common_PlayerRestrained,(Struggle in|your restrains.),"Nope, you're not getting out.|It's great to see you struggle.",0,0,0,TestUnbind()
+0,0,0,Common_PlayerRestrained,(Struggle in|your restraints.),"Nope, you're not getting out.|It's great to see you struggle.",0,0,0,TestUnbind()
 0,0,0,!Common_ActorIsOwner,You should wear|something else.,Forget it.  I'm not changing for you.,0,0,0,TestChange()
 0,0,0,SexAvail,Would you like to|make love with me?,"No, I don't feel like it.|Let's do something else.",0,0,0,TestSex()
 0,0,0,PleasurePlayerAvail,"My submissive, you|will pleasure me now.",Pleasure you how Mistress?,630,0,0,TestPleasurePlayer()
@@ -116,7 +116,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 280,0,0,,So will you|be my slave?,I'm sorry but I can't do that.|Let's talk about something else.,0,0,0,TestEnslaveSidney()
 280,0,0,,So will you|wear my collar?,I'm sorry but I can't do that.|Let's talk about something else.,0,0,0,TestEnslaveSidney()
 280,0,0,,I've changed my mind.|I won't collar you.,(She bows her head.)  Very well Miss.|Let's talk about something else then.,0,0,0,EndEnslaveSidney()
-285,0,0,,I will help you first.|(Release her.),(You release her from her restrains.),290,0,0,EnslaveRelease()
+285,0,0,,I will help you first.|(Release her.),(You release her from her restraints.),290,0,0,EnslaveRelease()
 290,0,0,,Get naked my|little submissive.,(She strips down slowly.)|Naked?  Of course Miss.,291,1,0,EnslaveStrip()
 290,0,0,,Strip down slave.,(She strips down nervously.)|Strip?  Now?  Of course Miss.,291,0,1,EnslaveStrip()
 291,0,0,,"From now on, you|will call me ""Mistress"".",Yes Mistress COMMON_PLAYERNAME.,292,0,0,

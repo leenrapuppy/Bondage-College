@@ -483,7 +483,7 @@ function DrawImageResize(Source, X, Y, Width, Height) {
  * @param {number} Y - Position of the image on the Y axis
  * @param {number[][]} [AlphaMasks] - A list of alpha masks to apply to the asset
  * @param {number} [Opacity=1] - The opacity at which to draw the image
- * @param {boolean} [Rotate=false] - If the image should be rotated by 180 degress
+ * @param {boolean} [Rotate=false] - If the image should be rotated by 180 degrees
  * @returns {boolean} - whether the image was complete or not
  */
 function DrawImageCanvas(Source, Canvas, X, Y, AlphaMasks, Opacity, Rotate) {
@@ -589,7 +589,7 @@ function DrawImage(Source, X, Y, Invert) {
  * @param {boolean} FullAlpha - Whether or not it is drawn in full alpha mode
  * @param {number[][]} AlphaMasks - A list of alpha masks to apply to the asset
  * @param {number} [Opacity=1] - The opacity at which to draw the image
- * @param {boolean} [Rotate=false] - If the image should be rotated by 180 degress
+ * @param {boolean} [Rotate=false] - If the image should be rotated by 180 degrees
  * @returns {boolean} - whether the image was complete or not
  */
 function DrawImageCanvasColorize(Source, Canvas, X, Y, Zoom, HexColor, FullAlpha, AlphaMasks, Opacity, Rotate) {
@@ -1331,7 +1331,7 @@ function DrawProcessHoverElements() {
  * @param {string} [Options.Foreground] - The foreground (text) color to draw the description in - defaults to black
  * @param {boolean} [Options.Vibrating] - Whether or not to add vibration effects to the item - defaults to false
  * @param {boolean} [Options.Border] - Whether or not to draw a border around the preview box
- * @param {boolean} [Options.Hover] - Whether or not the button should enable hover behaviour (background color change)
+ * @param {boolean} [Options.Hover] - Whether or not the button should enable hover behavior (background color change)
  * @param {string} [Options.HoverBackground] - The background color that should be used on mouse hover, if any
  * @param {boolean} [Options.Disabled] - Whether or not the element is disabled (prevents hover functionality)
  * @param {string[]} [Options.Icons] - A list of small icons to display in the top-left corner
@@ -1357,7 +1357,7 @@ function DrawAssetPreview(X, Y, A, Options) {
  * @param {string} [Options.Foreground] - The foreground (text) color to draw the description in - defaults to black
  * @param {boolean} [Options.Vibrating] - Whether or not to add vibration effects to the item - defaults to false
  * @param {boolean} [Options.Border] - Whether or not to draw a border around the preview box
- * @param {boolean} [Options.Hover] - Whether or not the button should enable hover behaviour (background color change)
+ * @param {boolean} [Options.Hover] - Whether or not the button should enable hover behavior (background color change)
  * @param {string} [Options.HoverBackground] - The background color that should be used on mouse hover, if any
  * @param {boolean} [Options.Disabled] - Whether or not the element is disabled (prevents hover functionality)
  * @param {string[]} [Options.Icons] - A list of images to draw in the top-left of the preview box

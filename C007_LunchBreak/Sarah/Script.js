@@ -41,7 +41,7 @@ function C007_LunchBreak_Sarah_CalcParams() {
 		OverridenIntroImage = "SarahPlayerLunch" + Img + ".jpg";
 	}
 
-	// At 250 & 260 the player and Sarah make love, many restrains can be applied
+	// At 250 & 260 the player and Sarah make love, many restraints can be applied
 	if ((C007_LunchBreak_Sarah_CurrentStage == 250) || (C007_LunchBreak_Sarah_CurrentStage == 260)) {
 		var Img = "";
 		if (ActorHasInventory("Rope") && !C007_LunchBreak_Sarah_TwoRopes) Img = Img + "Rope";

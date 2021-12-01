@@ -7,7 +7,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 0,0,-5,!Common_ActorIsOwner,Miss Jennifer.|I admire you.,I'm not sure why you admire me that much.|(You need -20 submission to submit to Jennifer.),0,0,0,TestSub()
 0,0,0,Common_PlayerGagged,@Om nnnuoogn mh!,"If you practice enough, maybe you'll|learn to talk clearly while being gagged.",0,0,0,TestUnbind()
 0,0,0,Common_ActorIsOwner,(Hum a sexy song|and dance for fun.),"Not now, we are on short break.|Your training will resume later.",0,0,0,RandomJenniferDommeEvent()
-0,0,0,Common_PlayerRestrained,(Struggle in|your restrains.),"Nope, you're not getting out.|It's great to see you struggle.",0,0,0,TestUnbind()
+0,0,0,Common_PlayerRestrained,(Struggle in|your restraints.),"Nope, you're not getting out.|It's great to see you struggle.",0,0,0,TestUnbind()
 0,0,0,!Common_ActorIsOwner,You should wear|something else.,"No, thanks.  I'm fine like that.",0,0,0,TestChange()
 0,0,0,SexAvail,Would you like to|make love with me?,"No, I don't feel like it.|Let's do something else.",0,0,0,TestSex()
 0,0,0,PleasurePlayerAvail,"My submissive, you|will pleasure me now.",Pleasure you how Mistress?,630,0,0,TestPleasurePlayer()

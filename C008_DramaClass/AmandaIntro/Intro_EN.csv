@@ -13,7 +13,7 @@ Stage,LoveReq,SubReq,VarReq,IntroText,Image
 30,0,0,,Why didn't you keep your eyes covered?,Background.jpg
 40,0,0,,I guess you can see me change.|Can you help me put this armor?,Background.jpg
 40,0,0,Common_PlayerGagged,You look cute with that gag.|But can you help me put this armor?,Background.jpg
-40,0,0,Common_PlayerRestrained,Your restrains are pretty nice.|But you won't be able to help me.,Background.jpg
+40,0,0,Common_PlayerRestrained,Your restraints are pretty nice.|But you won't be able to help me.,Background.jpg
 40,0,0,IsChaste,(She tugs on the belt.)  COMMON_PLAYERNAME?|You do have the key for that belt?,Background.jpg
 40,0,0,IsRestrained,It might not be the best time for bondage.|(She struggles.)  Could you release me please?,Background.jpg
 40,0,0,IsGagged,Aaaeemg ngee nnaaagn!|(She struggles with the gag.),Background.jpg

@@ -116,7 +116,7 @@ function C999_Common_Player_Run() {
 		CurrentActor = "";
 	}
 
-	// Draw the kinbaku club relationships tab (show all known kinbaku club actors and their relationship with the player)
+	// Draw the Kinbaku club relationships tab (show all known Kinbaku club actors and their relationship with the player)
 	if (C999_Common_Player_ActiveTab == "KinbakuClub") {
 		DrawRect(0, 0, 200, 50, "black");
 		DrawRect(0, 0, 199, 49, "silver");

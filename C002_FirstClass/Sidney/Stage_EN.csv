@@ -30,7 +30,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 100,0,0,Common_PlayerGagged,(Chew on the gag.),(She whispers.) You look like an idiot.,100,0,0,
 100,1,0,Common_PlayerGagged,(Try to point|to the BallGag.),(She whispers) Shut up.|I'll help you after class.,100,0,0,
 100,-1,0,Common_PlayerGagged,(Try to point|to the BallGag.),(She whispers.) Stay gagged bitch.,100,0,0,
-100,0,0,Common_PlayerRestrained,(Struggle in|your restrains.),(She whispers.) You'll never get out.,100,0,0,
+100,0,0,Common_PlayerRestrained,(Struggle in|your restraints.),(She whispers.) You'll never get out.,100,0,0,
 100,0,-2,BowRemarkReady,(Bow your head.),(She whispers.) You're pathetic.,100,0,-1,BowRemark()
 110,0,0,Common_PlayerGagged,"@Uuuummph, mmph!",(She rolls her eyes up.),110,0,0,
 110,0,0,Common_PlayerNotRestrained,(Ungag her.)ADD_MINUTES:1,(You unbuckle and pull out the big ball.)|Fuck this gag!,100,0,0,Ungag()

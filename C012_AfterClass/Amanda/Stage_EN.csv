@@ -7,7 +7,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 0,0,-5,!Common_ActorIsOwner,Miss Amanda.|I admire you.,That's very flattering of you to say that.|(You need -20 submission to submit to Amanda.),0,0,0,TestSub()
 0,0,0,Common_PlayerGagged,@Om nnnuoogn mh!,Let me get my English-Mumble|dictionary.  (She laughs out loud.),0,0,0,TestUnbind()
 0,0,0,Common_ActorIsOwner,(Hum a sexy song|and dance for fun.),"Not now my subbie, I'm reviewing my notes.|(She reviews and studies her school notes.)",0,0,0,RandomAmandaDommeEvent()
-0,0,0,Common_PlayerRestrained,(Struggle in|your restrains.),You're not getting out soon.|I love to see you struggle.,0,0,0,TestUnbind()
+0,0,0,Common_PlayerRestrained,(Struggle in|your restraints.),You're not getting out soon.|I love to see you struggle.,0,0,0,TestUnbind()
 0,0,0,!Common_ActorIsOwner,You should wear|something else.,I prefer to stay like that.,0,0,0,TestChange()
 0,0,0,SexAvail,Would you like to|make love with me?,"You're very direct.  No, I'll pass.|Let's do something else alright?",0,0,0,TestSex()
 0,0,0,PleasurePlayerAvail,"My submissive, you|will pleasure me now.",Pleasure you how Mistress?|(She gives you a curious look.),630,0,0,TestPleasurePlayer()
@@ -443,12 +443,12 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 3172,0,0,,(Hug her close.),(She smiles and releases you.)|That was a nice hug my subbie.,3173,0,0,"ActorSetPose(""Happy"")"
 3172,0,0,,(Try to escape|from the hug.),(She frowns and releases you.)|Don't struggle like that girl.,3173,-1,1,"ActorSetPose("""")"
 3173,0,0,Common_PlayerRestrained,Will you help me?,"No, I kind of like you like that.|(She checks on her notes again.)",3191,0,0,ReleaseAfterBondageHug()
-3173,0,0,Common_PlayerRestrained,(Struggle in|your restrains.),"Struggle some more, I like it.|(She checks on her notes again.)",3191,0,0,ReleaseAfterBondageHug()
+3173,0,0,Common_PlayerRestrained,(Struggle in|your restraints.),"Struggle some more, I like it.|(She checks on her notes again.)",3191,0,0,ReleaseAfterBondageHug()
 3173,0,0,Common_PlayerGagged,@Uuuugnm uph!,I love it when you try to talk.|(She checks on her notes again.),3191,0,0,ReleaseAfterBondageHug()
 3173,0,0,Common_PlayerRestrained,Will you leave me|restrained like that?,"Of course, since you seem to enjoy it.|(She checks on her school notes again.)",3191,0,0,AllowLeave()
 3173,0,0,Common_PlayerRestrained,(Struggle playfully.),"Struggle some more, I like it.|(She checks on her notes again.)",3191,0,0,AllowLeave()
 3173,0,0,!Common_PlayerRestrained,What else|could we do?,We'll play again later my subbie.|(She checks on her notes again.),3191,0,0,AllowLeave()
-3173,0,0,!Common_PlayerRestrained,Let's do this|more often.,"Absolutely, next time with better restrains.|(She checks on her school notes again.)",3191,0,0,AllowLeave()
+3173,0,0,!Common_PlayerRestrained,Let's do this|more often.,"Absolutely, next time with better restraints.|(She checks on her school notes again.)",3191,0,0,AllowLeave()
 3190,0,0,!Common_PlayerRestrained,I'm sorry you didn't|find anything you like.,"No worries, tomorrow we'll do some shopping.|(She gets back to reviewing her school notes.)",3191,0,0,AllowLeave()
 3190,0,0,Common_PlayerRestrained,Do you like to|see me restrained?,"Absolutely, you look adorable my subbie.|(She gets back to her school notes and reads them.)",3191,0,0,AllowLeave()
 3190,0,0,Common_PlayerGagged,@Niighn mhim!,It's wonderful to have a submissive like you.|(She gets back to her school notes and reads them.),3191,0,0,AllowLeave()

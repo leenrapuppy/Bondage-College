@@ -16,7 +16,7 @@
  * @param {number} y - The y coordinate to draw the image at
  * @param {number[][]} alphaMasks - A list of alpha masks to apply to the image when drawing
  * @param {number} [opacity=1] - The opacity at which to draw the image with
- * @param {boolean} [rotate=false] - If the image should be rotated by 180 degress
+ * @param {boolean} [rotate=false] - If the image should be rotated by 180 degrees
  */
 
 /**
@@ -34,10 +34,10 @@
  * @param {number} x - The x coordinate to draw the image at
  * @param {number} y - The y coordinate to draw the image at
  * @param {string} color - The color to apply to the image
- * @param {boolean} fullAlpha - Whether or not to apply colour to the entire image
+ * @param {boolean} fullAlpha - Whether or not to apply color to the entire image
  * @param {number[][]} alphaMasks - A list of alpha masks to apply to the image when drawing
  * @param {number} [opacity=1] - The opacity at which to draw the image with
- * @param {boolean} [rotate=false] - If the image should be rotated by 180 degress
+ * @param {boolean} [rotate=false] - If the image should be rotated by 180 degrees
  */
 
 /**
@@ -274,7 +274,7 @@ function CommonDrawAppearanceBuild(C, {
 			}
 		}
 
-		// Make any required changes to the colour
+		// Make any required changes to the color
 		if (Color === "Default" && A.DefaultColor) {
 			Color = Array.isArray(A.DefaultColor) ? A.DefaultColor[Layer.ColorIndex] : A.DefaultColor;
 		}

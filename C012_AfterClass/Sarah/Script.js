@@ -214,7 +214,7 @@ function C012_AfterClass_Sarah_Click() {
 			return;			
 		}
 
-		// Cannot use restrains in the damsel gown
+		// Cannot use restraints in the damsel gown
 		if ((ActorGetValue(ActorCloth) == "Damsel") && ((ClickInv == "Rope") || (ClickInv == "Armbinder") || (ClickInv == "Cuffs"))) {
 			OverridenIntroText = GetText("NoRestrainInCostume");
 			return;			

@@ -29,7 +29,7 @@ function C006_Isolation_IsolationRoom_Run() {
 	StruggleRun(GetText("Struggle" + C006_Isolation_IsolationRoom_Stage.toString()), C006_Isolation_IsolationRoom_Stage);
 }
 
-// Chapter 6 - Isolation Room Click - The player can try to struggle out of the restrains
+// Chapter 6 - Isolation Room Click - The player can try to struggle out of the restraints
 function C006_Isolation_IsolationRoom_Click() {
 
 	// On stage 0, only the leg ropes can be removed, the crotch rope also works with an egg

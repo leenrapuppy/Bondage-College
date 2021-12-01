@@ -8,7 +8,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 2,0,0,,(Nod silently.),Excellent.  So are you|looking for a specific book?,100,1,-1,
 2,0,0,,"Yeah, yeah, I know.",(She gives you an angry look.)|Are you looking for a specific book?,100,-1,1,
 2,0,0,,I'll keep quiet.,Very well.  So are you|looking for a specific book?,100,0,0,
-5,0,0,Common_PlayerRestrained,(Tug on your restrains.),"Here, let me help you little miss.|(She releases you.)  You may go.",6,0,0,TestRelease()
+5,0,0,Common_PlayerRestrained,(Tug on your restraints.),"Here, let me help you little miss.|(She releases you.)  You may go.",6,0,0,TestRelease()
 5,0,0,Common_PlayerGagged,@Numn ngnnnuh!,"Here, let me help you little miss.|(She releases you.)  You may go.",6,0,0,TestRelease()
 5,0,0,,Can you help|me out Miss?,"Very well, I will help you little miss.|(She releases you.)  You may go now.",6,0,0,TestRelease()
 5,0,0,,Jennifer did|that to me.,I'm very surprised that she would do that.|(She releases you.)  You may go now.,6,0,0,TestRelease()
@@ -122,7 +122,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 192,0,0,,I won't do it again.,Alright young lady.  (You walk to her desk.)|I really hope you can stay of out of trouble.,200,0,0,
 192,0,0,,"Yeah, yeah, yeah.|I won't do it again.",I don't like your attitude.  (You walk to her desk.)|I really hope you can stay of out of trouble.,200,-1,1,
 192,0,0,,"Yes, that was stupid.|I won't do it again.",Very true young lady.  (You walk to her desk.)|I really hope you can stay of out of trouble.,200,1,0,
-200,0,0,Common_PlayerRestrained,(Tug on your restrains.),"Here, let me help you little miss.|(She releases you.)  Are you alright now?",200,0,0,TestRelease()
+200,0,0,Common_PlayerRestrained,(Tug on your restraints.),"Here, let me help you little miss.|(She releases you.)  Are you alright now?",200,0,0,TestRelease()
 200,0,0,Common_PlayerGagged,@Mmhm mneeeas.,"Here, let me help you little miss.|(She releases you.)  Are you alright now?",200,0,0,TestRelease()
 200,0,0,CanAskForDoor,I've found a|locked door.,"Yes, and you're not allowed|in this section of the library.",200,0,0,
 200,0,0,PenInHole,"Miss, I dropped|my pen in a hole.",Oh!  And you need|my help to recover it?,210,0,0,

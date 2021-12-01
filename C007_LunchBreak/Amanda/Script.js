@@ -34,7 +34,7 @@ function C007_LunchBreak_Amanda_CalcParams() {
 		OverridenIntroImage = "AmandaPlayerLunch" + Img + ".jpg";
 	}
 
-	// At 330, the player can dominate Amanda with many restrains, the image changes accordingly
+	// At 330, the player can dominate Amanda with many restraints, the image changes accordingly
 	if (C007_LunchBreak_Amanda_CurrentStage == 330) {
 		var Img = "";
 		if (ActorHasInventory("Rope")) Img = Img + "Rope";

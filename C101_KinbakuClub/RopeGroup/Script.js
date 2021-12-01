@@ -71,7 +71,7 @@ var C101_KinbakuClub_RopeGroup_NippleClamped = false;				// true after Heather h
 var C101_KinbakuClub_RopeGroup_MercyDone = false;
 var C101_KinbakuClub_RopeGroup_HeatherTugging = false;				// true when Heather pulls on the nipple clamps chain.
 var C101_KinbakuClub_RopeGroup_Guessing = false;					// true after trying safeword during nipple torture.
-var C101_KinbakuClub_RopeGroup_SensetiveCount = 0;					
+var C101_KinbakuClub_RopeGroup_SensitiveCount = 0;					
 var C101_KinbakuClub_RopeGroup_MasochistCount = 0;
 var C101_KinbakuClub_RopeGroup_DefiantCount = 0;
 var C101_KinbakuClub_RopeGroup_Masochist = false;
@@ -1131,19 +1131,19 @@ function C101_KinbakuClub_RopeGroup_Mercy() {
 }
 
 // Chapter 101 - RopeGroup - 
-function C101_KinbakuClub_RopeGroup_Sensetive() {
-	C101_KinbakuClub_RopeGroup_SensetiveCount++
+function C101_KinbakuClub_RopeGroup_Sensitive() {
+	C101_KinbakuClub_RopeGroup_SensitiveCount++
 	C101_KinbakuClub_RopeGroup_HeatherTugging = false;
-	if (C101_KinbakuClub_RopeGroup_SensetiveCount >= 2) {
-		OverridenIntroText = GetText("Sensetive2");
+	if (C101_KinbakuClub_RopeGroup_SensitiveCount >= 2) {
+		OverridenIntroText = GetText("Sensitive2");
 		C101_KinbakuClub_RopeGroup_BreakDown = true;
 	}
-	if (C101_KinbakuClub_RopeGroup_SensetiveCount >= 3) OverridenIntroText = GetText("Sensetive3");
-	if (C101_KinbakuClub_RopeGroup_SensetiveCount >= 4)	{
-		OverridenIntroText = GetText("Sensetive4");
+	if (C101_KinbakuClub_RopeGroup_SensitiveCount >= 3) OverridenIntroText = GetText("Sensitive3");
+	if (C101_KinbakuClub_RopeGroup_SensitiveCount >= 4)	{
+		OverridenIntroText = GetText("Sensitive4");
 		C101_KinbakuClub_RopeGroup_CurrentStage = 821;
 	}
-	if (C101_KinbakuClub_RopeGroup_SensetiveCount >= C101_KinbakuClub_RopeGroup_MasochistCount && C101_KinbakuClub_RopeGroup_SensetiveCount >= C101_KinbakuClub_RopeGroup_DefiantCount) C101_KinbakuClub_RopeGroup_Expression = "ExpressionSensetive";
+	if (C101_KinbakuClub_RopeGroup_SensitiveCount >= C101_KinbakuClub_RopeGroup_MasochistCount && C101_KinbakuClub_RopeGroup_SensitiveCount >= C101_KinbakuClub_RopeGroup_DefiantCount) C101_KinbakuClub_RopeGroup_Expression = "ExpressionSensitive";
 }
 
 // Chapter 101 - RopeGroup - 
@@ -1158,7 +1158,7 @@ function C101_KinbakuClub_RopeGroup_Masochism() {
 		C101_KinbakuClub_RopeGroup_HeatherTugging = false;
 		C101_KinbakuClub_RopeGroup_CurrentStage = 822;
 	}
-	if (C101_KinbakuClub_RopeGroup_MasochistCount >= C101_KinbakuClub_RopeGroup_SensetiveCount && C101_KinbakuClub_RopeGroup_MasochistCount >= C101_KinbakuClub_RopeGroup_DefiantCount) C101_KinbakuClub_RopeGroup_Expression = "ExpressionMasochist";
+	if (C101_KinbakuClub_RopeGroup_MasochistCount >= C101_KinbakuClub_RopeGroup_SensitiveCount && C101_KinbakuClub_RopeGroup_MasochistCount >= C101_KinbakuClub_RopeGroup_DefiantCount) C101_KinbakuClub_RopeGroup_Expression = "ExpressionMasochist";
 }
 
 // Chapter 101 - RopeGroup - 
@@ -1172,7 +1172,7 @@ function C101_KinbakuClub_RopeGroup_Defiant() {
 		C101_KinbakuClub_RopeGroup_HeatherTugging = false;
 		C101_KinbakuClub_RopeGroup_CurrentStage = 823;
 	}
-	if (C101_KinbakuClub_RopeGroup_DefiantCount >= C101_KinbakuClub_RopeGroup_SensetiveCount && C101_KinbakuClub_RopeGroup_DefiantCount >= C101_KinbakuClub_RopeGroup_MasochistCount) C101_KinbakuClub_RopeGroup_Expression = "ExpressionDefiant";
+	if (C101_KinbakuClub_RopeGroup_DefiantCount >= C101_KinbakuClub_RopeGroup_SensitiveCount && C101_KinbakuClub_RopeGroup_DefiantCount >= C101_KinbakuClub_RopeGroup_MasochistCount) C101_KinbakuClub_RopeGroup_Expression = "ExpressionDefiant";
 }
 
 // Chapter 101 - RopeGroup - Player tries safe words

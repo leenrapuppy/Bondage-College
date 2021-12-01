@@ -307,7 +307,7 @@ function C012_AfterClass_Sidney_TestSub() {
 	} else C012_AfterClass_Sidney_GaggedAnswer();
 }
 
-// Chapter 12 After Class - Tests if the player can submit (no restrains first)
+// Chapter 12 After Class - Tests if the player can submit (no restraints first)
 function C012_AfterClass_Sidney_TestSubmit() {
 	if (Common_PlayerOwner != "") {
 		OverridenIntroText = GetText("AlreadyOwned");

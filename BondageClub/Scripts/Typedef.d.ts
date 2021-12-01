@@ -179,7 +179,7 @@ interface AssetLayer {
 	CopyLayerColor: string | null;
 	/** specifies the name of a color group that this layer belongs to. Any layers within the same color group can be colored together via the item color UI */
 	ColorGroup?: string;
-	/** whether or not this layer can be coloured in the colouring UI */
+	/** whether or not this layer can be colored in the coloring UI */
 	HideColoring: boolean;
 	/** A list of allowed extended item types that this layer permits - the layer will only be drawn if
 	the item type matches one of these types. If null, the layer is considered to permit all extended types. */

@@ -241,7 +241,7 @@ function refresh3DModel (group, path3d){
 // }
 
 
-// 3d enviourment
+// 3d environment
 // function env3D(loader){
 // 	loader.load(`${path3d}${}.fbx`, function(object){
 // 		env = object;

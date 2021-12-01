@@ -329,7 +329,7 @@ function ActorApplyRestrain(RestrainName) {
 			CurrentTime = CurrentTime + 60000;			
 		}
 	
-		// Regular restrains
+		// Regular restraints
 		if ((RestrainName == "Rope") || (RestrainName == "Cuffs") || (RestrainName == "Armbinder")) {
 			if (!ActorIsRestrained()) {
 				PlayerRemoveInventory(RestrainName, 1);

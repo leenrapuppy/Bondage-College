@@ -22,10 +22,10 @@
  * @property {DynamicDrawTextEffect} [effect] - A dynamic text effect to apply. No effects are applied by default.
  * @property {number} [width] - The maximum width of the drawn text. Not applicable to the {@link DynamicDrawTextFromTo} function, as
  * constraints are defined by the endpoints. When defined for the {@link DynamicDrawTextArc} function, it defines the maximum width of the
- * text perpendicular to the radius line on which the text is centred. Unlimited by default.
+ * text perpendicular to the radius line on which the text is centered. Unlimited by default.
  * @property {boolean} [contain] - Whether or not the text should be fully contained in the box defined by the from/to coordinates. Only
  * applicable to the {@link DynamicDrawTextFromTo} function. Defaults to true.
- * @property {number} [angle] - The angle at which the text should be drawn, relative to the centre of the circle. Angles are measured
+ * @property {number} [angle] - The angle at which the text should be drawn, relative to the center of the circle. Angles are measured
  * clockwise in radians starting at the vertical 12 o'clock position. For example 0 corresponds to 12 o'clock, PI/2 corresponds to
  * 3 o'clock, PI corresponds to 6 o'clock, and 3PI/2 corresponds to 9 o'clock. Only applicable to the {@link DynamicDrawTextArc} function.
  * Defaults to 0.
@@ -35,7 +35,7 @@
  * the arc along which the text will be drawn. Only applicable to the {@link DynamicDrawTextArc} function. Defaults to PI (a semicircle).
  * @property {DynamicDrawTextDirection} [direction] - The direction the text should be drawn in along the circular arc. Only applicable to
  * the {@link DynamicDrawTextArc} function. Defaults to {@link DynamicDrawTextDirection.CLOCKWISE};
- * @property {DynamicDrawTextCurve} [textCurve] - The direction of the curve of the text. This determines whether the centre of the text
+ * @property {DynamicDrawTextCurve} [textCurve] - The direction of the curve of the text. This determines whether the center of the text
  * curves upwards ({@link DynamicDrawTextCurve.SMILEY}) or downwards ({@link DynamicDrawTextCurve.FROWNY}). Only applicable to the
  * {@link DynamicDrawTextArc} function. Defaults to {@link DynamicDrawTextCurve.FROWNY}.
  *
@@ -60,7 +60,7 @@
 
 /**
  * A common regex that can be used to check whether a given string is permitted for dynamic drawing (the character limitations are primarily
- * to restrict the use of control characters and unicode characters that would cause odd behaviour).
+ * to restrict the use of control characters and unicode characters that would cause odd behavior).
  * @type {RegExp}
  */
 const DynamicDrawTextRegex = /^(?:\w|[ ~!$#%*+])*$/;
@@ -267,13 +267,13 @@ function DynamicDrawTextFromTo(text, ctx, from, to, options) {
 }
 
 /**
- * Draws the given text in a circular arc at the given [x, y] coordinate. The text will be drawn so that the centre of the text is
+ * Draws the given text in a circular arc at the given [x, y] coordinate. The text will be drawn so that the center of the text is
  * positioned on the given coordinates.
  * @see {@link DynamicDrawOptions}
  * @param {string} text - The text to draw
  * @param {CanvasRenderingContext2D} ctx - The rendering context to draw the text to
- * @param {number} x - The x coordinate at which to centre the text
- * @param {number} y - The y coordinate at which to centre the text
+ * @param {number} x - The x coordinate at which to center the text
+ * @param {number} y - The y coordinate at which to center the text
  * @param {DynamicDrawOptions} options - Additional drawing options. These can be used to specify the radius of the circle (determining how
  * curved the text appears), as well as the direction along the circle that the text is drawn in (by default, text is drawn clockwise).
  * @returns {void} - Nothing

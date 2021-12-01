@@ -40,7 +40,7 @@ Stage,LoveReq,SubReq,VarReq,Interaction,Result,NextStage,LoveMod,SubMod,Function
 220,0,0,,"Yes, I got in trouble|quite often today.",Great!  Did you go to the basement?,221,1,0,
 220,0,0,,"Nope, no trouble today.",(She nods.)  So you didn't|went to the basement?,221,-1,0,
 220,0,0,,I'm a good student.|I don't cause trouble.,(She giggles.)  So you didn't|went to the basement?,221,0,-1,
-221,0,0,,What basement?,There's an isolation room in the college basement.|Full of restrains and torture devices for bad students.,222,0,0,
+221,0,0,,What basement?,There's an isolation room in the college basement.|Full of restraints and torture devices for bad students.,222,0,0,
 221,0,0,,"Yes, I went there.",Have you seen the isolation room?|The place with the torture devices?,222,0,0,
 221,0,0,,"No, I didn't go|to the basement.",Then you missed the best place in school!|There's a room full of torture devices.,222,0,0,
 222,0,0,,That's interesting.,It is!  I was punished|many times down there.,223,0,0,

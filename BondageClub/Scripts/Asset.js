@@ -381,7 +381,7 @@ function AssetLayerAlpha(Layer, NewAsset, I) {
 }
 
 /**
- * Assigns colour indices to the layers of an asset. These determine which colours get applied to the layer. Also adds
+ * Assigns color indices to the layers of an asset. These determine which colors get applied to the layer. Also adds
  * a count of colorable layers to the asset definition.
  * @param {Asset} A - The built asset
  * @returns {void} - Nothing
@@ -390,7 +390,7 @@ function AssetAssignColorIndices(A) {
 	var colorIndex = 0;
 	var colorMap = {};
 	A.Layer.forEach(Layer => {
-		// If the layer can't be coloured, we don't need to set a color index
+		// If the layer can't be colored, we don't need to set a color index
 		if (!Layer.AllowColorize) return;
 
 		var LayerKey = Layer.CopyLayerColor || Layer.Name;

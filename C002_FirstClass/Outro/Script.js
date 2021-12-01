@@ -48,7 +48,7 @@ function C002_FirstClass_Outro_Click() {
 			PlayerRemoveAllInventory();
 		}
 
-		// Remove all remaining restrains
+		// Remove all remaining restraints
 		PlayerReleaseBondage();
 
 	}
