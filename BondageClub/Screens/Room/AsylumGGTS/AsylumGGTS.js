@@ -8,14 +8,14 @@ var AsylumGGTSLastTask = "";
 var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
-	[], // Level 0 tasks
-	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "UnlockRoom"], // Level 1 tasks
-	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"], // Level 2 tasks
-	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "ItemUngag"], // Level 3 tasks
-	[] // Level 4 tasks
+	[], // Level 0, 1, 2 & 3 tasks
+	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "ItemUngag", "UnlockRoom"],
+	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"],
+	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag"]
 ];
 var AsylumGGTSLevelTime = [0, 10800000, 18000000, 28800000, 46800000];
 var AsylumGGTSPreviousPose = "";
+var AsylumGGTSWordCheck = 0;
 
 /**
  * Returns TRUE if the player has three strikes on record
@@ -466,6 +466,35 @@ function AsylumGGTSEndTask() {
 }
 
 /**
+ * Checks for forbidden words spoken by a character
+ * @param {Character} C - The character to evaluate
+ * @returns {boolean} - TRUE if a forbidden word was said
+ */
+function AsylumGGTSForbiddenWord(C) {
+
+	// Keeps the last check time
+	let LastCheck = AsylumGGTSWordCheck;
+	AsylumGGTSWordCheck = CommonTime();
+
+	// Builds the word list
+	if (ChatRoomChatLog == null) return false;
+	let Level = AsylumGGTSGetLevel(C);
+	if (Level <= 2) return;
+	let WordList = ["fuck", "shit"];
+	if (Level >= 4) WordList.push("cunt", "bitch");
+
+	// Scans the original
+	for (let L = 0; L < ChatRoomChatLog.length; L++)
+		if ((ChatRoomChatLog[L].SenderMemberNumber == C.MemberNumber) && (ChatRoomChatLog[L].Time > LastCheck)) {
+			let Chat = ChatRoomChatLog[L].Original.trim().toLowerCase();
+			for (let W = 0; W < WordList.length; W++)
+				if (Chat.indexOf(WordList[W]) >= 0)
+					return true;
+		}
+
+}
+
+/**
  * Processes the GGTS AI in the chatroom
  * @returns {void} - Nothing
  */
@@ -484,6 +513,13 @@ function AsylumGGTSProcess() {
 		else AsylumGGTSMessage("IntroPublic");
 		AsylumGGTSIntroDone = true;
 		return;
+	}
+
+	// Validates for forbidden words
+	if (AsylumGGTSForbiddenWord(Player)) {
+		AsylumGGTSAddStrike();
+		AsylumGGTSMessage("ForbiddenWordStrike" + Player.Game.GGTS.Strike.toString());
+		return AsylumGGTSEndTaskSave();
 	}
 
 	// Validates that the pose rule isn't broken
@@ -574,4 +610,26 @@ function AsylumGGTSAddStrike() {
 	Player.Game.GGTS.Strike++;
 	if (Player.Game.GGTS.Strike > 3) Player.Game.GGTS.Strike = 3;
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+}
+
+/**
+ * Allows the player to start the punishment phase with a futuristic gag on
+ * @returns {boolean} - Returns TRUE if the player is due for a punishment with a future gag
+ */
+function AsylumGGTSFuturisticGaggedPunished() {
+	if (Player.Game.GGTS.Strike < 3) return false;
+	if ((InventoryGet(Player, "ItemMouth") != null) && (InventoryGet(Player, "ItemMouth").Asset.Name.substr(0, 10) == "Futuristic")) return true;
+	if ((InventoryGet(Player, "ItemMouth2") != null) && (InventoryGet(Player, "ItemMouth2").Asset.Name.substr(0, 10) == "Futuristic")) return true;
+	if ((InventoryGet(Player, "ItemMouth3") != null) && (InventoryGet(Player, "ItemMouth3").Asset.Name.substr(0, 10) == "Futuristic")) return true;
+	return false;
+}
+
+/**
+ * Ungags the player
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSUngag() {
+	InventoryRemove(Player, "ItemMouth");
+	InventoryRemove(Player, "ItemMouth2");
+	InventoryRemove(Player, "ItemMouth3");
 }
