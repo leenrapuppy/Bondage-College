@@ -11,7 +11,7 @@ var AsylumGGTSTaskList = [
 	[], // Level 0 tasks
 	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "UnlockRoom"], // Level 1 tasks
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"], // Level 2 tasks
-	["QueryCanFail", "QuerySurrender"], // Level 3 tasks
+	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked"], // Level 3 tasks
 	[] // Level 4 tasks
 ];
 var AsylumGGTSLevelTime = [0, 10800000, 18000000, 28800000, 46800000];
@@ -208,6 +208,8 @@ function AsylumGGTSTaskDone(C, T) {
 	if ((T == "ClothBarefoot") && (InventoryGet(C, "Socks") == null) && (InventoryGet(C, "Shoes") == null) && (InventoryGet(C, "ItemBoots") == null)) return true;
 	if ((T == "ClothUpperLowerOn") && (InventoryGet(C, "Cloth") != null)) return true;
 	if ((T == "ClothUpperLowerOff") && (InventoryGet(C, "Cloth") == null) && (InventoryGet(C, "ClothLower") == null)) return true;
+	if ((T == "ClothUnderwear") && CharacterIsInUnderwear(C) && !CharacterIsNaked(C)) return true;
+	if ((T == "ClothNaked") && CharacterIsNaked(C)) return true;
 	if ((T == "RestrainLegs") && ((InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return true;
 	if ((T == "ItemArmsFuturisticCuffs") && ((Level != 1) || InventoryIsWorn(C, "FuturisticCuffs", "ItemArms"))) return true;
 	if ((T == "ItemArmsFeetFuturisticCuffs") && InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return true;
