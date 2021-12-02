@@ -469,15 +469,13 @@ function ActivityOrgasmWillpowerProgress(C) {
 function ActivityOrgasmStart(C) {
 	if ((C.ID == 0) || C.IsNpc()) {
 		if (C.ID == 0 && !ActivityOrgasmRuined) ActivityOrgasmGameResistCount = 0;
+		AsylumGGTSTOrgasm(C);
 		ActivityOrgasmWillpowerProgress(C);
-
 		if (!ActivityOrgasmRuined) {
-
 			C.ArousalSettings.OrgasmTimer = CurrentTime + (Math.random() * 10000) + 5000;
 			C.ArousalSettings.OrgasmStage = 2;
 			C.ArousalSettings.OrgasmCount = (C.ArousalSettings.OrgasmCount == null) ? 1 : C.ArousalSettings.OrgasmCount + 1;
 			ActivityOrgasmGameTimer = C.ArousalSettings.OrgasmTimer - CurrentTime;
-
 			if ((C.ID == 0) && (CurrentScreen == "ChatRoom")) {
 				let Dictionary = [];
 				Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
@@ -485,8 +483,7 @@ function ActivityOrgasmStart(C) {
 				ActivityChatRoomArousalSync(C);
 			}
 		} else {
-			ActivityOrgasmStop(Player, 65 + Math.ceil(Math.random()*20));
-
+			ActivityOrgasmStop(Player, 65 + Math.ceil(Math.random() * 20));
 			if ((C.ID == 0) && (CurrentScreen == "ChatRoom")) {
 				let Dictionary = [];
 				let ChatModifier = C.ArousalSettings.OrgasmStage == 1 ? "Timeout" : "Surrender";
@@ -495,8 +492,6 @@ function ActivityOrgasmStart(C) {
 				ActivityChatRoomArousalSync(C);
 			}
 		}
-
-
 	}
 }
 

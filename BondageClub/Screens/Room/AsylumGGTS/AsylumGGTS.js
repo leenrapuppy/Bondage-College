@@ -11,7 +11,7 @@ var AsylumGGTSTaskList = [
 	[], // Level 0, 1, 2 & 3 tasks
 	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "ItemUngag", "UnlockRoom"],
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"],
-	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag"]
+	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"]
 ];
 var AsylumGGTSLevelTime = [0, 10800000, 18000000, 28800000, 46800000];
 var AsylumGGTSPreviousPose = "";
@@ -239,10 +239,12 @@ function AsylumGGTSTaskDone(C, T) {
  * @returns {boolean} - TRUE if the task can be done
  */
 function AsylumGGTSTaskCanBeDone(C, T) {
-	if ((T.substr(0, 8) == "UndoRule") && ((C.Game.GGTS.Rule == null) || (C.Game.GGTS.Rule.indexOf(T.substr(8, 100)) < 0))) return false; // Rules cannot be removed if not active
+	if ((T.substr(0, 8) == "UndoRule") && ((C.Game.GGTS.Rule == null) || (C.Game.GGTS.Rule.indexOf(T.substr(8, 100)) < 0))) return false; // Rule cannot be removed if not active
+	if ((T.substr(0, 7) == "NewRule") && (C.Game.GGTS.Rule != null) && (C.Game.GGTS.Rule.indexOf(T.substr(7, 100)) >= 0)) return false; // Rule cannot be added if already active
 	if ((T.substr(0, 5) == "Cloth") && !C.CanChange()) return false; // Cloth tasks cannot be done if cannot change
 	if ((T.substr(0, 4) == "Pose") && !C.CanKneel()) return false; // If cannot kneel, we skip pose change activities
 	if ((T.substr(0, 8) == "Activity") && (!C.CanInteract() || (Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Inactive"))) return false; // Must allow activities
+	if ((T == "NewRuleNoOrgasm") && (Player.ArousalSettings != null) && (Player.ArousalSettings.Active != "Hybrid") && (Player.ArousalSettings.Active != "Automatic")) return false; // Orgasm rule are only available on hybrid or auto
 	if ((T == "ItemPose") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return false;
 	if ((T == "ItemRemove") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticArmbinder", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return false;
 	if ((T == "ItemUngag") && (
@@ -339,6 +341,12 @@ function AsylumGGTSAutomaticTask() {
 		ChatRoomCharacterUpdate(Player);
 		return AsylumGGTSEndTaskSave();
 	}
+
+	// If we must enforce a new rule
+	if (AsylumGGTSTask.substr(0, 7) == "NewRule") {
+		AsylumGGTSAddRule(AsylumGGTSTask.substr(7, 100), false);
+		return AsylumGGTSEndTaskSave();
+	}
 	
 	// The UndoRule tasks removes a rule set by GGTS for the player to obey
 	if (AsylumGGTSTask.substr(0, 8) == "UndoRule") {
@@ -420,15 +428,16 @@ function AsylumGGTSEndTaskSave() {
 /**
  * Adds a new rule for the player to follow or get strikes, syncs with the chatroom
  * @param {string} Rule - The rule name to add
+ * @param {boolean} Publish - TRUE if we must publish to local chat
  * @returns {void} - Nothing
  */
-function AsylumGGTSAddRule(NewRule) {
+function AsylumGGTSAddRule(NewRule, Publish) {
 	if (Player.Game.GGTS.Rule == null) Player.Game.GGTS.Rule = [];
 	if (Player.Game.GGTS.Rule.indexOf(NewRule) < 0) {
 		Player.Game.GGTS.Rule.push(NewRule);
 		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 		ChatRoomCharacterUpdate(Player);
-		AsylumGGTSMessage("Rule" + NewRule);
+		if (Publish) AsylumGGTSMessage("TaskNewRule" + NewRule);
 	}
 }
 
@@ -455,7 +464,7 @@ function AsylumGGTSEndTask() {
 	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) return;
 	if (AsylumGGTSTaskDone(Player, AsylumGGTSTask)) {
 		AsylumGGTSMessage("TaskDone");
-		if ((Math.random() >= 0.5) && (["PoseOverHead", "PoseKneel", "PoseBehindBack", "PoseLegsClosed"].indexOf(AsylumGGTSTask) >= 0) && (AsylumGGTSGetLevel(Player) >= 2)) AsylumGGTSAddRule("KeepPose");
+		if ((Math.random() >= 0.5) && (["PoseOverHead", "PoseKneel", "PoseBehindBack", "PoseLegsClosed"].indexOf(AsylumGGTSTask) >= 0) && (AsylumGGTSGetLevel(Player) >= 2)) AsylumGGTSAddRule("KeepPose", true);
 		return AsylumGGTSEndTaskSave();
 	}
 	if ((CommonTime() >= AsylumGGTSTimer) || (AsylumGGTSTaskFail(Player, AsylumGGTSTask))) {
@@ -632,4 +641,20 @@ function AsylumGGTSUngag() {
 	InventoryRemove(Player, "ItemMouth");
 	InventoryRemove(Player, "ItemMouth2");
 	InventoryRemove(Player, "ItemMouth3");
+}
+
+/**
+ * When an orgasm starts, we check if it breaks any GGTS rule
+ * @param {Character} C - The character getting the orgasm
+ * @return {void} - Nothing
+ */
+function AsylumGGTSTOrgasm(C) {
+	if ((ChatRoomSpace == null) || (ChatRoomSpace != "Asylum")) return;
+	if ((ChatRoomData == null) || (ChatRoomData.Game == null) || (ChatRoomData.Game != "GGTS")) return;
+	if ((C == null) || (C.ID != 0)) return;
+	if ((Player.Game == null) || (Player.Game.GGTS == null) || (Player.Game.GGTS.Strike == null) || (Player.Game.GGTS.Strike >= 3) || (Player.Game.GGTS.Level == null) || (Player.Game.GGTS.Level < 1)) return;
+	if ((Player.Game.GGTS.Rule == null) || (C.Game.GGTS.Rule.indexOf("NoOrgasm") < 0)) return;
+	AsylumGGTSAddStrike();
+	AsylumGGTSMessage("OrgasmStrike" + Player.Game.GGTS.Strike.toString());
+	AsylumGGTSRemoveRule("NoOrgasm");
 }
