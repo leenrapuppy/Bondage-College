@@ -58,7 +58,7 @@ function NurseryLoad() {
 			NurseryNurse.Stage = "270";
 			NurseryLoadNurse();
 		} else {
-			if (CharacterAppearanceGetCurrentValue(Player, "Panties", "Name") != "Diapers1") {
+			if (CharacterAppearanceGetCurrentValue(Player, "Panties", "Name").toUpperCase().indexOf("DIAPER", 0) < 0) {
 				NurseryPlayerNeedsPunishing(2);
 				NurseryNurse.Stage = "260";
 				NurseryLoadNurse();

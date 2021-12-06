@@ -163,13 +163,13 @@ ItemPelvisLeatherCrop,,,(She grumbles as you strike her butt with the crop.)  A 
 140,133,Okay. (Pay $5),"Great, I think you will look absolutely adorable in this dress.  (She takes a fresh dress and puts it on you, making it sit just right.)",PlayerChangeDress(),DialogMoneyGreater(5)
 140,100,I don't have enough money.,"Sorry honey. You will have to come back later when you have some pocket money to spend.",,!DialogMoneyGreater(5)
 140,100,I will stay like this.,You already look adorable as you are.,,
-200,,,I've been very disappointed by your recent behavior. You can stay like that until you are ready to apologize.,,
-200,205,(Cry and mumble into your pacifier.),Are you ready to apologize properly little DialogPlayerName?,,!Player.CanTalk()
-200,210,Hey, let me go right now.,You clearly haven't learnt your lesson yet.  (She straps a pacifier into your mouth)  That will help you learn some manners. Now for another lesson.,"DialogWearItem(""HarnessPacifierGag"", ""ItemMouth"")",
-200,210,Will you let me go now?,"Your behaviour has improved, but I think you may still need another lesson, don't you.",,PlayerReadyToAppologise()
-200,210,I'm sorry Nurse.  I've learnt my lesson.,I'm not so sure you have.  I think we need to continue your punishment.,,!PlayerReadyToAppologise()
-200,230,I'm shorry Nurshe.,"Aww, it is good to hear that.  Are you going to be a good little girl now?",,PlayerReadyToAppologise()
-200,230,I am really sorry Nurse.,I am glad to hear that.  Are you going to behave yourself and play nicely now?,,PlayerReadyToAppologise()
+200,,,"I've been very disappointed by your recent behavior. You can stay like that until you are ready to apologize.",,
+200,205,"(Cry and mumble into your pacifier.)","Are you ready to apologize properly little DialogPlayerName?",,!Player.CanTalk()
+200,210,"Hey, let me go right now.","You clearly haven't learnt your lesson yet.  (She straps a pacifier into your mouth)  That will help you learn some manners. Now for another lesson.","DialogWearItem(""HarnessPacifierGag"", ""ItemMouth"")",
+200,210,"Will you let me go now?","Your behaviour has improved, but I think you may still need another lesson, don't you.",,PlayerReadyToAppologise()
+200,210,"I'm sorry Nurse.  I've learnt my lesson.","I'm not so sure you have.  I think we need to continue your punishment.",,!PlayerReadyToAppologise()
+200,230,"I'm shorry Nurshe.","Aww, it is good to hear that.  Are you going to be a good little girl now?",,PlayerReadyToAppologise()
+200,230,"I am really sorry Nurse.","I am glad to hear that.  Are you going to behave yourself and play nicely now?",,PlayerReadyToAppologise()
 200,,(Leave her.),,DialogLeave(),
 205,210,(Nod your head.),"No, I don't think you are ready to apologize yet.  What you need is more punishment.",,!PlayerReadyToAppologise()
 205,200,(Nod your head.),"I think you are ready to start apologizing.  (She removes your gag.)  Okay, what have you got to say for yourself?","DialogRemoveItem(""ItemMouth"")",PlayerReadyToAppologise()
