@@ -109,12 +109,16 @@ function InventoryItemMiscPasswordPadlockClick() {
 function InventoryItemMiscPasswordPadlockControlsClick(ExitCallback) {
 	if (!DialogFocusSourceItem) return;
 
-	if (InventoryItemMiscPasswordPadlockIsSet() && MouseIn(1360, 871, 250, 64)) {
-		InventoryItemMiscPasswordPadlockHandleOpenClick(ExitCallback);
-	} else if (MouseIn(1600, 820, 250, 64)) {
-		DialogFocusSourceItem.Property.RemoveOnUnlock = !DialogFocusSourceItem.Property.RemoveOnUnlock;
-	} else if (MouseIn(1360, 891, 250, 64)) {
-		InventoryItemMiscPasswordPadlockHandleFirstSet(ExitCallback);
+	if (InventoryItemMiscPasswordPadlockIsSet()) {
+		if (MouseIn(1360, 871, 250, 64)) {
+			InventoryItemMiscPasswordPadlockHandleOpenClick(ExitCallback);
+		}
+	} else {
+		if (MouseIn(1600, 820, 250, 64)) {
+			DialogFocusSourceItem.Property.RemoveOnUnlock = !DialogFocusSourceItem.Property.RemoveOnUnlock;
+		} else if (MouseIn(1360, 891, 250, 64)) {
+			InventoryItemMiscPasswordPadlockHandleFirstSet(ExitCallback);
+		}
 	}
 }
 
