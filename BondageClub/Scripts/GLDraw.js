@@ -43,7 +43,7 @@ function GLDrawLoad() {
 	GLDrawCanvas.width = 1000;
 	GLDrawCanvas.height = CanvasDrawHeight;
 	GLVersion = "webgl2";
-	var gl = GLDrawCanvas.getContext(GLVersion, GLDrawGetOptions());
+	let gl = GLDrawCanvas.getContext(GLVersion, GLDrawGetOptions());
 	if (!gl) { GLVersion = "webgl"; gl = GLDrawCanvas.getContext(GLVersion, GLDrawGetOptions()); }
 	if (!gl) { GLVersion = "No WebGL"; GLDrawCanvas.remove(); GLDrawCanvas = null; return; }
 
@@ -157,10 +157,10 @@ function GLDrawRebuildCharacters() {
  * @returns {void} - Nothing
  */
 function GLDrawMakeGLProgam(gl) {
-	var vertexShader = GLDrawCreateShader(gl, GLDrawVertexShaderSource, gl.VERTEX_SHADER);
-	var fragmentShader = GLDrawCreateShader(gl, GLDrawFragmentShaderSource, gl.FRAGMENT_SHADER);
-	var fragmentShaderFullAlpha = GLDrawCreateShader(gl, GLDrawFragmentShaderSourceFullAlpha, gl.FRAGMENT_SHADER);
-	var fragmentShaderHalfAlpha = GLDrawCreateShader(gl, GLDrawFragmentShaderSourceHalfAlpha, gl.FRAGMENT_SHADER);
+	const vertexShader = GLDrawCreateShader(gl, GLDrawVertexShaderSource, gl.VERTEX_SHADER);
+	const fragmentShader = GLDrawCreateShader(gl, GLDrawFragmentShaderSource, gl.FRAGMENT_SHADER);
+	const fragmentShaderFullAlpha = GLDrawCreateShader(gl, GLDrawFragmentShaderSourceFullAlpha, gl.FRAGMENT_SHADER);
+	const fragmentShaderHalfAlpha = GLDrawCreateShader(gl, GLDrawFragmentShaderSourceHalfAlpha, gl.FRAGMENT_SHADER);
 
 	gl.program = GLDrawCreateProgram(gl, vertexShader, fragmentShader);
 	gl.programFull = GLDrawCreateProgram(gl, vertexShader, fragmentShaderFullAlpha);
@@ -303,7 +303,7 @@ var GLDrawFragmentShaderSourceHalfAlpha = `
  * @returns {WebGLShader} - The created WebGL shader
  */
 function GLDrawCreateShader(gl, source, type) {
-	var shader = gl.createShader(type);
+	const shader = gl.createShader(type);
 	gl.shaderSource(shader, source);
 	gl.compileShader(shader);
 	if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
@@ -320,7 +320,7 @@ function GLDrawCreateShader(gl, source, type) {
  * @returns {WebGLProgram} - The created WebGL program
  */
 function GLDrawCreateProgram(gl, vertexShader, fragmentShader) {
-	var program = gl.createProgram();
+	const program = gl.createProgram();
 	gl.attachShader(program, vertexShader);
 	gl.attachShader(program, fragmentShader);
 	gl.linkProgram(program);
@@ -376,12 +376,12 @@ function GLDrawImageBlink(url, gl, dstX, dstY, color, fullAlpha, alphaMasks, opa
 function GLDrawImage(url, gl, dstX, dstY, offsetX, color, fullAlpha, alphaMasks, opacity, rotate = false) {
 	offsetX = offsetX || 0;
 	opacity = typeof opacity === "number" ? opacity : 1;
-	var tex = GLDrawLoadImage(gl, url);
-	var mask = GLDrawLoadMask(gl, tex.width, tex.height, dstX, dstY, alphaMasks);
+	const tex = GLDrawLoadImage(gl, url);
+	const mask = GLDrawLoadMask(gl, tex.width, tex.height, dstX, dstY, alphaMasks);
 	if (rotate) dstX = 500 - dstX;
 	const sign = rotate ? -1 : 1;
 
-	var program = (color == null) ? gl.program : (fullAlpha ? gl.programFull : gl.programHalf);
+	const program = (color == null) ? gl.program : (fullAlpha ? gl.programFull : gl.programHalf);
 
 	gl.useProgram(program);
 
@@ -395,7 +395,7 @@ function GLDrawImage(url, gl, dstX, dstY, offsetX, color, fullAlpha, alphaMasks,
 	gl.enableVertexAttribArray(program.a_texcoord);
 	gl.vertexAttribPointer(program.a_texcoord, 2, gl.FLOAT, false, 0, 0);
 
-	var matrix = m4.orthographic(0, gl.canvas.width, gl.canvas.height, 0, -1, 1);
+	let matrix = m4.orthographic(0, gl.canvas.width, gl.canvas.height, 0, -1, 1);
 	matrix = m4.translate(matrix, dstX + offsetX, dstY, 0);
 	matrix = m4.scale(matrix, sign * tex.width, sign * tex.height, 1);
 
@@ -432,7 +432,7 @@ function GLDraw2DCanvasBlink(gl, Img, X, Y, alphaMasks) { GLDraw2DCanvas(gl, Img
  * @param {number[][]} alphaMasks - A list of alpha masks to apply to the asset
  */
 function GLDraw2DCanvas(gl, Img, X, Y, alphaMasks) {
-	var TempCanvasName = Img.getAttribute("name");
+	const TempCanvasName = Img.getAttribute("name");
 	gl.textureCache.delete(TempCanvasName);
 	GLDrawImageCache.set(TempCanvasName, Img);
 	GLDrawImage(TempCanvasName, gl, X, Y, 0, null, null, alphaMasks);
@@ -460,10 +460,10 @@ function GLDrawBingImageToTextureInfo(gl, Img, textureInfo) {
  */
 function GLDrawLoadImage(gl, url) {
 
-	var textureInfo = gl.textureCache.get(url);
+	let textureInfo = gl.textureCache.get(url);
 
 	if (!textureInfo) {
-		var tex = gl.createTexture();
+		const tex = gl.createTexture();
 
 		gl.bindTexture(gl.TEXTURE_2D, tex);
 		/** @type { { width: number; height: number; texture: WebGLTexture; } } */
@@ -473,7 +473,7 @@ function GLDrawLoadImage(gl, url) {
 		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
 		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
 
-		var Img = GLDrawImageCache.get(url);
+		let Img = GLDrawImageCache.get(url);
 
 		if (Img) {
 			GLDrawBingImageToTextureInfo(gl, Img, textureInfo);
@@ -518,14 +518,14 @@ function GLDrawLoadImage(gl, url) {
  */
 function GLDrawLoadMask(gl, texWidth, texHeight, offsetX, offsetY, alphaMasks) {
 	alphaMasks = alphaMasks || [];
-	var key = alphaMasks.length ? JSON.stringify([texWidth, texHeight, offsetX, offsetY, alphaMasks]) : null;
-	var mask = gl.maskCache.get(key);
+	const key = alphaMasks.length ? JSON.stringify([texWidth, texHeight, offsetX, offsetY, alphaMasks]) : null;
+	let mask = gl.maskCache.get(key);
 
 	if (!mask) {
-		var tmpCanvas = document.createElement("canvas");
+		const tmpCanvas = document.createElement("canvas");
 		tmpCanvas.width = texWidth;
 		tmpCanvas.height = texHeight;
-		var ctx = tmpCanvas.getContext("2d");
+		const ctx = tmpCanvas.getContext("2d");
 		ctx.fillRect(0, 0, texWidth, texHeight);
 		alphaMasks.forEach(([x, y, w, h]) => ctx.clearRect(x - offsetX, y - offsetY, w, h));
 
@@ -576,9 +576,9 @@ function GLDrawClearRect(gl, x, y, width, height) {
  * @return {number[]} - Converted color code
  */
 function GLDrawHexToRGBA(color, alpha = 1) {
-	var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+	const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
 	color = color.replace(shorthandRegex, function (m, r, g, b) { return r + r + g + g + b + b; });
-	var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
+	const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
 	return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16), alpha] : [0, 0, 0, alpha];
 }
 

@@ -154,7 +154,7 @@ function KidnapAIMove() {
 		if (Value < 0) Value = 0;
 		MoveOdds.push(Value);
 	}
-	
+
 	// Builds the total, if it's zero, we return a random move
 	let Total = 0;
 	for (let M = 0; M < MoveOdds.length; M++)
@@ -169,7 +169,7 @@ function KidnapAIMove() {
 			return M;
 		RunningTotal = RunningTotal + MoveOdds[M];
 	}
-	
+
 	// No move found, we go full random
 	return Math.floor(Math.random() * KidnapOpponent.KidnapCard.length);
 
@@ -295,7 +295,7 @@ function KidnapSelectMove(CardIndex) {
 	if (!KidnapMoveEffective(Player, PlayerMove)) KidnapPlayerDamage = Math.round(KidnapPlayerDamage / 2);
 	KidnapOpponentDamage = KidnapOpponent.KidnapCard[OpponentCardIndex].Value;
 	if (!KidnapMoveEffective(KidnapOpponent, OpponentMove)) KidnapOpponentDamage = Math.round(KidnapOpponentDamage / 2);
-	
+
 	// If the move is effective, we lower the willpower and show it as text
 	if (PM >= 1) {
 		let Damage = KidnapPlayerDamage;

@@ -130,9 +130,9 @@ function CommonDrawAppearanceBuild(C, {
 		let Y = Layer.DrawingTop != null ? Layer.DrawingTop : (A.DrawingTop != null ? A.DrawingTop : AG.DrawingTop);
 		if (C.DrawPose && C.DrawPose.length) {
 			C.DrawPose.forEach(CP => {
-				var PoseDef = PoseFemale3DCG.find(P => P.Name === CP && P.MovePosition);
+				const PoseDef = PoseFemale3DCG.find(P => P.Name === CP && P.MovePosition);
 				if (PoseDef) {
-					var MovePosition = PoseDef.MovePosition.find(MP => MP.Group === GroupName);
+					const MovePosition = PoseDef.MovePosition.find(MP => MP.Group === GroupName);
 					if (MovePosition) {
 						X += MovePosition.X;
 						Y += MovePosition.Y;
@@ -309,7 +309,7 @@ function CommonDrawAppearanceBuild(C, {
 					Color, AG.DrawingFullAlpha, AlphaMasks, Opacity, Rotate
 				);
 			} else {
-				var ColorName = ((Color == null) || (Color == "Default") || (Color == "") || (Color.length == 1) ||
+				const ColorName = ((Color == null) || (Color == "Default") || (Color == "") || (Color.length == 1) ||
 					(Color.indexOf("#") == 0)) ? "" : "_" + Color;
 				drawImage(
 					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + G + LayerType + ColorName + L + ".png",

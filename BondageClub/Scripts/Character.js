@@ -158,7 +158,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		IsVulvaChaste: function () {
 			return (this.Effect.indexOf("Chaste") >= 0);
 		},
-		IsPlugged: function() {
+		IsPlugged: function () {
 			return (this.Effect.indexOf("IsPlugged") >= 0);
 		},
 		IsBreastChaste: function () {
@@ -176,16 +176,16 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		IsEgged: function () {
 			return (this.Effect.indexOf("Egged") >= 0);
 		},
-		IsMouthBlocked: function() {
+		IsMouthBlocked: function () {
 			return this.Effect.indexOf("BlockMouth") >= 0;
 		},
-		IsMouthOpen: function() {
+		IsMouthOpen: function () {
 			return this.Effect.indexOf("OpenMouth") >= 0;
 		},
-		IsVulvaFull: function() {
+		IsVulvaFull: function () {
 			return this.Effect.indexOf("FillVulva") >= 0;
 		},
-		IsFixedHead: function() {
+		IsFixedHead: function () {
 			return this.Effect.includes("FixedHead");
 		},
 		IsOwned: function () {
@@ -253,16 +253,16 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		IsEdged: function () {
 			return CharacterIsEdged(this);
 		},
-		IsPlayer: function() {
+		IsPlayer: function () {
 			return this.ID === 0;
 		},
-		IsOnline: function() {
+		IsOnline: function () {
 			return this.Type === CharacterType.ONLINE;
 		},
 		IsNpc: function () {
 			return this.Type === CharacterType.NPC;
 		},
-		IsSimple: function() {
+		IsSimple: function () {
 			return this.Type === CharacterType.SIMPLE;
 		},
 		GetDifficulty: function () {
@@ -277,14 +277,14 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		IsInverted: function () {
 			return this.Pose.indexOf("Suspension") >= 0;
 		},
-		CanChangeToPose: function(Pose) {
+		CanChangeToPose: function (Pose) {
 			return CharacterCanChangeToPose(this, Pose);
 		},
-		GetClumsiness: function() {
+		GetClumsiness: function () {
 			return CharacterGetClumsiness(this);
 		},
 		// Adds a new hook with a Name (determines when the hook will happen, an Instance ID (used to differentiate between different hooks happening at the same time), and a function that is run when the hook is called)
-		RegisterHook: function(hookName, hookInstance, callback) {
+		RegisterHook: function (hookName, hookInstance, callback) {
 			if (!this.Hooks) this.Hooks = new Map();
 
 			let hooks = this.Hooks.get(hookName);
@@ -300,7 +300,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 			return false;
 		},
 		// Removes a hook based on hookName and hookInstance
-		UnregisterHook: function(hookName, hookInstance) {
+		UnregisterHook: function (hookName, hookInstance) {
 			if (!this.Hooks) return false;
 
 			const hooks = this.Hooks.get(hookName);
@@ -465,7 +465,7 @@ function CharacterArchetypeClothes(C, Archetype, ForceColor) {
 		InventoryAdd(C, "MistressBottom", "ClothLower", false);
 		InventoryWear(C, "MistressBottom", "ClothLower", Color);
 		InventoryAdd(C, "MistressPadlock", "ItemMisc", false);
-		InventoryAdd(C, "MistressTimerPadlock","ItemMisc", false);
+		InventoryAdd(C, "MistressTimerPadlock", "ItemMisc", false);
 		InventoryAdd(C, "MistressPadlockKey", "ItemMisc", false);
 		InventoryAdd(C, "DeluxeBoots", "Shoes", false);
 		InventoryRemove(C, "ClothAccessory");
@@ -658,8 +658,8 @@ function CharacterLoadOnline(data, SourceMemberNumber) {
 							Refresh = true;
 						else
 							for (let A = 0; A < data.Appearance.length && !Refresh; A++) {
-								var Old = ChatRoomData.Character[C].Appearance[A];
-								var New = data.Appearance[A];
+								const Old = ChatRoomData.Character[C].Appearance[A];
+								const New = data.Appearance[A];
 								if ((New.Name != Old.Name) || (New.Group != Old.Group) || (New.Color != Old.Color)) Refresh = true;
 								else if ((New.Property != null) && (Old.Property != null) && (JSON.stringify(New.Property) != JSON.stringify(Old.Property))) Refresh = true;
 								else if (((New.Property != null) && (Old.Property == null)) || ((New.Property == null) && (Old.Property != null))) Refresh = true;
@@ -807,7 +807,7 @@ function CharacterItemsHavePoseType(C, Type, OnlyItems) {
 			return true;
 		else if (C.Appearance[A].Asset.SetPose != null && (C.Appearance[A].Asset.SetPose.find(P => PossiblePoses.includes(P))))
 			return true;
-		else if (C.Appearance[A].Asset.Group.SetPose != null  && (C.Appearance[A].Asset.Group.SetPose.find(P => PossiblePoses.includes(P))))
+		else if (C.Appearance[A].Asset.Group.SetPose != null && (C.Appearance[A].Asset.Group.SetPose.find(P => PossiblePoses.includes(P))))
 			return true;
 	}
 	return false;
@@ -889,7 +889,7 @@ function CharacterLoadCanvas(C) {
 	C.HasHiddenItems = false;
 
 	// We add a temporary appearance and pose here so that it can be modified by hooks.  We copy the arrays so no hooks can alter the reference accidentally
-	C.DrawAppearance = AppearanceItemParse( CharacterAppearanceStringify(C));
+	C.DrawAppearance = AppearanceItemParse(CharacterAppearanceStringify(C));
 	C.DrawPose = C.Pose.slice(); // Deep copy of pose array
 
 
@@ -995,16 +995,16 @@ function CharacterRefreshDialog(C) {
 				if (DialogFocusItem && DialogFocusItem.Asset.Extended && typeof window["Inventory" + DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Load"] === "function") window["Inventory" + DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Load"]();
 			}
 		} else {
-			var DFSI = DialogFocusSourceItem && DialogFocusSourceItem.Asset && C.Appearance.find(Item =>
+			const DFSI = DialogFocusSourceItem && DialogFocusSourceItem.Asset && C.Appearance.find(Item =>
 				Item.Asset.Name == DialogFocusSourceItem.Asset.Name && Item.Asset.Group.Name == DialogFocusSourceItem.Asset.Group.Name
 			);
-			var Lock = DFSI && InventoryGetLock(DFSI);
+			const Lock = DFSI && InventoryGetLock(DFSI);
 			if (!DFSI || !Lock) DialogLeaveFocusItem();
 			else DialogExtendItem(Lock, DFSI);
 		}
 	} else if (DialogFocusItem) DialogLeaveFocusItem();
 	if (!DialogFocusItem) {
-		var IsLockMode = DialogItemToLock && C.Appearance.find(Item => Item.Asset.Name == DialogItemToLock.Asset.Name && DialogItemToLock.Asset.Group.Name == Item.Asset.Group.Name);
+		const IsLockMode = DialogItemToLock && C.Appearance.find(Item => Item.Asset.Name == DialogItemToLock.Asset.Name && DialogItemToLock.Asset.Group.Name == Item.Asset.Group.Name);
 		if (IsLockMode) {
 			DialogInventory = [];
 			for (let A = 0; A < Player.Inventory.length; A++)
@@ -1170,7 +1170,7 @@ function CharacterReleaseFromLock(C, LockName) {
  * @returns {void} - Nothing
  */
 function CharacterReleaseNoLock(C) {
-	for (let E = C.Appearance.length-1; E >=0 ; E--)
+	for (let E = C.Appearance.length - 1; E >= 0; E--)
 		if (C.Appearance[E].Asset.IsRestraint && ((C.Appearance[E].Property == null) || (C.Appearance[E].Property.LockedBy == null))) {
 			C.Appearance.splice(E, 1);
 		}
@@ -1248,7 +1248,7 @@ function CharacterFullRandomRestrain(C, Ratio, Refresh) {
  * @param {boolean} [ForceChange=false] - TRUE if the set pose(s) should overwrite current active pose(s)
  * @returns {void} - Nothing
  */
-function CharacterSetActivePose(C, NewPose, ForceChange=false) {
+function CharacterSetActivePose(C, NewPose, ForceChange = false) {
 	if (NewPose == null || ForceChange || C.ActivePose == null) {
 		C.ActivePose = NewPose;
 		CharacterRefresh(C, false);
@@ -1367,7 +1367,7 @@ function CharacterDecompressWardrobe(Wardrobe) {
 			for (let W = 0; W < CompressedWardrobe.length; W++) {
 				var Arr = [];
 				for (let A = 0; A < CompressedWardrobe[W].length; A++)
-					Arr.push({ Name: CompressedWardrobe[W][A][0], Group: CompressedWardrobe[W][A][1], Color: CompressedWardrobe[W][A][2], Property: CompressedWardrobe[W][A][3]});
+					Arr.push({ Name: CompressedWardrobe[W][A][0], Group: CompressedWardrobe[W][A][1], Color: CompressedWardrobe[W][A][2], Property: CompressedWardrobe[W][A][3] });
 				DecompressedWardrobe.push(Arr);
 			}
 		}

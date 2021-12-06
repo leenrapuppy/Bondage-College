@@ -91,8 +91,8 @@ function NPCTraitGetOptionValue(Dialog, NPCTrait) {
 function NPCTraitKeepBestOption(C, Group) {
 
 	// For each dialog option of that group
-	var Best = -1;
-	var Pos = -1;
+	let Best = -1;
+	let Pos = -1;
 	for (let D = 0; D < C.Dialog.length; D++)
 		if ((C.Dialog[D].Group != null) && (C.Dialog[D].Group == Group)) {
 			var Value = NPCTraitGetOptionValue(C.Dialog[D].Trait, C.Trait);

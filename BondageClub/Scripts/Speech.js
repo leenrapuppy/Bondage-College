@@ -69,7 +69,7 @@ function SpeechGetGagLevel(C, AssetGroup) {
 /**
  * Gets the cumulative gag level of a character
  * @param {Character} C - The character, whose assets are used for the check
- * @param {boolean} NoDeaf - Whether or not deafness affects the dialogue
+ * @param {boolean} [NoDeaf=false] - Whether or not deafness affects the dialogue
  * @returns {number} - Returns the total gag effect of the character's assets
  */
 function SpeechGetTotalGagLevel(C, NoDeaf=false) {

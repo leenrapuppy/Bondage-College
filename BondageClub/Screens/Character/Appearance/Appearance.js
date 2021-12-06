@@ -831,7 +831,7 @@ function CharacterAppearanceSetItem(C, Group, ItemAsset, NewColor, DifficultyFac
 	if (DifficultyFactor == null) DifficultyFactor = 0;
 
 	// Removes the previous if we need to
-	var ID = CharacterAppearanceGetCurrentValue(C, Group, "ID");
+	const ID = CharacterAppearanceGetCurrentValue(C, Group, "ID");
 	var ItemColor;
 	if (ID != "None") {
 		if (CurrentScreen == "Appearance") {
@@ -844,7 +844,7 @@ function CharacterAppearanceSetItem(C, Group, ItemAsset, NewColor, DifficultyFac
 	// Add the new item to the character appearance
 	if (ItemAsset != null) {
 		/** @type {Item} */
-		var NA = {
+		const NA = {
 			Asset: ItemAsset,
 			Difficulty: parseInt((ItemAsset.Difficulty == null) ? 0 : ItemAsset.Difficulty) + parseInt(DifficultyFactor),
 			Color: ((NewColor == null) ? ItemColor : NewColor),

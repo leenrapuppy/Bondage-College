@@ -49,7 +49,7 @@ function GameMagicBattleLoad() {
  * @returns {string} - "FreeForAll" or "House", depending on the team setup
  */
 function GameMagicBattleGetTeamType() {
-	
+
 	// If the game is running, we return the setup from the game admin
 	if ((GameMagicBattleStatus == "Running") && (GameMagicBattleTurnAdmin != null))
 		for (let C = 0; C < GameMagicBattlePlayer.length; C++)
@@ -186,7 +186,7 @@ function GameMagicBattleClick() {
 
 	// When the user changes house/role
 	if (MouseIn(900, 218, 600, 64) && (GameMagicBattleStatus == "")) {
-		
+
 		// Back button
 		if (MouseX < 1200) {
 			if (Player.Game.MagicBattle.House == "NotPlaying") {
@@ -365,7 +365,7 @@ function GameMagicBattleBuildPlayerList() {
  * @returns {void} - Nothing
  */
 function GameMagicBattleCalculateTurnWinner() {
-	
+
 	// Fetches the best time and the round winner
 	let WinTime = 999999;
 	let WinNum = null;
@@ -447,7 +447,7 @@ function GameMagicBattleProcess(P) {
 				ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 			}
 		}
-		
+
 		// When the turn administrator sends the message to end the turn, we calculate the outcome
 		if ((GameMagicBattleStatus == "Running") && (GameMagicBattleTurnAdmin == P.Sender) && (P.Data.GameProgress == "Next"))
 			if (GameMagicBattleCalculateTurnWinner() == "Running")

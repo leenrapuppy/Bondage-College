@@ -23,6 +23,7 @@ var DialogFacialExpressions = [];
 var DialogFacialExpressionsSelected = -1;
 var DialogFacialExpressionsSelectedBlindnessLevel = 2;
 var DialogSavedExpressionPreviews = [];
+/** @type {Pose[][]} */
 var DialogActivePoses = [];
 var DialogItemPermissionMode = false;
 var DialogExtendedMessage = "";
@@ -110,7 +111,7 @@ var DialogSelfMenuOptions = [
 		Name: "OwnerRules",
 		IsAvailable: () => DialogSelfMenuSelected && DialogSelfMenuSelected.Name == "OwnerRules",
 		Draw: DialogDrawOwnerRulesMenu,
-		Click: () => {},
+		Click: () => { },
 	},
 ];
 
@@ -1117,7 +1118,7 @@ function DialogActivePoseMenuBuild() {
 		.map(P => P.Category)
 		.filter((C, I, Categories) => C && Categories.indexOf(C) === I)
 		.forEach(Category => {
-			DialogActivePoses.push(PoseFemale3DCG.filter(P =>  P.AllowMenu && P.Category == Category));
+			DialogActivePoses.push(PoseFemale3DCG.filter(P => P.AllowMenu && P.Category == Category));
 		});
 }
 
@@ -1587,7 +1588,6 @@ function DialogClick() {
 			for (let D = 0; D < CurrentCharacter.Dialog.length; D++)
 				if ((CurrentCharacter.Dialog[D].Stage == CurrentCharacter.Stage) && (CurrentCharacter.Dialog[D].Option != null) && DialogPrerequisite(D)) {
 					if ((MouseX >= 1025) && (MouseX <= 1975) && (MouseY >= 160 + pos * 105) && (MouseY <= 250 + pos * 105)) {
-
 						// If the player is gagged, the answer will always be the same
 						if (!Player.CanTalk()) CurrentCharacter.CurrentDialog = DialogFind(CurrentCharacter, "PlayerGagged");
 						else CurrentCharacter.CurrentDialog = CurrentCharacter.Dialog[D].Result;
@@ -1600,7 +1600,6 @@ function DialogClick() {
 						} else if ((CurrentCharacter.Dialog[D].Function != null) && (CurrentCharacter.Dialog[D].Function.trim() == "DialogLeave()"))
 							DialogLeave();
 						break;
-
 					}
 					pos++;
 				}
@@ -1792,7 +1791,7 @@ function DialogGetMenuButtonImage(ButtonName, FocusItem) {
 function DialogGetMenuButtonColor(ButtonName) {
 	if (ButtonName.endsWith("Disabled")) {
 		return "#808080";
-	}	else if (ButtonName === "ColorPick") {
+	} else if (ButtonName === "ColorPick") {
 		return DialogColorSelect || "#fff";
 	} else {
 		return "#fff";
@@ -2034,10 +2033,8 @@ function DialogDraw() {
 
 			// The more time you spend with an NPC, the more the love will rise
 			NPCInteraction();
-
 		}
 	}
-
 }
 
 /**
