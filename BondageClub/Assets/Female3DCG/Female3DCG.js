@@ -983,9 +983,9 @@ var AssetFemale3DCG = [
 		AllowPose: ["LegsClosed", "Kneel", "Spread", "Hogtied", "KneelingSpread"],
 		PreviewZone: [100, 700, 300, 300],
 		Asset: [
-			{ Name: "Shoes1", Height: 6, HideForPose: ["KneelingSpread"] },
-			{ Name: "Shoes2", Height: 6, HideForPose: ["KneelingSpread"] },
-			{ Name: "Shoes4", Height: 6, HideForPose: ["KneelingSpread"] },
+			{ Name: "Shoes1", Height: 6, HideForPose: ["Kneel", "KneelingSpread"] },
+			{ Name: "Shoes2", Height: 6, HideForPose: ["Kneel", "KneelingSpread"] },
+			{ Name: "Shoes4", Height: 6, HideForPose: ["Kneel", "KneelingSpread"] },
 			{ Name: "Sneakers1", Height: 3, HideForPose: ["Kneel", "KneelingSpread"],
 				Layer: [
 					{ Name: "Main", AllowColorize: true},
