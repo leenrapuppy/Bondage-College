@@ -196,7 +196,7 @@ function KinkyDungeonPackData(IncludeMap, IncludeItems, IncludeInventory, Includ
 				return "I/" + value.restraint.name + "/l" + value.lock;
 			}
 		}
-		return value;
+		return "";
 	}) : "";
 
 	let meta = {w: KinkyDungeonGridWidth, h: KinkyDungeonGridHeight, x:KinkyDungeonPlayerEntity.x, y:KinkyDungeonPlayerEntity.y,};
