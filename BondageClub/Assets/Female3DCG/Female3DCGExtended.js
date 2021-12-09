@@ -220,6 +220,26 @@ var AssetFemale3DCGExtended = {
 				]
 			}
 		}, // Bib
+		Scarf: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "ShowMouth",
+						Property: { Type: null, },
+					},
+					{
+						Name: "Bundled",
+						Property: { Type: "Bundled", },
+					},
+					{
+						Name: "HideMouth",
+						Property: { Type: "HideMouth", },
+					},
+
+				], DrawImages: false,
+			},
+		}, // Scarf
 	}, // ClothAccessory
 	ItemBreast: {
 		Ribbons: {
