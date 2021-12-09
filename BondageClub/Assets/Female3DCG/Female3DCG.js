@@ -5364,7 +5364,20 @@ var AssetFemale3DCG = [
 					{ Name: "WeightsFront", HideForPose:["Hogtied"]},
 					{ Name: "WeightsBack", Priority: 3, CopyLayerColor:"WeightsFront", HideForPose:["Hogtied"]},
 				]
-			}
+			},
+			{
+				Name: "Snowman", Value: 60, Difficulty: 15, Random: false, Top: 0, Height: -40, Time: 15, RemoveTime: 25, DefaultColor: ["#666", "#974338"],
+				Prerequisite: ["NotSuspended", "NotHogtied", "AllFours"],
+				SetPose: ["BackBoxTie", "BaseLower"],
+				Effect: ["Freeze", "Block", "Prone", "KneelFreeze"],
+				Hide: ["BodyLower", "Hands", "Cloth", "ClothLower", "SuitLower", "Bra", "Corset", "Panties", "Socks", "RightAnklet", "LeftAnklet", "Garters", "Shoes", "Gloves", "Bracelet", "TailStrap", "ItemFeet", "ItemLegs", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemPelvis", "ItemTorso", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemArms", "ItemHands", "ItemBoots"],
+				Block: ["ItemFeet", "ItemLegs", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemPelvis", "ItemTorso", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemArms", "ItemHands", "ItemBoots"],
+				Layer: [
+					{ Name: "Snow", AllowColorize: false },
+					{ Name: "Buttons" },
+					{ Name: "StickHands" },
+				],
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
