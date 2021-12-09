@@ -42,6 +42,11 @@ const CONTRIBUTOR_NAMES = {
 	"Atasly": "Atasly",
 	"diaperand": "diaperand",
 	"Tsubasahane": "Tsubasahane",
+	"ABalfik": "Alfi",
+	"Yuki": "Yuki",
+	"Jules Papillon": "Yuki",
+	"Manilla32": "Manilla",
+	"klorpa": "klorpa",
 };
 
 async function generateChangelogHtml() {
