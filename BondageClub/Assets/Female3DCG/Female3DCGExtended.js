@@ -1463,6 +1463,28 @@ var AssetFemale3DCGExtended = {
 				}
 			},
 		}, // FuturisticStraitjacket
+		Tentacles: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "BehindBack",
+						Property: {
+							Type: null,
+							SetPose: ["BackElbowTouch"],
+						},
+					},
+					{
+						Name: "OverTheHead",
+						Property: {
+							Type: "OverTheHead",
+							SetPose: ["OverTheHead"],
+							HideItem: ["ClothAdmiralTop", "ClothFurCoat", "ClothStudentOutfit2", "ClothSweater1", "ClothTeacherOutfit1"],
+						},
+					},
+				],
+			},
+		}, // Tentacles
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {
@@ -3752,23 +3774,23 @@ var AssetFemale3DCGExtended = {
 					}, {
 						Name: "HalfLegs",
 						Prerequisite: ["NoClothLower"],
-						Property: { Type: "HalfLegs", Hide: ["ClothLower"], Difficulty: 2 }
+						Property: { Type: "HalfLegs", Hide: ["ClothLower", "Garters"], Difficulty: 2 }
 					}, {
 						Name: "MostLegs",
 						Prerequisite: ["NoClothLower"],
-						Property: { Type: "MostLegs", Hide: ["ClothLower"], Difficulty: 4, HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"], }
+						Property: { Type: "MostLegs", Hide: ["ClothLower", "Garters"], Difficulty: 4, HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"], }
 					}, {
 						Name: "CompleteLegs",
 						Prerequisite: ["NoClothLower"],
-						Property: { Type: "CompleteLegs", Hide: ["ClothLower"], Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Difficulty: 6, HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"], }
+						Property: { Type: "CompleteLegs", Hide: ["ClothLower", "Garters"], Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Difficulty: 6, HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"], }
 					}, {
 						Name: "PetLegs",
 						Prerequisite: ["NoClothLower", "NotSuspended", "CanKneel"],
-						Property: { Type: "PetLegs", Hide: ["ClothLower"], SetPose: ["Kneel"], Block: ["ItemFeet"], Effect: ["ForceKneel"], Difficulty: 6 },
+						Property: { Type: "PetLegs", Hide: ["ClothLower", "Garters"], SetPose: ["Kneel"], Block: ["ItemFeet"], Effect: ["ForceKneel"], Difficulty: 6 },
 						Random: false,
 					}, {
 						Name: "CutOut",
-						Prerequisite: ["NoClothLower"],
+						Prerequisite: ["NoClothLower", "Garters"],
 						Property: { Type: "CutOut", Hide: ["ClothLower"], Difficulty: 6 }
 					}
 				],
@@ -4175,9 +4197,32 @@ var AssetFemale3DCGExtended = {
 					ChatPrefix: "ZipFeetSet",
 					NpcPrefix: "ZipFeetSet",
 					TypePrefix: "ZipBondage",
-				}
+				},
 			},
 		}, // Zipties
+		Tentacles: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Closed",
+						Property: {Type: null, SetPose: ["LegsClosed"]},
+					},
+					{
+						Name: "Spread",
+						Prerequisite: ["NoItemLegs", "LegsOpen"],
+						Property: {
+							Type: "Spread",
+							OverridePriority: 25,
+							SetPose: ["Spread"],
+							Effect: ["Freeze", "Prone", "BlockKneel"],
+							Block: ["ItemLegs", "ItemBoots", "ItemDevices"],
+							OverrideHeight: {Height: 0, Priority: 60},
+						},
+					},
+				],
+			},
+		}, // Tentacles
 	}, // ItemFeet
 	ItemMisc: {
 		ServingTray: {

@@ -208,9 +208,11 @@ TailStrapsFoxTailStrap2Base,Tail
 TailStrapsFoxTailStrap2Tip,Tip
 TailStrapsDragonTailStrap1Primary,Primary
 TailStrapsDragonTailStrap1Secondary,Secondary
+TailStrapsTentaclesInner,Inner
+TailStrapsTentaclesOuter,Outer
+TailStrapsTentaclesSucker,Suckers
 ItemFeetOrnateAnkleCuffsCuffs,Cuffs
 ItemFeetOrnateAnkleCuffsGems,Gems
-ItemLegsOrnateLegCuffsCuffs,Cuffs
 ItemFeetFloorShacklesChain,Chain
 ItemFeetFloorShacklesCuffs,Cuffs
 ItemFeetFuturisticAnkleCuffsCuffs,Cuffs
@@ -220,9 +222,13 @@ ItemFeetLeatherAnkleCuffsCuffs,Cuffs
 ItemFeetLeatherAnkleCuffsRings,Rings
 ItemFeetMedicalBedRestraintsBase,Bed Straps
 ItemFeetMedicalBedRestraintsStraps,Cuffs
+ItemFeetTentaclesInner,Inner
+ItemFeetTentaclesOuter,Outer
+ItemFeetTentaclesSucker,Suckers
 ItemLegsFuturisticLegCuffsCuffs,Cuffs
 ItemLegsFuturisticLegCuffsDisplay,Display
 ItemLegsFuturisticLegCuffsLock,Lock
+ItemLegsOrnateLegCuffsCuffs,Cuffs
 ItemLegsOrnateLegCuffsGems,Gems
 ItemLegsLeatherLegCuffsCuffs,Cuffs
 ItemLegsLeatherLegCuffsRings,Rings
@@ -234,6 +240,9 @@ ItemLegsWoodenHorseFrame,Frame
 ItemLegsWoodenHorseWood,Wood
 ItemLegsMedicalBedRestraintsBase,Bed Straps
 ItemLegsMedicalBedRestraintsStraps,Cuffs
+ItemLegsTentaclesInner,Inner
+ItemLegsTentaclesOuter,Outer
+ItemLegsTentaclesSucker,Suckers
 ItemVulvaWandBeltBelt,Belt
 ItemVulvaWandBeltWand,Wand
 ItemVulvaHempRopeBeltRope,Rope
@@ -262,6 +271,9 @@ ItemButtTailButtPlugRibbon,Ribbon
 ItemButtTailButtPlugBell,Bell
 ItemButtFoxTailsBases,Tails
 ItemButtFoxTailsTips,Tips
+ItemButtTentaclesInner,Inner
+ItemButtTentaclesOuter,Outer
+ItemButtTentaclesSucker,Suckers
 ItemPelvisOrnateChastityBeltBelt,Belt
 ItemPelvisOrnateChastityBeltGems,Gems
 ItemPelvisBulkyDiaperBase,Diaper
@@ -362,6 +374,12 @@ ItemArmsBitchSuitLatex,Suit
 ItemArmsBitchSuitLock,Locks
 ItemArmsBitchSuitExposedLatex,Suit
 ItemArmsBitchSuitExposedLock,Locks
+ItemArmsTentaclesLowerInner,Inner
+ItemArmsTentaclesLowerSucker,Suckers
+ItemArmsTentaclesLowerOuter,Outer
+ItemArmsTentaclesInner,Inner
+ItemArmsTentaclesOuter,Outer
+ItemArmsTentaclesSucker,Suckers
 ItemHandsFuturisticMittensBody,Body
 ItemHandsFuturisticMittensMesh,Mesh
 ItemHandsFuturisticMittensDisplay,Display

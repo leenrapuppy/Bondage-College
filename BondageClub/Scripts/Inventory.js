@@ -210,6 +210,9 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 			|| !InventoryDoItemsExposeGroup(C, "ItemButt", ["ClothLower", "Panties"])
 		) ? "RemoveClothesForItem" : "";
 
+		// Items that require access to a character's mouth
+		case "AccessMouth": return C.IsMouthBlocked() ? "CannotBeUsedOverGag" : "";
+
 		// Some chastity belts have removable vulva shields. This checks for those for items that wish to add something externally.
 		case "VulvaNotBlockedByBelt": return InventoryDoItemsBlockGroup(C, "ItemVulva", ["ItemPelvis"])
 		|| InventoryDoItemsBlockGroup(C, "ItemVulva", ["ItemVulvaPiercings"])
@@ -340,8 +343,13 @@ function InventoryPrerequisiteConflictingGags(C, BlockingPrereqs) {
 	let MinBlockingIndex = 0;
 	for (let i = 0; i < MouthItems.length && !MinBlockingIndex; i++) {
 		// Find the lowest indexed slot in which there is a gag with a prerequisite that blocks the new gag
-		const AssetPrerequisite = MouthItems[i] && MouthItems[i].Asset.Prerequisite;
-		if (BlockingPrereqs.indexOf(AssetPrerequisite) >= 0) MinBlockingIndex = i + 1;
+		let AssetPrerequisites = MouthItems[i] && MouthItems[i].Asset.Prerequisite;
+		if (!Array.isArray(AssetPrerequisites)) {
+			AssetPrerequisites = [AssetPrerequisites];
+		}
+		if (AssetPrerequisites.some((Prerequisite) => BlockingPrereqs.includes(Prerequisite))) {
+			MinBlockingIndex = i + 1;
+		}
 	}
 	// Not allowed to add the new gag if there is a blocking gag anywhere below it
 	if (MinBlockingIndex && GagIndex > MinBlockingIndex) return "CannotBeUsedOverGag";

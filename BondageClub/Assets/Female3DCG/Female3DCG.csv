@@ -273,6 +273,7 @@ LeftAnklet,Ribbon1,Ribbon Bow
 Garters,,Garters
 Garters,GarterBelt,Leather Garter Belts
 Garters,GarterBelt2,Leather Garter Belt
+Garters,Tentacles,Tentacles
 Shoes,,Shoes
 Shoes,Shoes1,Style 1
 Shoes,Shoes2,Style 2
@@ -477,6 +478,7 @@ TailStraps,MouseTailStrap2,Mouse Tail Strap 2
 TailStraps,CowtailStrap,Cow Tail Strap
 TailStraps,BunnyTailStrap,Bunny Tail Strap
 TailStraps,DragonTailStrap1,Dragon Tail Strap
+TailStraps,Tentacles,Tentacles
 Wings,,Wings
 Wings,SuccubusFeather,Succubus Feather
 Wings,SuccubusWings,Succubus Wings
@@ -685,6 +687,7 @@ ItemFeet,PlasticWrap,Plastic Wrap
 ItemFeet,WoodenCuffs,Wooden Cuffs
 ItemFeet,MedicalBedRestraints,Medical Bed Restraints
 ItemFeet,SuspensionCuffs,Suspension Cuffs
+ItemFeet,Tentacles,Tentacles
 ItemLegs,,Legs
 ItemLegs,NylonRope,Nylon Rope
 ItemLegs,HempRope,Hemp Rope
@@ -706,6 +709,7 @@ ItemLegs,FrogtieStraps,Frog-tie Straps
 ItemLegs,MermaidTail, Mermaid Tail
 ItemLegs,MedicalBedRestraints,Medical Bed Restraints
 ItemLegs,Ribbons,Ribbons
+ItemLegs,Tentacles,Tentacles
 ItemVulva,,Vulva
 ItemVulva,VibratingEgg,Vibrating Egg
 ItemVulva,VibratingWand,Vibrating Wand
@@ -782,6 +786,7 @@ ItemButt,ShockPlug,Shock Plug
 ItemButt,Cowtail,Cow Tail
 ItemButt,HollowButtPlug,Hollow Butt Plug
 ItemButt,LockingVibePlug,Locking Vibrating Butt Plug
+ItemButt,Tentacles,Tentacles
 ItemPelvis,,Pelvis
 ItemPelvis,StraponPanties,Strap-On Panties
 ItemPelvis,LeatherChastityBelt,Leather Chastity Belt
@@ -940,6 +945,7 @@ ItemArms,TransportJacket,Transport Jacket
 ItemArms,WrappedBlanket,Wrapped Blanket
 ItemArms,Ribbons,Ribbons
 ItemArms,ThinLeatherStraps,Thin Leather Straps
+ItemArms,Tentacles,Tentacles
 ItemHands,,Hands
 ItemHands,PaddedMittens,Padded Mittens
 ItemHands,PawMittens,Paw Mittens
@@ -1141,6 +1147,7 @@ ItemMouth,Ribbons,Ribbons
 ItemMouth,CropGag,Crop
 ItemMouth,CaneGag,Cane
 ItemMouth,PaciGag,Pacifier Gag
+ItemMouth,Tentacles,Tentacle
 ItemMouth2,,Mouth
 ItemMouth2,ClothGag,Cloth Gag
 ItemMouth2,WiffleGag,Wiffle Ball Gag
@@ -1188,6 +1195,7 @@ ItemMouth2,FuturisticMuzzle,Futuristic Muzzle
 ItemMouth2,CageMuzzle,Iron Cage Muzzle
 ItemMouth2,Ribbons,Ribbons
 ItemMouth2,PaciGag,Pacifier Gag
+ItemMouth2,Tentacles,Tentacle
 ItemMouth3,,Mouth
 ItemMouth3,ClothGag,Cloth Gag
 ItemMouth3,WiffleGag,Wiffle Ball Gag
@@ -1235,6 +1243,7 @@ ItemMouth3,CageMuzzle,Iron Cage Muzzle
 ItemMouth3,PlasticWrap, Plastic Wrap
 ItemMouth3,Ribbons,Ribbons
 ItemMouth3,PaciGag,Pacifier Gag
+ItemMouth3,Tentacles,Tentacle
 ItemHead,,Eyes
 ItemHead,ClothBlindfold,Cloth Blindfold
 ItemHead,LeatherBlindfold,Leather Blindfold
@@ -1261,6 +1270,7 @@ ItemHead,PrisonLockdownBlindfold,Prison Lockdown Blindfold
 ItemHead,Pantyhose,Pantyhose
 ItemHead,Snorkel,Snorkel
 ItemHead,Ribbons,Ribbon Blindfold
+ItemHead,Tentacles,Tentacles
 ItemNose,,Nose
 ItemNose,NoseHook,Nose Hook
 ItemNose,PigNose,Pig Nose
