@@ -341,6 +341,20 @@ function ElementSetDataAttribute(ID, Name, Value) {
 }
 
 /**
+ * Sets an attribute to a specified value on a specified element
+ * @param {string} ID - The id of the element to create/set the data attribute of.
+ * @param {string} Name - Name of the attribute.
+ * @param {string} Value - Value to give to the attribute.
+ * @returns {void} - Nothing
+ */
+function ElementSetAttribute(ID, Name, Value) {
+	var element = document.getElementById(ID);
+	if (element != null) {
+		element.setAttribute(Name, Value);
+	}
+}
+
+/**
  * Scrolls to the end of a specified element
  * @param {string} ID - The id of the element to scroll down to the bottom of.
  * @returns {void} - Nothing
