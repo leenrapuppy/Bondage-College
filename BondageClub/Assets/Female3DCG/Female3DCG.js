@@ -5474,7 +5474,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "Snowman", Value: 60, Difficulty: 15, Random: false, Top: 0, Height: -40, Time: 15, RemoveTime: 25, DefaultColor: ["#666", "#974338"],
+				Name: "Snowman", Value: 60, Difficulty: 4, SelfBondage: 2, Random: false, Top: 0, Height: -40, Time: 15, RemoveTime: 25, DefaultColor: ["#666", "#974338"],
 				Prerequisite: ["NotSuspended", "NotHogtied", "AllFours"],
 				SetPose: ["BackBoxTie", "BaseLower"],
 				Effect: ["Freeze", "Block", "Prone", "KneelFreeze"],
