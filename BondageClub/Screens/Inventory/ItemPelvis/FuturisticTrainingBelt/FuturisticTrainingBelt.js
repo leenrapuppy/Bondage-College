@@ -283,7 +283,7 @@ function InventoryItemPelvisFuturisticTrainingBeltExit() {
 			DialogFocusItem.Property.PunishProhibitedSpeechWords = ElementValue("PunishProhibitedSpeechWords").replace(/[^a-z0-9,]/gmi, " ").replace(/\s+/g, " ");
 		}
 
-		InventoryItemPelvisFuturisticTrainingBeltPublishGeneric(CurrentCharacter, "FuturisticChastityBeltSetGeneric");
+		InventoryItemPelvisFuturisticTrainingBeltPublishGeneric(CurrentCharacter, "FuturisticTrainingBeltSetGeneric");
 	}
 
 	InventoryItemFuturisticExitAccessDenied();

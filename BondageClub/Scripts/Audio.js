@@ -214,9 +214,7 @@ var AudioActions = [
 	},
 	{
 		IsAction: (data) => [
-			"FuturisticChastityBeltSetGeneric",
-			"FuturisticChastityBeltSetPunish",
-			"FuturisticChastityBeltSetGeneric",
+			"FuturisticTrainingBeltSetGeneric",
 			"FuturisticPanelGagMouthSetAutoPunish",
 			"SciFiPleasurePantiesBeep"
 		].find(A => data.Content.includes(A)),
