@@ -186,6 +186,11 @@ const InventoryItemHandsSpankingToysOptions = [
 		Property: { Type: "Scissors" },
 		ExpressionTrigger: []
 	},{
+
+		Name: "PlasticWrap",
+		Property: { Type: "PlasticWrap" },
+		ExpressionTrigger: []
+	},{
 		Name: "GlassEmpty",
 		Property: { Type: "GlassEmpty" },
 		ExpressionTrigger: []

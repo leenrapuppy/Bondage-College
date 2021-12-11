@@ -3267,7 +3267,7 @@ var AssetFemale3DCG = [
 					"FeatherDuster", "LongDuster", "IceCube", "WartenbergWheel", "VibratingWand", "SmallVibratingWand", "CandleWax", "LargeDildo",
 					"PetToy", "Vibrator", "Belt", "Hairbrush", "SmallDildo", "ElectricToothbrush", "Toothbrush", "ShockWand", "Lotion", "Ruler",
 					"Sword", "VibeRemote", "ShockRemote", "Towel", "RopeCoilLong", "RopeCoilShort", "Ballgag", "LongSock", "Baguette", "Panties",
-					"TapeRoll", "Spatula", "Broom", "Phone1", "Phone2","Scissors","GlassEmpty","GlassFilled"],
+					"TapeRoll", "Spatula", "Broom", "Phone1", "Phone2","Scissors", "GlassEmpty", "GlassFilled", "PlasticWrap"],
 				DynamicPreviewImage: C => InventorySpankingToysGetType(C),
 				DynamicAllowInventoryAdd: C => { return InventorySpankingToysAvailableToys(C).length > 0; },
 				Extended: true,
@@ -3455,6 +3455,10 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "SpankingToysScissors", Value: 15, Random: false, DynamicAllowInventoryAdd: () => { return false; },
+				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+			},
+			{
+				Name: "SpankingToysPlasticWrap", Value: 100, BuyGroup: "PlasticWrap", Random: false, DynamicAllowInventoryAdd: () => { return false; },
 				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
 			},
 			{
