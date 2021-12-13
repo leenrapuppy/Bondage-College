@@ -1,33 +1,53 @@
 PlayerGagged,,,(She giggles.),,
 ItemMouth,,,(She opens her mouth wide and allows you to silence her easily.),,
 RemoveItemMouth,,,(You remove her gag as she smiles at you.)  Gags are so much fun Madam.,,
+ItemMouth2,,,(She opens her mouth wide and allows you to silence her easily.),,
+RemoveItemMouth2,,,(You remove her gag as she smiles at you.)  Gags are so much fun Madam.,,
+ItemMouth3,,,(She opens her mouth wide and allows you to silence her easily.),,
+RemoveItemMouth3,,,(You remove her gag as she smiles at you.)  Gags are so much fun Madam.,,
 ItemEars,,,(She seems curious as you push the earplugs in.)  You will need to talk louder Madam.,,
 RemoveItemEars,,,(You pull the earplugs out.) The silence was heightening my other senses.,,
 ItemArms,,,(She turns around submissively while you restrain her arms.)  This therapy is very kinky.,,
-RemoveItemArms,,,(You free her arms as she stretches.)  I hope my treatment isn't already complete.,,
+RemoveItemArms,,,(You free her arms as she stretches.)  I hope my treatment isn't over.,,
 ItemHands,,,(She gives you her hands to be restrained.)  No more touching for me it seems.,,
-RemoveItemHands,,,(You release her hands as she nods slowly.)  Thank you Madam.,,
+RemoveItemHands,,,"(You release her hands as she nods slowly.)  Thank you, Madam.",,
 ItemLegs,,,(She stands still as you restrain her legs.)  I wasn't planning on running away.,,
 RemoveItemLegs,,,(You release her legs as she rocks her hips.)  Best therapy ever!,,
 ItemFeet,,,(She laughs as you restrain her feet.)  It tickles!,,
 RemoveItemFeet,,,(You release her feet and she jumps playfully.)  I love being a patient here.,,
+ItemBoots,,,(She laughs and tests your feet restraints.)  You sure know your bondage treatments Madam.,,
+RemoveItemBoots,,,(You release her feet and she wiggles them.)  We need more Dominants like you.,,
+ItemNeck,,,(She adjusts her neck to the new collar.)  I hope we won't get in trouble.,,
+RemoveItemNeck,,,(You remove the collar from her neck.)  I'm not sure you're supposed to remove it Madam.,,
+ItemPelvis,,,(She sighs as you lock the belt on her.)  A good patient is a chaste patient.,,
+RemoveItemPelvis,,,(She seems happy as you unlock the belt from her waist.)  Thank you so much.,,
 ItemHead,,,"(You strap the device on her head as she tries to look around.)  This is scary, but I guess it's for my own good.",,
 RemoveItemHead,,,"(You remove the device and she looks at you.)  That was freaky, maybe we should try other types of items.",,
-ItemBreastLeatherWhip,,,"(She cowers from the pain as you whip her breast.)  Oooww, Madam!  Isn't it a little harsh?",,
-ItemBreastLeatherCrop,,,(You swing the crop on her breast as she whimpers.)  I beg you Madam!  I'll try to be a better patient.,,
-ItemPelvisLeatherWhip,,,(You whip her butt hard as she jumps from the pain.)  Fuck it hurts!  Oops!  Sorry I said that word.,,
-ItemPelvisLeatherCrop,,,(She tries to avoid the crop as you swing it on her butt.)  Oh please!  It's really painful.,,
+ItemHood,,,(You put the hood on her head as she goes silent.),,
+RemoveItemHood,,,(She nods happily as you remove the hood from her head.)  That was kind of scary.,,
+ItemNose,,,(You strap the item on her nose as she giggles.)  This is very unusual.,,
+RemoveItemNose,,,(She nods as you remove the device.)  The asylum is full of surprises.,,
+ItemTorso,,,"(You strap the harness on her torso as she blushes.)  Mmmmh, this is very kinky.",,
+RemoveItemTorso,,,(She stretches as you release her from the harness.)  I'm curious to see what you will use next.,,
+ItemButt,,,(She jumps a little as you slide the device inside her butt.)  Woah!,,
+RemoveItemButt,,,(She wiggles her butt as you remove the plug.)  This patient butt is yours to enjoy Madam.,,
+ItemBreast,,,(She holds her breath as you use the item.)  Pleasure or pain?  Pleasure and pain!,,
+RemoveItemBreast,,,(She wiggles her breast slowly as you remove the device.)  You have so many great items Madam.,,
+ItemNipples,,,(She takes a long breath as you use the device on her breast.)  This will leave marks.,,
+RemoveItemNipples,,,(She whimpers as you remove the device.)  Madam!  This is such a devious therapy.,,
 0,,,(She barely seems to notice that you're there.),,CurrentCharacter.IsBlind()
 0,,,"Hello nurse DialogPlayerName, are you here for my bondage treatment?",,"DialogReputationGreater(""Asylum"", 1)"
 0,,,"Hello Madam, I hope you're having fun in the asylum.",,
 0,,Who are you?,"(She bows her head.)  I'm patient DialogCharacterName, pleased to meet you Madam.",,
 0,,Why are you restrained?,"Mistress sent me here for a bondage therapy.  So long story short, I'm in therapy.",,CurrentCharacter.IsRestrained()
-0,,Can I tie you up?,"(She shakes her head yes.)  Of course nurse DialogPlayerName, it's part of my treatment.",,"DialogReputationGreater(""Asylum"", 1)"
+0,,Can I tie you up?,"(She shakes her head yes.)  Of course, nurse DialogPlayerName, it's part of my treatment.",,"DialogReputationGreater(""Asylum"", 1)"
 0,,Can I tie you up?,"(She shakes her head yes.)  Yes Madam, it's part of my treatment.",,"DialogReputationLess(""Asylum"", 0)"
 0,,Can I play with you?,(She shakes her head yes.)  Absolutely.  Mistress said that I belong to the asylum until she gets me back.,,Player.CanInteract()
 0,,Will you tie me up?,(She shakes her head no.)  I'm sorry Madam.  I'm not allowed to use items on other persons.,,!Player.IsRestrained()
 0,,(Struggle in your restraints.),(She shakes her head no.)  I'm sorry Madam.  I'm not allowed to help you.,,Player.IsRestrained()
 0,10,(Play with her.),(You take a step forward and start to play with her.),,Player.CanInteract()
+0,,Will you join GGTS?,"(She nods slowly.)  Yes, I think I will join soon.  So much control!  (She shivers.)",,!WearingGGTS()
+0,,Do you enjoy GGTS?,"(She nods rapidly.)  Yes, GGTS is perfect.  I'm such a good girl now.",,WearingGGTS()
 0,,I need to run.  (Leave her.),,DialogLeave(),
 10,,,"(She barely seems to notice that you're there, as you step forward to play with her.)",,CurrentCharacter.IsBlind()
 10,,,"Hello nurse DialogPlayerName, would you like to touch me?",,"DialogReputationGreater(""Asylum"", 1)"

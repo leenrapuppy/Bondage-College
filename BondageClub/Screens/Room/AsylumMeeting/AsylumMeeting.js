@@ -8,24 +8,27 @@ var AsylumMeetingPatientRight = null;
  * Checks if the player can be released
  * @returns {boolean} - Returns true, if the player can be released, false otherwise
  */
-function AsylumMeetingCanReleasePlayer() { return (Player.IsRestrained() && !AsylumMeetingPatientLeft.IsRestrained() && (LogValue("Committed", "Asylum") >= CurrentTime)); }
+function AsylumMeetingCanReleasePlayer() { return (Player.IsRestrained() && !AsylumMeetingPatientLeft.IsRestrained() && !InventoryIsWorn(Player, "FuturisticCuffs", "ItemArms") && (LogValue("Committed", "Asylum") >= CurrentTime)); }
 /**
  * Checks if the player cannot be released
  * @returns {boolean} - Returns true, if the player cannot be released, false otherwise
  */
-function AsylumMeetingCannotReleasePlayer() { return (Player.IsRestrained() && (AsylumMeetingPatientLeft.IsRestrained() || (LogValue("Committed", "Asylum") < CurrentTime))); }
+function AsylumMeetingCannotReleasePlayer() { return (Player.IsRestrained() && (AsylumMeetingPatientLeft.IsRestrained() || InventoryIsWorn(Player, "FuturisticCuffs", "ItemArms") || (LogValue("Committed", "Asylum") < CurrentTime))); }
 /**
  * Checks wether the player can be restrained or not
  * @returns {boolean} - Returns true, if the player can be restrained, flase otherwise
  */
 function AsylumMeetingCanRestrainPlayer() { return (!Player.IsRestrained() && !AsylumMeetingPatientLeft.IsRestrained() && (LogValue("Committed", "Asylum") >= CurrentTime)); }
 function AsylumMeetingCanKiss() { return (Player.CanTalk() && CurrentCharacter.CanTalk()); }
+function AsylumMeetingWearingGGTS() { return InventoryIsWorn(CurrentCharacter, "FuturisticCuffs", "ItemArms"); }
 
 /**
  * Loads the room and it's patients
  * @returns {void} - Nothing
  */
 function AsylumMeetingLoad() {
+	
+	// Dress the left patient (dealer)
 	if (AsylumMeetingPatientLeft == null) {
 		AsylumMeetingPatientLeft = CharacterLoadNPC("NPC_AsylumMeeting_PatientLeft");
 		AsylumEntranceWearPatientClothes(AsylumMeetingPatientLeft);
@@ -33,6 +36,8 @@ function AsylumMeetingLoad() {
 		AsylumMeetingPatientLeft.RunAway = false;
 		InventoryWear(AsylumMeetingPatientLeft, "Beret1", "Hat", "#BB0000");
 	}
+
+	// Dress the right patient (bound girl)
 	if (AsylumMeetingPatientRight == null) {
 		AsylumMeetingPatientRight = CharacterLoadNPC("NPC_AsylumMeeting_PatientRight");
 		AsylumEntranceWearPatientClothes(AsylumMeetingPatientRight);
@@ -44,6 +49,27 @@ function AsylumMeetingLoad() {
 		InventoryAdd(AsylumMeetingPatientRight, "SmallBlindfold", "ItemHead");
 		InventoryAdd(AsylumMeetingPatientRight, "MuzzleGag", "ItemMouth");
 	}
+
+	// At level 2 GGTS or more, the right patient joins the system
+	let Level = AsylumGGTSGetLevel(Player);
+	if (Level >= 2) {
+		InventoryWear(AsylumMeetingPatientRight, "FuturisticCuffs", "ItemArms");
+		InventoryGet(AsylumMeetingPatientRight, "ItemArms").Property = { SetPose: "BackBoxTie", Difficulty: 10, Effect: ["Block", "Prone"] };
+		InventoryWear(AsylumMeetingPatientRight, "FuturisticAnkleCuffs", "ItemFeet");
+		InventoryWear(AsylumMeetingPatientRight, "FuturisticHarnessBallGag", "ItemMouth");
+		InventoryAdd(AsylumMeetingPatientRight, "FuturisticCuffs", "ItemArms");
+		InventoryAdd(AsylumMeetingPatientRight, "FuturisticAnkleCuffs", "ItemFeet");
+		InventoryAdd(AsylumMeetingPatientRight, "FuturisticHarnessBallGag", "ItemMouth");
+	}
+
+	// At level 3 GGTS or more, the left patient joins the system
+	if (Level >= 3) {
+		InventoryWear(AsylumMeetingPatientLeft, "FuturisticCuffs", "ItemArms");
+		InventoryWear(AsylumMeetingPatientLeft, "FuturisticAnkleCuffs", "ItemFeet");
+		InventoryAdd(AsylumMeetingPatientLeft, "FuturisticCuffs", "ItemArms");
+		InventoryAdd(AsylumMeetingPatientLeft, "FuturisticAnkleCuffs", "ItemFeet");
+	}
+
 }
 
 /**

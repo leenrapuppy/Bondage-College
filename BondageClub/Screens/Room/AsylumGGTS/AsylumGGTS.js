@@ -534,7 +534,7 @@ function AsylumGGTSProcess() {
 	}
 
 	// Validates that the pose rule isn't broken
-	if ((Player.Game.GGTS.Rule != null) && (Player.Game.GGTS.Rule.indexOf("KeepPose") >= 0) && (AsylumGGTSPreviousPose != JSON.stringify(Player.Pose)))
+	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Rule != null) && (Player.Game.GGTS.Rule.indexOf("KeepPose") >= 0) && (AsylumGGTSPreviousPose != JSON.stringify(Player.Pose)))
 		if (!AsylumGGTSTaskDone(Player, AsylumGGTSTask)) {
 			AsylumGGTSAddStrike();
 			AsylumGGTSMessage("KeepPoseStrike" + Player.Game.GGTS.Strike.toString());
@@ -616,13 +616,17 @@ function AsylumGGTSControlItem(C, Item) {
 }
 
 /**
- * Adds a strike to the player game info
+ * Adds a strike to the player game info.  At strike 3, we auto-unlock the door to allow players to leave.
  * @returns {void} - Nothing
  */
 function AsylumGGTSAddStrike() {
 	Player.Game.GGTS.Strike++;
 	if (Player.Game.GGTS.Strike > 3) Player.Game.GGTS.Strike = 3;
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+	if ((Player.Game.GGTS.Strike >= 3) && AsylumGGTSTaskCanBeDone(Player, "UnlockRoom")) {
+		AsylumGGTSTask = "UnlockRoom";
+		AsylumGGTSAutomaticTask();
+	}
 }
 
 /**
