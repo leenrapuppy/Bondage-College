@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2021-12-09
-* Last recorded PR: [#3118](https://github.com/Ben987/Bondage-College/pull/3118)
-* Last recorded commit hash: `305ebf934b62c704573a92620af28a9d474302c7`
+* Changelog last updated: 2021-12-13
+* Last recorded PR: [#3134](https://github.com/Ben987/Bondage-College/pull/3134)
+* Last recorded commit hash: `c71386b6a9fa537487fac734d1d382bd0b6f4b61`
 
 ## [R75]
 
@@ -29,6 +29,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
   * Fuzzy Dress
   * Snowman (devices item)
 * Emily R - Added a new Scarf item (cloth accessory) ([#3117](https://github.com/Ben987/Bondage-College/pull/3117))
+* Titania/Ellie - Added a new set of tentacle items and restraints (tail strap/butt plug, garter, arm/leg/ankle restraints, gag & blindfold) ([#3119](https://github.com/Ben987/Bondage-College/pull/3119))
+  * Players can now block "Fantasy" items when creating/administrating chatrooms. Currently this includes the new tentacle items, as well as the existing web items
+* Natsuki - Added a new Plastic Wrap Roll handheld item ([#3121](https://github.com/Ben987/Bondage-College/pull/3121))
 
 ### [Removed]
 
@@ -43,6 +46,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Ellie - Relaxed the restrictions on activities that are used on the alternate mouth and neck slots to permit activities that are usually available on the standard mouth/neck slots ([#3111](https://github.com/Ben987/Bondage-College/pull/3111))
 * klorpa - Modified the spelling of certain words across the game for consistency ([#3028](https://github.com/Ben987/Bondage-College/pull/3028))
 * Alfi - Modified the Nursery to permit a wider range of diaper items to be worn ([#3114](https://github.com/Ben987/Bondage-College/pull/3114))
+* Ayesha - Increased the difficulties of the Thin Leather Strap variations ([#3128](https://github.com/Ben987/Bondage-College/pull/3128))
 
 ### [Fixed]
 
@@ -58,6 +62,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Alfi - Fixed a dead end in the Nursery dialogue ([#3114](https://github.com/Ben987/Bondage-College/pull/3114))
 * Jomshir - Fixed crashes that could occur when clicking in the Lover Chastity Belt's extended item screen ([#3113](https://github.com/Ben987/Bondage-College/pull/3113))
 * Ada - Fixed a crash that could occur when spectating in the Kinky Dungeon minigame ([#3118](https://github.com/Ben987/Bondage-College/pull/3118))
+* Estsanatlehi - Fixed a crash that could occur during chatroom background selection ([#3130](https://github.com/Ben987/Bondage-College/pull/3130))
+* Emily R - Fixed the Latex Boxtie Armbinder, Armbinder Jacket and Bolero Straightjacket hiding parts of certain items ([#3132](https://github.com/Ben987/Bondage-College/pull/3132))
+* Nina - Fixed an issue where the Admiral Top's shirt would disappear in the over-the-head pose for players with the small body size ([#3134](https://github.com/Ben987/Bondage-College/pull/3134))
 
 ### [Technical]
 
@@ -69,8 +76,10 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 ### [Beta Fixes]
 
-* Nothing... yet
-
+* Nina - Changed the character limit on the chatroom filter input from 20 to 200 characters ([#3123](https://github.com/Ben987/Bondage-College/pull/3123))
+* Ellie - Fixed some errors in the changelog ([#3122](https://github.com/Ben987/Bondage-College/pull/3122))
+* Ellie - Fixed a missing dialogue error when exiting the menu for the Futuristic Training Belt ([#3124](https://github.com/Ben987/Bondage-College/pull/3124))
+* Ellie - Adjusted the difficulty and self bondage requirements for the Snowman ([#3125](https://github.com/Ben987/Bondage-College/pull/3125))
 
 ## [R74]
 
