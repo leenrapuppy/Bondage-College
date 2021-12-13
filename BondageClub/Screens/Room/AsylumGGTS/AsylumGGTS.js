@@ -599,7 +599,9 @@ function AsylumGGTSStartPunishment() {
 function AsylumGGTSControlItem(C, Item) {
 	let Level = AsylumGGTSGetLevel(C);
 	if (AsylumGGTSGetLevel(Player) > Level) Level = AsylumGGTSGetLevel(Player);
+	if (Level <= 0) return false;
 	if (Level <= 2) {
+		if (CurrentScreen != "ChatRoom") return false;
 		if ((ChatRoomSpace == null) || (ChatRoomSpace != "Asylum")) return false;
 		if ((ChatRoomData == null) || (ChatRoomData.Game == null) || (ChatRoomData.Game != "GGTS")) return false;
 		if ((Item == null) || (Item.Asset == null) || (Item.Asset.Name == null)) return false;
