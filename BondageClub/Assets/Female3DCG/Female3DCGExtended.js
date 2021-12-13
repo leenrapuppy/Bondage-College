@@ -1221,13 +1221,13 @@ var AssetFemale3DCGExtended = {
 			Config: {
 				Options: [
 					{ Name: "Wrist", Property: { Type: "Wrist", SetPose: ["BackBoxTie"] } },
-					{ Name: "Boxtie", Property: { Type: null, SetPose: ["BackBoxTie"] } },
-					{ Name: "WristElbow", Property: { Type: "WristElbow", SetPose: ["BackElbowTouch"] } },
-					{ Name: "WristElbowHarness", Property: { Type: "WristElbowHarness", SetPose: ["BackElbowTouch"] } },
+					{ Name: "Boxtie", Property: { Type: null, SetPose: ["BackBoxTie"], Difficulty: 4 } },
+					{ Name: "WristElbow", Property: { Type: "WristElbow", SetPose: ["BackElbowTouch"], Difficulty: 3 } },
+					{ Name: "WristElbowHarness", Property: { Type: "WristElbowHarness", SetPose: ["BackElbowTouch"], Difficulty: 5 } },
 					{
 						Name: "Hogtie",
 						Property: {
-							Type: "Hogtie", SetPose: ["Hogtied"], Effect: ["Block", "Freeze", "Prone"]
+							Type: "Hogtie", SetPose: ["Hogtied"], Effect: ["Block", "Freeze", "Prone"], Difficulty: 6
 						},
 						Random: false,
 					}
