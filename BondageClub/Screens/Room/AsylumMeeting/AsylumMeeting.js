@@ -54,12 +54,10 @@ function AsylumMeetingLoad() {
 	let Level = AsylumGGTSGetLevel(Player);
 	if (Level >= 2) {
 		InventoryWear(AsylumMeetingPatientRight, "FuturisticCuffs", "ItemArms");
-		InventoryGet(AsylumMeetingPatientRight, "ItemArms").Property = { SetPose: "BackBoxTie", Difficulty: 10, Effect: ["Block", "Prone"] };
+		InventoryGet(AsylumMeetingPatientRight, "ItemArms").Property = { SetPose: ["BackBoxTie"], Difficulty: 10, Effect: ["Block", "Prone"] };
 		InventoryWear(AsylumMeetingPatientRight, "FuturisticAnkleCuffs", "ItemFeet");
-		InventoryWear(AsylumMeetingPatientRight, "FuturisticHarnessBallGag", "ItemMouth");
 		InventoryAdd(AsylumMeetingPatientRight, "FuturisticCuffs", "ItemArms");
 		InventoryAdd(AsylumMeetingPatientRight, "FuturisticAnkleCuffs", "ItemFeet");
-		InventoryAdd(AsylumMeetingPatientRight, "FuturisticHarnessBallGag", "ItemMouth");
 	}
 
 	// At level 3 GGTS or more, the left patient joins the system
@@ -68,6 +66,8 @@ function AsylumMeetingLoad() {
 		InventoryWear(AsylumMeetingPatientLeft, "FuturisticAnkleCuffs", "ItemFeet");
 		InventoryAdd(AsylumMeetingPatientLeft, "FuturisticCuffs", "ItemArms");
 		InventoryAdd(AsylumMeetingPatientLeft, "FuturisticAnkleCuffs", "ItemFeet");
+		InventoryWear(AsylumMeetingPatientRight, "FuturisticHarnessBallGag", "ItemMouth");
+		InventoryAdd(AsylumMeetingPatientRight, "FuturisticHarnessBallGag", "ItemMouth");
 	}
 
 }
