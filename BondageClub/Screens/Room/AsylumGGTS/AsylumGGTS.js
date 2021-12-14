@@ -8,10 +8,11 @@ var AsylumGGTSLastTask = "";
 var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
-	[], // Level 0, 1, 2 & 3 tasks
+	[], // Level 0, 1, 2, 3 & 4 tasks
 	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "ActivityTickle", "ActivityPet", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "ItemUngag", "UnlockRoom"],
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "ActivitySpank", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"],
-	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"]
+	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
+	[]
 ];
 var AsylumGGTSLevelTime = [0, 10800000, 18000000, 28800000, 46800000];
 var AsylumGGTSPreviousPose = "";
@@ -32,7 +33,7 @@ function AsylumGGTSHasThreeStrikes() {
 function AsylumGGTSLevelCompleted() {
 	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike != null) && (Player.Game.GGTS.Strike >= 3)) return false;
 	let Level = AsylumGGTSGetLevel(Player);
-	if ((Level <= 0) || (Level >= 4)) return false;
+	if ((Level <= 0) || (Level >= 5)) return false;
 	return ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Time != null) && (Player.Game.GGTS.Time >= AsylumGGTSLevelTime[Level]));
 }
 
@@ -60,6 +61,7 @@ function AsylumGGTSLoad() {
 		if (Level == 1) AsylumGGTSComputer.Stage = "100";
 		if (Level == 2) AsylumGGTSComputer.Stage = "1000";
 		if (Level == 3) AsylumGGTSComputer.Stage = "2000";
+		if (Level == 4) AsylumGGTSComputer.Stage = "3000";
 		if (Level <= 2) AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/Computer.png";
 		else AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGG.png";
 	}
@@ -107,6 +109,13 @@ function AsylumGGTSStartLevel(Level) {
 		InventoryAdd(Player, "FuturisticHarnessBallGag", "ItemMouth");
 		AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGG.png";
 	}
+	if (Level == 4) {
+		InventoryAdd(Player, "FuturisticChastityBelt", "ItemPelvis");
+		InventoryAdd(Player, "FuturisticTrainingBelt", "ItemPelvis");
+		InventoryAdd(Player, "FuturisticBra", "ItemBreast");
+		InventoryAdd(Player, "FuturisticBra2", "ItemBreast");
+		InventoryAdd(Player, "FuturisticHarness", "ItemTorso");
+	}
 	if (Level >= 2) CharacterChangeMoney(Player, 100 * (Level - 1));
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 }
@@ -117,6 +126,7 @@ function AsylumGGTSStartLevel(Level) {
  */
 function AsylumGGTSQuit() {
 	delete Player.Game.GGTS;
+	AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/Computer.png";
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 }
 
