@@ -382,12 +382,14 @@ function AsylumGGTSAutomaticTask() {
  */
 function AsylumGGTSNewTask() {
 	AsylumGGTSTask = null;
-	AsylumGGTSTimer = Math.round(CommonTime() + 60000);
-	if (AsylumGGTSGetLevel(Player) <= 0) return;
+	let Level = AsylumGGTSGetLevel(Player);
+	if (Level <= 1) AsylumGGTSTimer = Math.round(CommonTime() + 60000);
+	if (Level == 2) AsylumGGTSTimer = Math.round(CommonTime() + 50000);
+	if (Level >= 3) AsylumGGTSTimer = Math.round(CommonTime() + 40000);
+	if (Level <= 0) return;
 	if ((ChatRoomSpace == null) || (ChatRoomSpace != "Asylum")) return;
 	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) return;
 	let TaskList = [];
-	let Level = AsylumGGTSGetLevel(Player);
 	for (let L = 0; (L < AsylumGGTSTaskList.length) && (L <= Level); L++)
 		for (let T = 0; T < AsylumGGTSTaskList[L].length; T++)
 			TaskList.push(AsylumGGTSTaskList[L][T]);
@@ -399,6 +401,7 @@ function AsylumGGTSNewTask() {
 		Count++;
 	}
 	if ((Count >= 50) || (AsylumGGTSTask == null)) return;
+	if (AsylumGGTSTask == "NoTalking") AsylumGGTSTimer = Math.round(CommonTime() + 60000);
 	AsylumGGTSMessage("Task" + AsylumGGTSTask);
 	AsylumGGTSLastTask = AsylumGGTSTask;
 	AsylumGGTSTaskStart = CommonTime();

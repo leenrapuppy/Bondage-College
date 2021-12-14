@@ -156,18 +156,26 @@ function OnlineGameDrawCharacter(C, X, Y, Zoom) {
 	if ((CurrentModule == "Online") && (CurrentScreen == "ChatRoom") && (ChatRoomGame == "GGTS")) {
 		let Level = AsylumGGTSGetLevel(C);
 		if ((Level > 0) && (C.Game != null) && (C.Game.GGTS != null)) {
-			if (C.Game.GGTS.Strike >= 1) DrawImageZoomCanvas("Screens/Room/AsylumGGTS/Strike" + C.Game.GGTS.Strike.toString() + ".png", MainCanvas, 0, 0, 100, 50, X, Y + 800 * Zoom, 100 * Zoom, 50 * Zoom);
+			if (C.Game.GGTS.Strike >= 1) DrawImageZoomCanvas("Screens/Room/AsylumGGTS/Strike" + C.Game.GGTS.Strike.toString() + ".png", MainCanvas, 0, 0, 100, 50, X + 50 * Zoom, Y + 800 * Zoom, 100 * Zoom, 50 * Zoom);
 			MainCanvas.font = CommonGetFont(Math.round(36 * Zoom));
 			let Progress = Math.floor(C.Game.GGTS.Time / AsylumGGTSLevelTime[Level] * 100);
 			if (C.Game.GGTS.Strike >= 3) Progress = 0;
-			if (Progress >= 100) DrawRect(X, Y + 860 * Zoom, 100 * Zoom, 40 * Zoom, "White");
-			else DrawProgressBar(X, Y + 860 * Zoom, 100 * Zoom, 40 * Zoom, Progress);
-			if (Progress >= 50) DrawText(Level.toString(), X + 50 * Zoom, Y + 881 * Zoom, "Black", "White");
-			else DrawText(Level.toString(), X + 51 * Zoom, Y + 882 * Zoom, "White", "Black");
-			MainCanvas.font = CommonGetFont(36);
+			if (Progress >= 100) DrawRect(X + 50 * Zoom, Y + 860 * Zoom, 100 * Zoom, 40 * Zoom, "White");
+			else DrawProgressBar(X + 50 * Zoom, Y + 860 * Zoom, 100 * Zoom, 40 * Zoom, Progress);
+			if (Progress >= 50) DrawText(Level.toString(), X + 100 * Zoom, Y + 881 * Zoom, "Black", "White");
+			else DrawText(Level.toString(), X + 101 * Zoom, Y + 882 * Zoom, "White", "Black");
 			if (C.Game.GGTS.Rule != null)
 				for (let R = 0; R < C.Game.GGTS.Rule.length; R++)
-					DrawImageZoomCanvas("Screens/Room/AsylumGGTS/Rule" + C.Game.GGTS.Rule[R] + ".png", MainCanvas, 0, 0, 33, 33, X + R * 33 * Zoom, Y + 902 * Zoom, 33 * Zoom, 33 * Zoom);
+					DrawImageZoomCanvas("Screens/Room/AsylumGGTS/Rule" + C.Game.GGTS.Rule[R] + ".png", MainCanvas, 0, 0, 33, 33, X + 50 * Zoom + R * 33 * Zoom, Y + 902 * Zoom, 33 * Zoom, 33 * Zoom);
+			if ((C.ID == 0) && (AsylumGGTSTimer > 0) && (AsylumGGTSTimer > CommonTime()) && (C.Game.GGTS.Strike < 3)) {
+				let ForeColor = (AsylumGGTSTask == null) ? "Black" : "White";
+				let BackColor = (ForeColor == "White") ? "Black" : "White";
+				if ((BackColor == "Black") && (Math.round((AsylumGGTSTimer - CommonTime()) / 1000) <= 10)) BackColor = "Red";
+				DrawEmptyRect(X + 350 * Zoom, Y + 860 * Zoom, 100 * Zoom, 40 * Zoom, ForeColor, 2);
+				DrawRect(X + 352 * Zoom, Y + 862 * Zoom, 96 * Zoom, 36 * Zoom, BackColor);
+				DrawText(Math.round((AsylumGGTSTimer - CommonTime()) / 1000).toString(), X + 399 * Zoom, Y + 882 * Zoom, ForeColor, "Silver");
+			}
+			MainCanvas.font = CommonGetFont(36);
 		}
 	}
 
