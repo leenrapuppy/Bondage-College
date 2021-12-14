@@ -161,17 +161,28 @@ function AsylumGGTSBuildPrivate() {
 }
 
 /**
+ * Gets the new character name based on it's GGTS level
+ * @param {Character} C - The character to rename
+ * @returns {string} - The new name for that character
+ */
+function AsylumGGTSCharacterName(C) {
+	let Name = C.Name;
+	if ((CurrentScreen != "ChatRoom") || (ChatRoomSpace == null) || (ChatRoomSpace != "Asylum")) return Name;
+	if ((ChatRoomData == null) || (ChatRoomData.Game == null) || (ChatRoomData.Game != "GGTS")) return Name;
+	let Level = AsylumGGTSGetLevel(C);
+	if ((Level >= 2) && (Level <= 2)) Name = C.Name + "-" + C.MemberNumber.toString();
+	if ((Level >= 3) && (Level <= 3)) Name = C.Name + "-GG-" + C.MemberNumber.toString();
+	if ((Level >= 4) && (Level <= 10)) Name = "GG-" + C.MemberNumber.toString();
+	return Name;
+}
+
+/**
  * Sends a chat message from the GGTS.  GGTS slowly replaces the player name by the player number as level rises.
  * @param {string} Msg - The message to publish
  * @returns {void} - Nothing
  */
 function AsylumGGTSMessage(Msg) {
-	let Name = Player.Name;
-	let Level = AsylumGGTSGetLevel(Player);
-	if ((Level >= 2) && (Level <= 2)) Name = Player.Name + "-" + Player.MemberNumber.toString();
-	if ((Level >= 3) && (Level <= 3)) Name = Player.Name + "-GG-" + Player.MemberNumber.toString();
-	if ((Level >= 4) && (Level <= 10)) Name = "GG-" + Player.MemberNumber.toString();
-	ServerSend("ChatRoomChat", { Content: "GGTS" + Msg, Type: "Action", Dictionary: [{ Tag: "SourceCharacter", Text: Name, MemberNumber: Player.MemberNumber }] });
+	ServerSend("ChatRoomChat", { Content: "GGTS" + Msg, Type: "Action", Dictionary: [{ Tag: "SourceCharacter", Text: AsylumGGTSCharacterName(Player), MemberNumber: Player.MemberNumber }] });
 }
 
 /**
