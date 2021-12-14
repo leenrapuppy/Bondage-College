@@ -11,7 +11,7 @@ var AsylumGGTSTaskList = [
 	[], // Level 0, 1, 2, 3 & 4 tasks
 	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "ActivityTickle", "ActivityPet", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "ItemUngag", "UnlockRoom"],
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "ActivitySpank", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"],
-	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
+	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ActivityWiggle", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
 	[]
 ];
 var AsylumGGTSLevelTime = [0, 10800000, 18000000, 28800000, 46800000];
@@ -406,7 +406,8 @@ function AsylumGGTSNewTask() {
 	let Level = AsylumGGTSGetLevel(Player);
 	if (Level <= 1) AsylumGGTSTimer = Math.round(CommonTime() + 60000);
 	if (Level == 2) AsylumGGTSTimer = Math.round(CommonTime() + 50000);
-	if (Level >= 3) AsylumGGTSTimer = Math.round(CommonTime() + 40000);
+	if (Level == 3) AsylumGGTSTimer = Math.round(CommonTime() + 40000);
+	if (Level >= 4) AsylumGGTSTimer = Math.round(CommonTime() + 30000);
 	if (Level <= 0) return;
 	if ((ChatRoomSpace == null) || (ChatRoomSpace != "Asylum")) return;
 	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) return;
