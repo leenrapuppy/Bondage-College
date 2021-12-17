@@ -5346,7 +5346,7 @@ var AssetFemale3DCG = [
 				SetPose: ["Kneel"],
 				Block: ["ItemAddon"],
 				Effect: ["ForceKneel", "Prone", "Enclose", "BlindLight", "Freeze"],
-				AllowEffect: ["GagLight"],
+				AllowEffect: ["GagLight", "BlindHeavy"],
 				Layer: [
 					{ Name: "Back", Priority: 1, MinOpacity: 1, HasType: false },
 					{ Name: "Door", CopyLayerColor: "Back", HasType: false },
