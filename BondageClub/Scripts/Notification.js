@@ -114,13 +114,17 @@ class NotificationEventHandler {
 		if ('data' in Notification.prototype) options.data = this.eventType;
 
 		// Create the notification
-		this.popup = new Notification(title, options);
-		if ('onclick' in Notification.prototype) {
-			this.popup.onclick = function () {
-				if ('data' in Notification.prototype) NotificationReset(this.data);
-				window.focus();
-				this.close();
-			};
+		try {
+			this.popup = new Notification(title, options);
+			if ('onclick' in Notification.prototype) {
+				this.popup.onclick = function () {
+					if ('data' in Notification.prototype) NotificationReset(this.data);
+					window.focus();
+					this.close();
+				};
+			}
+		} catch (error) {
+			console.warn("Failed to create new Notification:\n", error);
 		}
 	}
 
