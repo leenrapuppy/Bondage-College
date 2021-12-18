@@ -10,7 +10,7 @@ PlayerGagged,,,"Get that gag off or stop talking, you're driving me nuts.",,
 0,10,I need something from you.,I'm listening.  What do you need?,,"DialogReputationLess(""Asylum"", -1)"
 0,,Who are you?,"You should know me, I'm DialogCharacterName.  I'm the best patient around.  (She smirks.)",,"DialogReputationGreater(""Asylum"", 1)"
 0,20,(Struggle in your restraints.),"I can see that you need help, but what's in there for me?  Give me $10 and I'll help you out.",,CanReleasePlayer()
-0,20,(Struggle in your restraints.),(She shakes her head no.),,CannotReleasePlayer()
+0,,(Struggle in your restraints.),(She shakes her head no.),,CannotReleasePlayer()
 0,30,It's time for your treatment.,It is?  (She thinks.)  Look!  A patient is trying to escape!  (She points behind you.),,"DialogReputationGreater(""Asylum"", 1)"
 0,,Will you join GGTS?,I'll never join that program.  That stupid machine is brainwashing sane girls.,,!WearingGGTS()
 0,50,Do you enjoy GGTS?,"(She gets angry.)  Oh, hell no!  I was forced into it!  Selected by that piece of junk.",,WearingGGTS()
