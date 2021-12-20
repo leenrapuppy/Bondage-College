@@ -211,6 +211,7 @@ function AsylumGGTSQueryDone(M, T) {
 			Chat = Chat.replace(/\./g, "");
 			Chat = Chat.replace(/,/g, "");
 			Chat = Chat.replace(/'/g, "");
+			Chat = Chat.replace(/’/g, "");
 			if (Chat === T) return true;
 		}
 	return false;
