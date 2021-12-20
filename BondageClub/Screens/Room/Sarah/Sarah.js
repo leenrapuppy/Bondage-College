@@ -327,6 +327,7 @@ function SarahTransferToRoom() {
 	SarahLeaveRoom();
 	CharacterRelease(Sarah);
 	InventoryWear(Sarah, "CollegeOutfit1", "Cloth");
+	InventoryWear(Sarah, "CollegeSkirt", "ClothLower");
 	InventoryWear(Sarah, "Socks4", "Socks", "#AAAAAA");
 	InventoryWear(Sarah, "Shoes2", "Shoes", "#222222");
 	InventoryAdd(Player, "StuddedBlindfold", "ItemHead");
@@ -380,6 +381,7 @@ function SarahTransferAmandaToRoom() {
 	CharacterRelease(Amanda);
 	if ((InventoryGet(Amanda, "ItemPelvis") != null) && (InventoryGet(Amanda, "ItemPelvis").Asset.Name == "StraponPanties")) InventoryRemove(Amanda, "ItemPelvis");
 	InventoryWear(Amanda, "CollegeOutfit1", "Cloth");
+	InventoryWear(Amanda, "CollegeSkirt", "ClothLower");
 	InventoryWear(Amanda, "Socks4", "Socks", "#AAAAAA");
 	InventoryWear(Amanda, "Shoes1", "Shoes", "#222222");
 	InventoryWear(Amanda, "Bra1", "Bra", "#bbbbbb");

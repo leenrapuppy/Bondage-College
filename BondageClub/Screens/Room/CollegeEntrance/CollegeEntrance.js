@@ -79,8 +79,8 @@ function CollegeEntranceClick() {
 function CollegeEntranceWearStudentClothes(C) {
 	if ((typeof C === "string") && (C == "Player")) C = Player;
 	InventoryWear(C, "CollegeOutfit1", "Cloth", "Default");
+	InventoryWear(C, "CollegeSkirt", "ClothLower", "Default");
 	InventoryWear(C, "Socks4", "Socks", "#AAAAAA");
-	InventoryRemove(C, "ClothLower");
 	InventoryRemove(C, "Wings");
 	InventoryRemove(C, "TailStraps");
 	InventoryRemove(C, "Gloves");
@@ -108,10 +108,15 @@ function CollegeEntranceIsWearingTennisClothes() {
  * @returns {boolean} - Returns TRUE if the player is wearing college clothes
  */
 function CollegeEntranceIsWearingCollegeClothes() {
-	let CurrentClothes = InventoryGet(Player, "Cloth");
+	const CurrentClothes = InventoryGet(Player, "Cloth");
 	if (CurrentClothes == null) return false;
 	else if (CurrentClothes.Asset.Name != "CollegeOutfit1") return false;
 	else if (!ItemColorIsDefault(CurrentClothes)) return false;
+
+	const CurrentClothesLower = InventoryGet(Player, "ClothLower");
+	if (CurrentClothesLower == null) return false;
+	else if (CurrentClothesLower.Asset.Name != "CollegeSkirt") return false;
+	else if (!ItemColorIsDefault(CurrentClothesLower)) return false;
 
 	if (InventoryGet(Player, "Socks") == null) return false;
 	if (InventoryGet(Player, "Shoes") == null) return false;

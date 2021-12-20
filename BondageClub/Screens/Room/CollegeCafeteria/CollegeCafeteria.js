@@ -142,7 +142,9 @@ function CollegeCafeteriaFightEnd() {
 	CharacterRelease(Player);
 	CharacterRelease(CollegeCafeteriaSidney);
 	InventoryWear(Player, "CollegeOutfit1", "Cloth", "Default");
+	InventoryWear(Player, "CollegeSkirt", "ClothLower", "Default");
 	InventoryWear(CollegeCafeteriaSidney, "CollegeOutfit1", "Cloth", "Default");
+	InventoryWear(CollegeCafeteriaSidney, "CollegeSkirt", "ClothLower", "Default");
 	CommonSetScreen("Room", "CollegeCafeteria");
 	CharacterSetCurrent(CollegeCafeteriaSidney);
 	CollegeCafeteriaSidney.CurrentDialog = DialogFind(CollegeCafeteriaSidney, (KidnapVictory) ? "FightVictory" : "FightDefeat");

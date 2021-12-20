@@ -31,6 +31,7 @@ function ImportBondageCollege(C) {
 
 			// Imports every inventory items
 			InventoryAdd(C, "CollegeOutfit1", "Cloth");
+			InventoryAdd(C, "CollegeSkirt", "ClothLower");
 			if ((localStorage.getItem("BondageCollegeExportBallGag") != null) && (localStorage.getItem("BondageCollegeExportBallGag") == "true")) InventoryAdd(C, "HarnessBallGag", "ItemMouth", false);
 			if ((localStorage.getItem("BondageCollegeExportClothGag") != null) && (localStorage.getItem("BondageCollegeExportClothGag") == "true")) InventoryAdd(C, "ClothGag", "ItemMouth", false);
 			if ((localStorage.getItem("BondageCollegeExportTapeGag") != null) && (localStorage.getItem("BondageCollegeExportTapeGag") == "true")) InventoryAdd(C, "DuctTape", "ItemFeet", false);

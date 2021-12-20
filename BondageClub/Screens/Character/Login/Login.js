@@ -304,7 +304,10 @@ function LoginAsylumItems() {
  * @returns {void} - Nothing
  */
 function LoginCheatItems() {
-	if (CheatFactor("FreeCollegeOutfit", 0) == 0) InventoryAdd(Player, "CollegeOutfit1", "Cloth");
+	if (CheatFactor("FreeCollegeOutfit", 0) == 0) {
+		InventoryAdd(Player, "CollegeOutfit1", "Cloth");
+		InventoryAdd(Player, "CollegeSkirt", "ClothLower");
+	}
 }
 
 /**
