@@ -5486,6 +5486,32 @@ var AssetFemale3DCG = [
 					{ Name: "StickHands" },
 				],
 			},
+			{
+				Name: "MedicalBed", Value: -1, Priority: 1, Difficulty: -20, SelfBondage: 0, Time: 5, RemoveTime: 5, RemoveAtLogin: true, DefaultColor: ["#909090", "#75B2C8", "#808284"], BuyGroup: "Bed",
+				OverrideHeight: { Height: 0, HeightRatioProportion: 1, Priority: 21 },
+				RemoveItemOnRemove: [
+					{ Group: "ItemAddon", Name: "Covers" },
+					{ Group: "ItemAddon", Name: "BedRopes" },
+					{ Group: "ItemAddon", Name: "BedStraps" },
+					{ Group: "ItemAddon", Name: "BedTape" },
+					{ Group: "ItemAddon", Name: "BedChains" },
+					{ Group: "ItemArms", Name: "UnderBedBondageCuffs" },
+					{ Group: "ItemArms", Name: "MedicalBedRestraints" },
+					{ Group: "ItemArms", Name: "HempRope", Type: "BedSpreadEagle" },
+					{ Group: "ItemLegs", Name: "MedicalBedRestraints" },
+					{ Group: "ItemFeet", Name: "HempRope", Type: "BedSpreadEagle" },
+					{ Group: "ItemFeet", Name: "MedicalBedRestraints" },
+				],
+				Effect: ["Freeze", "Mounted", "OnBed", "Leash"],
+				AvailableLocations: ["Asylum"],
+				Prerequisite: ["AllFours", "NotSuspended", "NotHogtied", "NoFeetSpreader"],
+				SetPose: ["BaseLower"],
+				Layer: [
+					{ Name: "BedFrame" },
+					{ Name: "Mattress" },
+					{ Name: "Pillow" }
+				]
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},

@@ -550,5 +550,6 @@ function AsylumEntranceGiveRestraints() {
 		{Name: "MedicalBedRestraints", Group: "ItemArms"},
 		{Name: "MedicalBedRestraints", Group: "ItemLegs"},
 		{Name: "MedicalBedRestraints", Group: "ItemFeet"},
+		{ Name: "MedicalBed", Group: "ItemDevices"},
 	]);
 }
