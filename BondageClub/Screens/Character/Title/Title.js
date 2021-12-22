@@ -54,7 +54,8 @@ var TitleList = [
 	{ Name: "Doll", Requirement: function () { return true; } },
 	{ Name: "Demon", Requirement: function () { return true; } },
 	{ Name: "Angel", Requirement: function () { return true; } },
-	{ Name: "Succubus", Requirement: function () { return true; } }
+	{ Name: "Succubus", Requirement: function () { return true; } },
+	{ Name: "GoodGirl", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 4); }, Earned: true }
 ];
 
 /**
