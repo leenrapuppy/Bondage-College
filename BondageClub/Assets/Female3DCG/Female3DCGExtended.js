@@ -3821,7 +3821,7 @@ var AssetFemale3DCGExtended = {
 					}, {
 						Name: "Frogtie",
 						BondageLevel: 3,
-						Property: { Type: "Frogtie", SetPose: ["Kneel"], Block: ["ItemFeet"], Effect: ["ForceKneel"], Difficulty: 3 },
+						Property: { Type: "Frogtie", SetPose: ["Kneel"], AllowActivePose: ["Kneel", "KneelingSpread"], Block: ["ItemFeet"], Effect: ["ForceKneel"], Difficulty: 3 },
 						Prerequisite: ["NotSuspended", "CanKneel"],
 						Random: false,
 					}, {
