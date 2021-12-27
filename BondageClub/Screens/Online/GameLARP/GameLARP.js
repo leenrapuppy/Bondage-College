@@ -943,7 +943,7 @@ function GameLARPContinue() {
 
 /**
  * Processes the LARP game messages for turns and actions.
- * @param {object} P - Data object containing the message data.
+ * @param {IChatRoomGameResponse} P - Data object containing the message data.
  * @returns {void} - Nothing
  */
 function GameLARPProcess(P) {

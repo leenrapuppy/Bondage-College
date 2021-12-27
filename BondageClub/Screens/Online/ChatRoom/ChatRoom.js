@@ -2039,12 +2039,7 @@ function ChatRoomMessage(data) {
 		if (Player.GhostList.indexOf(data.Sender) >= 0) return;
 
 		// Make sure the sender is in the room
-		var SenderCharacter = null;
-		for (let C = 0; C < ChatRoomCharacter.length; C++)
-			if (ChatRoomCharacter[C].MemberNumber == data.Sender) {
-				SenderCharacter = ChatRoomCharacter[C];
-				break;
-			}
+		let SenderCharacter = ChatRoomCharacter.find(c => c.MemberNumber == data.Sender);
 
 		// If we found the sender
 		if (SenderCharacter != null) {
@@ -3438,22 +3433,28 @@ function ChatRoomPayQuest(data) {
  * @param {object} data - Game data to process, sent to the current game handler.
  * @returns {void} - Nothing
  */
-function ChatRoomOnlineBountyHandleData(data) {
+function ChatRoomOnlineBountyHandleData(data, sender) {
 	if (data.finishTime && data.target == Player.MemberNumber) {
-		ChatRoomMessage({ Content: "OnlineBountySuitcaseOngoing", Type: "Action", Dictionary: [{Tag: "TIMEREMAINING", Text: ""+Math.max(1, Math.ceil((data.finishTime - CommonTime())/60000))}], Sender: Player.MemberNumber });
+		let senderChar = ChatRoomCharacter.find(c => c.MemberNumber == sender);
+		const remaining = Math.max(1, Math.ceil((data.finishTime - CommonTime()) / 60000));
+		const content = ChatRoomCarryingBountyOpened(senderChar) ? "OnlineBountySuitcaseOngoingOpened" : "OnlineBountySuitcaseOngoing";
+		let dict = [];
+		dict.push({Tag: "TIMEREMAINING", Text: remaining.toString()});
+		dict.push({Tag: "SourceCharacter", Text: senderChar.Name, MemberNumber: senderChar.MemberNumber});
+		ChatRoomMessage({ Content: content, Type: "Action", Dictionary: dict, Sender: sender });
 	}
 }
 
 /**
  * Triggered when a game message comes in, we forward it to the current online game being played.
- * @param {object} data - Game data to process, sent to the current game handler.
+ * @param {IChatRoomGameResponse} data - Game data to process, sent to the current game handler.
  * @returns {void} - Nothing
  */
 function ChatRoomGameResponse(data) {
 	if (data.Data.KinkyDungeon)
 		KinkyDungeonHandleData(data.Data.KinkyDungeon, data.Sender);
-	else if (KidnapLeagueOnlineBountyTarget && data.Data.OnlineBounty && !Player.GhostList.includes(data.sender))
-		ChatRoomOnlineBountyHandleData(data.Data.OnlineBounty);
+	else if (KidnapLeagueOnlineBountyTarget && data.Data.OnlineBounty)
+		ChatRoomOnlineBountyHandleData(data.Data.OnlineBounty, data.Sender);
 	else if (ChatRoomGame == "LARP") GameLARPProcess(data);
 	else if (ChatRoomGame == "MagicBattle") GameMagicBattleProcess(data);
 }

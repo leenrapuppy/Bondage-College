@@ -318,7 +318,7 @@ function GameMagicBattleCharacterClick(C) {
  * @param {string} Msg - Message tag
  * @param {Character} Source - Source character of the message
  * @param {Character} Target - Character targetted by the message
- * @param {string} Data - The data linked to the packet
+ * @param {IChatRoomGameResponse["Data"]} Data - The data linked to the packet
  * @param {string} [Color] - Color of the message to add.
  * @returns {void} - Nothing
  */
@@ -423,7 +423,7 @@ function GameMagicBattleCalculateTurnWinner() {
 
 /**
  * Processes the Magic Battle game messages for turns and actions.
- * @param {object} P - Data object containing the message data.
+ * @param {IChatRoomGameResponse} P - Data object containing the message data.
  * @returns {void} - Nothing
  */
 function GameMagicBattleProcess(P) {

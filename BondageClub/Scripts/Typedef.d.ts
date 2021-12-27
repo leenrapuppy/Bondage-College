@@ -123,6 +123,28 @@ declare function LoseFocus(event: MouseEvent): void;
 
 //#endregion
 
+//#region Server Messages
+
+interface IChatRoomGameResponse {
+	Data: {
+		KinkyDungeon: any;
+		OnlineBounty: any;
+		/* LARP */
+		GameProgress?: "Start"|"Stop"|"Next"|"Skip"|"Action";
+		Action?: undefined;
+		Target?: number;
+		Item?: string;
+
+		/* MagicBattle */
+		Spell?: string;
+		Time?: number; /* ms */
+	}
+	Sender: number;
+	RNG: number
+}
+
+//#endregion
+
 //#region Assets
 
 type IAssetFamily = "Female3DCG";
