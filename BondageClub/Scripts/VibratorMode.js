@@ -579,7 +579,7 @@ function VibratorModeUpdateStateBased(Item, C, PersistentData, TransitionsFromDe
  * @param {Character} C - The character that the item is equipped on
  * @param {number} Arousal - The current arousal of the character
  * @param {number} TimeSinceLastChange - The time in milliseconds since the vibrator intensity was last changed
- * @param {number} OldIntensity - The current intensity of the vibrating item
+ * @param {VibratorIntensity} OldIntensity - The current intensity of the vibrating item
  * @param {VibratorModeState[]} TransitionsFromDefault - The possible vibrator states that may be transitioned to from
  * the default state
  * @returns {StateAndIntensity} - The updated state and intensity of the vibrator
@@ -600,12 +600,13 @@ function VibratorModeStateUpdateDefault(C, Arousal, TimeSinceLastChange, OldInte
  * @param {Character} C - The character that the item is equipped on
  * @param {number} Arousal - The current arousal of the character
  * @param {number} TimeSinceLastChange - The time in milliseconds since the vibrator intensity was last changed
- * @param {number} OldIntensity - The current intensity of the vibrating item
+ * @param {VibratorIntensity} OldIntensity - The current intensity of the vibrating item
  * the default state
  * @returns {StateAndIntensity} - The updated state and intensity of the vibrator
  */
 function VibratorModeStateUpdateDeny(C, Arousal, TimeSinceLastChange, OldIntensity) {
 	var OneMinute = 60000;
+	/** @type {VibratorModeState} */
 	var State = VibratorModeState.DENY;
 	var Intensity = OldIntensity;
 	if (Arousal >= 95 && TimeSinceLastChange > OneMinute && Math.random() < 0.2) {
@@ -633,12 +634,13 @@ function VibratorModeStateUpdateDeny(C, Arousal, TimeSinceLastChange, OldIntensi
  * @param {Character} C - The character that the item is equipped on
  * @param {number} Arousal - The current arousal of the character
  * @param {number} TimeSinceLastChange - The time in milliseconds since the vibrator intensity was last changed
- * @param {number} OldIntensity - The current intensity of the vibrating item
+ * @param {VibratorIntensity} OldIntensity - The current intensity of the vibrating item
  * the default state
  * @returns {StateAndIntensity} - The updated state and intensity of the vibrator
  */
 function VibratorModeStateUpdateOrgasm(C, Arousal, TimeSinceLastChange, OldIntensity) {
 	var OneMinute = 60000;
+	/** @type {VibratorModeState} */
 	var State = VibratorModeState.ORGASM;
 	var Intensity = OldIntensity;
 	if (C.ArousalSettings.OrgasmStage > 0) {
@@ -656,14 +658,16 @@ function VibratorModeStateUpdateOrgasm(C, Arousal, TimeSinceLastChange, OldInten
  * @param {Character} C - The character that the item is equipped on
  * @param {number} Arousal - The current arousal of the character
  * @param {number} TimeSinceLastChange - The time in milliseconds since the vibrator intensity was last changed
- * @param {number} OldIntensity - The current intensity of the vibrating item
+ * @param {VibratorIntensity} OldIntensity - The current intensity of the vibrating item
  * the default state
  * @returns {StateAndIntensity} - The updated state and intensity of the vibrator
  */
 function VibratorModeStateUpdateRest(C, Arousal, TimeSinceLastChange, OldIntensity) {
 	var FiveMinutes = 5 * 60000;
 	var TenMinutes = 10 * 60000;
+	/** @type {VibratorModeState} */
 	var State = VibratorModeState.REST;
+	/** @type {VibratorIntensity} */
 	var Intensity = -1;
 	if (TimeSinceLastChange > FiveMinutes && Math.random() < Math.pow((TimeSinceLastChange - FiveMinutes) / TenMinutes, 2)) {
 		// Rest between 5 and 15 minutes (probably of change gets increasingly more likely as time approaches 15 minutes)
