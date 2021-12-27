@@ -9,7 +9,8 @@
 /** @type {import("socket.io-client").Socket} */
 var ServerSocket = null;
 var ServerURL = "http://localhost:4288";
-var ServerBeep = {};
+/** @type { { Message: string; Timer: number; ChatRoomName?: string | null; IsMail?: boolean; } } */
+var ServerBeep = { Message: "", Timer: 0 };
 var ServerIsConnected = false;
 var ServerReconnectCount = 0;
 
@@ -586,14 +587,14 @@ function ServerAccountBeep(data) {
 			} else {
 				delete data.Message;
 			}
-			ServerBeep.MemberNumber = data.MemberNumber;
-			ServerBeep.MemberName = data.MemberName;
-			ServerBeep.ChatRoomName = data.ChatRoomName;
-			ServerBeep.Timer = CurrentTime + 10000;
 			if (Player.AudioSettings.PlayBeeps) {
 				AudioPlayInstantSound("Audio/BeepAlarm.mp3");
 			}
-			ServerBeep.Message = `${DialogFindPlayer("BeepFrom")} ${ServerBeep.MemberName} (${ServerBeep.MemberNumber})`;
+			ServerBeep = {
+				Message: `${DialogFindPlayer("BeepFrom")} ${data.MemberName} (${data.MemberNumber})`,
+				Timer: CommonTime() + 10000,
+				ChatRoomName: data.ChatRoomName
+			}
 			if (ServerBeep.ChatRoomName != null)
 				ServerBeep.Message = ServerBeep.Message + " " + DialogFindPlayer("InRoom") + " \"" + ServerBeep.ChatRoomName + "\"" + (data.ChatRoomSpace === "Asylum" ? " " + DialogFindPlayer("InAsylum") : '');
 			if (data.Message) {
@@ -645,7 +646,7 @@ function ServerAccountBeep(data) {
 
 /** Draws the last beep sent by the server if the timer is still valid, used during the drawing process */
 function ServerDrawBeep() {
-	if ((ServerBeep.Timer != null) && (ServerBeep.Timer > CurrentTime)) {
+	if (ServerBeep.Timer > CommonTime()) {
 		DrawButton((CurrentScreen == "ChatRoom") ? 0 : 500, 0, 1000, 50, ServerBeep.Message, "Pink", "");
 		if (document.hasFocus()) {
 			NotificationReset(NotificationEventType.BEEP);
@@ -656,9 +657,9 @@ function ServerDrawBeep() {
 /** Handles a click on the beep rectangle if mail is included */
 function ServerClickBeep() {
 	if (
+		ServerBeep.Timer > CommonTime() &&
 		ServerBeep.IsMail &&
 		MouseIn((CurrentScreen == "ChatRoom") ? 0 : 500, 0, 1000, 50) &&
-		ServerBeep.Timer != null && ServerBeep.Timer > CurrentTime &&
 		CurrentScreen !== "FriendList"
 	) {
 		ServerOpenFriendList();
