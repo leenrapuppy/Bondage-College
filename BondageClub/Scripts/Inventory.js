@@ -537,7 +537,7 @@ function InventoryRandomExtend(C, GroupName) {
  *     the full list of all assets is used.
  * @param {boolean} [IgnorePrerequisites=false] - If True, skip the step to check whether prerequisites are met
  *  NOTE: Long-term this should be replaced with better checks before calling this function.
- * @returns {Asset} - The randomly selected asset
+ * @returns {Asset|null} - The randomly selected asset or `null` if none found
  */
 function InventoryGetRandom(C, GroupName, AllowedAssets, IgnorePrerequisites = false) {
 	var List = [];
