@@ -452,7 +452,7 @@ function StruggleFlexibilityStart(C, PrevItem, NextItem) {
 	// When struggling to remove or swap an item while being blocked from interacting
 	if ((C.ID == 0) && !C.CanInteract() && (PrevItem != null)) {
 		if (!InventoryItemHasEffect(PrevItem, "Block", true)) S = S - 4; // Non-blocking items become harder to struggle out when already blocked
-		if (PrevItem.Asset.Category) {
+		if (PrevItem.Asset.Category && PrevItem.Asset.Fetish) {
 			if (PrevItem.Asset.Fetish.includes("Metal")) S = S - 2; // Metal items are very inflexible
 			if (PrevItem.Asset.Fetish.includes("Latex")) S = S + 1; // Latex items are flexible
 			if (PrevItem.Asset.Fetish.includes("Nylon")) S = S + 2; // Nylon items are very flexible
@@ -675,7 +675,7 @@ function StruggleDexterityStart(C, PrevItem, NextItem) {
 	if ((C.ID == 0) && !C.CanInteract() && (PrevItem != null)) {
 		if (!InventoryItemHasEffect(PrevItem, "Block", true)) S = S - 2; // Non-blocking items become slightly harder to struggle out when already blocked
 
-		if (PrevItem.Asset.Category) {
+		if (PrevItem.Asset.Category && PrevItem.Asset.Fetish) {
 			if (PrevItem.Asset.Fetish.includes("Tape")) S = S - 3; // Tape is pretty hard to unfasten
 		}
 
