@@ -406,9 +406,10 @@ function AsylumGGTSNewTask() {
 	AsylumGGTSTask = null;
 	let Level = AsylumGGTSGetLevel(Player);
 	if (Level <= 1) AsylumGGTSTimer = Math.round(CommonTime() + 60000);
-	if (Level == 2) AsylumGGTSTimer = Math.round(CommonTime() + 50000);
-	if (Level == 3) AsylumGGTSTimer = Math.round(CommonTime() + 40000);
-	if (Level >= 4) AsylumGGTSTimer = Math.round(CommonTime() + 30000);
+	if (Level == 2) AsylumGGTSTimer = Math.round(CommonTime() + 55000);
+	if (Level == 3) AsylumGGTSTimer = Math.round(CommonTime() + 50000);
+	if (Level == 4) AsylumGGTSTimer = Math.round(CommonTime() + 45000);
+	if (Level >= 5) AsylumGGTSTimer = Math.round(CommonTime() + 40000);
 	if (Level <= 0) return;
 	if ((ChatRoomSpace == null) || (ChatRoomSpace != "Asylum")) return;
 	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) return;
@@ -444,6 +445,7 @@ function AsylumGGTSEndTaskSave() {
 	let AddedTime;
 	if (AsylumGGTSTaskEnd > 0) AddedTime = CommonTime() - AsylumGGTSTaskEnd;
 	else AddedTime = CommonTime() - AsylumGGTSTaskStart;
+	if (AsylumGGTSTimer > CommonTime()) AddedTime = AddedTime + AsylumGGTSTimer - CommonTime();
 	if (AddedTime < 0) AddedTime = 0;
 	if (AddedTime > 120000) AddedTime = 120000;
 	Player.Game.GGTS.Time = Math.round(Player.Game.GGTS.Time + (AddedTime * Factor));
