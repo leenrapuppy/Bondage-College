@@ -64,12 +64,29 @@ var PreferenceGraphicsAnimationQualityList = [10000, 2000, 200, 100, 50, 0];
 var PreferenceCalibrationStage = 0;
 
 /**
+ * Compares the arousal preference level and returns TRUE if that level is met, or an higher level is met
+ * @param {Character} C - The player who performs the sexual activity
+ * @param {string} Level - The name of the level ("Inactive", "NoMeter", "Manual", "Hybrid", "Automatic")
+ * @returns {boolean} - Returns TRUE if the level is met or more
+ */
+function PreferenceArousalAtLeast(C, Level) {
+	if ((CurrentModule == "Online") && (CurrentScreen == "ChatRoom") && (ChatRoomGame == "GGTS") && (ChatRoomSpace != null) && (ChatRoomSpace == "Asylum") && (AsylumGGTSGetLevel(C) >= 4))
+		if (InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis") || InventoryIsWorn(C, "FuturisticTrainingBelt", "ItemPelvis"))
+			return true;
+	if ((C.ArousalSettings == null) || (C.ArousalSettings.Active == null)) return false;
+	if (Level === C.ArousalSettings.Active) return true;
+	if (C.ArousalSettings.Active == "Automatic") return true;
+	if ((Level == "Manual") && (C.ArousalSettings.Active == "Hybrid")) return true;
+	if ((Level == "NoMeter") && ((C.ArousalSettings.Active == "Manual") || (C.ArousalSettings.Active == "Hybrid"))) return true;
+	return false;
+}
+
+/**
  * Gets the effect of a sexual activity on the player
  * @param {Character} C - The player who performs the sexual activity
  * @param {string} Type - The type of the activity that is performed
  * @param {boolean} Self - Determines, if the current player is giving (false) or receiving (true)
- * @returns {number} - Returns the love factor of the activity for the character (0 is horrible, 2 is normal, 4 is
- *     great)
+ * @returns {number} - Returns the love factor of the activity for the character (0 is horrible, 2 is normal, 4 is great)
  */
 function PreferenceGetActivityFactor(C, Type, Self) {
 	var Factor = 2;

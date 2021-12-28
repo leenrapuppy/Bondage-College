@@ -161,7 +161,7 @@ function TimerProcess(Timestamp) {
 				} else {
 
 					// Depending on the character settings, we progress the arousal meter
-					if ((Character[C].ArousalSettings != null) && (Character[C].ArousalSettings.Active != null) && ((Character[C].ArousalSettings.Active == "Automatic") || (Character[C].ArousalSettings.Active == "Hybrid"))) {
+					if (PreferenceArousalAtLeast(Character[C], "Hybrid")) {
 
 						// Activity impacts the progress slowly over time, if there's an activity running, vibrations are ignored
 						if ((Character[C].ArousalSettings.ProgressTimer != null) && (typeof Character[C].ArousalSettings.ProgressTimer === "number") && !isNaN(Character[C].ArousalSettings.ProgressTimer) && (Character[C].ArousalSettings.ProgressTimer != 0)) {
@@ -215,7 +215,7 @@ function TimerProcess(Timestamp) {
 		if ((TimerLastArousalDecay + 12000 < CurrentTime) || (TimerLastArousalDecay - 12000 > CurrentTime)) {
 			TimerLastArousalDecay = CurrentTime;
 			for (let C = 0; C < Character.length; C++)
-				if ((Character[C].ArousalSettings != null) && (Character[C].ArousalSettings.Active != null) && ((Character[C].ArousalSettings.Active == "Automatic") || (Character[C].ArousalSettings.Active == "Hybrid")))
+				if (PreferenceArousalAtLeast(Character[C], "Hybrid"))
 					if ((Character[C].ArousalSettings.Progress != null) && (typeof Character[C].ArousalSettings.Progress === "number") && !isNaN(Character[C].ArousalSettings.Progress) && (Character[C].ArousalSettings.Progress > 0))
 						if ((Character[C].ArousalSettings.ProgressTimer == null) || (typeof Character[C].ArousalSettings.ProgressTimer !== "number") || isNaN(Character[C].ArousalSettings.ProgressTimer) || (Character[C].ArousalSettings.ProgressTimer == 0)) {
 

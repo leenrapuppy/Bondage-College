@@ -763,7 +763,7 @@ function ActivityArousalItem(Source, Target, Asset) {
 	if (AssetActivity != null) {
 		var Activity = AssetGetActivity(Target.AssetFamily, AssetActivity);
 		if ((Source.ID == 0) && (Target.ID != 0)) ActivityRunSelf(Source, Target, Activity);
-		if (((Target.ArousalSettings != null) && ((Target.ArousalSettings.Active == "Hybrid") || (Target.ArousalSettings.Active == "Automatic"))) && ((Target.ID == 0) || (Target.IsNpc())))
+		if (PreferenceArousalAtLeast(Target, "Hybrid") && ((Target.ID == 0) || (Target.IsNpc())))
 			ActivityEffect(Source, Target, AssetActivity, Asset.Group.Name);
 	}
 }

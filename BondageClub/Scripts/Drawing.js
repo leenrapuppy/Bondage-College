@@ -218,12 +218,11 @@ function DrawArousalThermometer(X, Y, Zoom, Progress, Automatic, Orgasm) {
  * @returns {void} - Nothing
  */
 function DrawArousalMeter(C, X, Y, Zoom) {
-	if (ActivityAllowed() && C.ArousalSettings && (C.ArousalSettings.Active == "Manual" || C.ArousalSettings.Active == "Hybrid" || C.ArousalSettings.Active == "Automatic"))
+	if (ActivityAllowed() && PreferenceArousalAtLeast(C, "Manual"))
 		if (C.ID == 0 || (C.ArousalSettings.Visible == "Access" && C.AllowItem) || C.ArousalSettings.Visible == "All")
 			if (C.ID == 0 || (Player.ArousalSettings.ShowOtherMeter == null) || Player.ArousalSettings.ShowOtherMeter) {
 				ActivitySetArousal(C, C.ArousalSettings.Progress);
-
-				if (Player.ArousalSettings.VFX != "VFXInactive" && C.ArousalSettings.Progress > 0 && (C.ArousalSettings.Active == "Automatic" || C.ArousalSettings.Active == "Hybrid")) {
+				if (Player.ArousalSettings.VFX != "VFXInactive" && C.ArousalSettings.Progress > 0 && PreferenceArousalAtLeast(C, "Hybrid")) {
 					let Progress = 0;
 					if (!(C.ArousalSettings.VibratorLevel == null || typeof C.ArousalSettings.VibratorLevel !== "number" || isNaN(C.ArousalSettings.VibratorLevel))) {
 						Progress = C.ArousalSettings.VibratorLevel;
@@ -249,7 +248,7 @@ function DrawArousalMeter(C, X, Y, Zoom) {
 					Y + (C.ArousalZoom ? 200 : 400) * Zoom,
 					C.ArousalZoom ? Zoom : Zoom * 0.2,
 					C.ArousalSettings.Progress,
-					C.ArousalSettings.Active == "Automatic",
+					PreferenceArousalAtLeast(C, "Automatic"),
 					C.ArousalSettings.OrgasmTimer != null && typeof C.ArousalSettings.OrgasmTimer === "number" && !isNaN(C.ArousalSettings.OrgasmTimer) && C.ArousalSettings.OrgasmTimer > 0);
 
 				if (C.ArousalZoom && (typeof C.ArousalSettings.OrgasmCount === "number") && (C.ArousalSettings.OrgasmCount >= 0) && (C.ArousalSettings.OrgasmCount <= 9999)) {

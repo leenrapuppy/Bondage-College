@@ -978,7 +978,7 @@ function ChatRoomClickCharacter(C, CharX, CharY, Zoom, ClickX, ClickY, Pos) {
 	}
 
 	// If the arousal meter is shown for that character, we can interact with it
-	if (C.ArousalSettings && ["Manual", "Hybrid", "Automatic"].includes(C.ArousalSettings.Active)) {
+	if (PreferenceArousalAtLeast(C, "Manual")) {
 		let MeterShow = C.ID === 0;
 		if (C.ID !== 0 && Player.ArousalSettings.ShowOtherMeter && C.ArousalSettings) {
 			if (C.ArousalSettings.Visible === "Access") {
@@ -994,7 +994,7 @@ function ChatRoomClickCharacter(C, CharX, CharY, Zoom, ClickX, ClickY, Pos) {
 
 			// If the player can manually control her arousal, we set the progress manual and change the facial expression, it can trigger an orgasm at 100%
 			if (C.ID === 0 && MouseIn(CharX + 50 * Zoom, CharY + 200 * Zoom, 100 * Zoom, 500 * Zoom) && C.ArousalZoom) {
-				if (Player.ArousalSettings.Active === "Manual" || Player.ArousalSettings.Active === "Hybrid") {
+				if (PreferenceArousalAtLeast(Player, "Manual") && !PreferenceArousalAtLeast(Player, "Automatic")) {
 					var Arousal = Math.round((CharY + 625 * Zoom - MouseY) / (4 * Zoom));
 					ActivitySetArousal(Player, Arousal);
 					if (Player.ArousalSettings.AffectExpression) ActivityExpression(Player, Player.ArousalSettings.Progress);
