@@ -528,6 +528,7 @@ function AsylumGGTSForbiddenWord(C) {
 	if (ChatRoomChatLog == null) return false;
 	let Level = AsylumGGTSGetLevel(C);
 	if (Level <= 2) return;
+	if (Player.Game.GGTS.Strike >= 3) return;
 	let WordList = ["fuck", "shit"];
 	if (Level >= 4) WordList.push("cunt", "bitch");
 
@@ -657,13 +658,25 @@ function AsylumGGTSControlItem(C, Item) {
  * @returns {void} - Nothing
  */
 function AsylumGGTSAddStrike() {
+	
+	// Adds the strike to the player record
 	Player.Game.GGTS.Strike++;
 	if (Player.Game.GGTS.Strike > 3) Player.Game.GGTS.Strike = 3;
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+
+	// On the third strike, we unlock the room if we can
 	if ((Player.Game.GGTS.Strike >= 3) && AsylumGGTSTaskCanBeDone(Player, "UnlockRoom")) {
 		AsylumGGTSTask = "UnlockRoom";
 		AsylumGGTSAutomaticTask();
 	}
+
+	// On the third strike, we open the leg cuffs if we can
+	if ((Player.Game.GGTS.Strike >= 3) && InventoryIsWorn(Player, "FuturisticAnkleCuffs", "ItemFeet")) {
+		InventoryGet(Player, "ItemFeet").Property = { SetPose: null, Difficulty: 0, Effect: [] };
+		CharacterRefresh(Player);
+		ChatRoomCharacterUpdate(Player);
+	}
+
 }
 
 /**
