@@ -12,7 +12,7 @@ var AsylumGGTSTaskList = [
 	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "ActivityTickle", "ActivityPet", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "ItemUngag", "UnlockRoom"],
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "ActivitySpank", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"],
 	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ActivityWiggle", "ActivityCaress", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
-	["QueryServeObey", "QueryFreeWill", "ActivityMasturbateHand"]
+	["QueryServeObey", "QueryFreeWill", "ActivityMasturbateHand", "ItemPelvisFuturisticChastityBelt", "ItemPelvisFuturisticTrainingBelt"]
 ];
 var AsylumGGTSLevelTime = [0, 10800000, 18000000, 28800000, 46800000];
 var AsylumGGTSPreviousPose = "";
@@ -246,6 +246,8 @@ function AsylumGGTSTaskDone(C, T) {
 	if ((T == "ItemArmsFeetFuturisticCuffs") && InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return true;
 	if ((T == "ItemMouthFuturisticBallGag") && (InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth") || InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth2") || InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth3"))) return true;
 	if ((T == "ItemMouthFuturisticPanelGag") && (InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth") || InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth2") || InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth3") || InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth") || InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth2") || InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth3"))) return true;
+	if ((T == "ItemPelvisFuturisticChastityBelt") && InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis")) return true;
+	if ((T == "ItemPelvisFuturisticTrainingBelt") && InventoryIsWorn(C, "FuturisticTrainingBelt", "ItemPelvis")) return true;
 	if ((T == "PoseKneel") && C.IsKneeling()) return true;
 	if ((T == "PoseStand") && !C.IsKneeling()) return true;
 	if (T == "QueryWhatIsGGTS") return AsylumGGTSQueryDone(Level, C.MemberNumber, "goodgirltrainingsystem", "Good Girl Training System.");
@@ -296,6 +298,8 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T == "ItemArmsFeetFuturisticCuffs") && !C.CanInteract()) return false;
 	if ((T == "ItemMouthFuturisticBallGag") && (!C.CanInteract() || (InventoryGet(C, "ItemMouth") != null) || (InventoryGet(C, "ItemMouth2") != null) || (InventoryGet(C, "ItemMouth3") != null))) return false;
 	if ((T == "ItemMouthFuturisticPanelGag") && (!C.CanInteract() || (InventoryGet(C, "ItemMouth") != null) || (InventoryGet(C, "ItemMouth2") != null) || (InventoryGet(C, "ItemMouth3") != null))) return false;
+	if ((T == "ItemPelvisFuturisticChastityBelt") && (!C.CanInteract() || (InventoryGet(C, "ItemPelvis") != null))) return false;
+	if ((T == "ItemPelvisFuturisticTrainingBelt") && (!C.CanInteract() || (InventoryGet(C, "ItemPelvis") != null))) return false;
 	if (AsylumGGTSTaskDone(C, T)) return false; // If task is already done, we do not pick it
 	return true;
 }
