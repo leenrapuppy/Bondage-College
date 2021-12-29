@@ -4180,6 +4180,7 @@ var AssetFemale3DCGExtended = {
 		Zipties: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR],
 				Options: [
 					{
 						Name: "ZipFeetLight",
