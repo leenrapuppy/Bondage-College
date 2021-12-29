@@ -9,7 +9,7 @@ var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
 	[], // Level 0, 1, 2, 3 & 4 tasks
-	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "ActivityTickle", "ActivityPet", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "ItemUngag", "UnlockRoom"],
+	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "ActivityTickle", "ActivityPet", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "ItemUngag", "ItemChaste", "ItemUnchaste", "UnlockRoom"],
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "ActivitySpank", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"],
 	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ActivityWiggle", "ActivityCaress", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
 	["QueryServeObey", "QueryFreeWill", "ActivityMasturbateHand", "ItemPelvisFuturisticChastityBelt", "ItemPelvisFuturisticTrainingBelt", "ItemBreastFuturisticBra", "ItemBreastFuturisticBra2", "ItemTorsoFuturisticHarness"]
@@ -290,6 +290,8 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	((InventoryGet(C, "ItemMouth") == null) || (InventoryGet(C, "ItemMouth").Asset.Name.substr(0, 10) != "Futuristic")) &&
 	((InventoryGet(C, "ItemMouth2") == null) || (InventoryGet(C, "ItemMouth2").Asset.Name.substr(0, 10) != "Futuristic")) &&
 	((InventoryGet(C, "ItemMouth3") == null) || (InventoryGet(C, "ItemMouth3").Asset.Name.substr(0, 10) != "Futuristic")))) return false;
+	if ((T == "ItemChaste") && (!InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis") || C.IsVulvaChaste())) return false; // Must have unchaste futuristic belt to chaste it
+	if ((T == "ItemUnchaste") && (!InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis") || !C.IsVulvaChaste())) return false; // Must have chaste futuristic belt to unchaste it
 	if ((T == "PoseOverHead") && !C.CanInteract()) return false; // Must be able to use hands for hands poses
 	if ((T == "PoseBehindBack") && !C.CanInteract()) return false; // Must be able to use hands for hands poses
 	if ((T == "PoseLegsClosed") && (C.IsKneeling() || (InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return false; // Close legs only without restraints and not kneeling
@@ -297,7 +299,7 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T == "LockRoom") && (((ChatRoomData != null) && (ChatRoomData.Locked == true)) || !ChatRoomPlayerIsAdmin())) return false; // Can only lock/unlock if admin
 	if ((T == "UnlockRoom") && (((ChatRoomData != null) && (ChatRoomData.Locked == false)) || !ChatRoomPlayerIsAdmin())) return false; // Can only lock/unlock if admin
 	if ((T == "RestrainLegs") && !C.CanInteract()) return false; // To restraint own legs, must be able to interact
-	if ((T.substr(0, 4) == "Item") && !C.CanInteract()) return false; // To use an item, must be able to interact
+	if ((T.substr(0, 4) == "Item") && (T.length >= 15) && !C.CanInteract()) return false; // To use an item, must be able to interact
 	if ((T == "ItemMouthFuturisticBallGag") && ((InventoryGet(C, "ItemMouth") != null) || (InventoryGet(C, "ItemMouth2") != null) || (InventoryGet(C, "ItemMouth3") != null))) return false;
 	if ((T == "ItemMouthFuturisticPanelGag") && ((InventoryGet(C, "ItemMouth") != null) || (InventoryGet(C, "ItemMouth2") != null) || (InventoryGet(C, "ItemMouth3") != null))) return false;
 	if ((T == "ItemPelvisFuturisticChastityBelt") && (InventoryGet(C, "ItemPelvis") != null)) return false;
@@ -381,6 +383,36 @@ function AsylumGGTSAutomaticTask() {
 		AsylumGGTSTaskRemoveFuturisticItem("ItemMouth");
 		AsylumGGTSTaskRemoveFuturisticItem("ItemMouth2");
 		AsylumGGTSTaskRemoveFuturisticItem("ItemMouth3");
+		ChatRoomCharacterUpdate(Player);
+		return AsylumGGTSEndTaskSave();
+	}
+
+	// The ItemChaste task automatically chasten the belt
+	if (AsylumGGTSTask == "ItemChaste") {
+		let Item = InventoryGet(Player, "ItemPelvis");
+		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name == "FuturisticChastityBelt")) {
+			if (Item.Property == null) Item.Property = {};
+			Item.Property.Block = ["ItemVulva", "ItemVulvaPiercings", "ItemButt"];
+			Item.Property.Effect = ["UseRemote", "Chaste"];
+			Item.Property.Type = "m0f1b1t2o0";
+			Item.Color = ["#D06060", "#803030", "Default", "Default", "Default", "Default", "#222222", "Default"];
+		}
+		CharacterRefresh(Player);
+		ChatRoomCharacterUpdate(Player);
+		return AsylumGGTSEndTaskSave();
+	}
+
+	// The ItemUnchaste task automatically unchasten the belt
+	if (AsylumGGTSTask == "ItemUnchaste") {
+		let Item = InventoryGet(Player, "ItemPelvis");
+		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name == "FuturisticChastityBelt")) {
+			if (Item.Property == null) Item.Property = {};
+			Item.Property.Block = [];
+			Item.Property.Effect = ["UseRemote"];
+			Item.Property.Type = "m0f0b0t0o0";
+			Item.Color = ["#93C48C", "#3B7F2C", "Default", "Default", "Default", "Default", "#222222", "Default"];
+		}
+		CharacterRefresh(Player);
 		ChatRoomCharacterUpdate(Player);
 		return AsylumGGTSEndTaskSave();
 	}

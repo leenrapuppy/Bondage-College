@@ -2816,6 +2816,8 @@ GGTSTaskItemTorsoFuturisticHarness,,,[GGTS] SourceCharacter.  Wear futuristic ha
 GGTSTaskItemPose,,,[GGTS] GGTS control SourceCharacter restraints.,,
 GGTSTaskItemRemove,,,[GGTS] GGTS remove SourceCharacter restraints.,,
 GGTSTaskItemUngag,,,[GGTS] GGTS remove SourceCharacter gag.,,
+GGTSTaskItemChaste,,,[GGTS] GGTS enforcing chastity for SourceCharacter.,,
+GGTSTaskItemUnchaste,,,[GGTS] GGTS stop enforcing chastity for SourceCharacter.,,
 GGTSTaskItemArmsFeetFuturisticCuffs,,,[GGTS] SourceCharacter.  Wear futuristic arms and ankles cuffs.,,
 GGTSTaskLockRoom,,,[GGTS] SourceCharacter room locked.,,
 GGTSTaskUnlockRoom,,,[GGTS] SourceCharacter room unlocked.,,
