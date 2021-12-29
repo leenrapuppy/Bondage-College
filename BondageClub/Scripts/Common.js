@@ -446,7 +446,8 @@ function CommonTime() {
  */
 function CommonIsColor(Value) {
 	if ((Value == null) || (Value.length < 3)) return false;
-	if (/^#[0-9A-F]{3}$/i.test(Value)) Value = "#" + Value[1] + Value[1] + Value[2] + Value[2] + Value[3] + Value[3];	//convert short hand hex color to standard format
+	//convert short hand hex color to standard format
+	if (/^#[0-9A-F]{3}$/i.test(Value)) Value = "#" + Value[1] + Value[1] + Value[2] + Value[2] + Value[3] + Value[3];
 	return /^#[0-9A-F]{6}$/i.test(Value);
 }
 

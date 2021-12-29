@@ -333,7 +333,7 @@ function InventoryItemNeckFuturisticCollarUnlock(C) {
 	ChatRoomCharacterUpdate(C);
 	CharacterRefresh(C, true);
 
-	if (CurrentScreen == "ChatRoom")	{
+	if (CurrentScreen == "ChatRoom") {
 		var Dictionary = [
 			{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
 			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
@@ -382,7 +382,7 @@ function InventoryItemNeckFuturisticCollarColor(C, Item) {
 	ChatRoomCharacterUpdate(C);
 	CharacterRefresh(C, true);
 
-	if (CurrentScreen == "ChatRoom")	{
+	if (CurrentScreen == "ChatRoom") {
 		var Dictionary = [
 			{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
 			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
@@ -407,7 +407,7 @@ function InventoryItemNeckFuturisticCollarTogglePermission(C, Item, Permission) 
 			ChatRoomCharacterUpdate(C);
 			CharacterRefresh(C, true);
 
-			if (CurrentScreen == "ChatRoom")	{
+			if (CurrentScreen == "ChatRoom") {
 				var Message = "FuturisticCollarSetOpenPermission" + Permission + (Item.Property[property] ? "On" : "Off");
 
 				var Dictionary = [
@@ -452,7 +452,7 @@ function InventoryItemNeckFuturisticCollarToggleRemotes(C, Item) {
 		ChatRoomCharacterUpdate(C);
 		CharacterRefresh(C, true);
 
-		if (CurrentScreen == "ChatRoom")	{
+		if (CurrentScreen == "ChatRoom") {
 			var Message = "FuturisticCollarSetBlockRemotes" + (Item.Property.BlockRemotes ? "On" : "Off");
 
 			var Dictionary = [

@@ -251,6 +251,7 @@ function PreferenceLoadFetishFactor() {
  */
 function PreferenceInit(C) {
 	// Arousal settings
+	// @ts-ignore: Individual properties validated separately
 	if (!C.ArousalSettings) C.ArousalSettings = {};
 	if (typeof C.ArousalSettings.Active !== "string") C.ArousalSettings.Active = "Hybrid";
 	if (typeof C.ArousalSettings.Visible !== "string") C.ArousalSettings.Visible = "Access";
@@ -341,6 +342,7 @@ function PreferenceInitPlayer() {
 	// If the settings aren't set before, construct them to replicate the default behavior
 
 	// Chat settings
+	// @ts-ignore: Individual properties validated separately
 	if (!C.ChatSettings) C.ChatSettings = {};
 	if (typeof C.ChatSettings.FontSize !== "string") C.ChatSettings.FontSize = "Medium";
 	if (typeof C.ChatSettings.DisplayTimestamps !== "boolean") C.ChatSettings.DisplayTimestamps = true;
@@ -357,11 +359,13 @@ function PreferenceInitPlayer() {
 	if (typeof C.ChatSettings.ShowBeepChat !== "boolean") C.ChatSettings.ShowBeepChat = true;
 
 	// Visual settings
+	// @ts-ignore: Individual properties validated separately
 	if (!C.VisualSettings) C.VisualSettings = {};
 	if (typeof C.VisualSettings.ForceFullHeight !== "boolean") C.VisualSettings.ForceFullHeight = false;
 	if (typeof C.VisualSettings.UseCharacterInPreviews !== "boolean") C.VisualSettings.UseCharacterInPreviews = false;
 
 	// Audio settings
+	// @ts-ignore: Individual properties validated separately
 	if (!C.AudioSettings) C.AudioSettings = {};
 	if (typeof C.AudioSettings.Volume !== "number") C.AudioSettings.Volume = 1;
 	if (typeof C.AudioSettings.PlayBeeps !== "boolean") C.AudioSettings.PlayBeeps = false;
@@ -370,6 +374,7 @@ function PreferenceInitPlayer() {
 	if (typeof C.AudioSettings.Notifications !== "boolean") C.AudioSettings.Notifications = false;
 
 	// Controller settings
+	// @ts-ignore: Individual properties validated separately
 	if (!C.ControllerSettings) C.ControllerSettings = {};
 	if (typeof C.ControllerSettings.ControllerSensitivity !== "number") C.ControllerSettings.ControllerSensitivity = 5;
 	if (typeof C.ControllerSettings.ControllerDeadZone !== "number") C.ControllerSettings.ControllerDeadZone = 0.01;
@@ -406,6 +411,7 @@ function PreferenceInitPlayer() {
 	ControllerActive = C.ControllerSettings.ControllerActive;
 
 	// Gameplay settings
+	// @ts-ignore: Individual properties validated separately
 	if (!C.GameplaySettings) C.GameplaySettings = {};
 	if (typeof C.GameplaySettings.SensDepChatLog !== "string") C.GameplaySettings.SensDepChatLog = "Normal";
 	if (typeof C.GameplaySettings.BlindDisableExamine !== "boolean") C.GameplaySettings.BlindDisableExamine = false;
@@ -416,6 +422,7 @@ function PreferenceInitPlayer() {
 	if (typeof C.GameplaySettings.OfflineLockedRestrained !== "boolean") C.GameplaySettings.OfflineLockedRestrained = false;
 
 	// Immersion settings
+	// @ts-ignore: Individual properties validated separately
 	if (!C.ImmersionSettings) C.ImmersionSettings = {};
 	if (typeof C.ImmersionSettings.BlockGaggedOOC !== "boolean") C.ImmersionSettings.BlockGaggedOOC = false;
 	if (typeof C.ImmersionSettings.StimulationEvents !== "boolean") C.ImmersionSettings.StimulationEvents = true;
@@ -435,12 +442,14 @@ function PreferenceInitPlayer() {
 	if (!C.LastChatRoomBan) C.LastChatRoomBan = [];
 
 	// Restriction settings
+	// @ts-ignore: Individual properties validated separately
 	if (!C.RestrictionSettings) C.RestrictionSettings = {};
 	if (typeof C.RestrictionSettings.BypassStruggle !== "boolean") C.RestrictionSettings.BypassStruggle = false;
 	if (typeof C.RestrictionSettings.SlowImmunity !== "boolean") C.RestrictionSettings.SlowImmunity = false;
 	if (typeof C.RestrictionSettings.BypassNPCPunishments !== "boolean") C.RestrictionSettings.BypassNPCPunishments = false;
 
 	// Online settings
+	// @ts-ignore: Individual properties validated separately
 	if (!C.OnlineSettings) C.OnlineSettings = {};
 	if (typeof C.OnlineSettings.AutoBanBlackList !== "boolean") C.OnlineSettings.AutoBanBlackList = false;
 	if (typeof C.OnlineSettings.AutoBanGhostList !== "boolean") C.OnlineSettings.AutoBanGhostList = true;
@@ -457,6 +466,7 @@ function PreferenceInitPlayer() {
 	delete C.ChatSettings.SearchShowsFullRooms;
 
 	// Onilne shared settings
+	// @ts-ignore: Individual properties validated separately
 	if (!C.OnlineSharedSettings) C.OnlineSharedSettings = {};
 	if (typeof C.OnlineSharedSettings.AllowFullWardrobeAccess !== "boolean") C.OnlineSharedSettings.AllowFullWardrobeAccess = false;
 	if (typeof C.OnlineSharedSettings.BlockBodyCosplay !== "boolean") C.OnlineSharedSettings.BlockBodyCosplay = false;
@@ -471,6 +481,7 @@ function PreferenceInitPlayer() {
 	if (typeof C.OnlineSharedSettings.ItemsAffectExpressions !== "boolean") C.OnlineSharedSettings.ItemsAffectExpressions = true;
 
 	// Graphical settings
+	// @ts-ignore: Individual properties validated separately
 	if (!C.GraphicsSettings) C.GraphicsSettings = {};
 	if (typeof C.GraphicsSettings.Font !== "string") C.GraphicsSettings.Font = "Arial";
 	if (typeof C.GraphicsSettings.InvertRoom !== "boolean") C.GraphicsSettings.InvertRoom = true;
@@ -482,6 +493,7 @@ function PreferenceInitPlayer() {
 
 	// Notification settings
 	let NS = C.NotificationSettings;
+	// @ts-ignore: Individual properties validated separately
 	if (!NS) NS = {};
 	const defaultAudio = typeof NS.Audio === "boolean" && NS.Audio ? NotificationAudioType.FIRST : NotificationAudioType.NONE;
 	if (typeof NS.Beeps !== "object") NS.Beeps = PreferenceInitNotificationSetting(NS.Beeps, defaultAudio, NotificationAlertType.POPUP);
@@ -943,7 +955,7 @@ function PreferenceSubscreenImmersionRun() {
 		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("BlindDisableExamine"), (Player.GameplaySettings.BlindDisableExamine && !bdeForceOff) || bdeForceOn, disableButtons || bdeForceOff || bdeForceOn);
 		CheckHeight += CheckSpacing;
 		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("BlindAdjacent"), Player.ImmersionSettings.BlindAdjacent, disableButtons); CheckHeight += CheckSpacing;
-		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("ChatRoomMuffle"), Player.ImmersionSettings.ChatRoomMuffle, disableButtons);	CheckHeight += CheckSpacing;
+		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("ChatRoomMuffle"), Player.ImmersionSettings.ChatRoomMuffle, disableButtons); CheckHeight += CheckSpacing;
 		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("DisableAutoRemoveLogin"), Player.GameplaySettings.DisableAutoRemoveLogin, disableButtons); CheckHeight += CheckSpacing;
 		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("BlockGaggedOOC"), Player.ImmersionSettings.BlockGaggedOOC, disableButtons); CheckHeight += CheckSpacing;
 		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("AllowPlayerLeashing"), Player.OnlineSharedSettings.AllowPlayerLeashing, disableButtons); CheckHeight += CheckSpacing;

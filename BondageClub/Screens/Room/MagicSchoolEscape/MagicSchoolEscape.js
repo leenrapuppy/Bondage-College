@@ -98,7 +98,7 @@ function MagicSchoolEscapeSpellEnd() {
 			InventoryRemove(Player, "Corset", false);
 			InventoryRemove(Player, "Garters", false);
 			CharacterRefresh(Player);
-			return;			
+			return;
 		}
 		return;
 	}

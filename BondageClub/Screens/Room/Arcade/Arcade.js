@@ -116,10 +116,10 @@ function ArcadeLoad() {
 
 	//if (!InventoryCharacterHasOwnerOnlyRestraint(Player) && !InventoryCharacterHasLoverOnlyRestraint(Player)) {
 		ArcadeDeviousChallenge = LogValue("DeviousChallenge", "Arcade") == 1;
-	//	ArcadeCannotDoDeviousChallenge = false
+	//ArcadeCannotDoDeviousChallenge = false
 	//}
 	//else
-	//	ArcadeCannotDoDeviousChallenge = true
+	//ArcadeCannotDoDeviousChallenge = true
 
 }
 
@@ -135,7 +135,7 @@ function ArcadeRun() {
 	if (Player.CanWalk()) DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png");
 	DrawButton(1885, 145, 90, 90, "", "White", "Icons/Character.png");
 	if (ArcadeCanPlayGames()) DrawButton(1885, 265, 90, 90, "", "White", "Icons/KinkyDungeon.png");
-		else DrawButton(1885, 265, 90, 90, "", "Pink", "Icons/KinkyDungeon.png");
+	else DrawButton(1885, 265, 90, 90, "", "Pink", "Icons/KinkyDungeon.png");
 }
 
 /**
@@ -182,6 +182,6 @@ function ArcadeKinkyDungeonEnd() {
 	CommonSetScreen("Room", "Arcade");
 
 	//if (MiniGameVictory) {
-	
+
 	//}
 }

@@ -64,7 +64,7 @@ function MagicSchoolLaboratoryPrepareNPC(C, House) {
 		InventoryWear(C, "Gloves2", "Gloves", "#AAAAAA");
 		InventoryWear(C, "AnkleStrapShoes", "Shoes", DarkColor);
 	}
-		
+
 }
 
 /**
@@ -258,7 +258,7 @@ function MagicSchoolLaboratoryBuildSister() {
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratoryFindStudent() {
-	
+
 	// 20% odds of spawning a friendly student from the same house
 	if (Math.random() > 0.80) return MagicSchoolLaboratoryBuildSister();
 
@@ -269,7 +269,7 @@ function MagicSchoolLaboratoryFindStudent() {
 		Houses.push("Vincula");
 		Houses.push("Amplector");
 		Houses.push("Corporis");
-		if ((ReputationGet("HouseMaiestas") >= 100) && !LogQuery("Mastery", "MagicSchool") && InventoryAvailable(Player, "SpankingToysRainbowWand", "ItemHands"))	Houses.push("Maiestas");
+		if ((ReputationGet("HouseMaiestas") >= 100) && !LogQuery("Mastery", "MagicSchool") && InventoryAvailable(Player, "SpankingToysRainbowWand", "ItemHands")) Houses.push("Maiestas");
 	}
 	if (ReputationGet("HouseVincula") > 0) {
 		Houses.push("Maiestas");
@@ -381,7 +381,7 @@ function MagicSchoolLaboratoryBattleStudentEnd() {
  * Sets an emote for the student when there's an activity
  * @returns {boolean} - Returns true, if the player can
  */
-function MagicSchoolLaboratoryStudentEmote(Blush, Eyes) { 
+function MagicSchoolLaboratoryStudentEmote(Blush, Eyes) {
 	CharacterSetFacialExpression(MagicSchoolLaboratoryStudent, "Blush", Blush, 5);
 	CharacterSetFacialExpression(MagicSchoolLaboratoryStudent, "Eyes", Eyes, 5);
 }
@@ -390,7 +390,7 @@ function MagicSchoolLaboratoryStudentEmote(Blush, Eyes) {
  * Checks, if the player can bring the student to her private room
  * @returns {boolean} - Returns true, if the player can
  */
-function MagicSchoolLaboratoryCanTransferToRoom() { 
+function MagicSchoolLaboratoryCanTransferToRoom() {
 	return (LogQuery("RentRoom", "PrivateRoom") && (PrivateCharacter.length < PrivateCharacterMax) && !LogQuery("LockOutOfPrivateRoom", "Rule"));
 }
 
@@ -439,17 +439,17 @@ function MagicSchoolLaboratoryReleasePlayer(RepChange) {
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratoryLoserSpell(RepChange) {
-	
+
 	// If we must change the player dom/sub reputation
 	if ((RepChange != "") && (RepChange != "0")) DialogChangeReputation("Dominant", parseInt(RepChange));
-	
+
 	// After many spells, the event ends CHANGE TO 5
 	if (MagicSchoolLaboratorySpellCount >= 5) {
 		MagicSchoolLaboratoryStudent.Stage = "240";
 		MagicSchoolLaboratoryStudent.CurrentDialog = DialogFind(MagicSchoolLaboratoryStudent, "SpellEnd");
 		return;
 	}
-	
+
 	// Finds a valid spell based on the player current predicament.  Some spells can only be done by specific houses.
 	let Spell = "";
 	while (Spell == "") {
@@ -464,7 +464,7 @@ function MagicSchoolLaboratoryLoserSpell(RepChange) {
 		if ((Spell == "Tickle") && (MagicSchoolLaboratoryStudent.House != "Amplector")) Spell = "";
 		if ((Spell == "Pain") && (MagicSchoolLaboratoryStudent.House != "Corporis")) Spell = "";
 	}
-	
+
 	// Applies the spell effect
 	if (Spell == "Arousal") { CharacterSetFacialExpression(Player, "Blush", "High", 8); CharacterSetFacialExpression(Player, "Eyes", "Horny", 8); }
 	if (Spell == "Tickle") { CharacterSetFacialExpression(Player, "Blush", "Medium", 8); CharacterSetFacialExpression(Player, "Eyes", "Surprised", 8); }
@@ -496,7 +496,7 @@ function MagicSchoolLaboratoryLoserSpell(RepChange) {
 		if (InventoryGet(Player, "ItemArms") != "") InventoryWear(Player, "Chains", "ItemArms");
 	}
 	if ((Spell == "FlyingHogtie") || (Spell == "Hogtie") || (Spell == "ReleaseHogtie") || (Spell == "SwitchRope") || (Spell == "SwitchChain")) CharacterRefresh(Player);
-	
+
 	// Shows the spell dialog
 	MagicSchoolLaboratoryLastSpell = Spell;
 	MagicSchoolLaboratoryStudent.Stage = "Spell" + Spell;

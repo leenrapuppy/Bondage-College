@@ -441,7 +441,7 @@ function MagicTrickEndPerformance() {
  * Removes a defined set of restraints from the character. If the adult baby harness chains are removed,
  * mittens and harness are removed as well
  * @param {Character} C - The character whose items should be removed
- * @returns	{void} - Nothing
+ * @returns {void} - Nothing
  */
 function MagicRestrainRemove(C) {
 	let itemArms = InventoryGet(C, "ItemArms");
@@ -458,7 +458,7 @@ function MagicRestrainRemove(C) {
  * Copies restraints from one character to another
  * @param {Character} FromC - The source for all restraints
  * @param {Character} ToC - The target of all restraints
- * @returns	{void} - Nothing
+ * @returns {void} - Nothing
  */
 function MagicRestrainCopyTransfer(FromC, ToC) {
 	var chainFound = false;

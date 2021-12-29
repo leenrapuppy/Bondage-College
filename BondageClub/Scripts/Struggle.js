@@ -1133,7 +1133,7 @@ function StruggleLockPickProgressStart(C, Item) {
 			LockRating = lock.Asset.PickDifficulty; // Some features of the minigame are independent of the relative skill level
 		}
 		//if (Item.Asset && Item.Asset.Difficulty) {
-		//	S -= BondageLevel/2 // Adds the bondage skill of the item but not the base difficulty!
+		//S -= BondageLevel/2 // Adds the bondage skill of the item but not the base difficulty!
 		//}
 
 		if (Player.IsEnclose() || Player.IsMounted()) S = S - 2; // A little harder if there's an enclosing or mounting item

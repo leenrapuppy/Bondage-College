@@ -40,7 +40,7 @@ function AsylumGGTSLevelCompleted() {
 /**
  * Returns the character GGTS level
  * @param {Character} C - The character to evaluate
- * @returns {void} - Nothing
+ * @returns {number} - Nothing
  */
 function AsylumGGTSGetLevel(C) {
 	return ((C.Game != null) && (C.Game.GGTS != null) && (C.Game.GGTS.Level != null) && (C.Game.GGTS.Level >= 1) && (C.Game.GGTS.Level <= 10)) ? C.Game.GGTS.Level : 0;
@@ -344,7 +344,7 @@ function AsylumGGTSTaskRemoveFuturisticItem(Group) {
  * @returns {void} - Nothing
  */
 function AsylumGGTSAutomaticTask() {
-	
+
 	// The ItemPose task automatically changes the futuristic items pose
 	if (AsylumGGTSTask == "ItemPose") {
 		let Refresh = false;
@@ -439,7 +439,7 @@ function AsylumGGTSAutomaticTask() {
 		AsylumGGTSAddRule(AsylumGGTSTask.substr(7, 100), false);
 		return AsylumGGTSEndTaskSave();
 	}
-	
+
 	// The UndoRule tasks removes a rule set by GGTS for the player to obey
 	if (AsylumGGTSTask.substr(0, 8) == "UndoRule") {
 		AsylumGGTSRemoveRule(AsylumGGTSTask.substr(8, 100));
@@ -607,7 +607,7 @@ function AsylumGGTSForbiddenWord(C) {
  * @returns {void} - Nothing
  */
 function AsylumGGTSProcess() {
-	
+
 	// If intro isn't done, we introduce the character and show her status
 	if ((ChatRoomData == null) || (ChatRoomData.Game == null) || (ChatRoomData.Game != "GGTS")) return;
 	if (!AsylumGGTSIntroDone) {
@@ -717,7 +717,7 @@ function AsylumGGTSControlItem(C, Item) {
  * @returns {void} - Nothing
  */
 function AsylumGGTSAddStrike() {
-	
+
 	// Adds the strike to the player record
 	Player.Game.GGTS.Strike++;
 	if (Player.Game.GGTS.Strike > 3) Player.Game.GGTS.Strike = 3;

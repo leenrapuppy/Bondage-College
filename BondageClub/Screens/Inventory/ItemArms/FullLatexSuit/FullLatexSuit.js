@@ -35,7 +35,7 @@ function InventoryItemArmsFullLatexSuitDraw() {
 		InventoryGet(C, "ItemVulvaPiercings").Asset.Effect.indexOf("Chaste") == -1)
 		if (InventoryGet(C, "ItemVulva") == null) {
 			DrawText(DialogFindPlayer("FullLatexSuitTypeWand"), 1488, 725, "white", "gray");
-			DrawPreviewBox(1375, 750, `${inventoryPath}/Wand.png`, "", {	Hover: true });
+			DrawPreviewBox(1375, 750, `${inventoryPath}/Wand.png`, "", { Hover: true });
 		} else
 			DrawText(DialogFindPlayer("CheckVulvaForWand"), 1500, 690, "white", "gray");
 

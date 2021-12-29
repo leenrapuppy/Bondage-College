@@ -50,7 +50,7 @@ function PandoraPrisonRun() {
 		if (PandoraWillpower < PandoraMaxWillpower) PandoraWillpower++;
 		PandoraWillpowerTimer = PandoraWillpowerTimer + ((InfiltrationPerksActive("Recovery")) ? 20000 : 30000);
 	}
-	
+
 	// When the character timer ticks, the guard can come in or leave
 	if ((Player.Infiltration.Punishment.Timer >= CurrentTime) && (PandoraPrisonCharacterTimer < CommonTime()) && (CurrentCharacter == null) && !PandoraPrisonEscaped) {
 		PandoraPrisonBribeEnabled = true;
@@ -114,7 +114,7 @@ function PandoraPrisonReleasePlayer() {
 function PandoraPrisonExitPrison() {
 	CharacterRelease(Player);
 	CharacterRelease(PandoraPrisonGuard);
-	PandoraDress(PandoraPrisonGuard, "Guard");	
+	PandoraDress(PandoraPrisonGuard, "Guard");
 	PandoraPrisonGuard.AllowItem = false;
 	PandoraPrisonEscaped = false;
 	CharacterSetActivePose(Player, null);
@@ -129,13 +129,13 @@ function PandoraPrisonExitPrison() {
  * When the player gets ungagged by an NPC, we remove everything on the head
  * @returns {void} - Nothing
  */
-function PandoraPrisonPlayerUngag() { 
+function PandoraPrisonPlayerUngag() {
 	InventoryRemove(Player, "ItemHead");
 	InventoryRemove(Player, "ItemHood");
 	InventoryRemove(Player, "ItemNose");
 	InventoryRemove(Player, "ItemMouth");
 	InventoryRemove(Player, "ItemMouth2");
-	InventoryRemove(Player, "ItemMouth3");	
+	InventoryRemove(Player, "ItemMouth3");
 }
 
 /**
@@ -148,7 +148,7 @@ function PandoraPrisonPlayerRestrain(Level) {
 	CharacterFullRandomRestrain(Player, Level);
 	let Item = InventoryGet(Player, "ItemArms");
 	if (Item != null) {
-		if (Item.Difficulty == null) Item.Difficulty = 0;		
+		if (Item.Difficulty == null) Item.Difficulty = 0;
 		Item.Difficulty = parseInt(Item.Difficulty) + parseInt(InfiltrationDifficulty) + 1;
 		if ((Player.Infiltration.Punishment.FightDone != null) && Player.Infiltration.Punishment.FightDone) Item.Difficulty = Item.Difficulty + 5;
 	}

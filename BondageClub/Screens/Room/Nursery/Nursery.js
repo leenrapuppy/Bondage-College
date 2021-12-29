@@ -5,7 +5,8 @@ var NurseryJustClicked = null;
 var NurseryNurse = null;
 var NurseryABDL1 = null;
 var NurseryABDL2 = null;
-var NurseryPlayerBadBabyStatus = 0;						//	0 = Good girl	1 = ready to be forgiven	>= 2 = severity of naughtiness.
+/** 0 = Good girl; 1 = ready to be forgiven; >= 2 = severity of naughtiness. */
+var NurseryPlayerBadBabyStatus = 0;
 var NurseryPlayerInappropriateCloth = null;
 var NurseryCoolDownTime = 0;
 var NurseryPlayerAppearance = null;
@@ -17,8 +18,10 @@ var RandomResultB = null;
 var PreviousDress = "";
 var PreviousDressColor = "";
 var NurseryPlayerKeepsLoosingBinky = null;
-var NurseryGateMsg = null;								// message about nursery gate
-var NurseryLeaveMsg = null;								// message about ease of opening nursery gate
+/** message about nursery gate  */
+var NurseryGateMsg = null;
+/** message about ease of opening nursery gate */
+var NurseryLeaveMsg = null;
 var NurseryEscapeAttempts = null;
 var NursuryEscapeFailMsg = null;
 var NurseryRepeatOffender = null;
@@ -148,7 +151,8 @@ function NurseryDrawText() {
 	if (NurseryLeaveMsg == 5) DrawTextWrap(TextGet("EscapeFail1"), 1025, 500, 840, 160, "White");
 	if (NurseryLeaveMsg == 6) DrawTextWrap(TextGet("EscapeFail2"), 1025, 500, 840, 160, "White");
 	if (NurseryLeaveMsg == 7) DrawTextWrap(TextGet("EscapeFail3"), 1025, 500, 840, 160, "White");
-	//if (NurseryLeaveMsg) DrawTextWrap(TextGet(RandomNumber), 200, 500, 840, 160, "White");				// for testing only
+	// for testing only
+	//if (NurseryLeaveMsg) DrawTextWrap(TextGet(RandomNumber), 200, 500, 840, 160, "White");
 }
 
 // Loads the nurse and correct stage for particular situations
@@ -402,15 +406,15 @@ function NurseryReplaceSkill() {
 
 // Player changes dress
 function NurseryPlayerChangeDress() {
-		CharacterChangeMoney(Player, -5);
-		NurseryPlayerWearBabyDress();
+	CharacterChangeMoney(Player, -5);
+	NurseryPlayerWearBabyDress();
 }
 
 // Player changes dress
 function NurseryPlayerChangeDressColor() {
-		CharacterChangeMoney(Player, -5);
-		NurseryRandomColorSelection();
-		InventoryWear(Player, RandomResultB, "Cloth", RandomResult);
+	CharacterChangeMoney(Player, -5);
+	NurseryRandomColorSelection();
+	InventoryWear(Player, RandomResultB, "Cloth", RandomResult);
 }
 
 // Player changes dress
@@ -461,21 +465,21 @@ function NurseryEscapeGate() {
 		if (InventoryGet(Player, "ItemArms") == "LeatherArmbinder") RandomNumber = RandomNumber + 6;
 
 		// Work out escape result
-		if (RandomNumber <= 2) {										// Player manages to open gate
+		if (RandomNumber <= 2) { // Player manages to open gate
 			NurseryLeaveMsg = 3;
-		} else {														// Player fails to escape....
-			if (RandomNumber > (14 - NurseryEscapeAttempts)) {			// and nurse notices player
+		} else { // Player fails to escape....
+			if (RandomNumber > (14 - NurseryEscapeAttempts)) { // and nurse notices player
 				NurseryEscapeAttempts = NurseryEscapeAttempts - 4;
 				NurseryNurse.Stage = "280";
 				NurseryLoadNurse();
 			} else {
-				if (RandomNumber > 8) {									// and makes a lot of noise
+				if (RandomNumber > 8) { // and makes a lot of noise
 					NurseryLeaveMsg = 6;
 					NurseryEscapeAttempts++;
-					if (NursuryEscapeFailMsg == 1) NurseryLeaveMsg = 7;	// and makes a lot of noise and vibrator
+					if (NursuryEscapeFailMsg == 1) NurseryLeaveMsg = 7; // and makes a lot of noise and vibrator
 				} else {
-					NurseryLeaveMsg = 4;								// and failed quietly
-					if (NursuryEscapeFailMsg == 1) NurseryLeaveMsg = 5;	// and failed quietly, distracted by vibrator
+					NurseryLeaveMsg = 4; // and failed quietly
+					if (NursuryEscapeFailMsg == 1) NurseryLeaveMsg = 5; // and failed quietly, distracted by vibrator
 				}
 			}
 		}

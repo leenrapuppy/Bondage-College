@@ -148,7 +148,7 @@ function CafeConsumeSpeciiality() {
 	else {
 		CharacterChangeMoney(Player, CafePrice * -1);
 		if (!LogQuery("ModifierDuration", "SkillModifier")) LogAdd("ModifierLevel", "SkillModifier", 0);
-			SkillModifier = LogValue("ModifierLevel", "SkillModifier");
+		SkillModifier = LogValue("ModifierLevel", "SkillModifier");
 
 		if (CafeAskedFor == "EnergyDrink") {
 			if (SkillModifier >= SkillModifierMax) CafeMaid.CurrentDialog = DialogFind(CafeMaid, "EnergyDrinkLimit");
@@ -394,11 +394,16 @@ function CafeRamdomBound() {
  * @returns {void} - Nothing
  */
 function CafeRefillTray() {
-	if (MaidQuartersOnlineDrinkCount >= 4) ReputationProgress("Maid", 4);								// bonus rep on refill if served enough
-	MaidQuartersOnlineDrinkValue = MaidQuartersOnlineDrinkValue + (MaidQuartersOnlineDrinkCount * 3);	// top up equiverlant to basic pay for serving a tray + a small bonus
-	MaidQuartersOnlineDrinkCount = 0;																	// Refill try ready to serve again.
-	MaidQuartersOnlineDrinkCustomer = [];																// Allow serving the previous customers again.
-	InventoryWear(Player, "WoodenMaidTrayFull", "ItemMisc");											// Make sure tray is not empty.
+	// bonus rep on refill if served enough
+	if (MaidQuartersOnlineDrinkCount >= 4) ReputationProgress("Maid", 4);
+	// top up equiverlant to basic pay for serving a tray + a small bonus
+	MaidQuartersOnlineDrinkValue = MaidQuartersOnlineDrinkValue + (MaidQuartersOnlineDrinkCount * 3);
+	// Refill try ready to serve again.
+	MaidQuartersOnlineDrinkCount = 0;
+	// Allow serving the previous customers again.
+	MaidQuartersOnlineDrinkCustomer = [];
+	// Make sure tray is not empty.
+	InventoryWear(Player, "WoodenMaidTrayFull", "ItemMisc");
 }
 
 /**

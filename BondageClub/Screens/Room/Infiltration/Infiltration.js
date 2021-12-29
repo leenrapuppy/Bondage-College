@@ -113,7 +113,7 @@ function InfiltrationSelectChallenge(Difficulty) {
  * @returns {void} - Nothing
  */
 function InfiltrationPrepareMission() {
-	InfiltrationMission	= CommonRandomItemFromList(InfiltrationMission, InfiltrationMissionType);
+	InfiltrationMission = CommonRandomItemFromList(InfiltrationMission, InfiltrationMissionType);
 	if ((InfiltrationMission == "Rescue") || (InfiltrationMission == "Kidnap")) {
 		let C = {};
 		CharacterRandomName(C);
@@ -334,7 +334,7 @@ function InfiltrationStealItems() {
  * @returns {void} - Nothing
  */
 function InfiltrationStartPandoraLock() {
-	InfiltrationMission	= "Retrieve";
+	InfiltrationMission = "Retrieve";
 	InfiltrationTarget.Type = "PandoraPadlockKeys";
 	InfiltrationTarget.Name = DialogFind(InfiltrationSupervisor, "Object" + InfiltrationTarget.Type);
 	InfiltrationTarget.Found = false;
@@ -367,7 +367,7 @@ function InfiltrationRansomFriend() {
  * @returns {void} - Nothing
  */
 function InfiltrationStartNPCRescue() {
-	InfiltrationMission	= "Rescue";
+	InfiltrationMission = "Rescue";
 	InfiltrationTarget.Type = "NPC";
 	InfiltrationTarget.Name = PrivateRansomCharacter.Name;
 	InfiltrationTarget.PrivateRoom = true;

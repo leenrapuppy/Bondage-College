@@ -48,7 +48,7 @@ function PandoraLoad() {
 function PandoraDirectionButtonColor(Direction) {
 	if ((PandoraMoveDirectionTimer.Timer >= CommonTime()) && (PandoraMoveDirectionTimer.Direction === Direction))
 		return PandoraDirectionAvailable(Direction) ? (((Direction == PandoraCurrentRoom.DirectionMap[0]) && InfiltrationPerksActive("Cartographer") && (PandoraCurrentRoom.Background != "Entrance")) ? "#BFFF40" : "#80FF80") : "#408040";
-	else 
+	else
 		return PandoraDirectionAvailable(Direction) ? (((Direction == PandoraCurrentRoom.DirectionMap[0]) && InfiltrationPerksActive("Cartographer") && (PandoraCurrentRoom.Background != "Entrance")) ? "#FFFF00" : "White") : "#BF8080";
 }
 
@@ -75,7 +75,7 @@ function PandoraRun() {
 	if (PandoraCurrentRoom.SearchSquare != null)
 		for (let S = 0; S < PandoraCurrentRoom.SearchSquare.length; S++)
 			DrawRect(PandoraCurrentRoom.SearchSquare[S].X, PandoraCurrentRoom.SearchSquare[S].Y, PandoraCurrentRoom.SearchSquare[S].W, PandoraCurrentRoom.SearchSquare[S].H, "#00FFFF7F");
-	
+
 	// In search mode, we draw all previous searches done in that area
 	if (PandoraMode == "Search") {
 		DrawButton(1885, 885, 90, 90, "", "White", "Icons/Search.png", TextGet("SearchStop"));
@@ -88,7 +88,7 @@ function PandoraRun() {
 		DrawProgressBar(1785, 954, 205, 36, Math.round(PandoraWillpower / PandoraMaxWillpower * 100));
 		DrawText(PandoraWillpower.toString(), 1888, 973, "black", "white");
 		DrawCharacter(Player, 750, 0, 1);
-		if (PandoraModeTimer < CommonTime()) {			
+		if (PandoraModeTimer < CommonTime()) {
 			PandoraWillpower = PandoraWillpower + 1;
 			if (PandoraWillpower > PandoraMaxWillpower) PandoraWillpower = PandoraMaxWillpower;
 			PandoraModeTimer = CommonTime() + ((InfiltrationPerksActive("Recovery")) ? 10000 : 12000);
@@ -135,7 +135,7 @@ function PandoraRun() {
  * @returns {void} - Nothing
  */
 function PandoraSetMode(NewMode) {
-	
+
 	// Exit from a previous mode if needed
 	if ((PandoraMode == "Rest") && (NewMode == "") && (PandoraModeAppearance != null)) {
 		Player.Appearance = PandoraModeAppearance.slice(0);
@@ -884,9 +884,9 @@ function PandoraQuizStart() {
  * @returns {void} - Nothing
  */
 function PandoraQuizNext() {
-	let Question = Math.floor(Math.random() * 11); 
+	let Question = Math.floor(Math.random() * 11);
 	while (CurrentCharacter.QuizLog.indexOf(Question) >= 0)
-		Question = Math.floor(Math.random() * 11); 
+		Question = Math.floor(Math.random() * 11);
 	CurrentCharacter.QuizLog.push(Question);
 	CurrentCharacter.CurrentDialog = DialogFind(CurrentCharacter, "QuizQuestion" + Question.toString());
 }
@@ -912,13 +912,13 @@ function PandoraQuizAnswer(Answer) {
  * When the player gets ungagged by an NPC, we remove everything on the head
  * @returns {void} - Nothing
  */
-function PandoraPlayerUngag() { 
+function PandoraPlayerUngag() {
 	InventoryRemove(Player, "ItemHead");
 	InventoryRemove(Player, "ItemHood");
 	InventoryRemove(Player, "ItemNose");
 	InventoryRemove(Player, "ItemMouth");
 	InventoryRemove(Player, "ItemMouth2");
-	InventoryRemove(Player, "ItemMouth3");	
+	InventoryRemove(Player, "ItemMouth3");
 }
 
 /**

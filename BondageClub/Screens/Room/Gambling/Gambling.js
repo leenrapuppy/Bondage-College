@@ -9,16 +9,23 @@ var GamblingNpcDice = null;
 var GamblingPlayerDiceStack = [];
 var GamblingNpcDiceStack = [];
 var GamblingPlayerSubState = 0;
-var GamblingNpcSubState = 0;	//Game-State of NPC
-var GamblingPlayerIsFox = true;	//Player is Fox by Fox and Hunter
-var GamblingMoneyBet = 0;	//Money Bet in Current Game
-var GamblingShowDiceSum = true; //Show Summ of Dice Dots in DiceStack
-var GamblingShowMoney = false;	//Show Money in DiceStack
+/** Game-State of NPC */
+var GamblingNpcSubState = 0;
+/** Player is Fox by Fox and Hunter */
+var GamblingPlayerIsFox = true;
+/** Money Bet in Current Game */
+var GamblingMoneyBet = 0;
+/** Show Summ of Dice Dots in DiceStack */
+var GamblingShowDiceSum = true;
+/** Show Money in DiceStack */
+var GamblingShowMoney = false;
 var GamblingAppearanceFirst = null;
 var GamblingAppearanceSecond = null;
 var GamblingAppearancePlayer = null;
-var GamblingIllegalChange = false; // Sub Player lost Cloth although forbidden by Mistress
-var GamblingToothpickCount = 0; // available Toothpicks
+/** Sub Player lost Cloth although forbidden by Mistress */
+var GamblingIllegalChange = false;
+/** available Toothpicks */
+var GamblingToothpickCount = 0;
 
 // Returns TRUE if the player has maids disabled
 /**

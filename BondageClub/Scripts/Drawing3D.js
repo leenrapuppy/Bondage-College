@@ -158,7 +158,7 @@ function dress3DModels(group, path3d){
 		let group2 = [ "Cloth/TopMaid","Panties/PantieMaid", "Bra/MaidBra", "ItemNeck/MaidCollar", "Shoes/HighHeels"];
 		count = 3;
 		// }else{
-		// 	let group = Character[0].Appearance.length -1;
+		// let group = Character[0].Appearance.length -1;
 		// }
 		for (let i of group2){
 			let subst = i.indexOf("/");
@@ -167,9 +167,9 @@ function dress3DModels(group, path3d){
 			let itemcolor = "#ADD8E6";
 			let itemname = i.slice(subst);
 			// }else {
-			// 	let grpname =	Character[0].Appearance[i].Asset.DynamicGroupName;
-			// 	let itemname = Character[0].Appearance[i].Asset.Name;
-			// 	let itemcolor = Character[0].Appearance[i].Color;
+			// let grpname = Character[0].Appearance[i].Asset.DynamicGroupName;
+			// let itemname = Character[0].Appearance[i].Asset.Name;
+			// let itemcolor = Character[0].Appearance[i].Color;
 
 
 			let loader = new THREE.FBXLoader();
@@ -207,7 +207,7 @@ function refresh3DModel (group, path3d){
 	scene.remove(group);
 	let chale = Character[0].Appearance.length -1;
 	for(let i = 0; i < chale; i++){
-		let grpname =	Character[0].Appearance[i].Asset.DynamicGroupName;
+		let grpname = Character[0].Appearance[i].Asset.DynamicGroupName;
 		let itemname = Character[0].Appearance[i].Asset.Name;
 		let itemcolor = Character[0].Appearance[i].Color;
 		if (grpname == "BodyUpper" && itemcolor == "Black") itemname = "Dark Skin";
@@ -243,11 +243,11 @@ function refresh3DModel (group, path3d){
 
 // 3d environment
 // function env3D(loader){
-// 	loader.load(`${path3d}${}.fbx`, function(object){
-// 		env = object;
-// 		env.castShadow = true;
-// 		env.receiveShadow = true;
-// 	});
+// loader.load(`${path3d}${}.fbx`, function(object){
+// env = object;
+// env.castShadow = true;
+// env.receiveShadow = true;
+// });
 // }
 
 // function animations(loader){
@@ -255,5 +255,5 @@ function refresh3DModel (group, path3d){
 //
 // }
 // function animate(){
-// 	requestAnimationFrame(animate);
+// requestAnimationFrame(animate);
 // }

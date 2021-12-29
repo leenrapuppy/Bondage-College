@@ -83,10 +83,10 @@ var DialogFavoriteStateDetails = [
  * The list of menu types available when clicking on yourself
  * @const
  * @type {Array.<{
- *	Name: string,
- *	IsAvailable: () => boolean,
- *	Draw: () => void,
- *	Click: () => void
+ *     Name: string,
+ *     IsAvailable: () => boolean,
+ *     Draw: () => void,
+ *     Click: () => void
  * }>}
  */
 var DialogSelfMenuOptions = [
@@ -850,7 +850,7 @@ function DialogMenuButtonBuild(C) {
 			if (C.FocusGroup.Name == "ItemMouth" || C.FocusGroup.Name == "ItemMouth2" || C.FocusGroup.Name == "ItemMouth3") DialogMenuButton.push("ChangeLayersMouth");
 			if (IsItemLocked && DialogCanUnlock(C, Item) && InventoryAllow(C, Item.Asset) && !IsGroupBlocked && ((C.ID != 0) || Player.CanInteract())) {  DialogMenuButton.push("Remove"); }
 			if (IsItemLocked && ((!Player.IsBlind() || (Item.Property && DialogCanInspectLockWhileBlind(Item.Property.LockedBy))) || (InventoryAllow(
-					C, Item.Asset) && !IsGroupBlocked && !InventoryGroupIsBlocked(Player, "ItemHands") && InventoryItemIsPickable(Item))  && (C.ID == 0 || (C.OnlineSharedSettings && !C.OnlineSharedSettings.DisablePickingLocksOnSelf)))
+				C, Item.Asset) && !IsGroupBlocked && !InventoryGroupIsBlocked(Player, "ItemHands") && InventoryItemIsPickable(Item))  && (C.ID == 0 || (C.OnlineSharedSettings && !C.OnlineSharedSettings.DisablePickingLocksOnSelf)))
 				&& (Item.Property != null) && (Item.Property.LockedBy != null) && (Item.Property.LockedBy != "")
 			) {
 				DialogMenuButton.push("LockMenu");
