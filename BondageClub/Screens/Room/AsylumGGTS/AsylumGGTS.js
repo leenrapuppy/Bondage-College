@@ -12,7 +12,7 @@ var AsylumGGTSTaskList = [
 	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "ActivityTickle", "ActivityPet", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "ItemUngag", "UnlockRoom"],
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "ActivitySpank", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"],
 	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ActivityWiggle", "ActivityCaress", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
-	["QueryServeObey", "QueryFreeWill", "ActivityMasturbateHand", "ItemPelvisFuturisticChastityBelt", "ItemPelvisFuturisticTrainingBelt"]
+	["QueryServeObey", "QueryFreeWill", "ActivityMasturbateHand", "ItemPelvisFuturisticChastityBelt", "ItemPelvisFuturisticTrainingBelt", "ItemBreastFuturisticBra", "ItemBreastFuturisticBra2", "ItemTorsoFuturisticHarness"]
 ];
 var AsylumGGTSLevelTime = [0, 10800000, 18000000, 28800000, 46800000];
 var AsylumGGTSPreviousPose = "";
@@ -248,6 +248,9 @@ function AsylumGGTSTaskDone(C, T) {
 	if ((T == "ItemMouthFuturisticPanelGag") && (InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth") || InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth2") || InventoryIsWorn(C, "FuturisticHarnessPanelGag", "ItemMouth3") || InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth") || InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth2") || InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth3"))) return true;
 	if ((T == "ItemPelvisFuturisticChastityBelt") && InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis")) return true;
 	if ((T == "ItemPelvisFuturisticTrainingBelt") && InventoryIsWorn(C, "FuturisticTrainingBelt", "ItemPelvis")) return true;
+	if ((T == "ItemBreastFuturisticBra") && InventoryIsWorn(C, "FuturisticBra", "ItemBreast")) return true;
+	if ((T == "ItemBreastFuturisticBra2") && InventoryIsWorn(C, "FuturisticBra2", "ItemBreast")) return true;
+	if ((T == "ItemTorsoFuturisticHarness") && InventoryIsWorn(C, "FuturisticHarness", "ItemTorso")) return true;
 	if ((T == "PoseKneel") && C.IsKneeling()) return true;
 	if ((T == "PoseStand") && !C.IsKneeling()) return true;
 	if (T == "QueryWhatIsGGTS") return AsylumGGTSQueryDone(Level, C.MemberNumber, "goodgirltrainingsystem", "Good Girl Training System.");
@@ -293,13 +296,15 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T == "PoseLegsOpen") && (C.IsKneeling() || (InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return false; // Open legs only without restraints and not kneeling
 	if ((T == "LockRoom") && (((ChatRoomData != null) && (ChatRoomData.Locked == true)) || !ChatRoomPlayerIsAdmin())) return false; // Can only lock/unlock if admin
 	if ((T == "UnlockRoom") && (((ChatRoomData != null) && (ChatRoomData.Locked == false)) || !ChatRoomPlayerIsAdmin())) return false; // Can only lock/unlock if admin
-	if ((T == "RestrainLegs") && !C.CanInteract()) return false;
-	if ((T == "ItemArmsFuturisticCuffs") && !C.CanInteract()) return false;
-	if ((T == "ItemArmsFeetFuturisticCuffs") && !C.CanInteract()) return false;
-	if ((T == "ItemMouthFuturisticBallGag") && (!C.CanInteract() || (InventoryGet(C, "ItemMouth") != null) || (InventoryGet(C, "ItemMouth2") != null) || (InventoryGet(C, "ItemMouth3") != null))) return false;
-	if ((T == "ItemMouthFuturisticPanelGag") && (!C.CanInteract() || (InventoryGet(C, "ItemMouth") != null) || (InventoryGet(C, "ItemMouth2") != null) || (InventoryGet(C, "ItemMouth3") != null))) return false;
-	if ((T == "ItemPelvisFuturisticChastityBelt") && (!C.CanInteract() || (InventoryGet(C, "ItemPelvis") != null))) return false;
-	if ((T == "ItemPelvisFuturisticTrainingBelt") && (!C.CanInteract() || (InventoryGet(C, "ItemPelvis") != null))) return false;
+	if ((T == "RestrainLegs") && !C.CanInteract()) return false; // To restraint own legs, must be able to interact
+	if ((T.substr(0, 4) == "Item") && !C.CanInteract()) return false; // To use an item, must be able to interact
+	if ((T == "ItemMouthFuturisticBallGag") && ((InventoryGet(C, "ItemMouth") != null) || (InventoryGet(C, "ItemMouth2") != null) || (InventoryGet(C, "ItemMouth3") != null))) return false;
+	if ((T == "ItemMouthFuturisticPanelGag") && ((InventoryGet(C, "ItemMouth") != null) || (InventoryGet(C, "ItemMouth2") != null) || (InventoryGet(C, "ItemMouth3") != null))) return false;
+	if ((T == "ItemPelvisFuturisticChastityBelt") && (InventoryGet(C, "ItemPelvis") != null)) return false;
+	if ((T == "ItemPelvisFuturisticTrainingBelt") && (InventoryGet(C, "ItemPelvis") != null)) return false;
+	if ((T == "ItemBreastFuturisticBra") && (InventoryGet(C, "ItemBreast") != null)) return false;
+	if ((T == "ItemBreastFuturisticBra2") && (InventoryGet(C, "ItemBreast") != null)) return false;
+	if ((T == "ItemTorsoFuturisticHarness") && (InventoryGet(C, "ItemTorso") != null)) return false;
 	if (AsylumGGTSTaskDone(C, T)) return false; // If task is already done, we do not pick it
 	return true;
 }
