@@ -425,9 +425,14 @@ function AsylumGGTSAutomaticTask() {
 			if (Item.Property == null) Item.Property = {};
 			Item.Property.Block = ["ItemVulva", "ItemVulvaPiercings", "ItemButt"];
 			Item.Property.Effect = ["Vibrating", "Egged", "UseRemote"];
-			Item.Property.Intensity = 2;
-			Item.Property.Mode = "Maximum";
-			Item.Color = ["#3B7F2C", "#93C48C", "#93C48C", "Default", "Default", "Default"];
+			let Intensity = Item.Property.Intensity;
+			while ((Item.Property.Intensity == null) || (Item.Property.Intensity == Intensity))
+				Item.Property.Intensity = Math.floor(Math.random() * 5) - 1;
+			if (Item.Property.Intensity == -1) Item.Color = ["#3B7F2C", "#93C48C", "#93C48C", "Default", "Default", "Default"];
+			if (Item.Property.Intensity == 0) Item.Color = ["#4F7F2C", "#A3C48C", "#A3C48C", "Default", "Default", "Default"];
+			if (Item.Property.Intensity == 1) Item.Color = ["#6F6F2C", "#AFAF8C", "#AFAF8C", "Default", "Default", "Default"];
+			if (Item.Property.Intensity == 2) Item.Color = ["#7F4F2C", "#C4A38C", "#C4A38C", "Default", "Default", "Default"];
+			if (Item.Property.Intensity == 3) Item.Color = ["#7F2C2C", "#C48C8C", "#C48C8C", "Default", "Default", "Default"];
 		}
 		CharacterRefresh(Player);
 		ChatRoomCharacterUpdate(Player);

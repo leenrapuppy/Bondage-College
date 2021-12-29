@@ -531,9 +531,12 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptUpdatePlayer(data, LastTime
 }
 
 function AssetsItemPelvisFuturisticTrainingBeltScriptStateMachine(data) {
-	var update = false;
-
+	
+	// GGTS level 4 or more can short-cut the state machine
+	if ((CurrentModule == "Online") && (CurrentScreen == "ChatRoom") && (ChatRoomGame == "GGTS") && (ChatRoomSpace != null) && (ChatRoomSpace == "Asylum") && (AsylumGGTSGetLevel(Player) >= 4)) return;
+	
 	// We have a state machine
+	var update = false;
 	var Item = data.Item;
 	var C = data.C;
 	let PersistentData = data.PersistentData();
