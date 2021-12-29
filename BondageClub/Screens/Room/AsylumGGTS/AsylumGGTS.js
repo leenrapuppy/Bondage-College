@@ -9,7 +9,7 @@ var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
 	[], // Level 0, 1, 2, 3 & 4 tasks
-	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "ActivityTickle", "ActivityPet", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "ItemUngag", "ItemChaste", "ItemUnchaste", "UnlockRoom"],
+	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "ActivityTickle", "ActivityPet", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemPose", "ItemRemove", "ItemUngag", "ItemChaste", "ItemUnchaste", "ItemIntensity", "UnlockRoom"],
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "ActivitySpank", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"],
 	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ActivityWiggle", "ActivityCaress", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
 	["QueryServeObey", "QueryFreeWill", "ActivityMasturbateHand", "ItemPelvisFuturisticChastityBelt", "ItemPelvisFuturisticTrainingBelt", "ItemBreastFuturisticBra", "ItemBreastFuturisticBra2", "ItemTorsoFuturisticHarness"]
@@ -292,6 +292,7 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	((InventoryGet(C, "ItemMouth3") == null) || (InventoryGet(C, "ItemMouth3").Asset.Name.substr(0, 10) != "Futuristic")))) return false;
 	if ((T == "ItemChaste") && (!InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis") || C.IsVulvaChaste())) return false; // Must have unchaste futuristic belt to chaste it
 	if ((T == "ItemUnchaste") && (!InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis") || !C.IsVulvaChaste())) return false; // Must have chaste futuristic belt to unchaste it
+	if ((T == "ItemIntensity") && !InventoryIsWorn(C, "FuturisticTrainingBelt", "ItemPelvis")) return false; // Must have training belt to change intensity
 	if ((T == "PoseOverHead") && !C.CanInteract()) return false; // Must be able to use hands for hands poses
 	if ((T == "PoseBehindBack") && !C.CanInteract()) return false; // Must be able to use hands for hands poses
 	if ((T == "PoseLegsClosed") && (C.IsKneeling() || (InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return false; // Close legs only without restraints and not kneeling
@@ -411,6 +412,22 @@ function AsylumGGTSAutomaticTask() {
 			Item.Property.Effect = ["UseRemote"];
 			Item.Property.Type = "m0f0b0t0o0";
 			Item.Color = ["#93C48C", "#3B7F2C", "Default", "Default", "Default", "Default", "#222222", "Default"];
+		}
+		CharacterRefresh(Player);
+		ChatRoomCharacterUpdate(Player);
+		return AsylumGGTSEndTaskSave();
+	}
+
+	// The ItemIntensity task automatically changes the belt vibration intensity
+	if (AsylumGGTSTask == "ItemIntensity") {
+		let Item = InventoryGet(Player, "ItemPelvis");
+		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name == "FuturisticTrainingBelt")) {
+			if (Item.Property == null) Item.Property = {};
+			Item.Property.Block = ["ItemVulva", "ItemVulvaPiercings", "ItemButt"];
+			Item.Property.Effect = ["Vibrating", "Egged", "UseRemote"];
+			Item.Property.Intensity = 2;
+			Item.Property.Mode = "Maximum";
+			Item.Color = ["#3B7F2C", "#93C48C", "#93C48C", "Default", "Default", "Default"];
 		}
 		CharacterRefresh(Player);
 		ChatRoomCharacterUpdate(Player);

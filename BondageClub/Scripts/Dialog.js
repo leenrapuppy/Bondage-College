@@ -887,6 +887,11 @@ function DialogMenuButtonBuild(C) {
 				if (DialogItemPermissionMode) DialogMenuButton.push("DialogNormalMode");
 				else DialogMenuButton.push("DialogPermissionMode");
 			}
+
+			// Make sure the previous button doesn't overflow the menu
+			if ((DialogMenuButton.length >= 10) && (DialogMenuButton.indexOf("Prev") >= 0))
+				DialogMenuButton.splice(DialogMenuButton.indexOf("Prev"), 1);
+
 		}
 	}
 }
