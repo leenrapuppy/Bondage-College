@@ -62,6 +62,7 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 100,,(Leave.),,DialogLeave(),
 110,,,Level one in progress.  Good girl proof require three hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
 110,111,What rules apply to level one?,Level one rule.  Good girl must wear futuristic arms cuffs.  GGTS control restraints.,,
+110,,What can nurses and patients do?,Nurses restrain lower rank nurses and patients.  Patients perform activities on other patients.,DialogRemove(),
 110,,(Do GGTS in private.),,BuildPrivate(),!AsylumGGTSHasThreeStrikes()
 110,,I'll do GGTS in public.,Good girl enter asylum entrance.  Good girl create or join public chat room.  Good girl selects GGTS.  GGTS takes control.,,!AsylumGGTSHasThreeStrikes()
 110,,I'll do GGTS in private.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
@@ -115,6 +116,7 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 1000,,(Leave.),,DialogLeave(),
 1010,,,Level two in progress.  Good girl proof require five hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
 1010,1011,What rules are added in level two?,Level two rule.  Good girl must wear futuristic arms and ankles cuffs.  GGTS control restraints.,,
+1010,,What can nurses and patients do?,Nurses restrain lower rank nurses and patients.  Patients perform activities on other patients.,DialogRemove(),
 1010,,(Do GGTS in private.),,BuildPrivate(),!AsylumGGTSHasThreeStrikes()
 1010,,I'll do GGTS in public.,Good girl enter asylum entrance.  Good girl create or join public chat room.  Good girl selects GGTS.  GGTS takes control.,,!AsylumGGTSHasThreeStrikes()
 1010,,I'll do GGTS in private.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
@@ -169,6 +171,7 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 2000,,(Leave.),,DialogLeave(),
 2010,,,Level three in progress.  Good girl proof require eight hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
 2010,2011,What rules are added in level three?,Level three rule.  Good girl must wear futuristic ball or panel gag.  GGTS control gag.,,
+2010,,What can nurses and patients do?,Nurses restrain lower rank nurses and patients.  Patients perform activities on other patients.,DialogRemove(),
 2010,,(Do GGTS in private.),,BuildPrivate(),!AsylumGGTSHasThreeStrikes()
 2010,,I'll do GGTS in public.,Good girl enter asylum entrance.  Good girl create or join public chat room.  Good girl selects GGTS.  GGTS takes control.,,!AsylumGGTSHasThreeStrikes()
 2010,,I'll do GGTS in private.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
@@ -233,6 +236,7 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 3000,,(Leave.),,DialogLeave(),
 3010,,,Level four in progress.  Good girl proof require thirteen hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
 3010,3011,What rules are added in level four?,"Level four rule.  Good girl must wear futuristic chastity belt, chastity bra or harness.  GGTS control items.",,
+3010,,What can nurses and patients do?,Nurses restrain lower rank nurses and patients.  Patients perform activities on other patients.,DialogRemove(),
 3010,,(Do GGTS in private.),,BuildPrivate(),!AsylumGGTSHasThreeStrikes()
 3010,,I'll do GGTS in public.,Good girl enter asylum entrance.  Good girl create or join public chat room.  Good girl selects GGTS.  GGTS takes control.,,!AsylumGGTSHasThreeStrikes()
 3010,,I'll do GGTS in private.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
@@ -248,7 +252,7 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 3013,3014,(Listen.),"Level four rule.  Good girl must answer: ""I serve and obey GGTS."" when GGTS query: ""Name, who you serve and obey?"".",,
 3014,3015,(Listen.),"Level four rule.  Good girl must answer: ""I don't have free will."" when GGTS query: ""Name, you have free will?"".",,
 3015,3016,(Listen.),"Level four rule.  Good girl use proper case, proper space and proper punctuation when answering GGTS.",,
-3016,3017,(Listen.),Level four rule.  Good girl masturbate for GGTS.,,
+3016,3017,(Listen.),Level four rule.  Good girl masturbate for GGTS.  Good girl kiss for GGTS.,,
 3017,3010,(Listen.),Level four rules listing complete.  Level four in progress.  Good girl proof require thirteen hours.,,
 3020,3010,I don't need to give you a reason.,Invalid answer.  Good girl unauthorized to quit.  Level four in progress.  Good girl proof require thirteen hours.,,
 3020,3030,I'm not happy.,(The computer stays silent for a few seconds.)  Inquiry mode.  How can good girl happy?,,
