@@ -70,7 +70,7 @@ var PreferenceCalibrationStage = 0;
  * @returns {boolean} - Returns TRUE if the level is met or more
  */
 function PreferenceArousalAtLeast(C, Level) {
-	if ((CurrentModule == "Online") && (CurrentScreen == "ChatRoom") && (ChatRoomGame == "GGTS") && (ChatRoomSpace != null) && (ChatRoomSpace == "Asylum") && (AsylumGGTSGetLevel(C) >= 4))
+	if ((CurrentModule == "Online") && (CurrentScreen == "ChatRoom") && (ChatRoomGame == "GGTS") && (ChatRoomSpace === "Asylum") && (AsylumGGTSGetLevel(C) >= 4))
 		if (InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis") || InventoryIsWorn(C, "FuturisticTrainingBelt", "ItemPelvis"))
 			return true;
 	if ((C.ArousalSettings == null) || (C.ArousalSettings.Active == null)) return false;

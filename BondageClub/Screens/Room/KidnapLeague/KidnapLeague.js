@@ -377,7 +377,7 @@ function KidnapLeagueRandomOutro(Surrender) {
 	KidnapLeagueWillPayForFreedom = (Math.random() >= 0.5);
 	if (!KidnapVictory) CharacterRelease(KidnapLeagueRandomKidnapper);
 	CharacterSetCurrent(KidnapLeagueRandomKidnapper);
-	if ((Surrender != null) && (Surrender == true)) {
+	if (Surrender === true) {
 		KidnapLeagueRandomKidnapper.Stage = "205";
 		InventoryWearRandom(Player, "ItemArms", KidnapLeagueRandomKidnapperDifficulty);
 		KidnapLeagueRandomKidnapper.CurrentDialog = DialogFind(KidnapLeagueRandomKidnapper, "Surrender" + KidnapLeagueRandomKidnapperScenario);

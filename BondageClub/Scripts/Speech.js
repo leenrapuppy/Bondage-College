@@ -479,7 +479,7 @@ function SpeechStutter(C, CD) {
 	if (CD == null) CD = "";
 
 	// Validates that the preferences allow stuttering
-	if ((C.ArousalSettings == null) || (C.ArousalSettings.AffectStutter == null) || (C.ArousalSettings.AffectStutter != "None")) {
+	if ((C.ArousalSettings == null) || (C.ArousalSettings.AffectStutter !== "None")) {
 
 		// Gets the factor from current arousal
 		var Factor = 0;

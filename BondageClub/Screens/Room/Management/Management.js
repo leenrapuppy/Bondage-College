@@ -144,7 +144,7 @@ function ManagementCanReleaseFromOwner() { return ((Player.Money >= 200) && LogQ
  * Checks if the player can break an online ownership trial.
  * @returns {boolean} - TRUE if the player can break her trial.
  */
-function ManagementCanBreakTrialOnline() { return ((Player.Owner == "") && (Player.Ownership != null) && (Player.Ownership.Stage != null) && (Player.Ownership.Stage == 0)); }
+function ManagementCanBreakTrialOnline() { return ((Player.Owner == "") && (Player.Ownership != null) && (Player.Ownership.Stage === 0)); }
 /**
  * Checks if the player can part ways from their online owner. (7 days wait time over)
  * @returns {boolean} - TRUE if the player can break her full collar.

@@ -156,7 +156,7 @@ function PandoraSetMode(NewMode) {
 	}
 
 	// Cannot enter search mode if the item is already found
-	if ((NewMode == "Search") && (InfiltrationTarget.Found != null) && (InfiltrationTarget.Found == true)) {
+	if ((NewMode == "Search") && (InfiltrationTarget.Found === true)) {
 		PandoraMsgBox(TextGet("AlreadyFound").replace("TargetName", InfiltrationTarget.Name));
 		PandoraMode = "";
 	}

@@ -13,7 +13,7 @@ var InfiltrationKidnapper = null;
  * Returns TRUE if the mission can complete as a success
  * @returns {boolean} - TRUE if successful
  */
-function InfiltrationCanSuccess() { return ((InfiltrationTarget != null) && (InfiltrationTarget.Found != null) && (InfiltrationTarget.Found == true)); }
+function InfiltrationCanSuccess() { return ((InfiltrationTarget != null) && (InfiltrationTarget.Found === true)); }
 
 /**
  * Returns TRUE if the mission can complete as a failure
@@ -234,9 +234,9 @@ function InfiltrationStartKidnapping() {
  * @returns {void} - Nothing
  */
 function InfiltrationEndKidnapping(Reward) {
-	if ((Reward != null) && (Reward == "Money")) CharacterChangeMoney(Player, 18);
-	if ((Reward != null) && (Reward == "Skill")) SkillProgress("Infiltration", 400);
-	if ((Reward != null) && (Reward == "Private")) {
+	if (Reward === "Money") CharacterChangeMoney(Player, 18);
+	if (Reward === "Skill") SkillProgress("Infiltration", 400);
+	if (Reward === "Private") {
 		CurrentScreen = "Private";
 		PrivateAddCharacter(CurrentCharacter);
 		CommonSetScreen("Room", "Private");

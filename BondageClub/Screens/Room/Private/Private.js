@@ -196,7 +196,7 @@ function PrivateCannotAskUncollar() { return (DialogIsOwner() && (NPCEventGet(Cu
  * Checks if the current character is a mistress.
  * @returns {boolean} - TRUE if the NPC is a club mistress.
  */
-function PrivateIsMistress() { return ((CurrentCharacter.Title != null) && (CurrentCharacter.Title == "Mistress")); }
+function PrivateIsMistress() { return (CurrentCharacter.Title === "Mistress"); }
 /**
  * Checks if the NPC is willing to take the player as her owner.
  * @returns {boolean} - TRUE if the player can own the NPC
@@ -326,17 +326,17 @@ function PrivateNPCAllowCheat() { return (CheatFactor("ChangeNPCTrait", 0) == 0)
  * Checks if the character comes from Pandora's Box and she has a negative opinion of the player
  * @returns {boolean} - TRUE if the character is from Pandora's Box and has a negative opinion
  */
-function PrivateIsFromPandoraNegative() { return ((CurrentCharacter.FromPandora != null) && (CurrentCharacter.FromPandora == true) && (CurrentCharacter.Love <= -40) && !CurrentCharacter.IsLoverPrivate()); }
+function PrivateIsFromPandoraNegative() { return ((CurrentCharacter.FromPandora === true) && (CurrentCharacter.Love <= -40) && !CurrentCharacter.IsLoverPrivate()); }
 /**
  * Checks if the character comes from Pandora's Box and she has a neutral opinion of the player
  * @returns {boolean} - TRUE if the character is from Pandora's Box and has a neutral opinion
  */
-function PrivateIsFromPandoraNeutral() { return ((CurrentCharacter.FromPandora != null) && (CurrentCharacter.FromPandora == true) && (CurrentCharacter.Love > -40) && (CurrentCharacter.Love < 40) && !CurrentCharacter.IsLoverPrivate()); }
+function PrivateIsFromPandoraNeutral() { return ((CurrentCharacter.FromPandora === true) && (CurrentCharacter.Love > -40) && (CurrentCharacter.Love < 40) && !CurrentCharacter.IsLoverPrivate()); }
 /**
  * Checks if the character comes from Pandora's Box and she has a positive opinion of the player
  * @returns {boolean} - TRUE if the character is from Pandora's Box and has a positive opinion
  */
-function PrivateIsFromPandoraPositive() { return ((CurrentCharacter.FromPandora != null) && (CurrentCharacter.FromPandora == true) && (CurrentCharacter.Love >= 40) && !CurrentCharacter.IsLoverPrivate()); }
+function PrivateIsFromPandoraPositive() { return ((CurrentCharacter.FromPandora === true) && (CurrentCharacter.Love >= 40) && !CurrentCharacter.IsLoverPrivate()); }
 /**
  * Checks if the private character has a specific title
  * @returns {boolean} - TRUE if the character has the title in the parameter
@@ -798,8 +798,8 @@ function PrivateAddCharacter(Template, Archetype, CustomData) {
 	C.Love = 0;
 	if ((Archetype != null) && (Archetype != "") && (Archetype != "Submissive")) C.Title = Archetype;
 	NPCTraitGenerate(C);
-	if ((Archetype != null) && (Archetype == "Mistress")) NPCTraitSet(C, "Dominant", 60 + Math.floor(Math.random() * 41));
-	if ((Archetype != null) && (Archetype == "Submissive")) NPCTraitSet(C, "Dominant", -50 - Math.floor(Math.random() * 51));
+	if (Archetype === "Mistress") NPCTraitSet(C, "Dominant", 60 + Math.floor(Math.random() * 41));
+	if (Archetype === "Submissive") NPCTraitSet(C, "Dominant", -50 - Math.floor(Math.random() * 51));
 	if ((CustomData == null) || (CustomData == false)) NPCTraitDialog(C);
 	CharacterRefresh(C);
 	PrivateCharacter.push(C);

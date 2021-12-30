@@ -389,7 +389,7 @@ function ActivitySetArousalTimer(C, Activity, Zone, Progress) {
 	if ((Progress > 0) && (C.ArousalSettings.Progress + Progress > Max)) Progress = (Max - C.ArousalSettings.Progress >= 0) ? Max - C.ArousalSettings.Progress : 0;
 
 	// If we must apply a progress timer change, we publish it
-	if ((C.ArousalSettings.ProgressTimer == null) || (C.ArousalSettings.ProgressTimer != Progress)) {
+	if (C.ArousalSettings.ProgressTimer !== Progress) {
 		C.ArousalSettings.ProgressTimer = Progress;
 		ActivityChatRoomArousalSync(C);
 	}
