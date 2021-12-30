@@ -1103,21 +1103,21 @@ var AssetFemale3DCG = [
 		Clothing: true,
 		Left: 125,
 		Top: 0,
-		AllowPose: ["Suspension"],
 		PreviewZone: [140, 0, 220, 220],
 		Asset: [
-			"Band1", "Band2", "Beret1",
+			"Band1", "Band2",
+			{ Name: "Beret1", HideForPose: ["Suspension"] },
 			{ Name: "MaidHairband1", Fetish: ["Lingerie"], Value: -1 },
 			{ Name: "NurseCap", Value: -1 },
 			{
-				Name: "Santa1", Value: 20,
+				Name: "Santa1", Value: 20, HideForPose: ["Suspension"],
 				Layer: [
 					{ Name: "Fabric" },
 					{ Name: "Fur" }
 				]
 			},
 			{
-				Name: "CaptainHat1", Value: 25, Layer: [
+				Name: "CaptainHat1", Value: 25, HideForPose: ["Suspension"], Layer: [
 					{ Name: "Top" },
 					{ Name: "Insignia" },
 					{ Name: "Rope" },
@@ -1126,7 +1126,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "BunnySuccubus2", Fetish: ["Pet"], Value: 35 },
 			{
-				Name: "WitchHat1", Value: 40,
+				Name: "WitchHat1", Value: 40, HideForPose: ["Suspension"],
 				Layer: [
 					{ Name: "Hat" },
 					{ Name: "Band" },
@@ -1154,7 +1154,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "HeadTowel1", Value: 15, Hide: ["HairFront", "HairBack"] },
-			{ Name: "CollegeDunce", Value: -1 },
+			{ Name: "CollegeDunce", Value: -1, HideForPose: ["Suspension"] },
 			{ Name: "Tiara1", Value: 40 },
 			{
 				Name: "Bonnet1", Value: 20,
@@ -1164,25 +1164,25 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "Bonnet2", Value: 20 },
-			{ Name: "Crown1", Value: 20 },
+			{ Name: "Crown1", Value: 20, HideForPose: ["Suspension"] },
 			{
-				Name: "Crown2", Value: 20, Layer: [
+				Name: "Crown2", Value: 20, HideForPose: ["Suspension"], Layer: [
 					{ Name: "Crown" },
 					{ Name: "Jewels" }
 				]
 			},
 			{
-				Name: "Crown3", Value: 20, Layer: [
+				Name: "Crown3", Value: 20, HideForPose: ["Suspension"], Layer: [
 					{ Name: "Crown" },
 					{ Name: "Jewels" }
 				]
 			},
-			{ Name: "Crown4", Value: 20 },
-			{ Name: "Crown5", Value: 20 },
-			{ Name: "SmallHat1", Value: 30 },
+			{ Name: "Crown4", Value: 20, HideForPose: ["Suspension"] },
+			{ Name: "Crown5", Value: 20, HideForPose: ["Suspension"] },
+			{ Name: "SmallHat1", Value: 30, HideForPose: ["Suspension"] },
 			{ Name: "Veil1", Fetish: ["Lingerie"], Value: 40 },
 			{ Name: "Veil2", Fetish: ["Lingerie"], Value: 40 },
-			{ Name: "BakerBoyHat", Value: 40, },
+			{ Name: "BakerBoyHat", Value: 40, HideForPose: ["Suspension"] },
 			{ Name: "ReindeerBand", Value: 10 },
 			{ Name: "FurHeadband", Value: 5},
 			{ Name: "FacePaint", Value: 10, Left: 150, Top: 20, Priority: 7, BuyGroup: "FacePaint", DefaultColor: ["#9A7F76"], Hide: ["Head"] },
@@ -1712,10 +1712,13 @@ var AssetFemale3DCG = [
 		Top: 50,
 		AllowNone: false,
 		PreviewZone: [140, 40, 220, 220],
-		Asset: ["HairFront1", "HairFront1b", "HairFront2", "HairFront2b", "HairFront3", "HairFront3b", "HairFront4", "HairFront4b", "HairFront5",
-			"HairFront5b", "HairFront6", "HairFront6b", "HairFront7", "HairFront7b", "HairFront8", "HairFront8b", "HairFront9", "HairFront9b",
-			"HairFront10", "HairFront10b", "HairFront11", "HairFront11b", "HairFront12", "HairFront12b", "HairFront13", "HairFront13b", "HairFront14",
-			"HairFront14b", "HairFront15", "HairFront16", "HairFront17", "HairFront17b", "HairFront18", "HairFront19", "HairFront20", "HairFront21" ],
+		Asset: ["HairFront1", "HairFront1b", "HairFront2", "HairFront2b", "HairFront3", "HairFront3b", "HairFront4",
+			"HairFront4b", "HairFront5", "HairFront5b", "HairFront6", "HairFront6b", "HairFront7", "HairFront7b",
+			"HairFront8", "HairFront8b", "HairFront9", "HairFront9b", "HairFront10", "HairFront10b", "HairFront11",
+			"HairFront11b", "HairFront12", "HairFront12b", "HairFront13", "HairFront13b", "HairFront14", "HairFront14b",
+			"HairFront15", "HairFront16", "HairFront17", "HairFront17b", "HairFront18", "HairFront19", "HairFront20",
+			"HairFront21"
+		],
 		Color: ["#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"]
 	},
 
@@ -1726,12 +1729,66 @@ var AssetFemale3DCG = [
 		Left: 50,
 		Top: 0,
 		AllowNone: false,
-		AllowPose: ["Suspension", "Hogtied", "AllFours"],
 		PreviewZone: [55, 0, 390, 390],
-		Asset: ["HairNone", "HairBack1", "HairBack1b", "HairBack2", "HairBack2b", "HairBack4", "HairBack4b", "HairBack10", "HairBack10b", "HairBack14", "HairBack15", "HairBack15b", "HairBack16", "HairBack17", "HairBack18", "HairBack18b", "HairBack19", "HairBack19b", "HairBack20", "HairBack20b", "HairBack5", "HairBack5b", "HairBack8", "HairBack11", "HairBack6", "HairBack6b", "HairBack21", "HairBack22",
-			{ Name: "HairBack23", Priority: 48 },
-			{ Name: "HairBack24", Priority: 48 },
-			"HairBack25", "HairBack26", "HairBack27", "HairBack28", "HairBack29", "HairBack30", "HairBack31", "HairBack32", "HairBack33", "HairBack34", "HairBack35", "HairBack36", "HairBack37", "HairBack38", "HairBack39", "HairBack40", "HairBack41", "HairBack42", "HairBack43", "HairBack44", "HairBack45", "HairBack46", "HairBack47", "HairBack48", "HairBack49", "HairBack50", "HairBack51", "HairBack52"
+		Asset: [
+			{ Name: "HairNone", Visible: false },
+			{ Name: "HairBack1", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack1b" },
+			{ Name: "HairBack2", AllowPose: ["Suspension"] },
+			{ Name: "HairBack2b" },
+			{ Name: "HairBack4", AllowPose: ["Hogtied"], HideForPose: ["Suspension", "AllFours"] },
+			{ Name: "HairBack4b" },
+			{ Name: "HairBack10", AllowPose: ["Suspension"] },
+			{ Name: "HairBack10b" },
+			{ Name: "HairBack14", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack15", AllowPose: ["Suspension"] },
+			{ Name: "HairBack15b" },
+			{ Name: "HairBack16", AllowPose: ["Suspension", "Hogtied", "AllFours"] },
+			{ Name: "HairBack17", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack18", HideForPose: ["Hogtied"] },
+			{ Name: "HairBack18b" },
+			{ Name: "HairBack19", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack19b" },
+			{ Name: "HairBack20", AllowPose: ["Suspension", "Hogtied", "AllFours"] },
+			{ Name: "HairBack20b" },
+			{ Name: "HairBack5", AllowPose: ["Suspension"] },
+			{ Name: "HairBack5b" },
+			{ Name: "HairBack8", AllowPose: ["Suspension", "AllFours"], HideForPose: ["Hogtied"] },
+			{ Name: "HairBack11", AllowPose: ["Suspension", "Hogtied", "AllFours"] },
+			{ Name: "HairBack6" },
+			{ Name: "HairBack6b" },
+			{ Name: "HairBack21", HideForPose: ["Suspension"] },
+			{ Name: "HairBack22", HideForPose: ["Suspension"] },
+			{ Name: "HairBack23", AllowPose: ["Suspension", "AllFours"], Priority: 48 },
+			{ Name: "HairBack24", AllowPose: ["Suspension", "AllFours"], Priority: 48 },
+			{ Name: "HairBack25", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack26", AllowPose: ["Suspension", "Hogtied", "AllFours"] },
+			{ Name: "HairBack27", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack28", AllowPose: ["Hogtied"] },
+			{ Name: "HairBack29", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack30", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack31", AllowPose: ["Suspension"] },
+			{ Name: "HairBack32", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack33", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack34", AllowPose: ["Suspension", "Hogtied", "AllFours"] },
+			{ Name: "HairBack35", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack36", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack37", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack38", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack39", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack40", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack41", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack42", AllowPose: ["Suspension", "Hogtied", "AllFours"] },
+			{ Name: "HairBack43", AllowPose: ["Suspension", "Hogtied", "AllFours"] },
+			{ Name: "HairBack44", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack45", AllowPose: ["Suspension", "Hogtied"] },
+			{ Name: "HairBack46" },
+			{ Name: "HairBack47" },
+			{ Name: "HairBack48", AllowPose: ["Hogtied"] },
+			{ Name: "HairBack49" },
+			{ Name: "HairBack50", AllowPose: ["Suspension", "Hogtied", "AllFours"] },
+			{ Name: "HairBack51" },
+			{ Name: "HairBack52" }
 		],
 		Color: ["Default", "#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"],
 		InheritColor: "HairFront"
