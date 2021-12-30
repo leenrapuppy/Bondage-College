@@ -527,12 +527,27 @@ function AsylumGGTSFindTaskTarget(T) {
 	// Only in public GGTS when there's at least another character
 	if ((ChatSearchReturnToScreen == "AsylumGGTS") || (ChatRoomCharacter.length <= 1)) return null;
 
-	// Nurses can use items on other players or herself
+	// Nurses can use items on other players with less reputation or herself
 	if ((ReputationGet("Asylum") > 0) && (T.substr(0, 4) == "Item") && (T.length >= 15)) {
 		let Target = null;
 		let TargetOdds = -1;
 		for (let C = 0; C < ChatRoomCharacter.length; C++)
-			if (((ChatRoomCharacter[C].MemberNumber == Player.MemberNumber) || ServerChatRoomGetAllowItem(Player, ChatRoomCharacter[C])) && (AsylumGGTSTaskCanBeDone(ChatRoomCharacter[C], T))) {
+			if ((ChatRoomCharacter[C].MemberNumber == Player.MemberNumber) || (ServerChatRoomGetAllowItem(Player, ChatRoomCharacter[C]) && (ReputationCharacterGet(ChatRoomCharacter[C], "Asylum") <= ReputationGet("Asylum")) && AsylumGGTSTaskCanBeDone(ChatRoomCharacter[C], T))) {
+				let Odds = Math.random();
+				if (Odds > TargetOdds) {
+					Target = ChatRoomCharacter[C];
+					TargetOdds = Odds;
+				}
+			}
+		return (Player.MemberNumber == Target.MemberNumber) ? null : Target;
+	}
+
+	// Patients can use activities on other patients or herself
+	if ((ReputationGet("Asylum") < 0) && (T.substr(0, 8) == "Activity") && (T != "ActivityWiggle")) {
+		let Target = null;
+		let TargetOdds = -1;
+		for (let C = 0; C < ChatRoomCharacter.length; C++)
+			if ((ChatRoomCharacter[C].MemberNumber == Player.MemberNumber) || (ServerChatRoomGetAllowItem(Player, ChatRoomCharacter[C]) && (ReputationCharacterGet(ChatRoomCharacter[C], "Asylum") <= -1) && AsylumGGTSTaskCanBeDone(ChatRoomCharacter[C], T))) {
 				let Odds = Math.random();
 				if (Odds > TargetOdds) {
 					Target = ChatRoomCharacter[C];
@@ -741,6 +756,8 @@ function AsylumGGTSActivity(S, C, A, Z, Count) {
 	if ((AsylumGGTSTask == null) || (AsylumGGTSTask.substr(0, 8) != "Activity")) return;
 	if ((ChatRoomData == null) || (ChatRoomData.Game !== "GGTS")) return;
 	if ((S == null) || (S.ID != 0)) return;
+	if ((AsylumGGTSTaskTarget != null) && ((C == null) || (C.MemberNumber != AsylumGGTSTaskTarget.MemberNumber))) return;
+	if ((AsylumGGTSTaskTarget == null) && (C != null) && (C.MemberNumber != Player.MemberNumber)) return;
 	let Level = AsylumGGTSGetLevel(Player);
 	if (Level <= 0) return;
 	if (AsylumGGTSTask.substr(8, 100) === A) {

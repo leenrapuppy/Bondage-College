@@ -2237,7 +2237,7 @@ function ChatRoomMessage(data) {
 						ChatRoomStimulationMessage("Kneel");
 
 					// If another player is using an item which applies an activity on the current player, apply the effect here
-					AsylumGGTSActivity(SenderCharacter, Player, ActivityName, GroupName, ActivityCounter);
+					AsylumGGTSActivity(SenderCharacter, TargetCharacter, ActivityName, GroupName, ActivityCounter);
 					if ((ActivityName != null) && (TargetMemberNumber != null) && (TargetMemberNumber == Player.MemberNumber) && (SenderCharacter.MemberNumber != Player.MemberNumber))
 						if ((Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic"))
 							ActivityEffect(SenderCharacter, Player, ActivityName, GroupName, ActivityCounter);
@@ -2347,7 +2347,7 @@ function ChatRoomMessage(data) {
 					}
 
 				// If the player does the activity on herself or an NPC, we calculate the result right away
-				AsylumGGTSActivity(SenderCharacter, Player, ActivityName, ActivityGroup, ActivityCounter);
+				AsylumGGTSActivity(SenderCharacter, TargetCharacter, ActivityName, ActivityGroup, ActivityCounter);
 				if ((data.Type === "Action") || ((TargetMemberNumber == Player.MemberNumber) && (SenderCharacter.MemberNumber != Player.MemberNumber)))
 					if ((Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic"))
 						ActivityEffect(SenderCharacter, Player, ActivityName, ActivityGroup, ActivityCounter);
