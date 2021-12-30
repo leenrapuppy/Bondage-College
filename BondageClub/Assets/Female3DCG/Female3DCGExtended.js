@@ -3498,15 +3498,15 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Attached",
 						Property: {
-							Type: null,
-							Effect: ["BlockMouth", "GagLight"]
+							Type: null
 						},
 					},
 					{
 						Name: "Detached",
 						Property: {
 							Type: "Detached",
-							Effect: ["OpenMouth"]
+							Effect: ["OpenMouth"],
+							OverrideAssetEffect: true
 						},
 					},
 				],
@@ -3527,7 +3527,6 @@ var AssetFemale3DCGExtended = {
 						Name: "Open",
 						Property: {
 							Type: null,
-							Effect: ["OpenMouth", "GagLight"],
 						},
 					},
 					{
@@ -3535,6 +3534,7 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: "Closed",
 							Effect: ["BlockMouth", "GagMedium"],
+							OverrideAssetEffect: true
 						},
 					},
 				],
