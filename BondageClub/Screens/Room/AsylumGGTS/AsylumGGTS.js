@@ -4,6 +4,7 @@ var AsylumGGTSComputer = null;
 var AsylumGGTSIntroDone = false;
 var AsylumGGTSTimer = 0;
 var AsylumGGTSTask = null;
+var AsylumGGTSTaskTarget = null;
 var AsylumGGTSLastTask = "";
 var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
@@ -196,10 +197,16 @@ function AsylumGGTSCharacterName(C) {
 /**
  * Sends a chat message from the GGTS.  GGTS slowly replaces the player name by the player number as level rises.
  * @param {string} Msg - The message to publish
+ * @param {number} Target - The member number of the target character
  * @returns {void} - Nothing
  */
-function AsylumGGTSMessage(Msg) {
-	ServerSend("ChatRoomChat", { Content: "GGTS" + Msg, Type: "Action", Dictionary: [{ Tag: "SourceCharacter", Text: AsylumGGTSCharacterName(Player), MemberNumber: Player.MemberNumber }] });
+function AsylumGGTSMessage(Msg, Target) {
+	let Dict = [{ Tag: "SourceCharacter", Text: AsylumGGTSCharacterName(Player), MemberNumber: Player.MemberNumber }];
+	if (Target != null) {
+		Msg = Msg + "Target";
+		Dict.push({ Tag: "TargetCharacter", Text: AsylumGGTSCharacterName(Target), MemberNumber: Target.MemberNumber });
+	}
+	ServerSend("ChatRoomChat", { Content: "GGTS" + Msg, Type: "Action", Dictionary: Dict });
 }
 
 /**
@@ -296,6 +303,7 @@ function AsylumGGTSTaskDone(C, T) {
  * @returns {boolean} - TRUE if the task can be done
  */
 function AsylumGGTSTaskCanBeDone(C, T) {
+	if ((C.Game == null) || (C.Game.GGTS == null) || (C.Game.GGTS.Strike == null) || (C.Game.GGTS.Strike >= 3) || (C.Game.GGTS.Level == null) || (C.Game.GGTS.Level <= 0)) return false; // Must be playing GGTS without 3 strikes
 	if ((T.substr(0, 8) == "UndoRule") && ((C.Game.GGTS.Rule == null) || (C.Game.GGTS.Rule.indexOf(T.substr(8, 100)) < 0))) return false; // Rule cannot be removed if not active
 	if ((T.substr(0, 7) == "NewRule") && (C.Game.GGTS.Rule != null) && (C.Game.GGTS.Rule.indexOf(T.substr(7, 100)) >= 0)) return false; // Rule cannot be added if already active
 	if ((T.substr(0, 5) == "Cloth") && !C.CanChange()) return false; // Cloth tasks cannot be done if cannot change
@@ -510,6 +518,36 @@ function AsylumGGTSAutomaticTask() {
 }
 
 /**
+ * In a public room, some GGTS tasks can target another valid player.  Patients will do physical activities, nurses will restraint.
+ * @param {string} T - The task to evaluate
+ * @returns {Character} - The target character
+ */
+function AsylumGGTSFindTaskTarget(T) {
+
+	// Only in public GGTS when there's at least another character
+	if ((ChatSearchReturnToScreen == "AsylumGGTS") || (ChatRoomCharacter.length <= 1)) return null;
+
+	// Nurses can use items on other players or herself
+	if ((ReputationGet("Asylum") > 0) && (T.substr(0, 4) == "Item") && (T.length >= 15)) {
+		let Target = null;
+		let TargetOdds = -1;
+		for (let C = 0; C < ChatRoomCharacter.length; C++)
+			if (((ChatRoomCharacter[C].MemberNumber == Player.MemberNumber) || ServerChatRoomGetAllowItem(Player, ChatRoomCharacter[C])) && (AsylumGGTSTaskCanBeDone(ChatRoomCharacter[C], T))) {
+				let Odds = Math.random();
+				if (Odds > TargetOdds) {
+					Target = ChatRoomCharacter[C];
+					TargetOdds = Odds;
+				}
+			}
+		return (Player.MemberNumber == Target.MemberNumber) ? null : Target;
+	}
+
+	// No target found
+	return null;
+
+}
+
+/**
  * Generates a new GGTS Task for the player and publishes it
  * @returns {void} - Nothing
  */
@@ -537,7 +575,8 @@ function AsylumGGTSNewTask() {
 	}
 	if ((Count >= 50) || (AsylumGGTSTask == null)) return;
 	if (AsylumGGTSTask == "NoTalking") AsylumGGTSTimer = Math.round(CommonTime() + 60000);
-	AsylumGGTSMessage("Task" + AsylumGGTSTask);
+	AsylumGGTSTaskTarget = AsylumGGTSFindTaskTarget(AsylumGGTSTask);
+	AsylumGGTSMessage("Task" + AsylumGGTSTask, AsylumGGTSTaskTarget);
 	AsylumGGTSLastTask = AsylumGGTSTask;
 	AsylumGGTSTaskStart = CommonTime();
 	AsylumGGTSAutomaticTask();
@@ -552,7 +591,7 @@ function AsylumGGTSEndTaskSave() {
 	AsylumGGTSSetTimer();
 	AsylumGGTSTask = null;
 	let Factor = 1;
-	if (ChatRoomData.Private && (ChatSearchReturnToScreen == "AsylumGGTS")) Factor = 3;
+	if (ChatRoomData.Private && (ChatSearchReturnToScreen == "AsylumGGTS") && (ChatRoomCharacter.length <= 1)) Factor = 3;
 	let AddedTime;
 	if (AsylumGGTSTaskEnd > 0) AddedTime = CommonTime() - AsylumGGTSTaskEnd;
 	else AddedTime = CommonTime() - AsylumGGTSTaskStart;
@@ -603,7 +642,7 @@ function AsylumGGTSRemoveRule(Rule) {
 function AsylumGGTSEndTask() {
 	if (ChatRoomSpace !== "Asylum") return;
 	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) return;
-	if (AsylumGGTSTaskDone(Player, AsylumGGTSTask)) {
+	if (AsylumGGTSTaskDone((AsylumGGTSTaskTarget == null) ? Player : AsylumGGTSTaskTarget, AsylumGGTSTask)) {
 		AsylumGGTSMessage("TaskDone");
 		if ((Math.random() >= 0.5) && (["PoseOverHead", "PoseKneel", "PoseBehindBack", "PoseLegsClosed"].indexOf(AsylumGGTSTask) >= 0) && (AsylumGGTSGetLevel(Player) >= 2)) AsylumGGTSAddRule("KeepPose", true);
 		return AsylumGGTSEndTaskSave();
