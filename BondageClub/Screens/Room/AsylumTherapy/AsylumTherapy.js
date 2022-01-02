@@ -18,11 +18,13 @@ function AsylumTherapyLoad() {
 		AsylumTherapyNurse = CharacterLoadNPC("NPC_AsylumTherapy_Nurse");
 		AsylumEntranceWearNurseClothes(AsylumTherapyNurse);
 		AsylumTherapyNurse.AllowItem = false;
+		if (AsylumGGTSGetLevel(Player) >= 4) InventoryWear(AsylumTherapyNurse, "FuturisticCollar", "ItemNeck");
 	}
 	if (AsylumTherapyPatient == null) {
 		AsylumTherapyPatient = CharacterLoadNPC("NPC_AsylumTherapy_Patient");
 		AsylumEntranceWearPatientClothes(AsylumTherapyPatient);
 		AsylumTherapyPatient.AllowItem = false;
+		if (AsylumGGTSGetLevel(Player) >= 5) InventoryWear(AsylumTherapyPatient, "FuturisticCollar", "ItemNeck");
 	}
 }
 
@@ -269,6 +271,7 @@ function AsylumTherapyPatientNew() {
 	InventoryRemove(AsylumTherapyPatient, "ItemNeck");
 	InventoryRemove(Player, "ItemHands");
 	AsylumTherapyPatient = CharacterLoadNPC("NPC_AsylumTherapy_Patient");
+	if (AsylumGGTSGetLevel(Player) >= 5) InventoryWear(AsylumTherapyPatient, "FuturisticCollar", "ItemNeck");
 	CharacterAppearanceFullRandom(AsylumTherapyPatient);
 	AsylumEntranceWearPatientClothes(AsylumTherapyPatient);
 	AsylumTherapyPatient.AllowItem = false;

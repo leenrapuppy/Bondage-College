@@ -26,6 +26,11 @@ function AsylumEntranceCanKiss() { return (Player.CanTalk() && CurrentCharacter.
  * @returns {boolean} - Returns true, if the player can have her own nurse uniform, false otherwise
  */
 function AsylumEntranceCanGetNurseUniform() { return ((ReputationGet("Asylum") >= 50) && (!DialogInventoryAvailable("NurseUniform", "Cloth") || !DialogInventoryAvailable("NurseCap", "Hat"))); }
+/**
+ * Returns TRUE if the nurse is collared by GGTS
+ * @returns {boolean} - Returns TRUE if the nurse is collared by GGTS
+ */
+function AsylumEntranceNurseHasGGTSCollar() { return (AsylumGGTSGetLevel(Player) >= 4); }
 
 /**
  * Loads the room and generates the nurse. Is called dynamically
@@ -38,6 +43,7 @@ function AsylumEntranceLoad() {
 		AsylumEntranceWearNurseClothes(AsylumEntranceNurse);
 		AsylumEntranceNurse.AllowItem = false;
 	}
+	if (AsylumGGTSGetLevel(Player) >= 4) InventoryWear(AsylumEntranceNurse, "FuturisticCollar", "ItemNeck");
 }
 
 /**

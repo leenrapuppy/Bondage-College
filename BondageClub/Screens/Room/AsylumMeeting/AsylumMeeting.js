@@ -21,6 +21,7 @@ function AsylumMeetingCannotReleasePlayer() { return (Player.IsRestrained() && (
 function AsylumMeetingCanRestrainPlayer() { return (!Player.IsRestrained() && !AsylumMeetingPatientLeft.IsRestrained() && (LogValue("Committed", "Asylum") >= CurrentTime)); }
 function AsylumMeetingCanKiss() { return (Player.CanTalk() && CurrentCharacter.CanTalk()); }
 function AsylumMeetingWearingGGTS() { return InventoryIsWorn(CurrentCharacter, "FuturisticCuffs", "ItemArms"); }
+function AsylumMeetingGGTSCollar() { return InventoryIsWorn(CurrentCharacter, "FuturisticCollar", "ItemNeck"); }
 
 /**
  * Loads the room and it's patients
@@ -68,6 +69,12 @@ function AsylumMeetingLoad() {
 		InventoryAdd(AsylumMeetingPatientLeft, "FuturisticAnkleCuffs", "ItemFeet");
 		InventoryWear(AsylumMeetingPatientRight, "FuturisticHarnessBallGag", "ItemMouth");
 		InventoryAdd(AsylumMeetingPatientRight, "FuturisticHarnessBallGag", "ItemMouth");
+	}
+
+	// At level 5 or more, both patients gets the GGTS collar
+	if (Level >= 5) {
+		InventoryWear(AsylumMeetingPatientLeft, "FuturisticCollar", "ItemNeck");
+		InventoryWear(AsylumMeetingPatientRight, "FuturisticCollar", "ItemNeck");
 	}
 
 }

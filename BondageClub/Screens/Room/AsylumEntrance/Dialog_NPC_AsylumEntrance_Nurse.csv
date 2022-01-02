@@ -16,6 +16,7 @@ ClubSlave,,(Leave her.),,DialogLeave(),
 0,21,I'd like to commit myself,"By committing yourself, you will be locked down in the asylum until your time is up.",,"DialogReputationLess(""Asylum"", 0)"
 0,30,I'd like to work as a nurse.,"You can, but you will lose your patient status and reputation.  Are you sure about that?",,"DialogReputationLess(""Asylum"", -1)"
 0,31,I'd like to work as a nurse.,Perfect!  We need staff to take care of our patients.  Are you ready to work now?,,"DialogReputationGreater(""Asylum"", 0)"
+0,,Did you join GGTS?,Not really.  (She sighs.)  There are new rules in the Asylum and nurses must wear the collar while on duty.,,NurseHasGGTSCollar()
 0,,Can I get my own nurse uniform?,Of course.  Here you go nurse DialogPlayerName.  Wear it with pride.  (She gives you a nurse uniform.),GiveNurseUniform(),CanGetNurseUniform()
 0,,Can I get my own set of Asylum restraints?,We only give our most dedicated patients their own set of restraints. Talk to me again when you've taken some more treatments.,,PatientCannotGetRestraints()
 0,,Can I get my own set of Asylum restraints?,Of course. You're one of our most committed patients.  (She gives you a set of standard-issue Asylum restraints),GiveRestraints(),PatientCanGetRestraints()
@@ -60,6 +61,7 @@ ClubSlave,,(Leave her.),,DialogLeave(),
 100,,When do I get out of the asylum?,"Check the clock girl, it's on the wall behind you.",,
 100,,Can I go out temporarily?,"No, the rules are strict, you cannot get out until your time is up.",,
 100,110,You need to let me out now.,(She frowns and stares at you.)  No!  The rules are the rules!  Do your time.,,Player.CanInteract()
+100,,Did you join GGTS?,Not really.  (She sighs.)  There are new rules in the Asylum and nurses must wear the collar while on duty.,,NurseHasGGTSCollar()
 100,,I must go.  (Leave her.),,DialogLeave(),
 110,100,"Fine, I'll do my time.",Alright.  Try to get some rest or make some friends.,,
 110,100,(Sigh and cross your arms.),Try to get some rest or make some friends.,,
@@ -113,5 +115,6 @@ ClubSlave,,(Leave her.),,DialogLeave(),
 200,,When do I get out of the asylum?,"Check the clock girl, it's on the wall behind you.",,
 200,,Can I go out temporarily?,"No, the rules are strict, you cannot get out until your time is up.",,
 200,,You need to let me out now.,I cannot help you.  The doors are locked by the computer.  Do your time.,,
+200,,Did you join GGTS?,Not really.  (She sighs.)  There are new rules in the Asylum and nurses must wear the collar while on duty.,,NurseHasGGTSCollar()
 200,,How do you feel about GGTS?,(She lowers her voice.)  Let's not speak about that.  I think he can hear us.,DialogRemove(),
 200,,I must go.  (Leave her.),,DialogLeave(),
