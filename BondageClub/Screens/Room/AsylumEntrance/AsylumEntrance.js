@@ -162,6 +162,11 @@ function AsylumEntranceWearPatientClothes(C, ExtraEvent) {
 			InventoryWear(C, "FuturisticBra", "ItemBreast");
 			InventoryWear(C, "FuturisticHarness", "ItemTorso");
 		}
+		if (AsylumGGTSGetLevel(C) >= 5) {
+			if ((InventoryGet(C, "ItemNeck") == null) || (Player.Ownership == null)) InventoryWear(C, "FuturisticCollar", "ItemNeck");
+			InventoryWear(C, "FuturisticEarphones", "ItemEars");
+			InventoryWear(C, "FuturisticMask", "ItemHead");
+		}
 	}
 
 	// Adds an extra strait-jacket for seasoned patients

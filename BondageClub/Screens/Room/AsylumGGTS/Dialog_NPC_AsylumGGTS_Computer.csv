@@ -224,7 +224,7 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 2210,2220,What are the new rules?,"(A drawer opens in the wall behind you.  There's a futuristic chastity belt, chastity bra, harness and $300 in it.)  Good girl take.",,
 2210,2220,What's the next item?,"(A drawer opens in the wall behind you.  There's a futuristic chastity belt, chastity bra, harness and $300 in it.)  Good girl take.",,
 2210,2220,Do I get a raise?,"(A drawer opens in the wall behind you.  There's a futuristic chastity belt, chastity bra, harness and $300 in it.)  Good girl take.",,
-2220,,What are the new rules?,Level three rules pending.  Good girl take.,DialogRemove(),
+2220,,What are the new rules?,Level four rules pending.  Good girl take.,DialogRemove(),
 2220,,I don't like bribes.,Good girl not argue.  Good girl take.,DialogRemove(),
 2220,,Will this go on forever?,Illogical question.  Good girl life finite.  Good girl take.,DialogRemove(),
 2220,3010,(Take everything.),(You get the devices and $300.  The drawer closes.)  Level four in progress.  Good girl proof require eight hours.,StartLevel(4),
@@ -244,7 +244,7 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 3010,,I'll do GGTS in public.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
 3010,3100,I have three strikes.,Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,,AsylumGGTSHasThreeStrikes()
 3010,3100,(Whimper and beg in your gag.),(The gag opens and falls on the floor.)  Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,Ungag(),FuturisticGaggedPunished()
-3010,,I've completed the training time.,Error!  Level four data not found.  (Level 4 will be coded in a future version.  It cannot be completed right now.),,AsylumGGTSLevelCompleted()
+3010,3200,I've completed the training time.,Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level four complete.  Promotion available.,,AsylumGGTSLevelCompleted()
 3010,,I want to quit GGTS.,Three strikes on record.  Three strikes equal punishment.  Punishment time pending.  Cannot quit.,,!CanQuit()
 3010,3020,I want to quit GGTS.,Illogical request.  Good girl happy under GGTS control.  Why good girl quit?,,CanQuit()
 3010,,(Leave.),,DialogLeave(),
@@ -276,11 +276,48 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 3110,,Enough!  I quit GGTS!,Invalid request.  Good girl punished.  Good girl belong to GGTS.,DialogRemove(),
 3110,3120,(Wait for the asylum crew.),(Two nurses wearing GGTS items come to get you.  They inform you that you will be locked up naked in the asylum for your punishment.),,
 3120,3010,(Follow them and do your time.),,StartPunishment(),
-4000,,,(A familiar computer voice greets you as you come closer.)  Welcome my good girl.,,
+3200,3210,"Thanks, Sir GGTS!",Good girl promotion level five.  New rules.  New items.  Money to spoil good girl.,,
+3200,3210,It's a pleasure to serve you.,Good girl promotion level five.  New rules.  New items.  Money to spoil good girl.,,
+3200,3210,That was easy.,Good girl promotion level five.  New rules.  New items.  Money to spoil good girl.,,
+3200,3210,That was hard.,Good girl promotion level five.  New rules.  New items.  Money to spoil good girl.,,
+3200,3210,How much does it pay?,Good girl promotion level five.  New rules.  New items.  Money to spoil good girl.,,
+3210,3220,This is amazing once again.,"(A drawer opens in the wall behind you.  There's a futuristic collar, mask, earphone and $400 in it.)  Good girl take.",,
+3210,3220,That's always an honor Sir.,"(A drawer opens in the wall behind you.  There's a futuristic collar, mask, earphone and $400 in it.)  Good girl take.",,
+3210,3220,I'm such a good girl now.,"(A drawer opens in the wall behind you.  There's a futuristic collar, mask, earphone and $400 in it.)  Good girl take.",,
+3210,3220,What are the new rules?,"(A drawer opens in the wall behind you.  There's a futuristic collar, mask, earphone and $400 in it.)  Good girl take.",,
+3210,3220,What's the next item?,"(A drawer opens in the wall behind you.  There's a futuristic collar, mask, earphone and $400 in it.)  Good girl take.",,
+3210,3220,Do I get a raise?,"(A drawer opens in the wall behind you.  There's a futuristic collar, mask, earphone and $400 in it.)  Good girl take.",,
+3220,,There are stricter rules?,Level five rules pending.  Good girl take.,DialogRemove(),
+3220,,A collar?  Is that proper?,Collar level five gift.  Good girl take.,DialogRemove(),
+3220,,Are you trying to enslave me?,Unauthorized information for good girl.  Good girl take.,DialogRemove(),
+3220,4010,(Take everything.),(You get the devices and $400.  The drawer closes.)  Level five in progress.  Good slave girl proof require thirteen hours.,StartLevel(5),
+4000,,,"(The computer screen shows a big ""Good Slave Girl"" and greets you as you approach it.)    Welcome good slave girl.",,
+4000,4010,I'm your good slave girl Sir.,Level five in progress.  Good slave girl proof require thirteen hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
+4000,4010,It's me again GGTS.,Level five in progress.  Good slave girl proof require thirteen hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
+4000,4010,I'm not a slave.,Level five in progress.  Good slave girl proof require thirteen hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
+4000,4010,(Touch the screen.),Level five in progress.  Good slave girl proof require thirteen hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
+4000,4010,(Inspect the machine.),Level five in progress.  Good slave girl proof require thirteen hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
 4000,,(Leave.),,DialogLeave(),
-4100,4110,"Yes, I'm very sorry Sir.",Punishment selected.  Good girl learn from lock down.  Sentence 21 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(21),
-4100,4110,"Yeah, I accept your punishment.",Punishment selected.  Good girl learn from lock down.  Sentence 29 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(29),
-4100,4110,Don't be too harsh.,Punishment selected.  Good girl learn from lock down.  Sentence 37 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(37),
-4100,4110,Make it quick.,Punishment selected.  Good girl learn from lock down.  Sentence 47 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(47),
-4100,4110,You can't punish me!,Punishment selected.  Good girl learn from lock down.  Sentence 55 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(55),
-4100,4110,Touch me and I'll unplug you.,Punishment selected.  Good girl learn from lock down.  Sentence 63 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(63),
+4010,,,Level four in progress.  Good girl proof require eight hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
+4010,,What rules are added in level five?,Error!  Level five data not found.  (Level five will be added in a future version.),,
+4010,,Why are you calling me good slave girl?,Information unauthorized for good slave girl.,DialogRemove(),
+4010,,(Do GGTS in private.),,BuildPrivate(),!AsylumGGTSHasThreeStrikes()
+4010,,I'll do GGTS in public.,Good slave girl enter asylum entrance.  Good slave girl create or join public chat room.  Good slave girl selects GGTS.  GGTS takes control.,,!AsylumGGTSHasThreeStrikes()
+4010,,I'll do GGTS in private.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
+4010,,I'll do GGTS in public.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
+4010,4100,I have three strikes.,Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,,AsylumGGTSHasThreeStrikes()
+4010,4100,(Whimper and beg in your gag.),(The gag opens and falls on the floor.)  Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,Ungag(),FuturisticGaggedPunished()
+4010,,I've completed the training time.,Error!  Level five data not found.  (Level five will be added in a future version.),,AsylumGGTSLevelCompleted()
+4010,,I want to quit GGTS.,Three strikes on record.  Three strikes equal punishment.  Punishment time pending.  Cannot quit.,,!CanQuit()
+4010,,I want to quit GGTS.,Invalid request.  Good slave girl unauthorized to quit.,,CanQuit()
+4010,,(Leave.),,DialogLeave(),
+4100,4110,"Yes, I'm very sorry Sir.",Punishment selected.  Good slave girl learn from lock down.  Sentence 21 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(21),
+4100,4110,"Yeah, I accept your punishment.",Punishment selected.  Good slave girl learn from lock down.  Sentence 29 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(29),
+4100,4110,Don't be too harsh.,Punishment selected.  Good slave girl learn from lock down.  Sentence 37 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(37),
+4100,4110,Make it quick.,Punishment selected.  Good slave girl learn from lock down.  Sentence 47 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(47),
+4100,4110,You can't punish me!,Punishment selected.  Good slave girl learn from lock down.  Sentence 55 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(55),
+4100,4110,Touch me and I'll unplug you.,Punishment selected.  Good slave girl learn from lock down.  Sentence 63 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(63),
+4110,,Wait!  Did you say enslaved?,Punishment tuned for good slave girl level.,DialogRemove(),
+4110,,Enough!  I quit GGTS!,Invalid request.  Good slave girl punished.  Good slave girl belong to GGTS.,DialogRemove(),
+4110,4120,(Wait for the asylum crew.),(Two nurses wearing GGTS items come to get you.  They inform you that you will be enslaved in the asylum for your punishment.),,
+4120,4010,(Follow them and do your time.),,StartPunishment(),

@@ -43,7 +43,7 @@ function AsylumGGTSCanQuit() {
 function AsylumGGTSLevelCompleted() {
 	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike != null) && (Player.Game.GGTS.Strike >= 3)) return false;
 	let Level = AsylumGGTSGetLevel(Player);
-	if ((Level <= 0) || (Level >= 5)) return false;
+	if ((Level <= 0) || (Level >= 6)) return false;
 	return ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Time != null) && (Player.Game.GGTS.Time >= AsylumGGTSLevelTime[Level]));
 }
 
@@ -72,8 +72,10 @@ function AsylumGGTSLoad() {
 		if (Level == 2) AsylumGGTSComputer.Stage = "1000";
 		if (Level == 3) AsylumGGTSComputer.Stage = "2000";
 		if (Level == 4) AsylumGGTSComputer.Stage = "3000";
+		if (Level == 5) AsylumGGTSComputer.Stage = "4000";
 		if (Level <= 2) AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/Computer.png";
-		else AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGG.png";
+		else if (Level <= 4) AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGG.png";
+		else AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGSG.png";
 	}
 }
 
@@ -127,6 +129,11 @@ function AsylumGGTSSAddItems() {
 		InventoryAdd(Player, "FuturisticBra2", "ItemBreast");
 		InventoryAdd(Player, "FuturisticHarness", "ItemTorso");
 	}
+	if (Level >= 5) {
+		InventoryAdd(Player, "FuturisticCollar", "ItemNeck");
+		InventoryAdd(Player, "FuturisticEarphones", "ItemEars");
+		InventoryAdd(Player, "FuturisticMask", "ItemHead");
+	}
 }
 
 /**
@@ -143,6 +150,7 @@ function AsylumGGTSStartLevel(Level) {
 	Player.Game.GGTS.Strike = 0;
 	AsylumGGTSSAddItems();
 	if (Level >= 3) AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGG.png";
+	if (Level >= 5) AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGSG.png";
 	if (Level >= 2) CharacterChangeMoney(Player, 100 * (Level - 1));
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 }
@@ -197,9 +205,10 @@ function AsylumGGTSCharacterName(C) {
 	if ((CurrentScreen !== "ChatRoom") || (ChatRoomSpace !== "Asylum")) return Name;
 	if ((ChatRoomData == null) || (ChatRoomData.Game !== "GGTS")) return Name;
 	let Level = AsylumGGTSGetLevel(C);
-	if ((Level >= 2) && (Level <= 2)) Name = C.Name + "-" + C.MemberNumber.toString();
-	if ((Level >= 3) && (Level <= 3)) Name = C.Name + "-GG-" + C.MemberNumber.toString();
-	if ((Level >= 4) && (Level <= 10)) Name = "GG-" + C.MemberNumber.toString();
+	if (Level == 2) Name = C.Name + "-" + C.MemberNumber.toString();
+	if (Level == 3) Name = C.Name + "-GG-" + C.MemberNumber.toString();
+	if (Level == 4) Name = "GG-" + C.MemberNumber.toString();
+	if (Level >= 5) Name = "GSG-" + C.MemberNumber.toString();
 	return Name;
 }
 
@@ -210,6 +219,7 @@ function AsylumGGTSCharacterName(C) {
  * @returns {void} - Nothing
  */
 function AsylumGGTSMessage(Msg, Target) {
+	if ((Msg == "TaskDone") && (AsylumGGTSGetLevel(Player) >= 5)) Msg = "TaskDoneSlave";
 	let Dict = [{ Tag: "SourceCharacter", Text: AsylumGGTSCharacterName(Player), MemberNumber: Player.MemberNumber }];
 	if (Target != null) {
 		Msg = Msg + "Target";
