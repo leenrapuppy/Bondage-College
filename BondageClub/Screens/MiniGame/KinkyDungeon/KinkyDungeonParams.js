@@ -1,6 +1,8 @@
 "use strict";
 var KinkyDungeonMapParams = [
-	{
+
+	{//DungeonName0,-Graveyard-
+		"background" : "RainyForstPathNight",
 		"openness" : 3, // Openness of rooms
 		"density" : 3, // Density of tunnels (inverse of room spawn chance)
 		"doodadchance" : 0.16,
@@ -8,9 +10,18 @@ var KinkyDungeonMapParams = [
 		"chestcount" : 3,
 		"shrinecount" : 4,
 		"shrinechance" : 0.75,
+		"ghostchance" : 1,
 		"doorchance" : 0.67,
+		"nodoorchance" : 0.1,
+		"doorlockchance" : -0.1,
+		"trapchance" : 0.3,
+		"grateChance" : 0.7,
 		"rubblechance" : 0.7,
 		"brickchance" : 0.1,
+
+		"traps": [
+			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+		],
 
 		"min_width" : 25,
 		"max_width" : 31,
@@ -18,17 +29,29 @@ var KinkyDungeonMapParams = [
 		"max_height" : 19,
 
 		"enemytags": ["zombie"],
+		"defeat_restraints": [
+			{Name: "HighsecBallGag", Level: 0},
+			{Name: "HighsecArmbinder", Level: 0},
+			{Name: "HighsecShackles", Level: 0},
+			{Name: "PrisonVibe", Level: 1},
+			{Name: "PrisonBelt", Level: 1},
+		],
+		"defeat_outfit": "Prisoner",
 		"shrines": [
-			{Type: "Commerce", Weight: 15},
+			{Type: "Charms", Weight: 5},
+			{Type: "Commerce", Weight: 10},
 			{Type: "Elements", Weight: 5},
 			{Type: "Conjure", Weight: 5},
 			{Type: "Illusion", Weight: 5},
-			{Type: "Leather", Weight: 6},
+			{Type: "Leather", Weight: 5},
 			{Type: "Metal", Weight: 3},
-			{Type: "Will", Weight: 10},]
+			{Type: "Rope", Weight: 2},
+			{Type: "Will", Weight: 7},]
 
 	},
-	{
+
+	{// DungeonName1,-Catacombs-
+		"background" : "Dungeon",
 		"openness" : 0,
 		"density" : 2,
 		"doodadchance" : 0.11,
@@ -36,9 +59,18 @@ var KinkyDungeonMapParams = [
 		"chestcount" : 4,
 		"shrinecount" : 5,
 		"shrinechance" : 0.6,
+		"ghostchance" : 0.5,
 		"doorchance" : 0.8,
+		"nodoorchance" : 0.05,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.4,
+		"grateChance" : 0.7,
 		"rubblechance" : 0.6,
 		"brickchance" : 0.4,
+
+		"traps": [
+			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+		],
 
 		"min_width" : 21,
 		"max_width" : 27,
@@ -46,17 +78,27 @@ var KinkyDungeonMapParams = [
 		"max_height" : 17,
 
 		"enemytags": ["skeleton"],
+		"defeat_restraints": [
+			{Name: "HighsecBallGag", Level: 0},
+			{Name: "HighsecArmbinder", Level: 0},
+			{Name: "HighsecShackles", Level: 0},
+			{Name: "PrisonBelt2", Level: 1},
+			{Name: "PrisonVibe", Level: 1},
+		],
+		"defeat_outfit": "Dungeon",
 		"shrines": [
-			{Type: "Commerce", Weight: 15},
-			{Type: "Elements", Weight: 4},
-			{Type: "Conjure", Weight: 6},
-			{Type: "Illusion", Weight: 7},
-			{Type: "Leather", Weight: 6},
-			{Type: "Metal", Weight: 5},
-			{Type: "Will", Weight: 10},]
+			{Type: "Commerce", Weight: 10},
+			{Type: "Elements", Weight: 5},
+			{Type: "Conjure", Weight: 5},
+			{Type: "Illusion", Weight: 5},
+			{Type: "Leather", Weight: 5},
+			{Type: "Metal", Weight: 3},
+			{Type: "Rope", Weight: 2},
+			{Type: "Will", Weight: 7},]
 
 	},
-	{
+
+	{//DungeonName2,-Underground Jungle-
 		"openness" : 2,
 		"density" : 5,
 		"doodadchance" : 0.15,
@@ -64,16 +106,25 @@ var KinkyDungeonMapParams = [
 		"chestcount" : 5,
 		"shrinecount" : 5,
 		"shrinechance" : 0.4,
+		"ghostchance" : 0.5,
 		"doorchance" : 0.2,
+		"nodoorchance" : 0.7,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
 		"rubblechance" : 0.5,
 		"brickchance" : 0.1,
+
+		"traps": [
+			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+		],
 
 		"min_width" : 25,
 		"max_width" : 31,
 		"min_height" : 11,
 		"max_height" : 19,
 	},
-	{
+	{//DungeonName3,-Lost Temple-
 		"openness" : 2,
 		"density" : 0,
 		"doodadchance" : 0.13,
@@ -81,9 +132,17 @@ var KinkyDungeonMapParams = [
 		"chestcount" : 5,
 		"shrinecount" : 4,
 		"shrinechance" : 0.5,
+		"ghostchance" : 0.5,
 		"doorchance" : 0.9,
+		"nodoorchance" : 0.25,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.5,
 		"rubblechance" : 0.7,
 		"brickchance" : 0.1,
+
+		"traps": [
+			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+		],
 
 		"min_width" : 31,
 		"max_width" : 35,
@@ -92,7 +151,7 @@ var KinkyDungeonMapParams = [
 
 		"lockmult" : 1.5,
 	},
-	{
+	{//DungeonName4,-Fungal Caverns-
 		"openness" : 4,
 		"density" : 4,
 		"doodadchance" : 0.15,
@@ -100,16 +159,25 @@ var KinkyDungeonMapParams = [
 		"chestcount" : 5,
 		"shrinecount" : 5,
 		"shrinechance" : 0.8,
+		"ghostchance" : 0.5,
 		"doorchance" : 0.05,
+		"nodoorchance" : 0.5,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
 		"rubblechance" : 0.9,
 		"brickchance" : 0.2,
+
+		"traps": [
+			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+		],
 
 		"min_width" : 15,
 		"max_width" : 25,
 		"min_height" : 15,
 		"max_height" : 25,
 	},
-	{
+	{//DungeonName5,-The Bellows-
 		"openness" : 1,
 		"density" : 1,
 		"doodadchance" : 0.05,
@@ -117,9 +185,18 @@ var KinkyDungeonMapParams = [
 		"chestcount" : 5,
 		"shrinecount" : 4,
 		"shrinechance" : 0.75,
+		"ghostchance" : 0.5,
 		"doorchance" : 0.67,
+		"nodoorchance" : 0.1,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
 		"rubblechance" : 0.7,
 		"brickchance" : 0.3,
+
+		"traps": [
+			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+		],
 
 		"min_width" : 25,
 		"max_width" : 51,
@@ -128,7 +205,7 @@ var KinkyDungeonMapParams = [
 
 		"lockmult" : 2.0,
 	},
-	{
+	{//DungeonName6,-Underground Desert-
 		"openness" : 4,
 		"density" : 2,
 		"doodadchance" : 0.13,
@@ -136,16 +213,25 @@ var KinkyDungeonMapParams = [
 		"chestcount" : 5,
 		"shrinecount" : 6,
 		"shrinechance" : 0.5,
+		"ghostchance" : 0.5,
 		"doorchance" : 0.0,
+		"nodoorchance" : 0.3,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
 		"rubblechance" : 0.3,
 		"brickchance" : 0.3,
+
+		"traps": [
+			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+		],
 
 		"min_width" : 25,
 		"max_width" : 31,
 		"min_height" : 17,
 		"max_height" : 25,
 	},
-	{
+	{//DungeonName7,-Kingdom of Ice-
 		"openness" : 2,
 		"density" : 1,
 		"doodadchance" : 0.12,
@@ -153,9 +239,17 @@ var KinkyDungeonMapParams = [
 		"chestcount" : 5,
 		"shrinecount" : 5,
 		"shrinechance" : 0.8,
+		"ghostchance" : 0.5,
 		"doorchance" : 0.8,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
+		"nodoorchance" : 0.2,
 		"rubblechance" : 0.5,
 		"brickchance" : 0.7,
+
+		"traps": [
+			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+		],
 
 		"min_width" : 25,
 		"max_width" : 31,
@@ -164,7 +258,7 @@ var KinkyDungeonMapParams = [
 
 		"lockmult" : 2.0,
 	},
-	{
+	{//DungeonName8,-Marble Halls-
 		"openness" : 4,
 		"density" : 0,
 		"doodadchance" : 0.12,
@@ -172,9 +266,18 @@ var KinkyDungeonMapParams = [
 		"chestcount" : 6,
 		"shrinecount" : 4,
 		"shrinechance" : 0.75,
+		"ghostchance" : 0.5,
 		"doorchance" : 1.0,
+		"nodoorchance" : 0.0,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
 		"rubblechance" : 0.7,
 		"brickchance" : 0.5,
+
+		"traps": [
+			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+		],
 
 		"min_width" : 15,
 		"max_width" : 21,
@@ -183,7 +286,7 @@ var KinkyDungeonMapParams = [
 
 		"lockmult" : 1.5,
 	},
-	{
+	{//DungeonName9,-Ancient Laboratory-
 		"openness" : 2,
 		"density" : 1,
 		"doodadchance" : 0.08,
@@ -191,9 +294,18 @@ var KinkyDungeonMapParams = [
 		"chestcount" : 7,
 		"shrinecount" : 3,
 		"shrinechance" : 0.75,
+		"ghostchance" : 0.5,
 		"doorchance" : 1.0,
+		"nodoorchance" : 0.0,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
 		"rubblechance" : 0.6,
 		"brickchance" : 0.9,
+
+		"traps": [
+			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+		],
 
 		"min_width" : 25,
 		"max_width" : 31,
@@ -202,17 +314,26 @@ var KinkyDungeonMapParams = [
 
 		"lockmult" : 4.0,
 	},
-	{
+	{//DungeonName10,-The Mansion-
 		"openness" : 10,
 		"density" : 0,
 		"doodadchance" : 0.05,
 		"brightness" : 100,
 		"chestcount" : 0,
 		"shrinecount" : 0,
-		"shrinechance" : 0,
+		"shrinechance" : 0.25,
+		"ghostchance" : 0.5,
 		"doorchance" : 1.0,
+		"nodoorchance" : 0.0,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
 		"rubblechance" : 1.0,
 		"brickchance" : 0.7,
+
+		"traps": [
+			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+		],
 
 		"min_width" : 31,
 		"max_width" : 31,
@@ -220,5 +341,52 @@ var KinkyDungeonMapParams = [
 		"max_height" : 19,
 
 		"lockmult" : 0.0,
+	},
+	{//DungeonName11,-Ancient Tombs-
+		"background" : "EgyptianTomb",
+		"openness" : 1,
+		"density" : 3,
+		"doodadchance" : 0.25,
+		"brightness" : 5,
+		"chestcount" : 4,
+		"shrinecount" : 4,
+		"shrinechance" : 0.5,
+		"ghostchance" : 0.5,
+		"doorchance" : 0.4,
+		"nodoorchance" : 0.25,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.7,
+		"grateChance" : 0.7,
+		"rubblechance" : 0.7,
+		"brickchance" : 0.4,
+
+		"traps": [
+			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+		],
+
+		"min_width" : 21,
+		"max_width" : 27,
+		"min_height" : 11,
+		"max_height" : 17,
+
+		"enemytags": ["mummy", "ghost"],
+		"defeat_restraints": [
+			{Name: "HighsecBallGag", Level: 0},
+			{Name: "HighsecArmbinder", Level: 0},
+			{Name: "HighsecShackles", Level: 0},
+			{Name: "LegShackles", Level: 0},
+			{Name: "PrisonBelt", Level: 1},
+			{Name: "PrisonVibe", Level: 1},
+		],
+		"defeat_outfit": "Egyptian",
+		"shrines": [
+			{Type: "Commerce", Weight: 10},
+			{Type: "Elements", Weight: 5},
+			{Type: "Conjure", Weight: 5},
+			{Type: "Illusion", Weight: 5},
+			{Type: "Metal", Weight: 3},
+			{Type: "Rope", Weight: 4},
+			{Type: "Charms", Weight: 6},
+			{Type: "Will", Weight: 7},]
 	},
 ];

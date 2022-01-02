@@ -15,7 +15,7 @@ Loot and Rewards
 	Red locks are the most common in early levels, and can be only opened with red keys.
 	Green locks are less common, and have a chance of jamming, making them impossible to unlock.
 	Yellow locks require both a red and a green key to unlock.
-	Blue locks require blue keys, and can't be picked or cut off. 
+	Blue locks require blue keys, and can't be picked or cut off.
 Shrines
 - Added Shrines! These allow you to offer gold and will basically take restraints off in exchange.
 - Shrines for the goddesses of the elements, conjuration, and illusion who grant spells
@@ -36,7 +36,7 @@ New Enemies:
 - Chain witch who fights by throwing chains at you. She will attempt to close the gap, and will lock the chains in place if she gets near!
 - Slime witch that hurls slime balls and conjures pools of slime at you! She is a formidable opponent, be careful not to get trapped against her as she can create tremendous amounts of slime!
 Spells
-- Electrify spell which is a delayed blast that also briefly stuns 
+- Electrify spell which is a delayed blast that also briefly stuns
 - Chain bolt spell which stuns enemies
 - Slime ball spell which conjures a ball of slime that leaves a sticky trail. Use with caution!
 - Shield and Barrier, two Conjuration spells for blocking projectiles
@@ -65,58 +65,125 @@ Features
 - Inventory system with potions! Willpower potions keep you in the fight, stamina potions enhance your drive for combat, mana potions reduce the paralyzing effects of mana exposure, and bitter potions help suppress distractions
 - You can't use potions if your hands are covered or unavailable
 - (WIP TODO) The shop costs more as the game goes on
-- New floor: The catacombs, full of skeletons and rats and necromancers! 
+- New floor: The catacombs, full of skeletons and rats and necromancers!
  - Skeletons utilize a variety of ropes and chains
  - Necromancers can summon more skeletons
  - (WIP) Trapped floors and doors
  - (WIP) Bondage gates which require you to be wearing a certain type of restraint to pass
-- (WIP) Can put on certain types of restraints as part of self bondage 
+- (WIP) Can put on certain types of restraints as part of self bondage
 - (WIP) Dropping potions, items, etc, especially while naked
 
 1.52 (Aug 2021)
 Features
 - Some balance changes to struggling, too many to count. Should be less random now.
 
+2.0 (January 2022)
+Gameplay Overhaul
+- Removed willpower. Stamina is the primary resource now for determining whether the player gets captured
+- New consequences when an enemy closes the gap and you have 0 stamina
+- Stamina is overhauled. It does not regen except when sleeping. You can click a button to sleep for 20 turns to regain 20 stamina. If you are attacked then you wake up automatically, but you are blinded while sleeping so you won't be able to see enemies coming. You can cancel sleep by hitting any key.
+- Mana is now a separate resource. It does not regenerate, but mana potions can restore it.
+- Each shrine now has a mana pool. You can drink mana from any of the mana pools once per floor without repercussions. This restores your mana fully. Drinking more than once on the same floor (from any number of shrines), however, has a chance to backfire.
+
+UI Changes
+- Changed the stat bars visually
+- Added Buttons to drink stamina/mana potions without going to the inventory
+- Added restart button and confirmation screen
+
+Content
+- New Spell Point system: You can learn new spells by spending points. Find spell points in chests and on special orbs, but be wary of angering the gods
+- New curse system: Items which are Cursed can not be struggled out of, but can be unlocked if you meet their condition
+- Added shortcuts, on floor 3 there is a stairway to a new (unfinished) tomb area with a different tileset
+- Reputation system that affects certain enemy spawn rates
+- New rope themed enemies that appear more often if you annoy the rope goddess
+- New spell: Ice Breath, creates icicles that deal damage
+- Added a new spooky illusion Enemy
+- New enemies: samurai, ninjas, mummies
+- new bolt cutters weapon
+- Some doors have a chance to be locked
+- Added helpful (or unhelpful) adventurer ghosts that may assist you with struggling. Careful not to rely on them too much as they might enjoy seeing you bound!
+- New special pressure-plate traps (that are often the only way through if you dont have a key to unlock a door)
+- Enemies now have pathfinding! They should be a bit harder to evade now.
+- Some enemies now hunt along defined patrols rather than at random
+- Enemies now have a 2 turn delay before they start chasing you
+- Added grates you can squeeze through
+
+TODO (expecting to get this done soon):
+-Dream hunter or something
+-Add max SP, MP, and AP upgrades as a rare drop in chests
+-Make it so rope snare can't target spaces with enemies
+-Panel gag, Legbinder and bolero jacket restraints
+-Shock plug that stuns you at high arousal
+
+-View buffs/penalties as a 3rd option for the struggle display
+-Aura spells that reduce max mana and mana regen
+-Contract spells Attached to a restraint
+-Etheral enemies
+-Enemy patrols that repeat
+-Return items to inventory if they get replaced
+-ESP spell that boosts vision range (or allows vision through walls in a short radius?)
+
+Other Features
+- Knives now use the same random-number-of-uses mechanic as lockpicks which gives some guaranteed uses
+- Picks, Knives, and Red Keys are now in the shop
+- Gagged mumbling while moving around
+- More flavorful text when waiting
+- Made the player character more expressive based on stamina, mana and arousal
+- Removed green and yellow locks (too much bloat)
+- Only one shrine of each type per floor
+- If you are bound with shrine-able restraints, one random restraint type will be guaranteed to have a shrine on the next level
+- Removed enemy friendly-fire in most cases
+- Button to toggle automatic door-closing
+- Walking around with a plug inside of you will arouse you
+
+Bugfix:
+- Enemies with high attack width will now hit you properly even if you sidestep (as long as you are within range)
+- Enemies that attack while moving will no longer hit you if they move at the same time that you do such that you are still in range, even if you dodged last turn's warning tiles
+- Multiple enemies will no longer be spawned on the same tile
+- Blue locks can no longer be picked, as all things should be
+- The quick potion buttons no longer bypass being bound or gagged.
+- You can now pay shrines if the amount of gold you have is exactly the cost
+
 TODO ValidationFindBlockCycles to prevent bugs
 
 Future content planned:
-- Items like swords and wands which improve melee attack damage or stamina cost
+- Wand item which reduces mana costs but is terrible for melee
 - Witches should drop their respective spells sometimes if you don't already have them
 - Slimes which clean up items, dissolve doors, and potentially corrupt traps and such
-- SLimes that catch your sword and trap it
+- Slimes that catch your sword and trap it
 - Enemies that grab your melee weapon and disarm you
-- Perk system with perks that allow you to decrease or increase spawns of certain restraints, affect your stats, etc. Maybe a One Punch perk that drastically increases melee damage but makes it so you can't use magic
+- Perk system with perks that allow you to decrease or increase spawns of certain restraints, affect your stats, etc.
+	- One Punch: Melee based perk that drastically increases melee damage but drastically reduces your ability to cast magic
 - Exit stair puzzles (like for example a button or special key somewhere in the level, maybe with a high likelihood of traps)
 - Inescapable yoke that needs keys, but the trap also summons rats that steal the keys and run away
-- Trapdoor that drops you into the above bonus level, with no enemies other than the rats. You wake up feeling stiff, and a yoke is on your arms...
+	- Trapdoor (?) that drops you into the above bonus level, with no enemies other than the rats. You wake up feeling stiff, and a yoke is on your arms...
 - Rats should have a kleptomaniac AI that steals items and holds them, drops them on death, and runs away from the player when confronted
 - jail bars that block movement but not vision and spells
-- Tranquilizer/stamina drain
-- Boss rooms
-- Magical rope traps which require enchanted knives to cut
+- Tranquilizer/stamina drain from an enemy (bandits? raiders?)
+- Boss rooms every few floors
+- Magical rope traps which require enchanted knives or advanced spells to cut?
 - Enchanted knives, which are found only in chests
 - Latex witches that cast latex imprisonment spells at you from a distance
 - Mummification from the feet up in an egyptian style level
-- Mana-boosting mittens which increase spell power and decrease mana costs, but make it harder to struggle out of things
+- Mana-boosting mittens which increase spell power and decrease mana costs, but make it harder to struggle out of things (being mittens)
 - Enchanted heels of various sorts (immunity to slow, immunity to slime, bonus to kick attacks, etc)
 - Chastity belt trap that puts a plug in you, increasing your arousal while walking
-- New shrine: chastity goddess. Places you in a set of magic cuffs that prevent you from being restrained. However if your willpower falls below maximum, the cuffs snap together until you get back to full willpower!
+- New shrine: chastity goddess. Places you in a set of magic cuffs that prevent you from being restrained in those slots. However if your stamina falls below half, the cuffs snap together until you get back to full stamina!
 - Traps that look slightly different. Usually found on brickwork, so if you avoid brickwork you can avoid them.
-- Locked doors; need to find a way to prevent the player from being trapped
 - Bombs
 - Vines in the undergrorund jungle (when it gets implemented)
 - Some sort of end state for high arousal... maybe an orgasm button that lets you succumb to the effects for several turns to bring it down to zero, and maybe "edging" items that prevent this from happening and instead cause increased stamina drain or constant random interruptions
-- Im also thinking... locked doors that trigger when you step on an obvious looking brickwork that's only generated on tiles you can avoid, maybe with some sort of sleep gas hazard or something to force a time limit if you cant progress
+- locked doors that trigger when you step on an obvious looking brickwork that's only generated on tiles you can avoid, maybe with some sort of sleep gas hazard or something to force a time limit if you cant progress
 - Monster Encyclopedia
-- A way to fix jammed locks, or a goddess of locks
-- Bolt cutters that allow cutting jammed green locks
+- Heels of avoiding traps: Causes all traps and dangerous terrain (slime, ice) to not affect the player
 
 Spell Ideas:
 - Clear Jam spell, which clears jammed green locks from either an object or the player, depending on where it is cast
-- Divine Cuffs, a spell which gives you glowing arm and leg cuffs that block low level restraints from being put on you. Lasts 10 turns.
+- Divine Cuffs, a spell which gives you glowing arm and leg cuffs that block low level restraints from being put on you. Lasts for the whole floor.
 - Ice Storm, a temporary AoE which has a chance to deal damage and stun creatures inside. Drains player willpower but does not slow or restraint the player.
-- Sleep, puts nearby creatures with low willpower to sleep until they take damage. Works on zombies, and also the player if the player is at low willpower (<30).
-- Clairvoyance: Cost 30 mana to be able to see inside of a chest
-- Conjure time Bombs
-- Icicle traps that deal ice damagee if enemies step on them
+- Sleep, puts nearby creatures with low willpower to sleep until they take damage. Works on zombies, and also the player if the player is at low stamina.
+- Clairvoyance: Cost a lot of mana to be able to see inside of a chest
+- Conjure Bomb
+- Icicle traps that deal ice damage if enemies step on them
+	- Cone of Cold: Creates icicles that do 1-2 cold damage when stepped on
 - Temporary Wall spell

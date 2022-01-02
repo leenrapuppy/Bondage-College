@@ -26,6 +26,8 @@ var KinkyDungeonStreamingPlayers = []; // List of players to stream to
 
 var KinkyDungeonInitTime = 0;
 
+var KinkyDungeonSleepTime = 0;
+
 
 /**
  * Loads the kinky dungeon game
@@ -103,7 +105,10 @@ function KinkyDungeonIsPlayer() {
  * @returns {void} - Nothing
  */
 function KinkyDungeonRun() {
-	DrawImage("Backgrounds/BrickWall.jpg", 0, 0);
+	let BG = "BrickWall";
+	let params = KinkyDungeonMapParams[KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]];
+	if (params && params.background) BG = params.background;
+	DrawImage("Backgrounds/" + BG + ".jpg", 0, 0);
 
 	// Draw the characters
 	DrawCharacter(KinkyDungeonPlayer, 0, 0, 1);
@@ -132,6 +137,20 @@ function KinkyDungeonRun() {
 	} else if (KinkyDungeonState == "Game") {
 		KinkyDungeonGameRunning = true;
 		KinkyDungeonDrawGame();
+		if (KinkyDungeonSleepTurns > 0) {
+			if (CommonTime() > KinkyDungeonSleepTime) {
+				KinkyDungeonSleepTurns -= 1;
+				KinkyDungeonAdvanceTime(1);
+				KinkyDungeonSleepTime = CommonTime() + 100;
+				if (KinkyDungeonStatStamina >= KinkyDungeonStatStaminaMax) KinkyDungeonSleepTurns = 0;
+			}
+		} else if (KinkyDungeonSlowMoveTurns > 0) {
+			if (CommonTime() > KinkyDungeonSleepTime) {
+				KinkyDungeonSlowMoveTurns -= 1;
+				KinkyDungeonAdvanceTime(1, false, true);
+				KinkyDungeonSleepTime = CommonTime() + Math.max(100, 200 - 50 * KinkyDungeonSlowMoveTurns);
+			}
+		} else KinkyDungeonSleepTime = CommonTime() + 100;
 	} else if (KinkyDungeonState == "End") {
 		KinkyDungeonGameRunning = false;
 		// Draw temp start screen
@@ -178,6 +197,7 @@ function KinkyDungeonClick() {
 	if (KinkyDungeonState == "Menu" || KinkyDungeonState == "Lose") {
 		if (MouseIn(875, 750, 350, 64)) {
 			KinkyDungeonInitialize(1);
+			MiniGameKinkyDungeonCheckpoint = 0;
 			KinkyDungeonState = "Game";
 
 			if (KinkyDungeonKeybindings) {

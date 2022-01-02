@@ -54,7 +54,7 @@ function KinkyDungeonDropItem(Item) {
 		}
 
 		KinkyDungeonGroundItems.push(dropped);
-		KinkyDungeonSendTextMessage(9, TextGet("KinkyDungeonDrop" + Item.name), "red", 2);
+		KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonDrop" + Item.name), "red", 2);
 
 		return true;
 	}
@@ -90,18 +90,22 @@ function KinkyDungeonItemEvent(Item) {
 		priority = 2;
 		color = "lightgreen";
 		KinkyDungeonRedKeys += 1;
-	} else if (Item.name == "GreenKey") {
-		priority = 2;
-		color = "lightgreen";
-		KinkyDungeonGreenKeys += 1;
 	} else if (Item.name == "BlueKey") {
 		priority = 2;
 		color = "lightgreen";
 		KinkyDungeonBlueKeys += 1;
-	} else if (Item.name == "PotionHealth") {
+	} else if (Item.name == "PotionMana") {
+		priority = 3;
+		color = "lightblue";
+		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.PotionMana, 1);
+	} else if (Item.name == "PotionStamina") {
 		priority = 3;
 		color = "lightgreen";
-		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.PotionHealth, 1);
+		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.PotionStamina, 1);
+	} else if (Item.name == "PotionFrigid") {
+		priority = 3;
+		color = "grey";
+		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.PotionFrigid, 1);
 	}
 	KinkyDungeonSendActionMessage(priority, TextGet("ItemPickup" + Item.name).replace("XXX", Item.amount), color, 2);
 }

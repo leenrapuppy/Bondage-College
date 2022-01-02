@@ -48,6 +48,14 @@ function KinkyDungeonHandleInventory() {
 
 				return true;
 			}
+			if (!KinkyDungeonPlayer.CanTalk()) {
+				KinkyDungeonSendActionMessage(7, TextGet("KinkyDungeonPotionGagged"), "red", 2);
+
+				if (KinkyDungeonTextMessageTime > 0)
+					KinkyDungeonDrawState = "Game";
+
+				return true;
+			}
 
 			KinkyDungeonUseConsumable(item.name, 1);
 		} else if (KinkyDungeonCurrentFilter == "Weapons") {

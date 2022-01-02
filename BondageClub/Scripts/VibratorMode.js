@@ -110,7 +110,7 @@ var VibratorModeOptions = {
 			Name: "Tease",
 			Property: {
 				Mode: VibratorMode.TEASE,
-				Intensity: () => CommonRandomItemFromList(-1, [0, 1, 2, 3]),
+				Intensity: () => CommonRandomItemFromList(-1, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]),
 				Effect: ["Egged", "Vibrating"],
 			},
 		},
@@ -118,7 +118,7 @@ var VibratorModeOptions = {
 			Name: "Deny",
 			Property: {
 				Mode: VibratorMode.DENY,
-				Intensity: () => CommonRandomItemFromList(-1, [0, 1, 2, 3]),
+				Intensity: () => CommonRandomItemFromList(-1, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]),
 				Effect: ["Egged", "Vibrating", "Edged"],
 			},
 		},
@@ -591,7 +591,7 @@ function VibratorModeStateUpdateDefault(C, Arousal, TimeSinceLastChange, OldInte
 	// If arousal is high, decide whether to deny or orgasm, based on provided transitions
 	if (Arousal > 90) State = CommonRandomItemFromList(VibratorModeState.DEFAULT, TransitionsFromDefault);
 	// If it's been at least a minute since the last intensity change, there's a small chance to change intensity
-	if (TimeSinceLastChange > OneMinute && Math.random() < 0.1) Intensity = CommonRandomItemFromList(OldIntensity, [0, 1, 2, 3]);
+	if (TimeSinceLastChange > OneMinute && Math.random() < 0.1) Intensity = CommonRandomItemFromList(OldIntensity, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
 	return { State, Intensity };
 }
 
@@ -624,7 +624,7 @@ function VibratorModeStateUpdateDeny(C, Arousal, TimeSinceLastChange, OldIntensi
 		Intensity = 0;
 	} else if (TimeSinceLastChange > OneMinute && Math.random() < 0.1) {
 		// Otherwise, there's a small chance to change intensity if it's been more than a minute since the last change
-		Intensity = CommonRandomItemFromList(OldIntensity, [0, 1, 2, 3]);
+		Intensity = CommonRandomItemFromList(OldIntensity, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
 	}
 	return { State, Intensity };
 }
@@ -648,7 +648,7 @@ function VibratorModeStateUpdateOrgasm(C, Arousal, TimeSinceLastChange, OldInten
 		State = Math.random() < 0.75 ? VibratorModeState.REST : VibratorModeState.DEFAULT;
 	} else if (TimeSinceLastChange > OneMinute && Math.random() < 0.1) {
 		// Otherwise, if it's been over a minute since the last intensity change, there's a small chance to change intensity
-		Intensity = CommonRandomItemFromList(OldIntensity, [0, 1, 2, 3]);
+		Intensity = CommonRandomItemFromList(OldIntensity, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
 	}
 	return { State, Intensity };
 }
@@ -672,7 +672,7 @@ function VibratorModeStateUpdateRest(C, Arousal, TimeSinceLastChange, OldIntensi
 	if (TimeSinceLastChange > FiveMinutes && Math.random() < Math.pow((TimeSinceLastChange - FiveMinutes) / TenMinutes, 2)) {
 		// Rest between 5 and 15 minutes (probably of change gets increasingly more likely as time approaches 15 minutes)
 		State = VibratorModeState.DEFAULT;
-		Intensity = CommonRandomItemFromList(OldIntensity, [0, 1, 2, 3]);
+		Intensity = CommonRandomItemFromList(OldIntensity, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
 	}
 	return { State, Intensity };
 }
