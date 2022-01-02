@@ -106,6 +106,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 				(this.Effect.indexOf("Block") < 0) &&
 				(this.Effect.indexOf("Prone") < 0) &&
 				!ManagementIsClubSlave() &&
+				(LogValue("Isolated", "Asylum") < CurrentTime) &&
 				!LogQuery("BlockChange", "Rule") &&
 				(!LogQuery("BlockChange", "OwnerRule") || (Player.Ownership == null) || (Player.Ownership.Stage != 1))
 			);

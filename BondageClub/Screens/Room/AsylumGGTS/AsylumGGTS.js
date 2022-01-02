@@ -28,6 +28,14 @@ function AsylumGGTSHasThreeStrikes() {
 }
 
 /**
+ * Returns TRUE if the player can quit GGTS
+ * @returns {boolean} - TRUE if three strikes or more or in active punishment
+ */
+function AsylumGGTSCanQuit() {
+	return (!AsylumGGTSHasThreeStrikes() && (LogValue("Isolated", "Asylum") < CurrentTime));
+}
+
+/**
  * Returns TRUE if the player has completed the required time for the current level
  * @returns {boolean} - TRUE if level is completed with 3 strikes on record
  */
@@ -313,6 +321,7 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T == "ActivityMasturbateHand") && C.IsVulvaChaste()) return false; // Cannot masturbate if chaste
 	if (((T == "ClothHeels") || (T == "ClothSocks") || (T == "ClothBarefoot")) && (InventoryGet(C, "ItemBoots") != null)) return false; // No feet tasks if locked in boots
 	if ((T == "NewRuleNoOrgasm") && !PreferenceArousalAtLeast(C, "Hybrid")) return false; // Orgasm rule are only available on hybrid or auto
+	if (((T == "ItemRemoveLimb") || (T == "ItemRemoveBody") || (T == "ItemUngag") || (T == "ItemUnchaste")) && (LogValue("Isolated", "Asylum") >= CurrentTime)) return false; // When punishment is active, items doesn't get removed
 	if ((T == "ItemPose") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")) return false;
 	if ((T == "ItemRemoveLimb") && !InventoryIsWorn(C, "FuturisticMittens", "ItemHands") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticArmbinder", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet") && !InventoryIsWorn(C, "FuturisticHeels", "ItemBoots") && !InventoryIsWorn(C, "FuturisticHeels2", "ItemBoots")) return false;
 	if ((T == "ItemRemoveBody") && !InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis") && !InventoryIsWorn(C, "FuturisticTrainingBelt", "ItemPelvis") && !InventoryIsWorn(C, "FuturisticBra", "ItemBreast") && !InventoryIsWorn(C, "FuturisticBra2", "ItemBreast") && !InventoryIsWorn(C, "FuturisticHarness", "ItemTorso")) return false;
@@ -442,7 +451,7 @@ function AsylumGGTSAutomaticTask() {
 			if (Item.Property == null) Item.Property = {};
 			Item.Property.Block = ["ItemVulva", "ItemVulvaPiercings", "ItemButt"];
 			Item.Property.Effect = ["UseRemote", "Chaste"];
-			Item.Property.Type = "m0f1b1t2o0";
+			Item.Property.Type = "m0f1b1t0o0";
 			Item.Color = ["#D06060", "#803030", "Default", "Default", "Default", "Default", "#222222", "Default"];
 		}
 		CharacterRefresh(Player);
@@ -773,7 +782,9 @@ function AsylumGGTSActivity(S, C, A, Z, Count) {
  * @returns {void} - Nothing
  */
 function AsylumGGTSPunishmentTime(Minute) {
-	LogAdd("Isolated", "Asylum", Math.round(CurrentTime + parseInt(Minute) * 60000));
+	let Time = Math.round(CurrentTime + parseInt(Minute) * 60000);
+	if (LogValue("Isolated", "Asylum") >= CurrentTime) Time = Time + Math.round(LogValue("Isolated", "Asylum") - CurrentTime);
+	LogAdd("Isolated", "Asylum", Time);
 	Player.Game.GGTS.Time = 0;
 	Player.Game.GGTS.Strike = 0;
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
@@ -797,7 +808,7 @@ function AsylumGGTSControlItem(C, Item) {
 	let Level = AsylumGGTSGetLevel(C);
 	if (AsylumGGTSGetLevel(Player) > Level) Level = AsylumGGTSGetLevel(Player);
 	if (Level <= 0) return false;
-	if (Level <= 2) {
+	if ((Level <= 2) && (LogValue("Isolated", "Asylum") < CurrentTime)) {
 		if (CurrentScreen != "ChatRoom") return false;
 		if (ChatRoomSpace !== "Asylum") return false;
 		if ((ChatRoomData == null) || (ChatRoomData.Game !== "GGTS")) return false;

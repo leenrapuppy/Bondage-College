@@ -10,7 +10,7 @@ var AsylumEntranceEscapedPatientWillJoin = false;
  * Checks, if the player is able to leave the Asylum
  * @returns {boolean} - Returns true, if the player is able to leave, false otherwise
  */
-function AsylumEntranceCanWander() { return (Player.CanWalk() && ((LogValue("Committed", "Asylum") >= CurrentTime) || ((ReputationGet("Asylum") >= 1) && AsylumEntranceIsWearingNurseClothes()))); }
+function AsylumEntranceCanWander() { return (Player.CanWalk() && ((LogValue("Committed", "Asylum") >= CurrentTime) || (LogValue("Isolated", "Asylum") >= CurrentTime) || ((ReputationGet("Asylum") >= 1) && AsylumEntranceIsWearingNurseClothes()))); }
 /**
  * Checks, if the player can bring the nurse to her private room
  * @returns {boolean} - Returns true, if the player can drag the nurse to her private roo, false otherwise
@@ -48,16 +48,21 @@ function AsylumEntranceLoad() {
 function AsylumEntranceRun() {
 	DrawCharacter(Player, 500, 0, 1);
 	DrawCharacter(AsylumEntranceNurse, 1000, 0, 1);
-	if (Player.CanWalk() && (LogValue("Committed", "Asylum") < CurrentTime)) DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
+	if (Player.CanWalk() && (LogValue("Isolated", "Asylum") < CurrentTime) && (LogValue("Committed", "Asylum") < CurrentTime)) DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
 	DrawButton(1885, 145, 90, 90, "", "White", "Icons/Character.png", TextGet("Profile"));
 	if (AsylumEntranceCanWander()) DrawButton(1885, 265, 90, 90, "", "White", "Icons/Chat.png", TextGet("ChatRoom"));
 	if (AsylumEntranceCanWander()) DrawButton(1885, 385, 90, 90, "", "White", "Icons/Bedroom.png", TextGet("Bedroom"));
 	if (AsylumEntranceCanWander()) DrawButton(1885, 505, 90, 90, "", "White", "Icons/FriendList.png", TextGet("Meeting"));
 	if (AsylumEntranceCanWander()) DrawButton(1885, 625, 90, 90, "", "White", "Icons/Therapy.png", TextGet("Therapy"));
 	if (AsylumEntranceCanWander()) DrawButton(1885, 745, 90, 90, "", "White", "Icons/GGTS.png", TextGet("GGTS"));
-	if (LogValue("Committed", "Asylum") >= CurrentTime) {
-		DrawText(TextGet("RemainingTime"), 1800, 915, "white", "gray");
-		DrawText(TimerToString(LogValue("Committed", "Asylum") - CurrentTime), 1800, 965, "white", "gray");
+	if (LogValue("Isolated", "Asylum") >= CurrentTime) {
+		DrawText(TextGet("IsolationTime"), 1800, 915, "white", "gray");
+		DrawText(TimerToString(LogValue("Isolated", "Asylum") - CurrentTime), 1800, 965, "white", "gray");
+	} else {
+		if (LogValue("Committed", "Asylum") >= CurrentTime) {
+			DrawText(TextGet("RemainingTime"), 1800, 915, "white", "gray");
+			DrawText(TimerToString(LogValue("Committed", "Asylum") - CurrentTime), 1800, 965, "white", "gray");
+		}
 	}
 }
 
@@ -68,13 +73,14 @@ function AsylumEntranceRun() {
 function AsylumEntranceClick() {
 	if (MouseIn(500, 0, 500, 1000)) CharacterSetCurrent(Player);
 	if (MouseIn(1000, 0, 500, 1000)) {
-		if (LogValue("Committed", "Asylum") >= CurrentTime) AsylumEntranceNurse.Stage = "100";
+		if (LogValue("Isolated", "Asylum") >= CurrentTime) AsylumEntranceNurse.Stage = "200";
+		else if (LogValue("Committed", "Asylum") >= CurrentTime) AsylumEntranceNurse.Stage = "100";
 		else if (AsylumEntranceNurse.Stage == "100") AsylumEntranceNurse.Stage = "0";
-		if ((LogValue("Escaped", "Asylum") >= CurrentTime) && !AsylumEntranceNurse.IsRestrained()) AsylumEntranceNurse.Stage = "140";
+		if ((LogValue("Isolated", "Asylum") < CurrentTime) && (LogValue("Escaped", "Asylum") >= CurrentTime) && !AsylumEntranceNurse.IsRestrained()) AsylumEntranceNurse.Stage = "140";
 		ManagementClubSlaveDialog(AsylumEntranceNurse);
 		CharacterSetCurrent(AsylumEntranceNurse);
 	}
-	if (MouseIn(1885, 25, 90, 90) && Player.CanWalk() && (LogValue("Committed", "Asylum") < CurrentTime)) CommonSetScreen("Room", "MainHall");
+	if (MouseIn(1885, 25, 90, 90) && Player.CanWalk() && (LogValue("Isolated", "Asylum") < CurrentTime) && (LogValue("Committed", "Asylum") < CurrentTime)) CommonSetScreen("Room", "MainHall");
 	if (MouseIn(1885, 145, 90, 90)) InformationSheetLoadCharacter(Player);
 	if (MouseIn(1885, 265, 90, 90) && AsylumEntranceCanWander()) AsylumEntranceStartChat();
 	if (MouseIn(1885, 385, 90, 90) && AsylumEntranceCanWander()) CommonSetScreen("Room", "AsylumBedroom");
@@ -105,7 +111,6 @@ function AsylumEntranceWearNurseClothes(C) {
 	InventoryRemove(C, "ClothAccessory");
 }
 
-// Wears the patient clothes on a character
 /**
  * Dresses a given character as a patient. Removes all clothes and respects cosplay rules
  * @param {"Player" | Character} C - The character to dress
@@ -113,9 +118,8 @@ function AsylumEntranceWearNurseClothes(C) {
  * @returns {void} - Nothing
  */
 function AsylumEntranceWearPatientClothes(C, ExtraEvent) {
-	let FutureArms = InventoryIsWorn(C, "FuturisticCuffs", "ItemArms");
-	let FutureFeet = InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet");
-	if (ExtraEvent) CharacterRelease(C);
+
+	// Wears the patient clothes
 	if ((typeof C === "string") && (C == "Player")) C = Player;
 	InventoryWear(C, "TShirt1", "Cloth", "#500028");
 	InventoryWear(C, "Pajama1", "ClothLower", "#FF0080");
@@ -130,14 +134,33 @@ function AsylumEntranceWearPatientClothes(C, ExtraEvent) {
 	}
 	InventoryRemove(C, "HairAccessory3");
 	InventoryRemove(C, "Hat");
-	if (ExtraEvent) {
-		if (AsylumGGTSGetLevel(C) >= 3) {
-			if (LogQuery("Isolated", "Asylum")) CharacterNaked(C);
-			if (FutureArms) InventoryWear(C, "FuturisticCuffs", "ItemArms");
-			if (FutureFeet) InventoryWear(C, "FuturisticAnkleCuffs", "ItemFeet");
+	
+	// Wears the GGTS items based on the player level
+	if (ExtraEvent && LogQuery("Isolated", "Asylum")) {
+		CharacterRelease(C);
+		if (AsylumGGTSGetLevel(C) >= 2) {
+			InventoryWear(C, "FuturisticCuffs", "ItemArms");
+			InventoryWear(C, "FuturisticAnkleCuffs", "ItemFeet");
 		}
-		if ((ReputationGet("Asylum") <= -50) && (InventoryGet(C, "ItemArms") == null)) AsylumEntrancePlayerJacket("Normal");
+		if (AsylumGGTSGetLevel(C) >= 3) CharacterNaked(C);
+		if (AsylumGGTSGetLevel(C) >= 4) {
+			InventoryWear(C, "FuturisticChastityBelt", "ItemPelvis");
+			let Item = InventoryGet(Player, "ItemPelvis");
+			if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name == "FuturisticChastityBelt")) {
+				if (Item.Property == null) Item.Property = {};
+				Item.Property.Block = ["ItemVulva", "ItemVulvaPiercings", "ItemButt"];
+				Item.Property.Effect = ["UseRemote", "Chaste"];
+				Item.Property.Type = "m0f1b1t0o0";
+				Item.Color = ["#D06060", "#803030", "Default", "Default", "Default", "Default", "#222222", "Default"];
+			}
+			InventoryWear(C, "FuturisticBra", "ItemBreast");
+			InventoryWear(C, "FuturisticHarness", "ItemTorso");
+		}
 	}
+
+	// Adds an extra strait-jacket for seasoned patients
+	if (ExtraEvent && (ReputationGet("Asylum") <= -50) && (InventoryGet(C, "ItemArms") == null)) AsylumEntrancePlayerJacket("Normal");
+
 }
 
 /**
