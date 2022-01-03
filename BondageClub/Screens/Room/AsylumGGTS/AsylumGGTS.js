@@ -10,11 +10,11 @@ var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
 	[], // Level 0, 1, 2, 3 & 4 tasks
-	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "ActivityTickle", "ActivityPet", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemHandsFuturisticMittens", "ItemPose", "ItemRemoveLimb", "ItemRemoveBody","ItemUngag", "ItemChaste", "ItemUnchaste", "ItemIntensity", "UnlockRoom"],
+	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "ActivityTickle", "ActivityPet", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemHandsFuturisticMittens", "ItemPose", "ItemRemoveLimb", "ItemRemoveBody", "ItemRemoveHead", "ItemUngag", "ItemChaste", "ItemUnchaste", "ItemIntensity", "UnlockRoom"],
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "ItemBootsFuturisticHeels", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "ActivitySpank", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"],
 	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ActivityWiggle", "ActivityCaress", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "ItemArmsFuturisticArmbinder", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
 	["QueryServeObey", "QueryFreeWill", "ActivityMasturbateHand", "ActivityKiss", "ItemPelvisFuturisticChastityBelt", "ItemPelvisFuturisticTrainingBelt", "ItemBreastFuturisticBra", "ItemBreastFuturisticBra2", "ItemTorsoFuturisticHarness"],
-	["QuerySlaveWorthy", "ItemArmsFuturisticStraitjacket"]
+	["QuerySlaveWorthy", "ItemArmsFuturisticStraitjacket", "ItemNeckFuturisticCollar"]
 ];
 var AsylumGGTSLevelTime = [0, 7200000, 10800000, 18000000, 28800000, 46800000];
 var AsylumGGTSPreviousPose = "";
@@ -290,6 +290,7 @@ function AsylumGGTSTaskDone(C, T) {
 	if ((T == "ItemHandsFuturisticMittens") && InventoryIsWorn(C, "FuturisticMittens", "ItemHands")) return true;
 	if ((T == "ItemArmsFuturisticArmbinder") && InventoryIsWorn(C, "FuturisticArmbinder", "ItemArms")) return true;
 	if ((T == "ItemArmsFuturisticStraitjacket") && InventoryIsWorn(C, "FuturisticStraitjacket", "ItemArms")) return true;
+	if ((T == "ItemNeckFuturisticCollar") && InventoryIsWorn(C, "FuturisticCollar", "ItemNeck")) return true;	
 	if ((T == "ItemArmsFuturisticCuffs") && ((Level != 1) || InventoryIsWorn(C, "FuturisticCuffs", "ItemArms"))) return true;
 	if ((T == "ItemArmsFeetFuturisticCuffs") && InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet") && InventoryIsWorn(C, "FuturisticLegCuffs", "ItemLegs")) return true;
 	if ((T == "ItemBootsFuturisticHeels") && (InventoryIsWorn(C, "FuturisticHeels", "ItemBoots") || InventoryIsWorn(C, "FuturisticHeels2", "ItemBoots"))) return true;
@@ -337,10 +338,11 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T == "ActivityMasturbateHand") && C.IsVulvaChaste()) return false; // Cannot masturbate if chaste
 	if (((T == "ClothHeels") || (T == "ClothSocks") || (T == "ClothBarefoot")) && (InventoryGet(C, "ItemBoots") != null)) return false; // No feet tasks if locked in boots
 	if ((T == "NewRuleNoOrgasm") && !PreferenceArousalAtLeast(C, "Hybrid")) return false; // Orgasm rule are only available on hybrid or auto
-	if (((T == "ItemRemoveLimb") || (T == "ItemRemoveBody") || (T == "ItemUngag") || (T == "ItemUnchaste")) && (LogValue("Isolated", "Asylum") >= CurrentTime)) return false; // When punishment is active, items doesn't get removed
+	if (((T == "ItemRemoveLimb") || (T == "ItemRemoveBody") || (T == "ItemRemoveHead") || (T == "ItemUngag") || (T == "ItemUnchaste")) && (LogValue("Isolated", "Asylum") >= CurrentTime)) return false; // When punishment is active, items doesn't get removed
 	if ((T == "ItemPose") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet") && !InventoryIsWorn(C, "FuturisticLegCuffs", "ItemLegs")) return false;
 	if ((T == "ItemRemoveLimb") && !InventoryIsWorn(C, "FuturisticMittens", "ItemHands") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticStraitjacket", "ItemArms") && !InventoryIsWorn(C, "FuturisticArmbinder", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")  && !InventoryIsWorn(C, "FuturisticLegCuffs", "ItemLegs") && !InventoryIsWorn(C, "FuturisticHeels", "ItemBoots") && !InventoryIsWorn(C, "FuturisticHeels2", "ItemBoots")) return false;
 	if ((T == "ItemRemoveBody") && !InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis") && !InventoryIsWorn(C, "FuturisticTrainingBelt", "ItemPelvis") && !InventoryIsWorn(C, "FuturisticBra", "ItemBreast") && !InventoryIsWorn(C, "FuturisticBra2", "ItemBreast") && !InventoryIsWorn(C, "FuturisticHarness", "ItemTorso")) return false;
+	if ((T == "ItemRemoveHead") && !InventoryIsWorn(C, "FuturisticCollar", "ItemNeck") && !InventoryIsWorn(C, "FuturisticMask", "ItemHead") && !InventoryIsWorn(C, "FuturisticEarphones", "ItemEars")) return false;
 	if ((T == "ItemUngag") && (
 	((InventoryGet(C, "ItemMouth") == null) || (InventoryGet(C, "ItemMouth").Asset.Name.substr(0, 10) != "Futuristic")) &&
 	((InventoryGet(C, "ItemMouth2") == null) || (InventoryGet(C, "ItemMouth2").Asset.Name.substr(0, 10) != "Futuristic")) &&
@@ -357,10 +359,11 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T == "RestrainLegs") && !C.CanInteract()) return false; // To restraint own legs, must be able to interact
 	if ((T.substr(0, 4) == "Item") && (T.length >= 15) && !C.CanInteract()) return false; // To use an item, must be able to interact
 	if ((T == "ItemHandsFuturisticMittens") && (InventoryGet(C, "ItemHands") != null)) return false;
+	if ((T == "ItemNeckFuturisticCollar") && (InventoryGet(C, "ItemNeck") != null)) return false;
 	if ((T == "ItemArmsFuturisticArmbinder") && (InventoryGet(C, "ItemArms") != null)) return false;
 	if ((T == "ItemArmsFuturisticArmbinder") && (C.ID == 0) && (SkillGetLevel(Player, "SelfBondage") < 6)) return false;
-	if ((T == "FuturisticStraitjacket") && (InventoryGet(C, "ItemArms") != null)) return false;
-	if ((T == "FuturisticStraitjacket") && (C.ID == 0) && (SkillGetLevel(Player, "SelfBondage") < 4)) return false;
+	if ((T == "ItemArmsFuturisticStraitjacket") && (InventoryGet(C, "ItemArms") != null)) return false;
+	if ((T == "ItemArmsFuturisticStraitjacket") && (C.ID == 0) && (SkillGetLevel(Player, "SelfBondage") < 4)) return false;
 	if ((T == "ItemArmsFuturisticCuffs") && (InventoryGet(C, "ItemArms") != null)) return false;
 	if ((T == "ItemArmsFeetFuturisticCuffs") && ((InventoryGet(C, "ItemArms") != null) || (InventoryGet(C, "ItemFeet") != null))) return false;
 	if ((T == "ItemBootsFuturisticHeels") && (InventoryGet(C, "ItemBoots") != null)) return false;
@@ -458,6 +461,15 @@ function AsylumGGTSAutomaticTask() {
 		AsylumGGTSTaskRemoveFuturisticItem("ItemPelvis");
 		AsylumGGTSTaskRemoveFuturisticItem("ItemTorso");
 		AsylumGGTSTaskRemoveFuturisticItem("ItemBreast");
+		ChatRoomCharacterUpdate(Player);
+		return AsylumGGTSEndTaskSave();
+	}
+
+	// The ItemRemoveHead task automatically removes all futuristic collar, mask and ear items
+	if (AsylumGGTSTask == "ItemRemoveHead") {
+		AsylumGGTSTaskRemoveFuturisticItem("ItemEars");
+		AsylumGGTSTaskRemoveFuturisticItem("ItemNeck");
+		AsylumGGTSTaskRemoveFuturisticItem("ItemHead");
 		ChatRoomCharacterUpdate(Player);
 		return AsylumGGTSEndTaskSave();
 	}
