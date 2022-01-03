@@ -107,6 +107,7 @@ Content
 - Some enemies now hunt along defined patrols rather than at random
 - Enemies now have a 2 turn delay before they start chasing you
 - Added grates you can squeeze through
+- The player can now be dragged by enemies while wearing a leash
 
 TODO (expecting to get this done soon):
 -Dream hunter or something

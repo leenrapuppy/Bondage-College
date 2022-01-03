@@ -154,7 +154,8 @@ KinkyDungeonInventoryItemAxeDesc2,"A respectable weapon with a mix of damage and
 KinkyDungeonWeaponDamage,"Damage: "
 KinkyDungeonWeaponAccuracy,"Accuracy: "
 
-KinkyDungeonTorsoGrab,The EnemyName grabs you by the harness and keeps you in place!
+KinkyDungeonTorsoGrab,The EnemyName grabs you and keeps you in place!
+KinkyDungeonLeashGrab,The EnemyName grabs your leash and pulls you back!!!
 KinkyDungeonAttackMiss,The EnemyName misses you!
 
 KinkyDungeonHearDoorOpenNear,You hear a door creak open nearby!
@@ -432,6 +433,14 @@ RestraintHighsecShacklesDesc2,"Nearly indestructable, you are at the mercy of it
 RestraintHighsecBallGag,Highsec BallGag
 RestraintHighsecBallGagDesc,"An obisidian gag shoved tightly between your lips."
 RestraintHighsecBallGagDesc2,"The straps are nigh-unbreakable, keeping you securely silenced."
+
+
+RestraintBasicCollar,Collar
+RestraintBasicCollarDesc,"A classy leather collar."
+RestraintBasicCollarDesc2,"Allows fitting of a leash."
+RestraintBasicLeash,Leash
+RestraintBasicLeashDesc,"A leash made from a strong material."
+RestraintBasicLeashDesc2,"Functions as a handle for moving unruly prisoners."
 
 RestraintPrisonVibe,Prison Vibe
 RestraintPrisonVibeDesc,"A teaser to keep you occupied."

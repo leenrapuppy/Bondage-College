@@ -38,7 +38,7 @@ var KinkyDungeonMapParams = [
 		],
 		"defeat_outfit": "Prisoner",
 		"shrines": [
-			{Type: "Charms", Weight: 5},
+			//{Type: "Charms", Weight: 5},
 			{Type: "Commerce", Weight: 10},
 			{Type: "Elements", Weight: 5},
 			{Type: "Conjure", Weight: 5},
@@ -386,7 +386,7 @@ var KinkyDungeonMapParams = [
 			{Type: "Illusion", Weight: 5},
 			{Type: "Metal", Weight: 3},
 			{Type: "Rope", Weight: 4},
-			{Type: "Charms", Weight: 6},
+			{Type: "Leather", Weight: 6},
 			{Type: "Will", Weight: 7},]
 	},
 ];

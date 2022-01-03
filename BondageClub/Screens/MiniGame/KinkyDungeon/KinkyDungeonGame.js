@@ -99,6 +99,8 @@ var KinkyDungeonLastMoveTimerCooldown = 175;
 var KinkyDungeonLastMoveTimerCooldownStart = 50;
 
 let KinkyDungeonPatrolPoints = [];
+let KinkyDungeonStartPosition = {x: 1, y: 1};
+let KinkyDungeonOrbsPlaced = [];
 
 function KinkyDungeonSetCheckPoint(Checkpoint) {
 	if (Checkpoint != undefined) MiniGameKinkyDungeonCheckpoint = Checkpoint;
@@ -213,6 +215,7 @@ function KinkyDungeonCreateMap(MapParams, Floor) {
 
 	// Place the player!
 	KinkyDungeonPlayerEntity = {MemberNumber:Player.MemberNumber, x: 1, y:startpos};
+	KinkyDungeonStartPosition = {x: 1, y: startpos};
 
 	KinkyDungeonReplaceDoodads(doodadchance, width, height); // Replace random internal walls with doodads
 	KinkyDungeonPlaceStairs(startpos, width, height); // Place the start and end locations
@@ -562,10 +565,10 @@ function KinkyDungeonPlaceShrines(shrinechance, shrinecount, shrinefilter, ghost
 	let count = 0;
 	while (shrinelist.length > 0) {
 		let N = Math.floor(Math.random()*shrinelist.length);
-		if (count < shrinecount) {
+		if (count <= shrinecount) {
 
 			let shrine = shrinelist[N];
-			if (count == shrinecount && Math.random() < shrinechance)
+			if (count == shrinecount && Math.random() > shrinechance)
 				KinkyDungeonMapSet(shrine.x, shrine.y, 'a');
 			else {
 				let playerTypes = KinkyDungeonRestraintTypes(shrinefilter);
@@ -576,7 +579,10 @@ function KinkyDungeonPlaceShrines(shrinechance, shrinecount, shrinefilter, ghost
 				let tile = 'A';
 				if (shrineTypes.includes(type)) type = "";
 				if (type == "Orb") {
-					tile = 'O';
+					if (!KinkyDungeonOrbsPlaced.includes(Floor) && Floor > 0) {
+						tile = 'O';
+						KinkyDungeonOrbsPlaced.push(Floor);
+					} else tile = 'o';
 					shrineTypes.push("Orb");
 				} else if (type) {
 					KinkyDungeonTiles["" + shrine.x + "," +shrine.y] =  {Type: "Shrine", Name: type};
@@ -662,9 +668,9 @@ function KinkyDungeonPlaceTraps( traps, traptypes, Floor, width, height) {
 // @ts-ignore
 function KinkyDungeonPlacePatrols(Count, width, height) {
 	KinkyDungeonPatrolPoints = [];
-	for (let i = 0; i < Count; i++) {
+	for (let i = 1; i <= Count; i++) {
 		for (let L = 1000; L > 0; L -= 1) { // Try up to 1000 times
-			let X = Math.floor(i * width / Count) + Math.floor(Math.random() * width/Count);
+			let X = Math.floor(i * width / (Count + 1)) + Math.floor(Math.random() * width/(Count + 1));
 			let Y = Math.floor(Math.random()*height);
 			if (KinkyDungeonGroundTiles.includes(KinkyDungeonMapGet(X, Y))) {
 				KinkyDungeonPatrolPoints.push({x: X, y: Y});

@@ -126,7 +126,7 @@ function KinkyDungeonDressPlayer() {
 	if (KinkyDungeonStatArousal >= 0.01 && KinkyDungeonStatArousal <= 3) Eyes2 = "Closed";
 
 	if (KinkyDungeonStatStamina <= 4) {
-		Eyes = "Dizzy";
+		Eyes = "Dazed";
 		Eyes2 = "";
 	}
 

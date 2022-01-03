@@ -14,7 +14,13 @@ function KinkyDungeonCheckPath(x1, y1, x2, y2, allowBars) {
 		let xx = x1 + (x2-x1)*F/length;
 		let yy = y1 + (y2-y1)*F/length;
 
-		if ((xx != x1 || yy != y1) && !obj.includes(KinkyDungeonMapGet(Math.floor(xx), Math.floor(yy))) && !obj.includes(KinkyDungeonMapGet(Math.ceil(xx), Math.ceil(yy)))) return false;
+		let hits = 0;
+		if (!obj.includes(KinkyDungeonMapGet(Math.floor(xx), Math.floor(yy)))) hits += 1;
+		if (!obj.includes(KinkyDungeonMapGet(Math.round(xx), Math.round(yy)))) hits += 1;
+		if (hits < 2 && !obj.includes(KinkyDungeonMapGet(Math.ceil(xx), Math.ceil(yy)))) hits += 1;
+
+
+		if ((xx != x1 || yy != y1) && hits >= 2) return false;
 	}
 
 	return true;
