@@ -299,7 +299,7 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 4000,4010,(Inspect the machine.),Level five in progress.  Good slave girl proof require thirteen hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
 4000,,(Leave.),,DialogLeave(),
 4010,,,Level four in progress.  Good girl proof require eight hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
-4010,,What rules are added in level five?,Error!  Level five data not found.  (Level five will be added in a future version.),,
+4010,4011,What rules are added in level five?,"Level five rule.  Good slave girl must wear futuristic collar, straitjacket, mask or earphone.  GGTS take control.",,
 4010,,Why are you calling me good slave girl?,Information unauthorized for good slave girl.,DialogRemove(),
 4010,,(Do GGTS in private.),,BuildPrivate(),!AsylumGGTSHasThreeStrikes()
 4010,,I'll do GGTS in public.,Good slave girl enter asylum entrance.  Good slave girl create or join public chat room.  Good slave girl selects GGTS.  GGTS takes control.,,!AsylumGGTSHasThreeStrikes()
@@ -311,6 +311,10 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 4010,,I want to quit GGTS.,Three strikes on record.  Three strikes equal punishment.  Punishment time pending.  Cannot quit.,,!CanQuit()
 4010,,I want to quit GGTS.,Invalid request.  Good slave girl unauthorized to quit.,,CanQuit()
 4010,,(Leave.),,DialogLeave(),
+4011,4012,(Listen.),"Level five rule.  Good girl get strike when saying ""Whore"" or ""Bastard"".",,
+4012,4013,(Listen.),"Level five rule.  Good girl must answer: ""I'm a good slave girl."" when GGTS query: ""Name, what are you?"".",,
+4013,4014,(Listen.),"Level five rule.  Good girl must answer: ""I strive to be slave worthy."" when GGTS query: ""Name, are you slave worthy?"".",,
+4014,4010,(Listen.),Level five rules listing complete.  Level five in progress.  Good slave girl proof require thirteen hours.,,
 4100,4110,"Yes, I'm very sorry Sir.",Punishment selected.  Good slave girl learn from lock down.  Sentence 21 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(21),
 4100,4110,"Yeah, I accept your punishment.",Punishment selected.  Good slave girl learn from lock down.  Sentence 29 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(29),
 4100,4110,Don't be too harsh.,Punishment selected.  Good slave girl learn from lock down.  Sentence 37 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(37),

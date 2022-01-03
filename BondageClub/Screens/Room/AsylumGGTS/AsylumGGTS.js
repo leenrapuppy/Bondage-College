@@ -722,6 +722,7 @@ function AsylumGGTSForbiddenWord(C) {
 	if (Player.Game.GGTS.Strike >= 3) return;
 	let WordList = ["fuck", "shit"];
 	if (Level >= 4) WordList.push("cunt", "bitch");
+	if (Level >= 5) WordList.push("whore", "bastard");
 
 	// Scans the original
 	for (let L = 0; L < ChatRoomChatLog.length; L++)
