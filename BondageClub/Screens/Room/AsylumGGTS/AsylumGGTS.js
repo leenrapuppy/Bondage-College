@@ -667,7 +667,7 @@ function AsylumGGTSEndTaskSave() {
 	if (AsylumGGTSTimer > CommonTime()) AddedTime = AddedTime + AsylumGGTSTimer - CommonTime();
 	if (AddedTime < 0) AddedTime = 0;
 	if (AddedTime > 120000) AddedTime = 120000;
-	Player.Game.GGTS.Time = Math.round(Player.Game.GGTS.Time + (AddedTime * Factor));
+	Player.Game.GGTS.Time = Math.round(Player.Game.GGTS.Time + (AddedTime * Factor * CheatFactor("DoubleGGTSTime", 2)));
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 	ChatRoomCharacterUpdate(Player);
 	AsylumGGTSTaskEnd = CommonTime();
