@@ -32,7 +32,7 @@ let KinkyDungeonStatManaMax = 36;
 let KinkyDungeonStatMana = KinkyDungeonStatManaMax;
 let KinkyDungeonStatManaRate = 0;
 let KinkyDungeonStatManaRegen = 0; // How fast stamina that is converted to mana regenerates
-let KinkyDungeonStatManaLowRegen = 0.24; // How fast stamina that is converted to mana regenerates when low
+let KinkyDungeonStatManaLowRegen = 0; // How fast stamina that is converted to mana regenerates when low
 let KinkyDungeonStatManaRegenLowThreshold = 1; // Threshold for fast mana regen
 let KinkyDungeonStatStaminaRegenPerSlowLevel = -0.1; // It costs stamina to move while bound
 let KinkyDungeonStatStaminaCostStruggle = -1; // It costs stamina to struggle
@@ -57,6 +57,8 @@ let KinkyDungeonMovePoints = 0;
 let KinkyDungeonBlindLevelBase = 0; // Base, increased by buffs and such, set to 0 after consumed in UpdateStats
 let KinkyDungeonBlindLevel = 0; // Blind level 1: -33% vision, blind level 2: -67% vision, Blind level 3: Vision radius = 1
 let KinkyDungeonStatBlind = 0; // Used for temporary blindness
+let KinkyDungeonStatFreeze = 0; // Used for temporary freeze
+let KinkyDungeonStatBind = 0; // Used for temporary bind
 let KinkyDungeonDeaf = false; // Deafness reduces your vision radius to 0 if you are fully blind (blind level 3)
 
 // Other stats

@@ -107,22 +107,20 @@ Content
 - Some enemies now hunt along defined patrols rather than at random
 - Enemies now have a 2 turn delay before they start chasing you
 - Added grates you can squeeze through
-- The player can now be dragged by enemies while wearing a leash
 
 TODO (expecting to get this done soon):
 -Dream hunter or something
 -Add max SP, MP, and AP upgrades as a rare drop in chests
 -Make it so rope snare can't target spaces with enemies
 -Panel gag, Legbinder and bolero jacket restraints
+-Latex goddess and restraints
 -Shock plug that stuns you at high arousal
-
 -View buffs/penalties as a 3rd option for the struggle display
 -Aura spells that reduce max mana and mana regen
 -Contract spells Attached to a restraint
 -Etheral enemies
--Enemy patrols that repeat
 -Return items to inventory if they get replaced
--ESP spell that boosts vision range (or allows vision through walls in a short radius?)
+-ESP spell that boosts vision range (or allows vision through walls in a short radius?) and reveals stealth
 
 Other Features
 - Knives now use the same random-number-of-uses mechanic as lockpicks which gives some guaranteed uses
@@ -144,6 +142,17 @@ Bugfix:
 - Blue locks can no longer be picked, as all things should be
 - The quick potion buttons no longer bypass being bound or gagged.
 - You can now pay shrines if the amount of gold you have is exactly the cost
+
+2.1
+- The player can now be dragged by enemies while wearing a leash
+- New status effects: Freeze, slow, and bind. Chains, ice, slime, etc have been moved over
+
+2.2
+- Fixed a bug where projectiles would pass through a target without harming it
+- New spell: Incinerate, deals damage over time in a 3x3 area
+- New spell: Bomb, deals damage after a delay in a 3x3 area
+- New spell: Crackle, deals damage in a line and stuns briefly
+- New spell: Shadow Dagger, a dagger that passes through enemies and walls, but only deals 1 damage
 
 TODO ValidationFindBlockCycles to prevent bugs
 

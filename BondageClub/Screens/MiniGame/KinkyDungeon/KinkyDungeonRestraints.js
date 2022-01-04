@@ -349,7 +349,7 @@ function KinkyDungeonStruggle(struggleGroup, StruggleType) {
 
 	// Covered hands makes it harder to unlock, and twice as hard to remove
 	if ((StruggleType == "Pick" || StruggleType == "Unlock" || StruggleType == "Remove") && struggleGroup.group != "ItemHands" && handsBound)
-		escapeChance = (StruggleType == "Remove") ? escapeChance /= 2 : Math.max(0, escapeChance - 0.5);
+		escapeChance = (StruggleType == "Remove") ? escapeChance / 2 : Math.max(0, escapeChance - 0.5);
 
 	if (!KinkyDungeonHasGhostHelp() && (StruggleType == "Pick" || StruggleType == "Unlock")) escapeChance /= 1.0 + KinkyDungeonStatArousal/KinkyDungeonStatArousalMax*KinkyDungeonArousalUnlockSuccessMod;
 
@@ -360,6 +360,9 @@ function KinkyDungeonStruggle(struggleGroup, StruggleType) {
 
 	// Blue locks make it harder to escape an item
 	if (restraint.lock == "Blue" && (StruggleType == "Cut" || StruggleType == "Remove" || StruggleType == "Struggle")) escapeChance = Math.max(0, escapeChance - 0.15);
+
+	if (StruggleType == "Cut" && struggleGroup.group != "ItemHands" && handsBound)
+		escapeChance = escapeChance / 2;
 
 	// Struggling is affected by tightness
 	if (escapeChance > 0 && StruggleType == "Struggle") {
@@ -702,6 +705,7 @@ function KinkyDungeonRemoveRestraint(Group, Keep) {
 			if (item.restraint.inventory && Keep) KinkyDungeonInventory.push({looserestraint: item.restraint});
 
 			InventoryRemove(KinkyDungeonPlayer, Group);
+			if (item.restraint.Group == "ItemNeck" && KinkyDungeonGetRestraintItem("ItemNeckRestraints")) KinkyDungeonRemoveRestraint("ItemNeckRestraints", KinkyDungeonGetRestraintItem("ItemNeckRestraints").restraint.inventory);
 
 			KinkyDungeonCalculateSlowLevel();
 

@@ -173,6 +173,18 @@ function KinkyDungeonDrawEnemies(canvasOffsetX, canvasOffsetY, CamX, CamY) {
 					(tx - CamX)*KinkyDungeonGridSizeDisplay, (ty - CamY)*KinkyDungeonGridSizeDisplay,
 					KinkyDungeonGridSizeDisplay, KinkyDungeonGridSizeDisplay, false);
 			}
+			if (enemy.freeze > 0) {
+				DrawImageZoomCanvas(KinkyDungeonRootDirectory + "Freeze.png",
+					KinkyDungeonContext, 0, 0, KinkyDungeonSpriteSize, KinkyDungeonSpriteSize,
+					(tx - CamX)*KinkyDungeonGridSizeDisplay, (ty - CamY)*KinkyDungeonGridSizeDisplay,
+					KinkyDungeonGridSizeDisplay, KinkyDungeonGridSizeDisplay, false);
+			}
+			if (enemy.bind > 0) {
+				DrawImageZoomCanvas(KinkyDungeonRootDirectory + "Bind.png",
+					KinkyDungeonContext, 0, 0, KinkyDungeonSpriteSize, KinkyDungeonSpriteSize,
+					(tx - CamX)*KinkyDungeonGridSizeDisplay, (ty - CamY)*KinkyDungeonGridSizeDisplay,
+					KinkyDungeonGridSizeDisplay, KinkyDungeonGridSizeDisplay, false);
+			}
 			if (enemy.slow > 0) {
 				DrawImageZoomCanvas(KinkyDungeonRootDirectory + "Slow.png",
 					KinkyDungeonContext, 0, 0, KinkyDungeonSpriteSize, KinkyDungeonSpriteSize,
@@ -274,8 +286,9 @@ function KinkyDungeonUpdateEnemies(delta) {
 			enemy.slow -= delta;
 		if (enemy.bind > 0)
 			enemy.bind -= delta;
-		if (enemy.stun > 0) {
-			enemy.stun -= delta;
+		if (enemy.stun > 0 || enemy.freeze > 0) {
+			if (enemy.stun > 0) enemy.stun -= delta;
+			if (enemy.freeze > 0) enemy.freeze -= delta;
 		} else {
 			let attack = enemy.Enemy.attack;
 			let usingSpecial = false;
