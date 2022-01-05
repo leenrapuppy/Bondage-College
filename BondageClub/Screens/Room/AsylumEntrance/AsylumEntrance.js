@@ -54,13 +54,13 @@ function AsylumEntranceLoad() {
 function AsylumEntranceRun() {
 	DrawCharacter(Player, 500, 0, 1);
 	DrawCharacter(AsylumEntranceNurse, 1000, 0, 1);
-	if (Player.CanWalk() && (LogValue("Isolated", "Asylum") < CurrentTime) && (LogValue("Committed", "Asylum") < CurrentTime)) DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
+	if (Player.CanWalk() && (LogValue("Isolated", "Asylum") < CurrentTime) && (LogValue("Committed", "Asylum") < CurrentTime) && (LogValue("ForceGGTS", "Asylum") <= 0)) DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
 	DrawButton(1885, 145, 90, 90, "", "White", "Icons/Character.png", TextGet("Profile"));
 	if (AsylumEntranceCanWander()) DrawButton(1885, 265, 90, 90, "", "White", "Icons/Chat.png", TextGet("ChatRoom"));
 	if (AsylumEntranceCanWander()) DrawButton(1885, 385, 90, 90, "", "White", "Icons/Bedroom.png", TextGet("Bedroom"));
 	if (AsylumEntranceCanWander()) DrawButton(1885, 505, 90, 90, "", "White", "Icons/FriendList.png", TextGet("Meeting"));
 	if (AsylumEntranceCanWander()) DrawButton(1885, 625, 90, 90, "", "White", "Icons/Therapy.png", TextGet("Therapy"));
-	if (AsylumEntranceCanWander()) DrawButton(1885, 745, 90, 90, "", "White", "Icons/GGTS.png", TextGet("GGTS"));
+	if (AsylumEntranceCanWander() || (LogValue("ForceGGTS", "Asylum") > 0)) DrawButton(1885, 745, 90, 90, "", "White", "Icons/GGTS.png", TextGet("GGTS"));
 	if (LogValue("Isolated", "Asylum") >= CurrentTime) {
 		DrawText(TextGet("IsolationTime"), 1800, 915, "white", "gray");
 		DrawText(TimerToString(LogValue("Isolated", "Asylum") - CurrentTime), 1800, 965, "white", "gray");
@@ -69,6 +69,10 @@ function AsylumEntranceRun() {
 			DrawText(TextGet("RemainingTime"), 1800, 915, "white", "gray");
 			DrawText(TimerToString(LogValue("Committed", "Asylum") - CurrentTime), 1800, 965, "white", "gray");
 		}
+	}
+	if (LogValue("ForceGGTS", "Asylum") > 0) {
+		DrawText(TextGet("ForceGGTS"), 200, 915, "white", "gray");
+		DrawText(TimerToString(LogValue("ForceGGTS", "Asylum")), 200, 965, "white", "gray");
 	}
 }
 
@@ -86,13 +90,13 @@ function AsylumEntranceClick() {
 		ManagementClubSlaveDialog(AsylumEntranceNurse);
 		CharacterSetCurrent(AsylumEntranceNurse);
 	}
-	if (MouseIn(1885, 25, 90, 90) && Player.CanWalk() && (LogValue("Isolated", "Asylum") < CurrentTime) && (LogValue("Committed", "Asylum") < CurrentTime)) CommonSetScreen("Room", "MainHall");
+	if (MouseIn(1885, 25, 90, 90) && Player.CanWalk() && (LogValue("Isolated", "Asylum") < CurrentTime) && (LogValue("Committed", "Asylum") < CurrentTime) && (LogValue("ForceGGTS", "Asylum") <= 0)) CommonSetScreen("Room", "MainHall");
 	if (MouseIn(1885, 145, 90, 90)) InformationSheetLoadCharacter(Player);
 	if (MouseIn(1885, 265, 90, 90) && AsylumEntranceCanWander()) AsylumEntranceStartChat();
 	if (MouseIn(1885, 385, 90, 90) && AsylumEntranceCanWander()) CommonSetScreen("Room", "AsylumBedroom");
 	if (MouseIn(1885, 505, 90, 90) && AsylumEntranceCanWander()) CommonSetScreen("Room", "AsylumMeeting");
 	if (MouseIn(1885, 625, 90, 90) && AsylumEntranceCanWander()) CommonSetScreen("Room", "AsylumTherapy");
-	if (MouseIn(1885, 745, 90, 90) && AsylumEntranceCanWander()) CommonSetScreen("Room", "AsylumGGTS");
+	if (MouseIn(1885, 745, 90, 90) && (AsylumEntranceCanWander() || (LogValue("ForceGGTS", "Asylum") > 0))) CommonSetScreen("Room", "AsylumGGTS");
 }
 
 /**
@@ -581,9 +585,9 @@ function AsylumEntranceNurseCanGetRestraints() {
 function AsylumEntranceGiveRestraints() {
 	LogAdd("ReputationMaxed", "Asylum");
 	InventoryAddMany(Player, [
-		{Name: "MedicalBedRestraints", Group: "ItemArms"},
-		{Name: "MedicalBedRestraints", Group: "ItemLegs"},
-		{Name: "MedicalBedRestraints", Group: "ItemFeet"},
-		{ Name: "MedicalBed", Group: "ItemDevices"},
+		{ Name: "MedicalBedRestraints", Group: "ItemArms" },
+		{ Name: "MedicalBedRestraints", Group: "ItemLegs" },
+		{ Name: "MedicalBedRestraints", Group: "ItemFeet" },
+		{ Name: "MedicalBed", Group: "ItemDevices" },
 	]);
 }

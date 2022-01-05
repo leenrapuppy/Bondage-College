@@ -3327,20 +3327,37 @@ function ChatRoomSetRule(data) {
 		if (data.Content == "OwnerRuleRemoteBlock") LogAdd("BlockRemote", "OwnerRule");
 		if (data.Content == "OwnerRuleRemoteBlockSelf") LogAdd("BlockRemoteSelf", "OwnerRule");
 
-		// Timer cell punishment
-		var TimerCell = 0;
+		// Sent to timer cell
+		let TimerCell = 0;
 		if (data.Content == "OwnerRuleTimerCell5") TimerCell = 5;
 		if (data.Content == "OwnerRuleTimerCell15") TimerCell = 15;
 		if (data.Content == "OwnerRuleTimerCell30") TimerCell = 30;
 		if (data.Content == "OwnerRuleTimerCell60") TimerCell = 60;
 		if (TimerCell > 0) {
 			ServerSend("ChatRoomChat", { Content: "ActionGrabbedForCell", Type: "Action", Dictionary: [{ Tag: "TargetCharacterName", Text: Player.Name, MemberNumber: Player.MemberNumber }] });
-
 			DialogLentLockpicks = false;
 			ChatRoomClearAllElements();
 			ServerSend("ChatRoomLeave", "");
 			CharacterDeleteAllOnline();
 			CellLock(TimerCell);
+		}
+
+		// Sent to GGTS
+		let GGTS = 0;
+		if (data.Content == "OwnerRuleGGTS5") GGTS = 5;
+		if (data.Content == "OwnerRuleGGTS15") GGTS = 15;
+		if (data.Content == "OwnerRuleGGTS30") GGTS = 30;
+		if (data.Content == "OwnerRuleGGTS60") GGTS = 60;
+		if (data.Content == "OwnerRuleGGTS90") GGTS = 90;
+		if (data.Content == "OwnerRuleGGTS120") GGTS = 120;
+		if (data.Content == "OwnerRuleGGTS180") GGTS = 180;
+		if (GGTS > 0) {
+			ServerSend("ChatRoomChat", { Content: "ActionGrabbedForGGTS", Type: "Action", Dictionary: [{ Tag: "TargetCharacterName", Text: Player.Name, MemberNumber: Player.MemberNumber }] });
+			DialogLentLockpicks = false;
+			ChatRoomClearAllElements();
+			ServerSend("ChatRoomLeave", "");
+			CharacterDeleteAllOnline();
+			AsylumGGTSLock(GGTS, TextGet("GGTSIntro"));
 		}
 
 		// Collar Rules

@@ -615,16 +615,23 @@ function LoginResponse(C) {
 						CommonSetScreen("Room", "AsylumBedroom");
 					} else {
 
-						// If the player must start in her room, in her cage
-						if (LogQuery("SleepCage", "Rule") && (Player.Owner != "") && PrivateOwnerInRoom()) {
-							InventoryRemove(Player, "ItemFeet");
-							InventoryRemove(Player, "ItemLegs");
-							Player.Cage = true;
-							CharacterSetActivePose(Player, "Kneel", true);
-							CommonSetScreen("Room", "Private");
+						// If the owner is forcing the player to do GGTS
+						if (LogValue("ForceGGTS", "Asylum") > 0) {
+							CommonSetScreen("Room", "AsylumEntrance");
 						} else {
-							CommonSetScreen("Room", "MainHall");
-							MainHallMaidIntroduction();
+
+							// If the player must start in her room, in her cage
+							if (LogQuery("SleepCage", "Rule") && (Player.Owner != "") && PrivateOwnerInRoom()) {
+								InventoryRemove(Player, "ItemFeet");
+								InventoryRemove(Player, "ItemLegs");
+								Player.Cage = true;
+								CharacterSetActivePose(Player, "Kneel", true);
+								CommonSetScreen("Room", "Private");
+							} else {
+								CommonSetScreen("Room", "MainHall");
+								MainHallMaidIntroduction();
+							}
+
 						}
 
 					}

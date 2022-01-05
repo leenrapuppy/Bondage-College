@@ -664,10 +664,18 @@ function AsylumGGTSEndTaskSave() {
 	let AddedTime;
 	if (AsylumGGTSTaskEnd > 0) AddedTime = CommonTime() - AsylumGGTSTaskEnd;
 	else AddedTime = CommonTime() - AsylumGGTSTaskStart;
+	let ForceGGTS = LogValue("ForceGGTS", "Asylum");
+	if ((ForceGGTS != null) && (ForceGGTS > 0)) {
+		if (ForceGGTS > AddedTime)
+			LogAdd("ForceGGTS", "Asylum", ForceGGTS - AddedTime);
+		else
+			LogDelete("ForceGGTS", "Asylum");
+	}
 	if (AsylumGGTSTimer > CommonTime()) AddedTime = AddedTime + AsylumGGTSTimer - CommonTime();
 	if (AddedTime < 0) AddedTime = 0;
 	if (AddedTime > 120000) AddedTime = 120000;
-	Player.Game.GGTS.Time = Math.round(Player.Game.GGTS.Time + (AddedTime * Factor * CheatFactor("DoubleGGTSTime", 2)));
+	AddedTime = AddedTime * Factor * CheatFactor("DoubleGGTSTime", 2);
+	Player.Game.GGTS.Time = Math.round(Player.Game.GGTS.Time + AddedTime);
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 	ChatRoomCharacterUpdate(Player);
 	AsylumGGTSTaskEnd = CommonTime();
@@ -911,6 +919,9 @@ function AsylumGGTSFuturisticGaggedPunished() {
  * @returns {void} - Nothing
  */
 function AsylumGGTSUngag() {
+	InventoryRemove(Player, "ItemHead");
+	InventoryRemove(Player, "ItemHood");
+	InventoryRemove(Player, "ItemEars");
 	InventoryRemove(Player, "ItemMouth");
 	InventoryRemove(Player, "ItemMouth2");
 	InventoryRemove(Player, "ItemMouth3");
@@ -930,4 +941,19 @@ function AsylumGGTSTOrgasm(C) {
 	AsylumGGTSAddStrike();
 	AsylumGGTSMessage("OrgasmStrike" + Player.Game.GGTS.Strike.toString());
 	AsylumGGTSRemoveRule("NoOrgasm");
+}
+
+/**
+ * When the player is sent to do GGTS by her owner
+ * @param {number} LockTime - The number of minutes to do
+ * @param {string} Msg - The nurse intro message
+ * @return {void} - Nothing
+ */
+function AsylumGGTSLock(LockTime, Msg) {
+	AsylumGGTSUngag();
+	LogAdd("ForceGGTS", "Asylum", LockTime * 60000);
+	CommonSetScreen("Room", "AsylumEntrance");
+	AsylumEntranceNurse.Stage = "300";
+	CharacterSetCurrent(AsylumEntranceNurse);
+	AsylumEntranceNurse.CurrentDialog = Msg;
 }
