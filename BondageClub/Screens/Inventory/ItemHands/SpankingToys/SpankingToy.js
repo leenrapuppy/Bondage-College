@@ -303,14 +303,14 @@ function InventorySpankingToysGetActivity(C) {
  * @returns {boolean}
  */
 function InventorySpankingToysActivityAllowed(C) {
-	var Type = InventorySpankingToysGetType(Player);
-	var A = AssetGet(C.AssetFamily, "ItemHands", "SpankingToys" + Type);
+	const Type = InventorySpankingToysGetType(Player);
+	const A = AssetGet(C.AssetFamily, "ItemHands", "SpankingToys" + Type);
 	if (InventoryBlockedOrLimited(C, { Asset: A }))
 		return false;
 	if (C.FocusGroup != null) {
-		var Activity = InventorySpankingToysGetActivity(Player);
+		const Activity = InventorySpankingToysGetActivity(Player);
 		if (Activity == null) return true;
-		if (C.FocusGroup.Activity != null) return C.FocusGroup.Activity.indexOf(Activity) >= 0;
+		else return C.FocusGroup.Activity.includes(Activity);
 	}
 	return false;
 }

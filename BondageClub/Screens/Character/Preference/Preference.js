@@ -297,7 +297,7 @@ function PreferenceInit(C) {
 
 		// Validates the zones
 		for (let A = 0; A < AssetGroup.length; A++)
-			if ((AssetGroup[A].Zone != null) && (AssetGroup[A].Activity != null)) {
+			if ((AssetGroup[A].Zone != null) && AssetGroup[A].Activity.length) {
 				let Found = false;
 				for (let Z = 0; Z < C.ArousalSettings.Zone.length; Z++)
 					if ((C.ArousalSettings.Zone[Z] != null) && (C.ArousalSettings.Zone[Z].Name != null) && (AssetGroup[A].Name == C.ArousalSettings.Zone[Z].Name)) {
@@ -1264,7 +1264,7 @@ function PreferenceSubscreenArousalRun() {
 
 		// Draws all the available character zones
 		for (let A = 0; A < AssetGroup.length; A++)
-			if ((AssetGroup[A].Zone != null) && (AssetGroup[A].Activity != null) && !AssetGroup[A].MirrorActivitiesFrom)
+			if ((AssetGroup[A].Zone != null) && AssetGroup[A].Activity.length && !AssetGroup[A].MirrorActivitiesFrom)
 				DrawAssetGroupZone(Player, AssetGroup[A].Zone, 0.9, 50, 50, 1, "#808080FF", 3, PreferenceGetFactorColor(PreferenceGetZoneFactor(Player, AssetGroup[A].Name)));
 
 		// The zones can be selected and drawn on the character
@@ -1759,7 +1759,7 @@ function PreferenceSubscreenArousalClick() {
 
 		// In arousal mode, the player can click on her zones
 		for (let A = 0; A < AssetGroup.length; A++)
-			if ((AssetGroup[A].Zone != null) && (AssetGroup[A].Activity != null) && !AssetGroup[A].MirrorActivitiesFrom)
+			if ((AssetGroup[A].Zone != null) && AssetGroup[A].Activity.length && !AssetGroup[A].MirrorActivitiesFrom)
 				for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
 					if (DialogClickedInZone(Player, AssetGroup[A].Zone[Z], 0.9, 50, 50, 1)) {
 						Player.FocusGroup = AssetGroup[A];
