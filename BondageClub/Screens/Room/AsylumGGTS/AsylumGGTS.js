@@ -341,7 +341,7 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if (((T == "ClothHeels") || (T == "ClothSocks") || (T == "ClothBarefoot")) && (InventoryGet(C, "ItemBoots") != null)) return false; // No feet tasks if locked in boots
 	if ((T == "NewRuleNoOrgasm") && !PreferenceArousalAtLeast(C, "Hybrid")) return false; // Orgasm rule are only available on hybrid or auto
 	if (((T == "ItemRemoveLimb") || (T == "ItemRemoveBody") || (T == "ItemRemoveHead") || (T == "ItemUngag") || (T == "ItemUnchaste")) && (LogValue("Isolated", "Asylum") >= CurrentTime)) return false; // When punishment is active, items doesn't get removed
-	if ((T == "ItemPose") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet") && !InventoryIsWorn(C, "FuturisticLegCuffs", "ItemLegs")) return false;
+	if ((T == "ItemPose") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticStraitjacket", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet") && !InventoryIsWorn(C, "FuturisticLegCuffs", "ItemLegs")) return false;
 	if ((T == "ItemRemoveLimb") && !InventoryIsWorn(C, "FuturisticMittens", "ItemHands") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticStraitjacket", "ItemArms") && !InventoryIsWorn(C, "FuturisticArmbinder", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")  && !InventoryIsWorn(C, "FuturisticLegCuffs", "ItemLegs") && !InventoryIsWorn(C, "FuturisticHeels", "ItemBoots") && !InventoryIsWorn(C, "FuturisticHeels2", "ItemBoots")) return false;
 	if ((T == "ItemRemoveBody") && !InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis") && !InventoryIsWorn(C, "FuturisticTrainingBelt", "ItemPelvis") && !InventoryIsWorn(C, "FuturisticBra", "ItemBreast") && !InventoryIsWorn(C, "FuturisticBra2", "ItemBreast") && !InventoryIsWorn(C, "FuturisticHarness", "ItemTorso")) return false;
 	if ((T == "ItemRemoveHead") && !InventoryIsWorn(C, "FuturisticCollar", "ItemNeck") && !InventoryIsWorn(C, "FuturisticMask", "ItemHead") && !InventoryIsWorn(C, "FuturisticEarphones", "ItemEars")) return false;
@@ -420,11 +420,17 @@ function AsylumGGTSAutomaticTask() {
 	if (AsylumGGTSTask == "ItemPose") {
 		let Refresh = false;
 		let Item = InventoryGet(Player, "ItemArms");
-		if ((Item != null) && (Item.Asset != null) && Item.Asset.Name === "FuturisticCuffs") {
+		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name === "FuturisticCuffs")) {
 			let Pose = ((Item.Property != null) && (Item.Property.SetPose != null) && (Item.Property.SetPose.length > 0)) ? Item.Property.SetPose[0] : "";
 			Pose = [CommonRandomItemFromList(Pose, ["BackBoxTie", "BackElbowTouch", ""])];
 			if (Pose == "") Item.Property = { SetPose: null, Difficulty: 0, Effect: [] };
 			else Item.Property = { SetPose: Pose, Difficulty: 10, Effect: ["Block", "Prone"] };
+			Refresh = true;
+		}
+		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name === "FuturisticStraitjacket")) {
+			if (Item.Property == null) Item.Property = {};
+			if (Item.Property.Type === "cl0co0np0vp0a1") Item.Property.Type = "cl0co0np0vp0a0";
+			else Item.Property.Type = "cl0co0np0vp0a1";
 			Refresh = true;
 		}
 		Item = InventoryGet(Player, "ItemFeet");
