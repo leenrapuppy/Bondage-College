@@ -14,7 +14,7 @@ function SaveMenu(NextChapter, NextScreen) {
 function SaveStateGetSummary(SlotNumber) {
 
 	// Fetch the data
-	var SN = SlotNumber.toString();	
+	var SN = SlotNumber.toString();
 	var Summary = "@" + GetText("NoSaveOnSlot") + " " + SN;
 	if (localStorage.getItem("SaveGameVersion" + SN))
 		if (localStorage.getItem("SaveGameVersion" + SN) == SaveGameVersion) {
@@ -25,7 +25,7 @@ function SaveStateGetSummary(SlotNumber) {
 				SaveStateChapter = SaveStateChapter.substr(1, 100);
 			Summary = "@" + SaveStatePlayerName.substr(0, 10) + " - " + GetText("Chapter") + " " + SaveStateChapter + "|" + SaveStateDateTime;
 		}
-		
+
 	// Returns the summary
 	return Summary;
 
@@ -44,16 +44,16 @@ function SaveStateSlotSummary() {
 				CurrentStage[Slot][StageInteractionText] = SaveStateGetSummary(Slot);
 				Slot++;
 			}
-	
+
 		}
 
 }
 
 // Save the game state on a specific slot
 function SaveState(SlotNumber) {
-	
+
 	// Save the current state of the game and the transitional variables
-	var SN = SlotNumber.toString();	
+	var SN = SlotNumber.toString();
 	localStorage.setItem("SaveGameVersion" + SN, SaveGameVersion);
 	localStorage.setItem("SaveGameDateTime" + SN, GetFormatDate());
 	localStorage.setItem("CurrentChapter" + SN, SaveChapter);
@@ -61,7 +61,7 @@ function SaveState(SlotNumber) {
 	localStorage.setItem("Common_PlayerName" + SN, Common_PlayerName);
 	localStorage.setItem("Common_PlayerOwner" + SN, Common_PlayerOwner);
 	localStorage.setItem("Common_PlayerLover" + SN, Common_PlayerLover);
-	localStorage.setItem("Common_PlayerCloth" + SN, Common_PlayerCloth);	
+	localStorage.setItem("Common_PlayerCloth" + SN, Common_PlayerCloth);
 	localStorage.setItem("PlayerInventory" + SN, JSON.stringify(PlayerInventory));
 	localStorage.setItem("PlayerLockedInventory" + SN, JSON.stringify(PlayerLockedInventory));
 	localStorage.setItem("PlayerSkill" + SN, JSON.stringify(PlayerSkill));
@@ -79,7 +79,7 @@ function SaveState(SlotNumber) {
 function LoadState(SlotNumber) {
 
 	// If the save file is for the current version, we load
-	var SN = SlotNumber.toString();	
+	var SN = SlotNumber.toString();
 	if (localStorage.getItem("SaveGameVersion" + SN))
 		if (localStorage.getItem("SaveGameVersion" + SN) == SaveGameVersion) {
 
@@ -95,7 +95,7 @@ function LoadState(SlotNumber) {
 			GameLog = JSON.parse(localStorage.getItem("GameLog" + SN));
 			PlayerSkill = JSON.parse(localStorage.getItem("PlayerSkill" + SN));
 			CurrentTime = parseFloat(localStorage.getItem("CurrentTime" + SN));
-			
+
 			// Makes sure the owner and lover aren't null from previous saves
 			if (Common_PlayerOwner == null) Common_PlayerOwner = "";
 			if (Common_PlayerLover == null) Common_PlayerLover = "";
@@ -103,7 +103,7 @@ function LoadState(SlotNumber) {
 			// You can start with different clothes on chapter 12
 			if (CurrentChapter == "C012_AfterClass") {
 				Common_PlayerCloth = localStorage.getItem("Common_PlayerCloth" + SN);
-				if (Common_PlayerCloth == null) Common_PlayerCloth = "Clothed";	
+				if (Common_PlayerCloth == null) Common_PlayerCloth = "Clothed";
 				PlayerClothes(Common_PlayerCloth);
 			}
 
@@ -112,7 +112,7 @@ function LoadState(SlotNumber) {
 				if (Actor[L].length < 11)
 					Actor[L] = [Actor[L][0], Actor[L][1], Actor[L][2], Actor[L][3], Actor[L][4], Actor[L][5], Actor[L][6], Actor[L][7], Actor[L][8], false, ""];
 
-			// Make sure the game log array is wide enough (to remove when save games will be reset) 
+			// Make sure the game log array is wide enough (to remove when save games will be reset)
 			for (var L = 0; L < GameLog.length; L++)
 				if (GameLog[L].length < 4)
 					GameLog[L] = [GameLog[L][0], GameLog[L][1], GameLog[L][2], 0];

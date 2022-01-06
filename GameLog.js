@@ -14,7 +14,7 @@ function GameLogSpecificAdd(ChapterToLog, ActorToLog, EventToLog) {
 	for (var L = 0; L < GameLog.length; L++)
 		if ((ChapterToLog == GameLog[L][GameLogChapter]) && (ActorToLog == GameLog[L][GameLogActor]) && (EventToLog == GameLog[L][GameLogEvent]))
 			return;
-		
+
 	// Log the event
 	GameLog[GameLog.length] = [ChapterToLog, ActorToLog, EventToLog, 0];
 

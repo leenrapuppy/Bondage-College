@@ -225,7 +225,7 @@ SourceCharacter rolls a DiceType sided dice.  The result is: DiceResult.
 SourceCharacter rollt einen DiceType-seitigen Würfel. Das Ergebnis ist: DiceResult.
 SourceCharacter flips a coin.  The result is: CoinResult.
 SourceCharacter wirft eine Münze. Das Ergebnis ist: CoinResult.
-TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner commands.
+TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner's commands.
 TargetCharacterName wird auf Befehl ihrer Besitzerin von zwei Hausmädchen gepackt und in eine Timer-Zelle gesperrt.
 TargetCharacterName gets grabbed by two maids and escorted to the maid quarters to serve drinks for her owner.
 TargetCharacterName wird von zwei Hausmädchen gepackt und in die Dienerkammer gebracht, um für ihre Besitzerin Getränke zu servieren.

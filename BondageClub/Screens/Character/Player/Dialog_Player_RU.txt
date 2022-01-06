@@ -227,7 +227,7 @@ SourceCharacter rolls a DiceType sided dice.  The result is: DiceResult.
 SourceCharacter бросает кости.  В результате получается: DiceResult.
 SourceCharacter flips a coin.  The result is: CoinResult.
 SourceCharacter переворачивает монету.  Результат таков: CoinResult.
-TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner commands.
+TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner's commands.
 TargetCharacterName ее схватили две горничные и заперли в клетке с таймером, следуя командам ее хозяйки.
 TargetCharacterName gets grabbed by two maids and escorted to the maid quarters to serve drinks for her owner.
 TargetCharacterName ее схватили две горничные и сопроводили в комнату для прислуги, чтобы подать напитки для ее хозяйки.

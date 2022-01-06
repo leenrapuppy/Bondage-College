@@ -1,5 +1,5 @@
 ﻿Enter your room information
-Введите информацию о комнате 
+Введите информацию о комнате
 Room Name (Letters & numbers only)
 Имя Комнаты (Только буквы и цифры )
 A short description or what's going on
@@ -11,7 +11,7 @@ Select the background
 Introduction
 Вступление
 Kidnappers League
-Лига Похитителей 
+Лига Похитителей
 Maid Quarters
 Помещение для прислуги
 Main Hall

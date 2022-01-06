@@ -4,7 +4,7 @@ var C000_Intro_ChapterSelect_CreditPosition = 0;
 var C000_Intro_ChapterSelect_Credits = [];
 var C000_Intro_ChapterSelect_CreditActors = ["Player", "Amanda", "Sarah", "Sidney", "Jennifer", "Julia", "Yuki"];
 var C000_Intro_ChapterSelect_ThankYouCount = 999999;
-var C000_Intro_ChapterSelect_ThankYouList = ["Alvin", "Bryce", "Christian", "Designated", "Dick", "Escurse", "EugeneTooms", "James", "Jenni", "Jyeoh", "Karel", "Kitten", "Laioken", "Michal", "Mindtie", 
+var C000_Intro_ChapterSelect_ThankYouList = ["Alvin", "Bryce", "Christian", "Designated", "Dick", "Escurse", "EugeneTooms", "James", "Jenni", "Jyeoh", "Karel", "Kitten", "Laioken", "Michal", "Mindtie",
 											"MunchyCat", "Nick", "Overlord", "Rashiash", "Ryner", "Setsu95", "Shadow", "Shaun", "Simeon", "Sky", "Terry", "Victor", "William", "Winterisbest", "Xepherio"];
 var C000_Intro_ChapterSelect_ThankYouCurrent = -1;
 var C000_Intro_ChapterSelect_CreditTextColor = "black";
@@ -18,7 +18,7 @@ function C000_Intro_ChapterSelect_Load() {
 	StopTimer(7.6666667 * 60 * 60 * 1000);
 }
 
-// Draw the credits 
+// Draw the credits
 function C000_Intro_ChapterSelect_DrawCredits() {
 
 	// For each credits in the list
@@ -58,7 +58,7 @@ function C000_Intro_ChapterSelect_DrawCredits() {
 
 // Draw the thank you image
 function C000_Intro_ChapterSelect_DrawThankYou() {
-	
+
 	// If the image must swap
 	if (C000_Intro_ChapterSelect_ThankYouCount >= 200) {
 		var NewThankYou = C000_Intro_ChapterSelect_ThankYouCurrent;
@@ -87,7 +87,7 @@ function C000_Intro_ChapterSelect_Run() {
 }
 
 // Chapter Select Click (Clicking on the image will swap it)
-function C000_Intro_ChapterSelect_Click() {	
+function C000_Intro_ChapterSelect_Click() {
 	ClickInteraction(C000_Intro_ChapterSelect_CurrentStage);
 	if (!C000_Intro_ChapterSelect_CreditMode && (MouseX >= 600) && (MouseX <= 1200) && (MouseY >= 0) && (MouseY <= 599)) C000_Intro_ChapterSelect_ThankYouCount = 999999;
 	StopTimer(7.6666667 * 60 * 60 * 1000);

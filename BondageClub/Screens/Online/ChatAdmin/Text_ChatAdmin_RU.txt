@@ -31,4 +31,4 @@ This room name is already taken
 Account error, please try to relog
 Ошибка учетной записи, пожалуйста, попробуйте перерегистрироватся
 Invalid chat room data detected
-Обнаружены недопустимые данные чата комнаты 
+Обнаружены недопустимые данные чата комнаты

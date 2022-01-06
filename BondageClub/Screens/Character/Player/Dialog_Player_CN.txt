@@ -1059,8 +1059,8 @@ SourceCharacter used her safeword. Please check for her well-being.
 SourceCharacter used her safeword. Please check for her well-being.
 SourceCharacter used her safeword and wants to be released. She is guided out of the room for her safety.
 SourceCharacter used her safeword and wants to be released. She is guided out of the room for her safety.
-TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner commands.
-TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner commands.
+TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner's commands.
+TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner's commands.
 TargetCharacterName gets grabbed by two maids and escorted to the maid quarters to serve drinks for her owner.
 TargetCharacterName gets grabbed by two maids and escorted to the maid quarters to serve drinks for her owner.
 TargetCharacterName gives a sealed envelope to her owner.

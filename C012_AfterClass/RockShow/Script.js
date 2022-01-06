@@ -9,7 +9,7 @@ var C012_AfterClass_RockShow_SearchDone = false;
 
 // Chapter 12 After Class - Rock Show Load
 function C012_AfterClass_RockShow_Load() {
-	
+
 	// Loads the scene to search in the wardrobe
 	LoadInteractions();
 	ActorLoad("Sidney", "");
@@ -31,16 +31,16 @@ function C012_AfterClass_RockShow_Load() {
 function C012_AfterClass_RockShow_Run() {
 	BuildInteraction(C012_AfterClass_RockShow_CurrentStage);
 	if (parseInt(C012_AfterClass_RockShow_CurrentStage) >= 200) {
-		DrawActor(CurrentActor, 680, 0, 1);	
+		DrawActor(CurrentActor, 680, 0, 1);
 		DrawActor("Player", 500, 0, 1);
 	} else {
 		DrawActor("Player", 500, 0, 1);
-		DrawActor(CurrentActor, 680, 0, 1);		
+		DrawActor(CurrentActor, 680, 0, 1);
 	}
 }
 
 // Chapter 12 After Class - Rock Show Click
-function C012_AfterClass_RockShow_Click() {	
+function C012_AfterClass_RockShow_Click() {
 
 	// Regular interactions
 	ClickInteraction(C012_AfterClass_RockShow_CurrentStage);
@@ -61,7 +61,7 @@ function C012_AfterClass_RockShow_Wait(WaitTime) {
 
 // Chapter 12 After Class - When the player listens until the next song
 function C012_AfterClass_RockShow_NextSong() {
-	
+
 	// The more songs, the more Sidney will like the player
 	C012_AfterClass_RockShow_SongCount++;
 	CurrentTime = CurrentTime + 290000;
@@ -110,7 +110,7 @@ function C012_AfterClass_RockShow_MasturbatePlayer() {
 	}
 }
 
-// Chapter 12 After Class - When the player masturbates Sidney 
+// Chapter 12 After Class - When the player masturbates Sidney
 function C012_AfterClass_RockShow_MasturbateSidney(Factor) {
 	C012_AfterClass_RockShow_MasturbateCount = C012_AfterClass_RockShow_MasturbateCount + Factor;
 	if (C012_AfterClass_RockShow_MasturbateCount < 0) C012_AfterClass_RockShow_MasturbateCount = 0;

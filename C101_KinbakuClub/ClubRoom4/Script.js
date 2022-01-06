@@ -7,7 +7,7 @@ function C101_KinbakuClub_ClubRoom4_Load() {
 // Chapter  101 - Club Room 4 Run
 function C101_KinbakuClub_ClubRoom4_Run() {
 
-	// Draw the background image 
+	// Draw the background image
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/ClubRoom4.jpg", 0, 0);
 
 	// Draw movement arrows
@@ -15,7 +15,7 @@ function C101_KinbakuClub_ClubRoom4_Run() {
 		DrawImage(CurrentChapter + "/" + CurrentScreen + "/ClubRoom4ArrowLeft.jpg", 20, 525);
 		DrawImage(CurrentChapter + "/" + CurrentScreen + "/ClubRoom4ArrowRight.jpg", 1090, 525);
 	}
-	
+
 	// Draw the player when she is a slave
 	if (PlayerHasLockedInventory("Manacles")) {
 		DrawImage(CurrentChapter + "/" + CurrentScreen + "/SlavesPlayer.png", 280, 185);
@@ -133,7 +133,7 @@ function C101_KinbakuClub_ClubRoom4_Click() {
 			C101_KinbakuClub_Slaves_CurrentStage = 120;
 		}
 	}
-	
+
 	// When Chloe is a slave and the user clicks on her
 
 	// When a twin is a slave and the user clicks on her

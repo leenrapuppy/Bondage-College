@@ -19,7 +19,7 @@ DialogPermissionMode,Edit item permissions
 Use,Use this item
 UseDisabled,Unable to use due to player permissions
 Reset,Reset character
-ColorPick,Select a colour
-MultiColorPick,Select colours
+ColorPick,Select a color
+MultiColorPick,Select colors
 ColorPickDisabled,Unable to change color due to player permissions,,
 MultiColorPickDisabled,Unable to change color due to player permissions,,

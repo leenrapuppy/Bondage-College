@@ -2,20 +2,20 @@ var CheatAllow = false;
 
 // Receives cheat keys
 function CheatKey() {
-	
+
 	// No cheats until the player has a name
 	if (Common_PlayerName != "") {
-	
+
 		// In a fight or a race, the user can press * to win automatically
 		if (!FightEnded && (FightTimer > 0)) { if (KeyPress == 42) FightEnd(true); return; }
 		if (!DoubleFightEnded && (DoubleFightTimer > 0)) { if (KeyPress == 42) DoubleFightEnd(true); return; }
 		if (!RaceEnded && (RaceTimer > 0)) { if (KeyPress == 42) { RaceProgress = RaceGoal; RaceEnd(true); } return; }
 		if (!QuizEnded && (QuizTimer > 0) && (QuizBetweenQuestionTimer == 0) && (QuizAnswerText == "")) { if (KeyPress == 42) { QuizAnswerText = QuizQuestion[QuizProgressLeft + QuizProgressRight][QuizQuestionAnswer1]; QuizAnswerBy = "Left"; QuizProgressLeft++; QuizBetweenQuestionTimer = QuizTimer + QuizOtherQuestionTime; } return; }
-		
+
 		// If we must manipulate time using + and -
 		if (KeyPress == 43) CheatTime(900000);
 		if (KeyPress == 45) CheatTime(-900000);
-		
+
 		// Specific cheats by functions
 		if (CurrentActor != "") CheatActor();
 		if ((CurrentChapter == "C012_AfterClass") && (CurrentScreen == "Dorm")) CheatDorm();
@@ -88,7 +88,7 @@ function CheatDorm() {
 	if ((KeyPress == 42) && !GameLogQuery(CurrentChapter, "", "EventGrounded")) {
 		PlayerReleaseBondage();
 		if (PlayerHasLockedInventory("ChastityBelt")) { PlayerUnlockInventory("ChastityBelt"); PlayerAddInventory("ChastityBelt", 1); }
-		if (PlayerHasLockedInventory("VibratingEgg")) { PlayerUnlockInventory("VibratingEgg"); PlayerAddInventory("VibratingEgg", 1); }		
+		if (PlayerHasLockedInventory("VibratingEgg")) { PlayerUnlockInventory("VibratingEgg"); PlayerAddInventory("VibratingEgg", 1); }
 	}
 
 }

@@ -42,11 +42,11 @@ command: prerequisite check failed
 command:发送前检查失败
 HELP IS MISSING
 帮助不见啦!!!
-Friendlist: 
+Friendlist:
 好友列表:
-Ghostlist: 
+Ghostlist:
 忽视列表:
-Whitelist: 
+Whitelist:
 白名单:
-Blacklist: 
+Blacklist:
 黑名单:

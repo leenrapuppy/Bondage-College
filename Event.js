@@ -42,11 +42,11 @@ function EventRandomPlayerPunishment() {
 
 		// Draw a punishment type at random
 		var PunishmentType = EventPunishmentList[Math.floor(Math.random() * EventPunishmentList.length)];
-		
+
 		// If the event is valid for that actor
 		var PunishmentStage = GetText("Punishment" + PunishmentType);
 		if (IsNumeric(PunishmentStage)) {
-		
+
 			// Check if the event can be done
 			if (PunishmentType == "Grounded") Result = parseInt(PunishmentStage);
 			if ((PunishmentType == "Spanked") && !GameLogQuery(CurrentChapter, "", "EventSpanked")) Result = parseInt(PunishmentStage);
@@ -59,7 +59,7 @@ function EventRandomPlayerPunishment() {
 	}
 
 	// Returns the punishment type which will become the dialog number
-	return Result;		
+	return Result;
 
 }
 
@@ -69,12 +69,12 @@ function EventRandomPlayerSubmissive() {
 	// Until we find a proper event
 	var Result = 0;
 	while (Result == 0) {
-	
+
 		// Draw an event type at random, make sure it doesn't repeat
 		var EventType = EventLastRandomType;
 		while (EventType == EventLastRandomType)
 			EventType = EventList[Math.floor(Math.random() * EventList.length)];
-		
+
 		// If the event is valid for that actor
 		var EventStage = GetText("Event" + EventType);
 		if (IsNumeric(EventStage)) {
@@ -109,7 +109,7 @@ function EventRandomPlayerSubmissive() {
 	// Returns the event type which will become the dialog number
 	EventLastRandomType = EventType;
 	return Result;
-	
+
 }
 
 // Log the end of an event, if it's the first time, it can change the actor attitude
@@ -122,38 +122,38 @@ function EventLogEnd() {
 	EventActivityCurrent = "";
 }
 
-		
+
 // When an activity event is registered
 function EventDoActivity(EventActivityType, EventLoveFactor, EventCurrentStage, EventEndStage, EventBonusStage) {
-	
+
 	// If it's a new activity
 	if (EventActivityCurrent != EventActivityType) {
-		
+
 		// Reset the count and sets the pose
 		ActorSetPose(EventActivityType);
 		EventActivityCurrent = EventActivityType;
 		EventActivityCount = 0;
 		EventActivityLove = 0;
-		
+
 		// The number of times the activity will be done depends on the love or hate
 		if ((EventActivityType == "Tickle") || (EventActivityType == "Masturbate")) EventActivityMaxCount = 5 + Math.floor(ActorGetValue(ActorLove) / 10);
 		else EventActivityMaxCount = 5 - Math.floor(ActorGetValue(ActorLove) / 10);
 		if (EventActivityMaxCount < 4) EventActivityMaxCount = 4;
 		if (EventActivityMaxCount > 8) EventActivityMaxCount = 8;
-		
+
 	}
-	
+
 	// Increments the activity
 	EventActivityCount++;
 	EventActivityLove = EventActivityLove + EventLoveFactor;
-	
+
 	// If a bonus event can be achieved
 	if ((EventActivityCount >= 3) && (EventBonusStage > 0)) {
-		
+
 		// 20% bonus chance (+20% if masturbated with an egg)
 		var BonusChance = Math.floor(Math.random() * 100);
 		if ((EventActivityType == "Masturbate") && PlayerHasLockedInventory("VibratingEgg")) BonusChance = BonusChance + 20;
-		
+
 		// If we have the bonus, we log and jump to that stage
 		if (BonusChance >= 80) {
 			EventLogEnd();
@@ -162,10 +162,10 @@ function EventDoActivity(EventActivityType, EventLoveFactor, EventCurrentStage, 
 		}
 
 	}
-	
+
 	// When the activity is over
 	if (EventActivityCount >= EventActivityMaxCount) {
-		
+
 		// Log the activity and ends it
 		EventLogEnd()
 		if (EventActivityLove > 0) OverridenIntroText = GetText("ActivityEndGood");
@@ -173,10 +173,10 @@ function EventDoActivity(EventActivityType, EventLoveFactor, EventCurrentStage, 
 		if (EventActivityLove < 0) OverridenIntroText = GetText("ActivityEndBad");
 		ActorSetPose("");
 		return EventEndStage;
-		
+
 	}
-	
+
 	// FALSE means the activity isn't over
 	return EventCurrentStage;
-	
+
 }

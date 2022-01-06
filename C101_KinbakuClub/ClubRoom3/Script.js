@@ -7,18 +7,18 @@ function C101_KinbakuClub_ClubRoom3_Load() {
 // Chapter  101 - Club Room 3 Run
 function C101_KinbakuClub_ClubRoom3_Run() {
 
-	// Draw the background image 
+	// Draw the background image
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/ClubRoom3Arrows.jpg", 0, 0);
-	
+
 	// Draw Chloe
 	//if (C101_KinbakuClub_Chloe_CurrentStage == 0) {
 		DrawImage(CurrentChapter + "/" + CurrentScreen + "/ChloeBoard.png", 0, 0);
 	//}	else DrawActor("Chloe", 220, 170, 0.3333);
-	
-	
+
+
 	// Draw CardGamers
 	DrawImage(CurrentChapter + "/" + CurrentScreen + "/CardGamers1.jpg", 570, 130);
-	
+
 }
 
 // Chapter 101 - Club Room 3 Click

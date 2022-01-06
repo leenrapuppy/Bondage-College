@@ -13,7 +13,7 @@ function C002_FirstClass_Sarah_CalcStage() {
 	// Keep the backup stage to resume conversation
 	var EntryStage = C002_FirstClass_Sarah_CurrentStage;
 	if (C002_FirstClass_Sarah_CurrentStage < 100) C002_FirstClass_Sarah_BackupStage = C002_FirstClass_Sarah_CurrentStage;
-	
+
 	// Calculate the correct stage (100 comes back to the previous conversation)
 	if (C002_FirstClass_Sarah_CurrentStage <= 150) {
 		C002_FirstClass_Sarah_CurrentStage = C002_FirstClass_Classroom_CalcStage();
@@ -22,7 +22,7 @@ function C002_FirstClass_Sarah_CalcStage() {
 
 	// If the stage changed, we scrap the Overridden image
 	if (EntryStage != C002_FirstClass_Sarah_CurrentStage) OverridenIntroImage = "";
-	
+
 	// The bondage hug is only available if Amanda and Sarah are in ropes
 	C002_FirstClass_Sarah_BondageHugReady = ((C002_FirstClass_Sarah_CurrentStage > 100) && (C002_FirstClass_Sarah_CurrentStage < 200) && (Common_PlayerNotRestrained) && (Common_PlayerNotGagged) && (C002_FirstClass_Classroom_MildredSubdueSuccess) && (ActorSpecificHasInventory("Amanda", "Rope")) && (ActorSpecificHasInventory("Sarah", "Rope")));
 
@@ -34,13 +34,13 @@ function C002_FirstClass_Sarah_CalcStage() {
 		if ((!ActorSpecificHasInventory("Amanda", "BallGag")) && (ActorSpecificHasInventory("Sarah", "BallGag"))) OverridenIntroImage = "Hug_Amanda_Rope_Sarah_Rope_BallGag.jpg";
 		if ((!ActorSpecificHasInventory("Amanda", "BallGag")) && (!ActorSpecificHasInventory("Sarah", "BallGag"))) OverridenIntroImage = "Hug_Amanda_Rope_Sarah_Rope.jpg";
 	}
-	
+
 }
 
 // Chapter 2 - Sarah Load
 function C002_FirstClass_Sarah_Load() {
 
-	// Load the scene parameters	
+	// Load the scene parameters
 	ActorLoad("Sarah", "Classroom");
 	LoadInteractions();
 
@@ -64,7 +64,7 @@ function C002_FirstClass_Sarah_Run() {
 }
 
 // Chapter 2 - Sarah Click
-function C002_FirstClass_Sarah_Click() {	
+function C002_FirstClass_Sarah_Click() {
 
 	// Regular interactions
 	ClickInteraction(C002_FirstClass_Sarah_CurrentStage);
@@ -115,7 +115,7 @@ function C002_FirstClass_Sarah_Click() {
 
 	// Recalculate the stage
 	C002_FirstClass_Sarah_CalcStage();
-	
+
 }
 
 // Chapter 2 - Sarah Ungag
@@ -141,7 +141,7 @@ function C002_FirstClass_Sarah_AnnoyMildred() {
 	ActorAddInventory("BallGag");
 }
 
-// Chapter 2 - Sarah Bondage Hug 
+// Chapter 2 - Sarah Bondage Hug
 function C002_FirstClass_Sarah_BondageHug() {
 	C002_FirstClass_Sarah_CalcStage();
 	if (C002_FirstClass_Sarah_BondageHugDone == false) { C002_FirstClass_Sarah_BondageHugDone = true; ActorChangeAttitude(1, 0); }

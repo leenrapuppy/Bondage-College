@@ -31,7 +31,7 @@ var ControllerDeadZone = 0.01;
 
 
 /**
- *removes all buttons from the lists 
+ *removes all buttons from the lists
  */
 function ClearButtons() {
 	ControllerButtonsX = [];
@@ -432,7 +432,7 @@ function ControllerButton(buttons) {
 
 //uncomment to test it with keyboard
 /**
- * handles keyboard inputs in controller mode 
+ * handles keyboard inputs in controller mode
  * @returns {void} Nothing
  */
 function ControllerSupportKeyDown() {

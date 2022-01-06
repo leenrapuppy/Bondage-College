@@ -38,9 +38,9 @@ Use this item
 使用该物品
 Unable to use due to player permissions
 因角色权限设定,无法使用
-Select a colour
+Select a color
 选择一种颜色
-Select colours
+Select colors
 选择颜色
 Unable to change color due to player permissions
 因玩家权限设定无法修改颜色

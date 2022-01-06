@@ -1,6 +1,6 @@
 // Chapter 101 - Kinbaku Club Load
 function C101_KinbakuClub_Discipline_Load() {
-	
+
 	// Time is always 17:25:00 in the outro, unlock if needed
 	StopTimer(17.25 * 60 * 60 * 1000, CurrentChapter, "Discipline");
 }
@@ -8,7 +8,7 @@ function C101_KinbakuClub_Discipline_Load() {
 // Chapter 7 - Kinbaku Club Run
 function C101_KinbakuClub_Discipline_Run() {
 
-	// Paints the background	
+	// Paints the background
 	DrawRect(0, 0, 800, 600, "black");
 	if (PlayerHasLockedInventory("Manacles")) DrawImage(CurrentChapter + "/" + CurrentScreen + "/BagBlackSlave.jpg", 800, 0);
 	else {
@@ -44,7 +44,7 @@ function C101_KinbakuClub_Discipline_Click() {
 
 	// Jump to the next animation
 	TextPhase++;
-			
+
 	// Jump to lunch on phase 3
 	//if (TextPhase >= 4) SaveMenu("C102_KinbakuDiscipline", "Intro");
 

@@ -910,7 +910,7 @@ function CharacterAppearanceNextItem(C, Group, Forward, Description) {
 /**
  * Find the next color for the item
  * @param {Character} C - The character whose items are cycled
- * @param {string} Group - The name of the group for which we are colour cycling
+ * @param {string} Group - The name of the group for which we are color cycling
  * @returns {void} - Nothing
  */
 function CharacterAppearanceNextColor(C, Group) {
@@ -954,9 +954,9 @@ function CharacterAppearanceMoveOffset(C, Move) {
 
 /**
  * Sets the color for a specific group
- * @param {Character} C - The character whose item group should be coloured
- * @param {string} Color - The colour (in the format "#rrggbb") to be applied to the group
- * @param {string} Group - The name of the group, whose colour should be changed
+ * @param {Character} C - The character whose item group should be colored
+ * @param {string} Color - The color (in the format "#rrggbb") to be applied to the group
+ * @param {string} Group - The name of the group, whose color should be changed
  * @returns {void} - Nothing
  */
 function CharacterAppearanceSetColorForGroup(C, Color, Group) {

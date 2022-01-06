@@ -8,7 +8,7 @@ var PlayerInventoryTab = 0;
 // Set up the player clothes or costume
 function PlayerClothes(NewCloth) {
 	if ((NewCloth != "Clothed") && (NewCloth != "Underwear") && (NewCloth != "Naked")) Common_PlayerCostume = NewCloth;
-	else Common_PlayerCostume = "";	
+	else Common_PlayerCostume = "";
 	Common_PlayerCloth = NewCloth;
 	Common_PlayerUnderwear = (NewCloth == "Underwear");
 	Common_PlayerNaked = (NewCloth == "Naked");
@@ -42,10 +42,10 @@ function PlayerLockInventory(NewInventory) {
 	// Check if the item is already locked before adding it
 	for (var I = 0; I < PlayerLockedInventory.length; I++)
 		if (PlayerLockedInventory[I] == NewInventory)
-			return;		
+			return;
 	PlayerLockedInventory.push(NewInventory);
 	LoadRestrainStatus();
-	
+
 	// If there's rope/armbinder and a costume, we strip the player
 	if (((NewInventory == "Rope") || (NewInventory == "Armbinder")) && (Common_PlayerCostume != "") && (Common_PlayerCostume != "BlackDress") && (Common_PlayerCostume != "WhiteLingerie") && (Common_PlayerCostume != "RedBikini")) PlayerClothes("Underwear");
 
@@ -79,13 +79,13 @@ function PlayerUnlockAllInventory(UnlockedInventory) {
 
 // Returns true if the player has the locked inventory
 function PlayerHasLockedInventory(QueryInventory) {
-	
+
 	// Returns true if we find the locked inventory item
 	for (var I = 0; I < PlayerLockedInventory.length; I++)
 		if (QueryInventory == PlayerLockedInventory[I])
 			return true;
 	return false;
-	
+
 }
 
 // Add a new item to the inventory if it's not already there
@@ -98,16 +98,16 @@ function PlayerAddInventory(NewInventory, NewQuantity) {
 			if (PlayerInventory[I][PlayerInventoryQuantity] > 99) PlayerInventory[I][PlayerInventoryQuantity] = 99;
 			return;
 		}
-		
+
 	// If not, we create the new inventory data
 	if (NewQuantity > 99) NewQuantity = 99;
 	PlayerInventory[PlayerInventory.length] = [NewInventory, NewQuantity];
-	
+
 }
 
 // Remove an item from the player inventory
 function PlayerRemoveInventory(RemInventory, RemQuantity) {
-	
+
 	// Search for current inventory and remove the item
 	for (var I = 0; I < PlayerInventory.length; I++)
 		if (RemInventory == PlayerInventory[I][PlayerInventoryName])
@@ -136,13 +136,13 @@ function PlayerRemoveHalfInventory() {
 
 // Returns true if the player has the queried inventory
 function PlayerHasInventory(QueryInventory) {
-	
+
 	// Returns true if we find the inventory item
 	for (var I = 0; I < PlayerInventory.length; I++)
 		if (QueryInventory == PlayerInventory[I][PlayerInventoryName])
 			return true;
 	return false;
-	
+
 }
 
 // Pick a random restrain and applies it on the player
@@ -179,7 +179,7 @@ function PlayerRandomGag() {
 
 	// Applies it on the player
 	if (G != "") { PlayerRemoveInventory(G, 1); PlayerLockInventory(G); }
-	
+
 }
 
 // Restrains the player randomly from her own inventory
@@ -225,7 +225,7 @@ function PlayerInventoryTotalQuantity() {
 
 // Returns the name of the inventory item that was clicked in the bottom menu
 function GetClickedInventory() {
-	
+
 	// Returns the item name based on the position of the mouse
 	var Inv = "";
 	if ((MouseX <= 975) && (MouseY >= 601) && (MouseY <= 674)) {
@@ -233,7 +233,7 @@ function GetClickedInventory() {
 		// Check if the player icon was clicked
 		if ((MouseX >= 1) && (MouseX <= 74))
 			Inv = "Player";
-	
+
 		// Check in the regular inventory
 		var I;
 		if (Inv == "")
@@ -242,10 +242,10 @@ function GetClickedInventory() {
 					if (MouseX < 900) Inv = PlayerInventory[I][PlayerInventoryName];
 					else PlayerInventoryTab = 1;
 				}
-			
+
 		// Check in the locked inventory
 		if (Inv == "")
-			for (var L = 0; L < PlayerLockedInventory.length; L++)	
+			for (var L = 0; L < PlayerLockedInventory.length; L++)
 				if (!PlayerHasInventory(PlayerLockedInventory[L])) {
 					if ((MouseX >= 1 + (I + 1 - (PlayerInventoryTab * 11)) * 75) && (MouseX <= 74 + (I + 1 - (PlayerInventoryTab * 11)) * 75)) {
 						if (MouseX < 900) Inv = "Locked_" + PlayerLockedInventory[L];

@@ -11,7 +11,7 @@ var C002_FirstClass_Amanda_KissSarahDone = false;
 // Chapter 2 - Amanda Load
 function C002_FirstClass_Amanda_Load() {
 
-	// Load the scene parameters	
+	// Load the scene parameters
 	ActorLoad("Amanda", "Classroom");
 	LoadInteractions();
 	if (C002_FirstClass_Classroom_MildredSubdueSuccess) C002_FirstClass_Amanda_BowRemarkReady = false;
@@ -22,7 +22,7 @@ function C002_FirstClass_Amanda_Load() {
 		if ((parseInt(C002_FirstClass_Amanda_CurrentStage) < 100) && (C002_FirstClass_Classroom_MildredSubdueSuccess)) C002_FirstClass_Amanda_SubdueRemarkReady = true;
 		C002_FirstClass_Amanda_CurrentStage = C002_FirstClass_Classroom_CalcStage();
 	}
-	
+
 	// The remark cannot be done if the player is gagged, also calculate the bondage hug
 	if (Common_PlayerGagged) C002_FirstClass_Amanda_SubdueRemarkReady = false;
 	C002_FirstClass_Amanda_BondageHugReady = ((C002_FirstClass_Amanda_CurrentStage > 100) && (Common_PlayerNotRestrained) && (Common_PlayerNotGagged) && (C002_FirstClass_Classroom_MildredSubdueSuccess) && (ActorSpecificHasInventory("Amanda", "Rope")) && (ActorSpecificHasInventory("Sarah", "Rope")));
@@ -31,23 +31,23 @@ function C002_FirstClass_Amanda_Load() {
 
 // Chapter 2 - Amanda Run
 function C002_FirstClass_Amanda_Run() {
-	
+
 	// Regular interactions
 	BuildInteraction(C002_FirstClass_Amanda_CurrentStage);
-	
+
 	// Bondage hug
 	if ((C002_FirstClass_Amanda_CurrentStage == 160) || (C002_FirstClass_Amanda_CurrentStage == 170)) {
 		OverridenIntroImage = "";
 		if ((ActorSpecificHasInventory("Amanda", "BallGag")) && (ActorSpecificHasInventory("Sarah", "BallGag"))) OverridenIntroImage = "Hug_Amanda_Rope_BallGag_Sarah_Rope_BallGag.jpg";
 		if ((ActorSpecificHasInventory("Amanda", "BallGag")) && (!ActorSpecificHasInventory("Sarah", "BallGag"))) OverridenIntroImage = "Hug_Amanda_Rope_BallGag_Sarah_Rope.jpg";
 		if ((!ActorSpecificHasInventory("Amanda", "BallGag")) && (ActorSpecificHasInventory("Sarah", "BallGag"))) OverridenIntroImage = "Hug_Amanda_Rope_Sarah_Rope_BallGag.jpg";
-		if ((!ActorSpecificHasInventory("Amanda", "BallGag")) && (!ActorSpecificHasInventory("Sarah", "BallGag"))) OverridenIntroImage = "Hug_Amanda_Rope_Sarah_Rope.jpg";		
+		if ((!ActorSpecificHasInventory("Amanda", "BallGag")) && (!ActorSpecificHasInventory("Sarah", "BallGag"))) OverridenIntroImage = "Hug_Amanda_Rope_Sarah_Rope.jpg";
 	}
-	
+
 }
 
 // Chapter 2 - Amanda Click
-function C002_FirstClass_Amanda_Click() {	
+function C002_FirstClass_Amanda_Click() {
 
 	// Keep the stage on entry
 	var EntryStage = C002_FirstClass_Amanda_CurrentStage;
@@ -55,7 +55,7 @@ function C002_FirstClass_Amanda_Click() {
 	// Regular interactions
 	ClickInteraction(C002_FirstClass_Amanda_CurrentStage);
 	var ClickedInv = GetClickedInventory();
-	
+
 	// If the player wants to gag Amanda
 	if ((C002_FirstClass_Amanda_CurrentStage >= 100) && (ClickedInv == "BallGag") && (ActorHasInventory("BallGag") == false) && (Common_PlayerNotRestrained)) {
 		if ((ActorGetValue(ActorSubmission) >= 2) || (ActorHasInventory("Rope")) || (ActorHasInventory("Cuffs"))) {
@@ -111,7 +111,7 @@ function C002_FirstClass_Amanda_Click() {
 		if (C002_FirstClass_Amanda_CropDone == false) { C002_FirstClass_Amanda_CropDone = true; ActorChangeAttitude(-2, 0); }
 		CurrentTime = CurrentTime + 60000;
 	}
-	
+
 	// If the stage changed, we remove the Overridden image, also check for the bondage hug
 	if (EntryStage != C002_FirstClass_Amanda_CurrentStage) OverridenIntroImage = "";
 	C002_FirstClass_Amanda_BondageHugReady = ((C002_FirstClass_Amanda_CurrentStage > 100) && (Common_PlayerNotRestrained) && (Common_PlayerNotGagged) && (C002_FirstClass_Classroom_MildredSubdueSuccess) && (ActorSpecificHasInventory("Amanda", "Rope")) && (ActorSpecificHasInventory("Sarah", "Rope")));
@@ -153,9 +153,9 @@ function C002_FirstClass_Amanda_AgreeHelp() {
 	C002_FirstClass_Classroom_AmandaAgree = true;
 }
 
-// Chapter 2 - Amanda Bondage Hug 
+// Chapter 2 - Amanda Bondage Hug
 function C002_FirstClass_Amanda_BondageHug() {
-	if (C002_FirstClass_Amanda_BondageHugDone == false) { 
+	if (C002_FirstClass_Amanda_BondageHugDone == false) {
 		C002_FirstClass_Amanda_BondageHugDone = true;
 		ActorChangeAttitude(1, 0);
 	}

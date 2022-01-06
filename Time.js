@@ -23,12 +23,12 @@ function msToTime(s) {
   var mins = s % 60;
   var hrs = (s - mins) / 60;
   return pad(hrs) + ':' + pad(mins) + ':' + pad(secs);
-  
+
 }
 
 // Runs the regular timer
 function ProcessTimer() {
-	
+
 	// Ticks the timer every for the screen refresh and events
 	clearInterval(CurrentTimer);
 	CurrentTimer = setInterval("MainRun()", RunInterval);
@@ -38,19 +38,19 @@ function ProcessTimer() {
 	if (RunTimer) {
 
 		// Add the interval in milliseconds
-		CurrentTime = CurrentTime + RunInterval;	
-		
+		CurrentTime = CurrentTime + RunInterval;
+
 		// If the time limit is reached, we jump to a limit screen
 		if (CurrentTime >= LimitTimer) {
-			
+
 			// Jump to the next chapter
-			CurrentTime = LimitTimer;		
+			CurrentTime = LimitTimer;
 			SetScene(LimitChapter, LimitScreen);
-			
+
 		}
-	
+
 	}
-		
+
 }
 
 // Starts the timer and sets the limits

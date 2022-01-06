@@ -31,31 +31,31 @@ var RaceSpeed = 0;
 
 // Generates a full race sequence
 function RaceGenerateMoves(StartTime, DifficultyText) {
-	
+
 	// Set the difficulty ratio
 	var DifficultyRatio = 1;
 	if (DifficultyText == "Easy") DifficultyRatio = 1.5;
 	if (DifficultyText == "Hard") DifficultyRatio = 0.6667;
-		
+
 	// Full the race sequence
 	var CurTimer = StartTime + 3000;
 	var Seq = 0;
 	RaceMoves = [];
 	while (Seq < MaxRaceSequence) {
-		
+
 		// Create a new race move to do at a random position
 		RaceMoves[RaceMoves.length] = [Math.floor(Math.random() * 8), CurTimer];
 		CurTimer = CurTimer + Math.floor((Math.random() * 600 + 300) * DifficultyRatio);
 		Seq++;
-		
+
 	}
 
 }
 
 // Load the race animations and full sequence
 function RaceLoad(Racer, RacerImageSet, AllowedMinutes, Difficulty, EndGoal, EndGoalText, IconLeft, IconRight, BackgroundImage, EndFunction, SkillBonus) {
-	
-	// Creates a brand new race 
+
+	// Creates a brand new race
 	LeaveIcon = "";
 	RaceTimer = 0;
 	RaceEndTimer = RaceStartTime + (AllowedMinutes * 60 * 1000);
@@ -63,7 +63,7 @@ function RaceLoad(Racer, RacerImageSet, AllowedMinutes, Difficulty, EndGoal, End
 	RaceSpeed = 0;
 	RaceProgress = 0;
 	RaceActorImageFrame = 0;
-	RaceEnded = false;	
+	RaceEnded = false;
 	RacePerfect = true;
 	RaceLastMoveType = -1;
 	RaceLastMoveTypeTimer = -1;
@@ -81,13 +81,13 @@ function RaceLoad(Racer, RacerImageSet, AllowedMinutes, Difficulty, EndGoal, End
 	RaceEndFunction = EndFunction;
 	RaceBackgroundImage = BackgroundImage;
 	RaceGenerateMoves(RaceStartTime, Difficulty);
-	
+
 	// Keep a backup of the current chapter and screen
 	RaceBackupChapter = CurrentChapter;
 	RaceBackupScreen = CurrentScreen;
 	CurrentChapter = "C999_Common";
 	CurrentScreen = "Race";
-	
+
 }
 
 // Draw the race icons
@@ -96,22 +96,22 @@ function RaceDrawIcons() {
 	// Scroll the race icons with time
 	var Seq = 0;
 	while (Seq < RaceMoves.length) {
-	
+
 		// Draw the move from 3 seconds before to 1 second after
-		if ((RaceMoves[Seq][RaceMoveTime] <= RaceTimer + 3000) && (RaceMoves[Seq][RaceMoveTime] >= RaceTimer - 1000)) {			
+		if ((RaceMoves[Seq][RaceMoveTime] <= RaceTimer + 3000) && (RaceMoves[Seq][RaceMoveTime] >= RaceTimer - 1000)) {
 			if (RaceMoves[Seq][RaceMoveType] <= 3)
 				DrawImage(RaceIconLeft, 3 + (RaceMoves[Seq][RaceMoveType] * 75), 410 + Math.floor((RaceTimer - RaceMoves[Seq][RaceMoveTime]) / 6));
-			else 
+			else
 				DrawImage(RaceIconRight, 603 + (RaceMoves[Seq][RaceMoveType] * 75), 410 + Math.floor((RaceTimer - RaceMoves[Seq][RaceMoveTime]) / 6));
 		}
-		
+
 		// Remove the move from the sequence if it's past due
 		if (RaceMoves[Seq][RaceMoveTime] < RaceTimer - 1000) {
 			RaceMoves.splice(Seq, 1);
 			RaceMiss();
-		}	
+		}
 		else Seq = Seq + 1;
-		
+
 		// Beyond 3 seconds forward, we exit
 		if (Seq < RaceMoves.length)
 			if (RaceMoves[Seq][RaceMoveTime] > RaceTimer + 3000)
@@ -127,10 +127,10 @@ function RaceDrawBar() {
 	// Draw 4 bars on each sides
 	var XOffset = 0;
 	for(BarNum = 0; BarNum <= 7; BarNum++) {
-		
+
 		// Draw the bars on both sides of the screen
 		if (BarNum == 4) XOffset = 600;
-		
+
 		// The color changes when it's clicked or pressed
 		DrawRect(XOffset + 3 + (BarNum * 75), 437, 70, 27, "White");
 		if ((RaceLastMoveType == BarNum) && (RaceLastMoveTypeTimer >= RaceTimer))
@@ -223,12 +223,12 @@ function RaceDoMove(MoveType) {
 
 	// Make sure the hit is valid
 	if ((MoveType >= 0) && (RaceMoves.length > 0)) {
-		
+
 		// For each moves in the list
 		var Hit = false;
 		var Seq = 0;
 		while (Seq < RaceMoves.length) {
-			
+
 			// If the move connects (good timing and good type)
 			if ((RaceMoves[Seq][RaceMoveTime] <= RaceTimer + 300) && (RaceMoves[Seq][RaceMoveTime] >= RaceTimer - 300) && (MoveType == RaceMoves[Seq][RaceMoveType])) {
 				RaceMoves.splice(Seq, 1);
@@ -236,10 +236,10 @@ function RaceDoMove(MoveType) {
 				Seq = RaceMoves.length;
 			}
 			else Seq++;
-			
+
 			// Beyond 0.5 seconds forward, we give up
 			if (Seq < RaceMoves.length)
-				if (RaceMoves[Seq][RaceMoveTime] > RaceTimer + 300) 
+				if (RaceMoves[Seq][RaceMoveTime] > RaceTimer + 300)
 					Seq = RaceMoves.length;
 
 		}
@@ -259,16 +259,16 @@ function C999_Common_Race_Run() {
 
 	// If the actor must move forward and progress
 	if ((RaceSpeed > 0) && !RaceEnded) {
-		
+
 		// The progress is (Speed) pixels every second
 		RaceProgress = RaceProgress + (RunInterval / 1000) * RaceSpeed;
-		
+
 		// If the goal is achieved
 		if (RaceProgress >= RaceGoal) {
 			RaceProgress = RaceGoal;
 			RaceEnd(true);
 		}
-		
+
 	}
 
 	// Paints the background
@@ -277,7 +277,7 @@ function C999_Common_Race_Run() {
 	// Increments the race timer and draw the actor
 	if (!RaceEnded) RaceTimer = RaceTimer + RunInterval;
 	RaceDrawActor();
-	
+
 	// If the race is over and not completed, we flag a defeat
 	if ((RaceTimer >= RaceEndTimer) && !RaceEnded)
 		RaceEnd(false);
@@ -288,7 +288,7 @@ function C999_Common_Race_Run() {
 			RaceDrawBar();
 			RaceDrawIcons();
 			RaceDrawStats();
-		} 
+		}
 		else {
 			DrawText(RaceGoalText, 600, 25, "white");
 			DrawText(GetCSVText(RaceText, "Difficulty") + " " + GetCSVText(RaceText, RaceDifficultyText), 500, 65, "white");
@@ -297,7 +297,7 @@ function C999_Common_Race_Run() {
 	}
 
 	// Draw the end text
-	if (RaceEnded) {		
+	if (RaceEnded) {
 		if ((RaceProgress >= RaceGoal) && RacePerfect) DrawText(GetCSVText(RaceText, "Perfect"), 600, 25, "white");
 		if ((RaceProgress >= RaceGoal) && !RacePerfect) DrawText(GetCSVText(RaceText, "Victory"), 600, 25, "white");
 		if (RaceProgress < RaceGoal) DrawText(GetCSVText(RaceText, "Defeat"), 600, 25, "white");
@@ -308,17 +308,17 @@ function C999_Common_Race_Run() {
 
 // When a key is pressed while racing (for both keyboard and mobile)
 function C999_Common_Race_KeyDown() {
-	
+
 	// If the race has started, we check the key pressed and send it as a race move
 	if ((RaceTimer > RaceStartTime) && !RaceEnded) {
-		
+
 		var MoveType = -1;
 		for(T = 0; T <= 7; T++)
-			if ((KeyPress == RaceMovesTypeKeyUpper[T]) || (KeyPress == RaceMovesTypeKeyLower[T])) 
+			if ((KeyPress == RaceMovesTypeKeyUpper[T]) || (KeyPress == RaceMovesTypeKeyLower[T]))
 				MoveType = T;
 		RaceDoMove(MoveType);
 	}
-	
+
 }
 
 // When a click is done while racing (only works on mobile)

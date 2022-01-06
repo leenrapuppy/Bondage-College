@@ -144,7 +144,7 @@ function AsylumEntranceWearPatientClothes(C, ExtraEvent) {
 	}
 	InventoryRemove(C, "HairAccessory3");
 	InventoryRemove(C, "Hat");
-	
+
 	// Wears the GGTS items based on the player level
 	if (ExtraEvent && LogQuery("Isolated", "Asylum")) {
 		CharacterRelease(C);
