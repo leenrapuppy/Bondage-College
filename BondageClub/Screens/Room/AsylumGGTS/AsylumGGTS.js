@@ -10,9 +10,9 @@ var AsylumGGTSTaskStart = 0;
 var AsylumGGTSTaskEnd = 0;
 var AsylumGGTSTaskList = [
 	[], // Level 0, 1, 2, 3 & 4 tasks
-	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "ActivityTickle", "ActivityPet", "ActivityNod", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemHandsFuturisticMittens", "ItemPose", "ItemRemoveLimb", "ItemRemoveBody", "ItemRemoveHead", "ItemUngag", "ItemChaste", "ItemUnchaste", "ItemIntensity", "ItemTransform", "UnlockRoom"],
+	["QueryWhatIsGGTS", "QueryWhatAreYou", "ClothHeels", "ClothSocks", "ClothBarefoot", "NoTalking", "PoseKneel", "PoseStand", "PoseBehindBack", "ActivityPinch", "ActivityTickle", "ActivityPet", "ActivityNod", "RestrainLegs", "ItemArmsFuturisticCuffs", "ItemHandsFuturisticMittens", "ItemPose", "ItemRemoveLimb", "ItemRemoveBody", "ItemRemoveHead", "ItemUngag", "ItemChaste", "ItemUnchaste", "ItemIntensity", "UnlockRoom"],
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "ItemBootsFuturisticHeels", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "ActivitySpank", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"],
-	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ActivityWiggle", "ActivityCaress", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "ItemArmsFuturisticArmbinder", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
+	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ActivityWiggle", "ActivityCaress", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "ItemArmsFuturisticArmbinder", "ItemTransform", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
 	["QueryServeObey", "QueryFreeWill", "ActivityMasturbateHand", "ActivityKiss", "ItemPelvisFuturisticChastityBelt", "ItemPelvisFuturisticTrainingBelt", "ItemBreastFuturisticBra", "ItemBreastFuturisticBra2", "ItemTorsoFuturisticHarness"],
 	["QuerySlaveWorthy", "ItemArmsFuturisticStraitjacket", "ItemHeadFuturisticMask", "ItemEarsFuturisticEarphones", "ItemNeckFuturisticCollar", "ActivityBite", "ActivityLick"]
 ];
@@ -355,15 +355,9 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T == "ItemIntensity") && !InventoryIsWorn(C, "FuturisticTrainingBelt", "ItemPelvis")) return false; // Must have training belt to change intensity
 	if ((T == "ItemTransform") 
 		&& !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth3")
-		&& !InventoryIsWorn(C, "FuturisticBallGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticBallGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticBallGag", "ItemMouth3")
+		&& !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth3")
 		&& !InventoryIsWorn(C, "FuturisticArmbinder", "ItemArms") && !InventoryIsWorn(C, "FuturisticStraitjacket", "ItemArms") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms")
 	) return false; // Must be wearing an item that can be transformed
-	if ((T == "ItemTransform") 
-		&& !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth3")
-		&& !InventoryIsWorn(C, "FuturisticBallGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticBallGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticBallGag", "ItemMouth3")
-		&& !InventoryIsWorn(C, "FuturisticArmbinder", "ItemArms") && !InventoryIsWorn(C, "FuturisticStraitjacket", "ItemArms")
-		&& InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && (AsylumGGTSGetLevel(C) <= 2)
-	) return false; // The futuristic cuffs cannot be transformed before level 3
 	if ((T == "PoseOverHead") && !C.CanInteract()) return false; // Must be able to use hands for hands poses
 	if ((T == "PoseBehindBack") && !C.CanInteract()) return false; // Must be able to use hands for hands poses
 	if ((T == "PoseLegsClosed") && (C.IsKneeling() || (InventoryGet(C, "ItemLegs") != null) || (InventoryGet(C, "ItemFeet") != null))) return false; // Close legs only without restraints and not kneeling
@@ -423,6 +417,17 @@ function AsylumGGTSTaskRemoveFuturisticItem(Group) {
 }
 
 /**
+ * Transforms a ballgag to a panelgag for the specified group
+ * @param {string} Group - The group name to transform
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSTransformGag(Group) {
+	let Item = InventoryGet(Player, Group);
+	if ((Item != null) && (Item.Asset != null) && ((Item.Asset.Name === "FuturisticHarnessBallGag") || (Item.Asset.Name === "FuturisticPanelGag")))
+		InventoryWear(Player, (Item.Asset.Name === "FuturisticHarnessBallGag") ? "FuturisticPanelGag" : "FuturisticHarnessBallGag", Group, null, 10);
+}
+
+/**
  * Processes the tasks that doesn't need any player input.  GGTS does everything and ends the task automatically.
  * @returns {void} - Nothing
  */
@@ -430,20 +435,17 @@ function AsylumGGTSAutomaticTask() {
 
 	// The ItemPose task automatically changes the futuristic items pose
 	if (AsylumGGTSTask == "ItemPose") {
-		let Refresh = false;
 		let Item = InventoryGet(Player, "ItemArms");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name === "FuturisticCuffs")) {
 			let Pose = ((Item.Property != null) && (Item.Property.SetPose != null) && (Item.Property.SetPose.length > 0)) ? Item.Property.SetPose[0] : "";
 			Pose = [CommonRandomItemFromList(Pose, ["BackBoxTie", "BackElbowTouch", ""])];
 			if (Pose == "") Item.Property = { SetPose: null, Difficulty: 0, Effect: [] };
 			else Item.Property = { SetPose: Pose, Difficulty: 10, Effect: ["Block", "Prone"] };
-			Refresh = true;
 		}
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name === "FuturisticStraitjacket")) {
 			if (Item.Property == null) Item.Property = {};
 			if (Item.Property.Type === "cl0co0np0vp0a1") Item.Property.Type = "cl0co0np0vp0a0";
 			else Item.Property.Type = "cl0co0np0vp0a1";
-			Refresh = true;
 		}
 		Item = InventoryGet(Player, "ItemFeet");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name === "FuturisticAnkleCuffs")) {
@@ -451,7 +453,6 @@ function AsylumGGTSAutomaticTask() {
 			Pose = [CommonRandomItemFromList(Pose, ["LegsClosed", ""])];
 			if (Pose == "") Item.Property = { SetPose: null, Difficulty: 0, Effect: [] };
 			else Item.Property = { SetPose: Pose, Difficulty: 10, Effect: ["Freeze", "Prone"] };
-			Refresh = true;
 		}
 		Item = InventoryGet(Player, "ItemLegs");
 		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name === "FuturisticLegCuffs")) {
@@ -459,12 +460,9 @@ function AsylumGGTSAutomaticTask() {
 			Pose = [CommonRandomItemFromList(Pose, ["LegsClosed", ""])];
 			if (Pose == "") Item.Property = { SetPose: null, Difficulty: 0, Effect: [] };
 			else Item.Property = { SetPose: Pose, Difficulty: 10, Effect: ["Prone", "KneelFreeze", "Slow"] };
-			Refresh = true;
 		}
-		if (Refresh) {
-			CharacterRefresh(Player);
-			ChatRoomCharacterUpdate(Player);
-		}
+		CharacterRefresh(Player);
+		ChatRoomCharacterUpdate(Player);
 		return AsylumGGTSEndTaskSave();
 	}
 
@@ -559,7 +557,17 @@ function AsylumGGTSAutomaticTask() {
 
 	// The ItemTransform task automatically changes the restraint types
 	if (AsylumGGTSTask == "ItemTransform") {
-		CharacterRefresh(Player);
+		let Item = InventoryGet(Player, "ItemArms");
+		if ((Item != null) && (Item.Asset != null) && ((Item.Asset.Name === "FuturisticCuffs") || (Item.Asset.Name === "FuturisticArmbinder") || (Item.Asset.Name === "FuturisticStraitjacket"))) {
+			let List = [];
+			if (Item.Asset.Name !== "FuturisticCuffs") List.push("FuturisticCuffs");
+			if (Item.Asset.Name !== "FuturisticArmbinder") List.push("FuturisticArmbinder");
+			if ((Item.Asset.Name !== "FuturisticStraitjacket") && (AsylumGGTSGetLevel(Player) >= 5)) List.push("FuturisticStraitjacket");
+			InventoryWear(Player, CommonRandomItemFromList("", List), "ItemArms", null, 10);
+		}
+		AsylumGGTSTransformGag("ItemMouth");
+		AsylumGGTSTransformGag("ItemMouth2");
+		AsylumGGTSTransformGag("ItemMouth3");
 		ChatRoomCharacterUpdate(Player);
 		return AsylumGGTSEndTaskSave();
 	}
