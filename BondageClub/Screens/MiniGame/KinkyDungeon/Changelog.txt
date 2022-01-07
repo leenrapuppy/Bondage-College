@@ -154,6 +154,16 @@ Bugfix:
 - New spell: Crackle, deals damage in a line and stuns briefly
 - New spell: Shadow Dagger, a dagger that passes through enemies and walls, but only deals 1 damage
 
+2.3
+- Chests don't appear while there are jailers
+- New spell: Invisibility
+- Balance changes
+- Buffs to the bast clerics so they stun
+- Buffs have been changed and evasion works differently (diminishing returns)
+- New area: Underground jungle
+
+TODO Add brambles: stationary plants that slow you, maximum attack width
+
 TODO ValidationFindBlockCycles to prevent bugs
 
 Future content planned:

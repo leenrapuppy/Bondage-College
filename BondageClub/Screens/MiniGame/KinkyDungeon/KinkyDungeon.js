@@ -108,6 +108,7 @@ function KinkyDungeonRun() {
 	let BG = "BrickWall";
 	let params = KinkyDungeonMapParams[KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]];
 	if (params && params.background) BG = params.background;
+	if (KinkyDungeonState == "Lose") BG = "Pandora/Underground/Cell4";
 	DrawImage("Backgrounds/" + BG + ".jpg", 0, 0);
 
 	// Draw the characters
@@ -121,6 +122,7 @@ function KinkyDungeonRun() {
 		DrawText(TextGet("Intro"), 1250, 400, "white", "silver");
 		DrawText(TextGet("Intro2"), 1250, 500, "white", "silver");
 		DrawText(TextGet("Intro3"), 1250, 600, "white", "silver");
+		DrawText(TextGet("Intro4"), 1250, 700, "white", "silver");
 
 		if (ArcadeDeviousChallenge && KinkyDungeonDeviousDungeonAvailable())
 			DrawText(TextGet("DeviousChallenge"), 1250, 925, "white", "silver");

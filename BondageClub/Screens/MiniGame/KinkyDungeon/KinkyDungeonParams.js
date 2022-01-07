@@ -21,6 +21,7 @@ var KinkyDungeonMapParams = [
 
 		"traps": [
 			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+			{Name: "Bandits", Level: 0, Power: 1, Weight: 30},
 		],
 
 		"min_width" : 25,
@@ -70,6 +71,7 @@ var KinkyDungeonMapParams = [
 
 		"traps": [
 			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+			{Name: "Bandits", Level: 0, Power: 2, Weight: 40},
 		],
 
 		"min_width" : 21,
@@ -99,9 +101,9 @@ var KinkyDungeonMapParams = [
 	},
 
 	{//DungeonName2,-Underground Jungle-
-		"openness" : 2,
+		"openness" : 6,
 		"density" : 5,
-		"doodadchance" : 0.15,
+		"doodadchance" : 0.12,
 		"brightness" : 7,
 		"chestcount" : 2,
 		"shrinecount" : 5,
@@ -110,19 +112,40 @@ var KinkyDungeonMapParams = [
 		"doorchance" : 0.2,
 		"nodoorchance" : 0.7,
 		"doorlockchance" : -0.05,
-		"trapchance" : 0.5,
+		"trapchance" : 0.8,
 		"grateChance" : 0.7,
 		"rubblechance" : 0.5,
-		"brickchance" : 0.1,
+		"brickchance" : 0.25,
 
 		"traps": [
-			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+			{Name: "Bandits", Level: 0, Power: 3, Weight: 100},
 		],
 
-		"min_width" : 25,
-		"max_width" : 31,
-		"min_height" : 11,
-		"max_height" : 19,
+		"min_width" : 29,
+		"max_width" : 39,
+		"min_height" : 13,
+		"max_height" : 17,
+
+		"enemytags": ["plant"],
+		"defeat_restraints": [
+			{Name: "HighsecBallGag", Level: 0},
+			{Name: "HighsecArmbinder", Level: 0},
+			{Name: "HighsecShackles", Level: 0},
+			{Name: "HighsecLegbinder", Level: 0},
+			{Name: "PrisonVibe", Level: 1},
+			{Name: "PrisonBelt", Level: 1},
+		],
+		"defeat_outfit": "LatexPrisoner",
+		"shrines": [
+			//{Type: "Charms", Weight: 5},
+			{Type: "Commerce", Weight: 10},
+			{Type: "Elements", Weight: 5},
+			{Type: "Conjure", Weight: 5},
+			{Type: "Illusion", Weight: 5},
+			{Type: "Leather", Weight: 5},
+			{Type: "Metal", Weight: 3},
+			{Type: "Rope", Weight: 5},
+			{Type: "Will", Weight: 5},]
 	},
 	{//DungeonName3,-Lost Temple-
 		"openness" : 2,
@@ -361,7 +384,8 @@ var KinkyDungeonMapParams = [
 		"brickchance" : 0.4,
 
 		"traps": [
-			{Name: "Skeletons", Level: 0, Power: 6, Weight: 100},
+			{Name: "Skeletons", Level: 0, Power: 8, Weight: 100},
+			{Name: "Bandits", Level: 0, Power: 3, Weight: 60},
 		],
 
 		"min_width" : 21,

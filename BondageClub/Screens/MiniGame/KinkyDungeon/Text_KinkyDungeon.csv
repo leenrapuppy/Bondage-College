@@ -1,6 +1,7 @@
-Intro,"You are a wizard descending into an ancient underground city of magic."
+Intro,"You are a mage descending into an ancient underground city of magic."
 Intro2,"Beneath its depths lies the Mistress' Staff, an artifact of untold power."
 Intro3,"Will you prevail against forces unknown, or succumb to its dark secrets?"
+Intro4,"(This game does not contain spiders or any carnivorous creatures/plants)"
 
 KinkyDungeonRestart,"Quit"
 KinkyDungeonRestartConfirm,"Confirm restart? All progress will be lost (there is no going back)"
@@ -11,9 +12,9 @@ KinkyDungeonRestartNo,"No, I wish to press on"
 DeviousChallenge,"Devious Dungeon Challenge is enabled."
 KinkyDungeonLoading,"Waiting for game data..."
 
-End,"Today the dungeon claims yet another adventurer."
-End2,"Bound and exhausted, you cannot hope to continue."
-End3,"Perhaps another adventurer may rescue you some day."
+End,"You have surrendered to the dungeon and become its prisoner."
+End2,"Day and night, you wait that rescue may come some day."
+End3,"Better luck next time!"
 
 EndWin,"You have reached the end of the playable portion."
 EndWin2,"Come back later for new dungeons!"
@@ -163,6 +164,8 @@ KinkyDungeonHearDoorOpenFar,You hear the faint sound of a door opening.
 KinkyDungeonHearDoorCloseNear,You hear a door slam shut nearby!
 KinkyDungeonHearDoorCloseFar,You hear a door being shut in the distance.
 
+KinkyDungeonSlimeSpread,"The slime is spreading over your body!!!"
+
 
 NameBlindZombie,Zombie
 KillBlindZombie,"The zombie moans and collapses to the ground."
@@ -196,6 +199,16 @@ KillSkeleton,"The Skeleton falls to pieces."
 AttackSkeletonBind,"The Skeleton restrains you! (+RestraintAdded)"
 AttackSkeleton,"The Skeleton tackles you! (-DamageTaken SP)"
 
+NameBandit,Bandit
+KillBandit,"The Bandit collapses."
+AttackBanditBind,"The Bandit restrains you! (+RestraintAdded)"
+AttackBandit,"The Bandit caresses your restrained body! (-DamageTaken SP)"
+
+NameBanditHunter,Bandit Hunter
+KillBanditHunter,"The Bandit Hunter retreats."
+AttackBanditHunterBind,"The Bandit Hunter restrains you! (+RestraintAdded)"
+AttackBanditHunter,"The Bandit Hunter caresses your restrained body! (-DamageTaken SP)"
+
 NameMummy,Mummy
 KillMummy,"The Mummy collapses and her body vanishes."
 AttackMummyBind,"The Mummy conjures a mystic wrapping! (+RestraintAdded)"
@@ -210,6 +223,7 @@ AttackMeleeCleric,"The Bast Warrior tickles you with her claws! (-DamageTaken SP
 NameCleric,Bast Cleric
 KillCleric,"The Bast Cleric collapses and meows softly."
 AttackCleric,"A ray of light shoots out and paralyzes you! (-DamageTaken SP)"
+AttackClericStun,"A ray of light shoots out and paralyzes you! (-DamageTaken SP)"
 
 NameSummonedSkeleton,Skeleton
 KillSummonedSkeleton,"The skeleton falls to pieces."
@@ -225,6 +239,21 @@ NameGreaterSkeleton,Skeleton Warrior
 KillGreaterSkeleton,"The Skeleton Warrior collapses and falls into pieces."
 AttackGreaterSkeleton,"The Skeleton lands a wide, crippling blow! (-DamageTaken SP)"
 
+NameVinePlant,Vine Plant
+KillVinePlant,"The plant leaks purple juices everywhere as it wilts."
+AttackVinePlant,"The vine plant whips you with its tendrils! (-DamageTaken SP)"
+AttackVinePlantBind,"The vine plant wraps its tendrils around you! (+RestraintAdded)"
+AttackVinePlantStun,"The vine plant grips you tightly! (-DamageTaken SP)"
+
+NameBramble,Bramble
+KillBramble,"The brambles are hacked away."
+AttackBramble,"The bramble snares you! (-DamageTaken SP)"
+
+NameSmallSlime,Ooze
+KillSmallSlime,"The Ooze melts into a puddle."
+AttackSmallSlime,"The sticky Ooze splashes against you! (-DamageTaken SP)"
+AttackSmallSlimeBind,"The Ooze attaches itself to your body! (-DamageTaken SP)"
+
 NameLesserSkeleton,Skeleton
 KillLesserSkeleton,"The Skeleton falls into pieces."
 AttackLesserSkeletonBind,"The Skeleton restrains you! (+RestraintAdded)"
@@ -236,12 +265,12 @@ AttackRopeSnakeBind,"The magic rope wraps itself tightly around your body! (+Res
 AttackRopeSnake,"The magic rope wriggles into your outfit! (-DamageTaken SP)"
 
 NameLearnedRope,Learned Rope
-KillLearnedRope,"The learned rope returns to being a normal rope."
+KillLearnedRope,"The learned rope untangles into a mess of rope."
 AttackLearnedRopeBind,"The magic rope wraps itself intricately around your body! (+RestraintAdded)"
 AttackLearnedRope,"The magic rope wriggles into your outfit! (-DamageTaken SP)"
 
 NameMonsterRope,Monster Rope
-KillMonsterRope,"The monster rope bundle returns to being a normal rope."
+KillMonsterRope,"The monster rope bundle collapses into a pile of ropes."
 AttackMonsterRopeBind,"The magic rope wraps itself overwhelmingly around your body! (+RestraintAdded)"
 AttackMonsterRope,"The magic rope wriggles into your outfit! (-DamageTaken SP)"
 
@@ -269,6 +298,7 @@ KinkyDungeonLeashed,"You are grabbed and led to a prison..."
 NameNecromancer,Necromancer
 KillNecromancer,"The necromancer perishes. Ironic that she couldn't save herself."
 AttackNecromancerLock,"The necromancer locks all of your restraints!"
+AttackNecromancerBind,"The necromancer prepares you for transport!"
 AttackNecromancer,"The necromancer tugs sensually at your restraints!"
 
 NameRat,Filthy Rat
@@ -427,6 +457,9 @@ KinkyDungeonInventoryItemTrapVibe,Egg Vibe
 RestraintHighsecArmbinder,Highsec Armbinder
 RestraintHighsecArmbinderDesc,"An obisidian armbinder enclosing your hands and arms completely, making your hands useless."
 RestraintHighsecArmbinderDesc2,"Made of a flexible, yet durable material, it's going to be really tough to escape."
+RestraintHighsecLegbinder,Highsec Legbinder
+RestraintHighsecLegbinderDesc,"An obisidian legbinder enclosing your legs, making it difficult to move."
+RestraintHighsecLegbinderDesc2,"Made of a flexible, yet durable material, it's going to be really tough to escape."
 RestraintHighsecShackles,Highsec Shackles
 RestraintHighsecShacklesDesc,"A pair of obisidian shackles around your feet."
 RestraintHighsecShacklesDesc2,"Nearly indestructable, you are at the mercy of its lock."
@@ -482,6 +515,10 @@ RestraintDuctTapeFeetMummyDesc2,"It clings, almost of its own accord, but seems 
 RestraintDuctTapeLegsMummy,Charms
 RestraintDuctTapeLegsMummyDesc,"A layer of faintly magic ribbon wrapped tight around your thighs."
 RestraintDuctTapeLegsMummyDesc2,"It clings, almost of its own accord, but seems vulnerable to both cutting and stretching."
+
+RestraintPanelGag,Panel Gag
+RestraintPanelGagDesc,"A gag that seals your lips tightly and stuffs your mouth with a ball."
+RestraintPanelGagDesc2,"The harness is comprehensive and it's locked in place."
 
 RestraintKittyGag,Bast Gag
 RestraintKittyGagDesc,"A gag used to silence new initiates of the Bast cult."
@@ -564,22 +601,56 @@ RestraintTrapVibeDesc,"An energetic little friend that likes to tease you."
 RestraintTrapVibeDesc2,"It is charged by residual magic from your spells."
 RestraintRopeSnakeArms,Wrist Rope
 RestraintRopeSnakeArmsDesc,"A box tie keeping your arms secured behind your back."
-RestraintRopeSnakeArmsDesc2,"The remaining magic squeezes you gently."
+RestraintRopeSnakeArmsDesc2,"The ropes squeeze you gently."
 RestraintRopeSnakeTorso,Rope Belt
 RestraintRopeSnakeTorsoDesc,"A harness acting as a handle to pull you around"
-RestraintRopeSnakeTorsoDesc2,"The remaining magic squeezes you gently."
+RestraintRopeSnakeTorsoDesc2,"The ropes squeeze you gently."
 RestraintRopeSnakeCrotch,Crotch Rope
 RestraintRopeSnakeCrotchDesc,"A tight rope impressing upon your most private areas..."
-RestraintRopeSnakeCrotchDesc2,"The remaining magic squeezes you gently."
+RestraintRopeSnakeCrotchDesc2,"The ropes squeeze you gently."
 RestraintRopeSnakeArmsWrist,Wrist Rope
 RestraintRopeSnakeArmsWristDesc,"A wrist and elbow tie keeping your arms secured behind your back."
-RestraintRopeSnakeArmsWristDesc2,"The remaining magic squeezes you gently."
+RestraintRopeSnakeArmsWristDesc2,"The ropes squeeze you gently."
 RestraintRopeSnakeLegs,Leg Rope
 RestraintRopeSnakeLegsDesc,"A tie that hobbles your legs together.."
-RestraintRopeSnakeLegsDesc2,"The remaining magic squeezes you gently."
+RestraintRopeSnakeLegsDesc2,"The ropes squeeze you gently."
 RestraintRopeSnakeFeet,Ankle Rope
 RestraintRopeSnakeFeetDesc,"A tie keeping your feet secured together."
-RestraintRopeSnakeFeetDesc2,"The remaining magic squeezes you gently."
+RestraintRopeSnakeFeetDesc2,"The ropes squeeze you gently."
+
+RestraintVinePlantArms,Wrist Vine
+RestraintVinePlantArmsDesc,"A box tie keeping your arms secured behind your back."
+RestraintVinePlantArmsDesc2,"The vines twitch as they try to wrap around tighter."
+RestraintVinePlantTorso,Vine Harness
+RestraintVinePlantTorsoDesc,"A harness acting as a handle to pull you around"
+RestraintVinePlantTorsoDesc2,"The vines twitch as they try to wrap around tighter."
+RestraintVinePlantLegs,Leg Vine
+RestraintVinePlantLegsDesc,"A tie that hobbles your legs together.."
+RestraintVinePlantLegsDesc2,"The vines twitch as they try to wrap around tighter."
+RestraintVinePlantFeet,Ankle Vine
+RestraintVinePlantFeetDesc,"A tie keeping your feet secured together."
+RestraintVinePlantFeetDesc2,"The vines twitch as they try to wrap around tighter."
+
+
+RestraintSlimeBoots,Slime
+RestraintSlimeBootsDesc,"Sticky slime that adheres to your body."
+RestraintSlimeBootsDesc2,"It is an organic material that reforms around every cut you make!"
+RestraintSlimeFeet,Slime
+RestraintSlimeFeetDesc,"Sticky slime that adheres to your body."
+RestraintSlimeFeetDesc2,"It is an organic material that reforms around every cut you make!"
+RestraintSlimeLegs,Slime
+RestraintSlimeLegsDesc,"Sticky slime that adheres to your body."
+RestraintSlimeLegsDesc2,"It is an organic material that reforms around every cut you make!"
+RestraintSlimeArms,Slime
+RestraintSlimeArmsDesc,"Sticky slime that adheres to your body."
+RestraintSlimeArmsDesc2,"It is an organic material that reforms around every cut you make!"
+RestraintSlimeHands,Slime
+RestraintSlimeHandsDesc,"Sticky slime that adheres to your body."
+RestraintSlimeHandsDesc2,"It is an organic material that reforms around every cut you make!"
+RestraintSlimeHead,Slime
+RestraintSlimeHeadDesc,"Sticky slime that adheres to your body."
+RestraintSlimeHeadDesc2,"It is an organic material that reforms around every cut you make!"
+
 RestraintChainArms,Arm Chains
 RestraintChainArmsDesc,"Heavy chains keeping your arms securely behind your back."
 RestraintChainArmsDesc2,"It doesn't look like a knife is up to the task..."
@@ -708,7 +779,7 @@ KinkyDungeonSpellCastFirebolt,You a hurl a firebolt!
 KinkyDungeonSpellTargetFirebolt,Choose aim direction
 
 KinkyDungeonSpellDagger,Shadow Dagger
-KinkyDungeonSpellDescriptionDagger,A cold shadowy blade that deals DamageDealt damage and pierces enemies.
+KinkyDungeonSpellDescriptionDagger,A cold shadowy blade that deals DamageDealt damage and pierces all in its path.
 KinkyDungeonSpellCastDagger,You a hurl a shadowy dagger!
 KinkyDungeonSpellTargetDagger,Choose aim direction
 
@@ -732,6 +803,8 @@ KinkyDungeonSpellWitchChainBolt,Witch's Chain
 KinkyDungeonSpellDescriptionChainBolt,Throws a chain that does DamageDealt damage and binds an enemy for Duration turns.
 KinkyDungeonSpellCastChainBolt,You a hurl a strand of chain!
 KinkyDungeonSpellTargetChainBolt,Choose aim direction
+
+KinkyDungeonSpellBanditBola,Bola
 
 KinkyDungeonSpellShield,Shield
 KinkyDungeonSpellDescriptionShield,Creates a shield that blocks BlockAmount damage from projectiles for DelayTime turns.
@@ -793,6 +866,11 @@ KinkyDungeonSpellShroud,Shroud
 KinkyDungeonSpellTargetShroud,Select where to center the shroud (SpellArea radius)
 KinkyDungeonSpellDescriptionShroud,A shroud of darkness lasting Duration turns that buffs evasion for all creatures and buffs sneaking.
 KinkyDungeonSpellCastShroud,You exhale a misty shroud
+
+KinkyDungeonSpellInvisibility,Invisibility
+KinkyDungeonSpellTargetInvisibility,Select which creature to buff
+KinkyDungeonSpellDescriptionInvisibility,Make the targeted creature invisible, increasing stealth for Duration turns
+KinkyDungeonSpellCastInvisibility,You snap your fingers!
 
 KinkyDungeonSpellSlime,Conjure Slime
 KinkyDungeonSpellWitchSlime,Witch's Slime
@@ -878,7 +956,7 @@ KinkyDungeonMagicRopeSelf,"Your own rope trap springs upon you!"
 KinkyDungeonSlime,"You get caught in sticky slime!"
 KinkyDungeonShock,"You feel a powerful sensation run through your body!"
 KinkyDungeonSingleChain,"A magic chain secures itself around your body!"
-KinkyDungeonSingleRope,"A magic rope wraps itself around your body!"
+KinkyDungeonSingleRope,"A rope wraps itself around your body!"
 KinkyDungeonSlowedBySpell,"The spell hits you and slows you down!"
 
 KinkyDungeonInventory,"Inventory"
@@ -974,6 +1052,7 @@ KinkyDungeonGhostUnhelpfulChaste3,"Ghost: Looks like someone's been naughty~"
 KinkyDungeonGhostUnhelpfulChaste4,"Ghost: How's it feel to be under lock and key?"
 
 KinkyDungeonTrapSkeletons,"You step on a pressure plate and a number of skeletons rise up!"
+KinkyDungeonTrapBandits,"You are ambushed by bandits!"
 
 KinkyDungeonOrbIntro,"You have broken a magic orb."
 KinkyDungeonOrbIntro2,"You must choose one of the goddesses to anger below."

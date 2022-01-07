@@ -78,8 +78,8 @@ function KinkyDungeonHandleInventory() {
 }
 
 function KinkyDungeonInventoryAddWeapon(Name) {
-	if (!KinkyDungeonInventoryGet(Name))
-		KinkyDungeonInventory.push({weapon: KinkyDungeonWeapons[Name]});
+	if (!KinkyDungeonInventoryGet(Name) && KinkyDungeonWeapons[Name])
+		KinkyDungeonInventory.push({weapon: KinkyDungeonWeapons[Name], events: KinkyDungeonWeapons[Name].events});
 }
 
 function KinkyDungeonInventoryGet(Name) {
@@ -205,4 +205,16 @@ function KinkyDungeonDrawInventory() {
 		DrawButton(canvasOffsetX + 640*KinkyDungeonBookScale - 325, canvasOffsetY + 483*KinkyDungeonBookScale, 250, 60, TextGet("KinkyDungeonBookNextPage"), "White", "", "");
 	}
 
+}
+
+function KinkyDungeonSendInventoryEvent(Event, data) {
+	for (let item of KinkyDungeonInventory) {
+		if (item.events) {
+			for (let e of item.events) {
+				if (e.trigger == Event) {
+					KinkyDungeonHandleInventoryEvent(Event, item, data);
+				}
+			}
+		}
+	}
 }

@@ -91,7 +91,7 @@ var KinkyDungeonDoorCloseTimer = 0;
 var KinkyDungeonLastMoveDirection = null;
 var KinkyDungeonTargetingSpell = null;
 
-var KinkyDungeonMaxLevel = 20; // Game stops when you reach this level
+var KinkyDungeonMaxLevel = 30; // Game stops when you reach this level
 
 var KinkyDungeonLastMoveTimer = 0;
 var KinkyDungeonLastMoveTimerStart = 0;
@@ -195,6 +195,7 @@ function KinkyDungeonCreateMap(MapParams, Floor) {
 	let doodadchance = MapParams.doodadchance;
 	let treasurechance = 1.0; // Chance for an extra locked chest
 	let treasurecount = MapParams.chestcount; // Max treasure chest count
+	if (KinkyDungeonSpawnJailers > 0) treasurecount = 0;
 	let shrinechance = MapParams.shrinechance; // Chance for an extra shrine
 	let ghostchance = MapParams.ghostchance; // Chance for a ghost
 	let shrinecount = MapParams.shrinecount; // Max treasure chest count
@@ -336,6 +337,7 @@ function KinkyDungeonPlaceEnemies(Tags, Floor, width, height) {
 			if (KinkyDungeonSpawnJailers > 0) tags.push("jailer");
 			if (KinkyDungeonMapGet(X, Y) == 'R' || KinkyDungeonMapGet(X, Y) == 'r') tags.push("rubble");
 			if (KinkyDungeonMapGet(X, Y) == 'D' || KinkyDungeonMapGet(X, Y) == 'd') tags.push("door");
+			if (KinkyDungeonMapGet(X, Y) == 'g') tags.push("grate");
 			if (!KinkyDungeonMovableTiles.includes(KinkyDungeonMapGet(X, Y+1)) && !KinkyDungeonMovableTiles.includes(KinkyDungeonMapGet(X, Y-1))) tags.push("passage");
 			else if (!KinkyDungeonMovableTiles.includes(KinkyDungeonMapGet(X+1, Y)) && !KinkyDungeonMovableTiles.includes(KinkyDungeonMapGet(X-1, Y))) tags.push("passage");
 			else if (KinkyDungeonMovableTiles.includes(KinkyDungeonMapGet(X+1, Y+1))
@@ -372,6 +374,7 @@ function KinkyDungeonPlaceEnemies(Tags, Floor, width, height) {
 		tries += 1;
 	}
 
+	if (KinkyDungeonSpawnJailers > 3) KinkyDungeonSpawnJailers -= 1; // Reduce twice as fast when you are in deep...
 	if (KinkyDungeonSpawnJailers > 0) KinkyDungeonSpawnJailers -= 1;
 
 	KinkyDungeonCurrentMaxEnemies = KinkyDungeonEntities.length;
@@ -1224,7 +1227,7 @@ function KinkyDungeonMove(moveDirection, delta, AllowInteract) {
 							KinkyDungeonStatStamina += moveMult * (KinkyDungeonStatStaminaRegenPerSlowLevel * KinkyDungeonSlowLevel) * delta;
 							KinkyDungeonStatWillpowerExhaustion = Math.max(1, KinkyDungeonStatWillpowerExhaustion);
 							KinkyDungeonStatArousal += KinkyDungeonStatPlugLevel * KinkyDungeonArousalPerPlug * moveMult;
-							if (KinkyDungeonVibeLevel == 0) KinkyDungeonStatArousal -= KinkyDungeonStatArousalRegen;
+							if (KinkyDungeonVibeLevel == 0 && KinkyDungeonStatPlugLevel > 0) KinkyDungeonStatArousal -= KinkyDungeonStatArousalRegen;
 						} else if (KinkyDungeonStatStamina < KinkyDungeonStatStaminaMax) {
 							KinkyDungeonMovePoints = 0;
 							KinkyDungeonWaitMessage();
@@ -1288,6 +1291,9 @@ function KinkyDungeonMoveTo(moveX, moveY) {
 }
 
 function KinkyDungeonAdvanceTime(delta, NoUpdate, NoMsgTick) {
+	KinkyDungeonResetEventVariablesTick();
+	KinkyDungeonSendInventoryEvent("tick", {delta: delta});
+
 	if (delta >= 1) {
 		KinkyDungeonHandleTraps(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, KinkyDungeonTrapMoved);
 	}

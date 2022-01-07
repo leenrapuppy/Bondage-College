@@ -58,7 +58,7 @@ function KinkyDungeonMakeLightMap(width, height, Lights) {
 		for (let X = 0; X < KinkyDungeonGridWidth; X++) {
 			for (let Y = 0; Y < KinkyDungeonGridHeight; Y++) {
 				let tile = KinkyDungeonMapGet(X, Y);
-				if (KinkyDungeonTransparentObjects.includes(tile) && !visionBlockers[X + "," + Y]) {
+				if ((KinkyDungeonTransparentObjects.includes(tile) || (X == KinkyDungeonPlayerEntity.x && Y == KinkyDungeonPlayerEntity.y)) && !visionBlockers[X + "," + Y]) {
 					let brightness = KinkyDungeonLightGet(X, Y);
 					if (brightness > 0) {
 						let nearbywalls = 0;
