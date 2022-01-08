@@ -15,7 +15,7 @@ var AsylumGGTSTaskList = [
 	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ActivityWiggle", "ActivityCaress", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "ItemArmsFuturisticArmbinder", "ItemTransform", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
 	["QueryServeObey", "QueryFreeWill", "ActivityMasturbateHand", "ActivityKiss", "ItemPelvisFuturisticChastityBelt", "ItemPelvisFuturisticTrainingBelt", "ItemBreastFuturisticBra", "ItemBreastFuturisticBra2", "ItemTorsoFuturisticHarness"],
 	["QuerySlaveWorthy", "ItemArmsFuturisticStraitjacket", "ItemHeadFuturisticMask", "ItemEarsFuturisticEarphones", "ItemNeckFuturisticCollar", "ActivityBite", "ActivityLick"],
-	[]
+	["QueryCanFailMaster", "QueryLoveMaster", "QuerySurrenderMaster", "QueryWhoControlMaster", "QueryServeObeyMaster"]
 ];
 var AsylumGGTSLevelTime = [0, 7200000, 10800000, 18000000, 28800000, 46800000, 75600000];
 var AsylumGGTSPreviousPose = "";
@@ -328,10 +328,15 @@ function AsylumGGTSTaskDone(C, T) {
 	if ((T == "QueryWhatAreYou") && (Level == 5)) return AsylumGGTSQueryDone(Level, C.MemberNumber, "imagoodslavegirl", "I'm a good slave girl.");
 	if ((T == "QueryWhatAreYou") && (Level >= 6)) return AsylumGGTSQueryDone(Level, C.MemberNumber, "imagoodslave", "I'm a good slave.");
 	if (T == "QueryWhoControl") return AsylumGGTSQueryDone(Level, C.MemberNumber, "ggtsisincontrol", "GGTS is in control.");
+	if (T == "QueryWhoControlMaster") return AsylumGGTSQueryDone(Level, C.MemberNumber, "masterggtsisincontrol", "Master GGTS is in control.");
 	if (T == "QueryLove") return AsylumGGTSQueryDone(Level, C.MemberNumber, "iloveggts", "I love GGTS.");
+	if (T == "QueryLoveMaster") return AsylumGGTSQueryDone(Level, C.MemberNumber, "ilovemasterggts", "I love Master GGTS.");
 	if (T == "QueryCanFail") return AsylumGGTSQueryDone(Level, C.MemberNumber, "ggtscannotfail", "GGTS cannot fail.");
+	if (T == "QueryCanFailMaster") return AsylumGGTSQueryDone(Level, C.MemberNumber, "masterggtscannotfail", "Master GGTS cannot fail.");
 	if (T == "QuerySurrender") return AsylumGGTSQueryDone(Level, C.MemberNumber, "isurrendertoggts", "I surrender to GGTS.");
-	if (T == "QueryServeObey") return AsylumGGTSQueryDone(Level, C.MemberNumber, "iobeyandserveggts", "I serve and obey GGTS.");
+	if (T == "QuerySurrenderMaster") return AsylumGGTSQueryDone(Level, C.MemberNumber, "isurrendertoggts", "I surrender to Master GGTS.");
+	if (T == "QueryServeObey") return AsylumGGTSQueryDone(Level, C.MemberNumber, "iserveandobeyggts", "I serve and obey GGTS.");
+	if (T == "QueryServeObeyMaster") return AsylumGGTSQueryDone(Level, C.MemberNumber, "iserveandobeymasterggts", "I serve and obey Master GGTS.");
 	if (T == "QueryFreeWill") return AsylumGGTSQueryDone(Level, C.MemberNumber, "idonthavefreewill", "I don't have free will.");
 	if (T == "QuerySlaveWorthy") return AsylumGGTSQueryDone(Level, C.MemberNumber, "istrivetobeslaveworthy", "I strive to be slave worthy.");
 	if ((T == "NoTalking") && (CommonTime() >= AsylumGGTSTimer - 1000)) return true;
@@ -350,6 +355,7 @@ function AsylumGGTSTaskDone(C, T) {
  */
 function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((C.Game == null) || (C.Game.GGTS == null) || (C.Game.GGTS.Strike == null) || (C.Game.GGTS.Strike >= 3) || (C.Game.GGTS.Level == null) || (C.Game.GGTS.Level <= 0)) return false; // Must be playing GGTS without 3 strikes
+	if (((T == "QueryCanFail") || (T == "QueryLove") || (T == "QuerySurrender") || (T == "QueryWhoControl") || (T == "QueryServeObey")) && (C.Game.GGTS.Level >= 6)) return false; // Some queries have the master version at level 6
 	if ((T.substr(0, 8) == "UndoRule") && ((C.Game.GGTS.Rule == null) || (C.Game.GGTS.Rule.indexOf(T.substr(8, 100)) < 0))) return false; // Rule cannot be removed if not active
 	if ((T.substr(0, 7) == "NewRule") && (C.Game.GGTS.Rule != null) && (C.Game.GGTS.Rule.indexOf(T.substr(7, 100)) >= 0)) return false; // Rule cannot be added if already active
 	if ((T.substr(0, 5) == "Cloth") && !C.CanChange()) return false; // Cloth tasks cannot be done if cannot change

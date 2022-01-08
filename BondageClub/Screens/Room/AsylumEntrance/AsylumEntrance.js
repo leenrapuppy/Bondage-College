@@ -83,7 +83,7 @@ function AsylumEntranceRun() {
 function AsylumEntranceClick() {
 	if (MouseIn(500, 0, 500, 1000)) CharacterSetCurrent(Player);
 	if (MouseIn(1000, 0, 500, 1000)) {
-		if (AsylumGGTSGetLevel(Player) >= 4) AsylumEntranceNurse.Stage = "400";
+		if (AsylumGGTSGetLevel(Player) >= 6) AsylumEntranceNurse.Stage = "400";
 		else if (LogValue("Isolated", "Asylum") >= CurrentTime) AsylumEntranceNurse.Stage = "200";
 		else if (LogValue("Committed", "Asylum") >= CurrentTime) AsylumEntranceNurse.Stage = "100";
 		else if (AsylumEntranceNurse.Stage == "100") AsylumEntranceNurse.Stage = "0";
