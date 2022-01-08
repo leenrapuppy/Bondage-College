@@ -10,7 +10,7 @@ var AsylumEntranceEscapedPatientWillJoin = false;
  * Checks, if the player is able to leave the Asylum
  * @returns {boolean} - Returns true, if the player is able to leave, false otherwise
  */
-function AsylumEntranceCanWander() { return (Player.CanWalk() && ((LogValue("Committed", "Asylum") >= CurrentTime) || (LogValue("Isolated", "Asylum") >= CurrentTime) || ((ReputationGet("Asylum") >= 1) && AsylumEntranceIsWearingNurseClothes()))); }
+function AsylumEntranceCanWander() { return (Player.CanWalk() && ((LogValue("Committed", "Asylum") >= CurrentTime) || (LogValue("Isolated", "Asylum") >= CurrentTime) || (AsylumGGTSGetLevel(Player) >= 6) || ((ReputationGet("Asylum") >= 1) && AsylumEntranceIsWearingNurseClothes()))); }
 /**
  * Checks, if the player can bring the nurse to her private room
  * @returns {boolean} - Returns true, if the player can drag the nurse to her private roo, false otherwise
@@ -54,7 +54,7 @@ function AsylumEntranceLoad() {
 function AsylumEntranceRun() {
 	DrawCharacter(Player, 500, 0, 1);
 	DrawCharacter(AsylumEntranceNurse, 1000, 0, 1);
-	if (Player.CanWalk() && (LogValue("Isolated", "Asylum") < CurrentTime) && (LogValue("Committed", "Asylum") < CurrentTime) && (LogValue("ForceGGTS", "Asylum") <= 0)) DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
+	if (Player.CanWalk() && (LogValue("Isolated", "Asylum") < CurrentTime) && (LogValue("Committed", "Asylum") < CurrentTime) && (AsylumGGTSGetLevel(Player) <= 5) && (LogValue("ForceGGTS", "Asylum") <= 0)) DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
 	DrawButton(1885, 145, 90, 90, "", "White", "Icons/Character.png", TextGet("Profile"));
 	if (AsylumEntranceCanWander()) DrawButton(1885, 265, 90, 90, "", "White", "Icons/Chat.png", TextGet("ChatRoom"));
 	if (AsylumEntranceCanWander()) DrawButton(1885, 385, 90, 90, "", "White", "Icons/Bedroom.png", TextGet("Bedroom"));
@@ -83,14 +83,15 @@ function AsylumEntranceRun() {
 function AsylumEntranceClick() {
 	if (MouseIn(500, 0, 500, 1000)) CharacterSetCurrent(Player);
 	if (MouseIn(1000, 0, 500, 1000)) {
-		if (LogValue("Isolated", "Asylum") >= CurrentTime) AsylumEntranceNurse.Stage = "200";
+		if (AsylumGGTSGetLevel(Player) >= 4) AsylumEntranceNurse.Stage = "400";
+		else if (LogValue("Isolated", "Asylum") >= CurrentTime) AsylumEntranceNurse.Stage = "200";
 		else if (LogValue("Committed", "Asylum") >= CurrentTime) AsylumEntranceNurse.Stage = "100";
 		else if (AsylumEntranceNurse.Stage == "100") AsylumEntranceNurse.Stage = "0";
 		if ((LogValue("Isolated", "Asylum") < CurrentTime) && (LogValue("Escaped", "Asylum") >= CurrentTime) && !AsylumEntranceNurse.IsRestrained()) AsylumEntranceNurse.Stage = "140";
 		ManagementClubSlaveDialog(AsylumEntranceNurse);
 		CharacterSetCurrent(AsylumEntranceNurse);
 	}
-	if (MouseIn(1885, 25, 90, 90) && Player.CanWalk() && (LogValue("Isolated", "Asylum") < CurrentTime) && (LogValue("Committed", "Asylum") < CurrentTime) && (LogValue("ForceGGTS", "Asylum") <= 0)) CommonSetScreen("Room", "MainHall");
+	if (MouseIn(1885, 25, 90, 90) && Player.CanWalk() && (LogValue("Isolated", "Asylum") < CurrentTime) && (LogValue("Committed", "Asylum") < CurrentTime) && (AsylumGGTSGetLevel(Player) <= 5) && (LogValue("ForceGGTS", "Asylum") <= 0)) CommonSetScreen("Room", "MainHall");
 	if (MouseIn(1885, 145, 90, 90)) InformationSheetLoadCharacter(Player);
 	if (MouseIn(1885, 265, 90, 90) && AsylumEntranceCanWander()) AsylumEntranceStartChat();
 	if (MouseIn(1885, 385, 90, 90) && AsylumEntranceCanWander()) CommonSetScreen("Room", "AsylumBedroom");

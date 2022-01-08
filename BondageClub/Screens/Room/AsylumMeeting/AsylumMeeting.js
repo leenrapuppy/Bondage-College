@@ -51,30 +51,40 @@ function AsylumMeetingLoad() {
 		InventoryAdd(AsylumMeetingPatientRight, "MuzzleGag", "ItemMouth");
 	}
 
-	// At level 2 GGTS or more, the right patient joins the system
+	// At level 6 GGTS, everyone is a full slave
 	let Level = AsylumGGTSGetLevel(Player);
-	if (Level >= 2) {
-		InventoryWear(AsylumMeetingPatientRight, "FuturisticCuffs", "ItemArms");
-		InventoryGet(AsylumMeetingPatientRight, "ItemArms").Property = { SetPose: ["BackBoxTie"], Difficulty: 10, Effect: ["Block", "Prone"] };
-		InventoryWear(AsylumMeetingPatientRight, "FuturisticAnkleCuffs", "ItemFeet");
-		InventoryAdd(AsylumMeetingPatientRight, "FuturisticCuffs", "ItemArms");
-		InventoryAdd(AsylumMeetingPatientRight, "FuturisticAnkleCuffs", "ItemFeet");
-	}
-
-	// At level 3 GGTS or more, the left patient joins the system
-	if (Level >= 3) {
-		InventoryWear(AsylumMeetingPatientLeft, "FuturisticCuffs", "ItemArms");
-		InventoryWear(AsylumMeetingPatientLeft, "FuturisticAnkleCuffs", "ItemFeet");
-		InventoryAdd(AsylumMeetingPatientLeft, "FuturisticCuffs", "ItemArms");
-		InventoryAdd(AsylumMeetingPatientLeft, "FuturisticAnkleCuffs", "ItemFeet");
+	if (Level >= 6) {
+		AsylumGGTSDroneDress(AsylumMeetingPatientLeft);
+		InventoryWear(AsylumMeetingPatientLeft, "Beret1", "Hat", "#BB0000");
+		AsylumGGTSDroneDress(AsylumMeetingPatientRight);
 		InventoryWear(AsylumMeetingPatientRight, "FuturisticHarnessBallGag", "ItemMouth");
-		InventoryAdd(AsylumMeetingPatientRight, "FuturisticHarnessBallGag", "ItemMouth");
-	}
+	} else {
 
-	// At level 5 or more, both patients gets the GGTS collar
-	if (Level >= 5) {
-		InventoryWear(AsylumMeetingPatientLeft, "FuturisticCollar", "ItemNeck");
-		InventoryWear(AsylumMeetingPatientRight, "FuturisticCollar", "ItemNeck");
+		// At level 2 GGTS or more, the right patient joins the system
+		if (Level >= 2) {
+			InventoryWear(AsylumMeetingPatientRight, "FuturisticCuffs", "ItemArms");
+			InventoryGet(AsylumMeetingPatientRight, "ItemArms").Property = { SetPose: ["BackBoxTie"], Difficulty: 10, Effect: ["Block", "Prone"] };
+			InventoryWear(AsylumMeetingPatientRight, "FuturisticAnkleCuffs", "ItemFeet");
+			InventoryAdd(AsylumMeetingPatientRight, "FuturisticCuffs", "ItemArms");
+			InventoryAdd(AsylumMeetingPatientRight, "FuturisticAnkleCuffs", "ItemFeet");
+		}
+
+		// At level 3 GGTS or more, the left patient joins the system
+		if (Level >= 3) {
+			InventoryWear(AsylumMeetingPatientLeft, "FuturisticCuffs", "ItemArms");
+			InventoryWear(AsylumMeetingPatientLeft, "FuturisticAnkleCuffs", "ItemFeet");
+			InventoryAdd(AsylumMeetingPatientLeft, "FuturisticCuffs", "ItemArms");
+			InventoryAdd(AsylumMeetingPatientLeft, "FuturisticAnkleCuffs", "ItemFeet");
+			InventoryWear(AsylumMeetingPatientRight, "FuturisticHarnessBallGag", "ItemMouth");
+			InventoryAdd(AsylumMeetingPatientRight, "FuturisticHarnessBallGag", "ItemMouth");
+		}
+
+		// At level 5 or more, both patients gets the GGTS collar
+		if (Level >= 5) {
+			InventoryWear(AsylumMeetingPatientLeft, "FuturisticCollar", "ItemNeck");
+			InventoryWear(AsylumMeetingPatientRight, "FuturisticCollar", "ItemNeck");
+		}
+
 	}
 
 }

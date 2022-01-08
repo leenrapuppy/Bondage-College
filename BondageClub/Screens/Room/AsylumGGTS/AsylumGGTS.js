@@ -57,6 +57,18 @@ function AsylumGGTSGetLevel(C) {
 }
 
 /**
+ * Sets the computer image based on the player level
+ * @param {number} Level - The player GGTS level
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSComputerImage(Level) {
+	if (Level >= 6) AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGS.png";
+	else if (Level >= 5) AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGSG.png";
+	else if (Level >= 3) AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGG.png";
+	else AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/Computer.png";
+}
+
+/**
  * Loads the GGTS and computer NPC
  * @returns {void} - Nothing
  */
@@ -73,9 +85,8 @@ function AsylumGGTSLoad() {
 		if (Level == 3) AsylumGGTSComputer.Stage = "2000";
 		if (Level == 4) AsylumGGTSComputer.Stage = "3000";
 		if (Level == 5) AsylumGGTSComputer.Stage = "4000";
-		if (Level <= 2) AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/Computer.png";
-		else if (Level <= 4) AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGG.png";
-		else AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGSG.png";
+		if (Level == 6) AsylumGGTSComputer.Stage = "5000";
+		AsylumGGTSComputerImage(Level);
 	}
 }
 
@@ -151,9 +162,9 @@ function AsylumGGTSStartLevel(Level) {
 	Player.Game.GGTS.Time = 0;
 	Player.Game.GGTS.Strike = 0;
 	AsylumGGTSSAddItems();
-	if (Level >= 3) AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGG.png";
-	if (Level >= 5) AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/ComputerGSG.png";
-	if (Level >= 2) CharacterChangeMoney(Player, 100 * (Level - 1));
+	AsylumGGTSComputerImage(Level);
+	if (Level == 6) CharacterChangeMoney(Player, 1000);
+	else if (Level >= 2) CharacterChangeMoney(Player, 100 * (Level - 1));
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 }
 
@@ -162,6 +173,9 @@ function AsylumGGTSStartLevel(Level) {
  * @returns {void} - Nothing
  */
 function AsylumGGTSQuit() {
+	for (let G = 0; G < AssetGroup.length; G++)
+		if (AssetGroup[G].Name.substr(0, 4) == "Item")
+			AsylumGGTSTaskRemoveFuturisticItem(AssetGroup[G].Name);
 	delete Player.Game.GGTS;
 	AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/Computer.png";
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
@@ -210,7 +224,8 @@ function AsylumGGTSCharacterName(C) {
 	if (Level == 2) Name = C.Name + "-" + C.MemberNumber.toString();
 	if (Level == 3) Name = C.Name + "-GG-" + C.MemberNumber.toString();
 	if (Level == 4) Name = "GG-" + C.MemberNumber.toString();
-	if (Level >= 5) Name = "GSG-" + C.MemberNumber.toString();
+	if (Level == 5) Name = "GSG-" + C.MemberNumber.toString();
+	if (Level >= 6) Name = "GS-" + C.MemberNumber.toString();
 	return Name;
 }
 
@@ -221,7 +236,8 @@ function AsylumGGTSCharacterName(C) {
  * @returns {void} - Nothing
  */
 function AsylumGGTSMessage(Msg, Target) {
-	if ((Msg == "TaskDone") && (AsylumGGTSGetLevel(Player) >= 5)) Msg = "TaskDoneSlave";
+	if ((Msg == "TaskDone") && (AsylumGGTSGetLevel(Player) == 5)) Msg = "TaskDoneSlaveGirl";
+	if ((Msg == "TaskDone") && (AsylumGGTSGetLevel(Player) == 6)) Msg = "TaskDoneSlave";
 	let Dict = [{ Tag: "SourceCharacter", Text: AsylumGGTSCharacterName(Player), MemberNumber: Player.MemberNumber }];
 	if (Target != null) {
 		Msg = Msg + "Target";
@@ -307,7 +323,8 @@ function AsylumGGTSTaskDone(C, T) {
 	if ((T == "PoseStand") && !C.IsKneeling()) return true;
 	if (T == "QueryWhatIsGGTS") return AsylumGGTSQueryDone(Level, C.MemberNumber, "goodgirltrainingsystem", "Good Girl Training System.");
 	if ((T == "QueryWhatAreYou") && (Level <= 4)) return AsylumGGTSQueryDone(Level, C.MemberNumber, "imagoodgirl", "I'm a good girl.");
-	if ((T == "QueryWhatAreYou") && (Level >= 5)) return AsylumGGTSQueryDone(Level, C.MemberNumber, "imagoodslavegirl", "I'm a good slave girl.");
+	if ((T == "QueryWhatAreYou") && (Level == 5)) return AsylumGGTSQueryDone(Level, C.MemberNumber, "imagoodslavegirl", "I'm a good slave girl.");
+	if ((T == "QueryWhatAreYou") && (Level >= 6)) return AsylumGGTSQueryDone(Level, C.MemberNumber, "imagoodslave", "I'm a good slave.");
 	if (T == "QueryWhoControl") return AsylumGGTSQueryDone(Level, C.MemberNumber, "ggtsisincontrol", "GGTS is in control.");
 	if (T == "QueryLove") return AsylumGGTSQueryDone(Level, C.MemberNumber, "iloveggts", "I love GGTS.");
 	if (T == "QueryCanFail") return AsylumGGTSQueryDone(Level, C.MemberNumber, "ggtscannotfail", "GGTS cannot fail.");
@@ -337,6 +354,7 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T.substr(0, 4) == "Pose") && !C.CanKneel()) return false; // If cannot kneel, we skip pose change activities
 	if ((T.substr(0, 8) == "Activity") && (!C.CanInteract() || !PreferenceArousalAtLeast(C, "NoMeter"))) return false; // Must allow activities and be able to interact
 	if (((T == "ActivityKiss") || (T == "ActivityLick") || (T == "ActivityBite")) && !C.CanTalk()) return false; // Kiss, lick & bite require being able to talk
+	if (((T == "ActivityKiss") || (T == "ActivityLick") || (T == "ActivityBite")) && (Player.Effect != null) && (Player.Effect.indexOf("BlockMouth") >= 0)) return false; // Kiss, lick & bite require being able to use mouth
 	if ((T == "ActivityMasturbateHand") && C.IsVulvaChaste()) return false; // Cannot masturbate if chaste
 	if (((T == "ClothHeels") || (T == "ClothSocks") || (T == "ClothBarefoot")) && (InventoryGet(C, "ItemBoots") != null)) return false; // No feet tasks if locked in boots
 	if ((T == "NewRuleNoOrgasm") && !PreferenceArousalAtLeast(C, "Hybrid")) return false; // Orgasm rule are only available on hybrid or auto
@@ -657,10 +675,11 @@ function AsylumGGTSNewTask() {
 	AsylumGGTSTask = null;
 	let Level = AsylumGGTSGetLevel(Player);
 	if (Level <= 1) AsylumGGTSTimer = Math.round(CommonTime() + 60000);
-	if (Level == 2) AsylumGGTSTimer = Math.round(CommonTime() + 55000);
-	if (Level == 3) AsylumGGTSTimer = Math.round(CommonTime() + 50000);
-	if (Level == 4) AsylumGGTSTimer = Math.round(CommonTime() + 45000);
-	if (Level >= 5) AsylumGGTSTimer = Math.round(CommonTime() + 40000);
+	if (Level == 2) AsylumGGTSTimer = Math.round(CommonTime() + 56000);
+	if (Level == 3) AsylumGGTSTimer = Math.round(CommonTime() + 52000);
+	if (Level == 4) AsylumGGTSTimer = Math.round(CommonTime() + 48000);
+	if (Level == 5) AsylumGGTSTimer = Math.round(CommonTime() + 44000);
+	if (Level >= 6) AsylumGGTSTimer = Math.round(CommonTime() + 40000);
 	if (Level <= 0) return;
 	if (ChatRoomSpace !== "Asylum") return;
 	if ((Player.Game != null) && (Player.Game.GGTS != null) && (Player.Game.GGTS.Strike >= 3)) return;
@@ -783,6 +802,7 @@ function AsylumGGTSForbiddenWord(C) {
 	let WordList = ["fuck", "shit"];
 	if (Level >= 4) WordList.push("cunt", "bitch");
 	if (Level >= 5) WordList.push("whore", "bastard");
+	if (Level >= 6) WordList.push(Player.Name);
 
 	// Scans the original
 	for (let L = 0; L < ChatRoomChatLog.length; L++)
@@ -989,4 +1009,24 @@ function AsylumGGTSLock(LockTime, Msg) {
 	AsylumEntranceNurse.Stage = "300";
 	CharacterSetCurrent(AsylumEntranceNurse);
 	AsylumEntranceNurse.CurrentDialog = Msg;
+}
+
+/**
+ * Fully dress the character in a drone futuristic gear setup
+ * @param {Character} C - The character to dress, if omitted, we use the player
+ * @return {void} - Nothing
+ */
+function AsylumGGTSDroneDress(C) {
+	if (C == null) C = Player;
+	CharacterRelease(C);
+	CharacterNaked(C);
+	InventoryWear(C, "FuturisticCuffs", "ItemArms");
+	InventoryWear(C, "FuturisticAnkleCuffs", "ItemFeet");
+	InventoryWear(C, "FuturisticLegCuffs", "ItemLegs");
+	InventoryWear(C, "FuturisticHeels2", "ItemBoots");
+	InventoryWear(C, "FuturisticTrainingBelt", "ItemPelvis");
+	InventoryWear(C, "FuturisticBra", "ItemBreast");
+	InventoryWear(C, "FuturisticHarness", "ItemTorso");
+	if ((InventoryGet(C, "ItemNeck") == null) || (C.Ownership == null)) InventoryWear(C, "FuturisticCollar", "ItemNeck");
+	InventoryWear(C, "FuturisticEarphones", "ItemEars");
 }

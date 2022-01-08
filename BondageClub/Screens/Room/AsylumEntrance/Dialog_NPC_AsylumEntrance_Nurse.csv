@@ -130,3 +130,15 @@ ClubSlave,,(Leave her.),,DialogLeave(),
 320,330,(Stay silent.),(The asylum door locks automatically.)  Go to the Good Girl Training System room to begin.,,
 330,,How much time do I need to do?,"Check the clock girl, it's on the wall behind you.",DialogRemove(),
 330,0,(Leave her.),,DialogLeave(),
+400,,,(She looks at you and nods.)  Hello drone.,,
+400,,Why are you calling me drone?,"Look at you girl.  You're a drone, a total GGTS slave.",,
+400,,Can I still use the asylum?,"Yes, drones have full access to the asylum.",,NurseHasGGTSCollar()
+400,,Did you join GGTS?,Not really.  (She sighs.)  There are new rules in the Asylum and nurses must wear the collar while on duty.,,
+400,410,Can you let me out?,"Sorry, drones are not allowed to leave the asylum.",,
+400,,(Leave her.),,DialogLeave(),
+410,400,That's unfair!,"It's the rule, you should read the fine prints before signing a contract.",,
+410,420,I can pay for it.  (Give her $10),"(She counts the money and whispers.)  Fine, I'll open the door but you better return soon or we'll both get punished.",DialogChangeMoney(-10),DialogMoneyGreater(10)
+410,420,Please!  I'm so helpless!,"(She looks at you and sighs.)  Fine, I'll open the door but you better return soon or we'll both get punished.","DialogChangeReputation(""Dominant"", -1)",!DialogMoneyGreater(10)
+410,400,I'll force my way out.,"(She smirks.)  Good luck, the doors are bolted with magnets.",,
+410,400,Fine!  Forget it.,(She nods.)  Do you need anything else?,,
+420,400,(Nod and sneak in the club.),,KidnapNurseExit(),

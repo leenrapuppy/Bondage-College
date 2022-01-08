@@ -610,8 +610,11 @@ function LoginResponse(C) {
 				} else {
 
 					// If the player must log back in the asylum
-					if (LogQuery("Committed", "Asylum") || LogQuery("Isolated", "Asylum")) {
-						AsylumEntranceWearPatientClothes(Player, true);
+					if (LogQuery("Committed", "Asylum") || LogQuery("Isolated", "Asylum") || (AsylumGGTSGetLevel(Player) >= 6)) {
+						if (AsylumGGTSGetLevel(Player) <= 5)
+							AsylumEntranceWearPatientClothes(Player, true);
+						else
+							AsylumGGTSDroneDress(Player);
 						CommonSetScreen("Room", "AsylumBedroom");
 					} else {
 
