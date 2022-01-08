@@ -42,6 +42,7 @@ function KinkyDungeonLoad() {
 	if (!KinkyDungeonIsPlayer()) KinkyDungeonGameRunning = false;
 
 	if (!Player.KinkyDungeonExploredLore) Player.KinkyDungeonExploredLore = [];
+	//if (!Player.KinkyDungeonSave) Player.KinkyDungeonSave = {};
 
 	if (!KinkyDungeonGameRunning) {
 		if (!KinkyDungeonPlayer)
@@ -128,13 +129,32 @@ function KinkyDungeonRun() {
 			DrawText(TextGet("DeviousChallenge"), 1250, 925, "white", "silver");
 
 		DrawButton(875, 750, 350, 64, TextGet("GameStart"), "White", "");
+		DrawButton(1075, 820, 350, 64, TextGet("LoadGame"), "White", "");
 		DrawButton(1275, 750, 350, 64, TextGet("GameConfigKeys"), "White", "");
+	} else if (KinkyDungeonState == "Load") {
+		DrawButton(875, 750, 350, 64, TextGet("KinkyDungeonLoadConfirm"), "White", "");
+		DrawButton(1275, 750, 350, 64, TextGet("KinkyDungeonLoadBack"), "White", "");
+
+		ElementPosition("saveInputField", 1250, 550, 1000, 230);
+	} else if (KinkyDungeonState == "Save") {
+		// Draw temp start screen
+		DrawText(TextGet("KinkyDungeonSaveIntro0"), 1250, 350, "white", "silver");
+		DrawText(TextGet("KinkyDungeonSaveIntro"), 1250, 475, "white", "silver");
+		DrawText(TextGet("KinkyDungeonSaveIntro2"), 1250, 550, "white", "silver");
+		DrawText(TextGet("KinkyDungeonSaveIntro3"), 1250, 625, "white", "silver");
+		DrawText(TextGet("KinkyDungeonSaveIntro4"), 1250, 700, "white", "silver");
+
+		ElementPosition("saveDataField", 1250, 150, 1000, 230);
+
+		DrawButton(875, 750, 350, 64, TextGet("KinkyDungeonGameSave"), "White", "");
+		DrawButton(1275, 750, 350, 64, TextGet("KinkyDungeonGameContinue"), "White", "");
 	} else if (KinkyDungeonState == "Lose") {
 		// Draw temp start screen
 		DrawText(TextGet("End"), 1250, 400, "white", "silver");
 		DrawText(TextGet("End2"), 1250, 500, "white", "silver");
 		DrawText(TextGet("End3"), 1250, 600, "white", "silver");
 		DrawButton(875, 750, 350, 64, TextGet("GameStart"), "White", "");
+		DrawButton(1075, 820, 350, 64, TextGet("LoadGame"), "White", "");
 		DrawButton(1275, 750, 350, 64, TextGet("GameConfigKeys"), "White", "");
 	} else if (KinkyDungeonState == "Game") {
 		KinkyDungeonGameRunning = true;
@@ -193,13 +213,28 @@ function KinkyDungeonRun() {
  */
 function KinkyDungeonClick() {
 	if (MouseIn(1885, 25, 90, 90) && (KinkyDungeonDrawState == "Game" || KinkyDungeonState != "Game")) {
+		ElementRemove("saveDataField");
+		ElementRemove("saveInputField");
 		KinkyDungeonExit();
 	}
 
-	if (KinkyDungeonState == "Menu" || KinkyDungeonState == "Lose") {
+	if (KinkyDungeonState == "Load"){
 		if (MouseIn(875, 750, 350, 64)) {
 			KinkyDungeonInitialize(1);
 			MiniGameKinkyDungeonCheckpoint = 0;
+			if (KinkyDungeonLoadGame(ElementValue("saveInputField"))) {
+				ElementRemove("saveInputField");
+				KinkyDungeonState = "Game";
+			}
+		} else if (MouseIn(1275, 750, 350, 64)) {
+			KinkyDungeonState = "Menu";
+			ElementRemove("saveInputField");
+		}
+	} else if (KinkyDungeonState == "Menu" || KinkyDungeonState == "Lose") {
+		if (MouseIn(875, 750, 350, 64)) {
+			KinkyDungeonInitialize(1);
+			MiniGameKinkyDungeonCheckpoint = 0;
+			KinkyDungeonLoadGame();
 			KinkyDungeonState = "Game";
 
 			if (KinkyDungeonKeybindings) {
@@ -219,6 +254,9 @@ function KinkyDungeonClick() {
 
 				KinkyDungeonGameKey.KEY_WAIT = "Key"+String.fromCharCode(KinkyDungeonKeybindings.Wait).toUpperCase();
 			}
+		} else if (MouseIn(1075, 820, 350, 64)) {
+			KinkyDungeonState = "Load";
+			ElementCreateTextArea("saveInputField");
 		}
 		if (MouseIn(1275, 750, 350, 64)) {
 			KinkyDungeonState = "Keybindings";
@@ -237,6 +275,16 @@ function KinkyDungeonClick() {
 				UpRight: 101,
 				Wait: 120,
 			};
+		}
+	} else if (KinkyDungeonState == "Save") {
+		if (MouseIn(875, 750, 350, 64)) {
+			KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonSavedGame"), "white", 1);
+			KinkyDungeonSaveGame();
+			KinkyDungeonState = "Game";
+			ElementRemove("saveDataField");
+		} else if (MouseIn(1275, 750, 350, 64)) {
+			KinkyDungeonState = "Game";
+			ElementRemove("saveDataField");
 		}
 	} else if (KinkyDungeonState == "Game") {
 		if (KinkyDungeonIsPlayer()) KinkyDungeonClickGame();
@@ -447,3 +495,104 @@ let KinkyDungeonGameKey = {
 		}
 	},
 };
+
+function KinkyDungeonSaveGame(ToString) {
+	let saveData = {KinkyDungeonSave: {}};
+	let save = saveData.KinkyDungeonSave;
+	save.level = MiniGameKinkyDungeonLevel;
+	save.checkpoint = MiniGameKinkyDungeonCheckpoint;
+	save.rep = KinkyDungeonGoddessRep;
+	save.costs = KinkyDungeonShrineCosts;
+	save.orbs = KinkyDungeonOrbsPlaced;
+	save.chests = KinkyDungeonChestsOpened;
+	save.dress = KinkyDungeonCurrentDress;
+	save.gold = KinkyDungeonGold;
+	save.points = KinkyDungeonSpellPoints;
+	save.levels = KinkyDungeonSpellLevel;
+
+	let spells = [];
+	let inv = [];
+	Object.assign(inv, KinkyDungeonInventory);
+
+	for (let item of inv) {
+		if (item.restraint) item.restraint = {name: item.restraint.name};
+		if (item.looserestraint) item.looserestraint = {name: item.looserestraint.name};
+		if (item.weapon) item.weapon = {name: item.weapon.name};
+		if (item.consumable) item.consumable = {name: item.consumable.name};
+	}
+
+	for (let spell of KinkyDungeonSpells) {
+		spells.push(spell.name);
+	}
+
+	save.spells = spells;
+	save.inventory = inv;
+
+	let data = LZString.compressToBase64(JSON.stringify(save));
+	if (!ToString) {
+		//Player.KinkyDungeonSave = saveData.KinkyDungeonSave;
+		//ServerAccountUpdate.QueueData(saveData);
+		localStorage.setItem('KinkyDungeonSave', data);
+	}
+	return data;
+}
+
+// N4IgNgpgbhYgXARgDQgMYAsJoNYAcB7ASwDsAXBABlQCcI8FQBxDAgZwvgFoBWakAAo0ibAiQg0EvfgBkIAQzJZJ8fgFkIZeXFWoASgTwQqqAOpEwO/gFFIAWwjk2JkAGExAKwCudFwElLLzYiMSoAX1Q0djJneGAIkAIaACNYgG0AXUisDnSskAATOjZYkAARCAAzeS8wClQAcwIwApdCUhiEAGZUSBgwWNBbCAcnBBQ3Tx9jJFQAsCCQknGEtiNLPNRSGHIkgE8ENNAokjYvO3lkyEYQEnkHBEECMiW1eTuQBIBHL3eXsgOSAixzEZwuVxmoDuD3gTxeYgAylo7KR5J9UD8/kQAStkCDTudLtc4rd7jM4UsAGLCBpEVrfX7kbGAxDAkAAdwUhGWJOh5IA0iQiJVjGE2cUyDR5B0bnzHmUvGgyAAVeRGOQNZwJF4NDBkcQlca9Ai4R7o0ASqUy3lk+WKlVqiCUiCaNTnOwHbVEXX6iCG2bgE04M1hDJhIA=
+function KinkyDungeonLoadGame(String) {
+	let str = String ? LZString.decompressFromBase64(String) : (localStorage.getItem('KinkyDungeonSave') ? LZString.decompressFromBase64(localStorage.getItem('KinkyDungeonSave')) : "");
+	if (str) {
+		let saveData = JSON.parse(str);
+		if (saveData
+			&& saveData.spells != undefined
+			&& saveData.level != undefined
+			&& saveData.checkpoint != undefined
+			&& saveData.inventory != undefined
+			&& saveData.costs != undefined
+			&& saveData.rep != undefined
+			&& saveData.orbs != undefined
+			&& saveData.chests != undefined
+			&& saveData.dress != undefined) {
+			MiniGameKinkyDungeonLevel = saveData.level;
+			MiniGameKinkyDungeonCheckpoint = saveData.checkpoint;
+			KinkyDungeonShrineCosts = saveData.costs;
+			KinkyDungeonGoddessRep = saveData.rep;
+			KinkyDungeonOrbsPlaced = saveData.orbs;
+			KinkyDungeonChestsOpened = saveData.chests;
+			KinkyDungeonCurrentDress = saveData.dress;
+			if (saveData.gold) KinkyDungeonGold = saveData.gold;
+			if (saveData.points) KinkyDungeonSpellPoints = saveData.poinnts;
+			if (saveData.levels) KinkyDungeonSpellLevel = saveData.levels;
+
+
+			for (let item of saveData.inventory) {
+				if (item.restraint) {
+					let restraint = KinkyDungeonGetRestraintByName(item.restraint.name);
+					if (restraint) {
+						KinkyDungeonAddRestraint(restraint, 0, true, item.lock); // Add the item
+						let createdrestraint = KinkyDungeonGetRestraintItem(restraint.Group);
+						if (createdrestraint)
+							createdrestraint.lock = item.lock; // Lock if applicable
+					}
+				}
+			}
+			Object.assign(KinkyDungeonInventory, saveData.inventory);
+			for (let item of KinkyDungeonInventory) {
+				if (item.restraint) item.restraint = KinkyDungeonGetRestraintByName(item.restraint.name);
+				if (item.looserestraint) item.looserestraint = KinkyDungeonGetRestraintByName(item.looserestraint.name);
+				if (item.consumable) item.consumable = KinkyDungeonFindConsumable(item.consumable.name);
+				if (item.weapon) item.weapon = KinkyDungeonFindWeapon(item.weapon.name);
+			}
+
+			KinkyDungeonSpells = [];
+			for (let spell of saveData.spells) {
+				let sp = KinkyDungeonFindSpell(spell);
+				if (sp) KinkyDungeonSpells.push(sp);
+			}
+
+			KinkyDungeonDefeat();
+			localStorage.setItem('KinkyDungeonSave', String);
+			return true;
+		}
+	}
+	return false;
+}

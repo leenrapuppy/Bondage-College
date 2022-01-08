@@ -101,6 +101,16 @@ var KinkyDungeonLastMoveTimerCooldownStart = 50;
 let KinkyDungeonPatrolPoints = [];
 let KinkyDungeonStartPosition = {x: 1, y: 1};
 let KinkyDungeonOrbsPlaced = [];
+let KinkyDungeonChestsOpened = [];
+
+let KinkyDungeonSaveInterval = 4;
+
+function KinkyDungeonAddChest(Amount, Floor) {
+	if (KinkyDungeonChestsOpened.length < Floor - 1) {
+		KinkyDungeonChestsOpened.push(0);
+	}
+	KinkyDungeonChestsOpened[Floor] += Amount;
+}
 
 function KinkyDungeonSetCheckPoint(Checkpoint) {
 	if (Checkpoint != undefined) MiniGameKinkyDungeonCheckpoint = Checkpoint;
@@ -496,6 +506,8 @@ function KinkyDungeonPlaceChests(treasurechance, treasurecount, rubblechance, Fl
 	let count = 0;
 	let extra = Math.random() < treasurechance;
 	treasurecount += (extra ? 1 : 0);
+	let alreadyOpened = (KinkyDungeonChestsOpened.length > Floor) ? KinkyDungeonChestsOpened[Floor] : 0;
+	treasurecount -= alreadyOpened;
 	while (chestlist.length > 0) {
 		let N = Math.floor(Math.random()*chestlist.length);
 		if (count < treasurecount) {
@@ -1191,6 +1203,7 @@ function KinkyDungeonMove(moveDirection, delta, AllowInteract) {
 					KinkyDungeonDoorCloseTimer = 1;
 				} else if (moveObject == 'C') { // Open the chest
 					KinkyDungeonLoot(MiniGameKinkyDungeonLevel, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint], "chest");
+					KinkyDungeonAddChest(1, MiniGameKinkyDungeonLevel);
 					KinkyDungeonMapSet(moveX, moveY, 'c');
 				} else if (moveObject == 'O') { // Open the chest
 					KinkyDungeonTakeOrb(1); // 1 spell point
@@ -1322,6 +1335,12 @@ function KinkyDungeonAdvanceTime(delta, NoUpdate, NoMsgTick) {
 		if (MiniGameKinkyDungeonLevel > Math.max(KinkyDungeonRep, ReputationGet("Gaming")) || Math.max(KinkyDungeonRep, ReputationGet("Gaming")) > KinkyDungeonMaxLevel) {
 			KinkyDungeonRep = Math.max(KinkyDungeonRep, MiniGameKinkyDungeonLevel);
 			DialogSetReputation("Gaming", KinkyDungeonRep);
+		}
+
+		if (MiniGameKinkyDungeonLevel > 0 && MiniGameKinkyDungeonLevel % KinkyDungeonSaveInterval == 0 && ServerURL != "foobar") {
+			KinkyDungeonState = "Save";
+			ElementCreateTextArea("saveDataField");
+			ElementValue("saveDataField", KinkyDungeonSaveGame(true));
 		}
 
 		MiniGameKinkyDungeonLevel += 1;

@@ -3,6 +3,16 @@ Intro2,"Beneath its depths lies the Mistress' Staff, an artifact of untold power
 Intro3,"Will you prevail against forces unknown, or succumb to its dark secrets?"
 Intro4,"(This game does not contain spiders or any carnivorous creatures/plants)"
 
+KinkyDungeonSaveIntro0,"(Copy the code above and save it on your computer to load later)"
+KinkyDungeonSaveIntro,"You come across a black monolith with its face inscribed in runes."
+KinkyDungeonSaveIntro2,"'The Goddess of Time watches you,' it says. 'She offers a pact.'"
+KinkyDungeonSaveIntro3,"'I will give you peace, if you give me your future.'"
+KinkyDungeonSaveIntro4,"(This will save your game, but you will be imprisoned if you reload)"
+KinkyDungeonSavedGame,"You have a bad feeling about this..."
+
+KinkyDungeonGameSave,"Yes, I will make the pact."
+KinkyDungeonGameContinue,"I have no use for superstitions!"
+
 KinkyDungeonRestart,"Quit"
 KinkyDungeonRestartConfirm,"Confirm restart? All progress will be lost (there is no going back)"
 KinkyDungeonRestartYes,"Give up and abandon her"
@@ -39,9 +49,12 @@ KinkyDungeonStaminaWarningLow,"You feel exhausted..."
 KinkyDungeonStaminaWarningNone,"You feel like you are going to pass out..."
 
 GameStart,Start New Game
-LoadGame,Load From Checkpoint
+LoadGame,Load From Code
 GameReturnToMenu,Save Keybindings
 GameConfigKeys,Change Keybindings
+
+KinkyDungeonLoadConfirm,"Load from code"
+KinkyDungeonLoadBack,"Back to main menu"
 
 KinkyDungeonKeyUp,Up
 KinkyDungeonKeyDown,Down
@@ -837,6 +850,27 @@ KinkyDungeonSpellDescriptionCrackle,A bolt of lightning that does DamageDealt da
 KinkyDungeonSpellCastCrackle,You cast a bolt of lightning!
 KinkyDungeonSpellTargetCrackle,Choose line direction (max range 4 tiles)
 
+KinkyDungeonSpellSPUp1,Stamina Up I
+KinkyDungeonSpellDescriptionSPUp1,Increases maximum SP by 12
+KinkyDungeonSpellSPUp2,Stamina Up II
+KinkyDungeonSpellDescriptionSPUp2,Increases maximum SP by 12
+KinkyDungeonSpellSPUp3,Stamina Up III
+KinkyDungeonSpellDescriptionSPUp3,Increases maximum SP by 12
+
+KinkyDungeonSpellMPUp1,Mana Up I
+KinkyDungeonSpellDescriptionMPUp1,Increases maximum MP by 12
+KinkyDungeonSpellMPUp2,Mana Up II
+KinkyDungeonSpellDescriptionMPUp2,Increases maximum MP by 12
+KinkyDungeonSpellMPUp3,Mana Up III
+KinkyDungeonSpellDescriptionMPUp3,Increases maximum MP by 12
+
+KinkyDungeonSpellAPUp1,Strong Mind I
+KinkyDungeonSpellDescriptionAPUp1,Increases maximum Arousal by 12 and Arousal regen by -0.1 per turn
+KinkyDungeonSpellAPUp2,Strong Mind II
+KinkyDungeonSpellDescriptionAPUp2,Increases maximum Arousal by 12 and Arousal regen by -0.1 per turn
+KinkyDungeonSpellAPUp3,Strong Mind III
+KinkyDungeonSpellDescriptionAPUp3,Increases maximum Arousal by 12 and Arousal regen by -0.1 per turn
+
 KinkyDungeonSpellBomb,Bomb
 KinkyDungeonSpellDescriptionBomb,A bomb that does DamageDealt damage in an area after DelayTime turns.
 KinkyDungeonSpellCastBomb,Fire in the hole!
@@ -973,7 +1007,8 @@ KinkyDungeonSpellsPageBack,"Previous Page"
 KinkyDungeonSpellsLevels,"Spell Points: SPELLPOINTS --- Elementalist lvELEMLEVEL --- Conjuration lvCONJLEVEL --- Illusionist lvILLULEVEL"
 KinkyDungeonSpellsNotEnoughLevels,"You need a higher level in SCHOOL magic to learn this spell."
 KinkyDungeonSpellsNotEnoughPoints,"You need more spell points."
-KinkyDungeonSpellsSchoolElements,Elemental
+KinkyDungeonSpellsSchool,"School: "
+KinkyDungeonSpellsSchoolElements,Elements
 KinkyDungeonSpellsSchoolConjure,Conjuration
 KinkyDungeonSpellsSchoolIllusion,Illusion
 KinkyDungeonSpellsBuy,"Learn Spell"

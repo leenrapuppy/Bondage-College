@@ -13,6 +13,13 @@ var KinkyDungneonBasic = {
 	"Knife" : {name: "Knife", rarity: 0, shop: true},
 };
 
+function KinkyDungeonFindConsumable(Name) {
+	for (let con of Object.values(KinkyDungeonConsumables)) {
+		if (con.name == Name) return con;
+	}
+	return undefined;
+}
+
 function KinkyDungeonGetInventoryItem(Name, Filter = "Consumables") {
 	let Filtered = KinkyDungeonFilterInventory(Filter);
 	for (let I = 0; I < Filtered.length; I++) {

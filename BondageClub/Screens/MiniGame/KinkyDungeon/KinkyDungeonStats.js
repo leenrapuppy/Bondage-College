@@ -9,6 +9,7 @@ let KinkyDungeonStatArousalMax = 36;
 let KinkyDungeonArousalUnlockSuccessMod = 0.5; // Determines how much harder it is to insert a key while aroused. 1.0 is half success chance, 2.0 is one-third, etc.
 let KinkyDungeonStatArousal = 0;
 let KinkyDungeonStatArousalRegen = -0.5;
+let KinkyDungeonStatArousalRegenPerUpgrade = -0.1;
 let KinkyDungeonStatArousalRegenStaminaRegenFactor = -0.1; // Stamina drain per time per 100 arousal
 let KinkyDungeonStatArousalMiscastChance = 0.6; // Miscast chance at max arousal
 let KinkyDungeonVibeLevel = 0;
@@ -196,6 +197,21 @@ function KinkyDungeonUpdateStats(delta) {
 	KinkyDungeonDifficulty = 0;
 
 	let arousalRate = (KinkyDungeonVibeLevel == 0) ? KinkyDungeonStatArousalRegen : (KinkyDungeonArousalPerVibe * KinkyDungeonVibeLevel);
+
+	// Upgradeable stats
+	KinkyDungeonStatStaminaMax = 36;
+	KinkyDungeonStatArousalMax = 36;
+	KinkyDungeonStatManaMax = 36;
+
+	for (let s of KinkyDungeonSpells) {
+		if (s.name == "SPUp1" || s.name == "SPUp2" || s.name == "SPUp3") KinkyDungeonStatStaminaMax += 12;
+		if (s.name == "MPUp1" || s.name == "MPUp2" || s.name == "MPUp3") KinkyDungeonStatManaMax += 12;
+		if (s.name == "APUp1" || s.name == "APUp2" || s.name == "APUp3") {
+			KinkyDungeonStatArousalMax += 12;
+			arousalRate += KinkyDungeonStatArousalRegenPerUpgrade;
+		}
+	}
+
 	// Dont regen while exhausted
 	if (KinkyDungeonStatWillpowerExhaustion > 0) {
 		KinkyDungeonStatWillpowerExhaustion = Math.max(0, KinkyDungeonStatWillpowerExhaustion - delta);

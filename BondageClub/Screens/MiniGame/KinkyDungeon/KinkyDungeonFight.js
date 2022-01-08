@@ -21,6 +21,12 @@ var KinkyDungeonWeapons = {
 	"BoltCutters": {name: "BoltCutters", dmg: 3, chance: 1.0, type: "crush", unarmed: false, rarity: 3, shop: false, cutBonus: 0.3},
 };
 
+function KinkyDungeonFindWeapon(Name) {
+	for (let con of Object.values(KinkyDungeonWeapons)) {
+		if (con.name == Name) return con;
+	}
+	return undefined;
+}
 
 function KinkyDungeonWeaponCanCut(RequireInteract) {
 	if (KinkyDungeonPlayerWeapon && KinkyDungeonWeapons[KinkyDungeonPlayerWeapon].cutBonus > 0 && (!RequireInteract || KinkyDungeonPlayer.CanInteract())) return true;

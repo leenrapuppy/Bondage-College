@@ -137,19 +137,19 @@ function KinkyDungeonDrawInputs() {
 	DrawButton(840, 925, 165, 60, TextGet("KinkyDungeonReputation"), "White", "", "");
 	DrawButton(1030, 925, 165, 60, TextGet("KinkyDungeonMagic"), "White", "", "");
 
-	if (KinkyDungeonSpells[KinkyDungeonSpellChoices[0]]) {
+	if (KinkyDungeonSpells[KinkyDungeonSpellChoices[0]] && !KinkyDungeonSpells[KinkyDungeonSpellChoices[0]].passive) {
 		let spell = KinkyDungeonSpells[KinkyDungeonSpellChoices[0]];
 		DrawText(TextGet("KinkyDungeonSpell"+ spell.name), 1275, 835, "white", "silver");
 		DrawText(spell.manacost+ TextGet("KinkyDungeonManaCost"), 1275, 870, "#55AAFF", "silver");
 		DrawButton(1230, 895, 90, 90, "", "White", KinkyDungeonRootDirectory + "Spell1.png", "");
 	}
-	if (KinkyDungeonSpells[KinkyDungeonSpellChoices[1]]) {
+	if (KinkyDungeonSpells[KinkyDungeonSpellChoices[1]] && !KinkyDungeonSpells[KinkyDungeonSpellChoices[1]].passive) {
 		let spell = KinkyDungeonSpells[KinkyDungeonSpellChoices[1]];
 		DrawText(TextGet("KinkyDungeonSpell"+ spell.name), 1525, 835, "white", "silver");
 		DrawText(spell.manacost+ TextGet("KinkyDungeonManaCost"), 1525, 870, "#55AAFF", "silver");
 		DrawButton(1480, 895, 90, 90, "", "White", KinkyDungeonRootDirectory + "Spell2.png", "");
 	}
-	if (KinkyDungeonSpells[KinkyDungeonSpellChoices[2]]) {
+	if (KinkyDungeonSpells[KinkyDungeonSpellChoices[2]] && !KinkyDungeonSpells[KinkyDungeonSpellChoices[2]].passive) {
 		let spell = KinkyDungeonSpells[KinkyDungeonSpellChoices[2]];
 		DrawText(TextGet("KinkyDungeonSpell"+ spell.name), 1775, 835, "white", "silver");
 		DrawText(spell.manacost+ TextGet("KinkyDungeonManaCost"), 1775, 870, "#55AAFF", "silver");
@@ -349,6 +349,9 @@ function KinkyDungeonHandleHUD() {
 		}
 		if (MouseIn(875, 750, 350, 64)) {
 			KinkyDungeonState = "Lose";
+			//Player.KinkyDungeonSave = {};
+			//ServerAccountUpdate.QueueData({KinkyDungeonSave : Player.KinkyDungeonSave});
+			localStorage.setItem('KinkyDungeonSave', "");
 			return true;
 		} else if (MouseIn(1275, 750, 350, 64)) {
 			KinkyDungeonDrawState = "Game";
