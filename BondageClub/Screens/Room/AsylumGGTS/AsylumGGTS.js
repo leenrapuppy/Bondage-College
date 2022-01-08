@@ -14,9 +14,10 @@ var AsylumGGTSTaskList = [
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "ItemBootsFuturisticHeels", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "ActivitySpank", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"],
 	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ActivityWiggle", "ActivityCaress", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "ItemArmsFuturisticArmbinder", "ItemTransform", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
 	["QueryServeObey", "QueryFreeWill", "ActivityMasturbateHand", "ActivityKiss", "ItemPelvisFuturisticChastityBelt", "ItemPelvisFuturisticTrainingBelt", "ItemBreastFuturisticBra", "ItemBreastFuturisticBra2", "ItemTorsoFuturisticHarness"],
-	["QuerySlaveWorthy", "ItemArmsFuturisticStraitjacket", "ItemHeadFuturisticMask", "ItemEarsFuturisticEarphones", "ItemNeckFuturisticCollar", "ActivityBite", "ActivityLick"]
+	["QuerySlaveWorthy", "ItemArmsFuturisticStraitjacket", "ItemHeadFuturisticMask", "ItemEarsFuturisticEarphones", "ItemNeckFuturisticCollar", "ActivityBite", "ActivityLick"],
+	[]
 ];
-var AsylumGGTSLevelTime = [0, 7200000, 10800000, 18000000, 28800000, 46800000];
+var AsylumGGTSLevelTime = [0, 7200000, 10800000, 18000000, 28800000, 46800000, 75600000];
 var AsylumGGTSPreviousPose = "";
 var AsylumGGTSWordCheck = 0;
 
@@ -85,7 +86,8 @@ function AsylumGGTSLoad() {
 		if (Level == 3) AsylumGGTSComputer.Stage = "2000";
 		if (Level == 4) AsylumGGTSComputer.Stage = "3000";
 		if (Level == 5) AsylumGGTSComputer.Stage = "4000";
-		if (Level == 6) AsylumGGTSComputer.Stage = "5000";
+		if (Level >= 6) AsylumGGTSComputer.Stage = "5000";
+		if (Level >= 6) Player.Game.GGTS.Strike = 0;
 		AsylumGGTSComputerImage(Level);
 	}
 }
@@ -706,29 +708,32 @@ function AsylumGGTSNewTask() {
 
 /**
  * Saves the game progress after a task ended
+ * @param {boolean} Fail - If the task was failed, we don't add bonus time
  * @returns {void} - Nothing
  */
-function AsylumGGTSEndTaskSave() {
+function AsylumGGTSEndTaskSave(Fail) {
 	AsylumGGTSSetTimer();
 	AsylumGGTSTask = null;
-	let Factor = 1;
-	if (ChatRoomData.Private && (ChatSearchReturnToScreen == "AsylumGGTS") && (ChatRoomCharacter.length <= 1)) Factor = 3;
-	let AddedTime;
-	if (AsylumGGTSTaskEnd > 0) AddedTime = CommonTime() - AsylumGGTSTaskEnd;
-	else AddedTime = CommonTime() - AsylumGGTSTaskStart;
-	let ForceGGTS = LogValue("ForceGGTS", "Asylum");
-	if ((ForceGGTS != null) && (ForceGGTS > 0)) {
-		if (ForceGGTS > AddedTime)
-			LogAdd("ForceGGTS", "Asylum", ForceGGTS - AddedTime);
-		else
-			LogDelete("ForceGGTS", "Asylum");
+	if ((Fail == null) || (Fail == false)) {
+		let Factor = 1;
+		if (ChatRoomData.Private && (ChatSearchReturnToScreen == "AsylumGGTS") && (ChatRoomCharacter.length <= 1)) Factor = 3;
+		let AddedTime;
+		if (AsylumGGTSTaskEnd > 0) AddedTime = CommonTime() - AsylumGGTSTaskEnd;
+		else AddedTime = CommonTime() - AsylumGGTSTaskStart;
+		let ForceGGTS = LogValue("ForceGGTS", "Asylum");
+		if ((ForceGGTS != null) && (ForceGGTS > 0)) {
+			if (ForceGGTS > AddedTime)
+				LogAdd("ForceGGTS", "Asylum", ForceGGTS - AddedTime);
+			else
+				LogDelete("ForceGGTS", "Asylum");
+		}
+		if (AsylumGGTSTimer > CommonTime()) AddedTime = AddedTime + AsylumGGTSTimer - CommonTime();
+		if (AddedTime < 0) AddedTime = 0;
+		if (AddedTime > 120000) AddedTime = 120000;
+		AddedTime = AddedTime * Factor * CheatFactor("DoubleGGTSTime", 2);
+		Player.Game.GGTS.Time = Math.round(Player.Game.GGTS.Time + AddedTime);
+		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 	}
-	if (AsylumGGTSTimer > CommonTime()) AddedTime = AddedTime + AsylumGGTSTimer - CommonTime();
-	if (AddedTime < 0) AddedTime = 0;
-	if (AddedTime > 120000) AddedTime = 120000;
-	AddedTime = AddedTime * Factor * CheatFactor("DoubleGGTSTime", 2);
-	Player.Game.GGTS.Time = Math.round(Player.Game.GGTS.Time + AddedTime);
-	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 	ChatRoomCharacterUpdate(Player);
 	AsylumGGTSTaskEnd = CommonTime();
 	AsylumGGTSPreviousPose = JSON.stringify(Player.Pose);
@@ -779,7 +784,7 @@ function AsylumGGTSEndTask() {
 	if ((CommonTime() >= AsylumGGTSTimer) || (AsylumGGTSTaskFail(Player, AsylumGGTSTask))) {
 		AsylumGGTSAddStrike();
 		AsylumGGTSMessage(((CommonTime() >= AsylumGGTSTimer) ? "TimeOver" : "Failure") + "Strike" + Player.Game.GGTS.Strike.toString());
-		return AsylumGGTSEndTaskSave();
+		return AsylumGGTSEndTaskSave(true);
 	}
 }
 
@@ -802,7 +807,7 @@ function AsylumGGTSForbiddenWord(C) {
 	let WordList = ["fuck", "shit"];
 	if (Level >= 4) WordList.push("cunt", "bitch");
 	if (Level >= 5) WordList.push("whore", "bastard");
-	if (Level >= 6) WordList.push(Player.Name);
+	if (Level >= 6) WordList.push(Player.Name.trim().toLowerCase());
 
 	// Scans the original
 	for (let L = 0; L < ChatRoomChatLog.length; L++)
@@ -840,7 +845,7 @@ function AsylumGGTSProcess() {
 	if (AsylumGGTSForbiddenWord(Player)) {
 		AsylumGGTSAddStrike();
 		AsylumGGTSMessage("ForbiddenWordStrike" + Player.Game.GGTS.Strike.toString());
-		return AsylumGGTSEndTaskSave();
+		return AsylumGGTSEndTaskSave(true);
 	}
 
 	// Validates that the pose rule isn't broken
@@ -849,7 +854,7 @@ function AsylumGGTSProcess() {
 			AsylumGGTSAddStrike();
 			AsylumGGTSMessage("KeepPoseStrike" + Player.Game.GGTS.Strike.toString());
 			AsylumGGTSRemoveRule("KeepPose");
-			return AsylumGGTSEndTaskSave();
+			return AsylumGGTSEndTaskSave(true);
 		}
 
 	// If the timer ticks, we prepare a new task or check to end the current task
@@ -934,6 +939,14 @@ function AsylumGGTSControlItem(C, Item) {
  * @returns {void} - Nothing
  */
 function AsylumGGTSAddStrike() {
+
+	// Level 6 is infinite, getting a strike subtract 1 hour
+	if (AsylumGGTSGetLevel(Player) >= 6) {
+		Player.Game.GGTS.Time = Player.Game.GGTS.Time - 3600000;
+		if (Player.Game.GGTS.Time < 0) Player.Game.GGTS.Time = 0;
+		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+		return;
+	}
 
 	// Adds the strike to the player record
 	Player.Game.GGTS.Strike++;
@@ -1029,4 +1042,18 @@ function AsylumGGTSDroneDress(C) {
 	InventoryWear(C, "FuturisticHarness", "ItemTorso");
 	if ((InventoryGet(C, "ItemNeck") == null) || (C.Ownership == null)) InventoryWear(C, "FuturisticCollar", "ItemNeck");
 	InventoryWear(C, "FuturisticEarphones", "ItemEars");
+}
+
+/**
+ * GGTS will not allow the character to change if she's being punished or she reached level 6
+ * @param {Character} C - The character to evaluate
+ * @return {void} - TRUE if the character can change
+ */
+function AsylumGGTSAllowChange(C) {
+	if (LogValue("Isolated", "Asylum") >= CurrentTime) return false;
+	if (AsylumGGTSGetLevel(C) >= 6) {
+		if ((CurrentScreen == "ChatRoom") && (ChatRoomSpace == "Asylum")) return false;
+		if (CurrentScreen.substr(0, 6) == "Asylum") return false;
+	}
+	return true;
 }

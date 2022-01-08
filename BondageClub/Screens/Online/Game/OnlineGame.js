@@ -152,7 +152,7 @@ function OnlineGameCharacterInChatRoom(MemberNumber) {
  */
 function OnlineGameDrawCharacter(C, X, Y, Zoom) {
 
-	// GGTS Draws the level, the number of strikes and a progress bar
+	// GGTS Draws the level, the number of strikes and a progress bar, level 6 shows the time in a gold frame
 	if ((CurrentModule == "Online") && (CurrentScreen == "ChatRoom") && (ChatRoomGame == "GGTS") && (ChatRoomSpace === "Asylum")) {
 		let Level = AsylumGGTSGetLevel(C);
 		if ((Level > 0) && (C.Game != null) && (C.Game.GGTS != null)) {
@@ -160,9 +160,12 @@ function OnlineGameDrawCharacter(C, X, Y, Zoom) {
 			MainCanvas.font = CommonGetFont(Math.round(36 * Zoom));
 			let Progress = Math.floor(C.Game.GGTS.Time / AsylumGGTSLevelTime[Level] * 100);
 			if (C.Game.GGTS.Strike >= 3) Progress = 0;
-			if (Progress >= 100) DrawRect(X + 50 * Zoom, Y + 860 * Zoom, 100 * Zoom, 40 * Zoom, "White");
+			if ((Level >= 6) || (Progress >= 100)) DrawEmptyRect(X + 50 * Zoom, Y + 860 * Zoom, 100 * Zoom, 40 * Zoom, "Black");
+			if (Level >= 6) DrawRect(X + 52 * Zoom, Y + 862 * Zoom, 96 * Zoom, 36 * Zoom, "#FFD700");
+			else if (Progress >= 100) DrawRect(X + 50 * Zoom, Y + 860 * Zoom, 100 * Zoom, 40 * Zoom, "White");
 			else DrawProgressBar(X + 50 * Zoom, Y + 860 * Zoom, 100 * Zoom, 40 * Zoom, Progress);
-			if (Progress >= 50) DrawText(Level.toString(), X + 100 * Zoom, Y + 881 * Zoom, "Black", "White");
+			if (Level >= 6) DrawText(Math.floor(C.Game.GGTS.Time / 60000).toString(), X + 100 * Zoom, Y + 881 * Zoom, "Black", "White");
+			else if (Progress >= 50) DrawText(Level.toString(), X + 100 * Zoom, Y + 881 * Zoom, "Black", "White");
 			else DrawText(Level.toString(), X + 101 * Zoom, Y + 882 * Zoom, "White", "Black");
 			if (C.Game.GGTS.Rule != null)
 				for (let R = 0; R < C.Game.GGTS.Rule.length; R++)
