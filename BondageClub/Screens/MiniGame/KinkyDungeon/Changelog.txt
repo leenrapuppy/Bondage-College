@@ -164,6 +164,9 @@ Bugfix:
 - Save feature
 - Upgrades for MP, SP, and AP in spell menu
 
+2.31
+- You can struggle a few times before it tells you it's impossible
+
 TODO Add brambles: stationary plants that slow you, maximum attack width
 
 TODO ValidationFindBlockCycles to prevent bugs

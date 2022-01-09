@@ -23,6 +23,8 @@ let KinkyDungeonPickBreakProgress = 0;
 let KinkyDungeonKnifeBreakAmount = 8; // Number of tries per knife on average
 let KinkyDungeonKnifeBreakProgress = 0;
 
+let KinkyDungeonMaxImpossibleAttempts = 3; // base, more if the item is close to being impossible
+
 var KinkyDungeonRestraints = [
 	{name: "DuctTapeArms", Asset: "DuctTape", Color: "#AA2222", Group: "ItemArms", power: -2, weight: 0, escapeChance: {"Struggle": 0.3, "Cut": 0.9, "Remove": 0},
 		enemyTags: {"ribbonRestraints":5}, playerTags: {"ItemArmsFull":8}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Charms"]},
@@ -100,7 +102,7 @@ var KinkyDungeonRestraints = [
 	{inventory: true, name: "TrapLegirons", Asset: "Irish8Cuffs", Color: "Default", Group: "ItemFeet", power: 4, weight: 2, escapeChance: {"Struggle": 0.0, "Cut": -0.4, "Remove": 10, "Pick": 2.5}, enemyTags: {"trap":100}, playerTags: {}, minLevel: 0, floors: [], shrine: ["Metal", "Cuffs"]},
 	{inventory: true, name: "TrapBelt", Asset: "PolishedChastityBelt", OverridePriority: 27, Color: "Default", Group: "ItemPelvis", chastity: true, power: 4, weight: 2, escapeChance: {"Struggle": 0.0, "Cut": -0.10, "Remove": 100.0, "Pick": 0.5}, enemyTags: {"trap":100}, playerTags: {}, minLevel: 0, floors: [], shrine: ["Metal", "Chastity"]},
 	{inventory: true, name: "TrapVibe", Asset: "TapedClitEgg", Color: "Default", Group: "ItemVulvaPiercings", vibeType: "Charging", intensity: 1, orgasm: false, power: 1, battery: 0, maxbattery: 5, weight: 2, escapeChance: {"Struggle": 0.1, "Cut": -10, "Remove": 10}, enemyTags: {"trap":100}, playerTags: {}, minLevel: 0, floors: [], shrine: ["Vibes"]},
-	{inventory: true, name: "TrapMittens", Asset: "LeatherMittens", Color: "Default", Group: "ItemHands", power: 8, weight: 0, escapeChance: {"Struggle": 0.05, "Cut": 0.8, "Remove": 0.15}, enemyTags: {"leatherRestraintsHeavy":6}, playerTags: {"ItemHandsFull":-2}, minLevel: 0, floors: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Leather"]},
+	{inventory: true, name: "TrapMittens", Asset: "LeatherMittens", Color: "Default", Group: "ItemHands", power: 8, weight: 0, escapeChance: {"Struggle": 0.05, "Cut": 0.8, "Remove": 0.15, "Pick": 1.0}, enemyTags: {"leatherRestraintsHeavy":6}, playerTags: {"ItemHandsFull":-2}, minLevel: 0, floors: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Leather"]},
 
 	{inventory: true, name: "PanelGag", Asset: "HarnessPanelGag", Color: "#888888", Group: "ItemMouth2", power: 5, weight: 2, escapeChance: {"Struggle": 0, "Cut": 0.3, "Remove": 0.4, "Pick": 0.5}, enemyTags: {"leatherRestraintsHeavy":8}, playerTags: {}, minLevel: 0, floors: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Leather", "Gags"]},
 
@@ -127,7 +129,7 @@ var KinkyDungeonRestraints = [
 	{name: "RopeSnakeFeet", Asset: "HempRope", Color: "Default", Group: "ItemFeet", power: 1, weight: 0, escapeChance: {"Struggle": 0.2, "Cut": 0.67, "Remove": 0.3}, enemyTags: {"ropeRestraints":4}, playerTags: {"ItemLegsFull":-1}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Rope"]},
 	{name: "RopeSnakeLegs", Asset: "HempRope", Type: "FullBinding", Color: "Default", Group: "ItemLegs", power: 1, weight: 0, escapeChance: {"Struggle": 0.2, "Cut": 0.67, "Remove": 0.3}, enemyTags: {"ropeRestraints":4}, playerTags: {"ItemFeetFull":-1}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Rope"]},
 	{name: "RopeSnakeTorso", Asset: "HempRopeHarness", Type: "Waist", OverridePriority: 26, Color: "Default", Group: "ItemTorso", power: 1, weight: 0, harness: true, escapeChance: {"Struggle": 0.1, "Cut": 0.67, "Remove": 0.3}, enemyTags: {"ropeRestraints2":4}, playerTags: {"ItemTorsoFull":-3}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Rope"]},
-	{name: "RopeSnakeCrotch", Asset: "HempRope", Type: "OverPanties", OverridePriority: 26, Color: "Default", Group: "ItemPelvis", power: 1, weight: 0, harness: true, escapeChance: {"Struggle": 0.1, "Cut": 0.67, "Remove": 0.3}, enemyTags: {"ropeRestraints2":4}, playerTags: {"ItemPelvisFull":-3}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Rope"]},
+	{name: "RopeSnakeCrotch", Asset: "HempRope", Type: "OverPanties", OverridePriority: 26, Color: "Default", Group: "ItemPelvis", power: 1, weight: 0, chastity: true, harness: true, escapeChance: {"Struggle": 0.1, "Cut": 0.67, "Remove": 0.3}, enemyTags: {"ropeRestraints2":4}, playerTags: {"ItemPelvisFull":-3}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Rope"]},
 
 	{name: "VinePlantArms", Asset: "HempRope", Color: "#00FF44", Group: "ItemArms", power: 0, weight: 0, escapeChance: {"Struggle": 0.3, "Cut": 0.8, "Remove": 0.4}, enemyTags: {"vineRestraints":4}, playerTags: {"ItemArmsFull":-1}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Rope"]},
 	{name: "VinePlantFeet", Asset: "HempRope", Color: "#00FF44", Group: "ItemFeet", power: 0, weight: 0, escapeChance: {"Struggle": 0.3, "Cut": 0.8, "Remove": 0.4}, enemyTags: {"vineRestraints":4}, playerTags: {"ItemLegsFull":-1}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Rope"]},
@@ -137,7 +139,7 @@ var KinkyDungeonRestraints = [
 	{name: "ChainArms", Asset: "Chains", Type: "WristElbowHarnessTie", Color: "Default", Group: "ItemArms", power: 5, weight: 0, escapeChance: {"Struggle": 0.1, "Cut": -0.1, "Remove": 0.5, "Pick": 1.5}, enemyTags: {"chainRestraints":2}, playerTags: {"ItemArmsFull":-1}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Chains", "Metal"]},
 	{name: "ChainLegs", Asset: "Chains", Type: "Strict", Color: "Default", Group: "ItemLegs", power: 5, weight: 0, escapeChance: {"Struggle": 0.1, "Cut": -0.1, "Remove": 0.5, "Pick": 1.5}, enemyTags: {"chainRestraints":2}, playerTags: {"ItemLegsFull":-1}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Chains", "Metal"]},
 	{name: "ChainFeet", Asset: "Chains", Color: "Default", Group: "ItemFeet", power: 5, weight: 0, escapeChance: {"Struggle": 0.0, "Cut": -0.1, "Remove": 0.5, "Pick": 1.5}, enemyTags: {"chainRestraints":2}, playerTags: {"ItemFeetFull":-1}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Chains", "Metal"]},
-	{name: "ChainCrotch", Asset: "CrotchChain", OverridePriority: 26, Color: "Default", Group: "ItemTorso", power: 5, weight: 0, harness: true, escapeChance: {"Struggle": 0.0, "Cut": -0.1, "Remove": 0.5, "Pick": 1.5}, enemyTags: {"chainRestraints":2}, playerTags: {"ItemPelvisFull":-1}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Chains", "Metal"]},
+	{name: "ChainCrotch", Asset: "CrotchChain", OverridePriority: 26, Color: "Default", Group: "ItemTorso", power: 5, weight: 0, chastity: true, harness: true, escapeChance: {"Struggle": 0.0, "Cut": -0.1, "Remove": 0.5, "Pick": 1.5}, enemyTags: {"chainRestraints":2}, playerTags: {"ItemPelvisFull":-1}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: ["Chains", "Metal"]},
 
 	{name: "BasicCollar", Asset: "LeatherCollar", Color: ["#000000", "Default"], Group: "ItemNeck", power: 1, weight: 0, escapeChance: {"Struggle": 0.0, "Cut": 0.15, "Remove": 0.5, "Pick": 0.75}, enemyTags: {"leashing":2}, playerTags: {"ItemNeckFull":-2}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: []},
 	{name: "BasicLeash", Asset: "CollarLeash", Color: "Default", Group: "ItemNeckRestraints", leash: true, power: 1, weight: -99, harness: true, escapeChance: {"Struggle": 0.0, "Cut": -0.1, "Remove": 0.5, "Pick": 1.25}, enemyTags: {"leashing":2}, playerTags: {"ItemNeckRestraintsFull":-2, "ItemNeckFull":99}, minLevel: 0, floors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrine: []},
@@ -350,11 +352,20 @@ function KinkyDungeonStruggle(struggleGroup, StruggleType) {
 	if (!restraint.unlockProgress) restraint.unlockProgress = 0;
 	if (!restraint.cutProgress) restraint.cutProgress = 0;
 
+	let increasedAttempts = false;
+
 	if (escapeChance <= 0) {
-		let typesuff = "";
-		if (restraint.restraint.escapeChance[StruggleType] < 0) typesuff = "2";
-		KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonStruggle" + StruggleType + "Impossible" + typesuff), "red", 2);
-		return false;
+		if (!restraint.attempts) restraint.attempts = 0;
+		if (restraint.attempts < KinkyDungeonMaxImpossibleAttempts) {
+			increasedAttempts = true;
+			restraint.attempts += 0.5;
+			if (escapeChance <= -0.5) restraint.attempts += 0.5;
+		} else {
+			let typesuff = "";
+			if (restraint.restraint.escapeChance[StruggleType] < 0) typesuff = "2";
+			KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonStruggle" + StruggleType + "Impossible" + typesuff), "red", 2);
+			return false;
+		}
 	}
 
 	let handsBound = KinkyDungeonIsHandsBound(true);
@@ -404,8 +415,14 @@ function KinkyDungeonStruggle(struggleGroup, StruggleType) {
 	if (bra && bra.chastity) escapeChance = 0.0;
 
 	if (escapeChance <= 0) {
-		KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonStruggle" + StruggleType + "ImpossibleBound"), "red", 2);
-		return false;
+		if (!restraint.attempts) restraint.attempts = 0;
+		if (restraint.attempts < KinkyDungeonMaxImpossibleAttempts || increasedAttempts) {
+			restraint.attempts += 0.5;
+			if (escapeChance <= -0.5) restraint.attempts += 0.5;
+		} else {
+			KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonStruggle" + StruggleType + "ImpossibleBound"), "red", 2);
+			return false;
+		}
 	}
 
 	// Handle cases where you can't even attempt to unlock
