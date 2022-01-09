@@ -1016,6 +1016,20 @@ function AsylumGGTSTOrgasm(C) {
 }
 
 /**
+ * When the player resists an orgasm, there's a 50% chance the no-orgasm rule will be dropped
+ * @return {void} - TRUE if the character can change
+ */
+function AsylumGGTSOrgasmResist() {
+	if (ChatRoomSpace !== "Asylum") return;
+	if ((ChatRoomData == null) || (ChatRoomData.Game !== "GGTS")) return;
+	if ((Player.Game == null) || (Player.Game.GGTS == null) || (Player.Game.GGTS.Strike == null) || (Player.Game.GGTS.Strike >= 3) || (Player.Game.GGTS.Level == null) || (Player.Game.GGTS.Level < 1)) return;
+	if ((Player.Game.GGTS.Rule != null) && (Player.Game.GGTS.Rule.indexOf("NoOrgasm") >= 0) && (Math.random() >= 0.5)) {
+		AsylumGGTSRemoveRule("NoOrgasm");
+		AsylumGGTSMessage("TaskUndoRuleNoOrgasm");
+	}
+}
+
+/**
  * When the player is sent to do GGTS by her owner
  * @param {number} LockTime - The number of minutes to do
  * @param {string} Msg - The nurse intro message

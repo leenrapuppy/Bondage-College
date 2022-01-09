@@ -533,6 +533,7 @@ function ActivityOrgasmGameGenerate(Progress) {
 			var Dictionary = [];
 			Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
 			ServerSend("ChatRoomChat", { Content: "OrgasmResist" + (Math.floor(Math.random() * 10)).toString(), Type: "Activity", Dictionary: Dictionary });
+			AsylumGGTSOrgasmResist();
 		}
 		ActivityOrgasmGameResistCount++;
 		ActivityOrgasmStop(Player, 70);
