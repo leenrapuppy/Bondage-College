@@ -11,9 +11,57 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2021-12-13
-* Last recorded PR: [#3134](https://github.com/Ben987/Bondage-College/pull/3134)
-* Last recorded commit hash: `c71386b6a9fa537487fac734d1d382bd0b6f4b61`
+* Changelog last updated: 2022-01-09
+* Last recorded PR: [#3174](https://github.com/Ben987/Bondage-College/pull/3174)
+* Last recorded commit hash: `3dbcb261eba5e9641642563c649af1290c6938c9`
+
+## [R76]
+
+### [Added]
+
+* Ayesha - Added a new Medical Bed item, which can be obtained (as either a nurse or a patient) from the Asylum ([#3126](https://github.com/Ben987/Bondage-College/pull/3126))
+* Ayesha - Added multicolor support to the Thin Leather Straps ([#3133](https://github.com/Ben987/Bondage-College/pull/3133))
+* fleisch11 - Added "previous" button in item inventory ([#3147](https://github.com/Ben987/Bondage-College/pull/3147), [#3150](https://github.com/Ben987/Bondage-College/pull/3150))
+* Estsanatlehi - Added option to spread legs with the Frogtie variant of the HempRope ([#3153](https://github.com/Ben987/Bondage-College/pull/3153))
+* Ada - Kinky Dungeon update - see the [Kinky Dungeon changelog](Screens/MiniGame/KinkyDungeon/Changelog.txt) ([#3139](https://github.com/Ben987/Bondage-College/pull/3139), [#3168](https://github.com/Ben987/Bondage-College/pull/3168), [#3169](https://github.com/Ben987/Bondage-College/pull/3169), [#3170](https://github.com/Ben987/Bondage-College/pull/3170), [#3173](https://github.com/Ben987/Bondage-College/pull/3173), [#3174](https://github.com/Ben987/Bondage-College/pull/3174))
+
+### [Removed]
+
+* Nothing this release
+
+### [Changed]
+
+* Ayesha - Improved Heart-Link Choker asset ([#3127](https://github.com/Ben987/Bondage-College/pull/3127))
+* Nina - Split College uniform into the uniform and skirt in separate slots ([#3136](https://github.com/Ben987/Bondage-College/pull/3136))
+* Estsanatlehi - Changed suitcase messages to better identify players ([#3129](https://github.com/Ben987/Bondage-College/pull/3129))
+* Estsanatlehi - Allowed most previously hidden clothes to show while on Sybian ([#3148](https://github.com/Ben987/Bondage-College/pull/3148))
+
+### [Fixed]
+
+* Ellie - Fixed a typo in Asylum dialog ([#3146](https://github.com/Ben987/Bondage-College/pull/3146))
+* Ellie - Fixed issue with Stockings in the Kneeling Spread pose ([#3145](https://github.com/Ben987/Bondage-College/pull/3145))
+* Estsanatlehi - Removed stray pixel from the Scarf ([#3144](https://github.com/Ben987/Bondage-College/pull/3144))
+* Estsanatlehi - Allowed to kneel spread with short collar rope/chain ([#3141](https://github.com/Ben987/Bondage-College/pull/3141))
+* Estsanatlehi - Added missing label for the Futuristic Crate "Lid" layer ([#3149](https://github.com/Ben987/Bondage-College/pull/3149))
+* Jomshir - Fixed beep notification disappearing quickly or not disappearing at all ([#3152](https://github.com/Ben987/Bondage-College/pull/3152))
+* Jomshir - Fixed multiple possible crashes ([#3143](https://github.com/Ben987/Bondage-College/pull/3143), [#3142](https://github.com/Ben987/Bondage-College/pull/3142), [#3155](https://github.com/Ben987/Bondage-College/pull/3155), [#3156](https://github.com/Ben987/Bondage-College/pull/3156), [#3157](https://github.com/Ben987/Bondage-College/pull/3157))
+* Estsanatlehi - Fixed missing text for Fantasy block category ([#3158](https://github.com/Ben987/Bondage-College/pull/3158))
+* Nina - Fixed missing character name when using Zipties ([#3159](https://github.com/Ben987/Bondage-College/pull/3159))
+* Nina - Fixed some conflicting item combinations with Leg Spreader ([#3162](https://github.com/Ben987/Bondage-College/pull/3162))
+* Nina - Fixed crash in chat search for new accounts ([#3166](https://github.com/Ben987/Bondage-College/pull/3166))
+* Nina - Fixed getting stuck during room recreation ([#3167](https://github.com/Ben987/Bondage-College/pull/3167))
+* Nina - Fixed zones without activities being displayed in preferences ([#3171](https://github.com/Ben987/Bondage-College/pull/3171))
+* klorpa - Fixed several spelling mistakes across the game ([#3172](https://github.com/Ben987/Bondage-College/pull/3172))
+
+### [Technical]
+
+* Jomshir - Code cleanup ([#3154](https://github.com/Ben987/Bondage-College/pull/3154), [#3160](https://github.com/Ben987/Bondage-College/pull/3160), [#3161](https://github.com/Ben987/Bondage-College/pull/3161))
+* Nina - Added `OverrideAssetEffect` property to ignore base item effects ([#3164](https://github.com/Ben987/Bondage-College/pull/3164))
+* Nina - Deduplicated assets in Hair & Hat slots ([#3165](https://github.com/Ben987/Bondage-College/pull/3165))
+
+### [Beta Fixes]
+
+* Nothing... yet
 
 ## [R75]
 
@@ -80,6 +128,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Ellie - Fixed some errors in the changelog ([#3122](https://github.com/Ben987/Bondage-College/pull/3122))
 * Ellie - Fixed a missing dialogue error when exiting the menu for the Futuristic Training Belt ([#3124](https://github.com/Ben987/Bondage-College/pull/3124))
 * Ellie - Adjusted the difficulty and self bondage requirements for the Snowman ([#3125](https://github.com/Ben987/Bondage-College/pull/3125))
+* Estsanatlehi - Fixed conflicting pose issue between the HempRope & FrogtieStrap ([#3137](https://github.com/Ben987/Bondage-College/pull/3137))
+* Natsuki - Resized Plastic roll ([#3138](https://github.com/Ben987/Bondage-College/pull/3138))
+* Jomshir - Re-added the heavy blindness effect to the Small Ventless Locker ([#3140](https://github.com/Ben987/Bondage-College/pull/3140))
 
 ## [R74]
 
