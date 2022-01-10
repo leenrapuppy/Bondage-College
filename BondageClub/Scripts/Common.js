@@ -466,9 +466,10 @@ function CommonColorIsValid(Color) {
 
 /**
  * Get a random item from a list while making sure not to pick the previous one.
- * @param {*} ItemPrevious - Previously selected item from the given list
- * @param {*} ItemList - List for which to pick a random item from
- * @returns {*} - The randomly selected item from the list
+ * @template T
+ * @param {T} ItemPrevious - Previously selected item from the given list
+ * @param {T[]} ItemList - List for which to pick a random item from
+ * @returns {T} - The randomly selected item from the list
  */
 function CommonRandomItemFromList(ItemPrevious, ItemList) {
 	var NewItem = ItemPrevious;

@@ -318,6 +318,7 @@ interface Asset {
 	AlwaysExtend: boolean;
 	AlwaysInteract: boolean;
 	AllowLock: boolean;
+	LayerVisibility: boolean;
 	IsLock: boolean;
 	PickDifficulty: number;
 	OwnerOnly: boolean;
@@ -784,7 +785,7 @@ interface PlayerCharacter extends Character {
 	FriendNames?: Map<number, string>;
 	SubmissivesList?: Set<number>;
 	KinkyDungeonKeybindings?: any;
-	KinkyDungeonExploredLore: any[];
+	KinkyDungeonExploredLore?: any[];
 	Infiltration?: any;
 	ChatSearchFilterTerms?: string;
 }

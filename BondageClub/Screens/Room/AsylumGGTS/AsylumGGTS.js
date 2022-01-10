@@ -234,7 +234,7 @@ function AsylumGGTSCharacterName(C) {
 /**
  * Sends a chat message from the GGTS.  GGTS slowly replaces the player name by the player number as level rises.
  * @param {string} Msg - The message to publish
- * @param {number} Target - The member number of the target character
+ * @param {Character} [Target] - The member number of the target character
  * @returns {void} - Nothing
  */
 function AsylumGGTSMessage(Msg, Target) {
@@ -263,7 +263,8 @@ function AsylumGGTSSetTimer() {
  * Returns TRUE if the query was answered by character number M
  * @param {number} Level - The player GGTS level, at level 4 or more, capital letters and punctuation matters
  * @param {number} M - The member number to evaluate
- * @param {string} T - The text to evaluate
+ * @param {string} TextEasy - The text to evaluate
+ * @param {string} TextHard - The text to evaluate
  * @returns {boolean} - TRUE if the is done
  */
 function AsylumGGTSQueryDone(Level, M, TextEasy, TextHard) {
@@ -714,7 +715,7 @@ function AsylumGGTSNewTask() {
 
 /**
  * Saves the game progress after a task ended
- * @param {boolean} Fail - If the task was failed, we don't add bonus time
+ * @param {boolean} [Fail=false] - If the task was failed, we don't add bonus time
  * @returns {void} - Nothing
  */
 function AsylumGGTSEndTaskSave(Fail) {
@@ -747,7 +748,7 @@ function AsylumGGTSEndTaskSave(Fail) {
 
 /**
  * Adds a new rule for the player to follow or get strikes, syncs with the chatroom
- * @param {string} Rule - The rule name to add
+ * @param {string} NewRule - The rule name to add
  * @param {boolean} Publish - TRUE if we must publish to local chat
  * @returns {void} - Nothing
  */
@@ -1067,7 +1068,7 @@ function AsylumGGTSDroneDress(C) {
 /**
  * GGTS will not allow the character to change if she's being punished or she reached level 6
  * @param {Character} C - The character to evaluate
- * @return {void} - TRUE if the character can change
+ * @return {boolean} - TRUE if the character can change
  */
 function AsylumGGTSAllowChange(C) {
 	if (LogValue("Isolated", "Asylum") >= CurrentTime) return false;

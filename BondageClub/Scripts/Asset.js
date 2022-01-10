@@ -326,7 +326,7 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
  * @param {Asset | AssetLayerDefinition} obj - The asset or layer object
  * @param {string[] | null} defaultAllowPose - A fallback value for the AllowPose property if it's not defined on the
  * object
- * @return {{AllowPose?: string[], HideForPose: string[]}} - A partial object containing AllowPose and HideForPose
+ * @return {{AllowPose: string[] | null, HideForPose: string[]}} - A partial object containing AllowPose and HideForPose
  * properties
  */
 function AssetParsePoseProperties(obj, defaultAllowPose = null) {

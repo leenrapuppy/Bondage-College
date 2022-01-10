@@ -586,6 +586,7 @@ function VibratorModeUpdateStateBased(Item, C, PersistentData, TransitionsFromDe
  */
 function VibratorModeStateUpdateDefault(C, Arousal, TimeSinceLastChange, OldIntensity, TransitionsFromDefault) {
 	var OneMinute = 60000;
+	/** @type {VibratorModeState} */
 	var State = VibratorModeState.DEFAULT;
 	var Intensity = OldIntensity;
 	// If arousal is high, decide whether to deny or orgasm, based on provided transitions
