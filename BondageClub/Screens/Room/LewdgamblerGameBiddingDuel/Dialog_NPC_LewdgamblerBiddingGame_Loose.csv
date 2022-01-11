@@ -1,0 +1,4 @@
+0,0,,"Oh dear! Looks like you lost it all. Such a poor girl.",,
+0,1,"(Mumble in the gag.)","Oh stop it. Keep those noises for the visitors, I'll just take your money and will go rob someone else. Guards, take her away!"
+1,2,"(Struggle in your restraints.)","[You lost this game completely. Opponent takes all money and leave you restrained to the will of Palace security.]"
+2,0,"(Submit to guards.)",,"HandleLostGame()"

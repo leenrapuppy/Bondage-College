@@ -239,6 +239,7 @@ function MainHallRun() {
 		DrawButton(1885, 505, 90, 90, "", "White", "Icons/Cell.png", TextGet("Cell"));
 
 		// Asylum, College & LARP battles
+		DrawButton(1525, 625, 90, 90, "", "White", "Icons/Lewdgambler.png", TextGet("Lewdgambler"));
 		if (!ManagementIsClubSlave()) DrawButton(1645, 625, 90, 90, "", "White", "Icons/Battle.png", TextGet("LARPBattle"));
 		if (!ManagementIsClubSlave()) DrawButton(1765, 625, 90, 90, "", "White", "Icons/College.png", TextGet("College"));
 		DrawButton(1885, 625, 90, 90, "", "White", "Icons/Asylum.png", TextGet("Asylum"));
@@ -389,6 +390,8 @@ function MainHallClick() {
 		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 505) && (MouseY < 595)) MainHallWalk("Cell");
 
 		// Asylum & College
+		// if ((MouseX >= 1525) && (MouseX < 1615) && (MouseY >= 625) && (MouseY < 715)) MainHallWalk("LewdgamblerEntrance");
+		if ((MouseX >= 1525) && (MouseX < 1615) && (MouseY >= 625) && (MouseY < 715)) MainHallWalk("LewdgamblerGameBiddingDuel");
 		if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 625) && (MouseY < 715) && !ManagementIsClubSlave()) MainHallWalk("LARP");
 		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 625) && (MouseY < 715) && !ManagementIsClubSlave()) MainHallWalk("CollegeEntrance");
 		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 625) && (MouseY < 715)) MainHallWalk("AsylumEntrance");

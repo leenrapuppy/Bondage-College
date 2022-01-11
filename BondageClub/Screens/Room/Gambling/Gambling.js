@@ -272,25 +272,25 @@ function GamblingSimpleDiceController(SimpleDiceState) {
 		if (GamblingPlayerDice > GamblingNpcDice) {
 			GamblingFirstSub.AllowItem = true;
 			GamblingFirstSub.Stage = 81;
-			}
+		}
 		if (GamblingPlayerDice < GamblingNpcDice) {
 			GamblingFirstSub.AllowItem = false;
 			GamblingFirstSub.Stage = 82;
-			}
+		}
 		if (GamblingPlayerDice == GamblingNpcDice) {
 			GamblingFirstSub.AllowItem = false;
 			GamblingFirstSub.Stage = 83;
-			}
+		}
 	} else if (SimpleDiceState == "win") {
-			GamblingFirstSub.Stage = 0;
-			ReputationProgress("Gambling", 1);
+		GamblingFirstSub.Stage = 0;
+		ReputationProgress("Gambling", 1);
 	} else if (SimpleDiceState == "lost") {
-			InventoryWearRandom(Player, "ItemArms");
-			GamblingFirstSub.Stage = 0;
+		InventoryWearRandom(Player, "ItemArms");
+		GamblingFirstSub.Stage = 0;
 	} else if (SimpleDiceState == "equal") {
-			InventoryRemove(Player, "ItemArms");
-			InventoryRemove(GamblingFirstSub, "ItemArms");
-			GamblingFirstSub.Stage = 0;
+		InventoryRemove(Player, "ItemArms");
+		InventoryRemove(GamblingFirstSub, "ItemArms");
+		GamblingFirstSub.Stage = 0;
 	}
 }
 
@@ -437,7 +437,7 @@ function GamblingTwentyOneController(TwentyOneState) {
 			GamblingFirstSub.AllowItem = true;
 			GamblingFirstSub.Stage = 0;
 			ReputationProgress("Gambling", 3);
-			}
+		}
 
 		GamblingPlayerDiceStack = [];
 		GamblingNpcDiceStack = [];
@@ -455,7 +455,7 @@ function GamblingTwentyOneController(TwentyOneState) {
 			GamblingFirstSub.Appearance = GamblingAppearanceFirst.slice();
 			CharacterRefresh(GamblingFirstSub);
 			GamblingFirstSub.Stage = 0;
-			}
+		}
 
 		GamblingPlayerDiceStack = [];
 		GamblingNpcDiceStack = [];
@@ -472,75 +472,75 @@ function GamblingTwentyOneController(TwentyOneState) {
  * @param {"new" | "fox" | "hunter" | "NextDice" | "player_fox_win" | "player_fox_lost" | "player_hunter_lost" | "player_hunter_win"} FoxState - The current state of the game
  */
 function GamblingFoxController(FoxState) {
-		if (FoxState == "new") {
-			GamblingPlayerDiceStack = [];
-			GamblingNpcDiceStack = [];
-			GamblingShowMoney = true;
-		} else if (FoxState == "fox") {
-			GamblingPlayerIsFox = true;
-			GamblingPlayerDice = Math.floor(Math.random() * 6) + 1;
-			GamblingPlayerDiceStack[GamblingPlayerDiceStack.length] = GamblingPlayerDice;
-			GamblingMoneyBet = 5;
+	if (FoxState == "new") {
+		GamblingPlayerDiceStack = [];
+		GamblingNpcDiceStack = [];
+		GamblingShowMoney = true;
+	} else if (FoxState == "fox") {
+		GamblingPlayerIsFox = true;
+		GamblingPlayerDice = Math.floor(Math.random() * 6) + 1;
+		GamblingPlayerDiceStack[GamblingPlayerDiceStack.length] = GamblingPlayerDice;
+		GamblingMoneyBet = 5;
+		GamblingSecondSub.Stage = 101;
+	} else if (FoxState == "hunter") {
+		GamblingPlayerIsFox = false;
+		GamblingMoneyBet = 5;
+		CharacterChangeMoney(Player, GamblingMoneyBet * -1);
+		GamblingNpcDice = Math.floor(Math.random() * 6) + 1;
+		GamblingNpcDiceStack[GamblingNpcDiceStack.length] = GamblingNpcDice;
+		GamblingSecondSub.Stage = 101;
+	} else if (FoxState == "NextDice") {
+		GamblingPlayerDice = Math.floor(Math.random() * 6) + 1;
+		GamblingPlayerDiceStack[GamblingPlayerDiceStack.length] = GamblingPlayerDice;
+		GamblingNpcDice = Math.floor(Math.random() * 6) + 1;
+		GamblingNpcDiceStack[GamblingNpcDiceStack.length] = GamblingNpcDice;
+		if (GamblingPlayerIsFox && GamblingDiceStackSum(GamblingPlayerDiceStack) >= 30) {
+			//player has won
+			GamblingSecondSub.Stage = 102;
+		} else if (!GamblingPlayerIsFox && GamblingDiceStackSum(GamblingNpcDiceStack) >= 30) {
+			//npc has won
+			GamblingSecondSub.Stage = 103;
+		} else if (GamblingPlayerIsFox && (GamblingDiceStackSum(GamblingPlayerDiceStack) <= GamblingDiceStackSum(GamblingNpcDiceStack))) {
+			//npc has won
+			GamblingSecondSub.Stage = 104;
+		} else if (!GamblingPlayerIsFox && (GamblingDiceStackSum(GamblingNpcDiceStack) <= GamblingDiceStackSum(GamblingPlayerDiceStack))) {
+			//player has won
+			GamblingSecondSub.Stage = 105;
+		} else {
+			//next dice
 			GamblingSecondSub.Stage = 101;
-		} else if (FoxState == "hunter") {
-			GamblingPlayerIsFox = false;
-			GamblingMoneyBet = 5;
-			CharacterChangeMoney(Player, GamblingMoneyBet * -1);
-			GamblingNpcDice = Math.floor(Math.random() * 6) + 1;
-			GamblingNpcDiceStack[GamblingNpcDiceStack.length] = GamblingNpcDice;
-			GamblingSecondSub.Stage = 101;
-		} else if (FoxState == "NextDice") {
-			GamblingPlayerDice = Math.floor(Math.random() * 6) + 1;
-			GamblingPlayerDiceStack[GamblingPlayerDiceStack.length] = GamblingPlayerDice;
-			GamblingNpcDice = Math.floor(Math.random() * 6) + 1;
-			GamblingNpcDiceStack[GamblingNpcDiceStack.length] = GamblingNpcDice;
-			if (GamblingPlayerIsFox && GamblingDiceStackSum(GamblingPlayerDiceStack) >= 30) {
-				//player has won
-				GamblingSecondSub.Stage = 102;
-			} else if (!GamblingPlayerIsFox && GamblingDiceStackSum(GamblingNpcDiceStack) >= 30) {
-				//npc has won
-				GamblingSecondSub.Stage = 103;
-			} else if (GamblingPlayerIsFox && (GamblingDiceStackSum(GamblingPlayerDiceStack) <= GamblingDiceStackSum(GamblingNpcDiceStack))) {
-				//npc has won
-				GamblingSecondSub.Stage = 104;
-			} else if (!GamblingPlayerIsFox && (GamblingDiceStackSum(GamblingNpcDiceStack) <= GamblingDiceStackSum(GamblingPlayerDiceStack))) {
-				//player has won
-				GamblingSecondSub.Stage = 105;
-			} else {
-				//next dice
-				GamblingSecondSub.Stage = 101;
-			}
-		} else if (FoxState == "player_fox_win") {
-			GamblingSecondSub.AllowItem = false;
-			GamblingSecondSub.CurrentDialog = GamblingSecondSub.CurrentDialog.replace("REPLACEMONEY", GamblingMoneyBet.toString());
-			CharacterChangeMoney(Player, GamblingMoneyBet);
-			ReputationProgress("Gambling", 2);
-			GamblingPlayerDiceStack = [];
-			GamblingNpcDiceStack = [];
-			GamblingShowMoney = false;
-		} else if (FoxState == "player_fox_lost") {
-			GamblingSecondSub.AllowItem = false;
-			InventoryWearRandom(Player, "ItemLegs");
-			InventoryWearRandom(Player, "ItemFeet");
-			InventoryWearRandom(Player, "ItemArms");
-			GamblingPlayerDiceStack = [];
-			GamblingNpcDiceStack = [];
-			GamblingShowMoney = false;
-		} else if (FoxState == "player_hunter_win") {
-			InventoryWearRandom(GamblingSecondSub, "ItemArms");
-			GamblingSecondSub.AllowItem = true;
-			GamblingSecondSub.CurrentDialog = GamblingSecondSub.CurrentDialog.replace("REPLACEMONEY", GamblingMoneyBet.toString());
-			CharacterChangeMoney(Player, GamblingMoneyBet);
-			ReputationProgress("Gambling", 1);
-			GamblingPlayerDiceStack = [];
-			GamblingNpcDiceStack = [];
-			GamblingShowMoney = false;
-		} else if (FoxState == "player_hunter_lost") {
-			GamblingSecondSub.AllowItem = false;
-			GamblingPlayerDiceStack = [];
-			GamblingNpcDiceStack = [];
-			GamblingShowMoney = false;
 		}
+	} else if (FoxState == "player_fox_win") {
+		GamblingSecondSub.AllowItem = false;
+		GamblingSecondSub.CurrentDialog = GamblingSecondSub.CurrentDialog.replace("REPLACEMONEY", GamblingMoneyBet.toString());
+		CharacterChangeMoney(Player, GamblingMoneyBet);
+		ReputationProgress("Gambling", 2);
+		GamblingPlayerDiceStack = [];
+		GamblingNpcDiceStack = [];
+		GamblingShowMoney = false;
+	} else if (FoxState == "player_fox_lost") {
+		GamblingSecondSub.AllowItem = false;
+		InventoryWearRandom(Player, "ItemLegs");
+		InventoryWearRandom(Player, "ItemFeet");
+		InventoryWearRandom(Player, "ItemArms");
+		GamblingPlayerDiceStack = [];
+		GamblingNpcDiceStack = [];
+		GamblingShowMoney = false;
+	} else if (FoxState == "player_hunter_win") {
+		InventoryWearRandom(GamblingSecondSub, "ItemArms");
+		GamblingSecondSub.AllowItem = true;
+		GamblingSecondSub.CurrentDialog = GamblingSecondSub.CurrentDialog.replace("REPLACEMONEY", GamblingMoneyBet.toString());
+		CharacterChangeMoney(Player, GamblingMoneyBet);
+		ReputationProgress("Gambling", 1);
+		GamblingPlayerDiceStack = [];
+		GamblingNpcDiceStack = [];
+		GamblingShowMoney = false;
+	} else if (FoxState == "player_hunter_lost") {
+		GamblingSecondSub.AllowItem = false;
+		GamblingPlayerDiceStack = [];
+		GamblingNpcDiceStack = [];
+		GamblingShowMoney = false;
+	}
 }
 
 /**
@@ -672,9 +672,9 @@ function GamblingDaredSixController(DaredSixState) {
 		}
 	} else if (DaredSixState == "fin") {
 		do {
-		GamblingNpcDice = Math.floor(Math.random() * 6) + 1;
-		GamblingNpcDiceStack[GamblingNpcDiceStack.length] = GamblingNpcDice;
-		GamblingMoneyBet++;
+			GamblingNpcDice = Math.floor(Math.random() * 6) + 1;
+			GamblingNpcDiceStack[GamblingNpcDiceStack.length] = GamblingNpcDice;
+			GamblingMoneyBet++;
 		} while (GamblingDiceStackSum(GamblingNpcDiceStack) <= GamblingDiceStackSum(GamblingPlayerDiceStack) && GamblingNpcDice != 6 );
 		if (GamblingNpcDice == 6)
 		{

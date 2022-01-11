@@ -1,0 +1,20 @@
+0,0,,"Greetings miss. Welcome to Mistress Lewdgambler Palace! Please, come closer. I have to check your member card before you can enter.",,
+0,20,What is this place?,"So you’re a newcomer? Okay then, I will give you a quick tour. This is a closed gambling facility for people who are involved in domination relationships. You can play with other visitors, making a bets for money or bondage treats.",,
+0,900,Here it is,--- > (checks the card and lets you in),GoToHall(),MembershipStatus(1)
+0,0,What is a member card?,"This is a pass that proofs your membership status. It is required to enter a Palace. We want to make sure that our guest won’t be disturbed by narrow persons or vanillas, if you know what I mean.",,MembershipStatus()
+0,10,I don’t have any cards,There is an option to buy one. But I need to do some background check first. What is your name again?,,MembershipStatus()
+10,11,I’m DialogPlayerName,"Good. Give me a moment. … I see, you’re from the Bondage Club right?",,
+11,12,I am.,Great then. 50$ is a price for a membership status. You will get an entry card signed by Mistress Lewdgambler personally.,,
+12,900,Deal (pay 50$),Congratulations! Here is your pass and welcome to Lewdgamer Palace. Enjoy.,BuyMembership(),HasMoneyForMembership()
+12,999,"That is too much, I don't have that money.","Sorry to say that, but I can’t let you in. This is some kind of closed facility and we do care of our guests comfort. Now I will ask you to leave. Good bye!",,
+12,999,That is too much for a door pay.,"Sorry to say that, but I can’t let you in. This is some kind of closed facility and we do care of our guests comfort. Now I will ask you to leave. Good bye!",,
+11,999,What is Bondage Club?,"Oh, my apologies. I believe some confusion have place in our data. Sorry to say that, but I can’t let you in. This is some kind of closed facility and we do care of our guests comfort. Now I will ask you to leave. Good bye!",,
+999,0,(Leave),,DialogLeave();,
+900,0,Thanks,,DialogLeave();,
+20,21,(Next),To get in you also need to have a membership card.,,
+21,0,Got it.,"Now please, present your member card. I have plenty of people waiting.",,
+0,30,Is there an option to get in without a card?,Owners can take their slaves inside for free with some conditions. So if you’re owned by some Palace member then lucky you.,,MembershipStatus()
+30,31,(Next),(giggles) Anyway slaves are not allowed to gamble at Palace. However any other way to have fun is allowed.,,
+31,31,What are conditions for a slave?,"Pacified, collared, leashed, with strict hand restrains.",,
+31,0,Got it.,"Now please, present your member card. I have plenty of people waiting.",,
+0,0,(Leave),,DialogLeave();,

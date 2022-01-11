@@ -954,35 +954,41 @@ function DrawText(Text, X, Y, Color, BackColor) {
  * @param {number} Width - Width of the component
  * @param {number} Height - Height of the component
  * @param {string} Label - Text to display in the button
- * @param {string} Color - Color of the component
+ * @param {string} BackgroundColor - Color of the component
  * @param {string} [Image] - URL of the image to draw inside the button, if applicable
  * @param {string} [HoveringText] - Text of the tooltip, if applicable
  * @param {boolean} [Disabled] - Disables the hovering options if set to true
+ * @param {string} [TextColor] - Foreground Color of the component
+ * @param {string} [HoverColor] - Hovered state color of the component
  * @returns {void} - Nothing
  */
-function DrawButton(Left, Top, Width, Height, Label, Color, Image, HoveringText, Disabled) {
+function DrawButton(Left, Top, Width, Height, Label, BackgroundColor, Image, HoveringText, Disabled, TextColor, HoverColor) {
 
 	if (ControllerActive == true) {
 		setButton(Left, Top);
 	}
 
+	const foregroundColor = TextColor || "black";
+	const accentColor = HoverColor || "Cyan";
+	const isHovered = (MouseX >= Left) && (MouseX <= Left + Width) && (MouseY >= Top) && (MouseY <= Top + Height);
+	const hoverEnabled = HoveringText != null;
 	// Draw the button rectangle (makes the background color cyan if the mouse is over it)
 	MainCanvas.beginPath();
 	MainCanvas.rect(Left, Top, Width, Height);
-	MainCanvas.fillStyle = ((MouseX >= Left) && (MouseX <= Left + Width) && (MouseY >= Top) && (MouseY <= Top + Height) && !CommonIsMobile && !Disabled) ? "Cyan" : Color;
+	MainCanvas.fillStyle = (isHovered && hoverEnabled && !CommonIsMobile && !Disabled) ? accentColor : BackgroundColor;
 	MainCanvas.fillRect(Left, Top, Width, Height);
 	MainCanvas.fill();
 	MainCanvas.lineWidth = 2;
-	MainCanvas.strokeStyle = 'black';
+	MainCanvas.strokeStyle = foregroundColor;
 	MainCanvas.stroke();
 	MainCanvas.closePath();
 
 	// Draw the text or image
-	DrawTextFit(Label, Left + Width / 2, Top + (Height / 2) + 1, Width - 4, "black");
+	DrawTextFit(Label, Left + Width / 2, Top + (Height / 2) + 1, Width - 4, foregroundColor);
 	if ((Image != null) && (Image != "")) DrawImage(Image, Left + 2, Top + 2);
 
 	// Draw the hovering text
-	if ((HoveringText != null) && (MouseX >= Left) && (MouseX <= Left + Width) && (MouseY >= Top) && (MouseY <= Top + Height) && !CommonIsMobile) {
+	if (hoverEnabled && isHovered && !CommonIsMobile) {
 		DrawHoverElements.push(() => DrawButtonHover(Left, Top, Width, Height, HoveringText));
 	}
 }
