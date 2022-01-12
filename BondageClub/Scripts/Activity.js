@@ -286,6 +286,21 @@ function ActivityAllowedForGroup(character, groupname) {
 }
 
 /**
+ * Returns TRUE if an activity can be done
+ * @param {Character} C - The character to evaluate
+ * @param {string} Activity - The name of the activity
+ * @param {string} Group - The name of the group 
+ * @return {boolean} - TRUE if the activity can be done
+ */
+function ActivityCanBeDone(C, Activity, Group) {
+	let ActList = ActivityAllowedForGroup(C, Group);
+	for (let A = 0; A < ActList.length; A++)
+		if (ActList[A].Name == Activity)
+			return true;
+	return false;
+}
+
+/**
  * Calculates the effect of an activity performed on a zone
  * @param {Character} S - The character performing the activity
  * @param {Character} C - The character on which the activity is performed
