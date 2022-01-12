@@ -441,7 +441,7 @@ function ChatSearchAutoJoinRoom() {
 				ServerSend("ChatRoomJoin", { Name: ChatSearchResult[R].Name });
 				break;
 			}
-	} else if (Player.ImmersionSettings && Player.ImmersionSettings.ReturnToChatRoom && Player.LastChatRoom != "") {
+	} else if (Player.ImmersionSettings && Player.ImmersionSettings.ReturnToChatRoom && (Player.LastChatRoom != "") && ((ChatSearchLeaveRoom !== "AsylumEntrance") || (AsylumGGTSGetLevel(Player) <= 0))) {
 		let roomFound = false;
 		let roomIsFull = false;
 		for (let R = 0; R < ChatSearchResult.length; R++) {

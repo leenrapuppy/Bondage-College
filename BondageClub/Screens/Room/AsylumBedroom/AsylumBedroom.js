@@ -6,7 +6,7 @@ var AsylumBedroomBackground = "AsylumBedroom";
  * @returns {void} - Nothing
  */
 function AsylumBedroomLoad() {
-	if (Player.ImmersionSettings && Player.LastChatRoom && Player.LastChatRoom != "") {
+	if (Player.ImmersionSettings && Player.LastChatRoom && Player.LastChatRoom != "" && (AsylumGGTSGetLevel(Player) <= 0)) {
 		// We return to the chat room that the player was last in
 		if (Player.ImmersionSettings.ReturnToChatRoom) {
 			ChatRoomStart("Asylum", "", "AsylumEntrance", "AsylumEntrance", [BackgroundsTagAsylum]);
