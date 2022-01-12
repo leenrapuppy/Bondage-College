@@ -347,11 +347,35 @@ function KinkyDungeonHandleHUD() {
 			KinkyDungeonDrawState = "Game";
 			return true;
 		}
+		if (MouseIn(1075, 650, 350, 64)) {
+			KinkyDungeonState = "Keybindings";
+			if (!KinkyDungeonKeybindings)
+				KinkyDungeonKeybindingsTemp = {
+					Down: 115,
+					DownLeft: 122,
+					DownRight: 99,
+					Left: 97,
+					Right: 100,
+					Spell1: 49,
+					Spell2: 50,
+					Spell3: 51,
+					Up: 119,
+					UpLeft: 113,
+					UpRight: 101,
+					Wait: 120,
+				};
+			else {
+				KinkyDungeonKeybindingsTemp = {};
+				Object.assign(KinkyDungeonKeybindingsTemp, KinkyDungeonKeybindings);
+			}
+			return true;
+		}
 		if (MouseIn(875, 750, 350, 64)) {
 			KinkyDungeonState = "Lose";
 			//Player.KinkyDungeonSave = {};
 			//ServerAccountUpdate.QueueData({KinkyDungeonSave : Player.KinkyDungeonSave});
 			localStorage.setItem('KinkyDungeonSave', "");
+			MiniGameKinkyDungeonLevel = -1;
 			return true;
 		} else if (MouseIn(1275, 750, 350, 64)) {
 			KinkyDungeonDrawState = "Game";

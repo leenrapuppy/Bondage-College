@@ -55,7 +55,8 @@ function KinkyDungeonLoad() {
 		KinkyDungeonInitializeDresses();
 		KinkyDungeonDressPlayer();
 
-		KinkyDungeonKeybindings = Player.KinkyDungeonKeybindings;
+		if (localStorage.getItem("KinkyDungeonKeybindings") && JSON.parse(localStorage.getItem("KinkyDungeonKeybindings")))
+			KinkyDungeonKeybindings = JSON.parse(localStorage.getItem("KinkyDungeonKeybindings"));
 
 		if (KinkyDungeonIsPlayer()) {
 			KinkyDungeonState = "Menu";
@@ -65,7 +66,10 @@ function KinkyDungeonLoad() {
 			ServerSend("ChatRoomCharacterExpressionUpdate", { Name: "Gaming", Group: "Emoticon", Appearance: ServerAppearanceBundle(Player.Appearance) });
 		} else {
 			KinkyDungeonState = "Game";
-			if (!KinkyDungeonGameData) KinkyDungeonInitialize(1);
+			if (!KinkyDungeonGameData) {
+				MiniGameKinkyDungeonLevel = 1;
+				KinkyDungeonInitialize(1);
+			}
 		}
 
 		for (let G = 0; G < KinkyDungeonStruggleGroupsBase.length; G++) {
@@ -261,20 +265,25 @@ function KinkyDungeonClick() {
 		if (MouseIn(1275, 750, 350, 64)) {
 			KinkyDungeonState = "Keybindings";
 
-			KinkyDungeonKeybindingsTemp = {
-				Down: 115,
-				DownLeft: 122,
-				DownRight: 99,
-				Left: 97,
-				Right: 100,
-				Spell1: 49,
-				Spell2: 50,
-				Spell3: 51,
-				Up: 119,
-				UpLeft: 113,
-				UpRight: 101,
-				Wait: 120,
-			};
+			if (!KinkyDungeonKeybindings)
+				KinkyDungeonKeybindingsTemp = {
+					Down: 115,
+					DownLeft: 122,
+					DownRight: 99,
+					Left: 97,
+					Right: 100,
+					Spell1: 49,
+					Spell2: 50,
+					Spell3: 51,
+					Up: 119,
+					UpLeft: 113,
+					UpRight: 101,
+					Wait: 120,
+				};
+			else {
+				KinkyDungeonKeybindingsTemp = {};
+				Object.assign(KinkyDungeonKeybindingsTemp, KinkyDungeonKeybindings);
+			}
 		}
 	} else if (KinkyDungeonState == "Save") {
 		if (MouseIn(875, 750, 350, 64)) {
@@ -290,9 +299,12 @@ function KinkyDungeonClick() {
 		if (KinkyDungeonIsPlayer()) KinkyDungeonClickGame();
 	} else if (KinkyDungeonState == "Keybindings") {
 		if (MouseIn(1075, 750, 350, 64)) {
-			KinkyDungeonState = "Menu";
+			if (KinkyDungeonInventory.length > 0 || KinkyDungeonSpells.length > 0 || KinkyDungeonGold > 0 || MiniGameKinkyDungeonLevel >= 0)
+				KinkyDungeonState = "Game";
+			else KinkyDungeonState = "Menu";
 			KinkyDungeonKeybindings = KinkyDungeonKeybindingsTemp;
-			ServerAccountUpdate.QueueData({ KinkyDungeonKeybindings: KinkyDungeonKeybindings });
+			localStorage.setItem("KinkyDungeonKeybindings", JSON.stringify(KinkyDungeonKeybindings));
+			//ServerAccountUpdate.QueueData({ KinkyDungeonKeybindings: KinkyDungeonKeybindings });
 		}
 
 		if (KinkyDungeonKeybindingCurrentKey > 0) {
@@ -402,7 +414,9 @@ let KinkyDungeonGameKey = {
 	},
 	keyDownEvent : {
 		handleEvent : function (event) {
-			switch(event.code){
+			let code = event.code;
+			code = code.replace("Numpad", "Key").replace("Digit", "Key");
+			switch(code){
 				case KinkyDungeonGameKey.KEY_UP:
 					if(!KinkyDungeonGameKey.keyPressed[0]){
 						KinkyDungeonGameKey.keyPressed[0] = true;
@@ -453,7 +467,9 @@ let KinkyDungeonGameKey = {
 	},
 	keyUpEvent : {
 		handleEvent : function (event) {
-			switch(event.code){
+			let code = event.code;
+			code = code.replace("Numpad", "Key").replace("Digit", "Key");
+			switch(code){
 				case KinkyDungeonGameKey.KEY_UP:
 					if (KinkyDungeonGameKey.keyPressed[0]) KinkyDungeonLastMoveTimerStart = 0;
 					KinkyDungeonGameKey.keyPressed[0] = false;
@@ -511,14 +527,16 @@ function KinkyDungeonSaveGame(ToString) {
 	save.levels = KinkyDungeonSpellLevel;
 
 	let spells = [];
-	let inv = [];
-	Object.assign(inv, KinkyDungeonInventory);
+	let newInv = [];
 
-	for (let item of inv) {
+	for (let inv of KinkyDungeonInventory) {
+		let item = {};
+		Object.assign(item, inv);
 		if (item.restraint) item.restraint = {name: item.restraint.name};
 		if (item.looserestraint) item.looserestraint = {name: item.looserestraint.name};
 		if (item.weapon) item.weapon = {name: item.weapon.name};
 		if (item.consumable) item.consumable = {name: item.consumable.name};
+		newInv.push(item);
 	}
 
 	for (let spell of KinkyDungeonSpells) {
@@ -526,7 +544,7 @@ function KinkyDungeonSaveGame(ToString) {
 	}
 
 	save.spells = spells;
-	save.inventory = inv;
+	save.inventory = newInv;
 
 	let data = LZString.compressToBase64(JSON.stringify(save));
 	if (!ToString) {
@@ -560,7 +578,7 @@ function KinkyDungeonLoadGame(String) {
 			KinkyDungeonChestsOpened = saveData.chests;
 			KinkyDungeonCurrentDress = saveData.dress;
 			if (saveData.gold) KinkyDungeonGold = saveData.gold;
-			if (saveData.points) KinkyDungeonSpellPoints = saveData.poinnts;
+			if (saveData.points) KinkyDungeonSpellPoints = saveData.points;
 			if (saveData.levels) KinkyDungeonSpellLevel = saveData.levels;
 
 
@@ -589,7 +607,6 @@ function KinkyDungeonLoadGame(String) {
 				if (sp) KinkyDungeonSpells.push(sp);
 			}
 
-			KinkyDungeonDefeat();
 			localStorage.setItem('KinkyDungeonSave', String);
 			return true;
 		}

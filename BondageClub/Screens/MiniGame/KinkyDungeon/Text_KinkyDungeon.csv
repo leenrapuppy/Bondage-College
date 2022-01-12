@@ -5,9 +5,9 @@ Intro4,"(This game does not contain spiders or any carnivorous creatures/plants)
 
 KinkyDungeonSaveIntro0,"(Copy the code above and save it on your computer to load later)"
 KinkyDungeonSaveIntro,"You come across a black monolith with its face inscribed in runes."
-KinkyDungeonSaveIntro2,"'The Goddess of Time watches you,' it says. 'She offers a pact.'"
-KinkyDungeonSaveIntro3,"'I will give you peace, if you give me your future.'"
-KinkyDungeonSaveIntro4,"(This will save your game, but you will be imprisoned if you reload)"
+KinkyDungeonSaveIntro2,"'The Goddess of Time watches you,' it says. 'She offers you rest'"
+KinkyDungeonSaveIntro3,"She merely demands an offering... in due time."
+KinkyDungeonSaveIntro4,"(There is no punishment for saving the game or reloading)"
 KinkyDungeonSavedGame,"You have a bad feeling about this..."
 
 KinkyDungeonGameSave,"Yes, I will make the pact."
@@ -199,7 +199,7 @@ AttackSamuraiZombie,"The Warrior zombie runs its fingers along your body! (-Dama
 NameNinja,Assassin
 KillNinja,"The assassin retreats into the shadows."
 AttackNinjaBind,"The assassin uses a traditional binding technique (+RestraintAdded)"
-AttackNinjaStun,"The assassin tosses a shuriken and hits you! (+STUN)"
+AttackNinjaStun,"The assassin tosses a shuriken and hits you! (Stunned!)"
 AttackNinja,"The assassin uses a subduing technique! (-DamageTaken SP)"
 
 NameAnimatedArmor,Animated Armor
@@ -304,6 +304,15 @@ AttackJailerLock,"The jailer locks your restraints!"
 AttackJailerBind,"The jailer places some cuffs on you!"
 AttackJailer,"The jailer plays with you, groping and rubbing your body!"
 
+NameGuard,Guard
+KillGuard,"The guard passes out and drops her possessions!"
+AttackGuardLock,"The guard locks your restraints!"
+AttackGuardBind,"The guard places some cuffs on you!"
+AttackGuard,"The guard plays with you, groping and rubbing your body!"
+
+KinkyDungeonGuardAppear,A guard appears to check on you.
+KinkyDungeonGuardDisappear,The guard leaves and locks the cell behind her.
+
 
 KinkyDungeonLeashed,"You are grabbed and led to a prison..."
 
@@ -334,7 +343,7 @@ KinkyDungeonStruggleCutFail,"You try to cut the TargetRestraint..."
 KinkyDungeonStruggleCutBreak,"You break your knife trying to cut the TargetRestraint."
 KinkyDungeonStruggleUnlockFail,"You fiddle with the key on the TargetRestraint..."
 
-KinkyDungeonStruggleUnlockNoRedKey,"The red padlock only accepts red keys."
+KinkyDungeonStruggleUnlockNoRedKey,"The lock requires a key."
 KinkyDungeonStruggleUnlockNoGreenKey,"The green padlock only accepts green keys."
 KinkyDungeonStruggleUnlockNoYellowKey,"The yellow padlock requires a red and a green key."
 KinkyDungeonStruggleUnlockNoBlueKey,"The magical lock only accepts blue keys and can't be picked."

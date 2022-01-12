@@ -3,8 +3,8 @@
 // For this implementation I decided that ray calculations are too much so I just did a terraria style lighting system
 // -Ada
 
-var KinkyDungeonTransparentObjects = KinkyDungeonMovableTiles.replace("D", "").replace("g", "") + "OoAaCcB"; // Light does not pass thru doors or grates
-var KinkyDungeonTransparentMovableObjects = KinkyDungeonMovableTiles.replace("D", "").replace("g", ""); // Light does not pass thru doors or grates
+
+let KinkyDungeonSeeAll = false;
 
 function KinkyDungeonCheckPath(x1, y1, x2, y2, allowBars) {
 	let length = Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
@@ -14,13 +14,15 @@ function KinkyDungeonCheckPath(x1, y1, x2, y2, allowBars) {
 		let xx = x1 + (x2-x1)*F/length;
 		let yy = y1 + (y2-y1)*F/length;
 
-		let hits = 0;
-		if (!obj.includes(KinkyDungeonMapGet(Math.floor(xx), Math.floor(yy)))) hits += 1;
-		if (!obj.includes(KinkyDungeonMapGet(Math.round(xx), Math.round(yy)))) hits += 1;
-		if (hits < 2 && !obj.includes(KinkyDungeonMapGet(Math.ceil(xx), Math.ceil(yy)))) hits += 1;
+		if ((xx != x1 || yy != y1) && (xx != x2 || yy != y2)) {
+			let hits = 0;
+			if (!obj.includes(KinkyDungeonMapGet(Math.floor(xx), Math.floor(yy)))) hits += 1;
+			if (!obj.includes(KinkyDungeonMapGet(Math.round(xx), Math.round(yy)))) hits += 1;
+			if (hits < 2 && !obj.includes(KinkyDungeonMapGet(Math.ceil(xx), Math.ceil(yy)))) hits += 1;
 
 
-		if ((xx != x1 || yy != y1) && hits >= 2) return false;
+			if (hits >= 2) return false;
+		}
 	}
 
 	return true;
@@ -35,7 +37,6 @@ function KinkyDungeonMakeLightMap(width, height, Lights) {
 			KinkyDungeonLightGrid = KinkyDungeonLightGrid + '0'; // 0 = pitch dark
 		KinkyDungeonLightGrid = KinkyDungeonLightGrid + '\n';
 	}
-
 	let maxPass = 0;
 
 	for (let L = 0; L < Lights.length; L++) {
@@ -86,6 +87,14 @@ function KinkyDungeonMakeLightMap(width, height, Lights) {
 			}
 		}
 	}
+
+	if (KinkyDungeonSeeAll) {
+		KinkyDungeonLightGrid = "";
+		// Generate the grid
+		for (let X = 0; X < KinkyDungeonGridHeight; X++) {
+			for (let Y = 0; Y < KinkyDungeonGridWidth; Y++)
+				KinkyDungeonLightGrid = KinkyDungeonLightGrid + '9'; // 0 = pitch dark
+			KinkyDungeonLightGrid = KinkyDungeonLightGrid + '\n';
+		}
+	}
 }
-
-

@@ -167,9 +167,23 @@ Bugfix:
 2.31
 - You can struggle a few times before it tells you it's impossible
 
-TODO Add brambles: stationary plants that slow you, maximum attack width
+2.32
+- Fixed bug where the player is invisible inside a grate
+- Fixed bug where the game would crash if an enemy put a type of ankle cuffs on you
+- New barred prisoners
+- Fixed unreal number of jailers
+- Changed saving. No more punishment
+- Fixed so numpad is treated as buttons
+- Keybindings are now saved to the browser
+
+
+
+TODO Character customizer, change outfit and/or the player character's appearance, either have it save or make it use a code to load
 
 TODO ValidationFindBlockCycles to prevent bugs
+
+Enemy ideas:
+-Silent sentinel, triggers ambush when the player casts a verbal spell, tries to gag the player
 
 Future content planned:
 - Wand item which reduces mana costs but is terrible for melee

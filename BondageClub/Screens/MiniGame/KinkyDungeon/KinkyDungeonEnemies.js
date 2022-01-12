@@ -85,6 +85,8 @@ var KinkyDungeonEnemies = [
 		terrainTags: {"secondhalf":2, "lastthird":2}, floors:[11], shrines: ["Will"], dropTable: [{name: "Gold", amountMin: 10, amountMax: 30, weight: 11}, {name: "PotionStamina", weight: 1}, {name: "RedKey", weight: 1}]},
 	{name: "Jailer", tags: ["leashing", "opendoors", "closedoors", "jailer", "minor", "shackleRestraints"], followRange: 1, AI: "patrol", visionRadius: 7, maxhp: 12, minLevel: -1, weight:0, movePoints: 1, attackPoints: 2, attack: "MeleeBindLockAllWill", attackWidth: 1, attackRange: 1, power: 5, dmgType: "grope", fullBoundBonus: 3,
 		terrainTags: {"jailer": 15}, floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], dropTable: [{name: "Pick", weight: 10}, {name: "RedKey", weight: 7}, {name: "BlueKey", weight: 1}]},
+	{name: "Guard", tags: ["leashing", "opendoors", "closedoors", "jailer", "minor", "shackleRestraints"], followRange: 1, AI: "guard", visionRadius: 7, maxhp: 12, minLevel: -1, weight:0, movePoints: 1, attackPoints: 2, attack: "MeleeBindLockAllWill", attackWidth: 1, attackRange: 1, power: 5, dmgType: "grope", fullBoundBonus: 3,
+		terrainTags: {}, floors:[], dropTable: [{name: "Pick", weight: 4}, {name: "RedKey", weight: 1}, {name: "Knife", weight: 2}]},
 	{name: "Necromancer", tags: ["leashing", "opendoors", "closedoors", "witch", "ranged", "elite", "miniboss", "unflinching", "meleeweakness"], followRange: 1, spells: ["SummonSkeleton", "SummonSkeletons"], spellCooldownMult: 1, spellCooldownMod: 1,
 		AI: "hunt", visionRadius: 10, maxhp: 20, minLevel: 1, weight:6, movePoints: 3, attackPoints: 3, attack: "MeleeLockAllWillSpell", attackWidth: 1, attackRange: 1, power: 5, dmgType: "grope",
 		terrainTags: {"secondhalf":3, "lastthird":3, "miniboss": -100}, shrines: ["Will"], floors:[1, 2, 3, 11], dropTable: [{name: "Gold", amountMin: 100, amountMax: 150, weight: 4}, {name: "GreenKey", weight: 3}, {name: "BlueKey", weight: 2}]},
@@ -95,6 +97,7 @@ let KinkyDungeonSpawnJailers = 0;
 let KinkyDungeonSpawnJailersMax = 5;
 let KinkyDungeonLeashedPlayer = 0;
 let KinkyDungeonLeashingEnemy = null;
+let KinkyDungeonDoorShutTimer = 6;
 
 function KinkyDungeonNearestPatrolPoint(x, y) {
 	let dist = 100000;
@@ -314,6 +317,8 @@ function KinkyDungeonUpdateEnemies(delta) {
 			&& (KinkyDungeonPlayerDamage.dmg <= enemy.Enemy.armor || !KinkyDungeonHasStamina(1.1)) && !KinkyDungeonPlayer.CanInteract()
 			&& (!enemy.Enemy.ignorechance || Math.random() < enemy.Enemy.ignorechance || !KinkyDungeonHasStamina(1.1))) ignore = true;
 
+		if (enemy.Enemy.tags.includes("jailer") && !KinkyDungeonJailTransgressed) ignore = true;
+
 		let MovableTiles = KinkyDungeonMovableTilesEnemy;
 		let AvoidTiles = "g";
 		if (enemy.Enemy.tags && enemy.Enemy.tags.includes("opendoors")) MovableTiles = KinkyDungeonMovableTilesSmartEnemy;
@@ -367,6 +372,11 @@ function KinkyDungeonUpdateEnemies(delta) {
 			if (!enemy.warningTiles) enemy.warningTiles = [];
 			let canSensePlayer = KinkyDungeonCheckLOS(enemy, player, playerDist, enemy.Enemy.visionRadius, true);
 			let canSeePlayer = KinkyDungeonCheckLOS(enemy, player, playerDist, enemy.Enemy.visionRadius, false);
+
+			if (canSeePlayer && (Math.abs(KinkyDungeonPlayerEntity.x - KinkyDungeonStartPosition.x) >= KinkyDungeonJailLeashX - 1 || Math.abs(KinkyDungeonPlayerEntity.y - KinkyDungeonStartPosition.y) > KinkyDungeonJailLeash)) {
+				KinkyDungeonJailTransgressed = true;
+				ignore = false;
+			}
 
 			if ((canSensePlayer || canSeePlayer) && KinkyDungeonTrackSneak(enemy, delta)) enemy.aware = true;
 
@@ -752,6 +762,63 @@ function KinkyDungeonUpdateEnemies(delta) {
 		if (KinkyDungeonEnemyCheckHP(enemy, E)) { E -= 1;}
 	}
 	KinkyDungeonAlert = 0;
+
+	KinkyDungeonHandleJailSpawns();
+}
+
+let KinkyDungeonJailGuard = undefined;
+let KinkyDungeonGuardTimer = 0;
+let KinkyDungeonGuardTimerMax = 22;
+let KinkyDungeonGuardSpawnTimer = 0;
+let KinkyDungeonGuardSpawnTimerMax = 74;
+let KinkyDungeonGuardSpawnTimerMin = 52;
+
+function KinkyDungeonHandleJailSpawns() {
+	let xx = KinkyDungeonStartPosition.x + KinkyDungeonJailLeashX;
+	let yy = KinkyDungeonStartPosition.y;
+	let playerInCell = (Math.abs(KinkyDungeonPlayerEntity.x - KinkyDungeonStartPosition.x) < KinkyDungeonJailLeashX - 1 && Math.abs(KinkyDungeonPlayerEntity.y - KinkyDungeonStartPosition.y) <= KinkyDungeonJailLeash);
+	if (KinkyDungeonSpawnJailers + 1 == KinkyDungeonSpawnJailersMax && (KinkyDungeonGuardSpawnTimer == 1 || KinkyDungeonSleepTurns == 3) && !KinkyDungeonJailGuard && playerInCell) {
+		KinkyDungeonGuardSpawnTimer = KinkyDungeonGuardSpawnTimerMin + Math.floor(Math.random() * (KinkyDungeonGuardSpawnTimerMax - KinkyDungeonGuardSpawnTimerMin));
+		let Enemy = KinkyDungeonEnemies.find(element => element.name == "Guard");
+		let guard = {summoned: true, Enemy: Enemy,
+			x:xx, y:yy, gx: xx - 2, gy: yy,
+			hp: Enemy ? Enemy.startinghp : Enemy.maxhp, movePoints: 0, attackPoints: 0};
+
+
+		if (KinkyDungeonTiles[(xx-1) + "," + yy] && KinkyDungeonTiles[(xx-1) + "," + yy].Type == "Door") {
+			KinkyDungeonTiles[(xx-1) + "," + yy].Lock = undefined;
+		}
+		KinkyDungeonJailGuard = guard;
+		KinkyDungeonEntities.push(guard);
+		KinkyDungeonSendTextMessage(10, TextGet("KinkyDungeonGuardAppear"), "white", 6);
+
+		KinkyDungeonGuardTimer = KinkyDungeonGuardTimerMax;
+	} else if (KinkyDungeonGuardSpawnTimer > 0) KinkyDungeonGuardSpawnTimer -= 1;
+	if (KinkyDungeonJailGuard && KinkyDungeonGuardTimer > 0 && KinkyDungeonGuardTimerMax - KinkyDungeonGuardTimer > 6 && Math.random() < 0.2) {
+		KinkyDungeonJailGuard.gy = yy + Math.round(Math.random() * KinkyDungeonJailLeash * 2 - KinkyDungeonJailLeash);
+	}
+
+	if (KinkyDungeonGuardTimer > 0) {
+		KinkyDungeonGuardTimer -= 1;
+		if (KinkyDungeonGuardTimer <= 0) {
+			KinkyDungeonJailGuard.gx = xx;
+			KinkyDungeonJailGuard.gy = yy;
+		}
+	} else {
+		if (KinkyDungeonJailGuard && KinkyDungeonJailGuard.x == xx && KinkyDungeonJailGuard.y == yy && !KinkyDungeonJailTransgressed) {
+			KinkyDungeonEntities.splice(KinkyDungeonEntities.indexOf(KinkyDungeonJailGuard), 1);
+			if (KinkyDungeonTiles[(xx-1) + "," + yy] && KinkyDungeonTiles[(xx-1) + "," + yy].Type == "Door") {
+				KinkyDungeonMapSet(xx-1, yy, 'D');
+				KinkyDungeonTiles[(xx-1) + "," + yy].Lock = KinkyDungeonGenerateLock(true, MiniGameKinkyDungeonLevel);
+				KinkyDungeonSendTextMessage(10, TextGet("KinkyDungeonGuardDisappear"), "red", 6);
+			}
+		}
+	}
+
+	if (!KinkyDungeonJailGuard) {
+		KinkyDungeonGuardTimer = 0;
+	}
+	if (!KinkyDungeonEntities.includes(KinkyDungeonJailGuard)) KinkyDungeonJailGuard = undefined;
 }
 
 function KinkyDungeonNoEnemy(x, y, Player) {
@@ -880,9 +947,12 @@ function KinkyDungeonGetWarningTiles(dx, dy, range, width) {
 
 function KinkyDungeonDefeat() {
 	let firstTime = KinkyDungeonSpawnJailersMax == 0;
+	KinkyDungeonGuardSpawnTimer = KinkyDungeonGuardSpawnTimerMin + Math.floor(Math.random() * (KinkyDungeonGuardSpawnTimerMax - KinkyDungeonGuardSpawnTimerMin));
 	KinkyDungeonSpawnJailersMax = 2;
 	if (KinkyDungeonGoddessRep.Prisoner) KinkyDungeonSpawnJailersMax += Math.round(6 * (KinkyDungeonGoddessRep.Prisoner + 50)/100);
-	let securityBoost = (firstTime) ? 0 : Math.min(1, KinkyDungeonSpawnJailersMax - KinkyDungeonSpawnJailers - 1);
+	let securityBoost = (firstTime) ? 0 : Math.max(1, Math.ceil(3 * (KinkyDungeonSpawnJailersMax - KinkyDungeonSpawnJailers + 1)/KinkyDungeonSpawnJailersMax));
+
+	KinkyDungeonStatBlind = 3;
 
 	MiniGameKinkyDungeonLevel = Math.floor(MiniGameKinkyDungeonLevel/10)*10;
 	KinkyDungeonSendTextMessage(10, TextGet("KinkyDungeonLeashed"), "#ff0000", 3);

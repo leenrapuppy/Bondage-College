@@ -162,6 +162,8 @@ function KinkyDungeonDamageEnemy(Enemy, Damage, Ranged, NoMsg, Spell, bullet) {
 	if (Enemy && Enemy.Enemy && Enemy.Enemy.AI == "ambush" && Spell && !Spell.name.includes("Witch")) {
 		Enemy.ambushtrigger = true;
 	}
+
+	if (dmg > 0 && Enemy.Enemy.tags.includes("jailer")) KinkyDungeonJailTransgressed = true;
 	return dmg;
 }
 
