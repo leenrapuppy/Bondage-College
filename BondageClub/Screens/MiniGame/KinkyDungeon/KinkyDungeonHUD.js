@@ -321,7 +321,7 @@ function KinkyDungeonHandleHUD() {
 				KinkyDungeonAttemptConsumable("PotionMana", 1);
 			else KinkyDungeonSendActionMessage(7, TextGet("KinkyDungeonPotionGagged"), "orange", 1);
 		} else if (MouseIn(xxx, yyy + 3 * KinkyDungeonStatBarHeight, 250, 50)) {
-			KinkyDungeonSleepTurns = 20;
+			KinkyDungeonSleepTurns = KinkyDungeonSleepTurnsMax;
 			KinkyDungeonAlert = 4; // Alerts nearby enemies; intent is that the enemies are searching while you sleep;
 		}
 	} else if (KinkyDungeonDrawState == "Orb") {

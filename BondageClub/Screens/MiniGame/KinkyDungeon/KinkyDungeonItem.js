@@ -82,6 +82,10 @@ function KinkyDungeonItemEvent(Item) {
 		priority = 2;
 		color = "lightgreen";
 		KinkyDungeonNormalBlades += 1;
+	} else if (Item.name == "Knives") {
+		priority = 3;
+		color = "lightgreen";
+		KinkyDungeonNormalBlades += 3;
 	} else if (Item.name == "EnchKnife") {
 		priority = 2;
 		color = "lightgreen";

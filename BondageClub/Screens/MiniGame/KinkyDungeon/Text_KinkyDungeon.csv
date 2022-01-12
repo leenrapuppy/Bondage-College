@@ -169,7 +169,7 @@ KinkyDungeonWeaponDamage,"Damage: "
 KinkyDungeonWeaponAccuracy,"Accuracy: "
 
 KinkyDungeonTorsoGrab,The EnemyName grabs you and keeps you in place!
-KinkyDungeonLeashGrab,The EnemyName grabs your leash and pulls you back!!!
+KinkyDungeonLeashGrab,The EnemyName grabs you and pulls you back!!!
 KinkyDungeonAttackMiss,The EnemyName misses you!
 
 KinkyDungeonHearDoorOpenNear,You hear a door creak open nearby!
@@ -271,6 +271,14 @@ NameLesserSkeleton,Skeleton
 KillLesserSkeleton,"The Skeleton falls into pieces."
 AttackLesserSkeletonBind,"The Skeleton restrains you! (+RestraintAdded)"
 AttackLesserSkeleton,"The Skeleton latches onto you!"
+
+NameRopeMinion,Rope Tentacle
+KillRopeMinion,"The rope kraken retreats its tentacle."
+AttackRopeMinion,"The rope kraken squeezes you with one of its tentacles! (-DamageTaken SP)"
+
+NameRopeKraken,Rope Kraken
+KillRopeKraken,"The rope kraken devolves into a bundle of premium bondage rope."
+AttackRopeKraken,"The rope kraken tightly cinches itself around your body! (-DamageTaken SP)"
 
 NameRopeSnake,Magic Rope
 KillRopeSnake,"The magic rope returns to being a normal rope."
@@ -570,24 +578,27 @@ RestraintMysticDuctTapeLegsMummyDesc2,"It clings, almost of its own accord, but 
 RestraintStuffing,Stuffing
 RestraintStuffingDesc,"A stuffing of cloth."
 RestraintStuffingDesc2,"You could spit it out easily, provided nothing's covering it."
-RestraintWeakMagicRopeArms,Magic Rope
+RestraintWeakMagicRopeArms,Arm Rope
 RestraintWeakMagicRopeArmsDesc,"Faintly glowing ropes from a magic trap."
 RestraintWeakMagicRopeArmsDesc2,"I wonder who was responsible?"
-RestraintWeakMagicRopeLegs,Magic Rope
+RestraintWeakMagicRopeLegs,Leg Rope
 RestraintWeakMagicRopeLegsDesc,"Faintly glowing ropes from a magic trap."
 RestraintWeakMagicRopeLegsDesc2,"I wonder who was responsible?"
-RestraintStrongMagicRopeArms,Magic Rope
+RestraintStrongMagicRopeArms,Arm Rope
 RestraintStrongMagicRopeArmsDesc,"Strongly glowing ropes."
 RestraintStrongMagicRopeArmsDesc2,"The knots appear to tie themselves together again, making them impossible to undo!"
-RestraintStrongMagicRopeLegs,Magic Rope
+RestraintStrongMagicRopeLegs,Leg Rope
 RestraintStrongMagicRopeLegsDesc,"Strongly glowing ropes."
 RestraintStrongMagicRopeLegsDesc2,"The knots appear to tie themselves together again, making them impossible to undo!"
-RestraintStrongMagicRopeFeet,Magic Rope
+RestraintStrongMagicRopeFeet,Ankle Rope
 RestraintStrongMagicRopeFeetDesc,"Strongly glowing ropes."
 RestraintStrongMagicRopeFeetDesc2,"The knots appear to tie themselves together again, making them impossible to undo!"
-RestraintStrongMagicRopeCrotch,Magic Rope
+RestraintStrongMagicRopeCrotch,Crotch Rope
 RestraintStrongMagicRopeCrotchDesc,"Strongly glowing ropes."
 RestraintStrongMagicRopeCrotchDesc2,"The knots appear to tie themselves together again, making them impossible to undo!"
+RestraintStrongMagicRopeToe,Toe Rope
+RestraintStrongMagicRopeToeDesc,"Strongly glowing ropes."
+RestraintStrongMagicRopeToeDesc2,"The knots appear to tie themselves together again, making them impossible to undo!"
 RestraintStickySlime,Sticky Slime
 RestraintStickySlimeDesc,"A sticky layer of slime keeping you anchored to the ground."
 RestraintStickySlimeDesc2,"It will slow you for a single turn."
@@ -673,6 +684,10 @@ RestraintSlimeHead,Slime
 RestraintSlimeHeadDesc,"Sticky slime that adheres to your body."
 RestraintSlimeHeadDesc2,"It is an organic material that reforms around every cut you make!"
 
+RestraintDuctTapeHands,Tape Mitts
+RestraintDuctTapeHandsDesc,"Sticky tape that holds your hands into a fist!"
+RestraintDuctTapeHandsDesc2,"It's tough to get out of without some kind of grip!"
+
 RestraintChainArms,Arm Chains
 RestraintChainArmsDesc,"Heavy chains keeping your arms securely behind your back."
 RestraintChainArmsDesc2,"It doesn't look like a knife is up to the task..."
@@ -752,6 +767,7 @@ KinkyDungeonGroupItemDevices,Device
 
 ItemPickupGold,"You picked up XXX gold."
 ItemPickupKnife,"You picked up a knife."
+ItemPickupKnives,"You found a bundle of discarded knives!"
 ItemPickupEnchKnife,"You picked up an enchanted knife."
 ItemPickupPick,"You picked up a lockpick."
 ItemPickupRedKey,"You picked up a red key."
@@ -1001,6 +1017,8 @@ KinkyDungeonShock,"You feel a powerful sensation run through your body!"
 KinkyDungeonSingleChain,"A magic chain secures itself around your body!"
 KinkyDungeonSingleRope,"A rope wraps itself around your body!"
 KinkyDungeonSlowedBySpell,"The spell hits you and slows you down!"
+KinkyDungeonRopeEngulf,"Ropes wrap themselves around your body from all sides!"
+KinkyDungeonRopeEngulfDress,"Your clothes are stripped and replaced!"
 
 KinkyDungeonInventory,"Inventory"
 KinkyDungeonReputation,"Reputation"

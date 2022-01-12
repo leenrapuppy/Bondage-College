@@ -351,6 +351,7 @@ function KinkyDungeonPlaceEnemies(InJail, Tags, Floor, width, height) {
 	let count = 0;
 	let tries = 0;
 	let miniboss = false;
+	let boss = false;
 	let jailerCount = 0;
 
 	// Create this number of enemies
@@ -389,23 +390,46 @@ function KinkyDungeonPlaceEnemies(InJail, Tags, Floor, width, height) {
 			if (Floor % 10 >= 8 || KinkyDungeonDifficulty > 40) tags.push("lastthird");
 			if (Floor % 10 >= 8 || KinkyDungeonDifficulty > 60) tags.push("lastthird");
 			if (miniboss) tags.push("miniboss");
+			if (boss) tags.push("boss");
+
+			if (KinkyDungeonGoddessRep.Rope < -10) tags.push("ropeAnger");
+			if (KinkyDungeonGoddessRep.Rope < -25) tags.push("ropeRage");
+			if (KinkyDungeonGoddessRep.Leather < -10) tags.push("leatherAnger");
+			if (KinkyDungeonGoddessRep.Leather < -25) tags.push("leatherRage");
+			if (KinkyDungeonGoddessRep.Metal < -10) tags.push("metalAnger");
+			if (KinkyDungeonGoddessRep.Metal < -25) tags.push("metalRage");
+			if (KinkyDungeonGoddessRep.Latex < -10) tags.push("latexAnger");
+			if (KinkyDungeonGoddessRep.Latex < -25) tags.push("latexRage");
+			if (KinkyDungeonGoddessRep.Elements < -10) tags.push("elementsAnger");
+			if (KinkyDungeonGoddessRep.Elements < -25) tags.push("elementsRage");
+			if (KinkyDungeonGoddessRep.Conjure < -10) tags.push("conjureAnger");
+			if (KinkyDungeonGoddessRep.Conjure < -25) tags.push("conjureRage");
+			if (KinkyDungeonGoddessRep.Illusion < -10) tags.push("illusionAnger");
+			if (KinkyDungeonGoddessRep.Illusion < -25) tags.push("illusionRage");
 
 			let Enemy = KinkyDungeonGetEnemy(tags, Floor + KinkyDungeonDifficulty/5, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint], KinkyDungeonMapGet(X, Y));
-			if (Enemy) {
+			if (Enemy && (!InJail || (Enemy.tags.includes("jailer") || Enemy.tags.includes("jail")))) {
 				KinkyDungeonEntities.push({Enemy: Enemy, x:X, y:Y, hp: (Enemy.startinghp) ? Enemy.startinghp : Enemy.maxhp, movePoints: 0, attackPoints: 0});
 				if (Enemy.tags.includes("minor")) count += 0.2; else count += 1; // Minor enemies count as 1/5th of an enemy
 				if (Enemy.tags.includes("elite")) count += Math.max(1, 100/(100 + KinkyDungeonDifficulty)); // Elite enemies count as 2 normal enemies
 				if (Enemy.tags.includes("miniboss")) miniboss = true; // Adds miniboss as a tag
+				if (Enemy.tags.includes("boss")) boss = true; // Adds boss as a tag
 				if (Enemy.tags.includes("removeDoorSpawn") && KinkyDungeonMapGet(X, Y) == "d") KinkyDungeonMapSet(X, Y, '0');
 				if (Enemy.tags.includes("jailer")) jailerCount += 1;
+
+				if (Enemy.summon) {
+					for (let sum of Enemy.summon) {
+						KinkyDungeonSummonEnemy(X, Y, sum.enemy, sum.count, sum.range, sum.strict);
+					}
+				}
 				//console.log("Created a " + Enemy.name)
 			}
 		}
 		tries += 1;
 	}
 
-	if (KinkyDungeonSpawnJailers > 3) KinkyDungeonSpawnJailers -= 1; // Reduce twice as fast when you are in deep...
 	if (KinkyDungeonSpawnJailers > 0) KinkyDungeonSpawnJailers -= 1;
+	if (KinkyDungeonSpawnJailers > 3 && KinkyDungeonSpawnJailers < KinkyDungeonSpawnJailersMax - 1) KinkyDungeonSpawnJailers -= 1; // Reduce twice as fast when you are in deep...
 
 	KinkyDungeonCurrentMaxEnemies = KinkyDungeonEntities.length;
 }
@@ -889,7 +913,9 @@ function KinkyDungeonPlaceDoors(doorchance, nodoorchance, doorlockchance, trapCh
 							// Place a trap or something at the other door if it's far enough from the player
 							trapLocations.push({x: room.door.x, y: room.door.y});
 							lock = true;
-						} else if ((Math.random() < grateChance && (!room.room || room.room.length > minLockedRoomSize)) || Math.max(Math.abs(room.door.x - KinkyDungeonPlayerEntity.x), Math.abs(room.door.y - KinkyDungeonPlayerEntity.y)) <= maxPlayerDist) {
+						} else if (((Math.random() < grateChance && (!room.room || room.room.length > minLockedRoomSize))
+								|| Math.max(Math.abs(room.door.x - KinkyDungeonPlayerEntity.x), Math.abs(room.door.y - KinkyDungeonPlayerEntity.y)) <= maxPlayerDist)
+								&& room.door.y != KinkyDungeonStartPosition.y) {
 							// Place a grate instead
 							KinkyDungeonMapSet(room.door.x, room.door.y, 'g');
 							lock = true;

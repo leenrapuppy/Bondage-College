@@ -170,17 +170,48 @@ Bugfix:
 2.32
 - Fixed bug where the player is invisible inside a grate
 - Fixed bug where the game would crash if an enemy put a type of ankle cuffs on you
-- New barred prisoners
+- New barred prisons
 - Fixed unreal number of jailers
 - Changed saving. No more punishment
 - Fixed so numpad is treated as buttons
 - Keybindings are now saved to the browser
+- Periodic guard checkups in jail
+
+2.33
+- Fixed the infinite tickle ghost
+- Fixed shop crash
+- Removed exit button for standalone version
+- Fixed long-distance leashing by assassins
+- Reduced assassin spawning weight
+- Sleep doesnt restore stamina until the 1st turn of sleep is over
+
+
+TODO: Frozen should end when you melee attack
+
+=======
 
 
 
 TODO Character customizer, change outfit and/or the player character's appearance, either have it save or make it use a code to load
 
 TODO ValidationFindBlockCycles to prevent bugs
+
+TODO Goddess minibosses:
+-Rope kraken, many sub-ropes that drag you to center. Casts a spell that attaches ropes, if you have enough attached it replaces your outfit with a swimsuit, leotard, or some kind of lingerie with maybe magical tape gags.
+-Steel-clad maids who put you in a maid costume with metal bindings and chastity
+-Dragon-girl enemies who tie you in durable leather bindings
+-Either slime related stuff or maybe just a latex witch who is very powerful
+-Elementals of ice, forge (metal), water (latex), and earth (corsets, boots, mitts), perhaps bringing you to an elemental realm
+-Powerful conjurers who summon chains, magic books, and tickling hands
+-A ninja clan who uses smokescreens, flash grenades, euphoric drugs, and potentially enchantment spells
+
+TODO
+Deputy (slaps on handcuffs only)
+Warden (more comprehensive cuffs)
+Detective (Stealth, wanders around laying traps throughout the level)
+Nurse (applies straitjackets and stuff)
+Doctors (Applies sedatives and euphoric drugs)
+Troopers (Riot shield and tasers)
 
 Enemy ideas:
 -Silent sentinel, triggers ambush when the player casts a verbal spell, tries to gag the player

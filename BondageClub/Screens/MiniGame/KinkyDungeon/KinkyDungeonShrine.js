@@ -55,6 +55,7 @@ function KinkyDungeonShrineAvailable(type) {
 function KinkyDungeonGenerateShop(Level) {
 	KinkyDungeonMakeGhostDecision(); // Decides if the ghosts will be friendly or not
 	KinkyDungeonPoolUses = 0;
+	KinkyDungeonShopIndex = 0;
 	KinkyDungeonShopItems = [];
 	let items_mid = 0;
 	let items_high = 0;
@@ -123,26 +124,28 @@ function KinkyDungeonPayShrine(type) {
 		ShrineMsg = TextGet("KinkyDungeonPayShrineHeal");
 	} else if (type == "Commerce") {
 		let item = KinkyDungeonShopItems[KinkyDungeonShopIndex];
-		if (item.shoptype == "Consumable")
-			KinkyDungeonChangeConsumable(KinkyDungeonConsumables[item.name], 1);
-		else if (item.shoptype == "Weapon")
-			KinkyDungeonInventoryAddWeapon(item.name);
-		else if (item.shoptype == "Basic") {
-			if (item.name == "RedKey") {
-				KinkyDungeonRedKeys += 1;
-			} else if (item.name == "Knife") {
-				KinkyDungeonNormalBlades += 1;
-			} else if (item.name == "2Lockpick") {
-				KinkyDungeonLockpicks += 2;
-			} else if (item.name == "4Lockpick") {
-				KinkyDungeonLockpicks += 4;
+		if (item) {
+			if (item.shoptype == "Consumable")
+				KinkyDungeonChangeConsumable(KinkyDungeonConsumables[item.name], 1);
+			else if (item.shoptype == "Weapon")
+				KinkyDungeonInventoryAddWeapon(item.name);
+			else if (item.shoptype == "Basic") {
+				if (item.name == "RedKey") {
+					KinkyDungeonRedKeys += 1;
+				} else if (item.name == "Knife") {
+					KinkyDungeonNormalBlades += 1;
+				} else if (item.name == "2Lockpick") {
+					KinkyDungeonLockpicks += 2;
+				} else if (item.name == "4Lockpick") {
+					KinkyDungeonLockpicks += 4;
+				}
 			}
-		}
-		ShrineMsg = TextGet("KinkyDungeonPayShrineCommerce").replace("ItemBought", TextGet("KinkyDungeonInventoryItem" + item.name));
-		KinkyDungeonShopItems.splice(KinkyDungeonShopIndex, 1);
-		if (KinkyDungeonShopIndex > 0) KinkyDungeonShopIndex -= 1;
+			ShrineMsg = TextGet("KinkyDungeonPayShrineCommerce").replace("ItemBought", TextGet("KinkyDungeonInventoryItem" + item.name));
+			KinkyDungeonShopItems.splice(KinkyDungeonShopIndex, 1);
+			if (KinkyDungeonShopIndex > 0) KinkyDungeonShopIndex -= 1;
 
-		rep = item.rarity + 1;
+			rep = item.rarity + 1;
+		}
 	}
 
 	if (ShrineMsg) KinkyDungeonSendActionMessage(10, ShrineMsg, "lightblue", 1);
@@ -235,7 +238,7 @@ function KinkyDungeonDrawShrine() {
 			DrawButton(963, 825, 112, 60, TextGet("KinkyDungeonCommerceNext"), "White", "", "");
 			if (KinkyDungeonShopIndex > KinkyDungeonShopItems.length) {
 				KinkyDungeonShopIndex = 0;
-			} else if (KinkyDungeonShopItems.length > 0) {
+			} else if (KinkyDungeonShopItems.length > 0 && KinkyDungeonShopItems[KinkyDungeonShopIndex]) {
 				DrawText(TextGet("KinkyDungeonInventoryItem" + KinkyDungeonShopItems[KinkyDungeonShopIndex].name), 650, 850, "white", "silver");
 			}
 		}

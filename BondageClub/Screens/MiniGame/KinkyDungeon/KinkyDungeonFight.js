@@ -115,7 +115,10 @@ function KinkyDungeonDamageEnemy(Enemy, Damage, Ranged, NoMsg, Spell, bullet) {
 				dmgDealt = Math.max(dmg - armor, 0);
 			}
 
-			if (Enemy.freeze > 0 && KinkyDungeonMeleeDamageTypes.includes(Damage.type)) dmgDealt *= 2;
+			if (Enemy.freeze > 0 && KinkyDungeonMeleeDamageTypes.includes(Damage.type)) {
+				dmgDealt *= 2;
+				Enemy.freeze = 0;
+			}
 			Enemy.hp -= dmgDealt;
 		}
 		if ((resistStun < 2 && resistDamage < 2) && (Damage.type == "stun" || Damage.type == "electric")) { // Being immune to the damage stops the stun as well
@@ -274,7 +277,7 @@ function KinkyDungeonBulletHit(b, born) {
 }
 
 
-function KinkyDungeonSummonEnemy(x, y, summonType, count, rad) {
+function KinkyDungeonSummonEnemy(x, y, summonType, count, rad, strict) {
 	let slots = [];
 	for (let X = -Math.ceil(rad); X <= Math.ceil(rad); X++)
 		for (let Y = -Math.ceil(rad); Y <= Math.ceil(rad); Y++) {
@@ -285,9 +288,9 @@ function KinkyDungeonSummonEnemy(x, y, summonType, count, rad) {
 
 	let created = 0;
 	let maxcounter = 0;
-	for (let C = 0; C < count && KinkyDungeonEntities.length < 100 && maxcounter < count * 10; C++) {
+	for (let C = 0; C < count && KinkyDungeonEntities.length < 100 && maxcounter < count * 30; C++) {
 		let slot = slots[Math.floor(Math.random() * slots.length)];
-		if (KinkyDungeonMovableTilesEnemy.includes(KinkyDungeonMapGet(x+slot.x, y+slot.y)) && KinkyDungeonNoEnemy(x+slot.x, y+slot.y, true)) {
+		if (KinkyDungeonMovableTilesEnemy.includes(KinkyDungeonMapGet(x+slot.x, y+slot.y)) && KinkyDungeonNoEnemy(x+slot.x, y+slot.y, true) && (!strict || KinkyDungeonCheckPath(x, y, x+slot.x, y+slot.y, false))) {
 			let Enemy = KinkyDungeonEnemies.find(element => element.name == summonType);
 			KinkyDungeonEntities.push({summoned: true, Enemy: Enemy, x:x+slot.x, y:y+slot.y, hp: (Enemy.startinghp) ? Enemy.startinghp : Enemy.maxhp, movePoints: 0, attackPoints: 0});
 			created += 1;

@@ -19,6 +19,7 @@ let KinkyDungeonVibeCostPerIntensity = 0.15;
 
 let KinkyDungeonStatWillpowerExhaustion = 0;
 let KinkyDungeonSleepTurns = 0;
+let KinkyDungeonSleepTurnsMax = 21;
 let KinkyDungeonSlowMoveTurns = 0;
 // Note that things which increase max arousal (aphrodiasic) also increase the max stamina drain. This can end up being very dangerous as being edged at extremely high arousal will drain all your energy completely, forcing you to wait until the torment is over or the drugs wear off
 
@@ -218,7 +219,7 @@ function KinkyDungeonUpdateStats(delta) {
 		KinkyDungeonStaminaRate = 0;
 		KinkyDungeonStatManaRate = 0;
 	} else {
-		KinkyDungeonStaminaRate = KinkyDungeonSleepTurns > 0 ? KinkyDungeonStatStaminaRegenSleep : KinkyDungeonStatStaminaRegen;
+		KinkyDungeonStaminaRate = KinkyDungeonSleepTurns > 0  && KinkyDungeonSleepTurns < KinkyDungeonSleepTurnsMax - 1? KinkyDungeonStatStaminaRegenSleep : KinkyDungeonStatStaminaRegen;
 		KinkyDungeonStatManaRate = (KinkyDungeonStatMana < KinkyDungeonStatManaRegenLowThreshold) ? KinkyDungeonStatManaLowRegen : KinkyDungeonStatManaRegen;
 	}
 

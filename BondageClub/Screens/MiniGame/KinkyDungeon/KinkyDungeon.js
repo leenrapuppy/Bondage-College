@@ -119,7 +119,7 @@ function KinkyDungeonRun() {
 	// Draw the characters
 	DrawCharacter(KinkyDungeonPlayer, 0, 0, 1);
 
-	if (KinkyDungeonDrawState == "Game" || KinkyDungeonState != "Game")
+	if ((KinkyDungeonDrawState == "Game" || KinkyDungeonState != "Game") && ServerURL != "foobar")
 		DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png");
 
 	if (KinkyDungeonState == "Menu") {
@@ -415,7 +415,8 @@ let KinkyDungeonGameKey = {
 	keyDownEvent : {
 		handleEvent : function (event) {
 			let code = event.code;
-			code = code.replace("Numpad", "Key").replace("Digit", "Key");
+			if (code)
+				code = code.replace("Numpad", "Key").replace("Digit", "Key");
 			switch(code){
 				case KinkyDungeonGameKey.KEY_UP:
 					if(!KinkyDungeonGameKey.keyPressed[0]){
@@ -468,7 +469,8 @@ let KinkyDungeonGameKey = {
 	keyUpEvent : {
 		handleEvent : function (event) {
 			let code = event.code;
-			code = code.replace("Numpad", "Key").replace("Digit", "Key");
+			if (code)
+				code = code.replace("Numpad", "Key").replace("Digit", "Key");
 			switch(code){
 				case KinkyDungeonGameKey.KEY_UP:
 					if (KinkyDungeonGameKey.keyPressed[0]) KinkyDungeonLastMoveTimerStart = 0;
@@ -546,6 +548,17 @@ function KinkyDungeonSaveGame(ToString) {
 	save.spells = spells;
 	save.inventory = newInv;
 
+	save.stats = {
+		picks: KinkyDungeonLockpicks,
+		keys: KinkyDungeonRedKeys,
+		bkeys: KinkyDungeonBlueKeys,
+		knife: KinkyDungeonNormalBlades,
+		mana: KinkyDungeonStatMana,
+		stamina: KinkyDungeonStatStamina,
+		arousal: KinkyDungeonStatArousal,
+		wep: KinkyDungeonPlayerWeapon
+	};
+
 	let data = LZString.compressToBase64(JSON.stringify(save));
 	if (!ToString) {
 		//Player.KinkyDungeonSave = saveData.KinkyDungeonSave;
@@ -580,6 +593,16 @@ function KinkyDungeonLoadGame(String) {
 			if (saveData.gold) KinkyDungeonGold = saveData.gold;
 			if (saveData.points) KinkyDungeonSpellPoints = saveData.points;
 			if (saveData.levels) KinkyDungeonSpellLevel = saveData.levels;
+			if (saveData.stats) {
+				if (saveData.stats.picks != undefined) KinkyDungeonLockpicks = saveData.stats.picks;
+				if (saveData.stats.keys != undefined) KinkyDungeonRedKeys = saveData.stats.keys;
+				if (saveData.stats.bkeys != undefined) KinkyDungeonBlueKeys = saveData.stats.bkeys;
+				if (saveData.stats.knife != undefined) KinkyDungeonNormalBlades = saveData.stats.knife;
+				if (saveData.stats.mana != undefined) KinkyDungeonStatMana = saveData.stats.mana;
+				if (saveData.stats.stamina != undefined) KinkyDungeonStatStamina = saveData.stats.stamina;
+				if (saveData.stats.arousal != undefined) KinkyDungeonStatArousal = saveData.stats.arousal;
+				if (saveData.stats.wep != undefined) KinkyDungeonPlayerWeapon = saveData.stats.wep;
+			}
 
 
 			for (let item of saveData.inventory) {
