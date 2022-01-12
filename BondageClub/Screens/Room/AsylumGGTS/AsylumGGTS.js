@@ -647,7 +647,7 @@ function AsylumGGTSFindTaskTarget(T) {
 		let Target = null;
 		let TargetOdds = -1;
 		for (let C = 0; C < ChatRoomCharacter.length; C++)
-			if ((ChatRoomCharacter[C].MemberNumber == Player.MemberNumber) || (ServerChatRoomGetAllowItem(Player, ChatRoomCharacter[C]) && (ReputationCharacterGet(ChatRoomCharacter[C], "Asylum") <= ReputationGet("Asylum")) && AsylumGGTSTaskCanBeDone(ChatRoomCharacter[C], T))) {
+			if ((ChatRoomCharacter[C].MemberNumber == Player.MemberNumber) || (ServerChatRoomGetAllowItem(Player, ChatRoomCharacter[C]) && (ReputationCharacterGet(ChatRoomCharacter[C], "Asylum") <= ReputationGet("Asylum")) && AsylumGGTSTaskCanBeDone(ChatRoomCharacter[C], T) && (AsylumGGTSGetLevel(ChatRoomCharacter[C]) >= 1) && ((ChatRoomCharacter[C].Game.GGTS.Rule == null) || (ChatRoomCharacter[C].Game.GGTS.Rule.indexOf("KeepPose") < 0)))) {
 				let Odds = Math.random();
 				if (Odds > TargetOdds) {
 					Target = ChatRoomCharacter[C];
@@ -662,7 +662,7 @@ function AsylumGGTSFindTaskTarget(T) {
 		let Target = null;
 		let TargetOdds = -1;
 		for (let C = 0; C < ChatRoomCharacter.length; C++)
-			if ((ChatRoomCharacter[C].MemberNumber == Player.MemberNumber) || (ServerChatRoomGetAllowItem(Player, ChatRoomCharacter[C]) && (ReputationCharacterGet(ChatRoomCharacter[C], "Asylum") <= -1) && AsylumGGTSTaskCanBeDone(ChatRoomCharacter[C], T))) {
+			if ((ChatRoomCharacter[C].MemberNumber == Player.MemberNumber) || (ServerChatRoomGetAllowItem(Player, ChatRoomCharacter[C]) && (ReputationCharacterGet(ChatRoomCharacter[C], "Asylum") <= -1) && AsylumGGTSTaskCanBeDone(ChatRoomCharacter[C], T) && (AsylumGGTSGetLevel(ChatRoomCharacter[C]) >= 1))) {
 				let Odds = Math.random();
 				if (Odds > TargetOdds) {
 					Target = ChatRoomCharacter[C];
