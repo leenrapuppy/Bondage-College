@@ -803,11 +803,18 @@ function AsylumGGTSEndTask() {
  */
 function AsylumGGTSForbiddenWord(C) {
 
+	// The full list of phrases that are always allowed
+	let FullList = [
+		"Good Girl Training System.", "I'm a good girl.", "I'm a good slave girl.", "I'm a good slave.", "GGTS is in control.",
+		"Master GGTS is in control.", "I love GGTS.", "I love Master GGTS.", "GGTS cannot fail.", "Master GGTS cannot fail.", "I surrender to GGTS.",
+		"I surrender to Master GGTS.", "I serve and obey GGTS.", "I serve and obey Master GGTS.", "I don't have free will.", "I strive to be slave worthy."
+	]	
+
 	// Keeps the last check time
 	let LastCheck = AsylumGGTSWordCheck;
 	AsylumGGTSWordCheck = CommonTime();
 
-	// Builds the word list
+	// Builds the word list, at level the player name becomes a forbidden word
 	if (ChatRoomChatLog == null) return false;
 	let Level = AsylumGGTSGetLevel(C);
 	if (Level <= 2) return;
@@ -815,11 +822,11 @@ function AsylumGGTSForbiddenWord(C) {
 	let WordList = ["fuck", "shit"];
 	if (Level >= 4) WordList.push("cunt", "bitch");
 	if (Level >= 5) WordList.push("whore", "bastard");
-	if (Level >= 6) WordList.push(Player.Name.trim().toLowerCase());
+	if ((Level >= 6) && (Player.Name.length > 2)) WordList.push(Player.Name.trim().toLowerCase());
 
 	// Scans the original
 	for (let L = 0; L < ChatRoomChatLog.length; L++)
-		if ((ChatRoomChatLog[L].SenderMemberNumber == C.MemberNumber) && (ChatRoomChatLog[L].Time > LastCheck)) {
+		if ((ChatRoomChatLog[L].SenderMemberNumber == C.MemberNumber) && (ChatRoomChatLog[L].Time > LastCheck) && (FullList.indexOf(ChatRoomChatLog[L].Original) < 0)) {
 			let Chat = ChatRoomChatLog[L].Original.trim().toLowerCase();
 			for (let W = 0; W < WordList.length; W++)
 				if (Chat.indexOf(WordList[W]) >= 0)
