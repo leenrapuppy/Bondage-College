@@ -179,8 +179,6 @@ function CafeServiceBound(Style) {
 	var RandomNumber = 0;
 	var RandomColor = null;
 	var Bondage = null;
-	var Form = null;
-	var Option = null;
 
 	CharacterRelease(Player);
 
@@ -219,12 +217,9 @@ function CafeServiceBound(Style) {
 		InventoryWear(Player, "DuctTape", "ItemMouth", RandomColor, 10);
 
 		// Legs Sub Type
-        Player.FocusGroup = AssetGroupGet("Female3DCG", "ItemLegs");
-        DialogExtendItem(InventoryGet(Player, "ItemLegs"));
-        Option = CommonRandomItemFromList(null, InventoryItemLegsDuctTapeOptions);
-        ExtendedItemSetType(Player, InventoryItemLegsDuctTapeOptions, Option);
+		TypedItemSetRandomOption(Player, "ItemLegs");
 
-        // Gag Sub Type
+		// Gag Sub Type
 		TypedItemSetRandomOption(Player, "ItemMouth");
 	}
 
