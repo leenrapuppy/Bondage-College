@@ -139,20 +139,23 @@ function KinkyDungeonDrawInputs() {
 
 	if (KinkyDungeonSpells[KinkyDungeonSpellChoices[0]] && !KinkyDungeonSpells[KinkyDungeonSpellChoices[0]].passive) {
 		let spell = KinkyDungeonSpells[KinkyDungeonSpellChoices[0]];
+		let components = KinkyDungeonGetCompList(spell);
 		DrawText(TextGet("KinkyDungeonSpell"+ spell.name), 1275, 835, "white", "silver");
-		DrawText(spell.manacost+ TextGet("KinkyDungeonManaCost"), 1275, 870, "#55AAFF", "silver");
+		DrawText(spell.manacost+ TextGet("KinkyDungeonManaCost").replace("COMPONENTS", components), 1275, 870, "#55AAFF", "silver");
 		DrawButton(1230, 895, 90, 90, "", "White", KinkyDungeonRootDirectory + "Spell1.png", "");
 	}
 	if (KinkyDungeonSpells[KinkyDungeonSpellChoices[1]] && !KinkyDungeonSpells[KinkyDungeonSpellChoices[1]].passive) {
 		let spell = KinkyDungeonSpells[KinkyDungeonSpellChoices[1]];
+		let components = KinkyDungeonGetCompList(spell);
 		DrawText(TextGet("KinkyDungeonSpell"+ spell.name), 1525, 835, "white", "silver");
-		DrawText(spell.manacost+ TextGet("KinkyDungeonManaCost"), 1525, 870, "#55AAFF", "silver");
+		DrawText(spell.manacost+ TextGet("KinkyDungeonManaCost").replace("COMPONENTS", components), 1525, 870, "#55AAFF", "silver");
 		DrawButton(1480, 895, 90, 90, "", "White", KinkyDungeonRootDirectory + "Spell2.png", "");
 	}
 	if (KinkyDungeonSpells[KinkyDungeonSpellChoices[2]] && !KinkyDungeonSpells[KinkyDungeonSpellChoices[2]].passive) {
 		let spell = KinkyDungeonSpells[KinkyDungeonSpellChoices[2]];
+		let components = KinkyDungeonGetCompList(spell);
 		DrawText(TextGet("KinkyDungeonSpell"+ spell.name), 1775, 835, "white", "silver");
-		DrawText(spell.manacost+ TextGet("KinkyDungeonManaCost"), 1775, 870, "#55AAFF", "silver");
+		DrawText(spell.manacost+ TextGet("KinkyDungeonManaCost").replace("COMPONENTS", components), 1775, 870, "#55AAFF", "silver");
 		DrawButton(1730, 895, 90, 90, "", "White", KinkyDungeonRootDirectory + "Spell3.png", "");
 	}
 
@@ -219,7 +222,10 @@ function KinkyDungeonHandleHUD() {
 		else
 		if (MouseIn(840, 925, 165, 60)) { KinkyDungeonDrawState = "Reputation"; return true;}
 		else
-		if (MouseIn(1030, 925, 165, 60)) { KinkyDungeonDrawState = "Magic"; return true;}
+		if (MouseIn(1030, 925, 165, 60)) {
+			//KinkyDungeonDrawState = "Magic";
+			KinkyDungeonDrawState = "MagicSpells";
+			return true;}
 		else if (MouseIn(510, 925, 120, 60)) { KinkyDungeonDrawStruggle = !KinkyDungeonDrawStruggle; return true;}
 
 		if (MouseIn(1880, 120, 100, 40)) {
@@ -269,6 +275,7 @@ function KinkyDungeonHandleHUD() {
 					let x = KinkyDungeonTargetTileLocation.split(',')[0];
 					let y = KinkyDungeonTargetTileLocation.split(',')[1];
 					KinkyDungeonMapSet(parseInt(x), parseInt(y), "D");
+					AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/DoorClose.ogg");
 					KinkyDungeonSendActionMessage(3, TextGet("KinkyDungeonCloseDoorDone"), "white", 1);
 					KinkyDungeonMultiplayerUpdate(KinkyDungeonNextDataSendTimeDelay);
 					return true;
@@ -323,6 +330,7 @@ function KinkyDungeonHandleHUD() {
 		} else if (MouseIn(xxx, yyy + 3 * KinkyDungeonStatBarHeight, 250, 50)) {
 			KinkyDungeonSleepTurns = KinkyDungeonSleepTurnsMax;
 			KinkyDungeonAlert = 4; // Alerts nearby enemies; intent is that the enemies are searching while you sleep;
+			return true;
 		}
 	} else if (KinkyDungeonDrawState == "Orb") {
 		return KinkyDungeonHandleOrb();
@@ -342,7 +350,7 @@ function KinkyDungeonHandleHUD() {
 		if (MouseIn(650, 925, 250, 60)) { KinkyDungeonDrawState = "Game"; return true;}
 		else return KinkyDungeonHandleLore();
 	} else if (KinkyDungeonDrawState == "Restart") {
-		if (MouseIn(975, 850, 550, 64)) {
+		if (MouseIn(975, 850, 550, 64) && !(KinkyDungeonSpawnJailers + 1 == KinkyDungeonSpawnJailersMax && !KinkyDungeonJailTransgressed)) {
 			KinkyDungeonDefeat();
 			KinkyDungeonDrawState = "Game";
 			return true;

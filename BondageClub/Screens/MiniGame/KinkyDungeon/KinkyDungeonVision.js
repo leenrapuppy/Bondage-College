@@ -6,7 +6,7 @@
 
 let KinkyDungeonSeeAll = false;
 
-function KinkyDungeonCheckPath(x1, y1, x2, y2, allowBars) {
+function KinkyDungeonCheckPath(x1, y1, x2, y2, allowBars, allowEnemies) {
 	let length = Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
 	let obj = allowBars ? KinkyDungeonTransparentObjects : KinkyDungeonTransparentMovableObjects;
 
@@ -16,9 +16,9 @@ function KinkyDungeonCheckPath(x1, y1, x2, y2, allowBars) {
 
 		if ((Math.round(xx) != x1 || Math.round(yy) != y1) && (Math.round(xx) != x2 || Math.round(yy) != y2)) {
 			let hits = 0;
-			if (!obj.includes(KinkyDungeonMapGet(Math.floor(xx), Math.floor(yy)))) hits += 1;
-			if (!obj.includes(KinkyDungeonMapGet(Math.round(xx), Math.round(yy)))) hits += 1;
-			if (hits < 2 && !obj.includes(KinkyDungeonMapGet(Math.ceil(xx), Math.ceil(yy)))) hits += 1;
+			if (!obj.includes(KinkyDungeonMapGet(Math.floor(xx), Math.floor(yy))) || ((xx != x1 || yy != y1) && KinkyDungeonEnemyAt(Math.floor(xx), Math.floor(yy)))) hits += 1;
+			if (!obj.includes(KinkyDungeonMapGet(Math.round(xx), Math.round(yy))) || ((xx != x1 || yy != y1) && KinkyDungeonEnemyAt(Math.round(xx), Math.round(yy)))) hits += 1;
+			if (hits < 2 && !obj.includes(KinkyDungeonMapGet(Math.ceil(xx), Math.ceil(yy))) || ((xx != x1 || yy != y1) && KinkyDungeonEnemyAt(Math.ceil(xx), Math.ceil(yy)))) hits += 1;
 
 
 			if (hits >= 2) return false;

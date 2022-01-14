@@ -145,6 +145,20 @@ function KinkyDungeonDrawGame() {
 						(KinkyDungeonPlayerEntity.visual_y - CamY - CamY_offset)*KinkyDungeonGridSizeDisplay,
 						KinkyDungeonGridSizeDisplay, KinkyDungeonGridSizeDisplay, false);
 				}
+				if (KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "AttackDmg") > 0 || KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "AttackAcc") > 0) {
+					DrawImageZoomCanvas(KinkyDungeonRootDirectory + "Conditions/Buff.png",
+						KinkyDungeonContext, 0, 0, KinkyDungeonSpriteSize, KinkyDungeonSpriteSize,
+						(KinkyDungeonPlayerEntity.visual_x - CamX - CamX_offset)*KinkyDungeonGridSizeDisplay,
+						(KinkyDungeonPlayerEntity.visual_y - CamY - CamY_offset)*KinkyDungeonGridSizeDisplay,
+						KinkyDungeonGridSizeDisplay, KinkyDungeonGridSizeDisplay, false);
+				}
+				if (KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "AttackDmg") < 0 || KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "AttackAcc") < 0) {
+					DrawImageZoomCanvas(KinkyDungeonRootDirectory + "Conditions/Debuff.png",
+						KinkyDungeonContext, 0, 0, KinkyDungeonSpriteSize, KinkyDungeonSpriteSize,
+						(KinkyDungeonPlayerEntity.visual_x - CamX - CamX_offset)*KinkyDungeonGridSizeDisplay,
+						(KinkyDungeonPlayerEntity.visual_y - CamY - CamY_offset)*KinkyDungeonGridSizeDisplay,
+						KinkyDungeonGridSizeDisplay, KinkyDungeonGridSizeDisplay, false);
+				}
 
 				KinkyDungeonDrawEnemiesWarning(canvasOffsetX, canvasOffsetY, CamX+CamX_offset, CamY+CamY_offset);
 				KinkyDungeonDrawEnemies(canvasOffsetX, canvasOffsetY, CamX+CamX_offset, CamY+CamY_offset);
@@ -180,6 +194,9 @@ function KinkyDungeonDrawGame() {
 						KinkyDungeonSpellValid = (KinkyDungeonTargetingSpell.projectile || KinkyDungeonTargetingSpell.range >= Math.sqrt((KinkyDungeonTargetX - KinkyDungeonPlayerEntity.x) *(KinkyDungeonTargetX - KinkyDungeonPlayerEntity.x) + (KinkyDungeonTargetY - KinkyDungeonPlayerEntity.y) * (KinkyDungeonTargetY - KinkyDungeonPlayerEntity.y))) &&
 							(KinkyDungeonTargetingSpell.projectile || KinkyDungeonTargetingSpell.CastInWalls || KinkyDungeonOpenObjects.includes(KinkyDungeonMapGet(KinkyDungeonTargetX, KinkyDungeonTargetY))) &&
 							(!KinkyDungeonTargetingSpell.WallsOnly || !KinkyDungeonOpenObjects.includes(KinkyDungeonMapGet(KinkyDungeonTargetX, KinkyDungeonTargetY)));
+						if (KinkyDungeonTargetingSpell.noTargetEnemies && KinkyDungeonEnemyAt(KinkyDungeonTargetX, KinkyDungeonTargetY)) KinkyDungeonSpellValid = false;
+						if (KinkyDungeonTargetingSpell.noTargetPlayer && KinkyDungeonPlayerEntity.x == KinkyDungeonTargetX && KinkyDungeonPlayerEntity.y == KinkyDungeonTargetY) KinkyDungeonSpellValid = false;
+						if (KinkyDungeonTargetingSpell.mustTarget && KinkyDungeonNoEnemy(KinkyDungeonTargetX, KinkyDungeonTargetY, true)) KinkyDungeonSpellValid = false;
 
 						if (KinkyDungeonSpellValid)
 							if (KinkyDungeonTargetingSpell.projectile)
@@ -208,6 +225,8 @@ function KinkyDungeonDrawGame() {
 			// Draw the player no matter what
 			KinkyDungeonContextPlayer.clearRect(0, 0, KinkyDungeonCanvasPlayer.width, KinkyDungeonCanvasPlayer.height);
 			DrawCharacter(KinkyDungeonPlayer, -KinkyDungeonGridSizeDisplay/2, KinkyDungeonPlayer.IsKneeling() ? -78 : 0, KinkyDungeonGridSizeDisplay/250, false, KinkyDungeonContextPlayer);
+
+			KinkyDungeonDrawEnemiesHP(canvasOffsetX, canvasOffsetY, CamX+CamX_offset, CamY+CamY_offset);
 
 			if (KinkyDungeonIsPlayer()) {
 				KinkyDungeonDrawInputs();
@@ -240,7 +259,7 @@ function KinkyDungeonDrawGame() {
 		DrawText(TextGet("KinkyDungeonRestartConfirm"), 1250, 400, "white", "black");
 		DrawButton(875, 750, 350, 64, TextGet("KinkyDungeonRestartYes"), "White", "");
 		DrawButton(1275, 750, 350, 64, TextGet("KinkyDungeonRestartNo"), "White", "");
-		DrawButton(975, 850, 550, 64, TextGet("KinkyDungeonRestartCapture"), "White", "");
+		DrawButton(975, 850, 550, 64, TextGet("KinkyDungeonRestartCapture"),  (KinkyDungeonSpawnJailers + 1 == KinkyDungeonSpawnJailersMax && !KinkyDungeonJailTransgressed) ? "Pink" : "White", "");
 		DrawButton(1075, 650, 350, 64, TextGet("GameConfigKeys"), "White", "");
 	}
 

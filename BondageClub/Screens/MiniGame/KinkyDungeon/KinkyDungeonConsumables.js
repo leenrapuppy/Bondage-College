@@ -1,9 +1,9 @@
 "use strict";
 
 var KinkyDungeonConsumables = {
-	"PotionMana" : {name: "PotionMana", rarity: 0, shop: true, type: "restore", mp_instant: 12, mp_gradual: 24, duration: 20},
-	"PotionStamina" : {name: "PotionStamina", rarity: 1, shop: true, type: "restore", sp_gradual: 36, duration: 24},
-	"PotionFrigid" : {name: "PotionFrigid", rarity: 1, shop: true, type: "restore", ap_instant: 0, ap_gradual: -36, duration: 6},
+	"PotionMana" : {name: "PotionMana", rarity: 0, shop: true, type: "restore", mp_instant: 12, mp_gradual: 24, duration: 20, sfx: "PotionDrink"},
+	"PotionStamina" : {name: "PotionStamina", rarity: 1, shop: true, type: "restore", sp_gradual: 36, duration: 24, sfx: "PotionDrink"},
+	"PotionFrigid" : {name: "PotionFrigid", rarity: 1, shop: true, type: "restore", ap_instant: 0, ap_gradual: -36, duration: 6, sfx: "PotionDrink"},
 };
 
 var KinkyDungneonBasic = {
@@ -132,5 +132,8 @@ function KinkyDungeonUseConsumable(Name, Quantity) {
 	KinkyDungeonChangeConsumable(item.item.consumable, -Quantity);
 
 	KinkyDungeonSendActionMessage(9, TextGet("KinkyDungeonInventoryItem" + Name + "Use"), "#88FF88", 1);
+	if (item.item.consumable.sfx) {
+		AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/" + item.item.consumable.sfx + ".ogg");
+	}
 	return true;
 }

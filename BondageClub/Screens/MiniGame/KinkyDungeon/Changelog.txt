@@ -184,13 +184,29 @@ Bugfix:
 - Fixed long-distance leashing by assassins
 - Reduced assassin spawning weight
 - Sleep doesnt restore stamina until the 1st turn of sleep is over
+- Released the kraken. Do not anger the rope goddess
 
+2.34
+- Fixed a bug where doors would stay locked after a jailer opened it
+- Fixed spell levels and points not resetting on a restart
+- New decoy and wall spell
+- Reduced assassin spawn rate and made clerics appear in all levels in the egyptian suite
+- Make prison easier at low security levels
+- Some new latex content
+- Fix save game being wiped!
+- Can change appearance!
+- New spells: Shadow Slash, Familiar, Golem, Fire Elemental, Storm Crystal, Shadow Warrior, and Lightning Bolt
+- Many spells have smmarter targeting, so you wont waste mana casting summons on an enemy space
 
-TODO: Frozen should end when you melee attack
-
-=======
-
-
+2.4
+- New sound effects for dealing damage, locked doors, picking items, etc
+- Organized the spell lists by component
+- New spell: Darkblade
+- UI now lists spell commponents
+- Nerfed shadow warrior
+- You can now wash slime off at mana pools
+- Slime now hardens after a while, changing from struggle to cut
+- Patrolling enemies no longer congregate in one location and become stuck permanently
 
 TODO Character customizer, change outfit and/or the player character's appearance, either have it save or make it use a code to load
 

@@ -10,12 +10,14 @@ function KinkyDungeonHandleTraps(x, y, Moved) {
 		if (tile.Trap == "Skeletons") {
 			let created = KinkyDungeonSummonEnemy(x, y, "SummonedSkeleton", tile.Power, 4);
 			if (created > 0) {
+				AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Trap.ogg");
 				msg = "Default";
 				KinkyDungeonTiles[x + "," + y] = undefined;
 			}
 		} else if (tile.Trap == "Bandits") {
 			let created = KinkyDungeonSummonEnemy(x, y, "Bandit", tile.Power, 2);
 			if (created > 0) {
+				AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Trap.ogg");
 				msg = "Default";
 				KinkyDungeonTiles[x + "," + y] = undefined;
 			}

@@ -5,7 +5,7 @@ var KinkyDungeonLore = [2, 3, 4, 5, 6, 7, 8];
 var KinkyDungeonCheckpointLore = [
 	/*0*/ [1,],
 	/*1*/ [101, 102, 103, 9],
-	/*2*/ [],
+	/*2*/ [201],
 	/*3*/ [],
 	/*4*/ [],
 	/*5*/ [],

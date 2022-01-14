@@ -32,11 +32,13 @@ var KinkyDungeonMapParams = [
 
 		"enemytags": ["zombie"],
 		"defeat_restraints": [
-			{Name: "HighsecBallGag", Level: 0},
-			{Name: "HighsecArmbinder", Level: 0},
-			{Name: "HighsecShackles", Level: 0},
-			{Name: "PrisonVibe", Level: 1},
-			{Name: "PrisonBelt", Level: 1},
+			{Name: "HighsecBallGag", Level: 20},
+			{Name: "HighsecArmbinder", Level: 40},
+			{Name: "HighsecShackles", Level: 10},
+			{Name: "WristShackles", Level: 0},
+			{Name: "LegShackles", Level: 50},
+			{Name: "PrisonBelt", Level: 30},
+			{Name: "PrisonVibe", Level: 30},
 		],
 		"defeat_outfit": "Prisoner",
 		"shrines": [
@@ -83,11 +85,13 @@ var KinkyDungeonMapParams = [
 
 		"enemytags": ["skeleton"],
 		"defeat_restraints": [
-			{Name: "HighsecBallGag", Level: 0},
-			{Name: "HighsecArmbinder", Level: 0},
-			{Name: "HighsecShackles", Level: 0},
-			{Name: "PrisonBelt2", Level: 1},
-			{Name: "PrisonVibe", Level: 1},
+			{Name: "HighsecBallGag", Level: 20},
+			{Name: "HighsecArmbinder", Level: 40},
+			{Name: "HighsecShackles", Level: 10},
+			{Name: "WristShackles", Level: 0},
+			{Name: "LegShackles", Level: 50},
+			{Name: "PrisonBelt2", Level: 30},
+			{Name: "PrisonVibe", Level: 30},
 		],
 		"defeat_outfit": "Dungeon",
 		"shrines": [
@@ -131,16 +135,18 @@ var KinkyDungeonMapParams = [
 
 		"enemytags": ["plant"],
 		"defeat_restraints": [
-			{Name: "HighsecBallGag", Level: 0},
-			{Name: "HighsecArmbinder", Level: 0},
-			{Name: "HighsecShackles", Level: 0},
-			{Name: "HighsecLegbinder", Level: 0},
-			{Name: "PrisonVibe", Level: 1},
-			{Name: "PrisonBelt", Level: 1},
+			{Name: "HighsecBallGag", Level: 20},
+			{Name: "HighsecArmbinder", Level: 40},
+			{Name: "HighsecShackles", Level: 10},
+			{Name: "LegShackles", Level: 0},
+			{Name: "HighsecLegbinder", Level: 25},
+			{Name: "WristShackles", Level: 0},
+			{Name: "PrisonBelt", Level: 30},
+			{Name: "PrisonVibe", Level: 30},
 		],
 		"defeat_outfit": "LatexPrisoner",
 		"shrines": [
-			//{Type: "Charms", Weight: 5},
+			{Type: "Latex", Weight: 5},
 			{Type: "Commerce", Weight: 14},
 			{Type: "Elements", Weight: 5},
 			{Type: "Conjure", Weight: 5},
@@ -407,12 +413,13 @@ var KinkyDungeonMapParams = [
 
 		"enemytags": ["mummy", "ghost"],
 		"defeat_restraints": [
-			{Name: "HighsecBallGag", Level: 0},
-			{Name: "HighsecArmbinder", Level: 0},
-			{Name: "HighsecShackles", Level: 0},
+			{Name: "HighsecBallGag", Level: 20},
+			{Name: "HighsecArmbinder", Level: 40},
+			{Name: "HighsecShackles", Level: 10},
 			{Name: "LegShackles", Level: 0},
-			{Name: "PrisonBelt", Level: 1},
-			{Name: "PrisonVibe", Level: 1},
+			{Name: "WristShackles", Level: 0},
+			{Name: "PrisonBelt", Level: 30},
+			{Name: "PrisonVibe", Level: 30},
 		],
 		"defeat_outfit": "Egyptian",
 		"shrines": [

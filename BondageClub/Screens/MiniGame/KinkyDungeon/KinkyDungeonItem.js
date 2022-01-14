@@ -18,9 +18,12 @@ function KinkyDungeonItemDrop(x, y, dropTable) {
 
 		for (let L = dropWeights.length - 1; L >= 0; L--) {
 			if (selection > dropWeights[L].weight) {
-				let dropped = {x:x, y:y, name: dropWeights[L].drop.name, amount: dropWeights[L].drop.amountMin + Math.floor(Math.random()*dropWeights[L].drop.amountMax)};
-				KinkyDungeonGroundItems.push(dropped);
-				return dropped;
+				if (dropWeights[L].drop.name != "Nothing") {
+					let dropped = {x:x, y:y, name: dropWeights[L].drop.name, amount: dropWeights[L].drop.amountMin + Math.floor(Math.random()*dropWeights[L].drop.amountMax)};
+					KinkyDungeonGroundItems.push(dropped);
+					return dropped;
+				}
+				return false;
 			}
 		}
 	}
@@ -78,6 +81,10 @@ function KinkyDungeonItemEvent(Item) {
 		priority = 4;
 		color = "orange";
 		KinkyDungeonInventoryAddWeapon("Hammer");
+	} else if (Item.name == "MagicSword") {
+		priority = 4;
+		color = "orange";
+		KinkyDungeonInventoryAddWeapon("MagicSword");
 	} else if (Item.name == "Knife") {
 		priority = 2;
 		color = "lightgreen";
@@ -111,6 +118,7 @@ function KinkyDungeonItemEvent(Item) {
 		color = "grey";
 		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.PotionFrigid, 1);
 	}
+	AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Coins.ogg");
 	KinkyDungeonSendActionMessage(priority, TextGet("ItemPickup" + Item.name).replace("XXX", Item.amount), color, 2);
 }
 

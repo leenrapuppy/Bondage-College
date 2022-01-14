@@ -35,7 +35,7 @@ function KinkyDungeonHandleInventoryEvent(Event, item, data) {
 					let potentialSlimeParts = [];
 					for (let inv of KinkyDungeonRestraintList()) {
 						if (inv.restraint && inv.restraint.slimeLevel > 0) {
-							slimedParts.push({group: inv.restraint.Group, level: inv.restraint.slimeLevel});
+							slimedParts.push({name: inv.restraint.name, group: inv.restraint.Group, level: inv.restraint.slimeLevel});
 						}
 					}
 					for (let slime of slimedParts) {
@@ -54,6 +54,7 @@ function KinkyDungeonHandleInventoryEvent(Event, item, data) {
 							}
 						}
 					}
+					let slimed = false;
 					if (potentialSlimeParts.length == 0) {
 						KinkyDungeonSlimeLevel = Math.min(KinkyDungeonSlimeLevel, 0.5);
 						KinkyDungeonSlimeLevelStart = Math.min(KinkyDungeonSlimeLevelStart, 0.5);
@@ -65,9 +66,17 @@ function KinkyDungeonHandleInventoryEvent(Event, item, data) {
 								KinkyDungeonSendTextMessage(5, TextGet("KinkyDungeonSlimeSpread"), "#ff44ff", 3);
 								potentialSlimeParts = [];
 								KinkyDungeonSlimeLevel = -100;
+								slimed = true;
 							}
 						}
 						potentialSlimeParts.splice(potentialSlimeParts.indexOf(newSlime), 1);
+					}
+					if (!slimed && potentialSlimeParts.length == 0) {
+						let slime = slimedParts[Math.floor(Math.random() * slimedParts.length)];
+						if (KinkyDungeonAddRestraintIfWeaker(KinkyDungeonGetRestraintByName("Hard" + slime.name), 0, true)) {
+							KinkyDungeonSendTextMessage(5, TextGet("KinkyDungeonSlimeHarden"), "#ff44ff", 3);
+						}
+						KinkyDungeonSlimeLevel = -100;
 					}
 				}
 			}

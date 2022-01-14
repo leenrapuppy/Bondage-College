@@ -1,7 +1,13 @@
+KinkyDungeonCredits,Credits
+KinkyDungeonBack,Back
+KinkyDungeonCreditsList0,"The following are licensed under the CC Attribution license:|Potion drink - Jamius|Click - StrikeWhistler - Modified|StoneDoor_Close - AudioTorpedo - Modified|Footstep - Fission9 - Modified|FireSpell - Julien Matthey|LightSwing - qubodup|Heavy Swing - orangesheepdog|Miss - Brsjak - Modified|Clap - DWSD - Modified|'Door, Front, Closing, A.wav' by InspectorJ (www.jshaw.co.uk) of Freesound.org|'Door, Front, Opening, A.wav' by InspectorJ (www.jshaw.co.uk) of Freesound.org|Chest Open - spookymodem - Modified|Unlock - BeezleFM|Unbuckle - danhelbling|Scissors - qubodup|Rummage - adcbicycle|Fairy Dust - jacksonacademyashmore|Metal Smash - gristi|Door locked.wav - mitchanary - Modified|Coins.wav - Saviraz|Opening the sarcophagus - Breviceps - Modified|Knife Sharpen - Anthousai"
+KinkyDungeonCreditsList1,"The following are licensed under the CC Attribution license:|Paper Sounds - Bash360 - Modified|Freeze Powerup - JustInvoke - Modified"
 Intro,"You are a mage descending into an ancient underground city of magic."
 Intro2,"Beneath its depths lies the Mistress' Staff, an artifact of untold power."
 Intro3,"Will you prevail against forces unknown, or succumb to its dark secrets?"
 Intro4,"(This game does not contain spiders or any carnivorous creatures/plants)"
+
+KinkyDungeonDressPlayer,"Change Appearance"
 
 KinkyDungeonSaveIntro0,"(Copy the code above and save it on your computer to load later)"
 KinkyDungeonSaveIntro,"You come across a black monolith with its face inscribed in runes."
@@ -34,7 +40,7 @@ StatStamina,"SP: CURRENT/MAX"
 StatWillpower,"Willpower: CURRENT/MAX"
 StatMana,"MP: CURRENT/MAX"
 StatUsePotion,"Use Potion"
-KinkyDungeonManaCost," Mana"
+KinkyDungeonManaCost," MP + COMPONENTS"
 KinkyDungeonSleep,"Sleep 20 turns"
 
 Wait,"You wait."
@@ -42,6 +48,7 @@ WaitAroused,"Your legs tremble as you wait."
 WaitArousedHeavy,"You tremble and moan as you wait."
 WaitExhaustion,"You are exhausted."
 WaitExhaustionAroused,"You are panting in frustration."
+WaitExhaustionArousedHeavy,"You are shaking in frustration."
 WaitSpellExhaustion,"You are exhausted from spellcasting."
 
 KinkyDungeonStaminaWarningMed,"You are feeling tired."
@@ -161,6 +168,9 @@ KinkyDungeonInventoryItemKnifeDesc2,"When you don't have any knives, your attack
 KinkyDungeonInventoryItemSword,Sword
 KinkyDungeonInventoryItemSwordDesc,"The blade is strong, its edge sharp."
 KinkyDungeonInventoryItemSwordDesc2,"A fast and accurate weapon, a superior choice to a knife."
+KinkyDungeonInventoryItemMagicSword,Enchanted Sword
+KinkyDungeonInventoryItemMagicSwordDesc,"Slices through ghosts with ease!"
+KinkyDungeonInventoryItemMagicSwordDesc2,"A sword that guides itself toward its target, making it easy to hit with, even while bound!"
 KinkyDungeonInventoryItemAxe,Axe
 KinkyDungeonInventoryItemAxeDesc,"Popular among raiders and lumberjacks."
 KinkyDungeonInventoryItemAxeDesc2,"A respectable weapon with a mix of damage and agility."
@@ -178,7 +188,23 @@ KinkyDungeonHearDoorCloseNear,You hear a door slam shut nearby!
 KinkyDungeonHearDoorCloseFar,You hear a door being shut in the distance.
 
 KinkyDungeonSlimeSpread,"The slime is spreading over your body!!!"
+KinkyDungeonSlimeHarden,"The slime starts to harden over your skin..."
 
+
+NameDecoy,Illusion
+KillDecoy,"The illusion vanishes into thin air."
+NameWall,Wall
+KillWall,"The wall shatters into pieces, which fade away slowly."
+NameAlly,Familiar
+KillAlly,"The familiar dissolves into spectral ash."
+NameStormCrystal,Storm Crystal
+KillStormCrystal,"The storm crystal shatters into many crackling pieces."
+NameFireElemental,Fire Elemental
+KillFireElemental,"The fire elemental dissolves into ash."
+NameShadowWarrior,Shadow Warrior
+KillShadowWarrior,"The shadow warrior screeches as it vanishes into mist."
+NameGolem,Allied Golem
+KillGolem,"The words vanish from the golem's forehead as it crashes down."
 
 NameBlindZombie,Zombie
 KillBlindZombie,"The zombie moans and collapses to the ground."
@@ -262,10 +288,22 @@ NameBramble,Bramble
 KillBramble,"The brambles are hacked away."
 AttackBramble,"The bramble snares you! (-DamageTaken SP)"
 
-NameSmallSlime,Ooze
-KillSmallSlime,"The Ooze melts into a puddle."
-AttackSmallSlime,"The sticky Ooze splashes against you! (-DamageTaken SP)"
-AttackSmallSlimeBind,"The Ooze attaches itself to your body! (-DamageTaken SP)"
+NameSmallSlime,Slime
+KillSmallSlime,"The slime melts into a puddle."
+AttackSmallSlime,"The sticky slime splashes against you! (-DamageTaken SP)"
+AttackSmallSlimeBind,"The slime attaches itself to your body! (-DamageTaken SP)"
+
+NameFastSlime,Fast Slime
+KillFastSlime,"The slime melts into a puddle."
+AttackFastSlime,"The sticky slime leaps and splashes against you! (-DamageTaken SP)"
+AttackFastSlimeBind,"The slime leaps and attaches itself to your body! (-DamageTaken SP)"
+
+NameBigSlime,Large Slime
+KillBigSlime,"The large slime splits apart!"
+AttackBigSlime,"The sticky slime splashes against you! (-DamageTaken SP)"
+AttackBigSlimeBind,"The slime spreads to your body! (-DamageTaken SP)"
+
+KinkyDungeonSummonMultiSmallSlime,The slime splits into many smaller droplets!
 
 NameLesserSkeleton,Skeleton
 KillLesserSkeleton,"The Skeleton falls into pieces."
@@ -297,14 +335,17 @@ AttackMonsterRope,"The magic rope wriggles into your outfit! (-DamageTaken SP)"
 
 NameWitchShock,Shock Witch
 KillWitchShock,"The shock witch vanishes into a cloud of thunder, leaving behind a keyring."
+AttackWitchShockBind,"The witch clips a restraint around your neck!"
 
 NameWitchChain,Chain Witch
 KillWitchChain,"The chain witch vanishes into a pile of metal dust, leaving behind a keyring."
 AttackWitchChainLock,"The chain witch locks all of your restraints!"
+AttackWitchChainBind,"The witch clips a restraint around your neck!"
 AttackWitchChain,"The chain witch tugs sensually at your restraints!"
 
 NameWitchSlime,Slime Witch
 KillWitchSlime,"The slime witch vanishes into a pool of pink slime, leaving behind a keyring."
+AttackWitchSlimeBind,"The witch clips a restraint around your neck!"
 
 NameJailer,Jailer
 KillJailer,"The jailer passes out and drops her possessions!"
@@ -447,6 +488,7 @@ KinkyDungeonPoolDrink0,"You drink from the pool and your mana is restored."
 KinkyDungeonPoolDrink1,"You drink again, but you feel as if you are trespassing."
 KinkyDungeonPoolDrink2,"You drink again, knowing the risk this may entail..."
 KinkyDungeonPoolDrinkAnger,"You have angered the goddess of TYPE!!!"
+KinkyDungeonPoolDrinkSlime,"The slime washes off in the fountain!!!"
 
 KinkyDungeonCommerceBuy,"The goddess offers a ItemTraded for ItemCost (NumCurrent/NumMax)"
 KinkyDungeonCommerceNext,"Next Offer"
@@ -666,23 +708,42 @@ RestraintVinePlantFeetDesc2,"The vines twitch as they try to wrap around tighter
 
 
 RestraintSlimeBoots,Slime
-RestraintSlimeBootsDesc,"Sticky slime that adheres to your body."
+RestraintSlimeBootsDesc,"Sticky slime that adheres to your body. It reacts negatively to mana..."
 RestraintSlimeBootsDesc2,"It is an organic material that reforms around every cut you make!"
 RestraintSlimeFeet,Slime
-RestraintSlimeFeetDesc,"Sticky slime that adheres to your body."
+RestraintSlimeFeetDesc,"Sticky slime that adheres to your body. It reacts negatively to mana..."
 RestraintSlimeFeetDesc2,"It is an organic material that reforms around every cut you make!"
 RestraintSlimeLegs,Slime
-RestraintSlimeLegsDesc,"Sticky slime that adheres to your body."
+RestraintSlimeLegsDesc,"Sticky slime that adheres to your body. It reacts negatively to mana..."
 RestraintSlimeLegsDesc2,"It is an organic material that reforms around every cut you make!"
 RestraintSlimeArms,Slime
-RestraintSlimeArmsDesc,"Sticky slime that adheres to your body."
+RestraintSlimeArmsDesc,"Sticky slime that adheres to your body. It reacts negatively to mana..."
 RestraintSlimeArmsDesc2,"It is an organic material that reforms around every cut you make!"
 RestraintSlimeHands,Slime
-RestraintSlimeHandsDesc,"Sticky slime that adheres to your body."
+RestraintSlimeHandsDesc,"Sticky slime that adheres to your body. It reacts negatively to mana..."
 RestraintSlimeHandsDesc2,"It is an organic material that reforms around every cut you make!"
 RestraintSlimeHead,Slime
-RestraintSlimeHeadDesc,"Sticky slime that adheres to your body."
+RestraintSlimeHeadDesc,"Sticky slime that adheres to your body. It reacts negatively to mana..."
 RestraintSlimeHeadDesc2,"It is an organic material that reforms around every cut you make!"
+
+RestraintHardSlimeBoots,Rubber
+RestraintHardSlimeBootsDesc,"Sticky rubber that has fused itself into a shell around your body."
+RestraintHardSlimeBootsDesc2,"There's no struggling out now, but since it's solid it may be cuttable."
+RestraintHardSlimeFeet,Rubber
+RestraintHardSlimeFeetDesc,"Sticky rubber that has fused itself into a shell around your body."
+RestraintHardSlimeFeetDesc2,"There's no struggling out now, but since it's solid it may be cuttable."
+RestraintHardSlimeLegs,Rubber
+RestraintHardSlimeLegsDesc,"Sticky rubber that has fused itself into a shell around your body."
+RestraintHardSlimeLegsDesc2,"There's no struggling out now, but since it's solid it may be cuttable."
+RestraintHardSlimeArms,Rubber
+RestraintHardSlimeArmsDesc,"Sticky rubber that has fused itself into a shell around your body."
+RestraintHardSlimeArmsDesc2,"There's no struggling out now, but since it's solid it may be cuttable."
+RestraintHardSlimeHands,Rubber
+RestraintHardSlimeHandsDesc,"Sticky rubber that has fused itself into a shell around your body."
+RestraintHardSlimeHandsDesc2,"There's no struggling out now, but since it's solid it may be cuttable."
+RestraintHardSlimeHead,Rubber
+RestraintHardSlimeHeadDesc,"Sticky rubber that has fused itself into a shell around your body."
+RestraintHardSlimeHeadDesc2,"There's no struggling out now, but since it's solid it may be cuttable."
 
 RestraintDuctTapeHands,Tape Mitts
 RestraintDuctTapeHandsDesc,"Sticky tape that holds your hands into a fist!"
@@ -781,6 +842,7 @@ ItemPickupLore,"You found a peculiar note on the ground."
 ItemPickupHammer,"You pick up a heavy hammer."
 ItemPickupBoltCutters,"You pick up a set of bolt cutters."
 ItemPickupSword,"You pick up a sharp sword."
+ItemPickupMagicSword,"You pick up an enchanted sword."
 ItemPickupAxe,"You pick up a powerful axe."
 
 KinkyDungeonUnEquipWeapon,"You put away the WEAPONNAME"
@@ -812,6 +874,7 @@ KinkyDungeonBookRandomPage,Random Page (your hands are tied)
 KinkyDungeonSpellMiscast,You fail to concentrate on the spell and it erupts in your face!
 
 KinkyDungeonSpellFirebolt,Firebolt
+KinkyDungeonSpellAllyFirebolt,Elemental's Firebolt
 KinkyDungeonSpellDescriptionFirebolt,A slow moving ball of flame that does DamageDealt damage.
 KinkyDungeonSpellCastFirebolt,You a hurl a firebolt!
 KinkyDungeonSpellTargetFirebolt,Choose aim direction
@@ -820,6 +883,11 @@ KinkyDungeonSpellDagger,Shadow Dagger
 KinkyDungeonSpellDescriptionDagger,A cold shadowy blade that deals DamageDealt damage and pierces all in its path.
 KinkyDungeonSpellCastDagger,You a hurl a shadowy dagger!
 KinkyDungeonSpellTargetDagger,Choose aim direction
+
+KinkyDungeonSpellShadowSlash,Shadow Slash
+KinkyDungeonSpellDescriptionShadowSlash,"Slice the area in front of you, dealing a delayed DamageDealt damage in an area and slowing briefly."
+KinkyDungeonSpellCastShadowSlash,You create a tear in space with your finger!
+KinkyDungeonSpellTargetShadowSlash,Choose aim direction
 
 KinkyDungeonSpellBlink,Portal
 KinkyDungeonSpellDescriptionBlink,Teleport to a nearby location after DelayTime turns.
@@ -843,6 +911,8 @@ KinkyDungeonSpellCastChainBolt,You a hurl a strand of chain!
 KinkyDungeonSpellTargetChainBolt,Choose aim direction
 
 KinkyDungeonSpellBanditBola,Bola
+
+KinkyDungeonSpellAllyShadowStrike,Shadow Strike
 
 KinkyDungeonSpellShield,Shield
 KinkyDungeonSpellDescriptionShield,Creates a shield that blocks BlockAmount damage from projectiles for DelayTime turns.
@@ -871,9 +941,15 @@ KinkyDungeonSpellCastIncinerate,You conjure a gout of flame!
 KinkyDungeonSpellTargetIncinerate,Choose target AoE location
 
 KinkyDungeonSpellCrackle,Crackle
-KinkyDungeonSpellDescriptionCrackle,A bolt of lightning that does DamageDealt damage to enemies in a line and briefly stuns.
-KinkyDungeonSpellCastCrackle,You cast a bolt of lightning!
+KinkyDungeonSpellAllyCrackle,Storm Bolt
+KinkyDungeonSpellDescriptionCrackle,A bolt of lightning that does DamageDealt damage to enemies in a 4-range line and briefly stuns.
+KinkyDungeonSpellCastCrackle,Lightning erupts from your fingertips!
 KinkyDungeonSpellTargetCrackle,Choose line direction (max range 4 tiles)
+
+KinkyDungeonSpellLightningBolt,Lightning Bolt
+KinkyDungeonSpellDescriptionLightningBolt,A bolt of lightning that does DamageDealt damage to enemies in an infinite line and briefly stuns.
+KinkyDungeonSpellCastLightningBolt,You unleash a bolt of lightning!
+KinkyDungeonSpellTargetLightningBolt,Choose line direction
 
 KinkyDungeonSpellSPUp1,Stamina Up I
 KinkyDungeonSpellDescriptionSPUp1,Increases maximum SP by 12
@@ -923,13 +999,53 @@ KinkyDungeonSpellCastFocusedFlash,You slowly charge up a powerful flash!
 
 KinkyDungeonSpellShroud,Shroud
 KinkyDungeonSpellTargetShroud,Select where to center the shroud (SpellArea radius)
-KinkyDungeonSpellDescriptionShroud,A shroud of darkness lasting Duration turns that buffs evasion for all creatures and buffs sneaking.
+KinkyDungeonSpellDescriptionShroud,A shroud of darkness lasting Duration turns that buffs evasion for all creatures and buffs sneaking
 KinkyDungeonSpellCastShroud,You exhale a misty shroud
 
 KinkyDungeonSpellInvisibility,Invisibility
 KinkyDungeonSpellTargetInvisibility,Select which creature to buff
 KinkyDungeonSpellDescriptionInvisibility,Make the targeted creature invisible, increasing stealth for Duration turns
 KinkyDungeonSpellCastInvisibility,You snap your fingers!
+
+KinkyDungeonSpellShadowBlade,Darkblade
+KinkyDungeonSpellTargetShadowBlade,Select which creature to buff
+KinkyDungeonSpellDescriptionShadowBlade,Make the targeted creature gain +2 damage for Duration turns
+KinkyDungeonSpellCastShadowBlade,You call forth dark runes on your weapon and arms!
+
+KinkyDungeonSpellWall,Wall
+KinkyDungeonSpellTargetWall,Select where to put the wall (cannot place on occupied squares)
+KinkyDungeonSpellDescriptionWall,Create a stationary wall for Duration turns
+KinkyDungeonSummonSingleWall,You create a line on the ground and a wall starts to form!
+
+KinkyDungeonSpellAlly,Familiar
+KinkyDungeonSpellTargetAlly,Select where to put the familiar (cannot place on occupied squares)
+KinkyDungeonSpellDescriptionAlly,Create a familiar that fights by your side for the rest of the level
+KinkyDungeonSummonSingleAlly,You create a circle on the ground and a familiar appears!
+
+KinkyDungeonSpellStormCrystal,Storm Crystal
+KinkyDungeonSpellTargetStormCrystal,Select where to put the storm crystal (cannot place on occupied squares)
+KinkyDungeonSpellDescriptionStormCrystal,Create a stationary crystal that casts Crackle on nearby targets for Duration turns
+KinkyDungeonSummonSingleStormCrystal,You stomp and a crystal emerges from the ground!
+
+KinkyDungeonSpellFireElemental,Fire Elemental
+KinkyDungeonSpellTargetFireElemental,Select where to put the fire elemental (cannot place on occupied squares)
+KinkyDungeonSpellDescriptionFireElemental,Create a fire elemental that attacks using firebolt for the rest of the level
+KinkyDungeonSummonSingleFireElemental,You call forth a spirit of fire!
+
+KinkyDungeonSpellShadowWarrior,Shadow Warrior
+KinkyDungeonSpellTargetShadowWarrior,Select where to put the shadow warrior (cannot place on occupied squares)
+KinkyDungeonSpellDescriptionShadowWarrior,Call forth a shadow warrior for 16 turns who deals DamageDealt damage every other turn.
+KinkyDungeonSummonSingleShadowWarrior,You call, and the abyss answers!
+
+KinkyDungeonSpellGolem,Golem
+KinkyDungeonSpellTargetGolem,Select where to put the golem (cannot place on occupied squares)
+KinkyDungeonSpellDescriptionGolem,Create a slow but powerful golem to fight by your side
+KinkyDungeonSummonSingleGolem,You stomp your foot and a golem arises from the floor!
+
+KinkyDungeonSpellDecoy,Decoy
+KinkyDungeonSpellTargetDecoy,Select where to create an illusion (cannot place on occupied squares)
+KinkyDungeonSpellDescriptionDecoy,Create a decoy for Duration turns
+KinkyDungeonSummonSingleDecoy,You create a line on the ground and a ghost starts to form!
 
 KinkyDungeonSpellSlime,Conjure Slime
 KinkyDungeonSpellWitchSlime,Witch's Slime
@@ -1068,6 +1184,8 @@ KinkyDungeonLore101,"(A drawing of a suit of armor. It reads: DANGER!!!)"
 KinkyDungeonLore102,"(The note starts with a drawing of a witch in dark robes with bright pink hair) A necromancer. Powerful spellcaster, weak up close."
 KinkyDungeonLore103,"I can't count how many skeletons I've bashed with my hammer today. They seem so fragile..."
 
+KinkyDungeonLore201,"Those damn slimes! They're so sticky and gross... fortunately, I washed myself in the fountain the last time I got caught by one. It came right off!"
+
 
 KinkyDungeonLore-1,"(The note is blank)"
 KinkyDungeonLore-2,"The note reads: Mmmmmmmph! Mmmm! MMMMMPH!!!!-- (The entire note is just gagged mumblings...)"
@@ -1116,5 +1234,5 @@ KinkyDungeonGhostUnhelpfulChaste4,"Ghost: How's it feel to be under lock and key
 KinkyDungeonTrapSkeletons,"You step on a pressure plate and a number of skeletons rise up!"
 KinkyDungeonTrapBandits,"You are ambushed by bandits!"
 
-KinkyDungeonOrbIntro,"You have broken a magic orb."
+KinkyDungeonOrbIntro,"You have broken a magic orb, gaining +1 Spell Points."
 KinkyDungeonOrbIntro2,"You must choose one of the goddesses to anger below."

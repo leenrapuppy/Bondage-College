@@ -111,6 +111,15 @@ let KinkyDungeonChestsOpened = [];
 
 let KinkyDungeonSaveInterval = 10;
 
+let KinkyDungeonSFX = [];
+
+function KinkyDungeonPlaySound(src) {
+	if (!KinkyDungeonSFX.includes(src)) {
+		AudioPlayInstantSound(src);
+		KinkyDungeonSFX.push(src);
+	}
+}
+
 function KinkyDungeonAddChest(Amount, Floor) {
 	if (KinkyDungeonChestsOpened.length < Floor - 1) {
 		KinkyDungeonChestsOpened.push(0);
@@ -132,6 +141,10 @@ function KinkyDungeonSetCheckPoint(Checkpoint) {
 
 function KinkyDungeonInitialize(Level, Random) {
 	CharacterReleaseTotal(KinkyDungeonPlayer);
+
+	KinkyDungeonDressSet();
+	localStorage.setItem("kinkydungeonappearance", LZString.compressToBase64(CharacterAppearanceStringify(KinkyDungeonPlayer)));
+
 	KinkyDungeonDressPlayer();
 	KinkyDungeonDrawState = "Game";
 
@@ -241,7 +254,7 @@ function KinkyDungeonCreateMap(MapParams, Floor) {
 	KinkyDungeonBullets = []; // Clear all bullets
 
 	// Place the player!
-	KinkyDungeonPlayerEntity = {MemberNumber:Player.MemberNumber, x: 1, y:startpos};
+	KinkyDungeonPlayerEntity = {MemberNumber:Player.MemberNumber, x: 1, y:startpos, player:true};
 	KinkyDungeonStartPosition = {x: 1, y: startpos};
 
 
@@ -438,17 +451,15 @@ function KinkyDungeonCreateCell(security, width, height) {
 	KinkyDungeonJailTransgressed = false;
 	let cellWidth = KinkyDungeonJailLeashX;
 	KinkyDungeonJailLeash = 5;
+	let modsecurity = security - (KinkyDungeonGoddessRep.Ghost + 50)
 	if (security > 25) KinkyDungeonJailLeash -= 1;
 	if (security > 50) KinkyDungeonJailLeash -= 1;
 	if (security > 75) KinkyDungeonJailLeash -= 1;
 	let cellHeight = KinkyDungeonJailLeash;
-	let barchance = 1.0 - 0.9 * Math.min(1, security / 100);
+	let barchance = 1.0 - 0.9 * Math.min(1, modsecurity / 100);
 	let grateChance = 1.0 - 1.0 * Math.min(1, security / 100);
 	let grateCount = 1/3;
-	let lock = "";
-	if (security > 25) {
-		lock = KinkyDungeonGenerateLock(security > 60, MiniGameKinkyDungeonLevel);
-	}
+	let lock = KinkyDungeonGenerateLock(true, MiniGameKinkyDungeonLevel);
 
 	for (let X = 0; X <= cellWidth + 1; X++)
 		for (let Y = KinkyDungeonStartPosition.y - cellHeight - 1; Y <= KinkyDungeonStartPosition.y + cellHeight + 1; Y++) {
@@ -1131,6 +1142,7 @@ function KinkyDungeonGetDirectionRandom(dx, dy) {
 function KinkyDungeonClickGame(Level) {
 	// First we handle buttons
 	if (KinkyDungeonHandleHUD()) {
+		AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Click.ogg");
 		return;
 	}
 	// beep
@@ -1142,7 +1154,9 @@ function KinkyDungeonClickGame(Level) {
 		if (KinkyDungeonTargetingSpell) {
 			if (MouseIn(canvasOffsetX, canvasOffsetY, KinkyDungeonCanvas.width, KinkyDungeonCanvas.height)) {
 				if (KinkyDungeonSpellValid) {
-					KinkyDungeonCastSpell(KinkyDungeonTargetX, KinkyDungeonTargetY, KinkyDungeonTargetingSpell);
+					if (KinkyDungeonCastSpell(KinkyDungeonTargetX, KinkyDungeonTargetY, KinkyDungeonTargetingSpell) && KinkyDungeonTargetingSpell.sfx) {
+						KinkyDungeonPlaySound(KinkyDungeonRootDirectory + "/Audio/" + KinkyDungeonTargetingSpell.sfx + ".ogg");
+					}
 					KinkyDungeonAdvanceTime(1);
 					KinkyDungeonSleepTurns = 0;
 					KinkyDungeonTargetingSpell = null;
@@ -1261,7 +1275,7 @@ function KinkyDungeonMove(moveDirection, delta, AllowInteract) {
 	let moveY = moveDirection.y + KinkyDungeonPlayerEntity.y;
 	let moved = false;
 	let Enemy = KinkyDungeonEnemyAt(moveX, moveY);
-	if (Enemy) {
+	if (Enemy && (!Enemy.Enemy || !Enemy.Enemy.noblockplayer)) {
 		if (AllowInteract) {
 			if (KinkyDungeonHasStamina(Math.abs(KinkyDungeonStatStaminaCostAttack), true)) {
 				KinkyDungeonAttackEnemy(Enemy, {damage: KinkyDungeonPlayerDamage.dmg, type: KinkyDungeonPlayerDamage.type});
@@ -1282,7 +1296,7 @@ function KinkyDungeonMove(moveDirection, delta, AllowInteract) {
 		}
 
 		let moveObject = KinkyDungeonMapGet(moveX, moveY);
-		if (KinkyDungeonMovableTiles.includes(moveObject) && KinkyDungeonNoEnemy(moveX, moveY)) { // If the player can move to an empy space or a door
+		if (KinkyDungeonMovableTiles.includes(moveObject) && (KinkyDungeonNoEnemy(moveX, moveY) || (Enemy.Enemy && Enemy.Enemy.noblockplayer))) { // If the player can move to an empy space or a door
 			if (!KinkyDungeonToggleAutoDoor) KinkyDungeonDoorCloseTimer = 1;
 			if (KinkyDungeonTiles["" + moveX + "," + moveY] && ((moveObject == 'd' && KinkyDungeonTargetTile == null && KinkyDungeonNoEnemy(moveX, moveY, true) && KinkyDungeonDoorCloseTimer <= 0)
 				|| (KinkyDungeonTiles["" + moveX + "," + moveY].Type != "Trap" && (KinkyDungeonTiles["" + moveX + "," + moveY].Type != "Door" || (KinkyDungeonTiles["" + moveX + "," + moveY].Lock && KinkyDungeonTiles["" + moveX + "," + moveY].Type == "Door"))))) {
@@ -1299,13 +1313,16 @@ function KinkyDungeonMove(moveDirection, delta, AllowInteract) {
 				KinkyDungeonTargetTileLocation = "";
 				if (moveObject == 'D') { // Open the door
 					KinkyDungeonMapSet(moveX, moveY, 'd');
+					AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/DoorOpen.ogg");
 					KinkyDungeonDoorCloseTimer = 1;
 				} else if (moveObject == 'C') { // Open the chest
 					KinkyDungeonLoot(MiniGameKinkyDungeonLevel, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint], "chest");
 					KinkyDungeonAddChest(1, MiniGameKinkyDungeonLevel);
+					AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/ChestOpen.ogg");
 					KinkyDungeonMapSet(moveX, moveY, 'c');
 				} else if (moveObject == 'O') { // Open the chest
 					KinkyDungeonTakeOrb(1); // 1 spell point
+					AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
 					KinkyDungeonMapSet(moveX, moveY, 'o');
 				} else {// Move
 					//if (KinkyDungeonHasStamina(0)) { // You can only move if your stamina is > 0
@@ -1314,6 +1331,7 @@ function KinkyDungeonMove(moveDirection, delta, AllowInteract) {
 					if (KinkyDungeonMovePoints >= 1) {// Math.max(1, KinkyDungeonSlowLevel) // You need more move points than your slow level, unless your slow level is 1
 						newDelta = Math.max(newDelta, KinkyDungeonMoveTo(moveX, moveY));
 						moved = true;
+						AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Footstep.ogg");
 
 						if (moveObject == 'g') {
 							KinkyDungeonSendActionMessage(2, TextGet("KinkyDungeonGrateEnter"), "white", 3);
@@ -1347,6 +1365,7 @@ function KinkyDungeonMove(moveDirection, delta, AllowInteract) {
 					}
 
 					if (moveObject == 'R') {
+						AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Coins.ogg");
 						KinkyDungeonLoot(MiniGameKinkyDungeonLevel, MiniGameKinkyDungeonCheckpoint, "rubble");
 
 						KinkyDungeonMapSet(moveX, moveY, 'r');
@@ -1365,6 +1384,7 @@ function KinkyDungeonMove(moveDirection, delta, AllowInteract) {
 			}
 		} else { // If we are blind we can bump into walls!
 			if (KinkyDungeonGetVisionRadius() <= 1) {
+				AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Footstep.ogg");
 				KinkyDungeonSleepTurns = 0;
 				KinkyDungeonAdvanceTime(1);
 			}
@@ -1392,17 +1412,19 @@ function KinkyDungeonWaitMessage(NoTime) {
 
 // Returns th number of turns that must elapse
 function KinkyDungeonMoveTo(moveX, moveY) {
-	if (KinkyDungeonNoEnemy(moveX, moveY, true)) {
-		KinkyDungeonPlayerEntity.x = moveX;
-		KinkyDungeonPlayerEntity.y = moveY;
+	//if (KinkyDungeonNoEnemy(moveX, moveY, true)) {
+	KinkyDungeonPlayerEntity.x = moveX;
+	KinkyDungeonPlayerEntity.y = moveY;
 
-		KinkyDungeonMovePoints = 0;
-		return Math.max(1, KinkyDungeonSlowLevel);
-	}
-	return 0;
+	KinkyDungeonMovePoints = 0;
+	return Math.max(1, KinkyDungeonSlowLevel);
+	//}
+	//return 0;
 }
 
 function KinkyDungeonAdvanceTime(delta, NoUpdate, NoMsgTick) {
+	KinkyDungeonRestraintAdded = false;
+	KinkyDungeonSFX = [];
 	KinkyDungeonResetEventVariablesTick();
 	KinkyDungeonSendInventoryEvent("tick", {delta: delta});
 
@@ -1502,6 +1524,7 @@ function KinkyDungeonTargetTileMsg() {
 	if (KinkyDungeonTargetTile.Type == "Ghost") {
 		KinkyDungeonGhostMessage();
 	} else if (KinkyDungeonTargetTile.Lock) {
+		AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Locked.ogg");
 		KinkyDungeonSendTextMessage(2, TextGet("KinkyDungeonObjectLock").replace("TYPE", TextGet("KinkyDungeonShrine" + KinkyDungeonTargetTile.Name)), "white", 1);
 	} else {
 		KinkyDungeonSendTextMessage(2, TextGet("KinkyDungeonObject" + KinkyDungeonTargetTile.Type).replace("TYPE", TextGet("KinkyDungeonShrine" + KinkyDungeonTargetTile.Name)), "white", 1);

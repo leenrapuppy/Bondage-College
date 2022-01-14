@@ -94,9 +94,6 @@ let KinkyDungeonUndress = 0; // Level of undressedness
 let KinkyDungeonSpells = [];
 let KinkyDungeonPlayerBuffs = {};
 
-// Current list of dresses
-let KinkyDungeonDresses = {};
-
 // Temp - for multiplayer in future
 let KinkyDungeonPlayers = [];
 
