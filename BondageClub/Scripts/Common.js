@@ -871,3 +871,13 @@ function CommonPadlockUnlock(C, Item) {
 function CommonNoop() {
 	// Noop function
 }
+
+/**
+ * Redirects the address to HTTPS, except in a local environment
+ * @returns {void} - Nothing
+ */
+function CommonRedirectHTTPS() {
+	if (windows.location.indexOf("http://localhost/") >= 0) return;
+	if (windows.location.indexOf("http://127.0.0.1/") >= 0) return;
+	if (location.protocol !== 'https:') location.replace(`https:${location.href.substring(location.protocol.length)}`);
+}
