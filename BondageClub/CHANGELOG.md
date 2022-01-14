@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-01-09
-* Last recorded PR: [#3174](https://github.com/Ben987/Bondage-College/pull/3174)
-* Last recorded commit hash: `3dbcb261eba5e9641642563c649af1290c6938c9`
+* Changelog last updated: 2022-01-12
+* Last recorded PR: [#3179](https://github.com/Ben987/Bondage-College/pull/3179)
+* Last recorded commit hash: `c7c5ef552d24878fc360301be89bb2217f948d67`
 
 ## [R76]
 
@@ -23,7 +23,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Ayesha - Added multicolor support to the Thin Leather Straps ([#3133](https://github.com/Ben987/Bondage-College/pull/3133))
 * fleisch11 - Added "previous" button in item inventory ([#3147](https://github.com/Ben987/Bondage-College/pull/3147), [#3150](https://github.com/Ben987/Bondage-College/pull/3150))
 * Estsanatlehi - Added option to spread legs with the Frogtie variant of the HempRope ([#3153](https://github.com/Ben987/Bondage-College/pull/3153))
-* Ada - Kinky Dungeon update - see the [Kinky Dungeon changelog](Screens/MiniGame/KinkyDungeon/Changelog.txt) ([#3139](https://github.com/Ben987/Bondage-College/pull/3139), [#3168](https://github.com/Ben987/Bondage-College/pull/3168), [#3169](https://github.com/Ben987/Bondage-College/pull/3169), [#3170](https://github.com/Ben987/Bondage-College/pull/3170), [#3173](https://github.com/Ben987/Bondage-College/pull/3173), [#3174](https://github.com/Ben987/Bondage-College/pull/3174))
+* Ada - Kinky Dungeon update - see the [Kinky Dungeon changelog](Screens/MiniGame/KinkyDungeon/Changelog.txt) ([#3139](https://github.com/Ben987/Bondage-College/pull/3139), [#3168](https://github.com/Ben987/Bondage-College/pull/3168), [#3169](https://github.com/Ben987/Bondage-College/pull/3169), [#3170](https://github.com/Ben987/Bondage-College/pull/3170), [#3173](https://github.com/Ben987/Bondage-College/pull/3173), [#3174](https://github.com/Ben987/Bondage-College/pull/3174), [#3176](https://github.com/Ben987/Bondage-College/pull/3176), [#3178](https://github.com/Ben987/Bondage-College/pull/3178), [#3179](https://github.com/Ben987/Bondage-College/pull/3179))
 
 ### [Removed]
 
@@ -44,7 +44,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Estsanatlehi - Allowed to kneel spread with short collar rope/chain ([#3141](https://github.com/Ben987/Bondage-College/pull/3141))
 * Estsanatlehi - Added missing label for the Futuristic Crate "Lid" layer ([#3149](https://github.com/Ben987/Bondage-College/pull/3149))
 * Jomshir - Fixed beep notification disappearing quickly or not disappearing at all ([#3152](https://github.com/Ben987/Bondage-College/pull/3152))
-* Jomshir - Fixed multiple possible crashes ([#3143](https://github.com/Ben987/Bondage-College/pull/3143), [#3142](https://github.com/Ben987/Bondage-College/pull/3142), [#3155](https://github.com/Ben987/Bondage-College/pull/3155), [#3156](https://github.com/Ben987/Bondage-College/pull/3156), [#3157](https://github.com/Ben987/Bondage-College/pull/3157))
+* Jomshir - Fixed multiple possible crashes ([#3143](https://github.com/Ben987/Bondage-College/pull/3143), [#3142](https://github.com/Ben987/Bondage-College/pull/3142), [#3155](https://github.com/Ben987/Bondage-College/pull/3155), [#3156](https://github.com/Ben987/Bondage-College/pull/3156), [#3157](https://github.com/Ben987/Bondage-College/pull/3157), [#3181](https://github.com/Ben987/Bondage-College/pull/3181))
 * Estsanatlehi - Fixed missing text for Fantasy block category ([#3158](https://github.com/Ben987/Bondage-College/pull/3158))
 * Nina - Fixed missing character name when using Zipties ([#3159](https://github.com/Ben987/Bondage-College/pull/3159))
 * Nina - Fixed some conflicting item combinations with Leg Spreader ([#3162](https://github.com/Ben987/Bondage-College/pull/3162))
@@ -55,7 +55,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 ### [Technical]
 
-* Jomshir - Code cleanup ([#3154](https://github.com/Ben987/Bondage-College/pull/3154), [#3160](https://github.com/Ben987/Bondage-College/pull/3160), [#3161](https://github.com/Ben987/Bondage-College/pull/3161))
+* Jomshir - Code cleanup ([#3154](https://github.com/Ben987/Bondage-College/pull/3154), [#3160](https://github.com/Ben987/Bondage-College/pull/3160), [#3161](https://github.com/Ben987/Bondage-College/pull/3161), [#3177](https://github.com/Ben987/Bondage-College/pull/3177))
 * Nina - Added `OverrideAssetEffect` property to ignore base item effects ([#3164](https://github.com/Ben987/Bondage-College/pull/3164))
 * Nina - Deduplicated assets in Hair & Hat slots ([#3165](https://github.com/Ben987/Bondage-College/pull/3165))
 
