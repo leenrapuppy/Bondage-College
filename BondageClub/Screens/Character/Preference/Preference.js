@@ -116,6 +116,14 @@ const ArousalStutter = {
  * @returns {boolean|null}
  */
 function PreferenceArousalIsInMode(character, modes) {
+	// Special case for the Asylum GGTS rooms
+	if (CurrentModule === "Online" && CurrentScreen === "ChatRoom" && ChatRoomGame === "GGTS" && ChatRoomSpace === "Asylum" && AsylumGGTSGetLevel(character) >= 4) {
+		return (
+			InventoryIsWorn(character, "FuturisticChastityBelt", "ItemPelvis")
+			|| InventoryIsWorn(character, "FuturisticTrainingBelt", "ItemPelvis")
+			|| InventoryIsWorn(character, "FuckMachine", "ItemDevices")
+		);
+	}
 	if (character.ArousalSettings && character.ArousalSettings.Active)
 		return modes.includes(character.ArousalSettings.Active);
 	return false;
@@ -243,24 +251,6 @@ function PreferenceArousalGetVFXFilterSetting(character) {
 	if (character.ArousalSettings && character.ArousalSettings.VFXFilter)
 		return character.ArousalSettings.VFXFilter;
 	return ArousalVFXFilter.Light;
-}
-
-/**
- * Compares the arousal preference level and returns TRUE if that level is met, or an higher level is met
- * @param {Character} C - The player who performs the sexual activity
- * @param {string} Level - The name of the level ("Inactive", "NoMeter", "Manual", "Hybrid", "Automatic")
- * @returns {boolean} - Returns TRUE if the level is met or more
- */
-function PreferenceArousalAtLeast(C, Level) {
-	if ((CurrentModule == "Online") && (CurrentScreen == "ChatRoom") && (ChatRoomGame == "GGTS") && (ChatRoomSpace === "Asylum") && (AsylumGGTSGetLevel(C) >= 4))
-		if (InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis") || InventoryIsWorn(C, "FuturisticTrainingBelt", "ItemPelvis") || InventoryIsWorn(C, "FuckMachine", "ItemDevices"))
-			return true;
-	if ((C.ArousalSettings == null) || (C.ArousalSettings.Active == null)) return false;
-	if (Level === C.ArousalSettings.Active) return true;
-	if (C.ArousalSettings.Active == "Automatic") return true;
-	if ((Level == "Manual") && (C.ArousalSettings.Active == "Hybrid")) return true;
-	if ((Level == "NoMeter") && ((C.ArousalSettings.Active == "Manual") || (C.ArousalSettings.Active == "Hybrid"))) return true;
-	return false;
 }
 
 /**

@@ -384,13 +384,13 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T.substr(0, 7) == "NewRule") && (C.Game.GGTS.Rule != null) && (C.Game.GGTS.Rule.indexOf(T.substr(7, 100)) >= 0)) return false; // Rule cannot be added if already active
 	if ((T.substr(0, 5) == "Cloth") && !C.CanChangeOwnClothes()) return false; // Cloth tasks cannot be done if cannot change
 	if ((T.substr(0, 4) == "Pose") && !C.CanKneel()) return false; // If cannot kneel, we skip pose change activities
-	if ((T.substr(0, 8) == "Activity") && (!C.CanInteract() || !PreferenceArousalAtLeast(C, "NoMeter"))) return false; // Must allow activities and be able to interact
+	if ((T.substr(0, 8) == "Activity") && (!C.CanInteract() || !PreferenceArousalIsActive(C))) return false; // Must allow activities and be able to interact
 	if ((T == "ActivityNod") && !ActivityCanBeDone(C, "Nod", "ItemHead")) return false; // Must be able to nod to use that activity
 	if (((T == "ActivityKiss") || (T == "ActivityLick") || (T == "ActivityBite")) && !C.CanTalk()) return false; // Kiss, lick & bite require being able to talk
 	if (((T == "ActivityKiss") || (T == "ActivityLick") || (T == "ActivityBite")) && (Player.Effect != null) && (Player.Effect.indexOf("BlockMouth") >= 0)) return false; // Kiss, lick & bite require being able to use mouth
 	if ((T == "ActivityMasturbateHand") && C.IsVulvaChaste()) return false; // Cannot masturbate if chaste
 	if (((T == "ClothHeels") || (T == "ClothSocks") || (T == "ClothBarefoot")) && (InventoryGet(C, "ItemBoots") != null)) return false; // No feet tasks if locked in boots
-	if ((T == "NewRuleNoOrgasm") && !PreferenceArousalAtLeast(C, "Hybrid")) return false; // Orgasm rule are only available on hybrid or auto
+	if ((T == "NewRuleNoOrgasm") && PreferenceArousalIsInMode(C, [ArousalMode.Hybrid, ArousalMode.Automatic])) return false; // Orgasm rule are only available on hybrid or auto
 	if (((T == "ItemRemoveLimb") || (T == "ItemRemoveBody") || (T == "ItemRemoveHead") || (T == "ItemUngag") || (T == "ItemUnchaste")) && (LogValue("Isolated", "Asylum") >= CurrentTime)) return false; // When punishment is active, items doesn't get removed
 	if (((T == "ItemRemoveLimb") || (T == "ItemRemoveBody") || (T == "ItemRemoveHead") || (T == "ItemUngag") || (T == "ItemUnchaste")) && (Math.random() * 6 < AsylumGGTSGetLevel(C))) return false; // The higher the level, the less likely GGTS will release
 	if ((T == "ItemPose") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticStraitjacket", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet") && !InventoryIsWorn(C, "FuturisticLegCuffs", "ItemLegs")) return false;

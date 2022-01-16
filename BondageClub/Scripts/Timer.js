@@ -163,7 +163,7 @@ function TimerProcess(Timestamp) {
 				} else {
 
 					// Depending on the character settings, we progress the arousal meter
-					if (PreferenceArousalAtLeast(Character[C], "Hybrid")) {
+					if (PreferenceArousalIsInMode(Character[C], [ArousalMode.Hybrid, ArousalMode.Automatic])) {
 
 						// Activity impacts the progress slowly over time, if there's an activity running, vibrations are ignored
 						if (arousalTimer != 0) {
@@ -216,7 +216,7 @@ function TimerProcess(Timestamp) {
 		if ((TimerLastArousalDecay + 12000 < CurrentTime) || (TimerLastArousalDecay - 12000 > CurrentTime)) {
 			TimerLastArousalDecay = CurrentTime;
 			for (let C = 0; C < Character.length; C++)
-				if (PreferenceArousalAtLeast(Character[C], "Hybrid") && ActivityGetArousal(Character[C]) > 0 && ActivityGetArousalTimer(Character[C]) == 0) {
+				if (PreferenceArousalIsInMode(Character[C], [ArousalMode.Hybrid, ArousalMode.Automatic]) && ActivityGetArousal(Character[C]) > 0 && ActivityGetArousalTimer(Character[C]) == 0) {
 
 					// If the character is egged, we find the highest intensity factor
 					let Factor = -1;
