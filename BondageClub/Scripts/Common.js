@@ -873,11 +873,11 @@ function CommonNoop() {
 }
 
 /**
- * Redirects the address to HTTPS, except in a local environment
- * @returns {void} - Nothing
+ * Redirects the address to HTTPS for all production environments
+ * @returns {String} - Returns the proper server to use in production or test
  */
-function CommonRedirectHTTPS() {
-	if (location.href.indexOf("http://localhost/") >= 0) return;
-	if (location.href.indexOf("http://127.0.0.1/") >= 0) return;
+function CommonRedirectHTTPS() {  
+	if ((location.href.indexOf("bondageprojects") < 0) && (location.href.indexOf("bondage-europe") < 0)) return "https://bondage-club-server.herokuapp.com/";
 	if (location.protocol !== 'https:') location.replace(`https:${location.href.substring(location.protocol.length)}`);
+	return "https://bondage-club-server.herokuapp.com/";
 }
