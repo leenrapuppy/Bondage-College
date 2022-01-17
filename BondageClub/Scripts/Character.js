@@ -261,7 +261,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 			return this.Type === CharacterType.ONLINE;
 		},
 		IsNpc: function () {
-			return this.Type === CharacterType.NPC;
+			return (this.Type !== CharacterType.ONLINE) && (this.Type !== CharacterType.SIMPLE);
 		},
 		IsSimple: function () {
 			return this.Type === CharacterType.SIMPLE;
