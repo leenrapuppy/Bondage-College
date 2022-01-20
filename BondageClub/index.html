@@ -276,7 +276,7 @@
 
 // When the code is loaded, we start the game engine
 window.onload = function() {
-	ServerURL = CommonRedirectHTTPS();
+	ServerURL = CommonGetServer();
 //	CheatImport();
 	GameVersion = "R76";
 	console.log("Version: " + GameVersion + ", Server: " + ServerURL);
