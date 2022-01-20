@@ -83,7 +83,7 @@ function MaidQuartersAllowSelfBondageMaidDrinks() { return (MaidQuartersPlayerIn
  */
 function MaidQuartersAcceptSelfBondageMaidDrinks() {
 	MaidQuartersSelfBondageMaidDrinksAccepted = true;
-	DialogChangeReputation("Dominant", -6);
+	DialogChangeReputation("Dominant", -2);
 	InventoryWear(Player, "WoodenMaidTray", "ItemMisc");
 }
 /**
@@ -103,7 +103,7 @@ return (MaidQuartersPlayerInCleaningUniform() && !MaidQuartersMaid.IsRestrained(
  */
 function MaidQuartersAcceptSelfBondageMaidCleaning() {
 	MaidQuartersSelfBondageMaidCleaningAccepted = true;
-	DialogChangeReputation("Dominant", -6);
+	DialogChangeReputation("Dominant", -2);
 }
 /**
  * Checks, if the player can do the 'play music' job
