@@ -96,14 +96,6 @@ function InventoryItemDevicesPetBowlGetText() {
 }
 
 /**
- * Pre-render drawing function. Compensates character's height shift
- * @returns { {Y: number} } - Shifted Y to compensate
- */
-function AssetsItemDevicesPetBowlBeforeDraw({ C, Y }) {
-	return { Y: Y + C.HeightModifier };
-}
-
-/**
  * Post-render drawing function. Draws custom text in a slight arc to mimic the
  * curvature of the bowl.
  * @returns {void} - Nothing
@@ -120,6 +112,14 @@ function AssetsItemDevicesPetBowlAfterDraw({ C, A, X, Y, L, Property, drawCanvas
 		const width = 130;
 		const tempCanvas = AnimationGenerateTempCanvas(C, A, width, height);
 		const ctx = tempCanvas.getContext("2d");
+
+		// Reposition and orient the text when hanging upside-down
+		if (C.IsInverted()) {
+			ctx.rotate(Math.PI);
+			ctx.translate(-tempCanvas.width, -tempCanvas.height);
+			Y -= 60;
+			X -= 300;
+		}
 
 		DynamicDrawTextArc(text, ctx, width / 2, 42, {
 			fontSize: 36,
