@@ -747,11 +747,25 @@ function ChatRoomUpdateDisplay() {
 }
 
 /**
+ * Draws the status bubble next to the character
+ * @param {String} Status - The status bubble to draw
+ * @param {X} Number - Screen X position
+ * @param {Y} Number - Screen Y position
+ * @param {Zoom} Number - Screen zoom
+ * @returns {void} - Nothing.
+ */
+function DrawStatus(Status, X, Y, Zoom) {
+	if ((Status == null) || (Status == "")) return;
+	DrawImageResize("Icons/Status/" + Status + (Math.floor(CommonTime() / 1000) % 3).toString() + ".png", X + 225 * Zoom, Y + 920 * Zoom, 50 * Zoom, 30 * Zoom);
+}
+
+/**
  * Draws the chatroom characters.
  * @param {boolean} DoClick - Whether or not a click was registered.
  * @returns {void} - Nothing.
  */
 function ChatRoomDrawCharacter(DoClick) {
+
 	// Intercepts the online game chat room clicks if we need to
 	if (DoClick && OnlineGameClick()) return;
 
@@ -776,45 +790,42 @@ function ChatRoomDrawCharacter(DoClick) {
 	ChatRoomCharacterX_Upper = (ChatRoomCharacterX_Upper * weight + 500 - 0.5 * Space * Math.min(ChatRoomCharacterCount, 5))/(weight + 1);
 	ChatRoomCharacterX_Lower = (ChatRoomCharacterX_Lower * weight + 500 - 0.5 * Space * Math.max(1, ChatRoomCharacterCount - 5))/(weight + 1);
 
+	// The more players, the higher the zoom, also changes the drawing coordinates
 	const Zoom = ChatRoomCharacterZoom;
 	const X = ChatRoomCharacterCount >= 3 ? (Space - 500 * Zoom) / 2 : 0;
 	const Y = ChatRoomCharacterCount <= 5 ? 1000 * (1 - Zoom) / 2 : 0;
 	const InvertRoom = Player.GraphicsSettings.InvertRoom && Player.IsInverted();
 
 	// Draw the background
-	if (!DoClick) {
-		ChatRoomDrawBackground(Background, Y, Zoom, DarkFactor, InvertRoom);
-	}
-
+	if (!DoClick) ChatRoomDrawBackground(Background, Y, Zoom, DarkFactor, InvertRoom);
+	
 	// Draw the characters (in click mode, we can open the character menu or start whispering to them)
 	for (let C = 0; C < ChatRoomCharacterDrawlist.length; C++) {
+		
+		// Finds the X and Y position of the character based on it's room position
 		let ChatRoomCharacterX = C >= 5 ? ChatRoomCharacterX_Lower : ChatRoomCharacterX_Upper;
 		if (!(Player.GraphicsSettings && Player.GraphicsSettings.CenterChatrooms)) ChatRoomCharacterX = 0;
-
 		const CharX = ChatRoomCharacterX + (ChatRoomCharacterCount == 1 ? 0 : X + (C % 5) * Space);
 		const CharY = ChatRoomCharacterCount == 1 ? 0 : Y + Math.floor(C / 5) * 500;
-		if (ChatRoomCharacterCount == 1 && ChatRoomCharacterDrawlist[C].ID !== 0) { // Only render the player!
-			continue;
-		}
+		if ((ChatRoomCharacterCount == 1) && ChatRoomCharacterDrawlist[C].ID !== 0) continue;
+
+		// Intercepts the clicks or draw
 		if (DoClick) {
-			if (MouseIn(CharX, CharY, Space, 1000 * Zoom)) {
-				return ChatRoomClickCharacter(ChatRoomCharacterDrawlist[C], CharX, CharY, Zoom, (MouseX - CharX) / Zoom, (MouseY - CharY) / Zoom, C);
-			}
+			if (MouseIn(CharX, CharY, Space, 1000 * Zoom)) return ChatRoomClickCharacter(ChatRoomCharacterDrawlist[C], CharX, CharY, Zoom, (MouseX - CharX) / Zoom, (MouseY - CharY) / Zoom, C);
 		} else {
+
 			// Draw the background a second time for characters 6 to 10 (we do it here to correct clipping errors from the first part)
-			if (C === 5) {
-				ChatRoomDrawBackground(Background, 500, Zoom, DarkFactor, InvertRoom);
-			}
+			if (C === 5) ChatRoomDrawBackground(Background, 500, Zoom, DarkFactor, InvertRoom);
 
-			// Draw the character
+			// Draw the character, it's status bubble and it's overlay
 			DrawCharacter(ChatRoomCharacterDrawlist[C], CharX, CharY, Zoom);
-
-			// Draw the character overlay
-			if (ChatRoomCharacterDrawlist[C].MemberNumber != null) {
-				ChatRoomDrawCharacterOverlay(ChatRoomCharacterDrawlist[C], CharX, CharY, Zoom, C);
-			}
+			DrawStatus(ChatRoomCharacter[C].Status, CharX, CharY, Zoom);
+			if (ChatRoomCharacterDrawlist[C].MemberNumber != null) ChatRoomDrawCharacterOverlay(ChatRoomCharacterDrawlist[C], CharX, CharY, Zoom, C);
+			
 		}
+
 	}
+
 }
 
 /**
