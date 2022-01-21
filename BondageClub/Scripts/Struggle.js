@@ -145,19 +145,17 @@ function StruggleClick(Reverse) {
 }
 
 function StruggleProgressStart(C, PrevItem, NextItem) {
+	ChatRoomStatusUpdate("Struggle");
 	StruggleProgressChoosePrevItem = PrevItem;
 	StruggleProgressChooseNextItem = NextItem;
 	StruggleProgressCurrentMinigame = "";
-
 	StruggleProgress = 0;
 	DialogMenuButtonBuild(C);
-
 	if (C != Player || PrevItem == null ||
 		((PrevItem != null) && (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem)) && ((Player.CanInteract() && !InventoryItemHasEffect(PrevItem, "Mounted", true)) || StruggleStrengthGetDifficulty(C, PrevItem, NextItem).auto >= 0))) {
 		StruggleProgressCurrentMinigame = "Strength";
 		StruggleStrengthStart(C, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
 	}
-
 }
 
 function StruggleProgressAutoDraw(C, Offset) {

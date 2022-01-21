@@ -22,11 +22,9 @@ var ChatRoomStruggleAssistTimer = 0;
 var ChatRoomSlowtimer = 0;
 var ChatRoomSlowStop = false;
 var ChatRoomChatHidden = false;
-
 var ChatRoomCharacterCount = 0;
 var ChatRoomCharacterDrawlist = [];
 var ChatRoomSenseDepBypass = false;
-
 var ChatRoomGetUpTimer = 0;
 var ChatRoomLastName = "";
 var ChatRoomLastBG = "";
@@ -563,6 +561,7 @@ function ChatRoomCreateElement() {
 		ElementCreateTextArea("InputChat");
 		document.getElementById("InputChat").setAttribute("maxLength", 1000);
 		document.getElementById("InputChat").setAttribute("autocomplete", "off");
+		document.getElementById("InputChat").addEventListener("keydown", ChatRoomStatusUpdateTalk);
 		ElementFocus("InputChat");
 	} else if (document.getElementById("InputChat").style.display == "none") ElementFocus("InputChat");
 
@@ -754,9 +753,18 @@ function ChatRoomUpdateDisplay() {
  * @param {Zoom} Number - Screen zoom
  * @returns {void} - Nothing.
  */
-function DrawStatus(Status, X, Y, Zoom) {
-	if ((Status == null) || (Status == "")) return;
-	DrawImageResize("Icons/Status/" + Status + (Math.floor(CommonTime() / 1000) % 3).toString() + ".png", X + 225 * Zoom, Y + 920 * Zoom, 50 * Zoom, 30 * Zoom);
+function DrawStatus(C, X, Y, Zoom) {
+	if ((C.ArousalSettings != null) && (C.ArousalSettings.OrgasmTimer != null) && (C.ArousalSettings.OrgasmTimer > 0)) {
+		DrawImageResize("Icons/Status/Orgasm" + (Math.floor(CommonTime() / 1000) % 3).toString() + ".png", X + 225 * Zoom, Y + 920 * Zoom, 50 * Zoom, 30 * Zoom);
+		return;
+	}
+	if ((C.StatusTimer != null) && (C.StatusTimer < CommonTime())) {
+		C.StatusTimer = null;
+		C.Status = null;
+		return;
+	}
+	if ((C.Status == null) || (C.Status == "")) return;
+	DrawImageResize("Icons/Status/" + C.Status + (Math.floor(CommonTime() / 1000) % 3).toString() + ".png", X + 225 * Zoom, Y + 920 * Zoom, 50 * Zoom, 30 * Zoom);
 }
 
 /**
@@ -819,7 +827,7 @@ function ChatRoomDrawCharacter(DoClick) {
 
 			// Draw the character, it's status bubble and it's overlay
 			DrawCharacter(ChatRoomCharacterDrawlist[C], CharX, CharY, Zoom);
-			DrawStatus(ChatRoomCharacter[C].Status, CharX, CharY, Zoom);
+			DrawStatus(ChatRoomCharacter[C], CharX, CharY, Zoom);
 			if (ChatRoomCharacterDrawlist[C].MemberNumber != null) ChatRoomDrawCharacterOverlay(ChatRoomCharacterDrawlist[C], CharX, CharY, Zoom, C);
 			
 		}
@@ -1480,6 +1488,25 @@ function ChatRoomUpdateOnlineBounty() {
 }
 
 /**
+ * Updates the player status if needed and sends that new status in a chat message
+ * @param {String} Status - The new status to use
+ * @returns {void} - Nothing.
+ */
+function ChatRoomStatusUpdate(Status) {
+	if (Status == Player.Status) return;
+	if ((Status == null) && (Player.StatusTimer != null) && (Player.StatusTimer >= CommonTime())) return;
+	ServerSend("ChatRoomChat", { Content: ((Status == null) ? "null" : Status), Type: "Status" });
+}
+
+/**
+ * Sends the "Talk" status to other players if the player typed in the text box and there's a value in it
+ * @returns {void} - Nothing.
+ */
+function ChatRoomStatusUpdateTalk(Key) {
+	ChatRoomStatusUpdate((Key.keyCode == 13) ? "null" : "Talk");
+}
+
+/**
  * Runs the chatroom screen.
  * @returns {void} - Nothing.
  */
@@ -1490,6 +1517,7 @@ function ChatRoomRun() {
 	ChatRoomUpdateOnlineBounty();
 
 	// Draws the chat room controls
+	ChatRoomStatusUpdate();
 	ChatRoomUpdateDisplay();
 	ChatRoomCreateElement();
 	ChatRoomFirstTimeHelp();
@@ -1751,6 +1779,7 @@ function ChatRoomMenuClick() {
 						document.getElementById("TextAreaChatLog").style.display = "none";
 						CharacterAppearanceReturnRoom = "ChatRoom";
 						CharacterAppearanceReturnModule = "Online";
+						ChatRoomStatusUpdate("Wardrobe");
 						CharacterAppearanceLoadCharacter(Player);
 					}
 					break;
@@ -1758,6 +1787,7 @@ function ChatRoomMenuClick() {
 					// When the user checks her profile
 					document.getElementById("InputChat").style.display = "none";
 					document.getElementById("TextAreaChatLog").style.display = "none";
+					ChatRoomStatusUpdate("Preference");
 					InformationSheetLoadCharacter(Player);
 					break;
 				case "Admin":
@@ -1766,6 +1796,7 @@ function ChatRoomMenuClick() {
 					if ((ChatRoomData != null) && ChatRoomData.Locked && (ChatRoomData.Game == "GGTS")) return AsylumGGTSMessage("NoAdminLocked");
 					document.getElementById("InputChat").style.display = "none";
 					document.getElementById("TextAreaChatLog").style.display = "none";
+					ChatRoomStatusUpdate("Preference");
 					CommonSetScreen("Online", "ChatAdmin");
 					break;
 			}
@@ -2145,6 +2176,13 @@ function ChatRoomMessage(data) {
 
 				// If the message is still hidden after any modifications, stop processing
 				if (data.Type == "Hidden") return;
+			}
+
+			// Status messages will update that character status, anything else will cancel the status
+			if (data.Type == "Status") {
+				SenderCharacter.Status = ((msg == "") || (msg == "null")) ? null : msg;
+				SenderCharacter.StatusTimer = (msg == "Talk") ? CommonTime() + 5000 : null;
+				return;
 			}
 
 			// Checks if the message is a notification about the user entering or leaving the room
