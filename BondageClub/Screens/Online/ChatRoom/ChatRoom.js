@@ -754,6 +754,7 @@ function ChatRoomUpdateDisplay() {
  * @returns {void} - Nothing.
  */
 function DrawStatus(C, X, Y, Zoom) {
+	if (ChatRoomHideIconState >= 2) return;
 	if ((C.ArousalSettings != null) && (C.ArousalSettings.OrgasmTimer != null) && (C.ArousalSettings.OrgasmTimer > 0)) {
 		DrawImageResize("Icons/Status/Orgasm" + (Math.floor(CommonTime() / 1000) % 3).toString() + ".png", X + 225 * Zoom, Y + 920 * Zoom, 50 * Zoom, 30 * Zoom);
 		return;
