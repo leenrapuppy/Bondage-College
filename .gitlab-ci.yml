@@ -1,5 +1,5 @@
 variables:
-  NPM_PREFIX: BondageClub/Tools/Node/
+  NPM_PREFIX: BondageClub/
 
 check:
   stage: build
