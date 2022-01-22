@@ -1496,6 +1496,7 @@ function ChatRoomUpdateOnlineBounty() {
 function ChatRoomStatusUpdate(Status) {
 	if (Status == Player.Status) return;
 	if ((Status == null) && (Player.StatusTimer != null) && (Player.StatusTimer >= CommonTime())) return;
+	if ((Status == null) && (Player.Status != null) && (Player.Status == "Crawl") && (ChatRoomSlowtimer > 0) && (ChatRoomSlowStop == false) && Player.IsSlow()) return;
 	ServerSend("ChatRoomChat", { Content: ((Status == null) ? "null" : Status), Type: "Status" });
 }
 
@@ -1717,6 +1718,7 @@ function ChatRoomMenuClick() {
 						// If the player clicked to leave, we start a timer based on evasion level and send a chat message
 						if ((ChatRoomSlowtimer == 0) && (ChatRoomSlowStop == false)) {
 							ServerSend("ChatRoomChat", { Content: "SlowLeaveAttempt", Type: "Action", Dictionary: [{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber }] });
+							ChatRoomStatusUpdate("Crawl");
 							ChatRoomSlowtimer = CurrentTime + (10 * (1000 - (50 * SkillGetLevelReal(Player, "Evasion"))));
 						}
 						// If the player clicked to cancel leaving, we alert the room and stop the timer
