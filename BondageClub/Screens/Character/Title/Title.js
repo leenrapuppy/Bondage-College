@@ -55,7 +55,10 @@ var TitleList = [
 	{ Name: "Demon", Requirement: function () { return true; } },
 	{ Name: "Angel", Requirement: function () { return true; } },
 	{ Name: "Succubus", Requirement: function () { return true; } },
-	{ Name: "GoodGirl", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 4); }, Earned: true }
+	{ Name: "GoodGirl", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 4); }, Earned: true },
+	{ Name: "GoodSlaveGirl", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 5); }, Earned: true },
+	{ Name: "GoodSlave", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 6); }, Earned: true },
+	{ Name: "Drone", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 6); }, Earned: true }
 ];
 
 /**
