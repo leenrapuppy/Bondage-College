@@ -391,7 +391,7 @@ function DialogCanWatchKinkyDungeon() {
  * Starts the kinky dungeon game
  * @returns {void}
  */
-function DialogStartKinkyDungeon(Arcade) {
+function DialogStartKinkyDungeon() {
 	if (CurrentCharacter) {
 		if (KinkyDungeonPlayerCharacter != CurrentCharacter) {
 			KinkyDungeonGameRunning = false; // Reset the game to prevent carrying over spectator data
@@ -767,6 +767,11 @@ function DialogCanColor(C, Item) {
 	return (Player.CanInteract() && CanUnlock && ItemColorable) || DialogAlwaysAllowRestraint();
 }
 
+/**
+ * Checks whether a lock can be inspected while blind.
+ * @param {string} lockName - The lock type
+ * @returns {boolean}
+ */
 function DialogCanInspectLockWhileBlind(lockName) {
 	return ["SafewordPadlock", "CombinationPadlock"].includes(lockName);
 }

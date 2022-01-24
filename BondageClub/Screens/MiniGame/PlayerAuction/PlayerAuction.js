@@ -26,6 +26,7 @@ function PlayerAuctionSetNextBidTime() {
 
 /**
  * Creates a new customer to buy the player
+ * @param {number} Index - The index of the customer from the NPC table
  * @returns {void} - Nothing
  */
 function PlayerAuctionAddCustomer(Index) {

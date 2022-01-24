@@ -1,6 +1,7 @@
 "use strict";
 var ChatRoomBackground = "";
-var ChatRoomData = {};
+/** @type {ChatRoom} */
+let ChatRoomData = {};
 /** @type {Character[]} */
 var ChatRoomCharacter = [];
 var ChatRoomChatLog = [];
@@ -270,28 +271,30 @@ function ChatRoomCanTakePhotos() { return (ChatRoomData && ChatRoomData.BlockCat
  * Checks if the player can start searching a player
  * @returns {boolean} - Returns TRUE if the player can start searching a player
  */
- function ChatRoomCanTakeSuitcase() {
+function ChatRoomCanTakeSuitcase() {
 	return ChatRoomCarryingBounty(CurrentCharacter) && !CurrentCharacter.CanInteract();
 }
 /**
  * Checks if the player can start searching a player
  * @returns {boolean} - Returns TRUE if the player can start searching a player
  */
- function ChatRoomCanTakeSuitcaseOpened() {
+function ChatRoomCanTakeSuitcaseOpened() {
 	return ChatRoomCarryingBountyOpened(CurrentCharacter) && !CurrentCharacter.CanInteract();
 }
 /**
- * Checks if the player can start searching a player
+ * Checks if the player carries a bounty
+ * @param {Character} C - The character to search
  * @returns {boolean} - Returns TRUE if the player can start searching a player
  */
- function ChatRoomCarryingBounty(C) {
+function ChatRoomCarryingBounty(C) {
 	return (ReputationGet("Kidnap") > 0 && Player.CanInteract() && C.AllowItem != false && InventoryIsWorn(C,"BountySuitcase", "ItemMisc"));
 }
 /**
- * Checks if the player can start searching a player
+ * Checks if the player carries an opened bounty
+ * @param {Character} C - The character to search
  * @returns {boolean} - Returns TRUE if the player can start searching a player
  */
- function ChatRoomCarryingBountyOpened(C) {
+function ChatRoomCarryingBountyOpened(C) {
 	return (ReputationGet("Kidnap") > 0 && Player.CanInteract() && C.AllowItem != false && InventoryIsWorn(C,"BountySuitcaseEmpty", "ItemMisc"));
 }
 /**
@@ -490,7 +493,8 @@ function ChatRoomCanStopHoldLeash() {
 	return false;
 }
 /**
- * Checks if the targeted player is a valid leash target
+ * Checks if the given character is a valid leash target for the player
+ * @param {Character} C - The character to search
  * @returns {boolean} - TRUE if the player can be leashed
  */
 function ChatRoomCanBeLeashed(C) {
@@ -1161,6 +1165,10 @@ function ChatRoomSetLastChatRoom(room) {
 
 /**
  * Triggers a chat room event for things like plugs and crotch ropes, will send a chat message if the chance is right.
+ * @param {StimulationAction|""} Context - The character to search
+ * @param {string} Color - The character to search
+ * @param {number} FlashIntensity - The character to search
+ * @param {number} AlphaStrength - The character to search
  * @returns {void} - Nothing.
  */
 function ChatRoomStimulationMessage(Context, Color = "#FFB0B0", FlashIntensity = 0, AlphaStrength = 140) {
@@ -1323,7 +1331,7 @@ function ChatRoomResize(load) {
  * @param {number} ArousalOverride - Override to the existing arousal value
  * @returns {void} - Nothing.
  */
- function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride) {
+function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride) {
 	let Progress = (ArousalOverride) ? ArousalOverride : Player.ArousalSettings.Progress;
 	let amplitude = 0.24 * Math.min(1, 2 - 1.5 * Progress/100); // Amplitude of the oscillation
 	let percent = Progress/100.0;
@@ -1386,7 +1394,7 @@ function ChatRoomVibrationScreenFilter(y1, h, Width, C) {
  * @param {number} VibratorSides - 1-100 Strength of the vibrator at the breasts/nipples
  * @returns {void} - Nothing.
  */
- function ChatRoomDrawVibrationScreenFilter(y1, h, Width, VibratorLower, VibratorSides) {
+function ChatRoomDrawVibrationScreenFilter(y1, h, Width, VibratorLower, VibratorSides) {
 	let amplitude = 0.24; // Amplitude of the oscillation
 	let percentLower = VibratorLower/100.0;
 	let percentSides = VibratorSides/100.0;
@@ -2059,7 +2067,7 @@ function ChatRoomHTMLEntities(str) {
 
 /**
  * Handles the reception of a chatroom message. Ghost players' messages are ignored.
- * @param {object} data - Message object containing things like the message type, sender, content, etc.
+ * @param {IChatRoomMessage} data - Message object containing things like the message type, sender, content, etc.
  * @returns {void} - Nothing.
  */
 function ChatRoomMessage(data) {
@@ -2481,7 +2489,7 @@ function ChatRoomAddCharacterToChatRoom(newCharacter, newRawCharacter)
 
 /**
  * Handles the reception of the complete room data from the server.
- * @param {object} chatRoomProperties - Room object containing the updated chatroom data.
+ * @param {IChatRoomSyncMessage} chatRoomProperties - Room object containing the updated chatroom data.
  * @returns {boolean} - Returns true if the passed properties are valid and false if they're invalid.
  */
 function ChatRoomValidateProperties(chatRoomProperties)
@@ -2500,7 +2508,7 @@ function ChatRoomValidateProperties(chatRoomProperties)
 
 /**
  * Handles the reception of the new room data from the server.
- * @param {object} data - Room object containing the updated chatroom data.
+ * @param {IChatRoomSyncMessage} data - Room object containing the updated chatroom data.
  * @returns {void} - Nothing.
  */
 function ChatRoomSync(data) {

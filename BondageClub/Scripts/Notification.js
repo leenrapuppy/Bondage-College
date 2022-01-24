@@ -26,7 +26,7 @@ const NotificationAlertType = {
 
 /**
  * An enum for the audio settings for notifications
- * @type {Record<"NONE"|"FIRST"|"REPEAT", NotificationAlertType>}
+ * @type {Record<"NONE"|"FIRST"|"REPEAT", NotificationAudioType>}
  */
 const NotificationAudioType = {
 	NONE: 0,

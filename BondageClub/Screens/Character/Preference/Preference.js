@@ -524,7 +524,7 @@ function PreferenceInitPlayer() {
 	if (typeof NS.ChatJoin.Subs !== "boolean") NS.ChatJoin.Subs = false;
 	if (typeof NS.Audio !== "undefined") delete NS.Audio;
 	if (typeof NS.Disconnect !== "object") NS.Disconnect = PreferenceInitNotificationSetting(NS.Disconnect, defaultAudio);
-	if (typeof NS.Larp !== "object") NS.Larp = PreferenceInitNotificationSetting(NS.Larp, defaultAudio, NotificationEventType.NONE);
+	if (typeof NS.Larp !== "object") NS.Larp = PreferenceInitNotificationSetting(NS.Larp, defaultAudio, NotificationAlertType.NONE);
 	if (typeof NS.Test !== "object") NS.Test = PreferenceInitNotificationSetting(NS.Test, defaultAudio, NotificationAlertType.TITLEPREFIX);
 	C.NotificationSettings = NS;
 

@@ -9,7 +9,8 @@ var ShibariSubCommentDone = false;
 var ShibariDomCommentDone = false;
 var ShibariSurrenderDone = false;
 var ShibariSpankDone = false;
-var ShibariTeacherReleaseTimer = false;
+/** @type {number} */
+let ShibariTeacherReleaseTimer = null;
 var ShibariRescueScenario = "";
 var ShibariRescueScenarioList = ["JapaneseGirl", "RebelStudent", "SelfBondage", "HeadMistress"];
 var ShibariTrainingPrice = 20;
