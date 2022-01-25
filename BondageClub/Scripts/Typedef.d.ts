@@ -727,23 +727,24 @@ interface Character {
 }
 
 interface PlayerCharacter extends Character {
+	// PreferenceInitPlayer() must be updated with defaults, when adding a new setting
 	ChatSettings?: {
-		ColorTheme: string;
-		EnterLeave: string;
-		MemberNumbers: string;
-		FontSize: string;
-		DisplayTimestamps: boolean;
-		ColorNames: boolean;
 		ColorActions: boolean;
+		ColorActivities: boolean;
 		ColorEmotes: boolean;
+		ColorNames: boolean;
+		ColorTheme: string;
+		DisplayTimestamps: boolean;
+		EnterLeave: string;
+		FontSize: string;
+		MemberNumbers: string;
+		MuStylePoses: boolean;
 		ShowActivities: boolean;
 		ShowAutomaticMessages: boolean;
-		WhiteSpace: string;
-		ColorActivities: boolean;
-		ShrinkNonDialogue: boolean;
-		MuStylePoses: boolean;
-		ShowChatHelp: boolean;
 		ShowBeepChat: boolean;
+		ShowChatHelp: boolean;
+		ShrinkNonDialogue: boolean;
+		WhiteSpace: string;
 	};
 	VisualSettings?: {
 		ForceFullHeight: boolean;
