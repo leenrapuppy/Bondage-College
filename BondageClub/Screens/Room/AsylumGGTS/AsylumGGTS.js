@@ -14,7 +14,7 @@ var AsylumGGTSTaskList = [
 	["QueryWhoControl", "QueryLove", "ItemArmsFeetFuturisticCuffs", "ItemBootsFuturisticHeels", "PoseOverHead", "PoseLegsClosed", "PoseLegsOpen", "ActivityHandGag", "ActivitySpank", "UndoRuleKeepPose", "LockRoom", "ClothUpperLowerOn", "ClothUpperLowerOff"],
 	["QueryCanFail", "QuerySurrender", "ClothUnderwear", "ClothNaked", "ActivityWiggle", "ActivityCaress", "ItemMouthFuturisticBallGag", "ItemMouthFuturisticPanelGag", "ItemArmsFuturisticArmbinder", "ItemTransform", "NewRuleNoOrgasm", "UndoRuleNoOrgasm"],
 	["QueryServeObey", "QueryFreeWill", "ActivityMasturbateHand", "ActivityKiss", "ItemPelvisFuturisticChastityBelt", "ItemPelvisFuturisticTrainingBelt", "ItemBreastFuturisticBra", "ItemBreastFuturisticBra2", "ItemTorsoFuturisticHarness"],
-	["QuerySlaveWorthy", "ItemArmsFuturisticStraitjacket", "ItemHeadFuturisticMask", "ItemEarsFuturisticEarphones", "ItemNeckFuturisticCollar", "ActivityBite", "ActivityLick"],
+	["QuerySlaveWorthy", "ItemArmsFuturisticStraitjacket", "ItemHeadFuturisticMask", "ItemEarsFuturisticEarphones", "ItemNeckFuturisticCollar", "ItemEarsDeaf", "ActivityBite", "ActivityLick"],
 	["QueryCanFailMaster", "QueryLoveMaster", "QuerySurrenderMaster", "QueryWhoControlMaster", "QueryServeObeyMaster"]
 ];
 var AsylumGGTSLevelTime = [0, 7200000, 10800000, 18000000, 28800000, 46800000, 75600000];
@@ -395,6 +395,7 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T == "ItemChaste") && (!InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis") || C.IsVulvaChaste())) return false; // Must have unchaste futuristic belt to chaste it
 	if ((T == "ItemUnchaste") && (!InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis") || !C.IsVulvaChaste())) return false; // Must have chaste futuristic belt to unchaste it
 	if ((T == "ItemIntensity") && !InventoryIsWorn(C, "FuturisticTrainingBelt", "ItemPelvis")) return false; // Must have training belt to change intensity
+	if ((T == "ItemEarsDeaf") && !InventoryIsWorn(C, "FuturisticEarphones", "ItemEars")) return false; // Must have headphones to change deaf level
 	if ((T == "ItemTransform") 
 		&& !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticPanelGag", "ItemMouth3")
 		&& !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth") && !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth2") && !InventoryIsWorn(C, "FuturisticHarnessBallGag", "ItemMouth3")
@@ -591,6 +592,28 @@ function AsylumGGTSAutomaticTask() {
 			if (Item.Property.Intensity == 1) Item.Color = ["#6F6F2C", "#AFAF8C", "#AFAF8C", "Default", "Default", "Default"];
 			if (Item.Property.Intensity == 2) Item.Color = ["#7F4F2C", "#C4A38C", "#C4A38C", "Default", "Default", "Default"];
 			if (Item.Property.Intensity == 3) Item.Color = ["#7F2C2C", "#C48C8C", "#C48C8C", "Default", "Default", "Default"];
+		}
+		CharacterRefresh(Player);
+		ChatRoomCharacterUpdate(Player);
+		return AsylumGGTSEndTaskSave();
+	}
+
+	// The ItemEarsDeaf task automatically changes the deaf level of the headphones
+	if (AsylumGGTSTask == "ItemEarsDeaf") {
+		let Item = InventoryGet(Player, "ItemEars");
+		if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name == "FuturisticEarphones")) {
+			if (Item.Property == null) Item.Property = {};
+			let Type = (Item.Property.Type == null) ? "" : Item.Property.Type;
+			Type = CommonRandomItemFromList(Type, ["Light", "Heavy", "NoiseCancelling", ""]);
+			if (Type == "") Item.Property.Effect = [];
+			if (Type == "Light") Item.Property.Effect = ["DeafLight"];
+			if (Type == "Heavy") Item.Property.Effect = ["DeafHeavy"];
+			if (Type == "NoiseCancelling") Item.Property.Effect = ["DeafTotal"];
+			if (Type == "") Item.Color = ["Default", "#50913C", "Default"];
+			if (Type == "Light") Item.Color = ["Default", "#80713C", "Default"];
+			if (Type == "Heavy") Item.Color = ["Default", "#B0513C", "Default"];
+			if (Type == "NoiseCancelling") Item.Color = ["Default", "#E0313C", "Default"];
+			Item.Property.Type = (Type == "") ? null : Type;
 		}
 		CharacterRefresh(Player);
 		ChatRoomCharacterUpdate(Player);
