@@ -349,6 +349,20 @@ function AsylumGGTSTaskDone(C, T) {
 }
 
 /**
+ * Returns TRUE if GGTS can remove an item for a body group
+ * @param {Character} C - The character to evaluate
+ * @param {string} Group - The body group on which to remove the item
+ * @returns {boolean} - TRUE if removing the item is possible
+ */
+function AsylumGGTSCanRemove(C, Group) {
+	let Item = InventoryGet(C, Group);
+	if ((Item == null) || (Item.Asset == null) || (Item.Asset.Name == null)) return false;	
+	if (Item.Asset.Name.substr(0, 10) != "Futuristic") return false;
+	if (InventoryOwnerOnlyItem(Item)) return false;
+	return true;
+}
+
+/**
  * Returns TRUE if the task T can be done in character C predicament
  * @param {Character} C - The character to evaluate
  * @param {string} T - The task to evaluate
@@ -371,9 +385,9 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if (((T == "ItemRemoveLimb") || (T == "ItemRemoveBody") || (T == "ItemRemoveHead") || (T == "ItemUngag") || (T == "ItemUnchaste")) && (LogValue("Isolated", "Asylum") >= CurrentTime)) return false; // When punishment is active, items doesn't get removed
 	if (((T == "ItemRemoveLimb") || (T == "ItemRemoveBody") || (T == "ItemRemoveHead") || (T == "ItemUngag") || (T == "ItemUnchaste")) && (Math.random() * 6 < AsylumGGTSGetLevel(C))) return false; // The higher the level, the less likely GGTS will release
 	if ((T == "ItemPose") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticStraitjacket", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet") && !InventoryIsWorn(C, "FuturisticLegCuffs", "ItemLegs")) return false;
-	if ((T == "ItemRemoveLimb") && !InventoryIsWorn(C, "FuturisticMittens", "ItemHands") && !InventoryIsWorn(C, "FuturisticCuffs", "ItemArms") && !InventoryIsWorn(C, "FuturisticStraitjacket", "ItemArms") && !InventoryIsWorn(C, "FuturisticArmbinder", "ItemArms") && !InventoryIsWorn(C, "FuturisticAnkleCuffs", "ItemFeet")  && !InventoryIsWorn(C, "FuturisticLegCuffs", "ItemLegs") && !InventoryIsWorn(C, "FuturisticHeels", "ItemBoots") && !InventoryIsWorn(C, "FuturisticHeels2", "ItemBoots")) return false;
-	if ((T == "ItemRemoveBody") && !InventoryIsWorn(C, "FuturisticChastityBelt", "ItemPelvis") && !InventoryIsWorn(C, "FuturisticTrainingBelt", "ItemPelvis") && !InventoryIsWorn(C, "FuturisticBra", "ItemBreast") && !InventoryIsWorn(C, "FuturisticBra2", "ItemBreast") && !InventoryIsWorn(C, "FuturisticHarness", "ItemTorso")) return false;
-	if ((T == "ItemRemoveHead") && !InventoryIsWorn(C, "FuturisticCollar", "ItemNeck") && !InventoryIsWorn(C, "FuturisticMask", "ItemHead") && !InventoryIsWorn(C, "FuturisticEarphones", "ItemEars")) return false;
+	if ((T == "ItemRemoveLimb") && !AsylumGGTSCanRemove(C, "ItemHands") && !AsylumGGTSCanRemove(C, "ItemArms") && !AsylumGGTSCanRemove(C, "ItemFeet") && !AsylumGGTSCanRemove(C, "ItemLegs") && !AsylumGGTSCanRemove(C, "ItemBoots")) return false;
+	if ((T == "ItemRemoveBody") && !AsylumGGTSCanRemove(C, "ItemPelvis") && !AsylumGGTSCanRemove(C, "ItemBreast") && !AsylumGGTSCanRemove(C, "ItemTorso")) return false;
+	if ((T == "ItemRemoveHead") && !AsylumGGTSCanRemove(C, "ItemNeck") && !AsylumGGTSCanRemove(C, "ItemHead") && !AsylumGGTSCanRemove(C, "ItemEars")) return false;
 	if ((T == "ItemUngag") && (
 	((InventoryGet(C, "ItemMouth") == null) || (InventoryGet(C, "ItemMouth").Asset.Name.substr(0, 10) != "Futuristic")) &&
 	((InventoryGet(C, "ItemMouth2") == null) || (InventoryGet(C, "ItemMouth2").Asset.Name.substr(0, 10) != "Futuristic")) &&
