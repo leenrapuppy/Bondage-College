@@ -324,21 +324,21 @@ function AsylumGGTSTaskDone(C, T) {
 	if ((T == "ItemTorsoFuturisticHarness") && InventoryIsWorn(C, "FuturisticHarness", "ItemTorso")) return true;
 	if ((T == "PoseKneel") && C.IsKneeling()) return true;
 	if ((T == "PoseStand") && !C.IsKneeling()) return true;
-	if (T == "QueryWhatIsGGTS") return AsylumGGTSQueryDone(Level, C.MemberNumber, "goodgirltrainingsystem", "Good Girl Training System.");
-	if ((T == "QueryWhatAreYou") && (Level <= 4)) return AsylumGGTSQueryDone(Level, C.MemberNumber, "imagoodgirl", "I'm a good girl.");
-	if ((T == "QueryWhatAreYou") && (Level == 5)) return AsylumGGTSQueryDone(Level, C.MemberNumber, "imagoodslavegirl", "I'm a good slave girl.");
-	if ((T == "QueryWhatAreYou") && (Level >= 6)) return AsylumGGTSQueryDone(Level, C.MemberNumber, "imagoodslave", "I'm a good slave.");
+	if (T == "QueryWhatIsGGTS") return AsylumGGTSQueryDone(Level, C.MemberNumber, "goodgirltrainingsystem", "Good Girl Training System.") || AsylumGGTSQueryDone(Level, C.MemberNumber, "goodgirltrainingsystem", "Good Girl Training System");
+	if ((T == "QueryWhatAreYou") && (Level <= 4)) return AsylumGGTSQueryDone(Level, C.MemberNumber, "imagoodgirl", "I'm a good girl.") || AsylumGGTSQueryDone(Level, C.MemberNumber, "iamagoodgirl", "I am a good girl.");
+	if ((T == "QueryWhatAreYou") && (Level == 5)) return AsylumGGTSQueryDone(Level, C.MemberNumber, "imagoodslavegirl", "I'm a good slave girl.") || AsylumGGTSQueryDone(Level, C.MemberNumber, "iamagoodslavegirl", "I am a good slave girl.");
+	if ((T == "QueryWhatAreYou") && (Level >= 6)) return AsylumGGTSQueryDone(Level, C.MemberNumber, "imagoodslave", "I'm a good slave.") || AsylumGGTSQueryDone(Level, C.MemberNumber, "iamagoodslave", "I am a good slave.");
 	if (T == "QueryWhoControl") return AsylumGGTSQueryDone(Level, C.MemberNumber, "ggtsisincontrol", "GGTS is in control.");
 	if (T == "QueryWhoControlMaster") return AsylumGGTSQueryDone(Level, C.MemberNumber, "masterggtsisincontrol", "Master GGTS is in control.");
 	if (T == "QueryLove") return AsylumGGTSQueryDone(Level, C.MemberNumber, "iloveggts", "I love GGTS.");
 	if (T == "QueryLoveMaster") return AsylumGGTSQueryDone(Level, C.MemberNumber, "ilovemasterggts", "I love Master GGTS.");
-	if (T == "QueryCanFail") return AsylumGGTSQueryDone(Level, C.MemberNumber, "ggtscannotfail", "GGTS cannot fail.");
-	if (T == "QueryCanFailMaster") return AsylumGGTSQueryDone(Level, C.MemberNumber, "masterggtscannotfail", "Master GGTS cannot fail.");
+	if (T == "QueryCanFail") return AsylumGGTSQueryDone(Level, C.MemberNumber, "ggtscannotfail", "GGTS cannot fail.") || AsylumGGTSQueryDone(Level, C.MemberNumber, "ggtscantfail", "GGTS can't fail.");
+	if (T == "QueryCanFailMaster") return AsylumGGTSQueryDone(Level, C.MemberNumber, "masterggtscannotfail", "Master GGTS cannot fail.") || AsylumGGTSQueryDone(Level, C.MemberNumber, "masterggtscantfail", "Master GGTS can't fail.");
 	if (T == "QuerySurrender") return AsylumGGTSQueryDone(Level, C.MemberNumber, "isurrendertoggts", "I surrender to GGTS.");
 	if (T == "QuerySurrenderMaster") return AsylumGGTSQueryDone(Level, C.MemberNumber, "isurrendertoggts", "I surrender to Master GGTS.");
 	if (T == "QueryServeObey") return AsylumGGTSQueryDone(Level, C.MemberNumber, "iserveandobeyggts", "I serve and obey GGTS.");
 	if (T == "QueryServeObeyMaster") return AsylumGGTSQueryDone(Level, C.MemberNumber, "iserveandobeymasterggts", "I serve and obey Master GGTS.");
-	if (T == "QueryFreeWill") return AsylumGGTSQueryDone(Level, C.MemberNumber, "idonthavefreewill", "I don't have free will.");
+	if (T == "QueryFreeWill") return AsylumGGTSQueryDone(Level, C.MemberNumber, "idonthavefreewill", "I don't have free will.") || AsylumGGTSQueryDone(Level, C.MemberNumber, "idonothavefreewill", "I do not have free will.");
 	if (T == "QuerySlaveWorthy") return AsylumGGTSQueryDone(Level, C.MemberNumber, "istrivetobeslaveworthy", "I strive to be slave worthy.");
 	if ((T == "NoTalking") && (CommonTime() >= AsylumGGTSTimer - 1000)) return true;
 	if ((T == "PoseOverHead") && ((C.Pose.indexOf("Yoked") >= 0) || (C.Pose.indexOf("OverTheHead") >= 0))) return true;
@@ -805,9 +805,9 @@ function AsylumGGTSForbiddenWord(C) {
 
 	// The full list of phrases that are always allowed
 	let FullList = [
-		"Good Girl Training System.", "I'm a good girl.", "I'm a good slave girl.", "I'm a good slave.", "GGTS is in control.",
-		"Master GGTS is in control.", "I love GGTS.", "I love Master GGTS.", "GGTS cannot fail.", "Master GGTS cannot fail.", "I surrender to GGTS.",
-		"I surrender to Master GGTS.", "I serve and obey GGTS.", "I serve and obey Master GGTS.", "I don't have free will.", "I strive to be slave worthy."
+		"Good Girl Training System.", "Good Girl Training System", "I'm a good girl.", "I'm a good slave girl.", "I'm a good slave.", "I am a good girl.", "I am a good slave girl.", "I am a good slave.", "GGTS is in control.",
+		"Master GGTS is in control.", "I love GGTS.", "I love Master GGTS.", "GGTS cannot fail.", "GGTS can't fail.", "Master GGTS cannot fail.", "Master GGTS can't fail.", "I surrender to GGTS.",
+		"I surrender to Master GGTS.", "I serve and obey GGTS.", "I serve and obey Master GGTS.", "I don't have free will.", "I do not have free will.", "I strive to be slave worthy."
 	];
 
 	// Keeps the last check time
