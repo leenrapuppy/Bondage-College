@@ -3275,6 +3275,14 @@ function ChatRoomChangeClothes() {
 }
 
 /**
+ * Triggered when the player wants to change its own outfit.
+ * @returns {void} - Nothing
+ */
+function DialogChangeClothes() {
+	ChatRoomChangeClothes();
+}
+
+/**
  * Triggered when the player selects an ownership dialog option. (It can change money and reputation)
  * @param {string} RequestType - Type of request being performed.
  * @returns {void} - Nothing
