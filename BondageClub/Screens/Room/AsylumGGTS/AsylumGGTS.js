@@ -440,7 +440,7 @@ function AsylumGGTSTaskFail(C, T) {
  */
 function AsylumGGTSTaskRemoveFuturisticItem(Group) {
 	let Item = InventoryGet(Player, Group);
-	if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name != null) && (Item.Asset.Name.substr(0, 10) == "Futuristic"))
+	if ((Item != null) && (Item.Asset != null) && (Item.Asset.Name != null) && (Item.Asset.Name.substr(0, 10) == "Futuristic") && !InventoryOwnerOnlyItem(Item))
 		InventoryRemove(Player, Group);
 }
 

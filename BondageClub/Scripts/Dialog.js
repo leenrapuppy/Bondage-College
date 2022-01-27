@@ -316,6 +316,12 @@ function DialogSkillGreater(SkillType, Value) { return (parseInt(SkillGetLevel(P
 function DialogInventoryAvailable(InventoryName, InventoryGroup) { return InventoryAvailable(Player, InventoryName, InventoryGroup); }
 
 /**
+ * Checks if the player can change the current character's clothes
+ * @returns {boolean} - TRUE if the player can change the character's clothes and is allowed to.
+ */
+function DialogChatRoomCanChangeClothes() { return ((CurrentScreen == "ChatRoom") && ChatRoomCanChangeClothes()); }
+
+/**
  * Checks, if the player is the administrator of the current chat room
  * @returns {boolean} - Returns true, if the player belogs to the group of administrators for the current char room false otherwise
  */
