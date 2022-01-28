@@ -33,6 +33,12 @@ ClothGrandMageBackSkirt,Inside Skirt
 ClothGrandMageTrim,Dress Trim
 ClothGrandMageBelt,Belts
 ClothGrandMageBuckle,Buckle
+ClothMaidOutfit1Dress,Dress
+ClothMaidOutfit1Apron,Apron
+ClothMaidOutfit1Frills,Frills
+ClothMaidOutfit2Dress,Dress
+ClothMaidOutfit2Apron,Apron
+ClothMaidOutfit2Frills,Frills
 ClothTShirt2Shirt,Shirt
 ClothTShirt2Print,Print
 ClothAdultBabyDress2Dress,Dress
@@ -393,6 +399,9 @@ ItemNeckLeatherCollarCollar,Collar
 ItemNeckLeatherCollarRing,Ring
 ItemNeckLeatherChokerLeather,Leather
 ItemNeckLeatherChokerMetal,Metal
+ItemNeckMaidCollarFrills,Frills
+ItemNeckMaidCollarCollar,Collar
+ItemNeckMaidCollarBrooch,Brooch
 ItemNeckFuturisticCollarBand,Band
 ItemNeckFuturisticCollarMesh,Mesh (for copying to items)
 ItemNeckFuturisticCollarDisplay,Display
@@ -890,6 +899,8 @@ ItemHeadBlackoutLensesLeft,Left Lens
 ItemHeadBlackoutLensesRight,Right Lens
 ItemHeadInteractiveVRHeadsetDisplay,Display
 ItemHeadInteractiveVRHeadsetBody,Body
+ItemHeadFrilledSleepMaskFrills,Frills
+ItemHeadFrilledSleepMaskMask,Mask
 ItemHeadFuturisticMaskDisplay,Tint
 ItemHeadFuturisticMaskText,HUD
 ItemHeadFuturisticMaskLock,Lock Icon
