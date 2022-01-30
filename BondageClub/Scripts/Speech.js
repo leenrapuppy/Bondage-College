@@ -39,31 +39,17 @@ function SpeechGetEffectGagLevel(Effect) {
 
 /**
  * Gets the cumulative gag level of an asset group. Each gagging effect has a specific numeric value. The following
- * Effect arrays are used for the calculation, (higher on this list means that effect array will override the others):
+ * Effect arrays are used for the calculation:
  *     - Item.Property.Effect
  *     - Item.Asset.Effect
  *     - Item.Asset.Group.Effect
  * @param {Character} C - The character, whose assets are used for the check
- * @param {string} AssetGroup - The name of the asset group to look through
+ * @param {string[]} AssetGroups - The name of the asset groups to look through
  * @returns {number} - Returns the total gag effect of the character's assets
  */
-function SpeechGetGagLevel(C, AssetGroup) {
-	var GagEffect = 0;
-	for (let i = 0; i < C.Appearance.length; i++) {
-		var item = C.Appearance[i];
-		if (item.Asset.Group.Name === AssetGroup) {
-			var EffectArray = [];
-			if (item.Property &&
-				Array.isArray(item.Property.Effect) &&
-				!(typeof item.Property.Type === "undefined")
-			) EffectArray = item.Property.Effect;
-			else if (Array.isArray(item.Asset.Effect)) EffectArray = item.Asset.Effect;
-			else if (Array.isArray(item.Asset.Group.Effect)) EffectArray = item.Asset.Group.Effect;
-			GagEffect += SpeechGetEffectGagLevel(EffectArray);
-			break;
-		}
-	}
-	return GagEffect;
+function SpeechGetGagLevel(C, AssetGroups) {
+	const effects = CharacterGetEffects(C, AssetGroups, true);
+	return SpeechGetEffectGagLevel(effects);
 }
 
 /**
@@ -73,15 +59,7 @@ function SpeechGetGagLevel(C, AssetGroup) {
  * @returns {number} - Returns the total gag effect of the character's assets
  */
 function SpeechGetTotalGagLevel(C, NoDeaf=false) {
-	let GagEffect = 0;
-
-	GagEffect += SpeechGetGagLevel(C, "ItemMouth");
-	GagEffect += SpeechGetGagLevel(C, "ItemMouth2");
-	GagEffect += SpeechGetGagLevel(C, "ItemMouth3");
-	GagEffect += SpeechGetGagLevel(C, "ItemHead");
-	GagEffect += SpeechGetGagLevel(C, "ItemHood");
-	GagEffect += SpeechGetGagLevel(C, "ItemNeck");
-	GagEffect += SpeechGetGagLevel(C, "ItemDevices");
+	let GagEffect = SpeechGetGagLevel(C, ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemHood", "ItemNeck", "ItemDevices"]);
 
 	if (C.ID != 0 && !NoDeaf) {
 		if (Player.GetDeafLevel() >= 7) GagEffect = Math.max(GagEffect, 20);

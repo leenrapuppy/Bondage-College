@@ -1503,10 +1503,7 @@ function KinkyDungeonAdvanceTime(delta, NoUpdate, NoMsgTick) {
 	if (!KinkyDungeonPlayer.CanTalk() && Math.random() < gagchance) {
 		let msg = "KinkyDungeonGagMumble";
 		let gagMsg = Math.floor(Math.random() * 5);
-		let GagEffect = -2;
-		GagEffect += SpeechGetGagLevel(KinkyDungeonPlayer, "ItemMouth");
-		GagEffect += SpeechGetGagLevel(KinkyDungeonPlayer, "ItemMouth2");
-		GagEffect += SpeechGetGagLevel(KinkyDungeonPlayer, "ItemMouth3");
+		const GagEffect = -2 + SpeechGetGagLevel(KinkyDungeonPlayer, ["ItemMouth", "ItemMouth2", "ItemMouth3"]);
 		gagMsg += GagEffect/3;
 		gagMsg = Math.max(0, Math.min(7, Math.floor(gagMsg)));
 

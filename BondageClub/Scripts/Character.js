@@ -853,36 +853,48 @@ function CharacterLoadPose(C) {
 }
 
 /**
- * Adds an effect to a character's effect list, does not add it if it's already there
- * @param {Character} C - Character for which to add an effect to its list
- * @param {string[]} NewEffect - The name of the effect to add
- * @returns {void} - Nothing
- */
-function CharacterAddEffect(C, NewEffect) {
-	for (let E = 0; E < NewEffect.length; E++)
-		if (C.Effect.indexOf(NewEffect[E]) < 0)
-			C.Effect.push(NewEffect[E]);
-}
-
-/**
  * Refreshes the list of effects for a character. Each effect can only be found once in the effect array
  * @param {Character} C - Character for which to refresh the effect list
  * @returns {void} - Nothing
  */
 function CharacterLoadEffect(C) {
-	C.Effect = [];
-	for (let A = 0; A < C.Appearance.length; A++) {
-		if (C.Appearance[A].Property && C.Appearance[A].Property.Effect != null) {
-			CharacterAddEffect(C, C.Appearance[A].Property.Effect);
-			if (C.Appearance[A].Property.OverrideAssetEffect) {
-				continue;
+	C.Effect = CharacterGetEffects(C);
+}
+
+/**
+ * Returns a list of effects for a character from some or all groups
+ * @param {Character} C - The character to check
+ * @param {string[]} [Groups=null] - Optional: The list of groups to consider. If none defined, check all groups
+ * @param {boolean} [AllowDuplicates=false] - Optional: If true, keep duplicates of the same effect provided they're taken from different groups
+ * @returns {string[]} - A list of effects
+ */
+function CharacterGetEffects(C, Groups = null, AllowDuplicates = false) {
+	let totalEffects = [];
+	C.Appearance
+		.filter(A => !Array.isArray(Groups) || Groups.length == 0 || Groups.includes(A.Asset.Group.Name))
+		.forEach(item => {
+			let itemEffects = [];
+			let overrideAsset = false;
+
+			if (item.Property && Array.isArray(item.Property.Effect)) {
+				CommonArrayConcatDedupe(itemEffects, item.Property.Effect);
+				overrideAsset = !!item.Property.OverrideAssetEffect;
 			}
-		}
-		if (C.Appearance[A].Asset.Effect != null)
-			CharacterAddEffect(C, C.Appearance[A].Asset.Effect);
-		else if (C.Appearance[A].Asset.Group.Effect != null)
-			CharacterAddEffect(C, C.Appearance[A].Asset.Group.Effect);
-	}
+			if (!overrideAsset) {
+				if (Array.isArray(item.Asset.Effect)) {
+					CommonArrayConcatDedupe(itemEffects, item.Asset.Effect);
+				} else if (Array.isArray(item.Asset.Group.Effect)) {
+					CommonArrayConcatDedupe(itemEffects, item.Asset.Group.Effect);
+				}
+			}
+
+			if (AllowDuplicates) {
+				totalEffects = totalEffects.concat(itemEffects);
+			} else {
+				CommonArrayConcatDedupe(totalEffects, itemEffects);
+			}
+		});
+	return totalEffects;
 }
 
 /**

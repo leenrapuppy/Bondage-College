@@ -3527,7 +3527,6 @@ var AssetFemale3DCGExtended = {
 						Name: "Open",
 						Property: {
 							Type: null,
-							Effect: ["GagLight", "OpenMouth"],
 						},
 					},
 					{
