@@ -311,6 +311,7 @@ NotificationsChatMessage,Messages in chat rooms
 NotificationsChatMessageNormal,Normal Messages
 NotificationsChatMessageWhisper,Whispers
 NotificationsChatMessageActivity,Items/Activities
+NotificationsChatMessageMention,Name Mentioned
 NotificationsChatJoin,Players entering chat rooms
 NotificationsChatJoinOwner,Owner
 NotificationsChatJoinLovers,Lovers

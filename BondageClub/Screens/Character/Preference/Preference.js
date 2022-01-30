@@ -2071,6 +2071,7 @@ function PreferenceSubscreenNotificationsRun() {
 		PreferenceNotificationsDrawSetting(500, 315, TextGet("NotificationsChatMessage"), NS.ChatMessage);
 		DrawText(TextGet("NotificationsOnly"), 550, 427, "Black", "Gray");
 		const chatMessageDisabled = NS.ChatMessage.AlertType === NotificationAlertType.NONE;
+		DrawCheckbox(1500, 315, 64, 64, TextGet("NotificationsChatMessageMention"), NS.ChatMessage.Mention && !chatMessageDisabled, chatMessageDisabled);
 		DrawCheckbox(700, 395, 64, 64, TextGet("NotificationsChatMessageNormal"), NS.ChatMessage.Normal && !chatMessageDisabled, chatMessageDisabled);
 		DrawCheckbox(1150, 395, 64, 64, TextGet("NotificationsChatMessageWhisper"), NS.ChatMessage.Whisper && !chatMessageDisabled, chatMessageDisabled);
 		DrawCheckbox(1500, 395, 64, 64, TextGet("NotificationsChatMessageActivity"), NS.ChatMessage.Activity && !chatMessageDisabled, chatMessageDisabled);
@@ -2137,6 +2138,7 @@ function PreferenceSubscreenNotificationsClick() {
 
 		PreferenceNotificationsClickSetting(500, 315, NS.ChatMessage, NotificationEventType.CHATMESSAGE);
 		if (NS.ChatMessage.AlertType > 0) {
+			if (MouseIn(1500, 315, 64, 64)) NS.ChatMessage.Mention = !NS.ChatMessage.Mention;
 			if (MouseIn(700, 395, 64, 64)) NS.ChatMessage.Normal = !NS.ChatMessage.Normal;
 			if (MouseIn(1150, 395, 64, 64)) NS.ChatMessage.Whisper = !NS.ChatMessage.Whisper;
 			if (MouseIn(1500, 395, 64, 64)) NS.ChatMessage.Activity = !NS.ChatMessage.Activity;

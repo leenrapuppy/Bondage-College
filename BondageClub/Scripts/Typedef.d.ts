@@ -835,6 +835,7 @@ interface PlayerCharacter extends Character {
 		ChatMessage: NotificationSetting & {
 			/** @deprecated */
 			IncludeActions?: any;
+			Mention?: boolean;
 			Normal?: boolean;
 			Whisper?: boolean;
 			Activity?: boolean;

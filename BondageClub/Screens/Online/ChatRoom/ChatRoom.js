@@ -2055,6 +2055,29 @@ function ChatRoomCharacterUpdate(C) {
 		ServerSend("ChatRoomCharacterUpdate", data);
 	}
 }
+/**
+ * Checks if the message contains mentions of the character. Case-insensitive.
+ * @param {Character} C - Character to check mentions of
+ * @param {string} msg - The message to check for mentions
+ * @returns {boolean} - msg contains mention of C
+ */
+function ChatRoomMessageMentionsCharacter(C, msg) {
+	const nameParts = C.Name.toLowerCase().split(/\b/gu);
+	const msgParts = msg.toLowerCase().split(/\b/gu);
+	for (let i = 0; i < msgParts.length - (nameParts.length - 1); i++) {
+		if (msgParts[i] === nameParts[0]) {
+			let match = true;
+			for (let j = 0; j < nameParts.length; j++) {
+				if (msgParts[i + j] !== nameParts[j]) {
+					match = false;
+					break;
+				}
+			}
+			if (match) return true;
+		}
+	}
+	return false;
+}
 
 /**
  * Escapes a given string.
@@ -2352,11 +2375,13 @@ function ChatRoomMessage(data) {
 					}
 
 					if ((data.Type === "Chat" && Player.NotificationSettings.ChatMessage.Normal)
-						|| (data.Type === "Whisper" && Player.NotificationSettings.ChatMessage.Whisper))
+						|| (data.Type === "Whisper" && Player.NotificationSettings.ChatMessage.Whisper)
+						|| (Player.NotificationSettings.ChatMessage.Mention && ChatRoomMessageMentionsCharacter(Player, chatMsg)))
 						ChatRoomNotificationRaiseChatMessage(SenderCharacter, chatMsg);
 				}
 				else if (data.Type == "Emote") {
-					if (HideOthersMessages && !msg.toLowerCase().includes(Player.Name.toLowerCase())) {
+					const playerMentioned = ChatRoomMessageMentionsCharacter(Player, msg);
+					if (HideOthersMessages && !playerMentioned) {
 						return;
 					}
 
@@ -2372,7 +2397,8 @@ function ChatRoomMessage(data) {
 					}
 					else msg = "*" + SenderCharacter.Name + " " + msg + "*";
 
-					if (Player.NotificationSettings.ChatMessage.Normal)
+					if (Player.NotificationSettings.ChatMessage.Normal ||
+						(Player.NotificationSettings.ChatMessage.Mention && playerMentioned))
 						ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
 				}
 				else if (data.Type == "Action") msg = "(" + msg + ")";
