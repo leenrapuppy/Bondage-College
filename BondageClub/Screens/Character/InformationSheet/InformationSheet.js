@@ -71,7 +71,7 @@ function InformationSheetRun() {
 			DrawTextFit(TextGet("Owner") + " " + C.Ownership.Name + " (" + C.Ownership.MemberNumber + ")", 550, 575, 450, "Black", "Gray");
 			DrawTextFit(TextGet((C.Ownership.Stage == 0) ? "TrialFor" : "CollaredFor") + " " + (Math.floor((CurrentTime - C.Ownership.Start) / 86400000)).toString() + " " + TextGet("Days"), 550, 635, 450, "Black", "Gray");
 		}
-		else { DrawTextFit(TextGet("Owner") + " " + (((C.Owner == null) || (C.Owner == "")) ? TextGet("OwnerNone") : C.Owner.replace("NPC-", "")), 550, 575, 450, "Black", "Gray"); }
+		else { DrawTextFit(TextGet("Owner") + " " + (((C.Owner == null) || (C.Owner == "")) ? TextGet((AsylumGGTSGetLevel(C) >= 6) ? "OwnerGGTS" : "OwnerNone") : C.Owner.replace("NPC-", "")), 550, 575, 450, "Black", "Gray"); }
 
 		// Shows the member number and online permissions for other online players
 		if (C.ID != 0) {
