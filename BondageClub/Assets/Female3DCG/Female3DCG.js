@@ -4209,6 +4209,16 @@ var AssetFemale3DCG = [
 					{ Name: "Shine", AllowColorize: false },
 				],
 			},
+			{
+				Name: "OTNPlugGag", Value: 120, Difficulty: 4, Time: 20, Random: false, AllowLock: true, Prerequisite: "GagFlat", DefaultColor: ["#665D5D", "#514D57", "#979595"], Hide: ["Mouth"], Effect: ["GagMedium"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }], Extended: true,
+				Layer: [
+					{ Name: "Base", AllowColorize: true, HasType: false },
+					{ Name: "Straps", AllowColorize: true, HasType: false },
+					{ Name: "Metal", AllowColorize: false, HasType: false },
+					{ Name: "Tongue", AllowColorize: false, AllowTypes: ["", "Open"]},
+					{ Name: "Plug", AllowColorize: true, AllowTypes: ["Plug"] },
+				]
+			},
 			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]

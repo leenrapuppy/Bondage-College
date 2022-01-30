@@ -673,6 +673,9 @@ ItemMouthCageMuzzleMuzzle,Cage
 ItemMouthPaciGagBase,Pacifier
 ItemMouthPaciGagStraps,Straps
 ItemMouthPaciGagMetal,Buckles
+ItemMouthOTNPlugGagBase,Base
+ItemMouthOTNPlugGagStraps,Straps
+ItemMouthOTNPlugGagPlug,Plug
 ItemMouth2WiffleGagStrap,Strap
 ItemMouth2WiffleGagBall,Ball
 ItemMouth2HarnessBallGagBall,Ball
