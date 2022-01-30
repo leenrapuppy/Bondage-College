@@ -71,6 +71,7 @@ function CollegeChessStrip(C) {
 	if (InventoryGet(C, "Shoes") != null) return InventoryRemove(C, "Shoes");
 	if (InventoryGet(C, "Socks") != null) return InventoryRemove(C, "Socks");
 	if (InventoryGet(C, "Cloth") != null) return InventoryRemove(C, "Cloth");
+	if (InventoryGet(C, "ClothLower") != null) return InventoryRemove(C, "ClothLower");
 	if (InventoryGet(C, "Bra") != null) return InventoryRemove(C, "Bra");
 	if (InventoryGet(C, "Panties") != null) return InventoryRemove(C, "Panties");
 }
@@ -83,7 +84,7 @@ function CollegeChessRestrain(C) {
 	if ((InventoryGet(C, "ItemLegs") == null) && !InventoryGroupIsBlocked(C, "ItemLegs")) return InventoryWearRandom(C, "ItemLegs");
 	if ((InventoryGet(C, "ItemFeet") == null) && !InventoryGroupIsBlocked(C, "ItemFeet")) return InventoryWearRandom(C, "ItemFeet");
 	if ((InventoryGet(C, "ItemNeck") == null) && !InventoryGroupIsBlocked(C, "ItemNeck")) return InventoryWearRandom(C, "ItemNeck");
-	if (InventoryGet(C, "Cloth") != null) return;
+	if (InventoryGet(C, "Cloth") != null || InventoryGet(C, "ClothLower") != null) return;
 	if ((InventoryGet(C, "ItemTorso") == null) && !InventoryGroupIsBlocked(C, "ItemTorso")) return InventoryWearRandom(C, "ItemTorso");
 	if ((InventoryGet(C, "ItemBreast") == null) && !InventoryGroupIsBlocked(C, "ItemBreast")) return InventoryWearRandom(C, "ItemBreast");
 	if ((InventoryGet(C, "ItemPelvis") == null) && !InventoryGroupIsBlocked(C, "ItemPelvis")) return InventoryWearRandom(C, "ItemPelvis");
