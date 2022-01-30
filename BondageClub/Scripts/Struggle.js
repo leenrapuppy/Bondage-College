@@ -1026,9 +1026,10 @@ function StruggleDrawLockpickProgress(C) {
 			}
 		}
 	} else {
-		if ( Player.ArousalSettings && (Player.ArousalSettings.Active != "Inactive" && Player.ArousalSettings.Active != "NoMeter") && Player.ArousalSettings.Progress > 20 && StruggleLockPickProgressCurrentTries < StruggleLockPickProgressMaxTries && StruggleLockPickProgressCurrentTries > 0) {
+		let progress = ActivityGetArousal(Player);
+		if (PreferenceArousalIsActive(Player) && progress > 20 && StruggleLockPickProgressCurrentTries < StruggleLockPickProgressMaxTries && StruggleLockPickProgressCurrentTries > 0) {
 			if (CurrentTime > StruggleLockPickArousalTick) {
-				var arousalmaxtime = 2.6 - 2.0*Player.ArousalSettings.Progress/100;
+				var arousalmaxtime = 2.6 - 2.0 * progress / 100;
 				if (StruggleLockPickArousalTick - CurrentTime > CurrentTime + StruggleLockPickArousalTickTime*arousalmaxtime) {
 					StruggleLockPickArousalTick = CurrentTime + StruggleLockPickArousalTickTime*arousalmaxtime; // In case it gets set out way too far
 				}
@@ -1258,7 +1259,3 @@ function StruggleLockPickProgressStart(C, Item) {
 		StruggleLockPickProgressMaxTries = Math.max(1, NumTries - NumPins);
 	}
 }
-
-
-
-

@@ -63,6 +63,188 @@ var PreferenceGraphicsWebGLOptions = null;
 var PreferenceGraphicsAnimationQualityList = [10000, 2000, 200, 100, 50, 0];
 var PreferenceCalibrationStage = 0;
 
+
+/** @type {Record<"Inactive"|"NoMeter"|"Manual"|"Hybrid"|"Automatic", ArousalMeterMode>} */
+const ArousalMode = {
+	Inactive: "Inactive",
+	NoMeter: "NoMeter",
+	Manual: "Manual",
+	Hybrid: "Hybrid",
+	Automatic: "Automatic",
+};
+
+/** @type {Record<"All"|"Access"|"Self", ArousalAccessMode>} */
+const ArousalAccess = {
+	All: "All",
+	Access: "Access",
+	Self: "Self",
+};
+
+/** @type {Record<"Inactive"|"Animated"|"AnimatedTemp", ArousalVFXMode>} */
+const ArousalVFX = {
+	Inactive: "VFXInactive",
+	Animated: "VFXAnimated",
+	AnimatedTemp: "VFXAnimatedTemp",
+};
+
+/** @type {Record<"Inactive"|"Solid"|"Animated", ArousalVFXVibratorMode>} */
+const ArousalVFXVibrator = {
+	Inactive: "VFXVibratorInactive",
+	Solid: "VFXVibratorSolid",
+	Animated: "VFXVibratorAnimated",
+};
+
+/** @type {Record<"Light"|"Medium"|"Heavy", ArousalVFXFilterMode>} */
+const ArousalVFXFilter = {
+	Light: "VFXFilterLight",
+	Medium: "VFXFilterMedium",
+	Heavy: "VFXFilterHeavy",
+};
+
+/** @type {Record<"None"|"Arousal"|"Vibration"|"All", ArousalStutterMode>} */
+const ArousalStutter = {
+	None: "None",
+	Arousal: "Arousal",
+	Vibration: "Vibration",
+	All: "All"
+};
+
+/**
+ * Check a character's arousal mode against a list.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @param {Array<ArousalMeterMode>} modes - The arousal modes
+ * @returns {boolean|null}
+ */
+function PreferenceArousalIsInMode(character, modes) {
+	if (character.ArousalSettings && character.ArousalSettings.Active)
+		return modes.includes(character.ArousalSettings.Active);
+	return false;
+}
+
+/**
+ * Check whether a character can be aroused.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @returns {boolean|null}
+ */
+function PreferenceArousalIsActive(character) {
+	return PreferenceArousalIsInMode(character, [ArousalMode.Manual, ArousalMode.Hybrid, ArousalMode.Automatic]);
+}
+
+/**
+ * Returns a character's arousal access mode.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @returns {ArousalAccessMode|null}
+ */
+function PreferenceArousalGetAccessMode(character) {
+	if (character.ArousalSettings && character.ArousalSettings.Visible)
+		return character.ArousalSettings.Visible;
+	return null;
+}
+
+/**
+ * Returns a character's arousal-stuttering setting.
+ * @param {Character|Player} character
+ * @returns {ArousalStutterMode}
+ */
+function PreferenceArousalGetStutterSetting(character) {
+	if (character.ArousalSettings && character.ArousalSettings.AffectStutter)
+		return character.ArousalSettings.AffectStutter;
+	return ArousalStutter.All;
+}
+
+/**
+ * Returns whether a character's arousal affects its expression.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @returns {boolean}
+ */
+function PreferenceArousalAffectsExpression(character) {
+	if (character.ArousalSettings && character.ArousalSettings.AffectExpression)
+		return !!character.ArousalSettings.AffectExpression;
+	return true;
+}
+
+/**
+ * Returns whether a character can see others' arousal meters.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @returns {boolean}
+ */
+function PreferenceArousalShowsMeter(character) {
+	if (character.ArousalSettings && character.ArousalSettings.ShowOtherMeter)
+		return !!character.ArousalSettings.ShowOtherMeter;
+	return false;
+}
+
+/**
+ * Returns whether a character can set its own arousal meter.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @returns {boolean}
+ */
+function PreferenceArousalCanChangeMeter(character) {
+	const access = PreferenceArousalGetAccessMode(character);
+	return (access === ArousalAccess.Access && character.AllowItem) || access === ArousalAccess.All;
+}
+
+/**
+ * Does the character allow advanced vibrating modes on itself?
+ * @param {Character|Player} character
+ */
+function PreferenceArousalHasAdvancedVibesDisabled(character) {
+	if (character.ArousalSettings && typeof character.ArousalSettings.DisableAdvancedVibes === "boolean")
+		return character.ArousalSettings.DisableAdvancedVibes;
+	return false;
+}
+
+/**
+ * Get the characters' arousal effect visual setting.
+ * @param {Character} character
+ * @return {ArousalVFXMode}
+ */
+function PreferenceArousalGetVFXSetting(character) {
+	if (character.ArousalSettings && character.ArousalSettings.VFX)
+		return character.ArousalSettings.VFX;
+	return ArousalVFX.Inactive;
+}
+
+/**
+ * Is the arousal effect enabled for this character?
+ * @param {Character} character
+ * @return {boolean}
+ */
+function PreferenceArousalVFXActive(character) {
+	return PreferenceArousalGetVFXSetting(character) !== ArousalVFX.Inactive;
+}
+
+/**
+ * Get the characters' arousal effect vibrator animation setting.
+ * @param {Character} character
+ * @return {ArousalVFXVibratorMode}
+ */
+function PreferenceArousalGetVFXVibratorSetting(character) {
+	if (character.ArousalSettings && character.ArousalSettings.VFXVibrator)
+		return character.ArousalSettings.VFXVibrator;
+	return ArousalVFXVibrator.Inactive;
+}
+
+/**
+ * Is vibrator effect animated for this character?
+ * @param {Character} character
+ * @return {boolean}
+ */
+function PreferenceArousalIsVibratorVFXAnimated(character) {
+	return PreferenceArousalGetVFXVibratorSetting(character) === ArousalVFXVibrator.Animated;
+}
+
+/**
+ * Get the characters' arousal effect visual filter.
+ * @param {Character} character
+ * @return {ArousalVFXFilterMode}
+ */
+function PreferenceArousalGetVFXFilterSetting(character) {
+	if (character.ArousalSettings && character.ArousalSettings.VFXFilter)
+		return character.ArousalSettings.VFXFilter;
+	return ArousalVFXFilter.Light;
+}
+
 /**
  * Compares the arousal preference level and returns TRUE if that level is met, or an higher level is met
  * @param {Character} C - The player who performs the sexual activity
@@ -220,14 +402,6 @@ function PreferenceGetFactorColor(Factor) {
 }
 
 /**
- * Checks, if the arousal activity controls must be activated
- * @returns {boolean} - Returns true if we must activate the preference controls, false otherwise
- */
-function PreferenceArousalIsActive() {
-	return (PreferenceArousalActiveList[PreferenceArousalActiveIndex] != "Inactive");
-}
-
-/**
  * Loads the activity factor combo boxes based on the current activity selected
  * @returns {void} - Nothing
  */
@@ -260,7 +434,7 @@ function PreferenceInit(C) {
 	if (typeof C.ArousalSettings.AffectExpression !== "boolean") C.ArousalSettings.AffectExpression = true;
 	if (typeof C.ArousalSettings.AffectStutter !== "string") C.ArousalSettings.AffectStutter = "All";
 	if (typeof C.ArousalSettings.VFX !== "string") C.ArousalSettings.VFX = "VFXAnimatedTemp";
-	if (typeof C.ArousalSettings.VFXVibrator !== "string") C.ArousalSettings.VFXVibrator = "VFXAnimated";
+	if (typeof C.ArousalSettings.VFXVibrator !== "string") C.ArousalSettings.VFXVibrator = "VFXVibratorAnimated";
 	if (typeof C.ArousalSettings.Progress !== "number" || isNaN(C.ArousalSettings.Progress)) C.ArousalSettings.Progress = 0;
 	if (typeof C.ArousalSettings.ProgressTimer !== "number" || isNaN(C.ArousalSettings.ProgressTimer)) C.ArousalSettings.ProgressTimer = 0;
 	if (typeof C.ArousalSettings.VibratorLevel !== "number" || isNaN(C.ArousalSettings.VibratorLevel)) C.ArousalSettings.VibratorLevel = 0;
@@ -1259,7 +1433,7 @@ function PreferenceSubscreenArousalRun() {
 
 
 	// The other controls are only drawn if the arousal is active
-	if (PreferenceArousalIsActive()) {
+	if (PreferenceArousalIsActive(Player)) {
 
 		// Draws the labels and check boxes
 		DrawCheckbox(1250, 276, 64, 64, TextGet("ArousalAffectExpression"), Player.ArousalSettings.AffectExpression);
@@ -1704,7 +1878,7 @@ function PreferenceSubscreenArousalClick() {
 		Player.ArousalSettings.DisableAdvancedVibes = !Player.ArousalSettings.DisableAdvancedVibes;
 
 	// If the arousal is active, we allow more controls
-	if (PreferenceArousalIsActive()) {
+	if (PreferenceArousalIsActive(Player)) {
 
 		// Meter affect your facial expressions check box
 		if (MouseIn(1250, 276, 64, 64))

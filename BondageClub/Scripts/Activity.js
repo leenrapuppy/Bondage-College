@@ -289,7 +289,7 @@ function ActivityAllowedForGroup(character, groupname) {
  * Returns TRUE if an activity can be done
  * @param {Character} C - The character to evaluate
  * @param {string} Activity - The name of the activity
- * @param {string} Group - The name of the group 
+ * @param {string} Group - The name of the group
  * @return {boolean} - TRUE if the activity can be done
  */
 function ActivityCanBeDone(C, Activity, Group) {
@@ -364,6 +364,34 @@ function ActivityChatRoomArousalSync(C) {
 }
 
 /**
+ * Returns a player or character's arousal progress value.
+ * @param {Character|Player} C - The character to read arousal from
+ * @returns {number|null}
+ */
+function ActivityGetArousal(C) {
+	if (!PreferenceArousalIsActive(C)) return 0;
+	if (C.ArousalSettings && typeof C.ArousalSettings.Progress === "number" && !isNaN(C.ArousalSettings.Progress))
+		return C.ArousalSettings.Progress;
+	return null;
+}
+
+/**
+ * Returns whether a player or character's arousal progress is between two values.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @param {number|null} lower - The lower bound, excluded
+ * @param {number|null} upper - The upper bound, excluded
+ * @returns {boolean}
+ */
+function ActivityIsArousalBetween(character, lower, upper) {
+	const arousal = ActivityGetArousal(character);
+	return (
+		arousal !== null &&
+		(lower === null || arousal > lower) &&
+		(upper === null || arousal < upper)
+	);
+}
+
+/**
  * Sets the character arousal level and validates the value
  * @param {Character} C - The character for which to set the arousal progress of
  * @param {number} Progress - Progress to set for the character (Ranges from 0 to 100)
@@ -382,6 +410,50 @@ function ActivitySetArousal(C, Progress) {
 }
 
 /**
+ * Returns a player or character's orgasm stage value.
+ * @param {Character|Player} C - The character or player to read arousal from
+ * @returns {number} - 0 is no orgasm, 1 means minigame is in progress, 2 means is orgasming
+ */
+function ActivityGetOrgasmStage(C) {
+	if (C.ArousalSettings && C.ArousalSettings.OrgasmStage)
+		return C.ArousalSettings.OrgasmStage;
+	return 0;
+}
+
+/**
+ * Returns a player or character's orgasm timer value.
+ * @param {Character|Player} C - The character or player to read arousal from
+ * @returns {number}
+ */
+function ActivityGetOrgasmTimer(C) {
+	if (C.ArousalSettings && C.ArousalSettings.OrgasmTimer)
+		return C.ArousalSettings.OrgasmTimer;
+	return 0;
+}
+
+/**
+ * Returns a player or character's orgasm count.
+ * @param {Character|Player} C
+ * @returns {number}
+ */
+function ActivityGetOrgasmCount(C) {
+	if (C.ArousalSettings && typeof C.ArousalSettings.OrgasmCount === "number")
+		return C.ArousalSettings.OrgasmCount;
+	return 0;
+}
+
+/**
+ * Returns the current timed progress for a character.
+ * @param {Character|Player} character - The character or player to read arousal from
+ * @returns {number}
+ */
+function ActivityGetArousalTimer(character) {
+	if (character.ArousalSettings)
+		return character.ArousalSettings.ProgressTimer;
+	return 0;
+}
+
+/**
  * Sets an activity progress on a timer, activities are capped at MaxProgress
  * @param {Character} C - The character for which to set the timer for
  * @param {object} Activity - The activity for which the timer is for
@@ -390,10 +462,16 @@ function ActivitySetArousal(C, Progress) {
  * @return {void} - Nothing
  */
 function ActivitySetArousalTimer(C, Activity, Zone, Progress) {
+	// Make sure the property exist
+	if ((C.ArousalSettings.ProgressTimer == null)
+		|| (typeof C.ArousalSettings.ProgressTimer !== "number")
+		|| isNaN(C.ArousalSettings.ProgressTimer)) {
+		C.ArousalSettings.ProgressTimer = 0;
+	}
 
 	// If there's already a progress timer running, we add it's value but divide it by 2 to lessen the impact, the progress must be between -25 and 25
-	if ((C.ArousalSettings.ProgressTimer == null) || (typeof C.ArousalSettings.ProgressTimer !== "number") || isNaN(C.ArousalSettings.ProgressTimer)) C.ArousalSettings.ProgressTimer = 0;
-	Progress = Math.round((C.ArousalSettings.ProgressTimer / 2) + Progress);
+	let timer = ActivityGetArousalTimer(C);
+	Progress = Math.round((timer / 2) + Progress);
 	if (Progress < -25) Progress = -25;
 	if (Progress > 25) Progress = 25;
 
@@ -401,16 +479,44 @@ function ActivitySetArousalTimer(C, Activity, Zone, Progress) {
 	var Max = ((Activity == null || Activity.MaxProgress == null) || (Activity.MaxProgress > 100)) ? 100 : Activity.MaxProgress;
 	if ((Max > 95) && !PreferenceGetZoneOrgasm(C, Zone)) Max = 95;
 	if ((Max > 67) && (Zone == "ActivityOnOther")) Max = 67;
-	if ((Progress > 0) && (C.ArousalSettings.Progress + Progress > Max)) Progress = (Max - C.ArousalSettings.Progress >= 0) ? Max - C.ArousalSettings.Progress : 0;
+	let arousal = ActivityGetArousal(C);
+	if ((Progress > 0) && (arousal + Progress > Max)) {
+		Progress = (Max - arousal >= 0) ? Max - arousal : 0;
+	}
 
 	// If we must apply a progress timer change, we publish it
-	if (C.ArousalSettings.ProgressTimer !== Progress) {
+	if (timer !== Progress) {
 		C.ArousalSettings.ProgressTimer = Progress;
 		ActivityChatRoomArousalSync(C);
 	}
-
 }
 
+/**
+ * Get the character current vibration level.
+ * @param {Character} C
+ * @return {number}
+ */
+function ActivityGetVibratorLevel(C) {
+	if (C.ArousalSettings && typeof C.ArousalSettings.VibratorLevel === "number" && !isNaN(C.ArousalSettings.VibratorLevel))
+		return C.ArousalSettings.VibratorLevel;
+	return 0;
+}
+
+/**
+ * Set the current vibrator level for drawing purposes
+ * @param {Character} C - Character for which the timer is progressing
+ * @param {number} Level - Level from 0 to 4 (higher = more vibration)
+ * @returns {void} - Nothing
+ */
+function ActivitySetVibratorLevel(C, Level) {
+	if (C.ArousalSettings != null) {
+		if (Level != ActivityGetVibratorLevel(C)) {
+			C.ArousalSettings.VibratorLevel = Level;
+			// reset the vibrator animation
+			C.ArousalSettings.ChangeTime = CommonTime();
+		}
+	}
+}
 
 /**
  * Draws the arousal progress bar at the given coordinates for every orgasm timer.
@@ -661,16 +767,13 @@ function ActivityExpression(C, Progress) {
  */
 function ActivityTimerProgress(C, Progress) {
 
-	// Changes the current arousal progress value
-	C.ArousalSettings.Progress = C.ArousalSettings.Progress + Progress;
 	// Decrease the vibratorlevel to 0 if not being aroused, while also updating the change time to reset the vibrator animation
 	if (Progress < 0) {
-		if (C.ArousalSettings.VibratorLevel != 0) {
-			C.ArousalSettings.VibratorLevel = 0;
-			C.ArousalSettings.ChangeTime = CommonTime();
-		}
+		ActivitySetVibratorLevel(C, 0);
 	}
 
+	// Update the current arousal, make sure it stays between 0 & 100.
+	C.ArousalSettings.Progress = C.ArousalSettings.Progress + Progress;
 	if (C.ArousalSettings.Progress < 0) C.ArousalSettings.Progress = 0;
 	if (C.ArousalSettings.Progress > 100) C.ArousalSettings.Progress = 100;
 
@@ -680,9 +783,11 @@ function ActivityTimerProgress(C, Progress) {
 	}
 
 	// Out of orgasm mode, it can affect facial expressions at every 10 steps
-	if ((C.ArousalSettings.OrgasmTimer == null) || (typeof C.ArousalSettings.OrgasmTimer !== "number") || isNaN(C.ArousalSettings.OrgasmTimer) || (C.ArousalSettings.OrgasmTimer < CurrentTime))
-		if (((C.ArousalSettings.AffectExpression == null) || C.ArousalSettings.AffectExpression) && ((C.ArousalSettings.Progress + ((Progress < 0) ? 1 : 0)) % 10 == 0))
+	if ((ActivityGetOrgasmTimer(C) < CurrentTime) && PreferenceArousalAffectsExpression(C)) {
+		if ((C.ArousalSettings.Progress + ((Progress < 0) ? 1 : 0)) % 10 == 0) {
 			ActivityExpression(C, C.ArousalSettings.Progress);
+		}
+	}
 
 	// Can trigger an orgasm
 	if (C.ArousalSettings.Progress == 100) ActivityOrgasmPrepare(C);
@@ -704,7 +809,6 @@ function ActivityVibratorLevel(C, Level) {
 	}
 }
 
-
 /**
  * Calculates the progress one character does on another right away
  * @param {Character} Source - The character who performed the activity
@@ -713,7 +817,7 @@ function ActivityVibratorLevel(C, Level) {
  * @returns {void} - Nothing
  */
 function ActivityRunSelf(Source, Target, Activity) {
-	if (((Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic")) && (Source.ID == 0) && (Target.ID != 0)) {
+	if (PreferenceArousalIsInMode(Player, ["Hybrid", "Automatic"]) && (Source.ID == 0) && (Target.ID != 0)) {
 		var Factor = (PreferenceGetActivityFactor(Player, Activity.Name, false) * 5) - 10; // Check how much the player likes the activity, from -10 to +10
 		Factor = Factor + Math.floor((Math.random() * 8)); // Random 0 to 7 bonus
 		if (Target.IsLoverOfPlayer()) Factor = Factor + Math.floor((Math.random() * 8)); // Another random 0 to 7 bonus if the target is the player's lover
@@ -741,7 +845,7 @@ function ActivityRun(C, Activity) {
 
 	let group = ActivityGetGroupOrMirror(C.AssetFamily, C.FocusGroup.Name);
 	// If the player does the activity on herself or an NPC, we calculate the result right away
-	if ((C.ArousalSettings.Active == "Hybrid") || (C.ArousalSettings.Active == "Automatic"))
+	if (PreferenceArousalIsInMode(C, ["Hybrid", "Automatic"]))
 		if ((C.ID == 0) || C.IsNpc())
 			ActivityEffect(Player, C, Activity, group.Name);
 
@@ -789,7 +893,7 @@ function ActivityArousalItem(Source, Target, Asset) {
 	if (AssetActivity != null) {
 		var Activity = AssetGetActivity(Target.AssetFamily, AssetActivity);
 		if ((Source.ID == 0) && (Target.ID != 0)) ActivityRunSelf(Source, Target, Activity);
-		if (PreferenceArousalAtLeast(Target, "Hybrid") && ((Target.ID == 0) || (Target.IsNpc())))
+		if (PreferenceArousalIsInMode(Target, ["Hybrid", "Automatic"]) && (Target.IsPlayer() || Target.IsNpc()))
 			ActivityEffect(Source, Target, AssetActivity, Asset.Group.Name);
 	}
 }

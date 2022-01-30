@@ -74,6 +74,13 @@ type VibratorModeState = "Default" | "Deny" | "Orgasm" | "Rest";
 
 type VibratorRemoteAvailability = "Available" | "NoRemote" | "NoLoversRemote" | "RemotesBlocked" | "CannotInteract" | "NoAccess" | "InvalidItem";
 
+type ArousalMeterMode = "Inactive" | "NoMeter" | "Manual" | "Hybrid" | "Automatic";
+type ArousalAccessMode = "All" | "Access" | "Self";
+type ArousalVFXMode = "VFXInactive" | "VFXAnimated" | "VFXAnimatedTemp";
+type ArousalVFXVibratorMode = "VFXVibratorInactive" | "VFXVibratorSolid" | "VFXVibratorAnimated";
+type ArousalVFXFilterMode = "VFXFilterLight" | "VFXFilterMedium" | "VFXFilterHeavy";
+type ArousalStutterMode = "None" | "Arousal" | "Vibration" | "All";
+
 //#endregion
 
 //#region index.html
@@ -678,14 +685,14 @@ interface Character {
 	HeightRatioProportion?: number;
 	// Properties created in other places
 	ArousalSettings?: {
-		Active: string;
-		Visible: string;
+		Active: ArousalMeterMode;
+		Visible: ArousalAccessMode;
 		ShowOtherMeter: boolean;
 		AffectExpression: boolean;
-		AffectStutter: string;
-		VFX: string;
-		VFXVibrator: string;
-		VFXFilter: string;
+		AffectStutter: ArousalStutterMode;
+		VFX: ArousalVFXMode;
+		VFXVibrator: ArousalVFXVibratorMode;
+		VFXFilter: ArousalVFXFilterMode;
 		Progress: number;
 		ProgressTimer: number;
 		VibratorLevel: number;

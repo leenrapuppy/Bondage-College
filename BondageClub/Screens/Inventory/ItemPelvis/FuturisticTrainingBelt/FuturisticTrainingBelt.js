@@ -323,10 +323,11 @@ function InventoryItemPelvisFuturisticTrainingBeltNpcDialog(C, Option) {
 }
 
 function InventoryItemPelvisFuturisticTrainingBeltGetVibeMode(C, State, First) {
-	const ArousalActive = C.ArousalSettings && C.ArousalSettings.Progress && ["Manual", "Hybrid", "Automatic"].includes(C.ArousalSettings.Active);
+	let arousalActive = PreferenceArousalIsActive(C);
+	let progress = ActivityGetArousal(C);
 	if (State.includes("Edge")) {
-		if (First || (ArousalActive &&(C.ArousalSettings.Progress < 60 || C.ArousalSettings.Progress > 90)) || (CommonTime() % FuturisticTrainingBeltRandomEdgeCycle > FuturisticTrainingBeltRandomEdgeCycle / 5)) {
-			if ((ArousalActive && C.ArousalSettings.Progress > 90))
+		if (First || (arousalActive && !ActivityIsArousalBetween(C, 60, 90)) || (CommonTime() % FuturisticTrainingBeltRandomEdgeCycle > FuturisticTrainingBeltRandomEdgeCycle / 5)) {
+			if ((arousalActive && progress > 90))
 				return VibratorMode.MAXIMUM;
 			else return VibratorMode.HIGH;
 		} else
@@ -334,9 +335,9 @@ function InventoryItemPelvisFuturisticTrainingBeltGetVibeMode(C, State, First) {
 	}
 	if (State.includes("Tease")) {
 		if (Math.random() < FuturisticTrainingBeltRandomTeaseMaxChance) return VibratorMode.MAXIMUM;
-		if (ArousalActive) {
-			if (C.ArousalSettings.Progress < 35) return VibratorMode.HIGH;
-			if (C.ArousalSettings.Progress < 70) return VibratorMode.MEDIUM;
+		if (arousalActive) {
+			if (progress < 35) return VibratorMode.HIGH;
+			if (progress < 70) return VibratorMode.MEDIUM;
 		}
 		return VibratorMode.LOW;
 	}
@@ -449,7 +450,7 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptUpdatePlayer(data, LastTime
 		let punishment = InventoryFuturisticChastityBeltCheckPunish(Item);
 		if (punishment != "") {
 			if (punishment == "Orgasm") {
-				if (Item.Property.PunishOrgasm && C.ArousalSettings && C.ArousalSettings.OrgasmStage > 1) {
+				if (Item.Property.PunishOrgasm && ActivityGetOrgasmStage(C) > 1) {
 					AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, "Orgasm");
 					Item.Property.NextShockTime = CurrentTime + FuturisticChastityBeltShockCooldownOrgasm; // Difficult to have two orgasms in 10 seconds
 				}
@@ -541,7 +542,7 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptStateMachine(data) {
 	var C = data.C;
 	let PersistentData = data.PersistentData();
 
-	var ArousalActive = C.ArousalSettings && C.ArousalSettings.Progress && ["Manual", "Hybrid", "Automatic"].includes(C.ArousalSettings.Active);
+	var ArousalActive = PreferenceArousalIsActive(C);
 	var Property = Item ? Item.Property : null;
 	if (!Property) return;
 
@@ -570,7 +571,7 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptStateMachine(data) {
 		} else if (Mode == "EdgeAndDeny") {
 			if (State != "Cooldown")
 				DeviceSetToState = FuturisticTrainingBeltStates.indexOf("LowPriorityEdge");
-			if (ArousalActive && C.ArousalSettings.Progress > 90) {
+			if (ActivityGetArousal(C) > 90) {
 				if (Math.random() < FuturisticTrainingBeltRandomDenyChance) {
 					DeviceSetToState = FuturisticTrainingBeltStates.indexOf("Cooldown");
 					PersistentData.DeviceStateTimer = CommonTime() + FuturisticTrainingBeltRandomDenyDuration;
@@ -689,12 +690,14 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptStateMachine(data) {
 
 
 	if (ArousalActive) {
-		if (EdgeMode && C.ArousalSettings.Progress > 96 && !((ActivityOrgasmGameTimer != null) && (ActivityOrgasmGameTimer > 0) && (CurrentTime < C.ArousalSettings.OrgasmTimer))) { // Manually trigger orgasm at this stage
+		let timer = ActivityGetOrgasmTimer(C);
+		if (EdgeMode && ActivityGetArousal(C) > 96 && !(timer > 0 && (CurrentTime < timer))) {
+			// Manually trigger orgasm at this stage
 			DialogLeave();
 			ActivityOrgasmPrepare(C, true);
 			// Continuous edging~
 			if (Mode == "EdgeAndDeny")
-				C.ArousalSettings.Progress = 80;
+				ActivitySetArousal(C, 80);
 		}
 	}
 }

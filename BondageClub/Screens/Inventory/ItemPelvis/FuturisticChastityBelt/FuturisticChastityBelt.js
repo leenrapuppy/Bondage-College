@@ -28,7 +28,7 @@ function InventoryFuturisticChastityBeltCheckPunish(Item) {
 	}
 
 	// Punish the player if they orgasm
-	if (Item.Property.NextShockTime - CurrentTime <= 0 && (Item.Property.PunishOrgasm || (Item.Property.Type && Item.Property.Type.includes("o1"))) && Player.ArousalSettings && Player.ArousalSettings.OrgasmStage > 1) {
+	if (Item.Property.NextShockTime - CurrentTime <= 0 && (Item.Property.PunishOrgasm || (Item.Property.Type && Item.Property.Type.includes("o1"))) && ArousalGetOrgasmStage(Player) > 1) {
 		// Punish the player if they orgasm
 		return "Orgasm";
 	}

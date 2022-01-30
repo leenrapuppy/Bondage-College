@@ -457,23 +457,25 @@ function PrivateRun() {
 	}
 
 	// In orgasm mode, we add a pink filter and different controls depending on the stage
-	if ((Player.ArousalSettings != null) && (Player.ArousalSettings.Active != null) && (Player.ArousalSettings.Active != "Inactive") && (Player.ArousalSettings.Active != "NoMeter")) {
-		if ((Player.ArousalSettings.OrgasmTimer != null) && (typeof Player.ArousalSettings.OrgasmTimer === "number") && !isNaN(Player.ArousalSettings.OrgasmTimer) && (Player.ArousalSettings.OrgasmTimer > 0)) {
+	if (PreferenceArousalIsActive(Player)) {
+		if (ActivityGetOrgasmTimer(Player) > 0) {
 			DrawRect(0, 0, 2000, 1000, "#FFB0B0B0");
-			if (Player.ArousalSettings.OrgasmStage == null) Player.ArousalSettings.OrgasmStage = 0;
-			if (Player.ArousalSettings.OrgasmStage == 0) {
+			let stage = ActivityGetOrgasmStage(Player);
+			if (stage == 0) {
 				DrawText(TextGet("OrgasmComing"), 1000, 410, "White", "Black");
 				DrawButton(700, 532, 250, 64, TextGet("OrgasmTryResist"), "White");
 				DrawButton(1050, 532, 250, 64, TextGet("OrgasmSurrender"), "White");
 			}
-			if (Player.ArousalSettings.OrgasmStage == 1) DrawButton(ActivityOrgasmGameButtonX + 500, ActivityOrgasmGameButtonY, 250, 64, ActivityOrgasmResistLabel, "White");
+			if (stage == 1) DrawButton(ActivityOrgasmGameButtonX + 500, ActivityOrgasmGameButtonY, 250, 64, ActivityOrgasmResistLabel, "White");
 			if (ActivityOrgasmRuined) ActivityOrgasmControl();
-			if (Player.ArousalSettings.OrgasmStage == 2) DrawText(TextGet("OrgasmRecovering"), 1000, 500, "White", "Black");
+			if (stage == 2) DrawText(TextGet("OrgasmRecovering"), 1000, 500, "White", "Black");
 			ActivityOrgasmProgressBar(550, 970);
-		} else if ((Player.ArousalSettings.Progress != null) && (Player.ArousalSettings.Progress >= 1) && (Player.ArousalSettings.Progress <= 99)) ChatRoomDrawArousalScreenFilter(0, 1000, 2000, Player.ArousalSettings.Progress);
+		} else if (ActivityIsArousalBetween(Player, 0, 100)) {
+			ChatRoomDrawArousalScreenFilter(0, 1000, 2000, ActivityGetArousal(Player));
+		}
 	}
 
-	if (Player.ArousalSettings.VFXVibrator == "VFXVibratorSolid" || Player.ArousalSettings.VFXVibrator == "VFXVibratorAnimated") {
+	if (PreferenceArousalGetVFXVibratorSetting(Player) !== ArousalVFXVibrator.Inactive) {
 		ChatRoomVibrationScreenFilter(0, 1000, 2000, Player);
 	}
 
@@ -550,25 +552,30 @@ function PrivateClickCharacter() {
 				}
 
 				// If the arousal meter is shown for that character, we can interact with it
-				if ((PrivateCharacter[C].ID == 0) || (Player.ArousalSettings.ShowOtherMeter == null) || Player.ArousalSettings.ShowOtherMeter)
-					if ((PrivateCharacter[C].ID == 0) || ((PrivateCharacter[C].ArousalSettings != null) && (PrivateCharacter[C].ArousalSettings.Visible != null) && (PrivateCharacter[C].ArousalSettings.Visible == "Access") && PrivateCharacter[C].AllowItem) || ((PrivateCharacter[C].ArousalSettings != null) && (PrivateCharacter[C].ArousalSettings.Visible != null) && (PrivateCharacter[C].ArousalSettings.Visible == "All")))
-						if ((PrivateCharacter[C].ArousalSettings != null) && (PrivateCharacter[C].ArousalSettings.Active != null) && ((PrivateCharacter[C].ArousalSettings.Active == "Manual") || (PrivateCharacter[C].ArousalSettings.Active == "Hybrid") || (PrivateCharacter[C].ArousalSettings.Active == "Automatic"))) {
+				if ((PrivateCharacter[C].ID == 0) || PreferenceArousalShowsMeter(Player))
+					if ((PrivateCharacter[C].ID == 0) || PreferenceArousalCanChangeMeter(PrivateCharacter[C]))
+						if (PreferenceArousalIsActive(PrivateCharacter[C])) {
 
 							// The arousal meter can be maximized or minimized by clicking on it
-							if ((MouseX >= X + (C - PrivateCharacterOffset) * 470 + 60) && (MouseX <= X + (C - PrivateCharacterOffset) * 470 + 140) && (MouseY >= 400) && (MouseY <= 500) && !PrivateCharacter[C].ArousalZoom) { PrivateCharacter[C].ArousalZoom = true; return; }
-							if ((MouseX >= X + (C - PrivateCharacterOffset) * 470 + 50) && (MouseX <= X + (C - PrivateCharacterOffset) * 470 + 150) && (MouseY >= 615) && (MouseY <= 715) && PrivateCharacter[C].ArousalZoom) { PrivateCharacter[C].ArousalZoom = false; return; }
+							if (!PrivateCharacter[C].ArousalZoom && MouseIn(X + (C - PrivateCharacterOffset) * 470 + 60, 400, 80, 100)) {
+								PrivateCharacter[C].ArousalZoom = true;
+								return;
+							}
+							if (PrivateCharacter[C].ArousalZoom && MouseIn(X + (C - PrivateCharacterOffset) * 470 + 50, 615, 100, 100)) {
+								PrivateCharacter[C].ArousalZoom = false;
+								return;
+							}
 
 							// If the player can manually control her arousal or wants to fight her desire
-							if ((PrivateCharacter[C].ID == 0) && (MouseX >= X + (C - PrivateCharacterOffset) * 470 + 50) && (MouseX <= X + (C - PrivateCharacterOffset) * 470 + 150) && (MouseY >= 200) && (MouseY <= 615) && PrivateCharacter[C].ArousalZoom)
-								if ((Player.ArousalSettings != null) && (Player.ArousalSettings.Active != null) && (Player.ArousalSettings.Progress != null)) {
-									if ((Player.ArousalSettings.Active == "Manual") || (Player.ArousalSettings.Active == "Hybrid")) {
-										var Arousal = Math.round((625 - MouseY) / 4, 0);
-										ActivitySetArousal(Player, Arousal);
-										if ((Player.ArousalSettings.AffectExpression == null) || Player.ArousalSettings.AffectExpression) ActivityExpression(Player, Player.ArousalSettings.Progress);
-										if (Player.ArousalSettings.Progress == 100) ActivityOrgasmPrepare(Player);
-									}
-									return;
+							if ((PrivateCharacter[C].ID == 0) && PrivateCharacter[C].ArousalZoom && MouseIn(X + (C - PrivateCharacterOffset) * 470 + 50, 200, 100, 415)) {
+								if (PreferenceArousalIsInMode(Player, ["Manual", "Hybrid"])) {
+									let arousal = Math.round((625 - MouseY) / 4);
+									ActivitySetArousal(Player, arousal);
+									if (PreferenceArousalAffectsExpression(Player)) ActivityExpression(Player, ActivityGetArousal(Player));
+									if (ActivityGetArousal(Player) == 100) ActivityOrgasmPrepare(Player);
 								}
+								return;
+							}
 
 							// Don't do anything if the thermometer is clicked without access to it
 							if ((MouseX >= X + (C - PrivateCharacterOffset) * 470 + 50) && (MouseX <= X + (C - PrivateCharacterOffset) * 470 + 150) && (MouseY >= 200) && (MouseY <= 615) && PrivateCharacter[C].ArousalZoom) return;
@@ -576,7 +583,7 @@ function PrivateClickCharacter() {
 						}
 
 				// Cannot click on a character that's having an orgasm
-				if ((PrivateCharacter[C].ID != 0) && (PrivateCharacter[C].ArousalSettings != null) && (PrivateCharacter[C].ArousalSettings.OrgasmTimer != null) && (PrivateCharacter[C].ArousalSettings.OrgasmTimer > 0))
+				if ((PrivateCharacter[C].ID != 0) && ActivityGetOrgasmTimer(PrivateCharacter[C]) > 0)
 					return;
 
 				// Sets the new character (1000 if she's owner, 2000 if she's owned)
@@ -622,14 +629,17 @@ function PrivateClickCharacter() {
 function PrivateClick() {
 
 	// If the player is having an orgasm, only the orgasm controls are available
-	if ((Player.ArousalSettings != null) && (Player.ArousalSettings.OrgasmTimer != null) && (typeof Player.ArousalSettings.OrgasmTimer === "number") && !isNaN(Player.ArousalSettings.OrgasmTimer) && (Player.ArousalSettings.OrgasmTimer > 0)) {
-
+	if (ActivityGetOrgasmTimer(Player) > 0) {
+		let stage = ActivityGetOrgasmStage(Player);
 		// On stage 0, the player can choose to resist the orgasm or not.  At 1, the player plays a mini-game to fight her orgasm
-		if ((MouseX >= 700) && (MouseX <= 950) && (MouseY >= 532) && (MouseY <= 600) && (Player.ArousalSettings.OrgasmStage == 0)) ActivityOrgasmGameGenerate(0);
-		if ((MouseX >= 1050) && (MouseX <= 1300) && (MouseY >= 532) && (MouseY <= 600) && (Player.ArousalSettings.OrgasmStage == 0)) ActivityOrgasmStart(Player);
-		if ((MouseX >= ActivityOrgasmGameButtonX + 500) && (MouseX <= ActivityOrgasmGameButtonX + 700) && (MouseY >= ActivityOrgasmGameButtonY) && (MouseY <= ActivityOrgasmGameButtonY + 64) && (Player.ArousalSettings.OrgasmStage == 1)) ActivityOrgasmGameGenerate(ActivityOrgasmGameProgress + 1);
+		if (stage == 0) {
+			if (MouseIn(700, 532, 250, 68)) ActivityOrgasmGameGenerate(0);
+			if (MouseIn(1050, 532, 250, 68)) ActivityOrgasmStart(Player);
+		} else if (stage == 1) {
+			if (MouseIn(ActivityOrgasmGameButtonX + 500, ActivityOrgasmGameButtonY, 200, 64))
+				ActivityOrgasmGameGenerate(ActivityOrgasmGameProgress + 1);
+		}
 		return;
-
 	}
 
 	// Main screens buttons

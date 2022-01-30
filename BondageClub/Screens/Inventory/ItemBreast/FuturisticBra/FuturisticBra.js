@@ -49,23 +49,21 @@ function InventoryItemBreastFuturisticBraUpdate(C) {
 		current_bpm += C.MemberNumber % 20; // 'Pseudo random baseline'
 	}
 
-	if (C.ArousalSettings && C.ArousalSettings.Progress > 0) {
-		var Progress = C.ArousalSettings.Progress;
-		current_bpm += Math.floor(Progress*0.60);
-		current_temp += Math.floor(Progress*0.1)/10;
-		if ((C.ArousalSettings.OrgasmStage && C.ArousalSettings.OrgasmStage > 0) || (C.ArousalSettings.ProgressTimer && C.ArousalSettings.ProgressTimer > 1)) {
+	let progress = ActivityGetArousal(C);
+	if (progress > 0) {
+		current_bpm += Math.floor(progress * 0.6);
+		current_temp += Math.floor(progress * 0.1) / 10;
+		if (ActivityGetOrgasmStage(C) > 0 || ActivityGetArousalTimer(C) > 0) {
 			current_breathing = "Action";
 			current_bpm += 10;
 			current_temp += 0.5;
-		} else if (C.ArousalSettings.Progress > 10) {
-			if (C.ArousalSettings.Progress > 90) {
-				current_breathing = "High";
-			} else {
-				current_breathing = "Med";
-			}
+		} else if (progress > 90) {
+			current_breathing = "High";
+		} else if (progress > 10) {
+			current_breathing = "Med";
 		}
-
 	}
+
 	return { bpm: current_bpm, breathing: current_breathing, temp: current_temp };
 }
 

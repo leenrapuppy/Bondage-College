@@ -457,16 +457,16 @@ function SpeechStutter(C, CD) {
 	if (CD == null) CD = "";
 
 	// Validates that the preferences allow stuttering
-	if ((C.ArousalSettings == null) || (C.ArousalSettings.AffectStutter !== "None")) {
+	let mode = PreferenceArousalGetStutterSetting(C);
+	if (mode !== ArousalStutter.None) {
 
 		// Gets the factor from current arousal
-		var Factor = 0;
-		if ((C.ArousalSettings == null) || (C.ArousalSettings.AffectStutter == null) || (C.ArousalSettings.AffectStutter == "Arousal") || (C.ArousalSettings.AffectStutter == "All"))
-			if ((C.ArousalSettings != null) && (C.ArousalSettings.Progress != null) && (typeof C.ArousalSettings.Progress === "number") && !isNaN(C.ArousalSettings.Progress))
-				Factor = Math.floor(C.ArousalSettings.Progress / 20);
+		let Factor = 0;
+		if (mode === ArousalStutter.Arousal || mode === ArousalStutter.All)
+			Factor = Math.floor(ActivityGetArousal(C) / 20);
 
 		// Checks all items that "eggs" with an intensity, and replaces the factor if it's higher
-		if (C.IsEgged() && ((C.ArousalSettings == null) || (C.ArousalSettings.AffectStutter == null) || (C.ArousalSettings.AffectStutter == "Vibration") || (C.ArousalSettings.AffectStutter == "All")))
+		if ((C.IsEgged() && mode === ArousalStutter.Vibration) || mode === ArousalStutter.All)
 			for (let A = 0; A < C.Appearance.length; A++) {
 				var Item = C.Appearance[A];
 				if (InventoryItemHasEffect(Item, "Egged", true) && Item.Property && Item.Property.Intensity && (typeof Item.Property.Intensity === "number") && !isNaN(Item.Property.Intensity) && (Item.Property.Intensity > Factor))
