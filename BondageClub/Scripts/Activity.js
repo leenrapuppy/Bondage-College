@@ -722,6 +722,16 @@ function ActivityRunSelf(Source, Target, Activity) {
 }
 
 /**
+ * Build the chat tag needed for lookup in ActivityDictionary.csv
+ * @param {Character} character
+ * @param {AssetGroup} group
+ * @param {Activity} activity
+ */
+function ActivityBuildChatTag(character, group, activity, is_label = false) {
+	return `${is_label ? "Label-" : ""}${(character.IsPlayer() ? "ChatSelf" : "ChatOther")}-${group.Name}-${activity.Name}`;
+}
+
+/**
  * Launches a sexual activity for a character and sends the chatroom message if applicable.
  * @param {Character} C - Character on which the activity was triggered
  * @param {object} Activity - Activity performed
@@ -754,7 +764,7 @@ function ActivityRun(C, Activity) {
 		Dictionary.push({ Tag: "TargetCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
 		Dictionary.push({ Tag: "ActivityGroup", Text: group.Name });
 		Dictionary.push({ Tag: "ActivityName", Text: Activity.Name });
-		ServerSend("ChatRoomChat", { Content: ((C.ID == 0) ? "ChatSelf-" : "ChatOther-") + group.Name + "-" + Activity.Name, Type: "Activity", Dictionary: Dictionary });
+		ServerSend("ChatRoomChat", { Content: ActivityBuildChatTag(C, group, Activity), Type: "Activity", Dictionary: Dictionary });
 
 		if (C.ID == 0 && Activity.Name.indexOf("Struggle") >= 0)
 
