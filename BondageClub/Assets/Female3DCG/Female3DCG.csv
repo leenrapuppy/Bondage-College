@@ -1092,7 +1092,8 @@ ItemMouth,CupholderGag,Cup Holder Gag
 ItemMouth,HarnessPonyBits,Bit Gag
 ItemMouth,PumpGag,Pump Gag
 ItemMouth,KittyGag,Kitty Mask Gag
-ItemMouth,KittenHarnessPanelGag,Kitty Harness Gag
+ItemMouth,KittyHarnessPanelGag,Kitty Harness Gag
+ItemMouth,KittyMuzzleGag,Kitty Muzzle Gag
 ItemMouth,CarrotGag,Rubber Carrot Gag
 ItemMouth,MuzzleGag,Muzzle Gag
 ItemMouth,FuturisticPanelGag,Futuristic Panel Gag
@@ -1163,7 +1164,8 @@ ItemMouth2,DusterGag,Duster Gag
 ItemMouth2,CupholderGag,Cup Holder Gag
 ItemMouth2,HarnessPonyBits,Bit Gag
 ItemMouth2,KittyGag,Kitty Mask Gag
-ItemMouth2,KittenHarnessPanelGag,Kitty Harness Gag
+ItemMouth2,KittyHarnessPanelGag,Kitty Harness Gag
+ItemMouth2,KittyMuzzleGag,Kitty Muzzle Gag
 ItemMouth2,CarrotGag,Rubber Carrot Gag
 ItemMouth2,MuzzleGag,Muzzle Gag
 ItemMouth2,PantiesMask,Panties Mask
@@ -1211,7 +1213,8 @@ ItemMouth3,DusterGag,Duster Gag
 ItemMouth3,CupholderGag,Cup Holder Gag
 ItemMouth3,HarnessPonyBits,Bit Gag
 ItemMouth3,KittyGag,Kitty Mask Gag
-ItemMouth3,KittenHarnessPanelGag,Kitty Harness Gag
+ItemMouth3,KittyHarnessPanelGag,Kitty Harness Gag
+ItemMouth3,KittyMuzzleGag,Kitty Muzzle Gag
 ItemMouth3,CarrotGag,Rubber Carrot Gag
 ItemMouth3,MuzzleGag,Muzzle Gag
 ItemMouth3,PantiesMask,Panties Mask
