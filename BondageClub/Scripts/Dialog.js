@@ -346,6 +346,13 @@ function DialogCanViewRules() { return (Player.Ownership != null) && (Player.Own
 function DialogChatRoomCanTakePhotos() { return CurrentScreen == "ChatRoom" && ChatRoomCanTakePhotos(); }
 
 /**
+ * Checks if the has enough GGTS minutes to spend on different activities, for GGTS level 6 and up
+ * @param {string} Minute - The number of minutes to compare
+ * @returns {boolean} - TRUE if the player has enough minutes
+ */
+function DialogGGTSMinuteGreater(Minute) { return ((AsylumGGTSGetLevel(Player) >= 6) && (Math.floor(C.Game.GGTS.Time / 60000) >= parseInt(Minute))); }
+
+/**
  * Checks the prerequisite for a given dialog
  * @param {number} D - Index of the dialog to check
  * @returns {boolean} - Returns true, if the prerequisite is met, false otherwise

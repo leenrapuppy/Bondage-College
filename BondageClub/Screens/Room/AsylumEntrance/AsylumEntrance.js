@@ -592,3 +592,11 @@ function AsylumEntranceGiveRestraints() {
 		{ Name: "MedicalBed", Group: "ItemDevices" },
 	]);
 }
+
+/**
+ * When the user removes 10 GGTS minutes from her bank to leave the asylum
+ * @returns {void} - Nothing
+ */
+function AsylumEntrancePayTenMinutes() {
+	AsylumGGTSSpendMinute(10);
+}

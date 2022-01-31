@@ -59,14 +59,14 @@ PlayerGagged,,,"Get that gag off or stop talking, you're driving me nuts.",,
 53,54,How can we stop it?,How the hell do I know?  You have a plan?,,
 53,0,Let's talk about something else.,"(She calms down.)  Yeah!  So, what's up?",,
 54,0,I'll think of something.,Think fast before we all become slaves to that machine.,,
-54,55,Could we use the minutes currency somehow?,"(She ponders.)  If we have enough minutes, maybe we could have a close access to break the data server and get out.",,CanUseCurrency()
+54,55,Could we use the minutes currency somehow?,"(She ponders.)  If we have enough minutes, maybe we could have a close access to break the data server and get out.",,DialogGGTSMinuteGreater(0)
 54,0,I don't have a plan.,Find one before we all become slaves to that machine.,,
 55,0,I cannot betray Master GGTS.,Get lost then.,,
 55,56,How many minutes would that require?,(She thinks some more.)  It won't be easy.  At least three hundred.,,
 55,0,That won't work.,(She sighs.)  The hell if I know.,,
 56,,How many minutes de you have?,(She laughs.)  None!  Are you surprised?  I'm done serving that stupid robot.,DialogRemove(),
-56,57,I have three hundred minutes.,"Ok, this is worth a try.  Let's go do GGTS and we'll use your minutes to get close to the machine.",,CanPayCurrency()
-56,0,I don't have three hundred minutes.,"Forget it then, we're stuck unless you can get the minutes.",,!CanPayCurrency()
+56,57,I have three hundred minutes.,"Ok, this is worth a try.  Let's go do GGTS and we'll use your minutes to get close to the machine.",,DialogGGTSMinuteGreater(300)
+56,0,I don't have three hundred minutes.,"Forget it then, we're stuck unless you can get the minutes.",,!DialogGGTSMinuteGreater(300)
 56,0,That won't work.,(She sighs.)  The hell if I know.,,
 57,58,Let's do it!  (Try to break GGTS to leave it.),(You both do GGTS and you use your minutes to get very close to the server while she distracts the cameras.),,
 57,0,Let me think about it.,(She pouts.)  Fine!  Think about it all you want.,,

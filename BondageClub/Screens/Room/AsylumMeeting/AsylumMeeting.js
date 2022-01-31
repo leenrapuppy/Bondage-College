@@ -23,8 +23,6 @@ function AsylumMeetingCanRestrainPlayer() { return (!Player.IsRestrained() && !A
 function AsylumMeetingCanKiss() { return (Player.CanTalk() && CurrentCharacter.CanTalk()); }
 function AsylumMeetingWearingGGTS() { return InventoryIsWorn(CurrentCharacter, "FuturisticCuffs", "ItemArms"); }
 function AsylumMeetingGGTSCollar() { return InventoryIsWorn(CurrentCharacter, "FuturisticCollar", "ItemNeck"); }
-function AsylumMeetingCanUseCurrency() { return (AsylumGGTSGetLevel(Player) >= 6); }
-function AsylumMeetingCanPayCurrency() { return (Math.floor(C.Game.GGTS.Time / 60000) >= 300); }
 
 /**
  * Loads the room and it's patients

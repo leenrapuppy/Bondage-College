@@ -1053,18 +1053,23 @@ function AsylumGGTSControlItem(C, Item) {
 }
 
 /**
+ * At level 6, the player can spend GGTS minutes for various reasons
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSSpendMinute(Minute) {
+	Player.Game.GGTS.Time = Player.Game.GGTS.Time - (parseInt(Minute) * 60000);
+	if (Player.Game.GGTS.Time < 0) Player.Game.GGTS.Time = 0;
+	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
+}
+
+/**
  * Adds a strike to the player game info.  At strike 3, we auto-unlock the door to allow players to leave.
  * @returns {void} - Nothing
  */
 function AsylumGGTSAddStrike() {
 
 	// Level 6 is infinite, getting a strike subtract 1 hour
-	if (AsylumGGTSGetLevel(Player) >= 6) {
-		Player.Game.GGTS.Time = Player.Game.GGTS.Time - 3600000;
-		if (Player.Game.GGTS.Time < 0) Player.Game.GGTS.Time = 0;
-		ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
-		return;
-	}
+	if (AsylumGGTSGetLevel(Player) >= 6) return AsylumGGTSSpendMinute(60);
 
 	// Adds the strike to the player record
 	Player.Game.GGTS.Strike++;
