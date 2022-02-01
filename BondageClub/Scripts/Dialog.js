@@ -354,6 +354,27 @@ function DialogChatRoomCanTakePhotos() { return CurrentScreen == "ChatRoom" && C
 function DialogGGTSMinuteGreater(Minute) { return ((AsylumGGTSGetLevel(Player) >= 6) && (Math.floor(Player.Game.GGTS.Time / 60000) >= parseInt(Minute))); }
 
 /**
+ * Checks if the player can spend GGTS minutes on herself, for GGTS level 6 and up
+ * @returns {boolean} - TRUE if the player has enough minutes
+ */
+function DialogGGTSPersonalAccess() { return ((CurrentScreen === "ChatRoom") && (ChatRoomSpace === "Asylum") && (ChatRoomData != null) && (ChatRoomData.Game === "GGTS") && (AsylumGGTSGetLevel(Player) >= 6)); }
+
+/**
+ * Returns TRUE if the user can get help in a chat room
+ * @returns {boolean} - TRUE if the player is in a chatroom to get help
+ */
+function DialogCanGetHelp() { return ((CurrentScreen === "ChatRoom") && !DialogGGTSPersonalAccess()); }
+
+/**
+ * Adds $100 to the player money in exchange for 120 GGTS minutes
+ * @returns {void}
+ */
+function DialogGGTSMinutesForMoney() {
+	CharacterChangeMoney(Player, 100);
+	AsylumGGTSSpendMinute(120);
+}
+
+/**
  * Checks the prerequisite for a given dialog
  * @param {number} D - Index of the dialog to check
  * @returns {boolean} - Returns true, if the prerequisite is met, false otherwise

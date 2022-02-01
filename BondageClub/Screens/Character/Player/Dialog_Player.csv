@@ -1,16 +1,13 @@
 PlayerGagged,,,(You can use or remove items by selecting specific body regions on yourself.),,
 0,,,(You can use or remove items by selecting specific body regions on yourself.),,
-0,,(Change your clothes.),,DialogChangeClothes(),DialogChatRoomCanChangeClothes()
+0,100,(Help and information.),"(What help or information do you require?  You can type ""/help"" in the chat box to view all available commands.)",,DialogCanGetHelp()
 0,10,(Adjust your bondage skill.),"(By default, you restrain using your full bondage skill.  You can use less of your skill and make it easier for your victims to escape.)",,"DialogSkillGreater(""Bondage"", 1)"
 0,20,(Adjust your evasion skill.),"(By default, you struggle using your full evasion skill.  You can use less of your skill and make it harder for you to struggle free.)",,"DialogSkillGreater(""Evasion"", 1)"
-0,100,(Call the maids for help),(The maids are not supposed to take room calls. This will result in punishment and public humiliation. Are you sure?),,DialogCanCallMaidsPunishmentOn()
-0,0,(Call the maids for help),(The maids will be here shortly...),DialogCallMaids(),DialogCanCallMaidsPunishmentOff()
-100,0,(Yes! Get me out of this room!),(The maids will be here shortly...),DialogCallMaids(),DialogCanCallMaids()
-100,0,"(No, don't call the maids.)",(You can use or remove items by selecting specific body regions on yourself.),,
 0,30,(Room administrator action.),"(As a room administrator, you can take these actions.)",,DialogChatRoomPlayerIsAdmin()
-0,90,(Use your safeword.),"(A safeword is serious and should not be used to cheat.  It can revert your clothes and restraints to when you entered the lobby, or release you completely.)",,DialogChatRoomCanSafeword()
-0,0,(View your current rules.),(Here are your currently active rules.),DialogViewOwnerRules(),DialogCanViewRules()
+0,,(Change your clothes.),,DialogChangeClothes(),DialogChatRoomCanChangeClothes()
 0,,(Take a picture.),(You can use or remove items by selecting specific body regions on yourself.),DialogChatRoomPhotoPlayer(),DialogChatRoomCanTakePhotos()
+0,,(Play Kinky Dungeon.),,DialogStartKinkyDungeon(),DialogHasGamingHeadset()
+0,40,(Spend GGTS minutes.),(Select how to spend your minutes.),,DialogGGTSPersonalAccess()
 10,,,"(By default, you restrain using your full bondage skill.  You can use less of your skill and make it easier for your victims to escape.)",,
 10,0,(Use your full bondage skill.  100%),(You will now use your full bondage skill when using a restraint.  100%),"DialogSetSkillRatio(""Bondage"", 100)",
 10,0,(Use most of your bondage skill.  75%),(You will now use most of your bondage skill when using a restraint.  75%),"DialogSetSkillRatio(""Bondage"", 75)",
@@ -26,15 +23,24 @@ PlayerGagged,,,(You can use or remove items by selecting specific body regions o
 20,0,(Use none of your evasion skill.  0%),(You will now use none of your evasion skill when trying to struggle free.  0%),"DialogSetSkillRatio(""Evasion"", 0)",
 20,0,(Don't change your skill.),(You can use or remove items by selecting specific body regions on yourself.),,
 30,0,(Move Character.),(Move started.),"DialogChatRoomAdminAction(""Move"")",
-30,0,(Back to main menu.),(Main menu.),,
-90,91,(Revert Character.),(This will revert your character's clothes and restraints back to how they were when you entered the lobby. Use this if you were forced into restraints against your consent. Are you sure you want to revert your character?),,
-90,92,(Release Character.),(This will immediately release you of ALL restraints you are wearing and return you to the Main Lobby. Use this only if you are stuck in restraints and nobody can or wants to help you. Are you sure about this?),,
-90,0,(Don't use Safeword.),(You can use or remove items by selecting specific body regions on yourself.),,
-91,0,"(Yes, revert Character.)",,DialogChatRoomSafewordRevert(),
-91,0,"(No, don't revert Character.)",(You can use or remove items by selecting specific body regions on yourself.),,
-92,0,"(Yes, I want to be released.)",,DialogChatRoomSafewordRelease(),
-92,0,"(No, don't release me.)",(You can use or remove items by selecting specific body regions on yourself.),,
-0,,(Play Kinky Dungeon),,DialogStartKinkyDungeon(),DialogHasGamingHeadset()
+30,0,(Back to main menu.),(You can use or remove items by selecting specific body regions on yourself.),,
+40,,(Spend 120 minutes to get $100.),(GGTS gives you $100 and substracts 120 minutes to your total.),DialogGGTSMinutesForMoney(),DialogGGTSMinuteGreater(120)
+40,,(Spend 120 minutes to get $100.),(You don't have enough minutes available.),,!DialogGGTSMinuteGreater(120)
+40,0,(Back to main menu.),(You can use or remove items by selecting specific body regions on yourself.),,
+100,110,(Call the maids for help),(The maids are not supposed to take room calls. This will result in punishment and public humiliation. Are you sure?),,DialogCanCallMaidsPunishmentOn()
+100,0,(Call the maids for help),(The maids will be here shortly...),DialogCallMaids(),DialogCanCallMaidsPunishmentOff()
+100,120,(Use your safeword.),"(A safeword is serious and should not be used to cheat.  It can revert your clothes and restraints to when you entered the lobby, or release you completely.)",,DialogChatRoomCanSafeword()
+100,0,(View your current rules.),(Here are your currently active rules.),DialogViewOwnerRules(),DialogCanViewRules()
+100,0,(Back to main menu.),(You can use or remove items by selecting specific body regions on yourself.),,
+110,0,(Yes! Get me out of this room!),(The maids will be here shortly...),DialogCallMaids(),DialogCanCallMaids()
+110,0,"(No, don't call the maids.)",(You can use or remove items by selecting specific body regions on yourself.),,
+120,121,(Revert Character.),(This will revert your character's clothes and restraints back to how they were when you entered the lobby. Use this if you were forced into restraints against your consent. Are you sure you want to revert your character?),,
+120,122,(Release Character.),(This will immediately release you of ALL restraints you are wearing and return you to the Main Lobby. Use this only if you are stuck in restraints and nobody can or wants to help you. Are you sure about this?),,
+120,0,(Don't use Safeword.),(You can use or remove items by selecting specific body regions on yourself.),,
+121,0,"(Yes, revert Character.)",(You can use or remove items by selecting specific body regions on yourself.),DialogChatRoomSafewordRevert(),
+121,0,"(No, don't revert Character.)",(You can use or remove items by selecting specific body regions on yourself.),,
+122,0,"(Yes, I want to be released.)",,DialogChatRoomSafewordRelease(),
+122,0,"(No, don't release me.)",(You can use or remove items by selecting specific body regions on yourself.),,
 OrgasmFailPassive0,,,The stimulation ends just before you go over the edge.,,
 OrgasmFailPassive1,,,The vibrators cut off right before you reach climax.,,
 OrgasmFailPassive2,,,"The vibrators deny you a chance to finish, stopping abruptly.",,
@@ -470,15 +476,15 @@ ServerShuffle,,,SourceCharacter shuffles the position of everyone in the room ra
 ServerPromoteAdmin,,,TargetCharacterName was promoted to administrator by SourceCharacter.,,
 ServerDemoteAdmin,,,TargetCharacterName was demoted from administration by SourceCharacter.,,
 ServerUpdateRoom,,,SourceCharacter updated the room. Name: ChatRoomName. Limit: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.,,
-OnlineBountySuitcaseStart,,,"SourceCharacter starts unlocking DestinationCharacterName suitcase! She will finish in 5 minutes."
-OnlineBountySuitcaseStartOpened,,,"SourceCharacter starts stealing more data from DestinationCharacterName laptop! She will finish in 5 minutes."
-OnlineBountySuitcaseEndEarly,,,"SourceCharacter's suitcase is safe... for now."
-OnlineBountySuitcaseEndEarlyOpened,,,"SourceCharacter's data is safe... for now."
-OnlineBountySuitcaseOngoing,,,"SourceCharacter's suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!"
-OnlineBountySuitcaseOngoingOpened,,,"SourceCharacter's data will be ready in TIMEREMAINING minutes. Make sure she is secure until then!"
-OnlineBountySuitcaseFinish,,,"You find confidential club secrets worth MONEYAMOUNT$ on the black market."
-OnlineBountySuitcaseEnd,,,"The kidnappers opened your suitcase, which contains a laptop with a bunch of secret information. You better get back to the league to warn them."
-OnlineBountySuitcaseEndOpened,,,"The kidnappers have stolen even more data using your laptop."
+OnlineBountySuitcaseStart,,,SourceCharacter starts unlocking DestinationCharacterName suitcase! She will finish in 5 minutes.,,
+OnlineBountySuitcaseStartOpened,,,SourceCharacter starts stealing more data from DestinationCharacterName laptop! She will finish in 5 minutes.,,
+OnlineBountySuitcaseEndEarly,,,SourceCharacter's suitcase is safe... for now.,,
+OnlineBountySuitcaseEndEarlyOpened,,,SourceCharacter's data is safe... for now.,,
+OnlineBountySuitcaseOngoing,,,SourceCharacter's suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!,,
+OnlineBountySuitcaseOngoingOpened,,,SourceCharacter's data will be ready in TIMEREMAINING minutes. Make sure she is secure until then!,,
+OnlineBountySuitcaseFinish,,,You find confidential club secrets worth MONEYAMOUNT$ on the black market.,,
+OnlineBountySuitcaseEnd,,,"The kidnappers opened your suitcase, which contains a laptop with a bunch of secret information. You better get back to the league to warn them.",,
+OnlineBountySuitcaseEndOpened,,,The kidnappers have stolen even more data using your laptop.,,
 ChatRoomBlockGaggedOOC,,,You have disabled OOC/whispers while gagged. You can change this in the Immersion preferences screen.,,
 ChatRoomStimulationMessageGag0,,,You choke momentarily on the gag inside your throat.,,
 ChatRoomStimulationMessageGag1,,,It is difficult to breath with the gag pushing inside your throat.,,

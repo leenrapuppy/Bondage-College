@@ -1197,7 +1197,7 @@ function AsylumGGTSAllowChange(C) {
 }
 
 /**
- * Draws the online game images/text needed on the characters
+ * GGTS Draws the level, the number of strikes and a progress bar, level 6 shows the time in a gold frame
  * @param {Character} C - Character to draw the info for
  * @param {number} X - Position of the character the X axis
  * @param {number} Y - Position of the character the Y axis
@@ -1205,7 +1205,6 @@ function AsylumGGTSAllowChange(C) {
  * @returns {void} - Nothing
  */
 function AsylumGGTSDrawCharacter(C, X, Y, Zoom) {
-	// GGTS Draws the level, the number of strikes and a progress bar, level 6 shows the time in a gold frame
 	if ((CurrentModule == "Online") && (CurrentScreen == "ChatRoom") && (ChatRoomSpace === "Asylum")) {
 		let Level = AsylumGGTSGetLevel(C);
 		if ((Level > 0) && (C.Game != null) && (C.Game.GGTS != null)) {
