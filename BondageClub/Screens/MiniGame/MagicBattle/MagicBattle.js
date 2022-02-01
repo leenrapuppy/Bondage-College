@@ -4,6 +4,7 @@ var MagicBattleOpponent = null;
 var MagicBattleReturnFunction = "";
 var MagicBattleDifficulty = 0;
 var MagicBattleVictory = false;
+/** @type Array<number> */
 var MagicBattleAvailSpell = [];
 var MagicBattleOpponentSpell = 0;
 var MagicBattlePlayerAppearance = null;
@@ -12,6 +13,10 @@ var MagicBattleSpellDifficulty = [3, 5, 7, 9, 6, 8, 4, 8];
 
 /**
  * Start a magic battle against an opponent
+ * @param {Character} Opponent
+ * @param {number} Difficulty
+ * @param {string} Background
+ * @param {string} FunctionName
  * @returns {void} - Nothing
  */
 function MagicBattleStart(Opponent, Difficulty, Background, FunctionName) {
@@ -37,6 +42,7 @@ function MagicBattleLoad() {
 
 /**
  * Returns a difficulty factor based on the character nakedness and predicament
+ * @param {Character} C
  * @returns {number} - Difficulty from 0 (full cloth, no restrain) to 10 (naked, fully restrained)
  */
 function MagicBattleGetDifficulty(C) {
@@ -61,7 +67,8 @@ function MagicBattleGetDifficulty(C) {
 
 /**
  * Returns the spells that are available based on opponent (C) clothing and restraints
- * @returns {void} - Nothing
+ * @param {Character} C
+ * @returns {Array<number>} - Nothing
  */
 function MagicBattleGetAvailSpells(C) {
 	if (C == null) return [];
@@ -125,6 +132,7 @@ function MagicBattleClick() {
 
 /**
  * Starts the magic puzzle mini-game for a specific spell (S)
+ * @param {number} S
  * @returns {void} - Nothing
  */
 function MagicBattleSpellStart(S) {
@@ -143,10 +151,12 @@ function MagicBattleSpellStart(S) {
 
 /**
  * Applies the effect of a magic spell (Spell) on a character (C)
+ * @param {Character} C
+ * @param {number} Spell
  * @returns {void} - Nothing
  */
 function MagicSpellEffect(C, Spell) {
-	
+
 	// Strip spell
 	if (Spell == 0) {
 		if ((InventoryGet(C, "Cloth") != null) || (InventoryGet(C, "ClothLower") != null) || (InventoryGet(C, "ClothAccessory") != null) || (InventoryGet(C, "Shoes") != null)) {
@@ -238,5 +248,5 @@ function MagicBattleSpellEnd() {
  * @returns {void} - Nothing
  */
 function MagicBattleKeyDown() {
-	//if (MiniGameCheatKeyDown()) 
+	//if (MiniGameCheatKeyDown())
 }
