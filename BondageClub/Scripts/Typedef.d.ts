@@ -696,11 +696,7 @@ interface Character {
 		GameVersion: string;
 		ItemsAffectExpressions: boolean;
 	};
-	Game?: {
-		LARP?: GameLARPParameters,
-		MagicBattle?: GameMagicBattleParameters,
-		GGTS?: GameGGTSParameters,
-	};
+	Game?: any;
 	BlackList: number[];
 	RunScripts?: boolean;
 	HasScriptedAssets?: boolean;
@@ -1501,42 +1497,3 @@ interface PokerPlayer {
 	WebLink?: string;
 	Alternate?: void;
 }
-
-// #region Online Games
-
-/**
- * Online game status values.
- *
- * @property "" - The game is in the setup phase.
- * @property "Running" - The game is currently running.
- *
- * @fix FIXME: "" should really be renamed Setup
- */
-type OnlineGameStatus = "" | "Running";
-
-interface GameLARPParameters {
-	Status: OnlineGameStatus;
-	Class: string;
-	Team: string;
-	TimerDelay: number;
-	Level: {
-		Name: string;
-		Level: number;
-		Progress: number;
-	}[];
-}
-
-interface GameMagicBattleParameters {
-	Status: OnlineGameStatus;
-	House: string;
-	TeamType: "FreeForAll" | "House";
-}
-
-interface GameGGTSParameters {
-	Level: number;
-	Time: number;
-	Strike: number;
-	Rule: string[];
-}
-
-// #endregion
