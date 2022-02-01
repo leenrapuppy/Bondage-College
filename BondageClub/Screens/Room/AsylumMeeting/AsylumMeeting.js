@@ -187,13 +187,25 @@ function AsylumMeetingBlush(BlushType) {
 }
 
 /**
+ * Before the player quits GGTS
+ * @returns {void} - Nothing
+ */
+function AsylumMeetingBeforeQuitGGTS() {
+	AsylumMeetingBackground = "AsylumGGTSRoom";
+}
+
+/**
  * When the player quits GGTS, her game data is erased
  * @returns {void} - Nothing
  */
 function AsylumMeetingQuitGGTS() {
 	AsylumGGTSQuit();
+	AsylumMeetingBackground = "AsylumGGTSRoomAlert";
 	CharacterRelease(AsylumMeetingPatientLeft);
 	InventoryRemove(AsylumMeetingPatientLeft, "ItemNeck");
+	InventoryRemove(AsylumMeetingPatientLeft, "ItemTorso");
+	InventoryRemove(AsylumMeetingPatientLeft, "ItemBreast");
+	InventoryRemove(AsylumMeetingPatientLeft, "ItemPelvis");
 }
 
 /**
@@ -203,5 +215,5 @@ function AsylumMeetingQuitGGTS() {
 function AsylumMeetingQuitGGTSMainHall() {
 	DialogLeave();
 	MainHallAsylumOpen = false;
-	CommonSetScreen("Room", "AsylumEntrance");
+	CommonSetScreen("Room", "MainHall");
 }

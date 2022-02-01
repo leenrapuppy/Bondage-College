@@ -136,10 +136,10 @@ ClubSlave,,(Leave her.),,DialogLeave(),
 400,,Did you join GGTS?,Not really.  (She sighs.)  There are new rules in the Asylum and nurses must wear the collar while on duty.,,
 400,410,Can you let me out?,(She nods.)  Drones can leave the asylum if they spend ten GGTS minutes.,,
 400,,(Leave her.),,DialogLeave(),
-410,400,That's unfair!,"It's the rule, you should read the fine prints before signing a contract.",,
+410,,That's unfair!,"It's the rule, you should read the fine prints before signing a contract.",DialogRemove(),
 410,420,I'll pay for it.  (Spend ten GGTS minutes.),(She scans your futuristic items and the door open.)  Get out before the door closes again.,PayTenMinutes(),DialogGGTSMinuteGreater(10)
 410,420,I have a better currency.  (Bribe her with $10.),(She counts the money discretely.)  I'll use my minutes to let you out.  You better return soon or we'll both get punished.,DialogChangeMoney(-10),DialogMoneyGreater(10)
-410,400,Please!  I'm so helpless!,"(She looks at you and sighs.)  Look drone, I'm not making the rules here.  Don't get us in trouble.",,
-410,400,I'll force my way out.,"(She smirks.)  Good luck, the doors are bolted with magnets.",,
+410,,Please!  I'm so helpless!,"(She looks at you and sighs.)  Look drone, I'm not making the rules here.  Don't get us in trouble.",DialogRemove(),
+410,,I'll force my way out.,"(She smirks.)  Good luck, the doors are bolted with magnets.",DialogRemove(),
 410,400,Fine!  Forget it.,(She nods.)  Do you need anything else?,,
 420,400,(Nod and go to the club.),,KidnapNurseExit(),

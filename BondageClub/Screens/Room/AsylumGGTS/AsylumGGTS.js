@@ -179,7 +179,7 @@ function AsylumGGTSQuit() {
 		if (AssetGroup[G].Name.substr(0, 4) == "Item")
 			AsylumGGTSTaskRemoveFuturisticItem(AssetGroup[G].Name);
 	delete Player.Game.GGTS;
-	AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/Computer.png";
+	if (AsylumGGTSComputer != null) AsylumGGTSComputer.FixedImage = "Screens/Room/AsylumGGTS/Computer.png";
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
 }
 

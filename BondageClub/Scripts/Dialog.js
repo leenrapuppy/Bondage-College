@@ -350,7 +350,7 @@ function DialogChatRoomCanTakePhotos() { return CurrentScreen == "ChatRoom" && C
  * @param {string} Minute - The number of minutes to compare
  * @returns {boolean} - TRUE if the player has enough minutes
  */
-function DialogGGTSMinuteGreater(Minute) { return ((AsylumGGTSGetLevel(Player) >= 6) && (Math.floor(C.Game.GGTS.Time / 60000) >= parseInt(Minute))); }
+function DialogGGTSMinuteGreater(Minute) { return ((AsylumGGTSGetLevel(Player) >= 6) && (Math.floor(Player.Game.GGTS.Time / 60000) >= parseInt(Minute))); }
 
 /**
  * Checks the prerequisite for a given dialog
