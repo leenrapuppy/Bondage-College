@@ -44,6 +44,7 @@ var DialogLockMenu = false;
 var DialogLentLockpicks = false;
 var DialogGamingPreviousRoom = "";
 var DialogGamingPreviousModule = "";
+var DialogButtonDisabledTester = /Disabled(For\w+)?$/u;
 
 /** @type {Map<string, string>} */
 var PlayerDialog = new Map();
@@ -749,22 +750,29 @@ function DialogAlwaysAllowRestraint() {
  * Checks whether the player can use a remote on the given character and item
  * @param {Character} C - the character that the item is equipped on
  * @param {Item} Item - the item to check for remote usage against
- * @return {boolean} - Returns true if the player is able to use a remote for the given character and item. Returns false otherwise.
+ * @return {VibratorRemoteAvailability} - Returns the status of remote availability: Available, NoRemote, NoLoversRemote, RemotesBlocked, CannotInteract, NoAccess, InvalidItem
  */
-function DialogCanUseRemote(C, Item) {
-	// Can't use remotes if there is no item, the item doesn't have the "Egged" effect, or the player cannot interact
-	// with remotes in the first place
-	if (!Item || (!InventoryItemHasEffect(Item, "Egged") && !InventoryItemHasEffect(Item, "UseRemote")) || !Player.CanInteract()) return false;
+function DialogCanUseRemoteState(C, Item) {
+	// Can't use remotes if there is no item, the item doesn't have the "Egged" effect
+	if (!Item || (!InventoryItemHasEffect(Item, "Egged") && !InventoryItemHasEffect(Item, "UseRemote"))) return "InvalidItem";
+	// Can't use remotes if the player cannot interact with their hands
+	if (!Player.CanInteract()) return "CannotInteract";
 	// Can't use remotes on self if the player is owned and their remotes have been blocked by an owner rule
-	if (C.ID === 0 && Player.Ownership && Player.Ownership.Stage === 1 && LogQuery("BlockRemoteSelf", "OwnerRule")) return false;
+	if (C.ID === 0 && Player.Ownership && Player.Ownership.Stage === 1 && LogQuery("BlockRemoteSelf", "OwnerRule")) return "RemotesBlocked";
 	if (Item.Asset.LoverOnly) {
 		// If the item is lover-only, the player must have the appropriate remote, be a lover of the character, and match the member number on the item
-		return C.IsLoverOfPlayer() && Item.Property && Item.Property.ItemMemberNumber === Player.MemberNumber && InventoryAvailable(Player, "LoversVibratorRemote", "ItemVulva");
+		if (!C.IsLoverOfPlayer() || !Item.Property || Item.Property.ItemMemberNumber !== Player.MemberNumber) {
+			return "NoAccess";
+		}
+		if (!InventoryAvailable(Player, "LoversVibratorRemote", "ItemVulva")) {
+			return "NoLoversRemote";
+		}
+		return "Available";
 	} else {
 
 		// Otherwise, the player must have a vibrator remote and some items can block remotes
-		if (C.Effect.indexOf("BlockRemotes") >= 0) return false;
-		return InventoryAvailable(Player, "VibratorRemote", "ItemVulva");
+		if (C.Effect.indexOf("BlockRemotes") >= 0) return "RemotesBlocked";
+		return InventoryAvailable(Player, "VibratorRemote", "ItemVulva") ? "Available" : "NoRemote";
 	}
 }
 
@@ -888,7 +896,23 @@ function DialogMenuButtonBuild(C) {
 				if ((Item != null) && !IsItemLocked && InventoryItemHasEffect(Item, "Mounted", true) && Player.CanInteract() && InventoryAllow(C, Item.Asset) && !IsGroupBlocked) DialogMenuButton.push("Dismount");
 				if ((Item != null) && !IsItemLocked && InventoryItemHasEffect(Item, "Enclose", true) && Player.CanInteract() && InventoryAllow(C, Item.Asset) && !IsGroupBlocked) DialogMenuButton.push("Escape");
 				if ((Item != null) && Item.Asset.Extended && ((Player.CanInteract()) || DialogAlwaysAllowRestraint() || Item.Asset.AlwaysInteract) && (!IsGroupBlocked || Item.Asset.AlwaysExtend) && (!Item.Asset.OwnerOnly || (C.IsOwnedByPlayer())) && (!Item.Asset.LoverOnly || (C.IsLoverOfPlayer()))) DialogMenuButton.push(ItemBlockedOrLimited ? "UseDisabled" : "Use");
-				if (!DialogMenuButton.includes("Use") && DialogCanUseRemote(C, Item)) DialogMenuButton.push(ItemBlockedOrLimited ? "RemoteDisabled" : "Remote");
+
+				const canUseRemoteState = DialogCanUseRemoteState(C, Item);
+				if (!DialogMenuButton.includes("Use") && canUseRemoteState !== "InvalidItem") {
+					let button = "";
+					switch (canUseRemoteState) {
+						case "Available":
+							button = ItemBlockedOrLimited ? "RemoteDisabled" : "Remote";
+							break;
+						case "NoRemote":
+							button = LogQuery("BlockRemote", "OwnerRule") ? "RemoteDisabledForNoRemoteOwnerRuleActive" : "RemoteDisabledForNoRemote";
+							break;
+						default:
+							button = `RemoteDisabledFor${canUseRemoteState}`;
+							break;
+					}
+					DialogMenuButton.push(button);
+				}
 			}
 
 			// Color selection
@@ -1194,7 +1218,7 @@ function DialogMenuButtonClick() {
 			}
 
 			// Remote Icon - Pops the item extension
-			else if ((DialogMenuButton[I] == "Remote") && DialogCanUseRemote(C, Item)) {
+			else if ((DialogMenuButton[I] == "Remote") && DialogCanUseRemoteState(C, Item) === "Available") {
 				DialogExtendItem(Item);
 				return;
 			}
@@ -1449,7 +1473,7 @@ function DialogItemClick(ClickItem) {
 					} else {
 
 						// The vibrating egg remote can open the vibrating egg's extended dialog
-						if ((ClickItem.Asset.Name === "VibratorRemote" || ClickItem.Asset.Name === "LoversVibratorRemote") && DialogCanUseRemote(C, CurrentItem)) {
+						if ((ClickItem.Asset.Name === "VibratorRemote" || ClickItem.Asset.Name === "LoversVibratorRemote") && DialogCanUseRemoteState(C, CurrentItem)) {
 							DialogExtendItem(InventoryGet(C, C.FocusGroup.Name));
 						}
 
@@ -1812,8 +1836,8 @@ function DialogDrawActivityMenu(C) {
 function DialogGetMenuButtonImage(ButtonName, FocusItem) {
 	if (ButtonName === "ColorPick" || ButtonName === "ColorPickDisabled") {
 		return ItemColorIsSimple(FocusItem) ? "ColorPick" : "MultiColorPick";
-	} else if (ButtonName.endsWith("Disabled")) {
-		return ButtonName.replace(/Disabled$/, "");
+	} else if (DialogIsMenuButtonDisabled(ButtonName)) {
+		return ButtonName.replace(DialogButtonDisabledTester, "");
 	} else {
 		return ButtonName;
 	}
@@ -1825,7 +1849,7 @@ function DialogGetMenuButtonImage(ButtonName, FocusItem) {
  * @returns {string} - The background color that the menu button should use
  */
 function DialogGetMenuButtonColor(ButtonName) {
-	if (ButtonName.endsWith("Disabled")) {
+	if (DialogIsMenuButtonDisabled(ButtonName)) {
 		return "#808080";
 	} else if (ButtonName === "ColorPick") {
 		return DialogColorSelect || "#fff";
@@ -1840,7 +1864,7 @@ function DialogGetMenuButtonColor(ButtonName) {
  * @returns {boolean} - TRUE if the menu button should be disabled, FALSE otherwise
  */
 function DialogIsMenuButtonDisabled(ButtonName) {
-	return ButtonName.endsWith("Disabled");
+	return DialogButtonDisabledTester.test(ButtonName);
 }
 
 /**
