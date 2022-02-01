@@ -411,7 +411,7 @@ function GameLARPCanLaunchGame() {
 	if (!GameLARPIsAdmin(Player)) return false;
 	var Team = "";
 	for (let C = 0; C < ChatRoomCharacter.length; C++)
-		if ((ChatRoomCharacter[C].Game != null) && (ChatRoomCharacter[C].Game.LARP != null) && (ChatRoomCharacter[C].Game.Team != null) && (ChatRoomCharacter[C].Game.LARP.Team != "") && (ChatRoomCharacter[C].Game.LARP.Team != "None") && (InventoryGet(ChatRoomCharacter[C], "ItemArms") == null)) {
+		if ((ChatRoomCharacter[C].Game != null) && (ChatRoomCharacter[C].Game.LARP != null) && (ChatRoomCharacter[C].Game.LARP.Team != null) && (ChatRoomCharacter[C].Game.LARP.Team != "") && (ChatRoomCharacter[C].Game.LARP.Team != "None") && (InventoryGet(ChatRoomCharacter[C], "ItemArms") == null)) {
 			if (Team == "")
 				Team = ChatRoomCharacter[C].Game.LARP.Team;
 			else
