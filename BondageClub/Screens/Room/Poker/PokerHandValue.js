@@ -1,6 +1,9 @@
 "use strict";
 
-// Sort the current hand from highest to lowest
+/**
+ * Sort the current hand from highest to lowest
+ * @param {PokerHand} Hand
+ */
 function PokerHandValueSortHand(Hand) {
 	let swapped = true;
 	let j = 0;
@@ -21,7 +24,10 @@ function PokerHandValueSortHand(Hand) {
 	}
 }
 
-// Validate if the current hand is a straight flush (value 9)
+/**
+ * Validate if the current hand is a straight flush (value 9)
+ * @param {PokerHand} Hand
+ */
 function PokerHandValueStraightFlush(Hand) {
 	let Value = 0;
 	let HighF = [0, 0, 0, 0];
@@ -100,7 +106,10 @@ function PokerHandValueStraightFlush(Hand) {
 	return Value;
 }
 
-// Validate if the current hand is a four of a kind (value 8)
+/**
+ * Validate if the current hand is a four of a kind (value 8)
+ * @param {PokerHand} Hand
+ */
 function PokerHandValueFourOfAKind(Hand) {
 	let Count = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 	let Value = 0;
@@ -138,7 +147,10 @@ function PokerHandValueFourOfAKind(Hand) {
 	return Value;
 }
 
-// Validate if the current hand is a full house (value 7)
+/**
+ * Validate if the current hand is a full house (value 7)
+ * @param {PokerHand} Hand
+ */
 function PokerHandValueFullHouse(Hand) {
 	let Used = [false, false, false, false, false, false, false];
 	let Value = 0;
@@ -177,7 +189,10 @@ function PokerHandValueFullHouse(Hand) {
 	return Value;
 }
 
-// Validate if the current hand is a flush (value 6)
+/**
+ * Validate if the current hand is a flush (value 6)
+ * @param {PokerHand} Hand
+ */
 function PokerHandValueFlush(Hand) {
 	let Value = 0;
 	let High = [0, 0, 0, 0];
@@ -201,7 +216,10 @@ function PokerHandValueFlush(Hand) {
 	return Value;
 }
 
-// Validate if the current hand is a straight (value 5)
+/**
+ * Validate if the current hand is a straight (value 5)
+ * @param {PokerHand} Hand
+ */
 function PokerHandValueStraight(Hand) {
 	let Value = 0;
 	let Val = ((Hand[0] - 1) % 13) + 2;
@@ -237,7 +255,10 @@ function PokerHandValueStraight(Hand) {
 	return Value;
 }
 
-// Validate if the current hand is a three of a kind (value 4)
+/**
+ * Validate if the current hand is a three of a kind (value 4)
+ * @param {PokerHand} Hand
+ */
 function PokerHandValueThreeOfAKind(Hand) {
 	let Value = 0;
 	let Used = [false, false, false, false, false, false, false];
@@ -277,7 +298,10 @@ function PokerHandValueThreeOfAKind(Hand) {
 	return Value;
 }
 
-// Validate if the current hand is a two pairs (value 3)
+/**
+ * Validate if the current hand is a two pairs (value 3)
+ * @param {PokerHand} Hand
+ */
 function PokerHandValueTwoPairs(Hand) {
 	let HighPair = 0;
 	let LowPair = 0;
@@ -321,7 +345,10 @@ function PokerHandValueTwoPairs(Hand) {
 	return Value;
 }
 
-// Validate if the current hand is a one pair (value 2)
+/**
+ * Validate if the current hand is a one pair (value 2)
+ * @param {PokerHand} Hand
+ */
 function PokerHandValueOnePair(Hand) {
 	let Value = 0;
 	let Used = [false, false, false, false, false, false, false];
@@ -363,7 +390,10 @@ function PokerHandValueOnePair(Hand) {
 	return Value;
 }
 
-// Allocate the highest card value for the leading 5 cards (value 1)
+/**
+ * Allocate the highest card value for the leading 5 cards (value 1)
+ * @param {PokerHand} Hand
+ */
 function PokerHandValueHighestCards(Hand) {
 	let Pos = 0;
 	let Value = 1;
@@ -393,7 +423,14 @@ function PokerHandValueHighestCards(Hand) {
 	return Value;
 }
 
-// Return a decimal to express the hand value
+/**
+ * Return a decimal to express the hand value
+ * @param {number} C1
+ * @param {number} C2
+ * @param {PokerGameType} GameType
+ * @param {PokerMode} CurrentMode
+ * @param {number[]} TableCards
+ */
 function PokerHandValueCalcHandValue(C1, C2, GameType, CurrentMode, TableCards) {
 	let Value = 0;
 
@@ -438,7 +475,11 @@ function PokerHandValueCalcHandValue(C1, C2, GameType, CurrentMode, TableCards) 
 	return Value;
 }
 
-// Return a text version of a decimal hand value
+/**
+ * Return a text version of a decimal hand value
+ * @param {number} Value
+ * @returns {string}
+ */
 function PokerHandValueTextHandValue(Value) {
 	if (PokerGame == "TwoCards") {
 		if (Value >= 10000) return "OnePair";

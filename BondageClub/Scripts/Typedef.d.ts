@@ -1380,6 +1380,7 @@ interface Character {
 		LARP?: GameLARPParameters,
 		MagicBattle?: GameMagicBattleParameters,
 		GGTS?: GameGGTSParameters,
+		Poker?: GamePokerParameters,
 	};
 	BlackList: number[];
 	RunScripts?: boolean;
@@ -2850,8 +2851,19 @@ interface ICommand {
 	Clear?: false;
 }
 
+//#region Poker Minigame
+
+type PokerGameType = "TwoCards" | "TexasHoldem";
+type PokerMode = "" | "DEAL" | "FLOP" | "TURN" | "RIVER" | "RESULT" | "END";
 type PokerPlayerType = "None" | "Set" | "Character";
-type PokerPlayerFamily = "None" | "Player";
+type PokerPlayerFamily = "None" | "Player" | "Illustration" | "Model";
+type PokerHand = number[];
+
+interface PokerAsset {
+	Family: PokerPlayerFamily;
+	Type: PokerPlayerType;
+	Opponent: string[];
+}
 
 interface PokerPlayer {
 	Type: PokerPlayerType;
@@ -2861,7 +2873,7 @@ interface PokerPlayer {
 
 	/* Runtime values */
 	Difficulty?: number;
-	Hand?: any[];
+	Hand?: PokerHand;
 	HandValue?: number;
 	Cloth?: Item;
 	ClothLower?: Item;
@@ -2869,16 +2881,21 @@ interface PokerPlayer {
 	Panties?: Item;
 	Bra?: Item;
 	Character?: Character;
-	Data?: {
-		cache: Record<any, any>;
-	};
-	Image?: void;
+	Data?: TextCache;
+	Image?: string;
 	TextColor?: string;
-	TextSingle?: string;
-	TextMultiple?: string;
+	TextSingle?: TextCache;
+	TextMultiple?: TextCache;
+	Text?: string;
 	WebLink?: string;
-	Alternate?: void;
+	Alternate?: number;
 }
+
+interface GamePokerParameters {
+	Challenge?: string;
+}
+
+//#endregion
 
 // #region Online Games
 

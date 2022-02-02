@@ -7,9 +7,12 @@ var PokerPlayer = [
 	{ Type: "None", Family: "None", Name: "None", Chip: 100 },
 	{ Type: "None", Family: "None", Name: "None", Chip: 100 }
 ];
+/** @type {PokerMode} */
 var PokerMode = "";
+/** @type {PokerGameType} */
 var PokerGame = "TexasHoldem";
 var PokerShowPlayer = true;
+/** @type {PokerAsset[]} */
 var PokerAsset = [
 	{
 		Family: "None",
@@ -50,6 +53,9 @@ function PokerLoad() {
 
 /**
  * Draws a poker player behind the table
+ * @param {PokerPlayer} P
+ * @param {number} X
+ * @param {number} Y
  * @returns {void} - Nothing
  */
 function PokerDrawPlayer(P, X, Y) {
@@ -134,6 +140,7 @@ function PokerDrawPlayer(P, X, Y) {
 
 /**
  * Gets the chip progress of the current player P
+ * @param {PokerPlayer} P
  * @returns {number} - The progress as a %
  */
 function PokerGetProgress(P) {
@@ -152,6 +159,8 @@ function PokerGetProgress(P) {
 
 /**
  * Gets a possible text for a poker player P
+ * @param {PokerPlayer} P
+ * @param {string} [Tag]
  * @returns {void} - Nothing
  */
 function PokerGetText(P, Tag) {
@@ -226,6 +235,7 @@ function PokerGetText(P, Tag) {
 
 /**
  * Gets a possible image for a poker player P
+ * @param {PokerPlayer} P
  * @returns {void} - Nothing
  */
 function PokerGetImage(P) {
@@ -436,6 +446,7 @@ function PokerClearData(P) {
 
 /**
  * Returns TRUE if the opponent has been unlocked and can be faced
+ * @param {string} Opponent
  * @returns {boolean}
  */
 function PokerChallengeUnlocked(Opponent) {
@@ -483,6 +494,8 @@ function PokerChangeOpponentFamily(P, Next) {
 
 /**
  * Picks the next/previous opponent for a player P
+ * @param {PokerPlayer} P
+ * @param {boolean} Next - true for next, false for previous
  * @returns {void} - Nothing
  */
 function PokerChangeOpponent(P, Next) {
@@ -491,7 +504,7 @@ function PokerChangeOpponent(P, Next) {
 	if (Pos < 0) Pos = PokerOpponentList.length - 1;
 	if (Pos > PokerOpponentList.length - 1) Pos = 0;
 	P.Name = PokerOpponentList[Pos];
-	return PokerClearData(P);
+	PokerClearData(P);
 }
 
 /**
@@ -622,6 +635,7 @@ function PokerExit() {
 
 /**
  * Draws a card for a poker player PP
+ * @param {PokerPlayer} PP
  * @returns {void} - Nothing
  */
 function PokerDrawCard(PP) {
@@ -656,7 +670,8 @@ function PokerDrawCard(PP) {
 
 /**
  * Returns the file name associated with the card
- * @returns {String} - The file name of the card image
+ * @param {number} Card
+ * @returns {string} - The file name of the card image
  */
 function PokerCardFileName(Card) {
 	if (Card <= 13) return "Screens/Room/Poker/Cards/" + (Card + 1) + "C.png";
@@ -723,8 +738,9 @@ function PokerChallengeDone() {
 }
 
 /**
- * When we must process an action to advance the poker game, the action can be Bet, Raise, Fold or Watch
- * @returns {String} - The file name of the card image
+ * Process an action to advance the poker game
+ * @param {string} Action - Bet, Raise, Fold or Watch
+ * @returns {string} - The file name of the card image
  */
 function PokerProcess(Action) {
 
