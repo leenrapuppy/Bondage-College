@@ -914,7 +914,7 @@ function DialogMenuButtonBuild(C) {
 		DialogMenuButton.push("LockCancel");
 
 	// Out of struggle mode, we calculate which buttons to show in the UI
-	if ((StruggleProgress < 0) && !StruggleLockPickOrder && !DialogActivityMode) {
+	if ((StruggleProgress < 0) && !StruggleLockPickOrder) {
 
 		// Pushes all valid main buttons, based on if the player is restrained, has a blocked group, has the key, etc.
 		const IsItemLocked = InventoryItemHasEffect(Item, "Lock", true);
@@ -953,6 +953,11 @@ function DialogMenuButtonBuild(C) {
 
 			DialogMenuButton.push("CraftingCancel");
 
+		} else if (DialogActivityMode) {
+			if (DialogInventory != null && DialogActivity.length > 12 && Player.CanInteract()) {
+				DialogMenuButton.push("Next");
+				DialogMenuButton.push("Prev");
+			}
 		} else {
 
 			if ((DialogInventory != null) && (DialogInventory.length > 12) && ((Player.CanInteract() && !IsGroupBlocked) || DialogItemPermissionMode)) {
@@ -1359,15 +1364,17 @@ function DialogMenuButtonClick() {
 
 			// Next Icon - Shows the next 12 items
 			else if (DialogMenuButton[I] == "Next") {
+				let contents = DialogActivityMode ? DialogActivity : DialogInventory;
 				DialogInventoryOffset = DialogInventoryOffset + 12;
-				if (DialogInventoryOffset >= DialogInventory.length) DialogInventoryOffset = 0;
+				if (DialogInventoryOffset >= contents.length) DialogInventoryOffset = 0;
 				return;
 			}
 
 			// Prev Icon - Shows the previous 12 items
 			else if (DialogMenuButton[I] == "Prev") {
+				let contents = DialogActivityMode ? DialogActivity : DialogInventory;
 				DialogInventoryOffset = DialogInventoryOffset - 12;
-				if (DialogInventoryOffset < 0) { DialogInventoryOffset = DialogInventory.length - ((DialogInventory.length % 12) == 0 ? 12 : DialogInventory.length % 12); }
+				if (DialogInventoryOffset < 0) { DialogInventoryOffset = contents.length - ((contents.length % 12) == 0 ? 12 : contents.length % 12); }
 				return;
 			}
 
