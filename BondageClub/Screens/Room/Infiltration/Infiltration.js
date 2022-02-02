@@ -37,7 +37,7 @@ function InfiltrationCanGetPandoraLock() { return (DialogSkillGreater("Infiltrat
  * Returns TRUE if the player can ask to get Pandora's locks as a reward for the mission
  * @returns {boolean} - TRUE if successful
  */
-function InfiltrationCanAskForPandoraLock() { return ((InfiltrationMission == "Retrieve") && (InfiltrationTarget.Type = "PandoraPadlockKeys")); }
+function InfiltrationCanAskForPandoraLock() { return ((InfiltrationMission == "Retrieve") && (InfiltrationTarget.Type == "PandoraPadlockKeys")); }
 
 /**
  * Loads the infiltration screen by generating the supervisor.
