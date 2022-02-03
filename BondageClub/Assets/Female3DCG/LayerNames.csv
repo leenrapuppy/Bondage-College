@@ -945,6 +945,9 @@ ClothAccessoryBunnyCollarCuffsCollar,Collar
 ClothAccessoryBunnyCollarCuffsBow,Bow
 ItemHeadPaddedBlindfoldBase,Blindfold
 ItemHeadPaddedBlindfoldTrim,Trim
+ItemHeadKittyBlindfoldBase,Base
+ItemHeadKittyBlindfoldEyes,Eyes
+ItemHeadKittyBlindfoldEars,Ears
 ItemDevicesWetFloorSign,Sign
 ItemDevicesWetFloorText,Text
 BraCuteBikini1Main,Main
