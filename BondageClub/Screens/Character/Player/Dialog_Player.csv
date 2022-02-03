@@ -24,8 +24,20 @@ PlayerGagged,,,(You can use or remove items by selecting specific body regions o
 20,0,(Don't change your skill.),(You can use or remove items by selecting specific body regions on yourself.),,
 30,0,(Move Character.),(Move started.),"DialogChatRoomAdminAction(""Move"")",
 30,0,(Back to main menu.),(You can use or remove items by selecting specific body regions on yourself.),,
-40,,(Spend 120 minutes to get $100.),(GGTS gives you $100 and substracts 120 minutes to your total.),DialogGGTSMinutesForMoney(),DialogGGTSMinuteGreater(120)
+40,0,(Spend 15 minutes for a bondage position change.),,"DialogGGTSAction(""ItemPose"", ""15"")",DialogGGTSMinuteGreater(15)
+40,,(Spend 15 minutes for a bondage position change.),(You don't have enough minutes available.),,!DialogGGTSMinuteGreater(15)
+40,0,(Spend 15 minutes for a new blindness level.),,"DialogGGTSAction(""ItemMaskBlind"", ""15"")",DialogGGTSMinuteGreater(15)
+40,,(Spend 15 minutes for a new blindness level.),(You don't have enough minutes available.),,!DialogGGTSMinuteGreater(15)
+40,0,(Spend 15 minutes for a new deafness level.),,"DialogGGTSAction(""ItemEarsDeaf"", ""15"")",DialogGGTSMinuteGreater(15)
+40,,(Spend 15 minutes for a new deafness level.),(You don't have enough minutes available.),,!DialogGGTSMinuteGreater(15)
+40,0,(Spend 15 minutes for an sexual intensity change.),,"DialogGGTSAction(""ItemIntensity"", ""15"")",DialogGGTSMinuteGreater(15)
+40,,(Spend 15 minutes for a sexual intensity change.),(You don't have enough minutes available.),,!DialogGGTSMinuteGreater(15)
+40,0,(Spend 30 minutes to unlock the door.),,"DialogGGTSAction(""UnlockRoom"", ""30"")",DialogGGTSCanUnlock()
+40,,(Spend 30 minutes to unlock the door.),(You must have 30 minutes and be the admistrator of the locked room.),,!DialogGGTSCanUnlock()
+40,,(Spend 120 minutes to get $100.),(GGTS gives you $100 and substracts 120 minutes to your total.),"DialogGGTSAction(""MoneyForMinutes"", ""120"")",DialogGGTSMinuteGreater(120)
 40,,(Spend 120 minutes to get $100.),(You don't have enough minutes available.),,!DialogGGTSMinuteGreater(120)
+40,,(Spend 200 minutes to get your own futuristic helmet.),(GGTS gives you the futuristic helmet and substracts 200 minutes to your total.),"DialogGGTSAction(""GetHelmet"", ""200"")",DialogGGTSCanGetHelmet()
+40,,(Spend 200 minutes to get your own futuristic helmet.),(You don't have enough minutes available or you already have the helmet in your inventory.),,!DialogGGTSCanGetHelmet()
 40,0,(Back to main menu.),(You can use or remove items by selecting specific body regions on yourself.),,
 100,110,(Call the maids for help),(The maids are not supposed to take room calls. This will result in punishment and public humiliation. Are you sure?),,DialogCanCallMaidsPunishmentOn()
 100,0,(Call the maids for help),(The maids will be here shortly...),DialogCallMaids(),DialogCanCallMaidsPunishmentOff()

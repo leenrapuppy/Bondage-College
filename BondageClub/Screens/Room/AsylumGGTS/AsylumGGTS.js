@@ -1178,6 +1178,8 @@ function AsylumGGTSDroneDress(C) {
 	InventoryWear(C, "FuturisticBra", "ItemBreast");
 	InventoryWear(C, "FuturisticHarness", "ItemTorso");
 	InventoryWear(C, "FuturisticPanelGag", "ItemMouth");
+	InventoryWear(C, "FuturisticMask", "ItemHead");
+	InventoryWear(C, "FuturisticHelmet", "ItemHood");
 	if ((InventoryGet(C, "ItemNeck") == null) || (C.Ownership == null)) InventoryWear(C, "FuturisticCollar", "ItemNeck");
 	InventoryWear(C, "FuturisticEarphones", "ItemEars");
 }
@@ -1194,6 +1196,30 @@ function AsylumGGTSAllowChange(C) {
 		if (CurrentScreen.substr(0, 6) == "Asylum") return false;
 	}
 	return true;
+}
+
+/**
+ * Called from Dialog.js, triggers a specific action from GGTS game
+ * @param {String} Action - The action to perform
+ * @param {Number} Minute - The number of minutes to remove
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSDialogAction(Action, Minute) {
+
+	// Removes the minutes first
+	Minute = parseInt(Minute);
+	if (isNaN(Minute) || (Minute < 0)) Minute = 0;
+	AsylumGGTSSpendMinute(Minute);
+
+	// Adds $100 to the player money in exchange for 120 GGTS minutes
+	if (Action == "MoneyForMinutes") return CharacterChangeMoney(Player, 100);
+	if (Action == "GetHelmet") return InventoryAdd(Player, "FuturisticHelmet", "ItemHood");
+
+	// Call a regular automated task
+	DialogLeave();
+	AsylumGGTSTask = Action;
+	AsylumGGTSAutomaticTask();
+
 }
 
 /**

@@ -366,12 +366,29 @@ function DialogGGTSPersonalAccess() { return ((CurrentScreen === "ChatRoom") && 
 function DialogCanGetHelp() { return ((CurrentScreen === "ChatRoom") && !DialogGGTSPersonalAccess()); }
 
 /**
- * Adds $100 to the player money in exchange for 120 GGTS minutes
+ * The player can ask GGTS for specific actions at level 6, requiring minutes as currency
+ * @param {string} Action - The action to trigger
+ * @param {string} Minute - The number of minutes to spend
  * @returns {void}
  */
-function DialogGGTSMinutesForMoney() {
-	CharacterChangeMoney(Player, 100);
-	AsylumGGTSSpendMinute(120);
+function DialogGGTSAction(Action, Minute) {
+	AsylumGGTSDialogAction(Action, Minute);
+}
+
+/**
+ * Checks if the player can beg GGTS to unlock the room
+ * @returns {boolean} - TRUE if GGTS can unlock
+ */
+function DialogGGTSCanUnlock() {
+	return (ChatRoomPlayerIsAdmin() && (CurrentScreen == "ChatRoom") && DialogGGTSMinuteGreater(30) && (ChatRoomData != null) && ChatRoomData.Locked);
+}
+
+/**
+ * Checks if the player can get the futuristic helmet, only available from GGTS
+ * @returns {boolean} - TRUE if GGTS can unlock
+ */
+function DialogGGTSCanGetHelmet() {
+	return (DialogGGTSMinuteGreater(200) && !InventoryAvailable(Player, "FuturisticHelmet", "ItemHood"));
 }
 
 /**
