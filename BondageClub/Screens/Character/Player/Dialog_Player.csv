@@ -2915,3 +2915,8 @@ GGTSTaskNewRuleKeepPose,,,[GGTS] SourceCharacter.  New rule enforced: keep pose.
 GGTSTaskNewRuleNoOrgasm,,,[GGTS] SourceCharacter.  New rule enforced: No orgasm.,,
 GGTSTaskUndoRuleKeepPose,,,[GGTS] SourceCharacter.  Rule revoked: keep pose.,,
 GGTSTaskUndoRuleNoOrgasm,,,[GGTS] SourceCharacter.  Rule revoked: No orgasm.,,
+GGTSInteractionNewTaskTarget,,,[GGTS] SourceCharacter program new task for TargetCharacter.,,
+GGTSInteractionPause5Target,,,[GGTS] SourceCharacter program five minutes pause for TargetCharacter.,,
+GGTSInteractionSpeed20Target,,,[GGTS] SourceCharacter program slower pace for TargetCharacter.,,
+GGTSInteractionSpeed10Target,,,[GGTS] SourceCharacter program normal pace for TargetCharacter.,,
+GGTSInteractionSpeed5Target,,,[GGTS] SourceCharacter program faster pace for TargetCharacter.,,

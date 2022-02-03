@@ -392,6 +392,23 @@ function DialogGGTSCanGetHelmet() {
 }
 
 /**
+ * Nurses can do special GGTS interactions with other players
+ * @returns {boolean} - TRUE if the player is a nurse in a GGTS room
+ */
+function DialogCanStartGGTSInteractions() {
+	return ((CurrentScreen === "ChatRoom") && (ChatRoomSpace === "Asylum") && (ChatRoomData != null) && (ChatRoomData.Game === "GGTS") && (CurrentCharacter != null) && (AsylumGGTSGetLevel(CurrentCharacter) >= 1) && !DialogCanWatchKinkyDungeon() && (ReputationGet("Asylum") > 0));
+}
+
+/**
+ * Nurses can ask GGTS for specific interactions with other players
+ * @param {string} Interaction - The interaction to trigger
+ * @returns {void}
+ */
+function DialogGGTSInteraction(Interaction) {
+	AsylumGGTSDialogInteraction(Interaction);
+}
+
+/**
  * Checks the prerequisite for a given dialog
  * @param {number} D - Index of the dialog to check
  * @returns {boolean} - Returns true, if the prerequisite is met, false otherwise

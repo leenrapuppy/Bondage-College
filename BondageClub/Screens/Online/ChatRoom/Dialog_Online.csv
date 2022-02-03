@@ -13,7 +13,8 @@ PlayerGagged,,,(You don't have access to use or remove items on her.),,!DialogDo
 0,30,(Room administrator action.),"(As a room administrator, you can take these actions with her.)",,PlayerIsAdmin()
 0,40,(Character actions.),(Possible character actions.),,CanPerformCharacterAction()
 0,,(Stop her from leaving.),,StopLeave(),CanStopSlowPlayer()
-0,,(Watch her play Kinky Dungeon),,DialogStartKinkyDungeon(),DialogCanWatchKinkyDungeon()
+0,,(Watch her play Kinky Dungeon.),,DialogStartKinkyDungeon(),DialogCanWatchKinkyDungeon()
+0,50,(GGTS interactions.),"(As a nurse, you can program GGTS for her specific needs.)",,DialogCanStartGGTSInteractions()
 0,,(Leave this menu.),,DialogLeave(),
 10,,(Add to item whitelist.),(This member is now on your item permission whitelist.  She will have higher access to restrain or free you.),"ListManage(""Add"", ""WhiteList"")",CanAddWhiteList()
 10,,(Remove from item whitelist.),(This member is no longer on your item permission whitelist.),"ListManage(""Remove"", ""WhiteList"")",CanRemoveWhiteList()
@@ -96,6 +97,12 @@ ReleaseSubmissiveConfirm,0,(Cancel),(Main menu),,
 40,0,(Give her a spare key to your locks.),(You give her an extra key to your private padlocks),GiveHighSecurityKeys(),CanGiveHighSecurityKeys()
 40,0,(Hand over the keys to your locks.),(You give her the keys to your private padlocks),GiveHighSecurityKeysAll(),CanGiveHighSecurityKeysAll()
 40,0,(Back to main menu.),(Main menu.),,
+50,0,(Generate a new GGTS task.),,DialogGGTSInteraction("NewTask"),
+50,0,(Give her a five minutes pause.),,DialogGGTSInteraction("Pause5"),
+50,0,(Slow pace for GGTS demands.),,DialogGGTSInteraction("Speed20"),
+50,0,(Normal pace for GGTS demands.),,DialogGGTSInteraction("Speed10"),
+50,0,(Fast pace for GGTS demands.),,DialogGGTSInteraction("Speed5"),
+50,0,(Back to main menu.),(Main menu.),,
 100,110,(Wardrobe access.),(Select her wardrobe access.),,
 100,120,(Whisper rules.),(Select her rules for whispering when you're in the same room.),,
 100,130,(Key and locks restrictions.),(Select her restrictions for keys and locks.),,

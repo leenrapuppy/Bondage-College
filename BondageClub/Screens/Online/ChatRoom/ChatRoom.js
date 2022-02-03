@@ -2207,6 +2207,9 @@ function ChatRoomMessage(data) {
 				else if (msg == "ReceiveSuitcaseMoney"){
 					ChatRoomReceiveSuitcaseMoney();
 				}
+				
+				// Process hidden GGTS messages
+				if (msg.substr(0, 4) == "GGTS") AsylumGGTSHiddenMessage(SenderCharacter, msg, data);
 
 				// If the message is still hidden after any modifications, stop processing
 				if (data.Type == "Hidden") return;
