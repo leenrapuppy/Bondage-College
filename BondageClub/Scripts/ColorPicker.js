@@ -9,8 +9,18 @@
  * @typedef {{ H: number, S: number, V: number }} HSVColor
  */
 
+/**
+ * The color picker callback called when selection completes.
+ *
+ * @callback ColorPickerCallbackType
+ * @param {string} Color
+ * @return {void}
+ */
+
 var ColorPickerX, ColorPickerY, ColorPickerWidth, ColorPickerHeight;
-var ColorPickerInitialHSV, ColorPickerLastHSV, ColorPickerHSV, ColorPickerCallback, ColorPickerSourceElement;
+var ColorPickerInitialHSV, ColorPickerLastHSV, ColorPickerHSV, ColorPickerSourceElement;
+/** @type ColorPickerCallbackType */
+let ColorPickerCallback;
 var ColorPickerCSS;
 var ColorPickerIsDefault;
 var ColorPickerSelectedFavoriteIndex = null; //A number 0-5
@@ -282,7 +292,7 @@ function ColorPickerCSSColorEquals(Color1, Color2) {
  * @param {number} Width - Width of the color picker
  * @param {number} Height - Height of the color picker
  * @param {HTMLInputElement} Src - Input element that can contain a hex color code
- * @param {function} Callback - Callback to execute when the selected color changes
+ * @param {ColorPickerCallbackType} [Callback] - Callback to execute when the selected color changes
  * @returns {void} - Nothing
  */
 function ColorPickerDraw(X, Y, Width, Height, Src, Callback) {

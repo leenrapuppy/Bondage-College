@@ -40,6 +40,10 @@ interface HTMLImageElement {
 	errorcount?: number;
 }
 
+interface HTMLElement {
+	setAttribute(qualifiedName: string, value: string | number): void;
+}
+
 //#endregion
 
 //#region Enums
@@ -163,10 +167,10 @@ interface ChatRoom {
 	Character?: any[]; /* From server, not really a Character object */
 }
 
-type StimulationAction = "Flash" | "Kneel" | "Walk" | "StruggleAction" | "StruggleFail";
+type StimulationAction = "Flash" | "Kneel" | "Walk" | "StruggleAction" | "StruggleFail" | "Gag";
 
 type MessageActionType = "Action" | "Chat" | "Whisper" | "Emote" | "Activity" | "Hidden" |
- "LocalMessage" | "ServerMessage";
+ "LocalMessage" | "ServerMessage" | "Status";
 
 type MessageContentType = string;
 
@@ -713,6 +717,8 @@ interface Character {
 	ArousalZoom?: boolean;
 	FixedImage?: string;
 	Rule?: LogRecord[];
+	Status?: string | null;
+	StatusTimer?: number;
 }
 
 /** MovieStudio */

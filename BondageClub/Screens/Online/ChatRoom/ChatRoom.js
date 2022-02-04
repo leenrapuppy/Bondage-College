@@ -751,10 +751,10 @@ function ChatRoomUpdateDisplay() {
 
 /**
  * Draws the status bubble next to the character
- * @param {String} Status - The status bubble to draw
- * @param {X} Number - Screen X position
- * @param {Y} Number - Screen Y position
- * @param {Zoom} Number - Screen zoom
+ * @param {Character} C - The status bubble to draw
+ * @param {number} X - Screen X position
+ * @param {number} Y - Screen Y position
+ * @param {number} Zoom - Screen zoom
  * @returns {void} - Nothing.
  */
 function DrawStatus(C, X, Y, Zoom) {
@@ -1498,7 +1498,7 @@ function ChatRoomUpdateOnlineBounty() {
 
 /**
  * Updates the player status if needed and sends that new status in a chat message
- * @param {String} Status - The new status to use
+ * @param {String} [Status] - The new status to use
  * @returns {void} - Nothing.
  */
 function ChatRoomStatusUpdate(Status) {
@@ -3582,6 +3582,7 @@ function ChatRoomSafewordChatCommand() {
 	if (DialogChatRoomCanSafeword())
 		ChatRoomSafewordRevert();
 	else if (CurrentScreen == "ChatRoom") {
+		/** @type {IChatRoomMessage} */
 		var msg = {Sender: Player.MemberNumber, Content: "SafewordDisabled", Type: "Action"};
 		ChatRoomMessage(msg);
 	}

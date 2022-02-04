@@ -223,14 +223,14 @@ function GamblingShowDiceStack() {
 		DrawImageResize("Screens/Room/Gambling/dice_" + GamblingPlayerDiceStack[i - 1] + ".png", 25, (25 + j * 60), 60, 60);
 		j++;
 	}
-	if (GamblingShowDiceSum) DrawText(GamblingDiceStackSum(GamblingPlayerDiceStack), 125, 55, "white", "black");
+	if (GamblingShowDiceSum) DrawText(GamblingDiceStackSum(GamblingPlayerDiceStack).toString(), 125, 55, "white", "black");
 	if (GamblingShowMoney) DrawText(Player.Money.toString() + " $", 175, 125, "white", "black");
 	j = 0;
 	for (let i = GamblingNpcDiceStack.length; i > 0 ; i--) {
 		DrawImageResize("Screens/Room/Gambling/dice_" + GamblingNpcDiceStack[i - 1] + ".png", 525, (25 + j * 60), 60, 60);
 		j++;
 		}
-	if (GamblingShowDiceSum) DrawText(GamblingDiceStackSum(GamblingNpcDiceStack), 625, 55, "white", "black");
+	if (GamblingShowDiceSum) DrawText(GamblingDiceStackSum(GamblingNpcDiceStack).toString(), 625, 55, "white", "black");
 	return true;
 }
 
@@ -258,7 +258,7 @@ function GamblingDiceStackSum(DiceStack) {
 
 /**
  * Controller for the Simple Dice Game
- * @param {"new" | "win" | "lost" | equal} SimpleDiceState - The current game state
+ * @param {"new" | "win" | "lost" | "equal"} SimpleDiceState - The current game state
  * @returns {void} - Nothing
  */
 function GamblingSimpleDiceController(SimpleDiceState) {
@@ -302,7 +302,7 @@ function GamblingShowToothpickStack () {
 	for (let i = 0; i < GamblingToothpickCount; i++) {
 		DrawImageResize("Screens/Room/Gambling/toothpick.png", 410, 45 + 26 * i, 160, 7);
 	}
-	DrawText(GamblingToothpickCount, 490, 25, "white", "black");
+	DrawText(GamblingToothpickCount.toString(), 490, 25, "white", "black");
 	return true;
 }
 
@@ -311,7 +311,7 @@ function GamblingShowToothpickStack () {
  * @param {"new" | "give_up" | "win" | "lost" | string} ToothpickState - The current state of the game
  * @returns {void} - Nothing
  */
-function GamblingToothpickController (ToothpickState) {
+function GamblingToothpickController(ToothpickState) {
 	if (ToothpickState == "new") {
 		GamblingToothpickCount = 15;
 		GamblingFirstSub.Stage = 200;
@@ -335,7 +335,7 @@ function GamblingToothpickController (ToothpickState) {
 	}
 
 	else {
-		GamblingToothpickCount -= ToothpickState;
+		GamblingToothpickCount -= parseInt(ToothpickState);
 
 		// has player lost?
 		if (GamblingToothpickCount <= 0) {

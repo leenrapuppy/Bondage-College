@@ -893,7 +893,7 @@ function InventoryHasLockableItems(C) {
  * @param {Character} C - The character on which the lock must be applied
  * @param {Item|string} Item - The item from appearance to lock
  * @param {Item|string} Lock - The asset of the lock or the name of the lock asset
- * @param {number} [MemberNumber] - The member number to put on the lock
+ * @param {number|string} [MemberNumber] - The member number to put on the lock, or message to show
  * @param {boolean} [Update=true] - Whether or not to update the character
  */
 function InventoryLock(C, Item, Lock, MemberNumber, Update = true) {

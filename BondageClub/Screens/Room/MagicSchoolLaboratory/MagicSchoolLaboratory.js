@@ -108,7 +108,7 @@ function MagicSchoolLaboratoryClick() {
 
 /**
  * When the user wants to practice a spell
- * @param {number} S - The spell number (0 to strip, etc.)
+ * @param {number} SpellNumber - The spell number (0 to strip, etc.)
  * @returns {void} - Nothing
  */
 function MagicSchoolLaboratorySpellPractice(SpellNumber) {
@@ -379,7 +379,9 @@ function MagicSchoolLaboratoryBattleStudentEnd() {
 
 /**
  * Sets an emote for the student when there's an activity
- * @returns {boolean} - Returns true, if the player can
+ * @param {string} Blush
+ * @param {string} Eyes
+ * @returns {void}
  */
 function MagicSchoolLaboratoryStudentEmote(Blush, Eyes) {
 	CharacterSetFacialExpression(MagicSchoolLaboratoryStudent, "Blush", Blush, 5);

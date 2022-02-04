@@ -837,7 +837,7 @@ function PrivateKickOut() {
 
 /**
  * Triggered when the player tells a NPC to change.
- * @param {Asset[]} NewCloth - The new appearance to dress the NPC with
+ * @param {string} NewCloth - The new appearance to dress the NPC with
  * @returns {void} - Nothing.
  */
 function PrivateChange(NewCloth) {
