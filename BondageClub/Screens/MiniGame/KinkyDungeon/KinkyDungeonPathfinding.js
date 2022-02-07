@@ -10,13 +10,15 @@
  * @param {string} Tiles - Allowed move tiles!
  * @returns {any} - Returns an array of x, y points in order
  */
-function KinkyDungeonFindPath(startx, starty, endx, endy, blockEnemy, blockPlayer, ignoreLocks, Tiles) {
+function KinkyDungeonFindPath(startx, starty, endx, endy, blockEnemy, blockPlayer, ignoreLocks, Tiles, RequireLight, noDoors) {
 	function heuristic(xx, yy, endxx, endyy) {
 		return Math.sqrt((xx - endxx) * (xx - endxx) + (yy - endyy) * (yy - endyy));
 	}
 	// g = cost
 	// f = cost with heuristic
 	// s = source
+	let TilesTemp = Tiles;
+	if (noDoors) TilesTemp = Tiles.replace("d", "").replace("D", "");
 	let start = {x: startx, y: starty, g: 0, f: 0, s: ""};
 
 	// We generate a grid based on map size
@@ -45,12 +47,17 @@ function KinkyDungeonFindPath(startx, starty, endx, endy, blockEnemy, blockPlaye
 							closed.set(lowest.x + "," + lowest.y, lowest);
 							return KinkyDungeonGetPath(closed, lowest.x, lowest.y, endx, endy);
 						}
-						else if (Tiles.includes(KinkyDungeonMapGet(xx, yy))
-							&& (ignoreLocks || !KinkyDungeonTiles[(xx) + "," + (yy)] || !KinkyDungeonTiles[xx + "," + yy].Lock)
+						else if (TilesTemp.includes(KinkyDungeonMapGet(xx, yy)) && (!RequireLight || KinkyDungeonLightGet(xx, yy) > 0)
+							&& (ignoreLocks || !KinkyDungeonTiles.get((xx) + "," + (yy)) || !KinkyDungeonTiles.get(xx + "," + yy).Lock)
 							&& (!blockEnemy || KinkyDungeonNoEnemy(xx, yy, blockPlayer))) {
+							let costBonus = 0;
+							if (KinkyDungeonMapGet(xx, yy) == "D") costBonus = 2;
+							if (KinkyDungeonMapGet(xx, yy) == "d") costBonus = 1;
+							if (KinkyDungeonMapGet(xx, yy) == "g") costBonus = 2;
+							costBonus = (KinkyDungeonTiles.get((xx) + "," + (yy)) && KinkyDungeonTiles.get(xx + "," + yy).Lock) ? costBonus + 2 : costBonus;
 							succ.set(xx + "," + yy, {x: xx, y: yy,
-								g: moveCost + lowest.g,
-								f: moveCost + lowest.g + heuristic(xx, yy, endx, endy),
+								g: moveCost + costBonus + lowest.g,
+								f: moveCost + costBonus + lowest.g + heuristic(xx, yy, endx, endy),
 								s: lowest.x + "," + lowest.y});
 						}
 					}

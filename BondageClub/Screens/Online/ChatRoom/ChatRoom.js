@@ -1331,22 +1331,22 @@ function ChatRoomResize(load) {
  * @param {number} ArousalOverride - Override to the existing arousal value
  * @returns {void} - Nothing.
  */
-function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride) {
+ function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride, Color = '255, 100, 176', AlphaBonus = 0) {
 	let Progress = (ArousalOverride) ? ArousalOverride : Player.ArousalSettings.Progress;
 	let amplitude = 0.24 * Math.min(1, 2 - 1.5 * Progress/100); // Amplitude of the oscillation
 	let percent = Progress/100.0;
 	let level = Math.min(0.5, percent) + 0.5 * Math.pow(Math.max(0, percent*2 - 1), 4);
 	let oscillation = Math.sin(CommonTime() / 1000 % Math.PI);
-	let alpha = 0.6 * level * (0.99 - amplitude + amplitude * oscillation);
+	let alpha = Math.min(1.0, AlphaBonus + 0.6 * level * (0.99 - amplitude + amplitude * oscillation));
 
 	if (Player.ArousalSettings.VFXFilter == "VFXFilterHeavy") {
 		const Grad = MainCanvas.createLinearGradient(0, y1, 0, h);
 		let alphamin = Math.max(0, alpha / 2 - 0.05);
-		Grad.addColorStop(0, `rgba(255, 100, 176, ${alpha})`);
-		Grad.addColorStop(0.1 + 0.2*percent * (1.2 + 0.2 * oscillation), `rgba(255, 100, 176, ${alphamin})`);
-		Grad.addColorStop(0.5, `rgba(255, 100, 176, ${alphamin/2})`);
-		Grad.addColorStop(0.9 - 0.2*percent * (1.2 + 0.2 * oscillation), `rgba(255, 100, 176, ${alphamin})`);
-		Grad.addColorStop(1, `rgba(255, 100, 176, ${alpha})`);
+		Grad.addColorStop(0, `rgba(${Color}, ${alpha})`);
+		Grad.addColorStop(0.1 + 0.2*percent * (1.2 + 0.2 * oscillation), `rgba(${Color}, ${alphamin})`);
+		Grad.addColorStop(0.5, `rgba(${Color}, ${alphamin/2})`);
+		Grad.addColorStop(0.9 - 0.2*percent * (1.2 + 0.2 * oscillation), `rgba(${Color}, ${alphamin})`);
+		Grad.addColorStop(1, `rgba(${Color}, ${alpha})`);
 		MainCanvas.fillStyle = Grad;
 		MainCanvas.fillRect(0, y1, Width, h);
 	} else {
@@ -1354,7 +1354,7 @@ function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride) {
 			alpha = (Progress >= 91) ? 0.25 : 0;
 		} else alpha /= 2;
 		if (alpha > 0)
-			DrawRect(0, y1, Width, h, `rgba(255, 176, 176, ${alpha})`);
+			DrawRect(0, y1, Width, h, `rgba(${Color}, ${alpha})`);
 	}
 }
 /**

@@ -491,7 +491,6 @@ function LoginResponse(C) {
 			// Gets the online preferences
 			Player.LabelColor = C.LabelColor;
 			Player.ItemPermission = C.ItemPermission;
-			Player.KinkyDungeonKeybindings = C.KinkyDungeonKeybindings;
 			Player.KinkyDungeonExploredLore = C.KinkyDungeonExploredLore;
 			Player.ArousalSettings = C.ArousalSettings;
 			Player.ChatSettings = C.ChatSettings;

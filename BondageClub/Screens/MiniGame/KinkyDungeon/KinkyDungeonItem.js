@@ -1,7 +1,7 @@
 "use strict";
 var KinkyDungeonGroundItems = []; // Tracking all items on the ground
 
-function KinkyDungeonItemDrop(x, y, dropTable) {
+function KinkyDungeonItemDrop(x, y, dropTable, summoned) {
 	if (dropTable) {
 		let dropWeightTotal = 0;
 		let dropWeights = [];
@@ -18,8 +18,17 @@ function KinkyDungeonItemDrop(x, y, dropTable) {
 
 		for (let L = dropWeights.length - 1; L >= 0; L--) {
 			if (selection > dropWeights[L].weight) {
-				if (dropWeights[L].drop.name != "Nothing") {
+				if (dropWeights[L].drop.name != "Nothing" && (!summoned || !dropWeights[L].drop.noSummon)) {
 					let dropped = {x:x, y:y, name: dropWeights[L].drop.name, amount: dropWeights[L].drop.amountMin + Math.floor(Math.random()*dropWeights[L].drop.amountMax)};
+					if (!KinkyDungeonMovableTilesEnemy.includes(KinkyDungeonMapGet(x, y))) {
+						let newPoint = KinkyDungeonGetNearbyPoint(x, y, false, undefined, true);
+						if (newPoint) {
+							dropped.x = newPoint.x;
+							dropped.y = newPoint.y;
+						} else {
+							console.log("Failed to find point to drop " + TextGet("KinkyDungeonInventoryItem" + dropWeights[L].drop.name));
+						}
+					}
 					KinkyDungeonGroundItems.push(dropped);
 					return dropped;
 				}
@@ -30,22 +39,26 @@ function KinkyDungeonItemDrop(x, y, dropTable) {
 	return false;
 }
 
-function KinkyDungeonDropItem(Item) {
+function KinkyDungeonDropItem(Item, Origin, AllowOrigin, noMsg, allowEnemies) {
 	let slots = [];
 	for (let X = -Math.ceil(1); X <= Math.ceil(1); X++)
 		for (let Y = -Math.ceil(1); Y <= Math.ceil(1); Y++) {
-			slots.push({x:X, y:Y});
+			if ((X != 0 || Y != 0))
+				slots.push({x:X, y:Y});
 		}
 
-	let foundslot = null;
-	for (let C = 0; C < 100; C++) {
-		let slot = slots[Math.floor(Math.random() * slots.length)];
-		if (KinkyDungeonMovableTilesEnemy.includes(KinkyDungeonMapGet(KinkyDungeonPlayerEntity.x+slot.x, KinkyDungeonPlayerEntity.y+slot.y)) && KinkyDungeonNoEnemy(KinkyDungeonPlayerEntity.x+slot.x, KinkyDungeonPlayerEntity.y+slot.y, true)) {
-			foundslot = {x: KinkyDungeonPlayerEntity.x+slot.x, y: KinkyDungeonPlayerEntity.y+slot.y};
+	let foundslot = AllowOrigin ? {x:Origin.x, y:Origin.y} : null;
+	if (!foundslot || !(KinkyDungeonMovableTilesEnemy.includes(KinkyDungeonMapGet(foundslot.x, foundslot.y))
+			&& (allowEnemies || KinkyDungeonNoEnemy(foundslot.x, foundslot.y, true))))
+		for (let C = 0; C < 100; C++) {
+			let slot = slots[Math.floor(Math.random() * slots.length)];
+			if (KinkyDungeonMovableTilesEnemy.includes(KinkyDungeonMapGet(Origin.x+slot.x, Origin.y+slot.y))
+				&& (allowEnemies || KinkyDungeonNoEnemy(Origin.x+slot.x, Origin.y+slot.y, true))) {
+				foundslot = {x: Origin.x+slot.x, y: Origin.y+slot.y};
 
-			C = 100;
-		} else slots.splice(C, 1);
-	}
+				C = 100;
+			} else slots.splice(C, 1);
+		}
 
 	if (foundslot) {
 
@@ -57,7 +70,8 @@ function KinkyDungeonDropItem(Item) {
 		}
 
 		KinkyDungeonGroundItems.push(dropped);
-		KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonDrop" + Item.name), "red", 2);
+		if (!noMsg)
+			KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonDrop" + Item.name), "red", 2);
 
 		return true;
 	}
@@ -68,6 +82,7 @@ function KinkyDungeonDropItem(Item) {
 function KinkyDungeonItemEvent(Item) {
 	let color = "white";
 	let priority = 1;
+	let sfx = "Coins";
 	if (Item.name == "Gold") {
 		color = "yellow";
 		KinkyDungeonAddGold(Item.amount);
@@ -77,12 +92,8 @@ function KinkyDungeonItemEvent(Item) {
 		priority = 2;
 		color = "lightgreen";
 		KinkyDungeonLockpicks += 1;
-	} else if (Item.name == "Hammer") {
-		priority = 4;
-		color = "orange";
-		KinkyDungeonInventoryAddWeapon("Hammer");
 	} else if (Item.name == "MagicSword") {
-		priority = 4;
+		priority = 8;
 		color = "orange";
 		KinkyDungeonInventoryAddWeapon("MagicSword");
 	} else if (Item.name == "Knife") {
@@ -108,17 +119,31 @@ function KinkyDungeonItemEvent(Item) {
 	} else if (Item.name == "PotionMana") {
 		priority = 3;
 		color = "lightblue";
+		sfx = "PotionDrink";
 		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.PotionMana, 1);
 	} else if (Item.name == "PotionStamina") {
 		priority = 3;
+		sfx = "PotionDrink";
 		color = "lightgreen";
 		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.PotionStamina, 1);
 	} else if (Item.name == "PotionFrigid") {
 		priority = 3;
-		color = "grey";
+		sfx = "PotionDrink";
+		color = "white";
 		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.PotionFrigid, 1);
+	} else if (KinkyDungeonFindConsumable(Item.name)) {
+		let item = KinkyDungeonFindConsumable(Item.name);
+		priority = item.rarity;
+		if (item.potion) sfx = "PotionDrink";
+		color = "white";
+		KinkyDungeonChangeConsumable(item, 1);
+	} else if (KinkyDungeonFindWeapon(Item.name)) {
+		let item = KinkyDungeonFindWeapon(Item.name);
+		priority = Math.min(8, item.rarity + 4);
+		color = "orange";
+		KinkyDungeonInventoryAddWeapon(Item.name);
 	}
-	AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Coins.ogg");
+	if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/" + sfx + ".ogg");
 	KinkyDungeonSendActionMessage(priority, TextGet("ItemPickup" + Item.name).replace("XXX", Item.amount), color, 2);
 }
 
@@ -128,7 +153,8 @@ function KinkyDungeonItemCheck(x, y, Index) {
 		var item = KinkyDungeonGroundItems[I];
 		if (KinkyDungeonPlayerEntity.x == item.x && KinkyDungeonPlayerEntity.y == item.y) {
 			KinkyDungeonGroundItems.splice(I, 1);
-			return KinkyDungeonItemEvent(item);
+			I -= 1;
+			KinkyDungeonItemEvent(item);
 		}
 	}
 }

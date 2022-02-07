@@ -1743,7 +1743,7 @@ var AssetFemale3DCGExtended = {
 				DrawImages: false,
 			},
 		}, // GwenHood
-			OpenFaceHood: {
+		OpenFaceHood: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
 				Options: [
@@ -1760,7 +1760,7 @@ var AssetFemale3DCGExtended = {
 					Load: "SelectOpenFaceHoodStyle",
 					TypePrefix: "OpenFaceHoodStyle",
 				},
-					DrawImages: false,
+				DrawImages: false,
 			}
 		}, // OpenFaceHood
 		TechnoHelmet1: {
@@ -3751,7 +3751,7 @@ var AssetFemale3DCGExtended = {
 					Load: "SelectOpenFaceHoodStyle",
 					TypePrefix: "OpenFaceHoodStyle",
 				},
-					DrawImages: false,
+				DrawImages: false,
 			}
 		}, // OpenFaceHood
 		PetNose: {
@@ -3927,6 +3927,12 @@ var AssetFemale3DCGExtended = {
 							Difficulty: 6,
 						},
 					},
+					{
+						Name: "Chained",
+						Property: {
+							Type: "Chained", Effect: ["Slow"],
+						}
+					}
 				],
 				Dialog: {
 					Load: "SelectBondagePosition",
@@ -3961,6 +3967,12 @@ var AssetFemale3DCGExtended = {
 							Difficulty: 6,
 						},
 					},
+					{
+						Name: "Chained",
+						Property: {
+							Type: "Chained", Effect: ["Slow"],
+						}
+					}
 				],
 				Dialog: {
 					Load: "SelectBondagePosition",
@@ -4101,6 +4113,12 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: "Closed", Effect: ["Prone", "Freeze"], SetPose: ["LegsClosed"], Difficulty: 6, FreezeActivePose: ["BodyLower"],
 						}
+					},
+					{
+						Name: "Chained",
+						Property: {
+							Type: "Chained", Effect: ["Slow"],
+						}
 					}
 				],
 				Dialog: {
@@ -4132,6 +4150,12 @@ var AssetFemale3DCGExtended = {
 						Name: "Closed",
 						Property: {
 							Type: "Closed", Effect: ["Prone", "Freeze"], SetPose: ["LegsClosed"], Difficulty: 6, FreezeActivePose: ["BodyLower"],
+						}
+					},
+					{
+						Name: "Chained",
+						Property: {
+							Type: "Chained", Effect: ["Slow"],
 						}
 					}
 				],

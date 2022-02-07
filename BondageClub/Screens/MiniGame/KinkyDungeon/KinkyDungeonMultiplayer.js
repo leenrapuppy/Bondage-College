@@ -200,7 +200,7 @@ function KinkyDungeonPackData(IncludeMap, IncludeItems, IncludeInventory, Includ
 		return "";
 	}) : "";
 
-	let meta = {w: KinkyDungeonGridWidth, h: KinkyDungeonGridHeight, x:KinkyDungeonPlayerEntity.x, y:KinkyDungeonPlayerEntity.y,};
+	let meta = {w: KinkyDungeonGridWidth, h: KinkyDungeonGridHeight, x:KinkyDungeonPlayerEntity ? KinkyDungeonPlayerEntity.x : 0, y:KinkyDungeonPlayerEntity ? KinkyDungeonPlayerEntity.y : 0,};
 
 	if (IncludeStats) {
 		meta.sp = Math.round(KinkyDungeonStatStamina);
