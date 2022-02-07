@@ -44,7 +44,7 @@ function CollegeEntranceRun() {
 	DrawCharacter(CollegeEntranceStudent, 1000, 0, 1);
 	DrawButton(1885, 25, 90, 90, "", Player.CanWalk() ? "White" : "Pink", "Icons/Exit.png", TextGet("Exit"));
 	DrawButton(1885, 131, 90, 90, "", "White", "Icons/Character.png", TextGet("Profile"));
-	DrawButton(1885, 237, 90, 90, "", Player.CanChange() ? "White" : "Pink", "Icons/Dress.png", TextGet("Dress"));
+	DrawButton(1885, 237, 90, 90, "", Player.CanChangeOwnClothes() ? "White" : "Pink", "Icons/Dress.png", TextGet("Dress"));
 	DrawButton(1885, 343, 90, 90, "", CollegeEntranceCanGoTennis() ? "White" : "Pink", "Icons/Tennis.png", TextGet("Tennis"));
 	DrawButton(1885, 449, 90, 90, "", CollegeEntranceCanGoInside() ? "White" : "Pink", "Icons/Coffee.png", TextGet("Cafeteria"));
 	DrawButton(1885, 555, 90, 90, "", CollegeEntranceCanGoInside() ? "White" : "Pink", "Icons/Theater.png", TextGet("Theater"));
@@ -62,7 +62,7 @@ function CollegeEntranceClick() {
 	if (MouseIn(1000, 0, 500, 1000)) CharacterSetCurrent(CollegeEntranceStudent);
 	if (MouseIn(1885, 25, 90, 90) && Player.CanWalk()) CommonSetScreen("Room", "MainHall");
 	if (MouseIn(1885, 131, 90, 90)) InformationSheetLoadCharacter(Player);
-	if (MouseIn(1885, 237, 90, 90) && Player.CanChange()) CharacterAppearanceLoadCharacter(Player);
+	if (MouseIn(1885, 237, 90, 90) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
 	if (MouseIn(1885, 343, 90, 90) && CollegeEntranceCanGoTennis()) CommonSetScreen("Room", "CollegeTennis");
 	if (MouseIn(1885, 449, 90, 90) && CollegeEntranceCanGoInside()) CommonSetScreen("Room", "CollegeCafeteria");
 	if (MouseIn(1885, 555, 90, 90) && CollegeEntranceCanGoInside()) CommonSetScreen("Room", "CollegeTheater");

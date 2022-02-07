@@ -15,7 +15,7 @@ var PhotographicSelectText = "";
  */
 function PhotographicIsMaidsDisabled() { var expire = LogValue("MaidsDisabled", "Maid") - CurrentTime ; return (expire > 0 ); }
 
-function PhotographicPlayerCanChangeCloth() {return Player.CanChange() && !Player.IsRestrained();}
+function PhotographicPlayerCanChangeCloth() {return Player.CanChangeOwnClothes();}
 function PhotographicPlayerHatAvailable() {return PhotographicAppearanceAvailable(Player, "Hat");}
 function PhotographicPlayerGlovesAvailable() {return PhotographicAppearanceAvailable(Player, "Gloves");}
 function PhotographicPlayerClothAvailable() {return PhotographicAppearanceAvailable(Player, "Cloth");}
@@ -58,7 +58,7 @@ function PhotographicRun() {
 	DrawButton(1885, 145, 90, 90, "", "White", "Icons/Character.png");
 	if (Player.CanInteract()) DrawButton(1885, 265, 90, 90, "", "White", "Icons/Camera.png");
 	if (Player.CanKneel()) DrawButton(1885, 385, 90, 90, "", "White", "Icons/Kneel.png");
-	DrawButton(1885, 505, 90, 90, "", Player.CanChange() ? "White" : "Pink", "Icons/Dress.png");
+	DrawButton(1885, 505, 90, 90, "", Player.CanChangeOwnClothes() ? "White" : "Pink", "Icons/Dress.png");
 }
 
 function PhotographicClick() {
@@ -71,7 +71,7 @@ function PhotographicClick() {
 	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 145) && (MouseY < 235)) InformationSheetLoadCharacter(Player);
 	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 265) && (MouseY < 355) && Player.CanInteract()) CommonTakePhoto(750, 0, 500, 1000);
 	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 385) && (MouseY < 475)  && Player.CanKneel()) CharacterSetActivePose(Player, (Player.ActivePose == null) ? "Kneel" : null, true);
-	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 505) && (MouseY < 595) && Player.CanChange()) CharacterAppearanceLoadCharacter(Player);
+	if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 505) && (MouseY < 595) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
 }
 
 function PhotographicShotThePlayerPhoto() {

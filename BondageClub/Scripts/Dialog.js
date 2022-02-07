@@ -317,12 +317,6 @@ function DialogSkillGreater(SkillType, Value) { return (parseInt(SkillGetLevel(P
 function DialogInventoryAvailable(InventoryName, InventoryGroup) { return InventoryAvailable(Player, InventoryName, InventoryGroup); }
 
 /**
- * Checks if the player can change the current character's clothes
- * @returns {boolean} - TRUE if the player can change the character's clothes and is allowed to.
- */
-function DialogChatRoomCanChangeClothes() { return ((CurrentScreen == "ChatRoom") && ChatRoomCanChangeClothes()); }
-
-/**
  * Checks, if the player is the administrator of the current chat room
  * @returns {boolean} - Returns true, if the player belogs to the group of administrators for the current char room false otherwise
  */
@@ -332,19 +326,13 @@ function DialogChatRoomPlayerIsAdmin() { return (ChatRoomPlayerIsAdmin() && (Cur
  * Checks, if a safe word can be used.
  * @returns {boolean} - Returns true, if the player is currently within a chat room
  */
-function DialogChatRoomCanSafeword() { return (CurrentScreen == "ChatRoom" && Player.GameplaySettings.EnableSafeword); }
+function DialogChatRoomCanSafeword() { return (CurrentScreen == "ChatRoom" && !AsylumGGTSIsEnabled() && Player.GameplaySettings.EnableSafeword); }
 
 /**
  * Checks if the player is currently owned.
  * @returns {boolean} - Returns true, if the player is currently owned by an online player (not in trial)
  */
 function DialogCanViewRules() { return (Player.Ownership != null) && (Player.Ownership.Stage == 1); }
-
-/**
- * Checks if the chat room allows the photograph feature to be used.
- * @returns {boolean} - TRUE if the player can take a photo.
- */
-function DialogChatRoomCanTakePhotos() { return CurrentScreen == "ChatRoom" && ChatRoomCanTakePhotos(); }
 
 /**
  * Checks if the has enough GGTS minutes to spend on different activities, for GGTS level 6 and up
@@ -357,13 +345,7 @@ function DialogGGTSMinuteGreater(Minute) { return ((AsylumGGTSGetLevel(Player) >
  * Checks if the player can spend GGTS minutes on herself, for GGTS level 6 and up
  * @returns {boolean} - TRUE if the player has enough minutes
  */
-function DialogGGTSPersonalAccess() { return ((CurrentScreen === "ChatRoom") && (ChatRoomSpace === "Asylum") && (ChatRoomData != null) && (ChatRoomData.Game === "GGTS") && (AsylumGGTSGetLevel(Player) >= 6)); }
-
-/**
- * Returns TRUE if the user can get help in a chat room
- * @returns {boolean} - TRUE if the player is in a chatroom to get help
- */
-function DialogCanGetHelp() { return ((CurrentScreen === "ChatRoom") && !DialogGGTSPersonalAccess()); }
+function DialogGGTSCanSpendMinutes() { return (AsylumGGTSIsEnabled() && (AsylumGGTSGetLevel(Player) >= 6)); }
 
 /**
  * The player can ask GGTS for specific actions at level 6, requiring minutes as currency
@@ -396,7 +378,7 @@ function DialogGGTSCanGetHelmet() {
  * @returns {boolean} - TRUE if the player is a nurse in a GGTS room
  */
 function DialogCanStartGGTSInteractions() {
-	return ((CurrentScreen === "ChatRoom") && (ChatRoomSpace === "Asylum") && (ChatRoomData != null) && (ChatRoomData.Game === "GGTS") && (CurrentCharacter != null) && (AsylumGGTSGetLevel(CurrentCharacter) >= 1) && !DialogCanWatchKinkyDungeon() && (ReputationGet("Asylum") > 0));
+	return (AsylumGGTSIsEnabled() && (CurrentCharacter != null) && (AsylumGGTSGetLevel(CurrentCharacter) >= 1) && !DialogCanWatchKinkyDungeon() && (ReputationGet("Asylum") > 0));
 }
 
 /**

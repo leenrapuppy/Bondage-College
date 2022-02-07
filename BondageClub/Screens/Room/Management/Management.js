@@ -239,22 +239,22 @@ function ManagementWontVisitRoom() { return (!ManagementVisitRoom && ManagementC
  * Checks if the player can become a club mistress.
  * @returns {boolean} - TRUE if the player is fully dominant, has been in the club for more than a month, is currently not restrained, is not kneeling, can currently change and is currently not a club mistress.
  */
-function ManagementCanBeClubMistress() { return ((ReputationGet("Dominant") >= 100) && ((Math.floor((CurrentTime - Player.Creation) / 86400000)) >= 30) && !LogQuery("ClubMistress", "Management") && !Player.IsRestrained() && !Player.IsKneeling() && Player.CanChange()); }
+function ManagementCanBeClubMistress() { return ((ReputationGet("Dominant") >= 100) && ((Math.floor((CurrentTime - Player.Creation) / 86400000)) >= 30) && !LogQuery("ClubMistress", "Management") && !Player.IsKneeling() && Player.CanChangeOwnClothes()); }
 /**
  * Checks if the player is not able to become a club mistress due to her reputation.
  * @returns {boolean} - TRUE if the player could be a club mistress, but has a dominant reputation between 50 and 99.
  */
-function ManagementCannotBeClubMistress() { return ((ReputationGet("Dominant") < 100) && (ReputationGet("Dominant") >= 50) && ((Math.floor((CurrentTime - Player.Creation) / 86400000)) >= 30) && !LogQuery("ClubMistress", "Management") && !Player.IsRestrained() && !Player.IsKneeling() && Player.CanChange()); }
+function ManagementCannotBeClubMistress() { return ((ReputationGet("Dominant") < 100) && (ReputationGet("Dominant") >= 50) && ((Math.floor((CurrentTime - Player.Creation) / 86400000)) >= 30) && !LogQuery("ClubMistress", "Management") && !Player.IsKneeling() && Player.CanChangeOwnClothes()); }
 /**
  * Checks if the player is not able to become a club mistress due to her reputation (by a large amount, which makes the mistress laugh.)
  * @returns {boolean} - TRUE if the player could be a club mistress, but has a dominant reputation below 50.
  */
-function ManagementCannotBeClubMistressLaugh() { return ((ReputationGet("Dominant") < 50) && ((Math.floor((CurrentTime - Player.Creation) / 86400000)) >= 30) && !LogQuery("ClubMistress", "Management") && !Player.IsRestrained() && !Player.IsKneeling() && Player.CanChange()); }
+function ManagementCannotBeClubMistressLaugh() { return ((ReputationGet("Dominant") < 50) && ((Math.floor((CurrentTime - Player.Creation) / 86400000)) >= 30) && !LogQuery("ClubMistress", "Management") && !Player.IsKneeling() && Player.CanChangeOwnClothes()); }
 /**
  * Checks if the player is not able to become a club mistress due to her short time in the club.
  * @returns {boolean} - TRUE if the player has been in the club for less than a month.
  */
-function ManagementCannotBeClubMistressTime() { return (((Math.floor((CurrentTime - Player.Creation) / 86400000)) < 30) && !LogQuery("ClubMistress", "Management") && !Player.IsRestrained() && !Player.IsKneeling() && Player.CanChange()); }
+function ManagementCannotBeClubMistressTime() { return (((Math.floor((CurrentTime - Player.Creation) / 86400000)) < 30) && !LogQuery("ClubMistress", "Management") && !Player.IsKneeling() && Player.CanChangeOwnClothes()); }
 /**
  * Checks if the player can receive her club mistress pay check.
  * @returns {boolean} - TRUE if the player is a club mistress and has not been paid this week.

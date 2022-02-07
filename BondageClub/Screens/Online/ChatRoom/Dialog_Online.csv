@@ -2,8 +2,8 @@ PlayerGagged,,,(You can use or remove items by selecting specific body regions.)
 PlayerGagged,,,(You don't have access to use or remove items on her.),,!DialogDoAllowItem(CurrentCharacter)
 0,,,(You can use or remove items by selecting specific body regions.),,DialogDoAllowItem(CurrentCharacter)
 0,,,(You don't have access to use or remove items on her.),,!DialogDoAllowItem(CurrentCharacter)
-0,,(View her profile.),,ViewProfile(),
-0,,(Change her clothes.),,ChangeClothes(),ChatRoomCanChangeClothes()
+0,,(View her profile.),,DialogViewProfile(),
+0,,(Change her clothes.),,DialogChangeClothes(),DialogCanChangeClothes()
 0,10,(Manage your relationship.),"(You can give more access to your items by putting her on your whitelist, or less control by putting her on your blacklist.)",,
 0,20,(Check her drink tray.),(There's a variety of drinks.  Some are offered by the club and some are more expensive.),,CanTakeDrink()
 0,0,(Try to take her suitcase.),(It will take 5 minutes to get the suitcase open and steal the cash. Make sure she is secure!),TryToTakeSuitcase(),CanTakeSuitcase()
@@ -11,9 +11,8 @@ PlayerGagged,,,(You don't have access to use or remove items on her.),,!DialogDo
 0,0,(Use the laptop to steal data.),(It will take 5 minutes to get the suitcase open and steal the cash. Make sure she is secure!),TryToTakeSuitcase(),CanTakeSuitcaseOpened()
 0,0,(Use the laptop to steal data.),(You will need to tie her first so she can't escape or resist!),,CantTakeSuitcaseOpened()
 0,30,(Room administrator action.),"(As a room administrator, you can take these actions with her.)",,PlayerIsAdmin()
-0,40,(Character actions.),(Possible character actions.),,CanPerformCharacterAction()
+0,40,(Character actions.),(Possible character actions.),,DialogCanPerformCharacterAction()
 0,,(Stop her from leaving.),,StopLeave(),CanStopSlowPlayer()
-0,,(Watch her play Kinky Dungeon.),,DialogStartKinkyDungeon(),DialogCanWatchKinkyDungeon()
 0,50,(GGTS interactions.),"(As a nurse, you can program GGTS for her specific needs.)",,DialogCanStartGGTSInteractions()
 0,,(Leave this menu.),,DialogLeave(),
 10,,(Add to item whitelist.),(This member is now on your item permission whitelist.  She will have higher access to restrain or free you.),"ListManage(""Add"", ""WhiteList"")",CanAddWhiteList()
@@ -92,10 +91,11 @@ ReleaseSubmissiveConfirm,0,(Cancel),(Main menu),,
 40,0,(Help her stand.),(You help her up on her feet.),KneelStandAssist(),CanAssistStand()
 40,0,(Help her kneel.),(You help her down on her knees.),KneelStandAssist(),CanAssistKneel()
 40,0,(Help her to struggle free.),,StruggleAssist(),CanAssistStruggle()
-40,,(Have a photo taken.),,PhotoCurrentCharacters(),ChatRoomCanTakePhotos()
+40,,(Take a photo of both of you.),,DialogPhotoCurrentCharacters(),DialogCanTakePhotos()
 40,0,(Lend her some lockpicks.),(You give her some lockpicks to struggle out with until she leaves the room),GiveLockpicks(),CanGiveLockpicks()
 40,0,(Give her a spare key to your locks.),(You give her an extra key to your private padlocks),GiveHighSecurityKeys(),CanGiveHighSecurityKeys()
 40,0,(Hand over the keys to your locks.),(You give her the keys to your private padlocks),GiveHighSecurityKeysAll(),CanGiveHighSecurityKeysAll()
+40,,(Watch her play Kinky Dungeon.),,DialogStartKinkyDungeon(),DialogCanWatchKinkyDungeon()
 40,0,(Back to main menu.),(Main menu.),,
 50,0,(Generate a new GGTS task.),,DialogGGTSInteraction("NewTask"),
 50,0,(Give her a five minutes pause.),,DialogGGTSInteraction("Pause5"),

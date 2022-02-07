@@ -27,7 +27,7 @@ function LARPRun() {
 	DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Leave"));
 	DrawButton(1885, 145, 90, 90, "", "White", "Icons/Character.png", TextGet("Profile"));
 	if ((ReputationGet("LARP") >= 1) && (Player.Game != null) && (Player.Game.LARP != null) && (Player.Game.LARP.Class != null))
-		DrawButton(1885, 265, 90, 90, "", Player.CanChange() ? "White" : "Pink", "Icons/Battle.png", TextGet("Battle"));
+		DrawButton(1885, 265, 90, 90, "", Player.CanChangeOwnClothes() ? "White" : "Pink", "Icons/Battle.png", TextGet("Battle"));
 	DailyJobSubSearchRun();
 }
 
@@ -40,7 +40,7 @@ function LARPClick() {
 	if (!DailyJobSubSearchIsActive() && MouseIn(1000, 0, 500, 1000)) CharacterSetCurrent(LARPOrganiser);
 	if (MouseIn(1885, 25, 90, 90)) CommonSetScreen("Room", "MainHall");
 	if (MouseIn(1885, 145, 90, 90)) InformationSheetLoadCharacter(Player);
-	if (MouseIn(1885, 265, 90, 90) && (ReputationGet("LARP") >= 1) && (Player.Game != null) && (Player.Game.LARP != null) && (Player.Game.LARP.Class != null) && Player.CanChange()) ChatRoomStart("", "LARP", "LARP", "WrestlingRing", BackgroundsTagList);
+	if (MouseIn(1885, 265, 90, 90) && (ReputationGet("LARP") >= 1) && (Player.Game != null) && (Player.Game.LARP != null) && (Player.Game.LARP.Class != null) && Player.CanChangeOwnClothes()) ChatRoomStart("", "LARP", "LARP", "WrestlingRing", BackgroundsTagList);
 	DailyJobSubSearchClick();
 }
 
