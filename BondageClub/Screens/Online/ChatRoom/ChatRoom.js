@@ -795,13 +795,41 @@ function ChatRoomDrawCharacter(DoClick) {
 
 	// Gradually slide the characters around to make room
 	let weight = ChatRoomSlideWeight;
+	// Calculate a multiplier based on current framerate to keep the speed of the animation consistent across different framerates
+	let frametimeAdjustment = TimerRunInterval / (1000 / 30);
 	if (ChatRoomCharacterInitialize || !(Player.GraphicsSettings && Player.GraphicsSettings.SmoothZoom)) {
 		ChatRoomCharacterInitialize = false;
 		weight = 0;
 	}
-	ChatRoomCharacterZoom = (ChatRoomCharacterZoom * weight + ((ChatRoomCharacterCount >= 3 ? Space / 400 : 1))) / (weight + 1);
-	ChatRoomCharacterX_Upper = (ChatRoomCharacterX_Upper * weight + 500 - 0.5 * Space * Math.min(ChatRoomCharacterCount, 5))/(weight + 1);
-	ChatRoomCharacterX_Lower = (ChatRoomCharacterX_Lower * weight + 500 - 0.5 * Space * Math.max(1, ChatRoomCharacterCount - 5))/(weight + 1);
+
+	const zoomFrameStep = (current) => (current * weight + ((ChatRoomCharacterCount >= 3 ? Space / 400 : 1))) / (weight + 1);
+	const slideUpperFrameStep = (current) => (current * weight + 500 - 0.5 * Space * Math.min(ChatRoomCharacterCount, 5))/(weight + 1);
+	const slideLowerFrameStep = (current) => (current * weight + 500 - 0.5 * Space * Math.max(1, ChatRoomCharacterCount - 5))/(weight + 1);
+
+	for (let i = 0; i < frametimeAdjustment; i++) {
+		const nextZoom = zoomFrameStep(ChatRoomCharacterZoom);
+		const nextUpperX = slideUpperFrameStep(ChatRoomCharacterX_Upper);
+		const nextLowerX = slideLowerFrameStep(ChatRoomCharacterX_Lower);
+
+		if (weight === 0) {
+			// skip unnecessary calculations
+			ChatRoomCharacterZoom = nextZoom;
+			ChatRoomCharacterX_Upper = nextUpperX;
+			ChatRoomCharacterX_Lower = nextLowerX;
+			break;
+		}
+
+		const frametimeRemainder = frametimeAdjustment - i;
+		if (frametimeRemainder >= 1) {
+			ChatRoomCharacterZoom = nextZoom;
+			ChatRoomCharacterX_Upper = nextUpperX;
+			ChatRoomCharacterX_Lower = nextLowerX;
+		} else {
+			ChatRoomCharacterZoom += (nextZoom - ChatRoomCharacterZoom) * frametimeRemainder;
+			ChatRoomCharacterX_Upper += (nextUpperX - ChatRoomCharacterX_Upper) * frametimeRemainder;
+			ChatRoomCharacterX_Lower += (nextLowerX - ChatRoomCharacterX_Lower) * frametimeRemainder;
+		}
+	}
 
 	// The more players, the higher the zoom, also changes the drawing coordinates
 	const Zoom = ChatRoomCharacterZoom;
@@ -838,7 +866,6 @@ function ChatRoomDrawCharacter(DoClick) {
 		}
 
 	}
-
 }
 
 /**
