@@ -1077,6 +1077,12 @@ function AsylumGGTSSpendMinute(Minute) {
  */
 function AsylumGGTSAddStrike() {
 
+	// Flash a red alert for the player for 5 seconds, if we are in the GGTS Room background
+	if (AsylumGGTSIsEnabled() && (ChatRoomData.Background === "AsylumGGTSRoom")) {
+		ChatRoomData.Background = "AsylumGGTSRoomAlert";
+		setTimeout(function() { ChatRoomData.Background = "AsylumGGTSRoom"; }, 5000);
+	}
+
 	// Level 6 is infinite, getting a strike subtract 1 hour
 	if (AsylumGGTSGetLevel(Player) >= 6) return AsylumGGTSSpendMinute(60);
 
