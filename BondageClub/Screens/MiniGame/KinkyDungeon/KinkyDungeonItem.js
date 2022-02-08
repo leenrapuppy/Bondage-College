@@ -14,12 +14,12 @@ function KinkyDungeonItemDrop(x, y, dropTable, summoned) {
 			dropWeightTotal += weight;
 		}
 
-		let selection = Math.random() * dropWeightTotal;
+		let selection = KDRandom() * dropWeightTotal;
 
 		for (let L = dropWeights.length - 1; L >= 0; L--) {
 			if (selection > dropWeights[L].weight) {
 				if (dropWeights[L].drop.name != "Nothing" && (!summoned || !dropWeights[L].drop.noSummon)) {
-					let dropped = {x:x, y:y, name: dropWeights[L].drop.name, amount: dropWeights[L].drop.amountMin + Math.floor(Math.random()*dropWeights[L].drop.amountMax)};
+					let dropped = {x:x, y:y, name: dropWeights[L].drop.name, amount: dropWeights[L].drop.amountMin + Math.floor(KDRandom()*dropWeights[L].drop.amountMax)};
 					if (!KinkyDungeonMovableTilesEnemy.includes(KinkyDungeonMapGet(x, y))) {
 						let newPoint = KinkyDungeonGetNearbyPoint(x, y, false, undefined, true);
 						if (newPoint) {
@@ -51,7 +51,7 @@ function KinkyDungeonDropItem(Item, Origin, AllowOrigin, noMsg, allowEnemies) {
 	if (!foundslot || !(KinkyDungeonMovableTilesEnemy.includes(KinkyDungeonMapGet(foundslot.x, foundslot.y))
 			&& (allowEnemies || KinkyDungeonNoEnemy(foundslot.x, foundslot.y, true))))
 		for (let C = 0; C < 100; C++) {
-			let slot = slots[Math.floor(Math.random() * slots.length)];
+			let slot = slots[Math.floor(KDRandom() * slots.length)];
 			if (KinkyDungeonMovableTilesEnemy.includes(KinkyDungeonMapGet(Origin.x+slot.x, Origin.y+slot.y))
 				&& (allowEnemies || KinkyDungeonNoEnemy(Origin.x+slot.x, Origin.y+slot.y, true))) {
 				foundslot = {x: Origin.x+slot.x, y: Origin.y+slot.y};
@@ -64,7 +64,7 @@ function KinkyDungeonDropItem(Item, Origin, AllowOrigin, noMsg, allowEnemies) {
 
 		let dropped = {x:foundslot.x, y:foundslot.y, name: Item.name};
 		if (Item.amountMin && Item.amountMax) {
-			dropped.amount = Item.amountMin + Math.floor(Math.random()*Item.amountMax);
+			dropped.amount = Item.amountMin + Math.floor(KDRandom()*Item.amountMax);
 		} else if (Item.amount) {
 			dropped.amount = Item.amount;
 		}

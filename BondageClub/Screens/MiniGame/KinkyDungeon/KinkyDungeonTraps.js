@@ -186,7 +186,7 @@ function KinkyDungeonGetTrap(trapTypes, Level, tags) {
 		}
 	}
 
-	var selection = Math.random() * trapWeightTotal;
+	var selection = KDRandom() * trapWeightTotal;
 
 	for (let L = trapWeights.length - 1; L >= 0; L--) {
 		if (selection > trapWeights[L].weight) {
@@ -200,4 +200,12 @@ function KinkyDungeonGetTrap(trapTypes, Level, tags) {
 		}
 	}
 
+}
+
+function KinkyDungeonUpdateTileEffects(delta) {
+	let tile = KinkyDungeonMapGet(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y);
+	if (tile == "]") { // Happy Gas!
+		KinkyDungeonChangeArousal(3 * delta);
+		KinkyDungeonSendTextMessage(5, TextGet("KinkyDungeonHappyGas"), "pink", 1);
+	}
 }

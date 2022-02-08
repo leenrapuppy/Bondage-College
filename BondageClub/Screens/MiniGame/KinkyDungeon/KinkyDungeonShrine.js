@@ -74,10 +74,10 @@ function KinkyDungeonGenerateShop(Level) {
 	KinkyDungeonShopItems = [];
 	let items_mid = 0;
 	let items_high = 0;
-	for (let I = 3 + Math.floor(Math.random() * 3); I > 0; I--) {
+	for (let I = 3 + Math.floor(KDRandom() * 3); I > 0; I--) {
 		let Rarity = 0;
-		if (items_high == 0 && Math.random() > 0.4) {Rarity = Math.floor(Level/10); items_high += 1;}
-		else if (items_mid < 2 && Math.random() > 0.6) {Rarity += Math.ceil(Math.random() * 3); items_mid += 1;}
+		if (items_high == 0 && KDRandom() > 0.4) {Rarity = Math.floor(Level/10); items_high += 1;}
+		else if (items_mid < 2 && KDRandom() > 0.6) {Rarity += Math.ceil(KDRandom() * 3); items_mid += 1;}
 
 		let item = KinkyDungeonGetShopItem(Level, Rarity, true);
 		KinkyDungeonShopItems.push({name: item.name, shoptype: item.shoptype, rarity: item.rarity, cost: item.cost});
@@ -135,9 +135,9 @@ function KinkyDungeonPayShrine(type) {
 		ShrineMsg = TextGet("KinkyDungeonPayShrineRemoveRestraints");
 	} else if (type == "Elements" || type == "Illusion" || type == "Conjure") {
 		/*let SpellsUnlearned = KinkyDungeonGetUnlearnedSpells(0, 5, KinkyDungeonSpellList[type]);
-		if (Math.random() < 0.1 || SpellsUnlearned.length == 0) SpellsUnlearned = KinkyDungeonGetUnlearnedSpells(0, 5 + MiniGameKinkyDungeonCheckpoint, KinkyDungeonSpellList[type]);
+		if (KDRandom() < 0.1 || SpellsUnlearned.length == 0) SpellsUnlearned = KinkyDungeonGetUnlearnedSpells(0, 5 + MiniGameKinkyDungeonCheckpoint, KinkyDungeonSpellList[type]);
 
-		let spellIndex = Math.floor(Math.random()*SpellsUnlearned.length);
+		let spellIndex = Math.floor(KDRandom()*SpellsUnlearned.length);
 
 		let spell = SpellsUnlearned[spellIndex];
 		ShrineMsg = TextGet("KinkyDungeonPayShrineSpell").replace("SpellLearned", TextGet("KinkyDungeonSpell" + spell.name));
@@ -248,7 +248,7 @@ function KinkyDungeonHandleShrine() {
 
 			KinkyDungeonAdvanceTime(1, true);
 
-			if ((Math.random() > chance || KDGameData.PoolUsesGrace > 0) && (!KinkyDungeonGoddessRep[type] || KinkyDungeonGoddessRep[type] > -49.9)) {
+			if ((KDRandom() > chance || KDGameData.PoolUsesGrace > 0) && (!KinkyDungeonGoddessRep[type] || KinkyDungeonGoddessRep[type] > -49.9)) {
 				let slimed = 0;
 				for (let inv of KinkyDungeonRestraintList()) {
 					if (inv.restraint && inv.restraint.slimeLevel) {
@@ -348,9 +348,9 @@ function KinkyDungeonMakeGhostDecision() {
 
 	if (rep > 0) KinkyDungeonGhostDecision += 1;
 	if (rep != undefined) {
-		if (Math.random() * 100 > -rep + 75) KinkyDungeonGhostDecision += 1;
-		if (Math.random() * 100 > -rep + 85) KinkyDungeonGhostDecision += 1;
-		if (Math.random() * 100 > -rep + 95) KinkyDungeonGhostDecision += 1;
+		if (KDRandom() * 100 > -rep + 75) KinkyDungeonGhostDecision += 1;
+		if (KDRandom() * 100 > -rep + 85) KinkyDungeonGhostDecision += 1;
+		if (KDRandom() * 100 > -rep + 95) KinkyDungeonGhostDecision += 1;
 	}
 }
 

@@ -12,6 +12,7 @@ var KinkyDungeonKeybindingsTemp = null;
 var KinkyDungeonKeybindingCurrentKey = 0;
 
 let KinkyDungeonNewGame = 0;
+let KinkyDungeonDifficultyMode = 0;
 
 var KinkyDungeonGameRunning = false;
 
@@ -398,6 +399,11 @@ function KinkyDungeonRun() {
 		DrawButton(1275, 750, 350, 64, TextGet("KinkyDungeonLoadBack"), "White", "");
 
 		ElementPosition("saveInputField", 1250, 550, 1000, 230);
+	} else if (KinkyDungeonState == "Diff") {
+		DrawText(TextGet("KinkyDungeonDifficulty"), 1250, 300, "white", "silver");
+		DrawButton(875, 450, 750, 64, TextGet("KinkyDungeonDifficulty0"), "White", "");
+		DrawButton(875, 550, 750, 64, TextGet("KinkyDungeonDifficulty1"), "White", "");
+		DrawButton(1075, 850, 350, 64, TextGet("KinkyDungeonLoadBack"), "White", "");
 	} else if (KinkyDungeonState == "Save") {
 		// Draw temp start screen
 		DrawText(TextGet("KinkyDungeonSaveIntro0"), 1250, 350, "white", "silver");
@@ -536,6 +542,37 @@ function KinkyDungeonRun() {
 let KinkyDungeonReplaceConfirm = 0;
 let KinkyDungeonGameFlag = false;
 
+function KinkyDungeonStartNewGame(Load) {
+	KinkyDungeonNewGame = 0;
+	KinkyDungeonInitialize(1);
+	MiniGameKinkyDungeonCheckpoint = 0;
+	if (Load)
+		KinkyDungeonLoadGame();
+	KinkyDungeonCreateMap(KinkyDungeonMapParams[MiniGameKinkyDungeonCheckpoint], MiniGameKinkyDungeonLevel);
+	KinkyDungeonState = "Game";
+
+	if (KinkyDungeonKeybindings) {
+		KinkyDungeonKey = [KinkyDungeonKeybindings.Up, KinkyDungeonKeybindings.Left, KinkyDungeonKeybindings.Down, KinkyDungeonKeybindings.Right, KinkyDungeonKeybindings.UpLeft, KinkyDungeonKeybindings.UpRight, KinkyDungeonKeybindings.DownLeft, KinkyDungeonKeybindings.DownRight]; // WASD
+		KinkyDungeonGameKey.KEY_UP = (KinkyDungeonKeybindings.Up);
+		KinkyDungeonGameKey.KEY_DOWN = (KinkyDungeonKeybindings.Down);
+		KinkyDungeonGameKey.KEY_LEFT = (KinkyDungeonKeybindings.Left);
+		KinkyDungeonGameKey.KEY_RIGHT = (KinkyDungeonKeybindings.Right);
+		KinkyDungeonGameKey.KEY_UPLEFT = (KinkyDungeonKeybindings.UpLeft);
+		KinkyDungeonGameKey.KEY_DOWNLEFT = (KinkyDungeonKeybindings.DownLeft);
+		KinkyDungeonGameKey.KEY_UPRIGHT = (KinkyDungeonKeybindings.UpRight);
+		KinkyDungeonGameKey.KEY_DOWNRIGHT = (KinkyDungeonKeybindings.DownRight);
+
+		//var KinkyDungeonKeyNumpad = [56, 52, 50, 54, 55, 57, 49, 51]; // Numpad
+		KinkyDungeonKeySpell = [KinkyDungeonKeybindings.Spell1, KinkyDungeonKeybindings.Spell2, KinkyDungeonKeybindings.Spell3, KinkyDungeonKeybindings.Spell4, KinkyDungeonKeybindings.Spell5]; // ! @ #
+		KinkyDungeonKeyWait = [KinkyDungeonKeybindings.Wait]; // Space and 5 (53)
+		KinkyDungeonKeySkip = [KinkyDungeonKeybindings.Skip]; // Space and 5 (53)
+
+		KinkyDungeonGameKey.KEY_WAIT = (KinkyDungeonKeybindings.Wait);
+		KinkyDungeonGameKey.KEY_SKIP = (KinkyDungeonKeybindings.Skip);
+	}
+	if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/StoneDoor_Close.ogg");
+}
+
 function KinkyDungeonHandleClick() {
 	if (MouseIn(1885, 25, 90, 90) && (KinkyDungeonDrawState == "Game" || KinkyDungeonState != "Game")) {
 		ElementRemove("saveDataField");
@@ -557,15 +594,25 @@ function KinkyDungeonHandleClick() {
 			KinkyDungeonState = "Menu";
 			return true;
 		}
+	} else if (KinkyDungeonState == "Diff") {
+		if (MouseIn(875, 450, 750, 64)) {
+			KinkyDungeonDifficultyMode = 0;
+			KinkyDungeonStartNewGame();
+		} else if (MouseIn(875, 550, 750, 64)) {
+			KinkyDungeonDifficultyMode = 1;
+			KinkyDungeonStartNewGame();
+		} else if (MouseIn(1075, 850, 350, 64)) {
+			KinkyDungeonState = "Menu";
+		}
 	} else if (KinkyDungeonState == "Load"){
 		if (MouseIn(875, 750, 350, 64)) {
 			KinkyDungeonChestsOpened = [];
 			KinkyDungeonOrbsPlaced = [];
 			KinkyDungeonCachesPlaced = [];
 			KinkyDungeonNewGame = 0;
+			KinkyDungeonDifficultyMode = 0;
 			KinkyDungeonInitialize(1);
 			MiniGameKinkyDungeonCheckpoint = 1;
-			KinkyDungeonSetCheckPoint(0);
 			if (KinkyDungeonLoadGame(ElementValue("saveInputField"))) {
 				KinkyDungeonCreateMap(KinkyDungeonMapParams[MiniGameKinkyDungeonCheckpoint], MiniGameKinkyDungeonLevel);
 				ElementRemove("saveInputField");
@@ -603,34 +650,10 @@ function KinkyDungeonHandleClick() {
 			localStorage.setItem("KinkyDungeonSound", KinkyDungeonSound ? "True" : "False");
 		}
 		if ((MouseIn(875, 750, 350, 64) && (localStorage.getItem('KinkyDungeonSave') || KinkyDungeonState == "Lose")) || MouseIn(875, 820, 350, 64)) {
-			KinkyDungeonNewGame = 0;
-			KinkyDungeonInitialize(1);
-			MiniGameKinkyDungeonCheckpoint = 0;
-			if (!MouseIn(875, 820, 350, 64))
-				KinkyDungeonLoadGame();
-			KinkyDungeonCreateMap(KinkyDungeonMapParams[MiniGameKinkyDungeonCheckpoint], MiniGameKinkyDungeonLevel);
-			KinkyDungeonState = "Game";
+			if (!MouseIn(875, 820, 350, 64)) {
+				KinkyDungeonStartNewGame(true);
+			} else KinkyDungeonState = "Diff";
 
-			if (KinkyDungeonKeybindings) {
-				KinkyDungeonKey = [KinkyDungeonKeybindings.Up, KinkyDungeonKeybindings.Left, KinkyDungeonKeybindings.Down, KinkyDungeonKeybindings.Right, KinkyDungeonKeybindings.UpLeft, KinkyDungeonKeybindings.UpRight, KinkyDungeonKeybindings.DownLeft, KinkyDungeonKeybindings.DownRight]; // WASD
-				KinkyDungeonGameKey.KEY_UP = (KinkyDungeonKeybindings.Up);
-				KinkyDungeonGameKey.KEY_DOWN = (KinkyDungeonKeybindings.Down);
-				KinkyDungeonGameKey.KEY_LEFT = (KinkyDungeonKeybindings.Left);
-				KinkyDungeonGameKey.KEY_RIGHT = (KinkyDungeonKeybindings.Right);
-				KinkyDungeonGameKey.KEY_UPLEFT = (KinkyDungeonKeybindings.UpLeft);
-				KinkyDungeonGameKey.KEY_DOWNLEFT = (KinkyDungeonKeybindings.DownLeft);
-				KinkyDungeonGameKey.KEY_UPRIGHT = (KinkyDungeonKeybindings.UpRight);
-				KinkyDungeonGameKey.KEY_DOWNRIGHT = (KinkyDungeonKeybindings.DownRight);
-
-				//var KinkyDungeonKeyNumpad = [56, 52, 50, 54, 55, 57, 49, 51]; // Numpad
-				KinkyDungeonKeySpell = [KinkyDungeonKeybindings.Spell1, KinkyDungeonKeybindings.Spell2, KinkyDungeonKeybindings.Spell3, KinkyDungeonKeybindings.Spell4, KinkyDungeonKeybindings.Spell5]; // ! @ #
-				KinkyDungeonKeyWait = [KinkyDungeonKeybindings.Wait]; // Space and 5 (53)
-				KinkyDungeonKeySkip = [KinkyDungeonKeybindings.Skip]; // Space and 5 (53)
-
-				KinkyDungeonGameKey.KEY_WAIT = (KinkyDungeonKeybindings.Wait);
-				KinkyDungeonGameKey.KEY_SKIP = (KinkyDungeonKeybindings.Skip);
-			}
-			if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/StoneDoor_Close.ogg");
 			return false;
 		} else if (MouseIn(1275, 820, 350, 64)) {
 			KinkyDungeonState = "Load";
@@ -702,14 +725,16 @@ function KinkyDungeonHandleClick() {
 	} else if (KinkyDungeonState == "Save") {
 		if (!KinkyDungeonIsPlayer()) KinkyDungeonState = "Game";
 		if (MouseIn(875, 750, 350, 64)) {
-			KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonSavedGame"), "white", 1);
-			KinkyDungeonSaveGame();
+			//KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonSavedGame"), "white", 1);
+			//KinkyDungeonSaveGame();
 			KinkyDungeonState = "Game";
 			ElementRemove("saveDataField");
+			KinkyDungeonChangeRep("Ghost", 5);
 			return true;
 		} else if (MouseIn(1275, 750, 350, 64)) {
 			KinkyDungeonState = "Game";
 			ElementRemove("saveDataField");
+			KinkyDungeonChangeRep("Ghost", -5);
 			return true;
 		}
 	} else if (KinkyDungeonState == "Game") {
@@ -811,13 +836,13 @@ function KinkyDungeonHandleClick() {
 			KinkyDungeonState = "Game";
 			let temp = [];
 			for (let o of KinkyDungeonOrbsPlaced) {
-				if (Math.random() < 0.5) temp.push(o);
+				if (KDRandom() < 0.5) temp.push(o);
 			}
 			KinkyDungeonOrbsPlaced = temp;
 			KinkyDungeonCachesPlaced = [];
-			KinkyDungeonSetCheckPoint(0);
-			KinkyDungeonCreateMap(KinkyDungeonMapParams[0], 1);
 			MiniGameKinkyDungeonLevel = 1;
+			KinkyDungeonSetCheckPoint(0, true);
+			KinkyDungeonCreateMap(KinkyDungeonMapParams[0], 1);
 			KinkyDungeonNewGame += 1;
 			return true;
 		} if (MouseIn(1275, 750, 350, 64)) {
@@ -1089,6 +1114,7 @@ function KinkyDungeonGenerateSaveData() {
 		arousal: KinkyDungeonStatArousal,
 		wep: KinkyDungeonPlayerWeapon,
 		npp: KinkyDungeonNewGame,
+		diff: KinkyDungeonDifficultyMode,
 	};
 	return save;
 }
@@ -1153,6 +1179,7 @@ function KinkyDungeonLoadGame(String) {
 				if (saveData.stats.arousal != undefined) KinkyDungeonStatArousal = saveData.stats.arousal;
 				if (saveData.stats.wep != undefined) KinkyDungeonPlayerWeapon = saveData.stats.wep;
 				if (saveData.stats.npp != undefined) KinkyDungeonNewGame = saveData.stats.npp;
+				if (saveData.stats.diff != undefined) KinkyDungeonDifficultyMode = saveData.stats.diff;
 
 
 				KDOrigStamina = KinkyDungeonStatStamina;
@@ -1161,7 +1188,7 @@ function KinkyDungeonLoadGame(String) {
 			}
 			if (saveData.KDGameData != undefined) KDGameData = saveData.KDGameData;
 
-
+			KinkyDungeonInventory = [];
 			for (let item of saveData.inventory) {
 				if (item.restraint) {
 					let restraint = KinkyDungeonGetRestraintByName(item.restraint.name);
@@ -1201,15 +1228,15 @@ function KinkyDungeonLoadGame(String) {
 }
 
 let KinkyDungeonSeed = (Math.random() * 4294967296).toString();
-let KDRandom = sfc32(xmur3(KinkyDungeonSeed), xmur3(KinkyDungeonSeed), xmur3(KinkyDungeonSeed), xmur3(KinkyDungeonSeed));
+let KDRandom = sfc32(xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)());
 
 function KDrandomizeSeed() {
 	KinkyDungeonSeed = (Math.random() * 4294967296).toString();
 	for (let i = 0; i < 20; i++) {
 		let index = Math.random() * KinkyDungeonSeed.length;
-		KinkyDungeonSeed.replaceAt(index, String.fromCharCode(65 + Math.floor(Math.random()*50)) + String.fromCharCode(65 + Math.floor(Math.random()*50)));
+		KinkyDungeonSeed = KinkyDungeonSeed.replaceAt(index, String.fromCharCode(65 + Math.floor(Math.random()*50)) + String.fromCharCode(65 + Math.floor(Math.random()*50)));
 	}
-	KDRandom = sfc32(xmur3(KinkyDungeonSeed), xmur3(KinkyDungeonSeed), xmur3(KinkyDungeonSeed), xmur3(KinkyDungeonSeed));
+	KDRandom = sfc32(xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)());
 	for (let i = 0; i < 1000; i++) {
 		KDRandom();
 	}
@@ -1217,7 +1244,7 @@ function KDrandomizeSeed() {
 
 function KDsetSeed(string) {
 	KinkyDungeonSeed = string;
-	KDRandom = sfc32(xmur3(KinkyDungeonSeed), xmur3(KinkyDungeonSeed), xmur3(KinkyDungeonSeed), xmur3(KinkyDungeonSeed));
+	KDRandom = sfc32(xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)());
 	for (let i = 0; i < 1000; i++) {
 		KDRandom();
 	}

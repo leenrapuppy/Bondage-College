@@ -51,7 +51,7 @@ let KinkyDungeonLearnableSpells = [
 		// Verbal
 		["Electrify", "IronBlood", "Incinerate", "IceBreath",],
 		// Arms
-		["Firebolt", "Icebolt", "Crackle", "Fireball", "LightningBolt",],
+		["Firebolt", "Icebolt", "StoneSkin", "Crackle", "Fireball", "LightningBolt"],
 		// Legs
 		["Shield", "GreaterShield", "Fissure"],
 		// Passive
@@ -227,8 +227,15 @@ let KinkyDungeonSpellListEnemies = [
 	{enemySpell: true, name: "AmpuleRed", sfx: "Miss", manacost: 7, components: ["Arms"], level:1, type:"bolt", projectileTargeting:true, onhit:"", time: 1,  power: 1, delay: 0, range: 50, damage: "crush", speed: 1, playerEffect: {name: "Ampule", damage: "inert"},
 		spellcast: {spell: "SummonRedSlime", target: "onhit", directional:true, offset: false}},
 
+	{enemySpell: true, name: "ZombieOrb", sfx: "MagicSlash", manacost: 5, components: ["Arms"], level:2, type:"bolt", projectileTargeting:true, onhit:"", power: 2, delay: 0, range: 50, damage: "chain", speed: 1,
+		playerEffect: {name: "CharmWraps", power: 2, damage: "ice", time: 1}},
+	{enemySpell: true, name: "ZombieOrbIce", specialCD: 12, sfx: "MagicSlash", hitsfx: "Freeze", manacost: 2, components: ["Arms"], level:2, type:"bolt", projectileTargeting:true, onhit:"", power: 3, delay: 0, range: 50, damage: "ice", speed: 1,
+		playerEffect: {name: "Freeze", power: 4, damage: "ice", time: 3}},
+
 	{enemySpell: true, name: "RopeEngulf", sfx: "Struggle", manacost: 4, components: ["Verbal"], level:1, type:"inert", onhit:"aoe", time: 5, delay: 1, power: 6, range: 2, size: 3, aoe: 1, lifetime: 1, damage: "chain", playerEffect: {name: "RopeEngulf", power: 2}}, // Start with flash, an explosion with a 1 turn delay and a 1.5 tile radius. If you are caught in the radius, you also get blinded temporarily!
 	{enemySpell: true, name: "Entangle", sfx: "Struggle", manacost: 4, components: ["Verbal"], level:1, type:"inert", onhit:"aoe", time: 5, delay: 2, power: 4, range: 6, size: 3, aoe: 1, lifetime: 1, damage: "chain", playerEffect: {name: "VineEngulf", power: 2}}, // Start with flash, an explosion with a 1 turn delay and a 1.5 tile radius. If you are caught in the radius, you also get blinded temporarily!
+	{enemySpell: true, name: "SoulCrystalBind", sfx: "Freeze", manacost: 7, components: ["Verbal"], level:1, type:"inert", onhit:"aoe", time: 5, delay: 2, power: 6, range: 6, size: 3, aoe: 1, lifetime: 1, damage: "drain", playerEffect: {name: "ObsidianEngulf", count: 1, power: 6, damage: "drain"}}, // Start with flash, an explosion with a 1 turn delay and a 1.5 tile radius. If you are caught in the radius, you also get blinded temporarily!
+
 	{enemySpell: true, name: "WitchChainBolt", sfx: "FireSpell", manacost: 5, components: ["Arms"], level:1, type:"bolt", projectileTargeting:true, onhit:"", time: 6,  power: 6, delay: 0, range: 50, damage: "chain", speed: 1, playerEffect: {name: "SingleChain", time: 1}}, // Throws a chain which stuns the target for 1 turn
 	{enemySpell: true, name: "MagicChain", sfx: "FireSpell", manacost: 5, components: ["Arms"], level:1, type:"bolt", projectileTargeting:true, onhit:"", time: 6,  power: 6, delay: 0, range: 50, damage: "chain", speed: 1, playerEffect: {name: "SingleMagicChain", time: 1}}, // Throws a chain which stuns the target for 1 turn
 	{enemySpell: true, name: "BanditBola", sfx: "Miss", manacost: 5, components: ["Arms"], level:1, type:"bolt", projectileTargeting:true, onhit:"", time: 1,  power: 3, delay: 0, range: 50, damage: "chain", speed: 1, playerEffect: {name: "BanditBola", time: 1}}, // Throws a chain which stuns the target for 1 turn
@@ -267,6 +274,11 @@ let KinkyDungeonSpellListEnemies = [
 			{id: "ParasolBuff2", type: "Evasion", duration: 5, power: 0.33, player: true, enemies: true, tags: ["defense", "evasion"]},
 			{id: "ParasolBuff3", type: "SpellResist", duration: 5, power: 1.0, player: true, enemies: true, tags: ["defense", "spellresist"]},
 		], onhit:"", time:5, power: 0, range: 6, size: 1, damage: ""},
+	{enemySpell: true, buff: true, name: "ZombieBuff", sfx: "MagicSlash", school: "Elements", manacost: 4, components: ["Arms"], mustTarget: true, level:3, type:"buff", filterTags: ["zombie", "mummy"],
+		buffs: [
+			{id: "ZombieBuff", type: "Armor", duration: 8, power: 2.0, player: false, enemies: true, tags: ["defense", "armor"]},
+			{id: "ZombieBuff2", type: "MoveSpeed", duration: 8, power: 2.1, player: false, enemies: true, tags: ["offense", "speed"]},
+		], onhit:"", time:5, power: 0, range: 6, size: 1, damage: ""},
 	{enemySpell: true, buff: true, heal: true, name: "OrbHeal", sfx: "MagicSlash", school: "Elements", manacost: 1, components: ["Arms"], mustTarget: true, level:3, type:"hit",
 		onhit:"heal", time:2, lifetime: 1, delay: 1, power: 2, aoe: 1.5, range: 5, size: 3, damage: ""},
 	{enemySpell: true, name: "Earthfield", selfcast: true, sfx: "Bones", school: "Illusion", manacost: 5, components: ["Verbal"], level:1, type:"inert", buffs: [{id: "Earthfield", type: "Armor", power: 2.0, player: false, enemies: true, noAlly: true, tags: ["armor", "defense"], range: 1.5}], onhit:"", time:6, aoe: 1.5, power: 0, delay: 8, range: 4, size: 3, damage: ""}, // Creates a shroud. Enemies within are hard to hit with melee attacks.
@@ -284,6 +296,7 @@ let KinkyDungeonSpellListEnemies = [
 	{enemySpell: true, name: "TrapMagicChainsWeak", sfx: "Struggle", manacost: 4, components: [], level:1, type:"inert", onhit:"aoe", time: 5, delay: 1, power: 3, range: 2, size: 3, aoe: 1.5, lifetime: 1, damage: "chain", playerEffect: {name: "TrapBindings", text: "KinkyDungeonTrapBindingsMagicChainsWeak", tags: ["chainRestraintsMagic"], count: 3}},
 	{enemySpell: true, name: "TrapSleepDart", sfx: "Gunfire", manacost: 1, components: [], level:1, type:"bolt", projectileTargeting:true, onhit:"", power: 4, time: 0, delay: 0, range: 50, damage: "pain", speed: 2, playerEffect: {name: "TrapSleepDart", power: 5}},
 	{enemySpell: true, name: "TrapLustCloud", sfx: "Freeze", manacost: 1, components: [], level:1, type:"inert", onhit:"aoe", time: 5, delay: 1, power: 3, range: 2, size: 3, aoe: 1.5, lifetime: 1, damage: "glue", playerEffect: {name: "TrapLustCloud", damage: "happygas", power: 30 }},
+	{enemySpell: true, name: "SleepDart", sfx: "Miss", manacost: 1, components: [], level:1, type:"bolt", projectileTargeting:true, onhit:"", power: 4, time: 0, delay: 0, range: 50, damage: "pain", speed: 1, playerEffect: {name: "TrapSleepDart", power: 5}},
 ];
 
 let KinkyDungeonSpellOffset = 120;
@@ -352,7 +365,7 @@ function KinkyDungeonPlayerEffect(damage, playerEffect, spell) {
 	if (damage == "inert") return;
 	if (playerEffect.hitTag && !KDPlayerHitBy.includes(playerEffect.hitTag)) KDPlayerHitBy.push(playerEffect.hitTag);
 	else if (playerEffect.hitTag) return;
-	if (!playerEffect.chance || Math.random() < playerEffect.chance) {
+	if (!playerEffect.chance || KDRandom() < playerEffect.chance) {
 		if (playerEffect.name == "Ampule") {
 			KinkyDungeonSendTextMessage(5, TextGet("KinkyDungeonSpellShatter" + spell.name), "red", 1);
 			effect = true;
@@ -449,7 +462,7 @@ function KinkyDungeonPlayerEffect(damage, playerEffect, spell) {
 			}
 			effect = true;
 		}  else if (playerEffect.name == "RubberBullets") {
-			if (Math.random() < 0.25 && KinkyDungeonStatStamina < KinkyDungeonStatStaminaMax/2) {
+			if (KDRandom() < 0.25 && KinkyDungeonStatStamina < KinkyDungeonStatStaminaMax/2) {
 				let restraintAdd = KinkyDungeonGetRestraint({tags: ["slimeRestraintsRandom"]}, MiniGameKinkyDungeonLevel + spell.power, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]);
 				if (restraintAdd) {
 					KinkyDungeonAddRestraintIfWeaker(restraintAdd, spell.power);
@@ -596,7 +609,50 @@ function KinkyDungeonPlayerEffect(damage, playerEffect, spell) {
 					effect = true;
 				}
 			}
-
+		}  else if (playerEffect.name == "ObsidianEngulf") {
+			let added = [];
+			for (let i = 0; i < playerEffect.count; i++) {
+				let restraintAdd = KinkyDungeonGetRestraint({tags: ["obsidianRestraints"]}, MiniGameKinkyDungeonLevel + spell.power, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]);
+				if (restraintAdd && KinkyDungeonAddRestraintIfWeaker(restraintAdd, spell.power)) {
+					added.push(restraintAdd);
+					effect = true;
+				}
+			}
+			if (added.length > 0) {
+				KinkyDungeonSendTextMessage(6, TextGet("KinkyDungeonObsidianEngulf"), "red", 2);
+				effect = true;
+			} else {
+				KinkyDungeonMovePoints = Math.max(-1, KinkyDungeonMovePoints-1); // This is to prevent stunlock while slowed heavily
+				KinkyDungeonSendTextMessage(3, TextGet("KinkyDungeonSlowedBySpell"), "yellow", playerEffect.time);
+				KinkyDungeonDealDamage({damage: spell.power, type: spell.damage});
+				effect = true;
+			}
+		} else if (playerEffect.name == "CharmWraps") {
+			let added = [];
+			for (let i = 0; i < playerEffect.power; i++) {
+				let restraintAdd = KinkyDungeonGetRestraint({tags: ["ribbonRestraints"]}, MiniGameKinkyDungeonLevel + spell.power, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]);
+				if (restraintAdd && KinkyDungeonAddRestraintIfWeaker(restraintAdd, spell.power)) {
+					added.push(restraintAdd);
+					effect = true;
+				}
+			}
+			if (added.length > 0) {
+				KinkyDungeonSendTextMessage(6, TextGet("KinkyDungeonCharmWraps"), "red", 2);
+				effect = true;
+			} else {
+				let CharmDresses = ["Leotard", "Bikini", "Lingerie"];
+				if (!CharmDresses.includes(KinkyDungeonCurrentDress) && KinkyDungeonCurrentDress != "Prisoner") {
+					KinkyDungeonSetDress(CharmDresses[Math.floor(Math.random() * CharmDresses.length)], "");
+					KinkyDungeonDressPlayer();
+					KinkyDungeonSendTextMessage(3, TextGet("KinkyDungeonCharmWrapsDress"), "red", 3);
+					effect = true;
+				} else {
+					KinkyDungeonMovePoints = Math.max(-1, KinkyDungeonMovePoints-1); // This is to prevent stunlock while slowed heavily
+					KinkyDungeonSendTextMessage(3, TextGet("KinkyDungeonSlowedBySpell"), "yellow", playerEffect.time);
+					KinkyDungeonDealDamage({damage: spell.power, type: spell.damage});
+					effect = true;
+				}
+			}
 		} else if (playerEffect.name == "EnchantedArrow") {
 			let added = [];
 			for (let i = 0; i < playerEffect.count; i++) {
@@ -653,15 +709,18 @@ function KinkyDungeonPlayerEffect(damage, playerEffect, spell) {
 			}
 			effect = true;
 		} else if (playerEffect.name == "Freeze") {
-			KinkyDungeonStatFreeze = Math.max(0, playerEffect.time);
-			KinkyDungeonSleepTime = CommonTime() + KinkyDungeonFreezeTime;
 			KinkyDungeonSendTextMessage(3, TextGet("KinkyDungeonFreeze"), "red", playerEffect.time);
 			if (playerEffect.power > 0) {
 				KinkyDungeonDealDamage({damage: playerEffect.power, type: playerEffect.damage});
 			}
+			KinkyDungeonStatFreeze = Math.max(0, playerEffect.time);
+			KinkyDungeonSleepTime = CommonTime() + KinkyDungeonFreezeTime;
 			effect = true;
 		} else if (playerEffect.name == "Chill") {
 			let standingTile = KinkyDungeonMapGet(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y);
+			if (playerEffect.power > 0 && !KinkyDungeonFlags.chill) {
+				KinkyDungeonDealDamage({damage: playerEffect.power, type: playerEffect.damage});
+			}
 			if (standingTile == 'w') {
 				sfx = "Freeze";
 				KinkyDungeonStatFreeze = Math.max(0, playerEffect.time);
@@ -671,9 +730,6 @@ function KinkyDungeonPlayerEffect(damage, playerEffect, spell) {
 				sfx = "Bones";
 				KinkyDungeonMovePoints = Math.max(-1, KinkyDungeonMovePoints-1);
 				KinkyDungeonSendTextMessage(3, TextGet("KinkyDungeonChill"), "red", playerEffect.time);
-			}
-			if (playerEffect.power > 0 && !KinkyDungeonFlags.chill) {
-				KinkyDungeonDealDamage({damage: playerEffect.power, type: playerEffect.damage});
 			}
 			KinkyDungeonSetFlag("chill", 1);
 			effect = true;
@@ -795,7 +851,7 @@ function KinkyDungeonCastSpell(targetX, targetY, spell, enemy, player, bullet) {
 		}
 		flags.miscastChance = 0;
 	}
-	if (!spell.noMiscast && !enemy && !bullet && player && Math.random() < flags.miscastChance) {
+	if (!spell.noMiscast && !enemy && !bullet && player && KDRandom() < flags.miscastChance) {
 
 		KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonSpellMiscast"), "#FF8800", 2);
 
@@ -951,13 +1007,13 @@ function KinkyDungeonChargeRemoteVibrators(Name, Amount, Overcharge, noSound) {
 function KinkyDungeonHandleVibrators() {
 	for (let I = 0; I < KinkyDungeonInventory.length; I++) {
 		let vibe = KinkyDungeonInventory[I].restraint;
-		if (vibe && vibe.maxbattery > 0 && vibe.vibeType.includes("Teaser") && vibe.battery == 0 && Math.random() * 100 < ( vibe.teaseRate ?  vibe.teaseRate : vibe.power)) {
+		if (vibe && vibe.maxbattery > 0 && vibe.vibeType.includes("Teaser") && vibe.battery == 0 && KDRandom() * 100 < ( vibe.teaseRate ?  vibe.teaseRate : vibe.power)) {
 			if (vibe.battery == 0) {
 				KinkyDungeonPlaySound("Audio/VibrationTone4Long3.mp3");
 				if (!KinkyDungeonSendActionMessage(5, TextGet("KinkyDungeonStartVibe"), "#FFaadd", 2)) KinkyDungeonSendTextMessage(5, TextGet("KinkyDungeonStartVibe"), "#FFaadd", 2);
 			}
 
-			vibe.battery = Math.min(vibe.maxbattery, vibe.battery + vibe.maxbattery * (0.3 + Math.random() * 0.7));
+			vibe.battery = Math.min(vibe.maxbattery, vibe.battery + vibe.maxbattery * (0.3 + KDRandom() * 0.7));
 		}
 	}
 }
@@ -976,7 +1032,7 @@ function KinkyDungeonHandleMagic() {
 		return true;
 	}
 	/*} else if (MouseIn(canvasOffsetX + 640*KinkyDungeonBookScale/2 - 250, canvasOffsetY + 483*KinkyDungeonBookScale, 500, 60)) {
-		KinkyDungeonCurrentPage = Math.floor(Math.random()*KinkyDungeonSpells.length);
+		KinkyDungeonCurrentPage = Math.floor(KDRandom()*KinkyDungeonSpells.length);
 		if (KinkyDungeonPreviewSpell) KinkyDungeonPreviewSpell = undefined;
 		else {
 			KinkyDungeonAdvanceTime(1);

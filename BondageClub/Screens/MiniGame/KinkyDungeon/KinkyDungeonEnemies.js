@@ -21,7 +21,7 @@ let KinkyDungeonEnemies = [
 		visionRadius: 20, playerBlindSight: 100, maxhp: 30, minLevel:0, weight:0, movePoints: 2, attackPoints: 2, attack: "MeleeWill", attackRange: 1, attackWidth: 5, power: 6,
 		terrainTags: {}, floors:[]},
 	{name: "StormCrystal", tags: KDMapInit(["construct", "player", "ranged", "meleeresist", "tickleimmune", "electricimmune"]), noblockplayer: true, allied: true, armor: 2, followRange: 1, AI: "wander", evasion: -10,
-		spells: ["AllyCrackle"], spellCooldownMult: 1, spellCooldownMod: 0,
+		spells: ["AllyCrackle"], spellCooldownMult: 1, spellCooldownMod: 0, castWhileMoving: true,
 		visionRadius: 6, maxhp: 24, minLevel:0, weight:0, movePoints: 1000, attackPoints: 1, attack: "Spell", attackRange: 0, power: 1,
 		terrainTags: {}, floors:[]},
 
@@ -39,7 +39,15 @@ let KinkyDungeonEnemies = [
 	{name: "FastZombie", tags: KDMapInit(["ignoreharmless", "zombie", "melee", "ribbonRestraints", "meleeweakness"]), evasion: -1, ignorechance: 0.33, armor: 1, followRange: 1, AI: "hunt",
 		visionRadius: 6, maxhp: 10, minLevel:4, weight:6, movePoints: 3, attackPoints: 3, attack: "MeleeBind", attackWidth: 1, attackRange: 1, power: 1, dmgType: "grope", fullBoundBonus: 3,
 		terrainTags: {"secondhalf":10, "lastthird":14}, floors:[0], dropTable: [{name: "Gold", amountMin: 5, amountMax: 10, weight: 10}]},
-	{name: "SamuraiZombie", tags: KDMapInit(["leashing", "zombie", "melee", "elite", "ropeRestraints", "ropeRestraints2", "meleeweakness"]), evasion: -1, armor: 2, followRange: 1, AI: "hunt",
+	{name: "MageZombie", tags: KDMapInit(["leashing", "zombie", "melee", "ribbonRestraints", "meleeweakness", "hunter"]), spellResist: 0.5, evasion: -1, armor: 0, followRange: 2, AI: "hunt",
+		spells: ["ZombieOrb", "ZombieOrbIce"], spellCooldownMult: 1, spellCooldownMod: 0, castWhileMoving: true, projectileAttack: true, minSpellRange: 1.5,
+		visionRadius: 6, maxhp: 13, minLevel:6, weight:10, movePoints: 3, attackPoints: 3, attack: "SpellMeleeBind", attackWidth: 1, attackRange: 1, power: 1, dmgType: "grope", fullBoundBonus: 3,
+		terrainTags: {}, floors:[0], dropTable: [{name: "Gold", amountMin: 10, amountMax: 20, weight: 10}]},
+	{name: "TalismanZombie", tags: KDMapInit(["leashing", "zombie", "melee", "ribbonRestraints", "meleeweakness", "hunter"]), spellResist: 0.5, evasion: -1, armor: 0, followRange: 3, AI: "hunt",
+		spells: ["ZombieOrb", "ZombieBuff", "OrbHeal"], spellCooldownMult: 1, spellCooldownMod: 0, castWhileMoving: true, buffallies: true, kite: 1.5, projectileAttack: true, minSpellRange: 1.5,
+		visionRadius: 6, maxhp: 20, minLevel:7, weight:10, movePoints: 3, attackPoints: 3, attack: "SpellMeleeBind", attackWidth: 1, attackRange: 1, power: 1, dmgType: "grope", fullBoundBonus: 3,
+		terrainTags: {"mummy": 3}, floors:[0, 11], dropTable: [{name: "Gold", amountMin: 10, amountMax: 20, weight: 10}]},
+	{name: "SamuraiZombie", tags: KDMapInit(["leashing", "zombie", "melee", "elite", "ropeRestraints", "ropeRestraints2", "meleeweakness", "hunter"]), evasion: -1, armor: 2, followRange: 1, AI: "hunt",
 		stunTime: 2, specialCD: 6, specialAttack: "Stun", specialRemove: "Bind", specialPower: 5, specialDamage: "pain",
 		specialCDonAttack: false, visionRadius: 6, maxhp: 20, minLevel:4, weight:5, movePoints: 3, attackPoints: 3, attack: "MeleeBind", attackWidth: 1, attackRange: 1, power: 1, dmgType: "grope", fullBoundBonus: 4, specialWidth: 5, specialRange: 1,
 		terrainTags: {"secondhalf":8, "lastthird":6}, shrines: ["Will"], floors:[0, 11], dropTable: [{name: "Gold", amountMin: 15, amountMax: 20, weight: 10}]},
@@ -56,9 +64,9 @@ let KinkyDungeonEnemies = [
 	{name: "Nawashi", color: "#5261ff", tags: KDMapInit(["leashing", "opendoors", "human", "elite", "melee", "ropeRestraints", "ropeRestraints2", "ropeRestraintsWrist", "ropeAuxiliary", "ropeRestraintsHogtie"]),
 		spells: ["RopeAttack"], spellCooldownMult: 1, spellCooldownMod: 0, castWhileMoving: true, stealth: 2, noReveal: true,
 		followLeashedOnly: true, blindSight: 10, followRange: 1, kite: 3, AI: "hunt", evasion: 0.5, kiteOnlyWhenDisabled: true,
-		visionRadius: 10, maxhp: 22, minLevel:4, weight:1, movePoints: 2, attackPoints: 2, attack: "SpellMeleeBind", attackWidth: 1, attackRange: 1, power: 2, dmgType: "crush", fullBoundBonus: 2, specialWidth: 1, specialAttackPoints: 3, specialRange: 4, specialMinrange: 1.5, //specialFollow: 3,
-		terrainTags: {"secondhalf":1, "lastthird":2, "ropeAnger": 2, "ropeRage": 2}, shrines: ["Rope"], floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-		dropTable: [{name: "Knife", weight: 9}, {name: "MagicKnife", weight: 1}]},
+		visionRadius: 10, maxhp: 22, minLevel:8, weight:1, movePoints: 2, attackPoints: 2, attack: "SpellMeleeBind", attackWidth: 1, attackRange: 1, power: 2, dmgType: "crush", fullBoundBonus: 2, specialWidth: 1, specialAttackPoints: 3, specialRange: 4, specialMinrange: 1.5, //specialFollow: 3,
+		terrainTags: {"secondhalf":1, "lastthird":2, "ropeAnger": 1, "ropeRage": 1}, shrines: ["Rope"], floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+		dropTable: [{name: "Gold", amountMin: 20, amountMax: 30, weight: 10}, {name: "Knife", weight: 4}, {name: "EnchKnife", weight: 1}]},
 
 	{name: "Maidforce", color: "#814BB7", tags: KDMapInit(["leashing", "opendoors", "human", "maid", "melee", "ropeRestraints", "ropeRestraints2", "handcuffer", "maidVibeRestraintsLimited", "maidRestraintsLight", "jail", "search"]), blindSight: 3, followRange: 1, AI: "hunt",
 		stealth: 2, noReveal: true, bindOnKneelSpecial: true, bindOnKneel: true, hitsfx: "Tickle", useLock: "Red",
@@ -96,7 +104,7 @@ let KinkyDungeonEnemies = [
 		useLock: "Red", kite: 2.5, remote: 5, remoteAmount: 4, bypass: true, multiBind: 7, noLeashUnlessExhausted: true, evasion: 0.15, //-15 weight
 		visionRadius: 10, maxhp: 28, minLevel:20, weight:-14, movePoints: 2, attackPoints: 1, attack: "SpellMeleeWillBindLockAllVibe", attackWidth: 3, attackRange: 1, tilesMinRange: 1, power: 2, dmgType: "grope", fullBoundBonus: 1,
 		terrainTags: {"secondhalf":1, "lastthird":1, "open": 4, "illusionAnger": 10, "illusionRage": 4}, shrines: ["Illusion"], floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-		dropTable: [{name: "Gold", amountMin: 30, amountMax: 40, weight: 20}, {name: "RedKey", weight: 10}, {name: "Pick", weight: 6}, {name: "MagicKnife", weight: 1}]},
+		dropTable: [{name: "Gold", amountMin: 30, amountMax: 40, weight: 20}, {name: "RedKey", weight: 10}, {name: "Pick", weight: 6}, {name: "EnchKnife", weight: 1}]},
 
 	{name: "Skeleton", tags: KDMapInit(["leashing", "skeleton", "melee", "ropeRestraints", "leatherRestraints", "clothRestraints", "coldresist", "crushweakness", "search"]), ignorechance: 0, armor: 0, followRange: 1, AI: "hunt",
 		visionRadius: 4, maxhp: 5, minLevel:1, weight:8, movePoints: 2, attackPoints: 3, attack: "MeleeBind", attackWidth: 1, attackRange: 1, power: 2, dmgType: "grope", fullBoundBonus: 1,
@@ -107,9 +115,13 @@ let KinkyDungeonEnemies = [
 	{name: "LesserSkeleton", tags: KDMapInit(["leashing", "ignorenoSP", "skeleton", "melee", "coldresist", "crushweakness"]), ignorechance: 0, armor: 0, followRange: 1, AI: "wander", evasion: -2,
 		visionRadius: 1, maxhp: 2.5, minLevel:0, weight:10, movePoints: 2, attackPoints: 3, attack: "MeleeWillSlow", attackWidth: 1, attackRange: 1, power: 2, dmgType: "grope", fullBoundBonus: 1,
 		terrainTags: {"secondhalf":-8, "lastthird":-8, "increasingWeight":-1}, floors:[1, 11]},
-	{name: "GreaterSkeleton", tags: KDMapInit(["leashing", "ignoreharmless", "skeleton", "melee", "elite", "coldresist", "crushweakness", "hunter"]), ignorechance: 0, armor: 1, followRange: 1.5, AI: "hunt", disarm: 0.5,
+	{name: "GreaterSkeleton", tags: KDMapInit(["leashing", "skeleton", "melee", "elite", "coldresist", "crushweakness", "hunter"]), ignorechance: 0, armor: 1, followRange: 1.5, AI: "hunt", disarm: 0.5,
 		visionRadius: 4, maxhp: 10, minLevel:12, weight:5, movePoints: 3, attackPoints: 3, attack: "MeleeWillSlow", attackWidth: 3, attackRange: 1, power: 8, dmgType: "crush", fullBoundBonus: 0,
-		terrainTags: {"secondhalf":4, "lastthird":6, "increasingWeight":1}, floors:[1, 3, 7, 8], dropTable: [{name: "PotionStamina", weight: 3}, {name: "Gold", amountMin: 15, amountMax: 20, weight: 10}, {name: "Hammer", weight: 50, ignoreInInventory: true}]},
+		terrainTags: {"secondhalf":4, "lastthird":6, "increasingWeight":0.5}, floors:[1, 3, 7, 8], dropTable: [{name: "PotionStamina", weight: 3}, {name: "Gold", amountMin: 15, amountMax: 20, weight: 10}, {name: "Hammer", weight: 50, ignoreInInventory: true}]},
+	{name: "HeavySkeleton", color: "#aaaaaa", tags: KDMapInit(["leashing", "skeleton", "melee", "elite", "coldresist", "crushweakness", "hunter", "obsidianRestraints"]), ignorechance: 0, armor: 2, followRange: 1.5, AI: "hunt", disarm: 0.5,
+		visionRadius: 6, maxhp: 16, minLevel:15, weight:4, movePoints: 3, attackPoints: 3, attack: "MeleeWillSlowBind", attackWidth: 3.6, attackRange: 1, power: 4, dmgType: "crush", fullBoundBonus: 6,
+		terrainTags: {"secondhalf":1, "lastthird":4, "increasingWeight":1}, floors:[1, 3, 7, 8],
+		dropTable: [{name: "PotionStamina", weight: 3}, {name: "Gold", amountMin: 15, amountMax: 20, weight: 10}, {name: "Axe", weight: 50, ignoreInInventory: true}]},
 
 	{name: "Ghost", color: "#FFFFFF", tags: KDMapInit(["ignorenoSP", "ghost", "melee", "glueimmune", "chainimmune"]), ethereal: true, ignorechance: 0, armor: 0, followRange: 1, AI: "hunt", hitsfx: "Tickle",
 		visionRadius: 10, blindSight: 3, evasion: 9.0, alwaysEvade: true, maxhp: 1, minLevel:0, weight:0.1, movePoints: 2, attackPoints: 1, attack: "MeleeWill", attackWidth: 3, attackRange: 1, power: 4, dmgType: "tickle", fullBoundBonus: 0,
@@ -152,7 +164,7 @@ let KinkyDungeonEnemies = [
 		visionRadius: 100, ambushRadius: 1.9, blindSight: 100, maxhp: 20, minLevel:1, weight:0, movePoints: 4, attackPoints: 4, attack: "MeleeBind", attackWidth: 1, attackRange: 1, power: 4, dmgType: "crush", fullBoundBonus: 4,
 		terrainTags: {"lastthird":10, "passage": 70, "adjChest": 58, "door": 50}, floors:[1], shrines: ["Metal"],
 		dropTable: [{name: "RedKey", weight: 2}, {name: "Gold", amountMin: 5, amountMax: 10, weight: 10}, {name: "Sword", weight: 1, ignoreInInventory: true}]},
-	{name: "Mimic", blockVisionWhileStationary: true, tags: KDMapInit(["removeDoorSpawn", "ignoreharmless", "construct", "minor", "melee", "trap", "shackleGag", "crushweakness", "meleeresist", "fireweakness", "electricresist", "chainweakness"]),
+	{name: "Mimic", blockVisionWhileStationary: true, tags: KDMapInit(["removeDoorSpawn", "ignoreharmless", "ignorenoSP", "construct", "minor", "melee", "trap", "shackleGag", "crushweakness", "meleeresist", "fireweakness", "electricresist", "chainweakness"]),
 		evasion: -0.5, ignorechance: 1.0, armor: 0, followRange: 1, AI: "ambush", bypass: true,
 		visionRadius: 100, ambushRadius: 1.9, blindSight: 100, maxhp: 20, minLevel:3, weight:-1, movePoints: 1, attackPoints: 2, attack: "MeleeBind", attackWidth: 1, attackRange: 1, power: 3, dmgType: "tickle", fullBoundBonus: 2,
 		terrainTags: {"rubble": 20, "adjChest": 30, "passage": 14, "illusionRage": 2, "illusionAnger": 2}, floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrines: ["Illusion"],
@@ -186,10 +198,10 @@ let KinkyDungeonEnemies = [
 		visionRadius: 7, maxhp: 20, minLevel:5, weight:0, movePoints: 3, attackPoints: 3, attack: "SpellMeleeBindWill", attackWidth: 1, attackRange: 1, power: 2, dmgType: "grope", fullBoundBonus: 2,
 		terrainTags: {"secondhalf":0.5, "thirdhalf":1, "latexAnger": 5, "latexRage": 5}, shrines: ["Latex"], floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
 		dropTable: [{name: "Gold", amountMin: 5, amountMax: 10, weight: 10}, {name: "SmokeBomb", weight: 2}, {name: "PotionStamina", weight: 1}]},
-	{name: "RedSlime", color: "#FF0000", tags: KDMapInit(["ignoretiedup", "construct", "melee", "minor", "ballGagRestraints", "meleeresist", "fireresist", "glueimmune", "electricweakness", "iceweakness"]), squeeze: true, followRange: 1, AI: "hunt", sneakThreshold: 1, hitsfx: "",
+	{name: "RedSlime", color: "#FF0000", tags: KDMapInit(["ignoretiedup", "experiment", "slime", "melee", "minor", "ballGagRestraints", "meleeresist", "fireresist", "glueimmune", "electricweakness", "iceweakness"]), squeeze: true, followRange: 1, AI: "hunt", sneakThreshold: 1, hitsfx: "",
 		spells: ["RedSlime"], minSpellRange: 2, spellCooldownMult: 1, spellCooldownMod: 1, evasion: 1,
 		visionRadius: 8, maxhp: 4, minLevel: 11, weight:10, movePoints: 2, attackPoints: 3, attack: "SpellMeleeSlowWillBindSuicide", suicideOnSpell: true, suicideOnAdd: true, attackWidth: 1, attackRange: 1, power: 1, dmgType: "crush",
-		terrainTags: {}, floors:[], shrines: ["Latex"]},
+		terrainTags: {}, floors:[3, 12], shrines: ["Latex"]},
 
 	{name: "Drone", color: "#ff3367", tags: KDMapInit(["ignoreharmless", "robot", "minor", "ranged", "electricsevereweakness", "coldresist", "iceresist", "slashresist", "crushsevereweakness", "pierceweakness", "hitechCables", "cableGag", "jail", "search"]),
 		AI: "patrol",
@@ -248,12 +260,30 @@ let KinkyDungeonEnemies = [
 		visionRadius: 6, maxhp: 9, minLevel:0, weight:23, movePoints: 2, attackPoints: 3, attack: "SpellMeleeBindWill", attackWidth: 1, attackRange: 1, power: 2, dmgType: "grope", fullBoundBonus: 2,
 		terrainTags: {"thirdhalf":-4, "increasingWeight":-1}, shrines: ["Leather"], floors:[2],
 		dropTable: [{name: "Gold", amountMin: 10, amountMax: 20, weight: 24}]},
+	{name: "BanditChief", tags: KDMapInit(["opendoors", "closedoors", "leashing", "bandit", "miniboss", "melee", "ballGagRestraints", "handcuffer", "leatherRestraints", "leatherRestraintsHeavy", "clothRestraints", "chainweakness", "glueweakness", "jail", "hunter"]), cohesion: 0.9, armor: 0, followRange: 1, AI: "hunt",
+		summon: [
+			{enemy: "BanditPet", range: 3, count: 2, chance: 1.0, strict: true},],
+		spells: ["BanditBola"], minSpellRange: 1.5, spellCooldownMult: 1, spellCooldownMod: 4, noSpellLeashing: true,
+		visionRadius: 9, maxhp: 24, minLevel:23, weight:-11, movePoints: 2, attackPoints: 3, attack: "SpellMeleeBindWill", attackWidth: 3.6, attackRange: 1, power: 4, dmgType: "grope", fullBoundBonus: 2,
+		terrainTags: {"secondhalf":16, "lastthird":5, "miniboss": -20, "open": 10, "passage": -10, "increasingWeight":1}, shrines: ["Leather"], floors:[2],
+		dropTable: [{name: "Gold", amountMin: 20, amountMax: 30, weight: 10}, {name: "Pick", weight: 2}, {name: "Knife", weight: 2}, {name: "PotionStamina", weight: 2}]},
+	{name: "BanditPet", tags: KDMapInit(["opendoors", "closedoors", "leashing", "bandit", "melee", "minor", "ballGagRestraints", "ropeRestraints", "tickleweakness", "chainweakness", "glueweakness", "jail", "search"]), cohesion: 0.9, armor: 0, followRange: 1, AI: "hunt",
+		master: {type: "BanditChief", range: 2, loose: true, aggressive: true},
+		visionRadius: 6, maxhp: 8, minLevel:0, weight:3, movePoints: 1, attackPoints: 3, attack: "MeleeBindWill", attackWidth: 1, attackRange: 1, power: 2, dmgType: "grope", fullBoundBonus: 2,
+		terrainTags: {"thirdhalf":-1, "increasingWeight":-1}, shrines: ["Leather"], floors:[2],
+		dropTable: [{name: "Gold", amountMin: 1, amountMax: 5, weight: 10}, {name: "Feather", weight: 50, ignoreInInventory: true}]},
 	{name: "BanditHunter", tags: KDMapInit(["opendoors", "closedoors", "leashing", "bandit", "melee", "elite", "leatherRestraints", "leatherRestraintsHeavy", "clothRestraints", "chainweakness", "glueweakness", "jail", "hunter"]), ignorechance: 0, armor: 0, followRange: 2, AI: "hunt", stealth: 1,
 		spells: ["BanditBola"], minSpellRange: 1.5, spellCooldownMult: 1, spellCooldownMod: 3, noSpellLeashing: true,
 		visionRadius: 7, maxhp: 9, minLevel:0, weight:4, movePoints: 2, attackPoints: 2, attack: "SpellMeleeBindWill", attackWidth: 1, attackRange: 1, power: 3, dmgType: "grope", fullBoundBonus: 3,
 		terrainTags: {"secondhalf":7, "thirdhalf":5}, shrines: ["Leather"], floors:[2],
-		dropTable: [{name: "Gold", amountMin: 15, amountMax: 20, weight: 10}, {name: "Pick", weight: 2}, {name: "PotionStamina", weight: 2}]},
-
+		dropTable: [{name: "Gold", amountMin: 15, amountMax: 20, weight: 10}, {name: "Pick", weight: 2}, {name: "SmokeBomb", weight: 7}]},
+	{name: "BanditGrappler", color: "#ddcaaa",
+		tags: KDMapInit(["opendoors", "closedoors", "leashing", "bandit", "melee", "elite", "chainRestraints", "handcuffer","leatherRestraintsHeavy", "clothRestraints", "chainweakness", "glueweakness", "jail", "hunter"]),
+		ignorechance: 0, armor: 1, followRange: 1, AI: "hunt",
+		specialCD: 10, specialAttack: "Pull", specialCDonAttack: true, specialAttackPoints: 2, specialRange: 4, specialsfx: "Chain", specialWidth: 1, specialRemove: "Bind", pullDist: 3, pullTowardSelf: true,
+		visionRadius: 7, maxhp: 10, minLevel:0, weight:1, movePoints: 3, attackPoints: 2, attack: "MeleeBindWill", attackWidth: 2, attackRange: 1, power: 2, dmgType: "grope", fullBoundBonus: 2,
+		terrainTags: {"secondhalf":10, "thirdhalf":1}, shrines: ["Leather", "Metal"], floors:[2],
+		dropTable: [{name: "Gold", amountMin: 15, amountMax: 20, weight: 10}, {name: "Pick", weight: 2}, {name: "PotionStamina", weight: 1}]},
 
 
 
@@ -348,8 +378,8 @@ let KinkyDungeonEnemies = [
 		specialCD: 15, specialAttack: "Stun", specialRemove: "Bind", specialCDonAttack: true, specialAttackPoints: 2, specialRange: 4, specialWidth: 2, specialMinrange: 1.5, specialsfx: "Song", tilesMinRangeSpecial: 2, stunTime: 4,
 		specialDamage: "charm", spellRdy: true,
 		spells: ["PoisonDragonBlast"], minSpellRange: 1.5, spellCooldownMult: 1, spellCooldownMod: -2, tilesMinRange: 1, stopToCast: true, kite: 1.5,
-		visionRadius: 9, maxhp: 14, minLevel:10, weight:0, movePoints: 1, attackPoints: 3, attack: "SpellMeleeWillBind", attackWidth: 3, attackRange: 1, power: 2, dmgType: "tickle", fullBoundBonus: 2,
-		terrainTags: {"secondhalf":1, "thirdhalf":2, "willAnger": 8, "willRage": -2}, shrines: ["Will"], floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+		visionRadius: 9, maxhp: 14, minLevel:10, weight:-3, movePoints: 1, attackPoints: 3, attack: "SpellMeleeWillBind", attackWidth: 3, attackRange: 1, power: 2, dmgType: "tickle", fullBoundBonus: 2,
+		terrainTags: {"secondhalf":1, "thirdhalf":2, "willAnger": 11, "willRage": -2}, shrines: ["Will"], floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
 		dropTable: [{name: "Gold", amountMin: 10, amountMax: 20, weight: 12}, {name: "EarthRune", weight: 4}, {name: "PotionStamina", weight: 1}]},
 	{name: "JungleDryad", color: "#67ff44", tags: KDMapInit(["opendoors", "leashing", "plant", "ranged", "elite", "vineRestraints", "slashweakness", "pierceweakness", "fireweakness", "search"]), cohesion: 0.0,
 		followLeashedOnly: true, ignorechance: 0, armor: 0, followRange: 3, AI: "hunt",
@@ -362,7 +392,7 @@ let KinkyDungeonEnemies = [
 
 	{name: "ElfRanger", color: "#67ff44", tags: KDMapInit(["opendoors", "leashing", "elf", "ranged", "elite", "mithrilRestraints", "mythrilRope", "pierceweakness", "iceweakness", "chainresist", "hunter"]), cohesion: 0.0,
 		followLeashedOnly: true, ignorechance: 0, armor: 0, followRange: 3, AI: "hunt", stealth: 3,
-		spells: ["ElfArrow"], minSpellRange: 1.5, spellCooldownMult: 1, spellCooldownMod: 0, stopToCast: true, castWhileMoving: true, kite: 1.5,
+		spells: ["ElfArrow"], minSpellRange: 1.5, spellCooldownMult: 1, spellCooldownMod: 0, stopToCast: true, castWhileMoving: true, kite: 1.5, projectileAttack: true,
 		visionRadius: 14, maxhp: 12, minLevel:15, weight:-1, movePoints: 1, attackPoints: 3, attack: "SpellMeleeWillBind", attackWidth: 3, attackRange: 1, tilesMinRange: 1, power: 2, dmgType: "grope", fullBoundBonus: 2,
 		terrainTags: {"secondhalf":2, "thirdhalf":1, "willAnger": 5, "willRage": 8}, shrines: ["Will"], floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
 		dropTable: [{name: "Gold", amountMin: 10, amountMax: 20, weight: 12}, {name: "ElfCrystal", weight: 3}, {name: "PotionMana", weight: 1}]},
@@ -378,7 +408,7 @@ let KinkyDungeonEnemies = [
 
 	{name: "OrbOfLight", color: "#ffff00", tags: KDMapInit(["opendoors", "ignorenoSP", "ghost", "ranged", "coldsevereweakness"]), cohesion: 1.0, cohesionRange: 10,
 		followLeashedOnly: true, ignorechance: 0, armor: 0, followRange: 3, AI: "hunt", buffallies: true, spellRdy: true,
-		spells: ["OrbHeal"], minSpellRange: 1.5, spellCooldownMult: 1, spellCooldownMod: -2, tilesMinRange: 1, stopToCast: true, kite: 1.5,
+		spells: ["OrbHeal"], minSpellRange: 1.5, spellCooldownMult: 1, spellCooldownMod: -2, tilesMinRange: 1, stopToCast: true, kite: 1.5, kiteChance: 1.0,
 		visionRadius: 10, blindSight: 10, maxhp: 10, minLevel:20, weight:2.5, movePoints: 3, attackPoints: 4, attack: "SpellMeleeBlindWill", blindTime: 3, attackWidth: 8, attackRange: 1, power: 5, dmgType: "fire",
 		terrainTags: {"willAnger":4, "willRage":4}, shrines: ["Will"], floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], dropTable: [{name: "Nothing", weight: 9}, {name: "ElfCrystal", weight: 3}],
 	},
@@ -390,10 +420,34 @@ let KinkyDungeonEnemies = [
 		visionRadius: 7, blindSight: 7, maxhp: 1, evasion: 1.0, minLevel:0, weight:-2, movePoints: 1, attackPoints: 2, attack: "MeleeWill", attackWidth: 1, attackRange: 1, power: 2, dmgType: "charm",
 		terrainTags: {"willAnger": 4, "willRage": 3}, shrines: ["Will"], floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]},
 
-	{name: "ChaoticCrystal", color: "#ff00aa55", hitsfx: "DealDamage", tags: KDMapInit(["crystal", "minor", "melee", "crushweakness"]), regen: -1,
-		evasion: -9, ignorechance: 1.0, armor: 0, followRange: 1, AI: "wander",
+	{name: "ChaoticCrystal", color: "#ff00aa", hitsfx: "DealDamage", tags: KDMapInit(["crystal", "minor", "melee", "crushweakness"]), regen: -1,
+		evasion: -9, ignorechance: 1.0, armor: 0, followRange: 1, AI: "wander", sneakThreshold: 0.01,
 		visionRadius: 1.5, blindSight: 1.5, maxhp: 10, minLevel:0, weight:-99, movePoints: 99999, attackPoints: 2, attack: "MeleeWill", attackWidth: 8, attackRange: 1, power: 1, dmgType: "pain",
 		terrainTags: {"passage": -999, "door": -99, "open": 1}, floors:[], shrines: []},
+
+	{name: "Statue", tags: KDMapInit(["mimicBlock", "statue", "minor", "melee", "crushweakness", "jail"]), spellResist: 0.33, sneakThreshold: 0.01,
+		evasion: -9, ignorechance: 1.0, armor: 2, followRange: 1, AI: "ambush", ambushRadius: 0,
+		visionRadius: 0, maxhp: 14, minLevel:0, weight:30, movePoints: 99999, attackPoints: 4, attack: "", attackWidth: 8, attackRange: 3, power: 6, dmgType: "souldrain",
+		terrainTags: {"passage": -999, "temple": 82, "open": 10}, floors:[3], shrines: []},
+	{name: "StatueGag", tags: KDMapInit(["ignoregagged", "mimicBlock", "statue", "minor", "melee", "ballGagRestraintsMagic", "crushweakness", "jail"]), spellResist: 0.33, sneakThreshold: 0.01,
+		evasion: -9, ignorechance: 1.0, armor: 2, followRange: 1, AI: "ambush", ambushRadius: 1.5,
+		visionRadius: 8, maxhp: 14, minLevel:0, weight:10, movePoints: 2, attackPoints: 2, attack: "MeleeBindWill", attackWidth: 1, attackRange: 1, power: 4, dmgType: "grope",
+		terrainTags: {"passage": -999, "temple": 72, "open": 10}, floors:[3], shrines: ["Latex"]},
+	{name: "StatueDart", tags: KDMapInit(["mimicBlock", "statue", "minor", "melee", "crushweakness", "jail"]), spellResist: 0.33, sneakThreshold: 0.01,
+		spells: ["SleepDart"], minSpellRange: 1.5, spellCooldownMult: 1, spellCooldownMod: 8, stopToCast: true, castWhileMoving: true, projectileAttack: true,
+		evasion: -9, ignorechance: 1.0, armor: 2, followRange: 1, AI: "ambush", ambushRadius: 1.5,
+		visionRadius: 4, maxhp: 14, minLevel:0, weight:25, movePoints: 99999, attackPoints: 4, attack: "Spell", attackWidth: 8, attackRange: 3, power: 6, dmgType: "souldrain",
+		terrainTags: {"passage": -999, "temple": 72, "open": 15}, floors:[3], shrines: []},
+
+	{name: "SoulCrystal", color: "#880000", hitsfx: "MagicSlash", tags: KDMapInit(["crystal", "minor", "ranged", "crushweakness", "jail"]), spellResist: 0.33, sneakThreshold: 0.01,
+		evasion: -9, ignorechance: 1.0, armor: 2, followRange: 1, AI: "wander",
+		visionRadius: 100, maxhp: 30, minLevel:0, weight:-99, movePoints: 99999, attackPoints: 4, attack: "MeleeWill", attackWidth: 8, attackRange: 3, power: 6, dmgType: "souldrain",
+		terrainTags: {"passage": -999, "temple": 20, "open": 125}, floors:[3], shrines: ["Conjure"]},
+	{name: "SoulCrystalActive", color: "#880000", hitsfx: "MagicSlash", tags: KDMapInit(["crystal", "miniboss", "ranged", "crushweakness", "jail"]), spellResist: 0.33,
+		evasion: -9, ignorechance: 1.0, armor: 2, followRange: 1, AI: "wander",
+		spells: ["SoulCrystalBind"], spellCooldownMult: 1, spellCooldownMod: 0, followLeashedOnly: true, stopToCast: true, castWhileMoving: true, sneakThreshold: 0.01,
+		visionRadius: 100, maxhp: 30, minLevel:0, weight:-99, movePoints: 99999, attackPoints: 4, attack: "SpellMeleeWill", attackWidth: 8, attackRange: 3, power: 6, dmgType: "souldrain",
+		terrainTags: {"passage": -999, "temple": 10, "open": 115}, floors:[3], shrines: ["Conjure"]},
 
 	{name: "Gag", tags: KDMapInit(["ignoreharmless", "construct", "melee", "ballGagRestraints", "minor"]), ignorechance: 0.75, followRange: 1, AI: "wander", ignoreflag: ["ropesnake"], failAttackflag: ["ropesnake"], squeeze: true,
 		visionRadius: 3, maxhp: 4, minLevel: 3, weight:4, movePoints: 1, attackPoints: 2, attack: "MeleeBindSuicide", suicideOnAdd: true, attackWidth: 1, attackRange: 1, power: 1, dmgType: "grope", fullBoundBonus: 4,
@@ -419,7 +473,7 @@ let KinkyDungeonEnemies = [
 		spells: ["RopeEngulf"], spellCooldownMult: 1, spellCooldownMod: 1, ignoreflag: ["kraken"], disarm: 0.25,
 		visionRadius: 10, maxhp: 60, minLevel: 8, weight:-31, movePoints: 4, attackPoints: 2, attack: "Spell", attackWidth: 1, attackRange: 1, power: 6, dmgType: "grope",
 		terrainTags: {"secondhalf":16, "lastthird":5, "boss": -80, "open": 30, "passage": -60, "ropeAnger": 20, "ropeRage": 70, "increasingWeight":0.5}, floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrines: ["Rope"],
-		dropTable: [{name: "Knives", weight: 4}, {name: "EnchKnife", weight: 2}, {name: "ElfCrystal", weight: 3}]},
+		dropTable: [{name: "Knives", weight: 2}, {name: "Knife", weight: 5}, {name: "EnchKnife", weight: 2}, {name: "ElfCrystal", weight: 3}]},
 	{name: "RopeMinion", tags: KDMapInit(["construct", "melee", "fireweakness", "minor", "slashweakness"]), ignorechance: 0.75, followRange: 1, AI: "hunt", master: {type: "RopeKraken", range: 4}, ignoreflag: ["kraken"], dependent: true,
 		visionRadius: 10, maxhp: 8, minLevel: 1, weight:-1000, movePoints: 1, attackPoints: 2, attack: "MeleePullWill", attackWidth: 1, attackRange: 1, power: 3, dmgType: "crush", fullBoundBonus: 1, noAlert: true,
 		terrainTags: {}, floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrines: ["Rope"]},
@@ -432,7 +486,7 @@ let KinkyDungeonEnemies = [
 		terrainTags: {"rubble":20, "increasingWeight":-5}, floors:[2]},
 
 	{name: "WitchShock", tags: KDMapInit(["leashing", "opendoors", "closedoors", "witch", "ranged", "elite", "miniboss", "unflinching", "electricimmune", "glueweakness", "iceweakness", "hunter"]), followRange: 2,
-		castWhileMoving: true, spells: ["WitchElectrify"], stopToCast: true, spellRdy: true,
+		castWhileMoving: true, spells: ["WitchElectrify"], stopToCast: true, spellRdy: true, kite: 1.5, kiteChance: 1.0,
 		spellCooldownMult: 1, spellCooldownMod: 0, AI: "hunt", visionRadius: 6, maxhp: 15, minLevel:3, weight:14, movePoints: 2, attackPoints: 2, attack: "Spell", attackWidth: 1, attackRange: 1, power: 1, dmgType: "grope", fullBoundBonus: 1,
 		terrainTags: {"secondhalf":2, "lastthird":1, "miniboss": -7}, floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrines: [],
 		dropTable: [{name: "RedKey", weight: 9}, {name: "BlueKey", weight: 2}, {name: "ScrollArms", weight: 1}, {name: "ScrollVerbal", weight: 1}, {name: "ScrollLegs", weight: 1}]},
@@ -443,7 +497,7 @@ let KinkyDungeonEnemies = [
 		terrainTags: {"secondhalf":3, "lastthird":3, "miniboss": -8}, floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrines: [],
 		dropTable: [{name: "RedKey", weight: 9}, {name: "BlueKey", weight: 1}, {name: "ScrollArms", weight: 1}, {name: "ScrollVerbal", weight: 1}, {name: "ScrollLegs", weight: 1}]},
 	{name: "WitchSlime", tags: KDMapInit(["leashing", "opendoors", "closedoors", "witch", "ranged", "elite", "miniboss", "unflinching", "glueimmune", "fireresist", "meleeresist", "electricweakness", "iceweakness", "hunter"]), squeeze: true,
-		followLeashedOnly: true, kite: 1.5, followRange: 4, castWhileMoving: true, spells: ["WitchSlimeBall", "WitchSlimeBall", "WitchSlime"], stopToCast: true, spellRdy: true,
+		followLeashedOnly: true, kite: 1.5, kiteChance: 1.0, followRange: 4, castWhileMoving: true, spells: ["WitchSlimeBall", "WitchSlimeBall", "WitchSlime"], stopToCast: true, spellRdy: true,
 		spellCooldownMult: 2, spellCooldownMod: 1, AI: "wander", visionRadius: 8, maxhp: 13, minLevel:4, weight:7, movePoints: 3, attackPoints: 2, attack: "Spell", attackWidth: 1, attackRange: 1, power: 1, dmgType: "grope", fullBoundBonus: 1,
 		terrainTags: {"secondhalf":2, "lastthird":1, "miniboss": -9, "open": 4}, floors:[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], shrines: [],
 		dropTable: [{name: "RedKey", weight: 8}, {name: "BlueKey", weight: 1}, {name: "ScrollArms", weight: 1}, {name: "ScrollVerbal", weight: 1}, {name: "ScrollLegs", weight: 1}]},
@@ -453,14 +507,14 @@ let KinkyDungeonEnemies = [
 		terrainTags: {"secondhalf":3, "lastthird":3, "miniboss": -100}, shrines: [], floors:[1, 2, 11],
 		dropTable: [{name: "Gold", amountMin: 30, amountMax: 40, weight: 12}, {name: "BlueKey", weight: 1}]},
 
-	{name: "Mummy", color: "#00FF00", tags: KDMapInit(["leashing", "opendoors", "closedoors", "melee", "witch", "elite", "mummyRestraints", "coldresist", "fireweakness", "meleeweakness", "hunter"]), followLeashedOnly: true, followRange: 1,
+	{name: "Mummy", color: "#00FF00", tags: KDMapInit(["leashing", "opendoors", "closedoors", "mummy", "melee", "witch", "elite", "mummyRestraints", "coldresist", "fireweakness", "meleeweakness", "hunter"]), followLeashedOnly: true, followRange: 1,
 		spells: ["MummyBolt"], minSpellRange: 1.5, specialCD: 3, specialAttack: "Bind", spellCooldownMult: 1, spellCooldownMod: 5, spellRdy: true,
 		AI: "hunt", visionRadius: 7, maxhp: 8, minLevel:5, weight:18, movePoints: 2, attackPoints: 1, attack: "SpellMeleeWill", attackWidth: 1, attackRange: 1, power: 2, fullBoundBonus: 1, dmgType: "crush",
 		terrainTags: {"secondhalf":2, "lastthird":4, "open": 2, "increasingWeight":1}, floors:[11], shrines: ["Will"], dropTable: [{name: "Gold", amountMin: 15, amountMax: 20, weight: 10}, {name: "PotionStamina", weight: 1}, {name: "RedKey", weight: 1}]},
-	{name: "Cleric", color: "#00FF00", tags: KDMapInit(["leashing", "opendoors", "closedoors", "ranged", "search", "coldresist", "fireweakness"]), followLeashedOnly: true, followRange: 4, attackThruBars: true,
+	{name: "Cleric", color: "#00FF00", tags: KDMapInit(["leashing", "opendoors", "closedoors", "mummy", "ranged", "search", "coldresist", "fireweakness"]), followLeashedOnly: true, followRange: 4, attackThruBars: true,
 		AI: "guard", visionRadius: 7, maxhp: 8, minLevel:0, weight:18, movePoints: 1, attackPoints: 3, attack: "MeleeWillStun", attackWidth: 1, attackRange: 6, power: 3, fullBoundBonus: 1, dmgType: "crush", noCancelAttack: true, strictAttackLOS: true,
 		terrainTags: {"secondhalf":0, "lastthird":1, "passage": -99, "open": 4}, floors:[11], shrines: ["Will"], dropTable: [{name: "Gold", amountMin: 10, amountMax: 20, weight: 12}, {name: "PotionMana", weight: 1}, {name: "RedKey", weight: 1}]},
-	{name: "MeleeCleric", tags: KDMapInit(["leashing", "opendoors", "closedoors", "melee", "kittyRestraints", "search", "coldresist", "fireweakness"]), followRange: 1, blindSight: 4, specialCD: 3, specialAttack: "Bind",
+	{name: "MeleeCleric", tags: KDMapInit(["leashing", "opendoors", "closedoors", "mummy", "melee", "kittyRestraints", "search", "coldresist", "fireweakness"]), followRange: 1, blindSight: 4, specialCD: 3, specialAttack: "Bind",
 		AI: "hunt", visionRadius: 6, maxhp: 8, minLevel:0, weight:20, movePoints: 2, attackPoints: 2, attack: "MeleeWill", attackWidth: 1, attackRange: 1, power: 2, fullBoundBonus: 2, dmgType: "grope",
 		terrainTags: {"secondhalf":0, "lastthird":-2}, floors:[11], shrines: ["Will"], dropTable: [{name: "Gold", amountMin: 10, amountMax: 20, weight: 12}, {name: "PotionStamina", weight: 1}, {name: "RedKey", weight: 1}]},
 
@@ -515,8 +569,8 @@ function KinkyDungeonGetPatrolPoint(index, radius, Tiles) {
 	let t = Tiles ? Tiles : KinkyDungeonMovableTilesEnemy;
 	if (p) {
 		for (let i = 0; i < 8; i++) {
-			let XX = p.x + Math.round(Math.random() * 2 * radius - radius);
-			let YY = p.y + Math.round(Math.random() * 2 * radius - radius);
+			let XX = p.x + Math.round(KDRandom() * 2 * radius - radius);
+			let YY = p.y + Math.round(KDRandom() * 2 * radius - radius);
 			if (t.includes(KinkyDungeonMapGet(XX, YY))) {
 				return {x: XX, y: YY};
 			}
@@ -725,12 +779,13 @@ function KinkyDungeonDrawEnemiesWarning(canvasOffsetX, canvasOffsetY, CamX, CamY
 				}
 			}
 		}
-		if (enemy.Enemy.spells && enemy.Enemy.spellRdy && !(enemy.castCooldown > 1)) {
+		if (enemy.Enemy.spells && (enemy.Enemy.spellRdy && (enemy.Enemy.AI != "ambush" || enemy.ambushtrigger)) && !(enemy.castCooldown > 1)) {
 			let tx = enemy.visual_x;
 			let ty = enemy.visual_y;
 			//  && KinkyDungeonMovableTilesEnemy.includes(KinkyDungeonMapGet(tx, ty))
 			if (tx >= CamX && ty >= CamY && tx < CamX + KinkyDungeonGridWidthDisplay && ty < CamY + KinkyDungeonGridHeightDisplay
-				&& KDCanSeeEnemy(enemy, Math.max(Math.abs(enemy.x - KinkyDungeonPlayerEntity.x), Math.abs(enemy.y - KinkyDungeonPlayerEntity.y)))) {
+				&& KDCanSeeEnemy(enemy, Math.max(Math.abs(enemy.x - KinkyDungeonPlayerEntity.x), Math.abs(enemy.y - KinkyDungeonPlayerEntity.y)))
+				&& KinkyDungeonLightGet(enemy.x, enemy.y) > 0) {
 				DrawImageCanvasColorize(KinkyDungeonRootDirectory + "SpellReady.png", KinkyDungeonContext,
 					(tx - CamX)*KinkyDungeonGridSizeDisplay, (ty - CamY)*KinkyDungeonGridSizeDisplay,
 					KinkyDungeonSpriteSize/KinkyDungeonGridSizeDisplay,
@@ -794,7 +849,7 @@ function KinkyDungeonEnemyCheckHP(enemy, E) {
 			KinkyDungeonChangeRep("Ghost", -5);
 		else if (enemy.Enemy && enemy.Enemy.tags && enemy.Enemy.tags.has("miniboss"))
 			KinkyDungeonChangeRep("Ghost", -2);
-		else if (enemy.Enemy && enemy.Enemy.tags && enemy.Enemy.tags.has("elite") && Math.random() < 0.33)
+		else if (enemy.Enemy && enemy.Enemy.tags && enemy.Enemy.tags.has("elite") && KDRandom() < 0.33)
 			KinkyDungeonChangeRep("Ghost", -1);
 
 		if (enemy.Enemy && enemy.Enemy.rep)
@@ -851,10 +906,10 @@ function KinkyDungeonGetRandomEnemyPoint(avoidPlayer, onlyPlayer, Enemy) {
 
 	while (tries < 100) {
 		let points = Array.from(KinkyDungeonRandomPathablePoints, ([name, value]) => (value));
-		let point = points[Math.floor(points.length * Math.random())];
+		let point = points[Math.floor(points.length * KDRandom())];
 		if (point) {
-			let X = point.x;//1 + Math.floor(Math.random()*(KinkyDungeonGridWidth - 1));
-			let Y = point.y;//1 + Math.floor(Math.random()*(KinkyDungeonGridHeight - 1));
+			let X = point.x;//1 + Math.floor(KDRandom()*(KinkyDungeonGridWidth - 1));
+			let Y = point.y;//1 + Math.floor(KDRandom()*(KinkyDungeonGridHeight - 1));
 			let playerDist = 6;
 			let PlayerEntity = KinkyDungeonNearestPlayer({x:X, y:Y});
 
@@ -899,7 +954,7 @@ function KinkyDungeonGetNearbyPoint(x, y, allowNearPlayer=false, Enemy, Adjacent
 
 	let foundslot = undefined;
 	for (let C = 0; C < 100; C++) {
-		let slot = slots[Math.floor(Math.random() * slots.length)];
+		let slot = slots[Math.floor(KDRandom() * slots.length)];
 		if (slot && KinkyDungeonNoEnemyExceptSub(slot.x, slot.y, false, Enemy)
 			&& (allowNearPlayer || Math.max(Math.abs(KinkyDungeonPlayerEntity.x - slot.x), Math.abs(KinkyDungeonPlayerEntity.y - slot.y)) > 1.5)
 			&& KinkyDungeonMovableTilesEnemy.includes(KinkyDungeonMapGet(slot.x, slot.y))) {
@@ -948,7 +1003,7 @@ function KinkyDungeonUpdateEnemies(delta) {
 		let master = KinkyDungeonFindMaster(enemy).master;
 		if (master && enemy.aware) master.aware = true;
 		if (master && master.aware) enemy.aware = true;
-		if (enemy.dependent && !master) enemy.hp = 0;
+		if (enemy.dependent && !master) enemy.hp = -10000;
 	}
 	for (let E = 0; E < KinkyDungeonEntities.length; E++) {
 		let enemy = KinkyDungeonEntities[E];
@@ -1020,7 +1075,7 @@ function KinkyDungeonUpdateEnemies(delta) {
 			if (enemy.Enemy.lifespan || enemy.lifetime != undefined) {
 				if (enemy.lifetime == undefined) enemy.lifetime = enemy.Enemy.lifespan;
 				enemy.lifetime -= delta;
-				if (enemy.lifetime <= 0) enemy.hp = 0;
+				if (enemy.lifetime <= 0) enemy.hp = -10000;
 			}
 		}
 	}
@@ -1043,13 +1098,16 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 	if (player.player) {
 		if (enemy.Enemy.tags.has("ignorenoSP") && !KinkyDungeonHasStamina(1.1)) ignore = true;
 		if (enemy.Enemy.tags.has("ignoreharmless") && (!enemy.warningTiles || enemy.warningTiles.length == 0)
-			&& harmless && (!enemy.Enemy.ignorechance || Math.random() < enemy.Enemy.ignorechance || !KinkyDungeonHasStamina(1.1))) ignore = true;
+			&& harmless && (!enemy.Enemy.ignorechance || KDRandom() < enemy.Enemy.ignorechance || !KinkyDungeonHasStamina(1.1))) ignore = true;
 		if (enemy.Enemy.tags.has("ignoretiedup") && (!enemy.warningTiles || enemy.warningTiles.length == 0)
 			&& !KinkyDungeonPlayer.CanInteract() && !KinkyDungeonCanTalk() && !KinkyDungeonPlayer.CanInteract() && KinkyDungeonSlowLevel > 1
-			&& (!enemy.Enemy.ignorechance || Math.random() < enemy.Enemy.ignorechance || !KinkyDungeonHasStamina(1.1))) ignore = true;
+			&& (!enemy.Enemy.ignorechance || KDRandom() < enemy.Enemy.ignorechance || !KinkyDungeonHasStamina(1.1))) ignore = true;
+		if (enemy.Enemy.tags.has("ignoregagged") && (!enemy.warningTiles || enemy.warningTiles.length == 0)
+			&& !KinkyDungeonCanTalk()
+			&& (!enemy.Enemy.ignorechance || KDRandom() < enemy.Enemy.ignorechance || !KinkyDungeonHasStamina(1.1))) ignore = true;
 		if (enemy.Enemy.tags.has("ignoreboundhands") && (!enemy.warningTiles || enemy.warningTiles.length == 0)
 			&& (KinkyDungeonPlayerDamage.dmg <= enemy.Enemy.armor || !KinkyDungeonHasStamina(1.1)) && !KinkyDungeonPlayer.CanInteract()
-			&& (!enemy.Enemy.ignorechance || Math.random() < enemy.Enemy.ignorechance || !KinkyDungeonHasStamina(1.1))) ignore = true;
+			&& (!enemy.Enemy.ignorechance || KDRandom() < enemy.Enemy.ignorechance || !KinkyDungeonHasStamina(1.1))) ignore = true;
 		if (enemy.Enemy.ignoreflag) {
 			for (let f of enemy.Enemy.ignoreflag) {
 				if (KinkyDungeonFlags[f]) ignore = true;
@@ -1142,11 +1200,12 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 					0.01));
 	}
 
-	if (enemy.Enemy.projectileAttack && !canShootPlayer) followRange = 1;
+	if (enemy.Enemy.projectileAttack && (!canShootPlayer || !KinkyDungeonCheckProjectileClearance(enemy.x, enemy.y, player.x, player.y))) followRange = 1;
 
-	if (!KinkyDungeonJailTransgressed && canSeePlayer && (enemy.Enemy.tags.has("jailer") || enemy.Enemy.tags.has("jail")) && (
-		(KinkyDungeonPlayer.CanInteract() && (KinkyDungeonLastTurnAction == "Struggle" || KinkyDungeonLastAction == "Struggle")) ||
-		(Math.abs(player.x - KinkyDungeonStartPosition.x) >= KinkyDungeonJailLeashX - 1 || Math.abs(player.y - KinkyDungeonStartPosition.y) > KinkyDungeonJailLeash)) && (!KinkyDungeonJailGuard() || KinkyDungeonJailGuard().CurrentAction !== "jailLeashTour" || !KinkyDungeonIsWearingLeash())) {
+	if (!KinkyDungeonJailTransgressed && canSeePlayer && (enemy.Enemy.tags.has("jailer") || enemy.Enemy.tags.has("jail"))
+		&& ((KinkyDungeonPlayer.CanInteract() && (KinkyDungeonLastTurnAction == "Struggle" || KinkyDungeonLastAction == "Struggle"))
+			|| !KinkyDungeonInCell())
+		&& (!KinkyDungeonJailGuard() || (KinkyDungeonJailGuard().CurrentAction !== "jailLeashTour" && (!KinkyDungeonInCell() || KinkyDungeonLastTurnAction == "Struggle" || KinkyDungeonLastAction == "Struggle")))) {
 		KinkyDungeonJailTransgressed = true;
 		ignore = false;
 	}
@@ -1159,17 +1218,19 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 	if ((canSensePlayer || canSeePlayer || canShootPlayer) && KinkyDungeonTrackSneak(enemy, delta * (sneakMult), player)) enemy.aware = true;
 
 	let kite = false;
+	let kiteChance = enemy.Enemy.kiteChance ? enemy.Enemy.kiteChance : 0.75;
 	if (canSeePlayer && enemy.Enemy && enemy.Enemy.kite && !enemy.usingSpecial && (!player.player || KinkyDungeonHasStamina(1.1)) && (enemy.attackPoints <= 0 || enemy.Enemy.attackWhileMoving) && playerDist <= enemy.Enemy.kite && (!enemy.Enemy.allied || !player.player)) {
 		if (!enemy.Enemy.kiteOnlyWhenDisabled || !(KinkyDungeonStatBlind < 0 || KinkyDungeonStatBind > 0 || KinkyDungeonStatFreeze > 0 || KinkyDungeonSlowMoveTurns > 0 || KDGameData.SleepTurns > 0))
 			if (!enemy.Enemy.noKiteWhenHarmless || !harmless)
-				kite = true;
+				if (kiteChance >= 1 || KDRandom() < kiteChance)
+					kite = true;
 	}
 
 	if ((AI == "ambush" && enemy.Enemy.wanderTillSees && !enemy.aware && !enemy.ambushtrigger)) {
 		idle = true;
 		if (ignore || !KinkyDungeonCheckLOS(enemy, player, playerDist, followRange + 0.5, enemy.attackPoints < 1 || !enemy.Enemy.projectileAttack, false) || kite)
 			for (let T = 0; T < 8; T++) { // try 8 times
-				let dir = KinkyDungeonGetDirection(10*(Math.random()-0.5), 10*(Math.random()-0.5));
+				let dir = KinkyDungeonGetDirection(10*(KDRandom()-0.5), 10*(KDRandom()-0.5));
 				if (MovableTiles.includes(KinkyDungeonMapGet(enemy.x + dir.x, enemy.y + dir.y)) && (T > 5 || !AvoidTiles.includes(KinkyDungeonMapGet(enemy.x + dir.x, enemy.y + dir.y)))
 					&& KinkyDungeonNoEnemy(enemy.x + dir.x, enemy.y + dir.y, true)) {
 					if (KinkyDungeonEnemyTryMove(enemy, dir, delta, enemy.x + dir.x, enemy.y + dir.y)) moved = true;
@@ -1194,7 +1255,7 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 				if (T > 2 && T < 8) dir = KinkyDungeonGetDirectionRandom(dir.x * 10, dir.y * 10); // Fan out a bit
 				if (T >= 8 || enemy.path || (!canSeePlayer && !(enemy.Enemy.stopToCast && canShootPlayer))) {
 					if (!enemy.path && (KinkyDungeonAlert || enemy.aware || canSeePlayer))
-						enemy.path = KinkyDungeonFindPath(enemy.x, enemy.y, player.x, player.y, true, false, ignoreLocks, MovableTiles); // Give up and pathfind
+						enemy.path = KinkyDungeonFindPath(enemy.x, enemy.y, player.x, player.y, false, false, ignoreLocks, MovableTiles); // Give up and pathfind
 					if (enemy.path && enemy.path.length > 0 && Math.max(Math.abs(enemy.path[0].x - enemy.x),Math.abs(enemy.path[0].y - enemy.y)) < 1.5) {
 						dir = {x: enemy.path[0].x - enemy.x, y: enemy.path[0].y - enemy.y, delta: KDistChebyshev(enemy.path[0].x - enemy.x, enemy.path[0].y - enemy.y)};
 						if (!KinkyDungeonNoEnemyExceptSub(enemy.x + dir.x, enemy.y + dir.y, false, enemy)) enemy.path = undefined;
@@ -1244,7 +1305,7 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 		if (AI == "patrol") {
 			let patrolChance = patrolChange ? 0.2 : 0.04;
 			if (!enemy.patrolIndex) enemy.patrolIndex = KinkyDungeonNearestPatrolPoint(enemy.x, enemy.y);
-			if (KinkyDungeonPatrolPoints[enemy.patrolIndex] && Math.random() < patrolChance) {
+			if (KinkyDungeonPatrolPoints[enemy.patrolIndex] && KDRandom() < patrolChance) {
 				if (enemy.patrolIndex < KinkyDungeonPatrolPoints.length - 1) enemy.patrolIndex += 1;
 				else enemy.patrolIndex = 0;
 
@@ -1255,9 +1316,9 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 
 		}
 		if ((AI == "wander" || AI == "hunt") && enemy.movePoints < 1) {
-			if (Math.max(Math.abs(enemy.x - enemy.gx), Math.abs(enemy.y - enemy.gy)) < 1.5 || (!enemy.path || Math.random() < 0.1)) {
+			if (Math.max(Math.abs(enemy.x - enemy.gx), Math.abs(enemy.y - enemy.gy)) < 1.5 || (!enemy.path || KDRandom() < 0.1)) {
 				let master = KinkyDungeonFindMaster(enemy).master;
-				if (Math.random() < 0.1 && !master) {
+				if (KDRandom() < 0.1 && !master) {
 					// long distance hunt
 					let newPoint = KinkyDungeonGetRandomEnemyPoint(false, enemy.tracking && KinkyDungeonHuntDownPlayer);
 					if (newPoint) {
@@ -1274,10 +1335,10 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 						let ey = enemy.y;
 						let cohesion = enemy.Enemy.cohesion ? enemy.Enemy.cohesion : 0.3;
 						let masterCloseness = enemy.Enemy.cohesion ? enemy.Enemy.cohesion : 0.7;
-						if (master && Math.random() < masterCloseness) {
+						if (master && KDRandom() < masterCloseness) {
 							ex = master.x;
 							ey = master.y;
-						} else if (Math.random() < cohesion) {
+						} else if (KDRandom() < cohesion) {
 							let minDist = enemy.Enemy.cohesionRange ? enemy.Enemy.cohesionRange : enemy.Enemy.visionRadius / 2;
 							for (let e of KinkyDungeonEntities) {
 								let dist = KDistEuclidean(e.x - enemy.x, e.y - enemy.y);
@@ -1343,7 +1404,7 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 
 			let playerEvasion = (player.player) ? KinkyDungeonMultiplicativeStat(KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "Evasion"))
 				: KinkyDungeonMultiplicativeStat(((player.Enemy && player.Enemy.evasion) ? player.Enemy.evasion : 0)) * KinkyDungeonMultiplicativeStat(KinkyDungeonGetBuffedStat(player.buffs, "Evasion"));
-			if (playerDist < 1.5 && player.player && attack.includes("Bind") && Math.random() * accuracy <= playerEvasion && KinkyDungeonMovePoints > -1 && KinkyDungeonTorsoGrabCD < 1 && KinkyDungeonLastAction == "Move") {
+			if (playerDist < 1.5 && player.player && attack.includes("Bind") && KDRandom() * accuracy <= playerEvasion && KinkyDungeonMovePoints > -1 && KinkyDungeonTorsoGrabCD < 1 && KinkyDungeonLastAction == "Move") {
 				let caught = false;
 				for (let W = 0; W < enemy.warningTiles.length; W++) {
 					let tile = enemy.warningTiles[W];
@@ -1367,9 +1428,9 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 					if (rest) harnessRestraintName = rest;
 
 					if (harnessChance > 0) {
-						let roll = Math.random();
+						let roll = KDRandom();
 						for (let T = 0; T < harnessChance; T++) {
-							roll = Math.min(roll, Math.random());
+							roll = Math.min(roll, KDRandom());
 						}
 						if (roll < KinkyDungeonTorsoGrabChance) {
 							KinkyDungeonMovePoints = -1;
@@ -1397,7 +1458,7 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 
 			let playerEvasion = (player.player) ? KinkyDungeonMultiplicativeStat(KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "Evasion"))
 				: KinkyDungeonMultiplicativeStat(((player.Enemy && player.Enemy.evasion) ? player.Enemy.evasion : 0)) * KinkyDungeonMultiplicativeStat(KinkyDungeonGetBuffedStat(player.buffs, "Evasion"));
-			if (hit && Math.random() > playerEvasion) {
+			if (hit && KDRandom() > playerEvasion) {
 				if (player.player) {
 					KinkyDungeonSendEvent("miss", {enemy: enemy});
 					KinkyDungeonSendTextMessage(2, TextGet("KinkyDungeonAttackMiss").replace("EnemyName", TextGet("Name" + enemy.Enemy.name)), "lightgreen", 1);
@@ -1424,7 +1485,7 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 						let Lstart = 0;
 						let Lmax = Lockable.length-1;
 						if (!enemy.Enemy.attack.includes("LockAll")) {
-							Lstart = Math.floor(Lmax*Math.random()); // Lock one at random
+							Lstart = Math.floor(Lmax*KDRandom()); // Lock one at random
 						}
 						for (let L = Lstart; L <= Lmax; L++) {
 							KinkyDungeonLock(Lockable[L], KinkyDungeonGenerateLock(true)); // Lock it!
@@ -1585,7 +1646,7 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 							}
 						}
 					if (tiles.length > 0) {
-						let tile = tiles[Math.floor(Math.random()*tiles.length)];
+						let tile = tiles[Math.floor(KDRandom()*tiles.length)];
 						if (enemy.Enemy.dashThrough) {
 							let tiled = 0;
 							for (let t of tiles) {
@@ -1680,7 +1741,7 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 					happened += KinkyDungeonDealDamage({damage: data.damage, type: data.damagetype});
 
 					replace.push({keyword:"DamageTaken", value: data.damage});
-				} else { // if (Math.random() <= playerEvasion)
+				} else { // if (KDRandom() <= playerEvasion)
 					let dmg = power;
 					let buffdmg = KinkyDungeonGetBuffedStat(enemy.buffs, "AttackDmg");
 					if (buffdmg) dmg = Math.max(0, dmg + buffdmg);
@@ -1757,7 +1818,7 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 
 		for (let tries = 0; tries < 6; tries++) {
 			spelltarget = false;
-			spellchoice = enemy.Enemy.spells[Math.floor(Math.random()*enemy.Enemy.spells.length)];
+			spellchoice = enemy.Enemy.spells[Math.floor(KDRandom()*enemy.Enemy.spells.length)];
 			spell = KinkyDungeonFindSpell(spellchoice, true);
 			if ((!spell.castRange && playerDist > spell.range) || (spell.castRange && playerDist > spell.castRange)) spell = null;
 			if (spell && spell.specialCD && enemy.castCooldownSpecial > 0) spell = null;
@@ -1768,13 +1829,25 @@ function KinkyDungeonEnemyLoop(enemy, player, delta) {
 					// Select a random nearby ally of the enemy
 					let nearAllies = [];
 					for (let e of KinkyDungeonEntities) {
-						if ((e != enemy) && (!spell.heal || e.hp < e.Enemy.maxhp - spell.power*0.5) && e.aware && !KinkyDungeonHasBuff(e.buffs, spell.name) && ((enemy.Enemy.allied && e.Enemy.allied) || (!enemy.Enemy.allied && !e.Enemy.allied))
+						if ((e != enemy) && (!spell.heal || e.hp < e.Enemy.maxhp - spell.power*0.5)
+							&& e.aware && !KinkyDungeonHasBuff(e.buffs, spell.name)
+							&& ((enemy.Enemy.allied && e.Enemy.allied) || (!enemy.Enemy.allied && !e.Enemy.allied))
 							&& Math.sqrt((enemy.x - e.x)*(enemy.x - e.x) + (enemy.y - e.y)*(enemy.y - e.y)) < spell.range) {
-							nearAllies.push(e);
+							let allow = !spell.filterTags;
+							if (spell.filterTags) {
+								for (let t of spell.filterTags) {
+									if (e.Enemy.tags && e.Enemy.tags.get(t)) {
+										allow = true;
+										break;
+									}
+								}
+							}
+							if (allow)
+								nearAllies.push(e);
 						}
 					}
 					if (nearAllies.length > 0) {
-						let e = nearAllies[Math.floor(Math.random() * nearAllies.length)];
+						let e = nearAllies[Math.floor(KDRandom() * nearAllies.length)];
 						if (e) {
 							spelltarget = e;
 							KinkyDungeonSendTextMessage(4, TextGet("KinkyDungeonSpellCast" + spell.name).replace("EnemyName", TextGet("Name" + enemy.Enemy.name)), "white", 2);
@@ -1856,8 +1929,9 @@ function KinkyDungeonNoEnemy(x, y, Player) {
 
 // e = potential sub
 // Enemy = leader
-function KinkyDungeonHasSeniority(e, Enemy) {
-	if (Enemy && Enemy.Enemy && Enemy.Enemy.ethereal) return false; // Ethereal enemies NEVER have seniority, this can teleport other enemies into walls
+function KinkyDungeonCanSwapWith(e, Enemy) {
+	if (Enemy && Enemy.Enemy && Enemy.Enemy.ethereal && e && e.Enemy && !e.Enemy.ethereal) return false; // Ethereal enemies NEVER have seniority, this can teleport other enemies into walls
+	if (Enemy && Enemy.Enemy && Enemy.Enemy.squeeze && e && e.Enemy && !e.Enemy.squeeze) return false; // Squeeze enemies NEVER have seniority, this can teleport other enemies into walls
 	if (!e.Enemy.tags || e.Enemy.tags.has("minor"))
 		return true;
 	else if (Enemy && Enemy.Enemy && Enemy.Enemy.tags && Enemy.Enemy.tags.has("elite")) {
@@ -1877,7 +1951,7 @@ function KinkyDungeonNoEnemyExceptSub(x, y, Player, Enemy) {
 	let e = KinkyDungeonEnemyAt(x, y);
 	if (e && e.Enemy) {
 		if (e.Enemy.master && Enemy && Enemy.Enemy && e.Enemy.master.type == Enemy.Enemy.name) return true;
-		let seniority = Enemy ? KinkyDungeonHasSeniority(e, Enemy) : false;
+		let seniority = Enemy ? KinkyDungeonCanSwapWith(e, Enemy) : false;
 		return seniority;
 	}
 	if (Player)
@@ -1895,16 +1969,17 @@ function KinkyDungeonEnemyAt(x, y) {
 }
 
 function KinkyDungeonEnemyTryMove(enemy, Direction, delta, x, y) {
-	if (enemy.bind > 0) enemy.movePoints += delta/10;
-	else if (enemy.slow > 0) enemy.movePoints += delta/2;
-	else enemy.movePoints += KDGameData.SleepTurns > 0 ? 4*delta : delta;
+	let speedMult = KinkyDungeonGetBuffedStat(enemy.buffs, "MoveSpeed") ? KinkyDungeonMultiplicativeStat(-KinkyDungeonGetBuffedStat(enemy.buffs, "MoveSpeed")) : 1;
+	if (enemy.bind > 0) enemy.movePoints += speedMult * delta/10;
+	else if (enemy.slow > 0) enemy.movePoints += speedMult * delta/2;
+	else enemy.movePoints += KDGameData.SleepTurns > 0 ? 4*delta * speedMult : delta * speedMult;
 
 	if (enemy.movePoints >= enemy.Enemy.movePoints) {
 		enemy.movePoints = 0;
 		let dist = Math.abs(x - KinkyDungeonPlayerEntity.x) + Math.abs(y - KinkyDungeonPlayerEntity.y);
 
 		if (KinkyDungeonMapGet(enemy.x, enemy.y) == 'd' && enemy.Enemy && enemy.Enemy.tags.has("closedoors")
-			&& ((Math.random() < 0.8 && dist > 5) ||
+			&& ((KDRandom() < 0.8 && dist > 5) ||
 				(KinkyDungeonTiles.get(enemy.x + "," + enemy.y) && (KinkyDungeonTiles.get(enemy.x + "," + enemy.y).Jail || KinkyDungeonTiles.get(enemy.x + "," + enemy.y).ReLock) && (!KinkyDungeonJailGuard() || KinkyDungeonJailGuard().CurrentAction != "jailLeashTour")))) {
 			KinkyDungeonMapSet(enemy.x, enemy.y, 'D');
 			if (KinkyDungeonTiles.get(enemy.x + "," + enemy.y) && KinkyDungeonTiles.get(enemy.x + "," + enemy.y).Jail
@@ -1918,7 +1993,7 @@ function KinkyDungeonEnemyTryMove(enemy, Direction, delta, x, y) {
 		}
 
 		let ee = KinkyDungeonEnemyAt(enemy.x + Direction.x, enemy.y + Direction.y);
-		if (ee && KinkyDungeonHasSeniority(ee, enemy)) {
+		if (ee && KinkyDungeonCanSwapWith(ee, enemy)) {
 			ee.x = enemy.x;
 			ee.y = enemy.y;
 		}
@@ -2004,7 +2079,7 @@ function KinkyDungeonGetWarningTiles(dx, dy, range, width, forwardOffset = 1) {
 	var arr = [];
 	/*
 	var cone = 0.78539816 * (width-0.9)/2;
-	var angle_player = Math.atan2(dx, dy) + ((width % 2 == 0) ? ((Math.random() > 0.5) ? -0.39269908 : 39269908) : 0);
+	var angle_player = Math.atan2(dx, dy) + ((width % 2 == 0) ? ((KDRandom() > 0.5) ? -0.39269908 : 39269908) : 0);
 	if (angle_player > Math.PI) angle_player -= Math.PI;
 	if (angle_player < -Math.PI) angle_player += Math.PI;
 

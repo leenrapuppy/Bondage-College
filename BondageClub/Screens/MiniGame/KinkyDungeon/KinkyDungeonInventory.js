@@ -335,6 +335,11 @@ function KinkyDungeonDrawQuickInv() {
 				MainCanvas.textAlign = "left";
 				DrawText(TextGet("KinkyDungeonInventoryItem" + item.name), 500, point.y+1 + 30 + V/2, "black");
 				DrawText(TextGet("KinkyDungeonInventoryItem" + item.name), 500, point.y + 30 + V/2, "white");
+
+				DrawTextFit(TextGet("KinkyDungeonInventoryItem" + item.name + "Desc"), 500, point.y+1 + 30 + 50 + V/2, KinkyDungeonCanvas.width, "black");
+				DrawTextFit(TextGet("KinkyDungeonInventoryItem" + item.name + "Desc"), 500, point.y + 30 + 50 + V/2, KinkyDungeonCanvas.width, "white");
+				DrawTextFit(TextGet("KinkyDungeonInventoryItem" + item.name + "Desc2"), 500, point.y+1 + 30 + 100 + V/2, KinkyDungeonCanvas.width, "black");
+				DrawTextFit(TextGet("KinkyDungeonInventoryItem" + item.name + "Desc2"), 500, point.y + 30 + 100 + V/2, KinkyDungeonCanvas.width, "white");
 				MainCanvas.textAlign = "center";
 			}
 			DrawImageEx(item.preview, point.x, point.y + 30, {Width: 80, Height: 80});

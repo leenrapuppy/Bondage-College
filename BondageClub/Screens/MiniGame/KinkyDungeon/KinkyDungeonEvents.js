@@ -119,7 +119,7 @@ function KinkyDungeonHandleInventoryEvent(Event, e, item, data) {
 					KinkyDungeonSlimeLevel = Math.min(KinkyDungeonSlimeLevel, 0.5);
 					KinkyDungeonSlimeLevelStart = Math.min(KinkyDungeonSlimeLevelStart, 0.5);
 				} else while (potentialSlimeParts.length > 0) {
-					let newSlime = potentialSlimeParts[Math.floor(Math.random() * potentialSlimeParts.length)];
+					let newSlime = potentialSlimeParts[Math.floor(KDRandom() * potentialSlimeParts.length)];
 					if (newSlime) {
 						let added = KinkyDungeonAddRestraintIfWeaker(KinkyDungeonGetRestraintByName(newSlime.restraint), 0, true);
 						if (added) {
@@ -132,7 +132,7 @@ function KinkyDungeonHandleInventoryEvent(Event, e, item, data) {
 					potentialSlimeParts.splice(potentialSlimeParts.indexOf(newSlime), 1);
 				}
 				if (!slimed && potentialSlimeParts.length == 0) {
-					let slime = slimedParts[Math.floor(Math.random() * slimedParts.length)];
+					let slime = slimedParts[Math.floor(KDRandom() * slimedParts.length)];
 					if (KinkyDungeonAddRestraintIfWeaker(KinkyDungeonGetRestraintByName("Hard" + slime.name), 0, true)) {
 						KinkyDungeonSendTextMessage(5, TextGet("KinkyDungeonSlimeHarden"), "#ff44ff", 3);
 						if (KinkyDungeonCurrentDress != "SlimeSuit") {
@@ -180,7 +180,7 @@ function KinkyDungeonHandleInventoryEvent(Event, e, item, data) {
 				let rep = (KinkyDungeonGoddessRep.Ghost + 50)/100;
 				subMult = e.noSub + (1 - e.noSub * rep);
 			}
-			if (item.restraint && item.restraint.Link && (Math.random() < chance * subMult) && (!e.noLeash || KDGameData.KinkyDungeonLeashedPlayer < 1)) {
+			if (item.restraint && item.restraint.Link && (KDRandom() < chance * subMult) && (!e.noLeash || KDGameData.KinkyDungeonLeashedPlayer < 1)) {
 				let newRestraint = KinkyDungeonGetRestraintByName(item.restraint.Link);
 				//KinkyDungeonLinkItem(newRestraint, item, item.tightness, "");
 				KinkyDungeonAddRestraint(newRestraint, item.tightness, true, "", false);
@@ -213,27 +213,27 @@ function KinkyDungeonHandleInventoryEvent(Event, e, item, data) {
 	} else if (Event == "beforeDamageEnemy") {
 		if (e.type == "MultiplyDamageStealth" && e.trigger == Event && data.dmg > 0 && data.enemy && !data.enemy.Enemy.allied && !data.enemy.aware) {
 			if (!e.chance || KDRandom() < e.chance) {
-				let dmg = Math.min(data.enemy.hp, data.dmg);
+				let dmg = Math.max(0, Math.min(data.enemy.hp, data.dmg));
 				if (e.energyCost && e.power > 1) KDGameData.AncientEnergyLevel = Math.max(0, KDGameData.AncientEnergyLevel - e.energyCost * dmg*(e.power - 1));
 				data.dmg = Math.max(data.dmg * e.power, 0);
 			}
 		} else if (e.type == "MultiplyDamageStatus" && e.trigger == Event && data.dmg > 0 && data.enemy && !data.enemy.Enemy.allied
 			&& (KinkyDungeonHasStatus(data.enemy))) {
 			if (!e.chance || KDRandom() < e.chance) {
-				let dmg = Math.min(data.enemy.hp, data.dmg);
+				let dmg = Math.max(0, Math.min(data.enemy.hp, data.dmg));
 				if (e.energyCost && e.power > 1) KDGameData.AncientEnergyLevel = Math.max(0, KDGameData.AncientEnergyLevel - e.energyCost * dmg*(e.power - 1));
 				data.dmg = Math.max(data.dmg * e.power, 0);
 			}
 		} else if (e.type == "MultiplyDamageMagic" && e.trigger == Event && data.dmg > 0 && data.incomingDamage && !KinkyDungeonMeleeDamageTypes.includes(data.incomingDamage.type)) {
 			if (!e.chance || KDRandom() < e.chance) {
-				let dmg = Math.min(data.enemy.hp, data.dmg);
+				let dmg = Math.max(0, Math.min(data.enemy.hp, data.dmg));
 				if (e.energyCost && e.power > 1) KDGameData.AncientEnergyLevel = Math.max(0, KDGameData.AncientEnergyLevel - e.energyCost * dmg*(e.power - 1));
 				data.dmg = Math.max(data.dmg * e.power, 0);
 			}
 		}
 	} else if (Event == "defeat") {
 		if (e.type == "linkItem" && e.trigger == "defeat") {
-			if (item.restraint && item.restraint.Link && (Math.random() < e.chance)) {
+			if (item.restraint && item.restraint.Link && (KDRandom() < e.chance)) {
 				let newRestraint = KinkyDungeonGetRestraintByName(item.restraint.Link);
 				KinkyDungeonAddRestraint(newRestraint, item.tightness, true, "", false);
 				//KinkyDungeonLinkItem(newRestraint, item, item.tightness, "");
@@ -395,7 +395,7 @@ function KinkyDungeonHandleWeaponEvent(Event, e, weapon, data) {
 		}
 	} else if (Event == "playerAttack") {
 		if (e.type == "ElementalEffect" && e.trigger == Event && data.enemy && !data.disarm && !data.evaded) {
-			if (data.enemy) {
+			if (data.enemy && (!e.chance || KDRandom() < e.chance)) {
 				KinkyDungeonDamageEnemy(data.enemy, {type:e.damage, damage: e.power, time: e.time}, false, true, undefined, undefined, undefined);
 			}
 		} if (e.type == "Cleave" && e.trigger == Event && data.enemy && !data.disarm) {

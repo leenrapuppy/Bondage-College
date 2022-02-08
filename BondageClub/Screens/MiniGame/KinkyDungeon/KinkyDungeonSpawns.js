@@ -114,7 +114,7 @@ function KinkyDungeonGetEnemy(tags, Level, Index, Tile, requireTags) {
 		}
 	}
 
-	var selection = Math.random() * enemyWeightTotal;
+	var selection = KDRandom() * enemyWeightTotal;
 
 	for (let L = enemyWeights.length - 1; L >= 0; L--) {
 		if (selection > enemyWeights[L].weight) {
@@ -158,12 +158,12 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 	let sleepTurnsPerExtraSpawnLevel = 25;
 	let baseChance = ((KDGameData.SleepTurns > 0 && (KinkyDungeonStatStamina > KinkyDungeonStatStaminaMax - 10 * KinkyDungeonStatStaminaRegenSleep || KDGameData.SleepTurns < 11)) ? 0.05 : 0.0005) * Math.sqrt(Math.max(1, effLevel)) * (1 + KinkyDungeonTotalSleepTurns / sleepTurnsSpeedMult);
 	// Chance of bothering with random spawns this turn
-	if (delta > 0 && Math.random() < baseChance && KinkyDungeonSearchTimer > KinkyDungeonSearchTimerMin) {
+	if (delta > 0 && KDRandom() < baseChance && KinkyDungeonSearchTimer > KinkyDungeonSearchTimerMin) {
 		let hunters = false;
 		let spawnLocation = KinkyDungeonMapGet(KinkyDungeonStartPosition.x, KinkyDungeonStartPosition.y) == 'S' ? KinkyDungeonStartPosition : KinkyDungeonEndPosition;
 		if (KinkyDungeonTotalSleepTurns > KinkyDungeonSearchStartAmount - BaseAdjust && KinkyDungeonEntities.length < Math.min(100, (KinkyDungeonInJail()) ? (5 + effLevel/15) : (20 + effLevel/10))) {
 			if (KinkyDungeonTotalSleepTurns > KinkyDungeonSearchHuntersAmount - HunterAdjust) hunters = true;
-			if ((KinkyDungeonTotalSleepTurns > KinkyDungeonSearchEntranceAdjustAmount - EntranceAdjust && KDistChebyshev(KinkyDungeonPlayerEntity.x - KinkyDungeonEndPosition.x, KinkyDungeonPlayerEntity.y - KinkyDungeonEndPosition.y) > 5 && Math.random() < 0.5)
+			if ((KinkyDungeonTotalSleepTurns > KinkyDungeonSearchEntranceAdjustAmount - EntranceAdjust && KDistChebyshev(KinkyDungeonPlayerEntity.x - KinkyDungeonEndPosition.x, KinkyDungeonPlayerEntity.y - KinkyDungeonEndPosition.y) > 5 && KDRandom() < 0.5)
 				|| KDistChebyshev(KinkyDungeonPlayerEntity.x - KinkyDungeonStartPosition.x, KinkyDungeonPlayerEntity.y - KinkyDungeonStartPosition.y) < 5) spawnLocation = KinkyDungeonEndPosition;
 
 			if (KinkyDungeonLightGet(spawnLocation.x, spawnLocation.y) < 1 || KinkyDungeonSeeAll) {
@@ -212,7 +212,7 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 
 						if (Enemy.summon) {
 							for (let sum of Enemy.summon) {
-								if (!sum.chance || Math.random() < sum.chance)
+								if (!sum.chance || KDRandom() < sum.chance)
 									KinkyDungeonSummonEnemy(X, Y, sum.enemy, sum.count, sum.range, sum.strict);
 							}
 						}

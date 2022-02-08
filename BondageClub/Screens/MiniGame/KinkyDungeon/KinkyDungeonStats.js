@@ -43,7 +43,7 @@ let KinkyDungeonStatStaminaCostStruggle = -1; // It costs stamina to struggle
 let KinkyDungeonStatStaminaCostRemove = -0.25; // It costs stamina to struggle
 let KinkyDungeonStatStaminaCostTool = -0.1; // It costs stamina to cut, but much less
 let KinkyDungeonStatStaminaCostPick = -0.0; // It costs stamina to pick, but much less
-let KinkyDungeonStatStaminaCostAttack = -0.5; // Cost to attack
+let KinkyDungeonStatStaminaCostAttack = -1.0; // Cost to attack
 let KinkyDungeonStaminaRate = KinkyDungeonStatStaminaRegen;
 
 // Current Status
@@ -189,11 +189,19 @@ function KinkyDungeonDealDamage(Damage) {
 	let armor = KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "Armor");
 	let arousalTypesWeakNeg = ["pain"];
 	let arousalTypesWeak = ["grope"];
-	let arousalTypesStrong = ["tickle", "charm", "happygas"];
+	let arousalTypesStrong = ["tickle", "charm", "souldrain", "happygas"];
 	let staminaTypesWeak = ["electric", "tickle", "drain"];
-	let staminaTypesStrong = ["glue", "ice", "cold", "pain", "crush", "chain", "fire", "grope", "poison", "stun", "pierce", "slash", "unarmed"];
-	let manaTypesWeak = ["electric", "poison"];
+	let staminaTypesStrong = ["glue", "ice", "cold", "pain", "crush", "chain", "fire", "grope", "poison", "stun", "pierce", "slash", "unarmed", "souldrain"];
+	let manaTypesWeak = ["electric", "poison", "souldrain"];
 	let manaTypesString = ["drain"];
+
+	if (KinkyDungeonMapGet(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y) == 'w') {
+		staminaTypesWeak.splice(staminaTypesWeak.indexOf("electric"), 1);
+		staminaTypesStrong.push("electric");
+		manaTypesWeak.splice(manaTypesWeak.indexOf("electric"), 1);
+		manaTypesString.push("electric");
+	}
+
 	if (armor) dmg = Math.max(0, dmg - armor);
 	if (arousalTypesWeak.includes(type)) {
 		KinkyDungeonChangeArousal(Math.ceil(dmg/2));
@@ -216,7 +224,7 @@ function KinkyDungeonDealDamage(Damage) {
 	}
 	KinkyDungeonInterruptSleep();
 
-	if (KinkyDungeonStatFreeze > 0) {
+	if (KinkyDungeonStatFreeze > 0 && KinkyDungeonMeleeDamageTypes.includes(type)) {
 		KinkyDungeonChangeStamina(-dmg);
 		KinkyDungeonStatFreeze = 0;
 	}
@@ -569,7 +577,7 @@ function KinkyDungeonCanTryOrgasm() {
 }
 
 function KinkyDungeonDoPlayWithSelf() {
-	let OrigAmount = KinkyDungeonPlayWithSelfPowerMin + Math.round((KinkyDungeonPlayWithSelfPowerMax - KinkyDungeonPlayWithSelfPowerMin)*Math.random());
+	let OrigAmount = KinkyDungeonPlayWithSelfPowerMin + Math.round((KinkyDungeonPlayWithSelfPowerMax - KinkyDungeonPlayWithSelfPowerMin)*KDRandom());
 	let amount = Math.max(0, OrigAmount - KinkyDungeonChastityMult() * KinkyDungeonPlayWithSelfChastityPenalty);
 	if (KinkyDungeonIsArmsBound()) amount = Math.max(0, Math.min(amount, OrigAmount - KinkyDungeonPlayWithSelfBoundPenalty));
 	KinkyDungeonChangeArousal(amount);

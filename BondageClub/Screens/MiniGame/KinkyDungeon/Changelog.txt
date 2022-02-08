@@ -557,6 +557,27 @@ Bugfix:
 - Scroll of Purity, a new item that removes vibrators from your body. Available in the shop.
 - Added a new, stealthy rope artist
 - You can go back to 0 security level, but only if submissive is higher than 50
+- Fixed slow level counting weirdly for stamina-dependent restraints like hogties
+- Added a timer for the jailer to automatically move to the next waypoint in leash tours
+- Unarmed attacks now cost 1 stamina
+- There are low-rarity weapons available in the shop
+- Autosave now happens after every floor
+- New difficulty level that doesn't provide save codes
+- Fixed the RNG, should have much higher entropy now
+- Added two new zombies
+- Added a new skeleton
+- Added some new bandits
+- Modified kiting mechanics a little so enemies with a melee attack will sometimes stop to make a melee attack instead of always running away. orbs and other 'helpless' enemies won't do this.
+
+2.7
+- New changes to light propagation
+- New area: Lost Temple
+- Truesight now works better in low-light environments
+- Fixed some bugs, including being attacked in jail for no reason (besides teasing) and (hopefully) the bug where a different inventory item is removed than the one you are using, causing visual issues
+- Some floors now have happy gas tiles (makes you aroused)
+- Fixed a bug where enemies that squeeze through bars could push animated armors into bars
+- Enchanted items are now prepended to the restraints list so they're easier to find
+- Enchanted heels drain more energy
 
 TODO ValidationFindBlockCycles to prevent bugs
 
@@ -575,42 +596,23 @@ Enemy ideas:
 
 Future content planned:
 - Wand item which reduces mana costs but is terrible for melee
-- Witches should drop their respective spells sometimes if you don't already have them
 - Slimes which clean up items, dissolve doors, and potentially corrupt traps and such
 - Slimes that catch your sword and trap it
-- Enemies that grab your melee weapon and disarm you
 - Perk system with perks that allow you to decrease or increase spawns of certain restraints, affect your stats, etc.
 	- One Punch: Melee based perk that drastically increases melee damage but drastically reduces your ability to cast magic
 - Exit stair puzzles (like for example a button or special key somewhere in the level, maybe with a high likelihood of traps)
-- Inescapable yoke that needs keys, but the trap also summons rats that steal the keys and run away
-	- Trapdoor (?) that drops you into the above bonus level, with no enemies other than the rats. You wake up feeling stiff, and a yoke is on your arms...
 - Rats should have a kleptomaniac AI that steals items and holds them, drops them on death, and runs away from the player when confronted
-- jail bars that block movement but not vision and spells
 - Tranquilizer/stamina drain from an enemy (bandits? raiders?)
 - Boss rooms every few floors
-- Magical rope traps which require enchanted knives or advanced spells to cut?
-- Enchanted knives, which are found only in chests
 - Latex witches that cast latex imprisonment spells at you from a distance
-- Mummification from the feet up in an egyptian style level
-- Mana-boosting mittens which increase spell power and decrease mana costs, but make it harder to struggle out of things (being mittens)
-- Enchanted heels of various sorts (immunity to slow, immunity to slime, bonus to kick attacks, etc)
-- Chastity belt trap that puts a plug in you, increasing your arousal while walking
 - New shrine: chastity goddess. Places you in a set of magic cuffs that prevent you from being restrained in those slots. However if your stamina falls below half, the cuffs snap together until you get back to full stamina!
-- Traps that look slightly different. Usually found on brickwork, so if you avoid brickwork you can avoid them.
-- Bombs
-- Vines in the undergrorund jungle (when it gets implemented)
-- Some sort of end state for high arousal... maybe an orgasm button that lets you succumb to the effects for several turns to bring it down to zero, and maybe "edging" items that prevent this from happening and instead cause increased stamina drain or constant random interruptions
+- Bomb consumables
 - locked doors that trigger when you step on an obvious looking brickwork that's only generated on tiles you can avoid, maybe with some sort of sleep gas hazard or something to force a time limit if you cant progress
 - Monster Encyclopedia
 - Heels of avoiding traps: Causes all traps and dangerous terrain (slime, ice) to not affect the player
 
 Spell Ideas:
-- Clear Jam spell, which clears jammed green locks from either an object or the player, depending on where it is cast
 - Divine Cuffs, a spell which gives you glowing arm and leg cuffs that block low level restraints from being put on you. Lasts for the whole floor.
 - Ice Storm, a temporary AoE which has a chance to deal damage and stun creatures inside. Drains player willpower but does not slow or restraint the player.
 - Sleep, puts nearby creatures with low willpower to sleep until they take damage. Works on zombies, and also the player if the player is at low stamina.
 - Clairvoyance: Cost a lot of mana to be able to see inside of a chest
-- Conjure Bomb
-- Icicle traps that deal ice damage if enemies step on them
-	- Cone of Cold: Creates icicles that do 1-2 cold damage when stepped on
-- Temporary Wall spell
