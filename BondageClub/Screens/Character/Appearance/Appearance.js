@@ -579,7 +579,7 @@ function AppearanceMenuBuild(C) {
 			AppearanceMenu.push("Naked", "Character", "Next");
 			break;
 		case "Wardrobe":
-			AppearanceMenu.push("Naked", "Next");
+			AppearanceMenu.push("Naked", "Prev", "Next");
 			break;
 		case "Cloth":
 			if (!DialogItemPermissionMode) {
@@ -1147,22 +1147,30 @@ function AppearanceMenuClick(C) {
 					if (Button === "WardrobeDisabled") CharacterAppearanceHeaderText = TextGet("WardrobeDisabled");
 					break;
 				case "Wardrobe":
-					if (Button === "Next") {
-						CharacterAppearanceWardrobeOffset += 6;
-						if (CharacterAppearanceWardrobeOffset >= Player.Wardrobe.length) CharacterAppearanceWardrobeOffset = 0;
-					}
-					if (Button === "Naked") CharacterAppearanceStripLayer(C);
-					if (Button === "Cancel") {
-						CharacterAppearanceRestore(C, CharacterAppearanceInProgressBackup);
-						CharacterRefresh(C, false);
-						CharacterAppearanceWardrobeName = "";
-						CharacterAppearanceInProgressBackup = null;
-						AppearanceExit();
-					}
-					if (Button === "Accept") {
-						CharacterAppearanceWardrobeName = ElementValue("InputWardrobeName");
-						CharacterAppearanceInProgressBackup = null;
-						AppearanceExit();
+					switch (Button) {
+						case "Prev":
+							CharacterAppearanceWardrobeOffset -= 6;
+							if (CharacterAppearanceWardrobeOffset < 0) CharacterAppearanceWardrobeOffset = Math.max(0, Player.Wardrobe.length - 6);
+							break;
+						case "Next":
+							CharacterAppearanceWardrobeOffset += 6;
+							if (CharacterAppearanceWardrobeOffset >= Player.Wardrobe.length) CharacterAppearanceWardrobeOffset = 0;
+							break;
+						case "Naked":
+							CharacterAppearanceStripLayer(C);
+							break;
+						case "Cancel":
+							CharacterAppearanceRestore(C, CharacterAppearanceInProgressBackup);
+							CharacterRefresh(C, false);
+							CharacterAppearanceWardrobeName = "";
+							CharacterAppearanceInProgressBackup = null;
+							AppearanceExit();
+							break;
+						case "Accept":
+							CharacterAppearanceWardrobeName = ElementValue("InputWardrobeName");
+							CharacterAppearanceInProgressBackup = null;
+							AppearanceExit();
+							break;
 					}
 					break;
 				case "Cloth":
@@ -1360,6 +1368,8 @@ function CharacterAppearanceWardrobeLoad(C) {
 		WardrobeLoadCharacterNames();
 	ElementCreateInput("InputWardrobeName", "text", CharacterAppearanceWardrobeName || C.Name, "20");
 	CharacterAppearanceMode = "Wardrobe";
+	// Always open the wardrobe on the first page
+	CharacterAppearanceWardrobeOffset = 0;
 	CharacterAppearanceWardrobeText = TextGet("WardrobeNameInfo");
 	CharacterAppearanceInProgressBackup = CharacterAppearanceStringify(C);
 }

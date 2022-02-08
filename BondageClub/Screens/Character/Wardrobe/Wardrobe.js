@@ -87,6 +87,8 @@ function WardrobeLoadCharacters(Fast) {
 function WardrobeLoad() {
 	WardrobeSelection = -1;
 	CurrentDarkFactor = 0.5;
+	// Always open the wardrobe on the first page
+	WardrobeOffset = 0;
 	WardrobeLoadCharacters(false);
 }
 
@@ -97,6 +99,7 @@ function WardrobeLoad() {
  */
 function WardrobeRun() {
 	DrawCharacter(Player, 0, 0, 1);
+	DrawButton(415, 25, 60, 60, "", "White", "Icons/Small/Prev.png");
 	DrawButton(500, 25, 225, 60, TextGet("Load"), "White");
 	DrawButton(750, 25, 225, 60, TextGet("Save"), "White");
 	DrawButton(1000, 25, 60, 60, "", "White", "Icons/Small/Next.png");
@@ -120,32 +123,38 @@ function WardrobeRun() {
 function WardrobeClick() {
 
 	// If we must go back to the room
-	if ((MouseX >= 1750) && (MouseX < 1975) && (MouseY >= 25) && (MouseY < 85))
+	if (MouseIn(1750, 25, 225, 60))
 		WardrobeExit();
 
+	// If we must move to the previous page
+	if (MouseIn(415, 25, 60, 60)) {
+		WardrobeOffset -= 12;
+		if (WardrobeOffset < 0) WardrobeOffset = Math.max(0, WardrobeSize - 12);
+	}
+
 	// If we must move to the next page
-	if ((MouseX >= 1000) && (MouseX < 1060) && (MouseY >= 25) && (MouseY < 85)) {
-		WardrobeOffset = WardrobeOffset + 12;
+	if (MouseIn(1000, 25, 60, 60)) {
+		WardrobeOffset += 12;
 		if (WardrobeOffset >= WardrobeSize) WardrobeOffset = 0;
 	}
 
 	// If we must load a saved outfit
-	if ((MouseX >= 500) && (MouseX < 725) && (MouseY >= 25) && (MouseY < 85) && (WardrobeSelection >= 0))
+	if (MouseIn(500, 25, 225, 60) && (WardrobeSelection >= 0))
 		WardrobeFastLoad(Player, WardrobeSelection);
 
 	// If we must save an outfit
-	if ((MouseX >= 750) && (MouseX < 975) && (MouseY >= 25) && (MouseY < 85) && (WardrobeSelection >= 0))
+	if (MouseIn(750, 25, 225, 60) && (WardrobeSelection >= 0))
 		WardrobeFastSave(Player, WardrobeSelection);
 
 	// If we must select a different wardrobe
-	if ((MouseX >= 500) && (MouseX < 2000) && (MouseY >= 100) && (MouseY < 1000))
+	if (MouseIn(500, 100, 1500, 900))
 		for (let C = 0; C < 12; C++)
 			if (C < 6) {
-				if ((MouseX >= 500 + C * 250) && (MouseX <= 725 + C * 250) && (MouseY >= 100) && (MouseY <= 450))
+				if (MouseIn(500 + C * 250, 100, 250, 450))
 					WardrobeSelection = C + WardrobeOffset;
 			}
 			else
-				if ((MouseX >= 500 + (C - 6) * 250) && (MouseX <= 725 + (C - 6) * 250) && (MouseY >= 550) && (MouseY <= 1000))
+				if (MouseIn(500 + (C - 6) * 250, 550, 250, 450))
 					WardrobeSelection = C + WardrobeOffset;
 }
 
