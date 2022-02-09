@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const util = require("util");
 const cheerio = require("cheerio");
-const marked = require("marked");
+const { marked } = require("marked");
 const simpleGit = require("simple-git");
 
 const readFileAsync = util.promisify(fs.readFile);
@@ -47,6 +47,9 @@ const CONTRIBUTOR_NAMES = {
 	"Jules Papillon": "Yuki",
 	"Manilla32": "Manilla",
 	"klorpa": "klorpa",
+	"Sidiousious": "Sidious",
+	"karame1": "Karamel",
+	"dependabot[bot]": "Dependabot",
 };
 
 async function generateChangelogHtml() {

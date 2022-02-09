@@ -11,9 +11,61 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-01-12
-* Last recorded PR: [#3179](https://github.com/Ben987/Bondage-College/pull/3179)
-* Last recorded commit hash: `c7c5ef552d24878fc360301be89bb2217f948d67`
+* Changelog last updated: 2022-02-08
+* Last recorded PR: [#3221](https://github.com/Ben987/Bondage-College/pull/3221)
+* Last recorded commit hash: `84b1f068c5258019c668165816321ebb86b1edb1`
+
+## [R77]
+
+### [Added]
+
+* Ada - Kinky Dungeon update - see the [Kinky Dungeon changelog](Screens/MiniGame/KinkyDungeon/Changelog.txt) ([#3184](https://github.com/Ben987/Bondage-College/pull/3184), [#3218](https://github.com/Ben987/Bondage-College/pull/3218), [#3220](https://github.com/Ben987/Bondage-College/pull/3220))
+* Estsanatlehi - Players can now access their wardrobe from the dialogue menu when clicking themselves ()
+* Karamel - Added multi-color support to the Maid & Maid Exposed outfits, Frilled Sleep Mask, and Maid Collar ([#3195](https://github.com/Ben987/Bondage-College/pull/3195))
+* Verity - Added a new Harness OTN Plug Gag item ([#3205](https://github.com/Ben987/Bondage-College/pull/3205))
+* Sidious - Added a new chat notification option for mentions of your character name ([#3197](https://github.com/Ben987/Bondage-College/pull/3197))
+* Verity - Reworked the assets for the Kitty gags & blindfold, added multi-color support to them, and added a new Kitty Muzzle Gag item ([#3206](https://github.com/Ben987/Bondage-College/pull/3206), [#3215](https://github.com/Ben987/Bondage-College/pull/3215))
+* Estsanatlehi - Sexual activities in the menu now have more specific labels to indicate what they actually do ([#3207](https://github.com/Ben987/Bondage-College/pull/3207))
+* Sidious - Changed the vibrator remote button to display with an explanation tooltip when the player cannot use vibrators for any reason ([#3210](https://github.com/Ben987/Bondage-College/pull/3210))
+* Sidious - Added previous buttons to the wardrobe saved slot menus ([#3221](https://github.com/Ben987/Bondage-College/pull/3221))
+
+### [Removed]
+
+* Nothing this release
+
+### [Changed]
+
+* Karamel - Changed the appearance of the dust assets in the Maid Quarters cleaning minigame, and allowed players to do the cleaning and serving when already bound (if wearing the maid outfit) ([#3180](https://github.com/Ben987/Bondage-College/pull/3180))
+* Verity - Renamed the Kitty Mask Gag to the Kitty Mask, and removed the gag effect from it ([#3213](https://github.com/Ben987/Bondage-College/pull/3213))
+* Estsanatlehi - Reworked the player dialogue menu when clicking on yourself ([#3193](https://github.com/Ben987/Bondage-College/pull/3193), [#3196](https://github.com/Ben987/Bondage-College/pull/3196))
+  * Players can now access their wardrobe, view their profile, and access the "Character actions" submenu from the menu
+  * Adjusting bondage/evasion skills, using your safeword, taking a picture, and playing Kinky Dungeon (when wearing a headset) have now been moved to the "Character actions" submenu when clicking on yourself
+
+### [Fixed]
+
+* Nina - Fixed an issue where the Pet Bowl would change position according to the character's pose rather than staying on the floor ([#3188](https://github.com/Ben987/Bondage-College/pull/3188))
+* Sidious - Fixed a bug where some chatroom visual settings would not get restored after entering and leaving sensory deprivation (colors, member numbers & enter/leave messages) ([#3192](https://github.com/Ben987/Bondage-College/pull/3192)) 
+* Sidious - Fixed a bug where the Dental Gag in open mode had no gag effect when locked ([#3194](https://github.com/Ben987/Bondage-College/pull/3194))
+* Estsanatlehi - Fixed an issue where the Bondage Harness & Full Bondage Harness items in the Panties slot would disappear in the legs closed pose ([#3203](https://github.com/Ben987/Bondage-College/pull/3203))
+* Nina - Fixed an issue with some bras and corsets clipping through the Blouse item ([#3202](https://github.com/Ben987/Bondage-College/pull/3202))
+* Sidious - Fixed an issue where changing a private room to public would not be saved properly on chatroom recreation ([#3201](https://github.com/Ben987/Bondage-College/pull/3201))
+* Nina - Fixed an issue where the Bed & Crib could only be added if a character could close their legs ([#3200](https://github.com/Ben987/Bondage-College/pull/3200))
+* Nina - Fixed an issue where the College chess game didn't strip skirts ([#3198](https://github.com/Ben987/Bondage-College/pull/3198))
+* Verity - Cleaned up some visual artifacts in several emoticons ([#3208](https://github.com/Ben987/Bondage-College/pull/3208))
+* Estsanatlehi - Fixed a bug where making a player admin in a LARP room could break the game for them ([#3199](https://github.com/Ben987/Bondage-College/pull/3199))
+* Estsanatlehi - Fixed a bug where you would always be able to ask for a Pandora Padlock, regardless of whether or not you met the criteria ([#3214](https://github.com/Ben987/Bondage-College/pull/3214))
+* Sidious - Fixed a bug where the speed of the smooth zoom feature in chatrooms was dependent on frame rate ([#3219](https://github.com/Ben987/Bondage-College/pull/3219))
+
+### [Technical]
+
+* Technical changes, fixes and improvements:
+  * Estsanatlehi - [#3103](https://github.com/Ben987/Bondage-College/pull/3103), [#3216](https://github.com/Ben987/Bondage-College/pull/3216)
+  * Nina - [#3204](https://github.com/Ben987/Bondage-College/pull/3204)
+
+### [Beta Fixes]
+
+* Nothing... yet
+
 
 ## [R76]
 
