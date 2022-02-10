@@ -1001,7 +1001,7 @@ function GameLARPProcess(P) {
 		}
 
 		// The current turn player can trigger an action
-		if ((GameLARPGetStatus() == "Running") && (GameLARPPlayer[GameLARPTurnPosition].MemberNumber == P.Sender) && (P.Data.GameProgress == "Action") && (P.Data.Action != null) && (P.Data.Target != null)) {
+		if ((GameLARPGetStatus() == "Running") && (GameLARPPlayer.length > 0) && (GameLARPPlayer[GameLARPTurnPosition].MemberNumber == P.Sender) && (P.Data.GameProgress == "Action") && (P.Data.Action != null) && (P.Data.Target != null)) {
 
 			// Before we process it, we make sure the action is valid by checking all possible options
 			var Source = GameLARPGetPlayer(P.Sender);
