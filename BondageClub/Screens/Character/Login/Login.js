@@ -475,6 +475,7 @@ function LoginResponse(C) {
 				Player.LastChatRoomAdmin = CommonConvertStringToArray(C.LastChatRoomAdmin);
 			if (typeof C.LastChatRoomBan == "string")
 				Player.LastChatRoomBan = CommonConvertStringToArray(C.LastChatRoomBan);
+			Player.LastChatRoomBlockCategory = C.LastChatRoomBlockCategory;
 
 			// Loads the ownership data
 			Player.Ownership = C.Ownership;

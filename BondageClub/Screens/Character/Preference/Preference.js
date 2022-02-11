@@ -443,6 +443,7 @@ function PreferenceInitPlayer() {
 	if (typeof C.LastChatRoomDesc !== "string") C.LastChatRoomDesc = "";
 	if (!C.LastChatRoomAdmin) C.LastChatRoomAdmin = [];
 	if (!C.LastChatRoomBan) C.LastChatRoomBan = [];
+	if (!C.LastChatRoomBlockCategory) C.LastChatRoomBlockCategory = [];
 
 	// Restriction settings
 	// @ts-ignore: Individual properties validated separately

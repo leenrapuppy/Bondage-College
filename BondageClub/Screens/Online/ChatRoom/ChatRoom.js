@@ -34,6 +34,7 @@ var ChatRoomLastSize = 0;
 var ChatRoomLastDesc = "";
 var ChatRoomLastAdmin = [];
 var ChatRoomLastBan = [];
+var ChatRoomLastBlockCategory = [];
 var ChatRoomNewRoomToUpdate = null;
 var ChatRoomNewRoomToUpdateTimer = 0;
 var ChatRoomLeashList = [];
@@ -1167,6 +1168,8 @@ function ChatRoomSetLastChatRoom(room) {
 				Player.LastChatRoomAdmin = ChatRoomData.Admin;
 			if (ChatRoomData && ChatRoomData.Ban)
 				Player.LastChatRoomBan = ChatRoomData.Ban;
+			if (ChatRoomData && ChatRoomData.BlockCategory)
+				Player.LastChatRoomBlockCategory = [...ChatRoomData.BlockCategory];
 
 			ChatRoomLastName = ChatRoomData.Name;
 			ChatRoomLastBG = ChatRoomData.Background;
@@ -1175,6 +1178,7 @@ function ChatRoomSetLastChatRoom(room) {
 			ChatRoomLastDesc = ChatRoomData.Description;
 			ChatRoomLastAdmin = ChatRoomData.Admin;
 			ChatRoomLastBan = ChatRoomData.Ban;
+			ChatRoomLastBlockCategory = [...ChatRoomData.BlockCategory];
 		}
 	} else {
 		Player.LastChatRoomBG = "";
@@ -1186,6 +1190,7 @@ function ChatRoomSetLastChatRoom(room) {
 		ChatRoomLastDesc = "";
 		ChatRoomLastAdmin = [];
 		ChatRoomLastBan = [];
+		ChatRoomLastBlockCategory = [];
 	}
 	Player.LastChatRoom = room;
 	var P = {
@@ -1196,7 +1201,7 @@ function ChatRoomSetLastChatRoom(room) {
 		LastChatRoomDesc: Player.LastChatRoomDesc,
 		LastChatRoomAdmin: Player.LastChatRoomAdmin.toString(),
 		LastChatRoomBan: Player.LastChatRoomBan.toString(),
-
+		LastChatRoomBlockCategory: [...Player.LastChatRoomBlockCategory],
 	};
 	ServerAccountUpdate.QueueData(P);
 }
@@ -3904,7 +3909,7 @@ function ChatRoomRecreate() {
 			Limit: "" + Player.LastChatRoomSize,
 			Admin: Player.LastChatRoomAdmin,
 			Ban: Player.LastChatRoomBan,
-			BlockCategory: ChatRoomData.BlockCategory,
+			BlockCategory: Player.LastChatRoomBlockCategory,
 			Game: ChatRoomData.Game,
 			Private: Player.LastChatRoomPrivate,
 			Locked: ChatRoomData.Locked,
@@ -3950,7 +3955,8 @@ function ChatRoomDataChanged() {
 		ChatRoomLastPrivate != ChatRoomData.Private ||
 		ChatRoomLastDesc != ChatRoomData.Description ||
 		!CommonArraysEqual(ChatRoomLastAdmin, ChatRoomData.Admin) ||
-		!CommonArraysEqual(ChatRoomLastBan, ChatRoomData.Ban);
+		!CommonArraysEqual(ChatRoomLastBan, ChatRoomData.Ban) ||
+		!CommonArraysEqual(ChatRoomLastBlockCategory, ChatRoomData.BlockCategory);
 }
 
 function ChatRoomRefreshFontSize() {
