@@ -148,9 +148,21 @@ Label-ChatOther-ItemVulva-Kiss,Kiss Pussy Lips
 Label-ChatOther-ItemVulva-GaggedKiss,Push Gag in Pussy
 Label-ChatOther-ItemVulva-Lick,Lick Pussy Lips
 Label-ChatOther-ItemVulva-Nibble,Nibble Pussy Lips
-Label-ChatOther-ItemVulva-MasturbateItem,Device on Clit
+Label-ChatOther-ItemVulva-MasturbateItem,Device on Pussy
 Label-ChatOther-ItemVulva-PenetrateSlow,Slow Penetration
 Label-ChatOther-ItemVulva-PenetrateFast,Fast Penetration
+Label-ChatSelf-ItemVulvaPiercings-MasturbateHand,Masturbate Clitoris
+Label-ChatSelf-ItemVulvaPiercings-Caress,Caress Clitoris
+Label-ChatOther-ItemVulvaPiercings-MasturbateHand,Finger Clitoris
+Label-ChatOther-ItemVulvaPiercings-MasturbateFoot,Foot Masturbate Clitoris
+Label-ChatOther-ItemVulvaPiercings-MasturbateTongue,Tongue Masturbate Clitoris
+Label-ChatOther-ItemVulvaPiercings-Caress,Caress Clitoris
+Label-ChatOther-ItemVulvaPiercings-Slap,Slap Clitoris
+Label-ChatOther-ItemVulvaPiercings-Kiss,Kiss Clitoris
+Label-ChatOther-ItemVulvaPiercings-GaggedKiss,Gag Kiss Clitoris
+Label-ChatOther-ItemVulvaPiercings-Lick,Lick Clitoris
+Label-ChatOther-ItemVulvaPiercings-Nibble,Nibble Clitoris
+Label-ChatOther-ItemVulvaPiercings-MasturbateItem,Device on Clitoris
 Label-ChatSelf-ItemButt-MasturbateHand,Finger Ass
 Label-ChatSelf-ItemButt-Spank,Spank Butt
 Label-ChatSelf-ItemButt-Caress,Caress Butt
@@ -433,9 +445,21 @@ ChatOther-ItemVulva-Kiss,SourceCharacter kisses TargetCharacter's pussy lips.
 ChatOther-ItemVulva-GaggedKiss,SourceCharacter pushes her gag into TargetCharacter's vagina.
 ChatOther-ItemVulva-Lick,SourceCharacter licks TargetCharacter's pussy lips.
 ChatOther-ItemVulva-Nibble,SourceCharacter nibbles TargetCharacter's pussy lips.
-ChatOther-ItemVulva-MasturbateItem,She uses the device to masturbate the clitoris.
+ChatOther-ItemVulva-MasturbateItem,SourceCharacter uses the device to masturbate TargetCharacter's pussy lips.
 ChatOther-ItemVulva-PenetrateSlow,SourceCharacter penetrates TargetCharacter's vagina at a slow pace.
 ChatOther-ItemVulva-PenetrateFast,SourceCharacter penetrates TargetCharacter's vagina at a fast pace.
+ChatSelf-ItemVulvaPiercings-MasturbateHand,SourceCharacter masturbates her clitoris.
+ChatSelf-ItemVulvaPiercings-Caress,SourceCharacter caresses her clitoris.
+ChatOther-ItemVulvaPiercings-MasturbateHand,SourceCharacter masturbates TargetCharacter's clitoris with her fingers.
+ChatOther-ItemVulvaPiercings-MasturbateFoot,SourceCharacter masturbates TargetCharacter's clitoris with her foot.
+ChatOther-ItemVulvaPiercings-MasturbateTongue,SourceCharacter masturbates TargetCharacter's clitoris with her tongue.
+ChatOther-ItemVulvaPiercings-Caress,SourceCharacter caresses TargetCharacter's clitoris with her fingers.
+ChatOther-ItemVulvaPiercings-Slap,SourceCharacter slaps TargetCharacter's clitoris.
+ChatOther-ItemVulvaPiercings-Kiss,SourceCharacter kisses TargetCharacter's clitoris.
+ChatOther-ItemVulvaPiercings-GaggedKiss,SourceCharacter gags kiss TargetCharacter's clitoris.
+ChatOther-ItemVulvaPiercings-Lick,SourceCharacter licks TargetCharacter's clitoris.
+ChatOther-ItemVulvaPiercings-Nibble,SourceCharacter nibbles TargetCharacter's clitoris.
+ChatOther-ItemVulvaPiercings-MasturbateItem,SourceCharacter uses the device to masturbate TargetCharacter's clitoris.
 ChatSelf-ItemButt-MasturbateHand,SourceCharacter fingers and masturbates her ass.
 ChatSelf-ItemButt-Spank,SourceCharacter spanks herself on the butt.
 ChatSelf-ItemButt-Caress,SourceCharacter caresses her butt.
