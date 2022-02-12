@@ -122,7 +122,9 @@ function KinkyDungeonApplyBuff(list, origbuff) {
 			for (let T = 0; T < buff.tags.length; T++) {
 				let tag = buff.tags[T];
 				if (tag == "darkness" && list == KinkyDungeonPlayerBuffs) {
-					KinkyDungeonBlindLevelBase = Math.max(KinkyDungeonBlindLevelBase, Math.floor(buff.power/0.5));
+					KinkyDungeonBlindLevelBase = Math.max(KinkyDungeonBlindLevelBase, 1);
+				} else if (tag == "heavydarkness" && list == KinkyDungeonPlayerBuffs) {
+					KinkyDungeonBlindLevelBase = Math.max(KinkyDungeonBlindLevelBase, 2);
 				}
 			}
 	}

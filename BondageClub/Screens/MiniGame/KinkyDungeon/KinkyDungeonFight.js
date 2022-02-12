@@ -52,6 +52,11 @@ function KinkyDungeonFindWeapon(Name) {
 
 function KinkyDungeonWeaponCanCut(RequireInteract) {
 	if (KinkyDungeonPlayerWeapon && KinkyDungeonWeapons[KinkyDungeonPlayerWeapon].cutBonus > 0 && (!RequireInteract || KinkyDungeonPlayer.CanInteract())) return true;
+	if (KinkyDungeonPlayerBuffs) {
+		for (let b of Object.values(KinkyDungeonPlayerBuffs)) {
+			if (b && b.tags && b.tags.includes("allowCut")) return true;
+		}
+	}
 	return false;
 }
 
@@ -254,28 +259,28 @@ function KinkyDungeonDamageEnemy(Enemy, Damage, Ranged, NoMsg, Spell, bullet, at
 		if ((resistStun < 2 && resistDamage < 2) && (Damage.type == "stun" || Damage.type == "electric")) { // Being immune to the damage stops the stun as well
 			effect = true;
 			if (!Enemy.stun) Enemy.stun = 0;
-			if (resistStun == 1)
+			if (resistStun == 1 || resistDamage == 1)
 				Enemy.stun = Math.max(Enemy.stun, Math.min(Math.floor(time/2), time-1)); // Enemies with stun resistance have stuns reduced to 1/2, and anything that stuns them for one turn doesn't affect them
 			else Enemy.stun = Math.max(Enemy.stun, time);
 		}
-		if ((resistDamage < 2) && (Damage.type == "ice")) { // Being immune to the damage stops the stun as well
+		if ((resistStun < 2 && resistDamage < 2) && (Damage.type == "ice")) { // Being immune to the damage stops the stun as well
 			effect = true;
 			if (!Enemy.freeze) Enemy.freeze = 0;
-			if (resistDamage == 1)
+			if (resistDamage == 1 || resistStun == 1)
 				Enemy.freeze = Math.max(Enemy.freeze, Math.min(Math.floor(time/2), time-1)); // Enemies with ice resistance have freeze reduced to 1/2, and anything that freezes them for one turn doesn't affect them
 			else Enemy.freeze = Math.max(Enemy.freeze, time);
 		}
-		if ((resistDamage < 2) && (Damage.type == "chain" || Damage.type == "glue")) { // Being immune to the damage stops the bind
+		if ((resistStun < 2 && resistDamage < 2) && (Damage.type == "chain" || Damage.type == "glue")) { // Being immune to the damage stops the bind
 			effect = true;
 			if (!Enemy.bind) Enemy.bind = 0;
-			if (resistDamage == 1)
+			if (resistDamage == 1 || resistStun == 1)
 				Enemy.bind = Math.max(Enemy.bind, Math.min(Math.floor(time/2), time-1)); // Enemies with resistance have bind reduced to 1/2, and anything that binds them for one turn doesn't affect them
 			else Enemy.bind = Math.max(Enemy.bind, time);
 		}
 		if ((resistSlow < 2 && resistDamage < 2) && (Damage.type == "slow" || Damage.type == "cold" || Damage.type == "poison")) { // Being immune to the damage stops the stun as well
 			effect = true;
 			if (!Enemy.slow) Enemy.slow = 0;
-			if (resistSlow == 1)
+			if (resistSlow == 1 || resistDamage == 1)
 				Enemy.slow = Math.max(Enemy.slow, Math.min(Math.floor(time/2), time-1)); // Enemies with stun resistance have stuns reduced to 1/2, and anything that stuns them for one turn doesn't affect them
 			else Enemy.slow = Math.max(Enemy.slow, time);
 		}
@@ -562,9 +567,11 @@ function KinkyDungeonBulletHit(b, born, outOfTime, outOfRange) {
 				}
 			}
 	} else if (b.bullet.hit == "teleport") {
-		KinkyDungeonBullets.push({born: born, time:b.bullet.spell.lifetime, x:b.x, y:b.y, vx:0, vy:0, xx:b.x, yy:b.y, spriteID:b.bullet.name+"Hit" + CommonTime(),
-			bullet:{spell:b.bullet.spell, damage: {damage:(b.bullet.spell.aoedamage) ? b.bullet.spell.aoedamage : b.bullet.spell.power, type:b.bullet.spell.damage, time:b.bullet.spell.time}, aoe: b.bullet.spell.aoe, lifetime: b.bullet.spell.lifetime, passthrough:true, name:b.bullet.name+"Hit", width:b.bullet.width, height:b.bullet.height}});
-		KinkyDungeonMoveTo(b.x, b.y);
+		if (KinkyDungeonGroundTiles.includes(KinkyDungeonMapGet(b.x, b.y))) {
+			KinkyDungeonBullets.push({born: born, time:b.bullet.spell.lifetime, x:b.x, y:b.y, vx:0, vy:0, xx:b.x, yy:b.y, spriteID:b.bullet.name+"Hit" + CommonTime(),
+				bullet:{spell:b.bullet.spell, damage: {damage:(b.bullet.spell.aoedamage) ? b.bullet.spell.aoedamage : b.bullet.spell.power, type:b.bullet.spell.damage, time:b.bullet.spell.time}, aoe: b.bullet.spell.aoe, lifetime: b.bullet.spell.lifetime, passthrough:true, name:b.bullet.name+"Hit", width:b.bullet.width, height:b.bullet.height}});
+			KinkyDungeonMoveTo(b.x, b.y);
+		}
 	}
 
 	if (b.bullet.summon && b.bullet.summon) {

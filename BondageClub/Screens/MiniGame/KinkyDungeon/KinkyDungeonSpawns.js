@@ -92,7 +92,7 @@ function KinkyDungeonGetEnemy(tags, Level, Index, Tile, requireTags) {
 				}
 		}
 
-		if (effLevel >= enemy.minLevel && (overrideFloor || enemy.floors.includes(Index)) && (KinkyDungeonGroundTiles.includes(Tile) || !enemy.tags.has("spawnFloorsOnly"))) {
+		if (effLevel >= enemy.minLevel && (overrideFloor || enemy.floors.get(Index)) && (KinkyDungeonGroundTiles.includes(Tile) || !enemy.tags.has("spawnFloorsOnly"))) {
 			let rt = requireTags ? false : true;
 			if (requireTags)
 				for (let t of requireTags) {

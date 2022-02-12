@@ -570,14 +570,31 @@ Bugfix:
 - Modified kiting mechanics a little so enemies with a melee attack will sometimes stop to make a melee attack instead of always running away. orbs and other 'helpless' enemies won't do this.
 
 2.7
-- New changes to light propagation
+- Obsidian/Mithril cuffs should finally be fixed and no longer create weird invisible items
+- New tiers of plugs from chests
+
+Content
 - New area: Lost Temple
+- Added leather and scale cuffs
+
+Balance
+- Ice Shard now stuns for 6 turns (from 10), costs 5 mana (from 8)
+- Shadow Slash costs 4 mana (from 6), deals 45 damage (from 50)
+- Corona costs 7 (from 8)
+- Enchanted heels drain more energy
+- Shadow Warrior now costs 10 mana (from 12)
+- Invisibility now costs 8 mana (from 9)
+- Shadow dagger now does 3 damage (from 2) and has 6 range (from 10)
+- Shroud now has a weaker blinding effect on the player
+- Enemies with shroud-like effects (MaidForce Unseen Blade) now cast a different version of Shroud which does not buff player evasion or sneak, but only gives half the evasion boost to enemies
+- Rebalanced enemy flinch (stun) resistance, and made stun resistance also reduce freeze, bind effects
+
+Changes
+- New changes to light propagation
 - Truesight now works better in low-light environments
 - Fixed some bugs, including being attacked in jail for no reason (besides teasing) and (hopefully) the bug where a different inventory item is removed than the one you are using, causing visual issues
-- Some floors now have happy gas tiles (makes you aroused)
 - Fixed a bug where enemies that squeeze through bars could push animated armors into bars
 - Enchanted items are now prepended to the restraints list so they're easier to find
-- Enchanted heels drain more energy
 
 TODO ValidationFindBlockCycles to prevent bugs
 

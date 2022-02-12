@@ -327,7 +327,7 @@ function KinkyDungeonUpdateStats(delta) {
 		arousalRate += -amount;
 	}
 
-	if (KDGameData.OrgasmStage > 0 && KDRandom() < 0.25) KDGameData.OrgasmStage = Math.max(0, KDGameData.OrgasmStage - delta);
+	if (KDGameData.OrgasmStage > 0 && KDRandom() < 0.25 && KinkyDungeonStatArousal < KinkyDungeonStatArousalMax * 0.75) KDGameData.OrgasmStage = Math.max(0, KDGameData.OrgasmStage - delta);
 	if (KinkyDungeonStatArousal >= KinkyDungeonStatArousalMax * 0.99) KDGameData.OrgasmTurns = Math.min(KDGameData.OrgasmTurns + delta, KinkyDungeonOrgasmTurnsMax);
 	else KDGameData.OrgasmTurns = Math.max(KDGameData.OrgasmTurns - delta, 0);
 
@@ -382,7 +382,8 @@ function KinkyDungeonUpdateStats(delta) {
 
 	if (KDGameData.OrgasmTurns > KinkyDungeonOrgasmTurnsCrave) {
 		KinkyDungeonChangeStamina(KinkyDungeonOrgasmExhaustionAmount);
-		KinkyDungeonSendTextMessage(4, TextGet("KinkyDungeonOrgasmExhaustion"), "red", 2, false, true);
+		let vibe = KinkyDungeonVibeLevel > 0 ? "Vibe" : "";
+		KinkyDungeonSendTextMessage(4, TextGet("KinkyDungeonOrgasmExhaustion" + vibe), "red", 2, false, true);
 	}
 
 	KinkyDungeonStatBlind = Math.max(0, KinkyDungeonStatBlind - delta);
@@ -425,24 +426,27 @@ function KinkyDungeonCapStats() {
 /*
  * Gets the average deny chance of restraints
  */
-function KinkyDungeonGetDenyChance() {
+function KinkyDungeonGetDenyChance(chance) {
 	let avg = 0;
 	let total = 0;
 	for (let inv of KinkyDungeonRestraintList()) {
 		if (inv.restraint && inv.restraint.denyChance) {
 			total += inv.restraint.power;
-			avg += inv.restraint.denyChance * inv.restraint.power;
+			if (chance && inv.restraint.denyChanceLikely)
+				avg += inv.restraint.denyChanceLikely * inv.restraint.power;
+			else
+				avg += inv.restraint.denyChance * inv.restraint.power;
 		}
 	}
 	return avg/Math.max(1, total);
 }
 
-function KinkyDungeonVibratorsDeny() {
+function KinkyDungeonVibratorsDeny(chance) {
 	let toDeny = false;
-	let allowDeny = KDRandom() < KinkyDungeonGetDenyChance();
+	let allowDeny = KDRandom() < KinkyDungeonGetDenyChance(chance);
 	if (allowDeny)
 		for (let inv of KinkyDungeonRestraintList()) {
-			if (inv.restraint && inv.restraint.vibeType.includes("Deny")) {
+			if (inv.restraint && inv.restraint.vibeType && inv.restraint.vibeType.includes("Deny")) {
 				inv.deny = inv.restraint.denyTime ? inv.restraint.denyTime : 3;
 				toDeny = true;
 			}
@@ -460,7 +464,9 @@ function KinkyDungeonCalculateVibeLevel(delta) {
 		if (KinkyDungeonInventory[I] && KinkyDungeonInventory[I].restraint) {
 			if (KinkyDungeonInventory[I].restraint.intensity) {
 				let vibe = KinkyDungeonInventory[I].restraint;
-				let drain = vibe.battery - Math.max(0, vibe.battery - delta * KinkyDungeonVibeCostPerIntensity * vibe.intensity);
+				if (!KinkyDungeonInventory[I].battery) KinkyDungeonInventory[I].battery = 0;
+				if (!(KinkyDungeonInventory[I].battery < 99999999)) KinkyDungeonInventory[I].battery = 0;
+				let drain = KinkyDungeonInventory[I].battery - Math.max(0, KinkyDungeonInventory[I].battery - delta * KinkyDungeonVibeCostPerIntensity * vibe.intensity);
 				if (KinkyDungeonInventory[I].deny > 0) {
 					KinkyDungeonInventory[I].deny = Math.max(0, KinkyDungeonInventory[I].deny - delta);
 					drain = 0;
@@ -470,13 +476,15 @@ function KinkyDungeonCalculateVibeLevel(delta) {
 					if (vibe.orgasm) KinkyDungeonOrgasmVibeLevel = Math.max(KinkyDungeonOrgasmVibeLevel + drain/4, drain);
 				}
 
-				vibe.battery = Math.max(0, vibe.battery - drain);
+				KinkyDungeonInventory[I].battery = Math.max(0, KinkyDungeonInventory[I].battery - drain);
 			}
 			if (KinkyDungeonInventory[I].restraint.plugSize) {
 				let size = KinkyDungeonInventory[I].restraint.plugSize;
 				KinkyDungeonStatPlugLevel = Math.max(KinkyDungeonStatPlugLevel + size/2, size);
 				KinkyDungeonPlugCount += 1;
 			}
+			if (KinkyDungeonInventory[I].cooldown > 0)
+				KinkyDungeonInventory[I].cooldown = Math.max(0, KinkyDungeonInventory[I].cooldown - delta);
 		}
 	}
 
@@ -591,6 +599,7 @@ function KinkyDungeonDoPlayWithSelf() {
 	return amount;
 }
 
+let KinkyDungeonOrgasmVibeLevelMult = 5;
 let KinkyDungeonOrgasmChanceBase = -0.1;
 let KinkyDungeonOrgasmChanceScaling = 1.1;
 let KinkyDungeonMaxOrgasmStage = 7;
@@ -605,22 +614,24 @@ let KinkyDungeonPlayWithSelfPowerMin = 3;
 let KinkyDungeonPlayWithSelfPowerMax = 6;
 let KinkyDungeonPlayWithSelfChastityPenalty = 4.5;
 let KinkyDungeonPlayWithSelfBoundPenalty = 3;
-let KinkyDungeonOrgasmExhaustionAmount = -1;
+let KinkyDungeonOrgasmExhaustionAmount = -0.5;
 
 let KinkyDungeonOrgasmCost = -8;
-let KinkyDungeonEdgeCost = -2;
-let KinkyDungeonPlayCost = -1;
+let KinkyDungeonEdgeCost = -1;
+let KinkyDungeonPlayCost = -0.05;
 
 function KinkyDungeonDoTryOrgasm() {
-	let amount = KinkyDungeonOrgasmVibeLevel;
+	let amount = KinkyDungeonOrgasmVibeLevel * KinkyDungeonOrgasmVibeLevelMult;
 	let playSelfAmount = KinkyDungeonDoPlayWithSelf();
-	if (playSelfAmount > KinkyDungeonOrgasmVibeLevel) {
-		amount += playSelfAmount;
-	}
+	//if (playSelfAmount > KinkyDungeonOrgasmVibeLevel) {
+	amount += playSelfAmount;
+	//}
 	let chance = KinkyDungeonOrgasmChanceBase + KinkyDungeonOrgasmChanceScaling*(KDGameData.OrgasmTurns/KinkyDungeonOrgasmTurnsMax);
 	let msg = "KinkyDungeonOrgasm";
 	let msgTime = 4;
-	if (amount > KinkyDungeonPlaySelfOrgasmThreshold && KDRandom() < chance) {
+
+	let denied = KinkyDungeonVibratorsDeny(chance);
+	if (!denied && amount > KinkyDungeonPlaySelfOrgasmThreshold && KDRandom() < chance) {
 		// You finally shudder and tremble as a wave of pleasure washes over you...
 		KinkyDungeonStatBlind = 6;
 		KinkyDungeonSlowMoveTurns = 4;
@@ -641,8 +652,7 @@ function KinkyDungeonDoTryOrgasm() {
 		// You squirm helplessly as your futile struggles simply arouse you more...
 		KDGameData.OrgasmTurns = Math.min(KDGameData.OrgasmTurns + amount, KinkyDungeonOrgasmTurnsMax); // Progress the meter if you're not ready yet...
 		KDGameData.OrgasmStage = Math.min(KinkyDungeonMaxOrgasmStage, KDGameData.OrgasmStage + 1); // Stage of denial
-		let denied = KinkyDungeonVibratorsDeny();
-		if (denied) msg = "KinkyDungeonDeny";
+		if (denied && KinkyDungeonVibeLevel > 0) msg = "KinkyDungeonDeny";
 		else msg = "KinkyDungeonEdge";
 	}
 

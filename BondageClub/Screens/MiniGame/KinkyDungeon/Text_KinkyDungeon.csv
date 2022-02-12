@@ -1,6 +1,6 @@
 KinkyDungeonCredits,Credits
 KinkyDungeonPatrons,Patrons
-KinkyDungeonPatronsList0,"Thank you to the following awesome people for supporting me at <patreon.com/ada18980>:|selly-grim|Dex♪|Churro|Gamefan|Shogo|X27|Blox|The-Fisher-King|Jeremy P.|Samantha Lear|Slacker|Nikos S.|Kara|WATA"
+KinkyDungeonPatronsList0,"Thank you to the following awesome people for supporting me at <patreon.com/ada18980>:|selly-grim|Dex♪|Churro|Gamefan|Shogo|X27|Blox|The-Fisher-King|Jeremy P.|Samantha Lear|Slacker|Nikos S.|Kara|WATA|Flame|Alexis Octavia|Finn|Dmitri S."
 
 KinkyDungeonBack,Back
 KinkyDungeonNext,Next
@@ -1456,8 +1456,14 @@ RestraintTrapVibe,Magic Egg
 RestraintTrapVibeDesc,"An energetic little friend that likes to tease you."
 RestraintTrapVibeDesc2,"It is charged by residual magic from your spells."
 RestraintTrapPlug,Happy Plug
-RestraintTrapPlugDesc,"A sizeable plug that makes you happy."
-RestraintTrapPlugDesc2,"It vibrates periodically."
+RestraintTrapPlugDesc,"A sizeable plug that makes you happy and lets you go over the edge."
+RestraintTrapPlugDesc2,"It vibrates periodically and allows orgasms."
+RestraintTrapPlug2,Teaser Plug
+RestraintTrapPlug2Desc,"A sizeable plug that will tease you but never let you go..."
+RestraintTrapPlug2Desc2,"It vibrates weakly periodically."
+RestraintTrapPlug3,Torment Plug
+RestraintTrapPlug3Desc,"A sizeable plug that will make your life unbearably pleasurable..."
+RestraintTrapPlug3Desc2,"It vibrates strongly periodically and has a denial setting."
 RestraintMaidVibe,Maid Egg
 RestraintMaidVibeDesc,"An energetic little friend that likes to tease you and takes orders from the head maid."
 RestraintMaidVibeDesc2,"It is charged by residual magic from your spells."
@@ -1566,6 +1572,51 @@ RestraintDragonMuzzleGagDesc2,"It's made from hard-to-cut dragonscale!!!"
 RestraintDragonCollar,Dragon Collar
 RestraintDragonCollarDesc,"A collar owned by the Dragonhearts, an order of dragonslayers."
 RestraintDragonCollarDesc2,"It's made from hard-to-cut dragonscale!!!"
+
+RestraintLeatherArmCuffs,Leather Cuffs
+RestraintLeatherArmCuffsDesc,"A pair of cuffs that make it easy to restrain you."
+RestraintLeatherArmCuffsDesc2,"They're made of tough cowhide."
+KinkyDungeonLinkLeatherArmCuffs,"The enemy attaches your wrist cuffs together!"
+
+RestraintLeatherArmCuffs2,Linked Leather Cuffs
+RestraintLeatherArmCuffs2Desc,"A pair of cuffs keeping your arms behind your back."
+RestraintLeatherArmCuffs2Desc2,"They're made of tough cowhide."
+KinkyDungeonUnLinkLeatherArmCuffs2,"Your cuffs detatch!"
+KinkyDungeonLinkLeatherArmCuffs2,"The enemy attaches your elbow cuffs together!"
+
+RestraintLeatherArmCuffs3,Linked Leather Cuffs
+RestraintLeatherArmCuffs3Desc,"A pair of cuffs keeping your arms in a strict elbow tie!"
+RestraintLeatherArmCuffs3Desc2,"They're made of tough cowhide."
+KinkyDungeonUnLinkLeatherArmCuffs3,"Your wrists detatch, leaving your elbows still bound!"
+
+RestraintLeatherArmCuffs4,Linked Leather Elbow Cuffs
+RestraintLeatherArmCuffs4Desc,"A pair of cuffs keeping your elbows locked together!."
+RestraintLeatherArmCuffs4Desc2,"They're made of tough cowhide."
+KinkyDungeonUnLinkLeatherArmCuffs4,"Your elbows detatch!"
+KinkyDungeonLinkLeatherArmCuffs4,"The enemy attaches your wrist cuffs back together!"
+
+
+RestraintScaleArmCuffs,Scale Cuffs
+RestraintScaleArmCuffsDesc,"A pair of cuffs that make it easy to restrain you."
+RestraintScaleArmCuffsDesc2,"They're made of dragonscale."
+KinkyDungeonLinkScaleArmCuffs,"The enemy attaches your wrist cuffs together!"
+
+RestraintScaleArmCuffs2,Linked Scale Cuffs
+RestraintScaleArmCuffs2Desc,"A pair of cuffs keeping your arms behind your back."
+RestraintScaleArmCuffs2Desc2,"They're made of dragonscale."
+KinkyDungeonUnLinkScaleArmCuffs2,"Your cuffs detatch!"
+KinkyDungeonLinkScaleArmCuffs2,"The enemy attaches your elbow cuffs together!"
+
+RestraintScaleArmCuffs3,Linked Scale Cuffs
+RestraintScaleArmCuffs3Desc,"A pair of cuffs keeping your arms in a strict elbow tie!"
+RestraintScaleArmCuffs3Desc2,"They're made of dragonscale."
+KinkyDungeonUnLinkScaleArmCuffs3,"Your wrists detatch, leaving your elbows still bound!"
+
+RestraintScaleArmCuffs4,Linked Scale Elbow Cuffs
+RestraintScaleArmCuffs4Desc,"A pair of cuffs keeping your elbows locked together!."
+RestraintScaleArmCuffs4Desc2,"They're made of dragonscale."
+KinkyDungeonUnLinkScaleArmCuffs4,"Your elbows detatch!"
+KinkyDungeonLinkScaleArmCuffs4,"The enemy attaches your wrist cuffs back together!"
 
 RestraintMaidJacket,Latex Jacket
 RestraintMaidJacketDesc,"A bolero jacket keeping your arms pinned snugly. You can't even move them."
@@ -2089,6 +2140,7 @@ KinkyDungeonSpellDescriptionFocusedFlash,A focused flash of light which renders 
 KinkyDungeonSpellCastFocusedFlash,You slowly charge up a powerful flash!
 
 KinkyDungeonSpellShroud,Shroud
+KinkyDungeonSpellDarkShroud,Smoke Bomb
 KinkyDungeonSpellSleepGas,Sleep Gas
 KinkyDungeonSpellTargetShroud,Select where to center the shroud (SpellArea radius)
 KinkyDungeonSpellDescriptionShroud,A shroud of darkness lasting Duration turns that buffs evasion for all creatures and buffs sneaking
@@ -2195,6 +2247,8 @@ KinkyDungeonSpellDescriptionIceBreath,A field of icicles that deals DamageDealt 
 KinkyDungeonSpellCastIceBreath,You breath out a chilling frost!
 KinkyDungeonSpellTargetIceBreath,Select where to put the icicles (SpellArea radius)
 
+KinkyDungeonSpellZombieOrb,Zombie Orb
+KinkyDungeonSpellZombieOrbIce,Freezing Zombie Orb
 KinkyDungeonSpellMummyBolt,Mystic Bolt
 KinkyDungeonMysticShock,The mummy's bolt paralyzes you!
 
@@ -2634,7 +2688,8 @@ KinkyDungeonDeny10,"The toys deny you a chance to finish."
 KinkyDungeonChastityDeny,"You try to pleasure yourself, but your chastity belt prevents you!"
 KinkyDungeonPlaySelf,"You play with yourself..."
 KinkyDungeonPlaySelfBound,"You try to rub your erogenous zones by squirming your legs..."
-KinkyDungeonOrgasmExhaustion,"Your stamina is draining as you crave release..."
+KinkyDungeonOrgasmExhaustion,"Your stamina is draining as you crave release, but the toys are off..."
+KinkyDungeonOrgasmExhaustionVibe,"Your stamina is draining as you crave release, and the toys continue to vibrate..."
 
 KinkyDungeonSleepDeprivation,"A buzzing vibration wakes you up!"
 
