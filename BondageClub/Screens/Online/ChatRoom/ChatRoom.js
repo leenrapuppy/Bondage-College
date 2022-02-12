@@ -872,7 +872,7 @@ function ChatRoomDrawCharacter(DoClick) {
 
 			// Draw the character, it's status bubble and it's overlay
 			DrawCharacter(ChatRoomCharacterDrawlist[C], CharX, CharY, Zoom);
-			DrawStatus(ChatRoomCharacter[C], CharX, CharY, Zoom);
+			DrawStatus(ChatRoomCharacterDrawlist[C], CharX, CharY, Zoom);
 			if (ChatRoomCharacterDrawlist[C].MemberNumber != null) ChatRoomDrawCharacterOverlay(ChatRoomCharacterDrawlist[C], CharX, CharY, Zoom, C);
 			
 		}
