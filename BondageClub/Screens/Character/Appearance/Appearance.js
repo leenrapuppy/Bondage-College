@@ -1345,6 +1345,9 @@ function CharacterAppearanceLoadCharacter(C) {
 	CharacterAppearanceSelection = C;
 	CharacterAppearanceReturnRoom = CurrentScreen;
 	CharacterAppearanceReturnModule = CurrentModule;
+	if (CharacterAppearanceReturnRoom == "ChatRoom") {
+		ChatRoomStatusUpdate("Wardrobe");
+	}
 	CommonSetScreen("Character", "Appearance");
 }
 
