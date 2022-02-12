@@ -552,10 +552,6 @@ function AppearanceLoad() {
 	var C = CharacterAppearanceSelection;
 	CharacterAppearanceBuildAssets(Player);
 	CharacterAppearanceBackup = CharacterAppearanceStringify(C);
-	if ((Player.OnlineSettings != null) && Player.OnlineSettings.EnableWardrobeIcon && (CharacterAppearanceReturnRoom == "ChatRoom")) {
-		CharacterAppearancePreviousEmoticon = WardrobeGetExpression(Player).Emoticon;
-		ServerSend("ChatRoomCharacterExpressionUpdate", { Name: "Wardrobe", Group: "Emoticon", Appearance: ServerAppearanceBundle(Player.Appearance) });
-	}
 	AppearanceMenuBuild(C);
 	AppearanceUseCharacterInPreviewsSetting = Player.VisualSettings ? Player.VisualSettings.UseCharacterInPreviews : AppearanceUseCharacterInPreviewsSetting;
 }
@@ -1270,10 +1266,6 @@ function CharacterAppearanceExit(C) {
 	ElementRemove("InputWardrobeName");
 	CharacterAppearanceMode = "";
 	CharacterAppearanceRestore(C, CharacterAppearanceBackup);
-	if ((Player.OnlineSettings != null) && Player.OnlineSettings.EnableWardrobeIcon && (CharacterAppearanceReturnRoom == "ChatRoom")) {
-		CharacterSetFacialExpression(Player, "Emoticon", CharacterAppearancePreviousEmoticon);
-		CharacterAppearancePreviousEmoticon = "";
-	}
 	CharacterLoadCanvas(C);
 	if (C.AccountName != "") CommonSetScreen(CharacterAppearanceReturnModule, CharacterAppearanceReturnRoom);
 	else CommonSetScreen("Character", "Login");
@@ -1353,6 +1345,9 @@ function CharacterAppearanceLoadCharacter(C) {
 	CharacterAppearanceSelection = C;
 	CharacterAppearanceReturnRoom = CurrentScreen;
 	CharacterAppearanceReturnModule = CurrentModule;
+	if (CharacterAppearanceReturnRoom == "ChatRoom") {
+		ChatRoomStatusUpdate("Wardrobe");
+	}
 	CommonSetScreen("Character", "Appearance");
 }
 

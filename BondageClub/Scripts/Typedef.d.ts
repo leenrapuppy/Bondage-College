@@ -841,8 +841,9 @@ interface PlayerCharacter extends Character {
 		DisableAnimations: boolean;
 		SearchShowsFullRooms: boolean;
 		SearchFriendsFirst: boolean;
+		SendStatus?: boolean;
+		ShowStatus?: boolean;
 		EnableAfkTimer: boolean;
-		EnableWardrobeIcon: boolean;
 	};
 	GraphicsSettings?: {
 		Font: string;
