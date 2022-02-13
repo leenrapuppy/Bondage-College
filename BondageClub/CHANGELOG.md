@@ -11,15 +11,15 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-02-08
-* Last recorded PR: [#3221](https://github.com/Ben987/Bondage-College/pull/3221)
-* Last recorded commit hash: `84b1f068c5258019c668165816321ebb86b1edb1`
+* Changelog last updated: 2022-02-12
+* Last recorded PR: [#3231](https://github.com/Ben987/Bondage-College/pull/3231)
+* Last recorded commit hash: `b6aa67940ac181027bae23d725b34036e151749b`
 
 ## [R77]
 
 ### [Added]
 
-* Ada - Kinky Dungeon update - see the [Kinky Dungeon changelog](Screens/MiniGame/KinkyDungeon/Changelog.txt) ([#3184](https://github.com/Ben987/Bondage-College/pull/3184), [#3218](https://github.com/Ben987/Bondage-College/pull/3218), [#3220](https://github.com/Ben987/Bondage-College/pull/3220))
+* Ada - Kinky Dungeon update - see the [Kinky Dungeon changelog](Screens/MiniGame/KinkyDungeon/Changelog.txt) ([#3184](https://github.com/Ben987/Bondage-College/pull/3184), [#3218](https://github.com/Ben987/Bondage-College/pull/3218), [#3220](https://github.com/Ben987/Bondage-College/pull/3220), [#3227](https://github.com/Ben987/Bondage-College/pull/3227))
 * Estsanatlehi - Players can now access their wardrobe from the dialogue menu when clicking themselves ()
 * Karamel - Added multi-color support to the Maid & Maid Exposed outfits, Frilled Sleep Mask, and Maid Collar ([#3195](https://github.com/Ben987/Bondage-College/pull/3195))
 * Verity - Added a new Harness OTN Plug Gag item ([#3205](https://github.com/Ben987/Bondage-College/pull/3205))
@@ -40,6 +40,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Estsanatlehi - Reworked the player dialogue menu when clicking on yourself ([#3193](https://github.com/Ben987/Bondage-College/pull/3193), [#3196](https://github.com/Ben987/Bondage-College/pull/3196))
   * Players can now access their wardrobe, view their profile, and access the "Character actions" submenu from the menu
   * Adjusting bondage/evasion skills, using your safeword, taking a picture, and playing Kinky Dungeon (when wearing a headset) have now been moved to the "Character actions" submenu when clicking on yourself
+* Sidious - Room-level block categories are now saved for room recreation ([#3226](https://github.com/Ben987/Bondage-College/pull/3226))
 
 ### [Fixed]
 
@@ -55,17 +56,20 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Estsanatlehi - Fixed a bug where making a player admin in a LARP room could break the game for them ([#3199](https://github.com/Ben987/Bondage-College/pull/3199))
 * Estsanatlehi - Fixed a bug where you would always be able to ask for a Pandora Padlock, regardless of whether or not you met the criteria ([#3214](https://github.com/Ben987/Bondage-College/pull/3214))
 * Sidious - Fixed a bug where the speed of the smooth zoom feature in chatrooms was dependent on frame rate ([#3219](https://github.com/Ben987/Bondage-College/pull/3219))
+* Estsanatlehi - Fixed a crash that could occur when entering an already running LARP room ([#3224](https://github.com/Ben987/Bondage-College/pull/3224))
+* Estsanatlehi - Fixed the alignment of most lower suit items in the legs spread pose ([#3225](https://github.com/Ben987/Bondage-College/pull/3225))
 
 ### [Technical]
 
 * Technical changes, fixes and improvements:
   * Estsanatlehi - [#3103](https://github.com/Ben987/Bondage-College/pull/3103), [#3216](https://github.com/Ben987/Bondage-College/pull/3216)
   * Nina - [#3204](https://github.com/Ben987/Bondage-College/pull/3204)
+  * Sidious - [#3223](https://github.com/Ben987/Bondage-College/pull/3223), [#3230](https://github.com/Ben987/Bondage-College/pull/3230)
 
 ### [Beta Fixes]
 
-* Nothing... yet
-
+* Sidious - Fixed an issue where the new character status could get displayed under the wrong characters when in VR ([#3229](https://github.com/Ben987/Bondage-College/pull/3229))
+* Sidious - Fixed the wardrobe status icon not displaying when accessed via the character dialogue option ([#3231](https://github.com/Ben987/Bondage-College/pull/3231))
 
 ## [R76]
 
