@@ -520,7 +520,7 @@ function ChatRoomCanBeLeashed(C) {
  * @returns {boolean} - TRUE if the player can be leashed
  */
 function ChatRoomCanBeLeashedBy(sourceMemberNumber, C) {
-	if ((ChatRoomData && ChatRoomData.BlockCategory.indexOf("Leashing") < 0) || !ChatRoomData) {
+	if ((ChatRoomData && ChatRoomData.BlockCategory && ChatRoomData.BlockCategory.indexOf("Leashing") < 0) || !ChatRoomData) {
 		// Have to not be tethered, and need a leash
 		var canLeash = false;
 		var isTrapped = false;
