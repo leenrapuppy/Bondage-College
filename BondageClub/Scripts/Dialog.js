@@ -1424,6 +1424,8 @@ function DialogPublishAction(C, ClickItem) {
 				TargetItem.Property.TriggerCount++;
 			if (CurrentScreen == "ChatRoom") {
 				let intensity = TargetItem.Property ? TargetItem.Property.Intensity : 0;
+				if (typeof intensity !== "number")
+					intensity = 0;
 				InventoryExpressionTrigger(C, ClickItem);
 				ChatRoomPublishCustomAction(TargetItem.Asset.Name + "Trigger" + intensity, true, [{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber }]);
 			} else {
