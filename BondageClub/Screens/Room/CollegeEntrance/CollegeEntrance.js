@@ -69,6 +69,7 @@ function CollegeEntranceClick() {
 	if (MouseIn(1885, 661, 90, 90) && CollegeEntranceCanGoInside()) CommonSetScreen("Room", "CollegeChess");
 	if (MouseIn(1885, 767, 90, 90) && CollegeEntranceCanGoDetention()) CommonSetScreen("Room", "CollegeDetention");
 	if (MouseIn(1885, 873, 90, 90) && CollegeEntranceCanGoTeacher()) CommonSetScreen("Room", "CollegeTeacher");
+	if (MouseIn(0, 0, 100, 100)) CommonSetScreen("Room", "Platform");
 }
 
 /**
