@@ -229,12 +229,12 @@ function PlatformHitBoxClash(Source, Target, HitBox) {
 	if ((Source == null) || (Target == null) || (HitBox == null)) return;
 	let SX1 = Source.X + HitBox[0] * ((Source.FaceLeft) ? -1 : 1);
 	let SX2 = SX1 + HitBox[2] * ((Source.FaceLeft) ? -1 : 1);
-	if (SX1 > SX2) { let Back = SX2; SX2 = SX1; SX1 = Back; };
+	if (SX1 > SX2) { let Back = SX2; SX2 = SX1; SX1 = Back; }
 	let SY1 = Source.Y + HitBox[1];
 	let SY2 = SY1 + HitBox[3];
 	let TX1 = Target.X + Target.HitBox[0] * ((Target.FaceLeft) ? -1 : 1);
 	let TX2 = TX1 + Target.HitBox[2] * ((Target.FaceLeft) ? -1 : 1);
-	if (TX1 > TX2) { let Back = TX2; TX2 = TX1; TX1 = Back; };
+	if (TX1 > TX2) { let Back = TX2; TX2 = TX1; TX1 = Back; }
 	let TY1 = Target.Y + Target.HitBox[1];
 	let TY2 = TY1 + Target.HitBox[3];
 	if ((SX1 >= TX1) && (SY1 >= TY1) && (SX1 <= TX2) && (SY1 <= TY2)) return true;

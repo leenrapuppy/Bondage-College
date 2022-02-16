@@ -21,8 +21,8 @@ PlayerGagged,,,(You can use or remove items by selecting specific body regions o
 40,,(Spend 30 minutes to unlock the door.),(You must have 30 minutes and be the admistrator of the locked room.),,!DialogGGTSCanUnlock()
 40,,(Spend 120 minutes to get $100.),(GGTS gives you $100 and substracts 120 minutes to your total.),"DialogGGTSAction(""MoneyForMinutes"", ""120"")",DialogGGTSMinuteGreater(120)
 40,,(Spend 120 minutes to get $100.),(You don't have enough minutes available.),,!DialogGGTSMinuteGreater(120)
-40,,(Spend 200 minutes to get your own futuristic helmet.),(GGTS gives you the futuristic helmet and substracts 200 minutes to your total.),"DialogGGTSAction(""GetHelmet"", ""200"")",DialogGGTSCanGetHelmet()
-40,,(Spend 200 minutes to get your own futuristic helmet.),(You don't have enough minutes available or you already have the helmet in your inventory.),,!DialogGGTSCanGetHelmet()
+40,,(Spend 200 minutes to get your own GGTS helmet.),(You get a GGTS helmet and the AI substracts 200 minutes from your total.),"DialogGGTSAction(""GetHelmet"", ""200"")",DialogGGTSCanGetHelmet()
+40,,(Spend 200 minutes to get your own GGTS helmet.),(You don't have enough minutes available or you already have the helmet in your inventory.),,!DialogGGTSCanGetHelmet()
 40,0,(Back to main menu.),(You can use or remove items by selecting specific body regions on yourself.),,
 100,,,(Possible character actions.),,
 100,101,(Adjust your bondage skill.),"(By default, you restrain using your full bondage skill.  You can use less of your skill and make it easier for your victims to escape.)",,"DialogSkillGreater(""Bondage"", 1)"
