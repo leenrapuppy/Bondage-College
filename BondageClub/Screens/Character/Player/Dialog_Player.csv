@@ -723,7 +723,7 @@ ItemLegsLeatherLegCuffsSetClosed,,,SourceCharacter attaches the leather leg cuff
 ItemLegsLeatherLegCuffsSetChained,,,SourceCharacter attaches the leather leg cuffs chain on DestinationCharacter legs.,,
 ItemFeetSteelAnkleCuffsNone,,,Detached,,
 ItemFeetSteelAnkleCuffsClosed,,,Attached,,
-ItemLegsSteelAnkleCuffsChained,,,Chain Attached,
+ItemFeetSteelAnkleCuffsChained,,,Chain Attached,
 ItemFeetSteelAnkleCuffsSetNone,,,SourceCharacter detaches DestinationCharacter AssetName.,,
 ItemFeetSteelAnkleCuffsSetClosed,,,SourceCharacter attaches DestinationCharacter AssetName.,,
 ItemFeetSteelAnkleCuffsSetChained,,,SourceCharacter attaches the chain on DestinationCharacter AssetName.,,
