@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-02-12
-* Last recorded PR: [#3231](https://github.com/Ben987/Bondage-College/pull/3231)
-* Last recorded commit hash: `b6aa67940ac181027bae23d725b34036e151749b`
+* Changelog last updated: 2022-02-16
+* Last recorded PR: [#3244](https://github.com/Ben987/Bondage-College/pull/3244)
+* Last recorded commit hash: `f23da3277330e54dc4c2d5231f628432bbab7ab1`
 
 ## [R77]
 
@@ -58,6 +58,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Sidious - Fixed a bug where the speed of the smooth zoom feature in chatrooms was dependent on frame rate ([#3219](https://github.com/Ben987/Bondage-College/pull/3219))
 * Estsanatlehi - Fixed a crash that could occur when entering an already running LARP room ([#3224](https://github.com/Ben987/Bondage-College/pull/3224))
 * Estsanatlehi - Fixed the alignment of most lower suit items in the legs spread pose ([#3225](https://github.com/Ben987/Bondage-College/pull/3225))
+* Verity - Fixed a visual issue with the player body in the handcuffed pose ([#3244](https://github.com/Ben987/Bondage-College/pull/3244))
+* Estsanatlehi - Fixed some issues with the Automatic Shock Collar & Shock Unit ([#3242](https://github.com/Ben987/Bondage-College/pull/3242))
+* Sidious - Fixed a crash when entering the College in a colored skirt ([#3243](https://github.com/Ben987/Bondage-College/pull/3243))
 
 ### [Technical]
 
@@ -70,6 +73,10 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 * Sidious - Fixed an issue where the new character status could get displayed under the wrong characters when in VR ([#3229](https://github.com/Ben987/Bondage-College/pull/3229))
 * Sidious - Fixed the wardrobe status icon not displaying when accessed via the character dialogue option ([#3231](https://github.com/Ben987/Bondage-College/pull/3231))
+* Nina - Fixed a bug where the game could crash in single-player areas ([#3237](https://github.com/Ben987/Bondage-College/pull/3237))
+* Estsanatlehi - Fixed names for the chain layer on the Futuristic leg & ankle cuffs ([#3236](https://github.com/Ben987/Bondage-College/pull/3236))
+* Estsanatlehi - Fixed the Witch Skirt disappearing in some poses ([#3235](https://github.com/Ben987/Bondage-College/pull/3235), [#3240](https://github.com/Ben987/Bondage-College/pull/3240))
+* Estsanatlehi - Fixed a visual issue with the Reverse Bunny Suit ([#3234](https://github.com/Ben987/Bondage-College/pull/3234))
 
 ## [R76]
 
