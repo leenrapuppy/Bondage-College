@@ -1,0 +1,24 @@
+###_NPC
+Don't waste your time talking, I cannot understand.
+不要浪费时间说话，我听不懂。
+(DialogCharacterName comes in front of you.)  What are you doing?  Don't touch my pet.
+（DialogCharacterName来到你面前）你在做什么？不许碰我的宠物。
+(DialogCharacterName grabs your arm.)  You're getting on my nerves.  Never touch my kitty.
+（DialogCharacterName抓住你的手臂）你让我很不爽。不许碰我的猫咪。
+(DialogCharacterName grabs your hair.)  Touch my pet again and you'll get in a world of trouble!
+（DialogCharacterName抓住你的头发 ）再碰我的宠物，你就有大麻烦了!
+(She pulls you to her by the hair.)  Never touch my pet!  Now you're in trouble.
+（她拉着你的头发）不许碰我的宠物！现在你有麻烦了。
+Submissive girl, what are you doing standing up in my presence?  Get on your knees if you want to speak to me.
+Submissive girl, what are you doing standing up in my presence?  Get on your knees if you want to speak to me.
+We Mistresses have been speaking.  It seems you're not fit to wear the heels anymore.
+We Mistresses have been speaking.  It seems you're not fit to wear the heels anymore.
+(She looks at you and grins.)  Be direct and don't waste my time naked girl.
+（她看着你咧嘴一笑）直接点，不要浪费我的时间，裸女孩。
+My respects to you Mistress DialogPlayerName.
+我向您表示敬意，DialogPlayerName女主人。
+Be direct and don't waste my time girl.
+直接点，不要浪费我的时间，姑娘。
+###_PLAYER
+How come Sarah is locked down?
+Sarah怎么会被锁住？

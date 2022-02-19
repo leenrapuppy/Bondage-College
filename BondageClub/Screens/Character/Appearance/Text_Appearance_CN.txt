@@ -7,7 +7,7 @@ You must pick an item of type:
 Set wardrobe character name:
 设置衣柜角色名:
 Invalid name for character.
-角色名无效.
+角色名无效
 Reset character
 重置角色
 Randomize clothes
@@ -31,16 +31,16 @@ Accept changes
 Wardrobe
 衣柜
 Wardrobe can be bought in your private room.
-衣柜可以在私人房间中购买.
+衣柜可以在私人房间中购买
 Edit item permissions
 编辑物品权限许可
 Use this item
 使用该物品
 Unable to use due to player permissions
-因角色权限设定,无法使用
+因权限设定无法使用
 Select a color
 选择一种颜色
 Select colors
 选择颜色
 Unable to change color due to player permissions
-因玩家权限设定无法修改颜色
+因权限设定无法修改颜色

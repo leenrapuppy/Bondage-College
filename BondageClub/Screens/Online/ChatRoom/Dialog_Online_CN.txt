@@ -44,133 +44,138 @@
 ###_PLAYER
 (Stop her from leaving.)
 (阻止她离开.)
-(Watch her play Kinky Dungeon)
-(看她玩淫靡地城.)
+(GGTS interactions.)
+(GGTS互动)
+###_NPC
+(As a nurse, you can program GGTS for her specific needs.)
+(作为一名护士，你可以针对她的具体需要对GGTS进行编程)												  
+
+###_PLAYER
 (Leave this menu.)
-(离开本菜单.)
+(离开本菜单)
 (Add to item whitelist.)
-(添加到白名单.)
+(添加到白名单)
 ###_NPC
 (This member is now on your item permission whitelist.  She will have higher access to restrain or free you.)
-(已将目标添加到物品权限白名单.  她将获得对你进行束缚和解锁的一些权限.)
+(已将目标添加到物品权限白名单.  她将获得对你进行束缚和解锁的更高权限)
 ###_PLAYER
 (Remove from item whitelist.)
-(从白名单移除.)
+(从白名单移除)
 ###_NPC
 (This member is no longer on your item permission whitelist.)
-(已从物品权限白名单中删除目标.)
+(已从物品权限白名单中删除目标)
 ###_PLAYER
 (Add to item blacklist.)
-(添加到黑名单.)
+(添加到黑名单)
 ###_NPC
 (This member is now on your item permission blacklist.  She will have less access to restrain or free you.)
-(已将目标添加到物品权限黑名单.  她将失去对你进行束缚和解锁的一些权限.)
+(已将目标添加到物品权限黑名单.  她将失去对你进行束缚和解锁的更少权限)
 ###_PLAYER
 (Remove from item blacklist.)
-(从黑名单移除.)
+(从黑名单移除)
 ###_NPC
 (This member is no longer on your item permission blacklist.)
-(已从物品权限黑名单中删除目标.)
+(已从物品权限黑名单中删除目标)
 ###_PLAYER
 (Add to friendlist.)
-(添加到好友列表.)
+(添加到好友列表)
 ###_NPC
 (This member is considered to be a friend by you.  She must also add you on her friendlist to be able to find each other.)
-(这个成员想要成为你的朋友.  你必须也添加她到你的好友列表你们才能互相找到.)
+(这个成员想要成为你的朋友，你必须也添加她到你的好友列表你们才能互相找到)
 ###_PLAYER
 (Remove from friendlist.)
-(从好友列表移除.)
+(从好友列表移除)
 ###_NPC
 (This member is not longer considered to be a friend by you.)
-(她不想继续和你做朋友了.)
+(她不想继续和你做朋友了)
 ###_PLAYER
 (Ghost and ignore her.)
-(忽视并忽略她.)
+(忽视并忽略她)
 ###_NPC
 (This member is now ghosted and ignored by you.  Nothing she says or does will appear in your chat log.)
-(这个成员已经被你无视了.  她的动作和发言不会在你的聊天记录中显示)
+(这个成员已经被你无视了，她的动作和发言不会在你的聊天记录中显示)
 ###_PLAYER
 (Stop ghosting her.)
-(停止忽视她.)
+(停止忽视她)
 ###_NPC
 (This member is no longer ghosted by you.  You will see what she says or does in your chat log.)
-(这个成员不再被你无视了.  她的动作和发言会在你的聊天记录中显示)
+(这个成员不再被你无视了，她的动作和发言会在你的聊天记录中显示)
 ###_PLAYER
 (Manage Ownership & Lovership)
-(管理主人&恋人关系)
+(管理主人和恋人关系)
 ###_NPC
 (You can ask her to become your lover or submissive or advance the relationship.)
-(你可以让她成为你的恋人或M者或者加深你们的关系.)
+(你可以让她成为你的恋人或M，或者加深你们的关系)
 ###_PLAYER
 (Owner rules, restrictions & punishments.)
-(主人规则,限制&惩罚.)
+(主人规则、限制和惩罚)
 ###_NPC
 (Select the owner rule, restriction or punishment that you want to enforce.)
-(选择你想要强制执行的主仆规则,限制或惩罚.)
+(选择你想要强制执行的主人规则、限制或惩罚)
 ###_PLAYER
 (Lover rules, restrictions & punishments.)
-(恋人规则,限制&惩罚.)
+(恋人规则、限制和惩罚.)
 ###_NPC
 (Select the lover rule, restriction or punishment that you want to enforce on your lover.)
-(为你的恋人选择你想要强制执行的恋人规则,限制或惩罚.)
+(为你的恋人选择你想要强制执行的恋人规则、限制或惩罚)
 ###_PLAYER
 (Give her the money envelope.)
-(把装着钱的信封给她.)
+(把装着钱的信封给她)
 (Offer her a trial period to become your submissive.)
-(让她成为你的M进行一段时间的主仆试任.)
+(让她成为你的M并进行一段时间的主奴试任)
 ###_NPC
 (The request was sent.  She must accept for the trial period to start.)
-(请求已发送.  她必须接受来开始这段试任.)
+(请求已发送，她必须接受来开始试任)
 ###_PLAYER
 (Accept a trial period to become her submissive.)
-(接受并成为她的M,进行一段时间的主仆试任.)
+(接受并成为她的M，开始主奴试任)
 (Offer her to end the trial and be fully collared.)
-(让她结束试任并正式带上项圈.)
+(结束与她的试任并正式为她带上项圈)
 ###_NPC
 (There's a $100 fee to prepare the ceremony and get her a slave collar.  Will you pay now?)
-(需要支付$100来准备典礼并购买奴隶项圈..  现在付款吗?)
+(需要支付$100来准备典礼和购买奴隶项圈。现在付款吗？)
 ###_PLAYER
 (Accept her collar and begin the ceremony.)
-(接受她的项圈并开始典礼.)
+(接受她的项圈并开始典礼)
 (Ask her to be your girlfriend.)
-(请求她成为你的女朋友.)
+(请求她成为你的女朋友)
 ###_NPC
 (The request has been sent.  She must accept it to start dating you.)
-(请求已被发送.  她必须接受来和你开始约会.)
+(请求已被发送，她必须接受来和你开始约会)
 ###_PLAYER
 (Accept to be her girlfriend.)
-(同意成为她的女朋友.)
+(同意成为她的女朋友)
 (Offer her to become your fiancée.)
-(让她来管理你的资产.)
+(请求与她订婚)
 ###_NPC
 (The request has been sent.  She must accept it to become your fiancée.)
-(请求已被发送.  她必须接受以成为你的财务管理员.)
+(请求已被发送，她必须接受以成为你的未婚妻)
 ###_PLAYER
 (Accept her proposal of engagement.)
-(接受她的订婚请求.)
+(接受她的求婚)
 (Offer her to marry each other.)
-(让她与你结婚.)
+(让她与你结婚)
 ###_NPC
 (There's a $100 fee asked of both sides for the wedding.  Will you pay now?)
-(结婚需要双方各支付$100.  现在付款吗?)
+(结婚需要双方各支付$100。现在付款吗?)
 ###_PLAYER
 (Accept her proposal and become her wife.)
 (接受她的求婚并成为她的新娘.)
 (Back)
-(返回.)
+(返回)
 (Release her from the slave bond.)
 (放弃与她的主奴关系.)
 ###_NPC
 (Are you sure you want to release her? THIS ACTION IS NOT REVERSIBLE!)
-(你确定要释放她吗?这个行动无!法!被!取!消!)
+(你确定要释放她吗？这个行动【无法取消】)
 ###_PLAYER
 (Yes, I want to permanently break the ownership!)
-(是的,我想永久解除我的主仆关系.)
+(是的，我想永久解除我的主奴关系.)
 ###_NPC
 (The ownership has been broken.)
-(主从关系已经结束.)
+(主奴关系已经结束.)
 (The submissive must not be wearing any collar to complete this action.)
-(你的M必须没有佩戴着项圈才能完成本动作.)
+(你的M必须没有佩戴着项圈才能完成本动作)
 ###_PLAYER
 (Cancel)
 (取消)
@@ -182,288 +187,314 @@
 (支付$100进行项圈佩戴典礼.)
 ###_NPC
 (You pay and prepare the ceremony.  A maid brings a slave collar, she must accept it to complete the collaring.)
-(你付了款并准备了仪式.  一个女仆带来了奴隶项圈,她必须接受来完成佩戴项圈的仪式.)
+(你付了款并准备了仪式。一个女仆带来了奴隶项圈，她必须接受来完成佩戴项圈的仪式。)
 ###_PLAYER
 (Refuse to pay.)
-(拒绝付款.)
+(拒绝付款)
 (Pay $100 for the wedding.)
-(支付$100进行结婚仪式.)
+(支付$100进行结婚仪式)
 ###_NPC
 (You pay and ask her to marry you. You wait for her answer.)
-(你付了钱并请求她与你结婚.正在焦急的等待回应.)
+(你付了钱并请求她与你结婚，正在焦急的等待回应。)
 ###_PLAYER
 (Back to main menu.)
-(返回主菜单.)
+(返回主菜单)
 ###_NPC
 (Main menu.)
-(主菜单.)
+(主菜单)
 ###_PLAYER
 (Look at free drinks.)
-(看看免费饮料.)
+(看看免费饮料)
 ###_NPC
 (Free drinks menu.)
-(免费饮料菜单.)
+(免费饮料菜单)
 ###_PLAYER
 (Look at regular drinks.)
-(看看通常饮料.)
+(看看通常饮料)
 ###_NPC
 (Regular drinks menu.)
-(普通饮料菜单.)
+(普通饮料菜单)
 ###_PLAYER
 (Look at shared drinks.)
-(为大家都点一份饮料.)
+(为大家都点一份饮料)
 ###_NPC
 (Shared drinks menu.)
 (土豪菜单)
 ###_PLAYER
 (Look at hot drinks.)
-(看看热饮.)
+(看看热饮)
 ###_NPC
 (Hot drinks menu.)
-(热饮菜单.)
+(热饮菜单)
 ###_PLAYER
 (Get a free glass of water.)
-(点一杯免费的水.)
+(点一杯免费的水)
 (Get a free orange juice.)
-(点一杯免费的橙汁.)
+(点一杯免费的橙汁)
 (Get a free beer.)
-(点一杯免费啤酒.)
+(点一杯免费啤酒)
 (Get a free glass of wine.)
-(点一杯免费的酒.)
+(点一杯免费的酒)
 (Back to drink options.)
-(返回到饮料选择.)
+(返回到饮料选择)
 ###_NPC
 (Drink options.)
 (饮料选择.)
 ###_PLAYER
 (Get a $5 Virgin Mojito.)
-(点一杯$5的无酒精莫吉托.)
+(点一杯$5的无酒精莫吉托)
 (Get a $5 Margarita.)
-(点一杯$5的玛格丽塔.)
+(点一杯$5的玛格丽塔)
 (Get a $5 glass of Whiskey.)
-(点一杯$5的威士忌.)
+(点一杯$5的威士忌)
 (Get a $5 glass of Champagne.)
-(点一杯$5的香槟.)
+(点一杯$5的香槟)
 (Get a $10 jug of Sicilian Lemonade for everyone.)
-(为每人送一壶$10的Sicilian Lemonade.)
+(为每人送一壶$10的Sicilian Lemonade.
 (Get a $10 round of shooters for everyone.)
-(为每人准备$10的round of shooters.)
+(为每人准备$10的round of shooters)
 (Get a $10 jug of Sex on the Beach for everyone.)
-(为每人送一壶$10的Sex on the Beach.)
+(为每人送一壶$10的Sex on the Beach)
 (Get a $10 beer pitcher for everyone.)
-(为每人准备一杯$10的啤酒.)
+(为每人准备一杯$10的啤酒)
 (Get a free tea.)
-(点一杯免费的茶.)
+(点一杯免费的茶)
 (Get a free coffee.)
-(点一杯免费咖啡.)
+(点一杯免费咖啡)
 (Get a $5 hot chocolate.)
-(点一杯$5的热巧克力.)
+(点一杯$5的热巧克力)
 (Get a $5 espresso.)
-(点一杯$5的浓缩咖啡.)
+(点一杯$5的浓缩咖啡)
 (Get a $5 cappuccino.)
 (点一杯$5的卡布奇诺)
 (Call the maids to escort her out of the room.)
-(呼叫女仆把她撵出这个房间.)
+(呼叫女仆把她撵出这个房间)
 (Ban her from the room.)
-(禁止她进入房间.)
+(禁止她进入房间)
 (Move Character.)
-(移动角色.)
+(移动角色)
 ###_NPC
 (Move started.)
 (开始移动.)
 ###_PLAYER
 (Promote her as room administrator.)
-(赋予她房管权限.)
+(赋予她房管权限)
 (Demote her from room administration.)
-(取消她的房管权限.)
+(取消她的房管权限)
 (Hold on to her leash.)
-(抓住她的链子.)
+(抓住她的链子)
 (Let go of her leash.)
-(放开她的链子.)
+(放开她的链子)
 (Help her stand.)
-(帮她站起来.)
+(帮她站起来)
 ###_NPC
 (You help her up on her feet.)
-(你帮助她站了起来.)
+(你帮助她站了起来)
 ###_PLAYER
 (Help her kneel.)
-(帮她跪下.)
+(帮她跪下)
 ###_NPC
 (You help her down on her knees.)
-(你帮助她跪了下来.)
+(你帮助她跪了下来)
 ###_PLAYER
 (Help her to struggle free.)
 (帮她挣扎束缚.)
-(Have a photo taken.)
-(拍一张照片.)
+(Take a photo of both of you.)
+(拍一张你们俩的合照)
 (Lend her some lockpicks.)
-(借给她一些开锁器.)
+(借给她一些开锁器)
 ###_NPC
 (You give her some lockpicks to struggle out with until she leaves the room)
-(在她离开房间之前你给了她一些开锁器来挣脱束缚.)
+(你给了她一些开锁器帮助她在离开房间前挣脱束缚)
 ###_PLAYER
 (Give her a spare key to your locks.)
-(给她一把你锁的备用钥匙.)
+(给她一把你的锁的备用钥匙)
 ###_NPC
 (You give her an extra key to your private padlocks)
-(你给了她一把你私人小锁的备份钥匙.)
+(你给了她一把你私人小锁的备用钥匙)
 ###_PLAYER
 (Hand over the keys to your locks.)
-(交出你锁的钥匙.)
+(交出你的锁的钥匙)
 ###_NPC
 (You give her the keys to your private padlocks)
-(你给了她你私人小锁的钥匙.)
+(你给了她你私人小锁的钥匙)
 ###_PLAYER
+(Watch her play Kinky Dungeon.)
+(看她玩Kinky Dungeon)
+(Generate a new GGTS task.)
+(生成一个新的GGTS任务）
+(Give her a five minutes pause.)
+(给她五分钟的休息时间)
+(Slow pace for GGTS demands.)
+(Slow pace for GGTS demands.)
+(Normal pace for GGTS demands.)
+(Normal pace for GGTS demands.)
+(Fast pace for GGTS demands.)
+(Fast pace for GGTS demands.)
 (Wardrobe access.)
-(衣柜权限.)
+(衣柜权限)
 ###_NPC
 (Select her wardrobe access.)
-(选择衣柜权限.)
+(选择衣柜权限)
 ###_PLAYER
 (Whisper rules.)
-(悄悄话规则.)
+(悄悄话规则)
 ###_NPC
 (Select her rules for whispering when you're in the same room.)
-(选择她和你同处一室时的悄悄话规则.)
+(选择她和你同处一室时的悄悄话规则)
 ###_PLAYER
 (Key and locks restrictions.)
-(钥匙和锁类限制.)
+(钥匙和锁类限制)
 ###_NPC
 (Select her restrictions for keys and locks.)
-(选择对她的钥匙和锁的限制.)
+(选择对她的钥匙和锁的限制)
 ###_PLAYER
 (Remote restrictions.)
-(遥控限制.)
+(遥控限制)
 ###_NPC
 (Select her restrictions for remotes.)
-(选择对她的遥控器的限制.)
+(选择对她的遥控器的限制)
 ###_PLAYER
-(Timer cell punishment.)
-(定时禁闭惩罚.)
+(Timer cell and GGTS.)
+(定时禁闭和GGTS)
 ###_NPC
-(For how long do you want to lock her up?  She will be isolated, and you won't be able to unlock her.)
-(你想要把她锁上多久？她会被禁闭，即使是你自己也不能提前解锁.)
+You can send her to a timed cell or the good girl training system.
+你可以把她送到一个定时牢房或好女孩训练系统 (GGTS)。
 ###_PLAYER
 (Forced labor.)
 (强制劳役.)
 ###_NPC
 (What kind of labor will she be forced to do?  Her salary will be given to you.)
-(她将被强制进行何种劳动?你将获得她的薪水.)
+(她将被强制进行何种劳动？你将获得她的薪水。)
 ###_PLAYER
 (Collar options.)
-(项圈选项.)
+(项圈选项)
 ###_NPC
 (Select the option.)
-(选择本选项.)
+(选择本选项)
 ###_PLAYER
 (Allow her wardrobe access.)
-(允许她使用衣柜.)
+(允许她使用衣柜)
 ###_NPC
 (She can now access her wardrobe and change clothes.)
-(她现在可以使用衣柜来换衣服了.)
+(她现在可以使用衣柜来换衣服了)
 ###_PLAYER
 (Block her wardrobe for 1 hour.)
-(禁止她使用衣柜1小时.)
+(禁止她使用衣柜1小时)
 ###_NPC
 (Her wardrobe access will be blocked for the next hour.)
-(她在一个小时内将无法使用衣柜.)
+(她在一个小时内将无法使用衣柜)
 ###_PLAYER
 (Block her wardrobe for 1 day.)
-(禁止她使用衣柜1天.)
+(禁止她使用衣柜1天)
 ###_NPC
 (Her wardrobe access will be blocked for the next day.)
-(她在明天之前将无法使用衣柜.)
+(她在明天之前将无法使用衣柜)
 ###_PLAYER
 (Block her wardrobe for 1 week.)
-(禁止她使用衣柜1周.)
+(禁止她使用衣柜1周)
 ###_NPC
 (Her wardrobe access will be blocked for the next week.)
-(她在接下来的一周中将无法使用衣柜.)
+(她在接下来的一周中将无法使用衣柜)
 ###_PLAYER
 (Block her wardrobe until you allow it.)
-(直到你允许前禁止她使用衣柜.)
+(直到你允许前禁止她使用衣柜)
 ###_NPC
 (Her wardrobe access will be blocked until you allow it again.)
-(直到你允许前她将无法使用衣柜.)
+(直到你允许前她将无法使用衣柜)
 ###_PLAYER
 (Allow her to whisper.)
-(允许她悄悄话.)
+(允许她悄悄话)
 ###_NPC
 (She can now whisper normally.)
-(她现在可以正常悄悄话了.)
+(她现在可以正常悄悄话了)
 ###_PLAYER
 (Forbid her to whisper when you're there.)
-(当你在场时禁止她悄悄话.)
+(当你在场时禁止她悄悄话)
 ###_NPC
 (She cannot whisper to someone else when she's in the same room as you.)
-(她和你在一起时不能和其她人悄悄话了.)
+(她和你在一起时不能和其她人悄悄话了)
 ###_PLAYER
 (Allow her to buy keys.)
-(允许她购买钥匙.)
+(允许她购买钥匙)
 ###_NPC
 (The store will sell keys to her.)
-(商店将会卖给她钥匙.)
+(商店将会卖给她钥匙)
 ###_PLAYER
 (Confiscate her keys.)
-(没收她的钥匙.)
+(没收她的钥匙)
 ###_NPC
 (She lost all of her keys.)
-(她失去了她所有的钥匙.)
+(她失去了她所有的钥匙)
 ###_PLAYER
 (Block her from buying keys.)
-(禁止她购买钥匙.)
+(禁止她购买钥匙)
 ###_NPC
 (The store will not sell keys to her anymore.)
-(商店将不会卖给她任何钥匙.)
+(商店将不会卖给她任何钥匙)
 ###_PLAYER
 (Allow her to use owner locks on herself.)
-(允许她对自己使用主人锁.)
+(允许她对自己使用主人锁)
 ###_NPC
 (She will be able to use owner locks on herself.)
-(她将可以对自己使用主人锁.)
+(她将可以对自己使用主人锁)
 ###_PLAYER
 (Block her from using owner locks on herself.)
-(禁止她对自己使用主人锁.)
+(禁止她对自己使用主人锁)
 ###_NPC
 (She will not be able to use owner locks on herself anymore.)
-(她将无法对自己使用主人锁.)
+(她将无法对自己使用主人锁)
 ###_PLAYER
 (Allow her to buy remotes.)
-(允许她购买遥控器.)
+(允许她购买遥控器)
 ###_NPC
 (The store will sell remotes to her.)
-(商店将会卖给她遥控器.)
+(商店将会卖给她遥控器)
 ###_PLAYER
 (Allow her to use remotes on herself.)
-(允许她对自己使用遥控器.)
+(允许她对自己使用遥控器)
 ###_NPC
 (Her remotes will work on her now.)
-(她的遥控器将可以对她自己生效.)
+(她的遥控器将可以对她自己生效)
 ###_PLAYER
 (Confiscate her remotes.)
-(没收她的遥控器.)
+(没收她的遥控器)
 ###_NPC
 (She lost all of her remotes.)
 (她失去了她所有的遥控器)
 ###_PLAYER
 (Block her from buying remotes.)
-(禁止她购买遥控器.)
+(禁止她购买遥控器)
 ###_NPC
 (The store will not sell remotes to her anymore.)
-(商店将不会卖给她任何遥控器.)
+(商店将不会卖给她任何遥控器)
 ###_PLAYER
 (Block her from using remotes on herself)
-(禁止她对自己使用遥控器.)
+(禁止她对自己使用遥控器)
 ###_NPC
 (Her remotes won't work on her anymore.)
-(她的遥控器将无法对她自己生效.)
+(她的遥控器将无法对她自己生效)
 ###_PLAYER
-(Don't lock her up.)
-(不要把她锁上.)
+(Don't send her.)
+(不送走她)
 ###_NPC
 (Select the rule, restriction or punishment that you want to enforce.)
-(选择你想要强制的规则,限制或惩罚.)
+(选择你想要强制的规则、限制或惩罚)
 ###_PLAYER
+(Timer cell.)
+(定时牢房)
+###_NPC
+(For how long do you want to lock her up?  She will be isolated, and you won't be able to unlock her.)
+(你想锁她多长时间？She will be isolated, and you won't be able to unlock her.)
+###_PLAYER
+(Good Girl Training System.)
+(好女孩训练系统 (GGTS))
+###_NPC
+How many minutes of Good Girl Training System will she be forced to do?
+她将被强制进行多久的GGTS？
+###_PLAYER
+(Don't lock her up.)
+(不锁上他)
 (Lock her for 5 minutes.)
 (把她锁上5分钟.)
 ###_NPC
@@ -488,48 +519,90 @@
 (She will be isolated and locked up for 60 minutes.)
 (她将被锁上并禁闭60分钟.)
 ###_PLAYER
+(Send her for 5 minutes.)
+(送她过去5分钟)
+###_NPC
+(She will be locked up in the asylum until she completes 5 minutes of Good Girl Training System.)
+(她将被关在收容所中，直到她完成5分钟的GGTS)
+###_PLAYER
+(Send her for 15 minutes.)
+(送她过去15分钟)
+###_NPC
+(She will be locked up in the asylum until she completes 15 minutes of Good Girl Training System.)
+(她将被关在收容所中，直到她完成15分钟的GGTS)
+###_PLAYER
+(Send her for 30 minutes.)
+(送她过去30分钟)
+###_NPC
+(She will be locked up in the asylum until she completes 30 minutes of Good Girl Training System.)
+(她将被关在收容所中，直到她完成30分钟的GGTS)
+###_PLAYER
+(Send her for 60 minutes.)
+(送她过去60分钟)
+###_NPC
+(She will be locked up in the asylum until she completes 60 minutes of Good Girl Training System.)
+(她将被关在收容所中，直到她完成60分钟的GGTS)
+###_PLAYER
+(Send her for 90 minutes.)
+(送她过去90分钟)
+###_NPC
+(She will be locked up in the asylum until she completes 90 minutes of Good Girl Training System.)
+(她将被关在收容所中，直到她完成90分钟的GGTS)
+###_PLAYER
+(Send her for 120 minutes.)
+(送她过去120分钟)
+###_NPC
+(She will be locked up in the asylum until she completes 120 minutes of Good Girl Training System.)
+(她将被关在收容所中，直到她完成120分钟的GGTS)
+###_PLAYER
+(Send her for 180 minutes.)
+(送她过去180分钟)
+###_NPC
+(She will be locked up in the asylum until she completes 180 minutes of Good Girl Training System.)
+(她将被关在收容所中，直到她完成180分钟的GGTS)
+###_PLAYER
 (No forced labor.)
-(无强制劳役.)
+(无强制劳役)
 (Force her to serve drinks as a maid.)
-(强制她和女仆一样端茶送水.)
+(强制她作为女仆端茶送水)
 ###_NPC
 (She will be sent to the maid quarters to prepare drinks.  You will earn her salary.)
-(她将被送到女仆宿舍准备饮品.你会获得她的工资.)
+(她将被送到女仆宿舍准备饮品，你会获得她的工资)
 (She needs to be a maid in the sorority, be able to talk and be able to walk to do that job for you.)
-(她必须是女仆协会的医院来进行交谈和行动来为你工作.)
+(她必须是女仆协会的医院来进行交谈和行动来为你工作)
 ###_PLAYER
 (Release her from the slave collar.)
-(取下她佩戴的奴隶项圈.)
+(取下她佩戴的奴隶项圈)
 ###_NPC
 (You remove her slave collar.)
-(你移除了她的奴隶项圈.)
+(你移除了她的奴隶项圈)
 ###_PLAYER
 (Give her the slave collar.)
-(给她奴隶项圈.)
+(给她奴隶项圈)
 ###_NPC
 (You lock the slave collar back on her.)
-(你将奴隶项圈紧紧锁在了她的脖子上.)
+(你将奴隶项圈锁回了她的脖子上)
 ###_PLAYER
 (Allow her to use lovers locks on herself.)
-(允许她对自己使用恋人锁.)
+(允许她对自己使用恋人锁)
 ###_NPC
 (She will be able to use lovers locks on herself.)
-(她将可以对自己使用恋人锁.)
+(她将可以对自己使用恋人锁)
 ###_PLAYER
 (Block her from using lovers locks on herself.)
-(禁止她对自己使用恋人锁.)
+(禁止她对自己使用恋人锁)
 ###_NPC
 (She will not be able to use lovers locks on herself anymore.)
-(她将无法对自己使用恋人锁.)
+(她将无法对自己使用恋人锁)
 ###_PLAYER
 (Allow her owner to use lovers locks on her.)
-(允许她的主人对她使用恋人锁.)
+(允许她的主人对她使用恋人锁)
 ###_NPC
 (Her owner will be able to use lovers locks on her.)
-(她的主人将可以对她使用恋人锁.)
+(她的主人将可以对她使用恋人锁)
 ###_PLAYER
 (Block her owner from using lovers locks on her.)
-(禁止她的主人对她使用恋人锁.)
+(禁止她的主人对她使用恋人锁)
 ###_NPC
 (Her owner will not be able to use lovers locks on her anymore.)
-(她的主人将无法再对她使用恋人锁.)
+(她的主人将无法再对她使用恋人锁)

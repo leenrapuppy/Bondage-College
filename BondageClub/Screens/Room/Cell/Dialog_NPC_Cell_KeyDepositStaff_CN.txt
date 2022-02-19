@@ -1,0 +1,127 @@
+###_NPC
+You'll need to remove that gag If you want to deposit your keys.
+如果你想保管你的钥匙，你需要取下堵嘴物。
+Welcome to the key deposit.  How can I help you today?
+欢迎来到钥匙保管处。 我能为您做什么？
+###_PLAYER
+What is the key deposit?
+钥匙保管处是什么？
+###_NPC
+It's a free service that the bondage club offers.  We keep your keys safe from yourself for a set period.
+这是束缚俱乐部提供的一项免费服务，我们在规定的时间内为你保管你的钥匙。
+###_PLAYER
+You will give them back?
+你会把它们还给我吗？
+###_NPC
+Absolutely.  Give us a time and we will deliver them back to you after that time.
+当然。给我们一个时间，我们会在那个时间之后把它们送回给你。
+###_PLAYER
+What if I really need them?
+如果我真的需要它们呢？
+###_NPC
+Once the keys are in the vault, there's nothing you can do to get them back, you'll need to wait.
+一旦钥匙进了保险库，你就没有办法把它们拿回来，你需要等待。
+###_PLAYER
+Tell me about the timer cell.
+告诉我关于定时监牢的情况。
+###_NPC
+The timer cell is simple, set a time and the door will lock behind you for that number of minutes.  It will open automatically after that time.
+定时监牢很简单，设定一个时间，门就会在你身后锁上这个时间。 过了这个时间，它将自动打开。
+###_PLAYER
+I want my keys back!
+我想拿回我的钥匙!
+###_NPC
+I'm sorry girl, I cannot help you.  We will deliver your keys when the time is up.
+对不起，女孩，我不能帮助你。 时间到了，我们会把你的钥匙送回去。
+###_PLAYER
+I want to deposit my keys.
+我想保管我的钥匙。
+###_NPC
+Wonderful!  For how long we should keep your keys in the vault?
+妙不可言！ 我们应该把你的钥匙放在保险库里多长时间？
+###_PLAYER
+Let's talk later.  (Leave her.)
+我们以后再谈吧。（离开）
+One hour.
+1小时。
+###_NPC
+Very well, we can keep them safe for an hour.  Are you sure you want to do it?  There's no turning back.
+好的，我们可以保管1小时。你确定你要这么做吗，没有回头路可走了。
+###_PLAYER
+Four hours.
+4小时
+###_NPC
+Very well, we can keep them safe for four hours.  Are you sure you want to do it?  There's no turning back.
+好的，我们可以保管5小时。你确定你要这么做吗，没有回头路可走了。
+###_PLAYER
+One day.
+1天。
+###_NPC
+Very well, we can keep them safe for a day.  Are you sure you want to do it?  There's no turning back.
+好的，我们可以保管1天。你确定你要这么做吗，没有回头路可走了。
+###_PLAYER
+One week.
+1周。
+###_NPC
+Very well, we can keep them safe for a week.  Are you sure you want to do it?  There's no turning back.
+好的，我们可以保管1周。你确定你要这么做吗，没有回头路可走了。
+###_PLAYER
+I've changed my mind.
+我改主意了。
+###_NPC
+I understand.  Is there anything else I can do?
+我理解。 还有什么我可以做的吗？
+###_PLAYER
+Yes, keep them for an hour.
+是的，保管它们一个小时。
+###_NPC
+Please give me a moment.  (She takes your keys and locks them in the vault.)  We will deliver them back in an hour.
+请稍等。（她拿着你的钥匙，把它们锁在保险库里）我们会在1小时后把它们送回来。
+###_PLAYER
+This is not a good idea.
+这不是个好主意。
+###_NPC
+You should not be scared, it's a fun service.  Is there anything else I can do for you?
+你不应该害怕，这是个有趣的服务。 还有什么我可以为你做的吗？
+###_PLAYER
+Yes, keep them for four hours.
+是的，保管四个小时。
+###_NPC
+Please give me a moment.  (She takes your keys and locks them in the vault.)  We will deliver them back in four hours.
+请稍等。（她拿着你的钥匙，把它们锁在保险库里）我们会在4小时后把它们送回来。
+###_PLAYER
+Yes, keep them for a day.
+是的，保管一天。
+###_NPC
+Please give me a moment.  (She takes your keys and locks them in the vault.)  We will deliver them back in 24 hours.
+请稍等。（她拿着你的钥匙，把它们锁在保险库里）我们会在24小时后把它们送回来。
+###_PLAYER
+Yes, keep them for a week.
+是的，保管一周。
+###_NPC
+Please give me a moment.  (She takes your keys and locks them in the vault.)  We will deliver them back in seven days.
+请稍等。（她拿着你的钥匙，把它们锁在保险库里）我们会在7天后把它们送回来。
+###_PLAYER
+Thanks!
+谢谢！
+###_NPC
+It's been my pleasure.  Is there anything else I can do?
+这是我的荣幸。 还有什么我可以做的吗？
+###_PLAYER
+Thank you very much Miss.
+非常感谢你，小姐。
+###_NPC
+You're a good subbie.  (She smiles.)  Is there anything else I can do?
+You're a good subbie.  (She smiles.)  Is there anything else I can do?
+###_PLAYER
+You better not lose them.
+别弄丢了。
+###_NPC
+Of course Miss.  The vault is very safe.  Is there anything else I can do?
+当然了，小姐。保险库是非常安全的。还有什么我可以做的吗？
+###_PLAYER
+Wait!  I've changed my mind!
+等等，我改变主意了！
+###_NPC
+Too late girl.  Don't worry, your keys will be returned.  Is there anything else I can do?
+太晚了，姑娘。 别担心，你的钥匙会被归还的。还有什么我可以做的吗？

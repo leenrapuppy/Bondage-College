@@ -17,9 +17,9 @@ Delete a friend
 Refresh
 刷新
 Room name: included
-房间名:包含
+房间名：包含
 Room name: excluded
-房间名:不含
+房间名：不含
 Owner
 主人
 Lover

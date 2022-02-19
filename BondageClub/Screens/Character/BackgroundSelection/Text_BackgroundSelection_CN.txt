@@ -7,6 +7,6 @@ Next
 Cancel
 取消
 Selection: SelectedBackground
-选择:选择背景
+选择：选择背景
 Filter: Filtered / Total
-过滤:过滤/全部
+过滤：过滤/全部

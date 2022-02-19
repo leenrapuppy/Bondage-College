@@ -7,19 +7,19 @@ Room Name
 Description
 描述
 Description of the room (Letters & numbers only)
-房间描述(仅可使用字母和数字)
+房间描述 (仅可使用字母和数字)
 Ban List
 封禁列表
 Administrator List
 管理员列表
 Private (Need exact name to find it)
-私有(需要名称完全正确才能搜索到)
+私有 (需要名称完全正确才能搜索到)
 Locked (Only admins can leave or enter)
-锁定(只有管理员能够进入或离开)
+锁定 (只有管理员能够进入或离开)
 Select the background
 选择背景
 Size (2-10)
-大小(2-10)
+大小 (2-10)
 Create
 创建
  Exit
@@ -35,11 +35,11 @@ Account error, try to relog
 Invalid room data
 无效的房间数据
 Room created, joining it...
-房间已创建,正在加入...
+房间已创建，正在加入...
 Use member numbers separated by commas (ex: 2313, 12401, ...)
-使用逗号分隔的用户号(如: 2313, 12401, ...)
+使用逗号分隔的用户号 (如: 2313, 12401, ...)
 Use member numbers separated by commas (ex: 16780, ...)
-使用逗号分隔的用户号(如: 16780, ...)
+使用逗号分隔的用户号 (如: 16780, ...)
 Ban blacklist
 封禁黑名单成员
 Ban ghostlist
@@ -56,5 +56,9 @@ No Game
 无游戏
 LARP
 体感对战
+Magic Battle
+Magic Battle
+GGTS
+GGTS
 (Click anywhere to return)
 (点击任意位置返回)

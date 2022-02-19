@@ -1,9 +1,9 @@
 "Synchronizing with server, please wait..."
-"正在与服务器同步,请稍候..."
+"正在与服务器同步，请稍候..."
 A rescue maid is coming...
 救援女仆正在赶来...
 Online Members:
-在线人数:
+在线人数：
 Introduction Class
 新手课堂
 Maid Quarters
@@ -39,7 +39,7 @@ Asylum
 Visit the College
 学院
 LARP Battles
-体感对战
+体感对战 (LARP)
 Movie Studio
 电影公司
 Infiltration
@@ -75,40 +75,40 @@ Request maid service
 This game is for adults only.  Minors must leave immediately.
 本游戏仅限成人游玩. 未成年人请即刻离开.
 "All game characters are considered adults, no exceptions."
-"本游戏中所有角色都已成年,没有例外"
+"本游戏中所有角色都已成年，没有例外"
 Please be courteous and polite.  Help new members to get started.
 请礼貌待人. 记得帮助萌新.
 Console cheating can break your account forever.  Please be careful.
-控制台可能造成永久死档. 请小心操作.
+控制台可能造成永久死档！请小心操作。
 "Have an open mind, your fetishes might be different from others."
 "要观念开放,你和其他人的口味可能有所不同"
 Following a player web link can get you a virus or steal your account.
-点击陌生网址可能会被盗号或电脑中毒.
+点击陌生网址可能会被盗号或电脑中毒。
 Please respect other players limits.  Enforce your own limits.
-请尊重其他人的底线. 正如尊重你的底线一样.
+请尊重其他人的底线，正如尊重你的底线一样。
 Do not attempt anything that could harm you in your real life.
-请不要在现实中尝试任何可能会伤害到你的事.
+请不要在现实中尝试任何可能会伤害到你的事。
 Remember your friends in your private room or they will leave.
-请记得你私人房间里的朋友不然她们会跑掉的.
+请记得你私人房间里的朋友不然她们会跑掉的。
 "If you find bugs or exploits, please report them and give details."
-"如果你发现了BUG或漏洞,记得详细上报它们"
+"如果你发现了BUG或漏洞，记得详细上报它们"
 Take good care of each other feelings and your submissives.
-请照顾好他人和M们的感受.
+请照顾好他人和M们的感受。
 "If you give any real-life information, it might be used against you."
-"如果你泄露了任何现实信息,它都可能被用来人肉你"
+"如果你泄露了任何现实信息，它都可能被用来人肉你。"
 A collared college girl can be convinced to give you her uniform.
-你驯服的学院女孩可能会愿意给你她们的校服.
+你驯服的学院女孩可能会愿意给你她们的校服。
 It's easier to destroy a reputation than to build one.
-摧毁声望比建立要简单的多.
+摧毁声望比建立声望要容易的多。
 There's no best way to make money.  Simply find a job you enjoy.
-获得钱的最好方式就是就简单的找份工作.
+获得钱的最好方式就是找份工作。
 Please do not use console commands to grief other players.
-请不要使用控制台玩弄其他玩家.
+请不要使用控制台玩弄其他玩家。
 Beta items will be lost if you go back to the regular version.
-Beta测试的物品可能会在正式版本遗失.
+Beta测试的物品可能会在正式版本遗失。
 You can protect yourself by blocking items and blacklisting players.
-你可以通过屏蔽物品和玩家来保护自己.
+你可以通过屏蔽物品和玩家来保护自己。
 "Reach us on Discord, DeviantArt or Patreon if you need help."
-"请在我们的Discord,DeviantArt或Patreon寻求帮助."
+请在我们的Discord,DeviantArt或Patreon寻求帮助。
 Type /help in a chatroom to know the available chat commands.
-在聊天框中输入/help来显示可用的聊天指令.
+在聊天框中输入/help来显示可用的聊天指令。
