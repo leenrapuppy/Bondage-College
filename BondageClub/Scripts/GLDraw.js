@@ -26,8 +26,6 @@ let GLDrawContextLostTimeout;
 let GLDrawRecoveryMode = false;
 let GLDrawCrashTimeout;
 
-let GLDrawBuildCanvasBackup;
-
 var GLDrawAlphaThreshold = 0.01;
 var GLDrawHalfAlphaLow = 0.8 / 256.0;
 var GLDrawHalfAlphaHigh = 1.2 / 256.0;
@@ -48,13 +46,6 @@ function GLDrawLoad() {
 	if (!gl) { GLVersion = "No WebGL"; GLDrawCanvas.remove(); GLDrawCanvas = null; return; }
 
 	GLDrawCanvas = GLDrawInitCharacterCanvas(GLDrawCanvas);
-
-	if (!GLDrawBuildCanvasBackup) {
-		// Keep a backup of the original CharacterAppearanceBuildCanvas function in case we need to revert
-		GLDrawBuildCanvasBackup = CharacterAppearanceBuildCanvas;
-	}
-	// @ts-ignore: Intentional function overwrite
-	CharacterAppearanceBuildCanvas = GLDrawAppearanceBuild;
 
 	// Attach context listeners
 	GLDrawCanvas.addEventListener("webglcontextlost", GLDrawOnContextLost, false);
@@ -114,8 +105,6 @@ function GLDrawRevertToCanvas2D() {
 	clearTimeout(GLDrawCrashTimeout);
 	GLDrawCanvas.remove();
 	GLDrawImageCache.clear();
-	// @ts-ignore: Intentional function overwrite
-	CharacterAppearanceBuildCanvas = GLDrawBuildCanvasBackup;
 	GLDrawRebuildCharacters();
 }
 
