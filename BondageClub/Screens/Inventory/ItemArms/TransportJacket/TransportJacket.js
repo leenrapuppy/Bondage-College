@@ -90,7 +90,7 @@ function InventoryItemArmsTransportJacketPublishAction(C, Option, PreviousOption
 const InventoryItemArmsTransportJacketTextChange = CommonLimitFunction((C, item, text) => {
 	item = DialogFocusItem || item;
 	if (DynamicDrawTextRegex.test(text)) {
-		item.Property.Text = text.substring(0, InventoryItemDevicesWoodenBoxMaxLength);
+		item.Property.Text = text.substring(0, InventoryItemArmsTransportJacketMaxLength);
 		CharacterLoadCanvas(C);
 	}
 });
