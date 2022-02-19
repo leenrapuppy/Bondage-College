@@ -1563,11 +1563,21 @@ function ChatRoomStatusUpdate(Status) {
 	ServerSend("ChatRoomChat", { Content: ((Status == null) ? "null" : Status), Type: "Status" });
 }
 
+let ChatRoomStatusDeadKeys = [
+	"Shift", "Control", "Alt", "Meta", "Fn", "Escape", "Dead",
+	"ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown",
+];
+
 /**
  * Sends the "Talk" status to other players if the player typed in the text box and there's a value in it
+ * @param {KeyboardEvent} Key
  * @returns {void} - Nothing.
  */
 function ChatRoomStatusUpdateTalk(Key) {
+	// Prevent dead keys from doing anything with the status
+	if (ChatRoomStatusDeadKeys.includes(Key.key))
+		return;
+
 	const text = ElementValue("InputChat");
 	let talking = true;
 	// Not talking if no chat input
