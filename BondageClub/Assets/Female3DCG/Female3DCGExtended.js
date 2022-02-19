@@ -4916,6 +4916,45 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { AssetName: "NecklaceKey" },
 		}, // NecklaceLock
+		NecklaceRope: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Short",
+						Property: {
+							Type: null,
+						},
+					},
+					{
+						Name: "Long",
+						Property: {
+							Type: "Long",
+						},
+					},
+				],
+			},
+		}, //NecklaceRope
+		ChokerTattoo: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Loops",
+						Property: {
+							Type: null,
+						},
+					},
+					{
+						Name: "Flowers",
+						Property: {
+							Type: "Flowers",
+						},
+					},
+				],
+			},
+		}, //ChokerTattoo
+
 	}, // Necklace
 	Suit: {
 		Catsuit: {
