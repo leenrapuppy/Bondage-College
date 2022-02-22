@@ -11,6 +11,7 @@ var PlatformGravitySpeed = 6;
 var PlatformLastKeyCode = 0;
 var PlatformLastKeyTime = 0;
 var PlatformExperienceForLevel = [0, 10, 15, 25, 40, 60, 90, 135, 200, 300, 500];
+var PlatformShowHitBox = false;
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -34,15 +35,15 @@ var PlatformTemplate = [
 			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 3, 2, 1], Speed: 150 },
 			{ Name: "Crouch", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 100 },
 			{ Name: "Crawl", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39], Speed: 20 },
-			{ Name: "StandAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 17 },
+			{ Name: "StandAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 13 },
 			{ Name: "StandAttackSlow", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], Speed: 30 },
-			{ Name: "CrouchAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], Speed: 29 },
+			{ Name: "CrouchAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], Speed: 18 },
 			{ Name: "CrouchAttackSlow", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], Speed: 43 },
 		],
 		Attack: [
-			{ Name: "StandAttackFast", HitBox: [0.7, 0.2, 0.9, 0.3], HitAnimation: [9, 10, 11, 12], Damage: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], Speed: 400 },
+			{ Name: "StandAttackFast", HitBox: [0.7, 0.2, 0.9, 0.3], HitAnimation: [8, 9, 10, 11, 12], Damage: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], Speed: 300 },
 			{ Name: "StandAttackSlow", HitBox: [0.8, 0.4, 1, 0.5], HitAnimation: [9, 10, 11, 12, 13], Damage: [2, 3, 5, 6, 8, 9, 11, 12, 14, 15, 17], Speed: 600 },
-			{ Name: "CrouchAttackFast", HitBox: [0.8, 0.7, 1, 0.8], HitAnimation: [5, 6, 7, 8, 9], Damage: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], Speed: 400 },
+			{ Name: "CrouchAttackFast", HitBox: [0.725, 0.65, 0.925, 0.75], HitAnimation: [5, 6, 7, 8, 9], Damage: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], Speed: 300 },
 			{ Name: "CrouchAttackSlow", HitBox: [0.8, 0.7, 1, 0.8], HitAnimation: [5, 6, 7, 8, 9], Damage: [2, 3, 5, 6, 8, 9, 11, 12, 14, 15, 17], Speed: 600 }
 		]
 	},
@@ -370,10 +371,13 @@ function PlatformHitBoxClash(Source, Target, HitBox) {
 	let TY1 = Target.Y - Target.Height + (Target.HitBox[1] * Target.Height);
 	let TY2 = Target.Y - Target.Height + (Target.HitBox[3] * Target.Height);
 
-	/*DrawRect(SX1 - PlatformViewX, SY1 - PlatformViewY, SX2 - SX1, SY2 - SY1, "red");
-	DrawRect(TX1 - PlatformViewX, TY1 - PlatformViewY, TX2 - TX1, TY2 - TY1, "green");	
-	console.log(SX1 + " " + SX2 + " " + SY1 + " " + SY2);
-	console.log(TX1 + " " + TX2 + " " + TY1 + " " + TY2);*/
+	// Shows the hitboxes if we debug
+	if (PlatformShowHitBox) {
+		DrawRect(SX1 - PlatformViewX, SY1 - PlatformViewY, SX2 - SX1, SY2 - SY1, "red");
+		DrawRect(TX1 - PlatformViewX, TY1 - PlatformViewY, TX2 - TX1, TY2 - TY1, "green");	
+		console.log(SX1 + " " + SX2 + " " + SY1 + " " + SY2);
+		console.log(TX1 + " " + TX2 + " " + TY1 + " " + TY2);
+	}
 
 	// If both hitboxes clashes, we return TRUE
 	if ((SX1 >= TX1) && (SY1 >= TY1) && (SX1 <= TX2) && (SY1 <= TY2)) return true;
