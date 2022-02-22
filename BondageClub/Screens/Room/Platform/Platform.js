@@ -8,7 +8,6 @@ var PlatformViewX = 0;
 var PlatformViewY = 200;
 var PlatformRoom = null;
 var PlatformGravitySpeed = 6;
-var PlatformRunMode = false;
 var PlatformLastKeyCode = 0;
 var PlatformLastKeyTime = 0;
 var PlatformExperienceForLevel = [0, 10, 15, 25, 40, 60, 90, 135, 200, 300, 500];
@@ -32,7 +31,7 @@ var PlatformTemplate = [
 			{ Name: "Wounded", Cycle: [0], Speed: 1000 },
 			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 30 },
 			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], Speed: 50 },
-			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 3, 2, 1], Speed: 100 },
+			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 3, 2, 1], Speed: 150 },
 			{ Name: "Crouch", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 100 },
 			{ Name: "Crawl", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39], Speed: 20 },
 			{ Name: "StandAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 17 },
@@ -54,11 +53,12 @@ var PlatformTemplate = [
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
-		RunSpeed: 15,
-		WalkSpeed: 10,
-		CrawlSpeed: 5,
+		RunSpeed: 12,
+		WalkSpeed: 8,
+		CrawlSpeed: 4,
 		CollisionDamage: 1,
 		ExperienceValue: 1,
+		JumpOdds: 0.0002,
 		Animation: [
 			{ Name: "Idle", Width: 200, Cycle: [0, 1, 2, 3, 2, 1], Speed: 150 },
 			{ Name: "Wounded", Cycle: [0], Speed: 1000 },
@@ -85,46 +85,48 @@ var PlatformTemplate = [
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
-		RunSpeed: 12,
-		WalkSpeed: 8,
-		CrawlSpeed: 4,
+		RunSpeed: 15,
+		WalkSpeed: 10,
+		CrawlSpeed: 5,
 		CollisionDamage: 2,
 		ExperienceValue: 2,
+		RunOdds: 0.0004,
 		Animation: [
 			{ Name: "Idle", Width: 200, Cycle: [0, 1, 2, 3, 2, 1], Speed: 150 },
 			{ Name: "Wounded", Cycle: [0, 1, 2, 1], Speed: 1000 },
 			{ Name: "Walk", Width: 200, Cycle: [0, 1, 2, 3, 2, 1], Speed: 150 },
+			{ Name: "Run", Width: 200, Cycle: [0, 1, 2, 3, 2, 1], Speed: 100 },
 			{ Name: "Jump", Width: 200, Cycle: [0, 1, 2, 3, 2, 1], Speed: 250 },
 			{ Name: "Crouch", Width: 200, Cycle: [0, 1, 2, 3, 2, 1], Speed: 400 },
 			{ Name: "Crawl", Cycle: [0, 1, 2, 3, 2, 1], Speed: 300 },
-		],
-		Attack: [
-			{ Name: "StandAttackFast", HitBox: [135, -365, 30, 30], Animation: [3], Damage: 2, Speed: 400 },
-			{ Name: "StandAttackSlow", HitBox: [135, -365, 30, 30], Animation: [3], Damage: 3, Speed: 600 },
-			{ Name: "CrouchAttackFast", HitBox: [190, -150, 55, 30], Animation: [3], Damage: 2, Speed: 400 },
-			{ Name: "CrouchAttackSlow", HitBox: [190, -150, 55, 30], Animation: [3], Damage: 3, Speed: 600 }
 		]
 	},
 	{
 		Name: "Soldier",
 		Status: "Armor",
-		Health: 20,
+		Health: 30,
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
 		RunSpeed: 9,
 		WalkSpeed: 6,
 		CrawlSpeed: 3,
-		CollisionDamage: 3,
-		ExperienceValue: 3,
+		CollisionDamage: 4,
+		ExperienceValue: 6,
+		JumpOdds: 0.0002,
+		RunOdds: 0.0004,
+		StandAttackSlowOdds: 0.0003,
+		DamageKnock: false,
 		Animation: [
 			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], Speed: 100 },
 			{ Name: "Wounded", Cycle: [0], Speed: 10000 },
-			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], CycleLeft: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], Speed: 100 }
+			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 3, 2, 1], Speed: 150 },
+			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], CycleLeft: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], Speed: 100 },
+			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], CycleLeft: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], Speed: 66 },
+			{ Name: "StandAttackSlow", OffsetY: 50, Width: 500, Height: 500, Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39], Speed: 25 }
 		],
 		Attack: [
-			{ Name: "Attack", HitBox: [135, -365, 30, 30], Animation: "Punch3", Damage: 2, Speed: 400, Stand: true },
-			{ Name: "Sweep", HitBox: [190, -150, 55, 30], Animation: "Sweep3", Damage: 3, Speed: 600, Crouch: true }
+			{ Name: "StandAttackSlow", HitBox: [0.6, 0.3, 1.3, 0.65], HitAnimation: [30, 31, 32, 33, 34, 35, 36], Damage: [8, 8], Speed: 1000 }
 		]
 	}
 
@@ -133,28 +135,15 @@ var PlatformTemplate = [
 // All available rooms
 var PlatformRoomList = [
 	{
-		Name: "CastleHall1",
-		Background: "CastleHall1",
-		Width: 2600,
-		Height: 1200,
-		Door: [
-			{ Name: "CollegeClass1", FromX: 2500, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
-		],
-		Character: [
-			{ Name: "Kara", X: 2100 }
-		]
-	},
-	{
 		Name: "CollegeClass1",
 		Background: "CollegeClass1",
 		Width: 4000,
 		Height: 1200,
 		Door: [
-			{ Name: "CastleHall1", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, ToX: 2500, FromType: "Left", ToFaceLeft: true },
-			{ Name: "CollegeHall1", FromX: 3800, FromY: 500, FromW: 200, FromH: 700, ToX: 100, FromType: "Up", ToFaceLeft: false }
+			{ Name: "CollegeHall1", FromX: 3800, FromY: 500, FromW: 200, FromH: 700, FromType: "Up", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Liane", X: 3000 }
+			{ Name: "Kara", X: 1200 }
 		]
 	},
 	{
@@ -163,12 +152,11 @@ var PlatformRoomList = [
 		Width: 3500,
 		Height: 1200,
 		Door: [
-			{ Name: "CollegeClass1", FromX: 0, FromY: 500, FromW: 300, FromH: 700, ToX: 3900, FromType: "Up", ToFaceLeft: true },
-			{ Name: "CollegeArt1", FromX: 3200, FromY: 500, FromW: 300, FromH: 700, ToX: 100, FromType: "Up", ToFaceLeft: false }
+			{ Name: "CollegeClass1", FromX: 0, FromY: 500, FromW: 300, FromH: 700, FromType: "Up", ToX: 3900, ToFaceLeft: true },
+			{ Name: "CollegeArt1", FromX: 3200, FromY: 500, FromW: 300, FromH: 700, FromType: "Up", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Liane", X: 1400 },
-			{ Name: "Kara", X: 2500 }
+			{ Name: "Liane", X: 3000 }
 		]
 	},
 	{
@@ -177,10 +165,23 @@ var PlatformRoomList = [
 		Width: 4000,
 		Height: 1200,
 		Door: [
-			{ Name: "CollegeHall1", FromX: 0, FromY: 500, FromW: 200, FromH: 700, ToX: 3900, FromType: "Up", ToFaceLeft: true }
+			{ Name: "CollegeHall1", FromX: 0, FromY: 500, FromW: 200, FromH: 700, FromType: "Up", ToX: 3900, ToFaceLeft: true },
+			{ Name: "CastleHall1", FromX: 3900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 300, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Soldier", X: 1700 },
+			{ Name: "Liane", X: 1400 },
+			{ Name: "Kara", X: 2500 }
+		]
+	},
+	{
+		Name: "CastleHall1",
+		Background: "CastleHall1",
+		Width: 2600,
+		Height: 1200,
+		Door: [
+			{ Name: "CollegeArt1", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3700, ToFaceLeft: false }
+		],
+		Character: [
 			{ Name: "Soldier", X: 3700 }
 		]
 	}
@@ -207,6 +208,7 @@ function PlatformCreateCharacter(TemplateName, IsPlayer, X) {
 	NewChar.ForceY = 0;
 	NewChar.Experience = 0;
 	NewChar.Level = 1;
+	NewChar.Run = false;
 	NewChar.FaceLeft = ((PlatformRoom != null) && (PlatformRoom.Width != null) && (X > PlatformRoom.Width / 2));
 	PlatformChar.push(NewChar);
 	if (IsPlayer) PlatformPlayer = NewChar;
@@ -237,7 +239,8 @@ function PlatformLoad() {
 	window.addEventListener("keyup", PlatformEventKeyUp);
 	PlatformChar = [];
 	PlatformCreateCharacter("Luka", true, 300);
-	PlatformLoadRoom("CastleHall1");
+	PlatformLoadRoom("CollegeClass1");
+	PlatformLastTime = CommonTime();
 }
 
 /**
@@ -260,6 +263,8 @@ function PlatformGetAnim(C, Pose, Cycle) {
 			return {
 				Name: Pose,
 				Image: CycleList[AnimPos],
+				OffsetX: (C.Animation[A].OffsetX || 0),
+				OffsetY: (C.Animation[A].OffsetY || 0),
 				Width: (C.Animation[A].Width || C.Width),
 				Height: (C.Animation[A].Height || C.Height),
 				Mirror: ((C.FaceLeft === true) && (C.Animation[A].CycleLeft == null))
@@ -295,7 +300,7 @@ function PlatformDrawCharacter(C, Time) {
 	let Y = C.Y - C.Anim.Height - PlatformViewY
 	if ((X >= 2000) || (Y >= 1000)) return;
 	if ((X + C.Anim.Width <= 0) || (Y + C.Anim.Height <= 0)) return;
-	DrawImageEx("Screens/Room/Platform/Characters/" + C.Name + "/" + C.Status + "/" + C.Anim.Name + "/" + C.Anim.Image.toString() + ".png", X, Y, { Mirror: C.Anim.Mirror, Width: C.Anim.Width, Height: C.Anim.Height } );
+	DrawImageEx("Screens/Room/Platform/Characters/" + C.Name + "/" + C.Status + "/" + C.Anim.Name + "/" + C.Anim.Image.toString() + ".png", X + C.Anim.OffsetX, Y + C.Anim.OffsetY, { Mirror: C.Anim.Mirror, Width: C.Anim.Width, Height: C.Anim.Height } );
 	if (C.Damage != null)
 		for (let Damage of C.Damage)
 			if (Damage.Expire >= Time) {
@@ -328,7 +333,7 @@ function PlatformAddExperience(C, Value) {
  * @returns {void} - Nothing
  */
 function PlatformDamage(Source, Target, Damage, Time) {
-	Target.ForceX = Math.round((40 + Math.random() * 40) * ((Source.FaceLeft) ? -1 : 1));
+	if ((Target.DamageKnock == null) || Target.DamageKnock) Target.ForceX = Math.round((40 + Math.random() * 40) * ((Source.FaceLeft) ? -1 : 1));
 	Target.Immunity = Time + 500;
 	Target.Health = Target.Health - Damage;
 	if (Target.Damage == null) Target.Damage = [];
@@ -397,7 +402,8 @@ function PlatformProcessAction(Source, Time) {
 					HitBox = Attack.HitBox;
 					break;
 				}
-			if (PlatformHitBoxClash(Source, Target, HitBox)) return PlatformDamage(Source, Target, Damage, Time);
+			if (PlatformHitBoxClash(Source, Target, HitBox))
+				return PlatformDamage(Source, Target, Damage, Time);
 		}	
 }
 
@@ -445,13 +451,13 @@ function PlatformDraw() {
 		// Walk/Crawl left
 		if ((PlatformKeys.indexOf(65) >= 0) || (PlatformKeys.indexOf(97) >= 0)) {
 			if (PlatformPlayer.ForceX > 0) PlatformPlayer.ForceX = 0;
-			else PlatformPlayer.ForceX = PlatformPlayer.ForceX - PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0))) ? PlatformPlayer.CrawlSpeed : (PlatformRunMode ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
+			else PlatformPlayer.ForceX = PlatformPlayer.ForceX - PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0))) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
 		}
 
 		// Walk/Crawl right
 		if ((PlatformKeys.indexOf(68) >= 0) || (PlatformKeys.indexOf(100) >= 0)) {
 			if (PlatformPlayer.ForceX < 0) PlatformPlayer.ForceX = 0;
-			else PlatformPlayer.ForceX = PlatformPlayer.ForceX + PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0))) ? PlatformPlayer.CrawlSpeed : (PlatformRunMode ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
+			else PlatformPlayer.ForceX = PlatformPlayer.ForceX + PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0))) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
 		}
 
 		// Jump
@@ -473,13 +479,21 @@ function PlatformDraw() {
 				if (C.X <= 300) {
 					C.FaceLeft = false;
 					C.ForceX = 0;
-				} else C.ForceX = C.ForceX - PlatformWalkFrame(C.WalkSpeed, Frame);
+				} else C.ForceX = C.ForceX - PlatformWalkFrame(C.Run ? C.RunSpeed : C.WalkSpeed, Frame);
 			} else {
 				if (C.X >= PlatformRoom.Width - 300) {
 					C.FaceLeft = true;
 					C.ForceX = 0;
-				} else C.ForceX = C.ForceX + PlatformWalkFrame(C.WalkSpeed, Frame);
+				} else C.ForceX = C.ForceX + PlatformWalkFrame(C.Run ? C.RunSpeed : C.WalkSpeed, Frame);
 			}
+			if ((C.JumpOdds != null) && (C.JumpOdds > 0) && (Math.random() < C.JumpOdds * Frame) && (C.Y == PlatformFloor))
+				if ((C.Action == null) || (C.Action.Expire == null) || (C.Action.Expire <= CommonTime()))
+					C.ForceY = -25 - Math.random() * 25;
+			if ((C.RunOdds != null) && (C.RunOdds > 0) && (Math.random() < C.RunOdds * Frame) && (C.Y == PlatformFloor))
+				C.Run = !C.Run;
+			if ((C.StandAttackSlowOdds != null) && (C.StandAttackSlowOdds > 0) && (Math.random() < C.StandAttackSlowOdds * Frame))
+				PlatformAttack(C, "StandAttackSlow");
+				
 		}
 		
 		// Applies the forces and turns the face
@@ -497,7 +511,7 @@ function PlatformDraw() {
 		else if ((C.Action != null) && (C.Action.Expire != null) && (C.Action.Expire >= PlatformTime)) C.Anim = PlatformGetAnim(C, C.Action.Name, false);
 		else if (C.Y != PlatformFloor) C.Anim = PlatformGetAnim(C, "Jump");
 		else if ((C.ForceX != 0) && Crouch) C.Anim = PlatformGetAnim(C, "Crawl");
-		else if ((C.ForceX != 0) && C.Camera && (PlatformRunMode)) C.Anim = PlatformGetAnim(C, "Run");
+		else if ((C.ForceX != 0) && C.Run) C.Anim = PlatformGetAnim(C, "Run");
 		else if (C.ForceX != 0) C.Anim = PlatformGetAnim(C, "Walk");
 		else if (Crouch) C.Anim = PlatformGetAnim(C, "Crouch");
 		else C.Anim = PlatformGetAnim(C, "Idle");
@@ -546,8 +560,8 @@ function PlatformRun() {
  * @returns {void} - Nothing
  */
 function PlatformAttack(Source, Type) {
-	if ((PlatformPlayer.Action != null) && (PlatformPlayer.Action.Expire != null) && (PlatformPlayer.Action.Expire > CommonTime())) return;
-	PlatformRunMode = false;
+	if ((Source.Action != null) && (Source.Action.Expire != null) && (Source.Action.Expire > CommonTime())) return;
+	Source.Run = false;
 	for (let Attack of Source.Attack)
 		if (Attack.Name == Type)
 			Source.Action = { Name: Type, Start: CommonTime(), Expire: CommonTime() + Attack.Speed };
@@ -581,7 +595,7 @@ function PlatformEnterRoom(FromType) {
 	for (let Door of PlatformRoom.Door)
 		if ((PlatformPlayer.X >= Door.FromX) && (PlatformPlayer.X <= Door.FromX + Door.FromW) && (PlatformPlayer.Y >= Door.FromY) && (PlatformPlayer.Y <= Door.FromY + Door.FromH) && (FromType === Door.FromType)) {
 			PlatformLoadRoom(Door.Name);
-			PlatformRunMode = false;
+			PlatformPlayer.Run = false;
 			PlatformPlayer.X = Door.ToX;
 			PlatformPlayer.FaceLeft = Door.ToFaceLeft;
 			return;
@@ -594,7 +608,7 @@ function PlatformEnterRoom(FromType) {
  * @returns {void} - Nothing
  */
 function PlatformEventKeyDown(e) {
-	PlatformRunMode = ((e.keyCode == PlatformLastKeyCode) && (CommonTime() <= PlatformLastKeyTime + 333) && ([65, 97, 68, 100].indexOf(e.keyCode) >= 0) && (PlatformKeys.indexOf(e.keyCode) < 0)) || ((e.keyCode == PlatformLastKeyCode) && PlatformRunMode && (PlatformKeys.indexOf(e.keyCode) >= 0));
+	PlatformPlayer.Run = ((e.keyCode == PlatformLastKeyCode) && (CommonTime() <= PlatformLastKeyTime + 333) && ([65, 97, 68, 100].indexOf(e.keyCode) >= 0) && (PlatformKeys.indexOf(e.keyCode) < 0)) || ((e.keyCode == PlatformLastKeyCode) && PlatformPlayer.Run && (PlatformKeys.indexOf(e.keyCode) >= 0));
 	if (e.keyCode == 32) PlatformPlayer.Action = null;
 	if ((e.keyCode == 87) || (e.keyCode == 119)) return PlatformEnterRoom("Up");
 	if ((e.keyCode == 76) || (e.keyCode == 108)) return PlatformAttack(PlatformPlayer, ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0)) ? "CrouchAttackFast" : "StandAttackFast");
