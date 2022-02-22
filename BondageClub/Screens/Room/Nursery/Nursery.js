@@ -348,12 +348,6 @@ function NurseryPlayerRestrained(RestraintSet) {
 	}
 }
 
-// Apply lock to specified item
-function NurseryAddLock(C, LockItem) {
-	var CurrentItem = InventoryGet(Player, LockItem);
-	if ((CurrentItem.Property.LockedBy == null) (CurrentItem.Property.LockedBy != "")) InventoryLock(C, CurrentItem, { Asset: AssetGet("Female3DCG", "ItemMisc", "IntricatePadlock")});
-}
-
 // Player can spits out regular pacifier
 function NurseryPlayerRePacified() {
 	if (NurseryPlayerKeepsLoosingBinky) {
@@ -458,11 +452,24 @@ function NurseryEscapeGate() {
 		if (InventoryGet(Player, "ItemBreast") != null) RandomNumber = RandomNumber + 1;
 		if (InventoryGet(Player, "ItemMouth") != null) RandomNumber = RandomNumber + 1;
 		// base level for item arms assumes player is bound with mittens (no harness) or metal cuffs
-		if (InventoryGet(Player, "ItemArms") == "NylonRope") RandomNumber = RandomNumber + 3;
-		if (InventoryGet(Player, "ItemArms") == "HempRope") RandomNumber = RandomNumber + 3;
-		if (InventoryGet(Player, "ItemArms") == "PaddedMittensHarness") RandomNumber = RandomNumber + 2;
-		if (InventoryGet(Player, "ItemArms") == "PaddedMittensHarnessLocked") RandomNumber = RandomNumber + 2;
-		if (InventoryGet(Player, "ItemArms") == "LeatherArmbinder") RandomNumber = RandomNumber + 6;
+		const arms = InventoryGet(Player, "ItemArms");
+		if (arms != null) {
+			switch (arms.Asset.Name) {
+				case "NylonRope":
+				case "HempRope":
+					RandomNumber = RandomNumber + 3;
+					break;
+
+				case "PaddedMittensHarness":
+				case "PaddedMittensHarnessLocked":
+					RandomNumber = RandomNumber + 2;
+					break;
+
+				case "LeatherArmbinder":
+					RandomNumber = RandomNumber + 6;
+					break;
+			}
+		}
 
 		// Work out escape result
 		if (RandomNumber <= 2) { // Player manages to open gate
