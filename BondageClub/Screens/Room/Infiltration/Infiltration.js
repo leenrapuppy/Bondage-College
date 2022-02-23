@@ -3,7 +3,7 @@ var InfiltrationBackground = "Infiltration";
 var InfiltrationSupervisor = null;
 var InfiltrationDifficulty = 0;
 var InfiltrationMission = "";
-var InfiltrationMissionType = ["Rescue", "Kidnap", "Retrieve"];
+var InfiltrationMissionType = ["Rescue", "Kidnap", "Retrieve", "CatBurglar"];
 var InfiltrationObjectType = ["USBKey", "BDSMPainting", "GoldCollar", "GeneralLedger", "SilverVibrator", "DiamondRing", "SignedPhoto"];
 var InfiltrationTarget = {};
 var InfiltrationCollectRansom = false;
@@ -114,6 +114,7 @@ function InfiltrationSelectChallenge(Difficulty) {
  */
 function InfiltrationPrepareMission() {
 	InfiltrationMission = CommonRandomItemFromList(InfiltrationMission, InfiltrationMissionType);
+	InfiltrationMission = "CatBurglar"; // DEBUG
 	if ((InfiltrationMission == "Rescue") || (InfiltrationMission == "Kidnap")) {
 		let C = {};
 		CharacterRandomName(C);
@@ -137,6 +138,9 @@ function InfiltrationPrepareMission() {
 function InfiltrationStartMission() {
 	PandoraWillpower = 20 + (SkillGetLevel(Player, "Willpower") * 2) + (InfiltrationPerksActive("Resilience") ? 5 : 0) + (InfiltrationPerksActive("Endurance") ? 5 : 0);
 	PandoraMaxWillpower = PandoraWillpower;
+	PandoraTimer = CommonTime() + 3600000;
+	PandoraChestCount = 0;
+	PandoraMoney = 0;
 	DialogLeave();
 	CommonSetScreen("Room", "Pandora");
 	PandoraBuildMainHall();
@@ -181,6 +185,27 @@ function InfiltrationRandomClothes() {
 	CharacterRelease(Player);
 	InventoryRemove(Player, "ItemHands");
 	PandoraClothes = "Random";
+}
+
+/**
+ * Before the cat burglar mission, we dress the player in black latex
+ * @returns {void} - Nothing
+ */
+function InfiltrationCatBurglarClothes() {
+	CharacterNaked(Player);
+	CharacterRelease(Player);
+	InventoryRemove(Player, "ItemHands");
+	if (Math.random() >= 0.5) InventoryWear(Player, "LatexAnkleShoes", "Shoes", "#373636");
+	else InventoryWear(Player, "AnkleStrapShoes", "Shoes", "#282828");
+	if (Math.random() >= 0.5) InventoryWear(Player, "LatexSkirt2", "ClothLower", "#4A4A4A");
+	else InventoryWear(Player, "LatexPants1", "ClothLower");
+	if (Math.random() >= 0.5) InventoryWear(Player, "DominoMask", "Mask");
+	if (Math.random() >= 0.5) InventoryWear(Player, "LeatherCorsetTop1", "Cloth");
+	else InventoryWear(Player, "LatexTop", "Cloth");
+	InventoryWear(Player, "Catsuit", "Suit", "#202020");
+	InventoryWear(Player, "Catsuit", "SuitLower", "#202020");
+	InventoryWear(Player, "Catsuit", "Gloves", "#202020");
+	PandoraClothes = "CatBurglar";
 }
 
 /**

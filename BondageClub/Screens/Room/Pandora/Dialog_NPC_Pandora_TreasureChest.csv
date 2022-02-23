@@ -1,0 +1,4 @@
+PlayerGagged,,,(This huge chest is locked.),
+0,,,(This huge chest is locked.),
+0,,(Try to picklock it.),TO DO,
+0,,(Leave it.),,DialogLeave()

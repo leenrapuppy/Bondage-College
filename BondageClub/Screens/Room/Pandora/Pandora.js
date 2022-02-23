@@ -17,6 +17,9 @@ var PandoraTargetRoom = null;
 var PandoraClothes = "Random";
 var PandoraWillpower = 20;
 var PandoraMaxWillpower = 20;
+var PandoraMoney = 0;
+var PandoraTimer = 0;
+var PandoraChestCount = 0;
 
 /**
  * NPC Dialog functions
@@ -62,14 +65,30 @@ function PandoraDirectionAvailable(Direction) {
 }
 
 /**
+ * Draws the cat burglar mission data
+ * @param {Number} Y - The Y position
+ * @returns {boolean} - Whether the direction can be accessed
+ */
+function PandoraCatBurglarData(Y) {
+	if (InfiltrationMission != "CatBurglar") return;
+	DrawText("$" + PandoraMoney.toString(), 1887, Y, "White", "Black");
+	DrawText(TimerToString(PandoraTimer - CommonTime()), 1887, Y + 55, "White", "Black");
+}
+
+/**
  * Runs and draws all Pandora's Box screens
  * @returns {void} - Nothing
  */
 function PandoraRun() {
 
+	// If time is up for catburglar mission
+	if ((PandoraTimer < CommonTime()) && (InfiltrationMission == "CatBurglar"))
+		return PandoraPunishmentIntro(false, TextGet("CatBurglarPunishment"));
+
 	// Gets the current room & background
 	if ((PandoraRoom.length == 0) || (PandoraCurrentRoom == null)) return;
 	PandoraBackground = "Pandora/" + PandoraCurrentRoom.Floor + "/" + PandoraCurrentRoom.Background;
+	if (InfiltrationMission == "CatBurglar") DrawRect(0, 0, 2000, 1000, "#00000080");
 
 	// The search square are drawn even out of search mode
 	if (PandoraCurrentRoom.SearchSquare != null)
@@ -108,6 +127,7 @@ function PandoraRun() {
 	}
 
 	// If we allow moving, we draw the paths
+	PandoraCatBurglarData(AllowMove ? 525 : 860);
 	if (AllowMove) {
 		for (let P = 0; P < PandoraCurrentRoom.Path.length; P++)
 			DrawButton(1885, 25 + P * 115, 90, 90, "", "White", "Icons/" + PandoraCurrentRoom.Direction[P] + ".png", TextGet("Path" + PandoraCurrentRoom.Direction[P]));
@@ -346,6 +366,9 @@ function PandoraDress(C, Type) {
  */
 function PandoraEnterRoom(Room, Direction) {
 
+	// Removes 15 seconds from the clock
+	PandoraTimer = PandoraTimer - 15000;
+
 	// Shoes the incoming direction for a little while
 	if ((Direction != null) && (Direction != "")) PandoraMoveDirectionTimer = { Direction: Direction, Timer: CommonTime() + 1500 };
 
@@ -364,12 +387,19 @@ function PandoraEnterRoom(Room, Direction) {
 		}
 
 	// 4% odds of spawning a new random NPC in the room
-	if ((PandoraCurrentRoom.Background.indexOf("Entrance") < 0) && (PandoraCurrentRoom.Character.length == 0) && (Math.random() > 0.96)) {
+	if ((PandoraCurrentRoom.Background.indexOf("Entrance") < 0) && (PandoraCurrentRoom.Character.length == 0) && (Math.random() > 0.96) && (InfiltrationMission != "CatBurglar")) {
 		let Type = CommonRandomItemFromList("", PandoraRandomNPCList);
 		let Char = PandoraGenerateNPC("Random", Type, "RANDOM", (Type === "Slave"));
 		Char.Type = Type;
 		Char.Recruit = 0;
 		Char.RecruitOdds = (Type === "Slave") ? 1 : 0.75;
+		Room.Character.push(Char);
+	}
+
+	// 1% odds of spawning a night guard NPC in the room
+	if ((PandoraCurrentRoom.Background.indexOf("Entrance") < 0) && (PandoraCurrentRoom.Character.length == 0) && (Math.random() > 0.99) && (InfiltrationMission == "CatBurglar")) {
+		let Char = PandoraGenerateNPC("Night", "Guard", "RANDOM", false);
+		Char.Type = "Guard";
 		Room.Character.push(Char);
 	}
 
@@ -416,6 +446,23 @@ function PandoraEnterRoom(Room, Direction) {
 		}
 	}
 
+}
+
+/**
+ * Generates a chest randomly in the room cell (35% odds in cat burglar missions, 5% in other missions)
+ * @param {object} Room - The room in which the chest could be placed
+ * @returns {void} - Nothing
+ */
+function PandoraCreateChest(Room) {
+	if (Room.Background.indexOf("Cell") != 0) return;
+	if ((PandoraChestCount > 0) && (Math.random() > ((InfiltrationMission == "CatBurglar") ? 0.35 : 0.05))) return;
+	if ((PandoraChestCount == 0) && (Math.random() > ((InfiltrationMission == "CatBurglar") ? 0.75 : 0.1))) return;
+	PandoraChestCount++;
+	let Char = PandoraGenerateNPC("Treasure", "Chest", TextGet("Chest"), false);
+	Char.Type = "Chest";
+	Char.FixedImage = "Screens/Room/Pandora/Chest" + Math.floor(Math.random() * 3).toString() + ".png";
+	Char.AllowMove = true;
+	Room.Character.push(Char);
 }
 
 /**
@@ -478,6 +525,7 @@ function PandoraGenerateRoom(EntryRoom, DirectionFrom, RoomLevel, MaxRoom) {
 		Room.Character = [];
 		Room.Floor = EntryRoom.Floor;
 		Room.Background = RoomBack;
+		PandoraCreateChest(Room);
 		Room.Path = [];
 		Room.PathMap = [];
 		Room.PathMap.push(EntryRoom);
@@ -544,12 +592,14 @@ function PandoraBuildMainHall() {
 	// Creates the ground entrance room with a maid
 	PandoraParty = [];
 	let Room = {};
-	let Char = PandoraGenerateNPC("Entrance", "Maid", "RANDOM", false);
-	if (SkillGetLevel(Player, "Infiltration") >= 9) Char.Stage = "30";
-	else if (SkillGetLevel(Player, "Infiltration") >= 6) Char.Stage = "20";
-	else if (SkillGetLevel(Player, "Infiltration") >= 3) Char.Stage = "10";
 	Room.Character = [];
-	Room.Character.push(Char);
+	if (InfiltrationMission != "CatBurglar") {
+		let Char = PandoraGenerateNPC("Entrance", "Maid", "RANDOM", false);
+		if (SkillGetLevel(Player, "Infiltration") >= 9) Char.Stage = "30";
+		else if (SkillGetLevel(Player, "Infiltration") >= 6) Char.Stage = "20";
+		else if (SkillGetLevel(Player, "Infiltration") >= 3) Char.Stage = "10";
+		Room.Character.push(Char);
+	}
 	Room.Floor = "Ground";
 	Room.Background = "Entrance";
 	Room.PathMap = [];
@@ -686,7 +736,7 @@ function PandoraCharacterFightEnd() {
 	CharacterRelease(KidnapVictory ? Player : CurrentCharacter);
 	CurrentCharacter.AllowItem = KidnapVictory;
 	if (KidnapVictory) CurrentCharacter.AllowMove = true;
-	if (KidnapVictory && (PandoraClothes != "Random")) PandoraDress(Player, PandoraClothes);
+	if (KidnapVictory && (PandoraClothes != "Random") && (PandoraClothes != "CatBurglar")) PandoraDress(Player, PandoraClothes);
 	CommonSetScreen("Room", "Pandora");
 	CurrentCharacter.CurrentDialog = DialogFind(CurrentCharacter, (KidnapVictory) ? "FightVictory" : "FightDefeat");
 }
@@ -820,12 +870,14 @@ function PandoraRecruitBoost() {
  * Starts the player punishment process and jumps to the punishment Dominatrix
  * @returns {void} - Nothing
  */
-function PandoraPunishmentIntro(FromKidnapper) {
-	let IntroText;
-	if (SkillGetLevel(Player, "Infiltration") >= 8) IntroText = DialogFind(CurrentCharacter, "Punishment8");
-	else if (SkillGetLevel(Player, "Infiltration") >= 5) IntroText = DialogFind(CurrentCharacter, "Punishment5");
-	else if (SkillGetLevel(Player, "Infiltration") >= 2) IntroText = DialogFind(CurrentCharacter, "Punishment2");
-	else IntroText = DialogFind(CurrentCharacter, "Punishment0");
+function PandoraPunishmentIntro(FromKidnapper, FixIntro) {
+	let IntroText = FixIntro;
+	if (FixIntro == null) {
+		if (SkillGetLevel(Player, "Infiltration") >= 8) IntroText = DialogFind(CurrentCharacter, "Punishment8");
+		else if (SkillGetLevel(Player, "Infiltration") >= 5) IntroText = DialogFind(CurrentCharacter, "Punishment5");
+		else if (SkillGetLevel(Player, "Infiltration") >= 2) IntroText = DialogFind(CurrentCharacter, "Punishment2");
+		else IntroText = DialogFind(CurrentCharacter, "Punishment0");
+	}
 	PandoraBackground = "Pandora/Underground/Cell" + Math.floor(Math.random() * 7).toString();
 	let Dominatrix = PandoraGenerateNPC("Punishment", "Mistress", "RANDOM", false);
 	if (SkillGetLevel(Player, "Infiltration") >= 2) Dominatrix.Stage = "20";
