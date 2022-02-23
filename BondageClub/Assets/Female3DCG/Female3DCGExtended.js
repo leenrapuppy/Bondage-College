@@ -5321,6 +5321,108 @@ var AssetFemale3DCGExtended = {
 				}
 			},
 		}, // InteractiveVRHeadset
+		MedicalPatch: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config:{
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				Modules:[
+					{
+					Name: "Eye", Key: "e",
+					Options:[
+						{
+							Property:{
+								Type:null,
+								Effect:["BlindNormal","Prone"]
+							},
+						},
+						{
+							Property:{
+								Type: "Right",
+								Effect:[]
+							},
+						},
+						{
+							Property:{
+								Type: "Left",
+								Effect:[]
+							},
+						},
+					],
+					},
+					{
+						Name:"RightSticker", Key: "r",
+						Options: [{},{},{},{},{}], //Just blank and cosmetic options
+					},
+					{
+						Name:"LeftSticker", Key: "l",
+						Options: [{},{},{},{},{}], //Just blank and cosmetic options
+					},
+				],
+			}
+		}, //MedicalPatch
+		DroneMask: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				Modules:[
+					{
+						Name: "Eyes", Key: "e",
+						Options:[
+							{ // e0 - None
+								Property: { Effect: ["BlindHeavy","Prone"] }
+							},
+							{ // e1 - Regular
+								Property: { Effect: [] }
+							},
+							{ // e2 - Spiral
+								Property: { Effect: [] }
+							},
+							{ // e3 - Smile
+								Property: { Effect: [] }
+							},
+							{ // e4 - Holes
+								Property: { Effect: ["BlindLight"] }
+							},
+							{ // e5 - Sculpted
+								Property: { Effect: [] }
+							},
+
+						]
+					},
+					{
+						Name: "Mouth", Key: "m",
+						Options:[
+							{ // m0 - None
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m1 - Onahole
+								Property: { Effect: ["BlockMouth","GagMedium"] }
+							},
+							{ // m2 - Fleshlight
+								Property: { Effect: ["BlockMouth","GagMedium"] }
+							},
+							{ // m3 - Smile
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m4 - Holes
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m5 - Sculpted
+								Property: { Effect: ["BlockMouth"] }
+							},
+						]
+					},
+					{
+						Name: "Pattern", Key: "p",
+						Options:[{},{},{},{},{},{HasSubscreen: true},] // Blank, Barcode, Scarab, Hex, Lines, Text
+					},
+					{
+						Name: "Glow", Key: "g",
+						Options: [{},{},] // Glow Off, Glow On
+					},
+				]
+			}
+		}, // DroneMask
 	}, // ItemHead
 	ItemHands: {
 		FuturisticMittens: {

@@ -962,6 +962,15 @@ ItemHeadPaddedBlindfoldTrim,Trim
 ItemHeadKittyBlindfoldBase,Base
 ItemHeadKittyBlindfoldEyes,Eyes
 ItemHeadKittyBlindfoldEars,Ears
+ItemHeadMedicalPatchRight,Right Eye
+ItemHeadMedicalPatchLeft,Left Eye
+ItemHeadMedicalPatchRightHeart,Right Eye Sticker
+ItemHeadMedicalPatchLeftHeart,Left Eye Sticker
+ItemHeadDroneMaskBase,Mask
+ItemHeadDroneMaskShine,Shine
+ItemHeadDroneMaskEyeRegular,Eyes
+ItemHeadDroneMaskMouthOnahole,Mouth
+ItemHeadDroneMaskBarcode,Pattern
 ItemDevicesWetFloorSign,Sign
 ItemDevicesWetFloorText,Text
 BraCuteBikini1Main,Main
