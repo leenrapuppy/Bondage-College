@@ -305,7 +305,11 @@ function GameMagicBattleCanLaunchGame() {
 function GameMagicBattleNewTurn(Msg) {
 	GameMagicBattleLog = [];
 	GameMagicBattleTurnDone = false;
-	GameMagicBattleFocusCharacter = null;
+	// New turn while the minigame is still running, don't unfocus the opponent
+	// as the the minigame callback needs that.
+	if (MiniGameEnded) {
+		GameMagicBattleFocusCharacter = null;
+	}
 	GameMagicBattleTurnTimer = TimerGetTime() + (GameMagicBattleTimerDelay * 1000);
 	GameMagicBattleAddChatLog(Msg, Player, Player, null, (Msg == "TurnNext") ? "#000000" : "#0000A0");
 }
