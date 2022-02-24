@@ -20,10 +20,10 @@ function InventoryItemHeadDroneMaskPattern5Load() {
 		InventoryItemHeadDroneMaskInputId, "text", DialogFocusItem.Property.Text || "",
 		InventoryItemHeadDroneMaskMaxChars.toString(),
 	);
-    if (input) {
-        input.pattern = DynamicDrawTextInputPattern;
-        input.addEventListener("input", (e) => InventoryItemHeadDroneMaskTextChange(C, DialogFocusItem, e.target.value))
-    }
+	if (input) {
+		input.pattern = DynamicDrawTextInputPattern;
+		input.addEventListener("input", (e) => InventoryItemHeadDroneMaskTextChange(C, DialogFocusItem, e.target.value))
+	}
 }
 
 // Draw extension screen image
@@ -94,46 +94,46 @@ function InventoryItemHeadDroneMaskExit() {
 
 // Referenced from TransportJacket for dynamic display
 const InventoryItemHeadDroneMaskTextChange = CommonLimitFunction((C, item, text) => {
-   item = DialogFocusItem || item;
-      if (DynamicDrawTextRegex.test(text)) {
-	    item.Property.Text = text.substring(0, InventoryItemHeadDroneMaskMaxChars);
-	    CharacterLoadCanvas(C);
-   }
+	item = DialogFocusItem || item;
+	if (DynamicDrawTextRegex.test(text)) {
+		item.Property.Text = text.substring(0, InventoryItemHeadDroneMaskMaxChars);
+		CharacterLoadCanvas(C);
+	}
 });
 
 // Drawing function for tag text
 function AssetsItemHeadDroneMaskAfterDraw({
     C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {
-    if (L === "_Text"){
-        const Properties = Property || {};
-        const Type = Properties.Type || "p0";
-        if (!Type.includes("p5")) return;
+	if (L === "_Text"){
+		const Properties = Property || {};
+		const Type = Properties.Type || "p0";
+		if (!Type.includes("p5")) return;
 
-        // Canvas setup
-        let Height = 65;
-        let Width = 65;
-        let XOffset = 67;
-        // let YOffset = 89;
-        const FontName = InventoryItemHeadDroneMaskFont;
-        const TempCanvas = AnimationGenerateTempCanvas(C, A, Width, Height);
+		// Canvas setup
+		let Height = 65;
+		let Width = 65;
+		let XOffset = 67;
+		// let YOffset = 89;
+		const FontName = InventoryItemHeadDroneMaskFont;
+		const TempCanvas = AnimationGenerateTempCanvas(C, A, Width, Height);
 
-        const text = Property && typeof Property.Text === "string" && InventoryItemHeadDroneMaskAllowedChars.test(Property.Text) ? Property.Text : "";
-        const isAlone = !text;
+		const text = Property && typeof Property.Text === "string" && InventoryItemHeadDroneMaskAllowedChars.test(Property.Text) ? Property.Text : "";
+		const isAlone = !text;
 
-        const drawOptions = {
-            fontSize: 20,
-            fontFamily: FontName,
-            color: Color,
-            width: Width,
-        };
+		const drawOptions = {
+			fontSize: 20,
+			fontFamily: FontName,
+			color: Color,
+			width: Width,
+		};
 
-        // Draw the text onto the canvas
-        let ctx = TempCanvas.getContext('2d');
-        DynamicDrawText(text, ctx, Width/2, Height/ (isAlone? 2: 2.5), drawOptions);
+		// Draw the text onto the canvas
+		let ctx = TempCanvas.getContext('2d');
+		DynamicDrawText(text, ctx, Width/2, Height/ (isAlone? 2: 2.5), drawOptions);
 
-        //And print the canvas onto the character based on the above positions
-        drawCanvas(TempCanvas, X+ XOffset, Y + InventoryItemHeadDroneMaskYOffset, AlphaMasks);
-        drawCanvasBlink(TempCanvas, X + XOffset, Y + InventoryItemHeadDroneMaskYOffset, AlphaMasks);
-    }
+		//And print the canvas onto the character based on the above positions
+		drawCanvas(TempCanvas, X+ XOffset, Y + InventoryItemHeadDroneMaskYOffset, AlphaMasks);
+		drawCanvasBlink(TempCanvas, X + XOffset, Y + InventoryItemHeadDroneMaskYOffset, AlphaMasks);
+	}
 }
