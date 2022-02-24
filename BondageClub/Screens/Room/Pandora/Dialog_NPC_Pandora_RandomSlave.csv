@@ -34,6 +34,7 @@ RemoveItemBreast,,,(She wiggles her breast slowly as you remove the device.)  Yo
 ItemNipples,,,(She takes a long breath as you use the device on her breast.)  This will leave marks.,,
 RemoveItemNipples,,,"(She whimpers as you remove the device.)  This is so devious, I love it!",,
 0,,,"Hello Miss maid, I hope you're not buried in chores today.",,"CostumeIs(""Maid"")"
+0,,,"Hello Miss, I love your costume.  This slave is here to please you.",,"CostumeIs(""Cosplay"")"
 0,,,Greetings Miss guard.  Thanks for keeping this place safe for us slaves.,,"CostumeIs(""Guard"")"
 0,,,It's an honor to meet you Miss Dominatrix.  How can this slave serve you?,,"CostumeIs(""Mistress"")"
 0,,,"Hello Miss, this slave is here to please you.  Have we met before?  Are you famous around here?",,"DialogSkillGreater(""Infiltration"", 5)"
@@ -63,7 +64,7 @@ RemoveItemNipples,,,"(She whimpers as you remove the device.)  This is so deviou
 60,70,Absolutely.,(She jumps of joy.)  This is great!  I will go there right now.  Thank you so much.  (Your infiltration skill has increased.),InfiltrationChange(25),
 60,0,Maybe not.,(She seems sad.)  Very well.  Is there something else that this slave can do for you?,,
 70,,(Let her go to the Bondage Club.),,RemoveCurrentCharacter(),
-70,,(Give her a key to your private room.),,CharacterJoinPrivateRoom(),
+70,,(Give her a key to your private room.),,CharacterJoinPrivateRoom(),CanJoinPrivateRoom()
 100,,,(You get close to her.)  How can this slave pleasure you?,,
 100,,(Tickle her.),(She laughs and rocks her hips as you tickle her without mercy.),RecruitBoost(),Player.CanInteract()
 100,,(Caress her.),(She moans very silently as you caress her softly.),RecruitBoost(),Player.CanInteract()

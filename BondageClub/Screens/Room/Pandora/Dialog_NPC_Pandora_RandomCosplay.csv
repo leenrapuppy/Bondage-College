@@ -15,20 +15,32 @@ PlayerGagged,,,(She looks at your gag and makes a thumbs up.),,
 0,,Can I tie you up?,"(She giggles.)  Sorry, I have a cosplay club meeting soon.",DialogRemove(),"CostumeIs(""Random"")"
 0,100,Can you help me?,"Maybe, what are you looking for?",,
 0,,I'll go get you a free drink.,(You go get her a free drink and she smiles.)  Rawr!  You're a wonderful maid.,,"CostumeIs(""Maid"")"
-0,200,Are you enjoying Pandora's Box?,The Box is a nice place.  But what I really like is the cosplay club.,,
+0,200,Are you enjoying Pandora's Box?,The Box is a nice place.  But what I really like is the cosplay club.,StartRecruit(),CanStartRecruit()
 0,300,Can I cosplay with you?,Rawr!  I can't refuse a cosplay offer.  Strip down and I'll dress you to cosplay.,,
 0,,I must go.  (Leave her.),,CharacterAllowMove(),
-100,0,I'm looking for a girl.,(You give some details on the girl you need to rescue and she shrugs.)  I can't help you there.,,"MissionIs(""Rescue"")"
-100,0,I'm looking for a girl.,(You give some details on the girl you need to kidnap and she shrugs.)  I can't help you there.,,"MissionIs(""Kidnap"")"
-100,0,I'm looking for an object.,(You give some details on the object you need to retrieve and she shrugs.)  I can't help you there.,,"MissionIs(""Retrieve"")"
+100,0,I'm looking for a girl.,"(You give some details on the girl you need to rescue, and she shrugs.)  I can't help you there.",,"MissionIs(""Rescue"")"
+100,0,I'm looking for a girl.,"(You give some details on the girl you need to kidnap, and she shrugs.)  I can't help you there.",,"MissionIs(""Kidnap"")"
+100,0,I'm looking for an object.,"(You give some details on the object you need to retrieve, and she shrugs.)  I can't help you there.",,"MissionIs(""Retrieve"")"
 100,110,I'm looking for paint cans.,You found the right girl!  We have lots of paint at the cosplay club.,,"MissionIs(""ReverseMaid"")"
 100,0,Forget it.,Alright then.  Anything else?,,
 110,120,Can I have some?,You certainly can!  (She runs to her club and returns with many paint cans.),,
 110,0,Forget it.,Alright then.  Anything else?,,
 120,0,Thanks!  (Take the cans.),"Rawr!  Use it well, have fun!  Anything else?",GetPaint(),
 200,0,You do have a great cosplay club.,Rawr!  Well said.  Anything else?,,
-200,,I know the best place for cosplay.,TO DO,,
+200,210,I know the best place for cosplay.,Oh really?  Where do you go for cosplay?,,
 200,0,"The Box isn't nice, it's great!",(She giggles and nods.),,
+210,0,We can wait until Halloween.,(She laughs at you.)  No way!  Rawr!  I do cosplay all year long.,,
+210,0,I think they have costumes at the supermarket.,(She shakes her head no.)  That's not good enough for me.,,
+210,220,Have you heard of the Bondage Club?,I've heard a little about it.  It's a good place to cosplay?,,
+210,0,I don't know.,(She shakes her head no.)  Anything else?,,
+220,230,The have the best cosplayers in town.,This is tempting!  Maybe I should go there someday.,,
+220,0,Maybe the Box is better.,"(She shrugs.)  Yeah, probably.",,
+220,0,I don't know.,(She shakes her head no.)  Anything else?,,
+230,0,"Yeah, go visit later.",(She nods.)  Anything else?,,
+230,240,Would you like to go now?,(She thinks for a few seconds.)  Deal!  I'll skip the meeting and go right now.  (Your infiltration skill has increased.),InfiltrationChange(25),CanRecruit()
+230,0,Would you like to go now?,I cannot do it now.  I have a meeting with the cosplay club.  Maybe another day.,,!CanRecruit()
+240,0,(Let her go to the Bondage Club.),,RemoveCurrentCharacter(),
+240,0,(Give her a key to your private room.),,CharacterJoinPrivateRoom(),CanJoinPrivateRoom()
 300,310,(Dress to cosplay.),(She dresses you to cosplay and giggles.)  Rawr!  You're looking great sis.,"PlayerClothes(""Cosplay"")",
 300,0,Forget it.,Alright then.  Anything else?,,
 310,0,Thanks sis!,(She makes a thumbs up.)  Anything else I can do?,,

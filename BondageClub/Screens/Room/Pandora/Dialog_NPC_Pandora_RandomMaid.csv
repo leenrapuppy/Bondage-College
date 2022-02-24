@@ -40,6 +40,7 @@ RemoveItemBreast,,,(She wiggles her breast slowly as you remove the device.)  Th
 ItemNipples,,,(She whimpers as you use the device on her breast.)  Ow!  Was this in my maid contract?,,
 RemoveItemNipples,,,(She takes a deep breath and stays silent as you remove the device.),,
 0,,,"Hi sister, I hope you're doing well.",,"CostumeIs(""Maid"")"
+0,,,I like your costume Miss.  (She does a maid curtsy.)  Would you like something to drink?,,"CostumeIs(""Cosplay"")"
 0,,,Hello Miss guard.  (She does a maid curtsy.)  Do you need a refreshing drink for your hard work?,,"CostumeIs(""Guard"")"
 0,,,It's a pleasure to see you Dominatrix.  (She does a maid curtsy.)  Would you like a refreshing drink?,,"CostumeIs(""Mistress"")"
 0,,,(She ponders.)  Miss?  You know you look a little like the infamous DialogPlayerName?,,"DialogSkillGreater(""Infiltration"", 9)"
@@ -78,7 +79,7 @@ RemoveItemNipples,,,(She takes a deep breath and stays silent as you remove the 
 70,0,I don't know.,"I can't risk losing my job here, I need the money.  Let's talk about something else.",,
 70,0,Not right now.,"I can't risk losing my job here, I need the money.  Let's talk about something else.",,
 80,,(Let her go to the Bondage Club.),,RemoveCurrentCharacter(),
-90,,(Let her go to your private room.),,CharacterJoinPrivateRoom(),
+90,,(Let her go to your private room.),,CharacterJoinPrivateRoom(),CanJoinPrivateRoom()
 100,,,You think you're smart?  You will never get away.,,
 100,,"Maid, go get me a drink.",(She grumbles.)  You think you're funny?  You won't have much to drink when you rot in a cell.,DialogRemove(),
 100,,(Bring her with you.),Hey!  I have a job to do!  (She will follow you from room to room.),CharacterJoin(),CharacterCanJoin()

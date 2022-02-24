@@ -41,6 +41,7 @@ ItemNipples,,,(She whimpers as you use the device on her breast.)  Another viola
 RemoveItemNipples,,,(She takes a deep breath and stays silent as you remove the device.),,
 0,,,(A guard bows her head to you.)  It's an honor to protect and serve you Miss.,,"CostumeIs(""Mistress"")"
 0,,,(A guard salutes you.)  The Box isn't going to clean itself little maid.  Do you have anything to report?,,"CostumeIs(""Maid"")"
+0,,,(A guard greets you.)  Hello cosplayer.  I hope you're not causing any trouble.,,"CostumeIs(""Cosplay"")"
 0,,,(A guard gives you a friendly handshake.)  I hope your patrol is going well.  Do you have anything to report?,,"CostumeIs(""Guard"")"
 0,,,"(A guard is staring at you.)  Hey there, you're a good girl?  I hope you're not causing any trouble.",,
 0,,Who are you?,I'm guard DialogCharacterName.  I serve and protect Pandora's Box.,DialogRemove(),"CostumeIs(""Random"")"
@@ -49,6 +50,12 @@ RemoveItemNipples,,,(She takes a deep breath and stays silent as you remove the 
 0,10,I don't cause trouble.,"Let's do a quick quiz, we'll see if you're a troublemaker or not.",,"CostumeIs(""Random"")"
 0,Arrest,I'm bad to the bone.,Is that so?  Then you're under arrest!  Surrender right now.,,"CostumeIs(""Random"")"
 0,,(Look around.),,DialogLeave(),"CostumeIs(""Random"")"
+0,,Who are you?,I'm guard DialogCharacterName.  I serve and protect Pandora's Box.,DialogRemove(),"CostumeIs(""Cosplay"")"
+0,,Am I under arrest?,Not yet little cosplay girl.  Is there any reason I should arrest you?,DialogRemove(),"CostumeIs(""Cosplay"")"
+0,10,I'm a good cosplay girl.,Let's do a quick quiz then.  We'll see if you're a good girl or not.,,"CostumeIs(""Cosplay"")"
+0,10,I don't cause trouble.,"Let's do a quick quiz, we'll see if you're a troublemaker or not.",,"CostumeIs(""Cosplay"")"
+0,Arrest,I'm bad to the bone.,Is that so?  Then you're under arrest!  Surrender right now cosplay girl.,,"CostumeIs(""Cosplay"")"
+0,,(Look around.),,DialogLeave(),"CostumeIs(""Cosplay"")"
 0,Guard0,There's nothing to report.,That's perfect.  (She starts to inspect you.)  How come I've never seen you before?  Are you new?,CharacterGenerateRandomOdds(),"CostumeIs(""Guard"")"
 0,Guard0,Everything is under control.,Control is the name of the game.  (She looks at you.)  Did you miss the morning meeting?  Or are you new?,CharacterGenerateRandomOdds(),"CostumeIs(""Guard"")"
 0,Guard10,A spy is among us.,A spy!   (She gets nervous.)  Who is she?  Do you have a description?,CharacterGenerateRandomOdds(),"CostumeIs(""Guard"")"

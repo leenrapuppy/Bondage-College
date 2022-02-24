@@ -11,7 +11,7 @@ var PandoraModeAppearance = null;
 var PandoraMessage = null;
 var PandoraParty = [];
 var PandoraFightCharacter = null;
-var PandoraRandomNPCList = ["MemberNew", "MemberOld", "Cosplayer", "Mistress", "Slave", "Maid", "Guard"];
+var PandoraRandomNPCList = ["MemberNew", "MemberOld", "Cosplay", "Mistress", "Slave", "Maid", "Guard"];
 var PandoraMoveDirectionTimer = { Direction: "", Timer: 0 };
 var PandoraTargetRoom = null;
 var PandoraClothes = "Random";
@@ -357,15 +357,22 @@ function PandoraDress(C, Type) {
 		return;
 	}
 
-	// The cosplayers wear random cosplay items
+	// Cosplay wear random costumes
 	if (Type == "Cosplay") {
 		CharacterNaked(C);
 		InventoryWearRandom(C, "Bra");
 		InventoryWearRandom(C, "Panties");
-		InventoryWearRandom(C, "Wings");
-		InventoryWearRandom(C, "HairAccessory1");
-		InventoryWearRandom(C, "TailStraps");
+		if (Math.random() > 0.33) InventoryWearRandom(C, "Wings");
+		if (Math.random() > 0.33) InventoryWearRandom(C, "HairAccessory1");
+		if (Math.random() > 0.33) InventoryWearRandom(C, "TailStraps");
+		if (Math.random() > 0.5) InventoryWearRandom(C, "Ears");
+		if (Math.random() > 0.5) InventoryWearRandom(C, "Corset");
 		if (Math.random() > 0.5) InventoryWearRandom(C, "Mask");
+		if (Math.random() > 0.666) InventoryWearRandom(C, "Garters");
+		if (Math.random() > 0.666) InventoryWearRandom(C, "Socks");
+		if (Math.random() > 0.666) InventoryWearRandom(C, "Gloves");
+		if (Math.random() > 0.666) InventoryWearRandom(C, "Bracelet");
+		return;
 	}
 
 	// Since no defined type is found, we fully randomize the clothes and appearance

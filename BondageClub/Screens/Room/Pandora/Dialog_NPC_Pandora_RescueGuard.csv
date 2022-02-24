@@ -40,6 +40,7 @@ RemoveItemBreast,,,(She wiggles her breast slowly as you remove the device.)  En
 ItemNipples,,,(She whimpers as you use the device on her breast.)  Another violation to add to the list.,,
 RemoveItemNipples,,,(She takes a deep breath and stays silent as you remove the device.),,
 0,,,"Get lost maid.  I'm on duty, I don't need anything.",,"CostumeIs(""Maid"")"
+0,,,"Get lost costume girl.  I'm on duty, I don't have time to talk.",,"CostumeIs(""Cosplay"")"
 0,,,Hello there fellow guard.  I hope the Box is safe today.,,"CostumeIs(""Guard"")"
 0,,,Greetings Miss Dominatrix.  I hope you're doing well.,,"CostumeIs(""Mistress"")"
 0,,,Damn it!  It's really you DialogPlayerName?  You came to rescue her?,,"DialogSkillGreater(""Infiltration"", 9)"
@@ -49,10 +50,12 @@ RemoveItemNipples,,,(She takes a deep breath and stays silent as you remove the 
 0,,Who are you?,"Look maid, I don't have time to chit-chat.  Shouldn't you be working?",,"CostumeIs(""Maid"")"
 0,,Who are you?,"I'm guard DialogCharacterName.  I don't think I've seen you at the guard meetings, but I do skip some of them.  (She winks at you.)",,"CostumeIs(""Guard"")"
 0,,Who are you?,I'm guard DialogCharacterName.  It's an honor to protect a Dominatrix like you.,,"CostumeIs(""Mistress"")"
+0,,Who are you?,"I don't have time to chat, I'm working.",DialogRemove(),"CostumeIs(""Cosplay"")"
 0,,Who are you?,"I don't have time to chat, I'm working.",DialogRemove(),"CostumeIs(""Random"")"
 0,,What are you doing?,"I'm guarding a prisoner, so you're not cleaning around here little maid.",,"CostumeIs(""Maid"")"
 0,,What are you doing?,"I'm guarding a prisoner.  That shift is taking forever, I need a break.",,"CostumeIs(""Guard"")"
 0,,What are you doing?,"I'm guarding a prisoner Miss.  Trust me, she won't escape.",,"CostumeIs(""Mistress"")"
+0,,What are you doing?,"I'm guarding a prisoner, get lost or I'll have to kick your butt.",,"CostumeIs(""Cosplay"")"
 0,,What are you doing?,"I'm guarding a prisoner, get lost or I'll have to kick your butt.",,"CostumeIs(""Random"")"
 0,20,Your shift is done.  I'm taking over.,(She seems confused.)  You're way too early for the next shift.,CharacterGenerateRandomOdds(),"CostumeIs(""Guard"")"
 0,30,The prisoner is getting released.,(She seems surprised.)  Already Miss?  I thought we were keeping her for much longer.,CharacterGenerateRandomOdds(),"CostumeIs(""Mistress"")"

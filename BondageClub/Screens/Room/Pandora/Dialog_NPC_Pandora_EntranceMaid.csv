@@ -38,6 +38,7 @@ Punishment0,,,(A Dominatrix takes you away from the maid.)  (She stares at you.)
 80,,Can anyone join?,"Yes, anyone that's open minded can enter.  Don't cause any trouble or you'll get punished.",DialogRemove(),
 80,90,Can I visit?,Absolutely.  Do you need help on how to explore Pandora's Box or you're fine on your own?,,
 90,,,Hi sister!  How can I help you?,,"CostumeIs(""Maid"")"
+90,,,Hello cosplayer.  (She does a maid curtsy.)  Is there anything I can do for you?,,"CostumeIs(""Cosplay"")"
 90,,,Hello Miss Guard.  (She does a maid curtsy.)  Is there anything I can do for you?,,"CostumeIs(""Guard"")"
 90,,,It's an honor to speak with you Miss Dominatrix.  (She does a maid curtsy.)  How can I serve you?,,"CostumeIs(""Mistress"")"
 90,,,(She does a maid curtsy.)  Is there anything else you'd like to know Miss?,,"CostumeIs(""Random"")"
