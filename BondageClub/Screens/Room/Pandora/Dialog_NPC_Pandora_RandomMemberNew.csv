@@ -3,6 +3,7 @@ PlayerGagged,,,(She looks at your gag and giggle.)  This place is so kinky.,,
 0,,,"Hello maid, can I have a drink?",,"CostumeIs(""Maid"")"
 0,,,Hi Miss.  Everyone is protected today?,,"CostumeIs(""Guard"")"
 0,,,(She seems impressed by you.)  Wow!  You're a real Dominatrix?  It's a pleasure to meet you.,,"CostumeIs(""Mistress"")"
+0,,,Hello cosplayer.  Congrats on your costume.,,"CostumeIs(""Cosplay"")"
 0,,,"Hello there, I'm a new Pandora's Box member.",,
 0,,You're cute naked.,(She blushes.)  Was that a trick?  Maybe selling my clothes wasn't a great deal.,DialogRemove(),CurrentCharacter.IsNaked()
 0,,Who are you?,I'm DialogCharacterName.  I'm a new member.  Can you show me around?,DialogRemove(),!CurrentCharacter.IsNaked()

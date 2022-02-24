@@ -147,6 +147,7 @@ function InfiltrationStartMission() {
 	PandoraTimer = CommonTime() + 3600000;
 	PandoraChestCount = 0;
 	PandoraMoney = 0;
+	PandoraPaint = false;
 	DialogLeave();
 	CommonSetScreen("Room", "Pandora");
 	PandoraBuildMainHall();

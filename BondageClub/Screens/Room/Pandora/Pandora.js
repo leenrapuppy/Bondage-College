@@ -11,7 +11,7 @@ var PandoraModeAppearance = null;
 var PandoraMessage = null;
 var PandoraParty = [];
 var PandoraFightCharacter = null;
-var PandoraRandomNPCList = ["MemberNew", "MemberOld", "Mistress", "Slave", "Maid", "Guard"];
+var PandoraRandomNPCList = ["MemberNew", "MemberOld", "Cosplayer", "Mistress", "Slave", "Maid", "Guard"];
 var PandoraMoveDirectionTimer = { Direction: "", Timer: 0 };
 var PandoraTargetRoom = null;
 var PandoraClothes = "Random";
@@ -20,6 +20,7 @@ var PandoraMaxWillpower = 20;
 var PandoraMoney = 0;
 var PandoraTimer = 0;
 var PandoraChestCount = 0;
+var PandoraPaint = false;
 
 /**
  * NPC Dialog functions
@@ -354,6 +355,17 @@ function PandoraDress(C, Type) {
 		InventoryWear(C, "MistressBottom", "ClothLower", "#FFD700");
 		CharacterRefresh(C, false);
 		return;
+	}
+
+	// The cosplayers wear random cosplay items
+	if (Type == "Cosplay") {
+		CharacterNaked(C);
+		InventoryWearRandom(C, "Bra");
+		InventoryWearRandom(C, "Panties");
+		InventoryWearRandom(C, "Wings");
+		InventoryWearRandom(C, "HairAccessory1");
+		InventoryWearRandom(C, "TailStraps");
+		if (Math.random() > 0.5) InventoryWearRandom(C, "Mask");
 	}
 
 	// Since no defined type is found, we fully randomize the clothes and appearance
@@ -1062,4 +1074,12 @@ function PandoraChestLoot() {
 	PandoraMoney = PandoraMoney + Math.floor((5 + Math.random() * 5) * (InfiltrationDifficulty + 2) * 0.5);
 	PandoraChestCount--;
 	PandoraCurrentRoom.Character.splice(0, 1);
+}
+
+/**
+ * When the player gets the paint cans from a cosplay girl
+ * @returns {void} - Nothing
+ */
+function PandoraGetPaint() {
+	PandoraPaint = true;
 }
