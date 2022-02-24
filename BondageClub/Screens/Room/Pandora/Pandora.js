@@ -70,9 +70,12 @@ function PandoraDirectionAvailable(Direction) {
  * @returns {boolean} - Whether the direction can be accessed
  */
 function PandoraCatBurglarData(Y) {
-	if (InfiltrationMission != "CatBurglar") return;
-	DrawText("$" + PandoraMoney.toString(), 1887, Y, "White", "Black");
-	DrawText(TimerToString(PandoraTimer - CommonTime()), 1887, Y + 55, "White", "Black");
+	if (InfiltrationMission != "CatBurglar") {
+		DrawText("$" + PandoraMoney.toString() + (InfiltrationPerksActive("Detector") ? " (" + PandoraChestCount.toString() + ")" : ""), 1887, Y + 55, "White", "Black");
+	} else {
+		DrawText("$" + PandoraMoney.toString() + (InfiltrationPerksActive("Detector") ? " (" + PandoraChestCount.toString() + ")" : ""), 1887, Y, "White", "Black");
+		DrawText(TimerToString(PandoraTimer - CommonTime()), 1887, Y + 55, "White", "Black");
+	}
 }
 
 /**
@@ -455,8 +458,11 @@ function PandoraEnterRoom(Room, Direction) {
  */
 function PandoraCreateChest(Room) {
 	if (Room.Background.indexOf("Cell") != 0) return;
-	if ((PandoraChestCount > 0) && (Math.random() > ((InfiltrationMission == "CatBurglar") ? 0.35 : 0.05))) return;
-	if ((PandoraChestCount == 0) && (Math.random() > ((InfiltrationMission == "CatBurglar") ? 0.75 : 0.1))) return;
+	if ((PandoraChestCount == 0) && (Math.random() > ((InfiltrationMission == "CatBurglar") ? 0.50 : 0.1))) return;
+	if ((PandoraChestCount >= 1) && (PandoraChestCount <= 3) && (Math.random() > ((InfiltrationMission == "CatBurglar") ? 0.33 : 0.05))) return;
+	if ((PandoraChestCount >= 4) && (PandoraChestCount <= 6) && (Math.random() > ((InfiltrationMission == "CatBurglar") ? 0.20 : 0.03))) return;
+	if ((PandoraChestCount >= 7) && (PandoraChestCount <= 10) && (Math.random() > ((InfiltrationMission == "CatBurglar") ? 0.13 : 0.02))) return;
+	if ((PandoraChestCount >= 11) && (Math.random() > ((InfiltrationMission == "CatBurglar") ? 0.05 : 0.01))) return;
 	PandoraChestCount++;
 	let Char = PandoraGenerateNPC("Treasure", "Chest", TextGet("Chest"), false);
 	Char.Type = "Chest";
@@ -609,12 +615,15 @@ function PandoraBuildMainHall() {
 	// Generates the floors and sets the starting room, there's a min-max number of rooms based on difficulty
 	let MinRoom = 25;
 	let MaxRoom = 39;
+	let MinChest = 0;
+	if (InfiltrationMission == "CatBurglar") MinChest = InfiltrationDifficulty + 2;
 	if (InfiltrationDifficulty == 1) { MinRoom = 35; MaxRoom = 59; }
 	if (InfiltrationDifficulty == 2) { MinRoom = 50; MaxRoom = 79; }
 	if (InfiltrationDifficulty == 3) { MinRoom = 70; MaxRoom = 109; }
 	if (InfiltrationDifficulty == 4) { MinRoom = 100; MaxRoom = 149; }
 	PandoraRoom = [];
-	while ((PandoraRoom.length < MinRoom) || (PandoraRoom.length > MaxRoom)) {
+	while ((PandoraRoom.length < MinRoom) || (PandoraRoom.length > MaxRoom) || (PandoraChestCount < MinChest)) {
+		PandoraChestCount = 0;
 		PandoraRoom = [];
 		Room.Path = [];
 		Room.Path.push(ExitRoom);
@@ -1020,4 +1029,37 @@ function PandoraBuyRandomClothes() {
 	CharacterTransferItem(CurrentCharacter, Player, "Shoes");
 	CharacterNaked(CurrentCharacter);
 	PandoraClothes = "Random";
+}
+
+/**
+ * Starts the chest lockpicking mini-game
+ * @returns {void} - Nothing
+ */
+function PandoraChestLockpickStart() {
+	ChestLockpickChestImage = ((CurrentCharacter == null) || (CurrentCharacter.FixedImage == null)) ? "Screens/Room/Pandora/Chest" + Math.floor(Math.random() * 3).toString() + ".png" : CurrentCharacter.FixedImage;
+	ChestLockpickBackground = PandoraBackground;
+	DialogLeave();
+	MiniGameStart("ChestLockpick", InfiltrationDifficulty, "PandoraChestLockEnd");
+}
+
+/**
+ * When the picklock mini-game ends, adds 30 seconds to the timer
+ * @returns {void} - Nothing
+ */
+function PandoraChestLockEnd() {
+	PandoraTimer = PandoraTimer - 30000;
+	PandoraCurrentRoom.Character[0].Stage = (MiniGameVictory) ? "100" : "0";
+	CharacterSetCurrent(PandoraCurrentRoom.Character[0]);
+	CommonSetScreen("Room", "Pandora");
+}
+
+/**
+ * When the player loots the chest, we add some money and the chest disappear
+ * @returns {void} - Nothing
+ */
+function PandoraChestLoot() {
+	DialogLeave();
+	PandoraMoney = PandoraMoney + Math.floor((5 + Math.random() * 5) * (InfiltrationDifficulty + 2) * 0.5);
+	PandoraChestCount--;
+	PandoraCurrentRoom.Character.splice(0, 1);
 }

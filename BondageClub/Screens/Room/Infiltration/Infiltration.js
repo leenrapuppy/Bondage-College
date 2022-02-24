@@ -40,6 +40,12 @@ function InfiltrationCanGetPandoraLock() { return (DialogSkillGreater("Infiltrat
 function InfiltrationCanAskForPandoraLock() { return ((InfiltrationMission == "Retrieve") && (InfiltrationTarget.Type == "PandoraPadlockKeys")); }
 
 /**
+ * Returns TRUE if the player can turn in the cat burglar mission
+ * @returns {boolean} - TRUE if possible
+ */
+function InfiltrationCatBurglarHasMoney() { return (PandoraMoney > 0); }
+
+/**
  * Loads the infiltration screen by generating the supervisor.
  * @returns {void} - Nothing
  */
@@ -114,7 +120,7 @@ function InfiltrationSelectChallenge(Difficulty) {
  */
 function InfiltrationPrepareMission() {
 	InfiltrationMission = CommonRandomItemFromList(InfiltrationMission, InfiltrationMissionType);
-	InfiltrationMission = "CatBurglar"; // DEBUG
+	//InfiltrationMission = "CatBurglar"; // DEBUG
 	if ((InfiltrationMission == "Rescue") || (InfiltrationMission == "Kidnap")) {
 		let C = {};
 		CharacterRandomName(C);
@@ -165,7 +171,8 @@ function InfiltrationCompleteMission() {
 	if (InfiltrationDifficulty == 2) SkillProgress("Infiltration", 350);
 	if (InfiltrationDifficulty == 3) SkillProgress("Infiltration", 600);
 	if (InfiltrationDifficulty == 4) SkillProgress("Infiltration", 1000);
-	let Money = 12 + (InfiltrationDifficulty * 6);
+	let Money = (InfiltrationMission != "CatBurglar") ? 12 + (InfiltrationDifficulty * 6) : 0;
+	Money = Money + Math.round(PandoraMoney / 2);
 	if (InfiltrationPerksActive("Negotiation")) Money = Math.round(Money * 1.2);
 	CharacterChangeMoney(Player, Money);
 	if ((InfiltrationMission == "Rescue") && (InfiltrationTarget.Type == "NPC") && InfiltrationTarget.PrivateRoom) {

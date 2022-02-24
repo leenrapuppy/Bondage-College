@@ -1,4 +1,7 @@
 PlayerGagged,,,(This huge chest is locked.),
 0,,,(This huge chest is locked.),
-0,,(Try to picklock it.),TO DO,
+0,,(Try to picklock it.),,ChestLockpickStart()
 0,,(Leave it.),,DialogLeave()
+100,,,(The chest is unlocked.),
+100,,(Loot it.),,ChestLoot()
+100,,(Leave it.),,DialogLeave()

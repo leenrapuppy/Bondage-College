@@ -72,8 +72,14 @@ CatBurglar,,What should I look for?,Find the locked chests and picklock them.  O
 CatBurglar,,How much time do I have?,Around one hour.  Don't stay beyond that time or you'll get caught.,,
 CatBurglar,,Do I keep the goods?,"No, you bring it back here and we'll pay you for half the value of what you found.",,
 CatBurglar,,Is that legal?,Everything is legal if you don't caught comrade.  (She winks at you.),,
-CatBurglar,Start,I'm ready.  What's my disguise?,(She produces a sexy cat burglar outfit for you.)  Perfect!  You're ready for your mission!,CatBurglarClothes(),
+CatBurglar,CatBurglarStart,I'm ready.  What's my disguise?,(She produces a sexy cat burglar outfit for you.)  Perfect!  You're ready for your mission!,CatBurglarClothes(),
 CatBurglar,0,I've changed my mind.,I'm sorry to hear that.  Come another time then.,,
+CatBurglarStart,CatBurglarEnd,(Go to Pandora's Box.),,StartMission(),
+CatBurglarEnd,,,Welcome back comrade.  Have you recovered our stolen goods?,,
+CatBurglarEnd,Success,The mission was a success.,Congratulation comrade DialogPlayerName!  Your salary will be half of what you recovered.,CompleteMission(),CatBurglarHasMoney()
+CatBurglarEnd,,I'm going back right now.,,ReturnMission(),CanGoBack()
+CatBurglarEnd,0,"Sorry, I've failed.","Don't be ashamed, I'm sure you've tried your best.  We'll send someone else.  You can pick another mission if you want.","DialogChangeReputation(""Dominant"", -1)",
+CatBurglarEnd,,Give me a minute.  (Leave her.),,DialogLeave(),
 Disguise,Ready,Yes!  Dress me up!,"(She smiles and picks random clothes for you, to help you blend into Pandora's Box.)  Perfect!  Are you ready for your mission?",RandomClothes(),
 Disguise,Ready,Is it really needed?,"(She grumbles and picks random clothes for you, to help you blend into Pandora's Box.)  Alright!  Are you ready for your mission?",RandomClothes(),
 Disguise,Ready,(Disguise yourself.),(You pick some random clothes to blend easier into Pandora's Box.)  Very good!  Are you ready for your mission?,RandomClothes(),
