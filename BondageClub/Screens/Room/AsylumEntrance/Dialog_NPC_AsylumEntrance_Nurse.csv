@@ -35,7 +35,7 @@ ClubSlave,,(Leave her.),,DialogLeave(),
 21,0,I accept to be locked down.,"(She grins.)  Perfect!  But you need to get out of these restraints first.  Go get a maid to help you, I'm busy.",,Player.IsRestrained()
 21,0,Let me think about it.,Of course.  Do you need anything else?,,
 22,23,I'm already dressed like that.,(She nods.) For how long you wish to commit yourself?,,IsWearingPatientClothes()
-22,23,Can you help me to change?,I certainly can.  (She helps you to get dressed as a patient.)  For how long you wish to commit yourself?,"WearPatientClothes(""Player"")",!IsWearingPatientClothes()
+22,23,Can you help me to change?,I certainly can.  (She helps you to get dressed as a patient.)  For how long you wish to commit yourself?,"PlayerWearPatientClothes()",!IsWearingPatientClothes()
 23,24,15 minutes.,"You're taking it easy, don't you?  Very well, step inside.  (She locks the door behind you.)","CommitPatient(900000, 1)",
 23,24,1 hour.,"It should give you some time to relax.  Very well, step inside.  (She locks the door behind you.)","CommitPatient(3600000, 3)",
 23,24,4 hours.,"It should give you plenty of time to relax.  Very well, step inside.  (She locks the door behind you.)","CommitPatient(14400000, 6)",

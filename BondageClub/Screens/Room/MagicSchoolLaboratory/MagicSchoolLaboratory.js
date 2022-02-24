@@ -486,16 +486,16 @@ function MagicSchoolLaboratoryLoserSpell(RepChange) {
 	if (Spell == "Hogtie") InventoryGet(Player, "ItemArms").Property = { Type: "Hogtied", SetPose: ["Hogtied"], Difficulty: 5, Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], Effect: ["Block", "Freeze", "Prone"] };
 	if (Spell == "ReleaseHogtie") InventoryGet(Player, "ItemArms").Property = { Type: null };
 	if (Spell == "SwitchRope") {
-		if (InventoryGet(Player, "ItemLegs") != "") InventoryWear(Player, "HempRope", "ItemLegs");
-		if (InventoryGet(Player, "ItemFeet") != "") InventoryWear(Player, "HempRope", "ItemFeet");
-		if (InventoryGet(Player, "ItemTorso") != "") InventoryWear(Player, "HempRopeHarness", "ItemTorso");
-		if (InventoryGet(Player, "ItemArms") != "") InventoryWear(Player, "HempRope", "ItemArms");
+		if (InventoryGet(Player, "ItemLegs") != null) InventoryWear(Player, "HempRope", "ItemLegs");
+		if (InventoryGet(Player, "ItemFeet") != null) InventoryWear(Player, "HempRope", "ItemFeet");
+		if (InventoryGet(Player, "ItemTorso") != null) InventoryWear(Player, "HempRopeHarness", "ItemTorso");
+		if (InventoryGet(Player, "ItemArms") != null) InventoryWear(Player, "HempRope", "ItemArms");
 	}
 	if (Spell == "SwitchChain") {
-		if (InventoryGet(Player, "ItemLegs") != "") InventoryWear(Player, "Chains", "ItemLegs");
-		if (InventoryGet(Player, "ItemFeet") != "") InventoryWear(Player, "Chains", "ItemFeet");
-		if (InventoryGet(Player, "ItemTorso") != "") InventoryWear(Player, "CrotchChain", "ItemTorso");
-		if (InventoryGet(Player, "ItemArms") != "") InventoryWear(Player, "Chains", "ItemArms");
+		if (InventoryGet(Player, "ItemLegs") != null) InventoryWear(Player, "Chains", "ItemLegs");
+		if (InventoryGet(Player, "ItemFeet") != null) InventoryWear(Player, "Chains", "ItemFeet");
+		if (InventoryGet(Player, "ItemTorso") != null) InventoryWear(Player, "CrotchChain", "ItemTorso");
+		if (InventoryGet(Player, "ItemArms") != null) InventoryWear(Player, "Chains", "ItemArms");
 	}
 	if ((Spell == "FlyingHogtie") || (Spell == "Hogtie") || (Spell == "ReleaseHogtie") || (Spell == "SwitchRope") || (Spell == "SwitchChain")) CharacterRefresh(Player);
 

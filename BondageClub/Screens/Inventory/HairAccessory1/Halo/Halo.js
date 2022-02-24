@@ -19,6 +19,7 @@ const InventoryHairAccessory1HaloOptions = [
 function InventoryHairAccessory1HaloLoad() {
 	const C = CharacterAppearanceSelection;
 	const item = DialogFocusItem;
+	/** @type {ItemProperties} */
 	const property = item.Property = item.Property || {};
 	let refresh = false;
 	if (typeof property.Opacity !== "number") {

@@ -101,9 +101,9 @@ function InventoryItemPelvisFuturisticTrainingBeltLoad() {
 
 
 		const input = ElementCreateInput("PunishRequiredSpeechWord", "text", "", "70");
-		if (input) input.placeholder = DialogFocusItem.Property.PunishRequiredSpeechWord;
+		if (input) input.setAttribute("placeholder", DialogFocusItem.Property.PunishRequiredSpeechWord);
 		const input2 = ElementCreateInput("PunishProhibitedSpeechWords", "text", "", "70");
-		if (input2) input2.placeholder = DialogFocusItem.Property.PunishProhibitedSpeechWords;
+		if (input2) input2.setAttribute("placeholder", DialogFocusItem.Property.PunishProhibitedSpeechWords);
 	}
 
 
@@ -531,10 +531,10 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptUpdatePlayer(data, LastTime
 }
 
 function AssetsItemPelvisFuturisticTrainingBeltScriptStateMachine(data) {
-	
+
 	// GGTS level 4 or more can short-cut the state machine
 	if ((CurrentModule == "Online") && (CurrentScreen == "ChatRoom") && (ChatRoomGame == "GGTS") && (ChatRoomSpace === "Asylum") && (AsylumGGTSGetLevel(Player) >= 4)) return;
-	
+
 	// We have a state machine
 	var update = false;
 	var Item = data.Item;
@@ -702,6 +702,7 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptStateMachine(data) {
 // Update data
 function AssetsItemPelvisFuturisticTrainingBeltScriptDraw(data) {
 	var persistentData = data.PersistentData();
+	/** @type {ItemProperties} */
 	var property = (data.Item.Property = data.Item.Property || {});
 	if (typeof persistentData.UpdateTime !== "number") persistentData.UpdateTime = CommonTime() + 4000;
 	if (typeof persistentData.LastMessageLen !== "number") persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;

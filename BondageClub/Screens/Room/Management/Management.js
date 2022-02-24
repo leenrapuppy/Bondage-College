@@ -269,12 +269,12 @@ function ManagementMistressCannotBePaid() { return (LogQuery("ClubMistress", "Ma
  * Checks if the player can be a club slave.
  * @returns {boolean} - TRUE if the player is not wearing an owner/lover only restraint and is not too dominant.
  */
-function ManagementCanBeClubSlave() { return (!InventoryCharacterHasOwnerOnlyRestraint(Player) && !InventoryCharacterHasLoverOnlyRestraint(Player) && DialogReputationLess("Dominant", -50)); }
+function ManagementCanBeClubSlave() { return (!InventoryCharacterHasOwnerOnlyRestraint(Player) && !InventoryCharacterHasLoverOnlyRestraint(Player) && ReputationGet("Dominant") < -50); }
 /**
  * Checks if the player cannot be a club slave due to her dominant reputation.
  * @returns {boolean} - TRUE if the player is not wearing an owner/lover only restraint, but is too dominant.
  */
-function ManagementCannotBeClubSlaveDominant() { return (!InventoryCharacterHasOwnerOnlyRestraint(Player) && !InventoryCharacterHasLoverOnlyRestraint(Player) && DialogReputationGreater("Dominant", -49)); }
+function ManagementCannotBeClubSlaveDominant() { return (!InventoryCharacterHasOwnerOnlyRestraint(Player) && !InventoryCharacterHasLoverOnlyRestraint(Player) && ReputationGet("Dominant") >= -50); }
 /**
  * Checks if the player cannot be a club slave due to her currently worn owner-only restraint(s).
  * @returns {boolean} - TRUE if the player is wearing an owner-only restraint.
@@ -299,12 +299,12 @@ function ManagementCanMasturbate() { return (Player.CanInteract() && !CurrentCha
  * Checks if the player can play with the management submissive NPC.
  * @returns {boolean} - TRUE if the player's dominant reputation is below 23 and the player is not wearing a locked restraint.
  */
-function ManagementCanPlayWithSub() { return (DialogReputationLess("Dominant", 24) && !InventoryCharacterHasLockedRestraint(Player)); }
+function ManagementCanPlayWithSub() { return (ReputationGet("Dominant") < 24 && !InventoryCharacterHasLockedRestraint(Player)); }
 /**
  * Checks if the player cannot play with the management submissive NPC due to a locked restraint.
  * @returns {boolean} - TRUE if the player's dominant reputation is below 23, but the player is wearing a locked restraint.
  */
-function ManagementCannotPlayWithSubLock() { return (DialogReputationLess("Dominant", 24) && InventoryCharacterHasLockedRestraint(Player)); }
+function ManagementCannotPlayWithSubLock() { return (ReputationGet("Dominant") < 24 && InventoryCharacterHasLockedRestraint(Player)); }
 
 /**
  * Checks if there is no mistress in the player's private room.
@@ -343,7 +343,7 @@ function ManagementLoad() {
 		ManagementSub = CharacterLoadNPC("NPC_Management_Sub");
 		CharacterNaked(ManagementSub);
 		InventoryWear(ManagementSub, "SlaveCollar", "ItemNeck");
-		CharacterFullRandomRestrain(ManagementSub, "Lot");
+		CharacterFullRandomRestrain(ManagementSub, "LOT");
 		InventoryWear(ManagementSub, "Ears" + (Math.floor(Math.random() * 2) + 1).toString(), "HairAccessory1", "#BBBBBB");
 		InventoryWear(ManagementSub, "TailButtPlug", "ItemButt");
 		InventoryWear(ManagementSub, "MetalChastityBelt", "ItemPelvis");
@@ -420,7 +420,7 @@ function ManagementPlayerArmbinder(ChangeRep) {
  * @returns {void} - Nothing.
  */
 function ManagementPlayerRandomRestrain() {
-	CharacterFullRandomRestrain(Player, "Lot");
+	CharacterFullRandomRestrain(Player, "LOT");
 	if (!InventoryOwnerOnlyItem(InventoryGet(Player, "ItemPelvis"))) {
 		InventoryWear(Player, "MetalChastityBelt", "ItemPelvis");
 		InventoryLock(Player, "ItemPelvis", "MistressPadlock", -1);
@@ -437,7 +437,7 @@ function ManagementPlayerRandomRestrain() {
  * @returns {void} - Nothing.
  */
 function ManagementPlayerRandomRestrainPlay() {
-	CharacterFullRandomRestrain(Player, "Lot");
+	CharacterFullRandomRestrain(Player, "LOT");
 	ManagementMistressAllowPlay = true;
 }
 

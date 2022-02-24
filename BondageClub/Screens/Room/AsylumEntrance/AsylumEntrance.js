@@ -123,15 +123,19 @@ function AsylumEntranceWearNurseClothes(C) {
 }
 
 /**
+ * Dresses the player as a patient. Used in dialogs.
+ */
+function AsylumEntrancePlayerWearPatientClothes() {
+	AsylumEntranceWearPatientClothes(Player);
+}
+
+/**
  * Dresses a given character as a patient. Removes all clothes and respects cosplay rules
- * @param {"Player" | Character} C - The character to dress
+ * @param {Character} C - The character to dress
  * @param {boolean} [ExtraEvent] - Should we process extra events for login or GGTS
  * @returns {void} - Nothing
  */
 function AsylumEntranceWearPatientClothes(C, ExtraEvent) {
-
-	// Wears the patient clothes
-	if ((typeof C === "string") && (C == "Player")) C = Player;
 	InventoryWear(C, "TShirt1", "Cloth", "#500028");
 	InventoryWear(C, "Pajama1", "ClothLower", "#FF0080");
 	InventoryWear(C, "Socks2", "Socks", "#CCCCCC");
@@ -430,7 +434,7 @@ function AsylumEntranceGoToAsylum() {
  */
 function AsylumEntranceBackAsPatient() {
 	CharacterRelease(Player);
-	AsylumEntranceWearPatientClothes("Player");
+	AsylumEntranceWearPatientClothes(Player);
 	CharacterRelease(AsylumEntranceNurse);
 	AsylumEntranceWearNurseClothes(AsylumEntranceNurse);
 }

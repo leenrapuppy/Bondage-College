@@ -155,6 +155,7 @@ function AssetsItemNeckAccessoriesCollarShockUnitBeforeDraw(data) {
 
 function AssetsItemNeckAccessoriesCollarShockUnitScriptDraw(data) {
 	var persistentData = data.PersistentData();
+	/** @type {ItemProperties} */
 	var property = (data.Item.Property = data.Item.Property || {});
 	if (typeof persistentData.ChangeTime !== "number") persistentData.ChangeTime = CommonTime() + 4000;
 	if (typeof persistentData.DisplayCount !== "number") persistentData.DisplayCount = 0;

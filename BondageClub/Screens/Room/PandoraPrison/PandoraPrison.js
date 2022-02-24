@@ -283,8 +283,8 @@ function PandoraPrisonHasPerk(Type) {
 
 /**
  * When the player bribes the guard to lower her sentence
- * @param {string} Money - The amount of money spent
- * @param {string} Minutes - The number of minutes to remove from the sentence
+ * @param {string|number} Money - The amount of money spent
+ * @param {string|number} Minutes - The number of minutes to remove from the sentence
  * @returns {void} - Nothing
  */
 function PandoraPrisonBribeProcess(Money, Minutes) {
@@ -336,7 +336,7 @@ function PandoraPrisonPickTickle() {
 
 /**
  * When the player squeals, it shorten her sentence
- * @param {string} Minutes - The number of minutes to remove from the sentence
+ * @param {string|number} Minutes - The number of minutes to remove from the sentence
  * @returns {void} - Nothing
  */
 function PandoraPrisonPlayerSqueal(Minutes) {

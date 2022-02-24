@@ -14,6 +14,7 @@ const ItemDevicesLockerOptions = [
 function InventoryItemDevicesLockerLoad() {
 	const C = CharacterGetCurrent();
 	const item = DialogFocusItem;
+	/** @type {ItemProperties} */
 	const property = item.Property = item.Property || {};
 	let refresh = false;
 	if (typeof property.Opacity !== "number") {
@@ -110,7 +111,7 @@ function InventoryItemDevicesLockerExit() {
 /**
  * Publishes the message to the chat
  * @param {Character} C - The target character
- * @param {Option} Option - The currently selected Option
+ * @param {ExtendedItemOption} Option - The currently selected Option
  * @returns {void} - Nothing
  */
 function InventoryItemDevicesLockerPublishAction(C, Option) {
@@ -124,7 +125,7 @@ function InventoryItemDevicesLockerPublishAction(C, Option) {
 /**
  * The NPC dialog is for what the NPC says to you when you make a change to their restraints
  * @param {Character} C - The NPC to whom the restraint is applied
- * @param {Option} Option - The chosen option for this extended item
+ * @param {ExtendedItemOption} Option - The chosen option for this extended item
  * @returns {void} - Nothing
  */
 function InventoryItemDevicesLockerNpcDialog(C, Option) {

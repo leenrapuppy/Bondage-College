@@ -100,8 +100,8 @@ function MagicLoad() {
 		MagicAssistantDress();
 		MagicPerformerAppearance = MagicPerformer.Appearance.slice();
 		MagicAssistantAppearance = MagicAssistant.Appearance.slice();
-		MagicPerformerAppearance.AllowItem = false;
-		MagicAssistantAppearance.AllowItem = false;
+		MagicPerformer.AllowItem = false;
+		MagicAssistant.AllowItem = false;
 		MagicShowState = 1;
 	}
 }

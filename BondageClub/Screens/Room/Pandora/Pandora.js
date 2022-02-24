@@ -801,7 +801,7 @@ function PandoraStartRecruit() {
 
 /**
  * Increases the infiltration skill on some events
- * @param {string} Progress - The progression factor
+ * @param {string|number} Progress - The progression factor
  * @returns {void} - Nothing
  */
 function PandoraInfiltrationChange(Progress) {

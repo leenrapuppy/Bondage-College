@@ -158,8 +158,8 @@ function SlaveMarketAuctionPlayerStrip() {
 	CharacterRelease(Player);
 	CharacterNaked(Player);
 	InventoryRemove(Player, "ItemNeck", false);
-	InventoryWear(Player, "LeatherCollar", "ItemNeck", "Default", 10, false);
-	InventoryWear(Player, "CollarChainLong", "ItemNeckRestraints", "Default", 10, false);
+	InventoryWear(Player, "LeatherCollar", "ItemNeck", "Default", 10);
+	InventoryWear(Player, "CollarChainLong", "ItemNeckRestraints", "Default", 10);
 	CharacterRefresh(Player);
 }
 

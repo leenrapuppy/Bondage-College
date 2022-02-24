@@ -14,6 +14,7 @@ function InventoryItemArmsHempRopeSuspensionHogtiedLoad(C, Option) {
 	if (!HempRopeSuspensionHogtiedPrevProperty) {
 		// Initialise variables
 		const item = DialogFocusItem;
+		/** @type {ItemProperties} */
 		const property = item.Property && item.Property.Type == Option.Property.Type ? item.Property : JSON.parse(JSON.stringify(Option.Property));
 
 		// Store the previously set properties, reverting to it by default upon exiting the screen
@@ -137,7 +138,7 @@ function InventoryItemArmsHempRopeSuspensionHogtiedExit() {
 /**
  * Publishes the message to the chat
  * @param {Character} C - The target character
- * @param {Option} Option - The currently selected Option
+ * @param {ExtendedItemOption} Option - The currently selected Option
  * @returns {void} - Nothing
  */
 function InventoryItemArmsHempRopeSuspensionHogtiedPublishAction(C, Option) {
@@ -159,7 +160,7 @@ function InventoryItemArmsHempRopeSuspensionHogtiedPublishAction(C, Option) {
 /**
  * The NPC dialog is for what the NPC says to you when you make a change to their restraints
  * @param {Character} C - The NPC to whom the restraint is applied
- * @param {Option} Option - The chosen option for this extended item
+ * @param {ExtendedItemOption} Option - The chosen option for this extended item
  * @returns {void} - Nothing
  */
 function InventoryItemArmsHempRopeSuspensionHogtiedNpcDialog(C, Option) {

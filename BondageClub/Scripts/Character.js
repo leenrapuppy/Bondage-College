@@ -1246,7 +1246,7 @@ function CharacterGetBonus(C, BonusType) {
  * Restrains a character with random restraints. Some restraints are specifically disabled for randomization in their definition.
  * @param {Character} C - The target character to restrain
  * @param {"FEW"|"LOT"|"ALL"} [Ratio] - Amount of restraints to put on the character
- * @param {false} [Refresh] - do not call CharacterRefresh if false
+ * @param {boolean} [Refresh] - do not call CharacterRefresh if false
  */
 function CharacterFullRandomRestrain(C, Ratio, Refresh) {
 

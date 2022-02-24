@@ -195,7 +195,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 		case "UseFeet":
 			return acting.CanWalk();
 		case "CantUseArms":
-			return !acting.CanInteract() && (InventoryGet(Player, "ItemArms") || InventoryGroupIsBlocked(Player, "ItemArms"));
+			return !acting.CanInteract() && (!!InventoryGet(Player, "ItemArms") || InventoryGroupIsBlocked(Player, "ItemArms"));
 		case "CantUseFeet":
 			return !acting.CanWalk();
 		case "TargetCanUseTongue":

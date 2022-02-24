@@ -183,6 +183,7 @@ function AssetsItemBreastFuturisticBraAfterDraw({
 // Update data
 function AssetsItemBreastFuturisticBraScriptDraw(data) {
 	var persistentData = data.PersistentData();
+	/** @type {ItemProperties} */
 	var property = (data.Item.Property = data.Item.Property || {});
 	if (typeof persistentData.UpdateTime !== "number") persistentData.UpdateTime = CommonTime() + 4000;
 

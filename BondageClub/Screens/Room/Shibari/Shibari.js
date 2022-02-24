@@ -187,10 +187,11 @@ function ShibariStartTeacherBondage() {
 
 /**
  * Triggered when the player gets restrained by the teacher, the teacher will not release the player for a minute after this.
+ * @param {string} Level
  * @returns {void} - Nothing
  */
 function ShibariRestrainPlayer(Level) {
-	ShibariRandomBondage(Player, Level);
+	ShibariRandomBondage(Player, parseInt(Level));
 	ShibariTeacherReleaseTimer = CommonTime() + 60000;
 }
 

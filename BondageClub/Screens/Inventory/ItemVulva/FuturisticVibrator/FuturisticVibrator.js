@@ -23,7 +23,7 @@ function InventoryItemVulvaFuturisticVibratorLoad() {
 		// Only create the inputs if the zone isn't blocked
 		ItemVulvaFuturisticVibratorTriggers.forEach((trigger, i) => {
 			const input = ElementCreateInput("FuturisticVibe" + trigger, "text", "", "12");
-			if (input) input.placeholder = ItemVulvaFuturisticVibratorTriggerValues[i];
+			if (input) input.setAttribute("placeholder", ItemVulvaFuturisticVibratorTriggerValues[i]);
 		});
 	}
 }

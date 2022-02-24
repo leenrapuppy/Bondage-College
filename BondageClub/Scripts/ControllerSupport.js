@@ -1,5 +1,5 @@
 "use strict";
-/* eslint-disable */
+/* eslint-disable no-redeclare */
 var ControllerButtonsX = [];//there probably is a way to use just one list, but i don't want to bother and this works anyway
 var ControllerButtonsY = [];
 var ControllerActive = true;
@@ -401,7 +401,7 @@ function ControllerButton(buttons) {
 									Player.ControllerSettings.ControllerDPadRight = g;
 									h = true;
 									PreferenceCalibrationStage = 0;
-									Calibrating = 0;
+									Calibrating = false;
 									ControllerButtonsRepeat = true;
 								}
 								g += 1;
@@ -451,7 +451,7 @@ function ControllerClick() {
 			MouseX = ControllerButtonsX[ControllerCurrentButton];
 			MouseY = ControllerButtonsY[ControllerCurrentButton];
 		}
-		CommonClick();
+		CommonClick(null);
 	}
 }
 /**
@@ -743,5 +743,3 @@ function ControllerRight() {
 		// console.log("not found");
 	}
 }
-
-

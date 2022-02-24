@@ -222,7 +222,7 @@ function HorseWalkRun() {
 		if (HorseWalkDrawPony) DrawCharacter(StablePony, HorseWalkDrawXPosition, HorseWalkDrawYPosition, HorseWalkDrawYHeigh/1000);
 		if (HorseWalkDrawTrainer) DrawCharacter(StableTrainer, HorseWalkDrawXPosition, HorseWalkDrawYPosition, HorseWalkDrawYHeigh/1000);
 		HorseWalkText = TextGet("HorseWalkHitSpots");
-		HorseWalkText = HorseWalkText.replace("$PONY", HorseWalkHitPony).replace("$TRAINER", HorseWalkHitTrainer);
+		HorseWalkText = HorseWalkText.replace("$PONY", HorseWalkHitPony.toString()).replace("$TRAINER", HorseWalkHitTrainer.toString());
 		DrawText(HorseWalkText, 1000, 977, "black", "white");
 	} else { //Hurdle & Carrot
 		// Draw the player character, progress bar and text
@@ -237,18 +237,18 @@ function HorseWalkRun() {
 		if (Time < MiniGameTimer) {
 			if (MiniGameDifficulty == "Carrot") {
 				HorseWalkText = TextGet("HorseWalkCarrotSpots");
-				HorseWalkText = HorseWalkText.replace("$CARROTS", HorseWalkCollectedCarrots).replace("$CROPS", HorseWalkCollectedCrops);
+				HorseWalkText = HorseWalkText.replace("$CARROTS", HorseWalkCollectedCarrots.toString()).replace("$CROPS", HorseWalkCollectedCrops.toString());
 			} else if (MiniGameDifficulty == "Hurdle" || MiniGameDifficulty == "HurdleTraining") {
 				HorseWalkText = TextGet("HorseWalkHurdleSpots");
-				HorseWalkText = HorseWalkText.replace("$HURDLEWIN", HorseWalkHurdleWin).replace("$HURDLEFAIL", HorseWalkHurdleFail);
+				HorseWalkText = HorseWalkText.replace("$HURDLEWIN", HorseWalkHurdleWin.toString()).replace("$HURDLEFAIL", HorseWalkHurdleFail.toString());
 			}
 		} else {
 			if (MiniGameDifficulty == "Carrot") {
 				HorseWalkText = TextGet(MiniGameVictory ? "CarrotVictory" : "CarrotDefeat");
-				HorseWalkText = HorseWalkText.replace("$CARROTS", HorseWalkCollectedCarrots).replace("$CROPS", HorseWalkCollectedCrops);
+				HorseWalkText = HorseWalkText.replace("$CARROTS", HorseWalkCollectedCarrots.toString()).replace("$CROPS", HorseWalkCollectedCrops.toString());
 			} else if (MiniGameDifficulty == "Hurdle" || MiniGameDifficulty == "HurdleTraining") {
 				HorseWalkText = TextGet(MiniGameVictory ? "HurdleVictory" : "HurdleDefeat");
-				HorseWalkText = HorseWalkText.replace("$HURDLEWIN", HorseWalkHurdleWin).replace("$HURDLEFAIL", HorseWalkHurdleFail);
+				HorseWalkText = HorseWalkText.replace("$HURDLEWIN", HorseWalkHurdleWin.toString()).replace("$HURDLEFAIL", HorseWalkHurdleFail.toString());
 			}
 		}
 		DrawText(HorseWalkText, 1000, 977, "black", "white");

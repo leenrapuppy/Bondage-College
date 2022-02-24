@@ -34,7 +34,7 @@ function InventoryItemMiscCombinationPadlockLoad() {
 				C.IsOwnedByPlayer() ||
 				C.IsLoverOfPlayer()
 			) {
-				combinationInput.placeholder = DialogFocusSourceItem.Property.CombinationNumber;
+				combinationInput.setAttribute("placeholder", DialogFocusSourceItem.Property.CombinationNumber);
 			}
 		}
 		if (newCombinationInput) {

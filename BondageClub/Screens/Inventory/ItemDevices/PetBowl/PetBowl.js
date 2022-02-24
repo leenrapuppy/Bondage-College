@@ -14,6 +14,7 @@ function InventoryItemDevicesPetBowlLoad() {
 	const C = CharacterGetCurrent();
 	let MustRefresh = false;
 
+	/** @type {ItemProperties} */
 	const Property = (DialogFocusItem.Property = DialogFocusItem.Property || {});
 	if (typeof Property.Text !== "string") {
 		Property.Text = "";

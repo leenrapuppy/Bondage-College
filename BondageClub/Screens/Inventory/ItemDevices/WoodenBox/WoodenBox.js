@@ -32,6 +32,7 @@ function InventoryItemDevicesWoodenBoxLoad() {
 	const item = DialogFocusItem;
 	let mustRefresh = false;
 
+	/** @type {ItemProperties} */
 	const Property = item.Property = item.Property || {};
 	if (typeof Property.Text !== "string") {
 		Property.Text = "";
@@ -156,7 +157,7 @@ function InventoryItemDevicesWoodenBoxExit() {
 
 /**
  * Sets the opacity of the wooden box based, and applies effects based on its opacity value
- * @param {Property} property - The item's Property object
+ * @param {ItemProperties} property - The item's Property object
  * @param {number} opacity - The opacity to set on the item's Property
  * @returns {void} - Nothing
  */
@@ -251,4 +252,3 @@ function AssetsItemDevicesWoodenBoxAfterDraw({ C, A, X, Y, L, Property, drawCanv
 		drawCanvasBlink(tmpCanvas, X + 90, Y + 300, AlphaMasks);
 	}
 }
-

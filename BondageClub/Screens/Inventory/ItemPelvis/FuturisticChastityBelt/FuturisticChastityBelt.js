@@ -9,6 +9,9 @@ var InventoryItemPelvisFuturisticChastityBeltTamperZones = [
 	"ItemVulva",
 ];
 
+/**
+ * @param {Item} Item
+ */
 function InventoryFuturisticChastityBeltCheckPunish(Item) {
 	// Punish the player if they try to mess with the groin area
 	if ((Item.Property.PunishStruggle || (Item.Property.Type && (Item.Property.Type.includes("t1") || Item.Property.Type.includes("t2")))) && Player.FocusGroup && (StruggleProgress >= 0 || StruggleLockPickProgressCurrentTries > 0) && StruggleProgressPrevItem != null && StruggleProgressStruggleCount > 0) {
@@ -91,6 +94,7 @@ function AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, ShockType,
 // Update data
 function AssetsItemPelvisFuturisticChastityBeltScriptDraw(data) {
 	var persistentData = data.PersistentData();
+	/** @type {ItemProperties} */
 	var property = (data.Item.Property = data.Item.Property || {});
 	if (typeof persistentData.UpdateTime !== "number") persistentData.UpdateTime = CommonTime() + 4000;
 	if (typeof persistentData.LastMessageLen !== "number") persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;

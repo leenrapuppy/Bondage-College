@@ -31,7 +31,7 @@ function InfiltrationCanGoBack() { return (((InfiltrationTarget == null) || (Inf
  * Returns TRUE if the player can start the Pandora Padlock Mission, needs to be missing the item and infiltration 6 or more
  * @returns {boolean} - TRUE if successful
  */
-function InfiltrationCanGetPandoraLock() { return (DialogSkillGreater("Infiltration", 6) && (!InventoryAvailable(Player, "PandoraPadlock", "ItemMisc") || !InventoryAvailable(Player, "PandoraPadlockKey", "ItemMisc"))); }
+function InfiltrationCanGetPandoraLock() { return (SkillGetLevel(Player, "Infiltration") >= 6 && (!InventoryAvailable(Player, "PandoraPadlock", "ItemMisc") || !InventoryAvailable(Player, "PandoraPadlockKey", "ItemMisc"))); }
 
 /**
  * Returns TRUE if the player can ask to get Pandora's locks as a reward for the mission
