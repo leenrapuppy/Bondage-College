@@ -1,0 +1,35 @@
+PlayerGagged,,,(She looks at your gag and makes a thumbs up.),,
+0,,,Hello cutie maid.  I hope you're not working too hard.,,"CostumeIs(""Maid"")"
+0,,,Hello Miss guard.  I trust everything is going smoothly.,,"CostumeIs(""Guard"")"
+0,,,(She bows for you.)  It's a pleasure to meet you Miss Dominatrix.,,"CostumeIs(""Mistress"")"
+0,,,(She growls.)  Rawr!  You look good sis.,,"CostumeIs(""Cosplay"")"
+0,,,"Hello lady, I think I've seen you before, are you in the cosplay club?",,"DialogSkillGreater(""Infiltration"", 7)"
+0,,,"Hello lady, you look familiar, you do cosplay?",,"DialogSkillGreater(""Infiltration"", 3)"
+0,,,"Hello lady, are you new in the Box?",,
+0,,Who are you?,I'm DialogCharacterName.  I'm a member of the cosplay club here in the Box.,DialogRemove(),
+0,,Why are you costumed?,"I'm a member of the Cosplay Club, or CC.  We are a new club in the Box.",DialogRemove(),
+0,,Can I tie you up?,(She blushes.)  Being restrained in a pet suit by a Dominatrix would be sweet.  But I have a club meeting very soon.,DialogRemove(),"CostumeIs(""Mistress"")"
+0,,Can I tie you up?,(She bows her head.)  I'm can't Miss Guard.  I have a club meeting very soon.,DialogRemove(),"CostumeIs(""Guard"")"
+0,,Can I tie you up?,"(She laughs at you.)  You're a kinky maid?  Sadly, I have a club meeting very soon.",DialogRemove(),"CostumeIs(""Maid"")"
+0,,Can I tie you up?,(She smiles at you.)  I can't sis!  I have a CC meeting soon.,DialogRemove(),"CostumeIs(""Cosplay"")"
+0,,Can I tie you up?,"(She giggles.)  Sorry, I have a cosplay club meeting soon.",DialogRemove(),"CostumeIs(""Random"")"
+0,100,Can you help me?,"Maybe, what are you looking for?",,
+0,,I'll go get you a free drink.,(You go get her a free drink and she smiles.)  Rawr!  You're a wonderful maid.,,"CostumeIs(""Maid"")"
+0,200,Are you enjoying Pandora's Box?,The Box is a nice place.  But what I really like is the cosplay club.,,
+0,300,Can I cosplay with you?,Rawr!  I can't refuse a cosplay offer.  Strip down and I'll dress you to cosplay.,,
+0,,I must go.  (Leave her.),,CharacterAllowMove(),
+100,0,I'm looking for a girl.,(You give some details on the girl you need to rescue and she shrugs.)  I can't help you there.,,"MissionIs(""Rescue"")"
+100,0,I'm looking for a girl.,(You give some details on the girl you need to kidnap and she shrugs.)  I can't help you there.,,"MissionIs(""Kidnap"")"
+100,0,I'm looking for an object.,(You give some details on the object you need to retrieve and she shrugs.)  I can't help you there.,,"MissionIs(""Retrieve"")"
+100,110,I'm looking for paint cans.,You found the right girl!  We have lots of paint at the cosplay club.,,"MissionIs(""ReverseMaid"")"
+100,0,Forget it.,Alright then.  Anything else?,,
+110,120,Can I have some?,You certainly can!  (She runs to her club and returns with many paint cans.),,
+110,0,Forget it.,Alright then.  Anything else?,,
+120,0,Thanks!  (Take the cans.),"Rawr!  Use it well, have fun!  Anything else?",GetPaint(),
+200,0,You do have a great cosplay club.,Rawr!  Well said.  Anything else?,,
+200,,I know the best place for cosplay.,TO DO,,
+200,0,"The Box isn't nice, it's great!",(She giggles and nods.),,
+300,310,(Dress to cosplay.),(She dresses you to cosplay and giggles.)  Rawr!  You're looking great sis.,"PlayerClothes(""Cosplay"")",
+300,0,Forget it.,Alright then.  Anything else?,,
+310,0,Thanks sis!,(She makes a thumbs up.)  Anything else I can do?,,
+310,0,I don't like it.,(She makes a thumbs down.)  I've tried my best.,,
