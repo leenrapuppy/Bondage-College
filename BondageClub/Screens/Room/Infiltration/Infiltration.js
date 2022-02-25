@@ -3,7 +3,7 @@ var InfiltrationBackground = "Infiltration";
 var InfiltrationSupervisor = null;
 var InfiltrationDifficulty = 0;
 var InfiltrationMission = "";
-var InfiltrationMissionType = ["Rescue", "Kidnap", "Retrieve", "CatBurglar"];
+var InfiltrationMissionType = ["Rescue", "Kidnap", "Retrieve", "CatBurglar", "ReverseMaid"];
 var InfiltrationObjectType = ["USBKey", "BDSMPainting", "GoldCollar", "GeneralLedger", "SilverVibrator", "DiamondRing", "SignedPhoto"];
 var InfiltrationTarget = {};
 var InfiltrationCollectRansom = false;
@@ -44,6 +44,12 @@ function InfiltrationCanAskForPandoraLock() { return ((InfiltrationMission == "R
  * @returns {boolean} - TRUE if possible
  */
 function InfiltrationCatBurglarHasMoney() { return (PandoraMoney > 0); }
+
+/**
+ * Returns TRUE if the player can complete the reverse maid mission, at least 50% of the job must be done
+ * @returns {boolean} - TRUE if possible
+ */
+function InfiltrationReverseMaidCanComplete() { return (PandoraReverseMaidDone * 2 >= PandoraReverseMaidTotal); }
 
 /**
  * Loads the infiltration screen by generating the supervisor.
@@ -120,7 +126,7 @@ function InfiltrationSelectChallenge(Difficulty) {
  */
 function InfiltrationPrepareMission() {
 	InfiltrationMission = CommonRandomItemFromList(InfiltrationMission, InfiltrationMissionType);
-	//InfiltrationMission = "CatBurglar"; // DEBUG
+	InfiltrationMission = "ReverseMaid"; // DEBUG
 	if ((InfiltrationMission == "Rescue") || (InfiltrationMission == "Kidnap")) {
 		let C = {};
 		CharacterRandomName(C);
@@ -173,6 +179,7 @@ function InfiltrationCompleteMission() {
 	if (InfiltrationDifficulty == 3) SkillProgress("Infiltration", 600);
 	if (InfiltrationDifficulty == 4) SkillProgress("Infiltration", 1000);
 	let Money = (InfiltrationMission != "CatBurglar") ? 12 + (InfiltrationDifficulty * 6) : 0;
+	if ((InfiltrationMission == "ReverseMaid") && (PandoraReverseMaidDone >= PandoraReverseMaidTotal)) Money = Math.round(Money * 1.5);
 	Money = Money + Math.round(PandoraMoney / 2);
 	if (InfiltrationPerksActive("Negotiation")) Money = Math.round(Money * 1.2);
 	CharacterChangeMoney(Player, Money);
@@ -407,4 +414,15 @@ function InfiltrationStartNPCRescue() {
 	InfiltrationTarget.Found = false;
 	InfiltrationDifficulty = 2;
 	InfiltrationRandomClothes();
+}
+
+/**
+ * Dresses the player as a maid for the reverse maid mission
+ * @param {number} Rep - The reputation change to apply
+ * @returns {void} - Nothing
+ */
+function InfiltrationDressMaid(Rep) {
+	PandoraDress(Player, "Maid");
+	if (Rep != "0") ReputationProgress("Dominant", parseInt(Rep));
+	PandoraClothes = "Maid";
 }

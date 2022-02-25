@@ -3,10 +3,12 @@ PathStairsUp,Go upstairs
 PathStairsDown,Go downstairs
 PathSearch,Search the room
 PathRest,Rest to recover with time
+PathPaint,Paint the room
 SearchStop,Stop searching
 RestStop,Stop resting
 AlreadyFound,You already found the TargetName.  Get out now.
 FoundItem,You found the TargetName.  Get out while you can.
+NoPaint,You first need to find some paint.
 DirectionNorth,Go north (W)
 DirectionSouth,Go south (S)
 DirectionEast,Go east (D)
@@ -19,3 +21,12 @@ FirstDirectionSouth,south
 FirstDirectionWest,west
 FirstDirectionEast,east
 CatBurglarPunishment,(The lights turn on and you're quickly spotted.  Dominatrixes confiscate your goods and drag you to a cell.)  I'll teach you a lesson little burglar.
+ReverseMaidProgress,Work:
+Graffiti0,FTW
+Graffiti1,The Box Sucks
+Graffiti2,The Bondage Club Rules
+Graffiti3,Eat my shorts
+Graffiti4,BC > PB
+Graffiti5,REDRUM
+Graffiti6,Get out!
+Graffiti7,BDSM 4EVER
