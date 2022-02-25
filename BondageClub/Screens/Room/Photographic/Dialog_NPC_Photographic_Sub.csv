@@ -56,7 +56,7 @@ RemoveVibratingEgg,,,"Pity, we just got started.",,
 10,,(Remove panties.),What an unrestrained beast.,"PlayerClothRemove(""Panties"")",PlayerPantiesAvailable()
 10,,(Remove socks.),"Go on, don't be shy.","PlayerClothRemove(""Socks"")",PlayerSocksAvailable()
 10,,(Remove shoes.),A first step.,"PlayerClothRemove(""Shoes"")",PlayerShoesAvailable()
-10,0,I'll go to the closet.,If you say so.,PlayerDressBack(),Player.CanChange()
+10,0,I'll go to the closet.,If you say so.,PlayerDressBack(),Player.CanChangeOwnClothes()
 10,0,That's enough for now.,Alright then.,,
 20,0,Use some toys for the head.,Is this alright?,"StartInventoryPlayer(""ItemHead"")",
 20,0,Use some toys for the mouth.,Is this alright?,"StartInventoryPlayer(""ItemMouth"")",
