@@ -126,7 +126,7 @@ function InfiltrationSelectChallenge(Difficulty) {
  */
 function InfiltrationPrepareMission() {
 	InfiltrationMission = CommonRandomItemFromList(InfiltrationMission, InfiltrationMissionType);
-	InfiltrationMission = "ReverseMaid"; // DEBUG
+	//InfiltrationMission = "ReverseMaid"; // DEBUG
 	if ((InfiltrationMission == "Rescue") || (InfiltrationMission == "Kidnap")) {
 		let C = {};
 		CharacterRandomName(C);

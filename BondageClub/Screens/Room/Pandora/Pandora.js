@@ -81,7 +81,7 @@ function PandoraDrawData(Y) {
 	}
 	if (InfiltrationMission == "ReverseMaid") {
 		DrawText("$" + PandoraMoney.toString() + (InfiltrationPerksActive("Detector") ? " (" + PandoraChestCount.toString() + ")" : ""), 1887, Y, "White", "Black");
-		DrawText(TextGet("ReverseMaidProgress") + " " + (PandoraReverseMaidDone / PandoraReverseMaidTotal * 100).toString() + "%", 1887, Y + 55, "White", "Black");
+		DrawText(TextGet("ReverseMaidProgress") + " " + Math.round(PandoraReverseMaidDone / PandoraReverseMaidTotal * 100).toString() + "%", 1887, Y + 55, "White", "Black");
 		return;
 	}
 	DrawText("$" + PandoraMoney.toString() + (InfiltrationPerksActive("Detector") ? " (" + PandoraChestCount.toString() + ")" : ""), 1887, Y + 55, "White", "Black");
@@ -100,6 +100,7 @@ function PandoraRun() {
 	// Gets the current room & background
 	if ((PandoraRoom.length == 0) || (PandoraCurrentRoom == null)) return;
 	PandoraBackground = "Pandora/" + PandoraCurrentRoom.Floor + "/" + PandoraCurrentRoom.Background;
+	if (PandoraCurrentRoom.Graffiti != null) DrawImage("Screens/Room/Pandora/Graffiti" + PandoraCurrentRoom.Graffiti.toString() + ".png", 0, 0);
 	if (InfiltrationMission == "CatBurglar") DrawRect(0, 0, 2000, 1000, "#00000080");
 
 	// The search square are drawn even out of search mode
@@ -115,8 +116,10 @@ function PandoraRun() {
 
 	// In paint mode, we offer many graffities for the player to pick
 	if (PandoraMode == "Paint") {
-		for (let G = 0; G <= 7; G++)
-			DrawButton(1885, 25 + (G * 115), 90, 90, "", "White", "Icons/Paint.png", TextGet("Graffiti" + G.toString()));
+		if (PandoraCurrentRoom.Graffiti == null) {
+			for (let G = 0; G <= 7; G++)
+				DrawButton(1885, 25 + (G * 115), 90, 90, "", "White", "Icons/Paint.png", TextGet("Graffiti" + G.toString()));
+		} else DrawButton(1885, 25, 90, 90, "", "White", "Icons/Paint.png", TextGet("AlreadyPainted"));
 		return;
 	}
 
@@ -206,6 +209,12 @@ function PandoraSetMode(NewMode) {
 		PandoraMode = "";
 	}
 
+	// Cannot enter paint mode if the room isn't empty
+	if ((NewMode == "Paint") && (PandoraCurrentRoom.Character.length >= 1)) {
+		PandoraMsgBox(TextGet("RoomEmptyToPaint"));
+		PandoraMode = "";
+	}
+
 }
 
 /**
@@ -240,6 +249,19 @@ function PandoraClick() {
 	// In rest mode, the player can exit it and stop healing
 	if (PandoraMode == "Rest") {
 		if (MouseIn(1885, 25, 90, 90)) PandoraSetMode("");
+		return;
+	}
+
+	// In paint mode, the player puts a graffiti on the background
+	if (PandoraMode == "Paint") {
+		if (PandoraCurrentRoom.Graffiti == null) {
+			for (let G = 0; G <= 7; G++)
+				if (MouseIn(1885, 25 + (G * 115), 90, 90)) {
+					PandoraReverseMaidDone++;
+					PandoraCurrentRoom.Graffiti = G;
+					break;
+				}
+		} else if (MouseIn(1885, 25, 90, 90)) PandoraSetMode("");
 		return;
 	}
 
@@ -280,7 +302,7 @@ function PandoraKeyDown() {
 	for (let C = 0; C < PandoraCurrentRoom.Character.length; C++)
 		if ((PandoraCurrentRoom.Character[C].AllowMove != null) && (PandoraCurrentRoom.Character[C].AllowMove == false))
 			AllowMove = false;
-	if (AllowMove) {
+	if (AllowMove && (PandoraMode == "")) {
 		if (((KeyPress == 87) || (KeyPress == 119)) && (PandoraDirectionAvailable("North"))) return PandoraEnterRoom(PandoraCurrentRoom.PathMap[PandoraCurrentRoom.DirectionMap.indexOf("North")], "North");
 		if (((KeyPress == 65) || (KeyPress == 97)) && (PandoraDirectionAvailable("West"))) return PandoraEnterRoom(PandoraCurrentRoom.PathMap[PandoraCurrentRoom.DirectionMap.indexOf("West")], "West");
 		if (((KeyPress == 83) || (KeyPress == 115)) && (PandoraDirectionAvailable("South"))) return PandoraEnterRoom(PandoraCurrentRoom.PathMap[PandoraCurrentRoom.DirectionMap.indexOf("South")], "South");

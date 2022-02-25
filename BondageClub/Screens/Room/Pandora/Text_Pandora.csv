@@ -9,6 +9,8 @@ RestStop,Stop resting
 AlreadyFound,You already found the TargetName.  Get out now.
 FoundItem,You found the TargetName.  Get out while you can.
 NoPaint,You first need to find some paint.
+AlreadyPainted,This room is already painted.
+RoomEmptyToPaint,The room must be empty.
 DirectionNorth,Go north (W)
 DirectionSouth,Go south (S)
 DirectionEast,Go east (D)
@@ -29,4 +31,4 @@ Graffiti3,Eat my shorts
 Graffiti4,BC > PB
 Graffiti5,REDRUM
 Graffiti6,Get out!
-Graffiti7,BDSM 4EVER
+Graffiti7,BDSM 4 EVER

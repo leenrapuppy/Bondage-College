@@ -93,8 +93,8 @@ ReverseMaidCostume,ReverseMaidStart,The sexier the better.,(She giggles and dres
 ReverseMaidCostume,ReverseMaidStart,(Stay silent and dress.),(She dresses you up as a maid from Pandora.)  It's time to go comrade!,DressMaid(0),
 ReverseMaidCostume,0,I've changed my mind.,I'm sorry to hear that.  Come another time then.,,
 ReverseMaidStart,ReverseMaidEnd,(Go to Pandora's Box.),,StartMission(),
-ReverseMaidEnd,,,Welcome back comrade.  Have you recovered our stolen goods?,,
-ReverseMaidEnd,Success,The mission was a success.,Congratulation comrade DialogPlayerName!  I'll remember not to hire you when I renovate my appartment.,CompleteMission(),ReverseMaidCanComplete()
+ReverseMaidEnd,,,Welcome back comrade.  Are you the next Picasso of BDSM?,,
+ReverseMaidEnd,Success,The mission was a success.,Congratulation comrade DialogPlayerName!  I'll remember not to hire you when I renovate my place.,CompleteMission(),ReverseMaidCanComplete()
 ReverseMaidEnd,,I'm going back right now.,,ReturnMission(),CanGoBack()
 ReverseMaidEnd,0,"Sorry, I've failed.","Don't be ashamed, I'm sure you've tried your best.  We'll send someone else.  You can pick another mission if you want.","DialogChangeReputation(""Dominant"", -1)",
 ReverseMaidEnd,,Give me a minute.  (Leave her.),,DialogLeave(),
