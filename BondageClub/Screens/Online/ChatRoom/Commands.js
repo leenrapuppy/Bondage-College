@@ -88,7 +88,7 @@ function CommandParse(msg) {
 			div.setAttribute('class', 'ChatMessage ChatMessageWhisper');
 			div.setAttribute('data-time', ChatRoomCurrentTime());
 			div.setAttribute('data-sender', Player.MemberNumber.toString());
-			div.innerHTML = TextGet("WhisperTo") + " " + TargetName + ": " + msg;
+			div.textContent = TextGet("WhisperTo") + " " + TargetName + ": " + msg;
 
 			const Refocus = document.activeElement.id == "InputChat";
 			const ShouldScrollDown = ElementIsScrolledToEnd("TextAreaChatLog");
