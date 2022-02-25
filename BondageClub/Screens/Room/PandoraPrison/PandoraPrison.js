@@ -86,6 +86,7 @@ function PandoraPrisonClick() {
 	if ((PandoraPrisonCharacter != null) && MouseIn(1000, 0, 500, 1000)) {
 		if (PandoraPrisonGuard.Stage == "RANDOM") {
 			if ((Math.random() > 0.5) && (PandoraWillpower * 2 >= PandoraMaxWillpower)) PandoraPrisonGuard.Stage = "Beat";
+			else if (Math.random() > 0.9) PandoraPrisonGuard.Stage = "Transfer";
 			else if ((Math.random() > 0.5) && !CharacterIsNaked(Player)) PandoraPrisonGuard.Stage = "Strip";
 			else if ((Math.random() > 0.5) && CharacterIsNaked(Player) && !Player.IsChaste()) PandoraPrisonGuard.Stage = "Chastity";
 			else if ((Math.random() > 0.5) && CharacterIsNaked(Player) && !Player.CanInteract()) PandoraPrisonGuard.Stage = "Tickle";
@@ -360,4 +361,25 @@ function PandoraPrisonPlayerTickle(Damage) {
 	CharacterSetFacialExpression(Player, "Blush", "Medium", 10);
 	CharacterSetFacialExpression(Player, "Eyes", "Surprised", 10);
 	CharacterSetFacialExpression(Player, "Eyes2", "Surprised", 10);
+}
+
+/**
+ * When the player gets transfered, she gets a hood for the process
+ * @returns {void} - Nothing
+ */
+function PandoraPrisonAddHood() {
+	InventoryWear(Player, CommonRandomItemFromList("", ["LeatherHoodSealed", "PolishedSteelHood", "SackHood", "LeatherHoodSensDep", "LeatherHood", "LeatherHoodOpenMouth", "CanvasHood"]), "ItemHood");
+	InventoryGet(Player, "ItemHood").Property = { Effect: ["BlindHeavy", "Prone"] };
+	CharacterRefresh(Player);
+}
+
+/**
+ * When the transfer is done, we remove the hood and assign a new background
+ * @returns {void} - Nothing
+ */
+function PandoraPrisonRemoveHood() {
+	PandoraPrisonBackground = CommonRandomItemFromList(PandoraPrisonBackground, ["Pandora/Underground/Cell0", "Pandora/Underground/Cell1", "Pandora/Underground/Cell2", "Pandora/Underground/Cell3", "Pandora/Underground/Cell4", "Pandora/Underground/Cell5", "Pandora/Underground/Cell6"]);
+	Player.Infiltration.Punishment.Background = PandoraPrisonBackground;
+	ServerSend("AccountUpdate", { Infiltration: Player.Infiltration });
+	InventoryRemove(Player, "ItemHood");
 }

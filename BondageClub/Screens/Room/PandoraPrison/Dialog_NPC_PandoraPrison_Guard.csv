@@ -202,3 +202,20 @@ TickleSqueal,TickleLeave,You better do it.,A deal is a deal.  And no one will kn
 TickleSqueal,TickleLeave,Don't tell anyone I talked.,"Don't worry, nobody will know that you squealed.  I must leave for now.  (She starts to walk away.)",,
 TickleSqueal,TickleLeave,Can you also release me?,That's not part of the deal.  I must leave for now.  (She starts to walk away.),,
 TickleLeave,,(Leave her.),,CharacterRemove(),
+IntroTransfer,,,"(Guard DialogCharacterName comes with a hood.)  Prisoner DialogPlayerName, you're getting transferred.",,
+IntroRestrainedTransfer,,,"(Guard DialogCharacterName comes with a hood.)  Prisoner DialogPlayerName, you're getting transferred.",,
+Transfer,TransferStart,"Fine, I don't care.","Alright, come with me.  (She puts a thick hood over your head and starts to drag you.)",AddHood(),Player.CanTalk()
+Transfer,TransferStart,I'm not going anywhere.,You don't have a choice.  (She puts a thick hood over your head and starts to drag you.),AddHood(),Player.CanTalk()
+Transfer,TransferStart,To another country?,Don't be ridiculous.  (She puts a thick hood over your head and starts to drag you.),AddHood(),Player.CanTalk()
+Transfer,TransferStart,(Stay silent.),(She puts a thick hood over your head and starts to drag you.),AddHood(),!Player.CanTalk()
+Transfer,TransferStart,(Grumble in your gag.),(She puts a thick hood over your head and starts to drag you.),AddHood(),!Player.CanTalk()
+Transfer,TransferStart,(Shake your head no.),(She puts a thick hood over your head and starts to drag you.),AddHood(),!Player.CanTalk()
+Transfer,TransferFight,Touch me and I'll kick your butt.,(She raises her fists.)  Girl!  Either you comply or get crushed.  Pick your poison.,,CanStartFight()
+TransferFight,,(Fight her.),,StartFight(),
+TransferFight,TransferStart,(Let her transfer you.),"Alright, come with me.  (She puts a thick hood over your head and starts to drag you.)",AddHood(),
+TransferStart,TransferSecond,(Let her drag you.),(She drags you through the halls of Pandora's Box.  You can hear other girls laughing at you.),,
+TransferStart,TransferSecond,(Try to give her trouble.),(You give her trouble as she spanks and drags you forcefully through the halls of Pandora's Box.),,
+TransferSecond,TransferLeave,(Let her drag you.),Good girl.  We arrived in your new home.  (She removes your hood.)  Enjoy!,RemoveHood(),
+TransferSecond,TransferLeave,(Try to bump her.),Enough!  We arrived in your new cell.  (She removes your hood.)  Enjoy!,RemoveHood(),
+TransferSecond,TransferLeave,(Stay silent.),We arrived in your new home.  (She removes your hood.)  Enjoy!,RemoveHood(),
+TransferLeave,,(Leave her.),,CharacterRemove(),
