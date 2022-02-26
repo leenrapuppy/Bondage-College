@@ -822,7 +822,7 @@ function PandoraCharacterFightEnd() {
 	CharacterRelease(KidnapVictory ? Player : CurrentCharacter);
 	CurrentCharacter.AllowItem = KidnapVictory;
 	if (KidnapVictory) CurrentCharacter.AllowMove = true;
-	if (KidnapVictory && (PandoraClothes != "Random") && (PandoraClothes != "CatBurglar")) PandoraDress(Player, PandoraClothes);
+	if (KidnapVictory && (PandoraClothes != "Random") && (PandoraClothes != "CatBurglar") && (PandoraClothes != "Cosplay")) PandoraDress(Player, PandoraClothes);
 	CommonSetScreen("Room", "Pandora");
 	CurrentCharacter.CurrentDialog = DialogFind(CurrentCharacter, (KidnapVictory) ? "FightVictory" : "FightDefeat");
 }

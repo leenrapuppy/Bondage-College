@@ -219,3 +219,40 @@ TransferSecond,TransferLeave,(Let her drag you.),Good girl.  We arrived in your 
 TransferSecond,TransferLeave,(Try to bump her.),Enough!  We arrived in your new cell.  (She removes your hood.)  Enjoy!,RemoveHood(),
 TransferSecond,TransferLeave,(Stay silent.),We arrived in your new home.  (She removes your hood.)  Enjoy!,RemoveHood(),
 TransferLeave,,(Leave her.),,CharacterRemove(),
+IntroQuickie,,,"(Guard DialogCharacterName enters with a smirk.)  Prisoner DialogPlayerName, I have a deal for you.",,
+IntroRestrainedQuickie,,,"(Guard DialogCharacterName enters with a smirk.)  Prisoner DialogPlayerName, I have a deal for you.",,
+Quickie,QuickieStart,What's your deal?,"The deal is simple, I'll remove some time from the clock if you know how use your mouth.",PlayerUngag(),Player.CanTalk()
+Quickie,QuickieStart,I don't like it.,"The deal is simple, I'll remove some time from the clock if you know how use your mouth.",PlayerUngag(),Player.CanTalk()
+Quickie,QuickieStart,Are you allowed to make deal?,"The deal is simple, I'll remove some time from the clock if you know how use your mouth.",PlayerUngag(),Player.CanTalk()
+Quickie,QuickieStart,(Listen to her deal.),"(She removes your gag.)  The deal is simple, I'll remove some time from the clock if you know how use your mouth.",PlayerUngag(),!Player.CanTalk()
+Quickie,QuickieStart,(Grumble in your gag.),"(She removes your gag.)  The deal is simple, I'll remove some time from the clock if you know how use your mouth.",PlayerUngag(),!Player.CanTalk()
+Quickie,QuickieStart,(Shake your head no.),"(She removes your gag.)  The deal is simple, I'll remove some time from the clock if you know how use your mouth.",PlayerUngag(),!Player.CanTalk()
+Quickie,QuickieFight,I have a better deal: let me out or suffer.,(She raises her fists.)  Girl!  If you don't listen to my deal I'll beat you down.,,CanStartFight()
+QuickieFight,,(Fight her.),,StartFight(),
+QuickieFight,QuickieStart,(Listen to her deal.),"The deal is simple, I'll remove some time from the clock if you know how use your mouth.",PlayerUngag(),
+QuickieStart,,My mouth?  What do you mean?,Don't play dumb.  Give me a quickie with your mouth and I'll remove some prison time.  Deal?,DialogRemove(),
+QuickieStart,QuickiePlease,"Very well, we have a deal.",(She strips down and gets you on your knees.)  Get to work prisoner!,QuikieStart(),
+QuickieStart,QuickieLeave,No way!  I refuse.,Fine!  Enjoy your cell.  I'm going.,,
+QuickieEnough,,,"(She frowns and dresses back.)  Enough!  That was too slow, I need to go.  Enjoy your cell.",,
+QuickieTooFast,,,"(She pushes you away and frowns.)  You're going too fast prisoner.  Slow down, take your time.",,
+QuickieOrgasm,,,"(She trembles, screams and gets a shattering orgasm.)  YYYEEEEEAAAAAHHH!!!",,
+QuickiePlease,,(Insert your tongue inside.),(You insert your tongue as she pushes your face closer and moans loudly.)  Yes!  Yes!  Yes!,QuikieProcess(4),
+QuickiePlease,,(Dig for her g spot.),,QuikieProcess(8),
+QuickiePlease,,(Lick her clitoris slowly.),(You lick her clitoris slowly as she moans silently.),QuikieProcess(1),
+QuickiePlease,,(Lick her clitoris quickly.),(You lick her clitoris quickly as she moans and trembles.)  Good girl.,QuikieProcess(2),
+QuickiePlease,,(Lick her pussy slowly.),(She rocks her hips slowly as you lick her pussy lips.),QuikieProcess(1),
+QuickiePlease,,(Lick her pussy quickly.),(She rocks her hips with energy as you lick her pussy lips lovingly.)  Good prisoner.,QuikieProcess(2),
+QuickieSuccess,,(Stay silent and smile.),"(She helps you to stand up and dresses back.)  You're a good prisoner, I'll remove some minutes on the clock.  I need to go.",QuickieEnd(),
+QuickieSuccess,,You remember the deal?,"(She helps you to stand up and dresses back.)  A deal is a deal, I'll remove some minutes on the clock.  I need to go.",QuickieEnd(),
+QuickieSuccess,,You're a naughty guard.,"(She helps you to stand up and dresses back.)  And you're a kinky prisoner, I'll remove some minutes on the clock.  I need to go.",QuickieEnd(),
+QuickieLeave,,(Leave her.),,CharacterRemove(),
+IntroWater,,,"(Guard DialogCharacterName enters with a water bottle.)  Prisoner DialogPlayerName, it's time to drink.  Are you thirsty?",,
+IntroWaterQuickie,,,"(Guard DialogCharacterName enters with a water bottle.)  Prisoner DialogPlayerName, it's time to drink.  Are you thirsty?",,
+Water,WaterLeave,Can I have some water?,"(She helps you to drink the water, it feels pretty refreshing.)  I need to go, I'll be back later.",DrinkWater(),Player.CanTalk()
+Water,WaterLeave,I don't need water.,"Enjoy your cell then, I'll be back later.",,Player.CanTalk()
+Water,WaterLeave,(Look at the bottle and nod.),"(She helps you to drink the water and gags you again.)  I need to go, I'll be back later.",DrinkWater(),!Player.CanTalk()
+Water,WaterLeave,(Shake your head no.),"Enjoy your cell then, I'll be back later.",,!Player.CanTalk()
+Water,WaterFight,(Pick the bottle and splash her.),(She raises her fists in anger.)  You little brat!  Are you looking for a fight?,,CanStartFight()
+WaterFight,,(Fight her.),,StartFight(),
+WaterFight,WaterLeave,(Beg not to fight.),"(She dries her face.)  Fine, rot in that cell.  I'm going.",,
+WaterLeave,,(Leave her.),,CharacterRemove(),

@@ -7,6 +7,8 @@ var PandoraPrisonCharacter = null;
 var PandoraPrisonCharacterTimer = 0;
 var PandoraPrisonEscaped = false;
 var PandoraPrisonBribeEnabled = true;
+var PandoraQuickieCount = 0;
+var PandoraQuickiePleasure = 0;
 
 /**
  * Loads the Pandora's Box prison screen
@@ -77,6 +79,27 @@ function PandoraPrisonRun() {
 }
 
 /**
+ * Generates a new valid activity for the prison guard
+ * @returns {void} - Nothing
+ */
+function PandoraPrisonGuardNewActivity() {
+	let Activity = "";
+	if (PandoraPrisonGuard.LastActivity == null) PandoraPrisonGuard.LastActivity = "";
+	while (Activity == "") {
+		Activity = CommonRandomItemFromList(PandoraPrisonGuard.LastActivity, ["Beat", "Water", "Transfer", "Quickie", "Strip", "Chastity", "Tickle", "ChangeBondage"]);
+		if ((Activity == "Beat") && (PandoraWillpower * 2 < PandoraMaxWillpower)) Activity = ""; // Beat only happen at 50% health or more
+		if ((Activity == "Water") && (PandoraWillpower * 2 >= PandoraMaxWillpower)) Activity = ""; // Water only happen at 50% health or less
+		if ((Activity == "Water") && (Player.Infiltration.Punishment.FightDone != null) && Player.Infiltration.Punishment.FightDone) Activity = ""; // Water cannot happen if there was a fight
+		if ((Activity == "Strip") && CharacterIsNaked(Player)) Activity = ""; // Strip cannot happen if already naked
+		if ((Activity == "Chastity") && Player.IsChaste()) Activity = ""; // Chastity cannot happen if the player is already chaste
+		if ((Activity == "Tickle") && !CharacterIsNaked(Player)) Activity = ""; // Tickle can only happen when the player is naked
+		if ((Activity == "Tickle") && Player.CanInteract()) Activity = ""; // Tickle cannot happen when the player isn't bound
+	}
+	PandoraPrisonGuard.Stage = Activity;
+	PandoraPrisonGuard.LastActivity = Activity;
+}
+
+/**
  * Handles clicks in the prison screen, the guard will pick a random activity to do on the player
  * @returns {void} - Nothing
  */
@@ -84,14 +107,7 @@ function PandoraPrisonClick() {
 	if (MouseIn(1885, 25, 90, 90) && Player.CanKneel()) CharacterSetActivePose(Player, (Player.ActivePose == null) ? "Kneel" : null, true);
 	if ((PandoraPrisonCharacter == null) && MouseIn(750, 0, 500, 1000)) CharacterSetCurrent(Player);
 	if ((PandoraPrisonCharacter != null) && MouseIn(1000, 0, 500, 1000)) {
-		if (PandoraPrisonGuard.Stage == "RANDOM") {
-			if ((Math.random() > 0.5) && (PandoraWillpower * 2 >= PandoraMaxWillpower)) PandoraPrisonGuard.Stage = "Beat";
-			else if (Math.random() > 0.9) PandoraPrisonGuard.Stage = "Transfer";
-			else if ((Math.random() > 0.5) && !CharacterIsNaked(Player)) PandoraPrisonGuard.Stage = "Strip";
-			else if ((Math.random() > 0.5) && CharacterIsNaked(Player) && !Player.IsChaste()) PandoraPrisonGuard.Stage = "Chastity";
-			else if ((Math.random() > 0.5) && CharacterIsNaked(Player) && !Player.CanInteract()) PandoraPrisonGuard.Stage = "Tickle";
-			else PandoraPrisonGuard.Stage = "ChangeBondage";
-		}
+		if (PandoraPrisonGuard.Stage == "RANDOM") PandoraPrisonGuardNewActivity();
 		CharacterSetCurrent(PandoraPrisonCharacter);
 		if (PandoraPrisonCharacter.TriggerIntro) PandoraPrisonCharacter.CurrentDialog = DialogFind(PandoraPrisonCharacter, "Intro" + (Player.CanInteract() ? "" : "Restrained") + PandoraPrisonCharacter.Stage);
 	}
@@ -351,6 +367,7 @@ function PandoraPrisonPlayerSqueal(Minutes) {
 
 /**
  * When the player gets tickled, she reacts and loses some willpower
+ * @param {string|number} Damage - The health damage done by the tickle
  * @returns {void} - Nothing
  */
 function PandoraPrisonPlayerTickle(Damage) {
@@ -382,4 +399,67 @@ function PandoraPrisonRemoveHood() {
 	Player.Infiltration.Punishment.Background = PandoraPrisonBackground;
 	ServerSend("AccountUpdate", { Infiltration: Player.Infiltration });
 	InventoryRemove(Player, "ItemHood");
+}
+
+/**
+ * Prepares the quickie scene by kneeling the player and removing the guards pants
+ * @returns {void} - Nothing
+ */
+function PandoraPrisonQuikieStart() {
+	CharacterSetActivePose(Player, "Kneel", true);
+	InventoryRemove(PandoraPrisonGuard, "ClothLower");
+	InventoryRemove(PandoraPrisonGuard, "Panties");
+	PandoraQuickieCount = 0;
+	PandoraQuickiePleasure = 1;
+}
+
+/**
+ * Process the quickie scene, the player must progress slowly but only has 5 tries
+ * @param {string|number} Factor - The pleasure factor to apply
+ * @returns {void} - Nothing
+ */
+function PandoraPrisonQuikieProcess(Factor) {
+	Factor = parseInt(Factor);
+	PandoraQuickieCount++;
+	if (Factor > PandoraQuickiePleasure) {
+		if (PandoraQuickieCount >= 5) {
+			PandoraPrisonCharacter.CurrentDialog = DialogFind(PandoraPrisonCharacter, "QuickieFail");
+			PandoraPrisonQuickieEnd("QuickieEnough");
+		} else PandoraPrisonCharacter.CurrentDialog = DialogFind(PandoraPrisonCharacter, "QuickieTooFast");
+		return;
+	}
+	PandoraQuickiePleasure = PandoraQuickiePleasure + Factor;
+	CharacterSetFacialExpression(PandoraPrisonCharacter, "Blush", "Medium", 7);
+	if ((PandoraQuickieCount >= 5) || (PandoraQuickiePleasure >= 15)) {
+		if (PandoraQuickiePleasure >= 15) {
+			CharacterSetFacialExpression(PandoraPrisonCharacter, "Blush", "High", 7);
+			CharacterSetFacialExpression(PandoraPrisonCharacter, "Eyes", "Closed", 7);
+			CharacterSetFacialExpression(PandoraPrisonCharacter, "Eyes2", "Closed", 7);
+			Player.Infiltration.Punishment.Timer = Player.Infiltration.Punishment.Timer - 300000;
+			if (Player.Infiltration.Punishment.Timer < CurrentTime + 60000) Player.Infiltration.Punishment.Timer = CurrentTime + 60000;
+			ServerSend("AccountUpdate", { Infiltration: Player.Infiltration });
+			PandoraPrisonCharacter.CurrentDialog = DialogFind(PandoraPrisonCharacter, "QuickieOrgasm");
+			PandoraPrisonCharacter.Stage = "QuickieSuccess";
+		} else PandoraPrisonQuickieEnd("QuickieEnough");
+	}
+}
+
+/**
+ * Ends the quickie scenario
+ * @returns {void} - Nothing
+ */
+function PandoraPrisonQuickieEnd(Message) {
+	if ((Message != null) && (Message != "")) PandoraPrisonCharacter.CurrentDialog = DialogFind(PandoraPrisonCharacter, Message);
+	PandoraPrisonCharacter.Stage = "QuickieLeave";
+	PandoraDress(PandoraPrisonGuard, "Guard");
+	CharacterSetActivePose(Player, null, true);
+}
+
+/**
+ * When the player drinks water, she heals 25% of her max
+ * @returns {void} - Nothing
+ */
+function PandoraPrisonDrinkWater() {
+	PandoraWillpower = PandoraWillpower + Math.round(PandoraMaxWillpower / 4);
+	if (PandoraWillpower > PandoraMaxWillpower) PandoraWillpower = PandoraMaxWillpower;
 }
