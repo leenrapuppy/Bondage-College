@@ -686,6 +686,13 @@ var AssetFemale3DCG = [
 			{ Name: "Bra8", Value: 15, Hide: ["ItemNipples"] },
 			{ Name: "Bra9", Value: 10, Hide: ["ItemNipples"] },
 			{ Name: "Bandeau1", Fetish: ["Lingerie"], Priority: 20, Value: 25, Hide: ["ItemNipples"] },
+			{ Name: "MaidBra1", Fetish: ["Lingerie"], Value: -1, BuyGroup: "Maid", Hide: ["ItemNipples"],
+				DefaultColor: ["#212121", "Default"],
+				Layer:[
+					{ Name: "Bra" },
+					{ Name: "Frills" },
+				]
+			},
 			{ Name: "Bustier1", Fetish: ["Lingerie"], Value: 30, Hide: ["ItemNipples"] },
 			{
 				Name: "Bikini1", Value: 25, Hide: ["ItemNipples"],
@@ -871,6 +878,13 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "Panties16", Fetish: ["Lingerie"], Value: 20, HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"] },
 			{ Name: "MaidPanties1", Fetish: ["Lingerie"], Value: 25, HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"] },
+			{ Name: "MaidPanties2", Fetish: ["Lingerie"], Value: -1, BuyGroup: "Maid", HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"],
+				DefaultColor: ["#212121", "Default"],
+				Layer: [
+					{ Name: "Panties" },
+					{ Name: "Frills" },
+				]
+			},
 			{ Name: "LatexPanties1", BuyGroup: "LatexPanties", Fetish: ["Latex"], Value: -1, Expose: ["ItemVulva", "ItemVulvaPiercings"] },
 			{ Name: "WrapPanties1", Value: 25, Expose: ["ItemVulva", "ItemVulvaPiercings"] },
 			{ Name: "CrotchPanties1", Value: 30, AllowPose: ["KneelingSpread"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"] },
