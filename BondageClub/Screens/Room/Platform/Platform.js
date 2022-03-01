@@ -16,7 +16,7 @@ var PlatformShowHitBox = false;
 // Template for characters with their animations
 var PlatformTemplate = [
 	{
-		Name: "Luka",
+		Name: "Player",
 		Status: "Maid",
 		Health: 16,
 		Width: 400,
@@ -106,7 +106,7 @@ var PlatformTemplate = [
 		]
 	},
 	{
-		Name: "Soldier",
+		Name: "Camille",
 		Status: "Armor",
 		Health: 30,
 		Width: 400,
@@ -187,7 +187,7 @@ var PlatformRoomList = [
 			{ Name: "CollegeArt1", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3500, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Soldier", X: 3700 }
+			{ Name: "Camille", X: 3700 }
 		]
 	}
 ]
@@ -243,7 +243,7 @@ function PlatformLoad() {
 	window.addEventListener("keydown", PlatformEventKeyDown);
 	window.addEventListener("keyup", PlatformEventKeyUp);
 	PlatformChar = [];
-	PlatformCreateCharacter("Luka", true, 300);
+	PlatformCreateCharacter("Player", true, 300);
 	PlatformLoadRoom("CollegeClass1");
 	PlatformLastTime = CommonTime();
 }
@@ -345,7 +345,10 @@ function PlatformDamage(Source, Target, Damage, Time) {
 	Target.Health = Target.Health - Damage;
 	if (Target.Damage == null) Target.Damage = [];
 	Target.Damage.push({ Value: Damage, Expire: Time + 2000});
-	if (Target.Health <= 0) Target.Health = 0;
+	if (Target.Health <= 0) {
+		Target.Health = 0;
+		Target.RiseTime = Time + 15000;
+	}
 }
 
 /**
@@ -428,7 +431,7 @@ function PlatformWalkFrame(Speed, Frame) {
 
 /**
  * Does collision damage for a character
- * @param {Object} C - The character that will be damaged
+ * @param {Object} Target - The character that will be damaged
  * @param {Number} Time - The current time when the action is done
  * @returns {void} - Nothing
  */
@@ -491,7 +494,11 @@ function PlatformDraw() {
 	
 	// Draw each characters
 	for (let C of PlatformChar) {
-		
+
+		// Enemies will stand up at half health if they were not restrained
+		if ((C.Health == 0) && (C.RiseTime != null) && (C.RiseTime < PlatformTime) && !C.Bound)
+			C.Health = Math.round(C.MaxHealth / 2);
+
 		// AI walks from left to right
 		if (!C.Camera && (C.Health > 0)) {
 			if (C.FaceLeft) {
@@ -608,6 +615,7 @@ function PlatformExit() {
 
 /**
  * If there's a door, the player can enter it with the W key
+ * @param {String} FromType - The type of room enter (Up, Left, Right)
  * @returns {void} - Nothing
  */
 function PlatformEnterRoom(FromType) {
@@ -622,12 +630,21 @@ function PlatformEnterRoom(FromType) {
 		}
 }
 
-function PlatformBindStart(Source, KeyCode) {
+/**
+ * Checks if there's a target character to bind and starts the binding process
+ * @param {Object} Source - The source character that does the binding
+ * @returns {void} - Nothing
+ */
+function PlatformBindStart(Source) {
 	if ((Source.Action != null) && (Source.Action.Expire != null) && (Source.Action.Expire > CommonTime())) return;
 	if (PlatformKeys.length > 0) return;
 	for (let C of PlatformChar)
-		if ((Source.ID != C.ID) && (C.Bound == null) && (C.Status != "Bound") && (C.Health == 0) && (Math.abs(Source.X - C.X) < 200) && (Math.abs(Source.Y - C.Y) < 200) && (Source.Y == PlatformFloor))
-			return Source.Action = { Name: "Bind", Target: C.ID, Start: CommonTime(), Expire: CommonTime() + 2000 };
+		if ((Source.ID != C.ID) && (C.Bound == null) && (C.Status != "Bound") && (C.Health == 0) && (Math.abs(Source.X - C.X + (Source.FaceLeft ? -75 : 75)) < 150) && (Math.abs(Source.Y - C.Y) < 150) && (Source.Y == PlatformFloor)) {
+			C.RiseTime = CommonTime() + 15000;
+			Source.ForceX = 0;
+			Source.Action = { Name: "Bind", Target: C.ID, Start: CommonTime(), Expire: CommonTime() + 2000 };
+			return;
+		}
 }
 
 /**
@@ -643,7 +660,7 @@ function PlatformEventKeyDown(e) {
 	if ((e.keyCode == 87) || (e.keyCode == 119)) return PlatformEnterRoom("Up");
 	if ((e.keyCode == 76) || (e.keyCode == 108)) return PlatformAttack(PlatformPlayer, ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0)) ? "CrouchAttackFast" : "StandAttackFast");
 	if ((e.keyCode == 75) || (e.keyCode == 107)) return PlatformAttack(PlatformPlayer, ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0)) ? "CrouchAttackSlow" : "StandAttackSlow");
-	if ((e.keyCode == 82) || (e.keyCode == 114)) return PlatformBindStart(PlatformPlayer, e.keyCode);
+	if ((e.keyCode == 79) || (e.keyCode == 111)) return PlatformBindStart(PlatformPlayer, e.keyCode);
 	if (PlatformKeys.indexOf(e.keyCode) < 0) PlatformKeys.push(e.keyCode);
 	PlatformLastKeyCode = e.keyCode;
 	PlatformLastKeyTime = CommonTime();
