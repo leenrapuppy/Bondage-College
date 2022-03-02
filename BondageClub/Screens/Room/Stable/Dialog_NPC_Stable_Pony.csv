@@ -36,7 +36,7 @@ RemoveSuspensionHempRope,,,(You let her down from the ceiling.)  Much better!  I
 0,,(Try to trot to her.),(She turns away.),,StablePlayerIsolation()
 0,,(Whinny to her.),(She kicks your butt.),,StablePlayerIsolation()
 0,10,(Trot to her.),(She nudges you with her nose.),,StablePlayerOtherPony()
-0,20,(Start the training.),(She looks expectant.),,PlayerIsTrainer
+0,20,(Start the training.),(She looks expectant.),,PlayerIsReadyToTrain()
 0,,I can't stay to chat.  (Leave her.),,DialogLeave(),
 10,,(Try to talk to her.),(You both try to mumble to each other but it makes no sense.),,
 10,,(Lean on her.),(You lean and rest on each other's hips while she whinnies slowly.),,
