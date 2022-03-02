@@ -16,7 +16,7 @@ var PlatformShowHitBox = false;
 // Template for characters with their animations
 var PlatformTemplate = [
 	{
-		Name: "Player",
+		Name: "Melody",
 		Status: "Maid",
 		Health: 16,
 		Width: 400,
@@ -241,7 +241,7 @@ function PlatformLoad() {
 	window.addEventListener("keydown", PlatformEventKeyDown);
 	window.addEventListener("keyup", PlatformEventKeyUp);
 	PlatformChar = [];
-	PlatformCreateCharacter("Player", true, 300);
+	PlatformCreateCharacter("Melody", true, 300);
 	PlatformLoadRoom("CollegeClass1");
 	PlatformLastTime = CommonTime();
 }
