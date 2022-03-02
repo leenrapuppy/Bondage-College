@@ -58,8 +58,8 @@ function PlatformIntroRun() {
 	}
 	DrawText(TextGet("LoadingAssets") + " " + Count.toString() + " / " + Total.toString(), 1150, 870);
 	
-	for (let X = 0; X <= 8; X++)
-		DrawText(TextGet("Text" + X.toString()), 1400, 120 + X * 80, "Black", "Silver");
+	for (let X = 0; X <= 9; X++)
+		DrawText(TextGet("Text" + X.toString()), 1400, 120 + X * 72, "Black", "Silver");
 		
 	DrawButton(1400, 840, 200, 60, TextGet("Launch"), "White", "");
 	DrawButton(1650, 840, 200, 60, TextGet("Cancel"), "White", "");
