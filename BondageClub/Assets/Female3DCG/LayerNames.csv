@@ -859,6 +859,8 @@ MaskPetNoseCheeks,Cheeks
 MaskPetNoseNose,Nose
 MaskPetNoseGloss,Nose Gloss
 MaskPetNoseWhiskers,Whiskers
+MaskGlitterFreckles,Color One
+MaskGlitterFreckles2,Color Two
 ItemTorsoHighSecurityHarnessStrapsHarness,Straps
 ItemTorsoHighSecurityHarnessClampsHarness,Clasps
 ItemTorsoFuturisticHarnessBand,Straps
@@ -961,6 +963,8 @@ ItemHeadFuturisticMaskLock,Lock Icon
 ClothAccessoryBunnyCollarCuffsCuffs,Cuffs
 ClothAccessoryBunnyCollarCuffsCollar,Collar
 ClothAccessoryBunnyCollarCuffsBow,Bow
+ClothAccessoryGlitterFreckles,Color One
+ClothAccessoryGlitterFreckles2,Color Two
 ItemHeadPaddedBlindfoldBase,Blindfold
 ItemHeadPaddedBlindfoldTrim,Trim
 ItemHeadKittyBlindfoldBase,Base

@@ -240,6 +240,63 @@ var AssetFemale3DCGExtended = {
 				], DrawImages: false,
 			},
 		}, // Scarf
+		Glitter: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options:[
+					{
+						Name: "Freckles",
+						Property: {Type: null,}
+					},
+					{
+						Name: "MidFreckles",
+						Property: {Type: "MidFreckles",}
+					},
+					{
+						Name: "SplitFreckles",
+						Property: {Type: "SplitFreckles",}
+					},
+					{
+						Name: "FrecklesSmall",
+						Property: {Type: "FrecklesSmall",}
+					},
+					{
+						Name: "MidFrecklesSmall",
+						Property: {Type: "MidFrecklesSmall",}
+					},
+					{
+						Name: "SplitFrecklesSmall",
+						Property: {Type: "SplitFrecklesSmall",}
+					},
+					{
+						Name: "StarsBoth",
+						Property: {Type: "StarsBoth",}
+					},
+					{
+						Name: "StarsLeft",
+						Property: {Type: "StarsLeft",}
+					},
+					{
+						Name: "StarsRight",
+						Property: {Type: "StarsRight",}
+					},
+					{
+						Name: "DotsBoth",
+						Property: {Type: "DotsBoth",}
+					},
+					{
+						Name: "DotsLeft",
+						Property: {Type: "DotsLeft",}
+					},
+					{
+						Name: "DotsRight",
+						Property: {Type: "DotsRight",}
+					},
+					
+					
+				],
+			},
+		}, //Glitter		
 	}, // ClothAccessory
 	ItemBreast: {
 		Ribbons: {
@@ -3787,6 +3844,63 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //PetNose
+		Glitter: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options:[
+					{
+						Name: "Freckles",
+						Property: {Type: null,}
+					},
+					{
+						Name: "MidFreckles",
+						Property: {Type: "MidFreckles",}
+					},
+					{
+						Name: "SplitFreckles",
+						Property: {Type: "SplitFreckles",}
+					},
+					{
+						Name: "FrecklesSmall",
+						Property: {Type: "FrecklesSmall",}
+					},
+					{
+						Name: "MidFrecklesSmall",
+						Property: {Type: "MidFrecklesSmall",}
+					},
+					{
+						Name: "SplitFrecklesSmall",
+						Property: {Type: "SplitFrecklesSmall",}
+					},
+					{
+						Name: "StarsBoth",
+						Property: {Type: "StarsBoth",}
+					},
+					{
+						Name: "StarsLeft",
+						Property: {Type: "StarsLeft",}
+					},
+					{
+						Name: "StarsRight",
+						Property: {Type: "StarsRight",}
+					},
+					{
+						Name: "DotsBoth",
+						Property: {Type: "DotsBoth",}
+					},
+					{
+						Name: "DotsLeft",
+						Property: {Type: "DotsLeft",}
+					},
+					{
+						Name: "DotsRight",
+						Property: {Type: "DotsRight",}
+					},
+					
+					
+				],
+			},
+		}, //Glitter		
 	}, // Mask
 	ItemLegs: {
 		DuctTape: {

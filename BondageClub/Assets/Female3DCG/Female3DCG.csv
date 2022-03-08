@@ -74,6 +74,7 @@ ClothAccessory,FurBolero,Fur Bolero
 ClothAccessory,FacePaint, Face Paint
 ClothAccessory,Bib,Bib
 ClothAccessory,Scarf,Scarf
+ClothAccessory,Glitter,Glitter
 Necklace,,Necklace
 Necklace,Necklace1,Fancy Necklace
 Necklace,Necklace2,Beaded Necklace
@@ -463,6 +464,7 @@ Mask,OpenFaceHood,Open Face Hood
 Mask,FaceVeil,Face Veil
 Mask,FacePaint, Face Paint
 Mask,PetNose,Pet Nose
+Mask,Glitter,Glitter
 TailStraps,,Tail Strap
 TailStraps,TailStrap,Kitty Tail Strap
 TailStraps,HorseTailStrap,Horse Tail Strap
