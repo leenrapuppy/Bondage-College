@@ -265,9 +265,11 @@ function MainHallRun() {
 
 	} else {
 
-		// Special permission to enter the maid quarters if doing the maid serving drinks quest while being restrained
-		if (Player.CanWalk() && (InventoryIsWorn(Player, "WoodenMaidTray", "ItemMisc") || InventoryIsWorn(Player, "WoodenMaidTrayFull", "ItemMisc")))
+		// Special permission to enter the maid quarters and cafe if doing the maid serving drinks quest while being restrained
+		if (Player.CanWalk() && MaidQuartersOnlineDrinkStarted) {
 			DrawButton(1765, 265, 90, 90, "", "White", "Icons/Maid.png", TextGet("MaidQuarters"));
+			DrawButton(25, 265, 90, 90, "", "White", "Icons/Refreshsments.png", TextGet("Cafe"));
+		}
 		// Special permission to enter the kidnappers league if doing the online bounty quest while being restrained
 		if (Player.CanWalk() && (InventoryIsWorn(Player, "BountySuitcase", "ItemMisc") || InventoryIsWorn(Player, "BountySuitcaseEmpty", "ItemMisc")))
 			DrawButton(1645, 385, 90, 90, "", "White", "Icons/Kidnap.png", TextGet("KidnapLeague"));
@@ -416,11 +418,13 @@ function MainHallClick() {
 
 	} else {
 
-		// Special permission to enter the maid quarters if doing the maid serving drinks quest while being restrained
-		if (Player.CanWalk() && (InventoryIsWorn(Player, "WoodenMaidTray", "ItemMisc") || InventoryIsWorn(Player, "WoodenMaidTrayFull", "ItemMisc")))
+		// Special permission to enter the maid quarters and cafe if doing the maid serving drinks quest while being restrained
+		if (Player.CanWalk() && MaidQuartersOnlineDrinkStarted) {
 			if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 265) && (MouseY < 355))
 				MainHallWalk("MaidQuarters");
-
+			if ((MouseX >=   25) && (MouseX <  115) && (MouseY >= 265) && (MouseY < 355))
+				MainHallWalk("Cafe");
+		}
 		// Special permission to enter the kidnappers league if doing the online bounty quest while being restrained
 		if (Player.CanWalk() && (InventoryIsWorn(Player, "BountySuitcase", "ItemMisc") || InventoryIsWorn(Player, "BountySuitcaseEmpty", "ItemMisc")))
 			if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 385) && (MouseY < 475))

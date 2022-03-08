@@ -253,24 +253,32 @@ Shibari mit Seilen.
 ###_NPC
 Yes, head maid DialogPlayerName.  (She gags and binds you tightly using classic bondage techniques.)
 Ja, Dienstmädchen DialogPlayerName. (Sie knebelt und bindet dich fest mit klassischen Bondage-Techniken.)
+Yes, maid DialogPlayerName.  (She gags and binds you tightly using classic bondage techniques.)
+Ja, Mädchen DialogPlayerName. (Sie knebelt und bindet dich fest mit klassischen Bondage-Techniken.)
 ###_PLAYER
 Use duct tape, lots of duct tape.
 Verwende Klebeband, viel Klebeband.
 ###_NPC
 Yes, head maid DialogPlayerName.  (She uses a whole roll of duct tape on your body.)
 Ja, Dienstmädchen DialogPlayerName. (Sie verwendet eine ganze Rolle Klebeband für deinen Körper.)
+Yes, maid DialogPlayerName.  (She uses a whole roll of duct tape on your body.)
+Ja, Mädchen DialogPlayerName. (Sie verwendet eine ganze Rolle Klebeband für deinen Körper.)
 ###_PLAYER
 lock me in leather.
 Sperr mich in Leder.
 ###_NPC
 Yes, head maid DialogPlayerName.  (She secures and gags you with tight leather, locking every buckle.)
 Ja, Dienstmädchen DialogPlayerName. (Sie sichert und knebelt dich mit Leder und schließt jede Schnalle.)
+Yes, maid DialogPlayerName.  (She secures and gags you with tight leather, locking every buckle.)
+Ja, Mädchen DialogPlayerName. (Sie sichert und knebelt dich mit Leder und schließt jede Schnalle.)
 ###_PLAYER
 Cover me in latex.
 Hülle mich mit Latex.
 ###_NPC
 Yes, head maid DialogPlayerName.  (She uses latex items on you.)
 Ja, Dienstmädchen DialogPlayerName. (Sie benutzt Latex Gegenstände für dich.)
+Yes, maid DialogPlayerName.  (She uses latex items on you.)
+Ja, Mädchen DialogPlayerName. (Sie benutzt Latex Gegenstände für dich.)
 ###_PLAYER
 Just bind me as secure as you can.
 Fessel mich einfach so sicher wie möglich.
@@ -288,7 +296,7 @@ Natürlich, DialogPlayerName. (Sie fesselt dich so gründlich wie möglich und v
 (Sie murmeln angrunzen.)
 ###_NPC
 (She makes sure your tray is full.)  I'm sorry head maid DialogPlayerName.  I've done all I can to help you.
-(Sie stellt sicher dass dein Tablett voll ist.) Es tut mir leid Dienstmädchen DialogPlayerName. Ich habe alles getan, um dir zu helfen.
+(Sie stellt sicher dass dein Tablett voll ist.) Es tut mir leid, ich habe alles getan, um dir zu helfen.
 Hmmm...  I think you need something to help you while you work.  (She uses an inflatable vibrating dildo on your Vulva.)
 Hmmm... Ich denke du brauchst etwas was dir wärend deiner Arbeit hilft. (Sie benutzt einen aufblasbaren Vibrationsdildo an deiner Vulva.)
 ###_PLAYER

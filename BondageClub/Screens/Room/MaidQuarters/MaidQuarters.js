@@ -18,6 +18,7 @@ var MaidQuartersRescueList = ["IntroductionClass", "ShibariDojo", "Shop", "Gambl
 var MaidQuartersRescueStage = ["310", "320", "330", "340", "350"];
 var MaidQuartersCurrentRescueStarted = false;
 var MaidQuartersCurrentRescueCompleted = false;
+var MaidQuartersOnlineDrinkStarted = false;
 var MaidQuartersOnlineDrinkCount = 0;
 var MaidQuartersOnlineDrinkValue = 0;
 var MaidQuartersOnlineDrinkCustomer = [];
@@ -545,6 +546,7 @@ function MaidQuartersOnlineDrinkStart() {
 	MaidQuartersOnlineDrinkValue = 0;
 	ChatRoomMoneyForOwner = 0;
 	MaidQuartersOnlineDrinkCustomer = [];
+	MaidQuartersOnlineDrinkStarted = true;
 }
 
 /**
@@ -577,6 +579,7 @@ function MaidQuartersOnlineDrinkPay() {
 	else ChatRoomMoneyForOwner = M;
 	ReputationProgress("Maid", 4);
 	IntroductionJobProgress("SubMaid");
+	MaidQuartersOnlineDrinkStarted = false;
 }
 
 /**

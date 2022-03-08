@@ -50,7 +50,7 @@ function CafeIsGaggedSeniorMaid() { return (!Player.CanTalk() && !CafeIsHeadMaid
  * Checks if the player is gagged and an ordinary maid
  * @returns {boolean} - Returns true if the player is gagged and an ordinary maid, false otherwise
  */
-function CafeIsGaggedMaid() { return (!Player.CanTalk() && !CafeIsHeadMaid && ReputationGet("Maid") > 50 && !Player.IsBlind()); }
+function CafeIsGaggedRookieMaid() { return (!Player.CanTalk() && !CafeIsHeadMaid && ReputationGet("Maid") < 50 && !Player.IsBlind()); }
 
 /**
  * Checks if the player is an experinced maid, but no head maid
