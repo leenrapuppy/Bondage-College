@@ -782,24 +782,28 @@ function CharacterItemsHavePoseAvailable(C, Type, Pose) {
  * Checks if a character has a pose from items (not active pose unless an item lets it through)
  * @param {Character} C - Character to check for the pose
  * @param {string} Pose - Pose to check for within items
+ * @param {boolean} [ExcludeClothes=false] - Ignore clothing items in the check
  * @returns {boolean} - TRUE if the character has the pose
  */
-function CharacterItemsHavePose(C, Pose) {
+function CharacterItemsHavePose(C, Pose, ExcludeClothes = false) {
 	if (C.ActivePose != null && C.AllowedActivePose.includes(Pose) && (typeof C.ActivePose == "string" && C.ActivePose == Pose || Array.isArray(C.ActivePose) && C.ActivePose.includes(Pose))) return true;
-	return CharacterDoItemsSetPose(C, Pose);
+	return CharacterDoItemsSetPose(C, Pose, ExcludeClothes);
 }
 
 /**
  * Checks whether the items on a character set a given pose on the character
  * @param {Character} C - The character to check
  * @param {string} pose - The name of the pose to check for
+ * @param {boolean} [excludeClothes=false] - Ignore clothing items in the check
  * @returns {boolean} - Returns true if the character is wearing an item that sets the given pose, false otherwise
  */
-function CharacterDoItemsSetPose(C, pose) {
-	return C.Appearance.some(item => {
-		const setPose = InventoryGetItemProperty(item, "SetPose", true);
-		return setPose && setPose.includes(pose);
-	});
+function CharacterDoItemsSetPose(C, pose, excludeClothes = false) {
+	return C.Appearance
+		.filter(item => !excludeClothes || !item.Asset.Group.Clothing)
+		.some(item => {
+			const setPose = InventoryGetItemProperty(item, "SetPose", true);
+			return setPose && setPose.includes(pose);
+		});
 }
 
 

@@ -172,7 +172,7 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "NotKneelingSpread": return C.Pose.includes("KneelingSpread") ? "MustStandUpFirst" : "";
 		case "NotChaste": return C.Effect.includes("Chaste") ? "RemoveChastityFirst" : "";
 		case "NotChained": return C.Effect.includes("IsChained") ? "RemoveChainForItem" : "";
-		case "NoFeetSpreader": return CharacterItemsHavePose(C, "Spread") || CharacterItemsHavePose(C, "LegsOpen") ? "CannotBeUsedWithFeetSpreader" : "";
+		case "NoFeetSpreader": return CharacterItemsHavePose(C, "Spread", true) || CharacterItemsHavePose(C, "LegsOpen", true) ? "CannotBeUsedWithFeetSpreader" : "";
 		case "NotShackled": return C.Effect.includes("Shackled") ? "RemoveShacklesFirst" : "";
 		case "Collared": return (InventoryGet(C, "ItemNeck") == null) ? "MustCollaredFirst" : "";
 		case "CannotHaveWand": return InventoryIsItemInList(C, "ItemArms", ["FullLatexSuit"]) ? "CannotHaveWand" : "";
