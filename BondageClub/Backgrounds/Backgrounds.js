@@ -203,9 +203,11 @@ var BackgroundsList = [
 	{ Name: "LeatherChamber", Tag: [BackgroundsTagIndoor, BackgroundsTagDungeon] },
 	{ Name: "SciFiRed", Tag: [BackgroundsTagIndoor, BackgroundsTagSciFiFantasy] },
 	{ Name: "LingerieShop", Tag: [BackgroundsTagIndoor] },
-	{ Name: "AsylumGGTSRoom", Tag: [BackgroundsTagAsylum] }
+	{ Name: "AsylumGGTSRoom", Tag: [BackgroundsTagAsylum] },
+	{ Name: "Restaurant1", Tag: [BackgroundsTagIndoor] },
+	{ Name: "Restaurant2", Tag: [BackgroundsTagIndoor] },
 ];
-
+// Be sure to go into [Screens\Character\Player\Dialog_Player.csv] and add a new line at around line 440, follow the format.
 /**
  * Builds the selectable background arrays based on the tags supplied
  * @param {string[]} BackgroundTagList - An array of string of all the tags to load
