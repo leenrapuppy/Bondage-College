@@ -3694,6 +3694,173 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // OTNPlugGag
+		
+		PonyGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				Modules:[
+					{
+						Name: "gag", Key: "g",
+						Options:[
+							{//None
+								Property: { Effect["OpenMouth"], OverrideAssetEffect: true },
+							}
+							{ //Regular BitGag
+								Name: "BitAttached",
+								Property: {Type: null},
+							},
+							{ //Detached BitGag
+								Name: "BitDetached",
+								Property: { Type: "Detached", Effect: ["OpenMouth"], OverrideAssetEffect: true },
+							},
+							
+						],
+
+					}
+					{
+						Name: "panel", Key: "p",
+						Options:[
+							{ //None
+								Property: { Effect: [] },
+							},
+							{ //p1 - Panel
+								Property: { Effect: [] },
+							},
+							{ //p2- PanelShield
+								Property: { Effect: [] },
+							},
+							{ //p3 - PanelHex
+								Property: { Effect: [] },
+							},
+							{ //p4 - PanelSun
+								Property: { Effect: [] },
+							},
+							{ //p5 - PanelMoon
+								Property: { Effect: [] },
+							},
+							{ //p6 - PanelHorse
+								Property: { Effect: [] },
+							},
+							{ //p7 - PanelTriskel
+								Property: { Effect: [] },
+							},
+							{ //p8 - PanelPentacle
+								Property: { Effect: [] },
+							},
+						],
+
+					}
+					{
+						Name: "reins", Key: "r",
+						Options:[
+							{ //r0 -None
+								Name: "BitAttached",
+								Property: {Type: null},
+							},
+							{ //r1 -Reins
+							Property: {Effect: "Leash" },
+							},
+							
+						],
+
+					}
+					{
+						Name: "top", Key: "t",
+						Options:[
+							{ //t0 - None
+								Property: {Type: null},
+							},
+							{ //t1 - Plume
+								Property: {Type: null},
+							},
+							{ //t2 - Mohawk
+								Property: {Type: null},
+							},
+							{ //t3 - Mane
+								Property: {Type: null},
+							},
+							
+						],
+
+					}
+					{
+						Name: "extra", Key: "e",
+						Options:[
+							{ //e0 - None
+								Property: {Type: null},
+							},
+							{ //e1 - ExtraStraps
+								Property: {Type: null},
+							
+						],
+
+					}
+				},
+			DroneMask: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				Modules:[
+					{
+						Name: "Eyes", Key: "e",
+						Options:[
+							{ // e0 - None
+								Property: { Effect: ["BlindHeavy","Prone"] }
+							},
+							{ // e1 - Regular
+								Property: { Effect: [] }
+							},
+							{ // e2 - Spiral
+								Property: { Effect: [] }
+							},
+							{ // e3 - Smile
+								Property: { Effect: [] }
+							},
+							{ // e4 - Holes
+								Property: { Effect: ["BlindLight"] }
+							},
+							{ // e5 - Sculpted
+								Property: { Effect: [] }
+							},
+
+						]
+					},
+					{
+						Name: "Mouth", Key: "m",
+						Options:[
+							{ // m0 - None
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m1 - Onahole
+								Property: { Effect: ["BlockMouth","GagMedium"] }
+							},
+							{ // m2 - Fleshlight
+								Property: { Effect: ["BlockMouth","GagMedium"] }
+							},
+							{ // m3 - Smile
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m4 - Holes
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m5 - Sculpted
+								Property: { Effect: ["BlockMouth"] }
+							},
+						]
+					},
+					{
+						Name: "Pattern", Key: "p",
+						Options:[{},{},{},{},{},{HasSubscreen: true},] // Blank, Barcode, Scarab, Hex, Lines, Text
+					},
+					{
+						Name: "Glow", Key: "g",
+						Options: [{},{},] // Glow Off, Glow On
+					},
+				]
+			}
+		}, // DroneMask
+		}, // PonyGag
 	}, // ItemMouth
 	ItemMouth2: {
 		ClothGag: {

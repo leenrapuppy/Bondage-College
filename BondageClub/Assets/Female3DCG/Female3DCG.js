@@ -4360,6 +4360,47 @@ var AssetFemale3DCG = [
 					{ Name: "Plug", AllowColorize: true, AllowTypes: ["Plug"] },
 				]
 			},
+			{
+				Name: "PonyGag", Fetish: ["Leather", "Pony"], Value: 80, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "PonyGag", Prerequisite: "GagUnique", Extended: true, AlwaysExtend: true, Effect: ["BlockMouth", "GagLight"], Bonus: "KidnapBruteForce",
+				Layer: [
+				// Layers: Metal, Straps, Plume, Horn, Panel
+					{ Name: "Metal"},
+					{ Name: "Straps",AllowColorize: true, HasType: false, },
+					
+					//ExtraStraps
+					{ Name: "ExtraStraps", HasType: false, CopyLayerColor: "Straps", AllowModuleTypes: ["e1"] },
+					
+					// All Top Pieces
+					{ Name: "Plume", HasType: false, AllowModuleTypes: ["t1"]},
+					{ Name: "PlumeBase", HasType: false, AllowModuleTypes: ["t1"]},
+					{ Name: "Mane", HasType: false, AllowModuleTypes: ["t2"], CopyLayerColor: "HairFront"},
+					{ Name: "ManeBase", HasType: false, AllowModuleTypes: ["t2", "t3"], CopyLayerColor: "HairFront"},
+					{ Name: "Mohawk", HasImage: false, AllowModuleTypes:["t3"], CopyLayerColor: "HairFront" , Hide: "HairFront"},
+					{ Name: "MohawkBase", HasImage: false, AllowModuleTypes:["t3"], CopyLayerColor: "HairFront", Hide: "Straps"},
+					
+					//Horns
+					{ Name: "Horn", HasType: false, AllowModuleTypes: ["h1"]},
+
+					// All Panels
+					{ Name: "Panel", HasType: false, AllowModuleTypes: ["p1"] },
+					{ Name: "PanelHex", HasType: false, AllowModuleTypes: ["p2"] },
+					{ Name: "PanelShield", HasType: false, AllowModuleTypes: ["p3"], CopyLayerColor: "PanelHex" },
+					{ Name: "PanelMoon", HasType: false, AllowModuleTypes: ["p4"], CopyLayerColor: "PanelHex" },						
+					{ Name: "PanelSun" HasType: false, AllowModuleTypes: ["p5"], CopyLayerColor: "PanelHex" },
+					{ Name: "PanelHorse" HasType: false, AllowModuleTypes: ["p6"], CopyLayerColor: "PanelHex" },
+					{ Name: "PanelTriskel" HasType: false, AllowModuleTypes: ["p7"], CopyLayerColor: "PanelHex" },
+					{ Name: "PanelPentacle" HasType: false, AllowModuleTypes: ["p8"], CopyLayerColor: "PanelHex" },
+																				
+					
+					// All Gags
+					{ Name: "BitGag", HasType: false, AllowModuleTypes: ["g1"] },					
+					{ Name: "BitGagDetached", HasType: false, AllowModuleTypes: ["g2"] },
+					
+					//Reins
+					{ Name: "Reins", HasType: false, AllowModuleTypes: ["r1"], CopyLayerColor: "Straps" },
+
+				]
+			},
 			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
