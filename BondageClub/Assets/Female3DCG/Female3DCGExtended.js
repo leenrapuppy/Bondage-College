@@ -3701,25 +3701,25 @@ var AssetFemale3DCGExtended = {
 				ChatSetting: ModularItemChatSetting.PER_MODULE,
 				Modules:[
 					{
-						Name: "gag", Key: "g",
+						Name: "Gag", Key: "g",
 						Options:[
 							{//None
 								Property: { Effect: ["OpenMouth"], OverrideAssetEffect: true },
 							},
 							{ //Regular BitGag
-								Name: "BitAttached",
-								Property: {Type: null},
+								Name: "BitAttached", 
+								Property: { Effect: [] }
 							},
 							{ //Detached BitGag
 								Name: "BitDetached",
-								Property: { Type: "Detached", Effect: ["OpenMouth"], OverrideAssetEffect: true },
+								Property: { Type: "Detached", Effect: ["OpenMouth"], OverrideAssetEffect: true, },
 							},
 							
 						],
 
 					},
 					{
-						Name: "panel", Key: "p",
+						Name: "Panel", Key: "p",
 						Options:[
 							{ //None
 								Property: { Effect: [] },
@@ -3752,7 +3752,7 @@ var AssetFemale3DCGExtended = {
 
 					},
 					{
-						Name: "reins", Key: "r",
+						Name: "Reins", Key: "r",
 						Options:[
 							{ //r0 -None
 								Property: { Effect: [] },
@@ -3765,26 +3765,16 @@ var AssetFemale3DCGExtended = {
 
 					},
 					{
-						Name: "top", Key: "t",
+						Name: "Top", Key: "t",
 						Options:[
-							{ //t0 - None
-								Property: {Type: null},
-							},
-							{ //t1 - Plume
-								Property: {Type: null},
-							},
-							/*{ //t2 - Mohawk
-								Property: {Type: null},
-							},
-							{ //t3 - Mane
-								Property: {Type: null},
-							},*/
+						// //t0- None, t1- Plume, t2- mane, t3- Mohawk,
+							{},{},{},{Property: {OverrideAsset: "Hairfront"},},
 							
 						],
 
 					},
 					{
-						Name: "extra", Key: "e",
+						Name: "Extra", Key: "e",
 						Options:[
 							{ //e0 - None
 								Property: {Type: null},
@@ -3796,13 +3786,13 @@ var AssetFemale3DCGExtended = {
 
 					},
 					{
-						Name: "horn", Key: "h",
+						Name: "Horn", Key: "h",
 						Options:[
 							{ //h0 - None
-								Property: {Type: null},
+								Property: { Effect: [] },
 							},
 							{ //h1 - Horn
-								Property: {Type: null},
+								Property: { Effect: [] },
 							},
 						],
 

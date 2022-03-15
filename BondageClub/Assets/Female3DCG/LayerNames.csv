@@ -705,11 +705,13 @@ ItemMouthKittyMuzzleGagMuzzle,Muzzle
 ItemMouthKittyMuzzleGagStraps,Straps
 ItemMouthKittyMuzzleGagLines,Lines
 ItemMouthKittyMuzzleGagMouth,Mouth
-ItemMouthPonyGagMetal,Metal
-ItemMouthPonyGagStraps,Straps
+ItemMouthPonyGagBaseMetal,Metal
+ItemMouthPonyGagBaseStraps,Straps
 ItemMouthPonyGagPlume,Plume
+ItemMouthPonyGagManeBase,ManeBase
 ItemMouthPonyGagManeBase,Mane
 ItemMouthPonyGagHorn,Horn
+ItemMouthPonyGagPanelBase,Panel
 ItemMouthPonyGagPanelHex,Ornament
 ItemMouth2WiffleGagStrap,Strap
 ItemMouth2WiffleGagBall,Ball

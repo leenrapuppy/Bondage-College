@@ -4361,37 +4361,37 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PonyGag", Fetish: ["Leather", "Pony"], Value: 100, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "PonyGag", Prerequisite: "GagUnique", Extended: true, AlwaysExtend: true, Effect: ["BlockMouth", "GagLight"], Bonus: "KidnapBruteForce", Top: -57, Left: 133,
+				Name: "PonyGag", Fetish: ["Leather", "Pony"], Value: 100, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "PonyGag", Prerequisite: "GagUnique", DefaultColor: ["Default", "Default", "#EAEAEA", "Default", "#EBAACD", "Default","Default"], Extended: true, AlwaysExtend: true, Effect: ["BlockMouth", "GagLight"], Bonus: "KidnapBruteForce", Top: -57, Left: 133,
 				Layer: [
 				// Layers: Metal, Straps, Plume, Horn, Panel
-					{ Name: "BaseMetal", HasType: false },
-					{ Name: "BaseStraps",AllowColorize: true, HasType: false },
+					{ Name: "BaseMetal", HasType: false, AllowColorize: false },
+					{ Name: "BaseStraps", HasType: false, AllowColorize: true },
 					
 					//ExtraStraps
-					{ Name: "ExtraStraps", HasType: false, CopyLayerColor: "Straps", AllowModuleTypes: ["e1"] },
-					{ Name: "ExtraStraps", AllowModuleTypes: ["e1"] },
+					{ Name: "ExtraMetal", HasType: false, AllowColorize: false, AllowModuleTypes: ["e1", "p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], Priority: 55 },
+					{ Name: "ExtraStraps", HasType: false, CopyLayerColor: "Straps", AllowModuleTypes: ["e1", "p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], Priority: 55  },
 					
 					// All Top Pieces
-					{ Name: "Plume", HasType: false, AllowModuleTypes: ["t1"]},
-					{ Name: "PlumeBase", HasType: false, AllowModuleTypes: ["t1"]},
-					//{ Name: "Mane", HasType: false, AllowModuleTypes: ["t2"], CopyLayerColor: "HairFront"},
-					//{ Name: "ManeBase", HasType: false, AllowModuleTypes: ["t2", "t3"], CopyLayerColor: "HairFront"},
+					{ Name: "Plume", HasType: false, AllowModuleTypes: ["t1"] },
+					{ Name: "PlumeBase", HasType: false, AllowColorize: false, AllowModuleTypes: ["t1"]},
+					{ Name: "Mane", HasType: false, AllowModuleTypes: ["t2"], CopyLayerColor: "HairFront"},
+					{ Name: "ManeBase", HasType: false, AllowModuleTypes: ["t2", "t3"], CopyLayerColor: "HairFront"},
 					//{ Name: "Mohawk", HasImage: false, AllowModuleTypes:["t3"], CopyLayerColor: "HairFront" , Hide: "HairFront"},
 					//{ Name: "MohawkBase", HasImage: false, AllowModuleTypes:["t3"], CopyLayerColor: "HairFront", Hide: "Straps"},
 					
 					//Horns
-					{ Name: "Horn", HasType: false, AllowModuleTypes: ["h1"]},
+					{ Name: "Horn", HasType: false, AllowModuleTypes: ["h1"], Priority: 58 },
 
 					// All Panels
-					{ Name: "PanelBase", HasType: false, AllowModuleTypes: ["p1"] },
-					{ Name: "PanelStuds", HasType: false, AllowModuleTypes: ["p1"] },
-					{ Name: "PanelHex", HasType: false, AllowModuleTypes: ["p2"] },
-					{ Name: "PanelShield", HasType: false, AllowModuleTypes: ["p3"], CopyLayerColor: "PanelHex" },
-					{ Name: "PanelMoon", HasType: false, AllowModuleTypes: ["p4"], CopyLayerColor: "PanelHex" },						
-					{ Name: "PanelSun", HasType: false, AllowModuleTypes: ["p5"], CopyLayerColor: "PanelHex" },	
-					{ Name: "PanelHorse", HasType: false, AllowModuleTypes: ["p6"], CopyLayerColor: "PanelHex" },
-					{ Name: "PanelTriskel", HasType: false, AllowModuleTypes: ["p7"], CopyLayerColor: "PanelHex" },
-					{ Name: "PanelPentacle", HasType: false, AllowModuleTypes: ["p8"], CopyLayerColor: "PanelHex" },
+					{ Name: "PanelBase", HasType: false, AllowModuleTypes: ["p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], AllowColorize: true, Priority: 55  },
+					{ Name: "PanelStuds", HasType: false, AllowModuleTypes: ["p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], AllowColorize: false, Priority: 55 },
+					{ Name: "PanelHex", HasType: false, AllowModuleTypes: ["p2"],Priority: 58 },
+					{ Name: "PanelShield", HasType: false, AllowModuleTypes: ["p3"], CopyLayerColor: "PanelHex", Priority: 55 },
+					{ Name: "PanelMoon", HasType: false, AllowModuleTypes: ["p4"], CopyLayerColor: "PanelHex", Priority: 55 },						
+					{ Name: "PanelSun", HasType: false, AllowModuleTypes: ["p5"], CopyLayerColor: "PanelHex", Priority: 55 },	
+					{ Name: "PanelHorse", HasType: false, AllowModuleTypes: ["p6"], CopyLayerColor: "PanelHex", Priority: 55 },
+					{ Name: "PanelTriskel", HasType: false, AllowModuleTypes: ["p7"], CopyLayerColor: "PanelHex", Priority: 55 },
+					{ Name: "PanelPentacle", HasType: false, AllowModuleTypes: ["p8"], CopyLayerColor: "PanelHex", Priority: 55 },
 																				
 					
 					// All Gags
