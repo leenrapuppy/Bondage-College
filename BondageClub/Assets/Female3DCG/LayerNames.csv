@@ -705,6 +705,12 @@ ItemMouthKittyMuzzleGagMuzzle,Muzzle
 ItemMouthKittyMuzzleGagStraps,Straps
 ItemMouthKittyMuzzleGagLines,Lines
 ItemMouthKittyMuzzleGagMouth,Mouth
+ItemMouthPonyGagMetal,Metal
+ItemMouthPonyGagStraps,Straps
+ItemMouthPonyGagPlume,Plume
+ItemMouthPonyGagManeBase,Mane
+ItemMouthPonyGagHorn,Horn
+ItemMouthPonyGagPanelHex,Ornament
 ItemMouth2WiffleGagStrap,Strap
 ItemMouth2WiffleGagBall,Ball
 ItemMouth2HarnessBallGagBall,Ball
@@ -778,12 +784,12 @@ ItemMouth2KittyMuzzleGagMuzzle,Muzzle
 ItemMouth2KittyMuzzleGagStraps,Straps
 ItemMouth2KittyMuzzleGagLines,Lines
 ItemMouth2KittyMuzzleGagMouth,Mouth
-ItemMouth2PonyGagMetal, Metal
-ItemMouth2PonyGagStraps, Straps
-ItemMouth2PonyGagPlume, Plume
-ItemMouth2PonyGagManeBase, ManeBase
-ItemMouth2PonyGagTopBase, Horn
-ItemMouth2PonyGagPanel, Panel
+ItemMouth2PonyGagMetal,Metal
+ItemMouth2PonyGagStraps,Straps
+ItemMouth2PonyGagPlume,Plume
+ItemMouth2PonyGagManeBase,Mane
+ItemMouth2PonyGagHorn,Horn
+ItemMouth2PonyGagPanelHex,Ornament
 ItemMouth3WiffleGagStrap,Strap
 ItemMouth3WiffleGagBall,Ball
 ItemMouth3HarnessBallGagBall,Ball
@@ -857,6 +863,12 @@ ItemMouth3KittyMuzzleGagMuzzle,Muzzle
 ItemMouth3KittyMuzzleGagStraps,Straps
 ItemMouth3KittyMuzzleGagLines,Lines
 ItemMouth3KittyMuzzleGagMouth,Mouth
+ItemMouth3PonyGagMetal,Metal
+ItemMouth3PonyGagStraps,Straps
+ItemMouth3PonyGagPlume,Plume
+ItemMouth3PonyGagManeBase,Mane
+ItemMouth3PonyGagHorn,Horn
+ItemMouth3PonyGagPanelHex,Ornament
 MaskFoxMaskUpper,Upper
 MaskFoxMaskLower,Lower
 MaskKittyMask3Highlights,Highlights

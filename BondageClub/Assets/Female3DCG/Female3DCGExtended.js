@@ -3704,8 +3704,8 @@ var AssetFemale3DCGExtended = {
 						Name: "gag", Key: "g",
 						Options:[
 							{//None
-								Property: { Effect["OpenMouth"], OverrideAssetEffect: true },
-							}
+								Property: { Effect: ["OpenMouth"], OverrideAssetEffect: true },
+							},
 							{ //Regular BitGag
 								Name: "BitAttached",
 								Property: {Type: null},
@@ -3717,7 +3717,7 @@ var AssetFemale3DCGExtended = {
 							
 						],
 
-					}
+					},
 					{
 						Name: "panel", Key: "p",
 						Options:[
@@ -3750,21 +3750,20 @@ var AssetFemale3DCGExtended = {
 							},
 						],
 
-					}
+					},
 					{
 						Name: "reins", Key: "r",
 						Options:[
 							{ //r0 -None
-								Name: "BitAttached",
-								Property: {Type: null},
+								Property: { Effect: [] },
 							},
 							{ //r1 -Reins
-							Property: {Effect: "Leash" },
+								Property: {Effect: ["Leash"] },
 							},
 							
 						],
 
-					}
+					},
 					{
 						Name: "top", Key: "t",
 						Options:[
@@ -3774,16 +3773,16 @@ var AssetFemale3DCGExtended = {
 							{ //t1 - Plume
 								Property: {Type: null},
 							},
-							{ //t2 - Mohawk
+							/*{ //t2 - Mohawk
 								Property: {Type: null},
 							},
 							{ //t3 - Mane
 								Property: {Type: null},
-							},
+							},*/
 							
 						],
 
-					}
+					},
 					{
 						Name: "extra", Key: "e",
 						Options:[
@@ -3792,75 +3791,26 @@ var AssetFemale3DCGExtended = {
 							},
 							{ //e1 - ExtraStraps
 								Property: {Type: null},
-							
+							},
 						],
 
-					}
-				},
-			DroneMask: {
-			Archetype: ExtendedArchetype.MODULAR,
-			Config: {
-				ChatSetting: ModularItemChatSetting.PER_MODULE,
-				Modules:[
+					},
 					{
-						Name: "Eyes", Key: "e",
+						Name: "horn", Key: "h",
 						Options:[
-							{ // e0 - None
-								Property: { Effect: ["BlindHeavy","Prone"] }
+							{ //h0 - None
+								Property: {Type: null},
 							},
-							{ // e1 - Regular
-								Property: { Effect: [] }
+							{ //h1 - Horn
+								Property: {Type: null},
 							},
-							{ // e2 - Spiral
-								Property: { Effect: [] }
-							},
-							{ // e3 - Smile
-								Property: { Effect: [] }
-							},
-							{ // e4 - Holes
-								Property: { Effect: ["BlindLight"] }
-							},
-							{ // e5 - Sculpted
-								Property: { Effect: [] }
-							},
+						],
 
-						]
 					},
-					{
-						Name: "Mouth", Key: "m",
-						Options:[
-							{ // m0 - None
-								Property: { Effect: ["BlockMouth"] }
-							},
-							{ // m1 - Onahole
-								Property: { Effect: ["BlockMouth","GagMedium"] }
-							},
-							{ // m2 - Fleshlight
-								Property: { Effect: ["BlockMouth","GagMedium"] }
-							},
-							{ // m3 - Smile
-								Property: { Effect: ["BlockMouth"] }
-							},
-							{ // m4 - Holes
-								Property: { Effect: ["BlockMouth"] }
-							},
-							{ // m5 - Sculpted
-								Property: { Effect: ["BlockMouth"] }
-							},
-						]
-					},
-					{
-						Name: "Pattern", Key: "p",
-						Options:[{},{},{},{},{},{HasSubscreen: true},] // Blank, Barcode, Scarab, Hex, Lines, Text
-					},
-					{
-						Name: "Glow", Key: "g",
-						Options: [{},{},] // Glow Off, Glow On
-					},
-				]
-			}
-		}, // DroneMask
+				],
+			},
 		}, // PonyGag
+		
 	}, // ItemMouth
 	ItemMouth2: {
 		ClothGag: {
@@ -3899,6 +3849,10 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticMuzzle" },
 		},
+		FuturisticMuzzle: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "PonyGag" },
+		},
 	}, // ItemMouth2
 	ItemMouth3: {
 		ClothGag: {
@@ -3936,6 +3890,10 @@ var AssetFemale3DCGExtended = {
 		FuturisticMuzzle: {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticMuzzle" },
+		},
+		FuturisticMuzzle: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "PonyGag" },
 		},
 	}, // ItemMouth3
 	Mask: {
