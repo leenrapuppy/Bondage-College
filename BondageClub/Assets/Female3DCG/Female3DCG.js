@@ -4361,11 +4361,15 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PonyGag", Fetish: ["Leather", "Pony"], Value: 100, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "PonyGag", Prerequisite: "GagUnique", DefaultColor: ["Default", "Default", "#EAEAEA", "Default", "#EBAACD", "Default","Default"], Extended: true, AlwaysExtend: true, Effect: ["BlockMouth", "GagLight"], Bonus: "KidnapBruteForce", Top: -57, Left: 133,
+				Name: "PonyGag", Fetish: ["Leather", "Pony", "Pet"], Value: 120, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "PonyGag", Prerequisite: "GagUnique", DefaultColor: ["Default", "Default", "Default", "#EAEAEA", "Default", "#EBAACD", "Default","Default"], Extended: true, AlwaysExtend: true, Effect: ["BlockMouth", "GagLight"], Bonus: "KidnapBruteForce", Top: -57, Left: 133,
 				Layer: [
 				// Layers: Metal, Straps, Plume, Horn, Panel
-					{ Name: "BaseMetal", HasType: false, AllowColorize: false },
+					{ Name: "BaseMetal", HasType: false, AllowColorize: false },	
+					{ Name: "ManeB", HasType: false, AllowModuleTypes: ["t2", "t3"], CopyLayerColor: "HairFront"},					
 					{ Name: "BaseStraps", HasType: false, AllowColorize: true },
+					
+					// All Gags
+					{ Name: "Bit", HasType: false, AllowModuleTypes: ["g0"], AllowColorize: false },	
 					
 					//ExtraStraps
 					{ Name: "ExtraMetal", HasType: false, AllowColorize: false, AllowModuleTypes: ["e1", "p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], Priority: 55 },
@@ -4374,8 +4378,9 @@ var AssetFemale3DCG = [
 					// All Top Pieces
 					{ Name: "Plume", HasType: false, AllowModuleTypes: ["t1"] },
 					{ Name: "PlumeBase", HasType: false, AllowColorize: false, AllowModuleTypes: ["t1"]},
-					{ Name: "Mane", HasType: false, AllowModuleTypes: ["t2"], CopyLayerColor: "HairFront"},
-					{ Name: "ManeBase", HasType: false, AllowModuleTypes: ["t2", "t3"], CopyLayerColor: "HairFront"},
+					{ Name: "ManeL", HasType: false, AllowModuleTypes: ["t2"], CopyLayerColor: "HairFront", Hide: "HairFront"},
+					{ Name: "ManeR", HasType: false, AllowModuleTypes: ["t3"], CopyLayerColor: "HairFront", Hide: "HairFront"},
+					
 					//{ Name: "Mohawk", HasImage: false, AllowModuleTypes:["t3"], CopyLayerColor: "HairFront" , Hide: "HairFront"},
 					//{ Name: "MohawkBase", HasImage: false, AllowModuleTypes:["t3"], CopyLayerColor: "HairFront", Hide: "Straps"},
 					
@@ -4393,13 +4398,11 @@ var AssetFemale3DCG = [
 					{ Name: "PanelTriskel", HasType: false, AllowModuleTypes: ["p7"], CopyLayerColor: "PanelHex", Priority: 55 },
 					{ Name: "PanelPentacle", HasType: false, AllowModuleTypes: ["p8"], CopyLayerColor: "PanelHex", Priority: 55 },
 																				
-					
-					// All Gags
-					//{ Name: "BitGag", HasType: false, AllowModuleTypes: ["g1"] },					
-					//{ Name: "BitGagDetached", HasType: false, AllowModuleTypes: ["g2"] },
-					
 					//Reins
 					{ Name: "Reins", HasType: false, AllowModuleTypes: ["r1"], CopyLayerColor: "Straps" },
+					
+					//Blinders
+					{ Name: "Blinders", HasType: false, AllowModuleTypes: ["b1"], CopyLayerColor: "Straps", Priority: 55 },
 
 				]
 			},

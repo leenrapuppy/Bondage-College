@@ -3703,99 +3703,72 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Gag", Key: "g",
 						Options:[
-							{//None
-								Property: { Effect: ["OpenMouth"], OverrideAssetEffect: true },
-							},
 							{ //Regular BitGag
 								Name: "BitAttached", 
 								Property: { Effect: [] }
 							},
-							{ //Detached BitGag
-								Name: "BitDetached",
-								Property: { Type: "Detached", Effect: ["OpenMouth"], OverrideAssetEffect: true, },
+							{//None
+								Name: "Detached",
+								Property: { Effect: ["OpenMouth"], OverrideAssetEffect: true },
 							},
 							
 						],
-
 					},
 					{
 						Name: "Panel", Key: "p",
 						Options:[
-							{ //None
-								Property: { Effect: [] },
-							},
-							{ //p1 - Panel
-								Property: { Effect: [] },
-							},
-							{ //p2- PanelShield
-								Property: { Effect: [] },
-							},
-							{ //p3 - PanelHex
-								Property: { Effect: [] },
-							},
-							{ //p4 - PanelSun
-								Property: { Effect: [] },
-							},
-							{ //p5 - PanelMoon
-								Property: { Effect: [] },
-							},
-							{ //p6 - PanelHorse
-								Property: { Effect: [] },
-							},
-							{ //p7 - PanelTriskel
-								Property: { Effect: [] },
-							},
-							{ //p8 - PanelPentacle
-								Property: { Effect: [] },
-							},
+							{}, //None
+							{}, //p1 - Panel
+							{}, //p2- PanelShield
+							{}, //p3 - PanelHex
+							{}, //p4 - PanelSun
+							{}, //p5 - PanelMoon
+							{}, //p6 - PanelHorse
+							{}, //p7 - PanelTriskel
+							{}, //p8 - PanelPentacle					
+							
 						],
-
 					},
 					{
 						Name: "Reins", Key: "r",
 						Options:[
-							{ //r0 -None
-								Property: { Effect: [] },
-							},
-							{ //r1 -Reins
+							{}, //r0 -None
+							{   //r1 -Reins
 								Property: {Effect: ["Leash"] },
 							},
 							
 						],
-
 					},
 					{
 						Name: "Top", Key: "t",
 						Options:[
-						// //t0- None, t1- Plume, t2- mane, t3- Mohawk,
-							{},{},{},{Property: {OverrideAsset: "Hairfront"},},
+							{}, //t0- None
+							{}, //t1- Plume
+							{Hide: "HairFront"}, //t2- Mane Left
+							{Hide: "HairFront"}, //t3- Mane Right
 							
 						],
-
 					},
 					{
 						Name: "Extra", Key: "e",
 						Options:[
-							{ //e0 - None
-								Property: {Type: null},
-							},
-							{ //e1 - ExtraStraps
-								Property: {Type: null},
-							},
+							{}, //e0 - None
+							{}, //e1 - ExtraStraps
 						],
-
 					},
 					{
 						Name: "Horn", Key: "h",
 						Options:[
-							{ //h0 - None
-								Property: { Effect: [] },
-							},
-							{ //h1 - Horn
-								Property: { Effect: [] },
-							},
+							{}, //h0 - None
+							{}, //h1 - Horn
 						],
-
+					},
+					{
+						Name: "Blinders", Key: "b",
+						Options:[
+							{}, //b0 - None
+							{}, //b1 - Blinders
+						],
 					},
 				],
 			},
