@@ -42,7 +42,7 @@
 		"marked": "^4.0.10",
 		"pretty-bytes": "^5.6.0",
 		"rimraf": "^3.0.2",
-		"simple-git": "^2.42.0",
+		"simple-git": "^3.3.0",
 		"stream-counter": "^1.0.0",
 		"table": "^6.7.3",
 		"through2": "^4.0.2",
