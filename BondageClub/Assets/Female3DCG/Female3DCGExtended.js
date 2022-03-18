@@ -5483,7 +5483,7 @@ var AssetFemale3DCGExtended = {
 						Name: "Eyes", Key: "e",
 						Options:[
 							{ // e0 - None
-								Property: { Effect: ["BlindHeavy","Prone"] }
+								Property: { Effect: ["BlindLight"] }
 							},
 							{ // e1 - Regular
 								Property: { Effect: [] }
@@ -5510,10 +5510,10 @@ var AssetFemale3DCGExtended = {
 								Property: { Effect: ["BlockMouth"] }
 							},
 							{ // m1 - Onahole
-								Property: { Effect: ["BlockMouth","GagMedium"] }
+								Property: { Effect: ["GagMedium"] }
 							},
 							{ // m2 - Fleshlight
-								Property: { Effect: ["BlockMouth","GagMedium"] }
+								Property: { Effect: ["GagMedium"] }
 							},
 							{ // m3 - Smile
 								Property: { Effect: ["BlockMouth"] }
@@ -5533,6 +5533,17 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Glow", Key: "g",
 						Options: [{},{},] // Glow Off, Glow On
+					},
+					{
+						Name: "Sight", Key: "s",
+						Options: [
+							{ // s0 - Opaque
+								Property: { Effect: ["BlindHeavy", "Prone"] }
+							},
+							{ // s1 - One Way
+								Property: { Effect: [""] }
+							},
+						]
 					},
 				]
 			}
