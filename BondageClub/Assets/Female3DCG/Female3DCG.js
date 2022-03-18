@@ -815,27 +815,36 @@ var AssetFemale3DCG = [
 		AllowPose: ["Hogtied"],
 		PreviewZone: [75, 250, 350, 350],
 		Asset: [
-			{ Name: "Corset1", Fetish: ["Lingerie"], Priority: 22, Value: 35, Hide: ["ItemNipples", "ItemNipplesPiercings"] },
-			{ Name: "Corset2", Fetish: ["Lingerie"], Priority: 22, Value: 30, BuyGroup: "Corset2", Hide: ["ItemNipples", "ItemNipplesPiercings"] },
-			{ Name: "Corset3", Fetish: ["Lingerie"], Priority: 22, Value: 25, BuyGroup: "Corset3", Hide: ["ItemNipples", "ItemNipplesPiercings"] },
-			{ Name: "Corset4", Fetish: ["Lingerie"], Priority: 22, Value: 15, BuyGroup: "Corset4", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
-			{ Name: "Corset5", Fetish: ["Lingerie"], Priority: 22, Value: 20, BuyGroup: "Corset5", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
+			{ Name: "Corset1", Fetish: ["Lingerie"], Priority: 22, Value: 35, Hide: ["ItemNipples", "ItemNipplesPiercings"], HideForPose: ["AllFours"] },
+			{ Name: "Corset2", Fetish: ["Lingerie"], Priority: 22, Value: 30, BuyGroup: "Corset2", Hide: ["ItemNipples", "ItemNipplesPiercings"], HideForPose: ["AllFours"] },
+			{ Name: "Corset3", Fetish: ["Lingerie"], Priority: 22, Value: 25, BuyGroup: "Corset3", Hide: ["ItemNipples", "ItemNipplesPiercings"], HideForPose: ["AllFours"] },
+			{ Name: "Corset4", Fetish: ["Lingerie"], Priority: 22, Value: 15, BuyGroup: "Corset4", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HideForPose: ["AllFours"] },
+			{ Name: "Corset5", Fetish: ["Lingerie"], Priority: 22, Value: 20, BuyGroup: "Corset5", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HideForPose: ["AllFours"] },
 			{
-				Name: "LatexCorset1", Fetish: ["Lingerie", "Latex"], Priority: 21, Value: 40, BuyGroup: "LatexCorset1", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], Extended: true, HasType: false,
+				Name: "LatexCorset1", Fetish: ["Lingerie", "Latex"], Priority: 21, Value: 40, BuyGroup: "LatexCorset1", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], HideForPose: ["AllFours"], Extended: true, HasType: false,
 				Layer:[
 					{ Name: "Base", HasType: false },
 					{ Name: "Garter", CopyLayerColor: "Base", HasType: false, AllowTypes: [""] }
 				],
 			},
-			{ Name: "LeatherCorsetTop1", Fetish: ["Leather"], Left: 0, Top: 0, BuyGroup: "LeatherCorsetTop1", Priority: 25, Value: 60, HideItem: ["ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump"], AllowPose: ["Hogtied", "Yoked", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "AllFours", "OverTheHead"] },
-			{Name: "Corset6", Fetish: ["Lingerie"], Value: 40, DefaultColor:["#435331","#363535","#A08759"], Hide: ["ItemNipples", "ItemNipplesPiercings"],
+			{
+				Name: "LeatherCorsetTop1", Fetish: ["Leather"], Left: 0, Top: 0, BuyGroup: "LeatherCorsetTop1", Priority: 25, Value: 60,
+				HideItem: ["ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump"],
+				AllowPose: ["Hogtied", "AllFours"]
+			},
+			{
+				Name: "Corset6", Fetish: ["Lingerie"], Value: 40, DefaultColor: ["#435331", "#363535", "#A08759"], Hide: ["ItemNipples", "ItemNipplesPiercings"], HideForPose: ["AllFours"],
 				Layer:[
 					{ Name: "Cloth", AllowColorize: true},
 					{ Name: "Leather", AllowColorize: true},
 					{ Name: "Buttons", AllowColorize: true}
 				]
 			},
-			{ Name: "SteampunkCorsetTop1", Fetish: ["Leather"], Left: 0, Top: 0, BuyGroup: "SteampunkCorsetTop1", Priority: 25, Value: 70, Hide: ["ItemHidden"], HideItem: ["ClothLowerTennisSkirt1", "ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump"] },
+			{
+				Name: "SteampunkCorsetTop1", Fetish: ["Leather"], Left: 0, Top: 0, BuyGroup: "SteampunkCorsetTop1", Priority: 25, Value: 70, Hide: ["ItemHidden"],
+				HideItem: ["ClothLowerTennisSkirt1", "ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump"],
+				AllowPose: ["Hogtied", "AllFours", "OverTheHead"]
+			},
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -6085,7 +6094,6 @@ var PoseFemale3DCG = [
 		Category: "BodyFull",
 		OverrideHeight: { Height: -575, Priority: 50 },
 		Hide: ["BodyLower", "Hands", "ClothLower", "Wings", "Gloves", "Panties", "Pussy", "ItemHands", "ItemPelvis", "ItemVulva", "ItemVulvaPiercings", "ItemLegs", "ItemFeet", "LeftAnklet", "RightAnklet", "Garters", "Bracelet"],
-
 		MovePosition: [{ Group: "Socks", X: 0, Y: -400 }, { Group: "Shoes", X: 0, Y: -500 }, { Group: "ItemBoots", X: 0, Y: -500 }, { Group: "SuitLower", X: 0, Y: -380 }, { Group: "TailStraps", X: 0, Y: -300 }, { Group: "ItemButt", X: 0, Y: -300 }]
 	},
 	{
@@ -6104,7 +6112,7 @@ var PoseFemale3DCG = [
 		Name: "AllFours",
 		Category: "BodyFull",
 		OverrideHeight: { Height: -560, Priority: 50 },
-		Hide: ["ItemFeet", "ClothLower", "SuitLower", "Nipples", "Pussy", "BodyLower", "Wings", "ItemPelvis", "ItemVulva", "ItemVulvaPiercings", "ItemLegs", "ItemBoots", "Suit", "Panties", "Bra", "Socks", "Shoes", "LeftAnklet", "RightAnklet", "Corset", "Garters", "Bracelet"],
+		Hide: ["ItemFeet", "ClothLower", "SuitLower", "Nipples", "Pussy", "BodyLower", "Wings", "ItemPelvis", "ItemVulva", "ItemVulvaPiercings", "ItemLegs", "ItemBoots", "Suit", "Panties", "Bra", "Socks", "Shoes", "LeftAnklet", "RightAnklet", "Garters", "Bracelet"],
 		MovePosition: [{ Group: "TailStraps", X: 0, Y: -300 }, { Group: "ItemButt", X: 0, Y: -300 }, {Group: "Head", X: 0, Y: 1}],
 	},
 	{
