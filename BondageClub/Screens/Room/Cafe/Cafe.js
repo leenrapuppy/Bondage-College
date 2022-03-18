@@ -171,6 +171,17 @@ function CafeConsumeSpeciiality() {
 }
 
 /**
+ * The cafe maid remove the player's gag
+ */
+function CafeUngagPlayer() {
+	InventoryRemove(Player, "ItemMouth");
+	InventoryRemove(Player, "ItemMouth2");
+	InventoryRemove(Player, "ItemMouth3");
+	InventoryRemove(Player, "ItemHead");
+	InventoryRemove(Player, "ItemHood");
+}
+
+/**
  * The cafe maid applies chosen bondage
  * @param {"Shibari" | "Tape" | "Leather" | "Latex" | "Heavy"} Style - The style of bondage chosen by the player
  * @returns {void} - Nothing
