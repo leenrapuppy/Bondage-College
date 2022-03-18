@@ -3703,14 +3703,8 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Gag", Key: "g",
 						Options:[
-							{ //Regular BitGag
-								Name: "BitAttached", 
-								Property: { Effect: [] }
-							},
-							{//None
-								Name: "Detached",
-								Property: { Effect: ["OpenMouth"], OverrideAssetEffect: true },
-							},
+							{ Property: { Effect: [] }, },  //Regular BitGag
+							{Property: { Effect: ["OpenMouth"], OverrideAssetEffect: true },},
 							
 						],
 					},
@@ -3733,10 +3727,8 @@ var AssetFemale3DCGExtended = {
 						Name: "Reins", Key: "r",
 						Options:[
 							{}, //r0 -None
-							{   //r1 -Reins
-								Property: {Effect: ["Leash"] },
-							},
-							
+							{ Property: {Effect: ["Leash"] },}, //r1 -Reins
+
 						],
 					},
 					{
@@ -3744,8 +3736,8 @@ var AssetFemale3DCGExtended = {
 						Options:[
 							{}, //t0- None
 							{}, //t1- Plume
-							{Hide: "HairFront"}, //t2- Mane Left
-							{Hide: "HairFront"}, //t3- Mane Right
+							{Property: {Hide: ["HairFront"]},}, //t2- Mane Left
+							{Property: {Hide: ["HairFront"]},}, //t3- Mane Right
 							
 						],
 					},
@@ -3761,13 +3753,14 @@ var AssetFemale3DCGExtended = {
 						Options:[
 							{}, //h0 - None
 							{}, //h1 - Horn
+							{}, //h2 - Dildocorn
 						],
 					},
 					{
 						Name: "Blinders", Key: "b",
 						Options:[
 							{}, //b0 - None
-							{}, //b1 - Blinders
+							{Property: {Effect: ["BlindLight"]},}, //b1 - Blinders
 						],
 					},
 				],

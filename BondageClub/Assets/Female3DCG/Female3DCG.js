@@ -1291,7 +1291,8 @@ var AssetFemale3DCG = [
 					{ Name: "Leaves" },
 					{ Name: "Center" }
 				]
-			}
+			},
+
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -1400,6 +1401,13 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "Antennae", Value: 10, BuyGroup: "Antennae", BodyCosplay: true, DefaultColor: "#151A1F" },
+			
+			{ Name: "UnicornHorn", Value: 50, DefaultColor: "#EBAACB", BuyGroup: "UnicornHorn", BodyCosplay: true, Top: -30,
+				Layer: [
+					{ Name: "Base"},
+					{ Name: "Shine", AllowColorize: false}
+				]
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -1463,6 +1471,12 @@ var AssetFemale3DCG = [
 			{ Name: "ElfEars", Value: -1, BuyGroup: "ElfEars", InheritColor: "BodyUpper", Extended: true, HasType: false },
 			{ Name: "CowHorns", Fetish: ["Pet"], Value: -1, BuyGroup: "CowHorns" },
 			{ Name: "Antennae", Value: -1, BuyGroup: "Antennae", BodyCosplay: true, DefaultColor: "#151A1F" },
+			{ Name: "UnicornHorn", Value: -1, DefaultColor: ["#EBAACB"], BuyGroup: "UnicornHorn", BodyCosplay: true,
+				Layer: [
+					{ Name: "Base"},
+					{ Name: "Shine", AllowColorize: false}
+				]
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -4361,11 +4375,11 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PonyGag", Fetish: ["Leather", "Pony", "Pet"], Value: 120, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "PonyGag", Prerequisite: "GagUnique", DefaultColor: ["Default", "Default", "Default", "#EAEAEA", "Default", "#EBAACD", "Default","Default"], Extended: true, AlwaysExtend: true, Effect: ["BlockMouth", "GagLight"], Bonus: "KidnapBruteForce", Top: -57, Left: 133,
+				Name: "PonyGag", Fetish: ["Leather", "Pony", "Pet"], Value: 120, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "PonyGag", Prerequisite: "GagUnique", DefaultColor: ["Default", "Default", "Default", "#EAEAEA", "Default", "FF89D8", "Default","Default"], Extended: true, AlwaysExtend: true, Effect: ["BlockMouth", "GagLight"], Bonus: "KidnapBruteForce", Top: -57, Left: 133,
 				Layer: [
 				// Layers: Metal, Straps, Plume, Horn, Panel
-					{ Name: "BaseMetal", HasType: false, AllowColorize: false },	
-					{ Name: "ManeB", HasType: false, AllowModuleTypes: ["t2", "t3"], CopyLayerColor: "HairFront"},					
+					{ Name: "BaseMetal", HasType: false, AllowColorize: false },
+					{ Name: "ManeB", HasType: false, AllowModuleTypes: ["t2", "t3"] },					
 					{ Name: "BaseStraps", HasType: false, AllowColorize: true },
 					
 					// All Gags
@@ -4378,14 +4392,17 @@ var AssetFemale3DCG = [
 					// All Top Pieces
 					{ Name: "Plume", HasType: false, AllowModuleTypes: ["t1"] },
 					{ Name: "PlumeBase", HasType: false, AllowColorize: false, AllowModuleTypes: ["t1"]},
-					{ Name: "ManeL", HasType: false, AllowModuleTypes: ["t2"], CopyLayerColor: "HairFront", Hide: "HairFront"},
-					{ Name: "ManeR", HasType: false, AllowModuleTypes: ["t3"], CopyLayerColor: "HairFront", Hide: "HairFront"},
+					{ Name: "ManeL", HasType: false, AllowModuleTypes: ["t2"] },
+					{ Name: "ManeR", HasType: false, AllowModuleTypes: ["t3"], CopyLayerColor: "ManeL" },
 					
-					//{ Name: "Mohawk", HasImage: false, AllowModuleTypes:["t3"], CopyLayerColor: "HairFront" , Hide: "HairFront"},
-					//{ Name: "MohawkBase", HasImage: false, AllowModuleTypes:["t3"], CopyLayerColor: "HairFront", Hide: "Straps"},
+					//{ Name: "Mohawk", HasImage: false, AllowModuleTypes:["t4"], CopyLayerColor: "HairFront" , Hide: "HairFront"},
+					//{ Name: "MohawkBase", HasImage: false, AllowModuleTypes:["t4"], CopyLayerColor: "HairFront", Hide: "Straps"},
 					
 					//Horns
 					{ Name: "Horn", HasType: false, AllowModuleTypes: ["h1"], Priority: 58 },
+					{ Name: "HornShine", HasType: false, AllowModuleTypes: ["h1"], AllowColorize: false, Priority: 58 },
+					{ Name: "Horn2", HasType: false, AllowModuleTypes: ["h2"], CopyLayerColor: "Horn", Priority: 58 },
+					{ Name: "Horn2Shine", HasType: false, AllowModuleTypes: ["h2"], AllowColorize: false, Priority: 58 },
 
 					// All Panels
 					{ Name: "PanelBase", HasType: false, AllowModuleTypes: ["p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], AllowColorize: true, Priority: 55  },
