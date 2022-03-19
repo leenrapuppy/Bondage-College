@@ -707,12 +707,14 @@ ItemMouthKittyMuzzleGagLines,Lines
 ItemMouthKittyMuzzleGagMouth,Mouth
 ItemMouthPonyGagBaseMetal,Metal
 ItemMouthPonyGagBaseStraps,Straps
+ItemMouthPonyGagDildoGag,Gag
 ItemMouthPonyGagPlume,Plume
 ItemMouthPonyGagManeB,ManeBase
 ItemMouthPonyGagManeL,Mane
 ItemMouthPonyGagHorn,Horn
 ItemMouthPonyGagPanelBase,Panel
 ItemMouthPonyGagPanelHex,Ornament
+ItemMouthPonyGagReins,Reins
 ItemMouth2WiffleGagStrap,Strap
 ItemMouth2WiffleGagBall,Ball
 ItemMouth2HarnessBallGagBall,Ball

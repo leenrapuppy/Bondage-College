@@ -3696,7 +3696,7 @@ var AssetFemale3DCGExtended = {
 		}, // OTNPlugGag
 		
 		PonyGag: {
-			Archetype: ExtendedArchetype.MODULAR,
+			Archetype: ExtendedArchetype.MODULAR, 
 			Config: {
 				ChatSetting: ModularItemChatSetting.PER_MODULE,
 				Modules:[
@@ -3704,7 +3704,9 @@ var AssetFemale3DCGExtended = {
 						Name: "Gag", Key: "g",
 						Options:[
 							{ Property: { Effect: [] }, },  //Regular BitGag
-							{Property: { Effect: ["OpenMouth"], OverrideAssetEffect: true },},
+							{ Property: { Effect: ["OpenMouth"], OverrideAssetEffect: true },},
+							{ Property: { Effect: ["BlockMouth", "GagMedium"], OverrideAssetEffect: true },},
+							{ Property: { Effect: ["BlockMouth", "GagVeryHeavy"], OverrideAssetEffect: true },},
 							
 						],
 					},
@@ -3713,31 +3715,32 @@ var AssetFemale3DCGExtended = {
 						Options:[
 							{}, //None
 							{}, //p1 - Panel
-							{}, //p2- PanelShield
+							{}, //p2 - PanelShield
 							{}, //p3 - PanelHex
 							{}, //p4 - PanelSun
 							{}, //p5 - PanelMoon
-							{}, //p6 - PanelHorse
-							{}, //p7 - PanelTriskel
-							{}, //p8 - PanelPentacle					
+							{}, //p6 - PanelHeart
+							{}, //p7 - PanelHorse
+							{}, //p8 - PanelTriskel
+							{}, //p9 - PanelPentacle					
 							
 						],
 					},
 					{
 						Name: "Reins", Key: "r",
 						Options:[
-							{}, //r0 -None
-							{ Property: {Effect: ["Leash"] },}, //r1 -Reins
+							{}, //r0 - None
+							{ Property: {Effect: ["Leash"] },}, //r1 - Reins
 
 						],
 					},
 					{
 						Name: "Top", Key: "t",
 						Options:[
-							{}, //t0- None
-							{}, //t1- Plume
-							{Property: {Hide: ["HairFront"]},}, //t2- Mane Left
-							{Property: {Hide: ["HairFront"]},}, //t3- Mane Right
+							{}, //t0 - None
+							{}, //t1 - Plume
+							{Property: {Hide: ["HairFront"]},}, //t2 - Mane Left
+							{Property: {Hide: ["HairFront"]},}, //t3 - Mane Right
 							
 						],
 					},
@@ -3760,7 +3763,7 @@ var AssetFemale3DCGExtended = {
 						Name: "Blinders", Key: "b",
 						Options:[
 							{}, //b0 - None
-							{Property: {Effect: ["BlindLight"]},}, //b1 - Blinders
+							{}, //b1 - Blinders
 						],
 					},
 				],
