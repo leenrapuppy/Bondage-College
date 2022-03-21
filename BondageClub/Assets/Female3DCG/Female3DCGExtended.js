@@ -5567,10 +5567,33 @@ var AssetFemale3DCGExtended = {
 				ChatSetting: ModularItemChatSetting.PER_MODULE,
 				Modules:[
 					{
+						Name: "Mouth", Key: "m",
+						Options:[
+							{ // m0 - None
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m1 - Onahole
+								Property: { Effect: ["GagMedium"] }
+							},
+							{ // m2 - Fleshlight
+								Property: { Effect: ["GagMedium"] }
+							},
+							{ // m3 - Smile
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m4 - Holes
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m5 - Sculpted
+								Property: { Effect: ["BlockMouth"] }
+							},
+						]
+					},
+					{
 						Name: "Eyes", Key: "e",
 						Options:[
 							{ // e0 - None
-								Property: { Effect: ["BlindHeavy","Prone"] }
+								Property: { Effect: ["BlindLight"] }
 							},
 							{ // e1 - Regular
 								Property: { Effect: [] }
@@ -5591,35 +5614,23 @@ var AssetFemale3DCGExtended = {
 						]
 					},
 					{
-						Name: "Mouth", Key: "m",
-						Options:[
-							{ // m0 - None
-								Property: { Effect: ["BlockMouth"] }
-							},
-							{ // m1 - Onahole
-								Property: { Effect: ["BlockMouth","GagMedium"] }
-							},
-							{ // m2 - Fleshlight
-								Property: { Effect: ["BlockMouth","GagMedium"] }
-							},
-							{ // m3 - Smile
-								Property: { Effect: ["BlockMouth"] }
-							},
-							{ // m4 - Holes
-								Property: { Effect: ["BlockMouth"] }
-							},
-							{ // m5 - Sculpted
-								Property: { Effect: ["BlockMouth"] }
-							},
-						]
-					},
-					{
 						Name: "Pattern", Key: "p",
 						Options:[{},{},{},{},{},{HasSubscreen: true},] // Blank, Barcode, Scarab, Hex, Lines, Text
 					},
 					{
 						Name: "Glow", Key: "g",
 						Options: [{},{},] // Glow Off, Glow On
+					},
+					{
+						Name: "Sight", Key: "s",
+						Options: [
+							{ // s0 - Opaque
+								Property: { Effect: ["BlindHeavy", "Prone"] }
+							},
+							{ // s1 - One Way
+								Property: { Effect: [""] }
+							},
+						]
 					},
 				]
 			}
