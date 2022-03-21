@@ -5072,8 +5072,8 @@ var AssetFemale3DCG = [
 				Hide: ["Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3",],
 				HideItem: ["HatFacePaint", "MaskFacePaint", "ClothAccessoryFacePaint"],
 				Layer: [ // Colors layer references: Base, Shine, EyeRegular, MouthOnahole, Barcode
-					{ Name: "Base", HasType: false }, 
-					{ Name: "Shine", HasType: false },
+					{ Name: "Base", HasType: false,}, 
+					{ Name: "Shine", HasType: false,},
 
 					// All Non-part-reliant Patterns
 					{ Name: "Barcode", HasType: false, AllowModuleTypes: ["p1"]},

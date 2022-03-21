@@ -5480,6 +5480,29 @@ var AssetFemale3DCGExtended = {
 				ChatSetting: ModularItemChatSetting.PER_MODULE,
 				Modules:[
 					{
+						Name: "Mouth", Key: "m",
+						Options:[
+							{ // m0 - None
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m1 - Onahole
+								Property: { Effect: ["GagMedium"] }
+							},
+							{ // m2 - Fleshlight
+								Property: { Effect: ["GagMedium"] }
+							},
+							{ // m3 - Smile
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m4 - Holes
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m5 - Sculpted
+								Property: { Effect: ["BlockMouth"] }
+							},
+						]
+					},
+					{
 						Name: "Eyes", Key: "e",
 						Options:[
 							{ // e0 - None
@@ -5501,29 +5524,6 @@ var AssetFemale3DCGExtended = {
 								Property: { Effect: [] }
 							},
 
-						]
-					},
-					{
-						Name: "Mouth", Key: "m",
-						Options:[
-							{ // m0 - None
-								Property: { Effect: ["BlockMouth"] }
-							},
-							{ // m1 - Onahole
-								Property: { Effect: ["GagMedium"] }
-							},
-							{ // m2 - Fleshlight
-								Property: { Effect: ["GagMedium"] }
-							},
-							{ // m3 - Smile
-								Property: { Effect: ["BlockMouth"] }
-							},
-							{ // m4 - Holes
-								Property: { Effect: ["BlockMouth"] }
-							},
-							{ // m5 - Sculpted
-								Property: { Effect: ["BlockMouth"] }
-							},
 						]
 					},
 					{
