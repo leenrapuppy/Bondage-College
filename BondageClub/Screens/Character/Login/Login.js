@@ -6,11 +6,11 @@ var LoginCreditsPosition = 0;
 var LoginThankYou = "";
 /* eslint-disable */
 var LoginThankYouList = [
-	"Aceffect", "Anna", "Aylea", "BlueWinter", "Brian", "Bryce", "Charles", "Christian", "Clash", 
-	"DarkStar", "Desch", "Dini", "Edwin", "Epona", "Escurse", "Greendragon", "Hayden", "JoeyDubDee", 
-	"Jon", "Kimuriel", "Michal", "Michel", "Mike", "Mike", "Mindtie", "Misa", "Mob", 
-	"Nick", "Nightcore", "Pablo", "Riley", "Robin", "Ryner", "Samuel", "Shadow", "SirRobben", 
-	"Tam", "Tommy", "TopHat", "Troubadix", "William", "Xepherio", "Zach", "Znarf"
+	"Aceffect", "Anna", "Aylea", "BlueWinter", "Brian", "Bryce", "Christian", "Clash", "DarkStar", 
+	"Desch", "Dini", "Edwin", "Epona", "Escurse", "Greendragon", "Hayden", "JoeyDubDee", "Jon", 
+	"Michal", "Michel", "Mike", "Mike", "Mindtie", "Misa", "Mob", "MrUniver", "Nick", 
+	"Nightcore", "Pablo", "Rika", "Riley", "Ryner", "Samuel", "Shadow", "SirRobben", 
+	"Tam", "Tarram", "Tommy", "TopHat", "Troubadix", "Xepherio", "Yuna", "Znarf"
 ];
 
 /* eslint-enable */
