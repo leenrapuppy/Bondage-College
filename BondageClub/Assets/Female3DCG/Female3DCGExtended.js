@@ -3698,7 +3698,7 @@ var AssetFemale3DCGExtended = {
 		PonyGag: {
 			Archetype: ExtendedArchetype.MODULAR, 
 			Config: {
-				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR],
 				Modules:[
 					{
 						Name: "Gag", Key: "g",
