@@ -4412,11 +4412,11 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PonyGag", Fetish: ["Leather", "Pony", "Pet"], Value: 150, Difficulty: 5, Time: 8, Random: false, AllowLock: true, BuyGroup: "PonyGag", Prerequisite: "GagUnique", DefaultColor: ["Default", "Default", "Default", "Default", "#B24031", "#EAEAEA", "Default", "#FF77D3", "Default", "Default"], Extended: true, AlwaysExtend: true, AllowActivity:[""], Effect: ["BlockMouth", "GagLight"], Bonus: "KidnapBruteForce", Top: -57, Left: 133,
+				Name: "PonyGag", Fetish: ["Leather", "Pony", "Pet"], Value: 200, Difficulty: 5, Time: 8, Random: false, AllowLock: true, BuyGroup: "PonyGag", Prerequisite: "GagUnique", DefaultColor: ["Default", "Default", "Default", "Default", "#B24031", "#EAEAEA", "Default", "#FF77D3", "Default", "#956B1C", "Default"], Extended: true, AlwaysExtend: true, AllowActivity:[""], Effect: ["BlockMouth", "GagLight"], Bonus: "KidnapBruteForce", Top: -57, Left: 133,
 				Layer: [
 				// Layers: Metal, Straps, Plume, Horn, Panel
 					{ Name: "BaseMetal", HasType: false, AllowColorize: false },
-					{ Name: "ManeB", HasType: false, AllowModuleTypes: ["t2", "t3"], InheritColor: "HairFront" },					
+					{ Name: "ManeB", HasType: false, AllowModuleTypes: ["t2", "t3", "t4"], InheritColor: "HairFront" },					
 					{ Name: "BaseStraps", HasType: false, AllowColorize: true },
 					
 					// All Gags
@@ -4441,8 +4441,8 @@ var AssetFemale3DCG = [
 					{ Name: "ManeLFront", HasType: false, AllowModuleTypes: ["t2"], InheritColor: "HairFront", CopyLayerColor: "ManeL", Priority: 59 },
 					{ Name: "ManeR", HasType: false, AllowModuleTypes: ["t3"], InheritColor: "HairFront", CopyLayerColor: "ManeL" },
 					{ Name: "ManeRFront", HasType: false, AllowModuleTypes: ["t3"], InheritColor: "HairFront", CopyLayerColor: "ManeL", Priority: 59 },
-					//{ Name: "Mohawk", HasImage: false, AllowModuleTypes:["t4"], CopyLayerColor: "HairFront" , Hide: "HairFront"},
-					//{ Name: "MohawkBase", HasImage: false, AllowModuleTypes:["t4"], CopyLayerColor: "HairFront", Hide: "Straps"},
+					{ Name: "Mohawk", HasType: false, AllowModuleTypes:["t4"], InheritColor: "HairFront", CopyLayerColor: "ManeL", Priority: 59 },
+					{ Name: "MohawkBase", HasType: false, AllowModuleTypes:["t4"], AllowColorize: false, Priority: 59},
 					
 					//Horns
 					{ Name: "Horn", HasType: false, AllowModuleTypes: ["h1"], Priority: 58 },
@@ -4464,7 +4464,7 @@ var AssetFemale3DCG = [
 																				
 					//Reins
 					{ Name: "Reins", HasType: false, AllowModuleTypes: ["r1"], CopyLayerColor: "Straps" },
-					{ Name: "Rope", HasType: false, AllowModuleTypes: ["r2"], CopyLayerColor: "Reins" },
+					{ Name: "Rope", HasType: false, AllowModuleTypes: ["r2"] },
 					{ Name: "PostReins", HasType: false, AllowModuleTypes: ["r3"], CopyLayerColor: "Reins" },
 					{ Name: "Post", HasType: false, AllowModuleTypes: ["r3"], AllowColorize: false },
 					{ Name: "PostReinsDetail", HasType: false, AllowModuleTypes: ["r3"], CopyLayerColor: "Reins" },
