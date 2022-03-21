@@ -3703,11 +3703,11 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Gag", Key: "g",
 						Options:[
-							{ Property: { Effect: [] }, },  //Regular BitGag
-							{ Property: { Effect: ["OpenMouth"], OverrideAssetEffect: true },},
-							{ Property: { Effect: ["BlockMouth", "GagMedium"], OverrideAssetEffect: true },},
-							{ Property: { Effect: ["BlockMouth", "GagVeryHeavy"], OverrideAssetEffect: true },},
-							
+							{ Property: { Effect: [] }, },  //g0 - Regular BitGag
+							{ Property: { Effect: ["OpenMouth"], OverrideAssetEffect: true },}, //g1 - No Gag
+							{ Property: { Effect: ["BlockMouth", "GagMedium"], OverrideAssetEffect: true },}, //g2 - Thick BitGag
+							{ Property: { Effect: ["BlockMouth", "GagHeavy"], OverrideAssetEffect: true },}, //g3 - Tongue Depresor
+							{ Property: { Effect: ["BlockMouth", "GagVeryHeavy"], OverrideAssetEffect: true },}, //g4 - DildoGag		
 						],
 					},
 					{
@@ -3731,6 +3731,8 @@ var AssetFemale3DCGExtended = {
 						Options:[
 							{}, //r0 - None
 							{ Property: {Effect: ["Leash"] },}, //r1 - Reins
+							{ Property: {Effect: ["Leash"] },}, //r2 - Rope
+							{ Property: {Effect: ["Freeze", "IsChained"] },}, //r3 - Pole
 
 						],
 					},
@@ -3748,15 +3750,16 @@ var AssetFemale3DCGExtended = {
 						Name: "Extra", Key: "e",
 						Options:[
 							{}, //e0 - None
-							{}, //e1 - ExtraStraps
+							{ Property: {Dificulty: 7}}, //e1 - ExtraStraps
+							{}, //e2 - Flags
 						],
 					},
 					{
 						Name: "Horn", Key: "h",
 						Options:[
 							{}, //h0 - None
-							{}, //h1 - Horn
-							{}, //h2 - Dildocorn
+							{ Property: { AllowActivity: ["Penetrate"] },}, //h1 - Horn
+							{ Property: { AllowActivity: ["Penetrate"] },}, //h2 - Dildocorn
 						],
 					},
 					{
@@ -3808,7 +3811,7 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticMuzzle" },
 		},
-		FuturisticMuzzle: {
+		PonyGag: {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "PonyGag" },
 		},
@@ -3850,7 +3853,7 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticMuzzle" },
 		},
-		FuturisticMuzzle: {
+		PonyGag: {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "PonyGag" },
 		},
