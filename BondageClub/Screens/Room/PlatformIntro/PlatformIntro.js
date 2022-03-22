@@ -70,7 +70,7 @@ function PlatformIntroRun() {
  * @returns {void} - Nothing
  */
 function PlatformIntroClick() {
-	if (MouseIn(1400, 840, 200, 60)) CommonSetScreen("Room", "Platform");
+	if (MouseIn(1400, 840, 200, 60)) PlatformDialogStart("Intro");
 	if (MouseIn(1650, 840, 200, 60)) PlatformExit();
 }
 
