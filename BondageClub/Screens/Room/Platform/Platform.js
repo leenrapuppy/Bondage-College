@@ -182,7 +182,7 @@ var PlatformTemplate = [
 
 // All available rooms
 var PlatformRoomList = [
-	{
+	/*{
 		Name: "CollegeClass1",
 		Background: "CollegeClass1",
 		Width: 4000,
@@ -220,45 +220,83 @@ var PlatformRoomList = [
 			{ Name: "Liane", X: 1400 },
 			{ Name: "Kara", X: 2500 }
 		]
+	},*/
+	{
+		Name: "BedroomMelody",
+		Background: "Castle/BedroomMelody",
+		Width: 2000,
+		Height: 1200,
+		LimitLeft: 200,
+		LimitRight: 1750,
+		Door: [
+			{ Name: "CastleHall1A", FromX: 200, FromY: 0, FromW: 150, FromH: 1200, FromType: "Up", ToX: 500, ToFaceLeft: false },
+		],
+		Character: [
+		]
 	},
 	{
 		Name: "CastleHall1A",
-		Background: "CastleHall1",
-		Width: 2400,
+		Background: "Castle/Hall1A",
+		Width: 3200,
 		Height: 1200,
+		LimitLeft: 250,
 		Door: [
-			{ Name: "CollegeArt1", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3600, ToFaceLeft: false },
-			{ Name: "CastleHall1B", FromX: 2300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 200, ToFaceLeft: false }
+			{ Name: "BedroomMelody", FromX: 350, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 275, ToFaceLeft: false },
+			{ Name: "CastleHall1B", FromX: 3100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Yuna", X: 1150 }
+			{ Name: "Yuna", X: 2000 }
 		]
 	},
 	{
 		Name: "CastleHall1B",
-		Background: "CastleHall1",
-		BackgroundFilter: "#00000060",
-		Width: 2400,
+		Background: "Castle/Hall1B",
+		Width: 4800,
 		Height: 1200,
 		Door: [
-			{ Name: "CastleHall1A", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2200, ToFaceLeft: false },
-			{ Name: "CastleHall2", FromX: 2300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 200, ToFaceLeft: false }
+			{ Name: "CastleHall1A", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3100, ToFaceLeft: true },
+			{ Name: "CastleHall1C", FromX: 4700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Yuna", X: 1150 },
-			{ Name: "Yuna", X: 1450 }
+			{ Name: "Yuna", X: 1800 },
+			{ Name: "Yuna", X: 3000 }
 		]
 	},
 	{
-		Name: "CastleHall2",
-		Background: "CastleHall2",
-		Width: 2600,
+		Name: "CastleHall1C",
+		Background: "Castle/Hall1C",
+		Width: 3800,
 		Height: 1200,
+		LimitRight: 3550,
 		Door: [
-			{ Name: "CastleHall1B", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2200, ToFaceLeft: false }
+			{ Name: "CastleHall1B", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 4700, ToFaceLeft: true },
+			{ Name: "BedroomOlivia", FromX: 750, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 100, ToFaceLeft: false },
+			{ Name: "BedroomIsabella", FromX: 3150, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Camille", X: 2000 }
+			{ Name: "Yuna", X: 2100 }
+		]
+	},
+	{
+		Name: "BedroomOlivia",
+		Background: "Castle/BedroomOlivia",
+		Width: 3000,
+		Height: 1200,
+		Door: [
+			{ Name: "CastleHall1C", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 900, ToFaceLeft: false }
+		],
+		Character: [
+		]
+	},
+	{
+		Name: "BedroomIsabella",
+		Background: "Castle/BedroomIsabella",
+		Width: 2000,
+		Height: 1200,
+		Door: [
+			{ Name: "CastleHall1C", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3300, ToFaceLeft: true }
+		],
+		Character: [
 		]
 	}
 
@@ -321,9 +359,11 @@ function PlatformLoadRoom(RoomName) {
 function PlatformLoad() {
 	window.addEventListener("keydown", PlatformEventKeyDown);
 	window.addEventListener("keyup", PlatformEventKeyUp);
-	PlatformChar = [];
-	PlatformCreateCharacter("Melody", true, 300);
-	PlatformLoadRoom("CollegeClass1");
+	if (PlatformChar.length == 0) {
+		PlatformChar = [];
+		PlatformCreateCharacter("Melody", true, 1000);
+		PlatformLoadRoom("BedroomMelody");
+	}
 	PlatformLastTime = CommonTime();
 }
 
@@ -380,7 +420,7 @@ function PlatformDrawBackground() {
 	PlatformViewY = PlatformPlayer.Y - 600;
 	if (PlatformViewY < 0) PlatformViewY = 0;
 	if (PlatformViewY > PlatformRoom.Height - 1000) PlatformViewY = PlatformRoom.Height - 1000;
-	DrawImageZoomCanvas("Backgrounds/Platform/" + PlatformRoom.Background + ".jpg", MainCanvas, PlatformViewX, PlatformViewY, 2000, 1000, 0, 0, 2000, 1000);
+	DrawImageZoomCanvas("Screens/Room/Platform/Background/" + PlatformRoom.Background + ".jpg", MainCanvas, PlatformViewX, PlatformViewY, 2000, 1000, 0, 0, 2000, 1000);
 	if (PlatformRoom.BackgroundFilter != null) DrawRect(0, 0, 2000, 1000, PlatformRoom.BackgroundFilter);
 	DrawProgressBar(10, 10, 180, 40, PlatformPlayer.Health / PlatformPlayer.MaxHealth * 100, "#00B000", "#B00000");
 	DrawText(PlatformPlayer.Health.toString(), 100, 32, "White", "Black");
@@ -400,7 +440,7 @@ function PlatformDrawCharacter(C, Time) {
 	let Y = C.Y - C.Anim.Height - PlatformViewY
 	if ((X >= 2000) || (Y >= 1000)) return;
 	if ((X + C.Anim.Width <= 0) || (Y + C.Anim.Height <= 0)) return;
-	DrawImageEx("Screens/Room/Platform/Characters/" + C.Name + "/" + C.Status + "/" + C.Anim.Name + "/" + C.Anim.Image.toString() + ".png", X + C.Anim.OffsetX, Y + C.Anim.OffsetY, { Mirror: C.Anim.Mirror, Width: C.Anim.Width, Height: C.Anim.Height } );
+	DrawImageEx("Screens/Room/Platform/Character/" + C.Name + "/" + C.Status + "/" + C.Anim.Name + "/" + C.Anim.Image.toString() + ".png", X + C.Anim.OffsetX, Y + C.Anim.OffsetY, { Mirror: C.Anim.Mirror, Width: C.Anim.Width, Height: C.Anim.Height } );
 	if (C.Damage != null)
 		for (let Damage of C.Damage)
 			if (Damage.Expire >= Time) {
@@ -645,7 +685,9 @@ function PlatformDraw() {
 		// Applies the forces and turns the face
 		C.X = C.X + C.ForceX;
 		if (C.X < 100) C.X = 100;
+		if ((PlatformRoom.LimitLeft != null) && (C.X < PlatformRoom.LimitLeft)) C.X = PlatformRoom.LimitLeft;
 		if (C.X > PlatformRoom.Width - 100) C.X = PlatformRoom.Width - 100;
+		if ((PlatformRoom.LimitRight != null) && (C.X > PlatformRoom.LimitRight)) C.X = PlatformRoom.LimitRight;
 		C.Y = C.Y + C.ForceY;
 		if (C.Y > PlatformFloor) {
 			C.Y = PlatformFloor;
