@@ -162,6 +162,34 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "Suit", AssetName: "Catsuit" },
 		}, // ReverseBunnySuit
+		SlaveRags: {
+			Archetype: ExtendedArchetype.MODULAR
+			Config: {
+				Modules: [
+					{
+						Name: "Cloth", Key: "c",
+						Options: [
+						{}, //c0 - Base
+						{}, //c1 - BaseStained
+						{}, //c2 - Torn1
+						{}, //c3 - Torn1Stained
+						{}, //c4 - Torn2
+						{}, //c5 - Torn2Stained
+						{}, //c6 - Torn3
+						{}, //c7 - Torn3Stained
+						],
+					},
+					{
+						Name: "Belt", Key: "b",
+						Options: [
+						{}, //b0
+						{}, //b1
+						{}, //b2
+						],
+					},
+				],
+			},
+		},
 	}, // Cloth
 	ClothAccessory: {
 		LeatherStraps: {

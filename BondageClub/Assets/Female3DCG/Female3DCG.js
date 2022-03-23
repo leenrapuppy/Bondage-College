@@ -267,7 +267,20 @@ var AssetFemale3DCG = [
 				Alpha: [
 					{ Group: ["ClothLower"], Masks: [[0, 320, 500, 300]] },
 				],
-			}
+			},
+			{
+				Name: "SlaveRags", Value: 5, BuyGroup: "SlaveRags", Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"], DefaultColor: [""],
+				Layer: [
+				{Name: "Base"},
+				{Name: "BaseStained"},
+				{Name: "Torn1"},
+				{Name: "Torn1Stained"},
+				{Name: "Torn2"},
+				{Name: "Torn2Stained"},
+				{Name: "Torn3"},
+				{Name: "Torn3Stained"},
+				]
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
