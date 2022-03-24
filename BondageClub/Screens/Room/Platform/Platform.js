@@ -21,6 +21,7 @@ var PlatformTemplate = [
 		Name: "Melody",
 		Status: "Maid",
 		Health: 16,
+		HealthPerLevel: 4,
 		Width: 400,
 		Height: 400,
 		HitBox: [0.42, 0.03, 0.58, 1],
@@ -225,7 +226,7 @@ var PlatformRoomList = [
 	},*/
 	{
 		Name: "BedroomMelody",
-		Text: "Melody's Bedroom",
+		Text: "Melody's Bedroom (heal and save)",
 		Background: "Castle/BedroomMelody",
 		Width: 2000,
 		Height: 1200,
@@ -348,6 +349,15 @@ function PlatformCreateCharacter(TemplateName, IsPlayer, X) {
 }
 
 /**
+ * Sets the on screen message for 4 seconds
+ * @param {String} Text - The text to show
+ * @returns {void} - Nothing
+ */
+function PlatformMessageSet(Text) {
+	PlatformMessage = { Text: Text, Timer: CommonTime() + 4000 };
+}
+
+/**
  * Loads a room and it's parameters
  * @param {Object} RoomName - The name of the room to load
  * @returns {void} - Nothing
@@ -358,7 +368,7 @@ function PlatformLoadRoom(RoomName) {
 		if (Room.Name == RoomName)
 			PlatformRoom = Room;
 	if (PlatformRoom == null) return;
-	if (PlatformRoom.Text != null) PlatformMessage = { Text: PlatformRoom.Text, Timer: CommonTime() + 4000 };
+	if (PlatformRoom.Text != null) PlatformMessageSet(PlatformRoom.Text);
 	PlatformHeal = (PlatformRoom.Heal == null) ? null : CommonTime() + PlatformRoom.Heal;
 	PlatformChar.splice(1, 100);
 	if (PlatformRoom.Character != null)
@@ -472,7 +482,7 @@ function PlatformDrawCharacter(C, Time) {
 function PlatformAddExperience(C, Value) {
 	C.Experience = C.Experience + Value;
 	if (C.Experience >= PlatformExperienceForLevel[C.Level]) {
-		C.MaxHealth = C.MaxHealth + 4;
+		C.MaxHealth = C.MaxHealth + C.HealthPerLevel;
 		C.Health = C.MaxHealth;
 		C.Experience = 0;
 		C.Level++;
@@ -630,8 +640,8 @@ function PlatformDraw() {
 	// Only catches actions if health is greater than zero
 	if (PlatformPlayer.Health > 0) {
 
-		// Walk/Crawl left
-		if ((PlatformKeys.indexOf(65) >= 0) || (PlatformKeys.indexOf(97) >= 0)) {
+		// Walk/Crawl left (A or Q for QWERTY and AZERTY)
+		if ((PlatformKeys.indexOf(65) >= 0) || (PlatformKeys.indexOf(97) >= 0) || (PlatformKeys.indexOf(81) >= 0) || (PlatformKeys.indexOf(113) >= 0)) {
 			PlatformPlayer.FaceLeft = true;
 			if (PlatformPlayer.ForceX > 0) PlatformPlayer.ForceX = 0;
 			else PlatformPlayer.ForceX = PlatformPlayer.ForceX - PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0))) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
@@ -837,6 +847,47 @@ function PlatformBindStart(Source) {
 }
 
 /**
+ * Saves the game on a specific slot
+ * @param {Number} Slot - The slot to use (from 0 to 9)
+ * @returns {void} - Nothing
+ */
+function PlatformSaveGame(Slot) {
+	let SaveObj = {
+		Character: PlatformPlayer.Name,
+		Status: PlatformPlayer.Status,
+		Level: PlatformPlayer.Level,
+		Experience: PlatformPlayer.Experience,
+		Room: PlatformRoom.Name
+	};
+	localStorage.setItem("BondageBrawlSave" + Slot.toString(), JSON.stringify(SaveObj));
+	PlatformMessageSet("Game saved on slot " + Slot.toString());
+}
+
+/**
+ * Loads the game on a specific slot
+ * @param {Number} Slot - The slot to use (from 0 to 9)
+ * @returns {void} - Nothing
+ */
+function PlatformLoadGame(Slot) {
+	let LoadObj = localStorage.getItem("BondageBrawlSave" + Slot.toString());
+	if (LoadObj == null) return;
+	LoadObj = JSON.parse(LoadObj);
+	if (LoadObj.Character == null) return;
+	if (LoadObj.Status == null) return;
+	if (LoadObj.Room == null) return;
+	PlatformChar = [];
+	PlatformCreateCharacter(LoadObj.Character, true, 1000);
+	PlatformPlayer.Status = LoadObj.Status;
+	PlatformLoadRoom(LoadObj.Room);
+	PlatformPlayer.X = Math.round(PlatformRoom.Width / 2);
+	if (LoadObj.Level != null) PlatformPlayer.Level = LoadObj.Level;
+	if (PlatformPlayer.Level > 1) PlatformPlayer.MaxHealth = PlatformPlayer.MaxHealth + PlatformPlayer.HealthPerLevel * (PlatformPlayer.Level - 1);
+	PlatformPlayer.Health = PlatformPlayer.MaxHealth;
+	if (LoadObj.Experience != null) PlatformPlayer.Experience = LoadObj.Experience;
+	CommonSetScreen("Room", "Platform");
+}
+
+/**
  * Handles keys pressed
  * @param {Event} e - The key pressed
  * @returns {void} - Nothing
@@ -846,10 +897,11 @@ function PlatformEventKeyDown(e) {
 	if (PlatformPlayer.Health <= 0) return;
 	if (PlatformActionIs(PlatformPlayer, "Bind")) PlatformPlayer.Action = null;
 	if (e.keyCode == 32) PlatformPlayer.Action = null;
-	if ((e.keyCode == 87) || (e.keyCode == 119)) return PlatformEnterRoom("Up");
+	if ((e.keyCode == 87) || (e.keyCode == 119) || (e.keyCode == 90) || (e.keyCode == 122)) return PlatformEnterRoom("Up");
 	if ((e.keyCode == 76) || (e.keyCode == 108)) return PlatformAttack(PlatformPlayer, ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0)) ? "CrouchAttackFast" : "StandAttackFast");
 	if ((e.keyCode == 75) || (e.keyCode == 107)) return PlatformAttack(PlatformPlayer, ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0)) ? "CrouchAttackSlow" : "StandAttackSlow");
 	if ((e.keyCode == 79) || (e.keyCode == 111)) return PlatformBindStart(PlatformPlayer, e.keyCode);
+	if ((PlatformRoom.Heal != null) && (e.keyCode >= 48) && (e.keyCode <= 57)) return PlatformSaveGame(e.keyCode - 48);
 	if (PlatformKeys.indexOf(e.keyCode) < 0) PlatformKeys.push(e.keyCode);
 	PlatformLastKeyCode = e.keyCode;
 	PlatformLastKeyTime = CommonTime();
