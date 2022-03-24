@@ -25,7 +25,7 @@ function PlatformIntroRun() {
 		for (let Anim of Char.Animation) {
 			Total = Total + Anim.Cycle.length;
 			for (let C of Anim.Cycle) {
-				let FileName = "Screens/Room/Platform/Characters/" + Char.Name + "/" + Char.Status + "/" + Anim.Name + "/" + C.toString() + ".png";
+				let FileName = "Screens/Room/Platform/Character/" + Char.Name + "/" + Char.Status + "/" + Anim.Name + "/" + C.toString() + ".png";
 				let Obj = DrawCacheImage.get(FileName);
 				if ((Obj != null) && (Obj.width != null) && (Obj.width > 0)) {
 					if (Count == PlatformIntroDrawAsset) DrawImageZoomCanvas(FileName, MainCanvas, 0, 0, Obj.width, Obj.height, 50, 75, 850, 850);
@@ -40,7 +40,7 @@ function PlatformIntroRun() {
 			if (Anim.CycleLeft != null) {
 				Total = Total + Anim.CycleLeft.length;
 				for (let C of Anim.CycleLeft) {
-					let FileName = "Screens/Room/Platform/Characters/" + Char.Name + "/" + Char.Status + "/" + Anim.Name + "Left/" + C.toString() + ".png";
+					let FileName = "Screens/Room/Platform/Character/" + Char.Name + "/" + Char.Status + "/" + Anim.Name + "Left/" + C.toString() + ".png";
 					let Obj = DrawCacheImage.get(FileName);
 					if ((Obj != null) && (Obj.width != null) && (Obj.width > 0)) {
 						if (Count == PlatformIntroDrawAsset) DrawImageZoomCanvas(FileName, MainCanvas, 0, 0, Obj.width, Obj.height, 50, 75, 850, 850);
@@ -70,7 +70,7 @@ function PlatformIntroRun() {
  * @returns {void} - Nothing
  */
 function PlatformIntroClick() {
-	if (MouseIn(1400, 840, 200, 60)) PlatformDialogStart("Intro");
+	if (MouseIn(1400, 840, 200, 60)) PlatformDialogStart("IntroMelody");
 	if (MouseIn(1650, 840, 200, 60)) PlatformExit();
 }
 
