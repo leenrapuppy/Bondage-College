@@ -163,7 +163,7 @@ var AssetFemale3DCGExtended = {
 			CopyConfig: { GroupName: "Suit", AssetName: "Catsuit" },
 		}, // ReverseBunnySuit
 		SlaveRags: {
-			Archetype: ExtendedArchetype.MODULAR
+			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
 				Modules: [
 					{
