@@ -3696,7 +3696,7 @@ var AssetFemale3DCGExtended = {
 		}, // OTNPlugGag
 		
 		PonyGag: {
-			Archetype: ExtendedArchetype.MODULAR, 
+			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
 				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR, CommonChatTags.DEST_CHAR],
 				Modules:[
@@ -3707,7 +3707,7 @@ var AssetFemale3DCGExtended = {
 							{ Property: { Effect: ["OpenMouth"], OverrideAssetEffect: true },}, //g1 - No Gag
 							{ Property: { Effect: ["BlockMouth", "GagMedium"], OverrideAssetEffect: true },}, //g2 - Thick BitGag
 							{ Property: { Effect: ["BlockMouth", "GagHeavy"], OverrideAssetEffect: true },}, //g3 - Tongue Depresor
-							{ Property: { Effect: ["BlockMouth", "GagVeryHeavy"], OverrideAssetEffect: true },}, //g4 - DildoGag		
+							{ Property: { Effect: ["BlockMouth", "GagVeryHeavy"], Hide: ["Mouth"], OverrideAssetEffect: true },}, //g4 - DildoGag		
 						],
 					},
 					{
@@ -3730,9 +3730,9 @@ var AssetFemale3DCGExtended = {
 						Name: "Reins", Key: "r",
 						Options:[
 							{}, //r0 - None
-							{ Property: {Effect: ["Leash"] },}, //r1 - Reins
-							{ Property: {Effect: ["Leash"] },}, //r2 - Rope
-							{ Property: {Effect: ["Freeze", "IsChained"] },}, //r3 - Pole
+							{ Property: { Effect: ["Leash"] },}, //r1 - Reins
+							{ Property: { Effect: ["Leash"] },}, //r2 - Rope
+							{ Property: { Effect: ["Freeze", "IsChained"] },}, //r3 - Pole
 
 						],
 					},
@@ -3741,9 +3741,9 @@ var AssetFemale3DCGExtended = {
 						Options:[
 							{}, //t0 - None
 							{}, //t1 - Plume
-							{Property: {Hide: ["HairFront"]},}, //t2 - Mane Left
-							{Property: {Hide: ["HairFront"]},}, //t3 - Mane Right
-							{Property: {Hide: ["HairFront"]},}, //t4 - Mohawk
+							{Property: { Hide: ["HairFront"]},}, //t2 - Mane Left
+							{Property: { Hide: ["HairFront"]},}, //t3 - Mane Right
+							{Property: { Hide: ["HairFront"]},}, //t4 - Mohawk
 							
 						],
 					},
@@ -3759,8 +3759,8 @@ var AssetFemale3DCGExtended = {
 						Name: "Horn", Key: "h",
 						Options:[
 							{}, //h0 - None
-							{ Property: { AllowActivity: ["Penetrate"] },}, //h1 - Horn
-							{ Property: { AllowActivity: ["Penetrate"] },}, //h2 - Dildocorn
+							{ Property: { AllowActivity: ["Penetrate"]},}, //h1 - Horn
+							{ Property: { AllowActivity: ["Penetrate"]},}, //h2 - Dildocorn
 						],
 					},
 					{

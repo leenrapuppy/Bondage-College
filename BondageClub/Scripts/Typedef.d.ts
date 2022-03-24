@@ -1166,7 +1166,9 @@ interface ModularItemOption {
 	/** Whether the option forces a given pose */
 	SetPose?: string;
 	/** If set, the option changes the asset's default priority */
-	OverridePriority?: number
+	OverridePriority?: number;
+	/** A list of activities enabled by that module */
+	AllowActivity?: string[];
 }
 
 /** An object containing modular item configuration for an asset. Contains all of the necessary information for the
