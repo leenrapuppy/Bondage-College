@@ -350,7 +350,7 @@ interface Asset {
 	Visible: boolean;
 	Wear: boolean;
 	Activity: string[] | string;
-	AllowActivity?: string[];
+	AllowActivity: string[];
 	AllowActivityOn?: string[];
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: string[];

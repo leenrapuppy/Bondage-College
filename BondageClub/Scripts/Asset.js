@@ -103,7 +103,7 @@ function AssetAdd(NewAsset, ExtendedConfig) {
 		Visible: (NewAsset.Visible == null) ? true : NewAsset.Visible,
 		Wear: (NewAsset.Wear == null) ? true : NewAsset.Wear,
 		Activity: (NewAsset.Activity == null) ? AssetCurrentGroup.Activity : NewAsset.Activity,
-		AllowActivity: NewAsset.AllowActivity,
+		AllowActivity: NewAsset.AllowActivity || [],
 		AllowActivityOn: (NewAsset.AllowActivityOn == null) ? AssetCurrentGroup.AllowActivityOn : NewAsset.AllowActivityOn,
 		BuyGroup: NewAsset.BuyGroup,
 		PrerequisiteBuyGroups: NewAsset.PrerequisiteBuyGroups,

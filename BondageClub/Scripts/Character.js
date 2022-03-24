@@ -1413,14 +1413,14 @@ function CharacterDecompressWardrobe(Wardrobe) {
 /**
  * Checks if the character is wearing an item that allows for a specific activity
  * @param {Character} C - The character to test for
- * @param {String} Activity - The name of the activity that must be allowed
+ * @param {string} Activity - The name of the activity that must be allowed
  * @returns {boolean} - TRUE if at least one item allows that activity
  */
 function CharacterHasItemForActivity(C, Activity) {
-	for (let A = 0; A < C.Appearance.length; A++)
-		if ((C.Appearance[A].Asset != null) && (C.Appearance[A].Asset.AllowActivity != null) && (C.Appearance[A].Asset.AllowActivity.indexOf(Activity) >= 0))
-			return true;
-	return false;
+	return C.Appearance.some(item =>
+		(item.Asset && item.Asset.AllowActivity.includes(Activity))
+		|| (item.Property && Array.isArray(item.Property.AllowActivity) && item.Property.AllowActivity.includes(Activity))
+	);
 }
 
 /**

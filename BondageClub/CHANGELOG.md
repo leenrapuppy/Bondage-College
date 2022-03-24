@@ -11,9 +11,62 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-02-16
-* Last recorded PR: [#3244](https://github.com/Ben987/Bondage-College/pull/3244)
-* Last recorded commit hash: `f23da3277330e54dc4c2d5231f628432bbab7ab1`
+* Changelog last updated: 2022-03-22
+* Last recorded PR: [#3274](https://github.com/Ben987/Bondage-College/pull/3274)
+* Last recorded commit hash: `75240814209413bb95de5cbb7d3eb5887cde5a44`
+
+## [R78]
+
+### [Added]
+
+* Luna - Added new sidefluff front hairstyles ([#3266](https://github.com/Ben987/Bondage-College/pull/3266), [#3269](https://github.com/Ben987/Bondage-College/pull/3269))
+* Natsuki - Added two new restaurant backgrounds for chatrooms ([#3265](https://github.com/Ben987/Bondage-College/pull/3265))
+* SepiaOulomenohn - Added medical patches, a drone mask, and glitter ([#3254](https://github.com/Ben987/Bondage-College/pull/3254), [#3264](https://github.com/Ben987/Bondage-College/pull/3264), [#3267](https://github.com/Ben987/Bondage-College/pull/3267), [#3274](https://github.com/Ben987/Bondage-College/pull/3274))
+* Ayesha - Added a slim sleeveless latex leotard ([#3255](https://github.com/Ben987/Bondage-College/pull/3255), [#3268](https://github.com/Ben987/Bondage-College/pull/3268))
+* TheGnarp - Added rope necklaces and tattoo chokers ([#3232](https://github.com/Ben987/Bondage-College/pull/3232))
+* Ben987 - Added a platformer prototype
+* Ben987 - Added new missions and other content to infiltration
+
+### [Removed]
+
+* Nothing this release
+
+### [Changed]
+
+* TheGnarp - Updated the ceiling rope ([#3238](https://github.com/Ben987/Bondage-College/pull/3238))
+* Pjara Yuzu - Updated the Chinese translations ([#3249](https://github.com/Ben987/Bondage-College/pull/3249))
+* Karamel - Extended the allowed maid uniforms ([#3260](https://github.com/Ben987/Bondage-College/pull/3260))
+* Karamel - Updated the maid cafe to allow access to bound maids for refills ([#3261](https://github.com/Ben987/Bondage-College/pull/3261))
+
+### [Fixed]
+
+* Nina - Fixed an issue where steampunk and leather corsets could have a hole ([#3273](https://github.com/Ben987/Bondage-College/pull/3273))
+* Estsanatlehi - Fixed a bug where steel ankle cuffs had a missing tag for the chain attached variant ([#3246](https://github.com/Ben987/Bondage-College/pull/3246))
+* Estsanatlehi - Fixed an issue with the talk status and dead keys ([#3248](https://github.com/Ben987/Bondage-College/pull/3248))
+* Sidious - Fixed a bug in the game's renderer, which could softlock the game, when WebGL became unavailable ([#3250](https://github.com/Ben987/Bondage-College/pull/3250))
+* Estsanatlehi - Fixed a bug in magic battles that could softlock the game ([#3257](https://github.com/Ben987/Bondage-College/pull/3257))
+* Estsanatlehi - Fixed a bug that prevented reclothing in the photo room ([#3259](https://github.com/Ben987/Bondage-College/pull/3259))
+* Estsanatlehi - Fixed a number of bugs in the Stables ([#3241](https://github.com/Ben987/Bondage-College/pull/3241))
+  * not accounting for the player's amount of money before subtracting
+  * the player's initial outfit getting overwritten in some conditions
+  * updating the dialog correctly so you can't join the Trainer's Guild ($500) multiple times anymore
+  * the dialog talking about a bridle when you stopped the training as a Trainer
+* Nina - Fixed an issue where clothing with conflicting prerequisites could prevent removing an already equipped item ([#3262](https://github.com/Ben987/Bondage-College/pull/3262))
+* Karamel - Fixed an issue where the cafe maid would not handle multi-layered gags correctly ([#3270](https://github.com/Ben987/Bondage-College/pull/3270))
+* Estsanatlehi - Fixed an issue with the positioning of the steel ankle cuffs ([#3271](https://github.com/Ben987/Bondage-College/pull/3271))
+
+### [Technical]
+
+* Ellie - Fixes max length variable reference in the Transport Jacket script ([#3247](https://github.com/Ben987/Bondage-College/pull/3247))
+* Estsanatlehi - Nursery TS bugs ([#3253](https://github.com/Ben987/Bondage-College/pull/3253))
+* Estsanatlehi - Fix eslint errors ([#3256](https://github.com/Ben987/Bondage-College/pull/3256))
+* Sidious - fix html being parsed in sent whispers ([#3258](https://github.com/Ben987/Bondage-College/pull/3258))
+* Estsanatlehi - Small ts tweaks ([#3252](https://github.com/Ben987/Bondage-College/pull/3252))
+
+### [Beta Fixes]
+
+* Nothing... yet
+
 
 ## [R77]
 
