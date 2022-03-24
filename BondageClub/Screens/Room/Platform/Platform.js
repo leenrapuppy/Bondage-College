@@ -12,6 +12,8 @@ var PlatformLastKeyCode = 0;
 var PlatformLastKeyTime = 0;
 var PlatformExperienceForLevel = [0, 10, 15, 25, 40, 60, 90, 135, 200, 300, 500];
 var PlatformShowHitBox = false;
+var PlatformMessage = null;
+var PlatformHeal = null;
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -223,11 +225,13 @@ var PlatformRoomList = [
 	},*/
 	{
 		Name: "BedroomMelody",
+		Text: "Melody's Bedroom",
 		Background: "Castle/BedroomMelody",
 		Width: 2000,
 		Height: 1200,
 		LimitLeft: 200,
 		LimitRight: 1750,
+		Heal: 1000,
 		Door: [
 			{ Name: "CastleHall1A", FromX: 200, FromY: 0, FromW: 150, FromH: 1200, FromType: "Up", ToX: 500, ToFaceLeft: false },
 		],
@@ -236,6 +240,7 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "CastleHall1A",
+		Text: "Bedroom Hallway - West",
 		Background: "Castle/Hall1A",
 		Width: 3200,
 		Height: 1200,
@@ -250,6 +255,7 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "CastleHall1B",
+		Text: "Bedroom Hallway - Center",
 		Background: "Castle/Hall1B",
 		Width: 4800,
 		Height: 1200,
@@ -264,6 +270,7 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "CastleHall1C",
+		Text: "Bedroom Hallway - East",
 		Background: "Castle/Hall1C",
 		Width: 3800,
 		Height: 1200,
@@ -279,9 +286,11 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "BedroomOlivia",
+		Text: "Olivia's Bedroom",
 		Background: "Castle/BedroomOlivia",
 		Width: 3000,
 		Height: 1200,
+		Heal: 1000,
 		Door: [
 			{ Name: "CastleHall1C", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 900, ToFaceLeft: false }
 		],
@@ -290,9 +299,11 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "BedroomIsabella",
+		Text: "Isabella's Bedroom",
 		Background: "Castle/BedroomIsabella",
 		Width: 2000,
 		Height: 1200,
+		Heal: 1000,
 		Door: [
 			{ Name: "CastleHall1C", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3300, ToFaceLeft: true }
 		],
@@ -346,6 +357,9 @@ function PlatformLoadRoom(RoomName) {
 	for (let Room of PlatformRoomList)
 		if (Room.Name == RoomName)
 			PlatformRoom = Room;
+	if (PlatformRoom == null) return;
+	if (PlatformRoom.Text != null) PlatformMessage = { Text: PlatformRoom.Text, Timer: CommonTime() + 4000 };
+	PlatformHeal = (PlatformRoom.Heal == null) ? null : CommonTime() + PlatformRoom.Heal;
 	PlatformChar.splice(1, 100);
 	if (PlatformRoom.Character != null)
 		for (let Char of PlatformRoom.Character)
@@ -640,13 +654,21 @@ function PlatformDraw() {
 	if ((PlatformKeys.indexOf(32) < 0) && (PlatformPlayer.ForceY < 0))
 		PlatformPlayer.ForceY = PlatformPlayer.ForceY + PlatformWalkFrame(PlatformGravitySpeed * 2, Frame);
 	
+	// If we must heal 1 HP to all characters in the room
+	let MustHeal = ((PlatformHeal != null) && (PlatformHeal < PlatformTime));
+	if (MustHeal) PlatformHeal = (PlatformRoom.Heal == null) ? null : CommonTime() + PlatformRoom.Heal;
+	
 	// Draw each characters
 	for (let C of PlatformChar) {
-
+	
 		// Enemies will stand up at half health if they were not restrained
 		if ((C.Health == 0) && (C.RiseTime != null) && (C.RiseTime < PlatformTime) && !C.Bound)
 			C.Health = Math.round(C.MaxHealth / 2);
 
+		// Heal the character
+		if (MustHeal && (C.Health > 0) && (C.Health < C.MaxHealth))
+			C.Health++;
+		
 		// AI walks from left to right
 		if (!C.Camera && (C.Health > 0)) {
 			if (C.FaceLeft) {
@@ -707,7 +729,11 @@ function PlatformDraw() {
 		else C.Anim = PlatformGetAnim(C, "Idle");
 
 		// Draws the background if we are focusing on that character
-		if (C.Camera) PlatformDrawBackground();
+		if (C.Camera) {
+			PlatformDrawBackground();
+			if ((PlatformMessage != null) && (PlatformMessage.Text != null) && (PlatformMessage.Timer != null) && (PlatformMessage.Timer > CommonTime()))
+				DrawText(PlatformMessage.Text, 1000, 50, "White", "Black");
+		}
 
 		// Draws the character and reduces the force for the next run
 		if (!C.Camera && C.Anim != null) PlatformDrawCharacter(C, PlatformTime);
