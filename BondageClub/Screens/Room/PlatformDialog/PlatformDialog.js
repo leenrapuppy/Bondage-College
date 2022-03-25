@@ -45,7 +45,8 @@ var PlatformDialogData = [
 		Name: "IntroMelody",
 		Exit : function () { CommonSetScreen("Room", "Platform") },
 		Dialog: [
-			{
+			{ 
+				Text: "(Click or hit the spacebar to continue.)",
 				Background: "MaidBed",
 				Character: [
 					{
@@ -315,6 +316,14 @@ function PlatformDialogDraw() {
  */
 function PlatformDialogRun() {
 	PlatformDialogDraw();
+}
+
+/**
+ * When the user presses keys in the dialog screen
+ * @returns {void} - Nothing
+ */
+function PlatformDialogKeyDown() {
+	if (KeyPress == 32) PlatformDialogLoadPosition(PlatformDialogPosition + 1);
 }
 
 /**

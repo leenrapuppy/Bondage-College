@@ -14,7 +14,7 @@ var PlatformExperienceForLevel = [0, 10, 15, 25, 40, 60, 90, 135, 200, 300, 500]
 var PlatformShowHitBox = false;
 var PlatformMessage = null;
 var PlatformHeal = null;
-var PlatformProgress = "";
+var PlatformEvent = [];
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -267,10 +267,7 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "CastleHall1A",
-		Entry: function() {
-			if (PlatformGetProgress(0) <= 0)
-				PlatformDialogStart("JealousMaid");
-		},
+		Entry: function() { if (!PlatformEventDone("JealousMaid")) { PlatformEventSet("JealousMaid"); PlatformDialogStart("JealousMaid"); } },
 		Text: "Bedroom Hallway - West",
 		Background: "Castle/Hall1A",
 		Width: 3200,
@@ -295,8 +292,8 @@ var PlatformRoomList = [
 			{ Name: "CastleHall1C", FromX: 4700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Yuna", X: 1800 },
-			{ Name: "Yuna", X: 3000 }
+			{ Name: "Hazel", X: 1800 },
+			{ Name: "Hazel", X: 3000 }
 		]
 	},
 	{
@@ -378,8 +375,22 @@ function PlatformCreateCharacter(TemplateName, IsPlayer, X) {
 	}
 }
 
-function PlatformGetProgress(Type) {
-	return 0;
+/**
+ * Returns TRUE if a specific event is already done
+ * @param {String} Event - The name of the event
+ * @returns {Boolean} - TRUE if done
+ */
+function PlatformEventDone(Event) {
+	return (PlatformEvent.indexOf("JealousMaid") >= 0);
+}
+
+/**
+ * Adds an event to the list of events done
+ * @param {String} Event - The name of the event
+ * @returns {void} - Nothing
+ */
+function PlatformEventSet(Event) {
+	if (!PlatformEventDone(Event)) PlatformEvent.push(Event);
 }
 
 /**
@@ -558,7 +569,7 @@ function PlatformDamage(Source, Target, Damage, Time) {
 	Target.Damage.push({ Value: Damage, Expire: Time + 2000});
 	if (Target.Health <= 0) {
 		Target.Health = 0;
-		Target.RiseTime = Time + 15000;
+		Target.RiseTime = Time + 10000;
 		Target.Immunity = Time + 2000;
 	}
 }
@@ -667,7 +678,7 @@ function PlatformBindPlayer(Source, Time) {
 	if ((PlatformPlayer.Immunity != null) && (PlatformPlayer.Immunity > Time)) return;
 	if ((Source.Action != null) && (Source.Action.Name == "Bind")) return;
 	if ((PlatformPlayer.Y != PlatformFloor) || (Source.Y != PlatformFloor) || (Math.abs(PlatformPlayer.X - Source.X) > 50)) return;
-	PlatformPlayer.RiseTime = Time + 15000;
+	PlatformPlayer.RiseTime = Time + 10000;
 	Source.ForceX = 0;
 	Source.Action = { Name: "Bind", Target: PlatformPlayer.ID, Start: Time, Expire: Time + 2000 };
 }
@@ -731,12 +742,12 @@ function PlatformDraw() {
 		// AI walks from left to right
 		if (!C.Camera && (C.Health > 0)) {
 			if (C.FaceLeft) {
-				if (C.X <= 300) {
+				if (C.X <= ((PlatformRoom.LimitLeft != null) ? PlatformRoom.LimitLeft + 50 : 100)) {
 					C.FaceLeft = false;
 					C.ForceX = 0;
 				} else C.ForceX = C.ForceX - PlatformWalkFrame(C.Run ? C.RunSpeed : C.WalkSpeed, Frame);
 			} else {
-				if (C.X >= PlatformRoom.Width - 300) {
+				if (C.X >= ((PlatformRoom.LimitRight != null) ? PlatformRoom.LimitRight - 50 : PlatformRoom.Width - 100)) {
 					C.FaceLeft = true;
 					C.ForceX = 0;
 				} else C.ForceX = C.ForceX + PlatformWalkFrame(C.Run ? C.RunSpeed : C.WalkSpeed, Frame);
@@ -888,7 +899,7 @@ function PlatformBindStart(Source) {
 	if (PlatformKeys.length > 0) return;
 	for (let C of PlatformChar)
 		if ((Source.ID != C.ID) && (C.Bound == null) && (C.Status != "Bound") && (C.Health == 0) && (Math.abs(Source.X - C.X + (Source.FaceLeft ? -75 : 75)) < 150) && (Math.abs(Source.Y - C.Y) < 150) && (Source.Y == PlatformFloor)) {
-			C.RiseTime = CommonTime() + 15000;
+			C.RiseTime = CommonTime() + 10000;
 			Source.ForceX = 0;
 			Source.Action = { Name: "Bind", Target: C.ID, Start: CommonTime(), Expire: CommonTime() + 2000 };
 			return;
@@ -906,7 +917,8 @@ function PlatformSaveGame(Slot) {
 		Status: PlatformPlayer.Status,
 		Level: PlatformPlayer.Level,
 		Experience: PlatformPlayer.Experience,
-		Room: PlatformRoom.Name
+		Room: PlatformRoom.Name,
+		Event: PlatformEvent
 	};
 	localStorage.setItem("BondageBrawlSave" + Slot.toString(), JSON.stringify(SaveObj));
 	PlatformMessageSet("Game saved on slot " + Slot.toString());
@@ -930,6 +942,8 @@ function PlatformLoadGame(Slot) {
 	PlatformLoadRoom(LoadObj.Room);
 	PlatformPlayer.X = Math.round(PlatformRoom.Width / 2);
 	if (LoadObj.Level != null) PlatformPlayer.Level = LoadObj.Level;
+	PlatformEvent = LoadObj.Event;
+	if (PlatformEvent == null) PlatformEvent = [];
 	if (PlatformPlayer.Level > 1) PlatformPlayer.MaxHealth = PlatformPlayer.MaxHealth + PlatformPlayer.HealthPerLevel * (PlatformPlayer.Level - 1);
 	PlatformPlayer.Health = PlatformPlayer.MaxHealth;
 	if (LoadObj.Experience != null) PlatformPlayer.Experience = LoadObj.Experience;
