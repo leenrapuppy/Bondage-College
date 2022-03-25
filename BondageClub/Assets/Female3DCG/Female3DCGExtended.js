@@ -3694,6 +3694,86 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // OTNPlugGag
+		
+		PonyGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR, CommonChatTags.DEST_CHAR],
+				Modules:[
+					{
+						Name: "Gag", Key: "g",
+						Options:[
+							{ Property: { Effect: [] }, },  //g0 - Regular BitGag
+							{ Property: { Effect: ["OpenMouth"], OverrideAssetEffect: true },}, //g1 - No Gag
+							{ Property: { Effect: ["BlockMouth", "GagMedium"], OverrideAssetEffect: true },}, //g2 - Thick BitGag
+							{ Property: { Effect: ["BlockMouth", "GagHeavy"], OverrideAssetEffect: true },}, //g3 - Tongue Depresor
+							{ Property: { Effect: ["BlockMouth", "GagVeryHeavy"], Hide: ["Mouth"], OverrideAssetEffect: true },}, //g4 - DildoGag		
+						],
+					},
+					{
+						Name: "Panel", Key: "p",
+						Options:[
+							{}, //None
+							{}, //p1 - Panel
+							{}, //p2 - PanelShield
+							{}, //p3 - PanelHex
+							{}, //p4 - PanelSun
+							{}, //p5 - PanelMoon
+							{}, //p6 - PanelHeart
+							{}, //p7 - PanelHorse
+							{}, //p8 - PanelTriskel
+							{}, //p9 - PanelPentacle					
+							
+						],
+					},
+					{
+						Name: "Reins", Key: "r",
+						Options:[
+							{}, //r0 - None
+							{ Property: { Effect: ["Leash"] },}, //r1 - Reins
+							{ Property: { Effect: ["Leash"] },}, //r2 - Rope
+							{ Property: { Effect: ["Freeze", "IsChained"] },}, //r3 - Pole
+
+						],
+					},
+					{
+						Name: "Top", Key: "t",
+						Options:[
+							{}, //t0 - None
+							{}, //t1 - Plume
+							{Property: { Hide: ["HairFront"]},}, //t2 - Mane Left
+							{Property: { Hide: ["HairFront"]},}, //t3 - Mane Right
+							{Property: { Hide: ["HairFront"]},}, //t4 - Mohawk
+							
+						],
+					},
+					{
+						Name: "Extra", Key: "e",
+						Options:[
+							{}, //e0 - None
+							{ Property: {Dificulty: 7}}, //e1 - ExtraStraps
+							{}, //e2 - Flags
+						],
+					},
+					{
+						Name: "Horn", Key: "h",
+						Options:[
+							{}, //h0 - None
+							{ Property: { AllowActivity: ["Penetrate"]},}, //h1 - Horn
+							{ Property: { AllowActivity: ["Penetrate"]},}, //h2 - Dildocorn
+						],
+					},
+					{
+						Name: "Blinders", Key: "b",
+						Options:[
+							{}, //b0 - None
+							{}, //b1 - Blinders
+						],
+					},
+				],
+			},
+		}, // PonyGag
+		
 	}, // ItemMouth
 	ItemMouth2: {
 		ClothGag: {
@@ -3732,6 +3812,10 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticMuzzle" },
 		},
+		PonyGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "PonyGag" },
+		},
 	}, // ItemMouth2
 	ItemMouth3: {
 		ClothGag: {
@@ -3769,6 +3853,10 @@ var AssetFemale3DCGExtended = {
 		FuturisticMuzzle: {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticMuzzle" },
+		},
+		PonyGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "PonyGag" },
 		},
 	}, // ItemMouth3
 	Mask: {
