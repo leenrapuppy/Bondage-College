@@ -369,6 +369,22 @@ const CommonCommands = [
 		}
 	},
 	{
+		Tag: 'expr',
+		Action: args => {
+			if (args.trim() == "") {
+				ChatRoomFocusCharacter(Player);
+				DialogFindSubMenu("SavedExpressions");
+			} else if (/^[0-5]$/.test(args)) {
+				let ExprNum = parseInt(args);
+				if (ExprNum == 0) {
+					CharacterResetFacialExpression(Player);
+				} else {
+					DialogFacialExpressionsLoad(ExprNum - 1);
+				}
+			}
+		}
+	},
+	{
 		Tag: 'bot',
 		Action: (_, msg) => {
 			for (const { ID, MemberNumber } of ChatRoomCharacter)

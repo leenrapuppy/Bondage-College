@@ -1076,6 +1076,16 @@ function ChatRoomClickCharacter(C, CharX, CharY, Zoom, ClickX, ClickY, Pos) {
 	if (OnlineGameClickCharacter(C)) return;
 
 	// Gives focus to the character
+	ChatRoomFocusCharacter(C);
+}
+
+/**
+ * Select the character (open dialog) and clear other chatroom displays.
+ * @param {Character} C - The character to focus on. Does nothing if null.
+ * @returns {void} - Nothing
+ */
+function ChatRoomFocusCharacter(C) {
+	if (C == null) return;
 	document.getElementById("InputChat").style.display = "none";
 	document.getElementById("TextAreaChatLog").style.display = "none";
 	ChatRoomChatHidden = true;

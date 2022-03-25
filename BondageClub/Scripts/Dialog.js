@@ -1772,6 +1772,25 @@ function DialogFindNextSubMenu() {
 }
 
 /**
+ * Finds and set an available character sub menu.
+ * @param {string} The name of the sub menu, see DialogSelfMenuOptions.
+ * @returns {boolean} - True, when the sub menu is found and available and was switched to. False otherwise and nothing happened.
+ */
+function DialogFindSubMenu(MenuName) {
+	for (let MenuIndex = 0; MenuIndex < DialogSelfMenuOptions.length; MenuIndex++) {
+		let MenuOption = DialogSelfMenuOptions[MenuIndex];
+		if (MenuOption.Name == MenuName) {
+			if (MenuOption.IsAvailable()) {
+				DialogSelfMenuSelected = MenuOption;
+				return true;
+			}
+			return false;
+		}
+	}
+	return false;
+}
+
+/**
  * Displays the given text for 5 seconds
  * @param {string} NewText - The text to be displayed
  * @returns {void} - Nothing
