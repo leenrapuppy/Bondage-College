@@ -473,6 +473,8 @@ function PlatformActionIs(C, ActionName) {
  * @returns {void} - Nothing
  */
 function PlatformDrawBackground() {
+	
+	// Draws the background within the borders
 	PlatformViewX = PlatformPlayer.X - 1000;
 	if (PlatformViewX < 0) PlatformViewX = 0;
 	if (PlatformViewX > PlatformRoom.Width - 2000) PlatformViewX = PlatformRoom.Width - 2000;
@@ -486,6 +488,18 @@ function PlatformDrawBackground() {
 	DrawProgressBar(10, 60, 180, 40, PlatformPlayer.Experience / PlatformExperienceForLevel[PlatformPlayer.Level] * 100, "#0000B0", "Black");
 	DrawText(PlatformPlayer.Level.toString(), 100, 82, "White", "Black");
 	if (PlatformActionIs(PlatformPlayer, "Bind")) DrawProgressBar(10, 110, 180, 40, (CommonTime() - PlatformPlayer.Action.Start) / (PlatformPlayer.Action.Expire - PlatformPlayer.Action.Start) * 100, "White", "Black");
+
+	// Preloads the next rooms
+	if (PlatformRoom.Door != null)
+		for (let Door of PlatformRoom.Door)
+			for (let Room of PlatformRoomList)
+				if ((Room.Name == Door.Name) && (Room.Background != null)) {
+					let FileName = "Screens/Room/Platform/Background/" + Room.Background + ".jpg";
+					let Obj = DrawCacheImage.get(FileName);
+					if ((Obj == null) || (Obj.width == null) || (Obj.width <= 0))
+						DrawImage(FileName, 2000, 1000);
+				}
+
 }
 
 /**
