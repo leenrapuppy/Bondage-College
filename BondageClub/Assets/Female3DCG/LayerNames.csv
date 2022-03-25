@@ -313,6 +313,15 @@ ItemPelvisPoofyDiaperBase,Diaper
 ItemPelvisPoofyDiaperCrotchPatch,Crotch Padding
 ItemPelvisPoofyDiaperFrills,Frills
 ItemPelvisPoofyDiaperTape,Tape
+ItemPelvisMetalChastityBeltBelt,Belt
+ItemPelvisMetalChastityBeltLock,Lock
+ItemPelvisLeatherChastityBeltBelt,Belt
+ItemPelvisLeatherChastityBeltStuds,Studs
+ItemPelvisLeatherChastityBeltLocks,Locks
+ItemPelvisHybridChastityBeltBelt,Belt
+ItemPelvisHybridChastityBeltCrotchPlate,Crotch Plate
+ItemPelvisHybridChastityBeltRivets,Rivets
+ItemPelvisHybridChastityBeltLock,Lock
 ItemNipplesTapedVibeEggsEgg1,Left Vibe Egg
 ItemNipplesTapedVibeEggsEgg2,Right Vibe Egg
 ItemNipplesTapedVibeEggsTape1,Left Tape Strip
@@ -563,6 +572,8 @@ ItemHoodFoxyMaskLower,Lower
 ItemHoodLampHeadHoodInside,Interior
 ItemHoodLampHeadHoodSwitch,Switch
 ItemHoodLampHeadHoodLamp,Exterior
+ItemHoodCollarHoodHood,Hood
+ItemHoodCollarHoodCollar,Collar
 ItemBootsLockingBoots1Boots,Boots
 ItemBootsLockingBoots1Straps,Straps
 ItemBootsFuturisticHeelsShoes,Body
@@ -713,6 +724,18 @@ ItemMouthKittyMuzzleGagMuzzle,Muzzle
 ItemMouthKittyMuzzleGagStraps,Straps
 ItemMouthKittyMuzzleGagLines,Lines
 ItemMouthKittyMuzzleGagMouth,Mouth
+ItemMouthPonyGagBaseMetal,Metal
+ItemMouthPonyGagBaseStraps,Straps
+ItemMouthPonyGagBitLarge,Gag
+ItemMouthPonyGagPlume,Plume
+ItemMouthPonyGagManeB,ManeBase
+ItemMouthPonyGagManeL,Mane
+ItemMouthPonyGagHorn,Horn
+ItemMouthPonyGagPanelBase,Panel
+ItemMouthPonyGagPanelHex,Ornament
+ItemMouthPonyGagReins,Reins
+ItemMouthPonyGagFlags,Flags
+ItemMouthPonyGagRope,Rope
 ItemMouth2WiffleGagStrap,Strap
 ItemMouth2WiffleGagBall,Ball
 ItemMouth2HarnessBallGagBall,Ball
