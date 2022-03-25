@@ -2,8 +2,44 @@
 var PlatformDialog = null;
 var PlatformDialogBackground = null;
 var PlatformDialogText = null;
-var PlatformDialogCharacter = null;
+var PlatformDialogCharacterDisplay = null;
 var PlatformDialogPosition = 0;
+var PlatformDialogCharacter = [
+	{
+		Name: "Melody",
+		Color: "#fe92cf",
+	},
+	{
+		Name: "Olivia",
+		Color: "#ffffff",
+		Love: 10,
+		Domination: 0
+	},
+	{
+		Name: "Isabella",
+		Color: "#ffD700",
+		Love: 5,
+		Domination: -10
+	},
+	{
+		Name: "Camille",
+		Color: "#C0C0C0",
+		Love: -5,
+		Domination: -5
+	},
+	{
+		Name: "Yuna",
+		Color: "#E6E6FA",
+		Love: -5,
+		Domination: -2
+	},
+	{
+		Name: "Hazel",
+		Color: "#e1dd57",
+		Love: -5,
+		Domination: 2
+	}	
+];
 var PlatformDialogData = [
 	{
 		Name: "IntroMelody",
@@ -104,7 +140,7 @@ var PlatformDialogData = [
 				Background: "CastleHall",
 				Character: [
 					{
-						Name: "Yuna",
+						Name: "Hazel",
 						Status: "Maid",
 						Pose: "StandAngry",
 					}
@@ -142,6 +178,7 @@ var PlatformDialogData = [
 		Dialog: [
 			{
 				Background: "LadyBed",
+				Color: "#ffffff",
 				Character: [
 					{
 						Name: "Olivia",
@@ -223,9 +260,9 @@ var PlatformDialogData = [
 function PlatformDialogLoadPosition(Position) {
 	PlatformDialogPosition = Position;
 	if (Position >= PlatformDialog.Dialog.length) return PlatformDialog.Exit();
-	if ((Position == 0) || (PlatformDialog.Dialog[Position].Background != null)) PlatformDialogBackground = "../Screens/Room/PlatformDialog/Background/" + PlatformDialog.Dialog[Position].Background;
 	PlatformDialogText = PlatformDialog.Dialog[Position].Text;
-	if ((Position == 0) || (PlatformDialog.Dialog[Position].Character != null)) PlatformDialogCharacter = PlatformDialog.Dialog[Position].Character;
+	if ((Position == 0) || (PlatformDialog.Dialog[Position].Background != null)) PlatformDialogBackground = "../Screens/Room/PlatformDialog/Background/" + PlatformDialog.Dialog[Position].Background;
+	if ((Position == 0) || (PlatformDialog.Dialog[Position].Character != null)) PlatformDialogCharacterDisplay = PlatformDialog.Dialog[Position].Character;
 }
 
 function PlatformDialogStart(DialogName) {
@@ -246,18 +283,29 @@ function PlatformDialogLoad() {
 }
 
 function PlatformDialogDraw() {
-	if (PlatformDialogCharacter != null) {
-		let X = 1000 - (PlatformDialogCharacter.length * 250);
+	if (PlatformDialogCharacterDisplay != null) {
+		let X = 1000 - (PlatformDialogCharacterDisplay.length * 250);
 		let Y = 0;
-		for (let Character of PlatformDialogCharacter) {
+		for (let Character of PlatformDialogCharacterDisplay) {
 			DrawImage("Screens/Room/PlatformDialog/Character/" + Character.Name + "/" + Character.Status + "/" + Character.Pose + ".png", (Character.X == null) ? X : Character.X, (Character.Y == null) ? Y : Character.Y);
 			X = X + 500;
 		}
 	}
 	if (PlatformDialogText != null) {
-		DrawEmptyRect(17, 677, 1966, 306, "#fe92cf", 6);
+		let Color;
+		if ((PlatformDialogCharacterDisplay != null) && (PlatformDialogCharacterDisplay.length > 0))
+			for (let Character of PlatformDialogCharacter)
+				if (Character.Name == PlatformDialogCharacterDisplay[0].Name)
+					Color = Character.Color;
+		if (Color == null) Color = "#ffffff";
+		if ((PlatformDialogCharacterDisplay != null) && (PlatformDialogCharacterDisplay.length > 0)) {
+			DrawEmptyRect(17, 613, 366, 66, Color, 6);
+			DrawRect(20, 616, 360, 60, "#000000D0");
+			DrawText(PlatformDialogCharacterDisplay[0].Name, 200, 646, Color, "Black");
+		}
+		DrawEmptyRect(17, 677, 1966, 306, Color, 6);
 		DrawRect(20, 680, 1960, 300, "#000000D0");
-		DrawText(PlatformDialogText, 1000, 830, "White", "Black");
+		DrawText(PlatformDialogText, 1000, 830, Color, "Black");
 	}
 }
 

@@ -29,7 +29,7 @@ function PlatformIntroRun() {
 				let FileName = "Screens/Room/Platform/Character/" + Char.Name + "/" + Char.Status + "/" + Anim.Name + "/" + C.toString() + ".png";
 				let Obj = DrawCacheImage.get(FileName);
 				if ((Obj != null) && (Obj.width != null) && (Obj.width > 0)) {
-					if (Count == PlatformIntroDrawAsset) DrawImageZoomCanvas(FileName, MainCanvas, 0, 0, Obj.width, Obj.height, 50, 75, 850, 850);
+					if (Count == PlatformIntroDrawAsset) DrawImageZoomCanvas(FileName, MainCanvas, 0, 0, Obj.width, Obj.height, -50, 0, 1000, 1000);
 					Count++;
 				}
 				else
@@ -44,7 +44,7 @@ function PlatformIntroRun() {
 					let FileName = "Screens/Room/Platform/Character/" + Char.Name + "/" + Char.Status + "/" + Anim.Name + "Left/" + C.toString() + ".png";
 					let Obj = DrawCacheImage.get(FileName);
 					if ((Obj != null) && (Obj.width != null) && (Obj.width > 0)) {
-						if (Count == PlatformIntroDrawAsset) DrawImageZoomCanvas(FileName, MainCanvas, 0, 0, Obj.width, Obj.height, 50, 75, 850, 850);
+						if (Count == PlatformIntroDrawAsset) DrawImageZoomCanvas(FileName, MainCanvas, 0, 0, Obj.width, Obj.height, -50, 0, 1000, 1000);
 						Count++;
 					}
 					else
@@ -57,7 +57,7 @@ function PlatformIntroRun() {
 		}
 		if ((PlatformIntroDrawAsset == Total) && (Char.Name == "Melody")) PlatformIntroDrawAsset = -1;
 	}
-	DrawText(TextGet("LoadingAssets") + " " + Count.toString() + " / " + Total.toString(), 1150, 870);
+	DrawText(TextGet("LoadingAssets") + " " + Count.toString() + " / " + Total.toString(), 1125, 930, "Black", "Silver");
 
 	for (let X = 0; X <= 8; X++)
 		DrawText(TextGet("Text" + X.toString()), 1400, 70 + X * 72, "Black", "Silver");
@@ -65,8 +65,8 @@ function PlatformIntroRun() {
 	for (let X = 0; X <= 9; X++)
 		DrawButton(920 + (X % 5) * 200, 710 + Math.floor(X / 5) * 90, 160, 60, TextGet("Load") + " " + X.toString(), "White", "");
 				
-	DrawButton(1075, 900, 250, 60, TextGet("NewGame"), "White", "");
-	DrawButton(1475, 900, 250, 60, TextGet("Cancel"), "White", "");
+	DrawButton(1370, 900, 230, 60, TextGet("NewGame"), "White", "");
+	DrawButton(1650, 900, 230, 60, TextGet("Cancel"), "White", "");
 	
 }
 
@@ -78,11 +78,11 @@ function PlatformIntroClick() {
 	for (let X = 0; X <= 9; X++)
 		if (MouseIn(920 + (X % 5) * 200, 710 + Math.floor(X / 5) * 90, 160, 60))
 			PlatformLoadGame(X);
-	if (MouseIn(1075, 900, 250, 60)) {
+	if (MouseIn(1370, 900, 230, 60)) {
 		PlatformChar = [];
 		PlatformDialogStart("IntroMelody");
 	}
-	if (MouseIn(1475, 900, 250, 60)) PlatformExit();
+	if (MouseIn(1650, 900, 230, 60)) PlatformExit();
 }
 
 /**

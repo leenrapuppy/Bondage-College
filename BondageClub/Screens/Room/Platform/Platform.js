@@ -14,6 +14,7 @@ var PlatformExperienceForLevel = [0, 10, 15, 25, 40, 60, 90, 135, 200, 300, 500]
 var PlatformShowHitBox = false;
 var PlatformMessage = null;
 var PlatformHeal = null;
+var PlatformProgress = "";
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -145,8 +146,33 @@ var PlatformTemplate = [
 			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 90 },
 		],
 		Attack: []
-	}
-,
+	},
+	{
+		Name: "Hazel",
+		Status: "Maid",
+		Health: 10,
+		Width: 400,
+		Height: 400,
+		HitBox: [0.4, 0.05, 0.6, 1],
+		RunSpeed: 12,
+		WalkSpeed: 8,
+		CrawlSpeed: 4,
+		JumpForce: 50,
+		CollisionDamage: 1,
+		ExperienceValue: 1,
+		JumpOdds: 0.0002,
+		DamageBackOdds: 1,
+		DamageKnockForce: 50,
+		Animation: [
+			{ Name: "Idle", Cycle: [0], Speed: 150 },
+			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
+			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 100 },
+			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 40 },
+			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 35 },
+			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1], Speed: 130 },
+		],
+		Attack: []
+	},
 	{
 		Name: "Camille",
 		Status: "Armor",
@@ -241,6 +267,10 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "CastleHall1A",
+		Entry: function() {
+			if (PlatformGetProgress(0) <= 0)
+				PlatformDialogStart("JealousMaid");
+		},
 		Text: "Bedroom Hallway - West",
 		Background: "Castle/Hall1A",
 		Width: 3200,
@@ -251,7 +281,7 @@ var PlatformRoomList = [
 			{ Name: "CastleHall1B", FromX: 3100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Yuna", X: 2000 }
+			{ Name: "Hazel", X: 2000 }
 		]
 	},
 	{
@@ -348,6 +378,10 @@ function PlatformCreateCharacter(TemplateName, IsPlayer, X) {
 	}
 }
 
+function PlatformGetProgress(Type) {
+	return 0;
+}
+
 /**
  * Sets the on screen message for 4 seconds
  * @param {String} Text - The text to show
@@ -374,6 +408,7 @@ function PlatformLoadRoom(RoomName) {
 	if (PlatformRoom.Character != null)
 		for (let Char of PlatformRoom.Character)
 			PlatformCreateCharacter(Char.Name, false, Char.X);
+	if (PlatformRoom.Entry != null) PlatformRoom.Entry();
 }
 
 /**
