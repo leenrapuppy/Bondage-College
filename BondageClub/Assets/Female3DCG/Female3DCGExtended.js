@@ -1902,6 +1902,22 @@ var AssetFemale3DCGExtended = {
 				ChangeWhenLocked: false,
 			}
 		}, // TechnoHelmet1
+		ZipperHood: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "ZippersOpen",
+						Property: { Type: null }
+					},
+					{
+						Name: "ZippersClosed",
+						Property: { Type: "ZippersClosed", Effect: ["BlindHeavy"] }
+					},
+				]
+			}
+
+		}// ZipperHood
 	}, // ItemHood
 	ItemDevices: {
 		FuturisticCrate: {

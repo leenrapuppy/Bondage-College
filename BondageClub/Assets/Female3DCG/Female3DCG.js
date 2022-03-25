@@ -5442,6 +5442,14 @@ var AssetFemale3DCG = [
 					{ Name: "Lamp" },
 				],
 			},
+			{ Name: "AccentHood", Fetish: ["Latex"], Value: 30, DrawLocks: false, AllowLock: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"] },
+			{ Name: "CollarHood", Fetish: ["Latex"], Value: 50, DrawLocks: false, AllowLock: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Layer: [
+				{ Name: "Hood" },
+				{ Name: "Collar" }
+			] 
+		},
+		{ Name: "ZipperHood", Fetish: ["Latex"], Value: 20, DrawLocks: false, AllowLock: true, Extended: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"] },
+		{ Name: "LatexHabit", Fetish: ["Latex"], Top: 0, Left: 0, Value: 30, DrawLocks: false, AllowLock: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"] },
 			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -5722,7 +5730,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Vacbed", Fetish: ["Latex"], ParentGroup: "BodyUpper", Value: 200, Difficulty: 50, BuyGroup: "Vac", Priority: 36, SelfBondage: 3, Time: 10, Extended: true,
 				Prerequisite: ["NotKneeling", "AllFours", "NotSuspended", "NotHogtied", "NotKneelingSpread", "NoItemArms", "LegsOpen", "NoItemHands", "NoItemLegs", "NoHorse", "NoItemFeet"],
-				Hide: ["ItemNeckAccessories", "ItemNeckRestraints", "HairBack", "ClothAccessory", "Bracelet", "Garters"],
+				Hide: ["ItemNeckAccessories", "ItemNeckRestraints", "", "ClothAccessory", "Bracelet", "Garters"],
 				SetPose: ["Yoked", "BaseLower"],
 				Effect: ["Prone", "Freeze", "Block", "Mounted", "IsPlugged"],
 				HideItem: ["ShoesFlippers"],

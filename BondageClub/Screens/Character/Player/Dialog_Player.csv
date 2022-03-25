@@ -2894,6 +2894,11 @@ ClothAccessoryGlitterStarsRight,,,Stars Right,,
 ClothAccessoryGlitterDotsBoth,,,Dots Both Sides,,
 ClothAccessoryGlitterDotsLeft,,,Dots Left,,
 ClothAccessoryGlitterDotsRight,,,Dots Right,,
+ItemHoodZipperHoodSelect,,,Select Zipper State.,,
+ItemHoodZipperHoodZippersOpen,,,Open
+ItemHoodZipperHoodZippersClosed,,,Closed
+ItemHoodZipperHoodSetZippersClosed,,,SourceCharacter zips up the hood on DestinationCharacter,,
+ItemHoodZipperHoodSetZippersOpen,,,SourceCharacter unzips up the hood on DestinationCharacter,,
 ItemMouthPonyGagSelectBase,,,Select bridle Gag Accessories,,
 ItemMouthPonyGagSelectGag,,,Select Gag Accessory,,
 ItemMouthPonyGagModuleGag,,,Gag,,
