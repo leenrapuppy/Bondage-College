@@ -29,15 +29,13 @@ var PlatformDialogCharacter = [
 	},
 	{
 		Name: "Yuna",
+		NickName: "Senior Maid",
 		Color: "#E6E6FA",
-		Love: -5,
-		Domination: -2
 	},
 	{
 		Name: "Hazel",
+		NickName: "Junior Maid",
 		Color: "#e1dd57",
-		Love: -5,
-		Domination: 2
 	}	
 ];
 var PlatformDialogData = [
@@ -150,10 +148,10 @@ var PlatformDialogData = [
 			{
 				Text: "Well, well, well.  Here comes Melody the perfect servant.",
 				Answer: [
-					{ Text: "Get out of my way.", Reply: "(She stands her ground.)  Not so fast.", Domination: 1 },
+					{ Text: "Get out of my way.", Reply: "(She stands her ground.)  Not so fast." },
 					{ Text: "What do you want?", Reply: "You're not very bright aren't you?" },
-					{ Text: "And here comes the laziest maid of the year.", Reply: "There won't be any deal, only bruises.  (She raises her fists.)", Love: -2 },
-					{ Text: "It's great to see you sister.", Reply: "(She shakes her head no.)  Don't call me sister today.", Domination: -1, Love: 2 }
+					{ Text: "And here comes the laziest maid of the year.", Reply: "There won't be any deal, only bruises.  (She raises her fists.)" },
+					{ Text: "It's great to see you sister.", Reply: "(She shakes her head no.)  Don't call me sister today." }
 				]
 			},
 			{ Text: "The maid staff has been talking about you." },
@@ -164,9 +162,9 @@ var PlatformDialogData = [
 				Text: "Give me her collar key or you will get hurt.",
 				Answer: [
 					{ Text: "Sorry, I cannot give you that key.", Reply: "Fine, I will take it by force then.  (She raises her fists.)" },
-					{ Text: "Please, can we negotiate a deal?", Reply: "There won't be any deal, only bruises.  (She raises her fists.)", Domination: -2 },
-					{ Text: "Over my dead body.", Reply: "I won't kill you, but you'll be in pain.  (She raises her fists.)", Domination: 2, Love: -1 },
-					{ Text: "(Try to run away.)", Reply: "You're not going anywhere!  (She raises her fists.)", Domination: -1, Love: -1 }
+					{ Text: "Please, can we negotiate a deal?", Reply: "There won't be any deal, only bruises.  (She raises her fists.)" },
+					{ Text: "Over my dead body.", Reply: "I won't kill you, but you'll be in pain.  (She raises her fists.)" },
+					{ Text: "(Try to run away.)", Reply: "You're not going anywhere!  (She raises her fists.)" }
 				]
 			},
 			{ Text: "(She rushes toward you.  You'll need to dodge or fight her.)" }
@@ -294,15 +292,19 @@ function PlatformDialogDraw() {
 	}
 	if (PlatformDialogText != null) {
 		let Color;
+		let Name;
 		if ((PlatformDialogCharacterDisplay != null) && (PlatformDialogCharacterDisplay.length > 0))
 			for (let Character of PlatformDialogCharacter)
-				if (Character.Name == PlatformDialogCharacterDisplay[0].Name)
+				if (Character.Name == PlatformDialogCharacterDisplay[0].Name) {
 					Color = Character.Color;
+					Name = (Character.NickName == null) ? Character.Name : Character.NickName;
+				}
 		if (Color == null) Color = "#ffffff";
 		if ((PlatformDialogCharacterDisplay != null) && (PlatformDialogCharacterDisplay.length > 0)) {
+			if (Name == null) Name = PlatformDialogCharacterDisplay[0].Name;
 			DrawEmptyRect(17, 613, 366, 66, Color, 6);
 			DrawRect(20, 616, 360, 60, "#000000D0");
-			DrawText(PlatformDialogCharacterDisplay[0].Name, 200, 646, Color, "Black");
+			DrawText(Name, 200, 646, Color, "Black");
 		}
 		DrawEmptyRect(17, 677, 1966, 306, Color, 6);
 		DrawRect(20, 680, 1960, 300, "#000000D0");

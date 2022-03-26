@@ -430,6 +430,7 @@ function PlatformLoad() {
 	window.addEventListener("keydown", PlatformEventKeyDown);
 	window.addEventListener("keyup", PlatformEventKeyUp);
 	if (PlatformChar.length == 0) {
+		PlatformEvent = [];
 		PlatformChar = [];
 		PlatformCreateCharacter("Melody", true, 1000);
 		PlatformLoadRoom("BedroomMelody");
