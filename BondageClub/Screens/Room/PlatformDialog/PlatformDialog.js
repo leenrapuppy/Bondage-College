@@ -2,6 +2,10 @@
 var PlatformDialog = null;
 var PlatformDialogBackground = null;
 var PlatformDialogText = null;
+var PlatformDialogAnswer = null;
+var PlatformDialogAnswerPosition = 0;
+var PlatformDialogReply = null;
+var PlatformDialogGoto = null;
 var PlatformDialogCharacterDisplay = null;
 var PlatformDialogPosition = 0;
 var PlatformDialogCharacter = [
@@ -145,13 +149,14 @@ var PlatformDialogData = [
 					}
 				]
 			},
+			{ Text: "(As you enter the hallway, you get intercepted by another maid.)" },
 			{
-				Text: "Well, well, well.  Here comes Melody the perfect servant.",
+				Text: "Well, well, well.  Here comes little Melody the perfect servant.",
 				Answer: [
-					{ Text: "Get out of my way.", Reply: "(She stands her ground.)  Not so fast." },
 					{ Text: "What do you want?", Reply: "You're not very bright aren't you?" },
-					{ Text: "And here comes the laziest maid of the year.", Reply: "There won't be any deal, only bruises.  (She raises her fists.)" },
-					{ Text: "It's great to see you sister.", Reply: "(She shakes her head no.)  Don't call me sister today." }
+					{ Text: "And here comes the laziest maid of the year.", Reply: "Shut up Melody, you're not funny." },
+					{ Text: "It's great to see you sister.", Reply: "(She shakes her head no.)  Don't call me sister today." },
+					{ Text: "(Ignore her and move forward.)", Reply: "You think you can snob me?  (She raises her fists.)", Goto: "End" }
 				]
 			},
 			{ Text: "The maid staff has been talking about you." },
@@ -167,7 +172,7 @@ var PlatformDialogData = [
 					{ Text: "(Try to run away.)", Reply: "You're not going anywhere!  (She raises her fists.)" }
 				]
 			},
-			{ Text: "(She rushes toward you.  You'll need to dodge or fight her.)" }
+			{ ID: "End", Text: "(She rushes toward you.  You'll need to dodge or fight her.)" }
 		]
 	},
 	
@@ -256,14 +261,28 @@ var PlatformDialogData = [
 	
 ];
 
+/**
+ * Loads the dialog at a specific position
+ * @param {Number} Position - The position # to load
+ * @returns {void} - Nothing
+ */
 function PlatformDialogLoadPosition(Position) {
 	PlatformDialogPosition = Position;
 	if (Position >= PlatformDialog.Dialog.length) return PlatformDialog.Exit();
 	PlatformDialogText = PlatformDialog.Dialog[Position].Text;
+	PlatformDialogAnswer = PlatformDialog.Dialog[Position].Answer;
+	PlatformDialogAnswerPosition = 0;
+	PlatformDialogReply = null;
+	PlatformDialogGoto = null;
 	if ((Position == 0) || (PlatformDialog.Dialog[Position].Background != null)) PlatformDialogBackground = "../Screens/Room/PlatformDialog/Background/" + PlatformDialog.Dialog[Position].Background;
 	if ((Position == 0) || (PlatformDialog.Dialog[Position].Character != null)) PlatformDialogCharacterDisplay = PlatformDialog.Dialog[Position].Character;
 }
 
+/**
+ * Starts a specific dialog
+ * @param {String} DialogName - The name of the dialog to start
+ * @returns {void} - Nothing
+ */
 function PlatformDialogStart(DialogName) {
 	PlatformDialog = null;
 	for (let Dialog of PlatformDialogData)
@@ -271,6 +290,8 @@ function PlatformDialogStart(DialogName) {
 			PlatformDialog = Dialog;
 	if (PlatformDialog == null) return;
 	PlatformDialogLoadPosition(0);
+	window.removeEventListener("keydown", PlatformEventKeyDown);
+	window.removeEventListener("keyup", PlatformEventKeyUp);
 	CommonSetScreen("Room", "PlatformDialog");
 }
 
@@ -281,6 +302,10 @@ function PlatformDialogStart(DialogName) {
 function PlatformDialogLoad() {
 }
 
+/**
+ * Draws the dialog character, text & answers
+ * @returns {void} - Nothing
+ */
 function PlatformDialogDraw() {
 	if (PlatformDialogCharacterDisplay != null) {
 		let X = 1000 - (PlatformDialogCharacterDisplay.length * 250);
@@ -308,7 +333,18 @@ function PlatformDialogDraw() {
 		}
 		DrawEmptyRect(17, 677, 1966, 306, Color, 6);
 		DrawRect(20, 680, 1960, 300, "#000000D0");
-		DrawText(PlatformDialogText, 1000, 830, Color, "Black");
+		if ((PlatformDialogAnswer == null) || (PlatformDialogReply != null)) {
+			DrawTextWrap((PlatformDialogReply != null) ? PlatformDialogReply : PlatformDialogText, 75, 700, 1850, 260, Color, null, 6);
+		} else {
+			DrawTextWrap(PlatformDialogText, 75, 700, 850, 260, Color, null, 6);
+			DrawEmptyRect(997, 677, 0, 306, Color, 6);
+			let Pos = 0;
+			for (let Answer of PlatformDialogAnswer) {
+				DrawText(Answer.Text, 1500, 725 + (Pos * 70), "#fe92cf", "Black");
+				if (Pos == PlatformDialogAnswerPosition) DrawEmptyRect(1050, 693 + (Pos * 70), 900, 63, "#fe92cf", 4);
+				Pos++;
+			}
+		}
 	}
 }
 
@@ -317,7 +353,42 @@ function PlatformDialogDraw() {
  * @returns {void} - Nothing
  */
 function PlatformDialogRun() {
+	if ((PlatformDialogAnswer != null) && MouseIn(1050, 695, 900, 60 + (PlatformDialogAnswer.length - 1) * 70))
+		PlatformDialogAnswerPosition = Math.floor((MouseY - 695) / 70);
 	PlatformDialogDraw();
+}
+
+/**
+ * Pick an answer in a specific dialog
+ * @param {Number} Position - The position of the answer picked
+ * @returns {void} - Nothing
+ */
+function PlatformDialogPickAnswer(Position) {
+	let P = 0;
+	for (let Answer of PlatformDialogAnswer) {
+		if (Position == P) {
+			PlatformDialogReply = Answer.Reply;
+			PlatformDialogGoto = Answer.Goto;
+		}
+		P++;
+	}
+}
+
+/**
+ * Processes the current dialog, can answer or skip to the next phase
+ * @returns {void} - Nothing
+ */
+function PlatformDialogProcess() {
+	if ((PlatformDialogAnswer != null) && (PlatformDialogReply == null)) return PlatformDialogPickAnswer(PlatformDialogAnswerPosition);
+	if (PlatformDialogGoto != null) {
+		let Pos = 0;
+		for (let Dialog of PlatformDialog.Dialog) {
+			if (Dialog.ID == PlatformDialogGoto)
+				return PlatformDialogLoadPosition(Pos);
+			Pos++;
+		}
+	} 
+	PlatformDialogLoadPosition(PlatformDialogPosition + 1);
 }
 
 /**
@@ -325,7 +396,15 @@ function PlatformDialogRun() {
  * @returns {void} - Nothing
  */
 function PlatformDialogKeyDown() {
-	if (KeyPress == 32) PlatformDialogLoadPosition(PlatformDialogPosition + 1);
+	if ((KeyPress == 32) || (KeyPress == 13)) PlatformDialogProcess();
+	if ((KeyPress == 87) || (KeyPress == 119) || (KeyPress == 90) || (KeyPress == 122)) {
+		PlatformDialogAnswerPosition--;
+		if (PlatformDialogAnswerPosition < 0) PlatformDialogAnswerPosition = (PlatformDialogAnswer != null) ? PlatformDialogAnswer.length - 1 : 0;
+	}
+	if ((KeyPress == 83) || (KeyPress == 115)) {
+		PlatformDialogAnswerPosition++;
+		if ((PlatformDialogAnswer != null) && (PlatformDialogAnswerPosition >= PlatformDialogAnswer.length)) PlatformDialogAnswerPosition = 0;
+	}
 }
 
 /**
@@ -333,5 +412,5 @@ function PlatformDialogKeyDown() {
  * @returns {void} - Nothing
  */
 function PlatformDialogClick() {
-	PlatformDialogLoadPosition(PlatformDialogPosition + 1);
+	PlatformDialogProcess();
 }

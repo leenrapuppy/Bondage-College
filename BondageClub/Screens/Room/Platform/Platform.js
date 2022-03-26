@@ -692,6 +692,7 @@ function PlatformDraw() {
 	
 	// Check if we must enter a new room
 	PlatformEnterRoom(PlatformPlayer.FaceLeft ? "Left" : "Right");
+	if (PlatformPlayer.Bound) PlatformMessageSet(TextGet("GameOver"));
 
 	// Keep the last time
 	let PlatformTime = CommonTime();
