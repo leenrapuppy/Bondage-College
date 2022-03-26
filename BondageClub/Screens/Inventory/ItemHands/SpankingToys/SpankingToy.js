@@ -323,13 +323,13 @@ function InventorySpankingToysActivityAllowed(C) {
 function InventorySpankingToysGetAudio(C) {
 	switch (InventorySpankingToysGetType(C)) {
 		case "Crop":
-		case "Flogger": return "SmackSkin1";
+		case "Flogger":
 		case "Cane":
-		case "HeartCrop": return "SmackSkin2";
+		case "HeartCrop":
 		case "Paddle":
 		case "WhipPaddle":
-		case "TennisRacket": return "SmackSkin3";
-		case "Whip": return "Whip1";
+		case "TennisRacket": return "SmackCrop";
+		case "Whip": return "WhipCrack";
 		case "CattleProd": return "Shocks";
 		default: return "";
 	}

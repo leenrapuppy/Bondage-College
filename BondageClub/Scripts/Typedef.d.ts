@@ -1655,3 +1655,28 @@ interface GameGGTSParameters {
 }
 
 // #endregion
+
+// #region Audio
+
+type AudioSoundEffect = [string, number];
+
+interface AudioEffect {
+	/** The sound effect name */
+	Name: string;
+
+	/** The sound file, or files to choose from randomly */
+	File: string | string[];
+}
+
+/**
+ * Sound effect detector for chat messages.
+ */
+interface AudioChatAction {
+	/** Is that action applicable for that chat message? */
+	IsAction: (data: IChatRoomMessage) => boolean;
+
+	/** Extracts the actual sound effect from the chat message */
+	GetSoundEffect: (data: IChatRoomMessage) => (AudioSoundEffect | string | null);
+}
+
+// #endregion

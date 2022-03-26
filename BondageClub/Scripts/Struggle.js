@@ -396,15 +396,11 @@ function StruggleStrengthStart(C, PrevItem, NextItem) {
 	DialogAllowFluids = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Fluids") == null) || (InventoryGet(C, "Fluids").Property == null) || (InventoryGet(C, "Fluids").Property.Expression == null)));
 
 	// Applying or removing specific items can trigger an audio sound to play
-	if ((PrevItem && PrevItem.Asset) || (NextItem && NextItem.Asset)) {
-		var AudioFile = null;
-		if (NextItem && NextItem.Asset) {
-			AudioFile = NextItem.Asset.DynamicAudio ? NextItem.Asset.DynamicAudio(C) : NextItem.Asset.Audio;
-		} else {
-			AudioFile = PrevItem.Asset.DynamicAudio ? PrevItem.Asset.DynamicAudio(C) : PrevItem.Asset.Audio;
-		}
-		if (AudioFile != null) AudioDialogStart("Audio/" + AudioGetFileName(AudioFile) + ".mp3");
-	}
+	let played = false;
+	if (NextItem && NextItem.Asset)
+		played = AudioPlaySoundForAsset(C, NextItem.Asset);
+	if (!played && PrevItem && PrevItem.Asset)
+		AudioPlaySoundForAsset(C, PrevItem.Asset);
 
 }
 
@@ -511,10 +507,11 @@ function StruggleFlexibilityStart(C, PrevItem, NextItem) {
 	DialogAllowFluids = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Fluids") == null) || (InventoryGet(C, "Fluids").Property == null) || (InventoryGet(C, "Fluids").Property.Expression == null)));
 
 	// Applying or removing specific items can trigger an audio sound to play
-	if ((PrevItem && PrevItem.Asset) || (NextItem && NextItem.Asset)) {
-		var AudioFile = (NextItem && NextItem.Asset) ? NextItem.Asset.Audio : PrevItem.Asset.Audio;
-		if (AudioFile != null) AudioDialogStart("Audio/" + AudioGetFileName(AudioFile) + ".mp3");
-	}
+	let played = false;
+	if (NextItem && NextItem.Asset)
+		played = AudioPlaySoundForAsset(C, NextItem.Asset);
+	if (!played && PrevItem && PrevItem.Asset)
+		AudioPlaySoundForAsset(C, PrevItem.Asset);
 
 }
 
@@ -742,10 +739,11 @@ function StruggleDexterityStart(C, PrevItem, NextItem) {
 	DialogAllowFluids = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Fluids") == null) || (InventoryGet(C, "Fluids").Property == null) || (InventoryGet(C, "Fluids").Property.Expression == null)));
 
 	// Applying or removing specific items can trigger an audio sound to play
-	if ((PrevItem && PrevItem.Asset) || (NextItem && NextItem.Asset)) {
-		var AudioFile = (NextItem && NextItem.Asset) ? NextItem.Asset.Audio : PrevItem.Asset.Audio;
-		if (AudioFile != null) AudioDialogStart("Audio/" + AudioGetFileName(AudioFile) + ".mp3");
-	}
+	let played = false;
+	if (NextItem && NextItem.Asset)
+		played = AudioPlaySoundForAsset(C, NextItem.Asset);
+	if (!played && PrevItem && PrevItem.Asset)
+		AudioPlaySoundForAsset(C, PrevItem.Asset);
 
 }
 
@@ -1258,7 +1256,3 @@ function StruggleLockPickProgressStart(C, Item) {
 		StruggleLockPickProgressMaxTries = Math.max(1, NumTries - NumPins);
 	}
 }
-
-
-
-

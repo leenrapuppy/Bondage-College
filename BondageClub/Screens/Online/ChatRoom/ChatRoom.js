@@ -2229,6 +2229,8 @@ function ChatRoomMessage(data) {
 		// Make sure the sender is in the room
 		let SenderCharacter = ChatRoomCharacter.find(c => c.MemberNumber == data.Sender);
 
+		let IsPlayerInvolved = (SenderCharacter.MemberNumber == Player.MemberNumber);
+
 		// If we found the sender
 		if (SenderCharacter != null) {
 			// Replace < and > characters to prevent HTML injections
@@ -2352,7 +2354,6 @@ function ChatRoomMessage(data) {
 					var dictionary = data.Dictionary;
 					var SourceCharacter = null;
 					let TargetCharacter = null;
-					var IsPlayerInvolved = (SenderCharacter.MemberNumber == Player.MemberNumber);
 					let TargetMemberNumber = null;
 					let ActivityName = null;
 					var GroupName = null;
@@ -2441,7 +2442,7 @@ function ChatRoomMessage(data) {
 
 					// Launches the audio file if allowed
 					if (!Player.AudioSettings.PlayItemPlayerOnly || IsPlayerInvolved)
-						AudioPlayContent(data);
+						AudioPlaySoundForChatMessage(data);
 
 					// Raise a notification if required
 					if (data.Type === "Action" && IsPlayerInvolved && Player.NotificationSettings.ChatMessage.Activity)
@@ -2556,6 +2557,9 @@ function ChatRoomMessage(data) {
 				if (Player.ImmersionSettings.SenseDepMessages && TargetMemberNumber != Player.MemberNumber && SenderCharacter.MemberNumber != Player.MemberNumber && PreferenceIsPlayerInSensDep()) {
 					return;
 				}
+
+				if (!Player.AudioSettings.PlayItemPlayerOnly || IsPlayerInvolved)
+					AudioPlaySoundForChatMessage(data);
 
 				// Exits before outputting the text if the player doesn't want to see the sexual activity messages
 				if ((Player.ChatSettings != null) && (Player.ChatSettings.ShowActivities != null) && !Player.ChatSettings.ShowActivities) return;
