@@ -282,51 +282,52 @@ var PlatformRoomList = [
 		LimitRight: 1750,
 		Heal: 1000,
 		Door: [
-			{ Name: "CastleHall1A", FromX: 200, FromY: 0, FromW: 150, FromH: 1200, FromType: "Up", ToX: 500, ToFaceLeft: false },
+			{ Name: "CastleHall3W", FromX: 200, FromY: 0, FromW: 150, FromH: 1200, FromType: "Up", ToX: 500, ToFaceLeft: false },
 		],
 		Character: [
 		]
 	},
 	{
-		Name: "CastleHall1A",
+		Name: "CastleHall3W",
 		Entry: function() { if (!PlatformEventDone("JealousMaid")) { PlatformEventSet("JealousMaid"); PlatformDialogStart("JealousMaid"); } },
-		Text: "Bedroom Hallway - West",
-		Background: "Castle/Hall1A",
+		Text: "3F - Bedroom Hallway - West",
+		Background: "Castle/Hall3W",
 		Width: 3200,
 		Height: 1200,
 		LimitLeft: 250,
 		Door: [
 			{ Name: "BedroomMelody", FromX: 350, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 275, ToFaceLeft: false },
-			{ Name: "CastleHall1B", FromX: 3100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+			{ Name: "CastleHall3C", FromX: 3100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
 			{ Name: "Hazel", X: 2000 }
 		]
 	},
 	{
-		Name: "CastleHall1B",
-		Text: "Bedroom Hallway - Center",
-		Background: "Castle/Hall1B",
+		Name: "CastleHall3C",
+		Text: "3F - Bedroom Hallway - Center",
+		Background: "Castle/Hall3C",
 		Width: 4800,
 		Height: 1200,
 		Door: [
-			{ Name: "CastleHall1A", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3100, ToFaceLeft: true },
-			{ Name: "CastleHall1C", FromX: 4700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+			{ Name: "CastleHall3W", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3100, ToFaceLeft: true },
+			{ Name: "CastleHall4C", FromX: 2550, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 2700, ToFaceLeft: false },
+			{ Name: "CastleHall3E", FromX: 4700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Hazel", X: 1800 },
-			{ Name: "Hazel", X: 3000 }
+			{ Name: "Hazel", X: 1300 },
+			{ Name: "Hazel", X: 3500 }
 		]
 	},
 	{
-		Name: "CastleHall1C",
-		Text: "Bedroom Hallway - East",
-		Background: "Castle/Hall1C",
+		Name: "CastleHall3E",
+		Text: "3F - Bedroom Hallway - East",
+		Background: "Castle/Hall3E",
 		Width: 3800,
 		Height: 1200,
 		LimitRight: 3550,
 		Door: [
-			{ Name: "CastleHall1B", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 4700, ToFaceLeft: true },
+			{ Name: "CastleHall3C", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 4700, ToFaceLeft: true },
 			{ Name: "BedroomOlivia", FromX: 750, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 100, ToFaceLeft: false },
 			{ Name: "BedroomIsabella", FromX: 3150, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 100, ToFaceLeft: false }
 		],
@@ -336,14 +337,17 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "BedroomOlivia",
-		Entry: function() { if (!PlatformEventDone("UnlockOlivia")) PlatformCreateCharacter("Olivia", false, 2200, true); },
+		Entry: function() { 
+			if (!PlatformEventDone("UnlockOlivia") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", false, 2200, "IntroOliviaBeforeCollarKey"); 
+			if (!PlatformEventDone("UnlockOlivia") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", false, 2200, "IntroOliviaAfterCollarKey"); 
+		},
 		Text: "Olivia's Bedroom",
 		Background: "Castle/BedroomOlivia",
 		Width: 3000,
 		Height: 1200,
 		Heal: 1000,
 		Door: [
-			{ Name: "CastleHall1C", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 900, ToFaceLeft: false },
+			{ Name: "CastleHall3E", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 900, ToFaceLeft: false },
 			{ Name: "BathroomOlivia", FromX: 2900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
@@ -369,11 +373,98 @@ var PlatformRoomList = [
 		Height: 1200,
 		Heal: 1000,
 		Door: [
-			{ Name: "CastleHall1C", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3300, ToFaceLeft: true }
+			{ Name: "CastleHall3E", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3300, ToFaceLeft: true }
 		],
 		Character: [
 		]
-	}
+	},
+	{
+		Name: "CastleHall4C",
+		Text: "4F - Roof Hallway - Center",
+		Background: "Castle/Hall4C",
+		Width: 4800,
+		Height: 1200,
+		Door: [
+			{ Name: "CastleHall4W1", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2300, ToFaceLeft: true },
+			{ Name: "CastleHall4E", FromX: 4700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+			{ Name: "CastleHall3C", FromX: 2550, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 2700, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Hazel", X: 1300 },
+			{ Name: "Hazel", X: 3500 }
+		]
+	},
+	{
+		Name: "CastleHall4E",
+		Text: "4F - Roof Hallway - East",
+		Background: "Castle/Hall4E",
+		Width: 3800,
+		Height: 1200,
+		LimitRight: 3550,
+		Door: [
+			{ Name: "CastleHall4C", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 4700, ToFaceLeft: true },
+			{ Name: "CastleBalcony", FromX: 3150, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Hazel", X: 1400 },
+			{ Name: "Hazel", X: 2100 }
+		]
+	},
+	{
+		Name: "CastleBalcony",
+		Text: "Roof Balcony",
+		Background: "Castle/Balcony",
+		Width: 2000,
+		Height: 1200,
+		LimitRight: 1700,
+		Door: [
+			{ Name: "CastleHall4E", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2900, ToFaceLeft: false }
+		],
+		Character: [
+		]
+	},
+	{
+		Name: "CastleHall4W1",
+		Text: "4F - Roof Hallway - West 1",
+		Background: "Castle/Hall4W1",
+		Width: 2400,
+		Height: 1200,
+		Door: [
+			{ Name: "CastleHall4W2", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2300, ToFaceLeft: true },
+			{ Name: "CastleHall4C", FromX: 2300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Yuna", X: 1250 }
+		]
+	},
+	{
+		Name: "CastleHall4W2",
+		Text: "4F - Roof Hallway - West 2",
+		Background: "Castle/Hall4W2",
+		Width: 2400,
+		Height: 1200,
+		Door: [
+			{ Name: "CastleBallroom", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2300, ToFaceLeft: true },
+			{ Name: "CastleHall4W1", FromX: 2300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Yuna", X: 1100 },
+			{ Name: "Yuna", X: 1300 }
+		]
+	},
+	{
+		Name: "CastleBallroom",
+		Text: "Ballroom",
+		Background: "Castle/Ballroom",
+		Width: 2600,
+		Height: 1200,
+		Door: [
+			{ Name: "CastleHall4W2", FromX: 2500, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Camille", X: 500 }
+		]
+	},
 
 ]
 
@@ -382,9 +473,9 @@ var PlatformRoomList = [
  * @param {String} TemplateName - The template name of the character to load
  * @param {Boolean} RoomName - The name of the room to load
  * @param {Number}X - The X position of the character
- * @returns {void} - Nothing
+ * @returns {Object} - Returns the platform character
  */
-function PlatformCreateCharacter(TemplateName, IsPlayer, X, Fix) {
+function PlatformCreateCharacter(TemplateName, IsPlayer, X, FixDialog) {
 	let NewChar = null;
 	for (let Template of PlatformTemplate)
 		if (Template.Name == TemplateName)
@@ -398,18 +489,20 @@ function PlatformCreateCharacter(TemplateName, IsPlayer, X, Fix) {
 	NewChar.ForceY = 0;
 	NewChar.Experience = 0;
 	NewChar.Level = 1;
-	NewChar.Fix = (Fix == null) ? false : true;
+	NewChar.Fix = (FixDialog == null) ? false : true;
+	NewChar.FixDialog = FixDialog;
 	NewChar.Run = false;
 	NewChar.NextJump = 0;
 	if ((NewChar.DamageBackOdds == null) || (NewChar.DamageBackOdds < 0) || (NewChar.DamageBackOdds > 1)) NewChar.DamageBackOdds = 1;
 	if ((NewChar.DamageFaceOdds == null) || (NewChar.DamageFaceOdds < 0) || (NewChar.DamageFaceOdds > 1)) NewChar.DamageFaceOdds = 1;
-	NewChar.FaceLeft = ((PlatformRoom != null) && (PlatformRoom.Width != null) && (X > PlatformRoom.Width / 2));
+	NewChar.FaceLeft = ((FixDialog == null) && (PlatformRoom != null) && (PlatformRoom.Width != null) && (X > PlatformRoom.Width / 2));
 	PlatformChar.push(NewChar);
 	if (IsPlayer) {
 		PlatformPlayer = NewChar;
 		PlatformPlayer.DamageBackOdds = 0;
 		PlatformPlayer.DamageFaceOdds = 0;
 	}
+	return NewChar;
 }
 
 /**
@@ -926,6 +1019,10 @@ function PlatformEnterRoom(FromType) {
 			PlatformPlayer.FaceLeft = Door.ToFaceLeft;
 			return;
 		}
+	if (FromType == "Up")
+		for (let Char of PlatformChar)
+			if ((Char.FixDialog != null) && (Math.abs(PlatformPlayer.X - Char.X) <= 200) && (Math.abs(PlatformPlayer.Y - Char.Y) <= 500))
+				return PlatformDialogStart(Char.FixDialog);
 }
 
 /**

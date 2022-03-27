@@ -175,13 +175,42 @@ var PlatformDialogData = [
 			{ ID: "End", Text: "(She rushes toward you.  You'll need to fight or dodge her.)" }
 		]
 	},
-	
+
 	{
-		Name: "IntroOlivia",
+		Name: "IntroOliviaBeforeCollarKey",
 		Exit : function () { CommonSetScreen("Room", "Platform") },
 		Dialog: [
 			{
-				Background: "LadyBed",
+				Background: "BedroomOlivia",
+				Character: [
+					{
+						Name: "Olivia",
+						Status: "Babydoll",
+						Pose: "Chained"
+					}
+				]
+			},
+			{ Text: "I'm happy to see you Melody." },
+			{
+				Text: "Do you have the key for my collar?",
+				Answer: [
+					{ Text: "Where is that key?", Reply: "(She giggles.)  You know that Mother sleeps with it." },
+					{ Text: "No, I'll go get it.", Reply: "(She nods.)  Thanks!  Send my good words to Mother when you see her." },
+					{ Text: "Why are you chained?", Reply: "(She sighs.)  I know that Mother's rules aren't easy to understand.  She keeps me chained to the bed so I don't run away or get kidnapped." },
+				]
+			},
+			{ Text: "Countess Isabella is usually on the balcony around that time." },
+			{ Text: "Go upstairs and head east to find the balcony." },
+			{ Text: "Please get the key so we can start the day." }
+		]
+	},
+	
+	{
+		Name: "IntroOliviaAfterCollarKey",
+		Exit : function () { CommonSetScreen("Room", "Platform") },
+		Dialog: [
+			{
+				Background: "BedroomOlivia",
 				Color: "#ffffff",
 				Character: [
 					{
