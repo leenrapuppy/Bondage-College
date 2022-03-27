@@ -30,9 +30,9 @@ var PlatformTemplate = [
 		WalkSpeed: 12,
 		CrawlSpeed: 6,
 		JumpForce: 50,
-		CollisionDamage: 2,
+		CollisionDamage: 0,
 		ExperienceValue: 0,
-		DamageBackOdds: 0.5,
+		DamageBackOdds: 0,
 		DamageKnockForce: 30,
 		Animation: [
 			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 100 },
@@ -54,6 +54,28 @@ var PlatformTemplate = [
 			{ Name: "StandAttackSlow", HitBox: [0.8, 0.4, 1, 0.5], HitAnimation: [9, 10, 11, 12, 13], Damage: [2, 3, 5, 6, 8, 9, 11, 12, 14, 15, 17], Speed: 600 },
 			{ Name: "CrouchAttackFast", HitBox: [0.725, 0.65, 0.925, 0.75], HitAnimation: [5, 6, 7, 8, 9], Damage: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], Speed: 300 },
 			{ Name: "CrouchAttackSlow", HitBox: [0.8, 0.7, 1, 0.8], HitAnimation: [5, 6, 7, 8, 9], Damage: [2, 3, 5, 6, 8, 9, 11, 12, 14, 15, 17], Speed: 600 }
+		]
+	},
+	{
+		Name: "Olivia",
+		Status: "Kimono",
+		Health: 13,
+		HealthPerLevel: 3,
+		Width: 400,
+		Height: 400,
+		HitBox: [0.42, 0.03, 0.58, 1],
+		RunSpeed: 15,
+		WalkSpeed: 10,
+		CrawlSpeed: 5,
+		JumpForce: 40,
+		CollisionDamage: 0,
+		ExperienceValue: 0,
+		DamageBackOdds: 0,
+		DamageKnockForce: 40,
+		Animation: [
+			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 100 },
+		],
+		Attack: [
 		]
 	},
 	{
@@ -314,6 +336,7 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "BedroomOlivia",
+		Entry: function() { if (!PlatformEventDone("UnlockOlivia")) PlatformCreateCharacter("Olivia", false, 2200, true); },
 		Text: "Olivia's Bedroom",
 		Background: "Castle/BedroomOlivia",
 		Width: 3000,
@@ -348,7 +371,7 @@ var PlatformRoomList = [
  * @param {Number}X - The X position of the character
  * @returns {void} - Nothing
  */
-function PlatformCreateCharacter(TemplateName, IsPlayer, X) {
+function PlatformCreateCharacter(TemplateName, IsPlayer, X, Fix) {
 	let NewChar = null;
 	for (let Template of PlatformTemplate)
 		if (Template.Name == TemplateName)
@@ -362,6 +385,7 @@ function PlatformCreateCharacter(TemplateName, IsPlayer, X) {
 	NewChar.ForceY = 0;
 	NewChar.Experience = 0;
 	NewChar.Level = 1;
+	NewChar.Fix = (Fix == null) ? false : true;
 	NewChar.Run = false;
 	NewChar.NextJump = 0;
 	if ((NewChar.DamageBackOdds == null) || (NewChar.DamageBackOdds < 0) || (NewChar.DamageBackOdds > 1)) NewChar.DamageBackOdds = 1;
@@ -381,7 +405,7 @@ function PlatformCreateCharacter(TemplateName, IsPlayer, X) {
  * @returns {Boolean} - TRUE if done
  */
 function PlatformEventDone(Event) {
-	return (PlatformEvent.indexOf("JealousMaid") >= 0);
+	return (PlatformEvent.indexOf(Event) >= 0);
 }
 
 /**
@@ -629,7 +653,7 @@ function PlatformHitBoxClash(Source, Target, HitBox) {
 function PlatformProcessAction(Source, Time) {
 	if ((Source == null) || (Source.Anim == null) || (Source.Anim.Name == null) || (Source.Anim.Image == null) || (Source.Health <= 0)) return;
 	for (let Target of PlatformChar)
-		if ((Target.ID != Source.ID) && (Target.Health > 0) && ((Target.Immunity == null) || (Target.Immunity < Time))) {
+		if ((Target.ID != Source.ID) && (Target.Health > 0) && !Target.Fix && ((Target.Immunity == null) || (Target.Immunity < Time))) {
 			let HitBox = null;
 			let Damage = 0;
 			for (let Attack of Source.Attack)
@@ -742,7 +766,7 @@ function PlatformDraw() {
 			C.Health++;
 		
 		// AI walks from left to right
-		if (!C.Camera && (C.Health > 0)) {
+		if (!C.Camera && (C.Health > 0) && !C.Fix) {
 			if (C.FaceLeft) {
 				if (C.X <= ((PlatformRoom.LimitLeft != null) ? PlatformRoom.LimitLeft + 50 : 100)) {
 					C.FaceLeft = false;
