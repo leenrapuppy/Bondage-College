@@ -78,7 +78,7 @@ var PlatformDialogData = [
 			{ Text: "It's a big day today, there's so much to do.  Let's review..." },
 			{ 
 				Background: "Black",
-				Text: "First thing first, I need to unlock and bathe Lady Olivia.",
+				Text: "First thing first, I need to retrieve Lady Olivia collar's key and bathe her.",
 				Character: [
 					{
 						Name: "Olivia",
@@ -98,7 +98,7 @@ var PlatformDialogData = [
 				]
 			},
 			{ 
-				Text: "And finally, I need to serve dinner for Marchioness Camille.",
+				Text: "And finally, I need to serve dinner for Marchioness Camille visit.",
 				Character: [
 					{
 						Name: "Camille",
@@ -161,18 +161,18 @@ var PlatformDialogData = [
 			},
 			{ Text: "The maid staff has been talking about you." },
 			{ Text: "We think you're getting too friendly with Lady Olivia." },
-			{ Text: "There's no reason why Countess Isabella gave you her collar key." },
-			{ Text: "Today, I will unlock her, you can go back to bed." },
+			{ Text: "There's no reason why Countess Isabella gave you that chore." },
+			{ Text: "Today, I will unlock and bathe her, you can go back to bed." },
 			{
-				Text: "Give me her collar key or you will get hurt.",
+				Text: "Stay in your room or you will get hurt.",
 				Answer: [
-					{ Text: "Sorry, I cannot give you that key.", Reply: "Fine, I will take it by force then.  (She raises her fists.)" },
+					{ Text: "Sorry, I have work to do.", Reply: "Fine, I'll make sure you cannot work then.  (She raises her fists.)" },
 					{ Text: "Please, can we negotiate a deal?", Reply: "There won't be any deal, only bruises.  (She raises her fists.)" },
 					{ Text: "Over my dead body.", Reply: "I won't kill you, but you'll be in pain.  (She raises her fists.)" },
-					{ Text: "(Try to run away.)", Reply: "You're not going anywhere!  (She raises her fists.)" }
+					{ Text: "(Try to run past her.)", Reply: "You're not going anywhere!  (She raises her fists.)" }
 				]
 			},
-			{ ID: "End", Text: "(She rushes toward you.  You'll need to dodge or fight her.)" }
+			{ ID: "End", Text: "(She rushes toward you.  You'll need to fight or dodge her.)" }
 		]
 	},
 	

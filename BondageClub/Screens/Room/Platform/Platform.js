@@ -343,7 +343,20 @@ var PlatformRoomList = [
 		Height: 1200,
 		Heal: 1000,
 		Door: [
-			{ Name: "CastleHall1C", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 900, ToFaceLeft: false }
+			{ Name: "CastleHall1C", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 900, ToFaceLeft: false },
+			{ Name: "BathroomOlivia", FromX: 2900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+		]
+	},
+	{
+		Name: "BathroomOlivia",
+		Text: "Olivia's Bathroom",
+		Background: "Castle/BathroomOlivia",
+		Width: 2000,
+		Height: 1200,
+		Door: [
+			{ Name: "BedroomOlivia", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2900, ToFaceLeft: false }
 		],
 		Character: [
 		]
