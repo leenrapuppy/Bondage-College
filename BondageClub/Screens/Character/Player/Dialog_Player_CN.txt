@@ -1591,10 +1591,10 @@ SourceCharacter ties the cloth into a small gag over DestinationCharacter mouth.
 SourceCharacter ties the cloth into a small gag over DestinationCharacter mouth.
 SourceCharacter ties the cloth into a cleave gag over DestinationCharacter mouth.
 SourceCharacter ties the cloth into a cleave gag over DestinationCharacter mouth.
-SourceCharacter stuffs DestinationCharacter mouth with a piece of cloth and secures it with another piece.
-SourceCharacter stuffs DestinationCharacter mouth with a piece of cloth and secures it with another piece.
-SourceCharacter stuffs DestinationCharacter mouth with a piece of cloth and secures the gag over her mouth and nose.
-SourceCharacter stuffs DestinationCharacter mouth with a piece of cloth and secures the gag over her mouth and nose.
+SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth.
+SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth.
+SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth and nose.
+SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth and nose.
 Single strip
 单根
 Crossed strips

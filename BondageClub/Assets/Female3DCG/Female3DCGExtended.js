@@ -3241,14 +3241,14 @@ var AssetFemale3DCGExtended = {
 						Name: "OTM",
 						Property: {
 							Type: "OTM",
-							Effect: ["BlockMouth", "GagEasy"],
+							Effect: ["BlockMouth", "GagLight"],
 						},
 					},
 					{
 						Name: "OTN",
 						Property: {
 							Type: "OTN",
-							Effect: ["BlockMouth", "GagEasy"],
+							Effect: ["BlockMouth", "GagLight"],
 						},
 					},
 				],
