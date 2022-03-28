@@ -73,12 +73,34 @@ var PlatformTemplate = [
 		DamageBackOdds: 0,
 		DamageKnockForce: 40,
 		Animation: [
-			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 100 },
+			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 130 },
 		],
 		Attack: [
 		]
 	},
 	{
+		Name: "Isabella",
+		Status: "Winter",
+		Health: 13,
+		HealthPerLevel: 3,
+		Width: 400,
+		Height: 400,
+		HitBox: [0.42, 0.03, 0.58, 1],
+		RunSpeed: 15,
+		WalkSpeed: 10,
+		CrawlSpeed: 5,
+		JumpForce: 40,
+		CollisionDamage: 0,
+		ExperienceValue: 0,
+		DamageBackOdds: 0,
+		DamageKnockForce: 40,
+		Animation: [
+			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 150 },
+		],
+		Attack: [
+		]
+	},
+/*	{
 		Name: "Kara",
 		Status: "Nude",
 		Health: 10,
@@ -140,7 +162,7 @@ var PlatformTemplate = [
 		],
 		Attack: []
 
-	},
+	},*/
 	{
 		Name: "Yuna",
 		Status: "Maid",
@@ -289,7 +311,7 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "CastleHall3W",
-		Entry: function() { if (!PlatformEventDone("JealousMaid")) { PlatformEventSet("JealousMaid"); PlatformDialogStart("JealousMaid"); } },
+		Entry: function() { if (!PlatformEventDone("JealousMaid")) PlatformDialogStart("JealousMaid"); },
 		Text: "3F - Bedroom Hallway - West",
 		Background: "Castle/Hall3W",
 		Width: 3200,
@@ -412,13 +434,17 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "CastleBalcony",
+		Entry: function() { 
+			if (!PlatformEventDone("UnlockOlivia") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Isabella", false, 1175, "IntroIsabellaBeforeCollarKey");
+			if (!PlatformEventDone("UnlockOlivia") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Isabella", false, 1175, "IntroIsabellaAfterCollarKey");
+		},
 		Text: "Roof Balcony",
 		Background: "Castle/Balcony",
 		Width: 2000,
 		Height: 1200,
 		LimitRight: 1700,
 		Door: [
-			{ Name: "CastleHall4E", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2900, ToFaceLeft: false }
+			{ Name: "CastleHall4E", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3300, ToFaceLeft: true }
 		],
 		Character: [
 		]
@@ -1021,7 +1047,7 @@ function PlatformEnterRoom(FromType) {
 		}
 	if (FromType == "Up")
 		for (let Char of PlatformChar)
-			if ((Char.FixDialog != null) && (Math.abs(PlatformPlayer.X - Char.X) <= 200) && (Math.abs(PlatformPlayer.Y - Char.Y) <= 500))
+			if ((Char.FixDialog != null) && (Math.abs(PlatformPlayer.X - Char.X) <= 150) && (Math.abs(PlatformPlayer.Y - Char.Y) <= 450))
 				return PlatformDialogStart(Char.FixDialog);
 }
 

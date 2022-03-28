@@ -137,7 +137,7 @@ var PlatformDialogData = [
 	
 	{
 		Name: "JealousMaid",
-		Exit : function () { CommonSetScreen("Room", "Platform") },
+		Exit : function () { PlatformEventSet("JealousMaid"); CommonSetScreen("Room", "Platform") },
 		Dialog: [
 			{
 				Background: "CastleHall",
@@ -206,24 +206,85 @@ var PlatformDialogData = [
 	},
 	
 	{
+		Name: "IntroIsabellaBeforeCollarKey",
+		Exit : function () { PlatformEventSet("OliviaCollarKey"); PlatformChar[1].FixDialog = "IntroIsabellaAfterCollarKey"; CommonSetScreen("Room", "Platform") },
+		Dialog: [
+			{
+				Background: "Balcony",
+				Character: [
+					{
+						Name: "Isabella",
+						Status: "Winter",
+						Pose: "StandIdle"
+					}
+				]
+			},
+			{ Text: "You finally made it Melody." },
+			{
+				Text: "Maids must be clean.  Why are you sweaty?",
+				Answer: [
+					{ Text: "I had a scuffle with other maids.", Reply: "I understand.  They envy your position." },
+					{ Text: "I crushed some jealous maids.", Reply: "That's fine, you have a sacred duty to to.", Domination: 1 },
+					{ Text: "Other maids were mean with me.", Reply: "Be strong, don't let your sisters step on your toes.", Domination: -1 }
+				]
+			},
+			{
+				Text: "Do you know why I gave you the unlocking chore?",
+				Answer: [
+					{ Text: "I don't know.  Please explain.", Reply: "Because you're strong, you're a protector for her." },
+					{ Text: "Because I have a pretty butt.", Reply: "Don't try to be funny, you're better than that.", Love: -1 },
+					{ Text: "Because Lady Olivia means the world to me.", Reply: "Absolutely.  You're her knight, her protector.", Love: 1 }
+				]
+			},
+			{ Text: "Since we lost the war and so many of our men died, we need tough women like you." },
+			{ Text: "There is strength in you Melody.  I've known this since I found you as a baby in that orphanage." },
+			{ 
+				Text: "Do you feel worthy of that collar key?",
+				Answer: [
+					{ Text: "It's an honor to carry that key.", Reply: "1", Love: 1, Domination: 1 },
+					{ Text: "I don't know.  Maybe not.", Reply: "2", Love: -1, Domination: -1 },
+					{ Text: "You should not lock your daughter.", Reply: "3", Love: -1, Domination: 1 },
+					{ Text: "It's a heavy burden to carry.", Reply: "4", Love: 1, Domination: -1 }
+				]
+			},
+			{ Text: "Go unlock my daughter.  (She gives you the collar key and points toward the hallway.)" },
+		]
+	},
+
+	{
+		Name: "IntroIsabellaAfterCollarKey",
+		Exit : function () { CommonSetScreen("Room", "Platform") },
+		Dialog: [
+			{
+				Background: "Balcony",
+				Character: [
+					{
+						Name: "Isabella",
+						Status: "Winter",
+						Pose: "StandIdle"
+					}
+				]
+			},
+			{ Text: "Go unlock my daughter.  (She points toward the hallway.)" },
+		]
+	},
+	
+	{
 		Name: "IntroOliviaAfterCollarKey",
 		Exit : function () { CommonSetScreen("Room", "Platform") },
 		Dialog: [
 			{
 				Background: "BedroomOlivia",
-				Color: "#ffffff",
 				Character: [
 					{
 						Name: "Olivia",
-						Status: "Underwear",
+						Status: "Babydoll",
 						Pose: "Chained",
-						X: 0,
-						Y: 0
 					}
 				]
 			},
 			{
-				Text: "Melody!  I'm so happy to see you.",
+				Text: "Melody!  Do you have the key?",
 				Answer: [
 					{ Text: "I had to wake up early for you.", Reply: "Sorry about that, having that key is a huge responsibility.", Domination: 1, Love: -1 },
 					{ Text: "It's nice to see you also.", Reply: "(She nods slowly and stretches.)" },
