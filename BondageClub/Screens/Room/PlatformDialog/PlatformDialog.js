@@ -40,7 +40,13 @@ var PlatformDialogCharacter = [
 		Name: "Hazel",
 		NickName: "Junior Maid",
 		Color: "#e1dd57",
-	}	
+	},	
+	{
+		Name: "Lucy",
+		NickName: "Guard",
+		Color: "#6fd9d3",
+	}
+	
 ];
 var PlatformDialogData = [
 	{
@@ -395,6 +401,19 @@ var PlatformDialogData = [
 			},
 			{ Text: "The gate leading downstairs should be open." },
 			{ Text: "The dungeon is scary, good luck down there." }
+		]
+	},
+
+	{
+		Name: "GuardIntro",
+		Exit : function () { PlatformEventSet("GuardIntro"); CommonSetScreen("Room", "Platform"); },
+		Dialog: [
+			{
+				Background: "CastleHall",
+				Character: [{ Name: "Lucy", Status: "Armor", Pose: "Idle" }]
+			},
+			{ Text: "(As you enter the first floor, a guard greets you.)" },
+			{ Text: "Hello Maid.  You cannot come here, we are expecting a prestige guest very soon." }
 		]
 	}
 	

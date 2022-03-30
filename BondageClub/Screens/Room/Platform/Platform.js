@@ -324,7 +324,7 @@ var PlatformRoomList = [
 		Name: "CastleHall3C",
 		Entry: function() {
 			if (PlatformEventDone("OliviaBath")) { 
-				PlatformRoom.Door.push({ Name: "CastleHall2C", FromX: 1950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 2100, ToFaceLeft: false });
+				PlatformRoom.Door.push({ Name: "CastleHall2C", FromX: 1950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 1100, ToFaceLeft: false });
 				PlatformRoom.Background = "Castle/Hall3Cv2";
 			}
 		},
@@ -496,14 +496,37 @@ var PlatformRoomList = [
 		Name: "CastleHall2C",
 		Text: "2F - Storehouse Hallway - Center",
 		Background: "Castle/Hall2C",
-		Width: 4800,
+		Width: 8200,
 		Height: 1200,
+		LimitLeft: 200,
+		LimitRight: 8000,
 		Door: [
-			{ Name: "CastleHall3C", FromX: 1950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 2100, ToFaceLeft: false },
+			{ Name: "CastleHall3C", FromX: 950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 2100, ToFaceLeft: false },
+			{ Name: "CastleHall1C", FromX: 6950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 7100, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Yuna", Status: "Maid", X: 1300 },
-			{ Name: "Yuna", Status: "Maid", X: 3500 }
+			{ Name: "Hazel", Status: "Maid", X: 2100 },
+			{ Name: "Yuna", Status: "Maid", X: 3600 },
+			{ Name: "Yuna", Status: "Maid", X: 4600 },
+			{ Name: "Hazel", Status: "Maid", X: 6100 }
+		]
+	},
+	{
+		Name: "CastleHall1C",
+		Entry: function() { if (!PlatformEventDone("GuardIntro")) PlatformDialogStart("GuardIntro"); },
+		Text: "1F - Guard Hallway - Center",
+		Background: "Castle/Hall1C",
+		Width: 8200,
+		Height: 1200,
+		LimitLeft: 200,
+		LimitRight: 8000,
+		Door: [
+			{ Name: "CastleHall2C", FromX: 6950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 7100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Lucy", Status: "Armor", X: 1500 },
+			{ Name: "Lucy", Status: "Armor", X: 4100 },
+			{ Name: "Lucy", Status: "Armor", X: 6700 }
 		]
 	},
 
