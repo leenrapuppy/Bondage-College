@@ -77,6 +77,16 @@ var PlatformTemplate = [
 		Attack: []
 	},
 	{
+		Name: "Olivia",
+		Status: "Flower",
+		Width: 400,
+		Height: 400,
+		Animation: [
+			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61], Speed: 90 }
+		],
+		Attack: []
+	},
+	{
 		Name: "Isabella",
 		Status: "Winter",
 		Width: 400,
@@ -312,6 +322,12 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "CastleHall3C",
+		Entry: function() {
+			if (PlatformEventDone("OliviaBath")) { 
+				PlatformRoom.Door.push({ Name: "CastleHall2C", FromX: 1950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 2100, ToFaceLeft: false });
+				PlatformRoom.Background = "Castle/Hall3Cv2";
+			}
+		},
 		Text: "3F - Bedroom Hallway - Center",
 		Background: "Castle/Hall3C",
 		Width: 4800,
@@ -339,14 +355,15 @@ var PlatformRoomList = [
 			{ Name: "BedroomIsabella", FromX: 3150, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Yuna", Status: "Maid", X: 2100 }
+			{ Name: "Hazel", Status: "Maid", X: 2100 }
 		]
 	},
 	{
 		Name: "BedroomOlivia",
-		Entry: function() { 
-			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", false, 2200, "IntroOliviaBeforeCollarKey"); 
-			if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", false, 2200, "IntroOliviaAfterCollarKey"); 
+		Entry: function() {
+			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", false, 2200, "IntroOliviaBeforeCollarKey");
+			if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", false, 2200, "IntroOliviaAfterCollarKey");
+			if (PlatformEventDone("OliviaBath")) { PlatformCreateCharacter("Olivia", "Flower", false, 2200, "OliviaAfterBath"); PlatformChar[1].FaceLeft = true; }
 		},
 		Text: "Olivia's Bedroom",
 		Background: "Castle/BedroomOlivia",
@@ -473,6 +490,20 @@ var PlatformRoomList = [
 		],
 		Character: [
 			{ Name: "Camille", Status: "Armor", X: 500 }
+		]
+	},
+	{
+		Name: "CastleHall2C",
+		Text: "2F - Storehouse Hallway - Center",
+		Background: "Castle/Hall2C",
+		Width: 4800,
+		Height: 1200,
+		Door: [
+			{ Name: "CastleHall3C", FromX: 1950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 2100, ToFaceLeft: false },
+		],
+		Character: [
+			{ Name: "Yuna", Status: "Maid", X: 1300 },
+			{ Name: "Yuna", Status: "Maid", X: 3500 }
 		]
 	},
 

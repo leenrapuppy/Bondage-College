@@ -366,10 +366,10 @@ var PlatformDialogData = [
 				]
 			},
 			{ Text: "Can you give me a towel?  I'd like to get out." },
-			{ Text: "You help her out as she dresses up." },
+			{ Text: "(You help her out as she dresses up.)" },
 			{
 				Background: "BathroomOlivia",
-				Character: [{ Name: "Olivia", Status: "Kimono", Pose: "Idle" }]
+				Character: [{ Name: "Olivia", Status: "Flower", Pose: "Idle" }]
 			},
 			{ Text: "Thanks Melody, what is your next duty today?" },
 			{
@@ -378,10 +378,23 @@ var PlatformDialogData = [
 			},
 			{
 				Text: "Very well, I'll ask the staff to open the gate.",
-				Character: [{ Name: "Olivia", Status: "Kimono", Pose: "Idle" }]
+				Character: [{ Name: "Olivia", Status: "Flower", Pose: "Idle" }]
 			},
 			{ Text: "The dungeon is scary, good luck down there." },
 			{ Text: "(She heads back to her bedroom.)" }
+		]
+	},
+
+	{
+		Name: "OliviaAfterBath",
+		Exit : function () { CommonSetScreen("Room", "Platform"); },
+		Dialog: [
+			{
+				Background: "BedroomOlivia",
+				Character: [{ Name: "Olivia", Status: "Flower", Pose: "Idle" }]
+			},
+			{ Text: "The gate leading downstairs should be open." },
+			{ Text: "The dungeon is scary, good luck down there." }
 		]
 	}
 	
