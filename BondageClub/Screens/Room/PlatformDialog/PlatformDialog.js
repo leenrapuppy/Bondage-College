@@ -285,7 +285,7 @@ var PlatformDialogData = [
 		Dialog: [
 			{
 				Background: "BathroomOlivia",
-				Character: [{ Name: "Olivia", Status: "Chastity", Pose: "Idle" }]
+				Character: [{ Name: "Olivia", Status: "Chastity", Animation: "Idle" }]
 			},
 			{ Text: "A warm bath is the best way to start the day." },
 			{
@@ -297,11 +297,12 @@ var PlatformDialogData = [
 				]
 			},
 			{ 
-				Text: "This is so relaxing.",
-				Character: [{ Name: "Olivia", Status: "Chastity", Pose: "Bathing" }]
+				Background: "Black",
+				Character: [{ Name: "Olivia", Status: "Chastity", Pose: "Bathing", X: 0 }]
 			},
+			{ Text: "(She slides down as her chastity belt makes a loud metallic sound from scraping the bath.)" },
 			{ 
-				Text: "(She tugs on her chastity belt and tries to get comfy.)",
+				Text: "Sorry for that noise.  The belt scraped the bath.",
 				Answer: [
 					{ Text: "That belt is cruel but necessary.", Reply: "Yes, cruel and necessary indeed.", Domination: 1 },
 					{ Text: "When will you get out?", Reply: "Not until I get married next year." },
@@ -317,7 +318,7 @@ var PlatformDialogData = [
 			},
 			{ Text: "All women in my family must wear a chastity belt, from puberty until marriage.  My mother Isabella, my sister Camille, my aunts, my grandmother, everyone." },
 			{ Text: "It's part of an ancient tradition in House Alberus.  It's almost religious.  The belts cannot be destroyed and never rust." },
-			{ Text: "Rumors says we have special powers, and this is a tool to protect us.  They say we are oracles." },
+			{ Text: "Rumors says we have special powers, and this is a tool to protect us.  They say we are Oracles." },
 			{ Text: "I'm not sure if it's true.  Mother seems to believe it, but I've never seen her do any magic trick." },
 			{ Text: "She told me that she will explain everything on my wedding day.  I wish she wasn't so mysterious." },
 			{ Text: "There's only one key for that belt.  It belongs to Duke Sunesk of Slandia, my future husband." },
@@ -342,19 +343,45 @@ var PlatformDialogData = [
 				Answer: [
 					{ Text: "I've always been scared of her.", Reply: "Don't worry, she yells a lot but she won't hurt you.", Domination: -1 },
 					{ Text: "Do you miss your sister?", Reply: "I do, even if I don't know her that much.  We've never been close." },
-					{ Text: "Let me know if she bullies you.", Reply: "Thanks, I will.  But she probably matured now, it should be fine.", Domination: 1 }
+					{ Text: "Camille is a bitch.", Reply: "Please don't say that.  She's my only sister.", Love: -1, Domination: 1 },
+					{ Text: "Let me know if she bullies you.", Reply: "Thanks, I will.  But she probably matured now, it should be fine.", Love: 1, Domination: 1 }
 				]
 			},
-			{ Text: "We are very different but we both did not choose our husband.  Her wedding was arranged at her birth." },
+			{ Text: "We are very different, but we both did not choose our husband.  Her wedding was arranged at her birth." },
 			{ 
 				Text: "I have a weird feeling, I hope that tonight's dinner will be pleasant.",
 				Answer: [
-					{ Text: "It will be a great feast.", Reply: "" },
-					{ Text: "What weird feeling?", Reply: "", Love: 1 },
-					{ Text: "Don't be chicken.", Reply: "", Love: -1 },
+					{ Text: "It will be a great feast.", Reply: "(She nods slowly.)  Yes, I should focus on the meal." },
+					{ Text: "What weird feeling?", Reply: "Thanks for asking Melody.  I'm scared, but I don't know why.  There's no reason.", Love: 1 },
+					{ Text: "Don't be so chicken.", Reply: "(She sighs.)  I guess I'm going crazy.", Love: -1, Domination: 1 },
 				]
 			},
-			{ Text: "Sorry if I sound ridiculous.  Can I have a towel?" },
+			{ Text: "Sorry if I sound ridiculous." },
+			{ 
+				Text: "I have these strange emotions lately and I cannot control them.",
+				Answer: [
+					{ Text: "This is really scary.", Reply: "Don't be scared Melody.  Everything will be fine.", Domination: -1 },
+					{ Text: "You need better self-control.", Reply: "(She nods slowly.)  I know, Mother also told me that.", Domination: 1 },
+					{ Text: "Maybe it's the Oracle in you.", Reply: "(She shrugs.)  I don't know, maybe you're right." },
+				]
+			},
+			{ Text: "Can you give me a towel?  I'd like to get out." },
+			{ Text: "You help her out as she dresses up." },
+			{
+				Background: "BathroomOlivia",
+				Character: [{ Name: "Olivia", Status: "Kimono", Pose: "Idle" }]
+			},
+			{ Text: "Thanks Melody, what is your next duty today?" },
+			{
+				Text: "I need to go to the dungeon and clean the royal restraints.",
+				Character: [{ Name: "Melody", Status: "Maid", Pose: "Idle" }]
+			},
+			{
+				Text: "Very well, I'll ask the staff to open the gate.",
+				Character: [{ Name: "Olivia", Status: "Kimono", Pose: "Idle" }]
+			},
+			{ Text: "The dungeon is scary, good luck down there." },
+			{ Text: "(She heads back to her bedroom.)" }
 		]
 	}
 	

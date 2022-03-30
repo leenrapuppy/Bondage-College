@@ -362,7 +362,7 @@ var PlatformRoomList = [
 	{
 		Name: "BathroomOlivia",
 		Entry: function() { 
-			if (PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaBath")) PlatformCreateCharacter("Olivia", "Chastity", false, 1200, "OliviaBath"); 
+			if (PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaBath")) PlatformCreateCharacter("Olivia", "Chastity", false, 1050, "OliviaBath"); 
 		},
 		Text: "Olivia's Bathroom",
 		Background: "Castle/BathroomOlivia",
