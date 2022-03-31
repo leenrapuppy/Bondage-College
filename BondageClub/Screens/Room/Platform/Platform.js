@@ -214,6 +214,28 @@ var PlatformTemplate = [
 		Attack: []
 	},
 	{
+		Name: "Lucy",
+		Status: "Armor",
+		Health: 10,
+		Width: 400,
+		Height: 400,
+		HitBox: [0.4, 0.05, 0.6, 1],
+		RunSpeed: 12,
+		WalkSpeed: 8,
+		CrawlSpeed: 4,
+		JumpForce: 50,
+		CollisionDamage: 1,
+		ExperienceValue: 1,
+		DamageBackOdds: 0,
+		DamageFaceOdds: 0.5,
+		DamageKnockForce: 30,
+		Animation: [
+			{ Name: "Idle", Cycle: [0], Speed: 150 },
+			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 40 },
+		],
+		Attack: []
+	},
+	{
 		Name: "Camille",
 		Status: "Armor",
 		Health: 42,
@@ -323,7 +345,7 @@ var PlatformRoomList = [
 	{
 		Name: "CastleHall3C",
 		Entry: function() {
-			if (PlatformEventDone("OliviaBath")) { 
+			if (PlatformEventDone("OliviaBath")) {
 				PlatformRoom.Door.push({ Name: "CastleHall2C", FromX: 1950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 1100, ToFaceLeft: false });
 				PlatformRoom.Background = "Castle/Hall3Cv2";
 			}
@@ -335,7 +357,8 @@ var PlatformRoomList = [
 		Door: [
 			{ Name: "CastleHall3W", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3100, ToFaceLeft: true },
 			{ Name: "CastleHall4C", FromX: 2550, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 2700, ToFaceLeft: false },
-			{ Name: "CastleHall3E", FromX: 4700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+			{ Name: "CastleHall3E", FromX: 4700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+			{ Name: "CastleHall2E", FromX: -1000, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false } // Used for faster loading
 		],
 		Character: [
 			{ Name: "Hazel", Status: "Maid", X: 1300 },
@@ -502,7 +525,7 @@ var PlatformRoomList = [
 		LimitRight: 8000,
 		Door: [
 			{ Name: "CastleHall3C", FromX: 950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 2100, ToFaceLeft: false },
-			{ Name: "CastleHall1C", FromX: 6950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 7100, ToFaceLeft: false }
+			{ Name: "CastleHall1C", FromX: 6950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 2700, ToFaceLeft: true }
 		],
 		Character: [
 			{ Name: "Hazel", Status: "Maid", X: 2100 },
@@ -516,17 +539,14 @@ var PlatformRoomList = [
 		Entry: function() { if (!PlatformEventDone("GuardIntro")) PlatformDialogStart("GuardIntro"); },
 		Text: "1F - Guard Hallway - Center",
 		Background: "Castle/Hall1C",
-		Width: 8200,
+		Width: 4000,
 		Height: 1200,
-		LimitLeft: 200,
-		LimitRight: 8000,
+		LimitRight: 3800,
 		Door: [
-			{ Name: "CastleHall2C", FromX: 6950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 7100, ToFaceLeft: false }
+			{ Name: "CastleHall2C", FromX: 2550, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 7100, ToFaceLeft: true }
 		],
 		Character: [
-			{ Name: "Lucy", Status: "Armor", X: 1500 },
-			{ Name: "Lucy", Status: "Armor", X: 4100 },
-			{ Name: "Lucy", Status: "Armor", X: 6700 }
+			{ Name: "Lucy", Status: "Armor", X: 2100 }
 		]
 	},
 
@@ -607,7 +627,7 @@ function PlatformLoadRoom(RoomName) {
 	PlatformRoom = null;
 	for (let Room of PlatformRoomList)
 		if (Room.Name == RoomName)
-			PlatformRoom = Room;
+			PlatformRoom = JSON.parse(JSON.stringify(Room));
 	if (PlatformRoom == null) return;
 	if (PlatformRoom.Text != null) PlatformMessageSet(PlatformRoom.Text);
 	PlatformHeal = (PlatformRoom.Heal == null) ? null : CommonTime() + PlatformRoom.Heal;
@@ -615,7 +635,9 @@ function PlatformLoadRoom(RoomName) {
 	if (PlatformRoom.Character != null)
 		for (let Char of PlatformRoom.Character)
 			PlatformCreateCharacter(Char.Name, Char.Status, false, Char.X);
-	if (PlatformRoom.Entry != null) PlatformRoom.Entry();
+	for (let Room of PlatformRoomList)
+		if ((Room.Name == RoomName) && (Room.Entry != null))
+			Room.Entry();
 }
 
 /**
@@ -625,12 +647,7 @@ function PlatformLoadRoom(RoomName) {
 function PlatformLoad() {
 	window.addEventListener("keydown", PlatformEventKeyDown);
 	window.addEventListener("keyup", PlatformEventKeyUp);
-	if (PlatformChar.length == 0) {
-		PlatformEvent = [];
-		PlatformChar = [];
-		PlatformCreateCharacter("Melody", "Maid", true, 1000);
-		PlatformLoadRoom("BedroomMelody");
-	}
+	PlatformKeys = [];
 	PlatformLastTime = CommonTime();
 }
 
@@ -1154,6 +1171,7 @@ function PlatformLoadGame(Slot) {
 	if (PlatformPlayer.Level > 1) PlatformPlayer.MaxHealth = PlatformPlayer.MaxHealth + PlatformPlayer.HealthPerLevel * (PlatformPlayer.Level - 1);
 	PlatformPlayer.Health = PlatformPlayer.MaxHealth;
 	if (LoadObj.Experience != null) PlatformPlayer.Experience = LoadObj.Experience;
+	PlatformDialogCharacter = JSON.parse(JSON.stringify(PlatformDialogCharacterTemplate));
 	if (LoadObj.Dialog != null)
 		for (let DialogChar of LoadObj.Dialog)
 			for (let Char of PlatformDialogCharacter)

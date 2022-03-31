@@ -79,7 +79,11 @@ function PlatformIntroClick() {
 		if (MouseIn(920 + (X % 5) * 200, 710 + Math.floor(X / 5) * 90, 160, 60))
 			PlatformLoadGame(X);
 	if (MouseIn(1370, 900, 230, 60)) {
+		PlatformDialogCharacter = JSON.parse(JSON.stringify(PlatformDialogCharacterTemplate));
+		PlatformEvent = [];
 		PlatformChar = [];
+		PlatformCreateCharacter("Melody", "Maid", true, 1000);
+		PlatformLoadRoom("BedroomMelody");
 		PlatformDialogStart("IntroMelody");
 	}
 	if (MouseIn(1650, 900, 230, 60)) PlatformExit();

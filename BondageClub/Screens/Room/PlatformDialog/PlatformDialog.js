@@ -8,7 +8,8 @@ var PlatformDialogReply = null;
 var PlatformDialogGoto = null;
 var PlatformDialogCharacterDisplay = null;
 var PlatformDialogPosition = 0;
-var PlatformDialogCharacter = [
+var PlatformDialogCharacter = null;
+var PlatformDialogCharacterTemplate = [
 	{
 		Name: "Melody",
 		Color: "#fe92cf",
@@ -102,16 +103,8 @@ var PlatformDialogData = [
 			{ 
 				Text: "Lady Olivia needs me first.  Let's go find her.",
 				Character: [
-					{
-						Name: "Melody",
-						Status: "Maid",
-						Pose: "Idle"
-					},
-					{
-						Name: "Olivia",
-						Status: "Kimono",
-						Pose: "Idle"
-					}
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Kimono", Pose: "Idle" }
 				]
 			},
 		]
@@ -127,6 +120,10 @@ var PlatformDialogData = [
 			},
 			{ Text: "(As you enter the hallway, you get intercepted by another maid.)" },
 			{
+				Character: [
+					{ Name: "Hazel", Status: "Maid", Pose: "Angry" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				],
 				Text: "Well, well, well.  Here comes little Melody the perfect servant.",
 				Answer: [
 					{ Text: "What do you want?", Reply: "You're not very bright aren't you?" },
@@ -413,7 +410,20 @@ var PlatformDialogData = [
 				Character: [{ Name: "Lucy", Status: "Armor", Pose: "Idle" }]
 			},
 			{ Text: "(As you enter the first floor, a guard greets you.)" },
-			{ Text: "Hello Maid.  You cannot come here, we are expecting a prestige guest very soon." }
+			{ Text: "Sorry little maid, you cannot come here.  We are expecting a prestige guest very soon." },
+			{
+				Character: [
+					{ Name: "Lucy", Status: "Armor", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				],
+				Text: "Go back upstairs.",
+				Answer: [
+					{ Text: "1", Reply: "1" },
+					{ Text: "2", Reply: "2" },
+					{ Text: "3", Reply: "3" },
+					{ Text: "4", Reply: "4" }
+				]
+			}
 		]
 	}
 	
