@@ -5,7 +5,7 @@ var AfkTimerTimout = 5; // AfkTimerIncrementMs * 5  ==> 5 minutes
 var AfkTimerIdle = 0;
 var AfkTimerIsSet = false;
 var AfkTimerIsEnabled = null;
-var AfkTimerEventsList = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart'];
+var AfkTimerEventsList = ['mousedown', 'mousemove', 'keypress', 'touchstart'];
 var AfkTimerID = null;
 var AfkTimerOldEmoticon = null;
 
