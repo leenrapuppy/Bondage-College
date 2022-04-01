@@ -10,5 +10,5 @@ InvalidNamePassword,Invalid name or password
 ErrorDisconnectedFromServer,Disconnected from server. Retrying...
 ErrorDuplicatedLogin,Disconnected for duplicated login
 ErrorUnableToConnect,Unable to connect to server. Retrying...
-ErrorRateLimited,Connection rejected: Too many connections from your address
+ErrorRateLimited,Connection rejected: your connection has been rate limited.
 EnterNamePassword,Enter your name and password
