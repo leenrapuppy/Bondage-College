@@ -2910,7 +2910,7 @@ ClothSlaveRagsSetc2,,,SourceCharacter puts some frayed rags over DestinationChar
 ClothSlaveRagsSetc3,,,SourceCharacter puts some frayed and filthy rags over DestinationCharacter body.,,
 ClothSlaveRagsSetc4,,,SourceCharacter puts some torn rags over DestinationCharacter body.,,
 ClothSlaveRagsSetc5,,,SourceCharacter puts some torn and filthy rags over DestinationCharacter body.,,
-ClothSlaveRagsSetc6,,,SourceCharacter puts some tattered over DestinationCharacter body.,,
+ClothSlaveRagsSetc6,,,SourceCharacter puts some tattered rags over DestinationCharacter body.,,
 ClothSlaveRagsSetc7,,,SourceCharacter puts some tattered and filthy rags over DestinationCharacter body.,,
 ClothSlaveRagsSelectCloth,,,Choose how to tie the rags,,
 ClothSlaveRagsOptionb0,,,Nothing,,
