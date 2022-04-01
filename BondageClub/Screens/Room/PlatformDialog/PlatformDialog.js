@@ -151,7 +151,7 @@ var PlatformDialogData = [
 	
 	{
 		Name: "IntroIsabellaBeforeCollarKey",
-		Exit : function () { PlatformEventSet("OliviaCollarKey"); PlatformChar[1].FixDialog = "IntroIsabellaAfterCollarKey"; CommonSetScreen("Room", "Platform") },
+		Exit : function () { PlatformEventSet("OliviaCollarKey"); PlatformChar[1].Dialog = "IntroIsabellaAfterCollarKey"; CommonSetScreen("Room", "Platform") },
 		Dialog: [
 			{
 				Background: "Balcony",

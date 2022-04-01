@@ -160,34 +160,6 @@ var PlatformTemplate = [
 
 	},*/
 	{
-		Name: "Yuna",
-		Status: "Maid",
-		Health: 21,
-		Width: 400,
-		Height: 400,
-		HitBox: [0.4, 0.05, 0.6, 1],
-		RunSpeed: 12,
-		WalkSpeed: 8,
-		CrawlSpeed: 4,
-		JumpForce: 70,
-		CollisionDamage: 3,
-		ExperienceValue: 4,
-		JumpOdds: 0.0006,
-		RunOdds: 0.0003,
-		DamageBackOdds: 0.5,
-		DamageKnockForce: 30,
-		Animation: [
-			{ Name: "Idle", Cycle: [0], Speed: 100 },
-			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 100 },
-			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 120 },
-			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 60 },
-			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 40 },
-			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 30 },
-			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 90 },
-		],
-		Attack: []
-	},
-	{
 		Name: "Hazel",
 		Status: "Maid",
 		Health: 10,
@@ -200,7 +172,7 @@ var PlatformTemplate = [
 		JumpForce: 50,
 		CollisionDamage: 1,
 		ExperienceValue: 1,
-		JumpOdds: 0.0002,
+		JumpOdds: 0.0003,
 		DamageBackOdds: 1,
 		DamageKnockForce: 50,
 		Animation: [
@@ -214,24 +186,52 @@ var PlatformTemplate = [
 		Attack: []
 	},
 	{
-		Name: "Lucy",
-		Status: "Armor",
-		Health: 10,
+		Name: "Yuna",
+		Status: "Maid",
+		Health: 16,
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
 		RunSpeed: 12,
 		WalkSpeed: 8,
 		CrawlSpeed: 4,
-		JumpForce: 50,
-		CollisionDamage: 1,
-		ExperienceValue: 1,
+		JumpForce: 70,
+		CollisionDamage: 2,
+		ExperienceValue: 2,
+		JumpOdds: 0.0006,
+		RunOdds: 0.0003,
+		DamageKnockForce: 40,
+		Animation: [
+			{ Name: "Idle", Cycle: [0], Speed: 100 },
+			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 100 },
+			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 120 },
+			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 60 },
+			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 40 },
+			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 30 },
+			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 90 },
+		],
+		Attack: []
+	},
+	{
+		Name: "Lucy",
+		Status: "Armor",
+		Health: 23,
+		Width: 400,
+		Height: 400,
+		HitBox: [0.4, 0.05, 0.6, 1],
+		RunSpeed: 15,
+		WalkSpeed: 10,
+		CrawlSpeed: 5,
+		CollisionDamage: 3,
+		ExperienceValue: 4,
+		RunOdds: 0.0005,
 		DamageBackOdds: 0,
 		DamageFaceOdds: 0.5,
 		DamageKnockForce: 30,
 		Animation: [
 			{ Name: "Idle", Cycle: [0], Speed: 150 },
 			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 40 },
+			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 30 },
 		],
 		Attack: []
 	},
@@ -384,9 +384,9 @@ var PlatformRoomList = [
 	{
 		Name: "BedroomOlivia",
 		Entry: function() {
-			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", false, 2200, "IntroOliviaBeforeCollarKey");
-			if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", false, 2200, "IntroOliviaAfterCollarKey");
-			if (PlatformEventDone("OliviaBath")) { PlatformCreateCharacter("Olivia", "Flower", false, 2200, "OliviaAfterBath"); PlatformChar[1].FaceLeft = true; }
+			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", false, 2200, true, false, "IntroOliviaBeforeCollarKey");
+			if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", false, 2200, true, false, "IntroOliviaAfterCollarKey");
+			if (PlatformEventDone("OliviaBath")) { PlatformCreateCharacter("Olivia", "Flower", false, 2200, true, false, "OliviaAfterBath"); PlatformChar[1].FaceLeft = true; }
 		},
 		Text: "Olivia's Bedroom",
 		Background: "Castle/BedroomOlivia",
@@ -402,7 +402,7 @@ var PlatformRoomList = [
 	{
 		Name: "BathroomOlivia",
 		Entry: function() { 
-			if (PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaBath")) PlatformCreateCharacter("Olivia", "Chastity", false, 1050, "OliviaBath"); 
+			if (PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaBath")) PlatformCreateCharacter("Olivia", "Chastity", false, 1050, true, false, "OliviaBath"); 
 		},
 		Text: "Olivia's Bathroom",
 		Background: "Castle/BathroomOlivia",
@@ -460,8 +460,8 @@ var PlatformRoomList = [
 	{
 		Name: "CastleBalcony",
 		Entry: function() { 
-			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Isabella", "Winter", false, 1175, "IntroIsabellaBeforeCollarKey");
-			if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Isabella", "Winter", false, 1175, "IntroIsabellaAfterCollarKey");
+			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Isabella", "Winter", false, 1175, true, false, "IntroIsabellaBeforeCollarKey");
+			if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Isabella", "Winter", false, 1175, true, false, "IntroIsabellaAfterCollarKey");
 		},
 		Text: "Roof Balcony",
 		Background: "Castle/Balcony",
@@ -536,18 +536,119 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "CastleHall1C",
-		Entry: function() { if (!PlatformEventDone("GuardIntro")) PlatformDialogStart("GuardIntro"); },
+		Entry: function() {
+			if (!PlatformEventDone("GuardIntro")) PlatformDialogStart("GuardIntro"); 
+			if (!PlatformEventDone("Curse")) PlatformChar[1].Combat = false;
+		},
 		Text: "1F - Guard Hallway - Center",
 		Background: "Castle/Hall1C",
 		Width: 4000,
 		Height: 1200,
 		LimitRight: 3800,
 		Door: [
+			{ Name: "CastleHall1W", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 6300, ToFaceLeft: true },
 			{ Name: "CastleHall2C", FromX: 2550, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 7100, ToFaceLeft: true }
 		],
 		Character: [
 			{ Name: "Lucy", Status: "Armor", X: 2100 }
 		]
+	},
+	{
+		Name: "CastleHall1W",
+		Entry: function() {
+			if (!PlatformEventDone("Curse")) { PlatformChar[1].Combat = false; PlatformChar[2].Combat = false; }
+		},
+		Text: "1F - Guard Hallway - West",
+		Background: "Castle/Hall1W",
+		Width: 6400,
+		Height: 1200,
+		LimitLeft: 200,
+		Door: [
+			{ Name: "CastleHall1C", FromX: 6300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+			{ Name: "CastleDungeon1W", FromX: 1150, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 1100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Lucy", Status: "Armor", X: 2800 },
+			{ Name: "Lucy", Status: "Armor", X: 3600 }
+		]
+	},
+	{
+		Name: "CastleDungeon1W",
+		Entry: function() {
+			if (!PlatformEventDone("Curse")) { PlatformChar[1].Combat = false; PlatformChar[2].Combat = false; }
+		},
+		Text: "Dungeon Hallway - West",
+		Background: "Castle/Dungeon1W",
+		BackgroundFilter: "#00000050",
+		Width: 6200,
+		Height: 1200,
+		LimitLeft: 200,
+		Door: [
+			{ Name: "CastleDungeon1C", FromX: 6100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+			{ Name: "CastleHall1W", FromX: 950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 1300, ToFaceLeft: false },
+			{ Name: "DungeonCell", FromX: 5150, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Lucy", Status: "Armor", X: 2800 },
+			{ Name: "Lucy", Status: "Armor", X: 3600 }
+		]
+	},
+	{
+		Name: "CastleDungeon1C",
+		Entry: function() {
+			if (!PlatformEventDone("Curse")) PlatformChar[1].Combat = false; 
+		},
+		Text: "Dungeon Hallway - East",
+		Background: "Castle/Dungeon1C",
+		BackgroundFilter: "#00000050",
+		Width: 4400,
+		Height: 1200,
+		LimitRight: 4200,
+		Door: [
+			{ Name: "CastleDungeon1W", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 6300, ToFaceLeft: true },
+			{ Name: "BedroomDungeon", FromX: 750, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 350, ToFaceLeft: false },
+			{ Name: "DungeonStorage", FromX: 3150, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 350, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Lucy", Status: "Armor", X: 2300 }
+		]
+	},
+	{
+		Name: "BedroomDungeon",
+		Text: "Dungeon Bedroom (heal and save)",
+		Background: "Castle/BedroomDungeon",
+		BackgroundFilter: "#000000B0",
+		Width: 2200,
+		Height: 1200,
+		Heal: 1000,
+		Door: [
+			{ Name: "CastleDungeon1C", FromX: 200, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 900, ToFaceLeft: false },
+		],
+		Character: []
+	},
+	{
+		Name: "DungeonCell",
+		Text: "Dungeon Cell",
+		Background: "Castle/DungeonCell",
+		BackgroundFilter: "#000000B0",
+		Width: 2000,
+		Height: 1200,
+		Door: [
+			{ Name: "CastleDungeon1W", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 5300, ToFaceLeft: true }
+		],
+		Character: []
+	},
+	{
+		Name: "DungeonStorage",
+		Text: "Dungeon Restraints Storage",
+		Background: "Castle/DungeonStorage",
+		BackgroundFilter: "#00000080",
+		Width: 2000,
+		Height: 1200,
+		Door: [
+			{ Name: "CastleDungeon1C", FromX: 250, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 3300, ToFaceLeft: true }
+		],
+		Character: []
 	},
 
 ]
@@ -560,7 +661,7 @@ var PlatformRoomList = [
  * @param {Number}X - The X position of the character
  * @returns {Object} - Returns the platform character
  */
-function PlatformCreateCharacter(CharacterName, StatusName, IsPlayer, X, FixDialog) {
+function PlatformCreateCharacter(CharacterName, StatusName, IsPlayer, X, Fix, Combat, Dialog) {
 	let NewChar = null;
 	for (let CharTemplate of PlatformTemplate)
 		if ((CharTemplate.Name == CharacterName) && (CharTemplate.Status == StatusName))
@@ -575,13 +676,16 @@ function PlatformCreateCharacter(CharacterName, StatusName, IsPlayer, X, FixDial
 	NewChar.ForceY = 0;
 	NewChar.Experience = 0;
 	NewChar.Level = 1;
-	NewChar.Fix = (FixDialog == null) ? false : true;
-	NewChar.FixDialog = FixDialog;
+	if (Fix != null) NewChar.Fix = Fix;
+	if (Combat != null) NewChar.Combat = Combat;
+	if (Dialog != null) NewChar.Dialog = Dialog;
+	if (NewChar.Fix == null) NewChar.Fix = false;
+	if (NewChar.Combat == null) NewChar.Combat = true;
 	NewChar.Run = false;
 	NewChar.NextJump = 0;
 	if ((NewChar.DamageBackOdds == null) || (NewChar.DamageBackOdds < 0) || (NewChar.DamageBackOdds > 1)) NewChar.DamageBackOdds = 1;
 	if ((NewChar.DamageFaceOdds == null) || (NewChar.DamageFaceOdds < 0) || (NewChar.DamageFaceOdds > 1)) NewChar.DamageFaceOdds = 1;
-	NewChar.FaceLeft = ((FixDialog == null) && (PlatformRoom != null) && (PlatformRoom.Width != null) && (X > PlatformRoom.Width / 2));
+	NewChar.FaceLeft = ((NewChar.Dialog == null) && (PlatformRoom != null) && (PlatformRoom.Width != null) && (X > PlatformRoom.Width / 2));
 	PlatformChar.push(NewChar);
 	if (IsPlayer) {
 		PlatformPlayer = NewChar;
@@ -634,7 +738,7 @@ function PlatformLoadRoom(RoomName) {
 	PlatformChar.splice(1, 100);
 	if (PlatformRoom.Character != null)
 		for (let Char of PlatformRoom.Character)
-			PlatformCreateCharacter(Char.Name, Char.Status, false, Char.X);
+			PlatformCreateCharacter(Char.Name, Char.Status, false, Char.X, Char.Fix, Char.Battle, Char.Dialog);
 	for (let Room of PlatformRoomList)
 		if ((Room.Name == RoomName) && (Room.Entry != null))
 			Room.Entry();
@@ -842,7 +946,7 @@ function PlatformHitBoxClash(Source, Target, HitBox) {
 function PlatformProcessAction(Source, Time) {
 	if ((Source == null) || (Source.Anim == null) || (Source.Anim.Name == null) || (Source.Anim.Image == null) || (Source.Health <= 0)) return;
 	for (let Target of PlatformChar)
-		if ((Target.ID != Source.ID) && (Target.Health > 0) && !Target.Fix && ((Target.Immunity == null) || (Target.Immunity < Time))) {
+		if ((Target.ID != Source.ID) && (Target.Health > 0) && Target.Combat && ((Target.Immunity == null) || (Target.Immunity < Time))) {
 			let HitBox = null;
 			let Damage = 0;
 			for (let Attack of Source.Attack)
@@ -875,7 +979,7 @@ function PlatformWalkFrame(Speed, Frame) {
 function PlatformCollisionDamage(Target, Time) {
 	if ((Target == null) || (PlatformChar == null) || (Target.Health <= 0)) return;
 	for (let Source of PlatformChar)
-		if ((Source.ID != Target.ID) && (Source.Health > 0) && (Source.CollisionDamage > 0) && ((Target.Immunity == null) || (Target.Immunity < Time)))
+		if ((Source.ID != Target.ID) && (Source.Health > 0) && Source.Combat && (Source.CollisionDamage > 0) && ((Target.Immunity == null) || (Target.Immunity < Time)))
 			if (PlatformHitBoxClash(Source, Target, Source.HitBox))
 				return PlatformDamage(Source, Target, Source.CollisionDamage, Time);
 }
@@ -1104,8 +1208,8 @@ function PlatformEnterRoom(FromType) {
 		}
 	if (FromType == "Up")
 		for (let Char of PlatformChar)
-			if ((Char.FixDialog != null) && (Math.abs(PlatformPlayer.X - Char.X) <= 150) && (Math.abs(PlatformPlayer.Y - Char.Y) <= 450))
-				return PlatformDialogStart(Char.FixDialog);
+			if ((Char.Dialog != null) && (Math.abs(PlatformPlayer.X - Char.X) <= 150) && (Math.abs(PlatformPlayer.Y - Char.Y) <= 450))
+				return PlatformDialogStart(Char.Dialog);
 }
 
 /**
