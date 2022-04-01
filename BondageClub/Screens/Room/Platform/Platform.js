@@ -63,8 +63,7 @@ var PlatformTemplate = [
 		Height: 400,
 		Animation: [
 			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 130 }
-		],
-		Attack: []
+		]
 	},
 	{
 		Name: "Olivia",
@@ -73,8 +72,7 @@ var PlatformTemplate = [
 		Height: 400,
 		Animation: [
 			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 130 }
-		],
-		Attack: []
+		]
 	},
 	{
 		Name: "Olivia",
@@ -83,8 +81,7 @@ var PlatformTemplate = [
 		Height: 400,
 		Animation: [
 			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61], Speed: 90 }
-		],
-		Attack: []
+		]
 	},
 	{
 		Name: "Isabella",
@@ -93,8 +90,16 @@ var PlatformTemplate = [
 		Height: 400,
 		Animation: [
 			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 150 }
-		],
-		Attack: []
+		]
+	},
+	{
+		Name: "Edlaran",
+		Status: "Chained",
+		Width: 400,
+		Height: 400,
+		Animation: [
+			{ Name: "Idle", Cycle: [0], Speed: 130 }
+		]
 	},
 /*	{
 		Name: "Kara",
@@ -628,6 +633,10 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "DungeonCell",
+		Entry: function() {
+			if (!PlatformEventDone("EdlaranFree") && !PlatformEventDone("Curse")) PlatformCreateCharacter("Edlaran", "Chained", false, 1800, true, false, "IntroEdlaranBeforeCurse");
+			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("Curse")) PlatformCreateCharacter("Edlaran", "Chained", false, 1800, true, false, "IntroEdlaranAfterCurse");
+		},
 		Text: "Dungeon Cell",
 		Background: "Castle/DungeonCell",
 		BackgroundFilter: "#000000B0",

@@ -33,6 +33,12 @@ var PlatformDialogCharacterTemplate = [
 		Domination: -5
 	},
 	{
+		Name: "Edlaran",
+		Color: "#add9a0",
+		Love: 0,
+		Domination: 0
+	},
+	{
 		Name: "Yuna",
 		NickName: "Senior Maid",
 		Color: "#E6E6FA",
@@ -417,6 +423,27 @@ var PlatformDialogData = [
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				],
 				Text: "Go back upstairs.",
+				Answer: [
+					{ Text: "1", Reply: "1" },
+					{ Text: "2", Reply: "2" },
+					{ Text: "3", Reply: "3" },
+					{ Text: "4", Reply: "4" }
+				]
+			}
+		]
+	},
+
+	{
+		Name: "IntroEdlaranBeforeCurse",
+		Exit : function () { CommonSetScreen("Room", "Platform"); },
+		Dialog: [
+			{
+				Background: "DungeonCell",
+				Character: [{ Name: "Edlaran", Status: "Chained", Pose: "Idle" }]
+			},
+			{ Text: "Hey Maid!  Can you help me?" },
+			{
+				Text: "Can you unlock me?",
 				Answer: [
 					{ Text: "1", Reply: "1" },
 					{ Text: "2", Reply: "2" },
