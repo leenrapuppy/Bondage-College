@@ -231,6 +231,9 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		IsVulvaFull: function () {
 			return this.Effect.indexOf("FillVulva") >= 0;
 		},
+		IsAssFull: function () {
+			return this.Effect.includes("IsPlugged");
+		},
 		IsFixedHead: function () {
 			return this.Effect.includes("FixedHead");
 		},
