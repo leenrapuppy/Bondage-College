@@ -41,7 +41,7 @@ var PlatformDialogCharacterTemplate = [
 	{
 		Name: "Yuna",
 		NickName: "Senior Maid",
-		Color: "#E6E6FA",
+		Color: "#efb5ff",
 	},
 	{
 		Name: "Hazel",
@@ -449,6 +449,32 @@ var PlatformDialogData = [
 					{ Text: "Wait!", Reply: "(She doesn't listen and charges at you.)" },
 					{ Text: "What's going on?", Reply: "(She doesn't listen and charges at you.)" },
 					{ Text: "Are you alright?", Reply: "(She doesn't listen and charges at you.)" }
+				]
+			}
+		]
+	},
+	
+	{
+		Name: "CursedMaid",
+		Exit : function () { PlatformEventSet("CursedMaid"); },
+		Dialog: [
+			{
+				Background: "CastleHall",
+				Character: [{ Name: "Yuna", Status: "Maid", Pose: "Zombie" }]
+			},
+			{ Text: "(A maid comes to you drooling, her eyes are the same as the guards.)" },
+			{ Text: "Aaaaaannngg! Naaaaannnmm!" },
+			{
+				Text: "(She moves toward you.)",
+				Character: [
+					{ Name: "Yuna", Status: "Maid", Pose: "Zombie" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				],
+				Answer: [
+					{ Text: "Wake up sister!", Reply: "(She doesn't seem to understand and charges at you.)" },
+					{ Text: "Go away or I'll kick your butt.", Reply: "(She doesn't seem to understand and charges at you.)" },
+					{ Text: "You seem brighter than usual.", Reply: "(She charges at you brainlessly.)" },
+					{ Text: "(Fight her.)", Reply: "(She charges at you brainlessly.)" }
 				]
 			}
 		]

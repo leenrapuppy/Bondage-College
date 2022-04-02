@@ -176,7 +176,7 @@ var PlatformTemplate = [
 	{
 		Name: "Hazel",
 		Status: "Maid",
-		Health: 10,
+		Health: 11,
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
@@ -196,13 +196,12 @@ var PlatformTemplate = [
 			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 40 },
 			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 35 },
 			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1], Speed: 130 },
-		],
-		Attack: []
+		]
 	},
 	{
 		Name: "Yuna",
 		Status: "Maid",
-		Health: 16,
+		Health: 17,
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
@@ -223,13 +222,12 @@ var PlatformTemplate = [
 			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 40 },
 			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 30 },
 			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 90 },
-		],
-		Attack: []
+		]
 	},
 	{
 		Name: "Lucy",
 		Status: "Armor",
-		Health: 23,
+		Health: 26,
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
@@ -246,13 +244,15 @@ var PlatformTemplate = [
 			{ Name: "Idle", Cycle: [0], Speed: 150 },
 			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 40 },
 			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 30 },
-		],
-		Attack: []
+			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 130 },
+			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 120 },
+			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
+		]
 	},
 	{
 		Name: "Camille",
 		Status: "Armor",
-		Health: 42,
+		Health: 47,
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
@@ -261,7 +261,7 @@ var PlatformTemplate = [
 		CrawlSpeed: 3,
 		JumpForce: 60,
 		CollisionDamage: 6,
-		ExperienceValue: 9,
+		ExperienceValue: 15,
 		JumpOdds: 0.0002,
 		RunOdds: 0.0004,
 		StandAttackSlowOdds: 0.0003,
@@ -392,7 +392,7 @@ var PlatformRoomList = [
 			{ Name: "BedroomIsabella", FromX: 3150, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Hazel", Status: "Maid", X: 2100 }
+			{ Name: "Yuna", Status: "Maid", X: 2100 }
 		]
 	},
 	{
@@ -400,7 +400,7 @@ var PlatformRoomList = [
 		Entry: function() {
 			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", false, 2200, true, false, "IntroOliviaBeforeCollarKey");
 			if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", false, 2200, true, false, "IntroOliviaAfterCollarKey");
-			if (PlatformEventDone("OliviaBath")) { PlatformCreateCharacter("Olivia", "Flower", false, 2200, true, false, "OliviaAfterBath"); PlatformChar[1].FaceLeft = true; }
+			if (PlatformEventDone("OliviaBath") && !PlatformEventDone("Curse")) { PlatformCreateCharacter("Olivia", "Flower", false, 2200, true, false, "OliviaAfterBath"); PlatformChar[1].FaceLeft = true; }
 		},
 		Text: "Olivia's Bedroom",
 		Background: "Castle/BedroomOlivia",
@@ -467,7 +467,7 @@ var PlatformRoomList = [
 			{ Name: "CastleBalcony", FromX: 3150, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Hazel", Status: "Maid", X: 1400 },
+			{ Name: "Yuna", Status: "Maid", X: 1400 },
 			{ Name: "Hazel", Status: "Maid", X: 2100 }
 		]
 	},
@@ -498,7 +498,8 @@ var PlatformRoomList = [
 			{ Name: "CastleHall4C", FromX: 2300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Yuna", Status: "Maid", X: 1250 }
+			{ Name: "Hazel", Status: "Maid", X: 1000 },
+			{ Name: "Hazel", Status: "Maid", X: 1400 }
 		]
 	},
 	{
@@ -508,29 +509,47 @@ var PlatformRoomList = [
 		Width: 2400,
 		Height: 1200,
 		Door: [
-			{ Name: "CastleBallroom", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2300, ToFaceLeft: true },
+			{ Name: "CastleHall4W3", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2300, ToFaceLeft: true },
 			{ Name: "CastleHall4W1", FromX: 2300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Yuna", Status: "Maid", X: 1100 },
-			{ Name: "Yuna", Status: "Maid", X: 1300 }
+			{ Name: "Yuna", Status: "Maid", X: 1000 },
+			{ Name: "Yuna", Status: "Maid", X: 1400 }
 		]
 	},
 	{
+		Name: "CastleHall4W3",
+		Entry: function() { 
+			if (PlatformEventDone("Curse")) {
+				PlatformCreateCharacter("Lucy", "Armor", false, 1000);
+				PlatformCreateCharacter("Lucy", "Armor", false, 1400);
+			}
+		},		
+		Text: "4F - Roof Hallway - West 3",
+		Background: "Castle/Hall4W1",
+		Width: 2400,
+		Height: 1200,
+		Door: [
+			{ Name: "CastleBallroom", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2300, ToFaceLeft: true },
+			{ Name: "CastleHall4W2", FromX: 2300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: []
+	},
+	{
 		Name: "CastleBallroom",
+		Entry: function() { if (PlatformEventDone("Curse")) PlatformCreateCharacter("Camille", "Armor", false, 500); },
 		Text: "Ballroom",
 		Background: "Castle/Ballroom",
 		Width: 2600,
 		Height: 1200,
 		Door: [
-			{ Name: "CastleHall4W2", FromX: 2500, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+			{ Name: "CastleHall4W3", FromX: 2500, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
-		Character: [
-			{ Name: "Camille", Status: "Armor", X: 500 }
-		]
+		Character: []
 	},
 	{
 		Name: "CastleHall2C",
+		Entry: function() { if (!PlatformEventDone("CursedMaid") && PlatformEventDone("Curse")) PlatformDialogStart("CursedMaid"); },
 		Text: "2F - Storehouse Hallway - Center",
 		Background: "Castle/Hall2C",
 		Width: 8200,
