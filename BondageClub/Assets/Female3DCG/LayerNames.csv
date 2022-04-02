@@ -574,6 +574,8 @@ ItemHoodLampHeadHoodSwitch,Switch
 ItemHoodLampHeadHoodLamp,Exterior
 ItemHoodCollarHoodHood,Hood
 ItemHoodCollarHoodCollar,Collar
+ItemHoodCowHoodBase,Hood
+ItemHoodCowHoodSpots,Spots
 ItemBootsLockingBoots1Boots,Boots
 ItemBootsLockingBoots1Straps,Straps
 ItemBootsFuturisticHeelsShoes,Body
