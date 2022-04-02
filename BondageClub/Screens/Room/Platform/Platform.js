@@ -101,6 +101,15 @@ var PlatformTemplate = [
 			{ Name: "Idle", Cycle: [0], Speed: 130 }
 		]
 	},
+	{
+		Name: "Chest",
+		Status: "Metal",
+		Width: 400,
+		Height: 400,
+		Animation: [
+			{ Name: "Idle", Cycle: [0], Speed: 130 }
+		]
+	},
 /*	{
 		Name: "Kara",
 		Status: "Nude",
@@ -325,7 +334,7 @@ var PlatformRoomList = [
 		Height: 1200,
 		LimitLeft: 200,
 		LimitRight: 1750,
-		Heal: 1000,
+		Heal: 500,
 		Door: [
 			{ Name: "CastleHall3W", FromX: 200, FromY: 0, FromW: 150, FromH: 1200, FromType: "Up", ToX: 500, ToFaceLeft: false },
 		],
@@ -397,7 +406,7 @@ var PlatformRoomList = [
 		Background: "Castle/BedroomOlivia",
 		Width: 3000,
 		Height: 1200,
-		Heal: 1000,
+		Heal: 500,
 		Door: [
 			{ Name: "CastleHall3E", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 900, ToFaceLeft: false },
 			{ Name: "BathroomOlivia", FromX: 2900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
@@ -424,7 +433,7 @@ var PlatformRoomList = [
 		Background: "Castle/BedroomIsabella",
 		Width: 2000,
 		Height: 1200,
-		Heal: 1000,
+		Heal: 500,
 		Door: [
 			{ Name: "CastleHall3E", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3300, ToFaceLeft: true }
 		],
@@ -542,7 +551,7 @@ var PlatformRoomList = [
 	{
 		Name: "CastleHall1C",
 		Entry: function() {
-			if (!PlatformEventDone("GuardIntro")) PlatformDialogStart("GuardIntro"); 
+			if (!PlatformEventDone("IntroGuard") && !PlatformEventDone("Curse")) PlatformDialogStart("IntroGuardBeforeCurse");
 			if (!PlatformEventDone("Curse")) PlatformChar[1].Combat = false;
 		},
 		Text: "1F - Guard Hallway - Center",
@@ -584,7 +593,7 @@ var PlatformRoomList = [
 		},
 		Text: "Dungeon Hallway - West",
 		Background: "Castle/Dungeon1W",
-		BackgroundFilter: "#00000050",
+		BackgroundFilter: "#00000040",
 		Width: 6200,
 		Height: 1200,
 		LimitLeft: 200,
@@ -601,11 +610,12 @@ var PlatformRoomList = [
 	{
 		Name: "CastleDungeon1C",
 		Entry: function() {
-			if (!PlatformEventDone("Curse")) PlatformChar[1].Combat = false; 
+			if (!PlatformEventDone("IntroGuardCurse") && PlatformEventDone("Curse")) PlatformDialogStart("IntroGuardAfterCurse");
+			if (!PlatformEventDone("Curse")) PlatformChar[1].Combat = false;
 		},
 		Text: "Dungeon Hallway - East",
 		Background: "Castle/Dungeon1C",
-		BackgroundFilter: "#00000050",
+		BackgroundFilter: "#00000040",
 		Width: 4400,
 		Height: 1200,
 		LimitRight: 4200,
@@ -615,17 +625,17 @@ var PlatformRoomList = [
 			{ Name: "DungeonStorage", FromX: 3150, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 350, ToFaceLeft: false }
 		],
 		Character: [
-			{ Name: "Lucy", Status: "Armor", X: 2300 }
+			{ Name: "Lucy", Status: "Armor", X: 2100 }
 		]
 	},
 	{
 		Name: "BedroomDungeon",
 		Text: "Dungeon Bedroom (heal and save)",
 		Background: "Castle/BedroomDungeon",
-		BackgroundFilter: "#000000B0",
+		BackgroundFilter: "#00000080",
 		Width: 2200,
 		Height: 1200,
-		Heal: 1000,
+		Heal: 500,
 		Door: [
 			{ Name: "CastleDungeon1C", FromX: 200, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 900, ToFaceLeft: false },
 		],
@@ -639,7 +649,7 @@ var PlatformRoomList = [
 		},
 		Text: "Dungeon Cell",
 		Background: "Castle/DungeonCell",
-		BackgroundFilter: "#000000B0",
+		BackgroundFilter: "#00000080",
 		Width: 2000,
 		Height: 1200,
 		Door: [
@@ -649,15 +659,20 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "DungeonStorage",
+		Entry: function() {
+			if (PlatformEventDone("Curse")) PlatformChar[1].Dialog = "ChestRestraintsAfterCurse";
+		},
 		Text: "Dungeon Restraints Storage",
 		Background: "Castle/DungeonStorage",
-		BackgroundFilter: "#00000080",
+		BackgroundFilter: "#00000060",
 		Width: 2000,
 		Height: 1200,
 		Door: [
 			{ Name: "CastleDungeon1C", FromX: 250, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 3300, ToFaceLeft: true }
 		],
-		Character: []
+		Character: [
+			{ Name: "Chest", Status: "Metal", X: 1700, Combat: false, Fix: true, Dialog: "ChestRestraintsBeforeCurse" }
+		]
 	},
 
 ]
@@ -733,10 +748,11 @@ function PlatformMessageSet(Text) {
 
 /**
  * Loads a room and it's parameters
- * @param {Object} RoomName - The name of the room to load
+ * @param {Object} RoomName - The name of the room to load, can be null to reload the current room
  * @returns {void} - Nothing
  */
 function PlatformLoadRoom(RoomName) {
+	if (RoomName == null) RoomName = PlatformRoom.Name
 	PlatformRoom = null;
 	for (let Room of PlatformRoomList)
 		if (Room.Name == RoomName)

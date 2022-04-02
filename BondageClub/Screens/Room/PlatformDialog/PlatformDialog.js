@@ -58,7 +58,6 @@ var PlatformDialogCharacterTemplate = [
 var PlatformDialogData = [
 	{
 		Name: "IntroMelody",
-		Exit : function () { CommonSetScreen("Room", "Platform") },
 		Dialog: [
 			{ 
 				Text: "(Click or hit the spacebar to continue.)",
@@ -95,7 +94,7 @@ var PlatformDialogData = [
 				Character: [{ Name: "Olivia", Status: "Kimono", Pose: "Idle" }]
 			},
 			{ 
-				Text: "Secondly, I have to clean the royal restraints for Countess Isabella.",
+				Text: "Secondly, I have to clean the dungeon restraints for Countess Isabella.",
 				Character: [{ Name: "Isabella", Status: "Winter", Pose: "Idle" }]
 			},
 			{ 
@@ -118,7 +117,7 @@ var PlatformDialogData = [
 	
 	{
 		Name: "JealousMaid",
-		Exit : function () { PlatformEventSet("JealousMaid"); CommonSetScreen("Room", "Platform") },
+		Exit : function () { PlatformEventSet("JealousMaid"); },
 		Dialog: [
 			{
 				Background: "CastleHall",
@@ -157,7 +156,7 @@ var PlatformDialogData = [
 	
 	{
 		Name: "IntroIsabellaBeforeCollarKey",
-		Exit : function () { PlatformEventSet("OliviaCollarKey"); PlatformChar[1].Dialog = "IntroIsabellaAfterCollarKey"; CommonSetScreen("Room", "Platform") },
+		Exit : function () { PlatformEventSet("OliviaCollarKey"); PlatformChar[1].Dialog = "IntroIsabellaAfterCollarKey"; },
 		Dialog: [
 			{
 				Background: "Balcony",
@@ -198,7 +197,6 @@ var PlatformDialogData = [
 
 	{
 		Name: "IntroIsabellaAfterCollarKey",
-		Exit : function () { CommonSetScreen("Room", "Platform") },
 		Dialog: [
 			{
 				Background: "Balcony",
@@ -210,7 +208,6 @@ var PlatformDialogData = [
 
 	{
 		Name: "IntroOliviaBeforeCollarKey",
-		Exit : function () { CommonSetScreen("Room", "Platform") },
 		Dialog: [
 			{
 				Background: "BedroomOlivia",
@@ -233,7 +230,7 @@ var PlatformDialogData = [
 	
 	{
 		Name: "IntroOliviaAfterCollarKey",
-		Exit : function () { PlatformEventSet("OliviaUnchain"); PlatformLoadRoom("BedroomOlivia"); CommonSetScreen("Room", "Platform"); },
+		Exit : function () { PlatformEventSet("OliviaUnchain"); PlatformLoadRoom(); },
 		Dialog: [
 			{
 				Background: "BedroomOlivia",
@@ -290,7 +287,7 @@ var PlatformDialogData = [
 
 	{
 		Name: "OliviaBath",
-		Exit : function () { PlatformEventSet("OliviaBath"); PlatformLoadRoom("BathroomOlivia"); CommonSetScreen("Room", "Platform"); },
+		Exit : function () { PlatformEventSet("OliviaBath"); PlatformLoadRoom(); },
 		Dialog: [
 			{
 				Background: "BathroomOlivia",
@@ -382,7 +379,7 @@ var PlatformDialogData = [
 			},
 			{ Text: "Thanks Melody, what is your next duty today?" },
 			{
-				Text: "I need to go to the dungeon and clean the royal restraints.",
+				Text: "I need to go to the dungeon and clean the restraints.",
 				Character: [{ Name: "Melody", Status: "Maid", Pose: "Idle" }]
 			},
 			{
@@ -396,7 +393,6 @@ var PlatformDialogData = [
 
 	{
 		Name: "OliviaAfterBath",
-		Exit : function () { CommonSetScreen("Room", "Platform"); },
 		Dialog: [
 			{
 				Background: "BedroomOlivia",
@@ -408,8 +404,8 @@ var PlatformDialogData = [
 	},
 
 	{
-		Name: "GuardIntro",
-		Exit : function () { PlatformEventSet("GuardIntro"); CommonSetScreen("Room", "Platform"); },
+		Name: "IntroGuardBeforeCurse",
+		Exit : function () { PlatformEventSet("IntroGuard"); },
 		Dialog: [
 			{
 				Background: "CastleHall",
@@ -432,10 +428,34 @@ var PlatformDialogData = [
 			}
 		]
 	},
+	
+	{
+		Name: "IntroGuardAfterCurse",
+		Exit : function () { PlatformEventSet("IntroGuardCurse"); },
+		Dialog: [
+			{
+				Background: "CastleHall",
+				Character: [{ Name: "Lucy", Status: "Armor", Pose: "Zombie" }]
+			},
+			{ Text: "(As you enter the hall, a guard stares at you with blank eyes.)" },
+			{ Text: "Uuuuueeeeggghh!" },
+			{
+				Text: "(The guard advances toward you.)",
+				Character: [
+					{ Name: "Lucy", Status: "Armor", Pose: "Zombie" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				],
+				Answer: [
+					{ Text: "Wait!", Reply: "(She doesn't listen and charges at you.)" },
+					{ Text: "What's going on?", Reply: "(She doesn't listen and charges at you.)" },
+					{ Text: "Are you alright?", Reply: "(She doesn't listen and charges at you.)" }
+				]
+			}
+		]
+	},
 
 	{
 		Name: "IntroEdlaranBeforeCurse",
-		Exit : function () { CommonSetScreen("Room", "Platform"); },
 		Dialog: [
 			{
 				Background: "DungeonCell",
@@ -452,6 +472,57 @@ var PlatformDialogData = [
 				]
 			}
 		]
+	},
+
+	{
+		Name: "ChestRestraintsBeforeCurse",
+		Exit : function () { PlatformEventSet("Curse"); PlatformLoadRoom(); },
+		Dialog: [
+			{
+				Text: "(There's a huge metal chest.)",
+				Background: "DungeonStorage",
+				Character: [{ Name: "Chest", Status: "Metal", Pose: "Idle", X: 500 }],
+			},
+			{
+				Text: "(It contains the dungeon restraints.)",
+				Answer: [
+					{ Text: "(Clean the restraints.)", Reply: "(You open the chest.)" },
+					{ Text: "(Go do something else.)", Script: function() { PlatformDialogExit(); } },
+				]
+			},
+			{
+				Text: "(There are many cuffs, shackles, chains and collars.)",
+				Character: [{ Name: "Melody", Status: "Maid", Pose: "CleanRestraints" }]
+			},
+			{ Text: "(You start cleaning restraints one by one.)" },
+			{ Text: "(It's a lot of work, it will take you many hours.)" },
+			{ Text: "(You clean, scrub, oil and repair the restraints.)" },
+			{
+				Background: "DungeonStorageDark",
+				Character: [{ Name: "Melody", Status: "Maid", Pose: "CurseStart" }],
+				Text: "(As you finish your work, everything goes dark.)"
+			},
+			{ Text: "(You hear a loud woman scream coming from upstairs.)" },
+			{ Text: "(The scream fades and everything becomes very silent.)" },
+			{ Text: "(The world around you is dark, silent and oppressing.)" },
+			{ 
+				Background: "DungeonStorage",
+				Character: [{ Name: "Melody", Status: "Maid", Pose: "CleanRestraints" }],
+				Text: "(After a minute, the sun starts to shine again.)"
+			},
+			{ Text: "(You finish cleaning in a hurry and leave the chest.)" },
+		]
+	},
+
+	{
+		Name: "ChestRestraintsAfterCurse",
+		Dialog: [
+			{
+				Text: "(The dungeon restraints are clean.)",
+				Background: "DungeonStorage",
+				Character: [{ Name: "Chest", Status: "Metal", Pose: "Idle", X: 500 }]
+			}
+		]
 	}
 	
 ];
@@ -463,7 +534,11 @@ var PlatformDialogData = [
  */
 function PlatformDialogLoadPosition(Position) {
 	PlatformDialogPosition = Position;
-	if (Position >= PlatformDialog.Dialog.length) return PlatformDialog.Exit();
+	if (Position >= PlatformDialog.Dialog.length) {
+		if (PlatformDialog.Exit != null) PlatformDialog.Exit();
+		PlatformDialogExit();
+		return;
+	}
 	PlatformDialogText = PlatformDialog.Dialog[Position].Text;
 	PlatformDialogAnswer = PlatformDialog.Dialog[Position].Answer;
 	PlatformDialogAnswerPosition = 0;
@@ -602,6 +677,7 @@ function PlatformDialogPickAnswer(Position) {
 							Character.Love = PlatformDialogChangeValue(Character.Love, Answer.Love);
 							Character.Domination = PlatformDialogChangeValue(Character.Domination, Answer.Domination);
 						}
+			if (Answer.Script != null) Answer.Script();
 		}
 		P++;
 	}
@@ -638,6 +714,14 @@ function PlatformDialogKeyDown() {
 		PlatformDialogAnswerPosition++;
 		if ((PlatformDialogAnswer != null) && (PlatformDialogAnswerPosition >= PlatformDialogAnswer.length)) PlatformDialogAnswerPosition = 0;
 	}
+}
+
+/**
+ * Exits the dialog and returns to the game
+ * @returns {void} - Nothing
+ */
+function PlatformDialogExit() {
+	CommonSetScreen("Room", "Platform");
 }
 
 /**
