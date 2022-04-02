@@ -2229,10 +2229,11 @@ function ChatRoomMessage(data) {
 		// Make sure the sender is in the room
 		let SenderCharacter = ChatRoomCharacter.find(c => c.MemberNumber == data.Sender);
 
-		let IsPlayerInvolved = (SenderCharacter.MemberNumber == Player.MemberNumber);
-
 		// If we found the sender
 		if (SenderCharacter != null) {
+			// Keep track of whether the player is involved
+			let IsPlayerInvolved = (SenderCharacter.MemberNumber == Player.MemberNumber);
+
 			// Replace < and > characters to prevent HTML injections
 			var msg = ChatRoomHTMLEntities(data.Content);
 
