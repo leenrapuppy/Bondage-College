@@ -50,10 +50,10 @@ var PlatformTemplate = [
 			{ Name: "CrouchAttackSlow", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], Speed: 43 },
 		],
 		Attack: [
-			{ Name: "StandAttackFast", HitBox: [0.7, 0.2, 0.9, 0.3], HitAnimation: [8, 9, 10, 11, 12], Damage: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], Speed: 300 },
-			{ Name: "StandAttackSlow", HitBox: [0.8, 0.4, 1, 0.5], HitAnimation: [9, 10, 11, 12, 13], Damage: [2, 3, 5, 6, 8, 9, 11, 12, 14, 15, 17], Speed: 600 },
-			{ Name: "CrouchAttackFast", HitBox: [0.725, 0.65, 0.925, 0.75], HitAnimation: [5, 6, 7, 8, 9], Damage: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], Speed: 300 },
-			{ Name: "CrouchAttackSlow", HitBox: [0.8, 0.7, 1, 0.8], HitAnimation: [5, 6, 7, 8, 9], Damage: [2, 3, 5, 6, 8, 9, 11, 12, 14, 15, 17], Speed: 600 }
+			{ Name: "StandAttackFast", HitBox: [0.7, 0.2, 0.9, 0.3], HitAnimation: [8, 9, 10, 11, 12], Damage: [1, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8], Speed: 300 },
+			{ Name: "StandAttackSlow", HitBox: [0.8, 0.4, 1, 0.5], HitAnimation: [9, 10, 11, 12, 13], Damage: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], Speed: 600 },
+			{ Name: "CrouchAttackFast", HitBox: [0.725, 0.65, 0.925, 0.75], HitAnimation: [5, 6, 7, 8, 9], Damage: [1, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8], Speed: 300 },
+			{ Name: "CrouchAttackSlow", HitBox: [0.8, 0.7, 1, 0.8], HitAnimation: [5, 6, 7, 8, 9], Damage: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], Speed: 600 }
 		]
 	},
 	{
@@ -247,7 +247,8 @@ var PlatformTemplate = [
 			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 130 },
 			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 120 },
 			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
-		]
+		],
+		OnBind: function() { if (PlatformEventDone("EdlaranCurseIntro") && !PlatformEventDone("EdlaranKey") && (Math.random() >= 0.8)) { PlatformMessageSet("You found keys for shackles on the guard."); PlatformEventSet("EdlaranKey"); } }
 	},
 	{
 		Name: "Camille",
@@ -366,6 +367,7 @@ var PlatformRoomList = [
 		},
 		Text: "3F - Bedroom Hallway - Center",
 		Background: "Castle/Hall3C",
+		AlternateBackground: "Castle/Hall3Cv2",
 		Width: 4800,
 		Height: 1200,
 		Door: [
@@ -398,11 +400,11 @@ var PlatformRoomList = [
 	{
 		Name: "BedroomOlivia",
 		Entry: function() {
-			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", false, 2200, true, false, "IntroOliviaBeforeCollarKey");
-			if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", false, 2200, true, false, "IntroOliviaAfterCollarKey");
-			if (PlatformEventDone("OliviaBath") && !PlatformEventDone("Curse")) { PlatformCreateCharacter("Olivia", "Flower", false, 2200, true, false, "OliviaAfterBath"); PlatformChar[1].FaceLeft = true; }
+			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", 2200, true, false, "IntroOliviaBeforeCollarKey");
+			if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", 2200, true, false, "IntroOliviaAfterCollarKey");
+			if (PlatformEventDone("OliviaBath") && !PlatformEventDone("Curse")) { PlatformCreateCharacter("Olivia", "Flower", 2200, true, false, "OliviaAfterBath"); PlatformChar[1].FaceLeft = true; }
 		},
-		Text: "Olivia's Bedroom",
+		Text: "Olivia's Bedroom (heal and save)",
 		Background: "Castle/BedroomOlivia",
 		Width: 3000,
 		Height: 1200,
@@ -416,7 +418,7 @@ var PlatformRoomList = [
 	{
 		Name: "BathroomOlivia",
 		Entry: function() { 
-			if (PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaBath")) PlatformCreateCharacter("Olivia", "Chastity", false, 1050, true, false, "OliviaBath"); 
+			if (PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaBath")) PlatformCreateCharacter("Olivia", "Chastity", 1050, true, false, "OliviaBath"); 
 		},
 		Text: "Olivia's Bathroom",
 		Background: "Castle/BathroomOlivia",
@@ -433,11 +435,12 @@ var PlatformRoomList = [
 		Background: "Castle/BedroomIsabella",
 		Width: 2000,
 		Height: 1200,
-		Heal: 500,
 		Door: [
 			{ Name: "CastleHall3E", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3300, ToFaceLeft: true }
 		],
-		Character: []
+		Character: [
+			{ Name: "Hazel", Status: "Maid", X: 1800 }
+		]
 	},
 	{
 		Name: "CastleHall4C",
@@ -473,9 +476,10 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "CastleBalcony",
-		Entry: function() { 
-			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Isabella", "Winter", false, 1175, true, false, "IntroIsabellaBeforeCollarKey");
-			if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Isabella", "Winter", false, 1175, true, false, "IntroIsabellaAfterCollarKey");
+		Entry: function() {
+			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Isabella", "Winter", 1175, true, false, "IntroIsabellaBeforeCollarKey");
+			else if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Isabella", "Winter", 1175, true, false, "IntroIsabellaAfterCollarKey");
+			else PlatformCreateCharacter("Yuna", "Maid", 1500);
 		},
 		Text: "Roof Balcony",
 		Background: "Castle/Balcony",
@@ -521,8 +525,8 @@ var PlatformRoomList = [
 		Name: "CastleHall4W3",
 		Entry: function() { 
 			if (PlatformEventDone("Curse")) {
-				PlatformCreateCharacter("Lucy", "Armor", false, 1000);
-				PlatformCreateCharacter("Lucy", "Armor", false, 1400);
+				PlatformCreateCharacter("Lucy", "Armor", 1000);
+				PlatformCreateCharacter("Lucy", "Armor", 1400);
 			}
 		},		
 		Text: "4F - Roof Hallway - West 3",
@@ -537,7 +541,7 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "CastleBallroom",
-		Entry: function() { if (PlatformEventDone("Curse")) PlatformCreateCharacter("Camille", "Armor", false, 500); },
+		Entry: function() { if (PlatformEventDone("Curse")) PlatformCreateCharacter("Camille", "Armor", 500); },
 		Text: "Ballroom",
 		Background: "Castle/Ballroom",
 		Width: 2600,
@@ -558,13 +562,27 @@ var PlatformRoomList = [
 		LimitRight: 8000,
 		Door: [
 			{ Name: "CastleHall3C", FromX: 950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 2100, ToFaceLeft: false },
+			{ Name: "WineCellar", FromX: 3950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 1050, ToFaceLeft: false },
 			{ Name: "CastleHall1C", FromX: 6950, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 2700, ToFaceLeft: true }
 		],
 		Character: [
-			{ Name: "Hazel", Status: "Maid", X: 2100 },
-			{ Name: "Yuna", Status: "Maid", X: 3600 },
-			{ Name: "Yuna", Status: "Maid", X: 4600 },
-			{ Name: "Hazel", Status: "Maid", X: 6100 }
+			{ Name: "Hazel", Status: "Maid", X: 2000 },
+			{ Name: "Yuna", Status: "Maid", X: 3200 },
+			{ Name: "Yuna", Status: "Maid", X: 5000 },
+			{ Name: "Hazel", Status: "Maid", X: 6200 }
+		]
+	},
+	{
+		Name: "WineCellar",
+		Text: "Wine Cellar",
+		Background: "Castle/WineCellar",
+		Width: 3000,
+		Height: 1200,
+		Door: [
+			{ Name: "CastleHall2C", FromX: 900, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 4100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Yuna", Status: "Maid", X: 2500 }
 		]
 	},
 	{
@@ -663,8 +681,11 @@ var PlatformRoomList = [
 	{
 		Name: "DungeonCell",
 		Entry: function() {
-			if (!PlatformEventDone("EdlaranFree") && !PlatformEventDone("Curse")) PlatformCreateCharacter("Edlaran", "Chained", false, 1800, true, false, "IntroEdlaranBeforeCurse");
-			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("Curse")) PlatformCreateCharacter("Edlaran", "Chained", false, 1800, true, false, "IntroEdlaranAfterCurse");
+			if (!PlatformEventDone("EdlaranFree") && !PlatformEventDone("Curse") && !PlatformEventDone("EdlaranIntro")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranBeforeCurseStart");
+			if (!PlatformEventDone("EdlaranFree") && !PlatformEventDone("Curse") && PlatformEventDone("EdlaranIntro")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranBeforeCurseEnd");
+			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("Curse") && !PlatformEventDone("EdlaranCurseIntro")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranAfterCurseStart");
+			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("EdlaranCurseIntro") && !PlatformEventDone("EdlaranKey")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranAfterCurseEnd");
+			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("EdlaranKey")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "EdlaranUnlock");
 		},
 		Text: "Dungeon Cell",
 		Background: "Castle/DungeonCell",
@@ -704,13 +725,16 @@ var PlatformRoomList = [
  * @param {Number}X - The X position of the character
  * @returns {Object} - Returns the platform character
  */
-function PlatformCreateCharacter(CharacterName, StatusName, IsPlayer, X, Fix, Combat, Dialog) {
+function PlatformCreateCharacter(CharacterName, StatusName, X, Fix, Combat, Dialog) {
 	let NewChar = null;
 	for (let CharTemplate of PlatformTemplate)
-		if ((CharTemplate.Name == CharacterName) && (CharTemplate.Status == StatusName))
+		if ((CharTemplate.Name == CharacterName) && (CharTemplate.Status == StatusName)) {
 			NewChar = JSON.parse(JSON.stringify(CharTemplate));
+			if (CharTemplate.OnBind != null) NewChar.OnBind = CharTemplate.OnBind;
+			break;
+		}
 	if (NewChar == null) return;
-	if (IsPlayer) NewChar.Camera = true;
+	NewChar.Camera = (PlatformChar.length == 0);
 	NewChar.ID = PlatformChar.length;
 	NewChar.MaxHealth = NewChar.Health;
 	NewChar.X = X;
@@ -730,7 +754,7 @@ function PlatformCreateCharacter(CharacterName, StatusName, IsPlayer, X, Fix, Co
 	if ((NewChar.DamageFaceOdds == null) || (NewChar.DamageFaceOdds < 0) || (NewChar.DamageFaceOdds > 1)) NewChar.DamageFaceOdds = 1;
 	NewChar.FaceLeft = ((NewChar.Dialog == null) && (PlatformRoom != null) && (PlatformRoom.Width != null) && (X > PlatformRoom.Width / 2));
 	PlatformChar.push(NewChar);
-	if (IsPlayer) {
+	if (NewChar.Camera) {
 		PlatformPlayer = NewChar;
 		PlatformPlayer.DamageBackOdds = 0;
 		PlatformPlayer.DamageFaceOdds = 0;
@@ -782,7 +806,7 @@ function PlatformLoadRoom(RoomName) {
 	PlatformChar.splice(1, 100);
 	if (PlatformRoom.Character != null)
 		for (let Char of PlatformRoom.Character)
-			PlatformCreateCharacter(Char.Name, Char.Status, false, Char.X, Char.Fix, Char.Battle, Char.Dialog);
+			PlatformCreateCharacter(Char.Name, Char.Status, Char.X, Char.Fix, Char.Battle, Char.Dialog);
 	for (let Room of PlatformRoomList)
 		if ((Room.Name == RoomName) && (Room.Entry != null))
 			Room.Entry();
@@ -871,6 +895,12 @@ function PlatformDrawBackground() {
 					let Obj = DrawCacheImage.get(FileName);
 					if ((Obj == null) || (Obj.width == null) || (Obj.width <= 0))
 						DrawImage(FileName, 2000, 1000);
+					if (Room.AlternateBackground != null) {
+						FileName = "Screens/Room/Platform/Background/" + Room.AlternateBackground + ".jpg";
+						Obj = DrawCacheImage.get(FileName);
+						if ((Obj == null) || (Obj.width == null) || (Obj.width <= 0))
+							DrawImage(FileName, 2000, 1000);
+					}
 				}
 
 }
@@ -1131,6 +1161,7 @@ function PlatformDraw() {
 				for (let Target of PlatformChar)
 					if (Target.ID == C.Action.Target) {
 						PlatformAddExperience(C, Target.ExperienceValue);
+						if (Target.OnBind != null) Target.OnBind();
 						Target.Bound = true;
 					}
 				C.Action = null;
@@ -1309,7 +1340,7 @@ function PlatformLoadGame(Slot) {
 	if (LoadObj.Status == null) return;
 	if (LoadObj.Room == null) return;
 	PlatformChar = [];
-	PlatformCreateCharacter(LoadObj.Character, LoadObj.Status, true, 1000);
+	PlatformCreateCharacter(LoadObj.Character, LoadObj.Status, 1000);
 	PlatformPlayer.Status = LoadObj.Status;
 	PlatformEvent = LoadObj.Event;
 	if (PlatformEvent == null) PlatformEvent = [];

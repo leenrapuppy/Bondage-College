@@ -366,8 +366,8 @@ var PlatformDialogData = [
 			{ 
 				Text: "I have these strange emotions lately and I cannot control them.",
 				Answer: [
-					{ Text: "This is really scary.", Reply: "Don't be scared Melody.  Everything will be fine.", Domination: -1 },
 					{ Text: "You need better self-control.", Reply: "(She nods slowly.)  I know, Mother also told me that.", Domination: 1 },
+					{ Text: "This is really scary.", Reply: "Don't be scared Melody.  Everything will be fine.", Domination: -1 },
 					{ Text: "Maybe it's the Oracle in you.", Reply: "(She shrugs.)  I don't know, maybe you're right." },
 				]
 			},
@@ -412,20 +412,45 @@ var PlatformDialogData = [
 				Character: [{ Name: "Lucy", Status: "Armor", Pose: "Idle" }]
 			},
 			{ Text: "(As you enter the first floor, a guard greets you.)" },
-			{ Text: "Sorry little maid, you cannot come here.  We are expecting a prestige guest very soon." },
+			{ Text: "Sorry little maid, you cannot clean here.  We are expecting a prestige guest very soon." },
 			{
 				Character: [
 					{ Name: "Lucy", Status: "Armor", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				],
-				Text: "Go back upstairs.",
+				Text: "All maids must work upstairs.",
 				Answer: [
-					{ Text: "1", Reply: "1" },
-					{ Text: "2", Reply: "2" },
-					{ Text: "3", Reply: "3" },
-					{ Text: "4", Reply: "4" }
+					{ Text: "What prestige guest?", Reply: "Marchioness Camille of House Alister will be arriving shortly." },
+					{ Text: "I will not bother Marchioness Camille.", Reply: "Good, she doesn't want to questioned or bothered." },
+					{ Text: "Camille isn't prestigious.", Reply: "Do not be impolite!  Especially when she arrives." },
+					{ Text: "I need to clean the dungeon restraints.", Reply: "You're Melody aren't you?  We've been warned by Countess Isabella.", Goto: "End" }
 				]
-			}
+			},
+			{ 
+				Character: [{ Name: "Lucy", Status: "Armor", Pose: "Idle" }],
+				Text: "Marchioness Camille wants to do a full review of the guards when she arrives." 
+			},
+			{ Text: "It's quite unusual since she doesn't live here anymore." },
+			{ Text: "She's a fierce swordswoman as you might know, with a boiling demeanor." },
+			{ Text: "You don't want to be there when she comes for the review." },
+			{
+				Character: [
+					{ Name: "Lucy", Status: "Armor", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				],
+				Text: "Why did you come downstairs?",
+				Answer: [
+					{ Text: "I must clean the restraints.", Reply: "You're Melody aren't you?  We've been warned by Countess Isabella." },
+					{ Text: "I'm going to the dungeon.", Reply: "To clean the restraints?  We've been warned by Countess Isabella." },
+					{ Text: "Countess Isabella gave me a secret mission.", Reply: "(She laughs.)  It's not a secret.  You're here to clean restraints.  We've been warned by Countess Isabella." }
+				]
+			},
+			{
+				ID: "End",
+				Character: [{ Name: "Lucy", Status: "Armor", Pose: "Idle" }],
+				Text: "You may proceed.  Walk the hall to reach the dungeon."
+			},
+			{ Text: "(She starts to patrol the hallway.)" }
 		]
 	},
 	
@@ -481,22 +506,170 @@ var PlatformDialogData = [
 	},
 
 	{
-		Name: "IntroEdlaranBeforeCurse",
+		Name: "IntroEdlaranBeforeCurseStart",
+		Exit : function () { PlatformEventSet("EdlaranIntro"); PlatformLoadRoom(); },
 		Dialog: [
 			{
 				Background: "DungeonCell",
 				Character: [{ Name: "Edlaran", Status: "Chained", Pose: "Idle" }]
 			},
-			{ Text: "Hey Maid!  Can you help me?" },
+			{ Text: "Hey!  Hey maid!  Can you help me?" },
 			{
 				Text: "Can you unlock me?",
+				Answer: [
+					{ Text: "Why are you chained?", Reply: "For no reason.  I swear it's true!" },
+					{ Text: "You know you're a cute prisoner?", Reply: "(She blushes.)  Well thanks, I guess.", Domination: 1, Love: 1 },
+					{ Text: "There's too many rats in that dungeon.", Reply: "(She grumbles.)  That's not very kind!", Love: -2 },
+					{ Text: "This is cruel and inhumane.", Reply: "(She nods.)  That's very true girl.", Domination: -1, Love: 1 }
+				]
+			},
+			{ Text: "The manor guards jumped on me without any reason or warning." },
+			{ Text: "They chained me up and locked me in that cell." },
+			{
+				Text: "Release me before they come back.",
+				Answer: [
+					{ Text: "You must be lying.", Reply: "Fine!  I admit I was inside the manor without permission.", Love: -1 },
+					{ Text: "It's hard to believe.", Reply: "Alright, I was inside the manor without permission." },
+					{ Text: "The guards can be too strict.", Reply: "Yeah, simply because I was inside the manor without permission.", Love: 1 }
+				]
+			},
+			{ Text: "Is it a crime to enter a building without being invited?  Don't answer." },
+			{ Text: "These silly guards think I'm a thief, it's so unfair." },
+			{ 
+				Text: "They must be racist.",
+				Answer: [
+					{ Text: "Racist?  Why?", Reply: "(She wiggles her ears.)  Isn't it obvious?  I'm an elf.", Domination: -1 },
+					{ Text: "Elves have a bad reputation?", Reply: "I don't know, it's the first time I come here." },
+					{ Text: "It's not racism.  They enforce the law.", Reply: "(Sighs.)  Well the law is unfair then.", Domination: 1 },
+				]
+			},
+			{ Text: "I'm Edlaran by the way, a wood elf archer." },
+			{ Text: "I protect travellers, but we were attacked by zombies." },
+			{ Text: "I came here for help, but they wanted to take my bow, so I aimed for a guard." },
+			{ Text: "Is it a crime to threaten a guard?  Don't answer."},
+			{ Text: "So after an unsuccessful negotiation, they threw me in jail."},
+			{
+				Text: "Enough about me.  Who are you?",
+				Answer: [
+					{ Text: "I'm Melody, it's a pleasure to meet you.", Reply: "(She nods happily.)  Same here.", Love: 1 },
+					{ Text: "I'm Melody the manor maid.  (Do a curtsy.)", Reply: "You're a good maid.", Domination: -1 },
+					{ Text: "I'm Melody.", Reply: "Very good Melody." },
+					{ Text: "I'm Melody, remember that name little elf.", Reply: "(She gulps and nods.)  Yes Miss.", Domination: 1 },
+				]
+			},
+			{ Text: "Now that we know each other, can you help?" },
+			{
+				Text: "Will you unlock me?",
+				Answer: [
+					{ Text: "It's not my job.", Reply: "(She grumbles.)  Fine, go clean some furniture." },
+					{ Text: "I don't want trouble with the guards.", Reply: "(She sighs.)  I'll show you real trouble someday.", Domination: -1 },
+					{ Text: "I don't have the key.", Reply: "(She pouts.)  Thanks anyway.", Love: 1 },
+					{ Text: "Thieves must be punished.", Reply: "(She gets angry.)  I'm not a thief!", Domination: 1, Love: -1 }
+				]
+			},
+			{ Text: "(She gets grumpy and stops talking.)" },
+		]
+	},
+
+	{
+		Name: "IntroEdlaranBeforeCurseEnd",
+		Dialog: [
+			{
+				Background: "DungeonCell",
+				Character: [{ Name: "Edlaran", Status: "Chained", Pose: "Idle" }]
+			},
+			{ Text: "Have you changed your mind?" },
+			{
+				Text: "Will you unlock me?",
+				Answer: [
+					{ Text: "It's not my job.", Reply: "(She grumbles.)  Fine, go clean some furniture." },
+					{ Text: "I don't want trouble with the guards.", Reply: "(She sighs.)  I'll show you real trouble someday." },
+					{ Text: "I don't have the key.", Reply: "(She pouts.)  Thanks anyway." },
+					{ Text: "Thieves must be punished.", Reply: "(She gets angry.)  I'm not a thief!" }
+				]
+			},
+			{ Text: "(She gets grumpy and stops talking.)" },
+		]
+	},
+	
+	{
+		Name: "IntroEdlaranAfterCurseStart",
+		Exit : function () { PlatformEventSet("EdlaranCurseIntro"); PlatformLoadRoom(); },
+		Dialog: [
+			{
+				Background: "DungeonCell",
+				Character: [{ Name: "Edlaran", Status: "Chained", Pose: "Idle" }]
+			},
+			{ TextScript:  function () { return (PlatformEventDone("EdlaranIntro")) ? "Is it you Melody?  Are you a zombie?" :  "Hey!  I'm Edlaran, a wood elf, are you a zombie?"; } },
+			{
+				Text: "Talk to me maid.",
+				Answer: [
+					{ Text: "Don't be scared.  I'm not a zombie.", Reply: "Thanks a lot.  Something is very wrong.", Domination: 1 },
+					{ Text: "I'm fine, but the guards are going nuts.", Reply: "Yes, something is very wrong." },
+					{ Text: "UeeeehhgggAHAHAHA!  Just kidding.", Reply: "That's not funny!  Something is very wrong.", Love: -1 },
+				]
+			},
+			{ Text: "The guards have a dead look in their eyes, they only mumble." },
+			{ Text: "I've tried offering them some gold or a favor but they were not interested." },
+			{ Text: "Is it a crime to bribe a guard?  Don't answer." },
+			{
+				Text: "What is going on with them?",
+				Answer: [
+					{ Text: "They fallen for your pretty face.", Reply: "(She blushes.)  You sure pick your time to flirt.", Love: 1 },
+					{ Text: "Some magic is going on.", Reply: "You're probably right, but I don't know magic." },
+					{ Text: "I don't know, but I'm scared.", Reply: "I understand, this is scary indeed.", Domination: -1 },
+					{ Text: "Maybe they are undead.", Reply: "Yes, some kind of zombies, this is scary." },
+				]
+			},
+			{ Text: "At first, there was a loud woman scream." },
+			{ Text: "Then it went pitch black for a minute in here." },
+			{ 
+				Text: "What was that darkness?",
+				Answer: [
+					{ Text: "Whatever it was, it's a bad omen.", Reply: "Yes, something evil is brewing.", Domination: -1 },
+					{ Text: "It could be a solar eclipse.", Reply: "(She nods.)  Yes, it makes a lot of sense.", Love: 1 },
+					{ Text: "I will investigate it later.", Reply: "That's great to hear.", Domination: 1 },
+					{ Text: "I don't know what you're talking about.", Reply: "Don't pretend you did not see it.", Love: -1 },
+				]
+			},
+			{ Text: "It's dangerous to keep me here in chains.  I could be killed." },
+			{ Text: "If you find the key for my shackles, can you release me?" },
+			{ Text: "One of the guards must have that key.  I don't know which one." },
+			{ Text: "Please find the key and come back to rescue me.  I'll repay you." }
+		]
+	},
+
+	{
+		Name: "IntroEdlaranAfterCurseEnd",
+		Dialog: [
+			{
+				Background: "DungeonCell",
+				Character: [{ Name: "Edlaran", Status: "Chained", Pose: "Idle" }]
+			},
+			{ Text: "It's dangerous to keep me here in chains.  I could be killed." },
+			{ Text: "If you find the key for my shackles, can you release me?" },
+			{ Text: "One of the guards must have that key.  I don't know which one." },
+			{ Text: "Please find the key and come back to rescue me.  I'll repay you." }
+		]
+	},
+
+	{
+		Name: "EdlaranUnlock",
+		Dialog: [
+			{
+				Background: "DungeonCell",
+				Character: [{ Name: "Edlaran", Status: "Chained", Pose: "Idle" }]
+			},
+			{ Text: "Melody!  Do you have the key?" },
+			{
+				Text: "Will you unlock me?",
 				Answer: [
 					{ Text: "1", Reply: "1" },
 					{ Text: "2", Reply: "2" },
 					{ Text: "3", Reply: "3" },
-					{ Text: "4", Reply: "4" }
+					{ Text: "Not right now.  (Leave her.)", Script: function() { PlatformDialogExit(); } },
 				]
-			}
+			},
 		]
 	},
 
@@ -566,6 +739,7 @@ function PlatformDialogLoadPosition(Position) {
 		return;
 	}
 	PlatformDialogText = PlatformDialog.Dialog[Position].Text;
+	if (PlatformDialog.Dialog[Position].TextScript != null) PlatformDialogText = PlatformDialog.Dialog[Position].TextScript();
 	PlatformDialogAnswer = PlatformDialog.Dialog[Position].Answer;
 	PlatformDialogAnswerPosition = 0;
 	PlatformDialogReply = null;
@@ -755,5 +929,6 @@ function PlatformDialogExit() {
  * @returns {void} - Nothing
  */
 function PlatformDialogClick() {
-	PlatformDialogProcess();
+	if ((PlatformDialogAnswer == null) || (PlatformDialogReply != null) || MouseIn(1050, 695, 900, 60 + (PlatformDialogAnswer.length - 1) * 70))
+		PlatformDialogProcess();
 }

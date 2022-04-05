@@ -82,7 +82,7 @@ function PlatformIntroClick() {
 		PlatformDialogCharacter = JSON.parse(JSON.stringify(PlatformDialogCharacterTemplate));
 		PlatformEvent = [];
 		PlatformChar = [];
-		PlatformCreateCharacter("Melody", "Maid", true, 1000);
+		PlatformCreateCharacter("Melody", "Maid", 1000);
 		PlatformLoadRoom("BedroomMelody");
 		PlatformDialogStart("IntroMelody");
 	}
