@@ -321,16 +321,7 @@ function InventorySpankingToysActivityAllowed(C) {
  * @returns {string}
  */
 function InventorySpankingToysGetAudio(C) {
-	switch (InventorySpankingToysGetType(C)) {
-		case "Crop":
-		case "Flogger":
-		case "Cane":
-		case "HeartCrop":
-		case "Paddle":
-		case "WhipPaddle":
-		case "TennisRacket": return "SmackCrop";
-		case "Whip": return "WhipCrack";
-		case "CattleProd": return "Shocks";
-		default: return "";
-	}
+	const Type = InventorySpankingToysGetType(C);
+	const A = AssetGet(C.AssetFamily, "ItemHands", "SpankingToys" + Type);
+	return A && A.Audio;
 }
