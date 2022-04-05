@@ -932,15 +932,6 @@ function StruggleLockPickClick(C) {
 
 
 /**
-var StruggleLockPickOrder = null;
-var StruggleLockPickSet = null;
-var StruggleLockPickImpossiblePins = null;
-var StruggleLockPickProgressItem = null;
-var StruggleLockPickProgressOperation = "";
-var StruggleLockPickProgressSkill = 0;
-var StruggleLockPickProgressChallenge = 0;
-var StruggleLockPickProgressMaxTries = 0;
-var StruggleLockPickProgressCurrentTries = 0;
  * Draw the lockpicking dialog
  * @param {Character} C - The character for whom the lockpicking dialog is drawn. That can be the player or another character.
  * @returns {void} - Nothing
