@@ -1,5 +1,6 @@
 "use strict";
 
+/** @type ExtendedItemOption[] */
 var InventoryItemMouthFuturisticBallGagOptions = [
 	{
 		Name: "LightBall",
@@ -41,7 +42,7 @@ function InventoryItemMouthFuturisticHarnessBallGagLoad() {
 		if (DialogFocusItem.Property.AutoPunishUndoTimeSetting == null) DialogFocusItem.Property.AutoPunishUndoTimeSetting = 300000;
 		if (DialogFocusItem.Property.OriginalSetting == null) DialogFocusItem.Property.OriginalSetting = null;
 		if (DialogFocusItem.Property.ChatMessage == null) DialogFocusItem.Property.ChatMessage = true;
-		if (DialogFocusItem.Property.BlinkState == null) DialogFocusItem.Property.BlinkState = true;
+		if (DialogFocusItem.Property.BlinkState == null) DialogFocusItem.Property.BlinkState = 0;
 	}
 }
 

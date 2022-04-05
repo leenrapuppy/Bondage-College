@@ -3378,7 +3378,7 @@ var AssetFemale3DCG = [
 				HideItem: ["ClothLowerSkirt1", "ClothLowerSkirt2", "ClothLowerSkirt3", "ClothLowerTennisSkirt1", "ClothLowerGown2Skirt", "ClothLowerWaspie1", "ClothLowerWaspie2", "ClothLowerWaspie3", "ClothLowerLatexSkirt1", "ClothLowerLatexSkirt2", "ClothLowerTutu", "ClothLowerClothSkirt1", "ClothLowerChineseSkirt1", "ClothLowerAdmiralSkirt", "ClothLowerJeanSkirt", "ClothLowerPencilSkirt"],
 				SetPose: ["BackElbowTouch"],
 				Effect: ["Block", "Prone"],
-				Block: ["ItemNipples", "ItemNipplesPiercings", "ItemTorso", "ItemBreast", "ItemHands", "ItemVulva", "ItemButt", "ItemVulvsPiercings"],
+				Block: ["ItemNipples", "ItemNipplesPiercings", "ItemTorso", "ItemBreast", "ItemHands", "ItemVulva", "ItemButt", "ItemVulvaPiercings"],
 			},
 			{ Name: "HighSecurityStraitJacket", Value: 220, Priority: 25, Difficulty: 4, SelfBondage: 2, Time: 45, RemoveTime: 30, Random: false, AllowLock: true, DrawLocks: false, DefaultColor: ["#333", "#333", "#3e3e3e", "#3e3e3e"], Hide: ["Cloth", "ItemNipplesPiercings"], SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"],
 				Block: ["ItemNipples", "ItemNipplesPiercings", "ItemTorso", "ItemBreast", "ItemHands"],
@@ -4360,7 +4360,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "PlasticWrap", Value: 100, Difficulty: 4, Time: 30, RemoveTime: 25, BuyGroup: "PlasticWrap", Effect: ["BlockMouth", "GagLight"]},
 			{ Name: "FuturisticMuzzle", Category: ["SciFi"], Fetish: ["Metal"], Value: -1, Difficulty: 8, Time: 30, BuyGroup: "FuturisticPanelGag", Random: false, AllowLock: true, Audio: "FuturisticApply", FuturisticRecolor: true,
-				Effect: [ "BlockMouth"], Prerequisite: "GagFlat", Hide: ["Mouth", "ItemNoseNoseRing"], Extended: true, DrawLocks: false,
+				Effect: [ "BlockMouth"], Prerequisite: "GagFlat", Hide: ["Mouth"], HideItem: ["ItemNoseNoseRing"], Extended: true, DrawLocks: false,
 				Layer: [
 					{ Name: "Straps", HasType: false, AllowModuleTypes: ["h1"]},
 					{ Name: "Nose", HasType: false, AllowModuleTypes: ["n1"]},
@@ -4736,7 +4736,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "PlasticWrap", Value: 100, Difficulty: 4, Time: 30, RemoveTime: 25, BuyGroup: "PlasticWrap", Effect: ["BlockMouth", "GagLight"]},
 			{ Name: "FuturisticMuzzle", Category: ["SciFi"], Fetish: ["Metal"], Value: -1, Difficulty: 8, Time: 30, BuyGroup: "FuturisticPanelGag", Random: false, AllowLock: true, Audio: "FuturisticApply", FuturisticRecolor: true,
-				Effect: [ "BlockMouth"], Prerequisite: "GagFlat", Hide: ["Mouth", "ItemNoseNoseRing"], Block: ["ItemMouth"], Extended: true, DrawLocks: false,
+				Effect: [ "BlockMouth"], Prerequisite: "GagFlat", Hide: ["Mouth"], HideItem: ["ItemNoseNoseRing"], Block: ["ItemMouth"], Extended: true, DrawLocks: false,
 				Layer: [
 					{ Name: "Straps", HasType: false, AllowModuleTypes: ["h1"]},
 					{ Name: "Nose", HasType: false, AllowModuleTypes: ["n1"]},
@@ -5016,7 +5016,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "FuturisticMuzzle", Category: ["SciFi"], Fetish: ["Metal"], Priority: 42, Value: -1, Difficulty: 8, Time: 30, BuyGroup: "FuturisticPanelGag", Random: false, AllowLock: true, Audio: "FuturisticApply", FuturisticRecolor: true,
-				Effect: [ "BlockMouth"], Prerequisite: "GagFlat", Hide: ["Mouth", "ItemNoseNoseRing"], Block: ["ItemMouth", "ItemMouth2"], Extended: true, DrawLocks: false,
+				Effect: [ "BlockMouth"], Prerequisite: "GagFlat", Hide: ["Mouth"], HideItem: ["ItemNoseNoseRing"], Block: ["ItemMouth", "ItemMouth2"], Extended: true, DrawLocks: false,
 				Layer: [
 					{ Name: "Straps", HasType: false, AllowModuleTypes: ["h1"]},
 					{ Name: "Nose", HasType: false, AllowModuleTypes: ["n1"]},
@@ -5073,9 +5073,9 @@ var AssetFemale3DCG = [
 					{ Name: "Base", HasType: false},
 				]
 			},
-			{ Name: "InteractiveVisor", Category: ["SciFi"], Fetish: ["Metal"], Priority: 34, BuyGroup: "FuturisticVisor", Difficulty: 6, Value: 50, Time: 6, Random: false, AllowLock: true, Hide: ["ItemNoseNoseRing", "MaskFuturisticVisor"], FuturisticRecolor: true,
+			{ Name: "InteractiveVisor", Category: ["SciFi"], Fetish: ["Metal"], Priority: 34, BuyGroup: "FuturisticVisor", Difficulty: 6, Value: 50, Time: 6, Random: false, AllowLock: true, HideItem: ["ItemNoseNoseRing", "MaskFuturisticVisor"], FuturisticRecolor: true,
 				Effect: ["UseRemote"], Extended: true,  Audio: "FuturisticApply"},
-			{ Name: "FuturisticMask", Category: ["SciFi"], Fetish: ["Metal"], DefaultColor: ["#4040CB", "#FFFFFF", "#FFFFFF"], Priority: 41, BuyGroup: "FuturisticVisor", Difficulty: 7, Value: -1, Time: 7, Random: false, AllowLock: true, DrawLocks: false, Hide: ["ItemNoseNoseRing", "MaskFuturisticVisor"], FuturisticRecolor: true, FuturisticRecolorDisplay: true,
+			{ Name: "FuturisticMask", Category: ["SciFi"], Fetish: ["Metal"], DefaultColor: ["#4040CB", "#FFFFFF", "#FFFFFF"], Priority: 41, BuyGroup: "FuturisticVisor", Difficulty: 7, Value: -1, Time: 7, Random: false, AllowLock: true, DrawLocks: false, HideItem: ["ItemNoseNoseRing", "MaskFuturisticVisor"], FuturisticRecolor: true, FuturisticRecolorDisplay: true,
 				Effect: ["UseRemote", "BlockMouth"], Extended: true,  Audio: "FuturisticApply",
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNose"] ,
 				Layer: [
@@ -5084,7 +5084,7 @@ var AssetFemale3DCG = [
 					{ Name: "Lock", HasType: false, LockLayer: true, AllowTypes: ["LightTint", "", "HeavyTint"]},
 				]
 			},
-			{ Name: "InteractiveVRHeadset", Difficulty: 6, Value: 80, Time: 3, DefaultColor: ["Default", "Default"], Random: false, AllowLock: true, DrawLocks: false, Hide: ["ItemNoseNoseRing", "Mask", "Glasses"], FuturisticRecolor: true,
+			{ Name: "InteractiveVRHeadset", Difficulty: 6, Value: 80, Time: 3, DefaultColor: ["Default", "Default"], Random: false, AllowLock: true, DrawLocks: false, Hide: ["Mask", "Glasses"], HideItem: ["ItemNoseNoseRing"], FuturisticRecolor: true,
 				Effect: ["VR"], AllowEffect: ["BlindHeavy", "Prone", "VRAvatars", "HideRestraints", "KinkyDungeonParty"], Extended: true, AlwaysExtend: true, Audio: "FuturisticApply",
 				Layer: [
 					{ Name: "Body", HasType: false},
@@ -5735,7 +5735,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Vacbed", Fetish: ["Latex"], ParentGroup: "BodyUpper", Value: 200, Difficulty: 50, BuyGroup: "Vac", Priority: 36, SelfBondage: 3, Time: 10, Extended: true,
 				Prerequisite: ["NotKneeling", "AllFours", "NotSuspended", "NotHogtied", "NotKneelingSpread", "NoItemArms", "LegsOpen", "NoItemHands", "NoItemLegs", "NoHorse", "NoItemFeet"],
-				Hide: ["ItemNeckAccessories", "ItemNeckRestraints", "", "ClothAccessory", "Bracelet", "Garters"],
+				Hide: ["ItemNeckAccessories", "ItemNeckRestraints", "ClothAccessory", "Bracelet", "Garters"],
 				SetPose: ["Yoked", "BaseLower"],
 				Effect: ["Prone", "Freeze", "Block", "Mounted", "IsPlugged"],
 				HideItem: ["ShoesFlippers"],
@@ -5988,7 +5988,7 @@ var AssetFemale3DCG = [
 				Prerequisite: ["NotSuspended", "NotHogtied", "AllFours"],
 				SetPose: ["BackBoxTie", "BaseLower"],
 				Effect: ["Freeze", "Block", "Prone", "KneelFreeze"],
-				Hide: ["BodyLower", "Hands", "Cloth", "ClothLower", "SuitLower", "Bra", "Corset", "Panties", "Socks", "RightAnklet", "LeftAnklet", "Garters", "Shoes", "Gloves", "Bracelet", "TailStrap", "ItemFeet", "ItemLegs", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemPelvis", "ItemTorso", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemArms", "ItemHands", "ItemBoots"],
+				Hide: ["BodyLower", "Hands", "Cloth", "ClothLower", "SuitLower", "Bra", "Corset", "Panties", "Socks", "RightAnklet", "LeftAnklet", "Garters", "Shoes", "Gloves", "Bracelet", "TailStraps", "ItemFeet", "ItemLegs", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemPelvis", "ItemTorso", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemArms", "ItemHands", "ItemBoots"],
 				Block: ["ItemFeet", "ItemLegs", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemPelvis", "ItemTorso", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "ItemArms", "ItemHands", "ItemBoots"],
 				Layer: [
 					{ Name: "Snow", AllowColorize: false },

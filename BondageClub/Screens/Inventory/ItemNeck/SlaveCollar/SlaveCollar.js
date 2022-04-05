@@ -4,6 +4,7 @@ var InventoryItemNeckSlaveCollarColor = "Default";
 var InventoryItemNeckSlaveCollarOffset = 0;
 
 // Defines all the slave collar models
+/** @type {(ExtendedItemOption & { Image: string })[]} */
 var InventoryItemNeckSlaveCollarTypes = [
 	{
 		Name: "",

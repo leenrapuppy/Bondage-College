@@ -5,6 +5,7 @@ var normal_yoffset = 0;
 var large_yoffset = 4;
 var xlarge_yoffset = 7;
 
+/** @type ExtendedItemOption[] */
 var InventoryItemBreastFuturisticBraOptions = [
 	{
 		Name: "Show",
