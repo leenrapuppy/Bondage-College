@@ -183,6 +183,10 @@ function StruggleProgressAutoDraw(C, Offset) {
 	}
 }
 
+/**
+ * Struggle minigame helper for checking and performing completion actions
+ * @param {Character} C - The character to check for progress.
+ */
 function StruggleProgressCheckEnd(C) {
 	// If the operation is completed
 	if (StruggleProgress >= 100) {
@@ -193,6 +197,7 @@ function StruggleProgressCheckEnd(C) {
 		// Removes the item & associated items if needed, then wears the new one
 		InventoryRemove(C, C.FocusGroup.Name);
 		if (StruggleProgressNextItem != null) InventoryWear(C, StruggleProgressNextItem.Asset.Name, StruggleProgressNextItem.Asset.Group.Name, (DialogColorSelect == null) ? "Default" : DialogColorSelect, SkillGetWithRatio("Bondage"), Player.MemberNumber);
+		let action = null;
 
 		// The player can use another item right away, for another character we jump back to her reaction
 		if (C.ID == 0) {
@@ -203,6 +208,7 @@ function StruggleProgressCheckEnd(C) {
 				StruggleProgress = -1;
 				DialogColor = null;
 			}
+			action = StruggleProgressCurrentMinigame + "Success"
 		} else {
 			if (StruggleProgressNextItem != null) SkillProgress("Bondage", StruggleProgressSkill);
 			if (((StruggleProgressNextItem == null) || !StruggleProgressNextItem.Asset.Extended) && (CurrentScreen != "ChatRoom")) {
@@ -214,9 +220,11 @@ function StruggleProgressCheckEnd(C) {
 		// Check to open the extended menu of the item.  In a chat room, we publish the result for everyone
 		if ((StruggleProgressNextItem != null) && StruggleProgressNextItem.Asset.Extended) {
 			DialogInventoryBuild(C);
-			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, false);
+			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, false, action);
 			DialogExtendItem(InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name));
-		} else ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true);
+		} else {
+			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true, action);
+		}
 
 		// Reset the the character's position
 		if (CharacterAppearanceForceUpCharacter == C.MemberNumber) {
