@@ -1255,9 +1255,8 @@ function StruggleLockPickProgressStart(C, Item) {
 				StruggleLockPickOrder = conv;
 			}
 
-		var PickingImpossible = false;
 		if (S < -6 && LockPickingImpossible) {
-			PickingImpossible = true; // if picking is impossible, then some pins will never set
+			// if picking is impossible, then some pins will never set
 			StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-1]);
 			if (NumPins >= 6) StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-2]);
 			if (NumPins >= 8) StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-3]);
