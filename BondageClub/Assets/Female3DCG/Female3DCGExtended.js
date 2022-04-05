@@ -292,11 +292,9 @@ var AssetFemale3DCGExtended = {
 						Name: "DotsRight",
 						Property: {Type: "DotsRight",}
 					},
-					
-					
 				],
 			},
-		}, //Glitter		
+		}, //Glitter
 	}, // ClothAccessory
 	ItemBreast: {
 		Ribbons: {
@@ -841,7 +839,7 @@ var AssetFemale3DCGExtended = {
 							Type: null,
 							Difficulty: 0,
 							Effect: [],
-							SetPose: null,
+							SetPose: [],
 							SelfUnlock: true,
 						},
 					},
@@ -927,7 +925,7 @@ var AssetFemale3DCGExtended = {
 							Type: null,
 							Difficulty: 0,
 							Effect: [],
-							SetPose: null,
+							SetPose: [],
 							SelfUnlock: true,
 						},
 					},
@@ -3710,7 +3708,6 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // OTNPlugGag
-		
 		PonyGag: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
@@ -3719,11 +3716,11 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Gag", Key: "g",
 						Options:[
-							{ Property: { Effect: [] }, },  //g0 - Regular BitGag
-							{ Property: { Effect: ["OpenMouth"], OverrideAssetEffect: true },}, //g1 - No Gag
-							{ Property: { Effect: ["BlockMouth", "GagMedium"], OverrideAssetEffect: true },}, //g2 - Thick BitGag
-							{ Property: { Effect: ["BlockMouth", "GagHeavy"], OverrideAssetEffect: true },}, //g3 - Tongue Depresor
-							{ Property: { Effect: ["BlockMouth", "GagVeryHeavy"], Hide: ["Mouth"], OverrideAssetEffect: true },}, //g4 - DildoGag		
+							{ Property: { Effect: ["BlockMouth", "GagLight"] },},  //g0 - Regular BitGag
+							{ Property: { Effect: ["OpenMouth"] },}, //g1 - No Gag
+							{ Property: { Effect: ["BlockMouth", "GagMedium"] },}, //g2 - Thick BitGag
+							{ Property: { Effect: ["BlockMouth", "GagHeavy"] },}, //g3 - Tongue Depresor
+							{ Property: { Effect: ["BlockMouth", "GagVeryHeavy"], Hide: ["Mouth"] },}, //g4 - DildoGag
 						],
 					},
 					{
@@ -3738,8 +3735,7 @@ var AssetFemale3DCGExtended = {
 							{}, //p6 - PanelHeart
 							{}, //p7 - PanelHorse
 							{}, //p8 - PanelTriskel
-							{}, //p9 - PanelPentacle					
-							
+							{}, //p9 - PanelPentacle
 						],
 					},
 					{
@@ -3749,7 +3745,6 @@ var AssetFemale3DCGExtended = {
 							{ Property: { Effect: ["Leash"] },}, //r1 - Reins
 							{ Property: { Effect: ["Leash"] },}, //r2 - Rope
 							{ Property: { Effect: ["Freeze", "IsChained"] },}, //r3 - Pole
-
 						],
 					},
 					{
@@ -3760,14 +3755,13 @@ var AssetFemale3DCGExtended = {
 							{Property: { Hide: ["HairFront"]},}, //t2 - Mane Left
 							{Property: { Hide: ["HairFront"]},}, //t3 - Mane Right
 							{Property: { Hide: ["HairFront"]},}, //t4 - Mohawk
-							
 						],
 					},
 					{
 						Name: "Extra", Key: "e",
 						Options:[
 							{}, //e0 - None
-							{ Property: {Dificulty: 7}}, //e1 - ExtraStraps
+							{ Property: {Difficulty: 7}}, //e1 - ExtraStraps
 							{}, //e2 - Flags
 						],
 					},
@@ -3789,7 +3783,6 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // PonyGag
-		
 	}, // ItemMouth
 	ItemMouth2: {
 		ClothGag: {
@@ -4000,11 +3993,9 @@ var AssetFemale3DCGExtended = {
 						Name: "DotsRight",
 						Property: {Type: "DotsRight",}
 					},
-					
-					
 				],
 			},
-		}, //Glitter		
+		}, //Glitter
 	}, // Mask
 	ItemLegs: {
 		DuctTape: {
@@ -4323,7 +4314,7 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "None",
 						Property: {
-							Type: null, SetPose: null, Difficulty: null, Effect: null, FreezeActivePose: [],
+							Type: null, SetPose: [], Difficulty: 0, Effect: [], FreezeActivePose: [],
 						}
 					},
 					{
@@ -4361,7 +4352,7 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "None",
 						Property: {
-							Type: null, SetPose: null, Difficulty: null, Effect: null, FreezeActivePose: [],
+							Type: null, SetPose: [], Difficulty: 0, Effect: [], FreezeActivePose: [],
 						}
 					},
 					{
@@ -4405,7 +4396,7 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: null,
 							Difficulty: 0,
-							Hide: null,
+							Hide: [],
 							SetPose: ["LegsClosed"],
 						},
 					},
@@ -4626,7 +4617,7 @@ var AssetFemale3DCGExtended = {
 						Name: "OpenBack",
 						Property: {
 							Type: null,
-							Block: null,
+							Block: [],
 						},
 					},
 					{

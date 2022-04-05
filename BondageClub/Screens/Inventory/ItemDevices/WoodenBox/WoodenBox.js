@@ -162,7 +162,7 @@ function InventoryItemDevicesWoodenBoxExit() {
  * @returns {void} - Nothing
  */
 function InventoryItemDevicesWoodenBoxSetOpacity(property, opacity) {
-	if (opacity !== property.opacity) property.Opacity = opacity;
+	if (opacity !== property.Opacity) property.Opacity = opacity;
 	if (!Array.isArray(property.Effect)) property.Effect = [];
 	const transparent = property.Opacity < 0.15;
 	const effectsToApply = transparent ? ["Prone", "Enclose", "Freeze"] : ["Prone", "Enclose", "BlindNormal", "GagLight", "Freeze"];

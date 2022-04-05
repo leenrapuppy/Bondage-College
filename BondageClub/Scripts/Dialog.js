@@ -1791,6 +1791,22 @@ function DialogFindSubMenu(MenuName) {
 }
 
 /**
+ * Finds and sets a facial expression group. The expression sub menu has to be already opened.
+ * @param {string} The name of the expression group, see XXX.
+ * @returns {boolean} True, when the expression group was found and opened. False otherwise and nothing happens.
+ */
+function DialogFindFacialExpressionMenuGroup(ExpressionGroup) {
+	if (DialogSelfMenuSelected.Name != "Expression") return false;
+	if (!DialogFacialExpressions || !DialogFacialExpressions.length) DialogFacialExpressionsBuild();
+	let I = DialogFacialExpressions.findIndex(expr => expr.Group == ExpressionGroup);
+	if (I != -1) {
+		DialogFacialExpressionsSelected = I;
+		if (DialogExpressionColor != null) ItemColorSaveAndExit();
+		return true;
+	}
+	return false;
+}
+/**
  * Displays the given text for 5 seconds
  * @param {string} NewText - The text to be displayed
  * @returns {void} - Nothing

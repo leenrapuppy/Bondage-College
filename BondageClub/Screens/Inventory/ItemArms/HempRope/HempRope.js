@@ -1,5 +1,6 @@
 "use strict";
 
+/** @type ExtendedItemOption[] */
 var InventoryItemArmsHempRopeOptions = [
 	{
 		Name: "WristTie",

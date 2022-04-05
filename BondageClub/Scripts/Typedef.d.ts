@@ -74,6 +74,96 @@ type VibratorModeState = "Default" | "Deny" | "Orgasm" | "Rest";
 
 type VibratorRemoteAvailability = "Available" | "NoRemote" | "NoLoversRemote" | "RemotesBlocked" | "CannotInteract" | "NoAccess" | "InvalidItem";
 
+type EffectName =
+	"Freeze" | "Prone" | "Block" | "Mounted" | "KneelFreeze" | "ForceKneel" | "BlockKneel" |
+
+	"CuffedFeet" | "CuffedLegs" | "CuffedArms" | "IsChained" | "FixedHead" |
+
+	"Shackled" | "Tethered" | "Enclose" | "OneWayEnclose" | "OnBed" | "Lifted" |
+
+	"Slow" | "FillVulva" | "IsPlugged" |
+
+	"Egged" | "Vibrating" |
+
+	"Edged" | "DenialMode" | "RuinOrgasms" |
+
+	"Remote" | "UseRemote" | "BlockRemotes" |
+
+	"Lock" | "NotSelfPickable" |
+
+	"Chaste" | "BreastChaste" |
+
+	"Leash" | "CrotchRope" |
+
+	"ReceiveShock" | "TriggerShock" |
+
+	"OpenPermission" | "OpenPermissionArm" | "OpenPermissionLeg" | "OpenPermissionChastity" |
+
+	"BlockMouth" | "OpenMouth" |
+
+	"GagVeryLight" | "GagEasy" | "GagLight" | "GagNormal" | "GagMedium" | "GagHeavy" | "GagVeryHeavy" | "GagTotal" | "GagTotal2" |
+
+	"BlindLight" | "BlindNormal" | "BlindHeavy" |
+	"DeafLight" | "DeafNormal" | "DeafHeavy" | "DeafTotal" |
+
+	"VR" | "VRAvatars" | "KinkyDungeonParty" |
+
+	"LightBall" |
+
+	"RegressedTalk" |
+
+	"HideRestraints" |
+
+	"Unlock-MetalPadlock" | "Unlock-OwnerPadlock" | "Unlock-OwnerTimerPadlock" |
+	"Unlock-LoversPadlock" | "Unlock-LoversTimerPadlock" |
+	"Unlock-MistressPadlock" |"Unlock-MistressTimerPadlock" |
+	"Unlock-PandoraPadlock" | "Unlock-MetalCuffs" | "Unlock-" |
+
+	""
+;
+
+type AssetGroupItemName =
+	'ItemAddon' | 'ItemArms' | 'ItemBoots' | 'ItemBreast' | 'ItemButt' |
+	'ItemDevices' | 'ItemEars' | 'ItemFeet' | 'ItemHands' | 'ItemHead' |
+	'ItemHood' | 'ItemLegs' | 'ItemMisc' | 'ItemMouth' | 'ItemMouth2' |
+	'ItemMouth3' | 'ItemNeck' | 'ItemNeckAccessories' | 'ItemNeckRestraints' |
+	'ItemNipples' | 'ItemNipplesPiercings' | 'ItemNose' | 'ItemPelvis' |
+	'ItemTorso' | 'ItemVulva' | 'ItemVulvaPiercings' |
+
+	'ItemHidden' /* TODO: investigate, not a real group */
+;
+
+type AssetGroupBodyName =
+	'Blush' | 'BodyLower' | 'BodyUpper' | 'Bra' | 'Bracelet' | 'Cloth' |
+	'ClothAccessory' | 'ClothLower' | 'Corset' | 'Emoticon' | 'Eyebrows' |
+	'Ears' | 'Eyes' | 'Eyes2' | 'Fluids' | 'Garters' | 'Glasses' | 'Gloves' |
+	'HairAccessory1' | 'HairAccessory2' | 'HairAccessory3' | 'HairBack' |
+	'HairFront' | 'Hands' | 'Hat' | 'Head' | 'Height'  | 'LeftAnklet' | 'Mask' |
+	'Mouth' | 'Necklace' | 'Nipples' | 'Panties' | 'Pussy' | 'RightAnklet' |
+	'Shoes' | 'Socks' | 'Suit' | 'SuitLower' | 'TailStraps' | 'Wings'
+;
+
+type AssetGroupName = AssetGroupBodyName | AssetGroupItemName;
+
+type AssetPoseName =
+	'AllFours' | 'BackBoxTie' | 'BackCuffs' | 'BackElbowTouch' | 'BaseLower' |
+	'BaseUpper' | 'Hogtied' | 'Horse' | 'Kneel' | 'KneelingSpread' | 'LegsClosed' |
+	'LegsOpen' | 'OverTheHead' | 'Spread' | 'Suspension' | 'SuspensionHogtied' |
+	'TapedHands' | 'Yoked' |
+
+	/* FIXME: Those are pose categories */
+	'BodyUpper' | 'BodyLower'
+;
+
+type AssetLockType =
+	"CombinationPadlock" | "ExclusivePadlock" | "HighSecurityPadlock" |
+	"IntricatePadlock" | "LoversPadlock" | "LoversTimerPadlock" |
+	"MetalPadlock" | "MistressPadlock" | "MistressTimerPadlock" |
+	"OwnerPadlock" | "OwnerTimerPadlock" | "PandoraPadlock" |
+	"PasswordPadlock" | "SafewordPadlock" | "TimerPadlock" |
+	"TimerPasswordPadlock"
+;
+
 //#endregion
 
 //#region index.html
@@ -916,9 +1006,149 @@ interface NPCTrait {
 
 //#region Extended items
 
-interface ItemProperties {
-	[key: string]: any;
+/**
+ * Base properties for extended items
+ *
+ * Those are the properties the main game code enforces.
+ */
+interface ItemPropertiesBase {
+	Type?: string | null;
+	Expression?: string;
+	Difficulty?: number;
+	OverrideHeight?: { Height: number; Priority: number; HeightRatioProportion?: number; };
+	HeightModifier?: number;
+	OverridePriority?: unknown;
+	DefaultColor?: string;
+
+	AllowActivity?: string[];
+	AllowActivityOn?: AssetGroupItemName[];
+
+	/** Items hidden by this one */
+	HideItem?: string[];
+	HideItemExclude?: string[];
+	Hide?: AssetGroupName[];
+
+	/** The groups that this item blocks */
+	Block?: AssetGroupItemName[];
+
+	Effect?: EffectName[] | ((arg: number) => EffectName[]);
+	OverrideAssetEffect?: boolean;
+
+	/* Pose-related properties */
+
+	SetPose?: AssetPoseName[];
+	AllowActivePose?: AssetPoseName[];
+	AllowPose?: AssetPoseName[];
+	WhitelistActivePose?: AssetPoseName[];
+	FreezeActivePose?: AssetPoseName[];
 }
+
+/**
+ * Custom properties for extended items
+ *
+ * Those are properties that are asset-specific, so the handling might be done
+ * per-item.
+ */
+interface ItemPropertiesCustom {
+	ItemMemberNumber?: number;
+
+	Mode?: unknown;
+	Intensity?: (() => number) | number;
+	State?: unknown;
+
+	RemoveTimer?: unknown;
+	Password?: string;
+	LockPickSeed?: string;
+	CombinationNumber?: string;
+	LockMemberNumber?: number | string;
+	MemberNumber?: number;
+	MemberNumberListKeys?: unknown;
+	AllowLock?: boolean;
+	SelfUnlock?: boolean;
+	LockedBy?: AssetLockType;
+	RemoveItem?: boolean;
+
+	InflateLevel?: number;
+
+	SuctionLevel?: number;
+
+	/** 1st line of text for user-entered text data */
+	Text?: string;
+	/** 2nd line of text for user-entered text data */
+	Text2?: string;
+
+	LockButt?: boolean;
+
+	/* Futuristic Set open permissions */
+
+	OpenPermission?: boolean;
+	OpenPermissionArm?: boolean;
+	OpenPermissionLeg?: boolean;
+	OpenPermissionChastity?: boolean;
+
+	/** The futuristic bra's heart rate value */
+	HeartRate?: number;
+	/** Is the futuristic bra's heart icon shown */
+	HeartIcon?: boolean;
+
+	/* Futuristic gag & panel gag settings */
+	AutoPunish?: number;
+	AutoPunishUndoTime?: number;
+	AutoPunishUndoTimeSetting?: number;
+	OriginalSetting?: "Padded" | "LightBall" | "Ball" | "Plug";
+	ChatMessage?: boolean;
+	BlinkState?: number;
+	Option?: ExtendedItemOption;
+
+	BlockRemotes?: boolean;
+
+	/* Futuristic chastity settings */
+
+	PunishStruggle?: boolean;
+	PunishStruggleOther?: boolean;
+	PunishOrgasm?: boolean;
+	PunishStandup?: boolean;
+	PunishSpeech?: number;
+	PunishRequiredSpeech?: number;
+	PunishRequiredSpeechWord?: string;
+	PunishProhibitedSpeech?: number;
+	PunishProhibitedSpeechWords?: string;
+	NextShockTime?: number;
+
+	PublicModeCurrent?: number;
+	PublicModePermission?: number;
+
+	/** The futuristic vibrator's trigger words */
+	TriggerValues?: string;
+	AccessMode?: string;
+
+	/* Pleasure panties settings */
+	ShockLevel?: number;
+	LockCrotch?: boolean;
+	OrgasmLock?: number;
+
+	/** The number of inserted beads */
+	InsertedBeads?: number;
+
+	/** Whether the item displays a chat message or not */
+	ShowText?: boolean;
+
+	/** How sensitive the item is to whatever its reacting to */
+	Sensitivity?: number;
+
+	/** The asset's draw opacity */
+	Opacity?: number;
+
+	CustomBlindBackground?: string;
+
+	/** Number of times the item was triggered; often used by shock collars */
+	TriggerCount?: number;
+
+	/** Number of times the suitcase got cracked */
+	Iterations?: number;
+}
+
+interface ItemProperties extends ItemPropertiesBase, ItemPropertiesCustom {}
 
 /**
  * An object containing the extended item definition for an asset.

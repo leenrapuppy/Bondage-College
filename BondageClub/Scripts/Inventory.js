@@ -699,7 +699,7 @@ function InventoryGroupIsBlocked(C, GroupName, Activity) {
 /**
 * Returns TRUE if an item has a specific effect
 * @param {Item} Item - The item from appearance that must be validated
-* @param {string} [Effect] - The name of the effect to validate, can be undefined to check for any effect
+* @param {EffectName} [Effect] - The name of the effect to validate, can be undefined to check for any effect
 * @param {boolean} [CheckProperties=true] - If properties should be checked (defaults to `true`)
 * @returns {boolean} `true` if the effect is on the item
 */
@@ -907,7 +907,7 @@ function InventoryLock(C, Item, Lock, MemberNumber, Update = true) {
 				if (Item.Property.Effect.indexOf("Lock") < 0) Item.Property.Effect.push("Lock");
 
 				if (!Item.Property.MemberNumberListKeys && Lock.Asset.Name == "HighSecurityPadlock") Item.Property.MemberNumberListKeys = "" + MemberNumber;
-				Item.Property.LockedBy = Lock.Asset.Name;
+				Item.Property.LockedBy = /** @type AssetLockType */(Lock.Asset.Name);
 				if (MemberNumber != null) Item.Property.LockMemberNumber = MemberNumber;
 				if (Update) {
 					if (Lock.Asset.RemoveTimer > 0) TimerInventoryRemoveSet(C, Item.Asset.Group.Name, Lock.Asset.RemoveTimer);
