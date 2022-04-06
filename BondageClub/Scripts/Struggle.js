@@ -38,6 +38,16 @@ var StruggleProgressLastKeyPress = 0;
 var StruggleProgressChallenge = 0;
 
 /**
+ * The struggle minigame progress
+ *
+ * -1 means there's no game running. 0 and StruggleProgressCurrentMinigame
+ * indicates the player hasn't selected a game yet.
+ *
+ * @type {number}
+ */
+let StruggleProgress = -1;
+
+/**
  * The minigame currently running
  * @type {"Strength" | "Flexibility" | "Dexterity" | ""}
  */

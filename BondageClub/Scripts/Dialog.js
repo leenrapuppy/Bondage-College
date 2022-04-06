@@ -2,7 +2,6 @@
 var DialogText = "";
 var DialogTextDefault = "";
 var DialogTextDefaultTimer = -1;
-var StruggleProgress = -1;
 var DialogColor = null;
 var DialogExpressionColor = null;
 var DialogColorSelect = null;
