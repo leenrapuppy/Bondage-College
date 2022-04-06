@@ -28,11 +28,6 @@ var StruggleLockPickTotalTries = 0;
 var StruggleProgressStruggleCount = 0;
 var StruggleProgressAuto = 0;
 var StruggleProgressOperation = "...";
-
-/** @type {Item | null} */
-var StruggleProgressPrevItem = null;
-/** @type {Item | null} */
-var StruggleProgressNextItem = null;
 var StruggleProgressSkill = 0;
 var StruggleProgressLastKeyPress = 0;
 var StruggleProgressChallenge = 0;
@@ -57,13 +52,13 @@ var StruggleProgressCurrentMinigame = "";
  * The item worn at the beginning of the minigame
  * @type {Item | null}
  */
-var StruggleProgressChoosePrevItem = null;
+var StruggleProgressPrevItem = null;
 
 /**
  * The item that should be worn at the end of the minigame
  * @type {Item | null}
  */
-var StruggleProgressChooseNextItem = null;
+var StruggleProgressNextItem = null;
 
 // For flexibility
 var StruggleProgressFlexCircles = [];
@@ -92,27 +87,27 @@ function StruggleDrawStruggleProgress(C) {
 	else if (StruggleProgressCurrentMinigame == "Dexterity") StruggleDrawDexterityProgress(C);
 
 	else {
-		if ((StruggleProgressChoosePrevItem != null) && (StruggleProgressChooseNextItem != null)) {
-			DrawAssetPreview(1200, 150, StruggleProgressChoosePrevItem.Asset, { Craft: StruggleProgressChoosePrevItem.Craft });
-			DrawAssetPreview(1575, 150, StruggleProgressChooseNextItem.Asset, { Craft: StruggleProgressChooseNextItem.Craft });
-		} else DrawAssetPreview(1387, 150, (StruggleProgressChoosePrevItem != null) ? StruggleProgressChoosePrevItem.Asset : StruggleProgressChooseNextItem.Asset, { Craft: (StruggleProgressChoosePrevItem != null) ? StruggleProgressChoosePrevItem.Craft : StruggleProgressChooseNextItem.Craft });
+		if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null)) {
+			DrawAssetPreview(1200, 150, StruggleProgressPrevItem.Asset, { Craft: StruggleProgressPrevItem.Craft });
+			DrawAssetPreview(1575, 150, StruggleProgressNextItem.Asset, { Craft: StruggleProgressNextItem.Craft });
+		} else DrawAssetPreview(1387, 150, (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Asset : StruggleProgressNextItem.Asset, { Craft: (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Craft : StruggleProgressNextItem.Craft });
 
 
 		DrawText(DialogFindPlayer("ChooseStruggleMethod"), 1500, 550, "White", "Black");
 
-		if (InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Strong")) DrawRect(1387-300, 600, 225, 275, "Pink");
+		if (InventoryCraftPropertyIs(StruggleProgressPrevItem, "Strong")) DrawRect(1387-300, 600, 225, 275, "Pink");
 		else if (MouseIn(1387-300, 600, 225, 275)) DrawRect(1387-300, 600, 225, 275, "aqua");
 		else DrawRect(1387-300, 600, 225, 275, "white");
 		DrawImageResize("Icons/Struggle/Strength.png", 1389-300, 602, 221, 221);
 		DrawTextFit(DialogFindPlayer("Strength"), 1500-300, 850, 221, "black");
 
-		if (InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Flexible")) DrawRect(1387, 600, 225, 275, "Pink");
+		if (InventoryCraftPropertyIs(StruggleProgressPrevItem, "Flexible")) DrawRect(1387, 600, 225, 275, "Pink");
 		else if (MouseIn(1387, 600, 225, 275)) DrawRect(1387, 600, 225, 275, "aqua");
 		else DrawRect(1387, 600, 225, 275, "white");
 		DrawImageResize("Icons/Struggle/Flexibility.png", 1389, 602, 221, 221);
 		DrawTextFit(DialogFindPlayer("Flexibility"), 1500, 850, 221, "black");
 
-		if (InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Nimble")) DrawRect(1387+300, 600, 225, 275, "Pink");
+		if (InventoryCraftPropertyIs(StruggleProgressPrevItem, "Nimble")) DrawRect(1387+300, 600, 225, 275, "Pink");
 		else if (MouseIn(1387+300, 600, 225, 275)) DrawRect(1387+300, 600, 225, 275, "aqua");
 		else DrawRect(1387+300, 600, 225, 275, "white");
 		DrawImageResize("Icons/Struggle/Dexterity.png", 1389+300, 602, 221, 221);
@@ -183,12 +178,12 @@ function StruggleClick() {
 	} else if (StruggleProgressCurrentMinigame == "Dexterity") {
 		StruggleDexterity();
 	} else {
-		if (MouseIn(1387-300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Strong")) {
-			StruggleStrengthStart(Player, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
-		} else if (MouseIn(1387, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Flexible")) {
-			StruggleFlexibilityStart(Player, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
-		} else if (MouseIn(1387+300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Nimble")) {
-			StruggleDexterityStart(Player, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
+		if (MouseIn(1387-300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressPrevItem, "Strong")) {
+			StruggleStrengthStart(Player, StruggleProgressPrevItem, StruggleProgressNextItem);
+		} else if (MouseIn(1387, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressPrevItem, "Flexible")) {
+			StruggleFlexibilityStart(Player, StruggleProgressPrevItem, StruggleProgressNextItem);
+		} else if (MouseIn(1387+300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressPrevItem, "Nimble")) {
+			StruggleDexterityStart(Player, StruggleProgressPrevItem, StruggleProgressNextItem);
 		}
 	}
 }
@@ -208,8 +203,8 @@ function StruggleClick() {
  */
 function StruggleProgressStart(C, PrevItem, NextItem) {
 	ChatRoomStatusUpdate("Struggle");
-	StruggleProgressChoosePrevItem = PrevItem;
-	StruggleProgressChooseNextItem = NextItem;
+	StruggleProgressPrevItem = PrevItem;
+	StruggleProgressNextItem = NextItem;
 	StruggleProgressCurrentMinigame = "";
 	StruggleProgress = 0;
 	DialogMenuButtonBuild(C);
@@ -217,7 +212,7 @@ function StruggleProgressStart(C, PrevItem, NextItem) {
 			&& (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem))
 			&& ((Player.CanInteract() && !InventoryItemHasEffect(PrevItem, "Mounted", true))
 				|| StruggleStrengthGetDifficulty(C, PrevItem, NextItem).auto >= 0))) {
-		StruggleStrengthStart(C, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
+		StruggleStrengthStart(C, StruggleProgressPrevItem, StruggleProgressNextItem);
 	}
 }
 
@@ -235,8 +230,8 @@ function StruggleProgressAutoDraw(C, Offset) {
 	// Draw one or both items
 	if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null)) {
 		DrawAssetPreview(1200, 250 + Offset, StruggleProgressPrevItem.Asset, { Craft: StruggleProgressPrevItem.Craft });
-		DrawAssetPreview(1575, 250 + Offset, StruggleProgressNextItem.Asset, { Craft: StruggleProgressChooseNextItem.Craft });
-	} else DrawAssetPreview(1387, 250 + Offset, (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Asset : StruggleProgressNextItem.Asset, { Craft: (StruggleProgressChoosePrevItem != null) ? StruggleProgressChoosePrevItem.Craft : StruggleProgressChooseNextItem.Craft });
+		DrawAssetPreview(1575, 250 + Offset, StruggleProgressNextItem.Asset, { Craft: StruggleProgressNextItem.Craft });
+	} else DrawAssetPreview(1387, 250 + Offset, (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Asset : StruggleProgressNextItem.Asset, { Craft: (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Craft : StruggleProgressNextItem.Craft });
 
 	// Add or subtract to the automatic progression, doesn't move in color picking mode
 	StruggleProgress = StruggleProgress + StruggleProgressAuto;
