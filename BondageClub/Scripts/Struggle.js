@@ -1,11 +1,14 @@
 "use strict";
 var StruggleLockPickItem = null;
-/** @type number[] */
+/** @type {number[]} */
 var StruggleLockPickOrder = null;
+/** @type {boolean[]} */
 var StruggleLockPickSet = null;
+/** @type {boolean[]} */
 var StruggleLockPickSetFalse = null;
 var StruggleLockPickOffset = null;
 var StruggleLockPickOffsetTarget = null;
+/** @type {number[]} */
 var StruggleLockPickImpossiblePins = null;
 var StruggleLockPickProgressItem = null;
 var StruggleLockPickProgressOperation = "";
@@ -34,11 +37,22 @@ var StruggleProgressSkill = 0;
 var StruggleProgressLastKeyPress = 0;
 var StruggleProgressChallenge = 0;
 
+/**
+ * The minigame currently running
+ * @type {"Strength" | "Flexibility" | "Dexterity" | ""}
+ */
+var StruggleProgressCurrentMinigame = "";
 
-var StruggleProgressCurrentMinigame = "Strength";
-/** @type {Item | null} */
+/**
+ * The item worn at the beginning of the minigame
+ * @type {Item | null}
+ */
 var StruggleProgressChoosePrevItem = null;
-/** @type {Item | null} */
+
+/**
+ * The item that should be worn at the end of the minigame
+ * @type {Item | null}
+ */
 var StruggleProgressChooseNextItem = null;
 
 // For flexibility
@@ -54,8 +68,14 @@ var StruggleProgressDexCurrent = 0;
 var StruggleProgressDexMax = 300;
 var StruggleProgressDexDirectionRight = false; // Moves left when false, right when true
 
-
-
+/**
+ * Main handler for drawing the struggle minigame screen
+ *
+ * This function is responsible for drawing either the minigame themselves, or
+ * the minigame selection screen if it's not yet running.
+ *
+ * @param {Character} C
+ */
 function StruggleDrawStruggleProgress(C) {
 	if (StruggleProgressCurrentMinigame == "Strength") StruggleDrawStrengthProgress(C);
 	else if (StruggleProgressCurrentMinigame == "Flexibility") StruggleDrawFlexibilityProgress(C);
@@ -92,7 +112,6 @@ function StruggleDrawStruggleProgress(C) {
 
 }
 
-
 /**
  * Gets the correct label for the current operation (struggling, removing, swaping, adding, etc.)
  * @param {Character} C - The character who acts
@@ -118,7 +137,10 @@ function StruggleProgressGetOperation(C, PrevItem, NextItem) {
 
 
 /**
- * Handles the KeyDown event. The player can use the space bar to speed up the dialog progress, just like clicking.
+ * Handles the minigames' KeyDown event.
+ *
+ * Only applicable for the Strength minigame.
+ *
  * Increases or decreases the struggle mini-game, if a/A or s/S were pressed.
  * @returns {void} - Nothing
  */
@@ -130,8 +152,8 @@ function StruggleKeyDown() {
 }
 
 /**
- * Handles the Click event. The player can use the space bar to speed up the dialog progress, just like clicking.
- * Increases or decreases the struggle mini-game, if a/A or s/S were pressed.
+ * Handles the minigames' Click event, whether on the selection screen or in the minigame themselves.
+ *
  * @returns {void} - Nothing
  */
 function StruggleClick(Reverse) {
@@ -147,9 +169,21 @@ function StruggleClick(Reverse) {
 		else if (StruggleProgressCurrentMinigame == "Flexibility") StruggleFlexibilityStart(Player, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
 		else if (StruggleProgressCurrentMinigame == "Dexterity") StruggleDexterityStart(Player, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
 	}
-
 }
 
+/**
+ * Start the struggle minigame.
+ *
+ * Caveat: this will setup the variables so a new minigame can be started,
+ * but defers to the code in StruggleClick to set up the correct game, unless
+ * it's someone else starting the game, it's an item being newly applied, the
+ * item is locked with a key the character has, or it's a mountable item.
+ * In that case the Strength minigame will start.
+ *
+ * @param {Character} C
+ * @param {Item} PrevItem
+ * @param {Item} NextItem
+ */
 function StruggleProgressStart(C, PrevItem, NextItem) {
 	ChatRoomStatusUpdate("Struggle");
 	StruggleProgressChoosePrevItem = PrevItem;
@@ -164,6 +198,15 @@ function StruggleProgressStart(C, PrevItem, NextItem) {
 	}
 }
 
+/**
+ * Handle the common progress and drawing of the minigame
+ *
+ * This function draws the minigame common UI, updates the progress if it should
+ * do so automatically, and checks if the minigame should abort.
+ *
+ * @param {Character} C
+ * @param {number} [Offset]
+ */
 function StruggleProgressAutoDraw(C, Offset) {
 	if (!Offset) Offset = 0;
 	// Draw one or both items
@@ -189,6 +232,11 @@ function StruggleProgressAutoDraw(C, Offset) {
 	}
 }
 
+/**
+ * Helper function that handles checking and completing the minigame
+ *
+ * @param {Character} C - The character to check for progress.
+ */
 function StruggleProgressCheckEnd(C) {
 
 	// If the operation is completed
@@ -258,7 +306,8 @@ Game description: Mash A and S until you get out
 
 
 /**
- * Draw the struggle dialog
+ * Strength minigame main drawing routine.
+ *
  * @param {Character} C - The character for whom the struggle dialog is drawn. That can be the player or another character.
  * @returns {void} - Nothing
  */
@@ -279,12 +328,11 @@ function StruggleDrawStrengthProgress(C) {
 	StruggleProgressCheckEnd(C);
 }
 
-
-
 /**
- * Starts the dialog progress bar and keeps the items that needs to be added / swaped / removed.
+ * Advances the Struggle minigame progress
+ *
  * The change of facial expressions during struggling is done here
- * @param {boolean} Reverse - If set to true, the progress is decreased
+ * @param {boolean} [Reverse] - If set to true, the progress is decreased
  * @returns {void} - Nothing
  */
 function StruggleStrength(Reverse) {
@@ -320,10 +368,14 @@ function StruggleStrength(Reverse) {
 	}
 
 }
+
 /**
- * Starts the dialog progress bar for struggling out of bondage and keeps the items that needs to be added / swapped / removed.
- * First the challenge level is calculated based on the base item difficulty, the skill of the rigger and the escapee and modified, if
- * the escapee is bound in a way. Also blushing and drooling, as well as playing a sound is handled in this function.
+ * Performs the difficulty calculation for the Strength minigame
+ *
+ * This function calculates the challenge level based on the base item
+ * difficulty, the skill of the rigger and the escapee, accounting for the
+ * escapee being bound in a way.
+ *
  * @param {Character} C - The character who tries to struggle
  * @param {Item} PrevItem - The item, the character wants to struggle out of
  * @param {Item} [NextItem] - The item that should substitute the first one
@@ -532,7 +584,7 @@ function StruggleFlexibilityStart(C, PrevItem, NextItem) {
 }
 
 /**
- * Draw the struggle dialog
+ * Draw the Flexibility minigame
  * @param {Character} C - The character for whom the struggle dialog is drawn. That can be the player or another character.
  * @returns {void} - Nothing
  */
@@ -605,9 +657,10 @@ function StruggleFlexibilityCheck() {
 }
 
 /**
- * Starts the dialog progress bar and keeps the items that needs to be added / swaped / removed.
- * The change of facial expressions during struggling is done here
- * @param {boolean} Reverse - If set to true, the progress is decreased
+ * Advances the Flexibility minigame progress
+ *
+ * @param {boolean} [Reverse] - If set to true, the progress is decreased
+ * @param {boolean} [Hover] - If set to true, the mouse is hovering over a circle
  * @returns {void} - Nothing
  */
 function StruggleFlexibility(Reverse, Hover) {
@@ -799,12 +852,9 @@ function StruggleDrawDexterityProgress(C) {
 	StruggleProgressCheckEnd(C);
 }
 
-
-
 /**
- * Starts the dialog progress bar and keeps the items that needs to be added / swaped / removed.
- * The change of facial expressions during struggling is done here
- * @param {boolean} Reverse - If set to true, the progress is decreased
+ * Advances the Dexterity minigame progress
+ *
  * @returns {void} - Nothing
  */
 function StruggleDexterity(Reverse) {
@@ -859,6 +909,7 @@ Only applies to locks at the moment
 
 /**
  * Advances the lock picking dialog
+ * @param {Character} C
  * @returns {void} - Nothing
  */
 function StruggleLockPickClick(C) {

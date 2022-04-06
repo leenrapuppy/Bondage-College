@@ -1480,7 +1480,7 @@ function DialogMenuButtonClick() {
 				return;
 			}
 
-			// Remove/Struggle Icon - Starts the struggling mini-game (can be impossible to complete)
+			// PickLock Icon - Starts the lockpicking mini-game
 			else if (((DialogMenuButton[I] == "PickLock")) && (Item != null)) {
 				StruggleLockPickProgressStart(C, Item);
 				return;
