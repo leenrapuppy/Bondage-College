@@ -254,7 +254,7 @@ var PlatformTemplate = [
 	{
 		Name: "Camille",
 		Status: "Armor",
-		Health: 3,
+		Health: 53,
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
@@ -575,7 +575,20 @@ var PlatformRoomList = [
 		Height: 1200,
 		LimitLeft: 200,
 		Door: [
-			{ Name: "CastleHall4W3", FromX: 2300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+			{ Name: "CastleHall4W3", FromX: 2300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+			{ Name: "CastleTerrace", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 1900, ToFaceLeft: true }
+		],
+		Character: []
+	},
+	{
+		Name: "CastleTerrace",
+		Text: "Countess Terrace (The game ends here for now.)",
+		Background: "Castle/Terrace",
+		Width: 2000,
+		Height: 1200,
+		LimitLeft: 200,
+		Door: [
+			{ Name: "CastleCountessHall", FromX: 1900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: []
 	},
