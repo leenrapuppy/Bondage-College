@@ -331,8 +331,6 @@ interface AssetGroup {
 	Clothing: boolean;
 	Underwear: boolean;
 	BodyCosplay: boolean;
-	Activity: string[];
-	AllowActivityOn?: string[];
 	Hide?: string[];
 	Block?: string[];
 	Zone?: [number, number, number, number][];
@@ -439,8 +437,8 @@ interface Asset {
 	Enable: boolean;
 	Visible: boolean;
 	Wear: boolean;
-	Activity: string[] | string;
-	AllowActivity: string[];
+	Activity?: string;
+	AllowActivity?: string[];
 	AllowActivityOn?: string[];
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: string[];
@@ -510,7 +508,7 @@ interface Asset {
 	DynamicExpressionTrigger: (C: Character) => ExpressionTrigger[] | null | undefined;
 	DynamicName: (C: Character) => string;
 	DynamicGroupName: string;
-	DynamicActivity: (C: Character) => string[] | string | null | undefined;
+	DynamicActivity: (C: Character) => string | null | undefined;
 	DynamicAudio: ((C: Character) => string) | null;
 	CharacterRestricted: boolean;
 	AllowRemoveExclusive: boolean;
@@ -562,7 +560,9 @@ interface Activity {
 	Name: string;
 	MaxProgress: number;
 	Prerequisite: string[];
-	TargetSelf?: string[];
+	Target: string[];
+	TargetSelf?: string[] | true;
+	/** used for setting AutoPunishGagActionFlag */
 	MakeSound?: boolean;
 }
 
@@ -1019,6 +1019,8 @@ interface ItemPropertiesBase {
 	HeightModifier?: number;
 	OverridePriority?: unknown;
 	DefaultColor?: string;
+
+	Attribute?: string[];
 
 	AllowActivity?: string[];
 	AllowActivityOn?: AssetGroupItemName[];

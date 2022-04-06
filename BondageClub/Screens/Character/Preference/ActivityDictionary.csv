@@ -85,6 +85,7 @@ Label-ChatSelf-ItemBoots-Lick,Lick Feet
 Label-ChatSelf-ItemBoots-Suck,Suck Big Toe
 Label-ChatSelf-ItemBoots-Nibble,Nibble Feet
 Label-ChatSelf-ItemBoots-Tickle,Tickle Feet
+Label-ChatSelf-ItemBoots-Spank,Spank Feet
 Label-ChatSelf-ItemBoots-MassageHands,Massage Feet
 Label-ChatSelf-ItemBoots-TakeCare,Polish Toenails
 Label-ChatSelf-ItemBoots-Bite,Bite Foot
@@ -137,7 +138,9 @@ Label-ChatOther-ItemLegs-Grope,Grope Thigh
 Label-ChatOther-ItemLegs-Sit,Sit in Lap
 Label-ChatOther-ItemLegs-RestHead,Rest Head in Lap
 Label-ChatSelf-ItemVulva-MasturbateHand,Masturbate Pussy
+Label-ChatSelf-ItemVulva-MasturbateFist,Fist Pussy
 Label-ChatSelf-ItemVulva-Caress,Caress Pussy
+Label-ChatSelf-ItemVulva-Slap,Slap Pussy
 Label-ChatOther-ItemVulva-MasturbateHand,Finger Pussy
 Label-ChatOther-ItemVulva-MasturbateFist,Fist Pussy
 Label-ChatOther-ItemVulva-MasturbateFoot,Foot Masturbate Pussy
@@ -153,6 +156,7 @@ Label-ChatOther-ItemVulva-PenetrateSlow,Slow Penetration
 Label-ChatOther-ItemVulva-PenetrateFast,Fast Penetration
 Label-ChatSelf-ItemVulvaPiercings-MasturbateHand,Masturbate Clitoris
 Label-ChatSelf-ItemVulvaPiercings-Caress,Caress Clitoris
+Label-ChatSelf-ItemVulvaPiercings-Slap,Slap Clitoris
 Label-ChatOther-ItemVulvaPiercings-MasturbateHand,Finger Clitoris
 Label-ChatOther-ItemVulvaPiercings-MasturbateFoot,Foot Masturbate Clitoris
 Label-ChatOther-ItemVulvaPiercings-MasturbateTongue,Tongue Masturbate Clitoris
@@ -164,6 +168,7 @@ Label-ChatOther-ItemVulvaPiercings-Lick,Lick Clitoris
 Label-ChatOther-ItemVulvaPiercings-Nibble,Nibble Clitoris
 Label-ChatOther-ItemVulvaPiercings-MasturbateItem,Device on Clitoris
 Label-ChatSelf-ItemButt-MasturbateHand,Finger Ass
+Label-ChatSelf-ItemButt-MasturbateFist,Fist Ass
 Label-ChatSelf-ItemButt-Spank,Spank Butt
 Label-ChatSelf-ItemButt-Caress,Caress Butt
 Label-ChatSelf-ItemButt-Grope,Grope Butt
@@ -293,6 +298,7 @@ Label-ChatOther-ItemHands-TakeCare,Polish Nails
 Label-ChatSelf-ItemNeck-Caress,Caress Neck
 Label-ChatSelf-ItemNeck-MassageHands,Massage Neck
 Label-ChatSelf-ItemNeck-Choke,Choke Self
+Label-ChatSelf-ItemNeck-Tickle,Tickle Neck
 Label-ChatOther-ItemNeck-Bite,Bite Neck
 Label-ChatOther-ItemNeck-Kiss,Kiss Neck
 Label-ChatOther-ItemNeck-GaggedKiss,Touch Neck with Gag
@@ -382,6 +388,7 @@ ChatSelf-ItemBoots-Lick,SourceCharacter licks her own feet.
 ChatSelf-ItemBoots-Suck,SourceCharacter sucks on her big toe.
 ChatSelf-ItemBoots-Nibble,SourceCharacter nibbles her own foot.
 ChatSelf-ItemBoots-Tickle,SourceCharacter tickles her own feet.
+ChatSelf-ItemBoots-Spank,SourceCharacter spanks her own feet.
 ChatSelf-ItemBoots-MassageHands,SourceCharacter massages her feet.
 ChatSelf-ItemBoots-TakeCare,SourceCharacter cleans and polishes her toenails.
 ChatSelf-ItemBoots-Bite,SourceCharacter bites her foot.
@@ -433,8 +440,10 @@ ChatOther-ItemLegs-MassageHands,SourceCharacter massages TargetCharacter's thigh
 ChatOther-ItemLegs-Grope,SourceCharacter gropes TargetCharacter's thigh.
 ChatOther-ItemLegs-Sit,SourceCharacter sits in TargetCharacter's lap.
 ChatOther-ItemLegs-RestHead,SourceCharacter rests her head in TargetCharacter's lap.
+ChatSelf-ItemVulva-MasturbateFist,SourceCharacter fists and masturbates her pussy.
 ChatSelf-ItemVulva-MasturbateHand,SourceCharacter masturbates her pussy.
 ChatSelf-ItemVulva-Caress,SourceCharacter caresses her pussy.
+ChatSelf-ItemVulva-Slap,SourceCharacter slaps her pussy.
 ChatOther-ItemVulva-MasturbateHand,SourceCharacter masturbates TargetCharacter's pussy with her fingers.
 ChatOther-ItemVulva-MasturbateFist,SourceCharacter masturbates TargetCharacter's vagina with her full fist.
 ChatOther-ItemVulva-MasturbateFoot,SourceCharacter masturbates TargetCharacter's pussy with her foot.
@@ -450,6 +459,7 @@ ChatOther-ItemVulva-PenetrateSlow,SourceCharacter penetrates TargetCharacter's v
 ChatOther-ItemVulva-PenetrateFast,SourceCharacter penetrates TargetCharacter's vagina at a fast pace.
 ChatSelf-ItemVulvaPiercings-MasturbateHand,SourceCharacter masturbates her clitoris.
 ChatSelf-ItemVulvaPiercings-Caress,SourceCharacter caresses her clitoris.
+ChatSelf-ItemVulvaPiercings-Slap,SourceCharacter slaps her clitoris.
 ChatOther-ItemVulvaPiercings-MasturbateHand,SourceCharacter masturbates TargetCharacter's clitoris with her fingers.
 ChatOther-ItemVulvaPiercings-MasturbateFoot,SourceCharacter masturbates TargetCharacter's clitoris with her foot.
 ChatOther-ItemVulvaPiercings-MasturbateTongue,SourceCharacter masturbates TargetCharacter's clitoris with her tongue.
@@ -460,6 +470,7 @@ ChatOther-ItemVulvaPiercings-GaggedKiss,SourceCharacter gags kiss TargetCharacte
 ChatOther-ItemVulvaPiercings-Lick,SourceCharacter licks TargetCharacter's clitoris.
 ChatOther-ItemVulvaPiercings-Nibble,SourceCharacter nibbles TargetCharacter's clitoris.
 ChatOther-ItemVulvaPiercings-MasturbateItem,SourceCharacter uses the device to masturbate TargetCharacter's clitoris.
+ChatSelf-ItemButt-MasturbateFist,SourceCharacter fists and masturbates her ass.
 ChatSelf-ItemButt-MasturbateHand,SourceCharacter fingers and masturbates her ass.
 ChatSelf-ItemButt-Spank,SourceCharacter spanks herself on the butt.
 ChatSelf-ItemButt-Caress,SourceCharacter caresses her butt.
@@ -590,6 +601,7 @@ ChatOther-ItemHands-TakeCare,SourceCharacter cleans and polishes TargetCharacter
 ChatSelf-ItemNeck-Caress,SourceCharacter caresses her neck.
 ChatSelf-ItemNeck-MassageHands,SourceCharacter massages her neck.
 ChatSelf-ItemNeck-Choke,SourceCharacter chokes herself.
+ChatSelf-ItemNeck-Tickle,SourceCharacter tickles her neck.
 ChatOther-ItemNeck-Bite,SourceCharacter bites TargetCharacter's neck.
 ChatOther-ItemNeck-Kiss,SourceCharacter kisses TargetCharacter's neck.
 ChatOther-ItemNeck-GaggedKiss,SourceCharacter touches her gag to TargetCharacter's neck.

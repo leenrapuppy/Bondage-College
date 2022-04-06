@@ -40,8 +40,6 @@ function AssetGroupAdd(NewAssetFamily, NewAsset) {
 		Clothing: (NewAsset.Clothing == null) ? false : NewAsset.Clothing,
 		Underwear: (NewAsset.Underwear == null) ? false : NewAsset.Underwear,
 		BodyCosplay: (NewAsset.BodyCosplay == null) ? false : NewAsset.BodyCosplay,
-		Activity: Array.isArray(NewAsset.Activity) ? NewAsset.Activity : [],
-		AllowActivityOn: NewAsset.AllowActivityOn,
 		Hide: NewAsset.Hide,
 		Block: NewAsset.Block,
 		Zone: NewAsset.Zone,
@@ -102,9 +100,9 @@ function AssetAdd(NewAsset, ExtendedConfig) {
 		Enable: (NewAsset.Enable == null) ? true : NewAsset.Enable,
 		Visible: (NewAsset.Visible == null) ? true : NewAsset.Visible,
 		Wear: (NewAsset.Wear == null) ? true : NewAsset.Wear,
-		Activity: (NewAsset.Activity == null) ? AssetCurrentGroup.Activity : NewAsset.Activity,
-		AllowActivity: NewAsset.AllowActivity || [],
-		AllowActivityOn: (NewAsset.AllowActivityOn == null) ? AssetCurrentGroup.AllowActivityOn : NewAsset.AllowActivityOn,
+		Activity: (typeof NewAsset.Activity === "string" ? NewAsset.Activity : null),
+		AllowActivity: Array.isArray(NewAsset.AllowActivity) ? NewAsset.AllowActivity : [],
+		AllowActivityOn: Array.isArray(NewAsset.AllowActivityOn) ? NewAsset.AllowActivityOn : [],
 		BuyGroup: NewAsset.BuyGroup,
 		PrerequisiteBuyGroups: NewAsset.PrerequisiteBuyGroups,
 		Effect: (NewAsset.Effect == null) ? AssetCurrentGroup.Effect : NewAsset.Effect,
@@ -548,6 +546,38 @@ function AssetAllActivities(family) {
  */
 function AssetGetActivity(family, name) {
 	return AssetAllActivities(family).find(a => (a.Name === name));
+}
+
+/**
+ * Get the list of all activities on a group for a given family.
+ *
+ * @description Note that this just returns activities as defined, no checks are
+ * actually done on whether the activity makes sense.
+ *
+ * @param {string} family
+ * @param {string} groupname
+ * @param {"self" | "other" | "any"} onSelf
+ * @returns {Activity[]}
+ */
+function AssetActivitiesForGroup(family, groupname, onSelf = "other") {
+	const activities = AssetAllActivities(family);
+	const defined = activities.reduce((list, a) => {
+		let targets = null;
+		// Get the correct target list
+		if (onSelf === "self") {
+			targets = (typeof a.TargetSelf === "boolean" ? a.Target : a.TargetSelf);
+		} else if (onSelf === "any") {
+			targets = a.Target;
+			if (typeof a.TargetSelf !== "boolean")
+				targets = targets.concat(a.TargetSelf);
+		} else {
+			targets = a.Target;
+		}
+		if (targets && targets.includes(groupname))
+			list.push(a);
+		return list;
+	}, []);
+	return defined;
 }
 
 /**
