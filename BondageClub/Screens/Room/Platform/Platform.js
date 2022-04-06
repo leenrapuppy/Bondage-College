@@ -254,7 +254,7 @@ var PlatformTemplate = [
 	{
 		Name: "Camille",
 		Status: "Armor",
-		Health: 47,
+		Health: 53,
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
@@ -537,20 +537,28 @@ var PlatformRoomList = [
 		Width: 2400,
 		Height: 1200,
 		Door: [
-			{ Name: "CastleBallroom", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2300, ToFaceLeft: true },
+			{ Name: "CastleCountessHall", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2100, ToFaceLeft: true },
 			{ Name: "CastleHall4W2", FromX: 2300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: []
 	},
 	{
-		Name: "CastleBallroom",
-		Entry: function() { if (PlatformEventDone("Curse")) PlatformCreateCharacter("Camille", "Armor", 500); },
-		Text: "Ballroom",
-		Background: "Castle/Ballroom",
-		Width: 2600,
+		Name: "CastleCountessHall",
+		Entry: function() {
+			if (PlatformEventDone("Curse")) {
+				PlatformCreateCharacter("Camille", "Armor", 300);
+				PlatformRoom.LimitRight = 2200;
+				PlatformRoom.Background = "Castle/CountessHallClosed";
+			}
+		},
+		Text: "Countess Hall",
+		Background: "Castle/CountessHallDeadEnd",
+		AlternateBackground: "Castle/CountessHallClosed",
+		Width: 2400,
 		Height: 1200,
+		LimitLeft: 200,
 		Door: [
-			{ Name: "CastleHall4W3", FromX: 2500, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+			{ Name: "CastleHall4W3", FromX: 2300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: []
 	},
