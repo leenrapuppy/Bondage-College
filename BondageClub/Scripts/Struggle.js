@@ -166,11 +166,14 @@ function StruggleKeyDown() {
  *
  * @returns {void} - Nothing
  */
-function StruggleClick(Reverse) {
-	if (StruggleProgressCurrentMinigame == "Strength") {if (CommonIsMobile) StruggleStrength(Reverse);}
-	else if (StruggleProgressCurrentMinigame == "Flexibility") StruggleFlexibility(Reverse);
-	else if (StruggleProgressCurrentMinigame == "Dexterity") StruggleDexterity(Reverse);
-	else {
+function StruggleClick() {
+	if (StruggleProgressCurrentMinigame == "Strength" && CommonIsMobile) {
+		StruggleStrength();
+	} else if (StruggleProgressCurrentMinigame == "Flexibility") {
+		StruggleFlexibility();
+	} else if (StruggleProgressCurrentMinigame == "Dexterity") {
+		StruggleDexterity();
+	} else {
 		if (MouseIn(1387-300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Strong")) {
 			StruggleStrengthStart(Player, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
 		} else if (MouseIn(1387, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Flexible")) {
@@ -341,25 +344,26 @@ function StruggleDrawStrengthProgress(C) {
  * Advances the Struggle minigame progress
  *
  * The change of facial expressions during struggling is done here
- * @param {boolean} [Reverse] - If set to true, the progress is decreased
+ * @param {boolean} [Decrease] - If set to true, the progress is decreased
  * @returns {void} - Nothing
  */
-function StruggleStrength(Reverse) {
+function StruggleStrength(Decrease) {
 
 	// Progress calculation
 	var P = 42 / (StruggleProgressSkill * CheatFactor("DoubleItemSpeed", 0.5)); // Regular progress, slowed by long timers, faster with cheats
 	P = P * (100 / (StruggleProgress + 50));  // Faster when the dialog starts, longer when it ends
 	if ((StruggleProgressChallenge > 6) && (StruggleProgress > 50) && (StruggleProgressAuto < 0)) P = P * (1 - ((StruggleProgress - 50) / 50)); // Beyond challenge 6, it becomes impossible after 50% progress
-	P = P * (Reverse ? -1 : 1); // Reverses the progress if the user pushed the same key twice
+	P = P * (Decrease ? -1 : 1); // Reverses the progress if the user pushed the same key twice
 
 	// Sets the new progress and writes the "Impossible" message if we need to
 	StruggleProgress = StruggleProgress + P;
 	if (StruggleProgress < 0) StruggleProgress = 0;
 	if ((StruggleProgress >= 100) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0)) StruggleProgress = 99;
-	if (!Reverse) StruggleProgressStruggleCount++;
-	if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0)) StruggleProgressOperation = DialogFindPlayer("Impossible");
+	if (!Decrease) StruggleProgressStruggleCount++;
+	if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0))
+		StruggleProgressOperation = DialogFindPlayer("Impossible");
 
-	if (!Reverse && Player.OnlineSharedSettings.ItemsAffectExpressions) {
+	if (!Decrease && Player.OnlineSharedSettings.ItemsAffectExpressions) {
 		// At 15 hit: low blush, 50: Medium and 125: High
 		if (DialogAllowBlush) {
 			if (StruggleProgressStruggleCount == 15) CharacterSetFacialExpression(Player, "Blush", "Low");
@@ -621,6 +625,7 @@ function StruggleDrawFlexibilityProgress(C) {
 			R.Y += (R.Velocity + Math.max(0, -StruggleProgressAuto));
 	}
 
+	// Check if one of the circles hit the bottom, and decrease the progress for each
 	for (let RR = 0; RR < StruggleProgressFlexCircles.length; RR++) {
 		let R = StruggleProgressFlexCircles[RR];
 		if (R.Y > StruggleProgressFlexMaxY) {
@@ -631,9 +636,8 @@ function StruggleDrawFlexibilityProgress(C) {
 		}
 	}
 
-	if (StruggleFlexibilityCheck()) {
-		StruggleFlexibility(false, true);
-	}
+	// Advance the minigame's state
+	StruggleFlexibility();
 
 	StruggleProgressAutoDraw(C, -150);
 
@@ -670,30 +674,31 @@ function StruggleFlexibilityCheck() {
 /**
  * Advances the Flexibility minigame progress
  *
- * @param {boolean} [Reverse] - If set to true, the progress is decreased
- * @param {boolean} [Hover] - If set to true, the mouse is hovering over a circle
+ * @param {boolean} [Decrease] - If set to true, the progress is decreased
  * @returns {void} - Nothing
  */
-function StruggleFlexibility(Reverse, Hover) {
+function StruggleFlexibility(Decrease) {
 
-	if (!Reverse && !Hover) {
-		if (!StruggleFlexibilityCheck()) return;
-	}
+	// When increasing, hit-check with the circles. If there's no circle near,
+	// abort the increase. This is done this way because this also doubles as
+	// the click handler.
+	if (!Decrease && !StruggleFlexibilityCheck())
+		return;
 
 	// Progress calculation
 	var P = 60 / (StruggleProgressSkill/3 * CheatFactor("DoubleItemSpeed", 0.5)); // Regular progress, slowed by long timers, faster with cheats
 
 	if ((StruggleProgressChallenge > 6) && (StruggleProgress > 50) && (StruggleProgressAuto < 0)) P = P * (1 - ((StruggleProgress - 50) / 50)); // Beyond challenge 6, it becomes impossible after 50% progress
-	P = P * (Reverse ? -1 : 1); // Reverses the progress if the user pushed the same key twice
+	P = P * (Decrease ? -1 : 1); // Reverses the progress if the user pushed the same key twice
 
 	// Sets the new progress and writes the "Impossible" message if we need to
 	StruggleProgress = StruggleProgress + P;
 	if (StruggleProgress < 0) StruggleProgress = 0;
 	if ((StruggleProgress >= 100) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0)) StruggleProgress = 99;
-	if (!Reverse) StruggleProgressStruggleCount += 3;
+	if (!Decrease) StruggleProgressStruggleCount += 3;
 	if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0)) StruggleProgressOperation = DialogFindPlayer("Impossible");
 
-	if (!Reverse && Player.OnlineSharedSettings.ItemsAffectExpressions) {
+	if (!Decrease && Player.OnlineSharedSettings.ItemsAffectExpressions) {
 		// At 15 hit: low blush, 50: Medium and 125: High
 		if (DialogAllowBlush) {
 			if (StruggleProgressStruggleCount == 15) CharacterSetFacialExpression(Player, "Blush", "Low");
@@ -869,8 +874,7 @@ function StruggleDrawDexterityProgress(C) {
  *
  * @returns {void} - Nothing
  */
-function StruggleDexterity(Reverse) {
-
+function StruggleDexterity() {
 
 	// Progress calculation
 	var P = 200 / (StruggleProgressSkill/3.5 * CheatFactor("DoubleItemSpeed", 0.5)); // Regular progress, slowed by long timers, faster with cheats
