@@ -80,7 +80,8 @@ var PlatformTemplate = [
 		Width: 400,
 		Height: 400,
 		Animation: [
-			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61], Speed: 90 }
+			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61], Speed: 90 },
+			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 }
 		]
 	},
 	{
@@ -403,6 +404,8 @@ var PlatformRoomList = [
 			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", 2200, true, false, "IntroOliviaBeforeCollarKey");
 			if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", 2200, true, false, "IntroOliviaAfterCollarKey");
 			if (PlatformEventDone("OliviaBath") && !PlatformEventDone("Curse")) { PlatformCreateCharacter("Olivia", "Flower", 2200, true, false, "OliviaAfterBath"); PlatformChar[1].FaceLeft = true; }
+			if (PlatformEventDone("OliviaBath") && PlatformEventDone("Curse") && !PlatformEventDone("OliviaCurseIntro")) { PlatformCreateCharacter("Olivia", "Flower", 2200, true, false, "OliviaCurseIntro"); PlatformChar[1].Health = 0; PlatformChar[1].Bound = true; }
+			if (PlatformEventDone("OliviaBath") && PlatformEventDone("Curse") && PlatformEventDone("OliviaCurseIntro")) { PlatformCreateCharacter("Olivia", "Flower", 2200, true, false, "OliviaCurse"); PlatformChar[1].Health = 0; PlatformChar[1].Bound = true; }
 		},
 		Text: "Olivia's Bedroom (heal and save)",
 		Background: "Castle/BedroomOlivia",
@@ -685,7 +688,7 @@ var PlatformRoomList = [
 			if (!PlatformEventDone("EdlaranFree") && !PlatformEventDone("Curse") && PlatformEventDone("EdlaranIntro")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranBeforeCurseEnd");
 			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("Curse") && !PlatformEventDone("EdlaranCurseIntro")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranAfterCurseStart");
 			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("EdlaranCurseIntro") && !PlatformEventDone("EdlaranKey")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranAfterCurseEnd");
-			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("EdlaranKey")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "EdlaranUnlock");
+			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("EdlaranKey") && !PlatformEventDone("EdlaranUnlock")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "EdlaranUnlock");
 		},
 		Text: "Dungeon Cell",
 		Background: "Castle/DungeonCell",

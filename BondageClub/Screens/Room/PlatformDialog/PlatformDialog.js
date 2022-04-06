@@ -655,21 +655,50 @@ var PlatformDialogData = [
 
 	{
 		Name: "EdlaranUnlock",
+		Exit : function () { PlatformEventSet("EdlaranUnlock"); PlatformLoadRoom(); },
 		Dialog: [
 			{
 				Background: "DungeonCell",
 				Character: [{ Name: "Edlaran", Status: "Chained", Pose: "Idle" }]
 			},
-			{ Text: "Melody!  Do you have the key?" },
+			{ Text: "Melody!  Have you found the key?" },
 			{
 				Text: "Will you unlock me?",
 				Answer: [
-					{ Text: "1", Reply: "1" },
-					{ Text: "2", Reply: "2" },
-					{ Text: "3", Reply: "3" },
+					{ Text: "Sure, it's too dangerous right now.", Reply: "(She nods happily.)  Absolutely." },
+					{ Text: "Yes, but you will owe me a favor.", Reply: "(She gulps.)  Very good, I swear I'll repay you somehow someday.", Domination: 1 },
+					{ Text: "Of course, elves are too important to be chained.", Reply: "(She nods slowly.)  Well said little maid.", Domination: -1 },
 					{ Text: "Not right now.  (Leave her.)", Script: function() { PlatformDialogExit(); } },
 				]
 			},
+			{ 
+				Text: "(You unlock her shackles as she gathers her equipment.)",
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				]
+			},
+			{ Text: "Thanks a lot Melody.  (She stretches happily.)" },
+			{ 
+				Text: "How about a hug?",
+				Answer: [
+					{ Text: "Alright, let's do a quick hug.", Reply: "(You exchange a friendly hug.)", Love: 1 },
+					{ Text: "It's not the best time.", Reply: "(She pouts.)  I guess you're right.", Love: -1 },
+					{ Text: "(Give her a long loving hug.)", Reply: "(You exchange a long and warm hug.)", Love: 2 },
+					{ Text: "Don't touch me.", Reply: "Oh!  Alright then.", Love: -2 },
+				]
+			},
+			{ Text: "I'll try to escape while I can." },
+			{ 
+				Text: "What will you do?",
+				Answer: [
+					{ Text: "My duty is to protect Lady Olivia.", Reply: "You're her maid in shiny armor.  (She giggles.)", Domination: 1 },
+					{ Text: "I'll check for Countess Isabella.", Reply: "Good luck with that, whoever that is." },
+					{ Text: "I'll find a place to hide.", Reply: "Find a broom closet.  (She laughs.)", Domination: -1 },
+				]
+			},
+			{ Text: "See you later Melody.  I'll repay you someday." },
+			{ Text: "(She leaves the room.)" },
 		]
 	},
 
@@ -722,7 +751,70 @@ var PlatformDialogData = [
 				Character: [{ Name: "Chest", Status: "Metal", Pose: "Idle", X: 500 }]
 			}
 		]
-	}
+	},
+
+	{
+		Name: "OliviaCurseIntro",
+		Exit : function () { PlatformEventSet("OliviaCurseIntro"); PlatformLoadRoom(); },
+		Dialog: [
+			{
+				Text: "Melody!  (She tugs on the cuffs in vain.)",
+				Background: "BedroomOliviaFloor",
+				Character: [{ Name: "Olivia", Status: "Flower", Animation: "Bound", Y: -400 }]
+			},
+			{ 
+				Text: "I'm relieved to see you.",
+				Answer: [
+					{ Text: "Who dared to touch you?", Reply: "(She bows her head slowly.)", Domination: 1 },
+					{ Text: "Poor Lady Olivia.", Reply: "I know this is scary Melody.", Domination: -1 },
+					{ Text: "What happened?", Reply: "(She takes a long deep breath.)" }
+				]
+			},			
+			{ Text: "My sister Camille came from far away to visit the family." },
+			{ Text: "She had a stern look on her face and her voice was weird." },
+			{ Text: "She talked privately with Mother for a long while, I think they had an argument." },
+			{ Text: "I was hiding from the dispute in my room when darkness fell suddenly." },
+			{
+				Text: "Everything was black.",
+				Answer: [
+					{ Text: "Did you hear that horrible scream?", Reply: "(She blushes.)  Sorry about that.  I did that scream.", Love: -1 },
+					{ Text: "I heard a woman scream.", Reply: "(She sighs.)  I did that scream." },
+					{ Text: "I heard your voice in the dark.", Reply: "Wow, you recognized my scream from the dungeon?", Love: 1 }
+				]
+			},
+			{ Text: "When darkness came, the maids came in my room with strange eyes." },
+			{ Text: "They started to grab me, so I screamed.  Louder than I ever did." },
+			{ Text: "I don't know what happened, but glass shattered everywhere and the maids fell unconscious." },
+			{ Text: "I was scared and trembling, then Camille entered my room as light came back." },
+			{ Text: "She slapped me and locked me up in these chains.  She said it was to protect me." },
+			{ Text: "Camille took the key for these shackles and left me hogtied on the floor." },
+			{
+				Text: "I've been stuck since then.",
+				Answer: [
+					{ Text: "I'll go kick her butt.", Reply: "Do you really think violence is the answer?  Be careful.", Domination: 1, Love: -1 },
+					{ Text: "Maybe I can beg her for the key.", Reply: "Negotiation might be possible, but be careful.", Domination: -1, Love: 1 },
+					{ Text: "I'll see what I can do.", Reply: "(She nods.)  Be careful Melody." },
+				]
+			},
+			{ Text: "Camille is very dangerous, she might kill you." },
+			{ Text: "I think she went upstairs, maybe she's still there." },
+			{ Text: "Best of luck if you go there." }
+		]
+	},
+
+	{
+		Name: "OliviaCurse",
+		Dialog: [
+			{
+				Text: "Please be careful Melody.",
+				Background: "BedroomOliviaFloor",
+				Character: [{ Name: "Olivia", Status: "Flower", Animation: "Bound", Y: -400 }]
+			},
+			{ Text: "Camille is very dangerous, she might kill you." },
+			{ Text: "I think she went upstairs, maybe she's still there." },
+			{ Text: "Best of luck if you go there." }
+		]
+	},
 	
 ];
 
