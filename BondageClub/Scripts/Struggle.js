@@ -171,13 +171,13 @@ function StruggleClick(Reverse) {
 	else if (StruggleProgressCurrentMinigame == "Flexibility") StruggleFlexibility(Reverse);
 	else if (StruggleProgressCurrentMinigame == "Dexterity") StruggleDexterity(Reverse);
 	else {
-		if (MouseIn(1387-300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Strong")) StruggleProgressCurrentMinigame = "Strength";
-		else if (MouseIn(1387, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Flexible")) StruggleProgressCurrentMinigame = "Flexibility";
-		else if (MouseIn(1387+300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Nimble")) StruggleProgressCurrentMinigame = "Dexterity";
-
-		if (StruggleProgressCurrentMinigame == "Strength") StruggleStrengthStart(Player, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
-		else if (StruggleProgressCurrentMinigame == "Flexibility") StruggleFlexibilityStart(Player, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
-		else if (StruggleProgressCurrentMinigame == "Dexterity") StruggleDexterityStart(Player, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
+		if (MouseIn(1387-300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Strong")) {
+			StruggleStrengthStart(Player, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
+		} else if (MouseIn(1387, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Flexible")) {
+			StruggleFlexibilityStart(Player, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
+		} else if (MouseIn(1387+300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Nimble")) {
+			StruggleDexterityStart(Player, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
+		}
 	}
 }
 
@@ -203,7 +203,6 @@ function StruggleProgressStart(C, PrevItem, NextItem) {
 	DialogMenuButtonBuild(C);
 	if (C != Player || PrevItem == null ||
 		((PrevItem != null) && (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem)) && ((Player.CanInteract() && !InventoryItemHasEffect(PrevItem, "Mounted", true)) || StruggleStrengthGetDifficulty(C, PrevItem, NextItem).auto >= 0))) {
-		StruggleProgressCurrentMinigame = "Strength";
 		StruggleStrengthStart(C, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
 	}
 }
@@ -446,6 +445,7 @@ function StruggleStrengthStart(C, PrevItem, NextItem) {
 
 
 	// Prepares the progress bar and timer
+	StruggleProgressCurrentMinigame = "Strength";
 	StruggleProgress = 0;
 	StruggleProgressAuto = StruggleDiff.auto;  // S: -9 is floor level to always give a false hope
 	StruggleProgressPrevItem = PrevItem;
@@ -554,6 +554,7 @@ function StruggleFlexibilityStart(C, PrevItem, NextItem) {
 	}
 
 	// Prepares the progress bar and timer
+	StruggleProgressCurrentMinigame = "Flexibility";
 	StruggleProgress = 0;
 	StruggleProgressAuto = TimerRunInterval * (0.22 + (((S <= -10) ? -9 : S) * 0.11)) / (Timer * CheatFactor("DoubleItemSpeed", 0.5));  // S: -9 is floor level to always give a false hope
 	StruggleProgressPrevItem = PrevItem;
@@ -786,6 +787,7 @@ function StruggleDexterityStart(C, PrevItem, NextItem) {
 	}
 
 	// Prepares the progress bar and timer
+	StruggleProgressCurrentMinigame = "Dexterity";
 	StruggleProgress = 0;
 	StruggleProgressAuto = TimerRunInterval * (0.22 + (((S <= -10) ? -9 : S) * 0.11)) / (Timer * CheatFactor("DoubleItemSpeed", 0.5));  // S: -9 is floor level to always give a false hope
 	StruggleProgressPrevItem = PrevItem;
