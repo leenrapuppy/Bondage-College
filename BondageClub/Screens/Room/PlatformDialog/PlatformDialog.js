@@ -371,7 +371,83 @@ var PlatformDialogData = [
 					{ Text: "Maybe it's the Oracle in you.", Reply: "(She shrugs.)  I don't know, maybe you're right." },
 				]
 			},
-			{ Text: "Can you give me a towel?  I'd like to get out." },
+			{
+				Entry: function() {
+					if (PlatformDialogGetCharacter("Olivia").Love < 14) PlatformDialogGoto = "Towel";
+					PlatformDialogProcess();
+				}
+			},
+			{ ID: "Orgasm", Text: "(She takes a long breath.)  Melody, you're such a dear friend." },
+			{ Text: "(She blushes.)  I have a very personal question for you." },
+			{
+				Text: "How does it feel to have an orgasm?",
+				Answer: [
+					{ Text: "It's overrated.", Reply: "Please be honest.  You're not my mother.", Love: -1 },
+					{ Text: "Why do you ask?", Reply: "(She blushes some more and ponders.)" },
+					{ Text: "It's heaven.  I wish I could give you one.", Reply: "(She nods.)  That would be wonderful.", Love: 1 },
+					{ Text: "I don't know.  I'm not married.", Reply: "Please be honest.  I know you've had some adventures.", Love: -1 },
+				]
+			},
+			{ Text: "This belt protects me, but also shields me from life's pleasures." },
+			{
+				Text: "Should I have an orgasm?",
+				Answer: [
+					{ Text: "Yes, but you might need patience.", Reply: "Yes, lots of patience.  I'm too curious." },
+					{ Text: "Yes Lady Olivia.  If only I could help you.", Reply: "You're a wonderful maid.  I'm too curious.", Domination: -1 },
+					{ Text: "The Duke of Slandia will take care of that.", Reply: "I know, but I wish I could experiment first.  I'm too curious.", Domination: 1 },
+				]
+			},
+			{ Text: "I bet it feels so nice and relaxing, like spring flowers." },
+			{
+				Text: "Melody, could you show me an orgasm?",
+				Answer: [
+					{ Text: "(Nod politely and get naked.)", Reply: "(She smirks as you strip down.)", Domination: -1 },
+					{ Text: "My pleasure.  (Get naked.)", Reply: "(She smiles as you strip down.)" },
+					{ Text: "Olivia, this is not appropriate.", Reply: "(She bows her head.)  Of course, sorry about that.", Goto: "Towel", Domination: 1 },
+					{ Text: "(Blush.)  Sorry, not now.", Reply: "I understand, sorry about that.", Goto: "Towel" },
+				]
+			},
+			{ 
+				Text: "(You slowly get naked and expose your body.)",
+				Character: [{ Name: "Melody", Status: "Naked", Pose: "Idle" }]
+			},
+			{ Text: "It's been a long while since we got naked together." },
+			{ Text: "Since we were little girls, way before we became adults." },
+			{ Text: "Let me show you an orgasm.  (You wink at her.)" },
+			{ 
+				Text: "(You slowly start to masturbate your breast and pussy lips.)",
+				Character: [{ Name: "Melody", Status: "Naked", Pose: "Masturbate" }]
+			},
+			{ Text: "You first need to learn your body and how it reacts." },
+			{ Text: "Some prefer the clitoris, others the vagina, and others the butt, breast and more." },
+			{ Text: "Discovering your body is both important and fun." },
+			{ Text: "(You start to masturbate lovingly and moan lightly.)" },
+			{ Text: "Aaaaaaafter some stimulation, the pleasure starts to build." },
+			{ Text: "It will grow stronger and stronger, getting you on the edge." },
+			{ Text: "Oooooooooonce on the edge, you can go slowly to keep that feeling." },
+			{ Text: "Or gain momentum to reach the orgasm." },
+			{ Text: "(You masturbate faster and moan loudly.)" },
+			{ Text: "Iiiiiiiii'm very cl cl close now." },
+			{ Text: "It it it becomes haaaaaaard to stay in control." },
+			{ TextScript:  function () { return (PlatformDialogGetCharacter("Olivia").Domination < 0) ? "Can I have my orgasm Lady Olivia?" : "It's time for the climax"; } },
+			{
+				TextScript:  function () { return (PlatformDialogGetCharacter("Olivia").Domination < 0) ? "Yes, you can have your orgasm my maid." : "(She smiles and watches you carefully.)"; },
+				Character: [{ Name: "Olivia", Status: "Chastity", Pose: "Bathing", X: 0 }]
+			},
+			{
+				Entry: function() { PlatformEventSet("OliviaBathOrgasm"); PlatformAddExperience(PlatformPlayer, 10); },
+				Text: "Yes!  Yeah!  Eeeeeeeeeeeeaaaaaaaaahhh!",
+				Character: [{ Name: "Melody", Status: "Naked", Pose: "Orgasm" }]
+			},
+			{ Text: "(You get a wonderful orgasm right in front of her.)" },
+			{ Text: "Aaaaaaahhh, and the moment after the orgasm is also great." },
+			{ Text: "I hope you enjoyed the orgasm class." },
+			{
+				Text: "(You dress back up as she relaxes in the bath with a huge smile.)",
+				Character: [{ Name: "Olivia", Status: "Chastity", Pose: "Bathing", X: 0 }]
+			},
+			{ Text: "Thanks you so much Melody, I've learned a lot." },
+			{ ID: "Towel", Text: "Can you give me a towel?  I'd like to get out." },
 			{ Text: "(You help her out as she dresses up.)" },
 			{
 				Background: "BathroomOlivia",
@@ -838,6 +914,7 @@ function PlatformDialogLoadPosition(Position) {
 	PlatformDialogGoto = null;
 	if ((Position == 0) || (PlatformDialog.Dialog[Position].Background != null)) PlatformDialogBackground = "../Screens/Room/PlatformDialog/Background/" + PlatformDialog.Dialog[Position].Background;
 	if ((Position == 0) || (PlatformDialog.Dialog[Position].Character != null)) PlatformDialogCharacterDisplay = PlatformDialog.Dialog[Position].Character;
+	if (PlatformDialog.Dialog[Position].Entry != null) PlatformDialog.Dialog[Position].Entry();
 }
 
 /**
@@ -1023,4 +1100,15 @@ function PlatformDialogExit() {
 function PlatformDialogClick() {
 	if ((PlatformDialogAnswer == null) || (PlatformDialogReply != null) || MouseIn(1050, 695, 900, 60 + (PlatformDialogAnswer.length - 1) * 70))
 		PlatformDialogProcess();
+}
+
+/**
+ * Returns a dialog character
+ * @param {String} Name - The name of a character
+ * @returns {void} - Nothing
+ */
+function PlatformDialogGetCharacter(Name) {
+	for (let Character of PlatformDialogCharacter)
+		if (Character.Name == Name)
+			return Character;
 }
