@@ -155,7 +155,16 @@ function StruggleProgressGetOperation(C, PrevItem, NextItem) {
  * @returns {void} - Nothing
  */
 function StruggleKeyDown() {
-	if (((KeyPress == 65) || (KeyPress == 83) || (KeyPress == 97) || (KeyPress == 115)) && (StruggleProgress >= 0) && (DialogColor == null) && (StruggleProgressCurrentMinigame == "Strength")) {
+	// Make sure there's a Strength minigame running
+	if (StruggleProgressCurrentMinigame !== "Strength" && StruggleProgress >= 0)
+		return;
+
+	// Make sure we're not in Color-application mode. FIXME: this is strange
+	if (DialogColor != null)
+		return;
+
+	// Handle A & S keys, keeping track of the alternating requirement
+	if ((KeyPress == 65) || (KeyPress == 83) || (KeyPress == 97) || (KeyPress == 115)) {
 		StruggleStrength((StruggleProgressLastKeyPress == KeyPress));
 		StruggleProgressLastKeyPress = KeyPress;
 	}
@@ -204,8 +213,10 @@ function StruggleProgressStart(C, PrevItem, NextItem) {
 	StruggleProgressCurrentMinigame = "";
 	StruggleProgress = 0;
 	DialogMenuButtonBuild(C);
-	if (C != Player || PrevItem == null ||
-		((PrevItem != null) && (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem)) && ((Player.CanInteract() && !InventoryItemHasEffect(PrevItem, "Mounted", true)) || StruggleStrengthGetDifficulty(C, PrevItem, NextItem).auto >= 0))) {
+	if (C != Player || PrevItem == null || ((PrevItem != null)
+			&& (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem))
+			&& ((Player.CanInteract() && !InventoryItemHasEffect(PrevItem, "Mounted", true))
+				|| StruggleStrengthGetDifficulty(C, PrevItem, NextItem).auto >= 0))) {
 		StruggleStrengthStart(C, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
 	}
 }
@@ -232,8 +243,13 @@ function StruggleProgressAutoDraw(C, Offset) {
 	if (StruggleProgress < 0) StruggleProgress = 0;
 
 	// We cancel out if at least one of the following cases apply: a new item conflicts with this, the player can no longer interact, something else was added first, the item was already removed
-	if (InventoryGroupIsBlocked(C) || (C != Player && !Player.CanInteract()) || (StruggleProgressNextItem == null && !InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name)) || (StruggleProgressNextItem != null && !InventoryAllow(
-		C, StruggleProgressNextItem.Asset)) || (StruggleProgressNextItem != null && StruggleProgressPrevItem != null && ((InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name) && InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name).Asset.Name != StruggleProgressPrevItem.Asset.Name) || !InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name))) || (StruggleProgressNextItem != null && StruggleProgressPrevItem == null && InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name))) {
+	if (InventoryGroupIsBlocked(C)
+		|| (C != Player && !Player.CanInteract())
+		|| (StruggleProgressNextItem == null && !InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name))
+		|| (StruggleProgressNextItem != null && !InventoryAllow(C, StruggleProgressNextItem.Asset))
+		|| (StruggleProgressNextItem != null && StruggleProgressPrevItem != null && ((InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name) && InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name).Asset.Name != StruggleProgressPrevItem.Asset.Name)
+			|| !InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name)))
+		|| (StruggleProgressNextItem != null && StruggleProgressPrevItem == null && InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name))) {
 		if (StruggleProgress > 0)
 			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true, "interrupted");
 		else
@@ -332,8 +348,7 @@ function StruggleDrawStrengthProgress(C) {
 	DrawProgressBar(1200, 700, 600, 100, StruggleProgress);
 	if (ControllerActive == false) {
 		DrawText(DialogFindPlayer((CommonIsMobile) ? "ProgressClick" : "ProgressKeys"), 1500, 900, "White", "Black");
-	}
-	if (ControllerActive == true) {
+	} else {
 		DrawText(DialogFindPlayer((CommonIsMobile) ? "ProgressClick" : "ProgressKeysController"), 1500, 900, "White", "Black");
 	}
 
