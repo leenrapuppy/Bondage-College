@@ -2135,48 +2135,64 @@ function ChatRoomSendEmote(msg) {
 /**
  * Publishes common player actions (add, remove, swap) to the chat.
  * @param {Character} C - Character on which the action is done.
- * @param {Item} StruggleProgressPrevItem - The item that has been removed.
- * @param {Item} StruggleProgressNextItem - The item that has been added.
+ * @param {Item} PrevItem - The item that has been removed.
+ * @param {Item} NextItem - The item that has been added.
  * @param {boolean} LeaveDialog - Whether to leave the current dialog after publishing the action.
  * @param {string} [Action] - Action modifier
  * @returns {void} - Nothing.
  */
-function ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, LeaveDialog, Action = null) {
-	if (CurrentScreen == "ChatRoom") {
+function ChatRoomPublishAction(C, PrevItem, NextItem, LeaveDialog, Action = null) {
+	// Make sure we're in a chat room
+	if (CurrentScreen !== "ChatRoom")
+		return;
 
-		// Prepares the message
-		let msg = "";
-		var Dictionary = [];
-		if (Action == null) {
-			if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null) && (StruggleProgressPrevItem.Asset.Name == StruggleProgressNextItem.Asset.Name) && (StruggleProgressPrevItem.Color != StruggleProgressNextItem.Color)) msg = "ActionChangeColor";
-			else if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null) && !StruggleProgressNextItem.Asset.IsLock) msg = "ActionSwap";
-			else if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null) && StruggleProgressNextItem.Asset.IsLock) msg = "ActionAddLock";
-			else if (InventoryItemHasEffect(StruggleProgressNextItem, "Lock", false)) msg = "ActionLock";
-			else if (StruggleProgressNextItem != null) msg = "ActionUse";
-			else if (InventoryItemHasEffect(StruggleProgressPrevItem, "Lock")) msg = "ActionUnlockAndRemove";
-			else msg = "ActionRemove";
-		} else if (Action == "interrupted") {
-			if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null) && !StruggleProgressNextItem.Asset.IsLock) msg = "ActionInterruptedSwap";
-			else if (StruggleProgressNextItem != null) msg = "ActionInterruptedAdd";
-			else msg = "ActionInterruptedRemove";
-			Dictionary.push({ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		} else msg = Action;
+	// Prepares the message
+	let msg = "";
+	/** @type ChatMessageDictionary */
+	let Dictionary = [];
+	if (Action == null) {
+		if ((PrevItem != null) && (NextItem != null) && (PrevItem.Asset.Name == NextItem.Asset.Name) && (PrevItem.Color != NextItem.Color))
+			msg = "ActionChangeColor";
+		else if ((PrevItem != null) && (NextItem != null) && !NextItem.Asset.IsLock)
+			msg = "ActionSwap";
+		else if ((PrevItem != null) && (NextItem != null) && NextItem.Asset.IsLock)
+			msg = "ActionAddLock";
+		else if (InventoryItemHasEffect(NextItem, "Lock", false))
+			msg = "ActionLock";
+		else if (NextItem != null)
+			msg = "ActionUse";
+		else if (InventoryItemHasEffect(PrevItem, "Lock"))
+			msg = "ActionUnlockAndRemove";
+		else
+			msg = "ActionRemove";
+	} else if (Action == "interrupted") {
+		if ((PrevItem != null) && (NextItem != null) && !NextItem.Asset.IsLock)
+			msg = "ActionInterruptedSwap";
+		else if (NextItem != null)
+			msg = "ActionInterruptedAdd";
+		else
+			msg = "ActionInterruptedRemove";
+		Dictionary.push({ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
+	} else
+		msg = Action;
 
-		// Replaces the action tags to build the phrase
-		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
-		Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		if (StruggleProgressPrevItem != null) Dictionary.push({ Tag: "PrevAsset", AssetName: StruggleProgressPrevItem.Asset.Name, GroupName: StruggleProgressPrevItem.Asset.Group.Name });
-		if (StruggleProgressNextItem != null) Dictionary.push({ Tag: "NextAsset", AssetName: StruggleProgressNextItem.Asset.Name, GroupName: StruggleProgressNextItem.Asset.Group.Name });
-		if (C.FocusGroup != null) Dictionary.push({ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name });
+	// Replaces the action tags to build the phrase
+	Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
+	Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
+	if (PrevItem != null)
+		Dictionary.push({ Tag: "PrevAsset", AssetName: PrevItem.Asset.Name, GroupName: PrevItem.Asset.Group.Name });
+	if (NextItem != null)
+		Dictionary.push({ Tag: "NextAsset", AssetName: NextItem.Asset.Name, GroupName: NextItem.Asset.Group.Name });
+	if (C.FocusGroup != null)
+		Dictionary.push({ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name });
 
-		// Prepares the item packet to be sent to other players in the chatroom
-		ChatRoomCharacterItemUpdate(C);
+	// Prepares the item packet to be sent to other players in the chatroom
+	ChatRoomCharacterItemUpdate(C);
 
-		// Sends the result to the server and leaves the dialog if we need to
-		ServerSend("ChatRoomChat", { Content: msg, Type: "Action", Dictionary: Dictionary });
-		if (LeaveDialog && (CurrentCharacter != null)) DialogLeave();
-
-	}
+	// Sends the result to the server and leaves the dialog if we need to
+	ServerSend("ChatRoomChat", { Content: msg, Type: "Action", Dictionary: Dictionary });
+	if (LeaveDialog && (CurrentCharacter != null))
+		DialogLeave();
 }
 
 /**
