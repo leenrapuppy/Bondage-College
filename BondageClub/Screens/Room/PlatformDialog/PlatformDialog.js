@@ -409,7 +409,7 @@ var PlatformDialogData = [
 			},
 			{ 
 				Text: "(You slowly get naked and expose your body.)",
-				Character: [{ Name: "Melody", Status: "Naked", Pose: "Idle" }]
+				Character: [{ Name: "Melody", Status: "Naked", Pose: "CoverBreast" }]
 			},
 			{ Text: "It's been a long while since we got naked together." },
 			{ Text: "Since we were little girls, way before we became adults." },
@@ -437,7 +437,7 @@ var PlatformDialogData = [
 			{
 				Entry: function() { PlatformEventSet("OliviaBathOrgasm"); PlatformAddExperience(PlatformPlayer, 10); },
 				Text: "Yes!  Yeah!  Eeeeeeeeeeeeaaaaaaaaahhh!",
-				Character: [{ Name: "Melody", Status: "Naked", Pose: "Orgasm" }]
+				Character: [{ Name: "Melody", Status: "Naked", Pose: "MasturbateOrgasm" }]
 			},
 			{ Text: "(You get a wonderful orgasm right in front of her.)" },
 			{ Text: "Aaaaaaahhh, and the moment after the orgasm is also great." },
@@ -889,6 +889,160 @@ var PlatformDialogData = [
 			{ Text: "Camille is very dangerous, she might kill you." },
 			{ Text: "I think she went upstairs, maybe she's still there." },
 			{ Text: "Best of luck if you go there." }
+		]
+	},
+
+	{
+		Name: "OliviaCurseRelease",
+		Exit : function () { PlatformEventSet("OliviaCurseRelease"); PlatformLoadRoom(); },
+		Dialog: [
+			{
+				Text: "Melody!  Are you alright?",
+				Background: "BedroomOliviaFloor",
+				Character: [{ Name: "Olivia", Status: "Flower", Animation: "Bound", Y: -400 }]
+			},
+			{
+				Text: "Yes, I found your sister Camille in the Countess Hall.",
+				Background: "BedroomOlivia",
+				Character: [{ Name: "Melody", Status: "Maid", Pose: "Idle" }]
+			},
+			{ Text: "She's behind that strange curse that's affecting everyone but us." },
+			{ Text: "She was looking for Countess Isabella." },
+			{ Text: "We talked a little but she got mad and attacked me." },
+			{ Text: "I was able to knock her down and restrain her." },
+			{ Text: "She gave me this key to rescue you." },
+			{ Text: "(You unlock Olivia.)" },
+			{
+				Text: "(She stretches happily.)  Thank you so much Melody.",
+				Character: [
+					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				]
+			},
+			{
+				Text: "You're the best.",
+				Answer: [
+					{ Text: "It's my pleasure and duty.", Reply: "You're a wonderful protector.", Love: 1, Domination: 1 },
+					{ Text: "I would do anything for you.", Reply: "You're a wonderful friend.", Love: 2 },
+					{ Text: "(Do a maid curtsy.)", Reply: "You're a wonderful maid.", Domination: -1, Love: 1 },
+				]
+			},
+			{ Text: "(Everything goes dark suddenly.)", Background: "BedroomOliviaDark" },
+			{
+				Text: "What's going on?",
+				Answer: [
+					{ Text: "I don't know.  This is scary.", Reply: "(She nods.)  Maybe it's another curse from Camille.", Domination: -1 },
+					{ Text: "Another curse?", Reply: "Yes, it could be another curse." },
+					{ Text: "Don't be afraid.  I'm here.", Reply: "(She gets closer to you.)  Maybe it's another curse from Camille.", Domination: 1 },
+				]
+			},
+			{ Text: "Could she have more magic tricks?" },
+			{ Text: "She's restrained, she could be in danger." },
+			{ Text: "(Darkness fades after a few seconds.)", Background: "BedroomOlivia" },
+			{ Text: "It was faster than the previous time.  Is that a good sign?" },
+			{ Text: "Let's go check for Camille.  I'm worried for her." },
+			{ Text: "(Olivia joined your party.  She might be a playable character in a future version of the game.)" },
+		]
+	},
+
+	{
+		Name: "CamilleIntro",
+		Dialog: [
+			{
+				Background: "CountessHall",
+				Character: [{ Name: "Camille", Status: "Armor", Pose: "Angry" }]
+			},
+			{ Text: "(As you enter the countess hall, you can see Camille next to a closed iron gate.)" },
+			{ Text: "(She yells at the gate furiously and doesn't seem to notice you.)" },
+			{ Text: "Mother!  I swear on my blade and Father's grave that I will kill you if you don't open the gate." },
+			{ Text: "OPEN NOW!  (She kicks the iron gate but nothing happens.)" },
+			{ Text: "(She turns around and sees you.)" },
+			{
+				Text: "Melody.  It's been a while.",
+				Character: [
+					{ Name: "Camille", Status: "Armor", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" },
+				]
+			},
+			{
+				Text: "The curse isn't working on you?",
+				Answer: [
+					{ Text: "What curse?", Reply: "You've always been clueless little maid.", Domination: -1 },
+					{ Text: "So you're the source of the zombies.", Reply: "They are not zombies.", Love: -1 },
+					{ Text: "Your tricks cannot affect me.", Reply: "You've gained some confidence since we last met.", Domination: 1 },
+				]
+			},
+			{ Text: "I don't know why you're not affected.  You've always been weird." },
+			{ Text: "Mother might have selected you for that reason.  That old bitch!" },
+			{ Text: "Whatever it is, you're not welcome here." },
+			{
+				Text: "Get out!",
+				Answer: [
+					{ Text: "Stop the curse and I'll go.", Reply: "You think I will obey you?", Domination: 1 },
+					{ Text: "I'm not going anywhere bitch.", Reply: "Now you're in trouble.", Love: -2 },
+					{ Text: "Please Lady Camille, you must stop that curse.", Reply: "Forget it Melody.", Domination: -1, Love: 1 },
+				]
+			},
+			{
+				Text: "(She raises her arm, mumbles some words and an iron gate closes behind you.)",
+				Character: [{ Name: "Camille", Status: "Armor", Pose: "Angry" }]
+			},
+			{ Text: "You're going down little maid." },			
+			{ Text: "(She draws her sword and advances toward you.)" },
+		]
+	},
+
+	{
+		Name: "CamilleDefeat",
+		Dialog: [
+			{
+				Text: "Mel...  Melody...  How could you...",
+				Background: "CountessHallFloor",
+				Character: [{ Name: "Camille", Status: "Armor", Animation: "Bound", Y: -400 }]
+			},
+			{
+				Text: "How could you defeat me?",
+				Answer: [
+					{ Text: "Face it, you're not that strong.", Reply: "I underestimated you maid.", Domination: 2 },
+					{ Text: "I protect the manor.", Reply: "You've always been a loyal maid.", Domination: 1, Love: 1 },
+					{ Text: "It doesn't matter.", Reply: "You're very direct.", Domination: 1, Love: -1 },
+				]
+			},
+			{ Text: "(She struggles and sighs.)" },
+			{ Text: "You know, I've always envied the relationship between you and Olivia." },
+			{ Text: "You two were so close, like sisters.  I barely know my little sister." },
+			{
+				Text: "Do you think she will forgive me?",
+				Answer: [
+					{ Text: "I don't know.", Reply: "Only time will tell." },
+					{ Text: "She will hate you forever.", Reply: "Fine, I don't care.", Love: -1, Domination: 1 },
+					{ Text: "She will forgive you someday.", Reply: "Fine, I don't care.", Love: 1, Domination: -1 },
+				]
+			},
+			{ Text: "Take these keys for her shackles and go rescue her." },
+			{ Text: "(She gives you the key for Olivia's restraints.)" },
+			{
+				Text: "Go help Olivia.",
+				Answer: [
+					{ Text: "Stop the curse first.", Reply: "I'll need Mother for that.  Now go.", Domination: 1 },
+					{ Text: "Enjoy your struggles.", Reply: "(She tries to spit on you.)  Get lost.", Love: -1 },
+					{ Text: "I'll be back to help you.", Reply: "Very well, be quick.", Love: 1 },
+					{ Text: "(Nod slowly.)", Reply: "Run little maid.", Love: 1, Domination: -1 },
+				]
+			},
+			{ Text: "(She stares at the floor and stops talking.)" },
+		]
+	},
+
+	{
+		Name: "CamilleDefeatEnd",
+		Dialog: [
+			{
+				Text: "Go help Olivia.",
+				Background: "CountessHallFloor",
+				Character: [{ Name: "Camille", Status: "Armor", Animation: "Bound", Y: -400 }]
+			},
+			{ Text: "(She stares at the floor and stops talking.)" },
 		]
 	},
 	
