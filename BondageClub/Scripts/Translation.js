@@ -366,6 +366,14 @@ var TranslationDictionary = [
 			// "Screens/Room/Shop/Text_Shop_CN.txt",
 			// "Screens/Room/SlaveMarket/Dialog_NPC_SlaveMarket_SlaveToTrain_CN.txt",
 			// "Screens/Room/Stable/Text_Stable_CN.txt",
+			"Screens/Room/AsylumEntrance/Dialog_NPC_AsylumEntrance_Nurse_CN.txt",
+			"Screens/Room/AsylumEntrance/Text_AsylumEntrance_CN.txt",
+			"Screens/Cutscene/NPCCollaring/Text_NPCCollaring_CN.txt",
+			"Screens/Cutscene/NPCSlaveAuction/Text_NPCSlaveAuction_CN.txt",
+			"Screens/Cutscene/PlayerCollaring/Text_PlayerCollaring_CN.txt",
+			"Screens/Cutscene/PlayerMistress/Text_PlayerMistress_CN.txt",
+			"Screens/Cutscene/SarahIntro/Text_SarahIntro_CN.txt",
+			"Screens/Room/AsylumBedroom/Text_AsylumBedroom_CN.txt",
 		]
 	},
 
