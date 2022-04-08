@@ -566,6 +566,10 @@ var PlatformRoomList = [
 			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease")) {
 				PlatformRoom.Background = "Castle/CountessHall";
 				PlatformRoom.LimitLeft = 0;
+				if (!PlatformEventDone("CamilleEscape")) {
+					PlatformEventSet("CamilleEscape");
+					PlatformDialogStart("CamilleEscape");
+				}
 			}
 		},
 		Text: "Countess Hall",
@@ -582,7 +586,11 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "CastleTerrace",
-		Text: "Countess Terrace (The game ends here for now.)",
+		Entry: function() {
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Olivia", "Flower", 500, true, false, "OliviaTerrace");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Olivia", "Flower", 500, true, false, "OliviaTerraceEnd");
+		},
+		Text: "Countess Terrace",
 		Background: "Castle/Terrace",
 		Width: 2000,
 		Height: 1200,

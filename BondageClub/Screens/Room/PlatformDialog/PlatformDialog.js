@@ -1045,6 +1045,120 @@ var PlatformDialogData = [
 			{ Text: "(She stares at the floor and stops talking.)" },
 		]
 	},
+
+	{
+		Name: "CamilleEscape",
+		Dialog: [
+			{
+				Background: "CountessHall",
+				Character: [
+					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				]
+			},
+			{ Text: "(As you enter the countess hall, you see the open iron gates and that Camille is missing.)" },
+			{ Text: "This is where you two had your battle?" },
+			{
+				Text: "Where is she?",
+				Answer: [
+					{ Text: "This is dangerous!  She escaped.", Reply: "Don't worry Melody.  I'm sure she learned her lesson.", Domination: -1 },
+					{ Text: "Damn bitch!  I'll track her down.", Reply: "(She gulps.)  Is violence always the answer?", Domination: 1, Love: -1 },
+					{ Text: "Let's investigate.", Reply: "Yes, she cannot be too far away." },
+					{ Text: "Stay behind me, it could be a trap.", Reply: "(She nods and hides behind you.)", Domination: 1 },
+				]
+			},
+			{ Text: "The terrace gate is open, let's see if she's there." },
+			{ Text: "(She invites you to walk the countess hall.)" }
+		]
+	},
+	
+	{
+		Name: "OliviaTerrace",
+		Exit : function () { PlatformEventSet("OliviaTerrace"); PlatformLoadRoom(); },
+		Dialog: [
+			{
+				Background: "Terrace",
+				Character: [
+					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				]
+			},
+			{ Text: "Where could they be?  (She starts to look around.)" },
+			{ Text: "Look!  There's a rope!  (She points to a tied rope, going down the manor wall.)" },
+			{ Text: "(She checks the rope carefully.)  This knot was made by Mother." },
+			{ Text: "Trust me, I know her knots.  (She blushes.)" },
+			{ Text: "Mother must have fled and Camille chased her down." },
+			{
+				Text: "What should we do?",
+				Answer: [
+					{ Text: "We could track them.", Reply: "It won't be easy, but if anyone can do it, it's you.", Domination: 1 },
+					{ Text: "Let's find a cure for that curse.", Reply: "(She smiles.)  Yes, we need to help our friends.", Love: 1 },
+					{ Text: "It's safer to stay here.", Reply: "(She nods.)  I'm sure Mother will manage on her own.", Domination: -1 },
+					{ Text: "I don't know.", Reply: "(She sighs.)  I'm sure we'll figure a way to help.", Love: -1 },
+				]
+			},
+			{ Text: "Whatever you do Melody.  I will be there with you." },
+			{ 
+				TextScript:  function () {
+					let Love = PlatformDialogGetCharacter("Olivia").Love - 10;
+					let Dom = PlatformDialogGetCharacter("Olivia").Domination;
+					if ((Love >= 5) && (Love >= Math.abs(Dom))) return "My dear Olivia, together we are unstoppable.";
+					if ((Love >= 0) && (Love >= Math.abs(Dom))) return "I'm glad we are in this mess together Olivia.";
+					if (Dom >= 5) return "And I'll be there to lock you up every night little lady.";
+					if (Dom >= 0) return "And I'll be there to protect you Olivia.";
+					if (Dom <= -5) return "And your maid will be there to serve and obey you Lady Olivia.  (You do a maid curtsy.)";
+					return "And I'll be there to help you Lady Olivia.";
+				},
+				Character: [{ Name: "Melody", Status: "Maid", Pose: "Idle" }]
+			},
+			{
+				Entry: function() {
+					if (PlatformDialogGetCharacter("Olivia").Love < 17) PlatformDialogGoto = "End";
+					PlatformDialogProcess();
+				},
+				Character: [
+					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				]
+			},
+			{ Text: "(She blushes.)  There's something I'd like to ask you." },
+			{
+				Text: "Can...  Can I kiss you?",
+				Answer: [
+					{ Text: "Of course my love.  (Kiss her.)", Reply: "(You both get closer and prepare for a long kiss.)", Love: 1 },
+					{ Text: "(Grab her and kiss her.)", Reply: "(You grab her waist and bring her closer for a long kiss.)", Domination: 1 },
+					{ Text: "(Blush and giggle.)", Reply: "(She grabs your waist and brings you closer for a long kiss.)", Domination: -1 },
+					{ Text: "Sorry, it wouldn't be appropriate.", Reply: "(She sighs.)  I guess you're right.  Let's head for our next mission.", Love: -2, Goto: "End" },
+				]
+			},
+			{
+				Entry: function() { PlatformEventSet("OliviaTerraceKiss"); PlatformAddExperience(PlatformPlayer, 10); },
+				Character: [{ Name: "Olivia", Status: "Flower", Pose: "KissMaidMelody" }]
+			},
+			{ Text: "(You exchange a long and passionate kiss.)" },
+			{ Text: "(Time seems to stop as you feel her sweet lips on yours.)" },
+			{ Text: "(You both moan slowly as you taste each other mouth for the first time.)" },
+			{ ID: "End", Text: "*** Congratulations!  You've reached the end of Bondage Brawl. ***" },
+			{ Text: "*** More playable characters, side quests, hidden scenes and a full new chapter might be added soon. ***" },
+			{ Text: "*** If you enjoyed the game or have ideas on how to improve it, please contact Ben987. ***" },
+		]
+	},
+
+	{
+		Name: "OliviaTerraceEnd",
+		Dialog: [
+			{
+				Background: "Terrace",
+				Character: [
+					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				]
+			},
+			{ Text: "*** Congratulations!  You've reached the end of Bondage Brawl. ***" },
+			{ Text: "*** More playable characters, side quests, hidden scenes and a full new chapter might be added soon. ***" },
+			{ Text: "*** If you enjoyed the game or have ideas on how to improve it, please contact Ben987. ***" },
+		]
+	},
 	
 ];
 
