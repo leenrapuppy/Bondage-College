@@ -95,6 +95,66 @@ function SpeechGarble(C, CD, NoDeaf=false) {
 	return NS;
 }
 
+/**
+ * A helper method to check if the character parsed in is one of the following: ' .?!~-'
+ * @param {string} character - The character needs to be checked.
+ * @returns {boolean} - true if containing one of the following: ' .?!~-', otherwise false.
+ */
+function isStandardPunctuationOrSpace(character) {
+	return ' .?!~-'.includes(character);
+}
+
+/**
+ * Helper method to strip diacritics from characters.
+ * @param {string} character - character that needs to be stripped.
+ * @param {Number} gagEffect - The current gag effect level.
+ * @returns {string} - character that being stripped after garbling.
+ */
+function stripDiacriticsFromCharacter(character, gagEffect) {
+	switch (character) {
+		case 'á':
+		case 'à':
+		case 'ã':
+		case 'â':
+			return 'a';
+		case 'é':
+		case 'ê':
+		case 'è':
+		case 'ë':
+			return 'e';
+		case 'í':
+		case 'î':
+		case 'ì':
+		case 'ï':
+			return 'i';
+		case 'ó':
+		case 'ô':
+		case 'ò':
+		case 'õ':
+			return 'o';
+		case 'ú':
+		case 'û':
+		case 'ù':
+		case 'ü':
+			return 'u';
+		case 'ñ':
+			return gagEffect >= 5 ? 'm' : 'n';
+		case 'ç':
+			return gagEffect >= 5 ? 'h' : 's';
+	}
+
+	// if not any of the above, return itself.
+	return character;
+}
+
+/**
+ * check if the character is one of the following: áàãâéèêíìîõóòôúùûñç
+ * @param {string} character - The character needs to be checked.
+ * @returns {boolean} - true if is one of the above, otherwise false.
+ */
+function isAccentedOrLatinCharacter(character) {
+	return 'áàãâéèêíìîõóòôúùûñç'.includes(character);
+}
 
 
 /**
@@ -109,340 +169,239 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 	var NS = "";
 	var Par = false;
 	if (CD == null) CD = "";
+	if (GagEffect === 0) return CD;
 
 	// GagTotal4 always returns mmmmm and muffles some frequent letters entirely, 75% least frequent letters
-	if (GagEffect >= 20) {
-		for (let L = 0; L < CD.length; L++) {
-			let H = CD.charAt(L).toLowerCase();
-			if (H == "(" && !IgnoreOOC) Par = true;
-			if (Par) NS = NS + CD.charAt(L);
+	for (let L = 0; L < CD.length; L++) {
+		const H = CD.charAt(L).toLowerCase();
+		if (H == "(" && !IgnoreOOC) Par = true;
+		if (H == ")") Par = false;
+		if (GagEffect >= 20) {
+			if (Par) NS += CD.charAt(L);
 			else {
-				if (H == " " || H == "." || H == "?" || H == "!" || H == "~" || H == "-") NS = NS + H;
-				else if (H == "z" || H == "q" || H == "j" || H == "x" || H == "k" || H == "v" || H == "b" || H == "y" || H == "w" || H == "g" || H == "p" || H == "f" || H == "u" || H == "c" || H == "d" || H == "l" || H == "h" || H == "r") NS = NS + " ";
-				else NS = NS + "m";
+				if (isStandardPunctuationOrSpace(H)) NS += H;
+				else if ('zqjxkvbywgpfucdlhr'.includes(H)) NS += ' ';
+				else NS += 'm';
 			}
-
-			if (H == ")") Par = false;
 		}
-		return NS;
-	}
-
-	// GagTotal3 always returns mmmmm and muffles some relatively frequent letters entirely, 50% least frequent letters
-	if (GagEffect >= 16) {
-		for (let L = 0; L < CD.length; L++) {
-			let H = CD.charAt(L).toLowerCase();
-			if (H == "(" && !IgnoreOOC) Par = true;
-			if (Par) NS = NS + CD.charAt(L);
+	
+		// GagTotal3 always returns mmmmm and muffles some relatively frequent letters entirely, 50% least frequent letters
+		else if (GagEffect >= 16) {
+			if (Par) NS += CD.charAt(L);
 			else {
-				if (H == " " || H == "." || H == "?" || H == "!" || H == "~" || H == "-") NS = NS + H;
-				else if (H == "z" || H == "q" || H == "j" || H == "x" || H == "k" || H == "v" || H == "b" || H == "y" || H == "w" || H == "g" || H == "p" || H == "f") NS = NS + " ";
-				else NS = NS + "m";
+				if (isStandardPunctuationOrSpace(H)) NS += H;
+				else if ('zqjxkvbywgpf'.includes(H)) NS += ' ';
+				else NS += 'm';
 			}
-
-			if (H == ")") Par = false;
 		}
-		return NS;
-	}
-
-	// GagTotal2 always returns mmmmm and muffles some less frequent letters entirely; 25% least frequent letters
-	if (GagEffect >= 12) {
-		for (let L = 0; L < CD.length; L++) {
-			let H = CD.charAt(L).toLowerCase();
-			if (H == "(" && !IgnoreOOC) Par = true;
-			if (Par) NS = NS + CD.charAt(L);
+	
+		// GagTotal2 always returns mmmmm and muffles some less frequent letters entirely; 25% least frequent letters
+		else if (GagEffect >= 12) {
+			if (Par) NS += CD.charAt(L);
 			else {
-				if (H == " " || H == "." || H == "?" || H == "!" || H == "~" || H == "-") NS = NS + H;
-				else if (H == "z" || H == "q" || H == "j" || H == "x" || H == "k" || H == "v") NS = NS + " ";
-				else NS = NS + "m";
+				if (isStandardPunctuationOrSpace(H)) NS += H;
+				else if ('zqjxkv'.includes(H)) NS += ' ';
+				else NS += 'm';
 			}
-
-			if (H == ")") Par = false;
 		}
-		return NS;
-	}
-
-	// Total gags always returns mmmmm
-	if (GagEffect >= 8) {
-		for (let L = 0; L < CD.length; L++) {
-			let H = CD.charAt(L).toLowerCase();
-			if (H == "(" && !IgnoreOOC) Par = true;
-			if (Par) NS = NS + CD.charAt(L);
+	
+		// Total gags always returns mmmmm
+		else if (GagEffect >= 8) {
+			if (Par) NS += CD.charAt(L);
 			else {
-				if (H == " " || H == "." || H == "?" || H == "!" || H == "~" || H == "-") NS = NS + H;
-				else NS = NS + "m";
+				if (isStandardPunctuationOrSpace(H)) NS += H;
+				else NS += 'm';
 			}
-
-			if (H == ")") Par = false;
 		}
-		return NS;
-	}
-
-	// VeryHeavy garble - Close to no letter stays the same
-	if (GagEffect >= 7) {
-		for (let L = 0; L < CD.length; L++) {
-			let H = CD.charAt(L).toLowerCase();
-			if (H == "(" && !IgnoreOOC) Par = true;
+	
+		// VeryHeavy garble - Close to no letter stays the same
+		else if (GagEffect >= 7) {
 			if (!Par) {
-
 				// Regular characters
-				if (H == "a" || H == "e" || H == "i" || H == "o" || H == "u" || H == "y") NS = NS + "e";
-				if (H == "j" || H == "k" || H == "l" || H == "r") NS = NS + "a";
-				if (H == "s" || H == "z" || H == "h") NS = NS + "h";
-				if (H == "d" || H == "f" || H == "g" || H == "n" || H == "m" || H == "w" || H == "t" || H == "c" || H == "q" || H == "x" || H == "p" || H == "v") NS = NS + "m";
-				if (H == " " || H == "." || H == "?" || H == "!" || H == "~" || H == "-" || H == "b") NS = NS + H;
+				if ('aeiouy'.includes(H)) NS += 'e';
+				if ('jklr'.includes(H)) NS += 'a';
+				if ('szh'.includes(H)) NS += 'h';
+				if ('dfgnmwtcqxpv'.includes(H)) NS += 'm';
+				if (isStandardPunctuationOrSpace(H) || H == 'b') NS += H;
 
 				// Accents/Latin characters
-				if (H == "á" || H == "â" || H == "à" || H == "é" || H == "ê" || H == "è" || H == "ë" || H == "í" || H == "î" || H == "ì" || H == "ï" || H == "ó" || H == "ô" || H == "ò" || H == "ú" || H == "û" || H == "ù" || H == "ü") NS = NS + "e";
-				if (H == "ç") NS = NS + "h";
-				if (H == "ñ") NS = NS + "m";
+				if (isAccentedOrLatinCharacter(H)) NS += stripDiacriticsFromCharacter(H, GagEffect);
 
 				// Cyrillic characters
-				if (H == "а" || H == "е" || H == "и" || H == "о" || H == "у" || H == "ю" || H == "л"|| H == "я") NS = NS + "е";
-				if (H == "с" || H == "й" || H == "х") NS = NS + "к";
-				if (H == "ж" || H == "к" || H == "л" || H == "р" || H == "у") NS = NS + "а";
-				if (H == "з" || H == "с" || H == "г" || H == "й") NS = NS + "г";
-				if (H == "б" || H == "р" || H == "в" || H == "ы") NS = NS + "ф";
-				if (H == "д" || H == "ф" || H == "г" || H == "н" || H == "м") NS = NS + "м";
+				if ('иоуюля'.includes(H)) NS += 'e';
+				if ('йх'.includes(H)) NS += 'к';
+				if ('жклру'.includes(H)) NS += 'a';
+				if ('зсгй'.includes(H)) NS += 'г';
+				if ('брвы'.includes(H)) NS += 'ф';
+				if ('дфгнм'.includes(H)) NS += 'м';
 
-			} else NS = NS + CD.charAt(L);
-			if (H == ")") Par = false;
+			} else NS += CD.charAt(L);
 		}
-		return NS;
-	}
-
-	// Heavy garble - Almost no letter stays the same
-	if (GagEffect >= 6) {
-		for (let L = 0; L < CD.length; L++) {
-			let H = CD.charAt(L).toLowerCase();
-			if (H == "(" && !IgnoreOOC) Par = true;
+	
+		// Heavy garble - Almost no letter stays the same
+		else if (GagEffect >= 6) {
 			if (!Par) {
-
 				// Regular characters
-				if (H == "a" || H == "e" || H == "i" || H == "o" || H == "u" || H == "y" || H == "t") NS = NS + "e";
-				if (H == "c" || H == "q" || H == "x") NS = NS + "k";
-				if (H == "j" || H == "k" || H == "l" || H == "r" || H == "w") NS = NS + "a";
-				if (H == "s" || H == "z" || H == "h") NS = NS + "h";
-				if (H == "b" || H == "p" || H == "v") NS = NS + "f";
-				if (H == "d" || H == "f" || H == "g" || H == "n" || H == "m") NS = NS + "m";
-				if (H == " " || H == "." || H == "?" || H == "!" || H == "~" || H == "-") NS = NS + H;
+				if ('aeiouyt'.includes(H)) NS += 'e';
+				if ('cqx'.includes(H)) NS += 'k';
+				if ('jklrw'.includes(H)) NS += 'a';
+				if ('szh'.includes(H)) NS += 'h';
+				if ('bpv'.includes(H)) NS += 'f';
+				if ('dfgnm'.includes(H)) NS += 'm';
+				if (isStandardPunctuationOrSpace(H)) NS += H;
 
 				// Accents/Latin characters
-				if (H == "á" || H == "â" || H == "à" || H == "é" || H == "ê" || H == "è" || H == "ë" || H == "í" || H == "î" || H == "ì" || H == "ï" || H == "ó" || H == "ô" || H == "ò" || H == "ú" || H == "û" || H == "ù" || H == "ü") NS = NS + "e";
-				if (H == "ç") NS = NS + "h";
-				if (H == "ñ") NS = NS + "m";
+				if (isAccentedOrLatinCharacter(H)) NS += stripDiacriticsFromCharacter(H, GagEffect);
 
 				// Cyrillic characters
-				if (H == "а" || H == "е" || H == "и" || H == "о" || H == "у" || H == "ю" || H == "л"|| H == "я") NS = NS + "е";
-				if (H == "с" || H == "й" || H == "х") NS = NS + "к";
-				if (H == "ж" || H == "к" || H == "л" || H == "р" || H == "у") NS = NS + "а";
-				if (H == "з" || H == "с" || H == "г" || H == "й") NS = NS + "г";
-				if (H == "б" || H == "р" || H == "в" || H == "ы") NS = NS + "ф";
-				if (H == "д" || H == "ф" || H == "г" || H == "н" || H == "м") NS = NS + "м";
+				if ('иоюля'.includes(H)) NS += 'e';
+				if ('cйх'.includes(H)) NS += 'к';
+				if ('жклр'.includes(H)) NS += 'a';
+				if ('зсгй'.includes(H)) NS += 'г';
+				if ('брвы'.includes(H)) NS += 'ф';
+				if ('дфгнм'.includes(H)) NS += 'м';
 
-			} else NS = NS + CD.charAt(L);
-			if (H == ")") Par = false;
+			} else NS += CD.charAt(L);
 		}
-		return NS;
-	}
-
-	// Medium garble - Some letters stays the same
-	if (GagEffect >= 5) {
-		for (let L = 0; L < CD.length; L++) {
-			let H = CD.charAt(L).toLowerCase();
-			if (H == "(" && !IgnoreOOC) Par = true;
+	
+		// Medium garble - Some letters stays the same
+		else if (GagEffect >= 5) {
 			if (!Par) {
-
 				// Regular characters
-				if (H == "e" || H == "i" || H == "o" || H == "u" || H == "y" || H == "t") NS = NS + "e";
-				if (H == "c" || H == "q" || H == "x" || H == "k" ) NS = NS + "k";
-				if (H == "j" || H == "l" || H == "r" || H == "w" || H == "a") NS = NS + "a";
-				if (H == "s" || H == "z" || H == "h") NS = NS + "h";
-				if (H == "b" || H == "p" || H == "v") NS = NS + "f";
-				if (H == "d" || H == "f" || H == "g" || H == "m") NS = NS + "m";
-				if (H == " " || H == "." || H == "?" || H == "!" || H == "~" || H == "-" || H == "n") NS = NS + H;
+				if ('eiouyt'.includes(H)) NS += 'e';
+				if ('cqxk'.includes(H)) NS += 'k';
+				if ('jlrwa'.includes(H)) NS += 'a';
+				if ('szh'.includes(H)) NS += 'h';
+				if ('bpv'.includes(H)) NS += 'f';
+				if ('dfgm'.includes(H)) NS += 'm';
+				if (isStandardPunctuationOrSpace(H) || H == 'n') NS += H;
 
 				// Accents/Latin characters
-				if (H == "á" || H == "â" || H == "à" || H == "é" || H == "ê" || H == "è" || H == "ë" || H == "í" || H == "î" || H == "ì" || H == "ï" || H == "ó" || H == "ô" || H == "ò" || H == "ú" || H == "û" || H == "ù" || H == "ü") NS = NS + "e";
-				if (H == "ç") NS = NS + "h";
-				if (H == "ñ") NS = NS + "m";
+				if (isAccentedOrLatinCharacter(H)) NS += stripDiacriticsFromCharacter(H, GagEffect);
 
 				// Cyrillic characters
-				if (H == "а" || H == "е" || H == "и" || H == "о" || H == "у" || H == "ю" || H == "л"|| H == "я") NS = NS + "е";
-				if (H == "с" || H == "й" || H == "х") NS = NS + "к";
-				if (H == "ж" || H == "к" || H == "л" || H == "р" || H == "у") NS = NS + "а";
-				if (H == "з" || H == "с" || H == "г" || H == "й") NS = NS + "г";
-				if (H == "б" || H == "р" || H == "в" || H == "ы") NS = NS + "ф";
-				if (H == "д" || H == "ф" || H == "г" || H == "н" || H == "м") NS = NS + "м";
+				if ('aиоуюля'.includes(H)) NS += 'e';
+				if ('cйх'.includes(H)) NS += 'к';
+				if ('жклр'.includes(H)) NS += 'a';
+				if ('зсгй'.includes(H)) NS += 'г';
+				if ('брвы'.includes(H)) NS += 'ф';
+				if ('дфгнм'.includes(H)) NS += 'м';
 
-			} else NS = NS + CD.charAt(L);
-			if (H == ")") Par = false;
+			} else NS += CD.charAt(L);
 		}
-		return NS;
-	}
-
-	// Normal garble, keep vowels and a few letters the same
-	if (GagEffect >= 4) {
-		for (let L = 0; L < CD.length; L++) {
-			let H = CD.charAt(L).toLowerCase();
-			if (H == "(" && !IgnoreOOC) Par = true;
+	
+		// Normal garble, keep vowels and a few letters the same
+		else if (GagEffect >= 4) {
 			if (!Par) {
-
 				// Regular characters
-				if (H == "v" || H == "b" || H == "c" || H == "t") NS = NS + "e";
-				if (H == "q" || H == "k" || H == "x") NS = NS + "k";
-				if (H == "w" || H == "y" || H == "j" || H == "l" || H == "r") NS = NS + "a";
-				if (H == "s" || H == "z") NS = NS + "h";
-				if (H == "d" || H == "f") NS = NS + "m";
-				if (H == "p") NS = NS + "f";
-				if (H == "g") NS = NS + "n";
-				if (H == " " || H == "!" || H == "?" || H == "." || H == "~" || H == "-" || H == "a" || H == "e" || H == "i" || H == "o" || H == "u" || H == "m" || H == "n" || H == "h") NS = NS + H;
+				if ('vbct'.includes(H)) NS += 'e';
+				if ('qkx'.includes(H)) NS += 'k';
+				if ('wyjlr'.includes(H)) NS += 'a';
+				if ('sz'.includes(H)) NS += 'h';
+				if ('df'.includes(H)) NS += 'm';
+				if (H == "p") NS += 'f';
+				if (H == "g") NS += 'n';
+				if (isStandardPunctuationOrSpace(H) || 'aeioumnh'.includes(H)) NS += H;
 
 				// Accents/Latin characters
-				if (H == "á" || H == "â" || H == "à") NS = NS + "a";
-				if (H == "é" || H == "ê" || H == "è" || H == "ë") NS = NS + "e";
-				if (H == "í" || H == "î" || H == "ì" || H == "ï") NS = NS + "i";
-				if (H == "ó" || H == "ô" || H == "ò") NS = NS + "o";
-				if (H == "ú" || H == "û" || H == "ù" || H == "ü") NS = NS + "u";
-				if (H == "ç") NS = NS + "s";
-				if (H == "ñ") NS = NS + "n";
+				if (isAccentedOrLatinCharacter(H)) NS += stripDiacriticsFromCharacter(H, GagEffect);
 
 				// Cyrillic characters
-				if (H == "в" || H == "ф" || H == "б" || H == "п") NS = NS + "фы";
-				if (H == "г" || H == "к" || H == "х") NS = NS + "к";
-				if (H == "в" || H == "у" || H == "ж" || H == "л" || H == "р") NS = NS + "а";
-				if (H == "с" || H == "я") NS = NS + "х";
-				if (H == "д" || H == "ф") NS = NS + "м";
-				if (H == "р") NS = NS + "ф";
-				if (H == "г") NS = NS + "н";
+				if ('вфбп'.includes(H)) NS += 'фы';
+				if ('гкх'.includes(H)) NS += 'к';
+				if ('вужлр'.includes(H)) NS += 'а';
+				if ('ся'.includes(H)) NS += 'х';
+				if ('дф'.includes(H)) NS += 'м';
+				if (H == "р") NS += 'ф';
+				if (H == "г") NS += 'н';
 
-			} else NS = NS + CD.charAt(L);
-			if (H == ")") Par = false;
+			} else NS += CD.charAt(L);
 		}
-		return NS;
-	}
-
-	// Easy garble, keep vowels and a some letters the same
-	if (GagEffect >= 3) {
-		for (let L = 0; L < CD.length; L++) {
-			let H = CD.charAt(L).toLowerCase();
-			if (H == "(" && !IgnoreOOC) Par = true;
+	
+		// Easy garble, keep vowels and a some letters the same
+		else if (GagEffect >= 3) {
 			if (!Par) {
-
 				// Regular characters
-				if (H == "v" || H == "b" || H == "c" || H == "t") NS = NS + "e";
-				if (H == "q" || H == "k" || H == "x") NS = NS + "k";
-				if (H == "w" || H == "y" || H == "j" || H == "l" || H == "r") NS = NS + "a";
-				if (H == "s" || H == "z") NS = NS + "s";
-				if (H == "d") NS = NS + "m";
-				if (H == "p") NS = NS + "f";
-				if (H == "g") NS = NS + "h";
-				if (H == " " || H == "!" || H == "?" || H == "." || H == "~" || H == "-" || H == "a" || H == "e" || H == "i" || H == "o" || H == "u" || H == "m" || H == "n" || H == "h" || H == "f") NS = NS + H;
+				if ('vbct'.includes(H)) NS += 'e';
+				if ('qkx'.includes(H)) NS += 'k';
+				if ('wyjlr'.includes(H)) NS += 'a';
+				if ('sz'.includes(H)) NS += 's';
+				if (H == "d") NS += 'm';
+				if (H == "p") NS += 'f';
+				if (H == "g") NS += 'h';
+				if (isStandardPunctuationOrSpace(H) || 'aeioumnhf'.includes(H)) NS += H;
 
 				// Accents/Latin characters
-				if (H == "á" || H == "â" || H == "à") NS = NS + "a";
-				if (H == "é" || H == "ê" || H == "è" || H == "ë") NS = NS + "e";
-				if (H == "í" || H == "î" || H == "ì" || H == "ï") NS = NS + "i";
-				if (H == "ó" || H == "ô" || H == "ò") NS = NS + "o";
-				if (H == "ú" || H == "û" || H == "ù" || H == "ü") NS = NS + "u";
-				if (H == "ç") NS = NS + "s";
-				if (H == "ñ") NS = NS + "n";
+				if (isAccentedOrLatinCharacter(H)) NS += stripDiacriticsFromCharacter(H, GagEffect);
 
 				// Cyrillic characters
-				if (H == "в" || H == "ф" || H == "б" || H == "п") NS = NS + "фы";
-				if (H == "г" || H == "к" || H == "х") NS = NS + "к";
-				if (H == "в" || H == "у" || H == "ж" || H == "л" || H == "р") NS = NS + "а";
-				if (H == "с" || H == "я") NS = NS + "х";
-				if (H == "д" || H == "ф") NS = NS + "м";
-				if (H == "р") NS = NS + "ф";
-				if (H == "г") NS = NS + "н";
+				if ('вфбп'.includes(H)) NS += 'фы';
+				if ('гкх'.includes(H)) NS += 'к';
+				if ('вужлр'.includes(H)) NS += 'а';
+				if ('ся'.includes(H)) NS += 'х';
+				if ('дф'.includes(H)) NS += 'м';
+				if (H == "р") NS += 'ф';
+				if (H == "г") NS += 'н';
 
-			} else NS = NS + CD.charAt(L);
-			if (H == ")") Par = false;
+			} else NS += CD.charAt(L);
 		}
-		return NS;
-	}
-
-	// Light garble, half of the letters stay the same
-	if (GagEffect >= 2) {
-		for (let L = 0; L < CD.length; L++) {
-			let H = CD.charAt(L).toLowerCase();
-			if (H == "(" && !IgnoreOOC) Par = true;
+	
+		// Light garble, half of the letters stay the same
+		else if (GagEffect >= 2) {
 			if (!Par) {
-
 				// Regular characters
-				if (H == "c" || H == "t") NS = NS + "e";
-				if (H == "q" || H == "k" || H == "x") NS = NS + "k";
-				if (H == "j" || H == "l" || H == "r") NS = NS + "a";
-				if (H == "s") NS = NS + "z";
-				if (H == "z") NS = NS + "s";
-				if (H == "f") NS = NS + "h";
-				if (H == "d" || H == "m" || H == "g") NS = NS + "m";
-				if (H == "b" || H == "h" || H == "n" || H == "v" || H == "w" || H == "p" || H == " " || H == "'" || H == "?" || H == "!" || H == "." || H == "," || H == "~" || H == "-" || H == "a" || H == "e" || H == "i" || H == "o" || H == "u" || H == "y") NS = NS + H;
+				if ('ct'.includes(H)) NS += 'e';
+				if ('qkx'.includes(H)) NS += 'k';
+				if (H == "p") NS += 'f';
+				if (H == "g") NS += 'n';
+				if (H == "s") NS += 'z';
+				if (H == "z") NS += 's';
+				if (H == "f") NS += 'h';
+				if ('dmg'.includes(H)) NS += 'm';
+				if ('bhnvwp'.includes(H) || isStandardPunctuationOrSpace(H) || 'aeiouy'.includes(H)) NS += H;
 
 				// Accents/Latin characters
-				if (H == "á" || H == "â" || H == "à") NS = NS + "a";
-				if (H == "é" || H == "ê" || H == "è" || H == "ë") NS = NS + "e";
-				if (H == "í" || H == "î" || H == "ì" || H == "ï") NS = NS + "i";
-				if (H == "ó" || H == "ô" || H == "ò") NS = NS + "o";
-				if (H == "ú" || H == "û" || H == "ù" || H == "ü") NS = NS + "u";
-				if (H == "ç") NS = NS + "s";
-				if (H == "ñ") NS = NS + "n";
+				if (isAccentedOrLatinCharacter(H)) NS += stripDiacriticsFromCharacter(H, GagEffect); 
 
 				// Cyrillic characters
-				if (H == "ч" || H == "ц") NS = NS + "е";
-				if (H == "й" || H == "ф" || H == "в") NS = NS + "к";
-				if (H == "д" || H == "л" || H == "щ"|| H == "я") NS = NS + "а";
-				if (H == "з") NS = NS + "с";
-				if (H == "с") NS = NS + "з";
-				if (H == "д" || H == "ф" || H == "м" || H == "г") NS = NS + "м";
-				if (H == "а" || H == "п" || H == "р" || H == "о" || H == "к" || H == "е"  || H == "н" || H == "м" || H == "и" || H == "т" ) NS = NS + H;
+				if ('чц'.includes(H)) NS += 'e';
+				if ('йфв'.includes(H)) NS += 'к';
+				if ('длщя'.includes(H)) NS += 'a';
+				if (H == "з") NS += 'c';
+				if (H == "с") NS += 'з';
+				if ('дфмг'.includes(H)) NS += 'м';
+				if ('апрокенмит'.includes(H)) NS += H;
 
-			} else NS = NS + CD.charAt(L);
-			if (H == ")") Par = false;
+			} else NS += CD.charAt(L);
 		}
-		return NS;
-	}
-
-	// Very Light garble, most of the letters stay the same
-	if (GagEffect >= 1) {
-		for (let L = 0; L < CD.length; L++) {
-			let H = CD.charAt(L).toLowerCase();
-			if (H == "(" && !IgnoreOOC) Par = true;
+	
+		// Very Light garble, most of the letters stay the same
+		else if (GagEffect >= 1) {
 			if (!Par) {
-
 				// Regular characters
-				if (H == "t") NS = NS + "e";
-				if (H == "c" || H == "q" || H == "k" || H == "x") NS = NS + "k";
-				if (H == "j" || H == "l" || H == "r") NS = NS + "a";
-				if (H == "d" || H == "m" || H == "g") NS = NS + "m";
-				if (H == "b" || H == "h" || H == "n" || H == "v" || H == "w" || H == "p" || H == " " || H == "'" || H == "?" || H == "!" || H == "." || H == "," || H == "~" || H == "-" || H == "a" || H == "e" || H == "i" || H == "o" || H == "u" || H == "y" || H == "f" || H == "s" || H == "z") NS = NS + H;
+				if (H == "t") NS += 'e';
+				if ('cqkx'.includes(H)) NS += 'k';
+				if ('jlr'.includes(H)) NS += 'a';
+				if ('dmg'.includes(H)) NS += 'm';
+				if ('bhnvwp'.includes(H) || isStandardPunctuationOrSpace(H) || 'aeiouyfsz'.includes(H)) NS += H;
 
 				// Accents/Latin characters
-				if (H == "á" || H == "â" || H == "à") NS = NS + "a";
-				if (H == "é" || H == "ê" || H == "è" || H == "ë") NS = NS + "e";
-				if (H == "í" || H == "î" || H == "ì" || H == "ï") NS = NS + "i";
-				if (H == "ó" || H == "ô" || H == "ò") NS = NS + "o";
-				if (H == "ú" || H == "û" || H == "ù" || H == "ü") NS = NS + "u";
-				if (H == "ç") NS = NS + "s";
-				if (H == "ñ") NS = NS + "n";
+				if (isAccentedOrLatinCharacter(H)) NS += stripDiacriticsFromCharacter(H, GagEffect);
 
 				// Cyrillic characters
-				if (H == "ч" || H == "ц") NS = NS + "е";
-				if (H == "й" || H == "ф" || H == "в") NS = NS + "к";
-				if (H == "д" || H == "л" || H == "щ"|| H == "я") NS = NS + "а";
-				if (H == "з") NS = NS + "с";
-				if (H == "с") NS = NS + "з";
-				if (H == "д" || H == "ф" || H == "м" || H == "г") NS = NS + "м";
-				if (H == "а" || H == "п" || H == "р" || H == "о" || H == "к" || H == "е"  || H == "н" || H == "м" || H == "и" || H == "т" ) NS = NS + H;
+				if ('чц'.includes(H)) NS += 'e';
+				if ('йфв'.includes(H)) NS += 'к';
+				if ('длщя'.includes(H)) NS += 'a';
+				if (H == "з") NS += 'c';
+				if (H == "с") NS += 'з';
+				if ('дфмг'.includes(H)) NS += 'м';
+				if ('апрокенмит'.includes(H)) NS += H;
 
-			} else NS = NS + CD.charAt(L);
-			if (H == ")") Par = false;
+			} else NS += CD.charAt(L);
 		}
-		return NS;
 	}
 
-	return CD;
-
+	return NS;
 }
 
 /**
@@ -499,7 +458,7 @@ function SpeechStutter(C, CD) {
 				}
 				CS = -1;
 			}
-			if (H == ")") Par = false;
+			
 			if (H == " ") CS = 0;
 		}
 		return CD;
@@ -528,12 +487,12 @@ function SpeechBabyTalk(C, CD) {
 			var H = CD.charAt(L).toLowerCase();
 			if (H == "(") Par = true;
 			if (!Par) {
-				if (H == "k" || H == "l") NS = NS + "w";
-				if (H == "s") NS = NS + "sh";
-				if (H == "t") NS = NS + "st";
-				if (H == "a" || H == "b" || H == "c" || H == "d" || H == "e" || H == "f" || H == "g" || H == "h" || H == "i" || H == "j" || H == "m" || H == "n" || H == "o" || H == "p" || H == "q" || H == "r" || H == "u" || H == "v" || H == "w" || H == "x" || H == "y" || H == "z" || H == " " || H == "'" || H == "?" || H == "!" || H == "." || H == ",") NS = NS + H;
-			} else NS = NS + CD.charAt(L);
-			if (H == ")") Par = false;
+				if ('kl'.includes(H)) NS += 'w';
+				if (H == "s") NS = NS += 'sh';
+				if (H == "t") NS = NS += 'st';
+				if (H.match('[a-z ?!.,]')) NS += H;
+			} else NS += CD.charAt(L);
+			
 		}
 		return NS;
 	}
