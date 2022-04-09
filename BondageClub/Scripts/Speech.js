@@ -175,7 +175,6 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 	for (let L = 0; L < CD.length; L++) {
 		const H = CD.charAt(L).toLowerCase();
 		if (H == "(" && !IgnoreOOC) Par = true;
-		if (H == ")") Par = false;
 		if (GagEffect >= 20) {
 			if (Par) NS += CD.charAt(L);
 			else {
@@ -399,6 +398,8 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 
 			} else NS += CD.charAt(L);
 		}
+
+		if (H == ")") Par = false;
 	}
 
 	return NS;
