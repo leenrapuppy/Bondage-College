@@ -1982,6 +1982,7 @@ function ChatRoomKeyDown(event) {
 
 	if (KeyPress == 9 && !event.shiftKey) {
 		event.preventDefault();
+		event.stopImmediatePropagation();
 		CommandAutoComplete(ElementValue("InputChat"));
 	}
 
