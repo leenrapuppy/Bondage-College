@@ -110,8 +110,6 @@ function InventoryItemVulvaFuturisticVibratorExit() {
 		ElementRemove("FuturisticVibe" + ItemVulvaFuturisticVibratorTriggers[I]);
 }
 
-
-
 function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
 	var commandsReceived = [];
 
@@ -126,7 +124,22 @@ function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
 		regexString = regexString.replace(/\*/g, ".*")//regexString.replaceAll("\\*", ".*")
 		regexString = regexString.toUpperCase()
 
-		const triggerRegex = new RegExp(`\\b${regexString}\\b`);
+		const nonLatinCharRegex = new RegExp('^([^\\x20-\\x7F]|\\\\.\\*)+$');
+		let triggerRegex;
+
+		// In general, in most of the Asian language, the full sentence will be considered as one whole word
+		// Because how regex consider word boundaries to be position between \w -> [A-Za-z0-9_] and \W. 
+
+		// So if commands are set to those languages, the command will never be triggered.
+		// Or if the command is not a word 
+		// This enhancement should allow Asian language commands, and also emoji/special characters
+		// (e.g. A symbol such as ↑ or ↓, Languages in CJK group such as Chinese, Japanese, and Korean.)
+		// This should be a fun addition to boost the user's experience.
+		if (nonLatinCharRegex.test(regexString)) {
+			triggerRegex = new RegExp(regexString);
+		} else {
+			triggerRegex = new RegExp(`\\b${regexString}\\b`);
+		}
 		const success = triggerRegex.test(msg);
 
 		if (success) commandsReceived.push(ItemVulvaFuturisticVibratorTriggers[I]);
