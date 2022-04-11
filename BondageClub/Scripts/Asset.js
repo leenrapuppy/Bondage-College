@@ -301,6 +301,7 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 		DrawingLeft: Layer.Left,
 		DrawingTop: Layer.Top,
 		HideAs: Layer.HideAs,
+		FixedPosition: typeof Layer.FixedPosition === "boolean" ? Layer.FixedPosition : false,
 		HasImage: typeof Layer.HasImage === "boolean" ? Layer.HasImage : true,
 		Opacity: typeof Layer.Opacity === "number" ? AssetParseOpacity(Layer.Opacity) : 1,
 		MinOpacity: typeof Layer.MinOpacity === "number" ? AssetParseOpacity(Layer.Opacity) : A.MinOpacity,

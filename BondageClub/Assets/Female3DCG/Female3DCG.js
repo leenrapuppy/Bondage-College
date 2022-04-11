@@ -4465,7 +4465,7 @@ var AssetFemale3DCG = [
 					{ Name: "Reins", HasType: false, AllowModuleTypes: ["r1"], ColorGroup: "Straps" },
 					{ Name: "Rope", HasType: false, AllowModuleTypes: ["r2"] },
 					{ Name: "PostReins", HasType: false, AllowModuleTypes: ["r3"], CopyLayerColor: "Reins" },
-					{ Name: "Post", HasType: false, AllowModuleTypes: ["r3"], AllowColorize: false },
+					{ Name: "Post", HasType: false, AllowModuleTypes: ["r3"], AllowColorize: false, FixedPosition: true },
 					{ Name: "PostReinsDetail", HasType: false, AllowModuleTypes: ["r3"], CopyLayerColor: "Reins" },
 
 					//Blinders
