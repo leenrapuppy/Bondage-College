@@ -4412,37 +4412,37 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PonyGag", Fetish: ["Leather", "Pony", "Pet"], Value: 150, Difficulty: 5, Time: 8, Random: false, AllowLock: true, BuyGroup: "PonyGag", Prerequisite: "GagUnique", DefaultColor: ["Default", "Default", "Default", "Default", "#B24031", "#EAEAEA", "Default", "#FF77D3", "Default", "#956B1C", "Default"], Extended: true, AlwaysExtend: true, Effect: ["BlockMouth", "GagLight"], Bonus: "KidnapBruteForce", Top: -57, Left: 133,
+				Name: "PonyGag", Fetish: ["Leather", "Pony", "Pet"], Value: 150, Difficulty: 5, Time: 8, Random: false, AllowLock: true, BuyGroup: "PonyGag", Prerequisite: "GagUnique", DefaultColor: ["Default", "Default", "#393939", "Default", "#B24031", "#EAEAEA", "Default", "#FF77D3", "#393939", "Default", "Default", "#956B1C"], Extended: true, AlwaysExtend: true, Effect: ["BlockMouth", "GagLight"], Bonus: "KidnapBruteForce", Top: -57, Left: 133,
 				Layer: [
 					// Layers: Metal, Straps, Plume, Horn, Panel
-					{ Name: "BaseMetal", HasType: false, AllowColorize: false },
+					{ Name: "BaseMetal", HasType: false, AllowColorize: true },
 					{ Name: "ManeB", HasType: false, AllowModuleTypes: ["t2", "t3", "t4"], InheritColor: "HairFront" },					
 					{ Name: "BaseStraps", HasType: false, AllowColorize: true },
 					
 					// All Gags
-					{ Name: "Bit", HasType: false, AllowModuleTypes: ["g0"], AllowColorize: false },
+					{ Name: "Bit", HasType: false, AllowModuleTypes: ["g0"], CopyLayerColor: "BaseMetal" },
 					{ Name: "BitLarge", HasType: false, AllowModuleTypes: ["g2"] },
-					{ Name: "BitDepressor", HasType: false, AllowModuleTypes: ["g3"], AllowColorize: false },	
+					{ Name: "BitDepressor", HasType: false, AllowModuleTypes: ["g3"], CopyLayerColor: "BaseMetal" },	
 					{ Name: "DildoLips", HasType: false, AllowModuleTypes: ["g4"], InheritColor: "Mouth", AllowColorize: false },
 					{ Name: "Dildo", HasType: false, AllowModuleTypes: ["g4"], CopyLayerColor: "BitLarge" },
-					{ Name: "DildoMetal", HasType: false, AllowModuleTypes: ["g4"], AllowColorize: false },
+					{ Name: "DildoMetal", HasType: false, AllowModuleTypes: ["g4"], CopyLayerColor: "BaseMetal" },
 					
 					
 					//ExtraStraps
-					{ Name: "ExtraMetal", HasType: false, AllowColorize: false, AllowModuleTypes: ["e1", "e2", "p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], Priority: 55 },
-					{ Name: "ExtraStraps", HasType: false, CopyLayerColor: "Straps", AllowModuleTypes: ["e1", "e2","p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], Priority: 55  },
+					{ Name: "ExtraMetal", HasType: false, AllowModuleTypes: ["e1", "e2", "p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], CopyLayerColor: "BaseMetal", Priority: 55 },
+					{ Name: "ExtraStraps", HasType: false, AllowModuleTypes: ["e1", "e2","p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], CopyLayerColor: "BaseStraps", Priority: 55  },
 					{ Name: "Flags", HasType: false, AllowModuleTypes: ["e2"], Priority: 55 },
 					{ Name: "FlagPoles", HasType: false, AllowModuleTypes: ["e2"], AllowColorize: false, Priority: 55 },
 
 					// All Top Pieces
 					{ Name: "Plume", HasType: false, AllowModuleTypes: ["t1"] },
-					{ Name: "PlumeBase", HasType: false, AllowColorize: false, AllowModuleTypes: ["t1"]},
+					{ Name: "PlumeBase", HasType: false, AllowModuleTypes: ["t1"], CopyLayerColor: "BaseMetal"},
 					{ Name: "ManeL", HasType: false, AllowModuleTypes: ["t2"], InheritColor: "HairFront" },
 					{ Name: "ManeLFront", HasType: false, AllowModuleTypes: ["t2"], InheritColor: "HairFront", CopyLayerColor: "ManeL", Priority: 59 },
 					{ Name: "ManeR", HasType: false, AllowModuleTypes: ["t3"], InheritColor: "HairFront", CopyLayerColor: "ManeL" },
 					{ Name: "ManeRFront", HasType: false, AllowModuleTypes: ["t3"], InheritColor: "HairFront", CopyLayerColor: "ManeL", Priority: 59 },
 					{ Name: "Mohawk", HasType: false, AllowModuleTypes:["t4"], InheritColor: "HairFront", CopyLayerColor: "ManeL", Priority: 59 },
-					{ Name: "MohawkBase", HasType: false, AllowModuleTypes:["t4"], AllowColorize: false, Priority: 59},
+					{ Name: "MohawkBase", HasType: false, AllowModuleTypes:["t4"], CopyLayerColor: "BaseStraps", Priority: 59},
 
 					//Horns
 					{ Name: "Horn", HasType: false, AllowModuleTypes: ["h1"], Priority: 58 },
@@ -4451,8 +4451,8 @@ var AssetFemale3DCG = [
 					{ Name: "Horn2Shine", HasType: false, AllowModuleTypes: ["h2"], AllowColorize: false, Priority: 58 },
 
 					// All Panels
-					{ Name: "PanelBase", HasType: false, AllowModuleTypes: ["p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], CopyLayerColor: "Straps", Priority: 55  },
-					{ Name: "PanelStuds", HasType: false, AllowModuleTypes: ["p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], AllowColorize: false, Priority: 55 },
+					{ Name: "PanelBase", HasType: false, AllowModuleTypes: ["p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], InheritLayerColor: "BaseStraps", Priority: 55  },
+					{ Name: "PanelStuds", HasType: false, CopyLayerColor: "BaseMetal", AllowModuleTypes: ["p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], Priority: 55 },
 					{ Name: "PanelHex", HasType: false, AllowModuleTypes: ["p2"],Priority: 55 },
 					{ Name: "PanelShield", HasType: false, AllowModuleTypes: ["p3"], CopyLayerColor: "PanelHex", Priority: 55 },
 					{ Name: "PanelMoon", HasType: false, AllowModuleTypes: ["p4"], CopyLayerColor: "PanelHex", Priority: 55 },
@@ -4463,14 +4463,14 @@ var AssetFemale3DCG = [
 					{ Name: "PanelPentacle", HasType: false, AllowModuleTypes: ["p9"], CopyLayerColor: "PanelHex", Priority: 55 },
 											
 					//Reins
-					{ Name: "Reins", HasType: false, AllowModuleTypes: ["r1"], CopyLayerColor: "Straps" },
+					{ Name: "Reins", HasType: false, AllowModuleTypes: ["r1"], InheritLayerColor: "BaseStraps" },
 					{ Name: "Rope", HasType: false, AllowModuleTypes: ["r2"] },
 					{ Name: "PostReins", HasType: false, AllowModuleTypes: ["r3"], CopyLayerColor: "Reins" },
 					{ Name: "Post", HasType: false, AllowModuleTypes: ["r3"], AllowColorize: false },
 					{ Name: "PostReinsDetail", HasType: false, AllowModuleTypes: ["r3"], CopyLayerColor: "Reins" },
 
 					//Blinders
-					{ Name: "Blinders", HasType: false, AllowModuleTypes: ["b1"], CopyLayerColor: "Straps", Priority: 55 },
+					{ Name: "Blinders", HasType: false, AllowModuleTypes: ["b1"], CopyLayerColor: "BaseStraps", Priority: 55 },
 
 				]
 			},
