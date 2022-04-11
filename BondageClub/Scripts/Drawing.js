@@ -759,6 +759,45 @@ function DrawImageEx(
 }
 
 /**
+ * Wrapping text in fragments to support languages that do not separate between words using space.
+ * This function can also break between a long English word if somehow needed in the script.
+ * @param {string} text - The text to be fragmented.
+ * @param {number} maxWidth - The max width the text will be filled in.
+ * @returns {Array<string>} - A list of string that being fragmented.
+ */
+function fragmentText(text, maxWidth) {
+    let words = text.split(' '),
+        lines = [],
+        line = "";
+
+    if (MainCanvas.measureText(text).width < maxWidth) {
+        return [text];
+    }
+
+    while (words.length > 0) {
+        while (MainCanvas.measureText(words[0]).width >= maxWidth) {
+            let temp = words[0];
+            words[0] = temp.slice(0, -1);
+            if (words.length > 1) {
+                words[1] = temp.slice(-1) + words[1];
+            } else {
+                words.push(temp.slice(-1));
+            }
+        }
+        if (MainCanvas.measureText(line + words[0]).width < maxWidth) {
+            line += words.shift() + " ";
+        } else {
+            lines.push(line);
+            line = "";
+        }
+        if (words.length === 0) {
+            lines.push(line);
+        }
+    }
+    return lines;
+}
+
+/**
  * Reduces the font size progressively until the text fits the wrap size
  * @param {string} Text - Text that will be drawn
  * @param {number} Width - Width in which the text must fit
@@ -770,7 +809,7 @@ function GetWrapTextSize(Text, Width, MaxLine) {
 	// Don't bother if it fits on one line
 	if (MainCanvas.measureText(Text).width <= Width) return;
 
-	const words = Text.split(' ');
+	const words = fragmentText(Text, Width);
 	let line = '';
 
 	// Find the number of lines
@@ -830,7 +869,7 @@ function DrawTextWrap(Text, X, Y, Width, Height, ForeColor, BackColor, MaxLine) 
 	// Split the text if it wouldn't fit in the rectangle
 	MainCanvas.fillStyle = ForeColor;
 	if (MainCanvas.measureText(Text).width > Width) {
-		const words = Text.split(' ');
+		const words = fragmentText(Text, Width);
 		let line = '';
 
 		// Find the number of lines
