@@ -35,7 +35,7 @@ function KinkyDungeonTickBuffs(list, delta, endFloor) {
 			else {
 				if (value.type == "restore_mp") KinkyDungeonChangeMana(value.power);
 				if (value.type == "restore_sp") KinkyDungeonChangeStamina(value.power);
-				if (value.type == "restore_ap") KinkyDungeonChangeArousal(value.power);
+				if (value.type == "restore_ap") KinkyDungeonChangeDistraction(value.power);
 
 				value.duration -= delta;
 			}
@@ -61,25 +61,21 @@ function KinkyDungeonUpdateBuffs(delta, endFloor) {
 	// Tick down buffs the buffs
 	KinkyDungeonSendEvent("tickBuffs", {delta: delta});
 	KinkyDungeonTickBuffs(KinkyDungeonPlayerBuffs, delta, endFloor);
-	for (let EE = 0; EE < KinkyDungeonEntities.length; EE++) {
-		let enemy = KinkyDungeonEntities[EE];
+	for (let enemy of KinkyDungeonEntities) {
 		if (!enemy.buffs) enemy.buffs = {};
 		KinkyDungeonTickBuffs(enemy.buffs, delta);
 	}
 
 	// Apply the buffs
-	for (let E = 0; E < KinkyDungeonBullets.length; E++) {
-		let b = KinkyDungeonBullets[E];
+	for (let b of KinkyDungeonBullets) {
 		if (b.bullet.spell && b.bullet.spell.buffs) { // Apply the buff
-			for (let B = 0; B < b.bullet.spell.buffs.length; B++) {
-				let buff = b.bullet.spell.buffs[B];
+			for (let buff of b.bullet.spell.buffs) {
 
 				if (buff.player && buff.range >= Math.sqrt((KinkyDungeonPlayerEntity.x - b.x) * (KinkyDungeonPlayerEntity.x - b.x) + (KinkyDungeonPlayerEntity.y - b.y) * (KinkyDungeonPlayerEntity.y - b.y))) {
 					KinkyDungeonApplyBuff(KinkyDungeonPlayerBuffs, buff);
 				}
 				if (buff.enemies) {
-					for (let EE = 0; EE < KinkyDungeonEntities.length; EE++) {
-						let enemy = KinkyDungeonEntities[EE];
+					for (let enemy of KinkyDungeonEntities) {
 						if ((!enemy.Enemy.allied || !buff.noAlly) && (enemy.Enemy.allied || !buff.onlyAlly) && buff.range >= Math.sqrt((enemy.x - b.x) * (enemy.x - b.x) + (enemy.y - b.y) * (enemy.y - b.y))) {
 							KinkyDungeonApplyBuff(enemy.buffs, buff);
 						}
@@ -119,8 +115,7 @@ function KinkyDungeonApplyBuff(list, origbuff) {
 		if ((list[id].power && buff.power == list[id].power && buff.duration > list[id].duration)) list[id].duration = buff.duration;
 
 		if (buff.tags)
-			for (let T = 0; T < buff.tags.length; T++) {
-				let tag = buff.tags[T];
+			for (let tag of buff.tags) {
 				if (tag == "darkness" && list == KinkyDungeonPlayerBuffs) {
 					KinkyDungeonBlindLevelBase = Math.max(KinkyDungeonBlindLevelBase, 1);
 				} else if (tag == "heavydarkness" && list == KinkyDungeonPlayerBuffs) {

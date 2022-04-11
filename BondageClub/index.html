@@ -242,28 +242,37 @@
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonParams.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonVision.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonLoot.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonLootList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonStats.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEnemies.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEnemiesList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonRestraints.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonRestraintsList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonFight.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonWeaponList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonHUD.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDraw.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMagic.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMagicList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonShrine.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonItem.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDress.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDressList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonConsumables.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonConsumablesList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonInventory.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMultiplayer.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonLore.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonCurse.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonReputation.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonTraps.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonTiles.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonPathfinding.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonBuffs.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEvents.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonSpawns.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonJail.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonSetpiece.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonTests.js"></script>
 <script src="Screens/Inventory/ItemDevices/VacBedDeluxe/VacBedDeluxe.js"></script>
 <script src="Screens/Inventory/ItemDevices/FuckMachine/FuckMachine.js"></script>
@@ -286,7 +295,7 @@
 window.onload = function() {
 	ServerURL = CommonGetServer();
 	//CheatImport();
-	GameVersion = "R78";
+	GameVersion = "R79Beta1";
 	console.log("Version: " + GameVersion + ", Server: " + ServerURL);
 	if (!GameVersionFormat.test(GameVersion)) console.error("GameVersion is not valid!");
 	CommonIsMobile = CommonDetectMobile();

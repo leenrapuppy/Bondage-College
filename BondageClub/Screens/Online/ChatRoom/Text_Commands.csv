@@ -5,10 +5,13 @@ ban,[MemberNumber]: Ban the player from the room
 beep,[MemberNumber]: Send a beep to the player
 blacklistadd,[MemberNumber]: Add the player to your blacklist
 blacklistremove,[MemberNumber]: Remove the player from your blacklist
+blush,"[0-5], ”+”, ”-” or ”b” or ”blue”: Remove blush with ”0”, set red blush intensity with ”1” to ”5” or increase and decrease it with ”+” and ”-”, or set blue blush with ”b” or ”blue”. Giving no blush opens the blush menu."
 bot,[Message]: sends hidden message to bots
 coin,: Toss a coin
 demote,[MemberNumber]: Demote the player from room administrator
 dice,[Number]: Roll a 6-sided die. Adding “[Number]” after the command for any number between 2 and 100 will roll a die of that many sides instead. Adding “[Number]d[Number]” will roll multiple dice and sum the total.
+expr,[0-5]: Clear or load facial expression. ”0” after the command will clear current expression. ”1” to ”5” will load expression from the saved slot. Giving no number opens the saved expression menu.
+eyes,"[o|c][l|r] or [expression]: Open or close eyes or change expression. ”c” will close, ”o” will open, using ”l” or ”r” will target only one eye. Giving no action opens the expression menu, using one of ”default”, ”dazed”, ”shy”, ”sad”, ”horny”, ”lewd”, ”verylewd”, ”heart”, ”heartpink”, ”lewdheart”, ”lewdheartpink”, ”dizzy” (or ”@@”), ”daydream” (or ”><”), ”shylyhappy” (or ”^^”), ”angry” (or ”èé”), ”surprised” (or ”éè”) or ”scared” will change expression."
 friendlistadd,[MemberNumber]: Add the player to your friendlist
 friendlistremove,[MemberNumber]: Remove the player from your friendlist
 ghostadd,[MemberNumber]: Add the player to your ghostlist

@@ -1,15 +1,15 @@
 "use strict";
-var KinkyDungeonMapParams = [
+let KinkyDungeonMapParams = [
 
 	{//DungeonName0,-Graveyard-
 		"background" : "RainyForstPathNight",
 		"openness" : 3, // Openness of rooms
 		"density" : 3, // Density of tunnels (inverse of room spawn chance)
 		"doodadchance" : 0.16,
-		"barchance" : 0.1,
+		"barchance" : 0.2,
 		"brightness" : 8,
-		"chestcount" : 1,
-		"shrinecount" : 4,
+		"chestcount" : 3,
+		"shrinecount" : 8,
 		"shrinechance" : 0.75,
 		"ghostchance" : 1,
 		"doorchance" : 0.67,
@@ -19,9 +19,25 @@ var KinkyDungeonMapParams = [
 		"grateChance" : 0.4,
 		"rubblechance" : 0.7,
 		"brickchance" : 0.1,
-		"cacheInterval" : 3,
-		"forbiddenChance" : 0.35, // If a forbidden gold chance is generated. Otherwise a silver chest will appear
+		"cacheInterval" : 1,
+		"forbiddenChance" : 0.7, // If a forbidden gold chance is generated. Otherwise a silver chest will appear
 		"forbiddenGreaterChance" : 0.33, // Chance after a forbidden area is generated with a restraint, otherwise its a lesser gold chest
+
+		"setpieces": [
+			{Type: "Bedroom", Weight: 3},
+			{Type: "Graveyard", Weight: 9},
+			{Type: "Altar", Weight: 6},
+			{Type: "QuadCell", Weight: 4},
+			{Type: "Storage", Weight: 7},
+		],
+
+		"shortcuts": [
+			{Level: 1, checkpoint: 11, chance: 1.0},
+			{Level: 3, checkpoint: 11, chance: 1.0},
+		],
+		"mainpath": [
+			{Level: 5, checkpoint: 1},
+		],
 
 		"traps": [
 			{Name: "CustomSleepDart", Level: 0, Power: 1, Weight: 30},
@@ -69,6 +85,7 @@ var KinkyDungeonMapParams = [
 			{Type: "Rope", Weight: 2},
 			{Type: "Will", Weight: 7},]
 
+
 	},
 
 	{// DungeonName1,-Catacombs-
@@ -76,10 +93,10 @@ var KinkyDungeonMapParams = [
 		"openness" : 0,
 		"density" : 2,
 		"doodadchance" : 0.11,
-		"barchance" : 0.1,
+		"barchance" : 0.2,
 		"brightness" : 6,
-		"chestcount" : 2,
-		"shrinecount" : 5,
+		"chestcount" : 4,
+		"shrinecount" : 10,
 		"shrinechance" : 0.6,
 		"ghostchance" : 0.5,
 		"doorchance" : 0.8,
@@ -89,9 +106,27 @@ var KinkyDungeonMapParams = [
 		"grateChance" : 0.1,
 		"rubblechance" : 0.6,
 		"brickchance" : 0.4,
-		"cacheInterval" : 3,
-		"forbiddenChance" : 0.4,
+		"cacheInterval" : 1,
+		"forbiddenChance" : 0.72,
 		"forbiddenGreaterChance" : 0.33,
+
+		"setpieces": [
+			{Type: "Bedroom", Weight: 2},
+			{Type: "Altar", Weight: 3},
+			{Type: "QuadCell", Weight: 10},
+			{Type: "Storage", Weight: 7},
+		],
+
+		"shortcuts": [
+			{Level: 6, checkpoint: 12, chance: 0.5},
+			{Level: 7, checkpoint: 12, chance: 1.0},
+			{Level: 8, checkpoint: 12, chance: 0.25},
+			{Level: 9, checkpoint: 12, chance: 0.25},
+			{Level: 10, checkpoint: 12, chance: 1.0},
+		],
+		"mainpath": [
+			{Level: 11, checkpoint: 2},
+		],
 
 		"traps": [
 			{Name: "CustomSleepDart", Level: 0, Power: 1, Weight: 30},
@@ -143,13 +178,13 @@ var KinkyDungeonMapParams = [
 
 	{//DungeonName2,-Underground Jungle-
 		"background" : "DeepForest",
-		"openness" : 6,
-		"density" : 5,
+		"openness" : 1,
+		"density" : 1,
 		"doodadchance" : 0.12,
-		"barchance" : 0.02,
-		"brightness" : 7,
-		"chestcount" : 2,
-		"shrinecount" : 5,
+		"barchance" : 0.05,
+		"brightness" : 8,
+		"chestcount" : 5,
+		"shrinecount" : 10,
 		"shrinechance" : 0.4,
 		"ghostchance" : 0.5,
 		"doorchance" : 0.2,
@@ -159,9 +194,17 @@ var KinkyDungeonMapParams = [
 		"grateChance" : 0.1,
 		"rubblechance" : 0.5,
 		"brickchance" : 0.25,
-		"cacheInterval" : 3,
-		"forbiddenChance" : 0.4,
+		"cacheInterval" : 1,
+		"forbiddenChance" : 0.72,
 		"forbiddenGreaterChance" : 0.33,
+
+		"shortcuts": [
+			{Level: 13, checkpoint: 13, chance: 1.0},
+			{Level: 15, checkpoint: 13, chance: 1.0},
+		],
+		"mainpath": [
+			{Level: 17, checkpoint: 3},
+		],
 
 		"traps": [
 			{Name: "CustomVine", Level: 0, Power: 1, Weight: 30},
@@ -211,12 +254,12 @@ var KinkyDungeonMapParams = [
 	{//DungeonName3,-Lost Temple-
 		"background" : "SpookyForest",
 		"openness" : 2,
-		"density" : 0,
+		"density" : 2,
 		"doodadchance" : 0.13,
-		"barchance" : 0.03,
+		"barchance" : 0.1,
 		"brightness" : 5,
-		"chestcount" : 2,
-		"shrinecount" : 4,
+		"chestcount" : 4,
+		"shrinecount" : 8,
 		"shrinechance" : 0.5,
 		"ghostchance" : 0.5,
 		"doorchance" : 0.9,
@@ -226,10 +269,24 @@ var KinkyDungeonMapParams = [
 		"rubblechance" : 0.7,
 		"brickchance" : 0.1,
 		"floodchance" : 0.33,
-		"gaschance" : 0.1, // Chance for a passage to be filled with happy gas
-		"cacheInterval" : 3,
-		"forbiddenChance" : 0.5,
+		"gaschance" : 0.5, // Chance for gas to appear on the level
+		"gasdensity" : 0.1, // Chance for a passage to be filled with happy gas
+		"gastype" : ']', // Gas type
+		"cacheInterval" : 1,
+		"forbiddenChance" : 0.8,
 		"forbiddenGreaterChance" : 0.4,
+
+		"setpieces": [
+			{Type: "Bedroom", Weight: 1},
+			{Type: "Altar", Weight: 6},
+		],
+
+		"shortcuts": [
+
+		],
+		"mainpath": [
+			{Level: 23, checkpoint: 3},
+		],
 
 		"traps": [
 			{Name: "CustomSleepDart", Level: 0, Power: 1, Weight: 20},
@@ -282,10 +339,10 @@ var KinkyDungeonMapParams = [
 		"openness" : 4,
 		"density" : 4,
 		"doodadchance" : 0.15,
-		"barchance" : 0.03,
+		"barchance" : 0.15,
 		"brightness" : 7,
-		"chestcount" : 2,
-		"shrinecount" : 5,
+		"chestcount" : 5,
+		"shrinecount" : 10,
 		"shrinechance" : 0.8,
 		"ghostchance" : 0.5,
 		"doorchance" : 0.05,
@@ -311,8 +368,8 @@ var KinkyDungeonMapParams = [
 		"doodadchance" : 0.05,
 		"barchance" : 0.03,
 		"brightness" : 8,
-		"chestcount" : 3,
-		"shrinecount" : 4,
+		"chestcount" : 6,
+		"shrinecount" : 8,
 		"shrinechance" : 0.75,
 		"ghostchance" : 0.5,
 		"doorchance" : 0.67,
@@ -340,8 +397,8 @@ var KinkyDungeonMapParams = [
 		"doodadchance" : 0.13,
 		"barchance" : 0.03,
 		"brightness" : 5,
-		"chestcount" : 2,
-		"shrinecount" : 6,
+		"chestcount" : 4,
+		"shrinecount" : 12,
 		"shrinechance" : 0.5,
 		"ghostchance" : 0.5,
 		"doorchance" : 0.0,
@@ -367,8 +424,8 @@ var KinkyDungeonMapParams = [
 		"doodadchance" : 0.12,
 		"barchance" : 0.03,
 		"brightness" : 4,
-		"chestcount" : 2,
-		"shrinecount" : 5,
+		"chestcount" : 4,
+		"shrinecount" : 10,
 		"shrinechance" : 0.8,
 		"ghostchance" : 0.5,
 		"doorchance" : 0.8,
@@ -391,12 +448,12 @@ var KinkyDungeonMapParams = [
 	},
 	{//DungeonName8,-Marble Halls-
 		"openness" : 4,
-		"density" : 0,
+		"density" : 1,
 		"doodadchance" : 0.12,
 		"barchance" : 0.03,
 		"brightness" : 8,
-		"chestcount" : 4,
-		"shrinecount" : 4,
+		"chestcount" : 8,
+		"shrinecount" : 8,
 		"shrinechance" : 0.75,
 		"ghostchance" : 0.5,
 		"doorchance" : 1.0,
@@ -424,8 +481,8 @@ var KinkyDungeonMapParams = [
 		"doodadchance" : 0.08,
 		"barchance" : 0.03,
 		"brightness" : 4,
-		"chestcount" : 5,
-		"shrinecount" : 3,
+		"chestcount" : 10,
+		"shrinecount" : 6,
 		"shrinechance" : 0.75,
 		"ghostchance" : 0.5,
 		"doorchance" : 1.0,
@@ -449,7 +506,7 @@ var KinkyDungeonMapParams = [
 	},
 	{//DungeonName10,-The Mansion-
 		"openness" : 10,
-		"density" : 0,
+		"density" : 1,
 		"doodadchance" : 0.05,
 		"barchance" : 0.03,
 		"brightness" : 100,
@@ -481,10 +538,10 @@ var KinkyDungeonMapParams = [
 		"openness" : 1,
 		"density" : 3,
 		"doodadchance" : 0.25,
-		"barchance" : 0.03,
+		"barchance" : 0.05,
 		"brightness" : 5,
-		"chestcount" : 3,
-		"shrinecount" : 6,
+		"chestcount" : 6,
+		"shrinecount" : 12,
 		"shrinechance" : 0.5,
 		"ghostchance" : 0.5,
 		"doorchance" : 0.4,
@@ -494,10 +551,22 @@ var KinkyDungeonMapParams = [
 		"grateChance" : 0.3,
 		"rubblechance" : 0.7,
 		"brickchance" : 0.4,
-		"cacheInterval" : 3,
+		"cacheInterval" : 1,
 		// Side routes have more high-value loot
-		"forbiddenChance" : 0.75,
+		"forbiddenChance" : 1.0,
 		"forbiddenGreaterChance" : 0.45,
+
+		"setpieces": [
+			{Type: "Altar", Weight: 6},
+			{Type: "Storage", Weight: 7},
+		],
+
+		"shortcuts": [
+			{Level: 4, checkpoint: 13, chance: 1.0},
+		],
+		"mainpath": [
+			{Level: 5, checkpoint: 1},
+		],
 
 		"traps": [
 			{Name: "CustomSleepDart", Level: 0, Power: 1, Weight: 20},
@@ -544,45 +613,51 @@ var KinkyDungeonMapParams = [
 			{Type: "Leather", Weight: 6},
 			{Type: "Will", Weight: 7},]
 	},
-	{//DungeonName12,-The Dungeon-
+	{//DungeonName12,-Magic Library-
 		"background" : "Cell",
-		"openness" : 1,
-		"density" : 3,
-		"doodadchance" : 0.25,
-		"barchance" : 0.03,
-		"brightness" : 5,
-		"chestcount" : 3,
-		"shrinecount" : 6,
+		"openness" : 5,
+		"density" : 6,
+		"doodadchance" : 0.15,
+		"wallRubblechance" : 0.035,
+		"barchance" : 0.1,
+		"brightness" : 8,
+		"chestcount" : 6,
+		"shrinecount" : 12,
 		"shrinechance" : 0.5,
 		"ghostchance" : 0.5,
-		"doorchance" : 0.4,
-		"nodoorchance" : 0.25,
+		"doorchance" : 0.0,
+		"nodoorchance" : 1.0,
 		"doorlockchance" : -0.05,
-		"trapchance" : 0.65,
-		"grateChance" : 0.3,
+		"trapchance" : 0.3,
+		"grateChance" : 0.7,
 		"rubblechance" : 0.7,
-		"brickchance" : 0.4,
-		"cacheInterval" : 3,
+		"brickchance" : 0.03,
+		"cacheInterval" : 1,
 		// Side routes have more high-value loot
-		"forbiddenChance" : 0.75,
+		"forbiddenChance" : 1.0,
 		"forbiddenGreaterChance" : 0.45,
+
+		"shortcuts": [
+			{Level: 9, checkpoint: 1, chance: 1.0},
+		],
+		"mainpath": [
+			{Level: 11, checkpoint: 2},
+		],
 
 		"traps": [
 			{Name: "CustomSleepDart", Level: 0, Power: 1, Weight: 20},
-			{Name: "SpecificSpell", Spell: "TrapMummyWeak", Level: 0, Power: 1, Weight: 30},
 			{Name: "SpecificSpell", Spell: "TrapRopeWeak", Level: 0, Power: 3, Weight: 30},
 			{Name: "SpecificSpell", Spell: "TrapLeatherWeak", Level: 0, Power: 3, Weight: 30},
 			{Name: "SpecificSpell", Spell: "TrapLustCloud", Level: 0, Power: 3, Weight: 30},
-			{Name: "SpawnEnemies", Enemy: "SummonedSkeleton", strict: true, Level: 0, Power: 5, Weight: 10},
 			{Name: "SpawnEnemies", Enemy: "Bandit", strict: true, Level: 0, Power: 3, Weight: 10},
 		],
 
-		"min_width" : 21,
-		"max_width" : 27,
-		"min_height" : 13,
-		"max_height" : 17,
+		"min_width" : 25,
+		"max_width" : 25,
+		"min_height" : 25,
+		"max_height" : 25,
 
-		"enemytags": ["mummy", "ghost"],
+		"enemytags": ["book", "witch", "dressmaker"],
 		"defeat_restraints": [
 			{Name: "Stuffing", Level: 20},
 			{Name: "TrapGag", Level: 20},
@@ -600,7 +675,7 @@ var KinkyDungeonMapParams = [
 			{Name: "TrapBlindfold", Level: 90},
 			{Name: "TrapBoots", Level: 60},
 		],
-		"defeat_outfit": "Egyptian",
+		"defeat_outfit": "Prisoner",
 		"shrines": [
 			{Type: "Latex", Weight: 3},
 			{Type: "Commerce", Weight: 14},
@@ -612,15 +687,15 @@ var KinkyDungeonMapParams = [
 			{Type: "Leather", Weight: 6},
 			{Type: "Will", Weight: 7},]
 	},
-	{//DungeonName13,-Fungal Cave-
+	{//DungeonName13,-Crystal Cave-
 		"background" : "ForestCave",
-		"openness" : 4,
-		"density" : 4,
+		"openness" : 6,
+		"density" : 2,
 		"doodadchance" : 0.15,
 		"barchance" : 0.03,
 		"brightness" : 7,
-		"chestcount" : 2,
-		"shrinecount" : 5,
+		"chestcount" : 4,
+		"shrinecount" : 10,
 		"shrinechance" : 0.8,
 		"ghostchance" : 0.5,
 		"doorchance" : 0.05,
@@ -631,11 +706,31 @@ var KinkyDungeonMapParams = [
 		"rubblechance" : 0.9,
 		"brickchance" : 0.2,
 
+		"gaschance" : 0.33, // Chance for gas to appear on the level
+		"gasdensity" : 0.05, // Chance for a passage to be filled with happy gas
+		"gastype" : '[', // Gas type
+
 		"floodchance" : 0.25,
-		"cacheInterval" : 3,
+		"cacheInterval" : 1,
 		// Side routes have more high-value loot
-		"forbiddenChance" : 0.75,
+		"forbiddenChance" : 1.0,
 		"forbiddenGreaterChance" : 0.45,
+
+		"setpieces": [
+			{Type: "Altar", Weight: 6},
+			{Type: "Storage", Weight: 2},
+		],
+
+		"shortcuts": [
+			{Level: 14, checkpoint: 2, chance: 0.33},
+			{Level: 15, checkpoint: 2, chance: 0.4},
+			{Level: 16, checkpoint: 2, chance: 1.0},
+		],
+		"mainpath": [
+			{Level: 5, checkpoint: 13},
+			{Level: 7, checkpoint: 1},
+			{Level: 17, checkpoint: 3},
+		],
 
 		"traps": [
 			{Name: "CustomSleepDart", Level: 0, Power: 1, Weight: 20},
@@ -650,7 +745,7 @@ var KinkyDungeonMapParams = [
 		"min_height" : 15,
 		"max_height" : 25,
 
-		"enemytags": ["mushroom"],
+		"enemytags": ["mushroom", "slimeBonus", "crystalline"],
 		"defeat_restraints": [
 			{Name: "Stuffing", Level: 20},
 			{Name: "TrapGag", Level: 20},

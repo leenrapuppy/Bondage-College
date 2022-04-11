@@ -133,15 +133,8 @@ function ActivityPossibleOnGroup(char, groupname) {
  * @returns {boolean} whether that activity's target is valid
  */
 function ActivityHasValidTarget(char, act, group) {
-	let targets = [];
-	// If the player is targeting herself
-	if (char.ID == 0) {
-		if (act.TargetSelf || act.Prerequisite.includes("OnlySelf"))
-			return act.TargetSelf.includes(group.Name);
-	} else {
-		targets = group.Activity;
-	}
-	return targets.includes(act.Name);
+	let activities = AssetActivitiesForGroup(char.AssetFamily, group.Name, (char.IsPlayer() ? "self" : "other"));
+	return activities.some(a => a.Name === act.Name);
 }
 
 /**
@@ -182,10 +175,6 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			return acted.IsMouthBlocked();
 		case "IsGagged":
 			return !acting.CanTalk();
-		case "SelfOnly":
-			return acting.IsPlayer() ? acted.IsPlayer()
-				: acting.IsOnline() ? acting.MemberNumber === acted.MemberNumber
-				: acting.AccountName === acted.AccountName;
 		case "TargetKneeling":
 			return acted.IsKneeling();
 		case "UseHands":
@@ -214,8 +203,6 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			break;
 		case "ZoneAccessible":
 			return ActivityGetAllMirrorGroups(acted.AssetFamily, group.Name).some((g) => !InventoryGroupIsBlocked(acted, g.Name, true));
-		case "WearingPenetrationItem":
-			return CharacterHasItemForActivity(acting, "Penetrate") && !acting.IsEnclose();
 		case "ZoneNaked":
 			if (group.Name === "ItemButt")
 				return InventoryPrerequisiteMessage(acted, "AccessButt") === "" && !acted.IsPlugged();
@@ -227,6 +214,11 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 				return InventoryPrerequisiteMessage(acted, "NakedFeet") === "";
 			else if (group.Name === "ItemHands")
 				return InventoryPrerequisiteMessage(acted, "NakedHands") === "";
+			break;
+		default:
+			if (prereq.startsWith("Needs-")) {
+				return !acting.IsEnclose() && !acted.IsEnclose() && CharacterHasItemWithAttribute(acting, prereq.substring(6));
+			}
 			break;
 	}
 	return true;
@@ -251,9 +243,10 @@ function ActivityCheckPrerequisites(activity, acting, acted, group) {
  * Builds the allowed activities on a group given the character's settings.
  * @param {Character} character - The character for which to build the activity dialog options
  * @param {string} groupname - The group to check
+ * @param {boolean} [allowItem] - Should item-related activities be checked
  * @return {Array} - The list of allowed activities
  */
-function ActivityAllowedForGroup(character, groupname) {
+function ActivityAllowedForGroup(character, groupname, allowItem = false) {
 	// Get the group and all possible activities
 	let activities = AssetAllActivities(character.AssetFamily);
 	let group = ActivityGetGroupOrMirror(character.AssetFamily, groupname);
@@ -261,7 +254,7 @@ function ActivityAllowedForGroup(character, groupname) {
 
 	let allowed = activities.filter(activity => {
 		// Item-related activity, skip
-		if (activity.Name.indexOf("Item") >= 0)
+		if (!allowItem && activity.Name.indexOf("Item") >= 0)
 			return false;
 
 		// Validate that this activity can be done
@@ -282,14 +275,14 @@ function ActivityAllowedForGroup(character, groupname) {
 	});
 
 	// Sort allowed activities by their group declaration order
-	return allowed.sort((a, b) => Math.sign(group.Activity.indexOf(a.Name) - group.Activity.indexOf(b.Name)));
+	return allowed.sort((a, b) => Math.sign(ActivityFemale3DCGOrdering.indexOf(a.Name) - ActivityFemale3DCGOrdering.indexOf(b.Name)));
 }
 
 /**
  * Returns TRUE if an activity can be done
  * @param {Character} C - The character to evaluate
  * @param {string} Activity - The name of the activity
- * @param {string} Group - The name of the group 
+ * @param {string} Group - The name of the group
  * @return {boolean} - TRUE if the activity can be done
  */
 function ActivityCanBeDone(C, Activity, Group) {

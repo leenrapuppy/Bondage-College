@@ -74,6 +74,96 @@ type VibratorModeState = "Default" | "Deny" | "Orgasm" | "Rest";
 
 type VibratorRemoteAvailability = "Available" | "NoRemote" | "NoLoversRemote" | "RemotesBlocked" | "CannotInteract" | "NoAccess" | "InvalidItem";
 
+type EffectName =
+	"Freeze" | "Prone" | "Block" | "Mounted" | "KneelFreeze" | "ForceKneel" | "BlockKneel" |
+
+	"CuffedFeet" | "CuffedLegs" | "CuffedArms" | "IsChained" | "FixedHead" |
+
+	"Shackled" | "Tethered" | "Enclose" | "OneWayEnclose" | "OnBed" | "Lifted" |
+
+	"Slow" | "FillVulva" | "IsPlugged" |
+
+	"Egged" | "Vibrating" |
+
+	"Edged" | "DenialMode" | "RuinOrgasms" |
+
+	"Remote" | "UseRemote" | "BlockRemotes" |
+
+	"Lock" | "NotSelfPickable" |
+
+	"Chaste" | "BreastChaste" |
+
+	"Leash" | "CrotchRope" |
+
+	"ReceiveShock" | "TriggerShock" |
+
+	"OpenPermission" | "OpenPermissionArm" | "OpenPermissionLeg" | "OpenPermissionChastity" |
+
+	"BlockMouth" | "OpenMouth" |
+
+	"GagVeryLight" | "GagEasy" | "GagLight" | "GagNormal" | "GagMedium" | "GagHeavy" | "GagVeryHeavy" | "GagTotal" | "GagTotal2" |
+
+	"BlindLight" | "BlindNormal" | "BlindHeavy" |
+	"DeafLight" | "DeafNormal" | "DeafHeavy" | "DeafTotal" |
+
+	"VR" | "VRAvatars" | "KinkyDungeonParty" |
+
+	"LightBall" |
+
+	"RegressedTalk" |
+
+	"HideRestraints" |
+
+	"Unlock-MetalPadlock" | "Unlock-OwnerPadlock" | "Unlock-OwnerTimerPadlock" |
+	"Unlock-LoversPadlock" | "Unlock-LoversTimerPadlock" |
+	"Unlock-MistressPadlock" |"Unlock-MistressTimerPadlock" |
+	"Unlock-PandoraPadlock" | "Unlock-MetalCuffs" | "Unlock-" |
+
+	""
+;
+
+type AssetGroupItemName =
+	'ItemAddon' | 'ItemArms' | 'ItemBoots' | 'ItemBreast' | 'ItemButt' |
+	'ItemDevices' | 'ItemEars' | 'ItemFeet' | 'ItemHands' | 'ItemHead' |
+	'ItemHood' | 'ItemLegs' | 'ItemMisc' | 'ItemMouth' | 'ItemMouth2' |
+	'ItemMouth3' | 'ItemNeck' | 'ItemNeckAccessories' | 'ItemNeckRestraints' |
+	'ItemNipples' | 'ItemNipplesPiercings' | 'ItemNose' | 'ItemPelvis' |
+	'ItemTorso' | 'ItemVulva' | 'ItemVulvaPiercings' |
+
+	'ItemHidden' /* TODO: investigate, not a real group */
+;
+
+type AssetGroupBodyName =
+	'Blush' | 'BodyLower' | 'BodyUpper' | 'Bra' | 'Bracelet' | 'Cloth' |
+	'ClothAccessory' | 'ClothLower' | 'Corset' | 'Emoticon' | 'Eyebrows' |
+	'Ears' | 'Eyes' | 'Eyes2' | 'Fluids' | 'Garters' | 'Glasses' | 'Gloves' |
+	'HairAccessory1' | 'HairAccessory2' | 'HairAccessory3' | 'HairBack' |
+	'HairFront' | 'Hands' | 'Hat' | 'Head' | 'Height'  | 'LeftAnklet' | 'Mask' |
+	'Mouth' | 'Necklace' | 'Nipples' | 'Panties' | 'Pussy' | 'RightAnklet' |
+	'Shoes' | 'Socks' | 'Suit' | 'SuitLower' | 'TailStraps' | 'Wings'
+;
+
+type AssetGroupName = AssetGroupBodyName | AssetGroupItemName;
+
+type AssetPoseName =
+	'AllFours' | 'BackBoxTie' | 'BackCuffs' | 'BackElbowTouch' | 'BaseLower' |
+	'BaseUpper' | 'Hogtied' | 'Horse' | 'Kneel' | 'KneelingSpread' | 'LegsClosed' |
+	'LegsOpen' | 'OverTheHead' | 'Spread' | 'Suspension' | 'SuspensionHogtied' |
+	'TapedHands' | 'Yoked' |
+
+	/* FIXME: Those are pose categories */
+	'BodyUpper' | 'BodyLower'
+;
+
+type AssetLockType =
+	"CombinationPadlock" | "ExclusivePadlock" | "HighSecurityPadlock" |
+	"IntricatePadlock" | "LoversPadlock" | "LoversTimerPadlock" |
+	"MetalPadlock" | "MistressPadlock" | "MistressTimerPadlock" |
+	"OwnerPadlock" | "OwnerTimerPadlock" | "PandoraPadlock" |
+	"PasswordPadlock" | "SafewordPadlock" | "TimerPadlock" |
+	"TimerPasswordPadlock"
+;
+
 //#endregion
 
 //#region index.html
@@ -241,8 +331,6 @@ interface AssetGroup {
 	Clothing: boolean;
 	Underwear: boolean;
 	BodyCosplay: boolean;
-	Activity: string[];
-	AllowActivityOn?: string[];
 	Hide?: string[];
 	Block?: string[];
 	Zone?: [number, number, number, number][];
@@ -349,8 +437,8 @@ interface Asset {
 	Enable: boolean;
 	Visible: boolean;
 	Wear: boolean;
-	Activity: string[] | string;
-	AllowActivity: string[];
+	Activity?: string;
+	AllowActivity?: string[];
 	AllowActivityOn?: string[];
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: string[];
@@ -420,7 +508,7 @@ interface Asset {
 	DynamicExpressionTrigger: (C: Character) => ExpressionTrigger[] | null | undefined;
 	DynamicName: (C: Character) => string;
 	DynamicGroupName: string;
-	DynamicActivity: (C: Character) => string[] | string | null | undefined;
+	DynamicActivity: (C: Character) => string | null | undefined;
 	DynamicAudio: ((C: Character) => string) | null;
 	CharacterRestricted: boolean;
 	AllowRemoveExclusive: boolean;
@@ -472,7 +560,9 @@ interface Activity {
 	Name: string;
 	MaxProgress: number;
 	Prerequisite: string[];
-	TargetSelf?: string[];
+	Target: string[];
+	TargetSelf?: string[] | true;
+	/** used for setting AutoPunishGagActionFlag */
 	MakeSound?: boolean;
 }
 
@@ -916,9 +1006,151 @@ interface NPCTrait {
 
 //#region Extended items
 
-interface ItemProperties {
-	[key: string]: any;
+/**
+ * Base properties for extended items
+ *
+ * Those are the properties the main game code enforces.
+ */
+interface ItemPropertiesBase {
+	Type?: string | null;
+	Expression?: string;
+	Difficulty?: number;
+	OverrideHeight?: { Height: number; Priority: number; HeightRatioProportion?: number; };
+	HeightModifier?: number;
+	OverridePriority?: unknown;
+	DefaultColor?: string;
+
+	Attribute?: string[];
+
+	AllowActivity?: string[];
+	AllowActivityOn?: AssetGroupItemName[];
+
+	/** Items hidden by this one */
+	HideItem?: string[];
+	HideItemExclude?: string[];
+	Hide?: AssetGroupName[];
+
+	/** The groups that this item blocks */
+	Block?: AssetGroupItemName[];
+
+	Effect?: EffectName[] | ((arg: number) => EffectName[]);
+	OverrideAssetEffect?: boolean;
+
+	/* Pose-related properties */
+
+	SetPose?: AssetPoseName[];
+	AllowActivePose?: AssetPoseName[];
+	AllowPose?: AssetPoseName[];
+	WhitelistActivePose?: AssetPoseName[];
+	FreezeActivePose?: AssetPoseName[];
 }
+
+/**
+ * Custom properties for extended items
+ *
+ * Those are properties that are asset-specific, so the handling might be done
+ * per-item.
+ */
+interface ItemPropertiesCustom {
+	ItemMemberNumber?: number;
+
+	Mode?: unknown;
+	Intensity?: (() => number) | number;
+	State?: unknown;
+
+	RemoveTimer?: unknown;
+	Password?: string;
+	LockPickSeed?: string;
+	CombinationNumber?: string;
+	LockMemberNumber?: number | string;
+	MemberNumber?: number;
+	MemberNumberListKeys?: unknown;
+	AllowLock?: boolean;
+	SelfUnlock?: boolean;
+	LockedBy?: AssetLockType;
+	RemoveItem?: boolean;
+
+	InflateLevel?: number;
+
+	SuctionLevel?: number;
+
+	/** 1st line of text for user-entered text data */
+	Text?: string;
+	/** 2nd line of text for user-entered text data */
+	Text2?: string;
+
+	LockButt?: boolean;
+
+	/* Futuristic Set open permissions */
+
+	OpenPermission?: boolean;
+	OpenPermissionArm?: boolean;
+	OpenPermissionLeg?: boolean;
+	OpenPermissionChastity?: boolean;
+
+	/** The futuristic bra's heart rate value */
+	HeartRate?: number;
+	/** Is the futuristic bra's heart icon shown */
+	HeartIcon?: boolean;
+
+	/* Futuristic gag & panel gag settings */
+	AutoPunish?: number;
+	AutoPunishUndoTime?: number;
+	AutoPunishUndoTimeSetting?: number;
+	OriginalSetting?: "Padded" | "LightBall" | "Ball" | "Plug";
+	ChatMessage?: boolean;
+	BlinkState?: number;
+	Option?: ExtendedItemOption;
+
+	BlockRemotes?: boolean;
+
+	/* Futuristic chastity settings */
+
+	PunishStruggle?: boolean;
+	PunishStruggleOther?: boolean;
+	PunishOrgasm?: boolean;
+	PunishStandup?: boolean;
+	PunishSpeech?: number;
+	PunishRequiredSpeech?: number;
+	PunishRequiredSpeechWord?: string;
+	PunishProhibitedSpeech?: number;
+	PunishProhibitedSpeechWords?: string;
+	NextShockTime?: number;
+
+	PublicModeCurrent?: number;
+	PublicModePermission?: number;
+
+	/** The futuristic vibrator's trigger words */
+	TriggerValues?: string;
+	AccessMode?: string;
+
+	/* Pleasure panties settings */
+	ShockLevel?: number;
+	LockCrotch?: boolean;
+	OrgasmLock?: number;
+
+	/** The number of inserted beads */
+	InsertedBeads?: number;
+
+	/** Whether the item displays a chat message or not */
+	ShowText?: boolean;
+
+	/** How sensitive the item is to whatever its reacting to */
+	Sensitivity?: number;
+
+	/** The asset's draw opacity */
+	Opacity?: number;
+
+	CustomBlindBackground?: string;
+
+	/** Number of times the item was triggered; often used by shock collars */
+	TriggerCount?: number;
+
+	/** Number of times the suitcase got cracked */
+	Iterations?: number;
+}
+
+interface ItemProperties extends ItemPropertiesBase, ItemPropertiesCustom {}
 
 /**
  * An object containing the extended item definition for an asset.
@@ -1507,86 +1739,6 @@ interface ICommand {
 	Clear?: false;
 }
 
-
-
-// Kinky Dungeon Typedefs
-interface KinkyDungeonSave {
-	level: number;
-    checkpoint: number;
-    rep: Record<string, number>;
-    costs: Record<string, number>;
-    orbs: number[];
-    chests: number[];
-    dress: string;
-    gold: number;
-    points: number;
-    levels: {
-        Elements: number;
-        Conjure: number;
-        Illusion: number;
-    };
-    id: number;
-    choices: number[];
-	choices2: boolean[];
-	buffs: Record<string, any>;
-	lostitems: any[];
-	caches: number[];
-	spells: string[];
-	inventory: {
-		restraint: any;
-		looserestraint: any;
-		weapon: any;
-		consumable: any;
-	}[];
-	stats: {
-		picks: number;
-		keys: number;
-		bkeys: number;
-		knife: number;
-		eknife: number;
-		mana: number;
-		stamina: number;
-		arousal: number;
-		wep: any;
-		npp: number;
-	};
-}
-
-interface KinkyDungeonShopItem {
-	cost: any;
-	rarity: any;
-	costMod?: any;
-	shoptype: string;
-	name: any;
-}
-
-interface KinkyDungeonWeapon {
-	name: string;
-	dmg: number;
-	chance: number;
-	type: string;
-	rarity: number;
-	staminacost?: number;
-	magic?: boolean;
-	cutBonus?: number;
-	unarmed: boolean;
-	shop: boolean;
-	noequip?: boolean;
-	sfx: string;
-	events?: KinkyDungeonEvent[];
-}
-
-interface KinkyDungeonEvent {
-	type: string;
-	trigger: string;
-	power?: number;
-	damage?: string;
-	dist?: number;
-	buffType?: string;
-	time?: number;
-	chance?: number;
-}
-
 type PokerPlayerType = "None" | "Set" | "Character";
 type PokerPlayerFamily = "None" | "Player";
 
@@ -1652,6 +1804,31 @@ interface GameGGTSParameters {
 	Time: number;
 	Strike: number;
 	Rule: string[];
+}
+
+// #endregion
+
+// #region Audio
+
+type AudioSoundEffect = [string, number];
+
+interface AudioEffect {
+	/** The sound effect name */
+	Name: string;
+
+	/** The sound file, or files to choose from randomly */
+	File: string | string[];
+}
+
+/**
+ * Sound effect detector for chat messages.
+ */
+interface AudioChatAction {
+	/** Is that action applicable for that chat message? */
+	IsAction: (data: IChatRoomMessage) => boolean;
+
+	/** Extracts the actual sound effect from the chat message */
+	GetSoundEffect: (data: IChatRoomMessage) => (AudioSoundEffect | string | null);
 }
 
 // #endregion

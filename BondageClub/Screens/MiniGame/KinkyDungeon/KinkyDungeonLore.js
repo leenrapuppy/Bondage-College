@@ -1,8 +1,8 @@
 "use strict";
 
-var KinkyDungeonCurrentLore = -1;
-var KinkyDungeonLore = [2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16];
-var KinkyDungeonCheckpointLore = [
+let KinkyDungeonCurrentLore = -1;
+let KinkyDungeonLore = [2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16];
+let KinkyDungeonCheckpointLore = [
 	/*0*/ [1,],
 	/*1*/ [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 9,],
 	/*2*/ [201, 202, 203, 204, 205],
@@ -19,9 +19,9 @@ var KinkyDungeonCheckpointLore = [
 	/*13*/ [],
 
 ];
-var KinkyDungeonLoreScale = 1.7;
-var KinkyDungeonRepeatLoreChance = 0.4; // Chance you will find a duplicate piece of lore
-var KinkyDungeonGenericLoreChance = 0.33; // Chance you will find a generic note instead of a previous note
+let KinkyDungeonLoreScale = 1.7;
+let KinkyDungeonRepeatLoreChance = 0.4; // Chance you will find a duplicate piece of lore
+let KinkyDungeonGenericLoreChance = 0.33; // Chance you will find a generic note instead of a previous note
 
 function KinkyDungeonNewLore() {
 	let availableLore = [];
@@ -59,7 +59,7 @@ function KinkyDungeonNewLore() {
 }
 
 function KinkyDungeonDrawLore() {
-	DrawImageZoomCanvas(KinkyDungeonRootDirectory + "MagicBook.png", MainCanvas, 0, 0, 640, 483, canvasOffsetX, canvasOffsetY, 640*KinkyDungeonLoreScale, 483*KinkyDungeonLoreScale, false);
+	DrawImageZoomCanvas(KinkyDungeonRootDirectory + "MagicBook.png", MainCanvas, 0, 0, 640, 483, canvasOffsetX_ui, canvasOffsetY_ui, 640*KinkyDungeonLoreScale, 483*KinkyDungeonLoreScale, false);
 
 	MainCanvas.textAlign = "left";
 
@@ -67,7 +67,7 @@ function KinkyDungeonDrawLore() {
 	let i = 0;
 	for (let N = 0; N < lore.length; N++) {
 		DrawText(lore[N],
-			canvasOffsetX + 640*KinkyDungeonLoreScale/8, canvasOffsetY + 483*KinkyDungeonLoreScale/6 + i * 40, "black", "silver"); i++;}
+			canvasOffsetX_ui + 640*KinkyDungeonLoreScale/8, canvasOffsetY_ui + 483*KinkyDungeonLoreScale/6 + i * 40, "black", "silver"); i++;}
 
 	MainCanvas.textAlign = "center";
 }

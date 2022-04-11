@@ -425,10 +425,10 @@ SourceCharacter ties the cloth into a small gag over DestinationCharacter mouth.
 SourceCharacter bindet das Tuch als kleinen Knebel über den Mund von DestinationCharacter.
 SourceCharacter ties the cloth into a cleave gag over DestinationCharacter mouth.
 SourceCharacter bindet das Tuch als Spaltknebel über den Mund von DestinationCharacter.
-SourceCharacter stuffs DestinationCharacter mouth with a piece of cloth and secures it with another piece.
-SourceCharacter stopft ein Stück Stoff in DestinationCharacters Mund und bindet es mit einem weiteren Tuch fest.
-SourceCharacter stuffs DestinationCharacter mouth with a piece of cloth and secures the gag over her mouth and nose.
-SourceCharacter stopft ein Stück Stoff in DestinationCharacters Mund und bindet ein weiteres Tuch über ihren Mund und ihre Nase.
+SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth.
+SourceCharacter bindet das Tush als großen Knebel über den Mund von DestinationCharacter.
+SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth and nose.
+SourceCharacter bindet das Tush als großen Knebel über den Mund und der Nase von DestinationCharacter.
 Single strip
 Einzelstreifen
 Crossed strips

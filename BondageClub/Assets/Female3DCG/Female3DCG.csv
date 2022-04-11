@@ -829,6 +829,7 @@ ItemPelvis,Ribbons,Ribbons
 ItemPelvis,SilkStraps,Silk Straps
 ItemPelvis,BulkyDiaper,Bulky Chastity Diaper
 ItemPelvis,PoofyDiaper,Poofy Chastity Diaper
+ItemPelvis,HybridChastityBelt,Hybrid Chastity Belt
 ItemTorso,,Torso
 ItemTorso,NylonRopeHarness,Nylon Rope
 ItemTorso,HempRopeHarness,Hemp Rope
@@ -1330,6 +1331,11 @@ ItemHood,GwenHood,Gwen Hood
 ItemHood,TechnoHelmet1,Techno Helmet
 ItemHood,FuturisticHelmet,GGTS Helmet
 ItemHood,LampHeadHood,Lampshade Hood
+ItemHood,AccentHood,Accent Hood
+ItemHood,CollarHood,Collar Hood
+ItemHood,ZipperHood,Zipper Hood
+ItemHood,LatexHabit,Latex Habit Hood
+ItemHood,CowHood,Cow Hood
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs

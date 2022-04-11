@@ -85,7 +85,8 @@ function KinkyDungeonUpdateFromData() {
 		}
 	}
 	if (KinkyDungeonGameData.inventory) {
-		KinkyDungeonInventory = [];
+		KDInitInventory();
+		// TODO fix this...
 		let inventory = JSON.parse(KinkyDungeonGameData.inventory);
 
 		CharacterReleaseTotal(KinkyDungeonPlayer);
@@ -141,7 +142,7 @@ function KinkyDungeonUpdateFromData() {
 
 		if (KinkyDungeonGameData.meta.sp != null) KinkyDungeonStatStamina = Math.round(KinkyDungeonGameData.meta.sp);
 		if (KinkyDungeonGameData.meta.mp != null) KinkyDungeonStatMana = Math.round(KinkyDungeonGameData.meta.mp);
-		if (KinkyDungeonGameData.meta.ap != null) KinkyDungeonStatArousal = Math.round(KinkyDungeonGameData.meta.ap);
+		if (KinkyDungeonGameData.meta.ap != null) KinkyDungeonStatDistraction = Math.round(KinkyDungeonGameData.meta.ap);
 		if (KinkyDungeonGameData.meta.rk != null) KinkyDungeonRedKeys = Math.round(KinkyDungeonGameData.meta.rk);
 		if (KinkyDungeonGameData.meta.bk != null) KinkyDungeonBlueKeys = Math.round(KinkyDungeonGameData.meta.bk);
 		if (KinkyDungeonGameData.meta.bl != null) KinkyDungeonNormalBlades = Math.round(KinkyDungeonGameData.meta.bl);
@@ -191,7 +192,7 @@ function KinkyDungeonPackData(IncludeMap, IncludeItems, IncludeInventory, Includ
 
 	let map = IncludeMap ? KinkyDungeonGrid : "";
 
-	let inventory = IncludeInventory ? JSON.stringify(KinkyDungeonInventory, (key, value) => {
+	let inventory = IncludeInventory ? JSON.stringify(Array.from(KinkyDungeonInventory.get(Restraint).values()), (key, value) => {
 		if (CommonIsNumeric(key) && typeof value === "object") {
 			if (value.restraint) {
 				return "I/" + value.restraint.name + "/l" + value.lock;
@@ -205,7 +206,7 @@ function KinkyDungeonPackData(IncludeMap, IncludeItems, IncludeInventory, Includ
 	if (IncludeStats) {
 		meta.sp = Math.round(KinkyDungeonStatStamina);
 		meta.mp = Math.round(KinkyDungeonStatMana);
-		meta.ap = Math.round(KinkyDungeonStatArousal);
+		meta.ap = Math.round(KinkyDungeonStatDistraction);
 		meta.rk = KinkyDungeonRedKeys;
 		meta.bk = KinkyDungeonBlueKeys;
 		meta.bl = KinkyDungeonNormalBlades;

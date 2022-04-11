@@ -18,7 +18,7 @@ function KinkyDungeonFindPath(startx, starty, endx, endy, blockEnemy, blockPlaye
 	// f = cost with heuristic
 	// s = source
 	let TilesTemp = Tiles;
-	if (noDoors) TilesTemp = Tiles.replace("d", "").replace("D", "");
+	if (noDoors) TilesTemp = Tiles.replace("D", "");
 	let start = {x: startx, y: starty, g: 0, f: 0, s: ""};
 
 	// We generate a grid based on map size
@@ -43,17 +43,20 @@ function KinkyDungeonFindPath(startx, starty, endx, endy, blockEnemy, blockPlaye
 					if (x != 0 || y != 0) {
 						let xx = lowest.x + x;
 						let yy = lowest.y + y;
+						let tile = (xx == endx && yy == endy) ? "" : KinkyDungeonMapGet(xx, yy);
 						if (xx == endx && yy == endy) {
 							closed.set(lowest.x + "," + lowest.y, lowest);
 							return KinkyDungeonGetPath(closed, lowest.x, lowest.y, endx, endy);
 						}
-						else if (TilesTemp.includes(KinkyDungeonMapGet(xx, yy)) && (!RequireLight || KinkyDungeonLightGet(xx, yy) > 0)
+						else if (TilesTemp.includes(tile) && (!RequireLight || KinkyDungeonLightGet(xx, yy) > 0)
 							&& (ignoreLocks || !KinkyDungeonTiles.get((xx) + "," + (yy)) || !KinkyDungeonTiles.get(xx + "," + yy).Lock)
-							&& (!blockEnemy || KinkyDungeonNoEnemy(xx, yy, blockPlayer))) {
+							&& (!blockEnemy || KinkyDungeonNoEnemy(xx, yy, blockPlayer))
+							&& (tile != "d" || KinkyDungeonTilesMemory.get(xx + "," + yy) == "DoorOpen")) {
 							let costBonus = 0;
 							if (KinkyDungeonMapGet(xx, yy) == "D") costBonus = 2;
-							if (KinkyDungeonMapGet(xx, yy) == "d") costBonus = 1;
-							if (KinkyDungeonMapGet(xx, yy) == "g") costBonus = 2;
+							else if (KinkyDungeonMapGet(xx, yy) == "d") costBonus = 1;
+							else if (KinkyDungeonMapGet(xx, yy) == "g") costBonus = 2;
+							else if (KinkyDungeonMapGet(xx, yy) == "L") costBonus = 2;
 							costBonus = (KinkyDungeonTiles.get((xx) + "," + (yy)) && KinkyDungeonTiles.get(xx + "," + yy).Lock) ? costBonus + 2 : costBonus;
 							succ.set(xx + "," + yy, {x: xx, y: yy,
 								g: moveCost + costBonus + lowest.g,

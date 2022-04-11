@@ -491,6 +491,7 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
 		if (Property.HideItem) CommonArrayConcatDedupe(mergedProperty.HideItem, Property.HideItem);
 		if (Property.SetPose) mergedProperty.SetPose = CommonArrayConcatDedupe(mergedProperty.SetPose || [], Property.SetPose);
 		if (Property.AllowActivity) CommonArrayConcatDedupe(mergedProperty.AllowActivity, Property.AllowActivity);
+		if (Property.Attribute) CommonArrayConcatDedupe(mergedProperty.Attribute, Property.Attribute);
 		if (typeof Property.OverridePriority === "number") mergedProperty.OverridePriority = Property.OverridePriority;
 		if (typeof Property.HeightModifier === "number") mergedProperty.HeightModifier = (mergedProperty.HeightModifier || 0) + Property.HeightModifier;
 		if (Property.OverrideHeight) mergedProperty.OverrideHeight = ModularItemMergeOverrideHeight(mergedProperty.OverrideHeight, Property.OverrideHeight);
@@ -504,6 +505,7 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
 		Hide: Array.isArray(asset.Hide) ? asset.Hide.slice() : [],
 		HideItem: Array.isArray(asset.HideItem) ? asset.HideItem.slice() : [],
 		AllowActivity: Array.isArray(asset.AllowActivity) ? asset.AllowActivity.slice() : [],
+		Attribute: Array.isArray(asset.Attribute) ? asset.Attribute.slice() : [],
 	});
 }
 

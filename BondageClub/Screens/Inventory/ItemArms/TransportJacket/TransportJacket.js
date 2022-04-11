@@ -5,6 +5,7 @@ const InventoryItemArmsTransportJacketInputId = "TransportJacketText";
 const InventoryItemArmsTransportJacketMaxLength = 14;
 const InventoryItemArmsTransportJacketFont = "'Saira Stencil One', 'Arial', sans-serif";
 
+/** @type ExtendedItemOption[] */
 const InventoryItemArmsTransportJacketOptions = [
 	{
 		Name: "NoShorts",

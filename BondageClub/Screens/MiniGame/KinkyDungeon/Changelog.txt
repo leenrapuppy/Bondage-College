@@ -45,7 +45,7 @@ Spells
 Other
 - New brickwork visuals
 - The map has more doors, but some of them will be open at the start of the game. You can close them to prevent zombies from chasing you.
-- Added Undressing System. Certain things will pull clothes off, you gain arousal when this happens and visually will blush when extremely naked and aroused.
+- Added Undressing System. Certain things will pull clothes off, you gain distraction when this happens and visually will blush when extremely naked and aroused.
 - You can now hear the last chat message while ingame!
 - The game is persistent so if you hear chat you can exit out and communicate
 
@@ -114,7 +114,7 @@ TODO (expecting to get this done soon):
 -Make it so rope snare can't target spaces with enemies
 -Panel gag, Legbinder and bolero jacket restraints
 -Latex goddess and restraints
--Shock plug that stuns you at high arousal
+-Shock plug that stuns you at high distraction
 -View buffs/penalties as a 3rd option for the struggle display
 -Aura spells that reduce max mana and mana regen
 -Contract spells Attached to a restraint
@@ -127,7 +127,7 @@ Other Features
 - Picks, Knives, and Red Keys are now in the shop
 - Gagged mumbling while moving around
 - More flavorful text when waiting
-- Made the player character more expressive based on stamina, mana and arousal
+- Made the player character more expressive based on stamina, mana and distraction
 - Removed green and yellow locks (too much bloat)
 - Only one shrine of each type per floor
 - If you are bound with shrine-able restraints, one random restraint type will be guaranteed to have a shrine on the next level
@@ -595,6 +595,158 @@ Changes
 - Fixed some bugs, including being attacked in jail for no reason (besides teasing) and (hopefully) the bug where a different inventory item is removed than the one you are using, causing visual issues
 - Fixed a bug where enemies that squeeze through bars could push animated armors into bars
 - Enchanted items are now prepended to the restraints list so they're easier to find
+
+2.7.1
+- Changed map generator, should have some subtle effects
+- Fixed a very rare map generation glitch that happened on jungle
+- Added a pity timer for player hits, so you don't miss 4x in a row with a 70% hit chance
+- Enemies can no longer disarm if stunned or frozen
+- Shortcuts now have tiles from the tileset they lead to, near them
+- Frigid potions are now instant and reduce AP by 72 instead of 36 total
+- Added Crystal Cave (WIP)
+- Added Magic Library (WIP)
+- The struggle menu now rerquires mouseover (or click on mobile) to show the restraint buttons
+- Revamped the UI and game display, added a fullscreen toggle
+- Increased Teaser Plug cooldown to 170 turns from 130
+- Frog hitpoints to 19 from 24
+- Performance optimizations to make the game much smoother
+- You can now select some background traits at the start of the game ion order to make your run more difficult/more unique. You must take penalties in order to take bonuses
+
+2.7.2
+- Fixed a bug where enemies would drag you through a bookshelf o.o
+- Fixed strange miscast chance percentages
+- Axe, spear, cost 1.5 SP instead of 2.0 SP
+- Vibe wand weapon costs 0.15 stamina instead of 0.1
+- Armbinder chest traps now require being moderately restrained before they occur
+- Added more magic weapons
+- Fixed a bug with layering
+- Added some new enemies to the crystal cave
+- Added sleep spore hazard to the crystal cave
+- Levels like lost temple and crystal cave only sometimes have gas hazards, not every floor
+- New spell: Icicles
+- New spell: Ice Storm
+- New spell: Healing light
+- New spell: Heal
+- New spell: Afterimage
+- Replaced Shield spell with: Protection
+- Barrier mana cost to 1 from 2, duration to 5 from 8
+- Can now cast spells from the spellbook (takes 1 turn before you can cast)
+- The game now remembers which doors are open and which are closed
+- Fixed miscast chance not updating when drinking a frigid potion
+- Summoned creatures (familiar, fire elemental, golem) now follow you to the next level.
+- Miscasting a spell now only wastes a turn, no more mana loss or face-casting
+- Vibrator traps now require a chastity belt to be equipped already
+
+2.7.3
+- Analyze now has melee range but boosts damage dealt to the target for 3 attacks, and displays the target's weaknesses/resistances
+- New spell: Camouflage
+- Gag statues now apply a red locked gag, but the gag is harder to cut off.
+- Statues now have pierce weakness
+- Fixed bug where the pickaxe changes made air elementals have 0 armor instead of -1
+- Fixed a bug where the angel would aggro when you attack anything else using a cleave weapon
+- When enemies are swapped, their warning tiles are removed and their attack is cancelled
+- Shops no longer have duplicate items
+- When an item requires an enchanted knife, the cut button is now blue-tinted
+- Can no longer raise stats using spell points. Instead, you must find crystal hearts throughout the levels every 3rd, 7th, or 9th floor (9th floors only in special areas like the Tombs)
+
+Spell Balance:
+- Electrify to 5 mana from 7
+- Incinerate to 25 damage from 20
+- Ice Storm to 14 mana
+- Firebolt to 45 damage
+- Shadow dagger damage to 25 from 30
+- Slime ball mana to 4 from 8, damage to 40 from 50
+- Lightning bolt damage to 85 from 80
+- Shadow slash to 3 mana from 4
+- Crackle to 45 damage from 40
+- Binding chain speed to 3 tiles/turn from 2, cost to 2 from 3, duration to 8 from 10
+- Conjure slime mana cost to 8 from 9
+- Ice shard damage to 30 from 20
+- Ice Breath no longer affects the player
+
+2.7.4
+- Added a new potion collar that lets you use potions in exchange for some ancient energy
+- Fixed enemy weight multiplier being broken based on rep, should spawn more goddess enemies at low rep and less at neutral rep
+- Submissiveness score now downscales your stamina for the purpose of restraint thresholds, making it easier to get armbindered as a submissive.
+- Having brawler makes your unarmed attacks able to use flame blade
+- Mana potions now fully restore your mana
+- New binding mechanics! Try out binding spells, including slime spells
+- Ancient muzzle now consumes 85% less energy and multiplier is 2.5 instead of 3x
+- Shadow slash no longer makes noise
+- Ancient heels now properly consume mana on attack
+- Hearts now restore 24 stamina and mana if you pick them up and have max stats
+- Rope snare now stuns for 8 turns but applies 20 bind damage
+- New spell: Forbidden Rope
+- New spell: Summon gags
+- Added Rope weapon
+
+2.7.5
+- Base distraction decay, vibrator distraction amounts were halved
+- Wearing chastity now halves your base distraction decay
+- Unchaste now lowers it even further to 25% of base
+- Lockpicks and knives no longer appear in rubble if you have more than 3
+- Enemies are vulnerable when they miss you or when you are behind them and take extra damage
+- Enemies steal knives and picks from you now if they can bind and are humanoid (bindable)
+- New Kinky mode which only gives random spells!
+
+2.7.6
+- Changed the kill leniency system--attacks dealing 2 or less damage no longer kill enemies if the attack leaves them with 1-5hp.
+- Halved stamina cost to move while bound
+- Changed enemy spawning to spawn in clusters
+- Enemy counts generally increased slightly, but enemy difficulty should factor into the number of enemies better.
+- Increased enemy cohesiveness so they stay together
+- Enemies now alert each other in a 5 tile radius
+- Added more wonderful bound sprites by Song!
+- Vulnerable condition only gives +33% damage instead of +120% (bug)
+- New enemies: Witch's apprentice, Latex apprentice, and Summoner's apprentice
+- Monoliths don't spawn as crazy often
+- Changed binding system to work based on max hp instead. This is a nerf, but enemy struggle speed is still decreased when they are wounded.
+- New spell: True Steel
+
+2.8
+- World generation has been revamped considerably, most hallways are now 2 tiles wide, and the maps are twice as large in terms of tiles as before
+- Stamina drain from slow movement is now 0.3 stamina per slow level per turn spent moving, a 70% reduction from the original levels a few versions ago
+- There are now only 6 floors instead of 10 per area. Enemy minimum levels and such have been rebalanced for this
+- Gravitating gags and red slimes now ignore gagged players, except if summoned
+- Spell shrines now cost base of 200 instead of 100
+- Blind zombies now drop no gold, to prevent tedium from feeling like you have to clear the first stage to get maximum money
+- Regular bandits now drop less gold on average. They wouldn't be stealing if they weren't poor!
+- New enemies: Seductive Shackes and Levitating Locks
+- Only humanoid (bindable) enemies can now grab your torso (no more getting grabbed by floating handcuffs)
+- Improved enemy chasing so they won't run off in random directions now
+- New spell: Ring
+- Gags no longer block spellcasting and potions completely. Potions are less effective and verbal spells have a miscast chance. However, muzzles block it completely as usual.
+- You can now become a champion of a goddess in order to gain rep and mana by capturing humanoid enemies.
+- A new terrifying sight awaits those who escape from the dungeon's traps...
+
+2.9
+- Added barrels you can hide in! They slow you when you exit, however, and make it harder to attack out of...
+- The ghost now helps with potions and items while bound
+- New enemies: Cloud of Scarves/Cloud of Feathers/Cloud of Ribbons
+- Made the map have more interconnectivity
+- Added potion collars to the shop
+- The item shop has been reworked. It now gives much more information at a glance! Happy hunting!
+- New enemy: Toad
+- Pickpocketing does not happen while being leashed
+- Added a bola and a bomb to the shop
+- Added many new perks, some of which are game-changing, others which are good for reducing or increasing certain restraint types
+- New weapons: Flamberge, Staff of Frostbite, Staff of Permafrost
+- New restraint item you can buy from the shop: Slime Walkers, allowing you to walk on slime
+- New weapon: IceBreaker, Staff of Storms, Dollmaker's Staff
+- New set pieces have been added for some map variety
+- You no longer need arms for drinking potions and using items if you have the Psychic trait
+
+2.91
+- Fixed mana potions not scaling with MP
+- Fixed softlock in prison with guard remmoving restraints forever if you removed it first
+- Fixed Weapon effects applying even on a miss (such as flamberge still dealing fire damage)
+- Changed capture to a limit of 25 captures per level, instead of not applying to summoned enemies
+- Cleave and Pierce no longer damage allies
+
+2.92
+- Added one of the few planned content toggles: Distraction mode vs. Aroused mode, which toggles some of the more hardcore sexual stuff
+- Decoy now triggers traps
+- Added dragonslaver, a divine gift bestowed by the leather goddess
 
 TODO ValidationFindBlockCycles to prevent bugs
 

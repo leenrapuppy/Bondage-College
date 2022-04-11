@@ -369,6 +369,166 @@ const CommonCommands = [
 		}
 	},
 	{
+		Tag: 'expr',
+		Action: args => {
+			if (args.trim() == "") {
+				ChatRoomFocusCharacter(Player);
+				DialogFindSubMenu("SavedExpressions");
+			} else if (/^[0-5]$/.test(args)) {
+				let ExprNum = parseInt(args);
+				if (ExprNum == 0) {
+					CharacterResetFacialExpression(Player);
+				} else {
+					DialogFacialExpressionsLoad(ExprNum - 1);
+				}
+			}
+		}
+	},
+	{
+		Tag: 'blush',
+		Action: args => {
+			if (args.trim() == "") {
+				ChatRoomFocusCharacter(Player);
+				DialogFindSubMenu("Expression");
+				DialogFindFacialExpressionMenuGroup("Blush");
+				return;
+			}
+			let BlushLevels = [null, "Low", "Medium", "High", "VeryHigh", "Extreme"];
+			let NewExpression = null;
+			let AcceptCmd = false;
+			if (/^[0-5]$/.test(args)) {
+				AcceptCmd = true;
+				let BlushNum = parseInt(args);
+				NewExpression = BlushLevels[BlushNum];
+			} else if (/^(b(?:lue)?)$/.test(args)) {
+				AcceptCmd = true;
+				NewExpression = "ShortBreath";
+			} else if (/^(\+|-)$/.test(args)) {
+				AcceptCmd = true;
+				let CurrentBlush = InventoryGet(Player, "Blush")
+				if (CurrentBlush == null || CurrentBlush.Property == null || CurrentBlush.Property.Expression == null) {
+					CurrentBlush = null;
+				} else {
+					CurrentBlush = CurrentBlush.Property.Expression;
+				}
+				let Level = 0;
+				for (let i = 0; i < BlushLevels.length; i++) {
+					if (CurrentBlush == BlushLevels[i]) {
+						Level = i;
+						break;
+					}
+				}
+				if (args == "+") {
+					Level++;
+				} else {
+					Level--;
+				}
+				Level = Math.max(0, Level);
+				Level = Math.min(BlushLevels.length - 1, Level);
+				NewExpression = BlushLevels[Level];
+			}
+			if (AcceptCmd) {
+				CharacterSetFacialExpression(Player, "Blush", NewExpression);
+				// Also save in GUI
+				if (DialogFacialExpressions.length == 0) {
+					DialogFacialExpressionsBuild();
+				}
+				DialogFacialExpressions.find(FE => FE.Group == "Blush").CurrentExpression = NewExpression;
+			}
+		}
+	},
+	{
+		Tag: 'eyes',
+		Action: args => {
+			if (args.trim() == "") {
+				ChatRoomFocusCharacter(Player);
+				DialogFindSubMenu("Expression");
+				DialogFindFacialExpressionMenuGroup("Eyes");
+				return;
+			}
+			let AcceptCmd = false;
+			let NewExpression;
+			let TargetLeft = false;
+			let TargetRight = false;
+			let Cmds;
+			if (/^(r(?:ight)?|l(?:eft)?|b(?:oth)?)$/.test(args)) {
+				AcceptCmd = true;
+				if (args[0] == "r" || args[0] == "b") TargetRight = true;
+				if (args[0] == "l" || args[0] == "b") TargetLeft = true;
+				let LeftClosed = InventoryGet(Player, "Eyes").Property.Expression == "Closed";
+				let RightClosed = InventoryGet(Player, "Eyes2").Property.Expression == "Closed";
+				let Close = (TargetLeft && !LeftClosed);
+				Close = Close || (TargetRight && !RightClosed);
+				NewExpression = Close ? "Closed" : "Opened";
+			} else if ((Cmds = /^(c(?:lose)?|o(?:pen)?) *(r(?:ight)?|l(?:eft)?|b(?:oth)?)?$/.exec(args)) != null) {
+				AcceptCmd = true;
+				let ActionCmd = Cmds[1];
+				let TargetCmd = Cmds[2];
+				NewExpression = (ActionCmd[0] == "c") ? "Closed" : "Opened";
+				if (!TargetCmd || TargetCmd[0] == "r" || TargetCmd[0] == "b") {
+					TargetRight = true;
+				}
+				if (!TargetCmd || TargetCmd[0] == "l" || TargetCmd[0] == "b") {
+					TargetLeft = true;
+				}
+			} else if (/^(default|dazed|shy|sad|horny|lewd|verylewd|heart|<3|heartpink|lewdheart|lewdheartpink|dizzy|@@|daydream|><|shylyhappy|\^\^|angry|èé|surprised|éè|scared)$/.test(args)) {
+				AcceptCmd = true;
+				if (args == "default") NewExpression = null;
+				else if (args == "dazed") NewExpression = "Dazed";
+				else if (args == "shy") NewExpression = "Shy";
+				else if (args == "sad") NewExpression = "Sad";
+				else if (args == "horny") NewExpression = "Horny";
+				else if (args == "lewd") NewExpression = "Lewd";
+				else if (args == "verylewd") NewExpression = "VeryLewd";
+				else if (args == "heart" || args == "<3") NewExpression = "Heart";
+				else if (args == "heartpink") NewExpression = "HeartPink";
+				else if (args == "lewdheart") NewExpression = "LewdHeart";
+				else if (args == "lewdheartpink") NewExpression = "LewdHeartPink";
+				else if (args == "dizzy" || args == "@@") NewExpression = "Dizzy";
+				else if (args == "daydream" || args == "><") NewExpression = "Daydream";
+				else if (args == "shylyhappy" || args == "^^") NewExpression = "ShylyHappy";
+				else if (args == "angry" || args == "èé") NewExpression = "Angry";
+				else if (args == "surprised" || args == "éè") NewExpression = "Surprised";
+				else if (args == "scared") NewExpression = "Scared";
+			}
+			if (!AcceptCmd) {
+				return;
+			}
+			if (NewExpression == "Opened" || NewExpression == "Closed") {
+				if (NewExpression == "Opened") {
+					// Restore opened eye expression set from GUI
+					let DialogCurrentExpr = DialogFacialExpressions.find(FE => FE.Group == "Eyes");
+					if (DialogCurrentExpr) {
+						NewExpression = DialogCurrentExpr.CurrentExpression;
+					} else {
+						NewExpression = null;
+					}
+				}
+				if (TargetLeft && TargetRight) {
+					CharacterSetFacialExpression(Player, "Eyes", NewExpression);
+				} else if (TargetLeft) {
+					CharacterSetFacialExpression(Player, "Eyes1", NewExpression);
+				} else if (TargetRight) {
+					CharacterSetFacialExpression(Player, "Eyes2", NewExpression);
+				}
+			} else {
+				// Change eye expression
+				// Save new expression in GUI because close will erase it
+				let DialogCurrentExpr = DialogFacialExpressions.find(FE => FE.Group == "Eyes");
+				if (!DialogCurrentExpr) {
+					DialogFacialExpressionsBuild();
+					DialogCurrentExpr = DialogFacialExpressions.find(FE => FE.Group == "Eyes");
+				}
+				DialogCurrentExpr.CurrentExpression = NewExpression;
+				// Apply new expression only to eyes that are opened
+				let LeftClosed = InventoryGet(Player, "Eyes").Property.Expression == "Closed";
+				let RightClosed = InventoryGet(Player, "Eyes2").Property.Expression == "Closed";
+				if (!LeftClosed) CharacterSetFacialExpression(Player, "Eyes1", NewExpression);
+				if (!RightClosed) CharacterSetFacialExpression(Player, "Eyes2", NewExpression);
+			}
+		}
+	},
+	{
 		Tag: 'bot',
 		Action: (_, msg) => {
 			for (const { ID, MemberNumber } of ChatRoomCharacter)
