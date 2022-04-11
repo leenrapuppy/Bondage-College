@@ -77,4 +77,4 @@ RemoveSuspensionHempRope,,,(You release her from the ceiling and release her fee
 250,,Why do I need security?,Security will patrol around your room and make sure that nobody from Pandora's Box touches your friends.,,
 250,,Can I cancel that deal later?,"(She nods.)  You can, but there's no refund for the $200 fee.",,
 260,0,"Yes, cancel the security service.","Very well, the security team will not patrol around your room anymore.  Beware of Pandora's spies.",CancelSecurity(),
-260,,"No, I need to think about it.",Alright.  What can I do for you then?,,
+260,200,"No, I need to think about it.",Alright.  What can I do for you then?,,
