@@ -3744,7 +3744,7 @@ var AssetFemale3DCGExtended = {
 							{}, //r0 - None
 							{ Property: { Effect: ["Leash"] },}, //r1 - Reins
 							{ Property: { Effect: ["Leash"] },}, //r2 - Rope
-							{ Property: { Effect: ["Freeze", "IsChained"] },}, //r3 - Pole
+							{ Property: { Effect: ["Freeze", "IsChained"], Block: ["ItemAddon", "ItemDevices", "CollarRopeShort", "Post"] },}, //r3 - Pole
 						],
 					},
 					{
