@@ -351,11 +351,20 @@ function AudioVolumeFromModifier(modifier) {
 
 /**
  * Is sound allowed to play.
+ *
+ * @param {boolean} IsPlayerInvolved - Whether the player was involved in what caused the sound to play.
  * @returns {boolean} True if the player has item sound enabled, and a non-muted volume, false otherwise.
  */
-function AudioShouldSilenceSound() {
-	if (!Player.AudioSettings || !Player.AudioSettings.PlayItem || !Player.AudioSettings.Volume || (Player.AudioSettings.Volume == 0))
+function AudioShouldSilenceSound(IsPlayerInvolved = false) {
+	if (!Player.AudioSettings || !Player.AudioSettings.Volume || (Player.AudioSettings.Volume == 0))
 		return true;
+
+	if (!Player.AudioSettings.PlayItem && CurrentScreen === "ChatRoom")
+		return true;
+
+	if (Player.AudioSettings.PlayItemPlayerOnly && !IsPlayerInvolved)
+		return true;
+
 	return false;
 }
 
@@ -368,7 +377,7 @@ function AudioPlaySoundForChatMessage(data) {
 	// Exits right away if we are missing content data
 	if (!data.Dictionary || !data.Dictionary.length) return;
 
-	if (AudioShouldSilenceSound()) return;
+	if (AudioShouldSilenceSound(ChatRoomMessageInvolvesPlayer(data))) return;
 
 	// Instant actions can trigger a sound depending on the action.
 	let Action = AudioActions.find(CA => CA.IsAction && CA.IsAction(data));

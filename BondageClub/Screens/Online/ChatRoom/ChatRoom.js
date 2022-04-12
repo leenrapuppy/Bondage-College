@@ -2202,6 +2202,20 @@ function ChatRoomHTMLEntities(str) {
 }
 
 /**
+ * Check is the player is either the sender of a message, or its target.
+ *
+ * @param {IChatRoomMessage} data - The chat message to check for involvment.
+ * @returns {boolean} true if the player is involved, false otherwise.
+ */
+function ChatRoomMessageInvolvesPlayer(data) {
+	return (data.Sender == Player.MemberNumber
+		|| Array.isArray(data.Dictionary) && data.Dictionary.some(d => {
+			return /^((Target|Destination|Source)Character(Name)?|ItemMemberNumber)$/u.test(d.Tag)
+				&& d.MemberNumber === Player.MemberNumber;
+		}));
+}
+
+/**
  * Handles the reception of a chatroom message. Ghost players' messages are ignored.
  * @param {IChatRoomMessage} data - Message object containing things like the message type, sender, content, etc.
  * @returns {void} - Nothing.
@@ -2233,7 +2247,7 @@ function ChatRoomMessage(data) {
 		// If we found the sender
 		if (SenderCharacter != null) {
 			// Keep track of whether the player is involved
-			let IsPlayerInvolved = (SenderCharacter.MemberNumber == Player.MemberNumber);
+			let IsPlayerInvolved = ChatRoomMessageInvolvesPlayer(data);
 
 			// Replace < and > characters to prevent HTML injections
 			var msg = ChatRoomHTMLEntities(data.Content);
@@ -2391,12 +2405,6 @@ function ChatRoomMessage(data) {
 								msg = msg.replace(dictionary[D].Tag, (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && (dictionary[D].MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SourceCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(dictionary[D].Text));
 
 							}
-
-							// Sets if the player is involved in the action
-							if (!IsPlayerInvolved && ((dictionary[D].Tag == "DestinationCharacter") || (dictionary[D].Tag == "DestinationCharacterName") || (dictionary[D].Tag == "TargetCharacter") || (dictionary[D].Tag == "TargetCharacterName") || (dictionary[D].Tag == "SourceCharacter" || dictionary[D].Tag === "ItemMemberNumber")))
-								if (dictionary[D].MemberNumber == Player.MemberNumber)
-									IsPlayerInvolved = true;
-
 						}
 						else if (dictionary[D].TextToLookUp) msg = msg.replace(dictionary[D].Tag, DialogFindPlayer(ChatRoomHTMLEntities(dictionary[D].TextToLookUp)).toLowerCase());
 						else if (dictionary[D].AssetName) {
@@ -2442,9 +2450,8 @@ function ChatRoomMessage(data) {
 						if ((Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic"))
 							ActivityEffect(SenderCharacter, Player, ActivityName, GroupName, ActivityCounter);
 
-					// Launches the audio file if allowed
-					if (!Player.AudioSettings.PlayItemPlayerOnly || IsPlayerInvolved)
-						AudioPlaySoundForChatMessage(data);
+					// Show the data to the audio system so it can play sound effects
+					AudioPlaySoundForChatMessage(data);
 
 					// Raise a notification if required
 					if (data.Type === "Action" && IsPlayerInvolved && Player.NotificationSettings.ChatMessage.Activity)
@@ -2560,8 +2567,7 @@ function ChatRoomMessage(data) {
 					return;
 				}
 
-				if (!Player.AudioSettings.PlayItemPlayerOnly || IsPlayerInvolved)
-					AudioPlaySoundForChatMessage(data);
+				AudioPlaySoundForChatMessage(data);
 
 				// Exits before outputting the text if the player doesn't want to see the sexual activity messages
 				if ((Player.ChatSettings != null) && (Player.ChatSettings.ShowActivities != null) && !Player.ChatSettings.ShowActivities) return;
