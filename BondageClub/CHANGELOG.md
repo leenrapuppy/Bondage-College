@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-04-09
-* Last recorded PR: [#3314](https://github.com/Ben987/Bondage-College/pull/3314)
-* Last recorded commit hash: `0d3c71fc39c0a350384f282f1eec1d749c77b2d9`
+* Changelog last updated: 2022-04-12
+* Last recorded PR: [#3327](https://github.com/Ben987/Bondage-College/pull/3327)
+* Last recorded commit hash: `44a4838da0c2cd3fce8a090d2d556c135b028b17`
 
 ## [R79]
 
@@ -42,6 +42,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Sidious - Updated AFK detection to ignore scrolling ([#3291](https://github.com/Ben987/Bondage-College/pull/3291))
 * Karamel - Updated cloth gag and blindfold assets and sounds ([#3287](https://github.com/Ben987/Bondage-College/pull/3287))
 * SepiaOulomenohn - Updated the Smooth Latex Mask to have coverage options ([#3314](https://github.com/Ben987/Bondage-College/pull/3314))
+* remiliacn - Updated futuristic vibrator to allow CJK commands ([#3316](https://github.com/Ben987/Bondage-College/pull/3316))
 
 ### [Fixed]
 
@@ -58,13 +59,20 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Estsanatlehi - Cleaned up the way activities are defined ([#3294](https://github.com/Ben987/Bondage-College/pull/3294))
 * Estsanatlehi - Made the ItemProperties interface explicit to catch typos and misuse ([#3295](https://github.com/Ben987/Bondage-College/pull/3295))
 * Estsanatlehi - Audio system improvements ([#3288](https://github.com/Ben987/Bondage-College/pull/3288))
+* Estsanatlehi - Enable FixedPosition on layers ([#3327](https://github.com/Ben987/Bondage-College/pull/3327))
 * remiliacn - Refactored speech garbling ([#3308](https://github.com/Ben987/Bondage-College/pull/3308), [#3312](https://github.com/Ben987/Bondage-College/pull/3312))
 * Dependabot - Bump minimist from 1.2.5 to 1.2.6 in /BondageClub/Tools/Node ([#3289](https://github.com/Ben987/Bondage-College/pull/3289))
 
 ### [Beta Fixes]
 
-* Nothing... yet
-
+* Nina - Added transparency to Bridle Gag and Unicorn Horn preview images ([#3326](https://github.com/Ben987/Bondage-College/pull/3326))
+* remiliacn - Fixed long Chinese language text not wrapping properly ([#3325](https://github.com/Ben987/Bondage-College/pull/3325))
+* Luna - Added coloring layers for the Bridle Gag ([#3324](https://github.com/Ben987/Bondage-College/pull/3324))
+* Estsanatlehi - Restored the Vacbed Hairback hiding ([#3323](https://github.com/Ben987/Bondage-College/pull/3323))
+* Estsanatlehi - Fixed the Bridle Gag's Pentacle Panel option not showing up ([#3321](https://github.com/Ben987/Bondage-College/pull/3321))
+* Estsanatlehi - Fixed a missing dialog in the Bridle Gag options ([#3320](https://github.com/Ben987/Bondage-College/pull/3320))
+* Estsanatlehi - Fixed item application playing sounds when setting was disabled ([#3319](https://github.com/Ben987/Bondage-College/pull/3319))
+* Nina - Fixed changing your mind in cancelling private room security ([#3317](https://github.com/Ben987/Bondage-College/pull/3317))
 
 ## [R78]
 
