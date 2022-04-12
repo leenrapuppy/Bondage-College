@@ -254,7 +254,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 
 				// Cyrillic characters
 				if ('иоюля'.includes(H)) NS += 'e';
-				if ('cйх'.includes(H)) NS += 'к';
+				if ('сйх'.includes(H)) NS += 'к';
 				if ('жклр'.includes(H)) NS += 'a';
 				if ('зсгй'.includes(H)) NS += 'г';
 				if ('брвы'.includes(H)) NS += 'ф';
@@ -280,7 +280,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 
 				// Cyrillic characters
 				if ('aиоуюля'.includes(H)) NS += 'e';
-				if ('cйх'.includes(H)) NS += 'к';
+				if ('сйх'.includes(H)) NS += 'к';
 				if ('жклр'.includes(H)) NS += 'a';
 				if ('зсгй'.includes(H)) NS += 'г';
 				if ('брвы'.includes(H)) NS += 'ф';
