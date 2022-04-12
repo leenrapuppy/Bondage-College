@@ -1016,7 +1016,7 @@ var PlatformDialogData = [
 				Answer: [
 					{ Text: "I don't know.", Reply: "Only time will tell." },
 					{ Text: "She will hate you forever.", Reply: "Fine, I don't care.", Love: -1, Domination: 1 },
-					{ Text: "She will forgive you someday.", Reply: "Fine, I don't care.", Love: 1, Domination: -1 },
+					{ Text: "She will forgive you someday.", Reply: "You have a kind heart.", Love: 1, Domination: -1 },
 				]
 			},
 			{ Text: "Take these keys for her shackles and go rescue her." },
@@ -1132,7 +1132,11 @@ var PlatformDialogData = [
 				]
 			},
 			{
-				Entry: function() { PlatformEventSet("OliviaTerraceKiss"); PlatformAddExperience(PlatformPlayer, 10); },
+				Entry: function() { 
+					PlatformEventSet("OliviaTerraceKiss");
+					PlatformAddExperience(PlatformPlayer, 10);
+					if (PlatformDialogGetCharacter("Olivia").Domination < 0) PlatformDialogCharacterDisplay[0].Pose = "KissMaidMelodySub";
+				},
 				Character: [{ Name: "Olivia", Status: "Flower", Pose: "KissMaidMelody" }]
 			},
 			{ Text: "(You exchange a long and passionate kiss.)" },
@@ -1342,7 +1346,7 @@ function PlatformDialogProcess() {
  * @returns {void} - Nothing
  */
 function PlatformDialogKeyDown() {
-	if ((KeyPress == 32) || (KeyPress == 13)) PlatformDialogProcess();
+	if ((KeyPress == 32) || (KeyPress == 13) || (KeyPress == 75) || (KeyPress == 76) || (KeyPress == 107) || (KeyPress == 108)) PlatformDialogProcess();
 	if ((KeyPress == 87) || (KeyPress == 119) || (KeyPress == 90) || (KeyPress == 122)) {
 		PlatformDialogAnswerPosition--;
 		if (PlatformDialogAnswerPosition < 0) PlatformDialogAnswerPosition = (PlatformDialogAnswer != null) ? PlatformDialogAnswer.length - 1 : 0;
@@ -1373,7 +1377,7 @@ function PlatformDialogClick() {
 /**
  * Returns a dialog character
  * @param {String} Name - The name of a character
- * @returns {void} - Nothing
+ * @returns {Object} - The character object
  */
 function PlatformDialogGetCharacter(Name) {
 	for (let Character of PlatformDialogCharacter)
