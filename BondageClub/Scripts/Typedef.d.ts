@@ -390,6 +390,8 @@ interface AssetLayer {
 	DrawingLeft?: number;
 	DrawingTop?: number;
 	HideAs?: { Group: string; Asset: string };
+	/** That layer is drawing at a fixed Y position */
+	FixedPosition?: boolean;
 	HasImage: boolean;
 	Opacity: number;
 	MinOpacity: number;
