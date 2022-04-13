@@ -103,6 +103,15 @@ var PlatformTemplate = [
 		]
 	},
 	{
+		Name: "Edlaran",
+		Status: "Archer",
+		Width: 400,
+		Height: 400,
+		Animation: [
+			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 90 },
+		]
+	},
+	{
 		Name: "Chest",
 		Status: "Metal",
 		Width: 400,
@@ -344,8 +353,7 @@ var PlatformRoomList = [
 		Heal: 500,
 		Door: [
 			{ Name: "CastleHall3W", FromX: 200, FromY: 0, FromW: 150, FromH: 1200, FromType: "Up", ToX: 500, ToFaceLeft: false },
-		],
-		Character: []
+		]
 	},
 	{
 		Name: "CastleHall3W",
@@ -421,8 +429,7 @@ var PlatformRoomList = [
 		Door: [
 			{ Name: "CastleHall3E", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 900, ToFaceLeft: false },
 			{ Name: "BathroomOlivia", FromX: 2900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
-		],
-		Character: []
+		]
 	},
 	{
 		Name: "BathroomOlivia",
@@ -435,20 +442,20 @@ var PlatformRoomList = [
 		Height: 1200,
 		Door: [
 			{ Name: "BedroomOlivia", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2900, ToFaceLeft: false }
-		],
-		Character: []
+		]
 	},
 	{
 		Name: "BedroomIsabella",
+		Entry: function() {
+			if (!PlatformEventDone("EdlaranUnlock")) PlatformCreateCharacter("Hazel", "Maid", 2200);
+			if (PlatformEventDone("EdlaranUnlock") && !PlatformEventDone("EdlaranBedroomIsabella")) PlatformCreateCharacter("Edlaran", "Archer", 2200, true, false, "EdlaranBedroomIsabella");
+		},
 		Text: "Isabella's Bedroom",
 		Background: "Castle/BedroomIsabella",
-		Width: 2000,
+		Width: 2400,
 		Height: 1200,
 		Door: [
 			{ Name: "CastleHall3E", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3300, ToFaceLeft: true }
-		],
-		Character: [
-			{ Name: "Hazel", Status: "Maid", X: 1800 }
 		]
 	},
 	{
@@ -497,8 +504,7 @@ var PlatformRoomList = [
 		LimitRight: 1700,
 		Door: [
 			{ Name: "CastleHall4E", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3300, ToFaceLeft: true }
-		],
-		Character: []
+		]
 	},
 	{
 		Name: "CastleHall4W1",
@@ -545,8 +551,7 @@ var PlatformRoomList = [
 		Door: [
 			{ Name: "CastleCountessHall", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2100, ToFaceLeft: true },
 			{ Name: "CastleHall4W2", FromX: 2300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
-		],
-		Character: []
+		]
 	},
 	{
 		Name: "CastleCountessHall",
@@ -581,8 +586,7 @@ var PlatformRoomList = [
 		Door: [
 			{ Name: "CastleHall4W3", FromX: 2300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
 			{ Name: "CastleTerrace", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 1900, ToFaceLeft: true }
-		],
-		Character: []
+		]
 	},
 	{
 		Name: "CastleTerrace",
@@ -597,8 +601,7 @@ var PlatformRoomList = [
 		LimitLeft: 200,
 		Door: [
 			{ Name: "CastleCountessHall", FromX: 1900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
-		],
-		Character: []
+		]
 	},
 	{
 		Name: "CastleHall2C",
@@ -724,8 +727,7 @@ var PlatformRoomList = [
 		Heal: 500,
 		Door: [
 			{ Name: "CastleDungeon1C", FromX: 200, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 900, ToFaceLeft: false },
-		],
-		Character: []
+		]
 	},
 	{
 		Name: "DungeonCell",
@@ -743,8 +745,7 @@ var PlatformRoomList = [
 		Height: 1200,
 		Door: [
 			{ Name: "CastleDungeon1W", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 5300, ToFaceLeft: true }
-		],
-		Character: []
+		]
 	},
 	{
 		Name: "DungeonStorage",
