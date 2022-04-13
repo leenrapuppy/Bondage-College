@@ -3882,7 +3882,7 @@ var AssetFemale3DCG = [
 		MirrorActivitiesFrom: "ItemNeck",
 		Asset: [
 			{
-				Name: "CustomCollarTag", Value: 50, Difficulty: 20, Time: 5, Random: false, IsRestraint: false, AllowLock: true, DefaultColor: ["#aaa366", "#000000"], Prerequisite: "Collared", DynamicAfterDraw: true, Extended: true, DrawLocks: false,
+				Name: "CustomCollarTag", Value: 50, Difficulty: 20, Time: 5, Random: false, IsRestraint: false, AllowLock: true, DrawLocks: false, DefaultColor: ["#aaa366", "#000000"], Prerequisite: "Collared", DynamicAfterDraw: true, Extended: true, DrawLocks: false,
 				Layer: [
 					{ Name: "Tag", ModuleType: ["t"], AllowModuleTypes: ["t0", "t1", "t2", "t3", "t4", "t5"] },
 					{ Name: "Text", HasImage: false },
@@ -4412,7 +4412,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PonyGag", Fetish: ["Leather", "Pony", "Pet"], Value: 150, Difficulty: 5, Time: 8, Random: false, AllowLock: true, BuyGroup: "PonyGag", Prerequisite: "GagUnique", DefaultColor: ["Default", "Default", "#383838", "Default", "#B24031", "#EAEAEA", "Default", "#FF95DB", "#383838", "Default", "#383838", "#956B1C"], Extended: true, AlwaysExtend: true, Bonus: "KidnapBruteForce", Top: -57, Left: 133,
+				Name: "PonyGag", Category: ["Pony"], Fetish: ["Leather", "Pony", "Pet"], Value: 150, Difficulty: 5, Time: 8, Random: false, AllowLock: true, DrawLocks: false, BuyGroup: "PonyGag", Prerequisite: "GagUnique", DefaultColor: ["Default", "Default", "#383838", "Default", "#B24031", "#EAEAEA", "Default", "#FF95DB", "#383838", "Default", "#383838", "#956B1C", "#8A7055"], Hide:["GwenHood"], Effect: [], Extended: true, AlwaysExtend: true, Bonus: "KidnapBruteForce", Top: -57, Left: 133,
 				Layer: [
 					// Layers: Metal, Straps, Plume, Horn, Panel
 					{ Name: "BaseMetal", HasType: false},
@@ -4428,8 +4428,8 @@ var AssetFemale3DCG = [
 					{ Name: "DildoMetal", HasType: false, AllowModuleTypes: ["g4"], CopyLayerColor: "BaseMetal" },
 
 					//ExtraStraps
-					{ Name: "ExtraMetal", HasType: false, AllowModuleTypes: ["e1", "e2", "p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], CopyLayerColor: "BaseMetal", Priority: 55 },
-					{ Name: "ExtraStraps", HasType: false, AllowModuleTypes: ["e1", "e2","p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], CopyLayerColor: "BaseStraps", Priority: 55  },
+					{ Name: "ExtraMetal", HasType: false, AllowModuleTypes: ["e1", "e2", "b1", "p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], CopyLayerColor: "BaseMetal", Priority: 55 },
+					{ Name: "ExtraStraps", HasType: false, AllowModuleTypes: ["e1", "e2","b1","p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], CopyLayerColor: "BaseStraps", Priority: 55  },
 					{ Name: "Flags", HasType: false, AllowModuleTypes: ["e2"], Priority: 55 },
 					{ Name: "FlagPoles", HasType: false, AllowModuleTypes: ["e2"], AllowColorize: false, Priority: 55 },
 
@@ -4465,7 +4465,7 @@ var AssetFemale3DCG = [
 					{ Name: "Reins", HasType: false, AllowModuleTypes: ["r1"], ColorGroup: "Straps" },
 					{ Name: "Rope", HasType: false, AllowModuleTypes: ["r2"] },
 					{ Name: "PostReins", HasType: false, AllowModuleTypes: ["r3"], CopyLayerColor: "Reins" },
-					{ Name: "Post", HasType: false, AllowModuleTypes: ["r3"], AllowColorize: false, FixedPosition: true },
+					{ Name: "Post", HasType: false, AllowModuleTypes: ["r3"], FixedPosition: true },
 					{ Name: "PostReinsDetail", HasType: false, AllowModuleTypes: ["r3"], CopyLayerColor: "Reins" },
 
 					//Blinders
