@@ -72,7 +72,7 @@ type VibratorModeSet = "Standard" | "Advanced";
 
 type VibratorModeState = "Default" | "Deny" | "Orgasm" | "Rest";
 
-type VibratorRemoteAvailability = "Available" | "NoRemote" | "NoLoversRemote" | "RemotesBlocked" | "CannotInteract" | "NoAccess" | "InvalidItem";
+type VibratorRemoteAvailability = "Available" | "NoRemote" | "NoRemoteOwnerRuleActive" | "NoLoversRemote" | "RemotesBlocked" | "CannotInteract" | "NoAccess" | "InvalidItem";
 
 type EffectName =
 	"Freeze" | "Prone" | "Block" | "Mounted" | "KneelFreeze" | "ForceKneel" | "BlockKneel" |
