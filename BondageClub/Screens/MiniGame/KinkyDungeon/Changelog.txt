@@ -748,6 +748,36 @@ Spell Balance:
 - Decoy now triggers traps
 - Added dragonslaver, a divine gift bestowed by the leather goddess
 
+2.93 (April 2022)
+- Perks are now persistent and autosave
+- New spell: Summon Rock
+- Rebalanced the perks that make restraints more difficult. They now halve the escape chance first, then apply a minor penalty, rather than applying a straight 20% penalty.
+- Added consent screen before menu if playing on standalone
+- Exhaustion from being fully aroused reduced to 0.1 per turn from 0.5 per turn
+- New jail system
+
+2.94
+- Changes to item layering (more items will layer with others, like belts over cuffs)
+- Effects like Ice restraints can now activate even if covered by something like an armbinder
+- Removed Willpower perk, added perk to increase average difficulty of restraints
+- Added Journeys, ways to customize the areas you visit in the game
+
+3.0
+- Major refactor! Saves will be broken
+- Flamberge now costs 1.25 sp instead of 1.0
+
+3.01
+- Jail doors now lock
+- Fixed issue with potion collar causing crashes
+- Experimental fix: Prevent leashers getting stuck if you get leashed into a statue
+- New spell: Enhance Power
+
+3.1
+- New system for being released after spending time in jail, enemies treat you as a prisoner and will play with you. You need to find a key to open the jail but it gets locked if enemies play with you
+- Removed multiplayer streaming in BC (too much bugs)
+- Stone Skin duration up to 50 turns from 40, mana cost 6 from 8
+- Added scrolling in consumable menu
+
 TODO ValidationFindBlockCycles to prevent bugs
 
 TODO: Mushrooms in the jungle

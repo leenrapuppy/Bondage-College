@@ -10,7 +10,7 @@
  * @param {string} Tiles - Allowed move tiles!
  * @returns {any} - Returns an array of x, y points in order
  */
-function KinkyDungeonFindPath(startx, starty, endx, endy, blockEnemy, blockPlayer, ignoreLocks, Tiles, RequireLight, noDoors) {
+function KinkyDungeonFindPath(startx, starty, endx, endy, blockEnemy, blockPlayer, ignoreLocks, Tiles, RequireLight, noDoors, needDoorMemory) {
 	function heuristic(xx, yy, endxx, endyy) {
 		return Math.sqrt((xx - endxx) * (xx - endxx) + (yy - endyy) * (yy - endyy));
 	}
@@ -51,7 +51,7 @@ function KinkyDungeonFindPath(startx, starty, endx, endy, blockEnemy, blockPlaye
 						else if (TilesTemp.includes(tile) && (!RequireLight || KinkyDungeonLightGet(xx, yy) > 0)
 							&& (ignoreLocks || !KinkyDungeonTiles.get((xx) + "," + (yy)) || !KinkyDungeonTiles.get(xx + "," + yy).Lock)
 							&& (!blockEnemy || KinkyDungeonNoEnemy(xx, yy, blockPlayer))
-							&& (tile != "d" || KinkyDungeonTilesMemory.get(xx + "," + yy) == "DoorOpen")) {
+							&& (!needDoorMemory || tile != "d" || KinkyDungeonTilesMemory.get(xx + "," + yy) == "DoorOpen")) {
 							let costBonus = 0;
 							if (KinkyDungeonMapGet(xx, yy) == "D") costBonus = 2;
 							else if (KinkyDungeonMapGet(xx, yy) == "d") costBonus = 1;

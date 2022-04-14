@@ -3,7 +3,7 @@ let KDDebug = false;
 
 let KinkyDungeonBackground = "BrickWall";
 let KinkyDungeonPlayer = null;
-let KinkyDungeonState = "Menu";
+let KinkyDungeonState = "Consent";
 
 let KinkyDungeonRep = 0; // Variable to store max level to avoid losing it if the server doesnt take the rep update
 
@@ -48,6 +48,10 @@ const Misc = "misc";
 
 let KinkyDungeonStatsChoice = new Map();
 
+let KDJourney = "";
+
+let KDOptOut = false;
+
 /**
 *  @typedef {{
 * PoolUses: number,
@@ -89,6 +93,15 @@ let KinkyDungeonStatsChoice = new Map();
 * Outfit: string,
 * Champion: string,
 * ChampionCurrent: number,
+* JailPoints: {x: number, y: number}[],
+* LastMapSeed: string,
+* AlreadyOpened: {x: number, y:number}[],
+* Journey: string,
+* CheckpointIndices: number[],
+* PrisonerState: string,
+* TimesJailed: number,
+* JailTurns: number,
+* JailKey: boolean,
 *}} KDGameDataBase
 */
 let KDGameDataBase = {
@@ -104,8 +117,8 @@ let KDGameDataBase = {
 	KinkyDungeonGuardTimer: 0,
 	KinkyDungeonGuardTimerMax: 22,
 	KinkyDungeonGuardSpawnTimer: 0,
-	KinkyDungeonGuardSpawnTimerMax: 30,
-	KinkyDungeonGuardSpawnTimerMin: 10,
+	KinkyDungeonGuardSpawnTimerMax: 40,
+	KinkyDungeonGuardSpawnTimerMin: 25,
 	KinkyDungeonMaxPrisonReduction: 10,
 	KinkyDungeonPrisonReduction: 0,
 	KinkyDungeonPrisonExtraGhostRep: 0,
@@ -142,7 +155,22 @@ let KDGameDataBase = {
 	Champion: "",
 	ChampionCurrent: 0,
 
+	JailPoints: [],
+
 	WarningLevel: 0,
+	LastMapSeed: "",
+
+	AlreadyOpened: [],
+	Journey: "",
+	CheckpointIndices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+
+	// "" = not a prisoner
+	// "jail" = must remain in cell
+	// "parole" = can roam but not allowed to take most actions
+	PrisonerState: "",
+	TimesJailed: 0,
+	JailTurns: 0,
+	JailKey: true,
 };
 /**
  * @type {KDGameDataBase}
@@ -213,6 +241,11 @@ function KinkyDungeonAngel() {
 	return KDAngel;
 }
 
+/**
+ *
+ * @param list
+ * @return {Map<any, any>}
+ */
 function KDMapInit(list) {
 	let map = new Map();
 	for (let l of list) {
@@ -242,11 +275,13 @@ function KinkyDungeonLoad() {
 	if (!KinkyDungeonIsPlayer()) KinkyDungeonGameRunning = false;
 
 	if (!Player.KinkyDungeonExploredLore) Player.KinkyDungeonExploredLore = [];
+	// @ts-ignore
+	if (ServerURL != 'foobar') KinkyDungeonState = "Menu";
 	//if (!Player.KinkyDungeonSave) Player.KinkyDungeonSave = {};
 
 	if (!KinkyDungeonGameRunning) {
 		if (!KinkyDungeonPlayer) {
-			KDrandomizeSeed();
+			KDrandomizeSeed(false);
 			KinkyDungeonPlayer = CharacterLoadNPC("NPC_Avatar");
 			KinkyDungeonPlayer.Type = "simple";
 			// @ts-ignore
@@ -283,7 +318,8 @@ function KinkyDungeonLoad() {
 		else console.log("Failed to load keybindings");
 
 		if (KinkyDungeonIsPlayer()) {
-			KinkyDungeonState = "Menu";
+			if (ServerURL != 'foobar')
+				KinkyDungeonState = "Menu";
 			KinkyDungeonGameData = null;
 
 			CharacterAppearancePreviousEmoticon = WardrobeGetExpression(Player).Emoticon;
@@ -420,12 +456,27 @@ function KinkyDungeonRun() {
 		DrawButton(1870, 930, 110, 64, TextGet("KinkyDungeonCredits"), "White", "");
 		DrawButton(1700, 930, 150, 64, TextGet("KinkyDungeonPatrons"), "White", "");
 		DrawButton(850, 930, 375, 64, TextGet("KinkyDungeonDeviantart"), "White", "");
-		DrawButton(1275, 930, 375, 64, TextGet("KinkyDungeonPatreon"), "White", "");
+		DrawButton(1275, 930, 375, 64, TextGet("KinkyDungeonPatreon"), "#ffeecc", "");
+	} else if (KinkyDungeonState == "Consent") {
+		MainCanvas.textAlign = "center";
+		// Draw temp start screen
+		DrawText(TextGet("KinkyDungeonConsent"), 1250, 300, "white", "silver");
+		DrawText(TextGet("KinkyDungeonConsent2"), 1250, 400, "white", "silver");
+		DrawText(TextGet("KinkyDungeonConsent3"), 1250, 500, "white", "silver");
+		DrawButton(975, 720, 450, 64, TextGet("KDOptIn"), "White", "");
+		DrawButton(975, 820, 450, 64, TextGet("KDOptOut"), "White", "");
 	} else if (KinkyDungeonState == "Load") {
 		DrawButton(875, 750, 350, 64, TextGet("KinkyDungeonLoadConfirm"), "White", "");
 		DrawButton(1275, 750, 350, 64, TextGet("KinkyDungeonLoadBack"), "White", "");
 
 		ElementPosition("saveInputField", 1250, 550, 1000, 230);
+	} else if (KinkyDungeonState == "Journey") {
+		DrawText(TextGet("KinkyDungeonJourney"), 1250, 300, "white", "silver");
+		DrawButton(875, 350, 750, 64, TextGet("KinkyDungeonJourney0"), "White", "");
+		DrawButton(875, 450, 750, 64, TextGet("KinkyDungeonJourney1"), "White", "");
+		DrawButton(875, 550, 750, 64, TextGet("KinkyDungeonJourney2"), "White", "");
+		DrawButton(1075, 850, 350, 64, TextGet("KinkyDungeonLoadBack"), "White", "");
+
 	} else if (KinkyDungeonState == "Diff") {
 		DrawText(TextGet("KinkyDungeonDifficulty"), 1250, 300, "white", "silver");
 		DrawButton(875, 350, 750, 64, TextGet("KinkyDungeonDifficulty0"), "White", "");
@@ -490,7 +541,7 @@ function KinkyDungeonRun() {
 		if (KDGameData.SleepTurns > 0) {
 			if (CommonTime() > KinkyDungeonSleepTime) {
 				KDGameData.SleepTurns -= 1;
-				if (KinkyDungeonJailTransgressed)
+				if (KinkyDungeonHostile())
 					KinkyDungeonTotalSleepTurns += 1;
 				if (KinkyDungeonStatStamina >= KinkyDungeonStatStaminaMax)  {
 					KDGameData.SleepTurns = 0;
@@ -591,41 +642,115 @@ function KinkyDungeonRun() {
 
 }
 
+function KinkyDungeonGetTraitsCount() {
+	return Array.from(KinkyDungeonStatsChoice.keys()).filter((element) => {return !element.includes('arousalMode');}).length;
+}
 
-function KDSendStatus(type, data) {
+function KDSendTrait(trait) {
 	// @ts-ignore
 	if (window.dataLayer)
+		// @ts-ignore
+		window.dataLayer.push({
+			'event':'trait',
+			'traitType':trait,
+			'journey':KDJourney,
+		});
+}
+
+function KDSendSpell(spell) {
+	// @ts-ignore
+	if (window.dataLayer)
+		// @ts-ignore
+		window.dataLayer.push({
+			'event':'spell',
+			'spellType':spell,
+			'currentLevel':MiniGameKinkyDungeonLevel,
+			'currentCheckpoint':MiniGameKinkyDungeonCheckpoint,
+			'journey':KDJourney,
+		});
+}
+
+function KDSendSpellCast(spell) {
+	// @ts-ignore
+	if (window.dataLayer)
+		// @ts-ignore
+		window.dataLayer.push({
+			'event':'spellCast',
+			'spellType':spell,
+			'currentLevel':MiniGameKinkyDungeonLevel,
+			'currentCheckpoint':MiniGameKinkyDungeonCheckpoint,
+			'journey':KDJourney,
+		});
+}
+function KDSendWeapon(weapon) {
+	// @ts-ignore
+	if (window.dataLayer)
+		// @ts-ignore
+		window.dataLayer.push({
+			'event':'weapon',
+			'weapon':weapon,
+			'currentLevel':MiniGameKinkyDungeonLevel,
+			'currentCheckpoint':MiniGameKinkyDungeonCheckpoint,
+			'journey':KDJourney,
+		});
+}
+
+function KDSendStatus(type, data, data2) {
+	// @ts-ignore
+	if (window.dataLayer && !KDOptOut) {
 		// @ts-ignore
 		window.dataLayer.push({
 			'event':'gameStatus',
 			'currentLevel':MiniGameKinkyDungeonLevel,
 			'currentCheckpoint':MiniGameKinkyDungeonCheckpoint,
+			'difficulty':KinkyDungeonDifficultyMode,
+			'newgameplus':KinkyDungeonNewGame,
 			'statusType':type,
 			'aroused':KinkyDungeonStatsChoice.get("arousalMode") ? 'yes' : 'no',
-			'traitscount':KinkyDungeonStatsChoice.size,
+			'traitscount':KinkyDungeonGetTraitsCount(),
 			'gold':Math.round(KinkyDungeonGold / 100) * 100,
-			'spell': type == 'learnspell' ? data : undefined,
+			'spellType': type == 'learnspell' ? data : undefined,
+			'goddess': type == 'goddess' ? data : undefined,
+			'helpType': type == 'goddess' ? data2 : undefined,
+			'restraint': (type == 'escape' || type == 'bound') ? data : undefined,
+			'method': type == 'escape' ? data2 : undefined,
+			'attacker': type == 'bound' ? data2 : undefined,
 		});
+		if (type == 'nextLevel' && KinkyDungeonDifficultyMode < 2) {
+			for (let s of KinkyDungeonSpells) {
+				KDSendSpell(s.name);
+			}
+			KDSendWeapon((KinkyDungeonPlayerDamage && KinkyDungeonPlayerDamage.name) ? KinkyDungeonPlayerDamage.name : 'unarmed');
+		}
+	}
 }
 function KDSendEvent(type) {
 	// @ts-ignore
-	if (window.dataLayer)
-		if (type == 'newGame')
+	if (window.dataLayer && !KDOptOut)
+		if (type == 'newGame') {
 		// @ts-ignore
 			window.dataLayer.push({
 				'event':type,
 				'aroused':KinkyDungeonStatsChoice.get("arousalMode") ? 'yes' : 'no',
-				'traitscount':KinkyDungeonStatsChoice.size,
+				'traitscount':KinkyDungeonGetTraitsCount(),
+				'journey':KDJourney,
 			});
-		else if (type == 'jail') {
+			for (let s of KinkyDungeonStatsChoice.keys()) {
+				KDSendTrait(s);
+			}
+		} else if (type == 'jail') {
 			// @ts-ignore
 			window.dataLayer.push({
 				'event':type,
 				'currentLevel':MiniGameKinkyDungeonLevel,
+				'alreadyInJail':KinkyDungeonInJail() ? 'true' : 'false',
 				'currentCheckpoint':MiniGameKinkyDungeonCheckpoint,
+				'difficulty':KinkyDungeonDifficultyMode,
+				'newgameplus':KinkyDungeonNewGame,
 				'aroused':KinkyDungeonStatsChoice.get("arousalMode") ? 'yes' : 'no',
-				'traitscount':KinkyDungeonStatsChoice.size,
+				'traitscount':KinkyDungeonGetTraitsCount(),
 				'gold':Math.round(KinkyDungeonGold / 100) * 100,
+				'journey':KDJourney,
 			});
 		} else if (type == 'loadGame') {
 			// @ts-ignore
@@ -633,9 +758,22 @@ function KDSendEvent(type) {
 				'event':type,
 				'currentLevel':MiniGameKinkyDungeonLevel,
 				'currentCheckpoint':MiniGameKinkyDungeonCheckpoint,
+				'difficulty':KinkyDungeonDifficultyMode,
+				'newgameplus':KinkyDungeonNewGame,
 				'aroused':KinkyDungeonStatsChoice.get("arousalMode") ? 'yes' : 'no',
-				'traitscount':KinkyDungeonStatsChoice.size,
+				'traitscount':KinkyDungeonGetTraitsCount(),
 				'gold':Math.round(KinkyDungeonGold / 100) * 100,
+				'journey':KDJourney,
+			});
+		} else if (type == 'patreon') {
+			// @ts-ignore
+			window.dataLayer.push({
+				'event':type,
+			});
+		} else if (type == 'optout' || type == 'optin') {
+			// @ts-ignore
+			window.dataLayer.push({
+				'event':type,
 			});
 		}
 }
@@ -643,17 +781,46 @@ function KDSendEvent(type) {
 let KinkyDungeonReplaceConfirm = 0;
 let KinkyDungeonGameFlag = false;
 
+function KDInitializeJourney(Journey) {
+	KinkyDungeonMapIndex = [];
+
+	for (let I = 0; I < KinkyDungeonMapParams.length; I++) {
+		let II = I;
+		if (II > 3 && II < 11) II = Math.floor(4*KDRandom());
+		else if (II > 13) II = 11 + Math.floor(2*KDRandom());
+		KinkyDungeonMapIndex.push(II);
+	}
+
+	KDGameData.Journey = Journey;
+	// Option to shuffle the dungeon types besides the initial one (graveyard)
+	if (KDGameData.Journey == "Random") {
+		/* Randomize array in-place using Durstenfeld shuffle algorithm */
+		// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+		for (let i = KinkyDungeonMapIndex.length - 1; i >= 0; i--) {
+			let j = Math.floor(KDRandom() * (i + 1));
+			let temp = KinkyDungeonMapIndex[i];
+			KinkyDungeonMapIndex[i] = KinkyDungeonMapIndex[j];
+			KinkyDungeonMapIndex[j] = temp;
+		}
+	} else if (KDGameData.Journey == "Harder") {
+		KinkyDungeonMapIndex = [11, 12, 13, 3, 15, 16, 17, 18, 19, 10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+	}
+	//KinkyDungeonMapIndex.unshift(0);
+	KinkyDungeonMapIndex.push(10);
+}
+
 function KinkyDungeonStartNewGame(Load) {
 	KinkyDungeonNewGame = 0;
-	KinkyDungeonInitialize(1, undefined, Load);
+	KinkyDungeonInitialize(1, Load);
 	MiniGameKinkyDungeonCheckpoint = 0;
 	if (Load) {
 		KinkyDungeonLoadGame();
 		KDSendEvent('loadGame');
 	} else {
 		KDSendEvent('newGame');
+		KDInitializeJourney(KDJourney);
 	}
-	KinkyDungeonCreateMap(KinkyDungeonMapParams[MiniGameKinkyDungeonCheckpoint], MiniGameKinkyDungeonLevel);
+	KinkyDungeonCreateMap(KinkyDungeonMapParams[KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]], MiniGameKinkyDungeonLevel, false, Load);
 	KinkyDungeonState = "Game";
 
 	if (KinkyDungeonKeybindings) {
@@ -703,19 +870,40 @@ function KinkyDungeonHandleClick() {
 			if (KinkyDungeonCreditsPos < 1) KinkyDungeonCreditsPos += 1;
 			else KinkyDungeonCreditsPos = 0;
 		}
+	} else if (KinkyDungeonState == "Journey") {
+		if (MouseIn(875, 350, 750, 64)) {
+			KDJourney = "";
+			KinkyDungeonState = "Stats";
+			return true;
+		} else if (MouseIn(875, 450, 750, 64)) {
+			KDJourney = "Random";
+			KinkyDungeonState = "Stats";
+			return true;
+		} else if (MouseIn(875, 550, 750, 64)) {
+			KDJourney = "Harder";
+			KinkyDungeonState = "Stats";
+			return true;
+		} else if (MouseIn(1075, 850, 350, 64)) {
+			KinkyDungeonState = "Menu";
+			return true;
+		}
 	} else if (KinkyDungeonState == "Diff") {
 		if (MouseIn(875, 150, 275, 64)) {
 			KinkyDungeonSexyMode = false;
 			localStorage.setItem("KinkyDungeonSexyMode", KinkyDungeonSexyMode ? "True" : "False");
+			return true;
 		} else if (MouseIn(1175, 150, 275, 64)) {
 			KinkyDungeonSexyMode = true;
 			localStorage.setItem("KinkyDungeonSexyMode", KinkyDungeonSexyMode ? "True" : "False");
+			return true;
 		} else if (MouseIn(1500, 120, 64, 64) && KinkyDungeonSexyMode) {
 			KinkyDungeonSexyPlug = !KinkyDungeonSexyPlug;
 			localStorage.setItem("KinkyDungeonSexyPlug", KinkyDungeonSexyPlug ? "True" : "False");
+			return true;
 		} else if (MouseIn(1500, 200, 64, 64) && KinkyDungeonSexyMode) {
 			KinkyDungeonSexyPiercing = !KinkyDungeonSexyPiercing;
 			localStorage.setItem("KinkyDungeonSexyPiercing", KinkyDungeonSexyPiercing ? "True" : "False");
+			return true;
 		}
 		KinkyDungeonStatsChoice.set("arousalMode", KinkyDungeonSexyMode ? true : undefined);
 		KinkyDungeonStatsChoice.set("arousalModePlug", KinkyDungeonSexyPlug ? true : undefined);
@@ -723,19 +911,24 @@ function KinkyDungeonHandleClick() {
 		if (MouseIn(875, 350, 750, 64)) {
 			KinkyDungeonDifficultyMode = 0;
 			KinkyDungeonStartNewGame();
+			return true;
 		} else if (MouseIn(875, 450, 750, 64)) {
 			KinkyDungeonDifficultyMode = 3;
 			KinkyDungeonStartNewGame();
+			return true;
 		} else if (MouseIn(875, 550, 750, 64)) {
 			KinkyDungeonDifficultyMode = 1;
 			KinkyDungeonStartNewGame();
+			return true;
 		} else if (MouseIn(875, 650, 750, 64)) {
 			KinkyDungeonDifficultyMode = 2;
 			KinkyDungeonStartNewGame();
+			return true;
 		} else if (MouseIn(1075, 850, 350, 64)) {
 			KinkyDungeonState = "Menu";
+			return true;
 		}
-	} if (KinkyDungeonState == "Stats") {
+	} else if (KinkyDungeonState == "Stats") {
 		let i = 0;
 		let X = 0;
 		let Y = 0;
@@ -749,6 +942,7 @@ function KinkyDungeonHandleClick() {
 					localStorage.setItem('KinkyDungeonStatsChoice', JSON.stringify(Array.from(KinkyDungeonStatsChoice.keys())));
 				} else if (KinkyDungeonStatsChoice.get(stat[0])) {
 					KinkyDungeonStatsChoice.delete(stat[0]);
+					localStorage.setItem('KinkyDungeonStatsChoice', JSON.stringify(Array.from(KinkyDungeonStatsChoice.keys())));
 				}
 			}
 			if (i % 2 != 0) X += KDPerksWidth;
@@ -774,10 +968,12 @@ function KinkyDungeonHandleClick() {
 			KinkyDungeonHeartsPlaced = [];
 			KinkyDungeonNewGame = 0;
 			KinkyDungeonDifficultyMode = 0;
-			KinkyDungeonInitialize(1, undefined, true);
+			KinkyDungeonInitialize(1, true);
 			MiniGameKinkyDungeonCheckpoint = 1;
 			if (KinkyDungeonLoadGame(ElementValue("saveInputField"))) {
-				KinkyDungeonCreateMap(KinkyDungeonMapParams[MiniGameKinkyDungeonCheckpoint], MiniGameKinkyDungeonLevel);
+				KDSendEvent('loadGame');
+				//KDInitializeJourney(KDJourney);
+				KinkyDungeonCreateMap(KinkyDungeonMapParams[KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]], MiniGameKinkyDungeonLevel, false, true);
 				ElementRemove("saveInputField");
 				KinkyDungeonState = "Game";
 
@@ -807,6 +1003,17 @@ function KinkyDungeonHandleClick() {
 			ElementRemove("saveInputField");
 			return true;
 		}
+	} else if (KinkyDungeonState == "Consent") {
+		if (MouseIn(975, 720, 450, 64)) {
+			KinkyDungeonState = "Menu";
+			KDSendEvent('optin');
+			return true;
+		} else if (MouseIn(975, 820, 450, 64)) {
+			KDSendEvent('optout');
+			KDOptOut = true;
+			KinkyDungeonState = "Menu";
+			return true;
+		}
 	} else if (KinkyDungeonState == "Menu" || KinkyDungeonState == "Lose") {
 		if (MouseIn(600, 100, 64, 64)) {
 			KinkyDungeonSound = !KinkyDungeonSound;
@@ -821,13 +1028,13 @@ function KinkyDungeonHandleClick() {
 				KinkyDungeonStartNewGame(true);
 			} else {
 				KinkyDungeonStatsChoice = new Map();
-				KinkyDungeonState = "Stats";
+				KinkyDungeonState = "Journey";
 				let statsChoice = localStorage.getItem('KinkyDungeonStatsChoice');
 				if (statsChoice) {
 					let statsArray = JSON.parse(statsChoice);
 					if (statsArray) {
 						for (let s of statsArray) {
-							if (!s.includes('arousalMode'))
+							if (!s.includes('arousalMode') && KinkyDungeonStatsPresets[s])
 								KinkyDungeonStatsChoice.set(s, true);
 						}
 					}
@@ -882,6 +1089,7 @@ function KinkyDungeonHandleClick() {
 		}
 		if (MouseIn(1275, 930, 375, 64)) {
 			let url = 'https://www.patreon.com/ada18980';
+			KDSendEvent('patreon');
 			window.open(url, '_blank');
 			return true;
 		}
@@ -915,8 +1123,6 @@ function KinkyDungeonHandleClick() {
 	} else if (KinkyDungeonState == "Save") {
 		if (!KinkyDungeonIsPlayer()) KinkyDungeonState = "Game";
 		if (MouseIn(875, 750, 350, 64)) {
-			//KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonSavedGame"), "white", 1);
-			//KinkyDungeonSaveGame();
 			KinkyDungeonState = "Game";
 			ElementRemove("saveDataField");
 			KinkyDungeonChangeRep("Ghost", 5);
@@ -1239,6 +1445,7 @@ let KinkyDungeonGameKey = {
  * @returns {KinkyDungeonSave} - Saved game object
  */
 function KinkyDungeonGenerateSaveData() {
+	/** @type {KinkyDungeonSave} */
 	let save = {};
 	save.level = MiniGameKinkyDungeonLevel;
 	save.checkpoint = MiniGameKinkyDungeonCheckpoint;
@@ -1260,21 +1467,16 @@ function KinkyDungeonGenerateSaveData() {
 	save.hearts = KinkyDungeonHeartsPlaced;
 	save.rescued = KinkyDungeonRescued;
 	save.aid = KinkyDungeonAid;
-	KDrandomizeSeed();
 	save.seed = KinkyDungeonSeed;
 	save.statchoice = Array.from(KinkyDungeonStatsChoice);
+	save.mapIndex = KinkyDungeonMapIndex;
 
 	let spells = [];
+	/**@type {item[]} */
 	let newInv = [];
 
 	for (let inv of KinkyDungeonFullInventory()) {
-		let item = {};
-		Object.assign(item, inv);
-		if (item.restraint) item.restraint = {name: item.restraint.name};
-		if (item.looserestraint) item.looserestraint = {name: item.looserestraint.name};
-		if (item.outfit) item.outfit = {name: item.outfit.name};
-		if (item.weapon) item.weapon = {name: item.weapon.name};
-		if (item.consumable) item.consumable = {name: item.consumable.name};
+		let item = Object.assign({}, inv);
 		newInv.push(item);
 	}
 
@@ -1374,10 +1576,12 @@ function KinkyDungeonLoadGame(String) {
 			if (saveData.KDGameData != undefined) KDGameData = saveData.KDGameData;
 			if (saveData.statchoice != undefined) KinkyDungeonStatsChoice = new Map(saveData.statchoice);
 
+			if (!KDGameData.AlreadyOpened) KDGameData.AlreadyOpened = [];
+
 			KDInitInventory();
 			for (let item of saveData.inventory) {
-				if (item.restraint) {
-					let restraint = KinkyDungeonGetRestraintByName(item.restraint.name);
+				if (item.type == Restraint) {
+					let restraint = KinkyDungeonGetRestraintByName(item.name);
 					if (restraint) {
 						KinkyDungeonAddRestraint(restraint, 0, true, item.lock); // Add the item
 						let createdrestraint = KinkyDungeonGetRestraintItem(restraint.Group);
@@ -1387,18 +1591,7 @@ function KinkyDungeonLoadGame(String) {
 				}
 			}
 			for (let item of saveData.inventory) {
-				if (KDInventoryName(item)) {
-					let inv = {};
-					let type = KDInventoryType(item);
-					if (type == Restraint) item.restraint = KinkyDungeonGetRestraintByName(item.restraint.name);
-					if (type == LooseRestraint) item.looserestraint = KinkyDungeonGetRestraintByName(item.looserestraint.name);
-					if (type == Outfit) item.outfit = KinkyDungeonGetOutfit(item.outfit.name);
-					if (type == Consumable) item.consumable = KinkyDungeonFindConsumable(item.consumable.name);
-					if (type == Weapon) item.weapon = KinkyDungeonFindWeapon(item.weapon.name);
-					Object.assign(inv, item);
-					// @ts-ignore
-					KinkyDungeonInventory.get(KDInventoryType(inv)).set(KDInventoryName(item), inv);
-				}
+				KinkyDungeonInventoryAdd(item);
 			}
 
 			KinkyDungeonSpells = [];
@@ -1412,9 +1605,14 @@ function KinkyDungeonLoadGame(String) {
 			KDNaked = false;
 			KinkyDungeonDressPlayer();
 			KDRefresh = true;
+			if (KDGameData.Journey)
+				KDJourney = KDGameData.Journey;
+			if (saveData.mapIndex) KinkyDungeonMapIndex = saveData.mapIndex;
 
 			if (String)
 				localStorage.setItem('KinkyDungeonSave', String);
+
+			if (saveData.KDGameData && saveData.KDGameData.LastMapSeed) KDsetSeed(saveData.KDGameData.LastMapSeed);
 			return true;
 		}
 	}
@@ -1424,11 +1622,16 @@ function KinkyDungeonLoadGame(String) {
 let KinkyDungeonSeed = (Math.random() * 4294967296).toString();
 let KDRandom = sfc32(xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)());
 
-function KDrandomizeSeed() {
-	KinkyDungeonSeed = (Math.random() * 4294967296).toString();
+/**
+ *
+ * @param {boolean} Native Decides whether or not to use native KDRandom to randomize
+ */
+function KDrandomizeSeed(Native) {
+	let rand = Native ? KDRandom : () => {return Math.random();};
+	KinkyDungeonSeed = (rand() * 4294967296).toString();
 	for (let i = 0; i < 20; i++) {
-		let index = Math.random() * KinkyDungeonSeed.length;
-		KinkyDungeonSeed = KinkyDungeonSeed.replaceAt(index, String.fromCharCode(65 + Math.floor(Math.random()*50)) + String.fromCharCode(65 + Math.floor(Math.random()*50)));
+		let index = rand() * KinkyDungeonSeed.length;
+		KinkyDungeonSeed = KinkyDungeonSeed.replaceAt(index, String.fromCharCode(65 + Math.floor(rand()*50)) + String.fromCharCode(65 + Math.floor(rand()*50)));
 	}
 	KDRandom = sfc32(xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)(), xmur3(KinkyDungeonSeed)());
 	for (let i = 0; i < 1000; i++) {

@@ -12,7 +12,7 @@ function KinkyDungeonCurseInfo(sg, Curse) {
 
 function KinkyDungeonCurseStruggle(sg, Curse) {
 	if (Curse == "MistressKey") {
-		KinkyDungeonSendActionMessage(4, TextGet("KinkyDungeonCurseStruggle" + Curse + KinkyDungeonGetRestraintItem(sg.group).restraint.name), "White", 2);
+		KinkyDungeonSendActionMessage(4, TextGet("KinkyDungeonCurseStruggle" + Curse + KinkyDungeonGetRestraintItem(sg.group).name), "White", 2);
 	} else KinkyDungeonSendActionMessage(4, TextGet("KinkyDungeonCurseStruggle" + Curse), "White", 2);
 
 }
@@ -35,6 +35,7 @@ function KinkyDungeonCurseUnlock(sg, Curse) {
 	}
 
 	if (unlock) {
+		KDSendStatus('escape', KinkyDungeonGetRestraintItem(sg.group).name, "Curse");
 		KinkyDungeonSendActionMessage(4, TextGet("KinkyDungeonCurseUnlock" + Curse), "#99FF99", 2);
 		KinkyDungeonRemoveRestraint(sg.group, keep);
 	}

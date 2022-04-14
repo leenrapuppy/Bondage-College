@@ -153,7 +153,7 @@ function KinkyDungeonDrawGame() {
 						if (RY >= 0 && RY < KinkyDungeonGridHeight && RX >= 0 && RX < KinkyDungeonGridWidth) {
 							let sprite = KinkyDungeonGetSprite(rows[RY][RX], RX, RY, KinkyDungeonLightGet(RX, RY) == 0);
 							let sprite2 = KinkyDungeonGetSpriteOverlay(rows[RY][RX], RX, RY, KinkyDungeonLightGet(RX, RY) == 0);
-							let floor = KinkyDungeonTilesSkin.get(RX + "," + RY) ? KinkyDungeonTilesSkin.get(RX + "," + RY).skin : KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint];
+							let floor = KinkyDungeonTilesSkin.get(RX + "," + RY) ? KinkyDungeonMapIndex[KinkyDungeonTilesSkin.get(RX + "," + RY).skin] : KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint];
 
 							if (KinkyDungeonForceRender) {
 								sprite = KinkyDungeonGetSprite(KinkyDungeonForceRender, RX, RY, KinkyDungeonLightGet(RX, RY) == 0);
@@ -543,7 +543,7 @@ function KinkyDungeonDrawGame() {
 		DrawText(TextGet("KinkyDungeonRestartConfirm"), 1250, 400, "white", "black");
 		DrawButton(975, 550, 550, 64, TextGet("KinkyDungeonRestartNo"), "White", "");
 		DrawButton(975, 650, 550, 64, TextGet("KinkyDungeonRestartWait"), "White", "");
-		DrawButton(975, 750, 550, 64, TextGet("KinkyDungeonRestartCapture"),  (KDGameData.KinkyDungeonSpawnJailers + 1 == KDGameData.KinkyDungeonSpawnJailersMax && !KinkyDungeonJailTransgressed) ? "Pink" : "White", "");
+		DrawButton(975, 750, 550, 64, TextGet("KinkyDungeonRestartCapture"),  (KDGameData.PrisonerState == 'jail') ? "Pink" : "White", "");
 		DrawButton(975, 850, 550, 64, TextGet("KinkyDungeonRestartYes"), "White", "");
 		DrawButton(1650, 900, 300, 64, TextGet("KinkyDungeonCheckPerks"), "White", "");
 		DrawButton(1075, 450, 350, 64, TextGet("GameConfigKeys"), "White", "");
@@ -644,6 +644,9 @@ function KinkyDungeonUpdateVisualPosition(Entity, amount) {
 		let tx = (Entity.xx) ? Entity.xx : Entity.x;
 		let ty = (Entity.yy) ? Entity.yy : Entity.y;
 		let dist = Math.sqrt((Entity.visual_x - tx) * (Entity.visual_x - tx) + (Entity.visual_y - ty) * (Entity.visual_y - ty));
+		if (dist > 5) {
+			value = 1;
+		}
 		if (dist == 0) return;
 		// Increment
 		let weightx = Math.abs(Entity.visual_x - tx)/(dist);

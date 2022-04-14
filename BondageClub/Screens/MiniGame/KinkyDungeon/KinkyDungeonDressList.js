@@ -1,5 +1,8 @@
 "use strict";
-
+/**
+ * List off all dresses items
+ * @type {Object.<string,KinkyDungeonDress>}
+ */
 let KinkyDungeonDresses = {
 	"Default" : KinkyDungeonDefaultDefaultDress,
 	"Prisoner" : [

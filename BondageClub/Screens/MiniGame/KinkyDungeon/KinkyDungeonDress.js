@@ -16,6 +16,7 @@ function KinkyDungeonRefreshOutfitCache() {
 }
 
 // Default dress (witch hat and skirt and corset)
+/** @type {KinkyDungeonDress} */
 let KinkyDungeonDefaultDefaultDress = [
 	{Item: "WitchHat1", Group: "Hat", Color: "Default", Lost: false},
 	{Item: "LeatherCorsetTop1", Group: "Cloth", Color: "Default", Lost: false},
@@ -106,17 +107,16 @@ function KinkyDungeonDressPlayer() {
 
 		if (!clothes.Lost && KinkyDungeonCheckClothesLoss) {
 			if (clothes.Group == "Necklace") {
-				if (KinkyDungeonGetRestraintItem("ItemTorso") && KinkyDungeonGetRestraintItem("ItemTorso").restraint.harness) clothes.Lost = true;
+				if (KinkyDungeonGetRestraintItem("ItemTorso") && KDRestraint(KinkyDungeonGetRestraintItem("ItemTorso")).harness) clothes.Lost = true;
 				if (KinkyDungeonGetRestraintItem("ItemArms") && InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, "ItemBreast")) clothes.Lost = true;
 			}
 			//if (clothes.Group == "Bra" && !clothes.NoLose) {
 			//if (KinkyDungeonGetRestraintItem("ItemBreast")) clothes.Lost = true;
 			//}
 			if (clothes.Group == "Panties" && !clothes.NoLose) {
-				if (KinkyDungeonGetRestraintItem("ItemPelvis") && KinkyDungeonGetRestraintItem("ItemPelvis") && KinkyDungeonGetRestraintItem("ItemPelvis").restraint.chastity) clothes.Lost = true;
+				if (KinkyDungeonGetRestraintItem("ItemPelvis") && KinkyDungeonGetRestraintItem("ItemPelvis") && KDRestraint(KinkyDungeonGetRestraintItem("ItemPelvis")).chastity) clothes.Lost = true;
 			}
 			if (clothes.Group == "ClothLower" && clothes.Skirt) {
-				//if (KinkyDungeonGetRestraintItem("ItemTorso") && KinkyDungeonGetRestraintItem("ItemTorso").restraint.harness) clothes.Lost = true;
 				if (KinkyDungeonGetRestraintItem("ItemPelvis")) clothes.Lost = true;
 				if (InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, "ItemLegs")) clothes.Lost = true;
 				if (InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, "ClothLower")) clothes.Lost = true;
@@ -125,8 +125,8 @@ function KinkyDungeonDressPlayer() {
 				if (KinkyDungeonGetRestraintItem("ItemBoots")) clothes.Lost = true;
 			}
 			for (let inv of KinkyDungeonAllRestraint()) {
-				if (inv.restraint && inv.restraint.remove) {
-					for (let remove of inv.restraint.remove) {
+				if (KDRestraint(inv).remove) {
+					for (let remove of KDRestraint(inv).remove) {
 						if (remove == clothes.Group) clothes.Lost = true;
 					}
 				}
@@ -145,6 +145,8 @@ function KinkyDungeonDressPlayer() {
 						else item.Property.OverridePriority = clothes.OverridePriority;
 					}
 				}
+				// Ignored because BC uses string[] as a type!
+				// @ts-ignore
 				CharacterAppearanceSetColorForGroup(KinkyDungeonPlayer, clothes.Color, clothes.Group);
 			}
 		}
@@ -155,19 +157,9 @@ function KinkyDungeonDressPlayer() {
 
 	for (let inv of KinkyDungeonAllRestraint()) {
 		if (KinkyDungeonCheckClothesLoss)
-			if (inv.restraint && inv.restraint.AssetGroup) {
-				InventoryWear(KinkyDungeonPlayer, inv.restraint.Asset, inv.restraint.AssetGroup, inv.restraint.Color);
+			if (KDRestraint(inv).AssetGroup) {
+				InventoryWear(KinkyDungeonPlayer, KDRestraint(inv).Asset, KDRestraint(inv).AssetGroup, KDRestraint(inv).Color);
 			}
-		/*if (inv.restraint && inv.restraint.forceUpperPose) {
-			if (CharacterItemsHavePoseAvailable(KinkyDungeonPlayer, "BodyUpper", inv.restraint.forceUpperPose)) {
-				CharacterSetActivePose(KinkyDungeonPlayer, inv.restraint.forceUpperPose, false);
-			}
-		}
-		if (inv.restraint && inv.restraint.forceLowerPose) {
-			if (CharacterItemsHavePoseAvailable(KinkyDungeonPlayer, "BodyLower", inv.restraint.forceLowerPose)) {
-				CharacterSetActivePose(KinkyDungeonPlayer, inv.restraint.forceUpperPose, false);
-			}
-		}*/
 	}
 	if (KinkyDungeonCheckClothesLoss)
 		KinkyDungeonWearForcedClothes();
@@ -296,8 +288,8 @@ function KinkyDungeonDressPlayer() {
 
 function KinkyDungeonWearForcedClothes() {
 	for (let inv of KinkyDungeonAllRestraint()) {
-		if (inv.restraint && inv.restraint.alwaysDress) {
-			for (let dress of inv.restraint.alwaysDress) {
+		if (KDRestraint(inv).alwaysDress) {
+			for (let dress of KDRestraint(inv).alwaysDress) {
 				if (dress.override || !dress.Group.includes("Item") || !InventoryGet(KinkyDungeonPlayer, dress.Group)) {
 					InventoryWear(KinkyDungeonPlayer, dress.Item, dress.Group);
 					if (dress.OverridePriority) {

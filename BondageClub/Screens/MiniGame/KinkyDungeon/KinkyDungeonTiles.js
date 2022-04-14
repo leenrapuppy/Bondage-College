@@ -18,11 +18,11 @@ function KinkyDungeonUpdateTileEffects(delta) {
 
 function KinkyDungeonHandleMoveToTile(toTile) {
 	if (toTile == 's' || toTile == 'H') { // Go down the next stairs
-		if (KinkyDungeonConfirmStairs) {
+		if (KinkyDungeonConfirmStairs && KinkyDungeonLastAction == "Wait") {
 			KinkyDungeonConfirmStairs = false;
 			KinkyDungeonHandleStairs(toTile);
 		} else if (!(KDGameData.SleepTurns > 0)) {
-			if (KinkyDungeonLastAction == "Move")
+			if (KinkyDungeonLastAction == "Move" || KinkyDungeonLastAction == "Wait")
 				KinkyDungeonConfirmStairs = true;
 			KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonConfirmStairs"), "white", 1);
 		}
@@ -30,45 +30,61 @@ function KinkyDungeonHandleMoveToTile(toTile) {
 }
 
 function KinkyDungeonHandleStairs(toTile, suppressCheckPoint) {
-	if (!KinkyDungeonJailGuard() || (KDistEuclidean(KinkyDungeonJailGuard().x - KinkyDungeonPlayerEntity.x, KinkyDungeonJailGuard().y - KinkyDungeonPlayerEntity.y) > KinkyDungeonTetherLength() + 2 && KinkyDungeonJailGuard().CurrentAction != "jailLeashTour")) {
-		if (MiniGameKinkyDungeonLevel > Math.max(KinkyDungeonRep, ReputationGet("Gaming")) || Math.max(KinkyDungeonRep, ReputationGet("Gaming")) > KinkyDungeonMaxLevel) {
-			KinkyDungeonRep = Math.max(KinkyDungeonRep, MiniGameKinkyDungeonLevel);
-			DialogSetReputation("Gaming", KinkyDungeonRep);
-		}
-		MiniGameVictory = false;
+	if (!KDGameData.JailKey) {
+		KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonNeedJailKey"), "#ffffff", 1);
+	}
+	else {
+		if (!KinkyDungeonJailGuard() || (KDistEuclidean(KinkyDungeonJailGuard().x - KinkyDungeonPlayerEntity.x, KinkyDungeonJailGuard().y - KinkyDungeonPlayerEntity.y) > KinkyDungeonTetherLength() + 2 && KinkyDungeonJailGuard().CurrentAction != "jailLeashTour")) {
+			if (MiniGameKinkyDungeonLevel > Math.max(KinkyDungeonRep, ReputationGet("Gaming")) || Math.max(KinkyDungeonRep, ReputationGet("Gaming")) > KinkyDungeonMaxLevel) {
+				KinkyDungeonRep = Math.max(KinkyDungeonRep, MiniGameKinkyDungeonLevel);
+				DialogSetReputation("Gaming", KinkyDungeonRep);
+			}
+			MiniGameVictory = false;
 
-		MiniGameKinkyDungeonLevel += 1;
-		if (MiniGameKinkyDungeonLevel >= KinkyDungeonMaxLevel) {
-			MiniGameKinkyDungeonLevel = 1;
-			MiniGameKinkyDungeonMainPath = 0;
-			KinkyDungeonState = "End";
-			MiniGameVictory = true;
-			suppressCheckPoint = true;
-		}
+			MiniGameKinkyDungeonLevel += 1;
+			if (MiniGameKinkyDungeonLevel >= KinkyDungeonMaxLevel) {
+				MiniGameKinkyDungeonLevel = 1;
+				MiniGameKinkyDungeonMainPath = 0;
+				KinkyDungeonState = "End";
+				MiniGameVictory = true;
+				suppressCheckPoint = true;
+			}
 
-		let currCheckpoint = MiniGameKinkyDungeonCheckpoint;
-		if (toTile == 's') {
-			KinkyDungeonSendActionMessage(10, TextGet("ClimbDown"), "#ffffff", 1);
-			KinkyDungeonSetCheckPoint(MiniGameKinkyDungeonMainPath, true, suppressCheckPoint);
-		} else if (toTile == 'H') {
-			KinkyDungeonSendActionMessage(10, TextGet("ClimbDownShortcut"), "#ffffff", 1);
-			KinkyDungeonSetCheckPoint(MiniGameKinkyDungeonShortcut, true, suppressCheckPoint);
-		}
-		// Reduce security level when entering a new area
-		if (MiniGameKinkyDungeonCheckpoint != currCheckpoint)
-			KinkyDungeonChangeRep("Prisoner", -5);
-		else // Otherwise it's just a little bit
-			KinkyDungeonChangeRep("Prisoner", -1);
+			let currCheckpoint = MiniGameKinkyDungeonCheckpoint;
+			if (toTile == 's') {
+				KinkyDungeonSendActionMessage(10, TextGet("ClimbDown"), "#ffffff", 1);
+				KinkyDungeonSetCheckPoint(MiniGameKinkyDungeonMainPath, true, suppressCheckPoint);
+			} else if (toTile == 'H') {
+				KinkyDungeonSendActionMessage(10, TextGet("ClimbDownShortcut"), "#ffffff", 1);
+				KinkyDungeonSetCheckPoint(MiniGameKinkyDungeonShortcut, true, suppressCheckPoint);
+			}
+			// Reduce security level when entering a new area
+			if (MiniGameKinkyDungeonCheckpoint != currCheckpoint)
+				KinkyDungeonChangeRep("Prisoner", -5);
+			else // Otherwise it's just a little bit
+				KinkyDungeonChangeRep("Prisoner", -1);
 
-		if (KinkyDungeonState != "End") {
-			KinkyDungeonCreateMap(KinkyDungeonMapParams[KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]], MiniGameKinkyDungeonLevel);
-			KDSendStatus('nextLevel');
+			if (KinkyDungeonState != "End") {
+				KinkyDungeonCreateMap(KinkyDungeonMapParams[KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]], MiniGameKinkyDungeonLevel);
+				let saveData = KinkyDungeonSaveGame(true);
+				if (MiniGameKinkyDungeonCheckpoint != currCheckpoint || (Math.floor(MiniGameKinkyDungeonLevel / 3) == MiniGameKinkyDungeonLevel / 3 && MiniGameKinkyDungeonCheckpoint < 11)) {
+					KDGameData.KinkyDungeonSpawnJailers = 0;
+					KDGameData.KinkyDungeonSpawnJailersMax = 0;
+					if ((KinkyDungeonDifficultyMode == 0 || KinkyDungeonDifficultyMode == 3) && !suppressCheckPoint) {
+						KinkyDungeonState = "Save";
+						ElementCreateTextArea("saveDataField");
+						ElementValue("saveDataField", saveData);
+					}
+				}
+				KinkyDungeonSaveGame();
+				KDSendStatus('nextLevel');
+			} else {
+				KDSendStatus('end');
+			}
+
 		} else {
-			KDSendStatus('end');
+			KinkyDungeonSendActionMessage(10, TextGet("ClimbDownFail"), "#ffffff", 1);
 		}
-
-	} else {
-		KinkyDungeonSendActionMessage(10, TextGet("ClimbDownFail"), "#ffffff", 1);
 	}
 }
 
@@ -87,16 +103,20 @@ function KinkyDungeonHandleMoveObject(moveX, moveY, moveObject) {
 		if (chestType == "chest") KinkyDungeonAddChest(1, MiniGameKinkyDungeonLevel);
 		if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/ChestOpen.ogg");
 		KinkyDungeonMapSet(moveX, moveY, 'c');
+		KDGameData.AlreadyOpened.push({x: moveX, y: moveY});
+		KinkyDungeonAggroAction('chest', {});
 		return true;
 	} else if (moveObject == 'Y') { // Open the chest
 		let chestType = MiniGameKinkyDungeonCheckpoint == 12 ? "shelf" : "rubble";
 		KinkyDungeonLoot(MiniGameKinkyDungeonLevel, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint], chestType);
 		if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Coins.ogg");
 		KinkyDungeonMapSet(moveX, moveY, '1');
+		KDGameData.AlreadyOpened.push({x: moveX, y: moveY});
 		return true;
 	} else if (moveObject == 'O') { // Open the chest
 		KinkyDungeonTakeOrb(1, moveX, moveY); // 1 spell point
 		if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
+		KDGameData.AlreadyOpened.push({x: moveX, y: moveY});
 		return true;
 	}
 	return false;

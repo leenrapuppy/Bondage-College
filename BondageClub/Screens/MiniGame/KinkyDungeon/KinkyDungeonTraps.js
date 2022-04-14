@@ -73,7 +73,8 @@ function KinkyDungeonHandleTraps(x, y, Moved) {
 			if (tile.Trap === "CustomVine") {
 				let restraint = KinkyDungeonGetRestraintByName("VinePlantFeet");
 				if (restraint) {
-					KinkyDungeonAddRestraintIfWeaker(restraint, tile.Power, false, false);
+					KDSendStatus('bound', tile.Trap, "trap");
+					KinkyDungeonAddRestraintIfWeaker(restraint, tile.Power, false);
 				}
 				let created = KinkyDungeonSummonEnemy(x, y, "VinePlant", tile.Power, 1);
 				if (created > 0) {
