@@ -126,7 +126,7 @@ interface AssetDefinition {
 	AllowColorize?: boolean;
 	AllowColorizeAll?: boolean;
 	AvailableLocations?: string[];
-	OverrideHeight?: { Height: number; Priority: number; HeightRatioProportion?: number };
+	OverrideHeight?: AssetOverrideHeight;
 	FreezeActivePose?: string[];
 	DrawLocks?: boolean;
 	AllowExpression?: string[];

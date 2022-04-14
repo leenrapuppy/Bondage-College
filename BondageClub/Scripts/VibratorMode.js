@@ -40,9 +40,21 @@ var VibratorModeSet = {
 
 /**
  * A record of the various available vibrator sets of vibrator modes
+ *
+ * Note: Those really are ExtendedItemOption, but the ability for the advanced
+ *       modes to automatically chose an intensity require a type override.
+ *       VibratorModeSetDynamicProperties that those dynamic properties will
+ *       get turned into the appropriate type.
+ *
  * @type {{
  *     Standard: ExtendedItemOption[],
- *     Advanced: ExtendedItemOption[]
+ *     Advanced: (ExtendedItemOption | {
+ *         Property: {
+ *             Mode: VibratorMode,
+ *             Intensity: number | (() => number),
+ *             Effect: EffectName[] | ((Intensity: number) => EffectName[]),
+ *         }
+ *     })[]
  * }}
  * @constant
  */

@@ -39,6 +39,7 @@ function InventoryItemMiscTimerPadlockReset() {
 	if (CurrentScreen == "ChatRoom") {
 		var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
 		var msg = "TimerRestart";
+		/** @type {ChatMessageDictionary} */
 		var Dictionary = [];
 		Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
 		Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});

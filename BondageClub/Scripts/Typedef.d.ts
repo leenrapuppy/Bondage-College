@@ -522,7 +522,7 @@ interface Asset {
 	AllowLockType?: string[];
 	AllowColorizeAll: boolean;
 	AvailableLocations: string[];
-	OverrideHeight?: { Height: number; Priority: number; HeightRatioProportion?: number };
+	OverrideHeight?: AssetOverrideHeight;
 	FreezeActivePose: string[];
 	DrawLocks: boolean;
 	AllowExpression?: string[];
@@ -553,7 +553,7 @@ interface Pose {
 	Name: string;
 	Category?: 'BodyUpper' | 'BodyLower' | 'BodyFull';
 	AllowMenu?: true;
-	OverrideHeight?: { Height: number; Priority: number; };
+	OverrideHeight?: AssetOverrideHeight;
 	Hide?: string[];
 	MovePosition?: { Group: string; X: number; Y: number; }[];
 }
@@ -1010,6 +1010,12 @@ interface NPCTrait {
 
 //#region Extended items
 
+interface AssetOverrideHeight {
+	Height: number;
+	Priority: number;
+	HeightRatioProportion?: number;
+}
+
 /**
  * Base properties for extended items
  *
@@ -1019,7 +1025,7 @@ interface ItemPropertiesBase {
 	Type?: string | null;
 	Expression?: string;
 	Difficulty?: number;
-	OverrideHeight?: { Height: number; Priority: number; HeightRatioProportion?: number; };
+	OverrideHeight?: AssetOverrideHeight;
 	HeightModifier?: number;
 	OverridePriority?: unknown;
 	DefaultColor?: string;
@@ -1037,7 +1043,7 @@ interface ItemPropertiesBase {
 	/** The groups that this item blocks */
 	Block?: AssetGroupItemName[];
 
-	Effect?: EffectName[] | ((arg: number) => EffectName[]);
+	Effect?: EffectName[];
 	OverrideAssetEffect?: boolean;
 
 	/* Pose-related properties */
@@ -1047,6 +1053,11 @@ interface ItemPropertiesBase {
 	AllowPose?: AssetPoseName[];
 	WhitelistActivePose?: AssetPoseName[];
 	FreezeActivePose?: AssetPoseName[];
+
+	/* Vibratory-related properties */
+	Mode?: VibratorMode;
+	Intensity?: number;
+	State?: VibratorModeState;
 }
 
 /**
@@ -1057,10 +1068,6 @@ interface ItemPropertiesBase {
  */
 interface ItemPropertiesCustom {
 	ItemMemberNumber?: number;
-
-	Mode?: unknown;
-	Intensity?: (() => number) | number;
-	State?: unknown;
 
 	RemoveTimer?: unknown;
 	Password?: string;
@@ -1392,7 +1399,7 @@ interface ModularItemOption {
 	/** Whether or not the option should open a subscreen in the extended item menu */
 	HasSubscreen?: boolean;
 	/** Override height, uses the highest priority of all modules*/
-	OverrideHeight?: Record<string, { Height: number, Priority: number}>;
+	OverrideHeight?: AssetOverrideHeight;
 	/** Whether or not this option can be selected by the wearer */
 	AllowSelfSelect?: boolean;
 	/** Whether that option moves the character up */

@@ -171,6 +171,7 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 
 	if (CurrentScreen == "ChatRoom") {
 		var Message;
+		/** @type {ChatMessageDictionary} */
 		var Dictionary = [
 			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
 			{ Tag: "AssetName", AssetName: Item.Asset.Name },
@@ -201,6 +202,7 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 function InventoryItemVulvaFuturisticVibratorTriggerShock(C, Item) {
 
 	if (CurrentScreen == "ChatRoom") {
+		/** @type {ChatMessageDictionary} */
 		var Dictionary = [];
 		Dictionary.push({ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber });
 		Dictionary.push({ Tag: "AssetName", AssetName: Item.Asset.Name});

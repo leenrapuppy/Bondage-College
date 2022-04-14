@@ -362,6 +362,7 @@ function InventoryItemPelvisFuturisticTrainingBeltUpdateVibeMode(C, PersistentDa
 
 		if (CurrentScreen == "ChatRoom") {
 			var Message;
+			/** @type {ChatMessageDictionary} */
 			var Dictionary = [
 				{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
 				{ Tag: "AssetName", AssetName: Item.Asset.Name },
