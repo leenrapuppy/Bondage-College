@@ -134,7 +134,7 @@ function KinkyDungeonGetEnemy(tags, Level, Index, Tile, requireTags) {
 
 function KinkyDungeonCallGuard(x, y, noTransgress, normalDrops) {
 	if (!noTransgress)
-		KinkyDungeonJailTransgressed = true;
+		KinkyDungeonAggroAction('call', {});
 	if (!KinkyDungeonJailGuard()) {
 		let Enemy = KinkyDungeonEnemies.find(element => element.name == "Guard");
 		let guard = {summoned: true, noRep: true, noDrop: !normalDrops, Enemy: Enemy, id: KinkyDungeonGetEnemyID(),
@@ -162,7 +162,7 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 	let HunterAdjust = KinkyDungeonDifficulty;
 	let EntranceAdjust = KinkyDungeonDifficulty/2;
 	let BaseAdjust = KinkyDungeonDifficulty/10;
-	if (KinkyDungeonStatsChoice.get("Dragon")) {
+	if (KinkyDungeonStatsChoice.get("SearchParty")) {
 		BaseAdjust *= 1.2;
 		BaseAdjust += 20;
 		HunterAdjust += 30;
@@ -175,17 +175,18 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 	// Chance of bothering with random spawns this turn
 	if (delta > 0 && KDRandom() < baseChance && KinkyDungeonSearchTimer > KinkyDungeonSearchTimerMin) {
 		let hunters = false;
-		let spawnLocation = KinkyDungeonMapGet(KinkyDungeonStartPosition.x, KinkyDungeonStartPosition.y) == 'S' ? KinkyDungeonStartPosition : KinkyDungeonEndPosition;
-		if (KinkyDungeonTotalSleepTurns > KinkyDungeonSearchStartAmount - BaseAdjust && KinkyDungeonEntities.length < Math.min(100, (KinkyDungeonInJail()) ? (5 + effLevel/15) : (20 + effLevel/KDLevelsPerCheckpoint))) {
+		let spawnLocation = KinkyDungeonStartPosition;
+		let spawnPlayerExclusionRadius = 11;
+		if (KinkyDungeonTotalSleepTurns > KinkyDungeonSearchStartAmount - BaseAdjust && KinkyDungeonEntities.length < Math.min(100, (!KinkyDungeonHostile()) ? (5 + effLevel/15) : (20 + effLevel/KDLevelsPerCheckpoint))) {
 			if (KinkyDungeonTotalSleepTurns > KinkyDungeonSearchHuntersAmount - HunterAdjust) hunters = true;
-			if ((KinkyDungeonTotalSleepTurns > KinkyDungeonSearchEntranceAdjustAmount - EntranceAdjust && KDistChebyshev(KinkyDungeonPlayerEntity.x - KinkyDungeonEndPosition.x, KinkyDungeonPlayerEntity.y - KinkyDungeonEndPosition.y) > 5 && KDRandom() < 0.5)
-				|| KDistChebyshev(KinkyDungeonPlayerEntity.x - KinkyDungeonStartPosition.x, KinkyDungeonPlayerEntity.y - KinkyDungeonStartPosition.y) < 5) spawnLocation = KinkyDungeonEndPosition;
+			if ((KinkyDungeonTotalSleepTurns > KinkyDungeonSearchEntranceAdjustAmount - EntranceAdjust && KDistChebyshev(KinkyDungeonPlayerEntity.x - KinkyDungeonEndPosition.x, KinkyDungeonPlayerEntity.y - KinkyDungeonEndPosition.y) > spawnPlayerExclusionRadius && KDRandom() < 0.5)
+				|| KDistChebyshev(KinkyDungeonPlayerEntity.x - KinkyDungeonStartPosition.x, KinkyDungeonPlayerEntity.y - KinkyDungeonStartPosition.y) < spawnPlayerExclusionRadius) spawnLocation = KinkyDungeonEndPosition;
 
 			if (KinkyDungeonLightGet(spawnLocation.x, spawnLocation.y) < 1 || KinkyDungeonSeeAll) {
 				KinkyDungeonSearchTimer = 0;
 				let count = 0;
 				let maxCount = (2 + Math.min(5, Math.round(MiniGameKinkyDungeonLevel/10))) * Math.sqrt(1 + KinkyDungeonTotalSleepTurns / sleepTurnsSpeedMult);
-				if (KinkyDungeonStatsChoice.get("Dragon")) {
+				if (KinkyDungeonStatsChoice.get("SearchParty")) {
 					maxCount *= 2;
 				}
 				// Spawn a killsquad!
@@ -213,7 +214,7 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 				KinkyDungeonMakeGhostDecision();
 				while (Enemy && count < maxCount) {
 					let point = KinkyDungeonGetNearbyPoint(spawnLocation.x, spawnLocation.y, true);
-					if (point && (KinkyDungeonJailTransgressed || Enemy.tags.has("jail") || Enemy.tags.has("jailer"))) {
+					if (point) {
 						let X = point.x;
 						let Y = point.y;
 						EnemiesSummoned.push(Enemy.name);
@@ -250,6 +251,6 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 				console.log(EnemiesSummoned);
 			}
 		}
-
-	} else if (KinkyDungeonJailTransgressed) KinkyDungeonSearchTimer += delta;
+		// Only increment the timer when not in jail
+	} else if (!(KDGameData.PrisonerState == 'jail')) KinkyDungeonSearchTimer += delta;
 }

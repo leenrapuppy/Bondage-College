@@ -147,6 +147,9 @@ function KinkyDungeonItemEvent(Item) {
 			KinkyDungeonChangeStamina(24);
 			KinkyDungeonChangeMana(24);
 		} else KinkyDungeonDrawState = "Heart";
+	} else if (Item.name == "Keyring") {
+		KDGameData.JailKey = true;
+		KinkyDungeonAggroAction('key', {});
 	}
 	if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/" + sfx + ".ogg");
 	KinkyDungeonSendActionMessage(priority, TextGet("ItemPickup" + Item.name).replace("XXX", Item.amount), color, 2);
@@ -167,7 +170,7 @@ function KinkyDungeonItemCheck(x, y, Index) {
 function KinkyDungeonDrawItems(canvasOffsetX, canvasOffsetY, CamX, CamY) {
 	for (let item of KinkyDungeonGroundItems) {
 		let sprite = item.name;
-		if (item.x >= CamX && item.y >= CamY && item.x < CamX + KinkyDungeonGridWidthDisplay && item.y < CamY + KinkyDungeonGridHeightDisplay) {
+		if (item.x >= CamX && item.y >= CamY && item.x < CamX + KinkyDungeonGridWidthDisplay && item.y < CamY + KinkyDungeonGridHeightDisplay && KinkyDungeonLightGet(item.x, item.y) > 0) {
 			DrawImageZoomCanvas(KinkyDungeonRootDirectory + "Items/" + sprite + ".png",
 				KinkyDungeonContext, 0, 0, KinkyDungeonSpriteSize, KinkyDungeonSpriteSize,
 				(item.x - CamX)*KinkyDungeonGridSizeDisplay, (item.y - CamY)*KinkyDungeonGridSizeDisplay,

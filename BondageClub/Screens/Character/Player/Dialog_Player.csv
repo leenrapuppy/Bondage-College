@@ -2979,7 +2979,7 @@ ItemMouthPonyGagSetr0,,,SourceCharacter removes the reins on DestinationCharacte
 ItemMouthPonyGagSetr1,,,SourceCharacter adds reins to DestinationCharacter bridle gag.,,
 ItemMouthPonyGagSetr2,,,SourceCharacter ties a rope to DestinationCharacter bridle gag.,,
 ItemMouthPonyGagSetr3,,,SourceCharacter ties DestinationCharacter reins to a post.,,
-ItemMouthPonyGagSelecteBlinders,,,Select Blinders,,
+ItemMouthPonyGagSelectBlinders,,,Select Blinders,,
 ItemMouthPonyGagModuleBlinders,,,Blinders,,
 ItemMouthPonyGagOptionb0,,,None,,
 ItemMouthPonyGagOptionb1,,,Blinders,,

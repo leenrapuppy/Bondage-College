@@ -81,6 +81,7 @@ function KinkyDungeonUpdateFromData() {
 		for (let N = 0; N < enemies.length; N++) {
 			let enemy = enemies[N].split('/');
 			let i = 1;
+			// @ts-ignore
 			KinkyDungeonEntities.push({Enemy: {name: enemy[i++]}, stun: enemy[i++], x:enemy[i++], y:enemy[i++]}); // Push the enemy
 		}
 	}

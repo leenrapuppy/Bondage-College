@@ -790,8 +790,8 @@ function DialogAlwaysAllowRestraint() {
  * @return {VibratorRemoteAvailability} - Returns the status of remote availability: Available, NoRemote, NoLoversRemote, RemotesBlocked, CannotInteract, NoAccess, InvalidItem
  */
 function DialogCanUseRemoteState(C, Item) {
-	// Can't use remotes if there is no item, the item doesn't have the "Egged" effect
-	if (!Item || (!InventoryItemHasEffect(Item, "Egged") && !InventoryItemHasEffect(Item, "UseRemote"))) return "InvalidItem";
+	// Can't use remotes if there is no item, or if the item doesn't have the needed effects.
+	if (!Item || !(InventoryItemHasEffect(Item, "Egged") || InventoryItemHasEffect(Item, "UseRemote"))) return "InvalidItem";
 	// Can't use remotes if the player cannot interact with their hands
 	if (!Player.CanInteract()) return "CannotInteract";
 	// Can't use remotes on self if the player is owned and their remotes have been blocked by an owner rule
@@ -808,8 +808,16 @@ function DialogCanUseRemoteState(C, Item) {
 	} else {
 
 		// Otherwise, the player must have a vibrator remote and some items can block remotes
-		if (C.Effect.indexOf("BlockRemotes") >= 0) return "RemotesBlocked";
-		return InventoryAvailable(Player, "VibratorRemote", "ItemVulva") ? "Available" : "NoRemote";
+		if (C.Effect.indexOf("BlockRemotes") >= 0) {
+			return "RemotesBlocked";
+		}
+		if (!InventoryAvailable(Player, "VibratorRemote", "ItemVulva")) {
+			return "NoRemote";
+		}
+		if (LogQuery("BlockRemote", "OwnerRule")) {
+			return "NoRemoteOwnerRuleActive";
+		}
+		return "Available";
 	}
 }
 
@@ -857,6 +865,7 @@ function DialogMenuButtonBuild(C) {
 	// The "Exit" button is always available
 	DialogMenuButton = ["Exit"];
 
+	/** The item in the current slot */
 	const Item = InventoryGet(C, C.FocusGroup.Name);
 	const ItemBlockedOrLimited = !!Item && InventoryBlockedOrLimited(C, Item);
 
@@ -910,8 +919,13 @@ function DialogMenuButtonBuild(C) {
 				DialogMenuButton.push("Next");
 				DialogMenuButton.push("Prev");
 			}
-			if (C.FocusGroup.Name == "ItemMouth" || C.FocusGroup.Name == "ItemMouth2" || C.FocusGroup.Name == "ItemMouth3") DialogMenuButton.push("ChangeLayersMouth");
-			if (IsItemLocked && DialogCanUnlock(C, Item) && InventoryAllow(C, Item.Asset) && !IsGroupBlocked && ((C.ID != 0) || Player.CanInteract())) {  DialogMenuButton.push("Remove"); }
+
+			if (C.FocusGroup.Name == "ItemMouth" || C.FocusGroup.Name == "ItemMouth2" || C.FocusGroup.Name == "ItemMouth3")
+				DialogMenuButton.push("ChangeLayersMouth");
+
+			if (IsItemLocked && DialogCanUnlock(C, Item) && InventoryAllow(C, Item.Asset) && !IsGroupBlocked && ((C.ID != 0) || Player.CanInteract()))
+				DialogMenuButton.push("Remove");
+
 			if (IsItemLocked && ((!Player.IsBlind() || (Item.Property && DialogCanInspectLockWhileBlind(Item.Property.LockedBy))) || (InventoryAllow(
 				C, Item.Asset) && !IsGroupBlocked && !InventoryGroupIsBlocked(Player, "ItemHands") && InventoryItemIsPickable(Item))  && (C.ID == 0 || (C.OnlineSharedSettings && !C.OnlineSharedSettings.DisablePickingLocksOnSelf)))
 				&& (Item.Property != null) && (Item.Property.LockedBy != null) && (Item.Property.LockedBy != "")
@@ -924,25 +938,37 @@ function DialogMenuButtonBuild(C) {
 			// If the Asylum GGTS controls the item, we show a disabled button and hide the other buttons
 			if (AsylumGGTSControlItem(C, Item)) {
 				DialogMenuButton.push("GGTSControl");
-			} else {
-				if ((Item != null) && !IsItemLocked && Player.CanInteract() && InventoryAllow(C, Item.Asset) && !IsGroupBlocked)
-					if (Item.Asset.AllowLock && (!Item.Property || (Item.Property && Item.Property.AllowLock !== false)))
-						if (!Item.Asset.AllowLockType || (Item.Property && Item.Asset.AllowLockType.includes(Item.Property.Type)))
-							DialogMenuButton.push(ItemBlockedOrLimited ? "LockDisabled" : "Lock");
-				if ((Item != null) && !IsItemLocked && !InventoryItemHasEffect(Item, "Mounted", true) && !InventoryItemHasEffect(Item, "Enclose", true) && Player.CanInteract() && InventoryAllow(C, Item.Asset) && !IsGroupBlocked) DialogMenuButton.push("Remove");
-				if ((Item != null) && !IsItemLocked && InventoryItemHasEffect(Item, "Mounted", true) && Player.CanInteract() && InventoryAllow(C, Item.Asset) && !IsGroupBlocked) DialogMenuButton.push("Dismount");
-				if ((Item != null) && !IsItemLocked && InventoryItemHasEffect(Item, "Enclose", true) && Player.CanInteract() && InventoryAllow(C, Item.Asset) && !IsGroupBlocked) DialogMenuButton.push("Escape");
-				if ((Item != null) && Item.Asset.Extended && ((Player.CanInteract()) || DialogAlwaysAllowRestraint() || Item.Asset.AlwaysInteract) && (!IsGroupBlocked || Item.Asset.AlwaysExtend) && (!Item.Asset.OwnerOnly || (C.IsOwnedByPlayer())) && (!Item.Asset.LoverOnly || (C.IsLoverOfPlayer()))) DialogMenuButton.push(ItemBlockedOrLimited ? "UseDisabled" : "Use");
+			} else if (Item != null) {
+				// There's an item in the slot
+
+				if (!IsItemLocked && Player.CanInteract() && InventoryAllow(C, Item.Asset) && !IsGroupBlocked) {
+					if (Item.Asset.AllowLock
+							&& (!Item.Property || (Item.Property && Item.Property.AllowLock !== false))
+							&& (!Item.Asset.AllowLockType || (Item.Property && Item.Asset.AllowLockType.includes(Item.Property.Type))))
+						DialogMenuButton.push(ItemBlockedOrLimited ? "LockDisabled" : "Lock");
+
+					if (InventoryItemHasEffect(Item, "Mounted", true))
+						DialogMenuButton.push("Dismount");
+					else if (InventoryItemHasEffect(Item, "Enclose", true))
+						DialogMenuButton.push("Escape");
+					else
+						DialogMenuButton.push("Remove");
+				}
 
 				const canUseRemoteState = DialogCanUseRemoteState(C, Item);
+				if (Item.Asset.Extended
+						&& (Player.CanInteract() || DialogAlwaysAllowRestraint() || Item.Asset.AlwaysInteract)
+						&& (!IsGroupBlocked || Item.Asset.AlwaysExtend)
+						&& (!Item.Asset.OwnerOnly || (C.IsOwnedByPlayer()))
+						&& (!Item.Asset.LoverOnly || (C.IsLoverOfPlayer()))
+						&& canUseRemoteState === "InvalidItem")
+					DialogMenuButton.push(ItemBlockedOrLimited ? "UseDisabled" : "Use");
+
 				if (!DialogMenuButton.includes("Use") && canUseRemoteState !== "InvalidItem") {
 					let button = "";
 					switch (canUseRemoteState) {
 						case "Available":
 							button = ItemBlockedOrLimited ? "RemoteDisabled" : "Remote";
-							break;
-						case "NoRemote":
-							button = LogQuery("BlockRemote", "OwnerRule") ? "RemoteDisabledForNoRemoteOwnerRuleActive" : "RemoteDisabledForNoRemote";
 							break;
 						default:
 							button = `RemoteDisabledFor${canUseRemoteState}`;
@@ -1512,7 +1538,8 @@ function DialogItemClick(ClickItem) {
 					} else {
 
 						// The vibrating egg remote can open the vibrating egg's extended dialog
-						if ((ClickItem.Asset.Name === "VibratorRemote" || ClickItem.Asset.Name === "LoversVibratorRemote") && DialogCanUseRemoteState(C, CurrentItem)) {
+						if ((ClickItem.Asset.Name === "VibratorRemote" || ClickItem.Asset.Name === "LoversVibratorRemote")
+								&& DialogCanUseRemoteState(C, CurrentItem) === "Available") {
 							DialogExtendItem(InventoryGet(C, C.FocusGroup.Name));
 						}
 

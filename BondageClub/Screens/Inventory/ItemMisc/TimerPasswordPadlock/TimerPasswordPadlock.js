@@ -214,13 +214,14 @@ function InventoryItemMiscTimerPasswordPadlockAdd(TimeToAdd, PlayerMemberNumberT
 	if (CurrentScreen === "ChatRoom") {
 		const timeAdded = (Property.RemoveTimer - TimerBefore) / (1000 * 60);
 		const msg = ((timeAdded < 0) && Property.ShowTimer ? "TimerRemoveTime" : "TimerAddTime");
+		/** @type {ChatMessageDictionary} */
 		const Dictionary = [
 			{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
 			{ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber },
 			{ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name },
 		];
 		if (Property.ShowTimer) {
-			Dictionary.push({ Tag: "TimerTime", Text: Math.round(Math.abs(timeAdded)) });
+			Dictionary.push({ Tag: "TimerTime", Text: Math.round(Math.abs(timeAdded)).toString() });
 			Dictionary.push({ Tag: "TimerUnit", TextToLookUp: "Minutes" });
 		} else {
 			Dictionary.push({ Tag: "TimerTime", TextToLookUp: "TimerAddRemoveUnknownTime" });

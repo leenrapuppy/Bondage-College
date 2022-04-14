@@ -779,6 +779,171 @@ var PlatformDialogData = [
 	},
 
 	{
+		Name: "EdlaranBedroomIsabella",
+		Exit : function () { PlatformEventSet("EdlaranBedroomIsabella"); PlatformLoadRoom(); },
+		Dialog: [
+			{
+				Background: "BedroomIsabella",
+				Character: [{ Name: "Edlaran", Status: "Archer", Pose: "Idle" }]
+			},
+			{ Text: "(Edlaran is searching in Countess Isabella armoire.)" },
+			{ Text: "Oh!  Hello Melody.  (She looks surprised.)" },
+			{
+				Text: "What's going on?",
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				],
+				Answer: [
+					{ Text: "I'm patrolling for thieves.", Reply: "(She looks around.)  Thieves?  I hope you're not talking about me.", Love: -1, Domination: 1 },
+					{ Text: "Why are you in the Countess bedroom?", Reply: "I...  I was...  I got lost!  This place is confusing." },
+					{ Text: "Did you found any good loot?", Reply: "(She shakes her head no.)  Not yet, but we could share if I do.", Love: 1 },
+					{ Text: "Stealing is wrong you know.", Reply: "You sound like my mother.  I'm not stealing.", Love: -1, Domination: -1 },
+				]
+			},
+			{ Text: "I was trying to leave the manor, but the guards chased me down." },
+			{ Text: "I ran upstairs, but the maids are also nuts." },
+			{ Text: "I found this comfy room to catch my breath, and checked this armoire while I was there." },
+			{ Text: "Is it a crime to search in a random armoire?  Don't answer." },
+			{ Text: "Look!  There are lots of kinky toys in here." },
+			{ Text: "(She shows you a pile of gags and restraints that belongs to Countess Isabella.)" },
+			{
+				Text: "What is that for?",
+				Answer: [
+					{ Text: "The Countess secret garden should stay secret.", Reply: "You're so boring, aren't you a little curious?", Love: -1 },
+					{ Text: "It's used to lock up cute elves.", Reply: "(She blushes.)  You're very direct for a maid.", Love: 1, Domination: 1 },
+					{ Text: "These are tools punish servants like me.", Reply: "(She laughs.)  I must get punished all the time.", Domination: -1 },
+				]
+			},
+			{ Text: "I bet she uses these naughty toys when lovers come by." },
+			{ Text: "She might be the Dominant, the submissive or switch roles." },
+			{ Text: "She's probably very naughty.  (She giggles.)" },
+			{
+				Entry: function() {
+					if (PlatformDialogGetCharacter("Edlaran").Domination >= 4) PlatformDialogGoto = "Dominant";
+					else if (PlatformDialogGetCharacter("Edlaran").Domination <= -4) PlatformDialogGoto = "Submissive";
+					else PlatformDialogGoto = "End";
+					PlatformDialogProcess();
+				}
+			},
+
+			{
+				ID: "Dominant",
+				Text: "(You grab a few cuffs and look at her.)",
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "CleanRestraints" }
+				]
+			},
+			{
+				Text: "What are you doing with these restraints?",
+				Answer: [
+					{ Text: "Turn around and give me your hands.", Reply: "(She turns slowly as you lock and chain her.)" },
+					{ Text: "(Snap them on her forcefully).", Reply: "(She grumbles as you lock and chain her.)", Love: -1, Domination: 1 },
+					{ Text: "You need to put them back.", Reply: "(She nods.)  Yeah, yeah, I know.", Goto: "End" },
+				]
+			},
+			{
+				Character: [
+					{ Name: "Edlaran", Status: "Chained", Pose: "Kneel" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				]
+			},
+			{ Text: "This is really tight Miss Melody." },
+			{
+				Text: "Why did you lock me up?",
+				Answer: [
+					{ Text: "So you can please me sweetie.", Reply: "(She nods and crawls under your skirt.)", Love: 1 },
+					{ Text: "(Pull her head under your skirt).", Reply: "(You pull her head under your skirt.)", Domination: 1 },
+					{ Text: "To see you struggle.", Reply: "(She struggles for your pleasure before you release her.)", Goto: "End" },
+				]
+			},
+			{ Character: [{ Name: "Edlaran", Status: "Chained", Pose: "KneelUnderMaidMelodySkirt" }] },
+			{ Text: "(She clumsily pull down your panties with her teeth.)" },
+			{ Text: "(You hear her lick her lips before approaching your clitoris.)" },
+			{ Text: "(She licks you slowly and lovingly, making you moan silently.)" },
+			{ Text: "(You push her deeper inside as she starts working on your pussy lips.)" },
+			{ Text: "(She explores your pussy with her tongue as you moan of pleasure.)" },
+			{ 
+				Text: "(You're about to climax.)",
+				Answer: [
+					{ Text: "Please help me cum.", Reply: "(She goes faster to help you reach a tremendous orgasm.)", Love: 1, Domination: -1 },
+					{ Text: "EDLARAAAAAAAN! YES!", Reply: "(You scream and reach a tremendous orgasm.)", Love: 1 },
+					{ Text: "That's enough.  (Push her back.)", Reply: "(She pouts as you push her back and release her.)  You were so close.", Love: -2, Goto: "End" },
+				]
+			},
+			{ Character: [{ Name: "Edlaran", Status: "Chained", Pose: "KneelUnderMaidMelodySkirtOrgasm" }] },
+			{ Text: "(You slowly catch your breath after a long and powerful orgasm.)" },
+			{ Text: "(You pet her head gently to reward her, while recovering from the pleasure wave.)" },
+			{ Text: "I hope you enjoyed it Miss Melody.  (You push her back and unlock her.)" },
+			{ Entry: function() { PlatformEventSet("EdlaranCountessBedroomOrgasmDom"); PlatformAddExperience(PlatformPlayer, 10); PlatformDialogGoto = "End"; PlatformDialogProcess(); } },
+
+			{ ID: "Submissive", Text: "(She grabs a few cuffs and looks at you.)" },
+			{
+				Text: "I have a wild idea.",
+				Answer: [
+					{ Text: "I don't like the look on your face.", Reply: "Turn around and you won't see it.  (She turns you around and chains you.)", Love: -1 },
+					{ Text: "What's on your mind?", Reply: "It's a surprise!  (She turns you around and chains you.)" },
+					{ Text: "(Turn around and present your hands.)", Reply: "Such a good maid.  (She cuffs and chains you.)", Domination: -1 },
+					{ Text: "Don't you dare!", Reply: "Fine!  You're no fun.", Love: -1, Domination: 1, Goto: "End" },
+				]
+			},
+			{
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "ChainedKneel" }
+				]
+			},
+			{ Text: "(You tug on the cuffs and chains to test them.)" },
+			{
+				Text: "You know what's coming next?",
+				Answer: [
+					{ Text: "I know who's coming.  (Wink at her.)", Reply: "(She laughs and removes her pants and undies.)", Love: 1 },
+					{ Text: "(Stay silent and nod slowly.)", Reply: "(She smirks and removes her pants and undies.)", Domination: -1 },
+					{ Text: "Next time you'll do it for me.", Reply: "(She shakes her head no and removes her pants and undies.)", Domination: 1 },
+				]
+			},
+			{ 
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "NoPants" },
+					{ Name: "Melody", Status: "Maid", Pose: "ChainedKneel" }
+				]
+			},
+			{ Text: "Can here little maid, don't be shy." },
+			{ Text: "(She snaps her fingers as you slowly crawl next to her.)" },
+			{ Character: [{ Name: "Edlaran", Status: "Archer", Pose: "LickedByMaidMelody" }] },
+			{ Text: "(You lick her slowly and skillfully, making her shiver from pleasure.)" },
+			{ Text: "(She pulls you deeper inside as you start working on her pussy lips.)" },
+			{ Text: "(You explore her pussy with your tongue as she moans of pleasure.)" },
+			{ 
+				Text: "(She's about to climax.)",
+				Answer: [
+					{ Text: "(Tease her some more.)", Reply: "(She moans loudly for a long time and finally reaches a great orgasm.)", Love: 1 },
+					{ Text: "(Try to give her the best orgasm of her life.)", Reply: "(She screams from the pleasure and reaches a tremendous orgasm.)", Love: 2 },
+					{ Text: "(Pull back suddenly.)", Reply: "(She grumbles as you pull back before her orgasm.)  That was cruel!  (She releases you and dresses back.)", Domination: 1, Love: -2, Goto: "End" },
+				]
+			},
+			{ Character: [{ Name: "Edlaran", Status: "Archer", Pose: "LickedByMaidMelodyOrgasm" }] },
+			{ Text: "Wow!  Simply wow!  (She tries to recover from her powerful orgasm.)" },
+			{ Text: "That was amazing Melody, you're the best maid ever." },
+			{ Text: "(She slowly pushes you back and releases you.)" },
+			{ Entry: function() { PlatformEventSet("EdlaranCountessBedroomOrgasmSub"); PlatformAddExperience(PlatformPlayer, 10); PlatformDialogGoto = "End"; PlatformDialogProcess(); } },
+
+			{
+				ID: "End",
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				],
+				Text: "(She puts the kinky items back in the armoire.)"
+			},
+			{ Text: "Time flies too quickly, I need to go." },
+			{ Text: "I haven't forgot my promise Melody.  I'll repay you someday." },
+			{ Text: "(She leaves the room.)" },
+		]
+	},
+
+	{
 		Name: "ChestRestraintsBeforeCurse",
 		Exit : function () { PlatformEventSet("Curse"); PlatformLoadRoom(); },
 		Dialog: [
