@@ -4450,8 +4450,8 @@ var AssetFemale3DCG = [
 					{ Name: "Horn2Shine", HasType: false, AllowModuleTypes: ["h2"], AllowColorize: false, Priority: 58 },
 
 					// All Panels
-					{ Name: "PanelBase", HasType: false, AllowModuleTypes: ["p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], ColorGroup: "Straps", Priority: 55  },
-					{ Name: "PanelStuds", HasType: false, AllowModuleTypes: ["p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], CopyLayerColor: "BaseMetal", Priority: 55 },
+					{ Name: "PanelBase", HasType: false, AllowModuleTypes: ["p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8", "p9"], ColorGroup: "Straps", Priority: 55  },
+					{ Name: "PanelStuds", HasType: false, AllowModuleTypes: ["p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8", "p9"], CopyLayerColor: "BaseMetal", Priority: 55 },
 					{ Name: "PanelHex", HasType: false, AllowModuleTypes: ["p2"],Priority: 55 },
 					{ Name: "PanelShield", HasType: false, AllowModuleTypes: ["p3"], CopyLayerColor: "PanelHex", Priority: 55 },
 					{ Name: "PanelMoon", HasType: false, AllowModuleTypes: ["p4"], CopyLayerColor: "PanelHex", Priority: 55 },
