@@ -146,15 +146,15 @@
 (玩淫靡地城)
 ###_NPC
 The stimulation ends just before you go over the edge.
-The stimulation ends just before you go over the edge.
+就在你马上要到极限的时候刺激停止了。
 The vibrators cut off right before you reach climax.
-The vibrators cut off right before you reach climax.
+就在你马上要高潮的时候振动棒突然停下来了。
 The vibrators deny you a chance to finish, stopping abruptly.
-The vibrators deny you a chance to finish, stopping abruptly.
+振动棒突然停了下来，断绝了你高潮出来的机会。
 SourceCharacter quit a game of Kinky Dungeon at level KinkyDungeonLevel
-SourceCharacter quit a game of Kinky Dungeon at level KinkyDungeonLevel
+SourceCharacter 在KinkyDungeonLevel关退出了淫荡地城
 SourceCharacter met her defeat in Kinky Dungeon! She made it to level KinkyDungeonLevel before succumbing.
-SourceCharacter met her defeat in Kinky Dungeon! She made it to level KinkyDungeonLevel before succumbing.
+SourceCharacter 在淫荡地城惨败! 止步于KinkyDungeonLevel而变成了魅魔。
 Save
 保存
 Load
@@ -868,12 +868,13 @@ Blocked due to item permissions
 (As you enter the luxurious hallway, a maid comes to greet you.)  Welcome to the Bondage Club, is this your first visit?
 (当你走进富丽堂皇的入口时,一位女仆向你鞠躬.)   欢迎来到拘束俱乐部,这是您第一次来吗?
 SourceCharacter is offering you to start a trial period as her submissive.  Click on her and manage your relationship to accept, don't do anything to refuse.
-SourceCharacter is offering you to start a trial period as her submissive.  Click on her and manage your relationship to accept, don't do anything to refuse.
+SourceCharacter 向您提供了试成为她从仆的机会。点击她并选择管理你和她的关系来接受邀请。若您拒绝则可忽略本消息。
 The Bondage Club is pleased to announce that SourceCharacter is starting a 7 days minimum trial period as a submissive.
-The Bondage Club is pleased to announce that SourceCharacter is starting a 7 days minimum trial period as a submissive.
+束缚俱乐部很荣幸的宣布SourceCharacter开始了她不少于7天的从仆试做之旅。
 SourceCharacter has prepared a great collaring ceremony.  A maid brings a slave collar, which her submissive must consent to wear.
-SourceCharacter has prepared a great collaring ceremony.  A maid brings a slave collar, which her submissive must consent to wear.
+SourceCharacter准备了一场隆重的收奴典礼。一位女仆拿出了一个奴隶项圈，她的从仆必须同意戴上。
 The Bondage Club announces that SourceCharacter canceled the trial ownership of TargetCharacter.
+束缚俱乐部宣布SourceCharacter取消了与TargetCharacter的主从试用关系
 The Bondage Club announces that SourceCharacter canceled the trial ownership of TargetCharacter.
 The Bondage Club announces that SourceCharacter released TargetCharacter from her ownership.
 The Bondage Club announces that SourceCharacter released TargetCharacter from her ownership.
