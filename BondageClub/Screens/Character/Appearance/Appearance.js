@@ -340,7 +340,8 @@ function CharacterAppearanceSortLayers(C) {
 
 	// Run back over the layers to apply the group-level alpha mask definitions to the appropriate layers
 	layers.forEach(layer => {
-		const groupName = layer.Asset.Group.Name;
+		// If the layer has a HideAs proxy group name, apply those alphas rather than the actual group alphas
+		const groupName = (layer.HideAs && layer.HideAs.Group) || layer.Asset.Group.Name;
 		layer.GroupAlpha = [];
 		if (groupAlphas[groupName]) {
 			Array.prototype.push.apply(layer.GroupAlpha, groupAlphas[groupName]);
