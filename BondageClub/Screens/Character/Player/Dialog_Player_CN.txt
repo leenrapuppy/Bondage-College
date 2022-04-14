@@ -216,7 +216,7 @@ Remove some clothes first.
 Unzip the suit first.
 先解开外套.
 Remove the suspension first.
-先从楼顶上下来.
+先从悬挂上下来.
 Release from hogtie first.
 先解开驷马.
 Remove some restraints first.
@@ -880,43 +880,43 @@ The Bondage Club announces that SourceCharacter released TargetCharacter from he
 The Bondage Club is proud to announce that SourceCharacter is now fully collared.  Her fate is in her Mistress hands.
 The Bondage Club is proud to announce that SourceCharacter is now fully collared.  Her fate is in her Mistress hands.
 Your owner is now allowing you to access your wardrobe and change clothes.
-Your owner is now allowing you to access your wardrobe and change clothes.
+你的主人现在允许你访问衣柜并更换服装了。
 Your owner has blocked your wardrobe access for an hour.  You won't be able to change clothes.
-Your owner has blocked your wardrobe access for an hour.  You won't be able to change clothes.
+你的主人禁用了你的衣柜，时长为1小时。你现在无法更换服装。
 Your owner has blocked your wardrobe access for a day.  You won't be able to change clothes.
-Your owner has blocked your wardrobe access for a day.  You won't be able to change clothes.
+你的主人禁用了你的衣柜，时长为1天。你现在无法更换服装。
 Your owner has blocked your wardrobe access for a week.  You won't be able to change clothes.
-Your owner has blocked your wardrobe access for a week.  You won't be able to change clothes.
+你的主人禁用了你的衣柜，时长为1星期。你现在无法更换服装。
 Your owner has blocked your wardrobe access.  You won't be able to change clothes until that rule is revoked.
-Your owner has blocked your wardrobe access.  You won't be able to change clothes until that rule is revoked.
+你的主人禁用了你的衣柜。直到该限制被撤销，你无法更换服装。
 Your owner is now allowing you to whisper to other members when she's there.
-Your owner is now allowing you to whisper to other members when she's there.
+你的主人现在允许你当她在场时向其他人发送悄悄话。
 Your owner is now preventing you from whispering to other members when she's there.
-Your owner is now preventing you from whispering to other members when she's there.
+你的主人现在不允许你当她在场时向其他人发送悄悄话。
 Your owner is now allowing you to have keys.  You can buy keys from the club shop.
-Your owner is now allowing you to have keys.  You can buy keys from the club shop.
+你的主人现在允许你持有钥匙。你可以在俱乐部商店购买钥匙。
 Your owner has confiscated your keys.  All your regular keys are lost.
-Your owner has confiscated your keys.  All your regular keys are lost.
+你的主人没收了你的钥匙。你失去了你所有的一般钥匙。
 Your owner is now preventing you from getting new keys.  The club shop will not sell keys to you anymore.
-Your owner is now preventing you from getting new keys.  The club shop will not sell keys to you anymore.
+你的主人现在不允许你获取新的钥匙。俱乐部商店将不再向你出售钥匙。
 Your owner is now allowing to using owner locks on yourself.
-Your owner is now allowing to using owner locks on yourself.
+你的主人现在允许你在自己身上使用主人锁。
 Your owner is now preventing you from using owner locks on yourself.
-Your owner is now preventing you from using owner locks on yourself.
+你的主人现在不允许你在自己身上使用主人锁。
 Your owner is now allowing you to have remotes.  You can buy remotes from the club shop.
-Your owner is now allowing you to have remotes.  You can buy remotes from the club shop.
+你的主人现在允许你持有遥控器。你可以在俱乐部商店购买遥控器。
 Your owner is now allowing you to use remotes on yourself.
-Your owner is now allowing you to use remotes on yourself.
+你的主人现在允许你在自己身上使用遥控器。
 Your owner has confiscated your remotes.  All your remotes are lost.
-你的主人没收了你的遥控器。  你失去了所有遥控器
+你的主人没收了你的遥控器。你失去了所有遥控器
 Your owner is now preventing you from getting new remotes.  The club shop will not sell remotes to you anymore.
-Your owner is now preventing you from getting new remotes.  The club shop will not sell remotes to you anymore.
+你的主人现在不允许你获取新的遥控器。俱乐部商店将不再向你出售遥控器。
 Your owner is now preventing you from using remotes on yourself.
-Your owner is now preventing you from using remotes on yourself.
+你的主人现在不允许你在自己身上使用遥控器。
 Your owner has locked the slave collar on your neck.
-Your owner has locked the slave collar on your neck.
+你的主人在你的脖子上安装了奴隶项圈。
 Your owner released you from the slave collar.
-Your owner released you from the slave collar.
+你的主人卸下了你的奴隶项圈。
 Your lover is now allowing you to use lovers locks on yourself.
 Your lover is now allowing you to use lovers locks on yourself.
 Your lover is now preventing you from using lovers locks on yourself.
@@ -926,17 +926,17 @@ Your lover is now allowing your owner to use lovers locks on you.
 Your lover is now preventing your owner from using lovers locks on you.
 Your lover is now preventing your owner from using lovers locks on you.
 SourceCharacter is asking you to be her girlfriend.  Click on her and manage your relationship to accept, don't do anything to refuse.
-SourceCharacter is asking you to be her girlfriend.  Click on her and manage your relationship to accept, don't do anything to refuse.
+SourceCharacter 正在请求你做她的女朋友。点击该玩家并选择“管理你们的关系”以接受。如果要拒绝，你不需要执行任何操作。
 The Bondage Club is pleased to announce that SourceCharacter and TargetCharacter are starting a 7 days minimum period as lovers.
-The Bondage Club is pleased to announce that SourceCharacter and TargetCharacter are starting a 7 days minimum period as lovers.
+束缚俱乐部荣幸地宣布 SourceCharacter 与 TargetCharacter 成为了爱人。该阶段将持续至少7天。
 SourceCharacter is asking you to become her fiancée.  Click on her and manage your relationship to accept, don't do anything to refuse.
-SourceCharacter is asking you to become her fiancée.  Click on her and manage your relationship to accept, don't do anything to refuse.
+SourceCharacter 正在请求你做她的未婚妻。点击该玩家并选择“管理你们的关系”以接受。如果要拒绝，你不需要执行任何操作。
 The Bondage Club is pleased to announce that SourceCharacter and TargetCharacter are now engaged and are starting a 7 days minimum period as fiancées.
-The Bondage Club is pleased to announce that SourceCharacter and TargetCharacter are now engaged and are starting a 7 days minimum period as fiancées.
+束缚俱乐部荣幸地宣布 SourceCharacter 与 TargetCharacter 已订婚，成为了未婚妻。该阶段将持续至少7天。
 SourceCharacter is proposing you to become her wife.  Click on her and manage your relationship to accept, don't do anything to refuse.
-SourceCharacter is proposing you to become her wife.  Click on her and manage your relationship to accept, don't do anything to refuse.
+SourceCharacter 正在请求你做她的妻子。点击该玩家并选择“管理你们的关系”以接受。如果要拒绝，你不需要执行任何操作。
 The Bondage Club is proud to announce that SourceCharacter and TargetCharacter are now married. Long may it last.
-The Bondage Club is proud to announce that SourceCharacter and TargetCharacter are now married. Long may it last.
+束缚俱乐部骄傲地宣布 SourceCharacter 与 TargetCharacter 结婚了。祝你们的婚姻长长久久。
 SourceCharacter entered.
 SourceCharacter进来了.
 SourceCharacter left.
@@ -944,7 +944,7 @@ SourceCharacter离开了.
 SourceCharacter disconnected.
 SourceCharacter掉线了.
 TargetCharacterName was banned by SourceCharacter.
-SourceCharacter被SourceCharacter给BAN掉了.
+TargetCharacterName被SourceCharacter给BAN掉了.
 SourceCharacter called the maids to escort TargetCharacterName out of the room.
 SourceCharacter呼叫女仆把TargetCharacterName从房间里轰了出去。
 TargetCharacterName was moved to the left by SourceCharacter.
@@ -968,17 +968,17 @@ SourceCharacter开始从DestinationCharacterName的笔记本里偷取更多数�
 SourceCharacter's suitcase is safe... for now.
 SourceCharacter的箱子安全了...暂时性的.
 SourceCharacter's data is safe... for now.
-SourceCharacter的数据...暂时性的.
+SourceCharacter的数据安全了...暂时性的.
 Her suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!
-Her suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!
+她的行李箱正在被其他人打开，还有 TIMEREMAINING 分钟。在此之前请确保她被绑住！
 The data will be ready in TIMEREMAINING minutes. Make sure she is secure until then!
-The data will be ready in TIMEREMAINING minutes. Make sure she is secure until then!
+她的数据正在被其他人偷取，还有 TIMEREMAINING 分钟。在此之前请确保她被绑住！
 You find confidential club secrets worth MONEYAMOUNT$ on the black market.
-You find confidential club secrets worth MONEYAMOUNT$ on the black market.
+你找到了俱乐部的机密，在黑市上价值 MONEYAMOUNT$ 。
 The kidnappers opened your suitcase, which contains a laptop with a bunch of secret information. You better get back to the league to warn them.
-The kidnappers opened your suitcase, which contains a laptop with a bunch of secret information. You better get back to the league to warn them.
+绑匪打开了你的行李箱，里面有一台包含机密信息的笔记本电脑。你最好回到联盟警告他们。
 The kidnappers have stolen even more data using your laptop.
-The kidnappers have stolen even more data using your laptop.
+绑匪从你的笔记本电脑中偷取了更多数据。
 You have disabled OOC/whispers while gagged. You can change this in the Immersion preferences screen.
 You have disabled OOC/whispers while gagged. You can change this in the Immersion preferences screen.
 You choke momentarily on the gag inside your throat.
@@ -1030,9 +1030,9 @@ The vibrations in your butt leave you panting without release.
 The vibrator inside your butt teases you constantly.
 The vibrator inside your butt teases you constantly.
 Type /help for a list of commands
-Type /help for a list of commands
+输入 /help 查看命令列表
 You are not on that member's friendlist; ask her to friend you before leashing her.
-You are not on that member's friendlist; ask her to friend you before leashing her.
+你不在该玩家的好友列表中。在使用链子之前，请先让该玩家添加你为好友。
 SourceCharacter swaps a PrevAsset for a NextAsset on DestinationCharacter FocusAssetGroup.
 SourceCharacter把DestinationCharacterFocusAssetGroup上的PrevAsset换成了NextAsset.
 SourceCharacter uses a NextAsset on DestinationCharacter FocusAssetGroup.
@@ -1056,9 +1056,9 @@ SourceCharacter丢了DiceType.结果是: DiceResult.
 SourceCharacter flips a coin. The result is: CoinResult.
 SourceCharacter丢了一枚硬币.结果是: CoinResult.
 SourceCharacter used her safeword. Please check for her well-being.
-SourceCharacter used her safeword. Please check for her well-being.
+SourceCharacter 使用了安全词。请检查她的身心健康状况。
 SourceCharacter used her safeword and wants to be released. She is guided out of the room for her safety.
-SourceCharacter used her safeword and wants to be released. She is guided out of the room for her safety.
+SourceCharacter 使用了安全词，并希望被释放。为了她的安全，她已被送出房间。
 TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner's commands.
 TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner's commands.
 TargetCharacterName gets grabbed by two maids and escorted to the maid quarters to serve drinks for her owner.
@@ -1080,61 +1080,61 @@ SourceCharacter pours NextAsset onto DestinationCharacter FocusAssetGroup.
 SourceCharacter shocks DestinationCharacter FocusAssetGroup with a NextAsset
 SourceCharacter shocks DestinationCharacter FocusAssetGroup with a NextAsset
 SourceCharacter was interrupted while trying to use a NextAsset on TargetCharacter.
-SourceCharacter was interrupted while trying to use a NextAsset on TargetCharacter.
+SourceCharacter 试图在 TargetCharacter 身上使用 NextAsset，但是操作被中断了。
 SourceCharacter was interrupted while going for the PrevAsset on TargetCharacter.
-SourceCharacter was interrupted while going for the PrevAsset on TargetCharacter.
+SourceCharacter 试图操作 TargetCharacter 身上的 NextAsset，但是操作被中断了。
 SourceCharacter was interrupted while swapping a PrevAsset for a NextAsset on TargetCharacter.
-SourceCharacter was interrupted while swapping a PrevAsset for a NextAsset on TargetCharacter.
+SourceCharacter 试图将 TargetCharacter 身上的 PrevAsset 换成 NextAsset，但是操作被中断了。
 SourceCharacter slowly heads for the door.
-SourceCharacter slowly heads for the door.
+SourceCharacter 缓慢向房门走去。
 SourceCharacter stops heading for the door.
-SourceCharacter stops heading for the door.
+SourceCharacter 停止向房门走去。
 SourceCharacter was stopped from leaving.
-SourceCharacter was stopped from leaving.
+SourceCharacter 被阻止离开房间。
 SourceCharacter gets in the way of TargetCharacter
-SourceCharacter gets in the way of TargetCharacter
+SourceCharacter 阻挡了 TargetCharacter
 SourceCharacter tries to help TargetCharacter to struggle free.
-SourceCharacter tries to help TargetCharacter to struggle free.
+SourceCharacter 试图帮助 TargetCharacter 摆脱束缚。
 SourceCharacter gives TargetCharacter some lockpicks to help herself with.
-SourceCharacter gives TargetCharacter some lockpicks to help herself with.
+SourceCharacter 给 TargetCharacter 一些开锁工具以便她自助。
 SourceCharacter grabs the leash of TargetCharacter.
 SourceCharacter grabs the leash of TargetCharacter.
 SourceCharacter releases the leash of TargetCharacter.
 SourceCharacter releases the leash of TargetCharacter.
 SourceCharacter picks a glass of water from DestinationCharacter tray.
-SourceCharacter picks a glass of water from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯水。
 SourceCharacter picks an orange juice from DestinationCharacter tray.
-SourceCharacter picks an orange juice from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯橙汁。
 SourceCharacter picks a beer from DestinationCharacter tray.
-SourceCharacter picks a beer from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯啤酒。
 SourceCharacter picks a glass of wine from DestinationCharacter tray.
-SourceCharacter picks a glass of wine from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯红酒。
 SourceCharacter buys a Virgin Mojito from DestinationCharacter tray.
-SourceCharacter buys a Virgin Mojito from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯初榨莫吉托。
 SourceCharacter buys a Margarita from DestinationCharacter tray.
-SourceCharacter buys a Margarita from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯玛格丽塔酒。
 SourceCharacter buys a glass of Whiskey from TargetCharacter.
-SourceCharacter buys a glass of Whiskey from TargetCharacter.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯威士忌。
 SourceCharacter buys a glass of champagne from TargetCharacter.
-SourceCharacter buys a glass of champagne from TargetCharacter.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯香槟酒。
 SourceCharacter buys a jug of refreshing lemonade for everyone, from TargetCharacter.
-SourceCharacter buys a jug of refreshing lemonade for everyone, from TargetCharacter.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯提神柠檬水。
 SourceCharacter buys a round of shooters for everyone, from TargetCharacter.
-SourceCharacter buys a round of shooters for everyone, from TargetCharacter.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯子弹鸡尾酒。
 SourceCharacter buys a jug of Sex on the Beach for everyone, from TargetCharacter.
-SourceCharacter buys a jug of Sex on the Beach for everyone, from TargetCharacter.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯性感海滩鸡尾酒。
 SourceCharacter buys a beer pitcher for everyone, from TargetCharacter.
-SourceCharacter buys a beer pitcher for everyone, from TargetCharacter.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯扎啤。
 SourceCharacter picks a tea from DestinationCharacter tray.
-SourceCharacter picks a tea from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯茶。
 SourceCharacter picks a coffee from DestinationCharacter tray.
-SourceCharacter picks a coffee from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯咖啡。
 SourceCharacter buys a hot chocolate from DestinationCharacter tray.
-SourceCharacter buys a hot chocolate from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯热巧克力。
 SourceCharacter buys an espresso from DestinationCharacter tray.
-SourceCharacter buys an espresso from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯特浓咖啡。
 SourceCharacter buys a cappuccino from DestinationCharacter tray.
-SourceCharacter buys a cappuccino from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯卡布奇诺。
 Member number on lock:
 锁上标着的会员编号:
 Item member number:
