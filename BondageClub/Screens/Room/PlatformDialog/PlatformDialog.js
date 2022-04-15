@@ -944,6 +944,49 @@ var PlatformDialogData = [
 	},
 
 	{
+		Name: "EdlaranWineCellar",
+		Exit : function () { PlatformEventSet("EdlaranWineCellar"); PlatformLoadRoom(); },
+		Dialog: [
+			{
+				Background: "WineCellar",
+				Character: [{ Name: "Edlaran", Status: "Archer", Pose: "Flirt" }]
+			},
+			{ Text: "(Edlaran is tasting some wine.  She opened a few bottles from the Countess cellar.)" },
+			{ Text: "(She hiccups and turns to you.)  Meldy!  (She looks a little tipsy.)" },
+			{ Text: "Ish it a crime to open wine battles?  Don't ansher." },
+			{
+				Text: "Are you thristy?",
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Flirt" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				],
+				Answer: [
+					{ Text: "Party time!  (Drink with her.)", Reply: "(You open another bottle and share a good time.)", Love: 1 },
+					{ Text: "Sure, one glass.  (Have a glass.)", Reply: "(You try a glass of wine from the Countess cellar.)" },
+					{ Text: "No, drinking is bad for your health.", Reply: "You no fun!  (She hiccups.)  Shcared of wine.", Domination: -1, Love: -1 },
+					{ Text: "No, this is stolen wine.", Reply: "(She pouts.)  Why are you sho sherious?", Domination: 1, Love: -1 },
+				]
+			},
+			{
+				Entry: function() {
+					if (PlatformDialogGetCharacter("Edlaran").Love < 4) PlatformDialogGoto = "End";
+					PlatformDialogProcess();
+				}
+			},
+			{ Text: "Meldy, you're shuch a good friend.  (She gives you a hug.)" },
+			{ Text: "You're a shuper... friend.  (She hugs you some more.)" },
+			{ Text: "How about I (She hiccups.) repay you now?  I'll help you in bottles." },
+			{ Text: "Gimme a minute to shober up and I'll fight for you." },
+			{ Text: "(Edlaran joined your party.  She might be a playable character in a future version of the game.)" },
+			{ Entry: function() { PlatformEventSet("EdlaranJoin"); PlatformLoadRoom(); PlatformDialogExit(); } },
+			{ ID: "End", Text: "Drinking ish fun, but we have important shtuff to... do." },
+			{ Text: "Shee you later Meldy.  I'll repay you some (She hiccups.) day." },
+			{ Text: "(She leaves the room.)" },
+
+		]
+	},
+
+	{
 		Name: "ChestRestraintsBeforeCurse",
 		Exit : function () { PlatformEventSet("Curse"); PlatformLoadRoom(); },
 		Dialog: [
@@ -1319,6 +1362,39 @@ var PlatformDialogData = [
 			{
 				Background: "Terrace",
 				Character: [
+					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				]
+			},
+			{ Text: "*** Congratulations!  You've reached the end of Bondage Brawl. ***" },
+			{ Text: "*** More playable characters, side quests, hidden scenes and a full new chapter might be added soon. ***" },
+			{ Text: "*** If you enjoyed the game or have ideas on how to improve it, please contact Ben987. ***" },
+		]
+	},
+
+	{
+		Name: "EdlaranTerrace",
+		Dialog: [
+			{
+				Background: "Terrace",
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				]
+			},
+			{ Text: "Where are they?" },
+			{ Text: "(She looks at Olivia.)" },
+		]
+	},
+
+	{
+		Name: "EdlaranTerraceEnd",
+		Dialog: [
+			{
+				Background: "Terrace",
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
 					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]

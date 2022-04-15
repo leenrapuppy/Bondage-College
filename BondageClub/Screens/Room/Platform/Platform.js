@@ -593,6 +593,8 @@ var PlatformRoomList = [
 		Entry: function() {
 			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Olivia", "Flower", 500, true, false, "OliviaTerrace");
 			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Olivia", "Flower", 500, true, false, "OliviaTerraceEnd");
+			if (PlatformEventDone("EdlaranJoin") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerrace", true);
+			if (PlatformEventDone("EdlaranJoin") && PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerraceEnd", true);
 		},
 		Text: "Countess Terrace",
 		Background: "Castle/Terrace",
@@ -626,15 +628,16 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "WineCellar",
+		Entry: function() {
+			if (!PlatformEventDone("EdlaranBedroomIsabella")) PlatformCreateCharacter("Yuna", "Maid", 2500);
+			if (PlatformEventDone("EdlaranBedroomIsabella") && !PlatformEventDone("EdlaranWineCellar") && !PlatformEventDone("EdlaranJoin")) PlatformCreateCharacter("Edlaran", "Archer", 2500, true, false, "EdlaranWineCellar");
+		},
 		Text: "Wine Cellar",
 		Background: "Castle/WineCellar",
 		Width: 3000,
 		Height: 1200,
 		Door: [
 			{ Name: "CastleHall2C", FromX: 900, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 4100, ToFaceLeft: false }
-		],
-		Character: [
-			{ Name: "Yuna", Status: "Maid", X: 2500 }
 		]
 	},
 	{
@@ -777,7 +780,7 @@ var PlatformRoomList = [
  * @param {String} Dialog - The dialog name to open when talking to that character
  * @returns {Object} - Returns the platform character
  */
-function PlatformCreateCharacter(CharacterName, StatusName, X, Fix  = null, Combat = null, Dialog = null) {
+function PlatformCreateCharacter(CharacterName, StatusName, X, Fix  = null, Combat = null, Dialog = null, FaceLeft = null) {
 	let NewChar = null;
 	for (let CharTemplate of PlatformTemplate)
 		if ((CharTemplate.Name == CharacterName) && (CharTemplate.Status == StatusName)) {
@@ -805,6 +808,7 @@ function PlatformCreateCharacter(CharacterName, StatusName, X, Fix  = null, Comb
 	if ((NewChar.DamageBackOdds == null) || (NewChar.DamageBackOdds < 0) || (NewChar.DamageBackOdds > 1)) NewChar.DamageBackOdds = 1;
 	if ((NewChar.DamageFaceOdds == null) || (NewChar.DamageFaceOdds < 0) || (NewChar.DamageFaceOdds > 1)) NewChar.DamageFaceOdds = 1;
 	NewChar.FaceLeft = ((NewChar.Dialog == null) && (PlatformRoom != null) && (PlatformRoom.Width != null) && (X > PlatformRoom.Width / 2));
+	if ((FaceLeft != null) && FaceLeft) NewChar.FaceLeft = true;
 	PlatformChar.push(NewChar);
 	if (NewChar.Camera) {
 		PlatformPlayer = NewChar;
