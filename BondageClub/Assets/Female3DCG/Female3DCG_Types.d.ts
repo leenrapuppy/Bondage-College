@@ -158,7 +158,7 @@ interface AssetLayerDefinition {
 	Alpha?: AlphaDefinition[],
 	Left?: number;
 	Top?: number;
-	HideAs?: { Group: string, Asset: string };
+	HideAs?: { Group: string, Asset?: string };
 	FixedPosition?: boolean;
 	HasImage?: boolean;
 	Opacity?: number;
