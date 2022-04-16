@@ -543,7 +543,7 @@ SourceCharacter咬了一口TargetCharacter的手.
 SourceCharacter kisses TargetCharacter's hand.
 SourceCharacter亲吻TargetCharacter的手.
 SourceCharacter touches her gag to TargetCharacter's hand.
-SourceCharacter用口塞触碰TargetCharacter的头.
+SourceCharacter用口塞触碰TargetCharacter的手.
 SourceCharacter politely kisses TargetCharacter's hand.
 SourceCharacter礼貌的吻TargetCharacter的手.
 SourceCharacter licks TargetCharacter's hand.

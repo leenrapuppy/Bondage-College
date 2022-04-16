@@ -741,7 +741,7 @@ Bat Mask
 Venice Festival Mask
 威尼斯节面具
 Futuristic Visor
-未来面罩
+未来眼镜
 Open Face Hood
 开脸兜帽
 Face Veil
@@ -1379,7 +1379,7 @@ Ceiling Shackles
 Steel Cuffs
 不锈钢手铐
 Futuristic Cuffs
-未来手铐
+未来臂铐
 Ornate Cuffs
 Ornate 手铐
 Mittens Chain
@@ -1607,7 +1607,7 @@ Spike Collar
 High Collar
 High Collar
 Futuristic Collar
-Futuristic Collar
+未来项圈
 Leather Choker
 Leather Choker
 Pet Collar
@@ -1745,11 +1745,11 @@ Rubber Carrot Gag
 Muzzle Gag
 Muzzle Gag
 Futuristic Panel Gag
-Futuristic Panel Gag
+未来板塞
 Futuristic Harness Panel Gag
-Futuristic Harness Panel Gag
+未来束带板塞
 Futuristic Ball Gag
-Futuristic Ball Gag
+未来口球
 Sleeping Pill
 Sleeping Pill
 Panties Mask
@@ -1831,7 +1831,7 @@ Funnel Gag
 Tennis Ball
 Tennis Ball
 Futuristic Muzzle
-Futuristic Muzzle
+未来口套
 Iron Cage Muzzle
 Iron Cage Muzzle
 Dental Gag
@@ -1849,7 +1849,7 @@ Padded Blindfold
 Interactive Visor
 Interactive Visor
 Futuristic Mask
-Futuristic Mask
+未来面罩
 VR Headset
 VR Headset
 Slim Leather Mask
@@ -1947,7 +1947,7 @@ Headphone Ear Plugs
 Bluetooth Earbuds
 Bluetooth Earbuds
 Futuristic Earphones
-Futuristic Earphones
+未来耳机
 Headphones
 Headphones
 Body
@@ -2061,7 +2061,7 @@ Display Case
 Small Display Case
 Small Display Case
 Futuristic Crate
-Futuristic Crate
+未来拘束箱
 Doll Box
 Doll Box
 Exposed Head Wooden Box
@@ -2143,7 +2143,7 @@ Locking Strap Shoes
 Locking Full Shoes
 Locking Full Shoes
 Futuristic Shoes
-Futuristic Shoes
+未来鞋
 Locking Boots
 Locking Boots
 Short Leather Foot Mittens
