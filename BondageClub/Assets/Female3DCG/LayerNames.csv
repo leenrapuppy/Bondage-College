@@ -178,6 +178,10 @@ HatPoppyCrownMainFlower,Main Flower
 HatPoppyCrownSideFlowers,Side Flowers
 HatPoppyCrownLeaves,Leaves
 HatPoppyCrownCenter,Flower Center
+HatLatexHabitCape,Shoulders
+HatLatexHabitCollar,Collar
+HatLatexHabitBase,Shawl
+HatLatexHabitCowl,Cowl
 HairAccessory1KittenEars1Outer,Outer Ear
 HairAccessory1KittenEars1Inner,Inner Ear
 HairAccessory1FoxEars2Inner,Inner Ear
@@ -576,6 +580,10 @@ ItemHoodCollarHoodHood,Hood
 ItemHoodCollarHoodCollar,Collar
 ItemHoodCowHoodBase,Hood
 ItemHoodCowHoodSpots,Spots
+ItemHoodLatexHabitBase,Shawl
+ItemHoodLatexHabitCowl,Cowl
+ItemHoodLatexHabitCape,Shoulders
+ItemHoodLatexHabitCollar,Collar
 ItemBootsLockingBoots1Boots,Boots
 ItemBootsLockingBoots1Straps,Straps
 ItemBootsFuturisticHeelsShoes,Body

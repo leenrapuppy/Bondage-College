@@ -1906,11 +1906,19 @@ var AssetFemale3DCGExtended = {
 				Options: [
 					{
 						Name: "ZippersOpen",
-						Property: { Type: null }
+						Property: { Type: null },
 					},
 					{
 						Name: "ZippersClosed",
-						Property: { Type: "ZippersClosed", Effect: ["BlindHeavy"] }
+						Property: { Type: "ZippersClosed", Effect: ["BlindHeavy"] },
+					},
+					{
+						Name: "ZippersClosedEyes",
+						Property: { Type: "ZippersClosedEyes", Effect: ["BlindHeavy"] },
+					},
+					{
+						Name: "ZippersClosedMouth",
+						Property: {Type: "ZippersClosedMouth"},
 					},
 				]
 			}
