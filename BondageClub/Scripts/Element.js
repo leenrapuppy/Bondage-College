@@ -4,40 +4,30 @@
  * Handles the value of a HTML element. It sets the value of the element when the Value parameter is provided or it returns the value when the parameter is omitted
  * @param {string} ID - The id of the element for which we want to get/set the value.
  * @param {string} [Value] - The value to give to the element (if applicable)
- * @returns {string} - The value of the element (When no value parameter was passed to the function)
+ * @returns {string | undefined} - The value of the element (When no value parameter was passed to the function)
  */
 function ElementValue(ID, Value) {
-	const e = document.getElementById(ID)
-	if (!e) {
-		console.error("ElementValue called on a missing element");
-		return "";
-	}
-
-	if (Value == null)
-		return e.getAttribute("value").trim();
-
-	e.setAttribute("value", Value);
-	return "";
+	if (document.getElementById(ID) != null)
+		if (Value == null)
+			return document.getElementById(ID).value.trim();
+		else
+			document.getElementById(ID).value = Value;
 }
+
+// Returns the current HTML content of an element
 
 /**
  * Handles the content of a HTML element. It sets the content of the element when the Content parameter is provided or it returns the value when the parameter is omitted
  * @param {string} ID - The id of the element for which we want to get/set the value.
  * @param {string} [Content] - The content/inner HTML to give to the element (if applicable)
- * @returns {string} - The content of the element (When no Content parameter was passed to the function)
+ * @returns {string | undefined} - The content of the element (When no Content parameter was passed to the function)
  */
 function ElementContent(ID, Content) {
-	const e = document.getElementById(ID);
-	if (!e) {
-		console.error("ElementContent called on a missing element");
-		return "";
-	}
-
-	if (Content == null)
-		return document.getElementById(ID).innerHTML;
-
-	document.getElementById(ID).innerHTML = Content;
-	return "";
+	if (document.getElementById(ID) != null)
+		if (Content == null)
+			return document.getElementById(ID).innerHTML;
+		else
+			document.getElementById(ID).innerHTML = Content;
 }
 
 /**
@@ -105,7 +95,7 @@ function ElementCreateRangeInput(id, value, min, max, step, thumbIcon, vertical)
 		input.setAttribute("min", min);
 		input.setAttribute("max", max);
 		input.setAttribute("step", step);
-		input.setAttribute("value", value);
+		input.value = value;
 		if (thumbIcon) input.setAttribute("data-thumb", thumbIcon);
 		input.setAttribute("onfocus", "this.removeAttribute('readonly');");
 		input.addEventListener("keydown", KeyDown);
