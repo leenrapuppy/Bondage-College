@@ -619,10 +619,19 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "ShortPencilSkirt", Fetish: ["Leather"], Value: 50, Left: 105, Top: 380, Alpha: [{ Group: ["Panties", "ItemPelvis"], Masks: [[0, 0, 180, 600], [320, 0, 180, 600], [0, 0, 500, 480]] }], HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds", "ItemFeetSpreaderMetal", "ItemFeetSpreaderDildoBar", "ItemFeetSpreaderVibratingDildoBar"], SetPose: ["LegsClosed"], AllowActivePose: ["Kneel"], WhitelistActivePose: ["BaseLower", "Kneel"], HideForPose: ["KneelingSpread"], Attribute: ["Skirt"], },
 			{
-				Name: "HaremPants", Fetish: ["Lingerie"], Value: 20, Hide: ["Panties"], AllowPose: ["KneelingSpread"], Layer: [
+				Name: "HaremPants", Fetish: ["Lingerie"], Value: 20, BuyGroup: "HaremPants", Hide: ["Panties"], Layer: [
 					{ Name: "Panty", Priority: 15 },
 					{ Name: "Veil" },
 					{ Name: "Pantyline" },
+				],
+			},
+			{
+				Name: "HaremPants2", Fetish: ["Lingerie"], Value: 20, BuyGroup: "HaremPants", Hide: ["Panties"], Layer: [
+					{ Name: "Panty", Priority: 15 },
+					{ Name: "Fabric" },
+					{ Name: "Pantyline" },
+					{ Name: "Veil" },
+					{ Name: "Buttons" },
 				],
 			},
 			{ Name: "ShortPlaidSkirt", Value: 40, HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds", "PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"], Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Attribute: ["Skirt"], },
@@ -963,6 +972,9 @@ var AssetFemale3DCG = [
 					{ Name: "Flowers" },
 				]
 			},
+			{Name: "Thong", Value: 15, HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"] },
+			{Name: "StringThong", Value: 20, HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"] },
+			{Name: "MicroThong", Value: 25, HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"] },
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -1016,6 +1028,13 @@ var AssetFemale3DCG = [
 			{ Name: "LeatherSocks1", Fetish: ["Leather"], Value: 20, HideForPose: ["KneelingSpread"] },
 			{ Name: "Pantyhose2", Fetish: ["Nylon"], Value: 10, BuyGroup: "Pantyhose2" },
 			{ Name: "CowPrintedSocks", Fetish: ["Nylon"], Value: 15 },
+			{
+				Name: "HaremStockings", Fetish: ["Nylon"], Value: 25,
+				Layer: [
+					{ Name: "Fabric" },
+					{ Name: "Bands" }
+				]
+			},
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -1527,6 +1546,13 @@ var AssetFemale3DCG = [
 			{ Name: "CowPrintedGloves", Value: 15, Alpha: [{ Group: ["BodyUpper"], Pose: ["OverTheHead"],  Masks: [[90, 125, 30, 70], [370, 125, 30, 70]] }], HideForPose: ["BackElbowTouch"] },
 			{ Name: "LatexElbowGloves", Fetish: ["Latex"], Value: 75, HideForPose: ["BackElbowTouch"] },
 			{ Name: "FishnetGloves", Value: 10, DefaultColor: ["#151515"], HideForPose: ["BackElbowTouch"] },
+			{
+				Name: "HaremGlove", Fetish: ["Nylon"], Value: 25,
+				Layer: [
+					{ Name: "Fabric" },
+					{ Name: "Bands" }
+				]
+			},
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -1889,7 +1915,10 @@ var AssetFemale3DCG = [
 				{ Name: "Fluff" },
 				{ Name: "FrontFluff", Priority: 54, CopyLayerColor: "Fluff" }
 			],
-				Top: 6, Left: 134 }
+				Top: 6, Left: 134 },
+			{ Name: "HairFront24" },
+			{ Name: "HairFront25" },
+			{ Name: "HairFront26" }
 		],
 		Color: ["#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"]
 	},

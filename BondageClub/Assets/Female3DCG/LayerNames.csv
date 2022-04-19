@@ -109,6 +109,11 @@ ClothLowerAdmiralSkirtStripe,Trim
 ClothLowerHaremPantsPanty,Panty
 ClothLowerHaremPantsVeil,Veil
 ClothLowerHaremPantsPantyline,Panty Line
+ClothLowerHaremPants2Panty,Panty
+ClothLowerHaremPants2Fabric,Fabric
+ClothLowerHaremPants2Veil,Veil
+ClothLowerHaremPants2Pantyline,Panty Line
+ClothLowerHaremPants2Buttons,Buttons
 ClothLowerMageSkirtSkirt,Skirt
 ClothLowerMageSkirtWaist,Waistband
 ClothLowerTutuBelt,Belt
@@ -148,6 +153,8 @@ SocksSocksFurFabric,Sock
 SocksSocksFurFur,Fur
 SocksSocksStriped1Light,Light Stripes
 SocksSocksStriped1Dark,Dark Stripes
+SocksHaremStockingsFabric,Fabric
+SocksHaremStockingsBands,Bands
 HatSanta1Fabric,Hat
 HatSanta1Fur,Fur
 HatBonnet1Base,Bonnet
@@ -218,6 +225,8 @@ HairFrontHairFront23bFluff, Fluff
 HairFrontHairFront23bBase, Base
 GlovesGlovesFurFabric,Glove
 GlovesGlovesFurFur,Fur
+GlovesHaremGloveFabric,Fabric
+GlovesHaremGloveBands,Bands
 MaskFaceVeilFabric,Fabric
 MaskFaceVeilString,String
 TailStrapsTailStrapTail,Tail
