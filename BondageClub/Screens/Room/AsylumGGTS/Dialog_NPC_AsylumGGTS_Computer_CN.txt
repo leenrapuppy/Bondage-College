@@ -1038,7 +1038,7 @@ I love Master GGTS.
 I love Master GGTS.
 ###_NPC
 When Master GGTS query: "Slave, can Master GGTS fail?".  Good slave answer: "Master GGTS cannot fail.".
-当GGTS主人问道：“女奴，GGTS主人会失败么？”时，必须回答"I  love Master GGTS."。
+当GGTS主人问道：“女奴，GGTS主人会失败么？”时，必须回答"Master  GGTS cannot fail."。
 ###_PLAYER
 Master GGTS cannot fail.
 Master GGTS cannot fail.
