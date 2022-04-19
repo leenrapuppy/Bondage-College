@@ -1255,7 +1255,7 @@ function AsylumGGTSDialogInteraction(Interaction) {
  * Called from chat room, processes hidden GGTS messages
  * @param {Character} SenderCharacter - The character sending the message
  * @param {String} Interaction - The message sent
- * @returns {void} - Nothing
+ * @returns {Object} - Nothing to be used
  */
 function AsylumGGTSHiddenMessage(SenderCharacter, Interaction) {
 	if (Interaction == "GGTSNewTask|" + Player.MemberNumber.toString()) return AsylumGGTSNewTask();
