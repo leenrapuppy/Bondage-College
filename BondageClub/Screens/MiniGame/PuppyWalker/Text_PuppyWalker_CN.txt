@@ -1,0 +1,10 @@
+Tug on the leash circles when they appear.  Don't let any puppy escape.  Starts in StartTimer seconds.
+当圆圈出现时，点击以拉扯拴绳。不要让狗狗逃跑。StartTimer 秒后开始。
+Escaping:
+正在逃跑：
+Perfect!  The puppies can go back home.  Click on yourself to continue.
+完美！狗狗们可以回家了。点击你自己以继续。
+You did it!  The puppies can go back home.  Click on yourself to continue.
+你做到了！狗狗们可以回家了。点击你自己以继续。
+You've failed and lost a puppy.  Click on yourself to continue.
+你失败了，你丢了一只狗狗。点击你自己以继续。

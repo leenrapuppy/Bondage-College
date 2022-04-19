@@ -313,16 +313,16 @@ var TranslationDictionary = [
 			// "Screens/Cutscene/PlayerCollaring/Text_PlayerCollaring_CN.txt",
 			// "Screens/Cutscene/PlayerMistress/Text_PlayerMistress_CN.txt",
 			// "Screens/Cutscene/SarahIntro/Text_SarahIntro_CN.txt",
-			// "Screens/MiniGame/HorseWalk/Text_HorseWalk_CN.txt",
-			// "Screens/MiniGame/Kidnap/Text_Kidnap_CN.txt",
-			// "Screens/MiniGame/MaidCleaning/Text_MaidCleaning_CN.txt",
-			// "Screens/MiniGame/MaidDrinks/Text_MaidDrinks_CN.txt",
-			// "Screens/MiniGame/RhythmGame/Text_RhythmGame_CN.txt",
+			"Screens/MiniGame/HorseWalk/Text_HorseWalk_CN.txt",
+			"Screens/MiniGame/Kidnap/Text_Kidnap_CN.txt",
+			"Screens/MiniGame/MaidCleaning/Text_MaidCleaning_CN.txt",
+			"Screens/MiniGame/MaidDrinks/Text_MaidDrinks_CN.txt",
+			"Screens/MiniGame/RhythmGame/Text_RhythmGame_CN.txt",
 			// "Screens/MiniGame/SlaveAuction/Text_SlaveAuction_CN.txt",
-			// "Screens/MiniGame/Tennis/Text_Tennis_CN.txt",
-			// "Screens/MiniGame/Therapy/Text_Therapy_CN.txt",
-			// "Screens/MiniGame/DojoStruggle/Text_DojoStruggle_CN.txt",
-			// "Screens/MiniGame/PuppyWalker/Text_PuppyWalker_CN.txt",
+			"Screens/MiniGame/Tennis/Text_Tennis_CN.txt",
+			"Screens/MiniGame/Therapy/Text_Therapy_CN.txt",
+			"Screens/MiniGame/DojoStruggle/Text_DojoStruggle_CN.txt",
+			"Screens/MiniGame/PuppyWalker/Text_PuppyWalker_CN.txt",
 			"Screens/Online/ChatBlockItem/Text_ChatBlockItem_CN.txt",
 			"Screens/Online/ChatCreate/Text_ChatCreate_CN.txt",
 			"Screens/Online/ChatAdmin/Text_ChatAdmin_CN.txt",
@@ -376,7 +376,11 @@ var TranslationDictionary = [
 			"Screens/Room/AsylumBedroom/Text_AsylumBedroom_CN.txt",
 			"Screens/Room/MaidQuarters/Dialog_NPC_MaidQuarters_InitiationMaids_CN.txt",
 			"Screens/Room/MaidQuarters/Dialog_NPC_MaidQuarters_Maid_CN.txt",
-			"Screens/Room/AsylumGGTS/Dialog_NPC_AsylumGGTS_Computer_CN.txt"
+			"Screens/Room/AsylumGGTS/Dialog_NPC_AsylumGGTS_Computer_CN.txt",
+			"Screens/MiniGame/Chess/Text_Chess_CN.txt",
+			"Screens/MiniGame/GetUp/Text_GetUp_CN.txt",
+			"Screens/MiniGame/ChestLockpick/Text_ChestLockpick_CN.txt"
+			
 		]
 	},
 

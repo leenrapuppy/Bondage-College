@@ -1,0 +1,14 @@
+Move to the Carrots ($CARROTS) and avoid the crops ($CROPS)
+移动至胡萝卜 ($CARROTS) 并躲开马鞭 ($CROPS)
+Congratulations!  (Carrots: $CARROTS, crops: $CROPS)
+恭喜！ (胡萝卜: $CARROTS, 马鞭: $CROPS)
+Sorry, you've failed.  (Carrots: $CARROTS, crops: $CROPS)
+抱歉，你失败了。 (胡萝卜: $CARROTS, 马鞭: $CROPS)
+Jump over the Hurdles. Win: ($HURDLEWIN), Failed: ($HURDLEFAIL)
+跳过跨栏。成功: ($HURDLEWIN), 失败: ($HURDLEFAIL)
+Congratulations!  (Win: $HURDLEWIN, Failed: $HURDLEFAIL)
+恭喜！ (成功: $HURDLEWIN, 失败: $HURDLEFAIL)
+Sorry, you've failed.  (Win: $HURDLEWIN, Failed: $HURDLEFAIL)
+抱歉，你失败了。 (成功: $HURDLEWIN, 失败: $HURDLEFAIL)
+Whip the ponies ($PONY), not the trainer ($TRAINER).
+鞭打小马 ($PONY), 不要鞭打驯马师 ($TRAINER)。
