@@ -3020,9 +3020,6 @@ var AssetFemale3DCG = [
 				Name: "HempRope", Fetish: ["Rope"], Value: 60, Difficulty: 3, SelfBondage: 2, Time: 20, DefaultColor: "#956B1C", BuyGroup: "HempRope", Audio: "RopeShort", Extended: true, DynamicBeforeDraw: true,
 				SetPose: ["BackBoxTie"],
 				Effect: ["Block", "Prone"],
-				AllowBlock: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots", "ItemDevices"],
-				AllowEffect: ["Freeze", "Block", "Prone", "ForceKneel"],
-				AllowType: ["Hogtied", "SuspensionHogtied", "AllFours", "WristTie", "WristElbowTie", "RopeCuffs", "WristElbowHarnessTie", "KneelingHogtie", "TightBoxtie", "SimpleHogtie", "CrossedBoxtie", "BedSpreadEagle"],
 				Layer: [
 					{ Name: "" },
 					{ Name: "Suspension", Top: -687, Left: 0, HasType: false, Priority: 31, ParentGroup: "", AllowTypes: ["SuspensionHogtied"], AllowPose: [] },
@@ -3290,10 +3287,12 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "Chains", Fetish: ["Metal"], Value: 90, Difficulty: 5, SelfBondage: 3, Time: 30, AllowLock: true, BuyGroup: "Chains", Audio: "ChainLong", SetPose: ["BackBoxTie"], Effect: ["Block", "Prone"], Extended: true,
+				Name: "Chains", Fetish: ["Metal"], Value: 90, Difficulty: 5, SelfBondage: 3, Time: 30, AllowLock: true, BuyGroup: "Chains", Audio: "ChainLong", Extended: true,
+				SetPose: ["BackBoxTie"],
+				Effect: ["Block", "Prone"],
 				Layer: [
-					{ Name: "", AllowColorize: true },
-					{ Name: "Suspension", AllowColorize: true, HasType: false, Priority: 31, ParentGroup: "", AllowTypes: ["SuspensionHogtied"], AllowPose: [], Left: 0, Top: 0 },
+					{ Name: "" },
+					{ Name: "Suspension", Top: -687, Left: 0, HasType: false, Priority: 31, ParentGroup: "", AllowTypes: ["SuspensionHogtied"], AllowPose: [] },
 				]
 			},
 			{ Name: "ChainLeashHolding", Fetish: ["Sadism"], Priority: 36, Value: -1, Difficulty: 1, Time: 3, RemoveTime: 3, Random: false, Prerequisite: ["NotSuspended", "NotHogtied"], SetPose: ["BaseUpper"], Effect: ["Leash"] },

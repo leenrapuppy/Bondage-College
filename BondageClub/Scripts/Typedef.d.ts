@@ -47,7 +47,7 @@ interface HTMLElement {
 //#endregion
 
 //#region Enums
-type ExtendedArchetype = "modular" | "typed" | "vibrating";
+type ExtendedArchetype = "modular" | "typed" | "vibrating" | "variableheight";
 
 type TypedItemChatSetting = "toOnly" | "fromTo" | "silent";
 type ModularItemChatSetting = "perModule" | "perOption";
@@ -1159,6 +1159,9 @@ interface ItemPropertiesCustom {
 
 	/** Number of times the suitcase got cracked */
 	Iterations?: number;
+
+	/** Allows reverting back to these properties on exiting an extended menu */
+	Revert?: boolean;
 }
 
 interface ItemProperties extends ItemPropertiesBase, ItemPropertiesCustom {}
@@ -1179,7 +1182,7 @@ interface ExtendedItemAssetConfig<Archetype extends ExtendedArchetype, Config> {
 /**
  * Valid extended item configuration types
  */
-type AssetArchetypeConfig = TypedItemAssetConfig | ModularItemAssetConfig | VibratingItemAssetConfig;
+type AssetArchetypeConfig = TypedItemAssetConfig | ModularItemAssetConfig | VibratingItemAssetConfig | VariableHeightAssetConfig;
 
 /**
  * An object containing extended item definitions for a group.
@@ -1226,6 +1229,10 @@ interface ExtendedItemOption {
 	Random?: boolean;
 	/** Whether or not this option can be selected by the wearer */
 	AllowSelfSelect?: boolean;
+	/** If the option has a subscreen, this can set a particular archetype to use */
+	Archetype?: ExtendedArchetype;
+	/** If the option has an archetype, sets the config to use */
+	ArchetypeConfig?: TypedItemConfig | ModularItemConfig | VibratingItemConfig | VariableHeightConfig
 }
 
 /**
@@ -1734,6 +1741,88 @@ interface StateAndIntensity {
 	State: VibratorModeState;
 	/** The vibrator intensity */
 	Intensity: VibratorIntensity;
+}
+
+//#endregion
+
+//#region Variable Height items
+
+/** An object containing the extended item definition for a variable height asset. */
+type VariableHeightAssetConfig = ExtendedItemAssetConfig<"variableheight", VariableHeightConfig>;
+
+interface VariableHeightConfig {
+	/** The highest Y co-ordinate that can be set  */
+	MaxHeight: number,
+	/** The lowest Y co-ordinate that can be set  */
+	MinHeight: number,
+	/** The name of the image from "\BondageClub\Icons" that will show the current position on the slider */
+	SliderIcon: string,
+	/** A record containing various dialog keys used by the extended item screen */
+	Dialog: VariableHeightDialogConfig
+	/**
+	 * An array of the chat message tags that should be included in the item's
+	 * chatroom messages. Defaults to [{@link CommonChatTags.SOURCE_CHAR}, {@link CommonChatTags.DEST_CHAR}]
+	 */
+	ChatTags?: CommonChatTags[];
+	/** Name of the function that handles finding the current variable height setting */
+	GetHeightFunction?: string;
+	/** Name of the function that handles applying the height setting to the character */
+	SetHeightFunction?: string;
+}
+
+interface VariableHeightDialogConfig {
+	/**
+	 * A prefix for text keys for chat messages triggered by the item. Chat message keys
+	 * will include the name of the new option, and depending on the chat setting, the name of the previous option:
+	 * - For chat setting `FROM_TO`: `<chatPrefix><oldOptionName>To<newOptionName>`
+	 * - For chat setting `TO_ONLY`: `<chatPrefix><newOptionName>`
+	 * Defaults to `"<GroupName><AssetName>Set"`
+	 */
+	ChatPrefix?: string | ExtendedItemChatCallback<ExtendedItemOption>;
+	/**
+	 * A prefix for text keys for NPC dialog. This will be suffixed with the option name
+	 * to get the final NPC dialogue key (i.e. `"<npcPrefix><optionName>"`. Defaults to `"<groupName><assetName>"`
+	 */
+	NpcPrefix?: string;
+}
+
+/**
+ * An object containing typed item configuration for an asset. Contains all of the necessary information for the item's
+ * load, draw & click handlers.
+ */
+interface VariableHeightData {
+	/** The asset reference */
+	asset: Asset;
+	/** A key uniquely identifying the asset */
+	key: string;
+	/** The common prefix used for all extended item functions associated with the asset */
+	functionPrefix: string;
+	/** The highest Y co-ordinate that can be set  */
+	maxHeight: number,
+	/** The lowest Y co-ordinate that can be set  */
+	minHeight: number,
+	/** The name of the image from "\BondageClub\Icons" that will show the current position on the slider */
+	sliderIcon: string,
+	/** The initial property to apply */
+	defaultProperty: ItemProperties,
+	/** A record containing various dialog keys used by the extended item screen */
+	dialog: {
+		/** The prefix used for dialog keys representing the item's chatroom messages when its type is changed */
+		chatPrefix: string | ExtendedItemChatCallback<ExtendedItemOption>;
+		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
+		npcPrefix: string;
+	};
+	/**
+	 * An array of the chat message tags that should be included in the item's
+	 * chatroom messages. Defaults to [{@link CommonChatTags.SOURCE_CHAR}, {@link CommonChatTags.DEST_CHAR}]
+	 */
+	chatTags: CommonChatTags[];
+	/** The function that handles finding the current variable height setting */
+	getHeight: Function,
+	/** The function that handles applying the height setting to the character */
+	setHeight: Function,
+	/** The list of extended item options the current option was selected from, if applicable */
+	parentOptions: ExtendedItemOption[];
 }
 
 //#endregion
