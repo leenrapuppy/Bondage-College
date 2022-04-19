@@ -183,7 +183,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 				else NS += 'm';
 			}
 		}
-	
+
 		// GagTotal3 always returns mmmmm and muffles some relatively frequent letters entirely, 50% least frequent letters
 		else if (GagEffect >= 16) {
 			if (Par) NS += CD.charAt(L);
@@ -193,7 +193,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 				else NS += 'm';
 			}
 		}
-	
+
 		// GagTotal2 always returns mmmmm and muffles some less frequent letters entirely; 25% least frequent letters
 		else if (GagEffect >= 12) {
 			if (Par) NS += CD.charAt(L);
@@ -203,7 +203,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 				else NS += 'm';
 			}
 		}
-	
+
 		// Total gags always returns mmmmm
 		else if (GagEffect >= 8) {
 			if (Par) NS += CD.charAt(L);
@@ -212,7 +212,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 				else NS += 'm';
 			}
 		}
-	
+
 		// VeryHeavy garble - Close to no letter stays the same
 		else if (GagEffect >= 7) {
 			if (!Par) {
@@ -227,8 +227,8 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 				if (isAccentedOrLatinCharacter(H)) NS += stripDiacriticsFromCharacter(H, GagEffect);
 
 				// Cyrillic characters
-				if ('иоуюля'.includes(H)) NS += 'e';
-				if ('йх'.includes(H)) NS += 'к';
+				if ('аеиоуюля'.includes(H)) NS += 'e';
+				if ('сйх'.includes(H)) NS += 'к';
 				if ('жклру'.includes(H)) NS += 'a';
 				if ('зсгй'.includes(H)) NS += 'г';
 				if ('брвы'.includes(H)) NS += 'ф';
@@ -236,7 +236,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 
 			} else NS += CD.charAt(L);
 		}
-	
+
 		// Heavy garble - Almost no letter stays the same
 		else if (GagEffect >= 6) {
 			if (!Par) {
@@ -253,16 +253,16 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 				if (isAccentedOrLatinCharacter(H)) NS += stripDiacriticsFromCharacter(H, GagEffect);
 
 				// Cyrillic characters
-				if ('иоюля'.includes(H)) NS += 'e';
+				if ('аеиоуюля'.includes(H)) NS += 'e';
 				if ('сйх'.includes(H)) NS += 'к';
-				if ('жклр'.includes(H)) NS += 'a';
+				if ('жклру'.includes(H)) NS += 'a';
 				if ('зсгй'.includes(H)) NS += 'г';
 				if ('брвы'.includes(H)) NS += 'ф';
 				if ('дфгнм'.includes(H)) NS += 'м';
 
 			} else NS += CD.charAt(L);
 		}
-	
+
 		// Medium garble - Some letters stays the same
 		else if (GagEffect >= 5) {
 			if (!Par) {
@@ -279,16 +279,16 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 				if (isAccentedOrLatinCharacter(H)) NS += stripDiacriticsFromCharacter(H, GagEffect);
 
 				// Cyrillic characters
-				if ('aиоуюля'.includes(H)) NS += 'e';
+				if ('аеиоуюля'.includes(H)) NS += 'e';
 				if ('сйх'.includes(H)) NS += 'к';
-				if ('жклр'.includes(H)) NS += 'a';
+				if ('жклру'.includes(H)) NS += 'a';
 				if ('зсгй'.includes(H)) NS += 'г';
 				if ('брвы'.includes(H)) NS += 'ф';
 				if ('дфгнм'.includes(H)) NS += 'м';
 
 			} else NS += CD.charAt(L);
 		}
-	
+
 		// Normal garble, keep vowels and a few letters the same
 		else if (GagEffect >= 4) {
 			if (!Par) {
@@ -316,7 +316,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 
 			} else NS += CD.charAt(L);
 		}
-	
+
 		// Easy garble, keep vowels and a some letters the same
 		else if (GagEffect >= 3) {
 			if (!Par) {
@@ -344,23 +344,22 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 
 			} else NS += CD.charAt(L);
 		}
-	
+
 		// Light garble, half of the letters stay the same
 		else if (GagEffect >= 2) {
 			if (!Par) {
 				// Regular characters
 				if ('ct'.includes(H)) NS += 'e';
 				if ('qkx'.includes(H)) NS += 'k';
-				if (H == "p") NS += 'f';
-				if (H == "g") NS += 'n';
+				if ('jlr'.includes(H)) NS += 'a';
 				if (H == "s") NS += 'z';
 				if (H == "z") NS += 's';
 				if (H == "f") NS += 'h';
 				if ('dmg'.includes(H)) NS += 'm';
-				if ('bhnvwp'.includes(H) || isStandardPunctuationOrSpace(H) || 'aeiouy'.includes(H)) NS += H;
+				if ('bhnvwpaeiouy'.includes(H) || isStandardPunctuationOrSpace(H)) NS += H;
 
 				// Accents/Latin characters
-				if (isAccentedOrLatinCharacter(H)) NS += stripDiacriticsFromCharacter(H, GagEffect); 
+				if (isAccentedOrLatinCharacter(H)) NS += stripDiacriticsFromCharacter(H, GagEffect);
 
 				// Cyrillic characters
 				if ('чц'.includes(H)) NS += 'e';
@@ -373,7 +372,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 
 			} else NS += CD.charAt(L);
 		}
-	
+
 		// Very Light garble, most of the letters stay the same
 		else if (GagEffect >= 1) {
 			if (!Par) {
@@ -459,7 +458,7 @@ function SpeechStutter(C, CD) {
 				}
 				CS = -1;
 			}
-			
+
 			if (H == " ") CS = 0;
 		}
 		return CD;
@@ -493,7 +492,7 @@ function SpeechBabyTalk(C, CD) {
 				if (H == "t") NS = NS += 'st';
 				if (H.match('[a-z ?!.,]')) NS += H;
 			} else NS += CD.charAt(L);
-			
+
 		}
 		return NS;
 	}
