@@ -249,7 +249,7 @@ MistressExpulsion,,,We Mistresses have been speaking.  It seems you're not fit t
 222,223,"Great, I'll see you there.",,SendMistressToPrivateRoom(2),,
 222,223,Take your time Miss.,,SendMistressToPrivateRoom(1),,
 222,223,You're welcome any time.,,SendMistressToPrivateRoom(2),,
-230,0,"Yes, I want to break my trial.","(She announces the end of your trial period and makes it official.)  You're free girl, enjoy the club.",BreakTrialOnline(),,
+230,0,"Yes, I want to break my trial.","(She announces the end of your trial period and makes it official.)  You're free girl, enjoy the club.",BreakOnlineOwnership(),,
 230,0,Let me think some more.,"Think girl, this is a serious decision.",,,
 300,,What are club slaves?,Submissive girls can take slavery contracts with the club and get paid for it.  They become preys for anyone to play with while under that contract.,,,
 300,,What are the slave contract terms?,The contract lasts for one hour and the girl gets paid $50 at the end of it.  A special collar will be locked for the contract duration.,,,

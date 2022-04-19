@@ -697,10 +697,7 @@ function ServerAccountOwnership(data) {
 
 	// If we must clear the character ownership data
 	if ((data != null) && (typeof data === "object") && !Array.isArray(data) && (data.ClearOwnership === true)) {
-		Player.Owner = "";
-		Player.Ownership = null;
-		LogDelete("ReleasedCollar", "OwnerRule");
-		LoginValidCollar();
+		CharacterClearOwnership(Player);
 	}
 
 }

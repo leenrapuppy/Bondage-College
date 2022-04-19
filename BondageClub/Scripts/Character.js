@@ -1628,3 +1628,21 @@ function CharacterHasArousalEnabled(C) {
 		&& (C.ArousalSettings.Active != null)
 		&& (C.ArousalSettings.Active != "Inactive");
 }
+
+/**
+ * Removes all ownership and owner-only data
+ * @param {Character} C - The character breaking from their owner
+ * @returns {void} - Nothing.
+ */
+function CharacterClearOwnership(C) {
+	C.Owner = "";
+	C.Ownership = null;
+	if (C.ID == 0) {
+		LoginValidCollar();
+		LogDeleteGroup("OwnerRule");
+	}
+
+	C.Appearance = C.Appearance.filter(item => !item.Asset.OwnerOnly);
+	C.Appearance.forEach(item => ValidationSanitizeProperties(C, item));
+	CharacterRefresh(C);
+}
