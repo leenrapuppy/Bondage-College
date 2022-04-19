@@ -443,8 +443,8 @@ function TranslationString(S, T, CharacterName) {
 	if ((S != null) && (S.trim() != "")) {
 		S = S.trim();
 		for (let P = 0; P < T.length; P++)
-			if (S == T[P].replace("DialogCharacterName", CharacterName).replace("DialogPlayerName", Player.Name))
-				return T[P + 1].replace("DialogCharacterName", CharacterName).replace("DialogPlayerName", Player.Name);
+			if (S == T[P].replace("DialogCharacterName", CharacterName).replace("DialogPlayerName", CharacterNickname(Player)))
+				return T[P + 1].replace("DialogCharacterName", CharacterName).replace("DialogPlayerName", CharacterNickname(Player));
 	}
 	return S;
 }

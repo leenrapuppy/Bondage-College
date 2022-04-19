@@ -129,6 +129,14 @@ function TitleIsEarned(Title) {
 }
 
 /**
+ * When the title screen is loaded
+ * @returns {void} - Nothing
+ */
+function TitleLoad() {
+	ElementCreateInput("InputNickname", "text", Player.Nickname, "20");
+}
+
+/**
  * Runs the title selection screen. This function is called dynamically on a repeated basis,
  * so don't use complex loops or call extended functions from here.
  * @returns {void} - Nothing
@@ -136,16 +144,18 @@ function TitleIsEarned(Title) {
 function TitleRun() {
 
 	// List all the available titles
-	DrawText(TextGet("SelectTitle"), 1000, 120, "Black", "Gray");
+	DrawText(TextGet("SelectTitle"), 1000, 100, "Black", "Gray");
+	DrawText(TextGet("Nickname"), 750, 180, "Black", "Gray");
+	ElementPosition("InputNickname", 1300, 180, 500, 60);
 	var X = 130;
-	var Y = 200;
+	var Y = 250;
 	for (let T = 0; T < TitleList.length; T++)
 		if (TitleList[T].Requirement()) {
 			DrawButton(X, Y, 400, 65, TextGet("Title" + TitleList[T].Name), "White");
 			X = X + 450;
 			if (X > 1500) {
 				X = 130;
-				Y = Y + 100;
+				Y = Y + 90;
 			}
 		}
 
@@ -165,17 +175,17 @@ function TitleClick() {
 
 	// When the user selects a title
 	var X = 130;
-	var Y = 200;
+	var Y = 250;
 	for (let T = 0; T < TitleList.length; T++)
 		if (TitleList[T].Requirement()) {
 			if ((MouseX >= X) && (MouseX <= X + 400) && (MouseY >= Y) && (MouseY <= Y + 65)) {
 				TitleSet(TitleList[T].Name);
-				CommonSetScreen("Character", "InformationSheet");
+				TitleExit();
 			}
 			X = X + 450;
 			if (X > 1500) {
 				X = 130;
-				Y = Y + 100;
+				Y = Y + 90;
 			}
 		}
 
@@ -187,5 +197,14 @@ function TitleClick() {
  * @returns {void} - Nothing
  */
 function TitleExit() {
-	CommonSetScreen("Character", "InformationSheet");
+	let Regex = /^[a-zA-Z\s]*$/;
+	let Nick = ElementValue("InputNickname");
+	if (Nick == null) Nick = "";
+	Nick = Nick.trim().substring(0, 20);
+	if (Regex.test(Nick)) {
+		Player.Nickname = Nick;
+		ServerAccountUpdate.QueueData({ Nickname: Nick });
+		ElementRemove("InputNickname");
+		CommonSetScreen("Character", "InformationSheet");
+	}
 }

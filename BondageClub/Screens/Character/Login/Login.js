@@ -441,6 +441,7 @@ function LoginResponse(C) {
 			Player.AccountName = C.AccountName;
 			Player.AssetFamily = C.AssetFamily;
 			Player.Title = C.Title;
+			Player.Nickname = (C.Nickname == null) ? "" : C.Nickname;
 			if (CommonIsNumeric(C.Money)) Player.Money = C.Money;
 			Player.Owner = ((C.Owner == null) || (C.Owner == "undefined")) ? "" : C.Owner;
 			Player.Game = C.Game;

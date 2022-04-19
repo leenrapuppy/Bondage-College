@@ -393,8 +393,8 @@ function CharacterBuildDialog(C, CSV) {
 			const D = {};
 			D.Stage = CSV[L][0];
 			if ((CSV[L][1] != null) && (CSV[L][1].trim() != "")) D.NextStage = CSV[L][1];
-			if ((CSV[L][2] != null) && (CSV[L][2].trim() != "")) D.Option = CSV[L][2].replace("DialogCharacterName", C.Name).replace("DialogPlayerName", Player.Name);
-			if ((CSV[L][3] != null) && (CSV[L][3].trim() != "")) D.Result = CSV[L][3].replace("DialogCharacterName", C.Name).replace("DialogPlayerName", Player.Name);
+			if ((CSV[L][2] != null) && (CSV[L][2].trim() != "")) D.Option = CSV[L][2].replace("DialogCharacterName", C.Name).replace("DialogPlayerName", CharacterNickname(Player));
+			if ((CSV[L][3] != null) && (CSV[L][3].trim() != "")) D.Result = CSV[L][3].replace("DialogCharacterName", C.Name).replace("DialogPlayerName", CharacterNickname(Player));
 			if ((CSV[L][4] != null) && (CSV[L][4].trim() != "")) D.Function = ((CSV[L][4].trim().substring(0, 6) == "Dialog") ? "" : OnlinePlayer ? "ChatRoom" : CurrentScreen) + CSV[L][4];
 			if ((CSV[L][5] != null) && (CSV[L][5].trim() != "")) D.Prerequisite = CSV[L][5];
 			if ((CSV[L][6] != null) && (CSV[L][6].trim() != "")) D.Group = CSV[L][6];
@@ -1645,4 +1645,18 @@ function CharacterClearOwnership(C) {
 	C.Appearance = C.Appearance.filter(item => !item.Asset.OwnerOnly);
 	C.Appearance.forEach(item => ValidationSanitizeProperties(C, item));
 	CharacterRefresh(C);
+}
+
+/**
+ * Returns the nickname of a character, or the name if the nickname isn't valid
+ * @param {Character} C - The character breaking from their owner
+ * @returns {String} - The nickname to return
+ */
+function CharacterNickname(C) {
+	let Regex = /^[a-zA-Z\s]*$/;
+	let Nick = C.Nickname;
+	if (Nick == null) Nick = "";
+	Nick = Nick.trim().substring(0, 20);
+	if ((Nick != "") && Regex.test(Nick)) return Nick;
+	else return C.Name;
 }
