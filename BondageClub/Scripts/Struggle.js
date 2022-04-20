@@ -261,6 +261,46 @@ function StruggleMinigameDrawCommon(C, Offset) {
 }
 
 /**
+ * Handles making the character's expression when struggling.
+ *
+ * @param {boolean} [Decrease] - Whether the game progressed or not that tick.
+ */
+function StruggleMinigameHandleExpression(Decrease) {
+
+	const Count = StruggleProgressStruggleCount;
+	if (!Decrease && Player.OnlineSharedSettings.ItemsAffectExpressions) {
+		// At 15 hit: low blush, 50: Medium and 125: High
+		if (DialogAllowBlush) {
+			if (Count == 15) CharacterSetFacialExpression(Player, "Blush", "Low");
+			if (Count == 50) CharacterSetFacialExpression(Player, "Blush", "Medium");
+			if (Count == 125) CharacterSetFacialExpression(Player, "Blush", "High");
+		}
+
+		// At 15 hit: Start drooling
+		if (DialogAllowFluids && StruggleProgressCurrentMinigame === "Strength") {
+			if (Count == 15) CharacterSetFacialExpression(Player, "Fluids", "DroolMessy");
+		}
+		// At 25 hit: Start one eye closed
+		if (DialogAllowFluids && StruggleProgressCurrentMinigame === "Flexibility") {
+			if (Count == 25) CharacterSetFacialExpression(Player, "Eyes2", "Closed");
+		}
+		// At 25 hit: Eyes look glazed
+		if (DialogAllowFluids && StruggleProgressCurrentMinigame === "Dexterity") {
+			if (Count == 25) CharacterSetFacialExpression(Player, "Eyes", "Dazed");
+		}
+
+		// Over 50 progress, the character frowns
+		if (DialogAllowEyebrows) {
+			if (StruggleProgress >= 50) {
+				CharacterSetFacialExpression(Player, "Eyebrows", "Angry");
+			} else {
+				CharacterSetFacialExpression(Player, "Eyebrows", null);
+			}
+		}
+	}
+}
+
+/**
  * Helper function that handles checking and completing the minigame
  *
  * @param {Character} C - The character to check for progress.
@@ -476,23 +516,7 @@ function StruggleStrengthProcess(Decrease) {
 	if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0))
 		StruggleProgressOperation = DialogFindPlayer("Impossible");
 
-	if (!Decrease && Player.OnlineSharedSettings.ItemsAffectExpressions) {
-		// At 15 hit: low blush, 50: Medium and 125: High
-		if (DialogAllowBlush) {
-			if (StruggleProgressStruggleCount == 15) CharacterSetFacialExpression(Player, "Blush", "Low");
-			if (StruggleProgressStruggleCount == 50) CharacterSetFacialExpression(Player, "Blush", "Medium");
-			if (StruggleProgressStruggleCount == 125) CharacterSetFacialExpression(Player, "Blush", "High");
-		}
-
-		// At 15 hit: Start drooling
-		if (DialogAllowFluids) {
-			if (StruggleProgressStruggleCount == 15) CharacterSetFacialExpression(Player, "Fluids", "DroolMessy");
-		}
-
-		// Over 50 progress, the character frowns
-		if (DialogAllowEyebrows) CharacterSetFacialExpression(Player, "Eyebrows", (StruggleProgress >= 50) ? "Angry" : null);
-	}
-
+	StruggleMinigameHandleExpression(Decrease);
 }
 
 /**
@@ -740,23 +764,7 @@ function StruggleFlexibilityProcess(Decrease) {
 	if (!Decrease) StruggleProgressStruggleCount += 3;
 	if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0)) StruggleProgressOperation = DialogFindPlayer("Impossible");
 
-	if (!Decrease && Player.OnlineSharedSettings.ItemsAffectExpressions) {
-		// At 15 hit: low blush, 50: Medium and 125: High
-		if (DialogAllowBlush) {
-			if (StruggleProgressStruggleCount == 15) CharacterSetFacialExpression(Player, "Blush", "Low");
-			if (StruggleProgressStruggleCount == 50) CharacterSetFacialExpression(Player, "Blush", "Medium");
-			if (StruggleProgressStruggleCount == 125) CharacterSetFacialExpression(Player, "Blush", "High");
-		}
-
-		// At 25 hit: Start one eye closed
-		if (DialogAllowFluids) {
-			if (StruggleProgressStruggleCount == 25) CharacterSetFacialExpression(Player, "Eyes2", "Closed");
-		}
-
-		// Over 50 progress, the character frowns
-		if (DialogAllowEyebrows) CharacterSetFacialExpression(Player, "Eyebrows", (StruggleProgress >= 50) ? "Angry" : null);
-	}
-
+	StruggleMinigameHandleExpression(Decrease);
 }
 
 ////////////////////////////STRUGGLE MINIGAME: DEXTERITY//////////////////////////////
@@ -921,23 +929,7 @@ function StruggleDexterityProcess() {
 	StruggleProgressStruggleCount += Math.max(1, 3*(distMult + 0.5));
 	if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0)) StruggleProgressOperation = DialogFindPlayer("Impossible");
 
-	if (Player.OnlineSharedSettings.ItemsAffectExpressions) {
-		// At 15 hit: low blush, 50: Medium and 125: High
-		if (DialogAllowBlush) {
-			if (StruggleProgressStruggleCount == 15) CharacterSetFacialExpression(Player, "Blush", "Low");
-			if (StruggleProgressStruggleCount == 50) CharacterSetFacialExpression(Player, "Blush", "Medium");
-			if (StruggleProgressStruggleCount == 125) CharacterSetFacialExpression(Player, "Blush", "High");
-		}
-
-		// At 25 hit: Eyes look glazed
-		if (DialogAllowFluids) {
-			if (StruggleProgressStruggleCount == 25) CharacterSetFacialExpression(Player, "Eyes", "Dazed");
-		}
-
-		// Over 50 progress, the character frowns
-		if (DialogAllowEyebrows) CharacterSetFacialExpression(Player, "Eyebrows", (StruggleProgress >= 50) ? "Angry" : null);
-	}
-
+	StruggleMinigameHandleExpression();
 }
 
 
