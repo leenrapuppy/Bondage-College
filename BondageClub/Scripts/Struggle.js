@@ -77,14 +77,17 @@ const StruggleMinigames = {
 	Strength: {
 		Setup: StruggleStrengthSetup,
 		Draw: StruggleStrengthDraw,
+		HandleEvent: StruggleStrengthHandleEvent,
 	},
 	Flexibility: {
 		Setup: StruggleFlexibilitySetup,
 		Draw: StruggleFlexibilityDraw,
+		HandleEvent: StruggleFlexibilityHandleEvent,
 	},
 	Dexterity: {
 		Setup: StruggleDexteritySetup,
 		Draw: StruggleDexterityDraw,
+		HandleEvent: StruggleDexterityHandleEvent,
 	},
 };
 
@@ -161,18 +164,13 @@ function StruggleProgressGetOperation(C, PrevItem, NextItem) {
  * @returns {void} - Nothing
  */
 function StruggleKeyDown() {
-	// Make sure there's a Strength minigame running
-	if (StruggleProgressCurrentMinigame !== "Strength" && StruggleProgress >= 0)
-		return;
-
 	// Make sure we're not in Color-application mode. FIXME: this is strange
 	if (DialogColor != null)
 		return;
 
-	// Handle A & S keys, keeping track of the alternating requirement
-	if ((KeyPress == 65) || (KeyPress == 83) || (KeyPress == 97) || (KeyPress == 115)) {
-		StruggleStrength((StruggleProgressLastKeyPress == KeyPress));
-		StruggleProgressLastKeyPress = KeyPress;
+	// Call the minigame handler if there is one
+	if (StruggleProgressCurrentMinigame !== "" && StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent) {
+		StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent("KeyDown")
 	}
 }
 
@@ -182,12 +180,8 @@ function StruggleKeyDown() {
  * @returns {void} - Nothing
  */
 function StruggleClick() {
-	if (StruggleProgressCurrentMinigame == "Strength" && CommonIsMobile) {
-		StruggleStrength();
-	} else if (StruggleProgressCurrentMinigame == "Flexibility") {
-		StruggleFlexibility();
-	} else if (StruggleProgressCurrentMinigame == "Dexterity") {
-		StruggleDexterity();
+	if (StruggleProgressCurrentMinigame !== "") {
+		StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent("Click");
 	} else {
 		if (MouseIn(1387-300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressPrevItem, "Strong")) {
 			StruggleMinigameStart(Player, "Strength", StruggleProgressPrevItem, StruggleProgressNextItem);
@@ -437,13 +431,36 @@ function StruggleStrengthDraw(C) {
 }
 
 /**
+ * Handle events for the Strength minigame
+ *
+ * @param {"Click"|"KeyDown"} EventType
+ * @returns {void}
+ */
+function StruggleStrengthHandleEvent(EventType) {
+	if (StruggleProgress < 0) {
+		// Minigame is not running
+		return;
+	}
+
+	if (EventType === "KeyDown") {
+		if ((KeyPress == 65) || (KeyPress == 83) || (KeyPress == 97) || (KeyPress == 115)) {
+			StruggleStrengthProcess((StruggleProgressLastKeyPress == KeyPress));
+			StruggleProgressLastKeyPress = KeyPress;
+		}
+	} else if (EventType === "Click" && CommonIsMobile) {
+		// Only mobile users get to click, otherwise it's too easy.
+		StruggleStrengthProcess();
+	}
+}
+
+/**
  * Advances the Struggle minigame progress
  *
  * The change of facial expressions during struggling is done here
  * @param {boolean} [Decrease] - If set to true, the progress is decreased
  * @returns {void} - Nothing
  */
-function StruggleStrength(Decrease) {
+function StruggleStrengthProcess(Decrease) {
 
 	// Progress calculation
 	var P = 42 / (StruggleProgressSkill * CheatFactor("DoubleItemSpeed", 0.5)); // Regular progress, slowed by long timers, faster with cheats
@@ -637,14 +654,14 @@ function StruggleFlexibilityDraw(C) {
 		let R = StruggleProgressFlexCircles[RR];
 		if (R.Y > StruggleProgressFlexMaxY) {
 			if (!((CurrentScreen == "ChatRoom") && ((StruggleProgressChallenge <= 6) || (StruggleProgressAuto >= 0)) && Player.RestrictionSettings.BypassStruggle))
-				StruggleFlexibility(true);
+				StruggleFlexibilityProcess(true);
 			StruggleProgressFlexCircles.splice(RR,1);
 			break;
 		}
 	}
 
 	// Advance the minigame's state
-	StruggleFlexibility();
+	StruggleFlexibilityProcess();
 
 	StruggleMinigameDrawCommon(C, -150);
 
@@ -678,13 +695,31 @@ function StruggleFlexibilityCheck() {
 	return false;
 }
 
+
+/**
+ * Handle events for the Flexibility minigame
+ *
+ * @param {"Click"|"KeyDown"} EventType
+ * @returns {void}
+ */
+function StruggleFlexibilityHandleEvent(EventType) {
+	if (StruggleProgress < 0) {
+		// Minigame is not running
+		return;
+	}
+
+	if (EventType === "Click") {
+		StruggleFlexibilityProcess();
+	}
+}
+
 /**
  * Advances the Flexibility minigame progress
  *
  * @param {boolean} [Decrease] - If set to true, the progress is decreased
  * @returns {void} - Nothing
  */
-function StruggleFlexibility(Decrease) {
+function StruggleFlexibilityProcess(Decrease) {
 
 	// When increasing, hit-check with the circles. If there's no circle near,
 	// abort the increase. This is done this way because this also doubles as
@@ -844,12 +879,30 @@ function StruggleDexterityDraw(C) {
 	StruggleProgressCheckEnd(C);
 }
 
+
+/**
+ * Handle events for the Flexibility minigame
+ *
+ * @param {"Click"|"KeyDown"} EventType
+ * @returns {void}
+ */
+function StruggleDexterityHandleEvent(EventType) {
+	if (StruggleProgress < 0) {
+		// Minigame is not running
+		return;
+	}
+
+	if (EventType === "Click") {
+		StruggleDexterityProcess();
+	}
+}
+
 /**
  * Advances the Dexterity minigame progress
  *
  * @returns {void} - Nothing
  */
-function StruggleDexterity() {
+function StruggleDexterityProcess() {
 
 	// Progress calculation
 	var P = 200 / (StruggleProgressSkill/3.5 * CheatFactor("DoubleItemSpeed", 0.5)); // Regular progress, slowed by long timers, faster with cheats
