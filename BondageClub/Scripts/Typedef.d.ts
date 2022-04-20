@@ -119,6 +119,7 @@ type EffectName =
 	"Unlock-MistressPadlock" |"Unlock-MistressTimerPadlock" |
 	"Unlock-PandoraPadlock" | "Unlock-MetalCuffs" | "Unlock-" |
 
+	"ProtrudingMouth" |
 	""
 ;
 

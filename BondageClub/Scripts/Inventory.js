@@ -250,6 +250,9 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "GagUnique": return InventoryPrerequisiteConflictingGags(C, ["GagFlat", "GagCorset", "GagUnique"]);
 		case "GagCorset": return InventoryPrerequisiteConflictingGags(C, ["GagCorset"]);
 
+		// There's something in the mouth that's too large to allow that item on
+		case "NotProtrudingFromMouth": return C.Effect.includes("ProtrudingMouth") ? "CannotBeUsedOverGag" : "";
+
 		// Returns no message, indicating that all prerequisites are fine
 		default: return "";
 	}
