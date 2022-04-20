@@ -1,5 +1,8 @@
 "use strict";
 
+const chineseRegex = /\p{Script=Hani}/u;
+const chineseRandomGarbledSound = ['啊', '恩', '咕', '唔', '哈', '嗷', '呜'];
+
 /**
  * A lookup mapping the gag effect names to their corresponding gag level numbers.
  * @type {Object.<string,number>}
@@ -25,7 +28,7 @@ var SpeechGagLevelLookup = {
  * @returns {boolean} - Returns TRUE if the current speech phrase is a full emote (all between parentheses)
  */
 function SpeechFullEmote(D) {
-	return ((D.indexOf("(") == 0) && (D.indexOf(")") == D.length - 1));
+	return ((D.indexOf("(") == 0 || D.indexOf("（") == 0) && (D.indexOf(")") == D.length - 1 || D.indexOf("）") == D.length - 1));
 }
 
 /**
@@ -96,12 +99,126 @@ function SpeechGarble(C, CD, NoDeaf=false) {
 }
 
 /**
- * A helper method to check if the character parsed in is one of the following: ' .?!~-'
+ * A PRNG(Pseudo random number generator) helper to generate random number sequence by seed.
+ * Stole this function and the function below from {@link https://stackoverflow.com/questions/521295/seeding-the-random-number-generator-in-javascript stackoverflow} 
+ * @param {number} a - seed 1
+ * @param {number} b - seed 2
+ * @param {number} c - seed 3
+ * @param {number} d - seed 4
+ * @returns {function} - The function where it could be used to do PRNG magic.
+ */
+function sfc32(a, b, c, d) {
+    return function() {
+      a >>>= 0; b >>>= 0; c >>>= 0; d >>>= 0; 
+      var t = (a + b) | 0;
+      a = b ^ b >>> 9;
+      b = c + (c << 3) | 0;
+      c = (c << 21 | c >>> 11);
+      d = d + 1 | 0;
+      t = t + d | 0;
+      c = c + t | 0;
+      return (t >>> 0) / 4294967296;
+    }
+}
+
+/**
+ * Random seeding tool to generate random seeding sequence that is able to be used.
+ * This allows the random result always be the same when the seed is the same. 
+ * (This implementation is needed because dialog refreshes every frame, we have to generate garbled text that are the same.)
+ * (Otherwise it will just keep flashing and changing the text.)
+ * 
+ * @param {*} seed - The seed to generate random numbers.
+ * @returns {function} - The function where it could be used to do PRNG magic.
+ */
+function randomSeeding(seed) {
+    for (var i = 0, h = 1779033703 ^ seed.length; i < seed.length; i++) {
+        h = Math.imul(h ^ seed.charCodeAt(i), 3432918353);
+        h = h << 13 | h >>> 19;
+    } return function() {
+        h = Math.imul(h ^ (h >>> 16), 2246822507);
+        h = Math.imul(h ^ (h >>> 13), 3266489909);
+        return (h ^= h >>> 16) >>> 0;
+    }
+}
+
+/**
+ * Test if the current character parsed in is a Chinese character, and client user is using Chinese.
+ * This is to prevent garbling Japanese kanji.
+ * But for chatroom use case where two clients may have different languages
+ * I don't have a definite solution yet, so let's do this for now to resolve the options not showing up first.
+ * @param {string} character 
+ * @returns {boolean} - true if is Chinese character, false otherwise.
+ */
+function isChineseCharacter(character) {
+	if (TranslationLanguage !== 'CN') return false;
+	
+	return chineseRegex.test(character)
+}
+
+/**
+ * Get the character and determine if it is a Chinese character, if it does, do random garbling according to the gagLevel.
+ * This is only a hotfix for the issue where Chinese characters are not displayed because they are not properly garbled,
+ * when showing as options.
+ * 
+ * @param {string} character - The character needs to be garbled.
+ * @param {number} gagLevel - Gag level.
+ * 
+ * @return {string} - The character that being garbled.
+ */
+function doChineseGarbling(character, gagLevel) {
+	let garbleRandomChance;
+	switch(gagLevel) {
+		case 0:
+			return character;
+		case 1:
+			garbleRandomChance = .8;
+			break;
+		// basically for Chinese, it is impossible to understand anything when have ball gags in the mouth.
+		// It seems like ball gag is at like gagLevel 2, so I decided to heavily garble it start from here.
+		case 2:
+			garbleRandomChance = .55;
+			break;
+		case 3:
+			garbleRandomChance = .5;
+			break;
+		case 4:
+			garbleRandomChance = .45;
+			break;
+		case 5:
+			garbleRandomChance = .4;
+			break;
+		case 6:
+			garbleRandomChance = .35;
+			break;
+		case 7:
+			garbleRandomChance = .3;
+			break;
+		case 8:
+			garbleRandomChance = .25;
+			break;
+		case 9: case 10: case 11: case 12:
+			garbleRandomChance = .2;
+			break;
+		default:
+			garbleRandomChance = .1;
+	}
+
+	const seed = randomSeeding(character + garbleRandomChance.toString());
+	const garbleDecision = sfc32(seed(), seed(), seed(), seed());
+	
+	return (garbleDecision() >= garbleRandomChance)
+		? chineseRandomGarbledSound[Math.floor(garbleDecision() * chineseRandomGarbledSound.length)] 
+		: character;
+}
+
+/**
+ * A helper method to check if the character parsed in is one of the following: ' .?!~-。？！，'
+ * Note: last 4 punctuations are commonly used in CJK languages.
  * @param {string} character - The character needs to be checked.
  * @returns {boolean} - true if containing one of the following: ' .?!~-', otherwise false.
  */
 function isStandardPunctuationOrSpace(character) {
-	return ' .?!~-'.includes(character);
+	return ' .?!~-。？！，'.includes(character);
 }
 
 /**
@@ -174,12 +291,13 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 	// GagTotal4 always returns mmmmm and muffles some frequent letters entirely, 75% least frequent letters
 	for (let L = 0; L < CD.length; L++) {
 		const H = CD.charAt(L).toLowerCase();
-		if (H == "(" && !IgnoreOOC) Par = true;
+		if ((H == "(" || H == '（') && !IgnoreOOC) Par = true;
 		if (GagEffect >= 20) {
 			if (Par) NS += CD.charAt(L);
 			else {
 				if (isStandardPunctuationOrSpace(H)) NS += H;
 				else if ('zqjxkvbywgpfucdlhr'.includes(H)) NS += ' ';
+				else if (isChineseCharacter(H)) NS += doChineseGarbling(H, GagEffect);
 				else NS += 'm';
 			}
 		}
@@ -190,6 +308,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 			else {
 				if (isStandardPunctuationOrSpace(H)) NS += H;
 				else if ('zqjxkvbywgpf'.includes(H)) NS += ' ';
+				else if (isChineseCharacter(H)) NS += doChineseGarbling(H, GagEffect);
 				else NS += 'm';
 			}
 		}
@@ -200,6 +319,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 			else {
 				if (isStandardPunctuationOrSpace(H)) NS += H;
 				else if ('zqjxkv'.includes(H)) NS += ' ';
+				else if (isChineseCharacter(H)) NS += doChineseGarbling(H, GagEffect);
 				else NS += 'm';
 			}
 		}
@@ -209,6 +329,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 			if (Par) NS += CD.charAt(L);
 			else {
 				if (isStandardPunctuationOrSpace(H)) NS += H;
+				else if (isChineseCharacter(H)) NS += doChineseGarbling(H, GagEffect);
 				else NS += 'm';
 			}
 		}
@@ -233,6 +354,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 				if ('зсгй'.includes(H)) NS += 'г';
 				if ('брвы'.includes(H)) NS += 'ф';
 				if ('дфгнм'.includes(H)) NS += 'м';
+				if (isChineseCharacter(H)) NS += doChineseGarbling(H, GagEffect);
 
 			} else NS += CD.charAt(L);
 		}
@@ -259,6 +381,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 				if ('зсгй'.includes(H)) NS += 'г';
 				if ('брвы'.includes(H)) NS += 'ф';
 				if ('дфгнм'.includes(H)) NS += 'м';
+				if (isChineseCharacter(H)) NS += doChineseGarbling(H, GagEffect);
 
 			} else NS += CD.charAt(L);
 		}
@@ -285,6 +408,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 				if ('зсгй'.includes(H)) NS += 'г';
 				if ('брвы'.includes(H)) NS += 'ф';
 				if ('дфгнм'.includes(H)) NS += 'м';
+				if (isChineseCharacter(H)) NS += doChineseGarbling(H, GagEffect);
 
 			} else NS += CD.charAt(L);
 		}
@@ -313,6 +437,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 				if ('дф'.includes(H)) NS += 'м';
 				if (H == "р") NS += 'ф';
 				if (H == "г") NS += 'н';
+				if (isChineseCharacter(H)) NS += doChineseGarbling(H, GagEffect);
 
 			} else NS += CD.charAt(L);
 		}
@@ -341,6 +466,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 				if ('дф'.includes(H)) NS += 'м';
 				if (H == "р") NS += 'ф';
 				if (H == "г") NS += 'н';
+				if (isChineseCharacter(H)) NS += doChineseGarbling(H, GagEffect);
 
 			} else NS += CD.charAt(L);
 		}
@@ -369,6 +495,7 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 				if (H == "с") NS += 'з';
 				if ('дфмг'.includes(H)) NS += 'м';
 				if ('апрокенмит'.includes(H)) NS += H;
+				if (isChineseCharacter(H)) NS += doChineseGarbling(H, GagEffect);
 
 			} else NS += CD.charAt(L);
 		}
@@ -394,11 +521,12 @@ function SpeechGarbleByGagLevel(GagEffect, CD, IgnoreOOC) {
 				if (H == "с") NS += 'з';
 				if ('дфмг'.includes(H)) NS += 'м';
 				if ('апрокенмит'.includes(H)) NS += H;
+				if (isChineseCharacter(H)) NS += doChineseGarbling(H, GagEffect);
 
 			} else NS += CD.charAt(L);
 		}
 
-		if (H == ")") Par = false;
+		if (H == ")" || H == "）") Par = false;
 	}
 
 	return NS;
@@ -491,6 +619,8 @@ function SpeechBabyTalk(C, CD) {
 				if (H == "s") NS = NS += 'sh';
 				if (H == "t") NS = NS += 'st';
 				if (H.match('[a-z ?!.,]')) NS += H;
+				// Let's do light Chinese garbling for now for ABDL.
+				if (isChineseCharacter(H)) NS += doChineseGarbling(H, 1);
 			} else NS += CD.charAt(L);
 
 		}
