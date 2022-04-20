@@ -76,12 +76,15 @@ var StruggleProgressDexDirectionRight = false; // Moves left when false, right w
 const StruggleMinigames = {
 	Strength: {
 		Setup: StruggleStrengthSetup,
+		Draw: StruggleStrengthDraw,
 	},
 	Flexibility: {
 		Setup: StruggleFlexibilitySetup,
+		Draw: StruggleFlexibilityDraw,
 	},
 	Dexterity: {
 		Setup: StruggleDexteritySetup,
+		Draw: StruggleDexterityDraw,
 	},
 };
 
@@ -94,39 +97,37 @@ const StruggleMinigames = {
  * @param {Character} C
  */
 function StruggleDrawStruggleProgress(C) {
-	if (StruggleProgressCurrentMinigame == "Strength") StruggleDrawStrengthProgress(C);
-	else if (StruggleProgressCurrentMinigame == "Flexibility") StruggleDrawFlexibilityProgress(C);
-	else if (StruggleProgressCurrentMinigame == "Dexterity") StruggleDrawDexterityProgress(C);
-
-	else {
-		if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null)) {
-			DrawAssetPreview(1200, 150, StruggleProgressPrevItem.Asset, { Craft: StruggleProgressPrevItem.Craft });
-			DrawAssetPreview(1575, 150, StruggleProgressNextItem.Asset, { Craft: StruggleProgressNextItem.Craft });
-		} else DrawAssetPreview(1387, 150, (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Asset : StruggleProgressNextItem.Asset, { Craft: (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Craft : StruggleProgressNextItem.Craft });
-
-
-		DrawText(DialogFindPlayer("ChooseStruggleMethod"), 1500, 550, "White", "Black");
-
-		if (InventoryCraftPropertyIs(StruggleProgressPrevItem, "Strong")) DrawRect(1387-300, 600, 225, 275, "Pink");
-		else if (MouseIn(1387-300, 600, 225, 275)) DrawRect(1387-300, 600, 225, 275, "aqua");
-		else DrawRect(1387-300, 600, 225, 275, "white");
-		DrawImageResize("Icons/Struggle/Strength.png", 1389-300, 602, 221, 221);
-		DrawTextFit(DialogFindPlayer("Strength"), 1500-300, 850, 221, "black");
-
-		if (InventoryCraftPropertyIs(StruggleProgressPrevItem, "Flexible")) DrawRect(1387, 600, 225, 275, "Pink");
-		else if (MouseIn(1387, 600, 225, 275)) DrawRect(1387, 600, 225, 275, "aqua");
-		else DrawRect(1387, 600, 225, 275, "white");
-		DrawImageResize("Icons/Struggle/Flexibility.png", 1389, 602, 221, 221);
-		DrawTextFit(DialogFindPlayer("Flexibility"), 1500, 850, 221, "black");
-
-		if (InventoryCraftPropertyIs(StruggleProgressPrevItem, "Nimble")) DrawRect(1387+300, 600, 225, 275, "Pink");
-		else if (MouseIn(1387+300, 600, 225, 275)) DrawRect(1387+300, 600, 225, 275, "aqua");
-		else DrawRect(1387+300, 600, 225, 275, "white");
-		DrawImageResize("Icons/Struggle/Dexterity.png", 1389+300, 602, 221, 221);
-		DrawTextFit(DialogFindPlayer("Dexterity"), 1500+300, 850, 221, "black");
-
+	if (StruggleProgressCurrentMinigame !== "") {
+		// There's a minigame running, use its draw handler
+		StruggleMinigames[StruggleProgressCurrentMinigame].Draw(C);
+		return;
 	}
 
+	if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null)) {
+		DrawAssetPreview(1200, 150, StruggleProgressPrevItem.Asset, { Craft: StruggleProgressPrevItem.Craft });
+		DrawAssetPreview(1575, 150, StruggleProgressNextItem.Asset, { Craft: StruggleProgressNextItem.Craft });
+	} else DrawAssetPreview(1387, 150, (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Asset : StruggleProgressNextItem.Asset, { Craft: (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Craft : StruggleProgressNextItem.Craft });
+
+
+	DrawText(DialogFindPlayer("ChooseStruggleMethod"), 1500, 550, "White", "Black");
+
+	if (InventoryCraftPropertyIs(StruggleProgressPrevItem, "Strong")) DrawRect(1387-300, 600, 225, 275, "Pink");
+	else if (MouseIn(1387-300, 600, 225, 275)) DrawRect(1387-300, 600, 225, 275, "aqua");
+	else DrawRect(1387-300, 600, 225, 275, "white");
+	DrawImageResize("Icons/Struggle/Strength.png", 1389-300, 602, 221, 221);
+	DrawTextFit(DialogFindPlayer("Strength"), 1500-300, 850, 221, "black");
+
+	if (InventoryCraftPropertyIs(StruggleProgressPrevItem, "Flexible")) DrawRect(1387, 600, 225, 275, "Pink");
+	else if (MouseIn(1387, 600, 225, 275)) DrawRect(1387, 600, 225, 275, "aqua");
+	else DrawRect(1387, 600, 225, 275, "white");
+	DrawImageResize("Icons/Struggle/Flexibility.png", 1389, 602, 221, 221);
+	DrawTextFit(DialogFindPlayer("Flexibility"), 1500, 850, 221, "black");
+
+	if (InventoryCraftPropertyIs(StruggleProgressPrevItem, "Nimble")) DrawRect(1387+300, 600, 225, 275, "Pink");
+	else if (MouseIn(1387+300, 600, 225, 275)) DrawRect(1387+300, 600, 225, 275, "aqua");
+	else DrawRect(1387+300, 600, 225, 275, "white");
+	DrawImageResize("Icons/Struggle/Dexterity.png", 1389+300, 602, 221, 221);
+	DrawTextFit(DialogFindPlayer("Dexterity"), 1500+300, 850, 221, "black");
 }
 
 /**
@@ -222,7 +223,7 @@ function StruggleProgressStart(C, PrevItem, NextItem) {
 			&& (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem))
 			&& ((Player.CanInteract() && !InventoryItemHasEffect(PrevItem, "Mounted", true))
 				|| StruggleStrengthGetDifficulty(C, PrevItem, NextItem).auto >= 0))) {
-		StruggleMinigameStart(C, "Strength", StruggleProgressPrevItem, StruggleProgressNextItem);
+		StruggleMinigameStart(C, "Strength", PrevItem, NextItem);
 	}
 }
 
@@ -235,7 +236,7 @@ function StruggleProgressStart(C, PrevItem, NextItem) {
  * @param {Character} C
  * @param {number} [Offset]
  */
-function StruggleProgressAutoDraw(C, Offset) {
+function StruggleMinigameDrawCommon(C, Offset) {
 	if (!Offset) Offset = 0;
 	// Draw one or both items
 	if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null)) {
@@ -419,8 +420,8 @@ function StruggleStrengthSetup(C, PrevItem, NextItem) {
  * @param {Character} C - The character for whom the struggle dialog is drawn. That can be the player or another character.
  * @returns {void} - Nothing
  */
-function StruggleDrawStrengthProgress(C) {
-	StruggleProgressAutoDraw(C);
+function StruggleStrengthDraw(C) {
+	StruggleMinigameDrawCommon(C);
 
 	// Draw the current operation and progress
 	if (StruggleProgressAuto < 0) DrawText(DialogFindPlayer("Challenge") + " " + ((StruggleProgressStruggleCount >= 50) ? StruggleProgressChallenge.toString() : "???"), 1500, 150, "White", "Black");
@@ -609,7 +610,7 @@ function StruggleFlexibilitySetup(C, PrevItem, NextItem) {
  * @param {Character} C - The character for whom the struggle dialog is drawn. That can be the player or another character.
  * @returns {void} - Nothing
  */
-function StruggleDrawFlexibilityProgress(C) {
+function StruggleFlexibilityDraw(C) {
 
 	if (StruggleProgressFlexTimer < CurrentTime) {
 		StruggleProgressFlexTimer = CurrentTime + StruggleProgressFlexCirclesRate + StruggleProgressFlexCirclesRate * Math.random();
@@ -645,7 +646,7 @@ function StruggleDrawFlexibilityProgress(C) {
 	// Advance the minigame's state
 	StruggleFlexibility();
 
-	StruggleProgressAutoDraw(C, -150);
+	StruggleMinigameDrawCommon(C, -150);
 
 	// Draw the current operation and progress
 	if (StruggleProgressAuto < 0) DrawText(DialogFindPlayer("Challenge") + " " + ((StruggleProgressStruggleCount >= 50) ? StruggleProgressChallenge.toString() : "???"), 1500, 425, "White", "Black");
@@ -812,8 +813,8 @@ function StruggleDexteritySetup(C, PrevItem, NextItem) {
  * @param {Character} C - The character for whom the struggle dialog is drawn. That can be the player or another character.
  * @returns {void} - Nothing
  */
-function StruggleDrawDexterityProgress(C) {
-	StruggleProgressAutoDraw(C);
+function StruggleDexterityDraw(C) {
+	StruggleMinigameDrawCommon(C);
 
 
 	DrawImageResize("Icons/Struggle/Buckle.png", 1420 + StruggleProgressDexTarget, 625, 150, 150);
