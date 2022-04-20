@@ -225,8 +225,8 @@ function InventoryItemHandsSpankingToysClick() {
 function InventoryItemHandsSpankingToysPublishAction(C, Option) {
 	var msg = C.ID == 0 ? "SpankingToysSetPlayer" : "SpankingToysSetOthers";
 	var Dictionary = [];
-	Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
-	Dictionary.push({ Tag: "TargetCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
+	Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
+	Dictionary.push({ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 	Dictionary.push({ Tag: "ItemUsed", AssetName: "SpankingToys" + Option.Name });
 	ChatRoomPublishCustomAction(msg, true, Dictionary);
 }

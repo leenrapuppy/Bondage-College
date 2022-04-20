@@ -64,7 +64,7 @@ function TimerInventoryRemove() {
 						// If we're removing a lock and we're in a chatroom, send a chatroom message
 						if (LockName && ServerPlayerIsInChatRoom()) {
 							var Dictionary = [
-								{Tag: "DestinationCharacterName", Text: Character[C].Name, MemberNumber: Character[C].MemberNumber},
+								{Tag: "DestinationCharacterName", Text: CharacterNickname(Character[C]), MemberNumber: Character[C].MemberNumber},
 								{Tag: "FocusAssetGroup", AssetGroupName: Character[C].Appearance[A].Asset.Group.Name},
 								{Tag: "LockName", AssetName: LockName}
 							];

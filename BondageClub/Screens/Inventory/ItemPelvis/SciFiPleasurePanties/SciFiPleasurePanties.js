@@ -84,7 +84,7 @@ function InventoryItemPelvisSciFiPleasurePantiesClick() {
             if (CharacterGetCurrent().ID == 0) ServerPlayerAppearanceSync();
             if (CurrentScreen == "ChatRoom") ChatRoomCharacterItemUpdate(C, "ItemPelvis");
 			let Dictionary = [];
-			Dictionary.push({Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber});
+			Dictionary.push({Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
 			ChatRoomPublishCustomAction("SciFiPleasurePantiesAction" + (DialogFocusItem.Property.LockButt ? "LockButt" : "UnlockButt"), true, Dictionary);
 		}
 
@@ -95,7 +95,7 @@ function InventoryItemPelvisSciFiPleasurePantiesClick() {
 			if (CharacterGetCurrent().ID == 0) ServerPlayerAppearanceSync();
 			if (CurrentScreen == "ChatRoom") ChatRoomCharacterItemUpdate(C, "ItemPelvis");
 			let Dictionary = [];
-			Dictionary.push({Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber});
+			Dictionary.push({Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
 			ChatRoomPublishCustomAction("SciFiPleasurePantiesAction" + (DialogFocusItem.Property.LockCrotch ? "AddShield" : "RemoveShield"), true, Dictionary);
 		}
 	}
@@ -137,7 +137,7 @@ function InventoryItemPelvisSciFiPleasurePantiesLockOrgasm(OrgasmLock, DenyMode)
     if (C.ID == 0) ServerPlayerAppearanceSync();
 
 	var Dictionary = [];
-	Dictionary.push({Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber});
+	Dictionary.push({Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
     ChatRoomPublishCustomAction("SciFiPleasurePantiesBeep" + ((OrgasmLock == true) ? ((DenyMode == true) ? "DenialModeActivate" :  "EdgeModeActivate") : "DenialModeDeactivate"), true, Dictionary);
 }
 
@@ -185,7 +185,7 @@ function InventoryItemPelvisSciFiPleasurePantiesSetIntensity(Modifier) {
 	if (C.ID == 0) ServerPlayerAppearanceSync();
 
 	var Dictionary = [];
-	Dictionary.push({Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber});
+	Dictionary.push({Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
 	ChatRoomPublishCustomAction("SciFiPleasurePantiesVibe" + ((Modifier > 0) ? "Increase" : "Decrease") + "To" + DialogFocusItem.Property.Intensity, true, Dictionary);
 }
 
@@ -201,7 +201,7 @@ function InventoryItemPelvisSciFiPleasurePantiesSetShockLevel(Modifier) {
 	DialogFocusItem.Property.ShockLevel = DialogFocusItem.Property.ShockLevel + Modifier;
 	if (DialogFocusItem.Property.ShowText && CurrentScreen == "ChatRoom") {
 		var Dictionary = [];
-		Dictionary.push({Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber});
+		Dictionary.push({Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
 		ChatRoomPublishCustomAction("SciFiPleasurePantiesShockSet" + DialogFocusItem.Property.ShockLevel, true, Dictionary);
 	}
 	else if (CurrentScreen == "ChatRoom")
@@ -224,7 +224,7 @@ function InventoryItemPelvisSciFiPleasurePantiesShockTrigger() {
 
 	var Dictionary = [];
 	Dictionary.push({ Tag: "AssetName", Text: DialogFocusItem.Asset.Description.toLowerCase() });
-	Dictionary.push({ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber });
+	Dictionary.push({ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 	Dictionary.push({ ShockIntensity : DialogFocusItem.Property.Intensity * 1.5});
     ChatRoomPublishCustomAction("SciFiPleasurePantiesShockTrigger" + DialogFocusItem.Property.ShockLevel, true, Dictionary);
 

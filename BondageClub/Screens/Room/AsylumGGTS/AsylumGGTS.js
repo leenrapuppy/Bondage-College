@@ -227,8 +227,7 @@ function AsylumGGTSBuildPrivate() {
  * @param {Character} C - The character to rename
  * @returns {string} - The new name for that character
  */
-function AsylumGGTSCharacterName(C) {
-	let Name = CharacterNickname(C);
+function AsylumGGTSCharacterName(C, Name) {
 	if ((CurrentScreen !== "ChatRoom") || (ChatRoomSpace !== "Asylum")) return Name;
 	if ((ChatRoomData == null) || (ChatRoomData.Game !== "GGTS")) return Name;
 	let Level = AsylumGGTSGetLevel(C);
@@ -249,10 +248,10 @@ function AsylumGGTSCharacterName(C) {
 function AsylumGGTSMessage(Msg, Target) {
 	if ((Msg == "TaskDone") && (AsylumGGTSGetLevel(Player) == 5)) Msg = "TaskDoneSlaveGirl";
 	if ((Msg == "TaskDone") && (AsylumGGTSGetLevel(Player) == 6)) Msg = "TaskDoneSlave";
-	let Dict = [{ Tag: "SourceCharacter", Text: AsylumGGTSCharacterName(Player), MemberNumber: Player.MemberNumber }];
+	let Dict = [{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber }];
 	if (Target != null) {
 		Msg = Msg + "Target";
-		Dict.push({ Tag: "TargetCharacter", Text: AsylumGGTSCharacterName(Target), MemberNumber: Target.MemberNumber });
+		Dict.push({ Tag: "TargetCharacter", Text: CharacterNickname(Target), MemberNumber: Target.MemberNumber });
 	}
 	ServerSend("ChatRoomChat", { Content: "GGTS" + Msg, Type: "Action", Dictionary: Dict });
 }

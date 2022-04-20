@@ -94,8 +94,8 @@ function InventoryItemVulvaFuturisticVibratorClickSet() {
 			DialogFocusItem.Property.TriggerValues = temp;
 			if (CurrentScreen == "ChatRoom") {
 				var Dictionary = [];
-				Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
-				Dictionary.push({Tag: "DestinationCharacter", Text: CurrentCharacter.Name, MemberNumber: CurrentCharacter.MemberNumber});
+				Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
+				Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(CurrentCharacter), MemberNumber: CurrentCharacter.MemberNumber});
 				Dictionary.push({Tag: "FocusAssetGroup", AssetGroupName: CurrentCharacter.FocusGroup.Name});
 				ChatRoomPublishCustomAction("FuturisticVibratorSaveVoiceCommandsAction", true, Dictionary);
 			}
@@ -173,7 +173,7 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 		var Message;
 		/** @type {ChatMessageDictionary} */
 		var Dictionary = [
-			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
+			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 			{ Tag: "AssetName", AssetName: Item.Asset.Name },
 		];
 
@@ -182,7 +182,7 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 			Message = "Vibe" + Direction + "To" + Item.Property.Intensity;
 		} else if (!IgnoreSame) {
 			Message = "FuturisticVibratorChange";
-			Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+			Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 		}
 
 		Dictionary.push({ Automatic: true });
@@ -204,7 +204,7 @@ function InventoryItemVulvaFuturisticVibratorTriggerShock(C, Item) {
 	if (CurrentScreen == "ChatRoom") {
 		/** @type {ChatMessageDictionary} */
 		var Dictionary = [];
-		Dictionary.push({ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber });
+		Dictionary.push({ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 		Dictionary.push({ Tag: "AssetName", AssetName: Item.Asset.Name});
 		Dictionary.push({ ShockIntensity : 2});
 
