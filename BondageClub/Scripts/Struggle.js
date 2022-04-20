@@ -73,6 +73,18 @@ var StruggleProgressDexCurrent = 0;
 var StruggleProgressDexMax = 300;
 var StruggleProgressDexDirectionRight = false; // Moves left when false, right when true
 
+const StruggleMinigames = {
+	Strength: {
+		Setup: StruggleStrengthSetup,
+	},
+	Flexibility: {
+		Setup: StruggleFlexibilitySetup,
+	},
+	Dexterity: {
+		Setup: StruggleDexteritySetup,
+	},
+};
+
 /**
  * Main handler for drawing the struggle minigame screen
  *
@@ -139,8 +151,6 @@ function StruggleProgressGetOperation(C, PrevItem, NextItem) {
 	return "...";
 }
 
-
-
 /**
  * Handles the minigames' KeyDown event.
  *
@@ -179,11 +189,11 @@ function StruggleClick() {
 		StruggleDexterity();
 	} else {
 		if (MouseIn(1387-300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressPrevItem, "Strong")) {
-			StruggleStrengthStart(Player, StruggleProgressPrevItem, StruggleProgressNextItem);
+			StruggleMinigameStart(Player, "Strength", StruggleProgressPrevItem, StruggleProgressNextItem);
 		} else if (MouseIn(1387, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressPrevItem, "Flexible")) {
-			StruggleFlexibilityStart(Player, StruggleProgressPrevItem, StruggleProgressNextItem);
+			StruggleMinigameStart(Player, "Strength", StruggleProgressPrevItem, StruggleProgressNextItem);
 		} else if (MouseIn(1387+300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressPrevItem, "Nimble")) {
-			StruggleDexterityStart(Player, StruggleProgressPrevItem, StruggleProgressNextItem);
+			StruggleMinigameStart(Player, "Strength", StruggleProgressPrevItem, StruggleProgressNextItem);
 		}
 	}
 }
@@ -212,7 +222,7 @@ function StruggleProgressStart(C, PrevItem, NextItem) {
 			&& (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem))
 			&& ((Player.CanInteract() && !InventoryItemHasEffect(PrevItem, "Mounted", true))
 				|| StruggleStrengthGetDifficulty(C, PrevItem, NextItem).auto >= 0))) {
-		StruggleStrengthStart(C, StruggleProgressPrevItem, StruggleProgressNextItem);
+		StruggleMinigameStart(C, "Strength", StruggleProgressPrevItem, StruggleProgressNextItem);
 	}
 }
 
@@ -316,6 +326,60 @@ function StruggleProgressCheckEnd(C) {
 	}
 }
 
+/**
+ * Starts the given struggle minigame.
+ *
+ * This function initializes the common state and calls the requested minigame
+ * setup function.
+ *
+ * @param {Character} C
+ * @param {"Strength"|"Flexibility"|"Dexterity"} MiniGame
+ * @param {Item} PrevItem
+ * @param {Item} NextItem
+ */
+function StruggleMinigameStart(C, MiniGame, PrevItem, NextItem) {
+
+	if (!StruggleMinigames[MiniGame])
+		return;
+
+	// Prepares the progress bar and timer
+	StruggleProgressCurrentMinigame = MiniGame;
+	StruggleProgress = 0;
+	StruggleProgressPrevItem = PrevItem;
+	StruggleProgressNextItem = NextItem;
+	StruggleProgressOperation = StruggleProgressGetOperation(C, PrevItem, NextItem);
+	StruggleProgressStruggleCount = 0;
+	DialogItemToLock = null;
+	DialogMenuButtonBuild(C);
+
+	StruggleMinigames[MiniGame].Setup(C, PrevItem, NextItem);
+
+	// The progress bar will not go down if the player can use her hands for a new item, or if she has the key for the locked item
+	if ((StruggleProgressAuto < 0) && Player.CanInteract() && (PrevItem == null)) StruggleProgressAuto = 0;
+	if ((StruggleProgressAuto < 0) && Player.CanInteract() && (PrevItem != null) && (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem)) && !InventoryItemHasEffect(PrevItem, "Mounted", true)) StruggleProgressAuto = 0;
+
+	// Roleplay users can bypass the struggle mini-game with a toggle
+	if ((CurrentScreen == "ChatRoom") && ((StruggleProgressChallenge <= 6) || (StruggleProgressAuto >= 0)) && Player.RestrictionSettings.BypassStruggle) {
+		StruggleProgressAuto = 1;
+		StruggleProgressSkill = 5;
+	}
+
+	// If there's no current blushing, we update the blushing state while struggling
+	DialogAllowBlush = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Blush") == null) || (InventoryGet(C, "Blush").Property == null) || (InventoryGet(C, "Blush").Property.Expression == null)));
+	DialogAllowEyebrows = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Eyebrows") == null) || (InventoryGet(C, "Eyebrows").Property == null) || (InventoryGet(C, "Eyebrows").Property.Expression == null)));
+	DialogAllowFluids = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Fluids") == null) || (InventoryGet(C, "Fluids").Property == null) || (InventoryGet(C, "Fluids").Property.Expression == null)));
+
+	// Applying or removing specific items can trigger an audio sound to play
+	let played = false;
+	if (NextItem && NextItem.Asset)
+		played = AudioPlaySoundForAsset(C, NextItem.Asset);
+	if (!played && PrevItem && PrevItem.Asset)
+		AudioPlaySoundForAsset(C, PrevItem.Asset);
+
+
+
+}
+
 ////////////////////////////STRUGGLE MINIGAME: BRUTE FORCE//////////////////////////////
 /*
 Featuring:
@@ -326,7 +390,28 @@ Featuring:
 Game description: Mash A and S until you get out
 */
 
+/**
+ * Perform setup for the Strength minigame.
+ *
+ * Called by StruggleMinigameStart. Calculates the challenge level based on the
+ * base item difficulty, the skill of the rigger and the escapee and modified,
+ * if the escapee is bound in a way.
+ *
+ * @param {Character} C - The character who tries to struggle
+ * @param {Item} PrevItem - The item, the character wants to struggle out of
+ * @param {Item} [NextItem] - The item that should substitute the first one
+ * @returns {void} - Nothing
+ */
+function StruggleStrengthSetup(C, PrevItem, NextItem) {
 
+	const StruggleDiff = StruggleStrengthGetDifficulty(C, PrevItem, NextItem);
+
+	StruggleProgressAuto = StruggleDiff.auto;  // S: -9 is floor level to always give a false hope
+	StruggleProgressSkill = StruggleDiff.timer;
+	StruggleProgressChallenge = StruggleDiff.difficulty * -1;
+
+	StruggleProgressLastKeyPress = 0;
+}
 
 /**
  * Strength minigame main drawing routine.
@@ -439,68 +524,12 @@ function StruggleStrengthGetDifficulty(C, PrevItem, NextItem) {
 		if ((Lock != null) && (Lock.Asset != null) && (Lock.Asset.RemoveTime != null)) Timer = Timer + Lock.Asset.RemoveTime;
 	}
 
-	return {difficulty: S, auto: TimerRunInterval * (0.22 + (((S <= -10) ? -9 : S) * 0.11)) / (Timer * CheatFactor("DoubleItemSpeed", 0.5)), timer: Timer};
+	return {
+		difficulty: S,
+		auto: TimerRunInterval * (0.22 + (((S <= -10) ? -9 : S) * 0.11)) / (Timer * CheatFactor("DoubleItemSpeed", 0.5)),
+		timer: Timer
+	};
 }
-
-/**
- * Starts the dialog progress bar for struggling out of bondage and keeps the items that needs to be added / swapped / removed.
- * First the challenge level is calculated based on the base item difficulty, the skill of the rigger and the escapee and modified, if
- * the escapee is bound in a way. Also blushing and drooling, as well as playing a sound is handled in this function.
- * @param {Character} C - The character who tries to struggle
- * @param {Item} PrevItem - The item, the character wants to struggle out of
- * @param {Item} [NextItem] - The item that should substitute the first one
- * @returns {void} - Nothing
- */
-function StruggleStrengthStart(C, PrevItem, NextItem) {
-
-	// Gets the required skill / challenge level based on player/rigger skill and item difficulty (0 by default is easy to struggle out)
-	var StruggleDiff = StruggleStrengthGetDifficulty(C, PrevItem, NextItem);
-	var S = StruggleDiff.difficulty;
-
-
-	// Prepares the progress bar and timer
-	StruggleProgressCurrentMinigame = "Strength";
-	StruggleProgress = 0;
-	StruggleProgressAuto = StruggleDiff.auto;  // S: -9 is floor level to always give a false hope
-	StruggleProgressPrevItem = PrevItem;
-	StruggleProgressNextItem = NextItem;
-	StruggleProgressOperation = StruggleProgressGetOperation(C, PrevItem, NextItem);
-	StruggleProgressSkill = StruggleDiff.timer;
-	StruggleProgressChallenge = S * -1;
-	StruggleProgressLastKeyPress = 0;
-	StruggleProgressStruggleCount = 0;
-	DialogItemToLock = null;
-	DialogMenuButtonBuild(C);
-
-	// The progress bar will not go down if the player can use her hands for a new item, or if she has the key for the locked item
-	if ((StruggleProgressAuto < 0) && Player.CanInteract() && (PrevItem == null)) StruggleProgressAuto = 0;
-	if ((StruggleProgressAuto < 0) && Player.CanInteract() && (PrevItem != null) && (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem)) && !InventoryItemHasEffect(PrevItem, "Mounted", true)) StruggleProgressAuto = 0;
-
-	// Roleplay users can bypass the struggle mini-game with a toggle
-	if ((CurrentScreen == "ChatRoom") && ((StruggleProgressChallenge <= 6) || (StruggleProgressAuto >= 0)) && Player.RestrictionSettings.BypassStruggle) {
-		StruggleProgressAuto = 1;
-		StruggleProgressSkill = 5;
-	}
-
-	// If there's no current blushing, we update the blushing state while struggling
-	DialogAllowBlush = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Blush") == null) || (InventoryGet(C, "Blush").Property == null) || (InventoryGet(C, "Blush").Property.Expression == null)));
-	DialogAllowEyebrows = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Eyebrows") == null) || (InventoryGet(C, "Eyebrows").Property == null) || (InventoryGet(C, "Eyebrows").Property.Expression == null)));
-	DialogAllowFluids = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Fluids") == null) || (InventoryGet(C, "Fluids").Property == null) || (InventoryGet(C, "Fluids").Property.Expression == null)));
-
-	// Applying or removing specific items can trigger an audio sound to play
-	let played = false;
-	if (NextItem && NextItem.Asset)
-		played = AudioPlaySoundForAsset(C, NextItem.Asset);
-	if (!played && PrevItem && PrevItem.Asset)
-		AudioPlaySoundForAsset(C, PrevItem.Asset);
-
-}
-
-
-
-
-
-
 
 ////////////////////////////STRUGGLE MINIGAME: USE FLEXIBILITY//////////////////////////////
 /*
@@ -522,7 +551,7 @@ Game description:
  * @param {Item} [NextItem] - The item that should substitute the first one
  * @returns {void} - Nothing
  */
-function StruggleFlexibilityStart(C, PrevItem, NextItem) {
+function StruggleFlexibilitySetup(C, PrevItem, NextItem) {
 
 	// Gets the required skill / challenge level based on player/rigger skill and item difficulty (0 by default is easy to struggle out)
 	var S = 0;
@@ -567,45 +596,12 @@ function StruggleFlexibilityStart(C, PrevItem, NextItem) {
 		if ((Lock != null) && (Lock.Asset != null) && (Lock.Asset.RemoveTime != null)) Timer = Timer + Lock.Asset.RemoveTime;
 	}
 
-	// Prepares the progress bar and timer
-	StruggleProgressCurrentMinigame = "Flexibility";
-	StruggleProgress = 0;
 	StruggleProgressAuto = TimerRunInterval * (0.22 + (((S <= -10) ? -9 : S) * 0.11)) / (Timer * CheatFactor("DoubleItemSpeed", 0.5));  // S: -9 is floor level to always give a false hope
-	StruggleProgressPrevItem = PrevItem;
-	StruggleProgressNextItem = NextItem;
-	StruggleProgressOperation = StruggleProgressGetOperation(C, PrevItem, NextItem);
 	StruggleProgressSkill = Timer;
 	StruggleProgressChallenge = S * -1;
-	StruggleProgressStruggleCount = 0;
-	DialogItemToLock = null;
-	DialogMenuButtonBuild(C);
-
 
 	StruggleProgressFlexCircles = [];
 	StruggleProgressFlexTimer = 0;
-
-	// The progress bar will not go down if the player can use her hands for a new item, or if she has the key for the locked item
-	if ((StruggleProgressAuto < 0) && Player.CanInteract() && (PrevItem == null)) StruggleProgressAuto = 0;
-	if ((StruggleProgressAuto < 0) && Player.CanInteract() && (PrevItem != null) && (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem)) && !InventoryItemHasEffect(PrevItem, "Mounted", true)) StruggleProgressAuto = 0;
-
-	// Roleplay users can bypass the struggle mini-game with a toggle
-	if ((CurrentScreen == "ChatRoom") && ((StruggleProgressChallenge <= 6) || (StruggleProgressAuto >= 0)) && Player.RestrictionSettings.BypassStruggle) {
-		StruggleProgressAuto = 1;
-		StruggleProgressSkill = 5;
-	}
-
-	// If there's no current blushing, we update the blushing state while struggling
-	DialogAllowBlush = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Blush") == null) || (InventoryGet(C, "Blush").Property == null) || (InventoryGet(C, "Blush").Property.Expression == null)));
-	DialogAllowEyebrows = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Eyebrows") == null) || (InventoryGet(C, "Eyebrows").Property == null) || (InventoryGet(C, "Eyebrows").Property.Expression == null)));
-	DialogAllowFluids = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Fluids") == null) || (InventoryGet(C, "Fluids").Property == null) || (InventoryGet(C, "Fluids").Property.Expression == null)));
-
-	// Applying or removing specific items can trigger an audio sound to play
-	let played = false;
-	if (NextItem && NextItem.Asset)
-		played = AudioPlaySoundForAsset(C, NextItem.Asset);
-	if (!played && PrevItem && PrevItem.Asset)
-		AudioPlaySoundForAsset(C, PrevItem.Asset);
-
 }
 
 /**
@@ -748,7 +744,7 @@ Game description:
  * @param {Item} [NextItem] - The item that should substitute the first one
  * @returns {void} - Nothing
  */
-function StruggleDexterityStart(C, PrevItem, NextItem) {
+function StruggleDexteritySetup(C, PrevItem, NextItem) {
 
 	// Gets the required skill / challenge level based on player/rigger skill and item difficulty (0 by default is easy to struggle out)
 	var S = 0;
@@ -802,45 +798,13 @@ function StruggleDexterityStart(C, PrevItem, NextItem) {
 	}
 
 	// Prepares the progress bar and timer
-	StruggleProgressCurrentMinigame = "Dexterity";
-	StruggleProgress = 0;
 	StruggleProgressAuto = TimerRunInterval * (0.22 + (((S <= -10) ? -9 : S) * 0.11)) / (Timer * CheatFactor("DoubleItemSpeed", 0.5));  // S: -9 is floor level to always give a false hope
-	StruggleProgressPrevItem = PrevItem;
-	StruggleProgressNextItem = NextItem;
-	StruggleProgressOperation = StruggleProgressGetOperation(C, PrevItem, NextItem);
 	StruggleProgressSkill = Timer;
 	StruggleProgressChallenge = S * -1;
-	StruggleProgressStruggleCount = 0;
-	DialogItemToLock = null;
-	DialogMenuButtonBuild(C);
-
 
 	StruggleProgressDexTarget = Math.random() * 2 * StruggleProgressDexMax - StruggleProgressDexMax;
 	StruggleProgressDexCurrent = 0;
 	StruggleProgressDexDirectionRight = false;
-
-	// The progress bar will not go down if the player can use her hands for a new item, or if she has the key for the locked item
-	if ((StruggleProgressAuto < 0) && Player.CanInteract() && (PrevItem == null)) StruggleProgressAuto = 0;
-	if ((StruggleProgressAuto < 0) && Player.CanInteract() && (PrevItem != null) && (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem)) && !InventoryItemHasEffect(PrevItem, "Mounted", true)) StruggleProgressAuto = 0;
-
-	// Roleplay users can bypass the struggle mini-game with a toggle
-	if ((CurrentScreen == "ChatRoom") && ((StruggleProgressChallenge <= 6) || (StruggleProgressAuto >= 0)) && Player.RestrictionSettings.BypassStruggle) {
-		StruggleProgressAuto = 1;
-		StruggleProgressSkill = 5;
-	}
-
-	// If there's no current blushing, we update the blushing state while struggling
-	DialogAllowBlush = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Blush") == null) || (InventoryGet(C, "Blush").Property == null) || (InventoryGet(C, "Blush").Property.Expression == null)));
-	DialogAllowEyebrows = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Eyebrows") == null) || (InventoryGet(C, "Eyebrows").Property == null) || (InventoryGet(C, "Eyebrows").Property.Expression == null)));
-	DialogAllowFluids = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Fluids") == null) || (InventoryGet(C, "Fluids").Property == null) || (InventoryGet(C, "Fluids").Property.Expression == null)));
-
-	// Applying or removing specific items can trigger an audio sound to play
-	let played = false;
-	if (NextItem && NextItem.Asset)
-		played = AudioPlaySoundForAsset(C, NextItem.Asset);
-	if (!played && PrevItem && PrevItem.Asset)
-		AudioPlaySoundForAsset(C, PrevItem.Asset);
-
 }
 
 /**
