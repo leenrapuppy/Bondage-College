@@ -73,6 +73,8 @@ var StruggleProgressDexCurrent = 0;
 var StruggleProgressDexMax = 300;
 var StruggleProgressDexDirectionRight = false; // Moves left when false, right when true
 
+
+/** @type {Record<string, StruggleMinigame>} */
 const StruggleMinigames = {
 	Strength: {
 		Setup: StruggleStrengthSetup,
