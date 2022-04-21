@@ -1830,11 +1830,8 @@ function DialogClick() {
 			CommonDynamicFunction("Inventory" + DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Click()");
 		} else {
 
-			// If the user wants to speed up the add / swap / remove progress
-			if ((MouseX >= 1000) && (MouseX < 2000) && (MouseY >= 400) && (MouseY < 1000) && (StruggleProgress >= 0)) StruggleClick();
-
-			// If the user wants to pick a lock
-			if ((MouseX >= 1000) && (MouseX < 2000) && (MouseY >= 200) && (MouseY < 1000) && (StruggleLockPickOrder)) { StruggleLockPickClick(CurrentCharacter); return; }
+			// If the user is in the struggle minigame screen, pass the event down
+			if ((MouseX >= 1000) && (MouseX < 2000) && (MouseY >= 200) && (MouseY < 1000) && (StruggleProgress >= 0)) StruggleClick();
 
 			// If the user wants to click on one of icons in the item menu
 			if ((MouseX >= 1000) && (MouseX < 2000) && (MouseY >= 15) && (MouseY <= 105)) DialogMenuButtonClick();
@@ -2252,14 +2249,9 @@ function DialogDrawItemMenu(C) {
 
 	}
 
-	// If the player is progressing
-	if (StruggleProgress >= 0) {
+	// If the player is struggling or lockpicking
+	if (StruggleProgress >= 0 || StruggleLockPickOrder) {
 		StruggleDrawStruggleProgress(C);
-		return;
-	}
-	// If the player is lockpicking
-	if (StruggleLockPickOrder) {
-		StruggleDrawLockpickProgress(C);
 		return;
 	}
 

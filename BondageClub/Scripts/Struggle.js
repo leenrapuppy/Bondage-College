@@ -1,5 +1,4 @@
 "use strict";
-var StruggleLockPickItem = null;
 /** @type {number[]} */
 var StruggleLockPickOrder = null;
 /** @type {boolean[]} */
@@ -10,8 +9,6 @@ var StruggleLockPickOffset = null;
 var StruggleLockPickOffsetTarget = null;
 /** @type {number[]} */
 var StruggleLockPickImpossiblePins = null;
-var StruggleLockPickProgressItem = null;
-var StruggleLockPickProgressOperation = "";
 var StruggleLockPickProgressSkill = 0;
 var StruggleLockPickProgressSkillLose = 0;
 var StruggleLockPickProgressChallenge = 0;
@@ -44,7 +41,7 @@ let StruggleProgress = -1;
 
 /**
  * The minigame currently running
- * @type {"Strength" | "Flexibility" | "Dexterity" | ""}
+ * @type {StruggleKnownMinigames | ""}
  */
 var StruggleProgressCurrentMinigame = "";
 
@@ -91,6 +88,11 @@ const StruggleMinigames = {
 		Draw: StruggleDexterityDraw,
 		HandleEvent: StruggleDexterityHandleEvent,
 	},
+	LockPick: {
+		Setup: StruggleLockPickSetup,
+		Draw: StruggleLockPickDraw,
+		HandleEvent: StruggleLockPickHandleEvent,
+	}
 };
 
 /**
@@ -370,7 +372,7 @@ function StruggleProgressCheckEnd(C) {
  * setup function.
  *
  * @param {Character} C
- * @param {"Strength"|"Flexibility"|"Dexterity"} MiniGame
+ * @param {StruggleKnownMinigames} MiniGame
  * @param {Item} PrevItem
  * @param {Item} NextItem
  */
@@ -946,11 +948,21 @@ Only applies to locks at the moment
 
 
 /**
- * Advances the lock picking dialog
- * @param {Character} C
+ * Handles events for the LockPicking minigame
+ * @param {"Click"|"KeyDown"} EventType
  * @returns {void} - Nothing
  */
-function StruggleLockPickClick(C) {
+function StruggleLockPickHandleEvent(EventType) {
+	if (EventType !== "Click") return;
+
+	StruggleLockPickProcess();
+}
+
+/**
+ * Advances the lock picking dialog
+ * @returns {void} - Nothing
+ */
+function StruggleLockPickProcess() {
 	var X = 1475;
 	var Y = 500;
 	var PinSpacing = 100;
@@ -1006,9 +1018,6 @@ function StruggleLockPickClick(C) {
 						}
 					}
 
-
-
-
 					break;
 				}
 			}
@@ -1025,7 +1034,7 @@ function StruggleLockPickClick(C) {
  * @param {Character} C - The character for whom the lockpicking dialog is drawn. That can be the player or another character.
  * @returns {void} - Nothing
  */
-function StruggleDrawLockpickProgress(C) {
+function StruggleLockPickDraw(C) {
 	// Place where to draw the pins
 	var X = 1475;
 	var Y = 500;
@@ -1067,7 +1076,7 @@ function StruggleDrawLockpickProgress(C) {
 				if (StruggleLockPickFailTime < CurrentTime) {
 					StruggleLockPickFailTime = 0;
 
-					StruggleLockPickProgressStart(C, StruggleLockPickItem);
+					StruggleLockPickSetup(C, StruggleProgressPrevItem);
 
 				}
 				else {
@@ -1202,13 +1211,9 @@ function StruggleLockPickProgressGetOperation(C, Item) {
  * @param {Item} Item - The item, the character wants to unlock
  * @returns {void} - Nothing
  */
-function StruggleLockPickProgressStart(C, Item) {
-
+function StruggleLockPickSetup(C, Item) {
 	StruggleLockPickArousalText = "";
 	StruggleLockPickArousalTick = 0;
-	if (Item) {
-		StruggleLockPickItem = Item;
-	}
 
 	var lock = InventoryGetLock(Item);
 	var LockRating = 1;
@@ -1278,28 +1283,20 @@ function StruggleLockPickProgressStart(C, Item) {
 		if (LockRating >= 10) NumPins += 1; // 8 pins for the high security lock
 		if (LockRating >= 11) NumPins += 2; // Cap at 10 pins
 
-
-
-
-		// Prepares the progress bar and timer
 		StruggleLockPickOrder = [];
 		StruggleLockPickSet = [];
 		StruggleLockPickSetFalse = [];
 		StruggleLockPickOffset = [];
 		StruggleLockPickOffsetTarget = [];
 		StruggleLockPickImpossiblePins = [];
-		StruggleLockPickProgressItem = Item;
-		StruggleLockPickProgressOperation = StruggleLockPickProgressGetOperation(C, Item);
+
+		StruggleProgressOperation = StruggleLockPickProgressGetOperation(C, Item);
 		StruggleLockPickProgressSkill = Math.floor(NumPins*NumPins/2) + Math.floor(Math.max(0, -S)*Math.max(0, -S)); // Scales squarely, so that more difficult locks provide bigger reward!
 		StruggleLockPickProgressSkillLose = NumPins*NumPins/2; // Even if you lose you get some reward. You get this no matter what if you run out of tries.
 		StruggleLockPickProgressChallenge = S * -1;
 		StruggleLockPickProgressCurrentTries = 0;
 		StruggleLockPickSuccessTime = 0;
 		StruggleLockPickFailTime = 0;
-		DialogMenuButtonBuild(C);
-
-
-
 
 		for (let P = 0; P < NumPins; P++) {
 			StruggleLockPickOrder.push(P);

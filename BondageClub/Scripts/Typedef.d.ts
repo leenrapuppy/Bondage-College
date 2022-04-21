@@ -2857,6 +2857,8 @@ interface ICommand {
 	Clear?: false;
 }
 
+type StruggleKnownMinigames = "Strength" | "Flexibility" | "Dexterity" | "LockPick";
+
 interface StruggleMinigame {
 	Setup: (C: Character, PrevItem: Item, NextItem: Item) => void;
 	Draw: (C: Character) => void;
