@@ -52,6 +52,8 @@ var DialogLentLockpicks = false;
 var DialogGamingPreviousRoom = "";
 var DialogGamingPreviousModule = "";
 var DialogButtonDisabledTester = /Disabled(For\w+)?$/u;
+let DialogStrugglePrevItem = null;
+let DialogStruggleNextItem = null;
 
 /** @type {Map<string, string>} */
 var PlayerDialog = new Map();
@@ -1467,7 +1469,7 @@ function DialogMenuButtonClick() {
 					if (CurrentScreen == "ChatRoom") ChatRoomPublishAction(C, Item, null, true, "ActionUnlock");
 					else DialogInventoryBuild(C);
 					DialogLockMenu = false;
-				} else StruggleProgressStart(C, Item, null);
+				} else DialogStruggleStart(C, Item, null);
 				StruggleLockPickOrder = null;
 				DialogLockMenu = false;
 				return;
@@ -1475,13 +1477,13 @@ function DialogMenuButtonClick() {
 
 			// Remove/Struggle Icon - Starts the struggling mini-game (can be impossible to complete)
 			else if (((DialogMenuButton[I] == "Remove") || (DialogMenuButton[I] == "Struggle") || (DialogMenuButton[I] == "Dismount") || (DialogMenuButton[I] == "Escape")) && (Item != null)) {
-				StruggleProgressStart(C, Item, null);
+				DialogStruggleStart(C, Item, null);
 				return;
 			}
 
 			// PickLock Icon - Starts the lockpicking mini-game
 			else if (((DialogMenuButton[I] == "PickLock")) && (Item != null)) {
-				StruggleLockPickProgressStart(C, Item);
+				StruggleMinigameStart(C, "LockPick", Item, null);
 				return;
 			}
 
@@ -1677,7 +1679,7 @@ function DialogItemClick(ClickItem) {
 					if (ClickItem.Asset.Wear) {
 
 						// Check if selfbondage is allowed for the item if used on self
-						if ((ClickItem.Asset.SelfBondage <= 0) || (SkillGetLevel(Player, "SelfBondage") >= ClickItem.Asset.SelfBondage) || (C.ID != 0) || DialogAlwaysAllowRestraint()) StruggleProgressStart(C, CurrentItem, ClickItem);
+						if ((ClickItem.Asset.SelfBondage <= 0) || (SkillGetLevel(Player, "SelfBondage") >= ClickItem.Asset.SelfBondage) || (C.ID != 0) || DialogAlwaysAllowRestraint()) DialogStruggleStart(C, CurrentItem, ClickItem);
 						else if (ClickItem.Asset.SelfBondage <= 10) DialogSetText("RequireSelfBondage" + ClickItem.Asset.SelfBondage);
 						else DialogSetText("CannotUseOnSelf");
 
@@ -1705,7 +1707,7 @@ function DialogItemClick(ClickItem) {
 	// If the item can unlock another item or simply show dialog text (not wearable)
 	if (InventoryAllow(C, ClickItem.Asset))
 		if (InventoryItemHasEffect(ClickItem, /** @type {EffectName} */("Unlock-" + CurrentItem.Asset.Name)))
-			StruggleProgressStart(C, CurrentItem, null);
+			DialogStruggleStart(C, CurrentItem, null);
 		else if ((CurrentItem.Asset.Name == ClickItem.Asset.Name) && CurrentItem.Asset.Extended)
 			DialogExtendItem(CurrentItem);
 		else if (!ClickItem.Asset.Wear)
@@ -1830,8 +1832,18 @@ function DialogClick() {
 			CommonDynamicFunction("Inventory" + DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Click()");
 		} else {
 
-			// If the user is in the struggle minigame screen, pass the event down
-			if ((MouseX >= 1000) && (MouseX < 2000) && (MouseY >= 200) && (MouseY < 1000) && (StruggleProgress >= 0)) StruggleClick();
+			// If the user wants to speed up the add / swap / remove progress
+			if ((MouseX >= 1000) && (MouseX < 2000) && (MouseY >= 200) && (MouseY < 1000) && (DialogIsStruggling())) {
+				if (!StruggleMinigameClick()) {
+					if (MouseIn(1387-300, 600, 225, 275)) {
+						StruggleMinigameStart(Player, "Strength", DialogStrugglePrevItem, DialogStruggleNextItem);
+					} else if (MouseIn(1387, 600, 225, 275)) {
+						StruggleMinigameStart(Player, "Flexibility", DialogStrugglePrevItem, DialogStruggleNextItem);
+					} else if (MouseIn(1387+300, 600, 225, 275)) {
+						StruggleMinigameStart(Player, "Dexterity", DialogStrugglePrevItem, DialogStruggleNextItem);
+					}
+				}
+			}
 
 			// If the user wants to click on one of icons in the item menu
 			if ((MouseX >= 1000) && (MouseX < 2000) && (MouseY >= 15) && (MouseY <= 105)) DialogMenuButtonClick();
@@ -2250,8 +2262,26 @@ function DialogDrawItemMenu(C) {
 	}
 
 	// If the player is struggling or lockpicking
-	if (StruggleProgress >= 0 || StruggleLockPickOrder) {
-		StruggleDrawStruggleProgress(C);
+	if (DialogIsStruggling()) {
+		if (!StruggleMinigameDraw(C)) {
+			if ((DialogStrugglePrevItem != null) && (DialogStruggleNextItem != null)) {
+				DrawAssetPreview(1200, 150, DialogStrugglePrevItem.Asset);
+				DrawAssetPreview(1575, 150, DialogStruggleNextItem.Asset);
+			} else DrawAssetPreview(1387, 150, (DialogStrugglePrevItem != null) ? DialogStrugglePrevItem.Asset : DialogStruggleNextItem.Asset);
+
+			DrawText(DialogFindPlayer("ChooseStruggleMethod"), 1500, 550, "White", "Black");
+
+			const struggleCraftingBonus = ["Strong", "Flexible", "Nimble"];
+			for (const [idx, game] of ["Strength", "Flexibility", "Dexterity"].entries()) {
+				const offset = 300 * idx;
+				const hover = MouseIn(1087 + offset, 600, 225, 275);
+				const bonus = InventoryCraftPropertyIs(StruggleProgressPrevItem, struggleCraftingBonus[idx]);
+				const bgColor = hover ? "aqua" : (bonus ? "Pink" : "white");
+				DrawRect(1087 + offset, 600, 225, 275, bgColor);
+				DrawImageResize("Icons/Struggle/" + game + ".png", 1089 + offset, 602, 221, 221);
+				DrawTextFit(DialogFindPlayer(game), 1200 + offset, 850, 221, "black");
+			}
+		}
 		return;
 	}
 
@@ -2674,4 +2704,49 @@ function DialogActualNameForGroup(C, G) {
 		repl = G.Name === "ItemVulva" ? DialogFindPlayer("ItemPenis") : DialogFindPlayer("ItemGlans");
 	}
 	return repl;
+}
+
+/**
+ * Check if there's a struggling minigame started.
+ *
+ * StruggleProgress == 0 also happens when the selection screen is up,
+ * but StruggleProgressCurrentMinigame will be "" in that case.
+ * @returns {boolean}
+ */
+function DialogIsStruggling() {
+	return (StruggleProgress >= 0 || !!StruggleLockPickOrder);
+}
+
+/**
+ * Propose one of the struggle minigames.
+ *
+ * If it's not the player struggling, or we're applying a new item, or the
+ * existing item is locked with a key the character has, or the player can
+ * interact, it's not a mountable item, or the item's difficulty is low enough
+ * to progress by itself, we're currently trying to swap items on someone. In
+ * that case, the Strength minigame will be started.
+ *
+ * Otherwise, setup the variables so DialogDrawItemMenu/DialogItemClick switch
+ * to the selection screen, saving the items in the two temporary item variables.
+ *
+ * @param {Character} C
+ * @param {Item} PrevItem
+ * @param {Item} NextItem
+ */
+function DialogStruggleStart(C, PrevItem, NextItem) {
+	ChatRoomStatusUpdate("Struggle");
+	if (C != Player
+			|| PrevItem == null
+			|| ((PrevItem != null)
+				&& (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem))
+				&& ((Player.CanInteract() && !InventoryItemHasEffect(PrevItem, "Mounted", true))
+				|| StruggleStrengthGetDifficulty(C, PrevItem, NextItem).auto >= 0))) {
+		StruggleMinigameStart(C, "Strength", PrevItem, NextItem);
+	} else {
+		DialogStrugglePrevItem = PrevItem;
+		DialogStruggleNextItem = NextItem;
+		StruggleProgressCurrentMinigame = "";
+		StruggleProgress = 0;
+		DialogMenuButtonBuild(C);
+	}
 }

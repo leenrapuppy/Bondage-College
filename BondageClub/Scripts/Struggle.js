@@ -102,39 +102,15 @@ const StruggleMinigames = {
  * the minigame selection screen if it's not yet running.
  *
  * @param {Character} C
+ * @returns {boolean} Whether the draw handler ran
  */
-function StruggleDrawStruggleProgress(C) {
+function StruggleMinigameDraw(C) {
 	if (StruggleProgressCurrentMinigame !== "") {
 		// There's a minigame running, use its draw handler
 		StruggleMinigames[StruggleProgressCurrentMinigame].Draw(C);
-		return;
+		return true;
 	}
-
-	if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null)) {
-		DrawAssetPreview(1200, 150, StruggleProgressPrevItem.Asset, { Craft: StruggleProgressPrevItem.Craft });
-		DrawAssetPreview(1575, 150, StruggleProgressNextItem.Asset, { Craft: StruggleProgressNextItem.Craft });
-	} else DrawAssetPreview(1387, 150, (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Asset : StruggleProgressNextItem.Asset, { Craft: (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Craft : StruggleProgressNextItem.Craft });
-
-
-	DrawText(DialogFindPlayer("ChooseStruggleMethod"), 1500, 550, "White", "Black");
-
-	if (InventoryCraftPropertyIs(StruggleProgressPrevItem, "Strong")) DrawRect(1387-300, 600, 225, 275, "Pink");
-	else if (MouseIn(1387-300, 600, 225, 275)) DrawRect(1387-300, 600, 225, 275, "aqua");
-	else DrawRect(1387-300, 600, 225, 275, "white");
-	DrawImageResize("Icons/Struggle/Strength.png", 1389-300, 602, 221, 221);
-	DrawTextFit(DialogFindPlayer("Strength"), 1500-300, 850, 221, "black");
-
-	if (InventoryCraftPropertyIs(StruggleProgressPrevItem, "Flexible")) DrawRect(1387, 600, 225, 275, "Pink");
-	else if (MouseIn(1387, 600, 225, 275)) DrawRect(1387, 600, 225, 275, "aqua");
-	else DrawRect(1387, 600, 225, 275, "white");
-	DrawImageResize("Icons/Struggle/Flexibility.png", 1389, 602, 221, 221);
-	DrawTextFit(DialogFindPlayer("Flexibility"), 1500, 850, 221, "black");
-
-	if (InventoryCraftPropertyIs(StruggleProgressPrevItem, "Nimble")) DrawRect(1387+300, 600, 225, 275, "Pink");
-	else if (MouseIn(1387+300, 600, 225, 275)) DrawRect(1387+300, 600, 225, 275, "aqua");
-	else DrawRect(1387+300, 600, 225, 275, "white");
-	DrawImageResize("Icons/Struggle/Dexterity.png", 1389+300, 602, 221, 221);
-	DrawTextFit(DialogFindPlayer("Dexterity"), 1500+300, 850, 221, "black");
+	return false;
 }
 
 /**
@@ -181,48 +157,14 @@ function StruggleKeyDown() {
 /**
  * Handles the minigames' Click event, whether on the selection screen or in the minigame themselves.
  *
- * @returns {void} - Nothing
+ * @returns {boolean} - Nothing
  */
-function StruggleClick() {
+function StruggleMinigameClick() {
 	if (StruggleProgressCurrentMinigame !== "") {
 		StruggleMinigames[StruggleProgressCurrentMinigame].HandleEvent("Click");
-	} else {
-		if (MouseIn(1387-300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressPrevItem, "Strong")) {
-			StruggleMinigameStart(Player, "Strength", StruggleProgressPrevItem, StruggleProgressNextItem);
-		} else if (MouseIn(1387, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressPrevItem, "Flexible")) {
-			StruggleMinigameStart(Player, "Strength", StruggleProgressPrevItem, StruggleProgressNextItem);
-		} else if (MouseIn(1387+300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressPrevItem, "Nimble")) {
-			StruggleMinigameStart(Player, "Strength", StruggleProgressPrevItem, StruggleProgressNextItem);
-		}
+		return true;
 	}
-}
-
-/**
- * Start the struggle minigame.
- *
- * Caveat: this will setup the variables so a new minigame can be started,
- * but defers to the code in StruggleClick to set up the correct game, unless
- * it's someone else starting the game, it's an item being newly applied, the
- * item is locked with a key the character has, or it's a mountable item.
- * In that case the Strength minigame will start.
- *
- * @param {Character} C
- * @param {Item} PrevItem
- * @param {Item} NextItem
- */
-function StruggleProgressStart(C, PrevItem, NextItem) {
-	ChatRoomStatusUpdate("Struggle");
-	StruggleProgressPrevItem = PrevItem;
-	StruggleProgressNextItem = NextItem;
-	StruggleProgressCurrentMinigame = "";
-	StruggleProgress = 0;
-	DialogMenuButtonBuild(C);
-	if (C != Player || PrevItem == null || ((PrevItem != null)
-			&& (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem))
-			&& ((Player.CanInteract() && !InventoryItemHasEffect(PrevItem, "Mounted", true))
-				|| StruggleStrengthGetDifficulty(C, PrevItem, NextItem).auto >= 0))) {
-		StruggleMinigameStart(C, "Strength", PrevItem, NextItem);
-	}
+	return false;
 }
 
 /**
