@@ -234,6 +234,15 @@ function StruggleMinigameCheckCancel(C) {
 	if (NextItem != null && !InventoryAllow(C, NextItem.Asset))
 		return true;
 
+	if (StruggleProgressCurrentMinigame === "LockPick") {
+		// The character we're picking the lock on has left
+		if (CurrentScreen === "ChatRoom" && !ChatRoomCharacter.find(c => c.MemberNumber === C.MemberNumber))
+			return true;
+
+		// The lock is gone from the item
+		if (PrevItem != null && !InventoryItemIsPickable(InventoryGet(C, PrevItem.Asset.Group.Name)))
+			return true;
+	}
 	return false;
 }
 
@@ -1077,28 +1086,34 @@ function StruggleLockPickDraw(C) {
 	DrawText(DialogFindPlayer("LockpickIntro2"), X, 850, "white");
 	DrawText(DialogFindPlayer("LockpickIntro3"), X, 900, "white");
 
-	if (StruggleLockPickSuccessTime != 0) {
-		if (CurrentTime > StruggleLockPickSuccessTime) {
-			StruggleLockPickSuccessTime = 0;
-			// Success!
-			if (C.FocusGroup && C) {
-				var item = InventoryGet(C, C.FocusGroup.Name);
-				if (item) {
-					InventoryUnlock(C, item);
-					if (CurrentScreen == "ChatRoom") ChatRoomPublishAction(C, item, null, C.ID !== 0, "ActionPick");
-				}
+	if (StruggleMinigameCheckCancel(C)) {
+		if (CurrentScreen === "ChatRoom") {
+			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true, "interrupted");
+		} else {
+			DialogLeave();
+		}
+		StruggleLockPickOrder = null;
+		DialogLockMenu = false;
+	} else if (StruggleLockPickSuccessTime != 0 && CurrentTime > StruggleLockPickSuccessTime) {
+		StruggleLockPickSuccessTime = 0;
+		// Success!
+		if (C.FocusGroup && C) {
+			var item = InventoryGet(C, C.FocusGroup.Name);
+			if (item) {
+				InventoryUnlock(C, item);
+				if (CurrentScreen == "ChatRoom") ChatRoomPublishAction(C, item, null, C.ID !== 0, "ActionPick");
 			}
-			SkillProgress("LockPicking", StruggleLockPickProgressSkill);
-			// The player can use another item right away, for another character we jump back to her reaction
-			if (C.ID == 0) {
-				DialogInventoryBuild(C);
-				StruggleLockPickOrder = null;
-				DialogLockMenu = false;
-				DialogMenuButtonBuild(C);
+		}
+		SkillProgress("LockPicking", StruggleLockPickProgressSkill);
+		// The player can use another item right away, for another character we jump back to her reaction
+		if (C.ID == 0) {
+			DialogInventoryBuild(C);
+			StruggleLockPickOrder = null;
+			DialogLockMenu = false;
+			DialogMenuButtonBuild(C);
 
-			} else {
-				DialogLeaveItemMenu();
-			}
+		} else {
+			DialogLeaveItemMenu();
 		}
 	} else {
 		if ( Player.ArousalSettings && (Player.ArousalSettings.Active != "Inactive" && Player.ArousalSettings.Active != "NoMeter") && Player.ArousalSettings.Progress > 20 && StruggleLockPickProgressCurrentTries < StruggleLockPickProgressMaxTries && StruggleLockPickProgressCurrentTries > 0) {
