@@ -409,14 +409,13 @@ function StruggleMinigameStart(C, MiniGame, PrevItem, NextItem) {
 	DialogAllowFluids = ((StruggleProgressAuto < 0) && (StruggleProgressChallenge > 0) && (C.ID == 0) && ((InventoryGet(C, "Fluids") == null) || (InventoryGet(C, "Fluids").Property == null) || (InventoryGet(C, "Fluids").Property.Expression == null)));
 
 	// Applying or removing specific items can trigger an audio sound to play
-	let played = false;
-	if (NextItem && NextItem.Asset)
-		played = AudioPlaySoundForAsset(C, NextItem.Asset);
-	if (!played && PrevItem && PrevItem.Asset)
-		AudioPlaySoundForAsset(C, PrevItem.Asset);
-
-
-
+	if (StruggleProgressCurrentMinigame !== "LockPick") {
+		let played = false;
+		if (NextItem && NextItem.Asset)
+			played = AudioPlaySoundForAsset(C, NextItem.Asset);
+		if (!played && PrevItem && PrevItem.Asset)
+			AudioPlaySoundForAsset(C, PrevItem.Asset);
+	}
 }
 
 ////////////////////////////STRUGGLE MINIGAME: BRUTE FORCE//////////////////////////////
