@@ -188,14 +188,7 @@ function StruggleMinigameDrawCommon(C, Offset) {
 	StruggleProgress = StruggleProgress + StruggleProgressAuto;
 	if (StruggleProgress < 0) StruggleProgress = 0;
 
-	// We cancel out if at least one of the following cases apply: a new item conflicts with this, the player can no longer interact, something else was added first, the item was already removed
-	if (InventoryGroupIsBlocked(C)
-		|| (C != Player && !Player.CanInteract())
-		|| (StruggleProgressNextItem == null && !InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name))
-		|| (StruggleProgressNextItem != null && !InventoryAllow(C, StruggleProgressNextItem.Asset))
-		|| (StruggleProgressNextItem != null && StruggleProgressPrevItem != null && ((InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name) && InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name).Asset.Name != StruggleProgressPrevItem.Asset.Name)
-			|| !InventoryGet(C, StruggleProgressPrevItem.Asset.Group.Name)))
-		|| (StruggleProgressNextItem != null && StruggleProgressPrevItem == null && InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name))) {
+	if (StruggleMinigameCheckCancel(C)) {
 		if (StruggleProgress > 0)
 			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true, "interrupted");
 		else
@@ -204,6 +197,44 @@ function StruggleMinigameDrawCommon(C, Offset) {
 		DialogLockMenu = false;
 		return;
 	}
+}
+
+/**
+ * Check if the minigame should be interrupted.
+ *
+ * @param {Character} C
+ * @returns {boolean}
+ */
+function StruggleMinigameCheckCancel(C) {
+	// The player can no longer interact
+	if (C != Player && !Player.CanInteract())
+		return true;
+
+	const PrevItem = StruggleProgressPrevItem;
+	const NextItem = StruggleProgressNextItem;
+	const CurrentItem = InventoryGet(C, PrevItem ? PrevItem.Asset.Group.Name : NextItem.Asset.Group.Name);
+	// We were removing an item, and it's already gone
+	if (NextItem == null && !CurrentItem)
+		return true;
+
+	// We were adding an item, and something else was added first
+	if (PrevItem == null && CurrentItem)
+		return true;
+
+	// We were swapping items, and the current item isn't what we started with
+	if (NextItem != null && PrevItem != null
+			&& (CurrentItem.Asset.Name != PrevItem.Asset.Name || !CurrentItem))
+		return true;
+
+	// A new item blocked access
+	if (InventoryGroupIsBlocked(C))
+		return true;
+
+	// The item we're applying is now disallowed
+	if (NextItem != null && !InventoryAllow(C, NextItem.Asset))
+		return true;
+
+	return false;
 }
 
 /**
