@@ -8,7 +8,7 @@ const ValidationDefaultPassword = "UNLOCK";
 const ValidationRemoveTimerToleranceMs = 5000;
 const ValidationNonModifiableLockProperties = ["LockedBy", "LockMemberNumber"];
 const ValidationRestrictedLockProperties = [
-	"EnableRandomInput", "RemoveItem", "ShowTimer", "CombinationNumber", "Password", "Hint", "LockSet", "LockPickSeed",
+	"EnableRandomInput", "RemoveItem", "ShowTimer", "CombinationNumber", "Password", "Hint", "LockSet",
 ];
 const ValidationTimerLockProperties = ["MemberNumberList", "RemoveTimer"];
 const ValidationAllLockProperties = ValidationNonModifiableLockProperties
@@ -667,29 +667,6 @@ function ValidationSanitizeLock(C, item) {
 		}
 	} else if (property.CombinationNumber != null) {
 		delete property.CombinationNumber;
-		changed = true;
-	}
-
-	// Sanitize lockpicking seed
-	if (typeof property.LockPickSeed === "string") {
-		const seed = CommonConvertStringToArray(property.LockPickSeed);
-		if (!seed.length) {
-			console.warn("Deleting invalid lockpicking seed: ", property.LockPickSeed);
-			delete property.LockPickSeed;
-			changed = true;
-		} else {
-			// Check that every number from 0 up to the seed length is included in the seed
-			for (let i = 0; i < seed.length; i++) {
-				if (!seed.includes(i)) {
-					console.warn("Deleting invalid lockpicking seed: ", property.LockPickSeed);
-					delete property.LockPickSeed;
-					changed = true;
-					break;
-				}
-			}
-		}
-	} else if (property.LockPickSeed != null) {
-		delete property.LockPickSeed;
 		changed = true;
 	}
 

@@ -1198,6 +1198,39 @@ function StruggleLockPickGetDifficulty(C, Item) {
 }
 
 /**
+ * Generate the lock pin data
+ *
+ * @param {object} Lock - the lockpicking data. See StruggleLockPickGetDifficulty.
+ * @param {Character} Character
+ * @param {string} Group
+ * @returns {number[]}
+ */
+function StruggleLockPickGenerate(Lock, Character, Group) {
+	if (!Lock || !Character || !Group)
+		return null;
+
+	// Generate a PRNG for shuffling pins around
+	let seed = String(Character.IsNpc() ? Character.Name : Character.MemberNumber) + Group + Lock.Difficulty + Lock.NumPins;
+	const hash = xmur3(seed);
+	const rand = sfc32(hash(), hash(), hash(), hash());
+
+	let Order = [];
+	for (let P = 0; P < Lock.NumPins; P++) {
+		Order.push(P);
+	}
+
+	// Randomize array in-place using Durstenfeld shuffle algorithm
+	// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+	for (var i = Order.length - 1; i > 0; i--) {
+		var j = Math.floor(rand() * (i + 1));
+		var temp = Order[i];
+		Order[i] = Order[j];
+		Order[j] = temp;
+	}
+	return Order;
+}
+
+/**
  * Starts the dialog progress bar for picking a lock
  * First the challenge level is calculated based on the base lock difficulty, the skill of the rigger and the escapee
  * @param {Character} C - The character who tries to struggle
@@ -1216,12 +1249,6 @@ function StruggleLockPickProgressStart(C, Item) {
 	if (!Lock) return;
 
 	// Prepares the progress bar and timer
-	StruggleLockPickOrder = [];
-	StruggleLockPickSet = [];
-	StruggleLockPickSetFalse = [];
-	StruggleLockPickOffset = [];
-	StruggleLockPickOffsetTarget = [];
-	StruggleLockPickImpossiblePins = [];
 	StruggleLockPickProgressItem = Item;
 	StruggleLockPickProgressOperation = StruggleLockPickProgressGetOperation(C, Item);
 	StruggleLockPickProgressChallenge = Lock.Difficulty;
@@ -1235,39 +1262,22 @@ function StruggleLockPickProgressStart(C, Item) {
 	StruggleLockPickFailTime = 0;
 	DialogMenuButtonBuild(C);
 
+	// Generate the combination
+	StruggleLockPickOrder = [];
+	StruggleLockPickSet = [];
+	StruggleLockPickSetFalse = [];
+	StruggleLockPickOffset = [];
+	StruggleLockPickOffsetTarget = [];
+	StruggleLockPickImpossiblePins = [];
+
+	StruggleLockPickOrder = StruggleLockPickGenerate(Lock, C, C.FocusGroup.Name);
+
 	for (let P = 0; P < Lock.NumPins; P++) {
-		StruggleLockPickOrder.push(P);
 		StruggleLockPickSet.push(false);
 		StruggleLockPickSetFalse.push(false);
 		StruggleLockPickOffset.push(0);
 		StruggleLockPickOffsetTarget.push(0);
 	}
-	/* Randomize array in-place using Durstenfeld shuffle algorithm */
-	// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-	for (var i = StruggleLockPickOrder.length - 1; i > 0; i--) {
-		var j = Math.floor(Math.random() * (i + 1));
-		var temp = StruggleLockPickOrder[i];
-		StruggleLockPickOrder[i] = StruggleLockPickOrder[j];
-		StruggleLockPickOrder[j] = temp;
-	}
-
-	// Initialize persistent pins
-	if ((Item.Property == null)) Item.Property = {};
-	if (Item.Property != null)
-		if ((Item.Property.LockPickSeed == null) || (typeof Item.Property.LockPickSeed != "string")) {
-			Item.Property.LockPickSeed = CommonConvertArrayToString(StruggleLockPickOrder);
-			StruggleLockPickTotalTries = 0;
-		} else {
-			var conv = CommonConvertStringToArray(Item.Property.LockPickSeed);
-			for (let PP = 0; PP < conv.length; PP++) {
-				if (typeof conv[PP] != "number") {
-					Item.Property.LockPickSeed = CommonConvertArrayToString(StruggleLockPickOrder);
-					conv = StruggleLockPickOrder;
-					break;
-				}
-			}
-			StruggleLockPickOrder = conv;
-		}
 
 	if (Lock.Difficulty > 6 && Lock.Impossible) {
 		// if picking is impossible, then some pins will never set
@@ -1275,5 +1285,4 @@ function StruggleLockPickProgressStart(C, Item) {
 		if (Lock.NumPins >= 6) StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-2]);
 		if (Lock.NumPins >= 8) StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-3]);
 	}
-
 }

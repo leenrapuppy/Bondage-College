@@ -1072,7 +1072,6 @@ interface ItemPropertiesCustom {
 
 	RemoveTimer?: unknown;
 	Password?: string;
-	LockPickSeed?: string;
 	CombinationNumber?: string;
 	LockMemberNumber?: number | string;
 	MemberNumber?: number;
