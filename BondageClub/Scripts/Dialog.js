@@ -1486,6 +1486,8 @@ function DialogMenuButtonClick() {
 				let action = "ActionRemove";
 				if (InventoryItemHasEffect(Item, "Lock"))
 					action = "ActionUnlockAndRemove";
+				else if (C.IsPlayer())
+					action = "Action" + DialogMenuButton[I];
 				DialogStruggleStart(C, action, Item, null);
 				return;
 			}
