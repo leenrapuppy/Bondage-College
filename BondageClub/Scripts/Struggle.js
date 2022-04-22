@@ -1101,22 +1101,16 @@ function StruggleLockPickProgressGetOperation(C, Item) {
 }
 
 /**
- * Starts the dialog progress bar for picking a lock
- * First the challenge level is calculated based on the base lock difficulty, the skill of the rigger and the escapee
- * @param {Character} C - The character who tries to struggle
- * @param {Item} Item - The item, the character wants to unlock
- * @returns {void} - Nothing
+ * Helper for a locked item lockpicking difficulty calculations.
+ * @param {Character} C
+ * @param {Item} Item
+ * @returns {{NumPins: number, Difficulty: number, Impossible: boolean, MaxTries: number}}
  */
-function StruggleLockPickProgressStart(C, Item) {
+function StruggleLockPickGetDifficulty(C, Item) {
 
-	StruggleLockPickArousalText = "";
-	StruggleLockPickArousalTick = 0;
-	if (Item) {
-		StruggleLockPickItem = Item;
-	}
-
-	var lock = InventoryGetLock(Item);
-	if (!Item || !lock) return;
+	const lock = InventoryGetLock(Item);
+	if (!Item || !lock)
+		return null;
 
 	var LockRating = 1;
 	var LockPickingImpossible = false;
@@ -1185,8 +1179,38 @@ function StruggleLockPickProgressStart(C, Item) {
 	if (LockRating >= 10) NumPins += 1; // 8 pins for the high security lock
 	if (LockRating >= 11) NumPins += 2; // Cap at 10 pins
 
+	// At 4 pins we have a base of 16 tries, with 10 maximum permutions possible
+	// At 10 pins we have a base of 40-30 tries, with 55 maximum permutions possible
+	var NumTries = Math.max(Math.floor(NumPins * (1.5 - 0.3*BondageLevel/10)),
+		Math.ceil(NumPins * (3.25 - BondageLevel/10) - Math.max(0, (-S + BondageLevel/2)*1.5)));
+		// negative skill of 1 subtracts 2 from the normal lock and 4 from 10 pin locks,
+		// negative skill of 6 subtracts 12 from all locks
 
+	return {
+		NumPins: NumPins,
+		Difficulty: Math.min(0, -S),
+		Impossible: LockPickingImpossible,
+		MaxTries: Math.max(1, NumTries - NumPins),
+	}
+}
 
+/**
+ * Starts the dialog progress bar for picking a lock
+ * First the challenge level is calculated based on the base lock difficulty, the skill of the rigger and the escapee
+ * @param {Character} C - The character who tries to struggle
+ * @param {Item} Item - The item, the character wants to unlock
+ * @returns {void} - Nothing
+ */
+function StruggleLockPickProgressStart(C, Item) {
+
+	StruggleLockPickArousalText = "";
+	StruggleLockPickArousalTick = 0;
+	if (Item) {
+		StruggleLockPickItem = Item;
+	}
+
+	const Lock = StruggleLockPickGetDifficulty(C, Item);
+	if (!Lock) return;
 
 	// Prepares the progress bar and timer
 	StruggleLockPickOrder = [];
@@ -1197,18 +1221,18 @@ function StruggleLockPickProgressStart(C, Item) {
 	StruggleLockPickImpossiblePins = [];
 	StruggleLockPickProgressItem = Item;
 	StruggleLockPickProgressOperation = StruggleLockPickProgressGetOperation(C, Item);
-	StruggleLockPickProgressSkill = Math.floor(NumPins*NumPins/2) + Math.floor(Math.max(0, -S)*Math.max(0, -S)); // Scales squarely, so that more difficult locks provide bigger reward!
-	StruggleLockPickProgressSkillLose = NumPins*NumPins/2; // Even if you lose you get some reward. You get this no matter what if you run out of tries.
-	StruggleLockPickProgressChallenge = S * -1;
+	StruggleLockPickProgressChallenge = Lock.Difficulty;
+	StruggleLockPickProgressMaxTries = Lock.MaxTries;
+	// Skill Scales squarely, so that more difficult locks provide bigger reward!
+	StruggleLockPickProgressSkill = Math.floor(Lock.NumPins * Lock.NumPins / 2) + Math.floor(Lock.Difficulty * Lock.Difficulty);
+	// Even if you lose you get some reward. You get this no matter what if you run out of tries.
+	StruggleLockPickProgressSkillLose = Lock.NumPins * Lock.NumPins / 2;
 	StruggleLockPickProgressCurrentTries = 0;
 	StruggleLockPickSuccessTime = 0;
 	StruggleLockPickFailTime = 0;
 	DialogMenuButtonBuild(C);
 
-
-
-
-	for (let P = 0; P < NumPins; P++) {
+	for (let P = 0; P < Lock.NumPins; P++) {
 		StruggleLockPickOrder.push(P);
 		StruggleLockPickSet.push(false);
 		StruggleLockPickSetFalse.push(false);
@@ -1242,21 +1266,11 @@ function StruggleLockPickProgressStart(C, Item) {
 			StruggleLockPickOrder = conv;
 		}
 
-	var PickingImpossible = false;
-	if (S < -6 && LockPickingImpossible) {
-		PickingImpossible = true; // if picking is impossible, then some pins will never set
+	if (Lock.Difficulty > 6 && Lock.Impossible) {
+		// if picking is impossible, then some pins will never set
 		StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-1]);
-		if (NumPins >= 6) StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-2]);
-		if (NumPins >= 8) StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-3]);
+		if (Lock.NumPins >= 6) StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-2]);
+		if (Lock.NumPins >= 8) StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-3]);
 	}
 
-	// At 4 pins we have a base of 16 tries, with 10 maximum permutions possible
-	// At 10 pins we have a base of 40-30 tries, with 55 maximum permutions possible
-	var NumTries = Math.max(Math.floor(NumPins * (1.5 - 0.3*BondageLevel/10)),
-		Math.ceil(NumPins * (3.25 - BondageLevel/10) - Math.max(0, (StruggleLockPickProgressChallenge + BondageLevel/2)*1.5)));
-		// negative skill of 1 subtracts 2 from the normal lock and 4 from 10 pin locks,
-		// negative skill of 6 subtracts 12 from all locks
-
-
-	StruggleLockPickProgressMaxTries = Math.max(1, NumTries - NumPins);
 }
