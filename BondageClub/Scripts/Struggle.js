@@ -1108,65 +1108,65 @@ function StruggleLockPickProgressGetOperation(C, Item) {
  */
 function StruggleLockPickGetDifficulty(C, Item) {
 
-	const lock = InventoryGetLock(Item);
-	if (!Item || !lock)
+	const Lock = InventoryGetLock(Item);
+	if (!Item || !Lock)
 		return null;
 
 	var LockRating = 1;
-	var LockPickingImpossible = false;
+	var Impossible = false;
 
 	// Gets the lock rating
-	var BondageLevel = Item.Difficulty - Item.Asset.Difficulty;
+	var ItemDifficulty = Item.Difficulty - Item.Asset.Difficulty;
 
 	// Gets the required skill / challenge level based on player/rigger skill and item difficulty (0 by default is easy to pick)
-	var S = 0;
-	S = S + SkillGetWithRatio("LockPicking"); // Add the player evasion level (modified by the effectiveness ratio)
-	if (lock.Asset.PickDifficulty && lock.Asset.PickDifficulty > 0) {
-		S = S - lock.Asset.PickDifficulty; // Subtract the item difficulty (regular difficulty + player that restrained difficulty)
-		LockRating = lock.Asset.PickDifficulty; // Some features of the minigame are independent of the relative skill level
+	var Difficulty = 0;
+	Difficulty = Difficulty + SkillGetWithRatio("LockPicking"); // Add the player evasion level (modified by the effectiveness ratio)
+	if (Lock.Asset.PickDifficulty && Lock.Asset.PickDifficulty > 0) {
+		Difficulty = Difficulty - Lock.Asset.PickDifficulty; // Subtract the item difficulty (regular difficulty + player that restrained difficulty)
+		LockRating = Lock.Asset.PickDifficulty; // Some features of the minigame are independent of the relative skill level
 	}
-	//if (Item.Asset && Item.Asset.Difficulty) {
-	//S -= BondageLevel/2 // Adds the bondage skill of the item but not the base difficulty!
-	//}
+	// if (Item.Asset && Item.Asset.Difficulty) {
+	// 	Difficulty -= ItemDifficulty/2 // Adds the bondage skill of the item but not the base difficulty!
+	// }
 
-	if (Player.IsEnclose() || Player.IsMounted()) S = S - 2; // A little harder if there's an enclosing or mounting item
+	if (Player.IsEnclose() || Player.IsMounted()) Difficulty = Difficulty - 2; // A little harder if there's an enclosing or mounting item
 
 	// When struggling to pick a lock while being blocked from interacting (for the future if we allow picking locks while bound -Ada)
 	if (!Player.CanInteract() && (Item != null)) {
 
 		if (InventoryItemHasEffect(Item, "NotSelfPickable", true))
 		{
-			S = S - 50;
-			LockPickingImpossible = true;
+			Difficulty = Difficulty - 50;
+			Impossible = true;
 		} // Impossible if the item is such that it can't be picked alone (e.g yokes or elbow cuffs)
 		else {
 			if (InventoryItemHasEffect(InventoryGet(Player, "ItemArms"), "Block", true)) {
 				if (Item.Asset.Group.Name != "ItemArms" && Item.Asset.Group.Name != "ItemHands")
-					S = S - 50; // MUST target arms item or hands item if your arrms are bound
+					Difficulty = Difficulty - 50; // MUST target arms item or hands item if your arrms are bound
 				else
-					S = S - 2; // Harder If arms are restrained
+					Difficulty = Difficulty - 2; // Harder If arms are restrained
 			}
 
 			if (InventoryItemHasEffect(InventoryGet(Player, "ItemHands"), "Block", true)) {
 				if (!LogQuery("KeyDeposit", "Cell") && DialogHasKey(Player, Item))// If you have keys, its just a matter of getting the keys into the lock~
-					S = S - 4;
+					Difficulty = Difficulty - 4;
 				else // Otherwise it's not possible to pick a lock. Too much dexterity required
-					S = S - 50;
+					Difficulty = Difficulty - 50;
 				// With key, the difficulty is as follows:
 				// Mittened and max Lockpinking, min bondage: Metal padlock is easy, intricate is also easy, anything above will be slightly more challenging than unmittened
 				// Mittened, arms bound, and max Lockpinking, min bondage: Metal padlock is easy, intricate is somewhat hard, high security is very hard, combo impossible
 			}
 
-			if (S < -6) {
-				LockPickingImpossible = true; // The above stuff can make picking the lock impossible. Everything else will make it incrementally harder
+			if (Difficulty < -6) {
+				Impossible = true; // The above stuff can make picking the lock impossible. Everything else will make it incrementally harder
 			}
 
-			if (!C.CanTalk()) S = S - 1; // A little harder while gagged, but it wont make it impossible
-			if (InventoryItemHasEffect(InventoryGet(Player, "ItemLegs"), "Block", true)) S = S - 1; // A little harder while legs bound, but it wont make it impossible
-			if (InventoryItemHasEffect(InventoryGet(Player, "ItemFeet"), "Block", true)) S = S - 1; // A little harder while legs bound, but it wont make it impossible
-			if (InventoryGroupIsBlocked(Player, "ItemFeet")) S = S - 1; // A little harder while wearing something like a legbinder as well
-			if (Player.IsBlind()) S = S - 1; // harder while blind
-			if (Player.GetDeafLevel() > 0) S = S - Math.ceil(Player.GetDeafLevel()/2); // harder while deaf
+			if (!C.CanTalk()) Difficulty = Difficulty - 1; // A little harder while gagged, but it wont make it impossible
+			if (InventoryItemHasEffect(InventoryGet(Player, "ItemLegs"), "Block", true)) Difficulty = Difficulty - 1; // A little harder while legs bound, but it wont make it impossible
+			if (InventoryItemHasEffect(InventoryGet(Player, "ItemFeet"), "Block", true)) Difficulty = Difficulty - 1; // A little harder while legs bound, but it wont make it impossible
+			if (InventoryGroupIsBlocked(Player, "ItemFeet")) Difficulty = Difficulty - 1; // A little harder while wearing something like a legbinder as well
+			if (Player.IsBlind()) Difficulty = Difficulty - 1; // harder while blind
+			if (Player.GetDeafLevel() > 0) Difficulty = Difficulty - Math.ceil(Player.GetDeafLevel()/2); // harder while deaf
 
 			// No bonus from struggle assist. Lockpicking is a solo activity!
 		}
@@ -1181,15 +1181,15 @@ function StruggleLockPickGetDifficulty(C, Item) {
 
 	// At 4 pins we have a base of 16 tries, with 10 maximum permutions possible
 	// At 10 pins we have a base of 40-30 tries, with 55 maximum permutions possible
-	var NumTries = Math.max(Math.floor(NumPins * (1.5 - 0.3*BondageLevel/10)),
-		Math.ceil(NumPins * (3.25 - BondageLevel/10) - Math.max(0, (-S + BondageLevel/2)*1.5)));
+	var NumTries = Math.max(Math.floor(NumPins * (1.5 - 0.3*ItemDifficulty/10)),
+		Math.ceil(NumPins * (3.25 - ItemDifficulty/10) - Math.max(0, (-Difficulty + ItemDifficulty/2)*1.5)));
 		// negative skill of 1 subtracts 2 from the normal lock and 4 from 10 pin locks,
 		// negative skill of 6 subtracts 12 from all locks
 
 	return {
 		NumPins: NumPins,
-		Difficulty: Math.min(0, -S),
-		Impossible: LockPickingImpossible,
+		Difficulty: Math.min(0, -Difficulty),
+		Impossible: Impossible,
 		MaxTries: Math.max(1, NumTries - NumPins),
 	}
 }
