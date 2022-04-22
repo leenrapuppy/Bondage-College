@@ -1116,146 +1116,147 @@ function StruggleLockPickProgressStart(C, Item) {
 	}
 
 	var lock = InventoryGetLock(Item);
+	if (!Item || !lock) return;
+
 	var LockRating = 1;
 	var LockPickingImpossible = false;
-	if (Item != null && lock) {
-		// Gets the lock rating
-		var BondageLevel = Item.Difficulty - Item.Asset.Difficulty;
 
-		// Gets the required skill / challenge level based on player/rigger skill and item difficulty (0 by default is easy to pick)
-		var S = 0;
-		S = S + SkillGetWithRatio("LockPicking"); // Add the player evasion level (modified by the effectiveness ratio)
-		if (lock.Asset.PickDifficulty && lock.Asset.PickDifficulty > 0) {
-			S = S - lock.Asset.PickDifficulty; // Subtract the item difficulty (regular difficulty + player that restrained difficulty)
-			LockRating = lock.Asset.PickDifficulty; // Some features of the minigame are independent of the relative skill level
-		}
-		//if (Item.Asset && Item.Asset.Difficulty) {
-		//S -= BondageLevel/2 // Adds the bondage skill of the item but not the base difficulty!
-		//}
+	// Gets the lock rating
+	var BondageLevel = Item.Difficulty - Item.Asset.Difficulty;
 
-		if (Player.IsEnclose() || Player.IsMounted()) S = S - 2; // A little harder if there's an enclosing or mounting item
-
-		// When struggling to pick a lock while being blocked from interacting (for the future if we allow picking locks while bound -Ada)
-		if (!Player.CanInteract() && (Item != null)) {
-
-			if (InventoryItemHasEffect(Item, "NotSelfPickable", true))
-			{
-				S = S - 50;
-				LockPickingImpossible = true;
-			} // Impossible if the item is such that it can't be picked alone (e.g yokes or elbow cuffs)
-			else {
-				if (InventoryItemHasEffect(InventoryGet(Player, "ItemArms"), "Block", true)) {
-					if (Item.Asset.Group.Name != "ItemArms" && Item.Asset.Group.Name != "ItemHands")
-						S = S - 50; // MUST target arms item or hands item if your arrms are bound
-					else
-						S = S - 2; // Harder If arms are restrained
-				}
-
-				if (InventoryItemHasEffect(InventoryGet(Player, "ItemHands"), "Block", true)) {
-					if (!LogQuery("KeyDeposit", "Cell") && DialogHasKey(Player, Item))// If you have keys, its just a matter of getting the keys into the lock~
-						S = S - 4;
-					else // Otherwise it's not possible to pick a lock. Too much dexterity required
-						S = S - 50;
-					// With key, the difficulty is as follows:
-					// Mittened and max Lockpinking, min bondage: Metal padlock is easy, intricate is also easy, anything above will be slightly more challenging than unmittened
-					// Mittened, arms bound, and max Lockpinking, min bondage: Metal padlock is easy, intricate is somewhat hard, high security is very hard, combo impossible
-				}
-
-				if (S < -6) {
-					LockPickingImpossible = true; // The above stuff can make picking the lock impossible. Everything else will make it incrementally harder
-				}
-
-				if (!C.CanTalk()) S = S - 1; // A little harder while gagged, but it wont make it impossible
-				if (InventoryItemHasEffect(InventoryGet(Player, "ItemLegs"), "Block", true)) S = S - 1; // A little harder while legs bound, but it wont make it impossible
-				if (InventoryItemHasEffect(InventoryGet(Player, "ItemFeet"), "Block", true)) S = S - 1; // A little harder while legs bound, but it wont make it impossible
-				if (InventoryGroupIsBlocked(Player, "ItemFeet")) S = S - 1; // A little harder while wearing something like a legbinder as well
-				if (Player.IsBlind()) S = S - 1; // harder while blind
-				if (Player.GetDeafLevel() > 0) S = S - Math.ceil(Player.GetDeafLevel()/2); // harder while deaf
-
-				// No bonus from struggle assist. Lockpicking is a solo activity!
-			}
-		}
-
-		// Gets the number of pins on the lock
-		var NumPins = 4;
-		if (LockRating >= 6) NumPins += 2; // 6 pins for the intricate lock
-		if (LockRating >= 8) NumPins += 1; // 7 pins for the exclusive lock
-		if (LockRating >= 10) NumPins += 1; // 8 pins for the high security lock
-		if (LockRating >= 11) NumPins += 2; // Cap at 10 pins
-
-
-
-
-		// Prepares the progress bar and timer
-		StruggleLockPickOrder = [];
-		StruggleLockPickSet = [];
-		StruggleLockPickSetFalse = [];
-		StruggleLockPickOffset = [];
-		StruggleLockPickOffsetTarget = [];
-		StruggleLockPickImpossiblePins = [];
-		StruggleLockPickProgressItem = Item;
-		StruggleLockPickProgressOperation = StruggleLockPickProgressGetOperation(C, Item);
-		StruggleLockPickProgressSkill = Math.floor(NumPins*NumPins/2) + Math.floor(Math.max(0, -S)*Math.max(0, -S)); // Scales squarely, so that more difficult locks provide bigger reward!
-		StruggleLockPickProgressSkillLose = NumPins*NumPins/2; // Even if you lose you get some reward. You get this no matter what if you run out of tries.
-		StruggleLockPickProgressChallenge = S * -1;
-		StruggleLockPickProgressCurrentTries = 0;
-		StruggleLockPickSuccessTime = 0;
-		StruggleLockPickFailTime = 0;
-		DialogMenuButtonBuild(C);
-
-
-
-
-		for (let P = 0; P < NumPins; P++) {
-			StruggleLockPickOrder.push(P);
-			StruggleLockPickSet.push(false);
-			StruggleLockPickSetFalse.push(false);
-			StruggleLockPickOffset.push(0);
-			StruggleLockPickOffsetTarget.push(0);
-		}
-		/* Randomize array in-place using Durstenfeld shuffle algorithm */
-		// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-		for (var i = StruggleLockPickOrder.length - 1; i > 0; i--) {
-			var j = Math.floor(Math.random() * (i + 1));
-			var temp = StruggleLockPickOrder[i];
-			StruggleLockPickOrder[i] = StruggleLockPickOrder[j];
-			StruggleLockPickOrder[j] = temp;
-		}
-
-		// Initialize persistent pins
-		if ((Item.Property == null)) Item.Property = {};
-		if (Item.Property != null)
-			if ((Item.Property.LockPickSeed == null) || (typeof Item.Property.LockPickSeed != "string")) {
-				Item.Property.LockPickSeed = CommonConvertArrayToString(StruggleLockPickOrder);
-				StruggleLockPickTotalTries = 0;
-			} else {
-				var conv = CommonConvertStringToArray(Item.Property.LockPickSeed);
-				for (let PP = 0; PP < conv.length; PP++) {
-					if (typeof conv[PP] != "number") {
-						Item.Property.LockPickSeed = CommonConvertArrayToString(StruggleLockPickOrder);
-						conv = StruggleLockPickOrder;
-						break;
-					}
-				}
-				StruggleLockPickOrder = conv;
-			}
-
-		var PickingImpossible = false;
-		if (S < -6 && LockPickingImpossible) {
-			PickingImpossible = true; // if picking is impossible, then some pins will never set
-			StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-1]);
-			if (NumPins >= 6) StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-2]);
-			if (NumPins >= 8) StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-3]);
-		}
-
-		// At 4 pins we have a base of 16 tries, with 10 maximum permutions possible
-		// At 10 pins we have a base of 40-30 tries, with 55 maximum permutions possible
-		var NumTries = Math.max(Math.floor(NumPins * (1.5 - 0.3*BondageLevel/10)),
-			Math.ceil(NumPins * (3.25 - BondageLevel/10) - Math.max(0, (StruggleLockPickProgressChallenge + BondageLevel/2)*1.5)));
-			// negative skill of 1 subtracts 2 from the normal lock and 4 from 10 pin locks,
-			// negative skill of 6 subtracts 12 from all locks
-
-
-		StruggleLockPickProgressMaxTries = Math.max(1, NumTries - NumPins);
+	// Gets the required skill / challenge level based on player/rigger skill and item difficulty (0 by default is easy to pick)
+	var S = 0;
+	S = S + SkillGetWithRatio("LockPicking"); // Add the player evasion level (modified by the effectiveness ratio)
+	if (lock.Asset.PickDifficulty && lock.Asset.PickDifficulty > 0) {
+		S = S - lock.Asset.PickDifficulty; // Subtract the item difficulty (regular difficulty + player that restrained difficulty)
+		LockRating = lock.Asset.PickDifficulty; // Some features of the minigame are independent of the relative skill level
 	}
+	//if (Item.Asset && Item.Asset.Difficulty) {
+	//S -= BondageLevel/2 // Adds the bondage skill of the item but not the base difficulty!
+	//}
+
+	if (Player.IsEnclose() || Player.IsMounted()) S = S - 2; // A little harder if there's an enclosing or mounting item
+
+	// When struggling to pick a lock while being blocked from interacting (for the future if we allow picking locks while bound -Ada)
+	if (!Player.CanInteract() && (Item != null)) {
+
+		if (InventoryItemHasEffect(Item, "NotSelfPickable", true))
+		{
+			S = S - 50;
+			LockPickingImpossible = true;
+		} // Impossible if the item is such that it can't be picked alone (e.g yokes or elbow cuffs)
+		else {
+			if (InventoryItemHasEffect(InventoryGet(Player, "ItemArms"), "Block", true)) {
+				if (Item.Asset.Group.Name != "ItemArms" && Item.Asset.Group.Name != "ItemHands")
+					S = S - 50; // MUST target arms item or hands item if your arrms are bound
+				else
+					S = S - 2; // Harder If arms are restrained
+			}
+
+			if (InventoryItemHasEffect(InventoryGet(Player, "ItemHands"), "Block", true)) {
+				if (!LogQuery("KeyDeposit", "Cell") && DialogHasKey(Player, Item))// If you have keys, its just a matter of getting the keys into the lock~
+					S = S - 4;
+				else // Otherwise it's not possible to pick a lock. Too much dexterity required
+					S = S - 50;
+				// With key, the difficulty is as follows:
+				// Mittened and max Lockpinking, min bondage: Metal padlock is easy, intricate is also easy, anything above will be slightly more challenging than unmittened
+				// Mittened, arms bound, and max Lockpinking, min bondage: Metal padlock is easy, intricate is somewhat hard, high security is very hard, combo impossible
+			}
+
+			if (S < -6) {
+				LockPickingImpossible = true; // The above stuff can make picking the lock impossible. Everything else will make it incrementally harder
+			}
+
+			if (!C.CanTalk()) S = S - 1; // A little harder while gagged, but it wont make it impossible
+			if (InventoryItemHasEffect(InventoryGet(Player, "ItemLegs"), "Block", true)) S = S - 1; // A little harder while legs bound, but it wont make it impossible
+			if (InventoryItemHasEffect(InventoryGet(Player, "ItemFeet"), "Block", true)) S = S - 1; // A little harder while legs bound, but it wont make it impossible
+			if (InventoryGroupIsBlocked(Player, "ItemFeet")) S = S - 1; // A little harder while wearing something like a legbinder as well
+			if (Player.IsBlind()) S = S - 1; // harder while blind
+			if (Player.GetDeafLevel() > 0) S = S - Math.ceil(Player.GetDeafLevel()/2); // harder while deaf
+
+			// No bonus from struggle assist. Lockpicking is a solo activity!
+		}
+	}
+
+	// Gets the number of pins on the lock
+	var NumPins = 4;
+	if (LockRating >= 6) NumPins += 2; // 6 pins for the intricate lock
+	if (LockRating >= 8) NumPins += 1; // 7 pins for the exclusive lock
+	if (LockRating >= 10) NumPins += 1; // 8 pins for the high security lock
+	if (LockRating >= 11) NumPins += 2; // Cap at 10 pins
+
+
+
+
+	// Prepares the progress bar and timer
+	StruggleLockPickOrder = [];
+	StruggleLockPickSet = [];
+	StruggleLockPickSetFalse = [];
+	StruggleLockPickOffset = [];
+	StruggleLockPickOffsetTarget = [];
+	StruggleLockPickImpossiblePins = [];
+	StruggleLockPickProgressItem = Item;
+	StruggleLockPickProgressOperation = StruggleLockPickProgressGetOperation(C, Item);
+	StruggleLockPickProgressSkill = Math.floor(NumPins*NumPins/2) + Math.floor(Math.max(0, -S)*Math.max(0, -S)); // Scales squarely, so that more difficult locks provide bigger reward!
+	StruggleLockPickProgressSkillLose = NumPins*NumPins/2; // Even if you lose you get some reward. You get this no matter what if you run out of tries.
+	StruggleLockPickProgressChallenge = S * -1;
+	StruggleLockPickProgressCurrentTries = 0;
+	StruggleLockPickSuccessTime = 0;
+	StruggleLockPickFailTime = 0;
+	DialogMenuButtonBuild(C);
+
+
+
+
+	for (let P = 0; P < NumPins; P++) {
+		StruggleLockPickOrder.push(P);
+		StruggleLockPickSet.push(false);
+		StruggleLockPickSetFalse.push(false);
+		StruggleLockPickOffset.push(0);
+		StruggleLockPickOffsetTarget.push(0);
+	}
+	/* Randomize array in-place using Durstenfeld shuffle algorithm */
+	// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+	for (var i = StruggleLockPickOrder.length - 1; i > 0; i--) {
+		var j = Math.floor(Math.random() * (i + 1));
+		var temp = StruggleLockPickOrder[i];
+		StruggleLockPickOrder[i] = StruggleLockPickOrder[j];
+		StruggleLockPickOrder[j] = temp;
+	}
+
+	// Initialize persistent pins
+	if ((Item.Property == null)) Item.Property = {};
+	if (Item.Property != null)
+		if ((Item.Property.LockPickSeed == null) || (typeof Item.Property.LockPickSeed != "string")) {
+			Item.Property.LockPickSeed = CommonConvertArrayToString(StruggleLockPickOrder);
+			StruggleLockPickTotalTries = 0;
+		} else {
+			var conv = CommonConvertStringToArray(Item.Property.LockPickSeed);
+			for (let PP = 0; PP < conv.length; PP++) {
+				if (typeof conv[PP] != "number") {
+					Item.Property.LockPickSeed = CommonConvertArrayToString(StruggleLockPickOrder);
+					conv = StruggleLockPickOrder;
+					break;
+				}
+			}
+			StruggleLockPickOrder = conv;
+		}
+
+	var PickingImpossible = false;
+	if (S < -6 && LockPickingImpossible) {
+		PickingImpossible = true; // if picking is impossible, then some pins will never set
+		StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-1]);
+		if (NumPins >= 6) StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-2]);
+		if (NumPins >= 8) StruggleLockPickImpossiblePins.push(StruggleLockPickOrder[StruggleLockPickOrder.length-3]);
+	}
+
+	// At 4 pins we have a base of 16 tries, with 10 maximum permutions possible
+	// At 10 pins we have a base of 40-30 tries, with 55 maximum permutions possible
+	var NumTries = Math.max(Math.floor(NumPins * (1.5 - 0.3*BondageLevel/10)),
+		Math.ceil(NumPins * (3.25 - BondageLevel/10) - Math.max(0, (StruggleLockPickProgressChallenge + BondageLevel/2)*1.5)));
+		// negative skill of 1 subtracts 2 from the normal lock and 4 from 10 pin locks,
+		// negative skill of 6 subtracts 12 from all locks
+
+
+	StruggleLockPickProgressMaxTries = Math.max(1, NumTries - NumPins);
 }
