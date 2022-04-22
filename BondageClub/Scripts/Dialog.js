@@ -52,6 +52,7 @@ var DialogLentLockpicks = false;
 var DialogGamingPreviousRoom = "";
 var DialogGamingPreviousModule = "";
 var DialogButtonDisabledTester = /Disabled(For\w+)?$/u;
+let DialogStruggleAction = null;
 let DialogStrugglePrevItem = null;
 let DialogStruggleNextItem = null;
 
@@ -1465,18 +1466,27 @@ function DialogMenuButtonClick() {
 			else if ((DialogMenuButton[I] == "Unlock") && (Item != null)) {
 				if (!InventoryItemHasEffect(Item, "Lock", false) && InventoryItemHasEffect(Item, "Lock", true) && ((C.ID != 0) || C.CanInteract())) {
 					InventoryUnlock(C, C.FocusGroup.Name);
-					if (CurrentScreen == "ChatRoom") ChatRoomPublishAction(C, Item, null, true, "ActionUnlock");
-					else DialogInventoryBuild(C);
+					if (CurrentScreen == "ChatRoom") {
+						ChatRoomPublishAction(C, "ActionUnlock", Item, null);
+						DialogLeave();
+					} else {
+						DialogInventoryBuild(C);
+					}
 					DialogLockMenu = false;
-				} else DialogStruggleStart(C, Item, null);
+				} else
+					DialogStruggleStart(C, "ActionUnlock", Item, null);
 				StruggleLockPickOrder = null;
 				DialogLockMenu = false;
 				return;
 			}
 
+
 			// Remove/Struggle Icon - Starts the struggling mini-game (can be impossible to complete)
-			else if (((DialogMenuButton[I] == "Remove") || (DialogMenuButton[I] == "Struggle") || (DialogMenuButton[I] == "Dismount") || (DialogMenuButton[I] == "Escape")) && (Item != null)) {
-				DialogStruggleStart(C, Item, null);
+			else if (["Remove", "Struggle", "Dismount", "Escape"].includes(DialogMenuButton[I]) && Item != null) {
+				let action = "ActionRemove";
+				if (InventoryItemHasEffect(Item, "Lock"))
+					action = "ActionUnlockAndRemove";
+				DialogStruggleStart(C, action, Item, null);
 				return;
 			}
 
@@ -1504,7 +1514,7 @@ function DialogMenuButtonClick() {
 						DialogColor = null;
 						if (save && !CommonColorsEqual(originalColor, Item.Color)) {
 							if (C.ID == 0) ServerPlayerAppearanceSync();
-							ChatRoomPublishAction(C, Object.assign({}, Item, { Color: originalColor }), Item, false);
+							ChatRoomPublishAction(C, "ActionChangeColor", Object.assign({}, Item, { Color: originalColor }), Item);
 						}
 					});
 				}
@@ -1591,16 +1601,16 @@ function DialogMenuButtonClick() {
 
 /**
  * Publishes the item action to the local chat room or the dialog screen
- * @param {Character} C - The character that is acted on
+ * @param {Character} C - The character who is the actor in this action
+ * @param {string} Action - The action performed
  * @param {Item} ClickItem - The item that is used
  * @returns {void} - Nothing
  */
-function DialogPublishAction(C, ClickItem) {
-	// TODO: The shock triggers can trigger items that can shock the wearer
-
+function DialogPublishAction(C, Action, ClickItem) {
 	// Publishes the item result
 	if ((CurrentScreen == "ChatRoom") && !InventoryItemHasEffect(ClickItem)) {
-		ChatRoomPublishAction(C, null, ClickItem, true);
+		ChatRoomPublishAction(C, Action, null, ClickItem);
+		DialogLeave();
 	}
 	else if (C.IsNpc()) {
 		let Line = ClickItem.Asset.Group.Name + ClickItem.Asset.DynamicName(Player);
@@ -1657,7 +1667,8 @@ function DialogItemClick(ClickItem) {
 			IntroductionJobProgress("DomLock", ClickItem.Asset.Name, true);
 			DialogItemToLock = null;
 			DialogInventoryBuild(C);
-			ChatRoomPublishAction(C, CurrentItem, ClickItem, true);
+			ChatRoomPublishAction(C, "ActionAddLock", CurrentItem, ClickItem);
+			DialogLeave();
 		}
 		return;
 	}
@@ -1678,9 +1689,20 @@ function DialogItemClick(ClickItem) {
 					if (ClickItem.Asset.Wear) {
 
 						// Check if selfbondage is allowed for the item if used on self
-						if ((ClickItem.Asset.SelfBondage <= 0) || (SkillGetLevel(Player, "SelfBondage") >= ClickItem.Asset.SelfBondage) || (C.ID != 0) || DialogAlwaysAllowRestraint()) DialogStruggleStart(C, CurrentItem, ClickItem);
-						else if (ClickItem.Asset.SelfBondage <= 10) DialogSetText("RequireSelfBondage" + ClickItem.Asset.SelfBondage);
-						else DialogSetText("CannotUseOnSelf");
+						if ((ClickItem.Asset.SelfBondage <= 0) || (SkillGetLevel(Player, "SelfBondage") >= ClickItem.Asset.SelfBondage) || (C.ID != 0) || DialogAlwaysAllowRestraint()) {
+							let action;
+							if (CurrentItem && ClickItem) {
+								action = "ActionSwap";
+							} else if (ClickItem) {
+								action = "ActionUse";
+							} else {
+								action = "ActionRemove";
+							}
+							DialogStruggleStart(C, action, CurrentItem, ClickItem);
+						} else if (ClickItem.Asset.SelfBondage <= 10)
+							DialogSetText("RequireSelfBondage" + ClickItem.Asset.SelfBondage);
+						else
+							DialogSetText("CannotUseOnSelf");
 
 					} else {
 
@@ -1691,7 +1713,7 @@ function DialogItemClick(ClickItem) {
 						}
 
 						// Runs the activity arousal process if activated, & publishes the item action text to the chatroom
-						DialogPublishAction(C, ClickItem);
+						DialogPublishAction(C, "ActionUse", ClickItem);
 						ActivityArousalItem(Player, C, ClickItem.Asset);
 
 					}
@@ -1706,11 +1728,12 @@ function DialogItemClick(ClickItem) {
 	// If the item can unlock another item or simply show dialog text (not wearable)
 	if (InventoryAllow(C, ClickItem.Asset))
 		if (InventoryItemHasEffect(ClickItem, /** @type {EffectName} */("Unlock-" + CurrentItem.Asset.Name)))
-			DialogStruggleStart(C, CurrentItem, null);
+			DialogStruggleStart(C, "ActionUnlock", CurrentItem, null);
 		else if ((CurrentItem.Asset.Name == ClickItem.Asset.Name) && CurrentItem.Asset.Extended)
 			DialogExtendItem(CurrentItem);
-		else if (!ClickItem.Asset.Wear)
-			DialogPublishAction(C, ClickItem);
+		else if (!ClickItem.Asset.Wear) {
+			DialogPublishAction(C, "ActionUse", ClickItem);
+		}
 
 }
 
@@ -2729,10 +2752,11 @@ function DialogIsStruggling() {
  * to the selection screen, saving the items in the two temporary item variables.
  *
  * @param {Character} C
+ * @param {string} Action
  * @param {Item} PrevItem
  * @param {Item} NextItem
  */
-function DialogStruggleStart(C, PrevItem, NextItem) {
+function DialogStruggleStart(C, Action, PrevItem, NextItem) {
 	ChatRoomStatusUpdate("Struggle");
 	if (C != Player
 			|| PrevItem == null
@@ -2740,8 +2764,10 @@ function DialogStruggleStart(C, PrevItem, NextItem) {
 				&& (!InventoryItemHasEffect(PrevItem, "Lock", true) || DialogCanUnlock(C, PrevItem))
 				&& ((Player.CanInteract() && !InventoryItemHasEffect(PrevItem, "Mounted", true))
 				|| StruggleStrengthGetDifficulty(C, PrevItem, NextItem).auto >= 0))) {
+		DialogStruggleAction = Action;
 		StruggleMinigameStart(C, "Strength", PrevItem, NextItem);
 	} else {
+		DialogStruggleAction = Action;
 		DialogStrugglePrevItem = PrevItem;
 		DialogStruggleNextItem = NextItem;
 		StruggleProgressCurrentMinigame = "";

@@ -189,10 +189,19 @@ function StruggleMinigameDrawCommon(C, Offset) {
 	if (StruggleProgress < 0) StruggleProgress = 0;
 
 	if (StruggleMinigameCheckCancel(C)) {
-		if (StruggleProgress > 0)
-			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true, "interrupted");
-		else
-			DialogLeave();
+		if (StruggleProgress > 0) {
+			let action;
+			if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null) && !StruggleProgressNextItem.Asset.IsLock)
+				action = "ActionInterruptedSwap";
+			else if (StruggleProgressNextItem != null)
+				action = "ActionInterruptedAdd";
+			else
+				action = "ActionInterruptedRemove";
+
+			ChatRoomPublishAction(C, action, StruggleProgressPrevItem, StruggleProgressNextItem);
+		}
+
+		DialogLeave();
 		StruggleProgress = -1;
 		DialogLockMenu = false;
 		return;
@@ -328,10 +337,11 @@ function StruggleProgressCheckEnd(C) {
 		// Check to open the extended menu of the item.  In a chat room, we publish the result for everyone
 		if ((StruggleProgressNextItem != null) && StruggleProgressNextItem.Asset.Extended && StruggleProgressNextItem.Craft == null) {
 			DialogInventoryBuild(C);
-			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, false);
+			ChatRoomPublishAction(C, DialogStruggleAction, StruggleProgressPrevItem, StruggleProgressNextItem);
 			DialogExtendItem(InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name));
 		} else {
-			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true);
+			ChatRoomPublishAction(C, DialogStruggleAction, StruggleProgressPrevItem, StruggleProgressNextItem);
+			DialogLeave();
 		}
 
 		// Reset the the character's position
@@ -1104,11 +1114,16 @@ function StruggleLockPickDraw(C) {
 	DrawText(DialogFindPlayer("LockpickIntro3"), X, 900, "white");
 
 	if (StruggleMinigameCheckCancel(C)) {
-		if (CurrentScreen === "ChatRoom") {
-			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true, "interrupted");
-		} else {
-			DialogLeave();
-		}
+		let action;
+		if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null) && !StruggleProgressNextItem.Asset.IsLock)
+			action = "ActionInterruptedSwap";
+		else if (StruggleProgressNextItem != null)
+			action = "ActionInterruptedAdd";
+		else
+			action = "ActionInterruptedRemove";
+
+		ChatRoomPublishAction(C, action, StruggleProgressPrevItem, StruggleProgressNextItem);
+		DialogLeave();
 		StruggleLockPickOrder = null;
 		DialogLockMenu = false;
 	} else if (StruggleLockPickSuccessTime != 0 && CurrentTime > StruggleLockPickSuccessTime) {
@@ -1118,7 +1133,7 @@ function StruggleLockPickDraw(C) {
 			var item = InventoryGet(C, C.FocusGroup.Name);
 			if (item) {
 				InventoryUnlock(C, item);
-				if (CurrentScreen == "ChatRoom") ChatRoomPublishAction(C, item, null, C.ID !== 0, "ActionPick");
+				ChatRoomPublishAction(C, "ActionPick", item, null);
 			}
 		}
 		SkillProgress("LockPicking", StruggleLockPickProgressSkill);
@@ -1128,7 +1143,6 @@ function StruggleLockPickDraw(C) {
 			StruggleLockPickOrder = null;
 			DialogLockMenu = false;
 			DialogMenuButtonBuild(C);
-
 		} else {
 			DialogLeaveItemMenu();
 		}
