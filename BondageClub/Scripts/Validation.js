@@ -384,9 +384,9 @@ function ValidationCanAddItem(newItem, params) {
 
 	// If the item is blocked/limited and the source doesn't have the correct permission, prevent it from being added
 	const type = (newItem.Property && newItem.Property.Type) || null;
-	const blockedOrLimited = ValidationIsItemBlockedOrLimited(
-		C, sourceMemberNumber, asset.Group.Name, asset.Name, type);
-	if (blockedOrLimited && OnlineGameAllowBlockItems()) return false;
+	const itemBlocked = ValidationIsItemBlockedOrLimited(C, sourceMemberNumber, asset.Group.Name, asset.Name, type) ||
+						ValidationIsItemBlockedOrLimited(C, sourceMemberNumber, asset.Group.Name, asset.Name);
+	if (itemBlocked && OnlineGameAllowBlockItems()) return false;
 
 	// Fall back to common item add/remove validation
 	return ValidationCanAddOrRemoveItem(newItem, params);
