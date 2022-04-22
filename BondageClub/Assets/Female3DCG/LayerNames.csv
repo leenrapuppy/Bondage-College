@@ -1001,6 +1001,9 @@ ItemDevicesDollBoxDollText,Label
 ItemDevicesDollBoxText,Custom Text
 ItemDevicesDollBoxHeart,Heart
 ItemDevicesDollBoxGlass,Glass
+ItemDevicesWoodenRackFrameStains,Stains
+ItemDevicesWoodenRackTopRopes, Ropes
+ItemDevicesWoodenRackTopChains,Chains
 PantiesPilotPantiesLayer1,Suit
 PantiesPilotPantiesLayer2,Highlights
 PantiesPilotPantiesLayer3,Center
