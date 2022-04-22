@@ -400,6 +400,23 @@ function StruggleMinigameStart(C, MiniGame, PrevItem, NextItem) {
 	}
 }
 
+/**
+ * Stop the struggle minigame and reset it so it can be reentered.
+ *
+ * If the game was already played a bit, it will also log the failure in chat.
+ *
+ * @returns {void}
+ */
+function StruggleMinigameStop() {
+	if (StruggleProgressCurrentMinigame && StruggleProgressCurrentMinigame !== "LockPick"
+			&& StruggleProgressStruggleCount >= 10 && StruggleProgressAuto < 0 && StruggleProgress >= 0) {
+		ChatRoomStimulationMessage("StruggleFail");
+	}
+	StruggleProgress = -1;
+	StruggleLockPickOrder = null;
+	StruggleProgressCurrentMinigame = "";
+}
+
 ////////////////////////////STRUGGLE MINIGAME: BRUTE FORCE//////////////////////////////
 /*
 Featuring:

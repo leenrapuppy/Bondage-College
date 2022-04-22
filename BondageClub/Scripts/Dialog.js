@@ -647,10 +647,10 @@ function DialogLeaveItemMenu(resetPermissionsMode = true) {
 		CurrentCharacter.FocusGroup = null;
 	}
 	DialogInventory = null;
-	StruggleProgress = -1;
+	if (DialogIsStruggling())
+		StruggleMinigameStop();
 	DialogLockMenu = false;
 	DialogCraftingMenu = false;
-	StruggleLockPickOrder = null;
 	DialogColor = null;
 	DialogMenuButton = [];
 	if (DialogItemPermissionMode && CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
@@ -951,7 +951,7 @@ function DialogMenuButtonBuild(C) {
 		DialogMenuButton.push("LockCancel");
 
 	// Out of struggle mode, we calculate which buttons to show in the UI
-	if ((StruggleProgress < 0) && !StruggleLockPickOrder) {
+	if (!DialogIsStruggling() && !DialogActivityMode) {
 
 		// Pushes all valid main buttons, based on if the player is restrained, has a blocked group, has the key, etc.
 		const IsItemLocked = InventoryItemHasEffect(Item, "Lock", true);
@@ -1395,7 +1395,6 @@ function DialogMenuButtonClick() {
 			// Exit Icon - Go back to the character dialog
 			if (DialogMenuButton[I] == "Exit") {
 				if (DialogItemPermissionMode) ChatRoomCharacterUpdate(Player);
-				if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0) && (StruggleProgress > 0)) ChatRoomStimulationMessage("StruggleFail");
 				DialogLeaveItemMenu();
 				return;
 			}
@@ -1778,7 +1777,7 @@ function DialogClick() {
 	}
 
 	// In activity mode, we check if the user clicked on an activity box
-	if (DialogActivityMode && (StruggleProgress < 0 && !StruggleLockPickOrder) && (DialogColor == null) && ((Player.FocusGroup != null) || ((CurrentCharacter.FocusGroup != null) && CurrentCharacter.AllowItem)))
+	if (DialogActivityMode && !DialogIsStruggling() && (DialogColor == null) && ((Player.FocusGroup != null) || ((CurrentCharacter.FocusGroup != null) && CurrentCharacter.AllowItem)))
 		if ((MouseX >= 1000) && (MouseX <= 1975) && (MouseY >= 125) && (MouseY <= 1000)) {
 
 			// For each activities in the list
@@ -1849,7 +1848,7 @@ function DialogClick() {
 			if ((MouseX >= 1000) && (MouseX < 2000) && (MouseY >= 15) && (MouseY <= 105)) DialogMenuButtonClick();
 
 			// If the user clicks on one of the items
-			if ((MouseX >= 1000) && (MouseX <= 1975) && (MouseY >= 125) && (MouseY <= 1000) && !DialogCraftingMenu && ((DialogItemPermissionMode && (Player.FocusGroup != null)) || (Player.CanInteract() && !InventoryGroupIsBlocked(C, null, true))) && (StruggleProgress < 0 && !StruggleLockPickOrder) && (DialogColor == null)) {
+			if ((MouseX >= 1000) && (MouseX <= 1975) && (MouseY >= 125) && (MouseY <= 1000) && !DialogCraftingMenu && ((DialogItemPermissionMode && (Player.FocusGroup != null)) || (Player.CanInteract() && !InventoryGroupIsBlocked(C, null, true))) && !DialogIsStruggling() && (DialogColor == null)) {
 				// For each items in the player inventory
 				let X = 1000;
 				let Y = 125;
@@ -2031,8 +2030,8 @@ function DialogExtendItem(Item, SourceItem) {
 	const C = CharacterGetCurrent();
 	if (AsylumGGTSControlItem(C, Item)) return;
 	if (InventoryBlockedOrLimited(C, Item)) return;
-	StruggleProgress = -1;
-	StruggleLockPickOrder = null;
+	if (DialogIsStruggling())
+		StruggleMinigameStop();
 	DialogLockMenu = false;
 	DialogCraftingMenu = false;
 	DialogColor = null;
@@ -2197,7 +2196,7 @@ function DialogDrawItemMenu(C) {
 
 	// Draws the top menu text & icons
 	if (DialogMenuButton.length === 0) DialogMenuButtonBuild(CharacterGetCurrent());
-	if ((DialogColor == null) && Player.CanInteract() && (StruggleProgress < 0 && !StruggleLockPickOrder) && !DialogCraftingMenu && !InventoryGroupIsBlocked(C) && DialogMenuButton.length < 8) DrawTextWrap((!DialogItemPermissionMode) ? DialogText : DialogFind(Player, "DialogPermissionMode"), 1000, 0, 975 - DialogMenuButton.length * 110, 125, "White", null, 3);
+	if ((DialogColor == null) && Player.CanInteract() && !DialogIsStruggling() && !DialogCraftingMenu && !InventoryGroupIsBlocked(C) && DialogMenuButton.length < 8) DrawTextWrap((!DialogItemPermissionMode) ? DialogText : DialogFind(Player, "DialogPermissionMode"), 1000, 0, 975 - DialogMenuButton.length * 110, 125, "White", null, 3);
 	for (let I = DialogMenuButton.length - 1; I >= 0; I--) {
 		const ButtonColor = DialogGetMenuButtonColor(DialogMenuButton[I]);
 		const ButtonImage = DialogGetMenuButtonImage(DialogMenuButton[I], FocusItem);
@@ -2220,8 +2219,8 @@ function DialogDrawItemMenu(C) {
 
 	// In item permission mode, the player can choose which item he allows other users to mess with.
 	// Allowed items have a green background.  Disallowed have a red background. Limited have an orange background
-	if ((DialogItemPermissionMode && (C.ID == 0) && (StruggleProgress < 0 && !StruggleLockPickOrder))
-		|| (Player.CanInteract() && (StruggleProgress < 0 && !StruggleLockPickOrder) && !InventoryGroupIsBlocked(C, null, true))) {
+	if ((DialogItemPermissionMode && (C.ID == 0) && !DialogIsStruggling())
+		|| (Player.CanInteract() && !DialogIsStruggling() && !InventoryGroupIsBlocked(C, null, true))) {
 
 		if (DialogInventory == null) DialogInventoryBuild(C);
 
