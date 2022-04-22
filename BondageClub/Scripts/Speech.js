@@ -99,59 +99,16 @@ function SpeechGarble(C, CD, NoDeaf=false) {
 }
 
 /**
- * A PRNG(Pseudo random number generator) helper to generate random number sequence by seed.
- * Stole this function and the function below from {@link https://stackoverflow.com/questions/521295/seeding-the-random-number-generator-in-javascript stackoverflow} 
- * @param {number} a - seed 1
- * @param {number} b - seed 2
- * @param {number} c - seed 3
- * @param {number} d - seed 4
- * @returns {function} - The function where it could be used to do PRNG magic.
- */
-function sfc32(a, b, c, d) {
-    return function() {
-      a >>>= 0; b >>>= 0; c >>>= 0; d >>>= 0; 
-      var t = (a + b) | 0;
-      a = b ^ b >>> 9;
-      b = c + (c << 3) | 0;
-      c = (c << 21 | c >>> 11);
-      d = d + 1 | 0;
-      t = t + d | 0;
-      c = c + t | 0;
-      return (t >>> 0) / 4294967296;
-    }
-}
-
-/**
- * Random seeding tool to generate random seeding sequence that is able to be used.
- * This allows the random result always be the same when the seed is the same. 
- * (This implementation is needed because dialog refreshes every frame, we have to generate garbled text that are the same.)
- * (Otherwise it will just keep flashing and changing the text.)
- * 
- * @param {*} seed - The seed to generate random numbers.
- * @returns {function} - The function where it could be used to do PRNG magic.
- */
-function randomSeeding(seed) {
-    for (var i = 0, h = 1779033703 ^ seed.length; i < seed.length; i++) {
-        h = Math.imul(h ^ seed.charCodeAt(i), 3432918353);
-        h = h << 13 | h >>> 19;
-    } return function() {
-        h = Math.imul(h ^ (h >>> 16), 2246822507);
-        h = Math.imul(h ^ (h >>> 13), 3266489909);
-        return (h ^= h >>> 16) >>> 0;
-    }
-}
-
-/**
  * Test if the current character parsed in is a Chinese character, and client user is using Chinese.
  * This is to prevent garbling Japanese kanji.
  * But for chatroom use case where two clients may have different languages
  * I don't have a definite solution yet, so let's do this for now to resolve the options not showing up first.
- * @param {string} character 
+ * @param {string} character
  * @returns {boolean} - true if is Chinese character, false otherwise.
  */
 function isChineseCharacter(character) {
 	if (TranslationLanguage !== 'CN') return false;
-	
+
 	return chineseRegex.test(character)
 }
 
@@ -159,10 +116,10 @@ function isChineseCharacter(character) {
  * Get the character and determine if it is a Chinese character, if it does, do random garbling according to the gagLevel.
  * This is only a hotfix for the issue where Chinese characters are not displayed because they are not properly garbled,
  * when showing as options.
- * 
+ *
  * @param {string} character - The character needs to be garbled.
  * @param {number} gagLevel - Gag level.
- * 
+ *
  * @return {string} - The character that being garbled.
  */
 function doChineseGarbling(character, gagLevel) {
@@ -203,11 +160,14 @@ function doChineseGarbling(character, gagLevel) {
 			garbleRandomChance = .1;
 	}
 
-	const seed = randomSeeding(character + garbleRandomChance.toString());
-	const garbleDecision = sfc32(seed(), seed(), seed(), seed());
-	
+	/* Generate a random seeded sequence from the character and the chance.
+	 * This is needed because dialog refreshes every frame, and the garbled text
+	 * changing on each causes it to flash.
+	 */
+	const garbleDecision = CommonPRNG(character + garbleRandomChance.toString())
+
 	return (garbleDecision() >= garbleRandomChance)
-		? chineseRandomGarbledSound[Math.floor(garbleDecision() * chineseRandomGarbledSound.length)] 
+		? chineseRandomGarbledSound[Math.floor(garbleDecision() * chineseRandomGarbledSound.length)]
 		: character;
 }
 
