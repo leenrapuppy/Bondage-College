@@ -1112,19 +1112,29 @@ function StruggleLockPickGetDifficulty(C, Item) {
 	if (!Item || !Lock)
 		return null;
 
-	var LockRating = 1;
-	var Impossible = false;
+	// How hard the locked item is
+	let ItemDifficulty = Item.Difficulty - Item.Asset.Difficulty;
 
-	// Gets the lock rating
-	var ItemDifficulty = Item.Difficulty - Item.Asset.Difficulty;
-
-	// Gets the required skill / challenge level based on player/rigger skill and item difficulty (0 by default is easy to pick)
-	var Difficulty = 0;
-	Difficulty = Difficulty + SkillGetWithRatio("LockPicking"); // Add the player evasion level (modified by the effectiveness ratio)
+	// Gets the lock rating, ie. how hard of a lock it is to lockpick
+	let LockRating = 1;
 	if (Lock.Asset.PickDifficulty && Lock.Asset.PickDifficulty > 0) {
-		Difficulty = Difficulty - Lock.Asset.PickDifficulty; // Subtract the item difficulty (regular difficulty + player that restrained difficulty)
-		LockRating = Lock.Asset.PickDifficulty; // Some features of the minigame are independent of the relative skill level
+		LockRating = Lock.Asset.PickDifficulty;
 	}
+
+	// Gets the number of pins on the lock
+	let NumPins = 4;
+	if (LockRating >= 6) NumPins += 2; // 6 pins for the intricate lock
+	if (LockRating >= 8) NumPins += 1; // 7 pins for the exclusive lock
+	if (LockRating >= 10) NumPins += 1; // 8 pins for the high security lock
+	if (LockRating >= 11) NumPins += 2; // Cap at 10 pins
+
+	// The lock actual difficulty, based on its rating and the skill of the lockpicker.
+	// The lower it is, the harder it is, until it becomes actually impossible to pick
+	let Difficulty = 0;
+	let Impossible = false;
+
+	Difficulty = Difficulty + SkillGetWithRatio("LockPicking"); // Add the player evasion level (modified by the effectiveness ratio)
+	Difficulty = Difficulty - LockRating; // Subtract the item difficulty (regular difficulty + player that restrained difficulty)
 	// if (Item.Asset && Item.Asset.Difficulty) {
 	// 	Difficulty -= ItemDifficulty/2 // Adds the bondage skill of the item but not the base difficulty!
 	// }
@@ -1172,16 +1182,9 @@ function StruggleLockPickGetDifficulty(C, Item) {
 		}
 	}
 
-	// Gets the number of pins on the lock
-	var NumPins = 4;
-	if (LockRating >= 6) NumPins += 2; // 6 pins for the intricate lock
-	if (LockRating >= 8) NumPins += 1; // 7 pins for the exclusive lock
-	if (LockRating >= 10) NumPins += 1; // 8 pins for the high security lock
-	if (LockRating >= 11) NumPins += 2; // Cap at 10 pins
-
 	// At 4 pins we have a base of 16 tries, with 10 maximum permutions possible
 	// At 10 pins we have a base of 40-30 tries, with 55 maximum permutions possible
-	var NumTries = Math.max(Math.floor(NumPins * (1.5 - 0.3*ItemDifficulty/10)),
+	let NumTries = Math.max(Math.floor(NumPins * (1.5 - 0.3*ItemDifficulty/10)),
 		Math.ceil(NumPins * (3.25 - ItemDifficulty/10) - Math.max(0, (-Difficulty + ItemDifficulty/2)*1.5)));
 		// negative skill of 1 subtracts 2 from the normal lock and 4 from 10 pin locks,
 		// negative skill of 6 subtracts 12 from all locks
