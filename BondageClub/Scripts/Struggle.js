@@ -1318,23 +1318,24 @@ function StruggleLockPickSetup(C, Item) {
 			StruggleLockPickOrder[j] = temp;
 		}
 
-		// Initialize persistent pins
-		if ((Item.Property == null)) Item.Property = {};
-		if (Item.Property != null)
-			if ((Item.Property.LockPickSeed == null) || (typeof Item.Property.LockPickSeed != "string")) {
+		// Save the pins to the item
+		if (Item.Property == null) {
+			Item.Property = {};
+		}
+
+		if (Item.Property.LockPickSeed == null || typeof Item.Property.LockPickSeed !== "string") {
+			// Old seed is invalid, use the one we just built
+			Item.Property.LockPickSeed = CommonConvertArrayToString(StruggleLockPickOrder);
+			StruggleLockPickTotalTries = 0;
+		} else {
+			// Load the seed and type-check it. If anything is wrong, use the one we built
+			let conv = CommonConvertStringToArray(Item.Property.LockPickSeed);
+			if (!conv.every(num => typeof num === "number")) {
 				Item.Property.LockPickSeed = CommonConvertArrayToString(StruggleLockPickOrder);
-				StruggleLockPickTotalTries = 0;
-			} else {
-				var conv = CommonConvertStringToArray(Item.Property.LockPickSeed);
-				for (let PP = 0; PP < conv.length; PP++) {
-					if (typeof conv[PP] != "number") {
-						Item.Property.LockPickSeed = CommonConvertArrayToString(StruggleLockPickOrder);
-						conv = StruggleLockPickOrder;
-						break;
-					}
-				}
-				StruggleLockPickOrder = conv;
+				conv = StruggleLockPickOrder;
 			}
+			StruggleLockPickOrder = conv;
+		}
 
 		if (S < -6 && LockPickingImpossible) {
 			// if picking is impossible, then some pins will never set
