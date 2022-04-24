@@ -150,8 +150,8 @@ const InventoryItemDevicesVacBedDeluxeOpacityChange = CommonLimitFunction((chara
  */
 function InventoryItemDevicesVacBedDeluxePublishAction(C, Option) {
 	let dictionary = [];
-	dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
-	dictionary.push({ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
+	dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
+	dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 	ChatRoomPublishCustomAction("VacBedDeluxeChangeType", true, dictionary);
 }
 

@@ -586,7 +586,7 @@ SourceCharacter跪了下来
 SourceCharacter stands up
 SourceCharacter站了起来
 SourceCharacter carefully lowers herself down.
-SourceCharacter小心的放低姿态
+SourceCharacter小心的跪了下来
 SourceCharacter manages to get to her feet.
 SourceCharacter成功站了起来
 SourceCharacter almost loses her balance trying to kneel down!

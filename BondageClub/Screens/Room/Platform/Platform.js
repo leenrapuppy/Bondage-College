@@ -1310,7 +1310,7 @@ function PlatformAttack(Source, Type) {
  * @returns {void} - Nothing
  */
 function PlatformClick() {
-	if (MouseIn(1900, 10, 90, 90) && Player.CanWalk()) return PlatformExit();
+	if (MouseIn(1900, 10, 90, 90) && Player.CanWalk()) return PlatformLeave();
 	PlatformAttack(PlatformPlayer, ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0)) ? "CrouchAttackFast" : "StandAttackFast");
 }
 
@@ -1318,7 +1318,7 @@ function PlatformClick() {
  * When the screens exits, we unload the listeners
  * @returns {void} - Nothing
  */
-function PlatformExit() {
+function PlatformLeave() {
 	window.removeEventListener("keydown", PlatformEventKeyDown);
 	window.removeEventListener("keyup", PlatformEventKeyUp);
 	CommonSetScreen("Room", "MainHall");

@@ -14,7 +14,7 @@
 /**
  * An enum encapsulating the available extended item archetypes
  * MODULAR - Indicates that this item is modular, with several independently configurable modules
- * @type {{MODULAR: "modular", TYPED: "typed", VIBRATING: "vibrating"}}
+ * @type {{MODULAR: "modular", TYPED: "typed", VIBRATING: "vibrating", VARIABLEHEIGHT: "variableheight"}}
  * @see {@link ModularItemConfig}
  * @see {@link TypedItemConfig}
  */
@@ -22,6 +22,7 @@ const ExtendedArchetype = {
 	MODULAR: "modular",
 	TYPED: "typed",
 	VIBRATING: "vibrating",
+	VARIABLEHEIGHT: "variableheight",
 };
 
 /**
@@ -540,7 +541,7 @@ var AssetFemale3DCGExtended = {
 		Chains: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR],
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR, CommonChatTags.DEST_CHAR],
 				Options: [
 					{
 						Name: "WristTie",
@@ -589,9 +590,20 @@ var AssetFemale3DCGExtended = {
 						BondageLevel: 8,
 						Prerequisite: ["NotMounted", "NotChained", "NotSuspended"],
 						Property: { Type: "SuspensionHogtied", Effect: ["Block", "Freeze", "Prone", "NotSelfPickable"], Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], AllowActivityOn: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], SetPose: ["Hogtied", "SuspensionHogtied"], Difficulty: 6,
-							OverrideHeight: { Height: 0, Priority: 51, HeightRatioProportion: 0 } },
+							OverrideHeight: { Height: -575, Priority: 51, HeightRatioProportion: 1 } },
 						Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
 						Random: false,
+						HasSubscreen: true,
+						Archetype: ExtendedArchetype.VARIABLEHEIGHT,
+						ArchetypeConfig: {
+							MaxHeight: 0,
+							MinHeight: -575,
+							SliderIcon: "player",
+							Dialog: {
+								ChatPrefix: "SuspensionChange",
+								NpcPrefix: "ChainBondage",
+							},
+						},
 					}
 				],
 				Dialog: {
@@ -1540,6 +1552,136 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // Tentacles
+		HempRope: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR, CommonChatTags.DEST_CHAR],
+				Options: [
+					{
+						Name: "WristTie",
+						Property: { Type: "WristTie", Effect: ["Block", "Prone"], SetPose: ["BackBoxTie"], Difficulty: 1 },
+						Expression: [{ Group: "Blush", Name: "Low", Timer: 5 }]
+					}, {
+						Name: "BoxTie",
+						Property: { Type: null, Effect: ["Block", "Prone"], SetPose: ["BackBoxTie"], Difficulty: 1 }
+					}, {
+						Name: "CrossedBoxtie",
+						Property: { Type: "CrossedBoxtie", Effect: ["Block", "Prone"], SetPose: ["BackBoxTie"], Difficulty: 1 },
+						Expression: [{ Group: "Blush", Name: "Low", Timer: 5 }]
+					}, {
+						Name: "RopeCuffs",
+						Property: { Type: "RopeCuffs", Effect: ["Block", "Prone"], SetPose: ["BackCuffs"], Difficulty: 1, OverridePriority: 29 },
+						Expression: [{ Group: "Blush", Name: "Low", Timer: 5 }]
+					}, {
+						Name: "WristElbowTie",
+						BondageLevel: 2,
+						Property: { Type: "WristElbowTie", Effect: ["Block", "Prone"], SetPose: ["BackElbowTouch"], Difficulty: 2 },
+						Expression: [{ Group: "Blush", Name: "Medium", Timer: 5 }]
+					}, {
+						Name: "SimpleHogtie",
+						BondageLevel: 2,
+						Prerequisite: ["NotMounted", "NotSuspended"],
+						Property: { Type: "SimpleHogtie", Effect: ["Block", "Prone"], SetPose: ["Hogtied"], Difficulty: 2 },
+						Expression: [{ Group: "Blush", Name: "Medium", Timer: 5 }],
+						Random: false,
+					}, {
+						Name: "TightBoxtie",
+						BondageLevel: 3,
+						Property: { Type: "TightBoxtie", Effect: ["Block", "Prone"], SetPose: ["BackBoxTie"], Difficulty: 3 },
+						Expression: [{ Group: "Blush", Name: "Medium", Timer: 5 }]
+					}, {
+						Name: "WristElbowHarnessTie",
+						BondageLevel: 3,
+						Property: { Type: "WristElbowHarnessTie", Effect: ["Block", "Prone"], SetPose: ["BackElbowTouch"], Difficulty: 3 },
+						Expression: [{ Group: "Blush", Name: "Medium", Timer: 5 }]
+					}, {
+						Name: "KneelingHogtie",
+						BondageLevel: 4,
+						Prerequisite: ["NotMounted", "NotSuspended"],
+						Property: {
+							Type: "KneelingHogtie",
+							Effect: ["Block", "Freeze", "Prone"],
+							Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots", "ItemDevices"],
+							AllowActivityOn: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"],
+							SetPose: ["Kneel", "BackElbowTouch"],
+							Difficulty: 3,
+							AllowPose: ["Kneel", "KneelingSpread"],
+							AllowActivePose: ["Kneel", "KneelingSpread"],
+							WhitelistActivePose: ["Kneel", "KneelingSpread"],
+						},
+						Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
+						Random: false,
+					}, {
+						Name: "Hogtied",
+						BondageLevel: 4,
+						Prerequisite: ["NotMounted", "NotSuspended"],
+						Property: {
+							Type: "Hogtied",
+							Effect: ["Block", "Freeze", "Prone"],
+							Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots", "ItemDevices"],
+							AllowActivityOn: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"],
+							SetPose: ["Hogtied"],
+							Difficulty: 3
+						},
+						Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
+						Random: false,
+					}, {
+						Name: "AllFours",
+						BondageLevel: 6,
+						Prerequisite: ["NotMounted", "NotSuspended"],
+						Property: {
+							Type: "AllFours",
+							Effect: ["ForceKneel"],
+							Block: ["ItemLegs", "ItemFeet", "ItemBoots", "ItemDevices"],
+							AllowActivityOn: ["ItemLegs", "ItemFeet", "ItemBoots"],
+							SetPose: ["AllFours"],
+							Difficulty: 3
+						},
+						Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
+						Random: false,
+					}, {
+						Name: "SuspensionHogtied",
+						BondageLevel: 8,
+						Prerequisite: ["NotMounted", "NotChained", "NotReverseSuspended"],
+						Property: {
+							Type: "SuspensionHogtied",
+							Effect: ["Block", "Freeze", "Prone"],
+							Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"],
+							AllowActivityOn: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"],
+							SetPose: ["Hogtied", "SuspensionHogtied"],
+							Difficulty: 6,
+							OverrideHeight: { Height: -575, Priority: 51, HeightRatioProportion: 1 }
+						},
+						Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
+						Random: false,
+						HasSubscreen: true,
+						Archetype: ExtendedArchetype.VARIABLEHEIGHT,
+						ArchetypeConfig: {
+							MaxHeight: 0,
+							MinHeight: -575,
+							SliderIcon: "player",
+							Dialog: {
+								ChatPrefix: "SuspensionChange",
+								NpcPrefix: "RopeBondage",
+							},
+						},
+					}, {
+						Name: "BedSpreadEagle",
+						BondageLevel: 1,
+						Prerequisite: ["OnBed"],
+						Property: { Type: "BedSpreadEagle", Effect: ["Block", "Freeze", "Prone"], Block: ["ItemDevices"], SetPose: ["Yoked"], Difficulty: 5 },
+						Expression: [{ Group: "Blush", Name: "Medium", Timer: 10 }],
+						Random: false,
+					}
+				],
+				Dialog: {
+					Load: "SelectRopeBondage",
+					TypePrefix: "RopeBondage",
+					ChatPrefix: "ArmsRopeSet",
+					NpcPrefix: "RopeBondage",
+				},
+			}
+		},
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {
@@ -2523,6 +2665,129 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // Net
+		WoodenRack: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config:{
+				Modules:[
+					{
+							Name: "Frame", Key: "f",
+							Options: [
+								{}, // f0 - Normal
+								{}, // f1 - HalfBack
+								{}, // f2 - NoBack
+							],
+					},	
+					{
+							Name: "TopRestraints", Key: "t",
+							Options: [
+								{}, // t0 - No
+								{	
+								Prerequisite: ["CuffedArmsOrEmpty"],
+									Property: {
+										Difficulty: 22,
+										SetPose: ["Yoked"],
+										AllowActivePose: ["LegsClosed", "BaseLower"],
+										Block: ["ItemArms"],
+										Effect: ["Prone", "Freeze", "Block", "BlockKneel", "Mounted"],
+									},
+								}, // t1 - Rope
+								{
+									Prerequisite: ["CuffedArmsOrEmpty"],
+									Property: {
+										Difficulty: 22,
+										SetPose: ["OverTheHead"],
+										AllowActivePose: ["LegsClosed", "BaseLower"],
+										Block: ["ItemArms"],
+										Effect: ["Prone", "Freeze", "Block", "BlockKneel", "Mounted"],
+										
+									},
+								}, // t2 - RopeTight
+								{
+									Prerequisite: ["CuffedArms"],
+									Property: {
+										Difficulty: 22,
+										SetPose: ["Yoked"],
+										AllowActivePose: ["LegsClosed", "BaseLower"],
+										Block: ["ItemArms"],
+										Effect: ["Prone", "Freeze", "Block", "BlockKneel", "Mounted"],
+									},
+								}, // t3 - Chains
+								{
+									Prerequisite: ["CuffedArms"],
+									Property: {
+										Difficulty: 22,
+										SetPose: ["OverTheHead"],
+										AllowActivePose: ["LegsClosed", "BaseLower"],
+										Block: ["ItemArms"],
+										Effect: ["Prone", "Freeze", "Block", "BlockKneel", "Mounted"],
+									},
+								}, // t4 - ChainsTight
+							],
+					},
+					{
+							Name: "FrameStains", Key: "s",
+							Options: [
+							{}, // s0 - No
+							{}, // s1 - Stains
+							],
+					},
+					{
+							Name: "BotRestraints", Key: "b",
+							Options: [
+								{}, // b0 - No
+								{
+									Property: {
+										Difficulty: 16,
+										SetPose: ["Spread"],
+										Block: ["ItemFeet", "ItemLegs"],
+										Effect: ["Prone", "Freeze", "BlockKneel", "Mounted"],
+										Hide: ["ItemBoots", "Shoes"]
+									},
+								}, // b1 - Rope
+								{
+									Property: {
+										Difficulty: 18,
+										SetPose: ["LegsClosed"],
+										Block: ["ItemFeet", "ItemLegs"],
+										Effect: ["Prone", "Freeze", "BlockKneel", "Mounted"],
+										Hide: ["ItemBoots", "Shoes"]
+									},
+								}, // b2 - RopeTight
+								{
+									Prerequisite: ["CuffedLegs"],
+									Property: {
+										Difficulty: 22,
+										SetPose: ["Spread"],
+										Block: ["ItemFeet", "ItemLegs"],
+										Effect: ["Prone", "Freeze", "BlockKneel", "Mounted"],
+										Hide: ["ItemBoots", "Shoes"]
+									},
+								}, // b3 - Chains
+								{
+									Prerequisite: ["CuffedLegs"],
+									Property: {
+										Difficulty: 22,
+										SetPose: ["LegsClosed"],
+										Block: ["ItemFeet", "ItemLegs"],
+										Effect: ["Prone", "Freeze", "BlockKneel", "Mounted"],
+										Hide: ["ItemBoots", "Shoes"]
+									},
+								}, // b4 - ChainsTogether
+								{
+									Property: {
+										Difficulty: 22,
+										SetPose: ["BaseLower"],
+										Block: ["ItemFeet", "ItemLegs"],
+										Effect: ["Prone", "Freeze", "BlockKneel", "Mounted"],
+										Hide: ["ItemBoots", "Shoes", "ItemFeet", "ItemLegs"],
+									},
+								}, // b5 - Stocks
+							],
+					},
+				],
+			},
+		}, //WoodenRack
+		
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {
@@ -5545,27 +5810,27 @@ var AssetFemale3DCGExtended = {
 				ChatSetting: ModularItemChatSetting.PER_MODULE,
 				Modules:[
 					{
-					Name: "Eye", Key: "e",
-					Options:[
-						{
-							Property:{
-								Type:null,
-								Effect:["BlindNormal","Prone"]
+						Name: "Eye", Key: "e",
+						Options:[
+							{
+								Property:{
+									Type:null,
+									Effect:["BlindNormal","Prone"]
+								},
 							},
-						},
-						{
-							Property:{
-								Type: "Right",
-								Effect:[]
+							{
+								Property:{
+									Type: "Right",
+									Effect:[]
+								},
 							},
-						},
-						{
-							Property:{
-								Type: "Left",
-								Effect:[]
+							{
+								Property:{
+									Type: "Left",
+									Effect:[]
+								},
 							},
-						},
-					],
+						],
 					},
 					{
 						Name:"RightSticker", Key: "r",
@@ -5664,16 +5929,16 @@ var AssetFemale3DCGExtended = {
 										"HatBand2", "HatPirateBandana1", "HatVeil1","HatVeil2", // Hat items
 										"MaskFuturisticVisor", "MaskShinobiMask", // Mask items
 										"HairAccessory3Ribbons4", // HairAccessory items
-										"HairAccessory1Antennae", "HairAccessory1BunnyEars1", "HairAccessory1BunnyEars2", "HairAccessory1CowHorns", "HairAccessory1ElfEars", 
+										"HairAccessory1Antennae", "HairAccessory1BunnyEars1", "HairAccessory1BunnyEars2", "HairAccessory1CowHorns", "HairAccessory1ElfEars",
 										"HairAccessory1Ears1", "HairAccessory1Ears2", "HairAccessory1FoxEars1", "HairAccessory1FoxEars2", "HairAccessory1FoxEars3",
 										"HairAccessory1KittenEars1", "HairAccessory1KittenEars2", "HairAccessory1MouseEars1", "HairAccessory1MouseEars2",
-										"HairAccessory1PuppyEars1", "HairAccessory1Ribbons2",	"HairAccessory1WolfEars1", "HairAccessory1WolfEars2", 
+										"HairAccessory1PuppyEars1", "HairAccessory1Ribbons2", "HairAccessory1WolfEars1", "HairAccessory1WolfEars2",
 										"HairAccessory1Ribbons4", // Ear items (HA1)
-										"HairAccessory2Antennae", "HairAccessory2BunnyEars1", "HairAccessory2BunnyEars2", "HairAccessory2CowHorns", "HairAccessory2ElfEars", 
+										"HairAccessory2Antennae", "HairAccessory2BunnyEars1", "HairAccessory2BunnyEars2", "HairAccessory2CowHorns", "HairAccessory2ElfEars",
 										"HairAccessory2Ears1", "HairAccessory2Ears2", "HairAccessory2FoxEars1", "HairAccessory2FoxEars2", "HairAccessory2FoxEars3",
 										"HairAccessory2KittenEars1", "HairAccessory2KittenEars2", "HairAccessory2MouseEars1", "HairAccessory2MouseEars2",
-										"HairAccessory2PuppyEars1", "HairAccessory2Ribbons2",	"HairAccessory2WolfEars1", "HairAccessory2WolfEars2", // Ear items (HA2)          
-									], // These items are hidden because they have clear mismatch issues with the hood.							
+										"HairAccessory2PuppyEars1", "HairAccessory2Ribbons2", "HairAccessory2WolfEars1", "HairAccessory2WolfEars2", // Ear items (HA2)
+									], // These items are hidden because they have clear mismatch issues with the hood.
 								},
 							}, // h1 - Helmet (hood)
 							{ // h2 - Helmet ( hood but nothing shows)

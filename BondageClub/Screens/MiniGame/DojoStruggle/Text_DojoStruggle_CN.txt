@@ -1,0 +1,8 @@
+Tap to navigate the rope between the other ropes.  Starts in StartTimer seconds.
+点击屏幕，将绳头穿过其他绳子。StartTimer 秒后开始。
+Perfect!  You've escaped on the first try.  Click on yourself to continue.
+完美！你第一次尝试就逃脱了。点击你自己以继续。
+Congrats!  You were able to escape.  Click on yourself to continue.
+恭喜！你成功逃脱了。点击你自己以继续。
+Sorry, you've failed to escape.  Click on yourself to continue.
+抱歉，你没能逃脱。点击你自己以继续。

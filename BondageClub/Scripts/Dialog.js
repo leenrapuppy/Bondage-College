@@ -1453,10 +1453,10 @@ function DialogPublishAction(C, ClickItem) {
 				if (typeof intensity !== "number")
 					intensity = 0;
 				InventoryExpressionTrigger(C, ClickItem);
-				ChatRoomPublishCustomAction(TargetItem.Asset.Name + "Trigger" + intensity, true, [{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber }]);
+				ChatRoomPublishCustomAction(TargetItem.Asset.Name + "Trigger" + intensity, true, [{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber }]);
 			} else {
 				let intensity = TargetItem.Property ? TargetItem.Property.Intensity : 0;
-				let D = (DialogFindPlayer(TargetItem.Asset.Name + "Trigger" + intensity)).replace("DestinationCharacterName", C.Name);
+				let D = (DialogFindPlayer(TargetItem.Asset.Name + "Trigger" + intensity)).replace("DestinationCharacterName", CharacterNickname(C));
 				if (D != "") {
 					InventoryExpressionTrigger(C, ClickItem);
 					C.CurrentDialog = "(" + D + ")";
@@ -2121,8 +2121,8 @@ function DialogFind(C, KeyWord1, KeyWord2, ReturnPrevious) {
  */
 function DialogFindAutoReplace(C, KeyWord1, KeyWord2, ReturnPrevious) {
 	return DialogFind(C, KeyWord1, KeyWord2, ReturnPrevious)
-		.replace("SourceCharacter", Player.Name)
-		.replace("DestinationCharacter", CharacterGetCurrent().Name);
+		.replace("SourceCharacter", CharacterNickname(Player))
+		.replace("DestinationCharacter", CharacterNickname(CharacterGetCurrent()));
 }
 
 /**

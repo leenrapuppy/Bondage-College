@@ -252,7 +252,7 @@ function InfiltrationStartKidnapping() {
 	let Type = "Kidnapper";
 	if ((InventoryAvailable(Player, "PandoraPadlock", "ItemMisc") || InventoryAvailable(Player, "PandoraPadlockKey", "ItemMisc")) && (Math.random() >= 0.5)) Type = "Dominatrix";
 	let IntroText = TextGet("Pandora" + Type + "Intro" + Math.floor(Math.random() * 5));
-	IntroText = IntroText.replace("DialogPlayerName", Player.Name);
+	IntroText = IntroText.replace("DialogPlayerName", CharacterNickname(Player));
 	CommonSetScreen("Room", "Infiltration");
 	InfiltrationBackground = MainHallBackground;
 	CharacterDelete("NPC_Infiltration_" + Type);

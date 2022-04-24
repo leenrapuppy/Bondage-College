@@ -393,8 +393,8 @@ function CharacterBuildDialog(C, CSV) {
 			const D = {};
 			D.Stage = CSV[L][0];
 			if ((CSV[L][1] != null) && (CSV[L][1].trim() != "")) D.NextStage = CSV[L][1];
-			if ((CSV[L][2] != null) && (CSV[L][2].trim() != "")) D.Option = CSV[L][2].replace("DialogCharacterName", C.Name).replace("DialogPlayerName", Player.Name);
-			if ((CSV[L][3] != null) && (CSV[L][3].trim() != "")) D.Result = CSV[L][3].replace("DialogCharacterName", C.Name).replace("DialogPlayerName", Player.Name);
+			if ((CSV[L][2] != null) && (CSV[L][2].trim() != "")) D.Option = CSV[L][2].replace("DialogCharacterName", C.Name).replace("DialogPlayerName", CharacterNickname(Player));
+			if ((CSV[L][3] != null) && (CSV[L][3].trim() != "")) D.Result = CSV[L][3].replace("DialogCharacterName", C.Name).replace("DialogPlayerName", CharacterNickname(Player));
 			if ((CSV[L][4] != null) && (CSV[L][4].trim() != "")) D.Function = ((CSV[L][4].trim().substring(0, 6) == "Dialog") ? "" : OnlinePlayer ? "ChatRoom" : CurrentScreen) + CSV[L][4];
 			if ((CSV[L][5] != null) && (CSV[L][5].trim() != "")) D.Prerequisite = CSV[L][5];
 			if ((CSV[L][6] != null) && (CSV[L][6].trim() != "")) D.Group = CSV[L][6];
@@ -562,6 +562,7 @@ function CharacterLoadSimple(AccName) {
  */
 function CharacterOnlineRefresh(Char, data, SourceMemberNumber) {
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.Title == null))) Char.Title = data.Title;
+	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.Nickname == null))) Char.Nickname = data.Nickname;
 	Char.ActivePose = data.ActivePose;
 	Char.LabelColor = data.LabelColor;
 	Char.Creation = data.Creation;
@@ -643,6 +644,7 @@ function CharacterLoadOnline(data, SourceMemberNumber) {
 		Char.Lover = (data.Lover != null) ? data.Lover : "";
 		Char.Owner = (data.Owner != null) ? data.Owner : "";
 		Char.Title = data.Title;
+		Char.Nickname = data.Nickname;
 		Char.AccountName = "Online-" + data.ID.toString();
 		Char.MemberNumber = data.MemberNumber;
 		Char.Difficulty = data.Difficulty;
@@ -663,7 +665,7 @@ function CharacterLoadOnline(data, SourceMemberNumber) {
 
 		// Flags "refresh" if we need to redraw the character
 		if (!Refresh)
-			if ((Char.Description != data.Description) || (Char.Title != data.Title) || (Char.LabelColor != data.LabelColor) || (ChatRoomData == null) || (ChatRoomData.Character == null))
+			if ((Char.Description != data.Description) || (Char.Title != data.Title) || (Char.Nickname != data.Nickname) || (Char.LabelColor != data.LabelColor) || (ChatRoomData == null) || (ChatRoomData.Character == null))
 				Refresh = true;
 			else
 				for (let C = 0; C < ChatRoomData.Character.length; C++)
@@ -1627,4 +1629,37 @@ function CharacterHasArousalEnabled(C) {
 		&& (C.ArousalSettings.Zone != null)
 		&& (C.ArousalSettings.Active != null)
 		&& (C.ArousalSettings.Active != "Inactive");
+}
+
+/**
+ * Removes all ownership and owner-only data
+ * @param {Character} C - The character breaking from their owner
+ * @returns {void} - Nothing.
+ */
+function CharacterClearOwnership(C) {
+	C.Owner = "";
+	C.Ownership = null;
+	if (C.ID == 0) {
+		LoginValidCollar();
+		LogDeleteGroup("OwnerRule");
+	}
+
+	C.Appearance = C.Appearance.filter(item => !item.Asset.OwnerOnly);
+	C.Appearance.forEach(item => ValidationSanitizeProperties(C, item));
+	CharacterRefresh(C);
+}
+
+/**
+ * Returns the nickname of a character, or the name if the nickname isn't valid
+ * Also validates if the character is a GGTS drone to alter her name
+ * @param {Character} C - The character breaking from their owner
+ * @returns {String} - The nickname to return
+ */
+function CharacterNickname(C) {
+	let Regex = /^[a-zA-Z\s]*$/;
+	let Nick = C.Nickname;
+	if (Nick == null) Nick = "";
+	Nick = Nick.trim().substring(0, 20);
+	if ((Nick == "") || !Regex.test(Nick)) Nick = C.Name;
+	return AsylumGGTSCharacterName(C, Nick);
 }

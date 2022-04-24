@@ -68,9 +68,9 @@ function AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, ShockType,
 	} else {
 
 		var Dictionary = [];
-		Dictionary.push({ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber });
-		Dictionary.push({ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
-		Dictionary.push({ Tag: "SourceCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
+		Dictionary.push({ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
+		Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
+		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 		if (ReplacementWord)
 			Dictionary.push({ Tag: "ReplacementWord", Text: ReplacementWord });
 		Dictionary.push({Tag: "AssetName", AssetName: Item.Asset.Name});

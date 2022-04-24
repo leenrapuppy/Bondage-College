@@ -109,6 +109,11 @@ ClothLowerAdmiralSkirtStripe,Trim
 ClothLowerHaremPantsPanty,Panty
 ClothLowerHaremPantsVeil,Veil
 ClothLowerHaremPantsPantyline,Panty Line
+ClothLowerHaremPants2Panty,Panty
+ClothLowerHaremPants2Fabric,Fabric
+ClothLowerHaremPants2Veil,Veil
+ClothLowerHaremPants2Pantyline,Panty Line
+ClothLowerHaremPants2Buttons,Buttons
 ClothLowerMageSkirtSkirt,Skirt
 ClothLowerMageSkirtWaist,Waistband
 ClothLowerTutuBelt,Belt
@@ -148,6 +153,8 @@ SocksSocksFurFabric,Sock
 SocksSocksFurFur,Fur
 SocksSocksStriped1Light,Light Stripes
 SocksSocksStriped1Dark,Dark Stripes
+SocksHaremStockingsFabric,Fabric
+SocksHaremStockingsBands,Bands
 HatSanta1Fabric,Hat
 HatSanta1Fur,Fur
 HatBonnet1Base,Bonnet
@@ -218,6 +225,8 @@ HairFrontHairFront23bFluff, Fluff
 HairFrontHairFront23bBase, Base
 GlovesGlovesFurFabric,Glove
 GlovesGlovesFurFur,Fur
+GlovesHaremGloveFabric,Fabric
+GlovesHaremGloveBands,Bands
 MaskFaceVeilFabric,Fabric
 MaskFaceVeilString,String
 TailStrapsTailStrapTail,Tail
@@ -821,6 +830,20 @@ ItemMouth2KittyMuzzleGagMuzzle,Muzzle
 ItemMouth2KittyMuzzleGagStraps,Straps
 ItemMouth2KittyMuzzleGagLines,Lines
 ItemMouth2KittyMuzzleGagMouth,Mouth
+ItemMouth2PonyGagBaseMetal,Metal
+ItemMouth2PonyGagBaseStraps,Straps
+ItemMouth2PonyGagBitLarge,Gag
+ItemMouth2PonyGagPlume,Plume
+ItemMouth2PonyGagManeB,ManeBase
+ItemMouth2PonyGagManeL,Mane
+ItemMouth2PonyGagHorn,Horn
+ItemMouth2PonyGagPanelBase,Panel
+ItemMouth2PonyGagPanelHex,Ornament
+ItemMouth2PonyGagReins,Reins
+ItemMouth2PonyGagFlags,Flags
+ItemMouth2PonyGagRope,Rope
+ItemMouth2PonyGagBlinders,Blinders
+ItemMouth2PonyGagPost,Post
 ItemMouth3WiffleGagStrap,Strap
 ItemMouth3WiffleGagBall,Ball
 ItemMouth3HarnessBallGagBall,Ball
@@ -894,6 +917,20 @@ ItemMouth3KittyMuzzleGagMuzzle,Muzzle
 ItemMouth3KittyMuzzleGagStraps,Straps
 ItemMouth3KittyMuzzleGagLines,Lines
 ItemMouth3KittyMuzzleGagMouth,Mouth
+ItemMouth3PonyGagBaseMetal,Metal
+ItemMouth3PonyGagBaseStraps,Straps
+ItemMouth3PonyGagBitLarge,Gag
+ItemMouth3PonyGagPlume,Plume
+ItemMouth3PonyGagManeB,ManeBase
+ItemMouth3PonyGagManeL,Mane
+ItemMouth3PonyGagHorn,Horn
+ItemMouth3PonyGagPanelBase,Panel
+ItemMouth3PonyGagPanelHex,Ornament
+ItemMouth3PonyGagReins,Reins
+ItemMouth3PonyGagFlags,Flags
+ItemMouth3PonyGagRope,Rope
+ItemMouth3PonyGagBlinders,Blinders
+ItemMouth3PonyGagPost,Post
 MaskFoxMaskUpper,Upper
 MaskFoxMaskLower,Lower
 MaskKittyMask3Highlights,Highlights
@@ -964,6 +1001,9 @@ ItemDevicesDollBoxDollText,Label
 ItemDevicesDollBoxText,Custom Text
 ItemDevicesDollBoxHeart,Heart
 ItemDevicesDollBoxGlass,Glass
+ItemDevicesWoodenRackFrameStains,Stains
+ItemDevicesWoodenRackTopRopes, Ropes
+ItemDevicesWoodenRackTopChains,Chains
 PantiesPilotPantiesLayer1,Suit
 PantiesPilotPantiesLayer2,Highlights
 PantiesPilotPantiesLayer3,Center

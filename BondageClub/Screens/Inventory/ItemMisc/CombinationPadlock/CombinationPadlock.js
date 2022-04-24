@@ -171,8 +171,8 @@ function InventoryItemMiscCombinationPadlockClick() {
 		// Send fail message if online
 		else if (CurrentScreen == "ChatRoom") {
 			const Dictionary = [
-				{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-				{ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber },
+				{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+				{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 				{ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name },
 				{ Tag: "CombinationNumber", Text: ElementValue("CombinationNumber") },
 			];
@@ -194,8 +194,8 @@ function InventoryItemMiscCombinationPadlockClick() {
 				}
 				if (CurrentScreen == "ChatRoom") {
 					const Dictionary = [
-						{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-						{ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber },
+						{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+						{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 						{ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name },
 					];
 					ChatRoomPublishCustomAction("CombinationChangeSuccess", true, Dictionary);
@@ -209,8 +209,8 @@ function InventoryItemMiscCombinationPadlockClick() {
 		// Fails to change
 		else if (CurrentScreen == "ChatRoom") {
 			const Dictionary = [
-				{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-				{ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber },
+				{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+				{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 				{ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name },
 			];
 			ChatRoomPublishCustomAction("CombinationChangeFail", true, Dictionary);

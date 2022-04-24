@@ -115,8 +115,8 @@ function InventoryItemArmsPrisonLockdownSuitPublishAction(C, Option, PreviousOpt
 		msg = "ItemArmsPrisonLockdownSuitSet" + PreviousOption.Name + "To" + Option.Name;
 	}
 	var dictionary = [
-		{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-		{ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber },
+		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 	];
 	ChatRoomPublishCustomAction(msg, true, dictionary);
 }

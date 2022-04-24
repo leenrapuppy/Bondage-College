@@ -101,8 +101,8 @@ function InventoryItemMiscOwnerTimerPadlockAdd(TimeToAdd, PlayerMemberNumberToLi
         var msg = ((timeAdded < 0) && DialogFocusSourceItem.Property.ShowTimer ? "TimerRemoveTime" : "TimerAddTime");
         /** @type {ChatMessageDictionary} */
         var Dictionary = [];
-        Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
-        Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
+        Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
+        Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
         if (DialogFocusSourceItem.Property.ShowTimer) {
             Dictionary.push({Tag: "TimerTime", Text: Math.round(Math.abs(timeAdded)).toString()});
             Dictionary.push({Tag: "TimerUnit", TextToLookUp: "Hours"});
