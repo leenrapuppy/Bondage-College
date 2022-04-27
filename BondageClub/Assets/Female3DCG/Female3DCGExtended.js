@@ -2673,8 +2673,9 @@ var AssetFemale3DCGExtended = {
 							Name: "Frame", Key: "f",
 							Options: [
 								{}, // f0 - Normal
-								{}, // f1 - HalfBack
-								{}, // f2 - NoBack
+								{}, // f1 - Stained
+								{}, // f2 - HalfBack
+								{}, // f3 - NoBack
 							],
 					},	
 					{
@@ -2722,13 +2723,6 @@ var AssetFemale3DCGExtended = {
 										Effect: ["Prone", "Freeze", "Block", "BlockKneel", "Mounted"],
 									},
 								}, // t4 - ChainsTight
-							],
-					},
-					{
-							Name: "FrameStains", Key: "s",
-							Options: [
-							{}, // s0 - No
-							{}, // s1 - Stains
 							],
 					},
 					{
