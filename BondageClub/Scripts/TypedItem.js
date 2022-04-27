@@ -48,7 +48,7 @@ const TypedItemChatSetting = {
  * Registers a typed extended item. This automatically creates the item's load, draw and click functions. It will also
  * generate the asset's AllowType array.
  * @param {Asset} asset - The asset being registered
- * @param {TypedItemConfig} config - The item's typed item configuration
+ * @param {TypedItemConfig | undefined} config - The item's typed item configuration
  * @returns {void} - Nothing
  */
 function TypedItemRegister(asset, config) {
