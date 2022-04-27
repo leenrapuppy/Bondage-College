@@ -278,8 +278,6 @@ ItemLegsLegBinderLatex,Binder
 ItemLegsLegBinderBelts,Belts
 ItemLegsHobbleSkirtLatex,Skirt
 ItemLegsHobbleSkirtBelts,Belts
-ItemLegsWoodenHorseFrame,Frame
-ItemLegsWoodenHorseWood,Wood
 ItemLegsMedicalBedRestraintsBase,Bed Straps
 ItemLegsMedicalBedRestraintsStraps,Cuffs
 ItemLegsTentaclesInner,Inner
@@ -549,6 +547,8 @@ ItemDevicesNetFront,Net
 ItemDevicesNetWeightsFront,Weights
 ItemDevicesSnowmanButtons,Buttons
 ItemDevicesSnowmanStickHands,Arms
+ItemDevicesWoodenHorseFrame,Frame
+ItemDevicesWoodenHorseWood,Wood
 ItemAddonCoversOuter,Outer
 ItemAddonCoversInner,Inner
 ItemNoseNoseHookBand,Strap
