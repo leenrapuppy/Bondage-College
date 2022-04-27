@@ -28,8 +28,8 @@ const VariableHeightDataLookup = {};
 /**
  * Registers a variable height extended item. This automatically creates the item's load, draw and click functions.
  * @param {Asset} asset - The asset being registered
- * @param {VariableHeightConfig} config - The variable height configuration
- * @param {ItemProperties} property - The default properties to use
+ * @param {VariableHeightConfig | undefined} config - The variable height configuration
+ * @param {ItemProperties | undefined} property - The default properties to use
  * @param {ExtendedItemOption[]} [parentOptions=null] - The variable height configuration of the option's parent item, if any
  * @returns {void} - Nothing
  */

@@ -1777,13 +1777,13 @@ type VariableHeightAssetConfig = ExtendedItemAssetConfig<"variableheight", Varia
 
 interface VariableHeightConfig {
 	/** The highest Y co-ordinate that can be set  */
-	MaxHeight: number,
+	MaxHeight: number;
 	/** The lowest Y co-ordinate that can be set  */
-	MinHeight: number,
+	MinHeight: number;
 	/** The name of the image from "\BondageClub\Icons" that will show the current position on the slider */
-	SliderIcon: string,
+	SliderIcon: string;
 	/** A record containing various dialog keys used by the extended item screen */
-	Dialog: VariableHeightDialogConfig
+	Dialog: VariableHeightDialogConfig;
 	/**
 	 * An array of the chat message tags that should be included in the item's
 	 * chatroom messages. Defaults to [{@link CommonChatTags.SOURCE_CHAR}, {@link CommonChatTags.DEST_CHAR}]
@@ -1793,6 +1793,8 @@ interface VariableHeightConfig {
 	GetHeightFunction?: string;
 	/** Name of the function that handles applying the height setting to the character */
 	SetHeightFunction?: string;
+	/** The default properties for the item, if not provided from an extended item option */
+	Property?: ItemProperties;
 }
 
 interface VariableHeightDialogConfig {
@@ -1823,13 +1825,13 @@ interface VariableHeightData {
 	/** The common prefix used for all extended item functions associated with the asset */
 	functionPrefix: string;
 	/** The highest Y co-ordinate that can be set  */
-	maxHeight: number,
+	maxHeight: number;
 	/** The lowest Y co-ordinate that can be set  */
-	minHeight: number,
+	minHeight: number;
 	/** The name of the image from "\BondageClub\Icons" that will show the current position on the slider */
-	sliderIcon: string,
+	sliderIcon: string;
 	/** The initial property to apply */
-	defaultProperty: ItemProperties,
+	defaultProperty: ItemProperties;
 	/** A record containing various dialog keys used by the extended item screen */
 	dialog: {
 		/** The prefix used for dialog keys representing the item's chatroom messages when its type is changed */
@@ -1843,9 +1845,9 @@ interface VariableHeightData {
 	 */
 	chatTags: CommonChatTags[];
 	/** The function that handles finding the current variable height setting */
-	getHeight: Function,
+	getHeight: Function;
 	/** The function that handles applying the height setting to the character */
-	setHeight: Function,
+	setHeight: Function;
 	/** The list of extended item options the current option was selected from, if applicable */
 	parentOptions: ExtendedItemOption[];
 }
