@@ -2427,7 +2427,7 @@ var AssetFemale3DCGExtended = {
 				Options: [
 					{
 						Name: "Bat",
-						Property: { Type: null },
+						Property: { Type: "Bat" },
 					},
 					{
 						Name: "Cat",
@@ -2451,7 +2451,7 @@ var AssetFemale3DCGExtended = {
 				Options: [
 					{
 						Name: "Black",
-						Property: { Type: null },
+						Property: { Type: "Black" },
 					},
 					{
 						Name: "Red",
