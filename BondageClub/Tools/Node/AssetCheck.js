@@ -251,8 +251,12 @@ const cartesian =
 	}
 
 	// Use this to only get some assets looked at
-	/** @type {[string, string][]} */
+	/** @type {string[]} */
 	const AssetFocus = [
+	];
+	// Use this to silence known issues
+	/** @type {string[]} */
+	const AssetSilence = [
 	];
 	const AssetBasePath = BASE_PATH + "Assets/Female3DCG/";
 	const AllAssetFiles = dirTree(AssetBasePath, { extensions: /\.png/ });
@@ -265,12 +269,13 @@ const cartesian =
 	// Check for asset files
 	for (const Group of Groups) {
 		if (Group.Group === "Height") continue;
-		if (AssetFocus.length && !AssetFocus.some(f => Group.Group === f[0])) continue;
 
 		for (const Asset of Assets[Group.Group]) {
+			const AssetID = Group.Group + "/" + Asset.Name;
 			if (Asset.Name.startsWith('SpankingToys')) continue;
-			if (AssetFocus.length && !AssetFocus.some(f => Asset.Name === f[1])) continue;
-			// console.info(`Processing ${Group.Group}/${Asset.Name}`);
+			if (AssetFocus.length && !AssetFocus.includes(AssetID)) continue;
+			if (!AssetFocus.length && AssetSilence.includes(AssetID)) continue;
+			console.info(`Processing ${AssetID}`);
 
 			// Collect supported poses from the asset and group
 			let SupportedPoses = new Set();
