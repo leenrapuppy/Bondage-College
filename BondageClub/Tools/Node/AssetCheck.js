@@ -295,17 +295,43 @@ const cartesian =
 			/** @type {Map<string, "exists"|"matched"|"missing">} */
 			let AssetFiles = new Map();
 
+			const checkAssetPrefix = (Pose, file) => {
+				// Make sure we don't accidentally use files that share a prefix
+				const isPrefix = Assets[Group.Group].find(a => {
+					if (a.Name === Asset.Name) {
+						return false;
+					}
+
+					if (file.name.startsWith(a.Name)) {
+						// Check the lengths too: an asset matching a shorter
+						// prefix than ours does not belong there.
+						if (a.Name.length < Asset.Name.length && file.name.startsWith(Asset.Name)) {
+							return false;
+						}
+						return true;
+					}
+				});
+
+				if (isPrefix) {
+					return false;
+				}
+
+				return true;
+			}
+
 			// First handle the default pose files
 			AssetGroupFiles
 				.filter(e => e.name.startsWith(Asset.Name) && e.name.endsWith(".png"))
-				.forEach(e => AssetFiles.set(e.name, 'exists'));
+				.forEach(e => { if (checkAssetPrefix("", e)) AssetFiles.set(e.name, 'exists') });
 
 			for (const Pose of KnownPoses.values()) {
 				if (Pose === "") continue;
 
 				AssetGroupFiles.find(e => e.name === Pose)?.children
 					.filter(e => e.name.startsWith(Asset.Name) && e.name.endsWith(".png"))
-					.forEach(e => AssetFiles.set(Pose + "/" + e.name, 'exists'));
+					.forEach(e => {
+						if (checkAssetPrefix(Pose, e)) AssetFiles.set(Pose + "/" + e.name, 'exists')
+					});
 			}
 
 			/** @type {string[]} */
