@@ -355,7 +355,8 @@ const cartesian =
 				// Load extended data and perform config copying
 				let ExtendedData = AssetFemale3DCGExtended[Group.Group]?.[Asset.Name];
 				if (ExtendedData?.CopyConfig) {
-					ExtendedData = AssetFemale3DCGExtended[ExtendedData.CopyConfig.GroupName]?.[ExtendedData.CopyConfig.AssetName];
+					const CopiedConfig = AssetFemale3DCGExtended[ExtendedData.CopyConfig.GroupName || Group.Group]?.[ExtendedData.CopyConfig.AssetName];
+					ExtendedData = {...CopiedConfig, ...ExtendedData};
 				}
 
 				// console.log(`${Group.Group}/${Asset.Name} is extended: ${JSON.stringify(ExtendedData, null, " ")}`);
