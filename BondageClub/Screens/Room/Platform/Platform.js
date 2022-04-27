@@ -15,6 +15,7 @@ var PlatformShowHitBox = false;
 var PlatformMessage = null;
 var PlatformHeal = null;
 var PlatformEvent = [];
+var PlatformDrawUpArrow = [null, null];
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -1274,6 +1275,12 @@ function PlatformDraw() {
 	// Does collision damage for the player
 	PlatformCollisionDamage(PlatformPlayer, PlatformTime);
 
+	// Draws the UpArrow
+	if (PlatformDrawUpArrow[0] != null || PlatformDrawUpArrow[1] != null) {
+		DrawRect(PlatformDrawUpArrow[0] - PlatformViewX - 43, PlatformDrawUpArrow[1] - PlatformViewY - 43, 86, 86, "white");
+		DrawImage("Icons/North.png", PlatformDrawUpArrow[0] - PlatformViewX - 43, PlatformDrawUpArrow[1] - PlatformViewY - 43);
+	}
+
 	// Draws the player last to put her in front
 	PlatformDrawCharacter(PlatformPlayer, PlatformTime);
 
@@ -1330,7 +1337,12 @@ function PlatformLeave() {
  * @returns {void} - Nothing
  */
 function PlatformEnterRoom(FromType) {
+	PlatformDrawUpArrow = [null,null];
 	if ((PlatformRoom == null) || (PlatformRoom.Door == null)) return;
+	for (let Door of PlatformRoom.Door)
+		if ((PlatformPlayer.X >= Door.FromX) && (PlatformPlayer.X <= Door.FromX + Door.FromW) && (PlatformPlayer.Y >= Door.FromY) && (PlatformPlayer.Y <= Door.FromY + Door.FromH) && ("Up" === Door.FromType)) {
+			PlatformDrawUpArrow = [Door.FromX + Door.FromW / 2, Door.FromY + Door.FromH / 2];
+		}
 	for (let Door of PlatformRoom.Door)
 		if ((PlatformPlayer.X >= Door.FromX) && (PlatformPlayer.X <= Door.FromX + Door.FromW) && (PlatformPlayer.Y >= Door.FromY) && (PlatformPlayer.Y <= Door.FromY + Door.FromH) && (FromType === Door.FromType)) {
 			PlatformLoadRoom(Door.Name);

@@ -4318,15 +4318,18 @@ var AssetFemale3DCGExtended = {
 				Options: [
 					{
 						Name: "Basic",
-						Property: { Type: null, SetPose: ["LegsClosed"], Difficulty: 1 }
+						Property: { Type: null, SetPose: ["LegsClosed"], Difficulty: 1 },
+						Prerequisite: ["CanCloseLegs"],
 					}, {
 						Name: "FullBinding",
 						BondageLevel: 2,
-						Property: { Type: "FullBinding", SetPose: ["LegsClosed"], Difficulty: 2 }
+						Property: { Type: "FullBinding", SetPose: ["LegsClosed"], Difficulty: 2 },
+						Prerequisite: ["CanCloseLegs"],
 					}, {
 						Name: "Link",
 						BondageLevel: 2,
-						Property: { Type: "Link", SetPose: ["LegsClosed"], Difficulty: 2 }
+						Property: { Type: "Link", SetPose: ["LegsClosed"], Difficulty: 2 },
+						Prerequisite: ["CanCloseLegs"],
 					}, {
 						Name: "Frogtie",
 						BondageLevel: 3,
@@ -4336,11 +4339,13 @@ var AssetFemale3DCGExtended = {
 					}, {
 						Name: "Crossed",
 						BondageLevel: 4,
-						Property: { Type: "Crossed", SetPose: ["LegsClosed"], Difficulty: 4 }
+						Property: { Type: "Crossed", SetPose: ["LegsClosed"], Difficulty: 4 },
+						Prerequisite: ["CanCloseLegs"],
 					}, {
 						Name: "Mermaid",
 						BondageLevel: 4,
-						Property: { Type: "Mermaid", SetPose: ["LegsClosed"], Difficulty: 4 }
+						Property: { Type: "Mermaid", SetPose: ["LegsClosed"], Difficulty: 4 },
+						Prerequisite: ["CanCloseLegs"],
 					}
 				],
 				Dialog: {
@@ -4409,12 +4414,14 @@ var AssetFemale3DCGExtended = {
 							FreezeActivePose: ["BodyLower"],
 							Difficulty: 6,
 						},
+						Prerequisite: ["CanCloseLegs"],
 					},
 					{
 						Name: "Chained",
 						Property: {
 							Type: "Chained", Effect: ["Slow"],
-						}
+						},
+						Prerequisite: ["NotHorse"],
 					}
 				],
 				Dialog: {
@@ -4449,12 +4456,14 @@ var AssetFemale3DCGExtended = {
 							AllowActivePose: ["Kneel", "LegsClosed"],
 							Difficulty: 6,
 						},
+						Prerequisite: ["CanCloseLegs"],
 					},
 					{
 						Name: "Chained",
 						Property: {
 							Type: "Chained", Effect: ["Slow"],
-						}
+						},
+						Prerequisite: ["NotHorse"],
 					}
 				],
 				Dialog: {

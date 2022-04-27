@@ -155,7 +155,7 @@ const VibratorModeDataLookup = {};
 /**
  * Registers a vibrator item. This automatically creates the item's load, draw, click and scriptDraw functions.
  * @param {Asset} asset - The asset being registered
- * @param {VibratingItemConfig} config - The item's vibrator item configuration
+ * @param {VibratingItemConfig | undefined} config - The item's vibrator item configuration
  * @returns {void} - Nothing
  */
 function VibratorModeRegister(asset, config) {

@@ -11,6 +11,8 @@ var ChatCreateBackgroundSelect = "";
 var ChatCreateBackgroundList = null;
 var ChatCreateShowBackgroundMode = false;
 var ChatCreateIsHidden = false;
+var ChatCreateLanguage = "EN";
+var ChatCreateLanguageList = ["EN", "DE", "FR", "ES", "CN", "RU"];
 
 /**
  * Loads the chat creation screen properties and creates the inputs
@@ -90,20 +92,22 @@ function ChatCreateRun() {
 	}
 	if (ChatCreateMessage == "") ChatCreateMessage = "EnterRoomInfo";
 	DrawText(TextGet(ChatCreateMessage), 650, 885, "Black", "Gray");
-	DrawText(TextGet("RoomName"), 535, 110, "Black", "Gray");
-	ElementPosition("InputName", 535, 170, 820);
-	DrawText(TextGet("RoomSize"), 1100, 110, "Black", "Gray");
-	ElementPosition("InputSize", 1100, 170, 250);
-	DrawText(TextGet("RoomDescription"), 675, 255, "Black", "Gray");
-	ElementPosition("InputDescription", 675, 350, 1100, 140);
-	DrawText(TextGet("RoomAdminList"), 390, 490, "Black", "Gray");
-	ElementPosition("InputAdminList", 365, 645, 530, 210);
-	DrawText(TextGet("RoomBanList"), 960, 490, "Black", "Gray");
-	ElementPosition("InputBanList", 960, 640, 530, 210);
-	DrawButton(100, 770, 250, 65, TextGet("AddOwnerAdminList"), "White");
-	DrawButton(365, 770, 250, 65, TextGet("AddLoverAdminList"), "White");
+	DrawText(TextGet("RoomName"), 250, 120, "Black", "Gray");
+	ElementPosition("InputName", 815, 115, 820);
+	DrawText(TextGet("RoomLanguage"), 250, 205, "Black", "Gray");
+	DrawButton(405, 172, 300, 60, TextGet("Language" + ChatCreateLanguage), "White");
+	DrawText(TextGet("RoomSize"), 850, 205, "Black", "Gray");
+	ElementPosition("InputSize", 1099, 200, 250);
+	DrawText(TextGet("RoomDescription"), 675, 285, "Black", "Gray");
+	ElementPosition("InputDescription", 675, 380, 1100, 140);
+	DrawText(TextGet("RoomAdminList"), 390, 510, "Black", "Gray");
+	ElementPosition("InputAdminList", 390, 645, 530, 210);
+	DrawText(TextGet("RoomBanList"), 960, 510, "Black", "Gray");
+	ElementPosition("InputBanList", 960, 645, 530, 210);
+	DrawButton(125, 770, 250, 65, TextGet("AddOwnerAdminList"), "White");
+	DrawButton(390, 770, 250, 65, TextGet("AddLoverAdminList"), "White");
 	DrawButton(695, 770, 250, 65, TextGet("QuickbanBlackList"), "White");
-	DrawButton(975, 770, 250, 65, TextGet("QuickbanGhostList"), "White");
+	DrawButton(960, 770, 250, 65, TextGet("QuickbanGhostList"), "White");
 
 	// Background selection, block button and game selection
 	DrawImageResize("Backgrounds/" + ChatCreateBackgroundSelect + ".jpg", 1300, 75, 600, 350);
@@ -174,14 +178,22 @@ function ChatCreateClick() {
 		});
 	}
 
+	// Flips from one language to another
+	if (MouseIn(405, 172, 300, 60)) {		
+		let Pos = ChatCreateLanguageList.indexOf(ChatCreateLanguage) + 1;
+		if (Pos >= ChatCreateLanguageList.length) Pos = 0;
+		ChatCreateLanguage = ChatCreateLanguageList[Pos];
+	}
+
 	// Private & Locked check boxes + save button + quickban buttons
 	if (MouseIn(1300, 633, 64, 64)) ChatCreatePrivate = !ChatCreatePrivate;
 	if (MouseIn(1300, 725, 64, 64)) ChatCreateLocked = !ChatCreateLocked;
 	if (MouseIn(1325, 840, 250, 65)) ChatCreateRoom();
-	if (MouseIn(100, 770, 250, 65)) ElementValue("InputAdminList", CommonConvertArrayToString(ChatRoomConcatenateAdminList(true, false, CommonConvertStringToArray(ElementValue("InputAdminList").trim()))));
-	if (MouseIn(365, 770, 250, 65)) ElementValue("InputAdminList", CommonConvertArrayToString(ChatRoomConcatenateAdminList(false, true, CommonConvertStringToArray(ElementValue("InputAdminList").trim()))));
+	if (MouseIn(125, 770, 250, 65)) ElementValue("InputAdminList", CommonConvertArrayToString(ChatRoomConcatenateAdminList(true, false, CommonConvertStringToArray(ElementValue("InputAdminList").trim()))));
+	if (MouseIn(390, 770, 250, 65)) ElementValue("InputAdminList", CommonConvertArrayToString(ChatRoomConcatenateAdminList(false, true, CommonConvertStringToArray(ElementValue("InputAdminList").trim()))));
 	if (MouseIn(695, 770, 250, 65)) ElementValue("InputBanList", CommonConvertArrayToString(ChatRoomConcatenateBanList(true, false, CommonConvertStringToArray(ElementValue("InputBanList").trim()))));
-	if (MouseIn(975, 770, 250, 65)) ElementValue("InputBanList", CommonConvertArrayToString(ChatRoomConcatenateBanList(false, true, CommonConvertStringToArray(ElementValue("InputBanList").trim()))));
+	if (MouseIn(960, 770, 250, 65)) ElementValue("InputBanList", CommonConvertArrayToString(ChatRoomConcatenateBanList(false, true, CommonConvertStringToArray(ElementValue("InputBanList").trim()))));
+
 }
 
 /**
@@ -218,9 +230,11 @@ function ChatCreateResponse(data) {
  * @returns {void} - Nothing
  */
 function ChatCreateRoom() {
+	ServerAccountUpdate.QueueData({ RoomLanguage: ChatCreateLanguage });
 	ChatRoomPlayerCanJoin = true;
 	var NewRoom = {
 		Name: ElementValue("InputName").trim(),
+		Language: ChatCreateLanguage,
 		Description: ElementValue("InputDescription").trim(),
 		Background: ChatCreateBackgroundSelect,
 		Private: ChatCreatePrivate,
@@ -234,7 +248,6 @@ function ChatCreateRoom() {
 	};
 	ServerSend("ChatRoomCreate", NewRoom);
 	ChatCreateMessage = "CreatingRoom";
-
 	ChatRoomPingLeashedPlayers();
 }
 

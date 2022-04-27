@@ -12,6 +12,7 @@ var DialogInventory = [];
 var DialogInventoryOffset = 0;
 /** @type {Item|null} */
 var DialogFocusItem = null;
+/** @type {Item|null} */
 var DialogFocusSourceItem = null;
 var DialogFocusItemColorizationRedrawTimer = null;
 /** @type {string[]} */
