@@ -534,6 +534,10 @@ function AssetTypeInfoForLayer(Type, Asset, Layer) {
 	if (Layer.LockLayer && Asset.AllowLockType && !Asset.AllowLockType.includes(Type)) {
 		return null;
 	}
+	// Check that the layer draws with that type
+	if (Layer.AllowTypes && !Layer.AllowTypes.includes(Type)) {
+		return null;
+	}
 
 	if (Layer.ModuleType) {
 		const parsedTypes = Type.split(/([0-9]+)/);

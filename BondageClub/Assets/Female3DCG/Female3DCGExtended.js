@@ -2677,12 +2677,12 @@ var AssetFemale3DCGExtended = {
 								{}, // f2 - HalfBack
 								{}, // f3 - NoBack
 							],
-					},	
+					},
 					{
 							Name: "TopRestraints", Key: "t",
 							Options: [
 								{}, // t0 - No
-								{	
+								{
 								Prerequisite: ["CuffedArmsOrEmpty"],
 									Property: {
 										Difficulty: 22,
@@ -2700,7 +2700,7 @@ var AssetFemale3DCGExtended = {
 										AllowActivePose: ["LegsClosed", "BaseLower"],
 										Block: ["ItemArms"],
 										Effect: ["Prone", "Freeze", "Block", "BlockKneel", "Mounted"],
-										
+
 									},
 								}, // t2 - RopeTight
 								{
@@ -2781,7 +2781,7 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //WoodenRack
-		
+
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {
