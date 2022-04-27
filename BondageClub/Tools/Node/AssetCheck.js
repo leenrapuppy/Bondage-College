@@ -275,15 +275,15 @@ const cartesian =
 			if (Asset.Name.startsWith('SpankingToys')) continue;
 			if (AssetFocus.length && !AssetFocus.includes(AssetID)) continue;
 			if (!AssetFocus.length && AssetSilence.includes(AssetID)) continue;
-			console.info(`Processing ${AssetID}`);
+			// console.info(`Processing ${AssetID}`);
 
 			// Skip assets that can't be worn, or are invisible
 			if (typeof Asset.Wear === "boolean" && !Asset.Wear) {
-				console.info(`\tcannot be worn`);
+				// console.info(`\tcannot be worn`);
 				continue;
 			}
 			if (typeof Asset.Visible === "boolean" && !Asset.Visible) {
-				console.info(`\tis not visible`);
+				// console.info(`\tis not visible`);
 				continue;
 			}
 
@@ -312,15 +312,19 @@ const cartesian =
 
 			const checkAssetPrefix = (Pose, file) => {
 				// Make sure we don't accidentally use files that share a prefix
+				const fullName = (Pose ? Pose + "/" : "") + file.name;
 				const isPrefix = Assets[Group.Group].find(a => {
 					if (a.Name === Asset.Name) {
+						// console.log('same asset: '+fullName);
 						return false;
 					}
 
 					if (file.name.startsWith(a.Name)) {
+						// console.log('file startsWith: '+fullName);
 						// Check the lengths too: an asset matching a shorter
 						// prefix than ours does not belong there.
 						if (a.Name.length < Asset.Name.length && file.name.startsWith(Asset.Name)) {
+							// console.log('but also: ' + Asset.Name);
 							return false;
 						}
 						return true;
@@ -328,9 +332,11 @@ const cartesian =
 				});
 
 				if (isPrefix) {
+					// console.log(`file ${fullName} belongs to asset ${isPrefix?.Name}`);
 					return false;
 				}
 
+				// console.log(`file ${fullName} belongs to us`);
 				return true;
 			}
 
@@ -359,7 +365,7 @@ const cartesian =
 					ExtendedData = {...CopiedConfig, ...ExtendedData};
 				}
 
-				// console.log(`${Group.Group}/${Asset.Name} is extended: ${JSON.stringify(ExtendedData, null, " ")}`);
+				// console.log(`${AssetID} is extended: ${JSON.stringify(ExtendedData, null, " ")}`);
 				if (ExtendedData) {
 					switch (ExtendedData.Archetype) {
 						case "typed":
@@ -379,11 +385,12 @@ const cartesian =
 						default:
 							error("don\'t know what to do with " + ExtendedData.Archetype);
 					}
-					// console.log(`built ${ExtendedData.Archetype} types for ${Group.Group}/${Asset.Name}: ${JSON.stringify(SupportedTypes)}`);
+					// console.log(`built ${ExtendedData.Archetype} types for ${AssetID}: ${JSON.stringify(SupportedTypes)}`);
 				} else if (Asset.AllowType) {
 					// Old-style typed asset
 					SupportedTypes = SupportedTypes.concat(Asset.AllowType);
 				}
+				// console.log(`built types for ${AssetID}: ${JSON.stringify(SupportedTypes)}`);
 			}
 
 			// Create the list of layers
@@ -421,6 +428,8 @@ const cartesian =
 				}
 				// console.log(`size info for layer: ${Layer.Name}: ${JSON.stringify(BodySizes)}`);
 
+
+				// console.log(`checking what layer ${Layer.Name} supports as type…`);//`: ${JSON.stringify(SupportedTypes)}`);
 				// Build the list of supported types and unique it
 				const LayerTypeInfo = [];
 				SupportedTypes.map(Type => AssetTypeInfoForLayer(Type, Asset, Layer))
@@ -430,7 +439,7 @@ const cartesian =
 							LayerTypeInfo.push(t);
 					});
 
-				// console.log(`type info for layer: ${JSON.stringify(SupportedTypes)}: ${JSON.stringify(LayerTypeInfo)}`);
+				// console.log(`type info for layer ${Layer.Name}: ${JSON.stringify(LayerTypeInfo)}`);
 
 				// Process that layer's data to build the name
 				for (const Pose of LayerSupportedPoses) {
@@ -452,6 +461,7 @@ const cartesian =
 							if (TypeInfo?.LayerName)
 								NameParts.push(TypeInfo.LayerName);
 							else if (IsLayered) {
+								// console.log('layered');
 								NameParts.push(Layer.Name);
 							}
 
@@ -479,16 +489,16 @@ const cartesian =
 			if (issues.length > 0) {
 				error(`${Group.Group}/${Asset.Name}: ${AssetFiles.size} files detected, ${issues.length} issues found:`);
 				for (const [file, status] of issues) {
-					console.info(`       file ${status}: ${GroupName}/${file}`);
+					console.info(`\tfile ${status}: ${GroupName}/${file}`);
 				}
 
-				console.log("Poses: ", SupportedPoses);
-				console.log("Layers: ", Asset.Layer?.map(l => l.Name) || "none");
+				// console.log("\tPoses: ", SupportedPoses);
+				// console.log("\tLayers: ", Asset.Layer?.map(l => l.Name) || "none");
 				// console.log("Generated filenames: ", LayerFiles);
 				console.log();
 				AssetIssues += 1;
 			} else {
-				// console.log(`No issue with ${Group.Group}/${Asset.Name}`);
+				// console.info(`\tNo issues`);
 			}
 		}
 	}
@@ -551,6 +561,7 @@ function AssetTypeInfoForLayer(Type, Asset, Layer) {
 	if (Layer.AllowModuleTypes) {
 		const parsedTypes = Layer.AllowModuleTypes.map(t => t.split(/(.[0-9]+)/).filter(t => t));
 		if (!parsedTypes.some(split => split.every(allow => Type.includes(allow)))) {
+			// console.log(`AssetTypeInfoForLayer: ${Layer.AllowModuleTypes} filters out ${Type}`);
 			return null;
 		}
 	}
