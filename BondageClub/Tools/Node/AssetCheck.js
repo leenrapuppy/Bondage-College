@@ -363,17 +363,18 @@ const cartesian =
 				if (ExtendedData) {
 					switch (ExtendedData.Archetype) {
 						case "typed":
-							SupportedTypes = ExtendedData.Config.Options.map(opts => {
+							const TypedTypes = ExtendedData.Config.Options.map(opts => {
 								let Type = opts.Property['Type'];
 								return Type ? Type : "";
 							});
+							SupportedTypes = SupportedTypes.concat(TypedTypes);
 							break;
 						case "modular":
-							SupportedTypes = ExtendedData.Config.Modules.map(mods => {
+							const ModularTypes = ExtendedData.Config.Modules.map(mods => {
 								return mods.Options.map((o, idx) => mods['Key'] + idx);
 							});
 
-							SupportedTypes = cartesian(...SupportedTypes).map(t => t.join(''));
+							SupportedTypes = cartesian(...ModularTypes).map(t => t.join(''));
 							break;
 						default:
 							error("don\'t know what to do with " + ExtendedData.Archetype);
