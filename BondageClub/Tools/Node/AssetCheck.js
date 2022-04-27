@@ -277,6 +277,16 @@ const cartesian =
 			if (!AssetFocus.length && AssetSilence.includes(AssetID)) continue;
 			console.info(`Processing ${AssetID}`);
 
+			// Skip assets that can't be worn, or are invisible
+			if (typeof Asset.Wear === "boolean" && !Asset.Wear) {
+				console.info(`\tcannot be worn`);
+				continue;
+			}
+			if (typeof Asset.Visible === "boolean" && !Asset.Visible) {
+				console.info(`\tis not visible`);
+				continue;
+			}
+
 			// Collect supported poses from the asset and group
 			let SupportedPoses = new Set();
 
