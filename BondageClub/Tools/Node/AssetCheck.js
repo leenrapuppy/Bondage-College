@@ -257,6 +257,24 @@ const cartesian =
 	// Use this to silence known issues
 	/** @type {string[]} */
 	const AssetSilence = [
+		// Truly missing a file
+		"ItemBoots/ToeTape",
+		"ItemBoots/Zipties",
+		"ItemDevices/WoodenRack",
+
+		// Ambiguous "" usage
+		"ItemDevices/Familiar",
+		"ItemDevices/LittleMonster",
+
+		"ItemDevices/TeddyBear", // .PNG file extension
+
+		"ItemHood/CowHood", // Missing lock layer
+
+		"ItemMisc/WoodenPaddle", // Only used by the maid initiation NPC
+		"ItemDevices/Kennel", // Because of the door animation files
+		"ItemDevices/VacBedDeluxe", // Kinda abuses the pose system
+		// Stuff that need a SetPose filter
+		"ItemDevices/Net",
 	];
 	const AssetBasePath = BASE_PATH + "Assets/Female3DCG/";
 	const AllAssetFiles = dirTree(AssetBasePath, { extensions: /\.png/ });
