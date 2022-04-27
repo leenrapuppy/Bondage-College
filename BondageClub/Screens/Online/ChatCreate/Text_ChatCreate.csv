@@ -2,6 +2,7 @@ EnterRoomInfo,Enter your room information
 RoomName,Room Name
 NameExplanation,(Letters & numbers only)
 RoomDescription,Description
+RoomLanguage,Language
 DescriptionExplanation,Description of the room (Letters & numbers only)
 RoomBanList,Ban List
 RoomAdminList,Administrator List
@@ -30,3 +31,9 @@ GameLARP,LARP
 GameMagicBattle,Magic Battle
 GameGGTS,GGTS
 ReturnMenu,(Click anywhere to return)
+LanguageEN,English
+LanguageFR,French
+LanguageES,Spanish
+LanguageDE,German
+LanguageCN,Chinese
+LanguageRU,Russian

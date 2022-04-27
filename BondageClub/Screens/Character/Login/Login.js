@@ -526,6 +526,11 @@ function LoginResponse(C) {
 			Player.WardrobeCharacterNames = C.WardrobeCharacterNames;
 			WardrobeCharacter = [];
 
+			// Sets the default language when creating new chat rooms
+			ChatCreateLanguage = C.RoomLanguage;
+			if (ChatCreateLanguage == null) ChatCreateLanguage = ChatCreateLanguageList[0];
+			if (ChatCreateLanguageList.indexOf(ChatCreateLanguage) < 0) ChatCreateLanguage = ChatCreateLanguageList[0];
+
 			// Load the last chat room
 			Player.LastChatRoom = C.LastChatRoom;
 			Player.LastChatRoomBG = C.LastChatRoomBG;
