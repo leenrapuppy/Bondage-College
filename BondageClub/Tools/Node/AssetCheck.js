@@ -410,6 +410,7 @@ const cartesian =
 				const LayerTypeInfo = [];
 				SupportedTypes.map(Type => AssetTypeInfoForLayer(Type, Asset, Layer))
 					.forEach((t) => {
+						if (!t) return;
 						if (!LayerTypeInfo.some(i => JSON.stringify(t) === JSON.stringify(i)))
 							LayerTypeInfo.push(t);
 					});
@@ -527,6 +528,12 @@ function AssetTypeInfoForLayer(Type, Asset, Layer) {
 			const moduleOption = keyIndex === -1 ? "0" : parsedTypes[keyIndex + 1];
 			return Layer.ModuleType + moduleOption;
 		}).join("");
+	}
+	if (Layer.AllowModuleTypes) {
+		const parsedTypes = Layer.AllowModuleTypes.map(t => t.split(/(.[0-9]+)/).filter(t => t));
+		if (!parsedTypes.some(split => split.every(allow => Type.includes(allow)))) {
+			return null;
+		}
 	}
 
 	// console.log(`AssetTypeInfoForLayer => ["${LayerName}", "${TypeSuffix}"]`);
