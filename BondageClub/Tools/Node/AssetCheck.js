@@ -368,6 +368,9 @@ const cartesian =
 							error("don\'t know what to do with " + ExtendedData.Archetype);
 					}
 					// console.log(`built ${ExtendedData.Archetype} types for ${Group.Group}/${Asset.Name}: ${JSON.stringify(SupportedTypes)}`);
+				} else if (Asset.AllowType) {
+					// Old-style typed asset
+					SupportedTypes = SupportedTypes.concat(Asset.AllowType);
 				}
 			}
 
