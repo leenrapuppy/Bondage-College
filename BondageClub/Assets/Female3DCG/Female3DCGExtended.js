@@ -4024,7 +4024,7 @@ var AssetFemale3DCGExtended = {
 						Name: "Top", Key: "t",
 						Options:[
 							{}, //t0 - None
-							{}, //t1 - Plume
+							{ Property: { Attribute: ["TickleItem"]},}, //t1 - Plume
 							{Property: { Hide: ["HairFront"]},}, //t2 - Mane Left
 							{Property: { Hide: ["HairFront"]},}, //t3 - Mane Right
 							{Property: { Hide: ["HairFront"]},}, //t4 - Mohawk
