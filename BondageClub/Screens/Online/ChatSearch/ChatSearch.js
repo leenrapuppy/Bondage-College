@@ -487,6 +487,7 @@ function ChatSearchAutoJoinRoom() {
 						Game: "",
 						Admin: [Player.MemberNumber],
 						Limit: ("" + Math.min(Math.max(Player.LastChatRoomSize, 2), 10)).trim(),
+						Language: Player.LastChatRoomLanguage,
 						BlockCategory: ChatBlockItemCategory || []
 					};
 					ServerSend("ChatRoomCreate", NewRoom);

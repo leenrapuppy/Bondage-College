@@ -91,7 +91,7 @@ function ChatCreateRun() {
 		document.getElementById("InputBanList").setAttribute("placeholder", TextGet("UseMemberNumbersBan"));
 	}
 	if (ChatCreateMessage == "") ChatCreateMessage = "EnterRoomInfo";
-	DrawText(TextGet(ChatCreateMessage), 650, 885, "Black", "Gray");
+	DrawText(TextGet(ChatCreateMessage), 675, 885, "Black", "Gray");
 	DrawText(TextGet("RoomName"), 250, 120, "Black", "Gray");
 	ElementPosition("InputName", 815, 115, 820);
 	DrawText(TextGet("RoomLanguage"), 250, 205, "Black", "Gray");

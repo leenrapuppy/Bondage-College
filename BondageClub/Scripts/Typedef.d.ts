@@ -930,6 +930,7 @@ interface PlayerCharacter extends Character {
 	LastChatRoomBG?: string;
 	LastChatRoomPrivate?: boolean;
 	LastChatRoomSize?: number;
+	LastChatRoomLanguage?: string;
 	LastChatRoomDesc?: string;
 	LastChatRoomAdmin?: any[];
 	LastChatRoomBan?: any[];
