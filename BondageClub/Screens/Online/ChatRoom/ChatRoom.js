@@ -3573,6 +3573,10 @@ function ChatRoomSetRule(data) {
 			AsylumGGTSLock(GGTS, TextGet("GGTSIntro"));
 		}
 
+		// Nickname rules
+		if (data.Content == "OwnerRuleNicknameAllow") LogDelete("BlockNickname", "OwnerRule");
+		if (data.Content == "OwnerRuleNicknameBlock") LogAdd("BlockNickname", "OwnerRule");
+
 		// Collar Rules
 		if (data.Content == "OwnerRuleCollarRelease") {
 			if ((InventoryGet(Player, "ItemNeck") != null) && (InventoryGet(Player, "ItemNeck").Asset.Name == "SlaveCollar")) {
