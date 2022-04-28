@@ -70,8 +70,8 @@ function InventoryItemArmsFullLatexSuitSetType(NewType) {
 	// Pushes the change to the chatroom
 	var msg = "FullLatexSuitSet" + ((NewType) ? NewType : "Zipped");
 	var Dictionary = [];
-	Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
-	Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
+	Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
+	Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
 	ChatRoomPublishCustomAction(msg, true, Dictionary);
 	if (DialogInventory != null) {
 		DialogFocusItem = null;

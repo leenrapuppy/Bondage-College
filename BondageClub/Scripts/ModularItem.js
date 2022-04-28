@@ -83,7 +83,7 @@ const ModularItemRequirementCheckMessageMemo = CommonMemoize(ModularItemRequirem
  * multiplicative nature of the item's types, and also converts the AllowModuleTypes property on any asset layers into
  * an AllowTypes property, if present.
  * @param {Asset} asset - The asset being registered
- * @param {ModularItemConfig} config - The item's modular item configuration
+ * @param {ModularItemConfig | undefined} config - The item's modular item configuration
  * @returns {void} - Nothing
  */
 function ModularItemRegister(asset, config) {

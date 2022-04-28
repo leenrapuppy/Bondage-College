@@ -88,7 +88,7 @@ Finish your club slave contract first.  Then we can talk about work.
 Greetings head maid DialogPlayerName.  How can I help you?  (She does curtsies for you.)
 很高兴见到你，女仆长DialogPlayerName。有什么我可以帮助的吗？（她向你行礼）
 How pleasant to see you Mistress DialogPlayerName.  (She does curtsies for you.)
-很高兴遇到你，女主人DialogPlayerName.(她向你行李)
+很高兴遇到你，女主人DialogPlayerName。（她向你行礼）
 (She giggles.) Welcome to the Maid Quarters naked girl.  How can I help you?
 （她讥笑着）欢迎来到女仆宿舍，裸女。有什么我能帮忙的吗？？
 Welcome to the Maid Quarters.  How can I help you?
@@ -133,10 +133,10 @@ Maids come here to get job assignments.  They can earn some money by working for
 女仆可以来我们这找工作，由此从俱乐部那边赚一点钱。
 ###_PLAYER
 What kind of chores do maid do in the club?
-女仆再俱乐部负责什么工作呀？
+女仆在俱乐部负责什么工作呀？
 ###_NPC
 Cleaning, serving drinks, testing new devices, rescuing helpless people and more.
-清扫，提供饮品，测试新设备，帮助有苦难的人等等
+清扫，提供饮品，测试新设备，帮助有苦难的人等等。
 ###_PLAYER
 Can I become a maid?
 我可以当女仆吗？
@@ -148,12 +148,12 @@ Do you have work for me?
 你现在有什么工作给我吗？
 ###_NPC
 Absolutely, these are the chores available for you.  (She shows you a list of maid tasks to complete.)
-当然啦~ 这些杂活你都可以做（她向你展示了一个待完成任务清单）
+当然啦~ 这些杂活你都可以做。（她向你展示了一个待完成任务清单）
 No, you can't work for the maids if you are on the no-help list
 不，如果你在“不需要帮助”清单上的话，你就不能做女仆的工作。
 ###_PLAYER
 I'd like to become a full maid in the sorority.
-我希望可以成为联谊会的一名正式女仆
+我希望可以成为联谊会的一名正式女仆。
 ###_NPC
 That's awesome!  We would be glad to have you.  You really have the maid calling?
 好耶！你的加入会让我们超开心的。你真的想要被称呼为女仆吗？
@@ -172,7 +172,7 @@ Tell me about the club.
 请和我讲讲俱乐部。
 ###_NPC
 The Bondage Club has a long history.  It was a secret club back then when BDSM was taboo and forbidden.
-捆绑俱乐部已经存在了很长一段时间了。以前以为BDSM是被禁止的，所以俱乐部一直保持着秘密的状态。
+捆绑俱乐部已经存在了很长一段时间了。因为以前BDSM是被禁止的，所以俱乐部一直保持着秘密的状态。
 ###_PLAYER
 As head maid, I have a task for you.
 作为女仆长，我有个任务给你。
@@ -248,13 +248,13 @@ Very good, and you will give me work?
 好，你能帮我找份工作吗？
 ###_NPC
 Yes, I have a list of chores that needs to be done.  Simply pick one that you can do.
-嗯，我这边有一份待完成清单，你可以在上面选一个你能做的工作
+嗯，我这边有一份待完成清单，你可以在上面选一个你能做的工作。
 ###_PLAYER
 How do I get work?
 我要如何找工作？
 ###_NPC
 I have a list of chores that needs to be done.  Simply pick one that you can do.
-我这边有一份待完成清单，你可以在上面选一个你能做的工作
+我这边有一份待完成清单，你可以在上面选一个你能做的工作。
 ###_PLAYER
 Sign me in!  Can I see the list?
 请带我一个！我可以看看那份清单吗？
@@ -525,7 +525,7 @@ Poor thing, of course I can help you.  (She releases you and shows you the chore
 （她摇摇头表示拒绝）
 ###_PLAYER
 I'll take a rescue mission.
-（我想去做救人的任务）
+我想去做救人的任务。
 ###_NPC
 Excellent!  We need to make sure our members are safe.
 好！我们得保证我们成员的安全。
@@ -592,7 +592,7 @@ Will I get paid?
 我有工资吗？
 ###_NPC
 No, she will get the profits.  Come back to work by yourself to get paid.
-没有，你的主人会帮你领工资。之后你可以自己打工赚点钱
+没有，你的主人会帮你领工资。之后你可以自己打工赚点钱。
 ###_PLAYER
 (Pout.)  I don't have any choice I guess.
 （撅嘴）我猜我没得选，是吧？
@@ -767,7 +767,7 @@ What's going on at the Bondage Club store?  Did the vendor got in trouble?
 你可以去俱乐部商店看看吗？那边的店员还好吗？
 ###_PLAYER
 I'll go check the Bondage Club store.  (Leave her.)
-我这就去俱乐部商店看看。（她）
+我这就去俱乐部商店看看。（离开她）
 ###_NPC
 What's going on at the Gambling Hall?  Did some Player got in trouble?
 你可以去赌场看看吗？那边的客人还好吗？

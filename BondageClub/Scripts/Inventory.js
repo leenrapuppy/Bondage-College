@@ -160,10 +160,11 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "NoItemLegs": return (InventoryGet(C, "ItemLegs") != null) ? "MustFreeLegsFirst" : "";
 		case "NoItemHands": return (InventoryGet(C, "ItemHands") != null) ? "MustFreeHandsFirst" : "";
 		case "LegsOpen": return CharacterItemsHavePose(C, "LegsClosed") ? "LegsCannotOpen" : "";
+		case "CanCloseLegs": return !CharacterItemsHavePose(C, "Kneel") && !CharacterItemsHavePose(C, "LegsClosed") ? "LegsCannotClose" : "";
 		case "NotKneeling": return CharacterItemsHavePose(C, "Kneel") ? "MustStandUpFirst" : "";
 		case "CanKneel": return C.Effect.includes("BlockKneel") ? "MustBeAbleToKneel" : "";
 		case "NotMounted": return C.Effect.includes("Mounted") ? "CannotBeUsedWhenMounted" : "";
-		case "NotHorse": return C.Pose.includes("Horse") ? "CannotBeUsedWhenMounted" : "";
+		case "NotHorse": return InventoryIsItemInList(C, "ItemDevices", ["WoodenHorse"]) ? "CannotBeUsedWhenMounted" : "";
 		case "NotSuspended": return C.Pose.includes("Suspension") || C.Pose.includes("SuspensionHogtied") ? "RemoveSuspensionForItem" : "";
 		case "NotLifted": return C.Effect.includes("Lifted") ? "RemoveSuspensionForItem" : "";
 		case "NotReverseSuspended": return (C.Pose.indexOf("Suspension") >= 0) ? "RemoveSuspensionForItem" : "";
@@ -227,12 +228,6 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "NakedFeet": return InventoryHasItemInAnyGroup(C, ["ItemBoots", "Socks", "Shoes"]) ? "RemoveClothesForItem" : "";
 		case "NakedHands": return InventoryHasItemInAnyGroup(C, ["ItemHands", "Gloves"]) ? "RemoveClothesForItem" : "";
 
-		// Toe Tied
-		case "ToeTied": return InventoryIsItemInList(C, "ItemFeet", ["SpreaderMetal", "SpreaderVibratingDildoBar", "SpreaderDildoBar", "FloorShackles"])
-			|| InventoryIsItemInList(C, "ItemLegs", ["WoodenHorse"])
-			|| InventoryIsItemInList(C, "ItemDevices", ["OneBarPrison", "SaddleStand"])
-			? "LegsCannotClose" : "";
-
 		// Display Frame
 		case "DisplayFrame": return InventoryHasItemInAnyGroup(C, ["ItemArms", "ItemLegs", "ItemFeet", "ItemBoots"])
 			? "RemoveRestraintsFirst"
@@ -249,6 +244,9 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		// Layered Gags, prevent gags from being equipped over other gags they are incompatible with
 		case "GagUnique": return InventoryPrerequisiteConflictingGags(C, ["GagFlat", "GagCorset", "GagUnique"]);
 		case "GagCorset": return InventoryPrerequisiteConflictingGags(C, ["GagCorset"]);
+
+		// There's something in the mouth that's too large to allow that item on
+		case "NotProtrudingFromMouth": return C.Effect.includes("ProtrudingMouth") ? "CannotBeUsedOverGag" : "";
 
 		// Returns no message, indicating that all prerequisites are fine
 		default: return "";

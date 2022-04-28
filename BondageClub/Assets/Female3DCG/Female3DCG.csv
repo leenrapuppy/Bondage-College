@@ -133,6 +133,7 @@ ClothLower,MageSkirt,Witch's Skirt
 ClothLower,LongSkirt1,Long Skirt
 ClothLower,ShortPencilSkirt,Short Pencil Skirt
 ClothLower,HaremPants,Harem Pants
+ClothLower,HaremPants2,Harem Pants 2
 ClothLower,ShortPlaidSkirt,Short Plaid Skirt
 ClothLower,CollegeSkirt,College Skirt
 SuitLower,,Suit Lower
@@ -251,6 +252,9 @@ Panties,FlowerPanties,Flower Panties
 Panties,FloralPanties2,Floral Panties 2
 Panties,BulkyDiaper,Bulky Diaper
 Panties,PoofyDiaper,Poofy Diaper
+Panties,Thong,Thong 2
+Panties,StringThong,String Thong
+Panties,MicroThong,Micro Thong
 Socks,,Socks
 Socks,Socks0,Ankle
 Socks,Socks1,Short
@@ -272,6 +276,7 @@ Socks,ReverseBunnySuit,Reverse Bunny Suit Stockings
 Socks,LeatherSocks1,Short Leather Socks
 Socks,Pantyhose2,Crotchless Pantyhose
 Socks,CowPrintedSocks,Cow Printed Socks
+Socks,HaremStockings,Harem Stockings
 RightAnklet,,Anklet (Right)
 RightAnklet,BandAnklet,Band Anklet
 RightAnklet,Ribbon,Ribbon
@@ -428,6 +433,7 @@ Gloves,SeethroughSuit,See-through Gloves
 Gloves,CowPrintedGloves,Cow Printed Gloves
 Gloves,LatexElbowGloves,Latex Elbow Gloves
 Gloves,FishnetGloves, Fishnet Gloves
+Gloves,HaremGlove,Harem Gloves
 Bracelet,,Bracelet
 Bracelet,BowBand,Bow Band
 Bracelet,KinkBracelet, Kinky Band
@@ -569,6 +575,9 @@ HairFront,HairFront22,Style 22
 HairFront,HairFront22b,Style 22b
 HairFront,HairFront23,Style 23
 HairFront,HairFront23b,Style 23b
+HairFront,HairFront24,Style 24
+HairFront,HairFront25,Style 25
+HairFront,HairFront26,Style 26
 HairBack,,Back Hair
 HairBack,HairNone,None
 HairBack,HairBack1,Style 1
@@ -719,7 +728,6 @@ ItemLegs,LegBinder,Leg Binder
 ItemLegs,HobbleSkirt,Hobble Skirt
 ItemLegs,SeamlessLegBinder,Seamless Leg Binder
 ItemLegs,SeamlessHobbleSkirt,Seamless Hobble Skirt
-ItemLegs,WoodenHorse,Wooden Horse
 ItemLegs,Zipties,Zip Ties
 ItemLegs,Chains,Chains
 ItemLegs,PlasticWrap,Plastic Wrap
@@ -1429,6 +1437,8 @@ ItemDevices,FuckMachine,Fuck Machine
 ItemDevices,Net,Net
 ItemDevices,Snowman,Snowman
 ItemDevices,MedicalBed,Medical Bed
+ItemDevices,WoodenRack,Wooden Rack
+ItemDevices,WoodenHorse,Wooden Horse
 ItemAddon,,Body
 ItemAddon,Covers,Blanket
 ItemAddon,BedRopes,Bed Ropes

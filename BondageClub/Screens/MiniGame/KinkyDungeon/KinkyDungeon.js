@@ -1272,7 +1272,7 @@ function KinkyDungeonExit() {
 
 	if (CurrentScreen == "ChatRoom" && KinkyDungeonState != "Menu" && KinkyDungeonState == "Lose") {
 		let Dictionary = [
-			{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
+			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
 			{ Tag: "KinkyDungeonLevel", Text: String(MiniGameKinkyDungeonLevel)},
 		];
 		// @ts-ignore

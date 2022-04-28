@@ -744,7 +744,7 @@ var PlatformDialogData = [
 					{ Text: "Sure, it's too dangerous right now.", Reply: "(She nods happily.)  Absolutely." },
 					{ Text: "Yes, but you will owe me a favor.", Reply: "(She gulps.)  Very good, I swear I'll repay you somehow someday.", Domination: 1 },
 					{ Text: "Of course, elves are too important to be chained.", Reply: "(She nods slowly.)  Well said little maid.", Domination: -1 },
-					{ Text: "Not right now.  (Leave her.)", Script: function() { PlatformDialogExit(); } },
+					{ Text: "Not right now.  (Leave her.)", Script: function() { PlatformDialogLeave(); } },
 				]
 			},
 			{ 
@@ -978,7 +978,7 @@ var PlatformDialogData = [
 			{ Text: "How about I (She hiccups.) repay you now?  I'll help you in bottles." },
 			{ Text: "Gimme a minute to shober up and I'll fight for you." },
 			{ Text: "(Edlaran joined your party.  She might be a playable character in a future version of the game.)" },
-			{ Entry: function() { PlatformEventSet("EdlaranJoin"); PlatformLoadRoom(); PlatformDialogExit(); } },
+			{ Entry: function() { PlatformEventSet("EdlaranJoin"); PlatformLoadRoom(); PlatformDialogLeave(); } },
 			{ ID: "End", Text: "Drinking ish fun, but we have important shtuff to... do." },
 			{ Text: "Shee you later Meldy.  I'll repay you some (She hiccups.) day." },
 			{ Text: "(She leaves the room.)" },
@@ -999,7 +999,7 @@ var PlatformDialogData = [
 				Text: "(It contains the dungeon restraints.)",
 				Answer: [
 					{ Text: "(Clean the restraints.)", Reply: "(You open the chest.)" },
-					{ Text: "(Go do something else.)", Script: function() { PlatformDialogExit(); } },
+					{ Text: "(Go do something else.)", Script: function() { PlatformDialogLeave(); } },
 				]
 			},
 			{
@@ -1416,7 +1416,7 @@ function PlatformDialogLoadPosition(Position) {
 	PlatformDialogPosition = Position;
 	if (Position >= PlatformDialog.Dialog.length) {
 		if (PlatformDialog.Exit != null) PlatformDialog.Exit();
-		PlatformDialogExit();
+		PlatformDialogLeave();
 		return;
 	}
 	PlatformDialogText = PlatformDialog.Dialog[Position].Text;
@@ -1602,7 +1602,7 @@ function PlatformDialogKeyDown() {
  * Exits the dialog and returns to the game
  * @returns {void} - Nothing
  */
-function PlatformDialogExit() {
+function PlatformDialogLeave() {
 	CommonSetScreen("Room", "Platform");
 }
 

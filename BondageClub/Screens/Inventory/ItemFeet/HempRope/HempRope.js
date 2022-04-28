@@ -59,8 +59,8 @@ function InventoryItemFeetHempRopeClick() {
 function InventoryItemFeetHempRopePublishAction(C, Option) {
 	var msg = "LegRopeSet" + Option.Name;
 	var Dictionary = [];
-	Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
-	Dictionary.push({ Tag: "TargetCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
+	Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
+	Dictionary.push({ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 	ChatRoomPublishCustomAction(msg, true, Dictionary);
 }
 

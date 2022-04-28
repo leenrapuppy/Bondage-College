@@ -982,7 +982,7 @@ function StruggleDrawLockpickProgress(C) {
 				if (DialogLentLockpicks)  {
 					DialogLentLockpicks = false;
 					if (CurrentScreen == "ChatRoom")
-						ChatRoomPublishCustomAction("LockPickBreak", true, [{ Tag: "DestinationCharacterName", Text: Player.Name, MemberNumber: Player.MemberNumber }]);
+						ChatRoomPublishCustomAction("LockPickBreak", true, [{ Tag: "DestinationCharacterName", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber }]);
 				} else {
 					LogAdd("FailedLockPick", "LockPick", CurrentTime + StruggleLockPickFailTimeout);
 					StruggleLockPickFailTime = CurrentTime + StruggleLockPickFailTimeout;

@@ -151,6 +151,67 @@ function LoginRun() {
 }
 
 /**
+ * The list of item fixups to apply on login.
+ *
+ * @type {{ Old: {Group: string, Name: string}, New: {Group: string, Name: string} }[]}
+ */
+let LoginInventoryFixups = [
+	{ Old: { Group: "ItemLegs", Name: "WoodenHorse" }, New: { Group: "ItemDevices", Name: "WoodenHorse" } },
+];
+
+/**
+ * Perform the inventory and appearance fixups needed.
+ *
+ * This is called by the login code, after the player's item lists are set up
+ * but before the inventory and appearance are loaded from the server's data,
+ * and applies the specified asset fixups by swapping Old with New in the list
+ * of owned items, in the various player item lists, and in the appearance.
+ *
+ * Note that it copies properties verbatim, so its better if the Old and New
+ * asset definitions are kept compatible.
+ *
+ * @param {Record<string, string[]>} Inventory - The server-provided inventory object
+ * @param {{Group: string, Name: string}[]} Appearance - The server-provided appearance object
+ */
+function LoginPerformInventoryFixups(Inventory, Appearance) {
+	let listsUpdated = false;
+	LoginInventoryFixups.forEach(fixup => {
+		// For every asset fixup to do, update the inventory
+		let group;
+		let idx;
+		if ((group = Inventory[fixup.Old.Group]) && group.indexOf(fixup.Old.Name) != -1) {
+			group.splice(idx, 1);
+			Inventory[fixup.New.Group].push(fixup.New.Name);
+		}
+
+		// Update the player's item lists
+		["BlockItems", "LimitedItems", "HiddenItems", "FavoriteItems"].forEach(prop => {
+			const idx = Player[prop].findIndex(item => item.Group === fixup.Old.Group && item.Name === fixup.Old.Name);
+			if (idx === -1) return;
+
+			Player[prop][idx].Group = fixup.New.Group;
+			Player[prop][idx].Name = fixup.New.Name;
+			listsUpdated = true;
+		});
+
+		idx = Appearance.findIndex(a => a.Group === fixup.Old.Group && a.Name === fixup.Old.Name);
+		if (idx != -1) {
+			// The item is currently worn, remove it
+			let worn = Appearance[idx];
+			Appearance.splice(idx, 1);
+			// Add the new one, unless there's already something there
+			if (!Appearance.find(a => a.Group === fixup.New.Group)) {
+				worn.Group = fixup.New.Group;
+				worn.Name = fixup.New.Name;
+				Appearance.push(worn);
+			}
+		}
+	});
+	if (listsUpdated)
+		ServerPlayerBlockItemsSync();
+}
+
+/**
  * Make sure the slave collar is equipped or unequipped based on the owner
  * @returns {void} Nothing
  */
@@ -441,6 +502,7 @@ function LoginResponse(C) {
 			Player.AccountName = C.AccountName;
 			Player.AssetFamily = C.AssetFamily;
 			Player.Title = C.Title;
+			Player.Nickname = (C.Nickname == null) ? "" : C.Nickname;
 			if (CommonIsNumeric(C.Money)) Player.Money = C.Money;
 			Player.Owner = ((C.Owner == null) || (C.Owner == "undefined")) ? "" : C.Owner;
 			Player.Game = C.Game;
@@ -463,6 +525,11 @@ function LoginResponse(C) {
 			Player.Difficulty = C.Difficulty;
 			Player.WardrobeCharacterNames = C.WardrobeCharacterNames;
 			WardrobeCharacter = [];
+
+			// Sets the default language when creating new chat rooms
+			ChatCreateLanguage = C.RoomLanguage;
+			if (ChatCreateLanguage == null) ChatCreateLanguage = ChatCreateLanguageList[0];
+			if (ChatCreateLanguageList.indexOf(ChatCreateLanguage) < 0) ChatCreateLanguage = ChatCreateLanguageList[0];
 
 			// Load the last chat room
 			Player.LastChatRoom = C.LastChatRoom;
@@ -547,6 +614,7 @@ function LoginResponse(C) {
 			LoginDifficulty(false);
 
 			// Loads the player character model and data
+			LoginPerformInventoryFixups(C.Inventory, C.Appearance);
 			ServerAppearanceLoadFromBundle(Player, C.AssetFamily, C.Appearance, C.MemberNumber);
 			InventoryLoad(Player, C.Inventory);
 			LogLoad(C.Log);
@@ -582,9 +650,6 @@ function LoginResponse(C) {
 
 			// Fixes a few items
 			var InventoryBeforeFixes = InventoryStringify(Player);
-			if (InventoryGet(Player, "ItemMisc") && (InventoryGet(Player, "ItemMisc").Asset.Name == "WoodenMaidTray" || InventoryGet(Player, "ItemMisc").Asset.Name == "WoodenMaidTrayFull" || InventoryGet(Player, "ItemMisc").Asset.Name == "WoodenPaddle")) InventoryRemove(Player, "ItemMisc");
-			if (LogQuery("JoinedSorority", "Maid") && !InventoryAvailable(Player, "MaidOutfit2", "Cloth")) InventoryAdd(Player, "MaidOutfit2", "Cloth", false);
-			if ((InventoryGet(Player, "ItemArms") != null) && (InventoryGet(Player, "ItemArms").Asset.Name == "FourLimbsShackles")) InventoryRemove(Player, "ItemArms");
 			LoginValidCollar();
 			LoginMistressItems();
 			LoginStableItems();

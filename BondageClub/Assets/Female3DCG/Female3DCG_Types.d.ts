@@ -1,6 +1,6 @@
 interface AssetGroupDefinition {
 	Asset: (AssetDefinition | string)[];
-	Group: string;
+	Group: AssetGroupName;
 	ParentGroup?: string;
 	Category?: 'Appearance' | 'Item';
 	Default?: boolean;

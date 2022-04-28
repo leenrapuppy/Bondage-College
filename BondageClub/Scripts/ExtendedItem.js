@@ -95,6 +95,11 @@ function ExtendedItemLoad(Options, DialogKey) {
 		}
 	}
 
+	if (ExtendedItemSubscreen) {
+		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load");
+		return;
+	}
+
 	if (ExtendedItemOffsets[ExtendedItemOffsetKey()] == null) ExtendedItemSetOffset(0);
 
 	DialogExtendedMessage = DialogFindPlayer(DialogKey);

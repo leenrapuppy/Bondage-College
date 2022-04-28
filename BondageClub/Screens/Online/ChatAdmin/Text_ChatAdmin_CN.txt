@@ -41,7 +41,7 @@ Account error, please try to relog
 Invalid chat room data detected
 无效的聊天室数据
 Block Categories
-背景分类
+屏蔽性癖
 No Game
 无游戏
 LARP

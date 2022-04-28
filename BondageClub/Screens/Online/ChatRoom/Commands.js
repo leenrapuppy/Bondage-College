@@ -235,7 +235,7 @@ const CommonCommands = [
 					CurrentRoll++;
 				}
 				const Dictionary = [];
-				Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name });
+				Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player) });
 				Dictionary.push({ Tag: "DiceType", Text: DiceNumber.toString() + "D" + DiceSize.toString() });
 				if (DiceNumber > 1) {
 					Result.sort((a, b) => a - b);
@@ -251,7 +251,7 @@ const CommonCommands = [
 		Action: () => {
 			const Heads = Math.random() >= 0.5;
 			const Dictionary = [
-				{ Tag: "SourceCharacter", Text: Player.Name },
+				{ Tag: "SourceCharacter", Text: CharacterNickname(Player) },
 				{ Tag: "CoinResult", TextToLookUp: Heads ? "Heads" : "Tails" }];
 			ServerSend("ChatRoomChat", { Content: "ActionCoin", Type: "Action", Dictionary: Dictionary });
 		}

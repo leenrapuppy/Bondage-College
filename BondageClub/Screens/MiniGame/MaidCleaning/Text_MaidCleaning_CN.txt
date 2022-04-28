@@ -1,0 +1,6 @@
+Move the duster over every dirty spot before the supervisor comes back.
+将掸子移动到灰尘上以打扫。在主管回来之前把所有灰尘清扫干净。
+Congratulations!  You've cleaned everything in time.
+恭喜！你及时清扫了所有灰尘。
+Sorry, you've failed to clean everything in time.
+抱歉，你没能及时清扫所有灰尘。
