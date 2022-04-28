@@ -146,7 +146,6 @@ function ChatCreateClick() {
 	// When the user cancels/exits
 	if (MouseIn(1625, 840, 250, 65)) ChatCreateExit();
 
-
 	// When we select a new background
 	if (MouseIn(1300, 450, 500, 60)) {
 		ChatCreateBackgroundIndex += ((MouseX < 1550) ? -1 : 1);
@@ -230,7 +229,7 @@ function ChatCreateResponse(data) {
  * @returns {void} - Nothing
  */
 function ChatCreateRoom() {
-	ServerAccountUpdate.QueueData({ RoomLanguage: ChatCreateLanguage });
+	ServerAccountUpdate.QueueData({ RoomCreateLanguage: ChatCreateLanguage });
 	ChatRoomPlayerCanJoin = true;
 	var NewRoom = {
 		Name: ElementValue("InputName").trim(),
