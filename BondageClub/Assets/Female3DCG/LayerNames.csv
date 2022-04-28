@@ -264,6 +264,8 @@ ItemFeetMedicalBedRestraintsStraps,Cuffs
 ItemFeetTentaclesInner,Inner
 ItemFeetTentaclesOuter,Outer
 ItemFeetTentaclesSucker,Suckers
+ItemFeetNylonRopeLowerRope,Lower Rope
+ItemFeetNylonRopeUpperRope,Upper Rope
 ItemLegsFuturisticLegCuffsChain,Chain
 ItemLegsFuturisticLegCuffsCuffs,Cuffs
 ItemLegsFuturisticLegCuffsDisplay,Display
@@ -283,6 +285,8 @@ ItemLegsMedicalBedRestraintsStraps,Cuffs
 ItemLegsTentaclesInner,Inner
 ItemLegsTentaclesOuter,Outer
 ItemLegsTentaclesSucker,Suckers
+ItemLegsNylonRopeLowerRope,Lower Rope
+ItemLegsNylonRopeUpperRope,Upper Rope
 ItemVulvaWandBeltBelt,Belt
 ItemVulvaWandBeltWand,Wand
 ItemVulvaHempRopeBeltRope,Rope
