@@ -4084,7 +4084,7 @@ var AssetFemale3DCGExtended = {
 					ModulePrefix:"ItemMouthPonyGagModule",
 					OptionPrefix: "ItemMouthPonyGagOption",
 					ChatPrefix: "ItemMouthPonyGagSet",
-					},
+				},
 			},
 		}, // PonyGag
 	}, // ItemMouth
