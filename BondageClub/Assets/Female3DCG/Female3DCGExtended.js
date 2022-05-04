@@ -4079,6 +4079,12 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ChangeWhenLocked: false,
+				Dialog: {
+					Select: "ItemMouthPonyGagSelect",
+					ModulePrefix:"ItemMouthPonyGagModule",
+					OptionPrefix: "ItemMouthPonyGagOption",
+					ChatPrefix: "ItemMouthPonyGagSet",
+					},
 			},
 		}, // PonyGag
 	}, // ItemMouth
