@@ -238,6 +238,8 @@ Let's see what the dice say...
 ###_PLAYER
 (Whimper and make pleading eyes.)
 (Хныкать и делать умоляющие глаза.)
+(Whimper and squirm.)
+(Хныкать и извивается.)
 ###_NPC
 Do you need help?
 Тебе нужна помощь?

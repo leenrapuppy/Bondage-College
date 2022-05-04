@@ -17,6 +17,7 @@ var ChatSearchIgnoredRooms = [];
 var ChatSearchMode = "";
 var ChatSearchRejoinIncrement = 1;
 var ChatSearchReturnToScreen = null;
+var ChatSearchLanguage = "";
 var ChatRoomJoinLeash = "";
 
 /**
@@ -72,7 +73,7 @@ function ChatSearchRun() {
 	DrawTextFit(TextGet(ChatSearchMessage), 255, 935, 490, "White", "Gray");
 	ElementPosition("InputSearch",  740, 926, 470);
 	DrawButton(980, 898, 280, 64, TextGet(ChatSearchMode != "Filter" ? "SearchRoom" : "FilterRefresh"), "White");
-	DrawButton(1280, 898, 280, 64, TextGet("CreateRoom"), "White");
+	DrawButton(1280, 898, 280, 64, TextGet(ChatSearchMode != "Filter" ? "CreateRoom" : "Language" + ChatSearchLanguage), "White");
 	if (ChatSearchResult.length + (ChatSearchMode != "Filter" ? 0 : ChatSearchIgnoredRooms.length) > ChatSearchRoomsPerPage) DrawButton(1585, 885, 90, 90, "", "White", "Icons/Next.png", TextGet("Next"));
 	DrawButton(1685, 885, 90, 90, "", "White", ChatSearchMode != "Filter" ? "Icons/DialogPermissionMode.png" : "Icons/DialogNormalMode.png", TextGet(ChatSearchMode != "Filter" ?  "FilterMode" : "NormalMode"));
 	DrawButton(1785, 885, 90, 90, "", "White", "Icons/FriendList.png", TextGet("FriendList"));
@@ -89,9 +90,17 @@ function ChatSearchClick() {
 		if (ChatSearchMode == "" && Array.isArray(ChatSearchResult) && (ChatSearchResult.length >= 1)) ChatSearchJoin();
 	}
 	if (MouseIn(980, 898, 280, 64)) ChatSearchQuery();
-	if (MouseIn(1280, 898, 280, 64)) {
+	if (MouseIn(1280, 898, 280, 64) && (ChatSearchMode == "")) {
 		ChatBlockItemCategory = [];
 		CommonSetScreen("Online", "ChatCreate");
+	}
+	if (MouseIn(1280, 898, 280, 64) && (ChatSearchMode == "Filter")) {
+		let Pos = ChatCreateLanguageList.indexOf(ChatSearchLanguage) + 1;
+		if (Pos >= ChatCreateLanguageList.length)
+			ChatSearchLanguage = "";
+		else
+			ChatSearchLanguage = ChatCreateLanguageList[Pos];
+		ServerAccountUpdate.QueueData({ RoomSearchLanguage: ChatSearchLanguage });
 	}
 	if (MouseIn(1585, 885, 90, 90)) {
 		ChatSearchResultOffset += ChatSearchRoomsPerPage;
@@ -487,6 +496,7 @@ function ChatSearchAutoJoinRoom() {
 						Game: "",
 						Admin: [Player.MemberNumber],
 						Limit: ("" + Math.min(Math.max(Player.LastChatRoomSize, 2), 10)).trim(),
+						Language: Player.LastChatRoomLanguage,
 						BlockCategory: ChatBlockItemCategory || []
 					};
 					ServerSend("ChatRoomCreate", NewRoom);
@@ -534,7 +544,7 @@ function ChatSearchQuery() {
 		ChatSearchLastQuerySearchTime = CommonTime();
 		ChatSearchLastQuerySearchHiddenRooms = ChatSearchIgnoredRooms.length;
 		ChatSearchResult = [];
-		ServerSend("ChatRoomSearch", { Query: Query, Space: ChatRoomSpace, Game: ChatRoomGame, FullRooms: FullRooms, Ignore: ChatSearchIgnoredRooms });
+		ServerSend("ChatRoomSearch", { Query: Query, Language: ChatSearchLanguage, Space: ChatRoomSpace, Game: ChatRoomGame, FullRooms: FullRooms, Ignore: ChatSearchIgnoredRooms });
 	}
 
 	ChatSearchMessage = "EnterName";

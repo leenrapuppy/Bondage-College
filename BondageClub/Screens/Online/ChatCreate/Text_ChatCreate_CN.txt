@@ -6,6 +6,8 @@ Room Name
 (仅可用字母和数字)
 Description
 描述
+Language
+交流语言
 Description of the room (Letters & numbers only)
 房间描述 (仅可使用字母和数字)
 Ban List
@@ -57,8 +59,20 @@ No Game
 LARP
 体感对战
 Magic Battle
-Magic Battle
+魔法对战
 GGTS
 GGTS
 (Click anywhere to return)
 (点击任意位置返回)
+English
+英语
+French
+法语
+Spanish
+西语
+German
+德语
+Chinese
+中文
+Russian
+俄语
