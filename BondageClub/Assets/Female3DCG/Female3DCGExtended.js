@@ -1735,6 +1735,10 @@ var AssetFemale3DCGExtended = {
 				ChangeWhenLocked: false,
 			},
 		}, //TechnoCollar
+		ComboHarness: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { AssetName: "BallGag", GroupName: "ItemMouth" },
+		}, // ComboHarness
 	}, // ItemNeck
 	ItemNeckAccessories: {
 		CustomCollarTag: {

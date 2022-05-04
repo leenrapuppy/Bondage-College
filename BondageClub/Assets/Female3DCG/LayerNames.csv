@@ -484,6 +484,11 @@ ItemNeckRestraintsPostChain,Chain
 ItemNeckRestraintsPostHead,Cap
 ItemNeckRestraintsPostPost,Post
 ItemNeckRestraintsPostBase,Baseplate
+ItemNeckComboHarnessRing,Ring
+ItemNeckComboHarnessStuds,Studs
+ItemNeckComboHarnessBall,Ball
+ItemNeckComboHarnessBuckles,Buckles
+ItemNeckComboHarnessHarness,Harness
 ItemMiscWoodenSignSign,Sign
 ItemMiscWoodenSignRope,Rope
 ItemMiscWoodenSignText,Text
