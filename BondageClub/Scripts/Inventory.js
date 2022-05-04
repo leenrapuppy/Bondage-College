@@ -160,7 +160,7 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "NoItemLegs": return (InventoryGet(C, "ItemLegs") != null) ? "MustFreeLegsFirst" : "";
 		case "NoItemHands": return (InventoryGet(C, "ItemHands") != null) ? "MustFreeHandsFirst" : "";
 		case "LegsOpen": return CharacterItemsHavePose(C, "LegsClosed") ? "LegsCannotOpen" : "";
-		case "CanCloseLegs": return !CharacterItemsHavePose(C, "Kneel") && !CharacterItemsHavePose(C, "LegsClosed") ? "LegsCannotClose" : "";
+		case "CanCloseLegs": return !CharacterItemsHavePoseAvailable(C, "BodyLower", "LegsClosed") && !CharacterItemsHavePose(C, "Kneel") ? "LegsCannotClose" : "";
 		case "NotKneeling": return CharacterItemsHavePose(C, "Kneel") ? "MustStandUpFirst" : "";
 		case "CanKneel": return C.Effect.includes("BlockKneel") ? "MustBeAbleToKneel" : "";
 		case "NotMounted": return C.Effect.includes("Mounted") ? "CannotBeUsedWhenMounted" : "";
