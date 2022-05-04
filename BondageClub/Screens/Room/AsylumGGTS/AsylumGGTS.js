@@ -727,6 +727,7 @@ function AsylumGGTSAutomaticTask() {
 	if ((AsylumGGTSTask == "LockRoom") || (AsylumGGTSTask == "UnlockRoom")) {
 		var UpdatedRoom = {
 			Name: ChatRoomData.Name,
+			Language: ChatCreateLanguage,
 			Description: ChatRoomData.Description,
 			Background: ChatRoomData.Background,
 			Limit: ChatRoomData.Limit.toString(),

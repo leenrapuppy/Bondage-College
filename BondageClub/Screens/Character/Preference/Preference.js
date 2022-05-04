@@ -440,6 +440,7 @@ function PreferenceInitPlayer() {
 	if (typeof C.LastChatRoomBG !== "string") C.LastChatRoomBG = "";
 	if (typeof C.LastChatRoomPrivate !== "boolean") C.LastChatRoomPrivate = false;
 	if (typeof C.LastChatRoomSize !== "number") C.LastChatRoomSize = 10;
+	if (typeof C.LastChatRoomLanguage !== "string") C.LastChatRoomLanguage = "EN";
 	if (typeof C.LastChatRoomDesc !== "string") C.LastChatRoomDesc = "";
 	if (!C.LastChatRoomAdmin) C.LastChatRoomAdmin = [];
 	if (!C.LastChatRoomBan) C.LastChatRoomBan = [];

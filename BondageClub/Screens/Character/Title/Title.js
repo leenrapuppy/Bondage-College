@@ -60,6 +60,7 @@ var TitleList = [
 	{ Name: "GoodSlave", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 6); }, Earned: true },
 	{ Name: "Drone", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 6); }, Earned: true }
 ];
+var TitleCanEditNickname = true;
 
 /**
  * Sets the new title of the player, if the title has changed
@@ -133,7 +134,13 @@ function TitleIsEarned(Title) {
  * @returns {void} - Nothing
  */
 function TitleLoad() {
-	ElementCreateInput("InputNickname", "text", Player.Nickname, "20");
+	TitleCanEditNickname = (!LogQuery("BlockNickname", "OwnerRule") || (Player.Ownership == null) || (Player.Ownership.Stage !== 1));
+	let E = ElementCreateInput("InputNickname", "text", Player.Nickname, "20");
+	if (!TitleCanEditNickname) {
+		E.style.backgroundColor = "#DFDFDF";
+		E.removeAttribute("onfocus");
+		E.setAttribute("readonly", "readonly");
+	}
 }
 
 /**
@@ -145,8 +152,8 @@ function TitleRun() {
 
 	// List all the available titles
 	DrawText(TextGet("SelectTitle"), 1000, 100, "Black", "Gray");
-	DrawText(TextGet("Nickname"), 750, 180, "Black", "Gray");
-	ElementPosition("InputNickname", 1300, 180, 500, 60);
+	DrawText(TextGet(TitleCanEditNickname ? "Nickname" : "NicknameLocked"), 750, 180, "Black", "Gray");
+	ElementPosition("InputNickname", 1300, 175, 500, 60);
 	var X = 130;
 	var Y = 250;
 	for (let T = 0; T < TitleList.length; T++)

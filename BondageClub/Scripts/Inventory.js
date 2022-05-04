@@ -160,7 +160,7 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "NoItemLegs": return (InventoryGet(C, "ItemLegs") != null) ? "MustFreeLegsFirst" : "";
 		case "NoItemHands": return (InventoryGet(C, "ItemHands") != null) ? "MustFreeHandsFirst" : "";
 		case "LegsOpen": return CharacterItemsHavePose(C, "LegsClosed") ? "LegsCannotOpen" : "";
-		case "CanCloseLegs": return !CharacterItemsHavePose(C, "Kneel") && !CharacterItemsHavePose(C, "LegsClosed") ? "LegsCannotClose" : "";
+		case "CanCloseLegs": return !CharacterItemsHavePoseAvailable(C, "BodyLower", "LegsClosed") && !CharacterItemsHavePose(C, "Kneel") ? "LegsCannotClose" : "";
 		case "NotKneeling": return CharacterItemsHavePose(C, "Kneel") ? "MustStandUpFirst" : "";
 		case "CanKneel": return C.Effect.includes("BlockKneel") ? "MustBeAbleToKneel" : "";
 		case "NotMounted": return C.Effect.includes("Mounted") ? "CannotBeUsedWhenMounted" : "";
@@ -211,8 +211,10 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 			|| !InventoryDoItemsExposeGroup(C, "ItemButt", ["ClothLower", "Panties"])
 		) ? "RemoveClothesForItem" : "";
 
-		// Items that require access to a character's mouth
+		// Items that require access to a certain character's zone 
 		case "AccessMouth": return C.IsMouthBlocked() ? "CannotBeUsedOverGag" : "";
+		case "HoodEmpty": return InventoryGet(C, "ItemHood") ? "CannotBeUsedOverMask" : "";
+		case "EyesEmpty": return InventoryGet(C, "ItemHead") ? "CannotBeUsedOverHood" : "";
 
 		// Some chastity belts have removable vulva shields. This checks for those for items that wish to add something externally.
 		case "VulvaNotBlockedByBelt": return InventoryDoItemsBlockGroup(C, "ItemVulva", ["ItemPelvis"])
