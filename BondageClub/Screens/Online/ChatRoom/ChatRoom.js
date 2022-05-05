@@ -978,19 +978,20 @@ function ChatRoomClickCharacter(C, CharX, CharY, Zoom, ClickX, ClickY, Pos) {
 
 	// Click on name
 	if (ClickY > 900) {
+
 		// Clicking on self or current target removes whisper target
 		if (C.ID === 0 || ChatRoomTargetMemberNumber === C.MemberNumber) {
 			ChatRoomSetTarget(null);
 			return;
 		}
+
 		// BlockWhisper rule, if owner is in chatroom
-		if (LogQuery("BlockWhisper", "OwnerRule") && Player.Ownership && Player.Ownership.Stage === 1 && Player.Ownership.MemberNumber !== C.MemberNumber && ChatRoomOwnerInside()) {
-			return;
-		}
+		if (ChatRoomOwnerPresenceRule("BlockWhisper", C)) return;
+
 		// Sensory deprivation setting: Total (no whispers) blocks whispers while blind unless both players are in the virtual realm. Then they can text each other.
-		if (Player.GameplaySettings.SensDepChatLog === "SensDepExtreme" && Player.GetBlindLevel() >= 3 && !(Player.Effect.includes("VRAvatars") && C.Effect.includes("VRAvatars"))) {
-			return;
-		}
+		if (Player.GameplaySettings.SensDepChatLog === "SensDepExtreme" && Player.GetBlindLevel() >= 3 && !(Player.Effect.includes("VRAvatars") && C.Effect.includes("VRAvatars"))) return;
+
+		// Sets the target
 		ChatRoomSetTarget(C.MemberNumber);
 		return;
 	}
@@ -2052,6 +2053,8 @@ function ChatRoomSendLocal(Content, Timeout) {
  * @returns {void} - Nothing
  */
 function ChatRoomSendEmote(msg) {
+	// Emotes can be prevented with an owner presence rule
+	if (ChatRoomOwnerPresenceRule("BlockEmote", null)) return;
 	if (Player.ChatSettings.MuStylePoses && msg.startsWith(":")) msg = msg.substring(1);
 	else {
 		msg = msg.replace(/^\*/, "").replace(/\*$/, "");
@@ -4029,4 +4032,41 @@ function ChatRoomShouldBlockGaggedOOCMessage(Message, WhisperTarget) {
 			return false;
 
 	return true;
+}
+
+/**
+ * Returns TRUE if the owner presence rule is enforced for the current player
+ * @param {string} RuleName - The name of the rule to validate (BlockWhisper, BlockTalk, etc.)
+ * @param {Character} Target - The target character
+ * @returns {boolean} - TRUE if the rule is enforced
+ */
+function ChatRoomOwnerPresenceRule(RuleName, Target) {
+
+	if (!LogQuery(RuleName, "OwnerRule")) return false; // FALSE if the rule isn't set
+	if ((Player.Ownership == null) || (Player.Ownership.Stage !== 1)) return false; // FALSE if the player isn't fully collared
+	if (!ChatRoomOwnerInside()) return false; // FALSE if the owner isn't inside
+
+	// Block whisper doesn't block whispering to the owner
+	if (RuleName == "BlockWhisper")
+		return ((Target != null) && (Player.Ownership.MemberNumber !== Target.MemberNumber));
+
+	// Some rules can produce a warning message in the chat log
+	if ((RuleName == "BlockTalk") || (RuleName == "BlockEmote")) {
+		const div = document.createElement("div");
+		div.setAttribute('class', 'ChatMessage ChatMessageServerMessage');
+		div.setAttribute('data-time', ChatRoomCurrentTime());
+		div.setAttribute('data-sender', Player.MemberNumber.toString());
+		div.innerHTML = "<b>" + TextGet("OwnerPresence" + RuleName) + "</b>";
+		const Refocus = document.activeElement.id == "InputChat";
+		const ShouldScrollDown = ElementIsScrolledToEnd("TextAreaChatLog");
+		if (document.getElementById("TextAreaChatLog") != null) {
+			document.getElementById("TextAreaChatLog").appendChild(div);
+			if (ShouldScrollDown) ElementScrollToEnd("TextAreaChatLog");
+			if (Refocus) ElementFocus("InputChat");
+		}
+	}
+
+	// If all validations passed, we enforce the rule
+	return true;
+
 }

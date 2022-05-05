@@ -25,3 +25,5 @@ CommandGhostlist,Ghostlist:
 CommandWhitelist,Whitelist:
 CommandBlacklist,Blacklist:
 GGTSIntro,(Two nurses wearing futuristic gear grab you and carry you to the Asylum.  Another nurse is waiting for you there.)  Welcome.  Don't be scared.
+OwnerPresenceBlockTalk,Talking is forbidden when your owner is present.
+OwnerPresenceBlockEmote,Emoting is forbidden when your owner is present.
