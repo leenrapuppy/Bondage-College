@@ -1872,6 +1872,7 @@ function ChatRoomMenuClick() {
 					break;
 				case "Kneel":
 					// When the user character kneels
+					if (ChatRoomOwnerPresenceRule("BlockChangePose", Player)) return;
 					if (Player.CanKneel()) {
 						const PlayerIsKneeling = Player.IsKneeling();
 						ServerSend("ChatRoomChat", { Content: PlayerIsKneeling ? "StandUp" : "KneelDown", Type: "Action", Dictionary: [{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber }] });
@@ -4060,7 +4061,7 @@ function ChatRoomOwnerPresenceRule(RuleName, Target) {
 		div.setAttribute('class', 'ChatMessage ChatMessageServerMessage');
 		div.setAttribute('data-time', ChatRoomCurrentTime());
 		div.setAttribute('data-sender', Player.MemberNumber.toString());
-		div.innerHTML = "<b>" + TextGet("OwnerPresence" + RuleName) + "</b>";
+		div.innerHTML = "<b><i>" + TextGet("OwnerPresence" + RuleName) + "</i></b>";
 		const Refocus = document.activeElement.id == "InputChat";
 		const ShouldScrollDown = ElementIsScrolledToEnd("TextAreaChatLog");
 		if (document.getElementById("TextAreaChatLog") != null) {

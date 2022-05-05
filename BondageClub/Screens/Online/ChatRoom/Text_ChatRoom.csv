@@ -28,6 +28,6 @@ GGTSIntro,(Two nurses wearing futuristic gear grab you and carry you to the Asyl
 OwnerPresenceBlockTalk,Talking is forbidden when your owner is present.
 OwnerPresenceBlockEmote,Emoting is forbidden when your owner is present.
 OwnerPresenceBlockWhisper,Whispering to others is forbidden when your owner is present.
-OwnerPresenceBlockChangePose,Chaning pose is forbidden when your owner is present.
+OwnerPresenceBlockChangePose,Changing pose is forbidden when your owner is present.
 OwnerPresenceBlockAccessSelf,Accessing yourself is forbidden when your owner is present.
 OwnerPresenceBlockAccessOther,Accessing others is forbidden when your owner is present.
