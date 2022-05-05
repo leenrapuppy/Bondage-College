@@ -489,6 +489,11 @@ ItemNeckComboHarnessStuds,Studs
 ItemNeckComboHarnessBall,Ball
 ItemNeckComboHarnessBuckles,Buckles
 ItemNeckComboHarnessHarness,Harness
+ItemNeckBonedNeckCorsetBase,Base
+ItemNeckBonedNeckCorsetShine,Shine
+ItemNeckBonedNeckCorsetStripes,Stripes
+ItemNeckBonedNeckCorsetStripesShine,Stripes Shine
+ItemNeckBonedNeckCorsetRing,Ring
 ItemMiscWoodenSignSign,Sign
 ItemMiscWoodenSignRope,Rope
 ItemMiscWoodenSignText,Text
@@ -766,6 +771,8 @@ ItemMouthPonyGagFlags,Flags
 ItemMouthPonyGagRope,Rope
 ItemMouthPonyGagBlinders,Blinders
 ItemMouthPonyGagPost,Post
+ItemMouthLatexSheathGagBase,Mouth
+ItemMouthLatexSheathGagShine,Mouth Shine
 ItemMouth2WiffleGagStrap,Strap
 ItemMouth2WiffleGagBall,Ball
 ItemMouth2HarnessBallGagBall,Ball
@@ -853,6 +860,10 @@ ItemMouth2PonyGagFlags,Flags
 ItemMouth2PonyGagRope,Rope
 ItemMouth2PonyGagBlinders,Blinders
 ItemMouth2PonyGagPost,Post
+ItemMouth2MouthFeatureGagBase,Mouth
+ItemMouth2MouthFeatureGagShine,Mouth Shine
+ItemMouth2MouthFeatureGagPanel,Panel
+ItemMouth2MouthFeatureGagPanelShine,Panel Shine
 ItemMouth3WiffleGagStrap,Strap
 ItemMouth3WiffleGagBall,Ball
 ItemMouth3HarnessBallGagBall,Ball

@@ -1739,6 +1739,15 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { AssetName: "BallGag", GroupName: "ItemMouth" },
 		}, // ComboHarness
+		BonedNeckCorset: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{ Name: "NoRing", Property: { Type: null } },
+					{ Name: "Ring", Property: { Type: "Ring" } },
+				],
+			}
+		}, // BonedNeckCorset
 	}, // ItemNeck
 	ItemNeckAccessories: {
 		CustomCollarTag: {
