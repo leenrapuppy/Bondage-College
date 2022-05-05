@@ -1087,6 +1087,8 @@ function ChatRoomClickCharacter(C, CharX, CharY, Zoom, ClickX, ClickY, Pos) {
  * @returns {void} - Nothing
  */
 function ChatRoomFocusCharacter(C) {
+	if (ChatRoomOwnerPresenceRule("BlockAccessSelf", C)) return;
+	if (ChatRoomOwnerPresenceRule("BlockAccessOther", C)) return;
 	if (C == null) return;
 	document.getElementById("InputChat").style.display = "none";
 	document.getElementById("TextAreaChatLog").style.display = "none";
@@ -4046,12 +4048,14 @@ function ChatRoomOwnerPresenceRule(RuleName, Target) {
 	if ((Player.Ownership == null) || (Player.Ownership.Stage !== 1)) return false; // FALSE if the player isn't fully collared
 	if (!ChatRoomOwnerInside()) return false; // FALSE if the owner isn't inside
 
-	// Block whisper doesn't block whispering to the owner
-	if (RuleName == "BlockWhisper")
-		return ((Target != null) && (Player.Ownership.MemberNumber !== Target.MemberNumber));
+	// Some rules are only on with specific targets
+	let Rule = true;
+	if (RuleName == "BlockAccessSelf") Rule = ((Target != null) && (Player.MemberNumber === Target.MemberNumber)); // Block access self only if target is herself
+	if (RuleName == "BlockAccessOther") Rule = ((Target != null) && (Player.MemberNumber !== Target.MemberNumber)); // Block access other only if target is another member
+	if (RuleName == "BlockWhisper") Rule = ((Target != null) && (Player.Ownership.MemberNumber !== Target.MemberNumber)); // Block whisper doesn't block whispering to the owner
 
-	// Some rules can produce a warning message in the chat log
-	if ((RuleName == "BlockTalk") || (RuleName == "BlockEmote")) {
+	// Shows a warning message in the chat log if the rule is enforced
+	if (Rule) {
 		const div = document.createElement("div");
 		div.setAttribute('class', 'ChatMessage ChatMessageServerMessage');
 		div.setAttribute('data-time', ChatRoomCurrentTime());
@@ -4067,6 +4071,6 @@ function ChatRoomOwnerPresenceRule(RuleName, Target) {
 	}
 
 	// If all validations passed, we enforce the rule
-	return true;
+	return Rule;
 
 }
