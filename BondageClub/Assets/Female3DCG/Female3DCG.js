@@ -5271,7 +5271,7 @@ var AssetFemale3DCG = [
 		Top: 20,
 		Zone: [[175, 0, 150, 65]],
 		Asset: [
-			{ Name: "ClothBlindfold", Value: 15, Time: 10, RemoveTime: 5, DefaultColor: "#A0A0A0", Hide: ["Glasses"], Effect: ["BlindLight", "Prone"], Audio: "ClothKnot" },
+			{ Name: "ClothBlindfold", Value: 15, Time: 10, RemoveTime: 5, DefaultColor: "#A0A0A0", Hide: ["Glasses"], Effect: ["BlindLight", "Prone", "BlurLight"], Audio: "ClothKnot", Tint: [{Color: 0, Strength: 0.25}]},
 			{ Name: "ScarfBlindfold", Value: 15, Time: 15, DefaultColor: "Default", BuyGroup: "ScarfGag", Audio: "ClothKnot", Hide: ["Glasses"], Effect: ["BlindLight", "Prone"] },
 			{ Name: "LeatherBlindfold", Fetish: ["Leather"], Value: 30, Time: 5, AllowLock: true, DefaultColor: "#404040", Hide: ["Glasses"], Effect: ["BlindNormal", "Prone"] },
 			{ Name: "PaddedBlindfold", Fetish: ["Leather"], Value: 35, Time: 5, AllowLock: true, DefaultColor: ["#545454", "#808080"], Hide: ["Glasses"], Effect: ["BlindHeavy", "Prone"],
@@ -5280,8 +5280,12 @@ var AssetFemale3DCG = [
 					{ Name: "Base", HasType: false},
 				]
 			},
-			{ Name: "InteractiveVisor", Category: ["SciFi"], Fetish: ["Metal"], Priority: 34, BuyGroup: "FuturisticVisor", Difficulty: 6, Value: 50, Time: 6, Random: false, AllowLock: true, HideItem: ["ItemNoseNoseRing", "MaskFuturisticVisor"], FuturisticRecolor: true,
-				Effect: ["UseRemote"], Extended: true,  Audio: "FuturisticApply"},
+			{ Name: "InteractiveVisor", Category: ["SciFi"], Fetish: ["Metal"], Priority: 34, BuyGroup: "FuturisticVisor", Difficulty: 6, Value: 50, Time: 6, Random: false, AllowLock: true, FuturisticRecolor: true, Extended: true,  Audio: "FuturisticApply",
+				HideItem: ["ItemNoseNoseRing", "MaskFuturisticVisor"],
+				Effect: ["UseRemote"],
+				Tint: [{ Color: 0, Strength: 0.1 }],
+				DefaultTint: "#2d58bc"
+			},
 			{ Name: "FuturisticMask", Category: ["SciFi"], Fetish: ["Metal"], DefaultColor: ["#4040CB", "#FFFFFF", "#FFFFFF"], Priority: 41, BuyGroup: "FuturisticVisor", Difficulty: 7, Value: -1, Time: 7, Random: false, AllowLock: true, DrawLocks: false, HideItem: ["ItemNoseNoseRing", "MaskFuturisticVisor"], FuturisticRecolor: true, FuturisticRecolorDisplay: true,
 				Effect: ["UseRemote", "BlockMouth"], Extended: true,  Audio: "FuturisticApply",
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNose"] ,
@@ -5289,7 +5293,8 @@ var AssetFemale3DCG = [
 					{ Name: "Display", HasType: true},
 					{ Name: "Text", HasType: true, AllowTypes: ["LightTint", "Blind", "HeavyTint"]},
 					{ Name: "Lock", HasType: false, LockLayer: true, AllowTypes: ["LightTint", "", "HeavyTint"]},
-				]
+				],
+				Tint: [{Color: 0, Strength: 0.1}],
 			},
 			{ Name: "InteractiveVRHeadset", Difficulty: 6, Value: 80, Time: 3, DefaultColor: ["Default", "Default"], Random: false, AllowLock: true, DrawLocks: false, Hide: ["Mask", "Glasses"], HideItem: ["ItemNoseNoseRing"], FuturisticRecolor: true,
 				Effect: ["VR"], AllowEffect: ["BlindHeavy", "Prone", "VRAvatars", "HideRestraints", "KinkyDungeonParty"], Extended: true, AlwaysExtend: true, Audio: "FuturisticApply",
@@ -5330,7 +5335,7 @@ var AssetFemale3DCG = [
 			{ Name: "RopeBlindfold", Fetish: ["Rope"], Value: 60, Time: 15, DefaultColor: "#956B1C", BuyGroup: "HempRope", Audio: "RopeShort", Hide: ["Glasses", "Mask"], Effect: ["BlindLight", "Prone"] },
 			{ Name: "SleepMask", Value: 5, Time: 5, Hide: ["Glasses", "Mask"], Effect: ["BlindLight", "Prone"], Audio: "ClothSlip" },
 			{ Name: "PrisonLockdownBlindfold", Priority: 34, Value: -1, Time: 5, BuyGroup: "PrisonLockdownSuit", DefaultColor: "#77511f", Hide: ["Glasses"], Effect: ["BlindNormal", "Prone"] },
-			{ Name: "Pantyhose", Value: 10, Time: 5, Hide: ["Glasses", "Mask", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3"], BuyGroup: "Pantyhose", Effect: ["BlindLight", "Prone"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"], Audio: "ClothSlip" },
+			{ Name: "Pantyhose", Value: 10, Time: 5, Hide: ["Glasses", "Mask", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3"], BuyGroup: "Pantyhose", Effect: ["BlindLight", "Prone"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"], Audio: "ClothSlip", Tint: [{Color: 0, Strength: 0.2}], DefaultTint: "#765d4e" },
 			{
 				Name: "Snorkel", Priority: 55, Value: 30, Top: 30, Difficulty: 5, Time: 15, Random: false, AllowLock: true, Block: [],
 				Layer: [
@@ -5600,6 +5605,8 @@ var AssetFemale3DCG = [
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose", "ItemHead"],
 				Alpha: [{ Group: ["ItemHead"], Masks: [[0, 0, 208, 250], [290, 0, 210, 250]] }],
 				Audio: "ClothSlip",
+				Tint: [{Color: 0, Strength: 0.2}],
+				DefaultTint: "#765d4e",
 			},
 			{
 				Name: "GP9GasMask", Priority: 54, Value: 75, Difficulty: 25, Time: 10, HideItem: ["ItemHeadSnorkel", "ItemMouthCaneGag", "ItemMouthCropGag", "ItemEarsFuturisticEarphones", "HatFurHeadband"], Random: false, Alpha: [{ Group: ["HairFront"], Masks: [[206, 115, 88, 70]] }], AllowLock: true, Effect: ["BlockMouth"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemNose"],
@@ -5609,7 +5616,9 @@ var AssetFemale3DCG = [
 					{ Name: "Lens", AllowColorize: true },
 					{ Name: "Mask", AllowColorize: true },
 					{ Name: "Edges", AllowColorize: true },
-				]
+				],
+				Tint: [{Color: 1, Strength: 0.2}],
+				DefaultTint: "#ccc",
 			},
 			{ Name: "OpenFaceHood", Fetish: ["Latex"], Value: 35, Priority: 40, Difficulty: 5, Time: 15, AllowLock: false, DefaultColor: "#404040", BuyGroup: "OpenFace", Block: ["ItemEars"], Hide: ["HairFront"], HideItem: ["HatFurHeadband"] , Extended: true, HasType: false },
 			{

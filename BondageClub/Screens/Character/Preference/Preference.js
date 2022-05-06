@@ -434,6 +434,8 @@ function PreferenceInitPlayer() {
 	if (typeof C.ImmersionSettings.SenseDepMessages !== "boolean") C.ImmersionSettings.SenseDepMessages = false;
 	if (typeof C.ImmersionSettings.ChatRoomMuffle !== "boolean") C.ImmersionSettings.ChatRoomMuffle = false;
 	if (typeof C.ImmersionSettings.BlindAdjacent !== "boolean") C.ImmersionSettings.BlindAdjacent = false;
+	if (typeof C.ImmersionSettings.AllowTints !== "boolean") C.ImmersionSettings.AllowTints = true;
+	if (typeof C.ImmersionSettings.AllowBlur !== "boolean") C.ImmersionSettings.AllowBlur = true;
 
 	// Misc
 	if (typeof C.LastChatRoom !== "string") C.LastChatRoom = "";
@@ -567,6 +569,8 @@ function PreferenceInitPlayer() {
 		C.ImmersionSettings.SenseDepMessages = true;
 		C.ImmersionSettings.ChatRoomMuffle = true;
 		C.ImmersionSettings.BlindAdjacent = true;
+		C.ImmersionSettings.AllowTints = true;
+		C.ImmersionSettings.AllowBlur = true;
 		C.OnlineSharedSettings.AllowPlayerLeashing = true;
 	}
 
@@ -982,6 +986,8 @@ function PreferenceSubscreenImmersionRun() {
 	}
 	else if (PreferencePageCurrent === 2) {
 		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("StimulationEvents"), Player.ImmersionSettings.StimulationEvents, disableButtons); CheckHeight += CheckSpacing;
+		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("AllowTints"), Player.ImmersionSettings.AllowTints, disableButtons); CheckHeight += CheckSpacing;
+		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("AllowBlur"), Player.ImmersionSettings.AllowBlur, disableButtons); CheckHeight += CheckSpacing;
 	}
 
 	MainCanvas.textAlign = "center";
@@ -1045,6 +1051,9 @@ function PreferenceSubscreenImmersionClick() {
 			// Stimulation
 			if (MouseIn(500, CheckHeight, 64, 64)) Player.ImmersionSettings.StimulationEvents = !Player.ImmersionSettings.StimulationEvents;
 			CheckHeight += CheckSpacing;
+			if (MouseIn(500, CheckHeight, 64, 64)) Player.ImmersionSettings.AllowTints = !Player.ImmersionSettings.AllowTints;
+			CheckHeight += CheckSpacing;
+			if (MouseIn(500, CheckHeight, 64, 64)) Player.ImmersionSettings.AllowBlur = !Player.ImmersionSettings.AllowBlur;
 		}
 	}
 
