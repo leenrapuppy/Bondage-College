@@ -1586,13 +1586,14 @@ function PlatformDialogProcess() {
  * When the user presses keys in the dialog screen
  * @returns {void} - Nothing
  */
-function PlatformDialogKeyDown() {
-	if ((KeyPress == 32) || (KeyPress == 13) || (KeyPress == 75) || (KeyPress == 76) || (KeyPress == 107) || (KeyPress == 108)) PlatformDialogProcess();
-	if ((KeyPress == 87) || (KeyPress == 119) || (KeyPress == 90) || (KeyPress == 122)) {
+function PlatformDialogKeyDown(Key) {
+	if (Key == null) Key = KeyPress;
+	if ((Key == 32) || (Key == 13) || (Key == 75) || (Key == 76) || (Key == 107) || (Key == 108)) PlatformDialogProcess();
+	if ((Key == 87) || (Key == 119) || (Key == 90) || (Key == 122)) {
 		PlatformDialogAnswerPosition--;
 		if (PlatformDialogAnswerPosition < 0) PlatformDialogAnswerPosition = (PlatformDialogAnswer != null) ? PlatformDialogAnswer.length - 1 : 0;
 	}
-	if ((KeyPress == 83) || (KeyPress == 115)) {
+	if ((Key == 83) || (Key == 115)) {
 		PlatformDialogAnswerPosition++;
 		if ((PlatformDialogAnswer != null) && (PlatformDialogAnswerPosition >= PlatformDialogAnswer.length)) PlatformDialogAnswerPosition = 0;
 	}
@@ -1624,4 +1625,17 @@ function PlatformDialogGetCharacter(Name) {
 	for (let Character of PlatformDialogCharacter)
 		if (Character.Name == Name)
 			return Character;
+}
+
+/**
+ * Handles the controller inputs
+ * @param {Object} Buttons - The buttons pressed on the controller
+ * @returns {boolean} - Always TRUE to indicate that the controller is handled
+ */
+function PlatformDialogController(Buttons) {
+	if ((Buttons[ControllerA].pressed == true) && (ControllerGameActiveButttons.A == false)) PlatformDialogProcess();
+	else if ((Buttons[ControllerB].pressed == true) && (ControllerGameActiveButttons.B == false)) PlatformDialogProcess();
+	else if ((Buttons[ControllerDPadUp].pressed == true) && (ControllerGameActiveButttons.UP == false)) PlatformDialogKeyDown(90);
+	else if ((Buttons[ControllerDPadDown].pressed == true) && (ControllerGameActiveButttons.DOWN == false)) PlatformDialogKeyDown(83);
+	return true;
 }

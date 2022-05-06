@@ -26,8 +26,7 @@ var waitasec = false;
 var ControllerSensitivity = 5;
 var ControllerIgnoreStick = [];
 var ControllerDeadZone = 0.01;
-
-
+var ControllerGameActiveButttons = {};
 
 
 /**
@@ -74,6 +73,9 @@ function ButtonExists(X, Y) {
  * @param {any} axes the raw data of all axes of the controller
  */
 function ControllerAxis(axes) {
+
+	// Bondage Brawls handles it's own controls
+	if ((CurrentScreen == "Platform") || (CurrentScreen == "PlatformDialog")) return;
 
 	//if a value is over 1, it is from a d-pad (some d-pads register as buttons, some d-pads register like this)
 	var g = 0;
@@ -177,6 +179,41 @@ function ControllerAxis(axes) {
 }
 
 /**
+ * Returns TRUE if current screen is a game that handles the controller, sends the input to that screen
+ * @param {any} Buttons - The raw button data
+ * @return {boolean}
+ */
+function ControllerManagedByGame(Buttons) {
+
+	// Make sure the active buttons are valid
+	if (ControllerGameActiveButttons.A == null) ControllerGameActiveButttons.A = false;
+	if (ControllerGameActiveButttons.B == null) ControllerGameActiveButttons.B = false;
+	if (ControllerGameActiveButttons.X == null) ControllerGameActiveButttons.X = false;
+	if (ControllerGameActiveButttons.Y == null) ControllerGameActiveButttons.Y = false;
+	if (ControllerGameActiveButttons.DOWN == null) ControllerGameActiveButttons.DOWN = false;
+	if (ControllerGameActiveButttons.UP == null) ControllerGameActiveButttons.UP = false;
+
+	// If the screen manages the controller, we call it
+	let Managed = false;
+	if (CurrentScreen == "PlatformDialog") Managed = PlatformDialogController(Buttons);
+	if (CurrentScreen == "Platform") Managed = PlatformController(Buttons);
+
+	// If managed, we flag the active buttons not to repeat them
+	if (Managed == true) {
+		ControllerGameActiveButttons.A = Buttons[ControllerA].pressed;
+		ControllerGameActiveButttons.B = Buttons[ControllerB].pressed;
+		ControllerGameActiveButttons.X = Buttons[ControllerX].pressed;
+		ControllerGameActiveButttons.Y = Buttons[ControllerY].pressed;
+		ControllerGameActiveButttons.DOWN = Buttons[ControllerDPadDown].pressed;
+		ControllerGameActiveButttons.UP = Buttons[ControllerDPadUp].pressed;
+	}
+
+	// TRUE if the screen managed the controller
+	return Managed;
+
+}
+
+/**
  * handles button input
  * @param {any} buttons raw buttons data
  */
@@ -221,6 +258,8 @@ function ControllerButton(buttons) {
 			ControllerDPadRight = 7;
 		}
 
+		// If a game intercepts the controller inputs
+		if (ControllerManagedByGame(buttons)) return;
 
 		if (ControllerButtonsRepeat == false) {
 			if (Calibrating == false) {

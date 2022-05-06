@@ -93,7 +93,7 @@ function PlatformIntroClick() {
 		PlatformLoadRoom("BedroomMelody");
 		PlatformDialogStart("IntroMelody");
 	}
-	if (MouseIn(1650, 900, 230, 60)) PlatformExit();
+	if (MouseIn(1650, 900, 230, 60)) PlatformIntroExit();
 }
 
 /**
