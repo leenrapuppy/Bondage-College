@@ -1071,6 +1071,7 @@ ItemNeck,LatexCollar1,Inflated Latex Collar
 ItemNeck,LatexCollar2,Latex Collar
 ItemNeck,TechnoCollar,Techno Collar
 ItemNeck,ComboHarness,Combo Harness
+ItemNeck,BonedNeckCorset,Boned Neck Corset
 ItemNeckAccessories,,Collar
 ItemNeckAccessories,CustomCollarTag,Custom Tag
 ItemNeckAccessories,ElectronicTag,Electronic Tag
@@ -1180,6 +1181,7 @@ ItemMouth,PaciGag,Pacifier Gag
 ItemMouth,Tentacles,Tentacle
 ItemMouth,OTNPlugGag,Harness OTN Plug Gag
 ItemMouth,PonyGag, Bridle Gag
+ItemMouth,LatexSheathGag, Latex Sheath Gag
 ItemMouth2,,Mouth
 ItemMouth2,ClothGag,Cloth Gag
 ItemMouth2,WiffleGag,Wiffle Ball Gag
@@ -1230,6 +1232,7 @@ ItemMouth2,Ribbons,Ribbons
 ItemMouth2,PaciGag,Pacifier Gag
 ItemMouth2,Tentacles,Tentacle
 ItemMouth2,PonyGag, Bridle Gag
+ItemMouth2,MouthFeatureGag, Mouthfeature Gag
 ItemMouth3,,Mouth
 ItemMouth3,ClothGag,Cloth Gag
 ItemMouth3,WiffleGag,Wiffle Ball Gag
