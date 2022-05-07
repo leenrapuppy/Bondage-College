@@ -445,3 +445,7 @@ input[type=range][data-thumb=rope]::-moz-range-thumb {
     font-family: 'Satisfy';
     src: url('../Fonts/Satisfy/Satisfy-Regular.ttf');
 }
+@font-face {
+	font-family: 'Nanum Pen Script';
+	src: url('../Fonts/Nanum\ Pen\ Script/NanumPenScript-Regular.ttf');
+}
