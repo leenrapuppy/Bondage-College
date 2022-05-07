@@ -7554,6 +7554,23 @@ var AssetFemale3DCG = [
 					{ Name: "Wood" }
 				]
 			},
+			/**
+			 * TODO:
+			 * - menu spin button + input to select 2-8 texts
+			 * - menu option to send to front/back
+			 * - csv for chataction, name, layer colors, menu texts
+			 * 
+			 * Assets: preview, stand, invisible logical image for Text layer, add a pen font
+			 */
+			{ 
+				Name: "LuckyWheel", Priority: 62, Top: 450, Value: 100, Difficulty: -10, Time: 5, IsRestraint: false, Effect: [], RemoveAtLogin: true, FixedPosition: true, Extended: true,
+				DefaultColor: ["#D7D5D5", "#7D1D89"], DynamicAfterDraw: true, DynamicScriptDraw: true,
+				Layer: [
+					{ Name: "Back" },
+					{ Name: "Text", },
+					{ Name: "Arrow" },
+				]
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
