@@ -5700,6 +5700,20 @@ var AssetFemale3DCG = [
 					{Name: "Spots"},
 				],
 			},
+			{
+				Name: "HeadboxSeethrough", Value: 80, Priority: 54, Difficulty: 10, Time: 19, AllowLock: true, Extended: true, Top: 0,
+				Block: ["ItemHead", "ItemNose", "ItemEars", "ItemMouth", "ItemMouth2", "ItemMouth3"],
+				Hide: ["HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
+				Alpha: [{ Group: ["HairFront", "ItemMouth", "ItemMouth2", "ItemMouth3", "Mask", "ItemNose", "ItemHead", "Glasses", "ItemEars"],
+				Masks: [[0, 0, 500, 65], [0, 220, 500, 780], [0, 0, 180, 1000], [320, 0, 180, 1000]] }],
+				Effect: ["BlindHeavy"],
+				Layer: [
+					{ Name: "GlassInside", HasType: false },
+					{ Name: "LEDs", HasType: false, CopyLayerColor: "GlassInside" },
+					{ Name: "Frame", HasType: false },
+					{ Name: "Glass", AllowColorize: false },
+				],
+			},
 			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]

@@ -2082,7 +2082,28 @@ var AssetFemale3DCGExtended = {
 				]
 			}
 
-		}// ZipperHood
+		}, // ZipperHood
+		HeadboxSeethrough: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
+				Options: [
+					{
+						Name: "Seethrough",
+						Property: {
+							Type: null
+						},
+					},
+					{
+						Name: "Opaque",
+						Property: {
+							Type: "Opaque"
+						},
+					},
+				],
+				DrawImages: false,
+			},
+		}, // HeadboxSeethrough
 	}, // ItemHood
 	ItemDevices: {
 		FuturisticCrate: {
