@@ -192,6 +192,8 @@ function ControllerManagedByGame(Buttons) {
 	if (ControllerGameActiveButttons.Y == null) ControllerGameActiveButttons.Y = false;
 	if (ControllerGameActiveButttons.DOWN == null) ControllerGameActiveButttons.DOWN = false;
 	if (ControllerGameActiveButttons.UP == null) ControllerGameActiveButttons.UP = false;
+	if (ControllerGameActiveButttons.LEFT == null) ControllerGameActiveButttons.LEFT = false;
+	if (ControllerGameActiveButttons.RIGHT == null) ControllerGameActiveButttons.RIGHT = false;
 
 	// If the screen manages the controller, we call it
 	let Managed = false;
@@ -206,6 +208,8 @@ function ControllerManagedByGame(Buttons) {
 		ControllerGameActiveButttons.Y = Buttons[ControllerY].pressed;
 		ControllerGameActiveButttons.DOWN = Buttons[ControllerDPadDown].pressed;
 		ControllerGameActiveButttons.UP = Buttons[ControllerDPadUp].pressed;
+		ControllerGameActiveButttons.LEFT = Buttons[ControllerDPadLeft].pressed;
+		ControllerGameActiveButttons.RIGHT = Buttons[ControllerDPadRight].pressed;
 	}
 
 	// TRUE if the screen managed the controller

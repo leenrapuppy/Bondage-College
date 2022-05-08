@@ -66,8 +66,8 @@ function PlatformIntroRun() {
 	}
 	DrawText(TextGet("LoadingAssets") + " " + Count.toString() + " / " + Total.toString(), 1125, 930, "Black", "Silver");
 
-	for (let X = 0; X <= 8; X++)
-		DrawText(TextGet("Text" + X.toString()), 1400, 70 + X * 72, "Black", "Silver");
+	for (let X = 0; X <= 9; X++)
+		DrawText(TextGet("Text" + X.toString()), 1400, 67 + X * 65, "Black", "Silver");
 	
 	for (let X = 0; X <= 9; X++)
 		DrawButton(920 + (X % 5) * 200, 710 + Math.floor(X / 5) * 90, 160, 60, TextGet("Load") + " " + X.toString(), "White", "");

@@ -1635,6 +1635,8 @@ function PlatformDialogGetCharacter(Name) {
 function PlatformDialogController(Buttons) {
 	if ((Buttons[ControllerA].pressed == true) && (ControllerGameActiveButttons.A == false)) PlatformDialogProcess();
 	else if ((Buttons[ControllerB].pressed == true) && (ControllerGameActiveButttons.B == false)) PlatformDialogProcess();
+	else if ((Buttons[ControllerX].pressed == true) && (ControllerGameActiveButttons.X == false)) PlatformDialogProcess();
+	else if ((Buttons[ControllerY].pressed == true) && (ControllerGameActiveButttons.Y == false)) PlatformDialogProcess();
 	else if ((Buttons[ControllerDPadUp].pressed == true) && (ControllerGameActiveButttons.UP == false)) PlatformDialogKeyDown(90);
 	else if ((Buttons[ControllerDPadDown].pressed == true) && (ControllerGameActiveButttons.DOWN == false)) PlatformDialogKeyDown(83);
 	return true;
