@@ -740,6 +740,16 @@ var AssetFemale3DCG = [
 			{ Name: "Swimsuit1", Value: 15, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"], Extended: true },
 			{ Name: "Swimsuit2", Value: 25, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
 			{ Name: "BunnySuit", Fetish: ["Nylon", "Pet"], Value: 30, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
+			{ 
+				Name: "LatexBunnySuit", Top: 0, Left: 0, Fetish: ["Latex", "Pet"], AllowPose: ["Hogtied"], DefaultColor: "#6C33AE", Value: 30, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"],
+				Layer: [
+					{ Name: "Bottom", AllowColorize: true, HideForPose: ["Hogtied"] },
+					{ Name: "BottomShine", AllowColorize: false, HideForPose: ["Hogtied"] },
+					{ Name: "Navel", CopyLayerColor: "Bottom", AllowColorize: true, ParentGroup: null , HideForPose: ["Hogtied"] },
+					{ Name: "Breasts", CopyLayerColor: "Bottom", AllowPose: [], AllowColorize: true },
+					{ Name: "BreastsShine", AllowPose: [], AllowColorize: false }
+				]
+			},
 			{ Name: "FrameBra1", Value: 20, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
 			{ Name: "FrameBra2", Value: 15, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
 			{ Name: "BondageBra1", Fetish: ["Leather"], Priority: 20, Value: 40, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
