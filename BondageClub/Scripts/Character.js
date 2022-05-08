@@ -620,7 +620,11 @@ function CharacterOnlineRefresh(Char, data, SourceMemberNumber) {
 	Char.FavoriteItems = Array.isArray(data.FavoriteItems) ? data.FavoriteItems : [];
 	if (Char.ID != 0 && Array.isArray(data.WhiteList)) Char.WhiteList = data.WhiteList;
 	if (Char.ID != 0 && Array.isArray(data.BlackList)) Char.BlackList = data.BlackList;
+
+	const currentAppearance = Char.Appearance;
 	ServerAppearanceLoadFromBundle(Char, "Female3DCG", data.Appearance, SourceMemberNumber);
+	CharacterAppearanceResolveSync(Char, currentAppearance);
+
 	if (Char.ID == 0) LoginValidCollar();
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.Inventory == null) || (Char.Inventory.length == 0))) InventoryLoad(Char, data.Inventory);
 	CharacterLoadEffect(Char);
@@ -843,8 +847,6 @@ function CharacterDoItemsSetPose(C, pose, excludeClothes = false) {
 			return setPose && setPose.includes(pose);
 		});
 }
-
-
 
 /**
  * Checks if a character has a pose type from items (not active pose unless an item lets it through)
@@ -1700,7 +1702,6 @@ function CharacterCheckHooks(C, IgnoreHooks) {
 	if (refresh) CharacterLoadCanvas(C);
 	return refresh;
 }
-
 
 /**
  * Transfers an item from one character to another
