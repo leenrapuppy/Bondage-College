@@ -1155,6 +1155,7 @@ var AssetFemale3DCGExtended = {
 							Type: "PetTape",
 							SetPose: ["BackElbowTouch"],
 							Block: ["ItemHands"],
+							HideItem: ["ClothAccessoryPoncho"],
 							Difficulty: 7,
 						}
 					},
