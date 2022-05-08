@@ -114,7 +114,8 @@ function KinkyDungeonHandleMoveObject(moveX, moveY, moveObject) {
 		KDGameData.AlreadyOpened.push({x: moveX, y: moveY});
 		return true;
 	} else if (moveObject == 'O') { // Open the chest
-		KinkyDungeonTakeOrb(1, moveX, moveY); // 1 spell point
+		if (KinkyDungeonIsPlayer())
+			KinkyDungeonTakeOrb(1, moveX, moveY); // 1 spell point
 		if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
 		KDGameData.AlreadyOpened.push({x: moveX, y: moveY});
 		return true;

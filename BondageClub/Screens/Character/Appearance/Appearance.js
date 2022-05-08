@@ -831,7 +831,6 @@ function AppearancePreviewUseCharacter(assetGroup) {
  * @returns {void} - Nothing
  */
 function CharacterAppearanceSetItem(C, Group, ItemAsset, NewColor, DifficultyFactor, ItemMemberNumber, Refresh) {
-
 	// Sets the difficulty factor
 	if (DifficultyFactor == null) DifficultyFactor = 0;
 
