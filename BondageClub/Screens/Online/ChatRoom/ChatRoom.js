@@ -853,10 +853,10 @@ function ChatRoomDrawCharacter(DoClick) {
 
 	// Draw the background
 	if (!DoClick) ChatRoomDrawBackground(Background, Y, Zoom, DarkFactor, InvertRoom);
-	
+
 	// Draw the characters (in click mode, we can open the character menu or start whispering to them)
 	for (let C = 0; C < ChatRoomCharacterDrawlist.length; C++) {
-		
+
 		// Finds the X and Y position of the character based on it's room position
 		let ChatRoomCharacterX = C >= 5 ? ChatRoomCharacterX_Lower : ChatRoomCharacterX_Upper;
 		if (!(Player.GraphicsSettings && Player.GraphicsSettings.CenterChatrooms)) ChatRoomCharacterX = 0;
@@ -876,7 +876,7 @@ function ChatRoomDrawCharacter(DoClick) {
 			DrawCharacter(ChatRoomCharacterDrawlist[C], CharX, CharY, Zoom);
 			DrawStatus(ChatRoomCharacterDrawlist[C], CharX, CharY, Zoom);
 			if (ChatRoomCharacterDrawlist[C].MemberNumber != null) ChatRoomDrawCharacterOverlay(ChatRoomCharacterDrawlist[C], CharX, CharY, Zoom, C);
-			
+
 		}
 
 	}
@@ -893,13 +893,22 @@ function ChatRoomDrawCharacter(DoClick) {
  */
 function ChatRoomDrawBackground(Background, Y, Zoom, DarkFactor, InvertRoom) {
 	if (DarkFactor > 0) {
+		const BlurLevel = Player.GetBlurLevel();
+		if (BlurLevel > 0) {
+			MainCanvas.filter = `blur(${BlurLevel}px)`;
+		}
 		// Draw the zoomed background
 		DrawImageZoomCanvas("Backgrounds/" + Background + ".jpg", MainCanvas, 500 * (2 - 1 / Zoom), 0, 1000 / Zoom, 1000, 0, Y, 1000, 1000 * Zoom, InvertRoom);
+		MainCanvas.filter = 'none';
 
 		// Draw an overlay if the character is partially blinded
 		if (DarkFactor < 1.0) {
 			DrawRect(0, Y, 1000, 1000 - Y, "rgba(0,0,0," + (1.0 - DarkFactor) + ")");
 		}
+	}
+	const Tints = Player.GetTints();
+	for (const {r, g, b, a} of Tints) {
+		DrawRect(0, Y, 1000, 1000 - Y, `rgba(${r},${g},${b},${a})`);
 	}
 }
 
@@ -978,19 +987,20 @@ function ChatRoomClickCharacter(C, CharX, CharY, Zoom, ClickX, ClickY, Pos) {
 
 	// Click on name
 	if (ClickY > 900) {
+
 		// Clicking on self or current target removes whisper target
 		if (C.ID === 0 || ChatRoomTargetMemberNumber === C.MemberNumber) {
 			ChatRoomSetTarget(null);
 			return;
 		}
+
 		// BlockWhisper rule, if owner is in chatroom
-		if (LogQuery("BlockWhisper", "OwnerRule") && Player.Ownership && Player.Ownership.Stage === 1 && Player.Ownership.MemberNumber !== C.MemberNumber && ChatRoomOwnerInside()) {
-			return;
-		}
+		if (ChatRoomOwnerPresenceRule("BlockWhisper", C)) return;
+
 		// Sensory deprivation setting: Total (no whispers) blocks whispers while blind unless both players are in the virtual realm. Then they can text each other.
-		if (Player.GameplaySettings.SensDepChatLog === "SensDepExtreme" && Player.GetBlindLevel() >= 3 && !(Player.Effect.includes("VRAvatars") && C.Effect.includes("VRAvatars"))) {
-			return;
-		}
+		if (Player.GameplaySettings.SensDepChatLog === "SensDepExtreme" && Player.GetBlindLevel() >= 3 && !(Player.Effect.includes("VRAvatars") && C.Effect.includes("VRAvatars"))) return;
+
+		// Sets the target
 		ChatRoomSetTarget(C.MemberNumber);
 		return;
 	}
@@ -1086,6 +1096,8 @@ function ChatRoomClickCharacter(C, CharX, CharY, Zoom, ClickX, ClickY, Pos) {
  * @returns {void} - Nothing
  */
 function ChatRoomFocusCharacter(C) {
+	if (ChatRoomOwnerPresenceRule("BlockAccessSelf", C)) return;
+	if (ChatRoomOwnerPresenceRule("BlockAccessOther", C)) return;
 	if (C == null) return;
 	document.getElementById("InputChat").style.display = "none";
 	document.getElementById("TextAreaChatLog").style.display = "none";
@@ -1869,6 +1881,7 @@ function ChatRoomMenuClick() {
 					break;
 				case "Kneel":
 					// When the user character kneels
+					if (ChatRoomOwnerPresenceRule("BlockChangePose", Player)) return;
 					if (Player.CanKneel()) {
 						const PlayerIsKneeling = Player.IsKneeling();
 						ServerSend("ChatRoomChat", { Content: PlayerIsKneeling ? "StandUp" : "KneelDown", Type: "Action", Dictionary: [{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber }] });
@@ -2052,6 +2065,8 @@ function ChatRoomSendLocal(Content, Timeout) {
  * @returns {void} - Nothing
  */
 function ChatRoomSendEmote(msg) {
+	// Emotes can be prevented with an owner presence rule
+	if (ChatRoomOwnerPresenceRule("BlockEmote", null)) return;
 	if (Player.ChatSettings.MuStylePoses && msg.startsWith(":")) msg = msg.substring(1);
 	else {
 		msg = msg.replace(/^\*/, "").replace(/\*$/, "");
@@ -2342,7 +2357,7 @@ function ChatRoomMessage(data) {
 				else if (msg == "ReceiveSuitcaseMoney"){
 					ChatRoomReceiveSuitcaseMoney();
 				}
-				
+
 				// Process hidden GGTS messages
 				if (msg.substr(0, 4) == "GGTS") AsylumGGTSHiddenMessage(SenderCharacter, msg, data);
 
@@ -2394,7 +2409,7 @@ function ChatRoomMessage(data) {
 										if (Nick != ChatRoomCharacter[T].Name) Nick = Nick + " [" + ChatRoomCharacter[T].Name + "]";
 										msg = msg.replace(dictionary[D].Tag, Nick);
 										break;
-									}	
+									}
 							}
 							else if ((dictionary[D].Tag == "DestinationCharacter") || (dictionary[D].Tag == "DestinationCharacterName")) {
 								TargetMemberNumber = dictionary[D].MemberNumber;
@@ -2491,7 +2506,7 @@ function ChatRoomMessage(data) {
 							senderName = DialogFindPlayer("Someone");
 						else
 							senderName = SpeechGarble(SenderCharacter, CharacterNickname(SenderCharacter), true);
-					} 
+					}
 					else senderName = CharacterNickname(SenderCharacter);
 					msg += senderName;
 					msg += ':</span> ';
@@ -4029,4 +4044,43 @@ function ChatRoomShouldBlockGaggedOOCMessage(Message, WhisperTarget) {
 			return false;
 
 	return true;
+}
+
+/**
+ * Returns TRUE if the owner presence rule is enforced for the current player
+ * @param {string} RuleName - The name of the rule to validate (BlockWhisper, BlockTalk, etc.)
+ * @param {Character} Target - The target character
+ * @returns {boolean} - TRUE if the rule is enforced
+ */
+function ChatRoomOwnerPresenceRule(RuleName, Target) {
+
+	if (!LogQuery(RuleName, "OwnerRule")) return false; // FALSE if the rule isn't set
+	if ((Player.Ownership == null) || (Player.Ownership.Stage !== 1)) return false; // FALSE if the player isn't fully collared
+	if (!ChatRoomOwnerInside()) return false; // FALSE if the owner isn't inside
+
+	// Some rules are only on with specific targets
+	let Rule = true;
+	if (RuleName == "BlockAccessSelf") Rule = ((Target != null) && (Player.MemberNumber === Target.MemberNumber)); // Block access self only if target is herself
+	if (RuleName == "BlockAccessOther") Rule = ((Target != null) && (Player.MemberNumber !== Target.MemberNumber)); // Block access other only if target is another member
+	if (RuleName == "BlockWhisper") Rule = ((Target != null) && (Player.Ownership.MemberNumber !== Target.MemberNumber)); // Block whisper doesn't block whispering to the owner
+
+	// Shows a warning message in the chat log if the rule is enforced
+	if (Rule) {
+		const div = document.createElement("div");
+		div.setAttribute('class', 'ChatMessage ChatMessageServerMessage');
+		div.setAttribute('data-time', ChatRoomCurrentTime());
+		div.setAttribute('data-sender', Player.MemberNumber.toString());
+		div.innerHTML = "<b><i>" + TextGet("OwnerPresence" + RuleName) + "</i></b>";
+		const Refocus = document.activeElement.id == "InputChat";
+		const ShouldScrollDown = ElementIsScrolledToEnd("TextAreaChatLog");
+		if (document.getElementById("TextAreaChatLog") != null) {
+			document.getElementById("TextAreaChatLog").appendChild(div);
+			if (ShouldScrollDown) ElementScrollToEnd("TextAreaChatLog");
+			if (Refocus) ElementFocus("InputChat");
+		}
+	}
+
+	// If all validations passed, we enforce the rule
+	return Rule;
+
 }

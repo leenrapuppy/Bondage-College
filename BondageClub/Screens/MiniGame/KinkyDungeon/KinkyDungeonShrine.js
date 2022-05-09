@@ -243,9 +243,7 @@ function KinkyDungeonHandleShrine() {
 	if (type == "Commerce") {
 		if (cost > 0) {
 			if (MouseIn(KDModalArea_x + 410, KDModalArea_y + 25, 112-15, 60) && cost <= KinkyDungeonGold) {
-				KinkyDungeonPayShrine(type);
-				KinkyDungeonAggroAction('shrine', {});
-				if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
+				KDSendInput("shrineBuy", {type: type, shopIndex: KinkyDungeonShopIndex});
 				return true;
 			}
 			else if (MouseIn(KDModalArea_x + 613, KDModalArea_y + 25, 112, 60)) {
@@ -257,57 +255,10 @@ function KinkyDungeonHandleShrine() {
 		}
 	} else {
 		if (cost > 0 && MouseIn(KDModalArea_x, KDModalArea_y + 25, 325, 60)) {
-			KinkyDungeonAdvanceTime(1, true);
-			KinkyDungeonTargetTile = null;
-			if (KinkyDungeonGold >= cost) {
-				KinkyDungeonPayShrine(type);
-				KinkyDungeonTiles.delete(KinkyDungeonTargetTileLocation);
-				let x = KinkyDungeonTargetTileLocation.split(',')[0];
-				let y = KinkyDungeonTargetTileLocation.split(',')[1];
-				KinkyDungeonMapSet(parseInt(x), parseInt(y), "a");
-				KinkyDungeonAggroAction('shrine', {x: parseInt(x), y:parseInt(y)});
-				KDGameData.AlreadyOpened.push({x: parseInt(x), y: parseInt(y)});
-				KinkyDungeonUpdateStats(0);
-				if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
-			} else {
-				KinkyDungeonSendActionMessage(1, TextGet("KinkyDungeonPayShrineFail"), "red", 1);
-				if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Damage.ogg");
-			}
-			KinkyDungeonMultiplayerUpdate(KinkyDungeonNextDataSendTimeDelay);
+			KDSendInput("shrineUse", {type: type, cost: cost, targetTile: KinkyDungeonTargetTileLocation});
 			return true;
 		} else if (KDGameData.PoolUses <= 1 / KinkyDungeonShrinePoolChancePerUse && (KinkyDungeonStatMana < KinkyDungeonStatManaMax || KinkyDungeonPlayerTags.get("slime")) && ((cost == 0 && MouseIn(KDModalArea_x, KDModalArea_y + 25, 375, 60)) || MouseIn(KDModalArea_x + 350, KDModalArea_y + 25, 100, 60))) {
-			let chance = 0 + KinkyDungeonShrinePoolChancePerUse * KDGameData.PoolUses;
-
-			KinkyDungeonAdvanceTime(1, true);
-
-			if ((KDRandom() > chance || KDGameData.PoolUsesGrace > 0) && (!KinkyDungeonGoddessRep[type] || KinkyDungeonGoddessRep[type] > -49.9 || KinkyDungeonStatsChoice.get("Blessed"))) {
-				let slimed = 0;
-				for (let inv of KinkyDungeonAllRestraint()) {
-					if (KDRestraint(inv).slimeLevel) {
-						slimed += 1;
-						KinkyDungeonRemoveRestraint(KDRestraint(inv).Group, false);
-					}
-				}
-				if (slimed) KinkyDungeonSendActionMessage(9, TextGet("KinkyDungeonPoolDrinkSlime"), "#FF00FF", 2);
-				else KinkyDungeonSendActionMessage(9, TextGet("KinkyDungeonPoolDrink" + Math.min(2, KDGameData.PoolUses)), "#AAFFFF", 2);
-				KinkyDungeonStatMana = KinkyDungeonStatManaMax;
-				if (chance > 0) KDGameData.PoolUsesGrace -= 1;
-				KinkyDungeonChangeRep(type, -2 - slimed * 2);
-				KDSendStatus('goddess', type, 'shrineDrink');
-				KinkyDungeonAggroAction('shrine', {});
-				if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
-			} else {
-				// You have angered the gods!
-				KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonPoolDrinkAnger").replace("TYPE", TextGet("KinkyDungeonShrine" + type)), "#AA0000", 3);
-				KinkyDungeonSendTextMessage(10, TextGet("KinkyDungeonPoolDrinkAnger").replace("TYPE", TextGet("KinkyDungeonShrine" + type)), "#AA0000", 3);
-
-				KinkyDungeonShrineAngerGods(type);
-				KDGameData.PoolUses = 10000;
-				if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Damage.ogg");
-				KDSendStatus('goddess', type, 'shrineEnrage');
-			}
-
-			KDGameData.PoolUses += 1;
+			KDSendInput("shrineDrink", {type: type, targetTile: KinkyDungeonTargetTileLocation});
 			return true;
 		}
 	}
@@ -424,6 +375,40 @@ function KinkyDungeonMakeGhostDecision() {
 		if (KDRandom() * 100 * mult > -rep + 85) KinkyDungeonGhostDecision += 1;
 		if (KDRandom() * 100 * mult > -rep + 95) KinkyDungeonGhostDecision += 1;
 	}
+}
+
+function KinkyDungeonDrawCharger() {
+	KDModalArea = true;
+	//DrawText(TextGet("KinkyDungeonCharger"), KDModalArea_x + 200, KDModalArea_y + 50, "white", "silver");
+	if (KinkyDungeonTargetTile && KinkyDungeonTargetTile.Light == KDChargerLight) {
+		DrawButton(KDModalArea_x + 25, KDModalArea_y + 25, 400, 60, TextGet("KinkyDungeonChargerRemoveCrystal"), "#white", "", "");
+	} else {
+		DrawButton(KDModalArea_x + 250, KDModalArea_y + 25, 200, 60, TextGet("KinkyDungeonChargerCharge"), KinkyDungeonInventoryGet("AncientPowerSourceSpent") ? "white" : "#888888", "", "");
+		DrawButton(KDModalArea_x + 25, KDModalArea_y + 25, 200, 60, TextGet("KinkyDungeonChargerPlaceCrystal"), KinkyDungeonInventoryGet("AncientPowerSource") ? "white" : "#888888", "", "");
+	}
+
+
+}
+
+let KDChargerLight = 5;
+
+function KinkyDungeonHandleCharger() {
+	if (KinkyDungeonTargetTile && KinkyDungeonTargetTile.Light == KDChargerLight) {
+		if (MouseIn(KDModalArea_x + 25, KDModalArea_y + 25, 400, 60) && KinkyDungeonTargetTile) {
+			KDSendInput("chargerInteract", {action: "remove", targetTile: KinkyDungeonTargetTileLocation});
+			return true;
+		}
+	} else {
+		if (MouseIn(KDModalArea_x + 250, KDModalArea_y + 25, 200, 60)) {
+			KDSendInput("chargerInteract", {action: "charge", targetTile: KinkyDungeonTargetTileLocation});
+			return true;
+		} else if (MouseIn(KDModalArea_x + 25, KDModalArea_y + 25, 200, 60) && KinkyDungeonTargetTile) {
+			KDSendInput("chargerInteract", {action: "place", targetTile: KinkyDungeonTargetTileLocation});
+			return true;
+		}
+	}
+
+	return false;
 }
 
 function KinkyDungeonShrineAngerGods(Type) {
@@ -575,58 +560,7 @@ function KinkyDungeonHandleOrb() {
 				XX = 600;
 			}
 			if (MouseIn(canvasOffsetX_ui + XX, yPad + canvasOffsetY_ui + spacing * i - 27, 250, 55)) {
-				if (KinkyDungeonMapGet(KDOrbX, KDOrbY) == 'O') {
-					if (KinkyDungeonGoddessRep[shrine] < -45) {
-						KinkyDungeonSummonEnemy(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, "OrbGuardian", 3 + Math.floor(Math.sqrt(1 + MiniGameKinkyDungeonLevel)), 10, false, 30);
-					}
-					KinkyDungeonChangeRep(shrine, Amount * -10);
-
-					KDSendStatus('goddess', shrine, 'takeOrb');
-					if (KinkyDungeonDifficultyMode == 2 || KinkyDungeonDifficultyMode == 3) {
-						let spell = null;
-						let spellList = [];
-						let maxSpellLevel = 4;
-						for (let sp of KinkyDungeonSpellList.Conjure) {
-							if (sp.level <= KinkyDungeonSpellLevel.Conjure && sp.school == "Conjure" && !sp.secret) {
-								for (let iii = 0; iii < maxSpellLevel - sp.level; iii++)
-									spellList.push(sp);
-							}
-						}
-						for (let sp of KinkyDungeonSpellList.Elements) {
-							if (sp.level <= KinkyDungeonSpellLevel.Elements && sp.school == "Elements" && !sp.secret) {
-								for (let iii = 0; iii < maxSpellLevel - sp.level; iii++)
-									spellList.push(sp);
-							}
-						}
-						for (let sp of KinkyDungeonSpellList.Illusion) {
-							if (sp.level <= KinkyDungeonSpellLevel.Illusion && sp.school == "Illusion" && !sp.secret) {
-								for (let iii = 0; iii < maxSpellLevel - sp.level; iii++)
-									spellList.push(sp);
-							}
-						}
-
-						for (let sp of KinkyDungeonSpells) {
-							for (let S = 0; S < spellList.length; S++) {
-								if (sp.name == spellList[S].name) {
-									spellList.splice(S, 1);
-									S--;
-								}
-							}
-						}
-
-						spell = spellList[Math.floor(KDRandom() * spellList.length)];
-
-						if (spell) {
-							KinkyDungeonSpells.push(spell);
-							KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonOrbSpell").replace("SPELL", TextGet("KinkyDungeonSpell" + spell.name)), "lightblue", 2);
-						}
-					} else {
-						KinkyDungeonSpellPoints += Amount;
-					}
-					KinkyDungeonMapSet(KDOrbX, KDOrbY, 'o');
-					KinkyDungeonAggroAction('orb', {});
-				}
-
+				KDSendInput("orb", {shrine: shrine, Amount: Amount, x: KDOrbX, y: KDOrbY});
 				KinkyDungeonDrawState = "Game";
 				return true;
 			}

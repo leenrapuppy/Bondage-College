@@ -266,6 +266,8 @@ ItemFeetTentaclesOuter,Outer
 ItemFeetTentaclesSucker,Suckers
 ItemFeetNylonRopeLowerRope,Lower Rope
 ItemFeetNylonRopeUpperRope,Upper Rope
+ItemFeetSlimeOne,Color 1
+ItemFeetSlimeTwo,Color 2
 ItemLegsFuturisticLegCuffsChain,Chain
 ItemLegsFuturisticLegCuffsCuffs,Cuffs
 ItemLegsFuturisticLegCuffsDisplay,Display
@@ -287,6 +289,8 @@ ItemLegsTentaclesOuter,Outer
 ItemLegsTentaclesSucker,Suckers
 ItemLegsNylonRopeLowerRope,Lower Rope
 ItemLegsNylonRopeUpperRope,Upper Rope
+ItemLegsSlimeOne,Color 1
+ItemLegsSlimeTwo,Color 2
 ItemVulvaWandBeltBelt,Belt
 ItemVulvaWandBeltWand,Wand
 ItemVulvaHempRopeBeltRope,Rope
@@ -435,6 +439,9 @@ ItemArmsTentaclesLowerOuter,Outer
 ItemArmsTentaclesInner,Inner
 ItemArmsTentaclesOuter,Outer
 ItemArmsTentaclesSucker,Suckers
+ItemArmsSlimeBaseOne,Color 1
+ItemArmsSlimeBaseTwo,Color 2
+ItemArmsSlimeGirlBack,Slime Girl
 ItemHandsFuturisticMittensBody,Body
 ItemHandsFuturisticMittensMesh,Mesh
 ItemHandsFuturisticMittensDisplay,Display
@@ -489,6 +496,11 @@ ItemNeckComboHarnessStuds,Studs
 ItemNeckComboHarnessBall,Ball
 ItemNeckComboHarnessBuckles,Buckles
 ItemNeckComboHarnessHarness,Harness
+ItemNeckBonedNeckCorsetBase,Base
+ItemNeckBonedNeckCorsetShine,Shine
+ItemNeckBonedNeckCorsetStripes,Stripes
+ItemNeckBonedNeckCorsetStripesShine,Stripes Shine
+ItemNeckBonedNeckCorsetRing,Ring
 ItemMiscWoodenSignSign,Sign
 ItemMiscWoodenSignRope,Rope
 ItemMiscWoodenSignText,Text
@@ -602,6 +614,10 @@ ItemHoodLatexHabitBase,Shawl
 ItemHoodLatexHabitCowl,Cowl
 ItemHoodLatexHabitCape,Shoulders
 ItemHoodLatexHabitCollar,Collar
+ItemHoodHeadboxSeethroughGlassInside,Inside
+ItemHoodHeadboxSeethroughFrame,Outside
+ItemHoodSlimeOne,Color 1
+ItemHoodSlimeTwo,Color 2
 ItemBootsLockingBoots1Boots,Boots
 ItemBootsLockingBoots1Straps,Straps
 ItemBootsFuturisticHeelsShoes,Body
@@ -616,6 +632,8 @@ ItemBootsFuturisticHeels2Display,Display
 ItemBootsFuturisticHeels2Lock,Lock
 ItemBootsLeatherFootMitts1Mitts,Mittens
 ItemBootsLeatherFootMitts1Straps,Straps
+ItemBootsSlimeOne,Color 1
+ItemBootsSlimeTwo,Color 2
 GartersGarterBeltLeft,Left
 GartersGarterBeltRight,Right
 ShoesSneakers1Main,Main
@@ -766,6 +784,8 @@ ItemMouthPonyGagFlags,Flags
 ItemMouthPonyGagRope,Rope
 ItemMouthPonyGagBlinders,Blinders
 ItemMouthPonyGagPost,Post
+ItemMouthLatexSheathGagBase,Mouth
+ItemMouthLatexSheathGagShine,Mouth Shine
 ItemMouth2WiffleGagStrap,Strap
 ItemMouth2WiffleGagBall,Ball
 ItemMouth2HarnessBallGagBall,Ball
@@ -853,6 +873,10 @@ ItemMouth2PonyGagFlags,Flags
 ItemMouth2PonyGagRope,Rope
 ItemMouth2PonyGagBlinders,Blinders
 ItemMouth2PonyGagPost,Post
+ItemMouth2MouthFeatureGagBase,Mouth
+ItemMouth2MouthFeatureGagShine,Mouth Shine
+ItemMouth2MouthFeatureGagPanel,Panel
+ItemMouth2MouthFeatureGagPanelShine,Panel Shine
 ItemMouth3WiffleGagStrap,Strap
 ItemMouth3WiffleGagBall,Ball
 ItemMouth3HarnessBallGagBall,Ball

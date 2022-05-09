@@ -359,7 +359,7 @@ function AudioShouldSilenceSound(IsPlayerInvolved = false) {
 	if (!Player.AudioSettings || !Player.AudioSettings.Volume || (Player.AudioSettings.Volume == 0))
 		return true;
 
-	if (!Player.AudioSettings.PlayItem && CurrentScreen === "ChatRoom")
+	if (!Player.AudioSettings.PlayItem && ServerPlayerIsInChatRoom())
 		return true;
 
 	if (Player.AudioSettings.PlayItemPlayerOnly && !IsPlayerInvolved)

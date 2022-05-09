@@ -76,9 +76,11 @@ function CommandParse(msg) {
 	const WhisperTarget = ChatRoomCharacter.find(C => C.MemberNumber == ChatRoomTargetMemberNumber);
 	if (!ChatRoomShouldBlockGaggedOOCMessage(msg, WhisperTarget)) {
 		if (ChatRoomTargetMemberNumber == null) {
-			// Regular chat
-			ServerSend("ChatRoomChat", { Content: msg, Type: "Chat" });
-			ChatRoomStimulationMessage("Gag");
+			// Regular chat can be prevented with an owner presence rule
+			if (!ChatRoomOwnerPresenceRule("BlockTalk", null)) {
+				ServerSend("ChatRoomChat", { Content: msg, Type: "Chat" });
+				ChatRoomStimulationMessage("Gag");
+			}
 		} else {
 			// The whispers get sent to the server and shown on the client directly
 			ServerSend("ChatRoomChat", { Content: msg, Type: "Whisper", Target: ChatRoomTargetMemberNumber });

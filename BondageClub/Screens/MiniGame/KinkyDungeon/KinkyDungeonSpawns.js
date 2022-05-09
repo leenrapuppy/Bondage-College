@@ -60,6 +60,15 @@ function KinkyDungeonAddTags(tags, Floor) {
 	if (KinkyDungeonGoddessRep.Latex < -45) tags.push("slime");
 	if (KinkyDungeonGoddessRep.Rope < -45) tags.push("construct");
 
+	if (KinkyDungeonGoddessRep.Will >= 0) {tags.push("posWill");}
+	if (KinkyDungeonGoddessRep.Metal >= 0) tags.push("posMetal");
+	if (KinkyDungeonGoddessRep.Leather >= 0) tags.push("posLeather");
+	if (KinkyDungeonGoddessRep.Illusion >= 0) tags.push("posIllusion");
+	if (KinkyDungeonGoddessRep.Conjure >= 0) tags.push("posConjure");
+	if (KinkyDungeonGoddessRep.Elements >= 0) tags.push("posElements");
+	if (KinkyDungeonGoddessRep.Latex >= 0) tags.push("posLatex");
+	if (KinkyDungeonGoddessRep.Rope >= 0) tags.push("posRope");
+
 	if (security > 0) tags.push("jailbreak");
 	if (security > 40) tags.push("highsecurity");
 
@@ -100,7 +109,7 @@ function KinkyDungeonGetEnemy(tags, Level, Index, Tile, requireTags) {
 				}
 		}
 
-		if (effLevel >= enemy.minLevel && (overrideFloor || enemy.floors.get(Index)) && (KinkyDungeonGroundTiles.includes(Tile) || !enemy.tags.has("spawnFloorsOnly"))) {
+		if (effLevel >= enemy.minLevel && (overrideFloor || enemy.allFloors || !enemy.floors || enemy.floors.get(Index)) && (KinkyDungeonGroundTiles.includes(Tile) || !enemy.tags.has("spawnFloorsOnly"))) {
 			let rt = requireTags ? false : true;
 			if (requireTags)
 				for (let t of requireTags) {
@@ -132,11 +141,20 @@ function KinkyDungeonGetEnemy(tags, Level, Index, Tile, requireTags) {
 	}
 }
 
+/**
+ *
+ * @param {string} name
+ * @returns {enemy}
+ */
+function KinkyDungeonGetEnemyByName(name) {
+	return KinkyDungeonEnemies.find(element => element.name == name);
+}
+
 function KinkyDungeonCallGuard(x, y, noTransgress, normalDrops) {
 	if (!noTransgress)
 		KinkyDungeonAggroAction('call', {});
 	if (!KinkyDungeonJailGuard()) {
-		let Enemy = KinkyDungeonEnemies.find(element => element.name == "Guard");
+		let Enemy = KinkyDungeonGetEnemyByName("Guard");
 		let guard = {summoned: true, noRep: true, noDrop: !normalDrops, Enemy: Enemy, id: KinkyDungeonGetEnemyID(),
 			x:KinkyDungeonStartPosition.x, y:KinkyDungeonStartPosition.y, gx: x, gy: y,
 			hp: (Enemy && Enemy.startinghp) ? Enemy.startinghp : Enemy.maxhp, movePoints: 0, attackPoints: 0};
@@ -172,14 +190,25 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 	let sleepTurnsSpeedMult = 100;
 	let sleepTurnsPerExtraSpawnLevel = 25;
 	let baseChance = ((KDGameData.SleepTurns > 0 && (KinkyDungeonStatStamina > KinkyDungeonStatStaminaMax - 10 * KinkyDungeonStatStaminaRegenSleep || KDGameData.SleepTurns < 11)) ? 0.05 : 0.0005) * Math.sqrt(Math.max(1, effLevel)) * (1 + KinkyDungeonTotalSleepTurns / sleepTurnsSpeedMult);
+
+	let Queue = [];
+	if (KDGameData.RespawnQueue && KDGameData.RespawnQueue.length > 0) {
+		let firstEnemy = KDGameData.RespawnQueue[Math.floor(KDRandom() * KDGameData.RespawnQueue.length)];
+		for (let e of KDGameData.RespawnQueue) {
+			if (KDFactionRelation(e.faction, firstEnemy.faction) >= 0.1) {
+				Queue.push(e);
+			}
+		}
+	}
+	if (Queue.length > 0) baseChance = 0.07 * Math.sqrt(Math.max(1, effLevel));
 	// Chance of bothering with random spawns this turn
 	if (delta > 0 && KDRandom() < baseChance && KinkyDungeonSearchTimer > KinkyDungeonSearchTimerMin) {
 		let hunters = false;
 		let spawnLocation = KinkyDungeonStartPosition;
 		let spawnPlayerExclusionRadius = 11;
-		if (KinkyDungeonTotalSleepTurns > KinkyDungeonSearchStartAmount - BaseAdjust && KinkyDungeonEntities.length < Math.min(100, (!KinkyDungeonHostile()) ? (5 + effLevel/15) : (20 + effLevel/KDLevelsPerCheckpoint))) {
+		if ((KinkyDungeonTotalSleepTurns > KinkyDungeonSearchStartAmount - BaseAdjust || Queue.length > 0) && KinkyDungeonEntities.length < Math.min(100, (!KinkyDungeonAggressive()) ? (5 + effLevel/15) : (20 + effLevel/KDLevelsPerCheckpoint))) {
 			if (KinkyDungeonTotalSleepTurns > KinkyDungeonSearchHuntersAmount - HunterAdjust) hunters = true;
-			if ((KinkyDungeonTotalSleepTurns > KinkyDungeonSearchEntranceAdjustAmount - EntranceAdjust && KDistChebyshev(KinkyDungeonPlayerEntity.x - KinkyDungeonEndPosition.x, KinkyDungeonPlayerEntity.y - KinkyDungeonEndPosition.y) > spawnPlayerExclusionRadius && KDRandom() < 0.5)
+			if (((KinkyDungeonTotalSleepTurns > KinkyDungeonSearchEntranceAdjustAmount - EntranceAdjust || Queue.length > 0) && KDistChebyshev(KinkyDungeonPlayerEntity.x - KinkyDungeonEndPosition.x, KinkyDungeonPlayerEntity.y - KinkyDungeonEndPosition.y) > spawnPlayerExclusionRadius && KDRandom() < 0.5)
 				|| KDistChebyshev(KinkyDungeonPlayerEntity.x - KinkyDungeonStartPosition.x, KinkyDungeonPlayerEntity.y - KinkyDungeonStartPosition.y) < spawnPlayerExclusionRadius) spawnLocation = KinkyDungeonEndPosition;
 
 			if (KinkyDungeonLightGet(spawnLocation.x, spawnLocation.y) < 1 || KinkyDungeonSeeAll) {
@@ -205,10 +234,14 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 
 				tags.push("bandit");
 
-				let Enemy = KinkyDungeonGetEnemy(
-					tags, MiniGameKinkyDungeonLevel + KinkyDungeonDifficulty/5 + Math.round(KinkyDungeonTotalSleepTurns / sleepTurnsPerExtraSpawnLevel),
-					KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint],
-					KinkyDungeonMapGet(spawnLocation.x, spawnLocation.y), requireTags);
+				let qq = Queue.length > 0 ? Queue[Math.floor(KDRandom() * Queue.length)] : null;
+
+				let Enemy = qq ?
+					KinkyDungeonGetEnemyByName(qq.enemy)
+					: KinkyDungeonGetEnemy(
+						tags, MiniGameKinkyDungeonLevel + KinkyDungeonDifficulty/5 + Math.round(KinkyDungeonTotalSleepTurns / sleepTurnsPerExtraSpawnLevel),
+						KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint],
+						KinkyDungeonMapGet(spawnLocation.x, spawnLocation.y), requireTags);
 				let EnemiesSummoned = [];
 				// We are going to reroll the ghost decision just to provide some grace for players who are well and truly stuck
 				KinkyDungeonMakeGhostDecision();
@@ -218,7 +251,7 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 						let X = point.x;
 						let Y = point.y;
 						EnemiesSummoned.push(Enemy.name);
-						KinkyDungeonEntities.push({tracking: true, summoned: true, Enemy: Enemy, id: KinkyDungeonGetEnemyID(), x:X, y:Y, hp: (Enemy.startinghp) ? Enemy.startinghp : Enemy.maxhp, movePoints: 0, attackPoints: 0});
+						KinkyDungeonEntities.push({tracking: true, summoned: true, faction: qq ? qq.faction : undefined, Enemy: Enemy, id: KinkyDungeonGetEnemyID(), x:X, y:Y, hp: (Enemy.startinghp) ? Enemy.startinghp : Enemy.maxhp, movePoints: 0, attackPoints: 0});
 						if (Enemy.tags.has("minor")) count += 0.1; else count += 1; // Minor enemies count as 1/10th of an enemy
 						if (Enemy.tags.has("boss")) {
 							count += 3 * Math.max(1, 100/(100 + KinkyDungeonDifficulty));
@@ -230,6 +263,10 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 							miniboss = true; // Adds miniboss as a tag
 						}
 
+
+						KDGameData.RespawnQueue.splice(KDGameData.RespawnQueue.indexOf(qq), 1);
+						Queue.splice(Queue.indexOf(qq), 1);
+
 						if (Enemy.summon) {
 							for (let sum of Enemy.summon) {
 								if (!sum.chance || KDRandom() < sum.chance)
@@ -238,7 +275,11 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 						}
 					} else count += 0.1;
 
-					Enemy = KinkyDungeonGetEnemy(tags, MiniGameKinkyDungeonLevel + effLevel/6, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint], KinkyDungeonMapGet(spawnLocation.x, spawnLocation.y), requireTags);
+					qq = Queue.length > 0 ? Queue[Math.floor(KDRandom() * Queue.length)] : null;
+
+					Enemy = qq ?
+						KinkyDungeonGetEnemyByName(qq.enemy)
+						: KinkyDungeonGetEnemy(tags, MiniGameKinkyDungeonLevel + effLevel/6, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint], KinkyDungeonMapGet(spawnLocation.x, spawnLocation.y), requireTags);
 				}
 				if (EnemiesSummoned.length > 0 && KinkyDungeonFirstSpawn) {
 					KinkyDungeonFirstSpawn = false;

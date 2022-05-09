@@ -48,8 +48,7 @@
 (GGTS互动)
 ###_NPC
 (As a nurse, you can program GGTS for her specific needs.)
-(作为一名护士，你可以针对她的具体需要对GGTS进行编程)												  
-
+(作为一名护士，你可以针对她的具体需要对GGTS进行编程)
 ###_PLAYER
 (Leave this menu.)
 (离开本菜单)
@@ -250,11 +249,11 @@
 (Get a $5 glass of Champagne.)
 (点一杯$5的香槟)
 (Get a $10 jug of Sicilian Lemonade for everyone.)
-(为每人送一壶$10的Sicilian Lemonade.
+(为每人送一壶$10的西西里柠檬水.)
 (Get a $10 round of shooters for everyone.)
-(为每人准备$10的round of shooters)
+(为每人准备$10的子弹鸡尾酒)
 (Get a $10 jug of Sex on the Beach for everyone.)
-(为每人送一壶$10的Sex on the Beach)
+(为每人送一壶$10的性感沙滩鸡尾酒)
 (Get a $10 beer pitcher for everyone.)
 (为每人准备一杯$10的啤酒)
 (Get a free tea.)
@@ -319,29 +318,27 @@
 (You give her the keys to your private padlocks)
 (你给了她你私人小锁的钥匙)
 ###_PLAYER
-(Watch her play Kinky Dungeon.)
-(看她玩Kinky Dungeon)
 (Generate a new GGTS task.)
 (生成一个新的GGTS任务）
 (Give her a five minutes pause.)
 (给她五分钟的休息时间)
 (Slow pace for GGTS demands.)
-(Slow pace for GGTS demands.)
+(GGTS慢速发令模式。)
 (Normal pace for GGTS demands.)
-(Normal pace for GGTS demands.)
+(GGTS中速发令模式。)
 (Fast pace for GGTS demands.)
-(Fast pace for GGTS demands.)
+(GGTS快速发令模式。)
 (Wardrobe access.)
 (衣柜权限)
 ###_NPC
 (Select her wardrobe access.)
 (选择衣柜权限)
 ###_PLAYER
-(Whisper rules.)
-(悄悄话规则)
+(Owner presence rules.)
+(主人在场规则。)
 ###_NPC
-(Select her rules for whispering when you're in the same room.)
-(选择她和你同处一室时的悄悄话规则)
+(Select the rules that will be enforced when you two are in the same room.)
+(请选择与她同处一室时需要应用在她身上的规则。)
 ###_PLAYER
 (Key and locks restrictions.)
 (钥匙和锁类限制)
@@ -355,20 +352,14 @@
 (Select her restrictions for remotes.)
 (选择对她的遥控器的限制)
 ###_PLAYER
-(Timer cell and GGTS.)
-(定时禁闭和GGTS)
+(Timed cell, GGTS and forced labor.)
+(定时监牢，GGTS和强制劳动。)
 ###_NPC
-You can send her to a timed cell or the good girl training system.
-你可以把她送到一个定时牢房或好女孩训练系统 (GGTS)。
+(You can send her to a timed cell, the Good Girl Training System or force her to serve drinks and get her salary.)
+(你可以将她送入定时监牢，让她开始好姑娘训练系统训练，或强制她送水并收取她的佣金。)
 ###_PLAYER
-(Forced labor.)
-(强制劳役.)
-###_NPC
-(What kind of labor will she be forced to do?  Her salary will be given to you.)
-(她将被强制进行何种劳动？你将获得她的薪水。)
-###_PLAYER
-(Collar options.)
-(项圈选项)
+(Collar and nickname options.)
+(Collar and nickname options.)
 ###_NPC
 (Select the option.)
 (选择本选项)
@@ -403,17 +394,79 @@ You can send her to a timed cell or the good girl training system.
 (Her wardrobe access will be blocked until you allow it again.)
 (直到你允许前她将无法使用衣柜)
 ###_PLAYER
-(Allow her to whisper.)
-(允许她悄悄话)
+(Back to rules.)
+(返回规则列表。)
+(☑ Forbid her from talking.)
+(☑ 禁止她公开发言。)
 ###_NPC
-(She can now whisper normally.)
-(她现在可以正常悄悄话了)
+(She will now be able to talk when she's in the same room as you.)
+(她现在可以与你同处一室时公开发言了。)
 ###_PLAYER
-(Forbid her to whisper when you're there.)
-(当你在场时禁止她悄悄话)
+(☐ Forbid her from talking.)
+(☐ 禁止她公开发言。)
 ###_NPC
-(She cannot whisper to someone else when she's in the same room as you.)
-(她和你在一起时不能和其她人悄悄话了)
+(She won't be able to talk when she's in the same room as you.)
+(她将无法与你同处一室时公开发言。)
+###_PLAYER
+(☑ Forbid her from emoting.)
+(☑ 禁止她发表情。)
+###_NPC
+(She will now be able to emote when she's in the same room as you.)
+(她现在可以与你同处一室时发表情了。)
+###_PLAYER
+(☐ Forbid her from emoting.)
+(☐ 禁止她发表情。)
+###_NPC
+(She won't be able to emote when she's in the same room as you.)
+(她将无法与你同处一室时发表情。)
+###_PLAYER
+(☑ Forbid her from whispering.)
+(☑ 禁止她使用悄悄话。)
+###_NPC
+(She can now whisper to anyone when she's in the same room as you.)
+(她现在可以与你同处一室时使用悄悄话了。)
+###_PLAYER
+(☐ Forbid her from whispering.)
+(☐ 禁止她使用悄悄话。)
+###_NPC
+(She won't be able to whisper to someone else when she's in the same room as you.)
+(她将无法与你同处一室时使用悄悄话。)
+###_PLAYER
+(☑ Forbid her from changing pose.)
+(☑ 禁止她更改姿势。)
+###_NPC
+(She will now be able to change her pose when she's in the same room as you.)
+(她现在可以与你同处一室时更改姿势了。)
+###_PLAYER
+(☐ Forbid her from changing pose.)
+(☐ 禁止她更改姿势。)
+###_NPC
+(She won't be able to change her pose when she's in the same room as you.)
+(她现在无法与你同处一室时更改姿势了。)
+###_PLAYER
+(☑ Forbid her from accessing herself.)
+(☑ 禁止她检视自己。)
+###_NPC
+(She will now be able to access herself when she's in the same room as you.)
+(她现在可以与你同处一室时检视自己了。)
+###_PLAYER
+(☐ Forbid her from accessing herself.)
+(☐ 禁止她检视自己。)
+###_NPC
+(She won't be able to access herself when she's in the same room as you.)
+(她现在无法与你同处一室时检视自己了。)
+###_PLAYER
+(☑ Forbid her from accessing others.)
+(☑ 禁止她检视她人。)
+###_NPC
+(She will now be able to access other members when she's in the same room as you.)
+(她现在可以与你同处一室时检视她人了。)
+###_PLAYER
+(☐ Forbid her from accessing others.)
+(☐ 禁止她检视她人。)
+###_NPC
+(She won't be able to access other members when she's in the same room as you.)
+(她现在可以与你同处一室时检视她人了。)
 ###_PLAYER
 (Allow her to buy keys.)
 (允许她购买钥匙)
@@ -475,14 +528,8 @@ You can send her to a timed cell or the good girl training system.
 (Her remotes won't work on her anymore.)
 (她的遥控器将无法对她自己生效)
 ###_PLAYER
-(Don't send her.)
-(不送走她)
-###_NPC
-(Select the rule, restriction or punishment that you want to enforce.)
-(选择你想要强制的规则、限制或惩罚)
-###_PLAYER
-(Timer cell.)
-(定时牢房)
+(Timed cell.)
+(定时监牢。)
 ###_NPC
 (For how long do you want to lock her up?  She will be isolated, and you won't be able to unlock her.)
 (你想锁她多长时间？She will be isolated, and you won't be able to unlock her.)
@@ -490,11 +537,17 @@ You can send her to a timed cell or the good girl training system.
 (Good Girl Training System.)
 (好女孩训练系统 (GGTS))
 ###_NPC
-How many minutes of Good Girl Training System will she be forced to do?
-她将被强制进行多久的GGTS？
+(How many minutes of Good Girl Training System will she be forced to do?)
+(要强制她使用多少分钟的好姑娘训练系统呢？)
 ###_PLAYER
-(Don't lock her up.)
-(不锁上他)
+(Force her to serve drinks as a maid.)
+(强制她作为女仆端茶送水)
+###_NPC
+(She will be sent to the maid quarters to prepare drinks.  You will earn her salary.)
+(她将被送到女仆宿舍准备饮品，你会获得她的工资)
+(She needs to be a maid in the sorority, be able to talk and be able to walk to do that job for you.)
+(她必须是女仆协会的医院来进行交谈和行动来为你工作)
+###_PLAYER
 (Lock her for 5 minutes.)
 (把她锁上5分钟.)
 ###_NPC
@@ -561,15 +614,11 @@ How many minutes of Good Girl Training System will she be forced to do?
 (She will be locked up in the asylum until she completes 180 minutes of Good Girl Training System.)
 (她将被关在收容所中，直到她完成180分钟的GGTS)
 ###_PLAYER
-(No forced labor.)
-(无强制劳役)
-(Force her to serve drinks as a maid.)
-(强制她作为女仆端茶送水)
+(Don't send her.)
+(不送走她)
 ###_NPC
-(She will be sent to the maid quarters to prepare drinks.  You will earn her salary.)
-(她将被送到女仆宿舍准备饮品，你会获得她的工资)
-(She needs to be a maid in the sorority, be able to talk and be able to walk to do that job for you.)
-(她必须是女仆协会的医院来进行交谈和行动来为你工作)
+(Select the rule, restriction or punishment that you want to enforce.)
+(选择你想要强制的规则、限制或惩罚)
 ###_PLAYER
 (Release her from the slave collar.)
 (取下她佩戴的奴隶项圈)
@@ -582,6 +631,18 @@ How many minutes of Good Girl Training System will she be forced to do?
 ###_NPC
 (You lock the slave collar back on her.)
 (你将奴隶项圈锁回了她的脖子上)
+###_PLAYER
+(Prevent her from changing her nickname.)
+(禁止她更改昵称。)
+###_NPC
+(She won't be able to change her nickname anymore.)
+(即刻起她将无法更改她的昵称。)
+###_PLAYER
+(Allow her to change her nickname.)
+(允许她更改昵称。)
+###_NPC
+(She will be able to change her nickname.)
+(即刻起她将可以更改她的昵称。)
 ###_PLAYER
 (Allow her to use lovers locks on herself.)
 (允许她对自己使用恋人锁)
@@ -606,3 +667,5 @@ How many minutes of Good Girl Training System will she be forced to do?
 ###_NPC
 (Her owner will not be able to use lovers locks on her anymore.)
 (她的主人将无法再对她使用恋人锁)
+(Watch her play Kinky Dungeon.)
+(观看她玩淫荡地城。)
