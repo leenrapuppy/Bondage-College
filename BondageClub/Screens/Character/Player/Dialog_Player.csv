@@ -2433,7 +2433,7 @@ ItemHoodKirugumiMaskSetMouth,,,SourceCharacter changes the mouth on DestinationC
 ItemHoodKirugumiMaskSetBlush,,,SourceCharacter changes the blush on DestinationCharacter mask,,
 ItemHoodKirugumiMaskSetBrows,,,SourceCharacter changes the eyebrows on DestinationCharacter mask,,
 ItemHoodKirugumiMaskSetOpacity,,,SourceCharacter changes the opacity on DestinationCharacter mask,,
-ItemHoodKirugumiMaskSetMaskStyle,,,SourceCharacter changes the type of mask DestinationCharacter is wearing,,
+ItemHoodKirugumiMaskSetMaskStyle,,,SourceCharacter changes the type of mask on TargetCharacter,,
 SelectPriorityType,,,Select the visibility,,
 ClothPriorityTypeNormal,,,Revealed,,
 ClothPriorityTypeTucked,,,Tucked in,,
