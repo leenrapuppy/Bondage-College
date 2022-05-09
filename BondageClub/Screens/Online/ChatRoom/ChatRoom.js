@@ -95,6 +95,12 @@ var ChatRoomCharacterZoom = 1;
 var ChatRoomSlideWeight = 9;
 var ChatRoomCharacterInitialize = true;
 
+/** @type {Map<CommonChatTags | string, number>} */
+var ChatRoomDictionarySortOrder = new Map([
+	[CommonChatTags.TARGET_CHAR, 1],
+	[CommonChatTags.DEST_CHAR, 1],
+]);
+
 /** Sets whether an add/remove for one list automatically triggers an add/remove for another list */
 const ChatRoomListOperationTriggers = () => [
 	{
@@ -2387,7 +2393,7 @@ function ChatRoomMessage(data) {
 				var orig_msg = msg;
 				msg = DialogFindPlayer(msg);
 				if (data.Dictionary) {
-					var dictionary = data.Dictionary;
+					const dictionary = ChatRoomSortDictionary(data.Dictionary);
 					var SourceCharacter = null;
 					let TargetCharacter = null;
 					let TargetMemberNumber = null;
@@ -4044,6 +4050,22 @@ function ChatRoomShouldBlockGaggedOOCMessage(Message, WhisperTarget) {
 			return false;
 
 	return true;
+}
+
+/**
+ * Sorts a chat message dictionary to ensure that tags are handled in the correct order
+ * @param {ChatMessageDictionary} dictionary - the dictionary to sort
+ * @returns {ChatMessageDictionary} - The sorted dictionary
+ */
+function ChatRoomSortDictionary(dictionary) {
+	if (Array.isArray(dictionary)) {
+		return dictionary.sort((e1, e2) => {
+			const order1 = ChatRoomDictionarySortOrder.get(e1.Tag) || 0;
+			const order2 = ChatRoomDictionarySortOrder.get(e2.Tag) || 0;
+			return order1 - order2;
+		});
+	}
+	return [];
 }
 
 /**

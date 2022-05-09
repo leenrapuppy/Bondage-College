@@ -278,7 +278,7 @@ type MessageContentType = string;
 
 interface ChatMessageDictionaryEntry {
 	[k: string]: any;
-	Tag?: string;
+	Tag?: CommonChatTags | string;
 	Text?: string;
 	MemberNumber?: number;
 }
