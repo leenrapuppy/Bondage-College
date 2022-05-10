@@ -1466,6 +1466,12 @@ var AssetFemale3DCG = [
 					{ Name: "Shine", AllowColorize: false}
 				]
 			},
+			{ Name: "DildocornHorn", Value: -1, DefaultColor: "Default", BuyGroup: "UnicornHorn", BodyCosplay: true, Attribute: ["PenetrateItem"], Top: -30,
+				Layer: [
+					{ Name: "Base"},
+					{ Name: "Shine", AllowColorize: false}
+				]
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -1530,6 +1536,12 @@ var AssetFemale3DCG = [
 			{ Name: "CowHorns", Fetish: ["Pet"], Value: -1, BuyGroup: "CowHorns" },
 			{ Name: "Antennae", Value: -1, BuyGroup: "Antennae", BodyCosplay: true, DefaultColor: "#151A1F" },
 			{ Name: "UnicornHorn", Value: -1, DefaultColor: ["#EBAACB"], BuyGroup: "UnicornHorn", BodyCosplay: true,
+				Layer: [
+					{ Name: "Base"},
+					{ Name: "Shine", AllowColorize: false}
+				]
+			},
+			{ Name: "DildocornHorn", Value: -1, DefaultColor: "Default", BuyGroup: "UnicornHorn", BodyCosplay: true, Attribute: ["PenetrateItem"], Top: -30,
 				Layer: [
 					{ Name: "Base"},
 					{ Name: "Shine", AllowColorize: false}

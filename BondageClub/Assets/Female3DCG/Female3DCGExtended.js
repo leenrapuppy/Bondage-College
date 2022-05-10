@@ -1878,6 +1878,7 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
 				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR, CommonChatTags.TARGET_CHAR],
 				Modules: [
 					{
 						Name: "Eyes", Key: "e",
