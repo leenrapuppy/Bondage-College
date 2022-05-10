@@ -535,7 +535,7 @@ function ValidationSanitizeProperties(C, item) {
 	}
 
 	// Clamp item opacity within the allowed range
-	if (property && typeof property.Opacity === "number") {
+	if (typeof property.Opacity === "number") {
 		if (property.Opacity > asset.MaxOpacity) {
 			property.Opacity = asset.MaxOpacity;
 			changed = true;
@@ -544,6 +544,11 @@ function ValidationSanitizeProperties(C, item) {
 			property.Opacity = asset.MinOpacity;
 			changed = true;
 		}
+	}
+
+	if (property.Tint && !asset.AllowTint) {
+		delete property.Tint;
+		changed = true;
 	}
 
 	// Remove invalid properties from non-typed items

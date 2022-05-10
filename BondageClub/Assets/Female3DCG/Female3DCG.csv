@@ -75,6 +75,7 @@ ClothAccessory,FacePaint, Face Paint
 ClothAccessory,Bib,Bib
 ClothAccessory,Scarf,Scarf
 ClothAccessory,Glitter,Glitter
+ClothAccessory,Poncho,Poncho
 Necklace,,Necklace
 Necklace,Necklace1,Fancy Necklace
 Necklace,Necklace2,Beaded Necklace
@@ -167,6 +168,7 @@ Bra,SexyBikini3,One Piece Swimsuit
 Bra,Swimsuit1,Swimsuit style 1
 Bra,Swimsuit2,Swimsuit style 2
 Bra,BunnySuit,Bunny Girl Bodysuit
+Bra,LatexBunnySuit,Latex Bunny Girl Bodysuit
 Bra,FrameBra1,Frame Bra Style 1
 Bra,FrameBra2,Frame Bra Style 2
 Bra,BondageBra1,Bondage Bra
@@ -394,6 +396,7 @@ HairAccessory1,CowHorns,Cow Horns
 HairAccessory1,Halo,Halo
 HairAccessory1,Antennae,Antennae
 HairAccessory1,UnicornHorn,Unicorn Horn
+HairAccessory1,DildocornHorn,Dildocorn Horn
 HairAccessory2,,Ears
 HairAccessory2,Ears1,Ears Small
 HairAccessory2,Ears2,Ears Large
@@ -421,6 +424,7 @@ HairAccessory2,ElfEars,Elf Ears
 HairAccessory2,CowHorns,Cow Horns
 HairAccessory2,Antennae,Antennae
 HairAccessory2,UnicornHorn,UnicornHorn
+HairAccessory2,DildocornHorn,Dildocorn Horn
 Gloves,,Gloves
 Gloves,Gloves1,Short Gloves
 Gloves,Gloves2,Long Gloves
@@ -717,6 +721,7 @@ ItemFeet,WoodenCuffs,Wooden Cuffs
 ItemFeet,MedicalBedRestraints,Medical Bed Restraints
 ItemFeet,SuspensionCuffs,Suspension Cuffs
 ItemFeet,Tentacles,Tentacles
+ItemFeet,Slime,Slime
 ItemLegs,,Legs
 ItemLegs,NylonRope,Nylon Rope
 ItemLegs,HempRope,Hemp Rope
@@ -738,6 +743,7 @@ ItemLegs,MermaidTail, Mermaid Tail
 ItemLegs,MedicalBedRestraints,Medical Bed Restraints
 ItemLegs,Ribbons,Ribbons
 ItemLegs,Tentacles,Tentacles
+ItemLegs,Slime,Slime
 ItemVulva,,Vulva
 ItemVulva,VibratingEgg,Vibrating Egg
 ItemVulva,VibratingWand,Vibrating Wand
@@ -975,6 +981,7 @@ ItemArms,WrappedBlanket,Wrapped Blanket
 ItemArms,Ribbons,Ribbons
 ItemArms,ThinLeatherStraps,Thin Leather Straps
 ItemArms,Tentacles,Tentacles
+ItemArms,Slime,Slime
 ItemHands,,Hands
 ItemHands,PaddedMittens,Padded Mittens
 ItemHands,PawMittens,Paw Mittens
@@ -1182,8 +1189,9 @@ ItemMouth,CaneGag,Cane
 ItemMouth,PaciGag,Pacifier Gag
 ItemMouth,Tentacles,Tentacle
 ItemMouth,OTNPlugGag,Harness OTN Plug Gag
-ItemMouth,PonyGag, Bridle Gag
+ItemMouth,PonyGag,Bridle Gag
 ItemMouth,LatexSheathGag, Latex Sheath Gag
+ItemMouth,Slime,Slime
 ItemMouth2,,Mouth
 ItemMouth2,ClothGag,Cloth Gag
 ItemMouth2,WiffleGag,Wiffle Ball Gag
@@ -1233,8 +1241,9 @@ ItemMouth2,CageMuzzle,Iron Cage Muzzle
 ItemMouth2,Ribbons,Ribbons
 ItemMouth2,PaciGag,Pacifier Gag
 ItemMouth2,Tentacles,Tentacle
-ItemMouth2,PonyGag, Bridle Gag
+ItemMouth2,PonyGag,Bridle Gag
 ItemMouth2,MouthFeatureGag, Mouthfeature Gag
+ItemMouth2,Slime,Slime
 ItemMouth3,,Mouth
 ItemMouth3,ClothGag,Cloth Gag
 ItemMouth3,WiffleGag,Wiffle Ball Gag
@@ -1284,7 +1293,8 @@ ItemMouth3,PlasticWrap, Plastic Wrap
 ItemMouth3,Ribbons,Ribbons
 ItemMouth3,PaciGag,Pacifier Gag
 ItemMouth3,Tentacles,Tentacle
-ItemMouth3,PonyGag, Bridle Gag
+ItemMouth3,PonyGag,Bridle Gag
+ItemMouth3,Slime,Slime
 ItemHead,,Eyes
 ItemHead,ClothBlindfold,Cloth Blindfold
 ItemHead,ScarfBlindfold,Scarf Blindfold
@@ -1315,6 +1325,7 @@ ItemHead,Ribbons,Ribbon Blindfold
 ItemHead,Tentacles,Tentacles
 ItemHead,MedicalPatch,Medical Patches
 ItemHead,DroneMask,Smooth Latex Mask
+ItemHead,Slime,Slime
 ItemNose,,Nose
 ItemNose,NoseHook,Nose Hook
 ItemNose,PigNose,Pig Nose
@@ -1354,6 +1365,8 @@ ItemHood,CollarHood,Collar Hood
 ItemHood,ZipperHood,Zipper Hood
 ItemHood,LatexHabit,Latex Habit Hood
 ItemHood,CowHood,Cow Hood
+ItemHood,HeadboxSeethrough,One-Way Glass Head Box
+ItemHood,Slime,Slime
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs
@@ -1473,3 +1486,4 @@ ItemBoots,LeatherFootMitts1,Short Leather Foot Mittens
 ItemBoots,ToeTape,Toe Tape
 ItemBoots,Zipties,Zip Ties
 ItemBoots,HighThighBoots,High Thigh Boots
+ItemBoots,Slime,Slime

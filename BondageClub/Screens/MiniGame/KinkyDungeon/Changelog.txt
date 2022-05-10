@@ -776,7 +776,51 @@ Spell Balance:
 - New system for being released after spending time in jail, enemies treat you as a prisoner and will play with you. You need to find a key to open the jail but it gets locked if enemies play with you
 - Removed multiplayer streaming in BC (too much bugs)
 - Stone Skin duration up to 50 turns from 40, mana cost 6 from 8
-- Added scrolling in consumable menu
+- Added scrolling in consumable GameReturnToMenu
+
+3.11
+- Enemies can now take many kinds of items from the player
+- Refactored some events (Thanks Demopans)
+- Dragonslaver can now use the ranged attack separately
+- New weapon: Latex projector
+- More collars that start at level 3 and up
+- Added lesser pearly chests, which can contain gifts based on your goddess reputation, and also power crystals
+- New weapons: The Encaser and the Bondage Buster
+- Buffed Truesight and Heartsense
+- Orgasm progrress will now progress automatically and your character's hands will wander when
+
+3.12
+- Reorganized perks menu
+- New perks: Quick Draw, Quick Scribe, Disorganized
+- Bound power buffed, now increases Evasion by the same amount
+- added a ? to indicate the player is close to being spotted
+
+3.2
+- Fixed the parole system which had been majorly bugged for like a week
+- Added a dialogue system with a couple of bondage offers
+- Can now save outfits
+- Enemies won't aggro the whole map when you aggro them unless you fail to kill one in time (14 turns)
+- Made it take longer to leave prison if you get caught
+- Floating restraints and some other enemies like slimes will still attack you even on parole, but not in jail
+- Added wolfgirl, maid, dragonheart, blue catsuit, and elven dresses as outfits
+- New faction system! Enrage them by attacking and capturing their members, or please them though dialogue!
+- Enemies not hostile to you (or playing with you) now have a peace sign above their head
+- Enemies that are not yet aware of you but suspicious now have a question mark above their head
+- Golem does less damage (45 from 60) and has reduced accuracy
+- Summoned gags deal less damage (35 from 50) but now stuns for a few turns and silences longer
+- Air Elementals no longer self-stun while casting their special attack
+
+3.3
+- Enemies will now fight each other!
+- Bolt cutters do bonus damage to floating locks :)
+- Fixed water rune image
+- Smoke bomb and shroud now have a longer lasting stealth boost (8 turns)
+- Invisibility buffed to 14 turns
+- Nerfed ancient muzzle sneak boost
+
+3.31
+- Buffs are now shown in the bottom right
+- Summon AI has been tweaked to be less suicidal and stick around the player more
 
 TODO ValidationFindBlockCycles to prevent bugs
 

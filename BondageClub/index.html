@@ -245,11 +245,13 @@
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonLootList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonStats.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEnemies.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonPersonality.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEnemiesList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonRestraints.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonRestraintsList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonFight.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonWeaponList.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonInput.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonHUD.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDraw.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMagic.js"></script>
@@ -273,6 +275,12 @@
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonSpawns.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonJail.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonSetpiece.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDialogue.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDialogueList.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDialogueTriggers.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonFactions.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonFactionsList.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMistress.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonTests.js"></script>
 <script src="Screens/Inventory/ItemDevices/VacBedDeluxe/VacBedDeluxe.js"></script>
 <script src="Screens/Inventory/ItemDevices/FuckMachine/FuckMachine.js"></script>
@@ -295,7 +303,7 @@
 window.onload = function() {
 	ServerURL = CommonGetServer();
 	//CheatImport();
-	GameVersion = "R79";
+	GameVersion = "R80Beta1";
 	console.log("Version: " + GameVersion + ", Server: " + ServerURL);
 	if (!GameVersionFormat.test(GameVersion)) console.error("GameVersion is not valid!");
 	CommonIsMobile = CommonDetectMobile();

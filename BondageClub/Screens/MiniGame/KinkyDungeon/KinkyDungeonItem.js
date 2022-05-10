@@ -146,7 +146,7 @@ function KinkyDungeonItemEvent(Item) {
 			KinkyDungeonDrawState = "Game";
 			KinkyDungeonChangeStamina(24);
 			KinkyDungeonChangeMana(24);
-		} else KinkyDungeonDrawState = "Heart";
+		} else if (KinkyDungeonIsPlayer()) KinkyDungeonDrawState = "Heart";
 	} else if (Item.name == "Keyring") {
 		KDGameData.JailKey = true;
 		KinkyDungeonAggroAction('key', {});
@@ -199,20 +199,13 @@ function KinkyDungeonDrawHeart() {
 
 function KinkyDungeonHandleHeart() {
 	if (MouseIn(650, 700, 350, 60) && KinkyDungeonStatDistractionMax < 70) {
-		if (KinkyDungeonStatDistractionMax < 40) KinkyDungeonSpells.push(KinkyDungeonFindSpell("APUp1"));
-		else if (KinkyDungeonStatDistractionMax < 50) KinkyDungeonSpells.push(KinkyDungeonFindSpell("APUp2"));
-		else KinkyDungeonSpells.push(KinkyDungeonFindSpell("APUp3"));
-		KinkyDungeonUpdateStats(0);
+		KDSendInput("heart", {type: "AP"});
 		KinkyDungeonDrawState = "Game";
 	} else if (MouseIn(1050, 700, 350, 60) && KinkyDungeonStatStaminaMax < 70) {
-		if (KinkyDungeonStatStaminaMax < 70) KinkyDungeonSpells.push(KinkyDungeonFindSpell("SPUp1"));
-		KinkyDungeonUpdateStats(0);
+		KDSendInput("heart", {type: "SP"});
 		KinkyDungeonDrawState = "Game";
 	} else if (MouseIn(1450, 700, 350, 60) && KinkyDungeonStatManaMax < 70) {
-		if (KinkyDungeonStatManaMax < 40) KinkyDungeonSpells.push(KinkyDungeonFindSpell("MPUp1"));
-		else if (KinkyDungeonStatManaMax < 50) KinkyDungeonSpells.push(KinkyDungeonFindSpell("MPUp2"));
-		else KinkyDungeonSpells.push(KinkyDungeonFindSpell("MPUp3"));
-		KinkyDungeonUpdateStats(0);
+		KDSendInput("heart", {type: "MP"});
 		KinkyDungeonDrawState = "Game";
 	}
 

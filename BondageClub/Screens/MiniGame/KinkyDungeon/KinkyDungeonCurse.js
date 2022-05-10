@@ -10,9 +10,9 @@ function KinkyDungeonCurseInfo(sg, Curse) {
 	}
 }
 
-function KinkyDungeonCurseStruggle(sg, Curse) {
+function KinkyDungeonCurseStruggle(group, Curse) {
 	if (Curse == "MistressKey") {
-		KinkyDungeonSendActionMessage(4, TextGet("KinkyDungeonCurseStruggle" + Curse + KinkyDungeonGetRestraintItem(sg.group).name), "White", 2);
+		KinkyDungeonSendActionMessage(4, TextGet("KinkyDungeonCurseStruggle" + Curse + KinkyDungeonGetRestraintItem(group).name), "White", 2);
 	} else KinkyDungeonSendActionMessage(4, TextGet("KinkyDungeonCurseStruggle" + Curse), "White", 2);
 
 }
@@ -25,7 +25,7 @@ function KinkyDungeonCurseAvailable(sg, Curse) {
 	}
 	return false;
 }
-function KinkyDungeonCurseUnlock(sg, Curse) {
+function KinkyDungeonCurseUnlock(group, Curse) {
 	let unlock = true;
 	let keep = false;
 	if (Curse == "5Keys") {
@@ -35,8 +35,8 @@ function KinkyDungeonCurseUnlock(sg, Curse) {
 	}
 
 	if (unlock) {
-		KDSendStatus('escape', KinkyDungeonGetRestraintItem(sg.group).name, "Curse");
+		KDSendStatus('escape', KinkyDungeonGetRestraintItem(group).name, "Curse");
 		KinkyDungeonSendActionMessage(4, TextGet("KinkyDungeonCurseUnlock" + Curse), "#99FF99", 2);
-		KinkyDungeonRemoveRestraint(sg.group, keep);
+		KinkyDungeonRemoveRestraint(group, keep);
 	}
 }

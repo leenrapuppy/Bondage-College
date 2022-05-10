@@ -10,6 +10,14 @@ const CharacterDeafLevels = new Map([
 	["DeafLight", 1],
 ]);
 
+/** @type Map<string, number> */
+const CharacterBlurLevels = new Map([
+	["BlurTotal", 50],
+	["BlurHeavy", 20],
+	["BlurNormal", 8],
+	["BlurLight", 3],
+]);
+
 /**
  * An enum representing the various character archetypes
  * ONLINE: The player, or a character representing another online player
@@ -56,6 +64,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		DrawAppearance: [],
 		AllowedActivePose: [],
 		Effect: [],
+		Tints: [],
 		FocusGroup: null,
 		Canvas: null,
 		CanvasBlink: null,
@@ -153,6 +162,21 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 			// Light sensory deprivation setting limits blindness
 			if (this.GameplaySettings && this.GameplaySettings.SensDepChatLog == "SensDepLight") blindLevel = Math.min(2, blindLevel);
 			return blindLevel;
+		},
+		GetBlurLevel: function() {
+			if ((this.IsPlayer() && this.GraphicsSettings && !this.GraphicsSettings.AllowBlur) || CommonPhotoMode) {
+				return 0;
+			}
+			let blurLevel = 0;
+			for (const item of this.Appearance) {
+				for (const [effect, level] of CharacterBlurLevels.entries()) {
+					if (InventoryItemHasEffect(item, effect)) {
+						blurLevel += level;
+						break; // Only count the highest blur level defined on the item
+					}
+				}
+			}
+			return blurLevel;
 		},
 		IsLocked: function () {
 			return this.Effect.indexOf("Lock") > 0;
@@ -296,6 +320,18 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		},
 		GetClumsiness: function () {
 			return CharacterGetClumsiness(this);
+		},
+		HasEffect: function(Effect) {
+			return this.Effect.includes(Effect);
+		},
+		HasTints: function() {
+			if (this.IsPlayer() && this.ImmersionSettings && !this.ImmersionSettings.AllowTints) {
+				return false;
+			}
+			return !CommonPhotoMode && this.Tints.length > 0;
+		},
+		GetTints: function() {
+			return CharacterGetTints(this);
 		},
 		// Adds a new hook with a Name (determines when the hook will happen, an Instance ID (used to differentiate between different hooks happening at the same time), and a function that is run when the hook is called)
 		RegisterHook: function (hookName, hookInstance, callback) {
@@ -584,7 +620,11 @@ function CharacterOnlineRefresh(Char, data, SourceMemberNumber) {
 	Char.FavoriteItems = Array.isArray(data.FavoriteItems) ? data.FavoriteItems : [];
 	if (Char.ID != 0 && Array.isArray(data.WhiteList)) Char.WhiteList = data.WhiteList;
 	if (Char.ID != 0 && Array.isArray(data.BlackList)) Char.BlackList = data.BlackList;
+
+	const currentAppearance = Char.Appearance;
 	ServerAppearanceLoadFromBundle(Char, "Female3DCG", data.Appearance, SourceMemberNumber);
+	CharacterAppearanceResolveSync(Char, currentAppearance);
+
 	if (Char.ID == 0) LoginValidCollar();
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.Inventory == null) || (Char.Inventory.length == 0))) InventoryLoad(Char, data.Inventory);
 	CharacterLoadEffect(Char);
@@ -808,8 +848,6 @@ function CharacterDoItemsSetPose(C, pose, excludeClothes = false) {
 		});
 }
 
-
-
 /**
  * Checks if a character has a pose type from items (not active pose unless an item lets it through)
  * @param {Character} C - Character to check for the pose type
@@ -878,6 +916,7 @@ function CharacterLoadPose(C) {
  */
 function CharacterLoadEffect(C) {
 	C.Effect = CharacterGetEffects(C);
+	CharacterLoadTints(C);
 }
 
 /**
@@ -914,6 +953,29 @@ function CharacterGetEffects(C, Groups = null, AllowDuplicates = false) {
 			}
 		});
 	return totalEffects;
+}
+
+/**
+ * Loads a character's tints, resolving tint definitions against items from the character's appearance
+ * @param {Character} C - Character whose tints should be loaded
+ * @returns {void} - Nothing
+ */
+function CharacterLoadTints(C) {
+	// Tints on non-player characters don't have any effect right now, so don't bother loading them
+	if (!C.IsPlayer()) {
+		return;
+	}
+
+	/** @type {ResolvedTintDefinition[]} */
+	const tints = [];
+	for (const item of C.Appearance) {
+		/** @type {TintDefinition[]} */
+		const itemTints = InventoryGetItemProperty(item, "Tint");
+		if (Array.isArray(itemTints)) {
+			tints.push(...itemTints.map(({Color, Strength, DefaultColor}) => ({Color, Strength, DefaultColor, Item: item})));
+		}
+	}
+	C.Tints = tints;
 }
 
 /**
@@ -1525,6 +1587,43 @@ function CharacterGetDarkFactor(C, eyesOnly = false) {
 }
 
 /**
+ * Gets the array of color tints that should be applied for a character in RGBA format.
+ * @param {Character} C - The character
+ * @returns {RGBAColor[]} - A list of RGBA tints that are currently affecting the character
+ */
+function CharacterGetTints(C) {
+	if (!C.HasTints()) {
+		return [];
+	}
+	/** @type {RGBAColor[]} */
+	const tints = C.Tints.map(({Color, Strength, DefaultColor, Item}) => {
+		let colorIndex = 0
+		if (typeof Color === "number") {
+			colorIndex = Color;
+			if (typeof Item.Color === "string") {
+				Color = Item.Color;
+			} else if (Array.isArray(Item.Color)) {
+				Color = Item.Color[Color] || "Default";
+			} else {
+				Color = "Default";
+			}
+		}
+		if (Color === "Default") {
+			if (Item.Asset.DefaultColor) {
+				Color = Array.isArray(Item.Asset.DefaultColor) ? Item.Asset.DefaultColor[colorIndex] : Item.Asset.DefaultColor;
+			} else if (typeof DefaultColor === "string") {
+				Color = DefaultColor;
+			} else if (typeof Item.Asset.DefaultTint === "string") {
+				Color = Item.Asset.DefaultTint;
+			}
+		}
+		const {r, g, b} = DrawHexToRGB(Color);
+		return {r, g, b, a: Math.max(0, Math.min(Strength, 1))};
+	});
+	return tints.filter(({a}) => a > 0);
+}
+
+/**
  * Gets the clumsiness level of a character. This represents dexterity when interacting with locks etc. and can have a
  * maximum value of 5.
  * @param {Character} C - The character to check
@@ -1603,7 +1702,6 @@ function CharacterCheckHooks(C, IgnoreHooks) {
 	if (refresh) CharacterLoadCanvas(C);
 	return refresh;
 }
-
 
 /**
  * Transfers an item from one character to another
