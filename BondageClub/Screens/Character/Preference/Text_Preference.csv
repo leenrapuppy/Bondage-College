@@ -326,4 +326,4 @@ NotificationsTestReset,Clear raised notifications
 NotificationsTestMessage,Hello there!
 Page,Page
 AllowTints,Allow item tint effects
-AllowBlur,Allow item blur effects
+AllowBlur,Allow item blur effects (turn off if experiencing frame rate drops)

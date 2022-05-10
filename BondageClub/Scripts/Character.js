@@ -164,7 +164,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 			return blindLevel;
 		},
 		GetBlurLevel: function() {
-			if ((this.IsPlayer() && this.ImmersionSettings && !this.ImmersionSettings.AllowBlur) || CommonPhotoMode) {
+			if ((this.IsPlayer() && this.GraphicsSettings && !this.GraphicsSettings.AllowBlur) || CommonPhotoMode) {
 				return 0;
 			}
 			let blurLevel = 0;

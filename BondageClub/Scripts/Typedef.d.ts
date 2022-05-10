@@ -955,7 +955,6 @@ interface PlayerCharacter extends Character {
 		ChatRoomMuffle: boolean;
 		BlindAdjacent: boolean;
 		AllowTints: boolean;
-		AllowBlur: boolean;
 	};
 	LastChatRoom?: string;
 	LastChatRoomBG?: string;
@@ -991,6 +990,7 @@ interface PlayerCharacter extends Character {
 		StimulationFlash: boolean;
 		SmoothZoom: boolean;
 		CenterChatrooms: boolean;
+		AllowBlur: boolean;
 	}
 	NotificationSettings?: {
 		/** @deprecated */
