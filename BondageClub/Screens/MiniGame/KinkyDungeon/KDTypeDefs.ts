@@ -1,17 +1,17 @@
 /** Kinky Dungeon Typedefs*/
-interface item {
+type item = {
 	/** Name of the item*/
 	name: string,
 	/** Type of the item*/
 	type?: string,
+	/** Faction of the applied item */
+	faction?: string,
 	/** Events associated with the item*/
 	//weapon?: KinkyDungeonWeapon, /** Item weapon data, if applicable*/
 	//consumable?: any, /** Item consumable data, if applicable*/
 	events?: KinkyDungeonEvent[],
 	/** Number of consumables in the inventory*/
 	quantity?: number,
-	/** Outfit data, if applicable*/
-	outfit?: any,
 	//looserestraint?: any, /** Loose restraint data, if applicable*/
 	//restraint?: any, /** Which restraint the item is associated with*/
 	/** Type of lock, Red, Blue, or Gold (potentially more in future)*/
@@ -32,6 +32,8 @@ interface item {
 	dynamicLink?: string[],
 	/** Stores linked item locks*/
 	oldLock?: string[],
+	/** Stores linked item factions*/
+	oldFaction?: string[],
 	/** Stores linked item tightness*/
 	oldTightness?: number[],
 	/** Stores linked item tightness*/
@@ -92,7 +94,7 @@ interface consumable {
 	useQuantity?: number,
 }
 
-interface restraint {
+type restraint = {
 	/** Determines if the item appears in aroused mode only */
 	arousalMode?: boolean,
 	name: string,
@@ -105,12 +107,16 @@ interface restraint {
 	weight: number,
 	/** Minimum floor for the restraint to be used by enemies */
 	minLevel: number,
+	/** Maximum level, wont be used at this or higher. Inclusive. */
+	maxLevel?: number,
 	/** Relative power level. Used to determine if the restraint will get overridden by a more powerful one */
 	power: number,
 	/** Copied to the events variable */
 	events?: KinkyDungeonEvent[],
+	/** The item is present on all floors */
+	allFloors?: boolean,
 	/** Determines the floors the restraint can appear on */
-	floors: Map<any, any>,
+	floors?: Map<any, any>,
 	escapeChance: {
 		Struggle?: number,
 		Cut?: number,
@@ -232,7 +238,7 @@ interface restraint {
 	/** Multiplies the escape chance */
 	escapeMult?: number,
 	/** Clothes for dressing */
-	alwaysDress?: any[],
+	alwaysDress?: overrideDisplayItem[],
 	/** The item always bypasses covering items, such as dresses and chastity belts */
 	bypass?: boolean,
 	/** The item can only be cut with magical implements */
@@ -261,8 +267,24 @@ interface restraint {
 	enchantedDrain?: number,
 	/** Whether or not this is an Ancient item, prison respects it */
 	enchanted?: boolean,
+	/** Faction primary color index */
+	factionColor?: number[],
 }
 
+interface overrideDisplayItem {
+	/** Bondage club asset */
+	Item: string,
+	/** Group */
+	Group: string,
+	/** Color */
+	Color: string[]|string,
+	/** Whether or not it overrides items already on */
+	override?: boolean,
+	/** Uses the player's hair color as the item color */
+	useHairColor?: boolean,
+	/** Used for overriding BC priority */
+	OverridePriority?: number[]|number,
+}
 
 interface enemy {
 	name: string,
@@ -311,6 +333,8 @@ interface enemy {
 	terrainTags?: Record<string, number>,
 	/** */
 	floors?: Map<number, boolean>,
+	/** */
+	allFloors?: boolean,
 	/** */
 	noblockplayer?: boolean,
 	/** */
@@ -539,6 +563,23 @@ interface enemy {
 	spellWhileParole?: boolean,
 	/** This line is a suffic to the line they say when they want to play with you */
 	playLine?: string,
+	/** Blocks vision */
+	blockVision?: boolean,
+	/** Hit SFX for enemy special attack */
+	hitsfxSpecial?: string,
+	/** Effect when the enemy misses */
+	misssfx?: string,
+	/** The enemyeffect when player is hit */
+	effect?: any,
+	/** Cant cast spells while winding up an attack */
+	noSpellDuringAttack?: boolean,
+	/** Base faction of this enemy, overridden by the entity faction */
+	faction?: string,
+	/** This enemy does not channel its spells */
+	noChannel?: boolean,
+	/** Focuses player over summmons, ignores decoys */
+	focusPlayer?: boolean;
+
 
 }
 
@@ -574,6 +615,13 @@ interface weapon {
 	events?: KinkyDungeonEvent[];
 	noHands?: boolean;
 	silent?: boolean;
+	special?: {
+		type: string,
+		spell?: string,
+		selfCast?: boolean,
+		requiresEnergy?: boolean,
+		energyCost?: number,
+		range?: number,};
 }
 
 interface KinkyDungeonEvent {
@@ -627,9 +675,15 @@ interface KinkyDungeonEvent {
 
 interface entity {
 	Enemy: enemy,
+	personality?: string,
+	patrolIndex?: number,
+	aggro?: number,
 	id?: number,
 	hp: number,
 	AI?: string,
+	moved?: boolean,
+	playerdmg?: number,
+	idle?: boolean,
 	summoned?: boolean,
 	boundLevel?: number,
 	lifetime?: number,
@@ -659,6 +713,9 @@ interface entity {
 	gxx?: number,
 	gyy?: number,
 	rage?: number,
+	hostile?: number,
+	faction?: string,
+	allied?: number,
 	bind?: number,
 	blind?: number,
 	slow?: number,
@@ -685,6 +742,243 @@ type KinkyDungeonDress = {
 	OverridePriority?: number;
 	Skirt?: boolean;
 }[]
+
+interface KinkyDialogueTrigger {
+	dialogue: string;
+	allowedPrisonStates?: string[];
+	/** Only allows the following personalities to do it */
+	allowedPersonalities?: string[];
+	blockDuringPlaytime?: boolean;
+	/** Exclude if enemy has one of these tags */
+	excludeTags?: string[];
+	/** Require all of these tags */
+	requireTags?: string[];
+	playRequired?: boolean;
+	/** If any NPC is in combat in last 3 turns this wont happen */
+	noCombat?: boolean;
+	/** Prevents this from happening if the target is hostile */
+	nonHostile?: boolean;
+	prerequisite: (enemy: entity, dist: number) => boolean;
+	weight: (enemy: entity, dist: number) => number;
+}
+
+interface spell {
+	name: string;
+	/** Whether the spell defaults to the Player faction */
+	allySpell?: boolean;
+	/** Whether the spell defaults to the Enemy faction */
+	enemySpell?: boolean;
+	/** Conjure, Illusion, Elements */
+	school?: string;
+	/** if the type is special, this is the special type */
+	special?: string;
+	/** Damage of the spell */
+	power?: number;
+	/** Damage type */
+	damage?: string;
+	/** size of sprite */
+	size?: number;
+	/** AoE */
+	aoe?: number;
+	/** bind */
+	bind?: number;
+	/** Bonus daMAGE TO BOUND TATRGETS */
+	boundBonus?: number;
+	/** outfit applied (special parameter) */
+	outfit?: string;
+	/** speed */
+	speed?: number;
+	knifecost?: number;
+	staminacost?: number;
+	manacost: number;
+	/** Verbal, arms, or legs */
+	components?: any[];
+	/** Spell level */
+	level: number;
+	/** Whether the spell is passive (like the summon count up) or active like the bolt or toggle spells*/
+	passive?: boolean;
+	/** costOnToggle */
+	costOnToggle?: boolean;
+	/** Type of the spell */
+	type: string;
+	/** Type of effect on hit */
+	onhit?: string;
+	/** Duration of the status effect applied */
+	time?: number;
+	/** For Inert spells, this is the lifetime of the main bullet */
+	delay?: number;
+	/** castRange */
+	castRange?: number;
+	/** Spell range */
+	range?: number;
+	/** lifetime of the Hit bullet created by the spell, not the bullet itself in the case of an "inert" bullet*/
+	lifetime?: number;
+	/** Specifically for the bullet lifetime, currently unused */
+	bulletLifetime?: number;
+	/** channel turns */
+	channel?: number;
+	/** Noise spell makes on cast */
+	noise?: number;
+	/** block */
+	block?: number;
+	/** played on cast */
+	sfx?: string;
+	/** Played on damage dealt */
+	hitsfx?: string;
+	/** Played on bullet impact */
+	landsfx?: string;
+	/** trailPower */
+	trailPower?: number;
+	/** trailHit */
+	trailHit?: string;
+	/** trailLifetime */
+	trailLifetime?: number;
+	/** trailTime */
+	trailTime?: number;
+	/** Random number to increase lifetime by */
+	lifetimeHitBonus?: number;
+	/** Random number to increase trail lifetime by */
+	trailLifetimeBonus?: number;
+	/** Playereffect of the trail */
+	trailPlayerEffect?: any;
+	/** trailChance */
+	trailChance?: number;
+	/** trailDamage */
+	trailDamage?: string;
+	/** trailspawnaoe */
+	trailspawnaoe?: number;
+	/** Casts a spell as a trail */
+	trailcast?: any;
+	/** trail */
+	trail?: string;
+	/** Spell points cost to buy */
+	spellPointCost?: number;
+	/** Whether the spell heals or not */
+	heal?: boolean;
+	/** Whether AI treats as a buff */
+	buff?: boolean;
+	/** Player can only cast spell on a creature or player */
+	mustTarget?: boolean;
+	/** Player cant target player */
+	noTargetPlayer?: boolean;
+	/** Only target walls */
+	WallsOnly?: boolean;
+	/** Spell can be dodged */
+	evadeable?: boolean;
+	/** Targeting location */
+	meleeOrigin?: boolean;
+	/** Cant hit the same enemy twice per turrn, impoprtant for piercing spells */
+	noDoubleHit?: boolean;
+	/** Doesnt do spellcast on the hit */
+	noCastOnHit?: boolean;
+	/** Casts a spellcast during the delay */
+	castDuringDelay?: boolean;
+	/** Casts spell */
+	spellcast?: any;
+	/** Casts spell on cast */
+	extraCast?: any;
+	/** spell cast on hit */
+	spellcasthit?: any;
+	/** List of buffs applied by the spell */
+	buffs?: any[];
+	/** Whether the spell is off by default */
+	defaultOff?: boolean;
+	/** List of events  applied by the spell */
+	events?: KinkyDungeonEvent[];
+	/** spell pierces */
+	piercing?: boolean;
+	/** spell pierces */
+	passthrough?: boolean;
+	/** Deals DoT */
+	dot?: boolean;
+	/** spell pierces */
+	noTerrainHit?: boolean;
+	/** spell pierces */
+	noEnemyCollision?: boolean;
+	/** trail pierces */
+	piercingTrail?: boolean;
+	/** nonVolatile */
+	nonVolatile?: boolean;
+	/** Cancels automove when cast */
+	cancelAutoMove?: boolean;
+	/** noTargetDark */
+	noTargetDark?: boolean;
+	/** selfTargetOnly */
+	selfTargetOnly?: boolean;
+	/** AI will only target creatures with this tag */
+	filterTags?: string[];
+	/** Whether or not sends a message on cast */
+	msg?: boolean;
+	/** Suppress summon message */
+	noSumMsg?: boolean;
+	/** Targeted like a bolt, showing the aim line */
+	projectileTargeting?: boolean;
+	/** CastInWalls */
+	CastInWalls?: boolean;
+	/** noTargetEnemies */
+	noTargetEnemies?: boolean;
+	/** Sets the enemy's specialCD shared between others */
+	specialCD?: number;
+	/** AI wont choose this as first choice */
+	noFirstChoice?: boolean;
+	/** Player effect */
+	playerEffect?: any;
+	/** Doesnt send cast message */
+	noCastMsg?: boolean;
+	/** Casts on self always */
+	selfcast?: boolean;
+	/** Cant miscast */
+	noMiscast?: boolean;
+	/** summon */
+	summon?: any[];
+	/** Spell does not show up in the spells scrreen until learned */
+	secret?: boolean;
+	/** Enemies summoned by this spell will have their default faction and not the caster's faction */
+	defaultFaction?: boolean;
+
+}
+
+interface KinkyDialogue {
+	/** REPLACETEXT -> Replacement */
+	data?: Record<string, string>;
+	/** Function to play when clicked. If not specified, nothing happens. */
+	clickFunction?: (gagged: boolean) => void;
+	/** Function to play when clicked, if considered gagged. If not specified, will use the default function. */
+	gagFunction?: () => void;
+	/** Will not appear unless function returns true */
+	prerequisiteFunction?: (gagged: boolean) => boolean;
+	/** Will appear greyed out unless true */
+	greyoutFunction?: (gagged: boolean) => boolean;
+	greyoutTooltip?: string;
+	/** List of personalities supported by this dialogue */
+	personalities?: string[];
+	/** Jumps to the specified dialogue when clicked, after setting the response string*/
+	leadsTo?: string;
+	leadsToStage?: string;
+	/** After leading to another dialogue, the response will NOT be updated */
+	dontTouchText?: boolean;
+	exitDialogue?: boolean;
+	/** The response the NPC will give when this dialogue is clicked. If response is "null", then it keeps the original, "" uses pregenerated
+	 * The string name will be "r" + response with a couple of enemy-specific variations
+	 */
+	response?: string;
+	/** The option for you to select for this dialogue. "" means pregenerated, OK to put "" for top-level KinkyDialogues
+	 * The string name will be "d" + response
+	 */
+	playertext?: string;
+	/** Whether or not this line has a gag-specific dialogue line */
+	gag?: boolean;
+	/** Threshold at which the player is considered gagged for this dialogue. Default is 0.01*/
+	gagThreshold?: number;
+	/** Whether or not this option appears while gagged */
+	gagDisabled?: boolean;
+	/** Whether or not this option appears while ungagged */
+	gagRequired?: boolean;
+	/** Options to display */
+	options?: Record<string, KinkyDialogue>;
+	/** Name of a dialogue to get extra options from. Merges them, preferring this dialogue's options if the name is the same */
+	extraOptions?: string;
+}
 
 interface KinkyDungeonSave {
 	level: number;
@@ -717,6 +1011,7 @@ interface KinkyDungeonSave {
 	spells: string[];
 	inventory: item[];
 	KDGameData: KDGameDataBase;
+	flags: [string, number][];
 	stats: {
 		picks: number;
 		keys: number;

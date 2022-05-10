@@ -10,12 +10,15 @@ var PlatformRoom = null;
 var PlatformGravitySpeed = 6;
 var PlatformLastKeyCode = 0;
 var PlatformLastKeyTime = 0;
-var PlatformExperienceForLevel = [0, 10, 15, 25, 40, 60, 90, 135, 200, 300, 500];
+var PlatformExperienceForLevel = [0, 10, 15, 25, 40, 60, 90, 135, 200, 300];
 var PlatformShowHitBox = false;
 var PlatformMessage = null;
 var PlatformHeal = null;
 var PlatformEvent = [];
 var PlatformDrawUpArrow = [null, null];
+var PlatformButtons = null;
+var PlatformRunDirection = "";
+var PlatformRunTime = 0;
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -150,7 +153,7 @@ var PlatformTemplate = [
 			//{ Name: "StandAttackSlow", Cycle: [0, 1, 2, 3, 3, 3, 3, 2, 1, 0], Speed: 60 },
 			//{ Name: "CrouchAttackFast", Cycle: [0, 1, 2, 3, 3, 3, 3, 2, 1, 0], Speed: 40 },
 			//{ Name: "CrouchAttackSlow", Cycle: [0, 1, 2, 3, 3, 3, 3, 2, 1, 0], Speed: 60 },
-		], 
+		],
 		Attack: [
 			//{ Name: "StandAttackFast", HitBox: [135, -365, 30, 30], Animation: [3], Damage: 2, Speed: 400 },
 			//{ Name: "StandAttackSlow", HitBox: [135, -365, 30, 30], Animation: [3], Damage: 3, Speed: 600 },
@@ -434,8 +437,8 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "BathroomOlivia",
-		Entry: function() { 
-			if (PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaBath")) PlatformCreateCharacter("Olivia", "Chastity", 1050, true, false, "OliviaBath"); 
+		Entry: function() {
+			if (PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaBath")) PlatformCreateCharacter("Olivia", "Chastity", 1050, true, false, "OliviaBath");
 		},
 		Text: "Olivia's Bathroom",
 		Background: "Castle/BathroomOlivia",
@@ -539,12 +542,12 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "CastleHall4W3",
-		Entry: function() { 
+		Entry: function() {
 			if (PlatformEventDone("Curse")) {
 				PlatformCreateCharacter("Lucy", "Armor", 1000);
 				PlatformCreateCharacter("Lucy", "Armor", 1400);
 			}
-		},		
+		},
 		Text: "4F - Roof Hallway - West 3",
 		Background: "Castle/Hall4W1",
 		Width: 2400,
@@ -927,7 +930,7 @@ function PlatformActionIs(C, ActionName) {
  * @returns {void} - Nothing
  */
 function PlatformDrawBackground() {
-	
+
 	// Draws the background within the borders
 	PlatformViewX = PlatformPlayer.X - 1000;
 	if (PlatformViewX < 0) PlatformViewX = 0;
@@ -1035,7 +1038,7 @@ function PlatformHitBoxClash(Source, Target, HitBox) {
 
 	// Exits right away if data is invalid
 	if ((Source == null) || (Target == null) || (HitBox == null)) return;
-	
+
 	// Finds the X and Y of the source hitbox
 	let SX1 = Source.X - (Source.Width / 2) + (HitBox[0] * Source.Width);
 	if (Source.FaceLeft) SX1 = Source.X + (Source.Width / 2) - (HitBox[2] * Source.Width);
@@ -1055,7 +1058,7 @@ function PlatformHitBoxClash(Source, Target, HitBox) {
 	// Shows the hitboxes if we debug
 	if (PlatformShowHitBox) {
 		DrawRect(SX1 - PlatformViewX, SY1 - PlatformViewY, SX2 - SX1, SY2 - SY1, "red");
-		DrawRect(TX1 - PlatformViewX, TY1 - PlatformViewY, TX2 - TX1, TY2 - TY1, "green");	
+		DrawRect(TX1 - PlatformViewX, TY1 - PlatformViewY, TX2 - TX1, TY2 - TY1, "green");
 		console.log(SX1 + " " + SX2 + " " + SY1 + " " + SY2);
 		console.log(TX1 + " " + TX2 + " " + TY1 + " " + TY2);
 	}
@@ -1090,7 +1093,7 @@ function PlatformProcessAction(Source, Time) {
 					}
 			if (PlatformHitBoxClash(Source, Target, HitBox))
 				return PlatformDamage(Source, Target, Damage, Time);
-		}	
+		}
 }
 
 /**
@@ -1135,11 +1138,39 @@ function PlatformBindPlayer(Source, Time) {
 }
 
 /**
+ * Returns TRUE if the player input is valid for a move
+ * @param {Object} Move - The movement type (Crouch, jump, left, right, etc.)
+ * @returns {boolean}
+ */
+function PlatformMoveActive(Move) {
+
+	// Crouching can be done by down on the joystick DPAD or S on the keyboard
+	if ((Move == "Crouch") && ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0))) return true;
+	if ((Move == "Crouch") && ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerDPadDown].pressed) return true;
+
+	// Moving left can be done with jostick DPAD or A or Z on the keyboard
+	if ((Move == "Left") && ((PlatformKeys.indexOf(65) >= 0) || (PlatformKeys.indexOf(97) >= 0) || (PlatformKeys.indexOf(81) >= 0) || (PlatformKeys.indexOf(113) >= 0))) return true;
+	if ((Move == "Left") && ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerDPadLeft].pressed) return true;
+
+	// Moving right can be done with jostick DPAD or D on the keyboard
+	if ((Move == "Right") && ((PlatformKeys.indexOf(68) >= 0) || (PlatformKeys.indexOf(100) >= 0))) return true;
+	if ((Move == "Right") && ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerDPadRight].pressed) return true;
+
+	// Jumping can be done by B on the joystick DPAD or spacebar on the keyboard
+	if ((Move == "Jump") && (PlatformKeys.indexOf(32) >= 0)) return true;
+	if ((Move == "Jump") && ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerA].pressed) return true;
+
+	// If all else fails, the move is not active
+	return false;
+
+}
+
+/**
  * Draw scenery + all characters, apply X and Y forces
  * @returns {void} - Nothing
  */
 function PlatformDraw() {
-	
+
 	// Check if we must enter a new room
 	PlatformEnterRoom(PlatformPlayer.FaceLeft ? "Left" : "Right");
 	if (PlatformPlayer.Bound) PlatformMessageSet(TextGet("GameOver"));
@@ -1153,36 +1184,36 @@ function PlatformDraw() {
 	if (PlatformPlayer.Health > 0) {
 
 		// Walk/Crawl left (A or Q for QWERTY and AZERTY)
-		if ((PlatformKeys.indexOf(65) >= 0) || (PlatformKeys.indexOf(97) >= 0) || (PlatformKeys.indexOf(81) >= 0) || (PlatformKeys.indexOf(113) >= 0)) {
+		if (PlatformMoveActive("Left")) {
 			PlatformPlayer.FaceLeft = true;
 			if (PlatformPlayer.ForceX > 0) PlatformPlayer.ForceX = 0;
-			else PlatformPlayer.ForceX = PlatformPlayer.ForceX - PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0))) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
+			else PlatformPlayer.ForceX = PlatformPlayer.ForceX - PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && PlatformMoveActive("Crouch")) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
 		}
 
 		// Walk/Crawl right
-		if ((PlatformKeys.indexOf(68) >= 0) || (PlatformKeys.indexOf(100) >= 0)) {
+		if (PlatformMoveActive("Right")) {
 			PlatformPlayer.FaceLeft = false;
 			if (PlatformPlayer.ForceX < 0) PlatformPlayer.ForceX = 0;
-			else PlatformPlayer.ForceX = PlatformPlayer.ForceX + PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0))) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
+			else PlatformPlayer.ForceX = PlatformPlayer.ForceX + PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && PlatformMoveActive("Crouch")) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
 		}
 
 		// Jump foces the player up on the Y axis
-		if ((PlatformKeys.indexOf(32) >= 0) && (PlatformPlayer.Y == PlatformFloor))
+		if (PlatformMoveActive("Jump") && (PlatformPlayer.Y == PlatformFloor))
 			PlatformPlayer.ForceY = PlatformPlayer.JumpForce * -1;
 
 	}
 
 	// Release jump
-	if ((PlatformKeys.indexOf(32) < 0) && (PlatformPlayer.ForceY < 0))
+	if (!PlatformMoveActive("Jump") && (PlatformPlayer.ForceY < 0))
 		PlatformPlayer.ForceY = PlatformPlayer.ForceY + PlatformWalkFrame(PlatformGravitySpeed * 2, Frame);
-	
+
 	// If we must heal 1 HP to all characters in the room
 	let MustHeal = ((PlatformHeal != null) && (PlatformHeal < PlatformTime));
 	if (MustHeal) PlatformHeal = (PlatformRoom.Heal == null) ? null : CommonTime() + PlatformRoom.Heal;
-	
+
 	// Draw each characters
 	for (let C of PlatformChar) {
-	
+
 		// Enemies will stand up at half health if they were not restrained
 		if ((C.Health == 0) && (C.RiseTime != null) && (C.RiseTime < PlatformTime) && !C.Bound)
 			C.Health = Math.round(C.MaxHealth / 2);
@@ -1190,7 +1221,7 @@ function PlatformDraw() {
 		// Heal the character
 		if (MustHeal && (C.Health > 0) && (C.Health < C.MaxHealth))
 			C.Health++;
-		
+
 		// AI walks from left to right
 		if (!C.Camera && (C.Health > 0) && !C.Fix) {
 			if (C.FaceLeft) {
@@ -1216,7 +1247,7 @@ function PlatformDraw() {
 		// If the bind action has expired, we bind or release the target
 		if ((C.Action != null) && (C.Action.Name === "Bind") && (C.Action.Expire != null) && (C.Action.Target != null)) {
 			C.ForceX = 0;
-			if (C.Action.Expire < CommonTime()) {			
+			if (C.Action.Expire < CommonTime()) {
 				for (let Target of PlatformChar)
 					if (Target.ID == C.Action.Target) {
 						PlatformAddExperience(C, Target.ExperienceValue);
@@ -1238,9 +1269,9 @@ function PlatformDraw() {
 			C.Y = PlatformFloor;
 			C.NextJump = PlatformTime + 500;
 		}
-		
+
 		// Finds the animation based on what the character is doing
-		let Crouch = (C.Camera && ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0)));
+		let Crouch = (C.Camera && PlatformMoveActive("Crouch"));
 		if ((C.Health <= 0) && C.Bound) C.Anim = PlatformGetAnim(C, "Bound");
 		else if (C.Health <= 0) C.Anim = PlatformGetAnim(C, "Wounded");
 		else if (PlatformActionIs(C, "Any")) C.Anim = PlatformGetAnim(C, C.Action.Name, false);
@@ -1293,7 +1324,7 @@ function PlatformDraw() {
  * Runs and draws the screen.
  * @returns {void} - Nothing
  */
-function PlatformRun() {	
+function PlatformRun() {
 	PlatformDraw();
 	if (Player.CanWalk()) DrawButton(1900, 10, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
 }
@@ -1318,7 +1349,7 @@ function PlatformAttack(Source, Type) {
  */
 function PlatformClick() {
 	if (MouseIn(1900, 10, 90, 90) && Player.CanWalk()) return PlatformLeave();
-	PlatformAttack(PlatformPlayer, ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0)) ? "CrouchAttackFast" : "StandAttackFast");
+	PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
 }
 
 /**
@@ -1442,8 +1473,8 @@ function PlatformEventKeyDown(e) {
 	if (PlatformActionIs(PlatformPlayer, "Bind")) PlatformPlayer.Action = null;
 	if (e.keyCode == 32) PlatformPlayer.Action = null;
 	if ((e.keyCode == 87) || (e.keyCode == 119) || (e.keyCode == 90) || (e.keyCode == 122)) return PlatformEnterRoom("Up");
-	if ((e.keyCode == 76) || (e.keyCode == 108)) return PlatformAttack(PlatformPlayer, ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0)) ? "CrouchAttackFast" : "StandAttackFast");
-	if ((e.keyCode == 75) || (e.keyCode == 107)) return PlatformAttack(PlatformPlayer, ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0)) ? "CrouchAttackSlow" : "StandAttackSlow");
+	if ((e.keyCode == 76) || (e.keyCode == 108)) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
+	if ((e.keyCode == 75) || (e.keyCode == 107)) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackSlow" : "StandAttackSlow");
 	if ((e.keyCode == 79) || (e.keyCode == 111)) return PlatformBindStart(PlatformPlayer);
 	if ((PlatformRoom.Heal != null) && (e.keyCode >= 48) && (e.keyCode <= 57)) return PlatformSaveGame(e.keyCode - 48);
 	if (PlatformKeys.indexOf(e.keyCode) < 0) PlatformKeys.push(e.keyCode);
@@ -1458,4 +1489,45 @@ function PlatformEventKeyDown(e) {
  */
 function PlatformEventKeyUp(e) {
 	if (PlatformKeys.indexOf(e.keyCode) >= 0) PlatformKeys.splice(PlatformKeys.indexOf(e.keyCode), 1);
+}
+
+/**
+ * Handles the controller inputs
+ * @param {Object} Buttons - The buttons pressed on the controller
+ * @returns {boolean} - Always TRUE to indicate that the controller is handled
+ */
+function PlatformController(Buttons) {
+
+	// Double-tap management to run left
+	if ((Buttons[ControllerDPadLeft].pressed == true) && (ControllerGameActiveButttons.LEFT == false)) {
+		PlatformPlayer.Run = false;
+		if (PlatformRunDirection != "LEFT") {
+			PlatformRunDirection = "LEFT";
+		} else {
+			if ((CommonTime() <= PlatformRunTime + 333))
+				PlatformPlayer.Run = true;
+		}
+		PlatformRunTime = CommonTime();
+	}
+
+	// Double-tap management to run right
+	if ((Buttons[ControllerDPadRight].pressed == true) && (ControllerGameActiveButttons.RIGHT == false)) {
+		PlatformPlayer.Run = false;
+		if (PlatformRunDirection != "RIGHT") {
+			PlatformRunDirection = "RIGHT";
+		} else {
+			if ((CommonTime() <= PlatformRunTime + 333))
+				PlatformPlayer.Run = true;
+		}
+		PlatformRunTime = CommonTime();
+	}
+
+	// On a new A, X, Y or UP button, we activate the keyboard equivalent
+	if ((Buttons[ControllerB].pressed == true) && (ControllerGameActiveButttons.B == false)) PlatformEventKeyDown({ keyCode: 76 });
+	if ((Buttons[ControllerX].pressed == true) && (ControllerGameActiveButttons.X == false)) PlatformEventKeyDown({ keyCode: 75 });
+	if ((Buttons[ControllerY].pressed == true) && (ControllerGameActiveButttons.Y == false)) PlatformEventKeyDown({ keyCode: 79 });
+	if ((Buttons[ControllerDPadUp].pressed == true) && (ControllerGameActiveButttons.UP == false)) PlatformEventKeyDown({ keyCode: 90 });
+	PlatformButtons = Buttons;
+	return true;
+
 }

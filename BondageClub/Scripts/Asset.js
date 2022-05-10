@@ -199,6 +199,9 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		Attribute: AssetDef.Attribute || [],
 		PreviewIcons: AssetDef.PreviewIcons || [],
 		PoseMapping: AssetDef.PoseMapping || {},
+		Tint: Array.isArray(AssetDef.Tint) ? AssetDef.Tint : [],
+		AllowTint: Array.isArray(AssetDef.Tint) && AssetDef.Tint.length > 0,
+		DefaultTint: typeof AssetDef.DefaultTint === "string" ? AssetDef.DefaultTint : undefined,
 	}, AssetParsePoseProperties(AssetDef, Group.AllowPose.slice()));
 
 	// Ensure opacity value is valid

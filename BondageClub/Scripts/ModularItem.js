@@ -497,6 +497,7 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
 		if (typeof Property.OverridePriority === "number") mergedProperty.OverridePriority = Property.OverridePriority;
 		if (typeof Property.HeightModifier === "number") mergedProperty.HeightModifier = (mergedProperty.HeightModifier || 0) + Property.HeightModifier;
 		if (Property.OverrideHeight) mergedProperty.OverrideHeight = ModularItemMergeOverrideHeight(mergedProperty.OverrideHeight, Property.OverrideHeight);
+		if (Property.Tint) mergedProperty.Tint = CommonArrayConcatDedupe(mergedProperty.Tint, Property.Tint);
 		return mergedProperty;
 	}, /** @type ItemProperties */({
 		Type: ModularItemConstructType(modules, moduleValues),
@@ -508,6 +509,7 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
 		HideItem: Array.isArray(asset.HideItem) ? asset.HideItem.slice() : [],
 		AllowActivity: Array.isArray(asset.AllowActivity) ? asset.AllowActivity.slice() : [],
 		Attribute: Array.isArray(asset.Attribute) ? asset.Attribute.slice() : [],
+		Tint: Array.isArray(asset.Tint) ? asset.Tint.slice() : [],
 	}));
 }
 
@@ -738,11 +740,14 @@ function ModularItemGenerateValidationProperties(data) {
 	asset.AllowEffect = Array.isArray(asset.AllowEffect) ? asset.AllowEffect.slice() : [];
 	CommonArrayConcatDedupe(asset.AllowEffect, asset.Effect);
 	asset.AllowBlock = Array.isArray(asset.Block) ? asset.Block.slice() : [];
-	modules.forEach((module) => {
-		module.Options.forEach(({Property}) => {
-			if (Property && Property.Effect) CommonArrayConcatDedupe(asset.AllowEffect, Property.Effect);
-			if (Property && Property.Block) CommonArrayConcatDedupe(asset.AllowBlock, Property.Block);
-		});
-	});
+	for (const module of modules) {
+		for (const {Property} of module.Options) {
+			if (Property) {
+				if (Property.Effect) CommonArrayConcatDedupe(asset.AllowEffect, Property.Effect);
+				if (Property.Block) CommonArrayConcatDedupe(asset.AllowBlock, Property.Block);
+				if (Property.Tint && Array.isArray(Property.Tint) && Property.Tint.length > 0) asset.AllowTint = true;
+			}
+		}
+	}
 	asset.Layer.forEach((layer) => ModularItemGenerateLayerAllowTypes(layer, data));
 }

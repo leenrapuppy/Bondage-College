@@ -139,9 +139,9 @@ function KinkyDungeonConsumableEffect(Consumable) {
 	} else if (Consumable.type == "buff") {
 		KinkyDungeonApplyBuff(KinkyDungeonPlayerBuffs, {name: Consumable.name, type: Consumable.buff, power: Consumable.power, duration: Consumable.duration, aura: Consumable.aura});
 	} else if (Consumable.type == "recharge") {
-		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.AncientPowerSource, 1);
-		KinkyDungeonAddGold(-Consumable.rechargeCost);
-		KinkyDungeonAdvanceTime(1);
+		//KinkyDungeonChangeConsumable(KinkyDungeonConsumables.AncientPowerSource, 1);
+		//KinkyDungeonAddGold(-Consumable.rechargeCost);
+		//KinkyDungeonAdvanceTime(1);
 	} else if (Consumable.type == "shrineRemove") {
 		KinkyDungeonRemoveRestraintsWithShrine(Consumable.shrine);
 		KinkyDungeonAdvanceTime(1);
@@ -175,7 +175,7 @@ function KinkyDungeonAttemptConsumable(Name, Quantity) {
 		KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonFullpower"), "red", 1);
 		return false;
 	}
-	if (item.item && KDConsumable(item.item) && KDConsumable(item.item).type == "recharge" && KinkyDungeonGold < KDConsumable(item.item).rechargeCost) {
+	if (item.item && KDConsumable(item.item) && KDConsumable(item.item).type == "recharge") {
 		KinkyDungeonSendActionMessage(8, TextGet("KinkyDungeonInventoryItemAncientPowerSourceSpentUseFail"), "red", 1);
 		return false;
 	}
@@ -187,7 +187,7 @@ function KinkyDungeonAttemptConsumable(Name, Quantity) {
 
 	let needMouth = item.item && KDConsumable(item.item) && (KDConsumable(item.item).potion || KDConsumable(item.item).needMouth);
 	let needArms = !(item.item && KDConsumable(item.item) && KDConsumable(item.item).noHands);
-	let strictness = KinkyDungeonStrictness(false);
+	let strictness = KinkyDungeonStrictness(false, "ItemHands");
 	let maxStrictness = (item.item && KDConsumable(item.item) && KDConsumable(item.item).maxStrictness) ? KDConsumable(item.item).maxStrictness : 1000;
 
 	if (needMouth && ((!KDConsumable(item.item).potion && !KinkyDungeonCanTalk(true)) || (KDConsumable(item.item).potion && !KinkyDungeonCanDrink()))) {

@@ -339,6 +339,9 @@ function PreferenceInitPlayer() {
 	// Non-player specific settings
 	PreferenceInit(C);
 
+	// TODO: Remove before R81
+	PreferenceMigrate(C.ImmersionSettings, C.GraphicsSettings, "AllowBlur", true);
+
 	// If the settings aren't set before, construct them to replicate the default behavior
 
 	// Chat settings
@@ -434,6 +437,7 @@ function PreferenceInitPlayer() {
 	if (typeof C.ImmersionSettings.SenseDepMessages !== "boolean") C.ImmersionSettings.SenseDepMessages = false;
 	if (typeof C.ImmersionSettings.ChatRoomMuffle !== "boolean") C.ImmersionSettings.ChatRoomMuffle = false;
 	if (typeof C.ImmersionSettings.BlindAdjacent !== "boolean") C.ImmersionSettings.BlindAdjacent = false;
+	if (typeof C.ImmersionSettings.AllowTints !== "boolean") C.ImmersionSettings.AllowTints = true;
 
 	// Misc
 	if (typeof C.LastChatRoom !== "string") C.LastChatRoom = "";
@@ -498,6 +502,7 @@ function PreferenceInitPlayer() {
 	if (typeof C.GraphicsSettings.AnimationQuality !== "number") C.GraphicsSettings.AnimationQuality = 100;
 	if (typeof C.GraphicsSettings.SmoothZoom !== "boolean") C.GraphicsSettings.SmoothZoom = true;
 	if (typeof C.GraphicsSettings.CenterChatrooms !== "boolean") C.GraphicsSettings.CenterChatrooms = true;
+	if (typeof C.GraphicsSettings.AllowBlur !== "boolean") C.GraphicsSettings.AllowBlur = true;
 
 	// Notification settings
 	let NS = C.NotificationSettings;
@@ -567,6 +572,7 @@ function PreferenceInitPlayer() {
 		C.ImmersionSettings.SenseDepMessages = true;
 		C.ImmersionSettings.ChatRoomMuffle = true;
 		C.ImmersionSettings.BlindAdjacent = true;
+		C.ImmersionSettings.AllowTints = true;
 		C.OnlineSharedSettings.AllowPlayerLeashing = true;
 	}
 
@@ -602,8 +608,8 @@ function PreferenceInitNotificationSetting(setting, audio, defaultAlertType) {
 
 /**
  * Migrates a named preference from one preference object to another if not already migrated
- * @param {object} from - The preference object to migrate from
- * @param {object} to - The preference object to migrate to
+ * @param {any} from - The preference object to migrate from
+ * @param {any} to - The preference object to migrate to
  * @param {string} prefName - The name of the preference to migrate
  * @param {*} defaultValue - The default value for the preference if it doesn't exist
  * @returns {void} - Nothing
@@ -982,6 +988,7 @@ function PreferenceSubscreenImmersionRun() {
 	}
 	else if (PreferencePageCurrent === 2) {
 		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("StimulationEvents"), Player.ImmersionSettings.StimulationEvents, disableButtons); CheckHeight += CheckSpacing;
+		DrawCheckbox(500, CheckHeight, 64, 64, TextGet("AllowTints"), Player.ImmersionSettings.AllowTints, disableButtons); CheckHeight += CheckSpacing;
 	}
 
 	MainCanvas.textAlign = "center";
@@ -1045,6 +1052,7 @@ function PreferenceSubscreenImmersionClick() {
 			// Stimulation
 			if (MouseIn(500, CheckHeight, 64, 64)) Player.ImmersionSettings.StimulationEvents = !Player.ImmersionSettings.StimulationEvents;
 			CheckHeight += CheckSpacing;
+			if (MouseIn(500, CheckHeight, 64, 64)) Player.ImmersionSettings.AllowTints = !Player.ImmersionSettings.AllowTints;
 		}
 	}
 
@@ -1423,13 +1431,14 @@ function PreferenceSubscreenGraphicsRun() {
 		DrawText(TextGet("VFXVibrator"), 1000, 456, "Black", "Gray");
 		DrawCheckbox(500, 270, 64, 64, TextGet("SmoothZoom"), Player.GraphicsSettings.SmoothZoom);
 		DrawCheckbox(500, 350, 64, 64, TextGet("CenterChatrooms"), Player.GraphicsSettings.CenterChatrooms);
+		DrawCheckbox(500, 510, 64, 64, TextGet("AllowBlur"), Player.GraphicsSettings.AllowBlur);
 
 		MainCanvas.textAlign = "center";
-		DrawBackNextButton(500, 182, 450, 64, TextGet(Player.ArousalSettings.VFXFilter || PreferenceSettingsVFXFilterList[PreferenceSettingsVFXFilterIndex]), "White", "",
+		DrawBackNextButton(500, 190, 450, 64, TextGet(Player.ArousalSettings.VFXFilter || PreferenceSettingsVFXFilterList[PreferenceSettingsVFXFilterIndex]), "White", "",
 			() => TextGet(PreferenceSettingsVFXFilterList[(PreferenceSettingsVFXFilterIndex + PreferenceSettingsVFXFilterList.length - 1) % PreferenceSettingsVFXFilterList.length]),
 			() => TextGet(PreferenceSettingsVFXFilterList[(PreferenceSettingsVFXFilterIndex + 1) % PreferenceSettingsVFXFilterList.length]));
 
-		DrawBackNextButton(500, 422, 450, 64, TextGet(Player.ArousalSettings.VFXVibrator), "White", "",
+		DrawBackNextButton(500, 430, 450, 64, TextGet(Player.ArousalSettings.VFXVibrator), "White", "",
 			() => TextGet(PreferenceSettingsVFXVibratorList[(PreferenceSettingsVFXVibratorIndex + PreferenceSettingsVFXVibratorList.length - 1) % PreferenceSettingsVFXVibratorList.length]),
 			() => TextGet(PreferenceSettingsVFXVibratorList[(PreferenceSettingsVFXVibratorIndex + 1) % PreferenceSettingsVFXVibratorList.length]));
 
@@ -1488,18 +1497,19 @@ function PreferenceSubscreenGraphicsClick() {
 			PreferenceGraphicsWebGLOptions.powerPreference = !PreferenceGraphicsWebGLOptions.powerPreference;
 		}
 	} if (PreferencePageCurrent === 2) {
-		if (MouseIn(500, 182, 450, 64)) {
+		if (MouseIn(500, 190, 450, 64)) {
 			if (MouseX <= 825) PreferenceSettingsVFXFilterIndex = (PreferenceSettingsVFXFilterList.length + PreferenceSettingsVFXFilterIndex - 1) % PreferenceSettingsVFXFilterList.length;
 			else PreferenceSettingsVFXFilterIndex = (PreferenceSettingsVFXFilterIndex + 1) % PreferenceSettingsVFXFilterList.length;
 			Player.ArousalSettings.VFXFilter = PreferenceSettingsVFXFilterList[PreferenceSettingsVFXFilterIndex];
 		}
-		if (MouseIn(500, 422, 450, 64)) {
+		if (MouseIn(500, 430, 450, 64)) {
 			if (MouseX <= 825) PreferenceSettingsVFXVibratorIndex = (PreferenceSettingsVFXVibratorList.length + PreferenceSettingsVFXVibratorIndex - 1) % PreferenceSettingsVFXVibratorList.length;
 			else PreferenceSettingsVFXVibratorIndex = (PreferenceSettingsVFXVibratorIndex + 1) % PreferenceSettingsVFXVibratorList.length;
 			Player.ArousalSettings.VFXVibrator = PreferenceSettingsVFXVibratorList[PreferenceSettingsVFXVibratorIndex];
 		}
 		if (MouseIn(500, 270, 64, 64)) Player.GraphicsSettings.SmoothZoom = !Player.GraphicsSettings.SmoothZoom;
 		if (MouseIn(500, 350, 64, 64)) Player.GraphicsSettings.CenterChatrooms = !Player.GraphicsSettings.CenterChatrooms;
+		if (MouseIn(500, 510, 64, 64)) Player.GraphicsSettings.AllowBlur = !Player.GraphicsSettings.AllowBlur;
 	}
 }
 

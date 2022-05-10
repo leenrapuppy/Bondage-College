@@ -63,6 +63,7 @@ function TypedItemRegister(asset, config) {
 	TypedItemGenerateAllowType(data);
 	TypedItemGenerateAllowEffect(data);
 	TypedItemGenerateAllowBlock(data);
+	TypedItemGenerateAllowTint(data);
 	TypedItemRegisterSubscreens(asset, config);
 }
 
@@ -275,6 +276,23 @@ function TypedItemGenerateAllowBlock({asset, options}) {
 	asset.AllowBlock = Array.isArray(asset.Block) ? asset.Block.slice() : [];
 	for (const option of options) {
 		CommonArrayConcatDedupe(asset.AllowBlock, option.Property.Block);
+	}
+}
+
+/**
+ * Generates an asset's AllowTint property based on its typed item data.
+ * @param {TypedItemData} data - The typed item's data
+ * @returns {void} - Nothing
+ */
+function TypedItemGenerateAllowTint({asset, options}) {
+	if (asset.AllowTint) {
+		return;
+	}
+	for (const option of options) {
+		if (option.Property && Array.isArray(option.Property.Tint) && option.Property.Tint.length > 0) {
+			asset.AllowTint = true;
+			return;
+		}
 	}
 }
 

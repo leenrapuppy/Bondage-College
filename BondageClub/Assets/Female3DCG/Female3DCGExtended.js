@@ -1155,6 +1155,7 @@ var AssetFemale3DCGExtended = {
 							Type: "PetTape",
 							SetPose: ["BackElbowTouch"],
 							Block: ["ItemHands"],
+							HideItem: ["ClothAccessoryPoncho"],
 							Difficulty: 7,
 						}
 					},
@@ -1682,6 +1683,28 @@ var AssetFemale3DCGExtended = {
 				},
 			}
 		},
+		Slime: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Position", Key: "p",
+						Options: [
+							{}, // p0 - Arms behind back
+							{ Property: { Difficulty: 2, SetPose: ["Hogtied"] } }, // p1 - Hogtied
+						],
+					},
+					{
+						Name: "Type", Key: "t",
+						Options: [
+							{}, // t0 - Normal slime
+							{ Property: { Difficulty: 3 } }, // t1 - Slime girl
+						]
+					}
+				],
+				ChatTags: [CommonChatTags.DEST_CHAR, CommonChatTags.TARGET_CHAR],
+			}
+		}
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {
@@ -1739,6 +1762,15 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { AssetName: "BallGag", GroupName: "ItemMouth" },
 		}, // ComboHarness
+		BonedNeckCorset: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{ Name: "NoRing", Property: { Type: null } },
+					{ Name: "Ring", Property: { Type: "Ring" } },
+				],
+			}
+		}, // BonedNeckCorset
 	}, // ItemNeck
 	ItemNeckAccessories: {
 		CustomCollarTag: {
@@ -1846,6 +1878,7 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
 				ChatSetting: ModularItemChatSetting.PER_MODULE,
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR, CommonChatTags.TARGET_CHAR],
 				Modules: [
 					{
 						Name: "Eyes", Key: "e",
@@ -1981,24 +2014,28 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									CustomBlindBackground: "",
 									Effect: [],
+									Tint: [{ Color: 0, Strength: 0.1 }],
 								}
 							}, // v1 Transparent Visor
 							{
 								Property: {
 									CustomBlindBackground: "",
-									Effect: ["BlindLight", "Prone"]
+									Effect: ["BlindLight", "Prone"],
+									Tint: [{ Color: 0, Strength: 0.2 }],
 								},
 							}, // v2 Lightly Tinted Visor
 							{
 								Property: {
 									CustomBlindBackground: "",
-									Effect: ["BlindNormal", "Prone"]
+									Effect: ["BlindNormal", "Prone"],
+									Tint: [{ Color: 0, Strength: 0.5 }],
 								},
 							}, // v3 Heavily Tinted Visor
 							{
 								Property: {
 									CustomBlindBackground: "",
-									Effect: ["BlindHeavy", "Prone"]
+									Effect: ["BlindHeavy", "Prone"],
+									Tint: [{ Color: 0, Strength: 1 }],
 								},
 							}, // v4 Opaque Visor
 							{
@@ -2069,7 +2106,28 @@ var AssetFemale3DCGExtended = {
 				]
 			}
 
-		}// ZipperHood
+		}, // ZipperHood
+		HeadboxSeethrough: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
+				Options: [
+					{
+						Name: "Seethrough",
+						Property: {
+							Type: null
+						},
+					},
+					{
+						Name: "Opaque",
+						Property: {
+							Type: "Opaque"
+						},
+					},
+				],
+				DrawImages: false,
+			},
+		}, // HeadboxSeethrough
 	}, // ItemHood
 	ItemDevices: {
 		FuturisticCrate: {
@@ -2681,12 +2739,12 @@ var AssetFemale3DCGExtended = {
 								{}, // f2 - HalfBack
 								{}, // f3 - NoBack
 							],
-					},	
+					},
 					{
 							Name: "TopRestraints", Key: "t",
 							Options: [
 								{}, // t0 - No
-								{	
+								{
 								Prerequisite: ["CuffedArmsOrEmpty"],
 									Property: {
 										Difficulty: 22,
@@ -2704,7 +2762,7 @@ var AssetFemale3DCGExtended = {
 										AllowActivePose: ["LegsClosed", "BaseLower"],
 										Block: ["ItemArms"],
 										Effect: ["Prone", "Freeze", "Block", "BlockKneel", "Mounted"],
-										
+
 									},
 								}, // t2 - RopeTight
 								{
@@ -2785,7 +2843,7 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //WoodenRack
-		
+
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {
@@ -5678,6 +5736,7 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: "LightTint",
 							Effect: ["BlindLight", "Prone"],
+							Tint: [{Color: 0, Strength: 0.2}],
 						},
 					},
 					{
@@ -5685,6 +5744,7 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: "HeavyTint",
 							Effect: ["BlindNormal", "Prone"],
+							Tint: [{Color: 0, Strength: 0.5}],
 						},
 					},
 					{
@@ -5726,6 +5786,7 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: "LightTint",
 							Effect: ["BlindLight", "Prone"],
+							Tint: [{ Color: 0, Strength: 0.2 }]
 						},
 					},
 					{
@@ -5733,6 +5794,7 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: "HeavyTint",
 							Effect: ["BlindNormal", "Prone"],
+							Tint: [{ Color: 0, Strength: 0.5 }]
 						},
 					},
 					{
