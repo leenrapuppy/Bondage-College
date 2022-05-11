@@ -80,16 +80,21 @@ var ExtendedItemSubscreen = null;
  */
 function ExtendedItemLoad(Options, DialogKey) {
 	if (!DialogFocusItem.Property) {
+		const C = CharacterGetCurrent();
 		// Default to the first option if no property is set
+		let InitialProperty = Options[0].Property;
 		DialogFocusItem.Property = JSON.parse(JSON.stringify(Options[0].Property));
-		// If the default type is not the null type, update the item to use this type
-		if (Options[0].Property.Type != null) {
-			const C = CharacterGetCurrent();
+
+		// If the default type is not the null type, check whether the default type is blocked
+		if (InitialProperty && InitialProperty.Type && InventoryBlockedOrLimited(C, DialogFocusItem, InitialProperty.Type)) {
 			// If the first option is blocked by the character, switch to the null type option
-			if (InventoryBlockedOrLimited(C, DialogFocusItem, Options[0].Property.Type)) {
-				const BaseOption = Options.find(O => O.Property.Type == null);
-				if (BaseOption != null) DialogFocusItem.Property = JSON.parse(JSON.stringify(BaseOption));
-			}
+			const InitialOption = Options.find(O => O.Property.Type == null);
+			if (InitialOption) InitialProperty = InitialOption.Property;
+		}
+
+		// If there is an initial property, set it and update the character
+		if (InitialProperty) {
+			DialogFocusItem.Property = JSON.parse(JSON.stringify(InitialProperty));
 			CharacterRefresh(C);
 			ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 		}
