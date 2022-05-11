@@ -5716,7 +5716,7 @@ var AssetFemale3DCG = [
 					{ Name: "Mask", AllowColorize: true },
 					{ Name: "Edges", AllowColorize: true },
 				],
-				Tint: [{Color: 1, Strength: 0.2}],
+				Tint: [{Color: 1, Strength: 0.1}],
 				DefaultTint: "#ccc",
 			},
 			{ Name: "OpenFaceHood", Fetish: ["Latex"], Value: 35, Priority: 40, Difficulty: 5, Time: 15, AllowLock: false, DefaultColor: "#404040", BuyGroup: "OpenFace", Block: ["ItemEars"], Hide: ["HairFront"], HideItem: ["HatFurHeadband"] , Extended: true, HasType: false },
