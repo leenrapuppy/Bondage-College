@@ -19,6 +19,7 @@ var PlatformDrawUpArrow = [null, null];
 var PlatformButtons = null;
 var PlatformRunDirection = "";
 var PlatformRunTime = 0;
+var PlatformLastTouch = null;
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -1147,18 +1148,22 @@ function PlatformMoveActive(Move) {
 	// Crouching can be done by down on the joystick DPAD or S on the keyboard
 	if ((Move == "Crouch") && ((PlatformKeys.indexOf(83) >= 0) || (PlatformKeys.indexOf(115) >= 0))) return true;
 	if ((Move == "Crouch") && ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerDPadDown].pressed) return true;
+	if ((Move == "Crouch") && CommonTouchActive(150, 850, 100, 100)) return true;
 
 	// Moving left can be done with jostick DPAD or A or Z on the keyboard
 	if ((Move == "Left") && ((PlatformKeys.indexOf(65) >= 0) || (PlatformKeys.indexOf(97) >= 0) || (PlatformKeys.indexOf(81) >= 0) || (PlatformKeys.indexOf(113) >= 0))) return true;
 	if ((Move == "Left") && ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerDPadLeft].pressed) return true;
+	if ((Move == "Left") && CommonTouchActive(50, 750, 100, 100)) return true;
 
 	// Moving right can be done with jostick DPAD or D on the keyboard
 	if ((Move == "Right") && ((PlatformKeys.indexOf(68) >= 0) || (PlatformKeys.indexOf(100) >= 0))) return true;
 	if ((Move == "Right") && ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerDPadRight].pressed) return true;
+	if ((Move == "Right") && CommonTouchActive(250, 750, 100, 100)) return true;
 
 	// Jumping can be done by B on the joystick DPAD or spacebar on the keyboard
 	if ((Move == "Jump") && (PlatformKeys.indexOf(32) >= 0)) return true;
 	if ((Move == "Jump") && ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerA].pressed) return true;
+	if ((Move == "Jump") && CommonTouchActive(1850, 750, 100, 100)) return true;
 
 	// If all else fails, the move is not active
 	return false;
@@ -1315,6 +1320,18 @@ function PlatformDraw() {
 	// Draws the player last to put her in front
 	PlatformDrawCharacter(PlatformPlayer, PlatformTime);
 
+	// Draws the mobile buttons
+	if (CommonIsMobile) {
+		DrawEmptyRect(50, 750, 100, 100, CommonTouchActive(50, 750, 100, 100) ? "cyan" : "#FFFFFF80", 4);
+		DrawEmptyRect(250, 750, 100, 100, CommonTouchActive(250, 750, 100, 100) ? "cyan" : "#FFFFFF80", 4);
+		DrawEmptyRect(150, 650, 100, 100, CommonTouchActive(150, 650, 100, 100) ? "cyan" : "#FFFFFF80", 4);
+		DrawEmptyRect(150, 850, 100, 100, CommonTouchActive(150, 850, 100, 100) ? "cyan" : "#FFFFFF80", 4);
+		DrawEmptyRect(1650, 750, 100, 100, CommonTouchActive(1650, 750, 100, 100) ? "cyan" : "#FFFFFF80", 4);
+		DrawEmptyRect(1850, 750, 100, 100, CommonTouchActive(1850, 750, 100, 100) ? "cyan" : "#FFFFFF80", 4);
+		DrawEmptyRect(1750, 650, 100, 100, CommonTouchActive(1750, 650, 100, 100) ? "cyan" : "#FFFFFF80", 4);
+		DrawEmptyRect(1750, 850, 100, 100, CommonTouchActive(1750, 850, 100, 100) ? "cyan" : "#FFFFFF80", 4);
+	}
+
 	// Keeps the time of the frame for the next run
 	PlatformLastTime = PlatformTime;
 
@@ -1327,6 +1344,7 @@ function PlatformDraw() {
 function PlatformRun() {
 	PlatformDraw();
 	if (Player.CanWalk()) DrawButton(1900, 10, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
+	if (CommonIsMobile) PlatformTouch();
 }
 
 /**
@@ -1349,7 +1367,7 @@ function PlatformAttack(Source, Type) {
  */
 function PlatformClick() {
 	if (MouseIn(1900, 10, 90, 90) && Player.CanWalk()) return PlatformLeave();
-	PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
+	if (!CommonIsMobile) PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
 }
 
 /**
@@ -1530,4 +1548,16 @@ function PlatformController(Buttons) {
 	PlatformButtons = Buttons;
 	return true;
 
+}
+
+/**
+ * Handles the touched regions for mobile play
+ * @returns {void}
+ */
+function PlatformTouch() {
+	if (CommonTouchActive(150, 650, 100, 100) && !CommonTouchActive(150, 650, 100, 100, PlatformLastTouch)) PlatformEventKeyDown({ keyCode: 90 });
+	if (CommonTouchActive(1750, 850, 100, 100) && !CommonTouchActive(1750, 850, 100, 100, PlatformLastTouch)) PlatformEventKeyDown({ keyCode: 76 });
+	if (CommonTouchActive(1650, 750, 100, 100) && !CommonTouchActive(1650, 750, 100, 100, PlatformLastTouch)) PlatformEventKeyDown({ keyCode: 75 });
+	if (CommonTouchActive(1750, 650, 100, 100) && !CommonTouchActive(1750, 650, 100, 100, PlatformLastTouch)) PlatformEventKeyDown({ keyCode: 79 });
+	PlatformLastTouch = CommonTouchList;
 }

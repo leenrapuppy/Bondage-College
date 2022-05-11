@@ -22,6 +22,7 @@ var CommonPhotoMode = false;
 var GameVersion = "R0";
 const GameVersionFormat = /^R([0-9]+)(?:(Alpha|Beta)([0-9]+)?)?$/;
 var CommonVersionUpdated = false;
+var CommonTouchList = null;
 
 /**
  * An enum encapsulating possible chatroom message substitution tags. Character name substitution tags are interpreted
@@ -262,6 +263,28 @@ function CommonClick(event) {
 		CurrentScreenFunctions.Click(event);
 	else
 		DialogClick();
+}
+
+/**
+ * Returns TRUE if a section of the screen is currently touched on a mobile device
+ * @param {number} X - The X position
+ * @param {number} Y - The Y position
+ * @param {number} W - The width of the square
+ * @param {number} H - The height of the square
+ * @param {object} TL - Can give a specific touch event instead of the default one
+ * @returns {boolean}
+ */
+function CommonTouchActive(X, Y, W, H, TL) {
+	if (!CommonIsMobile) return false;
+	if (TL == null) TL = CommonTouchList;
+	if (TL != null)
+		for (let Touch of TL) {
+			let TouchX = Math.round((Touch.pageX - MainCanvas.canvas.offsetLeft) * 2000 / MainCanvas.canvas.clientWidth);
+			let TouchY = Math.round((Touch.pageY - MainCanvas.canvas.offsetTop) * 1000 / MainCanvas.canvas.clientHeight);
+			if ((TouchX >= X) && (TouchX <= X + W) && (TouchY >= Y) && (TouchY <= Y + H))
+				return true;
+		}
+	return false;
 }
 
 /**
