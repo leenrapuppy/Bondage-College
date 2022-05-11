@@ -174,6 +174,9 @@ let LoginInventoryFixups = [
  * @param {{Group: string, Name: string}[]} Appearance - The server-provided appearance object
  */
 function LoginPerformInventoryFixups(Inventory, Appearance) {
+	// Skip fixups on new characters
+	if (!Inventory || !Appearance) return;
+
 	let listsUpdated = false;
 	LoginInventoryFixups.forEach(fixup => {
 		// For every asset fixup to do, update the inventory
