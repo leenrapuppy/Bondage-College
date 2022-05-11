@@ -4146,6 +4146,26 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // PonyGag
+		LatexSheathGag: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Thin",
+						Property: { Type: null, Effect: ["OpenMouth",], },
+					},
+					{
+						Name: "Thick",
+						Property: { Type: "Thick", Effect: ["OpenMouth", "GagVeryLight"],},
+					},
+					{
+						Name: "VeryThick",
+						Property: { Type: "VeryThick", Effect: ["OpenMouth", "GagMedium"],},
+					},
+				],
+				DrawImages: false,
+			},
+		}, //LatexSheathGag
 	}, // ItemMouth
 	ItemMouth2: {
 		ClothGag: {
