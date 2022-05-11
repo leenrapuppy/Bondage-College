@@ -2115,7 +2115,8 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Seethrough",
 						Property: {
-							Type: null
+							Type: null,
+							Tint: [{Color: 0, Strength: 1}],
 						},
 					},
 					{
