@@ -2415,7 +2415,7 @@ var AssetFemale3DCG = [
 				Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemPelvis"],
 				HideItemAttribute: ["Skirt"],
 				HideItemExclude: ["ClothLowerGown2Skirt"],
-				HideItem: ["ClothBabydollDress1", "ClothBondageDress1", "ClothBondageDress2", "ClothAdultBabyDress2", "ClothDressFur", "ClothFlowerDress", "ClothFuzzyDress", "ClothGrandMage", "ClothDress3", "ClothNurseUniform", "ClothGown3", "ClothStudentOutfit1", "ClothStudentOutfit2", "ClothBodyTowel1", "ClothYukata1", "PantiesBulkyDiaper", "PantiesPoofyDiaper", "ItemPelvisBulkyDiaper", "ItemPelvisPoofyDiaper"],
+				HideItem: ["ClothBabydollDress1", "ClothBondageDress1", "ClothBondageDress2", "ClothChineseDress1", "ClothDressFur", "ClothFlowerDress", "ClothFuzzyDress", "ClothGrandMage", "ClothDress3", "ClothNurseUniform", "ClothRobe1", "ClothGown3", "ClothStudentOutfit1", "ClothStudentOutfit2", "ClothSummerDress", "ClothTeacherOutfit1", "ClothBodyTowel1", "ClothSweater1", "ClothVirginKiller1", "ClothYukata1", "PantiesBulkyDiaper", "PantiesPoofyDiaper", "ItemPelvisBulkyDiaper", "ItemPelvisPoofyDiaper"],
 				Layer: [
 					{ Name: "One" },
 					{ Name: "Two" },
