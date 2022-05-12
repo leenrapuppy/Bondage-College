@@ -206,12 +206,19 @@ function TitleClick() {
 function TitleExit() {
 	let Regex = /^[a-zA-Z\s]*$/;
 	let Nick = ElementValue("InputNickname");
+	var tmpname = Player.Nickname;
 	if (Nick == null) Nick = "";
 	Nick = Nick.trim().substring(0, 20);
 	if (Regex.test(Nick)) {
-		Player.Nickname = Nick;
-		ServerAccountUpdate.QueueData({ Nickname: Nick });
-		ElementRemove("InputNickname");
-		CommonSetScreen("Character", "InformationSheet");
+                if (Nick == Player.Name) {   
+                        ServerSend("ChatRoomChat", { Content: "Beep", Type: "Action", Dictionary: [{Tag: "Beep", Text: ""+tmpname+" is now known as "+Player.Name+"." }]});
+                }
+                if ((Nick != Player.Name) && (Nick != tmpname)) {
+                       ServerSend("ChatRoomChat", { Content: "Beep", Type: "Action", Dictionary: [{Tag: "Beep", Text: ""+tmpname+" is now known as "+Nick+"." }]});
+                }
+                Player.Nickname = Nick;
+	        ServerAccountUpdate.QueueData({ Nickname: Nick });
+	        ElementRemove("InputNickname");
+                CommonSetScreen("Character", "InformationSheet");
 	}
 }
