@@ -211,12 +211,12 @@ function TitleExit() {
 	if (Nick == null) Nick = "";
 	Nick = Nick.trim().substring(0, 20);
 	if (Regex.test(Nick)) {
-                if (Nick == Player.Name || ((Nick != Player.Name) && (Nick != tmpname)) ) {  
+		 if (Nick != tmpname) {   
 			ChatRoomPublishCustomAction("NicknameChange", false, dictionary);
-                }
-                Player.Nickname = Nick;
-	        ServerAccountUpdate.QueueData({ Nickname: Nick });
-	        ElementRemove("InputNickname");
-                CommonSetScreen("Character", "InformationSheet");
+		}
+	Player.Nickname = Nick;
+	ServerAccountUpdate.QueueData({ Nickname: Nick });
+	ElementRemove("InputNickname");
+	CommonSetScreen("Character", "InformationSheet");
 	}
 }
