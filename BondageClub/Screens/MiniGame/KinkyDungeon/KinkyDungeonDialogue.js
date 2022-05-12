@@ -39,6 +39,9 @@ function KDGetDialogue() {
 	return dialogue;
 }
 
+let KDMaxDialogue = 7;
+let KDOptionOffset = 0;
+
 function KDDrawDialogue() {
 	DrawImageCanvas(KinkyDungeonRootDirectory + "DialogBackground.png", MainCanvas, 500, 250);
 	if (KDGameData.CurrentDialog && !(KinkyDungeonSlowMoveTurns > 0)) {
@@ -64,9 +67,13 @@ function KDDrawDialogue() {
 		// Draw the options
 		if (dialogue.options) {
 			let entries = Object.entries(dialogue.options);
+			if (entries.length > KDMaxDialogue) {
+				DrawButton(1350, 450, 90, 40, "", KDOptionOffset > 0 ? "white" : "#888888", KinkyDungeonRootDirectory + "Up.png");
+				DrawButton(1350, 450 + (KDMaxDialogue - 1) * 60 + 10, 90, 40, "", KDOptionOffset + KDMaxDialogue < entries.length ? "white" : "#888888", KinkyDungeonRootDirectory + "Down.png");
+			}
 			let II = 0;
 			let gagged = KDDialogueGagged();
-			for (let i = 0; i < entries.length; i++) {
+			for (let i = KDOptionOffset; i < entries.length && i < KDOptionOffset + KDMaxDialogue; i++) {
 				if ((!entries[i][1].prerequisiteFunction || entries[i][1].prerequisiteFunction(gagged))
 					&& (!entries[i][1].gagRequired || gagged)
 					&& (!entries[i][1].gagDisabled || !gagged)) {
@@ -98,6 +105,7 @@ function KDStartDialog(Dialogue, Speaker, Click, Personality, enemy) {
 	KinkyDungeonInterruptSleep();
 	KinkyDungeonAutoWait = false;
 	KinkyDungeonDialogueTimer = CommonTime() + 1000 + KinkyDungeonSlowMoveTurns * 200;
+	KDOptionOffset = 0;
 	KDSendInput("dialogue", {dialogue: Dialogue, dialogueStage: "", click: Click, speaker: Speaker, personality: Personality, enemy: enemy ? enemy.id : undefined});
 }
 
@@ -117,14 +125,25 @@ function KDHandleDialogue() {
 		// Handle the options
 		if (dialogue.options) {
 			let entries = Object.entries(dialogue.options);
+			if (entries.length > KDMaxDialogue) {
+				if (MouseIn(1350, 450, 90, 40) && KDOptionOffset > 0) {
+					KDOptionOffset -= 1;
+					return true;
+				} else if (MouseIn(1350, 450 + (KDMaxDialogue - 1) * 60 + 10, 90, 40) && KDOptionOffset + KDMaxDialogue < entries.length) {
+					KDOptionOffset += 1;
+					return true;
+				}
+			}
 			let II = 0;
 			let gagged = KDDialogueGagged();
-			for (let i = 0; i < entries.length; i++) {
+			for (let i = KDOptionOffset; i < entries.length && i < KDOptionOffset + KDMaxDialogue; i++) {
 				if ((!entries[i][1].prerequisiteFunction || entries[i][1].prerequisiteFunction(gagged))
 					&& (!entries[i][1].gagRequired || gagged)
 					&& (!entries[i][1].gagDisabled || !gagged)) {
 					if (MouseIn(700, 450 + II * 60, 600, 50)) {
+						KDOptionOffset = 0;
 						KDSendInput("dialogue", {dialogue: KDGameData.CurrentDialog, dialogueStage: KDGameData.CurrentDialogStage + ((KDGameData.CurrentDialogStage) ? "_" : "") + entries[i][0], click: true});
+						return true;
 					}
 					II += 1;
 				}

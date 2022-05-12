@@ -821,6 +821,21 @@ Spell Balance:
 3.31
 - Buffs are now shown in the bottom right
 - Summon AI has been tweaked to be less suicidal and stick around the player more
+- There are now a lot more traps
+- Added indicator for jail/chase/parole modes
+- Reworked struggling. Struggle is now more effective at low progress, the others are more effective at high progress. Remove and Cut use the same bar as struggling
+- Added logbook for viewing logs
+- Logs are now stored in browser localstorage instead of solely in BC
+- New interface for lore and inventory to make it easier to browse
+- Vibration rework!
+- Added multiple configs for starting perks
+- NPCs will now approach you looking to buy items
+- Rescue now grants you an angel to help you out instead
+
+3.32
+- New enemy: Skillful zombie
+- New door lock trap
+- New Ectoplasm item, gained from killing ghosts
 
 TODO ValidationFindBlockCycles to prevent bugs
 

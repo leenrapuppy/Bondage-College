@@ -46,6 +46,24 @@ function KinkyDungeonResetEventVariablesTick(delta) {
  */
 const KDEventMapInventory = {
 	"tick": {
+		"PeriodicTeasing": (e, item, data) => {
+			if (!e.chance || KDRandom() < e.chance) {
+				if (!KDGameData.CurrentVibration && KDGameData.TimeSinceLastVibeEnd > e.cooldown) {
+					KinkyDungeonStartVibration(item.name, "tease", KDGetVibeLocation(item), e.power, e.time, undefined, undefined, undefined, undefined, e.edgeOnly);
+					if (e.sfx) KinkyDungeonPlaySound(KinkyDungeonRootDirectory + "/Audio/" + e.sfx + ".ogg");
+				}
+			}
+		},
+		"PeriodicDenial": (e, item, data) => {
+			if (!e.chance || KDRandom() < e.chance) {
+				if (!KDGameData.CurrentVibration && KDGameData.TimeSinceLastVibeEnd > e.cooldown) {
+					KinkyDungeonStartVibration(item.name, "deny", KDGetVibeLocation(item), e.power, e.time, 3, 12, undefined, undefined, undefined, false, 0.1, 1.0);
+					if (e.sfx) KinkyDungeonPlaySound(KinkyDungeonRootDirectory + "/Audio/" + e.sfx + ".ogg");
+				} else {
+					KinkyDungeonAddVibeModifier(item.name, "tease", KDRestraint(item).Group, 0, e.time, e.power, false, true, false, false, true, 0.1, 1.0);
+				}
+			}
+		},
 		"AccuracyBuff": (e, item, data) => {
 			KinkyDungeonApplyBuff(KinkyDungeonPlayerBuffs, {
 				id: item.name + e.type + e.trigger,
@@ -451,7 +469,26 @@ const KDEventMapInventory = {
 			}
 		}
 	},
+	"remoteVibe": {
+		"RemoveActivatedVibe": (e, item, data) => {
+			if (!KDGameData.CurrentVibration) {
+				KinkyDungeonStartVibration(item.name, "tease", KDGetVibeLocation(item), e.power, e.time, undefined, undefined, undefined, undefined, e.edgeOnly);
+				KinkyDungeonSendTextMessage(5, TextGet("KinkyDungeonStartVibeRemote").replace("EnemyName", TextGet("Name" + data.enemy)), "pink", 2);
+				if (e.sfx) KinkyDungeonPlaySound(KinkyDungeonRootDirectory + "/Audio/" + e.sfx + ".ogg");
+			}
+		}
+	},
 	"playerCast": {
+		"MagicallySensitive": (e, item, data) => {
+			if (!e.chance || KDRandom() < e.chance) {
+				if (!KDGameData.CurrentVibration) {
+					KinkyDungeonStartVibration(item.name, "tease", KDGetVibeLocation(item), e.power, e.time, undefined, undefined, undefined, undefined, e.edgeOnly);
+				} else {
+					KinkyDungeonAddVibeModifier(item.name, "reinforce", KDRestraint(item).Group, 1, e.time);
+				}
+				if (e.sfx) KinkyDungeonPlaySound(KinkyDungeonRootDirectory + "/Audio/" + e.sfx + ".ogg");
+			}
+		},
 		"AlertEnemies": (e, item, data) => {
 			if (!e.chance || KDRandom() < e.chance) {
 				KinkyDungeonAlert = Math.max(KinkyDungeonAlert, e.power);

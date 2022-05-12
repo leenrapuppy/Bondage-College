@@ -3,7 +3,7 @@ KinkyDungeonPatrons,Patrons
 KinkyDungeonDeviantart,News and Updates
 KinkyDungeonPatreon,Support @ Patreon
 KinkyDungeonPatronsList0,"Thank you to the following awesome people for supporting me at <patreon.com/ada18980>:|selly-grim|Dex♪|Churro|Gamefan|Shogo|X27|Blox|The-Fisher-King|Jeremy P.|Samantha Lear|Slacker|Nikos S.|Kara|WATA|Flame|Alexis Octavia|Finn|Dmitri S.|Noxgarm|Siegfried K.|Hellgete|nnm711|ItsYahboi9"
-KinkyDungeonPatronsList1,"Thank you to the following awesome people for supporting me at <patreon.com/ada18980>:||nuzzles|Rest|LoudestQuietPerson|AlexisTheFlame|Violet EverGardner|BoopleDoopleson|Dazman1234|linlizheng|Laioken|Mechio|Vikingberserker|PWMRM|cyberjoel|"
+KinkyDungeonPatronsList1,"Thank you to the following awesome people for supporting me at <patreon.com/ada18980>:||nuzzles|Rest|LoudestQuietPerson|AlexisTheFlame|Violet EverGardner|BoopleDoopleson|Dazman1234|linlizheng|Laioken|Mechio|Vikingberserker|PWMRM|cyberjoel|devan|LukeB"
 KinkyDungeonBack,Back
 KinkyDungeonNext,Next
 KinkyDungeonCreditsList0,"Many sprites for bound enemies created by Song|Audio:|Potion drink - Jamius|Click - StrikeWhistler - Modified|StoneDoor_Close - AudioTorpedo - Modified|Footstep - Fission9 - Modified|FireSpell - Julien Matthey|LightSwing - qubodup|Heavy Swing - orangesheepdog|Miss - Brsjak - Modified|Clap - DWSD - Modified|'Door, Front, Closing, A.wav' by InspectorJ (www.jshaw.co.uk) of Freesound.org|'Door, Front, Opening, A.wav' by InspectorJ (www.jshaw.co.uk) of Freesound.org|Chest Open - spookymodem - Modified|Unlock - BeezleFM|Unbuckle - danhelbling|Scissors - qubodup|Rummage - adcbicycle|Fairy Dust - jacksonacademyashmore|Metal Smash - gristi|Door locked.wav - mitchanary - Modified|Coins.wav - Saviraz"
@@ -182,6 +182,16 @@ KinkyDungeonStat57,"Disorganized"
 KinkyDungeonStatDesc57,"Switching weapons, learning/choosing spells, and casting from spellbook takes 3 turns."
 
 
+KinkyDungeonBuffSlimeForm,Slime Form
+KinkyDungeonBuffShroud2,"Shroud"
+KinkyDungeonBuffCamo,"Camoflage"
+KinkyDungeonBuffShadowBlade,"Darkblade"
+KinkyDungeonBuffInvisibility,"Invisibility"
+KinkyDungeonBuffLesserInvisibility,"Lesser Invisibility"
+KinkyDungeonBuffCutting,"FULL POWER"
+KinkyDungeonBuffSlippery,"Graceful"
+KinkyDungeonBuffIronBlood,"Iron Blood"
+
 KinkyDungeonDifficulty,Choose game mode:
 KinkyDungeonDifficulty0,Beginner: Get a save code every 3 levels, autosave after each floor
 KinkyDungeonDifficulty1,"Roguelike: No save codes, only autosave"
@@ -222,12 +232,12 @@ End3,"Better luck next time!"
 EndWin,"You have reached the end of the playable portion."
 EndWin2,"Come back later for new dungeons!"
 
-StatWeapon,"Weapon: "
+StatWeapon,""
 StatMiscastChance,"Miscast: Percent"
-StatDistraction,"Distraction: CURRENT/MAX"
-StatStamina,"Stamina: CURRENT/MAX"
+StatDistraction,"DP: CURRENT/MAX"
+StatStamina,"SP: CURRENT/MAX"
 StatWillpower,"Willpower: CURRENT/MAX"
-StatMana,"Mana: CURRENT/MAX"
+StatMana,"MP: CURRENT/MAX"
 StatUsePotion,"Use Potion"
 KinkyDungeonManaCost," MP"
 KinkyDungeonSleep,"Go to sleep"
@@ -256,6 +266,8 @@ GameConfigKeys,Change Keybindings
 
 KinkyDungeonLoadConfirm,"Load from code"
 KinkyDungeonLoadBack,"Back to main menu"
+KinkyDungeonClearAll,"Clear Perks"
+KinkyDungeonConfig,"Config "
 
 KinkyDungeonKeyUp,Up
 KinkyDungeonKeyDown,Down
@@ -399,9 +411,9 @@ KinkyDungeonInventoryItemDragon,Prisoner Uniform
 KinkyDungeonInventoryItemDragonDesc,The uniform of choice for girls captured by the dragonhearts.
 KinkyDungeonInventoryItemDragonDesc2,"Designed to make it hard to conceal weapons. No bonuses, no penalties."
 
-KinkyDungeonInventoryItemBlueSuit,Scientific Uniform
-KinkyDungeonInventoryItemBlueSuitDesc,An outfit designed to leave little to the imagination.
-KinkyDungeonInventoryItemBlueSuitDesc2,"No bonuses, no penalties."
+KinkyDungeonInventoryItemBlueSuitPrison,Scientific Uniform
+KinkyDungeonInventoryItemBlueSuitPrisonDesc,An outfit designed to leave little to the imagination.
+KinkyDungeonInventoryItemBlueSuitPrisonDesc2,"No bonuses, no penalties."
 
 KinkyDungeonInventoryItemElven,Elven Dress
 KinkyDungeonInventoryItemElvenDesc,A regal minidress worn by visitors to the forest.
@@ -490,9 +502,9 @@ KinkyDungeonInventoryItemPotionStaminaUse,You drink the stamina potion and feel 
 KinkyDungeonInventoryItemPotionStaminaDesc,"A potion brimming with heat and energy."
 KinkyDungeonInventoryItemPotionStaminaDesc2,"Restores 33% stamina and 67% more over 12 turns. Effect does not stack."
 KinkyDungeonInventoryItemPotionFrigid,Frigid Potion
-KinkyDungeonInventoryItemPotionFrigidUse,"You chug the frigid, bitter concoction and feel chilled to the bone."
+KinkyDungeonInventoryItemPotionFrigidUse,"You chug the concoction and your senses numb, helping you concentrate."
 KinkyDungeonInventoryItemPotionFrigidDesc,"A freezing cold bottle with a bitter scent."
-KinkyDungeonInventoryItemPotionFrigidDesc2,"Reduces distraction to 0 instantly."
+KinkyDungeonInventoryItemPotionFrigidDesc2,"Reduces distraction to 0 instantly and grants 0.8 Distraction decay for 50 turns."
 KinkyDungeonInventoryItemSmokeBomb,Smoke Bomb
 KinkyDungeonInventoryItemSmokeBombUse,You toss the smoke bomb and it explodes in your location!
 KinkyDungeonInventoryItemSmokeBombDesc,"A type of pyrotechnic often employed by saboteurs. Can be used without hands."
@@ -501,6 +513,10 @@ KinkyDungeonInventoryItemPotionInvisibility,Invisibility Potion
 KinkyDungeonInventoryItemPotionInvisibilityUse,You chug the concoction and see your body fading away.
 KinkyDungeonInventoryItemPotionInvisibilityDesc,"You feel liquid inside, but you can't see it!"
 KinkyDungeonInventoryItemPotionInvisibilityDesc2,"Casts Invisibility on yourself."
+KinkyDungeonInventoryItemEctoplasm,Ectoplasm
+KinkyDungeonInventoryItemEctoplasmUse,"Like a moisturizing cream, except it's made from coagulated souls."
+KinkyDungeonInventoryItemEctoplasmDesc,"Can be used without hands. Just apply directly to the forehead!"
+KinkyDungeonInventoryItemEctoplasmDesc2,"Makes you harder to see for 10 turns."
 KinkyDungeonInventoryItemEarthRune,Earth Rune
 KinkyDungeonInventoryItemEarthRuneUse,"You smash the rune in front of you, and glowing rocks rise from the earth."
 KinkyDungeonInventoryItemEarthRuneDesc,"It feels unsettling to look at."
@@ -603,7 +619,7 @@ KinkyDungeonInventoryItemSlimethrowerDesc,"Deals crush damage. Can be used to sp
 KinkyDungeonInventoryItemSlimethrowerDesc2,"Drains 1.5% ancient energy to create a pool of slime that deals 35 glue damage per tile and slows enemies."
 KinkyDungeonInventoryItemMagicAxe,Enchanted Axe
 KinkyDungeonInventoryItemMagicAxeDesc,"Sick and vile, like the hearts of your enemies."
-KinkyDungeonInventoryItemMagicAxeDesc2,"Deals void damage to the target and 20 void damage to enemies next to you. Slows for 3 turns."
+KinkyDungeonInventoryItemMagicAxeDesc2,"Deals shadow damage to the target and 20 shadow damage to enemies next to you. Slows for 3 turns."
 KinkyDungeonInventoryItemPickaxe,Pickaxe
 KinkyDungeonInventoryItemPickaxeDesc,"Used for drilling holes in rock and armor."
 KinkyDungeonInventoryItemPickaxeDesc2,"Deals pierce damage. Reduces enemy armor by 15 for 6 turns."
@@ -632,6 +648,44 @@ KinkyDungeonPlayerSpellResist,"SpellResist: "
 KinkyDungeonPlayerSneak,"Invisible!"
 KinkyDungeonPlayerReduction,"Shield: "
 KinkyDungeonPlayerDamageResist,"DAMAGETYPE Mod: "
+KinkyDungeonPlayerParole,"Released from Jail"
+KinkyDungeonPlayerChase,"On the Run!"
+KinkyDungeonPlayerJail,"Imprisoned!"
+KinkyDungeonPlayerSlow4,Crawling slowly!
+KinkyDungeonPlayerSlow3,Inching slowly!
+KinkyDungeonPlayerSlow2,Hopping slowly!
+KinkyDungeonPlayerSlow,Slowed!
+KinkyDungeonPlayerPlugged,"Plugged!"
+KinkyDungeonPlayerPluggedExtreme,"Filled!"
+KinkyDungeonPlayerDenied,"Denied!"
+KinkyDungeonPlayerVibrated0,"Teasing..."
+KinkyDungeonPlayerVibrated1,"Vibrating Gently!"
+KinkyDungeonPlayerVibrated2,"Vibrating!"
+KinkyDungeonPlayerVibrated3,"Vibrating Intensely!"
+KinkyDungeonPlayerVibrated4,"Vibrating Powerfully!"
+KinkyDungeonPlayerVibrated5,"Vibrating Torturously!"
+
+KinkyDungeonPlayerVibratedLocationItemNipplesPiercings,Nipples
+KinkyDungeonPlayerVibratedLocationItemNipples,Nipples
+KinkyDungeonPlayerVibratedLocationItemBreast,Breasts
+KinkyDungeonPlayerVibratedLocationItemPelvis,Panties
+KinkyDungeonPlayerVibratedLocationItemVulvaPiercings,Piercing
+KinkyDungeonPlayerVibratedLocationItemVulva,Front
+KinkyDungeonPlayerVibratedLocationItemButt,Rear
+KinkyDungeonPlayerVibratedLocationItemBoots,Feet
+KinkyDungeonPlayerVibratedLocationMultiple,Everywhere!
+
+
+KinkyDungeonVibing0,You feel a gentle buzz...
+KinkyDungeonVibing1,Your toys tease you gently...
+KinkyDungeonVibing2,Your toys are vibrating.
+KinkyDungeonVibing3,Your toys are buzzing strongly!
+KinkyDungeonVibing4,Your toys vibrate intensely!
+KinkyDungeonVibing5,The vibration is torturous!
+
+KinkyDungeonPlayerEdged,"Edged!"
+KinkyDungeonPlayerStatisfied,"Statisfied..."
+
 
 KinkyDungeonWeaponDamage,"Damage: "
 KinkyDungeonWeaponAccuracy,"Accuracy: "
@@ -684,6 +738,11 @@ KinkyDungeonAngelDefeated,"Angel: MMMMMPHH!!!"
 
 KinkyDungeonAngelUnlock,"(The angel looks puzzled and unlocks your divine restraints)"
 
+
+NameDoorLock,Mystic Lock
+KillDoorLock,"The mystic lock fades, allowing you to pass once more."
+KinkyDungeonSummonSingleDoorLock,"As you cross the threshold, a mystical lock appears to prevent you from stepping back!"
+KinkyDungeonTrapDoorLock,"As you cross the threshold, a mystical lock appears to prevent you from stepping back!"
 
 NameDecoy,Illusion
 KillDecoy,"The illusion vanishes into thin air."
@@ -798,10 +857,15 @@ AttackElementalAirLock,"The air elemental slips a lock on!"
 AttackElementalAir,"The air elemental spanks you playfully! (-DamageTaken SP)"
 
 
-NameFastZombie,Ravenous Zombie
+NameFastZombie,Willful Zombie
 KillFastZombie,"The zombie screams and tumbles to the floor."
 AttackFastZombieBind,"The zombie swiftly wraps you in charms! (+RestraintAdded)"
 AttackFastZombie,"The zombie gropes your body! (-DamageTaken SP)"
+
+NameNawashiZombie,Skillful Zombie
+KillNawashiZombie,"The zombie smiles as it collapses to the ground."
+AttackNawashiZombieBind,"The zombie swiftly ties you! (+RestraintAdded)"
+AttackNawashiZombie,"The zombie cuddles with your body! (-DamageTaken SP)"
 
 
 NameMageZombie,Mage Zombie
@@ -1136,7 +1200,7 @@ AttackRibbons,"The ribbons wrap themselves around you! (-DamageTaken SP)"
 NameGag,Gravitating Gag
 KillGag,"The gag buckles itself in place and falls."
 AttackGagBind,"The gravitating gag wedges itself firmly in your mouth and buckles itself! (+RestraintAdded)"
-AttackGag,"The gravitating gag rubs itself against you! (-DamageTaken SP)"
+AttackGag,"The gravitating gag rubs itself against your gagged lips! (-DamageTaken SP)"
 
 NameCuffs,Seductive Shackles
 KillCuffs,"The shackles' chain breaks as they fall to the floor."
@@ -1161,7 +1225,7 @@ AttackLearnedRope,"The magic rope wriggles into your outfit! (-DamageTaken SP)"
 
 NameUnforseenRope,Unforseen Rope
 KillUnforseenRope,"The unforseen rope is gone... or is it?"
-AttackUnforseenRopeBind,"The unforseen rope wraps itself intricately around your body! (+RestraintAdded)"
+AttackUnforseenRopeBind,"The unforseen rope wraps itself clandestinely around your body! (+RestraintAdded)"
 AttackUnforseenRope,"The unforseen rope wriggles into your outfit! (-DamageTaken SP)"
 
 NameMonsterRope,Monster Rope
@@ -1176,18 +1240,18 @@ AttackWitchShock,"The witch slaps you playfully!"
 
 NameApprentice,Witch's Apprentice
 KillApprentice,"The apprentice runs off and cries in a corner."
-AttackApprenticeBind,"The apprentice clips a restraint around your neck!"
+AttackApprenticeBind,"The apprentice animates restraints to wrap around you!"
 AttackApprentice,"The apprentice slaps you playfully!"
 
 NameApprentice2,Summoner's Apprentice
 KillApprentice2,"The apprentice runs off and cries in a corner."
-AttackApprentice2Bind,"The apprentice clips a restraint around your neck!"
-AttackApprentice2,"The apprentice slaps you playfully!"
+AttackApprentice2Bind,"The apprentice summons a restraint onto you!"
+AttackApprentice2,"The apprentice tickles you playfully!"
 
 NameApprenticeSlime,Latex Apprentice
 KillApprenticeSlime,"The apprentice runs off and cries in a corner."
-AttackApprenticeSlimeBind,"The apprentice clips a restraint around your neck!"
-AttackApprenticeSlime,"The apprentice slaps you playfully!"
+AttackApprenticeSlimeBind,"The apprentice attaches a sticky restraint!"
+AttackApprenticeSlime,"The apprentice caresses you playfully!"
 
 NameWitchChain,Chain Witch
 KillWitchChain,"The chain witch vanishes into a pile of metal dust, leaving behind a keyring."
@@ -1331,7 +1395,7 @@ KinkyDungeonGuardDisappear,The guard leaves and locks the cell behind her.
 
 
 KinkyDungeonLeashed,"You are grabbed and led to a prison..."
-KinkyDungeonLeashed2,"You may plead to a goddess for rescue in the Reputation screen."
+KinkyDungeonLeashed2,"Perhaps they may release you if you behave..."
 
 
 NameNecromancer,Necromancer
@@ -1420,14 +1484,22 @@ KinkyDungeonStruggleStruggleSuccess,"You manage to squeeze out of the TargetRest
 KinkyDungeonStrugglePickSuccess,"You pick the lock on the TargetRestraint!"
 KinkyDungeonAttemptPickSuccess,"You pick the lock on the TargetRestraint!"
 KinkyDungeonStruggleRemoveSuccess,"You free yourself from the TargetRestraint!"
-KinkyDungeonStruggleCutSuccess,"You cut the TargetRestraint off!"
+KinkyDungeonStruggleCutSuccess,"You damage the TargetRestraint enough to escape!"
+
+KinkyDungeonStruggleCutDestroy,"The TargetRestraint is destroyed by your attempts."
+
+KinkyDungeonStruggleLimit,"You've reached the limits of your strength. Maybe it's loose enough to remove..."
+KinkyDungeonRemoveLimit,"The item is too tight. You'll need to loosen it somehow first..."
+KinkyDungeonCutLimit,"The item is to tight to get your tool into position. You'll have to first make it looser."
+KinkyDungeonPickLimit,"You can't quite get your pick into position. Maybe if you loosened the item first..."
+KinkyDungeonUnlockLimit,"You can't reach the lock. You'll have to loosen the item somehow first..."
 
 KinkyDungeonStruggleUnlockSuccessAroused,"You unlock the TargetRestraint and sigh with relief."
 KinkyDungeonStruggleStruggleSuccessAroused,"You give out a huge moan as you squeeze out of the TargetRestraint!"
 KinkyDungeonStrugglePickSuccessAroused,"You pick the lock on the TargetRestraint with a sigh of relief!"
 KinkyDungeonAttemptPickSuccessAroused,"You pick the lock on the TargetRestraint with a sigh of relief!"
 KinkyDungeonStruggleRemoveSuccessAroused,"Trembling, you free yourself from the TargetRestraint!"
-KinkyDungeonStruggleCutSuccessAroused,"You cut the TargetRestraint off in a frenzy!"
+KinkyDungeonStruggleCutSuccessAroused,"You damage the TargetRestraint enough to wiggle out!"
 
 KinkyDungeonStruggleStruggleImpossible,"The item is too secure to struggle out."
 KinkyDungeonStruggleStruggleImpossibleAroused,"You groan in frustration as you realize the item is too tight to escape."
@@ -1554,6 +1626,8 @@ KinkyDungeonDropRedKey,"You drop the key due to your bound hands!"
 KinkyDungeonDropBlueKey,"You drop the magic key due to your bound hands!"
 KinkyDungeonDropGreenKey,"You drop the magic key due to your bound hands!"
 
+KinkyDungeonLogbook,Logbook
+KinkyDungeonLogbookN,Logbook (N)
 KinkyDungeonAutoDoorOn,"Closing a door..."
 KinkyDungeonAutoDoorOff,"Close a door"
 KinkyDungeonCloseDoor,"Close Door"
@@ -1571,6 +1645,7 @@ KinkyDungeonPayShrineCommerce,"You leave the coins on the altar and they transfo
 KinkyDungeonObject,"object"
 
 KinkyDungeonObjectCharger,"It appears to be a receptacle for an ancient crystal."
+KinkyDungeonObjectChargerDestroyed,"It's a pile of slag emitting a strange magic smoke..."
 KinkyDungeonObjectLock,"That object is locked"
 KinkyDungeonObjectShrine,"A shrine to the goddess of TYPE. A pool of mana glimmers below."
 KinkyDungeonObjectShrineCommerce,"A shrine to the goddess of TYPE."
@@ -1976,7 +2051,7 @@ RestraintTrapVibeDesc,"An energetic little friend that likes to tease you."
 RestraintTrapVibeDesc2,"It is charged by residual magic from your spells."
 RestraintTrapVibeProto,Prototype Egg
 RestraintTrapVibeProtoDesc,"A teaser that periodically vibrates."
-RestraintTrapVibeProtoDesc2,"Also absorbs charge from your spells."
+RestraintTrapVibeProtoDesc2,"High efficiency mana conversion means longer tease duration."
 RestraintTrapPlug,Happy Plug
 RestraintTrapPlugDesc,"A sizeable plug that makes you happy and lets you go over the edge."
 RestraintTrapPlugDesc2,"It vibrates periodically and allows orgasms."
@@ -2540,9 +2615,11 @@ ItemPickupBlueKey,"You picked up a blue key."
 ItemPickupPotionHealth,"You picked up a willpower potion."
 ItemPickupPotionMana,"You picked up a glowing blue mana potion."
 ItemPickupPotionInvisibility,"You picked up an invisibility potion."
+ItemPickupEctoplasm,"You picked up a handful of ectoplasm."
 ItemPickupPotionStamina,"You picked up a green stamina potion."
 ItemPickupPotionFrigid,"You picked up a frigid white potion."
-ItemPickupLore,"You found a peculiar note on the ground."
+ItemPickupLore,"You found a peculiar note on the ground and keep it in your journal."
+ItemPickupLoreOld,"You found an uninteresting note on the ground."
 ItemPickupHammer,"You pick up a heavy hammer."
 ItemPickupBoltCutters,"You pick up a set of bolt cutters."
 ItemPickupSword,"You pick up a sharp sword."
@@ -2878,6 +2955,11 @@ KinkyDungeonSpellTargetInvisibility,Select which creature to buff
 KinkyDungeonSpellDescriptionInvisibility,Make the targeted creature invisible, increasing stealth for Duration turns
 KinkyDungeonSpellCastInvisibility,You snap your fingers!
 
+KinkyDungeonSpellLesserInvisibility,Lesser Invisibility
+KinkyDungeonSpellTargetLesserInvisibility,Select which creature to buff
+KinkyDungeonSpellDescriptionLesserInvisibility,Make the targeted creature invisible, increasing stealth for Duration turns
+KinkyDungeonSpellCastLesserInvisibility,You become semitransparent!
+
 KinkyDungeonSpellCamo,Camouflage
 KinkyDungeonSpellTargetCamo,Select yourself
 KinkyDungeonSpellDescriptionCamo,"Enemies have a harder time noticing you for Duration turns. Cancels if you move, cast, or sleep."
@@ -3079,7 +3161,9 @@ KinkyDungeonCrystalPunish2,"The crystals react to your struggle attempts with a 
 
 KinkyDungeonSpellCastFromBook,Cast Spell (XXX turn delay)
 
-KinkyDungeonStartVibe,You feel your toys start to to buzz...
+KinkyDungeonEndVibeCease,You feel the vibrations leaving your body...
+KinkyDungeonStartVibe,You feel your toys start to buzz...
+KinkyDungeonStartVibeContinue,You your toys continue to buzz...
 KinkyDungeonStartVibeRemote,The EnemyName remotely causes your toys to to buzz!!!
 KinkyDungeonPlugged,You feel the plugs inside you while walking.
 KinkyDungeonVibing0,You feel a gentle buzz...
@@ -3251,6 +3335,30 @@ KinkyDungeonSpellChoice2, "Current Spell 3: "
 KinkyDungeonSpellChoice3, "Current Spell 4: "
 KinkyDungeonSpellChoice4, "Current Spell 5: "
 
+KinkyDungeonCheckpointLoreUnknown,???
+KinkyDungeonCheckpointLore-1,Unfiled
+KinkyDungeonCheckpointLore0,Graveyard
+KinkyDungeonCheckpointLore1,Catacombs
+KinkyDungeonCheckpointLore2,Jungle
+KinkyDungeonCheckpointLore3,Temple
+KinkyDungeonCheckpointLore4,Graveyard
+KinkyDungeonCheckpointLore5,Graveyard
+KinkyDungeonCheckpointLore6,Graveyard
+KinkyDungeonCheckpointLore7,Graveyard
+KinkyDungeonCheckpointLore8,Graveyard
+KinkyDungeonCheckpointLore9,Graveyard
+KinkyDungeonCheckpointLore10,Mansion
+KinkyDungeonCheckpointLore11,Tombs
+KinkyDungeonCheckpointLore12,Library
+KinkyDungeonCheckpointLore13,Crystal Cave
+KinkyDungeonCheckpointLore14,Graveyard
+KinkyDungeonCheckpointLore15,Graveyard
+KinkyDungeonCheckpointLore16,Graveyard
+KinkyDungeonCheckpointLore17,Graveyard
+KinkyDungeonCheckpointLore18,Graveyard
+KinkyDungeonCheckpointLore19,Graveyard
+KinkyDungeonCheckpointLore20,Graveyard
+
 KinkyDungeonLore0,"(Preface from the journal of Catherine Willows, well-known explorer who vanished in the dungeon 30 years ago): I am writing this journal in the off chance that I do not come back in my search for the Mistress' staff. If you find this, please make an effort to deliver it back to the surface for the good of all the young women lured by its secrets."
 KinkyDungeonLore1,"(Pg. 24 from Catherine Willows' journal): Many who trowel the upper levels of the Mistress' tomb often ask rhetorically: 'Why are there weird kinky traps guarding treasure chests? Why not have real, deadly traps if the purpose is to dissuade intruders?'"
 KinkyDungeonLore2,"(Pg. 25 from Catherine Willows' journal): ...They make a crucial mistake: The treasure chests aren't trapped. Rather, they are full of gold. And we know that gold is pleasing to the gods: our economy runs on it, and the gods only make interventions in our day-to-day affairs because we give them gold. Lesser gods, known as spirits, also love gold, but unlike the gods we know, these lesser spirits cannot consume gold on an altar in one fell swoop like the gods can. Therefore, they need to physically inhabit the place where the gold sits, slowly draining it of its pleasing essence."
@@ -3263,10 +3371,10 @@ KinkyDungeonLore8,"(The note is from a famous escape artist) Anything can be unb
 KinkyDungeonLore9,"(The note is from a famous cartographer) It has been observed that the dungeon spirits are more active even after the regular inhabitants such as zombies or skeletons are cleared out. My hypothesis is that the spirits are too afraid to come out in the presence of a more powerful, embodied spirit."
 KinkyDungeonLore10,"(A letter between bandit leaders) One of my subordinates has been reporting a girl bound in heavy leather restraints running around. I told her that this is normal, people keep all kinds of servants around here. But definitely keep an eye out for intruders! Don't let them fool you!"
 KinkyDungeonLore11,"(The note is a letter from the school of conjuration) We really would like to know... why did you summon a frog in the laboratory? People are wondering, you know. One of the student's projects got eaten."
-KinkyDungeonLore12,"(You find a carving on the floor, a half-finished magic circle of celestial conjuration. Perhaps a cleric wished to call forth an angel for guidance, before realizing there was a shrine like, a short walk away, where she could contact the heavens much more easily.)"
+KinkyDungeonLore12,"(You find a carving on the floor, a half-finished magic circle of celestial conjuration. Perhaps a cleric wished to call forth an angel for guidance, before realizing there was a shrine a short walk away, where she could contact the heavens much more easily.)"
 KinkyDungeonLore13,"(It looks like a... receipt) Thank you for your offering to CELESTIAL COMMERCE. Please accept this fine-quality steel blade as compensation for your continued devotion and selflessness."
-KinkyDungeonLore14,"(A note written in cursive) To whomever assaulted our courier and left them tied up here: The shrines of the Goddess of ILLUSION are NOT to be used in this manner. If you desire a subject for your lewd experimentations, please attempt to do so on one of the LOCALS and FOR HEAVEN'S SAKE do not call up an angelic courier just so you may tie her up. It does not matter than she consented, nor that you paid, our couriers have responsibilities that they must attend to. Signed: HERONA, ENFORCER of the HIGH GODDESS of ILLUSIONS."
-KinkyDungeonLore15,"(From an essay titled 'On Celestial Supply Chains') It is known that the heavens seek gold. We do not know why it is that the heavens seek it, but we do know that the Goddesses grant us fragments of their limitless power in exchange for this otherwise-useless metal we dredge up from the earth. Clearly they must have enough of it in heaven for it to not matter. And yet there are invisible couriers even at the most remote shrine, lying dormant till you toss a coin their way. Could it be that the gold itself has power, and without its proximity the courier is simply in an dormant state?"
+KinkyDungeonLore14,"(A note written in cursive) To whomever assaulted our courier and left them tied up here: The shrines of the Goddess of ILLUSION are NOT to be used in this manner. If you desire a subject for your lewd experimentations, please attempt to do so on one of the locals and for heaven's sake do not call up an angelic courier just so you may tie her up. It does not matter than she consented, nor that you paid, our couriers have responsibilities that they must attend to. Signed: HERONA, enforcer of the GODDESS of ILLUSIONS."
+KinkyDungeonLore15,"(From an essay titled 'On Celestial Supply Chains') It is known that the heavens seek gold. We do not know why it is that the heavens seek it, but we do know that the Goddesses grant us fragments of their limitless power in exchange for this otherwise-useless metal we dredge up from the earth. They care about it so much that shrines are commonplace, each hosting an angelic courier lying in wait for any adventurer willing to part with hers."
 KinkyDungeonLore16,"They thought they stripped me down and checked everywhere. They didn't know about one of the first tricks we learned in wizard school: how to make an enchanted knife disappear!"
 
 KinkyDungeonLore101,"(A drawing of a suit of armor. It reads: DANGER!!!)"
@@ -3317,8 +3425,12 @@ KinkyDungeonCurseUnlockMistressKey,"The item loosens and falls off, but you see 
 KinkyDungeonCurseInfoMistressKeyHave,"You have in your possession KeyAmount magical, ornate key(s). You might as well try..."
 KinkyDungeonCurseDescriptionMistressKey,"You have KeyAmount key(s) for this item."
 
+KinkyDungeonDrawAngelHelpful,"The angel helps you struggle and use items"
 KinkyDungeonDrawGhostHelpful,"The ghost helps you struggle and use items"
 KinkyDungeonDrawGhostUnhelpful,"The ghost is unhelpful"
+
+KinkyDungeonAngelGreet,"Angel: Greetings!"
+KinkyDungeonAngelHelpful,"Angel: Perhaps I can assist with those!"
 
 KinkyDungeonGhostGreet0,"Adventurer's Ghost: Well met, traveler!"
 KinkyDungeonGhostGreet1,"Adventurer's Ghost: Hello again, traveler (giggles)."
@@ -3460,11 +3572,11 @@ KinkyDungeonAidDescIllusion"For 3 rep the goddess "
 KinkyDungeonAidManaDesc,"The goddess will grant you MANALEVEL mana in exchange for AMOUNT rep"
 KinkyDungeonAidBondageDesc,"The goddess will enjoy seeing you struggle in her bonds (raises submissiveness)"
 
-KinkyDungeonRescueDesc,"The Goddess may decide to help you out of prison, in exchange for 10 rep"
+KinkyDungeonRescueDesc,"The Goddess may decide to send an angel to help you struggle, in exchange for 10 rep"
 
 KinkyDungeonPenanceDesc,"The Goddess will expect you to pay AMOUNT gold for +5 rep"
 
-KinkyDungeonRescueMe,"You hear ghastly noises and the muffled screams of kidnappings."
+KinkyDungeonRescueMe,"The Goddess hears your plea!"
 KinkyDungeonNoRescue,"The Goddess hears your plea but has decided not to care."
 KinkyDungeonAidManaMe,"The Goddess fills your mind with heavenly images as she channels energy through your veins."
 
@@ -3552,7 +3664,7 @@ KinkyDungeonCurseStruggleMistressKeyEnchantedBra,"You rub your hands along your 
 
 RestraintEnchantedHeels,Ancient Heels
 LootChestEnchantedHeels,"You find a set of glowing heels, glowing magnificently, along with a strange crystal next to it."
-RestraintEnchantedHeelsDesc2,"A pair of towering heels, enchanted with combat magic. When powered, they reduce slow level by 2, and deal 25 void damage on-hit with brief slow."
+RestraintEnchantedHeelsDesc2,"A pair of towering heels, enchanted with combat magic. When powered, they reduce slow level by 2, and deal 25 shadow damage on-hit with brief slow."
 RestraintEnchantedHeelsDesc,"'Shoes of the graceful'"
 KinkyDungeonCurseStruggleMistressKeyEnchantedHeels,"You can barely stand in these heels. They are rigid, metallic, and unbreakable, yet padded on the inside."
 
@@ -3629,7 +3741,7 @@ KinkyDungeonTooltipWeakness,"DAMAGETYPE: MULTIPLIERx modifier"
 KinkyDungeonTooltipArmor,"Armor: AMOUNT"
 KinkyDungeonTooltipEvasion,"Base Chance to Hit: AMOUNT%"
 KinkyDungeonTooltipDealsDamage,"Deals DAMAGETYPE damage"
-KinkyDungeonDamageTypecold,"Void"
+KinkyDungeonDamageTypecold,"Shadow"
 KinkyDungeonDamageTypefrost,"Ice"
 KinkyDungeonDamageTypeice,"Ice"
 KinkyDungeonDamageTypefire,"Fire"
@@ -4122,7 +4234,7 @@ rOfferChastityYes_Yes,"(The SPEAKER smiles)|Thank you so much, miss!"
 rOfferChastityYes_No,"(The SPEAKER frowns)|I'm going to get in trouble..."
 rOfferChastityNo,"(The SPEAKER blushes)|Oh... okay."
 rOfferChastityForce,"(The SPEAKER frowns angrily)|Look, I know you're in trouble around here.|Just do me a favor. Please.|I need you to wear this RESTRAINT."
-rOfferChastityForceYes,"(The SPEAKER pleads with you)|My mistress is a magician!|She put a spell on it that tells her if it's locked.|Please, you have to hurry!"
+rOfferChastityForceYes,"(The SPEAKER pleads with you)|My mistress is a magician!|She put a spell on it that senses if it's being worn.|Please, you have to hurry!"
 rOfferChastityForce_No,"(The SPEAKER sighs and wears it herself)|(The lock starts glowing brightly...)"
 rOfferChastityForce_Yes,"(The SPEAKER looks relieved)|Thank you so much miss!|I won't forget you!"
 rOfferChastityForce_Failure,"(As you turn around, the SPEAKER surprises you)|(You hear a click around your waist)|Hmmph! Serves you right!|"
@@ -4230,3 +4342,63 @@ dOfferWolfgirlForce_Yes,"Fine. I'll sign it..."
 dOfferWolfgirlForce_YesGag,"(Moan and nod)"
 dOfferWolfgirlForce_No,"Never! (PERCENT chance to avoid)"
 dOfferWolfgirlForce_NoGag,"(Shake your head and frown) (PERCENT chance to avoid)"
+
+
+
+rPotionSell,"(The SPEAKER approaches you with an offer)|Greetings! I am a potion trader.|Give me your strongest potions!|I pay cash!"
+rPotionSellPotionMana,"(The SPEAKER smiles)|A spellcaster will have great use for this!"
+rPotionSellPotionStamina,"(The SPEAKER smiles)|Refreshing!"
+rPotionSellPotionFrigid,"(The SPEAKER smiles)|They say a bitter tea cures all ails..."
+rPotionSellPotionInvisibility,"(The SPEAKER smiles)|An empty flask?|...Oh."
+
+rElfCrystalSell,"(The SPEAKER approaches you)|I greet you!|My throat is parched and I seek the bounties of nature.|Do you have what I seek?"
+rElfCrystalSellPotionMana,"(The SPEAKER thanks you)|A kind offering! You have my thanks.
+rElfCrystalSellElfCrystal,"(The SPEAKER tilts her head)|...where did you get this?
+rElfCrystalSellEarthRune,"(The SPEAKER thanks you)|A fine trinket!|I will enjoy meditating upon it.
+rElfCrystalSellWaterRune,"(The SPEAKER thanks you)|I sense its flowing essence.|You have my thanks.
+rElfCrystalSellIceRune,"(The SPEAKER thanks you)|I can feel a great sadness emanating from it.|It calls for warmth."
+
+rScrollSell,"(The SPEAKER approaches you with an offer)|Hello!|I am searching for magical scrolls.|Would you happen to have any?"
+rScrollSellScrollArms,"(The SPEAKER smiles)|Thank you!"
+rScrollSellScrollLegs,"(The SPEAKER smiles)|Thank you!"
+rScrollSellScrollVerbal,"(The SPEAKER smiles)|Thank you!"
+rScrollSellScrollPurity,"(The SPEAKER raises a brow)|Thank you! This one is rare!"
+
+rWolfgirlSell,"(The SPEAKER approaches you with an offer)|Hey girl~|You seem like the explorer type.|Happen to have any good finds?"
+rWolfgirlSellMistressKey,"(The SPEAKER grins)|Are you willing to part with this?"
+rWolfgirlSellAncientPowerSource,"(The SPEAKER smiles)|Aha!|Fantastic."
+rWolfgirlSellAncientPowerSourceSpent,"(The SPEAKER frowns)|I'll take it, I guess..."
+rWolfgirlSellEnchantedGrinder,"(The SPEAKER smiles)|Oooh~!|I love technology!"
+
+rNinjaSell,"(The SPEAKER surprises you)|Greetings, traveler.|I am looking for tools to aid in my mission."
+rNinjaSellSmokeBomb,"(The SPEAKER bows)|Always prepared."
+rNinjaSellBomb,"(The SPEAKER bows)|A bit dangerous, but I'll take it."
+rNinjaSellBola,"(The SPEAKER bows)|A tool of the trade."
+rNinjaSellPotionInvisibility,"(The SPEAKER bows)|A most valuable find."
+
+rGhostSell,"(The SPEAKER runs up to you)|Hello!|You wouldn't happen to have seen any ghosts lately?|I'm gathering evidence!"
+rGhostSellElfCrystal,"(The SPEAKER shakes your hand)|Ah! Ghosts love these!"
+rGhostSellEctoplasm,"(The SPEAKER smiles)|This looks like strong evidence for my investigation!"
+rGhostSellPotionInvisibility,"(The SPEAKER grins)|Woah! That's so cool!"
+
+dItemShop0,(Sell Item0 for ItemCost0 gp)
+dItemShop1,(Sell Item1 for ItemCost1 gp)
+dItemShop2,(Sell Item2 for ItemCost2 gp)
+dItemShop3,(Sell Item3 for ItemCost3 gp)
+dItemShop4,(Sell Item4 for ItemCost4 gp)
+dItemShop5,(Sell Item5 for ItemCost5 gp)
+dItemShop6,(Sell Item6 for ItemCost6 gp)
+dItemShop7,(Sell Item7 for ItemCost7 gp)
+dItemShop8,(Sell Item8 for ItemCost8 gp)
+dItemShop9,(Sell Item9 for ItemCost9 gp)
+
+rAngelHelp,"(The SPEAKER appears in a flash of light)|I come in the name of the Goddess.|I presume you need my aid?|(She will remain and help you with restraints for 50 turns)"
+rAngelHelpKnife,"(The SPEAKER gives you two knives)|Don't hurt yourself with these, okay?"
+rAngelHelpPick,"(The SPEAKER gives you three picks)|I don't know how you plan to use these..."
+rAngelHelpBlueKey,"(The SPEAKER reluctantly gives you a magic key)|Okay, these don't grow on trees..."
+
+dAngelHelp_Knife,(Ask for 2 knives)
+dAngelHelp_Pick,(Ask for 3 lockpicks)
+dAngelHelp_BlueKey,(Ask for a magic key)
+
+KinkyDungeonAngelNoSpace,There is no valid space next to you!

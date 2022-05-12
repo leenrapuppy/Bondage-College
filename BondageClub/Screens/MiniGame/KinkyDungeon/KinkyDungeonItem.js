@@ -86,7 +86,7 @@ function KinkyDungeonItemEvent(Item) {
 		color = "yellow";
 		KinkyDungeonAddGold(Item.amount);
 	} else if (Item.name == "Lore") {
-		KinkyDungeonNewLore();
+		return KinkyDungeonNewLore();
 	} else if (Item.name == "Pick") {
 		priority = 2;
 		color = "lightgreen";
@@ -146,6 +146,7 @@ function KinkyDungeonItemEvent(Item) {
 			KinkyDungeonDrawState = "Game";
 			KinkyDungeonChangeStamina(24);
 			KinkyDungeonChangeMana(24);
+			KDGameData.HeartTaken = true;
 		} else if (KinkyDungeonIsPlayer()) KinkyDungeonDrawState = "Heart";
 	} else if (Item.name == "Keyring") {
 		KDGameData.JailKey = true;

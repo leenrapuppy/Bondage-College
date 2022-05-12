@@ -3,6 +3,14 @@
 let KinkyDungeonFactionColors = {
 	"Jail": ["#8A120C"],
 	"Slime": ["#9B49BD"],
+	"Dressmaker": ["#6B48E0", "#F8BD01"],
+	"Alchemist": ["#4c6885", "#7bef41"],
+	"Elf": ["#63ab3f", "#F8BD01"],
+	"Bountyhunter": ["#252525", "#bfbfbf"],
+	"AncientRobot": ["#444444", "#3def9c"],
+	"Mushy": ["#92c1e8", "#bfbfbf"],
+	"Apprentice": ["#686f99", "#ff5277"],
+	"Witch": ["#222222", "#8359b3"],
 };
 
 /** Hidden factions do not auto-rep change when you attack them */
@@ -56,7 +64,7 @@ let KinkyDungeonFactionRelationsBase = {
 		Bandit: -0.6,
 		Alchemist: -0.8,
 		Nevermere: -0.55,
-		Apprentice: -0.4,
+		Apprentice: -0.55,
 		Dressmaker: -0.4,
 		Witch: 0.4,
 		Elemental: -0.4,
@@ -85,6 +93,10 @@ let KinkyDungeonFactionRelationsBase = {
 	},
 	"KinkyConstruct": {
 		Jail: -0.25,
+		Apprentice: -0.55,
+		Witch: 0.4,
+		Dressmaker: 0.4,
+		Dragon: -1.0,
 	},
 	"Nevermere": {
 		"Alchemist": 1.0,

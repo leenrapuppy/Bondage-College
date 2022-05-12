@@ -150,17 +150,17 @@ function KDProcessInput(type, data) {
 			break;
 		case "shrineUse":
 			tile = KinkyDungeonTiles.get(data.targetTile);
-			KinkyDungeonTargetTile = tile;
-			KinkyDungeonTargetTileLocation = data.targetTile;
+			//KinkyDungeonTargetTile = tile;
+			//KinkyDungeonTargetTileLocation = data.targetTile;
 			KinkyDungeonAdvanceTime(1, true);
-			KinkyDungeonTargetTile = null;
+			//KinkyDungeonTargetTile = null;
 			if (KinkyDungeonGold >= data.cost) {
 				KinkyDungeonPayShrine(data.type);
 				KinkyDungeonTiles.delete(KinkyDungeonTargetTileLocation);
-				let x = KinkyDungeonTargetTileLocation.split(',')[0];
-				let y = KinkyDungeonTargetTileLocation.split(',')[1];
+				let x =  data.targetTile.split(',')[0];
+				let y =  data.targetTile.split(',')[1];
 				KinkyDungeonMapSet(parseInt(x), parseInt(y), "a");
-				KinkyDungeonTargetTileLocation = "";
+				//KinkyDungeonTargetTileLocation = "";
 				KinkyDungeonAggroAction('shrine', {x: parseInt(x), y:parseInt(y)});
 				KDGameData.AlreadyOpened.push({x: parseInt(x), y: parseInt(y)});
 				KinkyDungeonUpdateStats(0);
@@ -298,9 +298,7 @@ function KDProcessInput(type, data) {
 			KinkyDungeonRescued[data.rep] = true;
 
 			if (KDRandom() < 0.5 + data.value/100) {
-				KDSendStatus('goddess', data.rep, 'helpRescue');
-				KinkyDungeonChangeRep(data.rep, -10);
-				let allies = KinkyDungeonGetAllies();
+				/*let allies = KinkyDungeonGetAllies();
 				// Tie up all non-allies
 				for (let e of KinkyDungeonEntities) {
 					if (e.Enemy.bound && !e.Enemy.tags.has("angel")) {
@@ -308,6 +306,7 @@ function KDProcessInput(type, data) {
 						if (!e.boundLevel) e.boundLevel = e.Enemy.maxhp;
 						else e.boundLevel += e.Enemy.maxhp;
 						e.hp = 0.1;
+						e.rescue = true;
 					}
 				}
 				KinkyDungeonEntities = allies;
@@ -318,8 +317,19 @@ function KDProcessInput(type, data) {
 					if (T.Lock) T.Lock = undefined;
 					if (T.Type == "Lock") T.Type = undefined;
 					if (T.Type == "Trap") T.Type = undefined;
+				}*/
+				let tiles = KinkyDungeonRescueTiles();
+				if (tiles.length > 0) {
+					KDSendStatus('goddess', data.rep, 'helpRescue');
+					KinkyDungeonChangeRep(data.rep, -10);
+					tile = tiles[Math.floor(tiles.length * KDRandom())];
+					if (tile) {
+						KinkyDungeonMapSet(tile.x, tile.y, "$");
+						KinkyDungeonTiles.set(tile.x + "," + tile.y, {Type: "Angel"});
+						KDStartDialog("AngelHelp","Angel", true, "");
+					}
+					KDGameData.RescueFlag = true;
 				}
-				KDGameData.RescueFlag = true;
 			} else {
 				KinkyDungeonSendTextMessage(10, TextGet("KinkyDungeonNoRescue"), "purple", 10);
 				KDSendStatus('goddess', data.rep, 'helpNoRescue');
@@ -408,8 +418,10 @@ function KDProcessInput(type, data) {
 						KinkyDungeonTiles.delete(data.targetTile);
 						KinkyDungeonMapSet(x, y, '-');
 					}
+					return "Pass";
 				} else {
 					KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonChargerChargeFailure"), "orange", 1);
+					return "Fail";
 				}
 			} else if (data.action == "place") {
 				tile = KinkyDungeonTiles.get(data.targetTile);

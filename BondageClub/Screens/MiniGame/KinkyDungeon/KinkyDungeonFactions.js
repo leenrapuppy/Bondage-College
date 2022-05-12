@@ -10,7 +10,7 @@ function KinkyDungeonAggressive(enemy) {
 	if (enemy && enemy.hostile > 0) return true;
 	if (!KDGameData.PrisonerState || KDGameData.PrisonerState == "chase") return KDHostile(enemy);
 	if (enemy && KDFactionRelation(KDGetFaction(enemy), "Jail") < -0.4) return KDHostile(enemy);
-	if (enemy && KDFactionRelation(KDGetFaction(enemy), "Jail") < -0.1 && KDGameData.PrisonerState != 'jail') return KDHostile(enemy);
+	if (enemy && KDFactionRelation(KDGetFaction(enemy), "Jail") < -0.1 && KDGameData.PrisonerState != 'jail' && (KDGameData.PrisonerState != 'parole' || !KinkyDungeonPlayerInCell())) return KDHostile(enemy);
 	return false;
 }
 

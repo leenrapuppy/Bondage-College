@@ -297,7 +297,7 @@ function KinkyDungeonLootEvent(Loot, Floor, Replacemsg, Lock) {
 	}
 	else if (Loot.name == "MistressKey") {
 		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.MistressKey, 1);
-		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.AncientPowerSource, 3);
+		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.AncientPowerSource, 2);
 	}
 	else if (Loot.name == "Scrolls") {
 		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.AncientPowerSource, 2);
@@ -323,7 +323,7 @@ function KinkyDungeonLootEvent(Loot, Floor, Replacemsg, Lock) {
 		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.ScrollPurity, 1);
 	}
 	else if (Loot.name == "AncientCores") {
-		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.AncientPowerSource, 4);
+		KinkyDungeonChangeConsumable(KinkyDungeonConsumables.AncientPowerSource, Loot.count ? Loot.count : 2);
 	}
 	else if (Loot.name == "EnchantedBelt"||Loot.name == "EnchantedBra"||Loot.name == "EnchantedHeels"||Loot.name == "EnchantedAnkleCuffs"||Loot.name == "EnchantedMuzzle"||Loot.name == "EnchantedBlindfold"||Loot.name == "EnchantedMittens"||Loot.name == "EnchantedBallGag"||Loot.name == "EnchantedArmbinder") {
 		let restraint = KinkyDungeonGetRestraintByName(Loot.name);
