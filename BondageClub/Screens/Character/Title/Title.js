@@ -207,14 +207,12 @@ function TitleExit() {
 	let Regex = /^[a-zA-Z\s]*$/;
 	let Nick = ElementValue("InputNickname");
 	var tmpname = Player.Nickname;
+	const dictionary = [{Tag: "OldName", Text: tmpname}, {Tag: "NewName", Text: Nick}];;
 	if (Nick == null) Nick = "";
 	Nick = Nick.trim().substring(0, 20);
 	if (Regex.test(Nick)) {
-                if (Nick == Player.Name) {   
-                        ServerSend("ChatRoomChat", { Content: "Beep", Type: "Action", Dictionary: [{Tag: "Beep", Text: ""+tmpname+" is now known as "+Player.Name+"." }]});
-                }
-                if ((Nick != Player.Name) && (Nick != tmpname)) {
-                       ServerSend("ChatRoomChat", { Content: "Beep", Type: "Action", Dictionary: [{Tag: "Beep", Text: ""+tmpname+" is now known as "+Nick+"." }]});
+                if (Nick == Player.Name || ((Nick != Player.Name) && (Nick != tmpname)) ) {  
+			ChatRoomPublishCustomAction("NicknameChange", false, dictionary);
                 }
                 Player.Nickname = Nick;
 	        ServerAccountUpdate.QueueData({ Nickname: Nick });
