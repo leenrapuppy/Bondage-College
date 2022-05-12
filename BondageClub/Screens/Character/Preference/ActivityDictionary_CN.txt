@@ -1143,7 +1143,7 @@ SourceCharacter轻抚TargetCharacter的鼻子.
 SourceCharacter pulls TargetCharacter's nose.
 SourceCharacter拉扯TargetCharacter的鼻子.
 SourceCharacter rubs TargetCharacter's nose.
-SourceCharacter摩擦TargetCharacter的鼻子.
+SourceCharacter揉了揉TargetCharacter的鼻子.
 SourceCharacter nibbles TargetCharacter's nose.
 SourceCharacter轻咬TargetCharacter的鼻子.
 SourceCharacter pinches TargetCharacter's nostrils closed.
@@ -1163,7 +1163,7 @@ SourceCharacter戳了戳自己的鼻子.
 SourceCharacter pulls her nose.
 SourceCharacter拉扯自己的鼻子.
 SourceCharacter rubs her nose.
-SourceCharacter摩擦自己的鼻子.
+SourceCharacter揉自己的鼻子.
 SourceCharacter pinches her nostrils closed.
 SourceCharacter捏住自己的鼻子.
 SourceCharacter wiggles her nose.

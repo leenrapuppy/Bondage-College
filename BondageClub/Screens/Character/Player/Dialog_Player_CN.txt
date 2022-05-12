@@ -5258,7 +5258,7 @@ SourceCharacter adds blinders to DestinationCharacter bridle gag.
 [GGTS] SourceCharacter, are you slave worthy?
 [GGTS] SourceCharacter, 英文回答你配得上做我的奴隶么？ are you slave worthy?
 [GGTS] SourceCharacter.  Pinch yourself.
-[GGTS] SourceCharacter.  戳弄(Pinch)自己。
+[GGTS] SourceCharacter.  掐捏(Pinch)自己。
 [GGTS] SourceCharacter.  Nod for GGTS.
 [GGTS] SourceCharacter.  向GGTS点头(nod)。
 [GGTS] SourceCharacter.  Tickle yourself.
@@ -5284,7 +5284,7 @@ SourceCharacter adds blinders to DestinationCharacter bridle gag.
 [GGTS] SourceCharacter.  Restrain your legs.
 [GGTS] SourceCharacter.  束缚自己的双腿。
 [GGTS] SourceCharacter.  Pinch TargetCharacter.
-[GGTS] SourceCharacter.  戳弄(Pinch)TargetCharacter.
+[GGTS] SourceCharacter.  掐捏(Pinch)TargetCharacter.
 [GGTS] SourceCharacter.  Tickle TargetCharacter.
 [GGTS] SourceCharacter.  挠(tickle) TargetCharacter.
 [GGTS] SourceCharacter.  Pet TargetCharacter.
