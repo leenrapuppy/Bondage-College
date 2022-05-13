@@ -1040,7 +1040,6 @@ ItemArms,FurStraitJacket,Fur Straitjacket
 ItemArms,Bolero,Bolero Straitjacket
 ItemArms,DuctTape,Duct Tape
 ItemArms,BitchSuit,Pet Suit
-ItemArms,CollarLeashHolding,Holding Leash
 ItemArms,StraitDress,Strait Dress
 ItemArms,StraitDressOpen,Open Crotch Strait Dress
 ItemArms,SeamlessStraitDress,Seamless Strait Dress
@@ -1052,7 +1051,6 @@ ItemArms,Zipties,Zip Ties
 ItemArms,BoxTieArmbinder,Latex Box-Tie Armbinder
 ItemArms,BondageBouquet,Bondage Bouquet
 ItemArms,Chains,Chains
-ItemArms,ChainLeashHolding,Holding Chain Leash
 ItemArms,PetCrawler,Pet Crawler
 ItemArms,MermaidSuit,Mermaid Suit
 ItemArms,Web,Web
@@ -1213,9 +1211,7 @@ ItemNeckRestraints,CollarChainLong,Long Chain
 ItemNeckRestraints,CollarChainShort,Short Chain
 ItemNeckRestraints,Post,Hitching Post
 ItemNeckRestraints,CollarLeash,Leash
-ItemNeckRestraints,CollarLeashTaken,Pulled Leash
 ItemNeckRestraints,ChainLeash,Chain Leash
-ItemNeckRestraints,ChainLeashTaken,Pulled Chain Leash
 ItemNeckRestraints,CollarChainMedium,Medium Chain
 ItemNeckRestraints,CollarRopeLong,Long Rope
 ItemNeckRestraints,CollarRopeShort,Short Rope
