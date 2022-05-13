@@ -14,7 +14,7 @@ const ChatRoomSpaceType = {
 
 var ChatRoomBackground = "";
 /** @type {ChatRoom} */
-let ChatRoomData = {};
+let ChatRoomData = null;
 /** @type {Character[]} */
 var ChatRoomCharacter = [];
 var ChatRoomChatLog = [];
@@ -3224,6 +3224,9 @@ function ChatRoomSync(data) {
 		} else return;
 	}
 
+	// Update our chat room data with what the server sent us
+	ChatRoomData = data;
+
 	// Treat chatroom updates from ourselves as if the updated characters had sent them
 	const trustedUpdate = data.SourceMemberNumber === Player.MemberNumber;
 
@@ -3235,8 +3238,7 @@ function ChatRoomSync(data) {
 		ChatRoomCharacter.push(Char);
 	}
 
-	// Keeps a copy of the previous version
-	ChatRoomData = data;
+	// If there's a game running in that chatroom, save it and perform a reset
 	if (ChatRoomData.Game != null) {
 		ChatRoomGame = ChatRoomData.Game;
 		OnlineGameReset();
