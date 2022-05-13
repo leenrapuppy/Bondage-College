@@ -1,5 +1,4 @@
 "use strict";
-/* eslint-disable */
 var PokerBackground = "White";
 /** @type PokerPlayer[] */
 var PokerPlayer = [
@@ -9,7 +8,7 @@ var PokerPlayer = [
 	{ Type: "None", Family: "None", Name: "None", Chip: 100 }
 ];
 var PokerMode = "";
-var PokerGame = "TexasHoldem"
+var PokerGame = "TexasHoldem";
 var PokerShowPlayer = true;
 var PokerAsset = [
 	{
@@ -121,9 +120,9 @@ function PokerDrawPlayer(P, X, Y) {
 
 	// Draw the top text
 	if ((PokerMode != "") && (P.Text != "")) {
-		if ((P.TextColor == null) && (P.Data != null) && (P.Data.cache != null) && (P.Data.cache["TextColor"] != null))
-			P.TextColor = P.Data.cache["TextColor"];
-		if (Large) X = (PokerShowPlayer ? 0 : -250) + 1000
+		if ((P.TextColor == null) && (P.Data != null) && (P.Data.cache != null) && (P.Data.cache.TextColor != null))
+			P.TextColor = P.Data.cache.TextColor;
+		if (Large) X = (PokerShowPlayer ? 0 : -250) + 1000;
 		DrawTextWrap(P.Text, X + 10, Y - 82, 480, 60, (P.TextColor == null) ? "black" : "#" + P.TextColor, null, 2);
 	}
 
@@ -167,8 +166,8 @@ function PokerGetText(P, Tag) {
 
 	// If there's an alternative text, we search for it first
 	let Texts = [];
-	if ((P.Alternate == null) && (P.Data != null) && (P.Data.cache["Alternate"] != null))
-		P.Alternate = Math.floor(Math.random() * parseInt(P.Data.cache["Alternate"])) + 1;
+	if ((P.Alternate == null) && (P.Data != null) && (P.Data.cache.Alternate != null))
+		P.Alternate = Math.floor(Math.random() * parseInt(P.Data.cache.Alternate)) + 1;
 	if (P.Alternate != null) {
 		let X = 0;
 		if (Tag != null) {
@@ -196,15 +195,15 @@ function PokerGetText(P, Tag) {
 	}
 
 	// If there's a tag, we search for it specifically
-	let X = 0;
 	if (Tag != null) {
+		let X = 0;
 		while (T.cache[X] != null) {
 			if (T.cache[X].substr(0, Tag.length + 1) == Tag + "=")
 				Texts.push(T.cache[X].substr(Tag.length + 1, 500));
 			X++;
 		}
 	} else {
-
+		let X = 0;
 		// Without a tag, we find all values within the player progress
 		let Progress = PokerGetProgress(P);
 		while (T.cache[X] != null) {
@@ -261,8 +260,8 @@ function PokerGetImage(P) {
 
 		// First try to get an alternate version of the image
 		let Images = [];
-		if ((P.Alternate == null) && (P.Data != null) && (P.Data.cache["Alternate"] != null))
-			P.Alternate = Math.floor(Math.random() * parseInt(P.Data.cache["Alternate"])) + 1;
+		if ((P.Alternate == null) && (P.Data != null) && (P.Data.cache.Alternate != null))
+			P.Alternate = Math.floor(Math.random() * parseInt(P.Data.cache.Alternate)) + 1;
 		if (P.Alternate != null) {
 			if ((PokerPlayerCount == 2) && (PokerMode != "")) {
 				let X = 0;
@@ -354,7 +353,7 @@ function PokerRun() {
 		for (let P = 1; P < PokerPlayer.length; P++)
 			if (PokerPlayer[P].Type != "None") {
 				DrawBackNextButton(50 + P * 500, 840, 400, 60, PokerPlayer[P].Name, "White", "", () => "", () => "");
-				if ((PokerPlayer[P].WebLink == null) && (PokerPlayer[P].Data != null)) PokerPlayer[P].WebLink = PokerPlayer[P].Data.cache["WebLink"];
+				if ((PokerPlayer[P].WebLink == null) && (PokerPlayer[P].Data != null)) PokerPlayer[P].WebLink = PokerPlayer[P].Data.cache.WebLink;
 				if ((PokerPlayer[P].WebLink != null) && (PokerPlayer[P].WebLink != "")) DrawButton(50 + P * 500, 920, 400, 60, TextGet("VisitArtist"), "White");
 			}
 	}
@@ -628,8 +627,8 @@ function PokerExit() {
 function PokerDrawCard(PP) {
 
 	// Tries to assign the difficulty
-	if ((PP.Difficulty == null) && (PP.Data != null) && (PP.Data.cache != null) && (PP.Data.cache["Difficulty"] != null))
-		PP.Difficulty = parseInt(PP.Data.cache["Difficulty"]);
+	if ((PP.Difficulty == null) && (PP.Data != null) && (PP.Data.cache != null) && (PP.Data.cache.Difficulty != null))
+		PP.Difficulty = parseInt(PP.Data.cache.Difficulty);
 
 	// Draw until we find a valid card
 	let Draw = true;

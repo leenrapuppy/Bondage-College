@@ -1,5 +1,4 @@
 "use strict";
-/* eslint-disable */
 
 // Sort the current hand from highest to lowest
 function PokerHandValueSortHand(Hand) {
@@ -171,7 +170,7 @@ function PokerHandValueFullHouse(Hand) {
 
 		// The hand value is 7 + the value of the 3 of a kind / 100 + the value of the pair / 10000
 		if (High2 > 0)
-			Value = 7 + (High3 / 100) + (High2 / 10000)
+			Value = 7 + (High3 / 100) + (High2 / 10000);
 
 	}
 
@@ -249,7 +248,7 @@ function PokerHandValueThreeOfAKind(Hand) {
 			if (((Hand[X] - 1) % 13) + 2 == ((Hand[Y] - 1) % 13) + 2)
 				for (let Z = Y + 1; Z < 7; Z++)
 					if (((Hand[X] - 1) % 13) + 2 == ((Hand[Z] - 1) % 13) + 2) {
-						Value = 4 + ((((Hand[X] - 1) % 13) + 2) / 100)
+						Value = 4 + ((((Hand[X] - 1) % 13) + 2) / 100);
 						Used[X] = true;
 						Used[Y] = true;
 						Used[Z] = true;
@@ -331,7 +330,7 @@ function PokerHandValueOnePair(Hand) {
 	for (let X = 0; X < 6; X++)
 		for (let Y = X + 1; Y < 7; Y++)
 			if (((Hand[X] - 1) % 13) + 2 == ((Hand[Y] - 1) % 13) + 2) {
-				Value = 2 + (((Hand[X] - 1) % 13) + 2) / 100
+				Value = 2 + (((Hand[X] - 1) % 13) + 2) / 100;
 				Used[X] = true;
 				Used[Y] = true;
 			}
