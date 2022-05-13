@@ -54,12 +54,12 @@ function PokerLoad() {
  * @returns {void} - Nothing
  */
 function PokerDrawPlayer(P, X, Y) {
-	
+
 	// For set images from the classic Bondage Poker game
 	let Large = false;
 	if ((P == null) || (P.Type == null) || (P.Type == "None") || (P.Name == "None") || (P.Name == null)) return;
 	if (P.Type == "Set") {
-		
+
 		// If data isn't loaded yet, we fetch the CSV file
 		if (P.Data == null) {
 			let FullPath = "Screens/Room/Poker/" + P.Name + "/Data.csv";
@@ -70,7 +70,7 @@ function PokerDrawPlayer(P, X, Y) {
 			} else P.Data = TextScreenCache;
 		}
 		else {
-			
+
 			// If there's no image loaded, we fetch a possible one based on the chip progress
 			if (P.Image == null) PokerGetImage(P);
 
@@ -118,7 +118,7 @@ function PokerDrawPlayer(P, X, Y) {
 
 	// For regular bondage club characters
 	if (P.Type == "Character") DrawCharacter(P.Character, X, Y - 60, 1, false);
-	
+
 	// Draw the top text
 	if ((PokerMode != "") && (P.Text != "")) {
 		if ((P.TextColor == null) && (P.Data != null) && (P.Data.cache != null) && (P.Data.cache["TextColor"] != null))
@@ -156,7 +156,7 @@ function PokerGetProgress(P) {
  * @returns {void} - Nothing
  */
 function PokerGetText(P, Tag) {
-	
+
 	// Exits right away if data is missing
 	if ((P.Type == "None") || (P.Name == "None") || (P.Family == "Player")) {
 		P.Text = "";
@@ -166,7 +166,7 @@ function PokerGetText(P, Tag) {
 	if (!T) return;
 
 	// If there's an alternative text, we search for it first
-	let Texts = [];	
+	let Texts = [];
 	if ((P.Alternate == null) && (P.Data != null) && (P.Data.cache["Alternate"] != null))
 		P.Alternate = Math.floor(Math.random() * parseInt(P.Data.cache["Alternate"])) + 1;
 	if (P.Alternate != null) {
@@ -192,9 +192,9 @@ function PokerGetText(P, Tag) {
 				X++;
 			}
 
-		}		
+		}
 	}
-		
+
 	// If there's a tag, we search for it specifically
 	let X = 0;
 	if (Tag != null) {
@@ -230,7 +230,7 @@ function PokerGetText(P, Tag) {
  * @returns {void} - Nothing
  */
 function PokerGetImage(P) {
-	
+
 	// Skip if there's no player
 	if ((P.Type == "None") || (P.Name == "None")) return;
 	let Progress = PokerGetProgress(P);
@@ -258,7 +258,7 @@ function PokerGetImage(P) {
 
 	// For set images, a single opponent can have a large image, else we find a valid image from the game progress
 	if ((P.Type == "Set") && (P.Data != null)) {
-		
+
 		// First try to get an alternate version of the image
 		let Images = [];
 		if ((P.Alternate == null) && (P.Data != null) && (P.Data.cache["Alternate"] != null))
@@ -333,7 +333,7 @@ function PokerGetImage(P) {
  * @returns {void} - Nothing
  */
 function PokerRun() {
-	
+
 	// Shows the players and table
 	for (let P = (PokerShowPlayer ? 0 : 1); P < PokerPlayer.length; P++)
 		PokerDrawPlayer(PokerPlayer[P], (PokerShowPlayer ? 0 : -250) + P * 500, 100);
@@ -382,7 +382,7 @@ function PokerRun() {
 			}
 		}
 	}
-	
+
 	// Draws the table cards
 	if ((PokerTableCards.length > 0) && ((PokerMode == "FLOP") || (PokerMode == "TURN") || (PokerMode == "RIVER") || (PokerMode == "RESULT"))) {
 		for (let C = 0; C < PokerTableCards.length; C++)
@@ -410,11 +410,11 @@ function PokerRun() {
 		DrawText(PokerMessage, 1600, 960, "white", "gray");
 		DrawButton(1800, 875, 175, 60, TextGet("Deal"), "White");
 	}
-	
+
 	// In End mode, we present the winner and allow to restart
 	if (PokerMode == "END") {
 		DrawText(PokerMessage, 1000, 800, "white", "gray");
-		DrawButton(800, 875, 400, 60, TextGet("EndGame"), "White");		
+		DrawButton(800, 875, 400, 60, TextGet("EndGame"), "White");
 	}
 
 }
@@ -728,7 +728,7 @@ function PokerChallengeDone() {
  * @returns {String} - The file name of the card image
  */
 function PokerProcess(Action) {
-	
+
 	// In Texas, watching the game resolves it fully
 	if ((PokerGame == "TexasHoldem") && ((Action == "Watch") || (Action == "Fold"))) {
 		PokerMode = "RIVER";

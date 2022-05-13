@@ -21,7 +21,7 @@ function PokerHandValueSortHand(Hand) {
 
 	}
 }
-		
+
 // Validate if the current hand is a straight flush (value 9)
 function PokerHandValueStraightFlush(Hand) {
 	let Value = 0;
@@ -30,15 +30,15 @@ function PokerHandValueStraightFlush(Hand) {
 
 	// Find the flush
 	for (let X = 0; X < 7; X++) {
-		
+
 		// Keep the highest card of each suite
 		if (HighF[Math.floor((Hand[X] - 1) / 13)] == 0) HighF[Math.floor((Hand[X] - 1) / 13)] = ((Hand[X] - 1) % 13) + 2;
-		
+
 		// Count the number of cards for each suite
 		CountF[Math.floor((Hand[X] - 1) / 13)]++;
-		
+
 	}
-	
+
 	// If 5 cards or more, we keep the highest card of the flush
 	let FlushColor = -1;
 	for (let X = 0; X < 4; X++)
@@ -64,40 +64,40 @@ function PokerHandValueStraightFlush(Hand) {
 				Straight++;
 				Val--;
 			}
-			
+
 			// Check for a wheel straight (5 to ACE)
 			if ((Straight == 4) && (High == 5) && (HighF[FlushColor] == 14))
-				Straight = 5;				
-			
+				Straight = 5;
+
 			// If we have 5 straight card, we accept it
 			if ((StraightValue == 0) && (Straight >= 5))
 				StraightValue = High;
-			
+
 			// If the value is below the straight, we reset the first card
 			if (((Hand[X] - 1) % 13) + 2 < Val - 1) {
 
 				// Reset the straight
 				Val = ((Hand[X] - 1) % 13) + 2;
-				High = ((Hand[X] - 1) % 13) + 2;						
-				if (Math.floor(FlushColor) == Math.floor((Hand[X] - 1) / 13)) 
-					Straight = 1
-				else 				
-					Straight = 0;				
+				High = ((Hand[X] - 1) % 13) + 2;
+				if (Math.floor(FlushColor) == Math.floor((Hand[X] - 1) / 13))
+					Straight = 1;
+				else
+					Straight = 0;
 				if (Straight == 0) Val++;
-				
+
 			}
-			
+
 		}
 
 		// Since we have a straight, check for a straight flush
 		if (StraightValue > 0)
 			if (StraightValue == 14)
 				Value = 10;
-			else					
+			else
 				Value = 9 + (StraightValue / 100);
 
 	}
-	
+
 	return Value;
 }
 
@@ -112,12 +112,12 @@ function PokerHandValueFourOfAKind(Hand) {
 	// Count the occurrence of each cards
 	for (let X = 0; X < 7; X++)
 		Count[((Hand[X] - 1) % 13) + 2]++;
-		
+
 	// Try to find a four of a kind
-	for (let X = 0; X < 15; X++) 
+	for (let X = 0; X < 15; X++)
 		if (Count[X] == 4)
 			High4 = X;
-	
+
 	// If we found it
 	if (High4 > 0) {
 
@@ -133,9 +133,9 @@ function PokerHandValueFourOfAKind(Hand) {
 				High1 = ((Hand[X] - 1) % 13) + 2;
 
 		Value = 8 + (High4 / 100) + (High1 / 10000);
-		
+
 	}
-	
+
 	return Value;
 }
 
@@ -145,14 +145,14 @@ function PokerHandValueFullHouse(Hand) {
 	let Value = 0;
 	let High3 = 0;
 	let High2 = 0;
-	
+
 	// Scan first for a three of a kind
 	for (let X = 0; X < 5; X++)
 		for (let Y = X + 1; Y < 6; Y++)
 			if (((Hand[X] - 1) % 13) + 2 == ((Hand[Y] - 1) % 13) + 2)
 				for (let Z = Y + 1; Z < 7; Z++)
-					if (((Hand[X] - 1) % 13) + 2 == ((Hand[Z] - 1) % 13) + 2)						
-						if (High3 < ((Hand[X] - 1) % 13) + 2) 
+					if (((Hand[X] - 1) % 13) + 2 == ((Hand[Z] - 1) % 13) + 2)
+						if (High3 < ((Hand[X] - 1) % 13) + 2)
 							High3 = ((Hand[X] - 1) % 13) + 2;
 
 	if (High3 > 0) {
@@ -161,15 +161,15 @@ function PokerHandValueFullHouse(Hand) {
 		for (let X = 0; X < 7; X++)
 			if (High3 == ((Hand[X] - 1) % 13) + 2)
 				Used[X] = true;
-				
+
 		// Scan for the highest pair
 		for (let X = 0; X < 6; X++)
 			for (let Y = X + 1; Y < 7; Y++)
 				if ((((Hand[X] - 1) % 13) + 2 == ((Hand[Y] - 1) % 13) + 2) && (Used[X] == false) && (Used[Y] == false))
-					if (High2 < ((Hand[X] - 1) % 13) + 2) 
+					if (High2 < ((Hand[X] - 1) % 13) + 2)
 						High2 = ((Hand[X] - 1) % 13) + 2;
 
-		// The hand value is 7 + the value of the 3 of a kind / 100 + the value of the pair / 10000 
+		// The hand value is 7 + the value of the 3 of a kind / 100 + the value of the pair / 10000
 		if (High2 > 0)
 			Value = 7 + (High3 / 100) + (High2 / 10000)
 
@@ -185,20 +185,20 @@ function PokerHandValueFlush(Hand) {
 	let Count = [0, 0, 0, 0];
 
 	for (let X = 0; X < 7; X++) {
-		
+
 		// Keep the highest card of each suite
 		if (High[Math.floor((Hand[X] - 1) / 13)] == 0) High[Math.floor((Hand[X] - 1) / 13)] = ((Hand[X] - 1) % 13) + 2;
-		
+
 		// Count the number of cards for each suite
 		Count[Math.floor((Hand[X] - 1) / 13)]++;
-		
+
 	}
 
 	// If 6 cards or more, we keep the highest card of the flush
 	for (let X = 0; X < 4; X++)
 		if (Count[X] >= 5)
 			Value = 6 + (High[X] / 100);
-	
+
 	return Value;
 }
 
@@ -242,7 +242,7 @@ function PokerHandValueStraight(Hand) {
 function PokerHandValueThreeOfAKind(Hand) {
 	let Value = 0;
 	let Used = [false, false, false, false, false, false, false];
-	
+
 	// Scan for three of a kind
 	for (let X = 0; X < 5; X++)
 		for (let Y = X + 1; Y < 6; Y++)
@@ -323,10 +323,10 @@ function PokerHandValueTwoPairs(Hand) {
 }
 
 // Validate if the current hand is a one pair (value 2)
-function PokerHandValueOnePair(Hand) {	
+function PokerHandValueOnePair(Hand) {
 	let Value = 0;
 	let Used = [false, false, false, false, false, false, false];
-	
+
 	// Scan for a pair
 	for (let X = 0; X < 6; X++)
 		for (let Y = X + 1; Y < 7; Y++)
@@ -350,7 +350,7 @@ function PokerHandValueOnePair(Hand) {
 					High = ((Hand[X] - 1) % 13) + 2;
 					Pos = X;
 				}
-			
+
 			// Clear that card and it's value will be added to the decimals
 			Used[Pos] = true;
 			if (C == 1) Value = Value + (High / 10000);
@@ -380,7 +380,7 @@ function PokerHandValueHighestCards(Hand) {
 				High = ((Hand[X] - 1) % 13) + 2;
 				Pos = X;
 			}
-		
+
 		// Clear that card and it's value will be added to the decimals
 		Used[Pos] = true;
 		if (C == 1) Value = Value + (High / 100);
@@ -397,7 +397,7 @@ function PokerHandValueHighestCards(Hand) {
 // Return a decimal to express the hand value
 function PokerHandValueCalcHandValue(C1, C2, GameType, CurrentMode, TableCards) {
 	let Value = 0;
-	
+
 	// In a two cards game, the value is the card * 10000 for a pair or the highest card * 100 + lowest card
 	if (GameType == "TwoCards") {
 		C1 = ((C1 - 1) % 13) + 2;
@@ -406,7 +406,7 @@ function PokerHandValueCalcHandValue(C1, C2, GameType, CurrentMode, TableCards) 
 		else if (C1 > C2) Value = (C1 * 100) + C2;
 		else Value = (C2 * 100) + C1;
 	}
-	
+
 	// In a Texas Hold 'em game, the value before the decimal is the type of hand (straight, flush), after the decimals are the highest remaining cards
 	if (GameType == "TexasHoldem") {
 
@@ -433,7 +433,7 @@ function PokerHandValueCalcHandValue(C1, C2, GameType, CurrentMode, TableCards) 
 		if (Value < 1) Value = PokerHandValueTwoPairs(Hand); // 3
 		if (Value < 1) Value = PokerHandValueOnePair(Hand); // 2
 		if (Value < 1) Value = PokerHandValueHighestCards(Hand); // 1
-		
+
 	}
 
 	return Value;
