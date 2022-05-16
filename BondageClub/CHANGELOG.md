@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-05-12
-* Last recorded PR: [#3421](https://github.com/Ben987/Bondage-College/pull/3421)
-* Last recorded commit hash: `f7a4faf734b4dfa8d4e646cec6769be70e4889db`
+* Changelog last updated: 2022-05-16
+* Last recorded PR: [#3463](https://github.com/Ben987/Bondage-College/pull/3463)
+* Last recorded commit hash: `698d3ebc166029e3640416700005ba555f23ec51`
 
 
 ## [R80]
@@ -58,7 +58,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Estsanatlehi - Moved the Wooden Horse to the devices slot ([#3364](https://github.com/Ben987/Bondage-College/pull/3364))
 * fleisch11 - Added an arrow to indicate doors in the Bondage Brawl minigame ([#3383](https://github.com/Ben987/Bondage-College/pull/3383))
 * Karamel - Updated the assets for the Nylon Rope items ([#3390](https://github.com/Ben987/Bondage-College/pull/3390))
-* Ada - Updated Kinky Dungeon to 3.31 - see the [Kinky Dungeon changelog](Screens/MiniGame/KinkyDungeon/Changelog.txt) ([#3401](https://github.com/Ben987/Bondage-College/pull/3401), [#3442](https://github.com/Ben987/Bondage-College/pull/3442))
+* Ada - Updated Kinky Dungeon to 3.32 - see the [Kinky Dungeon changelog](Screens/MiniGame/KinkyDungeon/Changelog.txt) ([#3401](https://github.com/Ben987/Bondage-College/pull/3401), [#3442](https://github.com/Ben987/Bondage-College/pull/3442), [#3456](https://github.com/Ben987/Bondage-College/pull/3456))
 
 ### [Fixed]
 
@@ -83,6 +83,8 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Ace - Fixed an issue where returning to a chatroom from the friendlist when entering it from a beep notification would stop the chat from automatically scrolling ([#3441](https://github.com/Ben987/Bondage-College/pull/3441))
 * Ellie - Fixed a bug where the clothing versions of the Leather Corset Top and Steampunk Corset Top would disappear in several poses ([#3422](https://github.com/Ben987/Bondage-College/pull/3422))
 * Luna - Fixed an issue with the Bridle Gag where the post would render behind some items ([#3421](https://github.com/Ben987/Bondage-College/pull/3421))
+* remiliacn - Fixed an issue where OOC using the full-width left parenthesis character (`（`) could bypass OOC being blocked when gagged ([#3449](https://github.com/Ben987/Bondage-College/pull/3449))
+* anniclub - Fixed a piece of missing chat message when picking the "Light" option on the Inflatable Strait Leotard ([#3458](https://github.com/Ben987/Bondage-College/pull/3458))
 
 ### [Technical]
 
@@ -92,6 +94,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
   * Jomshir - [#3361](https://github.com/Ben987/Bondage-College/pull/3361)
   * remiliacn - [#3391](https://github.com/Ben987/Bondage-College/pull/3391)
   * Ellie - [#3393](https://github.com/Ben987/Bondage-College/pull/3393), [#3414](https://github.com/Ben987/Bondage-College/pull/3414)
+  * Nina - [#3463](https://github.com/Ben987/Bondage-College/pull/3463)
 
 ### [Beta Fixes]
 
@@ -104,6 +107,8 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Estsanatlehi - Fixed a bug where lines of text in the profile sheets for NPCs could overlap with each other ([#3427](https://github.com/Ben987/Bondage-College/pull/3427))
 * Ellie - Fixed a bug where the Panty Line layer in the new Harem Pants was not visible ([#3425](https://github.com/Ben987/Bondage-College/pull/3425))
 * Estsanatlehi - Fixed a bug where the "(Back to rules.)" option would appear twice in the owner rules menu ([#3447](https://github.com/Ben987/Bondage-College/pull/3447))
+* Ellie - Fixed a bug where some items would cause "Invalid appearance update" warning messages in the console when modified ([#3453](https://github.com/Ben987/Bondage-College/pull/3453))
+* Ellie - Fixed an issue where the slime girl would clip through wing items ([#3455](https://github.com/Ben987/Bondage-College/pull/3455))
 
 
 ## [R79]

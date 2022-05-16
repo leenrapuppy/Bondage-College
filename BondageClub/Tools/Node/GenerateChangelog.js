@@ -59,6 +59,7 @@ const CONTRIBUTOR_NAMES = {
 	"Anonymous-WghrYkBGUjBt": "Anonymous-WghrYkBGUjBt",
 	"EliseRoland": "EliseRoland",
 	"estuiguang": "estuiguang",
+	"anniclub": "anniclub",
 };
 
 async function generateChangelogHtml() {
