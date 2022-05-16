@@ -249,14 +249,14 @@ function loadCSV(path, expectedWidth) {
 	// Check player dialog in AssetFemale3DCGExtended
 	Object.values(AssetFemale3DCGExtended).forEach((category) => {
 		Object.values(Object(category)).forEach((asset) => {
-			const dialog = asset.Config?.Dialog;
-			const options = asset.Config?.Options;
+			const dialog = asset.Config && asset.Config.Dialog;
+			const options = asset.Config && asset.Config.Options;
 			if (!dialog || !options) {
 				return;
 			}
 
 			options.forEach((option) => {
-				if (option.ArchetypeConfig?.Dialog) {
+				if (option.ArchetypeConfig && option.ArchetypeConfig.Dialog) {
 					const optionDialog = option.ArchetypeConfig.Dialog;
 					if (!dialogArray.find(e => e[0] === optionDialog.ChatPrefix)) {
 						error(`Missing Dialog: '${optionDialog.ChatPrefix}'`);
