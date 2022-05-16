@@ -17,7 +17,7 @@ let KinkyDungeonConsumables = {
 	"Bomb" : {name: "Bomb", rarity: 1, costMod: -1, shop: false, type: "spell", spell: "Bomb", sfx: "MagicSlash"},
 	"ElfCrystal" : {name: "ElfCrystal", noHands: true, rarity: 3, costMod: -1, shop: false, type: "spell", spell: "Slippery", sfx: "MagicSlash"},
 	"EnchantedGrinder" : {name: "EnchantedGrinder", noHands: true, rarity: 4, shop: true, type: "spell", spell: "Cutting", sfx: "Laser"},
-	"MistressKey" : {name: "MistressKey", rarity: 8, shop: false, type: "unusuable"},
+	"MistressKey" : {name: "MistressKey", rarity: 8, costMod: -1, shop: false, type: "unusuable"},
 	"AncientPowerSource" : {name: "AncientPowerSource", noHands: true, rarity: 4, costMod: -1, shop: true, type: "charge", amount: 0.251},
 	"AncientPowerSourceSpent" : {name: "AncientPowerSourceSpent", noHands: true, rarity: 3, costMod: -1, shop: false, type: "recharge"},
 	"ScrollArms" : {name: "ScrollArms", noHands: true, rarity: 2, shop: true, type: "buff", buff: "NoArmsComp", duration: 12, power: 1, aura: "#aaffaa", sfx: "FireSpell"},

@@ -5,9 +5,9 @@ const KDRAGE = -31;
 
 let KDFactionGoddess = {
 	"Metal": {
-		"Elf": 0.001,
 		"Nevermere": 0.01,
 		"AncientRobot": 0.005,
+		"Alchemist": 0.0025,
 	},
 	"Rope": {
 		"KinkyConstruct": 0.005,
@@ -21,8 +21,10 @@ let KDFactionGoddess = {
 		"Elemental": 0.01,
 	},
 	"Leather": {
+		"Elf": 0.001,
 		"Dragon": 0.005,
 		"Bandit": 0.01,
+		"Elemental": 0.002,
 	},
 	"Latex": {
 		"Maidforce": 0.0015,
@@ -34,6 +36,7 @@ let KDFactionGoddess = {
 		"Elf": 0.025,
 		"Mushy": 0.0035,
 		"Bast": 0.025,
+		"Apprentice": 0.001,
 	},
 	"Conjure": {
 		"Alchemist": 0.002,
@@ -46,6 +49,7 @@ let KDFactionGoddess = {
 		"Apprentice": 0.0015,
 		"Maidforce": 0.007,
 		"Bountyhunter": 0.002,
+		//"Ghost": 0.005,
 	},
 };
 

@@ -110,7 +110,7 @@ function KinkyDungeonAggroAction(action, data) {
 		case 'rubble':
 			e = KinkyDungeonPlayerIsVisibleToJailers();
 			if (e) {
-				KinkyDungeonPlayExcuse(data.enemy, "Loot");
+				KinkyDungeonPlayExcuse(e, "Loot");
 			}
 			break;
 
@@ -131,7 +131,7 @@ function KinkyDungeonAggroAction(action, data) {
 			break;
 
 		case 'struggle':
-			if (KDGameData.PrisonerState == "parole" && data.enemy)
+			if (data.enemy) // KDGameData.PrisonerState == "parole" &&
 				KinkyDungeonPlayExcuse(data.enemy, "Struggle");
 			break;
 
@@ -879,9 +879,9 @@ function KinkyDungeonDefeat() {
 	for (let X = 1; X < KinkyDungeonGridWidth - 1; X++)
 		for (let Y = 1; Y < KinkyDungeonGridHeight - 1; Y++) {
 			let tile = KinkyDungeonTiles.get(X + "," + Y);
-			if (tile && tile.Jail && tile.ReLock && KinkyDungeonMapGet(X, Y) == 'd' || KinkyDungeonMapGet(X, Y) == 'D') {
+			if (tile && tile.Jail && tile.ReLock && (KinkyDungeonMapGet(X, Y) == 'd' || KinkyDungeonMapGet(X, Y) == 'D')) {
 				KinkyDungeonMapSet(X, Y, 'D');
-				if (!tile.Lock)
+				if (tile && !tile.Lock)
 					tile.Lock = "Red";
 			}
 		}

@@ -66,10 +66,6 @@ function KinkyDungeonDrawInputs() {
 	} else if (KDGameData.PrisonerState == 'chase') {
 		DrawTextFit(TextGet("KinkyDungeonPlayerChase"), 1640, 900 - i * 35, 200, "red", "gray"); i++;
 	}
-	let armor = Math.max(0, KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "Armor"));
-	if (armor > 0) {
-		DrawTextFit(TextGet("KinkyDungeonPlayerArmor") + Math.round(armor*10)/10, 1640, 900 - i * 35, 200, "#fca570", "gray"); i++;
-	}
 	let evasion = KinkyDungeonPlayerEvasion();
 	if (evasion != 1.0) {
 		DrawTextFit(TextGet("KinkyDungeonPlayerEvasion") + Math.round(Math.min(100, (1 - evasion) * 100)) + "%", 1640, 900 - i * 35, 200, "white", "gray"); i++;
@@ -94,9 +90,13 @@ function KinkyDungeonDrawInputs() {
 	}
 	i = 0;
 
+	let armor = Math.max(0, KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "Armor"));
+	if (armor > 0) {
+		DrawTextFit(TextGet("KinkyDungeonPlayerArmor") + Math.round(armor*10)/10, 1440, 900 - i * 25, 200, "#fca570", "gray"); i++; i++;
+	}
 	let damageReduction = KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "DamageReduction");
 	if (damageReduction > 0) {
-		DrawTextFit(TextGet("KinkyDungeonPlayerReduction") + Math.round(damageReduction*10)/10, 1440, 900 - i * 25, 150, "#73efe8", "gray"); i++;
+		DrawTextFit(TextGet("KinkyDungeonPlayerReduction") + Math.round(damageReduction*10)/10, 1440, 900 - i * 25, 150, "#73efe8", "gray"); i++; i++;
 	}
 	for (let dt of KinkyDungeonDamageTypes) {
 		let color = dt.color;
@@ -140,6 +140,14 @@ function KinkyDungeonDrawInputs() {
 		}
 		if (KDGameData.CurrentVibration  && KDGameData.CurrentVibration.denyTimeLeft > 0) {
 			DrawTextFit(TextGet("KinkyDungeonPlayerDenied"), 1090, 900 - i * 35, 350, "#ff8888", "gray"); i++;
+		}
+
+		i = 0;
+		for (let b of Object.values(KinkyDungeonPlayerBuffs)) {
+			if (b.aura || b.labelcolor) {
+				DrawTextFit(TextGet("KinkyDungeonBuff" + b.id) + ((b.duration && b.duration < 9000) ? ` (${b.duration})` : ""), 790, 900 - i * 35, 275, b.aura ? b.aura : b.labelcolor, "gray"); i++;
+			}
+
 		}
 	}
 

@@ -43,7 +43,19 @@ function KDGetFaction(enemy) {
 	let E = enemy.Enemy;
 	if (enemy.rage > 0) return "Rage";
 	if (enemy.faction) return enemy.faction;
-	if ((E && E.allied) || (enemy.allied && !enemy.faction && !enemy.Enemy.faction)) return "Player";
+	if ((E && E.allied) || (enemy.allied && !enemy.faction)) return "Player";
+	if (E && E.faction) return E.faction;
+	return "Enemy";
+}
+
+/**
+ * Gets the faction of the enemy, returning "Player" if its an ally, or "Enemy" if no faction
+ * @param {entity} enemy
+ * @returns {string}
+ */
+function KDGetFactionOriginal(enemy) {
+	let E = enemy.Enemy;
+	if (enemy.faction) return enemy.faction;
 	if (E && E.faction) return E.faction;
 	return "Enemy";
 }

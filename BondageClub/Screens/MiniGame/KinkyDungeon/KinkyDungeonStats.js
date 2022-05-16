@@ -527,11 +527,17 @@ function KinkyDungeonUpdateStats(delta) {
 	}
 	KinkyDungeonSubmissiveMult = KinkyDungeonCalculateSubmissiveMult();
 
-	if (!KDGameData.TimeSinceLastVibeEnd) KDGameData.TimeSinceLastVibeEnd = 0;
-	if (!KDGameData.TimeSinceLastVibeStart) KDGameData.TimeSinceLastVibeStart = 0;
+	if (!KDGameData.TimeSinceLastVibeEnd) KDGameData.TimeSinceLastVibeEnd = {};
+	if (!KDGameData.TimeSinceLastVibeStart) KDGameData.TimeSinceLastVibeStart = {};
 
-	KDGameData.TimeSinceLastVibeStart += delta;
-	KDGameData.TimeSinceLastVibeEnd += delta;
+	for (let type of Object.entries(KDGameData.TimeSinceLastVibeStart)) {
+		if (!KDGameData.TimeSinceLastVibeStart[type[0]]) KDGameData.TimeSinceLastVibeStart[type[0]] = 0;
+		else KDGameData.TimeSinceLastVibeStart[type[0]] += delta;
+	}
+	for (let type of Object.entries(KDGameData.TimeSinceLastVibeEnd)) {
+		if (!KDGameData.TimeSinceLastVibeEnd[type[0]]) KDGameData.TimeSinceLastVibeEnd[type[0]] = 0;
+		else KDGameData.TimeSinceLastVibeEnd[type[0]] += delta;
+	}
 }
 
 function KinkyDungeonCalculateMiscastChance() {
@@ -654,7 +660,7 @@ function KinkyDungeonDoPlayWithSelf() {
 	}
 	if (KinkyDungeonIsArmsBound()) amount = Math.max(0, Math.min(amount, OrigAmount - KinkyDungeonPlayWithSelfBoundPenalty));
 	if (KinkyDungeonPlayerDamage && KinkyDungeonPlayerDamage.playSelfBonus) amount += KinkyDungeonPlayerDamage.playSelfBonus;
-	KinkyDungeonChangeDistraction(amount);
+	KinkyDungeonChangeDistraction(amount * KinkyDungeonPlayWithSelfMult);
 	KinkyDungeonChangeStamina(KinkyDungeonPlayCost);
 	if (KinkyDungeonPlayerDamage && KinkyDungeonPlayerDamage.playSelfSound) KinkyDungeonPlaySound(KinkyDungeonRootDirectory + "/Audio/" + KinkyDungeonPlayerDamage.playSelfSound + ".ogg");
 	if (KinkyDungeonPlayerDamage && KinkyDungeonPlayerDamage.playSelfMsg) {
@@ -696,6 +702,7 @@ let KinkyDungeonEdgeCost = -1;
 let KinkyDungeonPlayCost = -0.05;
 
 let KinkyDungeonOrgasmStunTime = 4;
+let KinkyDungeonPlayWithSelfMult = 0.25;
 
 function KinkyDungeonDoTryOrgasm() {
 	let amount = KinkyDungeonOrgasmVibeLevel * KinkyDungeonOrgasmVibeLevelMult;

@@ -11,6 +11,7 @@ let KDDialogueTriggers = {
 		excludeTags: ["zombie", "skeleton"],
 		playRequired: true,
 		noCombat: true,
+		noAlly: true,
 		blockDuringPlaytime: false,
 		prerequisite: (enemy, dist) => {
 			return (KinkyDungeonPlayerDamage
@@ -61,8 +62,9 @@ let KDDialogueTriggers = {
 				&& KinkyDungeonStatsChoice.has("arousalMode")
 				&& !KinkyDungeonFlags.get("DangerFlag")
 				&& !KinkyDungeonFlags.get("BondageOffer")
+				&& !KinkyDungeonFlags.get("ChastityOffer")
 				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
+				&& KDRandom() < 0.05
 				&& KinkyDungeonGetRestraint({tags: ["genericChastity"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
 		},
 		weight: (enemy, dist) => {

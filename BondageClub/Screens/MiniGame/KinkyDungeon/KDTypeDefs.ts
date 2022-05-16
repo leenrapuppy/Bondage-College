@@ -567,7 +567,8 @@ interface enemy {
 	noChannel?: boolean,
 	/** Focuses player over summmons, ignores decoys */
 	focusPlayer?: boolean;
-
+	/** Cant be swapped by another enemy pathing */
+	noSwap?: boolean;
 
 }
 
@@ -631,7 +632,7 @@ interface KinkyDungeonEvent {
 	/** Vibe */
 	edgeOnly?: boolean;
 	/** Vibe */
-	cooldown?: number;
+	cooldown?: Record<string, number>;
 	/** A required enemy tag */
 	requiredTag?: string;
 	/** Type of struggle that this event triggers on */
@@ -938,10 +939,10 @@ interface spell {
 interface KinkyDialogue {
 	/** REPLACETEXT -> Replacement */
 	data?: Record<string, string>;
-	/** Function to play when clicked. If not specified, nothing happens. */
-	clickFunction?: (gagged: boolean) => void;
+	/** Function to play when clicked. If not specified, nothing happens.  Bool is whether or not to abort current click*/
+	clickFunction?: (gagged: boolean) => boolean | undefined;
 	/** Function to play when clicked, if considered gagged. If not specified, will use the default function. */
-	gagFunction?: () => void;
+	gagFunction?: () => boolean | undefined;
 	/** Will not appear unless function returns true */
 	prerequisiteFunction?: (gagged: boolean) => boolean;
 	/** Will appear greyed out unless true */

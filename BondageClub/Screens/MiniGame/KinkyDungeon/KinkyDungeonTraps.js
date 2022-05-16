@@ -13,13 +13,39 @@ function KinkyDungeonHandleStepOffTraps(x, y) {
 		let color = "red";
 
 		if (tile.StepOffTrap == "DoorLock" && KinkyDungeonNoEnemy(x, y)) {
-			let created = KinkyDungeonSummonEnemy(x, y, "DoorLock", 1, 0);
-			if (created > 0) {
-				if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/MagicSlash.ogg");
-				msg = "Default";
-				KinkyDungeonMakeNoise(12, x, y);
-				KinkyDungeonTiles.delete(x + "," + y);
+			KinkyDungeonMapSet(x, y, 'D');
+			let spawned = 0;
+			let maxspawn = 1 + Math.round(Math.min(2 + KDRandom() * 2, KinkyDungeonDifficulty/25) + Math.min(2 + KDRandom() * 2, 0.5*MiniGameKinkyDungeonLevel/KDLevelsPerCheckpoint));
+			let requireTags = ["doortrap"];
+
+			let tags = ["doortrap"];
+			KinkyDungeonAddTags(tags, MiniGameKinkyDungeonLevel);
+
+			for (let i = 0; i < 30; i++) {
+				if (spawned < maxspawn) {
+					let Enemy = KinkyDungeonGetEnemy(
+						tags, MiniGameKinkyDungeonLevel,
+						KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint],
+						'0', requireTags, true);
+					if (Enemy) {
+						KinkyDungeonSummonEnemy(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, Enemy.name, 1, 6, true, undefined, undefined, true, undefined, true);
+						if (Enemy.tags.has("minor")) spawned += 0.4;
+						else spawned += 1;
+					}
+				}
 			}
+			if (spawned > 0) {
+				KinkyDungeonMapSet(x, y, 'd');
+				let created = KinkyDungeonSummonEnemy(x, y, "DoorLock", 1, 0);
+				if (created > 0) {
+					if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/MagicSlash.ogg");
+					msg = "Default";
+					KinkyDungeonMakeNoise(12, x, y);
+					KinkyDungeonTiles.delete(x + "," + y);
+					KinkyDungeonMapSet(x, y, 'D');
+				}
+			} else
+				KinkyDungeonMapSet(x, y, 'd');
 		}
 
 		if (msg) {

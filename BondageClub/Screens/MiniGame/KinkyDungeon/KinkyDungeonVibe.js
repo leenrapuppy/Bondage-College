@@ -76,7 +76,26 @@ function KinkyDungeonStartVibration(source, name, locations, intensity, duration
 		VibeModifiers: vibeMods ? vibeMods : [],
 	};
 
-	KDGameData.TimeSinceLastVibeStart = 0;
+	if (!KDGameData.TimeSinceLastVibeStart) KDGameData.TimeSinceLastVibeStart = {};
+	KDGameData.TimeSinceLastVibeStart[name] = 0;
+}
+
+/**
+ *
+ * @param {Record<string, number>} cooldown
+ * @returns {boolean}
+ */
+function KDIsVibeCD(cooldown) {
+	if (!KDGameData.TimeSinceLastVibeStart) KDGameData.TimeSinceLastVibeStart = {};
+	if (!KDGameData.TimeSinceLastVibeEnd) KDGameData.TimeSinceLastVibeEnd = {};
+	let pass = true;
+	for (let cd of Object.entries(cooldown)) {
+		if (KDGameData.TimeSinceLastVibeStart[cd[0]] && KDGameData.TimeSinceLastVibeStart[cd[0]] < cd[1] && KDGameData.TimeSinceLastVibeEnd[cd[0]] && KDGameData.TimeSinceLastVibeEnd[cd[0]] < cd[1]) {
+			pass = false;
+			break;
+		}
+	}
+	return pass;
 }
 
 function KinkyDungeonAddVibeModifier(source, name, location, intensityMod, duration, intensitySetpoint, edgeOnly, forceDeny, bypassDeny, bypassEdge, extendDuration, denyChanceMod, denyChanceLikelyMod) {
@@ -174,8 +193,9 @@ function KinkyDungeonCalculateVibeLevel(delta) {
 		}
 
 		if (cease) {
+			if (!KDGameData.TimeSinceLastVibeEnd) KDGameData.TimeSinceLastVibeEnd = {};
+			KDGameData.TimeSinceLastVibeEnd[KDGameData.CurrentVibration.name] = 0;
 			KDGameData.CurrentVibration = null;
-			KDGameData.TimeSinceLastVibeEnd = 0;
 		}
 	}
 
@@ -258,8 +278,9 @@ function KinkyDungeonEndVibration() {
 			vibe.loopsLeft -= 1;
 			vibe.durationLeft = vibe.duration;
 		} else {
+			if (!KDGameData.TimeSinceLastVibeEnd) KDGameData.TimeSinceLastVibeEnd = {};
+			KDGameData.TimeSinceLastVibeEnd[KDGameData.CurrentVibration.name] = 0;
 			KDGameData.CurrentVibration = null;
-			KDGameData.TimeSinceLastVibeEnd = 0;
 		}
 	}
 }

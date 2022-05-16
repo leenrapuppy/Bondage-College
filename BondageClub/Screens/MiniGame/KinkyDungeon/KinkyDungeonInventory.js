@@ -52,7 +52,7 @@ function KinkyDungeonHandleInventory() {
 			let index = i + KinkyDungeonInventoryOffset;
 			if (filteredInventory[index] && filteredInventory[index].item) {
 				if (MouseIn(canvasOffsetX_ui + xx * 200 + 640*KinkyDungeonBookScale + 250, canvasOffsetY_ui + 50 + 45 * yy, 195, 40)) {
-					KinkyDungeonCurrentPageInventory = i;
+					KinkyDungeonCurrentPageInventory = index;
 					return true;
 				}
 			}
@@ -270,7 +270,7 @@ function KinkyDungeonFilterInventory(Filter, enchanted) {
 			else if (item.type == Consumable) ret.push({name: KDConsumable(item).name, item: item, preview: `Screens/MiniGame/KinkyDungeon/Consumables/${KDConsumable(item).name}.png`});
 			else if (item.type == Weapon) ret.push({name: KDWeapon(item).name, item: item, preview: `Screens/MiniGame/KinkyDungeon/Weapons/${KDWeapon(item).name}.png`});
 			else if (item.type == Outfit) ret.push({name: KDOutfit(item) ? KDOutfit(item).name : "Prisoner", item: item, preview: `Screens/MiniGame/KinkyDungeon/Outfits/${KDOutfit(item).name}.png`});
-			else if (item && item.name) ret.push({name: item.name, item: item, preview: ``});
+			//else if (item && item.name) ret.push({name: item.name, item: item, preview: ``});
 		}
 
 	return ret;
@@ -369,8 +369,8 @@ function KinkyDungeonDrawInventory() {
 			if (filteredInventory[index] && filteredInventory[index].item) {
 				let text = "KinkyDungeonInventoryItem" + filteredInventory[index].name;
 				if (filteredInventory[index].item.type == Restraint || filteredInventory[index].item.type == LooseRestraint)
-					text = "Restraint" + filteredInventory[i].name;
-				DrawButton(canvasOffsetX_ui + xx * 200 + 640*KinkyDungeonBookScale + 250, canvasOffsetY_ui + 50 + 45 * yy, 195, 40, TextGet(text), i == KinkyDungeonCurrentPageInventory ? "white" : "#888888");
+					text = "Restraint" + filteredInventory[index].name;
+				DrawButton(canvasOffsetX_ui + xx * 200 + 640*KinkyDungeonBookScale + 250, canvasOffsetY_ui + 50 + 45 * yy, 195, 40, TextGet(text), index == KinkyDungeonCurrentPageInventory ? "white" : "#888888");
 			} else {
 				if (i + KinkyDungeonInventoryOffset > filteredInventory.length + 2)
 					KinkyDungeonInventoryOffset = 0;

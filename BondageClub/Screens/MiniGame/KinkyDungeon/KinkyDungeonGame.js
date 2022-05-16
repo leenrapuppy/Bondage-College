@@ -808,6 +808,10 @@ function KinkyDungeonCreateForbidden(greaterChance, Floor, width, height) {
 		KinkyDungeonMapSet(cornerX + Math.floor(radius/2), cornerY + radius - 1, '2');
 
 		KinkyDungeonTiles.set((cornerX + Math.floor(radius/2)) + "," + (cornerY + 1), {Loot: "gold", Roll: KDRandom()});
+
+		// Trapped Door
+		KinkyDungeonMapSet(cornerX + Math.floor(radius/2), cornerY + radius - 1, 'd');
+		KinkyDungeonTiles.set((cornerX + Math.floor(radius/2)) + "," + (cornerY + radius - 1), {Type: "Door", StepOffTrap: "DoorLock"});
 		KinkyDungeonSpecialAreas.push({x: cornerX + Math.floor(radius/2), y: cornerY + Math.floor(radius/2), radius: Math.ceil(radius/2) + 4});
 		if ( KDDebug) {
 			console.log("Created forbidden hall");
@@ -2398,9 +2402,30 @@ function KinkyDungeonLaunchAttack(Enemy, skip) {
 	let noadvance = false;
 	if (KinkyDungeonHasStamina(Math.abs(attackCost), true)) {
 		if (!KDGameData.ConfirmAttack && (!KinkyDungeonAggressive(Enemy) || KDAllied(Enemy))) {
-			KinkyDungeonSendActionMessage(10, TextGet("KDGameData.ConfirmAttack"), "red", 1);
-			KDGameData.ConfirmAttack = true;
-			noadvance = true;
+			if (!Enemy.playWithPlayer) { // KDAllied(Enemy)
+				KDStartDialog("GenericAlly", Enemy.Enemy.name, true, Enemy.personality, Enemy);
+				noadvance = true;
+			}
+			/*} else if (KDEnemyHasFlag(Enemy, "Shop")) {
+				for (let shop of KDShops) {
+					if (KDEnemyHasFlag(Enemy, shop.name)) {
+						KDStartDialog(shop.name, Enemy.Enemy.name, true, Enemy.personality, Enemy);
+						noadvance = true;
+						break;
+					}
+				}
+				if (!KDGameData.CurrentDialog) {
+					KinkyDungeonSendActionMessage(10, TextGet("KDGameData.ConfirmAttack"), "red", 1);
+					KDGameData.ConfirmAttack = true;
+					noadvance = true;
+				}
+			}*/
+			else {
+				KinkyDungeonSendActionMessage(10, TextGet("KDGameData.ConfirmAttack"), "red", 1);
+				KDGameData.ConfirmAttack = true;
+				noadvance = true;
+			}
+
 		} else {
 			KinkyDungeonAttackEnemy(Enemy, {damage: KinkyDungeonPlayerDamage.dmg, type: KinkyDungeonPlayerDamage.type, bind: KinkyDungeonPlayerDamage.bind, boundBonus: KinkyDungeonPlayerDamage.boundBonus, tease: KinkyDungeonPlayerDamage.tease});
 			KinkyDungeonLastAction = "Attack";
@@ -2424,14 +2449,14 @@ function KinkyDungeonMove(moveDirection, delta, AllowInteract) {
 	let moveY = moveDirection.y + KinkyDungeonPlayerEntity.y;
 	let moved = false;
 	let Enemy = KinkyDungeonEnemyAt(moveX, moveY);
-	if (Enemy && (!Enemy.Enemy || !Enemy.Enemy.noblockplayer) && !Enemy.allied) {
+	if (Enemy && !KDEnemyHasFlag (Enemy, "passthrough") && (!Enemy.Enemy || !Enemy.Enemy.noblockplayer)) {
 		if (AllowInteract) {
 			KinkyDungeonLaunchAttack(Enemy);
 		}
 	} else {
 		let MovableTiles = KinkyDungeonGetMovable();
 		let moveObject = KinkyDungeonMapGet(moveX, moveY);
-		if (MovableTiles.includes(moveObject) && (KinkyDungeonNoEnemy(moveX, moveY) || (Enemy && Enemy.allied) || (Enemy.Enemy && Enemy.Enemy.noblockplayer))) { // If the player can move to an empy space or a door
+		if (MovableTiles.includes(moveObject) && (KinkyDungeonNoEnemy(moveX, moveY) || (Enemy && Enemy.allied) || (Enemy.Enemy && Enemy.Enemy.noblockplayer) || KDEnemyHasFlag (Enemy, "passthrough"))) { // If the player can move to an empy space or a door
 			KDGameData.ConfirmAttack = false;
 
 			if (KinkyDungeonTiles.get("" + moveX + "," + moveY) && KinkyDungeonTiles.get("" + moveX + "," + moveY).Type && ((KinkyDungeonToggleAutoDoor && moveObject == 'd' && KinkyDungeonTargetTile == null && KinkyDungeonNoEnemy(moveX, moveY, true))
@@ -2456,7 +2481,7 @@ function KinkyDungeonMove(moveDirection, delta, AllowInteract) {
 						if (KinkyDungeonStatBind) KinkyDungeonMovePoints = 0;
 
 						if (KinkyDungeonMovePoints >= 1) {// Math.max(1, KinkyDungeonSlowLevel) // You need more move points than your slow level, unless your slow level is 1
-							if (Enemy && Enemy.allied) {
+							if (Enemy && (KDAllied(Enemy) || KDEnemyHasFlag (Enemy, "passthrough"))) {
 								Enemy.x = KinkyDungeonPlayerEntity.x;
 								Enemy.y = KinkyDungeonPlayerEntity.y;
 							}
@@ -2510,6 +2535,7 @@ function KinkyDungeonMove(moveDirection, delta, AllowInteract) {
 							KinkyDungeonLoot(MiniGameKinkyDungeonLevel, MiniGameKinkyDungeonCheckpoint, "rubble");
 
 							KinkyDungeonMapSet(moveX, moveY, 'r');
+							KinkyDungeonAggroAction('rubble', {});
 						}
 						KinkyDungeonTrapMoved = true;
 						//}
