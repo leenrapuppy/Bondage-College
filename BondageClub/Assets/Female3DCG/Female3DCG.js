@@ -1952,13 +1952,13 @@ var AssetFemale3DCG = [
 			{ Name: "HairFront24" },
 			{ Name: "HairFront25" },
 			{ Name: "HairFront26" },
-			{ Name: "HairFront27",
+			{ Name: "HairFront27", AllowPose: ["Suspension"],
 			Layer: [
 				{ Name: "Base" },
-				{ Name: "Bangs", Priority: 54, CopyLayerColor: "Base"},
-				{ Name: "BangsTip", Priority: 54 },
+				{ Name: "Bangs", Priority: 54, CopyLayerColor: "Base" },
+				{ Name: "BangsTip", Priority: 54},
 			], 
-			Top: 0, Left: 0 },
+			Top: -200, Left: 0 },
 		],
 		Color: ["#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"]
 	},
