@@ -211,7 +211,7 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 			|| !InventoryDoItemsExposeGroup(C, "ItemButt", ["ClothLower", "Panties"])
 		) ? "RemoveClothesForItem" : "";
 
-		// Items that require access to a certain character's zone 
+		// Items that require access to a certain character's zone
 		case "AccessMouth": return C.IsMouthBlocked() ? "CannotBeUsedOverGag" : "";
 		case "HoodEmpty": return InventoryGet(C, "ItemHood") ? "CannotBeUsedOverMask" : "";
 		case "EyesEmpty": return InventoryGet(C, "ItemHead") ? "CannotBeUsedOverHood" : "";
@@ -1153,4 +1153,21 @@ function InventoryShockExpression(C) {
 		{ Group: "Eyes", Name: "Closed", Timer: 5 },
 	];
 	InventoryExpressionTriggerApply(C, expressions);
+}
+
+/**
+ * Extracts all lock-related properties from an item's property object
+ * @param {ItemProperties} property - The property object to extract from
+ * @returns {ItemProperties} - A property object containing only the lock-related properties from the provided property
+ * object
+ */
+function InventoryExtractLockProperties(property) {
+	/** @type {ItemProperties} */
+	const lockProperties = {};
+	for (const key of Object.keys(property)) {
+		if (ValidationAllLockProperties.includes(key)) {
+			lockProperties[key] = JSON.parse(JSON.stringify(property[key]));
+		}
+	}
+	return lockProperties;
 }

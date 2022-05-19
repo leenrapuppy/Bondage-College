@@ -105,7 +105,14 @@ function VariableHeightCreateLoadFunction({ defaultProperty, maxHeight, minHeigh
 		// Initialise/validate the settings
 		let currentHeight = getHeight(item.Property);
 		if (currentHeight == null) {
-			item.Property = JSON.parse(JSON.stringify(defaultProperty));
+			const lockProperties = item.Property ? InventoryExtractLockProperties(item.Property) : undefined;
+			item.Property = Object.assign(JSON.parse(JSON.stringify(defaultProperty)), lockProperties);
+
+			if (item.Property.LockedBy && !(item.Property.Effect || []).includes("Lock")) {
+				item.Property.Effect = (item.Property.Effect || []);
+				item.Property.Effect.push("Lock");
+			}
+
 			currentHeight = getHeight(item.Property);
 		}
 
