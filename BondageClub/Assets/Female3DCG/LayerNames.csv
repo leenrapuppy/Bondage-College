@@ -51,6 +51,13 @@ ClothReverseBunnySuitSuit,Suit
 ClothReverseBunnySuitGloves,Gloves
 ClothFuzzyDressDress,Dress
 ClothFuzzyDressTopFur,Fur
+ClothCropTopBlouse,Top
+ClothCropTopDesign,Design
+ClothLaurelBase,Top
+ClothLaurelDesign,Design
+ClothLaurelLace,Lace
+ClothSeethroughTopLace,Lace
+ClothSeethroughTopDesign,Design
 ClothAccessoryBouquetBase,Holder
 ClothAccessoryBouquetFlowers,Flowers
 ClothAccessoryCapeFront,Front
@@ -124,6 +131,8 @@ ClothLowerTutuLayer4,Layer 4
 ClothLowerHulaSkirtBackLeaves,Leaves
 ClothLowerHulaSkirtFlowers,Flowers
 ClothLowerHulaSkirtPollen,Pollen
+ClothLowerElegantSkirtSkirt,Skirt
+ClothLowerElegantSkirtDesign,Design
 SuitLowerCatsuitBase,Suit
 SuitLowerCatsuitZip,Zip
 SuitLowerSeethroughSuitZipBase,Suit

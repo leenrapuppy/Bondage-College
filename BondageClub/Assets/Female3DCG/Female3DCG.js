@@ -268,7 +268,33 @@ var AssetFemale3DCG = [
 				Alpha: [
 					{ Group: ["ClothLower"], Masks: [[0, 320, 500, 300]] },
 				],
-			}
+			},
+			{
+				Name: "CropTop", Value: 40, AllowPose: ["Hogtied"], HideForPose: ["AllFours"],
+				Hide: ["ItemNipplesPiercings"],
+				HideItem: ["ItemNipplesLactationPump"],
+				Layer: [
+					{ Name: "Blouse" },
+					{ Name: "Design" },
+				],
+			},
+			{
+				Name: "Laurel", Value: 50, Priority: 25, AllowPose: ["Hogtied", "OverTheHead"], HideForPose: ["AllFours"],
+				HideItem: ["ItemNipplesLactationPump"],
+				Layer: [
+					{ Name: "Base" },
+					{ Name: "Design" },
+					{ Name: "Lace" },
+				],
+			},
+			{
+				Name: "SeethroughTop", Value: 50, Priority: 25, AllowPose: ["Hogtied"], HideForPose: ["AllFours"],
+				HideItem: ["ItemNipplesLactationPump"],
+				Layer: [
+					{ Name: "Lace" },
+					{ Name: "Design" },
+				],
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -653,6 +679,39 @@ var AssetFemale3DCG = [
 				HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds"],
 				AllowPose: ["KneelingSpread"],
 				Attribute: ["Skirt"],
+			},
+			{
+				Name: "AsymmetricSkirt", Value: 80, Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Attribute: ["Skirt"], Left: 0,
+				Hide: ["ItemFeet"],
+				HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds", "PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"],
+				HideItemExclude: ["ItemFeetLeatherAnkleCuffs", "ItemFeetSteelAnkleCuffs", "ItemFeetFuturisticAnkleCuffs", "ItemFeetOrnateAnkleCuffs", "ItemFeetWoodenCuffs", ""],
+				AllowPose: ["Kneel", "KneelingSpread"],
+				Layer: [
+					{ Name: "Back", ParentGroup: null, Priority: 5 },
+					{ Name: "Front", CopyLayerColor: "Back" },
+				],
+			},
+			{
+				Name: "ElegantSkirt", Value: 80, Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Attribute: ["Skirt"], Left: 0,
+				Hide: ["ItemFeet"],
+				HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds", "PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"],
+				AllowPose: ["Kneel", "KneelingSpread"],
+				Layer: [
+					{ Name: "Skirt" },
+					{ Name: "Design" },
+				],
+				Alpha: [
+					{ Pose: ["KneelingSpread"], Group: ["BodyLower", "Socks", "Shoes", "SuitLower", "Garters"], Masks: [[0, 462, 500, 538]] }
+				]
+			},
+			{
+				Name: "RuffledSkirt", Value: 80, Expose: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"], Attribute: ["Skirt"], Left: 0,
+				Hide: ["ItemFeet"],
+				HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds", "PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper"],
+				AllowPose: ["Kneel", "KneelingSpread"],
+				Alpha: [
+					{ Pose: ["KneelingSpread"], Group: ["BodyLower", "Socks", "Shoes", "SuitLower", "Garters"], Masks: [[0, 462, 500, 538]] }
+				]
 			},
 		],
 		Color: ["Default", "#bbbbbb", "#808080", "#202020", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]

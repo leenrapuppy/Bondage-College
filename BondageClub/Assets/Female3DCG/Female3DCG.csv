@@ -59,6 +59,9 @@ Cloth,LatexTop,Laced Latex Top
 Cloth,LatexLacedSuit,Latex Laced Suit
 Cloth,FurCoat,Fur Coat
 Cloth,FuzzyDress,Fuzzy Dress
+Cloth,CropTop,Crop Top
+Cloth,Laurel,Laurel Top
+Cloth,SeethroughTop,See-through Top
 ClothAccessory,,Cloth Accessory
 ClothAccessory,StudentOutfit3Scarf,Student Scarf
 ClothAccessory,StudentOutfit3Bow1,Student Bow 1
@@ -139,6 +142,9 @@ ClothLower,HaremPants,Harem Pants
 ClothLower,HaremPants2,Harem Pants 2
 ClothLower,ShortPlaidSkirt,Short Plaid Skirt
 ClothLower,CollegeSkirt,College Skirt
+ClothLower,AsymmetricSkirt,Asymmetric Skirt
+ClothLower,ElegantSkirt,Elegant Skirt
+ClothLower,RuffledSkirt,Ruffled Skirt
 SuitLower,,Suit Lower
 SuitLower,Catsuit,Catsuit
 SuitLower,SeamlessCatsuit, Seamless Catsuit
