@@ -9,6 +9,7 @@ const neededFiles = [
 	"Scripts/Dialog.js",
 	"Scripts/ModularItem.js",
 	"Scripts/TypedItem.js",
+	"Scripts/VariableHeight.js",
 	"Screens/Inventory/Futuristic/Futuristic.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"

@@ -89,7 +89,7 @@ type EffectName =
 
 	"CuffedFeet" | "CuffedLegs" | "CuffedArms" | "IsChained" | "FixedHead" |
 
-	"Shackled" | "Tethered" | "Enclose" | "OneWayEnclose" | "OnBed" | "Lifted" |
+	"Shackled" | "Tethered" | "Enclose" | "OneWayEnclose" | "OnBed" | "Lifted" | "Suspended" |
 
 	"Slow" | "FillVulva" | "IsPlugged" |
 
@@ -785,6 +785,7 @@ interface Character {
 	IsNpc: () => boolean;
 	IsSimple: () => boolean;
 	GetDifficulty: () => number;
+	IsSuspended: () => boolean;
 	IsInverted: () => boolean;
 	CanChangeToPose: (Pose: string) => boolean;
 	GetClumsiness: () => number;
@@ -1814,8 +1815,8 @@ interface VariableHeightConfig {
 	MaxHeight: number;
 	/** The lowest Y co-ordinate that can be set  */
 	MinHeight: number;
-	/** The name of the image from "\BondageClub\Icons" that will show the current position on the slider */
-	SliderIcon: string;
+	/** Settings for the range input element the user can use to change the height */
+	Slider: VariableHeightSliderConfig;
 	/** A record containing various dialog keys used by the extended item screen */
 	Dialog: VariableHeightDialogConfig;
 	/**
@@ -1823,12 +1824,21 @@ interface VariableHeightConfig {
 	 * chatroom messages. Defaults to [{@link CommonChatTags.SOURCE_CHAR}, {@link CommonChatTags.DEST_CHAR}]
 	 */
 	ChatTags?: CommonChatTags[];
-	/** Name of the function that handles finding the current variable height setting */
-	GetHeightFunction?: string;
-	/** Name of the function that handles applying the height setting to the character */
-	SetHeightFunction?: string;
+	/** The function that handles finding the current variable height setting */
+	GetHeightFunction?: Function;
+	/** The function that handles applying the height setting to the character */
+	SetHeightFunction?: Function;
 	/** The default properties for the item, if not provided from an extended item option */
 	Property?: ItemProperties;
+}
+
+interface VariableHeightSliderConfig {
+	/** The name of a supported thumbnail image in \CSS\Styles.css that will show the current position on the slider */
+	Icon: string;
+	/** The Y co-ordinate of the topmost point of the slider */
+	Top: number;
+	/** The height in pixels of the slider */
+	Height: number;
 }
 
 interface VariableHeightDialogConfig {
@@ -1862,8 +1872,8 @@ interface VariableHeightData {
 	maxHeight: number;
 	/** The lowest Y co-ordinate that can be set  */
 	minHeight: number;
-	/** The name of the image from "\BondageClub\Icons" that will show the current position on the slider */
-	sliderIcon: string;
+	/** Settings for the range input element the user can use to change the height */
+	slider: VariableHeightSliderConfig;
 	/** The initial property to apply */
 	defaultProperty: ItemProperties;
 	/** A record containing various dialog keys used by the extended item screen */

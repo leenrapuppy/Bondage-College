@@ -269,6 +269,10 @@ function CommonDrawAppearanceBuild(C, {
 							AlphaMasks = OverriddenData[key];
 							break;
 						}
+						case "Pose": {
+							Pose = OverriddenData[key];
+							break;
+						}
 					}
 				}
 			}
@@ -293,7 +297,7 @@ function CommonDrawAppearanceBuild(C, {
 
 		let PoseFolder = typeof Layer.PoseMapping[Pose] === "string" ? Layer.PoseMapping[Pose] : Pose;
 		if (PoseFolder) PoseFolder += '/';
-		// if (!HideForPose) {
+		
 		if (Layer.HasImage && (!Layer.LockLayer || ItemLocked)) {
 			// Draw the item on the canvas (default or empty means no special color, # means apply a color, regular text means we apply
 			// that text)
