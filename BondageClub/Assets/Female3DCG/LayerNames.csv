@@ -618,6 +618,14 @@ ItemHoodHeadboxSeethroughGlassInside,Inside
 ItemHoodHeadboxSeethroughFrame,Outside
 ItemHoodSlimeOne,Color 1
 ItemHoodSlimeTwo,Color 2
+ItemHoodKittyHoodBase,Base
+ItemHoodKittyHoodLinings,Linings
+ItemHoodKittyHoodPanel,Forehead Panel
+ItemHoodKittyHoodDisplay,Display
+ItemHoodKittyHoodOpenings,Openings
+ItemHoodKittyHoodBlindfold,Blindfold
+ItemHoodKittyHoodGag,Gag
+ItemHoodKittyHoodDrawings,Drawings
 ItemBootsLockingBoots1Boots,Boots
 ItemBootsLockingBoots1Straps,Straps
 ItemBootsFuturisticHeelsShoes,Body

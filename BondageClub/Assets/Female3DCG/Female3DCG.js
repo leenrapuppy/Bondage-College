@@ -5867,6 +5867,33 @@ var AssetFemale3DCG = [
 				],
 				Tint: [{Color: 1, Strength: 0.4}],
 			},
+			{
+				Name: "KittyHood", Fetish: ["Pet"], Random: false, Value: 40, Difficulty: 2, Top: 33, Left: 142,
+				AllowLock: true, Extended: true, DrawLocks: false,
+				Hide: ["HairFront", "HairBack", "Glasses", "Ears"],
+				Layer: [
+					{ Name: "Base", HasType: false, },
+					{ Name: "Linings", HasType: false, },
+					{ Name: "Panel", HasType: false, },
+					{ Name: "Display", HasType: false, },
+					{ Name: "Openings", HasType: false, },
+					{ Name: "Blindfold", Top: 80, Left: 164, HasType: false, AllowModuleTypes: ["b1"], AllowColorize: false, },
+					{ Name: "BlindfoldNeutral", Top: 80, Left: 164, HasType: false, AllowModuleTypes: ["b1e0"], CopyLayerColor: "Drawings", },
+					{ Name: "BlindfoldOwO", Top: 80, Left: 164, HasType: false, AllowModuleTypes: ["b1e1"], CopyLayerColor: "Drawings", },
+					{ Name: "BlindfoldUwU", Top: 80, Left: 164, HasType: false, AllowModuleTypes: ["b1e2"], CopyLayerColor: "Drawings", },
+					{ Name: "Gag", Top: 80, Left: 164, HasType: false, AllowModuleTypes: ["g1"], AllowColorize: false, },
+					{ Name: "GagNeutral", Top: 80, Left: 164, HasType: false, AllowModuleTypes: ["g1e0"], CopyLayerColor: "Drawings", },
+					{ Name: "GagOwO", Top: 80, Left: 164, HasType: false, AllowModuleTypes: ["g1e1"], CopyLayerColor: "Drawings", },
+					{ Name: "GagUwU", Top: 80, Left: 164, HasType: false, AllowModuleTypes: ["g1e2"], CopyLayerColor: "Drawings", },
+					{ Name: "Drawings", HasImage: false, },
+					{ Name: "Lock", Top: 113, Left: 233, HasType: false, LockLayer: true, AllowColorize: false, }
+				],
+			},
+			{
+				Name: "LatexDogHood", Fetish: ["Latex", "Pet"], Random: false, Value: 20, Difficulty: 1, Top: -5, Left: 113,
+				AllowLock: true,
+				Hide: ["HairFront", "HairBack", "Glasses", "Ears"],
+			},
 			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]

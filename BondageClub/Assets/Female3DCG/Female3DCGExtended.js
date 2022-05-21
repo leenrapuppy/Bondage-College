@@ -2266,6 +2266,44 @@ var AssetFemale3DCGExtended = {
 				DrawImages: false,
 			},
 		}, // HeadboxSeethrough
+		KittyHood: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
+				Modules: [
+					{
+						Name: "Blindfold", Key: "b",
+						Options: [
+							{}, // b0 - None
+							{
+								Property: {
+									Effect: ["BlindHeavy"],
+								}
+							}, // b1 - Blindfold
+						]
+					},
+					{
+						Name: "Gag", Key: "g",
+						Options: [
+							{}, // g0 - None
+							{
+								Property: {
+									Effect: ["GagLight"],
+								}
+							}, // g1 - Gag
+						]
+					},
+					{
+						Name: "Expression", Key: "e",
+						Options: [
+							{}, // e0 - Neutral
+							{}, // e1 - OwO
+							{}, // e2 - UwU
+						]
+					}
+				]
+			}
+		}
 	}, // ItemHood
 	ItemDevices: {
 		FuturisticCrate: {
