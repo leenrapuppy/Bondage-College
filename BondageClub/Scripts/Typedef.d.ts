@@ -554,7 +554,7 @@ interface Asset {
 	ColorableLayerCount: number;
 	Archetype?: string;
 	Attribute: string[];
-	PreviewIcons: string[];
+	PreviewIcons: InventoryIcon[];
 	Tint: TintDefinition[];
 	AllowTint: boolean;
 	DefaultTint?: string;
@@ -607,9 +607,13 @@ interface Item {
 	Property?: ItemProperties;
 }
 
+type FavoriteIcon = "Favorite" | "FavoriteBoth" | "FavoritePlayer";
+
+type InventoryIcon = FavoriteIcon | "AllowedLimited" | "Handheld" | "Locked" | "LoverOnly" | "OwnerOnly" | "Unlocked";
+
 interface DialogInventoryItem extends Item {
 	Worn: boolean;
-	Icons: string[];
+	Icons: InventoryIcon[];
 	SortOrder: string;
 	Hidden: boolean;
 	Vibrating: boolean;
@@ -619,6 +623,14 @@ interface InventoryItem {
 	Group: string;
 	Name: string;
 	Asset: Asset;
+}
+
+interface FavoriteState {
+	TargetFavorite: boolean;
+	PlayerFavorite: boolean;
+	Icon: FavoriteIcon;
+	UsableOrder: DialogSortOrder;
+	UnusableOrder: DialogSortOrder;
 }
 
 interface Skill {

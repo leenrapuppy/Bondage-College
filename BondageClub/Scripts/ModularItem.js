@@ -309,7 +309,8 @@ function ModularItemDrawCommon(moduleName, buttonDefinitions, { asset, pages, dr
 		return;
 	}
 
-	DrawAssetPreview(1387, 55, asset);
+	const locked = InventoryItemHasEffect(DialogFocusItem, "Lock", true);
+	DrawAssetPreview(1387, 55, asset, {Icons: locked ? ["Locked"] : undefined});
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 
 	const { paginate, pageCount, positions } = drawData[moduleName];

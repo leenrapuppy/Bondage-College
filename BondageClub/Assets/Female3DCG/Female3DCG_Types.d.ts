@@ -139,7 +139,7 @@ interface AssetDefinition {
 	FuturisticRecolorDisplay?: boolean;
 	Attribute?: string[];
 	HideItemAttribute?: string[];
-	PreviewIcons?: string[];
+	PreviewIcons?: InventoryIcon[];
 	Tint?: TintDefinition[];
 	DefaultTint?: string;
 }

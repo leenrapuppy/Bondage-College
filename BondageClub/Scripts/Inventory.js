@@ -1104,6 +1104,19 @@ function InventoryBlockedOrLimited(C, Item, ItemType) {
 }
 
 /**
+ * Determines whether a given item is an allowed limited item for the player (i.e. has limited permissions, but can be
+ * used by the player)
+ * @param {Character} C - The character whose permissions to check
+ * @param {Item} item - The item to check
+ * @param {string | undefined} [type] - the item type to check
+ * @returns {boolean} - Returns TRUE if the given item & type is limited but allowed for the player
+ */
+function InventoryIsAllowedLimited(C, item, type) {
+	return !InventoryBlockedOrLimited(C, item, type) &&
+		InventoryIsPermissionLimited(C, item.Asset.Name, item.Asset.Group.Name, type);
+}
+
+/**
  * Returns TRUE if the item is a key, having the effect of unlocking other items
  * @param {Item} Item - The item to validate
  * @returns {Boolean} - TRUE if item is a key
