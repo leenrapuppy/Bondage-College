@@ -75,6 +75,7 @@ ClothAccessory,FacePaint, Face Paint
 ClothAccessory,Bib,Bib
 ClothAccessory,Scarf,Scarf
 ClothAccessory,Glitter,Glitter
+ClothAccessory,CatsuitCollar,Catsuit Collar
 ClothAccessory,Poncho,Poncho
 Necklace,,Necklace
 Necklace,Necklace1,Fancy Necklace
@@ -92,6 +93,7 @@ Necklace,FurScarf,Fur Scarf
 Necklace,FlowerGarland,Flower Garland
 Necklace,NecklaceRope,Rope Necklace
 Necklace,ChokerTattoo,Tattoo Choker
+Necklace,CatsuitCollar,Catsuit Collar
 Suit,,Upper Suit
 Suit,Catsuit,Catsuit
 Suit,SeamlessCatsuit, Seamless Catsuit
