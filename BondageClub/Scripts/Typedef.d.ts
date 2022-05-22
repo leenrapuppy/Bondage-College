@@ -54,6 +54,8 @@ interface RGBAColor extends RGBColor {
 	a: number;
 }
 
+type RectTuple = [number, number, number, number];
+
 //#endregion
 
 //#region Enums
@@ -359,8 +361,8 @@ interface AssetGroup {
 	DrawingBlink: boolean;
 	InheritColor?: string;
 	FreezeActivePose: string[];
-	PreviewZone?: [number, number, number, number];
-	DynamicGroupName: string;
+	PreviewZone?: RectTuple;
+	DynamicGroupName: AssetGroupName;
 	MirrorActivitiesFrom: string | null;
 }
 
@@ -433,7 +435,7 @@ masks will be applied regardless of the extended type. */
 	Type?: string[];
 	/** A list of alpha mask definitions. A definition is a 4-tuple of numbers defining the top left coordinate of
 a rectangle and the rectangle's width and height - e.g. [left, top, width, height] */
-	Masks: [number, number, number, number][];
+	Masks: RectTuple[];
 }
 
 interface TintDefinition {
@@ -513,7 +515,7 @@ interface Asset {
 	AllowEffect?: EffectName[];
 	AllowBlock?: AssetGroupItemName[];
 	AllowType?: string[];
-	DefaultColor?: string | string[];
+	DefaultColor?: ItemColor;
 	Opacity: number;
 	MinOpacity: number;
 	MaxOpacity: number;
@@ -531,7 +533,7 @@ interface Asset {
 	DynamicAllowInventoryAdd: (C: Character) => boolean;
 	DynamicExpressionTrigger: (C: Character) => ExpressionTrigger[] | null | undefined;
 	DynamicName: (C: Character) => string;
-	DynamicGroupName: string;
+	DynamicGroupName: AssetGroupName;
 	DynamicActivity: (C: Character) => string | null | undefined;
 	DynamicAudio: ((C: Character) => string) | null;
 	CharacterRestricted: boolean;
@@ -567,7 +569,7 @@ interface ItemBundle {
 	Group: string;
 	Name: string;
 	Difficulty?: number;
-	Color?: string | string[];
+	Color?: ItemColor;
 	Property?: ItemProperties;
 }
 
@@ -599,10 +601,12 @@ interface LogRecord {
 	Value: number;
 }
 
+type ItemColor = string | string[];
+
 /** An item is a pair of asset and its dynamic properties that define a worn asset. */
 interface Item {
 	Asset: Asset;
-	Color?: string | string[];
+	Color?: ItemColor;
 	Difficulty?: number;
 	Property?: ItemProperties;
 }
@@ -2012,6 +2016,146 @@ interface AudioChatAction {
 
 	/** Extracts the actual sound effect from the chat message */
 	GetSoundEffect: (data: IChatRoomMessage) => (AudioSoundEffect | string | null);
+}
+
+// #endregion
+
+// #region Character drawing
+
+/**
+ * A callback function used for clearing a rectangular area of a canvas
+ * @param {number} x - The x coordinate of the left of the rectangle to clear
+ * @param {number} y - The y coordinate of the top of the rectangle to clear
+ * @param {number} w - The width of the rectangle to clear
+ * @param {number} h - The height of the rectangle to clear
+ */
+type ClearRectCallback = (x: number, y: number, w: number, h: number) => void;
+
+/**
+ * A callback function used to draw a canvas on a canvas
+ * @param {HTMLImageElement | HTMLCanvasElement} Img - The canvas to draw
+ * @param {number} x - The x coordinate to draw the canvas at
+ * @param {number} y - The y coordinate to draw the canvas at
+ */
+type DrawCanvasCallback = (
+	img: HTMLImageElement | HTMLCanvasElement,
+	x: number,
+	y: number,
+	alphaMasks?: RectTuple[],
+) => void;
+
+/**
+ * A callback function used to draw an image to a canvas
+ * @param {string} src - The URL of the image to draw
+ * @param {number} x - The x coordinate to draw the image at
+ * @param {number} y - The y coordinate to draw the image at
+ * @param {RectTuple[]} [alphaMasks] - A list of alpha masks to apply to the image when drawing
+ * @param {number} [opacity=1] - The opacity at which to draw the image with
+ * @param {boolean} [rotate=false] - If the image should be rotated by 180 degrees
+ */
+type DrawImageCallback = (
+	src: string,
+	x: number,
+	y: number,
+	alphasMasks: RectTuple[],
+	opacity?: number,
+	rotate?: boolean,
+) => void;
+
+/**
+ * A callback function used to draw a colorized image to a canvas
+ * @callback drawImageColorize
+ * @param {string} src - The URL of the image to draw
+ * @param {number} x - The x coordinate to draw the image at
+ * @param {number} y - The y coordinate to draw the image at
+ * @param {string} color - The color to apply to the image
+ * @param {boolean} fullAlpha - Whether or not to apply color to the entire image
+ * @param {RectTuple[]} [alphaMasks] - A list of alpha masks to apply to the image when drawing
+ * @param {number} [opacity=1] - The opacity at which to draw the image with
+ * @param {boolean} [rotate=false] - If the image should be rotated by 180 degrees
+ */
+type DrawImageColorizeCallback = (
+	src: string,
+	x: number,
+	y: number,
+	color: string,
+	fullAlpha: boolean,
+	alphaMasks?: RectTuple[],
+	opacity?: number,
+	rotate?: boolean,
+) => void;
+
+interface CommonDrawCallbacks {
+	/**
+	 * A callback to clear an area of the main character canvas
+	 */
+	clearRect: ClearRectCallback;
+	/**
+	 * A callback to clear an area of the blink character canvas
+	 */
+	clearRectBlink: ClearRectCallback;
+	/**
+	 * Function used to draw a canvas on top of the normal canvas
+	 */
+	drawCanvas: DrawCanvasCallback;
+	/**
+	 * Function used to draw a canvas on top of the blink canvas
+	 */
+	drawCanvasBlink: DrawCanvasCallback;
+	/**
+	 * A callback to draw an image to the main character canvas
+	 */
+	drawImage: DrawImageCallback;
+	/**
+	 * A callback to draw an image to the blink character canvas
+	 */
+	drawImageBlink: DrawImageCallback;
+	/**
+	 * A callback to draw a colorized image to the main character canvas
+	 */
+	drawImageColorize: DrawImageColorizeCallback;
+	/**
+	 * A callback to draw a colorized image to the blink character canvas
+	 */
+	drawImageColorizeBlink: DrawImageColorizeCallback;
+}
+
+interface DynamicDrawingData {
+	C: Character;
+	X: number;
+	Y: number;
+	CA: Item;
+	GroupName: AssetGroupName;
+	Color: string;
+	Opacity: number;
+	Property: ItemProperties;
+	A: Asset;
+	G: string;
+	AG: AssetGroup;
+	L: string;
+	Pose: string;
+	LayerType: string;
+	BlinkExpression: string;
+	drawCanvas: DrawCanvasCallback;
+	drawCanvasBlink: DrawCanvasCallback;
+	AlphaMasks: RectTuple[];
+	PersistentData: <T>() => T;
+}
+
+/**
+ * Drawing overrides that can be returned by a dynamic BeforeDraw function
+ */
+interface DynamicBeforeDrawOverrides {
+	Property?: ItemProperties;
+	CA?: Item;
+	GroupName?: AssetGroupName;
+	Color?: ItemColor;
+	Opacity?: number;
+	X?: number;
+	Y?: number;
+	LayerType?: number;
+	L?: string;
+	AlphaMasks?: RectTuple[];
 }
 
 // #endregion

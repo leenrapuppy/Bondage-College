@@ -495,7 +495,7 @@ function DrawImageResize(Source, X, Y, Width, Height) {
  * @param {CanvasRenderingContext2D} Canvas - Canvas on which to draw the image
  * @param {number} X - Position of the image on the X axis
  * @param {number} Y - Position of the image on the Y axis
- * @param {number[][]} [AlphaMasks] - A list of alpha masks to apply to the asset
+ * @param {RectTuple[]} [AlphaMasks] - A list of alpha masks to apply to the asset
  * @param {number} [Opacity=1] - The opacity at which to draw the image
  * @param {boolean} [Rotate=false] - If the image should be rotated by 180 degrees
  * @returns {boolean} - whether the image was complete or not
@@ -536,7 +536,7 @@ function DrawImageCanvas(Source, Canvas, X, Y, AlphaMasks, Opacity, Rotate) {
  * @param {CanvasRenderingContext2D} Canvas - Canvas on which to draw the image
  * @param {number} X - Position of the image on the X axis
  * @param {number} Y - Position of the image on the Y axis
- * @param {number[][]} AlphaMasks - A list of alpha masks to apply to the asset
+ * @param {RectTuple[]} AlphaMasks - A list of alpha masks to apply to the asset
  * @returns {boolean} - whether the image was complete or not
  */
 function DrawCanvas(Img, Canvas, X, Y, AlphaMasks) {
@@ -601,7 +601,7 @@ function DrawImage(Source, X, Y, Invert) {
  * @param {number} Zoom - Zoom factor
  * @param {string} HexColor - Color of the image to draw
  * @param {boolean} FullAlpha - Whether or not it is drawn in full alpha mode
- * @param {number[][]} AlphaMasks - A list of alpha masks to apply to the asset
+ * @param {RectTuple[]} [AlphaMasks] - A list of alpha masks to apply to the asset
  * @param {number} [Opacity=1] - The opacity at which to draw the image
  * @param {boolean} [Rotate=false] - If the image should be rotated by 180 degrees
  * @returns {boolean} - whether the image was complete or not

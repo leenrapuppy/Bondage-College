@@ -32,7 +32,7 @@ interface AssetGroupDefinition {
 	InheritColor?: string;
 	FreezeActivePose?: string[];
 	PreviewZone?: [number, number, number, number];
-	DynamicGroupName?: string;
+	DynamicGroupName?: AssetGroupName;
 	MirrorActivitiesFrom?: string;
 }
 
@@ -95,7 +95,7 @@ interface AssetDefinition {
 	AllowEffect?: EffectName[];
 	AllowBlock?: AssetGroupItemName[];
 	AllowType?: string[];
-	DefaultColor?: string | string[];
+	DefaultColor?: ItemColor;
 	Opacity?: number;
 	MinOpacity?: number;
 	MaxOpacity?: number;
@@ -112,7 +112,7 @@ interface AssetDefinition {
 	DynamicAllowInventoryAdd?: (C: Character) => boolean;
 	DynamicExpressionTrigger?: (C: Character) => ExpressionTrigger[] | null | undefined;
 	DynamicName?: (C: Character) => string;
-	DynamicGroupName?: string;
+	DynamicGroupName?: AssetGroupName;
 	DynamicActivity?: (C: Character) => string | null | undefined;
 	DynamicAudio?: (C: Character) => string;
 	CharacterRestricted?: boolean;
