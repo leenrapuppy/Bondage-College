@@ -6123,7 +6123,7 @@ var AssetFemale3DCG = [
 			{ Name: "BurlapSack", Priority: 39, Value: 35, Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 6, Audio: "Bag", Prerequisite: ["NotSuspended", "AllFours", "NotHogtied", "NotYoked", "NotMounted", "NotKneelingSpread", "NoFeetSpreader"], Hide: ["Cloth", "ClothLower", "Shoes", "ItemBoots", "ItemLegs", "ItemFeet", "ItemArms", "ItemButt", "TailStraps", "Wings", "BodyLower", "Socks", "ItemHidden", "ItemNipplesPiercings", "ItemTorso", "Panties", "Garters"], SetPose: ["Kneel", "BackElbowTouch"], Effect: ["ForceKneel", "Block", "Prone", "Freeze"], Block: ["ItemArms", "ItemBreast", "ItemButt", "ItemFeet", "ItemHands", "ItemLegs", "ItemMisc", "ItemNipples", "ItemNipplesPiercings", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings", "ItemBoots"] },
 			{ Name: "InflatableBodyBag", Fetish: ["Latex"], Priority: 31, Value: 225, Difficulty: 1, SelfBondage: 6, Time: 30, RemoveTime: 50, AllowLock: true, Audio: "Bag", Prerequisite: ["NotSuspended", "AllFours", "NotHogtied", "NotYoked", "NotMounted", "NotKneelingSpread", "NoFeetSpreader"], Hide: ["Cloth", "Suit", "ClothLower", "SuitLower", "Shoes", "ItemBoots", "ItemLegs", "ItemFeet", "ItemArms", "ItemButt", "TailStraps", "Wings", "BodyLower", "Socks", "ItemNipplesPiercings", "Panties", "ItemPelvis", "Garters"], HideItem: ["ItemVulvaFullLatexSuitWand", "ItemNipplesLactationPump", "ClothAccessoryPoncho"], AllowPose: ["Kneel"], SetPose: ["LegsClosed", "BackElbowTouch"], Effect: ["Block", "Prone", "Freeze"], Block: ["ItemArms", "ItemBreast", "ItemButt", "ItemFeet", "ItemHands", "ItemLegs", "ItemMisc", "ItemNipples", "ItemNipplesPiercings", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings", "ItemBoots"], Extended: true, SelfUnlock: false, AllowActivePose: ["Kneel"] },
 			{
-				Name: "FurBlanketWrap", Priority: 31, Value: 225, Difficulty: 1, Top: 0, SelfBondage: 5, Time: 30, RemoveTime: 50, AllowLock: true,
+				Name: "FurBlanketWrap", Priority: 31, Value: 225, Difficulty: 1, Top: 0, SelfBondage: 5, Time: 30, RemoveTime: 50,
 				Prerequisite: ["NotSuspended", "AllFours", "NotHogtied", "NotYoked", "NotMounted", "NotKneelingSpread", "NoFeetSpreader"],
 				Hide: ["ItemLegs", "ClothLower", "Cloth", "Suit", "Shoes", "ItemArms", "ItemButt", "TailStraps", "Wings", "ItemNipplesPiercings", "Panties", "ItemPelvis", "Garters"],
 				HideItem: ["ItemVulvaFullLatexSuitWand", "ItemNipplesLactationPump", "ClothAccessoryPoncho"],
@@ -6131,7 +6131,7 @@ var AssetFemale3DCG = [
 				Effect: ["Block", "Prone", "Freeze"],
 				Block: ["ItemArms", "ItemBreast", "ItemButt", "ItemFeet", "ItemHands", "ItemLegs", "ItemMisc", "ItemNipples", "ItemNipplesPiercings", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings"],
 				Alpha: [{ Masks: [[0, 0, 500, 900]], Group: ["SuitLower", "Shoes", "ItemBoots", "ItemFeet", "BodyLower", "Socks"] }],
-				Extended: true, SelfUnlock: false, DrawLocks: false, AllowActivePose: ["Kneel"], AllowLockType: ["Belts"], Layer: [
+				Extended: true, SelfUnlock: false, DrawLocks: false, AllowActivePose: ["Kneel"], Layer: [
 					{ Name: "Blanket" },
 					{ Name: "Belts", AllowTypes: ["Belts"] }
 				]
@@ -6142,7 +6142,6 @@ var AssetFemale3DCG = [
 				SetPose: ["LegsClosed"],
 				Effect: ["Mounted"],
 				AllowLock: true,
-				AllowLockType: ["Light", "Normal", "Heavy", "Full"],
 				Layer: [
 					{ Name: "Bench", AllowColorize: true, Priority: 1, HasType: false },
 					{ Name: "Straps", AllowColorize: true, Priority: 53, HasType: true },

@@ -881,10 +881,24 @@ function InventoryCharacterHasLoverOnlyRestraint(C) {
 * @returns {Boolean} - TRUE if at least one item can be locked
 */
 function InventoryHasLockableItems(C) {
-	for (let I = 0; I < C.Appearance.length; I++)
-		if (C.Appearance[I].Asset.AllowLock && (InventoryGetLock(C.Appearance[I]) == null))
-			return true;
-	return false;
+	return C.Appearance.some((item) => InventoryDoesItemAllowLock(item) && InventoryGetLock(item) == null);
+}
+
+/**
+ * Determines whether an item in its current state permits locks.
+ * @param {Item} item - The item to check
+ * @returns {boolean} - TRUE if the asset's current type permits locks
+ */
+function InventoryDoesItemAllowLock(item) {
+	const asset = item.Asset;
+	const property = item.Property;
+	const type = property && property.Type;
+	if (Array.isArray(asset.AllowLockType)) {
+		// "" is used to represent the null type in AllowLockType arrays
+		return type != null ? asset.AllowLockType.includes(type) : asset.AllowLockType.includes("");
+	} else {
+		return asset.AllowLock;
+	}
 }
 
 /**
@@ -898,21 +912,17 @@ function InventoryHasLockableItems(C) {
 function InventoryLock(C, Item, Lock, MemberNumber, Update = true) {
 	if (typeof Item === 'string') Item = InventoryGet(C, Item);
 	if (typeof Lock === 'string') Lock = { Asset: AssetGet(C.AssetFamily, "ItemMisc", Lock) };
-	if (Item && Lock && Lock.Asset.IsLock) {
-		if (Item.Asset.AllowLock && (!Item.Property || Item.Property.AllowLock !== false)) {
-			if (!Item.Asset.AllowLockType || Item.Asset.AllowLockType.includes(Item.Property.Type)) {
-				if (Item.Property == null) Item.Property = {};
-				if (Item.Property.Effect == null) Item.Property.Effect = [];
-				if (Item.Property.Effect.indexOf("Lock") < 0) Item.Property.Effect.push("Lock");
+	if (Item && Lock && Lock.Asset.IsLock && InventoryDoesItemAllowLock(Item)) {
+		if (Item.Property == null) Item.Property = {};
+		if (Item.Property.Effect == null) Item.Property.Effect = [];
+		if (Item.Property.Effect.indexOf("Lock") < 0) Item.Property.Effect.push("Lock");
 
-				if (!Item.Property.MemberNumberListKeys && Lock.Asset.Name == "HighSecurityPadlock") Item.Property.MemberNumberListKeys = "" + MemberNumber;
-				Item.Property.LockedBy = /** @type AssetLockType */(Lock.Asset.Name);
-				if (MemberNumber != null) Item.Property.LockMemberNumber = MemberNumber;
-				if (Update) {
-					if (Lock.Asset.RemoveTimer > 0) TimerInventoryRemoveSet(C, Item.Asset.Group.Name, Lock.Asset.RemoveTimer);
-					CharacterRefresh(C, true);
-				}
-			}
+		if (!Item.Property.MemberNumberListKeys && Lock.Asset.Name == "HighSecurityPadlock") Item.Property.MemberNumberListKeys = "" + MemberNumber;
+		Item.Property.LockedBy = /** @type AssetLockType */(Lock.Asset.Name);
+		if (MemberNumber != null) Item.Property.LockMemberNumber = MemberNumber;
+		if (Update) {
+			if (Lock.Asset.RemoveTimer > 0) TimerInventoryRemoveSet(C, Item.Asset.Group.Name, Lock.Asset.RemoveTimer);
+			CharacterRefresh(C, true);
 		}
 	}
 }
@@ -937,7 +947,7 @@ function InventoryUnlock(C, Item) {
 * @param {Boolean} FromOwner - Set to TRUE if the source is the owner, to apply owner locks
 */
 function InventoryLockRandom(C, Item, FromOwner) {
-	if (Item.Asset.AllowLock) {
+	if (InventoryDoesItemAllowLock(Item)) {
 		var List = [];
 		for (let A = 0; A < Asset.length; A++)
 			if (Asset[A].IsLock && Asset[A].Random && !Asset[A].LoverOnly && (FromOwner || !Asset[A].OwnerOnly))
@@ -956,7 +966,7 @@ function InventoryLockRandom(C, Item, FromOwner) {
 */
 function InventoryFullLockRandom(C, FromOwner) {
 	for (let I = 0; I < C.Appearance.length; I++)
-		if (C.Appearance[I].Asset.AllowLock && (InventoryGetLock(C.Appearance[I]) == null))
+		if (InventoryGetLock(C.Appearance[I]) == null)
 			InventoryLockRandom(C, C.Appearance[I], FromOwner);
 }
 

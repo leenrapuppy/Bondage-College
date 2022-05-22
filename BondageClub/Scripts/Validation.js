@@ -620,13 +620,8 @@ function ValidationSanitizeLock(C, item) {
 
 	const lock = InventoryGetLock(item);
 
-	// If there is no lock, or the asset does not permit locks, or
-	if (
-		!asset.AllowLock ||
-		!lock ||
-		property.AllowLock === false ||
-		(asset.AllowLockType && !asset.AllowLockType.includes(property.Type))
-	) {
+	// If there is no lock, or the item in its current state does not permit locks
+	if (!lock || !InventoryDoesItemAllowLock(item)) {
 		return ValidationDeleteLock(property);
 	}
 

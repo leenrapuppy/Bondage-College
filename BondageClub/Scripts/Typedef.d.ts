@@ -1123,8 +1123,6 @@ interface ItemPropertiesCustom {
 
 	MemberNumber?: number;
 
-	AllowLock?: boolean;
-
 	SelfUnlock?: boolean;
 
 	//#region Lock properties
@@ -1285,6 +1283,8 @@ interface ExtendedItemOption {
 	Prerequisite?: string | string[];
 	/** A custom background for this option that overrides the default */
 	CustomBlindBackground?: string;
+	/** Whether the option permits locking */
+	AllowLock?: boolean;
 	/**
 	 * Whether or not it should be possible to change from this option to another
 	 * option while the item is locked (if set to `false`, the player must be able to unlock the item to change its type) -

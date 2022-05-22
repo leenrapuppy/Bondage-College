@@ -943,10 +943,9 @@ function DialogMenuButtonBuild(C) {
 				// There's an item in the slot
 
 				if (!IsItemLocked && Player.CanInteract() && InventoryAllow(C, Item.Asset) && !IsGroupBlocked) {
-					if (Item.Asset.AllowLock
-							&& (!Item.Property || (Item.Property && Item.Property.AllowLock !== false))
-							&& (!Item.Asset.AllowLockType || (Item.Property && Item.Asset.AllowLockType.includes(Item.Property.Type))))
+					if (InventoryDoesItemAllowLock(Item)) {
 						DialogMenuButton.push(ItemBlockedOrLimited ? "LockDisabled" : "Lock");
+					}
 
 					if (InventoryItemHasEffect(Item, "Mounted", true))
 						DialogMenuButton.push("Dismount");
@@ -1302,7 +1301,7 @@ function DialogMenuButtonClick() {
 			// Lock Icon - Rebuilds the inventory list with locking items
 			else if ((DialogMenuButton[I] == "Lock") && (Item != null)) {
 				if (DialogItemToLock == null) {
-					if ((Item != null) && (Item.Asset.AllowLock != null)) {
+					if (InventoryDoesItemAllowLock(Item)) {
 						DialogInventoryOffset = 0;
 						DialogInventory = [];
 						DialogItemToLock = Item;
@@ -1508,8 +1507,7 @@ function DialogItemClick(ClickItem) {
 
 	// If we must apply a lock to an item (can trigger a daily job)
 	if (DialogItemToLock != null) {
-		if ((CurrentItem != null) &&
-			(CurrentItem.Asset.AllowLock || CurrentItem.Asset.Extended && CurrentItem.Property && CurrentItem.Property.AllowLock !== false && CurrentItem.Asset.AllowLockType.indexOf(CurrentItem.Property.Type)>=0)) {
+		if (CurrentItem && InventoryDoesItemAllowLock(CurrentItem)) {
 			InventoryLock(C, CurrentItem, ClickItem, Player.MemberNumber);
 			IntroductionJobProgress("DomLock", ClickItem.Asset.Name, true);
 			DialogItemToLock = null;

@@ -64,6 +64,7 @@ function TypedItemRegister(asset, config) {
 	TypedItemGenerateAllowEffect(data);
 	TypedItemGenerateAllowBlock(data);
 	TypedItemGenerateAllowTint(data);
+	TypedItemGenerateAllowLockType(data);
 	TypedItemRegisterSubscreens(asset, config);
 }
 
@@ -297,6 +298,35 @@ function TypedItemGenerateAllowTint({asset, options}) {
 }
 
 /**
+ * Generates an asset's AllowLockType property based on its typed item data.
+ * @param {TypedItemData} data - The typed item's data
+ * @returns {void} - Nothing
+ */
+function TypedItemGenerateAllowLockType({asset, options}) {
+	const allowLockType = [];
+	for (const option of options) {
+		const type = option.Property && option.Property.Type;
+		let allowLock = typeof option.AllowLock === "boolean" ? option.AllowLock : asset.AllowLock;
+		if (allowLock) {
+			// "" is used to represent the null type in AllowLockType arrays
+			allowLockType.push(type != null ? type : "");
+		}
+	}
+	if (allowLockType.length === 0) {
+		// If no types are allowed to lock, set AllowLock to false for quick checking
+		asset.AllowLock = false;
+		asset.AllowLockType = null;
+	} else if (allowLockType.length === options.length) {
+		// If all types are allowed to lock, set AllowLock to true for quick checking
+		asset.AllowLock = true;
+		asset.AllowLockType = null;
+	} else {
+		// If it's somewhere in between, set an explicit AllowLockType array
+		asset.AllowLockType = allowLockType;
+	}
+}
+
+/**
  * @param {Asset} asset - The asset whose subscreen is being registered
  * @param {TypedItemConfig} config - The parent item's typed item configuration
  */
@@ -461,6 +491,12 @@ function TypedItemSetOption(C, item, options, option, push = false) {
 	}
 
 	item.Property = newProperty;
+
+	if (!InventoryDoesItemAllowLock(item)) {
+		// If the new type does not permit locking, remove the lock
+		ValidationDeleteLock(item.Property, false);
+	}
+
 	CharacterRefresh(C, push);
 }
 

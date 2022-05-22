@@ -2493,10 +2493,10 @@ var AssetFemale3DCGExtended = {
 				Options: [
 					{
 						Name: "None",
+						AllowLock: false,
 						Property: {
 							Type: null,
 							Difficulty: 0,
-							AllowLock: false,
 							SetPose: ["LegsClosed"],
 							Effect: ["Mounted"],
 						},
@@ -2763,6 +2763,7 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "Belts",
+						AllowLock: true,
 						Property: {
 							Type: "Belts",
 							Difficulty: 8,
