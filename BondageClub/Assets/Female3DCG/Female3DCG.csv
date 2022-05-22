@@ -142,6 +142,7 @@ ClothLower,HaremPants,Harem Pants
 ClothLower,HaremPants2,Harem Pants 2
 ClothLower,ShortPlaidSkirt,Short Plaid Skirt
 ClothLower,CollegeSkirt,College Skirt
+ClothLower,BondageSkirt,Bondage Skirt
 ClothLower,AsymmetricSkirt,Asymmetric Skirt
 ClothLower,ElegantSkirt,Elegant Skirt
 ClothLower,RuffledSkirt,Ruffled Skirt
@@ -990,6 +991,7 @@ ItemArms,Ribbons,Ribbons
 ItemArms,ThinLeatherStraps,Thin Leather Straps
 ItemArms,Tentacles,Tentacles
 ItemArms,Slime,Slime
+ItemArms,BondageBra,Bondage Bra
 ItemHands,,Hands
 ItemHands,PaddedMittens,Padded Mittens
 ItemHands,PawMittens,Paw Mittens
@@ -1499,3 +1501,4 @@ ItemBoots,ToeTape,Toe Tape
 ItemBoots,Zipties,Zip Ties
 ItemBoots,HighThighBoots,High Thigh Boots
 ItemBoots,Slime,Slime
+ItemBoots,MonoHeel,Monoheel

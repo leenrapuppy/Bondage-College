@@ -133,6 +133,9 @@ ClothLowerHulaSkirtFlowers,Flowers
 ClothLowerHulaSkirtPollen,Pollen
 ClothLowerElegantSkirtSkirt,Skirt
 ClothLowerElegantSkirtDesign,Design
+ClothLowerBondageSkirtSkirt,Skirt
+ClothLowerBondageSkirtFrill,Frill
+ClothLowerBondageSkirtStraps,Straps
 SuitLowerCatsuitBase,Suit
 SuitLowerCatsuitZip,Zip
 SuitLowerSeethroughSuitZipBase,Suit
@@ -651,6 +654,9 @@ ItemBootsLeatherFootMitts1Mitts,Mittens
 ItemBootsLeatherFootMitts1Straps,Straps
 ItemBootsSlimeOne,Color 1
 ItemBootsSlimeTwo,Color 2
+ItemBootsMonoHeelBinder,Binder
+ItemBootsMonoHeelVamp,Vamp
+ItemBootsMonoHeelTrim,Trim
 GartersGarterBeltLeft,Left
 GartersGarterBeltRight,Right
 ShoesSneakers1Main,Main

@@ -3083,6 +3083,22 @@ var AssetFemale3DCGExtended = {
 				}
 			},
 		}, // FuturisticHeels2
+		MonoHeel: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR, CommonChatTags.ASSET_NAME],
+				Options: [
+					{
+						Name: "Full",
+						Property: { Type: null, Difficulty: 1 },
+					},
+					{
+						Name: "Half",
+						Property: { Type: "Half", Difficulty: 0 },
+					},
+				],
+			},
+		}, // MonoHeel
 	}, // ItemBoots
 	ItemVulva: {
 		ClitSuctionCup: {
