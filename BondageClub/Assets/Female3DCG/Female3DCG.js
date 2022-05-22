@@ -2027,7 +2027,7 @@ var AssetFemale3DCG = [
 				{ Name: "Base" },
 				{ Name: "Fluff" },
 				{ Name: "FrontFluff", Priority: 54, CopyLayerColor: "Fluff" }
-			], 
+			],
 			Top: 6, Left: 134 },
 			{ Name: "HairFront24" },
 			{ Name: "HairFront25" },
@@ -2037,7 +2037,7 @@ var AssetFemale3DCG = [
 				{ Name: "Base" },
 				{ Name: "Bangs", Priority: 54, CopyLayerColor: "Base" },
 				{ Name: "BangsTip", Priority: 54},
-			], 
+			],
 			Top: -200, Left: 0 },
 		],
 		Color: ["#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"]
@@ -2110,7 +2110,7 @@ var AssetFemale3DCG = [
 			{ Name: "HairBack50", AllowPose: ["Suspension", "Hogtied", "AllFours"] },
 			{ Name: "HairBack51" },
 			{ Name: "HairBack52" },
-			{ Name: "HairBack53", 
+			{ Name: "HairBack53",
 			Layer:[
 				{ Name: "Base" },
 				{ Name: "Tip"  },
@@ -5954,6 +5954,7 @@ var AssetFemale3DCG = [
 				Name: "KittyHood", Fetish: ["Pet"], Random: false, Value: 40, Difficulty: 2, Top: 33, Left: 142,
 				AllowLock: true, Extended: true, DrawLocks: false,
 				Hide: ["HairFront", "HairBack", "Glasses", "Ears"],
+				DefaultColor: ["Default", "Default", "Default", "#2D8736", "Default", "Default", "#000000"],
 				Layer: [
 					{ Name: "Base", HasType: false, },
 					{ Name: "Linings", HasType: false, },
@@ -5969,7 +5970,7 @@ var AssetFemale3DCG = [
 					{ Name: "GagOwO", Top: 80, Left: 164, HasType: false, AllowModuleTypes: ["g1e1"], CopyLayerColor: "Drawings", },
 					{ Name: "GagUwU", Top: 80, Left: 164, HasType: false, AllowModuleTypes: ["g1e2"], CopyLayerColor: "Drawings", },
 					{ Name: "Drawings", HasImage: false, },
-					{ Name: "Lock", Top: 113, Left: 233, HasType: false, LockLayer: true, AllowColorize: false, }
+					{ Name: "Lock", Top: 113, Left: 233, HasType: false, LockLayer: true, AllowColorize: true, }
 				],
 			},
 			{
