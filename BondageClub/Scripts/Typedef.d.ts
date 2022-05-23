@@ -1283,7 +1283,7 @@ interface ExtendedItemOption {
 	Prerequisite?: string | string[];
 	/** A custom background for this option that overrides the default */
 	CustomBlindBackground?: string;
-	/** Whether the option permits locking */
+	/** Whether the option permits locking - if not set, defaults to the AllowLock property of the parent asset */
 	AllowLock?: boolean;
 	/**
 	 * Whether or not it should be possible to change from this option to another
@@ -1473,6 +1473,8 @@ interface ModularItemOption {
 	HideItem?: string[];
 	/** The Property object to be applied when this option is used */
 	Property?: ItemProperties;
+	/** Whether the option permits locking - if not set, defaults to the AllowLock property of the parent asset */
+	AllowLock?: boolean;
 	/**
 	 * Whether or not it should be possible to change from this option to another
 	 * option while the item is locked (if set to `false`, the player must be able to unlock the item to change its type) -
@@ -1514,6 +1516,8 @@ interface ModularItemData {
 	chatTags: CommonChatTags[];
 	/** The identifying key for the asset, in the format "<GroupName><AssetName>" */
 	key: string;
+	/** The total number of types permitted by the item */
+	typeCount: number;
 	/** The prefix for generated functions */
 	functionPrefix: string;
 	/** The dialogue prefix for the player prompt that is displayed on each module's menu screen */

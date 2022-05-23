@@ -306,17 +306,29 @@ function TypedItemGenerateAllowLockType({asset, options}) {
 	const allowLockType = [];
 	for (const option of options) {
 		const type = option.Property && option.Property.Type;
-		let allowLock = typeof option.AllowLock === "boolean" ? option.AllowLock : asset.AllowLock;
+		const allowLock = typeof option.AllowLock === "boolean" ? option.AllowLock : asset.AllowLock;
 		if (allowLock) {
 			// "" is used to represent the null type in AllowLockType arrays
 			allowLockType.push(type != null ? type : "");
 		}
 	}
+	TypedItemSetAllowLockType(asset, allowLockType, options.length);
+}
+
+/**
+ * Sets the AllowLock and AllowLockType properties on an asset based on an AllowLockType array and the total number of
+ * possible types.
+ * @param {Asset} asset - The asset to set properties on
+ * @param {string[]} allowLockType - The AllowLockType array indicating which of the asset's types permit locks
+ * @param {number} typeCount - The total number of types available on the asset
+ * @returns {void} - Nothing
+ */
+function TypedItemSetAllowLockType(asset, allowLockType, typeCount) {
 	if (allowLockType.length === 0) {
 		// If no types are allowed to lock, set AllowLock to false for quick checking
 		asset.AllowLock = false;
 		asset.AllowLockType = null;
-	} else if (allowLockType.length === options.length) {
+	} else if (allowLockType.length === typeCount) {
 		// If all types are allowed to lock, set AllowLock to true for quick checking
 		asset.AllowLock = true;
 		asset.AllowLockType = null;

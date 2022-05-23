@@ -186,6 +186,7 @@ function ModularItemCreateModularData(asset,
 		asset,
 		chatSetting: ChatSetting || ModularItemChatSetting.PER_OPTION,
 		key,
+		typeCount: 1,
 		functionPrefix: `Inventory${key}`,
 		dialogSelectPrefix: Dialog.Select || `${key}Select`,
 		dialogModulePrefix: Dialog.ModulePrefix || `${key}Module`,
@@ -211,12 +212,13 @@ function ModularItemCreateModularData(asset,
 	};
 	data.drawFunctions[ModularItemBase] = ModularItemCreateDrawBaseFunction(data);
 	data.clickFunctions[ModularItemBase] = ModularItemCreateClickBaseFunction(data);
-	Modules.forEach(module => {
+	for (const module of Modules) {
 		data.pages[module.Name] = 0;
 		data.drawData[module.Name] = ModularItemCreateDrawData(module.Options.length);
 		data.drawFunctions[module.Name] = () => ModularItemDrawModule(module, data);
 		data.clickFunctions[module.Name] = () => ModularItemClickModule(module, data);
-	});
+		data.typeCount *= module.Options.length;
+	}
 	return data;
 }
 
@@ -357,6 +359,9 @@ function ModularItemCreateClickBaseFunction(data) {
 			() => {
 				ExtendedItemExit();
 				ModularItemRequirementCheckMessageMemo.clearCache();
+				// The item's lock may have been automatically removed in a module change, so rebuild buttons
+				DialogInventoryBuild(CharacterGetCurrent(), DialogInventoryOffset);
+				DialogMenuButtonBuild(CharacterGetCurrent());
 				DialogFocusItem = null;
 			},
 			i => {
@@ -594,6 +599,11 @@ function ModularItemSetType(module, index, data) {
 			newProperty.Effect.push("Lock");
 		}
 
+		if (!InventoryDoesItemAllowLock(DialogFocusItem)) {
+			// If the new type does not permit locking, remove the lock
+			ValidationDeleteLock(DialogFocusItem.Property, false);
+		}
+
 		const groupName = data.asset.Group.Name;
 		CharacterRefresh(C);
 		ChatRoomCharacterItemUpdate(C, groupName);
@@ -654,12 +664,14 @@ function ModularItemChatRoomMessage(module, previousIndex, index, { asset, chatS
 }
 
 /**
- * Generates an AllowType property for an asset based on its modular item data.
+ * Generates an array of all types available for an asset based on its modular item data, filtered by the provided
+ * predicate function, if needed.
  * @param {ModularItemData} data - The modular item's data
- * @param {function(string): boolean} [predicate] - An optional predicate for filtering the resulting types
- * @returns {string[]} - The generated AllowType array
+ * @param {(typeObject: Record<string, number>) => boolean} [predicate] - An optional predicate for filtering the
+ * resulting types
+ * @returns {string[]} - The generated array of types
  */
-function ModularItemGenerateAllowType({ modules }, predicate) {
+function ModularItemGenerateTypeList({ modules }, predicate) {
 	let allowType = [{}];
 	modules.forEach((module) => {
 		let newCombinations = [];
@@ -673,6 +685,49 @@ function ModularItemGenerateAllowType({ modules }, predicate) {
 	return allowType.map(combination => {
 		return modules.map(module => `${module.Key}${combination[module.Key]}`).join("");
 	});
+}
+
+/**
+ * Generates and sets the AllowLock and AllowLockType properties for an asset based on its modular item data. For types
+ * where two independent options declare conflicting AllowLock properties (i.e. one option declares AllowLock: false and
+ * another declares AllowLock: true), the resulting type will permit locking (i.e. true overrides false).
+ * @param {ModularItemData} data - The modular item's data
+ * @returns {void} - Nothing
+ */
+function ModularItemGenerateAllowLockType(data) {
+	const {asset, modules, typeCount} = data;
+	/** @type {Record<string, boolean | null>} */
+	const optionAllowLockMap = {};
+	// Create a mapping of partial types (i.e. the "type" for a single module) to their AllowLock values. If the
+	// corresponding option doesn't explicitly set AllowLock, set the value to null to distinguish between explicit
+	// and inherited AllowLock (if present, explicit should override inherited)
+	for (const module of modules) {
+		for (const [index, option] of Object.entries(module.Options)) {
+			optionAllowLockMap[`${module.Key}${index}`] = typeof option.AllowLock === "boolean" ? option.AllowLock : null;
+		}
+	}
+
+	const allowLockType = ModularItemGenerateTypeList(data, (combination) => {
+		const typeParts = Object.keys(combination).map((key) => `${key}${combination[key]}`);
+		// Fallback allowLock value for the type if no option explicitly sets it to true
+		let allowLock = asset.AllowLock;
+		for (const typePart of typeParts) {
+			const optionAllowLock = optionAllowLockMap[typePart];
+			if (optionAllowLock) {
+				// If one of the type's options explicitly sets AllowLock: true, the type permits locks
+				return true;
+			} else if (optionAllowLock === false) {
+				// If an option explicitly sets AllowLock: false, it overrides the asset-level AllowLock
+				allowLock = false;
+			}
+		}
+
+		// If no option set it to true, then return the fallback value (either the asset-level AllowLock, or false if an
+		// option explicitly overrode it
+		return allowLock;
+	});
+
+	TypedItemSetAllowLockType(asset, allowLockType, typeCount);
 }
 
 /**
@@ -693,7 +748,7 @@ function ModularItemGenerateLayerAllowTypes(layer, data) {
 			return values;
 		});
 
-		const GeneratedAllowTypes = ModularItemGenerateAllowType(data, (combination) => {
+		const GeneratedAllowTypes = ModularItemGenerateTypeList(data, (combination) => {
 			return allowedModuleCombinations.some(allowedCombination => {
 				return allowedCombination.every(combo => combination[combo[0]] === combo[1]);
 			});
@@ -737,7 +792,7 @@ function ModularItemRequirementMessageCheck(option, currentOption, changeWhenLoc
  */
 function ModularItemGenerateValidationProperties(data) {
 	const {asset, modules} = data;
-	asset.AllowType = ModularItemGenerateAllowType(data);
+	asset.AllowType = ModularItemGenerateTypeList(data);
 	asset.AllowEffect = Array.isArray(asset.AllowEffect) ? asset.AllowEffect.slice() : [];
 	CommonArrayConcatDedupe(asset.AllowEffect, asset.Effect);
 	asset.AllowBlock = Array.isArray(asset.Block) ? asset.Block.slice() : [];
@@ -751,4 +806,5 @@ function ModularItemGenerateValidationProperties(data) {
 		}
 	}
 	asset.Layer.forEach((layer) => ModularItemGenerateLayerAllowTypes(layer, data));
+	ModularItemGenerateAllowLockType(data);
 }
