@@ -198,7 +198,7 @@ function StablePayTheFee(Fee) {
 function StableCanBecomePony() {
 	if (ReputationGet("Dominant") > -30) {
 		StableTrainer.CurrentDialog = DialogFind(StableTrainer, "StableBecomePonySubIntro");
-	} else if (!(StableCheckInventory(Player, "HarnessBallGag", "ItemMouth") && StableCheckInventory(Player, "LeatherArmbinder", "ItemArms") && StableCheckInventory(Player, "LeatherHarness", "ItemTorso") && StableCheckInventory(Player, "HorsetailPlug", "ItemButt"))) {
+	} else if (!(InventoryAvailable(Player, "HarnessBallGag", "ItemMouth") && InventoryAvailable(Player, "LeatherArmbinder", "ItemArms") && InventoryAvailable(Player, "LeatherHarness", "ItemTorso") && InventoryAvailable(Player, "HorsetailPlug", "ItemButt"))) {
 		StableTrainer.CurrentDialog = DialogFind(StableTrainer, "StableBecomePonyEquipmentIntro");
 		StableTrainer.Stage = "StableBecomePonyEquipment";
 	} else if (!StableCharacterAppearanceGroupAvailable(Player, "ItemNeck")) {
@@ -739,11 +739,17 @@ function StablePlayerExamEnd() {
 ////////////////////////////////////////////////////////////////////////////////////////////
 //Check if the Player can become a Trainer
 function StableCanBecomeTrainer() {
+	const needed = [
+		["SpankingToysCrop", "ItemHands"],
+		["SpankingToysWhip", "ItemHands"],
+		["LeatherBelt", "ItemLegs"],
+		["LeatherBelt", "ItemFeet"]
+	];
 	if (SkillGetLevel(Player, "Dressage") < 3) {
 		StableTrainer.CurrentDialog = DialogFind(StableTrainer, "StableBecomeTrainerDressageIntro");
 	} else if (ReputationGet("Dominant") < 30) {
 		StableTrainer.CurrentDialog = DialogFind(StableTrainer, "StableBecomeTrainerDomIntro");
-	} else if (!(StableCheckInventory(Player, "LeatherCrop", "ItemPelvis") && StableCheckInventory(Player, "LeatherWhip", "ItemPelvis") && StableCheckInventory(Player, "LeatherCrop", "ItemBreast") && StableCheckInventory(Player, "LeatherWhip", "ItemBreast") && StableCheckInventory(Player, "LeatherBelt", "ItemLegs") && StableCheckInventory(Player, "LeatherBelt", "ItemFeet"))) {
+	} else if (!needed.every(i => InventoryAvailable(Player, i[0], i[1]))) {
 		StableTrainer.CurrentDialog = DialogFind(StableTrainer, "StableBecomeTrainerEquipmentIntro");
 	} else if (!StableCanPayTheFee("BecomeTrainer")) {
 		StableTrainer.CurrentDialog = DialogFind(StableTrainer, "StableBecomeTrainerMoneyIntro");
@@ -1085,12 +1091,6 @@ function StableGenericRun(Reverse) {
 ////////////////////////////////////////////////////////////////////////////////////////////
 //Help function & BadGirlClub
 ////////////////////////////////////////////////////////////////////////////////////////////
-function StableCheckInventory(C, Name, Group) {
-	for (let I = C.Inventory.length - 1; I > -1; I--)
-		if ((C.Inventory[I].Name == Name) && (C.Inventory[I].Group == Group))
-			return true;
-	return false;
-}
 
 // Returns true if a Appearance Group for Character available
 function StableCharacterAppearanceGroupAvailable(C, AppearanceGroup) {

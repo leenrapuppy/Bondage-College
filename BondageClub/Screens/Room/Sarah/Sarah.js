@@ -758,10 +758,8 @@ function SarahGiveFourthSlaveItem(C) {
 		if (SarahAmandaIsInside()) SarahGiveFourthSlaveItem(Amanda);
 	} else {
 		InventoryAdd(C, "VibratorRemote", "ItemVulva");
-		InventoryAdd(C, "LeatherWhip", "ItemPelvis");
-		InventoryAdd(C, "LeatherWhip", "ItemBreast");
-		InventoryAdd(C, "LeatherCrop", "ItemPelvis");
-		InventoryAdd(C, "LeatherCrop", "ItemBreast");
+		InventoryAdd(C, "SpankingToysWhip", "ItemHands");
+		InventoryAdd(C, "SpankingToysCrop", "ItemHands");
 		C.Stage = "1010";
 		C.OrgasmMeter = 0;
 		C.OrgasmDone = false;

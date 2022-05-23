@@ -131,8 +131,9 @@ function AsylumMeetingSmoke() {
  * @returns {void} - Nothing
  */
 function AsylumMeetingBuyVibratingWand() {
-	InventoryAdd(Player, "VibratingWand", "ItemVulva");
-	CharacterChangeMoney(Player, -80);
+	let A = AssetGet("Female3DCG", "ItemHands", "SpankingToysVibratingWand");
+	InventoryAdd(Player, A.Name, A.Group.Name);
+	CharacterChangeMoney(Player, -A.Value);
 	DialogChangeReputation("Asylum", -5);
 }
 

@@ -1436,7 +1436,7 @@ function DialogMenuButtonClick() {
 
 /**
  * Publishes the item action to the local chat room or the dialog screen
- * @param {Character} C - The character who is the actor in this action
+ * @param {Character} C - The character that is acted on
  * @param {Item} ClickItem - The item that is used
  * @returns {void} - Nothing
  */
@@ -1473,7 +1473,8 @@ function DialogPublishAction(C, ClickItem) {
 		ChatRoomPublishAction(C, null, ClickItem, true);
 	}
 	else {
-		let D = DialogFind(C, ClickItem.Asset.Group.Name + ClickItem.Asset.Name, null, false);
+		let Line = ClickItem.Asset.Group.Name + (ClickItem.Asset.DynamicName ? ClickItem.Asset.DynamicName(Player) : ClickItem.Asset.Name);
+		let D = DialogFind(C, Line, null, false);
 		if (D != "") {
 			InventoryExpressionTrigger(C, ClickItem);
 			C.CurrentDialog = D;
