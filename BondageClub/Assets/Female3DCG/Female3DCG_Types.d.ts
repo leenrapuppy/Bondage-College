@@ -46,7 +46,7 @@ interface AssetDefinition {
 	/** Applying that asset triggers the following activity */
 	Activity?: string;
 	AllowActivity?: string[];
-	AllowActivityOn?: string[];
+	AllowActivityOn?: AssetGroupName[];
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: string[];
 	Effect?: EffectName[];

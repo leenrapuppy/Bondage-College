@@ -465,7 +465,7 @@ interface Asset {
 	Wear: boolean;
 	Activity: string | null;
 	AllowActivity?: string[];
-	AllowActivityOn?: string[];
+	AllowActivityOn?: AssetGroupName[];
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: string[];
 	Effect?: EffectName[];
@@ -1083,7 +1083,7 @@ interface ItemPropertiesBase {
 	Attribute?: string[];
 
 	AllowActivity?: string[];
-	AllowActivityOn?: AssetGroupItemName[];
+	AllowActivityOn?: AssetGroupName[];
 
 	/** Items hidden by this one */
 	HideItem?: string[];
