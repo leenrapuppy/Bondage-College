@@ -9,7 +9,7 @@ var CurrentModule;
 var CurrentScreen;
 /** @type {ScreenFunctions} */
 var CurrentScreenFunctions;
-/** @type {Character|null} */
+/** @type {Character|NPCCharacter|null} */
 var CurrentCharacter = null;
 var CurrentOnlinePlayers = 0;
 var CurrentDarkFactor = 1.0;

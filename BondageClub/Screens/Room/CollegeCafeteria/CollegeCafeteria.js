@@ -65,7 +65,7 @@ function CollegeCafeteriaLoad() {
 				InventoryWear(CollegeCafeteriaSidney, "SlaveCollar", "ItemNeck");
 				CollegeCafeteriaSidney.Owner = Player.Name;
 			}
-		} else CollegeCafeteriaSidney.Stage = 1000;
+		} else CollegeCafeteriaSidney.Stage = "1000";
 		CollegeEntranceWearStudentClothes(CollegeCafeteriaSidney);
 		CharacterRefresh(CollegeCafeteriaSidney);
 

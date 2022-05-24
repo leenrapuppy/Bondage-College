@@ -1,7 +1,7 @@
 "use strict";
 var PrivateBackground = "Private";
 var PrivateVendor = null;
-/** @type {Character[]} */
+/** @type {NPCCharacter[]} */
 var PrivateCharacter = [];
 var PrivateCharacterOffset = 0;
 var PrivateCharacterTypeList = ["NPC_Private_VisitorShy", "NPC_Private_VisitorHorny", "NPC_Private_VisitorTough"];
@@ -784,10 +784,10 @@ function PrivateLoadCharacter(C) {
 
 /**
  * Triggered when a new character is added to the player's private room.
- * @param {object} Template - The base of the character, includes the name and appearance.
+ * @param {NPCCharacter} Template - The base of the character, includes the name and appearance.
  * @param {string} [Archetype] - The type of character such as maid or mistress.
  * @param {boolean} [CustomData=false] - Whether or not the character has non-random traits.
- * @returns {void} - Nothing.
+ * @returns {NPCCharacter} - The new private room character.
  */
 function PrivateAddCharacter(Template, Archetype, CustomData) {
 	var C = CharacterLoadNPC("NPC_Private_Custom");
@@ -808,6 +808,7 @@ function PrivateAddCharacter(Template, Archetype, CustomData) {
 	if ((CustomData == null) || (CustomData == false)) ServerPrivateCharacterSync();
 	C.AllowItem = (((ReputationGet("Dominant") + 25 >= NPCTraitGet(C, "Dominant")) && !C.IsOwner()) || C.IsRestrained() || !C.CanTalk());
 	if ((InventoryGet(C, "ItemNeck") != null) && (InventoryGet(C, "ItemNeck").Asset.Name == "ClubSlaveCollar")) InventoryRemove(C, "ItemNeck");
+	return C;
 }
 
 /**

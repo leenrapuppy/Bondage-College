@@ -321,27 +321,32 @@ function PandoraMsgBox(Text) {
 /**
  * Generates a random NPC for Pandora's Box missions, clear the cache if it was generated before
  * @param {string} Group - The main group for that NPC (Random, Entrance, Underground)
- * @param {string} Type - The NPC function within Pandora's (Guard, Mistress, Slave, Maid, etc.)
+ * @param {NPCArchetype} Archetype - The NPC function within Pandora's (Guard, Mistress, Slave, Maid, etc.)
  * @param {string} Name - The name to give to that NPC, can be RANDOM for a fully random name
  * @param {boolean} AllowItem - TRUE if we allow using items on her by default
- * @returns {object} - The NPC character to return
+ * @returns {NPCCharacter} - The NPC character to return
  */
-function PandoraGenerateNPC(Group, Type, Name, AllowItem) {
-	CharacterDelete("NPC_Pandora_" + Group + Type);
-	delete CommonCSVCache["Screens/Room/Pandora/Dialog_NPC_Pandora_" + Group + Type + ".csv"];
-	let NPC = CharacterLoadNPC("NPC_Pandora_" + Group + Type);
+function PandoraGenerateNPC(Group, Archetype, Name, AllowItem) {
+	CharacterDelete("NPC_Pandora_" + Group + Archetype);
+	delete CommonCSVCache["Screens/Room/Pandora/Dialog_NPC_Pandora_" + Group + Archetype + ".csv"];
+	let NPC = CharacterLoadNPC("NPC_Pandora_" + Group + Archetype);
 	if (Name == "RANDOM") CharacterRandomName(NPC);
 	else NPC.Name = Name;
 	CharacterRelease(NPC);
+	NPC.Archetype = Archetype;
 	NPC.Stage = "0";
 	NPC.AllowItem = AllowItem;
 	NPC.AllowMove = false;
-	PandoraDress(NPC, Type);
+	NPC.Recruit = 0;
+	NPC.RecruitOdds = (Archetype === "Slave") ? 1 : 0.75;
+	PandoraDress(NPC, NPC.Archetype);
 	return NPC;
 }
 
 /**
  * Dress a character in the Rival Club fashion
+ * @param {NPCCharacter} C
+ * @param {string} Type
  * @returns {void} - Nothing
  */
 function PandoraDress(C, Type) {
@@ -453,18 +458,14 @@ function PandoraEnterRoom(Room, Direction) {
 
 	// 4% odds of spawning a new random NPC in the room
 	if ((PandoraCurrentRoom.Background.indexOf("Entrance") < 0) && (PandoraCurrentRoom.Character.length == 0) && (Math.random() > 0.96) && (InfiltrationMission != "CatBurglar")) {
-		let Type = CommonRandomItemFromList("", PandoraRandomNPCList);
+		let Type = /** @type {NPCArchetype} */ (CommonRandomItemFromList("", PandoraRandomNPCList));
 		let Char = PandoraGenerateNPC("Random", Type, "RANDOM", (Type === "Slave"));
-		Char.Type = Type;
-		Char.Recruit = 0;
-		Char.RecruitOdds = (Type === "Slave") ? 1 : 0.75;
 		Room.Character.push(Char);
 	}
 
 	// 1% odds of spawning a night guard NPC in the room
 	if ((PandoraCurrentRoom.Background.indexOf("Entrance") < 0) && (PandoraCurrentRoom.Character.length == 0) && (Math.random() > 0.99) && (InfiltrationMission == "CatBurglar")) {
 		let Char = PandoraGenerateNPC("Night", "Guard", "RANDOM", false);
-		Char.Type = "Guard";
 		Room.Character.push(Char);
 	}
 
@@ -527,7 +528,6 @@ function PandoraCreateChest(Room) {
 	if ((PandoraChestCount >= 11) && (Math.random() > ((InfiltrationMission == "CatBurglar") ? 0.05 : 0.01))) return;
 	PandoraChestCount++;
 	let Char = PandoraGenerateNPC("Treasure", "Chest", TextGet("Chest"), false);
-	Char.Type = "Chest";
 	Char.FixedImage = "Screens/Room/Pandora/Chest" + Math.floor(Math.random() * 3).toString() + ".png";
 	Char.AllowMove = true;
 	Room.Character.push(Char);
@@ -902,10 +902,8 @@ function PandoraCanJoinPrivateRoom() { return (LogQuery("RentRoom", "PrivateRoom
  */
 function PandoraCharacterJoinPrivateRoom() {
 	CurrentScreen = "Private";
-	PrivateAddCharacter(CurrentCharacter, (CurrentCharacter.Type === "Slave") ? "Submissive" : null);
-	let C = PrivateCharacter[PrivateCharacter.length - 1];
+	let C = PrivateAddCharacter(CurrentCharacter, (CurrentCharacter.Archetype === "Slave") ? "Submissive" : null);
 	C.FromPandora = true;
-	ServerPrivateCharacterSync();
 	CurrentScreen = "Pandora";
 	PandoraRemoveCurrentCharacter();
 }
@@ -1064,10 +1062,11 @@ function PandoraPlayerUngag() {
  * @returns {void} - Nothing
  */
 function PandoraPunishmentSentence(Minutes) {
-	Player.Infiltration.Punishment = {};
-	Player.Infiltration.Punishment.Minutes = parseInt(Minutes);
-	Player.Infiltration.Punishment.Background = PandoraBackground;
-	Player.Infiltration.Punishment.Difficulty = InfiltrationDifficulty;
+	Player.Infiltration.Punishment = {
+		Minutes: parseInt(Minutes),
+		Background: PandoraBackground,
+		Difficulty: InfiltrationDifficulty,
+	}
 }
 
 /**

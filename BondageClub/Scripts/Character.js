@@ -1,4 +1,5 @@
 "use strict";
+/** @type Character[] */
 var Character = [];
 var CharacterNextId = 1;
 
@@ -546,7 +547,7 @@ function CharacterArchetypeClothes(C, Archetype, ForceColor) {
 /**
  * Loads an NPC into the character array. The appearance is randomized, and a type can be provided to dress them in a given style.
  * @param {string} NPCType - Archetype of the NPC
- * @returns {Character} - The randomly generated NPC
+ * @returns {NPCCharacter} - The randomly generated NPC
  */
 function CharacterLoadNPC(NPCType) {
 
