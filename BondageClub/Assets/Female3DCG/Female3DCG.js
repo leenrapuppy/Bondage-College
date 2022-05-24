@@ -6569,17 +6569,18 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "WoodenRack", Value: 180, Priority: 1, Difficulty: 0, RemoveTime: 5, Time: 5, SelfBondage: 0, Random: false, RemoveAtLogin: true, DefaultColor: ["#372D24", "#BB895D", "Default"], Extended: true, AlwaysExtend: true, BuyGroup: "WoodenRack",
+				Name: "WoodenRack", Value: 180, Priority: 1, Difficulty: 0, RemoveTime: 5, Time: 5, SelfBondage: 0, Random: false, RemoveAtLogin: true, DefaultColor: ["#866949", "#875D37", "#372D24", "#BB895D", "Default"], Extended: true, AlwaysExtend: true, BuyGroup: "WoodenRack",
 				OverrideHeight: { Height: 0, HeightRatioProportion: 1, Priority: 21 },
 				Effect: ["Freeze", "Mounted", "OnBed"],
 				Prerequisite: ["AllFours", "NotSuspended", "NotHogtied"],
 				SetPose: ["BaseLower"],
 				Block: ["ItemAddon"],
 				Layer: [
-					{ Name: "Back", HasType: false, AllowColorize: false, AllowModuleTypes: ["f0", "f1"] },
-					{ Name: "HalfBack", HasType: false, AllowColorize: false, AllowModuleTypes: ["f2"] },
+					{ Name: "Back", HasType: false, AllowModuleTypes: ["f0", "f1"] },
+					{ Name: "HalfBack", HasType: false, CopyLayerColor: "Back", AllowModuleTypes: ["f2"] },
 					{ Name: "NoBack", HasType: false, AllowColorize: false, AllowModuleTypes: ["f3"], HasImage: false },
-					{ Name: "Frame", HasType: false, AllowColorize: false },
+					{ Name: "FrameWood", HasType: false, AllowColorize: true },
+					{ Name: "FrameMetal", HasType: false, AllowColorize: false },
 					{ Name: "FrameStains", HasType: false, AllowModuleTypes: ["f1"] },
 					{ Name: "TopRopes", HasType: false, AllowModuleTypes: ["t1"], Priority: 50 },
 					{ Name: "TopRopesTight", HasType: false, CopyLayerColor: "TopRopes", AllowModuleTypes: ["t2"], Priority: 50 },
