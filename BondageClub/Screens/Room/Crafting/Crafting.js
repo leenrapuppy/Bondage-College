@@ -4,6 +4,43 @@ var CraftingMode = "Slot";
 var CraftingSlot = 0;
 var CraftingOffset = 0;
 var CraftingItemList = [];
+var CraftingItem = null;
+var CraftingProperty = "";
+var CraftingPropertyList = [
+	{ Name: "Normal", Allow : function(Item) { return true; } },
+	{ Name: "Large", Allow : function(Item) { return CreatingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); } },
+	{ Name: "Small", Allow : function(Item) { return CreatingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); } },
+	{ Name: "Thick", Allow : function(Item) { return CreatingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy"]); } },
+	{ Name: "Thin", Allow : function(Item) { return CreatingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy"]); } },
+	{ Name: "Secure", Allow : function(Item) { return true; } },
+	{ Name: "Loose", Allow : function(Item) { return true; } },
+	{ Name: "Decoy", Allow : function(Item) { return true; } },
+	{ Name: "Painful", Allow : function(Item) { return true; } },
+	{ Name: "Comfy", Allow : function(Item) { return true; } },
+	{ Name: "Strong", Allow : function(Item) { return true; } },
+	{ Name: "Flexible", Allow : function(Item) { return true; } },
+	{ Name: "Nimble", Allow : function(Item) { return true; } },
+	{ Name: "Arousing", Allow : function(Item) { return CreatingItemHasEffect(Item, ["Egged", "Vibrating"]); } },
+	{ Name: "Dull", Allow : function(Item) { return CreatingItemHasEffect(Item, ["Egged", "Vibrating"]); } }
+];
+
+/**
+ * Returns TRUE if a crafting item has an effect from a list or allows that effect
+ * @param {Object} Item - The item asset to validate
+ * @param {Array} Effect - The list of effects to validate
+ * @returns {Boolean}
+ */
+function CreatingItemHasEffect(Item, Effect) {
+	if (Item.Effect != null)
+		for (let E of Effect)
+			if (Item.Effect.indexOf(E) >= 0)
+				return true;
+	if (Item.AllowEffect != null)
+		for (let E of Effect)
+			if (Item.AllowEffect.indexOf(E) >= 0)
+				return true;
+	return false;
+}
 
 /**
  * Loads the club crafting room in slot selection mode
@@ -21,6 +58,7 @@ function CraftingRun() {
 
 	// The exit button is everywhere
 	DrawButton(1895, 15, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
+	if (CraftingMode != "Slot") DrawButton(1790, 15, 90, 90, "", "White", "Icons/Cancel.png", TextGet("Cancel"));
 
 	// In slot selection mode, we show 20 slots to select from
 	if (CraftingMode == "Slot") {
@@ -34,10 +72,9 @@ function CraftingRun() {
 
 	// In item selection mode, we show all restraints from the player inventory
 	if (CraftingMode == "Item") {
-		DrawButton(1685, 15, 90, 90, "", "White", "Icons/Prev.png", TextGet("Previous"));
-		DrawButton(1790, 15, 90, 90, "", "White", "Icons/Next.png", TextGet("Next"));
-		DrawButton(1895, 15, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
-		DrawText(TextGet("SelectItem"), 1180, 60, "White", "Black");
+		DrawText(TextGet("SelectItem"), 1120, 60, "White", "Black");
+		DrawButton(1580, 15, 90, 90, "", "White", "Icons/Prev.png", TextGet("Previous"));
+		DrawButton(1685, 15, 90, 90, "", "White", "Icons/Next.png", TextGet("Next"));
 		ElementPosition("InputSearch", 315, 52, 600);
 		for (let I = CraftingOffset; I < CraftingItemList.length && I < CraftingOffset + 24; I++) {
 			let Item = CraftingItemList[I];
@@ -53,6 +90,31 @@ function CraftingRun() {
 		}
 	}
 
+	// In item selection mode, we show all restraints from the player inventory
+	if (CraftingMode == "Property") {
+		DrawText(TextGet("SelectProperty").replace("AssetDescription", CraftingItem.Description), 880, 60, "White", "Black");
+		let Pos = 0;
+		for (let Property of CraftingPropertyList) 
+			if (Property.Allow(CraftingItem)) {
+				let X = (Pos % 4) * 500 + 15;
+				let Y = Math.floor(Pos / 4) * 230 + 130;
+				DrawButton(X, Y, 470, 190, "", "White");
+				DrawText(TextGet("Property" + Property.Name), X + 235, Y + 40, "Black", "Silver");
+				DrawTextWrap(TextGet("Description" + Property.Name), X + 20, Y + 80, 440, 100, "Black", null, 2);
+				Pos++;
+			}
+	}
+
+	// In lock selection mode, the player can auto-apply a lock to it's item
+	if (CraftingMode == "Lock") {
+		DrawText(TextGet("SelectLock").replace("AssetDescription", CraftingItem.Description).replace("PropertyName", TextGet("Property" + CraftingProperty)), 880, 60, "White", "Black");
+	}
+
+	// In lock selection mode, the player can auto-apply a lock to it's item
+	if (CraftingMode == "Name") {
+		DrawText(TextGet("SelectName").replace("AssetDescription", CraftingItem.Description).replace("PropertyName", TextGet("Property" + CraftingProperty)), 880, 60, "White", "Black");
+	}
+
 }
 
 /**
@@ -61,8 +123,12 @@ function CraftingRun() {
  */
 function CraftingClick() {
 
-	// Can always exit
+	// Can always exit or cancel
 	if (MouseIn(1895, 15, 90, 90)) CraftingExit();
+	if (MouseIn(1790, 15, 90, 90)) {
+		CraftingMode = "Slot";
+		ElementRemove("InputSearch");
+	}
 
 	// In slot mode, we can select which item slot to craft
 	if (CraftingMode == "Slot") {
@@ -83,14 +149,41 @@ function CraftingClick() {
 
 	// In item selection mode, the player picks an item from her inventory
 	if (CraftingMode == "Item") {
-		if (MouseIn(1685, 15, 90, 90)) {
+		if (MouseIn(1580, 15, 90, 90)) {
 			CraftingOffset = CraftingOffset - 24;
 			if (CraftingOffset < 0) CraftingOffset = Math.floor(CraftingItemList.length / 24) * 24;
 		}
-		if (MouseIn(1790, 15, 90, 90)) {
+		if (MouseIn(1685, 15, 90, 90)) {
 			CraftingOffset = CraftingOffset + 24;
 			if (CraftingOffset >= CraftingItemList.length) CraftingOffset = 0;
 		}
+		for (let I = CraftingOffset; I < CraftingItemList.length && I < CraftingOffset + 24; I++) {
+			let X = ((I - CraftingOffset) % 8) * 249 + 17;
+			let Y = Math.floor((I - CraftingOffset) / 8) * 290 + 130;
+			if (MouseIn(X, Y, 225, 275)) {
+				CraftingItem = CraftingItemList[I];
+				CraftingMode = "Property";
+				ElementRemove("InputSearch");
+			}
+		}
+		return;
+	}
+
+	// In property mode, the user can select a special property to apply to the item
+	if (CraftingMode == "Property") {
+		let Pos = 0;
+		for (let Property of CraftingPropertyList) 
+			if (Property.Allow(CraftingItem)) {
+				let X = (Pos % 4) * 500 + 15;
+				let Y = Math.floor(Pos / 4) * 230 + 130;
+				if (MouseIn(X, Y, 470, 190)) {
+					CraftingProperty = Property.Name;
+					if (CraftingItem.AllowLock == true) CraftingMode = "Lock";
+					else CraftingMode = "Name";
+				}
+				Pos++;
+			}
+		return;
 	}
 
 }
