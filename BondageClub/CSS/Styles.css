@@ -363,6 +363,11 @@ input[type=range][data-thumb=player]::-webkit-slider-thumb {
   width: 0.8em;
 }
 
+input[type=range][data-thumb=rope]::-webkit-slider-thumb {
+	background-image: url("../Icons/Rope.png");
+	width: 0.8em;
+}
+
 /* Range Inputs - Firefox */
 
 input[type=range]::-moz-range-track {
@@ -415,6 +420,11 @@ input[type=range][data-thumb=lightbulb]::-moz-range-thumb {
 input[type=range][data-thumb=player]::-moz-range-thumb {
   background-image: url("../Icons/Player.png");
   width: 0.8em;
+}
+
+input[type=range][data-thumb=rope]::-moz-range-thumb {
+	background-image: url("../Icons/Rope.png");
+	width: 0.8em;
 }
 
 /* Custom fonts */

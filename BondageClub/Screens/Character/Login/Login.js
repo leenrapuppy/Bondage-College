@@ -6,11 +6,11 @@ var LoginCreditsPosition = 0;
 var LoginThankYou = "";
 /* eslint-disable */
 var LoginThankYouList = [
-	"Aceffect", "Anna", "Aylea", "BlueWinter", "Brian", "Bryce", "Christian", "Clash", "DarkStar", 
-	"Desch", "Din", "Edwin", "Epona", "Escurse", "Fura", "Greendragon", "Hayden", "JoeyDubDee", 
-	"Kimuriel", "Michal", "Michel", "Mike", "Mike", "Mindtie", "Mob", "MrUniver", "Nick", 
-	"Nicolas", "Nightcore", "Rika", "Riley", "Ryner", "Samuel", "Shadow", "SirRobben", "Tam", 
-	"Tarram1010", "Tommy", "TopHat", "Troubadix", "Xepherio", "Ying", "Yuna", "Znarf", 
+	"Aceffect14", "Anna", "ArashiSama", "Aylea", "Bjugh", "BlueWinter", "Brian", "Bryce", 
+	"Christian", "Clash", "DarkStar", "Desch", "Dini", "Edwin", "Epona", "Escurse", "Greendragon", 
+	"Hayden", "JoeyDubDee", "Kimuriel", "Michal", "Michel", "Mike", "Mike", "Mindtie", 
+	"Misa", "Mob", "MrUniver", "Nick", "Nightcore", "Rika", "Riley", "Samuel", "Shadow", "SirRobben", 
+	"Tam", "Tarram", "Tommy", "TopHat", "Troubadix", "Xepherio", "Ying", "Yuna", "Znarf"
 ];
 
 /* eslint-enable */
@@ -174,6 +174,9 @@ let LoginInventoryFixups = [
  * @param {{Group: string, Name: string}[]} Appearance - The server-provided appearance object
  */
 function LoginPerformInventoryFixups(Inventory, Appearance) {
+	// Skip fixups on new characters
+	if (!Inventory || !Appearance) return;
+
 	let listsUpdated = false;
 	LoginInventoryFixups.forEach(fixup => {
 		// For every asset fixup to do, update the inventory

@@ -38,18 +38,12 @@ type item = {
 	oldTightness?: number[],
 	/** Stores linked item tightness*/
 	oldEvents?: KinkyDungeonEvent[][],
-	/** Vibrator battery level*/
-	battery?: number,
-	/** Vibrator cooldown, won't restart vibrrating until this is 0. Ticks down each turn.*/
-	cooldown?: number,
-	/** Vibrator deny timer, similar to cooldown but independent. Ticks down each turn.*/
-	deny?: number,
+	/** Generic item data, able to be manipulated thru events*/
+	data?: Record<string, any>,
 	/** Escape progress tracking*/
 	pickProgress?: number,
 	/** Escape progress tracking*/
 	struggleProgress?: number,
-	/** Escape progress tracking*/
-	removeProgress?: number,
 	/** Escape progress tracking*/
 	cutProgress?: number,
 	/** Escape progress tracking*/
@@ -132,6 +126,14 @@ type restraint = {
 		Pick?: number
 		Unlock?: number
 	},
+	/** Determines the penalty to the escape chance at the limit--full struggle progress when struggling, and 0 for cut/remove/unlock/pick*/
+	limitChance?: {
+		Struggle?: number,
+		Cut?: number,
+		Remove?: number
+		Pick?: number
+		Unlock?: number
+	},
 	struggleMinSpeed?: {
 		Struggle?: number,
 		Cut?: number,
@@ -154,6 +156,10 @@ type restraint = {
 		Pick?: number
 		Unlock?: number
 	},
+	/** The vibrator will start vibing whenever another linked vibe starts */
+	linkedVibeTags?: string[],
+	vibeLocation?: string,
+	showInQuickInv?: boolean,
 	/** The item is a chastity belt */
 	chastity?: boolean,
 	/** The item is a chastity bra */
@@ -215,26 +221,8 @@ type restraint = {
 	/** Default tether length */
 	tether?: number,
 	leash?: boolean,
-	/** String containing vibrator keywords */
-	vibeType?: string,
-	/** Strength of the vibration */
-	intensity?: number,
-	/** Whether or not the item allows orgasm */
-	orgasm?: boolean,
-	/** Chance to begin teasing */
-	teaseRate?: number,
-	/** Vibrator starting batt */
-	battery?: number,
-	/** Vibrator max batt */
-	maxbattery?: number,
-	/** Starts when teasing starts */
-	teaseCooldown?: number,
-	/** Base chance to turn off if the user tries to let go */
-	denyChance?: number,
-	/** How long the denial lasts before the vibrator starts up again*/
-	denyTime?: number,
-	/** Chance to deny if the user is likely to succeed in an orgasm */
-	denyChanceLikely?: number,
+	/** The vibe can be remote controlled by enemies */
+	allowRemote?: boolean,
 	/** Multiplies the escape chance */
 	escapeMult?: number,
 	/** Clothes for dressing */
@@ -267,8 +255,8 @@ type restraint = {
 	enchantedDrain?: number,
 	/** Whether or not this is an Ancient item, prison respects it */
 	enchanted?: boolean,
-	/** Faction primary color index */
-	factionColor?: number[],
+	/** Faction color index */
+	factionColor?: number[][],
 }
 
 interface overrideDisplayItem {
@@ -579,7 +567,8 @@ interface enemy {
 	noChannel?: boolean,
 	/** Focuses player over summmons, ignores decoys */
 	focusPlayer?: boolean;
-
+	/** Cant be swapped by another enemy pathing */
+	noSwap?: boolean;
 
 }
 
@@ -640,6 +629,10 @@ interface KinkyDungeonEvent {
 	buff?: any;
 	lock?: string;
 	msg?: string;
+	/** Vibe */
+	edgeOnly?: boolean;
+	/** Vibe */
+	cooldown?: Record<string, number>;
 	/** A required enemy tag */
 	requiredTag?: string;
 	/** Type of struggle that this event triggers on */
@@ -675,8 +668,10 @@ interface KinkyDungeonEvent {
 
 interface entity {
 	Enemy: enemy,
+	rescue?: boolean,
 	personality?: string,
 	patrolIndex?: number,
+	flags?: Record<string, number>,
 	aggro?: number,
 	id?: number,
 	hp: number,
@@ -749,10 +744,13 @@ interface KinkyDialogueTrigger {
 	/** Only allows the following personalities to do it */
 	allowedPersonalities?: string[];
 	blockDuringPlaytime?: boolean;
+	noAlly?: boolean,
 	/** Exclude if enemy has one of these tags */
 	excludeTags?: string[];
 	/** Require all of these tags */
 	requireTags?: string[];
+	/** Require one of these tags */
+	requireTagsSingle?: string[];
 	playRequired?: boolean;
 	/** If any NPC is in combat in last 3 turns this wont happen */
 	noCombat?: boolean;
@@ -941,10 +939,10 @@ interface spell {
 interface KinkyDialogue {
 	/** REPLACETEXT -> Replacement */
 	data?: Record<string, string>;
-	/** Function to play when clicked. If not specified, nothing happens. */
-	clickFunction?: (gagged: boolean) => void;
+	/** Function to play when clicked. If not specified, nothing happens.  Bool is whether or not to abort current click*/
+	clickFunction?: (gagged: boolean) => boolean | undefined;
 	/** Function to play when clicked, if considered gagged. If not specified, will use the default function. */
-	gagFunction?: () => void;
+	gagFunction?: () => boolean | undefined;
 	/** Will not appear unless function returns true */
 	prerequisiteFunction?: (gagged: boolean) => boolean;
 	/** Will appear greyed out unless true */
@@ -978,6 +976,78 @@ interface KinkyDialogue {
 	options?: Record<string, KinkyDialogue>;
 	/** Name of a dialogue to get extra options from. Merges them, preferring this dialogue's options if the name is the same */
 	extraOptions?: string;
+}
+
+interface KinkyVibration {
+	// Basic Factors
+	/** Item applying this vibration */
+	source: string,
+	/** Identification */
+	name: string,
+	intensity: number,
+	/** Location(s) of the vibration */
+	location: string[],
+
+	// Total duration
+	duration: number,
+	durationLeft: number,
+
+	// Denial
+	/** Will turn off for this long when being denied */
+	denyTime?: number,
+	denyTimeLeft?: number,
+
+	/** Will deny this many times. */
+	denialsLeft?: number,
+	/** Always denies instead of orgasm. Overrides edgeOnly in the vibration itself but gets overridden by vibe modifiers */
+	alwaysDeny?: boolean,
+	/** Chance to deny. 0 or undefined means 100%*/
+	denialChance?: number,
+	/** Chance to deny if the player is likely to orgasm. 0 or undefined means 100%*/
+	denialChanceLikely?: number,
+
+	// Edging
+	/** After this much time the orgasms will be unlocked*/
+	edgeTime?: number,
+	edgeTimeLeft?: number,
+	/** The vibration will sense when the player is at max arousal and only decrement the timer then */
+	tickEdgeAtMaxArousal?: boolean,
+
+
+	/** Will repeat this many times */
+	loopsLeft?: number,
+
+	/** Orgasm will always be impossible */
+	edgeOnly?: boolean,
+
+	/** Table of modifiers */
+	VibeModifiers: VibeMod[],
+}
+
+interface VibeMod {
+	/** Source of the modifier */
+	source: string,
+	/** Identifier of the modifier */
+	name: string,
+	/** Location of the modifier */
+	location: string,
+	/** Duration of the vibe modifier */
+	duration: number,
+	durationLeft: number,
+	/** Change to intensity, cannot go below 1, capped at the value of the highest/lowest mod*/
+	intensityMod: number,
+	/** Forces intensity*/
+	intensitySetpoint?: number,
+	edgeOnly?: boolean,
+	forceDeny?: boolean,
+	bypassDeny?: boolean,
+	bypassEdge?: boolean,
+	/** Duration does not tick down while this vibe mod is on */
+	extendDuration?: boolean,
+	/** Increments the deny chance */
+	denyChanceMod?: number,
+	/** Increments the deny chance */
+	denyChanceLikelyMod?: number,
 }
 
 interface KinkyDungeonSave {
@@ -1025,5 +1095,6 @@ interface KinkyDungeonSave {
 		npp: number;
 		diff: number;
 	};
+	faction: Record<string, Record<string, number>>;
 }
 

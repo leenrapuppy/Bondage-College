@@ -672,7 +672,12 @@ function ServerClickBeep() {
 function ServerOpenFriendList() {
 	DialogLeave();
 	ElementToggleGeneratedElements(CurrentScreen, false);
-	FriendListReturn = { Screen: CurrentScreen , Module: CurrentModule, IsInChatRoom: ServerPlayerIsInChatRoom() };
+	FriendListReturn = { 
+		Screen: CurrentScreen , 
+		Module: CurrentModule, 
+		IsInChatRoom: ServerPlayerIsInChatRoom(), 
+		hasScrolledChat: ServerPlayerIsInChatRoom() && ElementIsScrolledToEnd("TextAreaChatLog")
+	};
 	CommonSetScreen("Character", "FriendList");
 }
 

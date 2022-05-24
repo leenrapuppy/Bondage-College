@@ -37,6 +37,7 @@ ActivityRubItem,Item Rub
 ActivityRollItem,Item Roll
 ActivityPourItem,Item Pour
 ActivityShockItem,Item Shock
+ActivityInject,Item Inject
 ActivityMoanGag,Moan into Gag
 ActivityMoanGagWhimper,Whimper into Gag
 ActivityMoanGagAngry,Shout into Gag
@@ -108,6 +109,7 @@ Label-ChatSelf-ItemFeet-Caress,Caress Legs
 Label-ChatSelf-ItemFeet-MassageHands,Massage Legs
 Label-ChatSelf-ItemFeet-Bite,Bite Leg
 Label-ChatSelf-ItemFeet-Wiggle,Wiggle Legs
+Label-ChatSelf-ItemFeet-Inject,Inject Legs
 Label-ChatOther-ItemFeet-Bite,Bite Leg
 Label-ChatOther-ItemFeet-Kiss,Kiss Leg
 Label-ChatOther-ItemFeet-GaggedKiss,Touch Leg with Gag
@@ -118,6 +120,7 @@ Label-ChatOther-ItemFeet-Spank,Spank Leg
 Label-ChatOther-ItemFeet-Caress,Caress Leg
 Label-ChatOther-ItemFeet-MassageHands,Massage Leg
 Label-ChatOther-ItemFeet-Grope,Grope Leg
+Label-ChatOther-ItemFeet-Inject,Inject Legs
 Label-ChatSelf-ItemLegs-Tickle,Tickle Thighs
 Label-ChatSelf-ItemLegs-Spank,Spank Thigh
 Label-ChatSelf-ItemLegs-Caress,Caress Thighs
@@ -125,6 +128,7 @@ Label-ChatSelf-ItemLegs-MassageHands,Massage Thighs
 Label-ChatSelf-ItemLegs-Bite,Bite Thigh
 Label-ChatSelf-ItemLegs-Wiggle,Rub Thighs Together
 Label-ChatSelf-ItemLegs-StruggleLegs,Thrash in Bondage
+Label-ChatSelf-ItemLegs-Inject,Inject Legs
 Label-ChatOther-ItemLegs-Bite,Bite Thigh
 Label-ChatOther-ItemLegs-Kiss,Kiss Thigh
 Label-ChatOther-ItemLegs-GaggedKiss,Rub Gag on Thighs
@@ -137,6 +141,7 @@ Label-ChatOther-ItemLegs-MassageHands,Massage Thighs
 Label-ChatOther-ItemLegs-Grope,Grope Thigh
 Label-ChatOther-ItemLegs-Sit,Sit in Lap
 Label-ChatOther-ItemLegs-RestHead,Rest Head in Lap
+Label-ChatOther-ItemLegs-Inject,Inject Legs
 Label-ChatSelf-ItemVulva-MasturbateHand,Masturbate Pussy
 Label-ChatSelf-ItemVulva-MasturbateFist,Fist Pussy
 Label-ChatSelf-ItemVulva-Caress,Caress Pussy
@@ -157,6 +162,7 @@ Label-ChatOther-ItemVulva-PenetrateFast,Fast Penetration
 Label-ChatSelf-ItemVulvaPiercings-MasturbateHand,Masturbate Clitoris
 Label-ChatSelf-ItemVulvaPiercings-Caress,Caress Clitoris
 Label-ChatSelf-ItemVulvaPiercings-Slap,Slap Clitoris
+Label-ChatSelf-ItemVulvaPiercings-Inject,Inject Clitoris
 Label-ChatOther-ItemVulvaPiercings-MasturbateHand,Finger Clitoris
 Label-ChatOther-ItemVulvaPiercings-MasturbateFoot,Foot Masturbate Clitoris
 Label-ChatOther-ItemVulvaPiercings-MasturbateTongue,Tongue Masturbate Clitoris
@@ -167,12 +173,14 @@ Label-ChatOther-ItemVulvaPiercings-GaggedKiss,Gag Kiss Clitoris
 Label-ChatOther-ItemVulvaPiercings-Lick,Lick Clitoris
 Label-ChatOther-ItemVulvaPiercings-Nibble,Nibble Clitoris
 Label-ChatOther-ItemVulvaPiercings-MasturbateItem,Device on Clitoris
+Label-ChatOther-ItemVulvaPiercings-Inject,Inject Clitoris
 Label-ChatSelf-ItemButt-MasturbateHand,Finger Ass
 Label-ChatSelf-ItemButt-MasturbateFist,Fist Ass
 Label-ChatSelf-ItemButt-Spank,Spank Butt
 Label-ChatSelf-ItemButt-Caress,Caress Butt
 Label-ChatSelf-ItemButt-Grope,Grope Butt
 Label-ChatSelf-ItemButt-Wiggle,Wiggle Butt
+Label-ChatSelf-ItemButt-Inject,Inject Butt
 Label-ChatOther-ItemButt-Bite,Bite Butt
 Label-ChatOther-ItemButt-Kiss,Kiss Butt
 Label-ChatOther-ItemButt-GaggedKiss,Rub Gag on Butt
@@ -185,6 +193,7 @@ Label-ChatOther-ItemButt-Grope,Grope Butt
 Label-ChatOther-ItemButt-PenetrateSlow,Slow Penetration
 Label-ChatOther-ItemButt-PenetrateFast,Fast Penetration
 Label-ChatOther-ItemButt-Step,Press Foot in Ass
+Label-ChatOther-ItemButt-Inject,Inject Butt
 Label-ChatSelf-ItemPelvis-Tickle,Tickle Tummy
 Label-ChatSelf-ItemPelvis-Spank,Spank Tummy
 Label-ChatSelf-ItemPelvis-Caress,Caress Tummy
@@ -241,6 +250,7 @@ Label-ChatSelf-ItemBreast-Caress,Caress Breast
 Label-ChatSelf-ItemBreast-MasturbateHand,Masturbate Breast
 Label-ChatSelf-ItemBreast-Grope,Grope Breast
 Label-ChatSelf-ItemBreast-Wiggle,Shake Breasts
+Label-ChatSelf-ItemBreast-Inject,Inject Breasts
 Label-ChatOther-ItemBreast-Bite,Bite Breast
 Label-ChatOther-ItemBreast-Kiss,Kiss Breast
 Label-ChatOther-ItemBreast-GaggedKiss,Press Gag on Breast
@@ -252,6 +262,7 @@ Label-ChatOther-ItemBreast-MasturbateHand,Masturbate Breast
 Label-ChatOther-ItemBreast-Grope,Grope Breast
 Label-ChatOther-ItemBreast-Step,Step on Breast
 Label-ChatOther-ItemBreast-RestHead,Rest Head on Breast
+Label-ChatOther-ItemBreast-Inject,Inject Breasts
 Label-ChatSelf-ItemArms-Kiss,Kiss Arm
 Label-ChatSelf-ItemArms-Lick,Lick Arm
 Label-ChatSelf-ItemArms-Nibble,Nibble Arm
@@ -263,6 +274,7 @@ Label-ChatSelf-ItemArms-MassageHands,Massage Arms
 Label-ChatSelf-ItemArms-Bite,Bite Arm
 Label-ChatSelf-ItemArms-Wiggle,Wiggle Shoulders
 Label-ChatSelf-ItemArms-StruggleArms,Struggle against Binds
+Label-ChatSelf-ItemArms-Inject,Inject Arms
 Label-ChatOther-ItemArms-Bite,Bite Arm
 Label-ChatOther-ItemArms-Kiss,Kiss Arm
 Label-ChatOther-ItemArms-GaggedKiss,Rub Gag on Arm
@@ -275,6 +287,7 @@ Label-ChatOther-ItemArms-Caress,Caress Arms
 Label-ChatOther-ItemArms-MassageHands,Massage Arms
 Label-ChatOther-ItemArms-Grope,Grab Arm
 Label-ChatOther-ItemArms-Cuddle,Cuddle
+Label-ChatOther-ItemArms-Inject,Inject Arms
 Label-ChatSelf-ItemHands-Kiss,Kiss Hand
 Label-ChatSelf-ItemHands-PoliteKiss,Small Kiss on Hand
 Label-ChatSelf-ItemHands-Lick,Lick Back of Hand
@@ -299,6 +312,7 @@ Label-ChatSelf-ItemNeck-Caress,Caress Neck
 Label-ChatSelf-ItemNeck-MassageHands,Massage Neck
 Label-ChatSelf-ItemNeck-Choke,Choke Self
 Label-ChatSelf-ItemNeck-Tickle,Tickle Neck
+Label-ChatSelf-ItemNeck-Inject,Inject Neck
 Label-ChatOther-ItemNeck-Bite,Bite Neck
 Label-ChatOther-ItemNeck-Kiss,Kiss Neck
 Label-ChatOther-ItemNeck-GaggedKiss,Touch Neck with Gag
@@ -309,6 +323,7 @@ Label-ChatOther-ItemNeck-MassageHands,Massage Neck
 Label-ChatOther-ItemNeck-Choke,Choke Neck
 Label-ChatOther-ItemNeck-Step,Gently Foot on Neck
 Label-ChatOther-ItemNeck-Tickle,Tickle Neck
+Label-ChatOther-ItemNeck-Inject,Inject Neck
 Label-ChatSelf-ItemMouth-Lick,Lick Lips
 Label-ChatSelf-ItemMouth-Nibble,Nibble Lips
 Label-ChatSelf-ItemMouth-Caress,Clean Mouth
@@ -411,6 +426,7 @@ ChatSelf-ItemFeet-Caress,SourceCharacter caresses her legs.
 ChatSelf-ItemFeet-MassageHands,SourceCharacter massages her legs.
 ChatSelf-ItemFeet-Bite,SourceCharacter bites her leg.
 ChatSelf-ItemFeet-Wiggle,SourceCharacter wiggles her legs.
+ChatSelf-ItemFeet-Inject,SourceCharacter injects her leg.
 ChatOther-ItemFeet-Bite,SourceCharacter bites TargetCharacter's leg.
 ChatOther-ItemFeet-Kiss,SourceCharacter kisses TargetCharacter's leg.
 ChatOther-ItemFeet-GaggedKiss,SourceCharacter touches her gag to TargetCharacter's leg.
@@ -421,6 +437,7 @@ ChatOther-ItemFeet-Spank,SourceCharacter spanks TargetCharacter's leg.
 ChatOther-ItemFeet-Caress,SourceCharacter caresses TargetCharacter's leg.
 ChatOther-ItemFeet-MassageHands,SourceCharacter massages TargetCharacter's leg.
 ChatOther-ItemFeet-Grope,SourceCharacter gropes TargetCharacter's leg.
+ChatSelf-ItemFeet-Inject,SourceCharacter injects TargetCharacter's leg.
 ChatSelf-ItemLegs-Tickle,SourceCharacter tickles her thighs.
 ChatSelf-ItemLegs-Spank,SourceCharacter spanks her own thigh.
 ChatSelf-ItemLegs-Caress,SourceCharacter caresses her thighs.
@@ -428,6 +445,7 @@ ChatSelf-ItemLegs-MassageHands,SourceCharacter massages her thighs.
 ChatSelf-ItemLegs-Bite,SourceCharacter bites her thigh.
 ChatSelf-ItemLegs-Wiggle,SourceCharacter rubs her thighs together.
 ChatSelf-ItemLegs-StruggleLegs,SourceCharacter thrashes around in her bindings.
+ChatSelf-ItemLegs-Inject,SourceCharacter injects her thigh.
 ChatOther-ItemLegs-Bite,SourceCharacter bites TargetCharacter's thigh.
 ChatOther-ItemLegs-Kiss,SourceCharacter kisses TargetCharacter's thigh.
 ChatOther-ItemLegs-GaggedKiss,SourceCharacter rubs her gag on TargetCharacter's thigh.
@@ -440,6 +458,7 @@ ChatOther-ItemLegs-MassageHands,SourceCharacter massages TargetCharacter's thigh
 ChatOther-ItemLegs-Grope,SourceCharacter gropes TargetCharacter's thigh.
 ChatOther-ItemLegs-Sit,SourceCharacter sits in TargetCharacter's lap.
 ChatOther-ItemLegs-RestHead,SourceCharacter rests her head in TargetCharacter's lap.
+ChatOther-ItemLegs-Inject,SourceCharacter injects TargetCharacter's thigh.
 ChatSelf-ItemVulva-MasturbateFist,SourceCharacter fists and masturbates her pussy.
 ChatSelf-ItemVulva-MasturbateHand,SourceCharacter masturbates her pussy.
 ChatSelf-ItemVulva-Caress,SourceCharacter caresses her pussy.
@@ -460,6 +479,7 @@ ChatOther-ItemVulva-PenetrateFast,SourceCharacter penetrates TargetCharacter's v
 ChatSelf-ItemVulvaPiercings-MasturbateHand,SourceCharacter masturbates her clitoris.
 ChatSelf-ItemVulvaPiercings-Caress,SourceCharacter caresses her clitoris.
 ChatSelf-ItemVulvaPiercings-Slap,SourceCharacter slaps her clitoris.
+ChatSelf-ItemVulvaPiercings-Inject,SourceCharacter injects her clitoris.
 ChatOther-ItemVulvaPiercings-MasturbateHand,SourceCharacter masturbates TargetCharacter's clitoris with her fingers.
 ChatOther-ItemVulvaPiercings-MasturbateFoot,SourceCharacter masturbates TargetCharacter's clitoris with her foot.
 ChatOther-ItemVulvaPiercings-MasturbateTongue,SourceCharacter masturbates TargetCharacter's clitoris with her tongue.
@@ -470,12 +490,14 @@ ChatOther-ItemVulvaPiercings-GaggedKiss,SourceCharacter gags kiss TargetCharacte
 ChatOther-ItemVulvaPiercings-Lick,SourceCharacter licks TargetCharacter's clitoris.
 ChatOther-ItemVulvaPiercings-Nibble,SourceCharacter nibbles TargetCharacter's clitoris.
 ChatOther-ItemVulvaPiercings-MasturbateItem,SourceCharacter uses the device to masturbate TargetCharacter's clitoris.
+ChatOther-ItemVulvaPiercings-Inject,SourceCharacter injects TargetCharacter's clitoris.
 ChatSelf-ItemButt-MasturbateFist,SourceCharacter fists and masturbates her ass.
 ChatSelf-ItemButt-MasturbateHand,SourceCharacter fingers and masturbates her ass.
 ChatSelf-ItemButt-Spank,SourceCharacter spanks herself on the butt.
 ChatSelf-ItemButt-Caress,SourceCharacter caresses her butt.
 ChatSelf-ItemButt-Grope,SourceCharacter gropes her butt.
 ChatSelf-ItemButt-Wiggle,SourceCharacter wiggles her butt.
+ChatSelf-ItemButt-Inject,SourceCharacter injects her butt.
 ChatOther-ItemButt-Bite,SourceCharacter bites TargetCharacter's butt.
 ChatOther-ItemButt-Kiss,SourceCharacter kisses TargetCharacter's butt.
 ChatOther-ItemButt-GaggedKiss,SourceCharacter rubs her gag on TargetCharacter's butt.
@@ -488,6 +510,7 @@ ChatOther-ItemButt-Grope,SourceCharacter gropes TargetCharacter's butt.
 ChatOther-ItemButt-PenetrateSlow,SourceCharacter penetrates TargetCharacter's butt at a slow pace.
 ChatOther-ItemButt-PenetrateFast,SourceCharacter penetrates TargetCharacter's butt at a fast pace.
 ChatOther-ItemButt-Step,SourceCharacter presses her foot into TargetCharacter's ass.
+ChatOther-ItemButt-Inject,SourceCharacter injects TargetCharacter's butt.
 ChatSelf-ItemPelvis-Tickle,SourceCharacter tickles her own tummy.
 ChatSelf-ItemPelvis-Spank,SourceCharacter spanks her own tummy.
 ChatSelf-ItemPelvis-Caress,SourceCharacter caresses her tummy.
@@ -544,6 +567,7 @@ ChatSelf-ItemBreast-Caress,SourceCharacter caresses her own breast.
 ChatSelf-ItemBreast-MasturbateHand,SourceCharacter masturbates her own breast.
 ChatSelf-ItemBreast-Grope,SourceCharacter gropes her own breast.
 ChatSelf-ItemBreast-Wiggle,SourceCharacter shakes her breasts around.
+ChatSelf-ItemBreast-Inject,SourceCharacter injects her breast.
 ChatOther-ItemBreast-Bite,SourceCharacter bites TargetCharacter's breast.
 ChatOther-ItemBreast-Kiss,SourceCharacter kisses TargetCharacter's breast.
 ChatOther-ItemBreast-GaggedKiss,SourceCharacter presses her gag to TargetCharacter's breast.
@@ -555,6 +579,7 @@ ChatOther-ItemBreast-MasturbateHand,SourceCharacter masturbates TargetCharacter'
 ChatOther-ItemBreast-Grope,SourceCharacter gropes TargetCharacter's breast.
 ChatOther-ItemBreast-Step,SourceCharacter steps on TargetCharacter's breast.
 ChatOther-ItemBreast-RestHead,SourceCharacter rests her head on TargetCharacter's breasts.
+ChatOther-ItemBreast-Inject,SourceCharacter injects TargetCharacter's breast.
 ChatSelf-ItemArms-Kiss,SourceCharacter kisses her own arm.
 ChatSelf-ItemArms-Lick,SourceCharacter licks her own arm.
 ChatSelf-ItemArms-Nibble,SourceCharacter nibbles her own arm.
@@ -566,6 +591,7 @@ ChatSelf-ItemArms-MassageHands,SourceCharacter massages her arms.
 ChatSelf-ItemArms-Bite,SourceCharacter bites her arm.
 ChatSelf-ItemArms-Wiggle,SourceCharacter wiggles her shoulders.
 ChatSelf-ItemArms-StruggleArms,SourceCharacter struggles against her bindings.
+ChatSelf-ItemArms-Inject,SourceCharacter injects her arm.
 ChatOther-ItemArms-Bite,SourceCharacter bites TargetCharacter's arm.
 ChatOther-ItemArms-Kiss,SourceCharacter kisses TargetCharacter's arm.
 ChatOther-ItemArms-GaggedKiss,SourceCharacter rubs her gag on TargetCharacter's arm.
@@ -578,6 +604,7 @@ ChatOther-ItemArms-Caress,SourceCharacter caresses TargetCharacter's arms.
 ChatOther-ItemArms-MassageHands,SourceCharacter massages TargetCharacter's arms.
 ChatOther-ItemArms-Grope,SourceCharacter grabs TargetCharacter's arm firmly.
 ChatOther-ItemArms-Cuddle,SourceCharacter cuddles with TargetCharacter.
+ChatOther-ItemArms-Inject,SourceCharacter injects TargetCharacter's arm.
 ChatSelf-ItemHands-Kiss,SourceCharacter kisses her own hand.
 ChatSelf-ItemHands-PoliteKiss,SourceCharacter gives a small kiss on her hand.
 ChatSelf-ItemHands-Lick,SourceCharacter licks the back of her hand.
@@ -602,6 +629,7 @@ ChatSelf-ItemNeck-Caress,SourceCharacter caresses her neck.
 ChatSelf-ItemNeck-MassageHands,SourceCharacter massages her neck.
 ChatSelf-ItemNeck-Choke,SourceCharacter chokes herself.
 ChatSelf-ItemNeck-Tickle,SourceCharacter tickles her neck.
+ChatSelf-ItemNeck-Inject,SourceCharacter injects her neck.
 ChatOther-ItemNeck-Bite,SourceCharacter bites TargetCharacter's neck.
 ChatOther-ItemNeck-Kiss,SourceCharacter kisses TargetCharacter's neck.
 ChatOther-ItemNeck-GaggedKiss,SourceCharacter touches her gag to TargetCharacter's neck.
@@ -612,6 +640,7 @@ ChatOther-ItemNeck-MassageHands,SourceCharacter massages TargetCharacter's neck.
 ChatOther-ItemNeck-Choke,SourceCharacter chokes TargetCharacter's neck.
 ChatOther-ItemNeck-Step,SourceCharacter gently places her foot over TargetCharacter's neck.
 ChatOther-ItemNeck-Tickle,SourceCharacter tickles TargetCharacter's neck.
+ChatOther-ItemNeck-Inject,SourceCharacter injects TargetCharacter's neck.
 ChatSelf-ItemMouth-Lick,SourceCharacter licks her lips.
 ChatSelf-ItemMouth-Nibble,SourceCharacter nibbles her lips.
 ChatSelf-ItemMouth-Caress,SourceCharacter caresses and wipes her mouth clean.

@@ -25,15 +25,20 @@ function KDProcessInput(type, data) {
 		case "tick":
 			KinkyDungeonAdvanceTime(data.delta, data.NoUpdate, data.NoMsgTick);
 			break;
-		case "tryCastSpell":
-			Result = KinkyDungeonCastSpell(data.tx, data.ty, data.spell ? data.spell : KinkyDungeonFindSpell(data.spellname, true), data.enemy, data.player, data.bullet);
-			if (Result == "Cast" && KinkyDungeonTargetingSpell.sfx) {
-				KinkyDungeonPlaySound(KinkyDungeonRootDirectory + "/Audio/" + KinkyDungeonTargetingSpell.sfx + ".ogg");
+		case "tryCastSpell": {
+			let sp = data.spell ? data.spell : KinkyDungeonFindSpell(data.spellname, true);
+			if (sp) {
+				Result = KinkyDungeonCastSpell(data.tx, data.ty, sp, data.enemy, data.player, data.bullet);
+				if (Result == "Cast" && sp.sfx) {
+					KinkyDungeonPlaySound(KinkyDungeonRootDirectory + "/Audio/" + sp.sfx + ".ogg");
+				}
+				if (Result != "Fail")
+					KinkyDungeonAdvanceTime(1);
+				KinkyDungeonInterruptSleep();
+				return Result;
 			}
-			if (Result != "Fail")
-				KinkyDungeonAdvanceTime(1);
-			KinkyDungeonInterruptSleep();
-			return Result;
+			return "Fail";
+		}
 		case "struggle":
 			return KinkyDungeonStruggle(data.group, data.type);
 		case "struggleCurse":
@@ -150,17 +155,17 @@ function KDProcessInput(type, data) {
 			break;
 		case "shrineUse":
 			tile = KinkyDungeonTiles.get(data.targetTile);
-			KinkyDungeonTargetTile = tile;
-			KinkyDungeonTargetTileLocation = data.targetTile;
+			//KinkyDungeonTargetTile = tile;
+			//KinkyDungeonTargetTileLocation = data.targetTile;
 			KinkyDungeonAdvanceTime(1, true);
-			KinkyDungeonTargetTile = null;
+			//KinkyDungeonTargetTile = null;
 			if (KinkyDungeonGold >= data.cost) {
 				KinkyDungeonPayShrine(data.type);
 				KinkyDungeonTiles.delete(KinkyDungeonTargetTileLocation);
-				let x = KinkyDungeonTargetTileLocation.split(',')[0];
-				let y = KinkyDungeonTargetTileLocation.split(',')[1];
+				let x =  data.targetTile.split(',')[0];
+				let y =  data.targetTile.split(',')[1];
 				KinkyDungeonMapSet(parseInt(x), parseInt(y), "a");
-				KinkyDungeonTargetTileLocation = "";
+				//KinkyDungeonTargetTileLocation = "";
 				KinkyDungeonAggroAction('shrine', {x: parseInt(x), y:parseInt(y)});
 				KDGameData.AlreadyOpened.push({x: parseInt(x), y: parseInt(y)});
 				KinkyDungeonUpdateStats(0);
@@ -298,9 +303,7 @@ function KDProcessInput(type, data) {
 			KinkyDungeonRescued[data.rep] = true;
 
 			if (KDRandom() < 0.5 + data.value/100) {
-				KDSendStatus('goddess', data.rep, 'helpRescue');
-				KinkyDungeonChangeRep(data.rep, -10);
-				let allies = KinkyDungeonGetAllies();
+				/*let allies = KinkyDungeonGetAllies();
 				// Tie up all non-allies
 				for (let e of KinkyDungeonEntities) {
 					if (e.Enemy.bound && !e.Enemy.tags.has("angel")) {
@@ -308,6 +311,7 @@ function KDProcessInput(type, data) {
 						if (!e.boundLevel) e.boundLevel = e.Enemy.maxhp;
 						else e.boundLevel += e.Enemy.maxhp;
 						e.hp = 0.1;
+						e.rescue = true;
 					}
 				}
 				KinkyDungeonEntities = allies;
@@ -318,8 +322,19 @@ function KDProcessInput(type, data) {
 					if (T.Lock) T.Lock = undefined;
 					if (T.Type == "Lock") T.Type = undefined;
 					if (T.Type == "Trap") T.Type = undefined;
+				}*/
+				let tiles = KinkyDungeonRescueTiles();
+				if (tiles.length > 0) {
+					KDSendStatus('goddess', data.rep, 'helpRescue');
+					KinkyDungeonChangeRep(data.rep, -10);
+					tile = tiles[Math.floor(tiles.length * KDRandom())];
+					if (tile) {
+						KinkyDungeonMapSet(tile.x, tile.y, "$");
+						KinkyDungeonTiles.set(tile.x + "," + tile.y, {Type: "Angel"});
+						KDStartDialog("AngelHelp","Angel", true, "");
+					}
+					KDGameData.RescueFlag = true;
 				}
-				KDGameData.RescueFlag = true;
 			} else {
 				KinkyDungeonSendTextMessage(10, TextGet("KinkyDungeonNoRescue"), "purple", 10);
 				KDSendStatus('goddess', data.rep, 'helpNoRescue');
@@ -408,8 +423,10 @@ function KDProcessInput(type, data) {
 						KinkyDungeonTiles.delete(data.targetTile);
 						KinkyDungeonMapSet(x, y, '-');
 					}
+					return "Pass";
 				} else {
 					KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonChargerChargeFailure"), "orange", 1);
+					return "Fail";
 				}
 			} else if (data.action == "place") {
 				tile = KinkyDungeonTiles.get(data.targetTile);
@@ -464,32 +481,35 @@ function KDProcessInput(type, data) {
 			if (dialogue.personalities) {
 				KDDialogueApplyPersonality(dialogue.personalities);
 			}
+			let abort = false;
 			if (data.click) {
 				let gagged = KDDialogueGagged();
 				if (dialogue.gagFunction && gagged) {
-					dialogue.gagFunction();
+					abort = dialogue.gagFunction();
 				} else if (dialogue.clickFunction) {
-					dialogue.clickFunction(gagged);
+					abort = dialogue.clickFunction(gagged);
 				}
 			}
-			if (dialogue.exitDialogue) {
-				KDGameData.CurrentDialog = "";
-				KDGameData.CurrentDialogStage = "";
-			} else {
-				let modded = false;
-				if (dialogue.leadsTo != undefined) {
-					KDGameData.CurrentDialog = dialogue.leadsTo;
+			if (!abort) {
+				if (dialogue.exitDialogue) {
+					KDGameData.CurrentDialog = "";
 					KDGameData.CurrentDialogStage = "";
-					modded = true;
-				}
-				if (dialogue.leadsToStage != undefined) {
-					KDGameData.CurrentDialogStage = dialogue.leadsToStage;
-					modded = true;
-				}
-				if (modded && !dialogue.dontTouchText) {
-					dialogue = KDGetDialogue();
-					if (dialogue.response) KDGameData.CurrentDialogMsg = dialogue.response;
-					if (dialogue.response == "Default") dialogue.response = KDGameData.CurrentDialog + KDGameData.CurrentDialogStage;
+				} else {
+					let modded = false;
+					if (dialogue.leadsTo != undefined) {
+						KDGameData.CurrentDialog = dialogue.leadsTo;
+						KDGameData.CurrentDialogStage = "";
+						modded = true;
+					}
+					if (dialogue.leadsToStage != undefined) {
+						KDGameData.CurrentDialogStage = dialogue.leadsToStage;
+						modded = true;
+					}
+					if (modded && !dialogue.dontTouchText) {
+						dialogue = KDGetDialogue();
+						if (dialogue.response) KDGameData.CurrentDialogMsg = dialogue.response;
+						if (dialogue.response == "Default") dialogue.response = KDGameData.CurrentDialog + KDGameData.CurrentDialogStage;
+					}
 				}
 			}
 			break;

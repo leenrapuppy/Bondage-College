@@ -198,6 +198,10 @@ const InventoryItemHandsSpankingToysOptions = [
 		Name: "GlassFilled",
 		Property: { Type: "GlassFilled" },
 		ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 5}, { Group: "Mouth", Name: "LipBite", Timer: 5}, { Group: "Eyes", Name: "Lewd", Timer: 5}, { Group: "Eyebrows", Name: "Raised", Timer: 5}]
+	},{
+		Name: "PotionBottle",
+		Property: { Type: "PotionBottle" },
+		ExpressionTrigger: []
 	},
 ];
 

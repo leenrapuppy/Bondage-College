@@ -28,8 +28,6 @@ let KinkyDungeonShrineBaseCostGrowth = {
 	"Illusion": 2,
 };
 
-let KinkyDungeonGhostDecision = 0;
-
 /**
  * @type {shopItem[]}
  */
@@ -69,7 +67,6 @@ function KinkyDungeonShrineAvailable(type) {
 let KDLevelsPerCheckpoint = 6;
 
 function KinkyDungeonGenerateShop(Level) {
-	KinkyDungeonMakeGhostDecision(); // Decides if the ghosts will be friendly or not
 	KDGameData.PoolUses = Math.min(KDGameData.PoolUses, KinkyDungeonStatsChoice.get("Blessed") ? 0 : 1);
 	KinkyDungeonShopIndex = 0;
 	KinkyDungeonShopItems = [];
@@ -93,12 +90,12 @@ function KinkyDungeonGenerateShop(Level) {
 	KinkyDungeonShopItems.sort(function(a, b){return a.rarity-b.rarity;});
 }
 
-function KinkyDungeonItemCost(item) {
+function KinkyDungeonItemCost(item, noScale) {
 	if (item.cost != null) return item.cost;
 	if (item.rarity != null) {
 		let rarity = item.rarity;
 		if (item.costMod) rarity += item.costMod;
-		let costt = 5 * Math.round((1 + MiniGameKinkyDungeonLevel/KDLevelsPerCheckpoint/2.5)*(30 + 2 * rarity * rarity * 10)/5);
+		let costt = 5 * Math.round((1 + MiniGameKinkyDungeonLevel/KDLevelsPerCheckpoint/2.5 * (noScale ? 0 : 1))*(30 + 2 * rarity * rarity * 10)/5);
 		if (costt > 100) costt = 50 * Math.round(costt / 50);
 		if (KinkyDungeonStatsChoice.has("PriceGouging")) {
 			costt *= 5;
@@ -256,6 +253,8 @@ function KinkyDungeonHandleShrine() {
 	} else {
 		if (cost > 0 && MouseIn(KDModalArea_x, KDModalArea_y + 25, 325, 60)) {
 			KDSendInput("shrineUse", {type: type, cost: cost, targetTile: KinkyDungeonTargetTileLocation});
+			KinkyDungeonTargetTileLocation = "";
+			KinkyDungeonTargetTile = null;
 			return true;
 		} else if (KDGameData.PoolUses <= 1 / KinkyDungeonShrinePoolChancePerUse && (KinkyDungeonStatMana < KinkyDungeonStatManaMax || KinkyDungeonPlayerTags.get("slime")) && ((cost == 0 && MouseIn(KDModalArea_x, KDModalArea_y + 25, 375, 60)) || MouseIn(KDModalArea_x + 350, KDModalArea_y + 25, 100, 60))) {
 			KDSendInput("shrineDrink", {type: type, targetTile: KinkyDungeonTargetTileLocation});
@@ -334,81 +333,6 @@ function KinkyDungeonDrawShrine() {
 			DrawButton(KDModalArea_x + 350, KDModalArea_y + 25, 100, 60, TextGet("KinkyDungeonDrinkShrine"), (KDGameData.PoolUses <= 1 / KinkyDungeonShrinePoolChancePerUse && KinkyDungeonStatMana < KinkyDungeonStatManaMax || KinkyDungeonPlayerTags.get("slime")) ? "#AAFFFF" : "#444444", "", "");
 		}
 	}
-}
-function KinkyDungeonDrawGhost() {
-	if (KinkyDungeonGhostDecision == 0) DrawText(TextGet("KinkyDungeonDrawGhostHelpful"), KDModalArea_x + 200, KDModalArea_y + 50, "white", "silver");
-	else DrawText(TextGet("KinkyDungeonDrawGhostUnhelpful"), KDModalArea_x + 200, KDModalArea_y + 50, "white", "silver");
-}
-function KinkyDungeonGhostMessage() {
-	let restraints = KinkyDungeonAllRestraint();
-	let msg = "";
-	if (restraints.length == 0) {
-		msg = TextGet("KinkyDungeonGhostGreet" + KinkyDungeonGhostDecision);
-	} else {
-		if (KinkyDungeonGhostDecision <= 1) {
-			msg = TextGet("KinkyDungeonGhostHelpful" + KinkyDungeonGhostDecision);
-		} else {
-			let BoundType = "Generic";
-			if (!KinkyDungeonCanTalk() && Math.random() < 0.33) BoundType = "Gag";
-			if (!KinkyDungeonPlayer.CanInteract() && Math.random() < 0.33) BoundType = "Arms";
-			if (!KinkyDungeonPlayer.CanWalk() && Math.random() < 0.33) BoundType = "Feet";
-			if (KinkyDungeonPlayer.IsChaste() && Math.random() < 0.33) BoundType = "Chaste";
-
-			msg = TextGet("KinkyDungeonGhostUnhelpful" + BoundType + KinkyDungeonGhostDecision);
-		}
-	}
-	if (msg) {
-		KinkyDungeonSendActionMessage(3, msg, "white", 3);
-	}
-}
-
-
-function KinkyDungeonMakeGhostDecision() {
-	KinkyDungeonGhostDecision = 0;
-
-	let rep = KinkyDungeonGoddessRep.Ghost;
-
-	if (rep > 0) KinkyDungeonGhostDecision += 1;
-	if (rep != undefined) {
-		let mult = KinkyDungeonStatsChoice.get("Oppression") ? 1.5 : 1.0;
-		if (KDRandom() * 100 * mult > -rep + 75) KinkyDungeonGhostDecision += 1;
-		if (KDRandom() * 100 * mult > -rep + 85) KinkyDungeonGhostDecision += 1;
-		if (KDRandom() * 100 * mult > -rep + 95) KinkyDungeonGhostDecision += 1;
-	}
-}
-
-function KinkyDungeonDrawCharger() {
-	KDModalArea = true;
-	//DrawText(TextGet("KinkyDungeonCharger"), KDModalArea_x + 200, KDModalArea_y + 50, "white", "silver");
-	if (KinkyDungeonTargetTile && KinkyDungeonTargetTile.Light == KDChargerLight) {
-		DrawButton(KDModalArea_x + 25, KDModalArea_y + 25, 400, 60, TextGet("KinkyDungeonChargerRemoveCrystal"), "#white", "", "");
-	} else {
-		DrawButton(KDModalArea_x + 250, KDModalArea_y + 25, 200, 60, TextGet("KinkyDungeonChargerCharge"), KinkyDungeonInventoryGet("AncientPowerSourceSpent") ? "white" : "#888888", "", "");
-		DrawButton(KDModalArea_x + 25, KDModalArea_y + 25, 200, 60, TextGet("KinkyDungeonChargerPlaceCrystal"), KinkyDungeonInventoryGet("AncientPowerSource") ? "white" : "#888888", "", "");
-	}
-
-
-}
-
-let KDChargerLight = 5;
-
-function KinkyDungeonHandleCharger() {
-	if (KinkyDungeonTargetTile && KinkyDungeonTargetTile.Light == KDChargerLight) {
-		if (MouseIn(KDModalArea_x + 25, KDModalArea_y + 25, 400, 60) && KinkyDungeonTargetTile) {
-			KDSendInput("chargerInteract", {action: "remove", targetTile: KinkyDungeonTargetTileLocation});
-			return true;
-		}
-	} else {
-		if (MouseIn(KDModalArea_x + 250, KDModalArea_y + 25, 200, 60)) {
-			KDSendInput("chargerInteract", {action: "charge", targetTile: KinkyDungeonTargetTileLocation});
-			return true;
-		} else if (MouseIn(KDModalArea_x + 25, KDModalArea_y + 25, 200, 60) && KinkyDungeonTargetTile) {
-			KDSendInput("chargerInteract", {action: "place", targetTile: KinkyDungeonTargetTileLocation});
-			return true;
-		}
-	}
-
-	return false;
 }
 
 function KinkyDungeonShrineAngerGods(Type) {

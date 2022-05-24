@@ -179,6 +179,9 @@ function FriendListExit() {
 	FriendListBeepMenuClose();
 	ElementRemove("FriendList");
 	if (FriendListReturn != null && FriendListReturn.Screen != "FriendList") {
+		if (FriendListReturn && FriendListReturn.Screen === "ChatRoom" && FriendListReturn.hasScrolledChat) {
+			ElementScrollToEnd("TextAreaChatLog");
+		}
 		ElementToggleGeneratedElements(FriendListReturn.Screen, true);
 		CommonSetScreen(FriendListReturn.Module, FriendListReturn.Screen);
 	} else CommonSetScreen("Character", "InformationSheet");
@@ -187,7 +190,7 @@ function FriendListExit() {
 }
 
 /**
- * Exits the friendlist into `ChatSearch` screen, filling in the requested room name
+ * Exits the friendlist
  * @param {string} room The room to search for
  */
 function FriendListChatSearch(room) {
@@ -198,7 +201,6 @@ function FriendListChatSearch(room) {
 		// Change the text box so the player still cant read it
 		ElementValue("InputSearch", ChatSearchMuffle(room));
 	}
-
 }
 
 /**

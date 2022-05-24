@@ -1,0 +1,166 @@
+###_NPC
+(She imitates your gagged speech and giggles.)
+（你的嘴被塞住，只能发出一些模糊的语句。她模仿着那模糊的语句，咯咯的笑着）
+(A nervous asylum patient crosses your path.)  Oh!  Hello nurse DialogPlayerName.  What are you doing here?
+（一个紧张的病人从你身边经过）哦！你好啊DialogPlayerName护士，你在这里干什么？
+(An asylum patient tries to run from you but get stuck in a dead end.)  What do you want?
+（一个病人试图逃脱你，但是她走入了一个死胡同）你要干什么！？
+(You surprise a suspicious looking asylum patient.)  Oh my!  You've scared me.  What's going on?
+（你让这个可疑的病人吓了一跳）我的妈，你吓到我了！发生什么事了？
+(She surrenders to you.)  You got me nurse DialogPlayerName.  What do you want from me?
+（她屈服于你）你抓到我了，DialogPlayerName护士。你想从我这得到什么？
+(She checks your bondage and grins.)  I'll never return to the asylum!
+（她检查了你的捆绑，咧嘴一笑）我永远也不会回来了。
+###_PLAYER
+Who are you?
+你谁啊？
+###_NPC
+Me?  I'm nobody!  Can I go now?
+我？别在意这个。我现在可以走吗？
+###_PLAYER
+You seem nervous.
+你看起来很紧张。
+###_NPC
+No, no, no, no.  Why would I be nervous?  (She looks even more nervous.)
+没。。没有！我为什么要紧。。紧。。。紧张？（她看起来更紧张了）
+###_PLAYER
+Have I seen you before?
+我见过你吗？
+###_NPC
+Maybe, it's a small world after all.
+可能吧，毕竟这个世界比我们想象的都要小。
+###_PLAYER
+(Let her go.)
+（让她离开）
+Are you a committed patient?
+你是我们收治的病人吗？
+###_NPC
+Yes, I mean no.  I'm not going back there!  (She raises her fists.)
+嗯，啊不对！我不会回那里的！（她举起了拳头）
+###_PLAYER
+Did you escape from the asylum?
+你是从收容所里逃出来的吗？
+###_NPC
+(She raises her fists.)  I'm not going back there!
+（她拳头硬了）我永远不会回那个地方的！
+###_PLAYER
+I'm here to bring you back girl.
+我会带你回去的，姑娘。
+I'll bring you back by force.  (Fight her.)
+嘛，我可能得用点强硬的方法带你回去了（与她战斗）
+Don't hurt me!
+别伤害我！
+###_NPC
+You're pathetic.  Get out of my face.
+好可怜呢，现在从我面前消失！
+###_PLAYER
+Maybe we can make a deal.
+我们可以做个交易吗？
+###_NPC
+A deal?  What kind of deal?
+交易？什么交易？
+###_PLAYER
+Pay me and I'll let you go.
+付我点钱，然后我就让你走怎么样？
+###_NPC
+Forget it, you won't get any money from me.
+别想了，你别想从我这里得到一分钱。
+You're so corrupted.  Take these $5 and leave me alone.
+你可太贪财了，拿着这5块钱，然后离开我。
+###_PLAYER
+Come to my room, you can hide there.
+你可以藏在我的房间。
+###_NPC
+No way, I'm not following a nurse anywhere.
+没门！我不会跟任何护士走的！
+I guess there are worse plans than that.  Alright then, I'll follow you.
+我猜别的计划会更加糟糕。行吧，我会跟着你的。
+###_PLAYER
+I won't drag you by your hair.  (Fight her.)
+我不会拉扯你的头发的。(与她战斗)
+It's a pleasure doing business with you.
+愉快的交易。
+###_NPC
+Yeah, yeah, yeah.  Can I go now?
+好耶！那我能走了吗？
+###_PLAYER
+(Bring her to your room.)
+（带她来你的房间）
+###_NPC
+NOEXIT
+哼，想逃？
+###_PLAYER
+You fought well.
+打得不错。
+###_NPC
+Thanks, but nobody can win against the system.
+谢谢，不过没人能够战胜那个系统。
+###_PLAYER
+I'm bringing you back to the asylum.
+我会把你带回收容所。
+###_NPC
+Why are you so cruel?  Fine!  I'll go back with you.
+你为什么要这么做！行吧，我会跟你回去的。
+###_PLAYER
+I feel like keeping you for myself.
+我想。。。我想要你❤
+###_NPC
+(She looks nervous.)  What does that mean?  Where are we going?
+（她看起来很紧张）什么东西？你在说什么？我们要去哪？
+###_PLAYER
+I'm feeling merciful.  I'll let you go.
+没有比我更有爱心的护士了。我会让你离开。
+###_NPC
+Really?  Wow, thank you so much!  You're the best.
+真的吗！太棒了！谢谢！爱你。
+###_PLAYER
+(Take her back to the asylum.)
+（带她回收容所）
+###_NPC
+(You bring her back to asylum where she gets fully restrained.  They congratulate you and pay you $15 for your work.)
+（你带着她回到了收容所，她在那里被完全的束缚住了。其他护士向你表示了感谢，并付给了你15块）
+###_PLAYER
+Welcome home girl.
+欢迎回家，姑娘。
+###_NPC
+(She sighs and bows her head.)
+（她叹了口气，然后低下了头）
+###_PLAYER
+Don't try to escape again.
+别想逃了。
+###_NPC
+(She shakes her head no.)
+（她摇了摇头，表示不会了）
+###_PLAYER
+(Get your money and leave her.)
+（收下钱，然后离开她）
+You're a tough patient.
+你真是个难缠的病人
+###_NPC
+Yep.  And now it's time for us to split.  Have fun struggling little nurse.
+是这样的，现在到了分别的时候了。享受挣扎吧，小~护~士~❤
+###_PLAYER
+Enough!  Don't hurt me anymore.
+够了！别伤害我。
+###_NPC
+It was so easy to defeat you.  Have fun struggling little nurse.
+打败你可太简单了。享受挣扎吧，小~护~士~❤
+###_PLAYER
+What will you do now?
+你要干什么？
+###_NPC
+It's none of your business, I'm going now.  Have fun struggling little nurse.
+那就不是你能知道的事情了。我现在要走了，享受挣扎吧，小~护~士~❤
+###_PLAYER
+You cannot leave me like that.
+你不可以就这样丢下我！
+###_NPC
+(She turns around and walks away with a grin on her face.)
+（她咧嘴一笑，然后转身离开）
+###_PLAYER
+I'll crush you next time!
+下一次！下一次我会击溃你！
+You won't be able to run forever.
+你不可能永远都能这样逃走！
+(Back to main hall.)
+（回到大厅）

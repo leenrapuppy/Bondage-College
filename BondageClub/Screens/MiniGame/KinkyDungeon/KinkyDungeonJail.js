@@ -4,7 +4,7 @@ let KinkyDungeonJailRemoveRestraintsTimerMin = 90;
 let KinkyDungeonJailedOnce = false;
 let KDJailReleaseTurns = [
 	{minSub: 0, releaseTurns: 250},
-	{minSub: 10, releaseTurns: 140},
+	{minSub: 5, releaseTurns: 140},
 	{minSub: 40, releaseTurns: 80},
 	{minSub: 90, releaseTurns: 40},
 ];
@@ -110,7 +110,7 @@ function KinkyDungeonAggroAction(action, data) {
 		case 'rubble':
 			e = KinkyDungeonPlayerIsVisibleToJailers();
 			if (e) {
-				KinkyDungeonPlayExcuse(data.enemy, "Loot");
+				KinkyDungeonPlayExcuse(e, "Loot");
 			}
 			break;
 
@@ -131,7 +131,7 @@ function KinkyDungeonAggroAction(action, data) {
 			break;
 
 		case 'struggle':
-			if (KDGameData.PrisonerState == "parole" && data.enemy)
+			if (data.enemy) // KDGameData.PrisonerState == "parole" &&
 				KinkyDungeonPlayExcuse(data.enemy, "Struggle");
 			break;
 
@@ -353,6 +353,7 @@ function KinkyDungeonHandleJailSpawns(delta) {
 			if (release >= 0) {
 				KinkyDungeonSendTextMessage(8, TextGet("KinkyDungeonRemindJailRelease" + release).replace("EnemyName", TextGet("Name" + KinkyDungeonJailGuard().Enemy.name)), "yellow", 4);
 				KDGameData.PrisonerState = 'parole';
+				KinkyDungeonJailGuard().CurrentAction = "jailWander";
 				KinkyDungeonInterruptSleep();
 				// Unlock all jail doors
 				for (let T of KinkyDungeonTiles.values()) {
@@ -390,7 +391,7 @@ function KinkyDungeonHandleJailSpawns(delta) {
 			} else if (KDRandom() < 0.05 + securityLevel * 0.1 / 100) {
 				// Always a random chance to tease
 				KinkyDungeonJailGuard().CurrentAction = "jailTease";
-			} else if (KDRandom() < 0.08 && KDGameData.SleepTurns < 1 && KDGameData.KinkyDungeonJailTourTimer < 1 && KinkyDungeonStatStamina > 0.25*KinkyDungeonStatStaminaMax) {
+			} else if (KDRandom() < 0.08 && KDGameData.SleepTurns < 1 && KDGameData.KinkyDungeonJailTourTimer < 1 && KinkyDungeonStatStamina > 0.25*KinkyDungeonStatStaminaMax && KinkyDungeonGoddessRep.Ghost > 5) {
 				KinkyDungeonJailGuard().RemainingJailLeashTourWaypoints = 2 + Math.ceil(KDRandom() * 4);
 				KinkyDungeonJailGuard().CurrentAction = "jailLeashTour";
 				KinkyDungeonJailGuard().KinkyDungeonJailTourInfractions = 0;
@@ -516,10 +517,10 @@ function KinkyDungeonJailHandleCellActions(xx, yy, level, delta) {
 	let touchesPlayer = KinkyDungeonCheckLOS(KinkyDungeonJailGuard(), KinkyDungeonPlayerEntity, playerDist, 1.5, false, false);
 	if (touchesPlayer) {
 		if (KinkyDungeonJailGuard().CurrentAction === "jailTease") {
-			let playerHasVibrator = Array.from(KinkyDungeonAllRestraint()).some(i => KDRestraint(i).vibeType && KDRestraint(i).vibeType.includes("Charging"));
+			let playerHasVibrator = Array.from(KinkyDungeonAllRestraint()).some(i => KDRestraint(i).allowRemote);
 			if (playerHasVibrator) {
 				let extraCharge = Math.round(2 + level * KDRandom() * 0.2);
-				KinkyDungeonChargeRemoteVibrators(KinkyDungeonJailGuard().Enemy.name, extraCharge, true, false);
+				KinkyDungeonSendEvent("remoteVibe", {enemy: KinkyDungeonJailGuard().Enemy.name, power: extraCharge, overcharge: true, noSound: false});
 			} else if (KinkyDungeonJailGuard().Enemy.dmgType === "grope" || KinkyDungeonJailGuard().Enemy.dmgType === "tickle") {
 				KinkyDungeonDealDamage({damage: KinkyDungeonJailGuard().Enemy.power, type: KinkyDungeonJailGuard().Enemy.dmgType});
 				KinkyDungeonSendTextMessage(5, TextGet("Attack" + KinkyDungeonJailGuard().Enemy.name), "yellow", 3);
@@ -750,6 +751,10 @@ function KinkyDungeonJailGetLeashPoint(xx, yy, enemy) {
 	return randomPoint;
 }
 
+/**
+ *
+ * @returns {boolean} - Returns if the player is inside the nearest jail cell
+ */
 function KinkyDungeonPlayerInCell() {
 	let nearestJail = KinkyDungeonNearestJailPoint(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y);
 	if (!nearestJail) return false;
@@ -764,6 +769,7 @@ function KinkyDungeonPointInCell(x, y) {
 }
 
 function KinkyDungeonDefeat() {
+	KDGameData.KinkyDungeonLeashedPlayer = 0;
 	if (KinkyDungeonFlags.get("JailIntro"))
 		KinkyDungeonSetFlag("JailRepeat", -1);
 	KinkyDungeonBlindLevel = 3;
@@ -873,9 +879,9 @@ function KinkyDungeonDefeat() {
 	for (let X = 1; X < KinkyDungeonGridWidth - 1; X++)
 		for (let Y = 1; Y < KinkyDungeonGridHeight - 1; Y++) {
 			let tile = KinkyDungeonTiles.get(X + "," + Y);
-			if (tile && tile.Jail && tile.ReLock && KinkyDungeonMapGet(X, Y) == 'd') {
+			if (tile && tile.Jail && tile.ReLock && (KinkyDungeonMapGet(X, Y) == 'd' || KinkyDungeonMapGet(X, Y) == 'D')) {
 				KinkyDungeonMapSet(X, Y, 'D');
-				if (!tile.Lock)
+				if (tile && !tile.Lock)
 					tile.Lock = "Red";
 			}
 		}

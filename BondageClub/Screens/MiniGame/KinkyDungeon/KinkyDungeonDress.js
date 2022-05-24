@@ -8,7 +8,7 @@ let KinkyDungeonOutfitsBase = [
 	{name: "Maid", dress: "Maid", shop: false, rarity: 2},
 	{name: "Dragon", dress: "Dragon", shop: false, rarity: 2},
 	{name: "Elven", dress: "Elven", shop: false, rarity: 2},
-	{name: "BlueSuit", dress: "BlueSuit", shop: false, rarity: 2},
+	{name: "BlueSuitPrison", dress: "BlueSuitPrison", shop: false, rarity: 2},
 ];
 // For cacheing
 let KinkyDungeonOutfitCache = new Map();

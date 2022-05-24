@@ -3,6 +3,14 @@
 let KinkyDungeonFactionColors = {
 	"Jail": ["#8A120C"],
 	"Slime": ["#9B49BD"],
+	"Dressmaker": ["#6B48E0", "#F8BD01"],
+	"Alchemist": ["#4c6885", "#7bef41"],
+	"Elf": ["#63ab3f", "#F8BD01"],
+	"Bountyhunter": ["#252525", "#bfbfbf"],
+	"AncientRobot": ["#444444", "#3def9c"],
+	"Mushy": ["#bfbfbf", "#92c1e8"],
+	"Apprentice": ["#686f99", "#ff5277"],
+	"Witch": ["#222222", "#8359b3"],
 };
 
 /** Hidden factions do not auto-rep change when you attack them */
@@ -45,6 +53,10 @@ let KinkyDungeonFactionRelationsBase = {
 	},
 	"Enemy": {
 	},
+	"Ambush": {
+		Player: -1.0,
+		Jail: -0.25,
+	},
 	"Prisoner": {
 	},
 	"Jail": {
@@ -56,7 +68,7 @@ let KinkyDungeonFactionRelationsBase = {
 		Bandit: -0.6,
 		Alchemist: -0.8,
 		Nevermere: -0.55,
-		Apprentice: -0.4,
+		Apprentice: -0.55,
 		Dressmaker: -0.4,
 		Witch: 0.4,
 		Elemental: -0.4,
@@ -85,6 +97,10 @@ let KinkyDungeonFactionRelationsBase = {
 	},
 	"KinkyConstruct": {
 		Jail: -0.25,
+		Apprentice: -0.55,
+		Witch: 0.4,
+		Dressmaker: 0.4,
+		Dragon: -1.0,
 	},
 	"Nevermere": {
 		"Alchemist": 1.0,
@@ -98,6 +114,7 @@ let KinkyDungeonFactionRelationsBase = {
 	},
 	"Alchemist": {
 		"Bandit": 0.15,
+		"AncientRobot": -0.55,
 	},
 	"Bountyhunter": {
 		"Jail": 0.8,
@@ -122,6 +139,7 @@ let KinkyDungeonFactionRelationsBase = {
 	},
 	"Elemental": {
 		"Witch": 0.4,
+		"KinkyConstruct": 0.45,
 		"Dressmaker": 0.15,
 		"Apprentice": 1.0,
 		"Bandit": -0.15,
@@ -152,6 +170,7 @@ let KinkyDungeonFactionRelationsBase = {
 	"Witch": {
 		"Apprentice": 1.0,
 		"Dressmaker": 0.35,
+		"Elf": -1.0,
 	},
 	"Dressmaker": {
 		"Apprentice": 1.0,
@@ -159,6 +178,7 @@ let KinkyDungeonFactionRelationsBase = {
 	},
 	"Apprentice": {
 		"Jail": 1.0,
+		"Elf":  0.55,
 	},
 	"Maidforce": {
 		"Alchemist": 1.0,
@@ -189,7 +209,12 @@ function KDFactionRelation(a, b) {
 let KDFactionRelations = new Map();
 
 function KDInitFactions(Reset) {
-	if (Reset) KinkyDungeonFactionRelations = Object.assign({}, KinkyDungeonFactionRelationsBase);
+	if (Reset) {
+		KinkyDungeonFactionRelations = Object.assign({}, KinkyDungeonFactionRelationsBase);
+		for (let relation of Object.entries(KinkyDungeonFactionRelationsBase)) {
+			KinkyDungeonFactionRelations[relation[0]] = Object.assign({}, KinkyDungeonFactionRelationsBase[relation[0]]);
+		}
+	}
 	KDFactionRelations = new Map();
 	// For each faction in faction relations we create all the maps
 	for (let f1 of Object.entries(KinkyDungeonFactionRelations)) {
@@ -231,8 +256,8 @@ function KDSetFactionRelation(a, b, relation) {
  */
 function KDChangeFactionRelation(a, b, amount) {
 	if (a == "Rage" || b == "Rage") return;
-	if (!KinkyDungeonFactionRelations[a]) KinkyDungeonFactionRelations[a] = KinkyDungeonFactionRelationsBase[a];
-	if (!KinkyDungeonFactionRelations[b]) KinkyDungeonFactionRelations[b] = KinkyDungeonFactionRelationsBase[b];
+	if (!KinkyDungeonFactionRelations[a]) KinkyDungeonFactionRelations[a] = KinkyDungeonFactionRelations[a] || 0;
+	if (!KinkyDungeonFactionRelations[b]) KinkyDungeonFactionRelations[b] = KinkyDungeonFactionRelations[b] || 0;
 
 	if (KinkyDungeonFactionRelations[a]) {
 		if (!KinkyDungeonFactionRelations[a][b] && KinkyDungeonFactionRelations[b][a])

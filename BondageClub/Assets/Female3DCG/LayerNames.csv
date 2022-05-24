@@ -51,6 +51,13 @@ ClothReverseBunnySuitSuit,Suit
 ClothReverseBunnySuitGloves,Gloves
 ClothFuzzyDressDress,Dress
 ClothFuzzyDressTopFur,Fur
+ClothCropTopBlouse,Top
+ClothCropTopDesign,Design
+ClothLaurelBase,Top
+ClothLaurelDesign,Design
+ClothLaurelLace,Lace
+ClothSeethroughTopLace,Lace
+ClothSeethroughTopDesign,Design
 ClothAccessoryBouquetBase,Holder
 ClothAccessoryBouquetFlowers,Flowers
 ClothAccessoryCapeFront,Front
@@ -71,6 +78,8 @@ NecklaceFlowerGarlandCenter,Center
 NecklaceFlowerGarlandPetals,Petals
 NecklaceNecklaceBallGagBall,Ball
 NecklaceNecklaceBallGagStrap,Strap
+NecklaceBodyChainNecklaceChains,Chains
+NecklaceBodyChainNecklaceChoker,Choker
 SuitCatsuitBase,Suit
 SuitCatsuitZip,Zip
 SuitCatsuitGloves,Gloves
@@ -124,6 +133,11 @@ ClothLowerTutuLayer4,Layer 4
 ClothLowerHulaSkirtBackLeaves,Leaves
 ClothLowerHulaSkirtFlowers,Flowers
 ClothLowerHulaSkirtPollen,Pollen
+ClothLowerElegantSkirtSkirt,Skirt
+ClothLowerElegantSkirtDesign,Design
+ClothLowerBondageSkirtSkirt,Skirt
+ClothLowerBondageSkirtFrill,Frill
+ClothLowerBondageSkirtStraps,Straps
 SuitLowerCatsuitBase,Suit
 SuitLowerCatsuitZip,Zip
 SuitLowerSeethroughSuitZipBase,Suit
@@ -618,6 +632,15 @@ ItemHoodHeadboxSeethroughGlassInside,Inside
 ItemHoodHeadboxSeethroughFrame,Outside
 ItemHoodSlimeOne,Color 1
 ItemHoodSlimeTwo,Color 2
+ItemHoodKittyHoodBase,Base
+ItemHoodKittyHoodLinings,Linings
+ItemHoodKittyHoodPanel,Forehead Panel
+ItemHoodKittyHoodDisplay,Display
+ItemHoodKittyHoodOpenings,Openings
+ItemHoodKittyHoodBlindfold,Blindfold
+ItemHoodKittyHoodGag,Gag
+ItemHoodKittyHoodDrawings,Drawings
+ItemHoodKittyHoodLock,Lock
 ItemBootsLockingBoots1Boots,Boots
 ItemBootsLockingBoots1Straps,Straps
 ItemBootsFuturisticHeelsShoes,Body
@@ -634,6 +657,9 @@ ItemBootsLeatherFootMitts1Mitts,Mittens
 ItemBootsLeatherFootMitts1Straps,Straps
 ItemBootsSlimeOne,Color 1
 ItemBootsSlimeTwo,Color 2
+ItemBootsMonoHeelBinder,Binder
+ItemBootsMonoHeelVamp,Vamp
+ItemBootsMonoHeelTrim,Trim
 GartersGarterBeltLeft,Left
 GartersGarterBeltRight,Right
 ShoesSneakers1Main,Main
@@ -1034,6 +1060,8 @@ ItemDevicesDollBoxDollText,Label
 ItemDevicesDollBoxText,Custom Text
 ItemDevicesDollBoxHeart,Heart
 ItemDevicesDollBoxGlass,Glass
+ItemDevicesWoodenRackBack,Back
+ItemDevicesWoodenRackFrameWood,Wood
 ItemDevicesWoodenRackFrameStains,Stains
 ItemDevicesWoodenRackTopRopes, Ropes
 ItemDevicesWoodenRackTopChains,Chains

@@ -50,6 +50,7 @@ var DialogButtonDisabledTester = /Disabled(For\w+)?$/u;
 /** @type {Map<string, string>} */
 var PlayerDialog = new Map();
 
+/** @type {FavoriteState[]} */
 var DialogFavoriteStateDetails = [
 	{
 		TargetFavorite: true,
@@ -734,7 +735,7 @@ function DialogInventoryCreateItem(C, item, isWorn, sortOrder) {
 	let icons = [];
 	if (favoriteStateDetails.Icon) icons.push(favoriteStateDetails.Icon);
 	if (InventoryItemHasEffect(item, "Lock", true)) icons.push(isWorn ? "Locked" : "Unlocked");
-	if (C.ID !== 0 && !InventoryBlockedOrLimited(C, item) && InventoryIsPermissionLimited(C, item.Asset.Name, item.Asset.Group.Name)) icons.push("AllowedLimited");
+	if (!C.IsPlayer() && InventoryIsAllowedLimited(C, item)) icons.push("AllowedLimited");
 	icons = icons.concat(DialogGetAssetIcons(asset));
 
 	/** @type {DialogInventoryItem} */
@@ -754,19 +755,18 @@ function DialogInventoryCreateItem(C, item, isWorn, sortOrder) {
  * @param {Character} C - The targeted character
  * @param {Asset} asset - The asset to check favorite settings for
  * @param {string} [type=null] - The type of the asset to check favorite settings for
- * @returns {any} - The details to use for the asset
+ * @returns {FavoriteState} - The details to use for the asset
  */
 function DialogGetFavoriteStateDetails(C, asset, type = null) {
 	const isTargetFavorite = InventoryIsFavorite(C, asset.Name, asset.Group.Name, type);
 	const isPlayerFavorite = C.ID !== 0 && InventoryIsFavorite(Player, asset.Name, asset.Group.Name, type);
-	const details = DialogFavoriteStateDetails.find(F => F.TargetFavorite == isTargetFavorite && F.PlayerFavorite == isPlayerFavorite);
-	return details;
+	return DialogFavoriteStateDetails.find(F => F.TargetFavorite == isTargetFavorite && F.PlayerFavorite == isPlayerFavorite);
 }
 
 /**
  * Returns a list of icons associated with the asset
  * @param {Asset} asset - The asset to get icons for
- * @returns {string[]} - A list of icon names
+ * @returns {InventoryIcon[]} - A list of icon names
  */
 function DialogGetAssetIcons(asset) {
 	let icons = [];
@@ -943,10 +943,9 @@ function DialogMenuButtonBuild(C) {
 				// There's an item in the slot
 
 				if (!IsItemLocked && Player.CanInteract() && InventoryAllow(C, Item.Asset) && !IsGroupBlocked) {
-					if (Item.Asset.AllowLock
-							&& (!Item.Property || (Item.Property && Item.Property.AllowLock !== false))
-							&& (!Item.Asset.AllowLockType || (Item.Property && Item.Asset.AllowLockType.includes(Item.Property.Type))))
+					if (InventoryDoesItemAllowLock(Item)) {
 						DialogMenuButton.push(ItemBlockedOrLimited ? "LockDisabled" : "Lock");
+					}
 
 					if (InventoryItemHasEffect(Item, "Mounted", true))
 						DialogMenuButton.push("Dismount");
@@ -1302,7 +1301,7 @@ function DialogMenuButtonClick() {
 			// Lock Icon - Rebuilds the inventory list with locking items
 			else if ((DialogMenuButton[I] == "Lock") && (Item != null)) {
 				if (DialogItemToLock == null) {
-					if ((Item != null) && (Item.Asset.AllowLock != null)) {
+					if (InventoryDoesItemAllowLock(Item)) {
 						DialogInventoryOffset = 0;
 						DialogInventory = [];
 						DialogItemToLock = Item;
@@ -1437,7 +1436,7 @@ function DialogMenuButtonClick() {
 
 /**
  * Publishes the item action to the local chat room or the dialog screen
- * @param {Character} C - The character who is the actor in this action
+ * @param {Character} C - The character that is acted on
  * @param {Item} ClickItem - The item that is used
  * @returns {void} - Nothing
  */
@@ -1474,7 +1473,8 @@ function DialogPublishAction(C, ClickItem) {
 		ChatRoomPublishAction(C, null, ClickItem, true);
 	}
 	else {
-		let D = DialogFind(C, ClickItem.Asset.Group.Name + ClickItem.Asset.Name, null, false);
+		let Line = ClickItem.Asset.Group.Name + (ClickItem.Asset.DynamicName ? ClickItem.Asset.DynamicName(Player) : ClickItem.Asset.Name);
+		let D = DialogFind(C, Line, null, false);
 		if (D != "") {
 			InventoryExpressionTrigger(C, ClickItem);
 			C.CurrentDialog = D;
@@ -1508,8 +1508,7 @@ function DialogItemClick(ClickItem) {
 
 	// If we must apply a lock to an item (can trigger a daily job)
 	if (DialogItemToLock != null) {
-		if ((CurrentItem != null) &&
-			(CurrentItem.Asset.AllowLock || CurrentItem.Asset.Extended && CurrentItem.Property && CurrentItem.Property.AllowLock !== false && CurrentItem.Asset.AllowLockType.indexOf(CurrentItem.Property.Type)>=0)) {
+		if (CurrentItem && InventoryDoesItemAllowLock(CurrentItem)) {
 			InventoryLock(C, CurrentItem, ClickItem, Player.MemberNumber);
 			IntroductionJobProgress("DomLock", ClickItem.Asset.Name, true);
 			DialogItemToLock = null;

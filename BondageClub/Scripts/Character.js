@@ -312,6 +312,9 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 				(this.Difficulty.Level > 3)
 			) ? 1 : this.Difficulty.Level;
 		},
+		IsSuspended: function () {
+			return this.Pose.includes("Suspension") || this.Effect.includes("Suspended");
+		},
 		IsInverted: function () {
 			return this.Pose.indexOf("Suspension") >= 0;
 		},

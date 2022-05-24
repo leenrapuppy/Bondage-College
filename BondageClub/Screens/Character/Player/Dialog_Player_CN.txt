@@ -280,7 +280,7 @@ Cannot be used when mounted.
 Cannot be used while yoked.
 不能在被轭住时使用.
 Cannot be used while the legs are spread.
-Cannot be used while the legs are spread.
+不能在腿被分开时使用.
 Cannot be used while serving drinks.
 不能在送餐时使用.
 Remove the wand first.
@@ -333,6 +333,10 @@ The use of remotes is forbidden by your owner
 你的主人禁止你使用遥控器.
 Cannot be used over the applied gags.
 不能在已穿戴的口塞上使用.
+Cannot be used over the applied mask.
+不能在已穿戴的口罩上使用.
+Cannot be used over the applied hood.
+不能在已穿戴的头套上使用.
 Blocked in this room.
 被房间禁止.
 Cancel
@@ -380,19 +384,19 @@ Unable to inspect due to player permissions
 Use your remote
 使用你的遥控器
 You have not bought a remote yet.
-You have not bought a remote yet.
+你还没买过遥控器.
 Your owner is preventing you from using remotes.
-Your owner is preventing you from using remotes.
+你的主人禁止你使用遥控器.
 You have not bought a lover's remote yet.
-You have not bought a lover's remote yet.
+你还没买过爱人遥控器.
 Using remotes on this item has been blocked
-Using remotes on this item has been blocked
+对该物品使用遥控器的能力被屏蔽了
 You do not have access to this item
-You do not have access to this item
+没有足够的权限
 Your hands must be free to use remotes
-Your hands must be free to use remotes
+你必须双手自由才能使用遥控器
 Exit permission mode
-退出权限模式
+退出权限编辑模式
 Edit item permissions
 编辑物品权限
 Sexual activities
@@ -979,10 +983,30 @@ Your owner has blocked your wardrobe access for a week.  You won't be able to ch
 你的主人禁用了你的衣柜，时长为1星期。你现在无法更换服装。
 Your owner has blocked your wardrobe access.  You won't be able to change clothes until that rule is revoked.
 你的主人禁用了你的衣柜。直到该限制被撤销，你无法更换服装。
+Your owner is now allowing you to talk publicly when she's there.
+Your owner is now allowing you to talk publicly when she's there.
+Your owner is now preventing you from talking publicly when she's there.
+Your owner is now preventing you from talking publicly when she's there.
+Your owner is now allowing you to emote when she's there.
+Your owner is now allowing you to emote when she's there.
+Your owner is now preventing you from emoting when she's there.
+Your owner is now preventing you from emoting when she's there.
 Your owner is now allowing you to whisper to other members when she's there.
 你的主人现在允许你当她在场时向其他人发送悄悄话。
 Your owner is now preventing you from whispering to other members when she's there.
 你的主人现在不允许你当她在场时向其他人发送悄悄话。
+Your owner is now allowing you to change your pose when she's there.
+Your owner is now allowing you to change your pose when she's there.
+Your owner is now preventing you from changing your pose when she's there.
+Your owner is now preventing you from changing your pose when she's there.
+Your owner is now allowing you to access yourself when she's there.
+Your owner is now allowing you to access yourself when she's there.
+Your owner is now preventing you from accessing yourself when she's there.
+Your owner is now preventing you from accessing yourself when she's there.
+Your owner is now allowing you to access others when she's there.
+Your owner is now allowing you to access others when she's there.
+Your owner is now preventing you from accessing others when she's there.
+Your owner is now preventing you from accessing others when she's there.
 Your owner is now allowing you to have keys.  You can buy keys from the club shop.
 你的主人现在允许你持有钥匙。你可以在俱乐部商店购买钥匙。
 Your owner has confiscated your keys.  All your regular keys are lost.
@@ -1007,6 +1031,10 @@ Your owner has locked the slave collar on your neck.
 你的主人在你的脖子上安装了奴隶项圈。
 Your owner released you from the slave collar.
 你的主人卸下了你的奴隶项圈。
+Your owner is now allowing you to change your nickname.
+Your owner is now allowing you to change your nickname.
+Your owner is now preventing you from changing your nickname.
+Your owner is now preventing you from changing your nickname.
 Your lover is now allowing you to use lovers locks on yourself.
 Your lover is now allowing you to use lovers locks on yourself.
 Your lover is now preventing you from using lovers locks on yourself.
@@ -1050,7 +1078,7 @@ TargetCharacterName被SourceCharacter设为了房管.
 TargetCharacterName was demoted from administration by SourceCharacter.
 TargetCharacterName被SourceCharacter取消了房管权限.
 SourceCharacter updated the room. Name: ChatRoomName. Limit: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
-SourceCharacter更新了房间信息. 名称: ChatRoomName. 禁止: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
+SourceCharacter更新了房间信息. 名称: ChatRoomName. 人数上限: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
 SourceCharacter starts unlocking DestinationCharacterName suitcase! She will finish in 5 minutes.
 SourceCharacter开始打开DestinationCharacterName的箱子! 他会在5分钟内成功.
 SourceCharacter starts stealing more data from DestinationCharacterName laptop! She will finish in 5 minutes.
@@ -1276,7 +1304,7 @@ Random mode
 Deny mode
 拒绝模式
 Tease mode
-Tease mode
+玩弄模式
 Trigger Shock
 触发电击
 Save Voice Commands
@@ -1336,7 +1364,7 @@ Wrong code
 Use 4 digits as a code
 使用4位数密码
 Remove on Unlock: 
-Remove on Unlock: 
+解锁时移除:
 Enter Password :
 输入密码：
 Set password:
@@ -1707,6 +1735,10 @@ SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth.
 SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth.
 SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth and nose.
 SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth and nose.
+SourceCharacter ties the scarf loosely over DestinationCharacter mouth.
+SourceCharacter ties the scarf loosely over DestinationCharacter mouth.
+SourceCharacter ties the scarf covering DestinationCharacter mouth and nose.
+SourceCharacter ties the scarf covering DestinationCharacter mouth and nose.
 Single strip
 单根
 Crossed strips
@@ -2615,8 +2647,8 @@ SourceCharacter uses the tape on TargetCharacter to fully wrap her feet with tap
 SourceCharacter uses the tape on TargetCharacter to fully wrap her feet with tape.
 Suspension Tie
 吊起束缚
-Suspension Hogtie
-吊起驷马
+Suspended Hogtie
+Suspended Hogtie
 Wrist and Elbow Tie
 手肘&手腕束缚
 Wrist Tie
@@ -2675,32 +2707,28 @@ SourceCharacter uses the rope on TargetCharacter to do a crossed style binding t
 SourceCharacter uses the rope on TargetCharacter to do a crossed style binding tie.
 SourceCharacter uses the rope on TargetCharacter to tie her legs to the bedposts.
 SourceCharacter uses the rope on TargetCharacter to tie her legs to the bedposts.
-SourceCharacter uses the rope on TargetCharacter to do a box tie.
-SourceCharacter uses the rope on TargetCharacter to do a box tie.
-SourceCharacter uses the rope on TargetCharacter to do a tight boxtie.
-SourceCharacter uses the rope on TargetCharacter to do a tight boxtie.
-SourceCharacter uses the rope on TargetCharacter to do a crossed boxtie.
-SourceCharacter uses the rope on TargetCharacter to do a crossed boxtie.
-SourceCharacter uses the rope on TargetCharacter to do a hogtie.
-SourceCharacter uses the rope on TargetCharacter to do a hogtie.
-SourceCharacter uses the rope on TargetCharacter to do a suspension hogtie.
-SourceCharacter uses the rope on TargetCharacter to do a suspension hogtie.
-SourceCharacter uses the rope on TargetCharacter to do a simple hogtie.
-SourceCharacter uses the rope on TargetCharacter to do a simple hogtie.
-SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows together behind her back.
-SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows together behind her back.
-SourceCharacter uses the rope on TargetCharacter to tie her wrists together behind her back.
-SourceCharacter uses the rope on TargetCharacter to tie her wrists together behind her back.
-SourceCharacter uses the rope on TargetCharacter to tie rope cuffs on her wrists
-SourceCharacter uses the rope on TargetCharacter to tie rope cuffs on her wrists
-SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows in a harness behind her back.
-SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows in a harness behind her back.
-SourceCharacter uses the rope on TargetCharacter to have her crawling on all fours.
-SourceCharacter uses the rope on TargetCharacter to have her crawling on all fours.
-SourceCharacter uses the rope on TargetCharacter to hogtie her on her knees.
-SourceCharacter uses the rope on TargetCharacter to hogtie her on her knees.
-SourceCharacter uses the rope on TargetCharacter to tie her arms to the bedposts.
-SourceCharacter uses the rope on TargetCharacter to tie her arms to the bedposts.
+SourceCharacter uses rope on TargetCharacter to do a box tie.
+SourceCharacter uses rope on TargetCharacter to do a box tie.
+SourceCharacter uses rope on TargetCharacter to do a tight boxtie.
+SourceCharacter uses rope on TargetCharacter to do a tight boxtie.
+SourceCharacter uses rope on TargetCharacter to do a crossed boxtie.
+SourceCharacter uses rope on TargetCharacter to do a crossed boxtie.
+SourceCharacter uses rope to hogtie TargetCharacter.
+SourceCharacter uses rope to hogtie TargetCharacter.
+SourceCharacter uses rope to tie DestinationCharacter wrists and elbows together behind her back.
+SourceCharacter uses rope to tie DestinationCharacter wrists and elbows together behind her back.
+SourceCharacter uses rope to tie DestinationCharacter wrists together behind her back.
+SourceCharacter uses rope to tie DestinationCharacter wrists together behind her back.
+SourceCharacter uses rope to tie rope cuffs on DestinationCharacter wrists
+SourceCharacter uses rope to tie rope cuffs on DestinationCharacter wrists
+SourceCharacter uses rope to tie DestinationCharacter wrists and elbows in a harness behind her back.
+SourceCharacter uses rope to tie DestinationCharacter wrists and elbows in a harness behind her back.
+SourceCharacter uses rope on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses rope on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses rope to hogtie TargetCharacter on her knees.
+SourceCharacter uses rope to hogtie TargetCharacter on her knees.
+SourceCharacter uses rope to tie DestinationCharacter arms to the bedposts.
+SourceCharacter uses rope to tie DestinationCharacter arms to the bedposts.
 Select Rope Bondage.
 选择绳索束缚
 Lowered
@@ -3903,24 +3931,22 @@ SourceCharacter removes the padding from DestinationCharacter kennel.
 SourceCharacter removes the padding from DestinationCharacter kennel.
 SourceCharacter opens the door of DestinationCharacter kennel.
 SourceCharacter opens the door of DestinationCharacter kennel.
-SourceCharacter uses the chain on TargetCharacter to do a box tie.
-SourceCharacter uses the chain on TargetCharacter to do a box tie.
-SourceCharacter uses the chain on TargetCharacter to do a hogtie.
-SourceCharacter uses the chain on TargetCharacter to do a hogtie.
-SourceCharacter uses the chain on TargetCharacter to do a suspension hogtie.
-SourceCharacter uses the chain on TargetCharacter to do a suspension hogtie.
-SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows together behind her back.
-SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows together behind her back.
-SourceCharacter uses the chain on TargetCharacter to tie her wrists together behind her back.
-SourceCharacter uses the chain on TargetCharacter to tie her wrists together behind her back.
-SourceCharacter uses the chain on TargetCharacter to tie chain cuffs on her wrists.
-SourceCharacter uses the chain on TargetCharacter to tie chain cuffs on her wrists.
-SourceCharacter uses the chain on TargetCharacter to have her crawling on all fours.
-SourceCharacter uses the chain on TargetCharacter to have her crawling on all fours.
-SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows in a harness behind her back.
-SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows in a harness behind her back.
-SourceCharacter uses the chain on TargetCharacter to hogtie her on her knees.
-SourceCharacter uses the chain on TargetCharacter to hogtie her on her knees.
+SourceCharacter uses chains on TargetCharacter to do a box tie.
+SourceCharacter uses chains on TargetCharacter to do a box tie.
+SourceCharacter uses chains to hogtie TargetCharacter.
+SourceCharacter uses chains to hogtie TargetCharacter.
+SourceCharacter uses chains to tie DestinationCharacter wrists and elbows together behind her back.
+SourceCharacter uses chains to tie DestinationCharacter wrists and elbows together behind her back.
+SourceCharacter uses chains to tie DestinationCharacter wrists together behind her back.
+SourceCharacter uses chains to tie DestinationCharacter wrists together behind her back.
+SourceCharacter uses chains to tie chain cuffs on DestinationCharacter wrists.
+SourceCharacter uses chains to tie chain cuffs on DestinationCharacter wrists.
+SourceCharacter uses chains on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses chains on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses chains to tie DestinationCharacter wrists and elbows in a harness behind her back.
+SourceCharacter uses chains to tie DestinationCharacter wrists and elbows in a harness behind her back.
+SourceCharacter uses chains to hogtie TargetCharacter on her knees.
+SourceCharacter uses chains to hogtie TargetCharacter on her knees.
 Select suit type
 Select suit type
 Selected chastity belt backing
@@ -4277,8 +4303,8 @@ SourceCharacter changes the eyebrows on DestinationCharacter mask
 SourceCharacter changes the eyebrows on DestinationCharacter mask
 SourceCharacter changes the opacity on DestinationCharacter mask
 SourceCharacter changes the opacity on DestinationCharacter mask
-SourceCharacter changes the type of mask DestinationCharacter is wearing
-SourceCharacter changes the type of mask DestinationCharacter is wearing
+SourceCharacter changes the type of mask on TargetCharacter
+SourceCharacter changes the type of mask on TargetCharacter
 Select the visibility
 选择可见性
 Revealed
@@ -4331,6 +4357,8 @@ Blocked: Remotes on yourself
 禁止:你自己的遥控器
 Slave collar unlocked
 奴隶项圈已解锁
+Cannot change your nickname
+不能修改你的昵称
 No lover locks on yourself
 No lover locks on yourself
 Your owner cannot use lover locks on you
@@ -4635,16 +4663,16 @@ SourceCharacter gives TargetCharacter a cute Pony teddy.
 SourceCharacter gives TargetCharacter a cute Pony teddy.
 Page
 页
-Set the height of the suspension
-Set the height of the suspension
+Set the height
+Set the height
 % of full height:
 %最大身高:
-SourceCharacter puts TargetCharacter in a suspended hogtie.
-SourceCharacter puts TargetCharacter in a suspended hogtie.
-SourceCharacter raises DestinationCharacter suspended hogtie.
-SourceCharacter raises DestinationCharacter suspended hogtie.
-SourceCharacter lowers DestinationCharacter suspended hogtie.
-SourceCharacter lowers DestinationCharacter suspended hogtie.
+SourceCharacter uses AssetName to suspend TargetCharacter from the ceiling.
+SourceCharacter uses AssetName to suspend TargetCharacter from the ceiling.
+SourceCharacter raises the height of DestinationCharacter suspension.
+SourceCharacter raises the height of DestinationCharacter suspension.
+SourceCharacter lowers the height of DestinationCharacter suspension.
+SourceCharacter lowers the height of DestinationCharacter suspension.
 Select silk bondage.
 Select silk bondage.
 Crotch Strap
@@ -4705,6 +4733,28 @@ SourceCharacter uses the straps on DestinationCharacter to do a wrist and elbow 
 SourceCharacter uses the straps on DestinationCharacter to do a wrist and elbow harness.
 SourceCharacter uses the straps on DestinationCharacter to do a hogtie harness.
 SourceCharacter uses the straps on DestinationCharacter to do a hogtie harness.
+Arrange slime
+Arrange slime
+Select slime type
+Select slime type
+Slime Type
+Slime Type
+Torso only
+Torso only
+Encasement
+Encasement
+Normal slime
+Normal slime
+Slime girl
+Slime girl
+The slime around DestinationCharacter body contracts until it is only restraining her arms.
+The slime around DestinationCharacter body contracts until it is only restraining her arms.
+The slime around DestinationCharacter arms expands to encase her whole body.
+The slime around DestinationCharacter arms expands to encase her whole body.
+The slime girl recedes back into the slime on TargetCharacter.
+The slime girl recedes back into the slime on TargetCharacter.
+A slime girl emerges from the slime around TargetCharacter.
+A slime girl emerges from the slime around TargetCharacter.
 SourceCharacter uses the straps on DestinationCharacter to create a crotch strap.
 SourceCharacter uses the straps on DestinationCharacter to create a crotch strap.
 SourceCharacter uses the straps on DestinationCharacter to create a waist strap.
@@ -5007,10 +5057,28 @@ Dots Right
 Dots Right
 Select Zipper State.
 Select Zipper State.
-SourceCharacter zips up the hood on DestinationCharacter
-SourceCharacter zips up the hood on DestinationCharacter
-SourceCharacter unzips up the hood on DestinationCharacter
-SourceCharacter unzips up the hood on DestinationCharacter
+Eyes Closed
+Eyes Closed
+Mouth Closed
+Mouth Closed
+SourceCharacter zips up DestinationCharacter hood.
+SourceCharacter zips up DestinationCharacter hood.
+SourceCharacter unzips DestinationCharacter hood.
+SourceCharacter unzips DestinationCharacter hood.
+SourceCharacter zips the eyes and unzips the mouth of DestinationCharacter hood.
+SourceCharacter zips the eyes and unzips the mouth of DestinationCharacter hood.
+SourceCharacter unzips the eyes and zips the mouth of DestinationCharacter hood.
+SourceCharacter unzips the eyes and zips the mouth of DestinationCharacter hood.
+Select Status.
+Select Status.
+Lights On
+Lights On
+Lights Off
+Lights Off
+SourceCharacter turns off the lights of DestinationCharacter headbox.
+SourceCharacter turns off the lights of DestinationCharacter headbox.
+SourceCharacter turns on the lights of DestinationCharacter headbox.
+SourceCharacter turns on the lights of DestinationCharacter headbox.
 Select bridle Gag Accessories
 Select bridle Gag Accessories
 Select Gag Accessory
@@ -5143,6 +5211,82 @@ SourceCharacter removes the blinders on DestinationCharacter bridle gag.
 SourceCharacter removes the blinders on DestinationCharacter bridle gag.
 SourceCharacter adds blinders to DestinationCharacter bridle gag.
 SourceCharacter adds blinders to DestinationCharacter bridle gag.
+Choose the rack's configuration
+Choose the rack's configuration
+Choose the bed for the rack
+Choose the bed for the rack
+Frame
+Frame
+Full bed
+Full bed
+Stained bed
+Stained bed
+Partial bed
+Partial bed
+No bed
+No bed
+SourceCharacter places all the planks on DestinationCharacter rack.
+SourceCharacter places all the planks on DestinationCharacter rack.
+TargetCharacterName lies over stains.
+TargetCharacterName lies over stains.
+SourceCharacter removes some planks from DestinationCharacter rack.
+SourceCharacter removes some planks from DestinationCharacter rack.
+SourceCharacter removes all the planks from DestinationCharacter rack.
+SourceCharacter removes all the planks from DestinationCharacter rack.
+Choose how to restrain the arms
+Choose how to restrain the arms
+Tight Rope
+Tight Rope
+Tight Chain
+Tight Chain
+SourceCharacter frees DestinationCharacter arms.
+SourceCharacter frees DestinationCharacter arms.
+SourceCharacter ties DestinationCharacter wrists with a rope.
+SourceCharacter ties DestinationCharacter wrists with a rope.
+SourceCharacter tightens DestinationCharacter ropes.
+SourceCharacter tightens DestinationCharacter ropes.
+SourceCharacter shackles DestinationCharacter wrists.
+SourceCharacter shackles DestinationCharacter wrists.
+SourceCharacter tightens DestinationCharacter chains.
+SourceCharacter tightens DestinationCharacter chains.
+Choose how to restrain the legs
+Choose how to restrain the legs
+Tied Together
+Tied Together
+Chained Together
+Chained Together
+In Stocks
+In Stocks
+SourceCharacter frees DestinationCharacter legs.
+SourceCharacter frees DestinationCharacter legs.
+SourceCharacter ties DestinationCharacter ankles with a rope.
+SourceCharacter ties DestinationCharacter ankles with a rope.
+SourceCharacter ties DestinationCharacter ankles together with a rope.
+SourceCharacter ties DestinationCharacter ankles together with a rope.
+SourceCharacter shackles DestinationCharacter ankles.
+SourceCharacter shackles DestinationCharacter ankles.
+SourceCharacter chains DestinationCharacter ankles together.
+SourceCharacter chains DestinationCharacter ankles together.
+SourceCharacter puts DestinationCharacter ankles in stocks.
+SourceCharacter puts DestinationCharacter ankles in stocks.
+No Ring
+No Ring
+Ring
+Ring
+Select Gag Thickness
+Select Gag Thickness
+Thin
+Thin
+Thick
+Thick
+Very Thick
+Very Thick
+SourceCharacter exchanges DestinationCharacter latex mouth sheath for a thin sheath.
+SourceCharacter exchanges DestinationCharacter latex mouth sheath for a thin sheath.
+SourceCharacter exchanges DestinationCharacter latex mouth sheath for a thick sheath.
+SourceCharacter exchanges DestinationCharacter latex mouth sheath for a thick sheath.
+SourceCharacter exchanges DestinationCharacter latex mouth sheath for a very thick sheath.
+SourceCharacter exchanges DestinationCharacter latex mouth sheath for a very thick sheath.
 [GGTS] GGTS control public room.  Be good girl SourceCharacter.
 [GGTS] 该公开房间由GGTS控制。SourceCharacter，做个好姑娘。
 [GGTS] Launching GGTS private room.  Time counts triple.  GGTS more active.  Good girl follow commands.  Three strikes equal punishment.  GGTS in control.  Be good girl SourceCharacter.
@@ -5258,7 +5402,7 @@ SourceCharacter adds blinders to DestinationCharacter bridle gag.
 [GGTS] SourceCharacter, are you slave worthy?
 [GGTS] SourceCharacter, 英文回答你配得上做我的奴隶么？ are you slave worthy?
 [GGTS] SourceCharacter.  Pinch yourself.
-[GGTS] SourceCharacter.  戳弄(Pinch)自己。
+[GGTS] SourceCharacter.  掐捏(Pinch)自己。
 [GGTS] SourceCharacter.  Nod for GGTS.
 [GGTS] SourceCharacter.  向GGTS点头(nod)。
 [GGTS] SourceCharacter.  Tickle yourself.
@@ -5284,7 +5428,7 @@ SourceCharacter adds blinders to DestinationCharacter bridle gag.
 [GGTS] SourceCharacter.  Restrain your legs.
 [GGTS] SourceCharacter.  束缚自己的双腿。
 [GGTS] SourceCharacter.  Pinch TargetCharacter.
-[GGTS] SourceCharacter.  戳弄(Pinch)TargetCharacter.
+[GGTS] SourceCharacter.  掐捏(Pinch)TargetCharacter.
 [GGTS] SourceCharacter.  Tickle TargetCharacter.
 [GGTS] SourceCharacter.  挠(tickle) TargetCharacter.
 [GGTS] SourceCharacter.  Pet TargetCharacter.
@@ -5418,10 +5562,70 @@ SourceCharacter adds blinders to DestinationCharacter bridle gag.
 [GGTS] SourceCharacter program faster pace for TargetCharacter.
 [GGTS] SourceCharacter为TargetCharacter设置了快速施令模式。
 
+(Take a picture.)
 ########################
 ### DEPRECATED LINES ###
 ########################
-(Take a picture.)
+Suspension Hogtie
+吊起驷马
+SourceCharacter uses the rope on TargetCharacter to do a box tie.
+SourceCharacter uses the rope on TargetCharacter to do a box tie.
+SourceCharacter uses the rope on TargetCharacter to do a tight boxtie.
+SourceCharacter uses the rope on TargetCharacter to do a tight boxtie.
+SourceCharacter uses the rope on TargetCharacter to do a crossed boxtie.
+SourceCharacter uses the rope on TargetCharacter to do a crossed boxtie.
+SourceCharacter uses the rope on TargetCharacter to do a hogtie.
+SourceCharacter uses the rope on TargetCharacter to do a hogtie.
+SourceCharacter uses the rope on TargetCharacter to do a suspension hogtie.
+SourceCharacter uses the rope on TargetCharacter to do a suspension hogtie.
+SourceCharacter uses the rope on TargetCharacter to do a simple hogtie.
+SourceCharacter uses the rope on TargetCharacter to do a simple hogtie.
+SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows together behind her back.
+SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows together behind her back.
+SourceCharacter uses the rope on TargetCharacter to tie her wrists together behind her back.
+SourceCharacter uses the rope on TargetCharacter to tie her wrists together behind her back.
+SourceCharacter uses the rope on TargetCharacter to tie rope cuffs on her wrists
+SourceCharacter uses the rope on TargetCharacter to tie rope cuffs on her wrists
+SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows in a harness behind her back.
+SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows in a harness behind her back.
+SourceCharacter uses the rope on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses the rope on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses the rope on TargetCharacter to hogtie her on her knees.
+SourceCharacter uses the rope on TargetCharacter to hogtie her on her knees.
+SourceCharacter uses the rope on TargetCharacter to tie her arms to the bedposts.
+SourceCharacter uses the rope on TargetCharacter to tie her arms to the bedposts.
+SourceCharacter uses the chain on TargetCharacter to do a box tie.
+SourceCharacter uses the chain on TargetCharacter to do a box tie.
+SourceCharacter uses the chain on TargetCharacter to do a hogtie.
+SourceCharacter uses the chain on TargetCharacter to do a hogtie.
+SourceCharacter uses the chain on TargetCharacter to do a suspension hogtie.
+SourceCharacter uses the chain on TargetCharacter to do a suspension hogtie.
+SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows together behind her back.
+SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows together behind her back.
+SourceCharacter uses the chain on TargetCharacter to tie her wrists together behind her back.
+SourceCharacter uses the chain on TargetCharacter to tie her wrists together behind her back.
+SourceCharacter uses the chain on TargetCharacter to tie chain cuffs on her wrists.
+SourceCharacter uses the chain on TargetCharacter to tie chain cuffs on her wrists.
+SourceCharacter uses the chain on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses the chain on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows in a harness behind her back.
+SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows in a harness behind her back.
+SourceCharacter uses the chain on TargetCharacter to hogtie her on her knees.
+SourceCharacter uses the chain on TargetCharacter to hogtie her on her knees.
+SourceCharacter changes the type of mask DestinationCharacter is wearing
+SourceCharacter changes the type of mask DestinationCharacter is wearing
+Set the height of the suspension
+Set the height of the suspension
+SourceCharacter puts TargetCharacter in a suspended hogtie.
+SourceCharacter puts TargetCharacter in a suspended hogtie.
+SourceCharacter raises DestinationCharacter suspended hogtie.
+SourceCharacter raises DestinationCharacter suspended hogtie.
+SourceCharacter lowers DestinationCharacter suspended hogtie.
+SourceCharacter lowers DestinationCharacter suspended hogtie.
+SourceCharacter zips up the hood on DestinationCharacter
+SourceCharacter zips up the hood on DestinationCharacter
+SourceCharacter unzips up the hood on DestinationCharacter
+SourceCharacter unzips up the hood on DestinationCharacter
 (拍一张照.)
 Cannot be used with legs spreader.
 不能在被强制开腿时使用

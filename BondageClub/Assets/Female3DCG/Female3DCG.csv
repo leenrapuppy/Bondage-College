@@ -59,6 +59,9 @@ Cloth,LatexTop,Laced Latex Top
 Cloth,LatexLacedSuit,Latex Laced Suit
 Cloth,FurCoat,Fur Coat
 Cloth,FuzzyDress,Fuzzy Dress
+Cloth,CropTop,Crop Top
+Cloth,Laurel,Laurel Top
+Cloth,SeethroughTop,See-through Top
 ClothAccessory,,Cloth Accessory
 ClothAccessory,StudentOutfit3Scarf,Student Scarf
 ClothAccessory,StudentOutfit3Bow1,Student Bow 1
@@ -75,6 +78,7 @@ ClothAccessory,FacePaint, Face Paint
 ClothAccessory,Bib,Bib
 ClothAccessory,Scarf,Scarf
 ClothAccessory,Glitter,Glitter
+ClothAccessory,CatsuitCollar,Catsuit Collar
 ClothAccessory,Poncho,Poncho
 Necklace,,Necklace
 Necklace,Necklace1,Fancy Necklace
@@ -92,6 +96,8 @@ Necklace,FurScarf,Fur Scarf
 Necklace,FlowerGarland,Flower Garland
 Necklace,NecklaceRope,Rope Necklace
 Necklace,ChokerTattoo,Tattoo Choker
+Necklace,CatsuitCollar,Catsuit Collar
+Necklace,BodyChainNecklace,Body Chain Necklace
 Suit,,Upper Suit
 Suit,Catsuit,Catsuit
 Suit,SeamlessCatsuit, Seamless Catsuit
@@ -137,6 +143,10 @@ ClothLower,HaremPants,Harem Pants
 ClothLower,HaremPants2,Harem Pants 2
 ClothLower,ShortPlaidSkirt,Short Plaid Skirt
 ClothLower,CollegeSkirt,College Skirt
+ClothLower,BondageSkirt,Bondage Skirt
+ClothLower,AsymmetricSkirt,Asymmetric Skirt
+ClothLower,ElegantSkirt,Elegant Skirt
+ClothLower,RuffledSkirt,Ruffled Skirt
 SuitLower,,Suit Lower
 SuitLower,Catsuit,Catsuit
 SuitLower,SeamlessCatsuit, Seamless Catsuit
@@ -582,6 +592,7 @@ HairFront,HairFront23b,Style 23b
 HairFront,HairFront24,Style 24
 HairFront,HairFront25,Style 25
 HairFront,HairFront26,Style 26
+HairFront,HairFront27,Style 27
 HairBack,,Back Hair
 HairBack,HairNone,None
 HairBack,HairBack1,Style 1
@@ -641,6 +652,7 @@ HairBack,HairBack49,Style 44
 HairBack,HairBack50,Style 45
 HairBack,HairBack51,Style 46
 HairBack,HairBack52,Style 47
+HairBack,HairBack53,Style 48
 Eyes,,Left eye
 Eyes,Eyes1,Style 1
 Eyes,Eyes2,Style 2
@@ -744,7 +756,6 @@ ItemLegs,Tentacles,Tentacles
 ItemLegs,Slime,Slime
 ItemVulva,,Vulva
 ItemVulva,VibratingEgg,Vibrating Egg
-ItemVulva,VibratingWand,Vibrating Wand
 ItemVulva,VibratorRemote,Vibrating Items Remote
 ItemVulva,VibratingLatexPanties,Vibrating Latex Panties
 ItemVulva,WandBelt,Wand Belt
@@ -835,8 +846,6 @@ ItemPelvis,HarnessPanties1,Bondage Harness
 ItemPelvis,HarnessPanties2,Full Bondage Harness
 ItemPelvis,LeatherStrapPanties1,Leather Strap Panties
 ItemPelvis,LoveChastityBelt,Love Chastity Belt
-ItemPelvis,LeatherCrop,Leather Crop
-ItemPelvis,LeatherWhip,Leather Whip
 ItemPelvis,HempRope,Rope Harness
 ItemPelvis,DiaperHarness,Diaper Harness
 ItemPelvis,PelvisChainLeash,Pelvis Chain Leash
@@ -907,8 +916,6 @@ ItemBreast,PolishedChastityBra,Polished Chastity Bra
 ItemBreast,FuturisticBra,Futuristic Chastity Bra
 ItemBreast,FuturisticBra2,Futuristic Bra
 ItemBreast,OrnateChastityBra,Ornate Chastity Bra
-ItemBreast,LeatherCrop,Leather Crop
-ItemBreast,LeatherWhip,Leather Whip
 ItemBreast,Ribbons,Ribbons
 ItemBreast,LeatherBreastBinder,Leather Breast Binder
 ItemArms,,Arms
@@ -980,6 +987,7 @@ ItemArms,Ribbons,Ribbons
 ItemArms,ThinLeatherStraps,Thin Leather Straps
 ItemArms,Tentacles,Tentacles
 ItemArms,Slime,Slime
+ItemArms,BondageBra,Bondage Bra
 ItemHands,,Hands
 ItemHands,PaddedMittens,Padded Mittens
 ItemHands,PawMittens,Paw Mittens
@@ -1040,6 +1048,8 @@ ItemHands,SpankingToysScissors,Scissors
 ItemHands,SpankingToysPlasticWrap,Plastic Wrap Roll
 ItemHands,SpankingToysGlassEmpty,Empty Glass
 ItemHands,SpankingToysGlassFilled,Filled Glass
+ItemHands,SpankingToysPotionBottle,Potion Bottle
+ItemHands,MedicalInjector,Medical Injector
 ItemNeck,,Neck
 ItemNeck,LeatherCollar,Leather Collar
 ItemNeck,LeatherCollarBell,Bell Collar
@@ -1365,6 +1375,8 @@ ItemHood,LatexHabit,Latex Habit Hood
 ItemHood,CowHood,Cow Hood
 ItemHood,HeadboxSeethrough,One-Way Glass Head Box
 ItemHood,Slime,Slime
+ItemHood,KittyHood,Kitty Hood
+ItemHood,LatexDogHood,Latex Dog Hood
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs
@@ -1485,3 +1497,4 @@ ItemBoots,ToeTape,Toe Tape
 ItemBoots,Zipties,Zip Ties
 ItemBoots,HighThighBoots,High Thigh Boots
 ItemBoots,Slime,Slime
+ItemBoots,MonoHeel,Monoheel

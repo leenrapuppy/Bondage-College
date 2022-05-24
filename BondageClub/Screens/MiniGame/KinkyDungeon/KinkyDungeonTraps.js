@@ -2,6 +2,61 @@
 
 let KinkyDungeonTrapMoved = false;
 
+function KinkyDungeonHandleStepOffTraps(x, y) {
+	let flags = {
+		AllowTraps: true,
+	};
+	let tile = KinkyDungeonTiles.get(x + "," + y);
+	if (tile && tile.StepOffTrap && (!KinkyDungeonJailGuard() || KinkyDungeonJailGuard().CurrentAction != "jailLeashTour")) {
+		KinkyDungeonSendEvent("beforeStepOffTrap", {x:x, y:y, tile: tile, flags: flags});
+		let msg = "";
+		let color = "red";
+
+		if (tile.StepOffTrap == "DoorLock" && KinkyDungeonNoEnemy(x, y)) {
+			KinkyDungeonMapSet(x, y, 'D');
+			let spawned = 0;
+			let maxspawn = 1 + Math.round(Math.min(2 + KDRandom() * 2, KinkyDungeonDifficulty/25) + Math.min(2 + KDRandom() * 2, 0.5*MiniGameKinkyDungeonLevel/KDLevelsPerCheckpoint));
+			let requireTags = ["doortrap"];
+
+			let tags = ["doortrap"];
+			KinkyDungeonAddTags(tags, MiniGameKinkyDungeonLevel);
+
+			for (let i = 0; i < 30; i++) {
+				if (spawned < maxspawn) {
+					let Enemy = KinkyDungeonGetEnemy(
+						tags, MiniGameKinkyDungeonLevel,
+						KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint],
+						'0', requireTags, true);
+					if (Enemy) {
+						KinkyDungeonSummonEnemy(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, Enemy.name, 1, 6, true, undefined, undefined, true, undefined, true);
+						if (Enemy.tags.has("minor")) spawned += 0.4;
+						else spawned += 1;
+					}
+				}
+			}
+			if (spawned > 0) {
+				KinkyDungeonMapSet(x, y, 'd');
+				let created = KinkyDungeonSummonEnemy(x, y, "DoorLock", 1, 0);
+				if (created > 0) {
+					if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/MagicSlash.ogg");
+					msg = "Default";
+					KinkyDungeonMakeNoise(12, x, y);
+					KinkyDungeonTiles.delete(x + "," + y);
+					KinkyDungeonMapSet(x, y, 'D');
+				}
+			} else
+				KinkyDungeonMapSet(x, y, 'd');
+		}
+
+		if (msg) {
+			if (msg == "Default")
+				KinkyDungeonSendTextMessage(10, TextGet("KinkyDungeonTrap" + tile.StepOffTrap), color, 2);
+			else
+				KinkyDungeonSendTextMessage(10, msg, color, 2);
+		}
+	}
+
+}
 
 function KinkyDungeonHandleTraps(x, y, Moved) {
 	let flags = {
@@ -64,7 +119,7 @@ function KinkyDungeonHandleTraps(x, y, Moved) {
 						if (spell) {
 							KinkyDungeonCastSpell(x, y, spell, undefined, undefined, undefined);
 							if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Trap.ogg");
-							msg = ""; // The spell will show a message on its own
+							msg = "KinkyDungeonSpellCast" + spell.name;
 							KinkyDungeonTiles.delete(x + "," + y);
 						}
 					}

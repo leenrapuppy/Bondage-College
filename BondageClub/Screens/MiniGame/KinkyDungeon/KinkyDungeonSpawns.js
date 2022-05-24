@@ -76,7 +76,7 @@ function KinkyDungeonAddTags(tags, Floor) {
 }
 
 
-function KinkyDungeonGetEnemy(tags, Level, Index, Tile, requireTags) {
+function KinkyDungeonGetEnemy(tags, Level, Index, Tile, requireTags, requireHostile) {
 	let enemyWeightTotal = 0;
 	let enemyWeights = [];
 
@@ -109,7 +109,7 @@ function KinkyDungeonGetEnemy(tags, Level, Index, Tile, requireTags) {
 				}
 		}
 
-		if (effLevel >= enemy.minLevel && (overrideFloor || enemy.allFloors || !enemy.floors || enemy.floors.get(Index)) && (KinkyDungeonGroundTiles.includes(Tile) || !enemy.tags.has("spawnFloorsOnly"))) {
+		if (effLevel >= enemy.minLevel && (!requireHostile || !enemy.faction || KDFactionRelation("Player", enemy.faction) <= -0.5) && (overrideFloor || enemy.allFloors || !enemy.floors || enemy.floors.get(Index)) && (KinkyDungeonGroundTiles.includes(Tile) || !enemy.tags.has("spawnFloorsOnly"))) {
 			let rt = requireTags ? false : true;
 			if (requireTags)
 				for (let t of requireTags) {
@@ -151,8 +151,8 @@ function KinkyDungeonGetEnemyByName(name) {
 }
 
 function KinkyDungeonCallGuard(x, y, noTransgress, normalDrops) {
-	if (!noTransgress)
-		KinkyDungeonAggroAction('call', {});
+	//if (!noTransgress)
+	// KinkyDungeonAggroAction('call', {});
 	if (!KinkyDungeonJailGuard()) {
 		let Enemy = KinkyDungeonGetEnemyByName("Guard");
 		let guard = {summoned: true, noRep: true, noDrop: !normalDrops, Enemy: Enemy, id: KinkyDungeonGetEnemyID(),
@@ -251,7 +251,14 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 						let X = point.x;
 						let Y = point.y;
 						EnemiesSummoned.push(Enemy.name);
-						KinkyDungeonEntities.push({tracking: true, summoned: true, faction: qq ? qq.faction : undefined, Enemy: Enemy, id: KinkyDungeonGetEnemyID(), x:X, y:Y, hp: (Enemy.startinghp) ? Enemy.startinghp : Enemy.maxhp, movePoints: 0, attackPoints: 0});
+						let e = {tracking: true, summoned: true, faction: qq ? qq.faction : undefined, Enemy: Enemy, id: KinkyDungeonGetEnemyID(), x:X, y:Y, hp: (Enemy.startinghp) ? Enemy.startinghp : Enemy.maxhp, movePoints: 0, attackPoints: 0};
+						KinkyDungeonEntities.push(e);
+						let shop = KinkyDungeonGetShopForEnemy(e);
+						if (shop) {
+							KinkyDungeonSetEnemyFlag(e, "Shop", -1);
+							KinkyDungeonSetEnemyFlag(e, shop, -1);
+						}
+
 						if (Enemy.tags.has("minor")) count += 0.1; else count += 1; // Minor enemies count as 1/10th of an enemy
 						if (Enemy.tags.has("boss")) {
 							count += 3 * Math.max(1, 100/(100 + KinkyDungeonDifficulty));
