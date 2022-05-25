@@ -642,8 +642,8 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "PleatedSkirt", Value: 35, Alpha: [{ Group: ["Panties", "ItemPelvis"], Masks: [[0, 0, 500, 570]] }], HideItem: ["ItemDevicesStrapOnSmooth", "ItemDevicesStrapOnStuds"], Attribute: ["Skirt"], Layer: [
-					{ Name: "Dress", AllowColorize: true },
-					{ Name: "Stripe", AllowColorize: false }
+					{ Name: "Dress" },
+					{ Name: "Stripe" }
 				]
 			},
 			{
