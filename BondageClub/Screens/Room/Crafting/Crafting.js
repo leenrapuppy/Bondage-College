@@ -5,6 +5,7 @@ var CraftingSlot = 0;
 var CraftingOffset = 0;
 var CraftingItemList = [];
 var CraftingItem = null;
+var CraftingLock = null;
 var CraftingProperty = "";
 var CraftingPropertyList = [
 	{ Name: "Normal", Allow : function(Item) { return true; } },
@@ -23,6 +24,7 @@ var CraftingPropertyList = [
 	{ Name: "Arousing", Allow : function(Item) { return CreatingItemHasEffect(Item, ["Egged", "Vibrating"]); } },
 	{ Name: "Dull", Allow : function(Item) { return CreatingItemHasEffect(Item, ["Egged", "Vibrating"]); } }
 ];
+var CraftingLockList = ["", "MetalPadlock", "IntricatePadlock", "HighSecurityPadlock", "OwnerPadlock", "LoversPadlock", "MistressPadlock", "PandoraPadlock", "ExclusivePadlock"];
 
 /**
  * Returns TRUE if a crafting item has an effect from a list or allows that effect
@@ -47,7 +49,12 @@ function CreatingItemHasEffect(Item, Effect) {
  * @returns {void} - Nothing.
  */
 function CraftingLoad() {
-	CraftingMode = "Slot";
+	if ((Player.Crafting == null) || (Player.Crafting.length != 20)) {
+		Player.Crafting = [];
+		for (let C = 0; C < 20; C++)
+			Player.Crafting.push({});
+	}
+	CraftingModeSet("Slot");
 }
 
 /**
@@ -66,7 +73,20 @@ function CraftingRun() {
 		for (let S = 0; S < 20; S++) {
 			let X = (S % 4) * 500 + 15;
 			let Y = Math.floor(S / 4) * 180 + 130;
-			DrawButton(X, Y, 470, 140, TextGet("EmptySlot"), "White");
+			let Craft = Player.Crafting[S];
+			if ((Craft.Name == null) || (Craft.Name == "") || (Craft.Item == null) || (Craft.Item == "")) {
+				DrawButton(X, Y, 470, 140, TextGet("EmptySlot"), "White");
+			} else {
+				DrawButton(X, Y, 470, 140, "", "White");
+				DrawTextFit(Craft.Name, X + 295, Y + 25, 315, "Black", "Silver");
+				for (let Item of Player.Inventory)
+					if (Item.Asset.Name == Craft.Item) {
+						DrawImageResize("Assets/" + Player.AssetFamily + "/" + Item.Asset.Group.Name + "/Preview/" + Item.Asset.Name + ".png", X + 3, Y + 3, 135, 135)
+						DrawTextFit(Item.Asset.Description, X + 295, Y + 70, 315,  "Black", "Silver");
+						DrawTextFit(TextGet("Property" + Craft.Property), X + 295, Y + 115, 315, "Black", "Silver");
+						break;
+					}
+			}
 		}
 	}
 
@@ -107,14 +127,66 @@ function CraftingRun() {
 
 	// In lock selection mode, the player can auto-apply a lock to it's item
 	if (CraftingMode == "Lock") {
-		DrawText(TextGet("SelectLock").replace("AssetDescription", CraftingItem.Description).replace("PropertyName", TextGet("Property" + CraftingProperty)), 880, 60, "White", "Black");
+		DrawButton(1685, 15, 90, 90, "", "White", "Icons/Unlock.png", TextGet("NoLock"));
+		DrawText(TextGet("SelectLock").replace("AssetDescription", CraftingItem.Description).replace("PropertyName", TextGet("Property" + CraftingProperty)), 830, 60, "White", "Black");
+		let Pos = 0;
+		for (let L = 0; L < CraftingLockList.length; L++)
+			for (let Item of Player.Inventory)
+				if ((Item.Asset != null) && (Item.Asset.Name == CraftingLockList[L]) && (Item.Asset.Group != null) && (Item.Asset.Group.Name == "ItemMisc")) {
+					let X = (Pos % 8) * 249 + 17;
+					let Y = Math.floor(Pos / 8) * 290 + 130;
+					let Description = Item.Asset.Description;
+					let Background = MouseIn(X, Y, 225, 275) && !CommonIsMobile ? "cyan" : "#fff";
+					let Foreground = "Black";
+					let Icons = DialogGetAssetIcons(Item.Asset);
+					DrawAssetPreview(X, Y, Item.Asset, { Description, Background, Foreground, Icons });
+					Pos++;
+				}
 	}
 
 	// In lock selection mode, the player can auto-apply a lock to it's item
 	if (CraftingMode == "Name") {
-		DrawText(TextGet("SelectName").replace("AssetDescription", CraftingItem.Description).replace("PropertyName", TextGet("Property" + CraftingProperty)), 880, 60, "White", "Black");
+		DrawButton(1685, 15, 90, 90, "", "White", "Icons/Accept.png", TextGet("Accept"));
+		DrawText(TextGet("SelectName").replace("AssetDescription", CraftingItem.Description).replace("PropertyName", TextGet("Property" + CraftingProperty)), 830, 60, "White", "Black");
+		let Hidden = CharacterAppearanceItemIsHidden(CraftingItem.Name, CraftingItem.Group.Name);
+		let Description = CraftingItem.Description;
+		let Background = MouseIn(80, 250, 225, 275) && !CommonIsMobile ? "cyan" : "#fff";
+		let Foreground = "Black";
+		let Icons = DialogGetAssetIcons(CraftingItem);
+		if (Hidden) DrawPreviewBox(80, 250, "Icons/HiddenItem.png", Description, { Background, Foreground });
+		else DrawAssetPreview(80, 250, CraftingItem, { Description, Background, Foreground, Icons });
+		if (CraftingLock != null) {
+			Description = CraftingLock.Description;
+			Background = MouseIn(425, 250, 225, 275) && !CommonIsMobile ? "cyan" : "#fff";
+			Icons = DialogGetAssetIcons(CraftingLock.Asset);
+			DrawAssetPreview(425, 250, CraftingLock.Asset, { Description, Background, Foreground, Icons });	
+		} else DrawButton(425, 250, 225, 275, TextGet("NoLock"), "White");
+		DrawButton(80, 650, 570, 190, "", "White");
+		DrawText(TextGet("Property" + CraftingProperty), 365, 690, "Black", "Silver");
+		DrawTextWrap(TextGet("Description" + CraftingProperty), 95, 730, 540, 100, "Black", null, 2);
+		DrawText(TextGet("EnterName"), 1325, 330, "White", "Black");
+		ElementPosition("InputName", 1325, 400, 1000);
+		DrawText(TextGet("EnterDescription"), 1325, 630, "White", "Black");
+		ElementPosition("InputDescription", 1325, 700, 1000);
 	}
 
+}
+
+/**
+ * Sets the new mode and creates or removes the inputs
+ * @param {string} NewMode - The new mode to set
+ * @returns {void} - Nothing.
+ */
+function CraftingModeSet(NewMode) {
+	CraftingMode = NewMode;
+	if (NewMode == "Item") {
+		let Input = ElementCreateInput("InputSearch", "text", "", "50");
+		Input.addEventListener("input", CraftingItemListBuild);
+	} else ElementRemove("InputSearch");
+	if (NewMode == "Name") ElementCreateInput("InputName", "text", "", "30");
+	else ElementRemove("InputName");
+	if (NewMode == "Name") ElementCreateInput("InputDescription", "text", "", "100");
+	else ElementRemove("InputDescription");
 }
 
 /**
@@ -125,10 +197,7 @@ function CraftingClick() {
 
 	// Can always exit or cancel
 	if (MouseIn(1895, 15, 90, 90)) CraftingExit();
-	if (MouseIn(1790, 15, 90, 90)) {
-		CraftingMode = "Slot";
-		ElementRemove("InputSearch");
-	}
+	if (MouseIn(1790, 15, 90, 90)) CraftingModeSet("Slot");
 
 	// In slot mode, we can select which item slot to craft
 	if (CraftingMode == "Slot") {
@@ -136,11 +205,9 @@ function CraftingClick() {
 			let X = (S % 4) * 500 + 15;
 			let Y = Math.floor(S / 4) * 180 + 130;
 			if (MouseIn(X, Y, 470, 140)) {
-				CraftingMode = "Item";
+				CraftingModeSet("Item");
 				CraftingSlot = S;
 				CraftingOffset = 0;
-				let Input = ElementCreateInput("InputSearch", "text", "", "50");
-				Input.addEventListener("input", CraftingItemListBuild);
 				CraftingItemListBuild();
 			}
 		}
@@ -162,7 +229,8 @@ function CraftingClick() {
 			let Y = Math.floor((I - CraftingOffset) / 8) * 290 + 130;
 			if (MouseIn(X, Y, 225, 275)) {
 				CraftingItem = CraftingItemList[I];
-				CraftingMode = "Property";
+				CraftingLock = null;
+				CraftingModeSet("Property");
 				ElementRemove("InputSearch");
 			}
 		}
@@ -178,12 +246,45 @@ function CraftingClick() {
 				let Y = Math.floor(Pos / 4) * 230 + 130;
 				if (MouseIn(X, Y, 470, 190)) {
 					CraftingProperty = Property.Name;
-					if (CraftingItem.AllowLock == true) CraftingMode = "Lock";
-					else CraftingMode = "Name";
+					if (CraftingItem.AllowLock == true) CraftingModeSet("Lock");
+					else CraftingModeSet("Name");
 				}
 				Pos++;
 			}
 		return;
+	}
+
+	// In lock selection mode, the user can pick a default lock or no lock at all
+	if (CraftingMode == "Lock") {
+		if (MouseIn(1685, 15, 90, 90)) CraftingModeSet("Name");
+		let Pos = 0;
+		for (let L = 0; L < CraftingLockList.length; L++)
+			for (let Item of Player.Inventory)
+				if ((Item.Asset != null) && (Item.Asset.Name == CraftingLockList[L]) && (Item.Asset.Group != null) && (Item.Asset.Group.Name == "ItemMisc")) {
+					let X = (Pos % 8) * 249 + 17;
+					let Y = Math.floor(Pos / 8) * 290 + 130;
+					if (MouseIn(X, Y, 225, 275)) {
+						CraftingModeSet("Name");
+						CraftingLock = Item;
+					}
+					Pos++;
+				}
+		return;
+	}
+
+	// When we need to save the new item
+	if ((CraftingMode == "Name") && MouseIn(1685, 15, 90, 90)) {
+		let Name = ElementValue("InputName").trim();
+		let Description = ElementValue("InputDescription").trim();
+		if (Name == "") return;
+		Player.Crafting[CraftingSlot] = {
+			Item: CraftingItem.Name,
+			Property: CraftingProperty,
+			Lock: (CraftingLock == null) ? "" : CraftingLock.Name,
+			Name: Name,
+			Description: Description
+		}
+		CraftingModeSet("Slot");
 	}
 
 }

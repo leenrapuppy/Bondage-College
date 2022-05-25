@@ -1,12 +1,16 @@
 Exit,Return to the main hall
+Accept,Craft your item
 Cancel,Cancel
 Previous,Previous
 Next,Next
+NoLock,No lock
 SelectSlot,Select a slot for your new crafted item.  The previous item in that slot will be replaced.
 SelectItem,Select an item to craft or search on your left.
 SelectProperty,Select a property for your AssetDescription.
 SelectLock,Select a lock to use with your PropertyName AssetDescription.
 SelectName,Enter a name and description for your PropertyName AssetDescription.
+EnterName,Name of the crafted item
+EnterDescription,Description of the crafted item
 EmptySlot,Empty
 PropertyNormal,Normal
 PropertyLarge,Large
