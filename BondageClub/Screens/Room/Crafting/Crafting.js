@@ -84,6 +84,8 @@ function CraftingRun() {
 						DrawImageResize("Assets/" + Player.AssetFamily + "/" + Item.Asset.Group.Name + "/Preview/" + Item.Asset.Name + ".png", X + 3, Y + 3, 135, 135)
 						DrawTextFit(Item.Asset.Description, X + 295, Y + 70, 315,  "Black", "Silver");
 						DrawTextFit(TextGet("Property" + Craft.Property), X + 295, Y + 115, 315, "Black", "Silver");
+						if ((Craft.Lock != null) && (Craft.Lock != ""))
+							DrawImageResize("Assets/" + Player.AssetFamily + "/ItemMisc/Preview/" + Craft.Lock + ".png", X + 70, Y + 70, 70, 70);
 						break;
 					}
 			}
@@ -190,6 +192,48 @@ function CraftingModeSet(NewMode) {
 }
 
 /**
+ * Prepares a compressed packet of the crafting data and sends it to the server
+ * @returns {void} - Nothing.
+ */
+function CraftingSaveServer() {
+	if (Player.Crafting == null) return;
+	let P = "";
+	for (let C of Player.Crafting) {
+		if ((C.Item == null) || (C.Item == "")) {
+			P = P + "§";
+		} else {
+			P = P + C.Item + "¶";
+			P = P + ((C.Property == null) ? "" : C.Property) + "¶";
+			P = P + ((C.Lock == null) ? "" : C.Lock) + "¶";
+			P = P + ((C.Name == null) ? "" : C.Name.replace("¶", " ").replace("§", " ")) + "¶";
+			P = P + ((C.Description == null) ? "" : C.Description.replace("¶", " ").replace("§", " ")) + "§";
+		}
+	}
+	let Obj = { Crafting: LZString.compressToUTF16(P) };
+	ServerAccountUpdate.QueueData(Obj, true);
+}
+
+/**
+ * Loads the server packet and creates the crating array for the player
+ * @param {string} Packet - The packet
+ * @returns {void} - Nothing.
+ */
+function CraftingLoadServer(Packet) {
+	CraftingLoad();
+	if ((Packet == null) || (typeof Packet != "string")) return;
+	let PacketString = LZString.decompressFromUTF16(Packet);
+	let PacketArray = PacketString.split("§");
+	for (let P = 0; P < PacketArray.length && P < 20; P++) {
+		let PacketData = PacketArray[P].split("¶");
+		if (PacketData.length >= 1) Player.Crafting[P].Item = PacketData[0];
+		if (PacketData.length >= 2) Player.Crafting[P].Property = PacketData[1];
+		if (PacketData.length >= 3) Player.Crafting[P].Lock = PacketData[2];
+		if (PacketData.length >= 4) Player.Crafting[P].Name = PacketData[3];
+		if (PacketData.length >= 5) Player.Crafting[P].Description = PacketData[4];
+	}
+}
+
+/**
  * Handles clicks in the crafting room.
  * @returns {void} - Nothing.
  */
@@ -284,6 +328,7 @@ function CraftingClick() {
 			Name: Name,
 			Description: Description
 		}
+		CraftingSaveServer();
 		CraftingModeSet("Slot");
 	}
 
