@@ -166,10 +166,12 @@ function CraftingRun() {
 		DrawButton(80, 650, 570, 190, "", "White");
 		DrawText(TextGet("Property" + CraftingProperty), 365, 690, "Black", "Silver");
 		DrawTextWrap(TextGet("Description" + CraftingProperty), 95, 730, 540, 100, "Black", null, 2);
-		DrawText(TextGet("EnterName"), 1325, 330, "White", "Black");
-		ElementPosition("InputName", 1325, 400, 1000);
-		DrawText(TextGet("EnterDescription"), 1325, 630, "White", "Black");
-		ElementPosition("InputDescription", 1325, 700, 1000);
+		DrawText(TextGet("EnterName"), 1325, 250, "White", "Black");
+		ElementPosition("InputName", 1325, 320, 1000);
+		DrawText(TextGet("EnterDescription"), 1325, 500, "White", "Black");
+		ElementPosition("InputDescription", 1325, 570, 1000);
+		DrawText(TextGet("EnterColor"), 1325, 750, "White", "Black");
+		ElementPosition("InputColor", 1325, 820, 1000);
 	}
 
 }
@@ -189,6 +191,8 @@ function CraftingModeSet(NewMode) {
 	else ElementRemove("InputName");
 	if (NewMode == "Name") ElementCreateInput("InputDescription", "text", "", "100");
 	else ElementRemove("InputDescription");
+	if (NewMode == "Name") ElementCreateInput("InputColor", "text", "", "100");
+	else ElementRemove("InputColor");
 }
 
 /**
@@ -206,7 +210,8 @@ function CraftingSaveServer() {
 			P = P + ((C.Property == null) ? "" : C.Property) + "¶";
 			P = P + ((C.Lock == null) ? "" : C.Lock) + "¶";
 			P = P + ((C.Name == null) ? "" : C.Name.replace("¶", " ").replace("§", " ")) + "¶";
-			P = P + ((C.Description == null) ? "" : C.Description.replace("¶", " ").replace("§", " ")) + "§";
+			P = P + ((C.Description == null) ? "" : C.Description.replace("¶", " ").replace("§", " ")) + "¶";
+			P = P + ((C.Color == null) ? "" : C.Color.replace("¶", " ").replace("§", " ")) + "§";
 		}
 	}
 	let Obj = { Crafting: LZString.compressToUTF16(P) };
@@ -225,11 +230,12 @@ function CraftingLoadServer(Packet) {
 	let PacketArray = PacketString.split("§");
 	for (let P = 0; P < PacketArray.length && P < 20; P++) {
 		let PacketData = PacketArray[P].split("¶");
-		if (PacketData.length >= 1) Player.Crafting[P].Item = PacketData[0];
-		if (PacketData.length >= 2) Player.Crafting[P].Property = PacketData[1];
-		if (PacketData.length >= 3) Player.Crafting[P].Lock = PacketData[2];
-		if (PacketData.length >= 4) Player.Crafting[P].Name = PacketData[3];
-		if (PacketData.length >= 5) Player.Crafting[P].Description = PacketData[4];
+		Player.Crafting[P].Item = (PacketData.length >= 1) ? PacketData[0] : ""; 
+		Player.Crafting[P].Property = (PacketData.length >= 2) ? PacketData[1] : ""; 
+		Player.Crafting[P].Lock = (PacketData.length >= 3) ? PacketData[2] : ""; 
+		Player.Crafting[P].Name = (PacketData.length >= 4) ? PacketData[3] : ""; 
+		Player.Crafting[P].Description = (PacketData.length >= 5) ? PacketData[4] : ""; 
+		Player.Crafting[P].Color = (PacketData.length >= 6) ? PacketData[5] : ""; 
 	}
 }
 
@@ -320,13 +326,15 @@ function CraftingClick() {
 	if ((CraftingMode == "Name") && MouseIn(1685, 15, 90, 90)) {
 		let Name = ElementValue("InputName").trim();
 		let Description = ElementValue("InputDescription").trim();
+		let Color = ElementValue("InputColor").trim();
 		if (Name == "") return;
 		Player.Crafting[CraftingSlot] = {
 			Item: CraftingItem.Name,
 			Property: CraftingProperty,
 			Lock: (CraftingLock == null) ? "" : CraftingLock.Name,
 			Name: Name,
-			Description: Description
+			Description: Description,
+			Color: Color
 		}
 		CraftingSaveServer();
 		CraftingModeSet("Slot");
