@@ -348,7 +348,7 @@ function TypedItemRegisterSubscreens(asset, config) {
 		.forEach((option, i, options) => {
 			switch (option.Archetype) {
 				case ExtendedArchetype.VARIABLEHEIGHT:
-					VariableHeightRegister(asset, option.ArchetypeConfig, option.Property, options);
+					VariableHeightRegister(asset, /** @type {VariableHeightConfig} */(option.ArchetypeConfig), option.Property, options);
 					break;
 			}
 		});
@@ -462,7 +462,7 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push = false) 
 		return msg;
 	}
 
-	return TypedItemSetOption(C, item, options, option);
+	return TypedItemSetOption(C, item, options, option, push);
 }
 
 /**

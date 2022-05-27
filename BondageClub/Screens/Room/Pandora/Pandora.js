@@ -1,14 +1,21 @@
 "use strict";
 var PandoraBackground = "Pandora/Ground/Entrance";
+/** @type {PandoraBaseRoom} */
 var PandoraCurrentRoom = null;
+/** @type {PandoraBaseRoom} */
 var PandoraPreviousRoom = null;
+/** @type {PandoraBaseRoom[]} */
 var PandoraRoom = [];
+/** @type {PandoraFloorDirection[]} */
 var PandoraDirectionList = ["South", "North", "East", "West"];
+/** @type {PandoraFloorDirection[]} */
 var PandoraDirectionListFrom = ["North", "South", "West", "East"];
+/** @type {""|"Search"|"Rest"|"Paint"} */
 var PandoraMode = "";
 var PandoraModeTimer = 0;
 var PandoraModeAppearance = null;
 var PandoraMessage = null;
+/** @type {NPCCharacter[]} */
 var PandoraParty = [];
 var PandoraFightCharacter = null;
 var PandoraRandomNPCList = ["MemberNew", "MemberOld", "Cosplay", "Mistress", "Slave", "Maid", "Guard"];
@@ -35,7 +42,9 @@ function PandoraCharacterCanLeave() { return ((PandoraParty.length == 1) && (Pan
 function PandoraOdds75() { return ((CurrentCharacter.RandomOdds == null) || (CurrentCharacter.RandomOdds > 0.25)); }
 function PandoraOdds50() { return ((CurrentCharacter.RandomOdds == null) || (CurrentCharacter.RandomOdds > 0.50)); }
 function PandoraOdds25() { return ((CurrentCharacter.RandomOdds == null) || (CurrentCharacter.RandomOdds > 0.75)); }
+/** @param {string} Costume */
 function PandoraCostumeIs(Costume) { return (PandoraClothes == Costume); }
+/** @param {number} Number */
 function PandoraQuizIs(Number) { return ((CurrentCharacter.QuizLog != null) && (CurrentCharacter.QuizLog[CurrentCharacter.QuizLog.length - 1].toString() == Number.toString())) }
 function PandoraCanAskForPaint() { return (!PandoraPaint && (PandoraClothes == "Maid") && (InfiltrationMission == "ReverseMaid")); }
 
@@ -174,6 +183,7 @@ function PandoraRun() {
 
 /**
  * Enters a new mode for the Pandora screen, such as rest or search mode
+ * @param {PandoraMode} NewMode
  * @returns {void} - Nothing
  */
 function PandoraSetMode(NewMode) {
@@ -281,8 +291,11 @@ function PandoraClick() {
 				return CharacterSetCurrent(PandoraParty[C]);
 		for (let P = 0; P < PandoraCurrentRoom.Path.length; P++)
 			if (MouseIn(1900, 25 + P * 115, 90, 90)) {
-				if (PandoraCurrentRoom.Path[P].Floor == "Exit") return CommonSetScreen("Room", "Infiltration");
-				if ((PandoraCurrentRoom.Path[P].Floor == "Search") || (PandoraCurrentRoom.Path[P].Floor == "Paint") || (PandoraCurrentRoom.Path[P].Floor == "Rest")) return PandoraSetMode(PandoraCurrentRoom.Path[P].Floor);
+				const Floor = PandoraCurrentRoom.Path[P].Floor;
+				if (Floor == "Exit")
+					return CommonSetScreen("Room", "Infiltration");
+				if ((Floor == "Search") || (Floor == "Paint") || (Floor == "Rest"))
+					return PandoraSetMode(Floor);
 				return PandoraEnterRoom(PandoraCurrentRoom.Path[P]);
 			}
 		if (MouseIn(1842, 620, 90, 90) && (PandoraDirectionAvailable("North"))) return PandoraEnterRoom(PandoraCurrentRoom.PathMap[PandoraCurrentRoom.DirectionMap.indexOf("North")], "North");
@@ -312,6 +325,7 @@ function PandoraKeyDown() {
 
 /**
  * Prepares a text popup for Pandora's Box
+ * @param {string} Text
  * @returns {void} - Nothing
  */
 function PandoraMsgBox(Text) {
@@ -431,7 +445,8 @@ function PandoraDress(C, Type) {
 
 /**
  * When the players enters a new room, we keep the previous room
- * @param {object} Room - The room to step into
+ * @param {PandoraBaseRoom} Room - The room to step into
+ * @param {PandoraDirection | ""} [Direction] - The direction the player comes from
  * @returns {void} - Nothing
  */
 function PandoraEnterRoom(Room, Direction) {
@@ -451,7 +466,7 @@ function PandoraEnterRoom(Room, Direction) {
 		if ((PandoraCurrentRoom.Character[0].AccountName.indexOf("NPC_Pandora_Random") == 0) && (Math.random() > 0.667) && PandoraCurrentRoom.Character[0].CanWalk()) {
 			let Char = PandoraCurrentRoom.Character[0];
 			PandoraCurrentRoom.Character = [];
-			CharacterDelete(Char);
+			CharacterDelete(Char.AccountName);
 			Char = null;
 			return;
 		}
@@ -535,9 +550,10 @@ function PandoraCreateChest(Room) {
 
 /**
  * Generates random rooms linked on the entry room
- * @param {object} EntryRoom - The room object that's leading to that floor
- * @param {string} DirectionFrom - The entry direction
+ * @param {PandoraBaseRoom} EntryRoom - The room object that's leading to that floor
+ * @param {PandoraFloorDirection} DirectionFrom - The entry direction
  * @param {number} RoomLevel - The room level, the higher it goes, the higher the chances it will be a dead-end
+ * @param {number} MaxRoom - The max number of rooms to generate.
  * @returns {void} - Nothing
  */
 function PandoraGenerateRoom(EntryRoom, DirectionFrom, RoomLevel, MaxRoom) {
@@ -589,6 +605,7 @@ function PandoraGenerateRoom(EntryRoom, DirectionFrom, RoomLevel, MaxRoom) {
 		}
 
 		// Creates the room
+		/** @type {PandoraBaseRoom} */
 		let Room = {};
 		Room.Character = [];
 		Room.Floor = EntryRoom.Floor;
@@ -607,16 +624,19 @@ function PandoraGenerateRoom(EntryRoom, DirectionFrom, RoomLevel, MaxRoom) {
 		// Creates sub-rooms if it's not a dead end room, generate the search and rest icon if needed
 		if (RoomBack.indexOf("Cell") == 0) {
 			if ((InfiltrationMission == "Retrieve") || (InfiltrationMission == "Steal")) {
+				/** @type {PandoraSpecialRoom} */
 				let SearchRoom = { Floor: "Search" };
 				Room.Path.push(SearchRoom);
 				Room.Direction.push("Search");
 			}
 			if (InfiltrationMission == "ReverseMaid") {
+				/** @type {PandoraSpecialRoom} */
 				let PaintRoom = { Floor: "Paint" };
 				Room.Path.push(PaintRoom);
 				Room.Direction.push("Paint");
 			}
 		} else if (RoomBack.indexOf("Rest") == 0) {
+			/** @type {PandoraSpecialRoom} */
 			let RestRoom = { Floor: "Rest" };
 			Room.Path.push(RestRoom);
 			Room.Direction.push("Rest");
@@ -628,15 +648,17 @@ function PandoraGenerateRoom(EntryRoom, DirectionFrom, RoomLevel, MaxRoom) {
 
 /**
  * Loads the Pandora's Box screen
- * @param {string} FloorName - The name of the floor in which we must generate rooms
- * @param {object} EntryRoom - The room object that's leading to that floor
- * @param {string} DirectionFrom - The entry direction
- * @param {string} DirectionTo - The opposite direction
+ * @param {PandoraFloors} FloorName - The name of the floor in which we must generate rooms
+ * @param {PandoraBaseRoom} EntryRoom - The room object that's leading to that floor
+ * @param {PandoraFloorDirection} DirectionFrom - The entry direction
+ * @param {PandoraFloorDirection} DirectionTo - The opposite direction
+ * @param {number} MaxRoom - The maximum limit of rooms to generate.
  * @returns {void} - Nothing
  */
 function PandoraGenerateFloor(FloorName, EntryRoom, DirectionFrom, DirectionTo, MaxRoom) {
 
 	// Always create the same entrance room
+	/** @type {PandoraBaseRoom} */
 	let Room = {};
 	Room.Character = [];
 	Room.Floor = FloorName;
@@ -664,6 +686,7 @@ function PandoraBuildMainHall() {
 
 	// Creates the ground entrance room with a maid
 	PandoraParty = [];
+	/** @type {PandoraBaseRoom} */
 	let Room = {};
 	Room.Character = [];
 	if (InfiltrationMission != "CatBurglar") {
@@ -677,6 +700,7 @@ function PandoraBuildMainHall() {
 	Room.Floor = "Ground";
 	Room.Background = "Entrance";
 	Room.PathMap = [];
+	/** @type {PandoraSpecialRoom} */
 	let ExitRoom = { Floor: "Exit" };
 	Room.DirectionMap = [];
 
@@ -952,6 +976,8 @@ function PandoraRecruitBoost() {
 
 /**
  * Starts the player punishment process and jumps to the punishment Dominatrix
+ * @param {Boolean} FromKidnapper
+ * @param {string} [FixIntro]
  * @returns {void} - Nothing
  */
 function PandoraPunishmentIntro(FromKidnapper, FixIntro) {
@@ -984,6 +1010,7 @@ function PandoraRestrainPlayer() {
 
 /**
  * When the player purchases a drink from the maid, she can heal by the money value
+ * @param {number} Money
  * @returns {void} - Nothing
  */
 function PandoraBuyMaidDrink(Money) {
@@ -1029,6 +1056,7 @@ function PandoraQuizNext() {
 
 /**
  * When the player gives an answer to the guard quiz, the guard will give a visual hint if the answer is incorrect
+ * @param {string} Answer
  * @returns {void} - Nothing
  */
 function PandoraQuizAnswer(Answer) {
@@ -1059,6 +1087,7 @@ function PandoraPlayerUngag() {
 
 /**
  * Sets the punishment sentence in minutes
+ * @param {string|number} Minutes
  * @returns {void} - Nothing
  */
 function PandoraPunishmentSentence(Minutes) {

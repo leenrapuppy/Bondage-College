@@ -341,7 +341,7 @@ function DialogCanViewRules() { return (Player.Ownership != null) && (Player.Own
  * @param {string} Minute - The number of minutes to compare
  * @returns {boolean} - TRUE if the player has enough minutes
  */
-function DialogGGTSMinuteGreater(Minute) { return ((AsylumGGTSGetLevel(Player) >= 6) && (Math.floor(Player.Game.GGTS.Time / 60000) >= parseInt(Minute))); }
+function DialogGGTSMinuteGreater(Minute) { return AsylumGGTSHasMinutes(parseInt(Minute)); }
 
 /**
  * Checks if the player can spend GGTS minutes on herself, for GGTS level 6 and up
@@ -356,7 +356,7 @@ function DialogGGTSCanSpendMinutes() { return (AsylumGGTSIsEnabled() && (AsylumG
  * @returns {void}
  */
 function DialogGGTSAction(Action, Minute) {
-	AsylumGGTSDialogAction(Action, Minute);
+	AsylumGGTSDialogAction(Action, parseInt(Minute));
 }
 
 /**
@@ -364,7 +364,7 @@ function DialogGGTSAction(Action, Minute) {
  * @returns {boolean} - TRUE if GGTS can unlock
  */
 function DialogGGTSCanUnlock() {
-	return (ChatRoomPlayerIsAdmin() && (CurrentScreen == "ChatRoom") && DialogGGTSMinuteGreater(30) && (ChatRoomData != null) && ChatRoomData.Locked);
+	return (ChatRoomPlayerIsAdmin() && (CurrentScreen == "ChatRoom") && AsylumGGTSHasMinutes(30) && (ChatRoomData != null) && ChatRoomData.Locked);
 }
 
 /**
@@ -372,7 +372,7 @@ function DialogGGTSCanUnlock() {
  * @returns {boolean} - TRUE if GGTS can unlock
  */
 function DialogGGTSCanGetHelmet() {
-	return (DialogGGTSMinuteGreater(200) && !InventoryAvailable(Player, "FuturisticHelmet", "ItemHood"));
+	return (AsylumGGTSHasMinutes(200) && !InventoryAvailable(Player, "FuturisticHelmet", "ItemHood"));
 }
 
 /**
@@ -484,8 +484,9 @@ function DialogHasKey(C, Item) {
 
 	if (lock && lock.Asset.ExclusiveUnlock) return true;
 
-	var UnlockName = "Unlock-" + Item.Asset.Name;
-	if ((Item.Property != null) && (Item.Property.LockedBy != null)) UnlockName = "Unlock-" + Item.Property.LockedBy;
+	let UnlockName = /** @type {EffectName} */("Unlock-" + Item.Asset.Name);
+	if ((Item.Property != null) && (Item.Property.LockedBy != null))
+		UnlockName = /** @type {EffectName} */("Unlock-" + Item.Property.LockedBy);
 	for (let I = 0; I < Player.Inventory.length; I++)
 		if (InventoryItemHasEffect(Player.Inventory[I], UnlockName)) {
 			if (lock != null) {
@@ -927,10 +928,11 @@ function DialogMenuButtonBuild(C) {
 			if (IsItemLocked && DialogCanUnlock(C, Item) && InventoryAllow(C, Item.Asset) && !IsGroupBlocked && ((C.ID != 0) || Player.CanInteract()))
 				DialogMenuButton.push("Remove");
 
-			if (IsItemLocked && ((!Player.IsBlind() || (Item.Property && DialogCanInspectLockWhileBlind(Item.Property.LockedBy))) || (InventoryAllow(
-				C, Item.Asset) && !IsGroupBlocked && !InventoryGroupIsBlocked(Player, "ItemHands") && InventoryItemIsPickable(Item))  && (C.ID == 0 || (C.OnlineSharedSettings && !C.OnlineSharedSettings.DisablePickingLocksOnSelf)))
-				&& (Item.Property != null) && (Item.Property.LockedBy != null) && (Item.Property.LockedBy != "")
-			) {
+			if (IsItemLocked
+				&& ((!Player.IsBlind() || (Item.Property && DialogCanInspectLockWhileBlind(Item.Property.LockedBy)))
+					|| (InventoryAllow(C, Item.Asset) && !IsGroupBlocked && !InventoryGroupIsBlocked(Player, "ItemHands") && InventoryItemIsPickable(Item))
+					&& (C.ID == 0 || (C.OnlineSharedSettings && !C.OnlineSharedSettings.DisablePickingLocksOnSelf)))
+				&& (Item.Property != null) && (Item.Property.LockedBy != null) && (Item.Property.LockedBy != "")) {
 				DialogMenuButton.push("LockMenu");
 			}
 			if ((Item != null) && (C.ID == 0) && (!Player.CanInteract() || (IsItemLocked && !DialogCanUnlock(C, Item))) && (DialogMenuButton.indexOf("Unlock") < 0) && InventoryAllow(C, Item.Asset) && !IsGroupBlocked)
@@ -1557,7 +1559,7 @@ function DialogItemClick(ClickItem) {
 
 	// If the item can unlock another item or simply show dialog text (not wearable)
 	if (InventoryAllow(C, ClickItem.Asset))
-		if (InventoryItemHasEffect(ClickItem, "Unlock-" + CurrentItem.Asset.Name))
+		if (InventoryItemHasEffect(ClickItem, /** @type {EffectName} */("Unlock-" + CurrentItem.Asset.Name)))
 			StruggleProgressStart(C, CurrentItem, null);
 		else if ((CurrentItem.Asset.Name == ClickItem.Asset.Name) && CurrentItem.Asset.Extended)
 			DialogExtendItem(CurrentItem);
@@ -1800,7 +1802,7 @@ function DialogFindNextSubMenu() {
 
 /**
  * Finds and set an available character sub menu.
- * @param {string} The name of the sub menu, see DialogSelfMenuOptions.
+ * @param {string} MenuName - The name of the sub menu, see DialogSelfMenuOptions.
  * @returns {boolean} - True, when the sub menu is found and available and was switched to. False otherwise and nothing happened.
  */
 function DialogFindSubMenu(MenuName) {
@@ -1819,7 +1821,7 @@ function DialogFindSubMenu(MenuName) {
 
 /**
  * Finds and sets a facial expression group. The expression sub menu has to be already opened.
- * @param {string} The name of the expression group, see XXX.
+ * @param {string} ExpressionGroup - The name of the expression group, see XXX.
  * @returns {boolean} True, when the expression group was found and opened. False otherwise and nothing happens.
  */
 function DialogFindFacialExpressionMenuGroup(ExpressionGroup) {
@@ -1999,7 +2001,9 @@ function DialogDrawItemMenu(C) {
 	// Draws the color picker
 	if (!FocusItem && DialogColor != null) {
 		ElementPosition("InputColor", 1450, 65, 300);
-		ColorPickerDraw(1300, 145, 675, 830, document.getElementById("InputColor"), function (Color) { DialogChangeItemColor(C, Color); });
+		ColorPickerDraw(1300, 145, 675, 830,
+			/** @type {HTMLInputElement} */(document.getElementById("InputColor")),
+			function (Color) { DialogChangeItemColor(C, Color); });
 		return;
 	} else ColorPickerHide();
 
