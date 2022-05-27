@@ -1820,6 +1820,15 @@ var AssetFemale3DCG = [
 					{Name: "DotsRight2", HasType: false, AllowTypes:["DotsBoth", "DotsRight"], CopyLayerColor: "Freckles2"},
 				]
 			},
+			{
+				Name: "HeadHarness", Value: 20, BuyGroup: "Headharness", Left: 150, Top: 22, DefaultColor: ["#383838"], Extended:true,
+				Layer:[
+					{Name: "BaseMetal", HasType: false, AllowTypes:["","Heavy"], AllowColorize: false},
+					{Name: "Base", HasType: false, AllowTypes:["","Heavy"]},
+					{Name: "ExtraMetal", HasType: false, AllowTypes:["Heavy"], AllowColorize: false},
+					{Name: "Extra", HasType: false, AllowTypes:["Heavy"], CopyLayerColor: "Base"},
+				],
+			}, //HeadHarness
 		],
 		Color: ["Default", "#303030", "#808080", "#e0e0e0", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"],
 	},

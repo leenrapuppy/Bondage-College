@@ -4585,6 +4585,21 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //Glitter
+		HeadHarness: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options:[
+					{
+						Name: "Simple",
+						Property: {Type: null,}
+					},
+					{
+						Name: "Heavy",
+						Property: {Type: "Extra",}
+					},
+				],
+			},
+		}, //HeadHarness
 	}, // Mask
 	ItemLegs: {
 		DuctTape: {
