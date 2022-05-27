@@ -7,7 +7,7 @@ var InfiltrationMission = "";
 var InfiltrationMissionType = ["Rescue", "Kidnap", "Retrieve", "CatBurglar", "ReverseMaid"];
 var InfiltrationObjectType = ["USBKey", "BDSMPainting", "GoldCollar", "GeneralLedger", "SilverVibrator", "DiamondRing", "SignedPhoto"];
 /** @type {InfiltrationMissionTarget} */
-var InfiltrationTarget = null;
+var InfiltrationTarget = {};
 var InfiltrationCollectRansom = false;
 /** @type {NPCCharacter} */
 var InfiltrationKidnapper = null;
