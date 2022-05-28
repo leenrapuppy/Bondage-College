@@ -34,9 +34,15 @@ var DialogActivityMode = false;
 var DialogActivity = [];
 /** @type {Record<"Enabled" | "Equipped" | "BothFavoriteUsable" | "TargetFavoriteUsable" | "PlayerFavoriteUsable" | "Usable" | "TargetFavoriteUnusable" | "PlayerFavoriteUnusable" | "Unusable" | "Blocked", DialogSortOrder>} */
 var DialogSortOrder = {
-	Enabled: 1, Equipped: 2, BothFavoriteUsable: 3,
-	TargetFavoriteUsable: 4, PlayerFavoriteUsable: 5, Usable: 6,
-	TargetFavoriteUnusable: 7, PlayerFavoriteUnusable: 8, Unusable: 9,
+	Enabled: 1, 
+	Equipped: 2, 
+	BothFavoriteUsable: 3,
+	TargetFavoriteUsable: 4, 
+	PlayerFavoriteUsable: 5,
+	Usable: 6,
+	TargetFavoriteUnusable: 7, 
+	PlayerFavoriteUnusable: 8, 
+	Unusable: 9,
 	Blocked: 10
 };
 var DialogSelfMenuSelected = null;
@@ -691,15 +697,25 @@ function DialogInventoryAdd(C, item, isWorn, sortOrder) {
 		// Do not show keys if they are in the deposit
 		if (LogQuery("KeyDeposit", "Cell") && InventoryIsKey(item)) return;
 
-		// Make sure we do not duplicate the non-blocked item
+		// Make sure we do not duplicate the item in the list, including crafted items
 		for (let I = 0; I < DialogInventory.length; I++)
-			if ((DialogInventory[I].Asset.Group.Name == asset.Group.Name) && (DialogInventory[I].Asset.Name == asset.Name))
+			if ((DialogInventory[I].Asset.Group.Name == asset.Group.Name) && (DialogInventory[I].Asset.Name == asset.Name)) {
+				if ((item.Craft == null) && (DialogInventory[I].Craft != null)) break;
+				if ((item.Craft != null) && (DialogInventory[I].Craft == null)) break;
+				if ((item.Craft != null) && (DialogInventory[I].Craft != null) && (item.Craft.Name != DialogInventory[I].Craft.Name)) break;
 				return;
+			}
 	}
 
+	// Adds the item to the selection list
 	const inventoryItem = DialogInventoryCreateItem(C, item, isWorn, sortOrder);
-
+	if (item.Craft != null) {
+		inventoryItem.Craft = item.Craft;
+		if (inventoryItem.SortOrder.charAt(0) == DialogSortOrder.Usable.toString()) inventoryItem.SortOrder = DialogSortOrder.PlayerFavoriteUsable.toString() + item.Asset.Description;
+		if (inventoryItem.SortOrder.charAt(0) == DialogSortOrder.Unusable.toString()) inventoryItem.SortOrder = DialogSortOrder.PlayerFavoriteUnusable.toString() + item.Asset.Description;
+	}
 	DialogInventory.push(inventoryItem);
+
 }
 
 /**
@@ -1059,25 +1075,29 @@ function DialogInventoryBuild(C, Offset, redrawPreviews = false) {
 
 			// Second, we add everything from the victim inventory
 			for (let A = 0; A < C.Inventory.length; A++)
-				if ((C.Inventory[A].Asset != null) && (C.Inventory[A].Asset.Group.Name == C.FocusGroup.Name) && C.Inventory[A].Asset.DynamicAllowInventoryAdd(C)) {
+				if ((C.Inventory[A].Asset != null) && (C.Inventory[A].Asset.Group.Name == C.FocusGroup.Name) && C.Inventory[A].Asset.DynamicAllowInventoryAdd(C))
 					DialogInventoryAdd(C, C.Inventory[A], false);
-				}
 
 			// Third, we add everything from the player inventory if the player isn't the victim
 			if (C.ID != 0)
 				for (let A = 0; A < Player.Inventory.length; A++)
-					if ((Player.Inventory[A].Asset != null) && (Player.Inventory[A].Asset.Group.Name == C.FocusGroup.Name) && Player.Inventory[A].Asset.DynamicAllowInventoryAdd(C)) {
+					if ((Player.Inventory[A].Asset != null) && (Player.Inventory[A].Asset.Group.Name == C.FocusGroup.Name) && Player.Inventory[A].Asset.DynamicAllowInventoryAdd(C))
 						DialogInventoryAdd(C, Player.Inventory[A], false);
-					}
 
 			// Fourth, we add all free items (especially useful for clothes), or location-specific always available items
-			for (let A = 0; A < Asset.length; A++) {
-				if (Asset[A].Group.Name === C.FocusGroup.Name && Asset[A].DynamicAllowInventoryAdd(C)) {
-					if (Asset[A].Value === 0 || (Asset[A].AvailableLocations.includes("Asylum") && (CurrentScreen.startsWith("Asylum") || ChatRoomSpace === "Asylum"))) {
+			for (let A = 0; A < Asset.length; A++)
+				if (Asset[A].Group.Name === C.FocusGroup.Name && Asset[A].DynamicAllowInventoryAdd(C))
+					if (Asset[A].Value === 0 || (Asset[A].AvailableLocations.includes("Asylum") && (CurrentScreen.startsWith("Asylum") || ChatRoomSpace === "Asylum")))
 						DialogInventoryAdd(C, { Asset: Asset[A] }, false);
-					}
-				}
-			}
+
+			// Fifth, we add all crafted items that matches that slot
+			if (Player.Crafting != null)
+				for (let Craft of Player.Crafting)
+					if ((Craft.Item != null) && (InventoryAvailable(Player, Craft.Item, C.FocusGroup.Name)))
+						for (let A of Asset)
+							if ((A.Name == Craft.Item) && (A.Group.Name == C.FocusGroup.Name))
+								DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
+
 		}
 
 		// Rebuilds the dialog menu and its buttons
@@ -1487,6 +1507,21 @@ function DialogPublishAction(C, ClickItem) {
 }
 
 /**
+ * Returns TRUE if the clicked item can be processed, make sure it's not the same item as the one already used
+ * @param {Object} CurrentItem - The item currently equiped
+ * @param {Object} ClickItem - The clicked item
+ * @returns {boolean} - TRUE when we can process
+ */
+function DialogAllowItemClick(CurrentItem, ClickItem) {
+	if (CurrentItem == null) return true;
+	if (CurrentItem.Asset.Name != ClickItem.Asset.Name) return true;
+	if ((CurrentItem.Craft == null) && (ClickItem.Craft != null)) return true;
+	if ((CurrentItem.Craft != null) && (ClickItem.Craft == null)) return true;
+	if ((CurrentItem.Craft != null) && (ClickItem.Craft != null) && (CurrentItem.Craft.Name != ClickItem.Craft.Name)) return true;
+	return false;
+}
+
+/**
  * Handles clicks on an item
  * @param {DialogInventoryItem} ClickItem - The item that is clicked
  * @returns {void} - Nothing
@@ -1524,12 +1559,15 @@ function DialogItemClick(ClickItem) {
 	if ((CurrentItem == null) || !InventoryItemHasEffect(CurrentItem, "Lock", true)) {
 		if (!InventoryGroupIsBlocked(C, null, true) && (!InventoryGroupIsBlocked(C) || !ClickItem.Worn))
 			if (InventoryAllow(C, ClickItem.Asset)) {
+
+				// If the room allows the item
 				if (!InventoryChatRoomAllow(ClickItem.Asset.Category)) {
 					DialogSetText("BlockedByRoom");
 					return;
 				}
 
-				if ((CurrentItem == null) || (CurrentItem.Asset.Name != ClickItem.Asset.Name)) {
+				// Make sure we do not use the same item
+				if (DialogAllowItemClick(CurrentItem, ClickItem)) {
 					if (ClickItem.Asset.Wear) {
 
 						// Check if selfbondage is allowed for the item if used on self
@@ -1553,6 +1591,7 @@ function DialogItemClick(ClickItem) {
 				}
 				else if ((CurrentItem.Asset.Name == ClickItem.Asset.Name) && CurrentItem.Asset.Extended)
 					DialogExtendItem(CurrentItem);
+
 			}
 		return;
 	}
@@ -2037,11 +2076,10 @@ function DialogDrawItemMenu(C) {
 			const Hover = MouseIn(X, Y, 225, 275) && !CommonIsMobile;
 			const Background = AppearanceGetPreviewImageColor(C, Item, Hover);
 
-			if (Item.Hidden) {
+			if (Item.Hidden)
 				DrawPreviewBox(X, Y, "Icons/HiddenItem.png", Item.Asset.DynamicDescription(Player), { Background });
-			} else {
-				DrawAssetPreview(X, Y, Item.Asset, { C: Player, Background, Vibrating: Item.Vibrating, Icons: Item.Icons });
-			}
+			else
+				DrawAssetPreview(X, Y, Item.Asset, { C: Player, Background, Vibrating: Item.Vibrating, Icons: Item.Icons, Craft: Item.Craft });
 
 			X = X + 250;
 			if (X > 1800) {

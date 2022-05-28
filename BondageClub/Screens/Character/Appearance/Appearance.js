@@ -743,6 +743,7 @@ function AppearanceGetPreviewImageColor(C, item, hover) {
 		else if (item.Worn) return "pink";
 		else if (Blocked) return "red";
 		else if (Unusable) return "gray";
+		else if ((item.Craft != null) && (item.Craft.Name != null)) return "#FFFFAF";
 		else return "white";
 	}
 }
