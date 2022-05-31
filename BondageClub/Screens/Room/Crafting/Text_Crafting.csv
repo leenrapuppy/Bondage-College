@@ -11,7 +11,7 @@ SelectLock,Select a lock to use with your PropertyName AssetDescription.
 SelectName,Enter a name and description for your PropertyName AssetDescription.
 EnterName,Name of the crafted item
 EnterDescription,Engrave a description
-EnterColor,Color schema (Experimental)
+EnterColor,Color schema (Use commas to split colors)
 EmptySlot,Empty
 PropertyNormal,Normal
 PropertyLarge,Large

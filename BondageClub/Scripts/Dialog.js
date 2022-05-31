@@ -48,6 +48,7 @@ var DialogSortOrder = {
 var DialogSelfMenuSelected = null;
 var DialogLeaveDueToItem = false; // This allows dynamic items to call DialogLeave() without crashing the game
 var DialogLockMenu = false;
+var DialogCraftingMenu = false;
 var DialogLentLockpicks = false;
 var DialogGamingPreviousRoom = "";
 var DialogGamingPreviousModule = "";
@@ -632,6 +633,7 @@ function DialogLeaveItemMenu(resetPermissionsMode = true) {
 	DialogInventory = null;
 	StruggleProgress = -1;
 	DialogLockMenu = false;
+	DialogCraftingMenu = false;
 	StruggleLockPickOrder = null;
 	DialogColor = null;
 	DialogMenuButton = [];
@@ -932,7 +934,12 @@ function DialogMenuButtonBuild(C) {
 				DialogMenuButton.push(LockBlockedOrLimited ? "InspectLockDisabled" : "InspectLock");
 			}
 
+		} else if (DialogCraftingMenu) {
+
+			DialogMenuButton.push("CraftingCancel");
+
 		} else {
+
 			if ((DialogInventory != null) && (DialogInventory.length > 12) && ((Player.CanInteract() && !IsGroupBlocked) || DialogItemPermissionMode)) {
 				DialogMenuButton.push("Next");
 				DialogMenuButton.push("Prev");
@@ -951,8 +958,12 @@ function DialogMenuButtonBuild(C) {
 				&& (Item.Property != null) && (Item.Property.LockedBy != null) && (Item.Property.LockedBy != "")) {
 				DialogMenuButton.push("LockMenu");
 			}
+
 			if ((Item != null) && (C.ID == 0) && (!Player.CanInteract() || (IsItemLocked && !DialogCanUnlock(C, Item))) && (DialogMenuButton.indexOf("Unlock") < 0) && InventoryAllow(C, Item.Asset) && !IsGroupBlocked)
 				DialogMenuButton.push("Struggle");
+
+			if ((Item != null) && (Item.Craft != null))
+				DialogMenuButton.push("Crafting");
 
 			// If the Asylum GGTS controls the item, we show a disabled button and hide the other buttons
 			if (AsylumGGTSControlItem(C, Item)) {
@@ -1411,7 +1422,6 @@ function DialogMenuButtonClick() {
 				return;
 			}
 
-
 			// When the user cancels out of lock menu, we recall the original color
 			else if (Item && DialogMenuButton[I] == "LockCancel") {
 				DialogLockMenu = false;
@@ -1419,13 +1429,27 @@ function DialogMenuButtonClick() {
 				DialogMenuButtonBuild(C);
 				return;
 			}
+
 			// When the user selects the lock menu, we enter
 			else if (Item && DialogMenuButton[I] == "LockMenu") {
 				DialogLockMenu = true;
 				DialogMenuButtonBuild(C);
 				return;
 			}
+			
+			// When the user selects the lock menu, we enter
+			else if (Item && DialogMenuButton[I] == "Crafting") {
+				DialogCraftingMenu = true;
+				DialogMenuButtonBuild(C);
+				return;
+			}
 
+			// When the user cancels out of lock menu, we recall the original color
+			else if (Item && DialogMenuButton[I] == "CraftingCancel") {
+				DialogCraftingMenu = false;
+				DialogMenuButtonBuild(C);
+				return;
+			}
 
 			// When the user wants to select a sexual activity to perform
 			else if (DialogMenuButton[I] == "Activity") {
@@ -1717,7 +1741,7 @@ function DialogClick() {
 			if ((MouseX >= 1000) && (MouseX < 2000) && (MouseY >= 15) && (MouseY <= 105)) DialogMenuButtonClick();
 
 			// If the user clicks on one of the items
-			if ((MouseX >= 1000) && (MouseX <= 1975) && (MouseY >= 125) && (MouseY <= 1000) && ((DialogItemPermissionMode && (Player.FocusGroup != null)) || (Player.CanInteract() && !InventoryGroupIsBlocked(C, null, true))) && (StruggleProgress < 0 && !StruggleLockPickOrder) && (DialogColor == null)) {
+			if ((MouseX >= 1000) && (MouseX <= 1975) && (MouseY >= 125) && (MouseY <= 1000) && !DialogCraftingMenu && ((DialogItemPermissionMode && (Player.FocusGroup != null)) || (Player.CanInteract() && !InventoryGroupIsBlocked(C, null, true))) && (StruggleProgress < 0 && !StruggleLockPickOrder) && (DialogColor == null)) {
 				// For each items in the player inventory
 				let X = 1000;
 				let Y = 125;
@@ -1898,6 +1922,7 @@ function DialogExtendItem(Item, SourceItem) {
 	StruggleProgress = -1;
 	StruggleLockPickOrder = null;
 	DialogLockMenu = false;
+	DialogCraftingMenu = false;
 	DialogColor = null;
 	DialogFocusItem = Item;
 	DialogFocusSourceItem = SourceItem;
@@ -2011,16 +2036,30 @@ function DialogIsMenuButtonDisabled(ButtonName) {
 
 /**
  * Draw the item menu dialog
+ * @param {Character} C - The character on which the item is used
+ * @param {Object} Item - The item that was used
+ * @returns {void} - Nothing
+ */
+function DialogDrawCrafting(C, Item) {
+	if ((C == null) || (Item == null) || (Item.Craft == null)) return;
+	DrawTextWrap(DialogFind(Player, "CraftedItemProperties"), 1000, 0, 975 - DialogMenuButton.length * 110, 125, "White", null, 3);
+	if ((Item.Craft.MemberName != null) && (Item.Craft.MemberNumber != null))
+		DrawTextWrap(DialogFind(Player, "CraftingMember").replace("MemberName", Item.Craft.MemberName).replace("MemberNumber", Item.Craft.MemberNumber.toString()), 1050, 250, 900, 125, "White", null, 3);
+	if (Item.Craft.Name != null)
+		DrawTextWrap(DialogFind(Player, "CraftingName").replace("CraftName", Item.Craft.Name), 1050, 500, 900, 125, "White", null, 3);
+	if (Item.Craft.Description != null)
+		DrawTextWrap(DialogFind(Player, "CraftingDescription").replace("CraftDescription", Item.Craft.Description), 1050, 750, 900, 125, "White", null, 3);
+}
+
+/**
+ * Draw the item menu dialog
  * @param {Character} C - The character for whom the activity selection dialog is drawn. That can be the player or another character.
  * @returns {void} - Nothing
  */
 function DialogDrawItemMenu(C) {
 
 	const FocusItem = InventoryGet(C, C.FocusGroup.Name);
-
-	if (DialogColor != null && FocusItem) {
-		return ItemColorDraw(C, C.FocusGroup.Name, 1200, 25, 775, 950, true);
-	}
+	if (DialogColor != null && FocusItem) return ItemColorDraw(C, C.FocusGroup.Name, 1200, 25, 775, 950, true);
 
 	// Gets the default text that will reset after 5 seconds
 	if (DialogTextDefault == "") DialogTextDefault = DialogFindPlayer("SelectItemGroup").replace("GroupName", C.FocusGroup.Description.toLowerCase());
@@ -2028,7 +2067,7 @@ function DialogDrawItemMenu(C) {
 
 	// Draws the top menu text & icons
 	if (DialogMenuButton.length === 0) DialogMenuButtonBuild(CharacterGetCurrent());
-	if ((DialogColor == null) && Player.CanInteract() && (StruggleProgress < 0 && !StruggleLockPickOrder) && !InventoryGroupIsBlocked(C) && DialogMenuButton.length < 8) DrawTextWrap((!DialogItemPermissionMode) ? DialogText : DialogFind(Player, "DialogPermissionMode"), 1000, 0, 975 - DialogMenuButton.length * 110, 125, "White", null, 3);
+	if ((DialogColor == null) && Player.CanInteract() && (StruggleProgress < 0 && !StruggleLockPickOrder) && !DialogCraftingMenu && !InventoryGroupIsBlocked(C) && DialogMenuButton.length < 8) DrawTextWrap((!DialogItemPermissionMode) ? DialogText : DialogFind(Player, "DialogPermissionMode"), 1000, 0, 975 - DialogMenuButton.length * 110, 125, "White", null, 3);
 	for (let I = DialogMenuButton.length - 1; I >= 0; I--) {
 		const ButtonColor = DialogGetMenuButtonColor(DialogMenuButton[I]);
 		const ButtonImage = DialogGetMenuButtonImage(DialogMenuButton[I], FocusItem);
@@ -2036,6 +2075,9 @@ function DialogDrawItemMenu(C) {
 		const ButtonDisabled = DialogIsMenuButtonDisabled(DialogMenuButton[I]);
 		DrawButton(1885 - I * 110, 15, 90, 90, "", ButtonColor, "Icons/" + ButtonImage + ".png", ButtonHoverText, ButtonDisabled);
 	}
+
+	// Draws the crafting properties control
+	if (DialogCraftingMenu && (FocusItem != null) && (FocusItem.Craft != null)) return DialogDrawCrafting(C, FocusItem);
 
 	// Draws the color picker
 	if (!FocusItem && DialogColor != null) {

@@ -184,7 +184,36 @@ function StruggleProgressAutoDraw(C, Offset) {
 	}
 }
 
+// Applies crafted properties to the item used
+function StruggleApplyCraft(C, GroupName, Craft) {
+
+	// Gets the item first
+	let Item = InventoryGet(C, GroupName);
+	if (Item == null) return;
+
+	// Applies the color schema, separated by commas
+	if ((Craft.Color != null) && (Craft.Color.indexOf(",") > 0)) {
+		Item.Color = Craft.Color.replace(" ", "").split(",");
+		for (let C of Item.Color)
+			if (CommonIsColor(C) == false)
+				C = "default";
+	}
+
+	// Applies a lock to the item
+	if ((Craft.Lock != null) && (Craft.Lock != ""))
+		InventoryLock(C, Item, Craft.Lock, C.MemberNumber, false);
+
+	// Sets the crafter name and ID
+	Item.Craft.MemberNumber = C.MemberNumber;
+	Item.Craft.MemberName = CharacterNickname(C);
+
+	// Refreshes the character
+	CharacterRefresh(C, true);
+
+}
+
 function StruggleProgressCheckEnd(C) {
+
 	// If the operation is completed
 	if (StruggleProgress >= 100) {
 
@@ -197,6 +226,7 @@ function StruggleProgressCheckEnd(C) {
 			let Color = (DialogColorSelect == null) ? "Default" : DialogColorSelect;
 			if ((StruggleProgressNextItem.Craft != null) && CommonIsColor(StruggleProgressNextItem.Craft.Color)) Color = StruggleProgressNextItem.Craft.Color;
 			InventoryWear(C, StruggleProgressNextItem.Asset.Name, StruggleProgressNextItem.Asset.Group.Name, Color, SkillGetWithRatio("Bondage"), Player.MemberNumber, StruggleProgressNextItem.Craft);
+			if (StruggleProgressNextItem.Craft != null) StruggleApplyCraft(C, StruggleProgressNextItem.Asset.Group.Name, StruggleProgressNextItem.Craft);
 		} 
 
 		// The player can use another item right away, for another character we jump back to her reaction
