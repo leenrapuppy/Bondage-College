@@ -1841,7 +1841,62 @@ var AssetFemale3DCGExtended = {
 				],
 				ChatTags: [CommonChatTags.DEST_CHAR, CommonChatTags.TARGET_CHAR],
 			}
-		}
+		},
+		WoodenCuffs: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "HandsFront",
+						Property: {
+							Type: "HandsFront",
+							Difficulty: 2,
+							Effect: ["Block", "Prone"],
+							SetPose: ["BaseUpper"],
+							SelfUnlock: true,
+						},
+					},
+					{
+						Name: "HandsBack",
+						Property: {
+							Type: "HandsBack",
+							Difficulty: 3,
+							Effect: ["Block", "Prone"],
+							SetPose: ["BackCuffs"],
+							SelfUnlock: false,
+						},
+					},
+					{
+						Name: "HandsHead",
+						Property: {
+							Type: "HandsHead",
+							Difficulty: 4,
+							Effect: ["Block", "Prone", "NotSelfPickable"],
+							SetPose: ["Yoked"],
+							SelfUnlock: false,
+						},
+					},
+					{
+						Name: "Hogtied",
+						Prerequisite: ["NotMounted", "NotSuspended"],
+						Property: { 
+							Type: "Hogtied", 
+							Difficulty: 5,
+							Effect: ["Block", "Freeze", "Prone", "NotSelfPickable"], 
+							SetPose: ["Hogtied"], 
+							Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots", "ItemDevices"], 
+							AllowActivityOn: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], 
+							SelfUnlock: false,
+						},
+						Expression: [{ Group: "Blush", Name: "Medium", Timer: 5 }],
+					},
+				],
+				Dialog: {
+					Load: "SelectBondagePosition",
+					TypePrefix: "ItemArmsWoodenCuffs",
+				},
+			},
+		}, // WoodenCuffs
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {
@@ -5096,6 +5151,47 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // Tentacles
+		WoodenCuffs: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "LegsOpen",
+						Property: {
+							Type: null,
+							Difficulty: 2,
+							Effect: ["Freeze", "Prone"],
+							SetPose: ["LegsOpen"],
+							SelfUnlock: true,
+						},
+					},
+					{
+						Name: "Spread",
+						Property: {
+							Type: "Spread2",
+							Difficulty: 3,
+							Effect: ["Freeze", "Prone"],
+							SetPose: ["Spread"],
+							SelfUnlock: true,
+						},
+					},
+					{
+						Name: "LegsClosed",
+						Property: {
+							Type: "Spread3",
+							Difficulty: 3,
+							Effect: ["Freeze", "Prone"],
+							SetPose: ["LegsClosed"],
+							SelfUnlock: true,
+						},
+					},
+				],
+				Dialog: {
+					Load: "SelectBondagePosition",
+					TypePrefix: "ItemFeetWoodenCuffs",
+				},
+			},
+		}, // WoodenCuffs
 	}, // ItemFeet
 	ItemMisc: {
 		ServingTray: {
