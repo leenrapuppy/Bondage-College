@@ -125,6 +125,8 @@ ClothLowerHaremPants2Pantyline,Panty Line
 ClothLowerHaremPants2Buttons,Buttons
 ClothLowerMageSkirtSkirt,Skirt
 ClothLowerMageSkirtWaist,Waistband
+ClothLowerPleatedSkirtDress,Skirt
+ClothLowerPleatedSkirtStripe,Waistband
 ClothLowerTutuBelt,Belt
 ClothLowerTutuLayer1,Layer 1
 ClothLowerTutuLayer2,Layer 2
@@ -275,6 +277,12 @@ ItemFeetLeatherAnkleCuffsRings,Rings
 ItemFeetLeatherAnkleCuffsChain,Chain
 ItemFeetMedicalBedRestraintsBase,Bed Straps
 ItemFeetMedicalBedRestraintsStraps,Cuffs
+ItemFeetSturdyLeatherBeltsLowerBelt,Lower Belt
+ItemFeetSturdyLeatherBeltsLowerMetal,Lower Belt
+ItemFeetSturdyLeatherBeltsUpperBelt,Upper Belt
+ItemFeetSturdyLeatherBeltsUpperMetal,Upper Belt
+ItemFeetSturdyLeatherBeltsFeetBelt,Feet Belt
+ItemFeetSturdyLeatherBeltsFeetMetal,Feet Belt
 ItemFeetTentaclesInner,Inner
 ItemFeetTentaclesOuter,Outer
 ItemFeetTentaclesSucker,Suckers
@@ -298,6 +306,10 @@ ItemLegsHobbleSkirtLatex,Skirt
 ItemLegsHobbleSkirtBelts,Belts
 ItemLegsMedicalBedRestraintsBase,Bed Straps
 ItemLegsMedicalBedRestraintsStraps,Cuffs
+ItemLegsSturdyLeatherBeltsLowerBelt,Lower Belt
+ItemLegsSturdyLeatherBeltsLowerMetal,Lower Belt
+ItemLegsSturdyLeatherBeltsUpperBelt,Upper Belt
+ItemLegsSturdyLeatherBeltsUpperMetal,Upper Belt
 ItemLegsTentaclesInner,Inner
 ItemLegsTentaclesOuter,Outer
 ItemLegsTentaclesSucker,Suckers
@@ -437,6 +449,12 @@ ItemArmsCeilingShacklesCuffs,Cuffs
 ItemArmsFuturisticCuffsCuffs,Cuffs
 ItemArmsFuturisticCuffsLock,Lock
 ItemArmsFuturisticCuffsDisplay,Display
+ItemArmsSturdyLeatherBeltsWaistBelt,Waist Belt
+ItemArmsSturdyLeatherBeltsWaistMetal,Waist Belt
+ItemArmsSturdyLeatherBeltsUpperTorsoBelt,Above Breast Belt
+ItemArmsSturdyLeatherBeltsUpperTorsoMetal,Above Breast Belt
+ItemArmsSturdyLeatherBeltsLowerTorsoBelt,Below Breast Belt
+ItemArmsSturdyLeatherBeltsLowerTorsoMetal,Below Breast Belt
 ItemArmsTransportJacketShorts,Shorts
 ItemArmsTransportJacketJacket,Jacket
 ItemArmsTransportJacketText,Text

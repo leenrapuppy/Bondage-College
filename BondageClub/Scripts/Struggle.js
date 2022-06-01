@@ -58,9 +58,9 @@ function StruggleDrawStruggleProgress(C) {
 
 	else {
 		if ((StruggleProgressChoosePrevItem != null) && (StruggleProgressChooseNextItem != null)) {
-			DrawAssetPreview(1200, 150, StruggleProgressChoosePrevItem.Asset);
-			DrawAssetPreview(1575, 150, StruggleProgressChooseNextItem.Asset);
-		} else DrawAssetPreview(1387, 150, (StruggleProgressChoosePrevItem != null) ? StruggleProgressChoosePrevItem.Asset : StruggleProgressChooseNextItem.Asset);
+			DrawAssetPreview(1200, 150, StruggleProgressChoosePrevItem.Asset, { Craft: StruggleProgressChoosePrevItem.Craft });
+			DrawAssetPreview(1575, 150, StruggleProgressChooseNextItem.Asset, { Craft: StruggleProgressChooseNextItem.Craft });
+		} else DrawAssetPreview(1387, 150, (StruggleProgressChoosePrevItem != null) ? StruggleProgressChoosePrevItem.Asset : StruggleProgressChooseNextItem.Asset, { Craft: (StruggleProgressChoosePrevItem != null) ? StruggleProgressChoosePrevItem.Craft : StruggleProgressChooseNextItem.Craft });
 
 
 		DrawText(DialogFindPlayer("ChooseStruggleMethod"), 1500, 550, "White", "Black");
@@ -163,9 +163,9 @@ function StruggleProgressAutoDraw(C, Offset) {
 	if (!Offset) Offset = 0;
 	// Draw one or both items
 	if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null)) {
-		DrawAssetPreview(1200, 250 + Offset, StruggleProgressPrevItem.Asset);
-		DrawAssetPreview(1575, 250 + Offset, StruggleProgressNextItem.Asset);
-	} else DrawAssetPreview(1387, 250 + Offset, (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Asset : StruggleProgressNextItem.Asset);
+		DrawAssetPreview(1200, 250 + Offset, StruggleProgressPrevItem.Asset, { Craft: StruggleProgressPrevItem.Craft });
+		DrawAssetPreview(1575, 250 + Offset, StruggleProgressNextItem.Asset, { Craft: StruggleProgressChooseNextItem.Craft });
+	} else DrawAssetPreview(1387, 250 + Offset, (StruggleProgressPrevItem != null) ? StruggleProgressPrevItem.Asset : StruggleProgressNextItem.Asset, { Craft: (StruggleProgressChoosePrevItem != null) ? StruggleProgressChoosePrevItem.Craft : StruggleProgressChooseNextItem.Craft });
 
 	// Add or subtract to the automatic progression, doesn't move in color picking mode
 	StruggleProgress = StruggleProgress + StruggleProgressAuto;
@@ -184,7 +184,36 @@ function StruggleProgressAutoDraw(C, Offset) {
 	}
 }
 
+// Applies crafted properties to the item used
+function StruggleApplyCraft(C, GroupName, Craft) {
+
+	// Gets the item first
+	let Item = InventoryGet(C, GroupName);
+	if (Item == null) return;
+
+	// Applies the color schema, separated by commas
+	if ((Craft.Color != null) && (Craft.Color.indexOf(",") > 0)) {
+		Item.Color = Craft.Color.replace(" ", "").split(",");
+		for (let C of Item.Color)
+			if (CommonIsColor(C) == false)
+				C = "default";
+	}
+
+	// Applies a lock to the item
+	if ((Craft.Lock != null) && (Craft.Lock != ""))
+		InventoryLock(C, Item, Craft.Lock, C.MemberNumber, false);
+
+	// Sets the crafter name and ID
+	Item.Craft.MemberNumber = C.MemberNumber;
+	Item.Craft.MemberName = CharacterNickname(C);
+
+	// Refreshes the character
+	CharacterRefresh(C, true);
+
+}
+
 function StruggleProgressCheckEnd(C) {
+
 	// If the operation is completed
 	if (StruggleProgress >= 100) {
 
@@ -193,7 +222,12 @@ function StruggleProgressCheckEnd(C) {
 
 		// Removes the item & associated items if needed, then wears the new one
 		InventoryRemove(C, C.FocusGroup.Name);
-		if (StruggleProgressNextItem != null) InventoryWear(C, StruggleProgressNextItem.Asset.Name, StruggleProgressNextItem.Asset.Group.Name, (DialogColorSelect == null) ? "Default" : DialogColorSelect, SkillGetWithRatio("Bondage"), Player.MemberNumber);
+		if (StruggleProgressNextItem != null) {
+			let Color = (DialogColorSelect == null) ? "Default" : DialogColorSelect;
+			if ((StruggleProgressNextItem.Craft != null) && CommonIsColor(StruggleProgressNextItem.Craft.Color)) Color = StruggleProgressNextItem.Craft.Color;
+			InventoryWear(C, StruggleProgressNextItem.Asset.Name, StruggleProgressNextItem.Asset.Group.Name, Color, SkillGetWithRatio("Bondage"), Player.MemberNumber, StruggleProgressNextItem.Craft);
+			if (StruggleProgressNextItem.Craft != null) StruggleApplyCraft(C, StruggleProgressNextItem.Asset.Group.Name, StruggleProgressNextItem.Craft);
+		} 
 
 		// The player can use another item right away, for another character we jump back to her reaction
 		if (C.ID == 0) {

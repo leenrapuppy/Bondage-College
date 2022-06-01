@@ -518,12 +518,12 @@ function ExtendedItemSetOffset(Offset) {
 function ExtendedItemMapChatTagToDictionaryEntry(C, asset, tag) {
 	switch (tag) {
 		case CommonChatTags.SOURCE_CHAR:
-			return { Tag: tag, Text: Player.Name, MemberNumber: Player.MemberNumber };
+			return { Tag: tag, Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber };
 		case CommonChatTags.DEST_CHAR:
 		case CommonChatTags.DEST_CHAR_NAME:
 		case CommonChatTags.TARGET_CHAR:
 		case CommonChatTags.TARGET_CHAR_NAME:
-			return { Tag: tag, Text: C.Name, MemberNumber: C.MemberNumber };
+			return { Tag: tag, Text: CharacterNickname(C), MemberNumber: C.MemberNumber };
 		case CommonChatTags.ASSET_NAME:
 			return { Tag: tag, AssetName: asset.Name };
 		default:

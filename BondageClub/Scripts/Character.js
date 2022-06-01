@@ -1,8 +1,9 @@
 "use strict";
+/** @type Character[] */
 var Character = [];
 var CharacterNextId = 1;
 
-/** @type Map<string, number> */
+/** @type Map<EffectName, number> */
 const CharacterDeafLevels = new Map([
 	["DeafTotal", 4],
 	["DeafHeavy", 3],
@@ -10,7 +11,7 @@ const CharacterDeafLevels = new Map([
 	["DeafLight", 1],
 ]);
 
-/** @type Map<string, number> */
+/** @type Map<EffectName, number> */
 const CharacterBlurLevels = new Map([
 	["BlurTotal", 50],
 	["BlurHeavy", 20],
@@ -160,7 +161,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 			}
 			blindLevel = Math.min(3, blindLevel);
 			// Light sensory deprivation setting limits blindness
-			if (this.GameplaySettings && this.GameplaySettings.SensDepChatLog == "SensDepLight") blindLevel = Math.min(2, blindLevel);
+			if (this.IsPlayer() && this.GameplaySettings && this.GameplaySettings.SensDepChatLog == "SensDepLight") blindLevel = Math.min(2, blindLevel);
 			return blindLevel;
 		},
 		GetBlurLevel: function() {
@@ -208,7 +209,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		IsSlow: function () {
 			return (
 				((this.Effect.indexOf("Slow") >= 0) || (this.Pose.indexOf("Kneel") >= 0)) &&
-				((this.ID != 0) || !this.RestrictionSettings.SlowImmunity)
+				((this.ID != 0) || !/** @type {PlayerCharacter} */(this).RestrictionSettings.SlowImmunity)
 			);
 		},
 		IsEgged: function () {
@@ -546,7 +547,7 @@ function CharacterArchetypeClothes(C, Archetype, ForceColor) {
 /**
  * Loads an NPC into the character array. The appearance is randomized, and a type can be provided to dress them in a given style.
  * @param {string} NPCType - Archetype of the NPC
- * @returns {Character} - The randomly generated NPC
+ * @returns {NPCCharacter} - The randomly generated NPC
  */
 function CharacterLoadNPC(NPCType) {
 

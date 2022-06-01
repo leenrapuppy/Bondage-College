@@ -411,13 +411,16 @@ function InventoryGet(C, AssetGroup) {
 * @param {string | string[]} [ItemColor] - The hex color of the item, can be undefined or "Default"
 * @param {number} [Difficulty] - The difficulty, on top of the base asset difficulty, to assign to the item
 * @param {number} [MemberNumber] - The member number of the character putting the item on - defaults to -1
+* @param {Object} [Craft] - The crafting properties of the item
 */
-function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNumber) {
+function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNumber, Craft) {
 	const A = AssetGet(C.AssetFamily, AssetGroup, AssetName);
 	if (!A) return;
 	CharacterAppearanceSetItem(C, AssetGroup, A, ((ItemColor == null || ItemColor == "Default") && A.DefaultColor != null) ? A.DefaultColor : ItemColor, Difficulty, MemberNumber, false);
 	CharacterRefresh(C, true);
-	InventoryExpressionTrigger(C, InventoryGet(C, AssetGroup));
+	let Item = InventoryGet(C, AssetGroup);
+	if (Craft != null) Item.Craft = Craft;
+	InventoryExpressionTrigger(C, Item);
 }
 
 /**

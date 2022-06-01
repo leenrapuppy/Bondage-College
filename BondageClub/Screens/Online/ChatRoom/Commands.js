@@ -407,11 +407,10 @@ const CommonCommands = [
 				NewExpression = "ShortBreath";
 			} else if (/^(\+|-)$/.test(args)) {
 				AcceptCmd = true;
-				let CurrentBlush = InventoryGet(Player, "Blush")
-				if (CurrentBlush == null || CurrentBlush.Property == null || CurrentBlush.Property.Expression == null) {
-					CurrentBlush = null;
-				} else {
-					CurrentBlush = CurrentBlush.Property.Expression;
+				const Blush = InventoryGet(Player, "Blush");
+				let CurrentBlush = null;
+				if (Blush && Blush.Property && Blush.Property.Expression) {
+					CurrentBlush = Blush.Property.Expression;
 				}
 				let Level = 0;
 				for (let i = 0; i < BlushLevels.length; i++) {

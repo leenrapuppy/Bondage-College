@@ -601,9 +601,11 @@ function LoginResponse(C) {
 			}
 			Player.SavedColors.length = ColorPickerNumSaved;
 
+			// Loads the online lists
 			Player.WhiteList = ((C.WhiteList == null) || !Array.isArray(C.WhiteList)) ? [] : C.WhiteList;
 			Player.BlackList = ((C.BlackList == null) || !Array.isArray(C.BlackList)) ? [] : C.BlackList;
 			Player.FriendList = ((C.FriendList == null) || !Array.isArray(C.FriendList)) ? [] : C.FriendList;
+
 			// Attempt to parse friend names
 			if (typeof C.FriendNames === "string") {
 				try {
@@ -627,6 +629,7 @@ function LoginResponse(C) {
 			LogLoad(C.Log);
 			ReputationLoad(C.Reputation);
 			SkillLoad(C.Skill);
+			CraftingLoadServer(C.Crafting);
 
 			// Calls the preference init to make sure the preferences are loaded correctly
 			PreferenceInitPlayer();

@@ -205,9 +205,8 @@ function ServerDisconnect(data, close = false) {
 
 			// Exits out of the chat room or a sub screen of the chatroom, so we'll be able to get in again when we log back
 			if (ServerPlayerIsInChatRoom()) {
-				RelogChatLog = document.getElementById("TextAreaChatLog").cloneNode(true);
+				RelogChatLog = /** @type {HTMLDivElement} */(document.getElementById("TextAreaChatLog").cloneNode(true));
 				RelogChatLog.id = "RelogChatLog";
-				RelogChatLog.name = "RelogChatLog";
 				RelogInputText = ElementValue("InputChat").trim();
 				ElementRemove("InputChat");
 				ElementRemove("TextAreaChatLog");
