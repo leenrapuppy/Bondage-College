@@ -1012,8 +1012,8 @@ function InventoryIsWorn(C, AssetName, AssetGroup) {
 /**
  * Toggles an item's permission for the player
  * @param {Item} Item - Appearance item to toggle
- * @param {string} Type - Type of the item to toggle
- * @param {boolean} Worn - True if the player is changing permissions for an item they're wearing
+ * @param {string} [Type] - Type of the item to toggle
+ * @param {boolean} [Worn] - True if the player is changing permissions for an item they're wearing
  * @returns {void} - Nothing
  */
 function InventoryTogglePermission(Item, Type, Worn) {
@@ -1093,7 +1093,7 @@ function InventoryIsPermissionLimited(C, AssetName, AssetGroup, AssetType) {
  * Returns TRUE if the item is not limited, if the player is an owner or a lover of the character, or on their whitelist
  * @param {Character} C - The character on which we check the limited permissions for the item
  * @param {Item} Item - The item being interacted with
- * @param {String} ItemType - The asset type to scan
+ * @param {String} [ItemType] - The asset type to scan
  * @returns {Boolean} - TRUE if item is allowed
  */
 function InventoryCheckLimitedPermission(C, Item, ItemType) {

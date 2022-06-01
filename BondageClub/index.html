@@ -432,43 +432,43 @@ function LoseFocus(event) {
 
 <div id="axes" style="display: flex; flex-direction: column;"></div>
 <script>
-    if (ControllerActive == true) {
-        window.addEventListener('gamepadconnected', (event) => {
-            const update = () => {
-                const output = document.getElementById('axes');
-                output.innerHTML = '';
+	if (ControllerActive == true) {
+		window.addEventListener('gamepadconnected', (event) => {
+			const update = () => {
+				const output = document.getElementById('axes');
+				output.innerHTML = '';
 
-                for (const gamepad of navigator.getGamepads()) {
-                    if (!gamepad) continue;
-                    for (const [index, axis] of gamepad.axes.entries()) {
-                        ControllerAxis(gamepad.axes);
-                    }
-                }
-                requestAnimationFrame(update);
-            };
-            update();
-        });
-    }
+				for (const gamepad of navigator.getGamepads()) {
+					if (!gamepad) continue;
+					for (const [index, axis] of gamepad.axes.entries()) {
+						ControllerAxis(gamepad.axes);
+					}
+				}
+				requestAnimationFrame(update);
+			};
+			update();
+		});
+	}
 </script>
 <div id="buttons" style="display: flex; flex-direction: column;"></div>
 <script>
-    if (ControllerActive == true) {
-        window.addEventListener('gamepadconnected', (event) => {
-            const update = () => {
-                const output = document.getElementById('buttons');
-                output.innerHTML = '';
+	if (ControllerActive == true) {
+		window.addEventListener('gamepadconnected', (event) => {
+			const update = () => {
+				const output = document.getElementById('buttons');
+				output.innerHTML = '';
 
-                for (const gamepad of navigator.getGamepads()) {
-                    if (!gamepad) continue;
-                    for (const [index, button] of gamepad.buttons.entries()) {
-                        ControllerButton(gamepad.buttons);
-                    }
-                }
-                requestAnimationFrame(update);
-            };
-            update();
-        });
-    }
+				for (const gamepad of navigator.getGamepads()) {
+					if (!gamepad) continue;
+					for (const [index, button] of gamepad.buttons.entries()) {
+						ControllerButton(gamepad.buttons);
+					}
+				}
+				requestAnimationFrame(update);
+			};
+			update();
+		});
+	}
 </script>
 
 <body style="width:100%; height:100%; background-color:black; margin:0px; padding:0px; overflow:hidden;">

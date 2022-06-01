@@ -593,7 +593,7 @@ function ServerAccountBeep(data) {
 				Message: `${DialogFindPlayer("BeepFrom")} ${data.MemberName} (${data.MemberNumber})`,
 				Timer: CommonTime() + 10000,
 				ChatRoomName: data.ChatRoomName
-			}
+			};
 			if (ServerBeep.ChatRoomName != null)
 				ServerBeep.Message = ServerBeep.Message + " " + DialogFindPlayer("InRoom") + " \"" + ServerBeep.ChatRoomName + "\"" + (data.ChatRoomSpace === "Asylum" ? " " + DialogFindPlayer("InAsylum") : '');
 			if (data.Message) {
@@ -671,10 +671,10 @@ function ServerClickBeep() {
 function ServerOpenFriendList() {
 	DialogLeave();
 	ElementToggleGeneratedElements(CurrentScreen, false);
-	FriendListReturn = { 
-		Screen: CurrentScreen , 
-		Module: CurrentModule, 
-		IsInChatRoom: ServerPlayerIsInChatRoom(), 
+	FriendListReturn = {
+		Screen: CurrentScreen,
+		Module: CurrentModule,
+		IsInChatRoom: ServerPlayerIsInChatRoom(),
 		hasScrolledChat: ServerPlayerIsInChatRoom() && ElementIsScrolledToEnd("TextAreaChatLog")
 	};
 	CommonSetScreen("Character", "FriendList");

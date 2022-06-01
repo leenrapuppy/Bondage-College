@@ -433,7 +433,7 @@ function DrawAssetGroupZone(C, Zone, Zoom, X, Y, HeightRatio, Color, Thickness =
 /**
  * Return a semi-transparent copy of a canvas
  * @param {HTMLCanvasElement} Canvas - source
- * @param {number} Alpha - transparency between 0-1
+ * @param {number} [Alpha] - transparency between 0-1
  * @returns {HTMLCanvasElement} - result
  */
 function DrawAlpha(Canvas, Alpha) {
