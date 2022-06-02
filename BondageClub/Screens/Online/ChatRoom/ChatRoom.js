@@ -2157,6 +2157,7 @@ function ChatRoomCharacterItemUpdate(C, Group) {
 		P.Color = ((Item != null) && (Item.Color != null)) ? Item.Color : "Default";
 		P.Difficulty = (Item != null) ? Item.Difficulty - Item.Asset.Difficulty : SkillGetWithRatio("Bondage");
 		P.Property = ((Item != null) && (Item.Property != null)) ? Item.Property : undefined;
+		P.Craft = ((Item != null) && (Item.Craft != null)) ? Item.Craft : undefined;
 		ServerSend("ChatRoomCharacterItemUpdate", P);
 	}
 }
@@ -3116,9 +3117,10 @@ function ChatRoomSyncItem(data) {
 			}
 
 			if (item) {
-				CharacterAppearanceSetItem(
-					ChatRoomCharacter[C], data.Item.Group, item.Asset, item.Color, item.Difficulty, null, false);
 
+				// Puts the item on the character and apply the craft & property
+				CharacterAppearanceSetItem(ChatRoomCharacter[C], data.Item.Group, item.Asset, item.Color, item.Difficulty, null, false);
+				if (item.Craft != null) InventoryCraft(ChatRoomCharacter[C], data.Item.Group, item.Craft);
 				InventoryGet(ChatRoomCharacter[C], data.Item.Group).Property = item.Property;
 
 				/** @type {AppearanceDiffMap} */

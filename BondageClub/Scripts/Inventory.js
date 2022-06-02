@@ -404,6 +404,41 @@ function InventoryGet(C, AssetGroup) {
 }
 
 /**
+* Applies crafted properties to the item used
+* @param {Character} Target - The character on which the item is used
+* @param {String} GroupName - The name of the asset group to scan
+* @param {Object} Craft - The crafted properties to apply
+* @returns {void}
+*/
+function InventoryCraft(Target, GroupName, Craft) {
+
+	// Gets the item first
+	let Item = InventoryGet(Target, GroupName);
+	if (Item == null) return;
+	if (Item.Craft == null) Item.Craft = Craft;
+
+	// Applies the color schema, separated by commas
+	if ((Craft.Color != null) && (Craft.Color.indexOf(",") > 0)) {
+		Item.Color = Craft.Color.replace(" ", "").split(",");
+		for (let C of Item.Color)
+			if (CommonIsColor(C) == false)
+				C = "default";
+	}
+
+	// Applies a lock to the item
+	if ((Craft.Lock != null) && (Craft.Lock != ""))
+		InventoryLock(Target, Item, Craft.Lock, Target.MemberNumber, false);
+
+	// Sets the crafter name and ID
+	if (Item.Craft.MemberNumber == null) Item.Craft.MemberNumber = Player.MemberNumber;
+	if (Item.Craft.MemberName == null) Item.Craft.MemberName = CharacterNickname(Player);
+
+	// Refreshes the character
+	CharacterRefresh(Target, true);
+
+}
+
+/**
 * Makes the character wear an item on a body area
 * @param {Character} C - The character that must wear the item
 * @param {string} AssetName - The name of the asset to wear
