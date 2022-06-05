@@ -433,6 +433,26 @@ function InventoryCraft(Target, GroupName, Craft) {
 	if (Item.Craft.MemberNumber == null) Item.Craft.MemberNumber = Player.MemberNumber;
 	if (Item.Craft.MemberName == null) Item.Craft.MemberName = CharacterNickname(Player);
 
+	// The properties are only applied on self or NPCs to prevent duplicating the effect
+	if ((Craft.Property != null) && (Target.IsPlayer() || Target.IsNpc())) {
+
+		// The secure property adds 5 to the difficulty rating to struggle out
+		if (Craft.Property === "Secure") {
+			if (Item.Difficulty == null) Item.Difficulty = 5;
+			else Item.Difficulty = Item.Difficulty + 5;
+		}
+
+		// The loose property removes 5 to the difficulty rating to struggle out
+		if (Craft.Property === "Loose") {
+			if (Item.Difficulty == null) Item.Difficulty = -5;
+			else Item.Difficulty = Item.Difficulty - 5;
+		}
+
+		// The decoy property makes it always possible to struggle out
+		if (Craft.Property === "Decoy") Item.Difficulty = -50;
+
+	}
+
 	// Refreshes the character
 	CharacterRefresh(Target, true);
 
