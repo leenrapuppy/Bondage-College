@@ -459,6 +459,21 @@ function InventoryCraft(Target, GroupName, Craft) {
 }
 
 /**
+* Returns the number of items on a character with a specific property
+* @param {Character} C - The character to validate
+* @param {String} Property - The property to count
+* @returns {Number} - The number of times the property is found
+*/
+function InventoryCraftCount(C, Property) {
+	let Count = 0;
+	if ((C != null) && (C.Appearance != null))
+		for (let A of C.Appearance)
+			if ((A.Craft != null) && (A.Craft.Property != null) && (A.Craft.Property == Property))
+				Count++;
+	return Count;
+}
+
+/**
 * Makes the character wear an item on a body area
 * @param {Character} C - The character that must wear the item
 * @param {string} AssetName - The name of the asset to wear
