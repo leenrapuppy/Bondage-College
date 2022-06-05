@@ -160,9 +160,10 @@ function AnimationPurge(C, IncludeAll) {
 	}
 
 	// Clear no longer needed cached canvases
-	GLDrawImageCache.forEach((img, key) => {
-		if (key.startsWith(AnimationDataTypes.Canvas + "__" + + C.AccountName + "__") && !PossibleCanvas.includes(key)) {
-			GLDrawImageCache.delete(key);
+	ImageCache.forEach((img, key) => {
+		let animationKey = AnimationDataTypes.Canvas + "__" + + C.AccountName + "__";
+		if (key.startsWith(animationKey) && !PossibleCanvas.includes(key)) {
+			ImageCache.delete(key);
 		}
 	});
 
