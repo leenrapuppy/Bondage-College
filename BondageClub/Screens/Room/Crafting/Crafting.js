@@ -18,9 +18,9 @@ var CraftingPropertyList = [
 	{ Name: "Decoy", Allow : function(Item) { return true; } },
 	{ Name: "Painful", Allow : function(Item) { return true; } },
 	{ Name: "Comfy", Allow : function(Item) { return true; } },
-	{ Name: "Strong", Allow : function(Item) { return true; } },
-	{ Name: "Flexible", Allow : function(Item) { return true; } },
-	{ Name: "Nimble", Allow : function(Item) { return true; } },
+	{ Name: "Strong", Allow : function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); } },
+	{ Name: "Flexible", Allow : function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); } },
+	{ Name: "Nimble", Allow : function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); } },
 	{ Name: "Arousing", Allow : function(Item) { return CreatingItemHasEffect(Item, ["Egged", "Vibrating"]); } },
 	{ Name: "Dull", Allow : function(Item) { return CreatingItemHasEffect(Item, ["Egged", "Vibrating"]); } }
 ];
@@ -362,7 +362,7 @@ function CraftingItemListBuild() {
 	for (let A = 0; A < Asset.length; A++)
 	CraftingItemList = [];
 	for (let I of Player.Inventory)
-		if ((I.Asset != null) && (I.Asset.Name != null) && (I.Asset.Group != null) && I.Asset.IsRestraint && (I.Asset.Group.Name.substr(0, 4) == "Item") && (I.Asset.Group.Name != "ItemAddon") && (I.Asset.Name.substr(0, 12) != "SpankingToys"))
+		if ((I.Asset != null) && (I.Asset.Name != null) && (I.Asset.Group != null) && (I.Asset.Group.Name.substr(0, 4) == "Item") && (I.Asset.Group.Name != "ItemAddon") && (I.Asset.Name.substr(0, 12) != "SpankingToys"))
 			if ((Search == "") || (I.Asset.Description == null) || (I.Asset.Description.toUpperCase().trim().indexOf(Search) >= 0)) {
 				let Found = false;
 				for (let E of CraftingItemList)
