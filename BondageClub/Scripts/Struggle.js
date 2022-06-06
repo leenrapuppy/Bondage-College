@@ -65,20 +65,20 @@ function StruggleDrawStruggleProgress(C) {
 
 		DrawText(DialogFindPlayer("ChooseStruggleMethod"), 1500, 550, "White", "Black");
 
-
-		if (MouseIn(1387-300, 600, 225, 275)) DrawRect(1387-300, 600, 225, 275, "aqua");
+		if (InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Strong")) DrawRect(1387-300, 600, 225, 275, "Pink");
+		else if (MouseIn(1387-300, 600, 225, 275)) DrawRect(1387-300, 600, 225, 275, "aqua");
 		else DrawRect(1387-300, 600, 225, 275, "white");
 		DrawImageResize("Icons/Struggle/Strength.png", 1389-300, 602, 221, 221);
 		DrawTextFit(DialogFindPlayer("Strength"), 1500-300, 850, 221, "black");
 
-
-		if (MouseIn(1387, 600, 225, 275)) DrawRect(1387, 600, 225, 275, "aqua");
+		if (InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Flexible")) DrawRect(1387, 600, 225, 275, "Pink");
+		else if (MouseIn(1387, 600, 225, 275)) DrawRect(1387, 600, 225, 275, "aqua");
 		else DrawRect(1387, 600, 225, 275, "white");
 		DrawImageResize("Icons/Struggle/Flexibility.png", 1389, 602, 221, 221);
 		DrawTextFit(DialogFindPlayer("Flexibility"), 1500, 850, 221, "black");
 
-
-		if (MouseIn(1387+300, 600, 225, 275)) DrawRect(1387+300, 600, 225, 275, "aqua");
+		if (InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Nimble")) DrawRect(1387+300, 600, 225, 275, "Pink");
+		else if (MouseIn(1387+300, 600, 225, 275)) DrawRect(1387+300, 600, 225, 275, "aqua");
 		else DrawRect(1387+300, 600, 225, 275, "white");
 		DrawImageResize("Icons/Struggle/Dexterity.png", 1389+300, 602, 221, 221);
 		DrawTextFit(DialogFindPlayer("Dexterity"), 1500+300, 850, 221, "black");
@@ -134,9 +134,9 @@ function StruggleClick(Reverse) {
 	else if (StruggleProgressCurrentMinigame == "Flexibility") StruggleFlexibility(Reverse);
 	else if (StruggleProgressCurrentMinigame == "Dexterity") StruggleDexterity(Reverse);
 	else {
-		if (MouseIn(1387-300, 600, 225, 275)) StruggleProgressCurrentMinigame = "Strength";
-		else if (MouseIn(1387, 600, 225, 275)) StruggleProgressCurrentMinigame = "Flexibility";
-		else if (MouseIn(1387+300, 600, 225, 275)) StruggleProgressCurrentMinigame = "Dexterity";
+		if (MouseIn(1387-300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Strong")) StruggleProgressCurrentMinigame = "Strength";
+		else if (MouseIn(1387, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Flexible")) StruggleProgressCurrentMinigame = "Flexibility";
+		else if (MouseIn(1387+300, 600, 225, 275) && !InventoryCraftPropertyIs(StruggleProgressChoosePrevItem, "Nimble")) StruggleProgressCurrentMinigame = "Dexterity";
 
 		if (StruggleProgressCurrentMinigame == "Strength") StruggleStrengthStart(Player, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);
 		else if (StruggleProgressCurrentMinigame == "Flexibility") StruggleFlexibilityStart(Player, StruggleProgressChoosePrevItem, StruggleProgressChooseNextItem);

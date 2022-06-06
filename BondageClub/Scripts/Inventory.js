@@ -474,6 +474,17 @@ function InventoryCraftCount(C, Property) {
 }
 
 /**
+* Returns TRUE if an item as the specified crafted property
+* @param {Item} Item - The item to validate
+* @param {String} Property - The property to check
+* @returns {boolean} - TRUE if the property matches
+*/
+function InventoryCraftPropertyIs(Item, Property) {
+	if ((Item == null) || (Item.Craft == null) || (Item.Craft.Property == null) || (Property == null)) return false;
+	return (Item.Craft.Property == Property);
+}
+
+/**
 * Makes the character wear an item on a body area
 * @param {Character} C - The character that must wear the item
 * @param {string} AssetName - The name of the asset to wear
