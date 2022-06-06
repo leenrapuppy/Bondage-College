@@ -158,6 +158,8 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 				if (this.Effect.includes("BlindHeavy")) blindLevel += 3;
 				else if (this.Effect.includes("BlindNormal")) blindLevel += 2;
 				else if (this.Effect.includes("BlindLight")) blindLevel += 1;
+				if (InventoryCraftCount(this, "Thick") > 0) blindLevel++;
+				if (InventoryCraftCount(this, "Thin") > 0) blindLevel--;
 			}
 			blindLevel = Math.min(3, blindLevel);
 			// Light sensory deprivation setting limits blindness
