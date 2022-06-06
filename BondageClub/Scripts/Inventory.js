@@ -451,6 +451,22 @@ function InventoryCraft(Target, GroupName, Craft) {
 		// The decoy property makes it always possible to struggle out
 		if (Craft.Property === "Decoy") Item.Difficulty = -50;
 
+		// The painful property triggers an expression change
+		if (Craft.Property === "Painful") {
+			CharacterSetFacialExpression(Target, "Blush", "ShortBreath", 10);
+			CharacterSetFacialExpression(Target, "Eyes", "Angry", 10);
+			CharacterSetFacialExpression(Target, "Eyes2", "Angry", 10);
+			CharacterSetFacialExpression(Target, "Eyebrows1", "Angry", 10);
+		}
+
+		// The comfy property triggers an expression change
+		if (Craft.Property === "Comfy") {
+			CharacterSetFacialExpression(Target, "Blush", "Light", 10);
+			CharacterSetFacialExpression(Target, "Eyes", "Horny", 10);
+			CharacterSetFacialExpression(Target, "Eyes2", "Horny", 10);
+			CharacterSetFacialExpression(Target, "Eyebrows1", "Raised", 10);
+		}
+
 	}
 
 	// Refreshes the character
