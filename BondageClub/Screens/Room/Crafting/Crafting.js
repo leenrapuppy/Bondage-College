@@ -1,6 +1,7 @@
 "use strict";
 var CraftingBackground = "CraftingWorkshop";
 var CraftingMode = "Slot";
+var CraftingDestroy = false;
 var CraftingSlot = 0;
 var CraftingOffset = 0;
 var CraftingItemList = [];
@@ -69,15 +70,21 @@ function CraftingRun() {
 
 	// In slot selection mode, we show 20 slots to select from
 	if (CraftingMode == "Slot") {
-		DrawText(TextGet("SelectSlot"), 940, 60, "White", "Black");
+		if (CraftingDestroy) {
+			DrawText(TextGet("SelectDestroy"), 890, 60, "White", "Black");
+			DrawButton(1790, 15, 90, 90, "", "White", "Icons/Cancel.png", TextGet("Cancel"));
+		} else {
+			DrawText(TextGet("SelectSlot"), 890, 60, "White", "Black");
+			DrawButton(1790, 15, 90, 90, "", "White", "Icons/Trash.png", TextGet("Destroy"));
+		}
 		for (let S = 0; S < 20; S++) {
 			let X = (S % 4) * 500 + 15;
 			let Y = Math.floor(S / 4) * 180 + 130;
 			let Craft = Player.Crafting[S];
 			if ((Craft.Name == null) || (Craft.Name == "") || (Craft.Item == null) || (Craft.Item == "")) {
-				DrawButton(X, Y, 470, 140, TextGet("EmptySlot"), "White");
+				DrawButton(X, Y, 470, 140, TextGet("EmptySlot"), CraftingDestroy ? "Pink" : "White");
 			} else {
-				DrawButton(X, Y, 470, 140, "", "White");
+				DrawButton(X, Y, 470, 140, "", CraftingDestroy ? "Pink" : "White");
 				DrawTextFit(Craft.Name, X + 295, Y + 25, 315, "Black", "Silver");
 				for (let Item of Player.Inventory)
 					if (Item.Asset.Name == Craft.Item) {
@@ -182,6 +189,7 @@ function CraftingRun() {
  * @returns {void} - Nothing.
  */
 function CraftingModeSet(NewMode) {
+	CraftingDestroy = false;
 	CraftingMode = NewMode;
 	if (NewMode == "Item") {
 		let Input = ElementCreateInput("InputSearch", "text", "", "50");
@@ -247,18 +255,24 @@ function CraftingClick() {
 
 	// Can always exit or cancel
 	if (MouseIn(1895, 15, 90, 90)) CraftingExit();
-	if (MouseIn(1790, 15, 90, 90)) CraftingModeSet("Slot");
+	if (MouseIn(1790, 15, 90, 90) && (CraftingMode != "Slot")) return CraftingModeSet("Slot");
 
 	// In slot mode, we can select which item slot to craft
 	if (CraftingMode == "Slot") {
+		if (MouseIn(1790, 15, 90, 90)) CraftingDestroy = !CraftingDestroy;
 		for (let S = 0; S < 20; S++) {
 			let X = (S % 4) * 500 + 15;
 			let Y = Math.floor(S / 4) * 180 + 130;
 			if (MouseIn(X, Y, 470, 140)) {
-				CraftingModeSet("Item");
-				CraftingSlot = S;
-				CraftingOffset = 0;
-				CraftingItemListBuild();
+				if (CraftingDestroy) {
+					Player.Crafting[S] = {};
+					CraftingSaveServer();
+				} else {
+					CraftingModeSet("Item");
+					CraftingSlot = S;
+					CraftingOffset = 0;
+					CraftingItemListBuild();
+				}
 			}
 		}
 		return;

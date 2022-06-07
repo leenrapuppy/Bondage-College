@@ -1,10 +1,12 @@
 Exit,Return to the main hall
+Destroy,Destroy an item
 Accept,Craft your item
 Cancel,Cancel
 Previous,Previous
 Next,Next
 NoLock,No lock
 SelectSlot,Select a slot for your new crafted item.  The previous item in that slot will be replaced.
+SelectDestroy,Select a crafted item slot to destroy.
 SelectItem,Select an item to craft or search on your left.
 SelectProperty,Select a property for your AssetDescription.
 SelectLock,Select a lock to use with your PropertyName AssetDescription.
