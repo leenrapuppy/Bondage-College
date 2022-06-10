@@ -11,9 +11,72 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-05-16
-* Last recorded PR: [#3463](https://github.com/Ben987/Bondage-College/pull/3463)
-* Last recorded commit hash: `698d3ebc166029e3640416700005ba555f23ec51`
+* Changelog last updated: 2022-06-10
+* Last recorded PR: [#3490](https://github.com/Ben987/Bondage-College/pull/3490)
+* Last recorded commit hash: `eea1a31ef0f3f799ce37dbd97d88b0816faa136d`
+
+## [R81]
+
+### [Added]
+
+* Nina - Added several new variable height suspension options for the Hemp Rope ([#3417](https://github.com/Ben987/Bondage-College/pull/3417))
+* T-Bone Shark - Added two new handheld items: a Medical Injector and a Potion Bottle ([#3419](https://github.com/Ben987/Bondage-College/pull/3419))
+* Luna - Added a new back hair and front hair with gradient colour support ([#3420](https://github.com/Ben987/Bondage-College/pull/3420))
+* Emily R - Added a new Catsuit Collar item (clothing accessory & necklace) ([#3423](https://github.com/Ben987/Bondage-College/pull/3423))
+* Shion/Estsanatlehi/Ada - Added two new hood items: Kitty Hood & Latex Dog Hood ([#3436](https://github.com/Ben987/Bondage-College/pull/3436), [#3474](https://github.com/Ben987/Bondage-College/pull/3474))
+* Tsubasahane - Added & fixed several Chinese translations ([#3451](https://github.com/Ben987/Bondage-College/pull/3451))
+* DekuWang - Added Chinese translations for the Asylum entrance ([#3459](https://github.com/Ben987/Bondage-College/pull/3459))
+* Titania/Ellie - Added 10 new items ([#3465](https://github.com/Ben987/Bondage-College/pull/3465), [#3424](https://github.com/Ben987/Bondage-College/pull/3424), [#3461](https://github.com/Ben987/Bondage-College/pull/3461))
+  * Crop Top (clothing)
+  * Laurel Top (clothing)
+  * See-through Top (clothing)
+  * Asymmetric Skirt
+  * Elegant Skirt
+  * Ruffled Skirt
+  * Bondage Skirt
+  * Bondage Bra (arm restraint)
+  * Monoheel (foot restraint)
+  * Body Chain Necklace
+* Ellie - Added an icon in most extended item screens to indicate whether or not the item is locked ([#3467](https://github.com/Ben987/Bondage-College/pull/3467))
+* Luna - Added multi-color & lock support to the Wooden Rack ([#3457](https://github.com/Ben987/Bondage-College/pull/3457), [#3475](https://github.com/Ben987/Bondage-College/pull/3475))
+* Aeren - Added multi-color support to the Pleated Skirt ([#3477](https://github.com/Ben987/Bondage-College/pull/3477))
+* Anonymous-WghrYkBGUjBt - Added Chinese translations for Bondage Poker ([#3476](https://github.com/Ben987/Bondage-College/pull/3476), [#3479](https://github.com/Ben987/Bondage-College/pull/3479))
+* Luna - Added a new Head Harness mask item ([#3478](https://github.com/Ben987/Bondage-College/pull/3478))
+* Gnarp - Added several new pose variations to the Wooden Cuffs items ([#3483](https://github.com/Ben987/Bondage-College/pull/3483))
+* Karamel - Added multi-color support and audio to the Sturdy Leather Belts items ([#3482](https://github.com/Ben987/Bondage-College/pull/3482))
+* Gnarp - Added a new hogtie variation to the Leather Cuffs (arm restraint) ([#3486](https://github.com/Ben987/Bondage-College/pull/3486))
+* Da'Inihlus - Added Chinese translations for the Introduction Class ([#3485](https://github.com/Ben987/Bondage-College/pull/3485))
+* Gelmezon - Added Chinese translations for the Asylum meeting room, Asylum therapy room and Maid Cafe ([#3484](https://github.com/Ben987/Bondage-College/pull/3484))
+* Lanarux - Added lots of Russian translations ([#3490](https://github.com/Ben987/Bondage-College/pull/3490))
+
+### [Removed]
+
+* Estsanatlehi - Removed the Leather Whip, Leather Crop, and Vibrating Wand items (these have now been superseded by their handheld toy counterparts) ([#3446](https://github.com/Ben987/Bondage-College/pull/3446))
+
+### [Changed]
+
+* Sekkmer - updated the player title screen to allow pagination and display your current title ([#3470](https://github.com/Ben987/Bondage-College/pull/3470))
+
+### [Fixed]
+
+* Anonymous-WghrYkBGUjBt - Fixed some Chinese translation errors ([#3472](https://github.com/Ben987/Bondage-College/pull/3472))
+* Aeren - Fixed an issue where some letters would get double-garbled with the Nursery Milk equipped ([#3464](https://github.com/Ben987/Bondage-College/pull/3464))
+* Estsanatlehi - Fixed a missing lock asset on the Leather Chastity Belt ([#3480](https://github.com/Ben987/Bondage-College/pull/3480))
+* Estsanatlehi - Fixed an issue where character nicknames would not be displayed for extended item updates ([#3481](https://github.com/Ben987/Bondage-College/pull/3481))
+* Estsanatlehi - Fixed an issue where handheld items could not be used on the vulva slot ([#3489](https://github.com/Ben987/Bondage-College/pull/3489))
+
+### [Technical]
+
+* Ellie - Overhauled `AllowLock` behaviour to permit lockable item variations ([#3450](https://github.com/Ben987/Bondage-College/pull/3450), [#3454](https://github.com/Ben987/Bondage-College/pull/3454))
+* Estsanatlehi - Improved the way that images are cached and loaded ([#2987](https://github.com/Ben987/Bondage-College/pull/2987), [#3487](https://github.com/Ben987/Bondage-College/pull/3487))
+* Technical changes, fixes and improvements:
+  * Ellie - [#3418](https://github.com/Ben987/Bondage-College/pull/3418)
+  * Jomshir - [#3473](https://github.com/Ben987/Bondage-College/pull/3473), [#3460](https://github.com/Ben987/Bondage-College/pull/3460)
+  * Estsanatlehi - [#3448](https://github.com/Ben987/Bondage-College/pull/3448), [#3452](https://github.com/Ben987/Bondage-College/pull/3452)
+
+### [Beta Fixes]
+
+* Nothing... yet
 
 
 ## [R80]
@@ -109,6 +172,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Estsanatlehi - Fixed a bug where the "(Back to rules.)" option would appear twice in the owner rules menu ([#3447](https://github.com/Ben987/Bondage-College/pull/3447))
 * Ellie - Fixed a bug where some items would cause "Invalid appearance update" warning messages in the console when modified ([#3453](https://github.com/Ben987/Bondage-College/pull/3453))
 * Ellie - Fixed an issue where the slime girl would clip through wing items ([#3455](https://github.com/Ben987/Bondage-College/pull/3455))
+* Ellie - Fixed a bug where adjusting the height of the suspended hogtie on the chains would cause locks on them to disappear ([#3466](https://github.com/Ben987/Bondage-College/pull/3466))
 
 
 ## [R79]
@@ -192,7 +256,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
   * Smooth Latex Mask (head)
   * Glitter (clothing accessory & mask)
 * Ayesha - Added a new sleeveless Slim Latex Leotard item (bra & suit slots) ([#3255](https://github.com/Ben987/Bondage-College/pull/3255), [#3268](https://github.com/Ben987/Bondage-College/pull/3268))
-* TheGnarp - Added two new necklace items ([#3232](https://github.com/Ben987/Bondage-College/pull/3232))
+* Gnarp - Added two new necklace items ([#3232](https://github.com/Ben987/Bondage-College/pull/3232))
   * Rope Necklace
   * Tattoo Choker
 
@@ -202,7 +266,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 ### [Changed]
 
-* TheGnarp - Updated the ceiling rope ([#3238](https://github.com/Ben987/Bondage-College/pull/3238))
+* Gnarp - Updated the ceiling rope ([#3238](https://github.com/Ben987/Bondage-College/pull/3238))
 * Pjara Yuzu - Updated the Chinese translations ([#3249](https://github.com/Ben987/Bondage-College/pull/3249))
 * Karamel - Extended the allowed maid uniforms ([#3260](https://github.com/Ben987/Bondage-College/pull/3260))
 * Karamel - Updated the maid cafe to allow access to bound maids for refills ([#3261](https://github.com/Ben987/Bondage-College/pull/3261))
