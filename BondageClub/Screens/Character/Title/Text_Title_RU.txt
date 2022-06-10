@@ -1,43 +1,57 @@
-﻿Select your displayed title
-Выберите заголовок
+﻿Select your displayed name and title
+Выберите отображаемое имя и титул
+Current title: TITLE
+Текущий титул: TITLE
+Nickname (letters and spaces)
+Никнейм (буквы и пробелы)
+Nickname locked by your owner
+Никнейм заблокирован вашей Хозяйкой
 None
-Никто
+Нет
 Mistress
 Госпожа
 Club Slave
-Клуб Рабов
+Клубная рабыня
 Head Maid
-Главная Горничная
+Главная горничная
 Maid
 Горничная
 Bondage Maid
 Бондаж Горничная
 Master Kidnapper
-Мастер-Похититель
+Мастер-похитительница
 Kidnapper
-Похититель
+Похитительница
 Patient
 Пациент
 Permanent Patient
-Постоянный Пациент
+Постоянный пациент
 Escaped Patient
-Сбежавший Пациент
+Сбежавший пациент
 Nurse
 Медсестра
 Doctor
 Доктор
+Lady Luck
+Леди Удача
+Patron
+Покровитель
 College Student
-Студент Колледжа
+Студент колледжа
+Nawashi
+Веревочный художник
+Houdini
+Гудини
 Foal
 Жеребенок
 Farm Horse
-Лошадиная Ферма
+Фермерская лошадь
 Cold Blood Horse
 Хладнокровная Лошадь
 Warm Blood Horse
 Обычная Лошадь
 Hot Blood Horse
-Горячая Лошадь 
+Теплокровная Лошадь
 Wild Mustang
 Дикий Мустанг
 Shining Unicorn
@@ -46,16 +60,44 @@ Flying Pegasus
 Летающий Пегас
 Majestic Alicorn
 Величественный Аликорн
+Mole
+Крот
+Infiltrator
+Лазутчик
+Agent
+Агент
+Operative
+Оперативник
+Superspy
+Супер шпион
+Wizard
+Волшебник
+Magus
+Магус
+Magician
+Фокусник
+Sorcerer
+Колдун
+Sage
+Мудрец
+Oracle
+Оракул
+Witch
+Ведьма
+Warlock
+Чернокнижник
 Little One
-малыш
+Малыш
 Baby
 Младенец
 Diaper Lover
 Любитель Подгузников
 Bondage Baby
-Связывание Ребенка
+Связанный Ребёнок
 Duchess
 Герцогиня
+Switch
+Свитч
 Kitten
 Котёнок
 Puppy
@@ -72,3 +114,11 @@ Angel
 Ангел
 Succubus
 Суккуб
+Good Girl
+Хорошая Девочка
+Good Slave Girl
+Хорошая Рабыня
+Good Slave
+Хороший раб
+Drone
+Дрон

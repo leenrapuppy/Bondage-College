@@ -1,0 +1,149 @@
+###_NPC
+(There's a small wooden drawer.)
+(Есть небольшой деревянный ящик.)
+###_PLAYER
+(Open the first one.)
+(Открыть первую.)
+###_NPC
+(You pull hard on the top drawer, but it doesn't open.  It seems to be stuck.)
+(Вы сильно тянете верхний ящик, но он не открывается. Кажется, он застрял.)
+(You pull hard on the top drawer and it slowly opens.  You find a catsuit and some lingerie.  There's enough room to put more clothes inside.)
+(Вы сильно тянете за верхний ящик, и он медленно открывается. Вы находите кошачий костюм и белье. В нем достаточно места, чтобы положить больше одежды.)
+###_PLAYER
+(Open the second one.)
+(Открыть вторую.)
+###_NPC
+(You pull hard on the second drawer, but it doesn't open.  It seems to be stuck.)
+(Ты сильно тянешь второй ящик, но он не открывается. Кажется, он застрял.)
+(You open the second drawer.  It contains a few latex clothes.)
+(Вы открываете второй ящик. В нем несколько вещей из латекса.)
+###_PLAYER
+(Open the third one.)
+(Открыть третью.)
+###_NPC
+(You pull hard on the third drawer, but it doesn't open.  It seems to be stuck.)
+(Ты сильно дергаешь третий ящик, но он не открывается. Кажется, он застрял.)
+(You open the third drawer.  It contains a few leather cuffs and collars.)
+(Вы открываете третий ящик. В нем несколько кожаных манжет и ошейников.)
+###_PLAYER
+(Leave it.)
+(Оставь это.)
+(Wear the black catsuit.)
+(Наденьте костюм черной кошки.)
+###_NPC
+(You swap your clothes for a black catsuit and shows it to the camera.  You then push hard on the top drawer to close it.)
+(Вы меняете свою одежду на костюм черной кошки и показываете его на камеру. Затем вы сильно толкаете верхний ящик, чтобы закрыть его.)
+###_PLAYER
+(Wear the lingerie.)
+(Надеть нижнее белье.)
+###_NPC
+(You swap your clothes for the lingerie and shows it to the camera.  You then push hard on the top drawer to close it.)
+(Вы меняете одежду на нижнее белье и показываете его на камеру. Затем сильно нажимаете на верхний ящик, чтобы закрыть его.)
+###_PLAYER
+(Strip naked.)
+(Раздеться догола.)
+###_NPC
+(You slowly strip naked for the camera and leave your clothes inside.  You then push hard on the top drawer to close it.)
+(Вы медленно раздеваетесь перед камерой и оставляете свою одежду внутри. Затем вы сильно нажимаете на верхний ящик, чтобы закрыть его.)
+###_PLAYER
+(Close it.)
+(Закрой его.)
+###_NPC
+(You push hard on the top drawer to close it.)
+(Вы сильно нажимаете на верхний ящик, чтобы закрыть его.)
+###_PLAYER
+(Inspect the latex clothes.)
+(Осмотрите латексную одежду.)
+###_NPC
+(The latex clothes are very shiny and smell new.  They seem to have a strange locking mechanism.)
+(Латексная одежда очень блестит и пахнет новой. Кажется, у нее странный механизм блокировки.)
+###_PLAYER
+(Wear the latex corset.)
+(Надеть латексный корсет.)
+###_NPC
+(You put on the latex corset and it seems to lock on you when you attach it.)
+(Вы надеваете латексный корсет, и он, кажется, фиксируется на вас, когда вы его прикрепляете.)
+###_PLAYER
+(Wear the latex ballet heels.)
+(Наденьте латексные балетки.)
+###_NPC
+(You put on the latex ballet heels and it seems to lock on you when you attach it.)
+(Вы надеваете балетки из латекса, и кажется, что они фиксируются на вас, когда вы их прикрепляете.)
+(You close the second drawer.)
+(Вы закрываете второй ящик.)
+###_PLAYER
+(Inspect the restraints.)
+(Осмотрите ограничители.)
+###_NPC
+(The restraints seem pretty strong and smell new.  They seem to have a strange locking mechanism.)
+(Ограничения кажутся довольно прочными и пахнут новыми. Кажется, у них странный механизм блокировки.)
+###_PLAYER
+(Wear the cuffs.)
+(Наденьте манжеты.)
+###_NPC
+(You put on the leather cuffs one by one, hearing a small locking click each time you attach one.)
+(Вы надеваете кожаные манжеты одну за другой и каждый раз слышите тихий запирающий щелчок.)
+###_PLAYER
+(Wear the collar.)
+(Надеть ошейник.)
+###_NPC
+(You put on the leather collar, hearing a small locking click when you attach it.)
+(Вы надеваете кожаный ошейник и слышите тихий запирающий щелчок, когда пристегиваете его.)
+(You close the third drawer.)
+(Вы закрываете третий ящик.)
+(There are a few duster gags in the first drawer.)
+(В первом ящике есть несколько тряпичных кляпов.)
+(There are many dusters in the second drawer.)
+(Во втором ящике много тряпок.)
+(There are a few electric items in the third drawer.)
+(В третьем ящике есть несколько электрических предметов.)
+###_PLAYER
+(Dust the drawer.)
+(Вытрите пыль из ящика.)
+###_NPC
+(You dust the drawer as the camera zooms on your gag.)
+(Вы вытираете пыль из ящика, пока камера фокусируется на вашем кляпе.)
+###_PLAYER
+(Wear the duster gag.)
+(Наденьте пыльник кляп.)
+###_NPC
+(You strap the duster gag around your head as the camera zooms on you.)
+(Вы надеваете пыльник кляп вокруг головы, пока камера приближается к вам.)
+###_PLAYER
+(Leave the duster gag inside.)
+(Оставьте пыльник кляп внутри.)
+###_NPC
+(You slowly remove the duster gag and try not to drool on your outfit.)
+(Вы медленно вытаскиваете пыльник кляп и стараетесь не пускать слюни на свой наряд.)
+(You close the drawer.)
+(Ты закрываешь ящик.)
+###_PLAYER
+(Take a feather duster.)
+(Возьмите метелку из перьев.)
+###_NPC
+(You take a feather duster and caress it in front of the camera.)
+(Вы берете метелку из перьев и гладите ее перед камерой.)
+###_PLAYER
+(Take a long duster.)
+(Возьмите длинный пыльник.)
+###_NPC
+(You take a long duster and caress it in front of the camera.)
+(Вы берете длинный пыльник и гладите его перед камерой.)
+###_PLAYER
+(Leave your item.)
+(Оставьте свой предмет.)
+###_NPC
+(You stare at your item one more time, sigh and slowly put it away.)
+(Вы смотрите на свою вещь еще раз, вздыхаете и медленно убираете ее.)
+###_PLAYER
+(Take an electric toothbrush.)
+(Возьмите электрическую зубную щетку.)
+###_NPC
+(You take an electric toothbrush and turn it on and off for the viewers.)
+(Вы берете электрическую зубную щетку и включаете и выключаете ее для зрителей.)
+###_PLAYER
+(Take a vibrating wand.)
+(Возьмите вибрирующую палочку.)
+###_NPC
+(You take a vibrating wand and turn it on and off for the viewers.)
+(Вы берете вибрирующую палочку и включаете и выключаете ее для зрителей.)

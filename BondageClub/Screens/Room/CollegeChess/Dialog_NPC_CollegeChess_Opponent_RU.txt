@@ -1,0 +1,558 @@
+###_NPC
+(She laughs.)  I guess you don't need to talk to play chess.
+(Смеется.) Думаю, чтобы играть в шахматы, не нужно говорить.
+(She frowns.)  Well done, I did not expect that tactic.  Do you want to play another game?
+(Она хмурится.) Молодец, я не ожидала такой тактики. Вы хотите сыграть в другую игру?
+(She cheers.)  Alright!  I can teach you some tricks if you want to play another game.
+(Она радуется.) Хорошо! Я могу научить вас некоторым трюкам, если вы хотите сыграть в другую игру.
+(She nods.)  That was a good game.  We are at the same level.  Do you want to play another game?
+(Она кивает.) Это была хорошая игра. Мы на одном уровне. Вы хотите сыграть в другую игру?
+(She frowns.)  Well done.  (She gives you the bet money.)  Do you want to play another game?
+(Она хмурится.) Молодец. (Она дает вам деньги на ставку.) Хочешь сыграть в другую игру?
+(She cheers.)  Time to pay!  (You give her the money.)  Do you want to play another game?
+(Она радуется.) Время платить! (Вы даете ей деньги.) Вы хотите сыграть в другую игру?
+(She nods.)  I guess nobody wins any money.  We are at the same level.  Do you want to play another game?
+(Она кивает.) Думаю, никто не выигрывает деньги. Мы на одном уровне. Вы хотите сыграть в другую игру?
+(She blushes and tries to cover herself.)  It's a good thing we are alone, this would be embarrassing.
+(Краснеет и пытается прикрыться.) Хорошо, что мы одни, это было бы неловко.
+(She looks at you and smiles.)  Don't worry, i won't take pictures, but I could do something else.
+(Она смотрит на вас и улыбается.) Не волнуйтесь, я не буду фотографировать, но я могу сделать кое-что еще.
+(You both dress back up.)  That was kind of kinky, too bad nobody won.  Do you want to play another game?
+(Вы оба снова одеваетесь.) Это было немного странно, жаль, что никто не выиграл. Вы хотите сыграть в другую игру?
+(She struggles lightly.)  Losing a game against you has consequences.  Will you help me so I can have my revenge?
+(Она слегка сопротивляется.) Проигрыш в игре имеет последствия. Поможешь мне, чтобы я отомстила?
+(She looks at you and smiles.)  You look adorable like that, but you really need to learn some chess tricks.
+(Она смотрит на тебя и улыбается.) Ты так мило выглядишь, но тебе действительно нужно научиться некоторым шахматным трюкам.
+(You both dress back up.)  Too bad nobody won, it could have been spicy.  Do you want to play another game?
+(Вы оба снова одеваетесь.) Жаль, что никто не выиграл, это могло бы быть пикантно. Вы хотите сыграть в другую игру?
+Hello, welcome to the chess club.  Would you like to play a game with me?
+Здравствуйте, добро пожаловать в шахматный клуб. Хочешь сыграть со мной в игру?
+###_PLAYER
+Who are you?
+Кто ты?
+###_NPC
+My name is DialogCharacterName.  I'm a new member of the college chess club.
+Меня зовут DialogCharacterName. Я новый член шахматного клуба колледжа.
+###_PLAYER
+I'm DialogPlayerName.
+Я DialogPlayerName.
+###_NPC
+Nice to meet you, I don't think I've seen you here before.
+Приятно познакомиться, я не думаю, что видела вас здесь раньше.
+###_PLAYER
+You're playing alone?
+Ты играешь одна?
+###_NPC
+Yeah, the chess club isn't busy today.  You'd like to play against me?
+Да, шахматный клуб сегодня не занят. Вы хотели бы сыграть против меня?
+###_PLAYER
+How do you play chess?
+Как ты играешь в шахматы?
+###_NPC
+I don't have enough time to teach you.  Search on the web, you will find many tutorials.
+У меня недостаточно времени, чтобы учить тебя. Поищите в Интернете, вы найдете много руководств.
+###_PLAYER
+We could play a game.
+Мы могли бы сыграть в игру.
+###_NPC
+Absolutely!   Would you like to bet something on the game, or we play for fun?
+Безусловно! Хотите сделать ставку на игру или мы играем для удовольствия?
+###_PLAYER
+I need to go.  (Leave her.)
+Мне надо идти. (Оставь ее.)
+Let's play for honor.
+Сыграем на честь.
+###_NPC
+That sounds good.  Have you played before?  Should I go easy on you?
+Это звучит неплохо. Вы играли раньше? Мне с тобой полегче?
+###_PLAYER
+Let's play for money.
+Давайте играть на деньги.
+###_NPC
+(She ponders.)  Alright.  How much do you want to bet?
+(Она размышляет.) Хорошо. Сколько вы хотите поставить?
+###_PLAYER
+Let's play strip chess.
+Давайте сыграем в шахматы на раздевание.
+###_NPC
+(She giggles and looks around.)  Since we are alone, I don't see anything wrong with that.  What are the rules?
+(Она хихикает и оглядывается.) Поскольку мы одни, я не вижу в этом ничего плохого. Каковы правила?
+###_PLAYER
+Let's play a more daring game.
+Давайте поиграем в более смелую игру.
+###_NPC
+(She gives you a curious look.)  What do you have in mind?
+(Она смотрит на вас с любопытством.) Что вы имеете в виду?
+###_PLAYER
+Maybe we can play later.
+Может, поиграем позже.
+###_NPC
+Of course, let's play later.
+Конечно, поиграем позже.
+###_PLAYER
+Yes, please go easy.
+Да, пожалуйста, полегче.
+###_NPC
+Very well, I'll give you some chances.  (She prepares the chess board.)  Ready to go?
+Хорошо, я дам тебе шанс. (Подготавливает шахматную доску.) Готовы идти?
+###_PLAYER
+I've played before.
+Я играла раньше.
+###_NPC
+Let's play a fair game then.  (She prepares the chess board.)  Ready to go?
+Тогда давайте сыграем в честную игру. (Подготавливает шахматную доску.) Готова начать?
+###_PLAYER
+I don't fear anyone.
+Я никого не боюсь.
+###_NPC
+I'll give everything I have then.  (She prepares the chess board.)  Ready to go?
+Тогда я отдам все, что у меня есть. (Подготавливает шахматную доску.) Готова начать?
+###_PLAYER
+I've changed my mind.
+Я передумала.
+###_NPC
+It's fine.  We can play later.
+Все хорошо. Мы можем поиграть позже.
+###_PLAYER
+(Play chess with her.)
+(Играть с ней в шахматы.)
+Let's bet $10.
+Ставим 10 долларов.
+###_NPC
+It's a small bet, but it should be fun.  (She prepares the chess board.)  Ready to go?
+Это небольшая ставка, но это должно быть весело. (Подготавливает шахматную доску.) Готова начать?
+###_PLAYER
+Let's bet $20.
+Ставим 20 долларов.
+###_NPC
+That's a fair bet, let's do this!  (She prepares the chess board.)  Ready to go?
+Это честная ставка, давайте сделаем это! (Подготавливает шахматную доску.) Готова начать?
+###_PLAYER
+Let's bet $30.
+Ставим 30 долларов.
+###_NPC
+A serious bet?  I won't pull any punches.  (She prepares the chess board.)  Ready to go?
+Серьезная ставка? Я не буду терпеть никаких ударов. (Подготавливает шахматную доску.) Готова начать?
+###_PLAYER
+(Play chess for $10 with her.)
+(Играть с ней в шахматы за 10 долларов.)
+(Play chess for $20 with her.)
+(Играть с ней в шахматы за 20 долларов.)
+(Play chess for $30 with her.)
+(Играть с ней в шахматы за 30 долларов.)
+I don't know.
+Я не знаю.
+###_NPC
+Let's make some rules.  Each major piece like a knight or a rook gets one cloth off.  Have you played before?  Should I go easy on you?
+Давайте установим некоторые правила. Каждая крупная фигура, такая как конь или ладья, снимает одну ткань. Ты играла раньше? Мне с тобой полегче?
+###_PLAYER
+Each major piece gets one cloth off.
+С каждой крупной фигурой снимается одна ткань.
+###_NPC
+That sounds perfect.  Each major piece like a knight or a rook gets one cloth off.  Have you played before?  Should I go easy on you?
+Это звучит идеально. Каждая крупная фигура, такая как конь или ладья, снимает одну ткань. Ты играла раньше? Мне с тобой полегче?
+###_PLAYER
+(Play strip chess with her.)
+(Играть с ней в шахматы на раздевание.)
+The loser could get restrained.
+Проигравший может быть сдержан.
+###_NPC
+You're a kinky student, aren't you?  Let's make some rules, each captured pawn gets a cloth off, other pieces get you restrained.  What do you think?
+Ты странный студент, не так ли? Давайте установим некоторые правила, каждая взятая пешка снимает ткань, другие фигуры ограничивают вас. Что вы думаете?
+###_PLAYER
+How about some bondage?
+Как насчет бондажа?
+It sounds good.
+Звучит хорошо.
+###_NPC
+(She gives you a thumbs up.)  Have you played chess before?  Should I go easy on you?
+(Она показывает вам большой палец вверх.) Вы раньше играли в шахматы? Мне с тобой полегче?
+###_PLAYER
+I can go by these rules.
+Я могу придерживаться этих правил.
+(Play bondage chess with her.)
+(Сыграть с ней в бондажные шахматы.)
+We can play another game.
+Мы можем сыграть в другую игру.
+###_NPC
+Absolutely!   We play for fun again or you would like to bet something on the game?
+Безусловно! Мы снова играем в свое удовольствие или вы хотите сделать ставку на игру?
+###_PLAYER
+I'll crush you again.
+Я снова раздавлю тебя.
+###_NPC
+We'll see about that!   We play for fun again or you would like to bet something on the game?
+Мы еще увидим! Мы снова играем в свое удовольствие или вы хотите сделать ставку на игру?
+###_PLAYER
+Maybe later.  (Leave her.)
+Может быть позже. (Оставь ее.)
+I will win the next one.
+Я выиграю в следующем.
+###_NPC
+That's the spirit!   We play for fun again or you would like to bet something on the game?
+Вот это дух! Мы снова играем в свое удовольствие или вы хотите сделать ставку на игру?
+###_PLAYER
+We cannot end on a draw.
+Мы не можем закончить ничьей.
+###_NPC
+Very true!   We play for fun again or you would like to bet something on the game?
+Совершенно верно! Мы снова играем в свое удовольствие или вы хотите сделать ставку на игру?
+Absolutely!   Would you like to bet some money on the game again?
+Безусловно! Хотите снова поставить немного денег на игру?
+###_PLAYER
+I do need more money.
+Мне нужно больше денег.
+###_NPC
+And I want my money back.  What would you like to bet on this game?
+И я хочу вернуть свои деньги. Что бы вы хотели поставить на эту игру?
+###_PLAYER
+I need to make my money back.
+Мне нужно вернуть свои деньги.
+###_NPC
+I can always use more money.  What would you like to bet on this game?
+Я всегда могу использовать больше денег. Что бы вы хотели поставить на эту игру?
+That's for sure.   Would you like to bet some money on the next game?
+Это точно. Хотите поставить немного денег на следующую игру?
+###_PLAYER
+You're really cute you know?
+Ты действительно милая, ты знаешь?
+###_NPC
+(She blushes.)  You really think so?  You're very kind, I love the way you look also.
+(Она краснеет.) Ты правда так думаешь? Ты очень добрая, мне тоже нравится, как ты выглядишь.
+###_PLAYER
+You don't need to be embarrassed.
+Вам не нужно смущаться.
+###_NPC
+(She smiles.)  That's very kind of you, I love the way you look also.
+(Она улыбается.) Очень мило с твоей стороны, мне нравится, как ты выглядишь..
+###_PLAYER
+Get dressed girl.
+Оденься, девочка.
+###_NPC
+Good idea, we don't want to get caught.  (You pick the removed clothes and dress back up.)  Another bet?
+Хорошая идея, мы же не хотим, чтобы нас поймали. (Вы подбираете снятую одежду и снова одеваетесь.) Еще пари?
+###_PLAYER
+Maybe you should dress back up.
+Может быть, тебе стоит снова одеться.
+What will you do?
+Что ты будешь делать?
+###_NPC
+(She ponders.)  Since you're naked and you lost, you could do a sexy dance for me.
+(Она размышляет.) Поскольку ты голая и ты проиграла, ты могла бы станцевать для меня сексуальный танец.
+###_PLAYER
+This is kinky!
+Это извращённо!
+###_NPC
+It could be even more kinky.  Since you're naked and you lost, you could do a sexy dance for me.
+Это может быть еще более извращённо. Поскольку ты голая и ты проиграла, ты могла бы станцевать для меня сексуальный танец.
+###_PLAYER
+This is too embarrassing.
+Это слишком неловко.
+###_NPC
+Get clothed, we don't want to get caught.  (You pick the removed clothes and dress back up.)  Another bet?
+Оденьтесь, мы же не хотим, чтобы нас поймали. (Вы подбираете снятую одежду и снова одеваетесь.) Еще пари?
+###_PLAYER
+Can I dress back up?
+Могу я снова одеться?
+###_NPC
+Of course, we don't want to get caught.  (You pick the removed clothes and dress back up.)  Another bet?
+Конечно, мы не хотим, чтобы нас поймали. (Вы подбираете снятую одежду и снова одеваетесь.) Еще пари?
+Absolutely!   Should we bet some clothes again?  Or something else?
+Безусловно! Должны ли мы снова поспорить на одежду? Или что-то другое?
+That's for sure.  Should we bet some clothes again?  Or something else?
+Это точно. Должны ли мы снова поспорить на одежду? Или что-то другое?
+###_PLAYER
+You're right, there will be consequences.
+Ты права, будут последствия.
+###_NPC
+(She seems to worry.)  What kind of consequences?
+(Кажется, она волнуется.) Какие последствия?
+###_PLAYER
+Losers should be punished.
+Проигравшие должны быть наказаны.
+###_NPC
+(She seems to worry.)  Punished?  What will you do?
+(Кажется, она волнуется.) Наказали? Что ты будешь делать?
+###_PLAYER
+Let me help you.  (Release her.)
+Давай я тебе помогу. (Освободить ее.)
+###_NPC
+Thanks!  We don't want to get caught.  (You release her and dress back up.)  Another bet?
+Спасибо! Мы же не хотим попасться. (Вы отпускаете ее и снова одеваетесь.) Еще пари?
+###_PLAYER
+It was a fun game.  (Release her.)
+Это была веселая игра. (Освободить ее.)
+Tricks?  What do you have in mind?
+Ухищрения? Что у тебя на уме?
+###_NPC
+You will see pretty soon.  (She opens a gym bag, but doesn't show you what's inside,)
+Вы увидите довольно скоро. (Открывает спортивную сумку, но не показывает, что внутри.)
+###_PLAYER
+Will you release me?
+Ты отпустишь меня?
+###_NPC
+Not now, you need to learn first.  (She opens a gym bag, but doesn't show you what's inside,)
+Не сейчас, тебе нужно сначала научиться. (Открывает спортивную сумку, но не показывает, что внутри.)
+###_PLAYER
+(Struggle and stay silent.)
+(Борись и молчи.)
+###_NPC
+(She giggles and opens a gym bag, but doesn't show you what's inside,)
+(Она хихикает и открывает спортивную сумку, но не показывает, что внутри.)
+Absolutely!   Should we bet clothes and restraints again?  Or something else?
+Безусловно! Должны ли мы снова поставить одежду и ограничения? Или что-то другое?
+That's for sure.  Should we bet clothes and restraints again?  Or something else?
+Это точно. Должны ли мы снова поставить одежду и ограничения? Или что-то другое?
+###_PLAYER
+Kiss me, cute loser.
+Поцелуй меня, милая неудачница.
+###_NPC
+(She gets closer and you exchange a long kiss.  She smiles and you start to flirt with each other.)
+(Она подходит ближе, и вы обмениваетесь долгим поцелуем. Она улыбается, и вы начинаете флиртовать друг с другом.)
+###_PLAYER
+Do a little dance for me.
+Сделай для меня небольшой танец.
+###_NPC
+(She does a sexy dance for you and giggles.  She smiles and you start to flirt with each other.)
+(Она танцует для вас сексуальный танец и хихикает. Она улыбается, и вы начинаете флиртовать друг с другом.)
+###_PLAYER
+Would you like to be touched?
+Хотели бы вы, чтобы вас трогали?
+###_NPC
+(She nods as you caress her breast slowly.  She smiles and you start to flirt with each other.)
+(Она кивает, когда вы медленно гладите ее грудь. Она улыбается, и вы начинаете флиртовать друг с другом.)
+###_PLAYER
+Very well.  (Dance for her.)
+Очень хорошо. (Танец для нее.)
+###_NPC
+(You dance for her as she claps her hands.  She smiles and you start to flirt with each other.)
+(Вы танцуете для нее, пока она хлопает в ладоши. Она улыбается, и вы начинаете флиртовать друг с другом.)
+###_PLAYER
+My pleasure!  (Do a sensual dance.)
+С удовольствием! (Исполнить чувственный танец.)
+###_NPC
+(You dance sensually for her as she blushes.  She smiles and you start to flirt with each other.)
+(Ты чувственно танцуешь для нее, пока она краснеет. Она улыбается, и вы начинаете флиртовать друг с другом.)
+###_PLAYER
+I would rather kiss you.
+Я лучше поцелую тебя.
+(Strip naked.)
+(Раздеть догола.)
+###_NPC
+(You strip naked as she smiles.)  You're the prettiest chess player I've ever seen.
+(Ты раздеваешься догола, она улыбается.) Ты самая красивая шахматистка, которую я когда-либо видел.
+###_PLAYER
+(Strip her down.)
+(Раздеть ее.)
+###_NPC
+(You strip her naked as she blushes.)  Playing chess with you is so hot.
+(Ты раздеваешь ее догола, она краснеет.) Играть с тобой в шахматы так горячо.
+###_PLAYER
+(Kiss her.)
+(Поцеловать ее.)
+###_NPC
+(You exchange a long kiss as she moans from your lips.)
+(Вы обмениваетесь долгим поцелуем, когда она стонет из ваших губ.)
+###_PLAYER
+(Caress her.)
+(Ласкать ее.)
+###_NPC
+(You caress each other slowly and exchange lovely smiles.)
+(Вы медленно ласкаете друг друга и обмениваетесь прекрасными улыбками.)
+###_PLAYER
+(Masturbate her.)
+(Мастурбировать ее.)
+###_NPC
+(She closes her eyes and breathes heavily as you masturbate her skillfully.)
+(Она закрывает глаза и тяжело дышит, пока вы умело мастурбируете ее.)
+###_PLAYER
+(Make love with her.)
+(Займитесь с ней любовью.)
+###_NPC
+(You knock over the chess board and start to make sweet love together.)
+(Вы опрокидываете шахматную доску и начинаете вместе заниматься любовью.)
+###_PLAYER
+Enough.  Let's dress back up.
+Достаточно. Давай оденься обратно.
+###_NPC
+(She nods as you both dress back up.)  Would you like to play another game?  With another bet?
+(Она кивает, когда вы оба снова одеваетесь.) Хочешь сыграть в другую игру? С другой ставкой?
+###_PLAYER
+(Masturbate each other.)
+(Мастурбировать друг другу.)
+###_NPC
+(You masturbate each other slowly and lovingly in the classroom, sharing a wonderful orgasm.)
+(Вы медленно и с любовью мастурбируете друг друга в классе, разделяя чудесный оргазм.)
+###_PLAYER
+(Eat each other.)
+(Съесть друг друга.)
+###_NPC
+(You eat each other passionately in the classroom, sharing a strong orgasm.)
+(Вы страстно едите друг друга в классе, разделяя сильный оргазм.)
+###_PLAYER
+(Scissor each other.)
+(Ножницы друг с другом.)
+###_NPC
+(You scissor together in the classroom, sharing a shattering orgasm.)
+(Вы вместе делаете ножницы в классе, разделяя сокрушительный оргазм.)
+###_PLAYER
+Wow!  That was great.
+Ух ты! Это было здорово.
+###_NPC
+Oh yes!  That was wonderful, but let's dress before we get caught.  (You both dress back up.)  Another game?
+О, да! Это было замечательно, но давай одеваться, пока нас не поймали. (Вы оба снова одеваетесь.) Еще одна игра?
+###_PLAYER
+I needed that.
+Мне это было нужно.
+###_NPC
+Same here.  That was amazing, but let's dress before we get caught.  (You both dress back up.)  Another game?
+То же самое. Это было потрясающе, но давай оденемся, пока нас не поймали. (Вы оба снова одеваетесь.) Еще одна игра?
+###_PLAYER
+Best chess game ever.
+Лучшая игра в шахматы.
+###_NPC
+Absolutely.  That was great, but let's dress before we get caught.  (You both dress back up.)  Another game?
+Совершенно. Это было здорово, но давай оденемся, пока нас не поймали. (Вы оба снова одеваетесь.) Еще одна игра?
+###_PLAYER
+I have some toys for you.
+У меня есть для тебя игрушки.
+###_NPC
+What kind of toys?   What do you have in your bag?  (You can now use your items on her.)
+Какие игрушки? Что у тебя в сумке? (Теперь вы можете использовать на ней свои предметы.)
+###_PLAYER
+I've brought some BDSM items for you.
+Я принесла вам несколько предметов БДСМ.
+###_NPC
+BDSM items?   What do you have in your bag?  (You can now use your items on her.)
+БДСМ предметы? Что у тебя в сумке? (Теперь вы можете использовать на ней свои предметы.)
+###_PLAYER
+You will be my bondage model.
+Ты будешь моей моделью для бондажа.
+###_NPC
+What's a bondage model?   What do you have in your bag?  (You can now use your items on her.)
+Что такое бондажная модель? Что у тебя в сумке? (Теперь вы можете использовать на ней свои предметы.)
+(She seems to worry a little.)  What will you do to me?
+(Кажется, она немного волнуется.) Что вы со мной сделаете?
+(You strip her naked as she blushes.)  I won't let you beat me again.
+(Ты раздеваешь ее догола, она краснеет.) Я не позволю тебе снова меня бить.
+###_PLAYER
+(Pinch her.)
+(Ущипните ее.)
+###_NPC
+(She screams softly as you pinch her skin.)  Ow!  Unfair!
+(Она тихонько кричит, когда вы щипаете ее за кожу.) Ой! нечестно!
+(She blushes and moans silently as you caress her sensually.)
+(Она краснеет и тихо стонет, пока вы ласкаете ее чувственно.)
+###_PLAYER
+(Tickle her.)
+(Пощекотать ее.)
+###_NPC
+(She laughs as you tickle her without mercy.)  Eeeeeeaaahahaha!
+(Она смеется, когда вы безжалостно щекочете ее.) Иииииаахахаха!
+###_PLAYER
+(Spank her.)
+(Отшлепать ее.)
+###_NPC
+(You spank her pretty hard as she tries not to whimper.)  It hurts after a while.
+(Вы довольно сильно шлепаете ее, пока она пытается не хныкать.) Через некоторое время становится больно.
+###_PLAYER
+(Slap her.)
+(Шлепнуть ее.)
+###_NPC
+(She thrashes and whimpers as you slap her all over her body.)  This is going to far!
+(Она бьется и скулит, когда вы шлепаете ее по всему телу.) Это заходит слишком далеко!
+###_PLAYER
+That's enough.  (Release her.)
+Этого достаточно. (Освободить ее.)
+###_NPC
+(You release her as she stretches her limbs.)  That was intense, I want my revenge.  Another game?
+(Вы отпускаете ее, когда она растягивает свои конечности.) Это было сильно, я хочу отомстить. Другая игра?
+###_PLAYER
+(Check the class.)
+(Проверить класс.)
+What's in the bag?
+Что в сумке?
+###_NPC
+I have a few items that will help you to learn chess.  (She uses many items from her bag on you.)
+У меня есть несколько предметов, которые помогут вам научиться играть в шахматы. (Она использует на вас много предметов из своей сумки.)
+###_PLAYER
+(Try to look inside.)
+(Попробуйте заглянуть внутрь.)
+###_NPC
+Take a peek, there's a few items that will help you to learn chess.  (She uses many items from her bag on you.)
+Взгляните, есть несколько предметов, которые помогут вам научиться играть в шахматы. (Она использует на вас много предметов из своей сумки.)
+###_PLAYER
+(Mumble in your gag.)
+(бормочет в кляп.)
+###_NPC
+Stay silent, it's time to learn some chess.  You're in the perfect position to focus.
+Молчи, пора подучиться шахматам. Вы находитесь в идеальном положении, чтобы сосредоточиться.
+###_PLAYER
+(Struggle in your restraints.)
+(Борьба со своими ограничениями.)
+###_NPC
+Stop struggling, it's time to learn some chess.  You're in the perfect position to focus.
+Хватит бороться, пришло время научиться играть в шахматы. Вы находитесь в идеальном положении, чтобы сосредоточиться.
+###_PLAYER
+(Bow your head.)
+(Склонить голову.)
+###_NPC
+Good girl, it's time to learn some chess.  You're in the perfect position to focus.
+Хорошая девочка, пришло время научиться играть в шахматы. Вы находитесь в идеальном положении, чтобы сосредоточиться.
+###_PLAYER
+(Grumble and try to shake the gag off.)
+(Ворчать и пытается стряхнуть кляп.)
+###_NPC
+Your first lesson will be on the openings.  (She shows you some opening strategies as you struggle with the gag.)
+Ваш первый урок будет посвящен дебютам. (Она показывает вам некоторые стратегии открытия, пока вы боретесь с кляпом.)
+###_PLAYER
+(Listen to her lesson.)
+(Послушать ее урок.)
+###_NPC
+Your first lesson will be on the openings.  (She shows you some opening strategies as you try to keep your balance.)
+Ваш первый урок будет посвящен дебютам. (Она показывает вам несколько стратегий открытия, пока вы пытаетесь сохранить равновесие.)
+###_PLAYER
+(Look away from her.)
+(Отвести от нее взгляд.)
+###_NPC
+Focus!  Your second lesson will be on the middlegame.  (She grabs your head and forces you to watch more strategies.)
+Сфокусируйся! Ваш второй урок будет посвящен миттельшпилю. (Она хватает вас за голову и заставляет смотреть больше стратегий.)
+###_PLAYER
+(Try to struggle free.)
+(Попробуйте вырваться на свободу.)
+###_NPC
+Stop that!  Your second lesson will be on the middlegame.  (She grabs your head and forces you to watch more strategies.)
+Прекрати это! Ваш второй урок будет посвящен миттельшпилю. (Она хватает вас за голову и заставляет смотреть больше стратегий.)
+###_PLAYER
+(Listen and keep quiet.)
+(Слушай и молчи.)
+###_NPC
+Your second lesson will be on the middlegame.  (She shows you some strategies on how to play the middlegame.)
+Ваш второй урок будет посвящен миттельшпилю. (Она показывает вам несколько стратегий игры в миттельшпиле.)
+###_PLAYER
+(Try to insult her.)
+(Попытаться оскорбить ее.)
+###_NPC
+Have some respect.  This last lesson will be on the endgame.  (She forces you to learn more chess moves.)
+Проявите уважение. Этот последний урок будет в эндшпиле. (Она заставляет вас выучить больше шахматных ходов.)
+###_PLAYER
+(Pretend to fall asleep.)
+(Сделать вид, что засыпаешь.)
+###_NPC
+You're not funny.  This last lesson will be on the endgame.  (She forces you to learn more chess moves.)
+Ты не смешная. Этот последний урок будет в эндшпиле. (Она заставляет вас выучить больше шахматных ходов.)
+###_PLAYER
+(Stay silent.)
+(Молчи.)
+###_NPC
+You're a good student.  This last lesson will be on the endgame.  (She teaches you more chess moves.)
+Ты хороший ученик. Этот последний урок будет в эндшпиле. (Она учит вас большему количеству шахматных ходов.)
+###_PLAYER
+(Sigh and struggle lightly.)
+(Вздыхать и слегка сопротивляется.)
+###_NPC
+That's enough!  I hope you learned some tricks.  (She releases you.)  Would you like to play another game?
+Достаточно! Надеюсь, вы научились некоторым приемам. (Она отпускает вас.) Хочешь сыграть в другую игру?
+###_PLAYER
+(Beg for help.)
+(Просить о помощи.)

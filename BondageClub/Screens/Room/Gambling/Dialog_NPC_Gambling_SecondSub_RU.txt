@@ -247,6 +247,10 @@ Fair enough, but I'm not letting you out.
 Достаточно честно, но я тебя не выпущу.
 (She release you and takes the money.)
 (Она отпускает тебя и забирает деньги.)
+You don't have enough money girl.  Get a job.
+У тебя недостаточно денег, девочка. Найди работу.
+(She checks your items and shakes her head no.)  Sorry, I cannot unlock that.
+(Она проверяет ваши вещи и отрицательно качает головой.) Извините, я не могу разблокировать это.
 ###_PLAYER
 Yes, you can have the money.
 Да, ты можешь получить деньги.
@@ -277,8 +281,8 @@ Ok.
 The fox has escaped! (Take the win.)
 Лиса сбежала! (Забери приз.)
 ###_NPC
-(She gives you the profit of REPLACEMONEY$.)
-(Она дает тебе награду REPLACEMONEY$.)
+(She gives you the profit of $REPLACEMONEY.)
+(Она дает тебе награду $REPLACEMONEY.)
 ###_PLAYER
 Congratulations! (Give her the win.)
 Поздравляю! (Отдай ей приз.)
@@ -295,8 +299,8 @@ Uh oh, you caught me!
 Ahah! You can't escape me!
 ААА! Ты не можешь сбежать от меня!
 ###_NPC
-(She gives you the REPLACEMONEY$ back.)
-(Она отдает тебе обратно REPLACEMONEY$.)
+(She gives you the $REPLACEMONEY back.)
+(Она отдает тебе обратно $REPLACEMONEY.)
 ###_PLAYER
 (Roll the dice.)
 (Бросить кости.)
@@ -403,8 +407,8 @@ Just a little bit more to go...
 Oh, I lost. (Try to resist her putting the gag in.)
 О, я проиграла. (Попробуй сопротивляться тому, чтобы она вставила кляп.)
 ###_NPC
-Oh no you don't!  (She forces the gag into your mouth and takes the REPLACEMONEY$ winnings.)
-О нет, не надо!  (Она заталкивает тебе в рот кляп и забирает REPLACEMONEY$ выигрыша.)
+Oh no you don't!  (She forces the gag into your mouth and takes the $REPLACEMONEY winnings.)
+О нет, не надо!  (Она заталкивает тебе в рот кляп и забирает $REPLACEMONEY выигрыша.)
 ###_PLAYER
 I win. Take off your accessories.
 Я выиграла. Сними свои аксессуары.
@@ -439,8 +443,8 @@ I win. You don't need those arms to roll the dice.
 I win. Time for the final touch!
 Я выиграла. Время для последнего штриха!
 ###_NPC
-(She mumbles as you gag her, and then you take the REPLACEMONEY$ winnings.)
-(Она бормочет, когда ты затыкаешь ей рот, а затем ты берешь REPLACEMONEY$ выигрыша.)
+(She mumbles as you gag her, and then you take the $REPLACEMONEY winnings.)
+(Она бормочет, когда ты затыкаешь ей рот, а затем ты берешь $REPLACEMONEY выигрыша.)
 ###_PLAYER
 I want to add a die.
 Я хочу добавить кубик.
@@ -467,8 +471,8 @@ Hey, you look great like this...
 Oh, I lost. (Open your mouth.)
 О, я проиграла. (Открыть рот.)
 ###_NPC
-This gag is perfect for you. (She takes the REPLACEMONEY$ winnings.)
-Этот кляп идеально подходит для тебя. (Она забирает REPLACEMONEY$ выигрыша.)
+This gag is perfect for you. (She takes the $REPLACEMONEY winnings.)
+Этот кляп идеально подходит для тебя. (Она забирает $REPLACEMONEY выигрыша.)
 ###_PLAYER
 I win. Take off those accessories.
 Я выиграла. Сними эти аксессуары.
@@ -503,8 +507,8 @@ I win. Time to keep those arms out of the way.
 I win. Open wide!
 Я выиграла. Открой рот пошире!
 ###_NPC
-(She opens her mouth slowly and you gag her, and then take the REPLACEMONEY$ winnings.)
-(Она медленно открывает рот, и ты затыкаешь ей рот кляпом, и потом забераешь REPLACEMONEY$ выигрыша.)
+(She opens her mouth slowly and you gag her, and then take the $REPLACEMONEY winnings.)
+(Она медленно открывает рот, и ты затыкаешь ей рот кляпом, и потом забераешь $REPLACEMONEY выигрыша.)
 ###_PLAYER
 (Mumble into the gag.)
 (Мычать в кляп.)

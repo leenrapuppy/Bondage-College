@@ -15,15 +15,19 @@ Or create a new character
 New Character
 Новый Персонаж
 Connecting to server...
-подключение к серверу...
+Подключение к серверу...
+Waiting in queue on position: QUEUE_POS
+Ожидание в очереди на позиции: QUEUE_POS
 Error loading character data
 Ошибка загрузки данных персонажа
 Disconnected from server. Retrying...
-разрыв соединения с сервером. Повторное подключение...
+Разрыв соединения с сервером. Повторное подключение...
 Disconnected for duplicated login
 Отключен из-за дублированного входа в систему
 Unable to connect to server. Retrying...
-невозможно подключиться к серверу. Повторное подключение...
+Невозможно подключиться к серверу. Повторное подключение...
+Connection rejected: your connection has been rate limited.
+Соединение отклонено: скорость вашего соединения ограничена.
 Validating name and password...
 Проверка имени и пароля...
 Incorrect name or password
@@ -38,3 +42,13 @@ Reset Password
 Восстановление Пароля
 Thank you
 Спасибо
+Developers
+Разработчики
+Translators
+Переводчики
+Support
+Поддержали
+Sponsors
+Спонсоры
+And a huge thanks to the fans!
+И огромная благодарность фанатам!

@@ -1,0 +1,736 @@
+###_NPC
+Isn't the sound of silence wonderful?  (She laughs at you.)
+Разве звук тишины не прекрасен? (Она смеется над тобой.)
+Enough shit!  Since you can't behave, you'll spend detention restrained.
+Хватит дерьма! Так как ты не умеешь себя вести, ты проведешь отбывание наказания сдержанно.
+You're a little whore, aren't you?  A bad girl?  I have a proposal for you.
+Ты маленькая шлюха, не так ли? Плохая девочка? У меня есть предложение для вас.
+(She shakes and screams from a long orgasm.)  Fuuuuuuuuck yeah!  That... that was intense!
+(Она трясется и кричит от долгого оргазма.) Бллллллля, да! Это... это было сильно!
+(She pushes you away.)  That's enough!  I'm not in the mood anymore and I need to go.
+(Она отталкивает вас.) Довольно! Я больше не в настроении, и мне нужно идти.
+(A small woman welcomes you coldly.)  Another one?  What's your story?  Why were you sent to detention?
+(Маленькая женщина холодно приветствует вас.) Еще одна? Какова твоя история? Почему вас отправили в изолятор?
+###_PLAYER
+Who are you?
+Кто вы?
+###_NPC
+I'm teacher Yuki.  I monitor the detention room today.  Why are you here?
+Я учительница Юки. Сегодня я наблюдаю за комнатой задержания. Почему ты здесь?
+###_PLAYER
+Hello teacher Yuki.
+Здравствуйте, учительница Юки.
+###_NPC
+Hello DialogPlayerName.  Why were you sent to detention today?
+Привет DialogPlayerName. Почему вас отправили в тюрьму сегодня?
+###_PLAYER
+I shouldn't be here.
+Я не должна быть здесь.
+###_NPC
+If a teacher sent you here, then you should be here.  What did you do wrong?
+Если учительница послала вас сюда, то вы должны быть здесь. Что ты сделала не так?
+###_PLAYER
+You're mistaken.
+Вы ошибаетесь.
+###_NPC
+You've made the mistake by getting sent here.  What did you do wrong?
+Вы совершили ошибку, когда вас отправили сюда. Что ты сделал не так?
+###_PLAYER
+That's none of your business.
+Не твое дело.
+###_NPC
+(She frowns.)  That's absolutely my business.  What did you do wrong?
+(Она хмурится.) Это абсолютно мое дело. Что ты сделала не так?
+###_PLAYER
+I'm sorry Miss.
+Мне жаль мисс.
+###_NPC
+You better be sorry.  What did you do wrong?
+Тебе лучше извиниться. Что ты сделала не так?
+###_PLAYER
+Oops, wrong door.
+Ой, не та дверь.
+###_NPC
+Very funny young lady.  What did you do wrong?
+Очень забавно барышня. Что ты сделала не так?
+###_PLAYER
+I should go.  (Leave her.)
+Мне нужно идти. (Оставь ее.)
+###_NPC
+(She stops you.)  You're not going anywhere young lady.  What did you do wrong?
+(Она останавливает вас.) Вы никуда не пойдете, юная леди. Что вы сделали не так?
+###_PLAYER
+Fuck you bitch.
+Трахни тебя, сука.
+###_NPC
+That answer alone, is worth your detention time.  You'll spend the rest of the day with me.
+Один только этот ответ стоит вашего задержания. Ты проведешь остаток дня со мной.
+###_PLAYER
+I didn't do anything.
+Я ничего не делала.
+###_NPC
+I'll check with your teacher later.  Whatever you did, you'll spend the rest of the day with me.
+Я поговорю с вашим учителем позже. Что бы ты не сделала, остаток дня ты проведешь со мной.
+###_PLAYER
+I'm innocent!
+Я невиновна!
+Я болтала на уроке.
+Я чатилась в классе.
+###_NPC
+Bad girl, you know you shouldn't do that.  You'll spend the rest of the day with me.
+Плохая девочка, ты же знаешь, что не должна этого делать. Ты проведешь остаток дня со мной.
+###_PLAYER
+I've texted in class.
+Я переписывалась в классе.
+I've slept in class.
+Я спала на уроке.
+I've watched porn in class.
+Я смотрела порно в классе.
+###_NPC
+So, you're a horny student, aren't you?  Well, you'll spend the rest of the day with me.
+Итак, ты похотливая студентка, не так ли? Что ж, остаток дня ты проведешь со мной.
+###_PLAYER
+I've masturbated in class.
+Я мастурбировала в классе.
+Oh please!  Can we make a deal?
+Прошу вас! Можем ли мы заключить сделку?
+###_NPC
+(She smirks.)  Maybe later.  You'll write: "I will be a good student." thirty times on the board.
+(Она ухмыляется.) Может быть, позже. Ты напишешь: «Я буду хорошей студенткой.» тридцать раз на доске.
+###_PLAYER
+All day?  Really?
+Весь день? Действительно?
+###_NPC
+Absolutely.  You'll write: "I will be a good student." thirty times on the board.
+Абсолютно. Ты напишешь: «Я буду хорошей студенткой.» тридцать раз на доске.
+###_PLAYER
+Teacher Yuki.  I will miss a class.
+Учитель Юки. Я пропущу урок.
+###_NPC
+You're the only one to blame.  You'll write: "I will be a good student." thirty times on the board.
+Ты единственная, кто виновата. Ты напишешь: «Я буду хорошей студенткой.» тридцать раз на доске.
+###_PLAYER
+I'll run as soon as I can.
+Я сбегу, как только смогу.
+###_NPC
+We have ways to prevent that.  You'll write: "I will be a good student." thirty times on the board.
+У нас есть способы предотвратить это. Ты напишешь: «Я буду хорошей студенткой». тридцать раз на доске.
+###_PLAYER
+(Bow your head and nod.)
+(Склонить голову и кивнуть.)
+###_NPC
+Good girl.  You'll write: "I will be a good student." thirty times on the board.
+Хорошая девочка. Ты напишешь: «Я буду хорошей студенткой.» тридцать раз на доске.
+###_PLAYER
+I don't care.
+Мне все равно.
+###_NPC
+(She frowns.)  You'll write: "I will be a good student." thirty times on the board.
+(Хмурится.) Ты напишешь: «Я буду хорошей студенткой.» тридцать раз на доске.
+###_PLAYER
+Are you nuts?
+Вы с ума сошли?
+###_NPC
+(She grumbles and points to the board.)  Shut-up and get a chalk.
+(Она ворчит и указывает на доску.) Заткнись и возьми мел.
+###_PLAYER
+Yes, teacher Yuki.
+Да, учитель Юки.
+###_NPC
+(She smiles and points to the board.)  Go get a chalk girl.
+(Она улыбается и указывает на доску.) Иди и возьми мел, девочка.
+###_PLAYER
+Can't I do some homework?
+Могу я сделать домашнее задание?
+###_NPC
+(She shakes her head no and points to the board.)  Get a chalk.
+(Она отрицательно качает головой и указывает на доску.) Возьми мел.
+###_PLAYER
+Fine.  (Get a chalk.)
+Отлично. (Взять мел.)
+###_NPC
+(She snaps her fingers.)  Start writing!  Thirty times.
+(Щелкает пальцами.) Начинайте писать! Тридцать раз.
+###_PLAYER
+A chalkboard?  Don't you have computers?
+Классная доска? У вас нет компьютеров?
+###_NPC
+(She gets mad and gives you a chalk.)  Start writing!  Thirty times.
+(Она злится и дает вам мел.) Начинайте писать! Тридцать раз.
+###_PLAYER
+It's a fair punishment.  (Get a chalk.)
+Это справедливое наказание. (Взять мел.)
+###_NPC
+(She nods and snaps her fingers.)  Start writing!  Thirty times.
+(Она кивает и щелкает пальцами.) Начинайте писать! Тридцать раз.
+###_PLAYER
+What's the phrase again?
+Что за фраза еще раз?
+###_NPC
+It's the last time I repeat.  You will write: "I will be a good student.".
+Это последний раз, когда я повторяю. Вы напишете: «Я буду хорошей студенткой.»
+###_PLAYER
+(Write: "I will be a good student.".)
+(Написать: «Я буду хорошей студенткой.».)
+###_NPC
+(She watches you write and smirks.)  It's a good start.
+(Смотрит, как ты пишешь, и ухмыляется.) Хорошее начало.
+###_PLAYER
+(Write: "I will be a bad student.".)
+(Написать: «Я буду плохой студенткой.».)
+###_NPC
+(She gets mad.)  You think you're fucking funny?  You know what to write.
+(Она злится.) Думаешь, ты чертовски смешная? Ты знаешь, что писать.
+###_PLAYER
+(Write: "Fuck the teachers.".)
+(Написать: «К черту учителей.».)
+###_NPC
+(She nods and watches you write.)
+(Она кивает и смотрит, как вы пишете.)
+###_PLAYER
+(Scratch your butt.)
+(Почеши задницу.)
+###_NPC
+Don't get lazy!  It's only beginning.
+Не ленись! Это только начало.
+(She checks her cell phone as you write.)
+(Она проверяет свой мобильный телефон, пока вы пишете.)
+###_PLAYER
+(Write: "I'll be a good student.".)
+(Написать (сократив слова): «Я буду хорошей студенткой.».)
+###_NPC
+(She snaps her fingers.)  No cutting corners!  Write the full words.
+(Щелкает пальцами.) Никаких сокращений! Напиши полные слова.
+###_PLAYER
+Are we done yet?
+Мы уже закончили?
+###_NPC
+Don't make me laugh, you're barely begun.  Get writing girl!
+Не смеши меня, ты только начала. Начинай писать, девочка!
+Keep it up.
+Продолжай в том же духе.
+###_PLAYER
+(Write: "I'll be the best student.".)
+(Написать: «Я буду лучшей студенткой.».)
+###_NPC
+Nice try, but the best students don't end up in here.
+Хорошая попытка, но лучшие студенты сюда не попадают.
+(She yawns and looks at the clock.)
+(Зевает и смотрит на часы.)
+###_PLAYER
+(Write: "I will be a good slut.".)
+(Написать: «Я буду хорошей шлюхой.».)
+###_NPC
+(She laughs.)  I'm sure you already are.  But that's not what I asked for.
+(Она смеется.) Я уверена, что ты уже. Но это не то, о чем я просила.
+(She barely watches you.)
+(Она почти не смотрит на тебя.)
+###_PLAYER
+(Check your phone.)
+(Проверить свой телефон.)
+###_NPC
+Do I need to confiscate that phone?  Continue your task.
+Нужно ли конфисковать этот телефон? Продолжай свою задачу.
+(She checks if her shoes are clean.)
+(Она проверяет, чистые ли ее туфли.)
+###_PLAYER
+(Draw a cartoon character.)
+(Нарисовать мультяшного героя.)
+###_NPC
+(She gets mad.)  Erase that and write your phrase.
+(Она злится.) Сотри это и напиши свою фразу.
+###_PLAYER
+(Draw a penis.)
+(Нарисовать пенис.)
+###_NPC
+My, my, my, aren't you a little slut?  Erase that and write your phrase, little slut.
+Боже, боже, боже, ты случаем не маленькая шлюха? Сотри это и напиши свою фразу, маленькая шлюха.
+(She seems to think about something and barely watches you.)
+(Кажется, она о чем-то думает и почти не смотрит на вас.)
+###_PLAYER
+(Yawn loudly.)
+(Громко зевнуть.)
+###_NPC
+This isn't a rollercoaster ride for me either.  Continue!
+Для меня это тоже не американские горки. Продолжай!
+Write faster girl.  We haven't got all day.
+Пиши быстрее девочка. У нас нет целого дня.
+###_PLAYER
+(Show her what's under your skirt.)
+(Покажи ей, что у тебя под юбкой.)
+###_NPC
+(She watches closely as you raise your skirt and seems to like it.)  Focus girl.
+(Она внимательно наблюдает, как ты поднимаешь юбку, и, похоже, ей это нравится.) Сосредоточься, девочка.
+(She texts something on her phone.)
+(Она что-то пишет на своём телефоне.)
+###_PLAYER
+Are we good now?  Is it enough?
+У нас сейчас все хорошо? Этого достаточно?
+###_NPC
+No!  I'll tell you when it's enough.  Keep writing.
+Нет! Я скажу тебе, когда этого будет достаточно. Продолжайте писать.
+###_PLAYER
+This is stupid.
+Это глупо.
+###_NPC
+You're the one that was stupid enough to get in trouble.  Keep writing.
+Ты та, кто была достаточно глупа, чтобы попасть в беду. Продолжай писать.
+(She checks a window.)
+(Она смотрит в окно.)
+###_PLAYER
+I'll give you $20 if we forget this.
+Я дам вам 20 долларов, если мы забудем об этом.
+###_NPC
+You think you can bribe me?  Don't make me laugh.
+Ты думаешь, что сможешь меня подкупить? Не смеши меня.
+I miss the days when we rarely had anyone in detention.
+Я скучаю по тем временам, когда у нас редко кого задерживали.
+###_PLAYER
+(Wink at her.)
+(Подмигнуть ей.)
+###_NPC
+(She winks back.)  You're a curious student, aren't you?  Keep writing.
+(Она подмигивает.) Вы любопытная студентка, не так ли? Продолжайте писать.
+###_PLAYER
+(Try to steal her key.)
+(Попробуйте украсть ее ключ.)
+###_NPC
+(As she watches her cell phone, you steal her teacher lounge key from her desk.)
+(Пока она наблюдает за своим мобильным телефоном, вы крадете ключ от учительской с ее стола.)
+###_PLAYER
+(Write: "I will be a student good.".)
+(Написать: «Я буду хорошо учиться.».)
+###_NPC
+Watch your phrase young lady.  Stay focused.
+Следи за своей фразой, барышня. Оставайся сфокусированной.
+(She watches you write and scratches her back.)
+(Она смотрит, как ты пишешь, и чешет спину.)
+(She checks her social network on her phone.)
+(Она проверяет свою социальную сеть на своем телефоне.)
+###_PLAYER
+(Wiggle your butt as you write.)
+(Покачивайте задницей, пока пишешь.)
+###_NPC
+(She snaps her fingers following your moves.)  Nice moves, but only your arm should move.
+(Она щелкает пальцами вслед за вашими движениями.) Хорошие движения, но двигаться должна только ваша рука.
+###_PLAYER
+(Do a loud fart as you write.)
+(Громко пукайте, когда пишете.)
+###_NPC
+Shit!  That's disgusting.  Were you raised in a barn?
+Дерьмо! Это отвратительно. Ты выросла в сарае?
+(She cracks her knuckles.)
+(Она хрустит костяшками пальцев.)
+###_PLAYER
+I think I would rather learn math.
+Я думаю, что лучше бы я изучала математику.
+###_NPC
+And I would rather go out shopping.  Keep that chalk moving.
+А я лучше бы пошла по магазинам. Держи этот мел в движении.
+(She checks her nails.)
+(Она проверяет свои ногти.)
+###_PLAYER
+(Hum a metal song.)
+(Напевать металлическую песню.)
+###_NPC
+Nobody cares about your music, get back to work.
+Никому нет дела до твоей музыки, возвращайся к работе.
+###_PLAYER
+(Hum a sexy song.)
+(Напевать сексуальную песню.)
+###_NPC
+(She hums it with you and smiles.)
+(Она напевает ее вместе с вами и улыбается.)
+###_PLAYER
+(Hum a pop song.)
+(Напевать поп-песню.)
+###_NPC
+(She nods passively.)
+(Она безразлично кивает).
+###_PLAYER
+(Write: "This is pointless.".)
+(Написать: «Это бессмысленно.».)
+###_NPC
+You know what's pointless?  Your fucking education.  Get serious girl.
+Знаешь, что бессмысленно? Ваше гребаное образование. Будь серьёзней девушка.
+(She looks bored.)
+(Она выглядит скучающей.)
+###_PLAYER
+(Rub your breast against the chalkboard.)
+(Потереться грудью о доску.)
+###_NPC
+(You rub your breast against the chalkboard as she smirks.)  You're a dirty girl, aren't you?  Don't erase anything with your jugs.
+(Ты трешься грудью о классную доску, она ухмыляется.) Ты грязная девчонка, не так ли? Не стирайте ничего своими кувшинами.
+###_PLAYER
+(Write: "I will be a good student".)
+(Написать: «Я буду хорошей студенткой».)
+###_NPC
+Write everything girl.  Including punctuation.
+Напиши все, девочка. В том числе и пунктуацию.
+(She counts the number you've done so far.)
+(Она считает сколько, вы уже сделали.)
+###_PLAYER
+(Write: "You will be a good teacher.".)
+(Написать: «Ты будешь хорошей учительницой».)
+###_NPC
+I don't know why you haven't got expelled yet.  You're a horrible student.
+Не знаю, почему тебя до сих пор не исключили. Ты ужасная студентка.
+Keep going.  There's more to do.
+Продолжай. Есть еще, что нужно сделать.
+###_PLAYER
+Is it enough now?
+Достаточно ли сейчас?
+###_NPC
+I'll tell you when it's enough.  Keep working.
+Я скажу тебе, когда этого будет достаточно. Продолжать работать.
+I hope you will remember that phrase.
+Я надеюсь, что вы запомните эту фразу.
+###_PLAYER
+(Touch yourself while writing.)
+(Прикасайтесь к себе во время письма.)
+###_NPC
+(She stays silent, but you can see that she also touches herself.)
+(Она молчит, но видно, что она тоже трогает себя.)
+(She checks her phone and barely checks on you.)
+(Она проверяет свой телефон и почти не проверяет тебя.)
+###_PLAYER
+(Pick your nose.)
+(Ковырять в носу.)
+###_NPC
+Nobody thought you any good manners young lady?
+Никто не учил вас хорошим манерам, юная леди?
+###_PLAYER
+(Sneeze silently.)
+(Тихо чихать.)
+###_NPC
+(She checks her phone and barely notices it.)
+(Она проверяет свой телефон и едва замечает его.)
+(She checks the ceiling and notices that one light is burned out.)
+(Она проверяет потолок и замечает, что одна лампочка перегорела.)
+###_PLAYER
+(Break the chalk.)
+(Разломать мел.)
+###_NPC
+Use the stub girl, you're too clumsy to get a new one.
+Используй огрызок девочка, ты слишком неуклюжа, чтобы получить новую.
+If only that board was true.
+Если бы только эта доска была правдой.
+###_PLAYER
+This is cruel and pointless!
+Это жестоко и бессмысленно!
+###_NPC
+You don't want to know what's cruel.  Keep going.
+Вы не хотите знать, что жестоко. Продолжай.
+Keep going, you're slowly getting there.
+Продолжай, ты потихоньку приближаешься.
+###_PLAYER
+(Fart while writing.)
+(Пердеть во время письма.)
+###_NPC
+This is disgusting, you need to stop the fast food.
+Это отвратительно, вам нужно перестать есть фаст-фуд.
+###_PLAYER
+(Queef while writing.)
+(Пердеть во время письма.)
+###_NPC
+(She notices and smirks.)  Got something stuck in there?  Keep going.
+(Она замечает и ухмыляется.) Там что-то застряло? Продолжай.
+(She seems to be thinking about something else.)
+(Кажется, она думает о чем-то другом.)
+###_PLAYER
+(Yawn lightly.)
+(Легко зевнуть.)
+###_NPC
+(She also yawns a little.)  Keep going.
+(Она также немного зевает.) Продолжайте.
+You'll sleep later girl.  Keep going.
+Ты будешь спать позже, девочка. Продолжай.
+So many empty phrases on that board over the years.
+Столько пустых фраз на доске за эти годы.
+###_PLAYER
+(Write: "Will you go out with me?".)
+(Написать: «Выйдешь со мной на свидание?».)
+###_NPC
+Is that a proposal?  (She laughs.)  You're sweet, but you're not done yet.
+Это предложение? (Она смеется.) Ты милая, но ты еще не закончила..
+(She scratches her nose.)
+(Она чешет нос.)
+###_PLAYER
+(Write: "I will be a good student x3.".)
+(Написать: «Я буду хорошей студенткой x3.».)
+###_NPC
+Nice try, but you're not getting out of it that easily.
+Хорошая попытка, но так просто от этого не отделаешься.
+###_PLAYER
+(Check in her purse.)
+(Заглянуть в ее сумочку.)
+###_NPC
+(You swiftly check in her purse while she's looking away.  You find some sleeping pills that you keep for yourself.)
+(Вы быстро заглядываете в ее сумочку, пока она отводит взгляд. Вы находите снотворное, которое оставляете себе.)
+I don't know what's worse.  That, or correcting homework.
+Я не знаю, что хуже. Это или исправление домашнего задания.
+No!  Keep going, you're almost done.
+Нет! Продолжайте, вы почти закончили.
+###_PLAYER
+Is it the last one Miss?
+Это последняя мисс?
+###_NPC
+Keep going girl, you're almost done.
+Продолжай, девочка, ты почти закончила.
+Ok girl, that's enough.  I hope you learned your lesson.  You're good to go.
+Хорошо, девочка, хватит. Надеюсь, ты усвоила урок. Ты можешь идти.
+###_PLAYER
+(Write: "Will you fuck with me?".)
+(Написать: «Ты будешь трахаться со мной?».)
+###_NPC
+That's enough girl.  It seems that nothing will teach you a lesson.  Just get out of here.
+Этого достаточно, девочка. Кажется, ничто не преподаст вам урок. Просто убирайся отсюда.
+You can go girl.  I'm closing the room soon.  I hope you learned something.
+Можешь идти, девочка. Я скоро закрываю комнату. надеюсь, вы выучили что-нибуть.
+###_PLAYER
+I'm free?
+Я свободна?
+###_NPC
+Yeah, I don't want to see you anymore.
+Да, я не хочу тебя больше видеть.
+###_PLAYER
+Was that thirty?
+Это было тридцать?
+###_NPC
+I don't care.  I need to go and close the room soon.
+Мне все равно. Мне нужно пойти и закрыть комнату в ближайшее время.
+###_PLAYER
+What are you doing later?
+Что будешь делать потом?
+###_NPC
+That's none of your business.  Now go.
+Не твое дело. Теперь иди.
+###_PLAYER
+(Leave her.)
+(Оставь ее.)
+Restrained?  You can't do that!
+Сдержанна? Вы не можете этого сделать!
+###_NPC
+Oh, hell yeah.  (She quickly grabs your arms and restrains you.)
+О, черт, да. (Она быстро хватает тебя за руки и удерживает.)
+###_PLAYER
+Wait!  I'll be good.
+Подождите! Я буду хорошей.
+###_NPC
+Too late.  (She quickly grabs your arms and restrains you.)
+Поздно. (Она быстро хватает тебя за руки и удерживает.)
+Good girl.  (She grabs your arms and restrains you.)
+Хорошая девочка. (Она хватает тебя за руки и удерживает.)
+###_PLAYER
+This is too extreme!
+Это слишком экстремально!
+###_NPC
+And let's make sure you don't run.
+И давай убедимся, что ты не сбежишь.
+###_PLAYER
+It hurts.
+Это больно.
+(Stay silent.)
+(Молчи.)
+Is that legal?
+Это законно?
+###_NPC
+I don't fucking care.  (She silences you with a gag.)  Now you stay like that until I close the place.
+Мне плевать. (Она заставляет вас замолчать кляпом.) Теперь оставайтесь так, пока я не закрою это место.
+###_PLAYER
+Alright, you've made your point.
+Хорошо, вы высказали свое мнение.
+###_NPC
+Almost.  (She silences you with a gag.)  Now you stay like that until I close the place.
+Почти. (Она заставляет вас замолчать кляпом.) Теперь оставайтесь так, пока я не закрою это место.
+(She silences you with a gag.)  Now you stay like that until I close the place.
+(Она заставляет вас замолчать кляпом.) Теперь оставайтесь так, пока я не закрою это место.
+###_PLAYER
+You cannot do that!
+Вы не можете сделать это!
+###_NPC
+(She laughs.)  It seems I've just did it.
+(Смеется.) Кажется, я только что это сделала.
+###_PLAYER
+Ok, that's enough.
+Хорошо, этого достаточно.
+###_NPC
+I'll tell you when it's enough.  You need to wait young lady.
+Я скажу тебе, когда этого будет достаточно. Вам нужно подождать, юная леди.
+###_PLAYER
+(Struggle and beg for help.)
+(Бороться и просить о помощи.)
+###_NPC
+(She checks the clock.)  No, your time isn't done yet.  Learn your lesson.
+(Она смотрит на часы.) Нет, твое время еще не вышло. Усвойте урок.
+(She checks the clock and nods.)  Fine, your time is done.  (She releases you.)  I hope you've learned something.
+(Она смотрит на часы и кивает.) Ладно, твое время вышло. (Она отпускает вас.) Надеюсь, ты кое-чему научилась.
+###_PLAYER
+(Wait patiently.)
+(Терпеливо ждать.)
+###_NPC
+(You both wait together as the clock turns very slowly.)
+(Вы оба ждете вместе, пока часы идут очень медленно.)
+I'm closing the detention room soon.  You must go.
+Я скоро закрываю комнату задержанных. Вы должны уйти.
+###_PLAYER
+I'm free to go?
+Я свободна?
+###_NPC
+Yeah, I'm closing the detention room really soon.
+Да, я очень скоро закрою комнату для задержанных.
+###_PLAYER
+I'm listening.
+Я слушаю.
+###_NPC
+You're a naughty girl and I need some pussy.  I need to cum.  You catch my drift?
+Ты непослушная девочка, и мне нужна киска. Мне нужно кончить. Вы улавливаете мой дрифт?
+###_PLAYER
+What's your proposal?
+Что вы предлагаете?
+I think we can help each other.
+Я думаю, мы можем помочь друг другу.
+###_NPC
+Great.  (She walks to the door and locks it.)  We don't have much time, get naked.
+Отлично. (Подходит к двери и запирает ее.) У нас мало времени, разденься.
+###_PLAYER
+Anything to get out of here.
+Что угодно, лишь бы выбраться отсюда.
+No way!  This is immoral!
+Ни за что! Это аморально!
+###_NPC
+Fine, you'll spend your detention time restrained then.
+Хорошо, тогда вы проведете время задержания сдержанно.
+###_PLAYER
+Sorry, you're not my type.
+Извини, ты не в моем вкусе.
+Alright!  (Strip naked.)
+Хорошо! (Раздеться догола.)
+###_NPC
+(You both get naked quickly as she watches the clock.)  Get busy little cunt.
+(Вы оба быстро раздеваетесь, пока она смотрит на часы.) Займись маленькой пиздой.
+###_PLAYER
+Make it quick.  (Strip naked.)
+Сделай это быстро. (Раздеться догола.)
+I've changed my mind.
+Я передумала.
+(Caress her hips.)
+(Ласкать ее бедра.)
+###_NPC
+(She doesn't seem to appreciate much.)  Check the clock girl.
+(Кажется, она мало что ценит.) Посмотри на часы, девочка.
+###_PLAYER
+(Kiss her.)
+(Поцеловать ее.)
+###_NPC
+(She pushes you back.)  We don't have time for that!  Get busy.
+(Она отталкивает вас.) У нас нет на это времени! Займись делом.
+###_PLAYER
+(Fondle her breast.)
+(Ласкает ее грудь.)
+###_NPC
+(She moans a little but checks the clock.)  We don't have much time.
+(Она немного стонет, но смотрит на часы.) У нас мало времени.
+###_PLAYER
+(Masturbate her.)
+(Мастурбировать ее.)
+###_NPC
+(She moans from the pleasure.)  Oh yeah, faster, harder!
+(Стонет от удовольствия.) О да, быстрее, сильнее!
+###_PLAYER
+(Spank her butt.)
+(Шлепать ее по попке.)
+###_NPC
+(She grumbles and points at the clock.)  That's the best you can do?
+(Она ворчит и показывает на часы.) Это лучшее, что ты можешь сделать?
+###_PLAYER
+(Eat her.)
+(Съесть ее.)
+###_NPC
+(She screams from the intense pleasure.)  Oh, fuck yeah!  Keep going!
+(Она кричит от сильного удовольствия.) О, черт возьми! Продолжай!
+###_PLAYER
+(Slap her face.)
+(Пощечина по лицу.)
+###_NPC
+(She stunned by your slap for a second but recovers.)  I want to cum girl!  C, U, M!
+(Она на секунду ошеломлена твоей пощечиной, но приходит в себя.) Я хочу кончить, девочка! К, О, Н, Ч, И, Т, Ь!
+###_PLAYER
+(Fist her.)
+(Кулаком)
+###_NPC
+(She moans from the pleasure and the pain.)  You're a real whore!  Keep it up.
+(Она стонет от удовольствия и боли.) Ты настоящая шлюха! Так держать.
+###_PLAYER
+Is it my turn?
+Моя очередь?
+###_NPC
+There's not enough time, but we need to see each other again.  (You both dress back up.)
+Времени мало, но нам нужно снова увидеться. (Вы оба снова одеваетесь.)
+###_PLAYER
+I'm glad you enjoyed it.
+Я рада, что вам понравилось.
+###_NPC
+Oh yeah, we need to see each other again.  (You both dress back up.)
+О да, нам нужно снова увидеться. (Вы оба снова одеваетесь.)
+###_PLAYER
+That was great.
+Это было здорово.
+###_NPC
+Absolutely, we need to see each other again.  (You both dress back up.)
+Безусловно, нам нужно снова увидеться. (Вы оба снова одеваетесь.)
+###_PLAYER
+I know a place where we could meet.
+Я знаю место, где мы могли бы встретиться.
+###_NPC
+Really?  Where could we go?
+Действительно? Куда мы могли пойти?
+###_PLAYER
+We'll meet when I go back to detention.
+Мы встретимся, когда я вернусь в сюда снова.
+###_NPC
+Alright.  Get out then, I need to close the room.
+Хорошо. Убирайся тогда, мне нужно закрыть комнату.
+###_PLAYER
+I don't want to see you again.
+Я не хочу видеть тебя снова.
+###_NPC
+(She snobs you.)  Fine, get out then.  I need to close the room anyway.
+(Она тебя снобирует.) Хорошо, тогда уходи. Мне все равно нужно закрыть комнату.
+###_PLAYER
+No goodbye kisses?
+Никаких прощальных поцелуев?
+###_NPC
+Don't think you're funny young lady.
+Не думайте, что вы смешная юная леди.
+###_PLAYER
+It's a club downtown.
+Это клуб в центре.
+###_NPC
+I'm in, just give me the address and I'll meet you there later.
+Я в деле, просто дай мне адрес, встретимся там позже.
+###_PLAYER
+(Invite her to your private room.)
+(Пригласите ее в свою личную комнату.)
+You're frigid bitch.
+Ты фригидная сука.
+###_NPC
+Go to hell girl.  (You both dress back up.)  Get out before I kick your ass.
+Иди к черту, девочка. (Вы оба снова одеваетесь.) Убирайтесь, пока я не надрал вам задницу.
+###_PLAYER
+We barely begun!
+Мы едва начали!
+###_NPC
+I know girl.  (You both dress back up.)  You're not good enough, now get out.
+Я знаю девушка. (Вы оба снова одеваетесь.) Вы недостаточно хороши, а теперь уходите.
+###_PLAYER
+That was too quick.
+Это было слишком быстро.
+Do we dress back up?
+Мы снова одеваемся?
+###_NPC
+We do.  (You both dress back up.)  You're not good enough, now get out.
+Мы делаем. (Вы оба снова одеваетесь.) Вы недостаточно хороши, а теперь уходите.
+###_PLAYER
+That's it?  I can go?
+Вот и все? Я могу идти?

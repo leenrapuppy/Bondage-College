@@ -1,0 +1,389 @@
+###_NPC
+Hun, speak clearer if you want to become a star.
+Милая, говори яснее, если хочешь стать звездой.
+Cut!  That's enough hun!  I told you to be sexy.
+Снято!  Этого достаточно, солнышко!  Я сказала тебе быть сексуальной.
+Cut!  Sorry hun, you don't have what it takes to be a star.
+Снято!  Извини, солнышко, у тебя нет того, что нужно, чтобы стать звездой.
+Cut!  Hun, you're too boring to be a porn star.
+Снято!  солнышко, ты слишком скучная, чтобы быть порнозвездой.
+Cut!  That doesn't work hun.  You forgot to spice up your play.
+Снято!  Это не сработает, солнышко.  Ты забыла оживить свою игру.
+It's an honor to see you Mistress DialogPlayerName.  Are you here to review the scenario?
+Для меня большая честь видеть вас, Госпожа DialogPlayerName.  Вы здесь для того, чтобы просмотреть сценарий?
+You're DialogPlayerName the kidnapper?  We could use someone like you in our next film.
+Вы DialogPlayerName похититель? Мы могли бы использовать кого-то вроде вас в нашем следующем фильме.
+Hey maid DialogPlayerName, the studio could use some cleaning.  We also need some fresh coffee.
+Эй, горничная DialogPlayerName, студии не помешала бы уборка. Нам также нужен свежий кофе.
+Hey there, are you looking to become a star in the next movie?
+Эй, ты хочешь стать звездой в следующем фильме?
+###_PLAYER
+Hi, I'm DialogPlayerName.
+Привет, я DialogPlayerName.
+###_NPC
+Pleased to meet you hun, I'm DialogCharacterName.  I'm directing the next movie.
+Рада познакомиться с вами, солнышко, я DialogCharacterName. Я режиссирую следующий фильм.
+###_PLAYER
+Can you help me?
+Вы можете помочь мне?
+###_NPC
+Go find a maid, I have a movie to shoot.
+Иди найди горничную, мне нужно снять фильм.
+###_PLAYER
+Are you looking for actresses?
+Вы ищете актрис?
+###_NPC
+All the time.  If you're not shy, we could hire you.  You could become the next bondage idol.
+Все время. Если ты не стесняешься, мы могли бы нанять тебя. Вы могли бы стать следующим идолом бондажа.
+###_PLAYER
+Do actresses get paid?
+Платят ли актрисам?
+###_NPC
+Of course, hun.  The better the performance, the better the salary.
+Конечно, солнышко. Чем лучше производительность, тем выше зарплата.
+###_PLAYER
+How long are the movies?
+Как долго идут фильмы?
+###_NPC
+Most movies roll for around half an hour, we divide them in scenes of ten minutes.
+Большинство фильмов длится около получаса, мы делим их на сцены по десять минут.
+###_PLAYER
+How do you know if a movie is good?
+Как узнать, хороший ли фильм?
+###_NPC
+We judge each ten minutes scene individually.  They must all be sexy and nonrepetitive for the movie to be sold.
+Каждую десятиминутную сцену мы оцениваем индивидуально. Чтобы фильм продавался, все они должны быть сексуальными и неповторяющимися.
+###_PLAYER
+What are you filming?
+Что ты снимаешь?
+###_NPC
+The movie is called: "The Interview".  It's the story of a curious journalist that comes to the Bondage Club to interview a Mistress.  Are you interested?
+Фильм называется: "Интервью". Это история о любопытном журналисте, который приходит в Бондаж-клуб, чтобы взять интервью у Госпожи. Вы заинтересованы?
+###_PLAYER
+Take care.  (Leave her.)
+Береги себя. (Оставь ее.)
+Tell me about the script.
+Расскажите мне о сценарии.
+###_NPC
+The script is open hun, as long as it's sexy.  It starts with a journalist that comes in advance to interview a Mistress and finds herself waiting in a room full of toys.
+Сценарий открыт, пока он сексуален. Все начинается с того, что журналист приходит заранее, чтобы взять интервью у Госпожи, и оказывается в комнате, полной игрушек.
+###_PLAYER
+What roles are available?
+Какие роли доступны?
+###_NPC
+There's a role for a journalist, a Mistress and a maid.  But you'll need to be a true Club Mistress or Maid for the last two.
+Есть роли для журналиста, Госпожи и горничной. Но для последних двух вам нужно быть настоящей клубной хозяйкой или горничной.
+###_PLAYER
+Can actors improvise?
+Могут ли актеры импровизировать?
+###_NPC
+Oh yeah!  We give you a starting situation and you can roll with it.  Just make sure the movie is sexy and will sell well.
+Ах, да! Мы даем вам исходную ситуацию, и вы можете двигаться дальше. Просто убедитесь, что фильм сексуален и будет хорошо продаваться.
+###_PLAYER
+I want to play in that movie.
+Я хочу сыграть в этом фильме.
+###_NPC
+Great!  Which role would you like to take?  The journalist, the maid or the Mistress?
+Большой! Какую роль вы хотели бы сыграть? Журналистка, горничная или Хозяйка?
+(She checks your locks.)  Sorry hun, get yourself unlocked first if you want to be a star.
+(Она проверяет ваши замки.) Извини, солнышко, сначала разблокируйся, если хочешь стать звездой.
+###_PLAYER
+I'm not interested.
+Мне это не интересно.
+###_NPC
+Fine, make some room for the next movie star then.
+Хорошо, освободи место для следующей кинозвезды.
+###_PLAYER
+I'll be the journalist.
+Я буду журналисткой.
+###_NPC
+The starring role!  You will do fine hun.
+Звездная роль! У тебя все получится, солнышко.
+###_PLAYER
+I'll be the maid.
+Я буду горничной.
+###_NPC
+I'm sure you can play that role maid DialogPlayerName.
+Я уверена, что вы можете играть эту роль горничной DialogPlayerName.
+Sorry, this role is for real maids only.
+Извините, эта роль только для настоящих горничных.
+###_PLAYER
+I'll be the Mistress.
+Я буду Госпожой.
+###_NPC
+Of course, Mistress DialogPlayerName.  This role will be perfect for you.
+Конечно, госпожа DialogPlayerName. Эта роль будет идеальной для вас.
+Sorry, this role is for real Mistresses only.
+Извините, эта роль только для настоящей Госпожи.
+###_PLAYER
+I'm not sure about this.
+Я не уверена в этом.
+What should I do?
+Что я должна делать?
+###_NPC
+You start the movie by entering a dungeon room with an X-Cross and a drawer full of latex clothes and cuffs, be curious!
+Вы начинаете фильм, входя в комнату подземелья с X-Cross и ящиком, полным латексной одежды и наручников, будьте любопытны!
+###_PLAYER
+How does it start?
+Как это начинается?
+There are other actresses?
+Есть другие актрисы?
+###_NPC
+The maid will come in for the second scene and see what you've did to yourself.  She will play with you.
+Горничная войдет во вторую сцену и увидит, что вы с собой сделали. Она будет играть с тобой.
+###_PLAYER
+And what's next?
+А потом что?
+What about the Mistress?
+Что с Госпожой?
+###_NPC
+The Mistress comes in third, finding both you and the maid.  This will be the hottest scene.
+Хозяйка идет третьей, находя вас и горничную. Это будет самая жаркая сцена.
+###_PLAYER
+And after that?
+И после этого?
+(Take a few notes.)
+(Сделайте несколько заметок.)
+There are only three scenes?
+Всего три сцены?
+###_NPC
+Correct.  We are filming an adult movie here, not Lord of the Cock Rings.  Are you ready?
+Правильно. Мы снимаем здесь фильм для взрослых, а не «Властелин петушиных колец». Вы готовы?
+###_PLAYER
+And that's it?
+Вот и все?
+I'm ready to shoot.
+Я готова сниматься.
+###_NPC
+This is wonderful hun, you'll become a star.  Go get changed and we'll start filming when you get back.
+Это чудесно, солнышко, ты станешь звездой. Иди переоденься, и мы начнем снимать, когда ты вернешься.
+###_PLAYER
+I'll be the greatest journalist!
+Я буду величайшей журналисткой!
+I will try my best Miss Director.
+Я буду стараться изо всех сил, Мисс Директор.
+I've changed my mind.
+Я передумала.
+(Go change.)
+(Идти переодеться.)
+###_NPC
+You look fabulous.  Now enter the room and we'll start recording.  Remember to be curious and sexy my star!
+Ты выглядишь потрясающе. Теперь входи в комнату, и мы начнем запись. Не забывай быть любопытной и сексуальной, моя звезда!
+###_PLAYER
+(Start the movie.)
+(Начать фильм.)
+(Struggles happily.)
+(Радостно бороться.)
+###_NPC
+(The crew releases you and help you to dress back up.  The full team celebrates with you.)
+(Команда отпускает вас и помогает одеться. Вся команда празднует вместе с вами.)
+###_PLAYER
+(Give a thumbs up.)
+(Поднимите палец вверх.)
+###_NPC
+(The crew helps you to dress back up.  The full team celebrates with you.)
+(Команда помогает вам одеться. Вся команда празднует вместе с вами.)
+###_PLAYER
+That was fun!
+Это было весело!
+###_NPC
+I'm glad you had fun, keep on working like that and you might make big money someday.
+Я рада, что вам было весело, продолжайте в том же духе, и вы, возможно, когда-нибудь заработаете большие деньги.
+###_PLAYER
+I was so nervous.
+Я так нервничала.
+###_NPC
+You did really good hun, keep on working like that and you might make big money someday.
+Ты действительно хорошо поработала, продолжай в том же духе, и когда-нибудь ты сможешь заработать большие деньги.
+###_PLAYER
+I will be a star!
+Я буду звездой!
+###_NPC
+Hun, you're not Pamela Anderson yet, but keep on working and you might make big money.
+Солнышко, ты еще не Памела Андерсон, но продолжай работать, и ты можешь заработать большие деньги.
+###_PLAYER
+Talking about money...
+Говоря о деньгах...
+How much does it pay?
+Сколько мне заплатят?
+No need for money.  I'd like that camera though.
+Нет нужды в деньгах. Хотя я бы хотела эту камеру.
+###_NPC
+The journalist camera?  It's yours then, you deserve it.  (She gives you the camera.)
+Журналистская камера? Тогда это ваше, вы это заслужили. (Она дает вам камеру.)
+###_PLAYER
+No need for money.  I'd like that gavel though.
+Нет нужды в деньгах. Хотя я бы хотел этот молоток.
+###_NPC
+The wooden gavel from the trial?  Keep it, you deserve it.  (She gives you the gavel.)
+Деревянный молоток с суда? Держи, ты это заслужила. (Она дает вам молоток.)
+###_PLAYER
+No need for money.  I'd like that long duster though.
+Нет нужды в деньгах. Хотя я бы хотела этот длинный пыльник.
+###_NPC
+Of course, the duster is yours hun.  You kept it for the full play, you deserve it.  (She gives you the long duster.)
+Конечно, тряпка твоя, солнышко. Вы сохранили его для полной игры, вы это заслужили. (Она дает вам длинный пыльник.)
+###_PLAYER
+Thanks a lot.
+Большое спасибо.
+###_NPC
+My pleasure.  We'll probably shoot another movie soon, come back later.
+Не за что. Возможно, мы скоро снимем еще один фильм, возвращайся позже.
+###_PLAYER
+I might do another movie.
+Я могла бы сделать еще один фильм.
+###_NPC
+Great!  We'll probably shoot another movie soon, come back later.
+Большой! Возможно, мы скоро снимем еще один фильм, возвращайся позже.
+We are done filming for now.  Please come back later.
+На данный момент мы закончили съемку. Пожалуйста, вернитесь позже.
+###_PLAYER
+(Leave her.)
+(Оставь ее.)
+Tell me of the role.
+Расскажите мне о роли.
+###_NPC
+You enter on the third and last scene.  Your character is expecting to see a journalist but will find a club member playing with a maid.
+Вы входите в третью и последнюю сцену. Ваш персонаж ожидает увидеть журналиста, но находит члена клуба, играющего с горничной.
+###_PLAYER
+What are they doing there?
+Что они там делают?
+###_NPC
+They are having fun in your reserved interview room.  You should teach them a lesson in front of the camera.
+Они веселятся в твоей забронированной комнате для интервью. Вы должны преподать им урок перед камерой.
+###_PLAYER
+They are using my interview room?
+Они используют мою комнату для интервью?
+###_NPC
+Exactly!  They should not be in your interview room, so you need to teach them a lesson in front of the camera.
+В яблочко! Их не должно быть в вашей комнате для интервью, поэтому вам нужно преподать им урок перед камерой.
+###_PLAYER
+I discipline the club member?
+Я наказываю члена клуба?
+###_NPC
+It's up to you Mistress DialogPlayerName.  Just make sure it's spicy and the camera can catch the action.
+Это зависит от вас, госпожа DialogPlayerName. Просто убедитесь, что это пикантно, и камера может поймать действие.
+###_PLAYER
+I discipline the maid?
+Я дисциплинирую горничную?
+I discipline both of them?
+Я наказываю их обоих?
+###_NPC
+That's it, the movie ends there.  Your character is only there for the final scene.  Just make sure it's hot and nonrepetitive.  Are you ready to shoot?
+Вот и все, фильм заканчивается. Ваш персонаж присутствует только в финальной сцене. Просто убедитесь, что это горячо и не повторяется. Вы готовы сниматься?
+###_PLAYER
+What goes on after the punishment?
+Что происходит после наказания?
+###_NPC
+Great!  You can use your regular Mistress clothes for the role.  (A maid helps you to change.)
+Отлично!  Вы можете использовать свою обычную одежду Госпожи для этой роли.  (Горничная помогает вам переодеться.)
+This is perfectly fine.  We will try to find another Mistress then.
+Это прекрасно. Тогда мы попробуем найти другую Госпожу.
+You enter the set on the second scene, you were sent by a Mistress to clean a dungeon.  There will be a surprise when you enter.
+Вы входите в набор на второй сцене, вас послала Хозяйка очистить подземелье. При входе будет сюрприз.
+###_PLAYER
+What surprise?
+Какой сюрприз?
+###_NPC
+You will find a journalist, but you don't know about her.  She will be bound in skimpy clothes on the X-Cross.
+Вы найдете журналистку, но вы не знаете о ней. Она будет связана в скудной одежде на X-Cross.
+###_PLAYER
+I find the journalist?
+Я найду журналистку?
+###_NPC
+Yes, but you don't know that she's the journalist.  She will be bound in skimpy clothes on the X-Cross.
+Да, но вы не знаете, что она журналист. Она будет связана в скудной одежде на X-Cross.
+###_PLAYER
+(Listen to her.)
+(Слушать ее.)
+I tease her?
+Я дразню ее?
+###_NPC
+Do whatever is on your mind, but make sure the scene is hot.  The camera needs to love what you do for ten minutes.
+Делайте все, что у вас на уме, но убедитесь, что сцена горячая. Камера должна любить то, что вы делаете в течение десяти минут.
+###_PLAYER
+I masturbate her?
+Я мастурбирую ее?
+###_NPC
+Of course!  Do whatever is on your mind, but make sure the scene is hot.  The camera needs to love what you do for ten minutes.
+Конечно! Делайте все, что у вас на уме, но убедитесь, что сцена горячая. Камера должна любить то, что вы делаете в течение десяти минут.
+###_PLAYER
+I tickle her?
+Я щекочу ее?
+###_NPC
+Sure!  Do whatever is on your mind, but make sure the scene is hot.  The camera needs to love what you do for ten minutes.
+Конечно! Делайте все, что у вас на уме, но убедитесь, что сцена горячая. Камера должна любить то, что вы делаете в течение десяти минут.
+###_PLAYER
+I release her?
+Я отпускаю ее?
+###_NPC
+You can, but make sure whatever you do next is hot.  The camera needs to love what you do for ten minutes.
+Вы можете, но убедитесь, что все, что вы делаете дальше, горячо. Камера должна любить то, что вы делаете в течение десяти минут.
+###_PLAYER
+And after ten minutes?
+А через десять минут?
+###_NPC
+A Mistress will come in for the third scene, she will take control of the set.  Obey her or get in trouble, it's all good.
+На третью сцену придет Госпожа, она возьмет на себя управление съемочной площадкой. Подчиняйся ей или попади в беду, все хорошо.
+###_PLAYER
+What's the next scene?
+Какая следующая сцена?
+###_NPC
+Wonderful!  You can use the regular or skimpy maid outfit for that role, which one do you prefer?
+Замечательно! Вы можете использовать обычную или откровенную одежду горничной для этой роли, какую из них вы предпочитаете?
+It's alright, but go clean somewhere else, we need to find another maid.
+Все в порядке, но иди убирайся в другом месте, нам нужно найти другую горничную.
+###_PLAYER
+I'll wear the regular outfit.
+Я надену обычную одежду.
+###_NPC
+(She yells at the crew and helps you to change.)  Alright team!   Time is money!  Let's get ready to shoot!
+(Она кричит команде и помогает вам переодеться.) Хорошо, команда! Время - деньги! Приготовимся к съемке!
+###_PLAYER
+I'll wear the skimpy outfit.
+Я надену скудный наряд.
+###_NPC
+(She checks her purse and gives you $SALARYAMOUNT.)  Here's your salary hun.  You deserve it.
+(Она проверяет свою сумочку и дает вам $SALARYAMOUNT.) Вот твоя зарплата, солнышко. Ты заслуживаешь это.
+###_PLAYER
+What?  You're stopping the movie?
+Что? Ты останавливаешь фильм?
+###_NPC
+That movie wasn't going anywhere.  We can't produce a boring film.  Dress back up.
+Этот фильм никуда не делся. Мы не можем снять скучный фильм. Оденьтесь обратно.
+###_PLAYER
+Wait!  It was about to get hot.
+Подождите! Это вот-вот станет жарко.
+###_NPC
+You're cold as ice.  We can't produce a boring film.  Dress back up.
+Ты холодна как лед. Мы не можем снять скучный фильм. Оденьтесь обратно.
+###_PLAYER
+(Sigh and bow your head.)
+(Вздохнуть и склонить голову.)
+###_NPC
+That performance was horrible.  We can't produce a boring film.  Dress back up.
+Это представление было ужасным.  Мы не можем снимать скучный фильм.  Оденься обратно.
+###_PLAYER
+I'm so sorry, can I try again?
+Мне очень жаль, могу я попробовать еще раз?
+###_NPC
+Don't cry girl, you can try again if you have the guts.  We will prepare another shoot.
+Не плачь, девочка, можешь попробовать еще раз, если хватит смелости. Мы подготовим еще одну съемку.
+###_PLAYER
+Can I have another chance?
+Могу ли я получить еще один шанс?
+###_NPC
+Sure, you can if you have the guts.  We will prepare another shoot.
+Конечно, вы можете, если у вас есть мужество. Мы подготовим еще одну съемку.
+###_PLAYER
+This is bullshit!
+Это ерунда!
+###_NPC
+No need to get angry, you can try again if you have the guts.  We will prepare another shoot.
+Не нужно злиться, вы можете попробовать еще раз, если у вас хватит смелости. Мы подготовим еще одну съемку.
+###_PLAYER
+I guess I'm not going to Hollywood.
+Думаю, я не поеду в Голливуд.
+###_NPC
+Probably not, but you can try again if you have the guts.  We will prepare another shoot.
+Вероятно, нет, но вы можете попробовать еще раз, если у вас есть мужество. Мы подготовим еще одну съемку.

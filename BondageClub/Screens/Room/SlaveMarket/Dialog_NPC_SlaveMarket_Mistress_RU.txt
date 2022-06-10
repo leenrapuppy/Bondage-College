@@ -3,8 +3,8 @@ Remove that gag or get lost.  I run the market and I don't have time for mumblin
 Снеми этот кляп или проваливай.  Я управляю рынком, и у меня нет времени на бормотание.
 Too bad it didn't work for you, but a new girl is coming up right now if you want to check her.
 Жаль, что это не работает для вас, но новая девочка прийдет прямо сейчас, если вы хотите можете проверить ее.
-Well done!  I think this slave has learned a lot in your hands.  Here's your salary.  (She gives you MoneyAmount$)
-Молодец!  Я думаю, этот рабыня многому научился в ваших руках.  Вот ваша зарплата.  (Она дает тебе MoneyAmount$)
+Well done!  I think this slave has learned a lot in your hands.  Here's your salary.  (She gives you $MoneyAmount)
+Молодец!  Я думаю, этот рабыня многому научился в ваших руках.  Вот ваша зарплата.  (Она дает тебе $MoneyAmount)
 You've failed your training.  Thanks for your time but I cannot pay you.
 Вы потерпели неудачу в обучении. Спасибо за ваше время, но я не могу вам заплатить.
 Greetings Mistress DialogPlayerName.  It's always a pleasure to see you at the market.  Are you here to train our slaves?
@@ -66,14 +66,14 @@ Can I sell my slaves here?
 Yes, but only if your slave is fully collared.  You can sell her permanently or rent her for a day.  Go get her first.
 Да, но только если твоя рабыня в постоянном ошенике.  Вы можете продать ее навсегда или сдать в аренду на один день.  Сначала приведите ее.
 ###_PLAYER
-Can I sell myself?
-Могу ли я продать себя?
+Can I be auctioned as a slave?
+Могу ли я быть продана с аукциона как рабыня?
 ###_NPC
-Not yet, we cannot take you at the moment.  (This feature will be available in a future version.)
-Пока нет, мы не можем взять вас сейчас.  (Эта функция будет доступна в будущей версии.)
+You could, but you need to understand the rules first.
+Вы могли бы, но сначала вам нужно понять правила.
+No, to be auctioned you need to be a submissive, be unowned, be unrestrained, have space in your room and not have been auctioned in the last seven days.
+Нет, чтобы быть выставленным на аукцион, вы должны быть сабмиссивом, быть свободной, быть не ограниченной, иметь место в своей комнате и не выставляться на аукцион в течение последних семи дней.
 ###_PLAYER
-Can my owner sell me?
-Может ли моя хозяйка продать меня?
 It's consensual?
 Это по обоюдному согласию?
 ###_NPC
@@ -231,3 +231,83 @@ That slave was a wimp.
 ###_NPC
 Maybe, but you still need to focus on your wimp needs.  Do you want anything else?
 Может быть, но вам все равно нужно сосредоточиться на своих слабых сторонах.  Вам еще что-нибудь нужно?
+###_PLAYER
+Please tell me the rules.
+Пожалуйста, расскажите мне о правилах.
+###_NPC
+As a slave on auction, you will be naked and chained for Dominants to examine and question you.
+Как рабыня на аукционе, вы будете обнажены и закованы в цепи, чтобы доминанты осматривали и допрашивали вас.
+###_PLAYER
+(Listen quietly.)
+(Слушайте спокойно.)
+Alright.
+Хорошо.
+###_NPC
+After the exam, the bidding will start.  Each buyer will bid until no one wants to bid anymore.  The last bid wins you.
+После экзамена начнутся торги.  Каждый покупатель будет делать ставки до тех пор, пока никто больше не захочет делать ставки.  Последняя ставка выигрывает вас.
+###_PLAYER
+This is kinky!
+Это извращение!
+Very well.
+Очень хорошо.
+###_NPC
+I don't know the price you will raise, but the more submissive you are, the higher it usualy gets.
+Я не знаю, какую цену вы поднимете, но чем более вы покорны, тем выше она обычно становится.
+###_PLAYER
+I know how auction works.  Get to the point.
+Я знаю, как работает аукцион.  Переходите к делу.
+###_NPC
+If you're not going to take this seriously, I cannot allow you to be auctioned.  Get lost girl.
+Если вы не собираетесь воспринимать это всерьез, я не могу позволить выставить вас на аукцион.  Заблудись, девочка.
+###_PLAYER
+(Listen carefully.)
+(Слушайте внимательно.)
+###_NPC
+You will get about half the money and Bondage Club gets the rest of it.
+Вы получите примерно половину денег, а остальное получит Бондаж Клуб.
+###_PLAYER
+I hope it pays well.
+Я надеюсь, что это хорошо оплачивается.
+This is robbery!
+Это грабеж!
+###_NPC
+If you cannot accept our terms, I cannot allow you to be auctioned.  Get lost girl.
+Если вы не можете принять наши условия, я не могу позволить выставить вас на аукцион.  Заблудись, девочка.
+###_PLAYER
+This is fair.
+Это справедливо.
+###_NPC
+Once the transaction is done, your owner will go to your room, having started a regular trial period with her.
+Как только транзакция будет завершена, ваша владелица отправится в вашу комнату, начав с ней обычный пробный период.
+###_PLAYER
+(Nod slowly.)
+(Медленно кивать.)
+I understand.
+Я понимаю.
+###_NPC
+Good girl.  So are you ready to be auctioned?  You first need to get naked and chained.
+Хорошая девочка.  Итак, вы готовы к выставлению на аукцион?  Сначала тебе нужно раздеться догола и заковать в цепи.
+###_PLAYER
+It sounds good.
+Звучит заманчиво.
+Yes, I'm ready to be auctioned.
+Да, я готова выставить себя на аукцион.
+###_NPC
+Very good.  (She grins and gets you naked and chained, so buyers can come to check on you.)
+Очень хорошо.  (Она ухмыляется и раздевает тебя догола и заковывает в цепи, чтобы покупатели могли прийти и проверить тебя.)
+Don't waste my time then.  This is a place of business.
+Тогда не трать мое время впустую.  Это место ведения бизнеса.
+###_PLAYER
+(Let the buyers examine you.)
+(Пусть покупатели изучат вас.)
+###_NPC
+(A few Dominants seem to be interested in buying you.  They ask you about your fetishes, sexual preferences and limits.)
+(Несколько Доминантов, похоже, заинтересованы в том, чтобы купить вас.  Они спрашивают вас о ваших фетишах, сексуальных предпочтениях и ограничениях.)
+(Lots of Dominants seem to be very interested in buying you.  They ask you about your fetishes, sexual preferences and limits.)
+(Многие Доминанты, похоже, очень заинтересованы в том, чтобы купить вас.  Они спрашивают вас о ваших фетишах, сексуальных предпочтениях и ограничениях.)
+###_PLAYER
+(Answer the questions.)
+(Отвечайте на вопросы.)
+###_NPC
+(After many interviews and physcial examinations, the auctioneer comes in so you can be sold.)
+(После многих собеседований и медицинских осмотров приходит аукционист, чтобы вас можно было продать.)

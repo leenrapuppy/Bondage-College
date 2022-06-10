@@ -1,0 +1,14 @@
+###_NPC
+(This huge chest is locked.)
+(Этот огромный сундук заперт.)
+###_PLAYER
+(Try to picklock it.)
+(Попробуйте взломать его.)
+(Leave it.)
+(Оставь это.)
+###_NPC
+(The chest is unlocked.)
+(Сундук отперт.)
+###_PLAYER
+(Loot it.)
+(Грабь его.)

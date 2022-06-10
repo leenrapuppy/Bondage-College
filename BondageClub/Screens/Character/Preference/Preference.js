@@ -1525,7 +1525,7 @@ function PreferenceSubscreenGraphicsExit() {
 		(currentOptions.powerPreference != PreferenceGraphicsWebGLOptions.powerPreference ||
 			currentOptions.antialias != PreferenceGraphicsWebGLOptions.antialias)
 	)
-		GLDrawLoad();
+		GLDrawResetCanvas();
 	PreferenceSubscreen = "";
 }
 

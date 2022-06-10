@@ -1,0 +1,14 @@
+###_NPC
+(She's waiting in line in front of you.  She's too far away to notice you.)
+(Она ждет в очереди перед вами. Она слишком далеко, чтобы заметить вас.)
+###_PLAYER
+Hey there!
+Эй, там!
+###_NPC
+(She's doesn't notice you.)
+(Она тебя не замечает.)
+###_PLAYER
+(Try to catch her attention.)
+(Попробуйте привлечь ее внимание.)
+(Leave her.)
+(Оставь ее.)

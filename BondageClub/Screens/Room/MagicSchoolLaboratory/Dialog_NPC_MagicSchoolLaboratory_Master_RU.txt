@@ -1,0 +1,145 @@
+###_NPC
+A gag will control your mouth, while I control your mind.
+Кляп будет контролировать твой рот, а я буду контролировать твой разум.
+The tighter the better!  This also applies to gags.
+Чем теснее, тем лучше! Это касается и кляпов.
+A silenced magician cannot do any harm.
+Безмолвный маг не может причинить никакого вреда.
+Stop your futile mumblings.
+Прекрати свое бесполезное бормотание.
+(She catches her breath, barely struggles and seems very proud of you.)
+(Она переводит дыхание, едва сопротивляется и, кажется, очень гордится вами.)
+(She releases and you dress back up.)  Sorry, you failed the test, you're not ready to learn yet.
+(Она отпускает, и вы снова одеваетесь.) Извините, вы провалили тест, вы еще не готовы учиться.
+(A prestigious magus from House Maiestas salutes you.)  Your reputation heralds you, great wizard DialogPlayerName.
+(Вас приветствует авторитетный маг из Дома Майестас.) Ваша репутация возвещает о вас, великий волшебник DialogPlayerName.
+(A high sorcerer from House Vincula rushes to you.)  I've heard about you!  You're the powerful magician DialogPlayerName.
+(К вам бросается высший колдун из Дома Винкула.) Я слышал о вас! Вы могущественный волшебник DialogPlayerName.
+(You meet one of the oracles from House Amplector.)  Sweetheart, you're more than a sage now, you're a legend.  (She gives you a hug.)
+(Вы встречаете одного из оракулов Дома Амплектор.) Дорогая, теперь ты больше, чем мудрец, ты легенда. (Она обнимает тебя.)
+(A powerful warlock from House Corporis does a secret handshake with you.)  It's an honor to meet you, witch DialogPlayerName.
+(Могущественная чернокнижница из Дома Корпорис тайно пожимает вам руку.) Для меня большая честь познакомиться с вами, ведьма DialogPlayerName.
+###_PLAYER
+The pleasure is reciprocal, magus.
+Удовольствие взаимно, маг.
+###_NPC
+(You exchange a few words on the magic school and she changes subject.)  Have you heard of House Maiestas secret technique?
+(Вы обмениваетесь несколькими словами о школе магии, и она меняет тему.) Вы слышали о секретной технике Дома Майестас?
+###_PLAYER
+Hey!  Great to see you sorcerer!
+Привет! Рада тебя видеть, колдунья!
+###_NPC
+(You do a high five and chat a little, the subject changes quickly.)  You might be ready to learn Vincula's forbidden spell.
+(Вы даете пять и немного болтаете, тема быстро меняется.) Возможно, вы готовы выучить запретное заклинание Винкулы.
+###_PLAYER
+(Give the oracle a long warm hug.)
+(Давайте крепко обнимите оракула.)
+###_NPC
+(You share a warm and loving hug.)  The oracles have been talking.  Would you like to learn House Amplector ritual?
+(Вы обмениваетесь теплыми и любящими объятиями.) Оракулы говорили. Хотели бы вы изучить ритуал Дома Амплектор?
+###_PLAYER
+The honor is mine, mighty warlock.
+Это честь для меня, могучая колдунья.
+###_NPC
+(You talk about houses wars and she changes subject.)  The warlock inner circle is ready to teach you a dark spell, are you ready for it?
+(Вы говорите о войнах домов, и она меняет тему.) Внутренний круг колдунов готов научить вас темному заклинанию, вы готовы к этому?
+###_PLAYER
+Sorry, I must hurry.  (Leave her.)
+Извините, я должна спешить. (Оставь ее.)
+Tell me of that secret technique.
+Расскажи мне об этой секретной технике.
+###_NPC
+House Maiestas master's control and self-control.  We have developed a technique to cast much easier while being restrained.
+Хозяйский контроль и самоконтроль Дома Майестас. Мы разработали технику, позволяющую намного легче колдовать, будучи связанными.
+###_PLAYER
+Really?  What forbidden spell?
+Действительно? Какое запретное заклинание?
+###_NPC
+We created a forbidden spell: the Stricta Lorum.  This magic will create, strap and tighten a magic armbinder on your opponent.
+Мы создали запретное заклинание: Стрикта Лорум. Эта магия создаст, свяжет и затянет волшебный армбиндер на вашем противнике.
+###_PLAYER
+I would love to learn more on that ritual.
+Я хотел бы узнать больше об этом ритуале.
+###_NPC
+The oracles perfected the ritual of the flesh.  We repeat it everyday so being stripped doesn't affect our spellcasting ability.
+Оракулы усовершенствовали ритуал плоти. Мы повторяем это каждый день, чтобы раздевание не влияло на наши способности к колдовству.
+###_PLAYER
+The dark spell sounds interesting.
+Темное заклинание звучит интересно.
+###_NPC
+The dark spell name is: Nuda Caro.  It fully strips your opponent in one incantation, leaving only naked flesh to burn.
+Название темного заклинания: Нуда Каро. Он полностью раздевает вашего противника одним заклинанием, оставляя гореть только голую плоть.
+###_PLAYER
+Can I learn this?
+Могу ли я научиться этому?
+###_NPC
+(She nods.)  You could, but you must face me in battle first.  I must make sure you're ready.
+(Она кивает.) Можешь, но сначала ты должна встретиться со мной в бою. Я должна убедиться, что ты готова.
+###_PLAYER
+I'm ready!  (Fight her.)
+Я готова! (Бороться с ней.)
+Forget it.  (Leave her.)
+Забудь это. (Брось ее.)
+(Release her.)
+(Отпустите ее.)
+###_NPC
+(You release her as she nods slowly.)  Wizard, you're ready to learn House Maestas secret self-control technique.
+(Вы отпускаете ее, когда она медленно кивает.) Волшебник, вы готовы изучить секретную технику Дома Маэста.
+(You release her as she gives you a high five.)  I'll teach you House Vincula forbidden armbinder spell: the Stricta Lorum.
+(Вы отпускаете ее, когда она дает вам «пять»). Я научу вас запретному заклинанию Дома Винкула: Стрикта Лорум.
+###_PLAYER
+(Release and hug her.)
+(Отпустить и обнять ее.)
+###_NPC
+(You release her and exchange a long hug.)  You're a true sage, I will teach you House Amplector ritual of the flesh.
+(Вы отпускаете ее и обмениваетесь долгими объятиями.) Ты настоящий мудрец, я научу тебя ритуалу плоти Дома Амплектор.
+###_PLAYER
+(Spank and release her.)
+(Отшлепать и отпустить ее.)
+###_NPC
+(She jumps from the pain as you release her.)  Witch, you're ready for House Corporis dark spell: Nuda Caro.
+(Она подпрыгивает от боли, когда вы отпускаете ее.) Ведьма, вы готовы к темному заклинанию Дома Корпорис: Нуда Каро.
+###_PLAYER
+(Learn the self-control technique.)
+(Изучить технику самоконтроля.)
+###_NPC
+(After hours and hours of bondage training, you feel that restraints won't hamper your spells too much.)  Congratulations, you did it.
+(После многих часов тренировок в бондаже вы чувствуете, что ограничения не будут слишком сильно мешать вашим заклинаниям.) Поздравляю, вы это сделали.
+###_PLAYER
+(Learn the Stricta Lorum spell.)
+(Изучите заклинание Стрикта Лорум.)
+###_NPC
+(After hours and hours of spell casting, you master the Stricta Lorum spell.)  Magician!  You're ready for bondage magic battles.
+(После многих часов чтения заклинаний вы овладеваете заклинанием Стрикта Лорум.) Волшебнца! Ты готова к боевым магическим битвам.
+###_PLAYER
+(Learn the ritual of the flesh.)
+(Изучите ритуал плоти.)
+###_NPC
+(After hours and hours of nude training, you feel that being stripped won't affect your spells at all.)  Sweetie, you're the best.
+(После многочасовых тренировок в обнаженном виде вы чувствуете, что раздевание никак не повлияет на ваши заклинания.) Милая, ты лучшая.
+###_PLAYER
+(Learn the Nuda Caro spell.)
+(Выучите заклинание Нуда Каро.)
+###_NPC
+(After hours and hours of spell casting, you master the Nuda Caro spell.)  Strike first and your opponents won't stand a chance.
+(После долгих часов произнесения заклинаний вы овладеваете заклинанием Нуда Каро.) Ударьте первым, и у ваших противников не останется ни единого шанса.
+###_PLAYER
+Thank you so much.
+Большое спасибо.
+###_NPC
+It's been my pleasure.  Stay with us if you don't want to lose that knowledge.
+Это было моим удовольствием. Оставайтесь с нами, если не хотите потерять эти знания.
+###_PLAYER
+(Leave her.)
+(Оставь ее.)
+I will do better next time.
+В следующий раз я сделаю лучше.
+###_NPC
+(She nods.)  I'm sure you will.
+(Она кивает.) Я уверена, что вы это сделаете.
+###_PLAYER
+Can you teach me anyway?
+Вы можете научить меня в любом случае?
+###_NPC
+(She shakes her head from left to right.)
+(Качает головой слева направо.)

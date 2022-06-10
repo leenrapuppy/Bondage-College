@@ -1,0 +1,173 @@
+﻿###_NPC
+Get that gag off or stop talking, you're driving me nuts.
+要么摘下口球好好说话，要么闭嘴，别哼哼唧唧的。
+What's up doc?
+怎么了，医生？
+What's up nurse?
+怎么了，护士小姐？
+Hey, it's the new nurse!
+嘿，这有个新护士。
+Yo DialogPlayerName.  You got in trouble again?  Do you need anything？
+哟DialogPlayerName。你遇到麻烦了？你需要什么吗？
+Hey DialogPlayerName.  What do you want?
+你好DialogPlayerName。你想要什么?
+Hey girls!  (She looks around the meeting room for approval.)  It's the new patient.
+嘿，女孩们！（她环顾会议室等待许可）这是个新病人呢。
+What do you want?
+你想要什么？
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm surprised you don't know, I'm DialogCharacterName.  I'm the girl you talk to if you need something.
+你竟然不知道？我是DialogCharacterName，如果你需要什么，我就是你要找的那个女孩。
+###_PLAYER
+I need something from you.
+我需要你的帮助。
+###_NPC
+I'm listening.  What do you need?
+我在听，你需要什么？
+You should know me, I'm DialogCharacterName.  I'm the best patient around.  (She smirks.)
+你应该知道我，我是DialogCharacterName。我是最好的病人。（她得意地笑起来。）
+###_PLAYER
+(Struggle in your restraints.)
+（挣扎着摆脱束缚）
+###_NPC
+I can see that you need help, but what's in there for me?  Give me 10$ and I'll help you out.
+我看得出你需要帮助，但这对我有什么好处呢？给我10美元，我帮你。
+(She shakes her head no.)
+（她摇摇头，表示不愿意。）
+###_PLAYER
+It's time for your treatment.
+是你治疗的时候了。
+###_NPC
+It is?  (She thinks.)  Look!  A patient is trying to escape!  (She points behind you.)
+是吗？（她想了一下。）“看，有个病人正试图逃跑！”（她指了指你的身后。）
+###_PLAYER
+Will you join GGTS?
+你会加入GGTS吗？
+###_NPC
+I'll never join that program.  That stupid machine is brainwashing sane girls.
+我永远不会加入这个计划。那台蠢机器在把正常的女孩洗脑掉。
+###_PLAYER
+I must go.  (Leave her.)
+我必须走了。（离开她。）
+What can you provide?
+你可以给我什么呢？
+###_NPC
+What do you need?  A smoke?  A vibrator?  Some help with a jacket?  I'm here for you, and your money.
+你需要什么？来根烟？按摩棒？拘束衣太紧？我竭诚为你服务、和为你的钱服务。
+###_PLAYER
+I want a cigarette.
+我想要一支烟。
+###_NPC
+Sure, the price is 1$ per smoke, do you want one?
+好的，每支烟$1，你想来一根吗？
+###_PLAYER
+I want a vibrator.
+我想要一个按摩棒。
+###_NPC
+I have a vibrating wand I can sell you.  It's used and it's not cheap, it goes for 80$.  Do you want it?
+我有根按摩棒，并且我可以卖给你。但是这是用过的，并且不便宜。一口价$80。你要买吗？
+###_PLAYER
+I want to get out of here.
+我想从这出去。
+###_NPC
+I can't help you there.  You can always try to fight your way out, but you'll get in trouble later.
+我帮不了你。你当然可以试着打出去，但是后面你可能会有麻烦。
+###_PLAYER
+Can I tie you up?
+我可以把你绑起来吗？
+###_NPC
+Forget it girl.  I'm here to do business, not to struggle.
+忘了它吧，女孩。我是来做生意的，不是来玩挣脱的。
+###_PLAYER
+Will you tie me up?
+你可以把我绑起来吗？
+###_NPC
+Bondage is free but freedom has a price.  How tight do you want it?
+束缚是免费的，但自由是有代价的。你想要绑多紧？
+###_PLAYER
+I have everything I need.
+我需要的我都有。
+###_NPC
+Alright.  You know where to find me if you need something else.
+好吧。如果你需要别的东西，你知道在哪里可以找到我。
+###_PLAYER
+Alright.  (Pay her 1$ and smoke.)
+好吧。（给她$1然后抽烟。）
+###_NPC
+(You smoke with her for a while, it's kind of relaxing.)  Anything else you need?
+（你和她一起抽了会儿烟，这令你放松。）你还需要什么吗？
+###_PLAYER
+I've changed my mind.
+我改变主意了。
+###_NPC
+Whatever!  Anything else you need?
+无所谓！你还需要什么吗？
+###_PLAYER
+It's a deal!  (Pay her 80$)
+就这么说定咯！（付给她$80）
+###_NPC
+(She sells you the used vibrating wand and grins.)  Have fun!  I'm sure you'll get popular with that toy.
+（她卖给你用过的按摩棒，然后咧嘴笑起来。）玩得开心！我相信你会喜欢那个玩具的。
+###_PLAYER
+No way!  80$ for a used vibrator!
+没门！用过的振动器要$80！
+###_NPC
+Don't take it then.  I'm sure you'll come crawling back later to get it.
+那就别拿了。我相信你稍后会爬回来拿它。
+###_PLAYER
+Can you do it for free?
+你可以免费做这个吗？
+###_NPC
+No way.  You pay or you stay like that.
+没门。你要么付钱，要么就保持这样吧。
+###_PLAYER
+(Nod yes.)
+（点头同意。）
+###_NPC
+It's a pleasure to do business with you.  (She releases you and smirks.)  Anything else you need?
+很高兴与您做生意。 （她释放了你，一脸得意的笑。）你还需要什么吗？
+###_PLAYER
+(Whimper and beg.)
+（呜咽乞求。）
+###_NPC
+Stop begging.  You pay or you stay like that.
+别求我。你要么付钱，要么就保持这样。
+###_PLAYER
+(Turn around.)
+（转过来。）
+###_NPC
+Sucker!  (She runs like hell and disappears in the halls.)
+傻逼！（她跑的很快，瞬间就不见了。）
+###_PLAYER
+What?  Where?
+怎么了？在哪？
+I'm not falling for that.
+这我可不会上当。
+###_NPC
+Catch me then!  (She runs like hell and disappears in the halls.)
+那就来抓我啊！（她跑的很快，瞬间就不见了。）
+###_PLAYER
+(Leave and report her behavior.)
+（离开，并举报她的行为。）
+(Leave and don't report her.)
+（离开，不举报她。）
+Nothing too tight please.
+请不要太紧了。
+###_NPC
+Chicken!  (She uses a few items on you and makes chicken sounds.)
+哟，小鸡仔怂了吗！（她对你用了一些物品，并发出小鸡的叫声。）
+###_PLAYER
+Some secure bondage I guess.
+我猜是些结实的束缚。
+###_NPC
+Alright!  (She uses some items on you and smirks.)
+好吧！（她在你身上使用了一些物品，得意地笑起来。）
+###_PLAYER
+I can take it.  Do your worst.
+我可以接受。按你最狠地来。
+###_NPC
+Enjoy your struggling.  (She uses lots of items on you and grins.)
+享受你的挣扎吧。（她在你身上使用了很多物品，咧嘴笑起来。）

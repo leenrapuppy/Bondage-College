@@ -1,0 +1,10 @@
+Tug on the leash circles when they appear.  Don't let any puppy escape.  Starts in StartTimer seconds.
+Потяните за круги поводка, когда они появятся. Не позволяйте ни одному щенку сбежать. Запускается в секундах StartTimer .
+Escaping:
+Побег:
+Perfect!  The puppies can go back home.  Click on yourself to continue.
+Идеальный! Щенки могут вернуться домой. Нажмите на себя, чтобы продолжить.
+You did it!  The puppies can go back home.  Click on yourself to continue.
+Ты сделал это! Щенки могут вернуться домой. Нажмите на себя, чтобы продолжить.
+You've failed and lost a puppy.  Click on yourself to continue.
+Вы потерпели неудачу и потеряли щенка. Нажмите на себя, чтобы продолжить.

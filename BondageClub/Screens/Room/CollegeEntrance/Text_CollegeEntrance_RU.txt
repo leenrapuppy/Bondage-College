@@ -6,11 +6,11 @@ Change Clothes
 Переодеться
 Tennis Court
 Теннисный корт
-College Cafeteria (Not Ready)
-Кафетерий колледжа (Не готов)
-College Theater (Not Ready)
-Театр колледжа (Не готов)
-Detention Room (Not Ready)
-Тюремная камера (Не готова)
-Teacher Lounge (Not Ready)
-Учительская (Не готова)
+College Cafeteria
+Кафетерий колледжа
+College Theater
+Театр колледжа
+Detention Room
+Комната наказаний
+Teacher Lounge
+Учительская

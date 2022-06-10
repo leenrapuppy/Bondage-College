@@ -1,0 +1,197 @@
+###_NPC
+(She looks at your gag and makes a thumbs up.)
+(Она смотрит на твой кляп и поднимает большой палец вверх.)
+Hello cutie maid.  I hope you're not working too hard.
+Привет, милая горничная.  Я надеюсь, ты не слишком много работаешь.
+Hello Miss guard.  I trust everything is going smoothly.
+Здравствуйте, мисс страж.  Я надеюсь, что все идет гладко.
+(She bows for you.)  It's a pleasure to meet you Miss Dominatrix.
+(Она кланяется вам.) Приятно познакомиться с вами, мисс Доминатрикс.
+(She growls.)  Rawr!  You look good sis.
+(Она рычит.) Равр! Ты хорошо выглядишь, сестренка.
+Hello lady, I think I've seen you before, are you in the cosplay club?
+Привет, леди, мне кажется, я видела вас раньше, вы в косплей-клубе?
+Hello lady, you look familiar, you do cosplay?
+Привет, леди, вы выглядите знакомо, вы занимаетесь косплеем?
+Hello lady, are you new in the Box?
+Привет, леди, вы новичок в этом деле?
+###_PLAYER
+Who are you?
+Кто ты?
+###_NPC
+I'm DialogCharacterName.  I'm a member of the cosplay club here in the Box.
+Я DialogCharacterName.  Я член косплей-клуба здесь, в Коробке.
+###_PLAYER
+Why are you costumed?
+Почему ты в костюме?
+###_NPC
+I'm a member of the Cosplay Club, or CC.  We are a new club in the Box.
+Я член Косплей-клуба, или КК.  Мы - новый клуб в Коробке.
+###_PLAYER
+Can I tie you up?
+Могу я тебя связать?
+###_NPC
+(She blushes.)  Being restrained in a pet suit by a Dominatrix would be sweet.  But I have a club meeting very soon.
+(Она краснеет.)  Быть скованным в домашнем костюме Доминатрикс было бы очень мило.  Но у меня очень скоро встреча в клубе.
+(She bows her head.)  I'm can't Miss Guard.  I have a club meeting very soon.
+(Она склоняет голову.)  Я не могу Мисс охранница.  У меня очень скоро встреча в клубе.
+(She laughs at you.)  You're a kinky maid?  Sadly, I have a club meeting very soon.
+(Она смеется над тобой.) Ты извращенная горничная? К сожалению, у меня скоро собрание клуба.
+(She smiles at you.)  I can't sis!  I have a CC meeting soon.
+(Она улыбается тебе.) Я не могу, сестренка! У меня скоро заседание КК.
+(She giggles.)  Sorry, I have a cosplay club meeting soon.
+(Она хихикает.) Извините, у меня скоро собрание косплей-клуба.
+###_PLAYER
+Can you help me?
+Вы можете помочь мне?
+###_NPC
+Maybe, what are you looking for?
+Maybe, what are you looking for?
+###_PLAYER
+I'll go get you a free drink.
+Я пойду принесу тебе бесплатный напиток.
+###_NPC
+(You go get her a free drink and she smiles.)  Rawr!  You're a wonderful maid.
+(Ты идешь и покупаешь ей бесплатную выпивку, а она улыбается.)  Равр!  Ты замечательная горничная.
+###_PLAYER
+Are you enjoying Pandora's Box?
+Вам нравится "Ящик Пандоры"?
+###_NPC
+The Box is a nice place.  But what I really like is the cosplay club.
+Коробка - милое местечко.  Но что мне действительно нравится, так это косплей-клуб.
+###_PLAYER
+Can I cosplay with you?
+Могу я косплеить с тобой?
+###_NPC
+Rawr!  I can't refuse a cosplay offer.  Strip down and I'll dress you to cosplay.
+Равр!  Я не могу отказаться от предложения косплея.  Раздевайся, и я одену тебя для косплея.
+###_PLAYER
+I must go.  (Leave her.)
+Я должна идти.  (Оставь ее.)
+I'm looking for a girl.
+Я ищу девушку.
+###_NPC
+(You give some details on the girl you need to rescue, and she shrugs.)  I can't help you there.
+(Вы даете некоторые подробности о девушке, которую вам нужно спасти, и она пожимает плечами.)  Здесь я ничем не могу вам помочьe.
+(You give some details on the girl you need to kidnap, and she shrugs.)  I can't help you there.
+(Вы сообщаете некоторые подробности о девушке, которую вам нужно похитить, и она пожимает плечами.)  Здесь я ничем не могу вам помочь.
+###_PLAYER
+I'm looking for an object.
+Я ищу объект.
+###_NPC
+(You give some details on the object you need to retrieve, and she shrugs.)  I can't help you there.
+(Вы даете некоторые подробности об объекте, который вам нужно получить, и она пожимает плечами.) Здесь я ничем не могу вам помочь.
+###_PLAYER
+I'm looking for paint cans.
+Я ищу банки с краской.
+###_NPC
+You found the right girl!  We have lots of paint at the cosplay club.
+Ты нашел правильную девушку!  У нас в косплей-клубе много красок.
+###_PLAYER
+Forget it.
+Забудь это.
+###_NPC
+Alright then.  Anything else?
+Тогда ладно.  Что-нибудь еще?
+###_PLAYER
+Can I have some?
+Можно мне немного?
+###_NPC
+You certainly can!  (She runs to her club and returns with many paint cans.)
+Конечно, можно!  (Она бежит в свой клуб и возвращается со множеством банок с краской.)
+###_PLAYER
+Thanks!  (Take the cans.)
+Спасибо!  (Возьмите банки.)
+###_NPC
+Rawr!  Use it well, have fun!  Anything else?
+Равр!  Используйте его хорошо, получайте удовольствие!  Что-нибудь еще?
+###_PLAYER
+You do have a great cosplay club.
+У вас действительно отличный косплей-клуб.
+###_NPC
+Rawr!  Well said.  Anything else?
+Равр!  Хорошо сказано.  Что-нибудь еще?
+###_PLAYER
+I know the best place for cosplay.
+Я знаю лучшее место для косплея.
+###_NPC
+Oh really?  Where do you go for cosplay?
+Да неужели?  Куда ты ходишь на косплей?
+###_PLAYER
+The Box isn't nice, it's great!
+Коробка не просто хороша, она великолепна!
+###_NPC
+(She giggles and nods.)
+(Она хихикает и кивает.)
+###_PLAYER
+We can wait until Halloween.
+Мы можем подождать до Хэллоуина.
+###_NPC
+(She laughs at you.)  No way!  Rawr!  I do cosplay all year long.
+(Она смеется над тобой.) Ни за что!  Равр!  Я занимаюсь косплеем круглый год.
+###_PLAYER
+I think they have costumes at the supermarket.
+Я думаю, у них есть костюмы в супермаркете.
+###_NPC
+(She shakes her head no.)  That's not good enough for me.
+(Она отрицательно качает головой.)  Для меня этого недостаточно.
+###_PLAYER
+Have you heard of the Bondage Club?
+Вы слышали о Клубе Бондажа?
+###_NPC
+I've heard a little about it.  It's a good place to cosplay?
+Я немного слышала о нём.  Это хорошее место для косплея?
+###_PLAYER
+I don't know.
+Я не знаю.
+###_NPC
+(She shakes her head no.)  Anything else?
+(Она отрицательно качает головой.)  Что-нибудь еще?
+###_PLAYER
+The have the best cosplayers in town.
+У них лучшие косплееры в городе.
+###_NPC
+This is tempting!  Maybe I should go there someday.
+Это заманчиво!  Может быть, мне стоит когда-нибудь съездить туда.
+###_PLAYER
+Maybe the Box is better.
+Может быть, Коробка лучше.
+###_NPC
+(She shrugs.)  Yeah, probably.
+(Она пожимает плечами.)  Да, наверное.
+###_PLAYER
+Yeah, go visit later.
+Да, зайди в гости позже.
+###_NPC
+(She nods.)  Anything else?
+(Она кивает.)  Что-нибудь еще?
+###_PLAYER
+Would you like to go now?
+Не хотите ли вы уйти прямо сейчас?
+###_NPC
+(She thinks for a few seconds.)  Deal!  I'll skip the meeting and go right now.  (Your infiltration skill has increased.)
+(Она задумывается на несколько секунд.)  Договорились!  Я пропущу встречу и пойду прямо сейчас.  (Ваш навык проникновения увеличился.)
+I cannot do it now.  I have a meeting with the cosplay club.  Maybe another day.
+Я не могу сделать это сейчас.  У меня встреча с косплей-клубом.  Может быть, в другой раз.
+###_PLAYER
+(Let her go to the Bondage Club.)
+(Пусть она идет в Клуб Бондажа.)
+(Give her a key to your private room.)
+(Дайте ей ключ от вашей отдельной комнаты.)
+(Dress to cosplay.)
+(Одевайтесь для косплея.)
+###_NPC
+(She dresses you to cosplay and giggles.)  Rawr!  You're looking great sis.
+(Она одевает тебя для косплея и хихикает.)  Равр!  Ты отлично выглядишь, сестренка.
+###_PLAYER
+Thanks sis!
+Спасибо, сестренка!
+###_NPC
+(She makes a thumbs up.)  Anything else I can do?
+(Она поднимает большой палец вверх.) Я могу еще что-нибудь сделать?
+###_PLAYER
+I don't like it.
+Мне это не нравится.
+###_NPC
+(She makes a thumbs down.)  I've tried my best.
+(Она показывает большой палец вниз.) Я старалась изо всех сил.

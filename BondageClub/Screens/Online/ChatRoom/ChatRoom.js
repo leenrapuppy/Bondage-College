@@ -134,11 +134,11 @@ const ChatRoomListOperationTriggers = () => [
  *     resize events.
  */
 let ChatRoomResizeManager = {
-	atStart : true, // Is this the first event in a chain of resize events?
-	timer : null, // Timer that triggers the end function after no resize events have been received recently.
-	timeOut : 200, // The amount of milliseconds that has to pass before the chain of resize events is considered over and the timer is called.
-	ChatRoomScrollPercentage : 0, // Height of the chat log scroll bar before the first resize event occurs, as a percentage.
-	ChatLogScrolledToEnd : false, // Is the chat log scrolled all the way to the end before the first resize event occurs?
+	atStart: true, // Is this the first event in a chain of resize events?
+	timer: null, // Timer that triggers the end function after no resize events have been received recently.
+	timeOut: 200, // The amount of milliseconds that has to pass before the chain of resize events is considered over and the timer is called.
+	ChatRoomScrollPercentage: 0, // Height of the chat log scroll bar before the first resize event occurs, as a percentage.
+	ChatLogScrolledToEnd: false, // Is the chat log scrolled all the way to the end before the first resize event occurs?
 
 	// Triggered by resize event
 	ChatRoomResizeEvent : function() {
@@ -731,7 +731,6 @@ function ChatRoomOwnerInside() {
  * characters rather than the ones actually present
  * @returns {void} - Nothing
  */
-
 function ChatRoomUpdateDisplay() {
 	// The number of characters to show in the room
 	const RenderSingle = Player.GameplaySettings.SensDepChatLog == "SensDepExtreme" && Player.GetBlindLevel() >= 3 && !Player.Effect.includes("VRAvatars");
@@ -1159,7 +1158,7 @@ function ChatRoomTarget() {
 	// If the target member number hasn't changed, do nothing
 	if (!ChatRoomTargetDirty) return;
 
-	var TargetName = null;
+	let TargetName = null;
 	if (ChatRoomTargetMemberNumber != null) {
 		for (let C = 0; C < ChatRoomCharacter.length; C++)
 			if (ChatRoomTargetMemberNumber == ChatRoomCharacter[C].MemberNumber) {
@@ -1304,7 +1303,7 @@ function ChatRoomStimulationMessage(Context, Color = "#FFB0B0", FlashIntensity =
 							else trigPlug = "Back";
 						}
 					} else {
-						if (InventoryItemHasEffect(C.Appearance[A], "FillVulva", true)){
+						if (InventoryItemHasEffect(C.Appearance[A], "FillVulva", true)) {
 							if (trigChance == 0) trigChance = modBase;
 							trigMsgTemp = "PlugFront";
 							arousalAmount += 1;
@@ -1321,13 +1320,13 @@ function ChatRoomStimulationMessage(Context, Color = "#FFB0B0", FlashIntensity =
 						}
 					}
 					if (trigMsgTemp != "" && Player.ArousalSettings && Player.ArousalSettings.Progress > 0) {
-						trigChance += modArousal * Player.ArousalSettings.Progress/100;
+						trigChance += modArousal * Player.ArousalSettings.Progress / 100;
 					}
 					if (trigMsgTemp != "") {
 						const Inflation = InventoryGetItemProperty(C.Appearance[A], "InflateLevel", true);
 						if (typeof Inflation === "number" && Inflation > 0) {
-							trigChance += modInflation * Inflation/4;
-							arousalAmount += Inflation/2;
+							trigChance += modInflation * Inflation / 4;
+							arousalAmount += Inflation / 2;
 						}
 					}
 
@@ -1372,13 +1371,13 @@ function ChatRoomStimulationMessage(Context, Color = "#FFB0B0", FlashIntensity =
 				// Increase player arousal to the zone
 				if (!Player.IsEdged() && Player.ArousalSettings && Player.ArousalSettings.Progress && Player.ArousalSettings.Progress < 70 - arousalAmount && trigMsgTemp != "Gag")
 					ActivityEffectFlat(Player, Player, arousalAmount, trigGroup, 1);
-				ChatRoomPinkFlashTime = CommonTime() + (Math.random() + arousalAmount/2.4) * 500;
+				ChatRoomPinkFlashTime = CommonTime() + (Math.random() + arousalAmount / 2.4) * 500;
 				ChatRoomPinkFlashColor = Color;
 				ChatRoomPinkFlashAlphaStrength = AlphaStrength;
-				CharacterSetFacialExpression(Player, "Blush", "VeryHigh", Math.ceil((ChatRoomPinkFlashTime - CommonTime())/250));
+				CharacterSetFacialExpression(Player, "Blush", "VeryHigh", Math.ceil((ChatRoomPinkFlashTime - CommonTime()) / 250));
 
 				var index = Math.floor(Math.random() * 3);
-				ChatRoomMessage({ Content: "ChatRoomStimulationMessage"+trigMsg+""+index, Type: "Action", Sender: Player.MemberNumber });
+				ChatRoomMessage({ Content: "ChatRoomStimulationMessage" + trigMsg + "" + index, Type: "Action", Sender: Player.MemberNumber });
 			}
 		}
 	}
@@ -1408,7 +1407,7 @@ function ChatRoomResize(load) {
  * @param {number} ArousalOverride - Override to the existing arousal value
  * @returns {void} - Nothing.
  */
- function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride, Color = '255, 100, 176', AlphaBonus = 0) {
+function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride, Color = '255, 100, 176', AlphaBonus = 0) {
 	let Progress = (ArousalOverride) ? ArousalOverride : Player.ArousalSettings.Progress;
 	let amplitude = 0.24 * Math.min(1, 2 - 1.5 * Progress/100); // Amplitude of the oscillation
 	let percent = Progress/100.0;
@@ -1521,7 +1520,7 @@ function ChatRoomUpdateOnlineBounty() {
 			if (KidnapLeagueSearchFinishTime > 0 && CommonTime() > KidnapLeagueSearchFinishTime) {
 				for (let C = 0; C < ChatRoomCharacter.length; C++) {
 					if (KidnapLeagueSearchingPlayers.includes(ChatRoomCharacter[C].MemberNumber)) {
-						ServerSend("ChatRoomChat", { Content: "ReceiveSuitcaseMoney", Type: "Hidden", Target: ChatRoomCharacter[C].MemberNumber});
+						ServerSend("ChatRoomChat", { Content: "ReceiveSuitcaseMoney", Type: "Hidden", Target: ChatRoomCharacter[C].MemberNumber });
 					}
 				}
 				if (misc.Asset.Name == "BountySuitcase") {
@@ -1555,11 +1554,11 @@ function ChatRoomUpdateOnlineBounty() {
 		}
 	} else {
 		if (KidnapLeagueSearchFinishTime > 0) {
-			if (InventoryIsWorn(Player,"BountySuitcase", "ItemMisc"))
+			if (InventoryIsWorn(Player, "BountySuitcase", "ItemMisc"))
 				ChatRoomPublishCustomAction("OnlineBountySuitcaseEndEarly", true, [
 					{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
 				]);
-			else if (InventoryIsWorn(Player,"BountySuitcaseEmpty", "ItemMisc"))
+			else if (InventoryIsWorn(Player, "BountySuitcaseEmpty", "ItemMisc"))
 				ChatRoomPublishCustomAction("OnlineBountySuitcaseEndEarlyOpened", true, [
 					{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
 				]);
@@ -2096,7 +2095,7 @@ function ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNext
 	if (CurrentScreen == "ChatRoom") {
 
 		// Prepares the message
-		var msg = "";
+		let msg = "";
 		var Dictionary = [];
 		if (Action == null) {
 			if ((StruggleProgressPrevItem != null) && (StruggleProgressNextItem != null) && (StruggleProgressPrevItem.Asset.Name == StruggleProgressNextItem.Asset.Name) && (StruggleProgressPrevItem.Color != StruggleProgressNextItem.Color)) msg = "ActionChangeColor";
@@ -2158,6 +2157,7 @@ function ChatRoomCharacterItemUpdate(C, Group) {
 		P.Color = ((Item != null) && (Item.Color != null)) ? Item.Color : "Default";
 		P.Difficulty = (Item != null) ? Item.Difficulty - Item.Asset.Difficulty : SkillGetWithRatio("Bondage");
 		P.Property = ((Item != null) && (Item.Property != null)) ? Item.Property : undefined;
+		P.Craft = ((Item != null) && (Item.Craft != null)) ? Item.Craft : undefined;
 		ServerSend("ChatRoomCharacterItemUpdate", P);
 	}
 }
@@ -2173,7 +2173,7 @@ function ChatRoomCharacterItemUpdate(C, Group) {
 function ChatRoomPublishCustomAction(msg, LeaveDialog, Dictionary) {
 	if (CurrentScreen == "ChatRoom") {
 		ServerSend("ChatRoomChat", { Content: msg, Type: "Action", Dictionary: Dictionary });
-		var C = CharacterGetCurrent();
+		const C = CharacterGetCurrent();
 		if (C) ChatRoomCharacterItemUpdate(C);
 		if (LeaveDialog && (C != null)) DialogLeave();
 	}
@@ -2289,7 +2289,7 @@ function ChatRoomMessage(data) {
 						ChatRoomStruggleAssistBonus = A;
 					}
 				}
-				else if (msg == "SlowStop"){
+				else if (msg == "SlowStop") {
 					ChatRoomSlowtimer = CurrentTime + 45000;
 					ChatRoomSlowStop = true;
 				}
@@ -2300,7 +2300,7 @@ function ChatRoomMessage(data) {
 				else if (msg.startsWith("PayQuest")) ChatRoomPayQuest(data);
 				else if (msg.startsWith("OwnerRule")) data = ChatRoomSetRule(data);
 				else if (msg.startsWith("LoverRule")) data = ChatRoomSetRule(data);
-				else if (msg == "HoldLeash"){
+				else if (msg == "HoldLeash") {
 					if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer && ChatRoomLeashPlayer != null) {
 						ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: ChatRoomLeashPlayer });
 					}
@@ -2310,12 +2310,12 @@ function ChatRoomMessage(data) {
 						ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
 					}
 				}
-				else if (msg == "StopHoldLeash"){
+				else if (msg == "StopHoldLeash") {
 					if (SenderCharacter.MemberNumber == ChatRoomLeashPlayer) {
 						ChatRoomLeashPlayer = null;
 					}
 				}
-				else if (msg == "PingHoldLeash"){ // The dom will ping all players on her leash list and ones that no longer have her as their leasher will remove it
+				else if (msg == "PingHoldLeash") { // The dom will ping all players on her leash list and ones that no longer have her as their leasher will remove it
 					if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer || !ChatRoomCanBeLeashedBy(SenderCharacter.MemberNumber, Player)) {
 						ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
 					}
@@ -2630,12 +2630,11 @@ function ChatRoomMessage(data) {
  */
 function ChatRoomAddCharacterToChatRoom(newCharacter, newRawCharacter)
 {
-	if(newCharacter == null) { return; }
-	if(newRawCharacter == null) { return; }
+	if (newCharacter == null || newRawCharacter == null) { return; }
 
 	// Update the chat room characters
 	let characterIndex = ChatRoomCharacter.findIndex(x => x.MemberNumber == newCharacter.MemberNumber);
-	if(characterIndex >= 0) // If we found an existing entry...
+	if (characterIndex >= 0) // If we found an existing entry...
 	{
 		// Update it
 		ChatRoomCharacter[characterIndex] = newCharacter;
@@ -2648,7 +2647,7 @@ function ChatRoomAddCharacterToChatRoom(newCharacter, newRawCharacter)
 
 	// Update chat room data backup
 	characterIndex = ChatRoomData.Character.findIndex(x => x.MemberNumber == newRawCharacter.MemberNumber);
-	if(characterIndex >= 0) // If we found an existing entry...
+	if (characterIndex >= 0) // If we found an existing entry...
 	{
 		// Update it
 		ChatRoomData.Character[characterIndex] = newRawCharacter;
@@ -3118,9 +3117,10 @@ function ChatRoomSyncItem(data) {
 			}
 
 			if (item) {
-				CharacterAppearanceSetItem(
-					ChatRoomCharacter[C], data.Item.Group, item.Asset, item.Color, item.Difficulty, null, false);
 
+				// Puts the item on the character and apply the craft & property
+				CharacterAppearanceSetItem(ChatRoomCharacter[C], data.Item.Group, item.Asset, item.Color, item.Difficulty, null, false);
+				if (item.Craft != null) InventoryCraft(ChatRoomCharacter[C], data.Item.Group, item.Craft);
 				InventoryGet(ChatRoomCharacter[C], data.Item.Group).Property = item.Property;
 
 				/** @type {AppearanceDiffMap} */
@@ -3190,7 +3190,7 @@ function ChatRoomRefreshChatSettings() {
  */
 function DialogViewProfile() {
 	if (CurrentCharacter != null) {
-		var C = CurrentCharacter;
+		const C = CurrentCharacter;
 		DialogLeave();
 		InformationSheetLoadCharacter(C);
 	}
@@ -3305,12 +3305,12 @@ function ChatRoomKneelStandAssist() {
  * Triggered when a character stops another character from leaving.
  * @returns {void} - Nothing
  */
-function ChatRoomStopLeave(){
+function ChatRoomStopLeave() {
 	var Dictionary = [];
-	Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
-	Dictionary.push({Tag: "TargetCharacter", Text: CharacterNickname(CurrentCharacter), MemberNumber: CurrentCharacter.MemberNumber});
-	ServerSend("ChatRoomChat", { Content: "SlowStop", Type: "Action", Dictionary: Dictionary});
-	ServerSend("ChatRoomChat", { Content: "SlowStop", Type: "Hidden", Target: CurrentCharacter.MemberNumber } );
+	Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
+	Dictionary.push({ Tag: "TargetCharacter", Text: CharacterNickname(CurrentCharacter), MemberNumber: CurrentCharacter.MemberNumber });
+	ServerSend("ChatRoomChat", { Content: "SlowStop", Type: "Action", Dictionary: Dictionary });
+	ServerSend("ChatRoomChat", { Content: "SlowStop", Type: "Hidden", Target: CurrentCharacter.MemberNumber });
 	DialogLeave();
 }
 
@@ -3334,10 +3334,10 @@ function ChatRoomAdminAction(ActionType, Publish) {
 /**
  * Sends an administrative command to the server from the chat text field.
  * @param {string} ActionType - Type of action performed.
- * @param {string} Argument  - Target number of the action.
+ * @param {string} Argument - Target number of the action.
  * @returns {void} - Nothing
  */
-function ChatRoomAdminChatAction(ActionType, Argument ) {
+function ChatRoomAdminChatAction(ActionType, Argument) {
 	if (ChatRoomPlayerIsAdmin()) {
 		var C = parseInt(Argument);
 		if (!isNaN(C) && (C > 0) && (C != Player.MemberNumber))
@@ -3361,7 +3361,9 @@ function ChatRoomCurrentTime() {
  */
 function ChatRoomGetTransparentColor(Color) {
 	if (!Color) return "rgba(128,128,128,0.1)";
-	var R = Color.substring(1, 3), G = Color.substring(3, 5), B = Color.substring(5, 7);
+	const R = Color.substring(1, 3);
+	const G = Color.substring(3, 5);
+	const B = Color.substring(5, 7);
 	return "rgba(" + parseInt(R, 16) + "," + parseInt(G, 16) + "," + parseInt(B, 16) + ",0.1)";
 }
 
@@ -3454,7 +3456,10 @@ function DialogChangeClothes() {
  * @returns {void} - Nothing
  */
 function ChatRoomSendOwnershipRequest(RequestType) {
-	if ((ChatRoomOwnershipOption == "CanOfferEndTrial") && (RequestType == "Propose")) { CharacterChangeMoney(Player, -100); DialogChangeReputation("Dominant", 10); }
+	if ((ChatRoomOwnershipOption == "CanOfferEndTrial") && (RequestType == "Propose")) {
+		CharacterChangeMoney(Player, -100);
+		DialogChangeReputation("Dominant", 10);
+	}
 	if ((ChatRoomOwnershipOption == "CanEndTrial") && (RequestType == "Accept")) DialogChangeReputation("Dominant", -20);
 	ChatRoomOwnershipOption = "";
 	ServerSend("AccountOwnership", { MemberNumber: CurrentCharacter.MemberNumber, Action: RequestType });
@@ -3772,7 +3777,7 @@ function ChatRoomSafewordRelease() {
 	DialogLentLockpicks = false;
 	ChatRoomClearAllElements();
 	ServerSend("ChatRoomLeave", "");
-	CommonSetScreen("Online","ChatSearch");
+	CommonSetScreen("Online", "ChatSearch");
 }
 
 /**

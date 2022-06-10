@@ -1,0 +1,139 @@
+###_NPC
+(She looks at your gag and smiles.)  You'll need to find a spell to remove that gag.
+(Она смотрит на ваш кляп и улыбается.) Вам нужно найти заклинание, чтобы снять этот кляп.
+(She congratulates you.)  Well done!  You're a true escape artist.  Here's your salary.  (She gives you $MoneyAmount.)
+(Поздравляет вас.) Молодец! Ты настоящий мастер побега. Вот твоя зарплата. (Она дает вам $MoneyAmount.)
+(She releases you.)  I'm sorry you've failed.  I hope you will try again.
+(Она отпускает вас.) Мне жаль, что вы потерпели неудачу. Надеюсь, вы попробуете еще раз.
+Hello!  Are you ready to try a magical escape challenge?
+Привет! Готовы ли вы попробовать волшебное испытание побега?
+###_PLAYER
+Who are you?
+Кто ты?
+###_NPC
+I'm grey witch DialogCharacterName, challenger of wizards.
+Я серая ведьма DialogCharacterName, претендент волшебников.
+###_PLAYER
+What is this place?
+Что это за место?
+###_NPC
+You're in the escape challenge oubliette.  We prepare escape challenges and magic puzzles for kinky sorcerers.
+Вы находитесь в темнице испытания побега. Мы готовим квесты с побегами и магические головоломки для извращенных волшебников.
+###_PLAYER
+Tell me about the challenge.
+Расскажите мне о вызове.
+###_NPC
+(She nods.)  What would you like to know?
+(Она кивает.) Что бы вы хотели знать?
+###_PLAYER
+I'd like to do an escape challenge.
+Я хочу выполнить задание на побег.
+###_NPC
+Perfect!  What kind of challenge will you try?
+Идеально! Какой вызов вы попробуете?
+###_PLAYER
+I need to go.  (Leave her.)
+Мне надо идти. (Оставь ее.)
+How does it work?
+Как это работает?
+###_NPC
+First, we restrain you from head to toe and lock you up in the oubliette.  Then you try to escape using magic.
+Во-первых, мы связываем вас с головы до ног и запираем в темнице. Затем вы пытаетесь сбежать, используя магию.
+###_PLAYER
+How do I escape from bondage?
+Как мне вырваться из бондажа?
+###_NPC
+Your first spell is to remove your gag, then free your arms and legs.  The last spell is to unlock the door.
+Ваше первое заклинание — убрать кляп, затем освободить руки и ноги. Последнее заклинание должно открыть дверь.
+###_PLAYER
+What if I fail my spell?
+Что, если я провалю свое заклинание?
+###_NPC
+If you fail your spell, it might backfire on you and strip you down.  You can try to cast it again afterward.
+Если вы провалите свое заклинание, оно может обернуться для вас неприятными последствиями и раздеть вас. После этого вы можете попытаться разыграть его снова.
+###_PLAYER
+Is there a reward for escaping?
+Есть ли награда за побег?
+###_NPC
+It's a race against the clock.  The faster you escape, the higher the salary.  Your attempt will certainly please our customers.
+Это гонка на время. Чем быстрее сбежишь, тем выше будет зарплата. Ваша попытка обязательно понравится нашим клиентам.
+###_PLAYER
+That's all I wanted to know.
+Это все, что я хотел знать.
+###_NPC
+(She smiles.)  Are you ready to try a magical escape challenge then?
+(Она улыбается.) Готовы ли вы попробовать магический побег?
+###_PLAYER
+An easy one please.
+Легкий пожалуйста.
+###_NPC
+(She nods.)  You'll have 2 minutes to escape.  Are you ready to begin?  (She opens a box of bondage gear.)
+(Она кивает.) У вас будет 2 минуты, чтобы сбежать. Вы готовы начать? (Она открывает коробку с бондажным снаряжением.)
+###_PLAYER
+A regular one I guess.
+Полагаю, обычный.
+###_NPC
+(She smiles.)  You'll have 90 seconds to escape.  Are you ready to begin?  (She opens a box of bondage gear.)
+(Она улыбается.) У вас будет 90 секунд, чтобы сбежать. Вы готовы начать? (Она открывает коробку с бондажным снаряжением.)
+###_PLAYER
+Give me a true challenge.
+Дай мне настоящий вызов.
+###_NPC
+(She grins.)  You'll have 1 minute to escape.  Are you ready to begin?  (She opens a box of bondage gear.)
+(Она усмехается.) У вас будет 1 минута, чтобы сбежать. Вы готовы начать? (Она открывает коробку с бондажным снаряжением.)
+###_PLAYER
+Send me to magic hell.
+Отправьте меня в волшебный ад.
+###_NPC
+(She smirks.)  You'll have 45 seconds to escape.  Are you ready to begin?  (She opens a box of bondage gear.)
+(Она ухмыляется.) У вас будет 45 секунд, чтобы сбежать. Вы готовы начать? (Она открывает коробку с бондажным снаряжением.)
+###_PLAYER
+I'm ready!  (Start the challenge.)
+Я готова! (Начать вызов.)
+Wait!  I need more time.
+Подождите! Мне нужно больше времени.
+###_NPC
+(She sighs.)  Is there anything else you need from me?
+(Она вздыхает.) Тебе еще что-нибудь нужно от меня?
+###_PLAYER
+I can't right now.
+Я не могу прямо сейчас.
+###_NPC
+(She nods.)  No problem.  Is there anything else you need from me?
+(Она кивает.) Нет проблем. Тебе еще что-нибудь нужно от меня?
+###_PLAYER
+That was a fun challenge.
+Это был забавный вызов.
+###_NPC
+(She smiles.)  I'm glad you had fun.  Let me know if you want to try another challenge.
+(Она улыбается.) Я рада, что вам было весело. Дайте мне знать, если вы хотите попробовать еще один вызов.
+###_PLAYER
+Nothing can stop a true Domme.
+Ничто не может остановить настоящего Домму.
+###_NPC
+(She bows her head.)  Yes Miss.  Let me know if you want to try another challenge.
+(Она склоняет голову.) Да, мисс. Дайте мне знать, если вы хотите попробовать еще раз.
+###_PLAYER
+A subbie needs the best escape techniques.
+Саббе нужны лучшие техники побега.
+###_NPC
+(She pets your head.)  Good girl.  Let me know if you want to try another challenge.
+(Она гладит тебя по голове.) Хорошая девочка. Дайте мне знать, если вы хотите попробовать еще один вызов.
+###_PLAYER
+It was kind of easy.
+Это было довольно просто.
+###_NPC
+Try to beat your current time then.  Challenging yourself is the best way to learn.
+Попробуйте побить ваше текущее время тогда. Бросать себе вызов — лучший способ учиться.
+###_PLAYER
+I got too aroused to focus.  (Blush.)
+Я была слишком возбуждена, чтобы сосредоточиться. (Краснеть.)
+###_NPC
+(She pets your head.)  You did fine.  Let me know if you want to try another challenge.
+(Она гладит тебя по голове.) Ты молодец. Дайте мне знать, если вы хотите попробовать еще один вызов.
+###_PLAYER
+It was too hard.
+Это было слишком тяжело.
+###_NPC
+Try an easier challenge or take more time to focus.  Let me know if you want to try another challenge.
+Попробуйте более легкую задачу или потратьте больше времени, чтобы сосредоточиться. Дайте мне знать, если вы хотите попробовать еще один вызов.

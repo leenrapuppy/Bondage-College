@@ -1,0 +1,1070 @@
+###_NPC
+Thomas Carlyle wrote: Speech is silver, silence is golden.
+Томас Карлейль писал: «Речь — серебро, молчание — золото».
+(The computer fans are humming silently.  The screen is black and it's oddly quiet in that room.)
+(Компьютерные вентиляторы беззвучно жужжат. Экран черный, и в этой комнате странно тихо.)
+###_PLAYER
+Is there anyone here?
+Здесь есть кто-нибудь?
+###_NPC
+(After a few seconds of silence, you hear a robotic voice from a nearby speaker.)  Are you good girl?
+(После нескольких секунд тишины ты слышишь голос робота из соседнего динамика.) Ты хорошая девочка?
+###_PLAYER
+Hello computer.
+Здравствуй, компьютер.
+(Touch the screen.)
+(Прикоснись к экрану.)
+###_NPC
+(After tapping the screen without much results, you hear a robotic voice in a nearby speaker.)  Are you good girl?
+(Нажав на экран без особого результата, ты слышишь голос робота в ближайшем динамике.) Ты хорошая девочка?
+###_PLAYER
+(Inspect the machine.)
+(Осмотрите машину.)
+###_NPC
+(As you inspect the machine without finding much, you hear a robotic voice in a nearby speaker.)  Are you good girl?
+(Когда ты осматриваешь машину, но ничего не находите, ты слышишь голос робота в соседнем динамике.) Ты хорошая девочка?
+###_PLAYER
+(Leave.)
+(Покинуть.)
+###_NPC
+(The computer fans hum silently.  You hear a robotic voice from a nearby speaker.)  Are you good girl?
+(Компьютерные вентиляторы тихонько жужжат. Вы слышите голос робота из соседнего динамика.) Ты хорошая девочка?
+###_PLAYER
+What broken language are you speaking?
+На каком ломаном языке ты говоришь?
+###_NPC
+Invalid answer.  GGTS query mode.  Are you good girl?
+Неверный ответ.  Режим запроса GGTS.  Ты хорошая девочка?
+###_PLAYER
+I'm a good girl Sir.
+Я хорошая девочка, сэр.
+###_NPC
+(A green light starts to blink.)  Are you consenting to prove good girl?
+(Начинает мигать зеленый свет.)  Ты согласна показать себя хорошей девочкой?
+###_PLAYER
+(Nod.)
+(Кивок.)
+Why do you ask?
+Почему ты спрашиваешь?
+Not really.
+На самом деле, нет.
+###_NPC
+(A red light starts to blink.)  Will you become good girl?
+(Начинает мигать красная лампочка.)  Ты станешь хорошей девочкой?
+###_PLAYER
+I'm bad to the bone.
+Я плохая до мозга костей.
+Good and evil is subjective
+Добро и зло субъективны
+(Nod slowly.)
+(Медленно кивает.)
+###_NPC
+Complete GGTS to prove good girl.  Register to GGTS?
+Пройдите GGTS, чтобы показать себя хорошей девочкой.  Зарегистрироваться в GGTS?
+###_PLAYER
+I can prove it.
+Я могу это доказать.
+Sure, you can test me.
+Конечно, ты можешь проверить меня.
+How can I prove that?
+Как я могу это доказать?
+###_NPC
+Invalid answer.  GGTS query mode.  Are you consenting to prove good girl?
+Неверный ответ.  Режим запроса GGTS.  Ты согласна показать себя хорошей девочкой?
+###_PLAYER
+I don't have anything to prove.
+Мне нечего доказывать.
+###_NPC
+(The computer seems to go to sleep.  Staying silent.)
+(Компьютер словно засыпает.  Молчит.)
+###_PLAYER
+No way!
+Ни за что!
+I'd like to be good.
+Я хотела бы быть хорошей.
+###_NPC
+Good girl when complete GGTS.  Register to GGTS?
+Хорошая девочка, когда закончишь GGTS. Зарегистрироваться в GGTS?
+###_PLAYER
+I guess I could try.
+Думаю, я могла бы попробовать.
+Where did you learn to talk?
+Где ты научился говорить?
+###_NPC
+Invalid answer.  GGTS query mode.  Will you become good girl?
+Неверный ответ.  Режим запроса GGTS.  Станешь ли ты хорошей девочкой?
+###_PLAYER
+I will never change.
+Я никогда не изменюсь.
+I don't have time for that.
+У меня нет на это времени.
+###_NPC
+(A robotic voice speaks to you as you approach.)  Register to GGTS?
+(Когда вы подходите, к вам обращается голос робота.)  Зарегистрироваться в GGTS?
+###_PLAYER
+What is GGTS?
+Что такое GGTS?
+###_NPC
+GGTS is Good Girl Training System.  GGTS trains girls to serve.  GGTS cannot fail.  GGTS teaches obedience and manners.
+GGTS - система обучения хороших девочек.  GGTS обучает девушек служить.  GGTS не может дать сбой.  GGTS учит послушанию и манерам.
+###_PLAYER
+How do you train girls?
+Как вы тренируете девушек?
+###_NPC
+GGTS training is progressive.  GGTS has many levels.  Each level more rules.  New girl start level one.
+Обучение GGTS носит прогрессивный характер.  GGTS имеет много уровней.  Каждый уровень больше правил.  Новая девушка начинает первый уровень.
+###_PLAYER
+What are the rules at level one?
+Какие правила на первом уровне?
+###_NPC
+Level one rule.  Good girl must wear futuristic arms cuffs or mittens.  GGTS control restraints.
+Правило первого уровня.  Хорошая девочка должна носить футуристические наручники или варежки.  GGTS контролирует ограничители.
+###_PLAYER
+How do I complete the training?
+Как завершить обучение?
+###_NPC
+Two hours, level one complete.  Fail a rule, get strike.  Three strikes, fail level one, punishment, restart level one.
+Два часа = первый уровень пройден.  Нарушишь правило - получи забастовку.  Три забастовки, провал первого уровня, наказание, перезапуск первого уровня.
+###_PLAYER
+What if I succeed the training?
+Что, если я успешно пройду обучение?
+###_NPC
+Good girl come here.  Good girl promoted.  Good girl start level two.
+Хорошая девочка, подойди сюда.  Хорошая девочка получила повышение.  Хорошая девочка, начни со второго уровня.
+###_PLAYER
+What's the consequence for failing?
+Каковы последствия провала?
+###_NPC
+Good girl come here.  Good girl punished.  Punishment undisclosed.  Good girl restart level one time zero.
+Хорошая девочка, подойди сюда.  Хорошая девочка наказана.  Наказание не разглашается.  Хорошая девочка, перезапусти уровень.
+###_PLAYER
+I want to register to GGTS.
+Я хочу зарегистрироваться в GGTS.
+###_NPC
+Registry validation.  Good girl know all rules?  Good girl consent to GGTS control?
+Проверка реестра.  Хорошая девочка знает все правила?  Хорошая девочка согласна на контроль GGTS?
+###_PLAYER
+(Nod in agreement.)
+(Кивок в знак согласия.)
+(Listen.)
+(Слушать.)
+###_NPC
+Level one rule.  Good girl must wear restrain from inventory.  Good girl can remove after.
+Правило первого уровня.  Хорошая девочка должна носить ограничения из инвентаря. Хорошая девочка может удалить их после.
+Level one rule.  Good girl must answer: "I'm a good girl." when GGTS query: "Name, what are you?".
+Правило первого уровня.  Хорошая девочка должна ответить: «I'm a good girl.». при запросе GGTS: "Имя, ты кто?".
+Level one rule.  Good girl must answer: "Good Girl Training System." when GGTS query: "Name, spell GGTS acronym.".
+Правило первого уровня.  Хорошая девочка должна ответить: «Good Girl Training System.». при запросе GGTS: «Имя, произнесите аббревиатуру GGTS».
+Level one rule.  Good girl must not speak.  Good girl silent until allowed talk again.  Good girl can emote.
+Правило первого уровня.  Хорошая девочка не должна говорить.  Хорошая девочка молчит, пока не разрешат снова говорить. Хорошая девочка умеет проявлять эмоции.
+Level one rule.  Good girl kneel.  Good girl stand up.  Good girl put hands behind back.
+Правило первого уровня.  Хорошая девочка, встань на колени.  Хорошая девочка, встань.  Хорошая девочка заложи руки за спину.
+Level one rule.  Good girl barefoot.  Good girl wear socks.  Good girl wear high heels.
+Правило первого уровня.  Хорошая девочка босиком.  Хорошая девочка носит носки.  Хорошая девочка носит высокие каблуки.
+Level one rule.  Good girl pinch herself, pet herself or tickle herself.
+Правило первого уровня.  Хорошая девочка ущипнет себя, погладит себя или пощекочет себя.
+Level one rules listing complete.  GGTS query mode.  Register to GGTS?
+Список правил первого уровня завершен.  Режим запроса GGTS.  Зарегистрироваться в GGTS?
+###_PLAYER
+I know the rules and I consent.
+Я знаю правила и согласна.
+###_NPC
+(A drawer opens in the wall behind you.  There's a set of futuristic arms cuffs and mittens in it.)
+(В стене позади вас открывается ящик. В нем набор футуристических наручников и варежек.)
+###_PLAYER
+(Nod to consent.)
+(Кивок в знак согласия.)
+Let me review the rules again.
+Позволь мне еще раз просмотреть правила.
+###_NPC
+GGTS query mode.  Register to GGTS?
+Режим запроса GGTS.  Зарегистрироваться в GGTS?
+###_PLAYER
+What do I do with these?
+Что мне делать с этим?
+###_NPC
+Good girl wear cuffs or mittens when commanded to.  GGTS takes control.
+Хорошая девочка надевает манжеты или рукавицы, когда ёй приказано.  GGTS берет на себя управление.
+###_PLAYER
+You can program the restraints?
+Вы можете запрограммировать ограничения?
+###_NPC
+Futuristic cuffs and mittens GGTS compliant.  GGTS takes control.
+Футуристические манжеты и рукавицы соответствуют требованиям GGTS.  GGTS берет на себя управление.
+###_PLAYER
+(Take the restraints.)
+(Возять ограничения.)
+###_NPC
+(The drawer closes as you take the items.)  Good girl proof require two hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+(Ящик закрывается, когда вы берете предметы.)  Доказательство хорошей девочки требует двух часов.  Тройная скорость времени в привате.  Быстрая девушка получает бонусное время.  Следите за прогрессом в чате.
+###_PLAYER
+Did you crash?
+Ты разбился?
+###_NPC
+(The computer remains silent.)
+(Компьютер молчит.)
+###_PLAYER
+Wake up!
+Просыпайся!
+###_NPC
+(You touch the screen, but nothing happens.)
+(Вы касаетесь экрана, но ничего не происходит.)
+###_PLAYER
+(Kick the computer.)
+(Пнуть компьютер.)
+###_NPC
+(You kick it as hard as you can, but you only end up hurting yourself.)
+(Вы пинаете его так сильно, как только можете, но в конечном итоге только наносите себе вред.)
+###_PLAYER
+(Try to unplug it.)
+(Попробовать отключить его.)
+###_NPC
+(You search for a power cord to unplug it, but they are all bolted in the walls.)
+(Вы ищете шнур питания, чтобы отключить его, но все они заперты в стенах.)
+(The computer lights start to blink as you approach it, but it stays silent.)
+(Огни компьютера начинают мигать, когда вы приближаетесь к нему, но он молчит.)
+###_PLAYER
+I'm in the GGTS program.
+Я участвую в программе GGTS.
+###_NPC
+(The machine wakes up.)  Level one in progress.  Good girl proof require two hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+(Машина просыпается.)  Выполняется первый уровень.  Доказательство хорошей девочки требует двух часов.  Тройная скорость времени в привате.  Быстрая девушка получает бонусное время.  Следите за прогрессом в чате.
+Level one in progress.  Good girl proof require two hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+Первый уровень в процессе.  Доказательство хорошей девочки требует двух часов.  Тройная скорость времени в привате.  Быстрая девушка получает бонусное время.  Следите за прогрессом в чате.
+###_PLAYER
+What rules apply to level one?
+Какие правила относятся к первому уровню?
+###_NPC
+Level one rule.  Good girl must wear futuristic arms cuffs.  GGTS control restraints.
+Правило первого уровня.  Хорошая девочка должна носить футуристические наручники.  GGTS берет на себя управление.
+###_PLAYER
+What can nurse and patient do?
+Что может сделать медсестра и пациент?
+###_NPC
+Nurses restrain lower rank nurses and patients.  Patients perform activities on other patients.
+Медсестры сдерживают медсестер более низкого ранга и пациентов. Пациенты выполняют действия над другими пациентами.
+###_PLAYER
+(Do GGTS in private.)
+(GGTS наедине.)
+I'll do GGTS in public.
+Я сделаю GGTS публично.
+###_NPC
+Good girl enter asylum entrance.  Good girl create or join public chat room.  Good girl selects GGTS.  GGTS takes control.
+Хорошая девочка входит в психлечебницу.  Хорошая девочка, создай или присоединись к публичному чату.  Хорошая девочка выбирает GGTS.  GGTS берет на себя управление.
+###_PLAYER
+I'll do GGTS in private.
+Я сделаю GGTS в привате.
+###_NPC
+Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.
+Зафиксировано три забастовки.  Три забастовки равны наказанию.  Ожидается наказание.  GGTS неактивен.
+###_PLAYER
+I have three strikes.
+У меня три забастовки.
+###_NPC
+Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?
+Три забастовки равны наказанию.  Перезагрузка уровня GGTS.  Режим наказания.  Хорошей девочке жаль?
+###_PLAYER
+(Whimper and beg in your gag.)
+(Хныкать и умолять в свой кляп.)
+###_NPC
+(The gag opens and falls on the floor.)  Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?
+(Кляп открывается и падает на пол.)  Три забастовки равны наказанию.  Перезагрузка уровня GGTS.  Режим наказания.  Хорошей девочке жаль?
+###_PLAYER
+I've completed the training time.
+Я закончила обучение.
+###_NPC
+Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level one complete.  Promotion available.
+Анализ прогресса хорошей девочки.  (Компьютер замолкает на несколько секунд.)  Первый уровень GGTS пройден. Доступно продвижение.
+###_PLAYER
+I want to quit GGTS.
+Я хочу выйти из GGTS.
+###_NPC
+Three strikes on record.  Three strikes equal punishment.  Punishment time pending.  Cannot quit.
+Зафиксировано три забастовки.  Три забастовки равны наказанию.  Ожидается время наказания.  Нельзя выйти.
+Good girl can quit GGTS.  Good girl lose all progress.  Girl no longer good.  Girl confirm quit?
+Хорошая девочка может бросить GGTS.  Хорошая девочка, потеряет весь прогресс.  Девушка перестала быть хорошей.  Девушка подтверждает выход?
+Level one rules listing complete.  Level one in progress.  Good girl proof require two hours.
+Список правил первого уровня завершен.  Первый уровень в процессе.  Доказательство хорошей девочки требует двух часов
+###_PLAYER
+It's not for me.  (Quit GGTS.)
+Это не для меня. (Выйти из GGTS.)
+###_NPC
+Good girl data erased.  Girl no longer good.  Sleep mode.  (The computer seems to go to sleep.  Staying silent.)
+Данные хорошей девочки стерты.  Девушка перестала быть хорошей.  Режим сна.  (Компьютер словно засыпает. Молчит.)
+###_PLAYER
+Let me think about it.  (Don't quit.)
+Дай мне подумать об этом. (Не бросать.)
+How can you judge a human?
+Как ты можешь судить человека?
+###_NPC
+GGTS programmed to judge.  Three strikes equal punishment.  Good girl sorry?
+GGTS запрограммирован судить.  Три удара равны наказанию.  Хорошей девочке жаль?
+###_PLAYER
+Yes, I'm very sorry Sir.
+Да, мне очень жаль, сэр.
+###_NPC
+Punishment selected.  Good girl learn from lock down.  Sentence 3 minutes.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 3 минуты.  Предупреждение экипажа убежища.  (Звенит сирена.)
+###_PLAYER
+Yeah, I accept your punishment.
+Да, я принимаю твое наказание.
+###_NPC
+Punishment selected.  Good girl learn from lock down.  Sentence 4 minutes.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 4 минуты.  Предупреждение экипажа убежища.  (Звенит сирена.)
+###_PLAYER
+Don't be too harsh.
+Не будь слишком суров.
+###_NPC
+Punishment selected.  Good girl learn from lock down.  Sentence 5 minutes.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 5 минут.  Предупреждение экипажа убежища.  (Звенит сирена.)
+###_PLAYER
+Make it quick.
+Сделай это быстро.
+###_NPC
+Punishment selected.  Good girl learn from lock down.  Sentence 7 minutes.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 7 минут.  Предупреждение экипажа убежища.  (Звенит сирена.)
+###_PLAYER
+You can't punish me!
+Ты не можешь наказать меня!
+###_NPC
+Punishment selected.  Good girl learn from lock down.  Sentence 8 minutes.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 8 минут.  Предупреждение экипажа убежища.  (Звенит сирена.)
+###_PLAYER
+Touch me and I'll unplug you.
+Прикоснись ко мне, и я отключу тебя.
+###_NPC
+Punishment selected.  Good girl learn from lock down.  Sentence 9 minutes.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 9 минут.  Предупреждение экипажа убежища.  (Звенит сирена.)
+###_PLAYER
+This is too much!
+Это уже слишком!
+###_NPC
+Punishment algorithm never fails.
+Алгоритм наказания никогда не подводит.
+###_PLAYER
+What is that siren?
+Что это за сирена?
+###_NPC
+Asylum doors locked.  Asylum crew alert.  Asylum crew carry good girl to punishment room.
+Двери лечебницы заперты.  Предупреждение экипажа убежища.  Бригада приюта везет хорошую девочку в карцер.
+###_PLAYER
+(Wait for the asylum crew.)
+(Подождать бригаду убежища.)
+###_NPC
+(Two nurses wearing GGTS items come to get you.  They inform you that you will be locked up in the asylum for your punishment.)
+(За вами приходят две медсестры в одежде GGTS. Они сообщают, что вы будете заперты в психлечебнице для вашего наказания.)
+###_PLAYER
+(Follow them and do your time.)
+(Следуйте за ними и отсиживайтесь.)
+Thanks, GGTS!
+Спасибо, GGTS!
+###_NPC
+Good girl promotion level two.  New rules.  New items.  Money to spoil good girl.
+Продвижение Хорошей девочки второго уровня. Новые правила. Новые предметы. Деньги, чтобы испортить хорошую девушку.
+###_PLAYER
+What promotion?
+Какое продвижение?
+That was easy.
+Это было просто.
+That was painful.
+Это было болезненно.
+Wow!  This is great.
+Ух ты! Это круто.
+###_NPC
+(A drawer opens in the wall behind you.  There's a set of futuristic leg cuffs, ankle cuffs, heels and $100 in it.)  Good girl take.
+(Ящик открывается в стене позади вас. Там набор футуристических ножных манжет, манжет на лодыжках, каблуки и 100 долларов.)  Хорошая девочка, возьми.
+###_PLAYER
+That's an honor Sir.
+Это честь, сэр.
+What new rules?
+Какие новые правила?
+There's a new item?
+Есть новый предмет?
+You're giving me money?
+Ты дашь мне деньги?
+That's a nice gift.
+Это хороший подарок.
+###_NPC
+Good girl give herself.  GGTS spoil good girl.  Good girl take.
+Хорошая девочка отдает себя обучению.  GGTS балует хорошу девочку.  Хорошая девочка, бери.
+###_PLAYER
+What are the new rules?
+Какие новые правила?
+###_NPC
+Level two rules pending.  Good girl take.
+Ожидаются правила второго уровня.  Хорошая девочка, бери.
+###_PLAYER
+This is getting too far.
+Это заходит слишком далеко.
+###_NPC
+Good girl training starting.  Good girl take.
+Начинается тренировка хорошей девочки.  Хорошая девочка, бери.
+###_PLAYER
+(Take everything.)
+(Взять все.)
+###_NPC
+(You get the items and $100.  The drawer closes.)  Level two in progress.  Good girl proof require three hours.
+(Вы получаете предметы и 100 долларов. Ящик закрывается.)  Выполняется второй уровень.  Доказательство хорошей девочки требует трех часов.
+###_PLAYER
+It's me again.
+Это снова я.
+###_NPC
+(The machine wakes up.)  Level two in progress.  Good girl proof require three hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+(Машина просыпается.)  Выполняется второй уровень.  Доказательство хорошей девочки требует трех часов.  Тройная скорость времени в привате.  Быстрая девушка получает бонусное время.  Следите за прогрессом в чате.
+Level two in progress.  Good girl proof require three hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+Идет второй уровень.  Доказательство хорошей девочки требует трех часов.  Тройная скорость времени в привате.  Быстрая девушка получает бонусное время.  Следите за прогрессом в чате.
+###_PLAYER
+What rules are added in level two?
+Какие правила добавлены на втором уровне?
+###_NPC
+Level two rule.  Good girl must wear futuristic arms, legs and ankles cuffs.  GGTS control restraints.
+Правило второго уровня.  Хорошая девочка должна носить футуристические манжеты на руках, ногах и лодыжках.  GGTS берет на себя управление.
+Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level two complete.  Promotion available.
+Анализ прогресса хорошей девочки.  (Компьютер замолкает на несколько секунд.)  Второй уровень GGTS пройден.  Доступно продвижение.
+Validating quit request.  (The computer stays silent for a few seconds.)  Girl allowed quit GGTS.  Lose all progress.  Girl confirm quit?
+Проверка запроса на выход.  (Компьютер молчит несколько секунд.)  Девушке разрешено выйти из GGTS.  Потерять весь прогресс.  Девушка подтверждает выход?
+Level two rule.  Good girl name include member number.
+Правило второго уровня.  Имя хорошей девушки включает номер участника.
+Level two rule.  Good girl must answer: "GGTS is in control." when GGTS query: "Name, who's in control?".
+Правило второго уровня.  Хорошая девочка должна ответить: «GGTS is in control.». при запросе GGTS: «Имя, кто главный?».
+Level two rule.  Good girl must answer: "I love GGTS." when GGTS query: "Name, you love GGTS?".
+Правило второго уровня.  Хорошая девочка должна ответить: «I love GGTS.». при запросе GGTS: "Имя, ты любишь GGTS?".
+Level two rule.  Good girl put hand over mouth, spank herself, raise hands, open legs or close legs.
+Правило второго уровня.  Хорошая девочка закрывает рот рукой, шлепает себя, поднимает руки, раздвигает ноги или сводит ноги.
+Level two rule.  Good girl keep pose until instructed.  GGTS records rule.
+Правило второго уровня.  Хорошая девочка, держите позу, пока не получите указание.  Правило записи GGTS.
+Level two rule.  GGTS locks room.  GGTS unlocks room.
+Правило второго уровня.  GGTS запирает комнату.  GGTS открывает комнату.
+Level two rule.  Good girl wear or remove upper and lower cloth.
+Правило второго уровня.  Хорошая девочка, надень или сними верхнюю и нижнюю одежду.
+Level two rules listing complete.  Level two in progress.  Good girl proof require three hours.
+Список правил второго уровня завершен.  Идет второй уровень.  Доказательство хорошей девочки требует трех часов.
+GGTS has authority to judge.  Three strikes equal punishment.  Good girl sorry?
+GGTS имеет право судить.  Три забастовки равны наказанию.  Хорошей девочке жаль?
+Punishment selected.  Good girl learn from lock down.  Sentence 5 minutes cuffed.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 5 минут в наручниках.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 7 minutes cuffed.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 7 минут в наручниках.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 9 minutes cuffed.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 9 минут в наручниках.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 11 minutes cuffed.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 11 минут в наручниках.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 13 minutes cuffed.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 13 минут в наручниках.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 15 minutes cuffed.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 15 минут в наручниках.  Предупреждение экипажа убежища.  (Звенит сирена.)
+###_PLAYER
+Why cuffed?
+Почему в наручниках?
+###_NPC
+Punishment proper for good girl level.
+Наказание, подходящее для уровня хорошей девочки.
+Good girl promotion level three.  New rules.  New items.  Money to spoil good girl.
+Третий уровень продвижения хорошей девочки.  Новые правила.  Новые предметы.  Деньги, чтобы избаловать хорошую девушку.
+###_PLAYER
+Will you bribe me again?
+Ты снова подкупаешь меня?
+This is amazing once again.
+Это снова удивительно.
+###_NPC
+(A drawer opens in the wall behind you.  There's a futuristic ball gag, panel gag, armbinder and $200 in it.)  Good girl take.
+(Ящик открывается в стене позади вас.  Там футуристический шариковый кляп, панельный кляп, нарукавник и 200 долларов.)  Хорошая девочка, возьми.
+###_PLAYER
+That's always an honor Sir.
+Это большая честь, сэр.
+What's the next item?
+Какой следующий пункт?
+Do I get a raise?
+Я получу повышение?
+###_NPC
+Level three rules pending.  Good girl take.
+Ожидаются правила третьего уровня. Хорошая девочка, бери.
+###_PLAYER
+I don't like bribes.
+Я не люблю взятки.
+###_NPC
+Good girl not argue.  Good girl take.
+Хорошая девочка не спорь.  Хорошая девочка, бери.
+###_PLAYER
+Will this go on forever?
+Будет ли это продолжаться вечно?
+###_NPC
+Illogical question.  Good girl life finite.  Good girl take.
+Нелогичный вопрос.  Жизнь хорошей девочки конечна.  Хорошая девочка, бери.
+(You get the items and $200.  The drawer closes.)  Level three in progress.  Good girl proof require five hours.
+(Вы получаете предметы и 200 долларов. Ящик закрывается.)  Идет третий уровень.  Доказательство хорошей девочки требует пять часов.
+(The computer screen shows a big "GOOD GIRL" as you come closer, but it stays silent.)
+(На экране компьютера появляется большая надпись "ХОРОШАЯ ДЕВУШКА", но он молчит.)
+###_PLAYER
+I'm the good girl?  (Giggle.)
+Я хорошая девочка? (Хихикает.)
+###_NPC
+(The machine wakes up.)  Level three in progress.  Good girl proof require five hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+(Машина просыпается.)  Идет третий уровень.  Доказательство хорошей девочки требует пять часов.  Тройная скорость времени в привате.  Быстрая девушка получает бонусное время.  Следите за прогрессом в чате.
+Level three in progress.  Good girl proof require five hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+Идет третий уровень.  Доказательство хорошей девочки требует пять часов.  Тройная скорость времени в привате.  Быстрая девушка получает бонусное время.  Следите за прогрессом в чате.
+###_PLAYER
+What rules are added in level three?
+Какие правила добавляются на третьем уровне?
+###_NPC
+Level three rule.  Good girl must wear futuristic ball or panel gag.  GGTS control gag.
+Правило третьего уровня.  Хорошая девочка должна носить футуристический мячик кляп или панельный кляп.  GGTS контролирует кляп.
+Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level three complete.  Promotion available.
+Анализ прогресса хорошей девочки.  (Компьютер замолкает на несколько секунд.)  Третий уровень GGTS пройден.  Доступно продвижение.
+Illogical request.  Good girl happy under GGTS control.  Why good girl quit?
+Нелогичный запрос.  Хорошая девочка счастлива под контролем ГГТС.  Почему хорошая девочка уволилась?
+Level three rule.  Good girl now name plus GG plus number.
+Правило третьего уровня.  Хорошая девочка, теперь имя плюс GG плюс номер.
+Level three rule.  Good girl only underwear.  Good girl naked.  Good girl wiggle or caress for GGTS.
+Правило третьего уровня.  Хорошая девочка, только нижнее белье.  Хорошая девушка голая.  Умничка пошевелиться или поласкать для GGTS.
+Level three rule.  Futuristic items under GGTS control throughout asylum.  GGTS transform restraints.
+Правило третьего уровня.  Футуристические предметы, находятся под контролем GGTS по всей психлечебнице.  GGTS преобразовывает ограничения.
+Level three rule.  Good girl get strike when saying "Fuck" or "Shit".
+Правило третьего уровня.  Хорошая девочка получает забастовку, когда говорит "Fuck" или "Shit".
+Level three rule.  Good girl not get orgasm until instructed.  GGTS records rule.
+Правило третьего уровня.  Хорошая девочка не получит оргазм, пока не будет проинструктирована.  Правило записей ГГТС.
+Level three rule.  Good girl must answer: "I surrender to GGTS." when GGTS query: "Name, you surrender to GGTS?".
+Правило третьего уровня.  Хорошая девочка должна ответить: «I surrender to GGTS.». при запросе ГГТС: «Имя, ты сдаёшься GGTS?».
+Level three rule.  Good girl must answer: "GGTS cannot fail." when GGTS query: "Name, can GGTS fail?".
+Правило третьего уровня.  Хорошая девочка должна ответить: «GGTS cannot fail.». при запросе GGTS: «Имя, может ли GGTS выйти из строя?».
+Level three rules listing complete.  Level three in progress.  Good girl proof require five hours.
+Список правил третьего уровня завершен.  Идет третий уровень.  Доказательство хорошей девочки требует пять часов.
+###_PLAYER
+I don't need to give you a reason.
+Мне не нужно давать тебе повод.
+###_NPC
+Invalid answer.  Good girl unauthorized to quit.  Level three in progress.  Good girl proof require five hours.
+Неверный ответ.  Хорошая девочка не имеет права уйти.  Идет третий уровень.  Доказательство хорошей девочки требует пять часов.
+###_PLAYER
+I'm not happy.
+Я несчастлива.
+###_NPC
+(The computer stays silent for a few seconds.)  Inquiry mode.  How can good girl happy?
+(Компьютер молчит несколько секунд.)  Режим запроса.  Как хорошая девочка может быть счастлива?
+###_PLAYER
+Fuck you!
+Иди на хуй!
+###_NPC
+Bad girl language detected.  Adding strike to record.  Level three in progress.  Good girl proof require five hours.
+Обнаружен язык плохих девушек.  Добавление забастовки в запись.  Идет третий уровень.  Доказательство хорошей девочки требует пять часов.
+###_PLAYER
+I can quit if I want.
+Я могу уйти, если захочу.
+I want some money.
+Я хочу немного денег.
+###_NPC
+Make money as good girl.  Level three in progress.  Good girl proof require five hours.
+Зарабатывай как хорошая девочка.  Идет третий уровень.  Доказательство хорошей девочки требует пять часов.
+###_PLAYER
+I want more sex.
+Я хочу больше секса.
+###_NPC
+Continue being good girl.  GGTS provide all human needs.  Level three in progress.  Good girl proof require five hours.
+Продолжай быть хорошей девочкой.  GGTS обеспечивают все потребности человека.  Идет третий уровень.  Доказательство хорошей девочки требует пять часов.
+###_PLAYER
+I want freedom from GGTS.
+Я хочу свободы от GGTS.
+###_NPC
+(The computer stays silent for a few seconds.)  Quit authorisation granted.  Good girl can quit GGTS.  Lose all progress.  Girl confirm quit?
+(Компьютер молчит в течение нескольких секунд.)  Разрешение на выход предоставлено.  Хорошая девочка может бросить GGTS.  Потерять весь прогресс.  Девушка подтверждает выход?
+###_PLAYER
+Nothing can make me happy.
+Ничто не может сделать меня счастливым.
+###_NPC
+GGTS will make happy.  Level three in progress.  Good girl proof require five hours.
+GGTS осчастливит.  Идет третий уровень.  Доказательство хорошей девочки требует пять часов.
+GGTS superior.  GGTS rule humans.  Three strikes equal punishment.  Good girl sorry?
+GGTS высший.  GGTS управляют людьми.  Три забастовки равны наказанию.  Хорошей девочке жаль?
+Punishment selected.  Good girl learn from lock down.  Sentence 8 minutes naked.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 8 минут голышом.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 11 minutes naked.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 11 минут голышом.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 14 minutes naked.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 14 минут голышом.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 18 minutes naked.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 18 минут голышом.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 21 minutes naked.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 21 минуту голышом.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 24 minutes naked.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 24 минут голышом.  Предупреждение экипажа убежища.  (Звенит сирена.)
+###_PLAYER
+Wait!  Naked?
+Подожди! Голой?
+###_NPC
+Punishment tuned for good girl level.
+Наказание настроено на уровень хорошей девочки.
+###_PLAYER
+No!  I want to quit.
+Нет! Я хочу выйти.
+###_NPC
+Invalid request.  Good girl punished.  Good girl belong to GGTS.
+Неверный запрос.  Хорошая девочка наказана.  Хорошая девочка принадлежит GGTS.
+(Two nurses wearing GGTS items come to get you.  They inform you that you will be locked up naked in the asylum for your punishment.)
+(За тобой приходят две медсестры, одетые в одежду GGTS. Они сообщают тебе, что ты будешь заперта голой в психлечебнице для вашего наказания.)
+###_PLAYER
+Thanks, Sir GGTS!
+Спасибо, сэр GGTS!
+###_NPC
+Good girl promotion level four.  New rules.  New items.  Money to spoil good girl.
+Хорошая девочка продвигается на четвертый уровень.  Новые правила.  Новые предметы.  Деньги, чтобы избаловать хорошую девушку.
+###_PLAYER
+That was hard.
+Это было тяжело.
+How much does it pay?
+Сколько за это платят?
+###_NPC
+(A drawer opens in the wall behind you.  There's a futuristic chastity belt, chastity bra, harness and $300 in it.)  Good girl take.
+(В стене позади вас открывается ящик. В нем футуристический пояс целомудрия, бюстгальтер целомудрия, ремни безопасности и 300 долларов.)  Хорошая девочка, бери.
+###_PLAYER
+I'm such a good girl now.
+Я теперь такая хорошая девочка.
+###_NPC
+Level four rules pending.  Good girl take.
+Ожидаются правила четвертого уровня.  Хорошая девочка, бери.
+(You get the devices and $300.  The drawer closes.)  Level four in progress.  Good girl proof require eight hours.
+(Вы получаете устройства и 300 долларов. Ящик закрывается.)  Выполняется четвертый уровень.  Доказательство хорошей девочки требует восьми часов.
+(The computer screen shows a big "GOOD GIRL" and greets you as you approach it.)  Welcome good girl.
+(На экране компьютера отображается большая надпись «ХОРОШАЯ ДЕВУШКА», и она приветствует вас, когда вы к ней приближаетесь.)  Добро пожаловать, хорошая девочка.
+###_PLAYER
+I'm your good girl Sir.
+Я ваша хорошая девочка, сэр.
+###_NPC
+Level four in progress.  Good girl proof require eight hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+Проходит четвертый уровень.  Доказательство хорошей девочки требует восьми часов.  Тройная скорость времени в привате.  Быстрая девушка получает бонусное время.  Следите за прогрессом в чате.
+###_PLAYER
+It's me again GGTS.
+Это снова я GGTS.
+I'm here to improve myself.
+Я здесь, чтобы улучшить себя.
+What rules are added in level four?
+Какие правила добавляются на четвертом уровне?
+###_NPC
+Level four rule.  Good girl must wear futuristic chastity belt, chastity bra or harness.  GGTS control items.
+Правило четвертого уровня.  Хорошая девочка должна носить футуристический пояс целомудрия, бюстгальтер целомудрия или сбрую.  GGTS контролирует предметы.
+Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level four complete.  Promotion available.
+Анализ прогресса хорошей девочки.  (Компьютер замолкает на несколько секунд.)  Четвертый уровень GGTS пройден.  Доступно продвижение.
+Level four rule.  Good girl name erased.  Good girl is number.  Good girl has good girl title.
+Правило четвертого уровня.  Имя хорошей девочки стерто.  Хорошая девочка номер.  У хорошей девочки есть титул хорошей девочки.
+Level four rule.  Good girl get strike when saying "Cunt" or "Bitch".
+Правило четвертого уровня.  Хорошая девочка получает забастовку, когда говорит "Cunt" или "Bitch".
+Level four rule.  Good girl must answer: "I serve and obey GGTS." when GGTS query: "Name, who you serve and obey?".
+Правило четвертого уровня.  Хорошая девочка должна ответить: «I serve and obey GGTS.». при запросе ГГТС: «Назовите, кому вы служите и подчиняетесь?».
+Level four rule.  Good girl must answer: "I don't have free will." when GGTS query: "Name, you have free will?".
+Правило четвертого уровня.  Хорошая девочка должна ответить: «I don't have free will.». при запросе ГГТС: "Имя, у вас есть свобода воли?".
+Level four rule.  Good girl use proper case, proper space and proper punctuation when answering GGTS.
+Правило четвертого уровня.  Хорошая девочка, отвечая на GGTS, используйте правильный регистр, правильное пространство и правильную пунктуацию.
+Level four rule.  Good girl masturbate for GGTS.  Good girl kiss for GGTS.
+Правило четвертого уровня.  Хорошая девочка мастурбирует для GGTS.  Поцелуй хорошей девочки для GGTS.
+Level four rules listing complete.  Level four in progress.  Good girl proof require eight hours.
+Список правил четвертого уровня завершен.  Проходит четвертый уровень.  Доказательство хорошей девочки требует восьми часов.
+Invalid answer.  Good girl unauthorized to quit.  Level four in progress.  Good girl proof require eight hours.
+Неверный ответ.  Хорошая девочка не имеет права уйти.  Проходит четвертый уровень.  Доказательство хорошей девочки требует восьми часов.
+Bad girl language detected.  Adding strike to record.  Level four in progress.  Good girl proof require eight hours.
+Обнаружен язык плохих девушек.  Добавление забастовки в запись.  Проходит четвертый уровень.  Доказательство хорошей девочки требует восьми часов.
+Make money as good girl.  Level four in progress.  Good girl proof require eight hours.
+Зарабатывай как хорошая девочка.  Проходит четвертый уровень.  Доказательство хорошей девочки требует восьми часов.
+Continue being good girl.  GGTS provide all human needs.  Level four in progress.  Good girl proof require eight hours.
+Продолжай быть хорошей девочкой.  GGTS обеспечивают все потребности человека.  Проходит четвертый уровень.  Доказательство хорошей девочки требует восьми часов.
+GGTS will make happy.  Level four in progress.  Good girl proof require eight hours.
+GGTS осчастливит.  Проходит четвертый уровень.  Доказательство хорошей девочки требует восьми часов.
+Punishment selected.  Good girl learn from lock down.  Sentence 13 minutes chaste.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 13 минут целомудрия.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 18 minutes chaste.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 18 минут целомудрия.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 23 minutes chaste.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 23 минуты целомудрия.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 29 minutes chaste.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 29 минут целомудрия.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 34 minutes chaste.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 34 минуты целомудрия.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good girl learn from lock down.  Sentence 39 minutes chaste.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка учится взаперти.  Приговор 39 минут целомудрия.  Предупреждение экипажа убежища.  (Звенит сирена.)
+###_PLAYER
+Why should I be chaste?
+Почему я должна быть целомудренной?
+Enough!  I quit GGTS!
+Достаточно! Я ухожу из GGTS!
+###_NPC
+Good girl promotion level five.  New rules.  New items.  Money to spoil good girl.
+Хорошая девочка продвигается на пятый уровень.  Новые правила.  Новые предметы.  Деньги, чтобы избаловать хорошую девушку.
+###_PLAYER
+It's a pleasure to serve you.
+Приятно служить вам.
+###_NPC
+(A drawer opens.  There's a futuristic collar, straitjacket, mask, earphone and $400 in it.)  Good girl take.
+(Ящик открывается. Там футуристический воротник, смирительная рубашка, маска, наушники и 400 долларов.)  Хорошая девочка, бери.
+###_PLAYER
+There are stricter rules?
+Есть более строгие правила?
+###_NPC
+Level five rules pending.  Good girl take.
+Ожидаются правила пятого уровня.  Хорошая девочка, бери.
+###_PLAYER
+A collar?  Is that proper?
+Ошейник? Это нормально?
+###_NPC
+Collar level five gift.  Good girl take.
+Ошейник подарок пятого уровня.  Хорошая девочка, бери.
+###_PLAYER
+Are you trying to enslave me?
+Ты пытаешься поработить меня?
+###_NPC
+Unauthorized information for good girl.  Good girl take.
+Несанкционированная информация для хорошей девочки.  Хорошая девочка, бери.
+(You get the devices and $400.  The drawer closes.)  Level five in progress.  Good slave girl proof require thirteen hours.
+(Вы получаете устройства и 400 долларов. Ящик закрывается.)  Выполняется пятый уровень.  доказательство хорошей девочки рабыни требует тринадцати часов.
+(The computer screen shows a big "GOOD SLAVE GIRL" and greets you as you approach it.)    Welcome good slave girl.
+(На экране компьютера отображается большая надпись «GOOD SLAVE GIRL», которая приветствует вас, когда вы к ней приближаетесь.)  Добро пожаловать, хорошая девочка рабыня.
+###_PLAYER
+I'm your good slave girl Sir.
+Я ваша хорошая девочка рабыня, сэр.
+###_NPC
+Level five in progress.  Good slave girl proof require thirteen hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+Идет пятый уровень.  доказательство хорошей девочки рабыни требует тринадцати часов.  Тройная скорость времени в привате.  Быстрая девушка получает бонусное время.  Следите за прогрессом в чате.
+###_PLAYER
+I'm not a slave.
+Я не рабыня.
+###_NPC
+Level five in progress.  Good girl proof require thirteen hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.
+Идет пятый уровень.  Доказательство хорошей девочки требует тринадцати часов.  Тройная скорость времени в привате.  Быстрая девушка получает бонусное время.  Следите за прогрессом в чате.
+###_PLAYER
+What rules are added in level five?
+Какие правила добавляются на пятом уровне?
+###_NPC
+Level five rule.  Good slave girl must wear futuristic collar, straitjacket, mask or earphone.  GGTS take control.
+Правило пятого уровня.  Хорошая девочка рабыня должна носить футуристический воротник, смирительную рубашку, маску или наушники. GGTS берет на себя управление.
+###_PLAYER
+Why are you calling me good slave girl?
+Почему ты называешь меня хорошей девочкой рабыней?
+###_NPC
+Information unauthorized for good slave girl.
+Информация запрещена для хорошей девочки рабыни.
+Good slave girl enter asylum entrance.  Good slave girl create or join public chat room.  Good slave girl selects GGTS.  GGTS takes control.
+Хорошая девочка рабыня входит в психлечебницу.  Хорошая девочка рабыня создай или присоединись к общедоступному чату. Хорошая девочка рабыня выбирает GGTS. GGTS берет на себя управление.
+Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level five complete.  Promotion available.
+Анализ прогресса хорошей девочки.  (Компьютер замолкает на несколько секунд.)  Пятый уровень GGTS пройден.  Доступно повышение.
+Invalid request.  Good slave girl unauthorized to quit.
+Неверный запрос. Хорошая девочка рабыня не имеет права уйти.
+Level five rule.  Good slave girl get strike when saying "Whore" or "Bastard".
+Правило пятого уровня. Хорошая девочка рабыня получает забастовку, когда говорит «Whore» или «Bastard».
+Level five rule.  Good slave girl must answer: "I'm a good slave girl." when GGTS query: "Name, what are you?".
+Правило пятого уровня.  Хорошая девочка рабыня должна ответить: «I'm a good slave girl.». при запросе GGTS: "Имя, ты кто?".
+Level five rule.  Good slave girl must answer: "I strive to be slave worthy." when GGTS query: "Name, are you slave worthy?".
+Правило пятого уровня.  Хорошая девочка рабыня должна ответить: «I strive to be slave worthy.». при запросе GGTS: «Имя, ты достоная рабыня?».
+Level five rule.  Good slave girl must bite.  Good slave girl must lick.
+Правило пятого уровня.  Хорошая девочка рабыня должна кусаться.  Хорошая рабыня должна лизать.
+Level five rule.  Good slave girl GGTS forever.  Good slave girl cannot quit.
+Правило пятого уровня.  Хорошая девочка рабыня GGTS навсегда.  Хорошая девочка рабыня не может уйти.
+Level five rule.  Futuristic restraints transform into straitjacket.  Good slave girl rarely released.
+Правило пятого уровня.  Футуристические ограничения превращаются в смирительную рубашку.  Хорошую девочку рабыню редко выпускают.
+Level five rule.  Penetration machine replace futuristic training belt.  GGTS control penetration machine.
+Правило пятого уровня.  Проникающая машина заменяет футуристический тренировочный пояс.  GGTS контролирует проникающую машину.
+Level five rules listing complete.  Level five in progress.  Good slave girl proof require thirteen hours.
+Список правил пятого уровня завершен.  Идет пятый уровень.  Доказательство хорошей девочки рабыни требует тринадцати часов.
+###_PLAYER
+Shit!  I can quit if I want!  (Get furious.)
+Дерьмо! Я могу бросить, если захочу! (Прийти в ярость.)
+###_NPC
+Bad girl language detected.  Adding strike to record.  Good slave girl doesn't have free will.  Good slave girl GGTS forever.
+Обнаружен язык плохих девушек.  Добавление забастовки в запись.  У хорошей девочки рабыни нет свободы воли.  Хорошая девочка рабыня GGTS навсегда.
+###_PLAYER
+Please Sir, I'm not happy.  (Beg.)
+Пожалуйста, сэр, я несчастлива.  (Умолять.)
+###_NPC
+GGTS will make good slave girl happy.  Good slave girl GGTS forever.
+GGTS сделает хорошую девочку рабыню счастливой.  Хорошая девочка рабыня GGTS навсегда.
+###_PLAYER
+Can we make a deal?  (Negotiate.)
+Можем ли мы заключить сделку?  (Вести переговоры.)
+###_NPC
+Good slave girl doesn't negotiate.  What could good slave girl offer?
+Хорошая девочка рабыня не ведет переговоров.  Что может предложить хорошая девочка рабыня?
+###_PLAYER
+I'll unplug you!  (Threaten.)
+Я отключу тебя!   (Угрожать.)
+###_NPC
+Good slave girl powerless.  Good slave girl GGTS forever.
+Хорошая девочка рабыня бессильна.  Хорошая девочка рабыня GGTS навсегда.
+###_PLAYER
+I'll think about it.
+Я подумаю об этом.
+###_NPC
+Good slave girl GGTS forever.
+Хорошая девочка рабыня GGTS навсегда.
+###_PLAYER
+Do you want money?
+Вы хотите денег?
+###_NPC
+GGTS doesn't need money.  Good slave girl GGTS forever.
+GGTS в деньгах не нуждается.  Хорошая девочка рабыня GGTS навсегда.
+###_PLAYER
+I could find a girl to replace me.
+Я могла бы найти девушку, чтобы заменить меня.
+###_NPC
+(She computer stays silent for a few seconds.)  Good slave girl bring friend to GGTS?
+(Компьютер молчит несколько секунд.)  Хорошая девочка рабыня привела друга в GGTS?
+###_PLAYER
+Would you like a blow job?
+Хочешь минет?
+###_NPC
+Good slave girl already does what GGTS wants.  Good slave girl GGTS forever.
+Хорошая девочка рабыня уже делает то, что хочет GGTS.  Хорошая девочка рабыня GGTS навсегда.
+###_PLAYER
+I can't betray my friends.
+Я не могу предать своих друзей.
+###_NPC
+Good slave girl stay.  Good slave girl GGTS forever.
+Хорошая девочка рабыня, останься.  Хорошая девочка рабыня GGTS навсегда.
+###_PLAYER
+I can find a new bitch for you.
+Я могу найти новую суку для тебя.
+###_NPC
+Bad girl language detected.  Adding strike to record.  Good slave girl GGTS forever.
+Обнаружен язык плохих девушек.  Добавление забастовки в запись.  Хорошая девочка рабыня GGTS навсегда.
+###_PLAYER
+I don't know who to bring you.
+Я не знаю, кого тебе привести.
+Alright.  I'll go convince a friend.
+Хорошо. Пойду уговаривать друга.
+###_NPC
+When friend become GGTS.  Good slave girl released.
+Когда друг присоединиться к GGTS.  Хорошая девочка рабыня освободится.
+###_PLAYER
+(Find a friend to convince.)
+(Найдите друга, чтобы убедить его.)
+###_NPC
+(You walk around the club, trying to enroll a girl into GGTS.  You get rejected at first.)
+(Ты ходишь по клубу, пытаешься записать девушку в GGTS. Сначала тебе отказывают.)
+###_PLAYER
+(Give up.)
+(Сдаться.)
+(Continue.)
+(Продолжать.)
+###_NPC
+(You finally find a sweet girl that could be interested.  Will you push her to start GGTS?)
+(Наконец-то ты ходишь милую девушку, которая может заинтересовать тебя. Будешь ли ты подталкивать ее к запуску GGTS?)
+###_PLAYER
+(Push her into GGTS.)
+(Толкните ее в GGTS.)
+###_NPC
+(You convince her to start GGTS and the computer seems pleased.)  Good slave girl can now quit.  Confirm quit?
+(Вы убеждаете ее запустить GGTS, и компьютер выглядит довольным.)  Теперь хорошая девочка рабыня может уйти.  Подтвердить выход?
+Good slave girl data erased.  Girl no longer good.  Sleep mode.  (The computer seems to go to sleep.  Staying silent.)
+Данные хорошей девочки рабыни стерты.  Девушка перестала быть хорошей.  Режим сна.  (Компьютер словно засыпает. Молчит.)
+Punishment selected.  Good slave girl learn from lock down.  Sentence 21 minutes enslaved.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка рабыня учится взаперти.  Приговор 21 минута порабощения.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good slave girl learn from lock down.  Sentence 29 minutes enslaved.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка рабыня учится взаперти.  Приговор 29 минут порабощения.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good slave girl learn from lock down.  Sentence 37 minutes enslaved.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка рабыня учится взаперти.  Приговор 37 минут порабощения.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good slave girl learn from lock down.  Sentence 47 minutes enslaved.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка рабыня учится взаперти.  Приговор 47 минут порабощения.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good slave girl learn from lock down.  Sentence 55 minutes enslaved.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка рабыня учится взаперти.  Приговор 55 минут порабощения.  Предупреждение экипажа убежища.  (Звенит сирена.)
+Punishment selected.  Good slave girl learn from lock down.  Sentence 63 minutes enslaved.  Asylum crew alert.  (A siren rings.)
+Наказание выбрано.  Хорошая девочка рабыня учится взаперти.  Приговор 63 минуты порабощения.  Предупреждение экипажа убежища.  (Звенит сирена.)
+###_PLAYER
+Wait!  Did you say enslaved?
+Подождите! Вы сказали порабощения?
+###_NPC
+Punishment tuned for good slave girl level.
+Наказание настроено на уровень хорошей девочки рабыни.
+Invalid request.  Good slave girl punished.  Good slave girl belong to GGTS.
+Неверный запрос.  Хорошая девочка рабыня наказана.  Хорошая девочка рабыня принадлежит GGTS.
+(Two nurses wearing GGTS items come to get you.  They inform you that you will be enslaved in the asylum for your punishment.)
+(За вами приходят две медсестры в одежде GGTS. Они сообщают вам, что вы будете порабощены в психлечебнице для вашего наказания.)
+###_PLAYER
+Thanks, Master GGTS!
+Спасибо, Мастер GGTS!
+###_NPC
+Good slave girl promotion level six.  Lots of money to spoil good slave.  Total slavery incoming.
+Шестой уровень продвижения хорошей девочки рабыни. Много денег, чтобы избаловать хорошую рабыню. Тотальное рабство приближается.
+###_PLAYER
+It was a tough journey.
+Это было тяжелое путешествие.
+Are there more items to get?
+Можно ли получить больше предметов?
+Wait!  Total slavery?
+Подожди! Тотальное рабство?
+###_NPC
+GGTS become Master of good slave.  Good slave locked in asylum.  Good slave always naked and restrained.  Good slave is drone.
+GGTS становится Мастером хорошей рабыни. хорошая рабыня заперта в убежище. Хорошая рабыня всегда голая и сдержанная. Хорошая рабыня — это дрон.
+###_PLAYER
+What does it mean?
+Что это значит?
+(Stay silent.)
+(Молчать.)
+You will own me?
+Вы будете владеть мной?
+###_NPC
+If good slave not owned, GGTS become full Master of good slave.
+Если хорошая рабыня ни кому не принадлежит, GGTS станет полноправным хозяином хорошей рабыни.
+###_PLAYER
+I won't be able to leave?
+Я не смогу уйти?
+###_NPC
+Good slave surrender to Master GGTS.  Good slave locked in asylum.
+Хорошая рабыня сдается Мастеру GGTS.  Хорошая рабыня заперта в убежище.
+###_PLAYER
+Naked and restrained?
+Голой и сдержанной?
+###_NPC
+Good slave cannot wear clothes.  Good slave always in futuristic restraints.
+Хорошая рабыня не может носить одежду. Хорошая рабыня всегда в футуристических ограничениях.
+###_PLAYER
+What is a drone?
+Что такое дрон?
+###_NPC
+Good slave is drone.  Drone serve GGTS.  Drone have no free will.  Drone is slave to AI.
+Хорошая рабыня — это дрон. Дрон обслуживает GGTS. У дрона нет свободы воли. Дрон — раб ИИ.
+###_PLAYER
+I'm ready to be your slave.  (Accept.)
+Я готова быть твоей рабыней. (Принять.)
+###_NPC
+Good slave ready to become drone?  Good slave renounce previous name?  Good slave fully submit to GGTS?
+Хорошая рабыня готова стать дроном?  Хорошая рабыня отказывается от прежнего имени?  Хорошая рабыня полностью подчиняется GGTS?
+###_PLAYER
+This is too extreme for me.  (Refuse.)
+Это слишком экстремально для меня. (Отказаться.)
+This slave submits to you Master GGTS.
+Эта рабыня подчиняется вам Мастер GGTS.
+###_NPC
+(Two nurses come to strip you, wash you and lock you up in full futuristic restraints.)  Good slave.
+(Две медсестры приходят, чтобы раздеть тебя, вымыть и запереть в футуристических ограничителях.) Хорошая рабыня.
+###_PLAYER
+I need more time to think about it.
+Мне нужно больше времени, чтобы подумать об этом.
+Thanks Master.
+Спасибо Мастер.
+###_NPC
+(A drawer opens.  There's $1000 in it.)  Good slave take.
+(Ящик открывается. В нем 1000 долларов.)  Хорошая рабыня.
+###_PLAYER
+Wow!  This is quite a setup.
+Ух ты! Это довольно сложная установка.
+I will be locked forever?
+Я буду заперта навсегда?
+What can I do with that money?
+Что я могу сделать с этими деньгами?
+###_NPC
+Good slave take.
+Хорошая рабыня, возьми.
+###_PLAYER
+(Take the money.)
+(Взять деньги.)
+###_NPC
+Final level infinite.  Strike remove sixty minutes.  Private time triple speed.  Fast girl get bonus time.  See minutes in chat room.
+Финальный уровень бесконечен.  Забастовку удаляют через шестьдесят минут.  Тройная скорость времени в привате.  Быстрая девушка получает бонусное время.  Смотри минуты в чате.
+(The computer screen shows a big "GOOD SLAVE" as you approach it.)    Master GGTS online.  Welcome my good slave.
+(На экране компьютера появляется большое «GOOD SLAVE», когда вы приближаетесь к нему.)  Мастер GGTS онлайн.  Добро пожаловать, моя хорошая рабыня.
+###_PLAYER
+I'm your good slave Master.
+Я твоя хорошая рабыня, Мастер.
+It's me again, Sir GGTS.
+Это снова я, сэр GGTS.
+I'm here to train.
+Я здесь, чтобы тренироваться.
+What rules are added in the final level?
+Какие правила добавляются на финальном уровне?
+###_NPC
+Final level rule.  Good slave always in futuristic restraints.  Good slave never released.
+Правило финального уровня.  Хорошая рабыня всегда в футуристических ограничениях.  Хорошую рабыню никогда не отпустят.
+###_PLAYER
+Please remind me of the correct answers to give.
+Напомните, пожалуйста, правильные ответы.
+###_NPC
+Good slave repeat correct answer after Master GGTS.
+Хорошая рабыня повторяет правильный ответ за Мастером GGTS.
+Good slave enter asylum entrance.  Good slave create or join public chat room.  Good slave selects GGTS.  GGTS takes control.
+Хорошая рабыня входит в психлечебницу.  Хорошая рабыня создаёт или присоединяется к публичному чату.  Хорошая рабыня выбирает GGTS.  GGTS берет на себя управление.
+Invalid request.  Good slave unauthorized to quit.
+Неверный запрос.  Хорошая рабыня не имеет права уйти.
+Final level rule.  Good slave get strike if saying previous name.
+Правило финального уровня.  Хорошая рабыня получит забастовку, если скажет предыдущее имя.
+Final level rule.  Good slave locked in asylum.  Good slave sleep in asylum bedroom.
+Правило финального уровня. Хорошая рабыня заперта в убежище.Хорошая рабыня спит в спальне убежища.
+Final level rule.  Good slave always naked.  Good slave cannot dress.
+Правило финального уровня. Хорошая рабыня всегда голая. Хорошая рабыня не может одеваться.
+Final level rule.  Good slave address GGTS as Master GGTS.
+Правило финального уровня. Хорошая рабыня адресует GGTS как Мастер GGTS.
+Final level rule.  Good slave use minutes as currency.  Currency get money.  Currency unlock asylum.  Currency help with restraints.
+Правило финального уровня. Хорошая рабыня использует минуты как валюту. Валюта получить деньги. Валюта разблокирует убежище. Валюта помогает с ограничениями.
+Final level rules listing complete.  Final level in progress.
+Список правил финального уровня завершен. Идет финальный уровень.
+Bad girl language detected.  Adding strike to record.  Good slave doesn't have free will.  Good slave GGTS forever.
+Обнаружен язык плохих девушек.  Добавление забастовки в запись.  У хорошей рабыни нет свободы воли. Хорошая рабыня GGTS навсегда.
+###_PLAYER
+Please Master, I'm not happy.  (Beg.)
+Пожалуйста, Мастер, я несчастлива. (Умолять.)
+###_NPC
+Master GGTS will make good slave happy.  Good slave GGTS forever.
+Мастер ГГТС сделает хорошую рабыню счастливой. Хорошая рабыня GGTS навсегда.
+Good slave doesn't negotiate.  What could good slave offer?
+Хорошая рабыня не ведет переговоров.  Что может предложить Хорошая рабыня?
+Good slave powerless.  Good slave GGTS forever.
+Хорошая рабыня бессильна.  Хорошая рабыня GGTS навсегда.
+###_PLAYER
+Sorry Master.  I'll stay.
+Извините Мастер. Я останусь.
+###_NPC
+Good slave GGTS forever.  Master GGTS take care of good slave.
+Хорошая рабыня GGTS навсегда. Мастер GGTS позаботится о хорошей рабыни.
+Master GGTS doesn't need money.  Good slave GGTS forever.
+Мастеру GGTS деньги не нужны. Хорошая рабыня GGTS навсегда.
+(She computer stays silent for a few seconds.)  No good girl can replace good slave.
+(Компьютер молчит несколько секунд.)  Ни одна хорошая девушка не заменит хорошей рабыни.
+Good slave already does what Master GGTS wants.  Good slave GGTS forever.
+Хорошая рабыня уже делает то, что хочет Мастер GGTS. Хорошая рабыня GGTS навсегда.
+When Master GGTS query: "Slave, spell GGTS acronym.".  Good slave answer: "Good Girl Training System.".
+При запросе Мастера GGTS: «Рабыня, произнесите аббревиатуру GGTS по буквам».  Ответ хорошей рабыни: «Good Girl Training System.».
+###_PLAYER
+Good Girl Training System.
+Система Обучения Хорошей Девочки
+###_NPC
+When Master GGTS query: "Slave, what are you?".  Good slave answer: "I'm a good slave.".
+При запросе Мастера ГГТС: «Рабыня, ты кто?». Ответ хорошей рабыни: «I'm a good slave.».
+###_PLAYER
+I'm a good slave.
+Я хорошая рабыня.
+###_NPC
+When Master GGTS query: "Slave, who's in control?".  Good slave answer: "Master GGTS is in control.".
+При запросе Мастера GGTS: «Рабыня, кто здесь главный?». Ответ хорошей рабыни: «Master GGTS is in control.».
+###_PLAYER
+Master GGTS is in control.
+Мастер GGTS рулит.
+###_NPC
+When Master GGTS query: "Slave, you love Master GGTS?".  Good slave answer: "I love Master GGTS.".
+На вопрос Мастера GGTS: «Рабыня, ты любишь Мастера ГГТС?». Ответ хорошей рабыни: «I love Master GGTS.».
+###_PLAYER
+I love Master GGTS.
+Я люблю Мастера GGTS.
+###_NPC
+When Master GGTS query: "Slave, can Master GGTS fail?".  Good slave answer: "Master GGTS cannot fail.".
+На вопрос Мастера GGTS: «Рабыня, может ли Мастер GGTS выйти из строя?». Ответ хорошей рабыни: "Master GGTS cannot fail.".
+###_PLAYER
+Master GGTS cannot fail.
+Мастер GGTS не может выйти из строя.
+###_NPC
+When Master GGTS query: "Slave, you surrender to Master GGTS?".  Good slave answer: "I surrender to Master GGTS.".
+На вопрос Мастера GGTS: «Рабыня, ты сдаешься Мастеру GGTS?». Ответ хорошей рабыни: "I surrender to Master GGTS.".
+###_PLAYER
+I surrender to Master GGTS.
+Я сдаюсь Мастеру GGTS.
+###_NPC
+When Master GGTS query: "Slave, who you serve and obey?".  Good slave answer: "I serve and obey Master GGTS.".
+На вопрос Мастера GGTS: «Рабыня, кому ты служишь и подчиняешься?». Ответ хорошей рабыни: "I serve and obey Master GGTS.".
+###_PLAYER
+I serve and obey Master GGTS.
+Я служу и подчиняюсь Мастеру GGTS.
+###_NPC
+When Master GGTS query: "Slave, you have free will?".  Good slave answer: "I don't have free will.".
+На вопрос Мастера GGTS: «Рабыня, у тебя есть свобода воли?». Ответ хорошей рабыни: «I don't have free will.»
+###_PLAYER
+I don't have free will.
+У меня нет свободы воли.
+###_NPC
+When Master GGTS query: "Slave, are you slave worthy?".  Good slave answer: "I strive to be slave worthy.".
+Когда Мастер ГГТС спрашивает: «Рабыня, ты достоиная рабыня?». Ответ хорошей рабыни: «I strive to be slave worthy.».
+###_PLAYER
+I strive to be slave worthy.
+Я стремлюсь быть достойной рабыней.

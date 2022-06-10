@@ -53,13 +53,13 @@ I'm sorry Miss.  I cannot help you now.
 (Ты сильно хлещешь ее по заднице, когда она вздыхает.) Я обещаю, что буду работать усерднее, Мисс старшая горничная.
 (She grumbles as you strike her butt with the crop.)  A maid work isn't easy.
 (Она ворчит, когда ты бьешь ее по заднице стеком.) Работа горничной - это нелегко.
-(A maid walks by and greets you.)  Hi naked girl, are you trouble?  Do you need help?
+(A maid walks by and greets you.)  Hi naked girl, are you in trouble?  Do you need help?
 (Горничная заходит и приветствует тебя.)  Привет голая девушка, у тебя проблемы?  Тебе нужна помощь?
-(A maid walks by and greets you.)  Greetings head maid DialogPlayerName, are you trouble?  Do you need help?
+(A maid walks by and greets you.)  Greetings head maid DialogPlayerName, are you in trouble?  Do you need help?
 (Горничная заходит и приветствует тебя.)  Приветствую, старшая горничная. DialogPlayerName, у вас проблемы?  Вам нужна помощь?
-(A maid walks by and greets you.)  Hi Sister, are you trouble?  Do you need help?
+(A maid walks by and greets you.)  Hi Sister, are you in trouble?  Do you need help?
 (Горничная заходит и приветствует тебя.)  Привет сестренка, у тебя проблемы?  Тебе нужна помощь?
-(A maid walks by and greets you.)  Are you trouble?  Do you need help?
+(A maid walks by and greets you.)  Are you in trouble?  Do you need help?
 (Горничная заходит и приветствует тебя.) У вас неприятности?  Вам нужна помощь?
 ###_PLAYER
 Who are you?
@@ -79,7 +79,43 @@ Yes, can you release me?
 ###_NPC
 (She checks your locks and frowns.)  Is that an owner lock?  Your Mistress might not be pleased if I release you.
 (Она проверяет твои замки и хмурится.)  Это замок хозяйки?  Ваша Госпожа может быть недовольна, если я отпущу вас.
+(She checks your locks and frowns.)  Is that a lover lock?  Your lover might not be pleased if I release you.
+(Она проверяет твои локоны и хмурится.) Это любовный замок? Ваша любовница может быть не довольна, если я отпущу вас.
 ###_PLAYER
+(Nod yes and point to your slave collar.)
+(Кивнуть «да» и указать на свой рабский ошейник.)
+###_NPC
+(She checks the lock and frowns.) That is a slave collar. Your Mistress might not be pleased if I change it.
+(Она проверяет замок и хмурится.) Это ошейник рабыни. Твоя госпожа может быть недовольна, если я изменю его.
+(She shakes her head no.)  I'm sorry, I cannot help hardcore or extreme members.  Change your membership or find someone in a chatroom.
+(Она качает головой. Нет.) Извините, я не могу помочь хардкорным или экстремальным участникам. Измените свое членство или найдите кого-нибудь в чате.
+(She shakes her head no.) Hang in there.  You have less than 10 minutes to go.
+(Она качает головой. Нет.) Держись. У вас осталось меньше 10 минут.
+(She shakes her head no.)  You have about an hour left.
+(Она качает головой. Нет.) У тебя осталось около часа.
+(She shakes her head no.)  You have a day of struggling ahead of you.
+(Она отрицательно качает головой.) У тебя впереди день борьбы.
+(She laughs.)  You have 2 days to go.  Hang tight.
+(Она смеется.) У тебя осталось 2 дня. Держись.
+(She caresses your face).  You have 3 days to go.  Hope you're having fun.
+(Она ласкает твое лицо). У тебя есть 3 дня. Надеюсь, тебе весело.
+(She giggles.)  Having fun yet?  You have 4 days to go.
+(Она хихикает.) Уже весело? У тебя есть 4 дня.
+I still can't let you go.  You have 5 days to go.
+Я все еще не могу отпустить тебя. У тебя есть 5 дней.
+(She slaps your butt.)  I can't help you, my dear.  Have fun.
+(Шлепает тебя по заднице.) Я не могу тебе помочь, дорогая. Веселиться.
+(She looks at her clipboard, amazed.)  One whole week.  Good luck dear.
+(Она смотрит в свой блокнот в изумлении.) Целая неделя. Удачи, дорогая.
+###_PLAYER
+(Shake your head firmly and plead for more.)
+(Твердо качайте головой и умоляйте о большем.)
+###_NPC
+(She looks at her clipboard.)  Is that so?  I can extend your period of helplessness if you want.  (She goes over a list of durations and waits for you to answer.)
+(Она смотрит в блокнот.) Так ли это? Я могу продлить твой период беспомощности, если хочешь. (Она просматривает список продолжительностей и ждет вашего ответа.)
+###_PLAYER
+Yes, can you change my collar?
+Да, ты можешь сменить мне ошейник?
 I'm fine.  But I have questions on the club.
 Я в порядке.  Но у меня есть вопросы по клубу.
 ###_NPC
@@ -100,17 +136,23 @@ Pleased to meet you.  I'm DialogCharacterName, I work here as a maid.
 ###_PLAYER
 (Shake your head no and leave her.)
 (Отрицательно покачайте головой и оставьте ее.)
-Thanks Miss.  I really appreciate.
-Благодарю, Мисс. Я очень это ценю.
+Thanks Miss.  I really appreciate your help.
+Спасибо, мисс. Я очень ценю вашу помощь.
 ###_NPC
-My pleasure, I'll be around if you need help again.
-С удовольствием, я буду рядом, если вам снова понадобится помощь.
+Welcome.  I'll be around if you need help again.
+Добро пожаловать. Я буду рядом, если тебе снова понадобится помощь.
+###_PLAYER
+Alright!  Thanks for helping.
+Отлично! Спасибо за помощь.
+###_NPC
+(She nods.)  It's my pleasure Miss.  I'll be around if you need help again.
+(Она кивает.) С удовольствием, мисс. Я буду рядом, если вам снова понадобится помощь.
 ###_PLAYER
 I owe you one, scream if you get in trouble.
 Я твоя должница, кричи, если попадешь в беду.
 ###_NPC
-(She giggles.)  Very well, I'll be around if you need help again.
-(Она хихикает.)  Хорошо, я буду рядом, если вам снова понадобится помощь.
+(She giggles.)  Of course, we take good care of each other in the Bondage Club.
+(Она хихикает.) Конечно, мы хорошо заботимся друг о друге в Бондаж-клубе.
 ###_PLAYER
 Take care!  (Leave her.)
 Береги себя!  (Оставить ее.)
@@ -184,6 +226,22 @@ Fine, I'm going then.  (Leave her.)
 Ладно, тогда я ухожу.  (Оставить ее.)
 (Grumble and leave.)
 (Ворчит и уходит.)
+Please release me anyway.
+Пожалуйста, освободи меня в любом случае.
+###_NPC
+Well, that's something you should discuss with your lover.  (She releases you.)
+Ну, это то, что вы должны обсудить со своей любовницей. (Она отпускает тебя.)
+###_PLAYER
+(Nod slowly.)
+(Медленно кивать.)
+Forget it then.
+Тогда забудь.
+###_NPC
+Alright!  Run to your lover.  (She spanks your butt and giggles.)
+Хорошо! Беги к любимой. (Она шлепает тебя по заднице и хихикает.)
+###_PLAYER
+(Shake your head no.)
+(Отрицательно покачать головой.)
 Why do you care?
 Почему тебя это волнует?
 ###_NPC
@@ -300,8 +358,46 @@ Fine, let's go.  (Meet a Club Mistress.)
 Ладно, пошли.  (Познакомьтесь с Госпожами Клуба.)
 (Walk with her to a Club Mistress.)
 (Прогуляйтесь с ней к Госпожам Клуба.)
+###_NPC
+Very well.  (She changes the collar, strips you and confiscate your clothes.)
+Очень хорошо. (Меняет ошейник, раздевает вас и конфискует одежду.)
+###_PLAYER
+(Bow your head in thanks.)
+(Склоните голову в знак благодарности.)
 (Frown and leave her.)
 (Нахмурьтесь и оставь ее.)
+(Nod and leave her.)
+(Кивать и уйти от нее.)
+(Ask for 10 more minutes)
+(Попросите еще 10 минут)
+###_NPC
+You will be helpless for ten more minutes, and the maids will not rescue you, nor will our associates in the photography club assist you.
+Вы будете беспомощны еще десять минут, и горничные вас не спасут, и наши коллеги по фотоклубу вам не помогут.
+###_PLAYER
+(Ask for 30 more minutes)
+(Попросите еще 30 минут)
+###_NPC
+You will be helpless for 30 more minutes, and the maids will not rescue you, nor will our associates in the photography club assist you.
+Вы будете беспомощны еще 30 минут, и горничные вас не спасут, и наши коллеги в фотоклубе вам не помогут.
+###_PLAYER
+(Ask for 1 more hour)
+(Попросите еще 1 час)
+###_NPC
+You will be helpless for the next hour, and the maids will not rescue you, nor will our associates in the photography club assist you.
+Ближайший час вы будете беспомощны, и горничные вас не спасут, и наши коллеги по фотоклубу вам не помогут.
+###_PLAYER
+(Back out)
+(Обратно)
+###_NPC
+(She smiles and slaps your butt) Fair enough. Now go struggle some more.
+(Она улыбается и шлепает тебя по заднице) Достаточно честно. А теперь иди, поборись еще.
+Welcome back! The Club went through some renovation since you last visited.
+Добро пожаловать обратно! Клуб претерпел некоторые изменения с момента вашего последнего визита.
+###_PLAYER
+(Open changelog.)
+(Открыть журнал изменений.)
+Thank you. (Leave her.)
+Спасибо. (Оставь ее.)
 Yes, it's my very first time.
 Да, это мой самый первый раз.
 ###_NPC
@@ -428,3 +524,152 @@ The first rule is that the club is only for adults.  This place isn't for minors
 ###_PLAYER
 (Thank her and leave her.)
 (Поблагодарите ее и оставьте.)
+###_NPC
+(A pair of maids cut you loose and bring you to the main hall.)  You poor thing...
+(Пара горничных освобождает вас и приводит в главный зал.) Бедняжка...
+(A pair of maids cut you loose and drag you to the main hall.)  Oh how the tables have turned, head maid DialogPlayerName...
+(Пара горничных освобождает вас и тащит в главный зал.) О, как все изменилось, старшая горничная DialogPlayerName...
+(A pair of maids cut you loose and drag you to the main hall.)  My my, what have we here...
+(Пара горничных освобождает вас и тащит в главный зал.) Боже мой, что у нас тут...
+(A pair of maids cut you loose and bring you to the main hall.)  Hello there, are you in trouble? Do you need help?
+(Пара горничных освобождает вас и приводит в главный зал.) Здравствуйте, у вас проблемы? Вам нужна помощь?
+###_PLAYER
+(Blush and plead for help.)
+(Краснеть и умолять о помощи.)
+###_NPC
+Sure. But first we need to have a talk.
+Конечно. Но сначала нам нужно поговорить.
+###_PLAYER
+Please help me...
+Помогите мне, пожалуйста...
+(Shake your head and refuse help)
+(Покачайте головой и откажитесь от помощи)
+###_NPC
+Not so fast, girl. We need to talk.
+Не так быстро, девочка. Нам нужно поговорить.
+###_PLAYER
+(Blush and nod for help.)
+(Краснея и кивая, звать на помощь.)
+###_NPC
+(She checks your locks) You can talk with the next maid about getting your locks removed. This will hurt your reputation though.
+(Она проверяет ваши замки) Вы можете поговорить со следующей горничной о снятии ваших замков. Однако это повредит вашей репутации.
+Fair enough. You seem to be in a predicament already, so I don't need to punish you for calling room service. This will hurt your reputation though.
+Справедливо. Кажется, ты уже в затруднительном положении, так что мне не нужно наказывать тебя за вызов обслуги. Однако это повредит вашей репутации.
+Room service is meant for truly bad situations. If we just answered calls as they came, the sorority would be swamped with work.
+Обслуживание номеров предназначено для действительно плохих ситуаций. Если бы мы просто отвечали на звонки по мере их поступления, женское общество было бы завалено работой.
+###_PLAYER
+What for?
+Зачем?
+(Mmmph.)
+(Мммф.)
+###_NPC
+That's why we have regular patrols. In any case, it is club policy to punish you.
+Вот почему у нас есть регулярные патрули. В любом случае, политика клуба, наказать вас.
+###_PLAYER
+But that's your job!
+Но это твоя работа!
+###_NPC
+That's why we have regular patrols. In any case, it is club policy to publicly shame you.
+Вот почему у нас есть регулярные патрули. В любом случае, политика клуба публично опозорить вас.
+###_PLAYER
+(Mumble incoherently in your gag)
+(бормотать бессвязно в свой кляп)
+###_NPC
+Don't worry, at least you'll be able to find the maids yourself next time~
+Не волнуйся, по крайней мере, в следующий раз ты сможешь сама найти горничных~
+###_PLAYER
+That's ridiculous! I needed help!
+Это нелепо! Мне нужна была помощь!
+(Sigh and resign to your punishment.)
+(Вздыхать и смирится со своим наказанием.)
+###_NPC
+(She strips you) First, your clothes need to come off.
+(Она раздевает тебя) Во-первых, твою одежду нужно снять.
+###_PLAYER
+I accept my punishment, miss.
+Я принимаю свое наказание, мисс.
+(Cooperate)
+(Сотрудничать)
+###_NPC
+Next, we need to cover up those important bits (She pulls out a chastity belt and buckles it around your waist.)
+Затем нам нужно скрыть эти важные детали (она достает пояс верности и застегивает его на твоей талии).
+###_PLAYER
+(Wait for her to finish)
+(Подождите, пока она закончит)
+###_NPC
+(She looks at you and giggles) Looks like your naughty bits are already covered up. (She pulls out a gag and forces it into your mouth)
+(Она смотрит на вас и хихикает) Похоже, ваши шалости уже прикрыты. (Вытаскивает кляп и засовывает его тебе в рот.)
+###_PLAYER
+(Protest)
+(Протест)
+###_NPC
+Perhaps you need a little motivation (She stuffs a vibrator into your body)
+Возможно, тебе нужно немного мотивации (Она засовывает тебе в тело вибратор)
+###_PLAYER
+This seems a bit kinky for a punishment...
+Это кажется немного извращенным для наказания...
+###_NPC
+You'll be enjoying it, girl. (She pulls out a chastity belt and traps the vibrator in.)
+Тебе понравится, девочка. (Она вытаскивает пояс целомудрия и засовывает вибратор внутрь.)
+(She giggles) It's going to stay in there a while~ (She pulls out a chastity belt and locks the vibrator in.)
+(Она хихикает) Он останется там на какое-то время~ (Она вытаскивает пояс верности и запирает вибратор.)
+###_PLAYER
+(Tug on the belt)
+(Тянуть за пояс)
+###_NPC
+You won't be taking that off anytime soon. (She locks the chastity belt)
+Ты не снимешь это в ближайшее время. (Она запирает пояс верности)
+###_PLAYER
+(Put your hands behind your back) Is that all, miss?
+(Заведите руки за спину) Это все, мисс?
+###_NPC
+We're just getting started. (She locks the chastity belt)
+Мы только начинаем. (Она запирает пояс верности)
+###_PLAYER
+What's next?
+Что дальше?
+###_NPC
+Good girls need to wear their gags.
+Хорошим девочкам нужно носить кляпы.
+###_PLAYER
+(Scream and moan) This isn't fair!
+(Кричать и стонать) Это несправедливо!
+###_NPC
+Looks like we need to plug up that mouth of yours. (She gags you)
+Похоже, нам нужно заткнуть твой рот. (Она затыкает тебе рот)
+###_PLAYER
+(Moan with pleasure)
+(стонать от удовольствия)
+###_NPC
+Seems like you'll enjoy the next part, too. (She binds your arms)
+Похоже, вам понравится и следующая часть. (Она связывает тебе руки)
+###_PLAYER
+(Whimper into your gag)
+(хныкать в кляп)
+###_NPC
+(She laughs) That's not the only freedom you'll be losing. (She binds your arms)
+(Она смеется) Это не единственная свобода, которую вы потеряете. (Она связывает тебе руки)
+###_PLAYER
+(Stay quiet)
+(Веди себя тихо)
+###_NPC
+Next, we need to make sure you know your place (She binds your arms)
+Далее, нам нужно убедиться, что вы знаете свое место (Она связывает вам руки)
+###_PLAYER
+(Try to take off the gag)
+(Попробуйте снять кляп)
+###_NPC
+(She slaps you) Not so fast, girl! (She pins your arms and binds you)
+(Она дает тебе пощечину) Не так быстро, девочка! (Она сковывает твои руки и связывает тебя)
+###_PLAYER
+(Struggle in your bindings)
+(Борьба в своих привязках)
+###_NPC
+(She finishes restraining you and slaps you on the butt) Have fun, girl.
+(Она заканчивает связывать тебя и шлепает тебя по заднице) Веселись, девочка.
+###_PLAYER
+(Relax and stay quiet)
+(Расслабься и молчи)
+###_NPC
+(She finishes restraining you and slaps you on the breast) Now go enjoy yourself.
+(Она заканчивает связывать вас и хлопает вас по груди) Теперь иди наслаждайся.

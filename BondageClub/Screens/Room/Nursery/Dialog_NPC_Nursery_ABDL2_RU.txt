@@ -1,7 +1,7 @@
 ﻿###_NPC
 Heehee   you sound funny.
 Хеехехе. Звучит смешно.
-(She accepts the gag, giggles and tests its effect.)  Teehee.  This makes my voice sound funny
+(She accepts the gag, giggles and tests its effects.)  Teehee.  This makes my voice sound funny
 (Она принимает кляп, хихикает и проверяет его действие.)  Тих-Хи.  Это заставляет мой голос звучать смешно
 (You remove her gag while she stretches her mouth.)  It seems kind of funny for a baby to be able to talk.
 (Ты вынимаешь у нее кляп, пока она растягивает рот.)  Это кажется довольно забавным для ребенка - уметь говорить.
@@ -35,8 +35,8 @@ Heehee   you sound funny.
 (Ты хлещешь ее по груди кожаным стеком, пока она всхлипывает и склоняет голову.)
 (You whip her butt hard as she sighs.)  I promise I'll work harder Miss Head Maid.
 (Ты сильно хлещешь ее по заднице, пока она вздыхает.)  Я обещаю, что буду работать усерднее, Мисс старшая горничная.
-(She grumbles as you strike her butt with the crop.)  A maid work isn't easy.
-(Она ворчит, когда ты бьешь ее по заднице хлыстом.)  Работа горничной - это нелегко.
+(She grumbles as you strike her butt with the crop.)  A maid's work is never easy.
+(Она ворчит, когда ты бьешь ее по заднице хлыстом.)  Работа горничной никогда не бывает легкой.
 Welcome to the Nursery.  How can I help you?
 Добро пожаловать в детскую.  Чем я могу тебе помочь?
 ###_PLAYER
@@ -49,8 +49,8 @@ I'm DialogCharacterName. Would you like to play?
 What is there to do here?
 А что здесь можно делать?
 ###_NPC
-There isn't a lot to do at the moment, but the nurse will come along later with bottles of milk.
-Сейчас тут не так уж много дел, но позже придет медсестра с бутылками молока.
+There isn't a lot to do at the moment, but the nurse will come along later with bottles full of milk.
+Сейчас тут не так уж много дел, но позже придет медсестра с бутылочками, полными молока.
 ###_PLAYER
 Your dress looks pretty.
 Твое платье выглядит очень красивым.

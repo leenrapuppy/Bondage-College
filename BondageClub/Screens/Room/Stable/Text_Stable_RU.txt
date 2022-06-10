@@ -6,3 +6,7 @@ Horse Carriage
 Конный Экипаж
 You wait in an isolation stable
 Ты ждешь в отдельном стойле
+Try to hide the dice.
+Попробуй спрятать кости.
+You have successfully hidden the dice
+Вы успешно спрятали кости

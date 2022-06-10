@@ -1,0 +1,294 @@
+###_NPC
+(She smirks at you.)  Mumble or scream all you want, nobody cares.
+(Она ухмыляется тебе.) Бормочи или кричи все, что хочешь, никому нет дела.
+###_PLAYER
+I'm innocent!
+Я невиновна!
+###_NPC
+I've heard that one before.  (She searches in your stuff.)  So, you're a Bondage Club member?  They sent you to cause trouble?
+Я уже слышал это раньше.  (Она роется в твоих вещах.)  Итак, ты член Клуба Бондажистов?  Они послали тебя создавать проблемы?
+###_PLAYER
+This is bullshit.
+Это чушь собачья.
+###_NPC
+You got yourself in that shit.  (She searches in your stuff.)  So, you're a Bondage Club member?  They sent you to cause trouble?
+Ты сама вляпалась в это дерьмо.  (Она роется в твоих вещах.)  Итак, ты член Клуба Бондажистов?  Они послали тебя создавать проблемы?
+###_PLAYER
+What lesson?
+Какой урок?
+###_NPC
+You will understand soon.  (She searches in your stuff.)  So, you're a Bondage Club member?  They sent you to cause trouble?
+Скоро ты все поймешь.  (Она роется в твоих вещах.)  Итак, ты член Клуба Бондажистов?  Они послали тебя создавать проблемы?
+###_PLAYER
+(Stay silent.)
+(Сохраняйте молчание.)
+###_NPC
+(She searches in your stuff.)  So, you're a Bondage Club member?  They sent you to cause trouble?
+(Она роется в твоих вещах.)  Итак, ты член Клуба Бондажистов?  Они послали тебя создавать проблемы?
+###_PLAYER
+(Try to defy her.)
+(Попробуй бросить ей вызов.)
+###_NPC
+(She searches in your stuff and removes your gag.)  So, you're a Bondage Club member?  They sent you to cause trouble?
+(Она роется в твоих вещах и вытаскивает кляп.)  Итак, ты член Клуба Бондажистов?  Они послали тебя создавать проблемы?
+###_PLAYER
+(Grumble in your gag.)
+(Ворчи в свой кляп.)
+This is a huge mistake.
+Это огромная ошибка.
+###_NPC
+There's no mistake girl.  Why did the Bondage Club send you?   Confess or feel my wrath.
+Ошибки быть не может, девочка.  Почему Клуб Бондажа послал тебя?   Признайся или почувствуй мой гнев.
+###_PLAYER
+What is the Bondage Club?
+Что такое Клуб Бондажа?
+###_NPC
+Don't try to deny it girl.  Why did they send you?   Confess or feel my wrath.
+Не пытайся отрицать это, девочка.  Почему они послали тебя?   Признайся или почувствуй мой гнев.
+###_PLAYER
+Fuck you!  I'll never tell you.
+Пошел ты!  Я никогда тебе не скажу.
+###_NPC
+(She seems angry.)  You little shit!  Some hard time in our prison will teach you a lesson.
+(Кажется, она сердится.)  Ты маленькая засранка!  Некоторое тяжелое время в нашей тюрьме послужит тебе уроком.
+###_PLAYER
+(Confess your mission.)
+(Признайся в своей миссии.)
+###_NPC
+(She notes everything and smiles.)  Good girl, we won't keep you for too long in our prison.
+(Она все замечает и улыбается.)  Хорошая девочка, мы не будем держать тебя слишком долго в нашей тюрьме.
+###_PLAYER
+Get lost!  I'll never confess.
+Проваливай!  Я никогда не признаюсь.
+###_NPC
+(She waits and sighs.)  You don't want to talk?  Some time in our prison will open your mouth.
+(Она ждет и вздыхает.)  Ты не хочешь говорить?  Некоторое время в нашей тюрьме откроет тебе рот.
+###_PLAYER
+I'm not a troublemaker.
+Я не нарушительница спокойствия.
+###_NPC
+(She checks her notes.)  From what I can see, the Bondage Club sent you here a few times.  What is your current mission?
+(Она проверяет свои записи.)  Из того, что я вижу, Клуб Бондажа посылал тебя сюда несколько раз.  Какова ваша нынешняя миссия?
+###_PLAYER
+You won't teach me anything.
+Ты ничему меня не научишь.
+###_NPC
+You will cry and beg very soon.  From our files, the Bondage Club sent you here a few times.  What is your current mission?
+Очень скоро ты будешь плакать и умолять.  Судя по нашим файлам, Клуб Бондажа посылал вас сюда несколько раз.  Какова ваша нынешняя миссия?
+Keep your voice, you will talk soon.  From our files, the Bondage Club sent you here a few times.  What is your current mission?
+Сохраняй свой голос, скоро ты заговоришь.  Судя по нашим файлам, Клуб Бондажа посылал вас сюда несколько раз.  Какова ваша нынешняя миссия?
+(She checks her notes and removes your gag.)  So, the Bondage Club sent you here a few times.  What is your current mission?
+(Она проверяет свои записи и вынимает у тебя кляп.)  Итак, Клуб Бондажа посылал тебя сюда несколько раз.  Какова ваша нынешняя миссия?
+###_PLAYER
+I'm not telling you anything.
+Я тебе ничего не скажу.
+###_NPC
+Really?  This is your last chance.  I will count to five.  At five, you get locked up.  One, two...
+Действительно?  Это твой последний шанс.  Я буду считать до пяти.  На пять тебя сажают за решетку.  Раз, два...
+###_PLAYER
+My mission is to piss you off.
+Моя миссия - вывести тебя из себя.
+###_NPC
+You're doing it.  This is your last chance.  I will count to five.  At five, you get locked up.  One, two...
+Ты делаешь это.  Это твой последний шанс.  Я буду считать до пяти. На пять тебя сажают за решетку.  Раз, два...
+This is your last chance.  I will count to five.  At five, you get locked up.  One, two...
+Это твой последний шанс.  Я буду считать до пяти.  На пять тебя сажают за решетку.  Раз, два...
+###_PLAYER
+Go to hell.  I will never talk.
+Иди к черту.  Я никогда не буду говорить.
+###_NPC
+(She seems furious.)  You little cunt!  Some hard time in our prison will teach you some manners.
+(Кажется, она в ярости.)  Ах ты, маленькая сучка!  Немного тяжелого времени в нашей тюрьме научит тебя хорошим манерам.
+###_PLAYER
+(Tell her about your mission.)
+(Расскажите ей о своей миссии.)
+###_NPC
+(She takes notes and smirks.)  Very good.  I'll make sure you won't spend too much time in prison.
+(Она делает заметки и ухмыляется.) Очень хорошо. Я позабочусь о том, чтобы ты не провела слишком много времени в тюрьме.
+###_PLAYER
+What's your problem bitch?
+В чем твоя проблема, сука?
+Five!
+Пять!
+###_NPC
+(She seems annoyed by your answer.)  Very well!  Time in our prison will teach you some manners.
+(Кажется, ее раздражает ваш ответ.)  Очень хорошо!  Время, проведенное в нашей тюрьме, научит тебя хорошим манерам.
+Five!  It seems that time in our prison will teach you some manners.
+Пять!  Похоже, время, проведенное в нашей тюрьме, научит тебя некоторым манерам.
+###_PLAYER
+You've heard of me?
+Вы слышали обо мне?
+###_NPC
+I certainly did DialogPlayerName.  How can you work for the filthy Bondage Club?  What's your mission here?
+Конечно DialogPlayerName.  Как ты можешь работать в грязном Клубе Бондажа?  Какова твоя миссия здесь?
+###_PLAYER
+You have the wrong person.
+Вы ошиблись человеком.
+###_NPC
+(She checks your stuff.)  DialogPlayerName from the filthy Bondage Club.  Don't try to fool me.  What's your mission here?
+(Она проверяет ваши вещи.) DialogPlayerName из грязного Клуба Бондажа. Не пытайся обмануть меня. Какова ваша миссия здесь?
+###_PLAYER
+You will never break me.
+Ты никогда не сломаешь меня.
+###_NPC
+(She smirks.)  I will break you away from that filthy Bondage Club.  What's your mission here?
+(Она ухмыляется.) Я вытащу тебя из этого грязного Клуба Бондажа. Какова ваша миссия здесь?
+You will talk DialogPlayerName.  How can you work that filthy Bondage Club?  What's your mission here?
+Вы будете говорить DialogPlayerName.  Как ты можешь работать в этом грязном Клубе Бондажа?  Какова ваша миссия здесь?
+(She stares at you and removes your gag.)  How can you work that filthy Bondage Club?  What's your mission here?
+(Она смотрит на тебя и вытаскивает кляп.)  Как ты можешь работать в этом грязном Клубе бондажа?  Какова ваша миссия здесь?
+(She laughs and removes your gag.)  How can you work that filthy Bondage Club?  What's your mission here?
+(Она смеется и вынимает твой кляп.)  Как ты можешь работать в этом грязном Клубе бондажа?  Какова ваша миссия здесь?
+(She removes your gag.)  How can you work that filthy Bondage Club?  What's your mission here?
+(Она вынимает твой кляп.)  Как ты можешь работать в этом грязном Клубе бондажа?  Какова ваша миссия здесь?
+###_PLAYER
+The Bondage Club is the best.
+Клуб Бондажа - самый лучший.
+###_NPC
+(She stares at you.)  Do you ever want to get out?  Now is your time to talk.
+(Она пристально смотрит на тебя.) Ты когда-нибудь хотела выйти?  Сейчас твое время поговорить.
+###_PLAYER
+This place is way filthier.
+Это место намного грязнее.
+###_NPC
+(She takes a deep breath.)  Do you ever want to get out?  Now is your time to talk.
+(Она делает глубокий вдох.) Ты когда-нибудь хотела выйти?  Сейчас твое время поговорить.
+Do you ever want to get out?  Now is your time to talk.
+Ты когда-нибудь хотел выбраться отсюда?  Сейчас твое время поговорить.
+###_PLAYER
+You asshole!  I will never talk.
+Ты мудак!  Я никогда не буду говорить.
+###_NPC
+(She goes mad.)  You little slut!  Some hard time in our prison will punish you well.
+(Она сходит с ума.)  Ты маленькая шлюха!  Некоторое тяжелое время в нашей тюрьме хорошо накажет тебя.
+(She takes notes and smirks.)  Very good.  I'll shorten your prison sentence.
+(Она делает заметки и ухмыляется.)  Очень хорошо.  Я сокращу твой тюремный срок.
+###_PLAYER
+You think you can scare me?
+Ты думаешь, что сможешь напугать меня?
+###_NPC
+Very well.  Some long time in our prison will serve you well.
+Очень хорошо.  Долгое пребывание в нашей тюрьме сослужит вам хорошую службу.
+###_PLAYER
+So, we meet again, DialogCharacterName.
+Итак, мы снова встретились, DialogCharacterName.
+###_NPC
+You've been here so often that we sound like an old couple.  What are you doing in the Box today?
+Ты так часто бываешь здесь, что мы звучим как пожилая пара.  Что ты сегодня делаешь в Коробке?
+###_PLAYER
+You should know that I have an iron will.
+Вы должны знать, что у меня железная воля.
+###_NPC
+I know you're tough, but someday we will break you DialogPlayerName.  What are you doing in the Box today?
+Я знаю, что ты крутая, но когда-нибудь мы сломаем тебя DialogPlayerName.  Что ты сегодня делаешь в Коробке?
+###_PLAYER
+DialogCharacterName!  You got me this time.
+DialogCharacterName!  На этот раз ты меня поймала.
+###_NPC
+I've captured you so often that we sound like an old couple.  What are you doing in the Box today?
+Я так часто запечатлевала тебя, что мы звучим как пожилая пара.  Что ты сегодня делаешь в Коробке?
+(She sighs.)  I've seen you so often that I know you better than my slaves.  What are you doing in the Box today?
+(Она вздыхает.)  Я видела тебя так часто, что знаю тебя лучше, чем своих рабынь.  Что ты сегодня делаешь в Коробке?
+(She sighs and removes your gag.)  I've seen you so often DialogPlayerName.  What are you doing in the Box today?
+(Она вздыхает и вынимает у тебя кляп.)  Я так часто видела тебя DialogPlayerName.  Что ты сегодня делаешь в Коробке?
+###_PLAYER
+You really think I will squeal?
+Ты действительно думаешь, что я буду визжать?
+###_NPC
+I don't expect you to squeal.  But you know the drill, it's your last chance to talk.
+Я не жду, что ты будешь визжать.  Но ты знаешь правила игры, это твой последний шанс поговорить.
+###_PLAYER
+You're not getting younger DialogCharacterName.
+Ты не становишься моложе DialogCharacterName.
+###_NPC
+So are you DialogPlayerName, we've been fighting for a while.  You know the drill, it's your last chance to talk.
+Как и ты, DialogPlayerName, мы уже некоторое время ссоримся.  Ты знаешь правила игры, это твой последний шанс поговорить.
+You know the drill DialogPlayerName.  It's your last chance to talk before jail.
+Ты знаешь правила игры, DialogPlayerName.  Это твой последний шанс поговорить перед тюрьмой.
+###_PLAYER
+You're so pathetic.
+Ты такая жалкая.
+###_NPC
+(She goes berserk.)  You little whore!  Some hard time in our prison will be perfect for you.
+(Она приходит в неистовство.)  Ты маленькая шлюха!  Немного тяжелого времени в нашей тюрьме будет для вас идеальным.
+(She takes notes and smirks.)  I'm surprised you squealed.  Very well, you'll get a shorter sentence.
+(Она делает заметки и ухмыляется.)  Я удивлен, что ты завизжала.  Очень хорошо, вы получите более короткий срок.
+###_PLAYER
+Forget it.  You suck.
+Забудь это.  Ты отстой.
+###_NPC
+This silence doesn't surprise me.  It seems that some long prison time will serve you well.
+Это молчание меня не удивляет.  Похоже, что несколько долгих тюремных сроков сослужат вам хорошую службу.
+###_PLAYER
+This prison?
+Эта тюрьма?
+###_NPC
+Yes, Pandora's Box has very secure cells to keep you locked up.  Trust me, you won't escape.
+Да, в Ящике Пандоры есть очень надежные ячейки, чтобы держать вас взаперти.  Поверь мне, ты не сбежишь.
+###_PLAYER
+This is inhumane.
+Это бесчеловечно.
+###_NPC
+You came for trouble, you found it.  Don't try to make me cry, there's no safeword down here.
+Ты пришла за неприятностями, ты их нашела.  Не пытайся заставить меня плакать, здесь нет стоп-слова.
+###_PLAYER
+How long will you keep me?
+Как долго ты будешь держать меня здесь?
+###_NPC
+Until your ransom is paid or until the clock runs out.  The clock will be in your cell.  Known troublemakers get more time.
+Пока ваш выкуп не будет выплачен или пока не истечет время.  Часы будут в вашей камере.  Известные нарушители спокойствия получают больше времени.
+###_PLAYER
+Can I pay the ransom myself?
+Могу ли я сам заплатить выкуп?
+###_NPC
+Talk with the staff when you get locked up, maybe they can arrange something.
+Поговорите с персоналом, когда вас посадят, может быть, они смогут что-нибудь организовать.
+###_PLAYER
+Will you bring me water and food?
+Ты принесешь мне воды и еды?
+###_NPC
+Yes, guards will come from time to time to check on you.  Don't try anything funny.
+Да, охранники будут приходить время от времени, чтобы проверить вас.  Не пытайся сделать что-нибудь смешное.
+###_PLAYER
+Fine, I'm ready.  (Start your sentence.)
+Хорошо, я готова.  (Начните свой приговор.)
+(Try to shake the gag off.)
+(Попытайтесь стряхнуть кляп.)
+###_NPC
+(She removes your gag.)  You will be our prisoner until your ransom is paid.  I could shorten your sentence if you give me some Bondage Club secrets.
+(Она вынимает у тебя кляп.)  Ты будешь нашей пленницой до тех пор, пока за тебя не будет выплачен выкуп.  Я могла бы сократить твой срок, если ты расскажешь мне несколько секретов Клуба Бондажа.
+###_PLAYER
+(Sigh loudly.)
+(Громко вздыхать.)
+It's all about money?  That's a scam.
+Все дело в деньгах?  Это мошенничество.
+###_NPC
+Life is all about money girl.  So, will you talk, or will you wait?
+Вся жизнь - это деньги, девочка.  Итак, ты будешь говорить или подождешь?
+###_PLAYER
+Fuck you!  You'll get nothing from me.
+Пошела ты! Ты ничего от меня не получишь.
+###_NPC
+Your fate is sealed then.  You will spend a lot of time in this cell.  Enjoy your sentence.
+Тогда твоя судьба решена.  Вы проведете много времени в этой камере.  Наслаждайтесь своим приговором.
+###_PLAYER
+(Stay dead silent.)
+(Сохраняйте гробовое молчание.)
+###_NPC
+I did not expect you to talk.  No worries, you will spend some time in this cell.  Enjoy your sentence.
+Я не ожидала, что ты заговоришь.  Не беспокойтесь, вы проведете некоторое время в этой камере.  Наслаждайтесь своим приговором.
+###_PLAYER
+Alright.  (Give her Bondage Club secrets.)
+Хорошо.  (Поделись с ней секретами Клуба Бондажа.)
+###_NPC
+(She takes lots of notes.)  Very good, you won't stay in that cell for very long.  Enjoy your sentence.
+(Она делает много заметок.)  Очень хорошо, ты не останешься в этой камере надолго.  Наслаждайтесь своим приговором.
+###_PLAYER
+You will pay for this.
+Вы заплатите за это.
+###_NPC
+(She laughs at you.)  Aren't you cute?  I'll make sure the guards whip you a little harder.
+(Она смеется над тобой.) Разве ты не милая?  Я прослежу, чтобы охранники выпороли тебя немного сильнее.
+###_PLAYER
+(Start your sentence.)
+(Начните свой приговор.)

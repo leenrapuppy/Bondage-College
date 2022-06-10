@@ -1,0 +1,12 @@
+Sentence: 
+Приговор:
+minutes
+Минут
+Leave the cell
+Покинуть камеру
+Character profile
+Профиль персонажа
+Kneel / Stand
+Встать на колени / Встать
+Ends in:
+Заканчивается в:

@@ -1,0 +1,28 @@
+You've disconnected from the server.
+Вы отключились от сервера.
+Enter your password to log back in.
+Введите свой пароль, чтобы снова войти в систему.
+Account name:
+Название аккаунта:
+Password:
+Пароль:
+Log back in
+Войти
+Leave
+Выйти
+Validating name and password...
+Проверка имени и пароля...
+Waiting in queue on position: QUEUE_POS
+Ожидание в очереди на позиции: QUEUE_POS
+Invalid name or password
+Неверное имя или пароль
+Disconnected from server. Retrying...
+Отключен от сервера. Повторная попытка...
+Disconnected for duplicated login
+Отключено из-за дублированного входа
+Unable to connect to server. Retrying...
+Невозможно подключиться к серверу. Повторная попытка...
+Connection rejected: your connection has been rate limited.
+Соединение отклонено: скорость вашего соединения ограничена.
+Enter your name and password
+Введите свое имя и пароль
