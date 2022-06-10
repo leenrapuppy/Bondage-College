@@ -2,13 +2,25 @@
 
 /**
  * What state is the image in.
+ *
+ * UNCACHED (initial) -> LOADING
+ * LOADING -> LOADED (final)
+ * LOADING -> ERRORED (entering retry loop)
+ * ERRORED -> LOADING
+ * LOADING -> FAILED (final)
+ *
  * @enum string
  */
 const CachedImageState = {
+	/** Image is known, but not yet cached */
 	UNCACHED: 'uncached',
+	/** Image is currently being loaded */
 	LOADING: 'loading',
+	/** Image is available in cache */
 	LOADED: 'loaded',
+	/** Image is being loaded, but experiencing an error and will be retried */
 	ERRORED: 'errored',
+	/** Image couldn't be cached */
 	FAILED: 'failed',
 };
 
@@ -31,25 +43,27 @@ class CachedImage {
 	constructor(cache, url, loadCallback = null) {
 		/**
 		 * Only used to inform the cache of loading progress
-		 * @type ImageCacheClass
+		 * @type {ImageCacheClass}
 		 * @private
 		 */
 		this.cache = cache;
-		/** @type string */
+		/** @type {string} */
 		this.url = url;
-		/** @type CachedImageState */
+		/** @type {CachedImageState} */
 		this.state = CachedImageState.UNCACHED;
-		/** @type number */
+		/** @type {number} */
 		this.errorCount = 0;
-		/** @type {function(CachedImage):void} */
+		/** @type {number} */
+		this.backoffTimer = null;
+		/** @type {ImageLoadCallback} */
 		this.loadCallback = loadCallback;
-		/** @type HTMLImageElement | HTMLCanvasElement */
+		/** @type {HTMLImageElement | HTMLCanvasElement} */
 		this.element = null;
-		/** @type object */
+		/** @type {object} */
 		this.userData = {};
-		/** @type number */
+		/** @type {number} */
 		this.lastUsed = null;
-		/** @type boolean */
+		/** @type {boolean} */
 		this.manual = false;
 	}
 
@@ -57,21 +71,19 @@ class CachedImage {
 	 * Load the cached image if it's not already available
 	 */
 	load() {
-		if ((this.state == CachedImageState.LOADING) || (this.state == CachedImageState.LOADED))
-			return;
+		// Ensure there's only one image load in progress
+		if (this.isLoading() || this.isDoneLoading()) return;
 
 		// Get a new image element to perform the loading for us
 		this.element = new Image();
 
 		// Set up listeners to keep track of the loading process
 		this.element.addEventListener("load", () => {
-			this.errorCount = 0;
 			this.state = CachedImageState.LOADED;
 			this.cache._imageStateDidChange(this);
 		});
 
 		this.element.addEventListener("error", () => {
-			this.errorCount += 1;
 			this.state = CachedImageState.ERRORED;
 			this.cache._imageStateDidChange(this);
 		});
@@ -98,6 +110,8 @@ class CachedImage {
 	 * Refresh the given image.
 	 */
 	_refresh() {
+		if ([CachedImageState.LOADING, CachedImageState.FAILED].includes(this.state)) return;
+
 		this.userData = {};
 		if (this.element instanceof HTMLImageElement) {
 			this.state = CachedImageState.LOADING;
@@ -117,12 +131,27 @@ class CachedImage {
 	isAsset() { return (this.url.indexOf("Assets") >= 0); }
 
 	/**
-	 * Is the image loaded?
+	 * Is the image currently being loaded?
+	 */
+	isLoading() { return [CachedImageState.LOADING, CachedImageState.ERRORED].includes(this.state); }
+
+	/**
+	 * Is the image loading complete (either succesfully or not)?
+	 */
+	isDoneLoading() { return [CachedImageState.LOADED, CachedImageState.FAILED].includes(this.state); }
+
+	/**
+	 * Is the image experiencing problems loading?
+	 */
+	isFailing() { return [CachedImageState.FAILED, CachedImageState.ERRORED].includes(this.state); }
+
+	/**
+	 * Is the image loaded and ready?
 	 */
 	isLoaded() { return this.state == CachedImageState.LOADED; }
 }
 
-const ImageCachePurgeDelay = 20 * 60 * 1000; /* 30 minutes */
+let ImageCachePurgeDelay = 30 * 60 * 1000; /* minutes */
 
 /**
  * The class responsible for loading and caching images
@@ -132,14 +161,15 @@ class ImageCacheClass {
 		/** @type {Map<string, CachedImage>} */
 		this.cache = new Map();
 		this.loadedCount = 0;
-		this.purgeTimer = setInterval(() => this.purge(), ImageCachePurgeDelay);
+		this.missingCount = 0;
+		this.lastPurge = 0;
 	}
 
 	/**
 	 * Get a cached image from the cache.
 	 *
 	 * @param {string} url - The URL of the image to lookup
-	 * @param {function(CachedImage):void} loadCallback - A callback that will be called when the load completes
+	 * @param {ImageLoadCallback} loadCallback - A callback that will be called when the load completes
 	 * @returns {CachedImage} The cached image
 	 */
 	get(url, loadCallback = null) {
@@ -166,9 +196,7 @@ class ImageCacheClass {
 	 */
 	set(url, image) {
 		let img = new CachedImage(this, url);
-		// Subtract one because we're replacing something.
-		if (this.cache.get(url))
-			this.loadedCount -= 1;
+		this.delete(url);
 		this.cache.set(url, img);
 		img.setElement(image);
 		return img;
@@ -179,6 +207,14 @@ class ImageCacheClass {
 	 * @param {string} url - The URL of the image to delete
 	 */
 	delete(url) {
+		const known = this.cache.get(url);
+		if (!known) return;
+
+		// That's already in the cache, correct our counters depending on the state
+		if (known.isLoaded())
+			this.loadedCount -= 1;
+		else if (known.isFailing())
+			this.missingCount -= 1;
 		this.cache.delete(url);
 	}
 
@@ -196,6 +232,7 @@ class ImageCacheClass {
 	clear() {
 		this.cache.clear();
 		this.loadedCount = 0;
+		this.missingCount = 0;
 	}
 
 	/**
@@ -205,7 +242,14 @@ class ImageCacheClass {
 	 */
 	_imageStateDidChange(image) {
 		const RetryTimers = [1000, 10000, 30000, 60000, 120000, 300000];
-		if (image.state == CachedImageState.LOADED) {
+		if (image.isLoaded()) {
+			// That image had some failure before we finally succeeded, meaning
+			// it has been considered missing at some point.
+			if (image.errorCount > 0) {
+				this.missingCount -= 1;
+				image.errorCount = 0;
+			}
+
 			this.loadedCount += 1;
 			if (image.loadCallback)
 				image.loadCallback(image);
@@ -213,12 +257,22 @@ class ImageCacheClass {
 			if (!image.manual)
 				this._refreshCanvas();
 		} else if (image.state == CachedImageState.ERRORED) {
+			// First reported failure, count it as a missing image
+			if (image.errorCount === 0)
+				this.missingCount += 1;
+			image.errorCount += 1;
+
+			// Attempt to refresh again, waiting increasingly longer in case it's
+			// a transient issue.
 			if (image.errorCount < RetryTimers.length) {
 				let backoff = RetryTimers[image.errorCount - 1];
-				console.warn("Error loading image, retrying after " + backoff + "ms: " + image.url);
-				setTimeout(() => {
-					image._refresh();
-				}, backoff);
+				if (!image.backoffTimer) {
+					console.warn("Error loading image, retrying after " + backoff + "ms: " + image.url);
+					image.backoffTimer = setTimeout(() => {
+						image.backoffTimer = null;
+						image._refresh();
+					}, backoff);
+				}
 			} else {
 				// Load failed. Display the error in the console and mark it as failed.
 				console.error("Failed to load image " + image.url);
@@ -235,7 +289,7 @@ class ImageCacheClass {
 	 * @private
 	 */
 	_refreshCanvas() {
-		if (this.loadedImages() == this.totalImages()) {
+		if (this.loadedImages() + this.missingImages() == this.totalImages()) {
 			CharacterLoadCanvasAll();
 		}
 	}
@@ -243,14 +297,23 @@ class ImageCacheClass {
 	/**
 	 * Purge all images errored or not used in the last half-purge delay
 	 */
-	purge() {
-		let stats = { errored: 0, unused: 0, loaded: 0 };
+	purge(force = false) {
+		// Only perform a purge if the last purge time makes sense, and its delta
+		// is greater than the purge delay.
+		const delta = (CurrentTime - this.lastPurge);
+		if (!force && delta > 0 && delta < ImageCachePurgeDelay)
+			return;
+
+		let stats = { errored: 0, unused: 0, missing: 0, loaded: 0 };
 		console.log(`Purging ${this.totalImages()} cached images`);
 		this.cache.forEach((image, url) => {
 			// Clear errored images
 			if (image.state == CachedImageState.ERRORED) {
 				stats.errored += 1;
+				stats.missing += 1;
 				this.cache.delete(url);
+			} else if (image.state == CachedImageState.FAILED) {
+				stats.missing += 1;
 			} else if ((image.lastUsed + (ImageCachePurgeDelay / 2)) < CommonTime()) {
 				stats.unused += 1;
 				this.cache.delete(url);
@@ -258,8 +321,10 @@ class ImageCacheClass {
 				stats.loaded += 1;
 			}
 		});
-		console.log(`Cache purged, ${stats.errored} errored, ${stats.unused} unused, ${stats.loaded} loaded`);
+		console.log(`Cache purged, ${stats.errored} errored, ${stats.unused} unused, ${stats.missing} missing, ${stats.loaded} loaded`);
 		this.loadedCount = stats.loaded;
+		this.missingCount = stats.missing;
+		this.lastPurge = CurrentTime;
 	}
 
 	/**
@@ -271,6 +336,11 @@ class ImageCacheClass {
 	 * Get the count of loaded images.
 	 */
 	loadedImages() { return this.loadedCount; }
+
+	/**
+	 * Get the count of missing images (failing or errored).
+	 */
+	missingImages() { return this.missingCount; }
 }
 
 const ImageCache = new ImageCacheClass();
