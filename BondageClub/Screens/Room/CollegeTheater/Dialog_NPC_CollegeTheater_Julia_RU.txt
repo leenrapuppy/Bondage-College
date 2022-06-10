@@ -1,0 +1,684 @@
+###_NPC
+Pupil!  This is not a silent play.  (She laughs.)
+Ученица! Это не немая игра. (Она смеется.)
+(A large woman greets you warmly.)  Oooooh!  Are you here to audition for the next play?
+(Крупная женщина тепло приветствует вас.) Оооооо! Вы пришли на прослушивание для следующей пьесы?
+###_PLAYER
+Who are you?
+Кто вы?
+###_NPC
+I'm Julia!  An art teacher is this wonderful institution.  I'm pleased to meet you pupil.
+Я Юля! Преподаватель рисования – это замечательное учреждение. Я рад познакомиться с вами, ученик.
+###_PLAYER
+It's nice to see you again Julia.
+Рада снова видеть тебя, Юлия.
+###_NPC
+(She gives you a warm hug.)  It's grande to see you again young pupil!
+(Она крепко обнимает тебя.) Рада снова видеть тебя, юная ученица!
+###_PLAYER
+Theater is for losers.
+Театр для неудачников.
+###_NPC
+No, no, no, no.  Teatro is one of the oldest and greatest form or art, it transcends time and your soul.
+Нет нет Нет Нет. Театр — одна из древнейших и величайших форм искусства, он вне времени и вашей души.
+###_PLAYER
+I'm not a great actor.
+Я не великий актер.
+###_NPC
+Practice makes perfect!  Teatro is one of the oldest and greatest form or art, it transcends time and your soul.
+Практика делает совершенным! Театр — одна из древнейших и величайших форм искусства, он вне времени и вашей души.
+###_PLAYER
+I would love to audition.
+Я хотела бы пройти прослушивание.
+###_NPC
+Magnifico!  Teatro is one of the oldest and greatest form or art, it transcends time and your soul.
+Великолепно! Театр — одна из древнейших и величайших форм искусства, он вне времени и вашей души.
+###_PLAYER
+Not now, maybe later.  (Leave her.)
+Не сейчас, может позже. (Оставь ее.)
+###_NPC
+Young pupil!  Are you ready to try for the play?
+Юный ученик! Вы готовы попробовать себя в пьесе?
+###_PLAYER
+I'm ready for teatro!
+Я готова к театру!
+###_NPC
+Si, si , si, si!  Amaze me with your flame and presence.  And improvise!
+Си, Си, Си, Си! Удиви меня своим пламенем и присутствием. И импровизируйте!
+###_PLAYER
+Can I audition now?
+Могу ли я сейчас пройти прослушивание?
+###_NPC
+Si, si!  Amaze me with your flame and presence.  And improvise!
+Си, Си! Удиви меня своим пламенем и присутствием. И импровизируйте!
+###_PLAYER
+You do the audition?
+Ты проводишь прослушивание?
+###_NPC
+Si!  Amaze me with your flame and presence.  And improvise!
+Си! Удиви меня своим пламенем и присутствием. И импровизируйте!
+###_PLAYER
+Give me a minute please.  (Leave her.)
+Дайте мне минуту, пожалуйста. (Брось ее.)
+I don't know what to do.
+Я не знаю, что делать.
+###_NPC
+(She analyzes you and smiles.)  You will play the sinister old witch, who desire the beauty of the fragile young maiden.
+(Она анализирует вас и улыбается.) Вы будете играть зловещую старую ведьму, которая желает красоты хрупкой молодой девушки.
+###_PLAYER
+Ignite me teacher!
+Зажги меня учитель!
+What's my role?
+Какова моя роль?
+###_NPC
+(She analyzes you and smiles.)  You will play the fragile young maiden, who must convince the old witch to keep her beauty.
+(Она анализирует вас и улыбается.) Вы будете играть хрупкую молодую девушку, которая должна убедить старую ведьму сохранить свою красоту.
+(She seems undecided.)  Would you prefer to play the fragile young maiden or the sinister old witch who craves her beauty?
+(Кажется, она не определилась.) Вы бы предпочли сыграть хрупкую юную девушку или зловещую старую ведьму, жаждущую своей красоты?
+###_PLAYER
+The sinister old witch.
+Зловещая старая ведьма.
+###_NPC
+(She smiles.)  Si!  You will play the sinister old witch, who desire the beauty of the fragile young maiden.
+(Она улыбается.) Си! Вы будете играть за зловещую старую ведьму, которая возжелала красоту хрупкой молодой девушки.
+###_PLAYER
+The fragile young maiden.
+Хрупкая юная дева.
+###_NPC
+(She smiles.)  Si!  You will play the fragile young maiden, who must convince the old witch to keep her beauty.
+(Она улыбается.) Си! Вы будете играть хрупкой молодой девушкой, которая должна убедить старую ведьму сохранить свою красоту.
+###_PLAYER
+I'm ready for it!
+Я готова к этому!
+###_NPC
+(She smiles as you both dress up.)  As the old witch, you can use magic powers on me the maiden.  Be creative!
+(Она улыбается, когда вы оба наряжаетесь.) Как старая ведьма, вы можете использовать магические силы на мне, девушке. Будь креативным!
+###_PLAYER
+Alright.  Let's try that.
+Хорошо. Давайте попробуем это.
+###_NPC
+(She nods as you both dress up.)  As the old witch, you can use magic powers on me the maiden.  Be creative!
+(Она кивает, когда вы оба наряжаетесь.) Как старая ведьма, вы можете использовать магические силы на мне, девушке. Будь креативным!
+###_PLAYER
+You should be the ugly witch.
+Ты должна быть уродливой ведьмой. (Осорбление)
+###_NPC
+(She frowns as you both dress up.)  As the old witch, you can use magic powers on me the maiden.  Be creative!
+(Она хмурится, когда вы оба наряжаетесь.) Как старая ведьма, ты можешь использовать магические силы на мне, девушке. Будь креативным!
+###_PLAYER
+(Stay silent.)
+(Молчи.)
+###_NPC
+(She sighs as you both dress up.)  As the old witch, you can use magic powers on me the maiden.  Be creative!
+(Она вздыхает, когда вы оба наряжаетесь.) Как старая ведьма, вы можете использовать магические силы на мне, девушке. Будь креативным!
+###_PLAYER
+(Freeze and stay silent.)
+(Замри и молчи.)
+###_NPC
+(She whispers to be more creative and starts to act.)  A pleasant evening milady.  What brings you to my lonely cottage?
+(Шепотом просит быть изобретательнее и начинает действовать.) Приятный вечер, миледи. Что привело тебя в мой одинокий коттедж?
+###_PLAYER
+Good evening fair maiden.
+Добрый вечер, прекрасная дева.
+###_NPC
+(She seems impressed and starts to act.)  A pleasant evening milady.  What brings you to my lonely cottage?
+(Кажется, она впечатлена и начинает действовать.) Приятный вечер, миледи. Что привело тебя в мой одинокий коттедж?
+###_PLAYER
+Well...  Hello maiden.
+Ну... Здравствуй, девица.
+###_NPC
+(She nods and starts to act.)  A pleasant evening milady.  What brings you to my lonely cottage?
+(Кивает и начинает действовать.) Приятный вечер, миледи. Что привело тебя в мой одинокий коттедж?
+###_PLAYER
+I've been stalking you.
+Я преследовала тебя.
+###_NPC
+Oh!  You were the shadow in my window.  Why are you following me?
+Ой! Ты была тенью в моем окне. Почему ты следишь за мной?
+###_PLAYER
+I don't know.
+Я не знаю.
+###_NPC
+(She frowns and continues.)  I've seen your shadow in my window, were you spying on me?
+(Она хмурится и продолжает.) Я видела твою тень в моем окне, ты шпионила за мной?
+###_PLAYER
+I've had a vision of you.
+У меня было видение о тебе.
+###_NPC
+(She smiles and continues.)  A vision you say...  You've been watching me?
+(Она улыбается и продолжает.) Видение, говоришь... Ты наблюдала за мной?
+###_PLAYER
+I think I'm lost.
+Я думаю, что я потерялась.
+###_NPC
+Lost you say?  I've seen your shadow in my window, were you spying on me?
+Потерялась говоришь? Я видела твою тень в моем окне, ты шпионила за мной?
+###_PLAYER
+I'm admiring your youth and vitality.
+Я восхищаюсь твоей молодостью и жизненной силой.
+###_NPC
+My youth?  Well I thank you deeply, but I have no merit on that matter.
+Моя юность? Ну, я глубоко благодарю вас, но у меня нет никаких заслуг в этом вопросе.
+###_PLAYER
+You're cute girl.
+Ты милая девушка.
+###_NPC
+Thanks, but I was made like that, I have no merit.
+Спасибо, но я была сделана такой, у меня нет никаких заслуг.
+###_PLAYER
+Do you know that you're beautiful?
+Ты знаешь, что ты красивая?
+###_NPC
+Well I thank you, but I was made like that, I have no merit.
+Что ж, благодарю вас, но я была создана такой, у меня нет никаких заслуг.
+###_PLAYER
+I want your beauty.
+Я хочу твоей красоты.
+###_NPC
+What do you mean milady?  I'm afraid I don't understand what you require from me.
+Что вы имеете в виду, миледи? Боюсь, я не понимаю, чего вы от меня требуете.
+###_PLAYER
+I want your youth.
+Я хочу твоей молодости.
+I want you.
+Я хочу тебя.
+I desire what I have lost.
+Я желаю того, что я потеряла.
+Magic!  Remove thy clothes!
+Магия! Сними одежду!
+###_NPC
+(She swiftly gets into her underwear.)  Gosh!  Where is my dress?  Was that a curse?
+(Она быстро надевает нижнее белье.) Боже! Где мое платье? Было ли это проклятием?
+###_PLAYER
+(Whisper to her that you do a spell to remove her clothes.)
+(Шепните ей, что вы произносите заклинание, чтобы снять с нее одежду.)
+###_NPC
+(She reluctantly gets into her underwear.)  Gosh!  Where is my dress?  Was that a curse?
+(Она неохотно надевает нижнее белье.) Боже! Где мое платье? Было ли это проклятием?
+###_PLAYER
+Magic!  Make her naked!
+Магия! Сделай ее голой!
+###_NPC
+(She swiftly gets naked.)  Gosh!  Where are my clothes?  Was that a curse?
+(Она быстро раздевается.) Боже! Где моя одежда? Было ли это проклятием?
+###_PLAYER
+(Whisper to her that you do a spell to fully strip her.)
+(Шепните ей, что вы произносите заклинание, чтобы полностью ее раздеть.)
+###_NPC
+(She reluctantly gets naked.)  Gosh!  Where are my clothes?  Was that a curse?
+(Она неохотно раздевается.) Боже! Где моя одежда? Было ли это проклятием?
+###_PLAYER
+Magic!  Remove thy dress!
+Магия! Сними платье!
+###_NPC
+(She sighs and stops the play.)  I'm sorry little pupil, this is not working.  You don't have what it takes to be in the play.
+(Она вздыхает и останавливает пьесу.) Извини, ученица, это не работает. У вас нет того, что требуется, чтобы быть в игре.
+###_PLAYER
+(Whisper to her that you do a spell to remove her dress.)
+(Шепните ей, что вы произносите заклинание, чтобы снять с нее платье.)
+Uh?  What do I do now?
+Эм-м-м? Что мне теперь делать?
+Shut up!
+Замолчи!
+###_NPC
+(She gives you a suspicious look.)  Lady, I beg and implore you not to hurt me.
+(Она бросает на вас подозрительный взгляд.) Леди, я умоляю и умоляю вас не причинять мне вреда.
+###_PLAYER
+This is black magic!
+Это черная магия!
+###_NPC
+(She gives you a scared look.)  Lady, I beg and implore you not to hurt me.
+(Она бросает на вас испуганный взгляд.) Леди, я умоляю и умоляю вас не причинять мне боль.
+###_PLAYER
+Yes, you are cursed young one.
+Да, ты проклята молодая.
+###_NPC
+(She gives you an intimidated look.)  Lady, I beg and implore you not to hurt me.
+(Она бросает на вас испуганный взгляд.) Леди, я прошу и умоляю вас не причинять мне боль.
+###_PLAYER
+(Masturbate her.)
+(Мастурбировать ее.)
+###_NPC
+(She pushes you away and stops the play.)  Pupil!  What are you doing?  I'm sorry, you cannot be in the play.
+(Отталкивает вас и останавливает игру.) Ученик! Что делаешь? Извините, вы не можете быть в спектакле.
+###_PLAYER
+Maiden, thy youth will be mine.
+Дева, твоя юность будет моей.
+###_NPC
+You cannot steal my youth!  Return to your cauldron old witch!
+Тебе не украсть мою молодость! Вернись в свой котел, старая ведьма!
+###_PLAYER
+Gimme your look.
+Дай мне свой взгляд.
+###_NPC
+You cannot steal my look!  Return to your cauldron old witch!
+Ты не можешь украсть мой взгляд! Вернись в свой котел, старая ведьма!
+###_PLAYER
+I will steal your beauty.
+Я украду твою красоту.
+###_NPC
+You cannot steal my beauty!  Return to your cauldron old witch!
+Тебе не украсть мою красоту! Вернись в свой котел, старая ведьма!
+###_PLAYER
+On your knees, girl.
+На колени, девочка.
+###_NPC
+Never!  (She starts to run around you, pretending to run away.)
+Никогда! (Она начинает бегать вокруг вас, делая вид, что убегает.)
+###_PLAYER
+Bow to my magic.
+Поклонись моей магии.
+Surrender or feel my wrath.
+Сдавайся или почувствешь мой гнев.
+(Whisper to her that you do a rope spell.)
+(Шепните ей, что делаете заклинание веревки.)
+###_NPC
+(You pick some random theater ropes and tie her up, pretending it's magic.)  By golly!  Your wickedness knows no end!
+(Вы выбираете несколько случайных театральных веревок и связываете ее, делая вид, что это волшебство.) Ей-богу! Твоей злобе нет конца!
+###_PLAYER
+Magika ropa!  (Pick some ropes and tie her up.)
+Магика ропа! (Возьмите несколько веревок и свяжите ее.)
+(Point at some belts to notice her you're doing magic.)
+(Укажите на несколько ремней, чтобы показать, что вы творите магию.)
+###_NPC
+(You pick some random theater belts and strap her up, pretending it's magic.)  By golly!  Your wickedness knows no end!
+(Вы выбираете несколько случайных театральных ремней и пристегиваете ее, делая вид, что это волшебство.) Ей-богу! Твоей злобе нет конца!
+###_PLAYER
+Beltus magicus!  (Pick some belts and tie her up.)
+Белтус волшебник! (Возьмите несколько ремней и свяжите ее.)
+Magika ropa!  (Pick a rope and tie her up.)
+Магика ропа! (Взять веревку и связать ее.)
+I'm out of ideas Julia.
+У меня нет идей, Джулия.
+Struggle for me fair maiden.
+Борись для меня, прекрасная дева.
+###_NPC
+(She struggles playfully to get free.)  Sorceress!  You will not get away with that!
+(Она игриво пытается освободиться.) Волшебница! Вам это не сойдет с рук!
+###_PLAYER
+Savor thy beauty and youth one last time.
+Насладись своей красотой и молодостью в последний раз.
+###_NPC
+(She struggles with fervor to get free.)  Sorceress!  You will not get away with that!
+(Она изо всех сил пытается освободиться.) Волшебница! Вам это не сойдет с рук!
+###_PLAYER
+You're fucked girl.
+Тебе конец девчонка.
+###_NPC
+(She barely struggles to get free.)  Sorceress!  You will not get away with that!
+(Она едва пытается освободиться.) Волшебница! Вам это не сойдет с рук!
+###_PLAYER
+Feel the power of my magic.
+Почувствуй силу моей магии.
+(Cover her eyes with your hand.)
+(Закройте ей глаза рукой.)
+###_NPC
+(She tilts her head and still watches you.)  You fiend!  I will resist!  I will be strong!
+(Она наклоняет голову и все еще смотрит на тебя.) Ты дьявол! Я буду сопротивляться! Я буду сильной!
+###_PLAYER
+Close your eyes and surrender.
+Закройте глаза и сдайся.
+###_NPC
+(She stares defiantly at you.)  You fiend!  I will resist!  I will be strong!
+(Она с вызовом смотрит на вас.) Ты дьявол! Я буду сопротивляться! Я буду сильной!
+###_PLAYER
+Shut your eyes and darkness will possess you.
+Закрой глаза, и тьма овладеет тобой.
+Darkana!  (Dance and put a random blindfold on her.)
+Даркана! (Танцуйте и наденьте ей случайную повязку на глаза.)
+###_NPC
+(You pick a theater blindfold and put it on her while doing a magical dance.)  No!  I beg you!  Noooo!
+(Вы выбираете театральную повязку и надеваете ее на нее, исполняя волшебный танец.) Нет! Я умоляю тебя! Неееет!
+###_PLAYER
+Darkana!  (Dance and blindfold her with a piece of cloth.)
+Даркана! (Танцуйте и завяжите ей глаза куском ткани.)
+###_NPC
+(You blindfold her with a piece of cloth while doing a magical dance.)  No!  I beg you!  Noooo!
+(Вы завязываете ей глаза куском ткани, исполняя волшебный танец.) Нет! Я умоляю тебя! Неееет!
+###_PLAYER
+(Give her a French kiss.)
+(Подарите ей французский поцелуй.)
+###_NPC
+(She grumbles and stops the play.)  I'm sorry little pupil, this is not appropriated.  You don't have what it takes to be in the play.
+(Она ворчит и останавливает спектакль.) Прости, ученица, это неприемлемо. У вас нет того, что требуется, чтобы быть в игре.
+###_PLAYER
+(Blindfold her with a leather blindfold.)
+(Завяжите ей глаза кожаной повязкой.)
+###_NPC
+(You pick a theater blindfold and put it on her.)  No!  I beg you!
+(Вы выбираете театральную повязку и надеваете ее на нее.) Нет! Я умоляю тебя!
+###_PLAYER
+(Blindfold her with a piece of cloth.)
+(Завяжите ей глаза куском ткани.)
+###_NPC
+(You blindfold her with a piece of cloth.)  No!  I beg you!
+(Вы завязываете ей глаза куском ткани.) Нет! Я умоляю тебя!
+###_PLAYER
+(Stop acting.)  And now what?
+(Прекрати действовать.) И что теперь?
+###_NPC
+(She stops the play.)  Nice try little pupil.  But you're not exactly who I'm looking for.  It's time to release me.
+(Она останавливает пьесу.) Хорошая попытка, ученица. Но ты не совсем тот, кого я ищу. Пришло время освободить меня.
+###_PLAYER
+Muahahaha!  (Dance and chant a youth ritual.)
+Муахахаха! (Танцывать и повторять молодежный ритуал.)
+###_NPC
+(She jumps on joy in her bondage.)  Bravo!  Magnifico!  You are a wonderful actress!
+(Подпрыгивает от радости в своем рабстве.) Браво! Великолепно! Вы замечательная актриса!
+###_PLAYER
+(Check in her purse.)
+(Загляните в ее сумочку.)
+###_NPC
+(Since she's blindfolded, she cannot see you searching in her purse.  You find a teacher lounge key in it.)
+(Поскольку у нее завязаны глаза, она не может видеть, как вы копаетесь в ее сумочке. В ней вы найдете ключ от учительской.)
+(Since she's blindfolded, she cannot see you searching in her purse.  You don't find anything interesting in it.)
+(Поскольку у нее завязаны глаза, она не может видеть, как вы копаетесь в ее сумочке. Вы не найдете в ней ничего интересного.)
+###_PLAYER
+Thanks a lot.
+Большое спасибо.
+###_NPC
+You get the role little pupil, you're excellent.  Where did you learn to act like that?
+Тебе досталась роль маленькая ученица, ты великолепна. Где ты научился так себя вести?
+###_PLAYER
+Do I get the role?
+Я получу роль?
+###_NPC
+Si!  You were excellent.  Where did you learn to act like that?
+Си! Вы были превосходны. Где ты научился так себя вести?
+###_PLAYER
+In a club downtown.
+В клубе в центре.
+###_NPC
+A club where I could meet artists?  An acting club?  An impro club?
+Клуб, где я мог бы встретиться с художниками? Актерский клуб? Импро клуб?
+###_PLAYER
+I've had great teachers.
+У меня были отличные учителя.
+###_NPC
+I would love to meet them, are they in a school in town?  Or in a theater group?
+Я хотел бы встретиться с ними, они в школе в городе? Или в театральном кружке?
+###_PLAYER
+That's my secret.
+Это мой секрет.
+###_NPC
+I respect that.  Check the school board, as soon as all the actors are found, we will start repeating.
+Я уважаю это. Проверьте школьную доску, как только все актеры будут найдены, мы начнем повторять.
+###_PLAYER
+I could bring you there.
+Я могла бы привести тебя туда.
+###_NPC
+I would love to go there.  But there's a small problem.  (She struggles in her bondage.)
+Я хотел бы пойти туда. Но есть небольшая проблема. (Она борется в своем рабстве.)
+Maybe another day.  For now, check the school board, as soon as all the actors are found, we will start repeating.
+Может в другой день. А пока проверьте школьную доску, как только все актеры будут найдены, мы начнем повторять.
+###_PLAYER
+I'll tell you more another time.
+Подробнее расскажу в другой раз.
+###_NPC
+Very well.  Check the school board, as soon as all the actors are found, we will start repeating.
+Очень хорошо. Проверьте школьную доску, как только все актеры будут найдены, мы начнем повторять.
+###_PLAYER
+That's not a problem.  I'll explain on the road.
+Это не проблема. По дороге объясню.
+###_NPC
+If you say so.  Let's change and let's go young pupil.
+Если ты так говоришь. Давай переоденемся и пойдем, юная ученица.
+###_PLAYER
+(Bring her to your room.)
+(Приведи ее в свою комнату.)
+###_NPC
+(She smiles as you both dress up.)  Beware of my magical powers and be creative!
+(Она улыбается, когда вы оба наряжаетесь.) Остерегайтесь моей магической силы и будьте изобретательны!
+(She nods as you both dress up.)  Beware of my magical powers and be creative!
+(Она кивает, когда вы оба наряжаетесь.) Остерегайтесь моей магической силы и будьте изобретательны!
+###_PLAYER
+You will be great as the fat witch.
+Ты будешь великолепна в роли толстой ведьмы.
+###_NPC
+(She frowns as you both dress up.)  Beware of my magical powers and be creative!
+(Она хмурится, когда вы оба наряжаетесь.) Остерегайтесь моих магических способностей и будьте изобретательны!
+(She sighs as you both dress up.)  Beware of my magical powers and be creative!
+(Она вздыхает, когда вы оба наряжаетесь.) Остерегайтесь моей магической силы и будьте изобретательны!
+###_PLAYER
+What?  We start now?
+Что? Мы начинаем сейчас?
+###_NPC
+(She frowns and nods.)  Young maiden!  Are you alone in this cold night?
+(Хмурится и кивает.) Юная дева! Ты одина в эту холодную ночь?
+###_PLAYER
+Hello old witch.
+Здравствуй, старая ведьма.
+###_NPC
+Young maiden!  Are you alone in this cold night?
+Юная дева! Ты одина в эту холодную ночь?
+###_PLAYER
+What are you doing here milady?
+Что вы здесь делаете, миледи?
+###_NPC
+(She smiles and catches on.)  Young maiden!  Are you alone in this cold night?
+(Улыбается и подхватывает.) Юная дева! Ты одина в эту холодную ночь?
+###_PLAYER
+My lovely husband will be coming back soon.
+Мой любимый муж скоро вернется.
+###_NPC
+Then I must hurry.  I've seen you in my dream's young lady.
+Тогда я должна спешить. Я видел тебя во сне, юная леди.
+(She sighs and continues.)  I've seen you in my dream's young lady.
+(Она вздыхает и продолжает.) Я видела тебя во сне юная леди.
+###_PLAYER
+Yes.  Why do you ask?
+Да. Почему ты спрашиваешь?
+###_NPC
+No reasons.  I've seen you in my dream's young lady.
+Нет причин. Я видел тебя во сне, юная леди.
+###_PLAYER
+Naughty dreams?  (Giggle.)
+Пошлые мечты? (Хихикает.)
+###_NPC
+In my dreams, your flesh was young, beautiful, perfect and desirable.
+В моих снах твоя плоть была молодой, красивой, совершенной и желанной.
+###_PLAYER
+How is that possible?
+Как это возможно?
+Dream of something else.
+Мечтайте о чем-то другом.
+Dreams can deceive you milady.
+Сны могут обмануть вас, миледи.
+My flesh isn't yours to desire.
+Моя плоть не принадлежит тебе.
+###_NPC
+(She smiles.)  It is.  Magic!  Unveil thy flesh!  (She does a magic incantation on you.)
+(Она улыбается.) Это так. Магия! Открой свою плоть! (Она накладывает на вас магическое заклинание.)
+###_PLAYER
+You have wicked dreams.
+У тебя злые сны.
+###_NPC
+(She nods.)  Magic!  Unveil thy flesh!  (She does a magic incantation on you.)
+(Она кивает.) Волшебство! Открой свою плоть! (Она накладывает на вас магическое заклинание.)
+###_PLAYER
+Are you flirting with me?
+Ты заигрываешь со мною?
+###_NPC
+(She grumbles and continues.)  Magic!  Unveil thy flesh!  (She does a magic incantation on you.)
+(Она ворчит и продолжает.) Волшебство! Открой свою плоть! (Она накладывает на вас магическое заклинание.)
+###_PLAYER
+Oh heavens!  (Act like magic is removing your dress.)
+О небеса! (Действуйте так, как будто волшебство снимает с вас платье.)
+###_NPC
+(She seems impressed by your courage.)  Magnifico!  Let me inspect your young and perfect body.
+(Кажется, на нее произвело впечатление ваше мужество.) Великолепно! Позвольте мне осмотреть твоё молодое и совершенное тело.
+###_PLAYER
+(Strip to your underwear.)
+(Раздеться до нижнего белья.)
+###_NPC
+(She watches you strip.)  Magnifico!  Let me inspect your young and perfect body.
+(Смотрит, как ты раздеваешься.) Великолепно! Позвольте мне осмотреть ваше молодое и совершенное тело.
+###_PLAYER
+Oh heavens!  (Act like magic is stripping you naked.)
+О небеса! (Веди себя так, как будто магия раздевает тебя догола.)
+(Strip naked.)
+(Раздеться догола.)
+What happened to my clothes?
+Что случилось с моей одеждой?
+###_NPC
+Your smile, your vitality, it shall be mine!
+Твоя улыбка, твоя жизненная сила, она будет моей!
+###_PLAYER
+Gosh!  Did you curse me old lady?
+Боже! Ты прокляла меня, старушка?
+###_NPC
+(She seems impressed by your acting.)  Your smile, your vitality, it shall be mine!
+(Кажется, она впечатлена твоей игрой.) Твоя улыбка, твоя жизненная сила, они будут моими!
+###_PLAYER
+Enjoy the show.
+Наслаждайся представлением.
+###_NPC
+(She doesn't seem impressed by your acting.)  Your smile, your vitality, it shall be mine!
+(Кажется, она не впечатлена твоей игрой.) Твоя улыбка, твоя жизненная сила, они будут моими!
+###_PLAYER
+Fuck off witch!
+Отвали ведьма!
+You can't do that!
+Вы не можете этого сделать!
+###_NPC
+Oh yes, little maiden.  You will come with me, and I shall steal thy youth.
+О да, маленькая дева. Ты пойдешь со мной, и я украду твою юность.
+###_PLAYER
+Old woman, maybe we can make a deal.
+Старушка, может быть, мы сможем заключить сделку.
+###_NPC
+No, precious little maiden.  You will come with me, and I shall steal thy youth.
+Нет, драгоценная девица. Ты пойдешь со мной, и я украду твою юность.
+###_PLAYER
+Mercy Milady!  I implore you!
+Пощадите Миледи! Я умоляю вас!
+I shall never follow you!
+Я никогда не пойду за тобой!
+###_NPC
+Oh, but you shall!  I just need to prepare you for your long trip.  Alambra Magika!  (She chants a magic spell.)
+Ох, но ты должна! Мне просто нужно подготовить тебя к твоему долгому путешествию. Аламбра Магика! (Она произносит магическое заклинание.)
+###_PLAYER
+I'm not moving from here witch.
+Я не уйду отсюда, ведьма.
+Forget it lady.
+Забудь, леди.
+###_NPC
+(She frowns.)  A feisty one?  I just need to prepare you for your long trip.  Alambra Magika!  (She chants a magic spell.)
+(Она хмурится.) Смелая? Мне просто нужно подготовить тебя к твоему долгому путешествию. Аламбра Магика! (Она произносит магическое заклинание.)
+###_PLAYER
+(Lock some theater hand cuffs on yourself.)
+(Наденьте на себя наручники для театральных постановок.)
+###_NPC
+(You pick some hand cuffs from the theater props and lock them on yourself.)  Muahahaha!  You are now my prisoner.
+(Вы берете наручники из театрального реквизита и застегиваете их на себя.) Муахахаха! Ты теперь моя пленница.
+###_PLAYER
+Sorcery!  (Act like magic is locking theater hand cuffs.)
+Волшебство! (Действуйте так, будто по волшебству запираются наручники в театре.)
+(Lock some theater leg cuffs on yourself.)
+(Зафиксируйте на себе наручники для ног в театре.)
+###_NPC
+(You pick some leg cuffs from the theater props and lock them on yourself.)  Muahahaha!  You are now my prisoner.
+(Вы берете ножные наручники из театрального реквизита и застегиваете их на себя.) Муахахаха! Ты теперь мой пленник.
+###_PLAYER
+Sorcery!  (Act like magic is locking theater leg cuffs.)
+Волшебство! (Действуйте так, будто по волшебству запираются ножные манжеты в театре.)
+(Lock a theater ankle iron ball on yourself.)
+(Закрепите на себе театральный железный мячик для лодыжки.)
+###_NPC
+(You pick an iron ball from the theater props and lock it on yourself.)  Muahahaha!  You are now my prisoner.
+(Вы берете железный шар из театрального реквизита и запираете его на себе.) Муахахаха! Ты теперь мой пленник.
+###_PLAYER
+Sorcery!  (Act like magic is locking an ankle iron ball.)
+Волшебство! (Действуйте так, как будто волшебство блокирует железный шар на лодыжке.)
+I'm confused.  What are you doing?
+Я запуталась. Что ты делаешь?
+(Struggle a little.)
+(Немного поборотся.)
+###_NPC
+Do not resist.  I will carry you to my lair in the woods.  To drain your precious youth.
+Не сопротивляйтесь. Я отнесу тебя в свое логово в лесу. Чтобы высосать твою драгоценную молодость.
+###_PLAYER
+(Struggle like a mad woman.)
+(Бороться, как сумасшедшая.)
+(Don't struggle.)
+(Не сопротивляться.)
+Good luck with that.
+Удачи с этим.
+###_NPC
+(She frowns.)  I don't need chance.  I need magic to turn you into a fairy.  Magika faeria!  (She chants a spell to turn you into a fairy.)
+(Она хмурится.) Мне не нужен шанс. Мне нужна магия, чтобы превратить тебя в фею. Магика фаэрия! (Она произносит заклинание, превращающее вас в фею.)
+###_PLAYER
+And how will you transport me?
+И как ты меня перевезешь?
+###_NPC
+That's easy, I'll use magic to turn you into a fairy.  Magika faeria!  (She chants a spell to turn you into a fairy.)
+Это легко, я использую магию, чтобы превратить тебя в фею. Магика фаэрия! (Она произносит заклинание, превращающее вас в фею.)
+###_PLAYER
+The guards will arrest you.
+Охранники арестуют вас.
+###_NPC
+If only they could see you, I'll use magic to turn you into a fairy.  Magika faeria!  (She chants a spell to turn you into a fairy.)
+Если бы они только могли тебя увидеть, я с помощью магии превращу тебя в фею. Магика фаэрия! (Она произносит заклинание, превращающее вас в фею.)
+###_PLAYER
+Nooooo!  (Act like you're being changed into a fairy.)
+Неееет! (Веди себя так, будто тебя превращают в фею.)
+###_NPC
+(She smiles and straps some wings on your back.)  How do you like your new form mini maiden?
+(Она улыбается и привязывает крылья тебе за спину.) Как тебе твоя новая форма мини-девушка?
+###_PLAYER
+(Pretend that you're being changed into a fairy.)
+(Представьте, что вы превращаетесь в фею.)
+###_NPC
+(She straps some wings on your back.)  How do you like your new form mini maiden?
+(Она привязывает крылья тебе за спину.) Как тебе твоя новая форма мини-девушка?
+###_PLAYER
+(Wait for her next line.)
+(Дождитесь ее следующей строчки.)
+###_NPC
+(She frowns and straps some wings on your back.)  How do you like your new form mini maiden?
+(Она хмурится и привязывает крылья тебе за спину.) Как тебе твоя новая форма, мини-девушка?
+(She stops the play.)  Nice try little pupil.  But you're not exactly who I'm looking for.  I will release you.
+(Она останавливает пьесу.) Хорошая попытка, ученица. Но ты не совсем тот, кого я ищу. Я освобожу тебя.
+###_PLAYER
+Oh tragedy!  I'm doomed!
+О трагедия! Я обречена!
+###_NPC
+(She jumps on joy.)  Bravo!  Magnifico!  You are a wonderful actress!
+(Подпрыгивает от радости.) Браво! Магнифико! Вы замечательная актриса!
+###_PLAYER
+I love that I can fly.  (Pretend to fly away.)
+Мне нравится, что я могу летать. (Делаю вид, что улетаю.)
+You're stopping the audition?
+Ты останавливаешь прослушивание?
+###_NPC
+(She nods as you both dress up.)  You don't have what it takes for the role.  You can try again on the next play.
+(Она кивает, когда вы оба наряжаетесь.) У вас нет того, что нужно для этой роли. Вы можете повторить попытку в следующей игре.
+###_PLAYER
+Can you give me another chance?
+Можешь дать мне еще один шанс?
+###_NPC
+(She shakes her head as you both dress up.)  I'm sorry, it wouldn't be fair to the other students.  Everyone gets one try.
+(Она качает головой, пока вы оба наряжаетесь.) Извините, это было бы нечестно по отношению к другим ученикам. У каждого есть одна попытка.
+I would love to go there with you, but you cannot out like that.
+Я бы с удовольствием пошела туда с тобой, но ты не можешь уйти вот так.
+Sorry little pupil, I cannot give you the role.  You can try again on the next play.
+Прости, маленькая ученица, я не могу дать тебе роль. Вы можете повторить попытку в следующей игре.
+###_PLAYER
+Alright, take care.  (Leave her.)
+Ладно, береги себя. (Оставь ее.)
+Fine, get lost.  (Leave her.)
+Ладно, пропадай. (Оставь ее.)
+Great!  See you soon.
+Замечательно! Скоро увидимся.
+###_NPC
+(You both dress up as she smiles.)  You have lots of potential, see you soon little pupil.
+(Вы оба наряжаетесь, когда она улыбается.) У вас большой потенциал, скоро увидимся, маленькая ученица.
+###_PLAYER
+I'll do that.
+Я это сделаю.
+###_NPC
+See you soon little pupil.  If you see the next student, you can tell her to come in.
+До скорой встречи, маленькая ученица. Если вы увидите следующую ученицу, вы можете сказать ей войти.
+###_PLAYER
+See you soon.  (Leave her.)
+До скорого. (Оставь ее.)

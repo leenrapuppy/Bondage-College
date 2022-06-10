@@ -1,26 +1,78 @@
 ﻿No chat room found.  You can create a new one.
-Чат не найден.  Вы можете создать новый.
+Чат комната не найдена. Ты можешь создать новую.
 Search for a room by name:
-Поиск комнаты по имени:
+Поиск комнаты по названию:
 Search for a room
 Поиск комнаты
 Create your room
-Создайте свою комнату
+Создай свою комнату
 Friends in room:
 Друзья в комнате:
 This room is already full
 Эта комната уже заполнена
 This room is locked
-Эта комната закрыта
+Эта комната заперта
 You're banned from this room
-Тебе запрещено находиться в этой комнате
+Вам запрещено посещать эту комнату
 You've been kicked out
-Тебя выгнали вон
+Вас выгнали
 Room doesn't exist anymore
 Комната больше не существует
 Account Error
-Ошибка Учетной Записи
+Ошибка аккаунта
 Invalid Room Data
-Неверные Данные Комнаты
+Неверные данные комнаты
 Entering the room...
 Входим в комнату...
+Duplicate join request
+Дублировать запрос на присоединение
+Filter Rooms
+Фильтр комнат
+Return to room view
+Вернуться к просмотру комнаты
+Filter out terms (comma-separated):
+Отфильтровать термины (через запятую):
+Refresh rooms
+Обновить комнаты
+Leave room search
+Оставить поиск комнаты
+Friends
+Друзья
+Next page
+Следующая страница
+Block:
+Блокировать:
+ABDL
+ABDL
+Player Leashing
+Поводок игрока
+Sci-Fi
+Научная фантастика
+Photographs
+Фотографии
+Arousal Activities
+Возбуждающие Действия
+Fantasy
+Фантазия
+Game:
+Игра:
+LARP
+LARP
+Magic Battle
+Магическая битва
+GGTS
+GGTS
+All languages
+Все языки
+English
+English
+French
+Français
+Spanish
+Española
+German
+Deutsch
+Chinese
+中国人
+Russian
+Русский

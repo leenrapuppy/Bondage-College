@@ -1,0 +1,151 @@
+###_NPC
+(She looks at your gag and giggle.)  This place is so kinky.
+(Она смотрит на твой кляп и хихикает.)  Это место такое извращенное.
+Hello again.  Maybe it wasn't the best idea to sell you my clothes.  (She blushes.)
+Еще раз здравствуйте.  Может быть, это была не самая лучшая идея - продавать тебе свою одежду.  (Она краснеет.)
+Hello maid, can I have a drink?
+Привет, горничная, можно мне чего-нибудь выпить?
+Hi Miss.  Everyone is protected today?
+Привет, мисс.  Сегодня все защищены?
+(She seems impressed by you.)  Wow!  You're a real Dominatrix?  It's a pleasure to meet you.
+(Кажется, ты произвел на нее впечатление.) Вау!  Вы настоящая Доминатрикс?  Приятно познакомиться с вами.
+Hello cosplayer.  Congrats on your costume.
+Привет, косплеер.  Поздравляю с твоим костюмом.
+Hello there, I'm a new Pandora's Box member.
+Привет всем, я новый участник "Ящика Пандоры".
+###_PLAYER
+You're cute naked.
+Ты симпатичная голая.
+###_NPC
+(She blushes.)  Was that a trick?  Maybe selling my clothes wasn't a great deal.
+(Она краснеет.)  Это был трюк?  Может быть, продажа моей одежды была не такой уж большой сделкой.
+###_PLAYER
+Who are you?
+Кто ты?
+###_NPC
+I'm DialogCharacterName.  I'm a new member.  Can you show me around?
+Я DialogCharacterName.  Я новый член клуба.  Не могли бы вы показать мне окрестности?
+###_PLAYER
+Can I tie you up?
+Могу я тебя связать?
+###_NPC
+It would be a pleasure, but they told me I need to wait a few more days before getting restrained or restraining someone else.
+Это было бы приятно, но они сказали мне, что мне нужно подождать еще несколько дней, прежде чем меня ограничат или ограничу кого-то другого.
+###_PLAYER
+Can you help me?
+Вы не могли бы мне помочь?
+###_NPC
+(She laughs.)  Help you?   I'm totally lost around here.  You're the one that should be helping me.
+(Она смеется.)  Помочь тебе?   Я здесь совершенно заблудилась.  Ты та, кто должна мне помогать.
+###_PLAYER
+I'll go get you a free drink.
+Я принесу тебе бесплатную выпивку.
+###_NPC
+(You go get her a free drink and she seems happy about it.)  Thanks a lot!  You're doing an awesome job.
+(Ты идешь и покупаешь ей бесплатную выпивку, и она, кажется, этому рада.) Большое спасибо!  Ты делаешь потрясающую работу.
+###_PLAYER
+Are you enjoying Pandora's Box?
+Вам нравится "Ящик Пандоры"?
+###_NPC
+I'm not sure, it's all very new and confusing.  And you?  Do you like the place?
+Я не уверена, все это очень ново и запутанно.  А тебе?  Тебе нравится это место?
+###_PLAYER
+Can I buy your clothes?
+Могу я купить твою одежду?
+###_NPC
+Buy my clothes?  Are you serious?  These old clothes are cheap you know?
+Купить мою одежду?  Ты серьезно?  Эта старая одежда и дешевая, ты знаешь?
+###_PLAYER
+I must go.  (Leave her.)
+Я должна идти.  (Оставь ее.)
+Sure, it's a good club.
+Конечно, это хороший клуб.
+###_NPC
+I agree, there are worse places to spend our free time.
+Я согласна, есть места и похуже, где можно провести свободное время.
+###_PLAYER
+This place isn't great.
+Это место не самое лучшее.
+###_NPC
+They say it's improving, I'm sure it will get better with time.
+Они говорят, что он улучшается, я уверена, что со временем все станет лучше.
+###_PLAYER
+This club sucks.
+Этот клуб - отстой.
+###_NPC
+Don't be too harsh.  They say it's improving, I'm sure it will get better with time.
+Не будь слишком резка.  Они говорят, что он улучшается, я уверена, что со временем все станет лучше.
+###_PLAYER
+Have you heard of the Bondage Club?
+Вы слышали о Клубе Бондажа?
+###_NPC
+I've heard about it, but never went.  They have good BDSM events?
+Я слышала об этом, но никогда не ходила.  У них есть хорошие БДСМ-мероприятия?
+###_PLAYER
+Maybe you're right.
+Может быть, ты и права.
+###_NPC
+Yep, there are worse places to spend our free time.
+Да, есть места и похуже, где можно провести свободное время.
+###_PLAYER
+It depends on the day.
+Это зависит от дня.
+###_NPC
+Just like here, I guess.  There are worse places to spend our free time.
+Так же, как здесь, я думаю.  Есть места и похуже, где можно провести свободное время.
+###_PLAYER
+It's the kinkiest place in town.
+Это самое извращенное место в городе.
+###_NPC
+Now that's interesting!  Are they recruiting new members?
+Вот это уже интересно!  Набирают ли они новых членов?
+That's very interesting!  Sadly, I don't have enough time for a second BDSM club.  But maybe I'll visit someday.
+Это очень интересно!  К сожалению, у меня нет достаточно времени для второго БДСМ-клуба.  Но, может быть, я когда-нибудь навещу тебя.
+###_PLAYER
+Pandora's Box is better.
+Ящик Пандоры лучше.
+Yes!  You could go right now.
+Да!  Ты могла бы уйти прямо сейчас.
+###_NPC
+Great idea!  Thanks for the tip, I will go see the Bondage Club right now.  (Your infiltration skill has increased.)
+Отличная идея!  Спасибо за совет, я прямо сейчас пойду в Клуб Бондажа.  (Ваш навык проникновения увеличился.)
+###_PLAYER
+Yes!  I have a room there that we could share.
+Да!  У меня там есть комната, которую мы могли бы разделить.
+###_NPC
+Perfect!  I will meet you in your room, see you later.  (Your infiltration skill has increased.)
+Идеально!  Я встречу тебя в твоей комнате, увидимся позже.  (Ваш навык проникновения увеличился.)
+###_PLAYER
+I don't know.
+Я не знаю.
+###_NPC
+I don't want to waste my time.  I'll try to apply another day.
+Я не хочу тратить свое время впустую.  Я попробую подать заявление в другой раз.
+###_PLAYER
+Not right now.
+Не прямо сейчас.
+###_NPC
+Too bad, maybe I'll try to apply another day.
+Очень жаль, может быть, я попробую подать заявление в другой раз.
+###_PLAYER
+(Let her go to the Bondage Club.)
+(Пусть она идет в Клуб Бондажа.)
+(Let her go to your private room.)
+(Отпусти ее в свою отдельную комнату.)
+I know, but I like them. (Offer $10.)
+Я знаю, но она мне нравится. (Предложите 10 долларов.)
+###_NPC
+Alright, but this is very strange.  (She gets naked and sells you her clothes for $10.)
+Хорошо, но это очень странно.  (Она раздевается и продает вам свою одежду за 10 долларов.)
+###_PLAYER
+I can't offer much. (Offer $5.)
+Я не могу предложить многого. (Предложите 5 долларов.)
+###_NPC
+Sorry, I can't accept that offer.
+Извините, я не могу принять это предложение.
+###_PLAYER
+Forget it then.
+Тогда забудь об этом.
+###_NPC
+Very well.  You're a strange person you know?
+Очень хорошо.  Ты странный человек, знаешь ли?

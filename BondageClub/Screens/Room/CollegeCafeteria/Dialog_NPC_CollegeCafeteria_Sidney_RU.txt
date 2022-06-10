@@ -1,0 +1,357 @@
+###_NPC
+(She gives you a curious look.)  Why are you wearing that?  Are you on a fucking diet?
+(Она с любопытством смотрит на вас.) Почему ты это носишь? Ты на ебаной диете?
+(A teacher comes and separates you.  You both clean up as she catches her breath.)  Fuck this!  I'm too hungry to fight anyway.
+(Учитель подходит и разделяет вас. Вы оба убираете, пока она переводит дыхание.) К черту это! В любом случае, я слишком голодна, чтобы драться.
+(A teacher comes and separates you.  You both clean up as she smirks.)  This is what you get for messing with me bitch.
+(Приходит учитель и разводит вас. Вы оба убираете, а она ухмыляется.) Вот что ты получила за то, что возишься со мной, сука.
+(Sidney is waiting in line to get her food.)  Hey DialogPlayerName.  Don't you dare cutting in front of me.
+(Сидни стоит в очереди за едой.) Привет, DialogPlayerName. Не смей вставать передо мной.
+Sweetheart!  (She holds your hands and smiles.)  Are you having lunch with me?
+Дорогая! (Она держит тебя за руку и улыбается.) Ты пообедаешь со мной?
+(She snobs you.)  You broke with me fucking fast.  What do you want now?
+(Она узнает тебя.) Ты чертовски быстро порвала со мной. Что ты хочешь сейчас?
+(She doesn't dare to look you in the eyes.)  Hello Mistress, would you like to step in front of me?
+(Она не смеет смотреть вам в глаза.) Привет, госпожа, не хочешь ли ты встать передо мной?
+(She laughs.)  My slut is back!  Stay behind me, you will carry my lunch.
+(Смеется.) Моя шлюшка вернулась! Оставайся позади меня, ты понесешь мой обед.
+(She frowns.)  Hey ex-slut.  Don't you dare cutting in front of me.
+(Она хмурится.) Эй, бывшая шлюха. Не смей вставать передо мной.
+(She doesn't seem to recognize you.)  Hey!  Don't you dare cutting in front of me.
+(Кажется, она не узнает вас.) Эй! Не смей вставать передо мной.
+###_PLAYER
+Who are you?
+Кто ты?
+###_NPC
+That's none of your business.  Get lost, I'm waiting to eat.
+Не твое дело. Проваливай, я жду, чтобы поесть.
+###_PLAYER
+How have you been?
+Как твои дела?
+###_NPC
+Hungry as shit!  This line is taking forever.
+Голодная как черт! Эта линия длится вечность.
+###_PLAYER
+What is that hat?
+Что это за шляпа?
+###_NPC
+(She grumbles.)  Let's change subject please.
+(Она ворчит.) Давайте сменим тему, пожалуйста.
+Shut up!  Don't talk about it.
+Замолчи! Не говори об этом.
+###_PLAYER
+What are you eating?
+Что вы едите?
+###_NPC
+I'll take your cunt.  (She laughs out loud.)  Seriously, they better have some red meat.  What are you getting my love?
+Я возьму твою пизду. (Она громко смеется.) Серьезно, им лучше есть немного красного мяса. Что ты выберешь моя любовь?
+I don't know, but they better have some red meat.  What are you getting?
+Я не знаю, но им лучше есть немного красного мяса. Что ты выберешь?
+###_PLAYER
+I'll check the menu.  (Leave her.)
+Я проверю меню. (Оставь ее.)
+Only a soup.  I'm not hungry.
+Только суп. Я не голодна.
+###_NPC
+That's lame.  Try something better like a steak.  I'm broke so I'll have the cheap ass fried chicken.
+Это глупо. Попробуй что-нибудь получше, например стейк. Я на мели, так что возьму дешевую жареную курицу.
+###_PLAYER
+Probably a hamburger.
+Наверное, гамбургер.
+###_NPC
+Good choice, I would go for two burgers also, but I don't have enough money.
+Хороший выбор, я бы тоже взяла два гамбургера, но у меня не хватает денег.
+###_PLAYER
+A grilled cheese.
+Сыр на гриле (Горячий сэндвич).
+A bloody steak.
+Кровавый стейк.
+###_NPC
+Hell yeah!  I would eat a steak also, but it's too expensive.
+Черт возьми! Я бы тоже съел стейк, но он слишком дорогой.
+###_PLAYER
+I'll try the big salad.
+Я попробую большой салат.
+Fried chicken for me.
+Жареная курица для меня.
+###_NPC
+Same here, I would go for a steak, but I'm broke as shit.
+То же самое, я бы пошла на стейк, но я разорилась, как дерьмо.
+###_PLAYER
+You can't afford your lunch?
+Вы не можете позволить себе обед?
+###_NPC
+Yeah, I spent all my money on we...  on schoolbooks.  Can I borrow $20 from you?  I'll repay you next week.
+Да, я потратила все свои деньги на оде... на школьные учебники. Могу я одолжить у тебя 20 долларов? Я отплачу тебе на следующей неделе.
+###_PLAYER
+How much do you need?
+Сколько тебе нужно?
+###_NPC
+$20 for a good meal, can I borrow it from you?  I'll repay you next week.
+20 долларов за хорошую еду, могу я одолжить? Я отплачу тебе на следующей неделе.
+###_PLAYER
+I'm also broke.
+Я тоже разорился.
+###_NPC
+Yeah, life is a bitch.  (She replaces her hat.)  Fucking Mildred and her fucking rules.
+Да, жизнь сука. (Надевает шляпу на место.) Чертова Милдред и ее гребаные правила.
+###_PLAYER
+No way, I'm keeping my money.
+Ни за что, я сохраню свои деньги.
+###_NPC
+Fine, I don't care.  (She replaces her hat.)  Fucking Mildred and her fucking rules.
+Ладно, мне все равно. (Надевает шляпу на место.) Чертова Милдред и ее гребаные правила.
+###_PLAYER
+I would, but I don't have enough cash.
+Я бы с удовольствием, но у меня нет денег.
+###_NPC
+The economy is crap.  (She replaces her hat.)  Fucking Mildred and her fucking rules.
+Экономика - дерьмо. (Надевает шляпу на место.) Чертова Милдред и ее гребаные правила.
+###_PLAYER
+Here's $20, repay me next week.
+Вот 20 долларов, верни мне на следующей неделе.
+###_NPC
+Thanks!  (She takes your $20.)  Come to think of it, can I borrow $40 more for boo... supper later?
+Спасибо! (Она берет ваши 20 долларов.) Если подумать, могу я одолжить еще 40 долларов на бу... ужин позже?
+###_PLAYER
+Here's $20, no need to repay me.
+Вот 20 долларов, не нужно возвращать мне деньги.
+###_NPC
+Fuck yeah!  (She takes your $20.)  Come to think of it, can I borrow $40 more for boo... for supper later?
+Бля да! (Она берет ваши 20 долларов.) Если подумать, могу я одолжить еще 40 долларов на бу... на ужин позже?
+###_PLAYER
+Not $40, but I can give you another $20.
+Не 40 долларов, но я могу дать вам еще 20 долларов.
+###_NPC
+Wow!  Thanks!  (She replaces her hat.)  Fucking Mildred and her fucking rules.
+Ух ты! Спасибо! (Надевает шляпу на место.) Чертова Милдред и ее гребаные правила.
+###_PLAYER
+Here's $40 for your "supper".
+Вот 40 долларов на ваш "ужин".
+###_NPC
+Jackpot!  (She takes your money and replaces her hat.)  Fucking Mildred and her fucking rules.
+Джекпот! (Она берет ваши деньги и возвращает шляпу на место.) Чертова Милдред и ее гребаные правила.
+###_PLAYER
+No, you're pushing your luck.
+Нет, ты испытываешь свою удачу.
+###_NPC
+Can't blame me for trying.  (She replaces her hat.)  Fucking Mildred and her fucking rules.
+Не вини меня за попытку. (Надевает шляпу на место.) Чертова Милдред и ее гребаные правила.
+###_PLAYER
+That dunce hat is a punishment?
+Эта глупая шляпа - наказание?
+###_NPC
+Yeah, for texting in class.  That bitch Mildred won't give me back my phone if I don't wear it all day.
+Да, для переписки в классе. Эта сука Милдред не вернет мне мой телефон, если я не ношу его весь день.
+###_PLAYER
+That hat is ridiculous.
+Эта шляпа нелепа.
+###_NPC
+I know!  (She looks angry.)  That bitch Mildred won't give me back my phone if I don't wear it all day.
+Я знаю! (Она выглядит сердитой.) Эта сука Милдред не вернет мне мой телефон, если я не ношу его весь день.
+###_PLAYER
+Mildred is making you wear it?
+Милдред заставляет тебя носить его?
+###_NPC
+Fuck yeah, for texting in class.  That bitch won't give me back my phone if I don't wear it all day.
+Черт возьми, за текстовые сообщения в классе. Эта сука не вернет мне мой телефон, если я не ношу его весь день.
+###_PLAYER
+This is illegal!
+Это незаконно!
+###_NPC
+Damn right!  We think alike.  (She turns to the other girls.)  That line is slow as shit!
+Чертовски верно! Мы думаем одинаково. (Она поворачивается к другим девушкам.) Эта очередь чертовски медленная
+###_PLAYER
+She can't do that.
+Она не может этого сделать.
+###_NPC
+Yeah, she's the worst.  (She turns to the other girls.)  That line is slow as shit!
+Да, она худшая. (Она поворачивается к другим девушкам.) Эта очередь чертовски медленная!
+###_PLAYER
+It's a fair punishment.
+Это справедливое наказание.
+###_NPC
+Fuck that.  (She turns to the other girls.)  That line is slow as shit!
+К черту это. (Она поворачивается к другим девушкам.) Эта очередь чертовски медленная!
+###_PLAYER
+We should skip it.
+Мы должны пропустить это.
+###_NPC
+I agree, but I'm already in trouble.  I hate this school.
+Я согласна, но я уже в беде. Я ненавижу эту школу.
+###_PLAYER
+There's not much to do.
+Здесь особо нечего делать.
+###_NPC
+I guess.  (She sighs.)  I hate this school.
+Наверное. (Она вздыхает.) Я ненавижу эту школу.
+###_PLAYER
+We should go elsewhere.
+Мы должны пойти в другое место.
+###_NPC
+What's your plan?  I hate this school.
+Каков твой план? Я ненавижу эту школу.
+###_PLAYER
+We could skip school and go downtown to eat.
+Мы могли бы пропустить школу и пойти в центр поесть.
+###_NPC
+(She seems to agree.)  I'm game!  But why should we go downtown?
+(Кажется, она соглашается.) Я в игре! Но зачем нам ехать в центр?
+(She shakes her head no.)  No way.  I'm not going downtown.  (She turns back to the line.)
+(Она отрицательно качает головой.) Ни за что. Я не поеду в центр. (Она поворачивается к линии.)
+###_PLAYER
+Let's wait in line.
+Подождем в очереди.
+###_NPC
+(She shrugs.)  Not much else to do.
+(Она пожимает плечами.) Больше нечего делать.
+###_PLAYER
+I have a room in a club downtown.
+У меня есть комната в клубе в центре города.
+###_NPC
+A club?  What kind of club?  It better not be managed by the college.
+Клуб? Какой клуб? Лучше бы этим не занимался колледж.
+###_PLAYER
+You're right, let's stay here.
+Ты права, давай останемся здесь.
+###_NPC
+Fine, let's wait in the stupid line.
+Ладно, подождем в дурацкой очереди.
+###_PLAYER
+Come with me, I will explain on the road.
+Пойдем со мной, по дороге объясню.
+###_NPC
+Adios suckers!  (She gives the middle finger to everyone in the line.)
+Прощай сосунки! (Показывает всем в очереди средний палец.)
+###_PLAYER
+(Bring her to your room.)
+(Приведи ее в свою комнату.)
+###_NPC
+(Sidney is waiting in line to get her food.)  This line is fucking ridiculous.
+(Сидни стоит в очереди за едой.) Эта очередь чертовски нелепа.
+###_PLAYER
+Is the line moving?
+Линия движется?
+###_NPC
+(She checks in front and shakes her head.)  Nope, this is hell.
+(Она смотрит вперед и качает головой.) Нет, это ад.
+###_PLAYER
+(Try to cut in front of her.)
+(Попробуй встать перед ней.)
+###_NPC
+(She blocks you.)  What the fuck do you think you're doing?
+(Она блокирует вас.) Что, черт возьми, ты делаешь?
+###_PLAYER
+(Wait in line and leave her.)
+(Дождитесь своей очереди и оставьте ее.)
+I will eat before you.
+Я буду есть раньше тебя.
+###_NPC
+(She gets ready to fight.)  Over my dead body!
+(Готовится к бою.) Только через мой труп!
+###_PLAYER
+Nothing, I'm sorry.
+Ничего, извини.
+###_NPC
+You're pathetic!  Now stay in your place and shut up.  (She smirks and ignores you.)
+Ты жалкая! А теперь оставайся на своем месте и заткнись. (Она ухмыляется и игнорирует вас.)
+###_PLAYER
+You're going down!  (Fight her.)
+Ты падёшь! (Бороться с ней.)
+Wait!  Calm down!  (Don't fight.)
+Подожди! Успокойся! (Не борись.)
+###_NPC
+(She ignores you.)
+(Она игнорирует вас.)
+###_PLAYER
+Hey!  Can we talk?
+Привет! Мы можем поговорить?
+That was quite a fight!
+Это был настоящий бой!
+###_NPC
+(She recovers her breath and nods.)  Yeah, you're dangerous.
+(Она восстанавливает дыхание и кивает.) Да, ты опасна.
+###_PLAYER
+You're such a loser.
+Ты такая неудачница.
+###_NPC
+(She recovers her breath and frowns.)  I'll get my revenge someday.
+(Она восстанавливает дыхание и хмурится.) Когда-нибудь я отомщу.
+###_PLAYER
+(Stare at her.)
+(Посмотреть на нее.)
+###_NPC
+(She recovers her breath and stares back.)  This isn't over.
+(Она восстанавливает дыхание и смотрит в ответ.) Это еще не конец.
+###_PLAYER
+(Crack your knuckles.)
+(Хрустите костяшками пальцев.)
+###_NPC
+(She also cracks her knuckles as a teacher sermon you two on fighting and make sure you won't do it again.)
+(Она также хрустит костяшками пальцев, пока учитель проповедует вам двоим о драках и следит за тем, чтобы вы больше этого не делали.)
+###_PLAYER
+We should ally instead of fighting each other.
+Мы должны объединиться, а не воевать друг с другом.
+###_NPC
+(She nods as a teacher sermon you two on fighting and make sure you won't do it again.)
+(Она кивает, когда учитель проповедует вам двоим о драках и следит за тем, чтобы вы больше этого не делали.)
+###_PLAYER
+Don't cross my path again.
+Не переходи мне дорогу снова.
+###_NPC
+(She grumbles as a teacher sermon you two on fighting and make sure you won't do it again.)
+(Она ворчит, пока учитель проповедует вам двоим о драках и следит за тем, чтобы вы больше этого не делали.)
+(A teacher is making sure you don't fight again.  Sidney is ignoring you.)
+(Учитель следит, чтобы вы больше не дрались. Сидни игнорирует вас.)
+###_PLAYER
+Pssst!  Wanna skip the line and go out with me?
+Пссс! Хочешь пропустить очередь и пойти со мной?
+###_NPC
+(She seems intrigued.)  Anything to get out of here.  Where should we go?
+(Кажется, она заинтригована.) Что угодно, лишь бы выбраться отсюда. Куда мы должны пойти?
+###_PLAYER
+Can we talk?
+Мы можем поговорить?
+Forget it then.
+Тогда забудь.
+###_NPC
+Fine, leave me alone.
+Ладно, оставь меня в покое.
+###_PLAYER
+Well done.  That was quite a fight.
+Отличная работа. Это был настоящий бой.
+###_NPC
+(She ignores you as a teacher sermon you two on fighting, and make sure you won't do it again.)
+(Она игнорирует вас как учителя, проповедующего вам двоим о драках, и следите за тем, чтобы вы больше этого не делали.)
+###_PLAYER
+You fight like a dirty bitch.
+Ты дерешься, как грязная сука.
+###_NPC
+(A student is waiting in line in front of you.)  Hey there.  Be patient, the line is long today.
+(Ученик стоит перед вами в очереди.) Привет. Потерпите, сегодня большая очередь.
+I study music, I don't think I've seen you before.
+Я изучаю музыку, я не думаю, что видела тебя раньше.
+###_PLAYER
+I'm DialogPlayerName.
+Я DialogPlayerName.
+###_NPC
+Pleased to meet you.  I hope you're not too hungry, this line isn't moving much.
+Рада встрече с тобой. Надеюсь, ты не слишком голодна, эта очередь почти не движется.
+###_PLAYER
+What's on the menu?
+Что в меню?
+###_NPC
+The usual stuff.  Yesterday's salad is today's soup.  (She giggles.)
+Обычные вещи. Вчерашний салат — это сегодняшний суп. (Она хихикает.)
+###_PLAYER
+Can I cut in front of you?
+Можно я встану перед тобой?
+###_NPC
+No.  I've been here for longer than you.
+Нет. Я здесь дольше, чем ты.
+###_PLAYER
+Can I eat with you?
+Можно я поем с тобой?
+###_NPC
+Sure, if that line gets moving before the bell rings.
+Конечно, если эта очередь сдвинется до того, как прозвенит звонок.

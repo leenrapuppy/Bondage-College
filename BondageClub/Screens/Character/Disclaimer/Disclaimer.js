@@ -13,8 +13,14 @@ function DisclaimerLoad() {
  * @returns {void} - Nothing
  */
 function DisclaimerRun() {
-	for (let L = 0; L <= 10; L++)
-		DrawText(TextGet("Line" + L.toString()), 1000, 130 + L * 60, "Black", "Silver");
+	var Lmax = 10;
+	var L = 0;
+	if(TextGet("Line" + L.toString()) == "Отказ от ответственности") 
+	{
+		(Lmax = 12); 
+	}
+	for (let L = 0; L <= Lmax; L++)
+		DrawText(TextGet("Line" + L.toString()), 1000, 130 + L * 55, "Black", "Silver");
 	DrawButton(700, 840, 250, 60, TextGet("Return"), "White", "");
 	DrawButton(1050, 840, 250, 60, TextGet("Accept"), "White", "");
 }

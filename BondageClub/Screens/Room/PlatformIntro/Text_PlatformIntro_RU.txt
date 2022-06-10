@@ -1,0 +1,30 @@
+Main Hall
+Главный зал
+New Game
+Новая игра
+Load
+Загрузить
+Cancel
+Отмена
+Loading assets:
+Загрузка активов:
+Bondage Brawl is a 2D platformer built to test MMD animations.
+Bondage Brawl 2D-платформер, созданный для теста MMD-анимаций.
+If you like it or have ideas to improve it, please contact Ben987.
+Если вам нравится или есть идеи по улучшению, свяжитесь с Ben987.
+To walk, use the A or D keys.  Double-tap these keys to run.
+Чтобы ходить, клавиши A или D.  Дважды нажмите клавиш для бега.
+Use the space bar to jump, W to enter doors and S to crouch.
+Пробел чтобы прыгать, W чтобы входить в двери и S, чтобы приседать.
+Use L to punch, K to kick and O to restrain wounded girls.
+L, чтобы бить, K, чтобы пинать, и O, чтобы связать раненых девушек.
+You can also use a controller, set it up in your preferences.
+Вы можете использовать контроллер, настроив его в своих настройках.
+Your health and experience are on the top left of the screen.
+Ваше здоровье и опыт отображаются в левом верхнем углу экрана.
+Restrain wounded girls to get experience before they get up.
+Свяжите девушек, чтобы получить опыт, прежде чем они встанут.
+Go to any bedroom to heal and save, using keys from 0 to 9.
+Идите в любую спальню, чтобы исцелить и сохранится, клав от 0 до 9.
+The models might blink if you don't wait for all assets to load.
+Модели могут мигать, если вы не дождетесь загрузки всех ресурсов.

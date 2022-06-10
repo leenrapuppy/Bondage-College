@@ -1,0 +1,64 @@
+[Message]: Send a message starting with /. Example: //message will send /message
+[Message]: Отправьте сообщение, начинающееся с /. Пример: //Message будет отправлено /Message
+[Message]: Display the message as an action
+[Message]: Показать сообщение как действие
+: Toggle AFK emote
+: Переключить эмоцию AFK
+[MemberNumber]: Ban the player from the room
+[MemberNumber]: Запретить игроку доступ в комнату
+[MemberNumber]: Send a beep to the player
+[MemberNumber]: Отправить звуковой сигнал игроку
+[MemberNumber]: Add the player to your blacklist
+[MemberNumber]: Добавьте игрока в черный список
+[MemberNumber]: Remove the player from your blacklist
+[MemberNumber]: Удалить игрока из черного списка
+[0-5], ”+”, ”-” or ”b” or ”blue”: Remove blush with ”0”, set red blush intensity with ”1” to ”5” or increase and decrease it with ”+” and ”-”, or set blue blush with ”b” or ”blue”. Giving no blush opens the blush menu.
+[0-5], ”+”, ”-” или ”b” или ”blue”: Снять румяна с ”0”, установите интенсивность красного румянца от ”1” до ”5” или увеличить и уменьшить его с помощью ”+” и ”-”, или установите синие румяна с ”b” или ”blue”. При отсутствии румян открывается меню румян.
+[Message]: sends hidden message to bots
+[Message]: отправляет скрытое сообщение ботам
+: Toss a coin
+: Бросить монету
+[MemberNumber]: Demote the player from room administrator
+[MemberNumber]: Понизить игрока в должности администратора комнаты
+[Number]: Roll a 6-sided die. Adding “[Number]” after the command for any number between 2 and 100 will roll a die of that many sides instead. Adding “[Number]d[Number]” will roll multiple dice and sum the total.
+[Number]: Бросьте шестигранный кубик. Добавление “[Number]” после команды для любого числа от 2 до 100 вместо этого бросится кубик с таким количеством граней. Добавление “[Number]d[Number]” бросит несколько кубиков и суммирует общее количество.
+[0-5]: Clear or load facial expression. ”0” after the command will clear current expression. ”1” to ”5” will load expression from the saved slot. Giving no number opens the saved expression menu.
+[0-5]: Очистите или загрузите выражение лица. ”0” после команды очистит текущее выражение. От ”1” до ”5” загрузит выражение из сохраненного слота. Если номер не указан, открывается меню сохраненных выражений.
+[o|c][l|r] or [expression]: Open or close eyes or change expression. ”c” will close, ”o” will open, using ”l” or ”r” will target only one eye. Giving no action opens the expression menu, using one of ”default”, ”dazed”, ”shy”, ”sad”, ”horny”, ”lewd”, ”verylewd”, ”heart”, ”heartpink”, ”lewdheart”, ”lewdheartpink”, ”dizzy” (or ”@@”), ”daydream” (or ”><”), ”shylyhappy” (or ”^^”), ”angry” (or ”èé”), ”surprised” (or ”éè”) or ”scared” will change expression.
+[o|c][l|r] или [expression]: Открыть или закрыть глаза или изменить выражение лица. ”c” закроется, ”o” откроется, используй ”l” или ”r” будет нацелен только на один глаз. Если не предпринимать никаких действий, открывается меню выражений с использованием одного из ”default”, ”dazed”, ”shy”, ”sad”, ”horny”, ”lewd”, ”verylewd”, ”heart”, ”heartpink”, ”lewdheart”, ”lewdheartpink”, ”dizzy” (or ”@@”), ”daydream” (or ”><”), ”shylyhappy” (or ”^^”), ”angry” (or ”èé”), ”surprised” (or ”éè”) или ”scared” изменится выражение.
+[MemberNumber]: Add the player to your friendlist
+[MemberNumber]: Добавить игрока в свой список друзей
+[MemberNumber]: Remove the player from your friendlist
+[MemberNumber]: Удалить игрока из списка друзей
+[MemberNumber]: Add the player to your ghostlist
+[MemberNumber]: Добавить игрока в свой призрачный список
+[MemberNumber]: Remove the player from your ghostlist
+[MemberNumber]: Удалить игрока из списка призраков
+[Keyword]: Display help for the command with prefix Keyword. Exclude [Keyword] to view all valid commands
+[Keyword]: Показать справку по команде с префиксом Keyword. Исключите [Keyword] , чтобы просмотреть все допустимые команды
+do nothing
+ничего не делать
+[MemberNumber]: Kick the player out of the room
+[MemberNumber]: Выгнать игрока из комнаты
+[Message]: Display “[PlayerName] Message” as an action. *[Message] does the same
+[Message]: Отображать “[PlayerName] Message” как действие. * [Message] делает то же самое
+[MemberNumber]: Promote the user to room administrator
+[MemberNumber]: Повышение роли пользователя до администратора комнаты
+use safeword
+использовать стоп-слово
+: View your blacklist
+: Посмотреть свой черный список
+: View you friendlist
+: Посмотреть свой список друзей
+: View your ghostlist
+: Посмотреть свой список призраков
+: View your whitelist
+: Просмотреть свой белый список
+: Open the friendlist screen
+: Откройте экран списка друзей
+[MemberNumber]: Remove a ban on a player
+[MemberNumber]: Снять бан с игрока
+[MemberNumber]: Add a player to your whitelist
+[MemberNumber]: Добавьте игрока в свой белый список
+[MemberNumber]: Remove a player from your whitelist
+[MemberNumber]: Удалить игрока из белого списка

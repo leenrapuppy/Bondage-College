@@ -1,0 +1,6 @@
+Exit Bondage Brawl
+Выйти Из Бондаж Драки
+Game over.  Use the exit button to try again.
+Игра окончена.  Используйте кнопку выхода, чтобы повторить попытку.
+CharacterName gained a level!
+CharacterName получила уровень!

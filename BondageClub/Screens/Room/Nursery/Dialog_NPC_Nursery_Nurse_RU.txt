@@ -1,17 +1,17 @@
 ﻿###_NPC
 Pacified big babies sound adorable when they try to talk.
 Усмеренные большие дети звучат восхитительно, когда они пытаются говорить.
-What do you think you are doing?  Bad babies like you shouldn't be free to cause more trouble.
+What do you think you're doing?  Bad babies like you shouldn't be free to cause more trouble.
 Ты думаешь, что ты делаешь?  Такие плохие дети, как ты, не должны быть свободными, чтобы причинить еще больше неприятностей.
-What do you think youre doing?  You should still be wear diapers.  You've been a very bad baby removing them.
+What do you think you’re doing?  You should be wearing diapers.  You've been a very bad baby removing them.
 Ты думаешь, что ты делаешь?  Ты все равно должна носить подгузники.  Ты была очень плохим ребенком, сняв его.
-Those are not appropriate clothes for an adult baby to wearing in this nursery.  How am I supposed to check your diaper?
+Those are not appropriate clothes for an adult baby to wear in this nursery.  How am I supposed to check your diaper?
 Это не подходящая одежда для взрослого ребенка, чтобы носить ее в этой детской.  Как же мне проверить твой подгузник?
 Where do you think you're trying to sneak off to?
 Как ты думаешь, куда ты пытаешься улизнуть?
-Looks like someone doesn't know when to stop miss behaving.
+Looks like someone doesn't know when to stop misbehaving.
 Похоже, кто-то не знает, когда надо остановиться.
-Baby DialogPlayerName again??  You are by far the worst behaved brat I have ever had to look after.
+Baby DialogPlayerName again??  You are by far the worst-behaved brat I have ever had to look after.
 Ребенок DialogPlayerName опять?  Ты самый невоспитанный сорванец, за которым мне когда-либо приходилось ухаживать.
 (She first shakes her head to avoid the gag, but finally surrenders as you silence her.)
 (Сначала она мотает головой, чтобы избежать кляпа, но в конце концов сдается, когда ты заставляешь ее замолчать.)
@@ -23,7 +23,7 @@ Baby DialogPlayerName again??  You are by far the worst behaved brat I have ever
 (Ты освобождаешь ее руки, и она кивает счастливо.)  Большое спасибо Мисс.
 (She submits to you while you restrain her legs securely.)  I don't need to move anyway.
 (Она подчиняется тебе, пока ты надежно связываешь ее ноги.)  Мне все равно не нужно двигаться.
-(You release her legs from the restraint.)  Let me know if I can help you Miss.
+(You release her legs from the restraints.)  Let me know if I can help you Miss.
 (Ты освобождаешь ее ноги от пут.)  Дайте мне знать, если я смогу вам помочь, Мисс.
 (She looks puzzled as you restrain her feet.)  I'll stay on guard here Miss.
 (Она выглядит озадаченной, когда ты связываешь ее ступни.)  Я останусь здесь на страже, Мисс.
@@ -47,7 +47,7 @@ Baby DialogPlayerName again??  You are by far the worst behaved brat I have ever
 (Ты хлещешь ее по груди кожаным стеком, пока она всхлипывает и склоняет голову.)
 (You whip her butt hard as she sighs.)  I promise I'll work harder Miss Head Maid.
 (Ты сильно хлещешь ее по заднице, когда она вздыхает.)  Я обещаю, что буду работать усерднее, Мисс старшая горничная.
-(She grumbles as you strike her butt with the crop.)  A maid work isn't easy.
+(She grumbles as you strike her butt with the crop.)  A maid's work is never easy.
 (Она ворчит, когда ты бьешь ее по заднице стеком.)  Работа горничной - это нелегко.
 Welcome to the Nursery.  How can I help you?
 Добро пожаловать в детскую.  Чем я могу вам помочь?
@@ -61,13 +61,13 @@ Pleased to meet you too.  I'm DialogCharacterName, I'm one of the nurses.
 What is this place?
 Что это за место?
 ###_NPC
-This is the nursery, setup as a safe environment for adult babies in need of some motherly compassion, fun and discipline.
+This is the nursery, set up as a safe environment for adult babies in need of some motherly compassion, fun and discipline.
 Это детская, созданная как безопасная среда для взрослых детей, нуждающихся в некоторой материнской заботе, веселье и дисциплине.
 ###_PLAYER
 May I join the nursery?
 Можно мне пойти в детскую?
 ###_NPC
-Of course, we are always welcoming to good little boys and girls.  You are aware of what the nursery's requirements of those in its care?
+Of course, we are always welcoming good little boys and girls.  You are aware of what the nursery's requirements are from those in its care?
 Конечно, мы всегда рады хорошим маленьким мальчикам и девочкам.  Вы в курсе, какие требования предъявляет детская к тем, кто находится на ее попечении?
 ###_PLAYER
 I'm ready to join the nursery again.
@@ -113,8 +113,8 @@ Dom rep -1
 Can I become a nurse?
 Могу ли я стать медсестрой?
 ###_NPC
-We are not hiring nurses at the moment.  When we do we only hire club members with good reputations in the nursery and the maid sorority.
-Сейчас мы не нанимаем медсестер.  Когда мы это делаем, мы нанимаем только членов клуба с хорошей репутацией в детском саду и сообществе горничных.
+We are not hiring nurses at the moment.  When we do
+Сейчас мы не нанимаем медсестер.
 ###_PLAYER
 Can I become a matron?
 Могу ли я стать воспитательницей?
@@ -125,8 +125,8 @@ Only the top nurses are ever granted that privilege.
 Ooh Matron.
 Ох, Воспитательница.
 ###_NPC
-Carry on like that and you will feel a painsy-wainsy in your botty-wotty!
-Продолжайте в том же духе, и вы почувствуете боль в своем теле!
+Carry on like that and you will feel a painsy-wainsy in your little botty-wotty!
+Продолжай в том же духе, и ты почувствуешь болезненную дрожь на своей маленькой заднице!
 ###_PLAYER
 Would I have to wear a uniform?
 Неужели мне придется носить униформу?
@@ -146,7 +146,7 @@ Who would want that?
 You would be surprised and we don't judge our charges.  Even some of the most dominant kidnappers also like a cuddle and nap time.
 Вы будете удивлены, но мы не обсуждаем наших подопечных.  Даже некоторые из самых доминирующих похитителей также любят обниматься и дремать.
 ###_PLAYER
-I though this place was a bondage club.
+I thought this place was a bondage club.
 Я думала, что это место - клуб бондажа.
 ###_NPC
 It is indeed.  We can use a variety of items and methods to ensure our adult babies are always on their best behaviour.
@@ -185,20 +185,20 @@ The primary requirement is diapers.  Clean diapers are mandatory on entry.  We c
 I don't want to join.
 Я не хочу присоединяться.
 ###_NPC
-Make up your mind or do you really need someone to care and help make those difficult decisions for you?
-Решитесь или вам действительно нужен кто-то, кто будет заботиться и помогать вам принимать эти трудные решения?
+Make up your mind. Or do you need someone to help make those difficult decisions for you?
+Прими решение. Или вам нужен кто-то, чтобы помочь принять эти трудные решения за вас?
 ###_PLAYER
 Okay, what else is there?
 Ладно, что там еще есть?
 ###_NPC
-We don't allow big girl clothes hiding diapers either.  You can wear just diapers, but we have a super selection lovely dresses you can wear.
-Мы также не позволяем большой девичьей одежде скрывать подгузники.  Вы можете носить только подгузники, но у нас есть супер выбор прекрасных платьев, которые вы можете носить.
+We don't allow big girl clothes to hide diapers either.  You can wear only diapers, but we also have a super selection of lovely dresses you can try on.
+Мы также не позволяем одежде для больших девочек скрывать подгузники. Вы можете носить только подгузники, но у нас также есть супер-выбор красивых платьев, которые вы можете примерить.
 ###_PLAYER
 Why the fee?
 Почему именно такая оплата?
 ###_NPC
-This place is not cheap to run.  The price for the diapers covers other running cost.
-Это место не из дешевых.  Цена на подгузники покрывает другие текущие расходы.
+This place is not cheap to run.  The price is both for the diapers as well as covering other running costs.
+Это место не из дешевых. Цена указана как за подгузники, так и за покрытие других текущих расходов.
 ###_PLAYER
 What do you mean by a fresh diaper each visit?
 Что вы подразумеваете под свежим подгузником на каждый визит?
@@ -206,7 +206,7 @@ What do you mean by a fresh diaper each visit?
 It would be incredibly irresponsible of us to risk putting a big baby in soiled diapers just to save a few dollars.
 Было бы невероятно безответственно с нашей стороны рисковать одеть большого ребенка в грязные подгузники только для того, чтобы сэкономить несколько долларов.
 ###_PLAYER
-Diapers? You are kidding me right?
+Diapers? You're kidding me right?
 Подгузники? Вы ведь шутите, правда?
 ###_NPC
 Sorry but it is in the rules.  We wouldn't want an adult baby having a whoopsie and making a horrid mess.
@@ -227,14 +227,14 @@ No, this is peaceful place.  Adult babies can talk, although many prefer pacifie
 What about clothes for boys?
 А как насчет одежды для мальчиков?
 ###_NPC
-They also wear dresses in here.  In pre-Victorian nurseries, young boys were unbreeched and wore dresses, just like the girls.
-Они также носят здесь платья.  В довикторианских детских садах молодые мальчики были без одежды и носили платья, как и девочки.
+Boys also wear dresses in here.  In pre-Victorian nurseries, young boys were unbreeched and wore dresses, just like the girls.
+Мальчики также носят здесь платья.  В довикторианских детских садах молодые мальчики были без одежды и носили платья, как и девочки.
 ###_PLAYER
 Why dresses?
 Почему именно платья?
 ###_NPC
-To look gorgeous of course and these dresses have high hemlines so it's easier for us to check there aren't any dirty diapers.
-Чтобы великолепно выглядеть, конечно, и эти платья имеют высокий подол, так что нам легче проверить, нет ли грязных подгузников.
+To look gorgeous of course. And these dresses have high hemlines, so it's easier for the nurses to check that there aren't any dirty diapers.
+Конечно, чтобы выглядеть шикарно. И у этих платьев высокий подол, чтобы медсестрам было легче проверить, нет ли грязных подгузников.
 ###_PLAYER
 What about long skirts?
 А как насчет длинных юбок?
@@ -251,8 +251,8 @@ That's a shame.  I'm sure you would have looked fabulous.
 I Understand.  Is there anything else?
 Я понимаю.  Есть еще что-нибудь?
 ###_NPC
-Adult babies can wonder around the club, but we don't advise it so we fitted a safety gate to the door to keep helpless babies safe inside.
-Взрослые дети могут интересоватся клубом, но мы не советуем этого делать, поэтому мы установили защитные ворота к двери, чтобы держать беспомощных детей в безопасности.
+Adult babies can wander around the club, but we don't advise it. So we've fitted a safety gate to the door to keep those helpless babies safe inside.
+Взрослые дети могут бродить по клубу, но мы этого не советуем. Поэтому мы установили защитную калитку на дверь, чтобы эти беспомощные дети были в безопасности внутри.
 ###_PLAYER
 What if I want to play rough?
 А что, если я хочу играть грубо?
@@ -263,20 +263,20 @@ We encourage you to play with each other, but play nicely or you will feel the s
 I'll cry if I want to.
 Я буду плакать, если захочу.
 ###_NPC
-Of course and we will do our best to comfort those in distressed, but we don't allow riotous behaviour that upsets others.
-Конечно, и мы сделаем все возможное, чтобы утешить тех, кто находится в бедственном положении, но мы не допускаем буйное поведение, которое расстраивает других.
+Of course, and we will do our best to comfort those in distress. But we don't allow riotous behaviour that upsets others.
+Конечно, и мы сделаем все возможное, чтобы утешить тех, кто в беде. Но мы не допускаем буйного поведения, которое расстраивает других.
 ###_PLAYER
 What about bondage?
 А как насчет бондажа?
 ###_NPC
-That is fine as long you are all playing happy, although some items are hardly suitable for use in here.  The nursery has some more appropriate restraints.
-Это прекрасно, пока вы все радостно играете, хотя некоторые предметы вряд ли подходят для использования здесь.  В детской комнате есть еще несколько подходящих ограничений.
+That is fine as long you are all playing happy, although some items are hardly suitable for use in here.  The nursery has some more... appropriate restraints.
+Это прекрасно, пока вы все радостно играете, хотя некоторые предметы вряд ли подходят для использования здесь.  В детской есть еще несколько... подходящих ограничений.
 ###_PLAYER
 I would like to join now, pwease.
 Я хотела бы присоединиться сейчас, пожалуйста.
 ###_NPC
-Wonderful.  That will be $10 and you need to sign this form, then I will help you into your first diaper.
-Замечательно.  Это будет стоить 10 долларов, и вам нужно подписать эту форму, а затем я помогу вам надеть ваш первый подгузник.
+Wonderful.  That will be $10 and you will need to sign this form. Then I will help you into your first diaper.
+Замечательно. Это будет стоть 10 долларов, и вам нужно будет подписать эту форму. Тогда я помогу тебе надеть твой первый подгузник.
 ###_PLAYER
 Thanks for reminding me.
 Спасибо, что напомнили мне.
@@ -299,7 +299,7 @@ I am sorry to hear that.  Do let me know if your mind.
 Yes here it is. (Pay $10.)
 Да, вот они. (Заплати $10.)
 ###_NPC
-Thank you.  Now let’s get you changed.  (She takes you to one side and swiftly removes all your clothes.)
+Thank you.  Now let’s get you changed.  (She takes you to one side and swiftly removes all of your clothes.)
 Спасибо.  А теперь давай тебя переоденем.  (Она отводит тебя в сторону и быстро снимает с тебя всю одежду.)
 ###_PLAYER
 I am already diapered and ready to enter.
@@ -323,7 +323,7 @@ Yes you can come in wearing your own Diapers. But they must be clean and you can
 I'm not paying for this.
 Я не буду за это платить.
 ###_NPC
-That is a shame, but we can't run this place for free.  If you change your mind we are always very welcoming.
+That is a shame, but we can't run this place for free.  If you change your mind we are always very welcome.
 Это позор, но мы не можем управлять этим местом бесплатно.  Если вы передумаете, мы всегда будем очень гостеприимны.
 ###_PLAYER
 Sorry, maybe another time.
@@ -340,6 +340,10 @@ The primary requirement is diapers.  Clean diapers are mandatory on entry.  We c
 ###_PLAYER
 (Sign the form and pay $10.)
 (Подпиши форму и заплати $10.)
+###_NPC
+Thank you.  Now let’s get you changed.  (She takes you to one side and swiftly removes all your clothes.)
+Спасибо. Теперь давай переоденемся. (Она отводит вас в сторону и быстро снимает с вас всю одежду.)
+###_PLAYER
 I can't afford this right now.
 Сейчас я не могу себе этого позволить.
 ###_NPC
@@ -349,7 +353,7 @@ That is a pity.  There are plenty of ways to make money in the club.  I'm sure y
 What is the $10 charge for?
 За что взимается плата в размере 10 долларов?
 ###_NPC
-This place is not cheap to run.  The price for a diaper also covers other running cost, such as outfit hire.
+This place is not cheap to run.  The price for a diaper also covers other running costs, such as outfit hire.
 Это место не из дешевых.  Цена за подгузник также покрывает другие текущие расходы, такие как аренда снаряжения.
 ###_PLAYER
 What is this form for?
@@ -409,10 +413,10 @@ A bra on a baby?  That would be absurd.  Lift up your arms now.  (She pulls a dr
 Come on, this is taking too long.
 Да ладно, это слишком долго тянется.
 ###_NPC
-Someone’s getting tetchy.  I bet you are bursting to fill that diaper.  (She helps you into a dress.)
-Кто-то начинает раздражаться.  Держу пари, что ты рвешься наполнить этот подгузник.  (Она помогает тебе надеть платье.)
-You are and well behaved, you'll get on well here.  Now lift up your arms.  (She pulls a dress over you head and helps you into it.)
-Ты молодец и хорошо себя ведешь,тебе здесь будет хорошо. А теперь подними руки.  (Она натягивает тебе через голову платье и помогает влезть в него.)
+Someone’s getting tetchy.  I bet you are just bursting to fill that diaper.  (She helps you into a dress.)
+Кто-то начинает раздражаться.  Держу пари, что ты просто рвешься наполнить этот подгузник.  (Она помогает тебе надеть платье.)
+You are and well behaved, you'll get on fine here.  Now lift up your arms.  (She pulls a dress over you head and helps you into it.)
+Ты молодец и хорошо себя ведешь, тебе здесь будет хорошо. А теперь подними руки.  (Она натягивает тебе через голову платье и помогает влезть в него.)
 ###_PLAYER
 Am I ready to play in the nursery now?
 Готова ли я теперь играть в детской?
@@ -431,7 +435,7 @@ Hold still just a little longer, only a few accessories left to add now.  (She a
 (Twirl around.)
 (Повернись кругом.)
 ###_NPC
-Such a sweet little girl, you really look precious.  You can waddle along now and enjoy the nursery.
+Such a sweet little girl, you really do look precious.  You can waddle along now and enjoy the nursery.
 Такая милая маленькая девочка, ты действительно выглядишь прелестно.  Теперь ты можешь войти и наслаждаться детской.
 ###_PLAYER
 (Spit out the pacifier.)
@@ -439,8 +443,8 @@ Such a sweet little girl, you really look precious.  You can waddle along now an
 ###_NPC
 What ever is the matter darling?
 Что нибудь случилось, дорогая?
-(This pacifier is not going anywhere.  The harness holds it securely in place and your mouth firmly closed around the nipple.)
-(Эта соска никуда не денется. Ремешок надежно удерживает ее на месте, и твой рот плотно закрывается вокруг соска.)
+(This pacifier is not going anywhere.  The harness holds it securely in place with your mouth firmly closed around the nipple.)
+(Эта пустышка никуда не денется. Ремешок надежно удерживает ее на месте, пока ваш рот плотно закрывается вокруг соска.)
 ###_PLAYER
 (Test the mittens.)
 (Проверь варежки.)
@@ -475,19 +479,19 @@ This pacifier should help you avoid the naughty corner.  (She puts a different p
 I woshth my binky.
 Я хочу свою соску.
 ###_NPC
-Awww never mind, here have another one.  (She puts a pacifier in your mouth.)
-Аууу не обращай внимания, тут есть еще одна.  (Она кладет тебе в рот пустышку.)
+Awww never mind. Here, have another one.  (She puts a pacifier in your mouth.)
+Аууу, неважно. Вот, возьми еще одну. (Она кладет тебе в рот пустышку.)
 ###_PLAYER
 I woshth my binky again.
 Я опять потеряла свою соску.
 ###_NPC
-I had better make sure you don't loose this one then.  (She straps a harness pacifier in your mouth.)
+I had better make sure you don't lose this one then.  (She straps a harness pacifier into your mouth.)
 Тогда я должна быть уверена, что ты не потеряешь ее.  (Она пристегивает ремнем соску к твоему рту.)
 ###_PLAYER
 (Cry and mumble into your pacifier.)
 (Борись и плачь в пустышку.)
 ###_NPC
-I'm sorry, I didnt understand that.  Try again now.  (She removes the device from your mouth.)
+I'm sorry, I didn’t understand that.  Try again now.  (She removes the device from your mouth.)
 Прости, я этого не поняла.  Попробуй еще раз.  (Она вынимает устройство у тебя изо рта.)
 ###_PLAYER
 Do I really have to wear this diaper?
@@ -528,8 +532,8 @@ It's been lovely having you here.  (She helps you change and disposes of the dia
 ###_PLAYER
 (Leave her.)
 (Оставь ее.)
-I've been a good girl honest.  My hands are cold.
-Я всегда была хорошей девочкой, честно.  У меня замерзли руки.
+I've been a good girl, honest!  My hands are cold.
+Я была хорошей девочкой, честное слово!  У меня замерзли руки.
 ###_NPC
 Aww, you poor thing.  Slip you hands in these and they will soon warm up.  (She fastens mittens over your hands.)
 Ах ты, бедняжка.  Сунь в них свои руки, и они скоро согреются.  (Она застегивает варежки на твоих руках.)
@@ -537,7 +541,7 @@ Aww, you poor thing.  Slip you hands in these and they will soon warm up.  (She 
 Maybe.  (Bow your head and avoid her gaze.)
 Может быть.  (Склони голову и избегай ее взгляда.)
 ###_NPC
-Come here.  (She fastens mittens over your hands and a harness round you chest, connected them with short chains.)  Now what did you do?
+Come here.  (She fastens mittens over your hands and a harness round you chest, connecting them with short chains.)  Now what did you do?
 Иди сюда.  (Она застегивает варежки на твоих руках и обвязывает тебя ремнем на груди, соединяя их короткими цепочками.)  И что же ты теперь сделаешь?
 ###_PLAYER
 They are not for me.
@@ -549,13 +553,13 @@ I know bondage items look fun, but they are not suitable toys for ickle babies t
 Nothing wrong, I just like being bound.
 Ничего страшного, мне просто нравится быть связанной.
 ###_NPC
-(She puts a pacifier in your mouth.)  I suppose you like to be gagged as well.  Run along now before change my mind and get the hair brush.
+(She puts a pacifier in your mouth.)  I suppose you like to be gagged as well.  Run along now before I change my mind and get the hair brush.
 (Она засовывает тебе в рот пустышку.)  Полагаю, тебе тоже нравится, когда тебе затыкают рот кляпом.  А теперь беги, пока я не передумала и не взяла щетку для волос.
 ###_PLAYER
-We were all putting our hands in each others diapers and masturbating each other and it felt so good and....
+We were all putting our hands in each other's diapers and masturbating each other and it felt so good and....
 Мы все засовывали руки друг другу в подгузники и мастурбировали друг другу, и это было так хорошо и приятно....
 ###_NPC
-YOU WHAT!?  That is highly inappropriate behaviour in a nursery.  (She securely restrains and gags all the adult babies.)
+YOU WHAT!?  That is highly inappropriate behaviour in a nursery.  (She securely restrains and gags all of the adult babies.)
 ТЫ ЧТО ДЕЛАЛА!?  Это крайне неуместное поведение в детской.  (Она надежно связывает и затыкает рот всем взрослым младенцам.)
 ###_PLAYER
 I'm not telling you.
@@ -567,7 +571,7 @@ You had better not tell anyone then.  (She straps a pacifier in your mouth, chec
 Help me to forget what?
 Поможет мне забыть что?
 ###_NPC
-Nothing to serious, you might not be as skillful as you used to be after drinking it.
+Nothing too serious, you might not be as skillful as you used to be after drinking it.
 Ничего серьезного, может быть, ты будешь уже не так искусна, как раньше, выпив его.
 ###_PLAYER
 What is in this milk?
@@ -579,8 +583,8 @@ Just a natural drug, which induces very mild amnesia and maybe some stimulant la
 Is that safe?
 Это безопасно?
 ###_NPC
-Don't worry it is tested and the dose is far too small to risk wiping your mind blank. It does not affect your ability to learn afterwards either.
-Не волнуйся, он протестирован, и доза слишком мала, чтобы был риск стереть твой разум. Это также не влияет на твою способность  впоследствии обучится.
+Don't worry. It has been tested and the dose is far too small to risk wiping your mind blank. It does not affect your ability to learn afterwards either.
+Не волнуйся, он протестирован, и доза слишком мала, чтобы был риск стереть твой разум. Это также не влияет на твою способность впоследствии обучится.
 ###_PLAYER
 Can I have some, please.
 Можно мне немного, пожалуйста?
@@ -591,7 +595,7 @@ Just wait there a moment.  (She fetches a bottle of milk with a teat on it.)  Ar
 I think I will pass.
 Я думаю, что я пасс.
 ###_NPC
-Thats okay.  You can always ask if you change your mind.  (She puts the bottle back.)
+That’s okay.  You can always ask if you change your mind.  (She puts the bottle back.)
 Это нормально.  Ты всегда можешь попросить, если передумаешь.  (Она ставит бутылку на место.)
 ###_PLAYER
 Yes, really I want to regress.
@@ -631,8 +635,8 @@ DialogCharacterName ставит бутылку на пол и обнимает 
 (Burp quietly.)
 (Тихо отрыгни.)
 ###_NPC
-Good girl, you will feel better for that.  (She lets go of you and that warm cozy fuzzy feeling starts to diminish.)
-Хорошая девочка, тебе от этого станет легче.  (Она отпускает тебя, и это теплое, уютное, размытое чувство начинает ослабевать.)
+Good girl, you will feel better after that.  (She lets go of you and that warm cozy fuzzy feeling starts to diminish.)
+Хорошая девочка, после этого ты почувствуешь себя лучше. (Она отпускает тебя, и это теплое, уютное, размытое чувство начинает ослабевать.)
 ###_PLAYER
 (Belch loudly.)
 (Громко рыгни.)
@@ -643,7 +647,7 @@ Oh my, that wasn't very lady like.  (She lets go of you and that warm cozy fuzzy
 Is this necessary?  I feel fine.
 Разве это необходимо?  Я чувствую себя прекрасно.
 ###_NPC
-Of course it is you are bound to have some trapped wind after swallowing that warm milk.
+Of course it is. You are bound to have some trapped bubbles after swallowing all that warm milk.
 Конечно, у тебя обязательно будет какое то спертое дыхание, после употребления этого теплого молока.
 ###_PLAYER
 Can I try a different dress?
@@ -661,40 +665,40 @@ Yes.  The nursery has quite a stock of dresses in many lovely colors, but you wi
 I just want to wear my birthday suit.
 Я просто хочу надеть свой праздничный костюм.
 ###_NPC
-I suppose you may.  Do you want me to put that dress for washing?
+I suppose you may.  Do you want me to put that dress on for washing?
 Я полагаю, что ты можешь.  Ты хочешь, чтобы я положила это платье для стирки?
 ###_PLAYER
 Can I choose the dress style and color please?
 Могу ли я выбрать стиль и цвет платья, пожалуйста?
 ###_NPC
-Sorry, that would be a very big decision for an ickle baby to make, but I'm sure I can pick out something delightful for you to wear.
+Sorry, that would be a very big decision for an ickle baby to make. I'm sure I can pick out something delightful for you to wear.
 К сожалению, это было бы слишом важное решение для ребенка, чтобы разрешить, но я уверена, что я могу выбрать для тебя что-то восхитительное.
 ###_PLAYER
-I will stay wearing this dress.
-Я останусь в этом платье.
+I will continue wearing this dress.
+Я буду продолжать носить это платье.
 ###_NPC
-That is all right and you do look very pretty in it.
-Все в порядке, и ты очень красивая.
+That is alright. You do look very pretty in it.
+Все в порядке. Ты выглядишь в нем очень красиво.
 ###_PLAYER
 Okay. (Pay $5)
 Окей. (Оплати $5)
 ###_NPC
-Great, I think you will look absolutely smashing in this dress.  (She changes your dress, fussing over you, making it sits just right.)
-Отлично, я думаю, что ты будешь выглядеть совершенно потрясающе в этом платье.  (Она меняет тебе платье, суетится вокруг тебя, делает так, чтобы оно сидело как надо.)
-Sorry honey, you will have to come back later when you have some pocket money to spend.
+Great, I think you will look absolutely adorable in this dress.  (She changes your dress, fussing over you and making it sit just right.)
+Отлично, я думаю, ты будешь выглядеть просто очаровательно в этом платье. (Она меняет тебе платье, суетится вокруг тебя, делает так, чтобы оно сидело как надо.)
+Sorry honey. You will have to come back later when you have some pocket money to spend.
 Извини, дорогая, но тебе придется вернуться позже, когда у тебя будет немного карманных денег, чтобы потратить их.
 ###_PLAYER
 I will stay like this.
 Я останусь в таком виде.
 ###_NPC
-You all ready look adorable as you are.
-Ты выглядишь очаровательно, как всегда.
+You already look adorable as you are.
+Ты и так выглядишь очаровательно.
 ###_PLAYER
 Eeeee, thish ish perfecth. Thanw you.
 Ииии, это и есть совершенство. Мне идет.
 ###_NPC
-You are simply adorable and welcome baby DialogPlayerName.
-Ты просто очаровательная и желанная малышка DialogPlayerName.
+You are simply adorable and are very welcome baby DialogPlayerName.
+Ты просто очаровательная и очень желанная малышка DialogPlayerName.
 ###_PLAYER
 Thank you.
 Спасибо.
@@ -711,7 +715,7 @@ It suits you just fine. Try it for a while and I am sure you will grow to love i
 I like this dress, but can I have it in another color?
 Мне нравится это платье, но могу ли я получить его в другом цвете?
 ###_NPC
-Of course you may, but that dress will have to be laundered now so you will have to pay an extra $5.
+Of course you may, but that dress will have to be laundered. You will have to pay an extra $5.
 Конечно, ты можешь, но это платье придется постирать сейчас, так что тебе придется заплатить дополнительные 5 долларов.
 ###_PLAYER
 Hmmm, I want to try on another dress.
@@ -733,17 +737,17 @@ Come here then. (She unbuttons and removes your dress.)
 Тогда иди сюда. (Она расстегивает и снимает с тебя платье.)
 You are simply adorable baby DialogPlayerName, almost as naked and vulnerable as the day you were born.
 Ты просто очаровательная малышка DialogPlayerName, почти такая же голая и уязвимая, как в тот день, когда ты родилась.
-It will have to.  I have already sent that dress off for washing.  You're almost as naked and vulnerable as the day you were born now.
+It will have to.  I have already sent that dress off for washing.  You're now almost as naked and vulnerable as the day you were born.
 Так и должно быть.  Я уже отослала это платье в стирку.  Ты почти такая же голая и уязвимая, как в тот день, когда родилась.
 ###_PLAYER
 Actually I want to wear my dress again.
 Вообще - то я хочу снова надеть свое платье.
 ###_NPC
-Great, I think you will look absolutely smashing in this dress.  (She takes a fresh dress and puts it on you, making it sit just right.)
-Отлично, я думаю, что ты будешь выглядеть совершенно потрясающе в этом платье.  (Она берет свежее платье и надевает его на тебя, чтобы оно сидело как надо.)
+Great, I think you will look absolutely adorable in this dress.  (She takes a fresh dress and puts it on you, making it sit just right.)
+Отлично, я думаю, ты будешь выглядеть просто очаровательно в этом платье. (Она берет свежее платье и надевает его на тебя так, чтобы оно сидело как надо.)
 You all look ready adorable as you are.
 Ты выглядишь так же очаровательно, как и всегда.
-I've been very disappointed by your recent behaviour. You can stay like that until you are ready to apologize.
+I've been very disappointed by your recent behavior. You can stay like that until you are ready to apologize.
 Я была очень разочарована твоим недавним поведением. Ты будешь оставаться в таком положении, пока не будешь готова извиниться.
 Are you ready to apologize properly little DialogPlayerName?
 Ты готова извиниться как следует маленькая DialogPlayerName?
@@ -751,7 +755,7 @@ Are you ready to apologize properly little DialogPlayerName?
 Hey let me go right now.
 Эй, отпустите меня прямо сейчас.
 ###_NPC
-You clearly haven't learnt your lesson yet.  (She straps a pacifier in your mouth)  That will help you learn some manners. Now for another lesson.
+You clearly haven't learnt your lesson yet.  (She straps a pacifier into your mouth)  That will help you learn some manners. Now for another lesson.
 Ты явно еще не выучила свой урок.  (Она пристегивает соску к твоему рту)  Это поможет тебе научиться хорошим манерам. А теперь еще один урок.
 ###_PLAYER
 Will you let me go now?
@@ -775,7 +779,7 @@ Aww, it is good to hear that.  Are you going to be a good little girl now?
 I am really sorry Nurse.
 Мне очень жаль, медсестра.
 ###_NPC
-I am glad to hear that.  Are you going to behave your self and play nicely now?
+I am glad to hear that.  Are you going to behave yourself and play nicely now?
 Я рада это слышать.  Ты собираешься вести себя хорошо и играть сейчас?
 ###_PLAYER
 (Nod your head.)
@@ -795,73 +799,73 @@ Well you had better keep quiet and think about your behaviour.
 Yes Nurse.
 Да, медсестра.
 ###_NPC
-Good youre getting the hang of this.  Now which punishment shall I give you this time?
-Хорошо, что ты уже освоилась с этим делом.  Так какое же наказание я тебе назначу на этот раз?
+I'm glad to hear you’re getting the hang of this.  Now which punishment shall I give you this time?
+Я рада слышать, что ты понимаешь это. Какое наказание я должна дать тебе на этот раз?
 ###_PLAYER
 Please no, I'll be good.
 Пожалуйста, нет, я буду хорошо себя вести.
 ###_NPC
-Don't try fooling me.  You are in this situation because precisely because you have not been good.  Now which punishment will you get this time?
-Не пытайся меня одурачить.  Ты находишься в этой ситуации, именно потому, что ты не была хорошей.  Так какое же наказание ты получишь на этот раз?
+Don't try to fool me.  You are in this situation precisely because you have not been good.  Now which punishment will you get this time?
+Не пытайся одурачить меня. Ты находишься в этой ситуации именно потому, что ты не была хорошей.  Итак, какое наказание ты получишь на этот раз?
 Fine, but you still need to think long and hard about your behaviour.
 Хорошо, но тебе все равно нужно долго и упорно думать о своем поведении.
-Good your getting the hang of this, now which punishment shall I give you this time.
-Хорошо, что ты все это усвоила, а теперь какое наказание я тебе назначу на этот раз?
+I'm glad to hear that you're getting the hang of this, now which punishment shall I give you this time?
+Я рада слышать, что ты освоилась с этим, теперь, какое наказание мне назначить тебе на этот раз?
 It's far too late for that. You have been a very naughty girl.  Now which punishment shall I give you this time?
 Для этого уже слишком поздно. Ты была очень непослушной девочкой.  Так какое же наказание я тебе назначу на этот раз?
 ###_PLAYER
 What are you going to do?
 Что вы собираетесь сделать?
 ###_NPC
-(She produces a hair brush)  It is time you had your bottom spank.  (She sits on a chair.)  Now lie down over my knees.
+(She produces a hair brush)  It is time you had your bottom spanked.  (She sits on a chair.)  Now lie down over my knees.
 (Она достает щетку для волос)  Пришло время отшлепать тебя по заднице.  (Она садится на стул.)  А теперь ложись мне на колени.
 ###_PLAYER
 (Wait quietly.)
 (Спокойно ждать.)
 ###_NPC
-Where do you think your going?  (She grabs your arm and pulls you back close to her.)
+Where do you think you're going?  (She grabs your arm and pulls you back close to her.)
 Куда это ты собпралась?  (Она хватает тебя за руку и притягивает к себе.)
 ###_PLAYER
 Yesh Nurshe.
 Да медсестра.
 ###_NPC
-That is lovely to hear.  (She gives you a big hugs, then frees you.)  Would you like an ordinary pacifier?
+That is lovely to hear.  (She gives you a big hug, then frees you.)  Would you like an ordinary pacifier?
 Это очень приятно слышать.  (Она крепко обнимает тебя, а потом отпускает.)  Хочешь обычную соску?
-That is good to hear.  (She gives you a hugs, then frees you.)  Would you like an ordinary pacifier?
+That is good to hear.  (She gives you a hug, then frees you.)  Would you like an ordinary pacifier?
 Это приятно слышать.  (Она обнимает тебя, а потом отпускает.)  Хочешь обычную соску?
 ###_PLAYER
 Maybe.
 Может быть.
 ###_NPC
-I can always give you more punishments till you are sure.  Now are you going to be a good girl?
+I can always give you more punishments until you are sure.  Now are you going to be a good girl?
 Я всегда могу назначить тебе больше наказаний, пока ты не будешь уверена.  А теперь ты будешь хорошей девочкой?
 ###_PLAYER
 Nope.
 Нет.
 ###_NPC
-I though not.  (She gags you with a harness pacifier.)  It's time you had another punishment.
+I thought not.  (She gags you with a harness pacifier.)  It's time you had another punishment.
 Я думаю, что нет.  (Она затыкает тебе рот пустышкой на ремне.)  Пришло время, чтобы ты получила еще одно наказание.
 ###_PLAYER
 Yesh pweashe.
 Да, пожалуйста.
 ###_NPC
-I though you would.  (She helps your hands into mittens, slips a pacifier into your mouth and kisses you on the forehead.)  Run along now.
+I thought you would.  (She helps your hands into mittens, slips a pacifier into your mouth and kisses you on the forehead.)  Run along now.
 Я так и думала, что ты это сделаешь.  (Она помогает тебе надеть варежки, засовывает соску в рот и целует тебе в лоб.) А теперь беги.
 ###_PLAYER
 No thank you.
 Нет уж, спасибо.
 ###_NPC
-I do know when you are not being honest.  (She slips for hands into mittens and a pacifier into your mouth.)  Run along now like a good girl.
-Я знаю, когда ты не совсем честна. (Она засовывает руки в варежки и соску тебе в рот.)  А теперь беги, как хорошая девочка.
+I do know when you are not being honest.  (She slips your hands into mittens and a pacifier into your mouth.)  Run along now like a good girl.
+Я знаю, когда ты не совсем честна. (Она засовывает твои руки в варежки и соску тебе в рот.)  А теперь беги, как хорошая девочка.
 ###_PLAYER
 Whatever
 Без разницы
 ###_NPC
 Don't take that tone with me young lady.  (She forcibly restrains you again.)
 Не говори со мной таким тоном, юная леди.  (Она снова насильно связывает тебя.)
-Youre not going anywhere like that.  (She pulls you back and forcibly restrains you again.)
+You’re not going anywhere like that.  (She pulls you back and forcibly restrains you again.)
 Ты никуда не пойдешь.  (Она тянет тебя назад и снова насильно связывает.)
-Don't take that tone with me.  I know you have been a very naughty girl.
+Don't take that tone with me.  I know you've been a very naughty girl.
 Не говори со мной таким тоном.  Я знаю, что ты была очень непослушной девочкой.
 ###_PLAYER
 I'm sorry Nurse.
@@ -873,7 +877,7 @@ I can tell you are not sorry.  Babies must ask to stop wearing diapers and leave
 (Sulk.)
 (Дуться.)
 ###_NPC
-Its no good sulking like that.  You know you must wear diapers the whole time while in our care.
+It’s no good sulking like that.  You know you must wear diapers the whole time while in our care.
 Не стоит так дуться.  Ты знаешь, что должна носить подгузники все время, пока находишься на нашем попечении.
 Hold it right there.  (She grabs hold of your arm.)  You never asked to leave the nursery.
 Стой здесь.  (Она хватает тебя за руку.)  Ты никогда не просила меня покинуть детскую.
@@ -881,15 +885,15 @@ Hold it right there.  (She grabs hold of your arm.)  You never asked to leave th
 So what now?
 Ну и что теперь?
 ###_NPC
-You can be quiet for a start.  (She makes sure you are completely strips and securely restrained. Then puts you in fresh diapers.)
+You can be quiet for a start.  (She makes sure you are completely stripped naked and securely restrained. Then puts you in fresh diapers.)
 Для начала ты можешь помолчать.  (Она следит за тем, чтобы ты была полностью обнажена и надежно связана. Потом одевает тебя в свежие подгузники.)
-At least you still have some manners.  (She makes sure you are completely strips and securely restrained. Then puts you in fresh diapers.)
+At least you still have some manners.  (She makes sure you are completely stripped naked and securely restrained. Then puts you in fresh diapers.)
 По крайней мере, у тебя сохранились хорошие манеры.  (Она следит за тем, чтобы ты была полностью обнажена и надежно связана. Потом одевает тебя в свежие подгузники.)
 ###_PLAYER
 (Ignore the nurse.)
 (Игнорируй медсестру.)
 ###_NPC
-HEY look at me when I am talking to you.  (She makes sure you are completely strips and securely restrained. Then puts you in fresh diapers.)
+HEY look at me when I am talking to you.  (She makes sure you are completely stripped naked and securely restrained. Then puts you in fresh diapers.)
 Эй, смотри на меня, когда я с тобой разговариваю.  ((Она следит за тем, чтобы ты была полностью обнажена и надежно связана. Потом одевает тебя в свежие подгузники.)
 ###_PLAYER
 This is so unfair.
@@ -897,7 +901,7 @@ This is so unfair.
 ###_NPC
 It's not fair that I have to deal with unruly brats like you.  Now you need a proper punishment.
 Это несправедливо, что мне приходится иметь дело с такими непослушными детьми, как ты.  Теперь тебе нужно достойное наказание.
-What you need now is a proper punishment to teach you how to behave in future.
+What you need now is a proper punishment to teach you how to behave in the future.
 То, что тебе нужно сейчас - это правильное наказание, чтобы научить тебя, как вести себя в будущем.
 ###_PLAYER
 (Pull away from her.)
@@ -913,13 +917,13 @@ Of course it matters.  That attitude will get you into deep trouble.  (She remov
 Конечно, это имеет значение.  Такое отношение приведет тебя к большим неприятностям.  (Она снимает с тебя одежду.)
 It would be better if you behaved better and didn't have to be sorry.  (She removes your clothes.)
 Было бы лучше, если бы ты вела себя лучше и не жалела об этом.  (Она снимает с тебя одежду.)
-Youre not going anywhere dressed like that.  (She pulls you back and removes your clothes.)
+You’re not going anywhere dressed like that.  (She pulls you back and removes your clothes.)
 Ты никуда не пойдешь в таком виде.  (Она тянет тебя назад и снимает одежду.)
 ###_PLAYER
 Can I go now?
 Я могу идти?
 ###_NPC
-Your diapers appear to be fine now, but I will make sure you hands can't cause any more mischief.  (She makes sure you are restrained.)
+Your diapers appear to be fine now, but I will make sure your hands can't cause any more mischief.  (She makes sure you are restrained.)
 Твои подгузники сейчас в порядке, но я позабочусь о том, чтобы твои руки больше не причиняли вреда.  (Она следит за тем, чтобы ты была связана.)
 ###_PLAYER
 Can I have some clothes please?
@@ -927,21 +931,21 @@ Can I have some clothes please?
 ###_NPC
 Not at the moment, you will have to earn that privilege again, along with the use of your hands.  (She makes sure you are restrained.)
 Не сейчас, ты должна будешь заработать эту привилегию снова, вместе с использованием твоих рук.  (Она следит за тем, чтобы ты была связана.)
-Thats better, the seriousness of this seems to be sinking in, but you have not been forgiven yet.  (She makes sure you are restrained.)
+That’s better, the seriousness of this seems to be sinking in, but you have not been forgiven yet.  (She makes sure you are restrained.)
 Вот так лучше, серьезность происшедшего постепенно исчезает, но ты еще не получила прощения.  (Она следит за тем, чтобы ты была связана.)
-Youre not even wearing your diaper!  You have been a very naughty girl.  I'm really disappointed in your behaviour DialogPlayerName.
+You’re not even wearing your diaper!  You have been a very naughty girl.  I'm really disappointed in your behaviour DialogPlayerName.
 Ты даже не надела свой подгузник!  Ты очень непослушная девочка.  Я действительно разочарована твоим поведением DialogPlayerName.
 ###_PLAYER
 I was just making sure the gate was shut.
 Я просто хотела убедиться, что ворота закрыты.
 ###_NPC
-It self closes perfectly well on its own.  Don't let me catch you messing with that gate again.
+It closes perfectly well on its own.  Don't let me catch you messing with that gate again.
 Они сами прекрасно закрываются сами по себе.  Не дай бог мне снова застать тебя за возней с воротами.
 ###_PLAYER
 (Bow your head and fidget anxiously.)
 (Склони голову и беспокойно ерзай.)
 ###_NPC
-Yes, you know should stay in here like a good baby.  Don't let me catch you messing with that gate again.
+Yes, you know you should stay in here like a good baby.  Don't let me catch you messing with that gate again.
 Да, ты знаешь, что должна оставаться здесь, как хороший ребенок.  Не дай бог мне снова застать тебя за возней с воротами.
 I know what you were trying to do.  Don't let me catch you messing with that gate again.
 Я знаю, что ты пыталася сделать.  Не дай бог мне снова застать тебя за возней с воротами.
@@ -949,23 +953,25 @@ I know what you were trying to do.  Don't let me catch you messing with that gat
 Hey, you can't do this too me.
 Эй, вы не можете так поступить со мной.
 ###_NPC
-Oh yes I can.  I have your signed consent to treat you like this.  I think you need a nap and time out.  (She restrains and blinds you.)
+Oh yes I can.  I have your signed consent to treat you like this.  I think you need a nap and a time out.  (She restrains and blinds you.)
 О да, я могу это делать.  У меня есть твое подписанное согласие так с тобой обращаться.  Я думаю, тебе нужно немного вздремнуть и отдохнуть.  (Она связывает и ослепляет тебя.)
 ###_PLAYER
 Please just let me go.
 Пожалуйста, просто отпустите меня.
 ###_NPC
-I will once you have learnt to behave properly.  I think you need a nap and time out.  (She makes sure you are restrained and blinds you.)
+I will once you have learned to behave properly.  I think you need a nap and a time out.  (She makes sure you are restrained and blinds you.)
 Я сделаю это, как только ты научишься вести себя правильно.  Я думаю, тебе нужно немного вздремнуть и отдохнуть.  (Она следит за тем, чтобы ты была связана, и ослепляет тебя.)
-Don't try to worm your way out of this one.  I think you need a nap and time out.  (She makes sure you are restrained and blinds you.)
+Don't try to worm your way out of this one.  I think you need a nap and a time out.  (She makes sure you are restrained and blinds you.)
 Не пытайся выкрутиться из этой ситуации.  Я думаю, тебе нужно немного вздремнуть и отдохнуть.  (Она следит за тем, чтобы ты была связана, и ослепляет тебя.)
-(You don't get far before she pins you down.)  I think you need a nap and time out.  (She makes sure you are restrained and blinds you.)
+(You don't get far before she pins you down.)  I think you need a nap and a time out.  (She makes sure you are restrained and blinds you.)
 (Ты не успеваешь далеко уйти, как она тебя хватает.)  Я думаю, тебе нужно немного вздремнуть и отдохнуть.  (Она следит за тем, чтобы ты была связана, и ослепляет тебя.)
 ###_PLAYER
 (The nurse leaves you.)
 (Медсестра оставляет тебя.)
+Hey, you can't do this to me.
+Эй, ты не можешь так поступить со мной.
 ###_NPC
-I have had enough of your bad behaviour.  (She forcibly makes sure you are kneeling and securely bound)  It is time to make you bottom glow.
+I have had enough of your bad behaviour.  (She forcibly makes sure you are kneeling and securely bound)  It is time to make your bottom glow.
 С меня довольно твоего дурного поведения.  (Она убеждается, что ты стоишь на коленях и надежно связана)  Пришло время заставить тебя опустится вниз.
 ###_PLAYER
 (Punishments to do)

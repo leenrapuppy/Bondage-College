@@ -1,0 +1,813 @@
+###_NPC
+(She looks at your gag and giggles.)
+(Она смотрит на твой кляп и хихикает.)
+(A girl is restrained in the room you're supposed to clean.)  Excuse me maid?  I think I'm stuck.
+(Девушка находится в комнате, которую вы должны убирать.)  Простите, горничная?  Я думаю, что застряла.
+###_PLAYER
+Who are you?
+Кто ты?
+###_NPC
+I'm not from the club, I'm a journalist.  I came here for an interview.
+Я не из клуба, я журналистка.  Я пришла сюда на собеседование.
+###_PLAYER
+Are you a slave?
+Ты рабыня?
+###_NPC
+No!  I'm not from the club, I'm a journalist.  I came here for an interview.
+Нет!  Я не из клуба, я журналистка.  Я пришла сюда на собеседование.
+###_PLAYER
+Are you ticklish?  (Tickle her.)
+Ты боишься щекотки?  (Пощекочите ее.)
+###_NPC
+Eeeaaahhhahah!  Wait!  There's a mistake!  I'm a journalist, I came here for an interview.
+Еееааахахахаха!  Подожди!  Это ошибка!  Я журналистка, я пришла сюда на интервью.
+###_PLAYER
+(Dust her with the gag.)
+(Вытрите её кляпом))
+###_NPC
+(She struggles against the cross and laughs.)  What are you doing?  I'm a journalist, I came here for an interview.
+(Она борется с крестом и смеется.)  Что ты делаешь?  Я журналистка, я пришла сюда на интервью.
+###_PLAYER
+(Check the room.)
+(Проверьте комнату.)
+Why are you restrained?
+Почему ты скована?
+###_NPC
+I came in advance, and found these items, and this cross, and well...
+Я пришла заранее и нашла эти предметы, и этот крест, и ну...
+###_PLAYER
+That's not very credible.
+Это не очень правдоподобно.
+###_NPC
+It's true!  I came in advance, and found these items, and this cross, and well...
+Это так! Я пришла заранее и нашла эти предметы, и этот крест, и ну...
+###_PLAYER
+(Listen to her story.)
+(Послушайте ее рассказ.)
+You trapped yourself?
+Ты попала в ловушку?
+###_NPC
+(She blushes.)  Yes, this is so silly.  Can you help me out?
+(Краснеет.) Да, это так глупо. Можете ли вы помочь мне?
+###_PLAYER
+That's very funny.
+Это очень смешно.
+###_NPC
+No!  This is not funny!  (She blushes.)  Can you help me out?
+Нет! Это не смешно! (Она краснеет.) Ты можешь мне помочь?
+###_PLAYER
+(Giggle in your gag.)
+(Хихикайте в свой кляп.)
+###_NPC
+This is not funny!  (She blushes.)  Can you help me out?
+Это не смешно! (Она краснеет.) Ты можешь мне помочь?
+Please!  Will you help me out?
+Пожалуйста! Ты поможешь мне?
+###_PLAYER
+(Play with her.)
+(Поиграй с ней.)
+###_NPC
+(You move close to her.)  What are you doing?  Why aren't you releasing me?
+(Вы приближаетесь к ней.) Что ты делаешь? Почему ты не отпускаешь меня?
+###_PLAYER
+(Release her.)
+(Отпустите ее.)
+###_NPC
+What are you doing?  Why aren't you releasing me?
+Что ты делаешь? Почему ты не отпускаешь меня?
+###_PLAYER
+(Tickle her.)
+(Пощекотать ее.)
+###_NPC
+(You tickle her without mercy.)  Haaaaaaeeehahaha!  Stop that!  You need to release me!
+(Вы щекочете ее без пощады.) Хааахахахаха! Прекрати это! Ты должна освободить меня!
+###_PLAYER
+(Caress her.)
+(Ласкать ее.)
+###_NPC
+(She moans a little as you caress her slowly.)  Oh!  What kind of maid are you?
+(Она слегка постанывает, когда ты медленно ласкаешь ее.)  О!  Что ты за горничная?
+###_PLAYER
+(Spank her.)
+(Отшлепай ее.)
+###_NPC
+(You spank her swiftly.)  Ow!  That hurts!  You're not helping much you know.
+(Ты быстро шлепаешь ее.)  Ай!  Это больно!  Ты не очень-то помогаешь, ты же знаешь.
+###_PLAYER
+(Masturbate her.)
+(Мастурбировать ее.)
+###_NPC
+(She moans loudly and trembles.)  Aaaahh!  Slow down little maid, I have an interview to do.
+(Громко стонет и дрожит.) Ааааа! Помедленнее, маленькая горничная, мне нужно дать интервью.
+(She struggles against the cross and laughs.)  Eeeeyyaaahahahah!
+(Она борется с крестом и смеется.)  Ииииияааахахахах!
+###_PLAYER
+(Tickle her with the feather duster.)
+(Пощекочите ее метелкой из перьев.)
+###_NPC
+(You dust her slowly as she laughs on the cross.)  Hhheeooooaahaha!  Stop it!
+(Ты медленно стираешь с нее пыль, пока она смеется на кресте.)  Хххееоооооахаха!  Прекрати это!
+###_PLAYER
+(Caress her with the long duster.)
+(Ласкает ее длинным пыльником.)
+###_NPC
+(You dust her slowly as she moans a little.)  Heeeeeeey!  I'm not dusty!
+(Ты медленно вытираешь с нее пыль, пока она слегка постанывает.)  Хиииииии!  Я не пыльная!
+###_PLAYER
+(Use the toothbrush on her.)
+(Используй на ней зубную щетку.)
+###_NPC
+(You tickle her with the toothbrush as she thrashes on the cross.)  Hey!  This is not how you use a toothbrush.
+(Ты щекочешь ее зубной щеткой, пока она бьется на кресте.)  Эй!  Это не то, как вы пользуетесь зубной щеткой.
+###_PLAYER
+(Masturbate her with the wand.)
+(Мастурбировать ее палочкой.)
+###_NPC
+(She screams of pleasure as you masturbate her.)  Oh yes!  Yes!  Can I cum?  Please!
+(Она кричит от удовольствия, когда ты мастурбируешь ее.)  О да!  Да!  Могу я кончить?  Пожалуйста!
+(She yells loudly and gets another quick orgasm.)  Aaaaaaaaaah!  Enough!  This is too much!
+(Она громко кричит и получает еще один быстрый оргазм.) Ааааааааааа!  Хватит!  Это уже слишком!
+###_PLAYER
+Do you deserve it?
+Заслуживаешь ли ты этого?
+###_NPC
+(She nods rapidly.)  Oh yes!  I need it!  Please, please, please.
+(Она быстро кивает.)  О да!  Мне это нужно!  Пожалуйста, пожалуйста, пожалуйста.
+###_PLAYER
+(Give her an orgasm.)
+(Доведи ее до оргазма.)
+###_NPC
+(She trembles madly as you give her a strong orgasm on the cross.)  Aaaaaah!  Yes!  You're the best maid ever.  I owe you one.
+(Она безумно дрожит, когда вы даете ей сильный оргазм на кресте.)  Аааааа!  Да!  Ты самая лучшая горничная на свете.  Я у тебя в долгу.
+###_PLAYER
+(Deny her orgasm.)
+(Отрицает ее оргазм.)
+###_NPC
+(She pouts and struggles against the cross.)  So unfair!  Let me go then!
+(Она надувает губы и борется с крестом.) Так нечестно! Тогда отпусти меня!
+Thanks for helping me out.  Right on time for the interview.
+Спасибо, что помогла мне.  Как раз вовремя для собеседования.
+###_PLAYER
+That's what maids are for.
+Для этого и существуют горничные.
+###_NPC
+You're very sweet you know?  Are you a submissive?
+Ты очень милая, знаешь?  Ты сабмиссив?
+###_PLAYER
+My pleasure Miss.
+С удовольствием, мисс.
+Yes, I'm a sub.
+Да, я саба.
+###_NPC
+This is nice, and you love to be controlled?  I could dominate you.
+Это приятно, и ты любишь, когда тебя контролируют?  Я могла бы доминировать над тобой.
+###_PLAYER
+I'm a switch, both sub and Domme.
+Я свитч, и саб, и домм.
+###_NPC
+You look more submissive to me.  Do you enjoy being controlled?  I could dominate you.
+По-моему, ты выглядишь более покорной.  Тебе нравится, когда тебя контролируют?  Я могла бы доминировать над тобой.
+###_PLAYER
+I'm a Dominant actually.
+На самом деле я Доминант.
+###_NPC
+You don't look very Dominant.  Are you sure you don't enjoy being controlled?  I could dominate you.
+Ты не выглядишь очень Доминирующей.  Ты уверена, что тебе не нравится, когда тебя контролируют?  Я могла бы доминировать над тобой.
+Would you like to be controlled?  I could dominate you.
+Хотела бы ты, чтобы тебя контролировали?  Я могла бы доминировать над тобой.
+###_PLAYER
+Yes, you can control me Miss.
+Да, вы можете контролировать меня, мисс.
+###_NPC
+(She giggles.)  This is great!  Give me your hands, I will use the cuffs on you.
+(Она хихикает.)  Это здорово!  Дай мне свои руки, я надену на тебя наручники.
+###_PLAYER
+I need to work.  (Check the room.)
+Мне нужно работать.  (Проверьте комнату.)
+Very well.  (Give your hands.)
+Очень хорошо.  (Протяните свои руки.)
+###_NPC
+(She grabs your arms and snaps some cuffs on you.)  Is it too tight?
+(Она хватает тебя за руки и защелкивает на тебе наручники.) Не слишком ли туго?
+###_PLAYER
+Hold on.  (Take a step back.)
+Погоди. (Сделайте шаг назад.)
+###_NPC
+(She takes two steps forward, grab your arms and snaps some cuffs on you.)  Is it too tight?
+(Она делает два шага вперед, хватает вас за руки и защелкивает на вас наручники.) Не слишком ли туго?
+###_PLAYER
+It's fine Miss.
+Все в порядке, мисс.
+###_NPC
+Very good.  And how flexible are you little maid?
+Очень хорошо.  И насколько ты гибкая, маленькая горничная?
+###_PLAYER
+I've seen worse.
+Я видела и похуже.
+###_NPC
+Alright.  How flexible are you little maid?
+Хорошо.  Насколько ты гибкая, маленькая горничная?
+###_PLAYER
+It's a little tight.
+Это немного тесновато.
+###_NPC
+(She checks on the cuffs for safety.)  How flexible are you little maid?
+(Она проверяет безопасность наручников.)  Насколько ты гибкая, маленькая горничная?
+###_PLAYER
+I'm pretty flexible.
+Я довольно гибкая.
+###_NPC
+This is great, because I have a wicked position in mind.  (She straps the cuffs, so your elbows are touching behind your back.)
+Это здорово, потому что у меня на уме порочная позиция.  (Она застегивает манжеты, так что ваши локти соприкасаются за спиной.)
+###_PLAYER
+I'm not very flexible.
+Я не очень гибкая.
+###_NPC
+I won't go too hard on you then.  (She straps the cuffs behind your back in a box tie position.)
+Тогда я не буду слишком суров с тобой.  (Она застегивает манжеты у вас за спиной в положении коробчатого связывания.)
+###_PLAYER
+You know the cuffs Miss.
+Вы знаете наручники мисс.
+###_NPC
+(She smirks.)  I'm not a member, but this is fun.  Let's not forget the legs.
+(Она ухмыляется.)  Я не член клуба, но это весело.  Давайте не будем забывать о ногах.
+###_PLAYER
+That's very secure.
+Это очень безопасно.
+(Struggle for fun.)
+(Бороться для веселья)
+###_NPC
+(The camera follows you as you struggle.)  Let's not forget the legs.
+(Камера следует за вами, пока вы боретесь.) Давайте не будем забывать про ноги.
+###_PLAYER
+I have a room to clean.
+Мне нужно убрать комнату.
+###_NPC
+That's true!  Don't worry, you will be able to clean.  (She snaps your leg cuffs together.)
+Это правда! Не волнуйтесь, вы сможете убираться. (Она застегивает наручники на твоих ногах.)
+###_PLAYER
+Of course.  (Close your legs.)
+Конечно. (Сомкнуть ноги.)
+###_NPC
+Don't worry for your job, you will be able to clean.  (She snaps your leg cuffs together.)
+Не волнуйтесь за свою работу, вы сможете убираться. (Она застегивает наручники на твоих ногах.)
+###_PLAYER
+How can I clean like that?
+Как я могу так убираться?
+###_NPC
+You worry too much.  (She searches around and finds a duster gag to use on you.)  Time to clean!
+Ты слишком много беспокоишься. (Она ищет вокруг и находит пыльник кляп, чтобы использовать на вас.) Пора убирать!
+###_PLAYER
+You're not making my job easier.
+Ты не облегчаешь мне работу.
+I will need a duster gag.
+Мне понадобится пыльник кляп.
+###_NPC
+Great idea!  (She searches around and finds a duster gag to use on you.)  Time to clean!
+Отличная идея! (Она ищет вокруг и находит пыльник кляп, чтобы использовать на вас.) Пора убирать!
+Get cleaning little bound maid.
+Займитесь уборкой маленькая связанная горничная.
+###_PLAYER
+(Clean the furniture.)
+(Почистить мебель.)
+###_NPC
+(You hop around the room and clean the furniture with your duster gag, doing publicity for the club.)
+(Вы прыгаете по комнате и протираете мебель тряпкой, рекламируя клуб.)
+###_PLAYER
+(Clean the torture items.)
+(Очистите предметы пыток.)
+###_NPC
+(You go to the torture item wall and dust the whips and crops as the camera zooms on the items.)
+(Вы подходите к стене с предметами для пыток и стираете пыль с кнутов и хлыстов, пока камера приближается к предметам.)
+###_PLAYER
+(Clean the journalist.)
+(Почистить журналистку.)
+###_NPC
+(She giggles as you dust her.  She takes a few pictures of you in your bondage.)
+(Она хихикает, когда вы стираете с нее пыль. Она делает несколько снимков вас в бондаже.)
+###_PLAYER
+(Struggle for the camera.)
+(Борьба на камеру.)
+###_NPC
+(You struggle sensually for the camera and moan loudly for the viewers.)
+(Вы чувственно боретесь на камеру и громко стонете для зрителей.)
+Can you please release me or ask her to help me?  I have an interview to do.
+Не могли бы вы освободить меня или попросить ее помочь мне? У меня есть интервью, чтобы сделать.
+###_PLAYER
+(Clean her.)
+(Очистить ее.)
+###_NPC
+(You clean her sensually as the Mistress smirks.)
+(Вы чувственно очищаете ее, а Госпожа ухмыляется.)
+(The Mistress gets in front of you and instructs you to clean first.)
+(Хозяйка становится перед вами и велит вам сначала убраться.)
+Thanks for helping.  (She winks at you.)  Right on time for the interview.  Finish your cleaning so we can start.
+Спасибо за помощь. (Она подмигивает вам.) Как раз вовремя для интервью. Закончи уборку, чтобы мы могли начать.
+This is intense, you maids don't have it easy in the club.
+Это тяжело, вам, горничным, в клубе нелегко.
+###_PLAYER
+Can you help me?
+Вы можете помочь мне?
+###_NPC
+I'm not allowed, but I can probably tickle you.  (She tickles your tummy and laughs with you.)
+Мне нельзя, но я, наверное, могу тебя пощекотать. (Она щекочет твой животик и смеется вместе с тобой.)
+###_PLAYER
+(Rub against her leg.)
+(Потереться о ее ногу.)
+###_NPC
+(She smiles at you and caresses you slowly.)  I wish I had time for you, but I have an interview to do.
+(Она улыбается вам и медленно гладит вас.) Я бы хотела, чтобы у меня было время для вас, но мне нужно дать интервью.
+(She smiles at you and caresses you slowly.)  Would you like to cum?  I owe you one.
+(Она улыбается тебе и медленно ласкает тебя.) Хочешь кончить? Я твоя должница.
+###_PLAYER
+Oh yes!  Please.
+О, да! Пожалуйста.
+###_NPC
+My pleasure!   (She masturbates you skillfully as the Mistress smirks, giving you an orgasm in front of the camera.)
+Не за что! (Она умело мастурбирует вас, а Госпожа ухмыляется, доставляя вам оргазм перед камерой.)
+###_PLAYER
+No, I'm good.
+Нет, я в порядке.
+###_NPC
+Too bad, you lost your chance maid.  (She giggles.)
+Жаль, ты потеряла свой шанс горничная. (Она хихикает.)
+###_PLAYER
+Wow!  Thanks.
+Ух ты! Спасибо.
+###_NPC
+You deserved that orgasm, I owed it to you.  Now I have an interview to do.
+Ты заслужил этот оргазм, я была обязана им тебе. Теперь у меня есть интервью, чтобы сделать.
+###_PLAYER
+That was pretty nice.
+Это было очень мило.
+(Try to catch your breath.)
+(Попробуйте отдышаться.)
+###_NPC
+Thanks for bringing some drinks.  Can you help me to drink it?  (She laughs.)
+Спасибо, что принесла напитки. Поможешь мне его выпить? (Она смеется.)
+###_PLAYER
+(Help her to drink.)
+(Помоги ей пить.)
+###_NPC
+(You slowly help her to drink as the camera zooms on her mouth and naked body.)
+(Вы медленно помогаете ей пить, пока камера фокусируется на ее рту и обнаженном теле.)
+###_PLAYER
+(Dust her.)
+(Убрать с неё пыль.)
+###_NPC
+(You dust her as she struggles and laughs madly.)  You're not helping the interview!
+(Вы стираете с нее пыль, пока она борется и безумно смеется.) Вы не поможете интервью!
+(She laughs out loud while trying to ask questions.)  Eeeeeyaahaha!  This is not funny!
+(Она громко смеется, пытаясь задавать вопросы.)  Иииииииахаха!  Это не смешно!
+(She jumps from the pain as you spank her mid-interview.)  Ow!  What kind of maid are you?
+(Она подпрыгивает от боли, когда вы шлепаете ее в середине интервью.)  Ай!  Что ты за горничная?
+(She tries to ask questions but moans loudly and blushes.)  Oooooooh!  Aaah, ah, another question?
+(Она пытается задавать вопросы, но громко стонет и краснеет.)  Оооооооо!  Ааа, а, еще один вопрос?
+(A club member is restrained in your room.  She struggles in her cuffs.)  Hello there, I think I got in trouble.
+(Член клуба ограничен в вашей комнате.  Она борется со своими наручниками.)  Привет, кажется, я попала в беду.
+(A club member restrained a maid in your room.)  Hello there.  As you can see, this maid seems to enjoy trouble.
+(Член клуба удержал горничную в вашем номере.) Привет.  Как вы можете видеть, эта горничная, похоже, любит неприятности.
+###_PLAYER
+What's going on here?
+Что здесь происходит?
+###_NPC
+To make a long story short: I was exploring this dungeon, a maid came in, she locked these cuffs on me, and here I am now.
+Короче говоря, я исследовала это подземелье, вошла горничная, она надела на меня эти наручники, и вот я здесь.
+To make a long story short: I was exploring this dungeon, a maid came in wanting to be cuffed, so I locked her up.
+Короче говоря, я исследовала это подземелье, вошла горничная, желая, чтобы на нее надели наручники, поэтому я заперла ее.
+###_PLAYER
+Why did you restrain her?
+Почему ты удерживала ее?
+I've reserved this room.
+Я забронировала этот номер.
+###_NPC
+(She nods.)  You must be the Mistress I came to interview then.  I'm the journalist, sorry for the confusion.
+(Она кивает.)  Вы, должно быть, та самая Госпожа, с которой я пришела побеседовать.  Я журналистка, извините за путаницу.
+###_PLAYER
+You're in my dungeon.
+Ты в моей темнице.
+###_NPC
+(She gulps.)  Sorry for the confusion, I'm a journalist.  Are you here for the interview?
+(Она сглатывает.)  Извините за путаницу, я журналистка.  Вы пришли на собеседование?
+###_PLAYER
+And why are you here?
+И почему ты здесь?
+###_NPC
+I'm a journalist, I came here to work.  Are you here for the interview?
+Я журналистка, я приехала сюда работать. Вы пришли на собеседование?
+Are you here for the interview?
+Вы пришли на собеседование?
+###_PLAYER
+Who do you work for?
+На кого вы работаете?
+###_NPC
+I work for City News.  I'm here to prepare an article on your BDSM club.
+Я работаю в "Сити Ньюс".  Я здесь, чтобы подготовить статью о вашем БДСМ-клубе.
+###_PLAYER
+A journalist in these clothes?
+Журналист в такой одежде?
+###_NPC
+(She blushes.)  I know it sounds strange, but I work for City News.  I will prepare an article on your BDSM club.
+(Она краснеет.)  Я знаю, это звучит странно, но я работаю в "Сити Ньюс".  Я подготовлю статью о вашем БДСМ-клубе.
+###_PLAYER
+I don't believe you.
+Я тебе не верю.
+###_NPC
+(She seems nervous.)  I swear it's true!  I work for City News.  I will prepare an article on your BDSM club.
+(Она, кажется, нервничает.)  Клянусь, это правда!  Я работаю в "Сити Ньюс".  Я подготовлю статью о вашем БДСМ-клубе.
+###_PLAYER
+So, you're a kinky journalist?
+Значит, ты извращенная журналистка?
+###_NPC
+(She bows her head.)  I...  I guess that's why they sent me.  Can we do the interview?
+(Она склоняет голову.) Я.. Я думаю, именно поэтому они послали меня. Мы можем провести интервью?
+###_PLAYER
+You will get more than an article.
+Вы получите больше, чем просто статью.
+###_NPC
+(She seems nervous.)  What do you mean?  Can we do the interview?
+(Она, кажется, нервничает.)  Что ты имеешь в виду?  Мы можем провести интервью?
+###_PLAYER
+(Pinch her cheek.)  You're in trouble.
+(Ущипни ее за щеку.)  Ты в беде.
+###_NPC
+(She cringes as you pinch her cheek hard.)  What do you mean?  Can we do the interview?
+(Она съеживается, когда ты сильно ущипнешь ее за щеку.)  Что ты имеешь в виду?  Мы можем провести интервью?
+Can we do the interview?
+Мы можем провести интервью?
+###_PLAYER
+I must punish first.
+Сначала я должна наказать.
+###_NPC
+(She seems very nervous.)  You can't punish me, I'm not a club member.  This is unfair!
+(Она, кажется, очень нервничает.)  Вы не можете наказать меня, я не член клуба.  Это несправедливо!
+###_PLAYER
+Rules have been broken girl.
+Правила были нарушены, девочка.
+###_NPC
+(She seems very nervous.)  I'm not a member, I didn't know the rules.  This is unfair!
+(Она, кажется, очень нервничает.)  Я не член клуба, я не знала правил.  Это несправедливо!
+###_PLAYER
+You want it fair?
+Ты хочешь, чтобы все было честно?
+###_NPC
+Yes!  I want a fair trial.  I'm innocent.
+Да!  Я хочу справедливого судебного разбирательства.  Я невиновна.
+###_PLAYER
+Justice is relative here.
+Справедливость здесь относительна.
+###_NPC
+Nonsense!  I want a fair trial.  I'm innocent.
+Чушь!  Я хочу справедливого судебного разбирательства.  Я невиновна.
+I want a fair trial!  I'm innocent.
+Я хочу справедливого суда!  Я невиновна.
+###_PLAYER
+Let's do a trial.  (Go get a gavel.)
+Давайте проведем пробный эксперимент.  (Сходи за молотком.)
+There won't be any trial.
+Никакого суда не будет.
+###_NPC
+(She seems furious.)  This is so unfair!  Do what you want, but my article won't be flattering.
+(Кажется, она в ярости.)  Это так несправедливо!  Делайте, что хотите, но моя статья не будет лестной.
+You can accuse and judge at the same time?
+Вы можете обвинять и судить одновременно?
+###_PLAYER
+The BDSM court is in session!
+БДСМ-суд идет!
+###_NPC
+Oh my!  This is for real?  What would I do?
+О боже!  Это по-настоящему?  Что мне следует делать?
+###_PLAYER
+Yes.  And I will be a fair judge.
+Да.  И я буду справедливой судьей.
+###_NPC
+We'll see about that.  What would I do?
+Мы это еще посмотрим.  Что мне следует делать?
+###_PLAYER
+You will be restrained for your hearing.
+Вы будете ограничены для вашего слушания.
+###_NPC
+What?  This is the regular procedure?  (She complaints as you use restraints on her.)
+Что?  Это обычная процедура?  (Она жалуется, когда вы применяете к ней ограничения.)
+###_PLAYER
+I'm ready to hear your testimony.
+Я готов выслушать ваши показания.
+###_NPC
+(She describes the previous scenes to you and the camera.)
+(Она описывает предыдущие сцены вам и камере.)
+###_PLAYER
+Tell me your side of the story.
+Расскажи мне свою версию этой истории.
+Do you have anything else to add?
+У вас есть что еще добавить?
+###_NPC
+I don't, that was my full story.  Can you see that I'm innocent?
+Я не знаю, это была моя полная история.  Ты видишь, что я невиновна?
+###_PLAYER
+(Masturbate as she speaks.)
+(Мастурбируй, пока она говорит.)
+###_NPC
+(You masturbate a little as she completes her speech.)  That's my story.  Can you see that I'm innocent?
+(Вы немного мастурбируете, когда она заканчивает свою речь.)  Это моя история.  Ты видишь, что я невиновна?
+###_PLAYER
+I've heard enough.
+Я уже достаточно наслушалась.
+###_NPC
+Alright.  Can you see that I'm innocent?
+Хорошо.  Ты видишь, что я невиновна?
+Can you see that I'm innocent?
+Ты видишь, что я невиновна?
+###_PLAYER
+You are guilty.  (Knock the gavel.)
+Ты виновна.  (Стучит молотком.)
+###_NPC
+(She takes a deep breath.)  Fine!  Do what you want.  I can't believe I'm getting punished.
+(Она делает глубокий вдох.)  Отлично!  Делай, что хочешь.  Я не могу поверить, что меня наказывают.
+###_PLAYER
+You are innocent.  (Knock the gavel.)
+Ты невиновна.  (Стучит молотком.)
+###_NPC
+The law seems to work around here.  Should we do the interview then?
+Похоже, здесь действует закон.  Тогда стоит ли нам проводить собеседование?
+###_PLAYER
+Yes, let's begin the interview.
+Да, давайте начнем интервью.
+###_NPC
+(She nods.)  Very good, I have many questions on the Bondage Club.
+(Она кивает.)  Очень хорошо, у меня много вопросов по Клубу Бондажа.
+###_PLAYER
+What would you like to know?
+Что бы вы хотели знать?
+###_NPC
+I have a list of questions on the Bondage Club.
+У меня есть список вопросов по Клубу Бондажа.
+I have more questions for you Miss.
+У меня есть еще вопросы к вам, мисс.
+###_PLAYER
+(Answer her questions.)
+(Отвечайте на ее вопросы.)
+###_NPC
+(She has many questions on the Bondage Club for you.  The camera zooms in for the spicy ones.)
+(У нее есть к вам много вопросов о Клубе Бондажа.  Камера увеличивает масштаб для самых пикантных.)
+###_PLAYER
+(Restrain her as she asks questions.)
+(Сдерживайте ее, когда она задает вопросы.)
+###_NPC
+(You restrain her as she asks a few questions on the Bondage Club.)
+(Вы сдерживаете ее, когда она задает несколько вопросов о Клубе Бондажа.)
+###_PLAYER
+(Release her as she asks questions.)
+(Отпустите ее, пока она задает вопросы.)
+###_NPC
+(You release her as she asks a few questions on the Bondage Club.)
+(Вы отпускаете ее, когда она задает несколько вопросов о Клубе Бондажа.)
+###_PLAYER
+(Flirt with her.)
+(Флиртуй с ней.)
+###_NPC
+(You answer some questions but focus more on flirting with her as she blushes.)
+(Вы отвечаете на некоторые вопросы, но больше сосредотачиваетесь на флирте с ней, пока она краснеет.)
+###_PLAYER
+My club, my rules.  You will be punished.
+Мой клуб, мои правила.  Ты будешь наказан.
+###_NPC
+(She seems very angry.)  I can't believe I'm getting punished.
+(Она кажется очень сердитой.) Я не могу поверить, что меня наказывают.
+###_PLAYER
+You're making it worse for yourself.
+Ты делаешь только хуже для себя.
+###_NPC
+I can't believe I'm getting punished.
+Я не могу поверить, что меня наказывают.
+###_PLAYER
+(Restrain her.)
+(Сдерживать ее.)
+###_NPC
+(You pick up new restraints for her as the camera follows the rigging.)  Don't make it too tight.
+(Вы подбираете для нее новые ограничители, пока камера следует за оснасткой.) Не затягивайте ее слишком сильно.
+###_PLAYER
+(Gag her.)
+(Заткнуть ей рот.)
+###_NPC
+(She shakes her head no, as you pick up a gag for her mouth.)
+(Она отрицательно качает головой, когда вы затыкаете ей рот кляпом.)
+###_PLAYER
+(Strap her on the cross.)
+(Привязать ее к кресту.)
+###_NPC
+(You push her against the big cross and strap her tight on it.)  This is beyond unfair.
+(Вы прижимаете ее к большому кресту и туго привязываете к нему.) Это несправедливо.
+(She seems grateful as you release her from her restraints.)  Thanks...  I guess.
+(Кажется, она благодарна, когда вы освобождаете ее от ограничений.) Спасибо... наверное.
+(You spank her pretty hard as she whimpers from the pain.)  This is so humiliating.
+(Ты довольно сильно шлепаешь ее, пока она скулит от боли.) Это так унизительно.
+###_PLAYER
+(Slap her.)
+(Шлепнуть ее.)
+###_NPC
+(You slap her on the face a few times as she makes angry eyes at you.)
+(Вы бьете ее по лицу несколько раз, пока она смотрит на вас сердито.)
+###_PLAYER
+(Hit her with the gavel.)
+(Ударить ее молотком.)
+###_NPC
+(You hit her body a few times with the gavel as she grumbles.)  What kind of justice was that?
+(Вы несколько раз ударили ее молотком по телу, пока она ворчала.) Что это была за справедливость?
+###_PLAYER
+What are you doing?
+Что ты делаешь?
+###_NPC
+Isn't it obvious?  (They strap your arms and smile at each other.)  
+Разве это не очевидно? (Они связывают ваши руки и улыбаются друг другу.) 
+###_PLAYER
+Let me go!
+Отпусти меня!
+###_NPC
+You're not going anywhere.  (They strap your arms and smile at each other.)
+Вы никуда не пойдете. (Они связывают ваши руки и улыбаются друг другу.)
+###_PLAYER
+(Try to fight them.)
+(Попробуйте сразиться с ними.)
+###_NPC
+(You try to resist but they strap your arms and smile at each other.)
+(Вы пытаетесь сопротивляться, но они связывают вам руки и улыбаются друг другу.)
+###_PLAYER
+You two are in big trouble.
+У вас двоих большие проблемы.
+###_NPC
+I think you're the one getting in trouble.  (They strap your legs tight.)  Now we will have justice.
+Я думаю, это ты попадаешь в беду. (Тебе туго перевязывают ноги.) Теперь у нас будет справедливость.
+###_PLAYER
+Release me right now.
+Отпусти меня прямо сейчас.
+###_NPC
+Don't make me laugh.  (They strap your legs tight.)  Now we will have justice.
+Не смеши меня. (Тебе туго перевязывают ноги.) Теперь у нас будет справедливость.
+(She laughs out loud.)  Ah!  Look at you now.  It's now time for real justice.
+(Она громко смеется.) Ах! Посмотри на себя сейчас. Настало время для настоящей справедливости.
+###_PLAYER
+Justice?  What do you mean?
+Справедливость? Что ты имеешь в виду?
+###_NPC
+Since you did not want to do a trial, we will put you on trial.  (She winks at the maid.)
+Поскольку вы не захотели проводить судебное разбирательство, мы отдадим вас под суд. (Подмигивает горничной.)
+###_PLAYER
+I make the rules here.
+Я устанавливаю здесь правила.
+###_NPC
+You don't anymore.  Since you did not want to do a trial, we will put you on trial.  (She winks at the maid.)
+Ты больше этого не делаешь. Поскольку вы не хотели участвовать в судебном разбирательстве, мы отдадим вас под суд. (Подмигивает горничной.)
+###_PLAYER
+(Make an intimidating look.)
+(Сделайте устрашающий вид.)
+###_NPC
+(She takes a step back.)  Since you did not want to do a trial, we will put you on trial.  (She winks at the maid.)
+(Она делает шаг назад.)  Поскольку вы не хотели участвовать в судебном разбирательстве, мы отдадим вас под суд.  (Подмигивает горничной.)
+Oh yes there will be one.  You are accused of unfair punishment, how do you plead?
+О да, он будет.  Вас обвиняют в несправедливом наказании, как вы оправдываетесь?
+###_PLAYER
+Forget it girl.
+Забудь об этом, девочка.
+###_NPC
+(She takes a more serious tone.)  You are accused of unfair punishment, how do you plead?
+(Она принимает более серьезный тон.)  Вас обвиняют в несправедливом наказании, как вы оправдываетесь?
+###_PLAYER
+(Struggle in your restraints.)
+(Боритесь в своих оковах.)
+###_NPC
+(The camera zooms on your struggles as she laughs.)  You are accused of unfair punishment, how do you plead?
+(Камера приближает вашу борьбу, пока она смеется.)  Вас обвиняют в несправедливом наказании, как вы оправдываетесь?
+You are accused of unfair punishment, how do you plead?
+Вас обвиняют в несправедливом наказании, как вы оправдываетесь?
+###_PLAYER
+I plead innocent.
+Я признаю себя невиновной.
+###_NPC
+Present your arguments then, we will hear your case.
+Тогда представь свои аргументы, мы выслушаем твое дело.
+###_PLAYER
+I plead guilty.
+Я признаю себя виновной.
+###_NPC
+Very good.  And since we are fair judges, we will allow to pick who will choose your sentence.
+Отлично. А так как мы справедливые судьи, мы позволим выбирать, кто вынесет вам приговор.
+###_PLAYER
+This is a joke.
+Это шутка.
+###_NPC
+Nobody is laughing.  Present your arguments, we will hear your case.
+Никто не смеется. Представьте свои аргументы, мы выслушаем ваше дело.
+###_PLAYER
+(Stay silent and defiant.)
+(Сохраняйте молчание и вызов.)
+###_NPC
+Present your arguments, we will hear your case.
+Представьте свои аргументы, мы выслушаем ваше дело.
+###_PLAYER
+(Try to make a convincing case.)
+(Постарайтесь привести убедительные доводы.)
+###_NPC
+You make an interesting case.  Me and the maid will deliberate and get back to you.  (They start to chat.)
+Вы делаете интересное дело. Мы с горничной подумаем и вернемся к вам. (Они начинают болтать.)
+###_PLAYER
+(Plead a little.)
+(Немного умолять.)
+###_NPC
+That's not very convincing.  Me and the maid will deliberate and get back to you.  (They start to chat.)
+Это не очень убедительно. Мы с горничной подумаем и вернемся к вам. (Они начинают болтать.)
+###_PLAYER
+Fuck you girl!
+Трахни себя девушка!
+###_NPC
+That's your argument?  Me and the maid will deliberate and get back to you.  (They start to chat.)
+Это твой аргумент? Мы с горничной подумаем и вернемся к вам. (Они начинают болтать.)
+###_PLAYER
+Common!  End this farce already.
+Да ладно! Кончай уже этот фарс.
+###_NPC
+(They talk some more and get back to you.)  You are found guilty, but since we are fair, we will allow you to pick who will choose your sentence.
+(Они говорят еще немного и возвращаются к вам.) Вы признаны виновным, но, поскольку мы справедливы, мы позволим вам выбрать, кто будет выносить вам приговор.
+###_PLAYER
+Get me out girls.
+Выпустите меня, девочки.
+I don't have time for this.
+У меня нет времени на это.
+(Stay silent and wait.)
+(Молчи и жди.)
+###_NPC
+You are found guilty.  We will allow you to pick who will choose your sentence.
+Вы признаны виновным. Мы позволим вам выбрать, кто будет выбирать ваше предложение.
+###_PLAYER
+There won't be any sentence.
+Никакого приговора не будет.
+###_NPC
+That's where you're wrong.  Justice as spoken.  Should I pick the sentence?  I won't pull any punches.
+Вот тут ты ошибаешься. Справедливость как говорится. Должен ли я выбрать предложение? Я не буду терпеть никаких ударов.
+###_PLAYER
+Fine.  You pick the sentence.
+Отлично. Вы выбираете предложение.
+###_NPC
+Very well...  Your sentence will be to do the interview bound and naked.  And we will publish pictures.
+Очень хорошо... Ваш приговор будет заключаться в том, чтобы давать интервью связанным и голым. И мы будем публиковать фотографии.
+###_PLAYER
+Let me think about it.  (Leave her.)
+Дай мне подумать об этом. (Оставь ее.)
+You can't do that!
+Ты не можешь этого сделать!
+###_NPC
+We can and we will.  It's time to get your dressed up for your interview.  I have lots of questions.
+Мы можем и сделаем это.  Пришло время одеться для собеседования.  У меня много вопросов.
+###_PLAYER
+Wait!  Can we negotiate?
+Подожди!  Можем ли мы вести переговоры?
+###_NPC
+It's too late for that.  It's time to get your dressed up for your interview.  I have lots of questions.
+Для этого уже слишком поздно.  Пришло время одеться для собеседования.  У меня много вопросов.
+###_PLAYER
+Fine, do what you want.
+Хорошо, делай, что хочешь.
+###_NPC
+(She nods happily.)  It's time to get your dressed up for your interview.  I have lots of questions.
+(Она радостно кивает.)  Пришло время одеться для собеседования.  У меня много вопросов.
+###_PLAYER
+Don't you dare!
+Не смей!
+###_NPC
+(They strip you naked and restrain you once again.  The journalist dresses back up.)  It will be a great interview.
+(Они раздевают тебя догола и снова связывают.  Журналист снова одевается.) Это будет отличное интервью.
+###_PLAYER
+Make it quick.
+Сделай это быстро.
+(Try to resist.)
+(Попытайтесь сопротивляться.)
+(Answer regular questions.)
+(Отвечайте на обычные вопросы.)
+###_NPC
+(You answer many of her questions and inform the viewers about the club.)
+(Вы отвечаете на многие ее вопросы и рассказываете зрителям о клубе.)
+###_PLAYER
+(Answer spicy questions.)
+(Отвечайте на острые вопросы.)
+###_NPC
+(She blushes a lot as you answer the spiciest questions about the club.)
+(Она сильно краснеет, когда вы отвечаете на самые острые вопросы о клубе.)
+###_PLAYER
+(Do publicity for the club.)
+(Сделайте рекламу для клуба.)
+###_NPC
+(You do some good publicity for the club as the director gives you a thumbs up.)
+(Вы делаете хорошую рекламу клубу, и директор показывает вам большой палец вверх.)
+(You struggle in your restraints as she takes notes and the camera zooms on you.)
+(Вы боретесь в своих ремнях, пока она делает заметки, и камера приближается к вам.)
+###_PLAYER
+(Try to avoid her camera.)
+(Старайтесь избегать ее камеры.)
+###_NPC
+(You try to find cover and avoid her camera as she snaps many pictures.)
+(Вы пытаетесь найти укрытие и избежать ее камеры, поскольку она делает много снимков.)
+###_PLAYER
+(Make sexy poses.)
+(Принимайте сексуальные позы.)
+###_NPC
+(You make sexy poses in your restraints as she smiles and takes pictures.)
+(Вы принимаете сексуальные позы в своих наручниках, пока она улыбается и фотографирует.)

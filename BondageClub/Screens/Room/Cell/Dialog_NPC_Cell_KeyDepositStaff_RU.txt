@@ -1,0 +1,127 @@
+###_NPC
+You'll need to remove that gag If you want to deposit your keys.
+Вам нужно снять этот кляп, если вы хотите сдать свои ключи.
+Welcome to the key deposit.  How can I help you today?
+Добро пожаловать в хранилище ключей. Как я могу помочь вам сегодня?
+###_PLAYER
+What is the key deposit?
+Что такое ключевой депозит?
+###_NPC
+It's a free service that the bondage club offers.  We keep your keys safe from yourself for a set period.
+Это бесплатная услуга, которую предлагает бондаж-клуб. Мы храним ваши ключи в безопасности от вас в течение установленного периода времени.
+###_PLAYER
+You will give them back?
+Вы их вернете?
+###_NPC
+Absolutely.  Give us a time and we will deliver them back to you after that time.
+Абсолютно. Дайте нам время, и мы вернем их вам после этого времени.
+###_PLAYER
+What if I really need them?
+А если они мне действительно нужны?
+###_NPC
+Once the keys are in the vault, there's nothing you can do to get them back, you'll need to wait.
+Как только ключи окажутся в хранилище, вы ничего не сможете сделать, чтобы вернуть их, вам придется подождать.
+###_PLAYER
+Tell me about the timer cell.
+Расскажите мне о ячейке таймера.
+###_NPC
+The timer cell is simple, set a time and the door will lock behind you for that number of minutes.  It will open automatically after that time.
+Ячейка таймера проста, установите время, и дверь закроется за вами на это количество минут. По истечении этого времени он откроется автоматически.
+###_PLAYER
+I want my keys back!
+Я хочу вернуть свои ключи!
+###_NPC
+I'm sorry girl, I cannot help you.  We will deliver your keys when the time is up.
+Прости, девочка, я не могу тебе помочь. Мы доставим ваши ключи, когда время истечет.
+###_PLAYER
+I want to deposit my keys.
+Я хочу сдать свои ключи.
+###_NPC
+Wonderful!  For how long we should keep your keys in the vault?
+Замечательно! Как долго мы должны хранить ваши ключи в сейфе?
+###_PLAYER
+Let's talk later.  (Leave her.)
+Давай поговорим позже. (Оставь ее.)
+One hour.
+Один час.
+###_NPC
+Very well, we can keep them safe for an hour.  Are you sure you want to do it?  There's no turning back.
+Очень хорошо, мы можем охранять их в течение часа. Вы уверены, что хотите это сделать? Нет пути назад.
+###_PLAYER
+Four hours.
+Четыре часа.
+###_NPC
+Very well, we can keep them safe for four hours.  Are you sure you want to do it?  There's no turning back.
+Очень хорошо, мы можем держать их в безопасности в течение четырех часов. Вы уверены, что хотите это сделать? Нет пути назад.
+###_PLAYER
+One day.
+Один день.
+###_NPC
+Very well, we can keep them safe for a day.  Are you sure you want to do it?  There's no turning back.
+Очень хорошо, мы можем сохранить их в безопасности в течение дня. Вы уверены, что хотите это сделать? Нет пути назад.
+###_PLAYER
+One week.
+Одна неделя.
+###_NPC
+Very well, we can keep them safe for a week.  Are you sure you want to do it?  There's no turning back.
+Очень хорошо, мы можем сохранить их в безопасности в течение недели. Вы уверены, что хотите это сделать? Нет пути назад.
+###_PLAYER
+I've changed my mind.
+Я передумала.
+###_NPC
+I understand.  Is there anything else I can do?
+Я понимаю. Есть ли что-нибудь еще, что я могу сделать?
+###_PLAYER
+Yes, keep them for an hour.
+Да, держите их в течение часа.
+###_NPC
+Please give me a moment.  (She takes your keys and locks them in the vault.)  We will deliver them back in an hour.
+Пожалуйста, дайте мне минутку. (Она берет ваши ключи и запирает их в хранилище.) Мы вернем их через час.
+###_PLAYER
+This is not a good idea.
+Это не очень хорошая идея.
+###_NPC
+You should not be scared, it's a fun service.  Is there anything else I can do for you?
+Не стоит пугаться, это забавная услуга. Могу ли я что-нибудь еще сделать для вас?
+###_PLAYER
+Yes, keep them for four hours.
+Да, держите их в течение четырех часов.
+###_NPC
+Please give me a moment.  (She takes your keys and locks them in the vault.)  We will deliver them back in four hours.
+Пожалуйста, дайте мне минутку. (Она берет ваши ключи и запирает их в хранилище.) Мы вернем их через четыре часа.
+###_PLAYER
+Yes, keep them for a day.
+Да, держите их в течение дня.
+###_NPC
+Please give me a moment.  (She takes your keys and locks them in the vault.)  We will deliver them back in 24 hours.
+Пожалуйста, дайте мне минутку. (Она берет ваши ключи и запирает их в хранилище.) Мы доставим их обратно в течение 24 часов.
+###_PLAYER
+Yes, keep them for a week.
+Да, оставьте их на неделю.
+###_NPC
+Please give me a moment.  (She takes your keys and locks them in the vault.)  We will deliver them back in seven days.
+Пожалуйста, дайте мне минутку. (Она берет ваши ключи и запирает их в сейфе.) Мы вернем их через семь дней.
+###_PLAYER
+Thanks!
+Спасибо!
+###_NPC
+It's been my pleasure.  Is there anything else I can do?
+Мне было очень приятно. Есть ли что-нибудь еще, что я могу сделать?
+###_PLAYER
+Thank you very much Miss.
+Большое спасибо, мисс.
+###_NPC
+You're a good subbie.  (She smiles.)  Is there anything else I can do?
+Ты хорошая нижняя. (Она улыбается.) Что еще я могу сделать?
+###_PLAYER
+You better not lose them.
+Лучше не теряйте их.
+###_NPC
+Of course Miss.  The vault is very safe.  Is there anything else I can do?
+Конечно мисс. Хранилище очень безопасно. Есть ли что-нибудь еще, что я могу сделать?
+###_PLAYER
+Wait!  I've changed my mind!
+Подождите! Я передумала!
+###_NPC
+Too late girl.  Don't worry, your keys will be returned.  Is there anything else I can do?
+Слишком поздно, девочка. Не волнуйтесь, ваши ключи будут возвращены. Есть ли что-нибудь еще, что я могу сделать?

@@ -25,15 +25,31 @@ function OnlneGameDictionaryLoad() {
 		});
 
 		// If a translation file is available, we open the txt file and keep it in cache
-		var TranslationPath = FullPath.replace(".csv", "_" + TranslationLanguage + ".txt");
+		var TranslationPath = FullPath.replace(".csv", "_" + TranslationLanguage + ".txt");	
 		if (TranslationAvailable(TranslationPath))
 			CommonGet(TranslationPath, function() {
-				if (this.status == 200) TranslationCache[TranslationPath] = TranslationParseTXT(this.responseText);
+				if (this.status == 200)
+				{
+					TranslationCache[TranslationPath] = TranslationParseTXT(this.responseText);
+					OnlineGameTranslate(TranslationPath);
+				}
+					
 			});
-
+		OnlineGameTranslate(TranslationPath);
 	}
 }
+function OnlineGameTranslate(CachePath) {
+	if (!Array.isArray(TranslationCache[CachePath])) return;
 
+	for (let T = 0; T < OnlineGameDictionary.length; T++) {
+		if (OnlineGameDictionary[T][1]) {
+			let indexText = TranslationCache[CachePath].indexOf(OnlineGameDictionary[T][1].trim());
+			if (indexText >= 0) {
+				OnlineGameDictionary[T][1] = TranslationCache[CachePath][indexText + 1];
+			}
+		}
+	}
+}
 /**
  * Searches in the dictionary for a specific keyword and returns the message linked to it
  * @param {string} KeyWord - Keyword of the text to look for
