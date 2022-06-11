@@ -5546,6 +5546,16 @@ var AssetFemale3DCG = [
 				]
 			}, //PonyGag
 			{
+				Name: "StitchGag", Category: ["Medical"], Priority: 10, BuyGroup: "Suture", Random: false, Value: 0, Difficulty: 8, Time: 5, RemoveTime: 5, Left: 235, Top: 180, DefaultColor: ["Default", "#3f3c3a"], Hide: "Mouth", Prerequisite: ["GagUnique"], Effect: ["GagHeavy"], Extended: true, AlwaysExtend: true,
+				Layer: [
+					{ Name: "FakeMouth", HasType: false, InheritColor: "Mouth", AllowTypes: ["Straight", "ZigZag", "Skewed"]},
+					{ Name: "Straight", HasType: false, AllowTypes: ["Straight"]},
+					{ Name: "ZigZag", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["ZigZag"]},
+					{ Name: "Skewed", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["Skewed"]},
+				],
+			},
+			
+			{
 				Name: "Slime", Category: ["Fantasy"], BuyGroup: "Slime", DefaultColor: ["#57ab5e"], Random: false, Value: 200, Difficulty: 4, Time: 15, RemoveTime: 25, Left: 200, Top: 170, Effect: ["BlockMouth", "GagMedium"],
 			},
 		],

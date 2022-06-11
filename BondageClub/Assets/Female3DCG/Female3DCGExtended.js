@@ -4524,6 +4524,25 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "PonyGag" },
 		},
+				StitchGag: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options:[
+					{
+						Name: "Straight",
+						Property: {Type: "Straight",}
+					},
+					{
+						Name: "ZigZag",
+						Property: {Type: "ZigZag",}
+					},
+					{
+						Name: "Skewed",
+						Property: {Type: "Skewed",}
+					},
+				],
+			},
+		}, //StitchGag
 	}, // ItemMouth3
 	Mask: {
 		BunnyMask1: {
