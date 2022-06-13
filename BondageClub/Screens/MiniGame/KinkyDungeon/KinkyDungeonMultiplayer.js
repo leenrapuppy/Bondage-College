@@ -146,14 +146,12 @@ function KinkyDungeonUpdateFromData() {
 		if (KinkyDungeonGameData.meta.ap != null) KinkyDungeonStatDistraction = Math.round(KinkyDungeonGameData.meta.ap);
 		if (KinkyDungeonGameData.meta.rk != null) KinkyDungeonRedKeys = Math.round(KinkyDungeonGameData.meta.rk);
 		if (KinkyDungeonGameData.meta.bk != null) KinkyDungeonBlueKeys = Math.round(KinkyDungeonGameData.meta.bk);
-		if (KinkyDungeonGameData.meta.bl != null) KinkyDungeonNormalBlades = Math.round(KinkyDungeonGameData.meta.bl);
-		if (KinkyDungeonGameData.meta.eb != null) KinkyDungeonEnchantedBlades = Math.round(KinkyDungeonGameData.meta.eb);
 		if (KinkyDungeonGameData.meta.lp != null) KinkyDungeonLockpicks = Math.round(KinkyDungeonGameData.meta.lp);
 		if (KinkyDungeonGameData.meta.gp != null) KinkyDungeonGold = Math.round(KinkyDungeonGameData.meta.gp);
 		if (KinkyDungeonGameData.meta.lv != null) {
 			MiniGameKinkyDungeonLevel = Math.round(KinkyDungeonGameData.meta.lv);
 			if (KinkyDungeonGameData.meta.cp)
-				KinkyDungeonSetCheckPoint(Math.round(KinkyDungeonGameData.meta.cp));
+				KinkyDungeonSetCheckPoint(KinkyDungeonGameData.meta.cp);
 			else KinkyDungeonSetCheckPoint();
 		}
 	}
@@ -210,8 +208,6 @@ function KinkyDungeonPackData(IncludeMap, IncludeItems, IncludeInventory, Includ
 		meta.ap = Math.round(KinkyDungeonStatDistraction);
 		meta.rk = KinkyDungeonRedKeys;
 		meta.bk = KinkyDungeonBlueKeys;
-		meta.bl = KinkyDungeonNormalBlades;
-		meta.eb = KinkyDungeonEnchantedBlades;
 		meta.lp = KinkyDungeonLockpicks;
 		meta.gp = KinkyDungeonGold;
 		meta.lv = MiniGameKinkyDungeonLevel;

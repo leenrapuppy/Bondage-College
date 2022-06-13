@@ -1,7 +1,20 @@
 "use strict";
+
+// Outfit resource, uncached
+let KinkyDungeonOutfitsBase = [
+	{name: "OutfitDefault", dress: "Default", shop: false, rarity: 1},
+	{name: "JailUniform", dress: "JailUniform", shop: false, rarity: 1},
+	{name: "Wolfgirl", dress: "Wolfgirl", shop: false, rarity: 2},
+	{name: "Maid", dress: "Maid", shop: false, rarity: 2, events: [{trigger: "calcEvasion", type: "AccuracyBuff", requiredTag: "mold", power: 10.0}]},
+	{name: "Dragon", dress: "Dragon", shop: false, rarity: 2},
+	{name: "Elven", dress: "Elven", shop: false, rarity: 2},
+	{name: "BlueSuitPrison", dress: "BlueSuitPrison", shop: false, rarity: 2},
+	{name: "Obsidian", dress: "Obsidian", shop: false, rarity: 2},
+];
+
 /**
  * List off all dresses items
- * @type {Object.<string,KinkyDungeonDress>}
+ * @type {Object.<outfitKey,KinkyDungeonDress>}
  */
 let KinkyDungeonDresses = {
 	"Default" : KinkyDungeonDefaultDefaultDress,
@@ -99,5 +112,14 @@ let KinkyDungeonDresses = {
 		{Item: "NecklaceKey", Group: "Necklace", Color: "Default", Lost: false},
 		{Item: "MageSkirt", Group: "ClothLower", Color: ['#40824F', '#AF9225'], OverridePriority: 27, Lost: false},
 		{Item: "Heels1", Group: "Shoes", Color: "#aaaaaa", Lost: false},
+	],
+	"Obsidian" : [
+		{Item: "SleevelessSlimLatexLeotard", Group: "Suit", Color: ['#4964A5'], Lost: false, NoLose: true},
+		{Item: "LatexCorset1", Group: "Corset", Color: ['#4869BD'], Lost: false},
+		{Item: "Stockings3", Group: "Socks", Color: "Default", Lost: false},
+		{Item: "LatexTop", Group: "Cloth", Color: "#1F175F", Lost: false},
+		{Item: "CatsuitPanties", Group: "Panties", Color: '#4964A5', Lost: false},
+		{Item: "FuturisticHeels2", Group: "Shoes", Color: ['#1F175F', '#FFFFFF', '#333333', '#333333', '#7A7979', '#aaaaaa'], Lost: false},
+		{Item: "LatexSkirt2", Group: "ClothLower", Color: ['#2C4A95'], OverridePriority: 27, Lost: false},
 	],
 };

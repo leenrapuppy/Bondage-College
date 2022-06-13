@@ -39,7 +39,7 @@ function KDTestFullRunthrough(GameLoops, Init, NGP) {
 	console.log("Testing full runthrough");
 	if (Init) {
 		MiniGameKinkyDungeonLevel = 1;
-		MiniGameKinkyDungeonCheckpoint = 0;
+		MiniGameKinkyDungeonCheckpoint = "grv";
 		KinkyDungeonInitialize(1);
 	}
 	for (let i = 0; i < KinkyDungeonMaxLevel * GameLoops; i++) {
@@ -61,7 +61,7 @@ function KDTestFullRunthrough(GameLoops, Init, NGP) {
 				KinkyDungeonNewGamePlus();
 			else {
 				MiniGameKinkyDungeonLevel = 1;
-				MiniGameKinkyDungeonCheckpoint = 0;
+				MiniGameKinkyDungeonCheckpoint = "grv";
 				KinkyDungeonState = "Game";
 			}
 		}
@@ -70,8 +70,8 @@ function KDTestFullRunthrough(GameLoops, Init, NGP) {
 		if (KinkyDungeonEnemies.length < 1) {
 			console.log(`Error, no enemies on floor ${MiniGameKinkyDungeonLevel}, iteration ${i}`);
 			return false;
-		} else if (MiniGameKinkyDungeonCheckpoint != Math.floor(MiniGameKinkyDungeonLevel / 10)) {
-			console.log(`Error, wrong checkpoint on floor ${MiniGameKinkyDungeonLevel}, iteration ${i}: Found ${MiniGameKinkyDungeonCheckpoint}, Checkpoint should be ${Math.floor(MiniGameKinkyDungeonLevel / 10)}`);
+		} else if (MiniGameKinkyDungeonCheckpoint != KDDefaultJourney[Math.min(KDDefaultJourney.length - 1, Math.floor((MiniGameKinkyDungeonLevel) / KDLevelsPerCheckpoint))]) {
+			console.log(`Error, wrong checkpoint on floor ${MiniGameKinkyDungeonLevel}, iteration ${i}: Found ${MiniGameKinkyDungeonCheckpoint}, Checkpoint should be ${Math.floor(MiniGameKinkyDungeonLevel / KDLevelsPerCheckpoint)}`);
 			return false;
 		}
 	}

@@ -490,6 +490,7 @@ var TranslationDictionary = [
 			"Screens/Room/Shop/Dialog_NPC_Shop_Customer_CN.txt",
 			"Screens/Room/Shop/Dialog_NPC_Shop_Vendor_CN.txt",
 			"Screens/Room/Shop/Text_Shop_CN.txt",
+			"Screens/MiniGame/KinkyDungeon/Text_KinkyDungeon_CN.txt",
 			// "Screens/Room/SlaveMarket/Dialog_NPC_SlaveMarket_SlaveToTrain_CN.txt",
 			// "Screens/Room/Stable/Text_Stable_CN.txt",
 			"Screens/Room/Poker/Text_Poker_CN.txt",

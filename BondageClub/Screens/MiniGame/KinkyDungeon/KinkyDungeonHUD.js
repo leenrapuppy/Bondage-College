@@ -1,8 +1,8 @@
 "use strict";
 let KinkyDungeonStruggleGroups = [];
 let KinkyDungeonStruggleGroupsBase = [
-	"ItemHead",
-	"ItemHood",
+	"ItemH",
+	"ItemDevices",
 	"ItemM",
 	"ItemEars",
 	"ItemArms",
@@ -35,6 +35,8 @@ const KinkyDungeonLastChatTimeout = 10000;
 
 let KinkyDungeonStatBarHeight = 100;
 let KinkyDungeonToggleAutoDoor = false;
+let KinkyDungeonToggleAutoPass = false;
+let KinkyDungeonToggleAutoSprint = false;
 
 let KinkyDungeonFastMove = true;
 let KinkyDungeonFastMovePath = [];
@@ -42,16 +44,100 @@ let KinkyDungeonFastStruggle = false;
 let KinkyDungeonFastStruggleType = "";
 let KinkyDungeonFastStruggleGroup = "";
 
+/**
+ *
+ * @param {item} item
+ * @param {boolean} [includeItem]
+ * @returns {item[]}
+ */
+function KDDynamicLinkList(item, includeItem) {
+	let ret = [];
+	if (includeItem) ret.push(item);
+	if (item && item.dynamicLink) {
+		let link = item.dynamicLink;
+		while (link) {
+			ret.push(link);
+			link = link.dynamicLink;
+		}
+	}
+	return ret;
+}
+
+/**
+ * Returns a list of items on the 'surface' of a dynamic link, i.e items that can be accessed
+ * @param {item} item
+ * @returns {item[]}
+ */
+function KDDynamicLinkListSurface(item) {
+	// First we get the whole stack
+	let stack = [];
+	if (item && item.dynamicLink) {
+		let last = item;
+		let link = item.dynamicLink;
+		while (link) {
+			stack.push({item: link, host: last});
+			link = link.dynamicLink;
+			last = link;
+		}
+	}
+	let ret = [item];
+	// Now that we have the stack we sum things up
+	for (let tuple of stack) {
+		let inv = tuple.item;
+		let host = tuple.host;
+		if (
+			(!KDRestraint(host).inaccessible)
+			&& ((KDRestraint(host).accessible) || (KDRestraint(inv).renderWhenLinked && KDRestraint(item).shrine && KDRestraint(inv).renderWhenLinked.some((link) => {return KDRestraint(item).shrine.includes(link);})))
+		) {
+			ret.push(inv);
+		}
+	}
+	return ret;
+}
+
+/**
+ *
+ * @param {restraint} restraint
+ * @returns {number}
+ */
+function KDLinkSize(restraint) {
+	return restraint.linkSize ? restraint.linkSize : 1;
+}
+
+/**
+ *
+ * @param {item} item
+ * @param {string} linkCategory
+ * @returns {number}
+ */
+function KDLinkCategorySize(item, linkCategory) {
+	let total = 0;
+	// First we get the whole stack
+	let stack = [item];
+	if (item && item.dynamicLink) {
+		let link = item.dynamicLink;
+		while (link) {
+			stack.push(link);
+			link = link.dynamicLink;
+		}
+	}
+	// Now that we have the stack we sum things up
+	for (let inv of stack) {
+		if (KDRestraint(inv).linkCategory == linkCategory) {
+			total += KDLinkSize(KDRestraint(inv));
+		}
+	}
+	return total;
+}
+
 function KinkyDungeonDrawInputs() {
 
 	if (ServerURL == "foobar") DrawButton(1880, 82, 100, 50, TextGet("KinkyDungeonRestart"), "white");
 	else DrawButton(1750, 20, 100, 50, TextGet("KinkyDungeonRestart"), "White");
-	DrawButton(1885, 900, 90, 90, "", "White", KinkyDungeonRootDirectory + (KinkyDungeonFastMove ? "FastMove" : "FastMoveOff") + ".png");
-	DrawButton(1785, 900, 90, 90, "", "White", KinkyDungeonRootDirectory + (KinkyDungeonFastStruggle ? "AutoStruggle" : "AutoStruggleOff") + ".png");
+	DrawButton(1915, 925, 60, 60, "", "White", KinkyDungeonRootDirectory + (KinkyDungeonFastMove ? "FastMove" : "FastMoveOff") + ".png");
+	DrawButton(1845, 925, 60, 60, "", "White", KinkyDungeonRootDirectory + (KinkyDungeonFastStruggle ? "AutoStruggle" : "AutoStruggleOff") + ".png");
 	if (KinkyDungeonPlayerWeapon) {
 		DrawTextFit(TextGet("StatWeapon") + TextGet("KinkyDungeonInventoryItem" + KinkyDungeonPlayerWeapon), 1875, 830, 190, "white", "gray");
-	} else if (KinkyDungeonPlayerDamage && KinkyDungeonPlayerDamage.name == "Knife") {
-		DrawTextFit(TextGet("KinkyDungeonNoWeaponKnife"), 1875, 830, 190, "white", "gray");
 	} else DrawTextFit(TextGet("KinkyDungeonNoWeapon"), 1875, 830, 190, "white", "gray");
 	if (KinkyDungeonPlayerDamage) {
 		DrawTextFit(TextGet("KinkyDungeonAccuracy") + Math.round(KinkyDungeonGetEvasion() * 100) + "%", 1875, 875, 190,
@@ -59,6 +145,11 @@ function KinkyDungeonDrawInputs() {
 			(KinkyDungeonGetEvasion() > KinkyDungeonPlayerDamage.chance * 1.01) ? "lightgreen" : "white", "gray");
 	}
 	let i = 0;
+	if (!KDCanEscape()) {
+		DrawTextFit(TextGet("KinkyDungeonPlayerNoKeys"), 1640, 900 - i * 35, 200, "white", "gray"); i++;
+	} else if (KDGameData.KeysNeeded) {
+		DrawTextFit(TextGet("KinkyDungeonPlayerYesKeys"), 1640, 900 - i * 35, 200, "white", "gray"); i++;
+	}
 	if (KDGameData.PrisonerState == 'jail') {
 		DrawTextFit(TextGet("KinkyDungeonPlayerJail"), 1640, 900 - i * 35, 200, "orange", "gray"); i++;
 	} else if (KDGameData.PrisonerState == 'parole') {
@@ -72,21 +163,35 @@ function KinkyDungeonDrawInputs() {
 	}
 	let sneak = KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "Sneak");
 	if (sneak > 2.5) {
-		DrawTextFit(TextGet("KinkyDungeonPlayerInvisible"), 1640, 900 - i * 35, 200, "#ceaaed", "gray"); i++;
+		DrawTextFit(TextGet("KinkyDungeonPlayerSneak"), 1640, 900 - i * 35, 200, "#ceaaed", "gray"); i++;
 	} else {
 		let visibility = KinkyDungeonMultiplicativeStat(KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "SlowDetection"));
 		if (visibility != 1.0) {
 			DrawTextFit(TextGet("KinkyDungeonPlayerVisibility") + Math.round(visibility * 100) + "%", 1640, 900 - i * 35, 200, "#ceaaed", "gray"); i++;
 		}
 	}
-	if (KinkyDungeonMovePoints < 0) {
-		DrawTextFit(TextGet("KinkyDungeonPlayerSlow"), 1640, 900 - i * 35, 200, "#e27285", "gray"); i++;
-	} else if (KinkyDungeonSlowLevel >= 4) {
-		DrawTextFit(TextGet("KinkyDungeonPlayerSlow4"), 1640, 900 - i * 35, 200, "#e27285", "gray"); i++;
-	} else if (KinkyDungeonSlowLevel == 3) {
-		DrawTextFit(TextGet("KinkyDungeonPlayerSlow3"), 1640, 900 - i * 35, 200, "#e27285", "gray"); i++;
-	} else if (KinkyDungeonSlowLevel == 2) {
-		DrawTextFit(TextGet("KinkyDungeonPlayerSlow2"), 1640, 900 - i * 35, 200, "#e27285", "gray"); i++;
+	let help = KinkyDungeonHasAllyHelp() || KinkyDungeonHasGhostHelp();
+	let hook = KinkyDungeonGetAffinity(false, "Edge");
+	if (help) {
+		DrawTextFit(TextGet("KinkyDungeonPlayerHelp"), 1640, 900 - i * 35, 200, "white", "gray"); i++;
+
+	} else if (hook) {
+		DrawTextFit(TextGet("KinkyDungeonPlayerHook"), 1640, 900 - i * 35, 200, "white", "gray"); i++;
+	}
+	if (KinkyDungeonFlags.has("Quickness")) {
+		DrawTextFit(TextGet("KinkyDungeonPlayerQuickness"), 1640, 900 - i * 35, 200, "#ffff00", "gray"); i++;
+	} else {
+		if (KinkyDungeonSlowLevel >= 9) {
+			DrawTextFit(TextGet("KinkyDungeonPlayerImmobile"), 1640, 900 - i * 35, 200, "#e27285", "gray"); i++;
+		} else if (KinkyDungeonMovePoints < 0) {
+			DrawTextFit(TextGet("KinkyDungeonPlayerSlow"), 1640, 900 - i * 35, 200, "#e27285", "gray"); i++;
+		} else if (KinkyDungeonSlowLevel >= 4) {
+			DrawTextFit(TextGet("KinkyDungeonPlayerSlow4"), 1640, 900 - i * 35, 200, "#e27285", "gray"); i++;
+		} else if (KinkyDungeonSlowLevel == 3) {
+			DrawTextFit(TextGet("KinkyDungeonPlayerSlow3"), 1640, 900 - i * 35, 200, "#e27285", "gray"); i++;
+		} else if (KinkyDungeonSlowLevel == 2) {
+			DrawTextFit(TextGet("KinkyDungeonPlayerSlow2"), 1640, 900 - i * 35, 200, "#e27285", "gray"); i++;
+		}
 	}
 	i = 0;
 
@@ -145,7 +250,8 @@ function KinkyDungeonDrawInputs() {
 		i = 0;
 		for (let b of Object.values(KinkyDungeonPlayerBuffs)) {
 			if (b.aura || b.labelcolor) {
-				DrawTextFit(TextGet("KinkyDungeonBuff" + b.id) + ((b.duration && b.duration < 9000) ? ` (${b.duration})` : ""), 790, 900 - i * 35, 275, b.aura ? b.aura : b.labelcolor, "gray"); i++;
+				let count = b.maxCount ? b.maxCount - (b.currentCount ? b.currentCount : 0) : 0;
+				DrawTextFit(TextGet("KinkyDungeonBuff" + b.id) + (count ? `[${count}/${b.maxCount}]` : "") + ((b.duration && b.duration < 9000) ? `(${b.duration})` : ""), 790, 900 - i * 35, 275, b.aura ? b.aura : b.labelcolor, "gray"); i++;
 			}
 
 		}
@@ -159,6 +265,89 @@ function KinkyDungeonDrawInputs() {
 			let x = 5 + ((!sg.left) ? (490 - ButtonWidth) : 0);
 			let y = 42 + sg.y * (ButtonWidth + 46);
 
+			let item = KinkyDungeonGetRestraintItem(sg.group);
+			let drawLayers = 0;
+
+			let MY = Math.min(500, MouseY);
+			let surfaceItems = [];
+			let dynamicList = [];
+			let noRefreshlists = false;
+			if (KDStruggleGroupLinkIndex[sg.group] && item && item.dynamicLink) {
+				surfaceItems = KDDynamicLinkListSurface(item);
+				dynamicList = KDDynamicLinkList(item, true);
+				noRefreshlists = true;
+				if (!KDStruggleGroupLinkIndex[sg.group] || KDStruggleGroupLinkIndex[sg.group] >= surfaceItems.length) {
+					KDStruggleGroupLinkIndex[sg.group] = 0;
+				}
+				item = surfaceItems[KDStruggleGroupLinkIndex[sg.group]];
+			}
+			if (MouseIn(((!sg.left) ? (260) : 0), y-48, 230, (ButtonWidth + 70))) {
+				let lastO = 0;
+				// 0 = no draw
+				// 1 = grey
+				// 2 = white
+				if (dynamicList.length > 0 || (item && item.dynamicLink)) {
+					if (!noRefreshlists) {
+						surfaceItems = KDDynamicLinkListSurface(item);
+						dynamicList = KDDynamicLinkList(item, true);
+					}
+					if (surfaceItems.length <= 1) {
+						// Delete if there are no additional surface items
+						delete KDStruggleGroupLinkIndex[sg.group];
+						drawLayers = 1;
+					} else {
+						if (!KDStruggleGroupLinkIndex[sg.group] || KDStruggleGroupLinkIndex[sg.group] >= surfaceItems.length) {
+							KDStruggleGroupLinkIndex[sg.group] = 0;
+						}
+						item = surfaceItems[KDStruggleGroupLinkIndex[sg.group]];
+
+						drawLayers = 2;
+					}
+
+					let O = 1;
+					MainCanvas.textAlign = "left";
+					let drawn = false;
+					for (let d of dynamicList) {
+						if (d.name != item.name)//KDRestraint(item) && (!KDRestraint(item).UnLink || d.name != KDRestraint(item).UnLink))
+						{
+							drawn = true;
+							let msg = TextGet("Restraint" + d.name);
+							DrawText(msg, 1 + 530, 1 + MY + O * 50, "gray", "gray");
+							DrawText(msg, 530, MY + O * 50, "white", "gray");
+							O++;
+						}
+					}
+					lastO = O;
+					O = 0;
+					if (drawn) {
+						DrawText(TextGet("KinkyDungeonItemsUnderneath"), 1 + 530, 1 + MY + O * 50, "gray", "gray");
+						DrawText(TextGet("KinkyDungeonItemsUnderneath"), 530, MY + O * 50, "white", "gray");
+					}
+					O = lastO + 1;
+					MainCanvas.textAlign = "center";
+				}
+				if (lastO) lastO += 1;
+				if (item && KDRestraint(item) && KinkyDungeonStrictness(false, KDRestraint(item).Group)) {
+					let strictItems = KinkyDungeonGetStrictnessItems(KDRestraint(item).Group);
+					let O = lastO + 1;
+					MainCanvas.textAlign = "left";
+					let drawn = false;
+					for (let s of strictItems) {
+						drawn = true;
+						let msg = TextGet("Restraint" + s);
+						DrawText(msg, 1 + 530, 1 + MY + O * 50, "gray", "gray");
+						DrawText(msg, 530, MY + O * 50, "white", "gray");
+						O++;
+					}
+					O = lastO;
+					if (drawn) {
+						DrawText(TextGet("KinkyDungeonItemsStrictness"), 1 + 530, 1 + MY + O * 50, "gray", "gray");
+						DrawText(TextGet("KinkyDungeonItemsStrictness"), 530, MY + O * 50, "white", "gray");
+					}
+					MainCanvas.textAlign = "center";
+				}
+			}
+
 			if (sg.left) {
 				MainCanvas.textAlign = "left";
 			} else {
@@ -167,91 +356,55 @@ function KinkyDungeonDrawInputs() {
 
 			let color = "white";
 			let locktext = "";
-			if (KinkyDungeonBlindLevel < 1) {
-				if (sg.lock == "Red") {color = "#ff8888"; locktext = TextGet("KinkyRedLockAbr");}
-				if (sg.lock == "Blue") {color = "#8888FF"; locktext = TextGet("KinkyBlueLockAbr");}
-				if (sg.lock == "Gold") {color = "#FFFF88"; locktext = TextGet("KinkyGoldLockAbr");}
+			if (KinkyDungeonBlindLevel != 999) {
+				if (item.lock == "Red") {color = "#ff8888"; locktext = TextGet("KinkyRedLockAbr");}
+				if (item.lock == "Blue") {color = "#8888FF"; locktext = TextGet("KinkyBlueLockAbr");}
+				if (item.lock == "Gold") {color = "#FFFF88"; locktext = TextGet("KinkyGoldLockAbr");}
+				if (item.lock == "Purple") {color = "#cc2f7b"; locktext = TextGet("KinkyPurpleLockAbr");}
 			} else {
 				color = "#cccccc";
-				if (sg.lock) {
+				if (item.lock) {
 					locktext = TextGet("KinkyBlindLockAbr");
 				}
 			}
 
-			let GroupText = sg.name ? ("Restraint" + sg.name) : ("KinkyDungeonGroup"+ sg.group); // The name of the group to draw.
+			let GroupText = sg.name ? ("Restraint" + item.name) : ("KinkyDungeonGroup"+ sg.group); // The name of the group to draw.
 
-			DrawTextFit(TextGet(GroupText) + locktext, x + ((!sg.left) ? ButtonWidth : 0) + 2, y-24+2, 230, "gray", "gray");
-			DrawTextFit(TextGet(GroupText) + locktext, x + ((!sg.left) ? ButtonWidth : 0), y-24, 230, color, "gray");
+			DrawTextFit(TextGet(GroupText) + locktext, x + ((!sg.left) ? ButtonWidth - (drawLayers ? ButtonWidth : 0) : 0) + 2, y-24+2, 240 - (drawLayers ? ButtonWidth : 0), "gray", "gray");
+			DrawTextFit(TextGet(GroupText) + locktext, x + ((!sg.left) ? ButtonWidth - (drawLayers ? ButtonWidth : 0) : 0), y-24, 240 - (drawLayers ? ButtonWidth : 0), color, "gray");
 			MainCanvas.textAlign = "center";
 
-			i = 1;
-			if (MouseIn(((!sg.left) ? (260) : 0), y-24, 230, (ButtonWidth + 46)) || KinkyDungeonDrawStruggle > 1) {
+			if (drawLayers) {
+				DrawButtonKD("surfaceItems"+sg.group, drawLayers == 2, x + (sg.left ? 240 - ButtonWidth : 12), y - ButtonWidth/2 - 20, 48, 48, "", drawLayers == 2 ? "White" : "#888888", KinkyDungeonRootDirectory + "Layers.png", "");
+			}
+
+			i = 0;
+			if (MouseIn(((!sg.left) ? (260) : 0), y-48, 230, (ButtonWidth + 70)) || KinkyDungeonDrawStruggle > 1) {
+				let r = KDRestraint(item);
+
 				if (!KinkyDungeonDrawStruggleHover) {
 					KinkyDungeonDrawStruggleHover = true;
 				}
-				DrawButton(x, y, ButtonWidth, ButtonWidth, "", "White", KinkyDungeonRootDirectory + "Struggle.png", "");
-				if (sg.curse) {
-					DrawButton(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth, "", "White", KinkyDungeonRootDirectory + "CurseInfo.png", ""); i++;
-					if (KinkyDungeonCurseAvailable(sg, sg.curse))
+
+				let buttons = ["Struggle", "CurseInfo", "CurseUnlock", "Cut", "Remove", "Pick"];
+
+				for (let button_index = 0; button_index < buttons.length; button_index++) {
+					let btn = buttons[sg.left ? button_index : (buttons.length - 1 - button_index)];
+					if (btn == "Struggle") {
+						DrawButton(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth, "", "White", KinkyDungeonRootDirectory + "Struggle.png", ""); i++;
+					} else if (r.curse && btn == "CurseInfo") {
+						DrawButton(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth, "", "White", KinkyDungeonRootDirectory + "CurseInfo.png", ""); i++;
+					} else if (r.curse && btn == "CurseUnlock" && KinkyDungeonCurseAvailable(item, r.curse)) {
 						DrawButton(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth, "", "White", KinkyDungeonRootDirectory + "CurseUnlock.png", ""); i++;
-				} else if (!sg.blocked) {
-					let toolSprite = (sg.lock != "") ? ((sg.lock != "Jammed") ? "Key" : "LockJam") : "Buckle";
-					if ((KinkyDungeonNormalBlades > 0 || KinkyDungeonWeaponCanCut(true) || KinkyDungeonEnchantedBlades > 0) && !sg.noCut) {
+					} else if (!r.curse && !sg.blocked && btn == "Remove") {
+						let toolSprite = (item.lock != "") ? ((item.lock != "Jammed") ? "Key" : "LockJam") : "Buckle";
+						DrawButton(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth, "", "White", KinkyDungeonRootDirectory + toolSprite + ".png", ""); i++;
+					} else if (!r.curse && !sg.blocked && btn == "Cut" && (KinkyDungeonAllWeapon().some((inv) => {return KDWeapon(inv).light && KDWeapon(inv).cutBonus != undefined;})) && !sg.noCut) {
 						DrawButton(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth, "",
-							((sg.magic) || (KinkyDungeonEnchantedBlades > 0 && KinkyDungeonNormalBlades < 1)) ? "#8394ff" : "White", KinkyDungeonRootDirectory + "Cut.png", "");
+								(sg.magic) ? "#8394ff" : "White", KinkyDungeonRootDirectory + "Cut.png", "");
 						i++;
-					}
-					DrawButton(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth, "", "White", KinkyDungeonRootDirectory + toolSprite + ".png", ""); i++;
-					if (KinkyDungeonLockpicks > 0 && sg.lock != "") {DrawButton(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth, "", "White", KinkyDungeonRootDirectory + "UseTool.png", ""); i++;}
-
-				}
-
-				let MY = Math.min(500, MouseY);
-				if (MouseIn(x + ((!sg.left) ? -(ButtonWidth)*i : 0), y, ButtonWidth*i, ButtonWidth)) {
-					let item = KinkyDungeonGetRestraintItem(sg.group);
-					let lastO = 0;
-					if (item && item.dynamicLink) {
-						let O = 1;
-						MainCanvas.textAlign = "left";
-						let drawn = false;
-						for (let d of item.dynamicLink) {
-							if (KDRestraint(item) && (!KDRestraint(item).UnLink || d != KDRestraint(item).UnLink))
-							{
-								drawn = true;
-								let msg = TextGet("Restraint" + d);
-								DrawText(msg, 1 + 530, 1 + MY + O * 50, "gray", "gray");
-								DrawText(msg, 530, MY + O * 50, "white", "gray");
-								O++;
-							}
-						}
-						lastO = O;
-						O = 0;
-						if (drawn) {
-							DrawText(TextGet("KinkyDungeonItemsUnderneath"), 1 + 530, 1 + MY + O * 50, "gray", "gray");
-							DrawText(TextGet("KinkyDungeonItemsUnderneath"), 530, MY + O * 50, "white", "gray");
-						}
-						O = lastO + 1;
-						MainCanvas.textAlign = "center";
-					}
-					if (lastO) lastO += 1;
-					if (item && KDRestraint(item) && KinkyDungeonStrictness(false, KDRestraint(item).Group)) {
-						let strictItems = KinkyDungeonGetStrictnessItems(KDRestraint(item).Group);
-						let O = lastO + 1;
-						MainCanvas.textAlign = "left";
-						let drawn = false;
-						for (let s of strictItems) {
-							drawn = true;
-							let msg = TextGet("Restraint" + s);
-							DrawText(msg, 1 + 530, 1 + MY + O * 50, "gray", "gray");
-							DrawText(msg, 530, MY + O * 50, "white", "gray");
-							O++;
-						}
-						O = lastO;
-						if (drawn) {
-							DrawText(TextGet("KinkyDungeonItemsStrictness"), 1 + 530, 1 + MY + O * 50, "gray", "gray");
-							DrawText(TextGet("KinkyDungeonItemsStrictness"), 530, MY + O * 50, "white", "gray");
-						}
-						MainCanvas.textAlign = "center";
+					} else if (!r.curse && !sg.blocked && btn == "Pick" && KinkyDungeonLockpicks > 0 && item.lock != "") {
+						DrawButton(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth, "", "White", KinkyDungeonRootDirectory + "UseTool.png", ""); i++;
 					}
 				}
 			}
@@ -271,15 +424,24 @@ function KinkyDungeonDrawInputs() {
 	if (KinkyDungeonTargetTile) {
 		if (KinkyDungeonTargetTile.Type == "Lock" && KinkyDungeonTargetTile.Lock) {
 			let action = false;
-			if (KinkyDungeonLockpicks > 0) {
+			if (KinkyDungeonLockpicks > 0 && (KinkyDungeonTargetTile.Lock.includes("Red") || KinkyDungeonTargetTile.Lock.includes("Blue"))) {
 				DrawButton(KDModalArea_x + 313, KDModalArea_y + 25, 112, 60, TextGet("KinkyDungeonPickDoor"), "White", "", "");
 				action = true;
 				KDModalArea = true;
 			}
 
-			if ((KinkyDungeonTargetTile.Lock.includes("Red") && KinkyDungeonRedKeys > 0)
-				|| (KinkyDungeonTargetTile.Lock.includes("Blue") && KinkyDungeonBlueKeys > 0)) {
-				DrawButton(KDModalArea_x + 175, KDModalArea_y + 25, 112, 60, TextGet("KinkyDungeonUnlockDoor"), "White", "", "");
+			if (KinkyDungeonTargetTile.Lock.includes("Red") || KinkyDungeonTargetTile.Lock.includes("Blue")) {
+				DrawButton(KDModalArea_x + 175, KDModalArea_y + 25, 112, 60, TextGet("KinkyDungeonUnlockDoor"),
+				(KinkyDungeonTargetTile.Lock.includes("Red") && KinkyDungeonRedKeys > 0)
+				|| (KinkyDungeonTargetTile.Lock.includes("Blue") && KinkyDungeonBlueKeys > 0) ? "White" : "#ff0000", "", "");
+				action = true;
+				KDModalArea = true;
+			}
+			if ((KinkyDungeonTargetTile.Lock.includes("Purple"))) {
+				let spell = KinkyDungeonFindSpell("CommandWord", true);
+				DrawButton(KDModalArea_x + 175, KDModalArea_y + 25, 112, 60, TextGet("KinkyDungeonUnlockDoorPurple"),
+				(KinkyDungeonStatMana >= KinkyDungeonGetManaCost(spell)) ? "White" : "#ff0000",
+				"", "");
 				action = true;
 				KDModalArea = true;
 			}
@@ -290,6 +452,8 @@ function KinkyDungeonDrawInputs() {
 				DrawText(TextGet("KinkyRedLock"), KDModalArea_x + 50, KDModalArea_y + 50, "white", "gray");
 			else if (KinkyDungeonTargetTile.Lock.includes("Blue"))
 				DrawText(TextGet("KinkyBlueLock"), KDModalArea_x + 50, KDModalArea_y + 50, "white", "gray");
+			else if (KinkyDungeonTargetTile.Lock.includes("Purple"))
+				DrawText(TextGet("KinkyPurpleLock"), KDModalArea_x + 50, KDModalArea_y + 50, "white", "gray");
 		} else if (KinkyDungeonTargetTile.Type == "Shrine") {
 			KinkyDungeonDrawShrine();
 		} else if (KDObjectDraw[KinkyDungeonTargetTile.Type]) {
@@ -297,14 +461,25 @@ function KinkyDungeonDrawInputs() {
 		} else if (KinkyDungeonTargetTile.Type == "Door") {
 			if (KinkyDungeonTargetTile.Lock) {
 				let action = false;
-				if (KinkyDungeonLockpicks > 0) {
+				if (KinkyDungeonLockpicks > 0 && (KinkyDungeonTargetTile.Lock.includes("Red") || KinkyDungeonTargetTile.Lock.includes("Blue"))) {
 					DrawButton(KDModalArea_x + 313, KDModalArea_y + 25, 112, 60, TextGet("KinkyDungeonPickDoor"), "White", "", "");
 					action = true;
 					KDModalArea = true;
 				}
 
-				if ((KinkyDungeonTargetTile.Lock.includes("Red") && KinkyDungeonRedKeys > 0) || (KinkyDungeonTargetTile.Lock.includes("Blue") && KinkyDungeonBlueKeys > 0)) {
-					DrawButton(KDModalArea_x + 175, KDModalArea_y + 25, 112, 60, TextGet("KinkyDungeonUnlockDoor"), "White", "", "");
+				if (KinkyDungeonTargetTile.Lock.includes("Red") || KinkyDungeonTargetTile.Lock.includes("Blue")) {
+					DrawButton(KDModalArea_x + 175, KDModalArea_y + 25, 112, 60, TextGet("KinkyDungeonUnlockDoor"),
+					(KinkyDungeonTargetTile.Lock.includes("Red") && KinkyDungeonRedKeys > 0)
+					|| (KinkyDungeonTargetTile.Lock.includes("Blue") && KinkyDungeonBlueKeys > 0) ? "White" : "#ff0000", "", "");
+					action = true;
+					KDModalArea = true;
+				}
+
+				if ((KinkyDungeonTargetTile.Lock.includes("Purple"))) {
+					let spell = KinkyDungeonFindSpell("CommandWord", true);
+					DrawButton(KDModalArea_x + 175, KDModalArea_y + 25, 112, 60, TextGet("KinkyDungeonUnlockDoorPurple"),
+					(KinkyDungeonStatMana >= KinkyDungeonGetManaCost(spell)) ? "White" : "#ff0000",
+					"", "");
 					action = true;
 					KDModalArea = true;
 				}
@@ -315,6 +490,8 @@ function KinkyDungeonDrawInputs() {
 					DrawText(TextGet("KinkyRedLock"), KDModalArea_x + 25, KDModalArea_y + 50, "white", "gray");
 				else if (KinkyDungeonTargetTile.Lock.includes("Blue"))
 					DrawText(TextGet("KinkyBlueLock"), KDModalArea_x + 25, KDModalArea_y + 50, "white", "gray");
+				else if (KinkyDungeonTargetTile.Lock.includes("Purple"))
+					DrawText(TextGet("KinkyPurpleLock"), KDModalArea_x + 50, KDModalArea_y + 50, "white", "gray");
 			} else {
 				KDModalArea = true;
 				DrawButton(KDModalArea_x + 25, KDModalArea_y + 25, 250, 60, TextGet("KinkyDungeonCloseDoor"), "White");
@@ -324,26 +501,69 @@ function KinkyDungeonDrawInputs() {
 
 
 	DrawButton(650, 925, 165, 60, TextGet("KinkyDungeonInventory"), "White", "", "");
-	DrawButton(840, 925, 165, 60, TextGet("KinkyDungeonReputation"), "White", "", "");
-	DrawButton(1540, 925, 200, 60, TextGet("KinkyDungeonMagic"), "White", "", "");
+	DrawButton(820, 925, 165, 60, TextGet("KinkyDungeonReputation"), "White", "", "");
+	DrawButton(1630, 925, 200, 60, TextGet("KinkyDungeonMagic"), "White", "", "");
 
 	let logtxt = KinkyDungeonNewLoreList.length > 0 ? TextGet("KinkyDungeonLogbookN").replace("N", KinkyDungeonNewLoreList.length): TextGet("KinkyDungeonLogbook");
-	DrawButton(1030, 935, 165, 50, logtxt, "white");
-	DrawButton(1220, 935, 295, 50, TextGet("KinkyDungeonAutoDoor" + (KinkyDungeonToggleAutoDoor ? "On" : "Off")), KinkyDungeonToggleAutoDoor ? "white" : "#AAAAAA");
+	DrawButton(990, 935, 165, 50, logtxt, "white");
+	DrawButton(1160, 935, 145, 50, TextGet("KinkyDungeonAutoDoor" + (KinkyDungeonToggleAutoDoor ? "On" : "Off")), KinkyDungeonToggleAutoDoor ? "white" : "#AAAAAA");
+	DrawButton(1310, 935, 145, 50, TextGet("KinkyDungeonAutoPass" + (KinkyDungeonToggleAutoPass ? "On" : "Off")), KinkyDungeonToggleAutoPass ? "white" : "#AAAAAA");
+	//DrawButtonKDEx("toggleSprint", () => {KinkyDungeonToggleAutoSprint = !KinkyDungeonToggleAutoSprint; return true;}, true,
+	//1460, 925, 1630 - 1460 - 5, 60, TextGet("KinkyDungeonAutoSprint" + (KinkyDungeonToggleAutoSprint ? "On" : "Off")), KinkyDungeonToggleAutoSprint ? "white" : "#AAAAAA");
 
 	for (i = 0; i < KinkyDungeonSpellChoiceCount; i++) {
+		let buttonWidth = 40;
+		let buttonPad = 80;
+		DrawButton(1650 + (90 - buttonWidth), 140 + i*KinkyDungeonSpellChoiceOffset, buttonWidth, buttonWidth, "", "#ffffff", KinkyDungeonRootDirectory + "ChangeSpell.png");
+
 		if (KinkyDungeonSpells[KinkyDungeonSpellChoices[i]] && !KinkyDungeonSpells[KinkyDungeonSpellChoices[i]].passive) {
 			let spell = KinkyDungeonSpells[KinkyDungeonSpellChoices[i]];
 			let components = KinkyDungeonGetCompList(spell);
 			let comp = "";
-			if (spell.components && spell.components.length > 0) comp = " + " + components;
 
-			MainCanvas.textAlign = "right";
-			DrawTextFit(TextGet("KinkyDungeonSpell"+ spell.name), 1735, 160 + i*KinkyDungeonSpellChoiceOffset, 235, "white", "gray");
-			DrawTextFit(KinkyDungeonGetManaCost(spell) + TextGet("KinkyDungeonManaCost") + comp, 1640, 200 + i*KinkyDungeonSpellChoiceOffset, 100, "#ccddFF", "gray");
+			let buttonDim = {
+				x: 1700 - buttonPad,
+				y: 140 + i*KinkyDungeonSpellChoiceOffset,
+				w: 76,
+				h: 76
+			};
+
+			if (spell.components && spell.components.length > 0) comp = components;
+			// Render MP cost
+			let cost = KinkyDungeonGetManaCost(spell) + "m";
+			DrawTextFit(cost, 1650 + (89 - buttonWidth/2), 140 + i*KinkyDungeonSpellChoiceOffset + buttonWidth*1.4, buttonWidth * 0.35 * Math.min(3, cost.length), "#ccddFF", "gray");
+
 			MainCanvas.textAlign = "center";
 
-			DrawButton(1650, 180 + i*KinkyDungeonSpellChoiceOffset, 90, 60, "", KinkyDungeonSpellChoicesToggle[i] ? "White" : "#aaaaaa", KinkyDungeonRootDirectory + "Spell" + (i+1) + ".png", "");
+			if (spell.type == "passive" && KinkyDungeonSpellChoicesToggle[i]) {
+				DrawRect(1700 - buttonPad - 4, 140 - 4 + i*KinkyDungeonSpellChoiceOffset, 84, 84, "White");
+			}
+			DrawButtonKD("SpellCast" + i, true, buttonDim.x, buttonDim.y, buttonDim.w, buttonDim.h, "", "rgba(0, 0, 0, 0)", KinkyDungeonRootDirectory + "Spells/" + spell.name + ".png", "");
+			if ((KinkyDungeoCheckComponents(spell).length > 0 || (spell.components.includes("Verbal") && KinkyDungeonGagTotal() > 0 && !spell.noMiscast))) {
+				let sp = "SpellFail";
+				if (spell.components.includes("Verbal") && KinkyDungeonGagTotal() < 1) {
+					sp = "SpellFailPartial";
+				}
+				DrawImage(KinkyDungeonRootDirectory + "Spells/" + sp + ".png", buttonDim.x + 2, buttonDim.y + 2);
+			}
+
+			if (MouseIn(buttonDim.x, buttonDim.y, buttonDim.w, buttonDim.h)) {
+				MainCanvas.textAlign = "right";
+				DrawTextFit(TextGet("KinkyDungeonSpell"+ spell.name), 1700 - buttonPad - 30, 140 + buttonPad/2 + i*KinkyDungeonSpellChoiceOffset, 300, "white", "gray");
+				MainCanvas.textAlign = "center";
+				DrawTextFit(comp, 1700 - 2 + 1 - buttonPad / 2, 200 + 1 + i*KinkyDungeonSpellChoiceOffset, Math.min(10 + comp.length * 8, buttonPad), "#000000", "black");
+				DrawTextFit(comp, 1700 - 2 - 1 - buttonPad / 2, 200 + 1 + i*KinkyDungeonSpellChoiceOffset, Math.min(10 + comp.length * 8, buttonPad), "#000000", "black");
+				DrawTextFit(comp, 1700 - 2 + 1 - buttonPad / 2, 200 - 1 + i*KinkyDungeonSpellChoiceOffset, Math.min(10 + comp.length * 8, buttonPad), "#000000", "black");
+				DrawTextFit(comp, 1700 - 2 - 1 - buttonPad / 2, 200 - 1 + i*KinkyDungeonSpellChoiceOffset, Math.min(10 + comp.length * 8, buttonPad), "#000000", "black");
+				DrawTextFit(comp, 1700 - 2 - buttonPad / 2, 200 + i*KinkyDungeonSpellChoiceOffset, Math.min(10 + comp.length * 8, buttonPad), "#ffffff", "black");
+			}
+			// Render number
+			DrawTextFit((i+1) + "", buttonDim.x + 11, buttonDim.y + 14, 10, "#000000", "black");
+			DrawTextFit((i+1) + "", buttonDim.x + 9, buttonDim.y + 14, 10, "#000000", "black");
+			DrawTextFit((i+1) + "", buttonDim.x + 10, buttonDim.y + 13, 10, "#ffffff", "black");
+
+
+			//let cost = KinkyDungeonGetManaCost(spell) + TextGet("KinkyDungeonManaCost") + comp;
 		}
 	}
 	KinkyDungeonMultiplayerUpdate(KinkyDungeonNextDataSendTimeDelayPing);
@@ -362,6 +582,11 @@ function KinkyDungeonDrawProgress(x, y, amount, totalIcons, maxWidth, sprite) {
 	for (let icon = 0; icon < numIcons && numIcons > 0; icon += 1) {
 		DrawImageZoomCanvas(KinkyDungeonRootDirectory + "Icons/" + sprite + ((icon + 0.5 <= numIcons) ? "Full.png" : "Half.png"), MainCanvas, 0, 0, 72, 72, xOffset + x + 72 * scale * icon, y, 72*scale, 72*scale, false);
 	}
+}
+
+function KinkyDungeonCanSleep() {
+	if (KDGameData.CurrentVibration) return false;
+	else return true;
 }
 
 function KinkyDungeonDrawStats(x, y, width, heightPerBar) {
@@ -403,23 +628,44 @@ function KinkyDungeonDrawStats(x, y, width, heightPerBar) {
 	KinkyDungeonDrawProgress(x, y + heightPerBar*2.5, KinkyDungeonStatMana/maxVisual, Math.floor(KinkyDungeonStatManaMax/12), width, "Mana");
 
 	let sleepColor = "#444444";
+	let playColor = "#444444";
 
 	if (KinkyDungeonCanTryOrgasm()) {
-		sleepColor = "#FF5BE9";
+		playColor = "#FF5BE9";
 	} else if (KinkyDungeonCanPlayWithSelf()) {
-		if (KinkyDungeonStatDistraction < KinkyDungeonStatDistractionMax * KinkyDungeonDistractionSleepDeprivationThreshold) sleepColor = "#FFD8F9";
-		else if (KinkyDungeonStatDistraction < KinkyDungeonStatDistractionMax * 0.5) sleepColor = "#FFB5F5";
-		else if (KinkyDungeonStatDistraction < KinkyDungeonStatDistractionMax * 0.75) sleepColor = "#FF87EF";
-		else sleepColor = "#FF5BE9";
-	} else {
+		if (KinkyDungeonStatDistraction < KinkyDungeonStatDistractionMax * KinkyDungeonDistractionSleepDeprivationThreshold) playColor = "#FFD8F9";
+		else if (KinkyDungeonStatDistraction < KinkyDungeonStatDistractionMax * 0.5) playColor = "#FFB5F5";
+		else if (KinkyDungeonStatDistraction < KinkyDungeonStatDistractionMax * 0.75) playColor = "#FF87EF";
+		else playColor = "#FF5BE9";
+	} else playColor = "#777777";
+	if (KinkyDungeonCanSleep()) {
 		if (KinkyDungeonStatStamina < KinkyDungeonStatStaminaMax * 0.25) sleepColor = "#ffffff";
 		else if (KinkyDungeonStatStamina < KinkyDungeonStatStaminaMax * 0.5) sleepColor = "#bbbbbb";
 		else if (KinkyDungeonStatStamina < KinkyDungeonStatStaminaMax * 0.75) sleepColor = "#999999";
 		else if (KinkyDungeonStatStamina < KinkyDungeonStatStaminaMax) sleepColor = "#777777";
 	}
-	DrawButton(x, y+3*heightPerBar, 240, 50, KinkyDungeonCanTryOrgasm() ? TextGet("KinkyDungeonTryOrgasm") : (KinkyDungeonCanPlayWithSelf() ? TextGet("KinkyDungeonPlayWithSelf") : TextGet("KinkyDungeonSleep")), sleepColor);
+	DrawButtonKDEx("PlayButton", (bdata) => {
+		if (KinkyDungeonCanTryOrgasm()) {
+			// Done, converted to input
+			KDSendInput("tryOrgasm", {});
+		} else if (KinkyDungeonCanPlayWithSelf()) {
+			// Done, converted to input
+			KDSendInput("tryPlay", {});
+		} else {
+			KinkyDungeonSendActionMessage(10, TextGet("KDNotFeeling"), "red", 1);
+		}
+		return true;
+	}, true, x, y+3*heightPerBar, 240, 50, KinkyDungeonCanTryOrgasm() ? TextGet("KinkyDungeonTryOrgasm") : TextGet("KinkyDungeonPlayWithSelf"), playColor);
+	DrawButtonKDEx("SleepButton", (bdata) => {
+		if (KinkyDungeonCanSleep()) {
+			KDSendInput("sleep", {});
+		} else {
+			KinkyDungeonSendActionMessage(10, TextGet("KDCantSleep"), "red", 1);
+		}
+		return true;
+	}, true, x, y+3.7*heightPerBar, 240, 50, TextGet("KinkyDungeonSleep"), sleepColor);
 
-	let i = 3.5;
+	let i = 4.2;
 	MainCanvas.textAlign = "left";
 	DrawImageEx(KinkyDungeonRootDirectory + "Items/Gold.png", x + width/4 - 40, y + 40 - 40 + i * heightPerBar, {Width: 80, Height: 80});
 	DrawText(TextGet("CurrentGold") + KinkyDungeonGold, x + width/4 + 40, y + 40 + i * heightPerBar, "white", "gray"); i+= 0.75;
@@ -441,41 +687,15 @@ function KinkyDungeonDrawStats(x, y, width, heightPerBar) {
 	DrawText("" + KinkyDungeonRedKeys, x+80+80, y + 25 + i * heightPerBar, "white", "gray");
 	if (MouseIn(x+80, y + 40 - 40 + i * heightPerBar, 80, 80)) DrawText(TextGet("KinkyDungeonInventoryItemRedKey"), MouseX - 10, MouseY, "white", "gray");
 
-	DrawImageEx(KinkyDungeonRootDirectory + "Items/Knife.png", x+160, y + 40 - 40 + i * heightPerBar, {Width: 80, Height: 80});
-	DrawText("" + KinkyDungeonNormalBlades, x+80+160, y + 25 + i * heightPerBar, "white", "gray");
-	if (MouseIn(x+160, y + 40 - 40 + i * heightPerBar, 80, 80)) DrawText(TextGet("KinkyDungeonInventoryItemKnife"), MouseX - 10, MouseY, "white", "gray");
-
-	if (KinkyDungeonItemCount("MistressKey") > 0) {
-		DrawImageEx(KinkyDungeonRootDirectory + "Items/MistressKey.png", x, y + 80 + 40 - 40 + i * heightPerBar, {Width: 80, Height: 80});
-		DrawText("" + KinkyDungeonItemCount("MistressKey"), x+80, y + 80 + 25 + i * heightPerBar, "white", "gray");
-		if (MouseIn(x, y + 80 + 40 - 40 + i * heightPerBar, 80, 80)) DrawText(TextGet("KinkyDungeonInventoryItemMistressKey"), MouseX - 10, MouseY, "white", "gray");
-	}
-
 	if (KinkyDungeonBlueKeys > 0) {
-		DrawImageEx(KinkyDungeonRootDirectory + "Items/BlueKey.png", x+80, y + 80 + 40 - 40 + i * heightPerBar, {Width: 80, Height: 80});
-		DrawText("" + KinkyDungeonBlueKeys, x+80+80, y + 80 + 25 + i * heightPerBar, "white", "gray");
-		if (MouseIn(x+80, y + 80 + 40 - 40 + i * heightPerBar, 80, 80)) DrawText(TextGet("KinkyDungeonInventoryItemMagicKey"), MouseX - 10, MouseY, "white", "gray");
+		DrawImageEx(KinkyDungeonRootDirectory + "Items/BlueKey.png", x+160, y + 40 - 40 + i * heightPerBar, {Width: 80, Height: 80});
+		DrawText("" + KinkyDungeonBlueKeys, x+80+160, y + 25 + i * heightPerBar, "white", "gray");
+		if (MouseIn(x+160, y + 40 - 40 + i * heightPerBar, 80, 80)) DrawText(TextGet("KinkyDungeonInventoryItemMagicKey"), MouseX - 10, MouseY, "white", "gray");
 	}
-
-	if (KinkyDungeonEnchantedBlades) {
-		DrawImageEx(KinkyDungeonRootDirectory + "Items/EnchKnife.png", x+160, y + 80 + 40 - 40 + i * heightPerBar, {Width: 80, Height: 80});
-		DrawText("" + KinkyDungeonEnchantedBlades, x+80+160, y + 80 + 25 + i * heightPerBar, "white", "gray");
-		if (MouseIn(x+160, y + 80 + 40 - 40 + i * heightPerBar, 80, 80)) DrawText(TextGet("KinkyDungeonInventoryItemMagicKnife"), MouseX - 10, MouseY, "white", "gray");
-	}
-
 
 	MainCanvas.textAlign = "center";
 
-	DrawTextFit(TextGet("StatMiscastChance").replace("Percent", Math.round(100 * Math.max(0, KinkyDungeonMiscastChance)) + "%"), x+width/2 + 15, y + 160 + 25 + i * heightPerBar, width - 15, (KinkyDungeonStatDistraction > 0) ? "white" : "pink", "gray");
-
-
-	/*
-	DrawText(TextGet("CurrentLockpicks") + KinkyDungeonLockpicks, x+width/2, y + 25 + i * heightPerBar, "white", "gray"); i+= 0.5;
-	DrawText(TextGet("CurrentKnife") + KinkyDungeonNormalBlades, x+width/2, y + 25 + i * heightPerBar, "white", "gray"); i+= 0.5;
-
-	if (KinkyDungeonEnchantedBlades > 0) {DrawText(TextGet("CurrentKnifeMagic") + KinkyDungeonEnchantedBlades, x+width/2, y + 25 + i * heightPerBar, "white", "gray"); i+= 0.5;}
-	if (KinkyDungeonRedKeys > 0) {DrawText(TextGet("CurrentKeyRed") + KinkyDungeonRedKeys, x+width/2, y + 25 + i * heightPerBar, "white", "gray"); i+= 0.5;}
-	if (KinkyDungeonBlueKeys > 0) {DrawText(TextGet("CurrentKeyBlue") + KinkyDungeonBlueKeys, x+width/2, y + 25 + i * heightPerBar, "white", "gray"); i+= 0.5;}*/
+	DrawTextFit(TextGet("StatMiscastChance").replace("Percent", Math.round(100 * Math.max(0, KinkyDungeonMiscastChance)) + "%"), x+width/2 + 15, y + 80 + 25 + i * heightPerBar, width - 15, (KinkyDungeonStatDistraction > 0) ? "white" : "pink", "gray");
 }
 
 function KinkyDungeonActivateWeaponSpell(instant) {
@@ -502,6 +722,7 @@ function KinkyDungeonActivateWeaponSpell(instant) {
 }
 
 function KinkyDungeonRangedAttack() {
+	if (!KinkyDungeonPlayerDamage.special) return;
 	if (KinkyDungeonPlayerDamage.special.type == "spell" || KinkyDungeonPlayerDamage.special.type == "hitorspell") {
 		if (KinkyDungeonPlayerDamage.special.type == "hitorspell") {
 			KinkyDungeonTargetingSpell = {name: "WeaponAttack", components: [], level:1, type:"special", special: "weaponAttackOrSpell", noMiscast: true,
@@ -537,14 +758,31 @@ function KinkyDungeonHandleHUD() {
 		}
 		if (MouseIn(1750, 82, 100, 50)) {
 			KinkyDungeonMessageToggle = !KinkyDungeonMessageToggle;
+			KDLogIndex = 0;
 			return true;
-		} else if (KinkyDungeonIsPlayer() && MouseIn(1885, 900, 90, 90)) {
+		} else if (KinkyDungeonMessageToggle) {
+			if (KinkyDungeonMessageLog.length > KDMaxLog) {
+				if (MouseIn(500 + 1250/2 - 200, KDLogTopPad + KDLogHeight + 50, 90, 40)) {
+					if (KDLogIndex > 0)
+						KDLogIndex = Math.max(0, KDLogIndex - KDLogIndexInc);
+					return true;
+				} else if (MouseIn(500 + 1250/2 + 100, KDLogTopPad + KDLogHeight + 50, 90, 40)) {
+					if (KDLogIndex < KinkyDungeonMessageLog.length - KDMaxLog)
+						KDLogIndex = Math.min(Math.max(0, KinkyDungeonMessageLog.length - KDMaxLog), KDLogIndex + KDLogIndexInc);
+					return true;
+				}
+			}
+			if (MouseIn(500, KDLogTopPad, 1250, KDLogHeight + 175)) {
+				return true;
+			}
+		}
+		if (KinkyDungeonIsPlayer() && MouseIn(1915, 925, 60, 60)) {
 			if (!KinkyDungeonFastMoveSuppress)
 				KinkyDungeonFastMove = !KinkyDungeonFastMove;
 			KinkyDungeonFastMoveSuppress = false;
 			KinkyDungeonFastMovePath = [];
 			return true;
-		} else if (KinkyDungeonIsPlayer() && MouseIn(1785, 900, 90, 90)) {
+		} else if (KinkyDungeonIsPlayer() && MouseIn(1845, 925, 60, 60)) {
 			if (!KinkyDungeonFastStruggleSuppress)
 				KinkyDungeonFastStruggle = !KinkyDungeonFastStruggle;
 			KinkyDungeonFastStruggleSuppress = false;
@@ -557,13 +795,13 @@ function KinkyDungeonHandleHUD() {
 			KinkyDungeonSetTargetLocation();
 
 		if (MouseIn(650, 925, 165, 60)) { KinkyDungeonDrawState = "Inventory"; return true;}
-		else if (MouseIn(1030, 935, 165, 50)) {
+		else if (MouseIn(990, 935, 165, 50)) {
 			KinkyDungeonDrawState = "Logbook";
 			KinkyDungeonUpdateLore(localStorage.getItem("kinkydungeonexploredlore") ? JSON.parse(localStorage.getItem("kinkydungeonexploredlore")) : []);
 			return true;}
-		else if (MouseIn(840, 925, 165, 60)) { KinkyDungeonDrawState = "Reputation"; return true;}
+		else if (MouseIn(820, 925, 165, 60)) { KinkyDungeonDrawState = "Reputation"; return true;}
 		else
-		if (MouseIn(1540, 925, 200, 60)) {
+		if (MouseIn(1630, 925, 200, 60)) {
 			KinkyDungeonDrawState = "MagicSpells";
 			return true;}
 		else if (MouseIn(510, 925, 120, 60)) {
@@ -584,23 +822,23 @@ function KinkyDungeonHandleHUD() {
 				ElementCreateTextArea("DebugEnemy");
 				ElementValue("DebugEnemy", "Maidforce");
 				ElementCreateTextArea("DebugItem");
-				ElementValue("DebugItem", "EnchantedBelt");
+				ElementValue("DebugItem", "TrapArmbinder");
 			}
 			return true;
 		}
 
 		// Done, converted to input
 		if (!KinkyDungeonTargetingSpell) {
-			KinkyDungeonSpellPress = 0;
+			KinkyDungeonSpellPress = "";
 			if (KinkyDungeonHandleSpell()) return true;
 		} else {
-			KinkyDungeonSpellPress = 0;
+			KinkyDungeonSpellPress = "";
 		}
 
 		if (KinkyDungeonIsPlayer() && KinkyDungeonTargetTile) {
 			if (KinkyDungeonTargetTile.Type &&
 				((KinkyDungeonTargetTile.Type == "Lock" && KinkyDungeonTargetTile.Lock) || (KinkyDungeonTargetTile.Type == "Door" && KinkyDungeonTargetTile.Lock))) {
-				if (KinkyDungeonLockpicks > 0 && MouseIn(KDModalArea_x + 313, KDModalArea_y + 25, 112, 60)) {
+				if (KinkyDungeonLockpicks > 0 && (KinkyDungeonTargetTile.Lock.includes("Red") || KinkyDungeonTargetTile.Lock.includes("Blue")) && MouseIn(KDModalArea_x + 313, KDModalArea_y + 25, 112, 60)) {
 					// Done, converted to input
 					KDSendInput("pick", {targetTile: KinkyDungeonTargetTileLocation});
 					return true;
@@ -610,6 +848,11 @@ function KinkyDungeonHandleHUD() {
 					|| (KinkyDungeonTargetTile.Lock.includes("Blue") && KinkyDungeonBlueKeys > 0)) && MouseIn(KDModalArea_x + 175, KDModalArea_y + 25, 112, 60)) {
 					// Done, converted to input
 					KDSendInput("unlock", {targetTile: KinkyDungeonTargetTileLocation});
+					return true;
+				}
+				if (((KinkyDungeonTargetTile.Lock.includes("Purple") && KinkyDungeonStatMana > KinkyDungeonGetManaCost(KinkyDungeonFindSpell("CommandWord", true)))) && MouseIn(KDModalArea_x + 175, KDModalArea_y + 25, 112, 60)) {
+					// Done, converted to input
+					KDSendInput("commandunlock", {targetTile: KinkyDungeonTargetTileLocation});
 					return true;
 				}
 			} else if (KinkyDungeonTargetTile.Type == "Shrine") {
@@ -628,8 +871,11 @@ function KinkyDungeonHandleHUD() {
 				}
 			}
 		} else {
-			if (MouseIn(1220, 935, 295, 50)) {
+			if (MouseIn(1160, 935, 145, 50)) {
 				KinkyDungeonToggleAutoDoor = !KinkyDungeonToggleAutoDoor;
+				return true;
+			} else if (MouseIn(1310, 935, 145, 50)) {
+				KinkyDungeonToggleAutoPass = !KinkyDungeonToggleAutoPass;
 				return true;
 			}
 		}
@@ -642,55 +888,75 @@ function KinkyDungeonHandleHUD() {
 				let y = 42 + sg.y * (ButtonWidth + 46);
 
 				let i = 0;
-				if (MouseIn(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth)) {
-					if (sg.curse) KDSendInput("struggleCurse", {group: sg.group, curse: sg.curse});
-					else {
-						if (KinkyDungeonFastStruggle) {
-							KinkyDungeonFastStruggleGroup = sg.group;
-							KinkyDungeonFastStruggleType = "Struggle";
-						} else
-							KDSendInput("struggle", {group: sg.group, type: "Struggle"});
-							//KinkyDungeonStruggle(sg, "Struggle");
-					} return true;
-				} i++;
-				if (sg.curse) {
-					if (MouseIn(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth)) {KinkyDungeonCurseInfo(sg, sg.curse); return true;} i++;
-					if (MouseIn(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth) && KinkyDungeonCurseAvailable(sg, sg.curse)) {
-						KDSendInput("curseUnlock", {group: sg.group, curse: sg.curse});
-						return true;} i++;
-				} else if (!sg.blocked) {
-					if ((KinkyDungeonNormalBlades > 0 || KinkyDungeonWeaponCanCut(true) || KinkyDungeonEnchantedBlades > 0) && !sg.noCut)
-					{
+				let buttons = ["Struggle", "CurseInfo", "CurseUnlock", "Cut", "Remove", "Pick"];
+
+				let item = KinkyDungeonGetRestraintItem(sg.group);
+				let surfaceItems = KDDynamicLinkListSurface(item);
+
+				if (surfaceItems.length > 1 && MouseInKD("surfaceItems"+sg.group)) {
+					if (!KDStruggleGroupLinkIndex[sg.group]) KDStruggleGroupLinkIndex[sg.group] = 1;
+					else KDStruggleGroupLinkIndex[sg.group] = KDStruggleGroupLinkIndex[sg.group] + 1;
+				}
+				if (KDStruggleGroupLinkIndex[sg.group]) {
+					if (!KDStruggleGroupLinkIndex[sg.group] || KDStruggleGroupLinkIndex[sg.group] >= surfaceItems.length) {
+						KDStruggleGroupLinkIndex[sg.group] = 0;
+					}
+					item = surfaceItems[KDStruggleGroupLinkIndex[sg.group]];
+				}
+				let r = KDRestraint(item);
+
+				for (let button_index = 0; button_index < buttons.length; button_index++) {
+					let btn = buttons[sg.left ? button_index : (buttons.length - 1 - button_index)];
+					if (btn == "Struggle") {
+						if (MouseIn(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth)) {
+							if (r.curse) KDSendInput("struggleCurse", {group: sg.group, index: KDStruggleGroupLinkIndex[sg.group], curse: r.curse});
+							else {
+								if (KinkyDungeonFastStruggle) {
+									KinkyDungeonFastStruggleGroup = sg.group;
+									KinkyDungeonFastStruggleType = "Struggle";
+								} else
+									KDSendInput("struggle", {group: sg.group, index: KDStruggleGroupLinkIndex[sg.group], type: "Struggle"});
+									//KinkyDungeonStruggle(sg, "Struggle");
+							} return true;
+						} i++;
+					} else if (r.curse && btn == "CurseInfo") {
+						if (MouseIn(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth)) {KinkyDungeonCurseInfo(item, r.curse); return true;} i++;
+					} else if (r.curse && btn == "CurseUnlock" && KinkyDungeonCurseAvailable(sg, r.curse)) {
+						if (MouseIn(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth) && KinkyDungeonCurseAvailable(item, r.curse)) {
+							KDSendInput("curseUnlock", {group: sg.group, index: KDStruggleGroupLinkIndex[sg.group], curse: r.curse});
+							return true;} i++;
+					} else if (!r.curse && !sg.blocked && btn == "Remove") {
+						if (MouseIn(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth) && item.lock != "Jammed") {
+							if (KinkyDungeonFastStruggle) {
+								KinkyDungeonFastStruggleGroup = sg.group;
+								KinkyDungeonFastStruggleType = (item.lock != "") ? "Unlock" : "Remove";
+							} else
+								KDSendInput("struggle", {group: sg.group, index: KDStruggleGroupLinkIndex[sg.group], type: (item.lock != "") ? "Unlock" : "Remove"});
+								//KinkyDungeonStruggle(sg, (item.lock != "") ? "Unlock" : "Remove");
+							return true;
+						} i++;
+					} else if (!r.curse && !sg.blocked && btn == "Cut" && (KinkyDungeonAllWeapon().some((inv) => {return KDWeapon(inv).light && KDWeapon(inv).cutBonus != undefined;})) && !sg.noCut) {
 						if (MouseIn(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth)) {
 							if (KinkyDungeonFastStruggle) {
 								KinkyDungeonFastStruggleGroup = sg.group;
 								KinkyDungeonFastStruggleType = "Cut";
 							} else
-								KDSendInput("struggle", {group: sg.group, type: "Cut"});
+								KDSendInput("struggle", {group: sg.group, index: KDStruggleGroupLinkIndex[sg.group], type: "Cut"});
 								//KinkyDungeonStruggle(sg, "Cut");
 							return true;
 						} i++;
-					}
-					if (MouseIn(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth) && sg.lock != "Jammed") {
-						if (KinkyDungeonFastStruggle) {
-							KinkyDungeonFastStruggleGroup = sg.group;
-							KinkyDungeonFastStruggleType = (sg.lock != "") ? "Unlock" : "Remove";
-						} else
-							KDSendInput("struggle", {group: sg.group, type: (sg.lock != "") ? "Unlock" : "Remove"});
-							//KinkyDungeonStruggle(sg, (sg.lock != "") ? "Unlock" : "Remove");
-						return true;
-					} i++;
-					if (KinkyDungeonLockpicks > 0 && sg.lock != "")
-					{
-						if (MouseIn(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth)) {
-							if (KinkyDungeonFastStruggle) {
-								KinkyDungeonFastStruggleGroup = sg.group;
-								KinkyDungeonFastStruggleType = "Pick";
-							} else
-								KDSendInput("struggle", {group: sg.group, type: "Pick"});
-								//KinkyDungeonStruggle(sg, "Pick");
-							return true;
-						} i++;
+					} else if (!r.curse && !sg.blocked && btn == "Pick" && KinkyDungeonLockpicks > 0 && item.lock != "") {
+						if (KinkyDungeonLockpicks > 0 && item.lock != "") {
+							if (MouseIn(x + ((!sg.left) ? -(ButtonWidth)*i : (ButtonWidth)*i), y, ButtonWidth, ButtonWidth)) {
+								if (KinkyDungeonFastStruggle) {
+									KinkyDungeonFastStruggleGroup = sg.group;
+									KinkyDungeonFastStruggleType = "Pick";
+								} else
+									KDSendInput("struggle", {group: sg.group, index: KDStruggleGroupLinkIndex[sg.group], type: "Pick"});
+									//KinkyDungeonStruggle(sg, "Pick");
+								return true;
+							} i++;
+						}
 					}
 				}
 			}
@@ -718,19 +984,6 @@ function KinkyDungeonHandleHUD() {
 		} else if (MouseIn(xxx, yyy + 0 * KinkyDungeonStatBarHeight, buttonWidth, buttonWidth)) return true;
 		else if (MouseIn(xxx, yyy + 1 * KinkyDungeonStatBarHeight, buttonWidth, buttonWidth)) return true;
 		else if (MouseIn(xxx, yyy + 2 * KinkyDungeonStatBarHeight, buttonWidth, buttonWidth)) return true;
-		else if (MouseIn(xxx, yyy + 3 * KinkyDungeonStatBarHeight, 240, 50) && KinkyDungeonControlsEnabled()) {
-			if (KinkyDungeonCanTryOrgasm()) {
-				// Done, converted to input
-				KDSendInput("tryOrgasm", {});
-			} else if (KinkyDungeonCanPlayWithSelf()) {
-				// Done, converted to input
-				KDSendInput("tryPlay", {});
-			} else {
-				// Done, converted to input
-				KDSendInput("sleep", {});
-			}
-			return true;
-		}
 	} else if (KinkyDungeonDrawState == "Orb") {
 		// Done, converted to input
 		return KinkyDungeonHandleOrb();
@@ -754,7 +1007,7 @@ function KinkyDungeonHandleHUD() {
 		// Done, converted to input
 		else return KinkyDungeonHandleLore();
 	} else if (KinkyDungeonDrawState == "Reputation") {
-		if (MouseIn(840, 925, 165, 60)) { KinkyDungeonDrawState = "Game"; return true;}
+		if (MouseIn(820, 925, 165, 60)) { KinkyDungeonDrawState = "Game"; return true;}
 		// Done, converted to input
 		else return KinkyDungeonHandleReputation();
 	} else if (KinkyDungeonDrawState == "Lore") {
@@ -779,20 +1032,22 @@ function KinkyDungeonHandleHUD() {
 				Y += KDPerksYPad;
 				Y_alt = Y;
 				for (let stat of c.buffs.concat(c.debuffs)) {
-					let YY = stat[1].cost < 0 ? Y_alt : Y;
-					let XX = stat[1].cost < 0 ? X + KDPerksButtonWidth + KDPerksButtonWidthPad : X;
+					if (!stat[1].locked || KDUnlockedPerks.includes(stat[0])) {
+						let YY = stat[1].cost < 0 ? Y_alt : Y;
+						let XX = stat[1].cost < 0 ? X + KDPerksButtonWidth + KDPerksButtonWidthPad : X;
 
-					if (MouseIn(XX, YY, KDPerksButtonWidth, KDPerksButtonHeight)) {
-						if (!KinkyDungeonStatsChoice.get(stat[0]) && KinkyDungeonCanPickStat(stat[0])) {
-							KinkyDungeonStatsChoice.set(stat[0], true);
-							localStorage.setItem('KinkyDungeonStatsChoice' + KinkyDungeonPerksConfig, JSON.stringify(Array.from(KinkyDungeonStatsChoice.keys())));
-						} else if (KinkyDungeonStatsChoice.get(stat[0])) {
-							KinkyDungeonStatsChoice.delete(stat[0]);
-							localStorage.setItem('KinkyDungeonStatsChoice' + KinkyDungeonPerksConfig, JSON.stringify(Array.from(KinkyDungeonStatsChoice.keys())));
+						if (MouseIn(XX, YY, KDPerksButtonWidth, KDPerksButtonHeight)) {
+							if (!KinkyDungeonStatsChoice.get(stat[0]) && KinkyDungeonCanPickStat(stat[0])) {
+								KinkyDungeonStatsChoice.set(stat[0], true);
+								localStorage.setItem('KinkyDungeonStatsChoice' + KinkyDungeonPerksConfig, JSON.stringify(Array.from(KinkyDungeonStatsChoice.keys())));
+							} else if (KinkyDungeonStatsChoice.get(stat[0])) {
+								KinkyDungeonStatsChoice.delete(stat[0]);
+								localStorage.setItem('KinkyDungeonStatsChoice' + KinkyDungeonPerksConfig, JSON.stringify(Array.from(KinkyDungeonStatsChoice.keys())));
+							}
 						}
+						if (stat[1].cost < 0) Y_alt += KDPerksButtonHeight + KDPerksButtonHeightPad;
+						else Y += KDPerksButtonHeight + KDPerksButtonHeightPad;
 					}
-					if (stat[1].cost < 0) Y_alt += KDPerksButtonHeight + KDPerksButtonHeightPad;
-					else Y += KDPerksButtonHeight + KDPerksButtonHeightPad;
 				}
 			}
 		}
@@ -804,7 +1059,7 @@ function KinkyDungeonHandleHUD() {
 				ElementCreateTextArea("DebugEnemy");
 				ElementValue("DebugEnemy", "Maidforce");
 				ElementCreateTextArea("DebugItem");
-				ElementValue("DebugItem", "EnchantedBelt");
+				ElementValue("DebugItem", "TrapArmbinder");
 			}
 			return true;
 		}
@@ -818,7 +1073,7 @@ function KinkyDungeonHandleHUD() {
 				ElementCreateTextArea("DebugEnemy");
 				ElementValue("DebugEnemy", "Maidforce");
 				ElementCreateTextArea("DebugItem");
-				ElementValue("DebugItem", "EnchantedBelt");
+				ElementValue("DebugItem", "TrapArmbinder");
 				return true;
 			}
 		}
@@ -841,10 +1096,31 @@ function KinkyDungeonHandleHUD() {
 				}
 				return true;
 			} else
-			if (MouseIn(1500, 100, 300, 64)) {
+			if (MouseIn(1500, 100, 100, 64)) {
 				let enemy = KinkyDungeonEnemies.find((element) => {return element.name.toLowerCase() == ElementValue("DebugEnemy").toLowerCase();});
 				if (enemy) {
-					KinkyDungeonSummonEnemy(KinkyDungeonPlayerEntity.x -1, KinkyDungeonPlayerEntity.y, enemy.name, 1, 1);
+					KinkyDungeonSummonEnemy(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, enemy.name, 1, 1.5);
+				}
+				return true;
+			}else
+			if (MouseIn(1600, 100, 100, 64)) {
+				let enemy = KinkyDungeonEnemies.find((element) => {return element.name.toLowerCase() == ElementValue("DebugEnemy").toLowerCase();});
+				if (enemy) {
+					let e = DialogueCreateEnemy(KinkyDungeonPlayerEntity.x -1, KinkyDungeonPlayerEntity.y, enemy.name);
+					e.allied = 9999;
+				}
+				return true;
+			}else
+			if (MouseIn(1700, 100, 100, 64)) {
+				let enemy = KinkyDungeonEnemies.find((element) => {return element.name.toLowerCase() == ElementValue("DebugEnemy").toLowerCase();});
+				if (enemy) {
+					let e = DialogueCreateEnemy(KinkyDungeonPlayerEntity.x -1, KinkyDungeonPlayerEntity.y, enemy.name);
+					e.ceasefire = 1000;
+					let shop = KinkyDungeonGetShopForEnemy(e, true);
+					if (shop) {
+						KinkyDungeonSetEnemyFlag(e, "Shop", -1);
+						KinkyDungeonSetEnemyFlag(e, shop, -1);
+					}
 				}
 				return true;
 			} else
@@ -854,16 +1130,25 @@ function KinkyDungeonHandleHUD() {
 				else if (KinkyDungeonWeapons[ElementValue("DebugItem")]) KinkyDungeonInventoryAddWeapon(ElementValue("DebugItem"));
 				else if (KinkyDungeonGetRestraintByName(ElementValue("DebugItem"))) {
 					let restraint = KinkyDungeonGetRestraintByName(ElementValue("DebugItem"));
-					KinkyDungeonInventoryAdd({name: ElementValue("DebugItem"), type: LooseRestraint, events: restraint.events});
+					KinkyDungeonInventoryAdd({name: ElementValue("DebugItem"), type: LooseRestraint, events: restraint.events, quantity: 10});
+				} else if (KinkyDungeonOutfitsBase.filter((outfit) => {return outfit.name == ElementValue("DebugItem");}).length > 0) {
+					KinkyDungeonInventoryAdd({name: KinkyDungeonOutfitsBase.filter((outfit) => {return outfit.name == ElementValue("DebugItem");})[0].name, type: Outfit});
 				}
 
 				if (item)
 					KinkyDungeonInventoryAdd(item);
 				return true;
-			} else
+			}
+			if (MouseIn(1500, 320, 300, 64)) {
+				let saveData = KinkyDungeonSaveGame(true);
+				KinkyDungeonState = "Save";
+				ElementCreateTextArea("saveDataField");
+				ElementValue("saveDataField", saveData);
+				return true;
+			}
 			if (MouseIn(1100, 260, 300, 64)) {
-				KinkyDungeonPlayerEntity.x = KinkyDungeonEndPosition.x;
-				KinkyDungeonPlayerEntity.y = KinkyDungeonEndPosition.y;
+
+				KDMovePlayer(KinkyDungeonEndPosition.x, KinkyDungeonEndPosition.y, false);
 				KDGameData.JailKey = true;
 				KinkyDungeonUpdateLightGrid = true;
 				return true;
@@ -872,6 +1157,13 @@ function KinkyDungeonHandleHUD() {
 				KDGameData.PrisonerState = 'parole';
 				return true;
 			}
+		}
+
+		if (MouseIn(600, 420, 350, 64)) {
+			if (MouseX <= 600 + 350/2) KDVibeVolumeListIndex = (KDVibeVolumeList.length + KDVibeVolumeListIndex - 1) % KDVibeVolumeList.length;
+			else KDVibeVolumeListIndex = (KDVibeVolumeListIndex + 1) % KDVibeVolumeList.length;
+			KDVibeVolume = KDVibeVolumeList[KDVibeVolumeListIndex];
+			localStorage.setItem("KDVibeVolume", "" + KDVibeVolumeListIndex);
 		}
 
 		if (MouseIn(1650, 900, 300, 64)) {
@@ -914,7 +1206,7 @@ function KinkyDungeonHandleHUD() {
 			return true;
 		}
 		// Done, converted to input
-		if (KinkyDungeonIsPlayer() && MouseIn(975, 750, 550, 64) && KDGameData.PrisonerState != 'jail') {
+		if (KinkyDungeonIsPlayer() && MouseIn(975, 750, 550, 64) && KDGameData.PrisonerState != 'jail' && KinkyDungeonNearestJailPoint(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y)) {
 			KDSendInput("defeat", {});
 			KinkyDungeonDrawState = "Game";
 			return true;
@@ -922,24 +1214,7 @@ function KinkyDungeonHandleHUD() {
 		if (MouseIn(1075, 450, 350, 64)) {
 			KinkyDungeonState = "Keybindings";
 			if (!KinkyDungeonKeybindings)
-				KinkyDungeonKeybindingsTemp = {
-					Down: 115,
-					DownLeft: 122,
-					DownRight: 99,
-					Left: 97,
-					Right: 100,
-					Spell1: 49,
-					Spell2: 50,
-					Spell3: 51,
-					Spell4: 52,
-					Spell5: 53,
-					SpellWeapon: 54,
-					Up: 119,
-					UpLeft: 113,
-					UpRight: 101,
-					Wait: 120,
-					Skip: 13,
-				};
+				KDSetDefaultKeybindings();
 			else {
 				KinkyDungeonKeybindingsTemp = {};
 				Object.assign(KinkyDungeonKeybindingsTemp, KinkyDungeonKeybindings);
@@ -973,6 +1248,7 @@ function KinkyDungeonHandleHUD() {
 	return false;
 }
 
+let KDStruggleGroupLinkIndex = {};
 
 function KinkyDungeonUpdateStruggleGroups() {
 	let struggleGroups = KinkyDungeonStruggleGroupsBase;
@@ -987,6 +1263,10 @@ function KinkyDungeonUpdateStruggleGroups() {
 			if (InventoryGet(KinkyDungeonPlayer, "ItemMouth3")) Group = "ItemMouth3";
 			else if (InventoryGet(KinkyDungeonPlayer, "ItemMouth2")) Group = "ItemMouth2";
 			else Group = "ItemMouth";
+		}
+		if (sg == "ItemH") {
+			if (InventoryGet(KinkyDungeonPlayer, "ItemHood")) Group = "ItemHood";
+			else Group = "ItemHead";
 		}
 
 		let restraint = KinkyDungeonGetRestraintItem(Group);
@@ -1003,7 +1283,7 @@ function KinkyDungeonUpdateStruggleGroups() {
 					magic:KDRestraint(restraint) ? KDRestraint(restraint).magic : undefined,
 					noCut:KDRestraint(restraint) && KDRestraint(restraint).escapeChance && !KDRestraint(restraint).escapeChance.Cut,
 					curse:KDRestraint(restraint)? KDRestraint(restraint).curse : undefined,
-					blocked: InventoryGroupIsBlockedForCharacter(KinkyDungeonPlayer, Group)});
+					blocked: !KDRestraint(restraint).alwaysStruggleable && KDGroupBlocked(Group)});
 		}
 	}
 }
