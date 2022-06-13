@@ -203,6 +203,18 @@ class ImageCacheClass {
 	}
 
 	/**
+	 * Checks whether a given URL is currently in cache.
+	 *
+	 * Note that it has nothing to do with the actual state of the image (loaded or not)
+	 *
+	 * @param {string} url - The URL of the image to check
+	 * @returns {boolean} true if the URL is known, false otherwise.
+	 */
+	has(url) {
+		return this.cache.has(url);
+	}
+
+	/**
 	 * Remove a cached image by its URL.
 	 * @param {string} url - The URL of the image to delete
 	 */

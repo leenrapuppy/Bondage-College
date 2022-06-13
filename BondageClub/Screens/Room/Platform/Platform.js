@@ -953,15 +953,11 @@ function PlatformDrawBackground() {
 			for (let Room of PlatformRoomList)
 				if ((Room.Name == Door.Name) && (Room.Background != null)) {
 					let FileName = "Screens/Room/Platform/Background/" + Room.Background + ".jpg";
-					let Obj = DrawCacheImage.get(FileName);
-					if ((Obj == null) || (Obj.width == null) || (Obj.width <= 0))
-						DrawImage(FileName, 2000, 1000);
 					if (Room.AlternateBackground != null) {
 						FileName = "Screens/Room/Platform/Background/" + Room.AlternateBackground + ".jpg";
-						Obj = DrawCacheImage.get(FileName);
-						if ((Obj == null) || (Obj.width == null) || (Obj.width <= 0))
-							DrawImage(FileName, 2000, 1000);
 					}
+					// Cache it, it'll start loading in the background
+					ImageCache.get(FileName);
 				}
 
 }
