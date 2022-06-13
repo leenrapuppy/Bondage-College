@@ -1825,8 +1825,8 @@ var AssetFemale3DCG = [
 				Layer:[
 					{Name: "BaseMetal", HasType: false, AllowTypes:["","Heavy"], AllowColorize: false},
 					{Name: "Base", HasType: false, AllowTypes:["","Heavy"]},
-					{Name: "ExtraMetal", HasType: false, AllowTypes:["Heavy"], AllowColorize: false},
-					{Name: "Extra", HasType: false, AllowTypes:["Heavy"], CopyLayerColor: "Base"},
+					{Name: "HeavyMetal", HasType: false, AllowTypes:["Heavy"], AllowColorize: false},
+					{Name: "Heavy", HasType: false, AllowTypes:["Heavy"], CopyLayerColor: "Base"},
 				],
 			}, //HeadHarness
 		],

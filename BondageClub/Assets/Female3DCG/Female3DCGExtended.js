@@ -4663,7 +4663,8 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "Heavy",
-						Property: {Type: "Extra",}
+						Property: {Type: "Heavy",}
+
 					},
 				],
 			},
