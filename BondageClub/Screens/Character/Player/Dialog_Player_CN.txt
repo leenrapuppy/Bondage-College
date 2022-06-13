@@ -920,7 +920,7 @@ Latex Room
 Outside Cells
 开放房间
 Infiltration Bunker
-渗透地堡
+潜入暗堡
 Movie Studio
 电影工厂
 Tennis Court

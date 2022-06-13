@@ -1,0 +1,308 @@
+###_NPC
+(She smirks at you.)  Cute gag slave girl.
+（她对你刻意地笑笑。）口塞真可爱，奴隶女孩。
+(She seems very angry.)  This is a disgrace.  One day you'll bite the dust.  (You can ransom her if you exit Pandora's Box with her.)
+（她似乎很生气。）这是一种耻辱。总有一天会轮到你一败涂地。（如果你带着她离开潘多拉魔盒，你可以用她取得赎金。）
+(She looks at you and smirks.)  Some jail time will teach you to never mess with a Dominatrix.
+（她看着你，刻意地笑。）在监牢里待一段时间，会让你记得永远不要惹上女王。
+(She transfers you to another Dominatrix.)  So, we've caught the infamous DialogPlayerName.  You'll never forget this lesson.
+（她将你转移给另一位女王。）所以，我们抓到了臭名昭著的DialogPlayerName。我会给你上一堂忘不掉的课。
+(She transfers you to another Dominatrix.)  You've been on list for a while DialogPlayerName.  I'll teach you a lesson.
+（她将你转移给另一位女王。）DialogPlayerName，你在名单上已经有一段时间了。我来给你上一课。
+(She transfers you to another Dominatrix.)  (She cracks her knuckles.)  So, you're a troublemaker?  I'll teach you a lesson.
+（她将你转移给另一位女王。）（她捏响指关节。）那么，你是来找茬的？那我来给你上一课。
+(She transfers you to another Dominatrix.)  (She stares at you.)  You've caused some trouble?  Then it's time for your lesson.
+（她将你转移给另一位女王。）（她盯着你。）你惹了麻烦吗？那么，到了给你上一课的时候了。
+(She tries to avoid the gag but you're able to use it on her.)
+（她试图避开口塞，但你还是用在了她身上。）
+(You remove her gag and she sighs.)  Enjoy your victory and your freedom while you can.
+（你取下她的口塞，她叹了口气。）趁你还能，尽情享受你的胜利和自由吧。
+(She seems angry as you push earplugs inside.)  Haven't you had enough?
+（当你把耳塞塞进去时，她看起来在生气。）你还没玩够吗？
+(You pull the earplugs out.)  Pandora's wrath will hit you like a ton of bricks.
+（你拔出耳塞。）潘多拉会如成吨的砖块般砸烂你。
+(She struggles madly as you restrain her arms.)  You will regret coming here.
+（当你束缚她的手臂时，她疯狂地挣扎。）你会后悔来这里的。
+(You free her arms as she remains silent.)
+（你松开了她的手臂，她保持沉默。）
+(She grumbles as you restrain her legs.)  What are you doing?  Run while you can.
+（你束缚住她的脚，她嘟囔着。）你在做什么？趁着能跑快跑啊。
+(You release her legs slowly.)  Will you make up your mind already?
+（你慢慢松开她的腿。）你能做出个决定不改吗？
+(She tries to kick you as you restrain her feet.)  You will rot in jail for a long time.
+（当你束缚她的脚时，她试图踢你。）你会在监狱里烂很长时间。
+(She wiggles her feet as you release them.)  Soon you will lick my boots.
+（你松开她的脚时，她摆动双脚。）很快你就会舔我的靴子了。
+(She seems furious as you strap a collar on her.)  This is really offensive you know?
+（你给她系上项圈，她看起来十分生气。）这真的很冒犯你知道吗？
+(You remove the collar from her neck.)  I will never forget this.
+（你取下她脖子上的项圈。）我永远不会忘记这件事的。
+(She thrashes to avoid the belt as you strap it on her.)  Chastity?  Really?  Are you serious?
+（当你把皮带系在她身上时，她扭动着避开。）贞操带？真的吗？你是认真的？
+(She nods as you unlock the belt.)  You cannot keep me chaste anyway.
+（当你解开皮带时，她点点头。）无论如何，你不能让我待在贞操带里。
+(She becomes silent as you strap the device on her head.)
+（你把道具绑在她头上，她沉默下来。）
+(She takes a deep breath as you release her head.)  I will enjoy torturing you.
+（当你解开她的头时，她深吸了一口气。）我会喜欢折磨你的。
+(She becomes silent as you strap the hood on her head.)
+（你把头套绑在她头上，她沉默下来。）
+(She takes a deep breath as you release her head.)  You will stay in the dark much longer.
+（当你解开她的头时，她深吸了一口气。）你在黑暗中停留的时间将会更长。
+(She shakes her head as you put the item on her nose.)  Soon you will know the meaning of pain.
+（当你把道具用在她的鼻子上时，她摇头。）很快你就会知道疼痛的含义。
+(She nods as you remove the item.)  Pandora's will never forget this humiliation.
+（你移除那物品，她点点头。）潘多拉永远不会忘记这种羞辱。
+(You prepare a harness on her torso.)  Do I look like a doll to you?
+（你为她的躯干准备了一套束缚带。）我看起来像一个洋娃娃吗？
+(She shakes her body as you release the harness.)  Let me go right now.
+（你解开束缚带，她摇晃着身体。）现在让我走。
+(She tries to shut her butt as you slide the device inside.)  My vengeance will be long and painful.
+（当你把道具滑进去时，她试图合上她的屁股。）我的报复将是漫长而痛苦的。
+(She stays silent as you remove the plug.)
+（当你拔下塞子时，她保持沉默。）
+(She holds her breath as you use the item.)  Is that the best you can do?
+（当你使用这件物品时，她屏住呼吸。）这是你能做的最好的吗？
+(She shakes her breast as you remove the device.)  You're not worthy of being my slave.
+（你取下道具，她晃动胸部。）你不配做我的奴隶。
+(She takes a deep breath as you use the device.)  Torture all you want.  I will never talk.
+（当你使用这个设备时，她深吸了一口气。）你想怎么折磨就怎么来。我永远不会说话。
+(She stays silent as you remove the device.)
+（当你移除那道具时，她保持沉默。）
+(She gives you a friendly handshake.)  I don't think we've met before, I'm Dominatrix DialogCharacterName.
+（她给了你一个友好的握手。）我想我们以前没有见过面，我是女王DialogCharacterName。
+(She salutes you.)  Hello little guard.  Everything is under control?  Nobody escaped from our prison?
+（她向你致敬。）你好，小警卫。一切都在掌控中吗？没有人逃出我们的监狱？
+(She snaps her fingers.)  Hey Maid!  Can you bring some drinks to my room?
+（她打了个响指。）嘿，女仆！你能把一些饮料带到我的房间吗？
+(She looks at you and grumbles.)  This is not a carnaval you know.  We are a serious business.
+（她看着你，嘟囔着。）这不是狂欢节，你知道的。我们这里有严肃的事情。
+DialogPlayerName!  You've been on my list for a while, but I don't have time to deal with you now.  Consider yourself lucky.
+DialogPlayerName！你在我的名单上已经有一段时间了，但我现在没时间处理你。就当你够走运吧。
+Halt!   Are you DialogPlayerName?  Whoever you are, I don't have time to deal with you.  Consider yourself lucky.
+停！你是DialogPlayerName吗？不管你是谁，我现在没时间处理你。就当你够走运吧。
+(She crosses your path and stares at you.)  Hey girl, have I seen you before?
+（她穿过你走的方向，盯着你。）嘿，女孩，我以前见过你吗？
+(She crosses your path.)  Hey girl, are you lost?
+（她穿过你走的方向。）嘿，女孩，你迷路了吗？
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm Dominatrix DialogCharacterName.  I'm one of Pandora's Box administrator.
+我是女王DialogCharacterName。我是潘多拉魔盒的管理员之一。
+###_PLAYER
+You're one of the bosses?
+你是老板之一？
+###_NPC
+Damn right, you better not get on my nerves or you will get on your knees.
+该死的，你最好别惹我，否则你会跪下的。
+I'm Dominatrix DialogCharacterName.  I'm one of Pandora's Box administrator.  I don't care much about your cosplay club.
+我是女王DialogCharacterName。我是潘多拉魔盒的管理员之一。我不太关心你的cosplay俱乐部。
+Damn right cosplay girl, you better not get on my nerves or you will get on your knees.
+该死的cosplay女孩，你最好别惹我，否则你会跪下的。
+###_PLAYER
+Everything is quiet today.
+今天一切都很平静。
+###_NPC
+Very good.  Be careful and watch out for spies from the Bondage Club.
+很好。小心并提防来自束缚俱乐部的间谍。
+###_PLAYER
+I'm protecting this level.
+我正在保护这个楼层。
+###_NPC
+Stay alert then.  We can't have any prisoner escape before the ransom is paid.
+那就保持警惕。在支付赎金之前，我们不能让任何囚犯越狱。
+###_PLAYER
+Sorry, I'm on a break.
+对不起，我在休息。
+###_NPC
+Get lost then.  I don't have time for lazy maids.  (She walks away.)
+那就走开。我没有时间照顾懒惰的女仆。（她走开了。）
+###_PLAYER
+Yes Miss, what drinks would you like?
+是的，女士，你想喝点什么？
+###_NPC
+(She orders a few drinks and gives you $5.)  Don't be late or there will be trouble.  I need to go.  (She walks away.)
+（她点了几杯饮料，给了你$5。）不要迟到，否则会有麻烦的。我要走了。（她走开了。）
+###_PLAYER
+Can I help you with something Miss?
+女士，你需要我的帮助吗？
+###_NPC
+You're a good girl, aren't you?  Can you deliver this document to the Dominatrix headquarters?
+你是个好女孩，不是吗？你能把这份文件送到女王总部吗？
+No, why would I need help from you?
+不，我为什么需要你的帮助？
+###_PLAYER
+You think you can scare me?
+你以为你能吓到我？
+###_NPC
+(She cracks her knuckles.)  You think you're tough, aren't you?  Fine!  I challenge you to a duel.
+（她捏响指关节）你认为你很厉害，不是吗？很好！我要向你决斗。
+###_PLAYER
+Have a good day.  (Leave her.)
+祝你有美好的一天。（离开她。）
+Yes, I will deliver it.
+好的，我会递交它的。
+###_NPC
+Good girl!  Take this, I need to run.  (She gives you a private Pandora's Box document and leaves.  Your infiltration skill has increased.)
+好姑娘！拿着这个，我要跑。（她给了你一个潘多拉魔盒得私人文件，然后离开了。你的潜入技能增加了。）
+###_PLAYER
+No, I cannot do that.
+不，我不能那样做。
+###_NPC
+Fine, get lost then.  I will do it myself.  (She walks away.)
+好吧，那快走吧。我自己来。（她走开了。）
+###_PLAYER
+(Go back to Pandora's Box.)
+（回到潘多拉魔盒。）
+I accept!  (Fight her.)
+我接受！（与她战斗。）
+I don't have time for that.
+我没有时间做那个。
+###_NPC
+Then I don't have time to chat.  Get out of my way.  (She walks away.)
+那我就没时间聊天了。让开。（她走开了。）
+###_PLAYER
+I'm sorry, can you forgive me?
+对不起，你能原谅我吗？
+###_NPC
+You're pathetic.  Get out of my way.  (She walks away.)
+你真可悲。让开。（她走开了。）
+DialogPlayerName!  I've been tracking you down for a while.  Your reign of terror is over.
+DialogPlayerName！我追踪你有一段时间了。你的恐怖统治结束了。
+Halt!   You're DialogPlayerName!  You won't get away this time.  Get on your knees!
+停！你是DialogPlayerName！这次你逃不掉了。跪下！
+(She stops you.)  Aren't you that spy from the Bondage Club?  Get on your knees!
+（她拦住你。）你不是束缚俱乐部的那个间谍吗？跪下！
+(She stops you.)  Have I seen you before?  You're from the Bondage Club!
+（她拦住你。）我没见过你吧？你来自束缚俱乐部！
+###_PLAYER
+You're mistaken.
+你弄错了。
+###_NPC
+You cannot fool me girl.  Get on your knees right now or you will suffer.
+女孩，你骗不了我的。现在就跪下，否则你会受苦的。
+###_PLAYER
+I won't go down.  (Fight her.)
+我不会投降的。（与她战斗。）
+(Surrender.)
+（投降。）
+###_NPC
+(She jumps on you and restrains you as soon as you surrender.)  A Dominatrix friend of mine will take care of you.
+（你一投降，她立即跳到你身上并束缚你。）我的女王朋友会照顾好你的。
+(She puts a hand on your shoulder and stops you.)  You're not a Dominatrix.  Where did you get these clothes?  Surrender!
+（她把手放在你的肩膀上，拦住了你。）你不是女王。你从哪儿弄来的这些衣服？立即投降！
+###_PLAYER
+I've found them on the floor.
+我在地板上找到的。
+###_NPC
+(She gets mad.)  And you've simply put them on?  These clothes are not for you.  You must be punished.
+（她生气了。）而你只是穿上它们？这些衣服不属于你。你必须受到惩罚。
+###_PLAYER
+These clothes are mine!  (Fight her.)
+这些衣服是我的！（与她战斗。）
+Fine, I surrender.  (Surrender.)
+好吧，我投降。（投降。）
+###_NPC
+(She looks at your victim and blocks your path.)  Hold on!  What are you doing with my associate?  Get on your knees!
+（她看着你的受害者并挡住了你的去路。）等一下！你对我的同事做什么？跪下！
+###_PLAYER
+It's only for fun.
+这只是为了好玩。
+###_NPC
+(Your victim shakes her head no.)  I've heard enough.  Get on your knees right now or you will suffer.
+（你的受害者摇头，表示否认。）我听够了。立即跪下，否则你会受苦的。
+###_PLAYER
+You will kneel for me.  (Fight her.)
+你会给我跪下。（与她战斗。）
+Alright, you win.  (Surrender.)
+好吧，你赢了。（投降。）
+###_NPC
+You got lucky in that last fight, but soon you will lick my boots.
+你在上场战斗中很幸运，但很快你就会舔我的靴子。
+###_PLAYER
+Don't you feel any shame?
+你不觉得丢脸吗？
+###_NPC
+(She shakes her head no.)  You don't know what shame is.  Cross my path again and you will understand.
+（她摇头，表示否认。）你不知道什么是羞耻。如果你再次跟我碰面的话，你就明白了。
+###_PLAYER
+Pandora will pay a nice ransom for you.
+潘多拉会为你支付一笔可观的赎金。
+###_NPC
+(She seems furious.)  Fuck you DialogPlayerName!  Do not kidnap me!
+（她看起来很生气。）去你的DialogPlayerName！不要绑架我！
+###_PLAYER
+(Bring her with you.)
+（带上她。）
+###_NPC
+What the hell?  I'm not a dog, you can't carry me around.  (She will follow you from room to room.)
+什么鬼？我不是狗，你不能带我到处走。（她会跟着你走过各个房间。）
+###_PLAYER
+(Leave her here.)
+（把她留在这里。）
+###_NPC
+Whatever you do, wherever you go, I will find you.  (She will no longer follow you.)
+无论你做什么，无论你去哪里，我都会找到你。（她不会再跟着你了。）
+###_PLAYER
+(Strip her naked.)
+（脱光她的衣服。）
+###_NPC
+(She resists hard as you strip her naked.)  I won't forget this!  Who do you think you are?
+（当你脱光她的衣服时，她极力抗拒。）我不会忘记这个的！你以为你是谁？
+###_PLAYER
+(Wear her clothes.)
+（穿上她的衣服。）
+###_NPC
+(She seems furious as you put on her Dominatrix outfit.)  Don't you dare!  Your plan will never work.
+（当你穿上她的施虐狂装时，她似乎很生气。）你敢！你的计划永远不会奏效。
+###_PLAYER
+(Leave her.)
+（离开她。）
+Jail time?  What do you mean?
+坐牢？你是什​​么意思？
+###_NPC
+Be patient, you will understand soon.  A Dominatrix friend of mine will take care of you.
+耐心点，你很快就会明白的。我的女王朋友会照顾好你的。
+###_PLAYER
+I'm not going to any jail.
+我什么监狱都不会去。
+###_NPC
+Your fate is already sealed girl.  A Dominatrix friend of mine will escort you there.
+你的命运已经注定，女孩。我的女王朋友会护送你去那里。
+###_PLAYER
+I will accept it Miss.
+我会接受的，女士。
+###_NPC
+Good girl.  A Dominatrix friend of mine will escort you to your new home.
+乖女孩。我的女王朋友会护送你到你的新家的。
+###_PLAYER
+(Scream in your gag.)
+（在你的口塞里尖叫。）
+###_NPC
+Scream all you want.  A Dominatrix friend of mine will escort you to your new home.
+随便叫吧。我的女王朋友会护送你到你的新家的。
+###_PLAYER
+(Thrash in your bondage.)
+（在你的束缚中挣扎。）
+###_NPC
+Struggle or curse, it won't change anything.  A Dominatrix friend of mine will escort you to your new home.
+挣扎和骂人，都不会游泳的。我的女王朋友会护送你到你的新家的。
+###_PLAYER
+(Bow your head and stay silent.)
+（低下头，保持沉默。）
+I promise I will be good.
+我保证我会很好的。
+###_NPC
+Of course.  Everyone turns good after a long stay in our prison.  (She grins.)
+当然。在我们监狱里呆了很长时间后，每个人都会好起来的。（她咧嘴笑起来。）
+###_PLAYER
+Another Dominatrix?
+另一个女王？
+###_NPC
+She's coming up very soon.  She will take extra good care of you.  (She laughs out loud.)
+她很快就会来。她会非常体贴地照顾你的。（她放声大笑。）
+###_PLAYER
+(Wait for the Dominatrix.)
+（等待女王。）

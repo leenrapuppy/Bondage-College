@@ -183,7 +183,7 @@ Evasion:
 Willpower:
 意志：
 Infiltration:
-渗透：
+潜入：
 Dressage:
 盛装：
 Skills modifier:

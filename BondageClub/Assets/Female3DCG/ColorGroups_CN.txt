@@ -1,5 +1,5 @@
 Rings
-项圈
+项圈环
 Canvas
 帆布
 Straps
@@ -42,3 +42,7 @@ Pleasure Module
 刺激模块
 Harness
 绳束
+Belts
+皮带
+Metal
+金属

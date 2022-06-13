@@ -1,0 +1,191 @@
+###_NPC
+(She laughs at your mumbles.)  Mumble all you want.  I'm taking back what you've stolen.
+（她嘲笑你的嘟囔。）随便你嘟囔。我会拿回你偷走的东西。
+(She grumbles.)  Unbelievable!  Fine, keep your stolen loot for now, but we will recover it soon.
+（她发起牢骚。）难以置信！好吧，你就留着你偷走的东西，但我们迟早会找回它。
+(She smirks.)  Justice has been served.  Someone like you has no right to carry our locks and keys.
+（她邪恶地笑起来。）正义得到了伸张。像你这样的家伙无权携带我们的锁和钥匙。
+(She sighs and reluctantly allows you to gag her.)
+（她叹了口气，不情愿地让你堵嘴。）
+(You remove her gag and she grumbles.)  Are you releasing me now?  It's been long enough.
+（你拿开她的口塞，她嘟囔着。）你现在要放我了吗？已经够久了。
+(She seems angry as you push earplugs inside.)  I know I failed my mission!  There's no need to humiliate me.
+（当你塞入耳塞时，她看起来有些生气。）我知道我的任务失败了！没必要羞辱我。
+(You pull the earplugs out.)  Another Dominatrix will track you down.
+（你拔出耳塞。）别的女王会搞定你的。
+(She struggles as you restrain her arms securely.)  Do what you want, I will not cooperate.
+（当你牢牢地束缚住她的手臂时，她挣扎着。）你想怎么做就怎么做，我不会合作的。
+(You free her arms and she stretches.)  Can I leave now?  This place is a dump.
+（你松开她的胳膊，她伸展身体。）我现在可以走了吗？这个地方是个垃圾场。
+(She thrashes as you restrain her legs.)  I've already surrendered you know.
+（当你束缚住她的双腿时，她抖动起来。）我已经投降了，你知道的。
+(You release her legs.)  Let me go and I'll lower the bounty on your head.
+（你松开她的腿。）放我走，我会降低你头上的赏金。
+(She grumbles as you restrain her feet.)  I will have my revenge someday.
+（你束缚住她的脚，她嘟囔着。）总有一天我会报仇的。
+(You release her feet.)  You had your fun?   Can you let me go?
+（你松开她的脚。）玩得开心吗？能放我走吗？
+(She grumbles as you restrain her feet.)  You really think you can keep me?
+（你束缚住她的脚，她嘟囔着。）你真的认为你能留住我吗？
+(She stays silent as you release her feet.)
+（当你松开她的脚时，她保持沉默。）
+(She adjusts her neck to the new collar.)  Don't make me laugh.  Nobody can own me.
+（她调整脖子适应新的项圈。）别逗我笑了。没有人可以拥有我。
+(You remove the collar from her neck.)  We have better collars for you at the Box.
+（你从她脖子上取下项圈。）我们潘多拉魔盒里为你准备了更好的项圈。
+(She struggles to avoid the belt but you're able to strap it on her.)  This is really annoying.
+（她努力避开皮带，但你还是系到了她身上。）这真的很烦人。
+(She sighs as you unlock the belt.)  The keys and locks will be back at the box sooner or later.
+（当你解开皮带时，她叹了口气。）钥匙和锁迟早会回到潘多拉魔盒。
+(She sighs as you strap the device on her head.)  Get lost girl!
+（当你绑紧她头上的道具时，她叹了口气。）走开，女孩！
+(You release her head as she nods.)  Fine, can I go now?
+（你解开她的头时，她点了点头。）好吧，我现在可以走了吗？
+(You put the hood on her head as she goes silent.)
+（你把头套戴在她头上，她逐渐沉默。）
+(She grins as you remove the hood from her head.)  I have many tools for you at home.
+（你从她头上取下头罩，她咧嘴笑起来。）我家里有很多为你准备的道具。
+(You strap the item on her nose as she sighs.)  Are you having fun?  I'm not!
+（你把道具系在她的鼻子上，她叹口气。）你玩得开心吗？我不开心！
+(She nods as you remove the device.)  Revenge will be sweet.
+（当你取下道具时，她点点头。）复仇会很甜蜜。
+(You strap the harness on her torso.)  You're an artist or you're simply stupid?
+（你把束缚带系在她的躯干上。）你是个艺术家还是你只是个傻子？
+(She stretches as you release her from the harness.)  Keep that harness girl.
+（当你解开她身上的束缚带时，她伸展身体。）你自己留着那束缚带吧。
+(She jumps as you slide the device inside.)  Ten extra whip lashes for you!
+（当你把道具滑进去时，她跳了起来。）给你加十鞭子！
+(She sighs as you remove the plug.)  I will enjoy seeing you in our prison.
+（当你拔掉塞子时，她叹了口气。）若能在监狱里见到你，我会非常高兴。
+(She holds her breath as you use the item.)  You will never break me.
+（当你使用这件道具时，她屏住呼吸。）你永远不可能玩坏我。
+(She wiggles her breast slowly as you remove the device.)  Don't think you will keep our technology for long.
+（当你取下这件道具时，她慢慢地摆动着她的胸部。）别以为你能一直保留我们的技术。
+(She whimpers as you use the device on her breast.)  Torture all you want.  I won't talk.
+（当你在她的胸部上使用这件道具时，她呜咽起来。）你想怎么折磨就怎么折磨。我不会说的。
+(She takes a deep breath and stays silent as you remove the device.)
+（当你移除这件道具时，她深呼吸并保持沉默。）
+###_PLAYER
+What do you want?
+你想要什么？
+###_NPC
+I want what you've stolen: Pandora's locks and keys.  Give me the items and I'll leave you alone.
+我要你偷的东西：潘多拉锁和钥匙。把东西给我，我就不管你了。
+###_PLAYER
+How about a bribe?
+你觉得一份贿赂如何？
+###_NPC
+(She laughs out loud.)  No!  This technology is priceless.
+（她放声大笑）不可能！这项技术是无价的。
+###_PLAYER
+(Fight her.)
+（与她战斗。）
+(Give her Pandora's locks and keys.)
+（给她潘多拉锁和钥匙。）
+###_NPC
+(She smiles as you give her the items.)  Mission done!  Get out of my face DialogPlayerName.  I'm sure we'll meet again.
+（当你给她物品时，她微笑起来。）任务完成了！从我面前滚开，DialogPlayerName。我相信我们会再见面的。
+###_PLAYER
+We will meet again.
+我们会再见面的。
+###_NPC
+I'm sure we will.  (She starts to walk away.)
+我相信我们会的。（她转身走开。）
+###_PLAYER
+(Let her go.)
+（让她走。）
+You fought well.
+你打得不错。
+###_NPC
+You're a great opponent.  What will you do with me?
+你是个厉害的对手。你要对我做什么？
+###_PLAYER
+You failed miserably.
+你败得很惨。
+###_NPC
+Fuck you DialogPlayerName!  What will you do with me?
+去你的DialogPlayerName！你要对我做什么？
+###_PLAYER
+I got lucky.
+我运气好罢了。
+###_NPC
+Luck can turn quickly.  What will you do with me?
+运气可靠不住。你要对我做什么？
+###_PLAYER
+(Remove her gag.)
+（取下她的口塞。）
+###_NPC
+(She catches her breath.)  What will you do with me?
+（她屏住呼吸。）你要对我做什么？
+###_PLAYER
+You will fetch me a good ransom.
+你会给我带来一份好赎金的。
+###_NPC
+All you want is petty cash?  Fine, get your money and we'll duel another time.
+你想要的只是钱？好吧，拿走你的钱，我们下次再打过。
+###_PLAYER
+I'll take the fame from your capture.
+抓获你会给我带来声誉。
+###_NPC
+So, I'm a trophy for you?  Very well, get your fame and we'll duel another time.
+哦，我是你的战利品咯？很好，你出名了，我们下次再打过。
+###_PLAYER
+I'll bring you to my private room.
+我会带你去我的私人房间。
+###_NPC
+Ah!  You think you can keep me in your room?  I'll disappear as soon as your back is turned.
+啊！你觉得你能把我扣留在房间里？你一转身，我立马就跑。
+###_PLAYER
+You can go.  I don't care about you.
+你可以走了。我不在乎你。
+###_NPC
+Fine, but we'll duel another time.  I want my revenge.
+好吧，但我们下次再打过。我要报仇。
+###_PLAYER
+(Sell her for ransom money.)
+（卖掉她换取赎金。）
+(Get fame for her capture.)
+（获得捕捉她的声誉。）
+(Bring her to your room.)
+（把她带到你的房间。）
+Fine, get lost.  (Let her go.)
+行，快走吧。（让她走。）
+You don't scare me.  (Let her go.)
+你吓不到我。（让她走。）
+I'll be cautious.  (Let her go.)
+我会小心的。（让她走。）
+Congrats, you're strong.
+恭喜你，你很强。
+###_NPC
+You're a fair loser but this is mine.  (She takes your Pandora's locks and keys.)  I'd love to chat, but I have a mission to complete.
+你是个不错的失败者，但这是我的。（她拿走了你的潘多拉锁和钥匙。）我很想聊天，但我有个任务要完成。
+###_PLAYER
+I will have my revenge.
+我会报仇的。
+###_NPC
+Talk all you want, I'll take this.  (She takes your Pandora's locks and keys.)  Take care loser, I'm going now.
+随便你说，我会拿走这个。（她拿走了你的潘多拉锁和钥匙。）小心点，失败者，我现在要走了。
+###_PLAYER
+Help!  Anybody!  Help me!
+帮帮我！有人吗！帮帮我！
+###_NPC
+(She slaps your face and takes your Pandora's locks and keys.)  Scream all you want.  I'll be long gone.
+（她拍了拍你的脸，拿走了你的潘多拉锁和钥匙。）你想喊就喊吧。我早就走了。
+###_PLAYER
+(Grumble and struggle.)
+（抱怨并挣扎。）
+###_NPC
+(She smirks and takes your Pandora's locks and keys.)  Enjoy your struggling, I'll be going now.
+（她邪恶地笑起来，拿走了你的潘多拉锁和钥匙。）你就享受挣扎吧，我现在要走了。
+###_PLAYER
+(Whimper in your gag.)
+（在你的口塞里发出呜咽。）
+###_NPC
+You're so pathetic.  (She takes your Pandora's locks and keys.)  Find some help, I'm leaving.
+你真可怜。（她拿走了你的潘多拉锁和钥匙。）找人帮忙吧，我要走了。
+###_PLAYER
+(Stay silent.)
+（保持沉默。）
+###_NPC
+Good girl.  (She takes your Pandora's locks and keys.)  Struggle or beg for freedom, I'm going right now.
+乖女孩。（她拿走了你的潘多拉锁和钥匙。）要出来的话就挣扎或者乞求吧，我现在要离开了。

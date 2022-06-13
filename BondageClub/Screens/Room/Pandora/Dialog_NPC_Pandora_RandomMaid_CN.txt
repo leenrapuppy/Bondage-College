@@ -1,0 +1,481 @@
+###_NPC
+(She tries to understand you but fails.)  I'm sorry Miss, it's not easy to understand what you're saying.
+（她试图理解你，但失败了。）对不起，女士，理解你在说什么并不容易。
+(She seems pretty mad.)  What do you think you're doing?   You will get caught right away.
+（她看起来很生气。）你认为你在做什么？你会马上被抓到的。
+(She seems very happy.)  You're no match for Pandora's staff.  Now it's time to prepare your punishment.
+（她看起来很高兴。）你不是潘多拉的工作人员的对手。现在，你该准备接受惩罚了。
+(A Dominatrix takes you away from the maid.)  So, we've caught the infamous DialogPlayerName.  You'll never forget this lesson.
+（一位女王将你从女仆身边带走。）所以，我们抓到了臭名昭著的DialogPlayerName。我会给你上一堂忘不掉的课。
+(A Dominatrix takes you away from the maid.)  You've been on list for a while DialogPlayerName.  I'll teach you a lesson.
+（一位女王将你从女仆身边带走。）DialogPlayerName，你在名单上已经有一段时间了。我来给你上一课。
+(A Dominatrix takes you away from the maid.)  (She cracks her knuckles.)  So, you're a troublemaker?  I'll teach you a lesson.
+（一位女王把你从女仆身边带走。）（她捏响指关节。）那么，你是来找茬的？那我来给你上一课。
+(A Dominatrix takes you away from the maid.)  (She stares at you.)  You've caused some trouble?  Then it's time for your lesson.
+（一位女王把你从女仆身边带走。）（她盯着你。）你惹了麻烦吗？那么，到了给你上一课的时候了。
+(She shakes her head no, as you gag her.)
+（当你堵住她的嘴时，她摇头拒绝。）
+(You remove her gag and she nods.)  Thanks Miss, I promise I won't scream.
+（你拿开她的口塞，她点点头。）谢谢，女士，我保证我不会尖叫。
+(She seems surprised as you push earplugs inside.)  I hope you won't keep me deaf for too long.
+（当你把耳塞塞进去时，她似乎很惊讶。）希望你不会让我太久听不见。
+(You pull the earplugs out.)  It will be easier to communicate.
+（你把耳塞拔出来。）这样会更容易交流。
+(She barely struggles as you restrain her arms securely.)  I'm no match for you.
+（当你牢牢地束缚她的手臂时，她几乎没有挣扎。）我不是你的对手。
+(You free her arms and she stretches.)  The Dominatrixes will get you.
+（你松开她的手臂，她伸展身体。）女王们会抓住你的。
+(She grumbles as you restrain her legs.)  You know that I have a job to do?
+（你束缚她的腿，她嘟囔着。）你知道我有工作要做吧？
+(You release her legs as she nods.)  Can I go now?
+（你松开她的腿，她点点头。）我现在可以走了吗？
+(She sighs as you restrain her feet.)  My chores will pill up.
+（当你束缚她的脚时，她叹了口气。）我的工作恐怕会堆起来了。
+(You release her feet as she dances happily.)  I'm getting free?
+（你松开她的脚，她快乐地跳起舞。）我要自由了？
+(She adjusts her neck to the new collar.)  I'm not supposed to wear foreign collars.
+（她调整脖子适应新的项圈。）我不应该戴其他地方的项圈。
+(You remove the collar from her neck.)  You will get punished for days.
+（你从她脖子上取下项圈。）你会受到数天的惩罚。
+(She struggles to avoid the belt but you're able to strap it on her.)  Is that really necessary?
+（她努力避开皮带，但你还是系到了她身上。）真的有必要吗？
+(She giggles as you unlock the belt.)  You got my scarred with that belt.
+（当你解开皮带时，她呵呵笑起来。）你的那条腰带给我留下伤痕了。
+(She stays silent as you strap the device on her head.)
+（你把道具系在她头上，她保持沉默。）
+(You release her head as she nods rapidly.)  You better run while you can.
+（你解开她的头时，她迅速点头。）你最好赶紧逃。
+(You put the hood on her head as she goes silent.)
+（你把头套戴在她头上，她逐渐沉默。）
+(She smiles as you remove the hood from her head.)  Why are you still here?
+（你从她头上取下头罩，她露出微笑。）你为什么还在这里？
+(You strap the item on her nose as she grumbles.)  I'm a maid!  Not a slave.
+（你把道具系在她的鼻子上，她嘟囔着。）我是女仆！不是奴隶。
+(She nods as you remove the device.)  Maybe they will force you to do my chores.
+（当你取下道具时，她点点头。）也许他们会强迫你做我的家务。
+(You strap the harness on her torso as she moans.)  Oh!  Why is that turning me on?
+（你把束缚带系在她的躯干上，她发出她呻吟时。）哦啊！怎么这让我兴奋？
+(She stretches as you release her from the harness.)  You're so much trouble.
+（当你解开她身上的束缚带时，她伸展身体。）你真会惹麻烦。
+(She jumps as you slide the device inside.)  Woah!  Miss!
+（当你把道具滑进去时，她跳了起来。）哇！女士！
+(She seems to appreciate as you remove the plug.)  Another crazy day at Pandora's Box I guess.
+（当你拔掉塞子时，她似乎很感激。）我猜潘多拉魔盒又是疯狂的一天。
+(She holds her breath as you use the item.)  I'm not getting paid enough.
+（当你使用这件物品时，她屏住呼吸。）我没有得到足够的报酬。
+(She wiggles her breast slowly as you remove the device.)  Thanks Miss.
+（当你取下这件道具时，她慢慢地摆动着她的胸部。）谢谢小姐。
+(She whimpers as you use the device on her breast.)  Ow!  Was this in my maid contract?
+（当你在她的胸部上使用这件道具时，她呜咽起来。）噢！这是我的女佣合同吗？
+(She takes a deep breath and stays silent as you remove the device.)
+（当你移除这件道具时，她深呼吸并保持沉默。）
+Hi sister, I hope you're doing well.
+嗨，姐妹，希望你一切安好。
+I like your costume Miss.  (She does a maid curtsy.)  Would you like something to drink?
+我喜欢你的装扮，女士。（她做了一个女仆屈膝礼。）你想喝点什么吗？
+Hello Miss guard.  (She does a maid curtsy.)  Do you need a refreshing drink for your hard work?
+你好，警卫女士。（她做了一个女仆屈膝礼。）辛勤工作中的你需要一份提神的饮料吗？
+It's a pleasure to see you Dominatrix.  (She does a maid curtsy.)  Would you like a refreshing drink?
+很高兴见到你，女王。（她做了一个女仆屈膝礼。）想来点提神的饮料吗？
+(She ponders.)  Miss?  You know you look a little like the infamous DialogPlayerName?
+（她沉思。）女士？你知道你看起来有点像臭名昭著的DialogPlayerName吗？
+(She does a maid curtsy.)  Hello Miss, I think we've met before.  I'm maid DialogCharacterName.
+（她做了一个女仆屈膝礼。）你好，女士，我想我们以前见过。我是女仆DialogCharacterName。
+Hello Miss, it's a pleasure to meet you.
+你好，女士，很高兴认识您。
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+(She does a maid curtsy.)  I'm maid DialogCharacterName.  Do you require my assistance?
+（她做了一个女仆屈膝礼。）我是女仆DialogCharacterName。你需要我的帮助吗？
+###_PLAYER
+I'll have something to drink.
+来点饮料吧。
+###_NPC
+Of course!  Let me get the menu.  (She shows you the drink menu.)
+当然！我去拿菜单。（她给你看饮料菜单。）
+(She giggles.)  Then go get it yourself sister.
+（她呵呵地笑。）那你自己去拿吧，姐妹。
+###_PLAYER
+I need your clothes.
+我需要你的衣服。
+###_NPC
+(She takes a step back and looks suspicious.)  My clothes?  Why is that?
+（她往后退了一步，一脸怀疑。）我的衣服？为什么？
+###_PLAYER
+(Give her a sisterly hug.)
+（给她一个姐妹间的拥抱。）
+###_NPC
+(She hugs you back.)  Thanks!  Sister hugs are the best.
+（她回抱你。）谢谢！姐妹间的拥抱是最好的。
+###_PLAYER
+Are you getting paid enough for your work?
+你这份工作薪资好吗？
+###_NPC
+(She ponders.)  The salary isn't great, but it's a fun job.
+（她沉思）薪水不高，但这是一份有趣的工作。
+###_PLAYER
+Sister, can I have some paint?
+姐妹，可以给我一些油漆吗？
+###_NPC
+Paint brushes, buckets and cans are available in the warehouse.  Do you need help to get there?
+仓库里有油漆刷、桶和罐子。需要我带你过去吗？
+###_PLAYER
+I don't need anything.  (Go explore.)
+我什么都不需要。（开始探索。）
+A glass of water. ($0)
+一杯水。（$0）
+###_NPC
+(She comes back with a glass of water for you to enjoy.)  Anything else?
+（她取回一杯水让你享用。）还有别的需要吗？
+###_PLAYER
+A cup of coffee. ($0)
+一杯咖啡。（$0）
+###_NPC
+(She comes back with a cup of coffee for you to enjoy.)  Anything else?
+（她取回一杯咖啡让你享用。）还有别的需要吗？
+###_PLAYER
+A beer please. ($5)
+一杯啤酒，麻烦了。（$5）
+###_NPC
+(She comes back with a beer for you to enjoy.  You give her $5.)  Anything else?
+（她取回一杯啤酒让你享用。你给她$5。）还有别的需要吗？
+###_PLAYER
+A glass of wine. ($5)
+一杯葡萄酒。（$5）
+###_NPC
+(She comes back with a glass of wine for you to enjoy.  You give her $5.)  Anything else?
+（她取回一杯葡萄酒让你享用。你给她$5。）还有别的需要吗？
+###_PLAYER
+A martini. ($10)
+一份马提尼。（$10）
+###_NPC
+(She comes back with a martini for you to enjoy.  You give her $10.)  Anything else?
+（她取回一杯马提尼酒让你享用。你给她$10。）还有别的需要吗？
+###_PLAYER
+A margarita. ($10)
+一份玛格丽特。 （10 美元）
+###_NPC
+(She comes back with a margarita for you to enjoy.  You give her $10.)  Anything else?
+（她取回一杯玛格丽特酒让你享用。你给她$10。）还有别的需要吗？
+###_PLAYER
+Nothing, I'm good.
+没什么，我很好。
+###_NPC
+Very well, is there anything else I can do for you?
+很好，还有什么我可以为你做的吗？
+###_PLAYER
+I'm a spy, I need a costume.
+我是间谍，我需要一套服装。
+###_NPC
+A spy?  I will never help you!  Surrender right now!
+间谍？我永远不会帮助你！立即投降！
+###_PLAYER
+Stop talking and strip girl.
+闭上嘴脱衣服，女孩。
+###_NPC
+No!  Are you a thief?  Surrender right now!
+不！你是小偷吗？立即投降！
+###_PLAYER
+I'd love to become a maid.
+我很想成为一名女仆。
+###_NPC
+Then join the sisterhood, I can't give you my clothes.
+那就加入姐妹会吧，我不能给你我的衣服。
+###_PLAYER
+(Fight her.)
+（与她战斗。）
+(Surrender.)
+（投降。）
+###_NPC
+(You surrender as she quickly restrains you.)  A Dominatrix will come to take you away.
+（你投降，她迅速地束缚住你。）女王会过来把你带走。
+###_PLAYER
+Yes, can you help me?
+是的，你能帮帮我吗？
+###_NPC
+(She opens the warehouse and gives you some paint.)  Anything else you need?
+（她打开仓库，给你一些油漆。）你还需要什么吗？
+###_PLAYER
+No, I will be fine.
+不，我会没事的。
+You should start a union.
+你应该成立一个工会。
+###_NPC
+(She laughs.)  Don't be ridiculous!  A maid union?  We would get punished for years.
+（她笑）别开玩笑了！女仆工会？我们会被惩罚很多年的。
+###_PLAYER
+Having fun is enough I guess.
+我想玩得开心就够了。
+###_NPC
+(She nods.)  Yes, absolutely.  Having fun while working is enough for me.
+（她点头。）是的，绝对的。工作中的乐趣对我来说已经足够了。
+###_PLAYER
+You deserve a better salary.
+你应该得到更高的薪水。
+###_NPC
+You think so?  Is there a place that would pay more for the same job?
+你这么认为？难道有可以为同样的工作支付更多的地方？
+###_PLAYER
+I found a great maid sorority.
+我找到了一个很棒的女仆社团。
+###_NPC
+Now I'm curious sister.   Where did you found that?
+我很想了解，姐妹。你在哪里找到的？
+###_PLAYER
+Have you heard of the Bondage Club?
+你听说过束缚俱乐部吗？
+###_NPC
+I've heard good things about it.  Do you think they would hire a maid like me?
+我听说过关于它的一些好消息。你认为他们会雇用像我这样的女仆吗？
+I've worked there before, but I prefer Pandora's Box.  Sorry.
+我以前在那里工作过，但我更喜欢潘多拉魔盒。对不起。
+###_PLAYER
+At my house.
+在我家。
+###_NPC
+(She raises her eyes.)  You're not funny.  Let's talk about something else then.
+（她翻白眼。）这不好笑。那我们聊点别的吧。
+###_PLAYER
+(Shrugs.)  I don't now.
+（耸耸肩。）我现在不知道。
+###_NPC
+(She sighs.)  Too bad, let's talk about something else then.
+（她叹了口气。）太糟糕了，我们再谈点别的吧。
+###_PLAYER
+Yes!  You could get a job right now.
+是的！你现在可以得到工作。
+###_NPC
+This is wonderful!  Thanks a lot, I will go there and join as a maid.  (Your infiltration skill has increased.)
+这太棒了！非常感谢，我会去那里作为女仆加入。（你的潜入技能增加了。）
+###_PLAYER
+Yes!  And I have a room that we could share.
+是的！我有一个我们可以共享的房间。
+###_NPC
+This is wonderful!  I will meet you there in your room.  (Your infiltration skill has increased.)
+这太棒了！我会在你的房间见你。（你的潜入技能增加了。）
+###_PLAYER
+I don't know.
+我不知道。
+###_NPC
+I can't risk losing my job here, I need the money.  Let's talk about something else.
+丢掉这里的工作的风险我无法承受，我需要钱。我们谈些别的吧。
+###_PLAYER
+Not right now.
+不是现在。
+(Let her go to the Bondage Club.)
+（让她去束缚俱乐部。）
+(Let her go to your private room.)
+（让她去你的私人房间。）
+###_NPC
+You think you're smart?  You will never get away.
+你觉得你很聪明？你不可能逃掉的。
+###_PLAYER
+Maid, go get me a drink.
+女仆，给我拿一杯饮料。
+###_NPC
+(She grumbles.)  You think you're funny?  You won't have much to drink when you rot in a cell.
+（她嘟囔着。）你觉得你很幽默？在你烂在牢房里时，你能喝的可不多了。
+###_PLAYER
+(Bring her with you.)
+（带上她。）
+###_NPC
+Hey!  I have a job to do!  (She will follow you from room to room.)
+嘿！我有工作要做！（她会跟着你走过各个房间。）
+###_PLAYER
+(Leave her here.)
+（把她留在这里。）
+###_NPC
+Can I go back to work now?  (She will no longer follow you.)
+我现在可以回去工作吗？（她不会再跟着你了。）
+###_PLAYER
+(Strip her naked.)
+（脱光她的衣服。）
+###_NPC
+(She seems furious as you strip her naked.)  You will pay for that.
+（当你脱光她的衣服时，她看起来很生气。）你会为此付出代价的。
+###_PLAYER
+(Wear her clothes.)
+（穿上她的衣服。）
+###_NPC
+(She stares at you as you quickly dress up as her.)  You won't fool anyone.
+（当你迅速打扮成她时，她盯着你。）你谁都骗不了的。
+###_PLAYER
+(Leave her.)
+（离开她。）
+Punishment?  What do you mean?
+惩罚？你是什​​么意思？
+###_NPC
+You will understand and remember your lesson.  Don't try anything funny, a Dominatrix will take care of you soon.
+你会理解并记住你的教训。别试图做任何不理智的事情，女王很快就会来好好照顾你。
+###_PLAYER
+You're not punishing me girl.
+不是你在惩罚我，女孩。
+###_NPC
+Of course, I won't do it myself, a Dominatrix will take care of you soon.
+当然，我不会自己做，女王很快就会来好好照顾你。
+###_PLAYER
+I will accept it Miss.
+我会接受的，女士。
+###_NPC
+Very good, you're already learning.  A Dominatrix will take care of you soon.
+很好，你已经在学习教训了。女王很快就会来好好照顾你。
+###_PLAYER
+(Scream in your gag.)
+（在你的口塞里尖叫。）
+###_NPC
+Stop making all that noise.  A Dominatrix will take care of you soon.
+别制造噪音了。女王很快就会来好好照顾你。
+###_PLAYER
+(Thrash in your bondage.)
+（在你的束缚中挣扎。）
+###_NPC
+Don't try to do anything funny.  A Dominatrix will take care of you soon.
+别试图做任何不理智的事情。女王很快就会来好好照顾你。
+###_PLAYER
+(Bow your head and stay silent.)
+（低下头，保持沉默。）
+###_NPC
+Good girl.  A Dominatrix will take care of you soon.
+乖女孩。女王很快就会来好好照顾你。
+###_PLAYER
+Can we negotiate?
+我们可以协商吗？
+###_NPC
+It's too late for that.  Just wait and be quiet.
+为时已晚。安静等着吧。
+###_PLAYER
+I will have my revenge.
+我会报仇的。
+###_NPC
+You won't.  We will teach you a lesson that you will never forget.
+你不会的。我们会给你一个教训，你永远不会忘记的那种。
+###_PLAYER
+(Wait for the Dominatrix.)
+（等待女王。）
+###_NPC
+Sorry for the trouble Miss.  Please have a good day.
+抱歉添麻烦了，女士。祝你有美好的一天。
+###_PLAYER
+Take care.  (Go explore.)
+多保重。（开始探索。）
+###_NPC
+(A maid jumps in front of you and blocks your path.)  Can I speak with you Miss?
+（一位女仆跳到你面前挡住你的去路。）女士，我可以和你谈谈吗？
+###_PLAYER
+Of course.
+当然。
+###_NPC
+Very good.  An object has been stolen and I'm mandated to search everyone.  Can I please search on you?
+很好。一件物品被盗，我需要搜查每个人。请问我可以搜查你吗？
+###_PLAYER
+Make it quick.
+快一点吧。
+###_NPC
+I will.  An object has been stolen and I'm mandated to search everyone.  Can I please search on you?
+我会的。一件物品被盗，我需要搜查每个人。请问我可以搜查你吗？
+###_PLAYER
+I don't have time.
+我没时间。
+###_NPC
+I'm sorry, but an object has been stolen and I'm mandated to search everyone.  Can I please search on you?
+很抱歉，但一件物品被盗，我需要搜查每个人。请问我可以搜查你吗？
+###_PLAYER
+(Nod.)
+（点头。）
+(Look around.)
+（环视四周。）
+Don't touch me!
+别碰我！
+###_NPC
+(She jumps and looks angry.)  Are you the thief?  Surrender right now!
+（她跳起来，看起来很生气。）你就是小偷吗？立即投降！
+###_PLAYER
+Go ahead.
+来吧。
+###_NPC
+(She starts to search but doesn't find the object.)  Sorry for the trouble Miss, you're good to go.
+（她开始搜查，但没有找到那件物品。）打扰你很抱歉，女士，你可以走了。
+(She starts to search and quickly finds the object.)  You're the thief!  Surrender right now!
+（她开始搜查，很快找到了那件物品。）你就是小偷！立即投降！
+(A maid jumps in front of you and blocks your path.)  Sister, can I speak with you?
+（一位女仆跳到你面前挡住你的去路。）姐妹，我可以和你说话吗？
+###_PLAYER
+Of course, sister.
+当然，姐妹。
+###_NPC
+An object has been stolen, can you stop your duty and bring a Dominatrix here?
+一件物品被偷了，你能否先停下手上的工作，把一位女王带到这里来？
+###_PLAYER
+What's going on?
+发生什么事了？
+###_NPC
+I'm sorry, but an object has been stolen, can you stop your duty and bring a Dominatrix here?
+很抱歉，一件物品被偷了，你能否先停下手上的工作，把一位女王带到这里来？
+###_PLAYER
+I will do it.
+我会的。
+###_NPC
+Thank you so much.  You're good to go, please hurry.
+太感谢了。你可以走了，请快点。
+###_PLAYER
+No problem sis.
+没问题，姐妹。
+I'm too busy.
+我现在太忙了。
+###_NPC
+I'm sorry.  You're good to go then.  See you later.
+很抱歉。你可以走了。回头见。
+(A maid jumps in front of you and blocks your path.)  What are you doing with this prisoner?
+（一位女仆跳到你面前挡住你的去路。）你要对这个犯人做什么？
+###_PLAYER
+That's none of your business.
+这跟你没关系。
+###_NPC
+You're trying to rescue her?  Surrender right now!
+你想救她？立即投降！
+###_PLAYER
+I'm rescuing her.
+我在救她出去。
+###_NPC
+Not while I'm on duty!  Surrender right now!
+我值班的时候就不可能！立即投降！
+###_PLAYER
+Her ransom was paid.
+她的赎金已经支付了。
+###_NPC
+(She nods.)  Very good, please take her away then.  You're good to go.
+（她点头）很好，那请带她走。你可以走了。
+(She shakes her head no.)  I know you're lying!  Surrender right now!
+（她摇头，表示否认。）我知道你在撒谎！立即投降！
+(A maid jumps in front of you and blocks your path.)  Miss guard, what is going on with this prisoner?
+（一位女仆跳到你面前挡住你的去路）警卫女士，这个犯人是怎么回事？
+###_PLAYER
+She's getting transferred.
+她正在被转移。
+###_NPC
+(She nods.)  Of course, please be careful she doesn't escape.  You're good to go.
+（她点点头。）当然，请小心不要让她逃了。你可以走了。
+(She sighs.)  I know I'm too curious, sorry.  You're good to go.
+（她叹了口气。）好吧，是我太好奇了，抱歉。你可以走了。
+(Your prisoner screams for help and the maid jumps in.)  Stop!  Are you kidnapping her?
+（你的囚犯尖叫着求救，女仆介入进来。）停下！你要绑架她吗？
+###_PLAYER
+I would never do that.
+我永远不会那样做。
+###_NPC
+You're lying, she just said so.  Surrender right now!
+你在撒谎，她刚刚这么说了。立即投降！
+###_PLAYER
+What if I am?
+如果我是怎么办？
+###_NPC
+Then you're in trouble.  Surrender right now!
+那你就惹上麻烦了。立即投降！
+###_PLAYER
+Get out of my way.
+从我面前滚开。
+###_NPC
+I'm not moving.  Surrender right now!
+我不会走的。立即投降！

@@ -1,0 +1,294 @@
+###_NPC
+(She smirks at you.)  Mumble or scream all you want, nobody cares.
+（她朝你笑起来。）随便你呜咽或尖叫，没人在乎。
+###_PLAYER
+I'm innocent!
+我是无辜的！
+###_NPC
+I've heard that one before.  (She searches in your stuff.)  So, you're a Bondage Club member?  They sent you to cause trouble?
+知道了，你说过了。（她搜索你的东西。）那么，你是束缚俱乐部的会员？他们派你来找麻烦？
+###_PLAYER
+This is bullshit.
+这是胡说八道。
+###_NPC
+You got yourself in that shit.  (She searches in your stuff.)  So, you're a Bondage Club member?  They sent you to cause trouble?
+你把自己害惨了哦。（她搜索你的东西。）那么，你是束缚俱乐部的会员？他们派你来找麻烦？
+###_PLAYER
+What lesson?
+什么课？
+###_NPC
+You will understand soon.  (She searches in your stuff.)  So, you're a Bondage Club member?  They sent you to cause trouble?
+你很快就知道了。（她搜索你的东西。）那么，你是束缚俱乐部的会员？他们派你来找麻烦？
+###_PLAYER
+(Stay silent.)
+（保持沉默。）
+###_NPC
+(She searches in your stuff.)  So, you're a Bondage Club member?  They sent you to cause trouble?
+（她搜索你的东西。）那么，你是束缚俱乐部的会员？他们派你来找麻烦？
+###_PLAYER
+(Try to defy her.)
+（试着反抗她。）
+###_NPC
+(She searches in your stuff and removes your gag.)  So, you're a Bondage Club member?  They sent you to cause trouble?
+（她搜索你的东西，并移除了你的口塞。）那么，你是束缚俱乐部的会员？他们派你来找麻烦？
+###_PLAYER
+(Grumble in your gag.)
+（在你的口塞里发牢骚。）
+This is a huge mistake.
+这是一个巨大的错误。
+###_NPC
+There's no mistake girl.  Why did the Bondage Club send you?   Confess or feel my wrath.
+什么错也没有，女孩。为什么束缚俱乐部派你来？老实交代，否则你会知道我的愤怒。
+###_PLAYER
+What is the Bondage Club?
+什么是束缚俱乐部？
+###_NPC
+Don't try to deny it girl.  Why did they send you?   Confess or feel my wrath.
+被否认了，女孩。为什么他们派你来？老实交代，否则你会知道我的愤怒。
+###_PLAYER
+Fuck you!  I'll never tell you.
+去你的！我永远不会告诉你。
+###_NPC
+(She seems angry.)  You little shit!  Some hard time in our prison will teach you a lesson.
+（她似乎很生气。）你这个小混蛋！在我们的监狱里痛苦地待一会儿吧，你会长教训的。
+###_PLAYER
+(Confess your mission.)
+（交代你的任务。）
+###_NPC
+(She notes everything and smiles.)  Good girl, we won't keep you for too long in our prison.
+（她记下了一切，然后微笑起来。）好女孩，我们不会让你在监狱里呆太久的。
+###_PLAYER
+Get lost!  I'll never confess.
+走开！我永远不会交代的。
+###_NPC
+(She waits and sighs.)  You don't want to talk?  Some time in our prison will open your mouth.
+（她等着，叹了口气。）你不想说话？在我们的监狱里呆一段时间，你会开口的。
+###_PLAYER
+I'm not a troublemaker.
+我不是来找麻烦的。
+###_NPC
+(She checks her notes.)  From what I can see, the Bondage Club sent you here a few times.  What is your current mission?
+（她检查她的笔记。）据我所知，束缚俱乐部曾多次派你来这里。你现在的任务是什么？
+###_PLAYER
+You won't teach me anything.
+你教不会我任何东西的。
+###_NPC
+You will cry and beg very soon.  From our files, the Bondage Club sent you here a few times.  What is your current mission?
+你很快就会哭着求我的。根据我们的档案，束缚俱乐部曾多次派你来这里。你现在的任务是什么？
+Keep your voice, you will talk soon.  From our files, the Bondage Club sent you here a few times.  What is your current mission?
+声音小点，你很快就会交代的。根据我们的档案，束缚俱乐部曾多次派你来这里。你现在的任务是什么？
+(She checks her notes and removes your gag.)  So, the Bondage Club sent you here a few times.  What is your current mission?
+（她检查她的笔记，然后移除你的口塞。）所以，束缚俱乐部曾多次派你来这里。你现在的任务是什么？
+###_PLAYER
+I'm not telling you anything.
+我什么都不告诉你。
+###_NPC
+Really?  This is your last chance.  I will count to five.  At five, you get locked up.  One, two...
+真的吗？这是你最后的机会。我数到五。到五的时候，你就会被关起来。一，二...
+###_PLAYER
+My mission is to piss you off.
+我的任务就是气死你。
+###_NPC
+You're doing it.  This is your last chance.  I will count to five.  At five, you get locked up.  One, two...
+你的确在气死我。这是你最后的机会。我数到五。到五的时候，你就会被关起来。一，二...
+This is your last chance.  I will count to five.  At five, you get locked up.  One, two...
+这是你最后的机会。我数到五。到五的时候，你就会被关起来。一，二...
+###_PLAYER
+Go to hell.  I will never talk.
+去死吧。我永远不说的。
+###_NPC
+(She seems furious.)  You little cunt!  Some hard time in our prison will teach you some manners.
+（她似乎很生气。）你这个小混蛋！在我们的监狱里痛苦地待一会儿吧，你会学到些礼貌的。
+###_PLAYER
+(Tell her about your mission.)
+（告诉她你的任务。）
+###_NPC
+(She takes notes and smirks.)  Very good.  I'll make sure you won't spend too much time in prison.
+（她记笔记，邪恶地笑起来。）非常好。我保证你不会在监狱里呆太久。
+###_PLAYER
+What's your problem bitch?
+婊子，你有什么问题？
+Five!
+五！
+###_NPC
+(She seems annoyed by your answer.)  Very well!  Time in our prison will teach you some manners.
+（她似乎对你的回答很生气。）很好！在我们的监狱里时，你会学到些礼貌的。
+Five!  It seems that time in our prison will teach you some manners.
+五！看来，在我们的监狱里，你会学到些礼貌的。
+###_PLAYER
+You've heard of me?
+你听说过我吗？
+###_NPC
+I certainly did DialogPlayerName.  How can you work for the filthy Bondage Club?  What's your mission here?
+我听过，DialogPlayerName。你竟然为那肮脏的束缚俱乐部工作？你来这里的任务是什么？
+###_PLAYER
+You have the wrong person.
+你找错人了。
+###_NPC
+(She checks your stuff.)  DialogPlayerName from the filthy Bondage Club.  Don't try to fool me.  What's your mission here?
+（她检查你的东西。）来自肮脏的束缚俱乐部的DialogPlayerName。别想骗我。你来这里的任务是什么？
+###_PLAYER
+You will never break me.
+你永远不会从我这里得到什么。
+###_NPC
+(She smirks.)  I will break you away from that filthy Bondage Club.  What's your mission here?
+（她歪嘴笑着。）我会让你远离那肮脏的束缚俱乐部的。你来这里的任务是什么？
+You will talk DialogPlayerName.  How can you work that filthy Bondage Club?  What's your mission here?
+你会交代的，DialogPlayerName。你竟然为那肮脏的束缚俱乐部工作？你来这里的任务是什么？
+(She stares at you and removes your gag.)  How can you work that filthy Bondage Club?  What's your mission here?
+（她盯着你，移除了你的口塞。）你竟然为那肮脏的束缚俱乐部工作？你来这里的任务是什么？
+(She laughs and removes your gag.)  How can you work that filthy Bondage Club?  What's your mission here?
+（她笑着摘掉你的口塞。）你竟然为那肮脏的束缚俱乐部工作？你来这里的任务是什么？
+(She removes your gag.)  How can you work that filthy Bondage Club?  What's your mission here?
+（她摘下你的口塞。）你竟然为那肮脏的束缚俱乐部工作？你来这里的任务是什么？
+###_PLAYER
+The Bondage Club is the best.
+束缚俱乐部是最好的。
+###_NPC
+(She stares at you.)  Do you ever want to get out?  Now is your time to talk.
+（她盯着你。）你想出去吗？现在是你说话的时候了。
+###_PLAYER
+This place is way filthier.
+这个地方是根本是污秽不堪。
+###_NPC
+(She takes a deep breath.)  Do you ever want to get out?  Now is your time to talk.
+（她深吸一口气。）你就没想过出去？现在你该交代了。
+Do you ever want to get out?  Now is your time to talk.
+你就没想过出去？现在你该交代了。
+###_PLAYER
+You asshole!  I will never talk.
+你个混蛋！我永远不会交代的。
+###_NPC
+(She goes mad.)  You little slut!  Some hard time in our prison will punish you well.
+（她怒火中烧。）你这个小荡妇！在我们的监狱里痛苦地待一会儿吧，你会被好好惩罚的。
+(She takes notes and smirks.)  Very good.  I'll shorten your prison sentence.
+（她记笔记，假笑着。）非常好。我会缩短你的刑期。
+###_PLAYER
+You think you can scare me?
+你以为你能吓到我？
+###_NPC
+Very well.  Some long time in our prison will serve you well.
+很好。在我们的监狱里待一会儿，会对你有好处的。
+###_PLAYER
+So, we meet again, DialogCharacterName.
+所以，我们又见面了，DialogCharacterName。
+###_NPC
+You've been here so often that we sound like an old couple.  What are you doing in the Box today?
+你经常来这里，我们听起来像一对老夫妻。你今天来魔盒做什么？
+###_PLAYER
+You should know that I have an iron will.
+你应该知道，我意志坚强如钢铁。
+###_NPC
+I know you're tough, but someday we will break you DialogPlayerName.  What are you doing in the Box today?
+我知道你很坚强，但总有一天我们弄坏你的，DialogPlayerName。你今天来魔盒做什么？
+###_PLAYER
+DialogCharacterName!  You got me this time.
+DialogCharacterName！这次你找我了。
+###_NPC
+I've captured you so often that we sound like an old couple.  What are you doing in the Box today?
+我抓到你的次数太多了，简直是一对老夫妻。你今天来魔盒做什么？
+(She sighs.)  I've seen you so often that I know you better than my slaves.  What are you doing in the Box today?
+（她叹了口气）我经常见到你，我了解你更甚我的奴隶。你今天来魔盒做什么？
+(She sighs and removes your gag.)  I've seen you so often DialogPlayerName.  What are you doing in the Box today?
+（她叹了口气，解开你的堵嘴。）我经常看到你，DialogPlayerName。你今天来魔盒做什么？
+###_PLAYER
+You really think I will squeal?
+你真以为我会尖叫？
+###_NPC
+I don't expect you to squeal.  But you know the drill, it's your last chance to talk.
+我不指望你会尖叫。但你知道的，这是你交代的最后机会。
+###_PLAYER
+You're not getting younger DialogCharacterName.
+你也不年轻了，DialogCharacterName。
+###_NPC
+So are you DialogPlayerName, we've been fighting for a while.  You know the drill, it's your last chance to talk.
+你也是，DialogPlayerName，我们已经吵了一段时间了。你知道的，这是你交代的最后机会。
+You know the drill DialogPlayerName.  It's your last chance to talk before jail.
+你知道的，DialogPlayerName。这是你入狱前最后一次交代的机会。
+###_PLAYER
+You're so pathetic.
+你太可怜了。
+###_NPC
+(She goes berserk.)  You little whore!  Some hard time in our prison will be perfect for you.
+（她暴怒起来。）你这个小婊子！在我们的监狱里痛苦地待一会儿吧，对你来说是完美的。
+(She takes notes and smirks.)  I'm surprised you squealed.  Very well, you'll get a shorter sentence.
+（她记笔记并假笑。）我很惊讶你会尖叫。很好，你的刑期会缩短。
+###_PLAYER
+Forget it.  You suck.
+忘了它吧。你真烂。
+###_NPC
+This silence doesn't surprise me.  It seems that some long prison time will serve you well.
+沉默并不让我感到惊讶。看来长期的监禁对你有好处。
+###_PLAYER
+This prison?
+这个监狱？
+###_NPC
+Yes, Pandora's Box has very secure cells to keep you locked up.  Trust me, you won't escape.
+是的，潘多拉魔盒有非常安全的牢房，可以把你锁起来。相信我，你逃不掉的。
+###_PLAYER
+This is inhumane.
+这不人道。
+###_NPC
+You came for trouble, you found it.  Don't try to make me cry, there's no safeword down here.
+你是来找麻烦的，现在你找到了。可别尝试感动我哦，这里没有安全词。
+###_PLAYER
+How long will you keep me?
+你要拘留多久？
+###_NPC
+Until your ransom is paid or until the clock runs out.  The clock will be in your cell.  Known troublemakers get more time.
+直到你支付赎金或时间到头。时钟将在你的牢房中。有记录的捣乱者的时间更长。
+###_PLAYER
+Can I pay the ransom myself?
+我可以自己支付赎金吗？
+###_NPC
+Talk with the staff when you get locked up, maybe they can arrange something.
+当你被锁起来的时候和工作人员谈谈，也许他们可以安排一些事情。
+###_PLAYER
+Will you bring me water and food?
+你会给我水和食物吗？
+###_NPC
+Yes, guards will come from time to time to check on you.  Don't try anything funny.
+是的，警卫会不时来检查你。别试图做不理智的事情。
+###_PLAYER
+Fine, I'm ready.  (Start your sentence.)
+好吧，我准备好了。（开始你的刑期。）
+(Try to shake the gag off.)
+（试着晃掉口塞。）
+###_NPC
+(She removes your gag.)  You will be our prisoner until your ransom is paid.  I could shorten your sentence if you give me some Bondage Club secrets.
+（她摘下你的嘴。）在你付清赎金之前，你将成为我们的囚犯。如果你给我一些束缚俱乐部的秘密，我可以缩短你的刑期。
+###_PLAYER
+(Sigh loudly.)
+（大声叹气。）
+It's all about money?  That's a scam.
+都是为了钱？那是个骗局。
+###_NPC
+Life is all about money girl.  So, will you talk, or will you wait?
+生活就是金钱，女孩。那么，你会交代，还是等？
+###_PLAYER
+Fuck you!  You'll get nothing from me.
+去你的！从我这里你什么都得不到。
+###_NPC
+Your fate is sealed then.  You will spend a lot of time in this cell.  Enjoy your sentence.
+那你的命运就注定了。你会在这个牢房里度过很多时间。享受你的刑期。
+###_PLAYER
+(Stay dead silent.)
+（保持沉默。）
+###_NPC
+I did not expect you to talk.  No worries, you will spend some time in this cell.  Enjoy your sentence.
+我没觉得你会交代的。不用担心，你会在这个牢房里呆一段时间。享受你的刑期。
+###_PLAYER
+Alright.  (Give her Bondage Club secrets.)
+好吧。（给她束缚俱乐部的秘密。）
+###_NPC
+(She takes lots of notes.)  Very good, you won't stay in that cell for very long.  Enjoy your sentence.
+（她记了很多笔记。）很好，你不会在那牢房里呆很久的。享受你的刑期。
+###_PLAYER
+You will pay for this.
+你将为此付出代价。
+###_NPC
+(She laughs at you.)  Aren't you cute?  I'll make sure the guards whip you a little harder.
+（她朝你笑起来。）你真可爱！我保证会让警卫鞭打你时更用些力的。
+###_PLAYER
+(Start your sentence.)
+（开始刑期。）

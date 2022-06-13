@@ -3,17 +3,17 @@ Cloth
 College
 学院
 Maid
-女仆
+女仆装
 Maid Exposed
-暴露女仆
+暴露女仆装
 Student Black
 黑色学生服
 Student Bow
-学生服·有领结
+有领结学生服
 Student Top
 学生服上衣
 Babydoll Dress
-人偶裙
+芭比裙
 Teacher
 教师服
 Chinese Dress
@@ -118,6 +118,14 @@ Latex Laced Suit
 织边乳胶服
 Fur Coat
 毛绒大衣
+Fuzzy Dress
+毛绒裙装
+Crop Top
+露腹短上衣
+Laurel Top
+月桂上衣
+See-through Top
+透视上衣
 Cloth Accessory
 服装配饰
 Student Scarf
@@ -146,6 +154,14 @@ Fur Bolero
  面部彩绘
 Bib
 围嘴
+Scarf
+围巾
+Glitter
+亮片
+Catsuit Collar
+紧身衣项圈
+Poncho
+庞乔斗篷
 Necklace
 项链
 Fancy Necklace
@@ -174,12 +190,20 @@ Fur Scarf
 毛绒围巾
 Flower Garland
 花圈
+Rope Necklace
+绳子项圈
+Tattoo Choker
+纹身项圈
+Body Chain Necklace
+身体项链
 Upper Suit
 套装(上身)
 Catsuit
 紧身衣
  Seamless Catsuit
  无缝紧身衣
+ Sleeveless Catsuit
+ 无袖紧身衣
 Pilot Suit
 飞行服
 See-through Suit
@@ -188,6 +212,8 @@ See-through Zipsuit
 透视拉链装
 Reverse Bunny Suit
 逆兔女郎装
+Slim Latex Leotard (Sleeveless)
+贴面乳胶紧身衣（无袖）
 Bottom
 下装
 Skirt
@@ -242,16 +268,34 @@ Long Leggings
 长打底裤
 Pleated Skirt
 百褶裙
+Witch's Skirt
+女巫裙
 Long Skirt
 长裙
 Short Pencil Skirt
 短铅笔裙
 Harem Pants
-哈伦裤
+后宫裤
+Harem Pants 2
+后宫裤2
 Short Plaid Skirt
 格子短裙
+College Skirt
+大学裙
+Bondage Skirt
+束缚裙
+Asymmetric Skirt
+非对称裙
+Elegant Skirt
+优雅裙
+Ruffled Skirt
+荷叶裙
 Suit Lower
 套装(下身)
+ Catsuit Panties
+ 紧身衣内裤
+Pilot Suit Panties
+飞行服内裤
 Pantyhose
 丝袜
 Crotchless Pantyhose
@@ -282,6 +326,8 @@ Satin Bustier
 缎面紧身胸衣
 Frilled Bikini
 褶边比基尼
+Maid Bra
+女仆胸罩
 Demonique Bikini
 恶魔比基尼
 Micro Bikini
@@ -294,6 +340,8 @@ Swimsuit style 2
 泳衣样式 2
 Bunny Girl Bodysuit
 兔女郎连体衣
+Latex Bunny Girl Bodysuit
+乳胶兔女郎连体衣
 Frame Bra Style 1
 框架文胸样式 1
 Frame Bra Style 2
@@ -311,7 +359,7 @@ Cute Bikini
 Corset Bikini
 紧身比基尼
 Ouvert Perl
-Ouvert Perl式文胸
+开放式串珠内衣
 Sarashi
 裹胸
 Kitty Bra
@@ -348,6 +396,8 @@ Silk Straps
 丝质肩带
 Full Latex Bra
 全乳胶文胸
+Full Latex Bra (Bright)
+全乳胶文胸（亮色）
 Harem Bra
 后宫文胸
 Flower Bra
@@ -430,6 +480,8 @@ Latex Panties
 乳胶内裤
 Pilot Panties
 飞行员内裤
+Catsuit Panties
+紧身衣内裤
 Flower Panties
 印花内裤
 Floral Panties 2
@@ -438,6 +490,12 @@ Bulky Diaper
 大块尿布
 Poofy Diaper
 屎尿布
+Thong 2
+丁字裤
+String Thong
+系带丁字裤
+Micro Thong
+微型丁字裤
 Socks
 袜子
 Ankle
@@ -468,6 +526,8 @@ Short Leather Socks
 短皮革袜
 Cow Printed Socks
 奶牛印花袜
+Harem Stockings
+后宫丝袜
 Anklet (Right)
 踝绳 (右)
 Band Anklet
@@ -484,6 +544,8 @@ Leather Garter Belts
 双皮革吊袜带
 Leather Garter Belt
 皮革吊袜带
+Tentacles
+触手
 Shoes
 鞋子
 Sneakers Light
@@ -524,6 +586,8 @@ Ankle Strap Shoes
 踝带鞋
 Futuristic Heels
 未来高跟鞋
+Fuzzy Boots
+毛绒靴子
 Hat
 帽子
 Hair Band
@@ -584,6 +648,8 @@ Flower Crown
 花冠
 Poppy Crown
 罂粟花冠
+Latex Habit
+乳胶修女
 Hair Accessory
 发饰
 Hair Ribbon 1
@@ -656,8 +722,14 @@ Cow Horns
 牛角
 Antennae
 触角
+Unicorn Horn
+独角兽角
+Dildocorn Horn
+独角兽阳具角
 Ears
 耳朵
+UnicornHorn
+独角兽角
 Gloves
 手套
 Short Gloves
@@ -680,6 +752,10 @@ Cow Printed Gloves
 奶牛印花手套
 Latex Elbow Gloves
 乳胶护肘手套
+ Fishnet Gloves
+渔网手套
+Harem Gloves
+后宫手套
 Bracelet
 手镯
 Bow Band
@@ -711,7 +787,7 @@ Eye Patch
 Cat-Eye Glasses
 猫眼眼镜
 V Glasses
-V 眼镜
+V眼镜
 Mask
 面具
 Venetian Mask
@@ -746,6 +822,10 @@ Open Face Hood
 开脸兜帽
 Face Veil
 面纱
+Pet Nose
+宠物鼻
+Head Harness
+头束带
 Tail Strap
 尾巴
 Kitty Tail Strap
@@ -814,6 +894,12 @@ Fairy Wings
 精灵之翼
 Steampunk Wings
 赛博朋克翅膀
+Bee Wings
+蜜蜂翅膀
+Cyber Wings
+电子翅膀
+Pixie Wings
+小妖精翅膀
 Height
 身高
 165 cm
@@ -912,16 +998,14 @@ Style 20
 样式 20
 Style 21
 样式 21
-Back Hair
-后发
-None
-无
-Style 15b
-样式 15b
 Style 22
 样式 22
+Style 22b
+样式 22b
 Style 23
 样式 23
+Style 23b
+样式 23b
 Style 24
 样式 24
 Style 25
@@ -930,6 +1014,12 @@ Style 26
 样式 26
 Style 27
 样式 27
+Back Hair
+后发
+None
+无
+Style 15b
+样式 15b
 Style 28
 样式 28
 Style 29
@@ -970,6 +1060,8 @@ Style 46
 样式 46
 Style 47
 样式 47
+Style 48
+样式 48
 Left eye
 左眼
 Right eye
@@ -1033,7 +1125,7 @@ Steel Ankle Cuffs
 Futuristic Ankle Cuffs
 未来脚铐
 Ornate Ankle Cuffs
-Ornate脚铐
+华丽脚铐
  Metal Leg Spreader
  金属分腿棍
 Ball And Chain
@@ -1056,6 +1148,8 @@ Medical Bed Restraints
 医疗床拘束装置
 Suspension Cuffs
 吊缚手铐
+Slime
+史莱姆
 Legs
 腿
 Leather Leg Cuffs
@@ -1063,7 +1157,7 @@ Leather Leg Cuffs
 Futuristic Leg Cuffs
 未来腿铐
 Ornate Leg Cuffs
-Ornate装饰腿铐
+华丽腿铐
 Leg Binder
 绑腿器
 Hobble Skirt
@@ -1072,8 +1166,6 @@ Seamless Leg Binder
 无缝腿部捆绑器
 Seamless Hobble Skirt
 无缝蹒跚裙
-Wooden Horse
-三角木马
 Zip Ties
 扎带
 Frog-tie Straps
@@ -1084,8 +1176,6 @@ Vulva
 前阴
 Vibrating Egg
 跳蛋
-Vibrating Wand
-震动棒
 Vibrating Items Remote
 震动遥控器
 Vibrating Latex Panties
@@ -1251,15 +1341,11 @@ Futuristic Training Belt
 Sci-Fi Pleasure Panties
 高科技快感管理内裤
 Ornate Chastity Belt
-Ornate 贞操带
+华丽贞操带
 Steel Chastity Panties
 不锈钢贞操带
 Love Chastity Belt
 爱人贞操带
-Leather Crop
-皮革硬鞭
-Leather Whip
-皮革软鞭
 Rope Harness
 绳缚带
 Diaper Harness
@@ -1270,6 +1356,8 @@ Bulky Chastity Diaper
 大块贞操尿布
 Poofy Chastity Diaper
 贞操尿布
+Hybrid Chastity Belt
+混合贞操带
 Torso
 躯干
 Leather Harness
@@ -1363,7 +1451,7 @@ Futuristic Chastity Bra
 Futuristic Bra
 未来文胸
 Ornate Chastity Bra
-Ornate 贞操文胸
+华丽贞操文胸
 Arms
 手臂
 Metal Cuffs
@@ -1381,7 +1469,7 @@ Steel Cuffs
 Futuristic Cuffs
 未来臂铐
 Ornate Cuffs
-Ornate 手铐
+华丽手铐
 Mittens Chain
 连指手套链
 Four Limbs Shackles
@@ -1508,6 +1596,8 @@ Cattle Prod
 赶畜棒
 Tennis Racket
 网球拍
+Rainbow Wand
+彩虹魔杖
 Gavel
 木槌
 Feather
@@ -1520,6 +1610,8 @@ Ice Cube
 冰块
 Wartenberg Wheel
 刺轮
+Vibrating Wand
+振动按摩棒
 Small Vibe Wand
 小振动棒
 Candle Wax
@@ -1576,6 +1668,18 @@ Mobile Phone 2
 手机 2
  Hoof Mittens
  马蹄手套
+Scissors
+见到
+Plastic Wrap Roll
+保鲜膜卷
+Empty Glass
+空玻璃杯
+Filled Glass
+装液体的玻璃杯
+Potion Bottle
+药剂瓶
+Medical Injector
+医用注射器
 Neck
 颈部
 Leather Collar
@@ -1631,7 +1735,7 @@ Latex Posture Collar Gag
 High Security Collar
 高安全项圈
 Ornate Collar
-Ornate 项圈
+华丽项圈
 Slender Steel Collar
 纤细不锈钢项圈
 Shiny Steel Collar
@@ -1650,6 +1754,10 @@ Latex Collar
 乳胶项圈
 Techno Collar
 科幻项圈
+Combo Harness
+全套束缚具
+Boned Neck Corset
+支撑束颈
 Collar
 项圈
 Custom Tag
@@ -1778,8 +1886,6 @@ Panty Stuffing
 内裤堵嘴
 Chloroform Cloth
 药棉
-Scarf
-围巾
 Lewd Gag
 色色口罩
 Deepthroat Penis Gag
@@ -1789,15 +1895,15 @@ Silicon Bit Gag
 XL Bone Gag
 超大号骨头口塞
 Exposed Dog Muzzle
-Exposed Dog Muzzle
+无遮蔽狗狗口套
 Foxy Harness Gag
 狐狸马具口塞
 Tongue Strap Gag
-Tongue Strap Gag
+舌束带口塞
 Ball Gag Mask
 口球面罩
 Hook Gag Mask
-Hook Gag Mask
+钩式口塞面罩
 Dildo Plug Gag
 阳具插入式口塞
 Steel Muzzle Gag
@@ -1838,10 +1944,22 @@ Dental Gag
 医用开口器
 Pacifier Gag
 奶嘴口塞
+Tentacle
+触手
+Harness OTN Plug Gag
+马具覆嘴式塞子口塞
+Bridle Gag
+缰绳口塞
+ Latex Sheath Gag
+ 乳胶隐藏口塞
+ Mouthfeature Gag
+ 嘴内特征口塞
 Eyes
 眼睛
 Cloth Blindfold
 布料眼罩
+Scarf Blindfold
+围巾眼罩
 Leather Blindfold
 皮革眼罩
 Padded Blindfold
@@ -1884,6 +2002,10 @@ Snorkel
 浮潜镜
 Ribbon Blindfold
 丝带眼罩
+Medical Patches
+医用脚步
+Smooth Latex Mask
+平滑乳胶面具
 Nose
 鼻子
 Nose Hook
@@ -1909,7 +2031,7 @@ Inflatable Hood
 Gas Mask
 防毒面具
 Kigurumi Mask
-kigurumi 面具
+Kigurumi面具
 Pumpkin Head
 南瓜头
 Sack Hood
@@ -1933,11 +2055,31 @@ Leather Hood Mouth
 Canvas Hood
 帆布头套
 GP-9 Gas Mask
-GP-9 式防毒面具
+GP-9防毒面具
 Gwen Hood
 情趣头套
 Techno Helmet
 高科技头盔
+GGTS Helmet
+GGTS头盔
+Lampshade Hood
+灯罩头套
+Accent Hood
+重点头套
+Collar Hood
+项圈头套
+Zipper Hood
+拉链头套
+Latex Habit Hood
+乳胶修女头套
+Cow Hood
+奶牛头套
+One-Way Glass Head Box
+单面玻璃头盒
+Kitty Hood
+猫咪头套
+Latex Dog Hood
+乳胶狗狗头套
 Light Duty Ear Plugs
 轻型耳塞
 Heavy Duty Ear Plugs
@@ -2007,7 +2149,7 @@ Secret Suitcase
 Unlocked Suitcase
 解锁的手提箱
 Wooden Paddle
-Wooden Paddle
+木桨拍
 Wooden Sign
 木制挂牌
 Serving Tray
@@ -2051,7 +2193,7 @@ One Bar Prison
 Display Frame
 展示架
 Sybian
-Sybian振动器
+鞍式振动器
 Smooth Strap On
 穿戴式平滑假阳具
 Studded Strap On
@@ -2110,6 +2252,14 @@ Fuck Machine
 炮机
 Net
 捕获网
+Snowman
+雪人
+Medical Bed
+医疗床
+Wooden Rack
+木质拉肢刑具
+Wooden Horse
+木马
 Blanket
 被子
 Bed Ropes
@@ -2152,3 +2302,5 @@ Toe Tape
 胶带绑脚趾
 High Thigh Boots
 高筒靴
+Monoheel
+单跟靴
