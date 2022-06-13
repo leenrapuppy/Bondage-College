@@ -714,7 +714,7 @@ var AssetFemale3DCG = [
 				HideItemExclude: ["ItemFeetLeatherAnkleCuffs", "ItemFeetSteelAnkleCuffs", "ItemFeetFuturisticAnkleCuffs", "ItemFeetOrnateAnkleCuffs", "ItemFeetWoodenCuffs", ""],
 				AllowPose: ["Kneel", "KneelingSpread"],
 				Layer: [
-					{ Name: "Back", ParentGroup: null, Priority: 5 },
+					{ Name: "Back", ParentGroup: null, Priority: 6 },
 					{ Name: "Front", CopyLayerColor: "Back" },
 				],
 			},
@@ -2381,8 +2381,8 @@ var AssetFemale3DCG = [
 					{ Name: "Pussy", AllowColorize: false }
 				], RemoveAtLogin: true, ArousalZone: "ItemVulva"
 			},
-			{ 
-				Name: "WoodenCuffs", Priority: 24, Value: 30, Difficulty: 2, Time: 5, Random: false, Left: 74, AllowLock: true, Audio: "WoodenCuffs", BuyGroup: "WoodenCuffs", Prerequisite: ["LegsOpen", "NotKneeling"], AllowPose: ["Spread", "LegsClosed"], Effect: ["Freeze", "Prone"], Block: ["ItemLegs"], AllowActivityOn: ["ItemLegs"], RemoveAtLogin: false, Extended: true, HasType: false 
+			{
+				Name: "WoodenCuffs", Priority: 24, Value: 30, Difficulty: 2, Time: 5, Random: false, Left: 74, AllowLock: true, Audio: "WoodenCuffs", BuyGroup: "WoodenCuffs", Prerequisite: ["LegsOpen", "NotKneeling"], AllowPose: ["Spread", "LegsClosed"], Effect: ["Freeze", "Prone"], Block: ["ItemLegs"], AllowActivityOn: ["ItemLegs"], RemoveAtLogin: false, Extended: true, HasType: false
 			},
 			{
 				Name: "MedicalBedRestraints", Value: -1, Difficulty: 5, Time: 5, Random: false, RemoveTime: 5, DefaultColor: "#ccc", AllowLock: true, BuyGroup: "MedicalBedRestraints", Left: 0, Top: 0,
@@ -3683,7 +3683,7 @@ var AssetFemale3DCG = [
 				Block: ["ItemHands", "ItemVulva", "ItemButt", "ItemVulvaPiercings", "ItemNipplesPiercings"], AllowActivePose: ["Kneel"], Audio: "ClothSlip" },
 			{ Name: "PantyhoseBodyOpen", Fetish: ["Nylon"], Value: 75, Priority: 15, Difficulty: 3, SelfBondage: 4, Time: 30, RemoveTime: 20, Random: false, BuyGroup: "PantyhoseBody", AllowPose: ["Kneel"], SetPose: ["BackElbowTouch", "LegsClosed"], Effect: ["Block", "Prone", "Slow"],
 				Prerequisite: ["NotHogtied", "NotMounted", "NoFeetSpreader"], Hide: ["Cloth", "ClothLower", "Suit", "SuitLower", "Garters"], Block: ["ItemHands",  "ItemNipplesPiercings"], AllowActivePose: ["Kneel"], Audio: "ClothSlip" },
-			{ 
+			{
 				Name: "WoodenCuffs", Value: 30, Top: 0 ,Left: 0, Difficulty: 2, Time: 5, Random: false, AllowLock: true, Audio: "WoodenCuffs", BuyGroup: "WoodenCuffs", Effect: ["Block", "Prone"], AllowPose: ["Yoked", "BackCuffs","Hogtied"], HideItem: ["ClothFurCoat"], Extended: true, HasType: false,
 				Layer:[
 					{ Name: "", Priority: 50, HasType: false, AllowColorize: true },
