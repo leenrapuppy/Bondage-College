@@ -1,6 +1,6 @@
 "use strict";
 var ChatBlockItemBackground = "Sheet";
-var ChatBlockItemList = ["ABDL", "SciFi", "Fantasy", "Leashing", "Photos", "Arousal"];
+var ChatBlockItemList = ["ABDL", "SciFi", "Fantasy", "Extreme", "Leashing", "Photos", "Arousal"];
 var ChatBlockItemCategory = [];
 var ChatBlockItemEditable = true;
 /** @type { { Screen?: string; } } */
@@ -25,7 +25,7 @@ function ChatBlockItemRun() {
 			(ChatBlockItemCategory.indexOf(ChatBlockItemList[L]) >= 0) ? "Icons/Checked.png" : null, null, !ChatBlockItemEditable);
 		DrawText(TextGet(ChatBlockItemList[L]), 1000, 232 + L * 100, "Black", "Gray");
 	}
-	DrawButton(850, 800, 300, 65, TextGet("Return"), "White");
+	DrawButton(1569, 212, 300, 65, TextGet("Return"), "White");
 }
 
 /**
@@ -41,7 +41,7 @@ function ChatBlockItemClick() {
 				else
 					ChatBlockItemCategory.splice(ChatBlockItemCategory.indexOf(ChatBlockItemList[L]), 1);
 	}
-	if (MouseIn(850, 800, 300, 65)) ChatBlockItemExit();
+	if (MouseIn(1569, 212, 300, 65)) ChatBlockItemExit();
 }
 
 /**

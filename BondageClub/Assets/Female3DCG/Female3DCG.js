@@ -4690,7 +4690,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "FunnelGag", Value: 50, Difficulty: 4, Time: 20, Random: false, Prerequisite: "GagUnique", Extended: true,
+				Name: "FunnelGag", Category: ["Extreme"], Value: 50, Difficulty: 4, Time: 20, Random: false, Prerequisite: "GagUnique", Extended: true,
 				Hide: ["Mouth"],
 				Effect: ["OpenMouth", "GagMedium", "ProtrudingMouth"],
 				Block: ["ItemMouth2", "ItemMouth3", "ItemHood"],
