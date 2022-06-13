@@ -405,14 +405,17 @@ function InventoryGet(C, AssetGroup) {
 
 /**
 * Applies crafted properties to the item used
+* @param {Character} Source - The character that used the item
 * @param {Character} Target - The character on which the item is used
 * @param {String} GroupName - The name of the asset group to scan
 * @param {Object} Craft - The crafted properties to apply
+* @param {Boolean} Refresh - TRUE if we must refresh the character
 * @returns {void}
 */
-function InventoryCraft(Target, GroupName, Craft) {
+function InventoryCraft(Source, Target, GroupName, Craft, Refresh) {
 
 	// Gets the item first
+	if ((Source == null) || (Target == null) || (GroupName == null) || (Craft == null)) return;
 	let Item = InventoryGet(Target, GroupName);
 	if (Item == null) return;
 	if (Item.Craft == null) Item.Craft = Craft;
@@ -426,12 +429,12 @@ function InventoryCraft(Target, GroupName, Craft) {
 	}
 
 	// Applies a lock to the item
-	if ((Craft.Lock != null) && (Craft.Lock != ""))
-		InventoryLock(Target, Item, Craft.Lock, Target.MemberNumber, false);
+	if ((Craft.Lock != null) && (Craft.Lock != "")) 
+		InventoryLock(Target, Item, Craft.Lock, Source.MemberNumber, false);
 
 	// Sets the crafter name and ID
-	if (Item.Craft.MemberNumber == null) Item.Craft.MemberNumber = Player.MemberNumber;
-	if (Item.Craft.MemberName == null) Item.Craft.MemberName = CharacterNickname(Player);
+	if (Item.Craft.MemberNumber == null) Item.Craft.MemberNumber = Source.MemberNumber;
+	if (Item.Craft.MemberName == null) Item.Craft.MemberName = CharacterNickname(Source);
 
 	// The properties are only applied on self or NPCs to prevent duplicating the effect
 	if ((Craft.Property != null) && (Target.IsPlayer() || Target.IsNpc())) {
@@ -469,8 +472,9 @@ function InventoryCraft(Target, GroupName, Craft) {
 
 	}
 
-	// Refreshes the character
-	CharacterRefresh(Target, true);
+	// Refreshes the character if needed
+	if (Refresh && (Target.IsPlayer() || Target.IsNpc()))
+		CharacterRefresh(Target, true);
 
 }
 

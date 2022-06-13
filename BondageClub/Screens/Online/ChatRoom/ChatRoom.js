@@ -3120,7 +3120,10 @@ function ChatRoomSyncItem(data) {
 
 				// Puts the item on the character and apply the craft & property
 				CharacterAppearanceSetItem(ChatRoomCharacter[C], data.Item.Group, item.Asset, item.Color, item.Difficulty, null, false);
-				if (item.Craft != null) InventoryCraft(ChatRoomCharacter[C], data.Item.Group, item.Craft);
+				if (item.Craft != null) 
+					for (let Char of ChatRoomCharacter)
+						if (Char.MemberNumber === data.Source)
+							InventoryCraft(Char, ChatRoomCharacter[C], data.Item.Group, item.Craft, false);
 				InventoryGet(ChatRoomCharacter[C], data.Item.Group).Property = item.Property;
 
 				/** @type {AppearanceDiffMap} */
