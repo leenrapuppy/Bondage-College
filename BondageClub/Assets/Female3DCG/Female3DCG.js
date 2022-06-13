@@ -5917,7 +5917,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "GwenHood", Fetish: ["Leather"], Value: 35, Difficulty: 5, Time: 15, AllowLock: true, DefaultColor: "#404040", Extended: true, HasType: false,
 				Prerequisite: ["NotProtrudingFromMouth"],
-				Hide: ["HairFront", "Ears"],
+				Hide: ["HairFront", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars"],
 				Alpha: [
 					// Mask over the neck area
@@ -5928,7 +5928,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "TechnoHelmet1", Category: ["SciFi"], Fetish: ["Metal"], Value: 100, Difficulty: 7, DefaultColor: ["#1E7484", "Default", "#2F2F2F", "#999999", "#246489"], RemoveTime: 10, AllowLock: true, DrawLocks: false, Effect: [], Extended: true,
-				Hide: ["HairFront", "Ears", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "ItemEars", "Glasses"],
+				Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "ItemEars", "Glasses"],
 				Layer: [
 					{ Name: "TransparentVisor", HasType: false, AllowModuleTypes: ["v1"] },
 					{ Name: "LightlyTintedVisor", HasType: false, CopyLayerColor: "TransparentVisor", AllowModuleTypes: ["v2"] },
@@ -5944,7 +5944,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "FuturisticHelmet", Category: ["SciFi"], Fetish: ["Metal"], Value: -1, Difficulty: 10, RemoveTime: 10, AllowLock: true, DrawLocks: false, Effect: [],
-				Hide: ["HairFront", "Ears", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Glasses"],
+				Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Glasses"],
 				Alpha: [{ Group: ["ItemHead"], Masks: [[0, 0, 203, 250], [295, 0, 205, 250]] }]
 			},
 			{
@@ -6021,7 +6021,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "KittyHood", Fetish: ["Pet"], Random: false, Value: 40, Difficulty: 2, Top: 33, Left: 142,
 				AllowLock: true, Extended: true, DrawLocks: false,
-				Hide: ["HairFront", "HairBack", "Glasses", "Ears"],
+				Hide: ["HairFront", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
 				DefaultColor: ["Default", "Default", "Default", "#2D8736", "Default", "Default", "#000000"],
 				Layer: [
 					{ Name: "Base", HasType: false, },
@@ -6044,7 +6044,8 @@ var AssetFemale3DCG = [
 			{
 				Name: "LatexDogHood", Fetish: ["Latex", "Pet"], Random: false, Value: 20, Difficulty: 1, Top: -5, Left: 113,
 				AllowLock: true,
-				Hide: ["HairFront", "HairBack", "Glasses", "Ears"],
+				Hide: ["HairFront", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
+				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
 			},
 			AssetSpankingToys
 		],
