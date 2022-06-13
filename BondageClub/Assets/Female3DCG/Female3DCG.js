@@ -5746,7 +5746,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "NoseRing", Priority: 43, Fetish: ["Metal"], Value: 25, Difficulty: 10, Time: 15, Random: false, AllowLock: true, Left: 50, AllowPose: ["Kneel"], Extended: true },
 			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, BuyGroup: "DuctTape", Audio: "DuctTape", Difficulty: 2, Time: 10, RemoveTime: 5},
-			{ Name: "NosePlugs", Value: 20, Difficulty: 3, Time: 5, RemoveTime: 5},
+			{ Name: "NosePlugs", Category: ["Extreme"], Value: 20, Difficulty: 3, Time: 5, RemoveTime: 5},
 			{ Name: "BarbelPiercing", Left: 124, Top: 50, Value: 20, Difficulty: 3, Time: 5, RemoveTime: 5},
 			{
 				Name: "PigNoseHook", Fetish: ["Metal"], Priority: 26, Value: -1, Difficulty: 30, Time: 15, Random: false, AllowLock: true, DrawLocks: false, BuyGroup: "Nosehook", Layer: [
