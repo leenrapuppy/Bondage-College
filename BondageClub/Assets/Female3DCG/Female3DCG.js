@@ -296,6 +296,14 @@ var AssetFemale3DCG = [
 					{ Name: "Design" },
 				],
 			},
+			{
+				Name: "Jacket", Value: 40, Priority: 30, ParentGroup: null, Extended: true,
+				HideItem: ["ClothAccessoryPoncho", "ClothAccessoryCape"],
+				Layer: [
+					{ Name: "Base", HasType: false, },
+					{ Name: "Hood", HasType: false, Priority: 54, AllowTypes: ["Hooded", "HoodedEarsOut"], AllowPose: [], CopyLayerColor: "Base", },
+				],
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -336,7 +344,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "LeatherStraps", Fetish: ["Leather"], ParentGroup: "BodyUpper", Value: 25, AllowPose: ["AllFours"], Extended: true },
-			{ Name: "FurBolero", Priority: 34, Value: 25, AllowPose: ["AllFours", "BackElbowTouch", "OverTheHead", "Hogtied", "Yoked", "BackCuffs"], Alpha: [{ Group: ["Cloth"], Masks: [[0, 0, 210, 270], [290, 0, 210, 270]] }] },
+			{ Name: "FurBolero", Priority: 34, Value: 25, AllowPose: ["AllFours", "BackElbowTouch", "OverTheHead", "Hogtied", "Yoked", "BackCuffs"], },
 			{ Name: "FacePaint", Value: 10, Left: 150, Top: 20, Priority: 7, BuyGroup: "FacePaint", DefaultColor: ["#9A7F76"], Hide: ["Head"] },
 			{
 				Name: "Bib", Fetish: ["ABDL"], Priority: 34, Value: 5, Left: 179, Top: 220, Extended: true, DynamicAfterDraw: true,
@@ -6459,7 +6467,13 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "ConcealingCloak", Value: 75, Difficulty: 0, Top: 0, SelfBondage: 5, Time: 7, AllowLock: true, Prerequisite: ["NotSuspended", "AllFours", "Notkneeling", "NotHogtied", "NotYoked", "NotMounted", "NotKneelingSpread"], Hide: [ "Suit", "ItemArms", "ItemButt", "TailStraps", "Wings", "ItemNipplesPiercings"], HideItem: ["ItemVulvaFullLatexSuitWand", "ClothLowerTutu"], Effect: ["Prone"], Block: ["ItemArms", "ItemBreast", "ItemButt", "ItemHands", "ItemLegs", "ItemMisc", "ItemNipples", "ItemNipplesPiercings", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings"], SetPose: ["BaseUpper"], Layer: [
+				Name: "ConcealingCloak", Value: 75, Difficulty: 0, Top: 0, SelfBondage: 5, Time: 7, AllowLock: true,
+				Prerequisite: ["NotSuspended", "AllFours", "Notkneeling", "NotHogtied", "NotYoked", "NotMounted", "NotKneelingSpread"],
+				Hide: [ "Suit", "ItemArms", "ItemButt", "TailStraps", "Wings", "ItemNipplesPiercings"],
+				HideItem: ["ItemVulvaFullLatexSuitWand", "ClothLowerTutu", "ClothJacket"], Effect: ["Prone"],
+				Block: ["ItemArms", "ItemBreast", "ItemButt", "ItemHands", "ItemLegs", "ItemMisc", "ItemNipples", "ItemNipplesPiercings", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings"],
+				SetPose: ["BaseUpper"],
+				Layer: [
 					{ Name: "Front", Priority: 48 },
 					{ Name: "Back", Priority: 3, CopyLayerColor: "Front" },
 					{ Name: "Strap", Priority: 52 }
