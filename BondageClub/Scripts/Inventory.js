@@ -454,20 +454,25 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh) {
 		// The decoy property makes it always possible to struggle out
 		if (Craft.Property === "Decoy") Item.Difficulty = -50;
 
-		// The painful property triggers an expression change
-		if (Craft.Property === "Painful") {
-			CharacterSetFacialExpression(Target, "Blush", "ShortBreath", 10);
-			CharacterSetFacialExpression(Target, "Eyes", "Angry", 10);
-			CharacterSetFacialExpression(Target, "Eyes2", "Angry", 10);
-			CharacterSetFacialExpression(Target, "Eyebrows1", "Angry", 10);
-		}
+		// Expressions cannot be changed if the settings doesn't allow it for the player
+		if (!Target.IsPlayer() || (Player.OnlineSharedSettings == null) || Player.OnlineSharedSettings.ItemsAffectExpressions) {
 
-		// The comfy property triggers an expression change
-		if (Craft.Property === "Comfy") {
-			CharacterSetFacialExpression(Target, "Blush", "Light", 10);
-			CharacterSetFacialExpression(Target, "Eyes", "Horny", 10);
-			CharacterSetFacialExpression(Target, "Eyes2", "Horny", 10);
-			CharacterSetFacialExpression(Target, "Eyebrows1", "Raised", 10);
+			// The painful property triggers an expression change		
+			if (Craft.Property === "Painful") {
+				CharacterSetFacialExpression(Target, "Blush", "ShortBreath", 10);
+				CharacterSetFacialExpression(Target, "Eyes", "Angry", 10);
+				CharacterSetFacialExpression(Target, "Eyes2", "Angry", 10);
+				CharacterSetFacialExpression(Target, "Eyebrows1", "Angry", 10);
+			}
+
+			// The comfy property triggers an expression change
+			if (Craft.Property === "Comfy") {
+				CharacterSetFacialExpression(Target, "Blush", "Light", 10);
+				CharacterSetFacialExpression(Target, "Eyes", "Horny", 10);
+				CharacterSetFacialExpression(Target, "Eyes2", "Horny", 10);
+				CharacterSetFacialExpression(Target, "Eyebrows1", "Raised", 10);
+			}
+
 		}
 
 	}
