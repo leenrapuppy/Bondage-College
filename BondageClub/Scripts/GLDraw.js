@@ -169,7 +169,10 @@ function GLDrawResetCanvas(force2d = false) {
 	// Cleanup resources and canvas
 	GLDrawCanvas.remove();
 	ImageCache.forEach((image, key) => {
-		delete image.userData.textureInfo;
+		image.unload();
+	});
+	GLDrawCanvas.GL.maskCache.forEach((texture) => {
+		GLDrawCanvas.GL.deleteTexture(texture);
 	});
 	GLDrawCanvas.GL.maskCache.clear();
 	GLDrawCanvas = null;
@@ -204,7 +207,7 @@ function GLDrawMakeGLProgram(gl) {
 	gl.programFull = GLDrawCreateProgram(gl, vertexShader, fragmentShaderFullAlpha);
 	gl.programHalf = GLDrawCreateProgram(gl, vertexShader, fragmentShaderHalfAlpha);
 
-	gl.program.u_alpha = gl.getUniformLocation(gl.program, "u_alpha");
+	gl.program.u_color = gl.getUniformLocation(gl.program, "u_color");
 	gl.programFull.u_color = gl.getUniformLocation(gl.programFull, "u_color");
 	gl.programHalf.u_color = gl.getUniformLocation(gl.programHalf, "u_color");
 
@@ -241,16 +244,12 @@ var GLDrawFragmentShaderSource = `
   varying vec2 v_texcoord;
 
   uniform sampler2D u_texture;
-  uniform sampler2D u_alpha_texture;
-  uniform float u_alpha;
+  uniform vec4 u_color;
 
   void main() {
     vec4 texColor = texture2D(u_texture, v_texcoord);
-    vec4 alphaColor = texture2D(u_alpha_texture, v_texcoord);
     if (texColor.w < ` + GLDrawAlphaThreshold + `) discard;
-    if (alphaColor.w < ` + GLDrawAlphaThreshold + `) discard;
     gl_FragColor = texColor;
-    gl_FragColor.a *= u_alpha;
   }
 `;
 
@@ -265,14 +264,11 @@ var GLDrawFragmentShaderSourceFullAlpha = `
   varying vec2 v_texcoord;
 
   uniform sampler2D u_texture;
-  uniform sampler2D u_alpha_texture;
   uniform vec4 u_color;
 
   void main() {
     vec4 texColor = texture2D(u_texture, v_texcoord);
-    vec4 alphaColor = texture2D(u_alpha_texture, v_texcoord);
     if (texColor.w < ` + GLDrawAlphaThreshold + `) discard;
-    if (alphaColor.w < ` + GLDrawAlphaThreshold + `) discard;
     float t = (texColor.x + texColor.y + texColor.z) / 383.0;
     gl_FragColor = u_color * vec4(t, t, t, texColor.w);
   }
@@ -289,14 +285,11 @@ var GLDrawFragmentShaderSourceHalfAlpha = `
   varying vec2 v_texcoord;
 
   uniform sampler2D u_texture;
-  uniform sampler2D u_alpha_texture;
   uniform vec4 u_color;
 
   void main() {
     vec4 texColor = texture2D(u_texture, v_texcoord);
-    vec4 alphaColor = texture2D(u_alpha_texture, v_texcoord);
     if (texColor.w < ` + GLDrawAlphaThreshold + `) discard;
-    if (alphaColor.w < ` + GLDrawAlphaThreshold + `) discard;
     float t = (texColor.x + texColor.y + texColor.z) / 383.0;
     if (t < ` + GLDrawHalfAlphaLow + ` || t > ` + GLDrawHalfAlphaHigh + `) {
       gl_FragColor = texColor;
@@ -344,7 +337,6 @@ function GLDrawCreateProgram(gl, vertexShader, fragmentShader) {
 
 	program.u_matrix = gl.getUniformLocation(program, "u_matrix");
 	program.u_texture = gl.getUniformLocation(program, "u_texture");
-	program.u_alpha_texture = gl.getUniformLocation(program, "u_alpha_texture");
 
 	program.position_buffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, program.position_buffer);
@@ -390,6 +382,7 @@ function GLDrawImage(url, gl, dstX, dstY, offsetX, color, fullAlpha, alphaMasks,
 	offsetX = offsetX || 0;
 	opacity = typeof opacity === "number" ? opacity : 1;
 	const tex = GLDrawLoadImage(gl, url);
+	if (!tex.texture) return;
 	const mask = GLDrawLoadMask(gl, tex.width, tex.height, dstX, dstY, alphaMasks);
 	if (rotate) dstX = 500 - dstX;
 	const sign = rotate ? -1 : 1;
@@ -414,15 +407,13 @@ function GLDrawImage(url, gl, dstX, dstY, offsetX, color, fullAlpha, alphaMasks,
 
 	gl.uniformMatrix4fv(program.u_matrix, false, matrix);
 	gl.uniform1i(program.u_texture, 0);
-	gl.uniform1i(program.u_alpha_texture, 1);
-	if (program.u_alpha != null) gl.uniform1f(program.u_alpha, opacity);
 
 	gl.activeTexture(gl.TEXTURE0);
 	gl.bindTexture(gl.TEXTURE_2D, tex.texture);
 	gl.activeTexture(gl.TEXTURE1);
 	gl.bindTexture(gl.TEXTURE_2D, mask);
 
-	if (program.u_color != null) gl.uniform4fv(program.u_color, GLDrawHexToRGBA(color, opacity));
+	gl.uniform4fv(program.u_color, GLDrawHexToRGBA(color, opacity));
 
 	gl.drawArrays(gl.TRIANGLES, 0, 6);
 }
@@ -447,40 +438,43 @@ function GLDraw2DCanvasBlink(gl, Img, X, Y, alphaMasks) { GLDraw2DCanvas(gl, Img
  */
 function GLDraw2DCanvas(gl, Img, X, Y, alphaMasks) {
 	const TempCanvasName = Img.getAttribute("name");
-	ImageCache.set(TempCanvasName, Img);
+	ImageCache.set(TempCanvasName, Img, {unloadCallback: GLDrawUnloadImage});
 	GLDrawImage(TempCanvasName, gl, X, Y, 0, null, null, alphaMasks);
+}
+
+/**
+ * Helper used by the cache when an image is unloaded
+ * @param {CachedImage} image
+ */
+function GLDrawUnloadImage(image) {
+	if (image.userData.textureInfo && image.userData.textureInfo.texture)
+		GLDrawCanvas.GL.deleteTexture(image.userData.textureInfo.texture);
+
+	delete image.userData.textureInfo;
 }
 
 /**
  * Loads image texture data
  * @param {WebGL2RenderingContext} gl - WebGL context
  * @param {string} url - URL of the image
- * @returns {{ width: number; height: number; texture: WebGLTexture; }} - The texture info of a given image
+ * @returns {{ width: number; height: number; texture?: WebGLTexture; }} - The texture info of a given image
  */
 function GLDrawLoadImage(gl, url) {
-	var image = ImageCache.get(url);
-	let textureInfo = image.userData.textureInfo;
+	const image = ImageCache.get(url, {unloadCallback: GLDrawUnloadImage});
+	const textureInfo = image.userData.textureInfo || { width: 0, height: 0 };
 
-	if (!textureInfo) {
-		textureInfo = { width: 1, height: 1, texture: gl.createTexture() };
+	if (textureInfo.texture || !image.isLoaded())
+		return textureInfo;
 
-		gl.bindTexture(gl.TEXTURE_2D, textureInfo.texture);
-		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
-		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+	const texture = gl.createTexture();
+	image.userData.textureInfo = { width: image.element.width, height: image.element.height, texture };
+	gl.bindTexture(gl.TEXTURE_2D, texture);
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+	gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+	gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image.element);
 
-		if (image.isLoaded()) {
-			gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image.element);
-			textureInfo.width = image.element.width;
-			textureInfo.height = image.element.height;
-			image.userData.textureInfo = textureInfo;
-		} else  {
-			// Use a temporary 1-by-1 transparent pixel
-			gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 0]));
-		}
-	}
-
-	return textureInfo;
+	return image.userData.textureInfo;
 }
 
 /**
@@ -553,6 +547,7 @@ function GLDrawClearRect(gl, x, y, width, height) {
  * @return {number[]} - Converted color code
  */
 function GLDrawHexToRGBA(color, alpha = 1) {
+	if (!color) return [1, 1, 1, alpha];
 	const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
 	color = color.replace(shorthandRegex, function (m, r, g, b) { return r + r + g + g + b + b; });
 	const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color);
@@ -570,12 +565,30 @@ function GLDrawAppearanceBuild(C) {
 	CommonDrawAppearanceBuild(C, {
 		clearRect: (x, y, w, h) => GLDrawClearRect(GLDrawCanvas.GL, x, CanvasDrawHeight - y - h, w, h),
 		clearRectBlink: (x, y, w, h) => GLDrawClearRectBlink(GLDrawCanvas.GL, x, CanvasDrawHeight - y - h, w, h),
-		drawImage: (src, x, y, alphaMasks, opacity, rotate) => GLDrawImage(src, GLDrawCanvas.GL, x, y, 0, null, null, alphaMasks, opacity, rotate),
-		drawImageBlink: (src, x, y, alphaMasks, opacity, rotate) => GLDrawImageBlink(src, GLDrawCanvas.GL, x, y, null, null, alphaMasks, opacity, rotate),
-		drawImageColorize: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate) => GLDrawImage(src, GLDrawCanvas.GL, x, y, 0, color, fullAlpha, alphaMasks, opacity, rotate),
-		drawImageColorizeBlink: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate) => GLDrawImageBlink(src, GLDrawCanvas.GL, x, y, color, fullAlpha, alphaMasks, opacity, rotate),
-		drawCanvas: (Img, x, y, alphaMasks) => GLDraw2DCanvas(GLDrawCanvas.GL, Img, x, y, alphaMasks),
-		drawCanvasBlink: (Img, x, y, alphaMasks) => GLDraw2DCanvasBlink(GLDrawCanvas.GL, Img, x, y, alphaMasks),
+		drawImage: (src, x, y, alphaMasks, opacity, rotate) => {
+			CommonDrawMarkDrawnAsset(C, src);
+			GLDrawImage(src, GLDrawCanvas.GL, x, y, 0, null, null, alphaMasks, opacity, rotate);
+		},
+		drawImageBlink: (src, x, y, alphaMasks, opacity, rotate) => {
+			CommonDrawMarkDrawnAsset(C, src);
+			GLDrawImageBlink(src, GLDrawCanvas.GL, x, y, null, null, alphaMasks, opacity, rotate);
+		},
+		drawImageColorize: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate) => {
+			CommonDrawMarkDrawnAsset(C, src);
+			GLDrawImage(src, GLDrawCanvas.GL, x, y, 0, color, fullAlpha, alphaMasks, opacity, rotate);
+		},
+		drawImageColorizeBlink: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate) => {
+			CommonDrawMarkDrawnAsset(C, src);
+			GLDrawImageBlink(src, GLDrawCanvas.GL, x, y, color, fullAlpha, alphaMasks, opacity, rotate);
+		},
+		drawCanvas: (Img, x, y, alphaMasks) => {
+			CommonDrawMarkDrawnAsset(C, Img);
+			GLDraw2DCanvas(GLDrawCanvas.GL, Img, x, y, alphaMasks);
+		},
+		drawCanvasBlink: (Img, x, y, alphaMasks) => {
+			CommonDrawMarkDrawnAsset(C, Img);
+			GLDraw2DCanvasBlink(GLDrawCanvas.GL, Img, x, y, alphaMasks);
+		},
 	});
 	C.Canvas.getContext("2d").drawImage(GLDrawCanvas, 0, 0);
 	C.CanvasBlink.getContext("2d").drawImage(GLDrawCanvas, -500, 0);
