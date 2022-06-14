@@ -437,7 +437,7 @@ ChatOther-ItemFeet-Spank,SourceCharacter spanks TargetCharacter's leg.
 ChatOther-ItemFeet-Caress,SourceCharacter caresses TargetCharacter's leg.
 ChatOther-ItemFeet-MassageHands,SourceCharacter massages TargetCharacter's leg.
 ChatOther-ItemFeet-Grope,SourceCharacter gropes TargetCharacter's leg.
-ChatSelf-ItemFeet-Inject,SourceCharacter injects TargetCharacter's leg.
+ChatOther-ItemFeet-Inject,SourceCharacter injects TargetCharacter's leg.
 ChatSelf-ItemLegs-Tickle,SourceCharacter tickles her thighs.
 ChatSelf-ItemLegs-Spank,SourceCharacter spanks her own thigh.
 ChatSelf-ItemLegs-Caress,SourceCharacter caresses her thighs.
