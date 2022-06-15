@@ -2080,7 +2080,7 @@ function DialogIsMenuButtonDisabled(ButtonName) {
 /**
  * Draw the item menu dialog
  * @param {Character} C - The character on which the item is used
- * @param {Object} Item - The item that was used
+ * @param {Item} Item - The item that was used
  * @returns {void} - Nothing
  */
 function DialogDrawCrafting(C, Item) {

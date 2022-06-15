@@ -8,12 +8,15 @@ var CraftingItemList = [];
 var CraftingItem = null;
 var CraftingLock = null;
 var CraftingProperty = "";
+/**
+ * @type {{Name: string, Allow: (asset: Asset) => boolean}[]}
+ */
 var CraftingPropertyList = [
 	{ Name: "Normal", Allow : function(Item) { return true; } },
-	{ Name: "Large", Allow : function(Item) { return CreatingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); } },
-	{ Name: "Small", Allow : function(Item) { return CreatingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); } },
-	{ Name: "Thick", Allow : function(Item) { return CreatingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy"]); } },
-	{ Name: "Thin", Allow : function(Item) { return CreatingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy"]); } },
+	{ Name: "Large", Allow : function(Item) { return CraftingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); } },
+	{ Name: "Small", Allow : function(Item) { return CraftingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); } },
+	{ Name: "Thick", Allow : function(Item) { return CraftingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy"]); } },
+	{ Name: "Thin", Allow : function(Item) { return CraftingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy"]); } },
 	{ Name: "Secure", Allow : function(Item) { return true; } },
 	{ Name: "Loose", Allow : function(Item) { return true; } },
 	{ Name: "Decoy", Allow : function(Item) { return true; } },
@@ -22,18 +25,18 @@ var CraftingPropertyList = [
 	{ Name: "Strong", Allow : function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); } },
 	{ Name: "Flexible", Allow : function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); } },
 	{ Name: "Nimble", Allow : function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); } },
-	{ Name: "Arousing", Allow : function(Item) { return CreatingItemHasEffect(Item, ["Egged", "Vibrating"]); } },
-	{ Name: "Dull", Allow : function(Item) { return CreatingItemHasEffect(Item, ["Egged", "Vibrating"]); } }
+	{ Name: "Arousing", Allow : function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); } },
+	{ Name: "Dull", Allow : function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); } }
 ];
 var CraftingLockList = ["", "MetalPadlock", "IntricatePadlock", "HighSecurityPadlock", "OwnerPadlock", "LoversPadlock", "MistressPadlock", "PandoraPadlock", "ExclusivePadlock"];
 
 /**
  * Returns TRUE if a crafting item has an effect from a list or allows that effect
- * @param {Object} Item - The item asset to validate
- * @param {Array} Effect - The list of effects to validate
+ * @param {Asset} Item - The item asset to validate
+ * @param {EffectName[]} Effect - The list of effects to validate
  * @returns {Boolean}
  */
-function CreatingItemHasEffect(Item, Effect) {
+function CraftingItemHasEffect(Item, Effect) {
 	if (Item.Effect != null)
 		for (let E of Effect)
 			if (Item.Effect.indexOf(E) >= 0)
@@ -123,7 +126,7 @@ function CraftingRun() {
 	if (CraftingMode == "Property") {
 		DrawText(TextGet("SelectProperty").replace("AssetDescription", CraftingItem.Description), 880, 60, "White", "Black");
 		let Pos = 0;
-		for (let Property of CraftingPropertyList) 
+		for (let Property of CraftingPropertyList)
 			if (Property.Allow(CraftingItem)) {
 				let X = (Pos % 4) * 500 + 15;
 				let Y = Math.floor(Pos / 4) * 230 + 130;
@@ -168,7 +171,7 @@ function CraftingRun() {
 			Description = CraftingLock.Description;
 			Background = MouseIn(425, 250, 225, 275) && !CommonIsMobile ? "cyan" : "#fff";
 			Icons = DialogGetAssetIcons(CraftingLock.Asset);
-			DrawAssetPreview(425, 250, CraftingLock.Asset, { Description, Background, Foreground, Icons });	
+			DrawAssetPreview(425, 250, CraftingLock.Asset, { Description, Background, Foreground, Icons });
 		} else DrawButton(425, 250, 225, 275, TextGet("NoLock"), "White");
 		DrawButton(80, 650, 570, 190, "", "White");
 		DrawText(TextGet("Property" + CraftingProperty), 365, 690, "Black", "Silver");
@@ -238,12 +241,12 @@ function CraftingLoadServer(Packet) {
 	let PacketArray = PacketString.split("§");
 	for (let P = 0; P < PacketArray.length && P < 20; P++) {
 		let PacketData = PacketArray[P].split("¶");
-		Player.Crafting[P].Item = (PacketData.length >= 1) ? PacketData[0] : ""; 
-		Player.Crafting[P].Property = (PacketData.length >= 2) ? PacketData[1] : ""; 
-		Player.Crafting[P].Lock = (PacketData.length >= 3) ? PacketData[2] : ""; 
-		Player.Crafting[P].Name = (PacketData.length >= 4) ? PacketData[3] : ""; 
-		Player.Crafting[P].Description = (PacketData.length >= 5) ? PacketData[4] : ""; 
-		Player.Crafting[P].Color = (PacketData.length >= 6) ? PacketData[5] : ""; 
+		Player.Crafting[P].Item = (PacketData.length >= 1) ? PacketData[0] : "";
+		Player.Crafting[P].Property = (PacketData.length >= 2) ? PacketData[1] : "";
+		Player.Crafting[P].Lock = (PacketData.length >= 3) ? PacketData[2] : "";
+		Player.Crafting[P].Name = (PacketData.length >= 4) ? PacketData[3] : "";
+		Player.Crafting[P].Description = (PacketData.length >= 5) ? PacketData[4] : "";
+		Player.Crafting[P].Color = (PacketData.length >= 6) ? PacketData[5] : "";
 	}
 }
 
@@ -304,7 +307,7 @@ function CraftingClick() {
 	// In property mode, the user can select a special property to apply to the item
 	if (CraftingMode == "Property") {
 		let Pos = 0;
-		for (let Property of CraftingPropertyList) 
+		for (let Property of CraftingPropertyList)
 			if (Property.Allow(CraftingItem)) {
 				let X = (Pos % 4) * 500 + 15;
 				let Y = Math.floor(Pos / 4) * 230 + 130;
@@ -349,7 +352,7 @@ function CraftingClick() {
 			Name: Name,
 			Description: Description,
 			Color: Color
-		}
+		};
 		CraftingSaveServer();
 		CraftingModeSet("Slot");
 	}
@@ -374,7 +377,7 @@ function CraftingItemListBuild() {
 	if (Search == null) Search = "";
 	Search = Search.toUpperCase().trim();
 	for (let A = 0; A < Asset.length; A++)
-	CraftingItemList = [];
+		CraftingItemList = [];
 	for (let I of Player.Inventory)
 		if ((I.Asset != null) && (I.Asset.Name != null) && I.Asset.Enable && I.Asset.Wear && (I.Asset.Group != null) && (I.Asset.Group.Name.substr(0, 4) == "Item") && (I.Asset.Group.Name != "ItemAddon") && (I.Asset.Group.Name != "ItemMisc") && (I.Asset.Name.substr(0, 12) != "SpankingToys"))
 			if ((Search == "") || (I.Asset.Description == null) || (I.Asset.Description.toUpperCase().trim().indexOf(Search) >= 0)) {
