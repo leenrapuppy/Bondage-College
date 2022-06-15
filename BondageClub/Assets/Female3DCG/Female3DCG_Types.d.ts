@@ -74,6 +74,9 @@ interface AssetDefinition {
 	/** Activities that wearing this asset enables. */
 	AllowActivity?: string[];
 
+	/** Array of sound effects for each one of the item's allowed activities */
+	ActivityAudio?: string[];
+
 	/** A list of groups that should still be allowed to be acted on even though they should be blocked by the asset. */
 	AllowActivityOn?: AssetGroupName[];
 

@@ -4090,42 +4090,42 @@ var AssetFemale3DCG = [
 			{ Name: "MedicalInjector", Category: ["SciFi"], Value: 75, Priority: 46, Time: 8, IsRestraint: false, AllowActivity: ["InjectItem"], AllowPose: ["Yoked"], HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "AllFours"], },
 			{
 				Name: "SpankingToysCrop", ParentGroup: null, Priority: 46, Value: 20, Random: false, Fetish: ["Sadism"],
-				AllowActivity: ["SpankItem", "RubItem"], Audio: "SmackCrop", BuyGroup: "Crop",
+				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"], BuyGroup: "Crop",
 				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysFlogger", ParentGroup: null, Priority: 46, Value: 40, Random: false, Fetish: ["Sadism"],
-				AllowActivity: ["SpankItem"], Audio: "SmackCrop",
+				AllowActivity: ["SpankItem"], ActivityAudio: ["SmackCrop"],
 				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysCane", ParentGroup: null, Priority: 46, Value: 15, Random: false, Fetish: ["Sadism"],
-				AllowActivity: ["SpankItem", "RubItem"], Audio: "SmackCrop", BuyGroup: "Cane",
+				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"], BuyGroup: "Cane",
 				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
 			},
 			{
 				Name: "SpankingToysHeartCrop", ParentGroup: null, Priority: 46, Value: 30, Random: false, Fetish: ["Sadism"],
-				AllowActivity: ["SpankItem", "RubItem"], Audio: "SmackCrop",
+				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"],
 				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysPaddle", ParentGroup: null, Priority: 46, Value: 35, Random: false, Fetish: ["Sadism"],
-				AllowActivity: ["SpankItem", "RubItem"], Audio: "SmackCrop",
+				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"],
 				ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }]
 			},
 			{
 				Name: "SpankingToysWhipPaddle", ParentGroup: null, Priority: 46, Value: 25, Random: false, Fetish: ["Sadism"],
-				AllowActivity: ["SpankItem", "RubItem"], Audio: "SmackCrop",
+				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"],
 				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
 			},
 			{
 				Name: "SpankingToysWhip", ParentGroup: null, Priority: 46, Value: 50, Random: false, Fetish: ["Sadism"],
-				AllowActivity: ["SpankItem"], Audio: "WhipCrack",
+				AllowActivity: ["SpankItem"], ActivityAudio: ["WhipCrack"],
 				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
 			},
 			{
 				Name: "SpankingToysCattleProd", ParentGroup: null, Priority: 46, Value: 45, Random: false, Fetish: ["Sadism"],
-				AllowActivity: ["ShockItem"], Audio: "Shocks",
+				AllowActivity: ["ShockItem"], ActivityAudio: ["Shocks"],
 				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
 			},
 			{
@@ -4170,12 +4170,12 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "SpankingToysVibratingWand", ParentGroup: null, Priority: 46, Value: 40, Random: false,
-				AllowActivity: ["MasturbateItem", "RubItem"], Audio: "Wand",
+				AllowActivity: ["MasturbateItem", "RubItem"], ActivityAudio: ["Wand"],
 				ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "VeryLewd", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}, { Group: "Mouth", Name: "Open", Timer: 10}]
 			},
 			{
 				Name: "SpankingToysSmallVibratingWand", ParentGroup: null, Priority: 46, Value: 20, Random: false,
-				AllowActivity: ["MasturbateItem", "RubItem"], Audio: "Wand",
+				AllowActivity: ["MasturbateItem", "RubItem"], ActivityAudio: ["Wand"],
 				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyes", Name: "Dazed", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}, { Group: "Mouth", Name: "HalfOpen", Timer: 10}]
 			},
 			{
@@ -4195,7 +4195,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "SpankingToysVibrator", ParentGroup: null, Priority: 46, Value: 45, Random: false,
-				AllowActivity: ["MasturbateItem", "RubItem"], Audio: "Wand",
+				AllowActivity: ["MasturbateItem", "RubItem"], ActivityAudio: ["Wand"],
 				ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "VeryLewd", Timer: 10 }, { Group: "Mouth", Name: "Open", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
 			},
 			{
@@ -4225,7 +4225,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "SpankingToysShockWand", ParentGroup: null, Priority: 46, Value: 50, Random: false, Fetish: ["Sadism"],
-				AllowActivity: ["ShockItem"], Audio: "Shocks",
+				AllowActivity: ["ShockItem"], ActivityAudio: ["Shocks"],
 				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
 			},
 			{

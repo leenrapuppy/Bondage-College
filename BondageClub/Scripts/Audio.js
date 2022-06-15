@@ -99,7 +99,7 @@ var AudioActions = [
 		GetSoundEffect: AudioGetSoundFromChatMessage,
 	},
 	{
-		IsAction: (data) => data.Content.indexOf("ActionActivity") == 0,
+		IsAction: (data) => data.Type === "Activity",
 		GetSoundEffect: AudioGetSoundFromChatMessage
 	},
 	{
@@ -503,13 +503,39 @@ function AudioGetFileName(sound) {
  * @returns {AudioSoundEffect?} - The name of the sound to play, followed by the noise modifier
  */
 function AudioGetSoundFromChatMessage(data) {
-	var NextAsset = data.Dictionary.find((el) => el.Tag == "NextAsset");
-	var NextAssetGroup = data.Dictionary.find((el) => el.Tag == "FocusAssetGroup");
-	var Char = ChatRoomCharacter.find((C) => C.MemberNumber == data.Sender);
+	const Char = ChatRoomCharacter.find((C) => C.MemberNumber == data.Sender);
 
-	if (!NextAsset || !NextAsset.AssetName || !NextAssetGroup || !NextAssetGroup.AssetGroupName || !Char) return null;
+	if (!Char) return null;
 
-	return AudioGetSoundFromAsset(Char, NextAssetGroup.AssetGroupName, NextAsset.AssetName);
+	if (data.Type === "Activity") {
+		const activity = data.Content.split("-")[2];
+		let group, name;
+
+		let entry = data.Dictionary.find(e => e.Tag === "ActivityAssetGroup");
+		if (entry) {
+			group = entry.Text;
+		}
+		entry = data.Dictionary.find(e => e.Tag === "ActivityAsset");
+		if (entry) {
+			name = entry.Text;
+		}
+		const item = InventoryGet(Char, group);
+		if (!item || item.Asset.Name !== name || !item.Asset.ActivityAudio) return;
+
+		const idx = item.Asset.AllowActivity.findIndex(a => a === activity);
+		const soundEffect = item.Asset.ActivityAudio[idx];
+
+		if (!soundEffect) return;
+
+		return [soundEffect, 0];
+	} else if (data.Type === "Action") {
+		const NextAsset = data.Dictionary.find((el) => el.Tag == "NextAsset");
+		const NextAssetGroup = data.Dictionary.find((el) => el.Tag == "FocusAssetGroup");
+
+		if (!NextAsset || !NextAsset.AssetName || !NextAssetGroup || !NextAssetGroup.AssetGroupName) return null;
+
+		return AudioGetSoundFromAsset(Char, NextAssetGroup.AssetGroupName, NextAsset.AssetName);
+	}
 }
 
 /**

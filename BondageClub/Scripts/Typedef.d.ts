@@ -658,6 +658,7 @@ interface Asset {
 	Wear: boolean;
 	Activity: string | null;
 	AllowActivity?: string[];
+	ActivityAudio?: string[];
 	AllowActivityOn?: AssetGroupName[];
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: string[];

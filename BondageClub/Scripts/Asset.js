@@ -104,6 +104,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		Visible: (AssetDef.Visible == null) ? true : AssetDef.Visible,
 		Wear: (AssetDef.Wear == null) ? true : AssetDef.Wear,
 		Activity: (typeof AssetDef.Activity === "string" ? AssetDef.Activity : null),
+		ActivityAudio: Array.isArray(AssetDef.ActivityAudio) ? AssetDef.ActivityAudio : [],
 		AllowActivity: Array.isArray(AssetDef.AllowActivity) ? AssetDef.AllowActivity : [],
 		AllowActivityOn: Array.isArray(AssetDef.AllowActivityOn) ? AssetDef.AllowActivityOn : [],
 		BuyGroup: AssetDef.BuyGroup,
