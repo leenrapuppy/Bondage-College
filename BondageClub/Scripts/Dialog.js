@@ -807,6 +807,7 @@ function DialogGetAssetIcons(asset) {
 	icons = icons.concat(asset.PreviewIcons);
 	if (asset.OwnerOnly) icons.push("OwnerOnly");
 	if (asset.LoverOnly) icons.push("LoverOnly");
+	if (asset.AllowActivity && asset.AllowActivity.length > 0) icons.push("Handheld");
 	return icons;
 }
 
