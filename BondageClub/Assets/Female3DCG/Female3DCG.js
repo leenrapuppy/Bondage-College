@@ -4185,7 +4185,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "SpankingToysLargeDildo", ParentGroup: null, Priority: 46, Value: 30, Random: false,
-				AllowActivity: ["MasturbateItem", "RubItem"],
+				AllowActivity: ["MasturbateItem", "RubItem", "PenetrateItem"],
 				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "HalfOpen", Timer: 10}, { Group: "Eyes", Name: "Lewd", Timer: 10}]
 			},
 			{
@@ -4210,7 +4210,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "SpankingToysSmallDildo", ParentGroup: null, Priority: 46, Value: 20, Random: false,
-				AllowActivity: ["MasturbateItem", "RubItem"],
+				AllowActivity: ["MasturbateItem", "RubItem", "PenetrateItem"],
 				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}, { Group: "Eyes", Name: "Lewd", Timer: 5 }, ]
 			},
 			{
