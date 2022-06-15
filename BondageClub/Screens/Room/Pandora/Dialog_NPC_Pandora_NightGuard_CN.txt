@@ -1,17 +1,17 @@
 ###_NPC
-(She looks at your gag and laughs.)  Get lost slave, I don't have time for you.
-（她看着你的口塞，笑了起来。）快走开，奴隶，我没时间陪你。
-(She pouts.)  You're tough!  Alright, go ahead and get her.  I don't care.
-（她撅嘴。）你很厉害嘛！好吧，去接她吧。我不在乎。
-(She smiles and laughs.)  You really thought you could beat me?
-（她微笑，然后笑出声。）你真以为你能打败我？
+(She checks your gag.)  Prisoners don't need to be understood.
+（她看着你的口塞，笑了起来。）囚犯不需要被理解。
+(She pouts.)  You're a mean burglar, but I represent the law and you're still under arrest.
+（她撅嘴。）你真是个刻薄的小偷，但我代表法律，并且你被捕了。
+(She smiles and laughs.)  You really thought a kitty could defeat the law?  You are under arrest.
+（她微笑，然后笑出声。）你真以为一只小猫咪能能战胜法律？你被捕了。
 (A Dominatrix takes you away from the guard.)  So, we've caught the infamous DialogPlayerName.  You'll never forget this lesson.
 （一位女王把你从警卫身边带走。）所以，我们抓住了臭名昭著的DialogPlayerName。你永远不会忘记这一课的。
 (A Dominatrix takes you away from the guard.)  You've been on list for a while DialogPlayerName.  I'll teach you a lesson.
 （一位女王把你从警卫身边带走。）DialogPlayerName，你在名单上已经有一段时间了。我会给你上一课。
-(A Dominatrix takes you away from the guard.)  (She cracks her knuckles.)  So, you're a troublemaker?  I'll teach you a lesson.
+(A Dominatrix takes you away from the guard.)  (She cracks her knuckles.)  So, you're a cat burglar?  I'll teach you a lesson.
 （一位女王把你从警卫身边带走。）（她捏响指关节。）那么，你是来捣乱的？我会给你上一课。
-(A Dominatrix takes you away from the guard.)  (She stares at you.)  You've caused some trouble?  Then it's time for your lesson.
+(A Dominatrix takes you away from the guard.)  (She stares at you.)  Trying to steal little kitty?  Then it's time for your lesson.
 （一位女王把你从警卫身边带走。）（她盯着你。）你惹了麻烦？那么，是你上课的时候了。
 (She sighs and reluctantly allows you to gag her.)
 （她叹了口气，不情愿地让你堵嘴。）
@@ -49,8 +49,8 @@
 （你解开她的头时，她迅速点头。）这好多了，但你仍然有麻烦。
 (You put the hood on her head as she goes silent.)
 （你把头套戴在她头上，她逐渐沉默。）
-(She grins as you remove the hood from her head.)  I will never get out of here.
-（当你从她头上取下头罩时，她咧嘴笑起来。）我永远不会离开这里。
+(She grins as you remove the hood from her head.)  You will never get out of here.
+（当你从她头上取下头罩时，她咧嘴笑起来。）你永远不会离开这里。
 (You strap the item on her nose as she sighs.)  Is that a joke to you?
 （当她叹气时，你把那物品系在她的鼻子上。）这对你来说是个笑话吗？
 (She nods as you remove the device.)  Someday Pandora's Box will make you pay.

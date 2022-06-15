@@ -126,6 +126,8 @@ Laurel Top
 月桂上衣
 See-through Top
 透视上衣
+Jacket
+夹克
 Cloth Accessory
 服装配饰
 Student Scarf

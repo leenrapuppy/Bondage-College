@@ -48,7 +48,7 @@ I'd like to take a mission.
 我想接个任务。
 ###_NPC
 Very good comrade DialogPlayerName!  (She salutes you.)  What kind of challenge are you up to?
-非常好的，DialogPlayerName同志！（她向你经历。）你准备迎接什么样的挑战？
+非常好，DialogPlayerName同志！（她向你敬礼。）你准备迎接什么样的挑战？
 Very good!  What kind of challenge are you up to?
 很好！你准备迎接什么样的挑战？
 ###_PLAYER
@@ -58,7 +58,7 @@ Pandora's Box?
 潘多拉魔盒？
 ###_NPC
 Yes, they opened their BDSM club right next to us a few months ago.  At first it was healthy competition, until they started to play dirty.
-是的，就在几个月前，他们把BDSM俱乐部开在了在我们旁边。起初这是健康的竞争，直到他们开始玩脏的。
+是的，就在几个月前，他们把BDSM俱乐部开在了在我们旁边。一开始这只是良性竞争，不过后来他们开始耍起了阴招。
 ###_PLAYER
 They play dirty?
 他们玩脏的？
@@ -70,7 +70,7 @@ You're at war with that club?
 你们在和那个俱乐部交战？
 ###_NPC
 It's too risky for BDSM clubs to do a public war, we could both get closed.  That's why we created this bunker and do infiltration missions.
-BDSM俱乐部之间进行明面战争的风险太大，可能我们都被关闭了。这就是我们建立地堡掩体，并安排潜入任务的原因。
+BDSM俱乐部之间，在明面上进行对抗的风险太大了，我们可能会被同时勒令关闭。所以这就是我们转入地下，安排潜入任务的原因。
 ###_PLAYER
 That's all I wanted to know.
 我就想知道这么多。
@@ -124,19 +124,19 @@ Tell me about battle perks.
 跟我讲讲战斗特技。
 ###_NPC
 Training these perks will only change your battles in Pandora's Box.  It will give you passive bonuses to hit harder or stand your ground against your opponents.
-这些特技只会影响你在潘多拉魔盒中的战斗。你会得到一些被动的奖励，让你在对抗敌人时攻击更猛、或站得更稳。
+这些特技只会影响你在潘多拉魔盒中的战斗。这会给你一些被动加成，让你在面对敌人的时候，打的更狠或站得更稳
 ###_PLAYER
 Do I recover after a battle?
 战斗后我会得到恢复吗？
 ###_NPC
 You will not recover your willpower after a battle, so fight wisely.  Your willpower will also go down when you fail in your infiltration tasks like lockpicking.
-战斗后你不会恢复意志，所以要明智地战斗。当你在开锁之类的潜入作业中失败时，你的意志力也会下降。
+战斗后你不会恢复意志，所以要谨慎地战斗。另外当你在开锁之类的潜入作业中失败时，你的意志力也会下降。
 ###_PLAYER
 Tell me about the infiltration perks.
 跟我讲讲潜入特技。
 ###_NPC
 The infiltration perks will help you navigate Pandora's Box faster.  It can be used to lockpick easier or bribe a rival girl to get out of trouble.
-潜入特技能让你更快捷地在潘多拉魔盒中导航。这能让你开锁更容易，或者能贿赂敌人以摆脱困境。
+潜入特技能让你更快捷地在潘多拉魔盒中探索。这能让你开锁更容易，或者能贿赂敌人以摆脱困境。
 ###_PLAYER
 How many perks can I allocate?
 我可以分配多少特技？
@@ -191,7 +191,7 @@ Alright.  Let me know when you're ready.
 (Wait for her.)
 （等着她。）
 Why are you whispering?
-你为什么讲悄悄话？
+怎么突然开始讲悄悄话了？
 ###_NPC
 (She continues to whisper.)  Shhhh.  They've put lots of effort to hide and protect this technology.  We could get in trouble.
 （她继续悄声说。）嘘。他们花了很多功夫来隐藏和保护这项技术。我们可能会遇到麻烦。
@@ -246,7 +246,7 @@ How will I recognize her?
 我要怎么认出她？
 ###_NPC
 We have a specific target that you'll need to kidnap:  TargetName.  Restrain her and bring her back so we can arrange a prisoner exchange.
-我们有一个你需要绑架的特殊目标：TargetName。绑住她，把她带回来，这样我们就可以安排一次交换囚犯。
+我们有一个你需要绑架的特殊目标：TargetName。绑了她，把她带回来，这样我们就可以安排一次交换囚犯。
 ###_PLAYER
 She's a tough one?
 她很厉害吗？
@@ -350,7 +350,7 @@ Give me a minute.  (Leave her.)
 等我一会儿。（离开她。）
 ###_NPC
 Since they are sending members to do damage on our buildings, it's only fair that we do the same.  I'll send you on a maid sabotage mission.
-既然他们派遣会员来破坏我们的建筑，仅有的公平就是我们也这样做。我将派你去执行女仆破坏任务。
+既然他们派遣会员来破坏我们的建筑，那只有我们也这样做才算公平。我将派你去执行女仆破坏任务。
 ###_PLAYER
 Sabotage how?
 怎么破坏？
@@ -374,7 +374,7 @@ I get paid for graffities?
 我涂鸦还能挣钱？
 ###_NPC
 Exactly comrade!  Damage at least fifty percent of the rooms and we'll pay you.  We'll give you a bonus if you damage everything.
-正是如此，同志！破坏至少百分之五十的房间后，我们会付钱给你。如果你破坏了所有的房间，我们会给你奖金。
+正是如此，同志！破坏至少百分之五十的房间后，我们就会付钱给你。如果你破坏了所有的房间，我们还会给你奖金。
 We'll send you disguised as a maid.  Make sure to decorate well.  (She winks at you.)  Be warned, the costume is sexy.
 我们派出你时，会把你伪装成女仆。一定要好好装点那里。 （她对你使眼色。）注意啊，女仆装很性感。
 ###_PLAYER
@@ -440,7 +440,7 @@ I hope nothing will go wrong.
 我希望不会出什么问题。
 ###_NPC
 Be more confident girl.  Go and make us proud!
-女孩，要自信。快出发，并让我们感到荣光吧！
+再自信一点吧女孩。出发去赢得荣耀吧！
 Welcome back comrade.  Is your mission complete?
 欢迎回来，同志。你的任务完成了吗？
 Congratulation comrade DialogPlayerName!  (She salutes you.)  The Bondage Club is proud of you.
@@ -502,7 +502,7 @@ No, but I want some infiltration training.
 不，但我想要一些潜入训练。
 ###_NPC
 Of course, comrade.  (She gives you great infiltration tricks.)  Are you ready to go back?
-当然，同志。（她给了你一些很棒的潜入技巧。）你准备好回去了吗？
+当然，同志。（她教给了你一些很棒的潜入技巧。）你准备好回去了吗？
 ###_PLAYER
 I don't want anything.
 我什么都不想要。
@@ -525,7 +525,7 @@ Sorry about that.  Pandora's Box has been causing lots of trouble lately.  Is th
 I don't need anything.  (Leave her.)
 我什么都不需要。（离开她。）
 I'm not paying.  I'll go free her.
-我不会付钱。我会去释放她。
+我不会付钱。我会去解救她。
 ###_NPC
 That's what I wanted to hear comrade!  The Bondage Club will support you for that mission.  Are you ready for your disguise?
 这就是我想听到的同志！束缚俱乐部会支持你完成这项任务。你准备好穿上伪装了吗？
@@ -534,7 +534,7 @@ Yes, the ransom amount is $100.
 是的，赎金是$100。
 ###_NPC
 (She nods.)  That's the usual price.  Will you pay to free her?
-（她点点头。）这是通常的价格。你会付钱让她自由吗？
+（她点点头。）这是通常的价格。你会花钱来解救她吗？
 ###_PLAYER
 For how long they will keep her?
 他们会扣留她多久？

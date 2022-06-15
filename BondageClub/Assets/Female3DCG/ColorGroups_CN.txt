@@ -46,3 +46,5 @@ Belts
 皮带
 Metal
 金属
+Wood
+木质

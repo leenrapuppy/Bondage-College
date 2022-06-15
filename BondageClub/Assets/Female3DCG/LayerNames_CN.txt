@@ -666,10 +666,16 @@ Custom Text
 自定义文本
 Glass
 玻璃
+Wooden Frame
+木质框架
 Stains
 污渍
  Ropes
 绳子
+Arm Stocks
+手枷
+Feet Stocks
+脚枷
 Underlayment
 衬底层
 Feet

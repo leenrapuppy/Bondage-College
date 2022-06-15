@@ -15,7 +15,7 @@ Endurance: +5 willpower in Pandora's Box
 Investigation: Easier to find hidden objects
 调查：更容易发现隐藏物体
 Running: Skip one fight freely, lose willpower
-飞跑：免费跳过一次战斗，失去意志
+飞跑：自由地跳过一场战斗，但会失去意志
 Mapping: 1 less room to complete mission
 绘图：完成任务所需的房间减少1个
 Forgery: Fake papers for entrance maid
