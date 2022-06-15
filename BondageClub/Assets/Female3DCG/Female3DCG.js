@@ -1829,7 +1829,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "HeadHarness", Value: 20, BuyGroup: "Headharness", Left: 150, Top: 22, DefaultColor: ["#383838"], Extended:true,
+				Name: "HeadHarness", Priority: 51, Value: 20, BuyGroup: "Headharness", Left: 150, Top: 22, DefaultColor: ["#383838"], Extended:true,
 				Layer:[
 					{Name: "BaseMetal", HasType: false, AllowTypes:["","Heavy"], AllowColorize: false},
 					{Name: "Base", HasType: false, AllowTypes:["","Heavy"]},
@@ -2026,7 +2026,7 @@ var AssetFemale3DCG = [
 			//HairFront22
 			{ Name: "HairFront22",
 			Layer: [
-				{ Name: "Base" },
+				{ Name: "Base", Priority: 51 },
 				{ Name: "Fluff" },
 				{ Name: "FrontFluff", Priority: 54, CopyLayerColor: "Fluff" }
 			],
@@ -2034,7 +2034,7 @@ var AssetFemale3DCG = [
 			//HairFront22b
 			{ Name: "HairFront22b",
 			Layer: [
-				{ Name: "Base" },
+				{ Name: "Base",Priority: 51 },
 				{ Name: "Fluff" },
 				{ Name: "FrontFluff", Priority: 54, CopyLayerColor: "Fluff"}
 			],
@@ -2042,7 +2042,7 @@ var AssetFemale3DCG = [
 			//HairFront23
 			{ Name: "HairFront23",
 			Layer: [
-				{ Name: "Base" },
+				{ Name: "Base",Priority: 51 },
 				{ Name: "Fluff" },
 				{ Name: "FrontFluff", Priority: 54, CopyLayerColor: "Fluff" }
 			],
@@ -2050,7 +2050,7 @@ var AssetFemale3DCG = [
 			//HairFront23b
 			{ Name: "HairFront23b",
 			Layer: [
-				{ Name: "Base" },
+				{ Name: "Base", Priority: 51 },
 				{ Name: "Fluff" },
 				{ Name: "FrontFluff", Priority: 54, CopyLayerColor: "Fluff" }
 			],
