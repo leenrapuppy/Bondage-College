@@ -79,11 +79,8 @@ function PokerDrawPlayer(P, X, Y) {
 				let Y2 = 0;
 				let W = 300;
 				let H = 440;
-				const Img = ImageCache.get(P.Image);
-				if (Img != null && Img.isLoaded()) {
-					W = Img.element.width;
-					H = Img.element.height;
-				}
+				if (DrawCacheImage.get(P.Image) != null) W = DrawCacheImage.get(P.Image).width;
+				if (DrawCacheImage.get(P.Image) != null) H = DrawCacheImage.get(P.Image).height;
 				if (W >= 800) {
 					Y2 = (440 - H) * 0.5;
 					Large = true;

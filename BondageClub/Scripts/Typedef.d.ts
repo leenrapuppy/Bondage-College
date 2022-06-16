@@ -728,7 +728,6 @@ interface Character {
 	Canvas: HTMLCanvasElement | null;
 	CanvasBlink: HTMLCanvasElement | null;
 	MustDraw: boolean;
-	DrawnAssets: Set<string>;
 	BlinkFactor: number;
 	AllowItem: boolean;
 	BlockItems: any[];
