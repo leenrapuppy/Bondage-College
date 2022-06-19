@@ -3270,6 +3270,29 @@ var AssetFemale3DCGExtended = {
 		WiredEgg: {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // WiredEgg
+		Stitches: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options:[
+					{
+						Name: "Straight",
+						Property: {Type: "Straight",}
+					},
+					{
+						Name: "ZigZag",
+						Property: {Type: "ZigZag",}
+					},
+					{
+						Name: "Skewed",
+						Property: {Type: "Skewed",}
+					},
+					{
+						Name: "Cross",
+						Property: {Type: "Cross",}
+					},
+				],
+			},
+		}, //StitchedPussy
 	}, // ItemVulva
 	ItemVulvaPiercings: {
 		ClitRing: {
@@ -4524,7 +4547,7 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "PonyGag" },
 		},
-				StitchGag: {
+		Stitches: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
 				Options:[
