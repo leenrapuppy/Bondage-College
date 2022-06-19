@@ -4563,6 +4563,10 @@ var AssetFemale3DCGExtended = {
 						Name: "Skewed",
 						Property: {Type: "Skewed",}
 					},
+					{
+						Name: "Cross",
+						Property: {Type: "Cross",}
+					},
 				],
 			},
 		}, //StitchGag
