@@ -40,9 +40,21 @@ var VibratorModeSet = {
 
 /**
  * A record of the various available vibrator sets of vibrator modes
+ *
+ * Note: Those really are ExtendedItemOption, but the ability for the advanced
+ *       modes to automatically chose an intensity require a type override.
+ *       VibratorModeSetDynamicProperties that those dynamic properties will
+ *       get turned into the appropriate type.
+ *
  * @type {{
  *     Standard: ExtendedItemOption[],
- *     Advanced: ExtendedItemOption[]
+ *     Advanced: (ExtendedItemOption | {
+ *         Property: {
+ *             Mode: VibratorMode,
+ *             Intensity: number | (() => number),
+ *             Effect: EffectName[] | ((Intensity: number) => EffectName[]),
+ *         }
+ *     })[]
  * }}
  * @constant
  */
@@ -143,7 +155,7 @@ const VibratorModeDataLookup = {};
 /**
  * Registers a vibrator item. This automatically creates the item's load, draw, click and scriptDraw functions.
  * @param {Asset} asset - The asset being registered
- * @param {VibratingItemConfig} config - The item's vibrator item configuration
+ * @param {VibratingItemConfig | undefined} config - The item's vibrator item configuration
  * @returns {void} - Nothing
  */
 function VibratorModeRegister(asset, config) {
@@ -291,7 +303,8 @@ function VibratorModeDraw(Options) {
 function VibratorModeDrawHeader() {
 	const Asset = DialogFocusItem.Asset;
 	const Vibrating = DialogFocusItem.Property && DialogFocusItem.Property.Intensity != null && DialogFocusItem.Property.Intensity >= 0;
-	DrawAssetPreview(1387, 100, Asset, { Vibrating });
+	const Locked = InventoryItemHasEffect(DialogFocusItem, "Lock", true);
+	DrawAssetPreview(1387, 100, Asset, { Vibrating, Icons: Locked ? ["Locked"] : undefined });
 }
 
 /**
@@ -392,7 +405,7 @@ function VibratorModeSetMode(Option) {
 	var Message;
 	/** @type {ChatMessageDictionary} */
 	var Dictionary = [
-		{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
+		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 		{ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name },
 	];
 
@@ -401,7 +414,7 @@ function VibratorModeSetMode(Option) {
 		Message = "Vibe" + Direction + "To" + DialogFocusItem.Property.Intensity;
 	} else {
 		Message = "VibeModeChange";
-		Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 	}
 
 	ChatRoomPublishCustomAction(Message, false, Dictionary);
@@ -713,7 +726,7 @@ function VibratorModePublish(C, Item, OldIntensity, Intensity) {
 	var Direction = Intensity > OldIntensity ? "Increase" : "Decrease";
 	/** @type {ChatMessageDictionary} */
 	var Dictionary = [
-		{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
+		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 		{ Tag: "AssetName", AssetName: Item.Asset.Name },
 		{ Automatic: true },
 	];

@@ -88,8 +88,8 @@ function InventoryItemPelvisLoveChastityBeltClick() {
       InventoryItemPelvisLoveChastityBeltUpdate();
       CharacterRefresh(C);
       var Dictionary = [];
-      Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
-      Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
+      Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
+      Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
       ChatRoomPublishCustomAction("LoveChastityBeltAction" + (DialogFocusItem.Property.LockButt ? "LockButt" : "UnlockButt"), true, Dictionary);
       return;
     }
@@ -138,8 +138,8 @@ function InventoryItemPelvisLoveChastityBeltSetTypeTo(Type, Message) {
   InventoryItemPelvisLoveChastityBeltUpdate();
   InventoryExpressionTrigger(CharacterGetCurrent(), DialogFocusItem);
   var Dictionary = [];
-  Dictionary.push({Tag: "DestinationCharacter", Text: CharacterGetCurrent().Name, MemberNumber: CharacterGetCurrent().MemberNumber});
-  Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
+  Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(CharacterGetCurrent()), MemberNumber: CharacterGetCurrent().MemberNumber});
+  Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
   ChatRoomPublishCustomAction(Message, true, Dictionary);
 }
 
@@ -177,8 +177,8 @@ function InventoryItemPelvisLoveChastityBeltTriggerShock() {
   InventoryItemPelvisLoveChastityBeltLastAction = "ShockTriggered";
   InventoryExpressionTrigger(CharacterGetCurrent(), DialogFocusItem);
   var Dictionary = [];
-  Dictionary.push({Tag: "DestinationCharacterName", Text: CharacterGetCurrent().Name, MemberNumber: CharacterGetCurrent().MemberNumber});
-  Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
+  Dictionary.push({Tag: "DestinationCharacterName", Text: CharacterNickname(CharacterGetCurrent()), MemberNumber: CharacterGetCurrent().MemberNumber});
+  Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
   Dictionary.push({ ShockIntensity : DialogFocusItem.Property.Intensity * 1.5});
 
   ChatRoomPublishCustomAction("LoveChastityBeltShockTrigger" + DialogFocusItem.Property.Intensity, true, Dictionary);
@@ -222,11 +222,11 @@ function InventoryItemPelvisLoveChastityBeltSetIntensity(Modifier) {
   }
   CharacterRefresh(C);
   if (Type == "Vibe") {
-    ChatRoomPublishCustomAction("LoveChastityBeltVibe" + ((Modifier > 0) ? "Increase" : "Decrease") + "To" + DialogFocusItem.Property.Intensity, true, [{Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber}]);
+    ChatRoomPublishCustomAction("LoveChastityBeltVibe" + ((Modifier > 0) ? "Increase" : "Decrease") + "To" + DialogFocusItem.Property.Intensity, true, [{Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber}]);
   } else if (DialogFocusItem.Property.ShowText) {
     var Dictionary = [];
-    Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
-    Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
+    Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
+    Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
     ChatRoomPublishCustomAction("LoveChastityBeltShockSet" + DialogFocusItem.Property.Intensity, true, Dictionary);
   }
 }

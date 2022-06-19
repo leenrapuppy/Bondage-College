@@ -307,7 +307,7 @@ function GameLARPStartProcess() {
 
 	// Notices everyone in the room that the game starts
 	var Dictionary = [];
-	Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
+	Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
 	ServerSend("ChatRoomChat", { Content: "LARPGameStart", Type: "Action" , Dictionary: Dictionary});
 
 	// Changes the game status and exits
@@ -383,7 +383,7 @@ function GameLARPExit() {
 		// Notices everyone in the room of the change, if there is any
 		if (GameLARPEntryClass != Player.Game.LARP.Class || GameLARPEntryTeam != Player.Game.LARP.Team) {
 			var Dictionary = [];
-			Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+			Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 			ServerSend("ChatRoomChat", { Content: "LARPChangeTeamClass", Type: "Action", Dictionary: Dictionary });
 		}
 

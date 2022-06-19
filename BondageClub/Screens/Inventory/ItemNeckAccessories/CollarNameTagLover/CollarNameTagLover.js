@@ -62,8 +62,8 @@ function InventoryItemNeckAccessoriesCollarNameTagLoverSetType(NewType) {
 	// Refreshes the character and chatroom
 	CharacterRefresh(C);
 	var Dictionary = [];
-	Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
-	Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
+	Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
+	Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
 	Dictionary.push({Tag: "NameTagType", TextToLookUp: "CollarNameTagLoverType" + ((NewType) ? NewType : "")});
 	ChatRoomPublishCustomAction("CollarNameTagLoverSet", true, Dictionary);
 	if (DialogInventory != null) {

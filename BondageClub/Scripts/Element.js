@@ -4,30 +4,40 @@
  * Handles the value of a HTML element. It sets the value of the element when the Value parameter is provided or it returns the value when the parameter is omitted
  * @param {string} ID - The id of the element for which we want to get/set the value.
  * @param {string} [Value] - The value to give to the element (if applicable)
- * @returns {string | undefined} - The value of the element (When no value parameter was passed to the function)
+ * @returns {string} - The value of the element (When no value parameter was passed to the function)
  */
 function ElementValue(ID, Value) {
-	if (document.getElementById(ID) != null)
-		if (Value == null)
-			return document.getElementById(ID).value.trim();
-		else
-			document.getElementById(ID).value = Value;
-}
+	const e = /** @type {HTMLInputElement} */(document.getElementById(ID));
+	if (!e) {
+		console.error("ElementValue called on a missing element");
+		return "";
+	}
 
-// Returns the current HTML content of an element
+	if (Value == null)
+		return e.value.trim();
+
+	e.value = Value;
+	return "";
+}
 
 /**
  * Handles the content of a HTML element. It sets the content of the element when the Content parameter is provided or it returns the value when the parameter is omitted
  * @param {string} ID - The id of the element for which we want to get/set the value.
  * @param {string} [Content] - The content/inner HTML to give to the element (if applicable)
- * @returns {string | undefined} - The content of the element (When no Content parameter was passed to the function)
+ * @returns {string} - The content of the element (When no Content parameter was passed to the function)
  */
 function ElementContent(ID, Content) {
-	if (document.getElementById(ID) != null)
-		if (Content == null)
-			return document.getElementById(ID).innerHTML;
-		else
-			document.getElementById(ID).innerHTML = Content;
+	const e = document.getElementById(ID);
+	if (!e) {
+		console.error("ElementContent called on a missing element");
+		return "";
+	}
+
+	if (Content == null)
+		return e.innerHTML;
+
+	e.innerHTML = Content;
+	return "";
 }
 
 /**
@@ -87,7 +97,7 @@ function ElementCreateInput(ID, Type, Value, MaxLength) {
  */
 function ElementCreateRangeInput(id, value, min, max, step, thumbIcon, vertical) {
 	if (document.getElementById(id) == null) {
-		const input = document.createElement("input");
+		const input = /** @type {HTMLInputElement} */(document.createElement("input"));
 		input.setAttribute("id", id);
 		input.setAttribute("name", id);
 		input.setAttribute("type", "range");
@@ -95,7 +105,7 @@ function ElementCreateRangeInput(id, value, min, max, step, thumbIcon, vertical)
 		input.setAttribute("min", min);
 		input.setAttribute("max", max);
 		input.setAttribute("step", step);
-		input.value = value;
+		input.value = String(value);
 		if (thumbIcon) input.setAttribute("data-thumb", thumbIcon);
 		input.setAttribute("onfocus", "this.removeAttribute('readonly');");
 		input.addEventListener("keydown", KeyDown);
@@ -127,7 +137,7 @@ function ElementCreateRangeInput(id, value, min, max, step, thumbIcon, vertical)
  * @param {string} ID - The name of the select item. The outer div will get this name, for positioning. The select
  * tag will get the name ID+"-select"
  * @param {string[]} Options - The list of options for the current select statement
- * @param {function} [ClickEventListener=null] - An event listener to be called, when the value of the drop down box changes
+ * @param {EventListenerOrEventListenerObject} [ClickEventListener=null] - An event listener to be called, when the value of the drop down box changes
  * @returns {void} - Nothing
  */
 function ElementCreateDropdown(ID, Options, ClickEventListener) {
@@ -153,13 +163,13 @@ function ElementCreateDropdown(ID, Options, ClickEventListener) {
 			InnerDiv.innerHTML = Options[i];
 			InnerDiv.addEventListener("click", function () {
 				// when an item is clicked, update the original select box, and the selected item:
-				var s = this.parentNode.parentNode.getElementsByTagName("select")[0]; // Representation of the select tag
-				var h = this.parentNode.previousSibling; // Representation of the dropdown box
+				var s = this.parentElement.parentElement.getElementsByTagName("select")[0]; // Representation of the select tag
+				var h = /** @type HTMLElement */(this.parentElement.previousElementSibling); // Representation of the dropdown box
 				for (let j = 0; j < s.length; j++) {
 					if (s.options[j].innerHTML == this.innerHTML) {
 						s.selectedIndex = j; // Fake the selection of an option
 						h.innerHTML = this.innerHTML; // Update the drop down box
-						var y = this.parentNode.getElementsByClassName("same-as-selected");
+						var y = this.parentElement.getElementsByClassName("same-as-selected");
 						for (let k = 0; k < y.length; k++) {
 							y[k].removeAttribute("class");
 						}
@@ -181,7 +191,7 @@ function ElementCreateDropdown(ID, Options, ClickEventListener) {
 			//when the select box is clicked, close any other select boxes, and open/close the current select box:
 			e.stopPropagation();
 			ElementCloseAllSelect(this);
-			this.nextSibling.classList.toggle("select-hide");
+			this.nextElementSibling.classList.toggle("select-hide");
 		});
 		// add an event listener to the <select> tag
 		if (ClickEventListener != null) Select.addEventListener("change", ClickEventListener);
@@ -289,6 +299,7 @@ function ElementPosition(ElementID, X, Y, W, H) {
 /**
  * Draws an existing HTML element at a specific position within the document. The element will not be centered on its given coordinates unlike the ElementPosition function.
  * @param {string} ElementID - The id of the input tag to (re-)position.
+ * @param {number} Font - The size of the font to use.
  * @param {number} X - Starting point of the element on the X axis.
  * @param {number} Y - Starting point of the element on the Y axis.
  * @param {number} W - Width of the element.

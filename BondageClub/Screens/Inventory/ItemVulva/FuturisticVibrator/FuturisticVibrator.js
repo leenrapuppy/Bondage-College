@@ -94,8 +94,8 @@ function InventoryItemVulvaFuturisticVibratorClickSet() {
 			DialogFocusItem.Property.TriggerValues = temp;
 			if (CurrentScreen == "ChatRoom") {
 				var Dictionary = [];
-				Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
-				Dictionary.push({Tag: "DestinationCharacter", Text: CurrentCharacter.Name, MemberNumber: CurrentCharacter.MemberNumber});
+				Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
+				Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(CurrentCharacter), MemberNumber: CurrentCharacter.MemberNumber});
 				Dictionary.push({Tag: "FocusAssetGroup", AssetGroupName: CurrentCharacter.FocusGroup.Name});
 				ChatRoomPublishCustomAction("FuturisticVibratorSaveVoiceCommandsAction", true, Dictionary);
 			}
@@ -109,8 +109,6 @@ function InventoryItemVulvaFuturisticVibratorExit() {
 	for (let I = 0; I <= ItemVulvaFuturisticVibratorTriggers.length; I++)
 		ElementRemove("FuturisticVibe" + ItemVulvaFuturisticVibratorTriggers[I]);
 }
-
-
 
 function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
 	var commandsReceived = [];
@@ -126,7 +124,22 @@ function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
 		regexString = regexString.replace(/\*/g, ".*")//regexString.replaceAll("\\*", ".*")
 		regexString = regexString.toUpperCase()
 
-		const triggerRegex = new RegExp(`\\b${regexString}\\b`);
+		const nonLatinCharRegex = new RegExp('^([^\\x20-\\x7F]|\\\\.\\*)+$');
+		let triggerRegex;
+
+		// In general, in most of the Asian language, the full sentence will be considered as one whole word
+		// Because how regex consider word boundaries to be position between \w -> [A-Za-z0-9_] and \W. 
+
+		// So if commands are set to those languages, the command will never be triggered.
+		// Or if the command is not a word 
+		// This enhancement should allow Asian language commands, and also emoji/special characters
+		// (e.g. A symbol such as ↑ or ↓, Languages in CJK group such as Chinese, Japanese, and Korean.)
+		// This should be a fun addition to boost the user's experience.
+		if (nonLatinCharRegex.test(regexString)) {
+			triggerRegex = new RegExp(regexString);
+		} else {
+			triggerRegex = new RegExp(`\\b${regexString}\\b`);
+		}
 		const success = triggerRegex.test(msg);
 
 		if (success) commandsReceived.push(ItemVulvaFuturisticVibratorTriggers[I]);
@@ -158,8 +171,9 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 
 	if (CurrentScreen == "ChatRoom") {
 		var Message;
+		/** @type {ChatMessageDictionary} */
 		var Dictionary = [
-			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
+			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 			{ Tag: "AssetName", AssetName: Item.Asset.Name },
 		];
 
@@ -168,7 +182,7 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 			Message = "Vibe" + Direction + "To" + Item.Property.Intensity;
 		} else if (!IgnoreSame) {
 			Message = "FuturisticVibratorChange";
-			Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+			Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 		}
 
 		Dictionary.push({ Automatic: true });
@@ -188,8 +202,9 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 function InventoryItemVulvaFuturisticVibratorTriggerShock(C, Item) {
 
 	if (CurrentScreen == "ChatRoom") {
+		/** @type {ChatMessageDictionary} */
 		var Dictionary = [];
-		Dictionary.push({ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber });
+		Dictionary.push({ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 		Dictionary.push({ Tag: "AssetName", AssetName: Item.Asset.Name});
 		Dictionary.push({ ShockIntensity : 2});
 

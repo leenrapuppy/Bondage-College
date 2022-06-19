@@ -1,0 +1,18 @@
+Easy
+简单
+Normal
+一般
+Hard
+困难
+Starts in
+即将开始：
+Difficulty:
+难度：
+Perfect!  You didn't lose a drop.
+完美！你一滴都没掉。
+You did it!  Your customers are satisfied.
+你做到了！你的顾客很满意。
+You failed, you've spilled your drinks.
+你失败了。你打翻了饮料。
+Click on yourself to continue.
+点击你自己以继续。

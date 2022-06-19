@@ -64,7 +64,7 @@ function TimerInventoryRemove() {
 						// If we're removing a lock and we're in a chatroom, send a chatroom message
 						if (LockName && ServerPlayerIsInChatRoom()) {
 							var Dictionary = [
-								{Tag: "DestinationCharacterName", Text: Character[C].Name, MemberNumber: Character[C].MemberNumber},
+								{Tag: "DestinationCharacterName", Text: CharacterNickname(Character[C]), MemberNumber: Character[C].MemberNumber},
 								{Tag: "FocusAssetGroup", AssetGroupName: Character[C].Appearance[A].Asset.Group.Name},
 								{Tag: "LockName", AssetName: LockName}
 							];
@@ -116,7 +116,7 @@ function TimerPrivateOwnerBeep() {
 			ServerBeep = {
 				Timer: CommonTime() + 15000,
 				Message: DialogFindPlayer("BeepFromOwner"),
-			}
+			};
 			LogAdd("OwnerBeepActive", "PrivateRoom");
 			LogAdd("OwnerBeepTimer", "PrivateRoom", CurrentTime + 120000);
 			FriendListBeepLog.push({ MemberName: Player.Owner, ChatRoomName: DialogFindPlayer("YourRoom"), Sent: false, Time: new Date(), Private: false });

@@ -1,0 +1,1081 @@
+###_NPC
+Lovely gag.  Do you need help with it?  Nod if you do.
+你戴着口塞的样子真的超~可~爱~。你需要我帮你取下来吗？需要的话就点点头。
+Can you go check on the Introduction Class?  Sometimes new members get out of control.
+你可以去新手课堂看看吗？有时候新成员可能会让场面失控。
+I've heard rumors of trouble going on at the Shibari Dojo.  Can you make sure everyone is fine?
+我听说在紧缚道场发生了一些麻烦事，你可以帮我去那边看看以确保大家都没事吗？
+I think that something went wrong at the store.  Can you go there to help the vendor?
+我想商店那边可能遇上麻烦了，你可以去那边帮帮售货员吗？
+I think that something went wrong at the Gambling Hall.  Can you go there to help the players?
+我想赌场那边可能遇上了些麻烦，你可以去帮帮那边的顾客吗？
+Guard the prison cell so that nothing happens there.
+好好的看守住牢房，确保不要有意外。
+(You come back to DialogCharacterName with an empty drink platter.)  Well done!
+（你带着空的饮料托盘回到了DialogCharacterName的身边）好样的！
+(You come back to DialogCharacterName with spilled drinks all over your uniform.)
+（你回到了DialogCharacterName的身边，制服上到处都是打翻的饮料）
+Hurry to the chat rooms girl!  The club members are thirsty.  (You need to serve drinks to 5 unique online players.)
+快点去聊天室吧！那边的会员们都很渴了（你需要向五位不同的在线玩家提供饮料）
+What happened to your tray, girl?  The club members are thirsty! Here, have another one.  (You need to serve drinks to 5 unique online players.)
+你的托盘怎么了？现在会员们都很渴欸！行吧，我帮你换个托盘（你需要向五位不同的在线玩家提供饮料）
+(She checks your empty tray.)  Well done!  Our members were satisfied?
+（她查看了空托盘）干得好！会员们都满意吗？
+(DialogCharacterName gets you back to the maid quarters and smiles.)  You've did it!
+（DialogCharacterName微笑着带着你回到了女仆宿舍）你做到了！
+(DialogCharacterName gets you back to the maid quarters and frowns.)  You failed to clean up in time.
+(DialogCharacterName皱着眉头带着你回到了女仆宿舍)你完全没有打扫干净欸
+(DialogCharacterName hugs you and gropes your red butt.)  You're now a full maid my sister.
+（DialogCharacterName抱着你，揉着你红肿的屁股）姐妹，你现在就是一个真正的女仆了！
+I'm sorry Miss.  I cannot help you.
+对不起，小姐。我们不能帮你。
+(She first shakes her head to avoid the gag, but finally surrenders as you silence her.)
+（起初她还一直摇着头想拒绝口塞，不过在你让她安静下来后，她还是屈服了）
+(You remove her gag while she stretches her mouth.)  Thanks Miss, it's hard to dispatch maids with that gag.
+（在她张开嘴的时候，你移除了她的口塞）谢谢你！这个口塞还是很难打发一个女仆的。
+(She grumbles while you push some earplugs in.) I can't hear you properly now.
+（她在你为她戴耳塞的时候鼓囊着）我现在完全听不清楚你说话了。。。
+(You pull the earplugs out.) That's better I can hear you clearly now.
+（你帮她移除了耳塞）好耶！现在我能听清楚你说话了！
+(She sighs and turns around while you restrain her arms.)  It might be a little hard to work like that Miss.
+（她叹了口气，转过身去让你束缚她的手臂）小姐，这样子让我很难工作欸。。。
+(You free her arms and she nods happily.)  Thanks a lot Miss.
+（她在你松开了她的手臂之后开心的点起了头）谢谢你！
+(She submits to you while restrain you hands.)  You are a kinky one.
+（她在你捆绑她的手时完全服从于你）你好色哦~
+(You release her hands and she nods a little.)  Thank you Miss.
+（她在你松开了她的手之后微微的点了点头）谢谢你，小姐。
+(She submits to you while you restrain her legs securely.)  I don't need to move anyway.
+(她在你牢牢的捆绑她的腿时完全的顺从于你)反正我也不需要动。
+(You release her legs from the restraint.)  Let me know if I can help you Miss.
+（你松开了她腿上的拘束）如果你需要帮助的话，请告诉我。
+(She looks puzzled as you restrain her feet.)  I'll stay on guard here Miss.
+（她在你捆绑她的脚时迷惑的看着你）我会一直呆着这里的，小姐~
+(You release her feet and she wiggles them.)  Thanks Miss, it was troublesome.
+（她在你松开了她脚上的拘束后扭动一下脚）谢谢你，小姐。刚刚那样真的很麻烦。
+(You strap the collar on her while she blushes.)  You're quite a Dominant Miss.
+（在你帮她戴上项圈时，她的脸一下子就红了）你真的好DOM哦~
+(You remove the collar around her neck.)  Thanks Miss.
+（你取下了她的项圈）谢谢你。
+(You snap the belt around her waist and crotch while she sighs.)  No more fun for the crew.
+（你把皮带扣在了她的腰部和胯部时，她叹了口气）啊，没得玩了~
+(You unlock the belt from her waist, and she smiles.)  Thanks a lot Miss DialogPlayerName.
+(你从她的腰上去除皮带之后，她笑了起来)谢谢你，DialogPlayerName小姐~
+(You strap the device on her head as she nods slowly.)  This will not make my job easier Miss.
+（你在她点头时在她头上装上了一个装置)这可不能提高我的工作效率，小姐。
+(You remove the device and she nods rapidly.)  Thanks a million, this is much better.
+（你去下了她头上的装置，接着她快速的点起了头）超谢谢你！这下子好多了~
+(She jumps from the searing pain on her breast.)  Ouch!  Miss Head Maid!
+(她因为胸部的剧痛而跳了起来)啊啊啊啊！！！女仆长小姐！！
+(You whip her breast with the leather crop as she whimpers and bows her head.)
+（你用皮鞭抽打了她的胸部，而她因此呜咽着低下了头）
+(You whip her butt hard as she sighs.)  I promise I'll work harder Miss Head Maid.
+（你在她叹气时狠狠的打了一下她的屁股）我-我保证！我以后会好好工作的！
+(She grumbles as you strike her butt with the crop.)  A maid work isn't easy.
+（在你抽打她屁股时，她鼓囊着）当女仆太难了。
+Are you lost slave girl?  You should hurry back to the hall and please our customers.
+你迷路了吗小奴隶？你现在应该快点回到大厅去取悦我们的顾客。
+###_PLAYER
+Can I work as a maid?
+我现在可以做女仆的工作吗？
+###_NPC
+Finish your club slave contract first.  Then we can talk about work.
+等你完成你社团奴隶的工作后我们再谈吧。
+###_PLAYER
+(Leave her.)
+（离开她）
+###_NPC
+Greetings head maid DialogPlayerName.  How can I help you?  (She does curtsies for you.)
+很高兴见到你，女仆长DialogPlayerName。有什么我可以帮助的吗？（她向你行礼）
+How pleasant to see you Mistress DialogPlayerName.  (She does curtsies for you.)
+很高兴遇到你，女主人DialogPlayerName。（她向你行礼）
+(She giggles.) Welcome to the Maid Quarters naked girl.  How can I help you?
+（她讥笑着）欢迎来到女仆宿舍，裸女。有什么我能帮忙的吗？？
+Welcome to the Maid Quarters.  How can I help you?
+欢迎来到女仆宿舍，有什么我能帮忙的吗？
+You've done a lot for the maid sorority.  You should apply to become a full sister.
+你已经为女仆联谊会做了很多了，有考虑成为一名全职女仆吗？
+It's great to see you sister!  How can I help you?
+欢迎回来！姐妹！需要什么帮忙吗？
+###_PLAYER
+(Present the tray)
+（出示托盘）
+###_NPC
+Aww, sweetie, I'll miss tying you up if you do it all by yourself.  Come on!  Our guests are waiting for your drinks.
+啊，亲爱的，如果你打算一个人做完这些的话，我会想念把你绑起来的。那么去吧，我们的客人们正等着你的饮料呢！
+###_PLAYER
+(Wave the duster gag with your head.)
+（用头挥动连接着口塞的掸子）
+###_NPC
+Aww, so pretty. You tied yourself for the cleaning chore.  I'll drag you to your workspace.
+好耶！你已经为了清理工作把自己绑好了。现在我带你去工作的地方。
+###_PLAYER
+(Nod yes.)
+（点头）
+###_NPC
+(She removes your gag and smiles.)  Much better sweetie.  How can I help you?
+（她笑着解开了你的口塞）现在好多了，宝贝。有什么我能帮忙的吗？
+(She checks your locks and frowns.)  I cannot help you girl.  Go find your owner.
+（她查看着你的锁，皱起了眉头）恐怕我帮不了你，孩子。去找你的主人帮你吧。
+(She chuckles) Not so fast girl. We can't help you until your time is up.
+（她笑着说）等着吧孩子，在你的时间结束之前我们都没法帮你。
+###_PLAYER
+Hello, I'm DialogPlayerName.  Pleased to meet you.
+你好，我是DialogPlayerName，很高兴遇见你~
+###_NPC
+Pleased to meet you too.  I'm DialogCharacterName, I'm responsible to find work for maids.
+很高兴遇见你。我是DialogCharacterName，在这里负责帮女仆介绍工作。
+###_PLAYER
+What's going on in here?
+这里是干什么的呀？
+###_NPC
+Maids come here to get job assignments.  They can earn some money by working for the club.
+女仆可以来我们这找工作，由此从俱乐部那边赚一点钱。
+###_PLAYER
+What kind of chores do maid do in the club?
+女仆在俱乐部负责什么工作呀？
+###_NPC
+Cleaning, serving drinks, testing new devices, rescuing helpless people and more.
+清扫，提供饮品，测试新设备，帮助有苦难的人等等。
+###_PLAYER
+Can I become a maid?
+我可以当女仆吗？
+###_NPC
+You could, if you're not afraid of work and you don't mind the uniform.
+当然啦~只要你不介意穿制服和一些工作内容的话。
+###_PLAYER
+Do you have work for me?
+你现在有什么工作给我吗？
+###_NPC
+Absolutely, these are the chores available for you.  (She shows you a list of maid tasks to complete.)
+当然啦~ 这些杂活你都可以做。（她向你展示了一个待完成任务清单）
+No, you can't work for the maids if you are on the no-help list
+不，如果你在“不需要帮助”清单上的话，你就不能做女仆的工作。
+###_PLAYER
+I'd like to become a full maid in the sorority.
+我希望可以成为联谊会的一名正式女仆。
+###_NPC
+That's awesome!  We would be glad to have you.  You really have the maid calling?
+好耶！你的加入会让我们超开心的。你真的想要被称呼为女仆吗？
+You need to prove yourself first.  Do more work for the sorority and we'll accept you.
+你需要先证明你自己。多去为联谊会做些工作吧，以后我们会接受你的。
+###_PLAYER
+Who are the leaders in the sorority?
+谁是联谊会的领导者呀？
+###_NPC
+The leaders are the head maids, they are dominant and experienced maids like you Miss.
+我们这边的领导人被称呼为女仆长，他们都是一些又DOM又有经验的女仆，就像小姐你一样。
+The leaders are the head maids, they are dominant and experienced maids.  Maybe someday you could be head maid if you work hard enough.
+我们这边的领导人被称呼为女仆长，他们都是一些又DOM又有经验的女仆，如果你工作的够努力的话，说不定你未来也可以成为一个女仆长？
+###_PLAYER
+Tell me about the club.
+请和我讲讲俱乐部。
+###_NPC
+The Bondage Club has a long history.  It was a secret club back then when BDSM was taboo and forbidden.
+捆绑俱乐部已经存在了很长一段时间了。因为以前BDSM是被禁止的，所以俱乐部一直保持着秘密的状态。
+###_PLAYER
+As head maid, I have a task for you.
+作为女仆长，我有个任务给你。
+###_NPC
+Of course Miss.  What can I do for you?
+当然可以啦，小姐。我能为你做些什么吗？
+###_PLAYER
+Can I have a duster gag?
+你可以给我个掸子口塞吗？
+###_NPC
+You have lots of cleaning to do sister?  (She giggles.)  Of course, you can have one.  (She gives you a duster gag.)
+你有那么多东西要清扫吗？（微笑）行，拿着吧（她给了你一个担子口塞）
+###_PLAYER
+Can I talk about the maids in the hall?
+我可以和你谈谈我在大厅遇到的那个女仆吗？
+###_NPC
+Of course. Have they been serving you well?
+当然了。他们有好好服务你吗？
+###_PLAYER
+I can't stay to chat.  (Leave her.)
+我得走了（离开她）
+There's a blond girl stuck in a reserved bedroom.
+有个金发妹子被困在了一个被预定的卧室里
+###_NPC
+Is that true?  I can send a maid to rescue her.  Who reserved the room?
+真的吗？我可以派一名女仆去救她。谁预定的那个房间？
+###_PLAYER
+Forget it.
+当我没说
+###_NPC
+Very well.  Is there anything else I can do head maid DialogPlayerName?
+好的。那还有什么我能帮你的吗？女仆长DialogPlayerName。
+###_PLAYER
+It's reserved by Mistress Sophie.
+那个房间是女主人Sophie预定的。
+###_NPC
+(Her eyes widen.)  The sorority cannot interfere then.  Please check with the club management.
+（瞳孔地震）那就不是我们联谊会能干涉的事了。你可以向俱乐部管理层报告这件事。
+###_PLAYER
+I've reserved it.  Send a maid now.
+是我预定的房间。现在请派一名女仆过去。
+###_NPC
+Yes Miss!  (She sends a maid to unlock Sarah.)  It shouldn't take long.  Is there anything else I can do?
+好的，小姐。（她派遣了一位女仆去解救Sarah）这应该花不了多久。还有别的什么我能帮忙吗？
+###_PLAYER
+Forget it, I'll do it myself.
+当我没说，我自己去就行了。
+I love the uniform!
+我超爱制服的！
+###_NPC
+Wonderful.  I'm sure we'll find your size.  After lots of work for us, you can earn a permanent uniform that you can keep.
+好耶！我会帮你找一件适合你的制服的。等你帮我们干了足够的活之后，你会能收到自己专属的制服啦！
+###_PLAYER
+I'll need to dress like you?
+我需要穿的和你一样吗？
+###_NPC
+Only when you're doing a chore.  After lots of work for us, you can earn a permanent uniform that you can keep.
+只有当你在工作时需要。等你帮我们干了足够的活之后，你会能收到自己专属的制服啦！
+###_PLAYER
+I'm not afraid of work.
+那些工作对我来说算不了什么
+###_NPC
+That's the spirit!  And after lots of work for us, you can earn a permanent uniform that you can keep.
+好！很有精神！等你帮我们干了足够的活之后，你会能收到自己专属的制服啦！
+###_PLAYER
+Not now, maybe another time.
+过会吧，现在不行。
+###_NPC
+It's fine, how can I help you then?
+行，那有什么我能帮你的吗？
+###_PLAYER
+Very good, and you will give me work?
+好，你能帮我找份工作吗？
+###_NPC
+Yes, I have a list of chores that needs to be done.  Simply pick one that you can do.
+嗯，我这边有一份待完成清单，你可以在上面选一个你能做的工作。
+###_PLAYER
+How do I get work?
+我要如何找工作？
+###_NPC
+I have a list of chores that needs to be done.  Simply pick one that you can do.
+我这边有一份待完成清单，你可以在上面选一个你能做的工作。
+###_PLAYER
+Sign me in!  Can I see the list?
+请带我一个！我可以看看那份清单吗？
+###_NPC
+Welcome to the maid sorority, these are the chores available for you.  (She shows you a list of tasks.)
+欢迎来到女仆联谊会，这里可以帮你介绍一些活来做（她向你展示了一沓任务清单）
+###_PLAYER
+I'm ready for my first chore!
+我准备好了。
+Yes, I was born to serve.
+好，我生来就是为了服务他人的。
+###_NPC
+Perfect!  Your initiation can begin.  (She rings a bell and other maids comes in.)
+棒耶，那你的入会仪式可以开始了（她摇了摇，随后其他的女仆们走了进来）
+###_PLAYER
+Yes, I love your sorority.
+嗯，我爱这个联谊会
+###_NPC
+Excellent!  Your initiation can begin.  (She rings a bell and other maids comes in.)
+完美！那你的入会仪式可以开始了（她摇了摇，随后其他的女仆们走了进来）
+###_PLAYER
+I'm not sure, let me think about it.
+我还不太确定，请容我考虑一段时间。
+###_NPC
+No problem, you don't have to join now.
+没问题，你不必现在就加入的。
+###_PLAYER
+What?  Nobody told me about an initiation!
+什么？没人和我说过有入会仪式啊？
+###_NPC
+It won't hurt... too much.  First, you need to get naked.  Strip for us.
+啊，这个入会仪式对你没问题的。。。吧。那你先得脱光光。
+###_PLAYER
+Very well Miss.  (Bow your head.)
+很好，小姐（低下头）
+###_NPC
+First, you need to get naked.  Strip for us.
+首先，你得裸着。现在开始脱衣服吧。
+###_PLAYER
+Alright, but don't try anything funky.  (Strip naked.)
+行，但是别让我尝试任何怪事（脱光衣服）
+###_NPC
+Don't worry.  (She turns to the other maids.)  Sisters!  Today we introduce a new member in our sorority.
+别担心（她转向别的女仆）姐妹们！让我来为大家介绍，这就是今天新加入联谊会的成员！
+###_PLAYER
+You girls are so kinky.  (Strip naked.)
+你们好色哦（脱光）
+###_NPC
+(She smiles and turns to the other maids.)  Sisters!  Today we introduce a new member in our sorority.
+（她笑了笑，然后转向别的女仆）姐妹们！让我来为大家介绍，这就是今天新加入联谊会的成员！
+###_PLAYER
+Sweet!  Who will fuck me first?  (Strip naked.)
+嗯❤~那么谁先来玩弄我呢❤~
+###_NPC
+(She giggles and turns to the other maids.)  Sisters!  Today we introduce a new member in our sorority.
+*噗嗤*（她笑出了声，然后转向别的女仆）姐妹们！让我来为大家介绍，这就是今天新加入联谊会的成员！
+###_PLAYER
+No way!  Can't I stay clothed?
+为什么啊！我不能穿着衣服吗？
+###_NPC
+Strip girl, we've all did it before.  
+快脱，孩子。我们之前都这么做过。
+###_PLAYER
+I'll need some help to undress.
+我可能需要点帮助（指脱衣服）。
+###_NPC
+Of course, sweetie.  (She releases you and gives you a thumbs up.)  Now get naked.
+那行，宝贝（她放开了你然后向你竖起了大拇指）现在脱光吧。
+###_PLAYER
+We will rule the club together my sisters.
+我们将一起统治俱乐部，我的姐妹们。
+###_NPC
+You're quite ambitious, I like it.  Let the initiation begin!  We can restrain her.
+那你还真有野心呢，不过我喜欢。现在让入会仪式开始吧！现在大家一起绑住她！
+###_PLAYER
+I'm really happy to join you all.
+我很开心能加入你们。
+###_NPC
+We are happy to have you.  Let the initiation begin!  We can restrain her.
+我们也很开心能拥有你。现在让入会仪式开始吧！现在大家一起绑住她！
+###_PLAYER
+Let's do our best to serve the club.
+让我们尽我们所能服务俱乐部吧！
+###_NPC
+That's the spirit.  Let the initiation begin!  We can restrain her.
+好！很有精神！那现在让入会仪式开始吧！现在大家一起绑住她！
+###_PLAYER
+Restrain me?  I'm already naked.  Isn't that enough?
+绑我？我已经脱光了欸！这还不够吗！？
+###_NPC
+You're in the Bondage Club sweetie, it's a regular initiation.
+你现在可是在捆绑俱乐部欸亲爱的，这可是基础操作。
+###_PLAYER
+Very well.  (Allow them to restrain you.)
+那行吧（让他们拘束你）
+###_NPC
+(She grabs your arms and restrain them behind your back.)
+（她抓起了你的肩膀，然后把他们绑在了你身后）
+###_PLAYER
+You sure know how to do an initiation.
+你真的知道这么举办入会仪式吗？
+###_NPC
+It's only the beginning.  (She quickly restrains your feet.)
+这只是开始哦（她快速的绑起了你的脚）
+###_PLAYER
+(Struggle playfully.)
+（戏弄的挣扎）
+###_NPC
+(They all giggle looking at you while DialogCharacterName restrains your feet.)
+（在DialogCharacterName绑你的脚的时候，他们都笑着看着你）
+###_PLAYER
+I can still move my legs!
+我得脚还能动！（得意）
+###_NPC
+Not for long.  (She restrains your legs and smiles.)
+现在不行了（她笑着绑住了你的脚）
+###_PLAYER
+What's next?
+那接下来是什么？
+###_NPC
+I'm sure you can guess.  (She restrains your legs and smiles.)
+我猜你已经猜到了（她笑着绑住了你的腿）
+###_PLAYER
+I'm all bundled up now.
+能捆的都捆上了，我现在动不了了
+###_NPC
+Almost!  Open wide little sister.
+确实，现在该张嘴了小妹妹
+###_PLAYER
+This is so kinky, I love it.
+这好瑟，我好爱
+###_NPC
+Great!  Now open wide little sister.
+那太棒了，现在嘴再张大点
+###_PLAYER
+I can't wait to initiate other maids.
+其他女仆呢？搞快点搞快点。
+###_NPC
+It's your turn now.  Open wide little sister.
+轮到你了，小妹妹。嘴张大点
+###_PLAYER
+Hey!  I can't talk during my own initiation?
+等等！我在入会仪式上不用说话吗？
+###_NPC
+(She quickly silences you with a gag and everyone cheers.)
+（她很快的用口塞塞住了你的嘴并让你安静了下来，接着其他人欢呼了起来）
+###_PLAYER
+(Stay silent and open your mouth.)
+（静静的等着，并张开了嘴）
+###_NPC
+(She silences you with a gag and everyone cheers.)
+（她用口塞塞住了你的嘴，接着其他人欢呼了起来）
+###_PLAYER
+(Blush and look down.)
+（脸红，看向地面）
+###_NPC
+My sisters!  It's time to show your strength!  Bring the paddle!
+是时候展现你的强大了，姐妹。（向别的女仆说）把拍子拿过来吧
+###_PLAYER
+(Look at them and wait.)
+（看着他们，等待）
+(Scream in your gag.)
+（戴着口塞尖叫）
+(Struggle in your restraints.)
+（挣扎）
+(Try to look tough.)
+（试图表现的坚强）
+(Nod happily.)
+（开心的点头）
+###_NPC
+(She releases you and smiles.)  You will now get your own uniform to keep.
+（她微笑着放开了你）现在开始，你就有专属的制服了。
+###_PLAYER
+(Struggle to get out.)
+（挣扎着想出去）
+I will wear it with pride.
+我会骄傲的穿着它的。
+###_NPC
+(You dress up in your own maid uniform while the maids clap their hands.)
+（你穿上了自己的女仆装，而其他女仆则拍手称快）
+###_PLAYER
+Thank you so much.
+非常感谢你们。
+I love you my sisters.
+我爱你们，我的姐妹们。
+###_NPC
+(The other maids cheers and go back to work.)  This is great!  Do you want some chores now or simply chat?
+（随着欢呼声过去，女仆们各自回到岗位）好耶！那你现在是想做些活还是想聊天？
+###_PLAYER
+I will start to climb up in the sorority ladder right now!
+我打算从现在开始向着联谊会高层发起冲击。
+I hope we will protect each other.
+我希望我们可以互相保护。
+I'm ready to become head maid.
+我已经准备好成为女仆长了。
+###_NPC
+You would be a wonderful head maid Miss.
+我打赌，你一定会成为一个超棒的女仆长的。
+###_PLAYER
+Can I become head maid?
+我可以成为女仆长吗？
+###_NPC
+You'll need to have a perfect reputation in the sorority and be recognized as a dominant in the club first.
+你需要先在联谊会取得完美的声誉，而且你还得是DOM，然后你才能申请成为女仆长。
+###_PLAYER
+Tell me of the head maids responsibilities.
+请告诉我女仆长的职责。
+###_NPC
+The head maids have regular meetings with the club head Mistress.  They must make sure that the maids are working properly.
+女仆长会与俱乐部女主人进行定期会面。以及他们必须确保所有女仆都在正常的工作。
+###_PLAYER
+Tell me of the head maids powers.
+请告诉我女仆长的权利
+###_NPC
+They rule over the regular maids and can restrain them whenever they want.
+女仆长负责管理所有女仆，他们权力在任何时候捆绑其他女仆。
+###_PLAYER
+Let's talk about something else.
+请告诉我些别的
+###_NPC
+Of course.  How can I help you?
+当然了。我该这么帮你？
+###_PLAYER
+How does it work?
+这是如何工作的？
+###_NPC
+Nothing special Miss.  All you need to do is sign a contract with the club.
+没什么特殊的。你只需要与俱乐部签署一份合同就行了。
+###_PLAYER
+Is there an initiation?
+有入会仪式吗？
+###_NPC
+No Miss, you're already in the sorority.  All you need to do is sign a contract with the club.
+没有的。你已经是联谊会的一员了，所以你只需要和俱乐部签一份合同就行了。
+###_PLAYER
+Perfect!  Give me that contract.  (Sign the contract.)
+棒耶，那给我合同吧（签署合同）
+###_NPC
+(You sign the head maid contract.)  The sorority will grow stronger under your rule Miss.
+（你签署了成为女仆长的合同）有你在，联谊会定将愈发强大。
+###_PLAYER
+It might be too many responsibilities for me.
+这些责任对我来说太重了。
+###_NPC
+It's a lot of work and responsibilities indeed.  Think about it and let me know if you're ready someday.
+确实，工作和责任都会很多。那你先考虑一下吧，等你想好了再来和我说吧。
+###_PLAYER
+I will be a fair ruler.
+我会成为一位尽责的管理者的。
+###_NPC
+I'm sure you will Miss.  Is there anything else I can do for you?
+我相信你会的。还有什么我能帮你的吗？
+###_PLAYER
+I will rule with an iron first.
+我会以铁的纪律来管理联谊会。
+###_NPC
+Excellent Miss.  Is there anything else I can do for you?
+那太棒了。还有什么我能帮你的吗？
+(She shows you a list of chores.)  What kind of job are you looking for?
+（她向你展示了一长串的工作）有什么你想做的吗？
+###_PLAYER
+Can you please release me so I can take a job?
+在我挑选工作前，你可以先放开我吗？
+###_NPC
+Poor thing, of course I can help you.  (She releases you and shows you the chores list again.)  
+可怜的小家伙，我这就帮帮你。（她放开了你，然后重新向你展示工作清单）
+(She shakes her head no.)
+（她摇摇头表示拒绝）
+###_PLAYER
+I'll take a rescue mission.
+我想去做救人的任务。
+###_NPC
+Excellent!  We need to make sure our members are safe.
+好！我们得保证我们成员的安全。
+###_PLAYER
+I'll go serve drinks.
+我想去送饮料。
+###_NPC
+Nice!  Our guests are always thirsty.
+好！我们的客人可饥渴了。
+###_PLAYER
+I'll take the cleaning chore.
+我想我可以去打扫。
+###_NPC
+Awesome!  There's a lot of cleaning to do.
+好耶！我们正好有大一堆地方要打扫。
+###_PLAYER
+I'll play music.
+我想去演奏音乐。
+###_NPC
+Great! We always want some musician to play nice music.
+好的，我们正需要一些音乐家为会员们演奏音乐
+###_PLAYER
+Let's talk some more first.
+我们先谈谈别的事吧
+###_NPC
+Sure.  How can I help you?
+好的，有什么我能帮你的吗？
+###_PLAYER
+Give me a few minutes first.  (Leave her.)
+等我下啊（离开她）
+I'm already dressed up.
+我已经穿好了。
+###_NPC
+Perfect!  Let me restrain you then.
+好耶！那接下来让我绑住你吧。
+###_PLAYER
+Is my outfit suitable to serve drinks?
+我这衣服可以去送饮料吗？
+I'll change first.  (Wear the maid uniform.)
+我先换下衣服（穿上女仆装）
+###_NPC
+(You change into the maid uniform.)  Perfect!  Let me restrain you then.
+（你穿上了女仆装）完美！那接下来让我绑住你吧。
+###_PLAYER
+I'll change first. (Leave her.)
+我先换下衣服（离开她）
+###_NPC
+Are you ready? Our guests are thirsty.
+你准备好了吗？客人们都很饥渴。
+###_PLAYER
+Mistress did that?
+是女主人这么做的？
+###_NPC
+Yes, she called us to get you here.  You will work for her.
+嗯，她让我们教你去她那边，你一会得帮她干点事。
+###_PLAYER
+What kind of work?
+什么事？
+###_NPC
+Your owner wants you to serve drinks for herself and her friends.
+你主人希望你可以去给她喝她的朋友们送些喝的。
+###_PLAYER
+Will I get paid?
+我有工资吗？
+###_NPC
+No, she will get the profits.  Come back to work by yourself to get paid.
+没有，你的主人会帮你领工资。之后你可以自己打工赚点钱。
+###_PLAYER
+(Pout.)  I don't have any choice I guess.
+（撅嘴）我猜我没得选，是吧？
+###_NPC
+No, you don't.  And our guests are always thirsty.
+你确实没有。还有就是我们的客人一直都很饥渴。
+###_PLAYER
+It's an honor to work for my owner.
+为主人工做是我的荣幸。
+###_NPC
+Good girl!  Our guests are always thirsty.
+好孩子！我们的客人一直都很饥渴。
+###_PLAYER
+Wait!  Restrain me?  Why?
+等等？！绑我干嘛？
+###_NPC
+You're in the Bondage Club sweetie.  Waitresses need to be restrained.
+孩子你这是在捆绑俱乐部，这里的服务生都得被好好绑着❤~
+###_PLAYER
+Very well Miss.  (Blush and allow her to restrain you.)
+好吧女士。（脸红，但是让她继续绑你）
+###_NPC
+Very good, first I will restrain your legs but not your feet.  You need to be able to walk around.
+很好，首先我得绑住你的腿。应为你得到处走动，所以不会绑你的脚哦。
+###_PLAYER
+I know the drill.  (Allow her to restrain you.)
+我知道的（让她绑你）
+I understand.
+嗯，我懂。
+###_NPC
+Good.  (She restrains your legs and smiles.)  Next is your arms, you won't need them since your drink platter comes with straps.
+很好（她微笑着绑住了你的腿）接着就是你的手臂了，你在送饮料是用不上它们。
+###_PLAYER
+It won't be easy to walk.
+这样子的话我不太好走路欸。
+###_NPC
+Indeed.  (She restrains your legs and smiles.)  Next is your arms, you won't need them since your drink platter comes with straps.
+是这样的（她微笑着绑住了你的腿）接着就是你的手臂了，你在送饮料是用不上它们。
+###_PLAYER
+I can't serve drinks without my arms.
+我这样子送不了饮料欸
+###_NPC
+Don't worry, our customers will simply pick them from your platter.
+别担心，客人们可以直接从你的托盘上拿饮料。
+###_PLAYER
+Very well.
+行吧
+###_NPC
+(She restrains your arms behind your back.)  I will now strap the drink platter on you.
+（她把你的手臂绑在了背后）现在我会帮你绑上饮料托盘。
+###_PLAYER
+This is so kinky.
+那好色哦。
+Yes please.
+来吧。
+###_NPC
+(She straps a drink platter on you.)  Get used to balance the platter with your body, you don't want to make a mess.
+（她在你身上绑了个饮料托盘）你要习惯用身体来平衡托盘，你不会想弄洒它们的。
+###_PLAYER
+Make sure it won't tip.
+请确保他们不会倒。。。
+(Practice a little.)
+（稍稍练习一下）
+###_NPC
+(You practice keeping your balance with the drink platter.)  Are you ready now?
+（你练习了一下如何保持托盘的平衡）你准备好了吗？
+###_PLAYER
+I will be fine.
+行了。
+###_NPC
+Of course you will.  Now open wide!
+嗯，那么现在张嘴吧。
+###_PLAYER
+I'm afraid I won't be able to do it Miss.
+恐怕我不能这么做。
+###_NPC
+You will be fine.  You worry too much.  Now open wide!
+你会习惯的，别担心。现在把嘴张大！
+###_PLAYER
+Open wide?  Why?
+为什么要张。。。？
+###_NPC
+(She gags you before you can finish your question.)  Your job is to serve, not to talk.
+（她在你问完之前堵上了你的嘴）你的工作是去服务，不是去聊天。
+###_PLAYER
+(Open your mouth.)
+（张开嘴）
+###_NPC
+(She silences you with a gag.)  Your job is to serve, not to talk.
+（她用塞住了你的嘴，让你安静了下来）你的工作是去服务，不是去聊天。
+###_PLAYER
+(Mumble in your gag.)
+（戴着口塞嘟囔）
+###_NPC
+You're so cute when you try to talk with that gag.
+你戴着口塞想说话又不能说的样子可真可爱❤~
+###_PLAYER
+(Frown at her.)
+（皱起眉头看着她）
+###_NPC
+Come sweetie!  Our guests are waiting for your drinks.
+来吧宝贝！客人们都等着你的饮料呢。
+###_PLAYER
+(Nod slowly.)
+（缓缓的点头）
+(Serve drinks slowly but safely.)
+（缓慢但安全的提供饮料）
+(Serve drinks at a normal pace.)
+（以正常速度提供饮料）
+(Serve drinks quickly for more tips.)
+（为了小费而快速的提供饮料）
+(Serve drinks in online chat rooms.)
+（在在线房间提供饮料）
+###_NPC
+Here's your share of the tips.  (She gives you $REPLACEMONEY.)
+这里是你的小费（她给了你$REPLACEMONEY）
+###_PLAYER
+(Bow your head.)
+(低下头)
+###_NPC
+Nice try, but maybe you're not fit for that job.  I can't pay you.
+不错的尝试，但是你可能不太适合这份工作。所以这次就没工资啦。
+Excellent!  Here's your salary.  (She gives you $REPLACEMONEY.)
+好棒！这是你的工资（她给了你$REPLACEMONEY）
+Excellent!  Go see your owner and give her this.  (She gives you a sealed envelope with $REPLACEMONEY for your owner.)
+好棒！现在拿着这个去见你主人吧(她给了你一个交给你主人的装着$REPLACEMONEY的信封)
+(She releases you and helps you to get dressed.)  All set!  Are you ready for more chores?
+（她放开了你并帮你穿上了衣服）完~工~！你还想做更多的工作吗？
+###_PLAYER
+Thanks a lot!
+谢谢！
+###_NPC
+(She nods.)  Are you ready for more chores?
+（她点了点头）准备好做更多工作了吗？
+You'll have to patrol around the club and release members that are stuck.  I'll give you a specific location to monitor.
+你需要在俱乐部的附近巡逻，并释放受困的成员。我会给你指定一个位置去监视。
+###_PLAYER
+Is my outfit suitable for a rescue missiong?
+我得着装适合解救任务吗？
+###_NPC
+Are you ready ? I’ll give you a specific location to monitor.
+你准备好了吗？我会给你指定一个位置去监视。
+###_PLAYER
+Where should I go?
+我该去哪？
+###_NPC
+Did you go to the Introduction Class?  Is there anything to report?
+你去过新手课堂了嘛？有什么需要报告的嘛？
+###_PLAYER
+Everything is under control.
+一切尽在掌握之中。
+###_NPC
+Perfect!  Let me pay you for your efforts then.  (She gives you $REPLACEMONEY.)
+好！你的努力值得这个回报（她给了你$REPLACEMONEY）
+(You change into the maid uniform.)  Wonderful!  Make the sorority proud.
+（你换上了女仆装）好耶！让我们制造荣耀吧！
+###_PLAYER
+I'll go check the Introduction Class.  (Leave her.)
+我去看看新手课堂（离开他）
+I went there, but I couldn't do the rescue mission.
+我去看过了，但是那边并不需要救援。
+###_NPC
+This is disappointing, but I can send someone else.  You understand that you won't get paid.  What happened?
+这太糟了，我会派别人过去看看。你懂的，这样子你是拿不到工资的。发生什么事了？
+Have you inspected the Shibari Dojo?  Is everything alright?
+你有去看过紧缚道场吗？那边都还好吗？
+###_PLAYER
+I'll go check the Shibari Dojo.  (Leave her.)
+我去看看紧缚道场（离开她）
+###_NPC
+What's going on at the Bondage Club store?  Did the vendor got in trouble?
+你可以去俱乐部商店看看吗？那边的店员还好吗？
+###_PLAYER
+I'll go check the Bondage Club store.  (Leave her.)
+我这就去俱乐部商店看看。（离开她）
+###_NPC
+What's going on at the Gambling Hall?  Did some Player got in trouble?
+你可以去赌场看看吗？那边的客人还好吗？
+###_PLAYER
+I'll go check the Gambling Hall.  (Leave her.)
+我这就去赌场看看（离开她）
+###_NPC
+Everything is there in its place?
+一切都还好吗？
+###_PLAYER
+I'll go guard the Prison.  (Leave her.)
+我打算去看守监狱（离开她）
+Everyone will be safe as long as I'm in control.
+只要有我在，一切尽在掌握之中
+###_NPC
+That's very comforting to hear.  Are you ready for more chores?
+那太好了。你打算继续做些工作吗？
+###_PLAYER
+I'm happy I could serve the sorority Miss.
+为联谊会工作是我的荣幸，小姐
+###_NPC
+You're such a sweet servant.  Are you ready for more chores?
+你真是个可爱的仆人。准备好迎接更多工作了吗？
+###_PLAYER
+Don't mention it.
+别提了。
+###_NPC
+Excellent!  Are you ready for more chores?
+好耶！准备好迎接更多工作了吗？
+###_PLAYER
+I didn't have the proper tools or techniques.
+我没有适合的工具或者技巧欸。
+###_NPC
+You still have a lot to learn, don't you?  I can give you another chore if you're up for it.
+那你就还得继续学。你要是愿意的话我可以给你另一份活。
+###_PLAYER
+I'm sorry, I don't have any excuses.
+没什么好说的。。。抱歉
+###_NPC
+It's alright girl, don't worry.  I can give you another chore if you're up for it.
+没关系的孩子，如果你愿意的话，这里还有一份工作。
+###_PLAYER
+The rescue was already done.
+救援任务已经完成了。
+###_NPC
+Very well, it happens from time to time.  I can give you another chore if you're up for it.
+好棒！这种情况每时每刻都会发生。你如果愿意的话我现在还能再给你一份工作。
+###_PLAYER
+Is my outfit suitable to clean?
+我的衣服适合打扫工作吗？
+###_NPC
+Are you ready? There’s a lot of cleaning to do.
+你准备好了吗？还有很多地方需要打扫。
+###_PLAYER
+I can't clean while being restrained.
+我被绑着的话就不能打扫了！
+###_NPC
+Don't worry sweetie, we have the perfect cleaning tools for you.
+别担心宝贝，我们会给你一个超棒的打扫工具。
+###_PLAYER
+I'll be happy to be restrained by you Miss.
+被你绑起来。。。很开心。
+###_NPC
+To start, I will restrain your feet.  You won't need to move far.
+首先，我会把你的脚绑住。你工作时不怎么需要移动。
+###_PLAYER
+I guess I have no choice.  (Allow her to restrain you.)
+我猜我没的选（让她绑住你）
+How can I clean if I can't walk?
+我不能走的话我要怎么工作？
+###_NPC
+You'll learn to hop around.  You won't need to leave the room anyway.
+你得学会跳着走。反正你也不需要离开那个房间。
+###_PLAYER
+Very well, you can tie my feet.
+行吧，你可以绑住我的脚。
+###_NPC
+(She nods and restrains your feet.)  Next is your legs, for the complete effect.
+（她点头，然后绑住了你得脚）为了完整的效果，下一步就是你的腿了。
+###_PLAYER
+I should have guessed.
+我应该猜得到。
+###_NPC
+(She giggles and restrains your legs.)  Next is your arms, you won't need either.
+（她笑着绑住了你的腿）接着是你的手臂，反正你也用不上。
+###_PLAYER
+You really enjoy your job, don't you?
+你真的很享受这份工作，不是吗？
+This is ridiculous!  How will I be able to clean?
+这太怪了！这样子我要怎么打扫？
+###_NPC
+You will understand soon.  Give me your arms girl.
+你很快就会明白的。现在把你的手臂交给我吧。
+###_PLAYER
+Fine, you can tie my arms.
+好吧，把我的手臂绑起来吧。
+###_NPC
+(She restrains your arms behind your back.)  How does it feel to be restrained for work?
+（她把你的手臂绑在了背后）被绑着工作的感觉怎么样？
+###_PLAYER
+This is crazy.  (Give your arms.)
+这太疯狂了（伸出你的手臂）
+I try to focus on the money.
+我会试着只关心钱的。
+###_NPC
+Go check the store after your shift.  Next is the gag, your cleaning tool, open wide!
+下班后去逛逛商店吧。接着是口塞，也就是你的清洁工具了。把嘴张开！
+###_PLAYER
+I would rather restrain you.
+我觉得我会更喜欢绑你。
+###_NPC
+Maybe it will happen soon.  (She smiles.)  Next is the gag, your cleaning tool, open wide!
+以后再说吧（微笑）接着是口塞，也就是你的清洁工具了。把嘴张开！
+###_PLAYER
+It's a dream job for me.
+这真是我梦寐以求的工作。
+###_NPC
+This club is perfect for you.  (She smiles.)  Next is the gag, your cleaning tool, open wide!
+那这个俱乐部真的超适合你欸（微笑）接着是口塞，也就是你的清洁工具了。把嘴张开！
+###_PLAYER
+Can we skip the gag?
+我们可以跳过口塞这一步吗？
+###_NPC
+Absolutely not, this is your cleaning tool after all.
+当然不行了，这可是你之后的清洁工具欸！
+###_PLAYER
+Very well, you can gag me.
+行吧，塞住我的嘴吧。
+###_NPC
+(She gets a gag with a duster attached in front of it and straps it around your head.)  Ready to go?
+（她拿起了一个连着掸子的口塞，然后把它绑在了你的头上）准备好了吗？
+(She looks at you and laughs.)  You're learning the job pretty fast.  Are you ready now?
+（她看着你，然后笑出声来）你学的还挺快XD，现在准备好了吗？
+Come sweetie!  I'll drag you to your workspace.  You need to clean the room before I come to get your back.
+来吧宝贝！我会带你去你工作的地方。你需要在我回来之前打扫完房间。
+Come sweetie!  I'll drag you to your workspace.  You need to clean your area before I come to get your back.
+来吧宝贝！我会带你去你工作的地方。你需要在我回来之前打扫完你负责的区域。
+###_PLAYER
+(Pick an easy place to clean.)
+（挑一个容易打扫的地方）
+(Let her choose your work area.)
+（让她给你安排地方）
+(Pick the dirtiest place to impress her.)
+（选一个最脏的地方来取悦她）
+###_NPC
+Here's your pay for your hard work.  (She gives you $REPLACEMONEY.)
+这是你辛勤劳动的报酬（她给了你$REPLACEMONEY）
+I hope you understand why I can't reward you.  You can try again though.
+我希望你能明白为什么我不能付你报酬。不过你下次可以再试试。
+###_PLAYER
+Let me change first.
+让我先换下衣服。
+###_NPC
+Sure. Do you want me to explain the work?
+好多。你需要我为你解释一下工作内容吗？
+###_PLAYER
+I prefer in my own dress as it feels comfortable.
+我可以穿我自己的衣服工作吗？它们穿起来更舒服欸。
+No thank you, I'm familiar with it already.
+不了谢谢，我很清楚我该做什么。
+###_NPC
+Perfect! Now go ahead and select the song you are good at.
+好的！那现在去挑一首你擅长的曲子吧。
+You should hit " S D K L " on your keyboard when the musical notes drop from the top to the bottom. Press and hold the key if it is a long note.
+你需要在音符与判定线重合时点下键盘上的“S D K L”键。遇到长音符时你需要一直按着那个键。
+###_PLAYER
+(Nod.)
+（点头）
+###_NPC
+Each hit is judged with "PERFECT", "GREAT", or "MISS"; if you release your key early in case of a long note, you get an "END MISS".
+每一次点击都会伴随着"PERFECT", "GREAT", 或者 "MISS"的判定。如果你你在长音符时过早释放了按键，你会得到一次“END MISS”的判定。
+You break your combo if you get a "MISS" or "END MISS", and audience will eventually become unhappy.
+每次你断连击的时候，你都会得到一次“MISS”或者“END MISS”，听众也会因此感到不开心。
+Audience will tie you up when they couldn't enjoy the music, because that's part of the entertainment for them.
+如果你的音乐无法打动他们，他们便会把你绑起来，因为他们得换个方法来得到乐趣。
+If you finished the play, you will be awarded based on your performance.
+如果你完成了演出，你的付出将为你带来回报。
+That's basically everything, and you will find out more during the play.
+差不多就这些了，你在演出时可以积累更多的经验。
+###_PLAYER
+Thank you for the instruction.
+谢谢你的指导。
+Select song.
+选择曲目
+###_NPC
+(List of songs)
+（歌单）
+###_PLAYER
+見えない何かに怯える夜(LV 2)
+見えない何かに怯える夜(LV 2)
+見えない何かに怯える夜(LV 5)
+見えない何かに怯える夜(LV 5)
+見えない何かに怯える夜(LV 7)
+見えない何かに怯える夜(LV 7)
+(Want more Songs)
+（想要更多的曲目）
+###_NPC
+We are adding more contents to this minigame. If you have royalty free songs or wish to create charts, you are welcomed to contact the dev for more information.
+我们会持续为这个小游戏增加新的曲目。如果你有免版权音乐或者想为我们写谱，欢迎与开发者联系以取得更多的信息。
+(She releases you.)  All set!  Are you ready for more chores?
+（她放开了你）完工！现在打算继续干活吗？
+###_PLAYER
+They've been getting in the way.
+他们很碍手欸。
+###_NPC
+What?  This is unacceptable!
+？？？啥？？？不可理喻！
+###_PLAYER
+Yes.  They are doing a fine job.  (Go back.)
+嗯，他们工作的很好（离开）
+###_NPC
+(She giggles.)  Another satisfied customer!
+（她笑了起来）又一个满意的客户！
+###_PLAYER
+It's not like that...  I just want to be helpless.
+那倒也不是。。。我就想做个无助的人
+###_NPC
+(She relaxes her expression.)  Ah!  If that is the case, then there is a way we could serve you better...
+（她放松了些）这样啊。如果时这样的话，我们有个方法来更好的服务你。。。
+###_PLAYER
+I am interested!
+我很感兴趣！
+###_NPC
+We can suspend our maid service for a limited time.  We will still help you if your life is in danger of course.  But we will leave you helplessly bound regardless.
+我们可以临时暂停你的女仆服务。当然，如果你遇到危险的话我们仍旧会来帮助你，不过大部分时间我们会确保你被无助的捆着。
+###_PLAYER
+Actually, never mind.  (Go back.)
+这样啊，那没事了（离开）
+###_NPC
+(She giggles.)  Fair enough.  Stay kinky!
+（她笑了起来）行，保持色色！
+###_PLAYER
+So if I am stuck there really is no way out?
+如果我被困住了，那我是不是就真的没办法了?
+###_NPC
+(She smiles.)  Yes!  For a time at least.
+（微笑）是这样的，至少在这段时间里，是这样的。
+###_PLAYER
+That sounds awful.  (Go back.)
+那听起来有点糟（离开）
+###_NPC
+(She nods) Everyone is different. There's no shame in that.
+（点头）每个人都是独特的，这并不丢人。
+###_PLAYER
+So there's a catch?
+所以这是一个陷阱？
+###_NPC
+Yes.  We will add your name to our no-help list.  You can set the amount of time it will be active for up to one hour.
+是这样的。我们会把你加入到无需帮助清单上，你可以设置你想这样呆多久。最高一小时。
+###_PLAYER
+Let me try this for 10 minutes and see how it feels.
+让我先试10分钟，看看感觉如何。
+###_NPC
+You will be helpless for ten minutes, and the maids will not rescue you, nor will our associates in the photography club assist you.  Is this what you want?
+行，接下来你会度过无助的十分钟，女仆和照相馆都不能帮你。你确定这是你想要的吗？
+###_PLAYER
+Give me half an hour.
+那给我半小时吧。
+###_NPC
+You will be helpless for 30 minutes, and the maids will not rescue you, nor will our associates in the photography club assist you.  Is this what you want?
+好，接下来你会度过无助的半小时，女仆和照相馆都不能帮你。你确定这是你想要的吗？
+###_PLAYER
+I want to be bound for one hour.
+我想被绑着一小时
+###_NPC
+You will be helpless for 1 hour, and the maids will not rescue you, nor will our associates in the photography club assist you.  Is this what you want?
+行，接下来你会度过无助的一小时，女仆和照相馆都不能帮你。你确定这是你想要的吗？
+###_PLAYER
+I was looking for something more... permanent.
+我想要点更刺激的。。。比如说。。。永久。。。
+###_NPC
+(She giggles.)  Legally we can only keep you so long.
+（她笑了起来）从政策上来说，我们不能这么做。
+###_PLAYER
+This seems too much for me.  (Go back.)
+这对我来说有点太多了（离开）
+###_NPC
+(She nods.) Everyone is different.  There's no shame in that.
+（点头）每个人都是独特的，这并不丢人。
+###_PLAYER
+Let me consider the other options first...
+让我先考虑一下别的选择。。。
+###_NPC
+We can add your name to our no-help list.  You can set the amount of time it will be active for up to one hour.
+我们会把你加入到无需帮助清单上，你可以设置你想这样呆多久。最高一小时。
+###_PLAYER
+No thanks.  (Go back.)
+不需要，谢谢（离开）
+###_NPC
+(She nods.)  Everyone is different.  There's no shame in that.
+（点头）每个人都是独特的，这并不丢人。
+###_PLAYER
+Yes.  Write my name down.
+好的，请把我的名字写上去。
+###_NPC
+(She nods.)  Very well.  The maids will not help you for 10 minutes.
+(她点头)很好，接下来10分钟女仆都不会来帮你的。
+(She nods.)  Very well.  The maids will not help you for 30 minutes.
+(她点头)很好，接下来半小时女仆都不会来帮你的。
+(She nods.)  Very well.  The maids will not help you for 1 hour.
+(她点头)很好，接下来1小时女仆都不会来帮你的。
+(She nods.)  Very well.  The maids will not help you for 24 hours.
+(她点头)很好，接下来24小时女仆都不会来帮你的。
+(She nods.)  Very well.  The maids will not help you for an entire week.
+(她点头)很好，接下来一周女仆都不会来帮你的。
+###_PLAYER
+Yes.  I want to be a helpless slave.
+嗯，我想当一个无助的奴隶。
+###_NPC
+(She nods.)  Very well.  Your fate is now sealed, girl.
+（点头）很好，你的命运已经注定了，孩子。

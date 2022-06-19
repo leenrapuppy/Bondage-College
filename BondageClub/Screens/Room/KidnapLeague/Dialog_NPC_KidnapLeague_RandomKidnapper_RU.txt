@@ -39,6 +39,8 @@ Silence is gold, and gags are better than gold.
 (Она сдается и вздыхает.)  Я должна отказаться от похищений, я безнадежна в этом.
 (She smiles seeing you struggle.)  I didn't think I would win, this is amazing.
 (Она улыбается, видя, как ты сопротивляешься.)  Я не думала, что выиграю, это удивительно.
+(She smiles seeing you struggle.)  I didn't think I would win.  This is amazing.
+(Она улыбается, видя, как ты борешься.) Я не думала, что выиграю. Это потрясающе.
 (She sighs and restrains your arms.)  You should be punished extra strictly for surrendering without a fight.
 (Она вздыхает и связывает тебя  руки.)  Тебя следует особенно строго наказать за то, что ты сдалась без боя.
 (A kidnapper sneaks up behind you.)  Surrender now or get ready for the fight of your life!
@@ -77,6 +79,10 @@ Look at me, I cannot help you now.
 (Она вздыхает и неохотно позволяет тебе заткнуть ей рот.)
 (You remove her gag and she seems happy.)  It's funnier when we can talk with our kidnapper.
 (Ты вынимаешь у нее кляп, и она кажется счастливой.)  Еще забавнее, когда мы можем поговорить с нашей похитительницей.
+(You push some earplugs inside.)  Unfair!  How can talk now?
+(Вы засовываете внутрь затычки для ушей.) Нечестно! Как теперь  разговаривать?
+(You pull the earplugs out.)  Will you make up your mind?
+(Ты вытаскиваешь беруши.) Ты изменила решение?
 (She turns around as you restrain her arms securely.)  Most kidnappers go for the arms first.
 (Она оборачивается, когда ты надежно связываешь ее руки.)  Большенство похитительниц в первую очередь фокусируются на руках.
 (You free her arms and she gives you a thumbs up.)  Thanks a lot.  Am I allowed to leave?
@@ -89,6 +95,10 @@ Look at me, I cannot help you now.
 (Она проверяет твои ограничения ступней, прыгая на пальцах ног.)  Очень хорошо, моя похитительница!
 (You release her feet and she wiggles them.)  Is my kidnapping over?
 (Ты освобождаешь ее ступни, и она ими шевелит.)  Неужели мое похищение закончилось?
+(She wiggles her feet as you restrain them.)  I won't be running away for sure.
+(Шелкает ногами, пока ты их сдерживаешь.) Я точно не убегу.
+(She stands on her toes as you release her feet.)  A good kidnapping is all in the details.
+(Она встает на цыпочки, когда вы отпускаете ее ноги.) Хорошее похищение в деталях.
 (She adjusts her neck to the new collar.)  You're looking for subs Miss?
 (Она поправляет на шее новый ошейник.)  Вы ищете сабу, Мисс?
 (You remove the collar from her neck.)  Next time I will collar you.
@@ -101,10 +111,30 @@ Look at me, I cannot help you now.
 (Ты застегиваешь устройство на ее голову, когда она вздыхает.)  В следующий раз я не проиграю тебе.
 (You release her head as she nods rapidly.)  How do you fit all these items in such a small outfit?
 (Ты освобождаешь ее голову, и она быстро кивает.)  Как вы помещаете все эти предметы в такое маленькое снаряжение?
+(You put the hood on her head as she goes silent.)
+(Вы надеваете капюшон на ее голову, когда она замолкает.)
+(She nods happily as you remove the hood from her head.)  Thanks, that was a little freaky.
+(Она радостно кивает, когда вы снимаете капюшон с ее головы.) Спасибо, это было немного странно.
+(You strap the item on her nose as she sighs.)  Don't leave me like that for too long.
+(Ты надеваешь предмет ей на нос, пока она вздыхает.) Не оставляй меня так надолго.
+(She looks around as you remove the device.)  That's better, you need to be careful with items like that.
+(Она оглядывается, пока вы убираете устройство.) Так-то лучше, с такими предметами надо быть осторожнее.
 (You strap the harness on her torso as she blushes.)  You're quite a kinky kidnapper.
 (Ты пристегиваешь сбрую к ее торсу, а она краснеет.)  Вы довольно извращенная похитительница.
 (She stretches as you release her from the harness.)  It will be easier to breath like that.
 (Она потягивается, когда ты освобождаешь ее от сбрую.)  Так будет легче дышать.
+(She moans softly as you slide the device inside.)  Oh my!  You're a kinky kidnapper.
+(Она тихо стонет, когда вы вставляете устройство внутрь.) О боже! Ты странный похититель.
+(She wiggles her butt as you remove the plug.)  I hope you clean these well between kidnappings.
+(Она виляет задницей, когда вы вынимаете вилку.) Надеюсь, вы хорошо чистите их между похищениями.
+(She holds her breath as you use the item.)  You're pushing your luck there.
+(Она задерживает дыхание, когда вы используете предмет.) Ты испытываешь свою удачу.
+(She wiggles her breast slowly as you remove the device.)  Great, I might have more mercy on you next time.
+(Она медленно покачивает грудью, пока вы снимаете устройство.) Отлично, в следующий раз я могу проявить к вам больше милосердия.
+(She whimpers as you use the device on her breast.)  Being a kidnapper isn't always easy.
+(Она хнычет, когда вы используете устройство на ее груди.) Быть похитителем не всегда легко.
+(She takes a deep breath and stays silent as you remove the device.)
+(Она делает глубокий вдох и молчит, пока вы снимаете устройство.)
 (She whimpers and cries as you whip her breast.)  Revenge will be sweet!
 (Она хнычет и плачет, когда ты хлещешь ее по груди.)  Месть будет сладкой!
 (You lash the crop on her torso, hitting her breast.)  Ow!  Careful with that crop.

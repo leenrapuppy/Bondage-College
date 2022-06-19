@@ -133,15 +133,8 @@ function ActivityPossibleOnGroup(char, groupname) {
  * @returns {boolean} whether that activity's target is valid
  */
 function ActivityHasValidTarget(char, act, group) {
-	let targets = [];
-	// If the player is targeting herself
-	if (char.ID == 0) {
-		if (act.TargetSelf || act.Prerequisite.includes("OnlySelf"))
-			return act.TargetSelf.includes(group.Name);
-	} else {
-		targets = group.Activity;
-	}
-	return targets.includes(act.Name);
+	let activities = AssetActivitiesForGroup(char.AssetFamily, group.Name, (char.IsPlayer() ? "self" : "other"));
+	return activities.some(a => a.Name === act.Name);
 }
 
 /**
@@ -182,10 +175,6 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			return acted.IsMouthBlocked();
 		case "IsGagged":
 			return !acting.CanTalk();
-		case "SelfOnly":
-			return acting.IsPlayer() ? acted.IsPlayer()
-				: acting.IsOnline() ? acting.MemberNumber === acted.MemberNumber
-				: acting.AccountName === acted.AccountName;
 		case "TargetKneeling":
 			return acted.IsKneeling();
 		case "UseHands":
@@ -214,8 +203,6 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			break;
 		case "ZoneAccessible":
 			return ActivityGetAllMirrorGroups(acted.AssetFamily, group.Name).some((g) => !InventoryGroupIsBlocked(acted, g.Name, true));
-		case "WearingPenetrationItem":
-			return CharacterHasItemForActivity(acting, "Penetrate") && !acting.IsEnclose();
 		case "ZoneNaked":
 			if (group.Name === "ItemButt")
 				return InventoryPrerequisiteMessage(acted, "AccessButt") === "" && !acted.IsPlugged();
@@ -227,6 +214,11 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 				return InventoryPrerequisiteMessage(acted, "NakedFeet") === "";
 			else if (group.Name === "ItemHands")
 				return InventoryPrerequisiteMessage(acted, "NakedHands") === "";
+			break;
+		default:
+			if (prereq.startsWith("Needs-")) {
+				return !acting.IsEnclose() && !acted.IsEnclose() && CharacterHasItemWithAttribute(acting, prereq.substring(6));
+			}
 			break;
 	}
 	return true;
@@ -251,9 +243,10 @@ function ActivityCheckPrerequisites(activity, acting, acted, group) {
  * Builds the allowed activities on a group given the character's settings.
  * @param {Character} character - The character for which to build the activity dialog options
  * @param {string} groupname - The group to check
+ * @param {boolean} [allowItem] - Should item-related activities be checked
  * @return {Array} - The list of allowed activities
  */
-function ActivityAllowedForGroup(character, groupname) {
+function ActivityAllowedForGroup(character, groupname, allowItem = false) {
 	// Get the group and all possible activities
 	let activities = AssetAllActivities(character.AssetFamily);
 	let group = ActivityGetGroupOrMirror(character.AssetFamily, groupname);
@@ -261,7 +254,7 @@ function ActivityAllowedForGroup(character, groupname) {
 
 	let allowed = activities.filter(activity => {
 		// Item-related activity, skip
-		if (activity.Name.indexOf("Item") >= 0)
+		if (!allowItem && activity.Name.indexOf("Item") >= 0)
 			return false;
 
 		// Validate that this activity can be done
@@ -282,14 +275,14 @@ function ActivityAllowedForGroup(character, groupname) {
 	});
 
 	// Sort allowed activities by their group declaration order
-	return allowed.sort((a, b) => Math.sign(group.Activity.indexOf(a.Name) - group.Activity.indexOf(b.Name)));
+	return allowed.sort((a, b) => Math.sign(ActivityFemale3DCGOrdering.indexOf(a.Name) - ActivityFemale3DCGOrdering.indexOf(b.Name)));
 }
 
 /**
  * Returns TRUE if an activity can be done
  * @param {Character} C - The character to evaluate
  * @param {string} Activity - The name of the activity
- * @param {string} Group - The name of the group 
+ * @param {string} Group - The name of the group
  * @return {boolean} - TRUE if the activity can be done
  */
 function ActivityCanBeDone(C, Activity, Group) {
@@ -443,7 +436,7 @@ function ActivityOrgasmControl() {
 					} else {
 						if ((CurrentScreen == "ChatRoom")) {
 							let Dictionary = [];
-							Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+							Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 							ServerSend("ChatRoomChat", { Content: "OrgasmFailTimeout" + (Math.floor(Math.random() * 3)).toString(), Type: "Activity", Dictionary: Dictionary });
 							ActivityChatRoomArousalSync(Player);
 						}
@@ -451,7 +444,7 @@ function ActivityOrgasmControl() {
 				} else {
 					if ((CurrentScreen == "ChatRoom")) {
 						let Dictionary = [];
-						Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+						Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 						ServerSend("ChatRoomChat", { Content: ("OrgasmFailResist" + (Math.floor(Math.random() * 3))).toString(), Type: "Activity", Dictionary: Dictionary });
 						ActivityChatRoomArousalSync(Player);
 					}
@@ -493,7 +486,7 @@ function ActivityOrgasmStart(C) {
 			ActivityOrgasmGameTimer = C.ArousalSettings.OrgasmTimer - CurrentTime;
 			if ((C.ID == 0) && (CurrentScreen == "ChatRoom")) {
 				let Dictionary = [];
-				Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+				Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 				ServerSend("ChatRoomChat", { Content: "Orgasm" + (Math.floor(Math.random() * 10)).toString(), Type: "Activity", Dictionary: Dictionary });
 				ActivityChatRoomArousalSync(C);
 			}
@@ -502,7 +495,7 @@ function ActivityOrgasmStart(C) {
 			if ((C.ID == 0) && (CurrentScreen == "ChatRoom")) {
 				let Dictionary = [];
 				let ChatModifier = C.ArousalSettings.OrgasmStage == 1 ? "Timeout" : "Surrender";
-				Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+				Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 				ServerSend("ChatRoomChat", { Content: ("OrgasmFail" + ChatModifier + (Math.floor(Math.random() * 3))).toString(), Type: "Activity", Dictionary: Dictionary });
 				ActivityChatRoomArousalSync(C);
 			}
@@ -540,13 +533,15 @@ function ActivityOrgasmGameGenerate(Progress) {
 		Player.ArousalSettings.OrgasmTimer = CurrentTime + 5000 + (SkillGetLevel(Player, "Willpower") * 1000);
 		ActivityOrgasmGameTimer = Player.ArousalSettings.OrgasmTimer - CurrentTime;
 		ActivityOrgasmGameDifficulty = (6 + (ActivityOrgasmGameResistCount * 2)) * (CommonIsMobile ? 1.5 : 1);
+		ActivityOrgasmGameDifficulty = ActivityOrgasmGameDifficulty + InventoryCraftCount(Player, "Arousing") * (CommonIsMobile ? 3 : 2);
+		ActivityOrgasmGameDifficulty = ActivityOrgasmGameDifficulty - InventoryCraftCount(Player, "Dull") * (CommonIsMobile ? 3 : 2);
 	}
 
 	// Runs the game or finish it if the threshold is reached, it can trigger a chatroom message for everyone to see
 	if (Progress >= ActivityOrgasmGameDifficulty) {
 		if (CurrentScreen == "ChatRoom") {
 			var Dictionary = [];
-			Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+			Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 			ServerSend("ChatRoomChat", { Content: "OrgasmResist" + (Math.floor(Math.random() * 10)).toString(), Type: "Activity", Dictionary: Dictionary });
 			AsylumGGTSOrgasmResist();
 		}
@@ -760,8 +755,8 @@ function ActivityRun(C, Activity) {
 
 		// Publishes the activity to the chatroom
 		var Dictionary = [];
-		Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
-		Dictionary.push({ Tag: "TargetCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
+		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
+		Dictionary.push({ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 		Dictionary.push({ Tag: "ActivityGroup", Text: group.Name });
 		Dictionary.push({ Tag: "ActivityName", Text: Activity.Name });
 		ServerSend("ChatRoomChat", { Content: ActivityBuildChatTag(C, group, Activity), Type: "Activity", Dictionary: Dictionary });

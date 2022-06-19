@@ -6,11 +6,11 @@ var LoginCreditsPosition = 0;
 var LoginThankYou = "";
 /* eslint-disable */
 var LoginThankYouList = [
-	"Aceffect", "Anna", "Aylea", "BlueWinter", "Brian", "Bryce", "Christian", "Clash", "DarkStar", 
-	"Desch", "Dini", "Edwin", "Epona", "Escurse", "Greendragon", "Hayden", "JoeyDubDee", "Jon", 
-	"Michal", "Michel", "Mike", "Mike", "Mindtie", "Misa", "Mob", "MrUniver", "Nick", 
-	"Nightcore", "Pablo", "Rika", "Riley", "Ryner", "Samuel", "Shadow", "SirRobben", 
-	"Tam", "Tarram", "Tommy", "TopHat", "Troubadix", "Xepherio", "Yuna", "Znarf"
+	"Aceffect", "Anna", "ArashiSama", "Aylea", "bjugh", "BlueWinter", "bryce", "Christian", "Clash", 
+	"DarkStar", "Deadly", "Desch", "Dini", "Edwin", "Epona", "Escurse", "Greendragon", "Hayden", 
+	"JoeyDubDee", "Kimuriel", "Micah", "Michal", "Michel", "Mike", "Mike", "Mindtie", "Misa", 
+	"Nick", "Nightcore", "Rika", "Riley", "Samuel", "Shadow", "SirRobben", "Tam", 
+	"Tarram", "The", "TopHat", "Troubadix", "Xepherio", "Ying", "Yuna", "Znarf"
 ];
 
 /* eslint-enable */
@@ -148,6 +148,70 @@ function LoginRun() {
 	DrawImage("Screens/" + CurrentModule + "/" + CurrentScreen + "/Bubble.png", 1400, 16);
 	DrawText(TextGet("ThankYou") + " " + LoginThankYou, 1625, 53, "Black", "Gray");
 
+}
+
+/**
+ * The list of item fixups to apply on login.
+ *
+ * @type {{ Old: {Group: string, Name: string}, New: {Group: string, Name: string} }[]}
+ */
+let LoginInventoryFixups = [
+	{ Old: { Group: "ItemLegs", Name: "WoodenHorse" }, New: { Group: "ItemDevices", Name: "WoodenHorse" } },
+];
+
+/**
+ * Perform the inventory and appearance fixups needed.
+ *
+ * This is called by the login code, after the player's item lists are set up
+ * but before the inventory and appearance are loaded from the server's data,
+ * and applies the specified asset fixups by swapping Old with New in the list
+ * of owned items, in the various player item lists, and in the appearance.
+ *
+ * Note that it copies properties verbatim, so its better if the Old and New
+ * asset definitions are kept compatible.
+ *
+ * @param {Record<string, string[]>} Inventory - The server-provided inventory object
+ * @param {{Group: string, Name: string}[]} Appearance - The server-provided appearance object
+ */
+function LoginPerformInventoryFixups(Inventory, Appearance) {
+	// Skip fixups on new characters
+	if (!Inventory || !Appearance) return;
+
+	let listsUpdated = false;
+	LoginInventoryFixups.forEach(fixup => {
+		// For every asset fixup to do, update the inventory
+		let group;
+		let idx;
+		if ((group = Inventory[fixup.Old.Group]) && group.indexOf(fixup.Old.Name) != -1) {
+			group.splice(idx, 1);
+			Inventory[fixup.New.Group].push(fixup.New.Name);
+		}
+
+		// Update the player's item lists
+		["BlockItems", "LimitedItems", "HiddenItems", "FavoriteItems"].forEach(prop => {
+			const idx = Player[prop].findIndex(item => item.Group === fixup.Old.Group && item.Name === fixup.Old.Name);
+			if (idx === -1) return;
+
+			Player[prop][idx].Group = fixup.New.Group;
+			Player[prop][idx].Name = fixup.New.Name;
+			listsUpdated = true;
+		});
+
+		idx = Appearance.findIndex(a => a.Group === fixup.Old.Group && a.Name === fixup.Old.Name);
+		if (idx != -1) {
+			// The item is currently worn, remove it
+			let worn = Appearance[idx];
+			Appearance.splice(idx, 1);
+			// Add the new one, unless there's already something there
+			if (!Appearance.find(a => a.Group === fixup.New.Group)) {
+				worn.Group = fixup.New.Group;
+				worn.Name = fixup.New.Name;
+				Appearance.push(worn);
+			}
+		}
+	});
+	if (listsUpdated)
+		ServerPlayerBlockItemsSync();
 }
 
 /**
@@ -441,10 +505,11 @@ function LoginResponse(C) {
 			Player.AccountName = C.AccountName;
 			Player.AssetFamily = C.AssetFamily;
 			Player.Title = C.Title;
+			Player.Nickname = (C.Nickname == null) ? "" : C.Nickname;
 			if (CommonIsNumeric(C.Money)) Player.Money = C.Money;
 			Player.Owner = ((C.Owner == null) || (C.Owner == "undefined")) ? "" : C.Owner;
 			Player.Game = C.Game;
-			if (typeof C.Description === "string" && C.Description.startsWith("╬")) {
+			if (typeof C.Description === "string" && C.Description.startsWith(ONLINE_PROFILE_DESCRIPTION_COMPRESSION_MAGIC)) {
 				C.Description = LZString.decompressFromUTF16(C.Description.substr(1));
 			}
 			Player.Description = (C.Description == null) ? "" : C.Description.substr(0, 10000);
@@ -464,11 +529,20 @@ function LoginResponse(C) {
 			Player.WardrobeCharacterNames = C.WardrobeCharacterNames;
 			WardrobeCharacter = [];
 
+			// Sets the default language when creating or searching for chat rooms
+			ChatCreateLanguage = C.RoomCreateLanguage;
+			if (ChatCreateLanguage == null) ChatCreateLanguage = ChatCreateLanguageList[0];
+			if (ChatCreateLanguageList.indexOf(ChatCreateLanguage) < 0) ChatCreateLanguage = ChatCreateLanguageList[0];
+			ChatSearchLanguage = C.RoomSearchLanguage;
+			if (ChatSearchLanguage == null) ChatSearchLanguage = "";
+			if (ChatCreateLanguageList.indexOf(ChatSearchLanguage) < 0) ChatSearchLanguage = "";
+
 			// Load the last chat room
 			Player.LastChatRoom = C.LastChatRoom;
 			Player.LastChatRoomBG = C.LastChatRoomBG;
 			Player.LastChatRoomPrivate = C.LastChatRoomPrivate;
 			Player.LastChatRoomSize = C.LastChatRoomSize;
+			Player.LastChatRoomLanguage = C.LastChatRoomLanguage;
 			Player.LastChatRoomDesc = C.LastChatRoomDesc;
 			Player.LastChatRoomTimer = C.LastChatRoomTimer;
 			if (typeof C.LastChatRoomAdmin == "string")
@@ -527,9 +601,11 @@ function LoginResponse(C) {
 			}
 			Player.SavedColors.length = ColorPickerNumSaved;
 
+			// Loads the online lists
 			Player.WhiteList = ((C.WhiteList == null) || !Array.isArray(C.WhiteList)) ? [] : C.WhiteList;
 			Player.BlackList = ((C.BlackList == null) || !Array.isArray(C.BlackList)) ? [] : C.BlackList;
 			Player.FriendList = ((C.FriendList == null) || !Array.isArray(C.FriendList)) ? [] : C.FriendList;
+
 			// Attempt to parse friend names
 			if (typeof C.FriendNames === "string") {
 				try {
@@ -547,11 +623,13 @@ function LoginResponse(C) {
 			LoginDifficulty(false);
 
 			// Loads the player character model and data
+			LoginPerformInventoryFixups(C.Inventory, C.Appearance);
 			ServerAppearanceLoadFromBundle(Player, C.AssetFamily, C.Appearance, C.MemberNumber);
 			InventoryLoad(Player, C.Inventory);
 			LogLoad(C.Log);
 			ReputationLoad(C.Reputation);
 			SkillLoad(C.Skill);
+			CraftingLoadServer(C.Crafting);
 
 			// Calls the preference init to make sure the preferences are loaded correctly
 			PreferenceInitPlayer();
@@ -582,9 +660,6 @@ function LoginResponse(C) {
 
 			// Fixes a few items
 			var InventoryBeforeFixes = InventoryStringify(Player);
-			if (InventoryGet(Player, "ItemMisc") && (InventoryGet(Player, "ItemMisc").Asset.Name == "WoodenMaidTray" || InventoryGet(Player, "ItemMisc").Asset.Name == "WoodenMaidTrayFull" || InventoryGet(Player, "ItemMisc").Asset.Name == "WoodenPaddle")) InventoryRemove(Player, "ItemMisc");
-			if (LogQuery("JoinedSorority", "Maid") && !InventoryAvailable(Player, "MaidOutfit2", "Cloth")) InventoryAdd(Player, "MaidOutfit2", "Cloth", false);
-			if ((InventoryGet(Player, "ItemArms") != null) && (InventoryGet(Player, "ItemArms").Asset.Name == "FourLimbsShackles")) InventoryRemove(Player, "ItemArms");
 			LoginValidCollar();
 			LoginMistressItems();
 			LoginStableItems();

@@ -205,9 +205,8 @@ function ServerDisconnect(data, close = false) {
 
 			// Exits out of the chat room or a sub screen of the chatroom, so we'll be able to get in again when we log back
 			if (ServerPlayerIsInChatRoom()) {
-				RelogChatLog = document.getElementById("TextAreaChatLog").cloneNode(true);
+				RelogChatLog = /** @type {HTMLDivElement} */(document.getElementById("TextAreaChatLog").cloneNode(true));
 				RelogChatLog.id = "RelogChatLog";
-				RelogChatLog.name = "RelogChatLog";
 				RelogInputText = ElementValue("InputChat").trim();
 				ElementRemove("InputChat");
 				ElementRemove("TextAreaChatLog");
@@ -353,6 +352,7 @@ function ServerAppearanceBundle(Appearance) {
 		if ((Appearance[A].Color != null) && (Appearance[A].Color != "Default")) N.Color = Appearance[A].Color;
 		if ((Appearance[A].Difficulty != null) && (Appearance[A].Difficulty != 0)) N.Difficulty = Appearance[A].Difficulty;
 		if (Appearance[A].Property != null) N.Property = Appearance[A].Property;
+		if (Appearance[A].Craft != null) N.Craft = Appearance[A].Craft;
 		Bundle.push(N);
 	}
 	return Bundle;
@@ -444,6 +444,7 @@ function ServerBundledItemToAppearanceItem(assetFamily, item) {
 		Asset: asset,
 		Difficulty: parseInt(item.Difficulty == null ? 0 : item.Difficulty),
 		Color: ServerParseColor(asset, item.Color, asset.Group.ColorSchema),
+		Craft: item.Craft,
 		Property: item.Property,
 	};
 }
@@ -594,7 +595,7 @@ function ServerAccountBeep(data) {
 				Message: `${DialogFindPlayer("BeepFrom")} ${data.MemberName} (${data.MemberNumber})`,
 				Timer: CommonTime() + 10000,
 				ChatRoomName: data.ChatRoomName
-			}
+			};
 			if (ServerBeep.ChatRoomName != null)
 				ServerBeep.Message = ServerBeep.Message + " " + DialogFindPlayer("InRoom") + " \"" + ServerBeep.ChatRoomName + "\"" + (data.ChatRoomSpace === "Asylum" ? " " + DialogFindPlayer("InAsylum") : '');
 			if (data.Message) {
@@ -672,7 +673,12 @@ function ServerClickBeep() {
 function ServerOpenFriendList() {
 	DialogLeave();
 	ElementToggleGeneratedElements(CurrentScreen, false);
-	FriendListReturn = { Screen: CurrentScreen , Module: CurrentModule, IsInChatRoom: ServerPlayerIsInChatRoom() };
+	FriendListReturn = {
+		Screen: CurrentScreen,
+		Module: CurrentModule,
+		IsInChatRoom: ServerPlayerIsInChatRoom(),
+		hasScrolledChat: ServerPlayerIsInChatRoom() && ElementIsScrolledToEnd("TextAreaChatLog")
+	};
 	CommonSetScreen("Character", "FriendList");
 }
 
@@ -697,10 +703,7 @@ function ServerAccountOwnership(data) {
 
 	// If we must clear the character ownership data
 	if ((data != null) && (typeof data === "object") && !Array.isArray(data) && (data.ClearOwnership === true)) {
-		Player.Owner = "";
-		Player.Ownership = null;
-		LogDelete("ReleasedCollar", "OwnerRule");
-		LoginValidCollar();
+		CharacterClearOwnership(Player);
 	}
 
 }

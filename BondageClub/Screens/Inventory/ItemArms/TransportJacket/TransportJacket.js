@@ -5,6 +5,7 @@ const InventoryItemArmsTransportJacketInputId = "TransportJacketText";
 const InventoryItemArmsTransportJacketMaxLength = 14;
 const InventoryItemArmsTransportJacketFont = "'Saira Stencil One', 'Arial', sans-serif";
 
+/** @type ExtendedItemOption[] */
 const InventoryItemArmsTransportJacketOptions = [
 	{
 		Name: "NoShorts",
@@ -80,8 +81,8 @@ function InventoryItemArmsTransportJacketClick() {
 function InventoryItemArmsTransportJacketPublishAction(C, Option, PreviousOption) {
 	var msg = "ItemArmsTransportJacketSet" + PreviousOption.Name + Option.Name;
 	var Dictionary = [
-		{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-		{ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber },
+		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 		{ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name },
 	];
 	ChatRoomPublishCustomAction(msg, true, Dictionary);
@@ -103,8 +104,8 @@ function InventoryItemArmsTransportJacketExit() {
 	if (DynamicDrawTextRegex.test(text)) item.Property.Text = text;
 	if (CurrentScreen === "ChatRoom" && text !== InventoryItemArmsTransportJacketOriginalText) {
 		const dictionary = [
-			{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
+			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 			{ Tag: "NewText", Text: text },
 			{ Tag: "AssetName", AssetName: item.Asset.Name },
 		];

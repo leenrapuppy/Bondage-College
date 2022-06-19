@@ -20,7 +20,7 @@ var ShibariTrainingPriceList = [20, 40, 75, 125, 200, 300, 450, 600, 800, 1000];
  * Checks if the player can restrain the Shibari dojo teacher.
  * @returns {boolean} - Returns TRUE if the player is able to restrain the teacher.
  */
-function ShibariAllowTeacherBondage() { return (!ShibariAllowTeacherItem && DialogReputationGreater("Dominant", 75)); }
+function ShibariAllowTeacherBondage() { return (!ShibariAllowTeacherItem && ReputationGet("Dominant") >= 75); }
 /**
  * Checks if the player can strip the Shibari dojo teacher.
  * @returns {boolean} - Returns TRUE if the player is able to strip the teacher.
@@ -98,7 +98,7 @@ function ShibariRandomBondage(C, Level) {
 			if (Level == 1) InventoryGet(C, "ItemFeet").Property = { Type: "Suspension", SetPose: ["Suspension", "LegsClosed"], Difficulty: 0, Effect: [] };
 			if (Level == 2) InventoryGet(C, "ItemArms").Property = { Type: "Hogtied", SetPose: ["Hogtied"], Difficulty: 0, Block: ["ItemHands", "ItemLegs", "ItemFeet", "ItemBoots"], Effect: ["Block", "Freeze", "Prone"] };
 			if (Level == 3) {
-				let SuspensionHogtiedProperty = Object.assign({}, InventoryItemArmsHempRopeOptions.find(O => O.Name === "SuspensionHogtied").Property);
+				let SuspensionHogtiedProperty = JSON.parse(JSON.stringify(TypedItemGetOption("ItemArms", "HempRope", "SuspensionHogtied").Property));
 				const height = 0.67 * Math.random();
 				SuspensionHogtiedProperty.Difficulty = 0;
 				SuspensionHogtiedProperty.OverrideHeight.Height = height * Pose.find(p => p.Name == "Hogtied").OverrideHeight.Height;

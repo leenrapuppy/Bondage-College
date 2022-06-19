@@ -1,0 +1,18 @@
+Starts in
+即将开始：
+Hit the therapy circles when they appear.
+当治疗圈出现的时候点击。
+Don't miss or you'll stress your patient.
+不要错过圆圈，否则你将让病人感到紧张。
+Progress
+进度
+Stress
+病人精神
+Perfect!  The therapy was a complete success.
+完美！治疗非常成功。
+You did it!  The therapy was a success.
+你做到了！治疗成功。
+The patient breaks and the therapy fails.
+病人崩溃了，治疗失败。
+Click on yourself to continue.
+点击你自己以继续。

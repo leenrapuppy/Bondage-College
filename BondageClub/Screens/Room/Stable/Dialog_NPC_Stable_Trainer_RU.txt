@@ -93,28 +93,30 @@ I'm here for a pony exam.
 ###_NPC
 You are not ready yet.  You have to train harder.
 Ты еще не готова.  Ты должна тренироваться усерднее.
-Do you think the training was successful? Then I get 50 $ exam fee.
-Как ты думаешь, тренировка прошла успешно? Тогда я получаю 50 $ экзаменационного взноса.
+Do you think the training was successful? Then I get $50 exam fee.
+Как ты думаешь, тренировка прошла успешно? Тогда я получаю $50 экзаменационного взноса.
 ###_PLAYER
 I'm here for a trainer exam.
 Я здесь для экзамена на тренера.
 ###_NPC
 You? Don't make me laugh.
 Ты? Не заставляй меня смеяться.
-Do you think you're ready? Then pay the 50$.
-Так ты думаешь, что ты готова? Тогда заплати 50$.
+Do you think you're ready? Then pay the $50.
+Так ты думаешь, что ты готова? Тогда заплати $50.
 ###_PLAYER
 I want to train a pony.
 Я хочу дрессировать пони.
 ###_NPC
-That'll be a 10$ cleaning fee for your riding gear.
-Тут будет плата за уборку твоего снаряжения для верховой езды в размере 10$.
+That'll be a $10 cleaning fee for your riding gear.
+Тут будет плата за уборку твоего снаряжения для верховой езды в размере $10.
 ###_PLAYER
 (End the training and dress back up.)
 (Закончи обучение и оденься обратно.)
 ###_NPC
 (She begins to stow the bridle.)
 (Она начинает укладывать уздечку.)
+(You pick up your clothes and get to the changing room.)
+(Вы берете свою одежду и идете в раздевалку.)
 ###_PLAYER
 I can't stay to chat.  (Leave her.)
 Я не могу остаться, чтобы поболтать.  (Оставь ее.)
@@ -328,26 +330,38 @@ After the exam, you can use the pony bit gag anywhere in the club.
 What a cute pony.
 Какая милая пони.
 ###_PLAYER
+Here is the money, can we start?
+Вот деньги, мы можем начать?
+###_NPC
+Get ready, we're getting serious now.
+Приготовься, теперь мы настроены серьезно.
+###_PLAYER
+Sorry, I changed my mind.
+Извини, я передумала.
+###_NPC
+Come back to me if you'd like to give it a try.
+Вернись ко мне, если захочешь попробовать.
+###_PLAYER
 I can not afford that.
 Я не могу себе этого позволить.
 ###_NPC
 Then there is no exam.
-Then there is no exam.
+Тогда никакого экзамена не будет.
 ###_PLAYER
-Here is the money, can we start?
-Вот деньги, можно начинать?
-###_NPC
-Get ready, we're getting serious now.
-Готовься, мы сейчас серьезно подходим к делу.
-###_PLAYER
+Here's the money, go ahead.
+Вот деньги, начинайте.
 On second thought, I'm not ready yet.
 Если подумать, я еще не готова.
 ###_NPC
 Get in touch if you change your mind.
 Свяжись с нами, если передумаешь.
 ###_PLAYER
-Here's the money, go ahead.
-Вот вам деньги, начинайте.
+It's a bit too expensive for me.
+Для меня это слишком дорого.
+###_NPC
+Fine. But don't make lose my time.
+Хорошо. Но не заставляй меня терять время.
+###_PLAYER
 How do I get over the hurdles?
 Как мне преодолеть барьеры?
 ###_NPC
@@ -415,10 +429,10 @@ You need the following: a harness ball gag, a leather armbinder, a leather harne
 Тебе нужно следующее: шар-кляп со сбруей, кожаный армбиндер, кожаная сбруя и пробка с конским хвостом.
 No, not yet. You also have to wear a collar.
 Нет, не сейчас. Ты также должна носить ошейник.
-No, not yet.  The training fee is 50$.
-Нет, не сейчас. Плата за обучение составляет 50 $.
-Yes, the training costs 50$. It's long and demanding.
-Да, обучение стоит 50$. Оно продолжительно и требовательно.
+No, not yet.  The training fee is $50.
+Нет, не сейчас. Плата за обучение составляет $50.
+Yes, the training costs $50. It's long and demanding.
+Да, обучение стоит $50. Оно продолжительно и требовательно.
 ###_PLAYER
 When can I start?
 Когда я могу начать?
@@ -439,8 +453,8 @@ You lack the necessary equipment. You have to buy the following: crops, whips, a
 Тебе не хватает необходимого оборудования. Ты должна купить следующее: стеки, хлысты и кожаные ремни для ног и ног.
 You are too poor and cannot afford training ponies.
 Ты слишком бедна и не можете позволить себе обучать пони.
-Yes, you can join the trainer guild. The entrance fee is 500$.
-Да, ты можешь вступить в гильдию тренеров. Входная плата составляет 500$.
+Yes, you can join the trainer guild. The entrance fee is $500.
+Да, ты можешь вступить в гильдию тренеров. Входная плата составляет $500.
 ###_PLAYER
 Take my money. when can I start?
 Возьмите мои деньги. когда я могу начать?
@@ -712,8 +726,8 @@ Keep training and then try again.
 Congratulations, you have passed all the exams.
 Поздравляю, ты сдала все экзамены.
 ###_PLAYER
-(Give the present trainers a whiskey (50$).)
-(Отдай настоящим тренерам виски (50$).)
+(Give the present trainers a whiskey ($50).)
+(Отдай настоящим тренерам виски ($50).)
 ###_NPC
 (They celebrate your success.) Hip Hip Hurray!
 (Они празднуют твой успех.) Хип-Хип Ура!

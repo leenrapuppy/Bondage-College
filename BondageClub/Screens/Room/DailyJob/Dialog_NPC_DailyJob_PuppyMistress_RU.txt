@@ -1,0 +1,158 @@
+###_NPC
+Keep that gag on and someday you'll be enslaved as a puppy girl.
+Не снимай этот кляп, и когда-нибудь ты будешь порабощена, как девочка-щенок.
+(The Mistress greets you back with a smile.)  Thanks for taking good care of my pets.
+(Хозяйка приветствует вас с улыбкой.) Спасибо за заботу о моих питомцах.
+(The Mistress gives you a furious look.)  My poor pet girl!  You should be ashamed of yourself.
+(Хозяйка бросает на вас яростный взгляд.) Моя бедная любимая девочка! Тебе должно быть стыдно за себя.
+###_PLAYER
+That should be easy.
+Это должно быть легко.
+###_NPC
+(She nods.)  Yes, it will.  Take my four puppy girls to the park, make them walk, play with them for a while and get them back here.
+(Она кивает.) Да, будет. Отведи моих четырех щенков в парк, заставь их гулять, поиграй с ними немного и верни их сюда.
+###_PLAYER
+What do I need to do?
+Что мне нужно сделать?
+###_NPC
+Take my four puppy girls to the park, make them walk, play with them for a while and get them back here.
+Отведи моих четырех щенков в парк, заставь их гулять, поиграй с ними немного и верни их сюда.
+###_PLAYER
+That sounds complicated.
+Звучит сложно.
+###_NPC
+(She frowns.)  It's not.  Take my four puppy girls to the park, make them walk, play with them for a while and get them back here.
+(Она хмурится.) Это не так. Отведи моих четырех щенков в парк, заставь их гулять, поиграй с ними немного и верни их сюда.
+###_PLAYER
+How many puppies do you have?
+Сколько у вас щенков?
+###_NPC
+I have four puppy girls, take them to the park, make them walk, play with them for a while and get them back here.
+У меня четыре щенка-девочки, отвезу их в парк, заставлю погулять, немного поиграю с ними и верну сюда.
+###_PLAYER
+What's the catch?
+В чем подвох?
+###_NPC
+There's no catch, just take them outside and make sure they don't run away.  If you lose one of them, there will be trouble.
+Подвоха нет, просто выведите их на улицу и убедитесь, что они не убегут. Если вы потеряете одного из них, будут проблемы.
+###_PLAYER
+Anything I should know?
+Что-нибудь, что я должна знать?
+###_NPC
+Just take them outside and make sure they don't run away.  If you lose one of them, there will be trouble.
+Просто выведите их на улицу и убедитесь, что они не убегут. Если вы потеряете одного из них, будут проблемы.
+###_PLAYER
+You'll pay me after?
+Вы заплатите мне после?
+###_NPC
+Yes, after the job is done.  Just take them outside and make sure they don't run away.  If you lose one of them, there will be trouble.
+Да, после завершения работы. Просто выведите их на улицу и убедитесь, что они не убегут. Если вы потеряете одного из них, будут проблемы.
+###_PLAYER
+What trouble?
+Какие проблемы?
+###_NPC
+Lose one of them and you'll see.  (She smirks.)
+Потеряй одного из них и увидишь. (Она ухмыляется.)
+###_PLAYER
+I'll do it!  (Go walk the puppies.)
+Я сделаю это! (Идут гулять со щенками.)
+I know I can do it!  (Go walk the puppies.)
+Я знаю, что я могу это сделать! (Идут гулять со щенками.)
+That was scary, I almost lost them.
+Это было страшно, я чуть не потеряла их.
+###_NPC
+(She frowns.)  Well you didn't, here's your money.  (She gives you $120.)
+(Она хмурится.) Ну, ты не сделала этого, вот твои деньги. (Она дает вам 120 долларов.)
+###_PLAYER
+The pleasure was mine.
+Удовольствие было моим.
+###_NPC
+(She smiles.)  I'll call you again, here's your money.  (She gives you $120.)
+(Улыбается.) Я вам еще позвоню, вот ваши деньги. (Она дает вам 120 долларов.)
+###_PLAYER
+It was funny to take them for a walk.
+Было забавно взять их на прогулку.
+###_NPC
+(She nods.)  Very good, here's your money.  (She gives you $120.)
+(Она кивает.) Очень хорошо, вот ваши деньги. (Она дает вам 120 долларов.)
+###_PLAYER
+Pets are safe under my control.
+Питомцы в безопасности под моим контролем.
+###_NPC
+(She gives you a thumbs up.)  I'll remember you, here's your money.  (She gives you $120.)
+(Она показывает вам большой палец вверх.) Я буду помнить вас, вот ваши деньги. (Она дает вам 120 долларов.)
+###_PLAYER
+Thank you!  (Leave her.)
+Благодарю вас! (Оставь ее.)
+(Take the money and leave her.)
+(Возьмите деньги и оставьте ее.)
+I'm so sorry Miss.
+Мне так жаль мисс.
+###_NPC
+I'll give you a good reason to be sorry, get naked girl!
+Я дам тебе вескую причину пожалеть, раздевайся, девочка!
+###_PLAYER
+I'll do better next time.
+В следующий раз я сделаю лучше.
+###_NPC
+I'll make sure you will, get naked girl!
+Я позабочусь о том, чтобы ты это сделала, раздевайся, девочка!
+###_PLAYER
+Next time I'll bring my whip.
+В следующий раз я возьму свой кнут.
+They were too feisty.
+Они были слишком дерзкими.
+###_NPC
+You need a lesson, get naked girl!
+Тебе нужен урок, разденься, девочка!
+###_PLAYER
+Don't you dare touching a Mistress!
+Не смей прикасаться к Госпоже!
+###_NPC
+(She gulps.)  Fine Mistress DialogPlayerName, let's speak later then.
+(Она сглатывает.) Прекрасно, Госпожа ДиалогИмяИгрока, тогда поговорим позже.
+###_PLAYER
+Strip here?
+Раздеться здесь?
+###_NPC
+Don't force me to repeat, get naked girl.
+Не заставляй меня повторять, разденься, девочка.
+###_PLAYER
+Fine!  (Strip for her.)
+Отлично! (Разденьтесь для нее.)
+###_NPC
+(You strip for her as she smirks.)  Since you cannot take care of puppies, you will become one.
+(Вы раздеваетесь для нее, а она ухмыляется.) Поскольку вы не можете заботиться о щенках, вы станете одним из них.
+###_PLAYER
+Yes Mistress.  (Strip for her.)
+Да Госпожа. (Разденьтесь для нее.)
+Are you serious?
+Ты серьезно?
+###_NPC
+Very serious.  (She straps you down and dress you as a pet.)  You will learn from that experience.
+Очень серьезно. (Она пристегивает вас ремнями и одевает как домашнее животное.) Вы научитесь на этом опыте.
+###_PLAYER
+No way!
+Ни за что!
+###_NPC
+Watch me!  (She straps you down and dress you as a pet.)  You will learn from that experience.
+Смотри на меня! (Она пристегивает вас ремнями и одевает как домашнее животное.) Вы научитесь на этом опыте.
+###_PLAYER
+(Nod and stay silent.)
+(Кивнуть и промолчать.)
+###_NPC
+Good girl.  (She straps you down and dress you as a pet.)  You will learn from that experience.
+Хорошая девочка. (Она пристегивает вас ремнями и одевает как домашнее животное.) Вы научитесь на этом опыте.
+###_PLAYER
+(Whimper and look down.)
+(Хныкать и смотреть вниз.)
+###_NPC
+As punishment, you will experience what happened to my poor pet and wander the club restrained.  Now go!
+В наказание ты испытаешь то, что случилось с моим бедным питомцем, и сдержанно побродишь по клубу. Теперь иди!
+###_PLAYER
+(Try to struggle out.)
+(Попробовать вырваться.)
+(Stare at her and grumble.)
+(Смотрит на нее и ворчит.)
+(Leave her.)
+(Оставь ее.)

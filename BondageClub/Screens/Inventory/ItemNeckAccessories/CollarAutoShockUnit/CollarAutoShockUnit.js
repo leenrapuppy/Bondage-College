@@ -63,8 +63,8 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitSetIntensity(Modifier) {
 	DialogFocusItem.Property.Intensity = DialogFocusItem.Property.Intensity + Modifier;
 	if (DialogFocusItem.Property.ShowText) {
 		var Dictionary = [];
-		Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
-		Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
+		Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
+		Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
 		Dictionary.push({Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
 		ChatRoomPublishCustomAction("ShockCollarSet" + DialogFocusItem.Property.Intensity, true, Dictionary);
 	}
@@ -86,8 +86,8 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitSetSensitivity(Modifier)
 	DialogFocusItem.Property.Sensitivity = DialogFocusItem.Property.Sensitivity + Modifier;
 	if (DialogFocusItem.Property.ShowText) {
 		var Dictionary = [];
-		Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
-		Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
+		Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
+		Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
 		Dictionary.push({Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
 		ChatRoomPublishCustomAction("ShockCollarSetSensitivity" + DialogFocusItem.Property.Sensitivity, true, Dictionary);
 	}
@@ -165,7 +165,7 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitTriggerAutomatic(data) {
 
 	if (CurrentScreen == "ChatRoom" && data.Item.Property.ShowText) {
 		var Dictionary = [
-			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
+			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 			{ Tag: "AssetName", AssetName: data.Item.Asset.Name },
 			{ ShockIntensity : data.Item.Property.Intensity * 1.5},
 		];
@@ -186,10 +186,10 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitTrigger(data) {
 	}
 
 	var Dictionary = [];
-	Dictionary.push({ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber });
-	Dictionary.push({ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
-	Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
-	Dictionary.push({Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
+	Dictionary.push({ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
+	Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
+	Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
+	Dictionary.push({ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
 	Dictionary.push({ Tag: "ActivityName", Text: "ShockItem" });
 	Dictionary.push({ Tag: "ActivityGroup", Text: DialogFocusItem.Asset.Group.Name });
 	Dictionary.push({ AssetName: DialogFocusItem.Asset.Name });

@@ -80,19 +80,29 @@ var ExtendedItemSubscreen = null;
  */
 function ExtendedItemLoad(Options, DialogKey) {
 	if (!DialogFocusItem.Property) {
+		const C = CharacterGetCurrent();
 		// Default to the first option if no property is set
+		let InitialProperty = Options[0].Property;
 		DialogFocusItem.Property = JSON.parse(JSON.stringify(Options[0].Property));
-		// If the default type is not the null type, update the item to use this type
-		if (Options[0].Property.Type != null) {
-			const C = CharacterGetCurrent();
+
+		// If the default type is not the null type, check whether the default type is blocked
+		if (InitialProperty && InitialProperty.Type && InventoryBlockedOrLimited(C, DialogFocusItem, InitialProperty.Type)) {
 			// If the first option is blocked by the character, switch to the null type option
-			if (InventoryBlockedOrLimited(C, DialogFocusItem, Options[0].Property.Type)) {
-				const BaseOption = Options.find(O => O.Property.Type == null);
-				if (BaseOption != null) DialogFocusItem.Property = JSON.parse(JSON.stringify(BaseOption));
-			}
+			const InitialOption = Options.find(O => O.Property.Type == null);
+			if (InitialOption) InitialProperty = InitialOption.Property;
+		}
+
+		// If there is an initial property, set it and update the character
+		if (InitialProperty) {
+			DialogFocusItem.Property = JSON.parse(JSON.stringify(InitialProperty));
 			CharacterRefresh(C);
 			ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 		}
+	}
+
+	if (ExtendedItemSubscreen) {
+		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load");
+		return;
 	}
 
 	if (ExtendedItemOffsets[ExtendedItemOffsetKey()] == null) ExtendedItemSetOffset(0);
@@ -132,7 +142,8 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages = tr
 	}
 
 	// Draw the header and item
-	DrawAssetPreview(1387, 55, Asset);
+	const Locked = InventoryItemHasEffect(DialogFocusItem, "Lock", true);
+	DrawAssetPreview(1387, 55, Asset, {Icons: Locked ? ["Locked"] : undefined});
 	DrawText(DialogExtendedMessage, 1500, 375, "white", "gray");
 
 	const CurrentOption = Options.find(O => O.Property.Type === DialogFocusItem.Property.Type);
@@ -144,19 +155,24 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages = tr
 		const Y = XYPositions[OptionsPerPage][PageOffset][1];
 
 		const Option = Options[I];
+		const OptionType = Option.Property && Option.Property.Type;
 		const Hover = MouseIn(X, Y, 225, 55 + ImageHeight) && !CommonIsMobile;
-		const IsSelected = DialogFocusItem.Property.Type == Option.Property.Type;
-		const IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, Option.Property && Option.Property.Type ? Option.Property.Type : null);
+		const IsSelected = DialogFocusItem.Property.Type == OptionType;
+		const IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, OptionType);
 		const ButtonColor = ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected);
 
 		DrawButton(X, Y, 225, 55 + ImageHeight, "", ButtonColor, null, null, IsSelected);
 		if (ShowImages) {
 			DrawImage(`${AssetGetInventoryPath(Asset)}/${Option.Name}.png`, X + 2, Y);
+			/** @type {InventoryIcon[]} */
 			const icons = [];
-			if (C.ID !== 0 && !InventoryBlockedOrLimited(C, DialogFocusItem, Option.Property.Type) && InventoryIsPermissionLimited(C, Asset.Name, Asset.Group.Name, Option.Property.Type))
+			if (!C.IsPlayer() && InventoryIsAllowedLimited(C, DialogFocusItem, OptionType)) {
 				icons.push("AllowedLimited");
-			const FavoriteDetails = DialogGetFavoriteStateDetails(C, Asset, Option.Property.Type);
-			if (FavoriteDetails && FavoriteDetails.Icon) icons.push(FavoriteDetails.Icon);
+			}
+			const FavoriteDetails = DialogGetFavoriteStateDetails(C, Asset, OptionType);
+			if (FavoriteDetails && FavoriteDetails.Icon) {
+				icons.push(FavoriteDetails.Icon);
+			}
 			DrawPreviewIcons(icons, X + 2, Y);
 		}
 		DrawTextFit((IsFavorite && !ShowImages ? "★ " : "") + DialogFindPlayer(DialogPrefix + Option.Name), X + 112, Y + 30 + ImageHeight, 225, "black");
@@ -502,12 +518,12 @@ function ExtendedItemSetOffset(Offset) {
 function ExtendedItemMapChatTagToDictionaryEntry(C, asset, tag) {
 	switch (tag) {
 		case CommonChatTags.SOURCE_CHAR:
-			return { Tag: tag, Text: Player.Name, MemberNumber: Player.MemberNumber };
+			return { Tag: tag, Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber };
 		case CommonChatTags.DEST_CHAR:
 		case CommonChatTags.DEST_CHAR_NAME:
 		case CommonChatTags.TARGET_CHAR:
 		case CommonChatTags.TARGET_CHAR_NAME:
-			return { Tag: tag, Text: C.Name, MemberNumber: C.MemberNumber };
+			return { Tag: tag, Text: CharacterNickname(C), MemberNumber: C.MemberNumber };
 		case CommonChatTags.ASSET_NAME:
 			return { Tag: tag, AssetName: asset.Name };
 		default:

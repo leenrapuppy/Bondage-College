@@ -37,8 +37,8 @@ function InventoryItemHandsPawMittensChain() {
 				if (C.ID == 0) ServerPlayerAppearanceSync();
 				if (CurrentScreen == "ChatRoom") {
 					var Dictionary = [];
-					Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
-					Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
+					Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
+					Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
 					ChatRoomPublishCustomAction("MittenChain", true, Dictionary);
 					ChatRoomCharacterUpdate(C);
 				}

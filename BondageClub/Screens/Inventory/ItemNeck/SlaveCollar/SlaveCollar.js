@@ -4,6 +4,7 @@ var InventoryItemNeckSlaveCollarColor = "Default";
 var InventoryItemNeckSlaveCollarOffset = 0;
 
 // Defines all the slave collar models
+/** @type {(ExtendedItemOption & { Image: string })[]} */
 var InventoryItemNeckSlaveCollarTypes = [
 	{
 		Name: "",
@@ -212,8 +213,8 @@ function InventoryItemNeckSlaveCollarSetType(NewType) {
 	var Type = InventoryItemNeckSlaveCollarTypes.find(Collar => Collar.Name == NewType) || InventoryItemNeckSlaveCollarTypes[0];
 	DialogFocusItem.Property = Type.Property;
 	var Dictionary = [];
-	Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
-	Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
+	Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
+	Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
 	ChatRoomPublishCustomAction("SlaveCollarChangeType", true, Dictionary);
 	CharacterRefresh(C);
 }

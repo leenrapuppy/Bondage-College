@@ -1,0 +1,481 @@
+###_NPC
+(She tries to understand you but fails.)  I'm sorry Miss, it's not easy to understand what you're saying.
+(Она пытается понять вас, но терпит неудачу.) Извините, мисс, нелегко понять, что вы говорите.
+(She seems pretty mad.)  What do you think you're doing?   You will get caught right away.
+(Она кажется довольно сумасшедшей.)  Как ты думаешь, что ты делаешь?   Вас сразу же поймают.
+(She seems very happy.)  You're no match for Pandora's staff.  Now it's time to prepare your punishment.
+(Она кажется очень счастливой.)  Тебе не сравниться с посохом Пандоры.  Теперь пришло время подготовить твое наказание.
+(A Dominatrix takes you away from the maid.)  So, we've caught the infamous DialogPlayerName.  You'll never forget this lesson.
+(Доминатрикс забирает тебя у горничной.)  Итак, мы поймали печально известную DialogPlayerName.  Ты никогда не забудешь этот урок.
+(A Dominatrix takes you away from the maid.)  You've been on list for a while DialogPlayerName.  I'll teach you a lesson.
+(Доминатрикс забирает тебя у горничной.)  Ты уже некоторое время в списке DialogPlayerName.  Я преподам тебе урок.
+(A Dominatrix takes you away from the maid.)  (She cracks her knuckles.)  So, you're a troublemaker?  I'll teach you a lesson.
+(Доминатрикс забирает тебя у горничной.)  (Она хрустит костяшками пальцев.)  Значит, ты нарушительница спокойствия?  Я преподам тебе урок.
+(A Dominatrix takes you away from the maid.)  (She stares at you.)  You've caused some trouble?  Then it's time for your lesson.
+(Доминатрикс забирает тебя у горничной.)  (Она пристально смотрит на тебя.) Ты причинила какие-то неприятности?  Тогда пришло время для твоего урока.
+(She shakes her head no, as you gag her.)
+(Она отрицательно качает головой, когда ты затыкаешь ей рот кляпом.)
+(You remove her gag and she nods.)  Thanks Miss, I promise I won't scream.
+(Вы вынимаете у нее кляп, и она кивает.) Спасибо, мисс, я обещаю, что не буду кричать.
+(She seems surprised as you push earplugs inside.)  I hope you won't keep me deaf for too long.
+(Она, кажется, удивлена, когда ты засовываешь внутрь затычки для ушей.)  Я надеюсь, ты не будешь держать меня глухим слишком долго.
+(You pull the earplugs out.)  It will be easier to communicate.
+(Вы вытаскиваете затычки из ушей.)  Так будет легче общаться.
+(She barely struggles as you restrain her arms securely.)  I'm no match for you.
+(Она едва сопротивляется, когда вы надежно удерживаете ее руки.)  Я тебе не ровня.
+(You free her arms and she stretches.)  The Dominatrixes will get you.
+(Вы освобождаете ее руки, и она потягивается.)  Доминатриксы доберутся до тебя.
+(She grumbles as you restrain her legs.)  You know that I have a job to do?
+(Она ворчит, когда вы удерживаете ее ноги.)  Ты знаешь, что у меня есть работа, которую нужно сделать?
+(You release her legs as she nods.)  Can I go now?
+(Ты отпускаешь ее ноги, когда она кивает.)  Теперь я могу идти?
+(She sighs as you restrain her feet.)  My chores will pill up.
+(Она вздыхает, когда вы удерживаете ее ноги.)  Мои дела по дому подтянутся.
+(You release her feet as she dances happily.)  I'm getting free?
+(Вы отпускаете ее ноги, пока она счастливо танцует.)  Я становлюсь свободныой?
+(She adjusts her neck to the new collar.)  I'm not supposed to wear foreign collars.
+(Она поправляет на шее новый ошейник.)  Я не должна носить чужие ошейники.
+(You remove the collar from her neck.)  You will get punished for days.
+(Вы снимаете ошейник с ее шеи.)  Вы будете наказаны в течение нескольких дней.
+(She struggles to avoid the belt but you're able to strap it on her.)  Is that really necessary?
+(Она изо всех сил пытается избежать ремня, но вы можете пристегнуть его к ней.)  Действительно ли это необходимо?
+(She giggles as you unlock the belt.)  You got my scarred with that belt.
+(Она хихикает, когда ты расстегиваешь ремень.)  Ты изуродовала меня этим ремнем.
+(She stays silent as you strap the device on her head.)
+(Она молчит, пока вы пристегиваете устройство к ее голове.)
+(You release her head as she nods rapidly.)  You better run while you can.
+(Вы отпускаете ее голову, и она быстро кивает.)  Тебе лучше бежать, пока можешь.
+(You put the hood on her head as she goes silent.)
+(Вы надеваете ей на голову капюшон, когда она замолкает.)
+(She smiles as you remove the hood from her head.)  Why are you still here?
+(Она улыбается, когда вы снимаете капюшон с ее головы.)  Почему ты все еще здесь?
+(You strap the item on her nose as she grumbles.)  I'm a maid!  Not a slave.
+(Вы пристегиваете предмет к ее носу, пока она ворчит.)  Я горничная!  Не рабыня.
+(She nods as you remove the device.)  Maybe they will force you to do my chores.
+(Она кивает, когда вы снимаете устройство.)  Может быть, они заставят тебя делать мою работу по дому.
+(You strap the harness on her torso as she moans.)  Oh!  Why is that turning me on?
+(Вы пристегиваете ремень безопасности к ее торсу, пока она стонет.)  О!  Почему это меня заводит?
+(She stretches as you release her from the harness.)  You're so much trouble.
+(Она потягивается, когда вы освобождаете ее от ремня безопасности.)  От тебя столько хлопот.
+(She jumps as you slide the device inside.)  Woah!  Miss!
+(Она подпрыгивает, когда вы вставляете устройство внутрь.)  Вау!  Мисс!
+(She seems to appreciate as you remove the plug.)  Another crazy day at Pandora's Box I guess.
+(Кажется, она ценит, когда вы вынимаете пробку.)  Наверное, еще один сумасшедший день в Ящике Пандоры.
+(She holds her breath as you use the item.)  I'm not getting paid enough.
+(Она задерживает дыхание, когда вы используете этот предмет.)  Мне недостаточно платят.
+(She wiggles her breast slowly as you remove the device.)  Thanks Miss.
+(Она медленно покачивает грудью, пока вы снимаете устройство.)  Спасибо, мисс.
+(She whimpers as you use the device on her breast.)  Ow!  Was this in my maid contract?
+(Она хнычет, когда вы прикладываете устройство к ее груди.) Ой!  Было ли это в моем контракте с горничной?
+(She takes a deep breath and stays silent as you remove the device.)
+(Она делает глубокий вдох и молчит, пока вы снимаете устройство.)
+Hi sister, I hope you're doing well.
+Привет, сестренка, надеюсь, у тебя все хорошо.
+I like your costume Miss.  (She does a maid curtsy.)  Would you like something to drink?
+Мне нравится ваш костюм, мисс.  (Она делает реверанс горничной.)  Не хотите ли чего-нибудь выпить?
+Hello Miss guard.  (She does a maid curtsy.)  Do you need a refreshing drink for your hard work?
+Здравствуйте, мисс страж.  (Она делает реверанс горничной.)  Вам нужен освежающий напиток для вашей тяжелой работы?
+It's a pleasure to see you Dominatrix.  (She does a maid curtsy.)  Would you like a refreshing drink?
+Приятно вас видеть Доминатрикс. (Она делает реверанс горничной.) Не хотите ли освежающего напитка?
+(She ponders.)  Miss?  You know you look a little like the infamous DialogPlayerName?
+(Она размышляет.)  Мисс?  Вы знаете, что немного похожи на печально известного DialogPlayerName?
+(She does a maid curtsy.)  Hello Miss, I think we've met before.  I'm maid DialogCharacterName.
+(Она делает реверанс горничной.)  Здравствуйте, мисс, я думаю, мы уже встречались раньше.  Я горничная DialogCharacterName.
+Hello Miss, it's a pleasure to meet you.
+Здравствуйте, мисс, рада с вами познакомиться.
+###_PLAYER
+Who are you?
+Кто ты?
+###_NPC
+(She does a maid curtsy.)  I'm maid DialogCharacterName.  Do you require my assistance?
+(Она делает реверанс горничной.)  Я горничная DialogCharacterName.  Вам нужна моя помощь?
+###_PLAYER
+I'll have something to drink.
+Я выпью чего-нибудь.
+###_NPC
+Of course!  Let me get the menu.  (She shows you the drink menu.)
+Конечно!  Позвольте мне взять меню.  (Она показывает вам меню напитков.)
+(She giggles.)  Then go get it yourself sister.
+(Она хихикает.)  Тогда иди и возьми его сама, сестра.
+###_PLAYER
+I need your clothes.
+Мне нужна твоя одежда.
+###_NPC
+(She takes a step back and looks suspicious.)  My clothes?  Why is that?
+(Она делает шаг назад и смотрит с подозрением.)  Моя одежда?  Это почему?
+###_PLAYER
+(Give her a sisterly hug.)
+(По-сестрински обнимает ее.)
+###_NPC
+(She hugs you back.)  Thanks!  Sister hugs are the best.
+(Она обнимает тебя в ответ.)  Спасибо!  Сестринские объятия - это самое лучшее.
+###_PLAYER
+Are you getting paid enough for your work?
+Достаточно ли вам платят за вашу работу?
+###_NPC
+(She ponders.)  The salary isn't great, but it's a fun job.
+(Она размышляет.)  Зарплата невелика, но это веселая работа.
+###_PLAYER
+Sister, can I have some paint?
+Сестра, можно мне немного краски?
+###_NPC
+Paint brushes, buckets and cans are available in the warehouse.  Do you need help to get there?
+Малярные кисти, ведра и банки можно приобрести на складе.  Вам нужна помощь, чтобы добраться туда?
+###_PLAYER
+I don't need anything.  (Go explore.)
+Мне ничего не нужно.  (Иди исследуй.)
+A glass of water. ($0)
+Стакан воды. ($0)
+###_NPC
+(She comes back with a glass of water for you to enjoy.)  Anything else?
+(Она возвращается со стаканом воды, чтобы вы могли насладиться.) Что-нибудь еще?
+###_PLAYER
+A cup of coffee. ($0)
+Чашечку кофе. ($0)
+###_NPC
+(She comes back with a cup of coffee for you to enjoy.)  Anything else?
+(Она возвращается с чашкой кофе, чтобы вы могли насладиться.) Что-нибудь еще?
+###_PLAYER
+A beer please. ($5)
+Пива, пожалуйста. ($5)
+###_NPC
+(She comes back with a beer for you to enjoy.  You give her $5.)  Anything else?
+(Она возвращается с пивом, чтобы вы могли насладиться.  Ты даешь ей 5 долларов.)  Что-нибудь еще?
+###_PLAYER
+A glass of wine. ($5)
+Бокал вина. ($5)
+###_NPC
+(She comes back with a glass of wine for you to enjoy.  You give her $5.)  Anything else?
+(Она возвращается с бокалом вина, чтобы вы могли насладиться.  Ты даешь ей 5 долларов.)  Что-нибудь еще?
+###_PLAYER
+A martini. ($10)
+Мартини. ($10)
+###_NPC
+(She comes back with a martini for you to enjoy.  You give her $10.)  Anything else?
+(Она возвращается с мартини, чтобы вы могли насладиться.  Ты даешь ей 10 долларов.)  Что-нибудь еще?
+###_PLAYER
+A margarita. ($10)
+Маргарита. ($10)
+###_NPC
+(She comes back with a margarita for you to enjoy.  You give her $10.)  Anything else?
+(Она возвращается с "маргаритой", чтобы вы могли насладиться.  Ты даешь ей 10 долларов.)  Что-нибудь еще?
+###_PLAYER
+Nothing, I'm good.
+Ничего, я в порядке.
+###_NPC
+Very well, is there anything else I can do for you?
+Очень хорошо, могу ли я еще что-нибудь для вас сделать?
+###_PLAYER
+I'm a spy, I need a costume.
+Я шпион, мне нужен костюм.
+###_NPC
+A spy?  I will never help you!  Surrender right now!
+Шпион?  Я никогда не помогу тебе!  Сдавайтесь прямо сейчас!
+###_PLAYER
+Stop talking and strip girl.
+Перестань болтать и раздевайся, девочка.
+###_NPC
+No!  Are you a thief?  Surrender right now!
+Нет!  Ты что, вор?  Сдавайтесь прямо сейчас!
+###_PLAYER
+I'd love to become a maid.
+Я бы с удовольствием стала горничной.
+###_NPC
+Then join the sisterhood, I can't give you my clothes.
+Тогда вступай в сестринство, я не могу отдать тебе свою одежду.
+###_PLAYER
+(Fight her.)
+(Сражайся с ней.)
+(Surrender.)
+(Сдаться.) 
+###_NPC
+(You surrender as she quickly restrains you.)  A Dominatrix will come to take you away.
+(Ты сдаешься, пока она быстро удерживает тебя.) Доминатрикс придет, чтобы забрать тебя.
+###_PLAYER
+Yes, can you help me?
+Да, вы можете мне помочь?
+###_NPC
+(She opens the warehouse and gives you some paint.)  Anything else you need?
+(Она открывает склад и дает вам немного краски.)  Вам еще что-нибудь нужно?
+###_PLAYER
+No, I will be fine.
+Нет, со мной все будет в порядке.
+You should start a union.
+Вам следует создать профсоюз.
+###_NPC
+(She laughs.)  Don't be ridiculous!  A maid union?  We would get punished for years.
+(Она смеется.)  Не будь смешной!  Профсоюз горничных?  Нас будут наказывать годами.
+###_PLAYER
+Having fun is enough I guess.
+Думаю, достаточно повеселиться.
+###_NPC
+(She nods.)  Yes, absolutely.  Having fun while working is enough for me.
+(Она кивает.)  Да, безусловно.  Мне достаточно получать удовольствие во время работы.
+###_PLAYER
+You deserve a better salary.
+Ты заслуживаешь лучшей зарплаты.
+###_NPC
+You think so?  Is there a place that would pay more for the same job?
+Ты так думаешь?  Есть ли место, где за ту же работу платили бы больше?
+###_PLAYER
+I found a great maid sorority.
+Я нашла отличное женское общество горничных.
+###_NPC
+Now I'm curious sister.   Where did you found that?
+Теперь я любопытная сестра.  Где ты это нашла?
+###_PLAYER
+Have you heard of the Bondage Club?
+Ты слышала о Клубе Бондажа?
+###_NPC
+I've heard good things about it.  Do you think they would hire a maid like me?
+Я слышала об этом много хорошего.  Как ты думаешь, они бы наняли такую горничную, как я?
+I've worked there before, but I prefer Pandora's Box.  Sorry.
+Я работала там раньше, но предпочитаю "Ящик Пандоры". Извините.
+###_PLAYER
+At my house.
+В моем доме.
+###_NPC
+(She raises her eyes.)  You're not funny.  Let's talk about something else then.
+(Она поднимает глаза.)  Ты не смешная.  Тогда давай поговорим о чем-нибудь другом.
+###_PLAYER
+(Shrugs.)  I don't now.
+(Пожимать плечами.)  Я не знаю.
+###_NPC
+(She sighs.)  Too bad, let's talk about something else then.
+(Она вздыхает.)  Очень жаль, тогда давай поговорим о чем-нибудь другом.
+###_PLAYER
+Yes!  You could get a job right now.
+Да!  Ты могла бы устроиться на работу прямо сейчас.
+###_NPC
+This is wonderful!  Thanks a lot, I will go there and join as a maid.  (Your infiltration skill has increased.)
+Это замечательно!  Большое спасибо, я пойду туда и устроюсь горничной.  (Ваш навык проникновения увеличился.)
+###_PLAYER
+Yes!  And I have a room that we could share.
+Да!  И у меня есть комната, которую мы могли бы разделить.
+###_NPC
+This is wonderful!  I will meet you there in your room.  (Your infiltration skill has increased.)
+Это замечательно!  Я встречу тебя там, в твоей комнате.  (Ваш навык проникновения увеличился.)
+###_PLAYER
+I don't know.
+Я не знаю.
+###_NPC
+I can't risk losing my job here, I need the money.  Let's talk about something else.
+Я не могу рисковать потерять здесь работу, мне нужны деньги.  Давай поговорим о чем-нибудь другом.
+###_PLAYER
+Not right now.
+Не прямо сейчас.
+(Let her go to the Bondage Club.)
+(Пусть она идет в Клуб Бондажа.)
+(Let her go to your private room.)
+(Отпусти ее в свою отдельную комнату.)
+###_NPC
+You think you're smart?  You will never get away.
+Ты думаешь, что ты умная?  Ты никогда не уйдешь.
+###_PLAYER
+Maid, go get me a drink.
+Горничная, принеси мне выпить.
+###_NPC
+(She grumbles.)  You think you're funny?  You won't have much to drink when you rot in a cell.
+(Она ворчит.)  Ты думаешь, что ты смешная?  Тебе не придется много пить, когда ты будешь гнить в камере.
+###_PLAYER
+(Bring her with you.)
+(Возьми ее с собой.)
+###_NPC
+Hey!  I have a job to do!  (She will follow you from room to room.)
+Эй!  У меня есть работа, которую нужно сделать!  (Она будет следовать за вами из комнаты в комнату.)
+###_PLAYER
+(Leave her here.)
+(Оставь ее здесь.)
+###_NPC
+Can I go back to work now?  (She will no longer follow you.)
+Могу я теперь вернуться к работе?  (Она больше не будет следовать за вами.)
+###_PLAYER
+(Strip her naked.)
+(Разденьте ее догола.)
+###_NPC
+(She seems furious as you strip her naked.)  You will pay for that.
+(Она кажется разъяренной, когда ты раздеваешь ее догола.)  Вы заплатите за это.
+###_PLAYER
+(Wear her clothes.)
+(Наденьте ее одежду.)
+###_NPC
+(She stares at you as you quickly dress up as her.)  You won't fool anyone.
+(Она пристально смотрит на тебя, пока ты быстро переодеваешься в нее.) Ты никого не обманешь.
+###_PLAYER
+(Leave her.)
+(Оставь ее.)
+Punishment?  What do you mean?
+Наказание?  Что ты имеешь в виду?
+###_NPC
+You will understand and remember your lesson.  Don't try anything funny, a Dominatrix will take care of you soon.
+Вы поймете и запомните свой урок.  Не пытайся выкинуть что-нибудь смешное, Доминатрикс скоро позаботится о тебе.
+###_PLAYER
+You're not punishing me girl.
+Ты накажешь меня, девочка.
+###_NPC
+Of course, I won't do it myself, a Dominatrix will take care of you soon.
+Конечно, я не буду делать это сам, Доминатрикс скоро позаботится о тебе.
+###_PLAYER
+I will accept it Miss.
+Я приму это, мисс.
+###_NPC
+Very good, you're already learning.  A Dominatrix will take care of you soon.
+Очень хорошо, ты уже учишься.  Доминатрикс скоро позаботится о тебе.
+###_PLAYER
+(Scream in your gag.)
+(Кричи в свой кляп.)
+###_NPC
+Stop making all that noise.  A Dominatrix will take care of you soon.
+Прекрати издавать весь этот шум.  Доминатрикс скоро позаботится о тебе.
+###_PLAYER
+(Thrash in your bondage.)
+(Извивайся в своем бондаже.)
+###_NPC
+Don't try to do anything funny.  A Dominatrix will take care of you soon.
+Не пытайся делать ничего смешного. Доминатрикс скоро позаботится о тебе.
+###_PLAYER
+(Bow your head and stay silent.)
+(Склоните голову и храните молчание.)
+###_NPC
+Good girl.  A Dominatrix will take care of you soon.
+Хорошая девочка. Доминатрикс скоро позаботится о тебе.
+###_PLAYER
+Can we negotiate?
+Можем ли мы договориться?
+###_NPC
+It's too late for that.  Just wait and be quiet.
+Для этого уже слишком поздно.  Просто подожди и помолчи.
+###_PLAYER
+I will have my revenge.
+Я отомщу.
+###_NPC
+You won't.  We will teach you a lesson that you will never forget.
+Ты этого не сделаешь.  Мы преподадим вам урок, который вы никогда не забудете.
+###_PLAYER
+(Wait for the Dominatrix.)
+(Дождитесь Доминатрикс.)
+###_NPC
+Sorry for the trouble Miss.  Please have a good day.
+Извините за беспокойство, мисс.  Пожалуйста, хорошего дня.
+###_PLAYER
+Take care.  (Go explore.)
+Береги себя. (Иди исследуй.)
+###_NPC
+(A maid jumps in front of you and blocks your path.)  Can I speak with you Miss?
+(Горничная прыгает перед вами и преграждает вам путь.)  Могу я поговорить с вами, мисс?
+###_PLAYER
+Of course.
+Конечно.
+###_NPC
+Very good.  An object has been stolen and I'm mandated to search everyone.  Can I please search on you?
+Очень хорошо.  Был украден предмет, и мне поручено обыскать всех.  Могу я, пожалуйста, обыскать вас?
+###_PLAYER
+Make it quick.
+Сделай это быстро.
+###_NPC
+I will.  An object has been stolen and I'm mandated to search everyone.  Can I please search on you?
+Я буду.  Был украден предмет, и мне поручено обыскать всех.  Могу я, пожалуйста, обыскать вас?
+###_PLAYER
+I don't have time.
+У меня нет времени.
+###_NPC
+I'm sorry, but an object has been stolen and I'm mandated to search everyone.  Can I please search on you?
+Мне очень жаль, но был украден предмет, и мне поручено обыскать всех.  Могу я, пожалуйста, обыскать вас?
+###_PLAYER
+(Nod.)
+(Кивок.)
+(Look around.)
+(Оглядитесь вокруг.)
+Don't touch me!
+Не прикасайся ко мне!
+###_NPC
+(She jumps and looks angry.)  Are you the thief?  Surrender right now!
+(Она подпрыгивает и выглядит сердитой.)  Ты вор?  Сдавайтся прямо сейчас!
+###_PLAYER
+Go ahead.
+Идти вперед.
+###_NPC
+(She starts to search but doesn't find the object.)  Sorry for the trouble Miss, you're good to go.
+(Она начинает искать, но не находит предмет.)  Извините за беспокойство, мисс, вы можете идти.
+(She starts to search and quickly finds the object.)  You're the thief!  Surrender right now!
+(Она начинает искать и быстро находит нужный предмет.) Ты вор! Сдавайтесь прямо сейчас!
+(A maid jumps in front of you and blocks your path.)  Sister, can I speak with you?
+(Горничная прыгает перед вами и преграждает вам путь.)  Сестра, могу я поговорить с тобой?
+###_PLAYER
+Of course, sister.
+Конечно, сестра.
+###_NPC
+An object has been stolen, can you stop your duty and bring a Dominatrix here?
+Был украден предмет, можете ли вы прекратить свои обязанности и привести сюда Доминатрикс?
+###_PLAYER
+What's going on?
+Что происходит?
+###_NPC
+I'm sorry, but an object has been stolen, can you stop your duty and bring a Dominatrix here?
+Извините, но был украден предмет, не могли бы вы прекратить свои обязанности и привести сюда Доминатрикс?
+###_PLAYER
+I will do it.
+Я сделаю это.
+###_NPC
+Thank you so much.  You're good to go, please hurry.
+Огромное спасибо.  Вы можете идти, пожалуйста, поторопитесь.
+###_PLAYER
+No problem sis.
+Нет проблем, сестренка.
+I'm too busy.
+Я слишком занят.
+###_NPC
+I'm sorry.  You're good to go then.  See you later.
+Мне жаль.  Тогда ты можешь идти.  Увидимся позже.
+(A maid jumps in front of you and blocks your path.)  What are you doing with this prisoner?
+(Горничная прыгает перед вами и преграждает вам путь.)  Что вы делаете с заключенным?
+###_PLAYER
+That's none of your business.
+Это не твое дело.
+###_NPC
+You're trying to rescue her?  Surrender right now!
+Ты пытаешься спасти ее?  Сдавайтесь прямо сейчас!
+###_PLAYER
+I'm rescuing her.
+Я спасаю ее.
+###_NPC
+Not while I'm on duty!  Surrender right now!
+Только не тогда, когда я на дежурстве!  Сдавайтесь прямо сейчас!
+###_PLAYER
+Her ransom was paid.
+Ее выкуп был выплачен.
+###_NPC
+(She nods.)  Very good, please take her away then.  You're good to go.
+(Она кивает.)  Очень хорошо, тогда, пожалуйста, заберите ее отсюда.  Ты можешь идти.
+(She shakes her head no.)  I know you're lying!  Surrender right now!
+(Она отрицательно качает головой.)  Я знаю, что ты лжешь!  Сдавайтесь прямо сейчас!
+(A maid jumps in front of you and blocks your path.)  Miss guard, what is going on with this prisoner?
+(Горничная прыгает перед вами и преграждает вам путь.)  Мисс охранник, что происходит с этим заключенным?
+###_PLAYER
+She's getting transferred.
+Ее переводят.
+###_NPC
+(She nods.)  Of course, please be careful she doesn't escape.  You're good to go.
+(Она кивает.)  Конечно, пожалуйста, будьте осторожны, чтобы она не сбежала.  Ты можешь идти.
+(She sighs.)  I know I'm too curious, sorry.  You're good to go.
+(Она вздыхает.)  Я знаю, что я слишком любопытна, извини.  Ты можешь идти.
+(Your prisoner screams for help and the maid jumps in.)  Stop!  Are you kidnapping her?
+(Ваш заключенный кричит о помощи, и горничная подскакивает.) Остановитесь!  Ты что, похищаешь ее?
+###_PLAYER
+I would never do that.
+Я бы никогда этого не сделал.
+###_NPC
+You're lying, she just said so.  Surrender right now!
+Ты лжешь, она только что так сказала.  Сдавайтесь прямо сейчас!
+###_PLAYER
+What if I am?
+Что, если это так?
+###_NPC
+Then you're in trouble.  Surrender right now!
+Тогда у тебя неприятности.  Сдавайтесь прямо сейчас!
+###_PLAYER
+Get out of my way.
+Убирайся с моего пути.
+###_NPC
+I'm not moving.  Surrender right now!
+Я не сдвинусь.  Сдавайтесь прямо сейчас!

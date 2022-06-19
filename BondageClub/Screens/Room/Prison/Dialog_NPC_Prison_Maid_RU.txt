@@ -55,6 +55,24 @@ What kind of test is it?
 ###_NPC
 (She shoves you into a cell and closes the door.)
 (Она запихивает тебя в камеру и закрывает дверь.)
++###_PLAYER
+I heard something about a gang of bad girls?
+Я что-то слышала о банде плохих девчонок?
+###_NPC
+The gang includes the troublemakers, all of whom should be put in a prison cell.
+В банду входят нарушители спокойствия, все они должны быть посажены в тюремную камеру.
+###_PLAYER
+I don't want to be a part of the Bad Girls Gang anymore.
+Я больше не хочу быть частью Банды Плохих девочек.
+###_NPC
+Well, if you promise to be good, we'll leave you alone.
+Что ж, если ты пообещаешь вести себя хорошо, мы оставим тебя в покое.
+###_PLAYER
+(return the dice)
+(верните кости)
+###_NPC
+Thanks.
+Спасибо.
 ###_PLAYER
 Okay. Bye! (Leave her.)
 Окей. Пока! (Оставь ее.)
@@ -93,6 +111,48 @@ Finally I am out of that hole.
 ###_NPC
 All ends well
 Все заканчивается хорошо
+###_PLAYER
+(Continues)
+(Продолжить)
+###_NPC
+The bad girls always steal the special Dices in the Gambling hall for fun.
+Плохие девочки всегда крадут специальные кубики в Игорном зале для развлечения.
+Therefore the guards must check them regularly.
+Поэтому охранники должны регулярно проверять их.
+If they are caught, they are sent to prison for punishment.
+Если их поймают, их отправят в тюрьму для наказания.
+You're not one of those bad girls, are you?
+Ты ведь не одна из тех плохих девчонок, не так ли?
+###_PLAYER
+I would never do that.
+Я бы никогда этого не сделала.
+###_NPC
+You'd better not.
+Тебе лучше этого не делать.
+###_PLAYER
+On the contrary, I want to help catch them.
+Напротив, я хочу помочь их поймать.
+###_NPC
+(This feature will be available in a future version.)
+(Эта функция будет доступна в будущей версии.)
+###_PLAYER
+Sure, that sounds like fun.
+Конечно, это звучит забавно.
+###_NPC
+I'll be keeping an eye on you from now on. Just don't get caught.
+С этого момента я буду присматривать за тобой. Только не попадись.
+###_PLAYER
+I swear it.
+Я клянусь в этом.
+###_NPC
+Then keep it.
+Тогда оставь его себе.
+###_PLAYER
+Ha ha, I'm just kidding.
+Ха-ха, я просто шучу.
+###_NPC
+You'll see what you get out of it.
+Вы увидите, что вы получите от этого.
 ###_PLAYER
 Hey! That really hurts!
 Эй! Это очень больно!

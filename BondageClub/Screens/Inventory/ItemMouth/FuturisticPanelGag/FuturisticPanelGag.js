@@ -1,5 +1,6 @@
 "use strict";
 
+/** @type ExtendedItemOption[] */
 var InventoryItemMouthFuturisticPanelGagOptions = [
 	{
 		Name: "Padded",
@@ -70,7 +71,7 @@ function InventoryItemMouthFuturisticPanelGagLoad() {
 		if (DialogFocusItem.Property.AutoPunishUndoTimeSetting == null) DialogFocusItem.Property.AutoPunishUndoTimeSetting = 300000;
 		if (DialogFocusItem.Property.OriginalSetting == null) DialogFocusItem.Property.OriginalSetting = null;
 		if (DialogFocusItem.Property.ChatMessage == null) DialogFocusItem.Property.ChatMessage = true;
-		if (DialogFocusItem.Property.BlinkState == null) DialogFocusItem.Property.BlinkState = true;
+		if (DialogFocusItem.Property.BlinkState == null) DialogFocusItem.Property.BlinkState = 0;
 	}
 }
 
@@ -210,8 +211,9 @@ function InventoryItemMouthFuturisticPanelGagGetOption(Options, OptionType) {
 function InventoryItemMouthFuturisticPanelGagPublishActionTrigger(C, Item, Option, Deflate) {
 	var msg = "FuturisticPanelGagMouthSetAuto" + ((Deflate) ? "Deflate" : "Inflate") + Option.Name;
 
+	/** @type {ChatMessageDictionary} */
 	var Dictionary = [
-		{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
+		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 		{ Tag: "AssetName", AssetName: Item.Asset.Name },
 	];
 	if (Item.Property.ItemMemberNumber) Dictionary.push({ Tag: "ItemMemberNumber", MemberNumber: Item.Property.ItemMemberNumber });
@@ -225,8 +227,8 @@ function InventoryItemMouthFuturisticPanelGagSetAutoPunish(C, Item, Level) {
 	Item.Property.AutoPunish = Level;
 	var msg = "FuturisticPanelGagMouthSetAutoPunish" + Level;
 	var Dictionary = [
-		{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-		{ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber },
+		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 	];
 	ChatRoomPublishCustomAction(msg, true, Dictionary);
 }
@@ -235,8 +237,8 @@ function InventoryItemMouthFuturisticPanelGagSetAutoPunishTime(C, Item, Time) {
 	Item.Property.AutoPunishUndoTimeSetting = Time;
 	var msg = "FuturisticPanelGagMouthSetAutoPunishTime" + Time;
 	var Dictionary = [
-		{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-		{ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber },
+		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 	];
 	ChatRoomPublishCustomAction(msg, true, Dictionary);
 }
@@ -250,8 +252,8 @@ function InventoryItemMouthFuturisticPanelGagSetAutoPunishTime(C, Item, Time) {
 function InventoryItemMouthFuturisticPanelGagPublishAction(C, Option) {
 	var msg = "FuturisticPanelGagMouthSet" + Option.Name;
 	var Dictionary = [
-		{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-		{ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber },
+		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 	];
 	ChatRoomPublishCustomAction(msg, true, Dictionary);
 }

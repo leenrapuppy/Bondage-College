@@ -1,0 +1,62 @@
+###_NPC
+(She checks your gag.)  Gags are such a perfect fit for prisoners.
+（她检查你的口塞。）口塞非常适合囚犯。
+(A maid steps in carefully, escorted by guards.)  I've heard you're dangerous Miss DialogPlayerName.  Don't hurt me, I'm here to release you.
+（一名女仆小心地走进来，由警卫护送。）我听说你很危险DialogPlayerName女士。不要伤害我，我是来释放你的。
+(A maid steps in slowly, escorted by guards.)  You're Miss DialogPlayerName from the Bondage Club?  I'm here to release you.
+（一名女仆在警卫的护送下缓缓走进来。）你是束缚俱乐部的DialogPlayerName女士吗？我是来释放你的。
+(A maid steps in, escorted by a guard.)  You're the prisoner from the Bondage Club?  I'm here to release you.
+（一名女仆走进来，由一名守卫护送。）你是来自束缚俱乐部的犯人？我是来释放你的。
+(A maid steps in carelessly, escorted by a guard.)  Hello there, I'm here to release you.
+（一名女仆漫不经心地走进来，由一名侍卫护送。）你好，我是来施放你的。
+###_PLAYER
+My time is done?
+我的时间结束了？
+###_NPC
+(She nods.)  Yes Miss.  I will escort you out of the buidling when you're ready.
+（她点头）是的，小姐。在你准备好后，我会护送你离开大楼。
+###_PLAYER
+I was having fun.
+我正在享受呢。
+###_NPC
+(She giggles.)  Well you can stay for a few more minutes, there's no hurry.
+（她咯咯地笑。）好吧，你可以再多呆几分钟，不用着急。
+###_PLAYER
+Thanks Maid.
+谢谢，女仆。
+###_NPC
+(She nods, helps you out and escorts you out of Pandora's Box.)  I trust you've learned your lesson.
+（她点头，帮助你离开，并护送到潘多拉魔盒外面。）我相信你已经吸取了教训。
+###_PLAYER
+Finally!  You took your time.
+终于！你慢慢来吧。
+###_NPC
+(She sighs, helps you out and escorts you out of Pandora's Box.)  I trust you've learned your lesson.
+（她叹了口气，帮助你离开，并护送到潘多拉魔盒外面。）我相信你已经吸取了教训。
+###_PLAYER
+(Mumble in your gag.)
+（在口塞里咕哝。）
+###_NPC
+(She helps you out and escorts you out of the building.)  I trust you've learned your lesson.
+（她帮助你离开，并护送到潘多拉魔盒外面。）我相信你已经吸取了教训。
+###_PLAYER
+(Struggle in your restraints.)
+（在你的束缚中挣扎。）
+(Stay silent.)
+（保持沉默。）
+(Look around.)
+（环视四周。）
+Wait!  What about my clothes?
+等等！我的衣服呢？
+###_NPC
+We will mail them to you.  Some fresh air will be an extra lesson.  You better run.  (She giggles.)
+我们会把你的衣服邮寄给你。享受一些新鲜空气将是一个额外的教训。你最好跑起来。（她咯咯地笑。）
+###_PLAYER
+Lesson learned, I won't get caught again.
+我吸取教训了，我不会再被抓到了。
+You will understand the next lesson.
+下次教训你就会明白了。
+Yes Miss, I understand.
+是的，女士，我明白了。
+(Go back to the club.)
+（回到俱乐部。）

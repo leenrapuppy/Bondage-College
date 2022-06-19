@@ -1,6 +1,67 @@
 ﻿(Two maids grab you and escort you to their quarters.  Another maid addresses you.)  Your owner sent you here to work.
-(Две служанки хватают тебя и провожают в свои покои.  К тебе обращается другая горничная)  Твоя хозяйка послал тебя сюда работать.
+(Две горничные хватают тебя и сопровождают в свои покои. К тебе обращается другая горничная) Твоя хозяйка отправила тебя сюда на работу.
 Talk to everyone
-Обсуждение для всех
+Говори со всеми
 Whisper to
-Шепот в
+Шепнуть
+Keep only 20 messages
+Оставить только 20 сообщений
+Your character profile
+Твой профиль персонажа
+Room administration
+Администрация комнаты
+Kneel down / Stand up
+Встать на колени / Встать
+Show / hide character icons
+Показать / скрыть значки персонажей
+Take a picture
+Сделать фото
+Dress your character
+Одеть твоего персонажа
+Leave this chat room
+Покинь этот чат
+Stop leaving
+Перестать уходить
+Game options
+Настройки игры
+An orgasm is coming!
+Оргазм приближается!
+Resist!
+Сопротивляться!
+Try to resist
+Попробуй сопротивляться
+Surrender
+Сдаться
+Recovering from an orgasm...
+Восстановление после оргазма...
+<strong>Help: KeyWord</strong>
+<strong>Помошь: KeyWord</strong>
+command: no such command
+команда: нет такой команды
+command: prerequisite check failed
+команда: проверка предварительных требований не удалась
+HELP IS MISSING
+ПОМОЩЬ ОТСУТСТВУЕТ
+Friendlist:
+Список друзей:
+Ghostlist:
+Список призраков:
+Whitelist:
+Белый список:
+Blacklist:
+Черный список:
+(Two nurses wearing futuristic gear grab you and carry you to the Asylum.  Another nurse is waiting for you there.)  Welcome.  Don't be scared.
+(Две медсестры в футуристических костюмах хватают вас и несут в психушку. Там вас ждет еще одна медсестра.) Добро пожаловать. Не бойся.
+Talking is forbidden when your owner is present.
+Разговаривать в присутствии хозяйки запрещено.
+Emoting is forbidden when your owner is present.
+Эмоции запрещены, когда ваша хозяйки присутствует.
+Whispering to others is forbidden when your owner is present.
+Шептать другим запрещено, когда ваша хозяйки присутствует.
+Changing pose is forbidden when your owner is present.
+Менять позу в присутствии хозяйки запрещено.
+Accessing yourself is forbidden when your owner is present.
+Доступ к себе запрещен, когда ваша хозяйка присутствует.
+Accessing others is forbidden when your owner is present.
+Доступ к другим запрещен, когда ваша хозяйка присутствует.
+

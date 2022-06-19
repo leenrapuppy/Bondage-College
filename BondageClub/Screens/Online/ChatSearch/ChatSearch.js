@@ -17,6 +17,7 @@ var ChatSearchIgnoredRooms = [];
 var ChatSearchMode = "";
 var ChatSearchRejoinIncrement = 1;
 var ChatSearchReturnToScreen = null;
+var ChatSearchLanguage = "";
 var ChatRoomJoinLeash = "";
 
 /**
@@ -72,7 +73,7 @@ function ChatSearchRun() {
 	DrawTextFit(TextGet(ChatSearchMessage), 255, 935, 490, "White", "Gray");
 	ElementPosition("InputSearch",  740, 926, 470);
 	DrawButton(980, 898, 280, 64, TextGet(ChatSearchMode != "Filter" ? "SearchRoom" : "FilterRefresh"), "White");
-	DrawButton(1280, 898, 280, 64, TextGet("CreateRoom"), "White");
+	DrawButton(1280, 898, 280, 64, TextGet(ChatSearchMode != "Filter" ? "CreateRoom" : "Language" + ChatSearchLanguage), "White");
 	if (ChatSearchResult.length + (ChatSearchMode != "Filter" ? 0 : ChatSearchIgnoredRooms.length) > ChatSearchRoomsPerPage) DrawButton(1585, 885, 90, 90, "", "White", "Icons/Next.png", TextGet("Next"));
 	DrawButton(1685, 885, 90, 90, "", "White", ChatSearchMode != "Filter" ? "Icons/DialogPermissionMode.png" : "Icons/DialogNormalMode.png", TextGet(ChatSearchMode != "Filter" ?  "FilterMode" : "NormalMode"));
 	DrawButton(1785, 885, 90, 90, "", "White", "Icons/FriendList.png", TextGet("FriendList"));
@@ -89,9 +90,17 @@ function ChatSearchClick() {
 		if (ChatSearchMode == "" && Array.isArray(ChatSearchResult) && (ChatSearchResult.length >= 1)) ChatSearchJoin();
 	}
 	if (MouseIn(980, 898, 280, 64)) ChatSearchQuery();
-	if (MouseIn(1280, 898, 280, 64)) {
+	if (MouseIn(1280, 898, 280, 64) && (ChatSearchMode == "")) {
 		ChatBlockItemCategory = [];
 		CommonSetScreen("Online", "ChatCreate");
+	}
+	if (MouseIn(1280, 898, 280, 64) && (ChatSearchMode == "Filter")) {
+		let Pos = ChatCreateLanguageList.indexOf(ChatSearchLanguage) + 1;
+		if (Pos >= ChatCreateLanguageList.length)
+			ChatSearchLanguage = "";
+		else
+			ChatSearchLanguage = ChatCreateLanguageList[Pos];
+		ServerAccountUpdate.QueueData({ RoomSearchLanguage: ChatSearchLanguage });
 	}
 	if (MouseIn(1585, 885, 90, 90)) {
 		ChatSearchResultOffset += ChatSearchRoomsPerPage;
@@ -487,6 +496,7 @@ function ChatSearchAutoJoinRoom() {
 						Game: "",
 						Admin: [Player.MemberNumber],
 						Limit: ("" + Math.min(Math.max(Player.LastChatRoomSize, 2), 10)).trim(),
+						Language: Player.LastChatRoomLanguage,
 						BlockCategory: ChatBlockItemCategory || []
 					};
 					ServerSend("ChatRoomCreate", NewRoom);
@@ -532,9 +542,10 @@ function ChatSearchQuery() {
 	if (ChatSearchLastQuerySearch != Query || ChatSearchLastQuerySearchHiddenRooms != ChatSearchIgnoredRooms.length || (ChatSearchLastQuerySearch == Query && ChatSearchLastQuerySearchTime + 2000 < CommonTime())) {
 		ChatSearchLastQuerySearch = Query;
 		ChatSearchLastQuerySearchTime = CommonTime();
-		ChatSearchLastQuerySearchHiddenRooms = ChatSearchIgnoredRooms.length;
+		const ignoredRooms = ChatSearchIgnoredRooms.filter(room => room != Query);
+		ChatSearchLastQuerySearchHiddenRooms = ignoredRooms.length;
 		ChatSearchResult = [];
-		ServerSend("ChatRoomSearch", { Query: Query, Space: ChatRoomSpace, Game: ChatRoomGame, FullRooms: FullRooms, Ignore: ChatSearchIgnoredRooms });
+		ServerSend("ChatRoomSearch", { Query: Query, Language: ChatSearchLanguage, Space: ChatRoomSpace, Game: ChatRoomGame, FullRooms: FullRooms, Ignore: ignoredRooms });
 	}
 
 	ChatSearchMessage = "EnterName";
@@ -559,13 +570,21 @@ function ChatSearchQuerySort() {
  * @returns {void} - Nothing
  */
 function ChatSearchApplyFilterTerms() {
-	const filterString = ChatSearchMode == "Filter" ? ElementValue("InputSearch") : Player.ChatSearchFilterTerms;
-	const filterTerms = filterString.split(',').filter(s => s).map(s => s.toUpperCase());
+	const inputSearchText = ElementValue("InputSearch").toUpperCase().trim();
+	const filterList = ChatSearchMode == "Filter" ? inputSearchText : Player.ChatSearchFilterTerms;
+	const filterTerms = filterList.split(',').filter(s => s).map(s => s.toUpperCase());
 	if (filterTerms.length > 0) {
 		ChatSearchResult = ChatSearchResult.filter(room => {
-			const nameContainsFilterTerm = filterTerms.some(term => room.Name.toUpperCase().includes(term));
-			if (nameContainsFilterTerm && ChatSearchIgnoredRooms.indexOf(room.Name) < 0) {
-				ChatSearchIgnoredRooms.push(room.Name);
+			const roomName = room.Name.toUpperCase();
+
+			// for an exact room name match, ignore filters
+			if (ChatSearchMode == "" && roomName == inputSearchText) {
+				return true;
+			}
+
+			const nameContainsFilterTerm = filterTerms.some(term => roomName.includes(term));
+			if (nameContainsFilterTerm && ChatSearchIgnoredRooms.indexOf(roomName) < 0) {
+				ChatSearchIgnoredRooms.push(roomName);
 			}
 			return !nameContainsFilterTerm;
 		});

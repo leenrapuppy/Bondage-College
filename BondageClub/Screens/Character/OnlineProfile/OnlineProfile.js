@@ -1,17 +1,22 @@
 "use strict";
 var OnlineProfileBackground = "Sheet";
+/**
+ * Character used to signal, that description is compressed
+ * @readonly
+ */
+var ONLINE_PROFILE_DESCRIPTION_COMPRESSION_MAGIC = String.fromCharCode(9580);
 
 /**
  * Loads the online profile screen by creating its input
  * @returns {void} - Nothing
  */
 function OnlineProfileLoad() {
-    ElementRemove("DescriptionInput");
-    ElementCreateTextArea("DescriptionInput");
-    var DescriptionInput = document.getElementById("DescriptionInput");
-    DescriptionInput.setAttribute("maxlength", 10000);
-    DescriptionInput.value = (InformationSheetSelection.Description != null) ? InformationSheetSelection.Description : "";
-    if (InformationSheetSelection.ID != 0) DescriptionInput.setAttribute("readonly", "readonly");
+	ElementRemove("DescriptionInput");
+	ElementCreateTextArea("DescriptionInput");
+	const DescriptionInput = /** @type {HTMLInputElement} */ (document.getElementById("DescriptionInput"));
+	DescriptionInput.setAttribute("maxlength", 10000);
+	DescriptionInput.value = (InformationSheetSelection.Description != null) ? InformationSheetSelection.Description : "";
+	if (InformationSheetSelection.ID != 0) DescriptionInput.setAttribute("readonly", "readonly");
 }
 
 /**
@@ -19,13 +24,11 @@ function OnlineProfileLoad() {
  * @returns {void} - Nothing
  */
 function OnlineProfileRun() {
-
-    // Sets the screen controls
-    var desc = ElementValue("DescriptionInput");
-    DrawText(TextGet((InformationSheetSelection.ID == 0) ? "EnterDescription" : "ViewDescription").replace("CharacterName", InformationSheetSelection.Name), 910, 105, "Black", "Gray");
-    ElementPositionFix("DescriptionInput", 36, 100, 160, 1790, 750);
-    if (InformationSheetSelection.ID == 0) DrawButton(1720, 60, 90, 90, "", "White", "Icons/Accept.png", TextGet("LeaveSave"));
-    DrawButton(1820, 60, 90, 90, "", "White", ((InformationSheetSelection.ID == 0) ? "Icons/Cancel.png" : "Icons/Exit.png"), TextGet((InformationSheetSelection.ID == 0) ? "LeaveNoSave" : "Leave"));
+	// Sets the screen controls
+	DrawText(TextGet((InformationSheetSelection.ID == 0) ? "EnterDescription" : "ViewDescription").replace("CharacterName", InformationSheetSelection.Name), 910, 105, "Black", "Gray");
+	ElementPositionFix("DescriptionInput", 36, 100, 160, 1790, 750);
+	if (InformationSheetSelection.ID == 0) DrawButton(1720, 60, 90, 90, "", "White", "Icons/Accept.png", TextGet("LeaveSave"));
+	DrawButton(1820, 60, 90, 90, "", "White", ((InformationSheetSelection.ID == 0) ? "Icons/Cancel.png" : "Icons/Exit.png"), TextGet((InformationSheetSelection.ID == 0) ? "LeaveNoSave" : "Leave"));
 
 }
 
@@ -34,8 +37,8 @@ function OnlineProfileRun() {
  * @returns {void} - Nothing
  */
 function OnlineProfileClick() {
-    if (MouseIn(1820, 60, 90, 90)) OnlineProfileExit(false);
-    if (InformationSheetSelection.ID == 0 && MouseIn(1720, 60, 90, 90)) OnlineProfileExit(true);
+	if (MouseIn(1820, 60, 90, 90)) OnlineProfileExit(false);
+	if (InformationSheetSelection.ID == 0 && MouseIn(1720, 60, 90, 90)) OnlineProfileExit(true);
 }
 
 /**
@@ -44,17 +47,17 @@ function OnlineProfileClick() {
  * @returns {void} - Nothing
  */
 function OnlineProfileExit(Save) {
-    // If the current character is the player, we update the description
-    if ((InformationSheetSelection.ID == 0) && (InformationSheetSelection.Description != ElementValue("DescriptionInput").trim()) && Save) {
-        InformationSheetSelection.Description = ElementValue("DescriptionInput").trim().substr(0, 10000);
-        let Description = InformationSheetSelection.Description;
-        const CompressedDescription = "╬" + LZString.compressToUTF16(Description);
-        if (CompressedDescription.length < Description.length || Description.startsWith("╬")) {
-            Description = CompressedDescription;
-        }
-        ServerAccountUpdate.QueueData({ Description });
-        ChatRoomCharacterUpdate(InformationSheetSelection);
-    }
-    ElementRemove("DescriptionInput");
-    CommonSetScreen("Character", "InformationSheet");
+	// If the current character is the player, we update the description
+	if ((InformationSheetSelection.ID == 0) && (InformationSheetSelection.Description != ElementValue("DescriptionInput").trim()) && Save) {
+		InformationSheetSelection.Description = ElementValue("DescriptionInput").trim().substr(0, 10000);
+		let Description = InformationSheetSelection.Description;
+		const CompressedDescription = ONLINE_PROFILE_DESCRIPTION_COMPRESSION_MAGIC + LZString.compressToUTF16(Description);
+		if (CompressedDescription.length < Description.length || Description.startsWith(ONLINE_PROFILE_DESCRIPTION_COMPRESSION_MAGIC)) {
+			Description = CompressedDescription;
+		}
+		ServerAccountUpdate.QueueData({ Description });
+		ChatRoomCharacterUpdate(InformationSheetSelection);
+	}
+	ElementRemove("DescriptionInput");
+	CommonSetScreen("Character", "InformationSheet");
 }

@@ -1,0 +1,28 @@
+Starts in
+即将开始：
+Send the tennis ball past your opponent.
+把网球打过对方底线。
+Don't let the ball slip through your side.
+不要让球突破己方底线。
+0
+0
+15
+15
+30
+30
+40
+40
+Deuce
+平分
+Advantage
+占先
+Winner
+赢家
+Victory!  Perfect game.
+获胜！完美的一局比赛。
+You won the game.
+你赢得了比赛。
+You lost the game.
+你输掉了比赛。
+Click on yourself to continue.
+点击你自己以继续。

@@ -238,6 +238,8 @@ Mal sehen, was die Würfel dazu sagen...
 ###_PLAYER
 (Whimper and make pleading eyes.)
 (Wimmern und flehende Augen machen.)
+(Whimper and squirm.)
+(Wimmern und winden.)
 ###_NPC
 Do you need help?
 Brauchst du Hilfe?

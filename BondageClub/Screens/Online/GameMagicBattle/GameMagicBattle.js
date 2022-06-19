@@ -189,7 +189,7 @@ function GameMagicBattleStartProcess() {
 
 	// Notices everyone in the room that the game starts
 	var Dictionary = [];
-	Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
+	Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
 	ServerSend("ChatRoomChat", { Content: "MagicBattleGameStart", Type: "Action" , Dictionary: Dictionary});
 
 	// Changes the game status and exits
@@ -378,7 +378,7 @@ function GameMagicBattleAddChatLog(Msg, Source, Target, Data, Color) {
 	div.setAttribute('class', 'ChatMessage ChatMessageServerMessage');
 	div.setAttribute('data-time', ChatRoomCurrentTime());
 	if ((Color != null) && (Color != "")) div.style.color = Color;
-	div.innerHTML = Msg;
+	div.innerText = Msg;
 	var Refocus = document.activeElement.id == "InputChat";
 	var ShouldScrollDown = ElementIsScrolledToEnd("TextAreaChatLog");
 	if (document.getElementById("TextAreaChatLog") != null) {

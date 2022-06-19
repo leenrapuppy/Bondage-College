@@ -384,9 +384,9 @@ function ValidationCanAddItem(newItem, params) {
 
 	// If the item is blocked/limited and the source doesn't have the correct permission, prevent it from being added
 	const type = (newItem.Property && newItem.Property.Type) || null;
-	const blockedOrLimited = ValidationIsItemBlockedOrLimited(
-		C, sourceMemberNumber, asset.Group.Name, asset.Name, type);
-	if (blockedOrLimited && OnlineGameAllowBlockItems()) return false;
+	const itemBlocked = ValidationIsItemBlockedOrLimited(C, sourceMemberNumber, asset.Group.Name, asset.Name, type) ||
+						ValidationIsItemBlockedOrLimited(C, sourceMemberNumber, asset.Group.Name, asset.Name);
+	if (itemBlocked && OnlineGameAllowBlockItems()) return false;
 
 	// Fall back to common item add/remove validation
 	return ValidationCanAddOrRemoveItem(newItem, params);
@@ -535,7 +535,7 @@ function ValidationSanitizeProperties(C, item) {
 	}
 
 	// Clamp item opacity within the allowed range
-	if (property && typeof property.Opacity === "number") {
+	if (typeof property.Opacity === "number") {
 		if (property.Opacity > asset.MaxOpacity) {
 			property.Opacity = asset.MaxOpacity;
 			changed = true;
@@ -544,6 +544,11 @@ function ValidationSanitizeProperties(C, item) {
 			property.Opacity = asset.MinOpacity;
 			changed = true;
 		}
+	}
+
+	if (property.Tint && !asset.AllowTint) {
+		delete property.Tint;
+		changed = true;
 	}
 
 	// Remove invalid properties from non-typed items
@@ -560,7 +565,7 @@ function ValidationSanitizeProperties(C, item) {
 	// Block advanced vibrator modes if disabled
 	if (typeof property.Mode === "string" && C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes && !VibratorModeOptions[VibratorModeSet.STANDARD].includes(VibratorModeGetOption(property.Mode))) {
 		console.warn(`Removing invalid mode "${property.Mode}" from ${asset.Name}`);
-		property.Mode = VibratorModeOptions[VibratorModeSet.STANDARD][0];
+		property.Mode = VibratorModeOptions[VibratorModeSet.STANDARD][0].Name;
 		changed = true;
 	}
 
@@ -586,7 +591,7 @@ function ValidationSanitizeEffects(C, item) {
 	const assetEffect = item.Asset.Effect || [];
 	const allowEffect = item.Asset.AllowEffect || [];
 	property.Effect = property.Effect.filter((effect) => {
-		// The Lock effect is handled by ServerSanitizeLock
+		// The Lock effect is handled by ValidationSanitizeLock
 		if (effect === "Lock") return true;
 		// All other effects must be included in the AllowEffect array to be permitted
 		else if (!assetEffect.includes(effect) && !allowEffect.includes(effect)) {
@@ -608,20 +613,14 @@ function ValidationSanitizeEffects(C, item) {
  * lock was not valid), FALSE otherwise
  */
 function ValidationSanitizeLock(C, item) {
-	const asset = item.Asset;
 	const property = item.Property;
 	// If there is no lock effect present, strip out any lock-related properties
 	if (!Array.isArray(property.Effect) || !property.Effect.includes("Lock")) return ValidationDeleteLock(property);
 
 	const lock = InventoryGetLock(item);
 
-	// If there is no lock, or the asset does not permit locks, or
-	if (
-		!asset.AllowLock ||
-		!lock ||
-		property.AllowLock === false ||
-		(asset.AllowLockType && !asset.AllowLockType.includes(property.Type))
-	) {
+	// If there is no lock, or the item in its current state does not permit locks
+	if (!lock || !InventoryDoesItemAllowLock(item)) {
 		return ValidationDeleteLock(property);
 	}
 
@@ -635,21 +634,30 @@ function ValidationSanitizeLock(C, item) {
 		changed = true;
 	}
 
-	// The character's member number is always valid on a lock
-	if (lockNumber !== C.MemberNumber) {
-		const ownerNumber = C.Ownership && C.Ownership.MemberNumber;
-		const hasOwner = typeof ownerNumber === "number";
-		const lockedByOwner = hasOwner && lockNumber === ownerNumber;
+	const lockedBySelf = lockNumber === C.MemberNumber;
+	const ownerNumber = C.Ownership && C.Ownership.MemberNumber;
+	const lockedByOwner = (typeof ownerNumber === 'number' && lockNumber === ownerNumber);
 
-		// Ensure the lock member number is valid on owner-only locks
-		if (lock.Asset.OwnerOnly && !lockedByOwner) {
+	// Ensure the lock & its member number is valid on owner-only locks
+	if (lock.Asset.OwnerOnly) {
+		const selfCanUseOwnerLocks = !C.IsPlayer() || !LogQuery("BlockOwnerLockSelf", "OwnerRule");
+		const lockNumberValid = (lockedBySelf && selfCanUseOwnerLocks) || lockedByOwner;
+		if (!(C.IsOwned() || typeof ownerNumber === 'number') || !lockNumberValid) {
 			console.warn(`Removing invalid owner-only lock with member number: ${lockNumber}`);
 			return ValidationDeleteLock(property);
 		}
+	}
 
-		const lockedByLover = C.GetLoversNumbers().includes(lockNumber);
-		// Ensure the lock member number is valid on lover-only locks
-		if (lock.Asset.LoverOnly && !lockedByOwner && !lockedByLover) {
+	// Ensure the lock & its member number is valid on lover-only locks
+	if (lock.Asset.LoverOnly) {
+		const hasLovers = !!C.GetLoversNumbers().length;
+		const ownerCanUseLoverLocks = !C.IsPlayer() || !LogQuery("BlockLoverLockOwner", "LoverRule");
+		const selfCanUseLoverLocks = !C.IsPlayer() || !LogQuery("BlockLoverLockSelf", "LoverRule");
+		const lockNumberValid = (lockedBySelf && selfCanUseLoverLocks) ||
+			C.GetLoversNumbers().includes(lockNumber) ||
+			(lockedByOwner && ownerCanUseLoverLocks);
+
+		if (!hasLovers || !lockNumberValid) {
 			console.warn(`Removing invalid lover-only lock with member number: ${lockNumber}`);
 			return ValidationDeleteLock(property);
 		}

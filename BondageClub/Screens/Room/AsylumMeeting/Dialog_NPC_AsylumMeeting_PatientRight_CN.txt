@@ -1,0 +1,141 @@
+﻿###_NPC
+(She giggles.)
+（她咯咯笑起来。）
+(She opens her mouth wide and allows you to silence her easily.)
+（她大大地张开嘴，让你轻松地令她无法说话。）
+(You remove her gag as she smiles at you.)  Gags are so much fun Madam.
+（你移除他的口塞的时候，她对你笑着。）口塞太有趣了，女士。
+(She seems curious as you push the earplugs in.)  You will need to talk louder Madam.
+（在你塞入耳塞的时候，她一脸的好奇。）接下来你需要大声说话了，女士。
+(You pull the earplugs out.) The silence was heightening my other senses.
+（你把耳塞取出来。）沉默让我其他的感官增强了。
+(She turns around submissively while you restrain her arms.)  This therapy is very kinky.
+（在你束缚她的手臂时，她顺从地转过身。）这种疗法真色。
+(You free her arms as she stretches.)  I hope my treatment isn't already complete.
+（你解开她，她伸展了一下身体。）我希望我的治疗还没有完成。
+(She gives you her hands to be restrained.)  No more touching for me it seems.
+（她把双手交给你来进行束缚。）看起来接下来我不能触摸了。
+(You release her hands as she nods slowly.)  Thank you Madam.
+（你解开她的手，她慢慢地点头。）谢谢你，女士。
+(She stands still as you restrain her legs.)  I wasn't planning on running away.
+（在你束缚住她的双腿时，她站着不动。）我本就没有准备逃跑。
+(You release her legs as she rocks her hips.)  Best therapy ever!
+（你解开她的双腿，她摇晃着自己的臀部。）这疗法是最好的！
+(She laughs as you restrain her feet.)  It tickles!
+（你束缚住她的腿，她笑出声来。）这痒死了！
+(You release her feet and she jumps playfully.)  I love being a patient here.
+（你解开她的脚，她调皮地跳了起来。）我好喜欢做这里的患者。
+(You strap the device on her head as she tries to look around.)  This is scary, but I guess it's for my own good.
+（你束缚住她头上的装置，而她试图四处看看。）这好可怕，但我猜这是为了我自己好。
+(You remove the device and she looks at you.)  That was freaky, maybe we should try other types of items.
+（你移除了那个道具，她看着你。）这真吓人，也许我们应该尝试其他类型的物品。
+(She cowers from the pain as you whip her breast.)  Oooww, Madam!  Isn't it a little harsh?
+（你鞭打她的胸部，她因为疼痛而蜷起身体。）哦哦哦，女士！这是不是太重了？
+(You swing the crop on her breast as she whimpers.)  I beg you Madam!  I'll try to be a better patient.
+（你向她的胸部挥动硬鞭，她呻吟着。）求求你饶过我吧女士！我会努力做一个更好的患者的。
+(You whip her butt hard as she jumps from the pain.)  Fuck it hurts!  Oops!  Sorry I said that word.
+（你猛力抽打她的臀部，她由于痛苦而跳起来。）操这好疼！哦！对不起我不该说脏话。
+(She tries to avoid the crop as you swing it on her butt.)  Oh please!  It's really painful.
+（她试图躲开你挥向她臀部的硬鞭。）啊请放过我！这真的好疼。
+(She barely seems to notice that you're there.)
+（她几乎没注意到你在这里。）
+Hello nurse DialogPlayerName, are you here for my bondage treatment?
+你好，护士DialogPlayerName，你是来对我进行束缚治疗的吗？
+Hello Madam, I hope you're having fun in the asylum.
+你好，女士，希望你在收容所玩得开心。
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+(She bows her head.)  I'm patient DialogCharacterName, pleased to meet you Madam.
+（她低下头。）我是患者DialogCharacterName，很高兴认识你女士。
+###_PLAYER
+Why are you restrained?
+你为什么被束缚了？
+###_NPC
+Mistress sent me here for a bondage therapy.  So long story short, I'm in therapy.
+女主人把我送来进行束缚疗法。简单来说，我在接受治疗。
+###_PLAYER
+Can I tie you up?
+我可以绑你吗？
+###_NPC
+(She shakes her head yes.)  Of course, nurse DialogPlayerName, it's part of my treatment.
+（她摇摇头，表示同意。）当然，护士DialogPlayerName，这是我的治疗的一部分。
+(She shakes her head yes.)  Yes Madam, it's part of my treatment.
+（她摇摇头，表示同意。）是的女士，这是我的治疗的一部分。
+###_PLAYER
+Can I play with you?
+我可以玩弄你吗？
+###_NPC
+(She shakes her head yes.)  Absolutely.  Mistress said that I belong to the asylum until she gets me back.
+（她摇摇头，表示同意。）完全可以。女主人说在她把我带回去前，我属于收容所。
+###_PLAYER
+Will you tie me up?
+你会绑我吗？
+###_NPC
+(She shakes her head no.)  I'm sorry Madam.  I'm not allowed to use items on other persons.
+（她摇摇头，表示拒绝。）对不起女士。我被禁止对其他人使用物品。
+###_PLAYER
+(Struggle in your restraints.)
+（在你的束缚中挣扎。）
+###_NPC
+(She shakes her head no.)  I'm sorry Madam.  I'm not allowed to help you.
+（她摇摇头，表示拒绝。）对不起女士。我被禁止帮助你。
+###_PLAYER
+(Play with her.)
+（玩弄她。）
+###_NPC
+(You take a step forward and start to play with her.)
+（你向前走了一步，准备开始玩弄她。）
+###_PLAYER
+Will you join GGTS?
+你会加入GGTS吗？
+###_NPC
+(She nods slowly.)  Yes, I think I will join soon.  So much control!  (She shivers.)
+（她慢慢点头。）是的，我觉得我很快就会加入。会有严厉的控制的！（她颤抖了一下。）
+###_PLAYER
+I need to run.  (Leave her.)
+我要走了。（离开她。）
+###_NPC
+(She barely seems to notice that you're there, as you step forward to play with her.)
+（你向前一步，准备开始玩弄她，而她几乎没有注意到你在这里。）
+Hello nurse DialogPlayerName, would you like to touch me?
+你好，护士DialogPlayerName，你愿意触摸我吗？
+Hello Madam, would you like to touch me?
+你好，女士，你愿意触摸我吗？
+###_PLAYER
+(Pet her.)
+（摸摸她。）
+###_NPC
+(She purrs a little as you pet her head gently.)
+（你温柔地摸她的头，她发出呼噜噜的声音。）
+###_PLAYER
+(Tickle her.)
+（挠她痒痒。）
+###_NPC
+(She thrashes around and laughs from your skillful tickling hands.)
+（她来回扭动，随着你技巧丰富的挠痒而笑出声。）
+###_PLAYER
+(Kiss her.)
+（亲吻她。）
+###_NPC
+(You exchange a sweet and loving kiss.)
+（你们互相亲吻，甜蜜而有爱。）
+###_PLAYER
+(Fondle her.)
+（爱抚她。）
+###_NPC
+(She closes her eyes and seems to enjoy your touch as you fondle her breast and butt through her clothes.)
+（你隔着衣服爱抚她的胸部和臀部，她闭上眼睛，看起来很享受你的触摸。）
+###_PLAYER
+(Masturbate her.)
+（抚慰她。）
+###_NPC
+(You slide a hand in her pants and masturbate her slowly as she moans from the pleasure.)
+（你将一只手滑入她的裤子中，慢慢地爱抚她，而她因为快感而发出呻吟声。）
+###_PLAYER
+(Stop playing with her.)
+（停止玩弄她。）
+###_NPC
+(She nods as you stop playing with her.)
+（你停止玩弄她，她点点头。）

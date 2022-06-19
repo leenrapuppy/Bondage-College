@@ -1,5 +1,7 @@
 Room Name
 房间名
+Language
+语言
 Description
 描述
 Ban List
@@ -41,8 +43,24 @@ Account error, please try to relog
 Invalid chat room data detected
 无效的聊天室数据
 Block Categories
-背景分类
+屏蔽性癖
 No Game
 无游戏
 LARP
 体感对战
+Magic Battle
+魔法对战
+GGTS
+GGTS
+English
+英语
+French
+法语
+Spanish
+西语
+German
+德语
+Chinese
+中文
+Russian
+俄语

@@ -25,6 +25,18 @@
 (Она смеется, когда ты связываешь ее щиколотки.)  Это щекотно!
 (You release her feet and she jumps playfully.)  I love being a patient here.
 (Ты освобождаешь ее ступни, и она игриво подпрыгивает.)  Мне нравится быть здесь пациенткой.
+(She laughs and tests your feet restraints.)  You sure know your bondage treatments Madam.
+(Она смеется и проверяет ваши ноги.) Вы наверняка знаете, что такое бондаж, мадам.
+(You release her feet and she wiggles them.)  We need more Dominants like you.
+(Вы отпускаете ее ноги, и она начинает шевелить ими.) Нам нужно больше таких Доминантов, как вы.
+(She adjusts her neck to the new collar.)  I hope we won't get in trouble.
+(Она приспосабливает шею к новому ошейнику.) Надеюсь, у нас не будет неприятностей.
+(You remove the collar from her neck.)  I'm not sure you're supposed to remove it Madam.
+(Вы снимаете ошейник с ее шеи.) Я не уверен, что вы должны его снимать, мадам.
+(She sighs as you lock the belt on her.)  A good patient is a chaste patient.
+(Она вздыхает, когда вы застегиваете на ней ремень.) Хороший пациент — целомудренный пациент.
+(She seems happy as you unlock the belt from her waist.)  Thank you so much.
+(Она кажется счастливой, когда вы расстегиваете ремень на ее талии.) Большое вам спасибо.
 (You strap the device on her head as she tries to look around.)  This is scary, but I guess it's for my own good.
 (Ты пристегиваешь устройство к ее голове, когда она пытается оглядеться.)  Это страшно, но я думаю, что это для моего же блага.
 (You remove the device and she looks at you.)  That was freaky, maybe we should try other types of items.
@@ -37,6 +49,30 @@
 (Ты сильно хлещешь ее по заднице, когда она подпрыгивает от боли.)  Бля, как больно!  Ой!  Простите, что сказал это слово.
 (She tries to avoid the crop as you swing it on her butt.)  Oh please!  It's really painful.
 (Она пытается избежать стека, когда ты бьешь им по ее заднице.)  О, пожалуйста!  Это действительно больно.
+(You put the hood on her head as she goes silent.)
+(Вы надеваете капюшон на ее голову, когда она замолкает.)
+(She nods happily as you remove the hood from her head.)  That was kind of scary.
+(Она радостно кивает, когда вы снимаете капюшон с ее головы.) Это было немного страшно.
+(You strap the item on her nose as she giggles.)  This is very unusual.
+(Вы надеваете предмет ей на нос, пока она хихикает.) Это очень необычно.
+(She nods as you remove the device.)  The asylum is full of surprises.
+(Она кивает, когда вы убираете устройство.) Приют полон сюрпризов.
+(You strap the harness on her torso as she blushes.)  Mmmmh, this is very kinky.
+(Вы привязываете ремни к ее туловищу, когда она краснеет.) Ммммм, это очень странно.
+(She stretches as you release her from the harness.)  I'm curious to see what you will use next.
+(Она потягивается, когда вы освобождаете ее от ремней.) Мне любопытно посмотреть, что вы будете использовать дальше.
+(She jumps a little as you slide the device inside her butt.)  Woah!
+(Она немного подпрыгивает, когда вы вставляете устройство ей в зад.) Вау!
+(She wiggles her butt as you remove the plug.)  This patient butt is yours to enjoy Madam.
+(Она покачивает задницей, когда вы вынимаете вилку.) Эта терпеливая задница принадлежит вам, чтобы насладиться мадам.
+(She holds her breath as you use the item.)  Pleasure or pain?  Pleasure and pain!
+(Она задерживает дыхание, когда вы используете предмет.) Удовольствие или боль? Удовольствие и боль!
+(She wiggles her breast slowly as you remove the device.)  You have so many great items Madam.
+(Она медленно покачивает грудью, пока вы снимаете устройство.) У вас так много замечательных вещей, мадам.
+(She takes a long breath as you use the device on her breast.)  This will leave marks.
+(Она делает глубокий вдох, пока вы используете устройство на ее груди.) Это оставит следы.
+(She whimpers as you remove the device.)  Madam!  This is such a devious therapy.
+(Она хнычет, когда вы снимаете устройство.) Мадам! Это такая коварная терапия.
 (She barely seems to notice that you're there.)
 (Она, кажется, почти не замечает, что ты здесь.)
 Hello nurse DialogPlayerName, are you here for my bondage treatment?
@@ -87,6 +123,18 @@ Will you tie me up?
 ###_NPC
 (You take a step forward and start to play with her.)
 (Ты делаешь шаг вперед и начинаешь играть с ней.)
+###_PLAYER
+Will you join GGTS?
+Вы присоединитесь к GGTS?
+###_NPC
+(She nods slowly.)  Yes, I think I will join soon.  So much control!  (She shivers.)
+(Она медленно кивает.) Да, думаю, скоро присоединюсь. Столько контроля! (Она вздрагивает.)
+###_PLAYER
+Do you enjoy GGTS?
+Вам нравится GGTS?
+###_NPC
+(She nods rapidly.)  Yes, GGTS is perfect.  I'm such a good girl now.
+(Она быстро кивает.) Да, GGTS идеальна. Я теперь такая хорошая девочка.
 ###_PLAYER
 I need to run.  (Leave her.)
 Мне нужно бежать.  (Оставь ее.)

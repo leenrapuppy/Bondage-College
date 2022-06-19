@@ -198,6 +198,10 @@ const InventoryItemHandsSpankingToysOptions = [
 		Name: "GlassFilled",
 		Property: { Type: "GlassFilled" },
 		ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 5}, { Group: "Mouth", Name: "LipBite", Timer: 5}, { Group: "Eyes", Name: "Lewd", Timer: 5}, { Group: "Eyebrows", Name: "Raised", Timer: 5}]
+	},{
+		Name: "PotionBottle",
+		Property: { Type: "PotionBottle" },
+		ExpressionTrigger: []
 	},
 ];
 
@@ -225,8 +229,8 @@ function InventoryItemHandsSpankingToysClick() {
 function InventoryItemHandsSpankingToysPublishAction(C, Option) {
 	var msg = C.ID == 0 ? "SpankingToysSetPlayer" : "SpankingToysSetOthers";
 	var Dictionary = [];
-	Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
-	Dictionary.push({ Tag: "TargetCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
+	Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
+	Dictionary.push({ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 	Dictionary.push({ Tag: "ItemUsed", AssetName: "SpankingToys" + Option.Name });
 	ChatRoomPublishCustomAction(msg, true, Dictionary);
 }
@@ -289,12 +293,12 @@ function InventorySpankingToysGetDescription(C) {
 /**
  * Get the activity of the spanking toy that the character is holding
  * @param {Character} C
- * @returns {string | string[] | null}
+ * @returns {string | null}
  */
 function InventorySpankingToysGetActivity(C) {
 	var Type = InventorySpankingToysGetType(C);
 	var A = AssetGet(C.AssetFamily, "ItemHands", "SpankingToys" + Type);
-	return A && A.Activity || null;
+	return A && A.Activity || A && A.AllowActivity[0] || null;
 }
 
 /**
@@ -307,10 +311,11 @@ function InventorySpankingToysActivityAllowed(C) {
 	const A = AssetGet(C.AssetFamily, "ItemHands", "SpankingToys" + Type);
 	if (InventoryBlockedOrLimited(C, { Asset: A }))
 		return false;
-	if (C.FocusGroup != null) {
-		const Activity = InventorySpankingToysGetActivity(Player);
-		if (Activity == null) return true;
-		else return C.FocusGroup.Activity.includes(Activity);
+	if (C.FocusGroup != null && A.AllowActivity) {
+		return A.AllowActivity.some(itemAct => {
+			return ActivityAllowedForGroup(C, C.FocusGroup.Name, true)
+				.some(act => itemAct === act.Name);
+			});
 	}
 	return false;
 }
@@ -321,16 +326,7 @@ function InventorySpankingToysActivityAllowed(C) {
  * @returns {string}
  */
 function InventorySpankingToysGetAudio(C) {
-	switch (InventorySpankingToysGetType(C)) {
-		case "Crop":
-		case "Flogger": return "SmackSkin1";
-		case "Cane":
-		case "HeartCrop": return "SmackSkin2";
-		case "Paddle":
-		case "WhipPaddle":
-		case "TennisRacket": return "SmackSkin3";
-		case "Whip": return "Whip1";
-		case "CattleProd": return "Shocks";
-		default: return "";
-	}
+	const Type = InventorySpankingToysGetType(C);
+	const A = AssetGet(C.AssetFamily, "ItemHands", "SpankingToys" + Type);
+	return A && A.Audio;
 }

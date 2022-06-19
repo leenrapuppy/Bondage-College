@@ -277,10 +277,10 @@ SourceCharacter ties the cloth into a small gag over DestinationCharacter mouth.
 SourceCharacter ligote le tissu en un petit baillon couvrant la bouche de DestinationCharacter.
 SourceCharacter ties the cloth into a cleave gag over DestinationCharacter mouth.
 SourceCharacter ligote le tissu et fend la bouche de DestinationCharacter avec le baillon.
-SourceCharacter stuffs DestinationCharacter mouth with a piece of cloth and secures it with another piece.
-SourceCharacter rempli la bouche de DestinationCharacter avec un morceau de tissu et l'enroule avec un autre.
-SourceCharacter stuffs DestinationCharacter mouth with a piece of cloth and secures the gag over her mouth and nose.
-SourceCharacter rempli la bouche de DestinationCharacter avec un morceau de tissu et enroule la bouche et le nez avec un autre.
+SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth.
+SourceCharacter ligote le tissu en un large baillon couvrant la bouche de DestinationCharacter.
+SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth and nose.
+SourceCharacter ligote le tissu en un large baillon couvrant la bouche et le nez de DestinationCharacter.
 Single strip
 Bande simple
 Crossed strips

@@ -1,50 +1,636 @@
 ﻿- Preferences -
-- Предпочтения -
+- Настройки -
+- General Preferences -
+- Общие настройки -
+- Multi Player Difficulty Preferences -
+- Настройки сложности многопользовательской игры -
+- Restriction Preferences -
+- Настройки ограничений -
+- Chat Preferences -
+- Настройки чата -
+- Audio Preferences -
+- Настройки звука -
+- Arousal Meter & Sexual Activities Preferences -
+- Настройки Измерителя возбуждения и сексуальной активности -
+- Security Preferences -
+- Настройки безопасности -
+- Item Preferences -
+- Настройки предмета -
+- Graphical Preferences -
+- Графические настройки -
+- Online Preferences -
+- Онлайн-настройки -
+- Immersion Preferences -
+- Настройки погружения -
+- Controller Preferences -
+- Настройки контроллера -
+- Notification Preferences -
+- Настройки уведомлений -
+General
+Общие
+Difficulty
+Сложность
+Restriction
+Ограничение
+Chat
+Чат
+Audio
+Аудио
+Arousal
+Возбуждение
+Security
+Безопасность
+Item Visibility
+Видимость предмета
+Online
+Онлайн
+Immersion
+Погружение
+Graphics
+Графика
+Controller
+Контроллер
+Notifications
+Уведомления
+The difficulty mode enforces BDSM restrictions in multi-player only.  Click for details.
+Режим сложности применяет ограничения БДСМ только в многопользовательской игре. Нажми для деталей.
+Roleplay
+Ролевые игры
+Roleplay - This mode is fully open to customise your experience.
+Ролевая игра — этот режим полностью открыт для настройки вашего опыта.
+It allows you to choose which restrictions or mechanisms to ignore.
+Это позволяет вам выбирать, какие ограничения или механизмы игнорировать.
+You can select this mode any time, but you won't be able
+Вы можете выбрать этот режим в любое время, но не сможете
+to select the Hardcore or Extreme mode for seven days.
+выбрать режим Hardcore или Extreme в течении семи дней.
+
+
+Regular
+Обычный
+Regular - This default mode enforces the basic rules and restrictions.
+Обычный — в этом режиме по умолчанию применяются основные правила и ограничения.
+It's made to restrict you and keep you safe at the same time.
+Он создан, чтобы ограничивать вас и в то же время обеспечивать вашу безопасность.
+Lots of options can be configured under this mode.
+В этом режиме можно настроить множество параметров.
+Hardcore
+Хардкор
+Hardcore - This mode is geared for players wanting to be helpless.
+Хардкор — этот режим предназначен для игроков, которые хотят быть беспомощными.
+No rescue maid will come, and no NPC will help you out.
+Никакая горничная-спасательница не придет, и никакой NPC вам не поможет.
+No safeword can be used, you must find help from players.
+Нельзя использовать стоп-слова, вы должны обратиться за помощью к игрокам.
+You must be a member for at least seven days to select this mode.
+Вы должны быть участником не менее семи дней, чтобы выбрать этот режим.
+You cannot select this if you've changed mode in the last seven days.
+Вы не можете выбрать это, если вы меняли режим в течение последних семи дней.
+Extreme
+Экстрим
+Extreme - This mode is built for players wanting to be full slaves.
+Extreme — этот режим создан для игроков, желающих быть полными рабами.
+No safeword can be used and you cannot leave your owner.
+Нельзя использовать стоп-слова, и вы не можете покинуть свою хозяйку.
+All immersion settings are maxed, and you cannot block any item.
+Все настройки погружения максимальны, и вы не можете заблокировать ни один элемент.
+Easy mode - Restrictions and game mechanisms
+Легкий режим - Ограничения и игровые механизмы
+can be ignored with toggles.  For pure roleplayers.
+можно игнорировать с помощью переключателей. Для чистых ролевиков.
+Normal mode - Basic restrictions are enforced, 
+Обычный режим — применяются основные ограничения,
+many options to protect you.  For most players.
+много вариантов, чтобы защитить вас. Для большинства игроков.
+Hard mode - No rescue maids, no safeword and no 
+Жесткий режим — без спасательных горничных, без стоп-слов и без
+help from any NPC.  For players that want trouble.
+помощи от любого NPC. Для игроков, которые хотят неприятностей.
+Slavery mode - No maids, no safeword, no NPC help, 
+Режим рабства - без горничных, без стоп-слов, без помощи NPC, 
+no blocked items, cannot leave owner.  Fully helpless.
+нет заблокированных предметов, не может покинуть владельца. Полностью беспомощен.
+You're already playing on that difficulty mode.
+Вы уже играете на этом уровне сложности.
+You need to wait NumberOfHours hours before you can activate this mode.
+Вам нужно подождать NumberOfHours часов, прежде чем вы сможете включить этот режим.
+I accept the consequences and want to use this mode.
+Я понимаю последствия и хочу использовать этот режим.
+Go
+Перейти
+You can configure game restrictions to bypass in the multi-player environment.
+Вы можете настроить ограничения игры для обхода в многопользовательской среде.
+Players using the Roleplay difficulty can configure multi-player restrictions to bypass.
+Игроки, использующие уровень сложности «Ролевая игра», могут обойти ограничения многопользовательской игры.
+Bypass the struggling mini-game.
+Обойти борющуюся мини-игру.
+Cannot be slowed down from leaving a room.
+Нельзя замедлить выход из комнаты.
+Skip punishment when calling maids from chat room
+Пропустить наказание при вызове горничных из чата
 Character label color:
-Цвет значка персонажа:
+Цвет метки персонажа:
 Item permission:
-Разрешение элемента :
+Разрешение на предмет:
 Everyone, no exceptions
 Все, без исключений
 Everyone, except blacklist
 Все, кроме черного списка
 Owner, Lover, whitelist & Dominants
-Хозяйка, белый список и Домины
+Хозяйка, возлюбленная, белый список и доминанты
 Owner, Lover and whitelist only
-Хозяйка и только белый список
+Только Хозяйка, возлюбленная и белый список
+Owner and Lover only
+Только Хозяйка и возлюбленная
 Owner only
 Только Хозяйка
 Put a valid hex #red-green-blue color
-Поставьте допустимый шестнадцатеричный #красно-зелено-синий цвет
-- Chat display settings -
-- Настройки отображения чата -
+Поместите допустимый шестнадцатеричный цвет #красный-зеленый-синий
 Color theme:
 Цветовая тема:
 Light
 Светлая
 Dark
 Темная
+ Light 2
+ Светлая 2
+Dark 2
+Темная 2
 Enter/Leave message style:
 Вход/выход стиль сообщений:
 Normal
-Нормальный
+Обычный
 Smaller
-Маленький
+Меньше
 Hidden
 Скрытый
 Display member numbers:
-Отображение номеров элементов:
+Показать номера участников:
 Always
 Всегда
 Never
 Никогда
 On Mouseover
-При Наведении Курсора Мыши
+При наведении мыши
+Font size
+Размер шрифта
+Small
+Маленький
+Medium
+Средний
+Large
+Большой
 Display timestamps
 Отображение временных меток
 Color names
-Имя цвета
+Названия цвета
 Color actions
-Цветовые действия
+Цветные действия
 Color emotes
-Цветовые эмоции
+Цветные эмоции
+Color Activities
+Цветные активности
+Shrink all messages except dialogue
+Уменьшить все сообщения, кроме диалога
+Show sexual activities & orgasms
+Показать сексуальные действия и оргазмы
+Use : as alias for /me and *
+Использовать : как псевдоним для /me и *
+Ban blacklist when creating a room
+Запретить блэклист при создании комнаты
+Ban ghostlist when creating a room
+Запретить призрачный список при создании комнаты
+Display full chatrooms
+Отображение полных чатов
+Order rooms by number of friends
+Упорядочить комнаты по количеству друзей
+Disable scripted assets on others
+Отключить заскриптованные активы на других
+Show all automatic messages
+Показать все автоматические сообщения
+Preserve whitespace in messages
+Сохранять пробелы в сообщениях
+Show help on first enter
+Показать справку при первом входе
+Show beep notifications in chat
+Показывать звуковые уведомления в чате
+Audio volume
+Громкость звука
+Audio alarm for beeps
+Звуковая сигнализация для гудков
+Play item sounds in chatrooms
+Звуки предметов воспроизведения в чатах
+Only play item sounds if you're involved
+Воспроизведение звуков предметов только в том случае, если вы участвуете
+Allow audio alerts for notifications
+Разрешить звуковые оповещения для уведомлений
+Lock this menu while bound
+Заблокировать это меню пока связана
+Return to chatrooms on relog
+Вернуться в чат-комнату при повторном входе
+Auto-remake rooms
+Авто-переделка комнаты
+Hide others' messages
+Скрыть чужие сообщения
+All immersion settings are maxed out under the Extreme difficulty mode
+Все настройки погружения максимальны в режиме экстремальной сложности.
+Prevent OOC & whispers while gagged
+Предотвратить OOC и шепот, когда заткнут рот
+Hide non-adjacent players while partially blind
+Скрыть не соседних игроков, пока частично слепа
+Events while plugged or vibed
+События пока с затычкой или вибратором
+Garble chat room names and descriptions while blind
+Искажайте названия и описания комнат чата, пока вы слепы
+Sensory deprivation setting
+Настройки Сенсорной депривации
+Hide names
+Скрыть имена
+Heavy
+Тяжело
+Total
+Полностью
+Flash after blindness
+Вспышка после слепоты
+Zoom chatrooms smoothly
+Zoom чатов плавно
+Center players in chatrooms
+Центр игроков в чатах
+Players can drag you to rooms when leashed
+Игроки могут тащить вас в комнаты на поводке
+Maids come automatically when restrained
+Горничные приходят автоматически, когда вы в ограничениях
+Locks on you can't be picked
+Замки на вас не могут быть выбраны
+Disable examining when blind
+Отключить осмотр вслепую
+Keep all restraints when relogging
+Сохраняйте все ограничения при повторном входе в систему
+Cannot enter single-player rooms when restrained
+Не может войти в комнаты для одного игрока, будучи связанным
+Block advanced vibrator modes (edge, random, etc)
+Блокировать расширенные режимы вибратора (граничный, случайный и т. д.)
+Safewords and help from NPCs are disabled on Hardcore or Extreme
+Стоп-слова и помощь от NPC отключены на Хардкор или Экстрим.
+Items can affect your facial expression
+Предметы могут повлиять на ваше выражение лица
+Max
+Максимально
+High
+Высоко
+Low
+Низко
+Lower
+Ниже
+Lowest
+Самый низкий
+Animation quality (reduce if inputs such as sliders are slow to respond)
+Качество анимации (уменьшите, если элементы ввода, такие как ползунки, реагируют медленно)
+Display all characters at maximum height
+Отображать все символы на максимальной высоте
+Show AFK bubble if idle for 5 minutes
+Показывать всплывающее окно AFK, если оно не используется в течение 5 минут.
+Allow Safeword use (Cannot enable while bound)
+Разрешить использование безопасного слова (нельзя включить пока связана)
+(Click to confirm) Allow Safeword use (Cannot enable while bound)
+(Нажмите, чтобы подтвердить) Разрешить использование безопасного слова (невозможно включить пока связана)
+Allow others to alter your whole appearance
+Позволить другим изменить весь ваш внешний вид
+Prevent others from changing cosplay items
+Запретить другим изменять элементы косплея
+Show status bubble
+Показать всплывающее окно статуса
+Send your status
+Отправить свой статус
+Linking an email will allow password recovery
+Привязка электронной почты позволит восстановить пароль
+Update Email
+Обновить электронную почту
+Current email:
+Текущая электронная почта:
+New email:
+Новый email-адрес:
+No email saved, write here to add one
+Электронная почта не сохранена, напишите здесь, чтобы добавить ее
+An email is linked, write it here to update it
+Электронная почта связана, напишите здесь, чтобы обновить ее
+Your email has been updated.
+Ваша электронная почта была обновлена.
+Current email does not match
+Текущая электронная почта не совпадает
+Invalid characters
+Недопустимые символы
+Show other characters meter
+Показать счетчик других символов
+Affect your facial expressions
+Влияйте на выражение лица
+Activation:
+Активация:
+Disable sexual activities
+Отключить сексуальные действия
+Allow without a meter
+Разрешить без счетчика
+Allow with a manual meter
+Разрешить с ручным счетчиком
+Allow with a hybrid meter
+Разрешить с гибридным счетчиком
+Allow with a locked meter
+Разрешить с заблокированным счетчиком
+Arousal meter visuals
+Визуальные эффекты измерителя возбуждения
+Bare Meter
+Полоска счетчика
+Solid Glow
+Сплошное свечение
+Temporary Animation
+Временная анимация
+Constant Animation
+Постоянная анимация
+Vibrator Screen Filters
+Сетчатые фильтры вибратора
+None
+Нет
+Flickering Glow
+Мерцающее свечение
+Arousal Screen Filter
+Сетчатый фильтр возбуждения
+Strong Gradient
+Сильный градиент
+Solid Color Filter
+Сплошной цветной фильтр
+Solid Filter at High Arousal
+Сплошной фильтр при сильном возбуждении
+Meter visibility:
+Видимость счетчика:
+Show arousal to everyone
+Показать возбуждение всем
+Show if they have access
+Показать, есть ли у них доступ
+Show to yourself only
+Покажи только себе
+Fetish preferences:
+Фетиш предпочтения:
+Being restrained
+Быть сдержанной
+Being gagged
+Быть заткнутой кляпом
+Being blind
+Быть слепой
+Being deaf
+Быть глухой
+Being chaste
+Быть целомудренной
+Being naked
+Быть голой
+Masochism
+Мазохизм
+Sadism
+Садизм
+Rope
+Веревка
+Latex
+Латекс
+Leather
+Кожа
+Metal
+Металл
+Tape
+Лента
+Nylon
+Нейлон
+Lingerie
+женское белье
+Pony
+Пони
+ABDL
+ABDL
+Pet play
+Игра с питомцем
+Forniphilia (human furniture)
+Форнифилия (человеческая мебель)
+Hate it
+Ненавидеть это
+Doesn't like it
+Не нравится
+Neutral on it
+Нейтральна к этому
+Like it
+Нравится это
+Adore it
+Обожаю это
+Activity preferences:
+Настройки активности:
+Done on yourself:
+Сделано на себе:
+Doing it to others:
+Делать это другим:
+Forbid/Block it
+Запретить/заблокировать
+Click on yourself to set your erogenous zones
+Нажмите на себя, чтобы установить свои эрогенные зоны
+Configure this zone to be erogenous or not
+Настройте эту зону на эрогенную или нет
+Block all activities on this zone
+Блокировать все действия в этой зоне
+Dislike this zone, it's a turn-off
+Не нравится эта зона, это отключение
+This zone isn't special for you
+Эта зона не является для вас особенной
+Like this zone, it turns you on
+Эта зона, она тебя заводит.
+Love this zone, it's a big turn-on
+Люблю эту зону, это здорово возбуждает.
+This zone can give you an orgasm
+Эта зона может дать вам оргазм
+Feet & Toes
+Ступни и пальцы ног
+Lower Legs
+Голень
+Upper Legs
+Верхние части ног
+Pussy & Vagina
+Киска и влагалище
+Clitoris
+Клитор
+Butt / Anal
+Задница / Анал
+Pelvis & Belly
+Таз и живот
+Torso & Ribs
+Туловище и ребра
+Nipples
+Соски
+Breast
+Грудь
+Arms & Shoulders
+Руки и плечи
+Hands
+Руки
+Neck
+Шея
+Mouth & Lips
+Рот и губы
+Head & Hair
+Голова и волосы
+Nose
+Нос
+Ears
+Уши
+Head
+Голова
+Speech stuttering:
+Заикание речи:
+Never stutter
+Никогда не заикайся
+When you're aroused
+Когда ты возбужден
+When you're vibrated
+Когда вы вибрируете
+Aroused & vibrated
+Возбужденный и вибрирующий
+Group:
+Группа:
+Asset:
+Актив:
+Hide
+Скрывать
+Block
+Блокировать
+This icon will appear beside a character that's wearing a hidden item
+Этот значок появится рядом с персонажем, который носит спрятанный предмет.
+Reset All
+Сбросить все
+This will reset all items to be visible. Click again to confirm and exit.
+Это сбросит все элементы, чтобы они были видны. Нажмите еще раз для подтверждения и выхода.
+All items are forced visible under the Extreme difficulty mode
+Все предметы принудительно отображаются в режиме экстремальной сложности.
+Accept changes
+Принять изменения
+Cancel changes
+Отменить изменения
+Game Font
+Шрифт игры
+Fallback fonts will be used if your chosen font is unsupported on your device.
+Резервные шрифты будут использоваться, если выбранный вами шрифт не поддерживается на вашем устройстве.
+Arial
+Arial
+Times New Roman
+Times New Roman
+Papyrus
+Papyrus
+Comic Sans
+Comic Sans
+Impact
+Impact
+Verdana
+Verdana
+Helvetica Neue
+Helvetica Neue
+Century Gothic
+Century Gothic
+Georgia
+Georgia
+Courier New
+Courier New
+Copperplate
+Copperplate
+Flip the room vertically when upside-down
+Перевернуть комнату по вертикали в перевернутом положении
+Flash the screen for certain effects
+Вспышка экрана для определенных эффектов
+Enable antialiasing (For this browser, if supported)
+Включить сглаживание (для этого браузера, если поддерживается)
+Not running on WebGL, cannot edit rendering configurations.
+Не запускать на WebGL, нельзя редактировать конфигурации рендеринга.
+Preferred power consumption mode (For this browser, if supported)
+Предпочтительный режим энергопотребления (для этого браузера, если он поддерживается)
+Low consumption, slower rendering
+Низкое потребление, более медленный рендеринг
+Default
+По умолчанию
+High consumption, faster rendering
+Высокое потребление, более быстрый рендеринг
+Sensitivity
+Чувствительность
+Controller Active
+Активный контроллер
+Map Buttons
+Кнопки карты
+Map Sticks
+Картографические палочки
+move left stick up
+переместить левый стик вверх
+move left stick right
+двигай левый джойстик вправо
+Press A
+Нажми A
+Press B
+Нажми B
+Press X
+Нажми X
+Press Y
+Нажми Y
+Press Up on Dpad
+Нажмите вверх на Dpad
+Press Down on Dpad
+Нажмите вниз на Dpad
+Press Left on Dpad
+Нажмите влево на Dpad
+Press Right on Dpad
+Нажмите вправо на Dpad
+Dead Zone
+Мертвая зона
+Off
+Выключить
+(1) in title
+(1) в заголовке
+Popup
+Всплывающее
+(1) in icon
+(1) в иконке
+Raise notifications for missed events:
+Поднимите уведомления о пропущенных событиях:
+: Play a sound for only
+: воспроизведение звука только
+the first occurrence of an event
+первое появление события
+Only:
+Только:
+Beeps
+Звуковые сигналы
+Messages in chat rooms
+Сообщения в чатах
+Normal Messages
+Обычные сообщения
+Whispers
+Шепот
+Items/Activities
+Предметы/Действия
+Name Mentioned
+Упомянутое имя
+Players entering chat rooms
+Игроки, заходящие в чаты
+Owner
+Хозяйка
+Lovers
+Возлюбленные
+Friends
+друзья
+Owned Subs
+Собственные сабы
+Disconnect from the game
+Отключиться от игры
+Your turn in a LARP game
+Ваш ход в игре LARP
+Raise a test notification
+Поднимите тестовое уведомление
+Clear raised notifications
+Очистить всплывающие уведомления
+Hello there!
+Привет!
+Page
+Страница
+Allow item tint effects
+Разрешить эффекты оттенка предмета
+Allow item blur effects (turn off if experiencing frame rate drops)
+Разрешить эффекты размытия предмета (отключить, если частота кадров падает)

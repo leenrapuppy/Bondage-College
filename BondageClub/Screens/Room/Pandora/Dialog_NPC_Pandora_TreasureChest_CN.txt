@@ -1,0 +1,14 @@
+###_NPC
+(This huge chest is locked.)
+（这个大箱子被锁上了。）
+###_PLAYER
+(Try to picklock it.)
+（尝试撬锁。）
+(Leave it.)
+（离开。）
+###_NPC
+(The chest is unlocked.)
+（箱子被打开了。）
+###_PLAYER
+(Loot it.)
+（搜掠一番。）

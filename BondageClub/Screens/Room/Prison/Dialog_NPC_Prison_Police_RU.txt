@@ -1,0 +1,196 @@
+###_NPC
+Madam please follow me. We have some questions. 
+Мадам, пожалуйста, проследуйте за мной. У нас есть несколько вопросов.
+Stop where you are and put your hands in the air! 
+Остановитесь на месте и поднимите руки вверх!
+Now get on your knees, slowly. 
+Теперь медленно встань на колени. 
+Higher! Don't try anything funny! 
+Выше! Не пытайся сделать что-нибудь смешное!
+You are under arrest. Place your hands behind your back. 
+Вы арестованы. Заведите руки за спину.
+(She handcuffs you.) You have the right to remain silent. 
+(Она надевает на вас наручники.) У вас есть право хранить молчание.
+(You try to get up and run, but she pins you down and restrains you.) Wrong move girl, now you're in big trouble! 
+(Ты пытаешься встать и убежать, но она прижимает тебя к земле и удерживает.) Неправильное движение, девочка, теперь у тебя большие неприятности!
+You're coming with me, prisoner. 
+Ты идешь со мной, заключенная.
+(She forcefully gags you.) I told you to be silent! It's time for you to go to prison. 
+(Она с силой затыкает тебе рот кляпом.) Я же сказала тебе молчать! Тебе пора отправляться в тюрьму.
+Follow me, I'm serious.
+Следуйте за мной, я серьезно.
+###_PLAYER
+(Follow her.)
+(Следуйте за ней.)
+(Try to escape.)
+(Попытайтесь убежать.)
+(Put your hands in the air.)
+(Поднимите руки вверх.)
+(Raise your hands higher.)
+(Поднимите руки вверх.)
+(Get on your knees.)
+(Встань на колени.)
+(Place your hands behind your back.)
+(Заведите руки за спину.)
+(Nod resigned.)
+(Покорный кивок.)
+Yes miss. I am your prisoner.
+Да, мисс. Я ваша заключенная.
+(Silence.)
+(Молчание.)
+What am I being arrested for?
+За что меня арестовывают?
+I'm sorry miss, I will be a good prisoner.
+Извините, мисс, я буду хорошей заключенной.
+(Bow your head in defeat.)
+(Склоните голову в знак поражения.)
+(Thrash in your bondage.)
+(Извивайся в своем бондаже.)
+(Go to prison.)
+(Отправляться в тюрьму.)
+###_NPC
+We'll get you next time.
+Мы доберемся до тебя в следующий раз.
+###_PLAYER
+(Leave her.)
+(Оставь ее.)
+###_NPC
+Someone saw you steal the dice at the arcade.
+Кто-то видел, как ты украла кости в игровом автомате.
+###_PLAYER
+Yes, I did.
+Да, я это сделала.
+###_NPC
+Well, that saves us a lot of work. Where are the dice now?
+Что ж, это экономит нам много работы. Где сейчас кости?
+We'll find out the truth.  Where are the dice now?
+Мы узнаем правду.  Где сейчас кости?
+###_PLAYER
+No, it wasn't me.
+Нет, это была не я.
+###_NPC
+We'll find out the truth. So again where are the dice?
+Мы узнаем правду. Итак, опять же, где кости?
+###_PLAYER
+I have them here.
+Они у меня, здесь.
+###_NPC
+Then hand them over.
+Тогда передайте их мне.
+###_PLAYER
+I hid them in the Stable.
+Я спрятала их в Конюшне.
+###_NPC
+We'll check this out carefully later. Until then, you're under arrest.
+Мы тщательно проверим это позже. До тех пор вы находитесь под арестом.
+###_PLAYER
+I won't tell.
+Я не скажу.
+###_NPC
+You'll tell us. Until then, you're under arrest.
+Ты нам расскажешь. До тех пор вы находитесь под арестом.
+You are under arrest as a suspect.
+Вы арестованы в качестве подозреваемого.
+###_PLAYER
+(Give her the dice.)
+(Дай ей кости.)
+###_NPC
+(She takes the dice.) You're under arrest until further notice.
+(Она берет кости.) Вы арестованы до дальнейшего указания.
+###_PLAYER
+I'll never give them up!
+Я никогда от них не откажусь!
+###_NPC
+We'll check this out carefully in a moment. Until then, you're under arrest.
+Мы внимательно проверим это через минуту. До тех пор вы находитесь под арестом.
+Do you have any weapons or drugs on you?
+Есть ли у вас при себе какое-нибудь оружие или наркотики?
+###_PLAYER
+No, you can't do that!
+Нет, ты не можешь этого сделать!
+###_NPC
+You bet we can. If you have keys, weapons or drugs, give them up.
+Держу пари, что могу. Если у вас есть ключи, оружие или наркотики, отдайте их.
+###_PLAYER
+Here are my keys.
+Вот мои ключи.
+###_NPC
+Anything else?
+Что-нибудь еще?
+###_PLAYER
+Here are my sleeping pills.
+Вот мои снотворные таблетки.
+Here are my spanking toys.
+Вот мои игрушки для порки.
+I don't have that.
+У меня этого нет.
+###_NPC
+Well, let's get you strip-searched. Undress to check.
+Что ж, давай тебя обыщем с раздеванием. Раздевайся, чтобы проверить.
+###_PLAYER
+(Silence)
+(Молчать)
+###_NPC
+Guess we'll have to strip-search you to find out.
+Думаю, нам придется обыскать тебя с раздеванием, чтобы выяснить это.
+###_PLAYER
+(Take off all your clothes.)
+(Снимай всю свою одежду.)
+###_NPC
+There you go. Spread your legs and bend over.
+Вот и вы. Раздвиньте ноги и наклонитесь.
+###_PLAYER
+(Take off your outer clothing.)
+(Снимите верхнюю одежду.)
+###_NPC
+Completely undress.
+Полностью разденься.
+###_PLAYER
+(Refuse and wait and see.)
+(Откажись, подожди и смотри.)
+###_NPC
+Will it be soon? We can do it differently!
+Долго ещё ждать? Мы можем сделать это по-другому!
+###_PLAYER
+(Take off the underwear.)
+(Снимай нижнее белье.)
+###_NPC
+Finally. Spread your legs and bend over.
+Наконец-то. Раздвиньте ноги и наклонитесь.
+Complete and a little bit snappy.
+Завершенная и немного резкая.
+###_PLAYER
+(Spread your legs and bend over.)
+(Раздвиньте ноги и наклонитесь.)
+###_NPC
+She's patting you down. Then she hands you a prisoner suit. Put it on.
+(Она обыскивает тебя. Затем она вручает вам костюм заключенной.) Надень его.
+###_PLAYER
+(Dress it on.)
+(Надеть его.)
+###_NPC
+Now the shackles.
+Теперь оковы.
+###_PLAYER
+(Wait and see.)
+(Подожди и смотри.)
+###_NPC
+Now into the cell. I'll check your equipment.
+Теперь в камеру. Я проверю вашу экипировку.
+What is that? The Dices. Confiscated.
+Что это такое? Кубики. Конфисковано.
+What is that? Keys. Confiscated.
+Что это такое? Ключи. Конфисковано.
+What is that? Spanking toys. Confiscated.
+Что это такое? Игрушки для порки. Конфисковано.
+What is that? Sleeping pills. Confiscated.
+Что это такое? Снотворное. Конфисковано.
+All right, your bag is clear.
+Хорошо, ваша сумка пуста.
+Let me check your restraints again.
+Позвольте мне еще раз проверить ваши ограничения.
+I'm going. Think about your behavior.
+Я ухожу. Подумайте о своем поведении.
+###_PLAYER
+(Watch her leave.)
+(Смотрите, как она уходит.)

@@ -238,6 +238,8 @@ Let's see what the dice say...
 ###_PLAYER
 (Whimper and make pleading eyes.)
 (Хныкать и делать умоляющие глаза.)
+(Whimper and squirm.)
+(Хныкать и извивается.)
 ###_NPC
 Do you need help?
 Тебе нужна помощь?
@@ -545,9 +547,17 @@ You'll get that back!
 ###_NPC
 (She releases you and sighs.)  Enjoy the freedom while you have it.
 (Она освобождает тебя и вздыхает.)  Наслаждайтесь свободой, пока она у вас есть.
+(She slaps your butt and giggles)  I'll let you sort out your own problems...
+(Шлепает тебя по заднице и хихикает) Я позволю тебе разобраться со своими проблемами...
 ###_PLAYER
 Take care.
 Береги себя.
+###_NPC
+Welcome to the Gambling Hall.  Shall we play a game?
+Добро пожаловать в игровой зал. Сыграем в игру?
+###_PLAYER
+I'll get you next time.
+Я достану тебя в следующий раз.
 Thanks!  That was fun.
 Спасибо!  Это было весело.
 (Leave her.)

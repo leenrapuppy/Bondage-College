@@ -474,7 +474,7 @@ function MagicSchoolLaboratoryLoserSpell(RepChange) {
 	if (Spell == "Tight") { CharacterSetFacialExpression(Player, "Blush", "Low", 8); CharacterSetFacialExpression(Player, "Eyes", "Closed", 8); }
 	if (Spell == "Fail") { CharacterSetFacialExpression(MagicSchoolLaboratoryStudent, "Blush", "Medium", 8); CharacterSetFacialExpression(MagicSchoolLaboratoryStudent, "Eyes", "Angry", 8); }
 	if (Spell == "FlyingHogtie") {
-		let SuspensionHogtiedProperty = Object.assign({}, InventoryItemArmsHempRopeOptions.find(O => O.Name === "SuspensionHogtied").Property);
+		let SuspensionHogtiedProperty = JSON.parse(JSON.stringify(TypedItemGetOption("ItemArms", "HempRope", "SuspensionHogtied").Property));
 		let Height = 0.67 * Math.random();
 		SuspensionHogtiedProperty.Difficulty = 5;
 		SuspensionHogtiedProperty.OverrideHeight.Height = Height * Pose.find(p => p.Name == "Hogtied").OverrideHeight.Height;

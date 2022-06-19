@@ -1,5 +1,5 @@
 No chat room found.  You can create a new one.
-没有找打聊天室，你可以新建一个
+没有找到聊天室，你可以新建一个
 Search for a room by name:
 按照以下名称搜索:
 Search for a room
@@ -30,6 +30,10 @@ Filter Rooms
 过滤房间
 Return to room view
 返回房间界面
+Filter out terms (comma-separated):
+过滤条件(以逗号分隔):
+Refresh rooms
+刷新房间
 Leave room search
 离开房间搜索
 Friends
@@ -48,7 +52,27 @@ Photographs
 拍照
 Arousal Activities
 性活动
+Fantasy
+奇幻风
 Game:
 游戏:
 LARP
 体感对战
+Magic Battle
+魔法对战
+GGTS
+GGTS
+All languages
+所有语言
+English
+英语
+French
+法语
+Spanish
+西班牙语
+German
+德语
+Chinese
+中文
+Russian
+俄语

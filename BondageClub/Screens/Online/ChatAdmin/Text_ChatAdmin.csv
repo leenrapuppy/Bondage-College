@@ -1,4 +1,5 @@
 RoomName,Room Name
+RoomLanguage,Language
 RoomDescription,Description
 RoomBanList,Ban List
 RoomAdminList,Administrator List
@@ -24,3 +25,9 @@ Game,No Game
 GameLARP,LARP
 GameMagicBattle,Magic Battle
 GameGGTS,GGTS
+LanguageEN,English
+LanguageFR,French
+LanguageES,Spanish
+LanguageDE,German
+LanguageCN,Chinese
+LanguageRU,Russian

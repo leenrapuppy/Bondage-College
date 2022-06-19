@@ -56,8 +56,8 @@ function InventoryItemButtAnalBeads2SetBeads(Modifier) {
 
 	// Push Chatroom Event
 	var Dictionary = [];
-	Dictionary.push({ Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber });
-	Dictionary.push({ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber });
+	Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
+	Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 	Dictionary.push({ Tag: "ActivityName", Text: "MasturbateItem" });
 	Dictionary.push({ Tag: "ActivityGroup", Text: "ItemButt" });
 	Dictionary.push({ AssetName: "AnalBeads2" });

@@ -1,0 +1,52 @@
+###_NPC
+(She giggles) You can play games while bound, but don't expect me to understand you.
+(Она хихикает) Ты можешь играть в игры, пока связанf, но не жди, что я тебя пойму.
+Having fun in there?
+Веселишься там?
+Hello and welcome to the arcade. Put on your VR headset and you can play our games for free!
+Привет и добро пожаловать в аркаду. Наденьте VR-гарнитуру и играйте в наши игры бесплатно!
+###_PLAYER
+I don't have a VR headset.
+У меня нет VR-шлема.
+###_NPC
+You can rent one of ours for $10.
+Вы можете арендовать один из наших за 10 долларов.
+###_PLAYER
+Can you take my headset off?
+Ты можешь снять мою гарнитуру?
+###_NPC
+Nonsense, the fun never ends!
+Ерунда, веселье никогда не кончается!
+###_PLAYER
+(Plead with her)
+(Умолять ее)
+###_NPC
+Lots of fun, isn't it?
+Очень весело, не так ли?
+###_PLAYER
+Yes please!
+Да, пожалуйста!
+###_NPC
+Here you go!
+Ну вот!
+###_PLAYER
+No thanks.
+Спасибо, не надо.
+###_NPC
+No problem. It's better to buy your own, that way you can play kinky games by yourself.
+Без проблем. Лучше купить свой собственный, так вы сможете играть в извращенные игры самостоятельно.
+###_PLAYER
+Can you put mine on for me?
+Можешь надеть мой для меня?
+###_NPC
+Sure thing! Enjoy the games!
+Конечно! Наслаждайтесь играми!
+###_PLAYER
+(Look at her and plead loudly)
+(Смотрите на нее и громко молите)
+###_NPC
+I see what you're trying to say. Enjoy the games!
+Я вижу, что ты пытаешься сказать. Наслаждайтесь играми!
+###_PLAYER
+(Leave her.)
+(Оставь ее.)

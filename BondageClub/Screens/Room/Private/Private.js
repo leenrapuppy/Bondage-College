@@ -1,7 +1,7 @@
 "use strict";
 var PrivateBackground = "Private";
 var PrivateVendor = null;
-/** @type {Character[]} */
+/** @type {NPCCharacter[]} */
 var PrivateCharacter = [];
 var PrivateCharacterOffset = 0;
 var PrivateCharacterTypeList = ["NPC_Private_VisitorShy", "NPC_Private_VisitorHorny", "NPC_Private_VisitorTough"];
@@ -784,10 +784,10 @@ function PrivateLoadCharacter(C) {
 
 /**
  * Triggered when a new character is added to the player's private room.
- * @param {object} Template - The base of the character, includes the name and appearance.
+ * @param {NPCCharacter} Template - The base of the character, includes the name and appearance.
  * @param {string} [Archetype] - The type of character such as maid or mistress.
  * @param {boolean} [CustomData=false] - Whether or not the character has non-random traits.
- * @returns {void} - Nothing.
+ * @returns {NPCCharacter} - The new private room character.
  */
 function PrivateAddCharacter(Template, Archetype, CustomData) {
 	var C = CharacterLoadNPC("NPC_Private_Custom");
@@ -808,6 +808,7 @@ function PrivateAddCharacter(Template, Archetype, CustomData) {
 	if ((CustomData == null) || (CustomData == false)) ServerPrivateCharacterSync();
 	C.AllowItem = (((ReputationGet("Dominant") + 25 >= NPCTraitGet(C, "Dominant")) && !C.IsOwner()) || C.IsRestrained() || !C.CanTalk());
 	if ((InventoryGet(C, "ItemNeck") != null) && (InventoryGet(C, "ItemNeck").Asset.Name == "ClubSlaveCollar")) InventoryRemove(C, "ItemNeck");
+	return C;
 }
 
 /**
@@ -1178,8 +1179,8 @@ function PrivateSelectPunishment() {
 		if ((PrivatePunishment == "ChastityBra") && !Player.IsBreastChaste() && (NPCTraitGet(CurrentCharacter, "Frigid") >= 0)) break;
 		if ((PrivatePunishment == "ForceNaked") && Player.CanChangeOwnClothes() && (NPCTraitGet(CurrentCharacter, "Horny") >= 0)) break;
 		if ((PrivatePunishment == "ConfiscateKey") && (InventoryAvailable(Player, "MetalCuffsKey", "ItemMisc") || InventoryAvailable(Player, "MetalPadlockKey", "ItemMisc") || InventoryAvailable(Player, "IntricatePadlockKey", "ItemMisc") || InventoryAvailable(Player, "HighSecurityPadlockKey", "ItemMisc"))) break;
-		if ((PrivatePunishment == "ConfiscateCrop") && (InventoryAvailable(Player, "LeatherCrop", "ItemPelvis") || InventoryAvailable(Player, "LeatherCrop", "ItemBreast"))) break;
-		if ((PrivatePunishment == "ConfiscateWhip") && (InventoryAvailable(Player, "LeatherWhip", "ItemPelvis") || InventoryAvailable(Player, "LeatherWhip", "ItemBreast"))) break;
+		if ((PrivatePunishment == "ConfiscateCrop") && InventoryAvailable(Player, "SpankingToysCrop", "ItemHands")) break;
+		if ((PrivatePunishment == "ConfiscateWhip") && InventoryAvailable(Player, "SpankingToysWhip", "ItemHands")) break;
 		if ((PrivatePunishment == "SleepCage") && LogQuery("Cage", "PrivateRoom") && !LogQuery("SleepCage", "Rule")) break;
 		if ((PrivatePunishment == "LockOut") && (NPCTraitGet(CurrentCharacter, "Serious") >= 0)) break;
 		if (PrivatePunishment == "Cell") break;
@@ -1209,8 +1210,8 @@ function PrivateRunPunishment(LoveFactor) {
 	if (PrivatePunishment == "ChastityBra") { InventoryWear(Player, "MetalChastityBra", "ItemBreast"); InventoryLock(Player, "ItemBreast", "OwnerPadlock", null); }
 	if (PrivatePunishment == "ForceNaked") LogAdd("BlockChange", "Rule", CurrentTime + 1800000);
 	if (PrivatePunishment == "ConfiscateKey") InventoryConfiscateKey();
-	if (PrivatePunishment == "ConfiscateCrop") { InventoryDelete(Player, "LeatherCrop", "ItemPelvis"); InventoryDelete(Player, "LeatherCrop", "ItemBreast"); }
-	if (PrivatePunishment == "ConfiscateWhip") { InventoryDelete(Player, "LeatherWhip", "ItemPelvis"); InventoryDelete(Player, "LeatherWhip", "ItemBreast"); }
+	if (PrivatePunishment == "ConfiscateCrop") { InventoryDelete(Player, "SpankingToysCrop", "ItemHands"); }
+	if (PrivatePunishment == "ConfiscateWhip") { InventoryDelete(Player, "SpankingToysWhip", "ItemHands"); }
 	if (PrivatePunishment == "SleepCage") LogAdd("SleepCage", "Rule", CurrentTime + 604800000);
 	if (PrivatePunishment == "LockOut") { LogAdd("LockOutOfPrivateRoom", "Rule", CurrentTime + 3600000); DialogLeave(); CommonSetScreen("Room", "MainHall"); }
 	if (PrivatePunishment == "Cell") { DialogLeave(); CharacterFullRandomRestrain(Player, "ALL"); CellLock(5); }

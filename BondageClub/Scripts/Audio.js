@@ -1,22 +1,24 @@
 "use strict";
 var AudioDialog = new Audio();
 
+/** @type AudioEffect[] */
 var AudioList = [
 	{ Name: "Bag", File: "Bag" },
 	{ Name: "Beep", File: "BeepAlarm" },
 	{ Name: "BellMedium", File: "BellMedium" },
 	{ Name: "BellSmall", File: "BellSmall" },
+	{ Name: "Buckle", File: "Buckle" },
 	{ Name: "CageClose", File: "CageClose" },
 	{ Name: "CageEquip", File: "CageEquip" },
 	{ Name: "CageOpen", File: "CageOpen" },
 	{ Name: "CageStruggle", File: "CageStruggle" },
 	{ Name: "ChainLong", File: "ChainLong" },
+	{ Name: "ClothKnot", File: "ClothKnot" },
+	{ Name: "ClothSlip", File: "ClothSlip" },
 	{ Name: "SciFiEffect", File: "SciFiEffect" },
 	{ Name: "SciFiPump", File: "SciFiPump" },
 	{ Name: "SciFiConfigure", File: "SciFiConfigure" },
-	{ Name: "SciFiBeeps1", File: "SciFiBeeps1" },
-	{ Name: "SciFiBeeps2", File: "SciFiBeeps2" },
-	{ Name: "SciFiBeeps3", File: "SciFiBeeps3" },
+	{ Name: "SciFiBeeps", File: ["SciFiBeeps1", "SciFiBeeps2", "SciFiBeeps3"] },
 	{ Name: "ChainShort", File: "ChainShort" },
 	{ Name: "CuffsMetal", File: "CuffsMetal" },
 	{ Name: "FuturisticApply", File: "FuturisticApply" },
@@ -30,9 +32,7 @@ var AudioList = [
 	{ Name: "RopeLong", File: "RopeLong" },
 	{ Name: "RopeShort", File: "RopeShort" },
 	{ Name: "Shocks", File: "Shocks" },
-	{ Name: "SmackSkin1", File: "SmackBareSkin04-1" },
-	{ Name: "SmackSkin2", File: "SmackBareSkin04-2" },
-	{ Name: "SmackSkin3", File: "SmackBareSkin04-3" },
+	{ Name: "SmackCrop", File: ["SmackCrop1", "SmackCrop2", "SmackCrop3"] },
 	{ Name: "Whip1", File: "SmackWhip1" },
 	{ Name: "Whip2", File: "SmackWhip2" },
 	{ Name: "Sybian", File: "Sybian" },
@@ -47,49 +47,79 @@ var AudioList = [
 	{ Name: "VibrationTeaseMedium", File: "Vibrator_Advanced_MediumTease" },
 	{ Name: "VibrationMaximum", File: "Vibrator_Advanced_Strong" },
 	{ Name: "VibrationCooldown", File: "Vibrator_Advanced_End" },
+	{ Name: "Vibrator", File: "VibratorShort" },
 	{ Name: "Wand", File: "Wand" },
+	{ Name: "WandBig", File: "WandBig" },
 	{ Name: "WoodenCuffs", File: "WoodenCuffs" },
 	{ Name: "ZipTie", File: "ZipTie" },
+	{ Name: "SpankSkin", File: ["SpankSkin1", "SpankSkin2", "SpankSkin3"] },
+	{ Name: "WhipCrack", File: ["WhipCrack"] },
 ];
 
+
+/** @type AudioChatAction[] */
 var AudioActions = [
-	{ Action: "ActionAddLock", Sound: "LockSmall" },
-	{ Action: "TimerRelease", Sound: "Unlock" },
-	{ Action: "ActionUnlock", Sound: "Unlock" },
-	{ Action: "ActionPick", Sound: "Unlock" },
-	{ Action: "ActionUnlockAndRemove", Sound: "Unlock" },
-	{ Action: "FuturisticCollarTriggerLockdown", Sound: "HydraulicLock" },
-	{ Action: "FuturisticCollarTriggerUnlock", Sound: "HydraulicUnlock" },
-	{ Action: "ActionLock", GetAudioInfo: AudioPlayAssetSound },
+	{
+		IsAction: (data) => data.Content === "ActionAddLock",
+		GetSoundEffect: () => "LockSmall"
+	},
+	{
+		IsAction: (data) => data.Content === "TimerRelease",
+		GetSoundEffect: () => "Unlock"
+	},
+	{
+		IsAction: (data) => data.Content === "ActionUnlock",
+		GetSoundEffect: () => "Unlock"
+	},
+	{
+		IsAction: (data) => data.Content === "ActionPick",
+		GetSoundEffect: () => "Unlock"
+	},
+	{
+		IsAction: (data) => data.Content === "ActionUnlockAndRemove",
+		GetSoundEffect: () => "Unlock"
+	},
+	{
+		IsAction: (data) => data.Content === "FuturisticCollarTriggerLockdown",
+		GetSoundEffect: () => "HydraulicLock"
+	},
+	{
+		IsAction: (data) => data.Content === "FuturisticCollarTriggerUnlock",
+		GetSoundEffect: () => "HydraulicUnlock"
+	},
+	{
+		IsAction: (data) => data.Content === "ActionLock",
+		GetSoundEffect: AudioGetSoundFromChatMessage
+	},
 	{
 		IsAction: (data) => ["ActionUse", "ActionSwap"].includes(data.Content) && data.Sender !== Player.MemberNumber,
-		GetAudioInfo: AudioPlayAssetSound,
+		GetSoundEffect: AudioGetSoundFromChatMessage,
 	},
 	{
 		IsAction: (data) => data.Content.indexOf("ActionActivity") == 0,
-		GetAudioInfo: AudioPlayAssetSound
+		GetSoundEffect: AudioGetSoundFromChatMessage
 	},
 	{
-		IsAction: (data) => ["KennelSetDC", "KennelSetPADC", "KennelSetPRDC"].find(A => data.Content === A),
-		Sound: "CageClose"
+		IsAction: (data) => ["KennelSetDC", "KennelSetPADC", "KennelSetPRDC"].some(A => data.Content === A),
+		GetSoundEffect: () => "CageClose"
 	},
 	{
-		IsAction: (data) => ["KennelSetDO", "KennelSetPADO", "KennelSetPRDO"].find(A => data.Content === A),
-		Sound: "CageOpen"
+		IsAction: (data) => ["KennelSetDO", "KennelSetPADO", "KennelSetPRDO"].some(A => data.Content === A),
+		GetSoundEffect: () => "CageOpen"
 	},
 	{
 		IsAction: (data) => [
 			"pumps",
 			"Suctightens",
 			"InflatableBodyBagSet"
-		].find(A => data.Content.includes(A)),
-		Sound: "Inflation"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "Inflation"
 	},
 	{
 		IsAction: (data) => [
 			"FuturisticTrainingBeltSetStateNoneOff"
-		].find(A => data.Content.includes(A)),
-		Sound: "FuturisticApply"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "FuturisticApply"
 	},
 	{
 		IsAction: (data) => [
@@ -97,21 +127,21 @@ var AudioActions = [
 			"FuturisticTrainingBeltSetStateLowPriorityEdgeLowSelf",
 			"FuturisticTrainingBeltSetStateHighPriorityEdgeLow",
 			"FuturisticTrainingBeltSetStateHighPriorityEdgeLowSelf"
-		].find(A => data.Content.includes(A)),
-		Sound: "VibrationEdgeLow"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "VibrationEdgeLow"
 	},
 	{
 		IsAction: (data) => [
 			"FuturisticTrainingBeltSetStateLowPriorityTeaseLow",
 			"FuturisticTrainingBeltSetStateLowPriorityLowLow"
-		].find(A => data.Content.includes(A)),
-		Sound: "VibrationTeaseLow"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "VibrationTeaseLow"
 	},
 	{
 		IsAction: (data) => [
 			"FuturisticTrainingBeltSetStateCooldownOff"
-		].find(A => data.Content.includes(A)),
-		Sound: "VibrationCooldown"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "VibrationCooldown"
 	},
 	{
 		IsAction: (data) => [
@@ -119,15 +149,15 @@ var AudioActions = [
 			"FuturisticTrainingBeltSetStateLowPriorityEdgeMediumSelf",
 			"FuturisticTrainingBeltSetStateHighPriorityEdgeMedium",
 			"FuturisticTrainingBeltSetStateHighPriorityEdgeMediumSelf"
-		].find(A => data.Content.includes(A)),
-		Sound: "VibrationEdgeMedium"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "VibrationEdgeMedium"
 	},
 	{
 		IsAction: (data) => [
 			"FuturisticTrainingBeltSetStateLowPriorityTeaseMedium",
 			"FuturisticTrainingBeltSetStateLowPriorityMedium"
-		].find(A => data.Content.includes(A)),
-		Sound: "VibrationTeaseMedium"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "VibrationTeaseMedium"
 	},
 	{
 		IsAction: (data) => [
@@ -135,8 +165,8 @@ var AudioActions = [
 			"FuturisticTrainingBeltSetStateLowPriorityEdgeHighSelf",
 			"FuturisticTrainingBeltSetStateHighPriorityEdgeHigh",
 			"FuturisticTrainingBeltSetStateHighPriorityEdgeHighSelf"
-		].find(A => data.Content.includes(A)),
-		Sound: "VibrationEdgeHigh"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "VibrationEdgeHigh"
 	},
 	{
 		IsAction: (data) => [
@@ -148,14 +178,14 @@ var AudioActions = [
 			"FuturisticTrainingBeltSetStateLowPriorityMax",
 			"FuturisticTrainingBeltSetStateHighPriorityEdgeMaximum",
 			"FuturisticTrainingBeltSetStateHighPriorityEdgeMaximumSelf"
-		].find(A => data.Content.includes(A)),
-		Sound: "VibrationMaximum"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "VibrationMaximum"
 	},
 	{
 		IsAction: (data) => [
 			"InteractiveVisorSet"
-		].find(A => data.Content.includes(A)),
-		Sound: "SciFiEffect"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "SciFiEffect"
 	},
 	{
 		IsAction: (data) => [
@@ -163,40 +193,40 @@ var AudioActions = [
 			"FuturisticPanelGagMouthSetBall",
 			"FuturisticPanelGagMouthSetPadded",
 			"FuturisticPanelGagMouthSetPlug"
-		].find(A => data.Content.includes(A)),
-		Sound: "SciFiPump"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "SciFiPump"
 	},
 	{
 		IsAction: (data) => [
 			"deflates",
 			"Sucloosens"
-		].find(A => data.Content.includes(A)),
-		Sound: "Deflation"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "Deflation"
 	},
 	{
 		IsAction: (data) => [
 			"ChainSet"
-		].find(A => data.Content.includes(A)),
-		Sound: "ChainLong"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "ChainLong"
 	},
 	{
 		IsAction: (data) => [
 			"RopeSet"
-		].find(A => data.Content.includes(A)),
-		Sound: "RopeShort"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "RopeShort"
 	},
 	{
 		IsAction: (data) => [
 			"ShacklesRestrain",
 			"Ornate"
-		].find(A => data.Content.includes(A)),
-		Sound: "CuffsMetal"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "CuffsMetal"
 	},
 	{
 		IsAction: (data) => [
 			"FuturisticChastityBeltShock"
-		].find(A => data.Content.includes(A)),
-		Sound: "Shocks"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "Shocks"
 	},
 	{
 		IsAction: (data) => [
@@ -209,34 +239,34 @@ var AudioActions = [
 			"FuturisticLegCuffsRestrain",
 			"FuturisticAnkleCuffsRestrain",
 			"SciFiPleasurePantiesAction"
-		].find(A => data.Content.includes(A)),
-		Sound: "SciFiConfigure"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "SciFiConfigure"
 	},
 	{
 		IsAction: (data) => [
 			"FuturisticTrainingBeltSetGeneric",
 			"FuturisticPanelGagMouthSetAutoPunish",
 			"SciFiPleasurePantiesBeep"
-		].find(A => data.Content.includes(A)),
-		GetAudioInfo: AudioSciFiBeepSounds
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "SciFiBeeps"
 	},
 	{
 		IsAction: (data) => [
 			"FuturisticPanelGagMouthSetAutoInflate"
-		].find(A => data.Content.includes(A)),
-		Sound: "Inflation"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "Inflation"
 	},
 	{
 		IsAction: (data) => [
 			"FuturisticPanelGagMouthSetAutoDeflate"
-		].find(A => data.Content.includes(A)),
-		Sound: "Deflation"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "Deflation"
 	},
 	{
 		IsAction: (data) => [
 			"FuturisticCrateSet"
-		].find(A => data.Content.includes(A)),
-		Sound: "SciFiConfigure"
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: () => "SciFiConfigure"
 	},
 	{
 		IsAction: (data) => [
@@ -247,15 +277,20 @@ var AudioActions = [
 			"TriggerShock",
 			"CollarAutoShockUnitTrigger",
 			"FuturisticVibratorShockTrigger"
-		].find(A => data.Content.includes(A)),
-		GetAudioInfo: (data) => InventoryItemNeckAccessoriesCollarShockUnitDynamicAudio(data)
+		].some(A => data.Content.includes(A)),
+		GetSoundEffect: (data) => InventoryItemNeckAccessoriesCollarShockUnitDynamicAudio(data)
 	},
 	{
 		IsAction: (data) => [
 			"Decrease",
 			"Increase"
-		].find(A => data.Content.includes(A)) && !data.Content.endsWith("-1"),
-		GetAudioInfo: AudioVibratorSounds
+		].some(A => data.Content.includes(A)) && !data.Content.endsWith("-1"),
+		GetSoundEffect: AudioVibratorSounds
+	},
+	{
+		IsAction: (data) =>
+			data.Type == "Activity" && (data.Content.endsWith('-Slap') || data.Content.endsWith('-Spank')),
+		GetSoundEffect: () => "SpankSkin"
 	},
 ];
 
@@ -281,7 +316,7 @@ function AudioPlayInstantSound(src, volume) {
  * @returns {void} - Nothing
  */
 function AudioDialogStart(SourceFile) {
-	if (!Player.AudioSettings || !Player.AudioSettings.PlayItem || !Player.AudioSettings.Volume || (Player.AudioSettings.Volume == 0)) return;
+	if (AudioShouldSilenceSound()) return;
 	AudioDialog.pause();
 	AudioDialog.currentTime = 0;
 	AudioDialog.src = SourceFile;
@@ -298,80 +333,178 @@ function AudioDialogStop() {
 	AudioDialog.currentTime = 0;
 }
 
+/** The "normal" volume for a game sound, a.k.a a sound with modifier 0 */
+let AudioVolumeNormalLevel = 0.5;
+/** Number of available modifier steps */
+let AudioVolumeModifierSteps = 4;
+
+/**
+ * Returns the actual volume given a volume modifier.
+ *
+ * @param {number} modifier - The volume modifier to use, from -4 to 4
+ * @returns {number} The volume level, from 0.0 to 1.0
+ */
+function AudioVolumeFromModifier(modifier) {
+	modifier = Math.max(-AudioVolumeModifierSteps, Math.min(AudioVolumeModifierSteps, modifier));
+	let volumeMod = (2 * (1 - AudioVolumeNormalLevel) * modifier / (2 * AudioVolumeModifierSteps));
+	return Player.AudioSettings.Volume * AudioVolumeNormalLevel + (isNaN(volumeMod) ? 0 : volumeMod);
+}
+
+/**
+ * Is sound allowed to play.
+ *
+ * @param {boolean} IsPlayerInvolved - Whether the player was involved in what caused the sound to play.
+ * @returns {boolean} True if the player has item sound enabled, and a non-muted volume, false otherwise.
+ */
+function AudioShouldSilenceSound(IsPlayerInvolved = false) {
+	if (!Player.AudioSettings || !Player.AudioSettings.Volume || (Player.AudioSettings.Volume == 0))
+		return true;
+
+	if (!Player.AudioSettings.PlayItem && ServerPlayerIsInChatRoom())
+		return true;
+
+	if (Player.AudioSettings.PlayItemPlayerOnly && !IsPlayerInvolved)
+		return true;
+
+	return false;
+}
+
 /**
  * Takes the received data dictionary content and identifies the audio to be played
- * @param {object} data - Data received
+ * @param {IChatRoomMessage} data - Data received
  * @returns {void} - Nothing
  */
-function AudioPlayContent(data) {
+function AudioPlaySoundForChatMessage(data) {
 	// Exits right away if we are missing content data
-	if (!Player.AudioSettings || !Player.AudioSettings.PlayItem || (Player.AudioSettings.Volume == 0) || !data.Dictionary || !data.Dictionary.length) return;
-	var NoiseModifier = 0;
-	var FileName = "";
+	if (!data.Dictionary || !data.Dictionary.length) return;
 
-	// Instant actions can trigger a sound depending on the action. It can be a specific string or custom function to determine if a sound should be played, it can also alter the sound level.
-	// The sound can be a specific one or the result of a function
-	var Action = AudioActions.find(A => A.Action && A.Action == data.Content) || AudioActions.find(CA => CA.IsAction && CA.IsAction(data));
+	if (AudioShouldSilenceSound(ChatRoomMessageInvolvesPlayer(data))) return;
+
+	// Instant actions can trigger a sound depending on the action.
+	let Action = AudioActions.find(CA => CA.IsAction && CA.IsAction(data));
+	/** @type AudioSoundEffect */
+	let soundEffect = null;
 	if (Action) {
-		if (Action.GetAudioInfo) {
-			var Result = Action.GetAudioInfo(data);
-			FileName = AudioGetFileName(Result[0]);
-			NoiseModifier += Result[1] || 0;
-		} else
-			FileName = AudioGetFileName(Action.Sound);
+		let snd = Action.GetSoundEffect(data);
+		if (typeof snd === "string")
+			soundEffect = [snd, 0];
+		else
+			soundEffect = snd;
 	}
 
 	// Update noise level depending on who the interaction took place between.  Sensory isolation increases volume for self, decreases for others.
 	var Target = data.Dictionary.find((el) => el.Tag == "DestinationCharacter" || el.Tag == "DestinationCharacterName" || el.Tag == "TargetCharacter");
 
-	if (!FileName || !Target || !Target.MemberNumber) return;
+	if (!soundEffect || !Target || !Target.MemberNumber) return;
 
-	if (Target.MemberNumber == Player.MemberNumber) NoiseModifier += 3;
-	else if (data.Sender != Player.MemberNumber) NoiseModifier -= 3;
+	if (Target.MemberNumber == Player.MemberNumber) soundEffect[1] += 3;
+	else if (data.Sender != Player.MemberNumber) soundEffect[1] -= 3;
 
-	const blindLevel = Player.GetBlindLevel();
-	if (blindLevel >= 3) NoiseModifier += 4;
-	else if (blindLevel == 2) NoiseModifier += 2;
-	else if (blindLevel == 1) NoiseModifier += 1;
-
-	NoiseModifier -= (3 * Player.GetDeafLevel());
-
-	// Sends the audio file to be played
-	AudioPlayInstantSound("Audio/" + FileName + ".mp3", Player.AudioSettings.Volume * (.2 + NoiseModifier / 40));
+	AudioPlaySoundEffect(soundEffect);
 }
 
+/**
+ * Low-level function to play a sound effect.
+ * @param {AudioSoundEffect|string} soundEffect
+ * @param {number} [volumeModifier]
+ * @returns {boolean} if a sound was played or not.
+ */
+function AudioPlaySoundEffect(soundEffect, volumeModifier) {
+	if (!soundEffect) return false;
+	if (!volumeModifier) volumeModifier = 0;
+
+	let soundEffectName = null;
+	if (Array.isArray(soundEffect)) {
+		soundEffectName = soundEffect[0];
+		volumeModifier += soundEffect[1];
+	} else if (typeof soundEffect === "string") {
+		soundEffectName = soundEffect;
+	} else {
+		console.error('Invalid sound effect');
+		return false;
+	}
+	let fileName = AudioGetFileName(soundEffectName);
+	if (!fileName) return false;
+
+	const blindLevel = Player.GetBlindLevel();
+	if (blindLevel >= 3) volumeModifier += 4;
+	else if (blindLevel == 2) volumeModifier += 2;
+	else if (blindLevel == 1) volumeModifier += 1;
+
+	volumeModifier -= Player.GetDeafLevel();
+
+
+	// Sends the audio file to be played
+	AudioPlayInstantSound("Audio/" + fileName + ".mp3", AudioVolumeFromModifier(volumeModifier));
+	return true;
+}
+
+/**
+ * Plays a given asset sound effect.
+ * @param {Character} character
+ * @param {Asset} asset
+ * @returns {boolean} Whether a sound was played.
+ */
+function AudioPlaySoundForAsset(character, asset) {
+	if (AudioShouldSilenceSound()) return;
+
+	let sound = AudioGetSoundFromAsset(character, asset.Group.Name, asset.Name);
+	return AudioPlaySoundEffect(sound, 0);
+}
+
+/**
+ * Get the sound effect for a given asset.
+ *
+ * @param {Character} character
+ * @param {string} groupName
+ * @param {string} assetName
+ * @returns {AudioSoundEffect?}
+ */
+function AudioGetSoundFromAsset(character, groupName, assetName) {
+	let asset = AssetGet(character.AssetFamily, groupName, assetName);
+	if (!asset) return null;
+
+	let sound = asset.Audio;
+	if (asset.DynamicAudio) {
+		sound = asset.DynamicAudio(character);
+	}
+
+	return [sound, 0];
+}
+
+/**
+ * Get a file name for a given sound effect.
+ * @param {string} sound - The sound effect to load a file from.
+ * @returns {string?}
+ */
 function AudioGetFileName(sound) {
-	var AssetSound = AudioList.find(A => A.Name == sound);
-	return AssetSound ? AssetSound.File : "";
+	let audioEffect = AudioList.find(A => A.Name == sound);
+	if (!audioEffect) return null;
+	if (Array.isArray(audioEffect.File)) {
+		return CommonRandomItemFromList("", audioEffect.File);
+	} else {
+		return audioEffect.File;
+	}
 }
 
 /**
  * Processes which sound should be played for items
- * @param {object} data - Data content triggering the potential sound
- * @returns {[string, number]} - he name of the sound to play, followed by the noise modifier
+ * @param {IChatRoomMessage} data - Data content triggering the potential sound
+ * @returns {AudioSoundEffect?} - The name of the sound to play, followed by the noise modifier
  */
-function AudioPlayAssetSound(data) {
+function AudioGetSoundFromChatMessage(data) {
 	var NextAsset = data.Dictionary.find((el) => el.Tag == "NextAsset");
 	var NextAssetGroup = data.Dictionary.find((el) => el.Tag == "FocusAssetGroup");
-	var FileName = "";
+	var Char = ChatRoomCharacter.find((C) => C.MemberNumber == data.Sender);
 
-	if (!NextAsset || !NextAsset.AssetName || !NextAssetGroup || !NextAssetGroup.AssetGroupName) return [FileName, 0];
+	if (!NextAsset || !NextAsset.AssetName || !NextAssetGroup || !NextAssetGroup.AssetGroupName || !Char) return null;
 
-	var Asset = AssetGet("Female3DCG", NextAssetGroup.AssetGroupName, NextAsset.AssetName);
-
-	if (!Asset) return [FileName, 0];
-
-	if (Asset.DynamicAudio) {
-		var Char = ChatRoomCharacter.find((C) => C.MemberNumber == data.Sender);
-		FileName = Char ? Asset.DynamicAudio(Char) : "";
-	}
-
-	return [(FileName || Asset.Audio), 3];
+	return AudioGetSoundFromAsset(Char, NextAssetGroup.AssetGroupName, NextAsset.AssetName);
 }
 
 /**
  * Processes the sound for vibrators
- * @param {object} data - Represents the chat message received
+ * @param {IChatRoomMessage} data - Represents the chat message received
  * @returns {[string, number]} - The name of the sound to play, followed by the noise modifier
  */
 function AudioVibratorSounds(data) {
@@ -406,18 +539,4 @@ function AudioVibratorSounds(data) {
 	}
 
 	return [Sound, Level * 3];
-}
-
-/**
- * @returns {[string, number]}
- */
-function AudioSciFiBeepSounds() {
-	var AudioRandomNumber = Math.random();
-
-	if (AudioRandomNumber < 0.33) {
-		return ["SciFiBeeps1", 4];
-	} else if (AudioRandomNumber > 0.67) {
-		return ["SciFiBeeps2", 4];
-	}
-	return ["SciFiBeeps3", 4];
 }

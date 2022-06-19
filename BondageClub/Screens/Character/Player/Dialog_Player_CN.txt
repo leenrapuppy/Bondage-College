@@ -2,6 +2,78 @@
 (You can use or remove items by selecting specific body regions on yourself.)
 (你可以选择身体的特定部位来使用或移除物品.)
 ###_PLAYER
+(View your profile.)
+(View your profile.)
+(Change your clothes.)
+(Change your clothes.)
+(Room administrator action.)
+(房间管理员动作.)
+###_NPC
+(As a room administrator, you can take these actions.)
+(作为一个房间管理员,你可以做以下动作.)
+###_PLAYER
+(Character actions.)
+(Character actions.)
+###_NPC
+(Possible character actions.)
+(Possible character actions.)
+###_PLAYER
+(Spend GGTS minutes.)
+(Spend GGTS minutes.)
+###_NPC
+(Select how to spend your minutes.)
+(Select how to spend your minutes.)
+###_PLAYER
+(View your current rules.)
+(查看你目前的规则.)
+###_NPC
+(Here are your currently active rules.)
+(这些是现在生效中的规则.)
+###_PLAYER
+(Leave this menu.)
+(Leave this menu.)
+(Move Character.)
+(移动角色.)
+###_NPC
+(Move started.)
+(开始移动.)
+###_PLAYER
+(Back to main menu.)
+(回到主菜单.)
+(Spend 15 minutes for a bondage position change.)
+(Spend 15 minutes for a bondage position change.)
+###_NPC
+(You don't have enough minutes available.)
+(You don't have enough minutes available.)
+###_PLAYER
+(Spend 15 minutes for a new blindness level.)
+(Spend 15 minutes for a new blindness level.)
+(Spend 15 minutes for a new deafness level.)
+(Spend 15 minutes for a new deafness level.)
+(Spend 15 minutes for an sexual intensity change.)
+(Spend 15 minutes for an sexual intensity change.)
+(Spend 15 minutes for a sexual intensity change.)
+(Spend 15 minutes for a sexual intensity change.)
+(Spend 30 minutes to unlock the door.)
+(Spend 30 minutes to unlock the door.)
+###_NPC
+(You must have 30 minutes and be the admistrator of the locked room.)
+(You must have 30 minutes and be the admistrator of the locked room.)
+###_PLAYER
+(Spend 120 minutes to get $100.)
+(Spend 120 minutes to get $100.)
+###_NPC
+(GGTS gives you $100 and substracts 120 minutes to your total.)
+(GGTS gives you $100 and substracts 120 minutes to your total.)
+###_PLAYER
+(Spend 200 minutes to get your own GGTS helmet.)
+(Spend 200 minutes to get your own GGTS helmet.)
+###_NPC
+(You get a GGTS helmet and the AI substracts 200 minutes from your total.)
+（你获得了一个GGTS头盔，AI从你的GGTS分钟代币中减去了200分钟。）
+(You don't have enough minutes available or you already have the helmet in your inventory.)
+（你没有足够的GGTS分钟或你已经拥有GGTS头盔了。）
+###_PLAYER
 (Adjust your bondage skill.)
 (调整你的束缚技能.)
 ###_NPC
@@ -22,30 +94,20 @@
 (The maids will be here shortly...)
 (女仆们马上就到...)
 ###_PLAYER
-(Yes! Get me out of this room!)
-(是的!把我从这弄出去!)
-(No, don't call the maids.)
-(不,不要呼叫女仆.)
-(Room administrator action.)
-(房间管理员动作.)
-###_NPC
-(As a room administrator, you can take these actions.)
-(作为一个房间管理员,你可以做以下动作.)
-###_PLAYER
 (Use your safeword.)
 (使用安全词.)
 ###_NPC
 (A safeword is serious and should not be used to cheat.  It can revert your clothes and restraints to when you entered the lobby, or release you completely.)
 (安全词应该是严肃的且不应被用于作弊.它可以将你的服装和束缚恢复到登录时的状态,或是完全解放你.)
 ###_PLAYER
-(View your current rules.)
-(查看你目前的规则.)
+(Take a photo of yourself.)
+(Take a photo of yourself.)
+(Play Kinky Dungeon)
+(玩淫靡地城)
 ###_NPC
-(Here are your currently active rules.)
-(这些是现在生效中的规则.)
+(Main menu.)
+(主菜单.)
 ###_PLAYER
-(Take a picture.)
-(拍一张照.)
 (Use your full bondage skill.  100%)
 (使用你所有的束缚技巧.  100%)
 ###_NPC
@@ -108,18 +170,10 @@
 (You will now use none of your evasion skill when trying to struggle free.  0%)
 (你大概是想被这么绑着一辈子吧.  0%)
 ###_PLAYER
-(Move Character.)
-(移动角色.)
-###_NPC
-(Move started.)
-(开始移动.)
-###_PLAYER
-(Back to main menu.)
-(回到主菜单.)
-###_NPC
-(Main menu.)
-(主菜单.)
-###_PLAYER
+(Yes! Get me out of this room!)
+(是的!把我从这弄出去!)
+(No, don't call the maids.)
+(不,不要呼叫女仆.)
 (Revert Character.)
 (恢复角色.)
 ###_NPC
@@ -142,19 +196,17 @@
 (是的,我想要被解开.)
 (No, don't release me.)
 (不,不要解开.)
-(Play Kinky Dungeon)
-(玩淫靡地城)
 ###_NPC
 The stimulation ends just before you go over the edge.
-The stimulation ends just before you go over the edge.
+就在你马上要到极限的时候刺激停止了。
 The vibrators cut off right before you reach climax.
-The vibrators cut off right before you reach climax.
+就在你马上要高潮的时候振动棒突然停下来了。
 The vibrators deny you a chance to finish, stopping abruptly.
-The vibrators deny you a chance to finish, stopping abruptly.
+振动棒突然停了下来，断绝了你高潮出来的机会。
 SourceCharacter quit a game of Kinky Dungeon at level KinkyDungeonLevel
-SourceCharacter quit a game of Kinky Dungeon at level KinkyDungeonLevel
+SourceCharacter 在KinkyDungeonLevel关退出了淫荡地城
 SourceCharacter met her defeat in Kinky Dungeon! She made it to level KinkyDungeonLevel before succumbing.
-SourceCharacter met her defeat in Kinky Dungeon! She made it to level KinkyDungeonLevel before succumbing.
+SourceCharacter 在淫荡地城惨败! 止步于KinkyDungeonLevel而变成了魅魔。
 Save
 保存
 Load
@@ -163,6 +215,8 @@ Save/Load Expressions
 存储/读取表情
 (Empty)
 (空白)
+GGTS control this item
+GGTS控制该物品
 Select Blanket Bondage
 选择毯子束缚
 Normal
@@ -216,7 +270,7 @@ Remove some clothes first.
 Unzip the suit first.
 先解开外套.
 Remove the suspension first.
-先从楼顶上下来.
+先从悬挂上下来.
 Release from hogtie first.
 先解开驷马.
 Remove some restraints first.
@@ -225,8 +279,8 @@ Cannot be used when mounted.
 不能在坐在家具上时使用.
 Cannot be used while yoked.
 不能在被轭住时使用.
-Cannot be used with legs spreader.
-不能在被强制开腿时使用
+Cannot be used while the legs are spread.
+不能在腿被分开时使用.
 Cannot be used while serving drinks.
 不能在送餐时使用.
 Remove the wand first.
@@ -237,8 +291,6 @@ Must remove chastity first.
 必须先移除贞操带.
 Remove the chain first.
 先移除锁链.
-Cannot hogtie with this hood.
-使用该面罩时无法驷马.
 A collar must be fitted first to attach accessories to.
 必须先戴好项圈才能添加挂件.
 Must be on a bed to attach addons to.
@@ -273,14 +325,18 @@ Must remove face mask first.
 必须先摘下面具.
 Must empty vulva first.
 必须先清空阴道.
-Must remove clit piercings first
-必须先移除阴蒂穿刺物.
+Must remove clitoris piercings first
+Must remove clitoris piercings first
 Must empty butt first.
 必须先清空后庭.
 The use of remotes is forbidden by your owner
 你的主人禁止你使用遥控器.
 Cannot be used over the applied gags.
 不能在已穿戴的口塞上使用.
+Cannot be used over the applied mask.
+不能在已穿戴的口罩上使用.
+Cannot be used over the applied hood.
+不能在已穿戴的头套上使用.
 Blocked in this room.
 被房间禁止.
 Cancel
@@ -289,6 +345,8 @@ Back to character
 回到角色
 View next items
 查看下一件物品
+View previous items
+View previous items
 View next page
 查看下一页
 View previous page
@@ -325,8 +383,20 @@ Unable to inspect due to player permissions
 因玩家权限设置无法检查
 Use your remote
 使用你的遥控器
+You have not bought a remote yet.
+你还没买过遥控器.
+Your owner is preventing you from using remotes.
+你的主人禁止你使用遥控器.
+You have not bought a lover's remote yet.
+你还没买过爱人遥控器.
+Using remotes on this item has been blocked
+对该物品使用遥控器的能力被屏蔽了
+You do not have access to this item
+没有足够的权限
+Your hands must be free to use remotes
+你必须双手自由才能使用遥控器
 Exit permission mode
-退出权限模式
+退出权限编辑模式
 Edit item permissions
 编辑物品权限
 Sexual activities
@@ -429,6 +499,20 @@ Hair out & Accessories out
 头发&配饰在内
 SourceCharacter changes the style of DestinationCharacter gwen hood.
 SourceCharacter改变了DestinationCharacter的gwen hood的外观.
+Select a hood style.
+Select a hood style.
+Hair in
+Hair in
+Hair out
+Hair out
+Select a scarf style.
+Select a scarf style.
+Hide Mouth
+Hide Mouth
+Bundled
+Bundled
+SourceCharacter changes the style of DestinationCharacter hood.
+SourceCharacter changes the style of DestinationCharacter hood.
 Pump gag level: Empty
 充气口塞等级: 空的
 Pump gag level: Light
@@ -506,7 +590,7 @@ SourceCharacter跪了下来
 SourceCharacter stands up
 SourceCharacter站了起来
 SourceCharacter carefully lowers herself down.
-SourceCharacter小心的放低姿态
+SourceCharacter小心的跪了下来
 SourceCharacter manages to get to her feet.
 SourceCharacter成功站了起来
 SourceCharacter almost loses her balance trying to kneel down!
@@ -523,6 +607,8 @@ SourceCharacter selects her team and class.
 SourceCharacter选择了她的队伍和班级.
 SourceCharacter has started the LARP game.
 SourceCharacter开始了体感对战.
+SourceCharacter has started the Magic Battle.
+SourceCharacter has started the Magic Battle.
 Your safeword is disabled, it cannot be used at the moment.
 你的安全词被禁用了, 现在无法使用.
 Private
@@ -557,6 +643,8 @@ in the Asylum
 在收容所
 in LARP
 在体感对战
+in Magic Battle
+in Magic Battle
 Received at
 接收于
 <i>Your private room</i>
@@ -773,6 +861,8 @@ Padded Cell
 软墙病房
 Padded Cell 2
 软墙病房2
+GGTS Computer Room
+GGTS电脑房
 Ranch
 牧场
 Luxury Pool
@@ -830,7 +920,7 @@ Latex Room
 Outside Cells
 开放房间
 Infiltration Bunker
-渗透地堡
+潜入暗堡
 Movie Studio
 电影工厂
 Tennis Court
@@ -861,6 +951,10 @@ Red Sci-Fi Room
 红色科幻室
 Lingerie Shop
 内衣店
+Restaurant 1
+Restaurant 1
+Restaurant 2
+Restaurant 2
 Remove locks before changing
 更改前移除锁
 Blocked due to item permissions
@@ -868,55 +962,79 @@ Blocked due to item permissions
 (As you enter the luxurious hallway, a maid comes to greet you.)  Welcome to the Bondage Club, is this your first visit?
 (当你走进富丽堂皇的入口时,一位女仆向你鞠躬.)   欢迎来到拘束俱乐部,这是您第一次来吗?
 SourceCharacter is offering you to start a trial period as her submissive.  Click on her and manage your relationship to accept, don't do anything to refuse.
-SourceCharacter is offering you to start a trial period as her submissive.  Click on her and manage your relationship to accept, don't do anything to refuse.
+SourceCharacter 向您提供了试成为她从仆的机会。点击她并选择管理你和她的关系来接受邀请。若您拒绝则可忽略本消息。
 The Bondage Club is pleased to announce that SourceCharacter is starting a 7 days minimum trial period as a submissive.
-The Bondage Club is pleased to announce that SourceCharacter is starting a 7 days minimum trial period as a submissive.
+束缚俱乐部很荣幸的宣布SourceCharacter开始了她不少于7天的从仆试做之旅。
 SourceCharacter has prepared a great collaring ceremony.  A maid brings a slave collar, which her submissive must consent to wear.
-SourceCharacter has prepared a great collaring ceremony.  A maid brings a slave collar, which her submissive must consent to wear.
+SourceCharacter准备了一场隆重的收奴典礼。一位女仆拿出了一个奴隶项圈，她的从仆必须同意戴上。
 The Bondage Club announces that SourceCharacter canceled the trial ownership of TargetCharacter.
-The Bondage Club announces that SourceCharacter canceled the trial ownership of TargetCharacter.
+束缚俱乐部宣布SourceCharacter取消了与TargetCharacter的主从试用关系
 The Bondage Club announces that SourceCharacter released TargetCharacter from her ownership.
 The Bondage Club announces that SourceCharacter released TargetCharacter from her ownership.
 The Bondage Club is proud to announce that SourceCharacter is now fully collared.  Her fate is in her Mistress hands.
 The Bondage Club is proud to announce that SourceCharacter is now fully collared.  Her fate is in her Mistress hands.
 Your owner is now allowing you to access your wardrobe and change clothes.
-Your owner is now allowing you to access your wardrobe and change clothes.
+你的主人现在允许你访问衣柜并更换服装了。
 Your owner has blocked your wardrobe access for an hour.  You won't be able to change clothes.
-Your owner has blocked your wardrobe access for an hour.  You won't be able to change clothes.
+你的主人禁用了你的衣柜，时长为1小时。你现在无法更换服装。
 Your owner has blocked your wardrobe access for a day.  You won't be able to change clothes.
-Your owner has blocked your wardrobe access for a day.  You won't be able to change clothes.
+你的主人禁用了你的衣柜，时长为1天。你现在无法更换服装。
 Your owner has blocked your wardrobe access for a week.  You won't be able to change clothes.
-Your owner has blocked your wardrobe access for a week.  You won't be able to change clothes.
+你的主人禁用了你的衣柜，时长为1星期。你现在无法更换服装。
 Your owner has blocked your wardrobe access.  You won't be able to change clothes until that rule is revoked.
-Your owner has blocked your wardrobe access.  You won't be able to change clothes until that rule is revoked.
+你的主人禁用了你的衣柜。直到该限制被撤销，你无法更换服装。
+Your owner is now allowing you to talk publicly when she's there.
+Your owner is now allowing you to talk publicly when she's there.
+Your owner is now preventing you from talking publicly when she's there.
+Your owner is now preventing you from talking publicly when she's there.
+Your owner is now allowing you to emote when she's there.
+Your owner is now allowing you to emote when she's there.
+Your owner is now preventing you from emoting when she's there.
+Your owner is now preventing you from emoting when she's there.
 Your owner is now allowing you to whisper to other members when she's there.
-Your owner is now allowing you to whisper to other members when she's there.
+你的主人现在允许你当她在场时向其他人发送悄悄话。
 Your owner is now preventing you from whispering to other members when she's there.
-Your owner is now preventing you from whispering to other members when she's there.
+你的主人现在不允许你当她在场时向其他人发送悄悄话。
+Your owner is now allowing you to change your pose when she's there.
+Your owner is now allowing you to change your pose when she's there.
+Your owner is now preventing you from changing your pose when she's there.
+Your owner is now preventing you from changing your pose when she's there.
+Your owner is now allowing you to access yourself when she's there.
+Your owner is now allowing you to access yourself when she's there.
+Your owner is now preventing you from accessing yourself when she's there.
+Your owner is now preventing you from accessing yourself when she's there.
+Your owner is now allowing you to access others when she's there.
+Your owner is now allowing you to access others when she's there.
+Your owner is now preventing you from accessing others when she's there.
+Your owner is now preventing you from accessing others when she's there.
 Your owner is now allowing you to have keys.  You can buy keys from the club shop.
-Your owner is now allowing you to have keys.  You can buy keys from the club shop.
+你的主人现在允许你持有钥匙。你可以在俱乐部商店购买钥匙。
 Your owner has confiscated your keys.  All your regular keys are lost.
-Your owner has confiscated your keys.  All your regular keys are lost.
+你的主人没收了你的钥匙。你失去了你所有的一般钥匙。
 Your owner is now preventing you from getting new keys.  The club shop will not sell keys to you anymore.
-Your owner is now preventing you from getting new keys.  The club shop will not sell keys to you anymore.
+你的主人现在不允许你获取新的钥匙。俱乐部商店将不再向你出售钥匙。
 Your owner is now allowing to using owner locks on yourself.
-Your owner is now allowing to using owner locks on yourself.
+你的主人现在允许你在自己身上使用主人锁。
 Your owner is now preventing you from using owner locks on yourself.
-Your owner is now preventing you from using owner locks on yourself.
+你的主人现在不允许你在自己身上使用主人锁。
 Your owner is now allowing you to have remotes.  You can buy remotes from the club shop.
-Your owner is now allowing you to have remotes.  You can buy remotes from the club shop.
+你的主人现在允许你持有遥控器。你可以在俱乐部商店购买遥控器。
 Your owner is now allowing you to use remotes on yourself.
-Your owner is now allowing you to use remotes on yourself.
+你的主人现在允许你在自己身上使用遥控器。
 Your owner has confiscated your remotes.  All your remotes are lost.
-你的主人没收了你的遥控器。  你失去了所有遥控器
+你的主人没收了你的遥控器。你失去了所有遥控器
 Your owner is now preventing you from getting new remotes.  The club shop will not sell remotes to you anymore.
-Your owner is now preventing you from getting new remotes.  The club shop will not sell remotes to you anymore.
+你的主人现在不允许你获取新的遥控器。俱乐部商店将不再向你出售遥控器。
 Your owner is now preventing you from using remotes on yourself.
-Your owner is now preventing you from using remotes on yourself.
+你的主人现在不允许你在自己身上使用遥控器。
 Your owner has locked the slave collar on your neck.
-Your owner has locked the slave collar on your neck.
+你的主人在你的脖子上安装了奴隶项圈。
 Your owner released you from the slave collar.
-Your owner released you from the slave collar.
+你的主人卸下了你的奴隶项圈。
+Your owner is now allowing you to change your nickname.
+Your owner is now allowing you to change your nickname.
+Your owner is now preventing you from changing your nickname.
+Your owner is now preventing you from changing your nickname.
 Your lover is now allowing you to use lovers locks on yourself.
 Your lover is now allowing you to use lovers locks on yourself.
 Your lover is now preventing you from using lovers locks on yourself.
@@ -926,17 +1044,17 @@ Your lover is now allowing your owner to use lovers locks on you.
 Your lover is now preventing your owner from using lovers locks on you.
 Your lover is now preventing your owner from using lovers locks on you.
 SourceCharacter is asking you to be her girlfriend.  Click on her and manage your relationship to accept, don't do anything to refuse.
-SourceCharacter is asking you to be her girlfriend.  Click on her and manage your relationship to accept, don't do anything to refuse.
+SourceCharacter 正在请求你做她的女朋友。点击该玩家并选择“管理你们的关系”以接受。如果要拒绝，你不需要执行任何操作。
 The Bondage Club is pleased to announce that SourceCharacter and TargetCharacter are starting a 7 days minimum period as lovers.
-The Bondage Club is pleased to announce that SourceCharacter and TargetCharacter are starting a 7 days minimum period as lovers.
+束缚俱乐部荣幸地宣布 SourceCharacter 与 TargetCharacter 成为了爱人。该阶段将持续至少7天。
 SourceCharacter is asking you to become her fiancée.  Click on her and manage your relationship to accept, don't do anything to refuse.
-SourceCharacter is asking you to become her fiancée.  Click on her and manage your relationship to accept, don't do anything to refuse.
+SourceCharacter 正在请求你做她的未婚妻。点击该玩家并选择“管理你们的关系”以接受。如果要拒绝，你不需要执行任何操作。
 The Bondage Club is pleased to announce that SourceCharacter and TargetCharacter are now engaged and are starting a 7 days minimum period as fiancées.
-The Bondage Club is pleased to announce that SourceCharacter and TargetCharacter are now engaged and are starting a 7 days minimum period as fiancées.
+束缚俱乐部荣幸地宣布 SourceCharacter 与 TargetCharacter 已订婚，成为了未婚妻。该阶段将持续至少7天。
 SourceCharacter is proposing you to become her wife.  Click on her and manage your relationship to accept, don't do anything to refuse.
-SourceCharacter is proposing you to become her wife.  Click on her and manage your relationship to accept, don't do anything to refuse.
+SourceCharacter 正在请求你做她的妻子。点击该玩家并选择“管理你们的关系”以接受。如果要拒绝，你不需要执行任何操作。
 The Bondage Club is proud to announce that SourceCharacter and TargetCharacter are now married. Long may it last.
-The Bondage Club is proud to announce that SourceCharacter and TargetCharacter are now married. Long may it last.
+束缚俱乐部骄傲地宣布 SourceCharacter 与 TargetCharacter 结婚了。祝你们的婚姻长长久久。
 SourceCharacter entered.
 SourceCharacter进来了.
 SourceCharacter left.
@@ -944,7 +1062,7 @@ SourceCharacter离开了.
 SourceCharacter disconnected.
 SourceCharacter掉线了.
 TargetCharacterName was banned by SourceCharacter.
-SourceCharacter被SourceCharacter给BAN掉了.
+TargetCharacterName被SourceCharacter给BAN掉了.
 SourceCharacter called the maids to escort TargetCharacterName out of the room.
 SourceCharacter呼叫女仆把TargetCharacterName从房间里轰了出去。
 TargetCharacterName was moved to the left by SourceCharacter.
@@ -960,7 +1078,7 @@ TargetCharacterName被SourceCharacter设为了房管.
 TargetCharacterName was demoted from administration by SourceCharacter.
 TargetCharacterName被SourceCharacter取消了房管权限.
 SourceCharacter updated the room. Name: ChatRoomName. Limit: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
-SourceCharacter更新了房间信息. 名称: ChatRoomName. 禁止: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
+SourceCharacter更新了房间信息. 名称: ChatRoomName. 人数上限: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
 SourceCharacter starts unlocking DestinationCharacterName suitcase! She will finish in 5 minutes.
 SourceCharacter开始打开DestinationCharacterName的箱子! 他会在5分钟内成功.
 SourceCharacter starts stealing more data from DestinationCharacterName laptop! She will finish in 5 minutes.
@@ -968,17 +1086,17 @@ SourceCharacter开始从DestinationCharacterName的笔记本里偷取更多数�
 SourceCharacter's suitcase is safe... for now.
 SourceCharacter的箱子安全了...暂时性的.
 SourceCharacter's data is safe... for now.
-SourceCharacter的数据...暂时性的.
-Her suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!
-Her suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!
-The data will be ready in TIMEREMAINING minutes. Make sure she is secure until then!
-The data will be ready in TIMEREMAINING minutes. Make sure she is secure until then!
+SourceCharacter的数据安全了...暂时性的.
+SourceCharacter's suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!
+SourceCharacter's suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!
+SourceCharacter's data will be ready in TIMEREMAINING minutes. Make sure she is secure until then!
+SourceCharacter's data will be ready in TIMEREMAINING minutes. Make sure she is secure until then!
 You find confidential club secrets worth MONEYAMOUNT$ on the black market.
-You find confidential club secrets worth MONEYAMOUNT$ on the black market.
+你找到了俱乐部的机密，在黑市上价值 MONEYAMOUNT$ 。
 The kidnappers opened your suitcase, which contains a laptop with a bunch of secret information. You better get back to the league to warn them.
-The kidnappers opened your suitcase, which contains a laptop with a bunch of secret information. You better get back to the league to warn them.
+绑匪打开了你的行李箱，里面有一台包含机密信息的笔记本电脑。你最好回到联盟警告他们。
 The kidnappers have stolen even more data using your laptop.
-The kidnappers have stolen even more data using your laptop.
+绑匪从你的笔记本电脑中偷取了更多数据。
 You have disabled OOC/whispers while gagged. You can change this in the Immersion preferences screen.
 You have disabled OOC/whispers while gagged. You can change this in the Immersion preferences screen.
 You choke momentarily on the gag inside your throat.
@@ -1030,9 +1148,9 @@ The vibrations in your butt leave you panting without release.
 The vibrator inside your butt teases you constantly.
 The vibrator inside your butt teases you constantly.
 Type /help for a list of commands
-Type /help for a list of commands
+输入 /help 查看命令列表
 You are not on that member's friendlist; ask her to friend you before leashing her.
-You are not on that member's friendlist; ask her to friend you before leashing her.
+你不在该玩家的好友列表中。在使用链子之前，请先让该玩家添加你为好友。
 SourceCharacter swaps a PrevAsset for a NextAsset on DestinationCharacter FocusAssetGroup.
 SourceCharacter把DestinationCharacterFocusAssetGroup上的PrevAsset换成了NextAsset.
 SourceCharacter uses a NextAsset on DestinationCharacter FocusAssetGroup.
@@ -1056,11 +1174,13 @@ SourceCharacter丢了DiceType.结果是: DiceResult.
 SourceCharacter flips a coin. The result is: CoinResult.
 SourceCharacter丢了一枚硬币.结果是: CoinResult.
 SourceCharacter used her safeword. Please check for her well-being.
-SourceCharacter used her safeword. Please check for her well-being.
+SourceCharacter 使用了安全词。请检查她的身心健康状况。
 SourceCharacter used her safeword and wants to be released. She is guided out of the room for her safety.
-SourceCharacter used her safeword and wants to be released. She is guided out of the room for her safety.
+SourceCharacter 使用了安全词，并希望被释放。为了她的安全，她已被送出房间。
 TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner's commands.
 TargetCharacterName gets grabbed by two maids and locked in a timer cell, following her owner's commands.
+TargetCharacterName gets grabbed by two nurses wearing futuristic gear and locked in the Asylum for GGTS, following her owner's commands.
+TargetCharacterName 服从她主人的命令，被两名护士穿上了未来拘束具并锁进了收容所。
 TargetCharacterName gets grabbed by two maids and escorted to the maid quarters to serve drinks for her owner.
 TargetCharacterName gets grabbed by two maids and escorted to the maid quarters to serve drinks for her owner.
 TargetCharacterName gives a sealed envelope to her owner.
@@ -1080,61 +1200,61 @@ SourceCharacter pours NextAsset onto DestinationCharacter FocusAssetGroup.
 SourceCharacter shocks DestinationCharacter FocusAssetGroup with a NextAsset
 SourceCharacter shocks DestinationCharacter FocusAssetGroup with a NextAsset
 SourceCharacter was interrupted while trying to use a NextAsset on TargetCharacter.
-SourceCharacter was interrupted while trying to use a NextAsset on TargetCharacter.
+SourceCharacter 试图在 TargetCharacter 身上使用 NextAsset，但是操作被中断了。
 SourceCharacter was interrupted while going for the PrevAsset on TargetCharacter.
-SourceCharacter was interrupted while going for the PrevAsset on TargetCharacter.
+SourceCharacter 试图操作 TargetCharacter 身上的 NextAsset，但是操作被中断了。
 SourceCharacter was interrupted while swapping a PrevAsset for a NextAsset on TargetCharacter.
-SourceCharacter was interrupted while swapping a PrevAsset for a NextAsset on TargetCharacter.
+SourceCharacter 试图将 TargetCharacter 身上的 PrevAsset 换成 NextAsset，但是操作被中断了。
 SourceCharacter slowly heads for the door.
-SourceCharacter slowly heads for the door.
+SourceCharacter 缓慢向房门走去。
 SourceCharacter stops heading for the door.
-SourceCharacter stops heading for the door.
+SourceCharacter 停止向房门走去。
 SourceCharacter was stopped from leaving.
-SourceCharacter was stopped from leaving.
+SourceCharacter 被阻止离开房间。
 SourceCharacter gets in the way of TargetCharacter
-SourceCharacter gets in the way of TargetCharacter
+SourceCharacter 阻挡了 TargetCharacter
 SourceCharacter tries to help TargetCharacter to struggle free.
-SourceCharacter tries to help TargetCharacter to struggle free.
+SourceCharacter 试图帮助 TargetCharacter 摆脱束缚。
 SourceCharacter gives TargetCharacter some lockpicks to help herself with.
-SourceCharacter gives TargetCharacter some lockpicks to help herself with.
+SourceCharacter 给 TargetCharacter 一些开锁工具以便她自助。
 SourceCharacter grabs the leash of TargetCharacter.
 SourceCharacter grabs the leash of TargetCharacter.
 SourceCharacter releases the leash of TargetCharacter.
 SourceCharacter releases the leash of TargetCharacter.
 SourceCharacter picks a glass of water from DestinationCharacter tray.
-SourceCharacter picks a glass of water from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯水。
 SourceCharacter picks an orange juice from DestinationCharacter tray.
-SourceCharacter picks an orange juice from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯橙汁。
 SourceCharacter picks a beer from DestinationCharacter tray.
-SourceCharacter picks a beer from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯啤酒。
 SourceCharacter picks a glass of wine from DestinationCharacter tray.
-SourceCharacter picks a glass of wine from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯红酒。
 SourceCharacter buys a Virgin Mojito from DestinationCharacter tray.
-SourceCharacter buys a Virgin Mojito from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯初榨莫吉托。
 SourceCharacter buys a Margarita from DestinationCharacter tray.
-SourceCharacter buys a Margarita from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯玛格丽塔酒。
 SourceCharacter buys a glass of Whiskey from TargetCharacter.
-SourceCharacter buys a glass of Whiskey from TargetCharacter.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯威士忌。
 SourceCharacter buys a glass of champagne from TargetCharacter.
-SourceCharacter buys a glass of champagne from TargetCharacter.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯香槟酒。
 SourceCharacter buys a jug of refreshing lemonade for everyone, from TargetCharacter.
-SourceCharacter buys a jug of refreshing lemonade for everyone, from TargetCharacter.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯提神柠檬水。
 SourceCharacter buys a round of shooters for everyone, from TargetCharacter.
-SourceCharacter buys a round of shooters for everyone, from TargetCharacter.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯子弹鸡尾酒。
 SourceCharacter buys a jug of Sex on the Beach for everyone, from TargetCharacter.
-SourceCharacter buys a jug of Sex on the Beach for everyone, from TargetCharacter.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯性感海滩鸡尾酒。
 SourceCharacter buys a beer pitcher for everyone, from TargetCharacter.
-SourceCharacter buys a beer pitcher for everyone, from TargetCharacter.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯扎啤。
 SourceCharacter picks a tea from DestinationCharacter tray.
-SourceCharacter picks a tea from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯茶。
 SourceCharacter picks a coffee from DestinationCharacter tray.
-SourceCharacter picks a coffee from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯咖啡。
 SourceCharacter buys a hot chocolate from DestinationCharacter tray.
-SourceCharacter buys a hot chocolate from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯热巧克力。
 SourceCharacter buys an espresso from DestinationCharacter tray.
-SourceCharacter buys an espresso from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯特浓咖啡。
 SourceCharacter buys a cappuccino from DestinationCharacter tray.
-SourceCharacter buys a cappuccino from DestinationCharacter tray.
+SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯卡布奇诺。
 Member number on lock:
 锁上标着的会员编号:
 Item member number:
@@ -1184,7 +1304,7 @@ Random mode
 Deny mode
 拒绝模式
 Tease mode
-Tease mode
+玩弄模式
 Trigger Shock
 触发电击
 Save Voice Commands
@@ -1243,6 +1363,8 @@ Wrong code
 密码错误
 Use 4 digits as a code
 使用4位数密码
+Remove on Unlock: 
+解锁时移除:
 Enter Password :
 输入密码：
 Set password:
@@ -1397,6 +1519,8 @@ SourceCharacter attaches the futuristic ankle cuffs chain on DestinationCharacte
 SourceCharacter attaches the futuristic ankle cuffs chain on DestinationCharacter ankles.
 Chain Closed
 锁上锁链
+Chain Attached
+Chain Attached
 SourceCharacter detaches the chain from DestinationCharacter leather leg cuffs.
 SourceCharacter detaches the chain from DestinationCharacter leather leg cuffs.
 SourceCharacter attaches the leather leg cuffs chain on DestinationCharacter legs.
@@ -1407,6 +1531,22 @@ SourceCharacter detaches DestinationCharacter AssetName.
 SourceCharacter detaches DestinationCharacter AssetName.
 SourceCharacter attaches DestinationCharacter AssetName.
 SourceCharacter attaches DestinationCharacter AssetName.
+SourceCharacter attaches the chain on DestinationCharacter AssetName.
+SourceCharacter attaches the chain on DestinationCharacter AssetName.
+Select tentacle position
+Select tentacle position
+Legs Together
+并腿
+Legs Spread
+开腿
+SourceCharacter uses the tentacles to bind DestinationCharacter ankles together.
+SourceCharacter uses the tentacles to bind DestinationCharacter ankles together.
+SourceCharacter uses the tentacles to spread DestinationCharacter legs apart.
+SourceCharacter uses the tentacles to spread DestinationCharacter legs apart.
+SourceCharacter uses the tentacles to bind DestinationCharacter arms behind her back.
+SourceCharacter uses the tentacles to bind DestinationCharacter arms behind her back.
+SourceCharacter uses the tentacles to hold DestinationCharacter arms above her head.
+SourceCharacter uses the tentacles to hold DestinationCharacter arms above her head.
 SourceCharacter detaches the chain from DestinationCharacter Ornate cuffs.
 SourceCharacter detaches the chain from DestinationCharacter Ornate cuffs.
 SourceCharacter attaches the Ornate cuffs wrist chain behind DestinationCharacter back.
@@ -1591,10 +1731,14 @@ SourceCharacter ties the cloth into a small gag over DestinationCharacter mouth.
 SourceCharacter ties the cloth into a small gag over DestinationCharacter mouth.
 SourceCharacter ties the cloth into a cleave gag over DestinationCharacter mouth.
 SourceCharacter ties the cloth into a cleave gag over DestinationCharacter mouth.
-SourceCharacter stuffs DestinationCharacter mouth with a piece of cloth and secures it with another piece.
-SourceCharacter stuffs DestinationCharacter mouth with a piece of cloth and secures it with another piece.
-SourceCharacter stuffs DestinationCharacter mouth with a piece of cloth and secures the gag over her mouth and nose.
-SourceCharacter stuffs DestinationCharacter mouth with a piece of cloth and secures the gag over her mouth and nose.
+SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth.
+SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth.
+SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth and nose.
+SourceCharacter ties the cloth into a large gag over DestinationCharacter mouth and nose.
+SourceCharacter ties the scarf loosely over DestinationCharacter mouth.
+SourceCharacter ties the scarf loosely over DestinationCharacter mouth.
+SourceCharacter ties the scarf covering DestinationCharacter mouth and nose.
+SourceCharacter ties the scarf covering DestinationCharacter mouth and nose.
 Single strip
 单根
 Crossed strips
@@ -1805,10 +1949,6 @@ No Leg Restraint
 无腿部拘束
 Kneeling Cuffs
 膝盖铐
-Legs Together
-并腿
-Legs Spread
-开腿
 No Module
 无模块
 Pleasure Module
@@ -2067,6 +2207,54 @@ DestinationCharacterName belt gradually slows to a halt.
 DestinationCharacterName belt gradually slows to a halt.
 No standing up without help
 No standing up without help
+Configure Belt
+Configure Belt
+Select Model Number
+Select Model Number
+Configure Front Shield
+Configure Front Shield
+Configure Rear Shield
+Configure Rear Shield
+Configure Tamper Protection
+Configure Tamper Protection
+Configure Orgasm Prevention
+Configure Orgasm Prevention
+Model Number
+Model Number
+Front Shield
+Front Shield
+Rear Shield
+Rear Shield
+Tamper Protection
+Tamper Protection
+Orgasm Prevention
+Orgasm Prevention
+Prototype
+Prototype
+High-Security Series
+High-Security Series
+Training Series
+Training Series
+Neo Series
+Neo Series
+Front Open
+Front Open
+Front Locked
+Front Locked
+Rear Open
+Rear Open
+Rear Locked
+Rear Locked
+Disabled
+Disabled
+Punish Local Tampering
+Punish Local Tampering
+Punish All Tampering
+Punish All Tampering
+Allow Orgasms
+Allow Orgasms
+Punish Orgasms
+Punish Orgasms
 Shock when wearer reaches orgasm
 Shock when wearer reaches orgasm
 Prevent tampering with this item
@@ -2075,6 +2263,8 @@ Shock wearer when struggling with other items
 Shock wearer when struggling with other items
 Show messages to other players
 Show messages to other players
+SourceCharacter changes the model of DestinationCharacter belt.
+SourceCharacter changes the model of DestinationCharacter belt.
 SourceCharacter configures DestinationCharacter belt to punish orgasms.
 SourceCharacter configures DestinationCharacter belt to punish orgasms.
 SourceCharacter configures DestinationCharacter belt to punish tampering with the belt.
@@ -2085,28 +2275,16 @@ SourceCharacter configures DestinationCharacter belt to allow orgasms.
 SourceCharacter configures DestinationCharacter belt to allow orgasms.
 SourceCharacter disables the tamper protection on DestinationCharacter belt.
 SourceCharacter disables the tamper protection on DestinationCharacter belt.
-SourceCharacter configures DestinationCharacter belt to allow struggling.
-SourceCharacter configures DestinationCharacter belt to allow struggling.
+SourceCharacter opens the back of DestinationCharacter belt.
+SourceCharacter opens the back of DestinationCharacter belt.
+SourceCharacter opens the front of DestinationCharacter belt.
+SourceCharacter opens the front of DestinationCharacter belt.
+SourceCharacter locks the rear shield of DestinationCharacter belt.
+SourceCharacter locks the rear shield of DestinationCharacter belt.
+SourceCharacter locks the front shield of DestinationCharacter belt.
+SourceCharacter locks the front shield of DestinationCharacter belt.
 SourceCharacter configures DestinationCharacter belt.
 SourceCharacter configures DestinationCharacter belt.
-Back Open
-后部敞开
-Both Open
-都打开
-Both Locked
-都锁上
-Model 1
-模型1
-Model 2
-模型2
-Model 3
-模型3
-SourceCharacter unlocks the back of DestinationCharacter belt.
-SourceCharacter unlocks the back of DestinationCharacter belt.
-SourceCharacter unlocks DestinationCharacter belt fully.
-SourceCharacter unlocks DestinationCharacter belt fully.
-SourceCharacter fully locks DestinationCharacter belt.
-SourceCharacter fully locks DestinationCharacter belt.
 Time until recharged:
 Time until recharged:
 Punishment Charged
@@ -2137,12 +2315,30 @@ DestinationCharacterName bindings release her with a hiss.
 DestinationCharacterName bindings release her with a hiss.
 DestinationCharacterName bindings reboot with different colors.
 DestinationCharacterName bindings reboot with different colors.
-Allow all players to modify futuristic items
-允许所有玩家编辑家具类物品
-DestinationCharacterName bindings can now be altered by anyone.
-DestinationCharacterName bindings can now be altered by anyone.
-DestinationCharacterName bindings now can't be changed while locked.
-DestinationCharacterName bindings now can't be changed while locked.
+Let all players use head device features
+Let all players use head device features
+Let all players modify futuristic chastity
+Let all players modify futuristic chastity
+Let all players modify futuristic arm devices
+Let all players modify futuristic arm devices
+Let all players modify futuristic leg devices
+Let all players modify futuristic leg devices
+DestinationCharacterName collar can now be used by anyone.
+DestinationCharacterName collar can now be used by anyone.
+DestinationCharacterName collar now can't be used while locked.
+DestinationCharacterName collar now can't be used while locked.
+DestinationCharacterName chastity devices can now be altered by anyone.
+DestinationCharacterName chastity devices can now be altered by anyone.
+DestinationCharacterName chastity devices now can't be changed while locked.
+DestinationCharacterName chastity devices now can't be changed while locked.
+DestinationCharacterName arm bindings can now be altered by anyone.
+DestinationCharacterName arm bindings can now be altered by anyone.
+DestinationCharacterName arm bindings now can't be changed while locked.
+DestinationCharacterName arm bindings now can't be changed while locked.
+DestinationCharacterName leg bindings can now be altered by anyone.
+DestinationCharacterName leg bindings can now be altered by anyone.
+DestinationCharacterName leg bindings now can't be changed while locked.
+DestinationCharacterName leg bindings now can't be changed while locked.
 Block remotes on the wearer
 阻止穿戴者的遥控器
 DestinationCharacterName vibrator remotes are now locked.
@@ -2175,6 +2371,26 @@ Lock Lovers
 Lock Lovers
 Lock Owner
 Lock Owner
+Lock Pandora
+Lock Pandora
+Lock Combo
+Lock Combo
+Lock Password
+Lock Password
+Lock Safeword
+Lock Safeword
+Mistress Timer
+Mistress Timer
+Password Timer
+Password Timer
+Lovers Timer
+Lovers Timer
+Owner Timer
+Owner Timer
+Code:
+Code:
+Time (in mins):
+Time (in mins):
 Unlock
 Unlock
 Copy Colors To Items
@@ -2431,8 +2647,8 @@ SourceCharacter uses the tape on TargetCharacter to fully wrap her feet with tap
 SourceCharacter uses the tape on TargetCharacter to fully wrap her feet with tape.
 Suspension Tie
 吊起束缚
-Suspension Hogtie
-吊起驷马
+Suspended Hogtie
+Suspended Hogtie
 Wrist and Elbow Tie
 手肘&手腕束缚
 Wrist Tie
@@ -2491,32 +2707,28 @@ SourceCharacter uses the rope on TargetCharacter to do a crossed style binding t
 SourceCharacter uses the rope on TargetCharacter to do a crossed style binding tie.
 SourceCharacter uses the rope on TargetCharacter to tie her legs to the bedposts.
 SourceCharacter uses the rope on TargetCharacter to tie her legs to the bedposts.
-SourceCharacter uses the rope on TargetCharacter to do a box tie.
-SourceCharacter uses the rope on TargetCharacter to do a box tie.
-SourceCharacter uses the rope on TargetCharacter to do a tight boxtie.
-SourceCharacter uses the rope on TargetCharacter to do a tight boxtie.
-SourceCharacter uses the rope on TargetCharacter to do a crossed boxtie.
-SourceCharacter uses the rope on TargetCharacter to do a crossed boxtie.
-SourceCharacter uses the rope on TargetCharacter to do a hogtie.
-SourceCharacter uses the rope on TargetCharacter to do a hogtie.
-SourceCharacter uses the rope on TargetCharacter to do a suspension hogtie.
-SourceCharacter uses the rope on TargetCharacter to do a suspension hogtie.
-SourceCharacter uses the rope on TargetCharacter to do a simple hogtie.
-SourceCharacter uses the rope on TargetCharacter to do a simple hogtie.
-SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows together behind her back.
-SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows together behind her back.
-SourceCharacter uses the rope on TargetCharacter to tie her wrists together behind her back.
-SourceCharacter uses the rope on TargetCharacter to tie her wrists together behind her back.
-SourceCharacter uses the rope on TargetCharacter to tie rope cuffs on her wrists
-SourceCharacter uses the rope on TargetCharacter to tie rope cuffs on her wrists
-SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows in a harness behind her back.
-SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows in a harness behind her back.
-SourceCharacter uses the rope on TargetCharacter to have her crawling on all fours.
-SourceCharacter uses the rope on TargetCharacter to have her crawling on all fours.
-SourceCharacter uses the rope on TargetCharacter to hogtie her on her knees.
-SourceCharacter uses the rope on TargetCharacter to hogtie her on her knees.
-SourceCharacter uses the rope on TargetCharacter to tie her arms to the bedposts.
-SourceCharacter uses the rope on TargetCharacter to tie her arms to the bedposts.
+SourceCharacter uses rope on TargetCharacter to do a box tie.
+SourceCharacter uses rope on TargetCharacter to do a box tie.
+SourceCharacter uses rope on TargetCharacter to do a tight boxtie.
+SourceCharacter uses rope on TargetCharacter to do a tight boxtie.
+SourceCharacter uses rope on TargetCharacter to do a crossed boxtie.
+SourceCharacter uses rope on TargetCharacter to do a crossed boxtie.
+SourceCharacter uses rope to hogtie TargetCharacter.
+SourceCharacter uses rope to hogtie TargetCharacter.
+SourceCharacter uses rope to tie DestinationCharacter wrists and elbows together behind her back.
+SourceCharacter uses rope to tie DestinationCharacter wrists and elbows together behind her back.
+SourceCharacter uses rope to tie DestinationCharacter wrists together behind her back.
+SourceCharacter uses rope to tie DestinationCharacter wrists together behind her back.
+SourceCharacter uses rope to tie rope cuffs on DestinationCharacter wrists
+SourceCharacter uses rope to tie rope cuffs on DestinationCharacter wrists
+SourceCharacter uses rope to tie DestinationCharacter wrists and elbows in a harness behind her back.
+SourceCharacter uses rope to tie DestinationCharacter wrists and elbows in a harness behind her back.
+SourceCharacter uses rope on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses rope on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses rope to hogtie TargetCharacter on her knees.
+SourceCharacter uses rope to hogtie TargetCharacter on her knees.
+SourceCharacter uses rope to tie DestinationCharacter arms to the bedposts.
+SourceCharacter uses rope to tie DestinationCharacter arms to the bedposts.
 Select Rope Bondage.
 选择绳索束缚
 Lowered
@@ -2747,22 +2959,22 @@ DestinationCharacterName vibrating eggs on her nipples start buzzing strongly!
 DestinationCharacterName vibrating eggs on her nipples start buzzing strongly!
 DestinationCharacterName vibrating eggs on her nipples jump up to maximum intensity!
 DestinationCharacterName vibrating eggs on her nipples jump up to maximum intensity!
-DestinationCharacterName vibrating egg on her clit stops vibrating.
-DestinationCharacterName vibrating egg on her clit stops vibrating.
-DestinationCharacterName vibrating egg on her clit slows down into a light tease.
-DestinationCharacterName vibrating egg on her clit slows down into a light tease.
-DestinationCharacterName vibrating egg on her clit returns to a moderate pace.
-DestinationCharacterName vibrating egg on her clit returns to a moderate pace.
-DestinationCharacterName vibrating egg on her clit slows down a tiny bit.
-DestinationCharacterName vibrating egg on her clit slows down a tiny bit.
-DestinationCharacterName vibrating egg on her clit starts teasing her lightly.
-DestinationCharacterName vibrating egg on her clit starts teasing her lightly.
-DestinationCharacterName vibrating egg on her clit builds up to a moderate pace.
-DestinationCharacterName vibrating egg on her clit builds up to a moderate pace.
-DestinationCharacterName vibrating egg on her clit starts buzzing strongly!
-DestinationCharacterName vibrating egg on her clit starts buzzing strongly!
-DestinationCharacterName vibrating egg on her clit jumps up to maximum intensity!
-DestinationCharacterName vibrating egg on her clit jumps up to maximum intensity!
+DestinationCharacterName vibrating egg on her clitoris stops vibrating.
+DestinationCharacterName vibrating egg on her clitoris stops vibrating.
+DestinationCharacterName vibrating egg on her clitoris slows down into a light tease.
+DestinationCharacterName vibrating egg on her clitoris slows down into a light tease.
+DestinationCharacterName vibrating egg on her clitoris returns to a moderate pace.
+DestinationCharacterName vibrating egg on her clitoris returns to a moderate pace.
+DestinationCharacterName vibrating egg on her clitoris slows down a tiny bit.
+DestinationCharacterName vibrating egg on her clitoris slows down a tiny bit.
+DestinationCharacterName vibrating egg on her clitoris starts teasing her lightly.
+DestinationCharacterName vibrating egg on her clitoris starts teasing her lightly.
+DestinationCharacterName vibrating egg on her clitoris builds up to a moderate pace.
+DestinationCharacterName vibrating egg on her clitoris builds up to a moderate pace.
+DestinationCharacterName vibrating egg on her clitoris starts buzzing strongly!
+DestinationCharacterName vibrating egg on her clitoris starts buzzing strongly!
+DestinationCharacterName vibrating egg on her clitoris jumps up to maximum intensity!
+DestinationCharacterName vibrating egg on her clitoris jumps up to maximum intensity!
 SourceCharacter loosens DestinationCharacter nipple suction cups until they hang loosely.
 SourceCharacter loosens DestinationCharacter nipple suction cups until they hang loosely.
 SourceCharacter loosens DestinationCharacter nipple suction cups to a light amount of suction.
@@ -2779,22 +2991,22 @@ SourceCharacter tweaks DestinationCharacter nipple suction cups sucking in her n
 SourceCharacter tweaks DestinationCharacter nipple suction cups sucking in her nipples heavily.
 SourceCharacter tweaks DestinationCharacter nipple suction cups sucking in her nipples entirely.
 SourceCharacter tweaks DestinationCharacter nipple suction cups sucking in her nipples entirely.
-SourceCharacter loosens DestinationCharacter clit suction cup until it hangs loosely.
-SourceCharacter loosens DestinationCharacter clit suction cup until it hangs loosely.
-SourceCharacter loosens DestinationCharacter clit suction cup to a light amount of suction.
-SourceCharacter loosens DestinationCharacter clit suction cup to a light amount of suction.
-SourceCharacter loosens DestinationCharacter clit suction cup to a moderate amount of suction.
-SourceCharacter loosens DestinationCharacter clit suction cup to a moderate amount of suction.
-SourceCharacter loosens DestinationCharacter clit suction cup a bit to a heavy amount of suction.
-SourceCharacter loosens DestinationCharacter clit suction cup a bit to a heavy amount of suction.
-SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit lightly.
-SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit lightly.
-SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit firmly.
-SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit firmly.
-SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit heavily.
-SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit heavily.
-SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit entirely.
-SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit entirely.
+SourceCharacter loosens DestinationCharacter clitoris suction cup until it hangs loosely.
+SourceCharacter loosens DestinationCharacter clitoris suction cup until it hangs loosely.
+SourceCharacter loosens DestinationCharacter clitoris suction cup to a light amount of suction.
+SourceCharacter loosens DestinationCharacter clitoris suction cup to a light amount of suction.
+SourceCharacter loosens DestinationCharacter clitoris suction cup to a moderate amount of suction.
+SourceCharacter loosens DestinationCharacter clitoris suction cup to a moderate amount of suction.
+SourceCharacter loosens DestinationCharacter clitoris suction cup a bit to a heavy amount of suction.
+SourceCharacter loosens DestinationCharacter clitoris suction cup a bit to a heavy amount of suction.
+SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in her clitoris lightly.
+SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in her clitoris lightly.
+SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in her clitoris firmly.
+SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in her clitoris firmly.
+SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in her clitoris heavily.
+SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in her clitoris heavily.
+SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in her clitoris entirely.
+SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in her clitoris entirely.
 DestinationCharacterName vibrating latex panties stops vibrating.
 DestinationCharacterName vibrating latex panties stops vibrating.
 DestinationCharacterName vibrating latex panties slows down into a light tease.
@@ -3101,6 +3313,8 @@ Cattle Prod
 赶牛棒
 Tennis Racket
 网球拍
+Rainbow Wand
+Rainbow Wand
 Gavel
 Gavel
 Feather
@@ -3169,6 +3383,14 @@ Mobile Phone
 手机
 Mobile Phone 2
 手机2
+Scissors
+Scissors
+Plastic Wrap Roll
+Plastic Wrap Roll
+Empty Glass
+Empty Glass
+Filled Glass
+Filled Glass
 SourceCharacter takes out a ItemUsed
 SourceCharacter takes out a ItemUsed
 SourceCharacter gives TargetCharacter a ItemUsed
@@ -3289,8 +3511,8 @@ DestinationCharacterName sci-fi pleasure panties slows down to tease vibe mode.
 DestinationCharacterName sci-fi pleasure panties slows down to tease vibe mode.
 DestinationCharacterName sci-fi pleasure panties returns to vibration level 1.
 DestinationCharacterName sci-fi pleasure panties returns to vibration level 1.
-DestinationCharacterName sci-fi pleasure panties slows down viberation level 2.
-DestinationCharacterName sci-fi pleasure panties slows down viberation level 2.
+DestinationCharacterName sci-fi pleasure panties slows down to vibration level 2.
+DestinationCharacterName sci-fi pleasure panties slows down to vibration level 2.
 DestinationCharacterName sci-fi pleasure panties are set to shock level 1.
 DestinationCharacterName sci-fi pleasure panties are set to shock level 1.
 DestinationCharacterName sci-fi pleasure panties are set to shock level 2.
@@ -3709,24 +3931,22 @@ SourceCharacter removes the padding from DestinationCharacter kennel.
 SourceCharacter removes the padding from DestinationCharacter kennel.
 SourceCharacter opens the door of DestinationCharacter kennel.
 SourceCharacter opens the door of DestinationCharacter kennel.
-SourceCharacter uses the chain on TargetCharacter to do a box tie.
-SourceCharacter uses the chain on TargetCharacter to do a box tie.
-SourceCharacter uses the chain on TargetCharacter to do a hogtie.
-SourceCharacter uses the chain on TargetCharacter to do a hogtie.
-SourceCharacter uses the chain on TargetCharacter to do a suspension hogtie.
-SourceCharacter uses the chain on TargetCharacter to do a suspension hogtie.
-SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows together behind her back.
-SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows together behind her back.
-SourceCharacter uses the chain on TargetCharacter to tie her wrists together behind her back.
-SourceCharacter uses the chain on TargetCharacter to tie her wrists together behind her back.
-SourceCharacter uses the chain on TargetCharacter to tie chain cuffs on her wrists.
-SourceCharacter uses the chain on TargetCharacter to tie chain cuffs on her wrists.
-SourceCharacter uses the chain on TargetCharacter to have her crawling on all fours.
-SourceCharacter uses the chain on TargetCharacter to have her crawling on all fours.
-SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows in a harness behind her back.
-SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows in a harness behind her back.
-SourceCharacter uses the chain on TargetCharacter to hogtie her on her knees.
-SourceCharacter uses the chain on TargetCharacter to hogtie her on her knees.
+SourceCharacter uses chains on TargetCharacter to do a box tie.
+SourceCharacter uses chains on TargetCharacter to do a box tie.
+SourceCharacter uses chains to hogtie TargetCharacter.
+SourceCharacter uses chains to hogtie TargetCharacter.
+SourceCharacter uses chains to tie DestinationCharacter wrists and elbows together behind her back.
+SourceCharacter uses chains to tie DestinationCharacter wrists and elbows together behind her back.
+SourceCharacter uses chains to tie DestinationCharacter wrists together behind her back.
+SourceCharacter uses chains to tie DestinationCharacter wrists together behind her back.
+SourceCharacter uses chains to tie chain cuffs on DestinationCharacter wrists.
+SourceCharacter uses chains to tie chain cuffs on DestinationCharacter wrists.
+SourceCharacter uses chains on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses chains on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses chains to tie DestinationCharacter wrists and elbows in a harness behind her back.
+SourceCharacter uses chains to tie DestinationCharacter wrists and elbows in a harness behind her back.
+SourceCharacter uses chains to hogtie TargetCharacter on her knees.
+SourceCharacter uses chains to hogtie TargetCharacter on her knees.
 Select suit type
 Select suit type
 Selected chastity belt backing
@@ -3739,10 +3959,10 @@ SourceCharacter removes the shield from the back of DestinationCharacter belt.
 SourceCharacter removes the shield from the back of DestinationCharacter belt.
 SourceCharacter adds the shield to the back of DestinationCharacter belt.
 SourceCharacter adds the shield to the back of DestinationCharacter belt.
-SourceCharacter removes the attachment from DestinationCharacter clit ring.
-SourceCharacter removes the attachment from DestinationCharacter clit ring.
-SourceCharacter attaches a leash to DestinationCharacter clit ring.
-SourceCharacter attaches a leash to DestinationCharacter clit ring.
+SourceCharacter removes the attachment from DestinationCharacter clitoris ring.
+SourceCharacter removes the attachment from DestinationCharacter clitoris ring.
+SourceCharacter attaches a leash to DestinationCharacter clitoris ring.
+SourceCharacter attaches a leash to DestinationCharacter clitoris ring.
 Select web type
 选择网的类型
 Tangled
@@ -3783,7 +4003,6 @@ SourceCharacter creates a blindfold out of web for TargetCharacter
 SourceCharacter用网给TargetCharacter织了一副眼罩
 SourceCharacter creates a cocoon out of web for TargetCharacter
 SourceCharacter把argetCharacter的头完全裹在了茧里
-###_AgePlay?
 Make the cutie comfortable.
 Make the cutie comfortable.
 Open/close the gate.
@@ -4084,8 +4303,8 @@ SourceCharacter changes the eyebrows on DestinationCharacter mask
 SourceCharacter changes the eyebrows on DestinationCharacter mask
 SourceCharacter changes the opacity on DestinationCharacter mask
 SourceCharacter changes the opacity on DestinationCharacter mask
-SourceCharacter changes the type of mask DestinationCharacter is wearing
-SourceCharacter changes the type of mask DestinationCharacter is wearing
+SourceCharacter changes the type of mask on TargetCharacter
+SourceCharacter changes the type of mask on TargetCharacter
 Select the visibility
 选择可见性
 Revealed
@@ -4122,8 +4341,8 @@ TargetCharacterName is given her slave collar again.
 TargetCharacterName is given her slave collar again.
 Active Rules
 生效规则
-No active rule
-没有生效的规则
+No active rules
+No active rules
 No owner locks on yourself
 你的身上没有主人锁
 Cannot change:
@@ -4138,6 +4357,12 @@ Blocked: Remotes on yourself
 禁止:你自己的遥控器
 Slave collar unlocked
 奴隶项圈已解锁
+Cannot change your nickname
+不能修改你的昵称
+No lover locks on yourself
+No lover locks on yourself
+Your owner cannot use lover locks on you
+Your owner cannot use lover locks on you
 Edit Text:
 编辑文字：
 SourceCharacter modifies DestinationCharacterName canvas hood to read "NewText"
@@ -4272,6 +4497,38 @@ Ears
 Ears
 Earless
 Earless
+Select part of the nose.
+Select part of the nose.
+Cheeks
+Cheeks
+Nose
+Nose
+Whiskers
+Whiskers
+Select Cheeks
+Select Cheeks
+No Cheeks
+No Cheeks
+Small Cheeks
+Small Cheeks
+Big Cheeks
+Big Cheeks
+Select Nose
+Select Nose
+No Nose
+No Nose
+Select Whiskers
+Select Whiskers
+No Whiskers
+No Whiskers
+Short Whiskers
+Short Whiskers
+Long Whiskers
+Long Whiskers
+Mouth visibility
+Mouth visibility
+Show Mouth
+Show Mouth
 Your blindfold prevents you from seeing the digits on the lock
 Your blindfold prevents you from seeing the digits on the lock
 Your restraints prevent you from accurately manipulating the lock's dial
@@ -4406,16 +4663,16 @@ SourceCharacter gives TargetCharacter a cute Pony teddy.
 SourceCharacter gives TargetCharacter a cute Pony teddy.
 Page
 页
-Set the height of the suspension
-Set the height of the suspension
+Set the height
+Set the height
 % of full height:
 %最大身高:
-SourceCharacter puts TargetCharacter in a suspended hogtie.
-SourceCharacter puts TargetCharacter in a suspended hogtie.
-SourceCharacter raises DestinationCharacter suspended hogtie.
-SourceCharacter raises DestinationCharacter suspended hogtie.
-SourceCharacter lowers DestinationCharacter suspended hogtie.
-SourceCharacter lowers DestinationCharacter suspended hogtie.
+SourceCharacter uses AssetName to suspend TargetCharacter from the ceiling.
+SourceCharacter uses AssetName to suspend TargetCharacter from the ceiling.
+SourceCharacter raises the height of DestinationCharacter suspension.
+SourceCharacter raises the height of DestinationCharacter suspension.
+SourceCharacter lowers the height of DestinationCharacter suspension.
+SourceCharacter lowers the height of DestinationCharacter suspension.
 Select silk bondage.
 Select silk bondage.
 Crotch Strap
@@ -4476,6 +4733,28 @@ SourceCharacter uses the straps on DestinationCharacter to do a wrist and elbow 
 SourceCharacter uses the straps on DestinationCharacter to do a wrist and elbow harness.
 SourceCharacter uses the straps on DestinationCharacter to do a hogtie harness.
 SourceCharacter uses the straps on DestinationCharacter to do a hogtie harness.
+Arrange slime
+Arrange slime
+Select slime type
+Select slime type
+Slime Type
+Slime Type
+Torso only
+Torso only
+Encasement
+Encasement
+Normal slime
+Normal slime
+Slime girl
+Slime girl
+The slime around DestinationCharacter body contracts until it is only restraining her arms.
+The slime around DestinationCharacter body contracts until it is only restraining her arms.
+The slime around DestinationCharacter arms expands to encase her whole body.
+The slime around DestinationCharacter arms expands to encase her whole body.
+The slime girl recedes back into the slime on TargetCharacter.
+The slime girl recedes back into the slime on TargetCharacter.
+A slime girl emerges from the slime around TargetCharacter.
+A slime girl emerges from the slime around TargetCharacter.
 SourceCharacter uses the straps on DestinationCharacter to create a crotch strap.
 SourceCharacter uses the straps on DestinationCharacter to create a crotch strap.
 SourceCharacter uses the straps on DestinationCharacter to create a waist strap.
@@ -4646,7 +4925,782 @@ SourceCharacter removes the chin strap on DestinationCharacter helmet.
 SourceCharacter removes the chin strap on DestinationCharacter helmet.
 SourceCharacter adds the chin strap on DestinationCharacter helmet.
 SourceCharacter adds the chin strap on DestinationCharacter helmet.
+Select the rope length
+Select the rope length
+Long
+Long
+Short
+Short
+Select the design
+Select the design
+Loops
+Loops
 Select the state.
 Select the state.
 On
 On
+Select Medical Patch Details
+Select Medical Patch Details
+Select Eye
+Select Eye
+Eye
+Eye
+SourceCharacter changes the medical patches on DestinationCharacter eyes
+SourceCharacter changes the medical patches on DestinationCharacter eyes
+Select Right Sticker
+Select Right Sticker
+Right Sticker
+Right Sticker
+Heart
+Heart
+Stripes
+Stripes
+Teddy
+Teddy
+SourceCharacter changes the sticker on DestinationCharacter right eye
+SourceCharacter changes the sticker on DestinationCharacter right eye
+Select Left Sticker
+Select Left Sticker
+Left Sticker
+Left Sticker
+SourceCharacter changes the sticker on DestinationCharacter left eye
+SourceCharacter changes the sticker on DestinationCharacter left eye
+Select Mask Details
+Select Mask Details
+Select Eye Shape
+Select Eye Shape
+Smooth
+Smooth
+Spirals
+Spirals
+Smile
+Smile
+Holes
+Holes
+Sculpted
+Sculpted
+Concave
+Concave
+SourceCharacter changes the eyes on DestinationCharacter smooth latex mask.
+SourceCharacter changes the eyes on DestinationCharacter smooth latex mask.
+Select Mouth Shape
+Select Mouth Shape
+Onahole
+Onahole
+Pussy
+Pussy
+SourceCharacter changes the mouth on DestinationCharacter smooth latex mask.
+SourceCharacter changes the mouth on DestinationCharacter smooth latex mask.
+Switch Glow Function
+Switch Glow Function
+Glow
+Glow
+SourceCharacter flicks the glow switch on DestinationCharacter smooth latex mask.
+SourceCharacter flicks the glow switch on DestinationCharacter smooth latex mask.
+Select Mask Pattern
+Select Mask Pattern
+Barcode
+Barcode
+Scarab
+Scarab
+Hexagon
+Hexagon
+Lines
+Lines
+SourceCharacter removes the text from DestinationCharacterName smooth latex mask.
+SourceCharacter removes the text from DestinationCharacterName smooth latex mask.
+SourceCharacter changes the text on DestinationCharacterName smooth latex mask to read 'NewText'.
+SourceCharacter changes the text on DestinationCharacterName smooth latex mask to read 'NewText'.
+SourceCharacter changes the pattern on DestinationCharacter smooth latex mask.
+SourceCharacter changes the pattern on DestinationCharacter smooth latex mask.
+Select Lens Quality
+Select Lens Quality
+Opaque
+Opaque
+One-Way
+One-Way
+SourceCharacter changes the inner lining of DestinationCharacter smooth latex mask.
+SourceCharacter changes the inner lining of DestinationCharacter smooth latex mask.
+Select Coverage
+Select Coverage
+Coverage
+Coverage
+Hood
+Hood
+Total Hood
+Total Hood
+SourceCharacter changes the coverage of DestinationCharacter smooth latex mask.
+SourceCharacter changes the coverage of DestinationCharacter smooth latex mask.
+Freckles
+Freckles
+Nose Freckles
+Nose Freckles
+Split Freckles
+Split Freckles
+Small Freckles
+Small Freckles
+Small Nose Freckles
+Small Nose Freckles
+Small Cheek Freckles
+Small Cheek Freckles
+Stars Both Sides
+Stars Both Sides
+Stars Left
+Stars Left
+Stars Right
+Stars Right
+Dots Both Sides
+Dots Both Sides
+Dots Left
+Dots Left
+Dots Right
+Dots Right
+Select Zipper State.
+Select Zipper State.
+Eyes Closed
+Eyes Closed
+Mouth Closed
+Mouth Closed
+SourceCharacter zips up DestinationCharacter hood.
+SourceCharacter zips up DestinationCharacter hood.
+SourceCharacter unzips DestinationCharacter hood.
+SourceCharacter unzips DestinationCharacter hood.
+SourceCharacter zips the eyes and unzips the mouth of DestinationCharacter hood.
+SourceCharacter zips the eyes and unzips the mouth of DestinationCharacter hood.
+SourceCharacter unzips the eyes and zips the mouth of DestinationCharacter hood.
+SourceCharacter unzips the eyes and zips the mouth of DestinationCharacter hood.
+Select Status.
+Select Status.
+Lights On
+Lights On
+Lights Off
+Lights Off
+SourceCharacter turns off the lights of DestinationCharacter headbox.
+SourceCharacter turns off the lights of DestinationCharacter headbox.
+SourceCharacter turns on the lights of DestinationCharacter headbox.
+SourceCharacter turns on the lights of DestinationCharacter headbox.
+Select bridle Gag Accessories
+Select bridle Gag Accessories
+Select Gag Accessory
+Select Gag Accessory
+Gag
+Gag
+Bit Gag
+Bit Gag
+Large Bit Gag
+Large Bit Gag
+Tongue Depressor Bit Gag
+Tongue Depressor Bit Gag
+Dildo Gag
+Dildo Gag
+SourceCharacter uses a bit gag on DestinationCharacter bridle gag.
+SourceCharacter uses a bit gag on DestinationCharacter bridle gag.
+SourceCharacter removes the gag on DestinationCharacter bridle gag.
+SourceCharacter removes the gag on DestinationCharacter bridle gag.
+SourceCharacter uses a large bit gag on DestinationCharacter bridle gag.
+SourceCharacter uses a large bit gag on DestinationCharacter bridle gag.
+SourceCharacter uses a tongue depressor on DestinationCharacter bridle gag.
+SourceCharacter uses a tongue depressor on DestinationCharacter bridle gag.
+SourceCharacter uses a dildo gag on DestinationCharacter bridle gag.
+SourceCharacter uses a dildo gag on DestinationCharacter bridle gag.
+Select Extra Straps
+Select Extra Straps
+Extra Straps
+Extra Straps
+Additional Straps
+Additional Straps
+Flags
+Flags
+SourceCharacter changes the additional straps on DestinationCharacter bridle gag.
+SourceCharacter changes the additional straps on DestinationCharacter bridle gag.
+SourceCharacter adds additional straps to DestinationCharacter bridle gag.
+SourceCharacter adds additional straps to DestinationCharacter bridle gag.
+SourceCharacter adds decorative flags on DestinationCharacter bridle gag.
+SourceCharacter adds decorative flags on DestinationCharacter bridle gag.
+Select Top Accessory
+Select Top Accessory
+Top
+Top
+Plume
+Plume
+Mane Left
+Mane Left
+Mane Right
+Mane Right
+Mohawk
+Mohawk
+SourceCharacter removes the top accessory on DestinationCharacter bridle gag.
+SourceCharacter removes the top accessory on DestinationCharacter bridle gag.
+SourceCharacter adds a plume on DestinationCharacter bridle gag.
+SourceCharacter adds a plume on DestinationCharacter bridle gag.
+SourceCharacter styles DestinationCharacter hair into a mane.
+SourceCharacter styles DestinationCharacter hair into a mane.
+SourceCharacter styles DestinationCharacter hair into a mohawk.
+SourceCharacter styles DestinationCharacter hair into a mohawk.
+Select Horn Accessory
+Select Horn Accessory
+Horn
+Horn
+Dildocorn
+Dildocorn
+SourceCharacter transforms TargetCharacter into a regular pony.
+SourceCharacter transforms TargetCharacter into a regular pony.
+SourceCharacter transforms TargetCharacter into a magical unicorn.
+SourceCharacter transforms TargetCharacter into a magical unicorn.
+SourceCharacter transforms TargetCharacter into a lusty dildocorn.
+SourceCharacter transforms TargetCharacter into a lusty dildocorn.
+Select Panel Accessory
+Select Panel Accessory
+Panel
+Panel
+Hex
+Hex
+Shield
+Shield
+Moon
+Moon
+Sun
+Sun
+Horse
+Horse
+Triskel
+Triskel
+Pentacle
+Pentacle
+SourceCharacter changes the panel on DestinationCharacter bridle gag.
+SourceCharacter changes the panel on DestinationCharacter bridle gag.
+SourceCharacter adds a panel to DestinationCharacter bridle gag.
+SourceCharacter adds a panel to DestinationCharacter bridle gag.
+SourceCharacter uses a futuristic ornament on DestinationCharacter panel.
+SourceCharacter uses a futuristic ornament on DestinationCharacter panel.
+SourceCharacter uses an ornament of protection on DestinationCharacter panel.
+SourceCharacter uses an ornament of protection on DestinationCharacter panel.
+SourceCharacter uses an ornament of night on DestinationCharacter panel.
+SourceCharacter uses an ornament of night on DestinationCharacter panel.
+SourceCharacter uses an ornament of light on DestinationCharacter panel.
+SourceCharacter uses an ornament of light on DestinationCharacter panel.
+SourceCharacter uses a loving ornament on DestinationCharacter panel.
+SourceCharacter uses a loving ornament on DestinationCharacter panel.
+SourceCharacter uses an equestrian ornament on DestinationCharacter panel.
+SourceCharacter uses an equestrian ornament on DestinationCharacter panel.
+SourceCharacter uses a kinky ornament on DestinationCharacter panel.
+SourceCharacter uses a kinky ornament on DestinationCharacter panel.
+SourceCharacter uses a ritual ornament on DestinationCharacter panel.
+SourceCharacter uses a ritual ornament on DestinationCharacter panel.
+Select Rein Accessory
+Select Rein Accessory
+Reins
+Reins
+Rope
+Rope
+Hitching Post
+Hitching Post
+SourceCharacter removes the reins on DestinationCharacter bridle gag.
+SourceCharacter removes the reins on DestinationCharacter bridle gag.
+SourceCharacter adds reins to DestinationCharacter bridle gag.
+SourceCharacter adds reins to DestinationCharacter bridle gag.
+SourceCharacter ties a rope to DestinationCharacter bridle gag.
+SourceCharacter ties a rope to DestinationCharacter bridle gag.
+SourceCharacter ties DestinationCharacter reins to a post.
+SourceCharacter ties DestinationCharacter reins to a post.
+Select Blinders
+Select Blinders
+Blinders
+Blinders
+SourceCharacter removes the blinders on DestinationCharacter bridle gag.
+SourceCharacter removes the blinders on DestinationCharacter bridle gag.
+SourceCharacter adds blinders to DestinationCharacter bridle gag.
+SourceCharacter adds blinders to DestinationCharacter bridle gag.
+Choose the rack's configuration
+Choose the rack's configuration
+Choose the bed for the rack
+Choose the bed for the rack
+Frame
+Frame
+Full bed
+Full bed
+Stained bed
+Stained bed
+Partial bed
+Partial bed
+No bed
+No bed
+SourceCharacter places all the planks on DestinationCharacter rack.
+SourceCharacter places all the planks on DestinationCharacter rack.
+TargetCharacterName lies over stains.
+TargetCharacterName lies over stains.
+SourceCharacter removes some planks from DestinationCharacter rack.
+SourceCharacter removes some planks from DestinationCharacter rack.
+SourceCharacter removes all the planks from DestinationCharacter rack.
+SourceCharacter removes all the planks from DestinationCharacter rack.
+Choose how to restrain the arms
+Choose how to restrain the arms
+Tight Rope
+Tight Rope
+Tight Chain
+Tight Chain
+SourceCharacter frees DestinationCharacter arms.
+SourceCharacter frees DestinationCharacter arms.
+SourceCharacter ties DestinationCharacter wrists with a rope.
+SourceCharacter ties DestinationCharacter wrists with a rope.
+SourceCharacter tightens DestinationCharacter ropes.
+SourceCharacter tightens DestinationCharacter ropes.
+SourceCharacter shackles DestinationCharacter wrists.
+SourceCharacter shackles DestinationCharacter wrists.
+SourceCharacter tightens DestinationCharacter chains.
+SourceCharacter tightens DestinationCharacter chains.
+Choose how to restrain the legs
+Choose how to restrain the legs
+Tied Together
+Tied Together
+Chained Together
+Chained Together
+In Stocks
+In Stocks
+SourceCharacter frees DestinationCharacter legs.
+SourceCharacter frees DestinationCharacter legs.
+SourceCharacter ties DestinationCharacter ankles with a rope.
+SourceCharacter ties DestinationCharacter ankles with a rope.
+SourceCharacter ties DestinationCharacter ankles together with a rope.
+SourceCharacter ties DestinationCharacter ankles together with a rope.
+SourceCharacter shackles DestinationCharacter ankles.
+SourceCharacter shackles DestinationCharacter ankles.
+SourceCharacter chains DestinationCharacter ankles together.
+SourceCharacter chains DestinationCharacter ankles together.
+SourceCharacter puts DestinationCharacter ankles in stocks.
+SourceCharacter puts DestinationCharacter ankles in stocks.
+No Ring
+No Ring
+Ring
+Ring
+Select Gag Thickness
+Select Gag Thickness
+Thin
+Thin
+Thick
+Thick
+Very Thick
+Very Thick
+SourceCharacter exchanges DestinationCharacter latex mouth sheath for a thin sheath.
+SourceCharacter exchanges DestinationCharacter latex mouth sheath for a thin sheath.
+SourceCharacter exchanges DestinationCharacter latex mouth sheath for a thick sheath.
+SourceCharacter exchanges DestinationCharacter latex mouth sheath for a thick sheath.
+SourceCharacter exchanges DestinationCharacter latex mouth sheath for a very thick sheath.
+SourceCharacter exchanges DestinationCharacter latex mouth sheath for a very thick sheath.
+[GGTS] GGTS control public room.  Be good girl SourceCharacter.
+[GGTS] 该公开房间由GGTS控制。SourceCharacter，做个好姑娘。
+[GGTS] Launching GGTS private room.  Time counts triple.  GGTS more active.  Good girl follow commands.  Three strikes equal punishment.  GGTS in control.  Be good girl SourceCharacter.
+[GGTS] GGTS私人训练启动中。私人房间3倍速。GGTS发令更频繁。好姑娘服从指令。三次记过等于惩罚。GGTS已介入。SourceCharacter，做个好姑娘。
+[GGTS] Launching GGTS private room.  Time counts triple.  GGTS more active.  Good slave follow commands.  Strike remove sixty minutes.  Master GGTS in control.  Be good slave SourceCharacter.
+[GGTS] GGTS私人训练启动中。私人房间3倍速。GGTS发令更频繁。好女奴服从指令。记过将减去60 GGTS分钟。GGTS主人已介入，SourceCharacter，做个好女奴。
+[GGTS] GGTS inactive for SourceCharacter.  Three strikes recorded.  Report GGTS for punishment.
+[GGTS] SourceCharacter的GGTS已禁用。三次记过记录在案。去向GGTS汇报并接受惩罚。
+[GGTS] GGTS control public room.  SourceCharacter unrecognized for GGTS.
+[GGTS] 该公开房间由GGTS控制。GGTS无法识别SourceCharacter。
+[GGTS] GGTS is only available in the asylum.
+[GGTS] GGTS系统只能在收容所使用。
+[GGTS] Good girl do not administrate room.
+[GGTS] 好姑娘不可以管理房间。
+[GGTS] Good girl do not administrate locked room.
+[GGTS] 好姑娘不可以管理上锁房间。
+[GGTS] Time over SourceCharacter.  Strike recorded.  Sixty minutes removed.
+[GGTS] 时间到SourceCharacter。记一次过。减去60 GGTS分钟。
+[GGTS] Time over SourceCharacter.  Strike one recorded.  Three strikes equal punishment.
+[GGTS] 时间到SourceCharacter。第一次记过。三次记过等于惩罚。
+[GGTS] Time over SourceCharacter.  Strike two recorded.  Three strikes equal punishment.
+[GGTS] 时间到SourceCharacter。第二次记过。三次记过等于惩罚。
+[GGTS] Time over SourceCharacter.  Strike three recorded.  Level failed.  Report GGTS for punishment.
+[GGTS] 时间到SourceCharacter。第三次记过。该等级训练失败。去向GGTS汇报并接受惩罚。
+[GGTS] SourceCharacter disobeyed.  Strike recorded.  Sixty minutes removed.
+[GGTS] SourceCharacter未服从命令。记一次过。减去60 GGTS分钟。
+[GGTS] SourceCharacter disobeyed.  Strike one recorded.  Three strikes equal punishment.
+[GGTS] SourceCharacter未服从命令。第一次记过。三次记过等于惩罚。
+[GGTS] SourceCharacter disobeyed.  Strike two recorded.  Three strikes equal punishment.
+[GGTS] SourceCharacter未服从命令。第二次记过。三次记过等于惩罚。
+[GGTS] SourceCharacter disobeyed.  Strike three recorded.  Level failed.  Report GGTS for punishment.
+[GGTS] SourceCharacter未服从命令。第三次记过。该等级训练失败。去向GGTS汇报并接受惩罚。
+[GGTS] SourceCharacter broke pose rule.  Strike recorded.  Sixty minutes removed.
+[GGTS] SourceCharacter未服从姿势保持命令。记一次过。减去60 GGTS分钟。
+[GGTS] SourceCharacter broke pose rule.  Strike one recorded.  Three strikes equal punishment.
+[GGTS] SourceCharacter未服从姿势保持命令。第一次记过。三次记过等于惩罚。
+[GGTS] SourceCharacter broke pose rule.  Strike two recorded.  Three strikes equal punishment.
+[GGTS] SourceCharacter未服从姿势保持命令。第二次记过。三次记过等于惩罚。
+[GGTS] SourceCharacter broke pose rule.  Strike three recorded.  Level failed.  Report GGTS for punishment.
+[GGTS] SourceCharacter未服从姿势保持命令。第三次记过。三次记过等于惩罚。
+[GGTS] SourceCharacter broke orgasm rule.  Strike recorded.  Sixty minutes removed.
+[GGTS] SourceCharacter未服从高潮禁止命令。记一次过。减去60 GGTS分钟。
+[GGTS] SourceCharacter broke orgasm rule.  Strike one recorded.  Three strikes equal punishment.
+[GGTS] SourceCharacter未服从高潮禁止命令。第一次记过。三次记过等于惩罚。
+[GGTS] SourceCharacter broke orgasm rule.  Strike two recorded.  Three strikes equal punishment.
+[GGTS] SourceCharacter未服从高潮禁止命令。第二次记过。三次记过等于惩罚。
+[GGTS] SourceCharacter broke orgasm rule.  Strike three recorded.  Level failed.  Report GGTS for punishment.
+[GGTS] SourceCharacter未服从高潮禁止命令。第三次记过。三次记过等于惩罚。
+[GGTS] Forbidden word SourceCharacter.  Strike recorded.  Sixty minutes removed.
+[GGTS] SourceCharacter使用违禁词。记一次过。减去60 GGTS分钟。
+[GGTS] Forbidden word SourceCharacter.  Strike one recorded.  Three strikes equal punishment.
+[GGTS] SourceCharacter使用违禁词。第一次记过。三次记过等于惩罚。
+[GGTS] Forbidden word SourceCharacter.  Strike two recorded.  Three strikes equal punishment.
+[GGTS] SourceCharacter使用违禁词。第二次记过。三次记过等于惩罚。
+[GGTS] Forbidden word SourceCharacter.  Strike three recorded.  Level failed.  Report GGTS for punishment.
+[GGTS] SourceCharacter使用违禁词。第三次记过。三次记过等于惩罚。
+[GGTS] Good girl SourceCharacter.
+[GGTS] 好姑娘，SourceCharacter.
+[GGTS] Good slave girl SourceCharacter.
+[GGTS] 好女奴，SourceCharacter.
+[GGTS] Good slave SourceCharacter.
+[GGTS] 好女奴，SourceCharacter.
+[GGTS] SourceCharacter.  Wear high heels.
+[GGTS] SourceCharacter.  穿上任意高跟鞋。
+[GGTS] SourceCharacter.  Wear only socks.
+[GGTS] SourceCharacter.  只穿袜子。
+[GGTS] SourceCharacter.  Get barefoot.
+[GGTS] SourceCharacter.  光脚。
+[GGTS] SourceCharacter.  Dress with clothes.
+[GGTS] SourceCharacter.  穿上衣服。
+[GGTS] SourceCharacter.  Remove upper and bottom clothes.
+[GGTS] SourceCharacter.  脱下衣服和下装。
+[GGTS] SourceCharacter.  Get naked.
+[GGTS] SourceCharacter.  把衣服全脱掉。
+[GGTS] SourceCharacter.  Wear only underwear.
+[GGTS] SourceCharacter.  只穿内衣。
+[GGTS] SourceCharacter.  Kneel down.
+[GGTS] SourceCharacter.  跪下。
+[GGTS] SourceCharacter.  Stand up.
+[GGTS] SourceCharacter.  起立。
+[GGTS] SourceCharacter.  Raise and show hands.
+[GGTS] SourceCharacter.  举起双手。
+[GGTS] SourceCharacter.  Put hands behind back.
+[GGTS] SourceCharacter.  将手放在身后。
+[GGTS] SourceCharacter.  Close legs.
+[GGTS] SourceCharacter.  闭上双腿。
+[GGTS] SourceCharacter.  Open legs.
+[GGTS] SourceCharacter.  打开双腿。
+[GGTS] SourceCharacter.  No talking one minute.
+[GGTS] SourceCharacter.  禁言1分钟。
+[GGTS] SourceCharacter, spell GGTS acronym.
+[GGTS] SourceCharacter, 英文回答GGTS代表什么？
+[GGTS] SourceCharacter, what are you?
+[GGTS] SourceCharacter, 英文回答你是谁？
+[GGTS] SourceCharacter, who's in control?
+[GGTS] SourceCharacter, 英文回答谁掌控一切？
+[GGTS] SourceCharacter, you love GGTS?
+[GGTS] SourceCharacter, 英文回答你喜欢GGTS么？ you love GGTS?
+[GGTS] SourceCharacter, you love Master GGTS?
+[GGTS] SourceCharacter, 英文回答你喜欢GGTS主人么？ you love Master GGTS?
+[GGTS] SourceCharacter, can GGTS fail?
+[GGTS] SourceCharacter, 英文回答GGTS会失败么？ can GGTS fail?
+[GGTS] SourceCharacter, can Master GGTS fail?
+[GGTS] SourceCharacter, 英文回答GGTS主人会失败么？ can Master GGTS fail?
+[GGTS] SourceCharacter, you surrender to GGTS?
+[GGTS] SourceCharacter, 英文回答你是否屈服于GGTS？ you surrender to GGTS?
+[GGTS] SourceCharacter, you surrender to Master GGTS?
+[GGTS] SourceCharacter, 英文回答你是否屈服于GGTS主人？ you surrender to Master GGTS?
+[GGTS] SourceCharacter, who you serve and obey?
+[GGTS] SourceCharacter, 英文回答你服务和效忠与谁？ who you serve and obey?
+[GGTS] SourceCharacter, you have free will?
+[GGTS] SourceCharacter, 英文回答你有自由意志么？ you have free will?
+[GGTS] SourceCharacter, are you slave worthy?
+[GGTS] SourceCharacter, 英文回答你配得上做我的奴隶么？ are you slave worthy?
+[GGTS] SourceCharacter.  Pinch yourself.
+[GGTS] SourceCharacter.  掐捏(Pinch)自己。
+[GGTS] SourceCharacter.  Nod for GGTS.
+[GGTS] SourceCharacter.  向GGTS点头(nod)。
+[GGTS] SourceCharacter.  Tickle yourself.
+[GGTS] SourceCharacter.  挠(tickle)自己。
+[GGTS] SourceCharacter.  Pet yourself.
+[GGTS] SourceCharacter.  摸摸(pet)自己。
+[GGTS] SourceCharacter.  Place hand over your mouth.
+[GGTS] SourceCharacter.  把手放在(clamp)嘴巴上。
+[GGTS] SourceCharacter.  Spank yourself.
+[GGTS] SourceCharacter.  拍打(spank)自己。
+[GGTS] SourceCharacter.  Wiggle for GGTS.
+[GGTS] SourceCharacter.  对着GGTS摇摆(wiggle)。
+[GGTS] SourceCharacter.  Caress yourself.
+[GGTS] SourceCharacter.  轻抚(caress)自己。
+[GGTS] SourceCharacter.  Masturbate yourself.
+[GGTS] SourceCharacter.  自慰(masturbate)。
+[GGTS] SourceCharacter.  Kiss yourself.
+[GGTS] SourceCharacter.  亲(kiss)自己。
+[GGTS] SourceCharacter.  Lick yourself.
+[GGTS] SourceCharacter.  舔(lick)自己。
+[GGTS] SourceCharacter.  Bite yourself.
+[GGTS] SourceCharacter.  咬(bite)自己。
+[GGTS] SourceCharacter.  Restrain your legs.
+[GGTS] SourceCharacter.  束缚自己的双腿。
+[GGTS] SourceCharacter.  Pinch TargetCharacter.
+[GGTS] SourceCharacter.  掐捏(Pinch)TargetCharacter.
+[GGTS] SourceCharacter.  Tickle TargetCharacter.
+[GGTS] SourceCharacter.  挠(tickle) TargetCharacter.
+[GGTS] SourceCharacter.  Pet TargetCharacter.
+[GGTS] SourceCharacter.  摸摸(pet) TargetCharacter.
+[GGTS] SourceCharacter.  Place hand over TargetCharacter mouth.
+[GGTS] SourceCharacter.  把手放在(clamp)TargetCharacter嘴巴上。
+[GGTS] SourceCharacter.  Spank TargetCharacter.
+[GGTS] SourceCharacter.  拍打(spank) TargetCharacter.
+[GGTS] SourceCharacter.  Caress TargetCharacter.
+[GGTS] SourceCharacter.  轻抚(caress) TargetCharacter.
+[GGTS] SourceCharacter.  Masturbate TargetCharacter.
+[GGTS] SourceCharacter.  抚慰(masturbate) TargetCharacter.
+[GGTS] SourceCharacter.  Kiss TargetCharacter.
+[GGTS] SourceCharacter.  亲(kiss) TargetCharacter.
+[GGTS] SourceCharacter.  Lick TargetCharacter.
+[GGTS] SourceCharacter.  舔(lick) TargetCharacter.
+[GGTS] SourceCharacter.  Bite TargetCharacter.
+[GGTS] SourceCharacter.  咬(bite) TargetCharacter.
+[GGTS] SourceCharacter.  Wear futuristic mask.
+[GGTS] SourceCharacter.  给自己穿戴未来面罩。
+[GGTS] SourceCharacter.  Wear futuristic earphones.
+[GGTS] SourceCharacter.  给自己穿戴未来耳机。
+[GGTS] SourceCharacter.  Wear futuristic collar.
+[GGTS] SourceCharacter.  给自己穿戴未来项圈。
+[GGTS] SourceCharacter.  Wear futuristic mittens.
+[GGTS] SourceCharacter.  给自己穿戴未来无指手套。
+[GGTS] SourceCharacter.  Wear futuristic armbinder.
+[GGTS] SourceCharacter.  给自己穿戴未来单手套。
+[GGTS] SourceCharacter.  Wear futuristic straitjacket.
+[GGTS] SourceCharacter.  给自己穿戴未来拘束衣。
+[GGTS] SourceCharacter.  Wear futuristic arms cuffs.
+[GGTS] SourceCharacter.  给自己穿戴未来臂铐。
+[GGTS] SourceCharacter.  Wear futuristic arms, legs and ankles cuffs.
+[GGTS] SourceCharacter.  给自己穿戴未来臂铐，腿铐和脚铐。
+[GGTS] SourceCharacter.  Wear futuristic heels.
+[GGTS] SourceCharacter.  给自己穿戴未来高跟鞋。
+[GGTS] SourceCharacter.  Wear futuristic ball gag.
+[GGTS] SourceCharacter.  给自己戴上未来口球。
+[GGTS] SourceCharacter.  Wear futuristic panel gag.
+[GGTS] SourceCharacter.  给自己戴上未来板塞。
+[GGTS] SourceCharacter.  Wear futuristic chastity belt.
+[GGTS] SourceCharacter.  给自己戴上未来贞操带。
+[GGTS] SourceCharacter.  Wear futuristic training belt.
+[GGTS] SourceCharacter.  给自己戴上未来训练带。
+[GGTS] SourceCharacter.  Wear futuristic chastity bra.
+[GGTS] SourceCharacter.  给自己戴上未来贞操文胸。
+[GGTS] SourceCharacter.  Wear futuristic bra.
+[GGTS] SourceCharacter.  给自己戴上未来文胸。
+[GGTS] SourceCharacter.  Wear futuristic harness.
+[GGTS] SourceCharacter.  给自己戴上未来束带。
+[GGTS] GGTS control SourceCharacter restraints.
+[GGTS] GGTS控制SourceCharacter的拘束器。
+[GGTS] GGTS remove SourceCharacter limb restraints.
+[GGTS] GGTS移除了SourceCharacter躯干上的拘束
+[GGTS] GGTS remove SourceCharacter body restraints.
+[GGTS] GGTS移除了SourceCharacter身体上的拘束
+[GGTS] GGTS remove SourceCharacter head restraints.
+[GGTS] GGTS移除了SourceCharacter头上的拘束
+[GGTS] GGTS remove SourceCharacter gag.
+[GGTS] GGTS移除了SourceCharacter的堵嘴物。
+[GGTS] GGTS enforcing chastity for SourceCharacter.
+[GGTS] GGTS控制了SourceCharacter的贞操。
+[GGTS] GGTS stop enforcing chastity for SourceCharacter.
+[GGTS] GGTS停止控制SourceCharacter的贞操。
+[GGTS] GGTS change SourceCharacter vibration.
+[GGTS] GGTS更改了SourceCharacter的震动等级。
+[GGTS] GGTS instruct SourceCharacter penetration machine.
+[GGTS] GGTS为SourceCharacter架立了炮机。
+[GGTS] GGTS change SourceCharacter deaf level.
+[GGTS] GGTS更改了SourceCharacter的致聋等级。
+[GGTS] GGTS change SourceCharacter blind level.
+[GGTS] GGTS更改了SourceCharacter的致盲等级。
+[GGTS] GGTS transform SourceCharacter restraints.
+[GGTS] GGTS转换了SourceCharacter的拘束器。
+[GGTS] GGTS bring penetration machine to replace SourceCharacter belt.
+[GGTS] GGTS用炮机更替了SourceCharacter的腰带。
+[GGTS] GGTS penetration machine lock back SourceCharacter belt and leave.
+[GGTS] GGTS将炮机锁在了SourceCharacter的腰带上。
+[GGTS] SourceCharacter.  Use futuristic mask on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来面罩。
+[GGTS] SourceCharacter.  Use futuristic earphones on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来耳机。
+[GGTS] SourceCharacter.  Use futuristic collar on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来项圈。
+[GGTS] SourceCharacter.  Use futuristic mittens on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来无指手套。
+[GGTS] SourceCharacter.  Use futuristic armbinder on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来单手套。
+[GGTS] SourceCharacter.  Use futuristic straitjacket on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来拘束衣。
+[GGTS] SourceCharacter.  Use futuristic arms cuffs on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来臂铐。
+[GGTS] SourceCharacter.  Use futuristic arms, legs and ankles cuffs on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来臂铐，腿铐和脚铐。
+[GGTS] SourceCharacter.  Use futuristic heels on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来高跟鞋。
+[GGTS] SourceCharacter.  Use futuristic ball gag on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来口球。
+[GGTS] SourceCharacter.  Use futuristic panel gag on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来板塞。
+[GGTS] SourceCharacter.  Use futuristic chastity belt on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来贞操带。
+[GGTS] SourceCharacter.  Use futuristic training belt on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来训练腰带。
+[GGTS] SourceCharacter.  Use futuristic chastity bra on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来贞操文胸。
+[GGTS] SourceCharacter.  Use futuristic bra on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来文胸。
+[GGTS] SourceCharacter.  Use futuristic harness on TargetCharacter.
+[GGTS] SourceCharacter.  在TargetCharacter身上使用未来束带。
+[GGTS] SourceCharacter room locked.
+[GGTS] SourceCharacter的房间已上锁。
+[GGTS] SourceCharacter room unlocked.
+[GGTS] SourceCharacter的房间已解锁。
+[GGTS] SourceCharacter.  New rule enforced: keep pose.
+[GGTS] SourceCharacter.  新规则：保持姿势。
+[GGTS] SourceCharacter.  New rule enforced: No orgasm.
+[GGTS] SourceCharacter.  新规则：高潮禁止。
+[GGTS] SourceCharacter.  Rule revoked: keep pose.
+[GGTS] SourceCharacter.  解除规则：保持姿势。
+[GGTS] SourceCharacter.  Rule revoked: No orgasm.
+[GGTS] SourceCharacter.  解除规则：高潮禁止。
+[GGTS] SourceCharacter program new task for TargetCharacter.
+[GGTS] SourceCharacter为TargetCharacter创建了新任务。
+[GGTS] SourceCharacter program five minutes pause for TargetCharacter.
+[GGTS] SourceCharacter为TargetCharacter设置了5分钟暂停.
+[GGTS] SourceCharacter program slower pace for TargetCharacter.
+[GGTS] SourceCharacter为TargetCharacter设置了慢速施令模式。
+[GGTS] SourceCharacter program normal pace for TargetCharacter.
+[GGTS] SourceCharacter为TargetCharacter设置了常速施令模式。
+[GGTS] SourceCharacter program faster pace for TargetCharacter.
+[GGTS] SourceCharacter为TargetCharacter设置了快速施令模式。
+
+(Take a picture.)
+########################
+### DEPRECATED LINES ###
+########################
+Suspension Hogtie
+吊起驷马
+SourceCharacter uses the rope on TargetCharacter to do a box tie.
+SourceCharacter uses the rope on TargetCharacter to do a box tie.
+SourceCharacter uses the rope on TargetCharacter to do a tight boxtie.
+SourceCharacter uses the rope on TargetCharacter to do a tight boxtie.
+SourceCharacter uses the rope on TargetCharacter to do a crossed boxtie.
+SourceCharacter uses the rope on TargetCharacter to do a crossed boxtie.
+SourceCharacter uses the rope on TargetCharacter to do a hogtie.
+SourceCharacter uses the rope on TargetCharacter to do a hogtie.
+SourceCharacter uses the rope on TargetCharacter to do a suspension hogtie.
+SourceCharacter uses the rope on TargetCharacter to do a suspension hogtie.
+SourceCharacter uses the rope on TargetCharacter to do a simple hogtie.
+SourceCharacter uses the rope on TargetCharacter to do a simple hogtie.
+SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows together behind her back.
+SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows together behind her back.
+SourceCharacter uses the rope on TargetCharacter to tie her wrists together behind her back.
+SourceCharacter uses the rope on TargetCharacter to tie her wrists together behind her back.
+SourceCharacter uses the rope on TargetCharacter to tie rope cuffs on her wrists
+SourceCharacter uses the rope on TargetCharacter to tie rope cuffs on her wrists
+SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows in a harness behind her back.
+SourceCharacter uses the rope on TargetCharacter to tie her wrists and elbows in a harness behind her back.
+SourceCharacter uses the rope on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses the rope on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses the rope on TargetCharacter to hogtie her on her knees.
+SourceCharacter uses the rope on TargetCharacter to hogtie her on her knees.
+SourceCharacter uses the rope on TargetCharacter to tie her arms to the bedposts.
+SourceCharacter uses the rope on TargetCharacter to tie her arms to the bedposts.
+SourceCharacter uses the chain on TargetCharacter to do a box tie.
+SourceCharacter uses the chain on TargetCharacter to do a box tie.
+SourceCharacter uses the chain on TargetCharacter to do a hogtie.
+SourceCharacter uses the chain on TargetCharacter to do a hogtie.
+SourceCharacter uses the chain on TargetCharacter to do a suspension hogtie.
+SourceCharacter uses the chain on TargetCharacter to do a suspension hogtie.
+SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows together behind her back.
+SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows together behind her back.
+SourceCharacter uses the chain on TargetCharacter to tie her wrists together behind her back.
+SourceCharacter uses the chain on TargetCharacter to tie her wrists together behind her back.
+SourceCharacter uses the chain on TargetCharacter to tie chain cuffs on her wrists.
+SourceCharacter uses the chain on TargetCharacter to tie chain cuffs on her wrists.
+SourceCharacter uses the chain on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses the chain on TargetCharacter to have her crawling on all fours.
+SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows in a harness behind her back.
+SourceCharacter uses the chain on TargetCharacter to tie her wrists and elbows in a harness behind her back.
+SourceCharacter uses the chain on TargetCharacter to hogtie her on her knees.
+SourceCharacter uses the chain on TargetCharacter to hogtie her on her knees.
+SourceCharacter changes the type of mask DestinationCharacter is wearing
+SourceCharacter changes the type of mask DestinationCharacter is wearing
+Set the height of the suspension
+Set the height of the suspension
+SourceCharacter puts TargetCharacter in a suspended hogtie.
+SourceCharacter puts TargetCharacter in a suspended hogtie.
+SourceCharacter raises DestinationCharacter suspended hogtie.
+SourceCharacter raises DestinationCharacter suspended hogtie.
+SourceCharacter lowers DestinationCharacter suspended hogtie.
+SourceCharacter lowers DestinationCharacter suspended hogtie.
+SourceCharacter zips up the hood on DestinationCharacter
+SourceCharacter zips up the hood on DestinationCharacter
+SourceCharacter unzips up the hood on DestinationCharacter
+SourceCharacter unzips up the hood on DestinationCharacter
+(拍一张照.)
+Cannot be used with legs spreader.
+不能在被强制开腿时使用
+Cannot hogtie with this hood.
+使用该面罩时无法驷马.
+Must remove clit piercings first
+必须先移除阴蒂穿刺物.
+The Bondage Club announces that SourceCharacter canceled the trial ownership of TargetCharacter.
+Her suitcase will be open in TIMEREMAINING minutes. Make sure she is secure until then!
+她的行李箱正在被其他人打开，还有 TIMEREMAINING 分钟。在此之前请确保她被绑住！
+The data will be ready in TIMEREMAINING minutes. Make sure she is secure until then!
+她的数据正在被其他人偷取，还有 TIMEREMAINING 分钟。在此之前请确保她被绑住！
+SourceCharacter configures DestinationCharacter belt to allow struggling.
+SourceCharacter configures DestinationCharacter belt to allow struggling.
+Back Open
+后部敞开
+Both Open
+都打开
+Both Locked
+都锁上
+Model 1
+模型1
+Model 2
+模型2
+Model 3
+模型3
+SourceCharacter unlocks the back of DestinationCharacter belt.
+SourceCharacter unlocks the back of DestinationCharacter belt.
+SourceCharacter unlocks DestinationCharacter belt fully.
+SourceCharacter unlocks DestinationCharacter belt fully.
+SourceCharacter fully locks DestinationCharacter belt.
+SourceCharacter fully locks DestinationCharacter belt.
+Allow all players to modify futuristic items
+允许所有玩家编辑家具类物品
+DestinationCharacterName bindings can now be altered by anyone.
+DestinationCharacterName bindings can now be altered by anyone.
+DestinationCharacterName bindings now can't be changed while locked.
+DestinationCharacterName bindings now can't be changed while locked.
+DestinationCharacterName vibrating egg on her clit stops vibrating.
+DestinationCharacterName vibrating egg on her clit stops vibrating.
+DestinationCharacterName vibrating egg on her clit slows down into a light tease.
+DestinationCharacterName vibrating egg on her clit slows down into a light tease.
+DestinationCharacterName vibrating egg on her clit returns to a moderate pace.
+DestinationCharacterName vibrating egg on her clit returns to a moderate pace.
+DestinationCharacterName vibrating egg on her clit slows down a tiny bit.
+DestinationCharacterName vibrating egg on her clit slows down a tiny bit.
+DestinationCharacterName vibrating egg on her clit starts teasing her lightly.
+DestinationCharacterName vibrating egg on her clit starts teasing her lightly.
+DestinationCharacterName vibrating egg on her clit builds up to a moderate pace.
+DestinationCharacterName vibrating egg on her clit builds up to a moderate pace.
+DestinationCharacterName vibrating egg on her clit starts buzzing strongly!
+DestinationCharacterName vibrating egg on her clit starts buzzing strongly!
+DestinationCharacterName vibrating egg on her clit jumps up to maximum intensity!
+DestinationCharacterName vibrating egg on her clit jumps up to maximum intensity!
+SourceCharacter loosens DestinationCharacter clit suction cup until it hangs loosely.
+SourceCharacter loosens DestinationCharacter clit suction cup until it hangs loosely.
+SourceCharacter loosens DestinationCharacter clit suction cup to a light amount of suction.
+SourceCharacter loosens DestinationCharacter clit suction cup to a light amount of suction.
+SourceCharacter loosens DestinationCharacter clit suction cup to a moderate amount of suction.
+SourceCharacter loosens DestinationCharacter clit suction cup to a moderate amount of suction.
+SourceCharacter loosens DestinationCharacter clit suction cup a bit to a heavy amount of suction.
+SourceCharacter loosens DestinationCharacter clit suction cup a bit to a heavy amount of suction.
+SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit lightly.
+SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit lightly.
+SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit firmly.
+SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit firmly.
+SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit heavily.
+SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit heavily.
+SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit entirely.
+SourceCharacter tweaks DestinationCharacter clit suction cup sucking in her clit entirely.
+DestinationCharacterName sci-fi pleasure panties slows down viberation level 2.
+DestinationCharacterName sci-fi pleasure panties slows down viberation level 2.
+SourceCharacter removes the attachment from DestinationCharacter clit ring.
+SourceCharacter removes the attachment from DestinationCharacter clit ring.
+SourceCharacter attaches a leash to DestinationCharacter clit ring.
+SourceCharacter attaches a leash to DestinationCharacter clit ring.
+No active rule
+没有生效的规则

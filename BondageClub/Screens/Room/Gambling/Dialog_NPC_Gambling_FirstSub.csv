@@ -17,10 +17,10 @@ ItemPelvis,,,"(She struggles as you lock the device on her.)  No, please!  I don
 RemoveItemPelvis,,,(She looks really happy as you unlock the device.)  Thank you so much Miss DialogPlayerName.,,
 ItemHead,,,(You put the device on her as she shakes her head.)  Ow!  You've made my day much more awful.,,
 RemoveItemHead,,,"(You remove the device and she nods rapidly.)  Thanks a million, this is much better.",,
-ItemBreastLeatherWhip,,,"(She trembles of pain as you whip her breast.) This is a gambling hall, not a torture chamber.",,
-ItemBreastLeatherCrop,,,"(You swing the crop at her torso as she moans.) Oh, this isn't a game anymore.",,
-ItemPelvisLeatherWhip,,,(You whip her butt as she jumps from the pain.) I do not find that funny.,,
-ItemPelvisLeatherCrop,,,(She moans each time the crop lands on it.) How will I be able to sit like this?,,
+ItemBreastSpankingToysWhip,,,"(She trembles of pain as you whip her breast.) This is a gambling hall, not a torture chamber.",,
+ItemBreastSpankingToysCrop,,,"(You swing the crop at her torso as she moans.) Oh, this isn't a game anymore.",,
+ItemPelvisSpankingToysWhip,,,(You whip her butt as she jumps from the pain.) I do not find that funny.,,
+ItemPelvisSpankingToysCrop,,,(She moans each time the crop lands on it.) How will I be able to sit like this?,,
 ItemTorso,,,I like my clothes better.,,
 RemoveItemTorso,,,"(You remove the device and she nods rapidly.)  Thanks a million, this is much better.",,
 ItemButt,,,I cannot concentrate this way.,,
@@ -29,7 +29,7 @@ ItemBreast,,,"Oh, is that really necessary?",,
 RemoveItemBreast,,,(She looks at you satisfied.),,
 ItemNipples,,,"Oh, is that really necessary?",,
 RemoveItemNipples,,,(She looks at you satisfied.),,
-ItemVulvaVibratingWand,,,According to which rules is this allowed?,,
+ItemVulvaSpankingToysVibratingWand,,,According to which rules is this allowed?,,
 VibratingEgg,,,"I want to play with dice, not with eggs.",,
 RemoveVibratingEgg,,,"Thanks, now I can concentrate on what matters.",,
 SuspensionHempRope,,,Woe to the vanquished.,,
@@ -68,10 +68,11 @@ RemoveSuspensionHempRope,,,"Finally, I'm back on firm ground.",,
 70,72,"Please Miss, can you release me?",Let's see what the dice say...,,!FirstSubRestrained()
 70,0,"Please Miss, can you release me?",(She shows you her restraints.),,FirstSubRestrained()
 70,0,(Struggle in your restraints.),(She giggles.)  Well someone seems to be having fun.,,
-70,71,(Whimper and make pleading eyes.),Do you need help?,,
+70,71,(Whimper and make pleading eyes.),Do you need help?,,!Player.IsBlind()
+70,71,(Whimper and squirm.),Do you need help?,,Player.IsBlind()
 71,72,(Nod yes.),Let's let the dice decide...,,!FirstSubRestrained()
 71,0,(Nod yes.),(She shows you her restraints.),,FirstSubRestrained()
-71,0,(Frown at her.),"Fine, you can stay like that if you want.",AnnoyGamblingSub(),!FirstSubRestrained()
+71,0,(Frown at her.),"Fine, you can stay like that if you want.",AnnoyGamblingFirstSub(),!FirstSubRestrained()
 71,0,(Frown at her.),(She shows you her restraints.),,FirstSubRestrained()
 72,,"Yes, of course.",,"ReleasePlayerGame(""new"")",Player.CanTalk()
 72,,(Look angry.),,"ReleasePlayerGame(""new"")",!Player.CanTalk()

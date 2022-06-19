@@ -1,0 +1,38 @@
+###_NPC
+(They release, pay and leave you with your new owner.)  Pleased to meet you my girl, I'm DialogCharacterName.
+(Они освобождают, платят и оставляют вас с вашей новой владелицей.)  Рада познакомиться с тобой, моя девочка, меня зовут DialogCharacterName.
+(They release, pay and leave you with your new owner.)  Come here girl, my name is DialogCharacterName.
+(Они освобождают, платят и оставляют вас с вашей новой владелицей.)  Иди сюда, девочка, меня зовут DialogCharacterName.
+(They release, pay and leave you with your new owner.)  Hello girl, I'm DialogCharacterName, your new owner.
+(Они освобождают, платят и оставляют вас с вашей новой владелицей.)  Привет, девочка, я DialogCharacterName, твоя новая владелица.
+###_PLAYER
+Hi, I'm DialogPlayerName.
+Привет, я DialogPlayerName.
+###_NPC
+From now on, you will call me "Mistress".  I'm sure we'll have a great time together.
+Отныне ты будешь называть меня "Госпожа".  Я уверена, что мы прекрасно проведем время вместе.
+###_PLAYER
+You're the new owner?
+Вы новая владелица?
+(Bow your head.)
+(Склоните голову.)
+Absolutely!
+Абсолютно!
+###_NPC
+Let's go back to your place, I want to know everything about you.
+Давай вернемся к тебе домой, я хочу знать о тебе все.
+###_PLAYER
+I'm scared.
+Мне страшно.
+###_NPC
+Don't be scared my girl, everything will be fine.  Let's go back to your place, I want to know everything about you.
+Не бойся, моя девочка, все будет хорошо.  Давай вернемся к тебе домой, я хочу знать о тебе все.
+###_PLAYER
+Yes Mistress.
+Да, госпожа.
+###_NPC
+Good girl.  Now let's go back to your place, I want to know everything about you.
+Хорошая девочка.  А теперь давай вернемся к тебе домой, я хочу знать о тебе все.
+###_PLAYER
+(Show her your room.)
+(Покажи ей свою комнату.)

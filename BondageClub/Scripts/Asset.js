@@ -1,11 +1,10 @@
+//@ts-check
 "use strict";
 
 /** @type {Asset[]} */
 var Asset = [];
 /** @type {AssetGroup[]} */
 var AssetGroup = [];
-/** @type {AssetGroup} */
-var AssetCurrentGroup;
 /** @type {Map<string, Asset>} */
 var AssetMap = new Map();
 /** @type {Map<string, AssetGroup>} */
@@ -14,58 +13,58 @@ var AssetGroupMap = new Map();
 var Pose = [];
 /** @type {Map<string, AssetGroup[]>} */
 var AssetActivityMirrorGroups = new Map();
+
 /**
  * Adds a new asset group to the main list
- * @param {IAssetFamily} NewAssetFamily
- * @param {AssetGroupDefinition} NewAsset
+ * @param {IAssetFamily} Family
+ * @param {AssetGroupDefinition} GroupDef
+ * @returns {AssetGroup}
  */
-function AssetGroupAdd(NewAssetFamily, NewAsset) {
+function AssetGroupAdd(Family, GroupDef) {
 	/** @type {AssetGroup} */
 	var A = {
-		Family: NewAssetFamily,
-		Name: NewAsset.Group,
-		Description: NewAsset.Group,
+		Family: Family,
+		Name: GroupDef.Group,
+		Description: GroupDef.Group,
 		Asset: [],
-		ParentGroupName: (NewAsset.ParentGroup == null) ? "" : NewAsset.ParentGroup,
-		Category: (NewAsset.Category == null) ? "Appearance" : NewAsset.Category,
-		IsDefault: (NewAsset.Default == null) ? true : NewAsset.Default,
-		IsRestraint: (NewAsset.IsRestraint == null) ? false : NewAsset.IsRestraint,
-		AllowNone: (NewAsset.AllowNone == null) ? true : NewAsset.AllowNone,
-		AllowColorize: (NewAsset.AllowColorize == null) ? true : NewAsset.AllowColorize,
-		AllowCustomize: (NewAsset.AllowCustomize == null) ? true : NewAsset.AllowCustomize,
-		Random: (NewAsset.Random == null) ? true : NewAsset.Random,
-		ColorSchema: (NewAsset.Color == null) ? ["Default"] : NewAsset.Color,
-		ParentSize: (NewAsset.ParentSize == null) ? "" : NewAsset.ParentSize,
-		ParentColor: (NewAsset.ParentColor == null) ? "" : NewAsset.ParentColor,
-		Clothing: (NewAsset.Clothing == null) ? false : NewAsset.Clothing,
-		Underwear: (NewAsset.Underwear == null) ? false : NewAsset.Underwear,
-		BodyCosplay: (NewAsset.BodyCosplay == null) ? false : NewAsset.BodyCosplay,
-		Activity: Array.isArray(NewAsset.Activity) ? NewAsset.Activity : [],
-		AllowActivityOn: NewAsset.AllowActivityOn,
-		Hide: NewAsset.Hide,
-		Block: NewAsset.Block,
-		Zone: NewAsset.Zone,
-		SetPose: NewAsset.SetPose,
-		AllowPose: Array.isArray(NewAsset.AllowPose) ? NewAsset.AllowPose : [],
-		AllowExpression: NewAsset.AllowExpression,
-		Effect: Array.isArray(NewAsset.Effect) ? NewAsset.Effect : [],
-		MirrorGroup: (NewAsset.MirrorGroup == null) ? "" : NewAsset.MirrorGroup,
-		RemoveItemOnRemove: (NewAsset.RemoveItemOnRemove == null) ? [] : NewAsset.RemoveItemOnRemove,
-		DrawingPriority: (NewAsset.Priority == null) ? AssetGroup.length : NewAsset.Priority,
-		DrawingLeft: (NewAsset.Left == null) ? 0 : NewAsset.Left,
-		DrawingTop: (NewAsset.Top == null) ? 0 : NewAsset.Top,
-		DrawingFullAlpha: (NewAsset.FullAlpha == null) ? true : NewAsset.FullAlpha,
-		DrawingBlink: (NewAsset.Blink == null) ? false : NewAsset.Blink,
-		InheritColor: NewAsset.InheritColor,
-		FreezeActivePose: Array.isArray(NewAsset.FreezeActivePose) ? NewAsset.FreezeActivePose : [],
-		PreviewZone: NewAsset.PreviewZone,
-		DynamicGroupName: NewAsset.DynamicGroupName || NewAsset.Group,
-		MirrorActivitiesFrom: NewAsset.MirrorActivitiesFrom || null,
+		ParentGroupName: (GroupDef.ParentGroup == null) ? "" : GroupDef.ParentGroup,
+		Category: (GroupDef.Category == null) ? "Appearance" : GroupDef.Category,
+		IsDefault: (GroupDef.Default == null) ? true : GroupDef.Default,
+		IsRestraint: (GroupDef.IsRestraint == null) ? false : GroupDef.IsRestraint,
+		AllowNone: (GroupDef.AllowNone == null) ? true : GroupDef.AllowNone,
+		AllowColorize: (GroupDef.AllowColorize == null) ? true : GroupDef.AllowColorize,
+		AllowCustomize: (GroupDef.AllowCustomize == null) ? true : GroupDef.AllowCustomize,
+		Random: (GroupDef.Random == null) ? true : GroupDef.Random,
+		ColorSchema: (GroupDef.Color == null) ? ["Default"] : GroupDef.Color,
+		ParentSize: (GroupDef.ParentSize == null) ? "" : GroupDef.ParentSize,
+		ParentColor: (GroupDef.ParentColor == null) ? "" : GroupDef.ParentColor,
+		Clothing: (GroupDef.Clothing == null) ? false : GroupDef.Clothing,
+		Underwear: (GroupDef.Underwear == null) ? false : GroupDef.Underwear,
+		BodyCosplay: (GroupDef.BodyCosplay == null) ? false : GroupDef.BodyCosplay,
+		Hide: GroupDef.Hide,
+		Block: GroupDef.Block,
+		Zone: GroupDef.Zone,
+		SetPose: GroupDef.SetPose,
+		AllowPose: Array.isArray(GroupDef.AllowPose) ? GroupDef.AllowPose : [],
+		AllowExpression: GroupDef.AllowExpression,
+		Effect: Array.isArray(GroupDef.Effect) ? GroupDef.Effect : [],
+		MirrorGroup: (GroupDef.MirrorGroup == null) ? "" : GroupDef.MirrorGroup,
+		RemoveItemOnRemove: (GroupDef.RemoveItemOnRemove == null) ? [] : GroupDef.RemoveItemOnRemove,
+		DrawingPriority: (GroupDef.Priority == null) ? AssetGroup.length : GroupDef.Priority,
+		DrawingLeft: (GroupDef.Left == null) ? 0 : GroupDef.Left,
+		DrawingTop: (GroupDef.Top == null) ? 0 : GroupDef.Top,
+		DrawingFullAlpha: (GroupDef.FullAlpha == null) ? true : GroupDef.FullAlpha,
+		DrawingBlink: (GroupDef.Blink == null) ? false : GroupDef.Blink,
+		InheritColor: GroupDef.InheritColor,
+		FreezeActivePose: Array.isArray(GroupDef.FreezeActivePose) ? GroupDef.FreezeActivePose : [],
+		PreviewZone: GroupDef.PreviewZone,
+		DynamicGroupName: GroupDef.DynamicGroupName || GroupDef.Group,
+		MirrorActivitiesFrom: GroupDef.MirrorActivitiesFrom || null,
 	};
 	AssetGroupMap.set(A.Name, A);
 	AssetActivityMirrorGroupSet(A);
 	AssetGroup.push(A);
-	AssetCurrentGroup = A;
+	return A;
 }
 
 /**
@@ -87,127 +86,134 @@ function AssetActivityMirrorGroupSet(group) {
 
 /**
  * Adds a new asset to the main list
- * @param {AssetDefinition} NewAsset
+ * @param {AssetGroup} Group
+ * @param {AssetDefinition} AssetDef
  * @param {ExtendedItemConfig} ExtendedConfig
  * @returns {void} - Nothing
  */
-function AssetAdd(NewAsset, ExtendedConfig) {
+function AssetAdd(Group, AssetDef, ExtendedConfig) {
 	/** @type {Asset} */
 	var A = Object.assign({
-		Name: NewAsset.Name,
-		Description: NewAsset.Name,
-		Group: AssetCurrentGroup,
-		ParentItem: NewAsset.ParentItem,
-		ParentGroupName: NewAsset.ParentGroup,
-		Enable: (NewAsset.Enable == null) ? true : NewAsset.Enable,
-		Visible: (NewAsset.Visible == null) ? true : NewAsset.Visible,
-		Wear: (NewAsset.Wear == null) ? true : NewAsset.Wear,
-		Activity: (NewAsset.Activity == null) ? AssetCurrentGroup.Activity : NewAsset.Activity,
-		AllowActivity: NewAsset.AllowActivity || [],
-		AllowActivityOn: (NewAsset.AllowActivityOn == null) ? AssetCurrentGroup.AllowActivityOn : NewAsset.AllowActivityOn,
-		BuyGroup: NewAsset.BuyGroup,
-		PrerequisiteBuyGroups: NewAsset.PrerequisiteBuyGroups,
-		Effect: (NewAsset.Effect == null) ? AssetCurrentGroup.Effect : NewAsset.Effect,
-		Bonus: NewAsset.Bonus,
-		Block: (NewAsset.Block == null) ? AssetCurrentGroup.Block : NewAsset.Block,
-		Expose: (NewAsset.Expose == null) ? [] : NewAsset.Expose,
-		Hide: (NewAsset.Hide == null) ? AssetCurrentGroup.Hide : NewAsset.Hide,
-		HideItem: NewAsset.HideItem,
-		HideItemExclude: NewAsset.HideItemExclude || [],
-		HideItemAttribute: NewAsset.HideItemAttribute || [],
-		Require: NewAsset.Require,
-		SetPose: (NewAsset.SetPose == null) ? AssetCurrentGroup.SetPose : NewAsset.SetPose,
-		AllowActivePose: NewAsset.AllowActivePose,
-		WhitelistActivePose: NewAsset.WhitelistActivePose,
-		Value: (NewAsset.Value == null) ? 0 : NewAsset.Value,
-		Difficulty: (NewAsset.Difficulty == null) ? 0 : NewAsset.Difficulty,
-		SelfBondage: (NewAsset.SelfBondage == null) ? 0 : NewAsset.SelfBondage,
-		SelfUnlock: (NewAsset.SelfUnlock == null) ? true : NewAsset.SelfUnlock,
-		ExclusiveUnlock: (NewAsset.ExclusiveUnlock == null) ? false : NewAsset.ExclusiveUnlock,
-		Random: (NewAsset.Random == null) ? true : NewAsset.Random,
-		RemoveAtLogin: (NewAsset.RemoveAtLogin == null) ? false : NewAsset.RemoveAtLogin,
-		WearTime: (NewAsset.Time == null) ? 0 : NewAsset.Time,
-		RemoveTime: (NewAsset.RemoveTime == null) ? ((NewAsset.Time == null) ? 0 : NewAsset.Time) : NewAsset.RemoveTime,
-		RemoveTimer: (NewAsset.RemoveTimer == null) ? 0 : NewAsset.RemoveTimer,
-		MaxTimer: (NewAsset.MaxTimer == null) ? 0 : NewAsset.MaxTimer,
-		DrawingPriority: NewAsset.Priority,
-		DrawingLeft: NewAsset.Left,
-		DrawingTop: NewAsset.Top,
-		HeightModifier: (NewAsset.Height == null) ? 0 : NewAsset.Height,
-		ZoomModifier: (NewAsset.Zoom == null) ? 1 : NewAsset.Zoom,
-		Alpha: NewAsset.Alpha,
-		Prerequisite: NewAsset.Prerequisite,
-		Extended: (NewAsset.Extended == null) ? false : NewAsset.Extended,
-		AlwaysExtend: (NewAsset.AlwaysExtend == null) ? false : NewAsset.AlwaysExtend,
-		AlwaysInteract: (NewAsset.AlwaysInteract == null) ? false : NewAsset.AlwaysInteract,
-		AllowLock: (NewAsset.AllowLock == null) ? false : NewAsset.AllowLock,
-		LayerVisibility: (NewAsset.LayerVisibility == null) ? false : NewAsset.LayerVisibility,
-		IsLock: (NewAsset.IsLock == null) ? false : NewAsset.IsLock,
-		PickDifficulty: (NewAsset.PickDifficulty == null) ? 0 : NewAsset.PickDifficulty,
-		OwnerOnly: (NewAsset.OwnerOnly == null) ? false : NewAsset.OwnerOnly,
-		LoverOnly: (NewAsset.LoverOnly == null) ? false : NewAsset.LoverOnly,
-		ExpressionTrigger: NewAsset.ExpressionTrigger,
-		RemoveItemOnRemove: (NewAsset.RemoveItemOnRemove == null) ? AssetCurrentGroup.RemoveItemOnRemove : AssetCurrentGroup.RemoveItemOnRemove.concat(NewAsset.RemoveItemOnRemove),
-		AllowEffect: NewAsset.AllowEffect,
-		AllowBlock: NewAsset.AllowBlock,
-		AllowType: NewAsset.AllowType,
-		DefaultColor: NewAsset.DefaultColor,
-		Opacity: AssetParseOpacity(NewAsset.Opacity),
-		MinOpacity: typeof NewAsset.MinOpacity === "number" ? AssetParseOpacity(NewAsset.MinOpacity) : 1,
-		MaxOpacity: typeof NewAsset.MaxOpacity === "number" ? AssetParseOpacity(NewAsset.MaxOpacity) : 1,
-		Audio: NewAsset.Audio,
-		Category: NewAsset.Category,
-		Fetish: NewAsset.Fetish,
-		ArousalZone: (NewAsset.ArousalZone == null) ? AssetCurrentGroup.Name : NewAsset.ArousalZone,
-		IsRestraint: (NewAsset.IsRestraint == null) ? ((AssetCurrentGroup.IsRestraint == null) ? false : AssetCurrentGroup.IsRestraint) : NewAsset.IsRestraint,
-		BodyCosplay: (NewAsset.BodyCosplay == null) ? AssetCurrentGroup.BodyCosplay : NewAsset.BodyCosplay,
-		OverrideBlinking: (NewAsset.OverrideBlinking == null) ? false : NewAsset.OverrideBlinking,
-		DialogSortOverride: NewAsset.DialogSortOverride,
-		DynamicDescription: (typeof NewAsset.DynamicDescription === 'function') ? NewAsset.DynamicDescription : function () { return this.Description; },
-		DynamicPreviewImage: (typeof NewAsset.DynamicPreviewImage === 'function') ? NewAsset.DynamicPreviewImage : function () { return ""; },
-		DynamicAllowInventoryAdd: (typeof NewAsset.DynamicAllowInventoryAdd === 'function') ? NewAsset.DynamicAllowInventoryAdd : function () { return true; },
-		DynamicExpressionTrigger: (typeof NewAsset.DynamicExpressionTrigger === 'function') ? NewAsset.DynamicExpressionTrigger : function () { return this.ExpressionTrigger; },
-		DynamicName: (typeof NewAsset.DynamicName === 'function') ? NewAsset.DynamicName : function () { return this.Name; },
-		DynamicGroupName: (NewAsset.DynamicGroupName || AssetCurrentGroup.DynamicGroupName),
-		DynamicActivity: (typeof NewAsset.DynamicActivity === 'function') ? NewAsset.DynamicActivity : function () { return NewAsset.Activity; },
-		DynamicAudio: (typeof NewAsset.DynamicAudio === 'function') ? NewAsset.DynamicAudio : null,
-		CharacterRestricted: typeof NewAsset.CharacterRestricted === 'boolean' ? NewAsset.CharacterRestricted : false,
-		AllowRemoveExclusive: typeof NewAsset.AllowRemoveExclusive === 'boolean' ? NewAsset.AllowRemoveExclusive : false,
-		InheritColor: NewAsset.InheritColor,
-		DynamicBeforeDraw: (typeof NewAsset.DynamicBeforeDraw === 'boolean') ? NewAsset.DynamicBeforeDraw : false,
-		DynamicAfterDraw: (typeof NewAsset.DynamicAfterDraw === 'boolean') ? NewAsset.DynamicAfterDraw : false,
-		DynamicScriptDraw: (typeof NewAsset.DynamicScriptDraw === 'boolean') ? NewAsset.DynamicScriptDraw : false,
-		HasType: (typeof NewAsset.HasType === 'boolean') ? NewAsset.HasType : true,
-		AllowLockType: NewAsset.AllowLockType,
-		AllowColorizeAll: typeof NewAsset.AllowColorizeAll === "boolean" ? NewAsset.AllowColorizeAll : true,
-		AvailableLocations: NewAsset.AvailableLocations || [],
-		OverrideHeight: NewAsset.OverrideHeight,
-		FreezeActivePose: Array.isArray(NewAsset.FreezeActivePose) ? NewAsset.FreezeActivePose :
-			Array.isArray(AssetCurrentGroup.FreezeActivePose) ? AssetCurrentGroup.FreezeActivePose : [],
-		DrawLocks: typeof NewAsset.DrawLocks === "boolean" ? NewAsset.DrawLocks : true,
-		AllowExpression: NewAsset.AllowExpression,
-		MirrorExpression: NewAsset.MirrorExpression,
-		FixedPosition: typeof NewAsset.FixedPosition === "boolean" ? NewAsset.FixedPosition : false,
+		Name: AssetDef.Name,
+		Description: AssetDef.Name,
+		Group: Group,
+		ParentItem: AssetDef.ParentItem,
+		ParentGroupName: AssetDef.ParentGroup,
+		Enable: (AssetDef.Enable == null) ? true : AssetDef.Enable,
+		Visible: (AssetDef.Visible == null) ? true : AssetDef.Visible,
+		Wear: (AssetDef.Wear == null) ? true : AssetDef.Wear,
+		Activity: (typeof AssetDef.Activity === "string" ? AssetDef.Activity : null),
+		AllowActivity: Array.isArray(AssetDef.AllowActivity) ? AssetDef.AllowActivity : [],
+		AllowActivityOn: Array.isArray(AssetDef.AllowActivityOn) ? AssetDef.AllowActivityOn : [],
+		BuyGroup: AssetDef.BuyGroup,
+		PrerequisiteBuyGroups: AssetDef.PrerequisiteBuyGroups,
+		Effect: (AssetDef.Effect == null) ? Group.Effect : AssetDef.Effect,
+		Bonus: AssetDef.Bonus,
+		Block: (AssetDef.Block == null) ? Group.Block : AssetDef.Block,
+		Expose: (AssetDef.Expose == null) ? [] : AssetDef.Expose,
+		Hide: (AssetDef.Hide == null) ? Group.Hide : AssetDef.Hide,
+		HideItem: AssetDef.HideItem,
+		HideItemExclude: AssetDef.HideItemExclude || [],
+		HideItemAttribute: AssetDef.HideItemAttribute || [],
+		Require: AssetDef.Require,
+		SetPose: (AssetDef.SetPose == null) ? Group.SetPose : AssetDef.SetPose,
+		AllowActivePose: AssetDef.AllowActivePose,
+		WhitelistActivePose: AssetDef.WhitelistActivePose,
+		Value: (AssetDef.Value == null) ? 0 : AssetDef.Value,
+		Difficulty: (AssetDef.Difficulty == null) ? 0 : AssetDef.Difficulty,
+		SelfBondage: (AssetDef.SelfBondage == null) ? 0 : AssetDef.SelfBondage,
+		SelfUnlock: (AssetDef.SelfUnlock == null) ? true : AssetDef.SelfUnlock,
+		ExclusiveUnlock: (AssetDef.ExclusiveUnlock == null) ? false : AssetDef.ExclusiveUnlock,
+		Random: (AssetDef.Random == null) ? true : AssetDef.Random,
+		RemoveAtLogin: (AssetDef.RemoveAtLogin == null) ? false : AssetDef.RemoveAtLogin,
+		WearTime: (AssetDef.Time == null) ? 0 : AssetDef.Time,
+		RemoveTime: (AssetDef.RemoveTime == null) ? ((AssetDef.Time == null) ? 0 : AssetDef.Time) : AssetDef.RemoveTime,
+		RemoveTimer: (AssetDef.RemoveTimer == null) ? 0 : AssetDef.RemoveTimer,
+		MaxTimer: (AssetDef.MaxTimer == null) ? 0 : AssetDef.MaxTimer,
+		DrawingPriority: AssetDef.Priority,
+		DrawingLeft: AssetDef.Left,
+		DrawingTop: AssetDef.Top,
+		HeightModifier: (AssetDef.Height == null) ? 0 : AssetDef.Height,
+		ZoomModifier: (AssetDef.Zoom == null) ? 1 : AssetDef.Zoom,
+		Alpha: AssetDef.Alpha,
+		Prerequisite: AssetDef.Prerequisite,
+		Extended: (AssetDef.Extended == null) ? false : AssetDef.Extended,
+		AlwaysExtend: (AssetDef.AlwaysExtend == null) ? false : AssetDef.AlwaysExtend,
+		AlwaysInteract: (AssetDef.AlwaysInteract == null) ? false : AssetDef.AlwaysInteract,
+		AllowLock: typeof AssetDef.AllowLock === "boolean" ? AssetDef.AllowLock : false,
+		LayerVisibility: (AssetDef.LayerVisibility == null) ? false : AssetDef.LayerVisibility,
+		IsLock: (AssetDef.IsLock == null) ? false : AssetDef.IsLock,
+		PickDifficulty: (AssetDef.PickDifficulty == null) ? 0 : AssetDef.PickDifficulty,
+		OwnerOnly: (AssetDef.OwnerOnly == null) ? false : AssetDef.OwnerOnly,
+		LoverOnly: (AssetDef.LoverOnly == null) ? false : AssetDef.LoverOnly,
+		ExpressionTrigger: AssetDef.ExpressionTrigger,
+		RemoveItemOnRemove: (AssetDef.RemoveItemOnRemove == null) ? Group.RemoveItemOnRemove : Group.RemoveItemOnRemove.concat(AssetDef.RemoveItemOnRemove),
+		AllowEffect: AssetDef.AllowEffect,
+		AllowBlock: AssetDef.AllowBlock,
+		AllowType: AssetDef.AllowType,
+		DefaultColor: AssetDef.DefaultColor,
+		Opacity: AssetParseOpacity(AssetDef.Opacity),
+		MinOpacity: typeof AssetDef.MinOpacity === "number" ? AssetParseOpacity(AssetDef.MinOpacity) : 1,
+		MaxOpacity: typeof AssetDef.MaxOpacity === "number" ? AssetParseOpacity(AssetDef.MaxOpacity) : 1,
+		Audio: AssetDef.Audio,
+		Category: AssetDef.Category,
+		Fetish: AssetDef.Fetish,
+		ArousalZone: (AssetDef.ArousalZone == null) ? Group.Name : AssetDef.ArousalZone,
+		IsRestraint: (AssetDef.IsRestraint == null) ? ((Group.IsRestraint == null) ? false : Group.IsRestraint) : AssetDef.IsRestraint,
+		BodyCosplay: (AssetDef.BodyCosplay == null) ? Group.BodyCosplay : AssetDef.BodyCosplay,
+		OverrideBlinking: (AssetDef.OverrideBlinking == null) ? false : AssetDef.OverrideBlinking,
+		DialogSortOverride: AssetDef.DialogSortOverride,
+		// @ts-ignore: this has no type, because we are in JS file
+		DynamicDescription: (typeof AssetDef.DynamicDescription === 'function') ? AssetDef.DynamicDescription : function () { return this.Description; },
+		DynamicPreviewImage: (typeof AssetDef.DynamicPreviewImage === 'function') ? AssetDef.DynamicPreviewImage : function () { return ""; },
+		DynamicAllowInventoryAdd: (typeof AssetDef.DynamicAllowInventoryAdd === 'function') ? AssetDef.DynamicAllowInventoryAdd : function () { return true; },
+		// @ts-ignore: this has no type, because we are in JS file
+		DynamicExpressionTrigger: (typeof AssetDef.DynamicExpressionTrigger === 'function') ? AssetDef.DynamicExpressionTrigger : function () { return this.ExpressionTrigger; },
+		// @ts-ignore: this has no type, because we are in JS file
+		DynamicName: (typeof AssetDef.DynamicName === 'function') ? AssetDef.DynamicName : function () { return this.Name; },
+		DynamicGroupName: (AssetDef.DynamicGroupName || Group.DynamicGroupName),
+		DynamicActivity: (typeof AssetDef.DynamicActivity === 'function') ? AssetDef.DynamicActivity : function () { return AssetDef.Activity; },
+		DynamicAudio: (typeof AssetDef.DynamicAudio === 'function') ? AssetDef.DynamicAudio : null,
+		CharacterRestricted: typeof AssetDef.CharacterRestricted === 'boolean' ? AssetDef.CharacterRestricted : false,
+		AllowRemoveExclusive: typeof AssetDef.AllowRemoveExclusive === 'boolean' ? AssetDef.AllowRemoveExclusive : false,
+		InheritColor: AssetDef.InheritColor,
+		DynamicBeforeDraw: (typeof AssetDef.DynamicBeforeDraw === 'boolean') ? AssetDef.DynamicBeforeDraw : false,
+		DynamicAfterDraw: (typeof AssetDef.DynamicAfterDraw === 'boolean') ? AssetDef.DynamicAfterDraw : false,
+		DynamicScriptDraw: (typeof AssetDef.DynamicScriptDraw === 'boolean') ? AssetDef.DynamicScriptDraw : false,
+		HasType: (typeof AssetDef.HasType === 'boolean') ? AssetDef.HasType : true,
+		AllowLockType: AssetDef.AllowLockType,
+		AllowColorizeAll: typeof AssetDef.AllowColorizeAll === "boolean" ? AssetDef.AllowColorizeAll : true,
+		AvailableLocations: AssetDef.AvailableLocations || [],
+		OverrideHeight: AssetDef.OverrideHeight,
+		FreezeActivePose: Array.isArray(AssetDef.FreezeActivePose) ? AssetDef.FreezeActivePose :
+			Array.isArray(Group.FreezeActivePose) ? Group.FreezeActivePose : [],
+		DrawLocks: typeof AssetDef.DrawLocks === "boolean" ? AssetDef.DrawLocks : true,
+		AllowExpression: AssetDef.AllowExpression,
+		MirrorExpression: AssetDef.MirrorExpression,
+		FixedPosition: typeof AssetDef.FixedPosition === "boolean" ? AssetDef.FixedPosition : false,
 		Layer: [],
 		ColorableLayerCount: 0,
-		CustomBlindBackground: typeof NewAsset.CustomBlindBackground === 'string' ? NewAsset.CustomBlindBackground : undefined,
-		FuturisticRecolor: typeof NewAsset.FuturisticRecolor === 'boolean' ? NewAsset.FuturisticRecolor : false,
-		FuturisticRecolorDisplay: typeof NewAsset.FuturisticRecolorDisplay === 'boolean' ? NewAsset.FuturisticRecolorDisplay : false,
-		Attribute: NewAsset.Attribute || [],
-		PreviewIcons: NewAsset.PreviewIcons || [],
-		PoseMapping: NewAsset.PoseMapping || {},
-	}, AssetParsePoseProperties(NewAsset, AssetCurrentGroup.AllowPose.slice()));
+		CustomBlindBackground: typeof AssetDef.CustomBlindBackground === 'string' ? AssetDef.CustomBlindBackground : undefined,
+		FuturisticRecolor: typeof AssetDef.FuturisticRecolor === 'boolean' ? AssetDef.FuturisticRecolor : false,
+		FuturisticRecolorDisplay: typeof AssetDef.FuturisticRecolorDisplay === 'boolean' ? AssetDef.FuturisticRecolorDisplay : false,
+		Attribute: AssetDef.Attribute || [],
+		PreviewIcons: AssetDef.PreviewIcons || [],
+		PoseMapping: AssetDef.PoseMapping || {},
+		Tint: Array.isArray(AssetDef.Tint) ? AssetDef.Tint : [],
+		AllowTint: Array.isArray(AssetDef.Tint) && AssetDef.Tint.length > 0,
+		DefaultTint: typeof AssetDef.DefaultTint === "string" ? AssetDef.DefaultTint : undefined,
+	}, AssetParsePoseProperties(AssetDef, Group.AllowPose.slice()));
 
 	// Ensure opacity value is valid
 	if (A.MinOpacity > A.Opacity) A.MinOpacity = A.Opacity;
 	if (A.MaxOpacity < A.Opacity) A.MaxOpacity = A.Opacity;
 
-	A.Layer = AssetBuildLayer(NewAsset, A);
+	A.Layer = AssetBuildLayer(AssetDef, A);
 	AssetAssignColorIndices(A);
 	// Unwearable assets are not visible but can be overwritten
-	if (!A.Wear && NewAsset.Visible != true) A.Visible = false;
-	AssetCurrentGroup.Asset.push(A);
-	AssetMap.set(AssetCurrentGroup.Name + "/" + A.Name, A);
+	if (!A.Wear && AssetDef.Visible != true) A.Visible = false;
+	Group.Asset.push(A);
+	AssetMap.set(Group.Name + "/" + A.Name, A);
 	Asset.push(A);
 	if (ExtendedConfig) AssetBuildExtended(A, ExtendedConfig);
 }
@@ -219,7 +225,7 @@ function AssetAdd(NewAsset, ExtendedConfig) {
  * @returns {void} - Nothing
  */
 function AssetBuildExtended(A, ExtendedConfig) {
-	let AssetConfig = AssetFindExtendedConfig(ExtendedConfig, AssetCurrentGroup.Name, A.Name);
+	let AssetConfig = AssetFindExtendedConfig(ExtendedConfig, A.Group.Name, A.Name);
 
 	if (!AssetConfig) {
 		return;
@@ -228,8 +234,12 @@ function AssetBuildExtended(A, ExtendedConfig) {
 	if (AssetConfig.CopyConfig) {
 		const Overrides = AssetConfig.Config;
 		const { GroupName, AssetName } = AssetConfig.CopyConfig;
-		AssetConfig = AssetFindExtendedConfig(ExtendedConfig, GroupName || AssetCurrentGroup.Name, AssetName);
-		if (AssetConfig && Overrides) {
+		AssetConfig = AssetFindExtendedConfig(ExtendedConfig, GroupName || A.Group.Name, AssetName);
+		if (!AssetConfig) {
+			console.error(`CopyConfig ${GroupName || A.Group.Name}:${AssetName} not found for ${A.Group.Name}:${A.Name}`);
+			return;
+		}
+		if (Overrides) {
 			const MergedConfig = Object.assign({}, AssetConfig.Config, Overrides);
 			AssetConfig = Object.assign({}, AssetConfig, {Config: MergedConfig});
 		}
@@ -244,6 +254,9 @@ function AssetBuildExtended(A, ExtendedConfig) {
 			break;
 		case ExtendedArchetype.VIBRATING:
 			VibratorModeRegister(A, AssetConfig.Config);
+			break;
+		case ExtendedArchetype.VARIABLEHEIGHT:
+			VariableHeightRegister(A, AssetConfig.Config, AssetConfig.Config ? AssetConfig.Config.Property : undefined);
 			break;
 	}
 	A.Archetype = AssetConfig.Archetype;
@@ -287,7 +300,7 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 	/** @type {AssetLayer} */
 	const L = Object.assign({
 		Name: Layer.Name || null,
-		AllowColorize: AssetLayerAllowColorize(Layer, AssetDefinition),
+		AllowColorize: AssetLayerAllowColorize(Layer, AssetDefinition, A.Group),
 		CopyLayerColor: Layer.CopyLayerColor || null,
 		ColorGroup: Layer.ColorGroup,
 		HideColoring: typeof Layer.HideColoring === "boolean" ? Layer.HideColoring : false,
@@ -296,13 +309,14 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 		Visibility: typeof Layer.Visibility === "string" ? Layer.Visibility : null,
 		HasType: typeof Layer.HasType === "boolean" ? Layer.HasType : A.HasType,
 		ParentGroupName: Layer.ParentGroup,
-		Priority: Layer.Priority || AssetDefinition.Priority || AssetCurrentGroup.DrawingPriority,
+		Priority: Layer.Priority || AssetDefinition.Priority || A.Group.DrawingPriority,
 		InheritColor: Layer.InheritColor,
 		Alpha: AssetLayerAlpha(Layer, AssetDefinition, I),
 		Asset: A,
 		DrawingLeft: Layer.Left,
 		DrawingTop: Layer.Top,
 		HideAs: Layer.HideAs,
+		FixedPosition: typeof Layer.FixedPosition === "boolean" ? Layer.FixedPosition : false,
 		HasImage: typeof Layer.HasImage === "boolean" ? Layer.HasImage : true,
 		Opacity: typeof Layer.Opacity === "number" ? AssetParseOpacity(Layer.Opacity) : 1,
 		MinOpacity: typeof Layer.MinOpacity === "number" ? AssetParseOpacity(Layer.Opacity) : A.MinOpacity,
@@ -356,12 +370,13 @@ function AssetParseOpacity(opacity) {
  * Determines whether a layer can be colorized, based on the layer definition and its parent asset/group definitions
  * @param {AssetLayerDefinition} Layer - The raw layer definition
  * @param {AssetDefinition} NewAsset - The raw asset definition
+ * @param {AssetGroup} Group - The group being processed
  * @return {boolean} - Whether or not the layer should be permit colors
  */
-function AssetLayerAllowColorize(Layer, NewAsset) {
+function AssetLayerAllowColorize(Layer, NewAsset, Group) {
 	return typeof Layer.AllowColorize === "boolean" ? Layer.AllowColorize :
 		typeof NewAsset.AllowColorize === "boolean" ? NewAsset.AllowColorize :
-			typeof AssetCurrentGroup.AllowColorize === "boolean" ? AssetCurrentGroup.AllowColorize : true;
+			typeof Group.AllowColorize === "boolean" ? Group.AllowColorize : true;
 }
 
 /**
@@ -388,12 +403,17 @@ function AssetLayerAlpha(Layer, NewAsset, I) {
  */
 function AssetAssignColorIndices(A) {
 	var colorIndex = 0;
+	/** @type {Record<string, number>} */
 	var colorMap = {};
 	A.Layer.forEach(Layer => {
 		// If the layer can't be colored, we don't need to set a color index
 		if (!Layer.AllowColorize) return;
 
 		var LayerKey = Layer.CopyLayerColor || Layer.Name;
+		if (LayerKey === undefined)
+			LayerKey = "undefined";
+		if (LayerKey === null)
+			LayerKey = "null";
 		if (typeof colorMap[LayerKey] === "number") {
 			Layer.ColorIndex = colorMap[LayerKey];
 		} else {
@@ -481,28 +501,24 @@ function AssetLoadDescription(Family) {
 
 /**
  * Loads a specific asset file
- * @param {AssetGroupDefinition[]} A
+ * @param {AssetGroupDefinition[]} Groups
  * @param {IAssetFamily} Family
  * @param {ExtendedItemConfig} ExtendedConfig
  */
-function AssetLoad(A, Family, ExtendedConfig) {
+function AssetLoad(Groups, Family, ExtendedConfig) {
 
 	// For each group in the asset file
-	var G;
-	for (G = 0; G < A.length; G++) {
-
+	for (const group of Groups) {
 		// Creates the asset group
-		AssetGroupAdd(Family, A[G]);
+		const G = AssetGroupAdd(Family, group);
 
 		// Add each assets in the group 1 by 1
-		var I;
-		for (I = 0; I < A[G].Asset.length; I++) {
-			if (A[G].Asset[I].Name == null)
-				AssetAdd({ Name: A[G].Asset[I] }, ExtendedConfig);
+		for (const asset of group.Asset) {
+			if (typeof asset === "string")
+				AssetAdd(G, { Name: asset }, ExtendedConfig);
 			else
-				AssetAdd(A[G].Asset[I], ExtendedConfig);
+				AssetAdd(G, asset, ExtendedConfig);
 		}
-
 	}
 
 	// Loads the description of the assets in a specific language
@@ -544,10 +560,44 @@ function AssetAllActivities(family) {
  * Gets an activity asset by family and name
  * @param {string} family - The family to search in
  * @param {string} name - Name of activity to search for
- * @returns {Activity|null}
+ * @returns {Activity|undefined}
  */
 function AssetGetActivity(family, name) {
 	return AssetAllActivities(family).find(a => (a.Name === name));
+}
+
+/**
+ * Get the list of all activities on a group for a given family.
+ *
+ * @description Note that this just returns activities as defined, no checks are
+ * actually done on whether the activity makes sense.
+ *
+ * @param {string} family
+ * @param {string} groupname
+ * @param {"self" | "other" | "any"} onSelf
+ * @returns {Activity[]}
+ */
+function AssetActivitiesForGroup(family, groupname, onSelf = "other") {
+	const activities = AssetAllActivities(family);
+	/** @type {Activity[]} */
+	const defined = [];
+	activities.forEach(a => {
+		/** @type {string[] | undefined} */
+		let targets;
+		// Get the correct target list
+		if (onSelf === "self") {
+			targets = (typeof a.TargetSelf === "boolean" ? a.Target : a.TargetSelf);
+		} else if (onSelf === "any") {
+			targets = a.Target;
+			if (Array.isArray(a.TargetSelf))
+				targets = targets.concat(a.TargetSelf);
+		} else {
+			targets = a.Target;
+		}
+		if (targets && targets.includes(groupname))
+			defined.push(a);
+	});
+	return defined;
 }
 
 /**

@@ -1,0 +1,8 @@
+Stay fully in the green zone before starting.  Starts in
+Перед стартом полностью оставайтесь в зеленой зоне. Начинается через
+Reach the red zone.  Never touch the dark zone.  Current time is
+Доберитесь до красной зоны. Никогда не прикасайтесь к темной зоне. Текущее время
+You've succeeded.  Click here to return.  Your time was
+Вы преуспели. Нажмите здесь, чтобы вернуться. Ваше время было
+You've failed.  Click here to return.  Your time was
+Вы потерпели неудачу. Нажмите здесь, чтобы вернуться. Ваше время было

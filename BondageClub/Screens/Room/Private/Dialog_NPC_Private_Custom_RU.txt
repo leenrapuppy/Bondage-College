@@ -41,6 +41,30 @@ Wait!  You don't...  (You silence her with a gag as she was trying to speak.)
 (You remove her gag and she shakes her head.)  Gags have one advantage, you don't have to use your mouth on anything else.
 (Ты вынимаешь у нее кляп, и она качает головой.)  Кляпы имеют одно преимущество, тебе не нужно использовать свой рот ни для чего.
 ###_NPC
+(You push some earplugs inside.)  I hope I'll be able to follow what's going on.
+(Вы засовываете внутрь несколько затычек для ушей.)  Я надеюсь, что смогу следить за тем, что происходит.
+###_NPC [Dominant|Serious]
+(You push some earplugs inside.)  Don't leave them in for too long.  I hate being deaf.
+(Вы засовываете внутрь несколько затычек для ушей.)  Не оставляйте их там слишком долго.  Я ненавижу быть глухой.
+###_NPC [Submissive|Peaceful]
+(You push some earplugs inside.)  I'm sure the silence will be relaxing.
+(Вы засовываете внутрь несколько затычек для ушей.)  Я уверена, что тишина будет расслабляющей.
+###_NPC [Dumb|Rude]
+(You push some earplugs inside.)  Ok!  We need to yell now.
+(Вы засовываете внутрь несколько затычек для ушей.)  Хорошо!  Нам нужно кричать прямо сейчас.
+###_NPC
+(You pull the earplugs out.)  It will be easier to follow now.
+(Вы вытаскиваете затычки из ушей.)  Теперь за ней будет легче следить.
+###_NPC [Dominant|Polite]
+(You pull the earplugs out.)  These childish plugs aren't suited for someone of high status.
+(Вы вытаскиваете затычки из ушей.) Эти детские штекеры не подходят для кого-то с высоким статусом.
+###_NPC [Submissive|Violent]
+(You pull the earplugs out.)  Next time, please put one that plays some heavy metal.
+(Вы вытаскиваете затычки из ушей.)  В следующий раз, пожалуйста, поставьте тот, который играет какой-нибудь хэви-метал.
+###_NPC [Wise|Playful]
+(You pull the earplugs out.)  Even if the plugs are fun.  I appreciate our discussions better.
+(Вы вытаскиваете затычки из ушей.)  Даже если пробки - это весело.  Я больше ценю наши дискуссии.
+###_NPC
 (She turns around so you can restrain her.)  It won't be easy to escape.
 (Она поворачивается так, чтобы ты могла ее связать.)  Сбежать будет нелегко.
 ###_NPC [Dominant|Rude]
@@ -56,7 +80,7 @@ Wait!  You don't...  (You silence her with a gag as she was trying to speak.)
 (You free her arms and she stretches her arms.)  Thanks, that was not very comfy.
 (Ты освобождаешь ей руки, и она вытягивает их.)  Спасибо, это было не очень удобно.
 ###_NPC [Dominant|Serious]
-(You free her arms as she cracks her fingers.)  You've did a good job, but I could do better.
+(You free her arms as she cracks her fingers.)  You've done a good job, but I could do better.
 (Ты освобождаешь ее руки, когда она щелкает пальцами.)  Ты проделала хорошую работу, но я могла бы сделать и лучше.
 ###_NPC [Submissive|Polite]
 (You free her arms and she nods slowly.)  Thanks a lot Miss, you seem to have lots of experience in the fine art of bondage.
@@ -185,13 +209,13 @@ Wait!  You don't...  (You silence her with a gag as she was trying to speak.)
 (You remove the device from her waist, and she sighs.)  Bye bye kinky panties, come back soon.
 (Ты снимаешь устройство с ее талии, и она вздыхает.)  Прощай, извращенные трусики, возвращайтеся скорее.
 ###_NPC
-(You strap the item on her head as she sighs.)  Please don't leave me like that for too long.
+(You strap the item over her eyes as she sighs.)  Please don't leave me like that for too long.
 (Ты пристегиваешь этот предмет к ее голове, когда она вздыхает.)  Пожалуйста, не оставляйте меня так надолго.
 ###_NPC [Dominant|Violent]
 (She thrashes her head and tries to avoid the item but you're able to strap it on her.)
 (Она бьется головой и пытается избежать этого предмета, но ты можешь надеть его на нее.)
 ###_NPC [Submissive|Serious]
-(She takes a deep breath as you strap the device on her head.)  I'm totally under your control Miss.
+(She takes a deep breath as you strap the device over her eyes.)  I'm totally under your control Miss.
 (Она делает глубокий вдох, когда ты пристегиваешь устройство к ее голове.)  Я полностью под вашим контролем Мисс.
 ###_NPC [Playful|Rude]
 (You strap the item on her head as she laughs.)  Oh shit!  This is fucking kinky.
@@ -200,7 +224,7 @@ Wait!  You don't...  (You silence her with a gag as she was trying to speak.)
 (You remove the device from her as she hums a song.)  Thanks!  I appreciate.
 (Ты снимаешь устройство с нее, когда она напевает песню.)  Спасибо!  Я ценю это.
 ###_NPC [Dominant|Playful]
-(She looks around as you remove the device.)  That's better.  Now let's find a sub and we can use this kinky item it on her.
+(She looks around as you remove the device.)  That's better.  Now let's find a sub and we can use this kinky item on her.
 (Она оглядывается по сторонам, пока ты снимаешь устройство.)  Вот так-то лучше.  Теперь давай найдем саббу, и мы сможем использовать этот извращенный предмет на ней.
 ###_NPC [Submissive|Peaceful]
 (You remove the device from her as she nods happily.)  Thanks Miss!  I was getting claustrophobic.
@@ -208,6 +232,21 @@ Wait!  You don't...  (You silence her with a gag as she was trying to speak.)
 ###_NPC [Wise|Polite]
 (She looks at you as you remove the item.)  Thanks a lot, devices such as these can trigger scotophobia on submissives.
 (Она смотрит на тебя, когда ты снимаешь предмет.)  Спасибо большое, устройства, такие как это, могут вызвать скотофобию у саббы.
+###_NPC
+(You strap the item on her head as she sighs.)  Please don't leave me like that for too long.
+(Вы надеваете этот предмет ей на голову, когда она вздыхает.)  Пожалуйста, не оставляй меня в таком состоянии слишком надолго.
+###_NPC [Submissive|Serious]
+(She takes a deep breath as you strap the device on her head.)  I'm totally under your control Miss.
+(Она делает глубокий вдох, когда вы надеваете устройство ей на голову.)  Я полностью под вашим контролем, мисс.
+###_NPC
+(You strap the item on her nose as she sighs.)  Please don't leave me like that for too long.
+(Вы пристегиваете предмет к ее носу, когда она вздыхает.)  Пожалуйста, не оставляй меня в таком состоянии слишком надолго.
+###_NPC [Submissive|Serious]
+(She takes a deep breath as you strap the device on her nose.)  I'm totally under your control Miss.
+(Она делает глубокий вдох, когда вы пристегиваете устройство к ее носу.)  Я полностью под вашим контролем, мисс.
+###_NPC [Wise|Polite]
+(She looks at you as you remove the item.)  Thanks a lot, I thought I was going to stay like this forever.
+(Она смотрит на вас, когда вы снимаете предмет.)  Большое спасибо, я думал, что останусь таким навсегда.
 ###_NPC
 (She takes a deep breath as you strap it on her torso.)  This is a nice addon to any bondage.
 (Она делает глубокий вдох, когда ты пристегиваешь его к ее торсу.)  Это хорошие дополнение к любому бондажу.
@@ -353,23 +392,217 @@ Wait!  You don't...  (You silence her with a gag as she was trying to speak.)
 (She doesn't react as you remove the egg.)  Maybe it doesn't work, I didn't feel a thing in there.
 (Она не реагирует, когда ты убираешь яйцо.)  Может быть, оно не работает, я ничего там не почувствовала.
 ###_NPC
-(You restrain her feet and suspend her from the ceiling.)  Oh my!  Careful, I don't want to fall.
-(Ты связываешь ее ступни и подвешиваешь к потолку.)  О боже!  Осторожно, я не хочу упасть.
-###_NPC [Dominant|Serious]
-(You restrain her feet and suspend her from the ceiling.)  Seriously, all this Japanese rope bondage is too much work only to get dizzy.
-(Ты связываешь ее ступни и подвешиваешь к потолку.)  Серьезно, весь этот японский веревочный бондаж - тут слишком много работы, ради того, чтобы только закружилась голова.
-###_NPC [Submissive|Playful]
-(You restrain her feet and suspend her from the ceiling.)  Weeeeee!  This is so much fun.  (She rocks her torso to spin on the rope.)
-(Ты связываешь ее ступни и подвешиваешь к потолку.) Уииииии!  Это так весело. (Она раскачивает туловище, чтобы крутануться на веревке.)
+(You wrap the rope around her legs, tying them together.)  I won't be running away now.
+(Вы обматываете веревку вокруг ее ног, связывая их вместе.)  Я не собираюсь убегать сейчас.
+(You slowly restrain her wrists behind her back.) Good. But it could also be a lot better.
+(Вы медленно заворачиваете ее запястья за спину.) Хорошо. Но это могло бы быть и намного лучше.
+(You restain her wrists and elbows behind her back.) Not bad at all.
+(Вы удерживаете ее запястья и локти за спиной.) Совсем неплохо.
+(You restrain her wrists and elbows behind her back. And tie a harness around her.) This really effective. Well done!
+(Вы связываете ее запястья и локти за спиной. И обвяжи ее ремнем безопасности.) Это действительно эффективно. Отличная работа!
+(You restain her with ropes so she's on all fours.) This is a funny tie.
+(Вы удерживаете ее веревками, чтобы она стояла на четвереньках.) Это забавный галстук.
+(You restrain her wrists behind her back in a handcuff like tie.) Hmm. This tie is very interesting. I like it.
+(Ты связываешь ее запястья за спиной наручниками, похожими на галстук.) Хм. Этот галстук очень интересен. Мне это нравится.
+(You use the rope and create a star harness around her body) This is a very erotic harness.
+(Вы используете веревку и создаете звездный жгут вокруг ее тела) Это очень эротичная сбруя.
+(You use the ropes and create a waist rope around her body.) This is all you can come up with? Well lets see what you can do with it.
+(Вы используете веревки и создаете поясную веревку вокруг ее тела.) Это все, что ты можешь придумать? Что ж, давайте посмотрим, что вы можете с этим сделать.
+(You wrap the rope around her legs, tying them in a mermaid pattern.)  That's a great bondage pattern.
+(Вы обматываете веревку вокруг ее ног, завязывая их в виде русалки.)  Это отличный образец бондажа.
+(You slowly restrain her arms in a box tie pattern.)  Secure and comfy.  Well done.
+(Вы медленно удерживаете ее руки в узоре галстука-коробки.)  Безопасно и удобно.  Отличная работа.
+(You use the ropes to restrain her in a tight hogtie.)  I hope they clean the floor often.
+(Вы используете веревки, чтобы связать ее в тугой узел.)  Я надеюсь, что они часто моют пол.
+(You restrain her feet and suspend her from the ceiling.)  Careful!  I don't want to fall.
+(Вы удерживаете ее за ноги и подвешиваете к потолку.)  Осторожно!  Я не хочу падать.
+(You carefully hogtie her and suspend her from the ceiling.)  This is impressive.
+(Вы осторожно привязываете ее и подвешиваете к потолку.)  Это впечатляет.
+(You use a rope and restrain it on her crotch.)  There's always something kinky going on in here.
+(Вы используете веревку и привязываете ее к ее промежности.)  Здесь всегда происходит что-то странное.
+(You use the ropes and create a harness around her body.)  Surprisingly, this is quite comfortable.
+(Вы используете веревки и создаете обвязку вокруг ее тела.)  Удивительно, но это довольно удобно.
+(You use the ropes and create a diamond harness around her body.)  Your rope technique is excellent.
+(Вы используете веревки и создаете алмазный жгут вокруг ее тела.)  Ваша техника верёвки превосходна.
+I love you DialogPlayerName.  (You exchange a sweet kiss on the lips.)
+Я люблю тебя DialogPlayerName.  (Вы обмениваетесь сладким поцелуем в губы.)
+###_NPC [Violent|Dominant]
+I love you DialogPlayerName.  (She nibbles on your lips as you exchange a loving kiss.)
+Я люблю тебя DialogPlayerName.  (Она покусывает твои губы, когда вы обмениваетесь любовным поцелуем.)
+###_NPC [Submissive|Frigid]
+I love you very much.  (She gives you a timid kiss on the lips.)
+Я очень тебя люблю.  (Она робко целует тебя в губы.)
+###_NPC [Horny|Rude]
+I love ya!  You make me wet.  (You exchange a sweet kiss on the lips.)
+Я люблю тебя!  Ты делаешь меня мокрой.  (Вы обмениваетесь сладким поцелуем в губы.)
 ###_NPC
-(You let her down from the ceiling.)  Much better!  I was slowly getting dizzy.
-(Ты опускаешь ее с потолка.)  Так гораздо лучше!  У меня немного кружится голова.
+I love you DialogPlayerName.  (You exchange a long French kiss.)
+Я люблю тебя DialogPlayerName.  (Вы обмениваетесь долгим французским поцелуем.)
+###_NPC [Violent|Dominant]
+I love you DialogPlayerName.  (She nibbles on your lips as you exchange long French kiss.)
+Я люблю тебя DialogPlayerName.  (Она покусывает твои губы, когда вы обмениваетесь долгим французским поцелуем.)
+###_NPC [Submissive|Frigid]
+I love you very much.  (She blushes as you exchange a quick French kiss.)
+Я очень тебя люблю.  (Она краснеет, когда вы обмениваетесь быстрым французским поцелуем.)
+###_NPC [Horny|Rude]
+I love ya!  You make me wet.  (She moans as you exchange a long French kiss.)
+Я люблю тебя!  Ты делаешь меня мокрой.  (Она стонет, когда вы обмениваетесь долгим французским поцелуем.)
+###_NPC
+(You smile at each other and exchange some lovely caresses.)
+(Вы улыбаетесь друг другу и обмениваетесь несколькими милыми ласками.)
+###_NPC [Wise|Horny]
+Love is the best lubricant.  (You exchange some lovely caresses.)
+Любовь - лучшая смазка.  (Вы обмениваетесь несколькими милыми ласками.)
+###_NPC [Submissive|Rude]
+You're the best fucking thing in my life.  (You exchange some lovely caresses.)
+Ты, блядь, лучшее, что есть в моей жизни.  (Вы обмениваетесь несколькими милыми ласками.)
+###_NPC [Playful|Peaceful]
+(You tickle each other lightly and exchange some lovely caresses.)
+(Вы слегка щекочете друг друга и обмениваетесь несколькими приятными ласками.)
+###_NPC
+(You both moan silently and rub your bodies against each other.)
+(Вы оба тихо стонете и трутся телами друг о друга.)
+###_NPC [Wise|Horny]
+Love is the best lubricant.  (You rub your bodies against each other.)
+Любовь - лучшая смазка.  (Вы трутся телами друг о друга.)
+###_NPC [Submissive|Rude]
+You're the best fucking thing in my life.  (She hugs and rubs her body against yours.)
+Ты, блядь, лучшее, что есть в моей жизни.  (Она обнимает и трется своим телом о твое.)
+###_NPC [Playful|Peaceful]
+(She wiggles her body sensually and rubs it against yours.)
+(Она чувственно покачивает своим телом и трется им о твое.)
+###_NPC
+(Without saying a word, you masturbate each other lovingly and moan softly.)
+(Не говоря ни слова, вы с любовью мастурбируете друг друга и тихо постанываете.)
+###_NPC [Frigid|Serious]
+(She stays silent as you masturbate each other lovingly.)
+(Она молчит, пока вы с любовью мастурбируете друг друга.)
+###_NPC [Polite|Wise]
+Love pheromones are in the air. (You masturbate each other lovingly and moan slowly.)
+В воздухе витают любовные феромоны. (Вы с любовью мастурбируете друг друга и медленно постанываете.)
+###_NPC [Dumb|Rude]
+I love ya more!  (You masturbate each other lovingly and moan slowly.)
+Я люблю тебя еще больше!  (Вы с любовью мастурбируете друг друга и медленно постанываете.)
+###_NPC
+I love you so much.  (You both lie down and start to lick each other pussies.)
+Я тебя так люблю.  (Вы оба ложитесь и начинаете лизать друг другу киски.)
+###_NPC [Frigid|Serious]
+(Without saying a word, you both lie down and start to lick each other pussies.)
+(Не говоря ни слова, вы оба ложитесь и начинаете лизать друг другу киски.)
+###_NPC [Polite|Wise]
+Love pheromones are in the air. (You both lie down and start to lick each other pussies.)
+В воздухе витают любовные феромоны. (Вы оба ложитесь и начинаете лизать друг другу киски.)
+###_NPC [Dumb|Rude]
+I love ya more!  (You both lie down and start to lick each other pussies.)
+Я люблю тебя еще больше!  (Вы оба ложитесь и начинаете лизать друг другу киски.)
+###_NPC
+I love you sweetie.  (She masturbates your pussy lovingly.)
+Я люблю тебя, милая.  (Она с любовью мастурбирует твою киску.)
 ###_NPC [Dominant|Serious]
-(You let her down from the ceiling.)  Next time you should be suspended.  I have contact at the Shibari Dojo.
-(Ты опускаешь ее с потолка.)  В следующий раз ты должна быть подвешена.  У меня есть контакт в додзе шибари.
-###_NPC [Submissive|Playful]
-(You let her down from the ceiling.)  That was fun!  Do you have more crazy positions like this one?
-(Ты опускаешь ее с потолка.)  Это было весело!  Есть ли у вас более сумасшедшие позиции, чем эта?
+Surrender yourself my love.  (She masturbates your pussy lovingly.)
+Отдай себя, любовь моя.  (Она с любовью мастурбирует твою киску.)
+###_NPC [Submissive|Wise]
+And pleasuring you will strengthen our relationship.  (She masturbates your pussy lovingly.)
+И доставляя тебе удовольствие, мы укрепим наши отношения.  (Она с любовью мастурбирует твою киску.)
+###_NPC [Horny|Rude]
+Hell yeah.  I love ya wet just like me.  (She masturbates your pussy lovingly.)
+Черт возьми, да.  Я люблю тебя мокрой, как и я.  (Она с любовью мастурбирует твою киску.)
+###_NPC
+You're so wonderful.  (She smiles at you and masturbates slowly.)
+Ты такая замечательная.  (Она улыбается вам и медленно мастурбирует.)
+###_NPC [Dominant|Serious]
+Our love will last for years.  (She winks at you and masturbates lovingly.)
+Наша любовь продлится долгие годы.  (Она подмигивает вам и с любовью мастурбирует.)
+###_NPC [Submissive|Wise]
+I will take care of our sexual urges my love.  (She winks at you and masturbates slowly.)
+Я позабочусь о наших сексуальных желаниях, любовь моя.  (Она подмигивает вам и медленно мастурбирует.)
+###_NPC [Horny|Rude]
+Yo love!  Watch there!  (She tries to trick you to look away while she masturbates hastily.)
+Йоу, любовь моя!  Смотри туда!  (Она пытается обмануть вас, чтобы вы отвернулись, пока она торопливо мастурбирует.)
+###_NPC
+Is it getting hot in your room?  (She winks and you both strip some clothes.)
+В твоей комнате становится жарко?  (Она подмигивает, и вы оба раздеваетесь.)
+###_NPC [Submissive|Rude]
+Love ya!  Should we r'move clothes?  (She winks and you both strip some clothes.)
+Люблю тебя!  Может, нам переодеться?  (Она подмигивает, и вы оба раздеваетесь.)
+###_NPC [Dominant|Playful]
+Time to strip my love.  (She wiggles her hips as you both strip some clothes.)
+Время раздеть мою любовь. (Она покачивает бедрами, пока вы оба раздеваетесь.)
+###_NPC [Serious|Frigid]
+(Without saying a word, you both strip some clothes.)
+(Не говоря ни слова, вы оба раздеваетесь.)
+###_NPC
+It's way too hot in your room.  (She winks and you both strip naked.)
+В твоей комнате слишком жарко.  (Она подмигивает, и вы оба раздеваетесь догола.)
+###_NPC [Submissive|Rude]
+Love ya!  Should we get nak'd?  (She winks and you both strip naked.)
+Люблю тебя!  Может, нам раздеться догола?  (Она подмигивает, и вы оба раздеваетесь догола.)
+###_NPC [Dominant|Playful]
+Time to get naked my love.  (She wiggles her hips as you both strip naked.)
+Время раздеться, любовь моя.  (Она покачивает бедрами, пока вы оба раздеваетесь догола.)
+###_NPC [Serious|Frigid]
+(Without saying a word, you both strip naked.)
+(Не говоря ни слова, вы оба раздеваетесь догола.)
+###_NPC
+I have a kinky gift for you my love.  (She smiles at you and inserts a humming vibrating egg in your vagina.)
+У меня есть извращенный подарок для тебя, любовь моя.  (Она улыбается вам и вставляет жужжащее вибрирующее яйцо в ваше влагалище.)
+###_NPC [Violent|Horny]
+Take a deep breath sweetie, you will be wet like me soon.  (Without any warning, she shoves a humming vibrating egg in your vagina.)
+Сделай глубокий вдох, милая, скоро ты будешь такой же мокрой, как я.  (Без всякого предупреждения она засовывает жужжащее вибрирующее яйцо вам во влагалище.)
+###_NPC [Polite|Wise]
+I have a devious activity we could share together my lovely partner.  (She pushes a humming vibrating egg in your vagina and winks.)
+У меня есть коварное занятие, которым мы могли бы заняться вместе, моя прекрасная партнерша.  (Она засовывает жужжащее вибрирующее яйцо тебе во влагалище и подмигивает.)
+###_NPC [Dumb|Rude]
+Oh yeah!  It's cum time!  (She pushes a humming vibrating egg in your vagina and winks.)
+О, да!  Пришло время кончить!  (Она засовывает жужжащее вибрирующее яйцо тебе во влагалище и подмигивает.)
+###_NPC
+I have wicked idea to pleasure you sweetheart.  (She smirks and locks a chastity belt on you.)
+У меня есть порочная идея доставить тебе удовольствие, милая.  (Она ухмыляется и застегивает на тебе пояс верности.)
+###_NPC [Playful|Frigid]
+This device will allow you to have some fun without my intervention.  (She winks and locks a chastity belt on you.)
+Это устройство позволит вам немного развлечься без моего вмешательства.  (Она подмигивает и застегивает на тебе пояс верности.)
+###_NPC [Horny|Violent]
+I have an idea that will drive you crazy for you my love.  (She smirks and locks a chastity belt on you.)
+У меня есть идея, которая сведет тебя с ума для тебя, любовь моя.  (Она ухмыляется и застегивает на тебе пояс верности.)
+###_NPC [Peaceful|Wise]
+My love, you might not like this idea at first, but trust me on this one.  (She winks and locks a chastity belt on you.)
+Любовь моя, поначалу тебе может не понравиться эта идея, но поверь мне в этом.  (Она подмигивает и застегивает на тебе пояс верности.)
+###_NPC
+Enough with that belt, I want to access your pussy.  (She unlocks and removes your chastity belt.)
+Хватит с меня этого ремня, я хочу получить доступ к твоей киске.  (Она расстегивает и снимает с тебя пояс верности.)
+###_NPC [Playful|Frigid]
+Is this device too cruel my love?  (She unlocks and removes your chastity belt.)
+Не слишком ли жестоко это устройство, любовь моя?  (Она расстегивает и снимает с тебя пояс верности.)
+###_NPC [Horny|Violent]
+This belt isn't devious enough, I'll find something better.  (She unlocks and removes your chastity belt.)
+Этот пояс недостаточно хитер, я найду что-нибудь получше.  (Она расстегивает и снимает с тебя пояс верности.)
+###_NPC [Peaceful|Wise]
+Even the most wicked plans need to end at some point.  (She unlocks and removes your chastity belt.)
+Даже самые коварные планы должны в какой-то момент закончиться.  (Она расстегивает и снимает с тебя пояс верности.)
+###_NPC
+You know what's coming?  You my love.  (She laughs, picks a remote control, and speeds up your vibrating egg.)
+Ты знаешь, что будет дальше?  Ты, моя любовь.  (Она смеется, берет пульт дистанционного управления и ускоряет ваше вибрирующее яйцо.)
+###_NPC [Horny|Playful]
+What?  You're not feeling anything from the egg?  (She giggles, picks a remote control, and speeds up your vibrating egg.)
+Что?  Ты ничего не чувствуешь от яйца?  (Она хихикает, берет пульт дистанционного управления и ускоряет ваше вибрирующее яйцо.)
+###_NPC [Frigid|Serious]
+(She smirks and stays silent, picks a remote control, and speeds up your vibrating egg.)
+(Она ухмыляется и молчит, берет пульт дистанционного управления и ускоряет ваше вибрирующее яйцо.)
+###_NPC [Polite|Wise]
+Isn't it time to raise our relationship to the next level?  (She winks, picks a remote control, and speeds up your vibrating egg.)
+Не пора ли поднять наши отношения на новый уровень?  (Она подмигивает, берет пульт дистанционного управления и ускоряет ваше вибрирующее яйцо.)
+###_NPC
+Do you need a quick break my love?  (She smiles, picks a remote control, and speeds down your vibrating egg.)
+Тебе нужен быстрый перерыв, любовь моя?  (Она улыбается, берет пульт дистанционного управления и убавляет скорость вашего вибрирующего яйца.)
+###_NPC [Horny|Playful]
+Teasing you is so much fun.  (She giggles, picks a remote control, and speeds down your vibrating egg.)
+Дразнить тебя - это так весело.  (Она хихикает, берет пульт дистанционного управления и убавляет скорость вашего вибрирующего яйца.)
+###_NPC [Frigid|Serious]
+(She smiles and stays silent, picks a remote control, and speeds down your vibrating egg.)
+(Она улыбается и молчит, берет пульт дистанционного управления и убавляет скорость вашего вибрирующего яйца.)
+###_NPC [Polite|Wise]
+Isn't being teased by your loved one the most wonderful feeling?  (She smiles, picks a remote control, and speeds down your vibrating egg.)
+Разве поддразнивание любимого человека не самое замечательное чувство?  (Она улыбается, берет пульт дистанционного управления и убавляет скорость вашего вибрирующего яйца.)
 ###_NPC
 I vow to be a good Mistress for you my girl.  To be fair and honest.
 Я клянусь быть хорошей Госпожей для тебя, моя девочка.  Быть честной и справедливой.
@@ -476,7 +709,7 @@ I wish I could be kneeling for you all the time Miss.  It might complicate my li
 Let's be realistic, this position isn't suited for me.
 Давай будем реалистами, эта позиция мне не подходит.
 ###_NPC [Playful|Rude]
-(She wiggles her butt while standing on her knees.)  Shake ya booty!  Shake ya booty for me!
+(She wiggles her butt while kneeling.)  Shake ya booty!  Shake ya booty for me!
 (Она покачивает задницей, стоя на коленях.)  Виляй своей попой!  Повиляй своей попкой для меня!
 ###_NPC
 How's the view from down there?  (She giggles.)
@@ -490,6 +723,27 @@ You look adorable on your knees.  If we kneel next to each other, it might lead 
 ###_NPC [Frigid|Wise]
 Kneeling is great to stay in the submissive-space.  It's humbling, unprovocative and relaxing.  It can also be used to meditate.
 Стоя на коленях, очень приятно оставаться в покорном пространстве.  Это унизительно, неспровоцированно и расслабляет.  Его также можно использовать для медитации.
+###_NPC
+What's on your mind my love?
+Что у тебя на уме, любовь моя?
+###_NPC [Dominant|Violent]
+What's going on hun?
+Что происходит, солнышко?
+###_NPC [Submissive|Peaceful]
+Please tell me of your feeling's sweetie.
+Пожалуйста, расскажи мне о своих чувствах, милая.
+###_NPC [Horny|Playful]
+My sexy lover, how can we have fun?
+Моя сексуальная любовница, как мы можем повеселиться?
+###_NPC [Frigid|Serious]
+What troubles you my dear?
+Что тебя беспокоит, моя дорогая?
+###_NPC [Polite|Wise]
+Let's have a tete-a-tete my love.
+Давай поговорим тет-а-тет, любовь моя.
+###_NPC [Dumb|Rude]
+What's up luv?
+Как дела, милая?
 ###_NPC
 What's on your mind?
 Что у тебя на уме?
@@ -506,11 +760,77 @@ You have a lovely room Miss.  What's on your mind?
 You have a nice lair to kidnap subs.  What would you like to do?
 У тебя есть хорошее логово для похищения сабб.  Что бы ты хотела сделать?
 ###_NPC [Wise]
-This room is certainly worth the 250$ rent.  Now tell me what's on your mind.
-Эта комната, безусловно, стоит 250$ аренды.  А теперь скажи мне, что у тебя на уме.
+This room is certainly worth the $250 rent.  Now tell me what's on your mind.
+Эта комната, безусловно, стоит $250 аренды.  А теперь скажи мне, что у тебя на уме.
 ###_NPC [Playful]
 (She hums a happy song.)  I love your private room!  What could we do to have fun?
 (Она напевает веселую песенку.)  Мне нравится твоя отдельная комната!  Что мы могли бы сделать, чтобы повеселиться?
+###_PLAYER
+I love you!
+Я люблю тебя!
+###_NPC
+I love you too.  You're the best.
+Я тоже тебя люблю.  Ты самая лучшая.
+###_NPC [Dominant|Violent]
+I love you girl.  Don't change.
+Я люблю тебя, девочка.  Не меняйся.
+###_NPC [Submissive|Peaceful]
+(She nods slowly.)  I love you sugar pie.
+(Она медленно кивает.)  Я люблю тебя, сладкий пирожок.
+###_NPC [Horny|Playful]
+I love you!  You drive me wild.
+Я люблю тебя!  Ты сводишь меня с ума.
+###_NPC [Frigid|Serious]
+This is a shared feeling my love.
+Это общее чувство, любовь моя.
+###_NPC [Polite|Wise]
+I adore you.  This journey we share together is luminous.
+Я тебя обожаю.  Это путешествие, которое мы разделяем вместе, очень светлое.
+###_NPC [Dumb|Rude]
+I love ya too my sexy girlfriend.
+Я тоже люблю тебя, моя сексуальная подружка.
+###_NPC
+I love you also.  But let's spend more time together.
+Я тоже тебя люблю.  Но давай проводить больше времени вместе.
+###_NPC [Dominant|Violent]
+I love you girl.  But we need to spend more time together.
+Я люблю тебя, девочка.  Но нам нужно проводить больше времени вместе.
+###_NPC [Submissive|Peaceful]
+(She nods slowly.)  I love you also.  But maybe we should spend more time together.
+(Она медленно кивает.)  Я тоже тебя люблю.  Но, может быть, нам стоит проводить больше времени вместе.
+###_NPC [Horny|Playful]
+I love you also.  But let's make love more often.
+Я тоже тебя люблю.  Но давай чаще заниматься любовью.
+###_NPC [Frigid|Serious]
+This is a shared feeling.  But we should spend more time together.
+Это общее чувство.  Но мы должны проводить больше времени вместе.
+###_NPC [Polite|Wise]
+I love you also, but we need to invest more time in our relationship.
+Я тоже люблю тебя, но нам нужно уделять больше времени нашим отношениям.
+###_NPC [Dumb|Rude]
+I love ya too, but where were ya the other night?
+Я тоже тебя люблю, но где ты была прошлой ночью?
+###_NPC
+(She frowns.)  You should say it more often then.
+(Она хмурится.)  Тогда тебе следует повторять это почаще.
+###_NPC [Dominant|Violent]
+(She grumbles.)  Show it then!
+(Она ворчит.)  Тогда покажи это!
+###_NPC [Submissive|Peaceful]
+(She sighs.)  Sometimes I wonder if you really mean it.
+(Она вздыхает.)  Иногда я задаюсь вопросом, действительно ли ты это имеешь в виду.
+###_NPC [Horny|Playful]
+(She frowns.)  Let's get in bed then!  We never do it anymore!
+(Она хмурится.)  Тогда давай ляжем в постель!  Мы больше никогда этого не делаем!
+###_NPC [Frigid|Serious]
+(She grumbles.)  You have very strange ways of proving it.
+(Она ворчит.) У вас очень странные способы доказать это.
+###_NPC [Polite|Wise]
+Have you ever heard the old maxim: "Actions speaks louder than words."?
+Вы когда-нибудь слышали старую сентенцию: "Действия говорят громче слов"?
+###_NPC [Dumb|Rude]
+No shit!  Prove it!
+Ни хрена подобного! Докажи это!
 ###_PLAYER
 Let's talk.
 Давайте поговорим.
@@ -529,6 +849,45 @@ Absolutely, what will be the topic of our discussion or debate?
 ###_NPC [Rude]
 What's up?
 В чем дело?
+###_PLAYER
+Do you miss Pandora's Box?
+Ты скучаешь по Ящику Пандоры?
+###_NPC
+Not really, my adventures in the club and in your private room have been more pleasant.  (She winks at you.)
+Не совсем, мои приключения в клубе и в твоей отдельной комнате были более приятными.  (Она подмигивает тебе.)
+###_NPC [Serious|Dominant]
+Don't ask questions when you already know the answer.  The Bondage Club is better than Pandora's Box, period.
+Не задавайте вопросов, когда вы уже знаете ответ.  Клуб Бондажа лучше, чем Ящик Пандоры, и точка.
+###_NPC [Playful|Submissive]
+Oh no, I've made friends here who are tons of fun.  And your Mistresses are so strict and beautiful.  (She shivers.)
+О нет, у меня здесь появились друзья, с которыми очень весело.  А ваши Госпожи такие строгие и красивые.  (Она дрожит.)
+###_NPC [Wise|Polite]
+I've already pondered that question many times and the answer is negative.  The Bondage Club appears to be superior to Pandora's Box.
+Я уже много раз размышляла над этим вопросом, и ответ отрицательный.  Бондаж-клуб, по-видимому, превосходит Ящик Пандоры.
+###_NPC
+(She seems undecided.)  Kind of, both clubs are good.  Maybe I'll visit the box again someday.
+(Кажется, она в нерешительности.) В некотором роде, оба клуба хороши. Может быть, когда-нибудь я снова навещу Коробку.
+###_NPC [Serious|Dominant]
+That's an interesting question, but I don't have the answer.  If they give me more control around here, I might review my position.
+Это интересный вопрос, но у меня нет ответа.  Если они дадут мне здесь больше контроля, я, возможно, пересмотрю свою позицию.
+###_NPC [Playful|Submissive]
+A little.  It's hard to choose between Pandora's Box strict Dominatrixes and the Bondage Club fearless Mistresses.  Both are so much fun!
+Немного.  Трудно выбрать между строгими Доминатрикс из Ящика Пандоры и бесстрашными Госпожами из Клуба Бондажа.  И то, и другое так весело!
+###_NPC [Wise|Polite]
+I've already pondered that question many times and I'm undecided.  Both clubs are good, maybe I'll visit the Pandora's Box again someday.
+Я уже много раз размышляла над этим вопросом и не определилась.  Оба клуба хороши, может быть, когда-нибудь я снова загляну в Ящик Пандоры.
+###_NPC
+I do miss the Box.  No offense, but the Bondage Club is getting old and stale.
+Я действительно скучаю по Шкатулке.  Без обид, но Бондаж-клуб становится старым и устаревшим.
+###_NPC [Serious|Dominant]
+Damn right!  Don't take it personal girl, but I'll probably move back there sooner than later.
+Чертовски верно!  Не принимай это близко к сердцу, девочка, но я, вероятно, вернусь туда раньше, чем позже.
+###_NPC [Playful|Submissive]
+Yeah, the box was so cool.  I miss the times I got chained naked in the dungeon by a Dominatrix.  (She shivers.)
+Да, коробка была такой классной.  Я скучаю по тем временам, когда Доминатрикс приковывала меня голой в темнице.  (Она дрожит.)
+###_NPC [Wise|Polite]
+I've already pondered that question many times and the answer is positive.  Pandora's Box has a definitive panache and prestige that is lacking here.
+Я уже много раз размышляла над этим вопросом, и ответ положительный.  "Ящик Пандоры" обладает несомненным щегольством и престижем, которых здесь не хватает.
 ###_PLAYER
 Can I tie you up?
 Можно я тебя свяжу?
@@ -675,6 +1034,12 @@ Of course Miss.  (She tries to pick your owner lock but fail miserably.)  I don'
 (She blocks you right away.)  Shit!  Don't be foolish.  I'm the freaking boss in here and I decide.
 (Она сразу же блокирует тебя.)  Вот дерьмо!  Не говори глупостей.  Я здесь чертов босс, и я все решаю.
 ###_PLAYER
+(Use cheats on her.)
+(Используй читы на ней.)
+###_NPC
+(Which cheat would you like to use on her?)
+(Какие читы вы хотели бы использовать на ней?)
+###_PLAYER
 (Leave her.)
 (Оставь ее.)
 Tell me about you.
@@ -719,8 +1084,8 @@ I'm not known to be the life a party.  For me, BDSM should be taken seriously to
 I like clubs, parties, bondage and life in general.  I have many wonderful friends here in the club.
 Мне нравятся клубы, вечеринки, бондаж и жизнь в целом.  У меня здесь в клубе много замечательных друзей.
 ###_PLAYER
-Let's talk about BDSM families. 
-Давайте поговорим о БДСМ семье. 
+Let's talk about relationships. 
+Давайте поговорим об отношениях.
 ###_NPC
 Absolutely, what's on your mind exactly?
 Конечно, что именно у тебя на уме?
@@ -731,8 +1096,8 @@ Oh!  That's serious!  (She tries to stay focus and listen to your words.)
 It's probably the most important kind of discussion around here.
 Это, вероятно, самый важный вид обсуждения здесь.
 ###_NPC [Wise]
-Very well, BDSM and D/s families are intriguing topics for me as well.
-Очень хорошо, БДСМ и Д/с семьи также являются для меня интригующими темами.
+Very well, BDSM and regular relationships are intriguing topics.
+Очень хорошо, БДСМ и обычные отношения - интригующие темы.
 ###_NPC [Dumb]
 Oh my!  I know I'll get confused again.  (She listens.)
 О боже!  Я знаю, что снова запутаюсь.  (Она слушает.)
@@ -831,6 +1196,24 @@ Should I leave you alone Miss?
 Friends are like fishes.  They start to stink when you keep them for too long.  Do you want me to leave now?
 Друзья, как рыбы. Они начинают вонять, когда ты держишь их слишком долго. Ты хочешь, чтобы я сейчас ушла?
 ###_PLAYER
+We should break up.
+Мы должны расстаться.
+###_NPC
+Are you serious my love?  This is the end between us?
+Ты серьезно, любовь моя?  Это конец между нами?
+###_NPC [Dominant|Horny]
+(She turns red.)  So you want to fuck other girls?
+(Она краснеет.)  Так ты хочешь трахать других девушек?
+###_NPC [Submissive|Polite]
+Please don't throw me away sweetheart.  I can innovate and get better!
+Пожалуйста, не бросай меня, милая.  Я могу внедрять инновации и становиться лучше!
+###_NPC [Rude|Violent]
+(She seems furious.)  You're fucking breaking up with me?
+(Кажется, она в ярости.)  Ты, блядь, бросаешь меня?
+###_NPC [Wise|Serious]
+Is this really the end of our relationship?  Have we crossed that line?
+Неужели это действительно конец нашим отношениям?  Перешли ли мы эту черту?
+###_PLAYER
 Let's chat.  (Spend time to chat with her.)
 Давайте поболтаем.  (Потрать время, чтобы поболтать с ней.)
 ###_NPC
@@ -864,6 +1247,30 @@ We can speak again, whenever you want.  We can also play some chess later, if yo
 Yeah!  Let's go find some beer or something else to drink.
 Да!  Давай найдем какое-нибудь пиво или еще что-нибудь выпить.
 ###_PLAYER
+Wear your House Maiestas outfit.
+Надень свой наряд Дома Майестас.
+###_NPC
+(She nods and wears her magic school outfit.)  We will rule the school one day.
+(Она кивает и надевает свой костюм волшебной школы.)  Однажды мы будем править школой.
+###_PLAYER
+Wear your House Vincula outfit.
+Надень свой наряд Дома Винкула.
+###_NPC
+(She giggles and wears her magic school outfit.)  Let's do a magic battle soon.
+(Она хихикает и надевает свой костюм волшебной школы.)  Давайте устроим магическую битву.
+###_PLAYER
+Wear your House Amplector outfit.
+Надень свой наряд Дома Амплектора.
+###_NPC
+(She smiles and wears her magic school outfit.)  Would you like a famous Amplector hug?
+(Она улыбается и надевает свой костюм волшебной школы.) Хочешь, чтобы тебя обняли знаменитые Амплекторы?
+###_PLAYER
+Wear your House Corporis outfit.
+Надень свой наряд Дома Корпорис.
+###_NPC
+(She smirks and wears her magic school outfit.)  Pain and pleasure is the name of the game.
+(Она ухмыляется и надевает свой костюм волшебной школы.)  Боль и удовольствие - вот название игры.
+###_PLAYER
 Get fully dressed.
 Оденься полностью.
 ###_NPC
@@ -891,7 +1298,7 @@ I cannot do that.  I'll get punished if I lose this college outfit.
 Let's go shop for new clothes.
 Пойдем в магазин за новой одеждой.
 ###_NPC
-(She smiles.)  A shopping trip is a great idea!  Do you have at least 50$ to pay for my new clothes?
+(She smiles.)  A shopping trip is a great idea!  Do you have at least $50 to pay for my new clothes?
 (Она улыбается.)  Поход по магазинам - это отличная идея!  У тебя есть хотя бы 50 долларов, чтобы заплатить за мою новую одежду?
 ###_PLAYER
 Stay like that.
@@ -900,8 +1307,8 @@ Stay like that.
 Alright.  What would you like to do then?
 Хорошо.  А что бы ты хотела тогда сделать?
 ###_PLAYER
-Yes, here's the money.  (Pay 50$ to shop.)
-Да, вот тебе деньги.  (Заплати 50$ за покупки.)
+Yes, here's the money.  (Pay $50 to shop.)
+Да, вот тебе деньги.  (Заплати $50 за покупки.)
 Forget it.  It's too expensive.
 Забудь это.  Это слишком дорого.
 Yes, get out.  (Kick her out.)
@@ -920,6 +1327,23 @@ Make up your mind girl.  So, what's up?
 ###_NPC [Dumb|Polite]
 Sorry, I'm kind of confused now.  What would you like to do?
 Извини, я сейчас немного запуталася.  Что бы ты хотела сделать?
+###_PLAYER
+Yes, this is the end.  (Break up.)
+Да, это конец.  (Расстаться.)
+No, let's stay together.
+Нет, давай останемся вместе.
+###_NPC
+(She seems sad and confused.)  Ok sweetie.  What would you like to do then?
+(Она кажется грустной и растерянной.)  Хорошо, милая.  Что бы ты тогда хотела сделать?
+###_NPC [Submissive|Peaceful]
+You got me really scared my love.  What would you like to do then?
+Ты меня по-настоящему напугала, любовь моя.  Что бы ты тогда хотела сделать?
+###_NPC [Dominant|Rude]
+Make up your mind darling.  So, what's up now?
+Прими решение, дорогая.  Итак, что теперь?
+###_NPC [Dumb|Polite]
+Sorry, I'm very confused now.  What would you like to do then?
+Извините, я сейчас в замешательстве.  Что бы ты тогда хотела сделать?
 ###_PLAYER
 Do you have a D/s family in the club?
 У вас есть Д/с семья в клубе?
@@ -1003,6 +1427,69 @@ Can you help me out first so we can talk?
 Не могли бы вы сначала помочь мне, чтобы мы могли поговорить?
 Forget it girl.  I'll never be collared by anyone.
 Забудь об этом, девочка.  Меня никто никогда не возьмет под ошейник.
+###_PLAYER
+Do you have a girlfriend?
+У тебя есть девушка?
+###_NPC
+Not yet, it would need to be someone I like and know very well.  Just like you.
+Пока нет, это должна быть кто-то, кто мне нравится и кого я очень хорошо знаю.  Совсем как ты.
+###_NPC [Playful]
+Not yet, it would need to be someone funny and optimistic.  Just like you pal.
+Пока нет, это должна быть кто-то веселая и оптимистичная.  Совсем как ты, подруга.
+###_NPC [Serious]
+Not yet, it would need to be someone I like with a head on her shoulders.  Just like you.
+Пока нет, это должна быть кто-то, кто мне нравится, с головой на плечах.  Совсем как ты.
+###_NPC [Wise]
+Not yet, it would need to be someone I've grown to like.  Just like you my dear friend.
+Пока нет, это должна быть кто-то, кто мне стала нравиться.  Совсем как ты, моя дорогая подруга.
+###_NPC [Dumb]
+Not yet, it would need to be someone that's cute and not stupid.  Just like you.
+Пока нет, это должна быть кто-то симпатичная и не глупая.  Совсем как ты.
+###_NPC
+Maybe I'll find love someday.  It would need to be someone I've known for a while and that I like a lot.
+Может быть, когда-нибудь я найду свою любовь.  Это должна быть кто-то, кого я знаю уже некоторое время и кто мне очень нравится.
+###_NPC [Peaceful]
+Maybe I'll find my sweetheart someday.  It would need to be someone I've known for a while and that I care for.
+Может быть, когда-нибудь я найду свою возлюбленную.  Это должна быть кто-то, кого я знаю уже некоторое время и о ком я забочусь.
+###_NPC [Violent]
+Maybe I'll find a girl that's tough enough someday.  It would need to be someone I've known for a while and who can endure me.
+Может быть, когда-нибудь я найду достаточно крепкую девушку.  Это должна быть кто-то, кого я знаю уже некоторое время и кто может меня вынести.
+###_NPC [Wise]
+Finding true love isn't easy in our age.  It would need to be someone I've known for a while and shares the same passions as me.
+В наш век нелегко найти настоящую любовь.  Это должна быть кто-то, кого я знаю уже некоторое время и кто разделяет те же страсти, что и я.
+###_NPC [Dumb]
+No.  I've found a girl the other night, but I forgot to ask for her name.  I'd need someone I've known for a while and likes me.
+Нет.  Прошлой ночью я нашла девушку, но забыла спросить ее имя.  Мне нужна кто-то, кого я знаю уже некоторое время и кто мне нравится.
+###_NPC
+Yes, and I love her so much.  I'm very lucky to be with her.
+Да, и я так сильно ее люблю.  Мне очень повезло быть с ней.
+###_NPC [Peaceful]
+Yes, and I love her so much.  She's the sweetest thing ever.
+Да, и я так сильно ее люблю.  Она самое милое создание на свете.
+###_NPC [Horny]
+Yes, and she drives me wild with desire.  Simply talking about her makes me wet.
+Да, и она сводит меня с ума от желания.  От одного разговора о ней я становлюсь мокрой.
+###_NPC [Polite]
+Yes, she's my better half.  My one and only true love and passion.
+Да, она моя лучшая половина. Моя единственная и неповторимая настоящая любовь и страсть.
+###_NPC [Rude]
+Yes, we fuck like rabbits all the time.
+Да, мы все время трахаемся, как кролики.
+###_NPC
+I don't.  Maybe someday I'll find my perfect match, just like you did.
+Я не.  Может быть, когда-нибудь я найду свою идеальную пару, как это сделала ты.
+###_NPC [Horny]
+I don't.  Maybe someday I'll find someone that makes me wet all day, just like you did.
+Я не.  Может быть, когда-нибудь я найду кого-нибудь, от кого я буду мокнуть весь день, как от тебя.
+###_NPC [Frigid]
+I don't, you were lucky to find someone.  It's not that important to me though.
+Я не знаю, тебе повезло найти кого-то.  Хотя для меня это не так уж важно.
+###_NPC [Dominant]
+I'm too bossy to get a girlfriend.  You were lucky to find someone.
+Я слишком властная, чтобы завести подружку.  Вам повезло, что вы нашли кого-то.
+###_NPC [Submissive]
+I might be too shy to find a girlfriend.  You were lucky to find someone.
+Возможно, я слишком застенчива, чтобы найти себе девушку. Вам повезло, что вы нашли кого-то.
 ###_PLAYER
 Let's talk about something else.
 Давайте поговорим о чем-нибудь другом.
@@ -1210,7 +1697,82 @@ Yes Mistress DialogPlayerName.  Your little slut is ready to serve you any way y
 ###_NPC [Polite|Wise]
 With great pleasure Mistress DialogPlayerName.  Let's aspire that this trial period will bloom into a long-lasting D/s relationship.
 С превеликим удовольствием Госпожа DialogPlayerName.  Давайте надеяться, что этот испытательный период расцветет в длительные Д/с отношения.
+###_PLAYER
+Would you like to be my girlfriend?
+Хотела бы ты быть моей девушкой?
 ###_NPC
+Yes!  I love you very much and I know we could have a great time together.
+Да!  Я очень люблю тебя и знаю, что мы могли бы прекрасно провести время вместе.
+###_NPC [Horny]
+Yes!  You drive me crazy with desire.  I need you.  I want you.
+Да!  Ты сводишь меня с ума от желания.  Ты мне нужна.  Я хочу тебя.
+###_NPC [Frigid]
+Yes!  I love you but let's take it slow and see where this leads us.
+Да!  Я люблю тебя, но давай не будем торопиться и посмотрим, к чему это нас приведет.
+###_NPC [Polite]
+Absolutely!  You were in dreams from the first day we met.  I love and adore you.
+Абсолютно!  Ты была во снах с первого дня нашей встречи.  Я люблю и обожаю тебя.
+###_NPC [Rude]
+Hell yeah!  I love ya girl!  We'll have the best time together.
+Черт возьми, да!  Я люблю тебя, девочка!  Мы прекрасно проведем время вместе.
+###_PLAYER
+Someday you'll find love.
+Когда-нибудь ты найдешь свою любовь.
+###_NPC
+Yes.  Is there anything else you want to talk about?
+Да.  Есть ли что-нибудь еще, о чем ты хочешь поговорить?
+###_PLAYER
+I love you DialogCharacterName.
+Я люблю тебя DialogCharacterName.
+###_NPC
+I love you DialogPlayerName.  I hope we can share this love for a long time.
+Я люблю тебя DialogPlayerName.  Я надеюсь, что мы сможем разделить эту любовь надолго.
+###_PLAYER
+This is wonderful.
+Это замечательно.
+###_NPC
+I love you DialogPlayerName.  This is indeed a wonderful day.
+Я люблю тебя DialogPlayerName.  Это действительно чудесный день.
+###_PLAYER
+(Kiss her.)
+(Поцеловать ее.)
+###_NPC
+(You share a long and loving kiss.)  I love you DialogPlayerName.
+(Вы обмениваетесь долгим и любящим поцелуем.)  Я люблю тебя DialogPlayerName.
+(She grumbles.)  Why did you bring up the subject then?
+(Она ворчит.)  Почему же тогда вы подняли эту тему?
+###_PLAYER
+Making love will only be better.
+Заниматься любовью будет только лучше.
+###_NPC
+(She nods slowly.)  It will, sweetie.  What would you like to do now?
+(Она медленно кивает.)  Так и будет, милая.  Что бы ты хотела сейчас сделать?
+###_PLAYER
+I hope we'll never argue.
+Я надеюсь, мы никогда не будем спорить.
+###_NPC
+(She raises an eyebrow.)  Don't talk about that.  What would you like to do now?
+(Она поднимает бровь.)  Не говори об этом.  Что бы ты хотела сейчас сделать?
+###_PLAYER
+I hope we'll be together forever.
+Я надеюсь, что мы будем вместе всегда.
+###_NPC
+(She smiles at you.)  Let's make it work my love.  What would you like to do now?
+(Она улыбается тебе.) Давай сделаем так, чтобы это сработало, любовь моя.  Что бы ты хотела сейчас сделать?
+###_PLAYER
+(Make her more Dominant.)
+(Сделайте ее более доминирующей.)
+###_NPC
+(She's now a little more Dominant.)
+(Теперь она стала немного более Доминирующей.)
+###_PLAYER
+(Make her more submissive.)
+(Сделай ее более покорной.)
+###_NPC
+(She's now a little more submissive.)
+(Теперь она стала немного более покорной.)
+(She seems curious.)  What would you like to do?
+(Кажется, ей любопытно.)  Что бы ты хотела сделать?
 What would you like to do?
 Что бы вы хотели сделать?
 ###_PLAYER
@@ -1228,9 +1790,6 @@ What would you like to do?
 ###_NPC [Horny|Rude]
 (You tickle her on the ribs and tummy.  She laughs a little and blushes.)  Hahahaaaaha, ya can tickle me between ma legs if ya want.
 (Ты щекочешь ее по ребрам и животу.  Она слегка смеется и краснеет.)  Хахахааааааа, я могу щекотать себя между ногами, если я хочу.
-###_PLAYER
-(Kiss her.)
-(Поцеловать ее.)
 ###_NPC
 (You get close to each other and share a lovely kiss on the lips.)  Mmmmh, this is nice.
 (Вы становитесь ближе друг к другу и делитесь прекрасным поцелуем в губы.)  Мммм, это очень мило.
@@ -1333,6 +1892,27 @@ What would you like to do?
 Yes, my sexy subbie?  (She comes closer and pets your head gently.)
 Да, моя сексуальная сабба?  (Она подходит ближе и нежно гладит тебя по голове.)
 ###_NPC
+What's on your mind my submissive love?
+О чем ты думаешь, моя покорная любовь?
+###_NPC [Dominant|Violent]
+What's going on little hun?
+Что случилось, маленькое солнышко?
+###_NPC [Submissive|Peaceful]
+Please tell me of your feelings my sweet pet.
+Пожалуйста, расскажи мне о своих чувствах, мой милый питомец.
+###_NPC [Horny|Playful]
+My sexy sub and lover, how can we have fun?
+Моя сексуальная саба и любовница, как мы можем повеселиться?
+###_NPC [Frigid|Serious]
+What troubles you my little loved one?
+Что беспокоит тебя, мой маленькая возлюбленная?
+###_NPC [Polite|Wise]
+Let's have a tete-a-tete my submissive love.
+Давай побеседуем тет-а-тет, моя покорная любовь.
+###_NPC [Dumb|Rude]
+What's up slave luv?
+Как дела, любимая рабыня?
+###_NPC
 What's on your mind my subbie?
 Что у тебя на уме, моя сабба?
 ###_NPC [Horny]
@@ -1359,6 +1939,48 @@ Come closer my little sub.  Let's talk.
 ###_NPC [Violent]
 (She grabs your butt firmly and pulls you closer.)  What's up?
 (Она крепко хватает тебя за задницу и притягивает ближе.)  Что случилось?
++###_NPC
+I love you too.  You're the best sub.
+Я тоже тебя люблю.  Ты лучшая саба.
+###_NPC [Dominant|Violent]
+I love you my slave.  Don't change anything.
+Я люблю тебя, моя рабыня.  Ничего не меняй.
+###_NPC [Submissive|Peaceful]
+(She nods slowly.)  I love you my subbie pet.
+(Она медленно кивает.)  Я люблю тебя, мой маленький питомец.
+###_NPC [Horny|Playful]
+I love you!  Your sexy sub body drives me wild.
+Я люблю тебя!  Твое сексуальное женское тело сводит меня с ума.
+###_NPC [Frigid|Serious]
+This is a shared feeling my submissive.
+Это общее чувство, мой сабмиссив.
+###_NPC [Polite|Wise]
+I adore you little submissive.  This journey we share together is luminous.
+Я обожаю тебя, маленькая сабмиссив.  Это путешествие, которое мы разделяем вместе, очень светлое.
+###_NPC [Dumb|Rude]
+I love ya too my sexy cunt.
+Я тоже люблю тебя, моя сексуальная пизда.
+###_NPC
+I love you also my girl.  But let's spend more time together.
+Я тоже люблю тебя, моя девочка.  Но давай проводить больше времени вместе.
+###_NPC [Dominant|Violent]
+I love you my slave.  But we need to spend more time together.
+Я люблю тебя, моя рабыня.  Но нам нужно проводить больше времени вместе.
+###_NPC [Submissive|Peaceful]
+(She nods slowly.)  I love you also my subbie.  But maybe we should spend more time together.
+(Она медленно кивает.)  Я тоже люблю тебя, моя сабба.  Но, может быть, нам стоит проводить больше времени вместе.
+###_NPC [Horny|Playful]
+I love you also sexy sub.  But let's make love more often.
+Я тоже люблю тебя, сексуальная саба.  Но давай чаще заниматься любовью.
+###_NPC [Frigid|Serious]
+This is a shared feeling my submissive.  But we should spend more time together.
+Это общее чувство, моя сабмиссив.  Но мы должны проводить больше времени вместе.
+###_NPC [Polite|Wise]
+I love you also my protege, but we need to invest more time in our relationship.
+Я тоже люблю тебя, моя протеже, но нам нужно уделять больше времени нашим отношениям.
+###_NPC [Dumb|Rude]
+I love ya too my girl, but where were ya the other night?
+Я тоже люблю тебя, моя девочка, но где ты была прошлой ночью?
 ###_PLAYER
 Can we talk Mistress?
 Мы можем поговорить, Госпожа?
@@ -1371,6 +1993,23 @@ Can we talk Mistress?
 ###_NPC [Rude]
 What's up slave?
 Что случилось, рабыня?
+###_PLAYER
+Mistress, do you miss Pandora's Box?
+Госпожа, вы скучаете по Ящику Пандоры?
+Girl, it's time to turn the tables.
+Девочка, пришло время поменяться ролями.
+###_NPC
+(She looks surprised.)  What?  What are you talking about my slave?
+(Она выглядит удивленной.)  Что?  Что ты говоришь моя рабыня?
+###_NPC [Rude|Violent]
+(She looks furious.)  What the fuck?  You better explain yourself before I punish you slave.
+(Она выглядит разъяренной.)  Какого хрена?  Тебе лучше объясниться, прежде чем я накажу тебя, рабыня.
+###_NPC [Polite|Serious]
+(She looks annoyed.)  What?  Do not play games my cherish slave.  I am not disposed.
+(Она выглядит раздраженной.)  Что?  Не играй в игры, моя дорогая рабыня.  Я не расположена к этому.
+###_NPC [Dumb|Playful]
+(She looks confused.)  Uh?  Are you drunk my slave?
+(Она выглядит смущенной.)  А?  Ты пьяна, моя рабыня?
 ###_PLAYER
 (Try to get her attention.)
 (Постарайся привлечь ее внимание.)
@@ -1595,6 +2234,24 @@ You've waited long enough and proved your loyalty, but I'm still unsure if I wan
 ###_NPC [Playful]
 Yes!  That was quick.  I do need more time to think about our relationship before I collar you though.
 Да!  Это было очень быстро.  Но мне действительно нужно больше времени, чтобы подумать о наших отношениях, прежде чем я одену на тебя ошейник.
++###_PLAYER
+Mistress, do you have a lover?
+Госпожа, у вас есть любовница?
+###_NPC
+Not yet, it would need to be someone I like and know very well.  Just like you my girl.
+Пока нет, это должна быть кто-то, кто мне нравится и кого я очень хорошо знаю. Такая же, как ты, моя девочка.
+###_NPC [Playful]
+Not yet, it would need to be someone funny and optimistic.  Just like you my subbie.
+Пока нет, это должна быть кто-то веселая и оптимистичная. Такая же, как ты, моя сабба.
+###_NPC [Serious]
+Not yet, it would need to be someone I like with a head on her shoulders.  Just like you my slave.
+Пока нет, это должна быть кто-то, кто мне нравится, с головой на плечах.  Такая же, как ты, моя рабыня.
+###_NPC [Wise]
+Not yet, it would need to be someone I've grown to like.  Just like you my dear submissive.
+Пока нет, это должна быть кто-то, кто мне стала нравиться.  Совсем как ты, моя дорогая покорная.
+###_NPC [Dumb]
+Not yet, it would need to be someone that's cute and not stupid.  Just like you my girl.
+Пока нет, это должна быть кто-то симпатичная и не глупая.  Такая же, как ты, моя девочка.
 ###_PLAYER
 Our trial isn't working for me.  Can we stop it?
 Наш испытательный срок не для меня.  Можем ли мы остановить это?
@@ -1786,6 +2443,155 @@ I'm so sorry Mistress.  I've tried very hard to be on time.
 ###_NPC
 You're late and you must be punished.
 Ты опоздала и должна быть наказана.
+Yes.  I could see myself as being both your Mistress and your lover.  I know we could have a great time together.
+Да.  Я могла бы видеть себя одновременно твоей Госпожой и любовницей.  Я знаю, мы могли бы прекрасно провести время вместе.
+###_NPC [Horny]
+Yes!  You drive me crazy with desire my slut.  I need you.  I want you.  I will fuck you.
+Да!  Ты сводишь меня с ума от желания, моя шлюха.  Ты мне нужна.  Я хочу тебя.  Я трахну тебя.
+###_NPC [Frigid]
+Yes.  I love you my submissive.  Being your lover would give me even more occasions to lock you up in chastity.
+Да.  Я люблю тебя, моя сабмиссив.  Быть твоей любовницой дало бы мне еще больше поводов запереть тебя в целомудрии.
+###_NPC [Polite]
+Absolutely!  I adore and cherish you my submissive, we would make a great couple.
+Абсолютно!  Я обожаю и лелею тебя, моя сабмиссив, мы были бы отличной парой.
+###_NPC [Rude]
+Hell yeah!  I love ya my slave!  We'll have the best time together.
+Черт возьми, да!  Я люблю тебя, моя рабыня!  Мы прекрасно проведем время вместе.
+###_PLAYER
+I love you Mistress.
+Я люблю тебя, госпожа.
+###_NPC
+I love you my girl.  I hope we can share this love for a long time.
+Я люблю тебя, моя девочка.  Я надеюсь, что мы сможем разделить эту любовь надолго.
+I love you my girl.  This is indeed a wonderful day.
+Я люблю тебя, моя девочка.  Это действительно чудесный день.
+###_PLAYER
+(Present your lips.)
+(Подставьте свои губы.)
+###_NPC
+(She grabs you and you share a long and loving kiss.)  I love you my girl.
+(Она хватает тебя, и вы обмениваетесь долгим и любящим поцелуем.)  Я люблю тебя, моя девочка.
+###_PLAYER
+Wait!  Please let me think about it some more.
+Подожди!  Пожалуйста, дайте мне еще немного подумать об этом.
+###_NPC
+(She grumbles.)  Girl.  Why did you bring up that subject?
+(Она ворчит.)  Девочка.  Почему вы подняли эту тему?
+(She nods slowly.)  It will, sweetie.  Let's do something fun to celebrate!
+(Она медленно кивает.)  Так и будет, милая.  Давайте сделаем что-нибудь веселое, чтобы отпраздновать это событие!
+(She raises an eyebrow.)  Don't talk about that.  Let's do something fun to celebrate!
+(Она поднимает бровь.)  Не говори об этом.  Давайте сделаем что-нибудь веселое, чтобы отпраздновать это событие!
+(She smiles at you.)  Let's make it work my love.  Let's do something fun to celebrate!
+(Она улыбается тебе.) Давай сделаем так, чтобы это сработало, любовь моя.  Давайте сделаем что-нибудь веселое, чтобы отпраздновать это событие!
+###_PLAYER
+You don't deserve to call me slave.
+Ты не заслуживаешь называть меня рабыней.
+###_NPC
+So you're a Dominant now?  You want to break our bond?
+Значит, теперь ты Доминанта?  Ты хочешь разорвать нашу связь?
+###_PLAYER
+I've grown stronger than you.
+Я стала сильнее тебя.
+You've been a good owner.
+Ты была хорошей хозяикой.
+Sorry, I didn't mean to say that.
+Извини, я не хотела этого говорить.
+###_NPC
+(She takes a deep breath and calms down slowly.)
+(Она делает глубокий вдох и медленно успокаивается.)
+(She gulps and starts to tremble.)  Are you serious?
+(Она сглатывает и начинает дрожать.)  Ты серьезно?
+###_PLAYER
+Yes, I need someone stronger.
+Да, мне нужна кто-то более сильная.
+###_NPC
+I guess you're ready for someone tougher than me.  You don't want to be owned by me anymore?
+Я думаю, ты готова к встрече с кем-то более жесткой, чем я.  Ты больше не хочешь принадлежать мне?
+###_PLAYER
+No!  Sorry I said that.
+Нет!  Прости, что я это сказала.
+I'm very serious.
+Я очень серьезна.
+###_NPC
+(She starts to sweat and slowly gets down on her knees.)  Yes, Miss.
+(Она начинает потеть и медленно опускается на колени.)  Да, мисс.
+###_PLAYER
+(Points to the floor.)
+(Указывать на пол.)
+###_NPC
+(She follows your finger and slowly gets down on her knees.)  Yes, Miss.
+(Она следует за вашим пальцем и медленно опускается на колени.)  Да, мисс.
+(She seems shaken.)  Very well my girl.  We'll see if we can work this out.
+(Кажется, она потрясена.)  Очень хорошо, моя девочка.  Посмотрим, сможем ли мы с этим разобраться.
+###_PLAYER
+No.  You will call me "Mistress".
+Нет.  Ты будешь называть меня "Госпожа".
+###_NPC
+(She bows her head.)  Very well Mistress.  I will wear your collar.
+(Она склоняет голову.) Очень хорошо, госпожа.  Я надену твой ошейник.
+###_NPC [Serious|Rude]
+This is the real shit then?  Wow!  I hope you're genuine on that Mistress.
+Значит, это и есть настоящее дерьмо?  Ух ты!  Я надеюсь, что ты искрена в этом вопросе.
+###_NPC [Playful|Polite]
+(She nods rapidly.)  Mistress, I hope I'll have outstanding moments exhibiting your collar.
+(Она быстро кивает.)  Госпожа, я надеюсь, что у меня будут выдающиеся моменты, когда я буду демонстрировать ваш ошейник.
+###_NPC [Wise|Peaceful]
+(She nods very slowly.)  I trust you will take good care of me Mistress.
+(Она очень медленно кивает.)  Я надеюсь, что вы хорошо позаботитесь обо мне, госпожа.
+###_PLAYER
+Let's go girl.  (Go transfer your collar.)
+Пойдем, девочка.  (Передай свой ошейник.)
+###_NPC
+(You go to the club management and she pays to have your collar transferred to herself.  You walk back soon after.)
+(Вы идете к руководству клуба, и она платит за то, чтобы ваш ошейник был передан ей.  Вскоре после этого ты возвращаешься обратно.)
+###_PLAYER
+You better behave girl.
+Тебе лучше вести себя прилично, девочка.
+###_NPC
+(She gulps.)  How can I serve you Mistress?
+(Она сглатывает.)  Чем я могу служить вам, госпожа?
+###_PLAYER
+You will become the perfect slave.
+Ты станешь идеальной рабыней.
+###_NPC
+(She nods.)  How can I please you Mistress?
+(Она кивает.)  Чем я могу угодить вам, госпожа?
+###_PLAYER
+I will take good care of you.
+Я буду хорошо заботиться о тебе.
+###_NPC
+Thanks Mistress, I know you will.  How can I serve you?
+Спасибо, госпожа, я знаю, что ты так и сделаешь.  Как я могу служить вам?
+###_PLAYER
+You can't own me.  But we can stay friends.
+Ты не можешь владеть мной.  Но мы можем остаться друзьями.
+###_NPC
+(She sighs.)  Fine, come with me, we'll get you out of that collar.
+(Она вздыхает.)  Хорошо, пойдем со мной, мы снимем с тебя этот ошейник.
+Very well my girl.  We'll see if we can work this out.
+Очень хорошо, моя девочка. Посмотрим, сможем ли мы с этим разобраться.
+###_PLAYER
+(Go have your collar removed.)
+(Иди, сними свой ошейник.)
+###_NPC
+(You go to the club management and she pays to have your collar removed.  You walk back soon after.)
+(Вы идете к руководству клуба, и она платит за то, чтобы с вас сняли ошейник.  Вскоре после этого ты возвращаешься обратно.)
+###_PLAYER
+I hope we can still be friends.
+Я надеюсь, что мы все еще можем быть друзьями.
+###_NPC
+Yes, lets hope it won't ruin our friendship.  What would you like to do now?
+Да, будем надеяться, что это не разрушит нашу дружбу.  Что бы вы хотели сейчас сделать?
+Yes.  What would you like to do now?
+Да.  Что бы вы хотели сейчас сделать?
+###_PLAYER
+I'm glad this collar is gone.
+Я рада, что этот ошейник исчез.
+###_NPC
+You could have told me sooner you know?  What would you like to do now?
+Ты могла бы сказать мне раньше, понимаешь?  Что бы вы хотели сейчас сделать?
+(She seems curious.)  What would you like to do my girl?
+(Кажется, ей любопытно.)  Что бы ты хотела сделать, моя девочка?
 Fine!  (She pushes you back.)  You can play without me girl.
 Отлично!  (Она отталкивает тебя назад.)  Ты можешь играть и без меня, девочка.
 ###_NPC [Wise]
@@ -2166,10 +2972,6 @@ This is sweet.
 ###_NPC
 (She caresses your shoulders and speaks with a soothing voice.) Relax my subbie.
 (Она ласкает твои плечи и говорит успокаивающим голосом.) Расслабься, моя сабба.
-###_PLAYER
-I love you Mistress.
-Я люблю вас, Госпожа.
-###_NPC
 (She caresses your hair lovingly.)  I love you my pet.
 (Она ласково гладит твои волосы.)  Я люблю тебя, мой питомец.
 ###_PLAYER
@@ -2454,25 +3256,25 @@ I'm curious to see how you would look in college clothes.  Here, take my spare s
 You have strange fetishes.  (Change for her.)
 У вас странные фетиши.  (Переоденься для нее.)
 ###_NPC
-(You change for her as she nods.)  Stay like that school girl, you cannot change for 5 minutes.
+(You change for her as she nods.)  Stay like that schoolgirl, you cannot change for 5 minutes.
 (Ты переодеваешься для нее, когда она кивает.)  Оставайся одетой как школьница, ты не можешь переодеться в течении 5 минут.
 ###_PLAYER
 Alright Mistress.  (Change for her.)
 Хорошо, Госпожа.  (Переоденься для нее.)
 ###_NPC
-(You change for her as she smiles.)  You will be my school girl for 5 minutes, you cannot change.
+(You change for her as she smiles.)  You will be my schoolgirl for 5 minutes, you cannot change.
 (Ты переодеваешься для нее, когда она улыбается.)  Ты будешь моей школьницей в течение 5 минут, ты не можешь переодеться.
 ###_PLAYER
 I'll be your school girl.  (Change for her.)
 Я буду вашей школьницей.  (Переоденься для нее.)
 ###_NPC
-(You change for her as she smirks.)  You're a good school girl, and you cannot change again for 5 minutes.
+(You change for her as she smirks.)  You're a good schoolgirl, and you cannot change again for 5 minutes.
 (Ты переодеваешься для нее, пока она ухмыляется.)  Ты хорошая школьница, и ты не можешь снова переодеться в течении 5 минут.
 ###_PLAYER
 No!  This is silly.
 Нет!  Это просто глупо.
 ###_NPC
-(She grumbles and forces you to change.)  There!  And you cannot change for 5 minutes school girl.
+(She grumbles and forces you to change.)  There!  And you cannot change for 5 minutes schoolgirl.
 (Она ворчит и заставляет тебя переодеться.)  Вот так!  А ты не можешь переодеться в течении 5 минут.
 ###_PLAYER
 Easy enough.
@@ -2544,26 +3346,26 @@ My precious, I've been at the dojo lately and found rope techniques that should 
 Yes Mistress.  (Let her tie you up.)
 Да, Госпожа.  (Пусть она тебя свяжет.)
 ###_NPC
-(She makes sure your naked and restrains you with hemp ropes from the ceiling.)  Wonderful, have fun struggling.
-(Она следит, чтобы ты была голой, и связывает тебя пеньковыми веревками под потолком.) Замечательно, получай удовольствие от борьбы.
+(She makes sure you're naked and restrains you with many hemp ropes.)  Wonderful, have fun struggling.
+(Она следит, чтобы ты была голой, и связывает тебя пеньковыми веревками.) Замечательно, получай удовольствие от борьбы.
 ###_PLAYER
 I'm not sure.  (Let her tie you up.)
 Я не уверена.  (Пусть она тебя свяжет.)
 ###_NPC
-(She forces you naked and restrains you with hemp ropes from the ceiling.)  Never doubt my bondage skills.
-(Она заставляет тебя раздеться догола и связывает пеньковыми веревками под потолком.)  Никогда не сомневайся в моих навыках бондажа.
+(She makes sure you're naked and restrains you with many hemp ropes.)  Never doubt my bondage skills.
+(Она заставляет тебя раздеться догола и связывает пеньковыми веревками.)  Никогда не сомневайся в моих навыках бондажа.
 ###_PLAYER
 Alright.  (Let her tie you up.)
 Хорошо.  (Пусть она тебя свяжет.)
 ###_NPC
-(She makes sure your naked and restrains you with hemp ropes from the ceiling.)  This is nice, have fun struggling.
-(Она следит, чтобы ты была голой, и связывает тебя пеньковыми веревками под потолком.)  Это мило, получай удовольствие от борьбы.
+(She makes sure you're naked and restrains you with many hemp ropes.)  This is nice, have fun struggling.
+(Она следит, чтобы ты была голой, и связывает тебя пеньковыми веревками.)  Это мило, получай удовольствие от борьбы.
 ###_PLAYER
 Please!  I don't want to do that.
 Пожалуйста!  Я не хочу этого делать.
 ###_NPC
-(She frowns but forces you naked and restrains you with hemp ropes from the ceiling.)  There!  Struggle for me.
-(Она хмурится, но заставляет тебя раздеться догола и связывает пеньковыми веревками под потолком.)  Вот так!  Борись для меня.
+(She makes sure you're naked and restrains you with many hemp ropes.)  There!  Struggle for me.
+(Она хмурится, но заставляет тебя раздеться догола и связывает пеньковыми веревками.)  Вот так!  Борись для меня.
 ###_PLAYER
 (Let her tie you up.)
 (Пусть она тебя свяжет.)
@@ -2572,38 +3374,38 @@ Please!  I don't want to do that.
 (Bow your head submissively.)
 (Покорно склони голову.)
 ###_NPC
-My girl, you make me really happy and I want to reward you.  I'll give you 50$ so you can do some shopping.
+My girl, you make me really happy and I want to reward you.  I'll give you $50 so you can do some shopping.
 Моя девочка, ты делаешь меня по-настоящему счастливой, и я хочу вознаградить тебя.  Я дам тебе 50 долларов, чтобы ты могла пройтись по магазинам.
 ###_NPC [Wise|Polite]
-My wonderful submissive, I truly appreciate owning you and I want you to feel appreciated.  Take these 50$ and purchase something you desire.
-Моя прекрасная нижняя, я действительно ценю владение тобой и хочу, чтобы ты чувствовала себя цененной.  Возьми эти 50$ и купите то, что ты хочешь.
+My wonderful submissive, I truly appreciate owning you and I want you to feel appreciated.  Take these $50 and purchase something you desire.
+Моя прекрасная нижняя, я действительно ценю владение тобой и хочу, чтобы ты чувствовала себя цененной.  Возьми эти $50 и купите то, что ты хочешь.
 ###_NPC [Dumb|Rude]
-You're a great bitch and should get a gift.  (She checks her purse for a while.)  Here's 50$, get something kinky!
-Ты отличная сучка и должна получить подарок.  (Она проверяет свою сумочку.)  Вот тебе 50$, купи что-нибудь извращенное!
+You're a great bitch and should get a gift.  (She checks her purse for a while.)  Here's $50, get something kinky!
+Ты отличная сучка и должна получить подарок.  (Она проверяет свою сумочку.)  Вот тебе $50, купи что-нибудь извращенное!
 ###_PLAYER
 Wow!  Thank you.
 Ух ты!  Спасибо.
 ###_NPC
-My pleasure.  Spend it on something I can use on you.  (She winks and gives you 50$.)
-С удовольствием.  Потрать их на то, что я могу использовать на тебе.  (Она подмигивает и дает тебе 50$.)
+My pleasure.  Spend it on something I can use on you.  (She winks and gives you $50.)
+С удовольствием.  Потрать их на то, что я могу использовать на тебе.  (Она подмигивает и дает тебе $50.)
 ###_PLAYER
 You're the best Mistress ever!
 Вы самая лучшая Госпожа на свете!
 ###_NPC
-And you're the best sub.  Spend it on something I can use on you.  (She winks and gives you 50$.)
-А ты - лучшая саба.  Потрать их на то, что я могу использовать на тебе.  (Она подмигивает и дает тебе 50$.)
+And you're the best sub.  Spend it on something I can use on you.  (She winks and gives you $50.)
+А ты - лучшая саба.  Потрать их на то, что я могу использовать на тебе.  (Она подмигивает и дает тебе $50.)
 ###_PLAYER
 I cannot take it.
 Я не могу этого вынести.
 ###_NPC
-Slave, take it and spend it on something I can use on you.  (She gives you 50$.)
+Slave, take it and spend it on something I can use on you.  (She gives you $50.)
 Рабыня, возьми это и потрать на то, что я могу использовать на тебе.  (Она дает тебе 50 долларов.)
 ###_PLAYER
 (Nod politely and take the money.)
 (Вежливо кивни и возьми деньги.)
 ###_NPC
-Spend it on something I can use on you.  (She winks and gives you 50$.)
-Потрать их на то, что я могу использовать на тебе.  (Она подмигивает и дает тебе 50$.)
+Spend it on something I can use on you.  (She winks and gives you $50.)
+Потрать их на то, что я могу использовать на тебе.  (Она подмигивает и дает тебе $50.)
 ###_PLAYER
 (Refuse the money.)
 (Откажись от денег.)
@@ -2963,14 +3765,32 @@ It's fair Mistress.  (Go to the cell.)
 (She seems confused seeing you on your knees.)  Is everything alright Mistress?
 (Она кажется смущенной, видя тебя на коленях.)  Все в порядке, Госпожа?
 ###_NPC
+How can I serve you my love?
+Как я могу служить тебе, моя любовь?
+###_NPC [Dominant|Violent]
+Will you punish me my love?
+Ты накажешь меня, любовь моя?
+###_NPC [Submissive|Peaceful]
+My body is yours to possess, love and care for Mistress.
+Мое тело принадлежит тебе, чтобы владеть им, любить и заботиться о нем, госпожа.
+###_NPC [Horny|Playful]
+This cunt is ready for her loving Mistress.
+Эта пизда готова для своей любящей госпожи.
+###_NPC [Frigid|Serious]
+(She bows her head and stays silent.)
+(Она склоняет голову и молчит.)
+###_NPC [Polite|Wise]
+Mistress, what do you desire from your loved submissive?
+Госпожа, чего ты хочешь от своего любимого сабмиссива?
+###_NPC [Dumb|Rude]
+Yes my luv?  Errr... Mistress?
+Да, моя любимая? Эээ... Госпожа?
+###_NPC
 What would you like to do Mistress?
 Что бы вы хотели сделать, Госпожа?
 ###_NPC [Horny]
 Is there something kinky you would like to do Mistress?
 Есть ли что-то извращенное, что вы хотели бы сделать, Госпожа?
-###_NPC [Frigid]
-(She bows her head and stays silent.)
-(Она склоняет голову и молчит.)
 ###_NPC [Rude]
 Yo Mistress.  What's up?
 Йо, Госпожа.  Что случилось?
@@ -2998,6 +3818,48 @@ How can we further my submissive training Mistress?
 ###_NPC [Violent]
 (She wiggles her butt.)  Are you in a spanking mood Mistress?
 (Она покачивает задницей.)  Вы настроение для порки, Госпожа?
+###_NPC
+I love you too.  You're the best Mistress ever.
+Я тоже тебя люблю.  Ты самая лучшая Госпожа на свете.
+###_NPC [Dominant|Violent]
+I love you Mistress.  Please never change.
+Я люблю тебя, госпожа.  Пожалуйста, никогда не меняйся.
+###_NPC [Submissive|Peaceful]
+(She nods slowly.)  I love you very much Mistress.
+(Она медленно кивает.)  Я очень люблю тебя, госпожа.
+###_NPC [Horny|Playful]
+I love you Mistress!  You fulfill all my wild fantasies.
+Я люблю тебя, госпожа!  Ты исполняешь все мои дикие фантазии.
+###_NPC [Frigid|Serious]
+This is a shared feeling Mistress.
+Это общее чувство, Госпожа.
+###_NPC [Polite|Wise]
+I adore you Mistress.  This journey we share together is luminous.
+Я обожаю тебя, госпожа.  Это путешествие, которое мы разделяем вместе, очень светлое.
+###_NPC [Dumb|Rude]
+I love ya too Mistress.
+Я тоже люблю тебя, госпожа.
+###_NPC
+I love you also Mistress.  But sometimes I wish we could spend more time together.
+Я тоже люблю тебя, госпожа.  Но иногда мне хочется, чтобы мы могли проводить больше времени вместе.
+###_NPC [Dominant|Violent]
+I love you Mistress.  But I need to spend more time with you.
+Я люблю тебя, госпожа.  Но мне нужно проводить с тобой больше времени.
+###_NPC [Submissive|Peaceful]
+(She nods slowly.)  I love you also Mistress.  But sometimes I wish we could spend more time together.
+(Она медленно кивает.)  Я тоже люблю тебя, госпожа.  Но иногда мне хочется, чтобы мы могли проводить больше времени вместе.
+###_NPC [Horny|Playful]
+I love you also Mistress.  But I wish we made love more often.
+Я тоже люблю тебя, госпожа. Но я бы хотела, чтобы мы чаще занимались любовью.
+###_NPC [Frigid|Serious]
+This is a shared feeling Mistress.  But we should spend more time together.
+Это общее чувство, Госпожа.  Но мы должны проводить больше времени вместе.
+###_NPC [Polite|Wise]
+I love you also Mistress, but we need to invest more time in our relationship.
+Я тоже люблю тебя, госпожа, но нам нужно уделять больше времени нашим отношениям.
+###_NPC [Dumb|Rude]
+I love ya too Mistress, but I hate sleepin' alone.
+Я тоже люблю тебя, госпожа, но я ненавижу спать одна.
 ###_PLAYER
 Let's talk my girl.
 Давай поговорим моя девочка.
@@ -3010,6 +3872,51 @@ Let's talk my girl.
 ###_NPC [Rude]
 What's up Mistress?
 Что случилось, Госпожа?
+###_PLAYER
+Slave, do you miss Pandora's Box?
+Рабыня, ты скучаешь по Ящику Пандоры?
+###_NPC
+Not really Mistress, my adventures in the club and in your private room have been more pleasant.  (She bows her head.)
+Не совсем госпожа, мои приключения в клубе и в вашей отдельной комнате были более приятными.  (Она склоняет голову.)
+###_NPC [Serious|Dominant]
+You already know the answer Mistress.  The Bondage Club is better than Pandora's Box, period.
+Вы уже знаете ответ, госпожа.  Клуб Бондажа лучше, чем Ящик Пандоры, и точка.
+###_NPC [Playful|Submissive]
+Oh no Mistress, I've made friends here who are tons of fun.  And your Mistresses are so strict and beautiful.  (She shivers.)
+О нет, госпожа, у меня здесь появились друзья, с которыми очень весело. А ваши Госпожи такие строгие и красивые. (Она дрожит.)
+###_NPC
+(She seems undecided.)  Kind of, both clubs are good.  Maybe I'll visit the box again someday.  I hope you don't mind.
+(Кажется, она в нерешительности.)  В некотором роде, оба клуба хороши.  Может быть, когда-нибудь я снова навещу шкатулку.  Надеюсь, вы не возражаете.
+###_NPC [Serious|Dominant]
+That's an interesting question, but I don't have the answer Mistress.  If they give me more control around here, I might review my position.
+Это интересный вопрос, но у меня нет ответа, госпожа.  Если они дадут мне здесь больше контроля, я, возможно, пересмотрю свою позицию.
+###_NPC [Wise|Polite]
+I've already pondered that question many times and I'm undecided.  Both clubs are good, maybe I'll visit Pandora's again someday with your permission.
+Я уже много раз размышляла над этим вопросом и не определилась.  Оба клуба хороши, может быть, я когда-нибудь снова посещу Пандору с вашего разрешения.
+###_NPC
+I do miss the Box Mistress.  No offense, but the Bondage Club is getting old and stale.
+Я действительно скучаю по Госпожам Коробки.  Без обид, но Бондаж-клуб становится старым и устаревшим.
+###_NPC [Serious|Dominant]
+Damn right!  Don't take it personal Miss, but I'll probably move back there sooner than later.
+Чертовски верно!  Не принимайте это близко к сердцу, мисс, но я, вероятно, вернусь туда раньше, чем позже.
+###_NPC [Playful|Submissive]
+Yeah, the box was so cool Mistress.  I miss the times I got chained naked in the dungeon by a Dominatrix.  (She shivers.)
+Да, коробка была такой классной, Госпожа.  Я скучаю по тем временам, когда Доминатрикс приковывала меня голой в темнице.  (Она дрожит.)
+###_PLAYER
+What is that grin on your face?
+Что это за ухмылка у тебя на лице?
+###_NPC
+Times have changed, I'm now more Dominant than you.  Maybe it's time to turn the tables.
+Времена изменились, теперь я более Доминирующая, чем ты.  Может быть, пришло время поменяться ролями.
+###_NPC [Rude|Violent]
+Times have changed, I'm fucking tougher than you now.  It's time to turn the tables.
+Времена изменились, теперь я чертовски круче тебя.  Пришло время поменяться ролями.
+###_NPC [Polite|Serious]
+We need to face the reality of our times, I've outgrown you.  It could be time to turn the tables.
+Нам нужно посмотреть правде в глаза, я переросла тебя.  Возможно, пришло время поменяться ролями.
+###_NPC [Dumb|Playful]
+Things have changed and I have the best plan!  How do you call it?  Turn the tables?
+Все изменилось, и у меня есть лучший план!  Как вы это называете?  Поменяться ролями?
 ###_PLAYER
 You should wear something else.
 Тебе следует надеть что-нибудь другое.
@@ -3175,6 +4082,24 @@ It was too fast Mistress.  I need more time to make sure we are the perfect matc
 Really?  Already?  I know!  I want a collar!  But I'm not certain.  Can we play some more?
 Неужели?  Уже? Я знаю!  Я хочу ошейник!  Но я не уверена.  Мы можем еще немного поиграть?
 ###_PLAYER
+Are you dating someone my pet?
+Ты встречаешься с кем-то, мой питомец?
+###_NPC
+No Mistress.  I need to find someone I love and trust.  Just like you.
+Нет госпожа.  Мне нужно найти кого-то, кого я люблю и кому доверяю. Совсем как вы.
+###_NPC [Playful]
+No Mistress.  I need to find someone that's funny and optimistic.  Just like you.
+Нет госпожа.  Мне нужно найти кого-то веселого и оптимистичного.  Совсем как вы.
+###_NPC [Serious]
+No Mistress.  I need to find someone I like with a head on her shoulders.  Just like you.
+Нет госпожа.  Мне нужно найти кого-то, кто мне нравится, с головой на плечах.  Совсем как вы.
+###_NPC [Wise]
+No Mistress.  I need to find someone I've grown to like and trust.  Just like you.
+Нет госпожа.  Мне нужно найти кого-то, кто мне понравится и кому я буду доверять.  Совсем как вы.
+###_NPC [Dumb]
+No Mistress.  I need to find someone that's cute and not stupid.  Just like you.
+Нет госпожа.  Мне нужно найти кого-то симпатичного и не глупого.  Совсем как вы.
+###_PLAYER
 Have you visited the slave market?
 Ты бывала на невольничьем рынке?
 ###_NPC
@@ -3250,13 +4175,13 @@ No.  Let's continue the trial.
 Great!  I will setup the collaring ceremony.
 Отлично!  Я организую церемонию ошейника.
 ###_NPC
-You're the best!  I think there's a 100$ cost to prepare the ceremony though.
+You're the best!  I think there's a $100 cost to prepare the ceremony though.
 Вы самая лучшая!  Но я думаю, что подготовка церемонии обойдется в 100 долларов.
 ###_NPC [Wise]
-This is wonderful Mistress.  Do you have the 100$ to cover the ceremony cost?
+This is wonderful Mistress.  Do you have the $100 to cover the ceremony cost?
 Это замечательная Госпожа.  У вас есть 100 долларов, чтобы покрыть расходы на церемонию?
 ###_NPC [Dumb]
-Great!  Is there a cost for the ceremony?  10$?  50$?  Oh no, I think it's 100$.
+Great!  Is there a cost for the ceremony?  $10?  $50?  Oh no, I think it's $100.
 Отлично!  Есть ли плата за церемонию?  10$?  50$?  О нет, я вспоминаю, что это 100$.
 ###_PLAYER
 I don't have enough money.
@@ -3316,7 +4241,7 @@ Give me your college clothes.
 ###_NPC
 I can't Mistress.  I'll get punished if I lose this college outfit.
 Я не могу, Госпожа.  Меня накажут, если я потеряю эту студенческую форму.
-(She smiles.)  That's a great idea Mistress.  Do you have at least 50$ to pay for my new clothes?
+(She smiles.)  That's a great idea Mistress.  Do you have at least $50 to pay for my new clothes?
 (Она улыбается.) Это отличная идея, Госпожа.  У вас есть хотя бы 50 долларов, чтобы заплатить за мою новую одежду?
 Yes Mistress.  What would you like to do then?
 Да, Госпожа.  А что бы вы хотели тогда сделать?
@@ -3436,7 +4361,7 @@ I want to alter your seriousness.
 ###_NPC
 (She seems curious.)  Alter it how Mistress?
 (Кажется, ей любопытно.)  Как это изменить, Госпожа?
-###_ИГРОК
+###_PLAYER
 Forget it.
 Забудь это.
 ###_NPC
@@ -3518,14 +4443,14 @@ Sweet!  But how can I truly change?
 The asylum will change you.
 Психушка изменит тебя.
 ###_NPC
-(She nods.)  Yes, they have specific one day treatments.  But there's a 25$ fee, will you pay for it?
+(She nods.)  Yes, they have specific one day treatments.  But there's a $25 fee, will you pay for it?
 (Она кивает.)  Да, у них есть специальные однодневные процедуры.  Но там есть оплата в 25 долларов, вы заплатите за это?
 ###_PLAYER
 You'll get therapies at the asylum.
 Ты получишь лечение в психушке.
 They have treatments for that at the asylum.
 У них есть лечение для этого в психушке.
-I will pay the 25$.
+I will pay the $25.
 Я заплачу эти 25 долларов.
 ###_NPC
 Alright Mistress.  I will go there right now.  I will be back tomorrow.
@@ -3544,6 +4469,143 @@ Forget it then.
 Тогда забудь об этом.
 See you tomorrow!  (Send her to the asylum.)
 Увидимся завтра!  (Отправь ее в психушку.)
++###_NPC
+Yes.  I could see myself as being both your slave and your lover.  I know we could have a great time together.
+Да.  Я могла бы видеть себя одновременно твоей рабыней и твоей любовницой.  Я знаю, мы могли бы прекрасно провести время вместе.
+###_NPC [Horny]
+Yes!  You drive me crazy with desire Mistress.  I need you.  I want you to fuck me.
+Да!  Ты сводишь меня с ума от желания, Госпожа.  Ты мне нужна.  Я хочу, чтобы ты трахнула меня.
+###_NPC [Frigid]
+Yes.  I love you Mistress, and it will bring you more occasions to lock me up in chastity.
+Да.  Я люблю тебя, госпожа, и это даст тебе больше поводов запереть меня в целомудрии.
+###_NPC [Polite]
+Absolutely!  I adore and cherish you Mistress.  We would make a wonderful couple.
+Абсолютно!  Я обожаю и лелею тебя, госпожа.  Мы были бы замечательной парой.
+###_NPC [Rude]
+Hell yeah!  I love ya Mistress!  We'll have the best time together.
+Черт возьми, да!  Я люблю тебя, госпожа!  Мы прекрасно проведем время вместе.
+###_NPC
+Yes Mistress.  Is there anything else you want to talk about?
+Да, госпожа.  Есть ли что-нибудь еще, о чем ты хочешь поговорить?
+###_PLAYER
+I love you my girl.
+Я люблю тебя, моя девочка.
+###_NPC
+I love you Mistress.  I hope we can share this love for a long time.
+Я люблю тебя, госпожа.  Я надеюсь, что мы сможем разделить эту любовь надолго.
+I love you Mistress.  This is indeed a wonderful day.
+Я люблю тебя, госпожа.  Это действительно чудесный день.
+###_PLAYER
+(Grab and kiss her.)
+(Схватить и поцеловать ее.)
+###_NPC
+(You grab her and share a long and loving kiss.)  I love you Mistress.
+(Ты хватаешь ее и делишься долгим и любящим поцелуем.)  Я люблю тебя, госпожа.
+(She sighs.)  Please don't torture me like that.
+(Она вздыхает.)  Пожалуйста, не мучай меня так.
+(She nods slowly.)  It will.  I'm yours, body and soul.
+(Она медленно кивает.)  Оно будет.  Я твоя, душой и телом.
+(She raises an eyebrow.)  Let's not talk about that.  I'm yours, body and soul.
+(Она поднимает бровь.)  Давай не будем об этом говорить.  Я твоя, душой и телом.
+(She smiles at you.)  Let's make it work.  I'm yours, body and soul.
+(Она улыбается тебе.) Давай сделаем так, чтобы это сработало.  Я твоя, душой и телом.
+###_PLAYER
+Turn the tables?  What do you mean?
+Поменяться ролями?  Что ты имеешь в виду?
+###_NPC
+Since I'm more Dominant than you, you should wear my collar and not the reverse.
+Поскольку я более доминирующая, чем ты, ты должна носить мой ошейник, а не наоборот.
+###_PLAYER
+(Stay silent and listen to her.)
+(Сохраняйте молчание и слушайте ее.)
+We will not turn any tables girl.
+Мы не будем меняться ролями, девочка.
+###_NPC
+(She seems disappointed.)  Alright Mistress.  What's on your mind then?
+(Кажется, она разочарована.)  Хорошо, госпожа.  Тогда о чем ты думаешь?
+###_PLAYER
+Forget it.  I don't like this idea.
+Забудь это.  Мне не нравится эта идея.
+You want to collar me?
+Ты хочешь надеть на меня ошейник?
+###_NPC
+This collar of mine would become yours to wear.  You would need to call me "Mistress" from now on.
+Этот мой ошейник станет твоим, чтобы ты могла его носить.  Отныне тебе придется называть меня "Госпожа".
+###_PLAYER
+You would become my Mistress?
+Ты станешь моей Госпожой?
+You could not handle me.
+Ты не смогла бы справиться со мной.
+###_NPC
+(She sighs.)  Maybe you're right Mistress.  What's on your mind then?
+(Она вздыхает.)  Может быть, ты и права, госпожа.  Тогда о чем ты думаешь?
+###_PLAYER
+Don't be ridiculous girl.
+Не будь смешной, девочка.
+###_NPC
+(She nods.)  I'm sorry Mistress.  What's on your mind then?
+(Она кивает.)  Мне очень жаль, госпожа.  Тогда о чем ты думаешь?
+###_PLAYER
+You will take care of me?
+Ты позаботишься обо мне?
+###_NPC
+(She nods and smiles.)  Of course, I will.
+(Она кивает и улыбается.)  Конечно, я так и сделаю.
+###_PLAYER
+Yes, I will submit to you Miss.
+Да, я подчинюсь вам, мисс.
+###_NPC
+We will build a wonderful relationship.  Now get on your knees.
+Мы построим замечательные отношения. А теперь встань на колени.
+###_NPC [Playful|Peaceful]
+We will have a great time together.  (She pets your hair.)  Now get on your knees.
+Мы прекрасно проведем время вместе.  (Она гладит тебя по волосам.) А теперь встань на колени.
+###_NPC [Serious|Violent]
+Damn right you will submit.  Get on your knees girl.  (She snaps her fingers)
+Чертовски верно, ты подчинишься.  Встань на колени, девочка.  (Она щелкает пальцами)
+###_NPC [Horny|Rude]
+I'll finally be able to fuck you as much as I want.  Get on your knees slut.
+Наконец-то я смогу трахать тебя столько, сколько захочу.  Встань на колени, шлюха.
+###_PLAYER
+No, I won't do that.
+Нет, я этого не сделаю.
+###_NPC
+(She sighs.)  I thought it was a good plan.  What's on your mind then?
+(Она вздыхает.)  Я подумала, что это был хороший план.  Тогда о чем ты думаешь?
+###_PLAYER
+Yes Miss.  (Kneel down.)
+Да, мисс.  (Опускаться на колени.)
+###_NPC
+Good girl.  You'll need to call me "Mistress" from now on.  We'll go to the club management to transfer that collar.
+Хорошая девочка.  Отныне тебе придется называть меня "Госпожа".  Мы пойдем к руководству клуба, чтобы передать этот ошейник.
+###_PLAYER
+(Stay silent and kneel down.)
+(Сохраняйте молчание и встаньте на колени.)
+(Go to transfer her collar.)
+(Идите, чтобы передать её ошейник.)
+###_NPC
+(You both walk to the club management where they transfer her collar to you, officialising the new ownership.  You return with your new Mistress.)
+(Вы оба идете к руководству клуба, где они передают вам ее ошейник, официально оформляя новое владение.  Ты возвращаешься со своей новой Госпоже.)
+###_PLAYER
+I'm so happy Mistress!
+Я так счастлива, госпожа!
+###_NPC
+(She smiles.)  So am I.  You are now under my control girl.  Be a good submissive.
+(Она улыбается.)  Я тоже.  Теперь ты под моим контролем, девочка.  Будь хорошим сабмиссивом.
+###_PLAYER
+Wow!  It happened so fast.
+Ух ты!  Все произошло так быстро.
+###_NPC
+(She nods.)  That's right.  You are now under my control girl.  Be a good submissive.
+(Она кивает.)  Верно.  Теперь ты под моим контролем, девочка.  Будь хорошим сабмиссивом.
+###_PLAYER
+Is it too late to change my mind?
+Не слишком ли поздно передумать?
+###_NPC
+(She frowns.)  Don't worry about making decisions anymore, I will control you.  Be a good submissive.
+(Она хмурится.)  Не беспокойся больше о принятии решений, я буду контролировать тебя.  Будь хорошим сабмиссивом.
+(She seems curious.)  What would you like to do Mistress?
+(Кажется, ей любопытно.)  Что бы вы хотели сделать, госпожа?
 ###_NPC [Serious|Violent]
 (You tickle her on the ribs and tummy.  She barely laughs and doesn't seem to enjoy it.)  Mistress, you can do better than that.
 (Ты щекочешь ее по ребрам и животу.  Она едва смеется и, кажется, не получает от этого удовольствия.)  Госпожа, вы можете сделать что-нибудь получше.

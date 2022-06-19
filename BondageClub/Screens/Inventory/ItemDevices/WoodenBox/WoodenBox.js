@@ -135,8 +135,8 @@ function InventoryItemDevicesWoodenBoxExit() {
 
 	if (CurrentScreen === "ChatRoom" && text !== InventoryItemDevicesWoodenBoxOriginalText) {
 		const dictionary = [
-			{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
+			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 			{ Tag: "NewText", Text: text },
 			{ Tag: "AssetName", AssetName: item.Asset.Name },
 		];
@@ -162,7 +162,7 @@ function InventoryItemDevicesWoodenBoxExit() {
  * @returns {void} - Nothing
  */
 function InventoryItemDevicesWoodenBoxSetOpacity(property, opacity) {
-	if (opacity !== property.opacity) property.Opacity = opacity;
+	if (opacity !== property.Opacity) property.Opacity = opacity;
 	if (!Array.isArray(property.Effect)) property.Effect = [];
 	const transparent = property.Opacity < 0.15;
 	const effectsToApply = transparent ? ["Prone", "Enclose", "Freeze"] : ["Prone", "Enclose", "BlindNormal", "GagLight", "Freeze"];

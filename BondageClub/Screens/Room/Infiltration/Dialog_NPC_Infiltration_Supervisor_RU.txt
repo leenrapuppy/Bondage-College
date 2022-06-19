@@ -1,0 +1,578 @@
+###_NPC
+(She frowns at you.)  Go see a maid girl.  I don't have time for this.
+(Она хмурится.) Сходи к горничной. У меня нет времени на это.
+Comrade DialogPlayerName!  (She gives you a military salute.)  The bunker is yours to command.
+Товарищ DialogPlayerName! (Она приветствует вас по-военному.) Бункер в вашем распоряжении.
+Comrade DialogPlayerName!  (She gives you a military salute.)  We were waiting for you to review the planning.
+Товарищ DialogPlayerName! (Она приветствует вас по-военному.) Мы ждали, когда вы просмотрите план.
+Comrade DialogPlayerName!  (She gives you a military salute.)  Are you ready for duty?
+Товарищ DialogPlayerName! (Она приветствует вас по-военному.) Вы готовы к службе?
+It's a pleasure to see you comrade DialogPlayerName.
+Рада вас видеть, товарищ DialogPlayerName.
+Don't waste my time comrade DialogPlayerName, this is serious.
+Не трать мое время, товарищ DialogPlayerName, это серьезно.
+Are you lost?  We do serious business here.
+Вы заблудились? У нас тут серьезный бизнес.
+###_PLAYER
+Who are you?
+Кто ты?
+###_NPC
+My name isn't important, I serve the Bondage Club best interests and give infiltration missions.
+Мое имя не важно, я служу интересам Бондаж-клуба и даю задания по проникновению.
+###_PLAYER
+Greetings comrade.  (Salute her.)
+Приветствую товарищ. (Приветствуйте ее.)
+###_NPC
+(She salutes you back.)  Greetings, we have lots of work ahead.
+(Она отдает честь тебе в ответ.) Приветствую, у нас впереди много работы.
+###_PLAYER
+What's going on here?
+Что тут происходит?
+###_NPC
+You're in the bunker.  This is where we plan missions against Pandora's Box, our rival club.
+Ты в бункере. Здесь мы планируем миссии против Ящика Пандоры, нашего соперника.
+###_PLAYER
+Tell me about the missions.
+Расскажите мне о миссиях.
+###_NPC
+Make it quick, what would you like to know?
+Поторопись, что бы вы хотели узнать?
+###_PLAYER
+What are the perks?
+Что за перки?
+###_NPC
+You can train some perks to help you, before going into a mission.  Do you need details?
+Вы можете выучить некоторые навыки, которые помогут вам, прежде чем отправиться на миссию. Вам нужны подробности?
+###_PLAYER
+I'd like to take a mission.
+Я хотела бы взять миссию.
+###_NPC
+Very good comrade DialogPlayerName!  (She salutes you.)  What kind of challenge are you up to?
+Очень хорошо товарищ DialogPlayerName! (Она отдает честь тебе.) На какую миссию вы готовы?
+Very good!  What kind of challenge are you up to?
+Отлично! Какую миссию вы готовы принять?
+###_PLAYER
+I need to go.  (Leave her.)
+Мне надо идти. (Оставь ее.)
+Pandora's Box?
+Ящик Пандоры?
+###_NPC
+Yes, they opened their BDSM club right next to us a few months ago.  At first it was healthy competition, until they started to play dirty.
+Да, они открыли свой БДСМ-клуб рядом с нами несколько месяцев назад. Сначала это была здоровая конкуренция, пока они не начали играть грязно.
+###_PLAYER
+They play dirty?
+Они играют грязно?
+###_NPC
+They sell our slaves, attack our Mistresses, jail our members, hack our computers and steal our money.  Is that dirty enough?
+Они продают наших рабов, нападают на наших Госпож, сажают в тюрьму наших членов, взламывают наши компьютеры и крадут наши деньги. Это достаточно грязно?
+###_PLAYER
+You're at war with that club?
+Вы воюете с этим клубом?
+###_NPC
+It's too risky for BDSM clubs to do a public war, we could both get closed.  That's why we created this bunker and do infiltration missions.
+Для БДСМ-клубов слишком рискованно вести публичную войну, мы оба можем закрыться. Вот почему мы создали этот бункер и проводим миссии по проникновению.
+###_PLAYER
+That's all I wanted to know.
+Это все, что я хотела знать.
+###_NPC
+Fine.  Do you want to take a mission now?
+Отлично. Вы хотите взять миссию сейчас?
+###_PLAYER
+Anyone can take missions?
+Любой может брать миссии?
+###_NPC
+If you've never done an infiltration before, you will get easy missions.  Once we trust you, you will get more important missions.
+Если вы никогда раньше не занимались проникновением, вы получите легкие миссии. Как только мы доверимся вам, вы получите более важные миссии.
+###_PLAYER
+What kind of missions can I do?
+Какие миссии я могу выполнять?
+###_NPC
+You can rescue a kidnapped girl, capture someone for a prisoner exchange, find a stolen item or steal documents from them.
+Вы можете спасти похищенную девушку, захватить кого-то для обмена пленными, найти украденный предмет или украсть у них документы.
+###_PLAYER
+Do I need a disguise?
+Мне нужна маскировка?
+###_NPC
+Yes, we will disguise you before all missions.  Having different clothes will help you to blend into Pandora's Box.
+Да, мы замаскируем вас перед всеми миссиями. Разная одежда поможет вам слиться с ящиком Пандоры.
+###_PLAYER
+Will I get paid?
+Мне заплатят?
+###_NPC
+Of course, the higher the danger, the higher you get paid.
+Конечно, чем выше опасность, тем выше вам заплатят.
+###_PLAYER
+What happens if I fail?
+Что произойдет, если я потерплю неудачу?
+###_NPC
+We leave no one behind.  If you get captured, we will bribe them or plan your escape, just be patient.
+Мы никого не оставляем позади. Если вас поймают, мы подкупим их или спланируем ваш побег, просто будьте терпеливы.
+###_PLAYER
+Can I get some training?
+Могу ли я пройти обучение?
+###_NPC
+There's no better training than going to the battlefield.  The more missions you do, the more perks you will be able to train.
+Нет лучшей тренировки, чем поход на поле боя. Чем больше миссий вы выполните, тем больше перков вы сможете обучить.
+###_PLAYER
+What kind of perks are there?
+Какие перки существуют?
+###_NPC
+There are two categories of perks you can train.  The first one will help you in battles.  The second will help you in infiltration.  You can change them before any mission.
+Есть две категории перков, которые вы можете тренировать. Первый поможет вам в битвах. Второй поможет вам в проникновении. Вы можете изменить их перед любой миссией.
+###_PLAYER
+Tell me about battle perks.
+Расскажи мне о боевых перках.
+###_NPC
+Training these perks will only change your battles in Pandora's Box.  It will give you passive bonuses to hit harder or stand your ground against your opponents.
+Обучение этим навыкам изменит только ваши сражения в Ящике Пандоры. Это даст вам пассивные бонусы, чтобы бить сильнее или противостоять своим противникам.
+###_PLAYER
+Do I recover after a battle?
+Восстанавливаюсь ли я после боя?
+###_NPC
+You will not recover your willpower after a battle, so fight wisely.  Your willpower will also go down when you fail in your infiltration tasks like lockpicking.
+Вы не восстановите свою силу воли после боя, поэтому сражайтесь с умом. Ваша сила воли также упадет, если вы потерпите неудачу в своих задачах проникновения, таких как взлом замков.
+###_PLAYER
+Tell me about the infiltration perks.
+Расскажите мне о перках проникновения.
+###_NPC
+The infiltration perks will help you navigate Pandora's Box faster.  It can be used to lockpick easier or bribe a rival girl to get out of trouble.
+Перки проникновения помогут вам быстрее ориентироваться в Ящике Пандоры. Его можно использовать для облегчения взлома замков или подкупа соперницы, чтобы избежать неприятностей.
+###_PLAYER
+How many perks can I allocate?
+Сколько перков я могу выделить?
+###_NPC
+The number of perks you can allocate is your infiltration skill level plus one.
+Количество перков, которые вы можете выделить, равно вашему уровню навыка проникновения плюс один.
+Great!  What kind of challenge are you up to?
+Замечательно! Какой вызов вы готовы принять?
+###_PLAYER
+An easy challenge please.
+Пожалуйста, простую задачу.
+###_NPC
+Alright.  Let me fetch an easy mission for you, give me a minute.
+Хорошо. Позвольте мне принести вам легкое задание, дайте мне минуту.
+###_PLAYER
+A regular mission I guess.
+Обычную миссию, я думаю.
+###_NPC
+Very good.  Let me fetch a regular mission for you, give me a minute.
+Отлично. Позволь мне принести тебе обычную миссию, дай мне минутку.
+###_PLAYER
+Give me something serious.
+Дай мне что-нибудь серьезное.
+###_NPC
+My pleasure, comrade DialogPlayerName.  Let me fetch a hard mission for you, give me a minute.
+С удовольствием, товарищ DialogPlayerName. Позволь мне принести тебе сложную миссию, дай мне минутку.
+###_PLAYER
+I can take on anything.
+Я могу взяться за что угодно.
+###_NPC
+(She gives you a military salute.)  Let me fetch a harder mission for you, give me a minute.
+(Она отдает вам воинское приветствие.) Позволь мне предложить тебе задание посложнее, дай мне минутку.
+###_PLAYER
+Send me to hell comrade.
+Пошлите меня в ад, товарищ.
+###_NPC
+You will be remembered for years to come.  Let me fetch an extreme mission for you, give me a minute.
+Вас будут помнить долгие годы. Позволь мне принести тебе экстремальную миссию, дай мне минутку.
+###_PLAYER
+Have you heard about Pandora's locks?
+Вы слышали о замках Пандоры?
+###_NPC
+(She nods and starts to whisper.)  A few spies told me about them.  Pandora seems to be developing a new kind of padlock.
+(Она кивает и начинает шептать.) Несколько шпионов рассказали мне о них. Пандора, кажется, разрабатывает новый тип замка.
+###_PLAYER
+I don't think I'm ready.
+Я не думаю, что готова.
+###_NPC
+Alright.  Let me know when you're ready.
+Хорошо. Дайте мне знать, когда будешь готова.
+###_PLAYER
+(Wait for her.)
+(Подождите ее.)
+Why are you whispering?
+Почему ты шепчешь?
+###_NPC
+(She continues to whisper.)  Shhhh.  They've put lots of effort to hide and protect this technology.  We could get in trouble.
+(Она продолжает шептать.) Ш-ш-ш. Они приложили много усилий, чтобы скрыть и защитить эту технологию. Мы можем попасть в беду.
+###_PLAYER
+(Whisper.)  I could steal that technology.
+(Шепотом.) Я могу украсть эту технологию.
+###_NPC
+Are you sure?  You might have to search for weeks before you find it.  Pandora's Box is huge.
+Ты уверена? Возможно, тебе придется искать несколько недель, прежде чем ты найдёшь его. Ящик Пандоры огромен.
+###_PLAYER
+It sounds too dangerous for me.
+Это звучит слишком опасно для меня.
+###_NPC
+(She nods and stops whispering.)  Let's change subject.  Isn't the weather nice lately?
+(Она кивает и перестает шептать.) Давай сменим тему. Разве в последнее время не хорошая погода?
+###_PLAYER
+I'll do it comrade.
+Я сделаю это, товарищ.
+###_NPC
+(She salutes and picks a disguise for you.)  I knew we could count on you.  Will you go now?
+(Она отдает честь и выбирает для вас маскировку.) Я знала, что мы можем на вас рассчитывать. Ты пойдешь сейчас?
+###_PLAYER
+I need to prepare first.
+Мне нужно сначала подготовиться.
+###_NPC
+USB key
+Ключ USB
+BDSM painting
+БДСМ живопись
+gold plated collar
+ошейник с позолотой
+general ledger
+Главная бухгалтерская книга
+silver vibrator
+серебряный вибратор
+diamond ring
+кольцо с бриллиантом
+porn star signed photo
+Фото подписанное порнозвездой
+Pandora's locks & keys
+Замки и ключи Пандоры
+Poor TargetName has been kidnapped by Pandora's Box.  We need someone like you to go there and rescue her.
+Бедная TargetName была похищена Ящиком Пандоры. Нам нужена кто-то вроде тебя, чтобы отправиться туда и спасти ее.
+###_PLAYER
+Give me her profile.
+Дайте мне ее профиль.
+###_NPC
+(She gives you some information so you can rescue her.)  She really needs you.  It's time for your disguise comrade.
+(Она дает вам некоторую информацию, чтобы вы могли ее спасти.) Вы ей очень нужны. Пришло время переодеться, товарищ.
+###_PLAYER
+How will I recognize her?
+Как я ее узнаю?
+###_NPC
+We have a specific target that you'll need to kidnap:  TargetName.  Restrain her and bring her back so we can arrange a prisoner exchange.
+У нас есть конкретная цель, которую вам нужно похитить: TargetName. Задержите ее и верните, чтобы мы могли организовать обмен пленными.
+###_PLAYER
+She's a tough one?
+Она жесткая?
+###_NPC
+(She gives you some information so you can kidnap her.)  Don't let her escape.  It's time for your disguise comrade.
+(Она дает вам некоторую информацию, чтобы вы могли ее похитить.) Не дайте ей сбежать. Пришло время переодеться, товарищ.
+###_PLAYER
+Where does she hang out?
+Где она тусуется?
+###_NPC
+We need you to retrieve a stolen TargetName.  Get it back at any cost and sneak back in here quickly.
+Нам нужно, чтобы вы вернули украденный TargetName. Верните его любой ценой и быстро прокрадитесь сюда.
+###_PLAYER
+Give me a description.
+Дайте мне описание.
+###_NPC
+(She gives you some details on the item to retrieve.)  It belongs to us.  It's time for your disguise comrade.
+(Она сообщает вам некоторые подробности о предмете, который нужно забрать.) Он принадлежит нам. Пришло время переодеться, товарищ.
+###_PLAYER
+I'll need more details.
+Мне нужно больше деталей.
+###_NPC
+We need you to steal a TargetName for us.  Search for it, take it and bring it here without getting caught.
+Нам нужно, чтобы вы украли для нас TargetName. Найди его, возьми и принеси сюда, чтобы тебя не поймали.
+###_PLAYER
+How will I recognize it?
+Как я его узнаю?
+###_NPC
+(She gives you some details on the item to steal.)  They cannot keep it.  It's time for your disguise comrade.
+(Она сообщает вам некоторые детали предмета, который нужно украсть.) Они не могут его оставить. Пришло время переодеться, товарищ.
+###_PLAYER
+It's easy to spot?
+Это легко обнаружить?
+###_NPC
+It's getting late, the timing is perfect to send a cat burglar and get back some of our stolen goods.
+Уже поздно, самое время послать кошачьего грабителя и вернуть украденное.
+###_PLAYER
+I'll go steal after they close?
+Я пойду воровать, когда они закроются?
+###_NPC
+(She nods.)  Yes comrade.  Pandora's Box should be mostly empty, but you won't have much time.
+(Кивает.) Да, товарищ. Ящик Пандоры должен быть в основном пуст, но у вас не будет много времени.
+###_PLAYER
+What should I look for?
+Что я должна искать?
+###_NPC
+Find the locked chests and picklock them.  Our stolen goods should be inside.
+Найдите запертые сундуки и взломайте их. Наши украденные вещи должны быть внутри.
+###_PLAYER
+How much time do I have?
+Сколько времени у меня есть?
+###_NPC
+Around one hour.  Don't stay beyond that time or you'll get caught.
+Около часа. Не оставайтесь дольше этого времени, иначе вас поймают.
+###_PLAYER
+Do I keep the goods?
+Оставлю ли я товар?
+###_NPC
+No, you bring it back here and we'll pay you for half the value of what you found.
+Нет, вы принесете его сюда, и мы заплатим вам половину стоимости того, что вы нашли.
+###_PLAYER
+Is that legal?
+Это законно?
+###_NPC
+Everything is legal if you don't caught comrade.  (She winks at you.)
+Все законно, если тебя не поймали, товарищ. (Она подмигивает тебе.)
+###_PLAYER
+I'm ready.  What's my disguise?
+Я готова. Какая у меня маскировка?
+###_NPC
+(She produces a sexy cat burglar outfit for you.)  Perfect!  You're ready for your mission!
+(Она достает для вас сексуальный костюм грабителя-кошки.) Отлично! Вы готовы к своей миссии!
+###_PLAYER
+I've changed my mind.
+Я передумала.
+###_NPC
+I'm sorry to hear that.  Come another time then.
+Мне очень жаль это слышать. Тогда приходи в другой раз.
+###_PLAYER
+(Go to Pandora's Box.)
+(Перейти к ящику Пандоры.)
+###_NPC
+Welcome back comrade.  Have you recovered our stolen goods?
+С возвращением, товарищ. Вы вернули наши украденные вещи?
+###_PLAYER
+The mission was a success.
+Миссия увенчалась успехом.
+###_NPC
+Congratulation comrade DialogPlayerName!  Your salary will be half of what you recovered.
+Поздравляем товарища DialogPlayerName! Ваша зарплата будет составлять половину того, что вы вернули.
+###_PLAYER
+I'm going back right now.
+Я возвращаюсь прямо сейчас.
+Sorry, I've failed.
+Извините, я потерпела неудачу.
+###_NPC
+Don't be ashamed, I'm sure you've tried your best.  We'll send someone else.  You can pick another mission if you want.
+Не стыдись, я уверена, ты старалась изо всех сил. Мы пошлем кого-то еще. Ты можешь выбрать другую миссию, если хочешь.
+###_PLAYER
+Give me a minute.  (Leave her.)
+Дай мне минуту. (Оставь ее.)
+###_NPC
+Since they are sending members to do damage on our buildings, it's only fair that we do the same.  I'll send you on a maid sabotage mission.
+Поскольку они посылают членов, чтобы нанести ущерб нашим зданиям, будет справедливо, если мы поступим так же. Я отправлю тебя на диверсионную миссию горничной.
+###_PLAYER
+Sabotage how?
+Как саботировать?
+###_NPC
+Find some paint within Pandora's Box and do graffities in all dead-end rooms.  They will need to clean-up for days.
+Найдите немного краски в Ящике Пандоры и нарисуйте граффити во всех тупиковых комнатах. Их придётся будет убирать в течение нескольких дней.
+###_PLAYER
+Where can I find paint?
+Где найти краску?
+###_NPC
+You won't be able to enter with paint cans, but you'll find some while you're inside.  The maid disguise will help you.
+Вы не сможете войти с банками с краской, но вы найдете их, пока будете внутри. Маскировка горничной поможет вам.
+###_PLAYER
+I'll play a maid?
+Я буду играть горничную?
+###_NPC
+(She nods.)  We'll send you with a maid costume, it should help you to find some paint to decorate the walls.
+(Она кивает.) Мы пришлем вам костюм горничной, он поможет вам найти краску для окраски стен.
+###_PLAYER
+I get paid for graffities?
+Мне платят за граффити?
+###_NPC
+Exactly comrade!  Damage at least fifty percent of the rooms and we'll pay you.  We'll give you a bonus if you damage everything.
+Точно товарищ! Повредите хотя бы пятьдесят процентов комнат, и мы заплатим вам. Мы дадим вам бонус, если вы все испортите.
+We'll send you disguised as a maid.  Make sure to decorate well.  (She winks at you.)  Be warned, the costume is sexy.
+Мы пришлем тебя в образе горничной. Обязательно хорошо украсьте. (Она подмигивает вам.) Имей в виду, костюм сексуальный.
+###_PLAYER
+I can handle a silly costume.
+Я могу справиться с глупым костюмом.
+###_NPC
+(She nods and dresses you up as a maid from Pandora.)  It's time to go comrade!
+(Она кивает и переодевает вас горничной с Пандоры.) Пора идти, товарищ!
+###_PLAYER
+The sexier the better.
+Чем сексуальнее, тем лучше.
+###_NPC
+(She giggles and dresses you up as a maid from Pandora.)  It's time to go comrade!
+(Она хихикает и переодевает вас горничной с Пандоры.) Пора идти, товарищ!
+###_PLAYER
+(Stay silent and dress.)
+(Молчать и одеваться.)
+###_NPC
+(She dresses you up as a maid from Pandora.)  It's time to go comrade!
+(Наряжает тебя горничной с Пандоры.) Пора идти, товарищ!
+Welcome back comrade.  Are you the next Picasso of BDSM?
+С возвращением, товарищ. Ты следующий Пикассо в БДСМ?
+Congratulation comrade DialogPlayerName!  I'll remember not to hire you when I renovate my place.
+Поздравляем товарища DialogPlayerName! Я запомню, чтобы не нанимать тебя, когда буду ремонтировать свою квартиру.
+###_PLAYER
+Yes!  Dress me up!
+Да! Одень меня!
+###_NPC
+(She smiles and picks random clothes for you, to help you blend into Pandora's Box.)  Perfect!  Are you ready for your mission?
+(Она улыбается и выбирает для вас случайную одежду, чтобы помочь вам слиться с Ящиком Пандоры.) Отлично! Вы готовы к своей миссии?
+###_PLAYER
+Is it really needed?
+Это действительно необходимо?
+###_NPC
+(She grumbles and picks random clothes for you, to help you blend into Pandora's Box.)  Alright!  Are you ready for your mission?
+(Она ворчит и выбирает для вас случайную одежду, чтобы помочь вам слиться с Ящиком Пандоры.) Хорошо! Вы готовы к своей миссии?
+###_PLAYER
+(Disguise yourself.)
+(Замаскироваться)
+###_NPC
+(You pick some random clothes to blend easier into Pandora's Box.)  Very good!  Are you ready for your mission?
+(Вы выбираете случайную одежду, чтобы легче смешаться с ящиком Пандоры.) Очень хорошо! Вы готовы к своей миссии?
+###_PLAYER
+I'd like another disguise.
+Я бы хотела другую маскировку.
+###_NPC
+(You pick new random clothes to blend better into Pandora's Box.)  A good spy must dress well.
+(Вы выбираете новую случайную одежду, чтобы она лучше гармонировала с ящиком Пандоры.) Хороший шпион должен хорошо одеваться.
+###_PLAYER
+I'm ready to go!
+Я готова идти!
+###_NPC
+(She salutes you.)  Make us proud comrade DialogPlayerName.
+(Она отдает честь тебе.) Порадуйте нас, товарищ DialogPlayerName.
+###_PLAYER
+I'm the best.  I will be back quick.
+Я лучшая. Я вернусь быстро.
+###_NPC
+That's the spirit comrade!  The Bondage Club is proud of you.
+Вот это дух товарищ! Бондаж-клуб гордится тобой.
+###_PLAYER
+I hope nothing will go wrong.
+Я надеюсь, что ничего не пойдет не так.
+###_NPC
+Be more confident girl.  Go and make us proud!
+Будь уверенней, девочка. Иди и порадуй нас!
+Welcome back comrade.  Is your mission complete?
+С возвращением, товарищ. Ваша миссия завершена?
+Congratulation comrade DialogPlayerName!  (She salutes you.)  The Bondage Club is proud of you.
+Поздравляем товарища DialogPlayerName! (Она отдает честь тебе.) Бондаж-клуб гордится вами.
+(You pick new random clothes to blend better into Pandora's Box.)  A true chameleon!
+(Вы выбираете новую случайную одежду, чтобы лучше вписаться в ящик Пандоры.) Настоящий хамелеон!
+###_PLAYER
+Can I keep the locks and keys?
+Могу ли я оставить себе замки и ключи?
+###_NPC
+(She ponders.)  This is highly unusual, but you're such a great spy, you deserve it.  Keep them and serve the Bondage Club comrade.
+(Она размышляет.) Это очень необычно, но ты такой отличный шпион, ты это заслужил. Держи их и служи товарищу из Бондаж Клуба.
+###_PLAYER
+Thank you, comrade.
+Спасибо, товарищ.
+###_NPC
+(She nods quickly and gives you a sealed envelope with your salary.)  Come back anytime for more assignments.
+(Она быстро кивает и дает вам запечатанный конверт с вашей зарплатой.) Возвращайтесь в любое время за новыми заданиями.
+###_PLAYER
+I was scared, but I did it.
+Я боялась, но я сделала это.
+###_NPC
+(She cheers you up and gives you a sealed envelope with your salary.)  Come back anytime for more assignments.
+(Она подбадривает вас и дает вам запечатанный конверт с вашей зарплатой.) Возвращайтесь в любое время, чтобы получить новые задания.
+###_PLAYER
+You should know that I never fail.
+Вы должны знать, что я никогда не проигрываю.
+###_NPC
+(She bows her head and gives you a sealed envelope with your salary.)  Come back anytime for more assignments.
+(Она склоняет голову и дает вам запечатанный конверт с вашей зарплатой.) Возвращайтесь в любое время за новыми заданиями.
+(She looks at the Dominatrix that came with you and grins.)  Comrade!  Who did you bring with you?
+(Она смотрит на Доминатрикс, которая пришла с тобой, и усмехается.) Товарищ! Кого ты привела с собой?
+###_PLAYER
+You think we can get a ransom for her?
+Думаешь, мы сможем получить за нее выкуп?
+###_NPC
+Absolutely.  We can keep her for ransom until they pay.  Would you like to get your cut?
+Абсолютно. Мы можем оставить ее за выкуп, пока они не заплатят. Хочешь получить свою долю?
+###_PLAYER
+This Pandora's bitch will make me rich and famous.
+Эта сучка Пандоры сделает меня богатой и знаменитой.
+###_NPC
+(She nods slowly.)  We can keep her for ransom until they pay.  Would you like to get your cut?
+(Она медленно кивает.) Мы можем оставить ее за выкуп, пока они не заплатят. Хочешь получить свою долю?
+###_PLAYER
+I kidnapped one of their administrators.
+Я похитила одного из их администраторов.
+###_NPC
+This is impressive.  We can keep her for ransom until they pay.  Would you like to get your cut?
+Это впечатляет. Мы можем оставить ее за выкуп, пока они не заплатят. Хочешь получить свою долю?
+###_PLAYER
+Yes, I'll take the money.
+Да, я возьму деньги.
+###_NPC
+Here you go comrade.  (She gives you a money envelope.)  Are you ready to go back?
+Вот, товарищ. (Она дает вам конверт с деньгами.) Ты готова вернуться?
+###_PLAYER
+No, but I want some infiltration training.
+Нет, но я хочу пройти обучение по проникновению.
+###_NPC
+Of course, comrade.  (She gives you great infiltration tricks.)  Are you ready to go back?
+Конечно, товарищ. (Она дает вам отличные приемы проникновения.) Ты готова вернуться?
+###_PLAYER
+I don't want anything.
+Я ничего не хочу.
+###_NPC
+You make us proud comrade.  (She salutes you.)  Are you ready to go back?
+Ты заставляешь нас гордиться, товарищ. (Она отдает честь тебе.) Ты готова вернуться?
+Comrade DialogPlayerName!  (She gives you a military salute.)  What's wrong?  You look worried.
+Товарищ DialogPlayerName! (Она приветствует вас по-военному.) Что случилось? Ты выглядишь беспокойной.
+Comrade DialogPlayerName!  Is there something troubling you?
+Товарищ DialogPlayerName! Вас что-то беспокоит?
+Hello!  Is there anything I can do to help you?
+Привет! Могу ли я чем-нибудь вам помочь?
+###_PLAYER
+My friend was kidnapped.
+Мою подругу похитили.
+###_NPC
+Sorry about that.  Pandora's Box has been causing lots of trouble lately.  Is there a ransom to pay?
+Прости за это. Ящик Пандоры в последнее время доставляет много хлопот. Есть ли цена выкупа?
+###_PLAYER
+I don't need anything.  (Leave her.)
+Мне ничего не нужно. (Оставь ее.)
+I'm not paying.  I'll go free her.
+Я не заплачу. Я освобожу ее.
+###_NPC
+That's what I wanted to hear comrade!  The Bondage Club will support you for that mission.  Are you ready for your disguise?
+Вот что я хотел услышать товарищ! Bondage Club поддержит вас в этой миссии. Вы готовы к маскировке?
+###_PLAYER
+Yes, the ransom amount is $100.
+Да, сумма выкупа составляет 100 долларов.
+###_NPC
+(She nods.)  That's the usual price.  Will you pay to free her?
+(Она кивает.) Это обычная цена. Вы заплатите, чтобы освободить ее?
+###_PLAYER
+For how long they will keep her?
+Как долго они будут держать ее?
+###_NPC
+It depends on the guards and Dominatrixes.  Most victims are usually kept for a week.
+Это зависит от охранников и Доминатрикс. Большинство жертв обычно держат неделю.
+###_PLAYER
+Let's drop this.  (Leave her.)
+Опустим это. (Оставь ее.)
+It's time to change.  (Find a disguise.)
+Пора изменить. (Найти маскировку.)
+###_NPC
+(You pick a random disguise together.)  Your friend is waiting for you.  Are you ready to go?
+(Вы вместе выбираете случайную маскировку.) Твой друг ждет тебя. Ты готова идти?
+###_PLAYER
+I'll do it later.
+Я сделаю это позже.
+###_NPC
+Very well, you know where to find me when you're ready.  (She salutes you.)
+Очень хорошо, ты знаешь, где меня найти, когда будешь готова. (Она отдает честь тебе.)
+###_PLAYER
+I don't have enough money.
+У меня недостаточно денег.
+###_NPC
+I understand comrade.  It's a big sum and it might be used to finance more kidnappings.  Let me know if you get the funds.
+Я понимаю товарищ. Это большая сумма, и она может быть использована для финансирования новых похищений. Дайте мне знать, если вы получите средства.
+###_PLAYER
+I'll pay right now.  (Give her $100.)
+Я заплачу прямо сейчас. (Дайте ей 100 долларов.)
+###_NPC
+(She takes the money and arranges her liberation.)  Your friend should be back in a few minutes comrade.
+(Она берет деньги и устраивает свое освобождение.) Твой друг должен вернуться через несколько минут, товарищ.
+###_PLAYER
+I don't know yet.
+Я еще не знаю.
+###_NPC
+Think about it, comrade.  It's a big sum and it might be used to finance more kidnappings.
+Подумайте об этом, товарищ. Это большая сумма, и она может быть использована для финансирования новых похищений.
+###_PLAYER
+Thanks.  Take care.  (Leave her.)
+Спасибо. Береги себя. (Оставь ее.)

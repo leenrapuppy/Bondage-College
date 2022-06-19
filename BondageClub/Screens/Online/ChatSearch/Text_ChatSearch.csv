@@ -30,3 +30,10 @@ GameLabel,Game:
 GameLARP,LARP
 GameMagicBattle,Magic Battle
 GameGGTS,GGTS
+Language,All languages
+LanguageEN,English
+LanguageFR,French
+LanguageES,Spanish
+LanguageDE,German
+LanguageCN,Chinese
+LanguageRU,Russian

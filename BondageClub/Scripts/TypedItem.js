@@ -48,7 +48,7 @@ const TypedItemChatSetting = {
  * Registers a typed extended item. This automatically creates the item's load, draw and click functions. It will also
  * generate the asset's AllowType array.
  * @param {Asset} asset - The asset being registered
- * @param {TypedItemConfig} config - The item's typed item configuration
+ * @param {TypedItemConfig | undefined} config - The item's typed item configuration
  * @returns {void} - Nothing
  */
 function TypedItemRegister(asset, config) {
@@ -63,6 +63,9 @@ function TypedItemRegister(asset, config) {
 	TypedItemGenerateAllowType(data);
 	TypedItemGenerateAllowEffect(data);
 	TypedItemGenerateAllowBlock(data);
+	TypedItemGenerateAllowTint(data);
+	TypedItemGenerateAllowLockType(data);
+	TypedItemRegisterSubscreens(asset, config);
 }
 
 /**
@@ -157,13 +160,12 @@ function TypedItemCreateClickFunction({ options, functionPrefix, drawImages, scr
 	} else window[clickFunctionName] = clickFunction;
 }
 
-
 /**
  * Creates an asset's extended item exit function
  * @param {TypedItemData} data - The typed item data for the asset
  * @returns {void} - Nothing
  */
- function TypedItemCreateExitFunction({ functionPrefix, scriptHooks}) {
+function TypedItemCreateExitFunction({ functionPrefix, scriptHooks}) {
 	const exitFunctionName = `${functionPrefix}Exit`;
 	if (scriptHooks && scriptHooks.exit) {
 		window[exitFunctionName] = function () {
@@ -279,6 +281,80 @@ function TypedItemGenerateAllowBlock({asset, options}) {
 }
 
 /**
+ * Generates an asset's AllowTint property based on its typed item data.
+ * @param {TypedItemData} data - The typed item's data
+ * @returns {void} - Nothing
+ */
+function TypedItemGenerateAllowTint({asset, options}) {
+	if (asset.AllowTint) {
+		return;
+	}
+	for (const option of options) {
+		if (option.Property && Array.isArray(option.Property.Tint) && option.Property.Tint.length > 0) {
+			asset.AllowTint = true;
+			return;
+		}
+	}
+}
+
+/**
+ * Generates an asset's AllowLockType property based on its typed item data.
+ * @param {TypedItemData} data - The typed item's data
+ * @returns {void} - Nothing
+ */
+function TypedItemGenerateAllowLockType({asset, options}) {
+	const allowLockType = [];
+	for (const option of options) {
+		const type = option.Property && option.Property.Type;
+		const allowLock = typeof option.AllowLock === "boolean" ? option.AllowLock : asset.AllowLock;
+		if (allowLock) {
+			// "" is used to represent the null type in AllowLockType arrays
+			allowLockType.push(type != null ? type : "");
+		}
+	}
+	TypedItemSetAllowLockType(asset, allowLockType, options.length);
+}
+
+/**
+ * Sets the AllowLock and AllowLockType properties on an asset based on an AllowLockType array and the total number of
+ * possible types.
+ * @param {Asset} asset - The asset to set properties on
+ * @param {string[]} allowLockType - The AllowLockType array indicating which of the asset's types permit locks
+ * @param {number} typeCount - The total number of types available on the asset
+ * @returns {void} - Nothing
+ */
+function TypedItemSetAllowLockType(asset, allowLockType, typeCount) {
+	if (allowLockType.length === 0) {
+		// If no types are allowed to lock, set AllowLock to false for quick checking
+		asset.AllowLock = false;
+		asset.AllowLockType = null;
+	} else if (allowLockType.length === typeCount) {
+		// If all types are allowed to lock, set AllowLock to true for quick checking
+		asset.AllowLock = true;
+		asset.AllowLockType = null;
+	} else {
+		// If it's somewhere in between, set an explicit AllowLockType array
+		asset.AllowLockType = allowLockType;
+	}
+}
+
+/**
+ * @param {Asset} asset - The asset whose subscreen is being registered
+ * @param {TypedItemConfig} config - The parent item's typed item configuration
+ */
+function TypedItemRegisterSubscreens(asset, config) {
+	return config.Options
+		.filter(option => option.Archetype !== undefined)
+		.forEach((option, i, options) => {
+			switch (option.Archetype) {
+				case ExtendedArchetype.VARIABLEHEIGHT:
+					VariableHeightRegister(asset, /** @type {VariableHeightConfig} */(option.ArchetypeConfig), option.Property, options);
+					break;
+			}
+		});
+}
+
+/**
  * Constructs the chat message dictionary for the typed item based on the items configuration data.
  * @param {ExtendedItemChatData<ExtendedItemOption>} ChatData - The chat data that triggered the message.
  * @param {TypedItemData} data - The typed item data for the asset
@@ -386,7 +462,7 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push = false) 
 		return msg;
 	}
 
-	return TypedItemSetOption(C, item, options, option);
+	return TypedItemSetOption(C, item, options, option, push);
 }
 
 /**
@@ -427,6 +503,12 @@ function TypedItemSetOption(C, item, options, option, push = false) {
 	}
 
 	item.Property = newProperty;
+
+	if (!InventoryDoesItemAllowLock(item)) {
+		// If the new type does not permit locking, remove the lock
+		ValidationDeleteLock(item.Property, false);
+	}
+
 	CharacterRefresh(C, push);
 }
 

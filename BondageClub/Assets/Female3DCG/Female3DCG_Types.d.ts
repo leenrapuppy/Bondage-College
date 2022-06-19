@@ -1,6 +1,6 @@
 interface AssetGroupDefinition {
 	Asset: (AssetDefinition | string)[];
-	Group: string;
+	Group: AssetGroupName;
 	ParentGroup?: string;
 	Category?: 'Appearance' | 'Item';
 	Default?: boolean;
@@ -15,15 +15,13 @@ interface AssetGroupDefinition {
 	Clothing?: boolean;
 	Underwear?: boolean;
 	BodyCosplay?: boolean;
-	Activity?: string[];
-	AllowActivityOn?: string[];
-	Hide?: string[];
-	Block?: string[];
+	Hide?: AssetGroupName[];
+	Block?: AssetGroupItemName[];
 	Zone?: [number, number, number, number][];
 	SetPose?: string[];
 	AllowPose?: string[];
 	AllowExpression?: string[];
-	Effect?: string[];
+	Effect?: EffectName[];
 	MirrorGroup?: string;
 	RemoveItemOnRemove?: { Group: string, Name: string, Type?: string }[];
 	Priority?: number;
@@ -34,7 +32,7 @@ interface AssetGroupDefinition {
 	InheritColor?: string;
 	FreezeActivePose?: string[];
 	PreviewZone?: [number, number, number, number];
-	DynamicGroupName?: string;
+	DynamicGroupName?: AssetGroupName;
 	MirrorActivitiesFrom?: string;
 }
 
@@ -45,16 +43,17 @@ interface AssetDefinition {
 	Enable?: boolean;
 	Visible?: boolean;
 	Wear?: boolean;
-	Activity?: string | string[];
+	/** Applying that asset triggers the following activity */
+	Activity?: string;
 	AllowActivity?: string[];
-	AllowActivityOn?: string[];
+	AllowActivityOn?: AssetGroupName[];
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: string[];
-	Effect?: string[];
+	Effect?: EffectName[];
 	Bonus?: string;
-	Block?: string[];
+	Block?: AssetGroupItemName[];
 	Expose?: string[];
-	Hide?: string[];
+	Hide?: AssetGroupName[];
 	HideItem?: string[];
 	HideItemExclude?: string[];
 	Require?: string[];
@@ -93,10 +92,10 @@ interface AssetDefinition {
 	LoverOnly?: boolean;
 	ExpressionTrigger?: { Name: string, Group: string, Timer: number }[];
 	RemoveItemOnRemove?: { Name: string, Group: string, Type?: string }[];
-	AllowEffect?: string[];
-	AllowBlock?: string[];
+	AllowEffect?: EffectName[];
+	AllowBlock?: AssetGroupItemName[];
 	AllowType?: string[];
-	DefaultColor?: string | string[];
+	DefaultColor?: ItemColor;
 	Opacity?: number;
 	MinOpacity?: number;
 	MaxOpacity?: number;
@@ -113,8 +112,8 @@ interface AssetDefinition {
 	DynamicAllowInventoryAdd?: (C: Character) => boolean;
 	DynamicExpressionTrigger?: (C: Character) => ExpressionTrigger[] | null | undefined;
 	DynamicName?: (C: Character) => string;
-	DynamicGroupName?: string;
-	DynamicActivity?: (C: Character) => string[] | string | null | undefined;
+	DynamicGroupName?: AssetGroupName;
+	DynamicActivity?: (C: Character) => string | null | undefined;
 	DynamicAudio?: (C: Character) => string;
 	CharacterRestricted?: boolean;
 	AllowRemoveExclusive?: boolean;
@@ -127,7 +126,7 @@ interface AssetDefinition {
 	AllowColorize?: boolean;
 	AllowColorizeAll?: boolean;
 	AvailableLocations?: string[];
-	OverrideHeight?: { Height: number; Priority: number; HeightRatioProportion?: number };
+	OverrideHeight?: AssetOverrideHeight;
 	FreezeActivePose?: string[];
 	DrawLocks?: boolean;
 	AllowExpression?: string[];
@@ -140,7 +139,9 @@ interface AssetDefinition {
 	FuturisticRecolorDisplay?: boolean;
 	Attribute?: string[];
 	HideItemAttribute?: string[];
-	PreviewIcons?: string[];
+	PreviewIcons?: InventoryIcon[];
+	Tint?: TintDefinition[];
+	DefaultTint?: string;
 }
 
 interface AssetLayerDefinition {
@@ -159,7 +160,8 @@ interface AssetLayerDefinition {
 	Alpha?: AlphaDefinition[],
 	Left?: number;
 	Top?: number;
-	HideAs?: { Group: string, Asset: string };
+	HideAs?: { Group: string, Asset?: string };
+	FixedPosition?: boolean;
 	HasImage?: boolean;
 	Opacity?: number;
 	MinOpacity?: number;

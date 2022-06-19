@@ -1,0 +1,16 @@
+Check!
+将军！
+Checkmate!
+将死！
+Draw
+平局
+Stalemate
+僵局
+Threefold Repetition
+三次重复局面
+Victory
+胜利
+Click on yourself to end.
+点击你自己以结束。
+Concede
+认输

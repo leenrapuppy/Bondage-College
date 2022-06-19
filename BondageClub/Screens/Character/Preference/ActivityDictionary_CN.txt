@@ -21,7 +21,7 @@ Tickle
 Caress
 轻抚
 Pet
-轻拍
+轻摸
 Cuddle
 搂抱
 Body Rub
@@ -98,8 +98,6 @@ Sit
 坐
 Struggle
 挣扎
-Struggle
-挣扎
 Step
 脚部互动
 SourceCharacter is tormented by the vibrations, struggling to keep her cool.
@@ -160,6 +158,436 @@ SourceCharacter meditates and takes deep breathes, resisting her building orgasm
 SourceCharacter集中精神,闭上眼睛冥想,试图抵抗积蓄已久的快感.
 By pure luck or some miracle, SourceCharacter is able to combat her orgasm.
 不知是幸运还是奇迹,SourceCharacter成功的避免了高潮.
+Kiss Foot
+亲吻脚
+Polite Kiss on Foot
+礼貌的亲吻脚
+Lick Feet
+舔脚
+Suck Big Toe
+吮吸大脚趾
+Nibble Feet
+轻咬脚
+Tickle Feet
+挠脚
+Spank Feet
+拍打脚
+Massage Feet
+按摩脚部
+Polish Toenails
+给脚趾涂油
+Bite Foot
+咬脚
+Wiggle Feet
+摇晃脚部
+Touch Foot with Gag
+用口塞触碰脚部
+Tickle Sole
+挠脚心
+Spank Sole
+拍打脚心
+Play with Feet
+玩弄脚部
+Spank Leg
+拍打腿部
+Caress Legs
+轻抚腿部
+Massage Legs
+按摩腿部
+Bite Leg
+咬腿
+Wiggle Legs
+摇晃腿部
+Kiss Leg
+亲吻腿部
+Touch Leg with Gag
+用口塞触碰腿部
+Lick Leg
+舔腿
+Nibble Leg
+轻咬腿部
+Tickle Leg
+搔挠腿部
+Caress Leg
+轻抚腿部
+Massage Leg
+按摩腿部
+Grope Leg
+抚弄腿部
+Tickle Thighs
+搔挠大腿
+Spank Thigh
+拍打大腿
+Caress Thighs
+轻抚大腿
+Massage Thighs
+按摩大腿
+Bite Thigh
+咬大腿
+Rub Thighs Together
+摩擦大腿
+Thrash in Bondage
+在舒服中挣扎
+Kiss Thigh
+亲吻大腿
+Rub Gag on Thighs
+用口塞蹭大腿
+Lick Thigh
+舔弄大腿
+Nibble Thighs
+轻咬大腿
+Spank Thighs
+拍打大腿
+Grope Thigh
+抚弄大腿
+Sit in Lap
+坐在膝盖上
+Rest Head in Lap
+将脑袋枕在膝上
+Masturbate Pussy
+玩弄阴部
+Fist Pussy
+拳交阴部
+Caress Pussy
+轻抚阴部
+Slap Pussy
+拍打阴部
+Finger Pussy
+手指抚慰阴部
+Foot Masturbate Pussy
+用脚玩弄阴部
+Tongue Masturbate Pussy
+用舌头玩弄阴部
+Slap Pussy Lips
+拍打阴唇
+Kiss Pussy Lips
+亲吻阴唇
+Push Gag in Pussy
+将口塞塞入阴部
+Lick Pussy Lips
+舔弄阴唇
+Nibble Pussy Lips
+轻咬阴唇
+Device on Pussy
+在阴部使用物品
+Masturbate Clitoris
+玩弄阴蒂
+Caress Clitoris
+轻抚阴蒂
+Slap Clitoris
+拍打阴蒂
+Finger Clitoris
+手指抚慰阴蒂
+Foot Masturbate Clitoris
+用脚玩弄阴蒂
+Tongue Masturbate Clitoris
+用舌头玩弄阴蒂
+Kiss Clitoris
+亲吻阴蒂
+Gag Kiss Clitoris
+带着口塞亲吻阴蒂
+Lick Clitoris
+舔弄阴蒂
+Nibble Clitoris
+轻咬阴蒂
+Device on Clitoris
+在阴蒂使用物品
+Finger Ass
+手指插入屁股
+Fist Ass
+拳交屁股
+Spank Butt
+拍打屁股
+Caress Butt
+轻抚屁股
+Grope Butt
+抚弄屁股
+Wiggle Butt
+摇晃屁股
+Bite Butt
+咬屁股
+Kiss Butt
+亲吻屁股
+Rub Gag on Butt
+在屁股上蹭口塞
+Tongue Masturbate Ass
+用舌头玩弄屁股
+Press Foot in Ass
+将脚伸入屁股
+Tickle Tummy
+挠肚皮
+Spank Tummy
+拍打肚皮
+Caress Tummy
+轻抚肚皮
+Pinch Tummy
+捏肚皮
+Massage Tummy
+按摩肚皮
+Wiggle hips
+摇晃髋
+Kiss Tummy
+亲吻肚皮
+Gag Kiss Tummy
+带着口塞亲吻肚皮
+Lick Tummy
+舔弄肚皮
+Nibble Tummy
+轻咬肚皮
+Grope Tummy
+抚弄肚皮
+Tickle Ribs
+挠肋部
+Spank Ribs
+拍打肋部
+Caress Ribs
+轻抚肋部
+Massage Back
+按摩肋部
+Wiggle Body
+摇晃身体
+Bite Back
+咬后背
+Kiss Back
+亲吻后背
+Gag Kiss Back
+带着口塞亲吻背部
+Lick Back
+舔弄背部
+Nibble Ribs
+轻咬背部
+Spank Back
+拍打背部
+Caress Back
+轻抚背部
+Foot Massage Back
+用脚按摩背部
+Rub Bodies
+蹭身体
+Kiss Nipple
+亲吻乳头
+Lick Nipple
+舔弄乳头
+Suck Nipple
+吮吸乳头
+Nibble Nipple
+轻咬乳头
+Pinch Nipple
+掐捏乳头
+Caress Nipple
+轻抚乳头
+Pull Nipples
+拉扯乳头
+Bite Nipple
+啃咬乳头
+Press Gag on Nipple
+将口塞压在乳头上
+Caress Nipples
+轻抚乳头
+Kiss Breast
+亲吻乳房
+Lick Breast
+舔弄乳房
+Tickle Breast
+挠乳房
+Slap Breast
+拍打乳房
+Caress Breast
+轻抚乳房
+Masturbate Breast
+抚慰乳房
+Grope Breast
+抚弄乳头
+Shake Breasts
+摇晃乳头
+Bite Breast
+咬乳房
+Press Gag on Breast
+将口塞压在乳房上
+Step on Breast
+踩住乳房
+Rest Head on Breast
+将脑袋枕在乳房上
+Kiss Arm
+亲吻胳膊
+Lick Arm
+舔弄胳膊
+Nibble Arm
+轻咬胳膊
+Tickle Arm
+挠胳膊
+Spank Arm
+拍打胳膊
+Pinch Upper Arm
+掐捏大臂
+Caress Arms
+轻抚胳膊
+Massage Arms
+按摩胳膊
+Bite Arm
+咬胳膊
+Wiggle Shoulders
+摇晃肩膀
+Struggle against Binds
+在束缚中挣扎
+Rub Gag on Arm
+用口塞蹭胳膊
+Tickle Arms
+挠胳膊
+Grab Arm
+紧抓胳膊
+Kiss Hand
+亲吻手
+Small Kiss on Hand
+轻吻手
+Lick Back of Hand
+舔弄手背
+Suck Fingers
+吮吸手指
+Nibble Hand
+轻咬手
+Spank Hand with the Other
+用另一只手拍打手
+Rub Hands Together
+搓手
+Polish Nails
+给手指甲涂油
+Bite Hand
+咬手
+Wiggle Fingers
+摇晃手指
+Touch Hand with Gag
+用口塞触碰手
+Polite Kiss on Hand
+礼貌的亲吻手
+Lick Hand
+舔手
+Spank Hand
+拍打手
+Caress Hand
+轻抚手
+Caress Neck
+轻抚脖子
+Massage Neck
+按摩脖子
+Choke Self
+掐自己
+Tickle Neck
+挠脖子
+Bite Neck
+咬脖子
+Kiss Neck
+亲吻脖子
+Touch Neck with Gag
+用口塞触碰脖子
+Lick Neck
+舔脖子
+Nibble Neck
+轻咬脖子
+Choke Neck
+卡住脖子
+Gently Foot on Neck
+轻轻踩住脖子
+Lick Lips
+舔嘴唇
+Nibble Lips
+轻咬嘴唇
+Clean Mouth
+清洗嘴巴
+Bite Lips
+咬嘴唇
+Clamp Hand over Mouth
+将手放在嘴上
+Moan
+呻吟
+Whimper Pleadingly
+恳求的呜咽
+Scream Furiously
+愤怒的喊叫
+Groan Desperately
+绝望的呻吟
+Giggle
+轻笑
+Mumble Incoherently
+语无伦次的嘟囔
+Kiss Lips
+亲吻嘴唇
+Kiss on Cheek
+亲吻脸颊
+Gag Kiss on Cheek
+带着口塞亲吻脸颊
+Slap Face
+扇脸
+Caress Face
+轻抚脸
+Brush Hair
+梳头
+Pull Hair
+拉扯头发
+Pet Head
+摸头
+Shake Head
+摇头
+Kiss Forehead
+亲吻额头
+Gag Kiss Forehead
+带着口塞亲吻额头
+Rub Breast on Face
+用乳房蹭脸
+Bite Hair
+咬头发
+Rub Foot on Face
+在脸上蹭口塞
+Nose-nuzzle
+鼻孔
+Boop Nose
+戳鼻子
+Kiss Nose
+亲吻鼻子
+Bump Gag on Nose
+用口塞撞鼻子
+Pinch Nose
+掐捏鼻子
+Caress Nose
+轻抚鼻子
+Pull Nose
+拉扯鼻子
+Rub Nose
+揉鼻子
+Nibble Nose
+轻咬鼻子
+Pinch Nostrils Shut
+捏住鼻孔
+Lick Nose
+舔弄鼻子
+Bite Nose
+咬鼻子
+Force to Smell Feet
+强迫闻脚
+Wiggle Nose
+摇晃鼻子
+Pinch Ear
+掐捏耳朵
+Caress Ear
+轻抚耳朵
+Wiggle Ears
+摇耳朵
+Bite Ear
+咬耳朵
+Kiss Ear
+亲吻耳朵
+Gag Kiss on Ear
+带着口塞亲吻耳朵
+Lick Ear
+舔耳朵
+Nibble Ear
+轻咬耳朵
+Whisper in Ear
+在耳边低语
+Press Foot on Chest
+将脚踩入乳沟
+Rest Feet on Back
+将脚放在后背
 SourceCharacter kisses her foot.
 SourceCharacter亲吻了她的脚.
 SourceCharacter gives a small kiss on her foot.
@@ -172,6 +600,8 @@ SourceCharacter nibbles her own foot.
 SourceCharacter轻咬她的脚.
 SourceCharacter tickles her own feet.
 SourceCharacter挠了挠她的脚.
+SourceCharacter spanks her own feet.
+SourceCharacter拍打了自己的脚。
 SourceCharacter massages her feet.
 SourceCharacter按摩她的脚.
 SourceCharacter cleans and polishes her toenails.
@@ -191,7 +621,7 @@ SourceCharacter用口塞触碰TargetCharacter的脚.
 SourceCharacter licks TargetCharacter's foot.
 SourceCharacter舔弄TargetCharacter的脚.
 SourceCharacter sucks on TargetCharacter's big toe.
-SourceCharacter吮吸TargetCharacter的叫.
+SourceCharacter吮吸TargetCharacter的大脚趾.
 SourceCharacter nibbles TargetCharacter's foot.
 SourceCharacter轻咬TargetCharacter的脚
 SourceCharacter tickles TargetCharacter's foot sole.
@@ -274,10 +704,14 @@ SourceCharacter sits in TargetCharacter's lap.
 SourceCharacter坐在TargetCharacter的大腿上.
 SourceCharacter rests her head in TargetCharacter's lap.
 SourceCharacter把她的头枕在TargetCharacter的大腿上.
+SourceCharacter fists and masturbates her pussy.
+SourceCharacter用拳头玩弄自己的阴部。
 SourceCharacter masturbates her pussy.
 SourceCharacter玩弄自己的阴部.
 SourceCharacter caresses her pussy.
 SourceCharacter轻抚自己的阴部.
+SourceCharacter slaps her pussy.
+SourceCharacter拍打自己的阴部。
 SourceCharacter masturbates TargetCharacter's pussy with her fingers.
 SourceCharacter用手指玩弄TargetCharacter的阴部.
 SourceCharacter masturbates TargetCharacter's vagina with her full fist.
@@ -298,18 +732,46 @@ SourceCharacter licks TargetCharacter's pussy lips.
 SourceCharacter舔弄TargetCharacter的阴唇.
 SourceCharacter nibbles TargetCharacter's pussy lips.
 SourceCharacter轻咬TargetCharacter的阴唇.
-She uses the device to masturbate the clitoris.
-她使用道具玩弄自己的阴蒂.
+SourceCharacter uses the device to masturbate TargetCharacter's pussy lips.
+SourceCharacter用物品玩弄TargetCharacter的阴唇。
 SourceCharacter penetrates TargetCharacter's vagina at a slow pace.
 SourceCharacter缓慢的插入TargetCharacter的阴道.
 SourceCharacter penetrates TargetCharacter's vagina at a fast pace.
 SourceCharacter快速的插入TargetCharacter的阴道.
+SourceCharacter masturbates her clitoris.
+SourceCharacter自慰自己的阴蒂。
+SourceCharacter caresses her clitoris.
+SourceCharacter轻抚自己的阴蒂。
+SourceCharacter slaps her clitoris.
+SourceCharacter拍打自己的阴蒂。
+SourceCharacter masturbates TargetCharacter's clitoris with her fingers.
+SourceCharacter用手指抚慰了TargetCharacter的阴蒂。
+SourceCharacter masturbates TargetCharacter's clitoris with her foot.
+SourceCharacter用脚抚慰了TargetCharacter的阴蒂。
+SourceCharacter masturbates TargetCharacter's clitoris with her tongue.
+SourceCharacter用舌头玩弄了TargetCharacter的阴蒂。
+SourceCharacter caresses TargetCharacter's clitoris with her fingers.
+SourceCharacter用手指玩弄了TargetCharacter的阴蒂。
+SourceCharacter slaps TargetCharacter's clitoris.
+SourceCharacter拍打TargetCharacter的阴蒂。
+SourceCharacter kisses TargetCharacter's clitoris.
+SourceCharacter亲吻TargetCharacter的阴蒂。
+SourceCharacter gags kiss TargetCharacter's clitoris.
+SourceCharacter带着口塞亲吻了TargetCharacter的阴蒂。
+SourceCharacter licks TargetCharacter's clitoris.
+SourceCharacter舔弄TargetCharacter的阴蒂。
+SourceCharacter nibbles TargetCharacter's clitoris.
+SourceCharacter轻咬TargetCharacter的阴蒂。
+SourceCharacter uses the device to masturbate TargetCharacter's clitoris.
+SourceCharacter用物品玩弄TargetCharacter的阴蒂。
+SourceCharacter fists and masturbates her ass.
+SourceCharacter用拳头玩弄TargetCharacter的屁股。
 SourceCharacter fingers and masturbates her ass.
 SourceCharacter用手指玩弄自己的屁股.
 SourceCharacter spanks herself on the butt.
 SourceCharacter拍打自己的屁股.
 SourceCharacter caresses her butt.
-SourceCharacter轻抚TargetCharacter的小腿.
+SourceCharacter轻抚TargetCharacter的屁股.
 SourceCharacter gropes her butt.
 SourceCharacter抚弄自己的臀部.
 SourceCharacter wiggles her butt.
@@ -327,9 +789,9 @@ SourceCharacter用拳头玩弄TargetCharacter的屁股.
 SourceCharacter uses her tongue to masturbate TargetCharacter's ass.
 SourceCharacter用舌头玩弄TargetCharacter的屁股.
 SourceCharacter spanks TargetCharacter's butt.
-SourceCharacter拍打TargetCharacter的屁股.
+SourceCharacter拍打TargetCharacter的臀部.
 SourceCharacter caresses TargetCharacter's butt.
-SourceCharacter轻抚TargetCharacter的小腿.
+SourceCharacter轻抚TargetCharacter的臀部.
 SourceCharacter gropes TargetCharacter's butt.
 SourceCharacter抚弄TargetCharacter的臀部.
 SourceCharacter penetrates TargetCharacter's butt at a slow pace.
@@ -345,7 +807,7 @@ SourceCharacter拍打自己的肚子.
 SourceCharacter caresses her tummy.
 SourceCharacter轻抚自己的肚子.
 SourceCharacter pinches her own tummy.
-SourceCharacter戳弄自己的肚子.
+SourceCharacter掐捏自己的肚子.
 SourceCharacter massages her tummy.
 SourceCharacter按摩自己的肚子.
 SourceCharacter wiggles her hips.
@@ -365,17 +827,17 @@ SourceCharacter拍打TargetCharacter的肚子.
 SourceCharacter caresses TargetCharacter's tummy.
 SourceCharacter轻抚TargetCharacter的肚子.
 SourceCharacter pinches TargetCharacter's tummy.
-SourceCharacter戳弄TargetCharacter的肚子.
+SourceCharacter掐捏TargetCharacter的肚子.
 SourceCharacter massages TargetCharacter's tummy.
 SourceCharacter按摩TargetCharacter的肚子.
 SourceCharacter gropes TargetCharacter's tummy.
 SourceCharacter抚弄TargetCharacter的肚子.
 SourceCharacter tickles her own ribs.
-SourceCharacter挠了挠自己的肋下.
+SourceCharacter挠了挠自己的侧肋.
 SourceCharacter spanks her own ribs.
-SourceCharacter拍打自己的肋下.
+SourceCharacter拍打自己的侧肋.
 SourceCharacter caresses her ribs.
-SourceCharacter轻抚自己的肋下.
+SourceCharacter轻抚自己的侧肋.
 SourceCharacter massages her back.
 SourceCharacter按摩自己的背.
 SourceCharacter wiggles her body.
@@ -389,9 +851,9 @@ SourceCharacter带着口塞亲吻TargetCharacter的后背.
 SourceCharacter licks TargetCharacter's back.
 SourceCharacter舔弄TargetCharacter的后背.
 SourceCharacter nibbles TargetCharacter's ribs.
-SourceCharacter轻咬TargetCharacter的肋下.
+SourceCharacter轻咬TargetCharacter的侧肋.
 SourceCharacter tickles TargetCharacter's ribs.
-SourceCharacter挠了挠TargetCharacter的肋下.
+SourceCharacter挠了挠TargetCharacter的侧肋.
 SourceCharacter spanks TargetCharacter's back.
 SourceCharacter拍打TargetCharacter的后背.
 SourceCharacter caresses TargetCharacter's back.
@@ -411,7 +873,7 @@ SourceCharacter吮吸自己的乳头.
 SourceCharacter nibbles her own nipple.
 SourceCharacter轻咬自己的乳头.
 SourceCharacter pinches her own nipple.
-SourceCharacter戳弄自己的乳头.
+SourceCharacter掐捏自己的乳头.
 SourceCharacter caresses her nipples.
 SourceCharacter轻抚自己的乳头.
 SourceCharacter pulls her nipples.
@@ -431,7 +893,7 @@ SourceCharacter吮吸TargetCharacter的乳头.
 SourceCharacter nibbles on TargetCharacter's nipple.
 SourceCharacter轻咬TargetCharacter的乳头.
 SourceCharacter pinches TargetCharacter's nipple.
-SourceCharacter戳弄TargetCharacter的乳头.
+SourceCharacter掐捏TargetCharacter的乳头.
 SourceCharacter caresses TargetCharacter's nipples.
 SourceCharacter轻抚TargetCharacter的乳头
 SourceCharacter kisses her own breast.
@@ -483,7 +945,7 @@ SourceCharacter挠了挠自己的手臂.
 SourceCharacter spanks her own arm.
 SourceCharacter拍打自己的手臂.
 SourceCharacter pinches her upper arm.
-SourceCharacter戳弄自己的上臂.
+SourceCharacter掐捏自己的上臂.
 SourceCharacter caresses her arms.
 SourceCharacter轻抚自己的手臂.
 SourceCharacter massages her arms.
@@ -509,7 +971,7 @@ SourceCharacter挠了挠TargetCharacter的手臂.
 SourceCharacter spanks TargetCharacter's arm.
 SourceCharacter拍打TargetCharacter的手臂.
 SourceCharacter pinches TargetCharacter's upper arm.
-SourceCharacter戳弄TargetCharacter的上臂.
+SourceCharacter掐捏TargetCharacter的上臂.
 SourceCharacter caresses TargetCharacter's arms.
 SourceCharacter轻抚TargetCharacter的手臂.
 SourceCharacter massages TargetCharacter's arms.
@@ -525,7 +987,7 @@ SourceCharacter轻吻自己的手.
 SourceCharacter licks the back of her hand.
 SourceCharacter舔弄自己的手背.
 SourceCharacter sucks on her fingers.
-SourceCharacter吮吸自己的手.
+SourceCharacter吮吸自己的手指.
 SourceCharacter nibbles her own hand.
 SourceCharacter轻咬自己的手.
 SourceCharacter spanks her first hand with the second one.
@@ -543,7 +1005,7 @@ SourceCharacter咬了一口TargetCharacter的手.
 SourceCharacter kisses TargetCharacter's hand.
 SourceCharacter亲吻TargetCharacter的手.
 SourceCharacter touches her gag to TargetCharacter's hand.
-SourceCharacter用口塞触碰TargetCharacter的头.
+SourceCharacter用口塞触碰TargetCharacter的手.
 SourceCharacter politely kisses TargetCharacter's hand.
 SourceCharacter礼貌的吻TargetCharacter的手.
 SourceCharacter licks TargetCharacter's hand.
@@ -564,6 +1026,8 @@ SourceCharacter massages her neck.
 SourceCharacter按摩自己的脖子.
 SourceCharacter chokes herself.
 SourceCharacter掐住自己的脖子.
+SourceCharacter tickles her neck.
+SourceCharacter舔了舔自己的后背。
 SourceCharacter bites TargetCharacter's neck.
 SourceCharacter咬了一口TargetCharacter的脖子.
 SourceCharacter kisses TargetCharacter's neck.
@@ -582,6 +1046,8 @@ SourceCharacter chokes TargetCharacter's neck.
 SourceCharacter掐住TargetCharacter的脖子.
 SourceCharacter gently places her foot over TargetCharacter's neck.
 SourceCharacter轻轻的把脚放在TargetCharacter的脖子上.
+SourceCharacter tickles TargetCharacter's neck.
+SourceCharacter挠了挠TargetCharacter的后背。
 SourceCharacter licks her lips.
 SourceCharacter舔弄自己的嘴唇.
 SourceCharacter nibbles her lips.
@@ -637,7 +1103,7 @@ SourceCharacter给自己梳头.
 SourceCharacter pulls on her own hair.
 SourceCharacter拉扯自己的头发.
 SourceCharacter pets herself on the head.
-SourceCharacter拍自己的头.
+SourceCharacter摸了摸自己的头.
 SourceCharacter shakes her head.
 SourceCharacter摇头.
 SourceCharacter nods.
@@ -655,7 +1121,7 @@ SourceCharacter给TargetCharacter梳头.
 SourceCharacter pulls on TargetCharacter's hair.
 SourceCharacter拉扯TargetCharacter的头发.
 SourceCharacter gently pets TargetCharacter's head.
-SourceCharacter轻轻地拍TargetCharacter的头.
+SourceCharacter轻轻地摸了摸TargetCharacter的头.
 SourceCharacter rubs her breast against TargetCharacter's face.
 SourceCharacter用乳房摩擦TargetCharacter的脸.
 SourceCharacter bites TargetCharacter's hair.
@@ -665,19 +1131,19 @@ SourceCharacter用脚摩擦TargetCharacter的脸.
 SourceCharacter nose-nuzzles with TargetCharacter.
 SourceCharacter与TargetCharacter鼻吻.
 SourceCharacter boops TargetCharacter's nose.
-SourceCharacter擤TargetCharacter的鼻子.
+SourceCharacter戳了戳TargetCharacter的鼻子.
 SourceCharacter kisses TargetCharacter's nose.
 SourceCharacter亲吻TargetCharacter的鼻子.
 SourceCharacter bumps her gag on TargetCharacter's nose.
 SourceCharacter在TargetCharacter的鼻子上撞了一下自己的口塞.
 SourceCharacter pinches TargetCharacter's nose.
-SourceCharacter戳弄TargetCharacter的鼻子.
+SourceCharacter掐捏TargetCharacter的鼻子.
 SourceCharacter caresses TargetCharacter's nose.
 SourceCharacter轻抚TargetCharacter的鼻子.
 SourceCharacter pulls TargetCharacter's nose.
 SourceCharacter拉扯TargetCharacter的鼻子.
 SourceCharacter rubs TargetCharacter's nose.
-SourceCharacter摩擦TargetCharacter的鼻子.
+SourceCharacter揉了揉TargetCharacter的鼻子.
 SourceCharacter nibbles TargetCharacter's nose.
 SourceCharacter轻咬TargetCharacter的鼻子.
 SourceCharacter pinches TargetCharacter's nostrils closed.
@@ -689,21 +1155,21 @@ SourceCharacter咬了一口TargetCharacter的鼻子
 SourceCharacter makes TargetCharacter smell her feet.
 SourceCharacter让TargetCharacter闻她的脚.
 SourceCharacter pinches her nose.
-SourceCharacter戳弄自己的鼻子.
+SourceCharacter掐捏自己的鼻子.
 SourceCharacter caresses her nose.
 SourceCharacter轻抚自己的鼻子.
 SourceCharacter boops her nose.
-SourceCharacter擤鼻子.
+SourceCharacter戳了戳自己的鼻子.
 SourceCharacter pulls her nose.
 SourceCharacter拉扯自己的鼻子.
 SourceCharacter rubs her nose.
-SourceCharacter摩擦自己的鼻子.
+SourceCharacter揉自己的鼻子.
 SourceCharacter pinches her nostrils closed.
 SourceCharacter捏住自己的鼻子.
 SourceCharacter wiggles her nose.
 SourceCharacter摇晃自己的鼻子.
 SourceCharacter pinches her ear.
-SourceCharacter戳弄自己的耳朵.
+SourceCharacter掐捏自己的耳朵.
 SourceCharacter caresses her ear.
 SourceCharacter轻抚自己的耳朵.
 SourceCharacter wiggles her ears.
@@ -719,7 +1185,7 @@ SourceCharacter舔弄TargetCharacter的耳朵.
 SourceCharacter nibbles TargetCharacter's ear.
 SourceCharacter轻咬TargetCharacter的耳朵.
 SourceCharacter pinches TargetCharacter's ear.
-SourceCharacter戳弄TargetCharacter的耳朵.
+SourceCharacter掐捏TargetCharacter的耳朵.
 SourceCharacter caresses TargetCharacter's ear.
 SourceCharacter轻抚TargetCharacter的耳朵.
 SourceCharacter whispers slowly in TargetCharacter's ear.

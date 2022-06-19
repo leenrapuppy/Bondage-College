@@ -82,8 +82,8 @@ function InventoryItemHoodCanvasHoodChange(text) {
 	CharacterRefresh(C);
 	if (CurrentScreen == "ChatRoom") {
 		var Dictionary = [
-			{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
+			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 			{ Tag: "NewText", Text: text }
 		];
 		ChatRoomPublishCustomAction("CanvasHoodChange", true, Dictionary);

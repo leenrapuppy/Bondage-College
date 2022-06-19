@@ -1,5 +1,7 @@
 ﻿Room Name
 Название Комнаты
+Language
+Язык
 Description
 Описание
 Ban List
@@ -14,6 +16,14 @@ Size (2-10)
 Размер (2-10)
 Use member numbers, separated by commas (ex: 3571,541,7001)
 Используйте номера членов, разделенные запятыми (ex: 3571,541,7001)
+Ban blacklist
+Запретить черный список
+Ban ghostlist
+Запретить список призраков
+Add Owner
+Добавить Хозяина
+Add Lovers
+Добавить Возлюбленных
 Room settings can only be updated by administrators
 Параметры комнаты могут быть обновлены только администраторами
 Background
@@ -32,3 +42,25 @@ Account error, please try to relog
 Ошибка учетной записи, пожалуйста, попробуйте перерегистрироватся
 Invalid chat room data detected
 Обнаружены недопустимые данные чата комнаты
+Block Categories
+Блокировать категории
+No Game
+Нет игры
+LARP
+LARP
+Magic Battle
+Магическая битва
+GGTS
+GGTS
+English
+English
+French
+Français
+Spanish
+Española
+German
+Deutsch
+Chinese
+中国人
+Russian
+Русский

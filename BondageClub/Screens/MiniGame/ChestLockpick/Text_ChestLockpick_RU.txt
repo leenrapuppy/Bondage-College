@@ -1,0 +1,10 @@
+Starts in
+Начинается через
+Click anywhere when the lockpick circle crosses the hole.
+Щелкните в любом месте, когда круг отмычки пересекает отверстие.
+You unlocked the chest.
+Вы открыли сундук.
+You failed to unlock the chest.
+Вы не смогли открыть сундук.
+Click here to continue.
+Нажмите здесь для продолжения.

@@ -38,8 +38,24 @@ Asylum
 Психушка
 Visit the College
 Посетите колледж
+LARP Battles
+LARP битвы
+Movie Studio
+Киностудия
+Infiltration
+Проникновение
+Bondage Poker
+Бондаж покер
+Magic School
+Магическая школа
+Bondage Brawl
+Бондаж драка
+Item Crafting
+Создание предметов
 Leave the Club
 Покинуть Клуб
+Do you want to leave the club?
+Вы хотите покинуть клуб?
 Sarah's Bedroom
 Спальня Сары 
 Gambling by git4nick
@@ -54,3 +70,71 @@ The Nursery by wildsj
 Детская от wildsj
 Houdini's Theater by git4nick
 Театр Гудини от git4nick
+Cafe by wildsj
+Кафе от wildsj
+Arcade by Ada18980
+Аркада от Ada18980
+Request maid service
+Запросить услуги горничной
+This game is for adults only.  Minors must leave immediately.
+Эта игра только для взрослых. Несовершеннолетние должны немедленно уйти.
+All game characters are considered adults, no exceptions.
+Все игровые персонажи считаются взрослыми, без исключений.
+Please be courteous and polite.  Help new members to get started.
+Пожалуйста, будьте любезны и вежливы. Помогите новым участникам начать играть.
+Console cheating can break your account forever.  Please be careful.
+Консольное читерство может сломать ваш аккаунт навсегда. Пожалуйста, будьте осторожны.
+Have an open mind, your fetishes might be different from others.
+Будьте непредвзяты, ваши фетиши могут отличаться от других.
+Following a player web link can get you a virus or steal your account.
+Переход по веб-ссылке игрока может привести к заражению вирусом или краже вашей учетной записи.
+Please respect other players limits.  Enforce your own limits.
+Пожалуйста, уважайте ограничения других игроков. Устанавливайте свои собственные ограничения.
+Do not attempt anything that could harm you in your real life.
+Не пытайтесь делать что-либо, что может навредить вам в реальной жизни.
+Remember your friends in your private room or they will leave.
+Помни своих друзей в своей личной комнате или они уйдут.
+If you find bugs or exploits, please report them and give details.
+Если вы обнаружите ошибки или эксплойты, пожалуйста, сообщите о них и сообщите подробности.
+Take good care of each other feelings and your submissives.
+Позаботьтесь о чувствах друг друга и ваших сабмиссивов.
+If you give any real-life information, it might be used against you.
+Если вы предоставите какую-либо информацию из реальной жизни, она может быть использована против вас.
+A collared college girl can be convinced to give you her uniform.
+Студентку колледжа в ошейнике можно убедить отдать вам свою униформу.
+It's easier to destroy a reputation than to build one.
+Легче разрушить репутацию, чем создать ее.
+There's no best way to make money.  Simply find a job you enjoy.
+Нет лучшего способа заработать деньги. Чем просто найти работу, которая вам нравится.
+Please do not use console commands to grief other players.
+Пожалуйста, не используйте консольные команды, чтобы гриферить других игроков.
+Beta items will be lost if you go back to the regular version.
+Предметы из бета-версии будут потеряны, если вы вернетесь к обычной версии.
+You can protect yourself by blocking items and blacklisting players.
+Вы можете защитить себя, заблокировав предметы и добавив игроков в черный список.
+Reach us on Discord, DeviantArt or Patreon if you need help.
+Свяжитесь с нами на Discord, DeviantArt или Patreon, если вам нужна помощь.
+Type /help in a chatroom to know the available chat commands.
+Введите /help в чате, чтобы узнать доступные команды чата.
+Try visiting your graphics preferences if you are experiencing performance issues.
+Попробуйте посетить настройки графики, если у вас возникли проблемы с производительностью.
+(A woman blocks your path.)  DialogPlayerName!  You've been a nuisance for Pandora's Box for far too long.  Surrender now or you will get hurt.
+(Женщина преграждает вам путь.) DialogPlayerName! Ты слишком долго мешал Ящику Пандоры. Сдавайся сейчас же, иначе тебе будет больно.
+(A girl taps on your shoulder.)  Here you are!  Pandora's Box sent me to get you.  Get on your knees right now or there will be trouble.
+(Девушка хлопает вас по плечу.) Вот! Ящик Пандоры послал меня за тобой. Встаньте на колени прямо сейчас, иначе будут проблемы.
+(Someone springs from behind you.)  No offense DialogPlayerName, but Pandora's Box as put a bounty on you.  Come with me quietly.
+(Кто-то выпрыгивает из-за вас.) Не обижайтесь, DialogPlayerName, но Ящик Пандоры назначил за вас награду. Пойдемте со мной тихо.
+(A girl jumps in front of you.)  Your days of causing trouble are over DialogPlayerName.  I'm bringing you bound and gagged to Pandora's Box.
+(Девушка прыгает перед вами.) Дни, когда вы доставляли неприятности, прошли. DialogPlayerName. Я приведу тебя связанного и с кляпом во рту в ящик Пандоры.
+(A woman chases you down.)  You won't be running away this time girl.  Pandora's Box has a special cell ready for your ass.
+(Женщина преследует вас.) На этот раз ты не убежишь, девочка. В Ящике Пандоры есть специальная камера, готовая для твоей задницы.
+(A Dominatrix from Pandora's Box jumps in front of you.)  DialogPlayerName!  You've stolen our technology
+(Перед вами выпрыгивает Доминатрикс из Ящика Пандоры.) DialogPlayerName! Вы украли нашу технологию
+(A Dominatrix from Pandora's Box taps on your shoulder.)  Here you are!  The Box sent me to recover the lock and key that you've stolen.
+(Доминатрикс из Ящика Пандоры хлопает вас по плечу.) Вот где ты! Ящик послал меня вернуть замок и ключ, которые вы украли.
+(Someone springs from behind you.)  No offense DialogPlayerName, but Pandora's Box wants to recover their lock and key.
+(Кто-то выпрыгивает из-за вас.) Не обижайтесь, DialogPlayerName, но Ящик Пандоры хочет вернуть их замок и ключ.
+(A girl jumps in front of you.)  Your days of causing trouble are over DialogPlayerName.  I'm bringing back what you've stolen.
+(Девушка прыгает перед вами.) Дни, когда вы доставляли неприятности, прошли. DialogPlayerName. Я возвращаю то, что ты украла.
+(A Dominatrix chases you down.)  You won't be running away this time girl.  Give us back our technology or there will be trouble.
+(Доминатрикс преследует тебя.) На этот раз ты не убежишь, девочка. Верните нам наши технологии, иначе будут проблемы.

@@ -14,8 +14,8 @@
  *
  * For example "c0a1s2" - represents the type where the crotch panel module uses option 0, the arms module uses option
  * 1, and the crotch straps module uses option 2. The properties of the type will be derived from a combination of the
- * properties of each of the type's module options. For example, difficulty will be calculated by adding the base
- * difficulty of the item together with the sum of the difficulties for each of its module options.
+ * properties of each of the type's module options. For example, difficulty will be calculated by summing up the
+ * difficulties for each of its module options.
  *
  * All dialogue for modular items should be added to `Dialog_Player.csv`. To implement a modular item, you need the
  * following dialogue entries:
@@ -83,7 +83,7 @@ const ModularItemRequirementCheckMessageMemo = CommonMemoize(ModularItemRequirem
  * multiplicative nature of the item's types, and also converts the AllowModuleTypes property on any asset layers into
  * an AllowTypes property, if present.
  * @param {Asset} asset - The asset being registered
- * @param {ModularItemConfig} config - The item's modular item configuration
+ * @param {ModularItemConfig | undefined} config - The item's modular item configuration
  * @returns {void} - Nothing
  */
 function ModularItemRegister(asset, config) {
@@ -186,6 +186,7 @@ function ModularItemCreateModularData(asset,
 		asset,
 		chatSetting: ChatSetting || ModularItemChatSetting.PER_OPTION,
 		key,
+		typeCount: 1,
 		functionPrefix: `Inventory${key}`,
 		dialogSelectPrefix: Dialog.Select || `${key}Select`,
 		dialogModulePrefix: Dialog.ModulePrefix || `${key}Module`,
@@ -211,12 +212,13 @@ function ModularItemCreateModularData(asset,
 	};
 	data.drawFunctions[ModularItemBase] = ModularItemCreateDrawBaseFunction(data);
 	data.clickFunctions[ModularItemBase] = ModularItemCreateClickBaseFunction(data);
-	Modules.forEach(module => {
+	for (const module of Modules) {
 		data.pages[module.Name] = 0;
 		data.drawData[module.Name] = ModularItemCreateDrawData(module.Options.length);
 		data.drawFunctions[module.Name] = () => ModularItemDrawModule(module, data);
 		data.clickFunctions[module.Name] = () => ModularItemClickModule(module, data);
-	});
+		data.typeCount *= module.Options.length;
+	}
 	return data;
 }
 
@@ -262,11 +264,13 @@ function ModularItemCreateDrawData(itemCount) {
 function ModularItemCreateDrawBaseFunction(data) {
 	return () => {
 		const currentModuleValues = ModularItemParseCurrent(data);
-		const buttonDefinitions = data.modules.map((module, i) => ([
-			`${AssetGetInventoryPath(data.asset)}/${module.Key}${currentModuleValues[i]}.png`,
-			`${data.dialogModulePrefix}${module.Name}`,
-			CharacterGetCurrent().ID === 0 && module.AllowSelfSelect === false ? "pink" : "white",
-		]));
+		const buttonDefinitions = data.modules.map((module, i) => (
+			/** @type ModularItemButtonDefinition */([
+				`${AssetGetInventoryPath(data.asset)}/${module.Key}${currentModuleValues[i]}.png`,
+				`${data.dialogModulePrefix}${module.Name}`,
+				CharacterGetCurrent().ID === 0 && module.AllowSelfSelect === false ? "pink" : "white",
+			])
+		));
 		return ModularItemDrawCommon(ModularItemBase, buttonDefinitions, data);
 	};
 }
@@ -307,7 +311,8 @@ function ModularItemDrawCommon(moduleName, buttonDefinitions, { asset, pages, dr
 		return;
 	}
 
-	DrawAssetPreview(1387, 55, asset);
+	const locked = InventoryItemHasEffect(DialogFocusItem, "Lock", true);
+	DrawAssetPreview(1387, 55, asset, {Icons: locked ? ["Locked"] : undefined});
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 
 	const { paginate, pageCount, positions } = drawData[moduleName];
@@ -354,6 +359,9 @@ function ModularItemCreateClickBaseFunction(data) {
 			() => {
 				ExtendedItemExit();
 				ModularItemRequirementCheckMessageMemo.clearCache();
+				// The item's lock may have been automatically removed in a module change, so rebuild buttons
+				DialogInventoryBuild(CharacterGetCurrent(), DialogInventoryOffset);
+				DialogMenuButtonBuild(CharacterGetCurrent());
 				DialogFocusItem = null;
 			},
 			i => {
@@ -490,26 +498,32 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
 		if (Property.Hide) CommonArrayConcatDedupe(mergedProperty.Hide, Property.Hide);
 		if (Property.HideItem) CommonArrayConcatDedupe(mergedProperty.HideItem, Property.HideItem);
 		if (Property.SetPose) mergedProperty.SetPose = CommonArrayConcatDedupe(mergedProperty.SetPose || [], Property.SetPose);
+		if (Property.AllowActivity) CommonArrayConcatDedupe(mergedProperty.AllowActivity, Property.AllowActivity);
+		if (Property.Attribute) CommonArrayConcatDedupe(mergedProperty.Attribute, Property.Attribute);
 		if (typeof Property.OverridePriority === "number") mergedProperty.OverridePriority = Property.OverridePriority;
 		if (typeof Property.HeightModifier === "number") mergedProperty.HeightModifier = (mergedProperty.HeightModifier || 0) + Property.HeightModifier;
 		if (Property.OverrideHeight) mergedProperty.OverrideHeight = ModularItemMergeOverrideHeight(mergedProperty.OverrideHeight, Property.OverrideHeight);
+		if (asset.AllowTint && Property.Tint) mergedProperty.Tint = CommonArrayConcatDedupe(mergedProperty.Tint, Property.Tint);
 		return mergedProperty;
-	}, {
+	}, /** @type ItemProperties */({
 		Type: ModularItemConstructType(modules, moduleValues),
-		Difficulty: asset.Difficulty,
+		Difficulty: 0,
 		CustomBlindBackground: asset.CustomBlindBackground,
 		Block: Array.isArray(asset.Block) ? asset.Block.slice() : [],
 		Effect: Array.isArray(asset.Effect) ? asset.Effect.slice() : [],
 		Hide: Array.isArray(asset.Hide) ? asset.Hide.slice() : [],
 		HideItem: Array.isArray(asset.HideItem) ? asset.HideItem.slice() : [],
-	});
+		AllowActivity: Array.isArray(asset.AllowActivity) ? asset.AllowActivity.slice() : [],
+		Attribute: Array.isArray(asset.Attribute) ? asset.Attribute.slice() : [],
+		Tint: asset.AllowTint ? Array.isArray(asset.Tint) ? asset.Tint.slice() : [] : undefined,
+	}));
 }
 
 /**
  * Generates the type string for a modular item from its modules and their current values.
- * @param {Record<string, { Height: number, Priority: number}>} currentValue - The OverrideHeight for the future item
- * @param {Record<string, { Height: number, Priority: number}>} newValue - The OverrideHeight being merged
- * @returns {Record<string, { Height: number, Priority: number}> | undefined} - A string type generated from the selected option values for each module
+ * @param {AssetOverrideHeight} currentValue - The OverrideHeight for the future item
+ * @param {AssetOverrideHeight} newValue - The OverrideHeight being merged
+ * @returns {AssetOverrideHeight | undefined} - A string type generated from the selected option values for each module
  */
 function ModularItemMergeOverrideHeight(currentValue, newValue) {
 	if (typeof newValue.Height === "number" && typeof newValue.Priority === "number" &&
@@ -585,6 +599,11 @@ function ModularItemSetType(module, index, data) {
 			newProperty.Effect.push("Lock");
 		}
 
+		if (!InventoryDoesItemAllowLock(DialogFocusItem)) {
+			// If the new type does not permit locking, remove the lock
+			ValidationDeleteLock(DialogFocusItem.Property, false);
+		}
+
 		const groupName = data.asset.Group.Name;
 		CharacterRefresh(C);
 		ChatRoomCharacterItemUpdate(C, groupName);
@@ -645,12 +664,14 @@ function ModularItemChatRoomMessage(module, previousIndex, index, { asset, chatS
 }
 
 /**
- * Generates an AllowType property for an asset based on its modular item data.
+ * Generates an array of all types available for an asset based on its modular item data, filtered by the provided
+ * predicate function, if needed.
  * @param {ModularItemData} data - The modular item's data
- * @param {function(string): boolean} [predicate] - An optional predicate for filtering the resulting types
- * @returns {string[]} - The generated AllowType array
+ * @param {(typeObject: Record<string, number>) => boolean} [predicate] - An optional predicate for filtering the
+ * resulting types
+ * @returns {string[]} - The generated array of types
  */
-function ModularItemGenerateAllowType({ modules }, predicate) {
+function ModularItemGenerateTypeList({ modules }, predicate) {
 	let allowType = [{}];
 	modules.forEach((module) => {
 		let newCombinations = [];
@@ -664,6 +685,49 @@ function ModularItemGenerateAllowType({ modules }, predicate) {
 	return allowType.map(combination => {
 		return modules.map(module => `${module.Key}${combination[module.Key]}`).join("");
 	});
+}
+
+/**
+ * Generates and sets the AllowLock and AllowLockType properties for an asset based on its modular item data. For types
+ * where two independent options declare conflicting AllowLock properties (i.e. one option declares AllowLock: false and
+ * another declares AllowLock: true), the resulting type will permit locking (i.e. true overrides false).
+ * @param {ModularItemData} data - The modular item's data
+ * @returns {void} - Nothing
+ */
+function ModularItemGenerateAllowLockType(data) {
+	const {asset, modules, typeCount} = data;
+	/** @type {Record<string, boolean | null>} */
+	const optionAllowLockMap = {};
+	// Create a mapping of partial types (i.e. the "type" for a single module) to their AllowLock values. If the
+	// corresponding option doesn't explicitly set AllowLock, set the value to null to distinguish between explicit
+	// and inherited AllowLock (if present, explicit should override inherited)
+	for (const module of modules) {
+		for (const [index, option] of Object.entries(module.Options)) {
+			optionAllowLockMap[`${module.Key}${index}`] = typeof option.AllowLock === "boolean" ? option.AllowLock : null;
+		}
+	}
+
+	const allowLockType = ModularItemGenerateTypeList(data, (combination) => {
+		const typeParts = Object.keys(combination).map((key) => `${key}${combination[key]}`);
+		// Fallback allowLock value for the type if no option explicitly sets it to true
+		let allowLock = asset.AllowLock;
+		for (const typePart of typeParts) {
+			const optionAllowLock = optionAllowLockMap[typePart];
+			if (optionAllowLock) {
+				// If one of the type's options explicitly sets AllowLock: true, the type permits locks
+				return true;
+			} else if (optionAllowLock === false) {
+				// If an option explicitly sets AllowLock: false, it overrides the asset-level AllowLock
+				allowLock = false;
+			}
+		}
+
+		// If no option set it to true, then return the fallback value (either the asset-level AllowLock, or false if an
+		// option explicitly overrode it
+		return allowLock;
+	});
+
+	TypedItemSetAllowLockType(asset, allowLockType, typeCount);
 }
 
 /**
@@ -684,7 +748,7 @@ function ModularItemGenerateLayerAllowTypes(layer, data) {
 			return values;
 		});
 
-		const GeneratedAllowTypes = ModularItemGenerateAllowType(data, (combination) => {
+		const GeneratedAllowTypes = ModularItemGenerateTypeList(data, (combination) => {
 			return allowedModuleCombinations.some(allowedCombination => {
 				return allowedCombination.every(combo => combination[combo[0]] === combo[1]);
 			});
@@ -728,15 +792,19 @@ function ModularItemRequirementMessageCheck(option, currentOption, changeWhenLoc
  */
 function ModularItemGenerateValidationProperties(data) {
 	const {asset, modules} = data;
-	asset.AllowType = ModularItemGenerateAllowType(data);
+	asset.AllowType = ModularItemGenerateTypeList(data);
 	asset.AllowEffect = Array.isArray(asset.AllowEffect) ? asset.AllowEffect.slice() : [];
 	CommonArrayConcatDedupe(asset.AllowEffect, asset.Effect);
 	asset.AllowBlock = Array.isArray(asset.Block) ? asset.Block.slice() : [];
-	modules.forEach((module) => {
-		module.Options.forEach(({Property}) => {
-			if (Property && Property.Effect) CommonArrayConcatDedupe(asset.AllowEffect, Property.Effect);
-			if (Property && Property.Block) CommonArrayConcatDedupe(asset.AllowBlock, Property.Block);
-		});
-	});
+	for (const module of modules) {
+		for (const {Property} of module.Options) {
+			if (Property) {
+				if (Property.Effect) CommonArrayConcatDedupe(asset.AllowEffect, Property.Effect);
+				if (Property.Block) CommonArrayConcatDedupe(asset.AllowBlock, Property.Block);
+				if (Property.Tint && Array.isArray(Property.Tint) && Property.Tint.length > 0) asset.AllowTint = true;
+			}
+		}
+	}
 	asset.Layer.forEach((layer) => ModularItemGenerateLayerAllowTypes(layer, data));
+	ModularItemGenerateAllowLockType(data);
 }

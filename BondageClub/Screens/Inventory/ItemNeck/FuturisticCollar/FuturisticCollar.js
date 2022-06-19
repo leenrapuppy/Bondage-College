@@ -306,8 +306,8 @@ function InventoryItemNeckFuturisticCollarLockdown(C, LockType) {
 
 	if (CurrentScreen == "ChatRoom") {
 		var Dictionary = [
-			{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
+			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 		];
 
 		ServerSend("ChatRoomChat", { Content: "FuturisticCollarTriggerLockdown", Type: "Action", Dictionary });
@@ -335,8 +335,8 @@ function InventoryItemNeckFuturisticCollarUnlock(C) {
 
 	if (CurrentScreen == "ChatRoom") {
 		var Dictionary = [
-			{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
+			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 		];
 
 		ServerSend("ChatRoomChat", { Content: "FuturisticCollarTriggerUnlock", Type: "Action", Dictionary });
@@ -384,8 +384,8 @@ function InventoryItemNeckFuturisticCollarColor(C, Item) {
 
 	if (CurrentScreen == "ChatRoom") {
 		var Dictionary = [
-			{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-			{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
+			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 		];
 
 		ServerSend("ChatRoomChat", { Content: "FuturisticCollarTriggerColor", Type: "Action", Dictionary });
@@ -411,8 +411,8 @@ function InventoryItemNeckFuturisticCollarTogglePermission(C, Item, Permission) 
 				var Message = "FuturisticCollarSetOpenPermission" + Permission + (Item.Property[property] ? "On" : "Off");
 
 				var Dictionary = [
-					{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-					{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
+					{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+					{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 				];
 
 				ServerSend("ChatRoomChat", { Content: Message, Type: "Action", Dictionary });
@@ -456,8 +456,8 @@ function InventoryItemNeckFuturisticCollarToggleRemotes(C, Item) {
 			var Message = "FuturisticCollarSetBlockRemotes" + (Item.Property.BlockRemotes ? "On" : "Off");
 
 			var Dictionary = [
-				{ Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber },
-				{ Tag: "DestinationCharacterName", Text: C.Name, MemberNumber: C.MemberNumber },
+				{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+				{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 			];
 
 			ServerSend("ChatRoomChat", { Content: Message, Type: "Action", Dictionary });

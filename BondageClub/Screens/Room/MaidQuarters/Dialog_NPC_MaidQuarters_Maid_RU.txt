@@ -17,6 +17,8 @@ Guard the prison cell so that nothing happens there.
 (Ты возвращаешься к DialogCharacterName с пролитыми напитками по всей твоей форме.)
 Hurry to the chat rooms girl!  The club members are thirsty.  (You need to serve drinks to 5 unique online players.)
 Поторопись с девушкой из чата!  Члены клуба жаждут пить.  (Напитки нужно подавать 5 уникальным онлайн-игрокам.)
+What happened to your tray, girl?  The club members are thirsty! Here, have another one.  (You need to serve drinks to 5 unique online players.)
+Что случилось с твоим подносом, девочка? Члены клуба хотят пить! Вот, возьми еще один. (Вам нужно подать напитки 5 уникальным онлайн-игрокам.)
 (She checks your empty tray.)  Well done!  Our members were satisfied?
 (Она проверяет твой пустой поднос.) Молодец!  Наши члены были удовлетворены?
 (DialogCharacterName gets you back to the maid quarters and smiles.)  You've did it!
@@ -95,6 +97,18 @@ You've done a lot for the maid sorority.  You should apply to become a full sist
 Ты много сделала для общества горничных.  Ты должна подать заявление, чтобы стать полноправной сестрой.
 It's great to see you sister!  How can I help you?
 Как я рада видеть тебя, сестра!  Чем я могу тебе помочь?
++###_PLAYER
+(Present the tray)
+(Вручить поднос)
+###_NPC
+Aww, sweetie, I'll miss tying you up if you do it all by yourself.  Come on!  Our guests are waiting for your drinks.
+Ой, милая, мне будет не хватать связывания тебя, если ты будешь делать все это сам. Ну давай же! Наши гости ждут ваших напитков.
+###_PLAYER
+(Wave the duster gag with your head.)
+(Помашите кляпом тряпкой головой.)
+###_NPC
+Aww, so pretty. You tied yourself for the cleaning chore.  I'll drag you to your workspace.
+Ой, так красиво. Вы связали себя уборкой. Я перетащу вас на ваше рабочее место.
 ###_PLAYER
 (Nod yes.)
 (Согласно киваю)
@@ -103,6 +117,8 @@ It's great to see you sister!  How can I help you?
 (Она вынимает кляп и улыбается.)  Намного лучше, милая.  Чем я могу тебе помочь?
 (She checks your locks and frowns.)  I cannot help you girl.  Go find your owner.
 (Она проверяет твои замки и хмурится.)  Я не могу помочь тебе, девочка.  Иди и найди свою хозяйку.
+(She chuckles) Not so fast girl. We can't help you until your time is up.
+(она смеется) Не так быстро девочка. Мы не можем помочь вам, пока ваше время не истекло.
 ###_PLAYER
 Hello, I'm DialogPlayerName.  Pleased to meet you.
 Привет, я DialogPlayerName.  Приятно познакомиться.
@@ -133,6 +149,8 @@ Do you have work for me?
 ###_NPC
 Absolutely, these are the chores available for you.  (She shows you a list of maid tasks to complete.)
 Безусловно, это те обязанности, которые доступны для тебя.  (Она показывает тебе список задач.)
+No, you can't work for the maids if you are on the no-help list
+Нет, ты не можешь работать на горничных, если ты в списке непослушных.
 ###_PLAYER
 I'd like to become a full maid in the sorority.
 Я бы хотела стать полноправной горничной в женском обществе.
@@ -167,6 +185,12 @@ Can I have a duster gag?
 ###_NPC
 You have lots of cleaning to do sister?  (She giggles.)  Of course, you can have one.  (She gives you a duster gag.)
 У тебя много работы по уборке, сестра?  (Она хихикает.)  Конечно, ты можешь взять один.  (Она дает тебе тряпку-кляп.)
+###_PLAYER
+Can I talk about the maids in the hall?
+Могу я поговорить о горничных в холле?
+###_NPC
+Of course. Have they been serving you well?
+Конечно. Они хорошо служили вам?
 ###_PLAYER
 I can't stay to chat.  (Leave her.)
 Я не могу остаться, чтобы поболтать.  (Оставить ее.)
@@ -537,12 +561,20 @@ I'm already dressed up.
 ###_NPC
 Perfect!  Let me restrain you then.
 Отлично!  Тогда позволь мне тебя связать.
+Is my outfit suitable to serve drinks?
+Подходит ли мой наряд для подачи напитков?
 ###_PLAYER
 I'll change first.  (Wear the maid uniform.)
 Сначала я переоденусь.  (Надень форму горничной.)
 ###_NPC
 (You change into the maid uniform.)  Perfect!  Let me restrain you then.
 (Ты переодеваешься в униформу горничной.) Отлично!  Тогда позвольте мне тебя связать.
++###_PLAYER
+I’ll change first. (Leave her.)
+Я сначала переоденусь. (Оставь ее.)
+###_NPC
+Are you ready? Our guests are thirsty.
+Ты готова? Наши гости хотят пить.
 ###_PLAYER
 Mistress did that?
 Госпожа сделала это?
@@ -698,6 +730,12 @@ Thanks a lot!
 You'll have to patrol around the club and release members that are stuck.  I'll give you a specific location to monitor.
 Тебе придется патрулировать клуб и освобождать застрявших членов.  Я дам тебе конкретное местоположение для мониторинга.
 ###_PLAYER
+Is my outfit suitable for a rescue missiong?
+Подходит ли мой наряд для спасательной миссии?
+###_NPC
+Are you ready ? I’ll give you a specific location to monitor.
+Вы готовы ? Я дам вам конкретное место для наблюдения.
+###_PLAYER
 Where should I go?
 Куда мне идти?
 ###_NPC
@@ -777,6 +815,12 @@ The rescue was already done.
 ###_NPC
 Very well, it happens from time to time.  I can give you another chore if you're up for it.
 Очень хорошо, это случается время от времени.  Я могу дать тебе еще одну работу, если ты готова.
+###_PLAYER
+Is my outfit suitable to clean?
+Подходит ли моя одежда для уборки?
+###_NPC
+Are you ready? There’s a lot of cleaning to do.
+Вы готовы? Предстоит много уборки.
 ###_PLAYER
 I can't clean while being restrained.
 Я не могу убирать, будучи связанной.
@@ -897,7 +941,7 @@ You should hit " S D K L " on your keyboard when the musical notes drop from the
 (Nod.)
 (Кивок.)
 ###_NPC
-Each hit is judged with "PERFECT", "GREAT", or "MISS"	 if you release your key early in case of a long note, you get an "END MISS".
+Each hit is judged with "PERFECT", "GREAT", or "MISS"; if you release your key early in case of a long note, you get an "END MISS".
 Каждое нажатие оценивается как "PERFECT", "GREAT" или "MISS" если ты отпустишь свой ключ рано в случае длинной ноты, ты получишь "END MISS".
 You break your combo if you get a "MISS" or "END MISS", and audience will eventually become unhappy.
 Ты нарушишь свою комбинацию, если ты получишь "MISS" или "END MISS", и аудитория в конечном итоге станет несчастной.
@@ -916,12 +960,12 @@ Select song.
 (List of songs)
 (Список песен)
 ###_PLAYER
-и¦‹гЃ€гЃЄгЃ„дЅ•гЃ‹гЃ«жЂЇгЃ€г‚‹е¤њ (LV 2)
-и¦‹гЃ€гЃЄгЃ„дЅ•гЃ‹гЃ«жЂЇгЃ€г‚‹е¤њ (LV 2)
-и¦‹гЃ€гЃЄгЃ„дЅ•гЃ‹гЃ«жЂЇгЃ€г‚‹е¤њ (LV 5)
-и¦‹гЃ€гЃЄгЃ„дЅ•гЃ‹гЃ«жЂЇгЃ€г‚‹е¤њ (LV 5)
-и¦‹гЃ€гЃЄгЃ„дЅ•гЃ‹гЃ«жЂЇгЃ€г‚‹е¤њ (LV 7)
-и¦‹гЃ€гЃЄгЃ„дЅ•гЃ‹гЃ«жЂЇгЃ€г‚‹е¤њ (LV 7)
+見えない何かに怯える夜 (LV 2)
+見えない何かに怯える夜 (LV 2)
+見えない何かに怯える夜 (LV 5)
+見えない何かに怯える夜 (LV 5)
+見えない何かに怯える夜 (LV 7)
+見えない何かに怯える夜 (LV 7)
 (Want more Songs)
 (Хочешь больше песен)
 ###_NPC
@@ -929,3 +973,113 @@ We are adding more contents to this minigame. If you have royalty free songs or 
 Мы добавляем больше контента в эту мини-игру. Если у вас есть песни без роялти или вы хотите создать диаграммы, вы можете связаться с разработчиком для получения дополнительной информации.
 (She releases you.)  All set!  Are you ready for more chores?
 (Она отпускает тебя.) Все готово!  Готова ли ты к большим хлопотам?
+###_PLAYER
+They've been getting in the way.
+Они стояли у нас на пути.
+###_NPC
+What?  This is unacceptable!
+Что? Это неприемлемо!
+###_PLAYER
+Yes.  They are doing a fine job.  (Go back.)
+Да. Они делают прекрасную работу. (Вернитесь назад.)
+###_NPC
+(She giggles.)  Another satisfied customer!
+(Она хихикает.) Еще один довольный клиент!
+###_PLAYER
+It's not like that...  I just want to be helpless.
+Это не так... Я просто хочу быть беспомощной.
+###_NPC
+(She relaxes her expression.)  Ah!  If that is the case, then there is a way we could serve you better...
+(Она смягчает выражение лица.) Ах! Если это так, то есть способ, которым мы могли бы обслужить вас лучше...
+###_PLAYER
+I am interested!
+Мне интересно!
+###_NPC
+We can suspend our maid service for a limited time.  We will still help you if your life is in danger of course.  But we will leave you helplessly bound regardless.
+Мы можем приостановить наши услуги горничной на ограниченное время. Мы по-прежнему поможем вам, если вашей жизни, конечно, угрожает опасность. Но мы все равно оставим вас беспомощно связанными.
+###_PLAYER
+Actually, never mind.  (Go back.)
+На самом деле, неважно. (Вернитесь назад.)
+###_NPC
+(She giggles.)  Fair enough.  Stay kinky!
+(Она хихикает.) Достаточно честно. Оставайся крутым!
+###_PLAYER
+So if I am stuck there really is no way out?
+Значит, если я застрял, выхода действительно нет?
+###_NPC
+(She smiles.)  Yes!  For a time at least.
+(Она улыбается.) Да! По крайней мере, на время.
+###_PLAYER
+That sounds awful.  (Go back.)
+Звучит ужасно. (Вернитесь назад.)
+###_NPC
+(She nods) Everyone is different. There's no shame in that.
+(Она кивает) Все люди разные. В этом нет ничего постыдного.
+###_PLAYER
+So there's a catch?
+Так есть подвох?
+###_NPC
+Yes.  We will add your name to our no-help list.  You can set the amount of time it will be active for up to one hour.
+Да. Мы добавим ваше имя в наш список тех, кому не нужна помощь. Вы можете установить количество времени, в течение которого он будет активен, до одного часа.
+###_PLAYER
+Let me try this for 10 minutes and see how it feels.
+Позвольте мне попробовать это в течение 10 минут и посмотреть, как это чувствуется.
+###_NPC
+You will be helpless for ten minutes, and the maids will not rescue you, nor will our associates in the photography club assist you.  Is this what you want?
+Десять минут вы будете беспомощны, и горничные вас не спасут, и наши коллеги по фотоклубу вам не помогут. Это то, что вы хотите?
+###_PLAYER
+Give me half an hour.
+Дай мне полчаса.
+###_NPC
+You will be helpless for 30 minutes, and the maids will not rescue you, nor will our associates in the photography club assist you.  Is this what you want?
+Вы будете беспомощны в течение 30 минут, и горничные вас не спасут, и наши единомышленники в фотоклубе вам не помогут. Это то, что вы хотите?
+###_PLAYER
+I want to be bound for one hour.
+Я хочу быть связанной на один час.
+###_NPC
+You will be helpless for 1 hour, and the maids will not rescue you, nor will our associates in the photography club assist you.  Is this what you want?
+Вы будете беспомощны в течение 1 часа, и горничные вас не спасут, как и наши единомышленники в фотоклубе вам не помогут. Это то, что вы хотите?
+###_PLAYER
+I was looking for something more... permanent.
+Я искал что-то более... постоянное.
+###_NPC
+(She giggles.)  Legally we can only keep you so long.
+(Она хихикает.) По закону мы можем задержать вас только на такой срок.
+###_PLAYER
+This seems too much for me.  (Go back.)
+Это кажется мне слишком. (Вернись.)
+###_NPC
+(She nods.) Everyone is different.  There's no shame in that.
+(Она кивает.) Все люди разные. В этом нет ничего постыдного.
+###_PLAYER
+Let me consider the other options first...
+Сначала я рассмотрю другие варианты...
+###_NPC
+We can add your name to our no-help list.  You can set the amount of time it will be active for up to one hour.
+Мы можем добавить ваше имя в наш список тех, кому не нужна помощь. Вы можете установить количество времени, в течение которого он будет активен, до одного часа.
+###_PLAYER
+No thanks.  (Go back.)
+Спасибо, не надо. (Вернитесь назад.)
+###_NPC
+(She nods.)  Everyone is different.  There's no shame in that.
+(Она кивает.) Все люди разные. В этом нет ничего постыдного.
+###_PLAYER
+Yes.  Write my name down.
+Да. Запишите мое имя.
+###_NPC
+(She nods.)  Very well.  The maids will not help you for 10 minutes.
+(Она кивает.) Очень хорошо. Горничные не помогут вам в течение 10 минут.
+(She nods.)  Very well.  The maids will not help you for 30 minutes.
+(Она кивает.) Очень хорошо. Горничные не помогут вам в течение 30 минут.
+(She nods.)  Very well.  The maids will not help you for 1 hour.
+(Она кивает.) Очень хорошо. Горничные не будут помогать вам в течение 1 часа.
+(She nods.)  Very well.  The maids will not help you for 24 hours.
+(Она кивает.) Очень хорошо. Горничные не помогут вам в течение 24 часов.
+(She nods.)  Very well.  The maids will not help you for an entire week.
+(Она кивает.) Очень хорошо. Горничные не будут помогать вам целую неделю.
+###_PLAYER
+Yes.  I want to be a helpless slave.
+Да. Я хочу быть беспомощной рабыней.
+###_NPC
+(She nods.)  Very well.  Your fate is now sealed, girl.
+(Она кивает.) Очень хорошо. Твоя судьба решена, девочка.

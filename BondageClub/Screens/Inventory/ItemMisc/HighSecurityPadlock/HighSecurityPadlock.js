@@ -114,8 +114,8 @@ function InventoryItemMiscHighSecurityPadlockClick() {
 
 				if (CurrentScreen == "ChatRoom") {
 					var Dictionary = [];
-					Dictionary.push({Tag: "SourceCharacter", Text: Player.Name, MemberNumber: Player.MemberNumber});
-					Dictionary.push({Tag: "DestinationCharacter", Text: C.Name, MemberNumber: C.MemberNumber});
+					Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
+					Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
 					Dictionary.push({Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name});
 					ChatRoomPublishCustomAction("HighSecurityUpdate", true, Dictionary);
 					InventoryItemMiscHighSecurityPadlockExit();

@@ -36,7 +36,7 @@ function AnimationGetDynamicDataName(C, Type, Asset) {
  * Gets the persistent data  for a given item on a given character. This method should not be called explicitly, use the Data builder passed to the dynamic drawing functions.
  * @param {Character} C - Character wearing the animated object
  * @param {Asset} Asset - The animated object
- * @returns {object} - Contains the persistent data of the animated object, returns a new empty object if it was never initialized previously.
+ * @returns {any} - Contains the persistent data of the animated object, returns a new empty object if it was never initialized previously.
  */
 function AnimationPersistentDataGet(C, Asset) {
 	const PersistentDataName = AnimationGetDynamicDataName(C, AnimationDataTypes.PersistentData, Asset);

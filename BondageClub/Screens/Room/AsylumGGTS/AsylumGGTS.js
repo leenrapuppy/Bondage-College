@@ -227,13 +227,12 @@ function AsylumGGTSBuildPrivate() {
  * @param {Character} C - The character to rename
  * @returns {string} - The new name for that character
  */
-function AsylumGGTSCharacterName(C) {
-	let Name = C.Name;
+function AsylumGGTSCharacterName(C, Name) {
 	if ((CurrentScreen !== "ChatRoom") || (ChatRoomSpace !== "Asylum")) return Name;
 	if ((ChatRoomData == null) || (ChatRoomData.Game !== "GGTS")) return Name;
 	let Level = AsylumGGTSGetLevel(C);
-	if (Level == 2) Name = C.Name + "-" + C.MemberNumber.toString();
-	if (Level == 3) Name = C.Name + "-GG-" + C.MemberNumber.toString();
+	if (Level == 2) Name = Name + "-" + C.MemberNumber.toString();
+	if (Level == 3) Name = Name + "-GG-" + C.MemberNumber.toString();
 	if (Level == 4) Name = "GG-" + C.MemberNumber.toString();
 	if (Level == 5) Name = "GSG-" + C.MemberNumber.toString();
 	if (Level >= 6) Name = "GS-" + C.MemberNumber.toString();
@@ -249,10 +248,10 @@ function AsylumGGTSCharacterName(C) {
 function AsylumGGTSMessage(Msg, Target) {
 	if ((Msg == "TaskDone") && (AsylumGGTSGetLevel(Player) == 5)) Msg = "TaskDoneSlaveGirl";
 	if ((Msg == "TaskDone") && (AsylumGGTSGetLevel(Player) == 6)) Msg = "TaskDoneSlave";
-	let Dict = [{ Tag: "SourceCharacter", Text: AsylumGGTSCharacterName(Player), MemberNumber: Player.MemberNumber }];
+	let Dict = [{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber }];
 	if (Target != null) {
 		Msg = Msg + "Target";
-		Dict.push({ Tag: "TargetCharacter", Text: AsylumGGTSCharacterName(Target), MemberNumber: Target.MemberNumber });
+		Dict.push({ Tag: "TargetCharacter", Text: CharacterNickname(Target), MemberNumber: Target.MemberNumber });
 	}
 	ServerSend("ChatRoomChat", { Content: "GGTS" + Msg, Type: "Action", Dictionary: Dict });
 }
@@ -728,6 +727,7 @@ function AsylumGGTSAutomaticTask() {
 	if ((AsylumGGTSTask == "LockRoom") || (AsylumGGTSTask == "UnlockRoom")) {
 		var UpdatedRoom = {
 			Name: ChatRoomData.Name,
+			Language: ChatCreateLanguage,
 			Description: ChatRoomData.Description,
 			Background: ChatRoomData.Background,
 			Limit: ChatRoomData.Limit.toString(),
@@ -1062,6 +1062,13 @@ function AsylumGGTSControlItem(C, Item) {
 }
 
 /**
+ * Checks if the has enough GGTS minutes to spend on different activities, for GGTS level 6 and up
+ * @param {number} Minute - The number of minutes to compare
+ * @returns {boolean} - TRUE if the player has enough minutes
+ */
+function AsylumGGTSHasMinutes(Minute) { return ((AsylumGGTSGetLevel(Player) >= 6) && (Math.floor(Player.Game.GGTS.Time / 60000) >= Minute)); }
+
+/**
  * At level 6, the player can spend GGTS minutes for various reasons
  * @returns {void} - Nothing
  */
@@ -1255,7 +1262,7 @@ function AsylumGGTSDialogInteraction(Interaction) {
  * Called from chat room, processes hidden GGTS messages
  * @param {Character} SenderCharacter - The character sending the message
  * @param {String} Interaction - The message sent
- * @returns {void} - Nothing
+ * @returns {Object} - Nothing to be used
  */
 function AsylumGGTSHiddenMessage(SenderCharacter, Interaction) {
 	if (Interaction == "GGTSNewTask|" + Player.MemberNumber.toString()) return AsylumGGTSNewTask();
