@@ -1,15 +1,17 @@
 "use strict";
-let KinkyDungeonMapParams = [
-
-	{//DungeonName0,-Graveyard-
+/**
+ * @type {Record<mapKey,floorParams>}
+ */
+const KinkyDungeonMapParams = {
+	"grv":{//DungeonName0,-Graveyard-
 		"background" : "RainyForstPathNight",
 		"openness" : 3, // Openness of rooms
 		"density" : 3, // Density of tunnels (inverse of room spawn chance)
-		"doodadchance" : 0.16,
+		"crackchance" : 0.07,
 		"barchance" : 0.2,
-		"brightness" : 8,
+		"brightness" : 7,
 		"chestcount" : 3,
-		"shrinecount" : 8,
+		"shrinecount" : 11,
 		"shrinechance" : 0.75,
 		"ghostchance" : 1,
 		"doorchance" : 0.67,
@@ -25,18 +27,20 @@ let KinkyDungeonMapParams = [
 
 		"setpieces": [
 			{Type: "Bedroom", Weight: 3},
-			{Type: "Graveyard", Weight: 9},
-			{Type: "Altar", Weight: 6},
-			{Type: "QuadCell", Weight: 4},
-			{Type: "Storage", Weight: 7},
+			{Type: "Graveyard", Weight: 6},
+			{Type: "Altar", Weight: 3},
+			{Type: "SmallAltar", Weight: 18},
+			{Type: "GuardedChest", Weight: 30},
+			{Type: "QuadCell", Weight: 3},
+			{Type: "Storage", Weight: 5},
 		],
 
 		"shortcuts": [
-			{Level: 1, checkpoint: 11, chance: 1.0},
-			{Level: 3, checkpoint: 11, chance: 1.0},
+			{Level: 1, checkpoint: "tmb", chance: 1.0},
+			{Level: 3, checkpoint: "tmb", chance: 1.0},
 		],
 		"mainpath": [
-			{Level: 5, checkpoint: 1},
+			{Level: 5, checkpoint: "cat"},
 		],
 
 		"traps": [
@@ -76,7 +80,7 @@ let KinkyDungeonMapParams = [
 		"shrines": [
 			//{Type: "Charms", Weight: 5},
 			{Type: "Latex", Weight: 3},
-			{Type: "Commerce", Weight: 14},
+			{Type: "Commerce", Weight: 0},
 			{Type: "Elements", Weight: 5},
 			{Type: "Conjure", Weight: 5},
 			{Type: "Illusion", Weight: 5},
@@ -87,16 +91,15 @@ let KinkyDungeonMapParams = [
 
 
 	},
-
-	{// DungeonName1,-Catacombs-
+	"cat":{// DungeonName1,-Catacombs-
 		"background" : "Dungeon",
 		"openness" : 0,
 		"density" : 2,
-		"doodadchance" : 0.11,
+		"crackchance" : 0.09,
 		"barchance" : 0.2,
-		"brightness" : 6,
+		"brightness" : 4,
 		"chestcount" : 4,
-		"shrinecount" : 10,
+		"shrinecount" : 12,
 		"chargerchance": 0.5,
 		"litchargerchance": 0.5,
 		"chargercount": 7,
@@ -116,19 +119,22 @@ let KinkyDungeonMapParams = [
 		"setpieces": [
 			{Type: "Bedroom", Weight: 2},
 			{Type: "Altar", Weight: 3},
-			{Type: "QuadCell", Weight: 10},
-			{Type: "Storage", Weight: 7},
+			{Type: "QuadCell", Weight: 8},
+			{Type: "Storage", Weight: 5},
+			{Type: "SmallAltar", Weight: 18},
+			{Type: "GuardedChest", Weight: 30},
+			{Type: "ExtraCell", Weight: 10},
 		],
 
 		"shortcuts": [
-			{Level: 6, checkpoint: 12, chance: 0.5},
-			{Level: 7, checkpoint: 12, chance: 1.0},
-			{Level: 8, checkpoint: 12, chance: 0.25},
-			{Level: 9, checkpoint: 12, chance: 0.25},
-			{Level: 10, checkpoint: 12, chance: 1.0},
+			{Level: 6, checkpoint: "lib", chance: 0.5},
+			{Level: 7, checkpoint: "lib", chance: 1.0},
+			{Level: 8, checkpoint: "lib", chance: 0.25},
+			{Level: 9, checkpoint: "lib", chance: 0.25},
+			{Level: 10, checkpoint: "lib", chance: 1.0},
 		],
 		"mainpath": [
-			{Level: 11, checkpoint: 2},
+			{Level: 11, checkpoint: "jng"},
 		],
 
 		"traps": [
@@ -170,7 +176,7 @@ let KinkyDungeonMapParams = [
 		"defeat_outfit": "Dungeon",
 		"shrines": [
 			{Type: "Latex", Weight: 3},
-			{Type: "Commerce", Weight: 14},
+			{Type: "Commerce", Weight: 0},
 			{Type: "Elements", Weight: 5},
 			{Type: "Conjure", Weight: 5},
 			{Type: "Illusion", Weight: 5},
@@ -180,16 +186,16 @@ let KinkyDungeonMapParams = [
 			{Type: "Will", Weight: 7},]
 
 	},
-
-	{//DungeonName2,-Underground Jungle-
+	"jng":{//DungeonName2,-Underground Jungle-
 		"background" : "DeepForest",
+		noReplace: "b",
 		"openness" : 1,
 		"density" : 1,
-		"doodadchance" : 0.12,
+		"crackchance" : 0.15,
 		"barchance" : 0.05,
-		"brightness" : 8,
+		"brightness" : 6,
 		"chestcount" : 5,
-		"shrinecount" : 10,
+		"shrinecount" : 13,
 		"shrinechance" : 0.4,
 		"ghostchance" : 0.5,
 		"doorchance" : 0.2,
@@ -203,12 +209,18 @@ let KinkyDungeonMapParams = [
 		"forbiddenChance" : 0.72,
 		"forbiddenGreaterChance" : 0.33,
 
+		"setpieces": [
+			{Type: "Altar", Weight: 6},
+			{Type: "SmallAltar", Weight: 20},
+			{Type: "GuardedChest", Weight: 30},
+		],
+
 		"shortcuts": [
-			{Level: 13, checkpoint: 13, chance: 1.0},
-			{Level: 15, checkpoint: 13, chance: 1.0},
+			{Level: 13, checkpoint: "cry", chance: 1.0},
+			{Level: 15, checkpoint: "cry", chance: 1.0},
 		],
 		"mainpath": [
-			{Level: 17, checkpoint: 3},
+			{Level: 17, checkpoint: "tmp"},
 		],
 
 		"traps": [
@@ -248,7 +260,7 @@ let KinkyDungeonMapParams = [
 		"defeat_outfit": "LatexPrisoner",
 		"shrines": [
 			{Type: "Latex", Weight: 5},
-			{Type: "Commerce", Weight: 14},
+			{Type: "Commerce", Weight: 0},
 			{Type: "Elements", Weight: 5},
 			{Type: "Conjure", Weight: 5},
 			{Type: "Illusion", Weight: 5},
@@ -257,24 +269,25 @@ let KinkyDungeonMapParams = [
 			{Type: "Rope", Weight: 5},
 			{Type: "Will", Weight: 5},]
 	},
-	{//DungeonName3,-Lost Temple-
+	"tmp":{//DungeonName3,-Lost Temple-
 		"background" : "SpookyForest",
 		"openness" : 2,
 		"density" : 2,
-		"doodadchance" : 0.13,
+		"crackchance" : 0.05,
 		"barchance" : 0.1,
-		"brightness" : 5,
+		"brightness" : 3,
 		"chestcount" : 4,
 		"chargerchance": 0.9,
 		"litchargerchance": 0.2,
 		"chargercount": 10,
-		"shrinecount" : 8,
+		"shrinecount" : 10,
 		"shrinechance" : 0.5,
 		"ghostchance" : 0.5,
 		"doorchance" : 0.9,
 		"nodoorchance" : 0.25,
 		"doorlockchance" : -0.05,
 		"trapchance" : 0.5,
+		"grateChance" : 0.8,
 		"rubblechance" : 0.7,
 		"brickchance" : 0.1,
 		"floodchance" : 0.33,
@@ -288,13 +301,15 @@ let KinkyDungeonMapParams = [
 		"setpieces": [
 			{Type: "Bedroom", Weight: 1},
 			{Type: "Altar", Weight: 6},
+			{Type: "SmallAltar", Weight: 20},
+			{Type: "GuardedChest", Weight: 30},
 		],
 
 		"shortcuts": [
 
 		],
 		"mainpath": [
-			{Level: 23, checkpoint: 3},
+			{Level: 23, checkpoint: "tmp"},
 		],
 
 		"traps": [
@@ -334,7 +349,7 @@ let KinkyDungeonMapParams = [
 		"defeat_outfit": "LatexPrisoner",
 		"shrines": [
 			{Type: "Latex", Weight: 5},
-			{Type: "Commerce", Weight: 12},
+			{Type: "Commerce", Weight: 0},
 			{Type: "Elements", Weight: 5},
 			{Type: "Conjure", Weight: 5},
 			{Type: "Illusion", Weight: 5},
@@ -345,216 +360,18 @@ let KinkyDungeonMapParams = [
 
 		"lockmult" : 1.5,
 	},
-	{//DungeonName4,-Fungal Caverns-
-		"openness" : 4,
-		"density" : 4,
-		"doodadchance" : 0.15,
-		"barchance" : 0.15,
-		"brightness" : 7,
-		"chestcount" : 5,
-		"shrinecount" : 10,
-		"shrinechance" : 0.8,
-		"ghostchance" : 0.5,
-		"doorchance" : 0.05,
-		"nodoorchance" : 0.5,
-		"doorlockchance" : -0.05,
-		"trapchance" : 0.5,
-		"grateChance" : 0.7,
-		"rubblechance" : 0.9,
-		"brickchance" : 0.2,
-
-		"traps": [
-			{Name: "SpawnEnemies", strict: true, Enemy: "SummonedSkeleton", Level: 0, Power: 4, Weight: 100},
-		],
-
-		"min_width" : 15,
-		"max_width" : 25,
-		"min_height" : 15,
-		"max_height" : 25,
-	},
-	{//DungeonName5,-The Bellows-
-		"openness" : 1,
-		"density" : 1,
-		"doodadchance" : 0.05,
-		"barchance" : 0.03,
-		"brightness" : 8,
-		"chestcount" : 6,
-		"shrinecount" : 8,
-		"shrinechance" : 0.75,
-		"ghostchance" : 0.5,
-		"doorchance" : 0.67,
-		"nodoorchance" : 0.1,
-		"doorlockchance" : -0.05,
-		"trapchance" : 0.5,
-		"grateChance" : 0.7,
-		"rubblechance" : 0.7,
-		"brickchance" : 0.3,
-
-		"traps": [
-			{Name: "SpawnEnemies", strict: true, Enemy: "SummonedSkeleton", Level: 0, Power: 4, Weight: 100},
-		],
-
-		"min_width" : 25,
-		"max_width" : 51,
-		"min_height" : 13,
-		"max_height" : 15,
-
-		"lockmult" : 2.0,
-	},
-	{//DungeonName6,-Underground Desert-
-		"openness" : 4,
-		"density" : 2,
-		"doodadchance" : 0.13,
-		"barchance" : 0.03,
-		"brightness" : 5,
-		"chestcount" : 4,
-		"shrinecount" : 12,
-		"shrinechance" : 0.5,
-		"ghostchance" : 0.5,
-		"doorchance" : 0.0,
-		"nodoorchance" : 0.3,
-		"doorlockchance" : -0.05,
-		"trapchance" : 0.5,
-		"grateChance" : 0.7,
-		"rubblechance" : 0.3,
-		"brickchance" : 0.3,
-
-		"traps": [
-			{Name: "SpawnEnemies", strict: true, Enemy: "SummonedSkeleton", Level: 0, Power: 4, Weight: 100},
-		],
-
-		"min_width" : 25,
-		"max_width" : 31,
-		"min_height" : 17,
-		"max_height" : 25,
-	},
-	{//DungeonName7,-Kingdom of Ice-
-		"openness" : 2,
-		"density" : 1,
-		"doodadchance" : 0.12,
-		"barchance" : 0.03,
-		"brightness" : 4,
-		"chestcount" : 4,
-		"shrinecount" : 10,
-		"shrinechance" : 0.8,
-		"ghostchance" : 0.5,
-		"doorchance" : 0.8,
-		"trapchance" : 0.5,
-		"grateChance" : 0.7,
-		"nodoorchance" : 0.2,
-		"rubblechance" : 0.5,
-		"brickchance" : 0.7,
-
-		"traps": [
-			{Name: "SpawnEnemies", strict: true, Enemy: "SummonedSkeleton", Level: 0, Power: 4, Weight: 100},
-		],
-
-		"min_width" : 25,
-		"max_width" : 31,
-		"min_height" : 13,
-		"max_height" : 19,
-
-		"lockmult" : 2.0,
-	},
-	{//DungeonName8,-Marble Halls-
-		"openness" : 4,
-		"density" : 1,
-		"doodadchance" : 0.12,
-		"barchance" : 0.03,
-		"brightness" : 8,
-		"chestcount" : 8,
-		"shrinecount" : 8,
-		"shrinechance" : 0.75,
-		"ghostchance" : 0.5,
-		"doorchance" : 1.0,
-		"nodoorchance" : 0.0,
-		"doorlockchance" : -0.05,
-		"trapchance" : 0.5,
-		"grateChance" : 0.7,
-		"rubblechance" : 0.7,
-		"brickchance" : 0.5,
-
-		"traps": [
-			{Name: "SpawnEnemies", strict: true, Enemy: "SummonedSkeleton", Level: 0, Power: 4, Weight: 100},
-		],
-
-		"min_width" : 15,
-		"max_width" : 21,
-		"min_height" : 25,
-		"max_height" : 37,
-
-		"lockmult" : 1.5,
-	},
-	{//DungeonName9,-Ancient Laboratory-
-		"openness" : 2,
-		"density" : 1,
-		"doodadchance" : 0.08,
-		"barchance" : 0.03,
-		"brightness" : 4,
-		"chestcount" : 10,
-		"shrinecount" : 6,
-		"shrinechance" : 0.75,
-		"ghostchance" : 0.5,
-		"doorchance" : 1.0,
-		"nodoorchance" : 0.0,
-		"doorlockchance" : -0.05,
-		"trapchance" : 0.5,
-		"grateChance" : 0.7,
-		"rubblechance" : 0.6,
-		"brickchance" : 0.9,
-
-		"traps": [
-			{Name: "SpawnEnemies", strict: true, Enemy: "SummonedSkeleton", Level: 0, Power: 4, Weight: 100},
-		],
-
-		"min_width" : 25,
-		"max_width" : 31,
-		"min_height" : 13,
-		"max_height" : 19,
-
-		"lockmult" : 4.0,
-	},
-	{//DungeonName10,-The Mansion-
-		"openness" : 10,
-		"density" : 1,
-		"doodadchance" : 0.05,
-		"barchance" : 0.03,
-		"brightness" : 100,
-		"chestcount" : 0,
-		"shrinecount" : 0,
-		"shrinechance" : 0.25,
-		"ghostchance" : 0.5,
-		"doorchance" : 1.0,
-		"nodoorchance" : 0.0,
-		"doorlockchance" : -0.05,
-		"trapchance" : 0.5,
-		"grateChance" : 0.7,
-		"rubblechance" : 1.0,
-		"brickchance" : 0.7,
-
-		"traps": [
-			{Name: "SpawnEnemies", strict: true, Enemy: "SummonedSkeleton", Level: 0, Power: 4, Weight: 100},
-		],
-
-		"min_width" : 31,
-		"max_width" : 31,
-		"min_height" : 19,
-		"max_height" : 19,
-
-		"lockmult" : 0.0,
-	},
-	{//DungeonName11,-Ancient Tombs-
+	"tmb":{//DungeonName11,-Ancient Tombs-
 		"background" : "EgyptianTomb",
 		"openness" : 1,
 		"density" : 3,
-		"doodadchance" : 0.25,
+		"crackchance" : 0.06,
 		"barchance" : 0.05,
-		"brightness" : 5,
+		"brightness" : 3,
 		"chestcount" : 8,
 		"chargerchance": 0.8,
 		"litchargerchance": 0.65,
 		"chargercount": 6,
-		"shrinecount" : 12,
+		"shrinecount" : 13,
 		"shrinechance" : 0.5,
 		"ghostchance" : 0.5,
 		"doorchance" : 0.4,
@@ -571,14 +388,16 @@ let KinkyDungeonMapParams = [
 
 		"setpieces": [
 			{Type: "Altar", Weight: 6},
+			{Type: "SmallAltar", Weight: 20},
+			{Type: "GuardedChest", Weight: 30},
 			{Type: "Storage", Weight: 7},
 		],
 
 		"shortcuts": [
-			{Level: 4, checkpoint: 13, chance: 1.0},
+			{Level: 4, checkpoint: "cry", chance: 1.0},
 		],
 		"mainpath": [
-			{Level: 5, checkpoint: 1},
+			{Level: 5, checkpoint: "cat"},
 		],
 
 		"traps": [
@@ -618,7 +437,7 @@ let KinkyDungeonMapParams = [
 		"defeat_outfit": "Egyptian",
 		"shrines": [
 			{Type: "Latex", Weight: 3},
-			{Type: "Commerce", Weight: 14},
+			{Type: "Commerce", Weight: 0},
 			{Type: "Elements", Weight: 5},
 			{Type: "Conjure", Weight: 5},
 			{Type: "Illusion", Weight: 5},
@@ -627,19 +446,20 @@ let KinkyDungeonMapParams = [
 			{Type: "Leather", Weight: 6},
 			{Type: "Will", Weight: 7},]
 	},
-	{//DungeonName12,-Magic Library-
-		"background" : "Cell",
+	"lib":{//DungeonName12,-Magic Library-
+		"background" : "MagicSchoolLaboratory",
+		noReplace: "Ddb",
 		"openness" : 5,
 		"density" : 6,
-		"doodadchance" : 0.15,
+		"crackchance" : 0.0,
 		"wallRubblechance" : 0.035,
 		"barchance" : 0.1,
-		"brightness" : 8,
+		"brightness" : 6,
 		"chestcount" : 6,
 		"chargerchance": 0.8,
 		"litchargerchance": 0.25,
 		"chargercount": 6,
-		"shrinecount" : 12,
+		"shrinecount" : 15,
 		"shrinechance" : 0.5,
 		"ghostchance" : 0.5,
 		"doorchance" : 0.0,
@@ -655,10 +475,10 @@ let KinkyDungeonMapParams = [
 		"forbiddenGreaterChance" : 0.45,
 
 		"shortcuts": [
-			{Level: 9, checkpoint: 1, chance: 1.0},
+			{Level: 9, checkpoint: "cat", chance: 1.0},
 		],
 		"mainpath": [
-			{Level: 11, checkpoint: 2},
+			{Level: 11, checkpoint: "jng"},
 		],
 
 		"traps": [
@@ -696,7 +516,7 @@ let KinkyDungeonMapParams = [
 		"defeat_outfit": "Prisoner",
 		"shrines": [
 			{Type: "Latex", Weight: 3},
-			{Type: "Commerce", Weight: 14},
+			{Type: "Commerce", Weight: 0},
 			{Type: "Elements", Weight: 5},
 			{Type: "Conjure", Weight: 5},
 			{Type: "Illusion", Weight: 5},
@@ -705,18 +525,18 @@ let KinkyDungeonMapParams = [
 			{Type: "Leather", Weight: 6},
 			{Type: "Will", Weight: 7},]
 	},
-	{//DungeonName13,-Crystal Cave-
-		"background" : "ForestCave",
+	"cry":{//DungeonName13,-Crystal Cave-
+		"background" : "MagicSchoolEscape",
 		"openness" : 6,
 		"density" : 2,
-		"doodadchance" : 0.15,
+		"crackchance" : 0.11,
 		"barchance" : 0.03,
-		"brightness" : 7,
+		"brightness" : 5,
 		"chargerchance": 1.0,
 		"litchargerchance": 1.0,
 		"chargercount": 4,
 		"chestcount" : 4,
-		"shrinecount" : 10,
+		"shrinecount" : 13,
 		"shrinechance" : 0.8,
 		"ghostchance" : 0.5,
 		"doorchance" : 0.05,
@@ -739,18 +559,20 @@ let KinkyDungeonMapParams = [
 
 		"setpieces": [
 			{Type: "Altar", Weight: 6},
+			{Type: "SmallAltar", Weight: 20},
+			{Type: "GuardedChest", Weight: 30},
 			{Type: "Storage", Weight: 2},
 		],
 
 		"shortcuts": [
-			{Level: 14, checkpoint: 2, chance: 0.33},
-			{Level: 15, checkpoint: 2, chance: 0.4},
-			{Level: 16, checkpoint: 2, chance: 1.0},
+			{Level: 14, checkpoint: "jng", chance: 0.33},
+			{Level: 15, checkpoint: "jng", chance: 0.4},
+			{Level: 16, checkpoint: "jng", chance: 1.0},
 		],
 		"mainpath": [
-			{Level: 5, checkpoint: 13},
-			{Level: 7, checkpoint: 1},
-			{Level: 17, checkpoint: 3},
+			{Level: 5, checkpoint: "cry"},
+			{Level: 7, checkpoint: "cat"},
+			{Level: 17, checkpoint: "tmp"},
 		],
 
 		"traps": [
@@ -788,7 +610,7 @@ let KinkyDungeonMapParams = [
 		"defeat_outfit": "Prisoner",
 		"shrines": [
 			{Type: "Latex", Weight: 3},
-			{Type: "Commerce", Weight: 14},
+			{Type: "Commerce", Weight: 0},
 			{Type: "Elements", Weight: 5},
 			{Type: "Conjure", Weight: 5},
 			{Type: "Illusion", Weight: 5},
@@ -797,7 +619,204 @@ let KinkyDungeonMapParams = [
 			{Type: "Leather", Weight: 6},
 			{Type: "Will", Weight: 7},]
 	},
+};
 
 
+/*"fun":{//DungeonName4,-Fungal Caverns-
+		"openness" : 4,
+		"density" : 4,
+		"crackchance" : 0.15,
+		"barchance" : 0.15,
+		"brightness" : 7,
+		"chestcount" : 5,
+		"shrinecount" : 10,
+		"shrinechance" : 0.8,
+		"ghostchance" : 0.5,
+		"doorchance" : 0.05,
+		"nodoorchance" : 0.5,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
+		"rubblechance" : 0.9,
+		"brickchance" : 0.2,
 
-];
+		"traps": [
+			{Name: "SpawnEnemies", strict: true, Enemy: "SummonedSkeleton", Level: 0, Power: 4, Weight: 100},
+		],
+
+		"min_width" : 15,
+		"max_width" : 25,
+		"min_height" : 15,
+		"max_height" : 25,
+	},
+	"blw":{//DungeonName5,-The Bellows-
+		"openness" : 1,
+		"density" : 1,
+		"crackchance" : 0.05,
+		"barchance" : 0.03,
+		"brightness" : 8,
+		"chestcount" : 6,
+		"shrinecount" : 8,
+		"shrinechance" : 0.75,
+		"ghostchance" : 0.5,
+		"doorchance" : 0.67,
+		"nodoorchance" : 0.1,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
+		"rubblechance" : 0.7,
+		"brickchance" : 0.3,
+
+		"traps": [
+			{Name: "SpawnEnemies", strict: true, Enemy: "SummonedSkeleton", Level: 0, Power: 4, Weight: 100},
+		],
+
+		"min_width" : 25,
+		"max_width" : 51,
+		"min_height" : 13,
+		"max_height" : 15,
+
+		"lockmult" : 2.0,
+	},
+	"des":{//DungeonName6,-Underground Desert-
+		"openness" : 4,
+		"density" : 2,
+		"crackchance" : 0.13,
+		"barchance" : 0.03,
+		"brightness" : 5,
+		"chestcount" : 4,
+		"shrinecount" : 12,
+		"shrinechance" : 0.5,
+		"ghostchance" : 0.5,
+		"doorchance" : 0.0,
+		"nodoorchance" : 0.3,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
+		"rubblechance" : 0.3,
+		"brickchance" : 0.3,
+
+		"traps": [
+			{Name: "SpawnEnemies", strict: true, Enemy: "SummonedSkeleton", Level: 0, Power: 4, Weight: 100},
+		],
+
+		"min_width" : 25,
+		"max_width" : 31,
+		"min_height" : 17,
+		"max_height" : 25,
+	},
+	"ice":{//DungeonName7,-Kingdom of Ice-
+		"openness" : 2,
+		"density" : 1,
+		"crackchance" : 0.12,
+		"barchance" : 0.03,
+		"brightness" : 4,
+		"chestcount" : 4,
+		"shrinecount" : 10,
+		"shrinechance" : 0.8,
+		"ghostchance" : 0.5,
+		"doorchance" : 0.8,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
+		"nodoorchance" : 0.2,
+		"rubblechance" : 0.5,
+		"brickchance" : 0.7,
+
+		"traps": [
+			{Name: "SpawnEnemies", strict: true, Enemy: "SummonedSkeleton", Level: 0, Power: 4, Weight: 100},
+		],
+
+		"min_width" : 25,
+		"max_width" : 31,
+		"min_height" : 13,
+		"max_height" : 19,
+
+		"lockmult" : 2.0,
+	},
+	"mar":{//DungeonName8,-Marble Halls-
+		"openness" : 4,
+		"density" : 1,
+		"crackchance" : 0.12,
+		"barchance" : 0.03,
+		"brightness" : 8,
+		"chestcount" : 8,
+		"shrinecount" : 8,
+		"shrinechance" : 0.75,
+		"ghostchance" : 0.5,
+		"doorchance" : 1.0,
+		"nodoorchance" : 0.0,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
+		"rubblechance" : 0.7,
+		"brickchance" : 0.5,
+
+		"traps": [
+			{Name: "SpawnEnemies", strict: true, Enemy: "SummonedSkeleton", Level: 0, Power: 4, Weight: 100},
+		],
+
+		"min_width" : 15,
+		"max_width" : 21,
+		"min_height" : 25,
+		"max_height" : 37,
+
+		"lockmult" : 1.5,
+	},
+	"lab":{//DungeonName9,-Ancient Laboratory-
+		"openness" : 2,
+		"density" : 1,
+		"crackchance" : 0.08,
+		"barchance" : 0.03,
+		"brightness" : 4,
+		"chestcount" : 10,
+		"shrinecount" : 6,
+		"shrinechance" : 0.75,
+		"ghostchance" : 0.5,
+		"doorchance" : 1.0,
+		"nodoorchance" : 0.0,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
+		"rubblechance" : 0.6,
+		"brickchance" : 0.9,
+
+		"traps": [
+			{Name: "SpawnEnemies", strict: true, Enemy: "SummonedSkeleton", Level: 0, Power: 4, Weight: 100},
+		],
+
+		"min_width" : 25,
+		"max_width" : 31,
+		"min_height" : 13,
+		"max_height" : 19,
+
+		"lockmult" : 4.0,
+	},
+	"man":{//DungeonName10,-The Mansion-
+		"openness" : 10,
+		"density" : 1,
+		"crackchance" : 0.05,
+		"barchance" : 0.03,
+		"brightness" : 100,
+		"chestcount" : 0,
+		"shrinecount" : 0,
+		"shrinechance" : 0.25,
+		"ghostchance" : 0.5,
+		"doorchance" : 1.0,
+		"nodoorchance" : 0.0,
+		"doorlockchance" : -0.05,
+		"trapchance" : 0.5,
+		"grateChance" : 0.7,
+		"rubblechance" : 1.0,
+		"brickchance" : 0.7,
+
+		"traps": [
+			{Name: "SpawnEnemies", strict: true, Enemy: "SummonedSkeleton", Level: 0, Power: 4, Weight: 100},
+		],
+
+		"min_width" : 31,
+		"max_width" : 31,
+		"min_height" : 19,
+		"max_height" : 19,
+
+		"lockmult" : 0.0,
+	},*/

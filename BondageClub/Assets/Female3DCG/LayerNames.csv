@@ -58,6 +58,7 @@ ClothLaurelDesign,Design
 ClothLaurelLace,Lace
 ClothSeethroughTopLace,Lace
 ClothSeethroughTopDesign,Design
+ClothJacketBase,Jacket
 ClothAccessoryBouquetBase,Holder
 ClothAccessoryBouquetFlowers,Flowers
 ClothAccessoryCapeFront,Front
@@ -1079,10 +1080,13 @@ ItemDevicesDollBoxText,Custom Text
 ItemDevicesDollBoxHeart,Heart
 ItemDevicesDollBoxGlass,Glass
 ItemDevicesWoodenRackBack,Back
-ItemDevicesWoodenRackFrameWood,Wood
+ItemDevicesWoodenRackFrameWood,Wooden Frame
+ItemDevicesWoodenRackFrameMetal,Metal
 ItemDevicesWoodenRackFrameStains,Stains
 ItemDevicesWoodenRackTopRopes, Ropes
 ItemDevicesWoodenRackTopChains,Chains
+ItemDevicesWoodenRackTopStocksBack,Arm Stocks
+ItemDevicesWoodenRackBotStocksBack,Feet Stocks
 PantiesPilotPantiesLayer1,Suit
 PantiesPilotPantiesLayer2,Highlights
 PantiesPilotPantiesLayer3,Center

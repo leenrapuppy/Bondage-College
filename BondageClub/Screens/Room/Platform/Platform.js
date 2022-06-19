@@ -209,6 +209,7 @@ var PlatformTemplate = [
 			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
 			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 100 },
 			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 40 },
+			{ Name: "WalkHit", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], Speed: 30 },
 			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 35 },
 			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1], Speed: 130 },
 		]
@@ -1017,7 +1018,7 @@ function PlatformDamage(Source, Target, Damage, Time) {
 		else if (Math.random() < Target.DamageFaceOdds) Target.FaceLeft = (Source.X - Target.X <= 0);
 	}
 	Target.ForceX = (Target.DamageKnockForce + Math.random() * Target.DamageKnockForce) * ((Source.X - Target.X < 0) ? 1 : -1);
-	Target.Immunity = Time + 500;
+	Target.Immunity = Time + 667;
 	Target.Health = Target.Health - Damage;
 	if (Target.Damage == null) Target.Damage = [];
 	Target.Damage.push({ Value: Damage, Expire: Time + 2000});
@@ -1171,6 +1172,19 @@ function PlatformMoveActive(Move) {
 }
 
 /**
+ * Returns TRUE if an animation is available for the character
+ * @param {Object} C - The character to evaluate
+ * @param {String} AnimationName - The animation name to search
+ * @returns {boolean} - TRUE if it's available
+ */
+function PlatformAnimAvailable(C, AnimationName) {
+	for (let Anim of C.Animation)
+		if (Anim.Name == AnimationName)
+			return true;
+	return false;
+}
+
+/**
  * Draw scenery + all characters, apply X and Y forces
  * @returns {void} - Nothing
  */
@@ -1282,7 +1296,8 @@ function PlatformDraw() {
 		else if (PlatformActionIs(C, "Any")) C.Anim = PlatformGetAnim(C, C.Action.Name, false);
 		else if (C.Y != PlatformFloor) C.Anim = PlatformGetAnim(C, "Jump");
 		else if ((C.ForceX != 0) && Crouch) C.Anim = PlatformGetAnim(C, "Crawl");
-		else if ((C.ForceX != 0) && C.Run) C.Anim = PlatformGetAnim(C, "Run");
+		else if ((C.ForceX != 0) && (C.Immunity >= PlatformTime) && PlatformAnimAvailable(C, "WalkHit")) C.Anim = PlatformGetAnim(C, "WalkHit");
+		else if ((C.ForceX != 0) && C.Run && PlatformAnimAvailable(C, "Run")) C.Anim = PlatformGetAnim(C, "Run");
 		else if (C.ForceX != 0) C.Anim = PlatformGetAnim(C, "Walk");
 		else if (Crouch) C.Anim = PlatformGetAnim(C, "Crouch");
 		else C.Anim = PlatformGetAnim(C, "Idle");

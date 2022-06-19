@@ -1063,7 +1063,6 @@ function DialogMenuButtonBuild(C) {
 	}
 }
 
-
 /**
  * Sort the inventory list by the global variable SortOrder (a fixed number & current language description)
  * @returns {void} - Nothing
@@ -1072,7 +1071,23 @@ function DialogInventorySort() {
 	DialogInventory.sort((a, b) => a.SortOrder.localeCompare(b.SortOrder, undefined, { numeric: true, sensitivity: 'base' }));
 }
 
-//
+/**
+ * Returns TRUE if the crafted item can be used on a character, validates for owners and lovers
+ * @param {Character} C - The character whose inventory must be built
+ * @param {Object} Craft - The crafting properties of the item
+ * @returns {Boolean} - TRUE if we can use it
+ */
+function DialogCanUseCraftedItem(C, Craft) {
+	if (Craft == null) return true;
+	for (let A of Asset) {
+		if ((A.Name == Craft.Item) && A.OwnerOnly && !C.IsOwnedByPlayer()) return false;
+		if ((A.Name == Craft.Item) && A.LoverOnly && !C.IsLoverOfPlayer()) return false;
+		if ((Craft.Lock != null) && (A.Name == Craft.Lock) && A.OwnerOnly && !C.IsOwnedByPlayer()) return false;
+		if ((Craft.Lock != null) && (A.Name == Craft.Lock) && A.LoverOnly && !C.IsLoverOfPlayer()) return false;
+	}
+	return true;
+}
+
 /**
  * Build the inventory listing for the dialog which is what's equipped,
  * the player's inventory and the character's inventory for that group
@@ -1133,7 +1148,8 @@ function DialogInventoryBuild(C, Offset, redrawPreviews = false) {
 					if ((Craft.Item != null) && (InventoryAvailable(Player, Craft.Item, C.FocusGroup.Name)))
 						for (let A of Asset)
 							if ((A.Name == Craft.Item) && (A.Group.Name == C.FocusGroup.Name))
-								DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
+								if (DialogCanUseCraftedItem(C, Craft))
+									DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
 
 		}
 

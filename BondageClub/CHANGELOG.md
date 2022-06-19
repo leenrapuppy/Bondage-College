@@ -11,9 +11,10 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-06-10
-* Last recorded PR: [#3490](https://github.com/Ben987/Bondage-College/pull/3490)
-* Last recorded commit hash: `eea1a31ef0f3f799ce37dbd97d88b0816faa136d`
+* Changelog last updated: 2022-06-15
+* Last recorded PR: [#3512](https://github.com/Ben987/Bondage-College/pull/3512)
+* Last recorded commit hash: `2fec767f6a6afb97b6d002ea3c1d8b665b7ae9a7`
+
 
 ## [R81]
 
@@ -45,9 +46,11 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Gnarp - Added several new pose variations to the Wooden Cuffs items ([#3483](https://github.com/Ben987/Bondage-College/pull/3483))
 * Karamel - Added multi-color support and audio to the Sturdy Leather Belts items ([#3482](https://github.com/Ben987/Bondage-College/pull/3482))
 * Gnarp - Added a new hogtie variation to the Leather Cuffs (arm restraint) ([#3486](https://github.com/Ben987/Bondage-College/pull/3486))
-* Da'Inihlus - Added Chinese translations for the Introduction Class ([#3485](https://github.com/Ben987/Bondage-College/pull/3485))
+* Da'Inihlus - Added several Chinese translations ([#3485](https://github.com/Ben987/Bondage-College/pull/3485), [#3493](https://github.com/Ben987/Bondage-College/pull/3493), [#3512](https://github.com/Ben987/Bondage-College/pull/3512))
 * Gelmezon - Added Chinese translations for the Asylum meeting room, Asylum therapy room and Maid Cafe ([#3484](https://github.com/Ben987/Bondage-College/pull/3484))
 * Lanarux - Added lots of Russian translations ([#3490](https://github.com/Ben987/Bondage-College/pull/3490))
+* Ada - Updated Kinky Dungeon to 3.42 - see the [Kinky Dungeon changelog](Screens/MiniGame/KinkyDungeon/Changelog.txt) ([#3499](https://github.com/Ben987/Bondage-College/pull/3499))
+* RedStacey/Estsanatlehi - Add a Jacket asset ([#3496](https://github.com/Ben987/Bondage-College/pull/3496))
 
 ### [Removed]
 
@@ -56,6 +59,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 ### [Changed]
 
 * Sekkmer - updated the player title screen to allow pagination and display your current title ([#3470](https://github.com/Ben987/Bondage-College/pull/3470))
+* Nina - Changed room search so that rooms with a name exactly matching your search term will always be visible, regardless of room filter settings ([#3492](https://github.com/Ben987/Bondage-College/pull/3492))
 
 ### [Fixed]
 
@@ -64,6 +68,8 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Estsanatlehi - Fixed a missing lock asset on the Leather Chastity Belt ([#3480](https://github.com/Ben987/Bondage-College/pull/3480))
 * Estsanatlehi - Fixed an issue where character nicknames would not be displayed for extended item updates ([#3481](https://github.com/Ben987/Bondage-College/pull/3481))
 * Estsanatlehi - Fixed an issue where handheld items could not be used on the vulva slot ([#3489](https://github.com/Ben987/Bondage-College/pull/3489))
+* Ellie - Fixed an issue where players with no owner/lovers could get stuck in owner/lover locks ([#3505](https://github.com/Ben987/Bondage-College/pull/3505))
+* Estsanatlehi - Fixed an issue where skills could overlap on the player's informatino sheet ([#3511](https://github.com/Ben987/Bondage-College/pull/3511))
 
 ### [Technical]
 
@@ -76,7 +82,14 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 ### [Beta Fixes]
 
-* Nothing... yet
+* Luna - Fixed a bug where the Heavy Head Harness variant would not display ([#3494](https://github.com/Ben987/Bondage-College/pull/3494))
+* Ellie - Fixed an issue where hair would render inside the Asymmetric Skirt ([#3495](https://github.com/Ben987/Bondage-College/pull/3495))
+* Estsanatlehi - Fixed bugs where the Poker & Bondage Brawl games would crash ([#3497](https://github.com/Ben987/Bondage-College/pull/3497))
+* Estsanatlehi - Updated the Kitty and Latex Dog Hood to hide hair accessories & ears ([#3498](https://github.com/Ben987/Bondage-College/pull/3498))
+* Luna - Fixed several issues with the Wooden Rack ([#3501](https://github.com/Ben987/Bondage-College/pull/3501))
+* Estsanatlehi - Fixed an error that could occur on variable height items ([#3502](https://github.com/Ben987/Bondage-College/pull/3502))
+* T-Bone Shark - Fixed a missing message when using the Medical Injector ([#3506](https://github.com/Ben987/Bondage-College/pull/3506))
+* Estsanatlehi - Fixed several issus with the new image caching functionality ([#3510](https://github.com/Ben987/Bondage-College/pull/3510))
 
 
 ## [R80]

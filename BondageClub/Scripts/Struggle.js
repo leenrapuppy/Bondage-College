@@ -198,7 +198,7 @@ function StruggleProgressCheckEnd(C) {
 			let Color = (DialogColorSelect == null) ? "Default" : DialogColorSelect;
 			if ((StruggleProgressNextItem.Craft != null) && CommonIsColor(StruggleProgressNextItem.Craft.Color)) Color = StruggleProgressNextItem.Craft.Color;
 			InventoryWear(C, StruggleProgressNextItem.Asset.Name, StruggleProgressNextItem.Asset.Group.Name, Color, SkillGetWithRatio("Bondage"), Player.MemberNumber, StruggleProgressNextItem.Craft);
-			if (StruggleProgressNextItem.Craft != null) InventoryCraft(C, StruggleProgressNextItem.Asset.Group.Name, StruggleProgressNextItem.Craft);
+			if (StruggleProgressNextItem.Craft != null) InventoryCraft(Player, C, StruggleProgressNextItem.Asset.Group.Name, StruggleProgressNextItem.Craft, true);
 		}
 
 		// The player can use another item right away, for another character we jump back to her reaction

@@ -28,16 +28,8 @@ type item = {
 	tetherLength?: number,
 	/** Used for Gold locks only, determines which floor the lock will release*/
 	lockTimer?: number,
-	/** Stores a list of restraint names for the linked item system*/
-	dynamicLink?: string[],
-	/** Stores linked item locks*/
-	oldLock?: string[],
-	/** Stores linked item factions*/
-	oldFaction?: string[],
-	/** Stores linked item tightness*/
-	oldTightness?: number[],
-	/** Stores linked item tightness*/
-	oldEvents?: KinkyDungeonEvent[][],
+	/** Stores the previously linked item*/
+	dynamicLink?: item,
 	/** Generic item data, able to be manipulated thru events*/
 	data?: Record<string, any>,
 	/** Escape progress tracking*/
@@ -73,6 +65,7 @@ interface consumable {
 	mp_gradual?: number,
 	sp_gradual?: number,
 	ap_gradual?: number,
+	arousalRatio?: number,
 	scaleWithMaxMP?: boolean,
 	scaleWithMaxSP?: boolean,
 	duration?: number,
@@ -89,8 +82,34 @@ interface consumable {
 }
 
 type restraint = {
+	/** Affinity type: Hook, Edge, or Sharp, Sticky, defaults are Hook (struggle), Sharp (Cut), Edge (Pick), Sticky (Unlock), and none (Pick)*/
+	affinity?: {
+		Struggle?: string[],
+		Cut?: string[],
+		Remove?: string[],
+		Pick?: string[],
+		Unlock?: string[],
+	},
 	/** Determines if the item appears in aroused mode only */
 	arousalMode?: boolean,
+	/** This item lets you access linked items under it */
+	accessible?: boolean,
+	/** This item lets you CANT access linked items under it */
+	inaccessible?: boolean,
+	/** This item can be rendered when linked */
+	renderWhenLinked?: string[];
+	/** When the mentioned items are rendered, changes the type */
+	changeRenderType?: Record<string, string>;
+	/** Stacking category, used to determine if you can have multiple of these items in a stack */
+	linkCategory?: string;
+	/** Stacking size, can't exceed 1 */
+	linkSize?: number;
+	/** Enemies ignore you while you are wearing it */
+	ignoreNear?: boolean,
+	/** Enemies wont cast spells or ranged attacks while you are wearing it */
+	ignoreSpells?: boolean,
+	/** Can always struggle even if it's blocked */
+	alwaysStruggleable?: boolean,
 	name: string,
 	Group: string,
 	Asset: string,
@@ -114,48 +133,76 @@ type restraint = {
 	escapeChance: {
 		Struggle?: number,
 		Cut?: number,
-		Remove?: number
-		Pick?: number
-		Unlock?: number
+		Remove?: number,
+		Pick?: number,
+		Unlock?: number,
 	},
 	/** Overrides escapeChance when you have a ghost helping*/
 	helpChance?: {
 		Struggle?: number,
 		Cut?: number,
-		Remove?: number
-		Pick?: number
-		Unlock?: number
+		Remove?: number,
+		Pick?: number,
+		Unlock?: number,
 	},
 	/** Determines the penalty to the escape chance at the limit--full struggle progress when struggling, and 0 for cut/remove/unlock/pick*/
 	limitChance?: {
 		Struggle?: number,
 		Cut?: number,
-		Remove?: number
-		Pick?: number
-		Unlock?: number
+		Remove?: number,
+		Pick?: number,
+		Unlock?: number,
 	},
 	struggleMinSpeed?: {
 		Struggle?: number,
 		Cut?: number,
-		Remove?: number
-		Pick?: number
-		Unlock?: number
+		Remove?: number,
+		Pick?: number,
+		Unlock?: number,
 	},
 	struggleMaxSpeed?: {
 		Struggle?: number,
 		Cut?: number,
-		Remove?: number
-		Pick?: number
-		Unlock?: number
+		Remove?: number,
+		Pick?: number,
+		Unlock?: number,
 	},
 	/** Multiplier to struggle power */
 	struggleMult?: {
 		Struggle?: number,
 		Cut?: number,
-		Remove?: number
-		Pick?: number
-		Unlock?: number
+		Remove?: number,
+		Pick?: number,
+		Unlock?: number,
 	},
+
+	/** Sound when using an escape method*/
+	sfxEscape?: {
+		Struggle?: string,
+		Cut?: string,
+		Remove?: string,
+		Pick?: string,
+		Unlock?: string,
+		NoStamina?: string,
+		MagicCut?: string,
+		PickBreak?: string,
+		KnifeBreak?: string,
+		KnifeDrop?: string,
+		KeyDrop?: string,
+		PickDrop?: string,
+	},
+	sfxFinishEscape?: {
+		Struggle?: string,
+		Cut?: string,
+		Remove?: string,
+		Pick?: string,
+		Unlock?: string,
+		Destroy?: string,
+	}
+	/** Remove sound */
+	sfxRemove?: string,
+	/** Equip sound */
+	sfx?: string,
 	/** The vibrator will start vibing whenever another linked vibe starts */
 	linkedVibeTags?: string[],
 	vibeLocation?: string,
@@ -218,6 +265,12 @@ type restraint = {
 	DefaultLock?: string,
 	Link?: string,
 	UnLink?: string,
+	/** Removes when the player is leashed */
+	removeOnLeash?: boolean,
+	/** player is enclosed */
+	enclose?: boolean,
+	/** ignore the player if player is 0 stamina and the enemy is non leashing */
+	ignoreIfNotLeash?: boolean,
 	/** Default tether length */
 	tether?: number,
 	leash?: boolean,
@@ -235,14 +288,14 @@ type restraint = {
 	nonbinding?: boolean,
 	/** Instantly forces a high slow level, for stuff like slime */
 	freeze?: boolean,
+	/** Immobilizes the player */
+	immobile?: boolean,
 	/** The item CAN be trapped, which triggers when you struggle out */
 	trappable?: boolean,
 	/** The item can only be removed through a special condition known as a curse */
 	curse?: string,
 	/** The extra difficulty the item adds to the global difficulty var */
 	difficultyBonus?: number,
-	/** Equip sound */
-	sfx?: string,
 	/** Whether or not the angels will take it off when you call them */
 	divine?: boolean,
 	/** If this is enabled, then you can spend ancient energy to use a potion at no reduction to potion effectiveness while gagged */
@@ -257,6 +310,70 @@ type restraint = {
 	enchanted?: boolean,
 	/** Faction color index */
 	factionColor?: number[][],
+}
+
+type outfitKey = string
+
+type mapKey = string
+
+interface floorParams {
+	background : string,
+	openness : number, // Openness of rooms
+	density : number, // Density of tunnels (inverse of room spawn chance)
+	/** These tiles wont alter wall tiles in this tileset */
+	noReplace?: string,
+	crackchance : number,
+	barchance : number,
+	brightness : number,
+	chestcount : number,
+	shrinecount : number,
+	shrinechance : number,
+	ghostchance : number,
+	doorchance: number,
+	nodoorchance : number,
+	doorlockchance : number,
+	chargerchance?: number,
+	litchargerchance?: number,
+	chargercount?: number,
+	trapchance : number,
+	grateChance : number,
+	rubblechance : number,
+	brickchance : number,
+	cacheInterval : number,
+
+	/** FOrces all setpieces to use POIs, useful for tunnel type maps with thick walls to prevent entombe pieces*/
+	forcePOI?: boolean,
+
+	gaschance?: number,
+	gasdensity?: number,
+	gastype?: string,
+
+	wallRubblechance?: number,
+
+	lockmult?: number,
+
+	floodchance? : number,
+	forbiddenChance : number, // If a forbidden gold chance is generated. Otherwise a silver chest will appear
+	forbiddenGreaterChance : number, // Chance after a forbidden area is generated with a restraint, otherwise its a lesser gold chest
+
+	setpieces?: {Type: string, Weight: number}[],
+
+	shortcuts: {Level: number, checkpoint: string, chance:number}[	],
+	mainpath: {Level: number, checkpoint: string, chance?: number}[],
+
+	traps: {Name: string, Enemy?: string, Spell?: string, Level: number, Power: number, Weight: number, strict?: true}[],
+
+	min_width : number,
+	max_width : number,
+	min_height : number,
+	max_height : number,
+
+	ShopExclusives? : string[],
+
+	"enemytags": string[],
+	"defeat_restraints": {Name: string, Level: number}[	],
+	"defeat_outfit": outfitKey,
+	"shrines": {Type: string, Weight: number}[]
 }
 
 interface overrideDisplayItem {
@@ -276,6 +393,8 @@ interface overrideDisplayItem {
 
 interface enemy {
 	name: string,
+	/** Special dialogue played when clicked on instead of standard ally dialogue */
+	specialdialogue?: string,
 	/** Tags, used for determining weaknesses, spawning, restraints applied, and rank*/
 	tags: Map<string, boolean>,
 	/** Spell resist, formula is spell damage taken = 1 / (1 + spell resist) */
@@ -320,7 +439,9 @@ interface enemy {
 	/** */
 	terrainTags?: Record<string, number>,
 	/** */
-	floors?: Map<number, boolean>,
+	floors?: Map<string, boolean>,
+	/** Enemy events */
+	events?: KinkyDungeonEvent[];
 	/** */
 	allFloors?: boolean,
 	/** */
@@ -383,6 +504,10 @@ interface enemy {
 	damage?: string,
 	/** Rep changes on death */
 	rep?: Record<string, number>,
+	/** Rep changes on death */
+	factionrep?: Record<string, number>;
+	/** Chance to generate as a guard instead */
+	guardChance?: number;
 	/** When generating clusters of enemies, the clustering units must have this tag*/
 	clusterWith?: string,
 	/** Chance to ignore the player if the enemy has an ignore tag like ignorenoSP */
@@ -557,6 +682,17 @@ interface enemy {
 	hitsfxSpecial?: string,
 	/** Effect when the enemy misses */
 	misssfx?: string,
+	/** SFX on certain cues */
+	cueSfx?: {
+		/** When the enemy takes no damage from a melee attack */
+		Block?: string,
+		/** When the enemy takes no damage from a magic attack */
+		Resist?: string,
+		/** When the enemy takes damage in general */
+		Damage?: string,
+		/** When the player misses it */
+		Miss?: string,
+	},
 	/** The enemyeffect when player is hit */
 	effect?: any,
 	/** Cant cast spells while winding up an attack */
@@ -568,7 +704,9 @@ interface enemy {
 	/** Focuses player over summmons, ignores decoys */
 	focusPlayer?: boolean;
 	/** Cant be swapped by another enemy pathing */
-	noSwap?: boolean;
+	immobile?: boolean;
+	/** Stops casting spells after there are this many enemies */
+	enemyCountSpellLimit?: number;
 
 }
 
@@ -588,6 +726,7 @@ interface weapon {
 	chance: number;
 	type: string;
 	bind?: number;
+	light?: boolean;
 	boundBonus?: number;
 	tease?: boolean;
 	rarity: number;
@@ -616,6 +755,7 @@ interface weapon {
 interface KinkyDungeonEvent {
 	type: string;
 	trigger: string;
+	restraint?: string;
 	sfx?: string;
 	power?: number;
 	bind?: number;
@@ -629,6 +769,8 @@ interface KinkyDungeonEvent {
 	buff?: any;
 	lock?: string;
 	msg?: string;
+	prereq?: string;
+	color?: string;
 	/** Vibe */
 	edgeOnly?: boolean;
 	/** Vibe */
@@ -672,6 +814,9 @@ interface entity {
 	personality?: string,
 	patrolIndex?: number,
 	flags?: Record<string, number>,
+	noDrop?: boolean,
+	droppedItems?: boolean,
+	specialdialogue?: string,
 	aggro?: number,
 	id?: number,
 	hp: number,
@@ -700,6 +845,8 @@ interface entity {
 	items?: string[],
 	x: number,
 	y: number,
+	lastx?: number,
+	lasty?: number,
 	fx?: number,
 	fy?: number,
 	path?: {x: number, y: number}[],
@@ -711,6 +858,7 @@ interface entity {
 	hostile?: number,
 	faction?: string,
 	allied?: number,
+	ceasefire?: number,
 	bind?: number,
 	blind?: number,
 	slow?: number,
@@ -761,9 +909,18 @@ interface KinkyDialogueTrigger {
 }
 
 interface spell {
+	tags?: string[];
+	/** Color of the spell and bullet warningsd */
+	color?: string,
 	name: string;
+	/** spell required to unlock this one */
+	prerequisite?: string;
+	/** This spell wont trigger an aggro action */
+	noAggro?: boolean;
 	/** Whether the spell defaults to the Player faction */
 	allySpell?: boolean;
+	/** Spell overrides the faction */
+	faction?: string;
 	/** Whether the spell defaults to the Enemy faction */
 	enemySpell?: boolean;
 	/** Conjure, Illusion, Elements */
@@ -789,6 +946,8 @@ interface spell {
 	knifecost?: number;
 	staminacost?: number;
 	manacost: number;
+	minRange?: number;
+	noSprite?: boolean;
 	/** Verbal, arms, or legs */
 	components?: any[];
 	/** Spell level */
@@ -805,6 +964,8 @@ interface spell {
 	time?: number;
 	/** For Inert spells, this is the lifetime of the main bullet */
 	delay?: number;
+	/** Random added onto delay */
+	delayRandom?: number;
 	/** castRange */
 	castRange?: number;
 	/** Spell range */
@@ -939,6 +1100,8 @@ interface spell {
 interface KinkyDialogue {
 	/** REPLACETEXT -> Replacement */
 	data?: Record<string, string>;
+	/** Shows the quick inventory */
+	shop?: boolean;
 	/** Function to play when clicked. If not specified, nothing happens.  Bool is whether or not to abort current click*/
 	clickFunction?: (gagged: boolean) => boolean | undefined;
 	/** Function to play when clicked, if considered gagged. If not specified, will use the default function. */
@@ -1052,7 +1215,7 @@ interface VibeMod {
 
 interface KinkyDungeonSave {
 	level: number;
-	checkpoint: number;
+	checkpoint: string;
 	rep: Record<string, number>;
 	costs: Record<string, number>;
 	pcosts: Record<string, number>;
@@ -1061,6 +1224,7 @@ interface KinkyDungeonSave {
 	dress: string;
 	gold: number;
 	points: number;
+	perks: string[];
 	levels: {
 		Elements: number;
 		Conjure: number;
@@ -1070,7 +1234,7 @@ interface KinkyDungeonSave {
 	aid: Record<string, boolean>;
 	seed: string;
 	statchoice: [string, boolean][];
-	mapIndex: number[];
+	mapIndex: Record<string, string>;
 	id: number;
 	choices: number[];
 	choices2: boolean[];
@@ -1086,11 +1250,10 @@ interface KinkyDungeonSave {
 		picks: number;
 		keys: number;
 		bkeys: number;
-		knife: number;
-		eknife: number;
 		mana: number;
 		stamina: number;
 		distraction: number;
+		distractionlower: number;
 		wep: any;
 		npp: number;
 		diff: number;
@@ -1098,3 +1261,15 @@ interface KinkyDungeonSave {
 	faction: Record<string, Record<string, number>>;
 }
 
+
+
+type MapMod = {
+	name: string,
+	roomType: string,
+	weight: number,
+	tags: string[],
+	tagsOverride?: string[],
+	bonusTags: Record<string, {bonus: number, mult: number}>,
+	bonussetpieces?: {Type: string, Weight: number}[],
+	altRoom: string,
+}

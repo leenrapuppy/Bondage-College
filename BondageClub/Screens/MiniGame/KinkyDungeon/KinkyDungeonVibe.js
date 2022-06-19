@@ -1,5 +1,152 @@
 "use strict";
 
+
+/*
+KinkyDungeonPlayerVibratedLocationItemNipplesPiercings,Nipples
+KinkyDungeonPlayerVibratedLocationItemNipples,Nipples
+KinkyDungeonPlayerVibratedLocationItemBreast,Breasts
+KinkyDungeonPlayerVibratedLocationItemPelvis,Panties
+KinkyDungeonPlayerVibratedLocationItemVulvaPiercings,Piercing
+KinkyDungeonPlayerVibratedLocationItemVulva,Front
+KinkyDungeonPlayerVibratedLocationItemButt,Rear
+KinkyDungeonPlayerVibratedLocationItemBoots,Feet*/
+
+let KDVibeSounds = {
+	"ItemVulva": {sound: "", Audio: null, update: false},
+	"ItemButt": {sound: "", Audio: null, update: false},
+	"ItemNipples": {sound: "", Audio: null, update: false, vol: 0.5},
+};
+
+let KDVibeSoundRedirect = {
+	"ItemVulva": "ItemVulva",
+	"ItemVulvaPiercings": "ItemNipples", // TODO add softer piercings sound
+	"ItemButt": "ItemButt",
+	"ItemNipplesPiercings": "ItemNipples",
+	"ItemNipples": "ItemNipples",
+	"ItemPelvis": "ItemNipples",
+	"ItemBreast": "ItemNipples", // TODO add massager sound
+	"ItemBoots": "ItemNipples", // TODO add foot tickler sound
+};
+
+let KDVibeSound = {
+	"ItemVulva": "Vibe1",
+	//"ItemVulvaPiercings": "ItemNipples", // TODO add softer piercings sound
+	"ItemButt": "Vibe2",
+	//"ItemNipplesPiercings": "ItemNipples",
+	"ItemNipples": "Vibe3",
+	//"ItemBreast": "ItemNipples", // TODO add massager sound
+	//"ItemBoots": "ItemNipples", // TODO add foot tickler sound
+};
+
+
+let KDVibeVolume = 1;
+let KDVibeVolumeListIndex = 0;
+let KDVibeVolumeList = [1, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
+
+function KDStopAllVibeSounds(Exceptions) {
+	let EE = [];
+	if (Exceptions)
+		for (let e of Exceptions) {
+			EE.push(KDVibeSoundRedirect[e] ? KDVibeSoundRedirect[e] : e);
+		}
+	for (let loc of Object.entries(KDVibeSounds)) {
+		if (!Exceptions || !EE.includes(loc[0])) {
+			if (!loc[1].update) {
+				let audio = loc[1];
+				if (audio.sound) audio.sound = "";
+				if (audio.Audio) {
+					audio.Audio.pause();
+					audio.Audio.currentTime = 0;
+				}
+				loc[1].update = true;
+			}
+		}
+	}
+}
+
+function KDUpdateVibeSound(Location, Sound, Volume) {
+	let prev = "";
+	if (KDVibeSounds[Location]) {
+		prev = KDVibeSounds[Location].sound;
+	}
+	if (KDVibeSounds[Location])
+		KDVibeSounds[Location].sound = Sound;
+	else return;
+
+	if (prev != Sound) {
+		if (prev && KDVibeSounds[Location].Audio && !KDVibeSounds[Location].update) {
+			// Stop the previous sound
+			KDVibeSounds[Location].Audio.pause();
+			KDVibeSounds[Location].Audio.currentTime = 0;
+			//KDVibeSounds[Location].update = true;
+		}
+		if (Sound && !KDVibeSounds[Location].update) {
+			// Start the new sound
+			let audio = new Audio();
+			let vol = Player.AudioSettings.Volume * (Volume != undefined ? Volume : 1.0);
+			if (KDVibeSounds[Location].vol) vol *= KDVibeSounds[Location].vol;
+			KDVibeSounds[Location].Audio = audio;
+			KDVibeSounds[Location].update = true;
+			if (ServerURL == 'foobar') {
+				audio.crossOrigin = "Anonymous";
+				// @ts-ignore
+				audio.src = remap(Sound);
+			} else
+				audio.src = Sound;
+			audio.volume = Math.min(vol, 1);
+			audio.loop = true;
+			audio.play();
+		}
+	}
+	if (!Sound && KDVibeSounds[Location].Audio && !KDVibeSounds[Location].update) {
+		// Stop the previous sound
+		KDVibeSounds[Location].Audio.pause();
+		KDVibeSounds[Location].Audio.currentTime = 0;
+		KDVibeSounds[Location].update = true;
+	}
+	if (Volume != undefined && KDVibeSounds[Location] && KDVibeSounds[Location].Audio) {
+		KDVibeSounds[Location].Audio.volume = Math.min(Player.AudioSettings.Volume * Volume * (KDVibeSounds[Location].vol ? KDVibeSounds[Location].vol : 1.0), 1);
+	}
+}
+
+function KDUpdateVibeSounds() {
+	for (let v of Object.entries(KDVibeSounds)) {
+		v[1].update = false;
+	}
+	let vibe = KDGameData.CurrentVibration;
+	if (vibe && KinkyDungeonState == "Game" && KinkyDungeonSound) {
+		let globalVolume = KDVibeVolume * (KinkyDungeonDrawState == "Game" ? 1 : 0.5);
+		let locations = KDSumVibeLocations();
+		KDStopAllVibeSounds(locations);
+
+		for (let location of locations) {
+			let power = "Weak";
+			if (vibe.location && vibe.location.includes(location)) {
+				if (vibe.intensity >= 3) power = "Strong";
+				else if (vibe.intensity >= 2) power = "Medium";
+			} else if (vibe.VibeModifiers) {
+				for (let mod of vibe.VibeModifiers) {
+					if (mod.location == location) {
+						if (mod.intensityMod >= 3 || mod.intensitySetpoint >= 3) power = "Strong";
+						else if (mod.intensityMod >= 2 || mod.intensitySetpoint >= 2) power = "Medium";
+					}
+				}
+			}
+			if (KinkyDungeonVibeLevel <= 0) {
+				power = "Off";
+			}
+			if (power != "Off") {
+				let sound = (KDVibeSoundRedirect[location] && KDVibeSound[KDVibeSoundRedirect[location]]) ? KDVibeSound[KDVibeSoundRedirect[location]] : "Vibe1";
+				KDUpdateVibeSound(KDVibeSoundRedirect[location] ? KDVibeSoundRedirect[location] : "ItemVulva", KinkyDungeonRootDirectory + `Audio/${sound}_${power}.ogg`, globalVolume);
+			} else
+				KDUpdateVibeSound(KDVibeSoundRedirect[location] ? KDVibeSoundRedirect[location] : "ItemVulva", "", globalVolume);
+		}
+
+	} else {
+		KDStopAllVibeSounds();
+	}
+}
+
 function KDSumVibeLocations() {
 	if (KDGameData.CurrentVibration) {
 		let groups = [];

@@ -26,7 +26,7 @@ function KinkyDungeonSendBuffEvent(Event, data) {
 }
 
 // Decreases time left in buffs and also applies effects
-function KinkyDungeonTickBuffs(list, delta, endFloor) {
+function KinkyDungeonTickBuffs(list, delta, endFloor, entity) {
 	for (const [key, value] of Object.entries(list)) {
 		if (value) {
 			if (value.endFloor && endFloor) KinkyDungeonExpireBuff(list, key);
@@ -35,7 +35,11 @@ function KinkyDungeonTickBuffs(list, delta, endFloor) {
 			else {
 				if (value.type == "restore_mp") KinkyDungeonChangeMana(value.power);
 				if (value.type == "restore_sp") KinkyDungeonChangeStamina(value.power);
-				if (value.type == "restore_ap") KinkyDungeonChangeDistraction(value.power);
+				if (value.type == "restore_ap") KinkyDungeonChangeDistraction(value.power, true);
+
+				if (value.type == "SpellCastConstant" && value.spell && entity) {
+					KinkyDungeonCastSpell(entity.x, entity.y, KinkyDungeonFindSpell(value.spell, true), undefined, undefined, undefined);
+				}
 
 				value.duration -= delta;
 			}
@@ -60,10 +64,10 @@ function KinkyDungeonTickBuffTag(list, tag, Amount) {
 function KinkyDungeonUpdateBuffs(delta, endFloor) {
 	// Tick down buffs the buffs
 	KinkyDungeonSendEvent("tickBuffs", {delta: delta});
-	KinkyDungeonTickBuffs(KinkyDungeonPlayerBuffs, delta, endFloor);
+	KinkyDungeonTickBuffs(KinkyDungeonPlayerBuffs, delta, endFloor, KinkyDungeonPlayerEntity);
 	for (let enemy of KinkyDungeonEntities) {
 		if (!enemy.buffs) enemy.buffs = {};
-		KinkyDungeonTickBuffs(enemy.buffs, delta);
+		KinkyDungeonTickBuffs(enemy.buffs, delta, endFloor, enemy);
 	}
 
 	// Apply the buffs
@@ -111,8 +115,8 @@ function KinkyDungeonApplyBuff(list, origbuff) {
 	if (list[id] && buff.cancelOnReapply) {
 		KinkyDungeonExpireBuff(list, id);
 	} else {
-		if (!list[id] || (list[id].power && buff.power > list[id].power)) list[id] = buff;
-		if ((list[id].power && buff.power == list[id].power && buff.duration > list[id].duration)) list[id].duration = buff.duration;
+		if (!list[id] || (list[id].power && buff.power >= list[id].power)) list[id] = buff;
+		if ((list[id].power && buff.power == list[id].power && buff.duration >= list[id].duration)) list[id].duration = buff.duration;
 
 		if (buff.tags)
 			for (let tag of buff.tags) {

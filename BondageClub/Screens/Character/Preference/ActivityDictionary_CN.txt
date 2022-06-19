@@ -621,7 +621,7 @@ SourceCharacter用口塞触碰TargetCharacter的脚.
 SourceCharacter licks TargetCharacter's foot.
 SourceCharacter舔弄TargetCharacter的脚.
 SourceCharacter sucks on TargetCharacter's big toe.
-SourceCharacter吮吸TargetCharacter的叫.
+SourceCharacter吮吸TargetCharacter的大脚趾.
 SourceCharacter nibbles TargetCharacter's foot.
 SourceCharacter轻咬TargetCharacter的脚
 SourceCharacter tickles TargetCharacter's foot sole.
@@ -987,7 +987,7 @@ SourceCharacter轻吻自己的手.
 SourceCharacter licks the back of her hand.
 SourceCharacter舔弄自己的手背.
 SourceCharacter sucks on her fingers.
-SourceCharacter吮吸自己的手.
+SourceCharacter吮吸自己的手指.
 SourceCharacter nibbles her own hand.
 SourceCharacter轻咬自己的手.
 SourceCharacter spanks her first hand with the second one.

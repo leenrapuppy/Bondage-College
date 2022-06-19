@@ -542,9 +542,10 @@ function ChatSearchQuery() {
 	if (ChatSearchLastQuerySearch != Query || ChatSearchLastQuerySearchHiddenRooms != ChatSearchIgnoredRooms.length || (ChatSearchLastQuerySearch == Query && ChatSearchLastQuerySearchTime + 2000 < CommonTime())) {
 		ChatSearchLastQuerySearch = Query;
 		ChatSearchLastQuerySearchTime = CommonTime();
-		ChatSearchLastQuerySearchHiddenRooms = ChatSearchIgnoredRooms.length;
+		const ignoredRooms = ChatSearchIgnoredRooms.filter(room => room != Query);
+		ChatSearchLastQuerySearchHiddenRooms = ignoredRooms.length;
 		ChatSearchResult = [];
-		ServerSend("ChatRoomSearch", { Query: Query, Language: ChatSearchLanguage, Space: ChatRoomSpace, Game: ChatRoomGame, FullRooms: FullRooms, Ignore: ChatSearchIgnoredRooms });
+		ServerSend("ChatRoomSearch", { Query: Query, Language: ChatSearchLanguage, Space: ChatRoomSpace, Game: ChatRoomGame, FullRooms: FullRooms, Ignore: ignoredRooms });
 	}
 
 	ChatSearchMessage = "EnterName";
@@ -569,13 +570,21 @@ function ChatSearchQuerySort() {
  * @returns {void} - Nothing
  */
 function ChatSearchApplyFilterTerms() {
-	const filterString = ChatSearchMode == "Filter" ? ElementValue("InputSearch") : Player.ChatSearchFilterTerms;
-	const filterTerms = filterString.split(',').filter(s => s).map(s => s.toUpperCase());
+	const inputSearchText = ElementValue("InputSearch").toUpperCase().trim();
+	const filterList = ChatSearchMode == "Filter" ? inputSearchText : Player.ChatSearchFilterTerms;
+	const filterTerms = filterList.split(',').filter(s => s).map(s => s.toUpperCase());
 	if (filterTerms.length > 0) {
 		ChatSearchResult = ChatSearchResult.filter(room => {
-			const nameContainsFilterTerm = filterTerms.some(term => room.Name.toUpperCase().includes(term));
-			if (nameContainsFilterTerm && ChatSearchIgnoredRooms.indexOf(room.Name) < 0) {
-				ChatSearchIgnoredRooms.push(room.Name);
+			const roomName = room.Name.toUpperCase();
+
+			// for an exact room name match, ignore filters
+			if (ChatSearchMode == "" && roomName == inputSearchText) {
+				return true;
+			}
+
+			const nameContainsFilterTerm = filterTerms.some(term => roomName.includes(term));
+			if (nameContainsFilterTerm && ChatSearchIgnoredRooms.indexOf(roomName) < 0) {
+				ChatSearchIgnoredRooms.push(roomName);
 			}
 			return !nameContainsFilterTerm;
 		});

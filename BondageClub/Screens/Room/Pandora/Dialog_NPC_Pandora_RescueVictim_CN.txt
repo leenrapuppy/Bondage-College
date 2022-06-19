@@ -1,0 +1,48 @@
+###_NPC
+(She seems to wonder.)  Why are you gagged miss?
+（她似乎很好奇。）你为什么被塞嘴呢，小姐？
+Miss DialogPlayerName.  It's an honor to be rescued by you.
+DialogPlayerName女士。能被你救出来是我的荣幸。
+I've seen you before!  You're DialogPlayerName from the Bondage Club!  Are you here to rescue me?
+我见过你！你是来自束缚俱乐的DialogPlayerName！你是来救我的吗？
+Who are you?  Are you here to rescue me?
+你是谁？你是来救我的吗？
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm DialogCharacterName from the Bondage Club.  I was kidnapped and put in here.  Are we getting out together?
+我是束缚俱乐部的DialogCharacterName。我被绑架并关在这里。我们一起出去吗？
+###_PLAYER
+I'm here to rescue you.
+我是来救你的。
+###_NPC
+(She nods happily.)  Thank you so much Miss, you're the best.
+（她高兴地点头。）非常感谢你，女士，你最棒了。
+###_PLAYER
+Where is the exit?
+出口在哪里？
+###_NPC
+(She shrugs.)  I'm sorry, I don't know.
+（她耸耸肩。）对不起，我不知道。
+###_PLAYER
+(Bring her with you.)
+（带上她。）
+###_NPC
+(She nods her head and starts to follow you.)  I can smell freedom!
+（她点点头，开始跟着你。）我能闻到自由了！
+###_PLAYER
+(Leave her here.)
+（把她留在这里。）
+###_NPC
+(She nods and stops moving.)  I hope you have a good plan.
+（她点头，停止了动作。）我希望你有一个好的计划。
+###_PLAYER
+(Strip her naked.)
+（脱光她的衣服。）
+###_NPC
+(You strip her naked as she struggles.)  What kind of rescue mission is that?
+（当她挣扎时，你脱光她的衣服。）这到底是什么救援任务？
+###_PLAYER
+I cannot talk now.  (Leave her.)
+我现在没工夫交谈。（离开她。）
