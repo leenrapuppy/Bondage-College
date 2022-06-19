@@ -296,6 +296,14 @@ var AssetFemale3DCG = [
 					{ Name: "Design" },
 				],
 			},
+			{
+				Name: "Jacket", Value: 40, Priority: 30, ParentGroup: null, Extended: true,
+				HideItem: ["ClothAccessoryPoncho", "ClothAccessoryCape"],
+				Layer: [
+					{ Name: "Base", HasType: false, },
+					{ Name: "Hood", HasType: false, Priority: 54, AllowTypes: ["Hooded", "HoodedEarsOut"], AllowPose: [], CopyLayerColor: "Base", },
+				],
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -336,7 +344,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "LeatherStraps", Fetish: ["Leather"], ParentGroup: "BodyUpper", Value: 25, AllowPose: ["AllFours"], Extended: true },
-			{ Name: "FurBolero", Priority: 34, Value: 25, AllowPose: ["AllFours", "BackElbowTouch", "OverTheHead", "Hogtied", "Yoked", "BackCuffs"], Alpha: [{ Group: ["Cloth"], Masks: [[0, 0, 210, 270], [290, 0, 210, 270]] }] },
+			{ Name: "FurBolero", Priority: 34, Value: 25, AllowPose: ["AllFours", "BackElbowTouch", "OverTheHead", "Hogtied", "Yoked", "BackCuffs"], },
 			{ Name: "FacePaint", Value: 10, Left: 150, Top: 20, Priority: 7, BuyGroup: "FacePaint", DefaultColor: ["#9A7F76"], Hide: ["Head"] },
 			{
 				Name: "Bib", Fetish: ["ABDL"], Priority: 34, Value: 5, Left: 179, Top: 220, Extended: true, DynamicAfterDraw: true,
@@ -714,7 +722,7 @@ var AssetFemale3DCG = [
 				HideItemExclude: ["ItemFeetLeatherAnkleCuffs", "ItemFeetSteelAnkleCuffs", "ItemFeetFuturisticAnkleCuffs", "ItemFeetOrnateAnkleCuffs", "ItemFeetWoodenCuffs", ""],
 				AllowPose: ["Kneel", "KneelingSpread"],
 				Layer: [
-					{ Name: "Back", ParentGroup: null, Priority: 5 },
+					{ Name: "Back", ParentGroup: null, Priority: 6 },
 					{ Name: "Front", CopyLayerColor: "Back" },
 				],
 			},
@@ -1821,12 +1829,12 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "HeadHarness", Value: 20, BuyGroup: "Headharness", Left: 150, Top: 22, DefaultColor: ["#383838"], Extended:true,
+				Name: "HeadHarness", Priority: 51, Value: 20, BuyGroup: "Headharness", Left: 150, Top: 22, DefaultColor: ["#383838"], Extended:true,
 				Layer:[
 					{Name: "BaseMetal", HasType: false, AllowTypes:["","Heavy"], AllowColorize: false},
 					{Name: "Base", HasType: false, AllowTypes:["","Heavy"]},
-					{Name: "ExtraMetal", HasType: false, AllowTypes:["Heavy"], AllowColorize: false},
-					{Name: "Extra", HasType: false, AllowTypes:["Heavy"], CopyLayerColor: "Base"},
+					{Name: "HeavyMetal", HasType: false, AllowTypes:["Heavy"], AllowColorize: false},
+					{Name: "Heavy", HasType: false, AllowTypes:["Heavy"], CopyLayerColor: "Base"},
 				],
 			}, //HeadHarness
 		],
@@ -2018,7 +2026,7 @@ var AssetFemale3DCG = [
 			//HairFront22
 			{ Name: "HairFront22",
 			Layer: [
-				{ Name: "Base" },
+				{ Name: "Base", Priority: 51 },
 				{ Name: "Fluff" },
 				{ Name: "FrontFluff", Priority: 54, CopyLayerColor: "Fluff" }
 			],
@@ -2026,7 +2034,7 @@ var AssetFemale3DCG = [
 			//HairFront22b
 			{ Name: "HairFront22b",
 			Layer: [
-				{ Name: "Base" },
+				{ Name: "Base",Priority: 51 },
 				{ Name: "Fluff" },
 				{ Name: "FrontFluff", Priority: 54, CopyLayerColor: "Fluff"}
 			],
@@ -2034,7 +2042,7 @@ var AssetFemale3DCG = [
 			//HairFront23
 			{ Name: "HairFront23",
 			Layer: [
-				{ Name: "Base" },
+				{ Name: "Base",Priority: 51 },
 				{ Name: "Fluff" },
 				{ Name: "FrontFluff", Priority: 54, CopyLayerColor: "Fluff" }
 			],
@@ -2042,7 +2050,7 @@ var AssetFemale3DCG = [
 			//HairFront23b
 			{ Name: "HairFront23b",
 			Layer: [
-				{ Name: "Base" },
+				{ Name: "Base", Priority: 51 },
 				{ Name: "Fluff" },
 				{ Name: "FrontFluff", Priority: 54, CopyLayerColor: "Fluff" }
 			],
@@ -2381,8 +2389,8 @@ var AssetFemale3DCG = [
 					{ Name: "Pussy", AllowColorize: false }
 				], RemoveAtLogin: true, ArousalZone: "ItemVulva"
 			},
-			{ 
-				Name: "WoodenCuffs", Priority: 24, Value: 30, Difficulty: 2, Time: 5, Random: false, Left: 74, AllowLock: true, Audio: "WoodenCuffs", BuyGroup: "WoodenCuffs", Prerequisite: ["LegsOpen", "NotKneeling"], AllowPose: ["Spread", "LegsClosed"], Effect: ["Freeze", "Prone"], Block: ["ItemLegs"], AllowActivityOn: ["ItemLegs"], RemoveAtLogin: false, Extended: true, HasType: false 
+			{
+				Name: "WoodenCuffs", Priority: 24, Value: 30, Difficulty: 2, Time: 5, Random: false, Left: 74, AllowLock: true, Audio: "WoodenCuffs", BuyGroup: "WoodenCuffs", Prerequisite: ["LegsOpen", "NotKneeling"], AllowPose: ["Spread", "LegsClosed"], Effect: ["Freeze", "Prone"], Block: ["ItemLegs"], AllowActivityOn: ["ItemLegs"], RemoveAtLogin: false, Extended: true, HasType: false
 			},
 			{
 				Name: "MedicalBedRestraints", Value: -1, Difficulty: 5, Time: 5, Random: false, RemoveTime: 5, DefaultColor: "#ccc", AllowLock: true, BuyGroup: "MedicalBedRestraints", Left: 0, Top: 0,
@@ -3689,7 +3697,7 @@ var AssetFemale3DCG = [
 				Block: ["ItemHands", "ItemVulva", "ItemButt", "ItemVulvaPiercings", "ItemNipplesPiercings"], AllowActivePose: ["Kneel"], Audio: "ClothSlip" },
 			{ Name: "PantyhoseBodyOpen", Fetish: ["Nylon"], Value: 75, Priority: 15, Difficulty: 3, SelfBondage: 4, Time: 30, RemoveTime: 20, Random: false, BuyGroup: "PantyhoseBody", AllowPose: ["Kneel"], SetPose: ["BackElbowTouch", "LegsClosed"], Effect: ["Block", "Prone", "Slow"],
 				Prerequisite: ["NotHogtied", "NotMounted", "NoFeetSpreader"], Hide: ["Cloth", "ClothLower", "Suit", "SuitLower", "Garters"], Block: ["ItemHands",  "ItemNipplesPiercings"], AllowActivePose: ["Kneel"], Audio: "ClothSlip" },
-			{ 
+			{
 				Name: "WoodenCuffs", Value: 30, Top: 0 ,Left: 0, Difficulty: 2, Time: 5, Random: false, AllowLock: true, Audio: "WoodenCuffs", BuyGroup: "WoodenCuffs", Effect: ["Block", "Prone"], AllowPose: ["Yoked", "BackCuffs","Hogtied"], HideItem: ["ClothFurCoat"], Extended: true, HasType: false,
 				Layer:[
 					{ Name: "", Priority: 50, HasType: false, AllowColorize: true },
@@ -5935,7 +5943,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "GwenHood", Fetish: ["Leather"], Value: 35, Difficulty: 5, Time: 15, AllowLock: true, DefaultColor: "#404040", Extended: true, HasType: false,
 				Prerequisite: ["NotProtrudingFromMouth"],
-				Hide: ["HairFront", "Ears"],
+				Hide: ["HairFront", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars"],
 				Alpha: [
 					// Mask over the neck area
@@ -5946,7 +5954,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "TechnoHelmet1", Category: ["SciFi"], Fetish: ["Metal"], Value: 100, Difficulty: 7, DefaultColor: ["#1E7484", "Default", "#2F2F2F", "#999999", "#246489"], RemoveTime: 10, AllowLock: true, DrawLocks: false, Effect: [], Extended: true,
-				Hide: ["HairFront", "Ears", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "ItemEars", "Glasses"],
+				Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "ItemEars", "Glasses"],
 				Layer: [
 					{ Name: "TransparentVisor", HasType: false, AllowModuleTypes: ["v1"] },
 					{ Name: "LightlyTintedVisor", HasType: false, CopyLayerColor: "TransparentVisor", AllowModuleTypes: ["v2"] },
@@ -5962,7 +5970,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "FuturisticHelmet", Category: ["SciFi"], Fetish: ["Metal"], Value: -1, Difficulty: 10, RemoveTime: 10, AllowLock: true, DrawLocks: false, Effect: [],
-				Hide: ["HairFront", "Ears", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Glasses"],
+				Hide: ["HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Glasses"],
 				Alpha: [{ Group: ["ItemHead"], Masks: [[0, 0, 203, 250], [295, 0, 205, 250]] }]
 			},
 			{
@@ -6039,7 +6047,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "KittyHood", Fetish: ["Pet"], Random: false, Value: 40, Difficulty: 2, Top: 33, Left: 142,
 				AllowLock: true, Extended: true, DrawLocks: false,
-				Hide: ["HairFront", "HairBack", "Glasses", "Ears"],
+				Hide: ["HairFront", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
 				DefaultColor: ["Default", "Default", "Default", "#2D8736", "Default", "Default", "#000000"],
 				Layer: [
 					{ Name: "Base", HasType: false, },
@@ -6062,7 +6070,8 @@ var AssetFemale3DCG = [
 			{
 				Name: "LatexDogHood", Fetish: ["Latex", "Pet"], Random: false, Value: 20, Difficulty: 1, Top: -5, Left: 113,
 				AllowLock: true,
-				Hide: ["HairFront", "HairBack", "Glasses", "Ears"],
+				Hide: ["HairFront", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
+				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
 			},
 			AssetSpankingToys
 		],
@@ -6476,7 +6485,13 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "ConcealingCloak", Value: 75, Difficulty: 0, Top: 0, SelfBondage: 5, Time: 7, AllowLock: true, Prerequisite: ["NotSuspended", "AllFours", "Notkneeling", "NotHogtied", "NotYoked", "NotMounted", "NotKneelingSpread"], Hide: [ "Suit", "ItemArms", "ItemButt", "TailStraps", "Wings", "ItemNipplesPiercings"], HideItem: ["ItemVulvaFullLatexSuitWand", "ClothLowerTutu"], Effect: ["Prone"], Block: ["ItemArms", "ItemBreast", "ItemButt", "ItemHands", "ItemLegs", "ItemMisc", "ItemNipples", "ItemNipplesPiercings", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings"], SetPose: ["BaseUpper"], Layer: [
+				Name: "ConcealingCloak", Value: 75, Difficulty: 0, Top: 0, SelfBondage: 5, Time: 7, AllowLock: true,
+				Prerequisite: ["NotSuspended", "AllFours", "Notkneeling", "NotHogtied", "NotYoked", "NotMounted", "NotKneelingSpread"],
+				Hide: [ "Suit", "ItemArms", "ItemButt", "TailStraps", "Wings", "ItemNipplesPiercings"],
+				HideItem: ["ItemVulvaFullLatexSuitWand", "ClothLowerTutu", "ClothJacket"], Effect: ["Prone"],
+				Block: ["ItemArms", "ItemBreast", "ItemButt", "ItemHands", "ItemLegs", "ItemMisc", "ItemNipples", "ItemNipplesPiercings", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings"],
+				SetPose: ["BaseUpper"],
+				Layer: [
 					{ Name: "Front", Priority: 48 },
 					{ Name: "Back", Priority: 3, CopyLayerColor: "Front" },
 					{ Name: "Strap", Priority: 52 }
@@ -6630,30 +6645,32 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "WoodenRack", Value: 180, Priority: 1, Difficulty: 0, RemoveTime: 5, Time: 5, SelfBondage: 0, Random: false, RemoveAtLogin: true, DefaultColor: ["#866949", "#875D37", "#372D24", "#BB895D", "Default"], Extended: true, AlwaysExtend: true, BuyGroup: "WoodenRack",
+				Name: "WoodenRack", Value: 180, Priority: 1, Difficulty: 0, RemoveTime: 5, Time: 5, SelfBondage: 0, Random: false, RemoveAtLogin: true, DefaultColor: ["#866949", "#875D37", "#63605F", "#372D24", "#BB895D", "Default", "#875D37", "#875D37"], Extended: true, AlwaysExtend: true, BuyGroup: "WoodenRack",
 				OverrideHeight: { Height: 0, HeightRatioProportion: 1, Priority: 21 },
 				Effect: ["Freeze", "Mounted", "OnBed"],
 				Prerequisite: ["AllFours", "NotSuspended", "NotHogtied"],
 				SetPose: ["BaseLower"],
 				Block: ["ItemAddon"],
 				Layer: [
-					{ Name: "Back", HasType: false, AllowModuleTypes: ["f0", "f1"] },
+					{ Name: "Back", HasType: false, ColorGroup: "Wood", AllowModuleTypes: ["f0", "f1"] },
 					{ Name: "HalfBack", HasType: false, CopyLayerColor: "Back", AllowModuleTypes: ["f2"] },
 					{ Name: "NoBack", HasType: false, AllowColorize: false, AllowModuleTypes: ["f3"], HasImage: false },
-					{ Name: "FrameWood", HasType: false, AllowColorize: true },
-					{ Name: "FrameMetal", HasType: false, AllowColorize: false },
+					{ Name: "FrameWood", HasType: false, ColorGroup: "Wood" },
+					{ Name: "FrameMetal", HasType: false, AllowColorize: true },
 					{ Name: "FrameStains", HasType: false, AllowModuleTypes: ["f1"] },
 					{ Name: "TopRopes", HasType: false, AllowModuleTypes: ["t1"], Priority: 50 },
 					{ Name: "TopRopesTight", HasType: false, CopyLayerColor: "TopRopes", AllowModuleTypes: ["t2"], Priority: 50 },
 					{ Name: "TopChains", HasType: false, AllowModuleTypes: ["t3"],Priority: 30 },
 					{ Name: "TopChainsTight", HasType: false, CopyLayerColor: "TopChains",AllowModuleTypes: ["t4"], Priority: 30 },
+					{ Name: "TopStocksBack", HasType: false, ColorGroup: "Wood", AllowModuleTypes: ["t5"] },
+					{ Name: "TopStocks", HasType: false, CopyLayerColor: "TopStocksBack", AllowModuleTypes: ["t5"], Priority: 50 },
 					{ Name: "BotRings", HasType: false, CopyLayerColor: "TopChains",AllowModuleTypes: ["b1", "b2"]},
 					{ Name: "BotRopes", HasType: false, CopyLayerColor: "TopRopes",AllowModuleTypes: ["b1"], Priority: 50 },
 					{ Name: "BotRopesTogether", HasType: false, CopyLayerColor: "TopRopes",AllowModuleTypes: ["b2"], Priority: 50 },
 					{ Name: "BotChains", HasType: false, CopyLayerColor: "TopChains", AllowModuleTypes: ["b3"]},
 					{ Name: "BotChainsTogether", HasType: false, CopyLayerColor: "TopChains", AllowModuleTypes: ["b4"]},
-					{ Name: "BotStocksBack", HasType: false, AllowColorize: false, AllowModuleTypes: ["b5"] },
-					{ Name: "BotStocks", HasType: false, AllowColorize: false, AllowModuleTypes: ["b5"], Priority: 50 },
+					{ Name: "BotStocksBack", HasType: false, ColorGroup: "Wood", AllowModuleTypes: ["b5"] },
+					{ Name: "BotStocks", HasType: false, CopyLayerColor: "BotStocksBack", AllowModuleTypes: ["b5"], Priority: 50 },
 				]
 			},
 			{

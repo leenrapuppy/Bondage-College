@@ -13,6 +13,12 @@ var DialogLeaveDueToItem = false;
 var BlindFlash = false;
 var DrawingBlindFlashTimer = 0;
 
+// A bank of all the chached images
+/** @type {Map<string, HTMLImageElement>} */
+const DrawCacheImage = new Map;
+let DrawCacheLoadedImages = 0;
+let DrawCacheTotalImages = 0;
+
 // Last dark factor for blindflash
 var DrawLastDarkFactor = 0;
 
@@ -93,13 +99,64 @@ function DrawLoad() {
 
 /**
  * Returns the image file from cache or build it from the source
- * @param {string} url - URL of the image
+ * @param {string} Source - URL of the image
  * @returns {HTMLImageElement} - Image file
  */
-function DrawGetImage(url) {
-	var image = ImageCache.get(url);
-	return image ? image.element : null;
+function DrawGetImage(Source) {
+	// Search in the cache to find the image and make sure this image is valid
+	let Img = DrawCacheImage.get(Source);
+	if (!Img) {
+		Img = new Image;
+		DrawCacheImage.set(Source, Img);
+		// Keep track of image load state
+		const IsAsset = (Source.indexOf("Assets") >= 0);
+		if (IsAsset) {
+			++DrawCacheTotalImages;
+			Img.addEventListener("load", function () {
+				DrawGetImageOnLoad();
+			});
+		}
+
+		Img.addEventListener("error", function () {
+			DrawGetImageOnError(Img, IsAsset);
+		});
+
+		// Start loading
+		Img.src = Source;
+	}
+
+	// returns the final image
+	return Img;
 }
+
+/**
+ * Reloads all character canvas once all images are loaded
+ * @returns {void} - Nothing
+ */
+function DrawGetImageOnLoad() {
+	++DrawCacheLoadedImages;
+	if (DrawCacheLoadedImages == DrawCacheTotalImages) CharacterLoadCanvasAll();
+}
+
+/**
+ * Attempts to redownload an image if it previously failed to load
+ * @param {HTMLImageElement & { errorcount?: number }} Img - Image tag that failed to load
+ * @param {boolean} IsAsset - Whether or not the image is part of an asset
+ * @returns {void} - Nothing
+ */
+function DrawGetImageOnError(Img, IsAsset) {
+	if (Img.errorcount == null) Img.errorcount = 0;
+	Img.errorcount += 1;
+	if (Img.errorcount < 3) {
+		// eslint-disable-next-line no-self-assign
+		Img.src = Img.src;
+	} else {
+		// Load failed. Display the error in the console and mark it as done.
+		console.log("Error loading image " + Img.src);
+		if (IsAsset) DrawGetImageOnLoad();
+	}
+}
+
 
 /**
  * Gets the alpha of a screen flash. append to a color like "#111111" + DrawGetScreenFlash(FlashTime)

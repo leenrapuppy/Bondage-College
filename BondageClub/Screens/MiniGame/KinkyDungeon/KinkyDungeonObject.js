@@ -23,6 +23,7 @@ let KDObjectDraw = {
 };
 
 function KinkyDungeonDrawGhost() {
+	if (KDGameData.CurrentDialog) return;
 	if (KinkyDungeonTargetTile.GhostDecision == 0) DrawText(TextGet("KinkyDungeonDrawGhostHelpful"), KDModalArea_x + 200, KDModalArea_y + 50, "white", "silver");
 	else DrawText(TextGet("KinkyDungeonDrawGhostUnhelpful"), KDModalArea_x + 200, KDModalArea_y + 50, "white", "silver");
 }
@@ -31,6 +32,20 @@ function KinkyDungeonDrawAngel() {
 }
 
 function KinkyDungeonGhostMessage() {
+
+	if (KinkyDungeonTargetTile.Dialogue) {
+		KDStartDialog(KinkyDungeonTargetTile.Dialogue, "Ghost", true, "", undefined);
+		if (KinkyDungeonTargetTile.Msg && KDGameData.CurrentDialog) {
+			KDGameData.CurrentDialogMsg = KinkyDungeonTargetTile.Msg;
+		}
+		return;
+	} else if (KinkyDungeonTargetTile.Msg) {
+		KDStartDialog("GhostInfo", "Ghost", true, "", undefined);
+		if (KDGameData.CurrentDialog) {
+			KDGameData.CurrentDialogMsg = KinkyDungeonTargetTile.Msg;
+		}
+		return;
+	}
 	let restraints = KinkyDungeonAllRestraint();
 	let msg = "";
 	if (restraints.length == 0) {
@@ -75,7 +90,7 @@ function KinkyDungeonMakeGhostDecision() {
 
 			if (rep > 0) tile.GhostDecision += 1;
 			if (rep != undefined) {
-				let mult = KinkyDungeonStatsChoice.get("Oppression") ? 1.5 : 1.0;
+				let mult = KinkyDungeonStatsChoice.get("Oppression") ? 1.5 : (KinkyDungeonStatsChoice.has("Dominant") ? 0.5 : 1.0);
 				if (KDRandom() * 100 * mult > -rep + 75) tile.GhostDecision += 1;
 				if (KDRandom() * 100 * mult > -rep + 85) tile.GhostDecision += 1;
 				if (KDRandom() * 100 * mult > -rep + 95) tile.GhostDecision += 1;
@@ -97,7 +112,7 @@ function KinkyDungeonDrawCharger() {
 
 }
 
-let KDChargerLight = 5;
+let KDChargerLight = 4;
 
 function KinkyDungeonHandleCharger() {
 	if (KinkyDungeonTargetTile && KinkyDungeonTargetTile.Light == KDChargerLight) {
@@ -120,3 +135,4 @@ function KinkyDungeonHandleCharger() {
 
 	return false;
 }
+

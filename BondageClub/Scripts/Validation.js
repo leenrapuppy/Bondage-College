@@ -591,7 +591,7 @@ function ValidationSanitizeEffects(C, item) {
 	const assetEffect = item.Asset.Effect || [];
 	const allowEffect = item.Asset.AllowEffect || [];
 	property.Effect = property.Effect.filter((effect) => {
-		// The Lock effect is handled by ServerSanitizeLock
+		// The Lock effect is handled by ValidationSanitizeLock
 		if (effect === "Lock") return true;
 		// All other effects must be included in the AllowEffect array to be permitted
 		else if (!assetEffect.includes(effect) && !allowEffect.includes(effect)) {
@@ -613,7 +613,6 @@ function ValidationSanitizeEffects(C, item) {
  * lock was not valid), FALSE otherwise
  */
 function ValidationSanitizeLock(C, item) {
-	const asset = item.Asset;
 	const property = item.Property;
 	// If there is no lock effect present, strip out any lock-related properties
 	if (!Array.isArray(property.Effect) || !property.Effect.includes("Lock")) return ValidationDeleteLock(property);
@@ -635,21 +634,30 @@ function ValidationSanitizeLock(C, item) {
 		changed = true;
 	}
 
-	// The character's member number is always valid on a lock
-	if (lockNumber !== C.MemberNumber) {
-		const ownerNumber = C.Ownership && C.Ownership.MemberNumber;
-		const hasOwner = typeof ownerNumber === "number";
-		const lockedByOwner = hasOwner && lockNumber === ownerNumber;
+	const lockedBySelf = lockNumber === C.MemberNumber;
+	const ownerNumber = C.Ownership && C.Ownership.MemberNumber;
+	const lockedByOwner = (typeof ownerNumber === 'number' && lockNumber === ownerNumber);
 
-		// Ensure the lock member number is valid on owner-only locks
-		if (lock.Asset.OwnerOnly && !lockedByOwner) {
+	// Ensure the lock & its member number is valid on owner-only locks
+	if (lock.Asset.OwnerOnly) {
+		const selfCanUseOwnerLocks = !C.IsPlayer() || !LogQuery("BlockOwnerLockSelf", "OwnerRule");
+		const lockNumberValid = (lockedBySelf && selfCanUseOwnerLocks) || lockedByOwner;
+		if (!(C.IsOwned() || typeof ownerNumber === 'number') || !lockNumberValid) {
 			console.warn(`Removing invalid owner-only lock with member number: ${lockNumber}`);
 			return ValidationDeleteLock(property);
 		}
+	}
 
-		const lockedByLover = C.GetLoversNumbers().includes(lockNumber);
-		// Ensure the lock member number is valid on lover-only locks
-		if (lock.Asset.LoverOnly && !lockedByOwner && !lockedByLover) {
+	// Ensure the lock & its member number is valid on lover-only locks
+	if (lock.Asset.LoverOnly) {
+		const hasLovers = !!C.GetLoversNumbers().length;
+		const ownerCanUseLoverLocks = !C.IsPlayer() || !LogQuery("BlockLoverLockOwner", "LoverRule");
+		const selfCanUseLoverLocks = !C.IsPlayer() || !LogQuery("BlockLoverLockSelf", "LoverRule");
+		const lockNumberValid = (lockedBySelf && selfCanUseLoverLocks) ||
+			C.GetLoversNumbers().includes(lockNumber) ||
+			(lockedByOwner && ownerCanUseLoverLocks);
+
+		if (!hasLovers || !lockNumberValid) {
 			console.warn(`Removing invalid lover-only lock with member number: ${lockNumber}`);
 			return ValidationDeleteLock(property);
 		}

@@ -23,7 +23,6 @@
 </head>
 
 <script src="Backgrounds/Backgrounds.js"></script>
-<script src="Scripts/ImageCache.js"></script>
 <script src="Scripts/GLDraw.js"></script>
 <script src="Scripts/Common.js"></script>
 <script src="Scripts/CommonDraw.js"></script>
@@ -242,8 +241,13 @@
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeon.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonGame.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonVibe.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonAlt.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMapMods.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonBoss.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonPerks.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonParams.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonVision.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonQuest.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonLoot.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonLootList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonStats.js"></script>
@@ -308,7 +312,7 @@
 window.onload = function() {
 	ServerURL = CommonGetServer();
 	//CheatImport();
-	GameVersion = "R81Beta1";
+	GameVersion = "R81";
 	console.log("Version: " + GameVersion + ", Server: " + ServerURL);
 	if (!GameVersionFormat.test(GameVersion)) console.error("GameVersion is not valid!");
 	CommonIsMobile = CommonDetectMobile();

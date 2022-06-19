@@ -143,8 +143,6 @@ function TimerProcess(Timestamp) {
 		TimerLastCycleCall = CommonTime();
 	}
 
-	ImageCache.purge();
-
 	// Arousal/Activity events only occur in allowed rooms
 	if (ActivityAllowed()) {
 

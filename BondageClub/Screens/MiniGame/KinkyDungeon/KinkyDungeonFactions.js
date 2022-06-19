@@ -31,7 +31,7 @@ function KDAllied(enemy) {
  */
 function KDHostile(enemy, enemy2) {
 	if (enemy == enemy2) return false;
-	return (enemy.rage > 0) || (!enemy2 && KDFactionHostile("Player", enemy) || (enemy2 && KDFactionHostile(KDGetFaction(enemy), enemy2)));
+	return (enemy.rage > 0) || (!(!enemy2 && enemy.ceasefire > 0) && ((!enemy2 && KDFactionHostile("Player", enemy) || (enemy2 && KDFactionHostile(KDGetFaction(enemy), enemy2)))));
 }
 
 /**
@@ -43,7 +43,7 @@ function KDGetFaction(enemy) {
 	let E = enemy.Enemy;
 	if (enemy.rage > 0) return "Rage";
 	if (enemy.faction) return enemy.faction;
-	if ((E && E.allied) || (enemy.allied && !enemy.faction)) return "Player";
+	if ((E && E.allied) || ((enemy.allied || (E && E.faction && KDFactionAllied("Player", E.faction) && !KDEnemyHasFlag(enemy, "NoFollow"))) && !enemy.faction && !KDEnemyHasFlag(enemy, "Shop"))) return "Player";
 	if (E && E.faction) return E.faction;
 	return "Enemy";
 }
@@ -93,7 +93,7 @@ function KDFactionAllied(a, b) {
 	if (a == "Rage" || b == "Rage") return false;
 	if (a == "Player" && b == "Player") return true;
 	if (b == "Enemy" && a == "Enemy") return true;
-	if (KDFactionRelation(a, b) >= 0.5) return true;
+	if (KDFactionRelation(a, b) >= 0.7) return true;
 	if (a == b) return true;
 	return false;
 }

@@ -1,0 +1,68 @@
+Leave Pandora's Box
+离开潘多拉魔盒
+Go upstairs
+上楼
+Go downstairs
+下楼
+Search the room
+搜索房间
+Rest to recover with time
+休息并等待回复
+Paint the room
+涂鸦房间
+Stop searching
+停止搜索
+Stop resting
+停止休息
+You already found the TargetName.  Get out now.
+你已经找到了TargetName。赶紧走吧。
+You found the TargetName.  Get out while you can.
+你找到了TargetName。赶紧趁机走吧。
+You first need to find some paint.
+你首先需要找到一些油漆。
+This room is already painted.
+此房间已经被了涂油漆。
+The room must be empty.
+房间必须是空的。
+Go north (W)
+向北走（W）
+Go south (S)
+向南走（S）
+Go east (D)
+向东走（D）
+Go west (A)
+向西走（A）
+underground
+地下
+ground
+地面
+second
+二楼
+north
+北
+south
+南
+west
+西
+east
+东
+(The lights turn on and you're quickly spotted.  Dominatrixes confiscate your goods and drag you to a cell.)  I'll teach you a lesson little burglar.
+（灯亮起来，你很快就被发现了。女王夺走了你的财物，把你拽进一间牢房。）小偷，我会给你上一课的。
+Work:
+工作：
+FTW
+FTW
+The Box Sucks
+魔盒烂透了
+The Bondage Club Rules
+束缚俱乐部支配着
+Eat my shorts
+吃我的内裤
+BC > PB
+BC > PB
+REDRUM
+REDRUM
+Get out!
+快滚！
+BDSM 4 EVER
+永远的BDSM

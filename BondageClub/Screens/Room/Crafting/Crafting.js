@@ -361,7 +361,7 @@ function CraftingClick() {
  * @returns {void} - Nothing.
  */
 function CraftingExit() {
-	ElementRemove("InputSearch");
+	CraftingModeSet("Slot");
 	CommonSetScreen("Room", "MainHall");
 }
 
@@ -376,11 +376,11 @@ function CraftingItemListBuild() {
 	for (let A = 0; A < Asset.length; A++)
 	CraftingItemList = [];
 	for (let I of Player.Inventory)
-		if ((I.Asset != null) && (I.Asset.Name != null) && (I.Asset.Group != null) && (I.Asset.Group.Name.substr(0, 4) == "Item") && (I.Asset.Group.Name != "ItemAddon") && (I.Asset.Name.substr(0, 12) != "SpankingToys"))
+		if ((I.Asset != null) && (I.Asset.Name != null) && I.Asset.Enable && I.Asset.Wear && (I.Asset.Group != null) && (I.Asset.Group.Name.substr(0, 4) == "Item") && (I.Asset.Group.Name != "ItemAddon") && (I.Asset.Group.Name != "ItemMisc") && (I.Asset.Name.substr(0, 12) != "SpankingToys"))
 			if ((Search == "") || (I.Asset.Description == null) || (I.Asset.Description.toUpperCase().trim().indexOf(Search) >= 0)) {
 				let Found = false;
 				for (let E of CraftingItemList)
-					if (E.Name == I.Asset.Name)
+					if ((E.Name == I.Asset.Name) || (E.Description == I.Asset.Description))
 						Found = true;
 				if (!Found) CraftingItemList.push(I.Asset);
 			}

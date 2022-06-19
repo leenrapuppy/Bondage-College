@@ -230,7 +230,7 @@ function VariableHeightCreateNpcDialogFunction({ asset, functionPrefix, dialog }
  */
 const VariableHeightChange = CommonLimitFunction((height, maxHeight, minHeight, setHeight, fromElementId) => {
 	// Validate the value
-	if (isNaN(height) || height < 0 || height > 1) return;
+	if (isNaN(height) || height < 0 || height > 1 || !DialogFocusItem) return;
 
 	// Round to the nearest 0.01
 	height = Math.round(height * 100) / 100;
