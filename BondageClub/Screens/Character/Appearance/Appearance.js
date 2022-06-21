@@ -586,8 +586,8 @@ function AppearanceMenuBuild(C) {
 			if (!DialogItemPermissionMode) {
 				let Item = InventoryGet(C, C.FocusGroup.Name);
 				if (Item && Item.Asset.Extended) AppearanceMenu.push(InventoryBlockedOrLimited(C, Item) ? "UseDisabled" : "Use");
-				if (C.ID === 0) AppearanceMenu.push("WearRandom");
-				if (C.ID === 0 && Player.GetDifficulty() < 3) AppearanceMenu.push("DialogPermissionMode");
+				if (C.IsPlayer()) AppearanceMenu.push("WearRandom");
+				if (C.IsPlayer()) AppearanceMenu.push("DialogPermissionMode");
 				if (C.FocusGroup.AllowNone) AppearanceMenu.push("Naked");
 				if (Item && DialogCanColor(C, Item)) {
 					let ButtonName = ItemColorIsSimple(Item) ? "ColorPick" : "MultiColorPick";
