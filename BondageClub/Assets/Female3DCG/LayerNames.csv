@@ -206,6 +206,16 @@ HatLatexHabitCape,Shoulders
 HatLatexHabitCollar,Collar
 HatLatexHabitBase,Shawl
 HatLatexHabitCowl,Cowl
+HatBallCapBackButton,Button
+HatBallCapBackPanelLeft,Panel
+HatBallCapBackSideLeft,Side
+HatBallCapBackStrap,Strap
+HatBallCapFrontPanel,Panel
+HatBallCapFrontPanelLeft,Left Panel
+HatBallCapFrontPanelRight,Right Panel
+HatBallCapFrontButton,Button
+HatBallCapFrontVisor,Visor
+HatBallCapFrontPrint,Print
 HairAccessory1KittenEars1Outer,Outer Ear
 HairAccessory1KittenEars1Inner,Inner Ear
 HairAccessory1FoxEars2Inner,Inner Ear
@@ -240,6 +250,16 @@ HairFrontHairFront23Fluff, Fluff
 HairFrontHairFront23Base, Base
 HairFrontHairFront23bFluff, Fluff
 HairFrontHairFront23bBase, Base
+HairFrontHairFront27Base,Base
+HairFrontHairFront27Bangs,Bangs
+HairFrontHairFront27Tips,Tips
+HairFrontHairFront28Base,Base
+HairFrontHairFront28Bangs,Bangs
+HairFrontHairFront28Tips,Tips
+HairFrontHairFront29Left,Left
+HairFrontHairFront29Right,Right
+HairBackHairBack54Left,Left
+HairBackHairBack54Right,Right
 GlovesGlovesFurFabric,Glove
 GlovesGlovesFurFur,Fur
 GlovesHaremGloveFabric,Fabric
@@ -1174,3 +1194,5 @@ WingsPixieWingsWings,Wings
 WingsPixieWingsVeins,Veins
 GlassesVGlassesFrame,Frame
 GlassesVGlassesGlass,Lenses
+GlassesGradientSunglassesFrame,Frame
+GlassesGradientSunglassesGlass,Glass

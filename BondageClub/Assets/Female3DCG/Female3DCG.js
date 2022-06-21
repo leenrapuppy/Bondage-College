@@ -1447,8 +1447,28 @@ var AssetFemale3DCG = [
 					{Name: "Cowl"},
 					{Name: "Back", Priority: 5, CopyLayerColor: "Base"}
 				],
-			}
-
+			},
+			{
+				Name: "BallCapBack", Value: -1, Left: 150, Top: 45, BuyGroup: "BallCap", DefaultColor: ["#3B3B3B", "#CCCC32", "#424242", "#3B3B3B"], Extended: true, Layer: [
+					{ Name: "PanelLeft", HasType: false },
+					{ Name: "PanelRight", CopyLayerColor: "PanelLeft", HasType: false },
+					{ Name: "Button", HasType: false },
+					{ Name: "SideLeft", HasType: false },
+					{ Name: "SideRight", CopyLayerColor: "SideLeft", HasType: false },
+					{ Name: "Strap", Priority: 55, AllowTypes: ["StrapOver"], HasType: false },
+					{ Name: "StrapUnder", CopyLayerColor: "Strap", Priority: 50, HasType: false }
+				],
+			},
+			{
+				Name: "BallCapFront", Value: 30, Left: 150, Top: 45, BuyGroup: "BallCap", DefaultColor: ["#3B3B3B", "#3B3B3B", "#3B3B3B", "#CCCC32", "#424242", "Default"], Extended: true, Layer: [
+					{ Name: "Panel", HasType: false },
+					{ Name: "PanelLeft", HasType: false },
+					{ Name: "PanelRight", HasType: false },
+					{ Name: "Button", HasType: false },
+					{ Name: "Visor", HasType: false },
+					{ Name: "Print", AllowTypes: ["BCLogo", "BDSM", "BG", "Chain", "Gag", "Knot", "Monogram", "Rock", "Smile", "Sun", "Tick"], AllowColorize: true, ParentGroup: null },
+				],
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -1736,6 +1756,13 @@ var AssetFemale3DCG = [
 					{ Name: "Frame" },
 					{ Name: "Glass" }
 				]
+			},
+			{
+				Name: "GradientSunglasses", Value: 20, DefaultColor: ["#303030", "#303030"], Extended: true,
+				Layer: [
+					{ Name: "Frame" },
+					{ Name: "Glass" }
+				],
 			},
 		],
 		Color: ["#303030", "#808080", "#e0e0e0", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"],
@@ -2065,6 +2092,21 @@ var AssetFemale3DCG = [
 				{ Name: "BangsTip", Priority: 54},
 			],
 			Top: -200, Left: 0 },
+			//HairFront28
+			{ Name: "HairFront28",
+			Layer: [
+				{ Name: "Base" },
+				{ Name: "Bangs" },
+				{ Name: "Tips", Priority: 54 },
+			],
+			},
+			//HairFront29
+			{ Name: "HairFront29",
+			Layer: [
+				{ Name: "Left", Priority: 53 },
+				{ Name: "Right" },
+			],
+			},
 		],
 		Color: ["#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"]
 	},
@@ -2142,6 +2184,13 @@ var AssetFemale3DCG = [
 				{ Name: "Tip"  },
 			],
 			Top: -5, Left: 0 },
+			{ Name: "HairBack54", AllowPose: ["Suspension"],
+				Layer: [
+					{ Name: "Left" },
+					{ Name: "Right" },
+				]
+			},
+			{ Name: "HairBack55" },
 		],
 		Color: ["Default", "#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"],
 		InheritColor: "HairFront"
