@@ -899,7 +899,7 @@ function CommonNoop() {
  * Redirects the address to HTTPS for all production environments, returns the proper heroku server
  * @returns {String} - Returns the proper server to use in production or test
  */
-function CommonGetServer() {  
+function CommonGetServer() {
 	if ((location.href.indexOf("bondageprojects") < 0) && (location.href.indexOf("bondage-europe") < 0)) return "https://bc-server-test.herokuapp.com/";
 	if (location.protocol !== 'https:') location.replace(`https:${location.href.substring(location.protocol.length)}`);
 	return "https://bondage-club-server.herokuapp.com/";
