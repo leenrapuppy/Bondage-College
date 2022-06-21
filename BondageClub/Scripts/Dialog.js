@@ -34,14 +34,14 @@ var DialogActivityMode = false;
 var DialogActivity = [];
 /** @type {Record<"Enabled" | "Equipped" | "BothFavoriteUsable" | "TargetFavoriteUsable" | "PlayerFavoriteUsable" | "Usable" | "TargetFavoriteUnusable" | "PlayerFavoriteUnusable" | "Unusable" | "Blocked", DialogSortOrder>} */
 var DialogSortOrder = {
-	Enabled: 1, 
-	Equipped: 2, 
+	Enabled: 1,
+	Equipped: 2,
 	BothFavoriteUsable: 3,
-	TargetFavoriteUsable: 4, 
+	TargetFavoriteUsable: 4,
 	PlayerFavoriteUsable: 5,
 	Usable: 6,
-	TargetFavoriteUnusable: 7, 
-	PlayerFavoriteUnusable: 8, 
+	TargetFavoriteUnusable: 7,
+	PlayerFavoriteUnusable: 8,
 	Unusable: 9,
 	Blocked: 10
 };
@@ -1479,7 +1479,7 @@ function DialogMenuButtonClick() {
 				DialogMenuButtonBuild(C);
 				return;
 			}
-			
+
 			// When the user selects the lock menu, we enter
 			else if (Item && DialogMenuButton[I] == "Crafting") {
 				DialogCraftingMenu = true;
