@@ -21,6 +21,7 @@ var PlatformRunDirection = "";
 var PlatformRunTime = 0;
 var PlatformLastTouch = null;
 var PlatformImmunityTime = 500;
+var PlatformSaveMode = false;
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -866,6 +867,7 @@ function PlatformMessageSet(Text) {
 function PlatformLoadRoom(RoomName) {
 	if (RoomName == null) RoomName = PlatformRoom.Name
 	PlatformRoom = null;
+	PlatformSaveMode = false;
 	for (let Room of PlatformRoomList)
 		if (Room.Name == RoomName)
 			PlatformRoom = JSON.parse(JSON.stringify(Room));
@@ -1366,7 +1368,12 @@ function PlatformDraw() {
  */
 function PlatformRun() {
 	PlatformDraw();
-	if (Player.CanWalk()) DrawButton(1900, 10, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
+	DrawButton(1900, 10, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
+	if (PlatformHeal != null) DrawButton(1800, 10, 90, 90, "", "White", "Icons/Save.png", TextGet("Save"));
+	if (PlatformHeal != null) DrawButton(1700, 10, 90, 90, "", "White", "Icons/Character.png", TextGet("Character"));
+	if ((PlatformHeal != null) && PlatformSaveMode)
+		for (let S = 0; S < 10; S++)
+			DrawButton(250 + (S * 157), 200, 90, 90, S.toString(), "White", "", TextGet("SaveOn") + S.toString());
 	if (CommonIsMobile) PlatformTouch();
 }
 
@@ -1389,7 +1396,17 @@ function PlatformAttack(Source, Type) {
  * @returns {void} - Nothing
  */
 function PlatformClick() {
-	if (MouseIn(1900, 10, 90, 90) && Player.CanWalk()) return PlatformLeave();
+	if (MouseIn(1900, 10, 90, 90)) return PlatformLeave();
+	if ((PlatformHeal != null) && PlatformSaveMode)
+		for (let S = 0; S < 10; S++)
+			if (MouseIn(250 + (S * 157), 200, 90, 90))
+				return PlatformSaveGame(S);
+	if (MouseIn(1800, 10, 90, 90) && (PlatformHeal != null)) {
+		PlatformSaveMode = !PlatformSaveMode;
+		if (PlatformSaveMode) PlatformMessageSet(TextGet("SelectSave"));
+		return;
+	} 
+	if (MouseIn(1700, 10, 90, 90) && (PlatformHeal != null)) return CommonSetScreen("Room", "PlatformProfile");
 	if (!CommonIsMobile) PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
 }
 
@@ -1452,6 +1469,7 @@ function PlatformBindStart(Source) {
  * @returns {void} - Nothing
  */
 function PlatformSaveGame(Slot) {
+	PlatformSaveMode = false;
 	let SaveChar = [];
 	for (let Char of PlatformDialogCharacter)
 		if ((Char.Love != null) || (Char.Domination != null))
