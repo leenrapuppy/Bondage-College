@@ -429,7 +429,7 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh) {
 	}
 
 	// Applies a lock to the item
-	if ((Craft.Lock != null) && (Craft.Lock != "")) 
+	if ((Craft.Lock != null) && (Craft.Lock != ""))
 		InventoryLock(Target, Item, Craft.Lock, Source.MemberNumber, false);
 
 	// Sets the crafter name and ID
@@ -457,7 +457,7 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh) {
 		// Expressions cannot be changed if the settings doesn't allow it for the player
 		if (!Target.IsPlayer() || (Player.OnlineSharedSettings == null) || Player.OnlineSharedSettings.ItemsAffectExpressions) {
 
-			// The painful property triggers an expression change		
+			// The painful property triggers an expression change
 			if (Craft.Property === "Painful") {
 				CharacterSetFacialExpression(Target, "Blush", "ShortBreath", 10);
 				CharacterSetFacialExpression(Target, "Eyes", "Angry", 10);
