@@ -1485,6 +1485,7 @@ function PlatformSaveGame(Slot) {
 		Status: PlatformPlayer.Status,
 		Level: PlatformPlayer.Level,
 		Experience: PlatformPlayer.Experience,
+		Perk: PlatformPlayer.Perk,
 		Room: PlatformRoom.Name,
 		Event: PlatformEvent,
 		Dialog: SaveChar
@@ -1513,6 +1514,7 @@ function PlatformLoadGame(Slot) {
 	PlatformLoadRoom(LoadObj.Room);
 	PlatformPlayer.X = Math.round(PlatformRoom.Width / 2);
 	if (LoadObj.Level != null) PlatformPlayer.Level = LoadObj.Level;
+	if (LoadObj.Perk != null) PlatformPlayer.Perk = LoadObj.Perk;
 	if (PlatformPlayer.Level > 1) PlatformPlayer.MaxHealth = PlatformPlayer.MaxHealth + PlatformPlayer.HealthPerLevel * (PlatformPlayer.Level - 1);
 	PlatformPlayer.Health = PlatformPlayer.MaxHealth;
 	if (LoadObj.Experience != null) PlatformPlayer.Experience = LoadObj.Experience;

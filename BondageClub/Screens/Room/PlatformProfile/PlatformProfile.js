@@ -1,5 +1,12 @@
 "use strict";
-var PlatformProfilePerk = 0;
+
+/**
+ * Returns the number of available perks for the current player character
+ * @returns {number} - The number of perks
+ */
+function PlatformProfileGetFreePerk() {
+	return PlatformPlayer.Level - PlatformPlayer.Perk.split("1").length + 1;
+}
 
 /**
  * Draws a black arrow that goes down and right
@@ -24,7 +31,6 @@ function PlatformProfileDrawArrow(SX, SY, TX, TY) {
 function PlatformProfileLoad() {
 	window.addEventListener("keydown", PlatformEventKeyDown);
 	window.addEventListener("keyup", PlatformEventKeyUp);
-	PlatformProfilePerk = PlatformPlayer.Level - PlatformPlayer.Perk.split("o").length + 1;
 }
 
 /**
@@ -56,9 +62,9 @@ function PlatformProfileRun() {
 	DrawText(TextGet("Age" + PlatformPlayer.Name), 700, 180, "Black", "Silver");
 	DrawText(TextGet("Owner") + " "  + TextGet("None"), 700, 240, "Black", "Silver");
 	DrawText(TextGet("Lover") + " "  + TextGet("None"), 700, 300, "Black", "Silver");
-	DrawText(TextGet("Level") + " " + PlatformPlayer.Level.toString(), 700, 360, "Black", "Silver");
-	DrawText(TextGet("Perks") + " " + PlatformProfilePerk.toString(), 700, 420, "Black", "Silver");
-	DrawText(TextGet("Health") + " " + PlatformPlayer.MaxHealth.toString(), 700, 480, "Black", "Silver");
+	DrawText(TextGet("Health") + " " + PlatformPlayer.MaxHealth.toString(), 700, 360, "Black", "Silver");
+	DrawText(TextGet("Level") + " " + PlatformPlayer.Level.toString() + " (" + Math.floor(PlatformPlayer.Experience / PlatformExperienceForLevel[PlatformPlayer.Level] * 100).toString() + "%)", 700, 420, "Black", "Silver");
+	DrawText(TextGet("Perks") + " " + PlatformProfileGetFreePerk().toString(), 700, 480, "Black", "Silver");
 	DrawTextWrap(TextGet("Intro" + PlatformPlayer.Name), 420, 500, 600, 500, "Black", null, 8);
 	if (PlatformPlayer.Name == "Melody") {
 		PlatformProfileDrawArrow(1150, 50, 1250, 150);
@@ -82,11 +88,32 @@ function PlatformProfileRun() {
 }
 
 /**
+ * Adds the perk as an active perk for the current character
+ * @param {number} PerkNum - The perk number for the current character
+ * @returns {void} - Nothing
+ */
+function PlatformProfileBuyPerk(PerkNum) {
+	if (PlatformProfileGetFreePerk() <= 0) return;
+	if (PlatformHasPerk(PlatformPlayer, PlatformPlayer.PerkName[PerkNum])) return;
+	PlatformPlayer.Perk = PlatformPlayer.Perk.substring(0, PerkNum) + "1" + PlatformPlayer.Perk.substring(PerkNum + 1);
+}
+
+/**
  * Handles clicks in the screen
  * @returns {void} - Nothing
  */
 function PlatformProfileClick() {
 	if (MouseIn(1900, 10, 90, 90)) return PlatformProfileExit();
+	if ((PlatformPlayer.Name == "Melody") && MouseIn(1100, 20, 400, 60)) PlatformProfileBuyPerk(0);
+	if ((PlatformPlayer.Name == "Melody") && MouseIn(1300, 120, 400, 60) && PlatformHasPerk(PlatformPlayer, "Healthy")) PlatformProfileBuyPerk(1);
+	if ((PlatformPlayer.Name == "Melody") && MouseIn(1300, 220, 400, 60) && PlatformHasPerk(PlatformPlayer, "Healthy")) PlatformProfileBuyPerk(2);
+	if ((PlatformPlayer.Name == "Melody") && MouseIn(1100, 320, 400, 60)) PlatformProfileBuyPerk(3);
+	if ((PlatformPlayer.Name == "Melody") && MouseIn(1300, 420, 400, 60) && PlatformHasPerk(PlatformPlayer, "Spring")) PlatformProfileBuyPerk(4);
+	if ((PlatformPlayer.Name == "Melody") && MouseIn(1100, 520, 400, 60)) PlatformProfileBuyPerk(5);
+	if ((PlatformPlayer.Name == "Melody") && MouseIn(1300, 620, 400, 60) && PlatformHasPerk(PlatformPlayer, "Block")) PlatformProfileBuyPerk(6);
+	if ((PlatformPlayer.Name == "Melody") && MouseIn(1100, 720, 400, 60)) PlatformProfileBuyPerk(7);
+	if ((PlatformPlayer.Name == "Melody") && MouseIn(1300, 820, 400, 60)) PlatformProfileBuyPerk(8);
+	if ((PlatformPlayer.Name == "Melody") && MouseIn(1500, 920, 400, 60) && PlatformHasPerk(PlatformPlayer, "Seduction") && PlatformHasPerk(PlatformPlayer, "Persuasion")) PlatformProfileBuyPerk(9);
 }
 
 /**
