@@ -22,6 +22,7 @@ var PlatformRunTime = 0;
 var PlatformLastTouch = null;
 var PlatformImmunityTime = 500;
 var PlatformSaveMode = false;
+var PlatformJumpPhase = "";
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -35,6 +36,7 @@ var PlatformTemplate = [
 		Width: 400,
 		Height: 400,
 		HitBox: [0.42, 0.03, 0.58, 1],
+		JumpHitBox:  [0.42, 0.03, 0.58, 0.65],
 		RunSpeed: 18,
 		WalkSpeed: 12,
 		CrawlSpeed: 6,
@@ -1064,13 +1066,17 @@ function PlatformHitBoxClash(Source, Target, HitBox) {
 	let SY1 = Source.Y - Source.Height + (HitBox[1] * Source.Height);
 	let SY2 = Source.Y - Source.Height + (HitBox[3] * Source.Height);
 
+	// When jumping, the hitbox can change
+	let TBox = Target.HitBox;
+	if ((Target.JumpHitBox != null) && (Target.Y != PlatformFloor) && !PlatformActionIs(Target, "Any")) TBox = Target.JumpHitBox;
+
 	// Finds the X and Y of the target hitbox
-	let TX1 = Target.X - (Target.Width / 2) + (Target.HitBox[0] * Target.Width);
-	if (Target.FaceLeft) TX1 = Target.X + (Target.Width / 2) - (Target.HitBox[2] * Target.Width);
-	let TX2 = Target.X - (Target.Width / 2) + (Target.HitBox[2] * Target.Width);
-	if (Target.FaceLeft) TX2 = Target.X + (Target.Width / 2) - (Target.HitBox[0] * Target.Width);
-	let TY1 = Target.Y - Target.Height + (Target.HitBox[1] * Target.Height);
-	let TY2 = Target.Y - Target.Height + (Target.HitBox[3] * Target.Height);
+	let TX1 = Target.X - (Target.Width / 2) + (TBox[0] * Target.Width);
+	if (Target.FaceLeft) TX1 = Target.X + (Target.Width / 2) - (TBox[2] * Target.Width);
+	let TX2 = Target.X - (Target.Width / 2) + (TBox[2] * Target.Width);
+	if (Target.FaceLeft) TX2 = Target.X + (Target.Width / 2) - (TBox[0] * Target.Width);
+	let TY1 = Target.Y - Target.Height + (TBox[1] * Target.Height);
+	let TY2 = Target.Y - Target.Height + (TBox[3] * Target.Height);
 
 	// Shows the hitboxes if we debug
 	if (PlatformShowHitBox) {
@@ -1231,15 +1237,28 @@ function PlatformDraw() {
 			else PlatformPlayer.ForceX = PlatformPlayer.ForceX + PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && PlatformMoveActive("Crouch")) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
 		}
 
-		// Jump foces the player up on the Y axis
-		if (PlatformMoveActive("Jump") && (PlatformPlayer.Y == PlatformFloor))
-			PlatformPlayer.ForceY = PlatformPlayer.JumpForce * (PlatformHasPerk(PlatformPlayer, "Spring") ? 1.1667 : 1) * -1;
+		// Jump forces the player up on the Y axis
+		if (PlatformMoveActive("Jump") && (PlatformPlayer.Y == PlatformFloor)) {
+			PlatformPlayer.ForceY = PlatformPlayer.JumpForce * ((PlatformHasPerk(PlatformPlayer, "Spring") && !PlatformHasPerk(PlatformPlayer, "Bounce")) ? 1.1667 : 1) * -1;
+			PlatformJumpPhase = "Jump1";
+		}
+
+		// Double jump allows for a second spring
+		if (PlatformMoveActive("Jump") && (PlatformPlayer.Y != PlatformFloor) && PlatformHasPerk(PlatformPlayer, "Bounce") && (PlatformJumpPhase == "Release1")) {
+			PlatformPlayer.ForceY = PlatformPlayer.JumpForce * -1;
+			PlatformJumpPhase = "Jump2";
+		}
+
+		// Release jump for double jumps
+		if (!PlatformMoveActive("Jump") && (PlatformPlayer.Y != PlatformFloor) && (PlatformJumpPhase == "Jump1")) PlatformJumpPhase = "Release1";
+		if (!PlatformMoveActive("Jump") && (PlatformPlayer.Y != PlatformFloor) && (PlatformJumpPhase == "Jump2")) PlatformJumpPhase = "Release2";
 
 	}
 
-	// Release jump
+	// Slows down the jump force when jump isn't holded
 	if (!PlatformMoveActive("Jump") && (PlatformPlayer.ForceY < 0))
 		PlatformPlayer.ForceY = PlatformPlayer.ForceY + PlatformWalkFrame(PlatformGravitySpeed * 2, Frame);
+
 
 	// If we must heal 1 HP to all characters in the room
 	let MustHeal = ((PlatformHeal != null) && (PlatformHeal < PlatformTime));
