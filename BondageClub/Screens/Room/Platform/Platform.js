@@ -28,6 +28,8 @@ var PlatformTemplate = [
 	{
 		Name: "Melody",
 		Status: "Maid",
+		Perk: "0000000000",
+		PerkName: ["Healthy", "Robust", "Vigorous", "Spring", "Bounce", "Block", "Parry", "Seduction", "Persuasion", "Manipulation"],
 		Health: 16,
 		HealthPerLevel: 4,
 		Width: 400,
@@ -85,6 +87,7 @@ var PlatformTemplate = [
 	{
 		Name: "Olivia",
 		Status: "Flower",
+		Perk: "0000000000",
 		Width: 400,
 		Height: 400,
 		Animation: [
@@ -113,6 +116,7 @@ var PlatformTemplate = [
 	{
 		Name: "Edlaran",
 		Status: "Archer",
+		Perk: "0000000000",
 		Width: 400,
 		Height: 400,
 		Animation: [
@@ -823,6 +827,8 @@ function PlatformCreateCharacter(CharacterName, StatusName, X, Fix  = null, Comb
 	if ((NewChar.DamageFaceOdds == null) || (NewChar.DamageFaceOdds < 0) || (NewChar.DamageFaceOdds > 1)) NewChar.DamageFaceOdds = 1;
 	NewChar.FaceLeft = ((NewChar.Dialog == null) && (PlatformRoom != null) && (PlatformRoom.Width != null) && (X > PlatformRoom.Width / 2));
 	if ((FaceLeft != null) && FaceLeft) NewChar.FaceLeft = true;
+	if (NewChar.Perk == null) NewChar.Perk = "";
+	if (NewChar.PerkName == null) NewChar.PerkName = [];
 	PlatformChar.push(NewChar);
 	if (NewChar.Camera) {
 		PlatformPlayer = NewChar;
@@ -1601,4 +1607,16 @@ function PlatformTouch() {
 	if (CommonTouchActive(1650, 750, 100, 100) && !CommonTouchActive(1650, 750, 100, 100, PlatformLastTouch)) PlatformEventKeyDown({ keyCode: 75 });
 	if (CommonTouchActive(1750, 650, 100, 100) && !CommonTouchActive(1750, 650, 100, 100, PlatformLastTouch)) PlatformEventKeyDown({ keyCode: 79 });
 	PlatformLastTouch = CommonTouchList;
+}
+
+/**
+ * Returns TRUE if a specific perk is allocated for that character
+ * @param {Object} C - The platform character to evaluate
+ * @param {Object} Perk - The perk name to validate
+ * @returns {boolean} - TRUE if the perk is paid
+ */
+function PlatformHasPerk(C, Perk) {
+	if ((C.Perk == null) || (C.PerkName == null)) return false;
+	if (C.PerkName.indexOf(Perk) < 0) return false;	
+	return (C.Perk.substr(C.PerkName.indexOf(Perk), 1) == "1");
 }
