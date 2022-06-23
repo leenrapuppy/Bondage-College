@@ -4057,6 +4057,13 @@ var AssetFemale3DCGExtended = {
 						},
 					},
 					{
+						Name: "Knotted",
+						Property: {
+							Type: "Knotted",
+							Effect: ["BlockMouth", "GagLight"],
+						},
+					},
+					{
 						Name: "OTM",
 						Property: {
 							Type: "OTM",
