@@ -38,7 +38,7 @@ var PlatformTemplate = [
 		RunSpeed: 18,
 		WalkSpeed: 12,
 		CrawlSpeed: 6,
-		JumpForce: 50,
+		JumpForce: 43,
 		CollisionDamage: 0,
 		ExperienceValue: 0,
 		DamageBackOdds: 0,
@@ -1233,7 +1233,7 @@ function PlatformDraw() {
 
 		// Jump foces the player up on the Y axis
 		if (PlatformMoveActive("Jump") && (PlatformPlayer.Y == PlatformFloor))
-			PlatformPlayer.ForceY = PlatformPlayer.JumpForce * -1;
+			PlatformPlayer.ForceY = PlatformPlayer.JumpForce * (PlatformHasPerk(PlatformPlayer, "Spring") ? 1.1667 : 1) * -1;
 
 	}
 
