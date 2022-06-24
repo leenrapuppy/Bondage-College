@@ -1041,7 +1041,7 @@ function PlatformDamage(Source, Target, Damage, Time) {
 	Target.Damage.push({ Value: Damage, Expire: Time + 2000});
 	if (Target.Health <= 0) {
 		Target.Health = 0;
-		Target.RiseTime = Time + 10000;
+		Target.RiseTime = Time + (PlatformHasPerk(Target, "Vigorous") ? 7000 : 10000);
 		Target.Immunity = Time + 2000;
 	}
 }
@@ -1155,7 +1155,7 @@ function PlatformBindPlayer(Source, Time) {
 	if ((PlatformPlayer.Immunity != null) && (PlatformPlayer.Immunity > Time)) return;
 	if ((Source.Action != null) && (Source.Action.Name == "Bind")) return;
 	if ((PlatformPlayer.Y != PlatformFloor) || (Source.Y != PlatformFloor) || (Math.abs(PlatformPlayer.X - Source.X) > 50)) return;
-	PlatformPlayer.RiseTime = Time + 10000;
+	PlatformPlayer.RiseTime = Time + (PlatformHasPerk(PlatformPlayer, "Vigorous") ? 7000 : 10000);
 	Source.ForceX = 0;
 	Source.Action = { Name: "Bind", Target: PlatformPlayer.ID, Start: Time, Expire: Time + 2000 };
 }
@@ -1269,7 +1269,7 @@ function PlatformDraw() {
 
 		// Enemies will stand up at half health if they were not restrained
 		if ((C.Health == 0) && (C.RiseTime != null) && (C.RiseTime < PlatformTime) && !C.Bound)
-			C.Health = Math.round(C.MaxHealth / 2);
+			C.Health = Math.round(C.MaxHealth / 4);
 
 		// Heal the character
 		if (MustHeal && (C.Health > 0) && (C.Health < C.MaxHealth))
