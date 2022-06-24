@@ -206,6 +206,9 @@ var BackgroundsList = [
 	{ Name: "AsylumGGTSRoom", Tag: [BackgroundsTagAsylum] },
 	{ Name: "Restaurant1", Tag: [BackgroundsTagIndoor] },
 	{ Name: "Restaurant2", Tag: [BackgroundsTagIndoor] },
+	{ Name: "HotelBedroom2", Tag: [BackgroundsTagIndoor] },
+	{ Name: "BeachSunset", Tag: [BackgroundsTagOutdoor] },
+	{ Name: "Gymnasium", Tag: [BackgroundsTagIndoor] },
 ];
 // Be sure to go into [Screens\Character\Player\Dialog_Player.csv] and add a new line at around line 440, follow the format.
 /**
