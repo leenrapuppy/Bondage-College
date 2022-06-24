@@ -142,7 +142,7 @@ type AssetGroupItemName =
 	'ItemHood' | 'ItemLegs' | 'ItemMisc' | 'ItemMouth' | 'ItemMouth2' |
 	'ItemMouth3' | 'ItemNeck' | 'ItemNeckAccessories' | 'ItemNeckRestraints' |
 	'ItemNipples' | 'ItemNipplesPiercings' | 'ItemNose' | 'ItemPelvis' |
-	'ItemTorso' | 'ItemVulva' | 'ItemVulvaPiercings' |
+	'ItemTorso' | 'ItemTorso2'| 'ItemVulva' | 'ItemVulvaPiercings' |
 
 	'ItemHidden' /* TODO: investigate, not a real group */
 	;
@@ -572,6 +572,7 @@ interface ItemBundle {
 	Difficulty?: number;
 	Color?: ItemColor;
 	Property?: ItemProperties;
+	Craft?: CraftedItemProperties;
 }
 
 /** An AppearanceBundle is whole minified appearance of a character */
@@ -609,7 +610,16 @@ interface Item {
 	Asset: Asset;
 	Color?: ItemColor;
 	Difficulty?: number;
+	Craft?: CraftedItemProperties;
 	Property?: ItemProperties;
+}
+
+interface CraftedItemProperties {
+	Name: string;
+	MemberName?: string;
+	MemberNumber?: number;
+	Description: string;
+	Property: string;
 }
 
 type FavoriteIcon = "Favorite" | "FavoriteBoth" | "FavoritePlayer";
@@ -872,6 +882,14 @@ interface Character {
 	Rule?: LogRecord[];
 	Status?: string | null;
 	StatusTimer?: number;
+	Crafting?: {
+		Name: string;
+		Description: string;
+		Property: string;
+		Color: string;
+		Lock: AssetLockType;
+		Item: string;
+	}[];
 }
 
 type NPCArchetype =

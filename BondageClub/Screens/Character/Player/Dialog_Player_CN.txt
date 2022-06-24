@@ -1,104 +1,104 @@
 ###_NPC
 (You can use or remove items by selecting specific body regions on yourself.)
-(你可以选择身体的特定部位来使用或移除物品.)
+(你可以选择身体的特定部位来使用或移除物品)
 ###_PLAYER
 (View your profile.)
 (View your profile.)
 (Change your clothes.)
 (Change your clothes.)
 (Room administrator action.)
-(房间管理员动作.)
+(房间管理员动作)
 ###_NPC
 (As a room administrator, you can take these actions.)
-(作为一个房间管理员,你可以做以下动作.)
+(作为一个房间管理员,你可以做以下动作)
 ###_PLAYER
 (Character actions.)
-(Character actions.)
+(Character actions)
 ###_NPC
 (Possible character actions.)
-(Possible character actions.)
+(Possible character actions)
 ###_PLAYER
 (Spend GGTS minutes.)
-(Spend GGTS minutes.)
+(Spend GGTS minutes)
 ###_NPC
 (Select how to spend your minutes.)
-(Select how to spend your minutes.)
+(Select how to spend your minutes)
 ###_PLAYER
 (View your current rules.)
-(查看你目前的规则.)
+(查看你目前的规则)
 ###_NPC
 (Here are your currently active rules.)
-(这些是现在生效中的规则.)
+(这些是现在生效中的规则)
 ###_PLAYER
 (Leave this menu.)
-(Leave this menu.)
+(Leave this menu)
 (Move Character.)
-(移动角色.)
+(移动角色)
 ###_NPC
 (Move started.)
-(开始移动.)
+(开始移动)
 ###_PLAYER
 (Back to main menu.)
-(回到主菜单.)
+(回到主菜单)
 (Spend 15 minutes for a bondage position change.)
-(Spend 15 minutes for a bondage position change.)
+(Spend 15 minutes for a bondage position change)
 ###_NPC
 (You don't have enough minutes available.)
-(You don't have enough minutes available.)
+(You don't have enough minutes available)
 ###_PLAYER
 (Spend 15 minutes for a new blindness level.)
-(Spend 15 minutes for a new blindness level.)
+(Spend 15 minutes for a new blindness level)
 (Spend 15 minutes for a new deafness level.)
-(Spend 15 minutes for a new deafness level.)
+(Spend 15 minutes for a new deafness level)
 (Spend 15 minutes for an sexual intensity change.)
-(Spend 15 minutes for an sexual intensity change.)
+(Spend 15 minutes for an sexual intensity change)
 (Spend 15 minutes for a sexual intensity change.)
-(Spend 15 minutes for a sexual intensity change.)
+(Spend 15 minutes for a sexual intensity change)
 (Spend 30 minutes to unlock the door.)
-(Spend 30 minutes to unlock the door.)
+(Spend 30 minutes to unlock the door)
 ###_NPC
 (You must have 30 minutes and be the admistrator of the locked room.)
-(You must have 30 minutes and be the admistrator of the locked room.)
+(You must have 30 minutes and be the admistrator of the locked room)
 ###_PLAYER
 (Spend 120 minutes to get $100.)
-(Spend 120 minutes to get $100.)
+(Spend 120 minutes to get $100)
 ###_NPC
 (GGTS gives you $100 and substracts 120 minutes to your total.)
-(GGTS gives you $100 and substracts 120 minutes to your total.)
+(GGTS gives you $100 and substracts 120 minutes to your total)
 ###_PLAYER
 (Spend 200 minutes to get your own GGTS helmet.)
-(Spend 200 minutes to get your own GGTS helmet.)
+(Spend 200 minutes to get your own GGTS helmet)
 ###_NPC
 (You get a GGTS helmet and the AI substracts 200 minutes from your total.)
-（你获得了一个GGTS头盔，AI从你的GGTS分钟代币中减去了200分钟。）
+（你获得了一个GGTS头盔，AI从你的GGTS分钟代币中减去了200分钟）
 (You don't have enough minutes available or you already have the helmet in your inventory.)
-（你没有足够的GGTS分钟或你已经拥有GGTS头盔了。）
+（你没有足够的GGTS分钟或你已经拥有GGTS头盔了）
 ###_PLAYER
 (Adjust your bondage skill.)
-(调整你的束缚技能.)
+(调整你的束缚技能)
 ###_NPC
 (By default, you restrain using your full bondage skill.  You can use less of your skill and make it easier for your victims to escape.)
-(默认状况下,你会使用你所有的捆绑技巧. 你可以选择使用更少技巧来让目标容易逃脱.)
+(默认状况下，你会使用你所有的捆绑技巧。你可以选择使用更少技巧来让目标容易逃脱)
 ###_PLAYER
 (Adjust your evasion skill.)
-(调整你的逃脱技能.)
+(调整你的逃脱技能)
 ###_NPC
 (By default, you struggle using your full evasion skill.  You can use less of your skill and make it harder for you to struggle free.)
-(默认状况下,你会使用你所有的逃脱技巧. 你可以选择使用更少技巧来让自己更难逃脱.)
+(默认状况下,你会使用你所有的逃脱技巧. 你可以选择使用更少技巧来让自己更难逃脱)
 ###_PLAYER
 (Call the maids for help)
 (呼叫女仆帮助)
 ###_NPC
 (The maids are not supposed to take room calls. This will result in punishment and public humiliation. Are you sure?)
-(女仆们一般不接受聊天室呼叫. 这会让你陷入惩罚和公开羞辱. 你确定吗?)
+(女仆们一般不接受聊天室呼叫，这会让你陷入惩罚和公开羞辱。你确定吗？)
 (The maids will be here shortly...)
 (女仆们马上就到...)
 ###_PLAYER
 (Use your safeword.)
-(使用安全词.)
+(使用安全词)
 ###_NPC
 (A safeword is serious and should not be used to cheat.  It can revert your clothes and restraints to when you entered the lobby, or release you completely.)
-(安全词应该是严肃的且不应被用于作弊.它可以将你的服装和束缚恢复到登录时的状态,或是完全解放你.)
+(安全词应该是严肃的且不应被用于作弊，它可以将你的服装和束缚恢复到登录时的状态，或是完全解放你)
 ###_PLAYER
 (Take a photo of yourself.)
 (Take a photo of yourself.)
@@ -106,96 +106,96 @@
 (玩淫靡地城)
 ###_NPC
 (Main menu.)
-(主菜单.)
+(主菜单)
 ###_PLAYER
 (Use your full bondage skill.  100%)
-(使用你所有的束缚技巧.  100%)
+(使用你所有的束缚技巧 100%)
 ###_NPC
 (You will now use your full bondage skill when using a restraint.  100%)
-(你会在束缚他人时使出你的浑身解数.  100%)
+(你会在束缚他人时使出你的浑身解数 100%)
 ###_PLAYER
 (Use most of your bondage skill.  75%)
-(使用你大部分的束缚技巧.  75%)
+(使用你大部分的束缚技巧 75%)
 ###_NPC
 (You will now use most of your bondage skill when using a restraint.  75%)
-(你会在束缚他人时稍稍留些余地.  75%)
+(你会在束缚他人时稍稍留些余地 75%)
 ###_PLAYER
 (Use half of your bondage skill.  50%)
-(使用你大约一般的束缚技巧.  50%)
+(使用你大约一般的束缚技巧 50%)
 ###_NPC
 (You will now use half of your bondage skill when using a restraint.  50%)
-(你会在束缚他人时放亿点点水.  50%)
+(你会在束缚他人时放亿点点水 50%)
 ###_PLAYER
 (Use very little of your bondage skill.  25%)
-(使用一点点你的束缚技巧.  25%)
+(使用一点点你的束缚技巧 25%)
 ###_NPC
 (You will now use very little of your bondage skill when using a restraint.  25%)
-(你会在束缚他人时心不在焉.  25%)
+(你会在束缚他人时心不在焉 25%)
 ###_PLAYER
 (Use none of your bondage skill.  0%)
-(完全不使用束缚技巧.  0%)
+(完全不使用束缚技巧 0%)
 ###_NPC
 (You will now use none of your bondage skill when using a restraint.  0%)
-(我觉得你就是想被绑.  0%)
+(我觉得你就是想被绑 0%)
 ###_PLAYER
 (Don't change your skill.)
-(不改变你的技巧.)
+(不改变你的技巧)
 (Use your full evasion skill.  100%)
-(使用你所有的逃脱技巧.  100%)
+(使用你所有的逃脱技巧 100%)
 ###_NPC
 (You will now use your full evasion skill when trying to struggle free.  100%)
-(你会在试图逃脱时使出你的浑身解数.  100%)
+(你会在试图逃脱时使出你的浑身解数 100%)
 ###_PLAYER
 (Use most of your evasion skill.  75%)
-(使用你大部分的逃脱技巧.  75%)
+(使用你大部分的逃脱技巧 75%)
 ###_NPC
 (You will now use most of your evasion skill when trying to struggle free.  75%)
-(你会在试图逃脱时放一点水.  75%)
+(你会在试图逃脱时放一点水 75%)
 ###_PLAYER
 (Use half of your evasion skill.  50%)
-(使用你大约一半的逃脱技巧.  50%)
+(使用你大约一半的逃脱技巧 50%)
 ###_NPC
 (You will now use half of your evasion skill when trying to struggle free.  50%)
-(你会在试图逃脱时放亿点点水.  50%)
+(你会在试图逃脱时放亿点点水 50%)
 ###_PLAYER
 (Use very little of your evasion skill.  25%)
-(使用一点点你的逃脱技巧.  25%)
+(使用一点点你的逃脱技巧 25%)
 ###_NPC
 (You will now use very little of your evasion skill when trying to struggle free.  25%)
-(你会在试图逃脱时心不在焉.  25%)
+(你会在试图逃脱时心不在焉 25%)
 ###_PLAYER
 (Use none of your evasion skill.  0%)
-(完全不使用逃脱技能.  0%)
+(完全不使用逃脱技能 0%)
 ###_NPC
 (You will now use none of your evasion skill when trying to struggle free.  0%)
-(你大概是想被这么绑着一辈子吧.  0%)
+(你大概是想被这么绑着一辈子吧 0%)
 ###_PLAYER
 (Yes! Get me out of this room!)
-(是的!把我从这弄出去!)
+(是的！把我从这弄出去！)
 (No, don't call the maids.)
-(不,不要呼叫女仆.)
+(不，不要呼叫女仆)
 (Revert Character.)
-(恢复角色.)
+(恢复角色)
 ###_NPC
 (This will revert your character's clothes and restraints back to how they were when you entered the lobby. Use this if you were forced into restraints against your consent. Are you sure you want to revert your character?)
-(这会将你的角色的服装和束缚恢复到登录时的状态. 如果被强制装入了你讨厌的装备中可以使用. 你确定要使用吗?)
+(这会将你的角色的服装和束缚恢复到登录时的状态，如果被强制装入了你讨厌的装备中可以使用。你确定要使用吗？)
 ###_PLAYER
 (Release Character.)
 (释放角色.)
 ###_NPC
 (This will immediately release you of ALL restraints you are wearing and return you to the Main Lobby. Use this only if you are stuck in restraints and nobody can or wants to help you. Are you sure about this?)
-(这会立即摘除你身上的所有限制性装备并把你送回大厅. 请仅在被卡在束缚具中且没有人能够帮助的情况下使用它. 你确定要使用吗?)
+(这会立即摘除你身上的所有限制性装备并把你送回大厅。请仅在被卡在束缚具中且没有人能够帮助的情况下使用它。你确定要使用吗?)
 ###_PLAYER
 (Don't use Safeword.)
-(不要使用安全词.)
+(不要使用安全词)
 (Yes, revert Character.)
-(是的,恢复角色.)
+(是的，恢复角色)
 (No, don't revert Character.)
-(不,不要恢复.)
+(不，不要恢复)
 (Yes, I want to be released.)
-(是的,我想要被解开.)
+(是的，我想要被解开)
 (No, don't release me.)
-(不,不要解开.)
+(不，不要解开)
 ###_NPC
 The stimulation ends just before you go over the edge.
 就在你马上要到极限的时候刺激停止了。
@@ -236,109 +236,109 @@ SourceCharacter将TargetCharacter的脚包在了毯子里。
 SourceCharacter fully wraps TargetCharacter in a blanket.
 SourceCharacter将TargetCharacter完全包在了毯子里。
 Select an item to use.
-选择物品以使用.
+选择物品以使用
 Select an item to use on the GroupName.
-请选择要用在GroupName的物品.
+请选择要用在GroupName的物品
 Select an activity.
-请选择动作.
+请选择动作
 Select an activity to use on the GroupName.
-请选择要对GroupName做的动作.
+请选择要对GroupName做的动作
 Cannot use on yourself.
-不能对自己使用.
+不能对自己使用
 Requires self-bondage 1.
-需要自缚技能等级1.
+需要自缚技能等级1
 Requires self-bondage 2.
-需要自缚技能等级2.
+需要自缚技能等级2
 Requires self-bondage 3.
-需要自缚技能等级3.
+需要自缚技能等级3
 Requires self-bondage 4.
-需要自缚技能等级4.
+需要自缚技能等级4
 Requires self-bondage 5.
-需要自缚技能等级5.
+需要自缚技能等级5
 Requires self-bondage 6.
-需要自缚技能等级6.
+需要自缚技能等级6
 Requires self-bondage 7.
-需要自缚技能等级7.
+需要自缚技能等级7
 Requires self-bondage 8.
-需要自缚技能等级8.
+需要自缚技能等级8
 Requires self-bondage 9.
-需要自缚技能等级9.
+需要自缚技能等级9
 Requires self-bondage 10.
-需要自缚技能等级10.
+需要自缚技能等级10
 Remove some clothes first.
-先脱掉些衣服.
+先脱掉些衣服
 Unzip the suit first.
-先解开外套.
+先解开外套
 Remove the suspension first.
-先从悬挂上下来.
+先从悬挂上下来
 Release from hogtie first.
-先解开驷马.
+先解开驷马
 Remove some restraints first.
-先移除一些束缚.
+先移除一些束缚
 Cannot be used when mounted.
-不能在坐在家具上时使用.
+不能在坐在家具上时使用
 Cannot be used while yoked.
-不能在被轭住时使用.
+不能在被轭住时使用
 Cannot be used while the legs are spread.
-不能在腿被分开时使用.
+不能在腿被分开时使用
 Cannot be used while serving drinks.
-不能在送餐时使用.
+不能在送餐时使用
 Remove the wand first.
-先把棒子拔了.
+先把棒子拔了
 Cannot use this.
-无法使用.
+无法使用
 Must remove chastity first.
-必须先移除贞操带.
+必须先移除贞操带
 Remove the chain first.
-先移除锁链.
+先移除锁链
 A collar must be fitted first to attach accessories to.
-必须先戴好项圈才能添加挂件.
+必须先戴好项圈才能添加挂件
 Must be on a bed to attach addons to.
-必须在床上才能添加配件.
+必须在床上才能添加配件
 Must have an arm/torso/pelvis item to use ceiling tethers.
-手臂/躯干/小腹必须有物品才能使用牵引绳.
+手臂/躯干/小腹必须有物品才能使用牵引绳
 Must be wearing a set of arm cuffs first.
-必须要先戴上一副手臂铐.
+必须要先戴上一副手臂铐
 Must be wearing a set of ankle cuffs first.
-必须先戴上一副脚铐.
+必须先戴上一副脚铐
 Remove some clothes and requires a collar.
-脱下一些衣物并请求一只项圈.
+脱下一些衣物并请求一只项圈
 Legs cannot open.
-无法张开双腿.
+无法张开双腿
 Legs cannot close.
-无法夹紧双腿.
+无法夹紧双腿
 Must be able to kneel.
-必须可以跪下.
+必须可以跪下
 Must stand up first.
-必须先站起来.
+必须先站起来
 Must free feet first.
-必须先解开脚部束缚.
+必须先解开脚部束缚
 Must free arms first.
-必须先解开手臂束缚.
+必须先解开手臂束缚
 Must free legs first.
-必须先解开腿部束缚.
+必须先解开腿部束缚
 Must free hands first.
-必须先解开手部束缚.
+必须先解开手部束缚
 Must remove shackles first.
-必须先移除镣铐.
+必须先移除镣铐
 Must remove face mask first.
-必须先摘下面具.
+必须先摘下面具
 Must empty vulva first.
-必须先清空阴道.
+必须先清空阴道
 Must remove clitoris piercings first
 Must remove clitoris piercings first
 Must empty butt first.
-必须先清空后庭.
+必须先清空后庭
 The use of remotes is forbidden by your owner
-你的主人禁止你使用遥控器.
+你的主人禁止你使用遥控器
 Cannot be used over the applied gags.
-不能在已穿戴的口塞上使用.
+不能在已穿戴的口塞上使用
 Cannot be used over the applied mask.
-不能在已穿戴的口罩上使用.
+不能在已穿戴的口罩上使用
 Cannot be used over the applied hood.
-不能在已穿戴的头套上使用.
+不能在已穿戴的头套上使用
 Blocked in this room.
-被房间禁止.
+被房间禁止
 Cancel
 取消
 Back to character
@@ -374,7 +374,7 @@ Unlock the item
 Try to pick the lock
 尝试开锁
 Try to pick the lock (jammed)
-尝试开锁(卡住了)
+尝试开锁（卡住了）
 Return to the item menu
 回到物品菜单
 Inspect the lock
@@ -384,11 +384,11 @@ Unable to inspect due to player permissions
 Use your remote
 使用你的遥控器
 You have not bought a remote yet.
-你还没买过遥控器.
+你还没买过遥控器
 Your owner is preventing you from using remotes.
-你的主人禁止你使用遥控器.
+你的主人禁止你使用遥控器
 You have not bought a lover's remote yet.
-你还没买过爱人遥控器.
+你还没买过爱人遥控器
 Using remotes on this item has been blocked
 对该物品使用遥控器的能力被屏蔽了
 You do not have access to this item
@@ -498,43 +498,43 @@ Hair out & Accessories out
  Hair in & Accessories in 
 头发&配饰在内
 SourceCharacter changes the style of DestinationCharacter gwen hood.
-SourceCharacter改变了DestinationCharacter的gwen hood的外观.
+SourceCharacter改变了DestinationCharacter的gwen hood的外观
 Select a hood style.
-Select a hood style.
+Select a hood style
 Hair in
 Hair in
 Hair out
 Hair out
 Select a scarf style.
-Select a scarf style.
+Select a scarf style
 Hide Mouth
 Hide Mouth
 Bundled
 Bundled
 SourceCharacter changes the style of DestinationCharacter hood.
-SourceCharacter changes the style of DestinationCharacter hood.
+SourceCharacter changes the style of DestinationCharacter hood
 Pump gag level: Empty
-充气口塞等级: 空的
+充气口塞等级: 空
 Pump gag level: Light
-充气口塞等级: 少量
+充气口塞等级: 少
 Pump gag level: Inflated
-充气口塞等级: 中量
+充气口塞等级: 中
 Pump gag level: Bloated
-充气口塞等级: 大量
+充气口塞等级: 大多
 Pump gag level: Full mouth
-充气口塞等级: 充满
+充气口塞等级: 满
 Empty
-空的
+空
 Light
-少量
+少
 Inflated
-中量
+中
 Bloated
-大量
+多
 Maximum
-最大
+最多
 Inflation level: Empty
-扩张等级: 空的
+扩张等级: 空
 Inflation level: Light
 扩张等级: 轻度
 Inflation level: Inflated
@@ -594,23 +594,23 @@ SourceCharacter小心的跪了下来
 SourceCharacter manages to get to her feet.
 SourceCharacter成功站了起来
 SourceCharacter almost loses her balance trying to kneel down!
-SourceCharacter跪下时差点失去了平衡!
+SourceCharacter跪下时差点失去了平衡
 SourceCharacter tries to stand up but loses her balance and falls!
-SourceCharacter想要站起来但是失去了平衡摔倒了!
+SourceCharacter想要站起来但是失去了平衡摔倒了
 SourceCharacter helps TargetCharacter to kneel down
 SourceCharacter帮助TargetCharacter跪了下来
 SourceCharacter helps TargetCharacter to stand up
 SourceCharacter帮助TargetCharacter站了起来
 SourceCharacter changes DestinationCharacter clothes.
-SourceCharacter换掉了DestinationCharacter的衣服.
+SourceCharacter换掉了DestinationCharacter的衣服
 SourceCharacter selects her team and class.
-SourceCharacter选择了她的队伍和班级.
+SourceCharacter选择了她的队伍和班级
 SourceCharacter has started the LARP game.
-SourceCharacter开始了体感对战.
+SourceCharacter开始了体感对战
 SourceCharacter has started the Magic Battle.
 SourceCharacter has started the Magic Battle.
 Your safeword is disabled, it cannot be used at the moment.
-你的安全词被禁用了, 现在无法使用.
+你的安全词被禁用了， 现在无法使用
 Private
 私人
 Public

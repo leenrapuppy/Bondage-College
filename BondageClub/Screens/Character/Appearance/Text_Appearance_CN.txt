@@ -3,9 +3,9 @@ Select your appearance
 Select TargetCharacterName's appearance
 选择目标角色外貌
 You must pick an item of type:
-你必须选择该类别的物品:
+你必须选择该类别的物品：
 Set wardrobe character name:
-设置衣柜角色名:
+设置衣柜角色名：
 Invalid name for character.
 角色名无效
 Reset character
