@@ -31,7 +31,7 @@ var PlatformTemplate = [
 		Status: "Maid",
 		Perk: "0000000000",
 		PerkName: ["Healthy", "Robust", "Vigorous", "Spring", "Bounce", "Block", "Parry", "Seduction", "Persuasion", "Manipulation"],
-		Health: 16,
+		Health: 12,
 		HealthPerLevel: 4,
 		Width: 400,
 		Height: 400,
@@ -811,13 +811,14 @@ function PlatformCreateCharacter(CharacterName, StatusName, X, Fix  = null, Comb
 	if (NewChar == null) return;
 	NewChar.Camera = (PlatformChar.length == 0);
 	NewChar.ID = PlatformChar.length;
-	NewChar.MaxHealth = NewChar.Health;
 	NewChar.X = X;
 	NewChar.Y = PlatformFloor;
 	NewChar.ForceX = 0;
 	NewChar.ForceY = 0;
 	NewChar.Experience = 0;
 	NewChar.Level = 1;
+	NewChar.BaseHealth = NewChar.Health;
+	PlatformSetHealth(NewChar);
 	if (Fix != null) NewChar.Fix = Fix;
 	if (Combat != null) NewChar.Combat = Combat;
 	if (Dialog != null) NewChar.Dialog = Dialog;
@@ -1014,10 +1015,9 @@ function PlatformAddExperience(C, Value) {
 	C.Experience = C.Experience + Value;
 	if (C.Experience >= PlatformExperienceForLevel[C.Level]) {
 		if (C.Camera) PlatformMessageSet(TextGet("LevelUp").replace("CharacterName", C.Name));
-		C.MaxHealth = C.MaxHealth + C.HealthPerLevel;
-		C.Health = C.MaxHealth;
 		C.Experience = 0;
 		C.Level++;
+		PlatformSetHealth(C);
 	}
 }
 
@@ -1513,6 +1513,19 @@ function PlatformSaveGame(Slot) {
 	PlatformMessageSet("Game saved on slot " + Slot.toString());
 }
 
+
+/**
+ * Sets the max health and current health for the character based on the level and skill
+ * @param {Object} C - The character to evaluate
+ * @returns {void} - Nothing
+ */
+function PlatformSetHealth(C) {
+	C.MaxHealth = C.BaseHealth;
+	if (C.HealthPerLevel != null) C.MaxHealth = C.MaxHealth + C.HealthPerLevel * C.Level;
+	C.MaxHealth = Math.round(C.MaxHealth * (1 + ((PlatformHasPerk(C, "Healthy") ? 0.1 : 0) + (PlatformHasPerk(C, "Robust") ? 0.15 : 0))));
+	C.Health = C.MaxHealth;
+}
+
 /**
  * Loads the game on a specific slot
  * @param {Number} Slot - The slot to use (from 0 to 9)
@@ -1534,7 +1547,8 @@ function PlatformLoadGame(Slot) {
 	PlatformPlayer.X = Math.round(PlatformRoom.Width / 2);
 	if (LoadObj.Level != null) PlatformPlayer.Level = LoadObj.Level;
 	if (LoadObj.Perk != null) PlatformPlayer.Perk = LoadObj.Perk;
-	if (PlatformPlayer.Level > 1) PlatformPlayer.MaxHealth = PlatformPlayer.MaxHealth + PlatformPlayer.HealthPerLevel * (PlatformPlayer.Level - 1);
+	if (LoadObj.BaseHealth != null) PlatformPlayer.BaseHealth = LoadObj.BaseHealth;
+	PlatformSetHealth(PlatformPlayer);
 	PlatformPlayer.Health = PlatformPlayer.MaxHealth;
 	if (LoadObj.Experience != null) PlatformPlayer.Experience = LoadObj.Experience;
 	PlatformDialogCharacter = JSON.parse(JSON.stringify(PlatformDialogCharacterTemplate));

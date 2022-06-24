@@ -96,6 +96,7 @@ function PlatformProfileBuyPerk(PerkNum) {
 	if (PlatformProfileGetFreePerk() <= 0) return;
 	if (PlatformHasPerk(PlatformPlayer, PlatformPlayer.PerkName[PerkNum])) return;
 	PlatformPlayer.Perk = PlatformPlayer.Perk.substring(0, PerkNum) + "1" + PlatformPlayer.Perk.substring(PerkNum + 1);
+	PlatformSetHealth(PlatformPlayer);
 }
 
 /**
