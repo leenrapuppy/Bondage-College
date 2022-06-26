@@ -1290,7 +1290,7 @@ ItemMouth2,Tentacles,Tentacle
 ItemMouth2,PonyGag,Bridle Gag
 ItemMouth2,MouthFeatureGag, Mouthfeature Gag
 ItemMouth2,Slime,Slime
-ItemMouth,FurScarf,Fur Scarf
+ItemMouth2,FurScarf,Fur Scarf
 ItemMouth3,,Mouth
 ItemMouth3,ClothGag,Cloth Gag
 ItemMouth3,WiffleGag,Wiffle Ball Gag
@@ -1343,8 +1343,7 @@ ItemMouth3,Tentacles,Tentacle
 ItemMouth3,PonyGag,Bridle Gag
 ItemMouth3,Slime,Slime
 ItemMouth3,Stitches,Stitches 
-ItemMouth,FurScarf,Fur Scarf
-
+ItemMouth3,FurScarf,Fur Scarf
 ItemHead,,Eyes
 ItemHead,ClothBlindfold,Cloth Blindfold
 ItemHead,ScarfBlindfold,Scarf Blindfold
@@ -1376,6 +1375,7 @@ ItemHead,Tentacles,Tentacles
 ItemHead,MedicalPatch,Medical Patches
 ItemHead,DroneMask,Smooth Latex Mask
 ItemHead,Slime,Slime
+ItemHead,FurScarf,Fur Scarf
 ItemNose,,Nose
 ItemNose,NoseHook,Nose Hook
 ItemNose,PigNose,Pig Nose
