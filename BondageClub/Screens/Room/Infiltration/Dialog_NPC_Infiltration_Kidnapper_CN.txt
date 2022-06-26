@@ -42,15 +42,15 @@
 (You remove the collar from her neck.)  We have better collars for you at the Box.
 （你从她脖子上取下项圈。）我们潘多拉魔盒里为你准备了更好的项圈。
 (She struggles to avoid the belt but you're able to strap it on her.)  This is bullshit.
-（她努力避开皮带，但你还是系到了她身上。）这真烂。
+（她挣扎着想避开带子，但你还是成功系到她身上。）这真烂。
 (She sighs as you unlock the belt.)  You will never control me anyway.
-（当你解开皮带时，她叹了口气。）反正你永远也控制不了我。
+（当你解开带子时，她叹了口气。）反正你永远也控制不了我。
 (She sighs as you strap the device on her head.)
 （当你绑紧她头上的道具时，她叹了口气。）
 (You release her head as she nods rapidly.)  Thanks, I guess.
 （你解开她的头时，她迅速点头。）我想，谢谢。
 (You put the hood on her head as she goes silent.)
-（你把头套戴在她头上，她逐渐沉默。）
+（你把头套戴在她头上，她逐渐安静了下来。）
 (She grins as you remove the hood from her head.)  I hope they torture you for that.
 （你从她头上取下头罩，她咧嘴笑起来。）我希望他们会因此而折磨你。
 (You strap the item on her nose as she sighs.)  What the hell?

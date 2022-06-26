@@ -20,11 +20,11 @@ Of course, head maid DialogPlayerName.  (She releases you.)
 (You slowly release her hands.)  Thank you, Miss.  This is much better
 （你慢慢地解开她的双手。）谢谢你女士，这好多了。
 (She submits to you while you restrain her legs.)  Do I get paid overtime if I'm stuck here?
-（她顺从地让你束缚住双腿。）如果我被困在这里了，我会得到加班工资吗？
+（她顺从地让你束缚住双腿。）如果我被困在这里了，我可以得到加班费吗？
 (You release her legs from the restraint.)  You're quite good with restraints Miss.
 （你解开了她腿上的束缚。）你很擅长束缚，女士。
 (She looks puzzled as you restrain her feet.)  I didn't plan on running anytime soon.
-（在你束缚住她的脚的时候，她看起来很困惑。）我本无意在短时间内逃跑。
+（在你束缚住她的脚的时候，她看起来很困惑。）短时间内，我并不打算逃跑。
 (You release her feet.)  Wonderful!
 （你解开了她的双脚。）太棒了！
 (You strap the collar on her while she blushes.)  I bet you're a great Mistress.
@@ -40,7 +40,7 @@ Of course, head maid DialogPlayerName.  (She releases you.)
 (You remove the item from her torso.)  Thanks a lot Miss.  (She bows for you.)
 （你从她的躯干上取下物品。）非常感谢，女士。（她向你鞠躬。）
 (You strap the device on her head as she sighs.)  Well this could make my shift difficult...
-（在你束紧她头上的道具时，她叹着气。）好吧，这会让我这次轮班变得困难...
+（你把道具绑在她头上时，她叹了口气。）好吧，这会让我这次轮班变得困难...
 (You remove the device as she shakes her head joyfully.)  Wonderful!  That'll make my day easier.
 （你解开了道具，她开心地摇摇头。）太棒了！今天我会好过很多。
 (She jumps from the searing pain on her breast.)  Ouch!  Miss Head Maid!
@@ -804,7 +804,7 @@ You need to complete three chores or more for the maid sorority.  Come back when
 (She struggles and tries to get out.)  Can you please help me?
 （她挣扎着试图逃脱出来。）请问你可以帮我吗？
 (She bows her head respectfully.)  Can you also help our friend here?
-（她尊重地微微低头。）你可以也帮助一下我们这位朋友吗？
+（她恭敬地微微低头。）你可以也帮助一下我们这位朋友吗？
 I will spread the good word of you around the sorority.  Thanks for helping.
 我会向社团传播关于你的美言的。感谢你的帮助。
 ###_PLAYER
@@ -824,7 +824,7 @@ Is everything alright now?
 现在一切正常了吗？
 ###_NPC
 Everything is great, please report to my sisters of your fine work here.
-现在一切都棒极了，请向我的姐妹回报，你在这里良好地完成了工作。
+现在一切都棒极了，请向我的姐妹回报你的出色工作。
 ###_PLAYER
 What happened here?
 这里发生什么了？
@@ -844,7 +844,7 @@ As a maid, you owe me a favor now.
 作为一名女仆，你现在欠我一次了。
 ###_NPC
 (She gulps.)  Yes Miss.  Is there something else you need?
-（她咽了口口水。）是的女士。你有其他的需要吗？
+（她咽了咽口水。）是的女士。你有其他的需要吗？
 ###_PLAYER
 My pleasure.  The maids protect each other.
 我的荣幸。女仆间会互相保护。

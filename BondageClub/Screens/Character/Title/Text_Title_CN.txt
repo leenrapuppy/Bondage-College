@@ -1,5 +1,11 @@
-Select your displayed title
-选择你的称号
+Select your displayed name and title
+选择你的显示名称与称号
+Current title: TITLE
+当前称号：TITLE
+Nickname (letters and spaces)
+昵称（文字与空格）
+Nickname locked by your owner
+昵称被你的主人锁定
 None
 无
 Mistress
@@ -27,7 +33,7 @@ Nurse
 Doctor
 医生
 Lady Luck
-幸运儿
+幸运女士
 Patron
 赞助者
 College Student
@@ -49,11 +55,11 @@ Hot Blood Horse
 Wild Mustang
 野马
 Shining Unicorn
-独角兽
+闪耀独角兽
 Flying Pegasus
-飞马
+翱翔天马
 Majestic Alicorn
-有翼独角兽
+威严神驹
 Mole
 间谍
 Infiltrator
@@ -64,10 +70,26 @@ Operative
 密探
 Superspy
 超级间谍
+Wizard
+法师
+Magus
+魔战士
+Magician
+魔术师
+Sorcerer
+术士
+Sage
+贤者
+Oracle
+先知
+Witch
+女巫
+Warlock
+邪术师
 Little One
-小家伙
+小不点
 Baby
-宝贝
+小宝贝
 Diaper Lover
 纸尿裤爱好者
 Bondage Baby

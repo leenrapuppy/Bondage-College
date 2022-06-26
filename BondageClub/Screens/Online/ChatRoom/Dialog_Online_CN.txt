@@ -359,7 +359,7 @@
 (你可以将她送入定时监牢，让她开始GGTS训练，或强制她送水并收取她的佣金。)
 ###_PLAYER
 (Collar and nickname options.)
-(Collar and nickname options.)
+(项圈与昵称选项。)
 ###_NPC
 (Select the option.)
 (选择本选项)
@@ -667,5 +667,3 @@
 ###_NPC
 (Her owner will not be able to use lovers locks on her anymore.)
 (她的主人将无法再对她使用恋人锁)
-(Watch her play Kinky Dungeon.)
-(观看她玩淫荡地城)

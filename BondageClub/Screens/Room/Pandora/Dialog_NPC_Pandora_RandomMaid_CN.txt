@@ -38,7 +38,7 @@
 (You remove the collar from her neck.)  You will get punished for days.
 （你从她脖子上取下项圈。）你会受到数天的惩罚。
 (She struggles to avoid the belt but you're able to strap it on her.)  Is that really necessary?
-（她努力避开皮带，但你还是系到了她身上。）真的有必要吗？
+（她挣扎着想避开带子，但你还是成功系到她身上。）你是认真的吗？
 (She giggles as you unlock the belt.)  You got my scarred with that belt.
 （当你解开皮带时，她呵呵笑起来。）你的那条腰带给我留下伤痕了。
 (She stays silent as you strap the device on her head.)
@@ -46,7 +46,7 @@
 (You release her head as she nods rapidly.)  You better run while you can.
 （你解开她的头时，她迅速点头。）你最好赶紧逃。
 (You put the hood on her head as she goes silent.)
-（你把头套戴在她头上，她逐渐沉默。）
+（你把头套戴在她头上，她逐渐安静了下来。）
 (She smiles as you remove the hood from her head.)  Why are you still here?
 （你从她头上取下头罩，她露出微笑。）你为什么还在这里？
 (You strap the item on her nose as she grumbles.)  I'm a maid!  Not a slave.
@@ -300,7 +300,7 @@ Can I go back to work now?  (She will no longer follow you.)
 （穿上她的衣服。）
 ###_NPC
 (She stares at you as you quickly dress up as her.)  You won't fool anyone.
-（当你迅速打扮成她时，她盯着你。）你谁都骗不了的。
+（你迅速打扮成她，期间她死死地瞪着你。）你谁都骗不了的。
 ###_PLAYER
 (Leave her.)
 （离开她。）

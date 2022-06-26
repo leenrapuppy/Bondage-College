@@ -202,6 +202,18 @@ Shawl
 头巾
 Cowl
 面巾
+Button
+扣子
+Panel
+嵌板
+Side
+侧边
+Left Panel
+左面板
+Right Panel
+右面板
+Visor
+面罩
 Outer Ear
 耳朵外侧
 Inner Ear
@@ -222,6 +234,16 @@ Core
 绒毛
  Base
 基础
+ Tip
+顶端
+Bangs
+刘海
+Tips
+顶端
+Left
+左侧
+Right
+右侧
 Glove
 手套
 String
@@ -232,8 +254,6 @@ Ribbon
 丝带
 Tails
 尾巴
-Tips
-顶端
 Heart
 心
 Tip
@@ -278,6 +298,8 @@ Dildo
 假阳具
 End
 顶端
+Thread
+线条
 Ring
 环圈
 Egg
@@ -429,9 +451,9 @@ Bed
 Bed Lining
 床内衬
 Blanket
-毯子
+毛毯
 Blanket Lining
-毯子内衬
+毛毯内衬
 Wheel Holders
 轮子挡板
 Wheels
@@ -490,8 +512,6 @@ Blinding Lenses
 遮眼镜片
 Breathing Attachment
 呼吸附件
-Visor
-面罩
 Chin Strap
 下巴束带
 Helmet
@@ -532,10 +552,6 @@ Mittens
 手套
 Vamp
 防水台
-Left
-左侧
-Right
-右侧
 Shoes
 鞋
 Soles
@@ -560,8 +576,6 @@ Carrot
 萝卜
 Pumpkin
 南瓜
-Panel
-嵌板
 Bit
 嚼子
 Bone

@@ -5,7 +5,7 @@ Opponent moves
 Brute Force
 蛮力
 Domination
-压制
+支配
 Sneakiness
 潜行
 Meditation

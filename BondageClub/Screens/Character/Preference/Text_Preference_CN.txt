@@ -237,7 +237,7 @@ Prevent OOC & whispers while gagged
 Hide non-adjacent players while partially blind
 部分失明时隐藏不临近的角色
 Events while plugged or vibed
-被插入或震动时行动
+被插入或被振动时的事件
 Garble chat room names and descriptions while blind
 失明时隐藏聊天室名和描述
 Sensory deprivation setting
@@ -269,7 +269,7 @@ Keep all restraints when relogging
 Cannot enter single-player rooms when restrained
 被束缚时无法进入私人房间
 Block advanced vibrator modes (edge, random, etc)
-禁止高级震动模式(寸止、随机等)
+禁止高级振动模式(寸止、随机等)
 Safewords and help from NPCs are disabled on Hardcore or Extreme
 安全词和NPC帮助在硬核和极限难度不可用
 Items can affect your facial expression
@@ -349,7 +349,7 @@ Temporary Animation
 Constant Animation
 持续动画
 Vibrator Screen Filters
-震动屏幕过滤
+振动屏幕过滤
 None
 无
 Flickering Glow
@@ -487,9 +487,9 @@ Never stutter
 When you're aroused
 性奋时
 When you're vibrated
-被震动时
+被振动时
 Aroused & vibrated
-性奋或震动时
+性奋或振动时
 Group:
 分类:
 Asset:

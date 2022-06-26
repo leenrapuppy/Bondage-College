@@ -1,10 +1,10 @@
 ﻿###_NPC
 Patient DialogPlayerName, you'll need to get that gag off if you want to be understood.
-病人 DialogPlayerName，如果你想让人听懂你的话，你得把那个口球拿掉。
+病人DialogPlayerName，如果你想让人听懂你的话，你得把那个口球拿掉。
 Welcome patient DialogPlayerName.   The therapy room is ready for you, as usual.
-欢迎病人 DialogPlayerName 。治疗室像往常一样为您准备好了。
+欢迎，病人DialogPlayerName 。治疗室像往常一样为您准备好了。
 Hello patient DialogPlayerName.   Are you here to receive another treatment?
-您好病人 DialogPlayerName。你是来接受另一种治疗的吗？
+您好，病人DialogPlayerName。你是来接受另一种治疗的吗？
 Hello there.   Are you here for a therapy?
 你好呀。你是来治疗的吗？
 ###_PLAYER
@@ -12,16 +12,16 @@ Who are you?
 你是谁
 ###_NPC
 I'm nurse DialogCharacterName, I provide the patient therapies today.
-我是护士 DialogCharacterName，我今天为患者提供治疗
+我是护士DialogCharacterName，我今天为患者提供治疗
 ###_PLAYER
 Tell me of the therapies.
 告诉我治疗方法。
 ###_NPC
 Absolutely.  What would you like to know?
-绝对地。你想知道什么？
+当然。你想知道什么？
 ###_PLAYER
 I'd like to get a therapy.
-我想接受治疗
+我想接受治疗。
 ###_NPC
 (She grins.)  This is great.  And what kind of treatment are you looking for?
 （她笑了。）这太好了。你想要什么样的治疗？
@@ -30,21 +30,21 @@ I'd like to get a therapy.
 （在束缚中挣扎。）
 ###_NPC
 I'm not allowed to release you.  But you can receive treatments while being restrained.
-我没有权力释放你。但是你可以在受到束缚的时候下接受治疗。
+我被禁止释放你。但是你可以在受到束缚的时候下接受治疗。
 ###_PLAYER
 (Mumble in the gag.)
 （在口塞里咕哝。）
 ###_NPC
 Poor patient.  You need help with that gag?
-可怜的病人。你需要帮助拿下这个口塞吗？
+可怜的病人。你需要我帮你拿下这个口塞吗？
 ###_PLAYER
 I must go.  (Leave her.)
-我要走了 (离开她)
+我得走了。（离开她。）
 What kind of therapies are available?
-有哪些治疗方案可选？
+有哪些疗法可选？
 ###_NPC
 We offer four kinds of therapies: bondage, pain, tickle & orgasm.
-我们提供四种治疗方案：束缚、疼痛、搔痒和性高潮。
+我们提供四种疗法：束缚、疼痛、搔痒和性高潮。
 ###_PLAYER
 Tell me about bondage therapies.
 告诉我关于束缚疗法的事。
@@ -77,25 +77,25 @@ My pleasure.  Are you ready for your treatment?
 荣幸之至。你准备好接受治疗了吗？
 ###_PLAYER
 (Nod and whimper.)
-（点头和呜呜。）
+（点头并呜咽。）
 ###_NPC
 Here you go little patient.  (She removes your gag.)
-来吧，病人小可爱。 （她移除了你的口球。）
+来吧，可爱的小患者。（她移除了你的口球。）
 ###_PLAYER
 (Shake your head no.)
-(摇头表示拒绝)
+（摇头，表示拒绝。）
 ###_NPC
 Stay gagged then, you're cute like that.  (She laughs.)
-继续塞着吧，你这样很可爱。 （她笑了。）
+继续塞着吧，你这样很可爱。（她笑了起来。）
 ###_PLAYER
 I'll take the bondage therapy.
-我选束缚疗法.
+我选束缚疗法。
 ###_NPC
 (She smiles.)  Very good.  Since you're already naked, we can begin right now.
 （她微笑）很好。既然你已经赤身裸体了，我们现在就可以开始了。
 ###_PLAYER
 I'll take the pain therapy.
-我选疼痛治疗。
+我选疼痛疗法。
 ###_NPC
 (She smirks.)  Good girl.  Since you're already naked, we can begin right now.
 （她嘻嘻的笑着）好女孩。既然你已经赤身裸体了，我们现在就可以开始了。
@@ -107,21 +107,21 @@ I'll take the tickle therapy.
 （她捏着指关节）完美！既然你已经赤身裸体了，我们现在就可以开始了。
 ###_PLAYER
 I'll take the orgasm therapy.
-我选性高潮疗法
+我选性高潮疗法。
 ###_NPC
 (She winks.)  I know you would.  Since you're already naked, we can begin right now.
-（她眨了眨眼）我知道你会的。既然你已经赤身裸体了，我们现在就可以开始了。
+（她眨了眨眼。）我就知道你会选这个。既然你已经赤身裸体了，我们现在就可以开始了。
 (She smiles.)  You'll need to be fully naked to start your therapy.  Do you need help to strip?
-（她微笑。）你需要完全赤裸才能开始你的治疗。你需要帮助脱衣吗？
+（她微笑。）你需要完全赤裸才能开始你的治疗。你需要我帮你脱衣服吗？
 (She smirks.)  You'll need to be fully naked to start your therapy.  Do you need help to strip?
-（她嘻嘻的笑着。）你需要完全赤裸才能开始你的治疗。你需要帮助脱衣吗？
+（她嘻嘻的笑着。）你需要完全赤裸才能开始你的治疗。你需要我帮你脱衣服吗？
 (She cracks her knuckles.)  You'll need to be fully naked to start your therapy.  Do you need help to strip?
-（她捏着指关节。）你需要完全赤裸才能开始治疗。你要我帮你脱吗？
+（她捏响指关节。）你需要完全赤裸才能开始治疗。你需要我帮你脱衣服吗？
 (She winks.)  You'll need to be fully naked to start your therapy.  Do you need help to strip?
-（她眨眼。）你需要完全赤裸才能开始治疗。你需要帮助脱衣吗？
+（她眨眨眼。）你需要完全赤裸才能开始治疗。你需要我帮你脱衣服吗？
 ###_PLAYER
 I've changed my mind.
-我改变注意了
+我改变想法了。
 ###_NPC
 Very well.  Is there anything else you need?
 很好。你还有什么需要的吗？
@@ -133,7 +133,7 @@ Do I really need to be naked?
 （她严厉地看了你一眼。）需要我强迫你吗？
 ###_PLAYER
 Very well.  (Strip with her help.)
-很好。 （在她的帮助下把衣服脱掉。）
+很好。（在她的帮助下把衣服脱掉。）
 ###_NPC
 (She helps you to strip down naked.)  Your bondage therapy can begin.
 （她帮助你脱光衣服。）你的束缚治疗可以开始了。
@@ -142,19 +142,19 @@ Please don't be too rough.
 请不要太粗暴了。
 ###_NPC
 Don't worry little patient.  Now give me your arms so I can restrain you.
-别担心，小病人。现在把你的手臂伸出来让我绑好
+别担心，小患者。现在把你的手臂伸出来让我绑好。
 ###_PLAYER
 I'm ready for anything.
 我准备好了。
 ###_NPC
 We'll see if you are.  Give me your arms so I can restrain you.
-我们会看看你是不是。把你的胳膊给我，我给你绑好。
+我们会知道你是不是的。把你的手臂伸出来让我绑好。
 ###_PLAYER
 (Stay silent.)
 （保持沉默。）
 ###_NPC
 Give me your arms so I can restrain you.
-把你的胳膊伸过来，我好绑住你。
+把你的手臂伸出来让我绑好。
 ###_PLAYER
 Are you sure it's safe?
 你确定这个安全吗？
@@ -166,21 +166,21 @@ Of course, it's safe.  Now give me your arms.
 （让她束缚你。）
 ###_NPC
 (She carefully restrains you.)  All set!  Are you comfy?
-（她小心地束缚住你）一切就绪！你舒服吗？
+（她小心地束缚住你。）一切就绪！你舒服吗？
 ###_PLAYER
 (Nod yes.)
-(点头表示赞同)
+(点头表示赞同。)
 ###_NPC
 Very good.  I will keep you restrained for ten minutes.  You need to stay calm and docile.
 很好。我会让你束缚十分钟。你需要保持安静和顺从。
 (She loosens your restraints.)  Try to be strong girl.  I will keep you restrained for ten minutes.  You need to stay calm and docile.
-（她松开你的束缚。）试着做一个坚强的女孩。我会绑住你十分钟。你需要保持安静和顺从。
+（她松开你的束缚。）女孩，要坚强。我会绑住你十分钟。你需要保持安静和顺从。
 ###_PLAYER
 (Nod slowly.)
 （慢慢点头。）
 ###_NPC
 Very good.  (She pets your head as two minutes goes by.)  Are you panicking?  Are you too nervous?
-很好。 （两分钟过去了，她抚摸着你的头。）你有没有在害怕？你有没有过度紧张？
+很好。（两分钟过去了，她抚摸着你的头。）你有没有在害怕？你有没有过度紧张？
 ###_PLAYER
 (Freak out and panic.)
 （惊慌失措。）
@@ -188,17 +188,17 @@ Very good.  (She pets your head as two minutes goes by.)  Are you panicking?  Ar
 (She quickly releases you.)  I'm sorry, this therapy might be too rough for you.
 （她很快放开了你。）对不起，这种疗法对你来说可能太粗暴了。
 Dominants will love your calm and docile attitude toward restraints.  (Two minutes goes by.)  Are you still fine?
-主人们更喜欢看到你在拘束状态仍旧保持安静顺从。 （两分钟过去了。）你还好吗？
+你在拘束状态仍旧安静顺从的样子，支配者们会喜欢的。（两分钟过去了。）你还好吗？
 A good pet must learn to love being restrained.  (Two minutes goes by.)  Are you at ease in your submissive space?
-一只好宠物必须学会去喜欢被束缚。 （两分钟过去了。）还在你奴性的承受范围内吗？
+一只好宠物必须学会享受被束缚。（两分钟过去了。）还在你顺从的承受范围内吗？
 (She slowly pets you and checks your bondage as two minutes goes by.)  Are you nervous?  Do you want out?
 （两分钟过去后，她慢慢抚摸你，检查你的束缚。）你紧张吗？你想出去吗？
 Good.  We are almost done.  (Two minutes goes by.)  Do you want to be released now?
-好的。我们快完成了。 （两分钟过去了。）你现在想被释放吗？
+好的。我们快完成了。（两分钟过去了。）你现在想被释放吗？
 (Two minutes goes by and she slowly releases you.)  This bondage therapy was a success.  How do you feel?
 （两分钟过去了，她慢慢松开了你。）这次束缚疗法很成功。你感觉如何？
 (She gives you a stern look.)  Pain doesn't work great on clothes.
-（她严肃地看着你。） 隔着衣服,所以你并没有很疼。。
+（她严肃地看着你。）隔着衣服,所以你并没有很疼。
 ###_PLAYER
 I'm ready for pain!
 我已经准备好接受惩罚了！
@@ -210,7 +210,7 @@ Please don't be too harsh.
 请不要太严厉。
 ###_NPC
 Don't worry little patient.  Get on your knees and put your hands behind your back.
-别担心病人小可爱。跪下，双手放在背后。
+别担心，小患者。跪下，双手放在背后。
 Get on your knees and put your hands behind your back.
 跪下，双手放在背后。
 ###_PLAYER
@@ -227,7 +227,7 @@ Wait!  This is going too far.
 （她收起惩罚工具，扶你起来。）对不起，这种疗法对你来说可能太粗暴了。
 ###_PLAYER
 (Take a deep breath.)
-(深呼吸)
+（深呼吸。）
 ###_NPC
 (She swings a few painful hits on your legs.)  Are you alright?  Is it too painful?
 （她在你的腿上狠狠地打了几下。）你还好吗？会不会太痛？
@@ -243,24 +243,24 @@ I'm fine, thanks.
 Stop!
 停下!
 Red.
-红色
+红色。
 Green.
-绿色
+绿色。
 ###_NPC
 You can whimper and moan, but you cannot move.  (She swings and hits your butt swiftly many times.)
-你可以呜咽和呻吟，但你不许动。 （她挥舞着鞭子并狠狠地快速抽打你的屁股。）
+你可以呜咽和呻吟，但你不许动。（她挥舞着鞭子并狠狠地快速抽打你的屁股。）
 ###_PLAYER
 Blue.
-蓝色
+蓝色。
 ###_NPC
 (She puts away her weapon and helps you up.)  If you cannot be serious, this therapy isn't for you.
-（她收起惩罚工具，扶你起来。）如果你不能认真，那这种疗法不适合你。
+（她收起惩罚工具，扶你起来。）如果你不认真对待，那这种疗法不适合你。
 ###_PLAYER
 (Whimper a little.)
 （小声啜泣。）
 ###_NPC
 Be strong little patient.  (She gives you some time to recover.)
-坚强点 病人小可爱。 （她给了你一些时间来恢复。）
+坚强点，小患者。（她给了你一些时间来恢复。）
 ###_PLAYER
 (Try to avoid her.)
 （试图避开她。）
@@ -270,36 +270,36 @@ Be strong little patient.  (She gives you some time to recover.)
 （站着不动。）
 ###_NPC
 (She hits your breast again and again.)  Your breast can get very sensitive.  Do you feel the blood rush?
-（她一次又一次地抽打你的乳房。）你的乳房会变得非常敏感。你有没有感觉到血流加速？
+（她一次又一次地抽打你的胸部。）你的胸部会变得非常敏感。你有没有感觉到血流加速？
 ###_PLAYER
 Yes.  I can take it.
 是的。我能承受。
 ###_NPC
 (She doubles down on your breast in a sadistic manner.)  You need to endure pain like a good submissive.
-（她用一种更痛的方式加倍鞭打你的胸部。）你需要像一个优秀的sub一样忍耐痛苦。
+（她用一种更痛的方式加倍鞭打你的胸部。）你需要做一个听话的顺从者，并忍耐痛苦。
 (She doubles down on your breast.)  You need to endure pain like a good submissive.
-（她加倍鞭打你的胸部。）你需要像一个优秀的sub一样忍耐痛苦。
+（她加倍鞭打你的胸部。）你需要做一个听话的顺从者，并忍耐痛苦。
 ###_PLAYER
 Fuck!  It hurts!
 草！好痛！
 (Start crying.)
-(开始哭)
+（开始哭。）
 (Take deep breathes.)
-(深呼吸)
+（深呼吸。）
 ###_NPC
 (She hits you one last time and helps you to stand you.)  Well done, this therapy was a success.  How do you feel?
-（她最后一次鞭打你，帮助你站起来。）干得好，这次疗法很成功。你感觉如何？
+（她最后鞭打了你一次，帮助你站起来。）做得好，这次疗法很成功。你感觉如何？
 (She hits you one last time and helps you to stand you.)  Well done, this therapy was a success.  How are you?
-（她最后一次打你，帮助你站起来。）干得好，这次疗法很成功。你现在好吗？
+（她最后鞭打了你一次，帮助你站起来。）做得好，这次疗法很成功。你现在好吗？
 (She gives you a stern look.)  This is a tickle therapy.  You'll need to show some skin.
-（她严厉地看了你一眼。）这是一个瘙痒疗程。你需要脱下一些衣服。
+（她严厉地看了你一眼。）这是一次瘙痒疗程。你需要脱下一些衣服。
 (She helps you to strip down naked.)  Your tickle therapy can begin.
-（她帮助你脱光衣服。）你的瘙痒疗程可以开始了
+（她帮助你脱光衣服。）你的瘙痒疗程可以开始了。
 Put your hands behind your back.  They must stay there for the whole therapy.
 把你手放在背后。在治疗中你必须一直保持这样。
 ###_PLAYER
 Be careful, I'm ticklish.
-小心，我很怕痒。
+请温柔一些，我很怕痒。
 ###_NPC
 That's great!  Put your hands behind your back.  They must stay there for the whole therapy.
 那太棒了！把手放在背后。在治疗中你必须一直保持这样。
@@ -323,7 +323,7 @@ This tickle therapy is pretty serious.
 （当她给你蒙上眼罩时，你把手放在背后。）为了进行这种疗法，你得被遮住眼睛。
 ###_PLAYER
 Very well.  (Let her blindfold you.)
-很好。 （让她蒙住你的眼睛。）
+好的。（让她蒙住你的眼睛。）
 ###_NPC
 (She blindfolds you and caresses your ribs.)  You must remain still and keep your hands there.
 （她蒙住你的眼睛，抚摸你的肋骨。）你必须保持不动，把手放在背后。
@@ -334,7 +334,7 @@ I think I will love this therapy.
 我想我会喜欢这种疗法的。
 ###_NPC
 I sure hope you will.  We'll see if you're ticklish.  (She caresses your tummy.)
-我当然希望你会。我们会看看你是不是很怕痒的。 （她抚摸着你的肚子。）
+我当然希望你会。我们会知道你怕不怕痒的。（她抚摸着你的肚子。）
 ###_PLAYER
 This might not be for me.
 这可能不适合我。
@@ -379,22 +379,22 @@ Life isn't fair.  (She tickles your tummy and breast.)
 （她弯下腰，开始挠你的腋窝。）
 ###_PLAYER
 That's enough!
-够了
+够了！
 (Remain still.)
 （保持不动。）
 ###_NPC
 I have a surprise from the sorority.  (She uses what seems to be a feather duster to tickle you mercilessly.)
-我从女仆会那得到了一个好东西。 （她用羽毛掸子的东西毫不留情地挠你痒痒。）
+我从女仆社团那儿弄来了一个好东西。（她拿起看起来是羽毛掸子的东西，毫不留情地挠你痒痒。）
 ###_PLAYER
 (Cry of laughter.)
-（笑哭。）
+（又哭又笑。）
 (Try to block her.)
 （试图阻止她。）
 Yyyyyeeeaahhahaha!
 哇哈哈哈哈哈哈哈哈哈哈
 ###_NPC
 (She tickles you one last time and removes your blindfold.)  You did it!  The therapy was a success.
-（她最后一次给你挠痒痒，然后取下你的眼罩。）你做到了！治疗很成功。
+（她最后给你挠了一次痒痒，然后取下你的眼罩。）你做到了！治疗很成功。
 ###_PLAYER
 (Bite your lips not to laugh.)
 （咬住嘴唇忍着不笑。）
@@ -402,37 +402,37 @@ Yyyyyeeeaahhahaha!
 （把掸子推开。）
 ###_NPC
 (She gives you a stern look.)  Do I need to explain why an orgasm therapy must be done naked?
-（她严厉地看了你一眼。）我需要解释为什么高潮治疗必须裸体进行吗？
+（她严厉地看了你一眼。）我需要解释为什么性高潮疗法必须裸体进行吗？
 (She helps you to strip down.)  Your orgasm therapy can begin.
-（她帮助你脱光衣服。）你的性高潮治疗可以开始了。
+（她帮助你脱光衣服。）你的性高潮疗法可以开始了。
 ###_PLAYER
 (Blush.)  What about the belt?
-（脸红）这个贞操带怎么办？
+（脸红。）这个贞操带怎么办？
 ###_NPC
 (She laughs.)  Yes, you have a problem girl, and I cannot help you.  We can do another therapy if you want.
-（她笑了笑）是的女孩，这个问题我没法帮你。如果您愿意，我们可以进行另一种治疗。
+（她笑了笑。）是的，这个问题我没法帮你，女孩。如果您愿意，我们可以进行另一种治疗。
 ###_PLAYER
 I'm ready!
 我准备好了
 ###_NPC
 Wonderful!  I will tease you with this vibrating wand.  You cannot orgasm until I say so, and you must orgasm when I command it.
-太棒了！我会用这根振动棒玩弄你。除非我允许，否则你不能达到高潮，而当我命令你高潮时，你必须马上达到高潮。
+完美！我会用这根振动棒玩弄你。除非我允许，否则你不能达到高潮，而当我命令你高潮时，你必须马上达到高潮。
 ###_PLAYER
 That's quite a challenge.
-真是一个很大的挑战啊.
+真是严峻的挑战啊.
 ###_NPC
 It can be a challenge.  It will teach you about controlling your body and sexual urges.
-这确实是一个挑战。它会教你控制你的身体和性冲动。
+这确实是严峻的挑战。这会让你学会控制你的身体和性冲动。
 ###_PLAYER
 I'll follow your lead.
-我会顺从你的引导。
+我会听从你的引导。
 ###_NPC
 Since your breast is chaste, we cannot work on the nipples, but we can have fun down there.  (She turns on the vibrating wand.)
-因为你的乳房被锁住了，我们不能玩弄你的乳头，但我们可以在下面让你爽一下。 （她打开振动棒。）
+因为你的乳房被锁住了，我们不能玩弄你的乳头，但我们可以在下面让你爽一下。（她打开振动棒。）
 (She puts an object on your nipples.)  Breast first, then we can work down there.  (She turns on the vibrating wand.)
-（她在你的乳头上放了一个东西。）先乳房，然后我们可以开始玩弄你的下面。 （她打开振动棒。）
+（她在你的乳头上放了一个东西。）首先是乳房，然后我们会玩弄你的下面。（她打开振动棒。）
 (She sighs and stops everything.)  I'm sorry, this therapy will not work for you.
-（她叹了口气，停止了一切。）对不起，这种疗法对你不起作用。
+（她叹了口气，停下了所有的操作。）对不起，这种疗法对你不起作用。
 ###_PLAYER
 Wait!  I've changed my mind.
 等下！我改变主意了。
@@ -441,18 +441,18 @@ Wait!  I've changed my mind.
 （她开始用振动棒按摩你的阴户。）
 ###_PLAYER
 I'm your slut Miss.
-我是您的骚奴隶,女士。
+我是您的骚母狗，女士。
 ###_NPC
 Remember, you cannot cum until I say so.  (She applies a little more pressure on the device.)
-记住，除非我命令，否则你不能高潮。 （她调大了按摩棒的挡位。）
+记住，除非我命令，否则你不能高潮。（她调大了按摩棒的挡位。）
 ###_PLAYER
 (Take a step back.)
 （退后一步。）
 (Have a surprise orgasm.)
-（来一个惊喜的高潮。）
+（突然高潮。）
 ###_NPC
 (She giggles and stops everything.)  Your orgasm was too quick, you've failed the therapy.
-（她咯咯地笑着停下了一切。）你的高潮太快了，你的治疗失败了。
+（她咯咯地笑着，停下了所有的操作。）你的高潮太快了，你的治疗失败了。
 ###_PLAYER
 Oooooh!
 啊啊啊啊!
@@ -466,56 +466,56 @@ I'm strong.  Don't worry.
 （深呼吸。）
 ###_NPC
 (She massages your pussy skillfully with the vibrating wand, giving lots of stimulation.)  Not yet.
-（她用振动棒熟练地按摩你的阴部，给予很多刺激。）还没结束。
+（她用振动棒熟练地按摩你的阴部，给予你很多刺激。）还没结束。
 ###_PLAYER
 (Lose control and orgasm.)
-控制不住高潮了
+（控制不住，并高潮。）
 Aaaaaah!  Aah!
 啊啊啊啊啊啊啊!
 (Stay strong and resist.)
-(忍耐 不要高潮)
+(保持坚强，并忍住。)
 ###_NPC
 (She speeds up the vibrating wand again, making you tremble and shiver from sexual pleasure.)  Not yet.
-（她再次加快了振动棒的速度，让你因性快感而颤抖和颤抖。）还没完。
+（她再次加快了振动棒的速度，让你因性快感而颤抖。）还没到。
 (She forces the full speed vibrating wand against your pussy lips and stares at you.)  Now girl!  Cum now!
-（她用全速振动的按摩棒抵住你的阴唇，盯着你。）就是现在，高潮吧女孩！
+（她用全速振动的按摩棒抵住你的阴唇，盯着你。）就是现在，高潮吧，女孩！
 (You get a great orgasm as she smiles at you.)  You did it patient DialogPlayerName.  The therapy was a success.
-（当她对你微笑时，你会获得极大的性高潮。）你做到了 病人 DialogPlayerName 。治疗很成功。
+（她对你微笑，你到达了极大的性高潮。）你做到了，患者DialogPlayerName。治疗很成功。
 (She frowns and stops everything.)  Sorry girl, you failed to orgasm on command.
-（她皱起眉头，停下了一切。）对不起，女孩，你没有按照命令达到高潮。
+（她皱起眉头，停下了所有的操作。）对不起，女孩，你没有按照命令达到高潮。
 ###_PLAYER
 It will be better next time.
-我下次会做的更好的
+下次我会做的更好的。
 ###_NPC
 Maybe it will.  We can try again if you want, or you can take a break.
-也许会的。如果您愿意，我们可以再试一次，或者您可以休息一下。
+也许会的。如果你愿意，我们可以再试一次，或者你可以休息一下。
 ###_PLAYER
 The therapy failed?
 治疗失败了?
 ###_NPC
 Yes, it failed.  We can try again if you want, or you can take a break.
-是的 失败了,如果你愿意我们可以再来一次,或者你可以休息一下
+是的，失败了。如果你愿意，我们可以再试一次，或者你可以休息一下。
 ###_PLAYER
 You're a bad therapist.
-你真是一个糟糕的治疗师。
+你这个治疗师真是糟糕。
 ###_NPC
 You failed it, not me.  We can try again if you want, or you can take a break.
 是你失败了，又不是我。如果您愿意，我们可以再试一次，或者你可以休息一下。
 ###_PLAYER
 (Cry a little.)
-(小声的哭)
+（稍微哭出来。）
 ###_NPC
 Don't cry little patient.  We can try again if you want, or you can take a break.
-不要哭病人小可爱。如果您愿意，我们可以再试一次，或者你可以休息一下。
+不要哭，小患者。如果您愿意，我们可以再试一次，或者你可以休息一下。
 ###_PLAYER
 I'll try another therapy.
-我想试试其他治疗
+我想试试其他疗法。
 ###_NPC
 That's the spirit!  What kind of treatment will you try now?
 就是那种精神！你现在想尝试什么样的治疗？
 ###_PLAYER
 I'll take a break.  (Leave her.)
-我想休息一下。 （离开她。）
+我想休息一下。（离开她。）
 I think I've learned from it.
 我想我已经从中吸取了教训。
 ###_NPC
@@ -523,7 +523,7 @@ I think I've learned from it.
 （她微笑）那太好了！如果想接受另一种治疗，请告诉我。
 ###_PLAYER
 I will be a better submissive.
-我会变成更好的sub的
+我会变成更好的顺从者的。
 ###_NPC
 (She nods slowly.)  Absolutely.  Let me know if want to take another therapy.
 （她慢慢地点点头。）当然。如果想接受另一种治疗，请告诉我。
@@ -535,7 +535,7 @@ I'm ready to conquer the world!
 （她给了你一个有趣的眼神。）好好好。如果想接受另一种治疗，请告诉我。
 ###_PLAYER
 (Nod happily.)
-(开心的点头)
+（开心地点头。）
 ###_NPC
 You're a good patient.  Let me know if want to take another therapy.
 你是一个好病人。如果想接受另一种治疗，请告诉我。
@@ -543,4 +543,4 @@ You're a good patient.  Let me know if want to take another therapy.
 Yes, I'll try another therapy.
 是的，我会尝试另一种疗法。
 Thanks, I will.  (Leave her.)
-谢谢我会的。 （离开她。）
+谢谢，我会的。（离开她。）

@@ -33,7 +33,7 @@ Nurse
 Doctor
 医生
 Lady Luck
-幸运儿
+幸运女士
 Patron
 赞助者
 College Student
