@@ -30,7 +30,7 @@ var PlatformTemplate = [
 		Name: "Melody",
 		Status: "Maid",
 		Perk: "0000000000",
-		PerkName: ["Healthy", "Robust", "Vigorous", "Spring", "Bounce", "Block", "Parry", "Seduction", "Persuasion", "Manipulation"],
+		PerkName: ["Healthy", "Robust", "Vigorous", "Spring", "Bounce", "Block", "Deflect", "Seduction", "Persuasion", "Manipulation"],
 		Health: 12,
 		HealthPerLevel: 4,
 		Width: 400,
@@ -56,6 +56,7 @@ var PlatformTemplate = [
 			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 100 },
 			{ Name: "Crawl", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39], Speed: 20 },
 			{ Name: "Stun", Cycle: [0], Speed: 1000 },
+			{ Name: "Block", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 100 },
 			{ Name: "StandAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 13 },
 			{ Name: "StandAttackSlow", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], Speed: 30 },
 			{ Name: "CrouchAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], Speed: 18 },
@@ -1027,16 +1028,24 @@ function PlatformAddExperience(C, Value) {
  * @param {Object} Target - The character getting the damage
  * @param {Number} Damage - The number of damage to apply
  * @param {Number} Time - The current time when the action is done
+ * @param {String} Type - The damage type (Collsion or Action)
  * @returns {void} - Nothing
  */
-function PlatformDamage(Source, Target, Damage, Time) {
+function PlatformDamage(Source, Target, Damage, Time, Type) {
 	if (!PlatformActionIs(Target, "Any")) {
 		if (Math.random() < Target.DamageBackOdds) Target.FaceLeft = (Source.X - Target.X > 0);
 		else if (Math.random() < Target.DamageFaceOdds) Target.FaceLeft = (Source.X - Target.X <= 0);
 	}
-	Target.ForceX = (Target.DamageKnockForce + Math.random() * Target.DamageKnockForce) * ((Source.X - Target.X < 0) ? 1 : -1);
-	Target.Immunity = Time + PlatformImmunityTime;
+	if (Target.Camera && PlatformMoveActive("Block") && (Target.FaceLeft != Source.FaceLeft)) {
+		Target.ForceX = 0;
+		Damage = Math.ceil(Damage / 2);
+		if (PlatformHasPerk(PlatformPlayer, "Deflect") && (Type == "Collision")) {
+			Source.FaceLeft = !Source.FaceLeft;
+			Source.ForceX = (30 + Math.random() * 30) * (Source.FaceLeft ? -1 : 1);
+		}
+	} else Target.ForceX = (Target.DamageKnockForce + Math.random() * Target.DamageKnockForce) * ((Source.X - Target.X < 0) ? 1 : -1);
 	Target.Health = Target.Health - Damage;
+	Target.Immunity = Time + PlatformImmunityTime;
 	if (Target.Damage == null) Target.Damage = [];
 	Target.Damage.push({ Value: Damage, Expire: Time + 2000});
 	if (Target.Health <= 0) {
@@ -1115,7 +1124,7 @@ function PlatformProcessAction(Source, Time) {
 						break;
 					}
 			if (PlatformHitBoxClash(Source, Target, HitBox))
-				return PlatformDamage(Source, Target, Damage, Time);
+				return PlatformDamage(Source, Target, Damage, Time, "Action");
 		}
 }
 
@@ -1140,7 +1149,7 @@ function PlatformCollisionDamage(Target, Time) {
 	for (let Source of PlatformChar)
 		if ((Source.ID != Target.ID) && (Source.Health > 0) && Source.Combat && (Source.CollisionDamage > 0) && ((Target.Immunity == null) || (Target.Immunity < Time)))
 			if (PlatformHitBoxClash(Source, Target, Source.HitBox))
-				return PlatformDamage(Source, Target, Source.CollisionDamage, Time);
+				return PlatformDamage(Source, Target, Source.CollisionDamage, Time, "Collision");
 }
 
 /**
@@ -1186,6 +1195,13 @@ function PlatformMoveActive(Move) {
 	if ((Move == "Jump") && (PlatformKeys.indexOf(32) >= 0)) return true;
 	if ((Move == "Jump") && ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerA].pressed) return true;
 	if ((Move == "Jump") && CommonTouchActive(1850, 750, 100, 100)) return true;
+
+	// Blocking can be done using I, but you need to get the perk first
+	if ((Move == "Block") && (PlatformPlayer.ForceX == 0) && PlatformHasPerk(PlatformPlayer, "Block")) {
+		if ((PlatformKeys.indexOf(73) >= 0) || (PlatformKeys.indexOf(105) >= 0)) return true;
+		if (ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerTriggerLeft].pressed) return true;
+		if (CommonTouchActive(1750, 750, 100, 100)) return true;
+	}
 
 	// If all else fails, the move is not active
 	return false;
@@ -1333,8 +1349,10 @@ function PlatformDraw() {
 		else if ((C.ForceX != 0) && (C.Immunity >= PlatformTime + PlatformImmunityTime * 0.6) && PlatformAnimAvailable(C, "Stun")) C.Anim = PlatformGetAnim(C, "Stun");
 		else if ((C.ForceX != 0) && (C.Immunity >= PlatformTime - PlatformImmunityTime) && PlatformAnimAvailable(C, "WalkHit")) C.Anim = PlatformGetAnim(C, "WalkHit");
 		else if ((C.ForceX != 0) && C.Run && PlatformAnimAvailable(C, "Run")) C.Anim = PlatformGetAnim(C, "Run");
+		else if ((C.ForceX != 0) && Crouch) C.Anim = PlatformGetAnim(C, "Crawl");
 		else if (C.ForceX != 0) C.Anim = PlatformGetAnim(C, "Walk");
 		else if (Crouch) C.Anim = PlatformGetAnim(C, "Crouch");
+		else if (PlatformMoveActive("Block") && PlatformAnimAvailable(C, "Block")) C.Anim = PlatformGetAnim(C, "Block");
 		else C.Anim = PlatformGetAnim(C, "Idle");
 
 		// Draws the background if we are focusing on that character
@@ -1376,6 +1394,7 @@ function PlatformDraw() {
 		DrawEmptyRect(250, 750, 100, 100, CommonTouchActive(250, 750, 100, 100) ? "cyan" : "#FFFFFF80", 4);
 		DrawEmptyRect(150, 650, 100, 100, CommonTouchActive(150, 650, 100, 100) ? "cyan" : "#FFFFFF80", 4);
 		DrawEmptyRect(150, 850, 100, 100, CommonTouchActive(150, 850, 100, 100) ? "cyan" : "#FFFFFF80", 4);
+		if (CommonTouchActive(1750, 750, 100, 100)) DrawEmptyRect(1750, 750, 100, 100, "cyan", 4);
 		DrawEmptyRect(1650, 750, 100, 100, CommonTouchActive(1650, 750, 100, 100) ? "cyan" : "#FFFFFF80", 4);
 		DrawEmptyRect(1850, 750, 100, 100, CommonTouchActive(1850, 750, 100, 100) ? "cyan" : "#FFFFFF80", 4);
 		DrawEmptyRect(1750, 650, 100, 100, CommonTouchActive(1750, 650, 100, 100) ? "cyan" : "#FFFFFF80", 4);

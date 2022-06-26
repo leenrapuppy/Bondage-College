@@ -20,9 +20,9 @@ PerkDescMelody3,Higher jump height
 PerkMelody4,Bounce
 PerkDescMelody4,Can jump twice
 PerkMelody5,Block
-PerkDescMelody5,"Use ""I"" to block attacks"
-PerkMelody6,Parry
-PerkDescMelody6,Less damage while blocking
+PerkDescMelody5,"Use ""I"" when still to reduce damage"
+PerkMelody6,Deflect
+PerkDescMelody6,Push back blocked enemies
 PerkMelody7,Seduction
 PerkDescMelody7,Love meter progresses faster
 PerkMelody8,Persuasion
