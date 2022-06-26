@@ -2382,7 +2382,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{ Name: "Irish8Cuffs", Fetish: ["Metal"], Value: 25, Difficulty: 5, Time: 10, RemoveTime: 5, AllowLock: true, Audio: "CuffsMetal", SetPose: ["LegsClosed"], AllowActivePose: ["Kneel"] },
-			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, Time: 15, RemoveTime: 10, BuyGroup: "DuctTape", Audio: "DuctTape", HideItem: ["ItemBootsThighHighLatexHeels", "ItemBootsHighThighBoots"], SetPose: ["LegsClosed"], Extended: true, AllowActivePose: ["Kneel"] },
+			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, Time: 15, RemoveTime: 10, BuyGroup: "DuctTape", Audio: "DuctTapeRoll", HideItem: ["ItemBootsThighHighLatexHeels", "ItemBootsHighThighBoots"], SetPose: ["LegsClosed"], Extended: true, AllowActivePose: ["Kneel"] },
 			{ Name: "LeatherAnkleCuffs", Fetish: ["Leather"], Priority: 24, Value: 30, Difficulty: 2, Time: 10, Random: false, AllowLock: true, AllowPose: ["LegsClosed", "Spread", "KneelingSpread"], Effect: ["CuffedFeet"], Extended: true, AllowActivePose: ["Kneel", "KneelingSpread"], HasType: false, RemoveItemOnRemove: [{ Name: "X-Cross", Group: "ItemDevices" }], FreezeActivePose: [],
 				DefaultColor: ["Default", "#2E2E2E", "Default"],
 				Layer: [
@@ -2517,7 +2517,7 @@ var AssetFemale3DCG = [
 					{ Name: "UpperBelt", ColorGroup: "Belts", HasType: false, AllowTypes: ["Two"] },
 					{ Name: "UpperMetal", ColorGroup: "Metal", HasType: false, AllowTypes: ["Two"] },
 				], },
-			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, Time: 15, RemoveTime: 10, BuyGroup: "DuctTape", Audio: "DuctTape", HideItem: ["ItemBootsThighHighLatexHeels", "ShoesThighHighLatexHeels", "ItemBootsHighThighBoots"], SetPose: ["LegsClosed"], Extended: true, AllowActivePose: ["Kneel"], Prerequisite: ["CanCloseLegs"] },
+			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, Time: 15, RemoveTime: 10, BuyGroup: "DuctTape", Audio: "DuctTapeRoll", HideItem: ["ItemBootsThighHighLatexHeels", "ShoesThighHighLatexHeels", "ItemBootsHighThighBoots"], SetPose: ["LegsClosed"], Extended: true, AllowActivePose: ["Kneel"], Prerequisite: ["CanCloseLegs"] },
 			{ Name: "LeatherLegCuffs", Fetish: ["Leather"], Priority: 24, Value: 45, Difficulty: 3, Time: 10, Random: false, AllowLock: true, AllowPose: ["Kneel", "LegsClosed", "KneelingSpread"], Effect: ["CuffedLegs"], Extended: true, AllowActivePose: ["Kneel", "KneelingSpread"], FreezeActivePose: [], HasType: false,
 				DefaultColor: ["Default", "#2E2E2E", "Default"],
 				Layer: [
@@ -3388,7 +3388,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "MetalCuffs", Fetish: ["Metal"], Priority: 29, Value: 40, Difficulty: 5, Time: 5, Audio: "LockSmall", Extended: true, HasType: false,
+				Name: "MetalCuffs", Fetish: ["Metal"], Priority: 29, Value: 40, Difficulty: 5, Time: 5, Audio: "MetalCuffs", Extended: true, HasType: false,
 				SetPose: ["BackCuffs"],
 				Effect: ["Lock", "Block", "Prone"],
 				AllowPose: ["BackCuffs"],
@@ -3506,7 +3506,7 @@ var AssetFemale3DCG = [
 				],
 				SelfUnlock: false
 			},
-			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, Difficulty: 5, SelfBondage: 4, Time: 20, RemoveTime: 10, BuyGroup: "DuctTape", Audio: "DuctTape", HideItem: ["ItemNipplesLactationPump"], AllowPose: ["KneelingSpread"], SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Extended: true },
+			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, Difficulty: 5, SelfBondage: 4, Time: 20, RemoveTime: 10, BuyGroup: "DuctTape", Audio: "DuctTapeRoll", HideItem: ["ItemNipplesLactationPump"], AllowPose: ["KneelingSpread"], SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Extended: true },
 			{
 				Name: "BitchSuit", Fetish: ["Latex", "Pet"], Priority: 21, Value: 200, Difficulty: 15, SelfBondage: 8, Time: 40, RemoveTime: 30, Random: false, AllowLock: true, DefaultColor: ["#888888", "Default"], Top: 150,
 				Prerequisite: ["NotSuspended", "NotHogtied", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "CanKneel"],
@@ -3986,7 +3986,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "PaddedLeatherMittens", Fetish: ["Leather"], Value: 70, Difficulty: 6, SelfBondage: 5, Time: 15, RemoveTime: 5, AllowLock: true, AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], Effect: ["Block", "Prone"] },
 			{ Name: "PolishedMittens", Fetish: ["Metal"], Value: 80, Difficulty: 8, SelfBondage: 6, Time: 20, RemoveTime: 10, AllowLock: true, Audio: "CuffsMetal", AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], Effect: ["Block", "Prone"] },
-			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, Difficulty: 5, SelfBondage: 3, Time: 20, RemoveTime: 10, BuyGroup: "DuctTape", Audio: "DuctTape", Hide: ["Gloves"], AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], Effect: ["Block", "Prone"] },
+			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, Difficulty: 5, SelfBondage: 3, Time: 20, RemoveTime: 10, BuyGroup: "DuctTape", Audio: "DuctTapeRollShort", Hide: ["Gloves"], AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], Effect: ["Block", "Prone"] },
 			{ Name: "KeyProp", Value: 10, Priority: 46, Difficulty: -10, Time: 5, IsRestraint: false, AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], },
 			{ Name: "MedicalInjector", Category: ["SciFi"], Value: 75, Priority: 46, Time: 8, IsRestraint: false, Attribute: ["InjectItem"], AllowPose: ["Yoked"], HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "AllFours"], },
 			{
@@ -5774,7 +5774,7 @@ var AssetFemale3DCG = [
 					{ Name: "Ears", AllowColorize: true, HasType: false },
 				]
 			},
-			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, Time: 10, RemoveTime: 5, BuyGroup: "DuctTape", Audio: "DuctTape", Hide: ["Glasses"], Extended: true, Alpha: [{ Group: ["ItemMouth", "ItemMouth2", "ItemMouth3"], Masks: [[0, 220, 500, 500]], Type: ["Mummy", "Open"] }] },
+			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, Time: 10, RemoveTime: 5, BuyGroup: "DuctTape", Audio: "DuctTapeRollShort", Hide: ["Glasses"], Extended: true, Alpha: [{ Group: ["ItemMouth", "ItemMouth2", "ItemMouth3"], Masks: [[0, 220, 500, 500]], Type: ["Mummy", "Open"] }] },
 			{ Name: "SmallBlindfold", Fetish: ["Leather"], Value: 40, Time: 5, AllowLock: true, DefaultColor: "#404040", Hide: ["Glasses"], Effect: ["BlindLight", "Prone"] },
 			{ Name: "FullBlindfold", Fetish: ["Latex"], Priority: 30, Value: 40, Difficulty: 6, Time: 5, AllowLock: true, DefaultColor: "#353535", Hide: ["Glasses"], Effect: ["BlindHeavy", "Prone"] },
 			{ Name: "LewdBlindfold", Priority: 30, Value: 45, Time: 5, Random: false, AllowLock: true, Hide: ["Glasses", "Mask"], Effect: ["BlindLight", "Prone"], Audio: "ClothSlip",  ExpressionTrigger: [{ Name: "Light", Group: "Blush", Timer: 5 }, { Name: "Closed", Group: "Eyes", Timer: 5 }] },
