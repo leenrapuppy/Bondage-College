@@ -26,6 +26,8 @@ var AudioList = [
 	{ Name: "HydraulicUnlock", File: "HydraulicUnlock" },
 	{ Name: "Deflation", File: "Deflation" },
 	{ Name: "DuctTape", File: "DuctTape18" },
+	{ Name: "DuctTapeRoll", File: "DuctTapeRoll" },
+	{ Name: "DuctTapeRollShort", File: "DuctTapeRollShort" },
 	{ Name: "Inflation", File: "Inflation" },
 	{ Name: "LockLarge", File: "LockLarge" },
 	{ Name: "LockSmall", File: "LockSmall" },
