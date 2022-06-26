@@ -438,7 +438,7 @@ var AssetFemale3DCG = [
 					{ Name: "Ball" },
 				]
 			},
-			{ Name: "FurScarf", Priority: 35, Value: 40, Left: 0, Top: 0, ParentGroup: null },
+			{ Name: "FurScarf", BuyGroup: "FurScarf", Priority: 35, Value: 40, Left: 0, Top: 0, ParentGroup: null },
 			{ Name: "ElegantHeartNecklace", Value: 30, Left:155, Top: 152, ParentGroup: null,
 				Layer: [
 					{ Name: "Necklace", AllowColorize: true },
@@ -4995,6 +4995,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Slime", Category: ["Fantasy"], BuyGroup: "Slime", DefaultColor: ["#57ab5e"], Random: false, Value: 200, Difficulty: 4, Time: 15, RemoveTime: 25, Left: 200, Top: 170, Effect: ["BlockMouth", "GagMedium"],
 			},
+			{ Name: "FurScarf",  Value: 40, Top: 0, Left: 0, Difficulty: 3, BuyGroup: "FurScarf", Effect: ["BlockMouth", "GagLight"] },
 			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -5355,6 +5356,8 @@ var AssetFemale3DCG = [
 			{
 				Name: "Slime", Category: ["Fantasy"], BuyGroup: "Slime", DefaultColor: ["#57ab5e"], Random: false, Value: 200, Difficulty: 4, Time: 15, RemoveTime: 25, Left: 200, Top: 170, Effect: ["BlockMouth", "GagMedium"],
 			},
+			{ Name: "FurScarf",  Value: 40, Top: 0, Left: 0, Difficulty: 3, BuyGroup: "FurScarf", Effect: ["BlockMouth", "GagLight"] },
+
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -5712,6 +5715,8 @@ var AssetFemale3DCG = [
 			{
 				Name: "Slime", Category: ["Fantasy"], BuyGroup: "Slime", DefaultColor: ["#57ab5e"], Random: false, Value: 200, Difficulty: 4, Time: 15, RemoveTime: 25, Left: 200, Top: 170, Effect: ["BlockMouth", "GagMedium"],
 			},
+			{ Name: "FurScarf",  Value: 40, Top: 0, Left: 0, Difficulty: 3, BuyGroup: "FurScarf", Effect: ["BlockMouth", "GagLight"] },
+
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},

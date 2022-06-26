@@ -1237,6 +1237,7 @@ ItemMouth,OTNPlugGag,Harness OTN Plug Gag
 ItemMouth,PonyGag,Bridle Gag
 ItemMouth,LatexSheathGag, Latex Sheath Gag
 ItemMouth,Slime,Slime
+ItemMouth,FurScarf,Fur Scarf
 ItemMouth2,,Mouth
 ItemMouth2,ClothGag,Cloth Gag
 ItemMouth2,WiffleGag,Wiffle Ball Gag
@@ -1289,6 +1290,7 @@ ItemMouth2,Tentacles,Tentacle
 ItemMouth2,PonyGag,Bridle Gag
 ItemMouth2,MouthFeatureGag, Mouthfeature Gag
 ItemMouth2,Slime,Slime
+ItemMouth,FurScarf,Fur Scarf
 ItemMouth3,,Mouth
 ItemMouth3,ClothGag,Cloth Gag
 ItemMouth3,WiffleGag,Wiffle Ball Gag
@@ -1341,6 +1343,8 @@ ItemMouth3,Tentacles,Tentacle
 ItemMouth3,PonyGag,Bridle Gag
 ItemMouth3,Slime,Slime
 ItemMouth3,Stitches,Stitches 
+ItemMouth,FurScarf,Fur Scarf
+
 ItemHead,,Eyes
 ItemHead,ClothBlindfold,Cloth Blindfold
 ItemHead,ScarfBlindfold,Scarf Blindfold
