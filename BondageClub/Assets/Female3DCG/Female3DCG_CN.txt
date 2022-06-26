@@ -149,11 +149,11 @@ Camera
 Cape
 披肩
 Leather Straps
-皮革肩带
+皮革束带
 Fur Bolero
 毛绒波蕾若
  Face Paint
- 面部彩绘
+面部彩绘
 Bib
 围嘴
 Scarf
@@ -203,9 +203,9 @@ Upper Suit
 Catsuit
 紧身衣
  Seamless Catsuit
- 无缝紧身衣
+无缝紧身衣
  Sleeveless Catsuit
- 无袖紧身衣
+无袖紧身衣
 Pilot Suit
 飞行服
 See-through Suit
@@ -295,7 +295,7 @@ Ruffled Skirt
 Suit Lower
 套装(下身)
  Catsuit Panties
- 紧身衣内裤
+紧身衣内裤
 Pilot Suit Panties
 飞行服内裤
 Pantyhose
@@ -373,7 +373,7 @@ Sexy Beach Bra
 Micro Bikini Top
 两点文胸
 Star Harness
-五角星形束带
+星形束带
 Heart Top
 心形裸露胸衣
 Chinese Bra
@@ -395,7 +395,7 @@ Ribbons
 Leather Breast Binder
 皮革裹胸带
 Silk Straps
-丝质肩带
+丝质束带
 Full Latex Bra
 全乳胶文胸
 Full Latex Bra (Bright)
@@ -579,7 +579,7 @@ Multi-Strap Heels
 Barefoot Sandals
 赤脚凉鞋
  Latex Ankle Shoes
- 乳胶系踝鞋
+乳胶系踝鞋
 Flippers
 脚蹼
 Deluxe Mistress Boots
@@ -608,8 +608,8 @@ Captain's Hat
 船长帽
 Bunny Succubus
 兔子魅魔
- Witch Hat
- 女巫帽
+Witch Hat
+女巫帽
 Pirate Bandana
 海盗头巾
 Police Woman Hat
@@ -652,6 +652,10 @@ Poppy Crown
 罂粟花冠
 Latex Habit
 乳胶修女
+Baseball Cap Back
+棒球帽后
+Baseball Cap Front
+棒球帽前
 Hair Accessory
 发饰
 Hair Ribbon 1
@@ -662,10 +666,10 @@ Hair Ribbon 3
 发带 3
 Hair Ribbon 4
 发带 4
- Giant Bow 1
- 大蝴蝶结 1
- Flower
- 花
+Giant Bow 1
+大蝴蝶结 1
+Flower
+花
 Wedding Veil
 婚礼面纱
 Feathers
@@ -694,6 +698,8 @@ Horns 2
 角 2
 Horns 3
 角 3
+ Flower
+花
 Fox Ears Small
 小 狐狸耳朵
 Small Bat Wings
@@ -763,7 +769,7 @@ Bracelet
 Bow Band
 蝴蝶结手环
  Kinky Band
- 色色手环
+色色手环
 5 Color Band
 五色环
 Spiked Wristbands
@@ -790,6 +796,8 @@ Cat-Eye Glasses
 猫眼眼镜
 V Glasses
 V眼镜
+Gradient Sunglasses
+渐变太阳镜
 Mask
 面具
 Venetian Mask
@@ -1016,16 +1024,16 @@ Style 26
 样式 26
 Style 27
 样式 27
+Style 28
+样式 28
+Style 29
+样式 29
 Back Hair
 后发
 None
 无
 Style 15b
 样式 15b
-Style 28
-样式 28
-Style 29
-样式 29
 Style 30
 样式 30
 Style 31
@@ -1064,6 +1072,10 @@ Style 47
 样式 47
 Style 48
 样式 48
+Style 49
+样式 49
+Style 50
+样式 50
 Left eye
 左眼
 Right eye
@@ -1129,23 +1141,23 @@ Futuristic Ankle Cuffs
 Ornate Ankle Cuffs
 华丽脚铐
  Metal Leg Spreader
- 金属分腿棍
+金属分腿棍
 Ball And Chain
-铁球 + 锁链
+铁球和锁链
  Ankle Shackles
- 脚踝镣铐
+脚踝镣铐
  Zip Ties
- 扎带
+扎带
 Chains
 链条
 Spreader Dildo Bar
 分腿假阳具固定器
 Vibrating Spreader Dildo Bar
-分腿阳具式震动固定器
+分腿阳具式振动固定器
 Plastic Wrap
 保鲜膜
 Wooden Cuffs
-木质手铐
+木质铐
 Medical Bed Restraints
 医疗床拘束装置
 Suspension Cuffs
@@ -1173,23 +1185,23 @@ Zip Ties
 Frog-tie Straps
 蟹缚绑带
  Mermaid Tail
- 美人鱼尾巴
+美人鱼尾巴
 Vulva
 前阴
 Vibrating Egg
 跳蛋
 Vibrating Items Remote
-震动遥控器
+振动遥控器
 Vibrating Latex Panties
-震动乳胶内裤
+振动乳胶内裤
 Wand Belt
-震动棒固定带
+振动棒固定带
 Penis Dildo
 假阳具
 Shock Dildo
 电击阳具
 Vibrating Dildo
-震动阳具
+振动阳具
 Futuristic Vibrator
 未来振动器
 Inflatable Vibrating Dildo
@@ -1207,17 +1219,19 @@ Heavy Weight Clamp
 Wand
 皮带振动棒
 Clitoris & Dildo Vibrating belt
-阴蒂阳具震动带
+阴蒂阳具振动带
 Hemp Rope Wand Belt
 麻绳腰带
 Wired Vibrating Egg
 有线跳蛋
 Lovers Vibrator
-恋人震动器
+恋人振动器
 Lovers Remote
 恋人遥控器
 Double Ended Dildo
 双头龙
+Stitches
+缝线
 Clitoris
 阴蒂
 Straight Clitoris Piercing
@@ -1239,7 +1253,7 @@ Jewel Clitoris Piercing
 Adorned Clitoris Piercing
 装饰阴蒂穿环
 Vibrating Heart Clitoris Piercing
-心形震动阴蒂穿环
+心形振动阴蒂穿环
 Bell Clitoris Piercing
 铃铛阴蒂穿环
 Taped Vibrating Egg
@@ -1279,9 +1293,9 @@ Anal Beads XL
 Butt Pump
 肛门泵
 Vibrating Butt Plug
-震动肛塞
+振动肛塞
 Inflatable Vibrating Butt Plug
-充气式震动肛塞
+充气式振动肛塞
 Anal Hook
 肛钩
 Butt Plug Lock
@@ -1311,9 +1325,9 @@ White Bunny Tail Plug
 Brown Bunny Tail Plug
 棕兔尾肛塞
 Bunny Tail Vibe Plug
-兔尾式震动肛塞
+兔尾式振动肛塞
 Egg Vibe Plug XXL
-超超大震动肛塞蛋
+超超大振动肛塞蛋
 Shock Plug
 电击肛塞
 Cow Tail
@@ -1321,7 +1335,7 @@ Cow Tail
 Hollow Butt Plug
 空心肛塞
 Locking Vibrating Butt Plug
-带锁震动肛塞
+带锁振动肛塞
 Pelvis
 小腹
 Strap-On Panties
@@ -1373,19 +1387,23 @@ Futuristic Harness
 High Security Harness
 高安全束带
  Crotch Chain
- 裆链
+裆链
 Heavy Latex Corset
 重型乳胶束腰
 Thin Leather Straps
-厚乳胶束腰
+细皮革束带
+Locking Swimsuit
+上锁泳衣
+Locking Swimsuit 2
+上锁泳衣2
 Nipples
 乳头
 Nipple Clamps
 乳头夹
 Vibrating Nipple Clamps
-震动乳头夹
+振动乳头夹
 Vibrating Clamps Remote
-震动乳头夹控制器
+振动乳头夹控制器
 Chain Clamp
 铁链乳夹
 Screw Clamps
@@ -1399,7 +1417,7 @@ Taped Vibrating Eggs
 Nipple Suction Cups
 乳头吸吮杯
 Pair Of Nipple Tapes
-一堆乳头贴
+一对乳头贴
 Chopstick Nipple Clamps
 筷子乳头夹
 Kitty Pasties
@@ -1415,7 +1433,7 @@ Lactation Pump
 Shock Clamps
 电击乳头夹
  Plate Clamps
- 板夹
+板夹
 Nipple Stretchers
 乳头拉扯器
 Straight Piercings
@@ -1423,7 +1441,7 @@ Straight Piercings
 Round Piercings
 圆形穿环
  Necklace Nipple Chain
- 项链式乳头链
+项链式乳头链
 Nipple Jewels
 乳头珠宝饰
 Nipple Jewel Piercings
@@ -1437,7 +1455,7 @@ Chastity Guard Shield
 Chastity Cross Shield
 贞操十字盾
 Vibrating Heart Piercings
-震动心形穿环
+振动心形穿环
 Nipple Bell Piercings
 乳头铃铛穿环
 Crossed Straight Piercings
@@ -1463,7 +1481,7 @@ Leather Armbinder
 Armbinder Jacket
 单手套衣
 Leather Cuffs
-金属手铐
+皮革手铐
 Ceiling Shackles
 吊顶手镣
 Steel Cuffs
@@ -1565,7 +1583,7 @@ Strict Leather Pet Crawler
 Transport Jacket
 转监拘束衣
 Wrapped Blanket
-全包被
+全包毛毯
 Padded Mittens
 衬套无指手套
 Paw Mittens
@@ -1589,13 +1607,13 @@ Cane
 Heart Crop
 心形硬鞭
 Paddle
-杖板
+板子
 Whip Paddle
 板鞭
 Whip
 皮鞭
 Cattle Prod
-赶畜棒
+赶牛棒
 Tennis Racket
 网球拍
 Rainbow Wand
@@ -1619,7 +1637,7 @@ Small Vibe Wand
 Candle Wax
 蜡烛
 Large Dildo
-长假阳具
+大假阳具
 Pet Toy
 逗猫棒
 Vibrator
@@ -1627,7 +1645,7 @@ Vibrator
 Belt
 腰带
 Hairbrush
-毛刷
+梳子
 Small Dildo
 小假阳具
 Electric Toothbrush
@@ -1643,9 +1661,9 @@ Ruler
 Foam Sword
 泡沫剑
 Vibrator Remote
-振动玩具控制器
+振动玩具遥控器
 Shock Remote
-点击控制器
+电击遥控器
 Long Coiled Rope
 长捆绳
 Short Coiled Rope
@@ -1669,9 +1687,9 @@ Mobile Phone
 Mobile Phone 2
 手机 2
  Hoof Mittens
- 马蹄手套
+马蹄手套
 Scissors
-见到
+剪刀
 Plastic Wrap Roll
 保鲜膜卷
 Empty Glass
@@ -1743,7 +1761,7 @@ Slender Steel Collar
 Shiny Steel Collar
 闪亮不锈钢项圈
  Heart-Link Choker
- 心连心贴颈项圈
+心连心贴颈项圈
 Neck Rope
 脖绳
 Nylon Collar
@@ -1792,8 +1810,6 @@ Lapis Pendant
 青金石吊坠
 Pentagram Pendant
 五角星吊坠
-Flower
-花
 Rose
 玫瑰
 Cowbell
@@ -1935,7 +1951,7 @@ Shoe Gag
 Funnel Gag
 漏斗式口塞
  Plastic Wrap
- 保鲜膜
+保鲜膜
 Tennis Ball
 网球
 Futuristic Muzzle
@@ -1953,9 +1969,11 @@ Harness OTN Plug Gag
 Bridle Gag
 缰绳口塞
  Latex Sheath Gag
- 乳胶隐藏口塞
+乳胶隐藏口塞
  Mouthfeature Gag
- 嘴内特征口塞
+嘴内特征口塞
+Stitches 
+缝线
 Eyes
 眼睛
 Cloth Blindfold
@@ -1971,7 +1989,7 @@ Interactive Visor
 Futuristic Mask
 未来面罩
 VR Headset
-VR眼镜
+VR头戴显示器
 Slim Leather Mask
 贴面皮革面具
 Open Mouth Slim Mask
@@ -2005,7 +2023,7 @@ Snorkel
 Ribbon Blindfold
 丝带眼罩
 Medical Patches
-医用脚步
+医用胶布
 Smooth Latex Mask
 平滑乳胶面具
 Nose
@@ -2189,7 +2207,7 @@ Halloween Familiar Set
 Vampire Coffin
 吸血鬼棺材
 Cryogenic Capsule
-低温胶囊
+低温休眠舱
 One Bar Prison
 竖杠监狱
 Display Frame
@@ -2249,7 +2267,7 @@ Cushion
 Wet Floor Sign
 小心地滑标志
 Vacuum Bed Deluxe
-真空床豪华版
+豪华真空床
 Fuck Machine
 炮机
 Net
@@ -2263,7 +2281,7 @@ Wooden Rack
 Wooden Horse
 木马
 Blanket
-被子
+毛毯
 Bed Ropes
 床上用绳子
 Bed Straps

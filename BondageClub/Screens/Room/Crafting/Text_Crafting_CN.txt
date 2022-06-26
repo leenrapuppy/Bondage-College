@@ -64,9 +64,9 @@ Dull
 倦怠
 No special property.
 无特殊特性
-Harder to understand gagged speach.
+Harder to understand gagged speech.
 更难理解塞口说话。
-Easier to understand gagged speach.
+Easier to understand gagged speech.
 更易理解塞口说话。
 Harder to see through.
 更难看透。
@@ -78,17 +78,17 @@ Easier to struggle out.
 更易挣脱。
 Can always struggle out.
 总是能挣脱。
-Painfuller for the wearer.
-让穿戴者痛苦。
-Comfier for the wearer
-让穿戴者舒适
+More painful for the wearer.
+让穿戴者更痛苦。
+Comfier for the wearer.
+让穿戴者更舒适。
 Cannot use brute force to struggle out.
 无法使用蛮力挣脱。
 Cannot use squeeze out to struggle out.
 无法使用挤出去来挣脱。
 Cannot use unfasten to struggle out.
 无法使用打开扣锁来挣脱。
-Harder to resist an orgasm
-更难抵抗高潮
-Easier to resist an orgasm
-更易抵抗高潮
+Harder to resist an orgasm.
+更难抵抗高潮。
+Easier to resist an orgasm.
+更易抵抗高潮。

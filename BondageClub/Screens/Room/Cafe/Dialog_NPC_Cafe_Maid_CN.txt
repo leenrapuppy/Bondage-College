@@ -1,18 +1,18 @@
 ###_NPC
 You may wear gags in the cafe, but they do make it much harder to eat and drink.
-你可以在咖啡馆（厅）里戴着口罩，但它们确实使你更难吃和喝。
+你可以在咖啡店里戴上口塞，但这真的会让你就餐更费劲。
 Hello sister.  I see you are busy serving.  Come here and let me help you.
-你好，姐妹。 我看到你正忙于服务。 过来，我来帮你。
+你好，姐妹。我看到你正忙于服务。过来，我来帮你。
 Sorry miss. You don't have enough money for that right now.
-对不起，女士。你现在没有足够的钱来做这个。
+对不起，女士。你现在没有足够的钱。
 (The maid takes your money and gives you a can of energy drink.  You consume it, but only feel invigorated and no more skillful than before.)
-(女仆收下你的现金，递给你一罐能量饮料。 你喝了它，只觉得精神振奋，但并没有比以前更有技巧。）
+（女仆收下你的钱，递给你一罐能量饮料。你喝了它，只觉得精神振奋，但并没有比以前更有技巧。）
 (The maid takes your money and gives you a bottle of milk.  You consume it and feel comforted, but you don't feel any more confused or numb than you already were.)
-(女仆收下你的现金，递给你一瓶牛奶。 你喝了它，觉得很放松安逸，但并不觉得比原来更困惑或麻木。）
+（女仆收下你的钱，递给你一瓶牛奶。你喝了它，觉得很放松安逸，但并不觉得比原来更困惑或麻木。）
 (The maid takes your money and gives you your choice of cupcake.  You consume it, feeling as receptive and engaged as you already were.)
-(女仆收下你的现金，递给你一块纸杯蛋糕。 你吃了它，感觉自己的接受和参与能力跟以前一样，没有变化。）
+（女仆收下你的钱，递给你一块你挑选的纸杯蛋糕。你吃了它，感觉自己的接受和参与能力跟以前一样，没有变化。）
 I'm sorry Miss.  I cannot help you.
-我很抱歉，女士。 我没法帮到你。
+我很抱歉，女士。我没法帮到你。
 (She first shakes her head to avoid the gag, but finally surrenders as you silence her.)
 （刚开始她把头扭开不让你堵嘴，但是最后她任由你摆布。）
 (You remove her gag while she stretches her mouth.)  Thanks Miss, it's hard to dispatch maids with that gag.
@@ -32,39 +32,39 @@ I'm sorry Miss.  I cannot help you.
 (She submits to you while you restrain her legs securely.)  I don't need to move anyway.
 （你牢牢地拘束住她的双腿时，她向你屈服。）这下我哪儿也去不成了。
 (You release her legs from the restraint.)  Let me know if I can help you Miss.
-（你把她腿上的拘束松开。）女士，我以后一定会报答您。
+（你把她腿上的拘束松开。）女士，我以后一定会报答你。
 (She looks puzzled as you restrain her feet.)  I'll stay on guard here Miss.
 （你拘束住她的脚时，她看起来很困惑。）女士，这样我会在这里无法移动的。
 (You release her feet and she wiggles them.)  Thanks Miss, it was troublesome.
-（你解开她脚上的拘束，她晃了晃脚说道。）谢谢，女士，这东西真麻烦。
+（你松开她的脚，她摆摆脚。）谢谢，女士，这东西真麻烦。
 (You strap the collar on her while she blushes.)  You're quite a Dominant Miss.
-（她满脸通红地看着你为她带上项圈。）您真是个天生的支配者。
+（她满脸通红地看着你为她带上项圈。）你真是个天生的支配者。
 (You remove the collar around her neck.)  Thanks Miss.
-（你解开了她脖子上的项圈。）谢谢您，女士。
+（你解开了她脖子上的项圈。）谢谢你，女士。
 (You snap the belt around her waist and crotch while she sighs.)  No more fun for the crew.
 （你把贞操带系在她的腰上，她叹息着说道。）这下再也没法自己享受了。
 (You unlock the belt from her waist, and she smiles.)  Thanks a lot Miss DialogPlayerName.
-（你解开了她腰上的贞操带，她微笑道。）非常感谢 DialogPlayerName 女士
+（你解开了她腰上的贞操带，她微笑道。）非常感谢，DialogPlayerName女士
 (You strap the device on her head as she nods slowly.)  This will not make my job easier Miss.
 （她慢慢点头的时候，你把她脑袋上拘束具的带子系紧。）女士，这可不会让我的工作变轻松。
 (You remove the device and she nods rapidly.)  Thanks a million, this is much better.
 （你解开了拘束，她连连点头。）非常感谢，这下好多了。
 (She jumps from the searing pain on her breast.)  Ouch!  Miss Head Maid!
-（胸口的灼热烫的她跳了起来。）哎呀！女仆长大人！
+（胸口的灼热烫的她跳了起来。）哎呀！女仆长！
 (You whip her breast with the leather crop as she whimpers and bows her head.)
 （你用皮鞭抽打她的胸部，她呜咽着低下头。）
 (You whip her butt hard as she sighs.)  I promise I'll work harder Miss Head Maid.
-（你使劲抽打她的屁股，她发出悲鸣。）我保证我会更加努力的，女仆长大人。
+（你使劲抽打她的屁股，她发出悲鸣。）我保证我会更加努力的，女仆长。
 (She grumbles as you strike her butt with the crop.)  A maid work isn't easy.
 （你用皮鞭打她的屁股，她抱怨道。）女仆工作真不容易。
 Greetings Mistress DialogPlayerName.  Welcome to the cafe.  How may I serve you?  (She does curtsies for you.)
-向您致意 DialogPlayerName 女主人大人。欢迎来到咖啡馆。请问您需要什么样的服务？（她向你行屈膝礼。）
+向你致意，女主人DialogPlayerName。欢迎来到咖啡店。请问你需要什么样的服务？（她向你行屈膝礼。）
 Greetings head maid DialogPlayerName.  Welcome to the cafe.  How may I serve you?  (She does curtsies for you.)
-向您致意 DialogPlayerName 女仆长大人。欢迎来到咖啡馆。请问您需要什么样的服务？（她向你行屈膝礼。）
+向你致意，女仆长DialogPlayerName。欢迎来到咖啡店。请问你需要什么样的服务？（她向你行屈膝礼。）
 Hi sister, are you off duty? I'm sure you deserve a break.
 嗨，姐妹，你下班了吗？我觉得你应该休息一下。
 Hello and welcome to the cafe. Can I get you anything to eat or drink?
-您好，欢迎来到咖啡馆。请问您需要来点吃的或喝的吗？
+你好，欢迎来到咖啡店。请问你需要点单吗？
 ###_PLAYER
 Can I take drinks out of the bar to my friends?
 我可以把饮料从吧台带出来给我的朋友喝吗？
@@ -73,10 +73,10 @@ If you want to do that, I suggest you ask at the maid's quarter first.  They can
 如果你想这样做，我建议你先去女仆宿舍问问。他们可以给你安排一个托盘，用来装饮料。
 ###_PLAYER
 What does the cafe serve?
-这家咖啡馆提供什么服务？
+这家咖啡店提供什么服务？
 ###_NPC
 We have a range of food and drink on offer today, including some speciality items.
-我们今天提供各种各样的食品和饮料，还有一些特色餐点。
+我们今天提供各种各样的饮食，还有一些特色餐点。
 ###_PLAYER
 I would like to buy a regular drink.
 我想买一杯普通饮料。
@@ -85,20 +85,20 @@ You could buy them here, but it's better for the maids serving these drinks if y
 你可以在这里买到饮料，但如果你直接从提供饮料的女仆那里购买的话，对她们来说会更好。她们可以得到一笔可观的小费。
 ###_PLAYER
 I would like to buy a speciality.
-给我来点特色餐点
+给我来点特色餐点。
 ###_NPC
 Certainly.  Which of our specials would you like to buy?
 当然可以，你想买哪种特色餐点？
 Certainly, but don't have time to feed you like a baby.  You need to free yourself first.
 当然可以，但我不能像喂婴儿一样喂你。你要先把自己身上的拘束解开。
 I would love to serve you miss, but it's rather difficult to serve those right now.
-我很乐意为您服务女士，但现在这个样子服务稍微有点困难。
+我很乐意为你服务女士，但现在这个样子服务稍微有点困难。
 ###_PLAYER
 (Struggle in your restraints.)
 （在拘束中挣扎）
 ###_NPC
 Sorry I am rather too busy serving the Cafe to release you now. Try one of the other maids in the main hall.
-抱歉，我现在忙着咖啡馆的工作，没时间帮你解开。也许你可以试着问问大厅里的女仆。
+抱歉，我现在忙着咖啡店的工作，没时间帮你解开。也许你可以试着问问大厅里的女仆。
 ###_PLAYER
 That is all for now.  (Leave her.)
 现在就这些吧。（离开她。）
@@ -135,57 +135,57 @@ Yes, some customers claimed our specialities had an effect on them, but only for
 是的，有一些客人声称我们的特色餐点对他们产生了影响，但也只影响了一个小时。
 ###_PLAYER
 That is all I wanted to know.
-我想知道的就这些了
+我想知道的就这些了。
 ###_NPC
 Very well.  Can I get you anything?
 好的，需要我给你拿些什么吗？
 ###_PLAYER
 Okay. I will catch one of them
-好吧，给我来一份这个
+好吧，给我来一份这个。
 I would like an energy drink
-我想要一份能量饮料
+我想要一份能量饮料。
 ###_NPC
 Certainly miss. They are $REPLACEMONEY per can.
-当然可以，女士。每罐 $REPLACEMONEY
+当然可以，女士。价格是每罐$REPLACEMONEY。
 ###_PLAYER
 I would like a glass of milk
 我想要一杯牛奶
 ###_NPC
 Certainly miss. That is $REPLACEMONEY per glass.
-当然可以，女士。每杯 $REPLACEMONEY
+当然可以，女士。价格是每杯$REPLACEMONEY。
 ###_PLAYER
 I would like a cupcake
-我想要一份纸杯蛋糕
+我想要一份纸杯蛋糕。
 ###_NPC
 Certainly miss. They are $REPLACEMONEY each.
-当然可以，女士。每份 $REPLACEMONEY
+当然可以，女士。价格是每份$REPLACEMONEY。
 ###_PLAYER
 Actually, I won't have a special at the moment
 其实，现在我没有什么特别想要的
 ###_NPC
 That is quite alright.  Is there anything else you would like?
-好的。您还需要一些什么其他的吗？
+好的。你还需要一些什么其他的吗？
 ###_PLAYER
 (Buy an energy drink.)
 （买一罐能量饮料。）
 ###_NPC
 (The maid takes your money and gives you a can of energy drink.  You consume it and feel invigorated and more skillful.)
-（女仆收下了你的现金，给你递过来一罐能量饮料，你喝了它，感觉更加精力充沛技巧娴熟）
+（女仆收下了你的钱，给你递过来一罐能量饮料，你喝了它，感觉更加精力充沛技巧娴熟）
 ###_PLAYER
 (Buy a glass of milk.)
 （买一杯特调牛奶。）
 ###_NPC
 (The maid takes your money and gives you a bottle of milk.  You consume it and feel comforted, but also slightly confused and numb.)
-（女仆收下你的现金，之后给了你一瓶牛奶。你喝完了牛奶，感觉很舒服。不过你渐渐疑惑并且逐渐失去知觉）
+（女仆收下你的钱，之后给了你一瓶牛奶。你喝完了牛奶，感觉很舒服。不过你稍稍有些糊涂和呆滞。）
 ###_PLAYER
 (Buy cupcake.)
 （购买纸杯蛋糕）
 ###_NPC
 (The maid takes your money and gives you your choice of cupcake.  You consume it and feel more conscious, receptive and engaged.)
-（女仆收下你的现金，之后给了你一份纸杯蛋糕。你吃掉了纸杯蛋糕，感觉更清醒，）
+（女仆收下你的钱，之后给了你一份纸杯蛋糕。你吃掉了纸杯蛋糕，感觉自己聚精会神，心领神悟。）
 ###_PLAYER
 What were those other specials?
-这里还有什么其它特别的东西吗？
+那些其它的特别的东西是什么？
 ###_NPC
 We have energy drinks, milk and cupcakes.  Would you like one of them?
 我们提供能量饮料，牛奶和纸杯蛋糕。你要不要从中选一份？
@@ -196,15 +196,15 @@ Hello sister.  I see you are busy serving.  I would love to help you, but it is 
 （点头，然后靠近她）
 ###_NPC
 (As a sister, she shares a bound cuddle with you.  She then resumes serving the cafe.)
-（作为姐妹，她给了你一个大大的拥抱。然后继续为咖啡馆服务）
+（作为姐妹，她给了你一个大大的拥抱。然后继续为咖啡店服务）
 Yes, it looks like you bound to serve with that tray.  Alas it is not so easy for me to run this cafe while bound.
-是的，看起来你必须用那个托盘来服务。唉，对我来说，在被捆绑的情况下经营这家咖啡馆不是那么容易。
+是的，看起来你必须用那个托盘来服务。唉，对我来说，在被捆绑的情况下经营这家咖啡店不是那么容易。
 ###_PLAYER
 You should be able to work while bound.
 你在被拘束时应该也可以工作。
 ###_NPC
 Unfortunately running this cafe is not so easy as just hopping around the rooms with a tray full of drinks
-不幸的是，经营这家咖啡馆并不像拿着装满饮料的托盘在房间里跳来跳去那么容易
+不幸的是，经营这家咖啡店并不像拿着装满饮料的托盘在房间里跳来跳去那么容易
 ###_PLAYER
 I'm fine thanks.  (Leave her.)
 我很好，谢谢。(离开她。)
@@ -214,13 +214,13 @@ Hello sister.  I see your tray is empty.  Come here and I'll refill it.
 I'll just top up that tray for you and check your bondage.
 我会帮你加满托盘，并且检查你的束缚。
 Yes, it looks like you are good to serve. I'll still check them after I top up your tray.
-是的，看起来你可以去服务了。我还是会在给你的托盘盖上盖子后检查它们。
+是的，看起来你可以去服务了。给你的托盘加满后，我还得检查一下这些。
 ###_PLAYER
 Can I choose my restraints?
 我可以选择我的束缚吗？
 ###_NPC
 No, you can not. Basic maids need to learn to accept their role with good grace and humility.
-不，你不能。女仆的基本是学会以优雅和谦逊的态度接受自己的角色。
+不，你不能。普通女仆需要学会以优雅和谦逊的态度接受自己的角色。
 I suppose you may, given how much you have served our sorority.
 我觉得你应该可以，毕竟你为我们女仆社团做出了那么多贡献。
 ###_PLAYER
@@ -228,118 +228,117 @@ I want some different bondage.
 我想要一些不同的束缚。
 ###_NPC
 Certainly, head maid DialogPlayerName. What style of bondage would you like to work in?
-当然可以，DialogPlayerName 女仆长大人。您想在什么样的拘束里工作？
+当然可以，女仆长DialogPlayerName。你想在什么样的拘束里工作？
 ###_PLAYER
 (Stare at her and mumble into your gag.)
 (你盯着她，在口塞里轻声咕哝)。
 ###_NPC
 (She removes your gag.) What is it head maid DialogPlayerName?
-(她摘下你的口塞。)您说了什么嘛 DialogPlayerName 女仆长大人？
+（她摘下你的口塞。）你说什么，女仆长DialogPlayerName？
 (She removes your gag.) Seeing as how you have such a good rep in the sorority, I will let you talk for now.
-(她摘下你的口塞。)鉴于你在女仆社团里口碑不错，我暂时让你可以说话。
+（她摘下你的口塞。）鉴于你在女仆社团里口碑不错，我暂时让你可以说话。
 (She shakes her head.)  Maids should remain gagged while serving drinks.
-(她摇摇头。)女仆在提供饮料时应保持塞住嘴。
+（她摇摇头。）女仆在提供饮料时应保持塞住嘴。
 ###_PLAYER
 Thanks.
 谢谢。
 ###_NPC
 Anything to help a sister.  (She makes sure your tray is full and that you are securely bound for serving drinks.)
-只要能帮助姐妹就好。  (她检查了你装的满满的托盘，而且确保你提供饮料的时候会被牢牢地拘束住）。
+乐意为姐妹提供帮助。（她检查了你装的满满的托盘，而且确保你提供饮料的时候会被牢牢地拘束住）。
 ###_PLAYER
 (Nod your head.)
 （点头。)
 Shibari style with ropes.
-日式风格的绳艺拘束
+绳艺那种用绳子的束缚。
 ###_NPC
 Yes, head maid DialogPlayerName.  (She gags and binds you tightly using classic bondage techniques.)
-好的，DialogPlayerName 女仆长大人 (她堵住你的嘴，然后用经典的拘束技巧将你紧紧捆住。）
-Yes, maid DialogPlayerName.  (She gags and binds you tightly using classic bondage techniques.)
-好的，女仆 DialogPlayerName (她堵住你的嘴，然后用经典的拘束技巧将你紧紧捆住。）
+好的，女仆长DialogPlayerName。（她堵住你的嘴，然后用经典的拘束技巧将你紧紧捆住。）
 ###_PLAYER
 Use duct tape, lots of duct tape.
-使用胶布，大量的胶布
+用胶带，大量的胶带。
 ###_NPC
 Yes, head maid DialogPlayerName.  (She uses a whole roll of duct tape on your body.)
-是的，***************(她在你身上用了一整卷胶带。)
-Yes, maid DialogPlayerName.  (She uses a whole roll of duct tape on your body.)
-是的，***************(她在你身上用了一整卷胶带。)
+是的，女仆长DialogPlayerName。（她在你的身体上用了一整卷胶带。）
 ###_PLAYER
-lock me in leather.
+Lock me in leather.
 把我锁在皮革里。
 ###_NPC
 Yes, head maid DialogPlayerName.  (She secures and gags you with tight leather, locking every buckle.)
-是的，*************** (她用紧身皮革固定并堵住你的嘴，锁住每一个扣子。)
-Yes, maid DialogPlayerName.  (She secures and gags you with tight leather, locking every buckle.)
-是的，*************** (她用紧身皮革固定并堵住你的嘴，锁住每一个扣子。)
+是的，女仆长DialogPlayerName。(她用很紧的皮革固定住你的口塞，锁住每一个搭扣。)
 ###_PLAYER
 Cover me in latex.
-用乳胶覆盖我。
+用乳胶覆盖我吧。
 ###_NPC
 Yes, head maid DialogPlayerName.  (She uses latex items on you.)
-是的，***************(她对你使用乳胶物品。)
-Yes, maid DialogPlayerName.  (She uses latex items on you.)
-是的，***************(她对你使用乳胶物品。)
+是的，女仆长DialogPlayerName。（她在你身上使用乳胶物品。）
 ###_PLAYER
 Just bind me as secure as you can.
 尽可能地把我捆绑起来吧。
 ###_NPC
 Certainly, head maid DialogPlayerName.  (She binds you as thoroughly as she can, trying to impress you.)
-当然，***************。  (她尽可能彻底地捆绑你，试图给你留下好印象。)
+当然，女仆长DialogPlayerName。（她尽可能彻底地捆绑你，试图让你难以忘却。）
+Yes, maid DialogPlayerName.  (She gags and binds you tightly using classic bondage techniques.)
+好的，女仆DialogPlayerName。（她堵住你的嘴，然后用经典的拘束技巧将你紧紧捆住。）
+Yes, maid DialogPlayerName.  (She uses a whole roll of duct tape on your body.)
+是的，女仆DialogPlayerName。（她在你的身体上用了一整卷胶带。）
+Yes, maid DialogPlayerName.  (She secures and gags you with tight leather, locking every buckle.)
+是的，女仆DialogPlayerName。(她用很紧的皮革固定住你的口塞，锁住每一个搭扣。)
+Yes, maid DialogPlayerName.  (She uses latex items on you.)
+是的，女仆DialogPlayerName。（她在你身上使用乳胶物品。）
 ###_PLAYER
 (Nod approvingly.)
-(赞许地点点头）
+（赞许地点点头。）
 ###_NPC
 (She makes sure your tray is full.)  You are ready to serve in style now miss.
-(她确保你的托盘是满的。)你现在已经准备好有风格的服务了，小姐。
+（她把你的托盘装满。）你现在已经可以开始有格调的服务了，女士。
 ###_PLAYER
 (Grunt and mutter at her.)
-(咕哝着对她说。)
+（朝她咕哝。）
 ###_NPC
-(She makes sure your tray is full.)  I'm sorry head maid DialogPlayerName.  I've done all I can to help you.
-(她确保你的托盘是满的。)我很抱歉，***************。  我已经尽我所能来帮助你了。
+(She makes sure your tray is full.)  I'm sorry, I've done all I can to help you.
+（她把你的托盘装满。）我很抱歉，女仆长DialogPlayerName。我已经尽我所能来帮助你了。
 Hmmm...  I think you need something to help you while you work.  (She uses an inflatable vibrating dildo on your Vulva.)
-嗯...  我想你在工作时需要一些东西来帮助你。  (她在你的外阴部使用了一个充气的振动假阳具。）
+嗯……我想你在工作时需要一些东西来帮助你。（她在你的阴部使用了一个充气振动阳具。）
 ###_PLAYER
 No. Please take that out.
-不，请把这玩意拿走
+不，请把这玩意拿走。
 ###_NPC
 (She doesn't seem to hear you.)
-(她似乎没有听到你的话。)
-
+（她似乎没有听到你的话。）
 ###_PLAYER
 (Whimper and moan.)
-(呜咽和呻吟)
+（呜咽并呻吟。）
 ###_NPC
 (She giggles at you and shakes her head as she makes sure your tray is full.)  You will be able to remove it as soon as you finish serving those drinks.
-(她对你傻笑，并在确定你的托盘已满时摇了摇头）你一喝完这些饮料就可以把它拿开。
+(她对你傻笑，把你的托盘装满，并摇了摇头。）你送完这些饮料，就可以把它拿开了。
 ###_PLAYER
 (Moan happily.)
-(快乐地呻吟)
+（快乐地呻吟。）
 ###_NPC
 (She smiles at you as she makes sure your tray is full.)  I thought you would like that.  You can keep it in after you have served the drinks.
-(她在确保你的托盘是满的时向你微笑。） 我想你会喜欢这个。你可以在端完饮料后再把它放进去。
+（她朝你微笑着，把你的托盘装满。）我想你会喜欢这个。你可以在端完饮料后再把它放进去。
 ###_PLAYER
 (Groan and shake your hips.)
-(呻吟并摇动你的臀部)
+（呻吟并摇动你的臀部。）
 ###_NPC
 (She takes out a remote presses a button on it.  Your inflatable vibrating dildo builds up to a moderate pace.)
-(她拿出一个遥控器，按下上面的一个按钮。你的充气式振动假阳具运行了一个适度的速度。）
+（她拿出一个遥控器，按下上面的一个按钮。你的充气振动阳具提升到了中等的频率。）
 (She slowly pushes and pulls on the dildo sticking out of you.)  Look at you Miss.  Already on edge.  Any more stimulation though and you might spill those drinks.
-(她慢慢地推拉着插在你身上的假阳具。）看看你自己，小姐。你已经很紧张了。  如果再有刺激，你可能会打翻那些饮料。
+（她慢慢地推拉着插在你身上的假阳具。）看看你自己，小姐。你已经很紧张了。 如果再有刺激，你可能会打翻那些饮料。
 ###_PLAYER
 (Stand there.)
-(站在那)
+（站在那。）
 ###_NPC
 Those drinks won't serve themselves Miss.  You have a job to do.
-那些饮料不会为自己服务的，小姐。你有一份工作要做。
+那些饮料自己是不会送出去的，女士。你有一份工作要做。
 ###_PLAYER
 (Moan at her.)
-
+（向她呻吟。）
 ###_NPC
 (She grins at you as she goes back to her work.)  You can enjoy that dildo as much as you like once those drinks are served.
-(她一边对你笑，一边继续她的工作。）一旦那些饮料上桌，你可以尽情地享受那根假阳具。
+（她一边对你笑，一边继续她的工作。）送完那些饮料后，你可以尽情地享受那根假阳具。
 ###_PLAYER
 (Leave to serve the drinks, grinding your thighs together.)
-磨了磨双腿，回去继续服务
+（摩擦双腿，回去继续服务。）
 (Leave her.)
 (离开她。)
