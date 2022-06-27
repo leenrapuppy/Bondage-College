@@ -65,7 +65,7 @@ function PlatformProfileRun() {
 	DrawText(TextGet("Health") + " " + PlatformPlayer.MaxHealth.toString(), 700, 360, "Black", "Silver");
 	DrawText(TextGet("Level") + " " + PlatformPlayer.Level.toString() + " (" + Math.floor(PlatformPlayer.Experience / PlatformExperienceForLevel[PlatformPlayer.Level] * 100).toString() + "%)", 700, 420, "Black", "Silver");
 	DrawText(TextGet("Perks") + " " + PlatformProfileGetFreePerk().toString(), 700, 480, "Black", "Silver");
-	DrawTextWrap(TextGet("Intro" + PlatformPlayer.Name), 420, 500, 600, 500, "Black", null, 8);
+	DrawTextWrap(TextGet("Intro" + PlatformPlayer.Name), 420, 500, 600, 500, "Black", null, 9);
 	if (PlatformPlayer.Name == "Melody") {
 		PlatformProfileDrawArrow(1150, 50, 1250, 150);
 		PlatformProfileDrawArrow(1150, 50, 1250, 250);

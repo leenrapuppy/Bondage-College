@@ -2,6 +2,7 @@ Exit,Exit Bondage Brawl
 Save,Save your progress
 SelectSave,Select a slot to save your progress
 SaveOn,Save on slot #
-Character,Character sheet
+Character,Character details
+ChangeCharacter,Change active character
 GameOver,Game over.  Use the exit button to try again.
 LevelUp,CharacterName gained a level!

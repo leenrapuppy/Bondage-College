@@ -451,7 +451,7 @@ var PlatformDialogData = [
 			{ Text: "(You help her out as she dresses up.)" },
 			{
 				Background: "BathroomOlivia",
-				Character: [{ Name: "Olivia", Status: "Flower", Pose: "Idle" }]
+				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "Idle" }]
 			},
 			{ Text: "Thanks Melody, what is your next duty today?" },
 			{
@@ -460,7 +460,7 @@ var PlatformDialogData = [
 			},
 			{
 				Text: "Very well, I'll ask the staff to open the gate.",
-				Character: [{ Name: "Olivia", Status: "Flower", Pose: "Idle" }]
+				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "Idle" }]
 			},
 			{ Text: "The dungeon is scary, good luck down there." },
 			{ Text: "(She heads back to her bedroom.)" }
@@ -472,7 +472,7 @@ var PlatformDialogData = [
 		Dialog: [
 			{
 				Background: "BedroomOlivia",
-				Character: [{ Name: "Olivia", Status: "Flower", Pose: "Idle" }]
+				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "Idle" }]
 			},
 			{ Text: "The gate leading downstairs should be open." },
 			{ Text: "The dungeon is scary, good luck down there." }
@@ -1044,7 +1044,7 @@ var PlatformDialogData = [
 			{
 				Text: "Melody!  (She tugs on the cuffs in vain.)",
 				Background: "BedroomOliviaFloor",
-				Character: [{ Name: "Olivia", Status: "Flower", Animation: "Bound", Y: -400 }]
+				Character: [{ Name: "Olivia", Status: "Oracle", Animation: "Bound", Y: -400 }]
 			},
 			{ 
 				Text: "I'm relieved to see you.",
@@ -1095,7 +1095,7 @@ var PlatformDialogData = [
 			{
 				Text: "Please be careful Melody.",
 				Background: "BedroomOliviaFloor",
-				Character: [{ Name: "Olivia", Status: "Flower", Animation: "Bound", Y: -400 }]
+				Character: [{ Name: "Olivia", Status: "Oracle", Animation: "Bound", Y: -400 }]
 			},
 			{ Text: "Camille is very dangerous, she might kill you." },
 			{ Text: "I think she went upstairs, maybe she's still there." },
@@ -1105,12 +1105,12 @@ var PlatformDialogData = [
 
 	{
 		Name: "OliviaCurseRelease",
-		Exit : function () { PlatformEventSet("OliviaCurseRelease"); PlatformLoadRoom(); },
+		Exit : function () { PlatformEventSet("OliviaCurseRelease"); PlatformPartyBuild(); PlatformLoadRoom(); },
 		Dialog: [
 			{
 				Text: "Melody!  Are you alright?",
 				Background: "BedroomOliviaFloor",
-				Character: [{ Name: "Olivia", Status: "Flower", Animation: "Bound", Y: -400 }]
+				Character: [{ Name: "Olivia", Status: "Oracle", Animation: "Bound", Y: -400 }]
 			},
 			{
 				Text: "Yes, I found your sister Camille in the Countess Hall.",
@@ -1126,7 +1126,7 @@ var PlatformDialogData = [
 			{
 				Text: "(She stretches happily.)  Thank you so much Melody.",
 				Character: [
-					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
@@ -1154,7 +1154,7 @@ var PlatformDialogData = [
 			{ Text: "(Darkness fades after a few seconds.)", Background: "BedroomOlivia" },
 			{ Text: "It was faster than the previous time.  Is that a good sign?" },
 			{ Text: "Let's go check for Camille.  I'm worried for her." },
-			{ Text: "(Olivia joined your party.  She might be a playable character in a future version of the game.)" },
+			{ Text: "(Olivia joined your party.  You can switch your active character when you can save.)" },
 		]
 	},
 
@@ -1269,7 +1269,7 @@ var PlatformDialogData = [
 			{
 				Background: "CountessHall",
 				Character: [
-					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
@@ -1297,7 +1297,7 @@ var PlatformDialogData = [
 			{
 				Background: "Terrace",
 				Character: [
-					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
@@ -1336,7 +1336,7 @@ var PlatformDialogData = [
 					PlatformDialogProcess();
 				},
 				Character: [
-					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
@@ -1356,7 +1356,7 @@ var PlatformDialogData = [
 					PlatformAddExperience(PlatformPlayer, 10);
 					if (PlatformDialogGetCharacter("Olivia").Domination < 0) PlatformDialogCharacterDisplay[0].Pose = "KissMaidMelodySub";
 				},
-				Character: [{ Name: "Olivia", Status: "Flower", Pose: "KissMaidMelody" }]
+				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "KissMaidMelody" }]
 			},
 			{ Text: "(You exchange a long and passionate kiss.)" },
 			{ Text: "(Time seems to stop as you feel her sweet lips on yours.)" },
@@ -1373,7 +1373,7 @@ var PlatformDialogData = [
 			{
 				Background: "Terrace",
 				Character: [
-					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
@@ -1390,7 +1390,7 @@ var PlatformDialogData = [
 				Background: "Terrace",
 				Character: [
 					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
-					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
@@ -1406,7 +1406,7 @@ var PlatformDialogData = [
 				Background: "Terrace",
 				Character: [
 					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
-					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},

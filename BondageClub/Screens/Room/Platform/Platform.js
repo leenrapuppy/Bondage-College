@@ -23,6 +23,7 @@ var PlatformLastTouch = null;
 var PlatformImmunityTime = 500;
 var PlatformSaveMode = false;
 var PlatformJumpPhase = "";
+var PlatformParty = [];
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -36,7 +37,7 @@ var PlatformTemplate = [
 		Width: 400,
 		Height: 400,
 		HitBox: [0.42, 0.03, 0.58, 1],
-		JumpHitBox:  [0.42, 0.03, 0.58, 0.65],
+		JumpHitBox: [0.42, 0.03, 0.58, 0.65],
 		RunSpeed: 18,
 		WalkSpeed: 12,
 		CrawlSpeed: 6,
@@ -71,6 +72,31 @@ var PlatformTemplate = [
 	},
 	{
 		Name: "Olivia",
+		Status: "Oracle",
+		Perk: "0000000000",
+		PerkName: ["Healthy", "Robust", "Vigorous", "Spring", "Bounce", "Block", "Deflect", "Seduction", "Persuasion", "Manipulation"],
+		Width: 400,
+		Height: 400,
+		Health: 10,
+		HealthPerLevel: 3,
+		HitBox: [0.42, 0.03, 0.58, 1],
+		JumpHitBox: [0.42, 0.03, 0.58, 0.65],
+		RunSpeed: 18,
+		WalkSpeed: 12,
+		CrawlSpeed: 6,
+		JumpForce: 43,
+		CollisionDamage: 0,
+		ExperienceValue: 0,
+		DamageBackOdds: 0,
+		DamageKnockForce: 25,
+		Animation: [
+			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61], Speed: 90 },
+			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 30 },
+			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 }
+		]
+	},
+	{
+		Name: "Olivia",
 		Status: "Chained",
 		Width: 400,
 		Height: 400,
@@ -85,17 +111,6 @@ var PlatformTemplate = [
 		Height: 400,
 		Animation: [
 			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 130 }
-		]
-	},
-	{
-		Name: "Olivia",
-		Status: "Flower",
-		Perk: "0000000000",
-		Width: 400,
-		Height: 400,
-		Animation: [
-			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61], Speed: 90 },
-			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 }
 		]
 	},
 	{
@@ -437,10 +452,10 @@ var PlatformRoomList = [
 		Entry: function() {
 			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", 2200, true, false, "IntroOliviaBeforeCollarKey");
 			if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", 2200, true, false, "IntroOliviaAfterCollarKey");
-			if (PlatformEventDone("OliviaBath") && !PlatformEventDone("Curse")) { PlatformCreateCharacter("Olivia", "Flower", 2200, true, false, "OliviaAfterBath"); PlatformChar[1].FaceLeft = true; }
-			if (PlatformEventDone("OliviaBath") && PlatformEventDone("Curse") && !PlatformEventDone("OliviaCurseIntro") && !PlatformEventDone("CamilleDefeat")) { PlatformCreateCharacter("Olivia", "Flower", 2200, true, false, "OliviaCurseIntro"); PlatformChar[1].Health = 0; PlatformChar[1].Bound = true; }
-			if (PlatformEventDone("OliviaBath") && PlatformEventDone("Curse") && PlatformEventDone("OliviaCurseIntro") && !PlatformEventDone("CamilleDefeat")) { PlatformCreateCharacter("Olivia", "Flower", 2200, true, false, "OliviaCurse"); PlatformChar[1].Health = 0; PlatformChar[1].Bound = true; }
-			if (PlatformEventDone("OliviaBath") && PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && !PlatformEventDone("OliviaCurseRelease")) { PlatformCreateCharacter("Olivia", "Flower", 2200, true, false, "OliviaCurseRelease"); PlatformChar[1].Health = 0; PlatformChar[1].Bound = true; }
+			if (PlatformEventDone("OliviaBath") && !PlatformEventDone("Curse")) { PlatformCreateCharacter("Olivia", "Oracle", 2200, true, false, "OliviaAfterBath"); PlatformChar[1].FaceLeft = true; }
+			if (PlatformEventDone("OliviaBath") && PlatformEventDone("Curse") && !PlatformEventDone("OliviaCurseIntro") && !PlatformEventDone("CamilleDefeat")) { PlatformCreateCharacter("Olivia", "Oracle", 2200, true, false, "OliviaCurseIntro"); PlatformChar[1].Health = 0; PlatformChar[1].Bound = true; }
+			if (PlatformEventDone("OliviaBath") && PlatformEventDone("Curse") && PlatformEventDone("OliviaCurseIntro") && !PlatformEventDone("CamilleDefeat")) { PlatformCreateCharacter("Olivia", "Oracle", 2200, true, false, "OliviaCurse"); PlatformChar[1].Health = 0; PlatformChar[1].Bound = true; }
+			if (PlatformEventDone("OliviaBath") && PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && !PlatformEventDone("OliviaCurseRelease")) { PlatformCreateCharacter("Olivia", "Oracle", 2200, true, false, "OliviaCurseRelease"); PlatformChar[1].Health = 0; PlatformChar[1].Bound = true; }
 		},
 		Text: "Olivia's Bedroom (heal and save)",
 		Background: "Castle/BedroomOlivia",
@@ -612,8 +627,8 @@ var PlatformRoomList = [
 	{
 		Name: "CastleTerrace",
 		Entry: function() {
-			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Olivia", "Flower", 500, true, false, "OliviaTerrace");
-			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Olivia", "Flower", 500, true, false, "OliviaTerraceEnd");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerrace");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerraceEnd");
 			if (PlatformEventDone("EdlaranJoin") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerrace", true);
 			if (PlatformEventDone("EdlaranJoin") && PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerraceEnd", true);
 		},
@@ -891,6 +906,61 @@ function PlatformLoadRoom(RoomName) {
 	for (let Room of PlatformRoomList)
 		if ((Room.Name == RoomName) && (Room.Entry != null))
 			Room.Entry();
+}
+
+/**
+ * Adds a character to the party
+ * @param {Object} C - The character to add to the roster
+ * @returns {void} - Nothing
+ */
+function PlatformPartyAdd(C) {
+	let P = {
+		Character: C.Character,
+		Status: C.Status,
+		Level: C.Level,
+		Experience: C.Experience,
+		Perk: C.Park
+	}
+	if ((P.Character == null) || (P.Status == null)) return;
+	if ((P.Level == null) || (P.Level <= 0) || (P.Level > 10)) P.Level = 1;
+	if ((P.Experience == null) || (P.Experience < 0)) P.Experience = 0;
+	if ((P.Perk == null) || (P.Perk.length != 10)) P.Perk = "0000000000";
+	PlatformParty.push(P);
+}
+
+/**
+ * Activates the next party character
+ * @returns {void} - Nothing
+ */
+function PlatformPartyNext() {
+	if (PlatformParty.length <= 1) return;
+	let Pos = 0;
+	for (let P = 0; P < PlatformParty.length - 1; P++)
+		if (PlatformParty[P].Character == PlatformPlayer.Name)
+			Pos = P + 1;
+	PlatformPlayer.Name = PlatformParty[Pos].Character;
+	PlatformPlayer.Status = PlatformParty[Pos].Status;
+	PlatformPlayer.Level = PlatformParty[Pos].Level;
+	PlatformPlayer.Experience = PlatformParty[Pos].Experience;
+	PlatformPlayer.Perk = PlatformParty[Pos].Perk;
+	PlatformSetHealth(PlatformPlayer);
+}
+
+/**
+ * Builds the party to switch active characters
+ * @returns {void} - Nothing
+ */
+function PlatformPartyBuild() {
+	if (PlatformParty.length == 0)
+		PlatformPartyAdd({ Character: "Melody", Status: "Maid", Level: 1, Experience: 0, Perk: "0000000000" });
+	if (PlatformEventDone("OliviaCurseRelease")) {
+		let CreateOlivia = true;
+		for (let P of PlatformParty)
+			if (P.Character == "Olivia")
+				CreateOlivia = false;
+		if (CreateOlivia)
+			PlatformPartyAdd({ Character: "Olivia", Status: "Oracle", Level: 1, Experience: 0, Perk: "0000000000" });
+	}
 }
 
 /**
@@ -1415,6 +1485,7 @@ function PlatformRun() {
 	DrawButton(1900, 10, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
 	if (PlatformHeal != null) DrawButton(1800, 10, 90, 90, "", "White", "Icons/Save.png", TextGet("Save"));
 	if (PlatformHeal != null) DrawButton(1700, 10, 90, 90, "", "White", "Icons/Character.png", TextGet("Character"));
+	if ((PlatformHeal != null) && (PlatformParty.length >= 2)) DrawButton(1600, 10, 90, 90, "", "White", "Icons/Next.png", TextGet("ChangeCharacter"));
 	if ((PlatformHeal != null) && PlatformSaveMode)
 		for (let S = 0; S < 10; S++)
 			DrawButton(250 + (S * 157), 200, 90, 90, S.toString(), "White", "", TextGet("SaveOn") + S.toString());
@@ -1451,6 +1522,7 @@ function PlatformClick() {
 		return;
 	} 
 	if (MouseIn(1700, 10, 90, 90) && (PlatformHeal != null)) return CommonSetScreen("Room", "PlatformProfile");
+	if (MouseIn(1600, 10, 90, 90) && (PlatformHeal != null)) return PlatformPartyNext();
 	if (!CommonIsMobile) PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
 }
 
@@ -1532,7 +1604,6 @@ function PlatformSaveGame(Slot) {
 	PlatformMessageSet("Game saved on slot " + Slot.toString());
 }
 
-
 /**
  * Sets the max health and current health for the character based on the level and skill
  * @param {Object} C - The character to evaluate
@@ -1543,6 +1614,38 @@ function PlatformSetHealth(C) {
 	if (C.HealthPerLevel != null) C.MaxHealth = C.MaxHealth + C.HealthPerLevel * C.Level;
 	C.MaxHealth = Math.round(C.MaxHealth * (1 + ((PlatformHasPerk(C, "Healthy") ? 0.1 : 0) + (PlatformHasPerk(C, "Robust") ? 0.15 : 0))));
 	C.Health = C.MaxHealth;
+}
+
+/**
+ * Loads the game on a specific slot
+ * @param {Object} LoadObj - The character object to load
+ * @param {String} Active - The name of the active character
+ * @returns {void} - Nothing
+ */
+function PlatformLoadCharacter(LoadObj, Active) {
+	PlatformPartyAdd(LoadObj);
+	if (((Active == null) && (LoadObj.Character == "Melody")) || (Active == LoadObj.Character)) {
+		PlatformCreateCharacter(LoadObj.Character, LoadObj.Status, 1000);
+		PlatformPlayer.Status = LoadObj.Status;
+		PlatformEvent = LoadObj.Event;
+		if (PlatformEvent == null) PlatformEvent = [];
+		PlatformLoadRoom(LoadObj.Room);
+		PlatformPlayer.X = Math.round(PlatformRoom.Width / 2);
+		if (LoadObj.Level != null) PlatformPlayer.Level = LoadObj.Level;
+		if (LoadObj.Perk != null) PlatformPlayer.Perk = LoadObj.Perk;
+		if (LoadObj.BaseHealth != null) PlatformPlayer.BaseHealth = LoadObj.BaseHealth;
+		PlatformSetHealth(PlatformPlayer);
+		PlatformPlayer.Health = PlatformPlayer.MaxHealth;
+		if (LoadObj.Experience != null) PlatformPlayer.Experience = LoadObj.Experience;
+		PlatformDialogCharacter = JSON.parse(JSON.stringify(PlatformDialogCharacterTemplate));
+		if (LoadObj.Dialog != null)
+			for (let DialogChar of LoadObj.Dialog)
+				for (let Char of PlatformDialogCharacter)
+					if (DialogChar.Name == Char.Name) {
+						Char.Love = DialogChar.Love;
+						Char.Domination = DialogChar.Domination;
+					}
+	}
 }
 
 /**
@@ -1558,26 +1661,13 @@ function PlatformLoadGame(Slot) {
 	if (LoadObj.Status == null) return;
 	if (LoadObj.Room == null) return;
 	PlatformChar = [];
-	PlatformCreateCharacter(LoadObj.Character, LoadObj.Status, 1000);
-	PlatformPlayer.Status = LoadObj.Status;
-	PlatformEvent = LoadObj.Event;
-	if (PlatformEvent == null) PlatformEvent = [];
-	PlatformLoadRoom(LoadObj.Room);
-	PlatformPlayer.X = Math.round(PlatformRoom.Width / 2);
-	if (LoadObj.Level != null) PlatformPlayer.Level = LoadObj.Level;
-	if (LoadObj.Perk != null) PlatformPlayer.Perk = LoadObj.Perk;
-	if (LoadObj.BaseHealth != null) PlatformPlayer.BaseHealth = LoadObj.BaseHealth;
-	PlatformSetHealth(PlatformPlayer);
-	PlatformPlayer.Health = PlatformPlayer.MaxHealth;
-	if (LoadObj.Experience != null) PlatformPlayer.Experience = LoadObj.Experience;
-	PlatformDialogCharacter = JSON.parse(JSON.stringify(PlatformDialogCharacterTemplate));
-	if (LoadObj.Dialog != null)
-		for (let DialogChar of LoadObj.Dialog)
-			for (let Char of PlatformDialogCharacter)
-				if (DialogChar.Name == Char.Name) {
-					Char.Love = DialogChar.Love;
-					Char.Domination = DialogChar.Domination;
-				}
+	PlatformParty = [];
+	if (Array.isArray(LoadObj.Characters))
+		for (let Obj of LoadObj.Characters)
+			PlatformLoadCharacter(Obj, LoadObj.Active);
+	else
+		PlatformLoadCharacter(LoadObj, LoadObj.Active);
+	PlatformPartyBuild();
 	CommonSetScreen("Room", "Platform");
 }
 
