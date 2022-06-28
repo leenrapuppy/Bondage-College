@@ -92,6 +92,8 @@ var PlatformTemplate = [
 		Animation: [
 			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61], Speed: 90 },
 			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 30 },
+			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], Speed: 40 },
+			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 30 },
 			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 }
 		]
 	},
@@ -812,11 +814,13 @@ var PlatformRoomList = [
  * @param {String} StatusName - The status of that character
  * @param {Number} X - The X position of the character
  * @param {Boolean} Fix - TRUE if the character won't move
- * @param {Boolean} Fix - TRUE if the character will deal and receive combat damage
+ * @param {Boolean} Combat - TRUE if the character will deal and receive combat damage
  * @param {String} Dialog - The dialog name to open when talking to that character
+ * @param {Boolean} FaceLeft  - TRUE if the character should be facing left
+ * @param {Number} ReplaceAtPos  - The position in the index to replace the char, if NULL we add it
  * @returns {Object} - Returns the platform character
  */
-function PlatformCreateCharacter(CharacterName, StatusName, X, Fix  = null, Combat = null, Dialog = null, FaceLeft = null) {
+function PlatformCreateCharacter(CharacterName, StatusName, X, Fix  = null, Combat = null, Dialog = null, FaceLeft = null, ReplaceAtPos = null) {
 	let NewChar = null;
 	for (let CharTemplate of PlatformTemplate)
 		if ((CharTemplate.Name == CharacterName) && (CharTemplate.Status == StatusName)) {
@@ -826,7 +830,7 @@ function PlatformCreateCharacter(CharacterName, StatusName, X, Fix  = null, Comb
 		}
 	if (NewChar == null) return;
 	NewChar.Camera = (PlatformChar.length == 0);
-	NewChar.ID = PlatformChar.length;
+	NewChar.ID = (ReplaceAtPos == null) ? PlatformChar.length : ReplaceAtPos;
 	NewChar.X = X;
 	NewChar.Y = PlatformFloor;
 	NewChar.ForceX = 0;
@@ -845,10 +849,11 @@ function PlatformCreateCharacter(CharacterName, StatusName, X, Fix  = null, Comb
 	if ((NewChar.DamageBackOdds == null) || (NewChar.DamageBackOdds < 0) || (NewChar.DamageBackOdds > 1)) NewChar.DamageBackOdds = 1;
 	if ((NewChar.DamageFaceOdds == null) || (NewChar.DamageFaceOdds < 0) || (NewChar.DamageFaceOdds > 1)) NewChar.DamageFaceOdds = 1;
 	NewChar.FaceLeft = ((NewChar.Dialog == null) && (PlatformRoom != null) && (PlatformRoom.Width != null) && (X > PlatformRoom.Width / 2));
-	if ((FaceLeft != null) && FaceLeft) NewChar.FaceLeft = true;
+	if (FaceLeft != null) NewChar.FaceLeft = FaceLeft;
 	if (NewChar.Perk == null) NewChar.Perk = "";
 	if (NewChar.PerkName == null) NewChar.PerkName = [];
-	PlatformChar.push(NewChar);
+	if (ReplaceAtPos == null) PlatformChar.push(NewChar);
+	else PlatformChar[ReplaceAtPos] = NewChar;
 	if (NewChar.Camera) {
 		PlatformPlayer = NewChar;
 		PlatformPlayer.DamageBackOdds = 0;
@@ -919,7 +924,7 @@ function PlatformPartyAdd(C) {
 		Status: C.Status,
 		Level: C.Level,
 		Experience: C.Experience,
-		Perk: C.Park
+		Perk: C.Perk
 	}
 	if ((P.Character == null) || (P.Status == null)) return;
 	if ((P.Level == null) || (P.Level <= 0) || (P.Level > 10)) P.Level = 1;
@@ -929,17 +934,47 @@ function PlatformPartyAdd(C) {
 }
 
 /**
+ * Saves the current character stats in the party object
+ * @returns {void} - Nothing
+ */
+function PlatformPartySave() {
+	for (let P of PlatformParty)
+		if (P.Character == PlatformPlayer.Name) {
+			P.Experience = PlatformPlayer.Experience;
+			P.Level = PlatformPlayer.Level;
+			P.Perk = PlatformPlayer.Perk;
+			return;
+		}
+}
+
+/**
+ * Loads the current character stats from the party object
+ * @returns {void} - Nothing
+ */
+ function PlatformPartyLoad() {
+	for (let P of PlatformParty)
+		if (P.Character == PlatformPlayer.Name) {
+			PlatformPlayer.Experience = P.Experience;
+			PlatformPlayer.Level = P.Level;
+			PlatformPlayer.Perk = P.Perk;
+			PlatformSetHealth(PlatformPlayer);
+			return;
+		}
+}
+
+/**
  * Activates the next party character
  * @returns {void} - Nothing
  */
 function PlatformPartyNext() {
 	if (PlatformParty.length <= 1) return;
+	PlatformPartySave();
 	let Pos = 0;
 	for (let P = 0; P < PlatformParty.length - 1; P++)
 		if (PlatformParty[P].Character == PlatformPlayer.Name)
 			Pos = P + 1;
-	PlatformPlayer.Name = PlatformParty[Pos].Character;
-	PlatformPlayer.Status = PlatformParty[Pos].Status;
+	PlatformPlayer = PlatformCreateCharacter(PlatformParty[Pos].Character, PlatformParty[Pos].Status, PlatformPlayer.X, null, null, null, PlatformPlayer.FaceLeft, 0);
+	PlatformPlayer.Camera = true;
 	PlatformPlayer.Level = PlatformParty[Pos].Level;
 	PlatformPlayer.Experience = PlatformParty[Pos].Experience;
 	PlatformPlayer.Perk = PlatformParty[Pos].Perk;
@@ -1063,6 +1098,7 @@ function PlatformDrawBackground() {
  * @returns {void} - Nothing
  */
 function PlatformDrawCharacter(C, Time) {
+	if (C.Anim == null) return;
 	let X = C.X - C.Anim.Width / 2 - PlatformViewX;
 	let Y = C.Y - C.Anim.Height - PlatformViewY
 	if ((X >= 2000) || (Y >= 1000)) return;
@@ -1074,6 +1110,18 @@ function PlatformDrawCharacter(C, Time) {
 				DrawImageZoomCanvas("Screens/Room/Platform/" + (C.Camera ? "Enemy" : "Player") + "Hit.png", MainCanvas, 0, 0, 512, 512, X + C.Anim.Width / 2 - 50, Y - 250 + Math.floor((Damage.Expire - Time) / 10), 100, 100);
 				DrawText(Damage.Value.toString(), X + C.Anim.Width / 2, Y - 200 + Math.floor((Damage.Expire - Time) / 10), (C.Camera ? "White" : "Black"), (C.Camera ? "Black" : "White"));
 			}
+}
+
+/**
+ * Sets the max health and current health for the character based on the level and skill
+ * @param {Object} C - The character to evaluate
+ * @returns {void} - Nothing
+ */
+ function PlatformSetHealth(C) {
+	C.MaxHealth = C.BaseHealth;
+	if (C.HealthPerLevel != null) C.MaxHealth = C.MaxHealth + C.HealthPerLevel * C.Level;
+	C.MaxHealth = Math.round(C.MaxHealth * (1 + ((PlatformHasPerk(C, "Healthy") ? 0.1 : 0) + (PlatformHasPerk(C, "Robust") ? 0.15 : 0))));
+	C.Health = C.MaxHealth;
 }
 
 /**
@@ -1501,9 +1549,10 @@ function PlatformRun() {
 function PlatformAttack(Source, Type) {
 	if (PlatformActionIs(Source, "Any")) return;
 	Source.Run = false;
-	for (let Attack of Source.Attack)
-		if (Attack.Name == Type)
-			Source.Action = { Name: Type, Start: CommonTime(), Expire: CommonTime() + Attack.Speed };
+	if (Source.Attack != null)
+		for (let Attack of Source.Attack)
+			if (Attack.Name == Type)
+				Source.Action = { Name: Type, Start: CommonTime(), Expire: CommonTime() + Attack.Speed };
 }
 
 /**
@@ -1585,67 +1634,22 @@ function PlatformBindStart(Source) {
  * @returns {void} - Nothing
  */
 function PlatformSaveGame(Slot) {
+	PlatformPartySave();
 	PlatformSaveMode = false;
-	let SaveChar = [];
+	let SaveDialog = [];
 	for (let Char of PlatformDialogCharacter)
 		if ((Char.Love != null) || (Char.Domination != null))
-			SaveChar.push({ Name: Char.Name, Love: Char.Love, Domination: Char.Domination });
+			SaveDialog.push({ Name: Char.Name, Love: Char.Love, Domination: Char.Domination });
 	let SaveObj = {
 		Character: PlatformPlayer.Name,
 		Status: PlatformPlayer.Status,
-		Level: PlatformPlayer.Level,
-		Experience: PlatformPlayer.Experience,
-		Perk: PlatformPlayer.Perk,
+		Party: PlatformParty,
 		Room: PlatformRoom.Name,
 		Event: PlatformEvent,
-		Dialog: SaveChar
+		Dialog: SaveDialog
 	};
 	localStorage.setItem("BondageBrawlSave" + Slot.toString(), JSON.stringify(SaveObj));
 	PlatformMessageSet("Game saved on slot " + Slot.toString());
-}
-
-/**
- * Sets the max health and current health for the character based on the level and skill
- * @param {Object} C - The character to evaluate
- * @returns {void} - Nothing
- */
-function PlatformSetHealth(C) {
-	C.MaxHealth = C.BaseHealth;
-	if (C.HealthPerLevel != null) C.MaxHealth = C.MaxHealth + C.HealthPerLevel * C.Level;
-	C.MaxHealth = Math.round(C.MaxHealth * (1 + ((PlatformHasPerk(C, "Healthy") ? 0.1 : 0) + (PlatformHasPerk(C, "Robust") ? 0.15 : 0))));
-	C.Health = C.MaxHealth;
-}
-
-/**
- * Loads the game on a specific slot
- * @param {Object} LoadObj - The character object to load
- * @param {String} Active - The name of the active character
- * @returns {void} - Nothing
- */
-function PlatformLoadCharacter(LoadObj, Active) {
-	PlatformPartyAdd(LoadObj);
-	if (((Active == null) && (LoadObj.Character == "Melody")) || (Active == LoadObj.Character)) {
-		PlatformCreateCharacter(LoadObj.Character, LoadObj.Status, 1000);
-		PlatformPlayer.Status = LoadObj.Status;
-		PlatformEvent = LoadObj.Event;
-		if (PlatformEvent == null) PlatformEvent = [];
-		PlatformLoadRoom(LoadObj.Room);
-		PlatformPlayer.X = Math.round(PlatformRoom.Width / 2);
-		if (LoadObj.Level != null) PlatformPlayer.Level = LoadObj.Level;
-		if (LoadObj.Perk != null) PlatformPlayer.Perk = LoadObj.Perk;
-		if (LoadObj.BaseHealth != null) PlatformPlayer.BaseHealth = LoadObj.BaseHealth;
-		PlatformSetHealth(PlatformPlayer);
-		PlatformPlayer.Health = PlatformPlayer.MaxHealth;
-		if (LoadObj.Experience != null) PlatformPlayer.Experience = LoadObj.Experience;
-		PlatformDialogCharacter = JSON.parse(JSON.stringify(PlatformDialogCharacterTemplate));
-		if (LoadObj.Dialog != null)
-			for (let DialogChar of LoadObj.Dialog)
-				for (let Char of PlatformDialogCharacter)
-					if (DialogChar.Name == Char.Name) {
-						Char.Love = DialogChar.Love;
-						Char.Domination = DialogChar.Domination;
-					}
-	}
 }
 
 /**
@@ -1654,21 +1658,46 @@ function PlatformLoadCharacter(LoadObj, Active) {
  * @returns {void} - Nothing
  */
 function PlatformLoadGame(Slot) {
+
+	// Gets the saved JSON object and make sure it's valid
 	let LoadStr = localStorage.getItem("BondageBrawlSave" + Slot.toString());
 	if (LoadStr == null) return;
 	let LoadObj = JSON.parse(LoadStr);
 	if (LoadObj.Character == null) return;
 	if (LoadObj.Status == null) return;
 	if (LoadObj.Room == null) return;
+
+	// Adds the character manually or load the saved party
 	PlatformChar = [];
-	PlatformParty = [];
-	if (Array.isArray(LoadObj.Characters))
-		for (let Obj of LoadObj.Characters)
-			PlatformLoadCharacter(Obj, LoadObj.Active);
-	else
-		PlatformLoadCharacter(LoadObj, LoadObj.Active);
+	if (Array.isArray(LoadObj.Party)) {
+		PlatformParty = LoadObj.Party;
+	} else {
+		PlatformParty = [];
+		PlatformPartyAdd(LoadObj);
+	}
+	PlatformCreateCharacter(LoadObj.Character, LoadObj.Status, 1000);
+	PlatformPartyLoad();
+
+	// Loads the game events and party
+	PlatformEvent = LoadObj.Event;
+	if (PlatformEvent == null) PlatformEvent = [];
 	PlatformPartyBuild();
+
+	// Loads the character relationships
+	PlatformDialogCharacter = JSON.parse(JSON.stringify(PlatformDialogCharacterTemplate));
+	if (LoadObj.Dialog != null)
+		for (let DialogChar of LoadObj.Dialog)
+			for (let Char of PlatformDialogCharacter)
+				if (DialogChar.Name == Char.Name) {
+					Char.Love = DialogChar.Love;
+					Char.Domination = DialogChar.Domination;
+				}
+
+	// Loads the current room and launches it
+	PlatformLoadRoom(LoadObj.Room);
+	PlatformPlayer.X = Math.round(PlatformRoom.Width / 2);
 	CommonSetScreen("Room", "Platform");
+
 }
 
 /**
@@ -1682,8 +1711,8 @@ function PlatformEventKeyDown(e) {
 	if (PlatformActionIs(PlatformPlayer, "Bind")) PlatformPlayer.Action = null;
 	if (e.keyCode == 32) PlatformPlayer.Action = null;
 	if ((e.keyCode == 87) || (e.keyCode == 119) || (e.keyCode == 90) || (e.keyCode == 122)) return PlatformEnterRoom("Up");
-	if ((e.keyCode == 76) || (e.keyCode == 108)) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
-	if ((e.keyCode == 75) || (e.keyCode == 107)) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackSlow" : "StandAttackSlow");
+	if (((e.keyCode == 76) || (e.keyCode == 108)) && PlatformAnimAvailable(PlatformPlayer, "StandAttackFast")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
+	if (((e.keyCode == 75) || (e.keyCode == 107)) && PlatformAnimAvailable(PlatformPlayer, "StandAttackSlow")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackSlow" : "StandAttackSlow");
 	if ((e.keyCode == 79) || (e.keyCode == 111)) return PlatformBindStart(PlatformPlayer);
 	if ((PlatformRoom.Heal != null) && (e.keyCode >= 48) && (e.keyCode <= 57)) return PlatformSaveGame(e.keyCode - 48);
 	if (PlatformKeys.indexOf(e.keyCode) < 0) PlatformKeys.push(e.keyCode);
