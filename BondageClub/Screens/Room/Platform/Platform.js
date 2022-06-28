@@ -91,6 +91,7 @@ var PlatformTemplate = [
 		DamageKnockForce: 25,
 		Animation: [
 			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61], Speed: 90 },
+			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 150 },
 			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 30 },
 			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], Speed: 40 },
 			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 30 },
@@ -1073,7 +1074,11 @@ function PlatformDrawBackground() {
 	DrawText(PlatformPlayer.Health.toString(), 100, 32, "White", "Black");
 	DrawProgressBar(10, 60, 180, 40, PlatformPlayer.Experience / PlatformExperienceForLevel[PlatformPlayer.Level] * 100, "#0000B0", "Black");
 	DrawText(PlatformPlayer.Level.toString(), 100, 82, "White", "Black");
-	if (PlatformActionIs(PlatformPlayer, "Bind")) DrawProgressBar(10, 110, 180, 40, (CommonTime() - PlatformPlayer.Action.Start) / (PlatformPlayer.Action.Expire - PlatformPlayer.Action.Start) * 100, "White", "Black");
+	if (PlatformActionIs(PlatformPlayer, "Bind")) 
+		DrawProgressBar(10, 110, 180, 40, (CommonTime() - PlatformPlayer.Action.Start) / (PlatformPlayer.Action.Expire - PlatformPlayer.Action.Start) * 100, "White", "Black");
+	else
+		 if ((PlatformPlayer.Health <= 0) && !PlatformPlayer.Bound && (PlatformPlayer.RiseTime != null) && (PlatformPlayer.RiseTime >= CommonTime()))
+			 DrawProgressBar(10, 110, 180, 40, 100 - ((PlatformPlayer.RiseTime - CommonTime()) / 100), "White", "Black");
 
 	// Preloads the next rooms
 	if (PlatformRoom.Door != null)
