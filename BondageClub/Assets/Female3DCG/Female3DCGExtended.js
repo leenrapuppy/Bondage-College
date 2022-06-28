@@ -2135,6 +2135,41 @@ var AssetFemale3DCGExtended = {
 			},
 		} // CustomCollarTag
 	}, // ItemNeckAccessories
+	ItemNeckRestraints: {
+		PetPost: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config:{
+				Modules: [
+					{
+						Name: "Plaque", Key: "p",
+						Options: [ 
+						{}, //p0 - Border
+						{}, //p1 - Border
+						]
+					},
+					{
+						Name: "Dirt", Key: "d",
+						Options: [ 
+						{}, //d0 - Clean
+						{}, //d1 - Dirty
+						]
+					},
+					{
+						Name: "Leash", Key: "l",
+						Options: [
+							{}, //l0 - Leash
+							{}, //l1 - Rope
+							{}, //l2 - Chain
+						]
+					},
+					{
+						Name: "Txt", Key: "x",
+						Options: [{ HasSubscreen: true }],
+					},
+				],
+			},
+		},
+	},//ItemNeckRestraints
 	ItemHood: {
 		OldGasMask: {
 			Archetype: ExtendedArchetype.MODULAR,
