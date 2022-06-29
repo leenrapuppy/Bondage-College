@@ -2158,8 +2158,8 @@ var AssetFemale3DCGExtended = {
 						Name: "Leash", Key: "l",
 						Options: [
 							{}, //l0 - Leash
-							{}, //l1 - Rope
-							{}, //l2 - Chain
+							{Property: { Difficulty: 5 },}, //l1 - Rope
+							{Property: { Difficulty: 6 },}, //l2 - Chain
 						]
 					},
 					{

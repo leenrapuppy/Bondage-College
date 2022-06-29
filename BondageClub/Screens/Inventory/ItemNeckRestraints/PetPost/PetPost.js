@@ -3,6 +3,8 @@ var InventoryItemNeckRestraintsPetPostAllowedChars = /^[a-zA-Z0-9 ~!]*$/;
 // Loads the item extension properties
 function InventoryItemNeckRestraintsPetPostTxt0Load() {
 	ElementCreateInput("SignText", "text", DialogFocusItem.Property.Text || "", "9");
+	ElementCreateInput("SignText2", "text2", DialogFocusItem.Property.Text2 || "", "9");
+	ElementCreateInput("SignText3", "text3", DialogFocusItem.Property.Text3 || "", "9");
 }
 
 // Draw the extension screen
@@ -11,18 +13,28 @@ function InventoryItemNeckRestraintsPetPostTxt0Draw() {
 	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
 
 	// Tag data
-	ElementPosition("SignText", 1375, 680, 250);
-	DrawButton(1500, 651, 350, 64, DialogFindPlayer("CustomSignText"), ElementValue("SignText").match(InventoryItemNeckRestraintsPetPostAllowedChars) ? "White" : "#888", "");
+	ElementPosition("SignText", 1510, 560, 250);
+	ElementPosition("SignText2", 1510, 620, 250);
+	ElementPosition("SignText3", 1510, 680, 250);
+	DrawButton(1375, 740, 250, 64, DialogFindPlayer("PetPostText"), ElementValue("SignText").match(InventoryItemNeckRestraintsPetPostAllowedChars) ? "White" : "#888", "");
 }
 
 // Catches the item extension clicks
 function InventoryItemNeckRestraintsPetPostTxt0Click() {
 	if (
-		MouseIn(1500, 651, 350, 64) &&
+		MouseIn(1375, 740, 250, 64) && 
+		(
 		DialogFocusItem.Property.Text !== ElementValue("SignText") &&
-		ElementValue("SignText").match(InventoryItemNeckRestraintsPetPostAllowedChars)
+		ElementValue("SignText").match(InventoryItemNeckRestraintsPetPostAllowedChars)||
+		DialogFocusItem.Property.Text2 !== ElementValue("SignText2") &&
+		ElementValue("SignText2").match(InventoryItemNeckRestraintsPetPostAllowedChars)||
+		DialogFocusItem.Property.Text3 !== ElementValue("SignText3") &&
+		ElementValue("SignText3").match(InventoryItemNeckRestraintsPetPostAllowedChars)
+		)
 	) {
 		DialogFocusItem.Property.Text = ElementValue("SignText");
+		DialogFocusItem.Property.Text2 = ElementValue("SignText2");
+		DialogFocusItem.Property.Text2 = ElementValue("SignText3");
 		InventoryItemNeckRestraintsPetPostChange();
 	}
 
@@ -35,6 +47,8 @@ function InventoryItemNeckRestraintsPetPostTxt0Click() {
 // Leaves the extended screen
 function InventoryItemNeckRestraintsPetPostExit() {
 	ElementRemove("SignText");
+	ElementRemove("SignText2");
+	ElementRemove("SignText3");
 	ExtendedItemSubscreen = null;
 }
 
@@ -46,37 +60,45 @@ function InventoryItemNeckRestraintsPetPostChange() {
 		var Dictionary = [];
 		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 		Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		ChatRoomPublishCustomAction("ChangeCustomTag", false, Dictionary);
+		ChatRoomPublishCustomAction("ChangeSign", false, Dictionary);
 	}
 	InventoryItemNeckRestraintsPetPostExit();
 }
 
 // Drawing function for the text on the tag
 function AssetsItemNeckRestraintsPetPostAfterDraw({
-	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
+    C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {
-	if (L === "_Text") {
-		// Determine the canvas position and size
-		const Properties = Property || {};
-		const Type = Properties.Type || "t0";
+    if (L === "_Text") {
+        // Determine the canvas position and size
+        const Properties = Property || {};
+        const Type = Properties.Type || "t0";
 
-		// We set up a canvas
-		let Height = 70;
-		let Width = 82;
-		let YOffset = 30;
-		const FontName = "sans-serif";
-		const TempCanvas = AnimationGenerateTempCanvas(C, A, Width, Height);
-		const text = Property && typeof Property.Text === "string" && InventoryItemNeckRestraintsPetPostAllowedChars.test(Property.Text) ? Property.Text : "Tag";
+        // We set up a canvas
+        let Height = 100;
+        let Width = 98;
+        let YOffset = 20;
+        const FontName = "sans-serif";
+        const TempCanvas = AnimationGenerateTempCanvas(C, A, Width, Height);
+        let text = Property && typeof Property.Text === "string" && InventoryItemNeckRestraintsPetPostAllowedChars.test(Property.Text) ? Property.Text : "Pet";
+		let text2 = Property && typeof Property.Text2 === "string" && InventoryItemNeckRestraintsPetPostAllowedChars.test(Property.Text2) ? Property.Text2 : "Leashing";
+		let text3 = Property && typeof Property.Text3 === "string" && InventoryItemNeckRestraintsPetPostAllowedChars.test(Property.Text2) ? Property.Text3 : "Post";
+        // We draw the desired info on that canvas
+        let context = TempCanvas.getContext('2d');
+        //context.fillRect( 0, 0, Width, Height);
+        context.font = "22px " + FontName;
+        context.strokeStyle = Color;
+        context.textAlign = "center";
+        context.fillText(text, Width / 2, Height / 2, Width);
+        context.fillText(text2, Width / 2, Height / 2 + 24, Width);
+		context.fillText(text3, Width / 2, Height / 2 + 46, Width);
 
-		// We draw the desired info on that canvas
-		let context = TempCanvas.getContext('2d');
-		context.font = "13px " + FontName;
-		context.fillStyle = Color;
-		context.textAlign = "center";
-		context.fillText(text, Width / 2, Width / 2, Width);
-
-		// We print the canvas to the character based on the asset position
-		drawCanvas(TempCanvas, X + 227.5, Y + YOffset, AlphaMasks);
-		drawCanvasBlink(TempCanvas, X + 227.5, Y + YOffset, AlphaMasks);
-	}
+        // We print the canvas to the character based on the asset position
+        drawCanvas(TempCanvas, X + 20, Y + YOffset, AlphaMasks);
+        drawCanvasBlink(TempCanvas, X + 20, Y + YOffset, AlphaMasks);
+    }
 }
+
+/*
+
+*/
