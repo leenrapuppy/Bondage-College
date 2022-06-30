@@ -4474,7 +4474,25 @@ var AssetFemale3DCG = [
 					{ Name: "Rope", },
 					{ Name: "Plate", AllowColorize: false, },
 				],
-			}
+			},
+			{ Name: "PetPost", Fetish: ["Metal", "Pet"], Value: 0, Difficulty: 4, Time: 5, Random: false, DefaultColor: ["Default", "#845343", "#A1794A", "Default", "#FFF483", "#237D22", "#F3F3F3", "#F3F3F3", "#FFBCD6", "Default"], AllowLock: true, Prerequisite: ["Collared", "NotSuspended", "NotMounted"], AllowPose: [], Effect: ["Freeze", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }], DynamicAfterDraw: true, Extended: true, AlwaysExtend: true, Top: 352, Left: 310, FixedPosition: true,
+				Layer: [
+					{ Name: "PoleShade", Priority: 10, AllowColorize: false, HasType: false},
+					{ Name: "Pole", Priority: 54, AllowModuleTypes: ["d1"], HasType: false, },
+					{ Name: "PoleClean", Priority: 54, CopyLayerColor: "Pole", AllowModuleTypes: ["d0"], HasType: false},
+					{ Name: "Leash", Priority: 55, AllowModuleTypes: ["l0"], AllowPose: ["AllFours", "Kneel", "KneelingSpread", "Hogtied"], HasType: false, Top: 212, Left: 239 },
+					{ Name: "Rope", Priority: 55, AllowModuleTypes: ["l1"], AllowPose: ["AllFours", "Kneel", "KneelingSpread", "Hogtied"], HasType: false, Top: 212, Left: 239 },
+					{ Name: "Chain", Priority: 55, AllowModuleTypes: ["l2"], AllowPose: ["AllFours", "Kneel", "KneelingSpread", "Hogtied"], HasType: false, Top: 212, Left: 239 },
+					{ Name: "Postit", Priority: 54, HasType: false },
+					{ Name: "Plaque", Priority: 54, AllowModuleTypes: ["d1"], HasType: false },
+					{ Name: "PlaqueClean", Priority: 54, CopyLayerColor: "Plaque",AllowModuleTypes: ["d0"], HasType: false },
+					{ Name: "PlaqueBorder", Priority: 54, AllowModuleTypes: ["p1d1"], HasType: false },
+					{ Name: "PlaqueBorderClean", Priority: 54, CopyLayerColor: "PlaqueBorder", AllowModuleTypes: ["p1d0"], HasType: false },
+					{ Name: "Text", HasImage: false, Priority: 55 },
+					{ Name: "Paw", Priority: 54, HasType: false },
+					{ Name: "PlaqueBolts", Priority: 54, HasType: false },
+				]
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
