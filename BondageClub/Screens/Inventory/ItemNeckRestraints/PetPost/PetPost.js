@@ -34,7 +34,7 @@ function InventoryItemNeckRestraintsPetPostTxt0Click() {
 	) {
 		DialogFocusItem.Property.Text = ElementValue("SignText");
 		DialogFocusItem.Property.Text2 = ElementValue("SignText2");
-		DialogFocusItem.Property.Text2 = ElementValue("SignText3");
+		DialogFocusItem.Property.Text3 = ElementValue("SignText3");
 		InventoryItemNeckRestraintsPetPostChange();
 	}
 
@@ -87,7 +87,7 @@ function AssetsItemNeckRestraintsPetPostAfterDraw({
         let context = TempCanvas.getContext('2d');
         //context.fillRect( 0, 0, Width, Height);
         context.font = "22px " + FontName;
-        context.strokeStyle = Color;
+        context.fillStyle = Color;
         context.textAlign = "center";
         context.fillText(text, Width / 2, Height / 2, Width);
         context.fillText(text2, Width / 2, Height / 2 + 24, Width);

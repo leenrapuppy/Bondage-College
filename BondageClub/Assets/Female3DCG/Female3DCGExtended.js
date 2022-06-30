@@ -2167,8 +2167,9 @@ var AssetFemale3DCGExtended = {
 						Options: [{ HasSubscreen: true }],
 					},
 				],
+				ChangeWhenLocked: false,
 			},
-		},
+		},//PetPost
 	},//ItemNeckRestraints
 	ItemHood: {
 		OldGasMask: {
