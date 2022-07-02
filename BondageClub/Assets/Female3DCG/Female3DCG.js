@@ -5744,6 +5744,22 @@ var AssetFemale3DCG = [
 			{
 				Name: "Slime", Category: ["Fantasy"], BuyGroup: "Slime", DefaultColor: ["#57ab5e"], Random: false, Value: 200, Difficulty: 4, Time: 15, RemoveTime: 25, Effect: ["BlindLight", "Prone", "BlurNormal"], Tint: [{Color: 0, Strength: 0.4}]
 			},
+			{
+				Name: "Stitches", Category: ["Medical", "Extreme"], Priority: 10, BuyGroup: "Suture", Random: false, Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, Left: 235, Top: 180, DefaultColor: ["Default", "#3f3c3a"], Hide: ["Eyes", "Eyes2"], Effect: [""], Extended: true, AlwaysExtend: true, 
+				AllowExpression: ["Angry", "Closed", "Daydream", "Dazed", "Dizzy", "Heart", "HeartPink", "Horny", "Lewd", "LewdHeart", "LewdHeartPink", "Sad", "Scared", "Scared", "Shy", "ShylyHappy", "Surprised", "VeryLewd"],
+				Layer: [
+					{ Name: "FakeEye", HasType: false, InheritColor: "Eyes", AllowTypes: ["r1", "r2", "r3", "r4", "b1", "b2", "b3", "b4"], MirrorExpression: "Eyes"},
+					{ Name: "FakeEye2", HasType: false, InheritColor: "Eyes2", AllowTypes: ["l1", "l2", "l3", "l4", "b1", "b2", "b3", "b4"], MirrorExpression: "Eyes2"},
+					{ Name: "Straight", HasType: false, AllowTypes: ["r1", "b1"], MirrorExpression: "Eyes"},
+					{ Name: "ZigZag", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["r2", "b2"], MirrorExpression: "Eyes"},
+					{ Name: "Skewed", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["r3", "b3"], MirrorExpression: "Eyes"},
+					{ Name: "Cross", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["r4", "b4"], MirrorExpression: "Eyes" },
+					{ Name: "Straight2", HasType: false, AllowTypes: ["l1", "b1"], MirrorExpression: "Eyes2"},
+					{ Name: "ZigZag2", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["l2", "b2"], MirrorExpression: "Eyes2"},
+					{ Name: "Skewed2", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["l3", "b3"],, MirrorExpression: "Eyes2"},
+					{ Name: "Cross2", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["l4", "b4"],, MirrorExpression: "Eyes2" },
+				],
+			},
 			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
