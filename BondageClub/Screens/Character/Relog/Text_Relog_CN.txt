@@ -13,7 +13,7 @@ Leave
 Validating name and password...
 正在验证用户名及密码...
 Waiting in queue on position: QUEUE_POS
-等待顺序: QUEUE_POS
+排队顺序：QUEUE_POS
 Invalid name or password
 无效的用户名或密码
 Disconnected from server. Retrying...
@@ -22,7 +22,7 @@ Disconnected for duplicated login
 因重复登录而失去连接
 Unable to connect to server. Retrying...
 无法连接到服务器，正在重试...
-Connection rejected: Too many connections from your address
-拒绝连接：同时连接数量过多
+Connection rejected: your connection has been rate limited.
+拒绝连接：你的连接受到了速率限制。
 Enter your name and password
 请输入你的账户和密码

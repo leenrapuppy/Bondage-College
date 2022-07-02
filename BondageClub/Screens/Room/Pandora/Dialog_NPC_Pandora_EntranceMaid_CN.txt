@@ -178,7 +178,7 @@ There are many levels?
 这里有很多层楼？
 ###_NPC
 Pandora's Box has three levels.  We are on the ground level.  You can go downstairs for the dungeons or upstairs for the chambers.
-潘多拉魔盒分为三层。现在我们在地面层。你可以下楼去地牢，也可以上楼去密室。
+潘多拉魔盒分为三层。现在我们在地面层。你可以下楼去地牢，也可以上楼去卧室。
 ###_PLAYER
 What if I get lost?
 如果我迷路了怎么办？
@@ -214,7 +214,7 @@ I will do what I want.
 （穿上她的衣服。）
 ###_NPC
 (She stares at you as you quickly dress up as her.)
-（当你迅速打扮成她时，她盯着你。）
+（你迅速打扮成她，期间她死死地瞪着你。）
 ###_PLAYER
 (Lock her up in a broom closet.)
 （把她锁在扫帚柜里。）

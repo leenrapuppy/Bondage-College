@@ -97,7 +97,7 @@ You're a good kitty.
 （她又咕噜了几声）谢谢你，女士。
 ###_PLAYER
 Are you a furry?
-你是毛茸茸吗？
+你是福瑞吗？
 ###_NPC
 (She shakes her head no and grumbles in her gag.)
 （她摇头，表示否认，并在她的堵嘴里嘟囔着。）

@@ -1,9 +1,9 @@
 Name:
-名字:
+名字：
 Nickname:
-昵称:
+昵称：
 Title:
-称号:
+称号：
 None
 无
 Mistress
@@ -33,7 +33,7 @@ Nurse
 Doctor
 医生
 Lady Luck
-幸运儿
+幸运女士
 Patron
 赞助者
 College Student
@@ -253,15 +253,15 @@ Relation:
 (Atrocious)
 (仇恨)
 Permission:
-权限:
+权限：
 Everyone, no exceptions
 所有人
 Everyone, except blacklist
-所有人,除了黑名单成员
+所有人，除了黑名单成员
 Owner, Lovers, whitelist & Dominants
-主人,恋人,白名单&支配者
+主人、恋人、白名单&支配者
 Owner, Lovers and whitelist only
-仅主人,恋人和白名单
+仅主人、恋人和白名单
 Owner and Lovers only
 仅主人和恋人
 Owner only

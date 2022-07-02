@@ -180,16 +180,18 @@ function LoginPerformInventoryFixups(Inventory, Appearance) {
 	let listsUpdated = false;
 	LoginInventoryFixups.forEach(fixup => {
 		// For every asset fixup to do, update the inventory
-		let group;
-		let idx;
-		if ((group = Inventory[fixup.Old.Group]) && group.indexOf(fixup.Old.Name) != -1) {
+		const group = Inventory[fixup.Old.Group];
+		let idx = group && group.indexOf(fixup.Old.Name);
+		if (group && idx != -1) {
 			group.splice(idx, 1);
+			if (!Inventory[fixup.New.Group])
+				Inventory[fixup.New.Group] = [];
 			Inventory[fixup.New.Group].push(fixup.New.Name);
 		}
 
 		// Update the player's item lists
 		["BlockItems", "LimitedItems", "HiddenItems", "FavoriteItems"].forEach(prop => {
-			const idx = Player[prop].findIndex(item => item.Group === fixup.Old.Group && item.Name === fixup.Old.Name);
+			idx = Player[prop].findIndex(item => item.Group === fixup.Old.Group && item.Name === fixup.Old.Name);
 			if (idx === -1) return;
 
 			Player[prop][idx].Group = fixup.New.Group;

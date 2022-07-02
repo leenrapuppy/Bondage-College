@@ -107,7 +107,7 @@ Go to hell.  I will never talk.
 （她记笔记，邪恶地笑起来。）非常好。我保证你不会在监狱里呆太久。
 ###_PLAYER
 What's your problem bitch?
-婊子，你有什么问题？
+婊子，你有什么毛病？
 Five!
 五！
 ###_NPC

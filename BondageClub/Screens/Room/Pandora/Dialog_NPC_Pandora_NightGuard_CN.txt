@@ -24,7 +24,7 @@
 (She struggles as you restrain her arms securely.)  You're breaking the law again.
 （当你牢牢地束缚住她的手臂时，她挣扎着。）你又触犯了法律。
 (You free her arms and she stretches.)  You're still under arrest.
-（你松开她的手臂，她伸展身体。）你仍然处于被捕的状态。
+（你松开她的手臂，她伸展身体。）你依然被逮捕了。
 (She thrashes as you restrain her legs.)  You better carry me then!
 （当你束缚她的双腿时，她抖动着。）那你最好背着我走！
 (You release her legs.)  Justice will strike you down like a hammer.
@@ -40,15 +40,15 @@
 (You remove the collar from her neck.)  Too late, the crime has been done.
 （你取下她脖子上的项圈。）为时已晚，你已经犯下大罪。
 (She struggles to avoid the belt but you're able to strap it on her.)  Are you serious?
-（她努力避开皮带，但你还是成功系到她身上。）你是认真的吗？
+（她挣扎着想避开带子，但你还是成功系到她身上。）你是认真的吗？
 (She sighs as you unlock the belt.)  Can you make up your mind?
-（当你解开皮带时，她叹了口气）你就不能做好决定吗？
+（当你解开带子时，她叹了口气。）你就不能做好决定吗？
 (She stays silent as you strap the device on her head.)
 （当你绑紧她头上的道具时，她保持沉默。）
 (You release her head as she nods rapidly.)  That's better, but you're still in trouble.
 （你解开她的头时，她迅速点头。）这好多了，但你仍然有麻烦。
 (You put the hood on her head as she goes silent.)
-（你把头套戴在她头上，她逐渐沉默。）
+（你把头套戴在她头上，她逐渐安静了下来。）
 (She grins as you remove the hood from her head.)  You will never get out of here.
 （当你从她头上取下头罩时，她咧嘴笑起来。）你永远不会离开这里。
 (You strap the item on her nose as she sighs.)  Is that a joke to you?
