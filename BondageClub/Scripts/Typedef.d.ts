@@ -69,6 +69,8 @@ type CommonChatTags =
 	| "DestinationCharacterName"
 	| "TargetCharacter"
 	| "TargetCharacterName"
+	| "SourcePronouns"
+	| "DestinationPronouns"
 	| "AssetName";
 
 type NotificationAudioType = 0 | 1 | 2;
@@ -153,7 +155,7 @@ type AssetGroupBodyName =
 	'Eyes' | 'Eyes2' | 'Fluids' | 'Garters' | 'Glasses' | 'Gloves' |
 	'HairAccessory1' | 'HairAccessory2' | 'HairAccessory3' | 'HairBack' |
 	'HairFront' | 'Hands' | 'Hat' | 'Head' | 'Height' | 'LeftAnklet' | 'Mask' |
-	'Mouth' | 'Necklace' | 'Nipples' | 'Panties' | 'Pussy' | 'RightAnklet' |
+	'Mouth' | 'Necklace' | 'Nipples' | 'Panties' | 'Pussy'| 'Pronouns' | 'RightAnklet' |
 	'Shoes' | 'Socks' | 'Suit' | 'SuitLower' | 'TailStraps' | 'Wings'
 	;
 
@@ -753,6 +755,10 @@ interface Character {
 	CanWalk: () => boolean;
 	CanKneel: () => boolean;
 	CanInteract: () => boolean;
+	SheHerPronouns: () => boolean;
+	HeHimPronouns: () => boolean;
+	SheHerPronounsSelf: (Player) => boolean;
+	HeHimPronounsSelf: (Player) => boolean;
 
 	/**
 	 * Check whether a character can change its own outfit.

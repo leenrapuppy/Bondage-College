@@ -2272,6 +2272,15 @@ var AssetFemale3DCG = [
 		Color: ["Default", "#6a3628", "#443330", "#222222"]
 	},
 
+	{
+		Group: "Pronouns",
+		AllowNone: false,
+		Asset: [
+			{ Name: "SheHer", DynamicScriptDraw: true, Visible: false, Random: false },
+			{ Name: "HeHim", DynamicScriptDraw: true, Visible: false, Random: false }
+		]
+	},
+
 	// Facial Expression specific
 	{
 		Group: "Blush",

@@ -110,6 +110,19 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		CanInteract: function () {
 			return (this.Effect.indexOf("Block") < 0);
 		},
+		SheHerPronouns: function () {
+			return !LogQuery("SheHerActive", "Pronouns")
+		},
+		HeHimPronouns: function () {
+			return !LogQuery("HeHimActive", "Pronouns")
+		},
+		
+		SheHerPronounsSelf: function (Player) {
+			if(Player) return LogQuery("SheHerActive", "Pronouns")
+		},
+		HeHimPronounsSelf: function (Player) {
+			if(Player) return LogQuery("HeHimActive", "Pronouns")
+		},
 		CanChangeOwnClothes: function () {
 			return this.CanChangeClothesOn(this);
 		},
@@ -1784,3 +1797,29 @@ function CharacterNickname(C) {
 	if ((Nick == "") || !Regex.test(Nick)) Nick = C.Name;
 	return AsylumGGTSCharacterName(C, Nick);
 }
+
+/**Returns the pronouns of a target
+*@param {PlayerCharacter} Player - The character whos pronouns are being returned
+*/
+function SourcePronouns(Player) {
+	if (!Player.SheHerPronounsSelf(Player)) return DialogFind(Player, "Her")
+	else if (!Player.HeHimPronounsSelf(Player)) return DialogFind(Player, "His")
+}
+
+/**Returns the pronouns of a source
+*@param {Character} C - The character whos pronouns are being returned
+*/ 
+function TargetPronouns(C) {
+	if (!Player.SheHerPronouns())  return DialogFind(C, "Her")
+	 else if (!Player.HeHimPronouns())  return DialogFind(C, "His")
+}
+
+/**Returns the pronouns of a source
+*@param {Character} C - The character whos pronouns are being returned
+*/ 
+function SecondTargetPronouns(C) {
+	if (!Player.SheHerPronouns())  return DialogFind(C, "Herself")
+	 else if (!Player.HeHimPronouns())  return DialogFind(C, "Himself")
+}
+
+

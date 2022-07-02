@@ -757,6 +757,9 @@ function ActivityRun(C, Activity) {
 		var Dictionary = [];
 		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 		Dictionary.push({ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
+		Dictionary.push({ Tag: "SourcePronouns", Text: SourcePronouns(Player), MemberNumber: Player.MemberNumber });
+		Dictionary.push({ Tag: "TargetPronouns", Text: TargetPronouns(CharacterGetCurrent()), MemberNumber: C.MemberNumber });
+		Dictionary.push({ Tag: "TargetType2Pronouns", Text: SecondTargetPronouns(CharacterGetCurrent()), MemberNumber: C.MemberNumber });
 		Dictionary.push({ Tag: "ActivityGroup", Text: group.Name });
 		Dictionary.push({ Tag: "ActivityName", Text: Activity.Name });
 		ServerSend("ChatRoomChat", { Content: ActivityBuildChatTag(C, group, Activity), Type: "Activity", Dictionary: Dictionary });
