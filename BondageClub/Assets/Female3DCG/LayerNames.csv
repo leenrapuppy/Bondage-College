@@ -256,12 +256,14 @@ HairFrontHairFront23bBase, Base
 HairFrontHairFront23bTip, Tip
 HairFrontHairFront27Base,Base
 HairFrontHairFront27Bangs,Bangs
-HairFrontHairFront27Tips,Tips
+HairFrontHairFront27BangsTip,Tips
 HairFrontHairFront28Base,Base
 HairFrontHairFront28Bangs,Bangs
 HairFrontHairFront28Tips,Tips
 HairFrontHairFront29Left,Left
 HairFrontHairFront29Right,Right
+HairBackHairBack53Base,Base
+HairBackHairBack53Tip,Tips
 HairBackHairBack54Left,Left
 HairBackHairBack54Right,Right
 GlovesGlovesFurFabric,Glove
