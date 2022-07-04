@@ -3343,5 +3343,5 @@ GGTSInteractionSpeed5Target,,,[GGTS] SourceCharacter program faster pace for Tar
 SelectChainType,,,Select the chain style,,
 ChainClapNipplesChain,,,Style 1,,
 ChainClapNipplesChain2,,,Style 2,,
-ChainClampSetChain,,,SourceCharacter the chain style on DestinationCharacter chest.,,
-ChainClampSetChain2,,,SourceCharacter the chain style on DestinationCharacter chest.,,
+ChainClampSetChain,,,SourceCharacter changes the chain style on DestinationCharacter chest.,,
+ChainClampSetChain2,,,SourceCharacter changes the chain style on DestinationCharacter chest.,,
