@@ -1,0 +1,276 @@
+###_NPC
+(She looks at your gag and smiles.)  You'll need to find a spell to remove that gag.
+(Она смотрит на ваш кляп и улыбается.) Вам нужно найти заклинание, чтобы снять этот кляп.
+Well done.  Would you like to practice another spell?
+Отличная работа. Хотите попрактиковать другое заклинание?
+Don't be ashamed.  Would you like to practice another spell?
+Не стыдись. Хотите попрактиковать другое заклинание?
+(You release her.)  Congratulations on that victory.  Continue to do battles to become the best witch.  Would you like to practice another battle?
+(Вы отпускаете ее.) Поздравляю с победой. Продолжайте участвовать в битвах, чтобы стать лучшей ведьмой. Хотите потренироваться в другом бою?
+(She releases you.)  Don't worry about losing.  It takes time and effort to become a Mistress of magic.  Would you like to practice another battle?
+(Она отпускает вас.) Не бойтесь проиграть. Требуется время и усилия, чтобы стать Госпожой магии. Хотите потренироваться в другом бою?
+(She salutes you politely.)  Welcome to the Bondage Club Magic School.  It's an honor to meet a member of the prestigious House Maiestas.
+(Она вежливо приветствует вас.) Добро пожаловать в школу магии бондаж клуба. Для меня большая честь встретить члена престижного Дома Майестас.
+(She nods slowly.)  Welcome to the Bondage Club Magic School.  It's a pleasure to meet a member of the great House Vincula.
+(Она медленно кивает.) Добро пожаловать в школу магии бондаж клуба. Приятно познакомиться с представителем великого Дома Винкула.
+(She smiles at you.)  Welcome to the Bondage Club Magic School.  It's heart-warming to meet a member of the wonderful House Amplector.
+(Она улыбается вам.) Добро пожаловать в школу магии бондаж клуба. Приятно познакомиться с членом замечательного Дома Амплектор.
+(She bows her head.)  Welcome to the Bondage Club Magic School.  I'm proud to meet a member of the powerful House Corporis.
+(Она склоняет голову.) Добро пожаловать в школу магии бондаж клуба. Я горжусь тем, что встретил члена могущественного Дома Корпорис.
+Welcome to the Bondage Club Magic School.  Would you like to become a spell caster and join one of the magical houses?
+Добро пожаловать в школу магии бондаж клуба. Хотели бы вы стать заклинателем и присоединиться к одному из волшебных домов?
+###_PLAYER
+Who are you?
+Кто ты?
+###_NPC
+I'm grey witch DialogCharacterName, teacher of spells.
+Я серая ведьма DialogCharacterName, учитель заклинаний.
+###_PLAYER
+What is this place?
+Что это за место?
+###_NPC
+You are in the Bondage Club Magical School.  This laboratory is where we teach magic.
+Вы находитесь в волшебной школе бондаж клуба. В этой лаборатории мы обучаем магии.
+###_PLAYER
+Tell me about magic.
+Расскажи мне о магии.
+###_NPC
+My pleasure, what would you like to know?
+С удовольствием, что бы вы хотели знать?
+###_PLAYER
+About magic battles...
+О магических битвах...
+###_NPC
+What would you like to know?
+Что бы вы хотели узнать?
+###_PLAYER
+Can I practice a spell?
+Могу ли я практиковать заклинание?
+###_NPC
+(She takes a step back and nods.)  Which spell would you like to practice?
+(Она делает шаг назад и кивает.) Какое заклинание ты хочешь попрактиковать?
+###_PLAYER
+On magic school houses...
+О волшебных школьных домах...
+###_NPC
+The current houses are Maiestas, Vincula, Amplector and Corporis.  Do you need details, or would you like to join any of them?
+Нынешние дома - это Майестас, Винкула, Амплектор и Корпусрис. Вам нужны подробности, или вы хотели бы присоединиться к любому из них?
+###_PLAYER
+There's a rumor on a secret technique.
+Ходят слухи о секретной технике.
+###_NPC
+(She lowers her voice.)  Yes, House Maiestas has a secret self-control technique, but they only teach it to their most acclaimed members.
+(Она понижает голос.) Да, у Дома Майестас есть секретная техника самоконтроля, но они обучают ей только своих самых известных членов.
+###_PLAYER
+There's a rumor on a secret bondage spell.
+Ходят слухи о секретном заклинании бондажа.
+###_NPC
+(She lowers her voice.)  Yes, House Vincula knows the armbinder spell, but they only teach it to their most acclaimed members.
+(Она понижает голос.) Да, Дом Винкула знает заклинание армбиндера, но они учат ему только своих самых известных членов.
+###_PLAYER
+There's a rumor on a secret ritual.
+Ходят слухи о секретном ритуале.
+###_NPC
+(She lowers her voice.)  Yes, House Amplector has a secret ritual to cast naked, but they only teach it to their most acclaimed members.
+(Она понижает голос.) Да, у Дома Амплектор есть секретный ритуал раздевания, но они учат ему только своих самых известных членов.
+###_PLAYER
+There's a rumor on a secret strip spell.
+Ходят слухи о секретном заклинании на раздевание.
+###_NPC
+(She lowers her voice.)  Yes, House Corporis knows a spell to fully strip, but they only teach it to their most acclaimed members.
+(Она понижает голос.) Да, Дом Корпорис знает заклинание, позволяющее полностью раздеться, но они учат ему только самых известных членов.
+###_PLAYER
+I need to go.  (Leave her.)
+Мне надо идти. (Оставь ее.)
+Do you do real magic?
+Вы занимаетесь настоящей магией?
+###_NPC
+(She giggles.)  Of course not, don't be silly.  It's all roleplay.  Magic is created when everyone pretend it works.  Background work needs to be done for the spell to work.
+(Она хихикает.) Конечно нет, не говори глупостей. Это все ролевая игра. Магия создается, когда все делают вид, что она работает. Чтобы заклинание сработало, необходимо выполнить фоновую работу.
+###_PLAYER
+Can I join the school?
+Могу ли я присоединиться к школе?
+###_NPC
+We don't take new students right now, but you can join a house to battle other magicians.
+Сейчас мы не берем новых учеников, но вы можете присоединиться к дому, чтобы сражаться с другими магами.
+###_PLAYER
+Can I do magic?
+Могу ли я заниматься магией?
+###_NPC
+Only if you believe in it and you can speak clearly.  You cannot cast a spell while gagged.  It requires lots of focus.
+Только если ты в это веришь и можешь ясно говорить. Вы не можете произнести заклинание, пока у вас кляп. Это требует много внимания.
+###_PLAYER
+How do I do magic?
+Как мне заниматься магией?
+###_NPC
+Using your hands and words, you'll need to do the exact moves of the spell to cast.  (Use your mouse or finger to follow the spell pattern.)
+Используя свои руки и слова, вам нужно будет делать точные движения заклинания, чтобы произнести его. (Используйте мышь или палец, чтобы следовать образцу заклинания.)
+###_PLAYER
+What do spells do?
+Что делают заклинания?
+###_NPC
+It depends on the spell.  Physical spells can dress up or strip down, animate restraints and gags.  Mental spells can arouse, charm or hypnotize someone.
+Это зависит от заклинания. Физические заклинания могут одевать или раздевать, оживлять ограничения и кляпы. Ментальные заклинания могут кого-то возбудить, очаровать или загипнотизировать.
+###_PLAYER
+Enough questions.
+Достаточно вопросов.
+###_NPC
+(She nods.)  Is there anything else I can help you with?
+(Она кивает.) Я могу вам чем-нибудь еще помочь?
+###_PLAYER
+Who can I battle?
+С кем я могу сражаться?
+###_NPC
+If you're in a house, magicians from other houses will challenge you to battles.  Each house has a different philosophy.  You can also do online battles in chat rooms.
+Если вы находитесь в доме, маги из других домов вызовут вас на битву. У каждого дома своя философия. Вы также можете участвовать в онлайн-сражениях в чатах.
+###_PLAYER
+How do I battle against another magician?
+Как сразиться с другим магом?
+###_NPC
+You and the other magician will try to cast a spell, the first one to succeed wins the round.  Each round you win is a step toward the four steps victory.
+Вы и другой маг попытаетесь сотворить заклинание, и тот, кто первым преуспеет, побеждает в раунде. Каждый выигранный раунд — это шаг к победе в четыре шага.
+###_PLAYER
+What are the four steps?
+Какие четыре шага?
+###_NPC
+There are four steps to win a battle: use a stripping spell, animate a restraint, tighten it and use a gag spell.
+Есть четыре шага, чтобы выиграть битву: использовать заклинание раздевания, оживить ограничение, затянуть его и использовать заклинание кляпа.
+###_PLAYER
+Why not use a gag spell right away?
+Почему бы не использовать заклинание кляп сразу?
+###_NPC
+Your adversary will counter the gag spell easily if she's not properly restrained.
+Ваш противник легко справится с заклинанием кляпа, если его не сдержать должным образом.
+###_PLAYER
+Does it get harder?
+Становится тяжелее?
+###_NPC
+(She nods.)  Each step that's affecting you will make it harder for you to cast a spell.  (The blue square will be bigger, making it easier to fail.)
+(Она кивает.) Каждый шаг, влияющий на вас, будет усложнять вам произнесение заклинания. (Синий квадрат будет больше, что облегчит провал.)
+###_PLAYER
+What do I do after I win?
+Что мне делать после победы?
+###_NPC
+(She laughs.)  That's up to you, we are an adult club after all.  Use your imagination.
+(Смеется.) Решать тебе, мы все-таки взрослый клуб. Используй своё воображение.
+###_PLAYER
+Can we practice a battle?
+Можем ли мы потренироваться в бою?
+###_NPC
+(She grins.)  We certainly can.  Should I go easy on you or use all my tricks?
+(Она усмехается.) Конечно, можем. Должен ли я быть полегче с тобой или использовать все свои уловки?
+###_PLAYER
+Go easy on me.  (Easy battle.)
+Полегче со мной. (Легкий бой.)
+Let's do a casual battle.  (Regular battle.)
+Устроим казуальный бой. (Обычный бой.)
+I can take a challenge.  (Hard battle.)
+Я могу принять вызов. (Тяжелый бой.)
+Give me all you got.  (Extreme battle.)
+Дай мне все, что у тебя есть. (Экстремальный бой.)
+Let's talk about battles.
+Поговорим о битвах.
+Let's not do any battle.
+Давай не будем воевать.
+Pallium Exuere (Cloth Stripping)
+Паллиум Экзюэр (Снятие одежды)
+Animatus Funem (Animate Rope)
+Аниматус Фунем (Живая веревка)
+Animatus Ferrum (Animate Chain)
+Аниматус Феррум (Живая цепь)
+Funem Tensis (Rope Tightening)
+Фунем Тенсис (Натяжение веревки)
+Ferrum Tensis (Chain Tightening)
+Феррум Тенсис (Подтяжка цепи)
+Oratio Angustos (Block Speech)
+Орацио Ангустос (блок речи)
+Chain spells are harder than rope?
+Цепные заклинания сложнее веревки?
+###_NPC
+Correct, chain spells are harder to cast than rope spells, but being chained will make it more difficult for a magician to cast new spells.
+Верно, цепные заклинания творить труднее, чем заклинания веревки, но, будучи скованными, магу будет труднее творить новые заклинания.
+###_PLAYER
+Enough practice.
+Достаточно практики.
+House Maiestas.
+Дом Майестас.
+###_NPC
+In House Maiestas, they focus on domination, submission and magic to control the mind.  They have a huge hierarchy with strict rules and etiquette that they follow by the book.
+В Доме Майестас они сосредотачиваются на господстве, подчинении и магии для контроля над разумом. У них огромная иерархия со строгими правилами и этикетом, которым они следуют по книге.
+###_PLAYER
+House Vincula.
+Дом Винкула.
+###_NPC
+House Vincula is all about bondage magic.  The tighter the better.  They use spells to make evasion impossible or create devious traps.  Be careful if you're outnumbered.
+Дом Винкула полностью посвящен магии бондажа. Чем плотнее, тем лучше. Они используют заклинания, чтобы сделать уклонение невозможным, или создают коварные ловушки. Будьте осторожны, если вы в меньшинстве.
+###_PLAYER
+House Amplector.
+Дом Амплектор.
+###_NPC
+The caring House Amplector focuses on charms, enchantments and love magic.  You will see them hug and cuddle all the time.  They greatly help and care about each other.
+Заботливый Дом Амплектор делает акцент на чарах, очарованиях и любовной магии. Вы увидите, как они все время обнимаются и обнимаются. Они очень помогают и заботятся друг о друге.
+###_PLAYER
+House Corporis.
+Дом Корпорис.
+###_NPC
+House Corporis believes that true magic comes from the physical realm.  They use magic to inflict or endure pain, trigger arousal or orgasms.  They don't play soft.
+Дом Корпорис верит, что настоящая магия исходит из физического мира. Они используют магию, чтобы причинять или терпеть боль, вызывать возбуждение или оргазм. Они не играют мягко.
+###_PLAYER
+Are there rivalries between houses?
+Есть ли соперничество между домами?
+###_NPC
+House Maiestas and House Vincula are in a constant magic war.  And there's no truce in sight between House Amplector and House Corporis.
+Дом Майестас и Дом Винкула находятся в постоянной магической войне. И между Домом Амплектор и Домом Корпорис не предвидится перемирия.
+###_PLAYER
+I'd like to dress as a member from my house.
+Я хотела бы одеться как член из моего дома.
+###_NPC
+(She nods and dresses you with the official clothes.)  Be proud to represent your house.
+(Она кивает и одевает вас в официальную одежду.) Гордитесь тем, что представляете свой дом.
+###_PLAYER
+I want to join a house.
+Я хочу присоединиться к дому.
+###_NPC
+(She smiles.)  By joining a house, you will be able to climb its ladder.  Which house would you like to join?
+(Она улыбается.) Присоединившись к дому, вы сможете подняться по его лестнице. К какому дому вы хотели бы присоединиться?
+###_PLAYER
+I want to change my house.
+Я хочу изменить свой дом.
+###_NPC
+(She frowns.)  Joining a new house will reset your reputation.  Which house would you like to join?
+(Она хмурится.) Присоединение к новому дому сбросит вашу репутацию. К какому дому вы хотели бы присоединиться?
+###_PLAYER
+That's enough about houses.
+Хватит о домах.
+I will join House Maiestas.
+Я присоединюсь к Дому Майестас.
+###_NPC
+(She takes a few notes and dresses you with the official clothes.)  Very good, you will now be known as a member of House Maiestas.
+(Она делает несколько заметок и одевает вас в официальную одежду.) Очень хорошо, теперь вы будете известны как член Дома Майестас.
+###_PLAYER
+I will join House Vincula.
+Я присоединюсь к дому Винкула.
+###_NPC
+(She takes a few notes and dresses you with the official clothes.)  Very good, you will now be known as a member of House Vincula.
+(Она делает несколько заметок и одевает вас в официальную одежду.) Очень хорошо, теперь вы будете известны как член Дома Винкула.
+###_PLAYER
+I will join House Amplector.
+Я присоединюсь к Дому Амплектор.
+###_NPC
+(She takes a few notes and dresses you with the official clothes.)  Very good, you will now be known as a member of House Amplector.
+(Она делает несколько заметок и одевает вас в официальную одежду.) Очень хорошо, теперь вы будете известны как член Дома Амплектор.
+###_PLAYER
+I will join House Corporis.
+Я присоединюсь к Дому Корпорис.
+###_NPC
+(She takes a few notes and dresses you with the official clothes.)  Very good, you will now be known as a member of House Corporis.
+(Она делает несколько заметок и одевает вас в официальную одежду.) Очень хорошо, теперь вы будете известны как член Дома Корпорис.
+###_PLAYER
+I want to leave my house and the magic school.
+Я хочу покинуть свой дом и школу магии.
+###_NPC
+(She sighs and takes a few notes.)  Alright, you are not part of the magic school anymore.
+(Она вздыхает и делает несколько заметок.) Хорошо, ты больше не учишься в школе магии.
+###_PLAYER
+I've changed my mind.
+Я передумала.

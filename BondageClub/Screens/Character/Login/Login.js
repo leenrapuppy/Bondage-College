@@ -6,11 +6,11 @@ var LoginCreditsPosition = 0;
 var LoginThankYou = "";
 /* eslint-disable */
 var LoginThankYouList = [
-	"Aceffect", "Anna", "Aylea", "BlueWinter", "Brian", "Bryce", "Christian", "Clash", "DarkStar", 
-	"Desch", "Din", "Edwin", "Epona", "Escurse", "Fura", "Greendragon", "Hayden", "JoeyDubDee", 
-	"Kimuriel", "Michal", "Michel", "Mike", "Mike", "Mindtie", "Mob", "MrUniver", "Nick", 
-	"Nicolas", "Nightcore", "Rika", "Riley", "Ryner", "Samuel", "Shadow", "SirRobben", "Tam", 
-	"Tarram1010", "Tommy", "TopHat", "Troubadix", "Xepherio", "Ying", "Yuna", "Znarf", 
+	"Aceffect", "Anna", "ArashiSama", "Aylea", "bjugh", "BlueWinter", "bryce", "Christian", "Clash", 
+	"DarkStar", "Deadly", "Desch", "Dini", "Edwin", "Epona", "Escurse", "Greendragon", "Hayden", 
+	"JoeyDubDee", "Kimuriel", "Micah", "Michal", "Michel", "Mike", "Mike", "Mindtie", "Misa", 
+	"Nick", "Nightcore", "Rika", "Riley", "Samuel", "Shadow", "SirRobben", "Tam", 
+	"Tarram", "The", "TopHat", "Troubadix", "Xepherio", "Ying", "Yuna", "Znarf"
 ];
 
 /* eslint-enable */
@@ -174,19 +174,24 @@ let LoginInventoryFixups = [
  * @param {{Group: string, Name: string}[]} Appearance - The server-provided appearance object
  */
 function LoginPerformInventoryFixups(Inventory, Appearance) {
+	// Skip fixups on new characters
+	if (!Inventory || !Appearance) return;
+
 	let listsUpdated = false;
 	LoginInventoryFixups.forEach(fixup => {
 		// For every asset fixup to do, update the inventory
-		let group;
-		let idx;
-		if ((group = Inventory[fixup.Old.Group]) && group.indexOf(fixup.Old.Name) != -1) {
+		const group = Inventory[fixup.Old.Group];
+		let idx = group && group.indexOf(fixup.Old.Name);
+		if (group && idx != -1) {
 			group.splice(idx, 1);
+			if (!Inventory[fixup.New.Group])
+				Inventory[fixup.New.Group] = [];
 			Inventory[fixup.New.Group].push(fixup.New.Name);
 		}
 
 		// Update the player's item lists
 		["BlockItems", "LimitedItems", "HiddenItems", "FavoriteItems"].forEach(prop => {
-			const idx = Player[prop].findIndex(item => item.Group === fixup.Old.Group && item.Name === fixup.Old.Name);
+			idx = Player[prop].findIndex(item => item.Group === fixup.Old.Group && item.Name === fixup.Old.Name);
 			if (idx === -1) return;
 
 			Player[prop][idx].Group = fixup.New.Group;
@@ -506,7 +511,7 @@ function LoginResponse(C) {
 			if (CommonIsNumeric(C.Money)) Player.Money = C.Money;
 			Player.Owner = ((C.Owner == null) || (C.Owner == "undefined")) ? "" : C.Owner;
 			Player.Game = C.Game;
-			if (typeof C.Description === "string" && C.Description.startsWith("╬")) {
+			if (typeof C.Description === "string" && C.Description.startsWith(ONLINE_PROFILE_DESCRIPTION_COMPRESSION_MAGIC)) {
 				C.Description = LZString.decompressFromUTF16(C.Description.substr(1));
 			}
 			Player.Description = (C.Description == null) ? "" : C.Description.substr(0, 10000);
@@ -598,9 +603,11 @@ function LoginResponse(C) {
 			}
 			Player.SavedColors.length = ColorPickerNumSaved;
 
+			// Loads the online lists
 			Player.WhiteList = ((C.WhiteList == null) || !Array.isArray(C.WhiteList)) ? [] : C.WhiteList;
 			Player.BlackList = ((C.BlackList == null) || !Array.isArray(C.BlackList)) ? [] : C.BlackList;
 			Player.FriendList = ((C.FriendList == null) || !Array.isArray(C.FriendList)) ? [] : C.FriendList;
+
 			// Attempt to parse friend names
 			if (typeof C.FriendNames === "string") {
 				try {
@@ -624,6 +631,7 @@ function LoginResponse(C) {
 			LogLoad(C.Log);
 			ReputationLoad(C.Reputation);
 			SkillLoad(C.Skill);
+			CraftingLoadServer(C.Crafting);
 
 			// Calls the preference init to make sure the preferences are loaded correctly
 			PreferenceInitPlayer();

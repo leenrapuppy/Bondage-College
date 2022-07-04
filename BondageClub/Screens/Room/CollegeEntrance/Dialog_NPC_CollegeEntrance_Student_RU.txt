@@ -74,6 +74,18 @@ What is the required uniform?
 Students must wear ties, a skirt like mine and high leg socks.  Also, nothing too exotic will be accepted.
 Студентки должны носить галстуки, юбку, как у меня, и носки выше колена.  Кроме того, ничего слишком экзотического не разрешено.
 ###_PLAYER
+Can I get a college uniform?
+Могу ли я получить школьную форму?
+###_NPC
+These uniforms are expensive and we can get punished if we lose them.  Try your luck with another student that knows you better.
+Эта униформа дорогая, и нас могут наказать, если мы ее потеряем. Попытайте удачу с другим студентом, который знает вас лучше.
+###_PLAYER
+How can I go in the teacher's lounge?
+Как я могу пройти в учительскую?
+###_NPC
+Students are not allowed in there.  You'll need a key for that and they only give them to teachers.
+Студентов туда не пускают. Для этого вам понадобится ключ, и они дают их только учителям.
+###_PLAYER
 The place looks pretty old.
 Место выглядит довольно старым.
 ###_NPC

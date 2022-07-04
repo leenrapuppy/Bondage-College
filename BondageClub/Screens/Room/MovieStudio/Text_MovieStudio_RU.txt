@@ -1,0 +1,46 @@
+Main Hall
+Главный зал
+Your Profile
+Твой профиль
+Wait 1 Minute
+подождать 1 Минуту
+Scene 1
+Сцена 1
+Scene 2
+Сцена 2
+Scene 3
+Сцена 3
+(The movie director waves at you.  Telling you to try something else.)
+(Режиссер машет вам рукой. Предлагает попробовать что-нибудь еще.)
+(The movie director taps her foot.  She seems to be getting impatient.)
+(Режиссер топает ногой. Кажется, она теряет терпение.)
+(The movie director checks on her phone.  She seems to be bored by what you're doing.)
+(Режиссер проверяет свой телефон. Кажется, ей наскучило то, что вы делаете.)
+(The movie director yawns loudly.  She seems to want more action.)
+(Режиссер громко зевает. Кажется, она хочет больше действия.)
+(A maid enters the room, moves the drawer away and looks at you with a grin.)  Someone got herself in trouble?
+(Горничная входит в комнату, отодвигает ящик и с ухмылкой смотрит на вас.) Кто-то попал в беду?
+(A maid enters the room, moves the drawer away and rubs her hands greedily.)  Well, well, well, what do we have here?
+(Горничная входит в комнату, отодвигает ящик и жадно потирает руки.) Ну-ну-ну, что у нас тут?
+(A maid enters the room, moves the drawer away and smiles at you.)  Hello, Miss.
+(Горничная входит в комнату, отодвигает ящик и улыбается вам.) Здравствуйте, мисс.
+(A maid enters the room, moves the drawer away and nods politely.)  Sorry to bother you.
+(Горничная входит в комнату, отодвигает ящик и вежливо кивает.) Извините, что беспокою.
+(A Club Mistress enters the room, her heels clicking on the ground.  She looks at you two.)  What's going on here?
+(Хозяйка клуба входит в комнату, ее каблуки цокают по земле. Она смотрит на вас двоих.) Что здесь происходит?
+(A Club Mistress enters the room.  She stares at you two and crosses her arms.)  What are you two doing?
+(Хозяйка клуба входит в комнату. Она смотрит на вас двоих и скрещивает руки на груди.) Что вы двое делаете?
+(A Club Mistress enters the rooms.  She looks at you two and grins.)  What is happening here?
+(Хозяйка клуба входит в комнату. Она смотрит на вас двоих и усмехается.) Что здесь происходит?
+(A Club Mistress enters the rooms.  Her eyes wander around and she seems to ponder.)  This is interesting.
+(Хозяйка клуба входит в комнаты. Ее глаза блуждают по сторонам, и она, кажется, размышляет.) Это интересно.
+(The director stops the movie and cheers.)  Cut!  The End!  Fin!  We have a film!  Congratulations!
+(Режиссер останавливает фильм и приветствует.) Снято! Конец! Фин! У нас есть фильм! Поздравляем!
+(The director stops the movie and cheers.)  Cut!  This is it girls, we made it!  Congratulations!
+(Режиссер останавливает фильм и приветствует.) Снято! Вот и все, девочки, мы сделали это! Поздравляем!
+(The director stops the movie and cheers.)  Cut!  Wonderful!  You will all become stars.  Congratulations!
+(Режиссер останавливает фильм и приветствует.) Снято! Замечательно! Вы все станете звездами. Поздравляем!
+(The director stops the movie and cheers.)  Cut!  Filming is done, it's time to edit it.  Congratulations!
+(Режиссер останавливает фильм и приветствует.) Снято! Съемка закончена, пора ее смонтировать. Поздравляем!
+(As soon as you release her, they quickly pounce on you and grab your arms to immobilise you.  The journalist defies you.)  Here we go!
+(Как только вы отпускаете ее, они быстро набрасываются на вас и хватают за руки, чтобы обездвижить. Журналист бросает вам вызов.) Вот так!

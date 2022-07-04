@@ -1,100 +1,79 @@
 ﻿Enter your room information
-Введите информацию о комнате
-Room Name (Letters & numbers only)
-Имя Комнаты (Только буквы и цифры )
-A short description or what's going on
-Краткое описание или что происходит
+Введите информацию о вашей комнате
+Room Name
+Название Комнаты
+(Letters & numbers only)
+(только буквы и цифры)
+Description
+Описание
+Language
+Язык
+Description of the room (Letters & numbers only)
+Описание комнаты (только буквы и цифры)
+Ban List
+бан-лист
+Administrator List
+Список Администраторов
 Private (Need exact name to find it)
-Приватная (нужно точное имя, чтобы найти ее)
+Частный (нужно точное имя, чтобы найти его)
+Locked (Only admins can leave or enter)
+Заблокировано (только администраторы могут выйти или войти)
 Select the background
 Выберите фон
-Introduction
-Вступление
-Kidnappers League
-Лига Похитителей
-Maid Quarters
-Помещение для прислуги
-Main Hall
-Главный Зал
-Club Management
-Руководство Клуба
-Private Room
-Приватная Комната
-Shibari Dojo
-Шибари Додзе
-Bedroom
-Спальня
-Horse Stable
-Конюшня
-Nursery
-Питомник
-Prison Hall
-Тюремный Зал
-BDSM Room Blue
-Синяя БДСМ комната
-BDSM Room Purple
-Фиолетовая БДСМ комната
-BDSM Room Red
-Красная БДСМ комната
-Gardens
-Сады
-Indoor Pool
-Крытый бассейн
-Outdoor Pool
-Открытый бассейн
-Maid Café
-Горничная Кафе
-Public Bath
-Общественная Баня
-Park Day
-Парк днем
-Park Night
-Парк ночью
-Chill Room
-Холодная Комната
-Boudoir
-Будуар
-Bondage Bedchamber
-Бондаж Опочивальня
-Beach
-Пляж
-Forest Path
-Лесная Тропинка
-Deep Forest
-Густой Лес
-Spooky Forest
-Жуткий Лес
-Abandoned Building
-Заброшенное Здание
-Balcony Night
-Балкон Ночью
-Cozy Living Room
-Уютная Гостиная
-Rooftop Party
-Вечеринка На Крыше
-Entrance
-Вступление
-Meeting
-Встреча
-Therapy
-Терапия
-Padded Cell
-Обитая войлоком
-Padded Cell 2
-Обитая войлоком 2
-Room maximum size, from 2 to 10 members
-Комната максимального размера, от 2 до 10 членов
+Size (2-10)
+Размер (2-10)
 Create
-Создайте
-Cancel
-Отмена
+Создать
+ Exit
+ Выход
+Selection
+Выбор
 Creating your room...
 Создание вашей комнаты...
 This room name is already taken
-Это имя для комнаты уже занято
+Это название комнаты уже занято
 Account error, try to relog
-Ошибка аккаунта, попробуйте перезайти
+Ошибка аккаунта, попробуйте перелогиниться
 Invalid room data
-Недействительные данные комнаты
+Неверные данные комнаты
 Room created, joining it...
-Комната создана, присоединение к ней...
+Комната создана, присоединяюсь к ней...
+Use member numbers separated by commas (ex: 2313, 12401, ...)
+Используйте номера членов, разделенные запятыми (ex: 2313, 12401, ...)
+Use member numbers separated by commas (ex: 16780, ...)
+Используйте номера членов, разделенные запятыми (ex: 16780, ...)
+Ban blacklist
+Запретить черный список
+Ban ghostlist
+Запретить список призраков
+Add Owner
+Добавить Хозяина
+Add Lovers
+Добавить Возлюбленных
+Background
+Фон
+Block Categories
+Блокировать категории
+No Game
+Нет игры
+LARP
+LARP
+Magic Battle
+Магическая битва
+GGTS
+GGTS
+(Click anywhere to return)
+(Нажмите в любом месте, чтобы вернуться)
+English
+English
+French
+Français
+Spanish
+Española
+German
+Deutsch
+Chinese
+中国人
+Russian
+Русский
+

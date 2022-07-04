@@ -10,7 +10,7 @@ function KinkyDungeonAggressive(enemy) {
 	if (enemy && enemy.hostile > 0) return true;
 	if (!KDGameData.PrisonerState || KDGameData.PrisonerState == "chase") return KDHostile(enemy);
 	if (enemy && KDFactionRelation(KDGetFaction(enemy), "Jail") < -0.4) return KDHostile(enemy);
-	if (enemy && KDFactionRelation(KDGetFaction(enemy), "Jail") < -0.1 && KDGameData.PrisonerState != 'jail') return KDHostile(enemy);
+	if (enemy && KDFactionRelation(KDGetFaction(enemy), "Jail") < -0.1 && KDGameData.PrisonerState != 'jail' && (KDGameData.PrisonerState != 'parole' || !KinkyDungeonPlayerInCell())) return KDHostile(enemy);
 	return false;
 }
 
@@ -31,7 +31,7 @@ function KDAllied(enemy) {
  */
 function KDHostile(enemy, enemy2) {
 	if (enemy == enemy2) return false;
-	return (enemy.rage > 0) || (!enemy2 && KDFactionHostile("Player", enemy) || (enemy2 && KDFactionHostile(KDGetFaction(enemy), enemy2)));
+	return (enemy.rage > 0) || (!(!enemy2 && enemy.ceasefire > 0) && ((!enemy2 && KDFactionHostile("Player", enemy) || (enemy2 && KDFactionHostile(KDGetFaction(enemy), enemy2)))));
 }
 
 /**
@@ -43,7 +43,19 @@ function KDGetFaction(enemy) {
 	let E = enemy.Enemy;
 	if (enemy.rage > 0) return "Rage";
 	if (enemy.faction) return enemy.faction;
-	if ((E && E.allied) || (enemy.allied && !enemy.faction && !enemy.Enemy.faction)) return "Player";
+	if ((E && E.allied) || ((enemy.allied || (E && E.faction && KDFactionAllied("Player", E.faction) && !KDEnemyHasFlag(enemy, "NoFollow"))) && !enemy.faction && !KDEnemyHasFlag(enemy, "Shop"))) return "Player";
+	if (E && E.faction) return E.faction;
+	return "Enemy";
+}
+
+/**
+ * Gets the faction of the enemy, returning "Player" if its an ally, or "Enemy" if no faction
+ * @param {entity} enemy
+ * @returns {string}
+ */
+function KDGetFactionOriginal(enemy) {
+	let E = enemy.Enemy;
+	if (enemy.faction) return enemy.faction;
 	if (E && E.faction) return E.faction;
 	return "Enemy";
 }
@@ -81,7 +93,7 @@ function KDFactionAllied(a, b) {
 	if (a == "Rage" || b == "Rage") return false;
 	if (a == "Player" && b == "Player") return true;
 	if (b == "Enemy" && a == "Enemy") return true;
-	if (KDFactionRelation(a, b) >= 0.5) return true;
+	if (KDFactionRelation(a, b) >= 0.7) return true;
 	if (a == b) return true;
 	return false;
 }

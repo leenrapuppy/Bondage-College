@@ -1,0 +1,158 @@
+###_NPC
+Keep that gag on and someday you'll be enslaved as a puppy girl.
+继续戴着这个口塞，总有一天你会像小母狗一样被奴役的。
+(The Mistress greets you back with a smile.)  Thanks for taking good care of my pets.
+（女主人微笑着向你打招呼。）谢谢你照顾我的宠物。
+(The Mistress gives you a furious look.)  My poor pet girl!  You should be ashamed of yourself.
+（女主人愤怒地看着你。）我可怜的宠物女孩！你应该为自己感到羞耻。
+###_PLAYER
+That should be easy.
+那应该很容易。
+###_NPC
+(She nods.)  Yes, it will.  Take my four puppy girls to the park, make them walk, play with them for a while and get them back here.
+（她点头。）是的，会的。带我的四只小母狗去公园，让她们走走，陪她们玩一会儿，然后带她们回到这里。
+###_PLAYER
+What do I need to do?
+我需要做什么？
+###_NPC
+Take my four puppy girls to the park, make them walk, play with them for a while and get them back here.
+带我的四只小母狗去公园，让她们走走，陪她们玩一会儿，然后带她们回到这里。
+###_PLAYER
+That sounds complicated.
+这听起来很复杂。
+###_NPC
+(She frowns.)  It's not.  Take my four puppy girls to the park, make them walk, play with them for a while and get them back here.
+（她皱着眉头。）并不。带我的四只小母狗去公园，让她们走走，陪她们玩一会儿，然后带她们回到这里。
+###_PLAYER
+How many puppies do you have?
+你有几只小狗？
+###_NPC
+I have four puppy girls, take them to the park, make them walk, play with them for a while and get them back here.
+我有四只小母狗，带她们去公园，让她们走走，陪她们玩一会儿，然后带她们回到这里。
+###_PLAYER
+What's the catch?
+接球游戏要玩什么？
+###_NPC
+There's no catch, just take them outside and make sure they don't run away.  If you lose one of them, there will be trouble.
+不用玩接球游戏，把她们带到外面，确保她们不会逃跑。如果丢了一个，就有麻烦了。
+###_PLAYER
+Anything I should know?
+有什么我应该知道的吗？
+###_NPC
+Just take them outside and make sure they don't run away.  If you lose one of them, there will be trouble.
+把她们带到外面，确保她们不会逃跑。如果丢了一个，就有麻烦了。
+###_PLAYER
+You'll pay me after?
+之后给我钱？
+###_NPC
+Yes, after the job is done.  Just take them outside and make sure they don't run away.  If you lose one of them, there will be trouble.
+是的，在工作完成后。把她们带到外面，确保她们不会逃跑。如果丢了一个，就有麻烦了。
+###_PLAYER
+What trouble?
+有什么麻烦？
+###_NPC
+Lose one of them and you'll see.  (She smirks.)
+丢了一个，你就知道了。（她得意地笑了笑。）
+###_PLAYER
+I'll do it!  (Go walk the puppies.)
+我会做的！（去遛小狗。）
+I know I can do it!  (Go walk the puppies.)
+我认为我能做到！（去遛小狗。）
+That was scary, I almost lost them.
+那太可怕了，我差点弄丢她们。
+###_NPC
+(She frowns.)  Well you didn't, here's your money.  (She gives you $120.)
+（她皱着眉头。）但是你没有，这是你的钱。（她给你$120。）
+###_PLAYER
+The pleasure was mine.
+我很享受。
+###_NPC
+(She smiles.)  I'll call you again, here's your money.  (She gives you $120.)
+（她微笑。）我会再找你的，这是你的钱。（她给你$120。）
+###_PLAYER
+It was funny to take them for a walk.
+带她们去散步很有趣。
+###_NPC
+(She nods.)  Very good, here's your money.  (She gives you $120.)
+（她点头。）很好，这是你的钱。 （她给你 120 美元。）
+###_PLAYER
+Pets are safe under my control.
+在我的控制的时候，宠物是安全的。
+###_NPC
+(She gives you a thumbs up.)  I'll remember you, here's your money.  (She gives you $120.)
+（她向你竖起大拇指。）我会记住你的，这是你的钱。（她给你$120。）
+###_PLAYER
+Thank you!  (Leave her.)
+谢谢！（离开她。）
+(Take the money and leave her.)
+（拿好钱，然后离开她。）
+I'm so sorry Miss.
+真对不起，女士。
+###_NPC
+I'll give you a good reason to be sorry, get naked girl!
+我会给你一个很好的说对不起的理由，脱光衣服，女孩！
+###_PLAYER
+I'll do better next time.
+下次我会做得更好。
+###_NPC
+I'll make sure you will, get naked girl!
+我会确保你会，脱光衣服，女孩！
+###_PLAYER
+Next time I'll bring my whip.
+下次我会带上我的鞭子。
+They were too feisty.
+她们太嚣张了。
+###_NPC
+You need a lesson, get naked girl!
+你需要一个教训，脱光衣服，女孩！
+###_PLAYER
+Don't you dare touching a Mistress!
+你敢碰女主人？！
+###_NPC
+(She gulps.)  Fine Mistress DialogPlayerName, let's speak later then.
+（她咽了咽口水。）好的，女主人DialogPlayerName，我们稍后再说。
+###_PLAYER
+Strip here?
+在这里脱衣服？
+###_NPC
+Don't force me to repeat, get naked girl.
+不要让我重复，脱光衣服，女孩。
+###_PLAYER
+Fine!  (Strip for her.)
+好！（按她要求的脱衣服。）
+###_NPC
+(You strip for her as she smirks.)  Since you cannot take care of puppies, you will become one.
+（你按她要求的脱衣服，她得意得笑。）既然你不能照顾小狗，你就会成为一只小狗。
+###_PLAYER
+Yes Mistress.  (Strip for her.)
+是，女主人。（按她要求的脱衣服。）
+Are you serious?
+你是认真的？
+###_NPC
+Very serious.  (She straps you down and dress you as a pet.)  You will learn from that experience.
+非常认真。（她把你绑起来，把你打扮成宠物。）你将从这次经历中学到教训。
+###_PLAYER
+No way!
+不可能！
+###_NPC
+Watch me!  (She straps you down and dress you as a pet.)  You will learn from that experience.
+看着我！（她把你绑起来，把你打扮成宠物。）你将从这次经历中学到教训。
+###_PLAYER
+(Nod and stay silent.)
+（点头并保持沉默。）
+###_NPC
+Good girl.  (She straps you down and dress you as a pet.)  You will learn from that experience.
+乖女孩。（她把你绑起来，把你打扮成宠物。）你将从这次经历中学到教训。
+###_PLAYER
+(Whimper and look down.)
+（呜咽着往下看。）
+###_NPC
+As punishment, you will experience what happened to my poor pet and wander the club restrained.  Now go!
+作为惩罚，你会经历我可怜的宠物所发生的事情，并被束缚着在俱乐部里游玩。现在，快走吧！
+###_PLAYER
+(Try to struggle out.)
+（努力挣扎。）
+(Stare at her and grumble.)
+（盯着她，嘟哝着。）
+(Leave her.)
+（离开她。）

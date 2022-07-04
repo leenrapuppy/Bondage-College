@@ -1,0 +1,68 @@
+Leave Pandora's Box
+Покинуть ящик Пандоры
+Go upstairs
+Идти наверх
+Go downstairs
+Спуститься вниз
+Search the room
+Обыскать комнату
+Rest to recover with time
+Отдыхайте, чтобы со временем восстановиться
+Paint the room
+Покрасить комнату
+Stop searching
+Остановить поиск
+Stop resting
+Перестать отдыхать
+You already found the TargetName.  Get out now.
+Вы уже нашли TargetName. Уберайтесь немедленно.
+You found the TargetName.  Get out while you can.
+Вы нашли TargetName. Убирайся, пока можешь.
+You first need to find some paint.
+Сначала нужно найти краску.
+This room is already painted.
+Эта комната уже окрашена.
+The room must be empty.
+Комната должна быть пустой.
+Go north (W)
+Идите на север (W/Ц)
+Go south (S)
+Иди на юг (S/Ы)
+Go east (D)
+Идти на восток (D/В)
+Go west (A)
+Идти на запад(A/Ф)
+underground
+подземный
+ground
+земля
+second
+второй
+north
+север
+south
+юг
+west
+запад
+east
+восток
+(The lights turn on and you're quickly spotted.  Dominatrixes confiscate your goods and drag you to a cell.)  I'll teach you a lesson little burglar.
+(Включается свет, и вас быстро замечают. Доминатриксы конфискуют ваши вещи и тащат вас в камеру.) Я преподам тебе урок, маленькая грабительница.
+Work:
+Работа:
+FTW
+FTW
+The Box Sucks
+Коробка-отстой
+The Bondage Club Rules
+Правила Клуба Бондажа
+Eat my shorts
+Съешь мои шорты
+BC > PB
+BC > PB
+REDRUM
+РЕДРУМ
+Get out!
+Убирайся!
+BDSM 4 EVER
+BDSM 4 EVER

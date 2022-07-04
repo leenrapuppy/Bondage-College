@@ -5,7 +5,7 @@ Opponent moves
 Brute Force
 蛮力
 Domination
-压制
+支配
 Sneakiness
 潜行
 Meditation
@@ -127,7 +127,7 @@ Just you wait!
 (You tremble and try to look away.)
 （你瑟瑟发抖，试着看别的地方。）
 I'll never bow down for you.
-我是不会想你认输的！
+我是不会向你认输的！
 (You grab each other and try to make the other fall down, but you both tumble down to the ground.)
 （你们同时抓住对方并让对方绊倒。两人都摔倒在地。）
 Ugly move, Bruce Lea.

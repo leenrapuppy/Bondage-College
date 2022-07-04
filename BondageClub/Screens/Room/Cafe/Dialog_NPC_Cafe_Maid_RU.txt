@@ -1,0 +1,344 @@
+###_NPC
+You may wear gags in the cafe, but they do make it much harder to eat and drink.
+Вы можете носить кляпы в кафе, но из-за них вам будет намного труднее есть и пить.
+Hello sister.  I see you are busy serving.  Come here and let me help you.
+Привет сестра. Я вижу, ты занята обслуживанием. Иди сюда и позволь мне помочь тебе.
+Sorry miss. You don't have enough money for that right now.
+Извините, мисс. У вас сейчас недостаточно денег для этого.
+(The maid takes your money and gives you a can of energy drink.  You consume it, but only feel invigorated and no more skillful than before.)
+(Горничная берет твои деньги и дает тебе банку энергетического напитка. Ты пьешь его, но чувствуешь себя только бодрее и более умелой, чем раньше.)
+(The maid takes your money and gives you a bottle of milk.  You consume it and feel comforted, but you don't feel any more confused or numb than you already were.)
+(Горничная берет твои деньги и дает тебе бутылку молока. Ты выпиваешь его и чувствуешь себя комфортно, но ты чувствуешь себя более растерянной или онемевшей, чем раньше.)
+(The maid takes your money and gives you your choice of cupcake.  You consume it, feeling as receptive and engaged as you already were.)
+(Горничная берет твои деньги и дает тебе кекс на выбор. Ты съедаешь его, чувствуя себя такой же восприимчивой и занятой, какой ты уже была.)
+I'm sorry Miss.  I cannot help you.
+Простите, мисс. Я не могу вам помочь.
+(She first shakes her head to avoid the gag, but finally surrenders as you silence her.)
+(Сначала она качает головой, чтобы избежать кляпа, но в конце концов сдается, когда ты заставляешь ее замолчать.)
+(You remove her gag while she stretches her mouth.)  Thanks Miss, it's hard to dispatch maids with that gag.
+(Ты вытаскиваешь ее кляп, пока она растягивает рот.) Спасибо, мисс, с этим кляпом трудно расправиться с горничными.
+(She grumbles while you push some earplugs in.) I can't hear you properly now.
+(Она ворчит, пока ты втыкаешь ей беруши.) Я плохо вас слышу.
+(You pull the earplugs out.) That's better I can hear you clearly now.
+(Ты вытаскиваешь беруши.) Так лучше, теперь я вас отчетливо слышу.
+(She sighs and turns around while you restrain her arms.)  It might be a little hard to work like that Miss.
+(Она вздыхает и оборачивается, пока ты держишь ее руки.) Возможно, будет немного трудновато так работать, мисс.
+(You free her arms and she nods happily.)  Thanks a lot Miss.
+(Ты освобождаешь ее руки, и она радостно кивает.) Большое спасибо, мисс.
+(She submits to you while restrain you hands.)  You are a kinky one.
+(Она подчиняется тебе пока ты ограничиваешь её руки.) Ты извращенка.
+(You release her hands and she nods a little.)  Thank you Miss.
+(Ты отпускаешь ее руки, и она слегка кивает.) Спасибо, мисс.
+(She submits to you while you restrain her legs securely.)  I don't need to move anyway.
+(Она подчиняется тебе, пока ты надежно держишь ее ноги.) Мне все равно не нужно двигаться.
+(You release her legs from the restraint.)  Let me know if I can help you Miss.
+(Ты освобождаешь ее ноги от ограничений.) Дайте мне знать, если я могу вам помочь, мисс.
+(She looks puzzled as you restrain her feet.)  I'll stay on guard here Miss.
+(Она выглядит озадаченной, когда ты сдерживаешь ее ноги.) Я буду здесь на страже, мисс.
+(You release her feet and she wiggles them.)  Thanks Miss, it was troublesome.
+(Ты отпускаешь ее ноги, и она шевелит ими.) Спасибо, мисс, это было хлопотно.
+(You strap the collar on her while she blushes.)  You're quite a Dominant Miss.
+(Ты надеваешь на нее ошейник, пока она краснеет.) Ты настоящая Доминантная Мисс.
+(You remove the collar around her neck.)  Thanks Miss.
+(Ты снимаешь ошейник с ее шеи.) Спасибо, мисс.
+(You snap the belt around her waist and crotch while she sighs.)  No more fun for the crew.
+(Ты застегиваешь ремень вокруг ее талии и промежности, пока она вздыхает.) Больше никаких развлечений для экипажа.
+(You unlock the belt from her waist, and she smiles.)  Thanks a lot Miss DialogPlayerName.
+(Ты расстегиваешь ремень на ее талии, и она улыбается.) Большое спасибо, мисс DialogPlayerName.
+(You strap the device on her head as she nods slowly.)  This will not make my job easier Miss.
+(Ты надеваешь устройство ей на голову, она медленно кивает.) Это не облегчит мне работу, мисс.
+(You remove the device and she nods rapidly.)  Thanks a million, this is much better.
+(Ты убираешь устройство, и она быстро кивает.) Миллион благодарностей, стало намного лучше.
+(She jumps from the searing pain on her breast.)  Ouch!  Miss Head Maid!
+(Подпрыгивает от жгучей боли в груди.) Ой! Мисс старшая горничная!
+(You whip her breast with the leather crop as she whimpers and bows her head.)
+(Ты хлещешь ее по груди кожаным ремнем, пока она скулит и склоняет голову.)
+(You whip her butt hard as she sighs.)  I promise I'll work harder Miss Head Maid.
+(Ты сильно бьешь ее по заднице, когда она вздыхает.) Я обещаю, что буду усерднее работать, мисс старшая горничная.
+(She grumbles as you strike her butt with the crop.)  A maid work isn't easy.
+(Она ворчит, когда ты бьешь ее хлыстом по заднице.) Работа горничной нелегка.
+Greetings Mistress DialogPlayerName.  Welcome to the cafe.  How may I serve you?  (She does curtsies for you.)
+Приветствую, госпожа DialogPlayerName. Добро пожаловать в кафе. Чем я могу служить вам? (Она делает тебе реверанс.)
+Greetings head maid DialogPlayerName.  Welcome to the cafe.  How may I serve you?  (She does curtsies for you.)
+Приветствую старшая горничная DialogPlayerName. Добро пожаловать в кафе. Чем я могу служить вам? (Она делает тебе реверанс.)
+Hi sister, are you off duty? I'm sure you deserve a break.
+Привет, сестра, ты не на работе? Я уверен, что ты заслуживаешь перерыва.
+Hello and welcome to the cafe. Can I get you anything to eat or drink?
+Здравствуйте и добро пожаловать в кафе. Могу я принести вам что-нибудь поесть или попить?
+###_PLAYER
+Can I take drinks out of the bar to my friends?
+Могу ли я принести напитки из бара своим друзьям?
+###_NPC
+If you want to do that, I suggest you ask at the maid's quarter first.  They can set you up with a tray for carrying drinks.
+Если вы хотите сделать это, я предлагаю вам сначала спросить в квартале горничной. Они могут поставить вам поднос для переноски напитков.
+###_PLAYER
+What does the cafe serve?
+Что предлагает кафе?
+###_NPC
+We have a range of food and drink on offer today, including some speciality items.
+Сегодня мы предлагаем широкий выбор еды и напитков, в том числе некоторые фирменные блюда.
+###_PLAYER
+I would like to buy a regular drink.
+Я хотела бы купить обычный напиток.
+###_NPC
+You could buy them here, but it's better for the maids serving these drinks if you buy from them instead.  Then they get a nice tip.
+Вы можете купить их здесь, но для горничных, подающих эти напитки, будет лучше, если вы купите их у них. Тогда они получают хорошие чаевые.
+###_PLAYER
+I would like to buy a speciality.
+Я хотела бы купить специальные напитки.
+###_NPC
+Certainly.  Which of our specials would you like to buy?
+Безусловно. Какие из наших специальных напитков вы хотели бы купить?
+Certainly, but don't have time to feed you like a baby.  You need to free yourself first.
+Конечно, но у меня нет времени кормить тебя, как младенца. Сначала нужно освободиться.
+I would love to serve you miss, but it's rather difficult to serve those right now.
+Я бы с радостью угостила вас, мисс, но сейчас довольно сложно обслужить вас.
+###_PLAYER
+(Struggle in your restraints.)
+(Борьба со своими ограничениями.)
+###_NPC
+Sorry I am rather too busy serving the Cafe to release you now. Try one of the other maids in the main hall.
+Извините, я слишком занята обслуживанием кафе, чтобы отпустить вас сейчас. Попробуйте одну из других горничных в главном зале.
+###_PLAYER
+That is all for now.  (Leave her.)
+Это все. (Оставь ее.)
+What are you regular refreshments?
+Какие у вас обычные закуски?
+###_NPC
+We have a range of drinks.  Maids are regularly serving them around the club.
+У нас есть ассортимент напитков. Горничные регулярно подают их по всему клубу.
+###_PLAYER
+What are your specialities?
+Какие у тебя специальные напитки?
+###_NPC
+Today we have energy drinks, formula milk and freshly made cupcakes.
+Сегодня у нас энергетические напитки, молочная смесь и свежеприготовленные кексы.
+Today we have energy drinks and some special milk that is very comforting.
+Сегодня у нас есть энергетические напитки и немного специального молока, которое очень успокаивает.
+###_PLAYER
+What is so special about those items?
+Что такого особенного в этих предметах?
+###_NPC
+Well the energy drinks are very stimulating for mind and body.  The nursery supplies this milk and the cupcakes seem to really amplify the mood you are in.
+Энергетические напитки очень стимулируют ум и тело. Детский сад поставляет это молоко, и кексы, кажется, действительно улучшают ваше настроение.
+###_PLAYER
+They sound a bit suspicious.  Are you sure they are safe?
+Они звучат немного подозрительно. Вы уверены, что они в безопасны?
+###_NPC
+Of course they are Miss.  If there happens to be any side effects from them then I am sure they will only be temporary.
+Конечно, они мисс. Если и будут какие-то побочные эффекты от них, то я уверена, что они будут только временными.
+###_PLAYER
+Temporary side effects?
+Временные побочные эффекты?
+###_NPC
+Yes, some customers claimed our specialities had an effect on them, but only for an hour.
+Да, некоторые клиенты утверждали, что наши фирменные блюда подействовали на них, но только на час.
+###_PLAYER
+That is all I wanted to know.
+Это все, что я хотел знать.
+###_NPC
+Very well.  Can I get you anything?
+Очень хорошо. Принести вам что-нибудь?
+###_PLAYER
+Okay. I will catch one of them
+Хорошо. я возьму одну из них
+I would like an energy drink
+Я хотела бы энергетический напиток
+###_NPC
+Certainly miss. They are $REPLACEMONEY per can.
+Конечно мисс. Они стоят $REPLACEMONEY за банку.
+###_PLAYER
+I would like a glass of milk
+Я хотела бы стакан молока
+###_NPC
+Certainly miss. That is $REPLACEMONEY per glass.
+Конечно мисс. Это $REPLACEMONEY за стакан.
+###_PLAYER
+I would like a cupcake
+Я бы хотела кекс
+###_NPC
+Certainly miss. They are $REPLACEMONEY each.
+Конечно мисс. Каждый из них стоит $REPLACEMONEY.
+###_PLAYER
+Actually, I won't have a special at the moment
+На самом деле, у меня не будет специального в данный момент
+###_NPC
+That is quite alright.  Is there anything else you would like?
+Это вполне нормально. Есть ли что-нибудь еще, что вы хотели бы?
+###_PLAYER
+(Buy an energy drink.)
+(Купить энергетический напиток.)
+###_NPC
+(The maid takes your money and gives you a can of energy drink.  You consume it and feel invigorated and more skillful.)
+(Горничная берет ваши деньги и дает вам банку энергетического напитка. Вы выпиваете его и чувствуете себя бодрее и более умелым.)
+###_PLAYER
+(Buy a glass of milk.)
+(Купить стакан молока.)
+###_NPC
+(The maid takes your money and gives you a bottle of milk.  You consume it and feel comforted, but also slightly confused and numb.)
+(Горничная берет ваши деньги и дает вам бутылку молока. Вы выпиваете его и чувствуете себя успокоенным, но также немного сбитым с толку и онемевшим.)
+###_PLAYER
+(Buy cupcake.)
+(Купить кекс.)
+###_NPC
+(The maid takes your money and gives you your choice of cupcake.  You consume it and feel more conscious, receptive and engaged.)
+(Горничная берет ваши деньги и дает вам кекс на выбор. Вы съедаете его и чувствуете себя более сознательным, восприимчивым и вовлеченным.)
+###_PLAYER
+What were those other specials?
+Что это за другие специальные предложения?
+###_NPC
+We have energy drinks, milk and cupcakes.  Would you like one of them?
+У нас есть энергетические напитки, молоко и кексы. Хотели бы вы одного из них?
+Hello sister.  I see you are busy serving.  I would love to help you, but it is rather difficult for me right now
+Привет сестра. Я вижу, ты занята обслуживанием. Я бы с радостью помогла вам, но мне сейчас довольно сложно
+###_PLAYER
+(Nod and go closer to her.)
+(Кивай и подходи к ней поближе.)
+###_NPC
+(As a sister, she shares a bound cuddle with you.  She then resumes serving the cafe.)
+(Как сестра, она обнимается с вами в объятиях. Затем она возобновляет обслуживание в кафе.)
+Yes, it looks like you bound to serve with that tray.  Alas it is not so easy for me to run this cafe while bound.
+Да, похоже, ты обязана обслуживать с этим подносом. Увы, мне не так просто управлять этим кафе в связанном состоянии.
+###_PLAYER
+You should be able to work while bound.
+Ты должна иметь возможность работать в связанном состоянии.
+###_NPC
+Unfortunately running this cafe is not so easy as just hopping around the rooms with a tray full of drinks
+К сожалению, управлять этим кафе не так просто, как просто прыгать по комнатам с подносом, полным напитков.
+###_PLAYER
+I'm fine thanks.  (Leave her.)
+Я в порядке, спасибо. (Оставь ее.)
+###_NPC
+Hello sister.  I see your tray is empty.  Come here and I'll refill it.
+Привет сестра. Я вижу, твой поднос пуст. Иди сюда, и я пополню его.
+I'll just top up that tray for you and check your bondage.
+Я просто наполню этот поднос для тебя и проверю твои ограничения.
+Yes, it looks like you are good to serve. I'll still check them after I top up your tray.
+Да, похоже, вы хорошо обслуживаете. Я все равно проверю их после того, как наполню твой поднос.
+###_PLAYER
+Can I choose my restraints?
+Могу ли я выбрать ограничения?
+###_NPC
+No, you can not. Basic maids need to learn to accept their role with good grace and humility.
+Нет, ты не можешь. Простые горничные должны научиться принимать свою роль с изяществом и смирением.
+I suppose you may, given how much you have served our sorority.
+Я полагаю, вы можете, учитывая, сколько вы служили нашему женскому обществу.
+###_PLAYER
+I want some different bondage.
+Я хочу другой бондаж.
+###_NPC
+Certainly, head maid DialogPlayerName. What style of bondage would you like to work in?
+Конечно, старшая горничная DialogPlayerName. В каком стиле бондажа вы хотели бы работать?
+###_PLAYER
+(Stare at her and mumble into your gag.)
+(Смотрите на нее и бормочете в кляп.)
+###_NPC
+(She removes your gag.) What is it head maid DialogPlayerName?
+(Она убирает твой кляп.) Что это за старшая горничная DialogPlayerName?
+(She removes your gag.) Seeing as how you have such a good rep in the sorority, I will let you talk for now.
+(Она убирает твой кляп.) Учитывая, что у тебя такая хорошая репутация в женском клубе, я позволю тебе пока говорить.
+(She shakes her head.)  Maids should remain gagged while serving drinks.
+(Она качает головой.) Горничные должны затыкать рот во время подачи напитков.
+###_PLAYER
+Thanks.
+Спасибо.
+###_NPC
+Anything to help a sister.  (She makes sure your tray is full and that you are securely bound for serving drinks.)
+Все, что угодно, чтобы помочь сестре. (Она следит за тем, чтобы ваш поднос был полон и чтобы вы были надежно привязаны для подачи напитков.)
+###_PLAYER
+(Nod your head.)
+(Кивать головой.)
+Shibari style with ropes.
+Стиль шибари с веревками.
+###_NPC
+Yes, head maid DialogPlayerName.  (She gags and binds you tightly using classic bondage techniques.)
+Конечно, старшая горничная DialogPlayerName. (Она затыкает рот и крепко связывает вас, используя классические техники бондажа.)
+###_PLAYER
+Use duct tape, lots of duct tape.
+Используйте клейкую ленту, много клейкой ленты.
+###_NPC
+Yes, head maid DialogPlayerName.  (She uses a whole roll of duct tape on your body.)
+Конечно, старшая горничная DialogPlayerName. (Она использует целый рулон клейкой ленты на вашем теле.)
+###_PLAYER
+Lock me in leather.
+Закрой меня в кожу.
+###_NPC
+Yes, head maid DialogPlayerName.  (She secures and gags you with tight leather, locking every buckle.)
+Конечно, старшая горничная DialogPlayerName. (Она затыкает тебе рот тугой кожей, застегивая каждую пряжку.)
+###_PLAYER
+Cover me in latex.
+Покрой меня латексом.
+###_NPC
+Yes, head maid DialogPlayerName.  (She uses latex items on you.)
+Конечно, старшая горничная DialogPlayerName. (Она использует на вас предметы из латекса.)
+###_PLAYER
+Just bind me as secure as you can.
+Просто свяжи меня как можно крепче.
+###_NPC
+Certainly, head maid DialogPlayerName.  (She binds you as thoroughly as she can, trying to impress you.)
+Конечно, староста DialogPlayerName. (Она связывает вас изо всех сил, пытаясь произвести на вас впечатление.)
+Yes, maid DialogPlayerName.  (She gags and binds you tightly using classic bondage techniques.)
+Конечно, горничная DialogPlayerName. (Она затыкает рот и крепко связывает вас, используя классические техники бондажа.)
+Yes, maid DialogPlayerName.  (She uses a whole roll of duct tape on your body.)
+Конечно, горничная DialogPlayerName. (Она использует целый рулон клейкой ленты на вашем теле.)
+Yes, maid DialogPlayerName.  (She secures and gags you with tight leather, locking every buckle.)
+Конечно, горничная DialogPlayerName. (Она затыкает тебе рот тугой кожей, застегивая каждую пряжку.)
+Yes, maid DialogPlayerName.  (She uses latex items on you.)
+Конечно, горничная DialogPlayerName. (Она использует на вас предметы из латекса.)
+###_PLAYER
+(Nod approvingly.)
+(Одобрительно кивать.)
+###_NPC
+(She makes sure your tray is full.)  You are ready to serve in style now miss.
+(Она следит за тем, чтобы ваш поднос был полон.) Теперь вы готовы служить стильно, мисс.
+###_PLAYER
+(Grunt and mutter at her.)
+(Мычать и бормотать на нее.)
+###_NPC
+(She makes sure your tray is full.)  I'm sorry, I've done all I can to help you.
+(Она следит за тем, чтобы ваш поднос был полон.) Простите, я сделала все, что могла, чтобы помочь вам.
+Hmmm...  I think you need something to help you while you work.  (She uses an inflatable vibrating dildo on your Vulva.)
+Хммм... Я думаю, тебе нужно что-то, что поможет тебе во время работы. (Она использует надувной вибрирующий фаллоимитатор на вашей вульве.)
+###_PLAYER
+No. Please take that out.
+Нет. Пожалуйста, уберите это.
+###_NPC
+(She doesn't seem to hear you.)
+(Кажется, она вас не слышит.)
+###_PLAYER
+(Whimper and moan.)
+(Хныкать и стонать.)
+###_NPC
+(She giggles at you and shakes her head as she makes sure your tray is full.)  You will be able to remove it as soon as you finish serving those drinks.
+(Она хихикает над вами и качает головой, чтобы убедиться, что ваш поднос полон.) Вы сможете убрать его, как только закончите подавать эти напитки.
+###_PLAYER
+(Moan happily.)
+(Радостно стонать.)
+###_NPC
+(She smiles at you as she makes sure your tray is full.)  I thought you would like that.  You can keep it in after you have served the drinks.
+(Она улыбается вам, следя за тем, чтобы ваш поднос был полон.) Я думала, вам это понравится. Вы можете оставить его после того, как подали напитки.
+###_PLAYER
+(Groan and shake your hips.)
+(Застонать и потрясти бедрами.)
+###_NPC
+(She takes out a remote presses a button on it.  Your inflatable vibrating dildo builds up to a moderate pace.)
+(Она достает пульт и нажимает на нем кнопку. Ваш надувной вибрирующий фаллоимитатор набирает умеренную скорость.)
+(She slowly pushes and pulls on the dildo sticking out of you.)  Look at you Miss.  Already on edge.  Any more stimulation though and you might spill those drinks.
+(Она медленно толкает и тянет торчащий из вас фаллоимитатор.) Посмотрите на себя, мисс. Уже на грани. Еще немного стимуляции, и вы можете пролить эти напитки.
+###_PLAYER
+(Stand there.)
+(Стать там.)
+###_NPC
+Those drinks won't serve themselves Miss.  You have a job to do.
+Эти напитки сами по себе не послужат, мисс. У вас есть работа.
+###_PLAYER
+(Moan at her.)
+(Стонать на нее.)
+###_NPC
+(She grins at you as she goes back to her work.)  You can enjoy that dildo as much as you like once those drinks are served.
+(Она улыбается вам, возвращаясь к своей работе.) Вы можете наслаждаться этим фаллоимитатором столько, сколько захотите, как только вам подадут эти напитки.
+###_PLAYER
+(Leave to serve the drinks, grinding your thighs together.)
+(Перестать подавать напитки, перетирая бедрами друг о друга.)
+(Leave her.)
+(Оставь ее.)

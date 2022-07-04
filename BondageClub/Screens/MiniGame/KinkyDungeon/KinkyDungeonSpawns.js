@@ -27,6 +27,24 @@ function KinkyDungeonAddTags(tags, Floor) {
 	if (KinkyDungeonGoddessRep.Will < KDANGER) angeredGoddesses.push({tag: "willAnger", type: "rope"});
 	if (KinkyDungeonGoddessRep.Will < KDRAGE) angeredGoddesses.push({tag: "willRage", type: "rope"});
 
+	for (let pair of KDFactionRelations.get("Player").entries()) {
+		if (pair[1] > 0.5) {
+			tags.push(pair[0] + "Friendly");
+		} else if (pair[1] < -0.5) {
+			tags.push(pair[0] + "Enemy");
+		}
+		if (pair[1] > 0.75) {
+			tags.push(pair[0] + "Allied");
+		} else if (pair[1] < -0.75) {
+			tags.push(pair[0] + "Wanted");
+		}
+		if (pair[1] > 0.9) {
+			tags.push(pair[0] + "Loved");
+		} else if (pair[1] < -0.9) {
+			tags.push(pair[0] + "Hated");
+		}
+	}
+
 	if (angeredGoddesses.length > 0) {
 		let rage = false;
 		for (let a of angeredGoddesses) {
@@ -76,7 +94,7 @@ function KinkyDungeonAddTags(tags, Floor) {
 }
 
 
-function KinkyDungeonGetEnemy(tags, Level, Index, Tile, requireTags) {
+function KinkyDungeonGetEnemy(tags, Level, Index, Tile, requireTags, requireHostile, bonusTags) {
 	let enemyWeightTotal = 0;
 	let enemyWeights = [];
 
@@ -108,8 +126,15 @@ function KinkyDungeonGetEnemy(tags, Level, Index, Tile, requireTags) {
 					weightMulti *= 1.25;
 				}
 		}
+		if (bonusTags)
+			for (let t of Object.entries(bonusTags)) {
+				if (enemy.tags.has(t[0])) {
+					weightBonus += t[1].bonus;
+					weightMulti *= t[1].mult;
+				}
+			}
 
-		if (effLevel >= enemy.minLevel && (overrideFloor || enemy.allFloors || !enemy.floors || enemy.floors.get(Index)) && (KinkyDungeonGroundTiles.includes(Tile) || !enemy.tags.has("spawnFloorsOnly"))) {
+		if (effLevel >= enemy.minLevel && (!requireHostile || !enemy.faction || KDFactionRelation("Player", enemy.faction) <= -0.5) && (overrideFloor || enemy.allFloors || !enemy.floors || enemy.floors.get(Index)) && (KinkyDungeonGroundTiles.includes(Tile) || !enemy.tags.has("spawnFloorsOnly"))) {
 			let rt = requireTags ? false : true;
 			if (requireTags)
 				for (let t of requireTags) {
@@ -151,8 +176,8 @@ function KinkyDungeonGetEnemyByName(name) {
 }
 
 function KinkyDungeonCallGuard(x, y, noTransgress, normalDrops) {
-	if (!noTransgress)
-		KinkyDungeonAggroAction('call', {});
+	//if (!noTransgress)
+	// KinkyDungeonAggroAction('call', {});
 	if (!KinkyDungeonJailGuard()) {
 		let Enemy = KinkyDungeonGetEnemyByName("Guard");
 		let guard = {summoned: true, noRep: true, noDrop: !normalDrops, Enemy: Enemy, id: KinkyDungeonGetEnemyID(),
@@ -176,6 +201,8 @@ let KinkyDungeonSearchEntranceAdjustAmount = 130;
 let KinkyDungeonSearchEntranceChaseAmount = 160;
 
 function KinkyDungeonHandleWanderingSpawns(delta) {
+	if (KinkyDungeonBossFloor(MiniGameKinkyDungeonLevel) && !KinkyDungeonBossFloor(MiniGameKinkyDungeonLevel).spawns) return;
+	if (KDGameData.RoomType && KinkyDungeonAltFloor(KDGameData.RoomType) && !KinkyDungeonAltFloor(KDGameData.RoomType).spawns) return;
 	let effLevel = MiniGameKinkyDungeonLevel + KinkyDungeonDifficulty;
 	let HunterAdjust = KinkyDungeonDifficulty;
 	let EntranceAdjust = KinkyDungeonDifficulty/2;
@@ -251,7 +278,15 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 						let X = point.x;
 						let Y = point.y;
 						EnemiesSummoned.push(Enemy.name);
-						KinkyDungeonEntities.push({tracking: true, summoned: true, faction: qq ? qq.faction : undefined, Enemy: Enemy, id: KinkyDungeonGetEnemyID(), x:X, y:Y, hp: (Enemy.startinghp) ? Enemy.startinghp : Enemy.maxhp, movePoints: 0, attackPoints: 0});
+						let e = {tracking: true, summoned: true, faction: qq ? qq.faction : undefined, Enemy: Enemy, id: KinkyDungeonGetEnemyID(), x:X, y:Y, hp: (Enemy.startinghp) ? Enemy.startinghp : Enemy.maxhp, movePoints: 0, attackPoints: 0};
+						KinkyDungeonEntities.push(e);
+						KinkyDungeonSetEnemyFlag(e, "NoFollow", -1);
+						let shop = KinkyDungeonGetShopForEnemy(e);
+						if (shop) {
+							KinkyDungeonSetEnemyFlag(e, "Shop", -1);
+							KinkyDungeonSetEnemyFlag(e, shop, -1);
+						}
+
 						if (Enemy.tags.has("minor")) count += 0.1; else count += 1; // Minor enemies count as 1/10th of an enemy
 						if (Enemy.tags.has("boss")) {
 							count += 3 * Math.max(1, 100/(100 + KinkyDungeonDifficulty));
@@ -294,4 +329,50 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 		}
 		// Only increment the timer when not in jail
 	} else if (!(KDGameData.PrisonerState == 'jail')) KinkyDungeonSearchTimer += delta;
+
+	// Trigger when there is no hunter timer or is 0
+	if (!(KDGameData.HunterTimer > 0)) {
+		// If undefined we set it so that it starts ticking down
+		if (KDGameData.HunterTimer == undefined) KDGameData.HunterTimer = HunterPulse;
+		else {
+			// If defined and 0 then we check if hunters are still alive, spawn if not,
+			if (!KDGameData.Hunters) KDGameData.Hunters = [];
+			let hunters = KDGameData.Hunters.map((id) => {return KinkyDungeonFindID(id);});
+
+			let spawnLocation = {x: KinkyDungeonStartPosition.x, y: KinkyDungeonStartPosition.y};
+
+			if (hunters.length > 0 || KDistChebyshev(spawnLocation.x - KinkyDungeonPlayerEntity.x, spawnLocation.y - KinkyDungeonPlayerEntity.y) < 10) {
+				// Hunters still exist, or player is too close, simple pulse
+				KDGameData.HunterTimer = Math.max(KDGameData.HunterTimer, HunterPulse);
+			} else {
+				// Hunters are dead, we spawn more
+				/**
+				 * @type {entity[]}
+				 */
+				let eToSpawn = [];
+				KDGameData.Hunters = [];
+
+				// Determine enemies to spawn
+
+				// Spawn them
+				for (let e of eToSpawn) {
+					let point = KinkyDungeonGetNearbyPoint(spawnLocation.x, spawnLocation.y, true);
+					if (point) {
+						e.x = point.x;
+						e.y = point.y;
+						KinkyDungeonEntities.push(e);
+						KDGameData.Hunters.push(e.id);
+					}
+				}
+			}
+
+		}
+	}
+	// Decrement the hunter timer
+	if (KDGameData.HunterTimer > 0) KDGameData.HunterTimer = Math.max(0, KDGameData.HunterTimer - delta);
 }
+
+/** The defauilt interval between hunter checks */
+let HunterPulse = 25;
+/** Cooldown for hunter spawns */
+let HunterSpawnTimer = 120;

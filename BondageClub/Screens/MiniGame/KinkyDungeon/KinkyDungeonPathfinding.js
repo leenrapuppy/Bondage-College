@@ -11,6 +11,10 @@
  * @returns {any} - Returns an array of x, y points in order
  */
 function KinkyDungeonFindPath(startx, starty, endx, endy, blockEnemy, blockPlayer, ignoreLocks, Tiles, RequireLight, noDoors, needDoorMemory) {
+	if (KDistChebyshev(startx - endx, starty - endy) < 1.5) {
+		return [{x: endx, y: endy}];
+	}
+
 	function heuristic(xx, yy, endxx, endyy) {
 		return Math.sqrt((xx - endxx) * (xx - endxx) + (yy - endyy) * (yy - endyy));
 	}

@@ -533,6 +533,8 @@ function ActivityOrgasmGameGenerate(Progress) {
 		Player.ArousalSettings.OrgasmTimer = CurrentTime + 5000 + (SkillGetLevel(Player, "Willpower") * 1000);
 		ActivityOrgasmGameTimer = Player.ArousalSettings.OrgasmTimer - CurrentTime;
 		ActivityOrgasmGameDifficulty = (6 + (ActivityOrgasmGameResistCount * 2)) * (CommonIsMobile ? 1.5 : 1);
+		ActivityOrgasmGameDifficulty = ActivityOrgasmGameDifficulty + InventoryCraftCount(Player, "Arousing") * (CommonIsMobile ? 3 : 2);
+		ActivityOrgasmGameDifficulty = ActivityOrgasmGameDifficulty - InventoryCraftCount(Player, "Dull") * (CommonIsMobile ? 3 : 2);
 	}
 
 	// Runs the game or finish it if the threshold is reached, it can trigger a chatroom message for everyone to see

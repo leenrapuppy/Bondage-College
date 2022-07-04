@@ -1,8 +1,9 @@
 "use strict";
+/** @type Character[] */
 var Character = [];
 var CharacterNextId = 1;
 
-/** @type Map<string, number> */
+/** @type Map<EffectName, number> */
 const CharacterDeafLevels = new Map([
 	["DeafTotal", 4],
 	["DeafHeavy", 3],
@@ -10,7 +11,7 @@ const CharacterDeafLevels = new Map([
 	["DeafLight", 1],
 ]);
 
-/** @type Map<string, number> */
+/** @type Map<EffectName, number> */
 const CharacterBlurLevels = new Map([
 	["BlurTotal", 50],
 	["BlurHeavy", 20],
@@ -148,7 +149,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 			let blindLevel = 0;
 			const eyes1 = InventoryGet(this, "Eyes");
 			const eyes2 = InventoryGet(this, "Eyes2");
-			if (eyes1.Property && eyes1.Property.Expression && eyes2.Property && eyes2.Property.Expression) {
+			if (eyes1 && eyes1.Property && eyes1.Property.Expression && eyes2 && eyes2.Property && eyes2.Property.Expression) {
 				if ((eyes1.Property.Expression === "Closed") && (eyes2.Property.Expression === "Closed")) {
 					blindLevel += DialogFacialExpressionsSelectedBlindnessLevel;
 				}
@@ -157,10 +158,12 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 				if (this.Effect.includes("BlindHeavy")) blindLevel += 3;
 				else if (this.Effect.includes("BlindNormal")) blindLevel += 2;
 				else if (this.Effect.includes("BlindLight")) blindLevel += 1;
+				if (InventoryCraftCount(this, "Thick") > 0) blindLevel++;
+				if (InventoryCraftCount(this, "Thin") > 0) blindLevel--;
 			}
 			blindLevel = Math.min(3, blindLevel);
 			// Light sensory deprivation setting limits blindness
-			if (this.GameplaySettings && this.GameplaySettings.SensDepChatLog == "SensDepLight") blindLevel = Math.min(2, blindLevel);
+			if (this.IsPlayer() && this.GameplaySettings && this.GameplaySettings.SensDepChatLog == "SensDepLight") blindLevel = Math.min(2, blindLevel);
 			return blindLevel;
 		},
 		GetBlurLevel: function() {
@@ -208,7 +211,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		IsSlow: function () {
 			return (
 				((this.Effect.indexOf("Slow") >= 0) || (this.Pose.indexOf("Kneel") >= 0)) &&
-				((this.ID != 0) || !this.RestrictionSettings.SlowImmunity)
+				((this.ID != 0) || !/** @type {PlayerCharacter} */(this).RestrictionSettings.SlowImmunity)
 			);
 		},
 		IsEgged: function () {
@@ -311,6 +314,9 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 				(this.Difficulty.Level < 0) ||
 				(this.Difficulty.Level > 3)
 			) ? 1 : this.Difficulty.Level;
+		},
+		IsSuspended: function () {
+			return this.Pose.includes("Suspension") || this.Effect.includes("Suspended");
 		},
 		IsInverted: function () {
 			return this.Pose.indexOf("Suspension") >= 0;
@@ -543,7 +549,7 @@ function CharacterArchetypeClothes(C, Archetype, ForceColor) {
 /**
  * Loads an NPC into the character array. The appearance is randomized, and a type can be provided to dress them in a given style.
  * @param {string} NPCType - Archetype of the NPC
- * @returns {Character} - The randomly generated NPC
+ * @returns {NPCCharacter} - The randomly generated NPC
  */
 function CharacterLoadNPC(NPCType) {
 
@@ -649,7 +655,7 @@ function CharacterLoadOnline(data, SourceMemberNumber) {
 				Char = Character[C];
 
 	// Decompresses data
-	if (typeof data.Description === "string" && data.Description.startsWith("╬")) {
+	if (typeof data.Description === "string" && data.Description.startsWith(ONLINE_PROFILE_DESCRIPTION_COMPRESSION_MAGIC)) {
 		data.Description = LZString.decompressFromUTF16(data.Description.substr(1));
 	}
 	if (data.BlockItems && typeof data.BlockItems === "object" && !Array.isArray(data.BlockItems)) {
@@ -1146,10 +1152,27 @@ function CharacterHasNoItem(C) {
  * @returns {boolean} - Returns TRUE if the given character is naked
  */
 function CharacterIsNaked(C) {
-	for (let A = 0; A < C.Appearance.length; A++)
-		if ((C.Appearance[A].Asset != null) && (C.Appearance[A].Asset.Group.Category == "Appearance") && C.Appearance[A].Asset.Group.AllowNone && !C.Appearance[A].Asset.BodyCosplay && !C.Appearance[A].Asset.Group.BodyCosplay)
-			if (C.IsNpc() || !(C.Appearance[A].Asset.Group.BodyCosplay && C.OnlineSharedSettings && C.OnlineSharedSettings.BlockBodyCosplay))
-				return false;
+	for (const A of C.Appearance)
+		if (
+			(A.Asset != null) &&
+			// Ignore items
+			(A.Asset.Group.Category == "Appearance") &&
+			// Ignore body parts
+			A.Asset.Group.AllowNone &&
+			// Always ignore all cosplay items
+			!A.Asset.BodyCosplay &&
+			!A.Asset.Group.BodyCosplay &&
+			// Ignore cosplay items if they are considered bodypart (BlockBodyCosplay)
+			(
+				C.IsNpc() ||
+				!(
+					A.Asset.Group.BodyCosplay &&
+					C.OnlineSharedSettings &&
+					C.OnlineSharedSettings.BlockBodyCosplay
+				)
+			)
+		)
+			return false;
 	return true;
 }
 

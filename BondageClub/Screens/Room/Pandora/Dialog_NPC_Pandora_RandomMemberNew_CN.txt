@@ -1,0 +1,151 @@
+###_NPC
+(She looks at your gag and giggle.)  This place is so kinky.
+（她看着你的口塞，呵呵地笑起来。）这个地方真色情。
+Hello again.  Maybe it wasn't the best idea to sell you my clothes.  (She blushes.)
+再一次向你问好。也许把我的衣服卖给你不是最好的主意。（她脸红起来。）
+Hello maid, can I have a drink?
+你好，女仆，我可以喝一杯吗？
+Hi Miss.  Everyone is protected today?
+嗨，女士。今天每个人都受到保护吗？
+(She seems impressed by you.)  Wow!  You're a real Dominatrix?  It's a pleasure to meet you.
+（她似乎对你颇为钦佩。）哇！你是真正的女王？很高兴见到你。
+Hello cosplayer.  Congrats on your costume.
+cosplay玩家你好。为你的装扮祝贺。
+Hello there, I'm a new Pandora's Box member.
+你好，我是潘多拉魔盒的新成员。
+###_PLAYER
+You're cute naked.
+你裸体很可爱。
+###_NPC
+(She blushes.)  Was that a trick?  Maybe selling my clothes wasn't a great deal.
+（她脸红起来。）是这样的吗？也许卖我的衣服不是什么大不了的事。
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm DialogCharacterName.  I'm a new member.  Can you show me around?
+我是DialogCharacterName。我是一名新会员。你能带我四处看看吗？
+###_PLAYER
+Can I tie you up?
+我可以绑你吗？
+###_NPC
+It would be a pleasure, but they told me I need to wait a few more days before getting restrained or restraining someone else.
+我很乐意，但他们告诉我，我需要再等几天才能被束缚或束缚别人。
+###_PLAYER
+Can you help me?
+你能帮助我吗？
+###_NPC
+(She laughs.)  Help you?   I'm totally lost around here.  You're the one that should be helping me.
+（她笑起来。）帮助你？我已经在这里迷路了。应该是你帮助我才对。
+###_PLAYER
+I'll go get you a free drink.
+我去给你拿杯免费饮料。
+###_NPC
+(You go get her a free drink and she seems happy about it.)  Thanks a lot!  You're doing an awesome job.
+（你给她带回一杯免费的饮料，她看起来对此很高兴。）非常感谢！你做得很棒。
+###_PLAYER
+Are you enjoying Pandora's Box?
+你喜欢潘多拉魔盒吗？
+###_NPC
+I'm not sure, it's all very new and confusing.  And you?  Do you like the place?
+我不确定，这一切都是全新的，也令我困惑。你呢？你喜欢这个地方吗？
+###_PLAYER
+Can I buy your clothes?
+我可以买你的衣服吗？
+###_NPC
+Buy my clothes?  Are you serious?  These old clothes are cheap you know?
+买我的衣服？你是认真的？这些旧衣服很便宜你知道吗？
+###_PLAYER
+I must go.  (Leave her.)
+我得走了。（离开她。）
+Sure, it's a good club.
+当然，这是一个很好的俱乐部。
+###_NPC
+I agree, there are worse places to spend our free time.
+我同意，消磨空闲时间的地方，比这儿糟的有的是。
+###_PLAYER
+This place isn't great.
+这个地方不是很好。
+###_NPC
+They say it's improving, I'm sure it will get better with time.
+据说这里越来越好了，我相信随着时间的推移会变得更好的。
+###_PLAYER
+This club sucks.
+这个俱乐部很烂。
+###_NPC
+Don't be too harsh.  They say it's improving, I'm sure it will get better with time.
+不要太苛刻啦。据说这里越来越好了，我相信随着时间的推移会变得更好的。
+###_PLAYER
+Have you heard of the Bondage Club?
+你听说过束缚俱乐部吗？
+###_NPC
+I've heard about it, but never went.  They have good BDSM events?
+我听说过，但没去过。他们有很好的BDSM活动吗？
+###_PLAYER
+Maybe you're right.
+或许你说的对的。
+###_NPC
+Yep, there are worse places to spend our free time.
+是的，消磨空闲时间的地方，比这儿糟的有的是。
+###_PLAYER
+It depends on the day.
+要看具体的日期。
+###_NPC
+Just like here, I guess.  There are worse places to spend our free time.
+就像这里一样，我猜。消磨空闲时间的地方，比这儿糟的有的是。
+###_PLAYER
+It's the kinkiest place in town.
+这是镇上最色情的地方。
+###_NPC
+Now that's interesting!  Are they recruiting new members?
+现在这很有趣！他们在招募新成员吗？
+That's very interesting!  Sadly, I don't have enough time for a second BDSM club.  But maybe I'll visit someday.
+这很有趣！可悲的是，我没有足够的时间参加另一个BDSM俱乐部了。但也许有一天我会去拜访的。
+###_PLAYER
+Pandora's Box is better.
+潘多拉魔盒更好。
+Yes!  You could go right now.
+是的！你现在可以走了。
+###_NPC
+Great idea!  Thanks for the tip, I will go see the Bondage Club right now.  (Your infiltration skill has increased.)
+好主意！谢谢你的提示，我现在就去束缚俱乐部看看。（你的潜入技能增加了。）
+###_PLAYER
+Yes!  I have a room there that we could share.
+是的！那里我有一个可以共享的房间。
+###_NPC
+Perfect!  I will meet you in your room, see you later.  (Your infiltration skill has increased.)
+完美！我会在你的房间见你，待会见。（你的潜入技能增加了。）
+###_PLAYER
+I don't know.
+我不知道。
+###_NPC
+I don't want to waste my time.  I'll try to apply another day.
+我不想浪费我的时间。改天我会尝试申请。
+###_PLAYER
+Not right now.
+不是现在。
+###_NPC
+Too bad, maybe I'll try to apply another day.
+太糟糕了，也许改天我会尝试申请。
+###_PLAYER
+(Let her go to the Bondage Club.)
+（让她去束缚俱乐部。）
+(Let her go to your private room.)
+（让她去你的私人房间。）
+I know, but I like them. (Offer $10.)
+我知道，但我喜欢他们。（给出$10。）
+###_NPC
+Alright, but this is very strange.  (She gets naked and sells you her clothes for $10.)
+好吧，但这很奇怪。（她脱光衣服，以$10的价格把她的衣服卖给了你。）
+###_PLAYER
+I can't offer much. (Offer $5.)
+我没法儿给太多。（给出$5。）
+###_NPC
+Sorry, I can't accept that offer.
+抱歉，我不能接受这个价格。
+###_PLAYER
+Forget it then.
+那就别想了。
+###_NPC
+Very well.  You're a strange person you know?
+很好。你真是个怪人，你知道吗？

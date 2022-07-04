@@ -61,7 +61,7 @@ function CollegeTennisLoad() {
 				InventoryWear(CollegeTennisJennifer, "SlaveCollar", "ItemNeck");
 				CollegeTennisJennifer.Owner = Player.Name;
 			}
-		} else CollegeTennisJennifer.Stage = 1000;
+		} else CollegeTennisJennifer.Stage = "1000";
 		InventoryWear(CollegeTennisJennifer, "TennisShirt1", "Cloth", "Default");
 		InventoryWear(CollegeTennisJennifer, "TennisSkirt1", "ClothLower", "Default");
 		InventoryWear(CollegeTennisJennifer, "Socks1", "Socks", "#CCCCCC");

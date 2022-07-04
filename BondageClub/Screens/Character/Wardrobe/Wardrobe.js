@@ -11,7 +11,7 @@ var WardrobeSize = 24;
  */
 function WardrobeLoadCharacterNames() {
 	if (Player.WardrobeCharacterNames == null) Player.WardrobeCharacterNames = [];
-	var Push = false;
+	let Push = false;
 	while (Player.WardrobeCharacterNames.length <= WardrobeSize) {
 		Player.WardrobeCharacterNames.push(Player.Name);
 		Push = true;
@@ -39,7 +39,7 @@ function WardrobeFixLength() {
  */
 function WardrobeLoadCharacters(Fast) {
 	Fast = Fast == null ? false : Fast;
-	var W = null;
+	let W = null;
 	WardrobeLoadCharacterNames();
 	if (Player.Wardrobe == null) Player.Wardrobe = [];
 	for (let P = 0; P < WardrobeSize; P++) {
@@ -153,9 +153,8 @@ function WardrobeClick() {
 				if (MouseIn(500 + C * 250, 100, 250, 450))
 					WardrobeSelection = C + WardrobeOffset;
 			}
-			else
-				if (MouseIn(500 + (C - 6) * 250, 550, 250, 450))
-					WardrobeSelection = C + WardrobeOffset;
+			else if (MouseIn(500 + (C - 6) * 250, 550, 250, 450))
+				WardrobeSelection = C + WardrobeOffset;
 }
 
 /**
@@ -293,7 +292,7 @@ function WardrobeFastSave(C, W, Push) {
 /**
  * Returns the expressions of character C as a single big object
  * @param {Character} C - The character whose expressions should be returned
- * @returns {Object} Expression - The expresssion of a character
+ * @returns {object} Expression - The expresssion of a character
  */
 function WardrobeGetExpression(C) {
 	var characterExpression = {};
@@ -304,13 +303,13 @@ function WardrobeGetExpression(C) {
 /**
  * Checks if a given group of a character can be accessed.
  * @param {Character} C - The character in the wardrobe
- * @param {object} Group - The group to check for accessibility
+ * @param {AssetGroup} Group - The group to check for accessibility
  * @returns {boolean} - Whether the zone can be altered or not.
  */
 function WardrobeGroupAccessible(C, Group, Options) {
 
 	// You can always edit yourself.
-	if (C.ID == 0 || C.AccountName.indexOf("Wardrobe-") == 0) return true;
+	if (C.IsPlayer() || C.AccountName.indexOf("Wardrobe-") == 0) return true;
 
 	// You cannot always change body cosplay
 	if (Group.BodyCosplay && C.OnlineSharedSettings && C.OnlineSharedSettings.BlockBodyCosplay) return false;

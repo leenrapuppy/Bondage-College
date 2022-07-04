@@ -1,0 +1,414 @@
+###_NPC
+Let me guess, you've lost your last battle?   (She laughs.)
+Дайте угадаю, вы проиграли последнюю битву? (Она смеется.)
+It's an honor to see you DialogPlayerName.  Would you like to try a new class?
+Для меня большая честь видеть вас, DialogPlayerName. Хотите попробовать новый класс?
+It's always a pleasure to see you DialogPlayerName.  Would you like to try a new class?
+Всегда рада вас видеть, DialogPlayerName. Хотите попробовать новый класс?
+Welcome to the Live Action Role Playing battles DialogPlayerName.  Do you need some explanations, or would you like to try a new class?
+Добро пожаловать в ролевые сражения в реальном времени DialogPlayerName. Вам нужны пояснения или вы хотите попробовать новый класс?
+Welcome to the Live Action Role Playing battles.  Would you like to join us?
+Добро пожаловать в ролевые сражения в реальном времени. Не хочешь присоединиться к нам?
+###_PLAYER
+Hi, I'm DialogPlayerName.
+Привет, я DialogPlayerName.
+###_NPC
+It's nice to meet you, I'm DialogCharacterName.  I organize the LARP battles and register the classes.
+Приятно познакомиться, я DialogCharacterName. Я организую LARP-баттлы и регистрирую классы.
+###_PLAYER
+Can you help me?
+Вы можете помочь мне?
+###_NPC
+Sorry, go find a maid for that.  I need to organize battles.
+Извини, иди найди для этого горничную. Мне нужно организовать бои.
+###_PLAYER
+I have some questions on LARP.
+У меня есть несколько вопросов по LARP.
+###_NPC
+What would you like to know?
+Что бы вы хотели узнать?
+###_PLAYER
+I have some questions on battles.
+У меня есть вопросы по боям.
+Tell me about the classes.
+Расскажите мне о классах.
+###_NPC
+Which class interests you?  I can give you some details.
+Какой класс вас интересует? Я могу рассказать вам некоторые подробности.
+###_PLAYER
+Tell me about the levelling system.
+Расскажите о системе уровней.
+###_NPC
+What would you like to know about class levels?
+Что бы вы хотели знать об уровнях классов?
+###_PLAYER
+I'd like to join the LARP battles.
+Я хотел бы присоединиться к битвам LARP.
+###_NPC
+This is great news!  First, we need to review the rules and you'll need to accept them.
+Это отличная новость! Во-первых, нам нужно ознакомиться с правилами, и вам нужно будет их принять.
+###_PLAYER
+I'd like to select a new class.
+Я хочу выбрать новый класс.
+###_NPC
+Very good.  Which class would you like to select?
+Отлично. Какой класс вы хотите выбрать?
+###_PLAYER
+I'm fine, thanks.  (Leave her.)
+Я в порядке, спасибо. (Оставь ее.)
+What is LARP?
+Что такое LARP?
+###_NPC
+LARP stands for Live Action Role Playing.  Everyone picks a class with special abilities and we battle each other.  The winners get paid.
+LARP расшифровывается как Ролевые игры в прямом эфире. Каждый выбирает класс с особыми способностями, и мы сражаемся друг с другом. Победители получают деньги.
+###_PLAYER
+How much money do winners get?
+Сколько денег получают победители?
+###_NPC
+The battles bring lots of customers.  The money amount split by the winners increase with long battles and the number of participants.
+Сражения приносят много клиентов. Денежная сумма, разделяемая победителями, увеличивается с продолжительными битвами и количеством участников.
+###_PLAYER
+There's no cheating?
+Здесь нету читеров?
+###_NPC
+For a fun LARP, it's mandatory that everyone plays fair.  When someone loses a battle, they need to submit and go along with it.
+Для веселого LARP обязательно, чтобы все играли честно. Когда кто-то проигрывает битву, он должен подчиниться и согласиться с этим.
+###_PLAYER
+How do I join?
+Как присоединиться?
+###_NPC
+You first need to agree to the rules and select a class.  After that, just join the battles from this room or create a new match.
+Сначала нужно согласиться с правилами и выбрать класс. После этого просто присоединяйтесь к битвам из этой комнаты или создайте новый матч.
+###_PLAYER
+Can I team up with my friends?
+Могу ли я объединиться с друзьями?
+###_NPC
+Of course, you can make teams however you want it.  Simply select a color to pick a team.  You need at least two teams to play.
+Конечно, вы можете создавать команды, как хотите. Просто выберите цвет, чтобы выбрать команду. Для игры нужно как минимум две команды.
+###_PLAYER
+What if someone goes missing?
+А если кто-то пропадет?
+###_NPC
+Each player has a twenty seconds delay to select what she does.  If nothing is selected, her turn is skipped automatically.
+У каждого игрока есть двадцатисекундная задержка, чтобы выбрать, что он делает. Если ничего не выбрано, ее ход автоматически пропускается.
+###_PLAYER
+What is a full cycle?
+Что такое полный цикл?
+###_NPC
+In a LARP Battle, a full cycle means that everyone plays twice.  Everyone plays in order going forward, then backward and going back to the origin.
+В битве LARP полный цикл означает, что каждый играет дважды. Все играют по порядку, двигаясь вперед, затем назад и возвращаясь к исходной точке.
+###_PLAYER
+That's all I wanted to know.
+Это все, что я хотела знать.
+###_NPC
+Very well.  Are you ready to battle then?
+Очень хорошо. Готовы ли вы к битве тогда?
+###_PLAYER
+Who plays first?
+Кто играет первым?
+###_NPC
+We use a turn-based system to fight and restrain each other.  The turn order is random and reversed once everyone played.
+Мы используем пошаговую систему, чтобы сражаться и сдерживать друг друга. Порядок хода случайный и меняется после того, как все сыграли.
+###_PLAYER
+What can I do when it's my turn?
+Что я могу сделать, когда придет моя очередь?
+###_NPC
+You can always try to strip or restrain an opponent, there's a random chance it will work.  You can also use your class special abilities.
+Вы всегда можете попытаться раздеть или обездвижить противника, есть случайный шанс, что это сработает. Вы также можете использовать специальные способности вашего класса.
+###_PLAYER
+What are the odds for restraining?
+Каковы шансы на сдерживание?
+###_NPC
+When you try to strip or restrain someone, the odds are 50% plus your offensive bonus, minus the opponent defensive bonus.
+Когда вы пытаетесь кого-то раздеть или связать, шансы равны 50% плюс ваш атакующий бонус минус защитный бонус противника.
+###_PLAYER
+What are the special abilities?
+Какие особые способности?
+###_NPC
+Each class has three special abilities that they can use once per battle.  They can give bonuses, hamper enemies, rescue allies and more.
+У каждого класса есть три специальные способности, которые они могут использовать один раз за бой. Они могут давать бонусы, мешать врагам, спасать союзников и многое другое.
+###_PLAYER
+Do special bonuses stack?
+Суммируются ли специальные бонусы?
+###_NPC
+No, if you get multiple bonuses from special abilities, the biggest bonus applies.  It gets added to your class bonus.
+Нет, если вы получаете несколько бонусов от особых способностей, применяется самый большой бонус. Он добавляется к вашему классовому бонусу.
+###_PLAYER
+What happens if someone is restrained?
+Что произойдет, если кого-то задержат?
+###_NPC
+Some abilities that requires walking or talking cannot be used when restrained.  If your arms are restrained, you can only try to struggle.
+Некоторые способности, требующие ходьбы или разговора, не могут быть использованы,пока вас сдерживают. Если ваши руки скованы, вы можете только пытаться сопротивляться.
+###_PLAYER
+How do you win a battle?
+Как выиграть битву?
+###_NPC
+If only one team can act, the fight is over, and the winning team is announced.  The winners can enjoy their restrained spoils of war.
+Если может действовать только одна команда, бой заканчивается, и объявляется команда-победитель. Победители могут наслаждаться своими сдержанными военными трофеями.
+###_PLAYER
+The Matron class.
+Класс Начальница.
+###_NPC
+What would you like to know on the Matron class?
+Что бы вы хотели узнать о классе Начальница?
+###_PLAYER
+The Seducer class.
+Класс Соблазнительница.
+###_NPC
+What would you like to know on the Seducer class?
+Что бы вы хотели узнать о классе Соблазнительница?
+###_PLAYER
+The Trickster class.
+Класс обманщицы.
+###_NPC
+What would you like to know on the Trickster class?
+Что бы вы хотели узнать о классе обманщицы?
+###_PLAYER
+The Artist class.
+Класс Художница.
+###_NPC
+What would you like to know on the Artist class?
+Что бы вы хотели узнать о классе Художник?
+###_PLAYER
+The Servant class.
+Класс Прислуга.
+###_NPC
+What would you like to know on the Servant class?
+Что бы вы хотели узнать о классе Прислуги?
+###_PLAYER
+The Protector class.
+Класс Защитница.
+###_NPC
+What would you like to know on the Protector class?
+Что бы вы хотели узнать о классе Защитник?
+###_PLAYER
+Tell me of the bonuses.
+Расскажите о бонусах.
+###_NPC
+The Matron gets a 20% offensive bonus and no defensive bonus.
+Начальница получает 20% бонуса к атаке и не получает бонуса к защите.
+###_PLAYER
+What is Charge?
+Что такое заряд?
+###_NPC
+If you use Charge, your team will get a 25% offensive bonus for a full cycle.  You must be able to walk.
+Если вы используете Рывок, ваша команда получит бонус атаки 25% на весь цикл. Вы должны уметь ходить.
+###_PLAYER
+What is Control?
+Что такое контроль?
+###_NPC
+If you use Control, nobody will be able to use special abilities for a full cycle.  You must be able to talk.
+Если вы используете Контроль, никто не сможет использовать специальные способности в течение полного цикла. Вы должны уметь говорить.
+###_PLAYER
+What is Detain?
+Что такое задержать?
+###_NPC
+If you use Detain, it will work like a regular arm restraining without any random luck, it works automatically.
+Если вы используете Задержание, оно будет работать как обычное сдерживание руки без какой-либо случайной удачи, оно работает автоматически.
+###_PLAYER
+Let's talk about another class.
+Давайте поговорим о другом классе.
+###_NPC
+Which class would you like to know about?
+О каком классе вы хотели бы узнать?
+The Seducer gets a 16% offensive bonus and a 4% defensive bonus.
+Соблазнитель получает бонус атаки 16% и бонус защиты 4%.
+###_PLAYER
+What is Expose?
+Что такое экспозиция?
+###_NPC
+If you use Expose, it will work like a regular stripping without any random luck, it works automatically.
+Если вы используете Expose, это будет работать как обычное раздевание без случайного везения, она работает автоматически.
+###_PLAYER
+What is Inspire?
+Что такое вдохновить?
+###_NPC
+If you use Inspire, your target teammate will be able to use all her special abilities once again.  As if they were never used before.
+Если вы используете вдохновить, ваш целевой товарищ по команде сможет снова использовать все свои особые способности. Как будто их раньше не использовали.
+###_PLAYER
+What is Seduce?
+Что такое соблазнить?
+###_NPC
+If you use Seduce, your target will be dazed with love and will need to pass her next turn to recover.  You must be able to talk.
+Если вы используете Соблазнение, ваша цель будет ошеломлена любовью, и ей нужно будет пропустить свой следующий ход, чтобы восстановиться. Вы должны уметь говорить.
+The Trickster gets a 12% offensive bonus and a 8% defensive bonus.
+Обманщица получает бонус атаки 12% и бонус защиты 8%.
+###_PLAYER
+What is Confuse?
+Что такое запутать?
+###_NPC
+If you use Confuse, your target won't be able to use special abilities for a full cycle.  You must be able to talk.
+Если вы используете запутать, ваша цель не сможет использовать специальные способности в течение полного цикла. Вы должны уметь говорить.
+###_PLAYER
+What is Hide?
+Что такое скрыть?
+###_NPC
+If you use Hide, you cannot get targeted by anyone from another team, until your next turn.
+Если вы используете Скрытность, ты не сможешь стать целью другой команды до вашего следующего хода.
+###_PLAYER
+What is Immobilize?
+Что такое обездвижить?
+###_NPC
+If you use Immobilize, it will work like a regular leg restraining without any random luck, it works automatically.
+Если вы используете обездвиживание, оно будет работать как обычное сдерживание ног без случайного везения, оно работает автоматически.
+The Artist gets a 8% offensive bonus and a 12% defensive bonus.
+Художник получает бонус атаки 8% и бонус защиты 12%.
+###_PLAYER
+What is Cheer?
+Что такое взбодрить?
+###_NPC
+If you use Cheer, your target gets a 25% offensive and defensive bonus for a full cycle.  You must be able to talk.
+Если вы используете взбодрить, ваша цель получает бонус атаки и защиты на 25% в течение полного цикла. Вы должны уметь говорить.
+###_PLAYER
+What is Costume?
+Что такое Костюм?
+###_NPC
+If you use Costume, a target teammate automatically dresses back with a selected cloth.  You must be able to walk.
+Если вы используете костюм, целевой товарищ по команде автоматически одевается в выбранную ткань. Вы должны уметь ходить.
+###_PLAYER
+What is Evasion?
+Что такое Уклонение?
+###_NPC
+If you use Evasion, you automatically remove your legs restraints, or arms restraints if they are restrained.
+Если вы используете Уклонение, вы автоматически снимаете ограничители для ног или рук, если они связаны.
+The Servant gets a 4% offensive bonus and a 16% defensive bonus.
+Прислуга получает бонус атаки 4% и бонус защиты 16%.
+###_PLAYER
+What is Rescue?
+Что такое Спасение?
+###_NPC
+If you use Rescue, you remove the legs or arms restraints from a target teammate.  You must be able to walk.
+Если вы используете Спасение, вы снимаете ограничения для ног или рук с целевого товарища по команде. Вы должны уметь ходить.
+###_PLAYER
+What is Silence?
+Что такое Тишина?
+###_NPC
+If you use Silence, it will work like a regular gagging without any random luck, it works automatically.
+Если вы используете Тишина, оно будет работать как обычное затыкание рта без случайного везения, оно работает автоматически.
+###_PLAYER
+What is Ungag?
+Что такое Снять кляп?
+###_NPC
+If you use Ungag, you remove the gag from a target teammate.
+Если вы используете Снять кляп, вы снимаете кляп с целевого товарища по команде.
+The Protector gets no offensive bonus and a 20% defensive bonus.
+Защитник не получает бонуса к атаке и получает бонус к защите 20%.
+###_PLAYER
+What is Cover?
+Что такое Покрытие?
+###_NPC
+If you use Cover, your target cannot be targeted by anyone that's not in her team for a full cycle.  You must be able to walk.
+Если вы используете Покрытие, ваша цель не может стать целью любого, кто не входит в ее команду, в течение полного цикла. Вы должны уметь ходить.
+###_PLAYER
+What is Dress?
+Что такое Одежда?
+###_NPC
+If you use Dress, you automatically dress back up with a selected cloth.
+Если вы используете Одежда, вы автоматически надеваете выбранную ткань.
+###_PLAYER
+What is Support?
+Что такое поддержка?
+###_NPC
+If you use Support, your team will get a 25% defensive bonus for a full cycle.  You must be able to talk.
+Если вы используете поддержка, ваша команда получит 25% бонус к защите на весь цикл. Вы должны уметь говорить.
+###_PLAYER
+What are the rules?
+Каковы правила?
+###_NPC
+First rule, you must play fair and never cheat in battles.  Is that fine with you?
+Первое правило, вы должны играть честно и никогда не жульничать в битвах. Тебя это устраивает?
+###_PLAYER
+Let's talk some more first.
+Давайте поговорим еще немного сначала.
+###_NPC
+Very well.  What would you like to know?
+Очень хорошо. Что бы вы хотели узнать?
+###_PLAYER
+I will never cheat in LARP battles.
+Я никогда не буду жульничать в ролевых битвах.
+###_NPC
+Second rule, if you lose, you must accept it and surrender to the winner.  Alright?
+Второе правило, если вы проиграли, вы должны принять это и сдаться победителю. Хорошо?
+###_PLAYER
+I cannot promise that.
+Я не могу этого обещать.
+###_NPC
+Sorry, I can't sign you in if that's the case.
+Извините, я не могу дать тебе войти в систему, если это так.
+###_PLAYER
+I will submit when I lose.
+Я подчинюсь, если проиграю.
+###_NPC
+Third and last rule, if must select a class.  Which one will you pick?
+Третье и последнее правило, если необходимо выбрать класс. Какой из них вы выберете?
+Alright!  You will be a Matron in your first battles.  Come back to me if you want to change your class.
+Хорошо! Вы будете Начальницей в своих первых битвах. Вернись ко мне, если захочешь сменить класс.
+Alright!  You will be a Seducer in your first battles.  Come back to me if you want to change your class.
+Хорошо! Вы будете Соблазнительницей в своих первых битвах. Вернись ко мне, если захочешь сменить класс.
+Alright!  You will be a Trickster in your first battles.  Come back to me if you want to change your class.
+Хорошо! Вы будете Обманщицей в своих первых битвах. Вернись ко мне, если захочешь сменить класс.
+Alright!  You will be an Artist in your first battles.  Come back to me if you want to change your class.
+Хорошо! Вы будете Художницей в своих первых битвах. Вернись ко мне, если захочешь сменить класс.
+Alright!  You will be a Servant in your first battles.  Come back to me if you want to change your class.
+Хорошо! Вы будете Прислугой в своих первых битвах. Вернись ко мне, если захочешь сменить класс.
+Alright!  You will be a Protector in your first battles.  Come back to me if you want to change your class.
+Хорошо! Вы будете Защитницей в своих первых битвах. Вернись ко мне, если захочешь сменить класс.
+###_PLAYER
+I need to think about it.
+Мне нужно обдумать это.
+###_NPC
+It's perfectly fine, let me know when you're ready.
+Все в порядке, дайте мне знать, когда будете готовы.
+###_PLAYER
+Thanks a lot!
+Большое спасибо!
+###_NPC
+My pleasure.  Check the battle lobby to find fights or create a battle of your own.  Good luck!
+Не за что. Загляните в боевое лобби, чтобы найти бои или создать собственное сражение. Удачи!
+Very well, you will be a Matron in your next battles.  Come back to me if you want to change your class again.  Good luck and have fun.
+Очень хорошо, ты будешь Начальницей в своих следующих битвах. Вернись ко мне, если захочешь снова сменить класс. Удачи и приятного времяпровождения.
+Very well, you will be a Seducer in your next battles.  Come back to me if you want to change your class again.  Good luck and have fun.
+Очень хорошо, ты будешь Соблазнительницей в своих следующих битвах. Вернись ко мне, если захочешь снова сменить класс. Удачи и приятного времяпровождения.
+Very well, you will be a Trickster in your next battles.  Come back to me if you want to change your class again.  Good luck and have fun.
+Очень хорошо, ты будешь Обманщицей в своих следующих битвах. Вернись ко мне, если захочешь снова сменить класс. Удачи и приятного времяпровождения.
+Very well, you will be an Artist in your next battles.  Come back to me if you want to change your class again.  Good luck and have fun.
+Очень хорошо, ты будешь Художницей в своих следующих битвах. Вернись ко мне, если захочешь снова сменить класс. Удачи и приятного времяпровождения.
+Very well, you will be a Servant in your next battles.  Come back to me if you want to change your class again.  Good luck and have fun.
+Очень хорошо, ты будешь Прислугой в своих следующих битвах. Вернись ко мне, если захочешь снова сменить класс. Удачи и приятного времяпровождения.
+Very well, you will be a Protector in your next battles.  Come back to me if you want to change your class again.  Good luck and have fun.
+Очень хорошо, ты будешь Защитницей в своих следующих битвах. Вернись ко мне, если захочешь снова сменить класс. Удачи и приятного времяпровождения.
+###_PLAYER
+I'll keep my current class.
+Я оставлю свой текущий класс.
+How does it work?
+Как это работает?
+###_NPC
+Each level adds a 5% bonus to your class basic bonus.  At level zero there's no bonus, at level ten there's a 50% bonus.
+Каждый уровень добавляет 5% к основному бонусу вашего класса. На нулевом уровне бонуса нет, на десятом уровне бонус 50%.
+###_PLAYER
+Give me an example.
+Приведите пример.
+###_NPC
+The Trickster class gets a 12% offensive bonus and a 8% defensive bonus at level zero.  At level ten it will be 18% and 12%.
+Класс Трикстер получает бонус атаки 12% и бонус защиты 8% на нулевом уровне. На десятом уровне будет 18% и 12%.
+###_PLAYER
+How do I gain levels?
+Как мне получить уровни?
+###_NPC
+Each class has it's own level.  Whenever you finish a LARP battle, whether you won or lost, you will progress toward your next level.
+Каждый класс имеет свой уровень. Всякий раз, когда вы заканчиваете битву LARP, независимо от того, выиграли вы или проиграли, вы перейдете к следующему уровню.
+###_PLAYER
+Do I lose progress if I change class?
+Потеряю ли я прогресс, если поменяю класс?
+###_NPC
+(She shakes her head no.)  Each class level progress is kept on record.  You won't lose any progress if you pick a new class.
+(Она отрицательно качает головой.) Прогресс каждого класса фиксируется. Вы не потеряете прогресс, если выберете новый класс.
+###_PLAYER
+Let's talk about something else.
+Давай поговорим о чем-нибудь другом.
+###_NPC
+How can I help you?
+Могу я чем-нибудь помочь?
+###_PLAYER
+(Check the battles.)
+(Проверьте сражения.)

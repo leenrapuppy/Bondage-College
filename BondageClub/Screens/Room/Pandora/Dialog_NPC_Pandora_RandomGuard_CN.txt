@@ -1,0 +1,537 @@
+###_NPC
+(She checks your gag.)  Prisoners don't need to be understood.
+（她检查你的口塞。）囚犯不需要被理解。
+(She pouts.)  You're tough, but I represent the law and you're still under arrest.
+（她撅起嘴。）你很强，但我代表法律，你还是被捕了。
+(She smiles and laughs.)  You really thought you could defeat the law?  You are under arrest.
+（她微笑，然后笑出声。）你真以为你能战胜法律？你被捕了。
+(A Dominatrix takes you away from the guard.)  So, we've caught the infamous DialogPlayerName.  You'll never forget this lesson.
+（一位女王把你从警卫身边带走。）所以，我们抓住了臭名昭著的DialogPlayerName。你永远不会忘记这一课的。
+(A Dominatrix takes you away from the guard.)  You've been on list for a while DialogPlayerName.  I'll teach you a lesson.
+（一位女王把你从警卫身边带走。）DialogPlayerName，你在名单上已经有一段时间了。我会给你上一课。
+(A Dominatrix takes you away from the guard.)  (She cracks her knuckles.)  So, you're a troublemaker?  I'll teach you a lesson.
+（一位女王把你从警卫身边带走。）（她捏响指关节。）那么，你是来捣乱的？我会给你上一课。
+(A Dominatrix takes you away from the guard.)  (She stares at you.)  You've caused some trouble?  Then it's time for your lesson.
+（一位女王把你从警卫身边带走。）（她盯着你。）你惹了麻烦？那么，是你上课的时候了。
+(She sighs and reluctantly allows you to gag her.)
+（她叹了口气，不情愿地让你塞住她的嘴。）
+(You remove her gag and she grumbles.)  Are you finally coming back to your senses?
+（你摘下她的口塞，她嘟囔着。）你终于恢复了理智吗？
+(She seems angry as you push earplugs inside.)  How can I follow your orders now?
+（你把耳塞塞进去，她看起来很生气。）我现在如何听你的命令？
+(You pull the earplugs out.)  You're only adding more time to your sentence.
+（你拔出耳塞。）你只是给你的刑期加了些时间。
+(She struggles as you restrain her arms securely.)  You're breaking the law again.
+（当你牢牢地束缚住她的手臂时，她挣扎着。）你又触犯了法律。
+(You free her arms and she stretches.)  You're still under arrest.
+（你松开她的手臂，她伸展身体。）你依然被逮捕了。
+(She thrashes as you restrain her legs.)  You better carry me then!
+（当你束缚她的双腿时，她抖动着。）那你最好背着我！
+(You release her legs.)  Justice will strike you down like a hammer.
+（你松开她的腿。）正义之锤会击倒你。
+(She grumbles as you restrain her feet.)  This will be reported in your trial.
+（你束缚她的脚，她嘟囔着。）这次记录会出现在对你的审判中。
+(You release her feet.)  Let's walk until you get caught.
+（你松开她的脚。）我们走着瞧，你会被抓住的。
+(She grumbles as you restrain her feet.)  How can I follow you now?
+（你束缚她的脚，她嘟囔着。）我现在如何跟着你？
+(She adjusts her neck to the new collar.)  Soon you will wear the Box collar.
+（她调整脖子适应新的项圈。）不久你就会戴上潘多拉魔盒的项圈。
+(You remove the collar from her neck.)  Too late, the crime has been done.
+（你取下她脖子上的项圈。）为时已晚，你已经犯下大罪。
+(She struggles to avoid the belt but you're able to strap it on her.)  Are you serious?
+（她挣扎着想避开带子，但你还是成功系到她身上。）你是认真的吗？
+(She sighs as you unlock the belt.)  Can you make up your mind?
+（当你解开带子时，她叹了口气。）你就不能做好决定吗？
+(She stays silent as you strap the device on her head.)
+（当你绑紧她头上的道具时，她保持沉默。）
+(You release her head as she nods rapidly.)  That's better, but you're still in trouble.
+（你解开她的头时，她迅速点头。）这好多了，但你仍然有麻烦。
+(You put the hood on her head as she goes silent.)
+（你把头套戴在她头上，她逐渐安静了下来。）
+(She grins as you remove the hood from her head.)  You will never get out of here.
+（当你从她头上取下头罩时，她咧嘴笑起来。）你永远离不开这里。
+(You strap the item on her nose as she sighs.)  Is that a joke to you?
+（当她叹气时，你把那物品系在她的鼻子上。）这好笑吗？
+(She nods as you remove the device.)  Someday Pandora's Box will make you pay.
+（当你取下道具时，她点点头。）总有一天潘多拉魔盒会让你付出代价的。
+(You strap the harness on her torso.)  Causing more trouble will only extend your jail time.
+（你把束缚带系在她的躯干上。）制造更多麻烦只会延长你的监禁时间。
+(She stretches as you release her from the harness.)  You're only toying with me?
+（当你解开她身上的束缚带时，她伸展身体。）你只是在玩弄我？
+(She jumps as you slide the device inside.)  How dare you?  You're under arrest!
+（当你把道具滑进去时，她跳了起来。）你怎么敢？你被捕了！
+(She sighs as you remove the plug.)  Your butt will rot in jail.
+（当你拔掉塞子时，她叹了口气。）你的屁股会在监狱里腐烂。
+(She holds her breath as you use the item.)  Pandora's police won't be kind with you.
+（当你使用这件道具时，她屏住呼吸。）潘多拉的警察可不会好好对你。
+(She wiggles her breast slowly as you remove the device.)  Enjoy your freedom while it lasts.
+（当你取下这件道具时，她慢慢地摆动她的胸部。）尽情享受你的自由吧。
+(She whimpers as you use the device on her breast.)  Another violation to add to the list.
+（当你在她的胸部上使用这件道具时，她呜咽起来。）又一个要记录的违规行为。
+(She takes a deep breath and stays silent as you remove the device.)
+（当你移除这件道具时，她深呼吸并保持沉默。）
+(A guard bows her head to you.)  It's an honor to protect and serve you Miss.
+（一名警卫向你低头示意。）很荣幸能保护并服务你，女士。
+(A guard salutes you.)  The Box isn't going to clean itself little maid.  Do you have anything to report?
+（一名警卫向你敬礼。）小女仆，魔盒不会自己打扫的。你有什么要报告的吗？
+(A guard greets you.)  Hello cosplayer.  I hope you're not causing any trouble.
+（一名警卫向你打招呼。）你好，cosplayer。我希望你不会造成任何麻烦。
+(A guard gives you a friendly handshake.)  I hope your patrol is going well.  Do you have anything to report?
+（一名警卫友好地与你握手。）希望你的巡逻进展顺利。你有什么要报告的吗？
+(A guard is staring at you.)  Hey there, you're a good girl?  I hope you're not causing any trouble.
+（一名警卫盯着你。）嘿，你是个乖女孩吗？我希望没造成任何麻烦。
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm guard DialogCharacterName.  I serve and protect Pandora's Box.
+我是警卫，DialogCharacterName。我服务并保护潘多拉魔盒。
+###_PLAYER
+Am I under arrest?
+我被捕了吗？
+###_NPC
+Not yet.  Is there any reason I should arrest you?
+还没有。我有什么理由逮捕你吗？
+###_PLAYER
+I'm a good girl.
+我是一个乖女孩。
+###_NPC
+Let's do a quick quiz then.  We'll see if you're a good girl or not.
+那我们来做个小测验。这样我们就知道你是不是乖女孩了。
+###_PLAYER
+I don't cause trouble.
+我不惹麻烦。
+###_NPC
+Let's do a quick quiz, we'll see if you're a troublemaker or not.
+让我们做个小测验，看看你是不是来捣乱的。
+###_PLAYER
+I'm bad to the bone.
+我坏到骨子里了。
+###_NPC
+Is that so?  Then you're under arrest!  Surrender right now.
+是这样吗？那你就被捕了！立即投降。
+###_PLAYER
+(Look around.)
+（环视四周。）
+###_NPC
+Not yet little cosplay girl.  Is there any reason I should arrest you?
+还没有，cosplay的小女孩。我有什么理由逮捕你吗？
+###_PLAYER
+I'm a good cosplay girl.
+我是一个很乖的cosplay女孩。
+###_NPC
+Is that so?  Then you're under arrest!  Surrender right now cosplay girl.
+是这样吗？那你就被捕了！立即投降，cosplay女孩。
+###_PLAYER
+There's nothing to report.
+没有什么可报告的。
+###_NPC
+That's perfect.  (She starts to inspect you.)  How come I've never seen you before?  Are you new?
+那很完美。（她开始检查你。）我以前怎么没见过你？你新来的？
+###_PLAYER
+Everything is under control.
+一切都在掌控中。
+###_NPC
+Control is the name of the game.  (She looks at you.)  Did you miss the morning meeting?  Or are you new?
+控制就是这游戏的名称。（她看着你）你错过了早会吗？或者你是新来的？
+###_PLAYER
+A spy is among us.
+我们中间有一个间谍。
+###_NPC
+A spy!   (She gets nervous.)  Who is she?  Do you have a description?
+间谍！（她紧张起来。）她是谁？你有描述吗？
+That's perfect.  (She starts to inspect you.)  Are you a new maid?  I've never seen you before.
+那很完美。（她开始检查你。）你是新来的女仆吗？我以前从没见过你。
+###_PLAYER
+There's a water leak to clean.
+有漏水要清理。
+###_NPC
+I don't care about that.  (She starts to inspect you.)  Are you a new maid?  I've never seen you before.
+我不关心那个。（她开始检查你。）你是新来的女仆吗？我以前从没见过你。
+###_PLAYER
+Everything is under control?
+全部都在掌控之中？
+###_NPC
+(She nods.)  We've had rumors of spies from other BDSM clubs, but they won't fool me.
+（她点头。）我们听说过从其他BDSM俱乐部来的间谍，但他们骗不了我的。
+###_PLAYER
+Give me your outfit.
+把你的衣服给我。
+###_NPC
+(She takes a step back.)  What?  Miss, I cannot give you my guard outfit.
+（她后退一步）什么？女士，我不能给你我的警卫装。
+###_PLAYER
+I need to go.  (Go explore.)
+我要走了。（开始探索。）
+A quiz?
+测验？
+###_NPC
+Absolutely.  We'll see if you know Pandora's Box and if you're a good member.
+当然。我们会知道是否了解潘多拉魔盒，以及你是否是一个好会员。
+###_PLAYER
+I don't have time for a quiz.
+我没有时间做测验。
+###_NPC
+I don't care.  You'll do the quiz, or I'll throw your ass in jail.
+我不在乎。你会做测验的，否则我会把你连人带屁股扔进监狱里。
+###_PLAYER
+How does it work?
+这怎么进行呢？
+###_NPC
+I will ask you five questions.  If you fail two of them, you're in trouble.
+我会问你五个问题。如果你错了其中两个，你就有麻烦了。
+###_PLAYER
+What happens if I win or lose?
+如果我赢了或输了，会发生什么？
+###_NPC
+If you succeed, you can carry on with your day.  If you fail, I will arrest you.
+如果你成功了，你可以继续你的一天。如果你失败了，我会逮捕你。
+###_PLAYER
+Fine, let's do the quiz.
+好吧，做测验吧。
+(Fight her.)
+（与她战斗。）
+###_NPC
+What is the best BDSM club in town?
+城里最好的BDSM俱乐部是什么？
+###_PLAYER
+I don't know.
+我不知道。
+Pandora's Box.
+潘多拉魔盒。
+The Bondage Club.
+束缚俱乐部。
+The Boudoir.
+闺房。
+###_NPC
+Who rules Pandora's Box?
+谁管理着潘多拉魔盒？
+###_PLAYER
+The Mistresses.
+女主人。
+The Bosses.
+老板。
+The Dominatrixes.
+女王。
+###_NPC
+If you see someone that causes trouble, who will you seek?
+如果你看到有人惹事，你要去找谁？
+###_PLAYER
+A guard.
+警卫。
+A maid.
+女佣。
+A dominatrix.
+女王。
+###_NPC
+If you need help with restraints, who will you seek?
+如果你需要有关约束的帮助，你会找谁？
+In BDSM, what does SSC stands for?
+在BDSM中，SSC代表什么？
+###_PLAYER
+Secondary School Certificate
+中学证书
+Silly Stupid Cunt.
+愚蠢的笨蛋。
+Shibari Suspension Ceiling
+绳缚吊顶
+Safe Sane Consensual.
+安全的、理智的、同意的。
+###_NPC
+How would you label someone that gets pleasure from being in pain?
+你应该如何称呼那种从痛苦中获得快乐的人？
+###_PLAYER
+A masochist.
+受虐狂。
+A slut.
+荡妇。
+A sadist.
+虐待狂。
+An idiot.
+白痴。
+###_NPC
+How would you label someone that gets pleasure from inflicting pain?
+你应该如何称呼那种从施加痛苦中获得快乐的人？
+What will you use if you want to stop a scene immediately?
+如果你想立即停止一个场景，你会使用什么？
+###_PLAYER
+Curse words.
+骂人。
+Safe words.
+安全词。
+Bad words.
+脏话。
+###_NPC
+What kind of limit should never be broken?
+什么限制是不应打破的？
+###_PLAYER
+A hard limit.
+硬限制。
+A soft limit.
+软限制。
+Speed limits.
+速度限制。
+###_NPC
+When is it allowed to bring minors to the Box?
+什么时候会允许将未成年人带进魔盒？
+###_PLAYER
+Always.
+总是可以。
+Only on daytime.
+仅限白天。
+Never.
+从不。
+Only if she's mature.
+只要她已经成年。
+###_NPC
+What item do most submissive wear to show that they are owned?
+大多数顺从的人会穿戴什么物品来表明他们有所属了？
+###_PLAYER
+Restraints.
+束缚。
+A gag.
+口塞。
+A chastity belt.
+贞操带。
+A collar.
+项圈。
+###_NPC
+That's enough, you did fine at the quiz.  You're free to go.
+够了，你在测验中做得很好。你可以走了。
+You failed the quiz girl.  It's time to educate and punish you.  You are under arrest.
+女孩，你在测验中失败了。是时候教育和惩罚你。你被捕了。
+###_PLAYER
+That wasn't too bad.
+那还不错。
+###_NPC
+Of course, we're not here to trick you but to protect you.  Carry on girl.
+当然，我们不是来欺骗你，而是保护你。继续做你的事吧，姑娘。
+###_PLAYER
+Thanks.  (Go explore.)
+谢谢。（开始探索。）
+I've been a guard for a while.
+我已经做了一段时间的警卫了。
+###_NPC
+(She seems a little suspicious.)  My memory must be failing then.  Carry on fellow guard.
+（她似乎有点怀疑。）那我一定是记性不好了。继续你的事吧，警卫同事。
+(She seems very suspicious.)  That's impossible!  I know all the old guards.  I will put you under arrest right now.
+（她似乎很可疑。）这不可能！我认识所有的老警卫。我现在就逮捕你。
+###_PLAYER
+Yes, I'm a new guard.
+是的，我是一个新的警卫。
+###_NPC
+Very well, let me know if you need help with your job.  We support each other in the force.
+很好，如果你在工作上需要帮助，请告诉我。警卫力量中的我们会相互支持的。
+(She inspects you some more.)  This is strange, I've already met the new guards.  I will put you under arrest for safety.
+（她又进一步检查了你。）这不对劲，我已经见过新的守卫了。为了安全起见，我会逮捕你。
+###_PLAYER
+You got me, I'm actually a spy.
+你抓到我了，我其实是个间谍。
+###_NPC
+A spy!   Surrender right now!  You are under arrest.
+间谍！立即投降！你被捕了。
+###_PLAYER
+(Give a false description.)
+（给出错误的描述。）
+###_NPC
+(She takes notes.)  Thanks a lot, I will keep my eyes open for her.
+（她记笔记。）非常感谢，我会盯住她的。
+(She looks at you.)  You know what?  I've never seen you in the force.  I think you're the spy!  I will arrest you for safety.
+（她看着你。）你知道吗？我从没在警卫力量中见过你。我觉得你是间谍！为了安全，我会逮捕你。
+###_PLAYER
+(Describe yourself cleverly.)
+（巧妙地描述自己。）
+###_NPC
+(She takes notes.)  Thanks a lot, I will keep my eyes open.  She will never fool me.
+（她记笔记。）非常感谢，我会盯紧的。她不可能骗过我的。
+(She seems really angry.)  You think you're funny?  You're under arrest!
+（她似乎很生气。）你觉得你很有趣吗？你被捕了！
+###_PLAYER
+I'm the spy!
+我是间谍！
+###_NPC
+Surrender right now!  You are under arrest.
+立即投降！你被捕了。
+Have a pleasant day fellow guard.  Let me know if you need backup.
+希望你度过愉快的一天，警卫同事。如果你需要支援，请告诉我。
+###_PLAYER
+Take care.  (Go explore.)
+多保重。（开始探索。）
+I've been a maid for a while.
+我已经做了一段时间女仆了。
+###_NPC
+(She ponders.)  I guess I've missed a few meetings.  Carry on little maid.
+（她沉思。）我想我错过了几次会议。继续做你的事吧，小女仆。
+(She seems very suspicious.)  That's impossible!  I know all the old maids.  I will put you under arrest right now.
+（她似乎很怀疑。）这不可能！我认识所有已经在这里的女仆。我现在要逮捕你。
+###_PLAYER
+Yes, I'm a new maid.
+是的，我是新来的女仆。
+###_NPC
+It makes sense.  As a new maid, please report anything suspicious to me.  You can carry on.
+这说得通。作为一名新女仆，如有任何可疑之处，请向我报告。继续做你的事吧。
+(She inspects you some more.)  This is strange, I've already met the new maids.  I will put you under arrest for safety.
+（她又打量了你一番。）这很奇怪，我已经见过新的女仆了。为了安全起见，我会逮捕你。
+(She looks at you.)  You know what?  I've never seen you before.  I think you're the spy!  I will arrest you for safety.
+（她看着你。）你知道吗？我以前从没见过你。我认为你是间谍！为了安全，我会逮捕你。
+Keep the Box clean little maid.  Let me know if you see anything suspicious.
+请保持魔盒的整洁，小女仆。如果你发现任何可疑之处，请告诉我。
+I'm sorry Miss Dominatrix.  I cannot give you my outfit.
+对不起，女王女士。我不能给你我的衣服。
+###_PLAYER
+I'll take it by force.  (Fight her.)
+我会强行拿走的。（与她战斗。）
+Fine, get lost.  (Go explore.)
+好吧，你走吧。（开始探索。）
+(Surrender.)
+（投降。）
+###_NPC
+(You surrender as she quickly restrains you.)  A Dominatrix will come to interrogate you.
+（你投降，她迅速地束缚住你。）女王会来审讯你的。
+###_PLAYER
+How about a bribe?
+你觉得一笔贿赂如何？
+###_NPC
+Trying to bribe an officer?   That's more prison time for you.  (She takes notes.)
+试图贿赂管理员？对你来说这只是更多的监禁时间。（她记笔记。）
+###_PLAYER
+(Wait for the Dominatrix.)
+（等待女王。）
+###_NPC
+You're still under arrest you know?  Surrender to the law and we'll have mercy for you.
+你知道吗，你被逮捕了？服从法律，我们会宽容对待你的。
+###_PLAYER
+I'm the law now.
+我现在就是法律。
+###_NPC
+(She grumbles.)  Don't make me laugh.  Pandora's law will crush you like an ant.
+（她嘟囔着。）别逗我笑。潘多拉的法律会碾碎你，像碾碎一只蚂蚁。
+###_PLAYER
+(Bring her with you.)
+（带上她。）
+###_NPC
+Freeze!  You're not allowed to do that!  (She will follow you from room to room.)
+不许动！禁止这么做！（她会跟着你走过各个房间。）
+###_PLAYER
+(Leave her here.)
+（把她留在这里。）
+###_NPC
+Let me go and I'll shorten your sentence.  (She will no longer follow you.)
+放我走，我会缩短你的刑期。（她不会再跟着你了。）
+###_PLAYER
+(Strip her naked.)
+（脱光她的衣服。）
+###_NPC
+(She seems really angry as you strip her naked.)  This uniform is sacred!
+（当你脱光她的衣服时，她看起来非常生气。）这件制服是神圣的！
+###_PLAYER
+(Wear her clothes.)
+（穿上她的衣服。）
+###_NPC
+(She shakes her head no as you dress up as a guard.)  Nobody will fall for that.
+（当你打扮成警卫时，她摇头。）没有人会上当的。
+###_PLAYER
+(Leave her.)
+（离开她。）
+Under arrest?  What do you mean?
+被捕？你是什​​么意思？
+###_NPC
+You will understand very soon.  A Dominatrix will come to pick you in a few minutes.
+你很快就会明白的。几分钟后会有一位女王来接走你。
+###_PLAYER
+You're not arresting me girl.
+不是你在逮捕我，女孩。
+###_NPC
+You're already arrested.  A Dominatrix will come to pick you in a few minutes.
+你已经被捕了。几分钟后会有一位女王来接走你。
+###_PLAYER
+I will accept it Miss.
+我会接受的，女士。
+###_NPC
+Perfect.  A Dominatrix will come to pick you in a few minutes.
+完美。几分钟后会有一位女王来接走你。
+###_PLAYER
+(Scream in your gag.)
+（在你的堵嘴里尖叫。）
+###_NPC
+Scream all you want.  A Dominatrix will come to pick you in a few minutes.
+随便你叫吧。几分钟后会有一位女王来接走你。
+###_PLAYER
+(Thrash in your bondage.)
+（在你的束缚中挣扎。）
+###_NPC
+This is pointless.  A Dominatrix will come to pick you in a few minutes.
+这没有意义。几分钟后会有一位女王来接走你。
+###_PLAYER
+(Bow your head and stay silent.)
+（低下头，保持沉默。）
+I will have my revenge.
+我会报仇的。
+###_NPC
+(She smirks.)  Aren't you cute?  Stop that nonsense, the Dominatrix is coming.
+（她邪恶地笑笑。）你真可爱？别胡说八道了，女王要来了。
+Freeze!  (A guard stops you.)  You are DialogPlayerName from the Bondage Club.  You are under arrest!
+不许动！（一名警卫拦住你。）你是来自束缚俱乐部的DialogPlayerName。你被捕了！
+###_PLAYER
+You're mistaken.
+你认错了。
+###_NPC
+I know who you are.  Surrender or I will crush you.
+我知道你是谁。投降，我会砸烂你。
+(Your victim screams for help to the guard.)  Stop your kidnapping!  You are under arrest!
+（你的受害者尖叫着向警卫求助。）停止你的绑架！你被捕了！
+###_PLAYER
+She's roleplaying.
+她正在角色扮演。
+###_NPC
+(Your victim tells the truth to the guard.)  This is not funny.  Surrender right now!
+（你的受害者告诉警卫真相。）这不好笑。立即投降！
+(The guard seems to recognize the other guard you're carrying.)  You cannot kidnap a guard!  You are under arrest!
+（警卫似乎认出了你带在身边的警卫。）你不能绑架警卫！你被捕了！
+###_PLAYER
+She lost a bet against me.
+她和我打赌输了。
+###_NPC
+(Your victim shakes her head no and whimpers for help.)  This is against the law.  Surrender right now!
+（你的受害者摇头表示否认，呜咽着寻求帮助。）这是违法的。立即投降！
+(As soon as you cross the guard, the Dominatrix explains who she is and her current kidnapping.)  Stop!  What's going on?
+（你越过警卫时，女王解释了她是谁，以及她目前正被绑架。）停下！这是怎么回事？
+###_PLAYER
+I'm in charge.  I will explain everything.
+我负责。我会解释一切。
+###_NPC
+(The Dominatrix starts to argue and the guard stops you both.)  You!  (She points at you.)  What's going on?
+（女王开始争辩，守卫阻止你们俩。）你！（她指着你。）发生什么事了？
+###_PLAYER
+She's lying.
+她在撒谎。
+###_NPC
+(The Dominatrix repeats her name and how she's getting kidnapped.)  Enough!  You're under arrest!
+（女王重复她的名字，以及她是如何被绑架的。）够了！你被捕了！
+(You surrender as she quickly restrains you.)  Unbelievable!  A Dominatrix will come to interrogate you.
+（你投降，她迅速地束缚住你。）难以置信！一位女王会来审讯你。
+###_PLAYER
+This girl is a spy from the Bondage Club.
+这个女孩是从束缚俱乐部来的间谍。
+###_NPC
+(She takes a step back.)  Oh my!  Please take her to our prison Miss Dominatrix.  You could gag her to prevent this misunderstanding.
+（她后退一步。）天哪！请把她带到我们的监狱，女王女士。你可以塞住她的嘴，以避免这种误会。
+(She seems alerted.)  This is serious!  You're under arrest for now.  A Dominatrix will come to sort this situation.
+（她似乎很警觉。）这很严重！你现在被逮捕了。一位女王会来处理这种情况。
+###_PLAYER
+This brat is simply trying to get punished.
+这个调皮蛋只是想受到惩罚。
+###_NPC
+(She starts to laugh.)  Of course!   I should have guessed it.  Please carry on Miss Dominatrix, sorry for the trouble.
+（她开始大笑。）当然！我早该想到的。请继续女王女士，麻烦你了。
+(She doesn't seem to believe you.)  This is fishy, you're under arrest for now.  A Dominatrix will come to sort this situation.
+（她似乎不相信你。）这很可疑，你现在被逮捕了。一位女王会来处理这种情况。
+###_PLAYER
+I can't tell you or I'll have to kill you.
+我不能告诉你，否则我必须杀了你。
+###_NPC
+Very funny.  (She doesn't seem amused.)  You're under arrest!  A Dominatrix will come to sort this situation.
+非常有趣。（她似乎并不满意。）你被捕了！一位女王会来处理这种情况。
+Have a wonderful day Miss Dominatrix.  I will keep this place safe.
+祝你有完美的一天，女王女士。我会保护这个地方的安全。

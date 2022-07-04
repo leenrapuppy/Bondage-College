@@ -1,9 +1,9 @@
 Name:
-姓名:
-undefined
-undefined
+名字：
+Nickname:
+昵称：
 Title:
-称号:
+称号：
 None
 无
 Mistress
@@ -33,7 +33,7 @@ Nurse
 Doctor
 医生
 Lady Luck
-幸运儿
+幸运女士
 Patron
 赞助者
 College Student
@@ -55,11 +55,11 @@ Hot Blood Horse
 Wild Mustang
 野马
 Shining Unicorn
-独角兽
+闪耀独角兽
 Flying Pegasus
-飞马
+翱翔天马
 Majestic Alicorn
-有翼独角兽
+威严神驹
 Mole
 间谍
 Infiltrator
@@ -70,10 +70,26 @@ Operative
 密探
 Superspy
 超级间谍
+Wizard
+法师
+Magus
+魔战士
+Magician
+魔术师
+Sorcerer
+术士
+Sage
+贤者
+Oracle
+先知
+Witch
+女巫
+Warlock
+邪术师
 Little One
-小家伙
+小不点
 Baby
-宝贝
+小宝贝
 Diaper Lover
 纸尿裤爱好者
 Bondage Baby
@@ -108,6 +124,8 @@ Lover:
 恋人:
 Owner:
 主人:
+GGTS
+GGTS
 Money:
 金钱:
 Member for
@@ -135,9 +153,9 @@ Unknown
 Dungeoneer:
 地下城探险家：
 Dominant:
-施虐者：
+支配者：
 Submissive:
-受虐者：
+顺从者：
 Maid Sorority:
 女仆社团：
 Kidnappers League:
@@ -183,7 +201,7 @@ Evasion:
 Willpower:
 意志：
 Infiltration:
-渗透：
+潜入：
 Dressage:
 盛装：
 Skills modifier:
@@ -235,24 +253,16 @@ Relation:
 (Atrocious)
 (仇恨)
 Permission:
-权限:
+权限：
 Everyone, no exceptions
 所有人
 Everyone, except blacklist
-所有人,除了黑名单成员
+所有人，除了黑名单成员
 Owner, Lovers, whitelist & Dominants
-主人,恋人,白名单&支配者
+主人、恋人、白名单&支配者
 Owner, Lovers and whitelist only
-仅主人,恋人和白名单
+仅主人、恋人和白名单
 Owner and Lovers only
 仅主人和恋人
 Owner only
 仅主人
-
-########################
-### DEPRECATED LINES ###
-########################
-Dominant:
-支配：
-Submissive:
-受虐：

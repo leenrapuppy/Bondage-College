@@ -116,7 +116,7 @@ function TimerPrivateOwnerBeep() {
 			ServerBeep = {
 				Timer: CommonTime() + 15000,
 				Message: DialogFindPlayer("BeepFromOwner"),
-			}
+			};
 			LogAdd("OwnerBeepActive", "PrivateRoom");
 			LogAdd("OwnerBeepTimer", "PrivateRoom", CurrentTime + 120000);
 			FriendListBeepLog.push({ MemberName: Player.Owner, ChatRoomName: DialogFindPlayer("YourRoom"), Sent: false, Time: new Date(), Private: false });

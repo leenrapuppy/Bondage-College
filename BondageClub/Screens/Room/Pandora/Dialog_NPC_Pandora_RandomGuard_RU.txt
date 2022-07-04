@@ -1,0 +1,537 @@
+###_NPC
+(She checks your gag.)  Prisoners don't need to be understood.
+(Она проверяет твой кляп.)  Заключенные не нуждаются в том, чтобы их понимали.
+(She pouts.)  You're tough, but I represent the law and you're still under arrest.
+(Она надувает губы.)  Ты крута, но я представляю закон, и ты все еще под арестом.
+(She smiles and laughs.)  You really thought you could defeat the law?  You are under arrest.
+(Она улыбается и смеется.)  Ты действительно думал, что сможешь победить закон?  Вы арестованы.
+(A Dominatrix takes you away from the guard.)  So, we've caught the infamous DialogPlayerName.  You'll never forget this lesson.
+(Доминатрикс забирает тебя у стража.)  Итак, мы поймали печально известную DialogPlayerName.  Ты никогда не забудешь этот урок.
+(A Dominatrix takes you away from the guard.)  You've been on list for a while DialogPlayerName.  I'll teach you a lesson.
+(Доминатрикс забирает тебя у стража.)  Ты уже некоторое время в списке DialogPlayerName.  Я преподам тебе урок.
+(A Dominatrix takes you away from the guard.)  (She cracks her knuckles.)  So, you're a troublemaker?  I'll teach you a lesson.
+(Доминатрикс забирает тебя у стража.)  (Она хрустит костяшками пальцев.)  Значит, ты нарушительница спокойствия?  Я преподам тебе урок.
+(A Dominatrix takes you away from the guard.)  (She stares at you.)  You've caused some trouble?  Then it's time for your lesson.
+(Доминатрикс забирает тебя у стража.)  (Она пристально смотрит на тебя.) Ты причинила какие-то неприятности?  Тогда пришло время для твоего урока.
+(She sighs and reluctantly allows you to gag her.)
+(Она вздыхает и неохотно позволяет вам заткнуть ей рот кляпом.)
+(You remove her gag and she grumbles.)  Are you finally coming back to your senses?
+(Вы вынимаете у нее кляп, и она ворчит.)  Ты наконец-то пришела в себя?
+(She seems angry as you push earplugs inside.)  How can I follow your orders now?
+(Она кажется сердитой, когда вы засовываете внутрь затычки для ушей.)  Как я могу теперь выполнять ваши приказы?
+(You pull the earplugs out.)  You're only adding more time to your sentence.
+(Вы вытаскиваете затычки из ушей.)  Вы только добавляете больше времени к своему приговору.
+(She struggles as you restrain her arms securely.)  You're breaking the law again.
+(Она сопротивляется, когда вы надежно удерживаете ее руки.)  Ты снова нарушаешь закон.
+(You free her arms and she stretches.)  You're still under arrest.
+(Вы освобождаете ее руки, и она потягивается.)  Вы все еще под арестом.
+(She thrashes as you restrain her legs.)  You better carry me then!
+(Она бьется, когда вы удерживаете ее ноги.)  Тогда тебе лучше нести меня!
+(You release her legs.)  Justice will strike you down like a hammer.
+(Ты отпускаешь ее ноги.)  Правосудие поразит вас, как молот.
+(She grumbles as you restrain her feet.)  This will be reported in your trial.
+(Она ворчит, когда вы удерживаете ее ноги.)  Об этом будет сообщено в вашем судебном разбирательстве.
+(You release her feet.)  Let's walk until you get caught.
+(Ты отпускаешь ее ноги.)  Давай прогуляемся, пока тебя не поймают.
+(She grumbles as you restrain her feet.)  How can I follow you now?
+(Она ворчит, когда вы удерживаете ее ноги.)  Как я могу теперь следовать за тобой?
+(She adjusts her neck to the new collar.)  Soon you will wear the Box collar.
+(Она поправляет на шее новый ошейник.)  Скоро ты наденешь ошейник Коробки.
+(You remove the collar from her neck.)  Too late, the crime has been done.
+(Вы снимаете ошейник с ее шеи.)  Слишком поздно, преступление уже совершено.
+(She struggles to avoid the belt but you're able to strap it on her.)  Are you serious?
+(Она изо всех сил пытается избежать ремня, но вы можете пристегнуть его к ней.)  Ты серьезно?
+(She sighs as you unlock the belt.)  Can you make up your mind?
+(Она вздыхает, когда ты расстегиваешь ремень.)  Можете ли вы принять решение?
+(She stays silent as you strap the device on her head.)
+(Она молчит, пока вы пристегиваете устройство к ее голове.)
+(You release her head as she nods rapidly.)  That's better, but you're still in trouble.
+(Вы отпускаете ее голову, и она быстро кивает.)  Так-то лучше, но ты все равно в беде.
+(You put the hood on her head as she goes silent.)
+(Вы надеваете ей на голову капюшон, когда она замолкает.)
+(She grins as you remove the hood from her head.)  You will never get out of here.
+(Она улыбается, когда вы снимаете капюшон с ее головы.)  Ты никогда отсюда не выберешься.
+(You strap the item on her nose as she sighs.)  Is that a joke to you?
+(Вы пристегиваете предмет к ее носу, когда она вздыхает.) Для тебя это шутка?
+(She nods as you remove the device.)  Someday Pandora's Box will make you pay.
+(Она кивает, когда вы снимаете устройство.)  Когда-нибудь Ящик Пандоры заставит вас заплатить.
+(You strap the harness on her torso.)  Causing more trouble will only extend your jail time.
+(Вы пристегиваете ремень безопасности к ее туловищу.)  Причинение новых неприятностей только продлит ваш тюремный срок.
+(She stretches as you release her from the harness.)  You're only toying with me?
+(Она потягивается, когда вы освобождаете ее от ремня безопасности.)  Ты просто играешь со мной?
+(She jumps as you slide the device inside.)  How dare you?  You're under arrest!
+(Она подпрыгивает, когда вы вставляете устройство внутрь.)  Как ты смеешь?  Вы арестованы!
+(She sighs as you remove the plug.)  Your butt will rot in jail.
+(Она вздыхает, когда вы вынимаете пробку.)  Твоя задница сгниет в тюрьме.
+(She holds her breath as you use the item.)  Pandora's police won't be kind with you.
+(Она задерживает дыхание, когда вы используете этот предмет.)  Полиция Пандоры не будет добра к вам.
+(She wiggles her breast slowly as you remove the device.)  Enjoy your freedom while it lasts.
+(Она медленно покачивает грудью, пока вы снимаете устройство.)  Наслаждайся своей свободой, пока она длится.
+(She whimpers as you use the device on her breast.)  Another violation to add to the list.
+(Она хнычет, когда вы прикладываете устройство к ее груди.) Еще одно нарушение, которое нужно добавить к списку.
+(She takes a deep breath and stays silent as you remove the device.)
+(Она делает глубокий вдох и молчит, пока вы снимаете устройство.)
+(A guard bows her head to you.)  It's an honor to protect and serve you Miss.
+(Охранник склоняет перед вами голову.) Для меня большая честь защищать и служить вам, мисс.
+(A guard salutes you.)  The Box isn't going to clean itself little maid.  Do you have anything to report?
+(Охранник отдает вам честь.) Коробка не собирается убираться сама, маленькая горничная.  У вас есть что сообщить?
+(A guard greets you.)  Hello cosplayer.  I hope you're not causing any trouble.
+(Охранник приветствует вас.) Привет, косплеер.  Надеюсь, вы не доставляете никаких хлопот.
+(A guard gives you a friendly handshake.)  I hope your patrol is going well.  Do you have anything to report?
+(Охранник дружески пожимает вам руку.)  Я надеюсь, что ваш патруль проходит хорошо.  У вас есть что сообщить?
+(A guard is staring at you.)  Hey there, you're a good girl?  I hope you're not causing any trouble.
+(Охранник смотрит на тебя.) Эй, ты хорошая девочка?  Надеюсь, вы не доставляете никаких хлопот.
+###_PLAYER
+Who are you?
+Кто ты?
+###_NPC
+I'm guard DialogCharacterName.  I serve and protect Pandora's Box.
+Я - охранник DialogCharacterName.  Я служу и защищаю Ящик Пандоры.
+###_PLAYER
+Am I under arrest?
+Я арестована?
+###_NPC
+Not yet.  Is there any reason I should arrest you?
+Ещё нет.  Есть ли какая-то причина, по которой я должен вас арестовать?
+###_PLAYER
+I'm a good girl.
+Я хорошая девочка.
+###_NPC
+Let's do a quick quiz then.  We'll see if you're a good girl or not.
+Тогда давайте проведем небольшой тест.  Посмотрим, хорошая ты девочка или нет.
+###_PLAYER
+I don't cause trouble.
+Я не создаю проблемы.
+###_NPC
+Let's do a quick quiz, we'll see if you're a troublemaker or not.
+Давайте проведем небольшой тест, и мы посмотрим, являетесь ли вы нарушителем спокойствия или нет.
+###_PLAYER
+I'm bad to the bone.
+Я плохая до мозга костей.
+###_NPC
+Is that so?  Then you're under arrest!  Surrender right now.
+Это так?  Тогда вы арестованы!  Сдавайся прямо сейчас.
+###_PLAYER
+(Look around.)
+(Оглядитесь вокруг.)
+###_NPC
+Not yet little cosplay girl.  Is there any reason I should arrest you?
+Еще нет, маленькая косплеерша.  Есть ли какая-то причина, по которой я должна вас арестовать?
+###_PLAYER
+I'm a good cosplay girl.
+Я хорошая косплеерша.
+###_NPC
+Is that so?  Then you're under arrest!  Surrender right now cosplay girl.
+Это так?  Тогда вы арестованы!  Сдавайся прямо сейчас, косплейщица.
+###_PLAYER
+There's nothing to report.
+Здесь не о чем сообщать.
+###_NPC
+That's perfect.  (She starts to inspect you.)  How come I've never seen you before?  Are you new?
+Это прекрасно.  (Она начинает осматривать тебя.) Почему я никогда не видела тебя раньше?  Ты новенькая?
+###_PLAYER
+Everything is under control.
+Все находится под контролем.
+###_NPC
+Control is the name of the game.  (She looks at you.)  Did you miss the morning meeting?  Or are you new?
+Управление - это название игры.  (Она смотрит на тебя.) Ты пропустил утреннюю встречу?  Или ты новичок?
+###_PLAYER
+A spy is among us.
+Среди нас шпион.
+###_NPC
+A spy!   (She gets nervous.)  Who is she?  Do you have a description?
+Шпион!   (Она начинает нервничать.)  Кто она такая?  У вас есть описание?
+That's perfect.  (She starts to inspect you.)  Are you a new maid?  I've never seen you before.
+Это прекрасно.  (Она начинает осматривать вас.) Ты новая горничная?  Я никогда не видела тебя раньше.
+###_PLAYER
+There's a water leak to clean.
+Есть утечка воды, которую нужно почистить.
+###_NPC
+I don't care about that.  (She starts to inspect you.)  Are you a new maid?  I've never seen you before.
+Меня это не волнует.  (Она начинает осматривать вас.) Ты новая горничная?  Я никогда не видел тебя раньше.
+###_PLAYER
+Everything is under control?
+Все под контролем?
+###_NPC
+(She nods.)  We've had rumors of spies from other BDSM clubs, but they won't fool me.
+(Она кивает.)  До нас доходили слухи о шпионах из других БДСМ-клубов, но меня они не проведут.
+###_PLAYER
+Give me your outfit.
+Дай мне свой наряд.
+###_NPC
+(She takes a step back.)  What?  Miss, I cannot give you my guard outfit.
+(Она делает шаг назад.)  Что?  Мисс, я не могу отдать вам свой наряд охраны.
+###_PLAYER
+I need to go.  (Go explore.)
+Мне нужно идти.  (Иди исследуй.)
+A quiz?
+Тест?
+###_NPC
+Absolutely.  We'll see if you know Pandora's Box and if you're a good member.
+Абсолютно.  Мы посмотрим, знаете ли вы "Ящик Пандоры" и являетесь ли вы хорошим участником.
+###_PLAYER
+I don't have time for a quiz.
+У меня нет времени на тесты.
+###_NPC
+I don't care.  You'll do the quiz, or I'll throw your ass in jail.
+Мне все равно.  Ты пройдешь тест, или я засажу твою задницу в тюрьму.
+###_PLAYER
+How does it work?
+Как это работает?
+###_NPC
+I will ask you five questions.  If you fail two of them, you're in trouble.
+Я задам вам пять вопросов.  Если вы провалите два из них, у вас будут проблемы.
+###_PLAYER
+What happens if I win or lose?
+Что произойдет, если я выиграю или проиграю?
+###_NPC
+If you succeed, you can carry on with your day.  If you fail, I will arrest you.
+Если вам это удастся, вы сможете продолжать свой день.  Если вы потерпите неудачу, я вас арестую.
+###_PLAYER
+Fine, let's do the quiz.
+Хорошо, давайте проведем тест.
+(Fight her.)
+(Сражайся с ней.)
+###_NPC
+What is the best BDSM club in town?
+Какой лучший БДСМ-клуб в городе?
+###_PLAYER
+I don't know.
+Я не знаю.
+Pandora's Box.
+Ящик Пандоры.
+The Bondage Club.
+Клуб Бондажа.
+The Boudoir.
+В Будуаре.
+###_NPC
+Who rules Pandora's Box?
+Кто правит Ящиком Пандоры?
+###_PLAYER
+The Mistresses.
+Госпожи
+The Bosses.
+Боссы
+The Dominatrixes.
+Доминатриксы
+###_NPC
+If you see someone that causes trouble, who will you seek?
+Если вы увидите кого-то, кто доставляет неприятности, кого вы будете искать?
+###_PLAYER
+A guard.
+Охранницу.
+A maid.
+Горничную
+A dominatrix.
+Доминатрикс
+###_NPC
+If you need help with restraints, who will you seek?
+Если вам понадобится помощь с ограничителями, к кому вы обратитесь?
+In BDSM, what does SSC stands for?
+Что означает SSC в БДСМ?
+###_PLAYER
+Secondary School Certificate
+Аттестат о среднем образовании
+Silly Stupid Cunt.
+Глупая Тупая Пизда.
+Shibari Suspension Ceiling
+Подвесной потолок шибари
+Safe Sane Consensual.
+Безопасный, Вменяемый, По Обоюдному Согласию.
+###_NPC
+How would you label someone that gets pleasure from being in pain?
+Как бы вы назвали кого-то, кто получает удовольствие от боли?
+###_PLAYER
+A masochist.
+Мазохист.
+A slut.
+Шлюха
+A sadist.
+Садист
+An idiot.
+Идиот
+###_NPC
+How would you label someone that gets pleasure from inflicting pain?
+Как бы вы назвали кого-то, кто получает удовольствие от причинения боли?
+What will you use if you want to stop a scene immediately?
+Что вы будете использовать, если захотите немедленно остановить сцену?
+###_PLAYER
+Curse words.
+Ругательства.
+Safe words.
+Стоп-слова.
+Bad words.
+Плохие слова.
+###_NPC
+What kind of limit should never be broken?
+Какой предел никогда не должен быть нарушен?
+###_PLAYER
+A hard limit.
+Жесткий предел.
+A soft limit.
+Мягкий предел.
+Speed limits.
+Предел скорости.
+###_NPC
+When is it allowed to bring minors to the Box?
+Когда разрешается приводить несовершеннолетних в Коробку?
+###_PLAYER
+Always.
+Всегда.
+Only on daytime.
+Только в дневное время.
+Never.
+Никогда.
+Only if she's mature.
+Только если она зрелая.
+###_NPC
+What item do most submissive wear to show that they are owned?
+Какую вещь носят большинство сабмиссивов, чтобы показать, что они принадлежат им?
+###_PLAYER
+Restraints.
+Ограничения.
+A gag.
+Кляп
+A chastity belt.
+Пояс целомудрия.
+A collar.
+Ошейник
+###_NPC
+That's enough, you did fine at the quiz.  You're free to go.
+Этого достаточно, ты отлично справился с тестом.  Ты можешь идти.
+You failed the quiz girl.  It's time to educate and punish you.  You are under arrest.
+Ты провалила тест, девочка.  Пришло время обучить и наказать тебя.  Вы арестованы.
+###_PLAYER
+That wasn't too bad.
+Это было не так уж плохо.
+###_NPC
+Of course, we're not here to trick you but to protect you.  Carry on girl.
+Конечно, мы здесь не для того, чтобы обмануть вас, а для того, чтобы защитить вас.  Продолжай, девочка.
+###_PLAYER
+Thanks.  (Go explore.)
+Спасибо. (Иди исследуй.)
+I've been a guard for a while.
+Я некоторое время была охранником.
+###_NPC
+(She seems a little suspicious.)  My memory must be failing then.  Carry on fellow guard.
+(Она кажется немного подозрительной.)  Тогда, должно быть, моя память подводит меня.  Продолжайте, товарищ гвардеец.
+(She seems very suspicious.)  That's impossible!  I know all the old guards.  I will put you under arrest right now.
+(Она кажется очень подозрительной.)  Это невозможно!  Я знаю всю старую гвардию.  Я посажу вас под арест прямо сейчас.
+###_PLAYER
+Yes, I'm a new guard.
+Да, я новый охранник.
+###_NPC
+Very well, let me know if you need help with your job.  We support each other in the force.
+Очень хорошо, дайте мне знать, если вам понадобится помощь с вашей работой.  Мы поддерживаем друг друга в силе.
+(She inspects you some more.)  This is strange, I've already met the new guards.  I will put you under arrest for safety.
+(Она еще раз осматривает вас.)  Это странно, я уже познакомилась с новыми охранниками.  Я посажу вас под арест в целях безопасности.
+###_PLAYER
+You got me, I'm actually a spy.
+Ты меня поймала, я на самом деле шпион.
+###_NPC
+A spy!   Surrender right now!  You are under arrest.
+Шпион!   Сдавайтесь прямо сейчас!  Вы арестованы.
+###_PLAYER
+(Give a false description.)
+(Дайте ложное описание.)
+###_NPC
+(She takes notes.)  Thanks a lot, I will keep my eyes open for her.
+(Она делает заметки.)  Большое спасибо, я буду держать ухо востро ради нее.
+(She looks at you.)  You know what?  I've never seen you in the force.  I think you're the spy!  I will arrest you for safety.
+(Она смотрит на тебя.) Знаешь что?  Я никогда не видел тебя в полиции.  Я думаю, что ты шпион!  Я арестую вас для безопасности.
+###_PLAYER
+(Describe yourself cleverly.)
+(Опишите себя умно.)
+###_NPC
+(She takes notes.)  Thanks a lot, I will keep my eyes open.  She will never fool me.
+(Она делает заметки.)  Большое спасибо, я буду держать ухо востро.  Она никогда не обманет меня.
+(She seems really angry.)  You think you're funny?  You're under arrest!
+(Кажется, она действительно сердится.)  Ты думаешь, что ты смешная?  Ты арестована!
+###_PLAYER
+I'm the spy!
+Я шпион!
+###_NPC
+Surrender right now!  You are under arrest.
+Сдавайтесь прямо сейчас!  Вы арестованы.
+Have a pleasant day fellow guard.  Let me know if you need backup.
+Приятного дня, товарищ охранник.  Дайте мне знать, если вам понадобится подкрепление.
+###_PLAYER
+Take care.  (Go explore.)
+Береги себя. (Иди исследуй.)
+I've been a maid for a while.
+Я некоторое время была горничной.
+###_NPC
+(She ponders.)  I guess I've missed a few meetings.  Carry on little maid.
+(Она размышляет.)  Наверное, я пропустил несколько встреч.  Продолжай, маленькая служанка.
+(She seems very suspicious.)  That's impossible!  I know all the old maids.  I will put you under arrest right now.
+(Она кажется очень подозрительной.)  Это невозможно!  Я знаю всех старых горничных.  Я посажу вас под арест прямо сейчас.
+###_PLAYER
+Yes, I'm a new maid.
+Да, я новая горничная.
+###_NPC
+It makes sense.  As a new maid, please report anything suspicious to me.  You can carry on.
+В этом есть смысл.  Как новая горничная, пожалуйста, сообщайте мне обо всем подозрительном.  Ты можешь продолжать.
+(She inspects you some more.)  This is strange, I've already met the new maids.  I will put you under arrest for safety.
+(Она еще раз осматривает вас.)  Это странно, я уже познакомилась с новыми горничными.  Я посажу вас под арест в целях безопасности.
+(She looks at you.)  You know what?  I've never seen you before.  I think you're the spy!  I will arrest you for safety.
+(Она смотрит на тебя.) Знаешь что?  Я никогда не видел тебя раньше.  Я думаю, что ты шпион!  Я арестую вас для безопасности.
+Keep the Box clean little maid.  Let me know if you see anything suspicious.
+Содержи Коробку в чистоте, маленькая горничная. Дайте мне знать, если увидите что-нибудь подозрительное.
+I'm sorry Miss Dominatrix.  I cannot give you my outfit.
+Мне очень жаль, мисс Доминатрикс.  Я не могу отдать вам свой наряд.
+###_PLAYER
+I'll take it by force.  (Fight her.)
+Я возьму её силой.  (Сражайся с ней.)
+Fine, get lost.  (Go explore.)
+Ладно, проваливай.  (Иди исследуй.)
+(Surrender.)
+(Сдаться.)
+###_NPC
+(You surrender as she quickly restrains you.)  A Dominatrix will come to interrogate you.
+(Вы сдаетесь, она быстро удерживает вас.) Доминатрикс придет, чтобы допросить вас.
+###_PLAYER
+How about a bribe?
+Как насчет взятки?
+###_NPC
+Trying to bribe an officer?   That's more prison time for you.  (She takes notes.)
+Пытаешься подкупить офицера?   Это еще один тюремный срок для тебя.  (Она делает заметки.)
+###_PLAYER
+(Wait for the Dominatrix.)
+(Дождитесь Доминатрикс.)
+###_NPC
+You're still under arrest you know?  Surrender to the law and we'll have mercy for you.
+Ты все еще под арестом, ты знаешь?  Сдайтесь закону, и мы смилуемся над вами.
+###_PLAYER
+I'm the law now.
+Теперь я - закон.
+###_NPC
+(She grumbles.)  Don't make me laugh.  Pandora's law will crush you like an ant.
+(Она ворчит.)  Не смеши меня.  Закон Пандоры раздавит вас, как муравья.
+###_PLAYER
+(Bring her with you.)
+(Возьми ее с собой.)
+###_NPC
+Freeze!  You're not allowed to do that!  (She will follow you from room to room.)
+Стоять!  Тебе не позволено этого делать!  (Она будет следовать за вами из комнаты в комнату.)
+###_PLAYER
+(Leave her here.)
+(Оставь ее здесь.)
+###_NPC
+Let me go and I'll shorten your sentence.  (She will no longer follow you.)
+Отпусти меня, и я сокращу твой срок.  (Она больше не будет следовать за вами.)
+###_PLAYER
+(Strip her naked.)
+(Разденьте ее догола.)
+###_NPC
+(She seems really angry as you strip her naked.)  This uniform is sacred!
+(Она кажется очень сердитой, когда ты раздеваешь ее догола.)  Эта униформа священна!
+###_PLAYER
+(Wear her clothes.)
+(Наденьте ее одежду.)
+###_NPC
+(She shakes her head no as you dress up as a guard.)  Nobody will fall for that.
+(Она отрицательно качает головой, когда ты переодеваешься охранником.)  Никто на это не купится.
+###_PLAYER
+(Leave her.)
+(Оставь ее.)
+Under arrest?  What do you mean?
+Под арестом?  Что ты имеешь в виду?
+###_NPC
+You will understand very soon.  A Dominatrix will come to pick you in a few minutes.
+Вы очень скоро все поймете.  Доминатрикс приедет за вами через несколько минут.
+###_PLAYER
+You're not arresting me girl.
+Ты не арестуешь меня, девочка.
+###_NPC
+You're already arrested.  A Dominatrix will come to pick you in a few minutes.
+Вы уже арестованы. Доминатрикс приедет за вами через несколько минут.
+###_PLAYER
+I will accept it Miss.
+Я приму это, мисс.
+###_NPC
+Perfect.  A Dominatrix will come to pick you in a few minutes.
+Идеально.  Доминатрикс приедет за вами через несколько минут.
+###_PLAYER
+(Scream in your gag.)
+(Кричи в свой кляп.)
+###_NPC
+Scream all you want.  A Dominatrix will come to pick you in a few minutes.
+Кричи сколько хочешь.  Доминатрикс приедет за вами через несколько минут.
+###_PLAYER
+(Thrash in your bondage.)
+(Извивайся в своем бондаже.)
+###_NPC
+This is pointless.  A Dominatrix will come to pick you in a few minutes.
+Это бессмысленно.  Доминатрикс приедет за вами через несколько минут.
+###_PLAYER
+(Bow your head and stay silent.)
+(Склоните голову и храните молчание.)
+I will have my revenge.
+Я отомщу.
+###_NPC
+(She smirks.)  Aren't you cute?  Stop that nonsense, the Dominatrix is coming.
+(Она ухмыляется.)  Разве ты не прелесть?  Прекрати эту чушь, Доминатрикс идет.
+Freeze!  (A guard stops you.)  You are DialogPlayerName from the Bondage Club.  You are under arrest!
+Стоять!  (Охранник останавливает вас.) Вы DialogPlayerName из Клуба Бондажа.  Вы арестованы!
+###_PLAYER
+You're mistaken.
+Ты ошибаешься.
+###_NPC
+I know who you are.  Surrender or I will crush you.
+Я знаю, кто ты такая.  Сдавайся, или я раздавлю тебя.
+(Your victim screams for help to the guard.)  Stop your kidnapping!  You are under arrest!
+(Ваша жертва кричит о помощи охраннику.)  Прекратите свое похищение!  Вы арестованы!
+###_PLAYER
+She's roleplaying.
+Она играет роль.
+###_NPC
+(Your victim tells the truth to the guard.)  This is not funny.  Surrender right now!
+(Ваша жертва говорит правду охраннику.)  Это не смешно.  Сдавайся прямо сейчас!
+(The guard seems to recognize the other guard you're carrying.)  You cannot kidnap a guard!  You are under arrest!
+(Охранник, кажется, узнает другого охранника, которого вы несете.)  Вы не можете похитить охранника!  Вы арестованы!
+###_PLAYER
+She lost a bet against me.
+Она проиграла пари против меня.
+###_NPC
+(Your victim shakes her head no and whimpers for help.)  This is against the law.  Surrender right now!
+(Ваша жертва отрицательно качает головой и хнычет, взывая о помощи.)  Это противозаконно.  Сдавайтесь прямо сейчас!
+(As soon as you cross the guard, the Dominatrix explains who she is and her current kidnapping.)  Stop!  What's going on?
+(Как только вы пересекаете границу охраны, Доминатрикс объясняет, кто она такая и ее нынешнее похищение.)  Стоп!  Что происходит?
+###_PLAYER
+I'm in charge.  I will explain everything.
+Я здесь главная.  Я все объясню.
+###_NPC
+(The Dominatrix starts to argue and the guard stops you both.)  You!  (She points at you.)  What's going on?
+(Доминатрикс начинает спорить, и охранник останавливает вас обоих.)  Ты!  (Она указывает на тебя.) Что происходит?
+###_PLAYER
+She's lying.
+Она лжет.
+###_NPC
+(The Dominatrix repeats her name and how she's getting kidnapped.)  Enough!  You're under arrest!
+(Доминатрикс повторяет свое имя и то, как ее похищают.)  Хватит!  Вы арестованы!
+(You surrender as she quickly restrains you.)  Unbelievable!  A Dominatrix will come to interrogate you.
+(Ты сдаешься, когда она быстро удерживает тебя.) Невероятно!  Доминатрикс придет, чтобы допросить вас.
+###_PLAYER
+This girl is a spy from the Bondage Club.
+Эта девушка - шпионка из Клуба Бондажа.
+###_NPC
+(She takes a step back.)  Oh my!  Please take her to our prison Miss Dominatrix.  You could gag her to prevent this misunderstanding.
+(Она делает шаг назад.) О боже!  Пожалуйста, отведите ее в нашу тюрьму, мисс Доминатрикс.  Вы могли бы заткнуть ей рот кляпом, чтобы предотвратить это недоразумение.
+(She seems alerted.)  This is serious!  You're under arrest for now.  A Dominatrix will come to sort this situation.
+(Она, кажется, встревожена.)  Это серьезно!  На данный момент вы арестованы.  Доминатрикс придет, чтобы разобраться в этой ситуации.
+###_PLAYER
+This brat is simply trying to get punished.
+Этот соплячка просто пытается получить наказание.
+###_NPC
+(She starts to laugh.)  Of course!   I should have guessed it.  Please carry on Miss Dominatrix, sorry for the trouble.
+(Она начинает смеяться.)  Конечно!   Я должна была догадаться об этом.  Пожалуйста, продолжайте, мисс Доминатрикс, извините за беспокойство.
+(She doesn't seem to believe you.)  This is fishy, you're under arrest for now.  A Dominatrix will come to sort this situation.
+(Похоже, она тебе не верит.) Это подозрительно, на данный момент вы арестованы. Доминатрикс придет, чтобы разобраться в этой ситуации.
+###_PLAYER
+I can't tell you or I'll have to kill you.
+Я не могу тебе сказать, иначе мне придется тебя убить.
+###_NPC
+Very funny.  (She doesn't seem amused.)  You're under arrest!  A Dominatrix will come to sort this situation.
+Очень смешно.  (Кажется, ее это не забавляет.)  Вы арестованы!  Доминатрикс придет, чтобы разобраться в этой ситуации.
+Have a wonderful day Miss Dominatrix.  I will keep this place safe.
+Хорошего дня, мисс Доминатрикс.  Я буду охранять это место.

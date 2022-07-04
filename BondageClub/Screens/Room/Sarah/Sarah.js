@@ -545,7 +545,10 @@ function SarahSophieSetPunishmentIntro(DomRep) {
 	}
 }
 
-// Strips and restrains a character
+/**
+ * Strips and restrains a character
+ * @param {Character} C
+ */
 function SarahSophiePreparePunishCharacter(C) {
 	CharacterNaked(C);
 	CharacterRelease(C);
@@ -565,8 +568,13 @@ function SarahSophiePreparePunishCharacter(C) {
 	CharacterRefresh(C);
 }
 
-// When Sophie starts a character vibrator
+/**
+ * When Sophie starts a character vibrator
+ * @param {Character} C
+ * @param {string|number} Intensity
+ */
 function SarahSophieStartBuzz(C, Intensity) {
+	Intensity = parseInt(Intensity);
 	var Egg = InventoryGet(C, "ItemVulva");
 	Egg.Property = {};
 	Egg.Property.Intensity = Intensity;
@@ -575,7 +583,11 @@ function SarahSophieStartBuzz(C, Intensity) {
 	CharacterRefresh(C);
 }
 
-// Sets the Sophie punishment for the player
+/**
+ * Sets the Sophie punishment for the player
+ * @param {string} EventType
+ * @param {string|number} DomRep
+ */
 function SarahSophiePunishEvent(EventType, DomRep) {
 	DomRep = parseInt(DomRep);
 	if (DomRep != 0) ReputationChange("Dominant", DomRep);
@@ -599,7 +611,10 @@ function SarahSophiePunishEvent(EventType, DomRep) {
 	if ((EventType == "Buzz") && (Sarah != null) && SarahInside) SarahSophieStartBuzz(Sarah, 3);
 }
 
-// When the player plays Sophie Orgasm Game
+/**
+ * When the player plays Sophie Orgasm Game
+ * @param {string} Factor
+ */
 function SarahSophieOrgasmGame(Factor) {
 
 	// Increments the game parameters
@@ -653,7 +668,10 @@ function SarahPlayerPunishGirls() {
 	if (Sarah != null) Sarah.Stage = "1000";
 }
 
-// Returns TRUE if the current slave(s) are naked and without restrains
+/**
+ * Returns TRUE if the current slave(s) are naked and without restrains
+ * @param {NPCCharacter} C
+ */
 function SarahSlaveNakedWithoutRestrains(C) {
 	if (C == null) {
 		if (SarahAndAmandaAreInside()) return SarahSlaveNakedWithoutRestrains(Sarah) && SarahSlaveNakedWithoutRestrains(Amanda);
@@ -662,7 +680,10 @@ function SarahSlaveNakedWithoutRestrains(C) {
 	} else return (C.IsNaked() && C.HasNoItem());
 }
 
-// Returns TRUE if the current slave(s) are wearing clamps, egg and butt plug
+/**
+ * Returns TRUE if the current slave(s) are wearing clamps, egg and butt plug
+ * @param {NPCCharacter} C
+ */
 function SarahSlaveWithClampEggPlug(C) {
 	if (C == null) {
 		if (SarahAndAmandaAreInside()) return SarahSlaveWithClampEggPlug(Sarah) && SarahSlaveWithClampEggPlug(Amanda);
@@ -676,7 +697,10 @@ function SarahSlaveWithClampEggPlug(C) {
 	}
 }
 
-// Returns TRUE if the current slave(s) are wearing clamps, egg, butt plug, chastity belt & bra
+/**
+ * Returns TRUE if the current slave(s) are wearing clamps, egg, butt plug, chastity belt & bra
+ * @param {NPCCharacter} C
+ */
 function SarahSlaveChaste(C) {
 	if (C == null) {
 		if (SarahAndAmandaAreInside()) return SarahSlaveChaste(Sarah) && SarahSlaveChaste(Amanda);
@@ -692,7 +716,10 @@ function SarahSlaveChaste(C) {
 	}
 }
 
-// Returns TRUE if the current slave(s) are wearing clamps, egg, butt plug, chastity belt, bra & locked cuffs
+/**
+ * Returns TRUE if the current slave(s) are wearing clamps, egg, butt plug, chastity belt, bra & locked cuffs
+ * @param {NPCCharacter} C
+ */
 function SarahSlaveLockedCuffs(C) {
 	if (C == null) {
 		if (SarahAndAmandaAreInside()) return SarahSlaveLockedCuffs(Sarah) && SarahSlaveLockedCuffs(Amanda);
@@ -710,14 +737,20 @@ function SarahSlaveLockedCuffs(C) {
 	}
 }
 
-// Returns TRUE if the current slave(s) had their orgasms
-function SarahSlaveOrgasm(C) {
+/**
+ * Returns TRUE if the current slave(s) had their orgasms
+ * @returns {boolean}
+ */
+function SarahSlaveOrgasm() {
 	if (SarahAndAmandaAreInside()) return Sarah.OrgasmDone && Amanda.OrgasmDone;
 	else if (SarahIsInside()) return Sarah.OrgasmDone;
 	else return Amanda.OrgasmDone;
 }
 
-// Gives the restrains temporarily to Sarah and Amanda so they can be punished
+/**
+ * Gives the restrains temporarily to Sarah and Amanda so they can be punished
+ * @param {NPCCharacter} C
+ */
 function SarahGiveFirstSlaveItem(C) {
 	if (C == null) {
 		if (SarahIsInside()) SarahGiveFirstSlaveItem(Sarah);
@@ -729,7 +762,10 @@ function SarahGiveFirstSlaveItem(C) {
 	}
 }
 
-// Gives the second set of restrains temporarily to Sarah and Amanda so they can be punished
+/**
+ * Gives the second set of restrains temporarily to Sarah and Amanda so they can be punished
+ * @param {NPCCharacter} C
+ */
 function SarahGiveSecondSlaveItem(C) {
 	if (C == null) {
 		if (SarahIsInside()) SarahGiveSecondSlaveItem(Sarah);
@@ -740,7 +776,10 @@ function SarahGiveSecondSlaveItem(C) {
 	}
 }
 
-// Gives the third set of restrains temporarily to Sarah and Amanda so they can be punished
+/**
+ * Gives the third set of restrains temporarily to Sarah and Amanda so they can be punished
+ * @param {NPCCharacter} C
+ */
 function SarahGiveThirdSlaveItem(C) {
 	if (C == null) {
 		if (SarahIsInside()) SarahGiveThirdSlaveItem(Sarah);
@@ -751,24 +790,30 @@ function SarahGiveThirdSlaveItem(C) {
 	}
 }
 
-// Gives the fourth set of restrains temporarily to Sarah and Amanda so they can be punished
+/**
+ * Gives the fourth set of restrains temporarily to Sarah and Amanda so they can be punished
+ * @param {NPCCharacter} C
+ */
 function SarahGiveFourthSlaveItem(C) {
 	if (C == null) {
 		if (SarahIsInside()) SarahGiveFourthSlaveItem(Sarah);
 		if (SarahAmandaIsInside()) SarahGiveFourthSlaveItem(Amanda);
 	} else {
 		InventoryAdd(C, "VibratorRemote", "ItemVulva");
-		InventoryAdd(C, "LeatherWhip", "ItemPelvis");
-		InventoryAdd(C, "LeatherWhip", "ItemBreast");
-		InventoryAdd(C, "LeatherCrop", "ItemPelvis");
-		InventoryAdd(C, "LeatherCrop", "ItemBreast");
+		InventoryAdd(C, "SpankingToysWhip", "ItemHands");
+		InventoryAdd(C, "SpankingToysCrop", "ItemHands");
 		C.Stage = "1010";
 		C.OrgasmMeter = 0;
 		C.OrgasmDone = false;
 	}
 }
 
-// Build the orgasm meter for the slaves
+/**
+ * Build the orgasm meter for the slaves
+ * @param {string|number} Pleasure
+ * @param {string|number} Bonus
+ * @param {string|number} Intensity
+ */
 function SarahSlaveOrgasmBuild(Pleasure, Bonus, Intensity) {
 	Pleasure = parseInt(Pleasure);
 	Bonus = parseInt(Bonus);

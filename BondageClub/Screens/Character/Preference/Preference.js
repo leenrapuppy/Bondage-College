@@ -608,13 +608,17 @@ function PreferenceInitNotificationSetting(setting, audio, defaultAlertType) {
 
 /**
  * Migrates a named preference from one preference object to another if not already migrated
- * @param {any} from - The preference object to migrate from
- * @param {any} to - The preference object to migrate to
+ * @param {object} from - The preference object to migrate from
+ * @param {object} to - The preference object to migrate to
  * @param {string} prefName - The name of the preference to migrate
- * @param {*} defaultValue - The default value for the preference if it doesn't exist
+ * @param {any} defaultValue - The default value for the preference if it doesn't exist
  * @returns {void} - Nothing
  */
 function PreferenceMigrate(from, to, prefName, defaultValue) {
+	// Check that there's something to migrate (new characters) and that
+	// we're not already migrated.
+
+	if (typeof from !== "object" || typeof to !== "object") return;
 	if (to[prefName] == null) {
 		to[prefName] = from[prefName];
 		if (to[prefName] == null) to[prefName] = defaultValue;

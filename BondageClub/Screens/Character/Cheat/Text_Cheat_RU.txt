@@ -14,3 +14,15 @@ Automatically show NPC traits
 Автоматически показывать черты НПС
 No love decay for NPC over time
 Никакого распада любви для НПС с течением времени.
+Cannot lose Mistress status
+Невозможно потерять статус Госпожи
+Get college outfit for free
+Получите одежду для колледжа бесплатно
+Hit "C" in mini-games for bonus
+Нажмите "C" в мини-играх для получения бонуса
+Free NPC dress up
+Бесплатное переодевание NPC
+Change Domme/sub NPC trait
+Изменить черту Доминирования/Подчинения NPC
+Double GGTS time progress
+Двойной прогресс времени GGTS

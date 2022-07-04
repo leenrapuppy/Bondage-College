@@ -1062,6 +1062,13 @@ function AsylumGGTSControlItem(C, Item) {
 }
 
 /**
+ * Checks if the has enough GGTS minutes to spend on different activities, for GGTS level 6 and up
+ * @param {number} Minute - The number of minutes to compare
+ * @returns {boolean} - TRUE if the player has enough minutes
+ */
+function AsylumGGTSHasMinutes(Minute) { return ((AsylumGGTSGetLevel(Player) >= 6) && (Math.floor(Player.Game.GGTS.Time / 60000) >= Minute)); }
+
+/**
  * At level 6, the player can spend GGTS minutes for various reasons
  * @returns {void} - Nothing
  */

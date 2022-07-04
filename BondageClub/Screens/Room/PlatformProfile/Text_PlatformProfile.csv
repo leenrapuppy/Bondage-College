@@ -1,0 +1,33 @@
+Exit,Return to Bondage Brawl
+Name,Name:
+Class,Profession:
+Owner,Owner:
+Lover,Lover:
+None,None
+AgeMelody,Age: 21
+AgeOlivia,Age: 20
+Level,Level:
+Perks,Free perks:
+Health,Health:
+IntroMelody,"As a baby orphan, Melody was adopted by Countess Isabella Alberus.  Her best friend is Lady Olivia, which she serves and protects like a sister.  She's trained as a maid, a career not particularly suited for her strong temper.  She's known to never take breaks and having no fear."
+IntroOlivia,"Olivia Alberus is the second daughter of Countess Isabella.  She’s over-protected by her mother who keeps her chained to sleep and locked permanently in a chastity belt.  She’s engaged to Duke Sunesk and her best friend is maid Melody.  She’s very kind-hearted and possess her bloodline magic powers."
+PerkMelody0,Healthy
+PerkDescMelody0,+10% Health
+PerkMelody1,Robust
+PerkDescMelody1,+15% Health
+PerkMelody2,Vigorous
+PerkDescMelody2,Faster recovery when down
+PerkMelody3,Spring
+PerkDescMelody3,Higher jump height
+PerkMelody4,Bounce
+PerkDescMelody4,Can jump twice
+PerkMelody5,Block
+PerkDescMelody5,"Use ""I"" when still to reduce damage"
+PerkMelody6,Deflect
+PerkDescMelody6,Push back blocked enemies
+PerkMelody7,Seduction
+PerkDescMelody7,Love meter progresses faster
+PerkMelody8,Persuasion
+PerkDescMelody8,Domination meter progresses faster
+PerkMelody9,Manipulation
+PerkDescMelody9,Allow new dialog options

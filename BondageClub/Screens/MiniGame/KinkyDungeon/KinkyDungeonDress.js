@@ -1,15 +1,6 @@
 "use strict";
 
-// Outfit resource, uncached
-let KinkyDungeonOutfitsBase = [
-	{name: "OutfitDefault", dress: "Default", shop: false, rarity: 1},
-	{name: "JailUniform", dress: "JailUniform", shop: false, rarity: 1},
-	{name: "Wolfgirl", dress: "Wolfgirl", shop: false, rarity: 2},
-	{name: "Maid", dress: "Maid", shop: false, rarity: 2},
-	{name: "Dragon", dress: "Dragon", shop: false, rarity: 2},
-	{name: "Elven", dress: "Elven", shop: false, rarity: 2},
-	{name: "BlueSuit", dress: "BlueSuit", shop: false, rarity: 2},
-];
+
 // For cacheing
 let KinkyDungeonOutfitCache = new Map();
 
@@ -111,11 +102,40 @@ function KinkyDungeonDressPlayer() {
 	CharacterAppearanceBuildCanvas = () => {};
 
 	try {
+
+		// @ts-ignore
+		KinkyDungeonPlayer.OnlineSharedSettings = {BlockBodyCosplay: true};
+		if (!KDNaked) KDCharacterNaked();
+
 		// if true, nakeds the player, then reclothes
 		if (KinkyDungeonCheckClothesLoss) {
-			// @ts-ignore
-			KinkyDungeonPlayer.OnlineSharedSettings = {BlockBodyCosplay: true};
-			if (!KDNaked) KDCharacterNaked();
+			// We refresh all the restraints
+
+			// First we remove all restraints
+			for (let A = 0; A < KinkyDungeonPlayer.Appearance.length; A++) {
+				let asset = KinkyDungeonPlayer.Appearance[A].Asset;
+				if (asset.Group.Name.startsWith("Item")) {
+					KinkyDungeonPlayer.Appearance.splice(A, 1);
+					A -= 1;
+				}
+			}
+
+			// Next we revisit all the player's restraints
+			for (let inv of KinkyDungeonAllRestraint()) {
+				let renderTypes = KDRestraint(inv).shrine;
+				KDApplyItem(inv, KinkyDungeonPlayerTags);
+				if (inv.dynamicLink) {
+					let link = inv.dynamicLink;
+					for (let I = 0; I < 30; I++) {
+						if (KDRestraint(link).renderWhenLinked && KDRestraint(link).renderWhenLinked.some((element) => {return renderTypes.includes(element);}))
+							KDApplyItem(link, KinkyDungeonPlayerTags);
+						if (link.dynamicLink) {
+							link = link.dynamicLink;
+						} else I = 1000;
+					}
+				}
+			}
+
 			KDNaked = true;
 			KinkyDungeonUndress = 0;
 		}
@@ -398,4 +418,76 @@ function KDCharacterAppearanceNaked() {
 
 	// Loads the new character canvas
 	CharacterLoadCanvas(KinkyDungeonPlayer);
+}
+
+
+function KDApplyItem(inv, tags) {
+	let _ChatRoomCharacterUpdate = ChatRoomCharacterUpdate;
+	// @ts-ignore
+	ChatRoomCharacterUpdate = () => {};
+	try {
+		let restraint = KDRestraint(inv);
+		let AssetGroup = restraint.AssetGroup ? restraint.AssetGroup : restraint.Group;
+		let faction = inv.faction ? inv.faction : "";
+
+		let color = (typeof restraint.Color === "string") ? [restraint.Color] : restraint.Color;
+		if (restraint.factionColor && faction && KinkyDungeonFactionColors[faction]) {
+			for (let i = 0; i < restraint.factionColor.length; i++) {
+				for (let n of restraint.factionColor[i]) {
+					color[n] = KinkyDungeonFactionColors[faction][i]; // 0 is the primary color
+				}
+			}
+		}
+
+		let already = InventoryGet(KinkyDungeonPlayer, AssetGroup);
+
+		let placed = KDAddAppearance(KinkyDungeonPlayer, AssetGroup, AssetGet("3DCGFemale", AssetGroup, restraint.Asset), color);
+
+		if (placed) {
+			let type = restraint.Type;
+			if (restraint.changeRenderType && Object.keys(restraint.changeRenderType).some((k) => {return tags.has(k);})) {
+				let key = Object.keys(restraint.changeRenderType).filter((k) => {return tags.has(k);})[0];
+				if (key) {
+					type = restraint.changeRenderType[key];
+				}
+			}
+			placed.Property = {Type: type, LockedBy: inv.lock ? "MetalPadlock" : undefined};
+			if (!already && type) {
+				KinkyDungeonPlayer.FocusGroup = AssetGroupGet("Female3DCG", AssetGroup);
+				let options = window["Inventory" + ((AssetGroup.includes("ItemMouth")) ? "ItemMouth" : AssetGroup) + restraint.Asset + "Options"];
+				if (!options) options = TypedItemDataLookup[`${AssetGroup}${restraint.Asset}`].options; // Try again
+				const option = options.find(o => o.Name === type);
+				ExtendedItemSetType(KinkyDungeonPlayer, options, option);
+				KinkyDungeonPlayer.FocusGroup = null;
+			}
+
+			if (restraint.Modules) {
+				let data = ModularItemDataLookup[AssetGroup + restraint.Asset];
+				let asset = data.asset;
+				let modules = data.modules;
+				// @ts-ignore
+				placed.Property = ModularItemMergeModuleValues({ asset, modules }, restraint.Modules);
+				placed.Property.LockedBy = inv.lock ? "MetalPadlock" : undefined;
+			}
+			if (restraint.OverridePriority) {
+				placed.Property.OverridePriority = restraint.OverridePriority;
+			}
+		}
+	} finally {
+		// @ts-ignore
+		ChatRoomCharacterUpdate = _ChatRoomCharacterUpdate;
+	}
+
+}
+
+
+function KinkyDungeonSendOutfitEvent(Event, data) {
+	let outfit = KDOutfit({name: KinkyDungeonCurrentDress});
+	if (outfit && outfit.events) {
+		for (let e of outfit.events) {
+			if (e.trigger == Event) {
+				KinkyDungeonHandleOutfitEvent(Event, e, outfit, data);
+			}
+		}
+	}
 }

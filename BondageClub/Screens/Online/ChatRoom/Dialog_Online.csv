@@ -129,7 +129,6 @@ ReleaseSubmissiveConfirm,0,(Cancel),(Main menu),,
 120,,(☑ Forbid her from accessing others.),(She will now be able to access other members when she's in the same room as you.),"SendOwnerRule(""AccessOtherAllow"")","GetOwnerRule(""BlockAccessOther"")"
 120,,(☐ Forbid her from accessing others.),(She won't be able to access other members when she's in the same room as you.),"SendOwnerRule(""AccessOtherBlock"")","!GetOwnerRule(""BlockAccessOther"")"
 120,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
-120,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 120,0,(Back to main menu.),(Main menu.),,
 130,100,(Allow her to buy keys.),(The store will sell keys to her.),"SendOwnerRule(""KeyAllow"")","GetOwnerRule(""BlockKey"")"
 130,100,(Confiscate her keys.),(She lost all of her keys.),"SendOwnerRule(""KeyConfiscate"")",

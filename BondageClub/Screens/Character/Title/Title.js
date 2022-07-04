@@ -41,7 +41,7 @@ var TitleList = [
 	{ Name: "MagicSchoolOracle", Requirement: function () { return (ReputationGet("HouseAmplector") >= 100); }, Earned: true },
 	{ Name: "MagicSchoolWitch", Requirement: function () { return (ReputationGet("HouseCorporis") >= 50); }, Earned: true },
 	{ Name: "MagicSchoolWarlock", Requirement: function () { return (ReputationGet("HouseCorporis") >= 100); }, Earned: true },
-	{ Name: "Duchess", Requirement: function () { return LogQuery("KidnapSophie", "Sarah"); }, Earned: true},
+	{ Name: "Duchess", Requirement: function () { return LogQuery("KidnapSophie", "Sarah"); }, Earned: true },
 	{ Name: "LittleOne", Requirement: function () { return (ReputationGet("ABDL") >= 1); }, Earned: true },
 	{ Name: "Baby", Requirement: function () { return (ReputationGet("ABDL") >= 1); }, Earned: true },
 	{ Name: "DL", Requirement: function () { return (ReputationGet("ABDL") >= 1); }, Earned: true },
@@ -61,6 +61,9 @@ var TitleList = [
 	{ Name: "Drone", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 6); }, Earned: true }
 ];
 var TitleCanEditNickname = true;
+let TitleOffset = 0;
+let TitleListFiltered = [];
+const TitlePerPage = 28;
 
 /**
  * Sets the new title of the player, if the title has changed
@@ -134,6 +137,7 @@ function TitleIsEarned(Title) {
  * @returns {void} - Nothing
  */
 function TitleLoad() {
+	TitleListFiltered = TitleList.filter(T => T.Requirement());
 	TitleCanEditNickname = (!LogQuery("BlockNickname", "OwnerRule") || (Player.Ownership == null) || (Player.Ownership.Stage !== 1));
 	let E = ElementCreateInput("InputNickname", "text", Player.Nickname, "20");
 	if (!TitleCanEditNickname) {
@@ -152,23 +156,23 @@ function TitleRun() {
 
 	// List all the available titles
 	DrawText(TextGet("SelectTitle"), 1000, 100, "Black", "Gray");
+	DrawText(TextGet("CurrentTitle").replace("TITLE", TextGet("Title" + (Player.Title || "None"))), 300, 100, "Black", "Gray");
 	DrawText(TextGet(TitleCanEditNickname ? "Nickname" : "NicknameLocked"), 750, 180, "Black", "Gray");
 	ElementPosition("InputNickname", 1300, 175, 500, 60);
-	var X = 130;
-	var Y = 250;
-	for (let T = 0; T < TitleList.length; T++)
-		if (TitleList[T].Requirement()) {
-			DrawButton(X, Y, 400, 65, TextGet("Title" + TitleList[T].Name), "White");
-			X = X + 450;
-			if (X > 1500) {
-				X = 130;
-				Y = Y + 90;
-			}
+	let X = 130;
+	let Y = 250;
+	for (let T = TitleOffset; T < TitleOffset + TitlePerPage && T < TitleListFiltered.length; T++) {
+		DrawButton(X, Y, 400, 65, TextGet("Title" + TitleListFiltered[T].Name), 'White', undefined, undefined, Player.Title == TitleListFiltered[T].Name);
+		X = X + 450;
+		if (X > 1500) {
+			X = 130;
+			Y = Y + 100;
 		}
+	}
 
 	// Draw the exit button
 	DrawButton(1815, 75, 90, 90, "", "White", "Icons/Exit.png");
-
+	if (TitleListFiltered.length > TitlePerPage) DrawButton(1705, 75, 90, 90, "", "White", "Icons/Next.png");
 }
 
 /**
@@ -178,24 +182,27 @@ function TitleRun() {
 function TitleClick() {
 
 	// When the user exits
-	if ((MouseX >= 1815) && (MouseX < 1905) && (MouseY >= 75) && (MouseY < 165)) TitleExit();
+	if (MouseIn(1815, 75, 90, 90)) TitleExit();
+
+	if (TitleListFiltered.length > TitlePerPage && MouseIn(1705, 75, 90, 90)) {
+		TitleOffset += TitlePerPage;
+		if (TitleOffset >= TitleListFiltered.length) TitleOffset = 0;
+	}
 
 	// When the user selects a title
-	var X = 130;
-	var Y = 250;
-	for (let T = 0; T < TitleList.length; T++)
-		if (TitleList[T].Requirement()) {
-			if ((MouseX >= X) && (MouseX <= X + 400) && (MouseY >= Y) && (MouseY <= Y + 65)) {
-				TitleSet(TitleList[T].Name);
-				TitleExit();
-			}
-			X = X + 450;
-			if (X > 1500) {
-				X = 130;
-				Y = Y + 90;
-			}
+	let X = 130;
+	let Y = 250;
+	for (let T = TitleOffset; T < TitleOffset + TitlePerPage && T < TitleListFiltered.length; T++) {
+		if (MouseIn(X, Y, 400, 65)) {
+			TitleSet(TitleListFiltered[T].Name);
+			TitleExit();
 		}
-
+		X = X + 450;
+		if (X > 1500) {
+			X = 130;
+			Y = Y + 100;
+		}
+	}
 }
 
 // when the user exit this screen

@@ -821,6 +821,147 @@ Spell Balance:
 3.31
 - Buffs are now shown in the bottom right
 - Summon AI has been tweaked to be less suicidal and stick around the player more
+- There are now a lot more traps
+- Added indicator for jail/chase/parole modes
+- Reworked struggling. Struggle is now more effective at low progress, the others are more effective at high progress. Remove and Cut use the same bar as struggling
+- Added logbook for viewing logs
+- Logs are now stored in browser localstorage instead of solely in BC
+- New interface for lore and inventory to make it easier to browse
+- Vibration rework!
+- Added multiple configs for starting perks
+- NPCs will now approach you looking to buy items
+- Rescue now grants you an angel to help you out instead
+
+3.32
+- New enemy: Skillful zombie
+- New door lock trap
+- New Ectoplasm item, gained from killing ghosts
+- Talking to shopkeepers now happens when you click on them, but you have an option to make them angry
+- New enemy: Leather Elemental, Rope Elemental
+- Allies now help you out of restraints
+- Reworked struggle system a little in order to make things less frustrating
+- Flexible now lets you use feet to hold consumables/keys/undo buckles/struggle
+
+3.33
+- New boss on floor 6!!!
+- Vibrator SFX
+- Infinite log scrolling (sort of, caps at 100 logs worth of log)
+- Reworked binding a bit
+- Refactored the system for areas (like graveyard, etc) and for linked items. Let me know if you find bugs.
+- Traps have delay of 1 again, but now vary in location slightly
+- Traps now release smoke!
+- Added purple locks, which require a command word to remove instead of a key
+- Lots of new perks
+- Goddesses now expect you to be wearing their uniform when you are their champion...
+- Shrines now remove the most powerful 3 restraints instead of all of them
+- Bondage buster now charges when held and deals up to 100 damage on a single shot after 10 turns of charging
+- Added a perk which allows bed and barrel traps to appear
+- Some reworks to the vision system
+- Rope krakens now eventually teleport you to another place on the map
+- You always need the keys now
+- Added QoL feature to easily swap spells
+
+3.34
+- Ice storm duration doubled, damage per turn halved.
+- Ice Shard damage to 40 from 30, duration to 4 turns from 6 turns
+- New spell: Freeze
+- New Toggle spell: Shatter
+- New spell: Ignite
+
+3.34.1 Bugfix/QoL
+-Added ambushing enemies to ambush faction
+-Ambushing enemies should ignore the player once exhausted and tied
+-Bed and barrel trap should be removed on leash
+-Bed and barrel trap now make noise to attract enemies
+-Limitchance is now 0 with any kind of help, even struggle
+-Only hostile NPCs can pickpocket the player
+-Alchemist's pet is now more distinctively colored
+-Player can now pick up items inside walls and bars
+-Red border that blocks fast moving only happens if an enemy starts playing with you, or if an aggressive enemy is nearby. Also won't trigger on aggressive enemies unless they are within 6 units
+-Added new game plus counter
+-Icebreaker now triggers shatter
+-Ice shard now slows, but freezes if target is already slowed or bound
+-Ice shard mana cost from 6 to 4, Ice Shard damage from 40 to 35
+-Freeze mana cost to 3 from 2
+
+3.34.2 Bugfix
+-Allied mobs get removed as soon as you threaten them
+-Binding bars should appear on enemies even at max health
+-Cant get pickpocketed inside a barrel
+-Fixed a crash with mithril ankle cuffs
+-Command word now costs mana
+-Fix orb softlock
+-Fix golems aggro sometimes
+-Fix scroll dialogue tags missing
+-New Game Plus is harder~
+-Use the inventory view for quick inventory for a unified experience (and showing damage/accuracy/etc)
+
+3.34.3 Bugfix/QoL
+- Starting perks now grant additional rep with their respective faction/goddess
+- Maid start now gives -3 points instead of -2
+- Fix bug with faction relationss growing way too quickly
+- Fix maid start being easy in distracted mode
+- Dragonslaver range reduced to 2.99 from 3.9
+- Shop dialogues now show the quick inventory
+- Shatter description fixed
+- Reduced minimum range on many spells (like monolith beam)
+- You can pass helpless NPCs but not bound NPCs that are not helpless
+- Only one commerce shrine will appear per level
+- Fixed enemies getting aggroed by you if they friendly fire each other
+
+3.34.4 Bugfix/QoL
+- New perk: Bound Crusader, which shifts the binding requirement for being a champion into the new perk
+- Kiting enemies should now occasionally stop to attack
+- Mystic locks are impassable
+- Added dominant and bound crusader traits
+- Your summons will aggro enemies
+- Fix rear/piercing button toggles being unclickable
+
+3.35 Feature Update
+- Escape buttons are now in the same order on both sides (this took surprisingly more effort to program than expected)
+- Added icons for all spells and increased the max number of spell slots from 5 to 7
+- New perk: Trespasser
+- New bound sprites by Song!
+- Jail shouldn't take off as many different types of restraints anymore
+- Added machine-translated chinese...
+- Layered restraints will now still render underneath!!!
+- Equipped layered items now show in the inventory under 'Equipped'
+- +20% max hp binding when binding a vulnerable target
+- Can now remove some layered items underneath by pressing a button to cycle through
+- Rope now costs 0.25 stamina from 0.5
+- Feather now costs 0.25 stamina from 0.1
+- Helpless enemies now need to be captured personally
+
+3.4 Feature Update
+- Many new keybindings!
+- Tying enemies no longer slows attack speed, only move speed
+- Features more diverse map generation!
+- Improved (?) Chinese translation!
+- New enemy: Deputy
+- New enemy: Magnet witch
+- Added tutorial
+- Revamped struggle system a bit... there's a few more tools to get out now...
+- A mini visual rework!
+- Healing people can befriend them and raises rep
+- Changes to distraction system
+- Made bullets easier to dodge, and added warnings
+- Golem HP reduced from 300 to 180
+- Golem now has 40% magic resist
+- Golem armor increased to 25 from 20
+- Binding chain binding reduced to 7 from 10
+- Forbidden Rope damage reduced to 30 from 50
+- New spell: Lockdown (melee range, enemy struggles slower for 8 turns, 1 mana)
+- Wall mana cost reduced to 3 from 6
+
+3.41
+- Added some more quest-like interactions
+- Added thought bubbles
+- New enemy: Librarian
+- New jail stuff
+
+3.42
+- Spells now have prerequisite spells instead of shrine levels
+- Elemental, Conjuration, and Illusion shrines now give an arcane buff instead.
 
 TODO ValidationFindBlockCycles to prevent bugs
 

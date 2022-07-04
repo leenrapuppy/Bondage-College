@@ -137,7 +137,7 @@ function ElementCreateRangeInput(id, value, min, max, step, thumbIcon, vertical)
  * @param {string} ID - The name of the select item. The outer div will get this name, for positioning. The select
  * tag will get the name ID+"-select"
  * @param {string[]} Options - The list of options for the current select statement
- * @param {function} [ClickEventListener=null] - An event listener to be called, when the value of the drop down box changes
+ * @param {EventListenerOrEventListenerObject} [ClickEventListener=null] - An event listener to be called, when the value of the drop down box changes
  * @returns {void} - Nothing
  */
 function ElementCreateDropdown(ID, Options, ClickEventListener) {
@@ -163,13 +163,13 @@ function ElementCreateDropdown(ID, Options, ClickEventListener) {
 			InnerDiv.innerHTML = Options[i];
 			InnerDiv.addEventListener("click", function () {
 				// when an item is clicked, update the original select box, and the selected item:
-				var s = this.parentNode.parentNode.getElementsByTagName("select")[0]; // Representation of the select tag
-				var h = this.parentNode.previousSibling; // Representation of the dropdown box
+				var s = this.parentElement.parentElement.getElementsByTagName("select")[0]; // Representation of the select tag
+				var h = /** @type HTMLElement */(this.parentElement.previousElementSibling); // Representation of the dropdown box
 				for (let j = 0; j < s.length; j++) {
 					if (s.options[j].innerHTML == this.innerHTML) {
 						s.selectedIndex = j; // Fake the selection of an option
 						h.innerHTML = this.innerHTML; // Update the drop down box
-						var y = this.parentNode.getElementsByClassName("same-as-selected");
+						var y = this.parentElement.getElementsByClassName("same-as-selected");
 						for (let k = 0; k < y.length; k++) {
 							y[k].removeAttribute("class");
 						}
@@ -191,7 +191,7 @@ function ElementCreateDropdown(ID, Options, ClickEventListener) {
 			//when the select box is clicked, close any other select boxes, and open/close the current select box:
 			e.stopPropagation();
 			ElementCloseAllSelect(this);
-			this.nextSibling.classList.toggle("select-hide");
+			this.nextElementSibling.classList.toggle("select-hide");
 		});
 		// add an event listener to the <select> tag
 		if (ClickEventListener != null) Select.addEventListener("change", ClickEventListener);
@@ -299,6 +299,7 @@ function ElementPosition(ElementID, X, Y, W, H) {
 /**
  * Draws an existing HTML element at a specific position within the document. The element will not be centered on its given coordinates unlike the ElementPosition function.
  * @param {string} ElementID - The id of the input tag to (re-)position.
+ * @param {number} Font - The size of the font to use.
  * @param {number} X - Starting point of the element on the X axis.
  * @param {number} Y - Starting point of the element on the Y axis.
  * @param {number} W - Width of the element.

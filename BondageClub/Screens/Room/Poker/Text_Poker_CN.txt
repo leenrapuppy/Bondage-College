@@ -1,0 +1,70 @@
+Select your options & opponents below or challenge a new girl to unlock her.
+在下面选择游戏模式和对手，或者挑战一名新的女孩以解锁她。
+Return to the main hall
+返回大厅
+Challenge a new girl
+挑战新的女孩
+Start a custom game
+开始自定义游戏
+View yourself
+显示你自己
+Texas Hold'em
+德州扑克
+Two Cards
+两张牌
+Visit the artist
+访问艺术家页面
+None
+无
+Private Friends
+Private Friends
+Illustrations
+插画
+Real Models
+真人模特
+Chip
+筹码
+Deal
+发牌
+Bet
+下注
+Raise
+加注
+Fold
+弃牌
+Watch
+观看
+won
+获胜
+won the game!
+赢得了牌局！
+You won $MoneyAmount and unlocked OpponentName.  You can challenge another girl.
+你赢得了 $MoneyAmount 并解锁了 OpponentName。你现在可以挑战新的女孩。
+Finish this game
+结束游戏
+Ante:
+底注：
+Split pot
+平分彩池
+Pot:
+彩池：
+High card
+散牌
+One pair
+一对
+Two pairs
+两对
+Three of a kind
+三条
+Straight
+顺子
+Flush
+同花
+Full house
+葫芦
+Four of a kind
+四条
+Straight flush
+同花顺
+Royal flush
+皇家同花顺

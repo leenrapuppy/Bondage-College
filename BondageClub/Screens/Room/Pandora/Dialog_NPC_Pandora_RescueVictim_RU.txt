@@ -1,0 +1,48 @@
+###_NPC
+(She seems to wonder.)  Why are you gagged miss?
+(Кажется, она удивляется.)  Почему у вас кляп во рту, мисс?
+Miss DialogPlayerName.  It's an honor to be rescued by you.
+Мисс DialogPlayerName.  Для меня большая честь быть спасенным вами.
+I've seen you before!  You're DialogPlayerName from the Bondage Club!  Are you here to rescue me?
+Я видел тебя раньше!  Ты DialogPlayerName из Клуба Бондажа!  Ты здесь, чтобы спасти меня?
+Who are you?  Are you here to rescue me?
+Кто ты?  Ты здесь, чтобы спасти меня?
+###_PLAYER
+Who are you?
+Кто ты?
+###_NPC
+I'm DialogCharacterName from the Bondage Club.  I was kidnapped and put in here.  Are we getting out together?
+Я DialogCharacterName из Клуба Бондажа.  Меня похитили и поместили сюда.  Мы выходим вместе?
+###_PLAYER
+I'm here to rescue you.
+Я здесь, чтобы спасти тебя.
+###_NPC
+(She nods happily.)  Thank you so much Miss, you're the best.
+(Она радостно кивает.)  Большое вам спасибо, мисс, вы самая лучшая.
+###_PLAYER
+Where is the exit?
+Где находится выход?
+###_NPC
+(She shrugs.)  I'm sorry, I don't know.
+(Она пожимает плечами.)  Прости, я не знаю.
+###_PLAYER
+(Bring her with you.)
+(Возьми ее с собой.)
+###_NPC
+(She nods her head and starts to follow you.)  I can smell freedom!
+(Она кивает головой и начинает следовать за вами.) Я чувствую запах свободы!
+###_PLAYER
+(Leave her here.)
+(Оставь ее здесь.)
+###_NPC
+(She nods and stops moving.)  I hope you have a good plan.
+(Она кивает и перестает двигаться.)  Я надеюсь, что у тебя есть хороший план.
+###_PLAYER
+(Strip her naked.)
+(Разденьте ее догола.)
+###_NPC
+(You strip her naked as she struggles.)  What kind of rescue mission is that?
+(Ты раздеваешь ее догола, пока она сопротивляется.)  Что это за спасательная миссия?
+###_PLAYER
+I cannot talk now.  (Leave her.)
+Я не могу сейчас говорить.  (Оставь ее.)

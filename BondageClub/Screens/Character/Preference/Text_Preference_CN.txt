@@ -11,7 +11,7 @@
 - Audio Preferences -
 - 音频设置 -
 - Arousal Meter & Sexual Activities Preferences -
-- 性奋量表&交互相关设置 -
+- 性奋量表与交互动作设置 -
 - Security Preferences -
 - 安全设置 -
 - Item Preferences -
@@ -21,7 +21,7 @@
 - Online Preferences -
 - 在线设置 -
 - Immersion Preferences -
-- 限制设置 -
+- 沉浸设置 -
 - Controller Preferences -
 - 手柄设置 -
 - Notification Preferences -
@@ -53,87 +53,79 @@ Controller
 Notifications
 通知
 The difficulty mode enforces BDSM restrictions in multi-player only.  Click for details.
-难度模式仅在多人游戏中对调教束缚生效.点击以了解更多.
+难度模式仅在多人游戏中使BDSM限制强制生效。点击以了解更多
 Roleplay
 角色扮演
 Roleplay - This mode is fully open to customise your experience.
-角色扮演 - 本模式下可以完全自定义你的体验.
+角色扮演 - 本模式下可以完全自定义你的体验
 It allows you to choose which restrictions or mechanisms to ignore.
-你可以选择不想要使用的束缚器具和机制.
+你可以选择不想要使用的束缚器具和机制
 You can select this mode any time, but you won't be able
-你可以随时切换到本模式,但是7天内
+你可以随时切换到本模式，但是7天内
 to select the Hardcore or Extreme mode for seven days.
-你将无法切换到硬核或极限难度.
+你将无法切换到硬核或极限难度
 Regular
 通常
 Regular - This default mode enforces the basic rules and restrictions.
 通常 - 本模式下需要遵守基础的规则和限制.
 It's made to restrict you and keep you safe at the same time.
-这是为了同时对你进行限制并保证你的安全.
+这是为了同时对你进行限制并保证你的安全
 Lots of options can be configured under this mode.
-本模式下可以修改大多数选项.
-You can select this mode any time, but you won't be able
-你可以随时切换到本模式,但是7天内
-to select the Hardcore or Extreme mode for seven days.
-你将无法切换到硬核或极限难度.
+本模式下可以修改大多数选项
 Hardcore
 硬核
 Hardcore - This mode is geared for players wanting to be helpless.
-硬核 - 本模式面向想要体验无助感的玩家.
+硬核 - 本模式面向想要体验无助感的玩家
 No rescue maid will come, and no NPC will help you out.
-没有救援女仆,没有NPC会帮助你脱身.
+没有救援女仆，没有NPC会帮助你脱身
 No safeword can be used, you must find help from players.
-没有安全词可用,你必须从其他玩家处获得帮助.
+没有安全词可用，你必须从其他玩家处获得帮助
 You must be a member for at least seven days to select this mode.
-你至少需要注册7天才能选择本难度.
+你至少需要注册7天才能选择本难度
 You cannot select this if you've changed mode in the last seven days.
-如果你更改了难度模式,7天内你将无法选择本模式.
+如果你更改了难度模式，7天内你将无法选择本模式
 Extreme
 极限
 Extreme - This mode is built for players wanting to be full slaves.
-极限 - 本模式面向希望完全称为奴隶的玩家
-No rescue maid will come, and no NPC will help you out.
-没有救援女仆,没有NPC会帮助你脱身.
+极限 - 本模式面向希望成为完全的奴隶的玩家
 No safeword can be used and you cannot leave your owner.
-没有安全词可用,你必须从其他玩家处获得帮助.
+没有安全词可用，并且你无法摆脱主人
 All immersion settings are maxed, and you cannot block any item.
-所有的限制都被强制固定为最难模式,同时你不可以屏蔽任何物品.
-You cannot select this if you've changed mode in the last seven days.
-如果你更改了难度模式,7天内你将无法选择本模式.
+所有的沉浸设置都被强制固定为最大，同时你不可以屏蔽任何物品
 Easy mode - Restrictions and game mechanisms
 简单模式 - 束缚和游戏机制
 can be ignored with toggles.  For pure roleplayers.
-可以被无视,专为RP玩家设计.
+可以被无视，专为RP玩家设计
 Normal mode - Basic restrictions are enforced, 
-普通模式 - 需要遵守基础的规则和限制,
+普通模式 - 需要遵守基础的规则和限制，
 many options to protect you.  For most players.
-有自我保护选项. 适合大多数玩家
+有自我保护选项。 适合大多数玩家
 Hard mode - No rescue maids, no safeword and no 
-硬核模式 - 没有救援女仆,没有NPC帮助,
+硬核模式 - 没有救援女仆，没有NPC帮助，
 help from any NPC.  For players that want trouble.
-也没有安全词. 专为想要找事的玩家设计.
+也没有安全词。专为想要找事的玩家设计。
 Slavery mode - No maids, no safeword, no NPC help, 
-奴隶模式 - 没有救援女仆,没有NPC帮助,没有安全词.
+奴隶模式 - 没有救援女仆，没有NPC帮助，没有安全词，
 no blocked items, cannot leave owner.  Fully helpless.
-不能屏蔽物品,不能从主人处逃跑. 完全的无助.
+不能屏蔽物品，不能从主人处逃跑。完全的无助。
 You're already playing on that difficulty mode.
-你已经在游玩该难度模式了.
+你已经在游玩该难度模式了
 You need to wait NumberOfHours hours before you can activate this mode.
-你还需要等待NumberOfHours小时才能启动该模式.
+你还需要等待NumberOfHours小时才能启动该模式
 I accept the consequences and want to use this mode.
-我了解这样做的后果,确认要启动该模式.
+我了解这样做的后果,确认要启动该模式
 Go
 Go~
 You can configure game restrictions to bypass in the multi-player environment.
-你可以设置多人游玩时无视的限制内容.
+你可以设置多人游玩时无视的限制内容
 Players using the Roleplay difficulty can configure multi-player restrictions to bypass.
-使用角色扮演难度的玩家可以设置多人游玩时无视的限制内容.
+使用角色扮演难度的玩家可以设置多人游玩时无视的限制内容
 Bypass the struggling mini-game.
-无视挣扎小游戏.
+无视挣扎小游戏
 Cannot be slowed down from leaving a room.
-离开房间时不会被减速.
+离开房间时不会被减速
 Skip punishment when calling maids from chat room
-在聊天室中呼叫女仆时无视惩罚.
+在聊天室中呼叫女仆时无视惩罚
 Character label color:
 角色标签颜色:
 Item permission:
@@ -141,11 +133,11 @@ Item permission:
 Everyone, no exceptions
 所有人
 Everyone, except blacklist
-所有人,除了黑名单成员
+所有人，除了黑名单成员
 Owner, Lover, whitelist & Dominants
-主人,恋人,白名单&支配者
+主人、恋人、白名单&支配者
 Owner, Lover and whitelist only
-仅主人,恋人和白名单
+仅主人、恋人和白名单
 Owner and Lover only
 仅主人和恋人
 Owner only
@@ -158,8 +150,8 @@ Light
 明亮
 Dark
 黑暗
-Light 2
-明亮2
+ Light 2
+ 明亮2
 Dark 2
 黑暗2
 Enter/Leave message style:
@@ -245,7 +237,7 @@ Prevent OOC & whispers while gagged
 Hide non-adjacent players while partially blind
 部分失明时隐藏不临近的角色
 Events while plugged or vibed
-被插入或震动时行动
+被插入或被振动时的事件
 Garble chat room names and descriptions while blind
 失明时隐藏聊天室名和描述
 Sensory deprivation setting
@@ -277,7 +269,7 @@ Keep all restraints when relogging
 Cannot enter single-player rooms when restrained
 被束缚时无法进入私人房间
 Block advanced vibrator modes (edge, random, etc)
-禁止高级震动模式(寸止、随机等)
+禁止高级振动模式(寸止、随机等)
 Safewords and help from NPCs are disabled on Hardcore or Extreme
 安全词和NPC帮助在硬核和极限难度不可用
 Items can affect your facial expression
@@ -304,12 +296,14 @@ Allow Safeword use (Cannot enable while bound)
 允许使用安全词(被束缚时不能更改)
 (Click to confirm) Allow Safeword use (Cannot enable while bound)
 (点击以确定)允许使用安全词(被束缚时不能更改)
-Show Wardrobe icon to others while in the appearance menu
-在外貌界面时对其他人显示衣柜图标
 Allow others to alter your whole appearance
 允许其他玩家修改你所有外观
 Prevent others from changing cosplay items
 禁止其他玩家更改Cosplay物品
+Show status bubble
+显示状态泡泡
+Send your status
+发送你的状态
 Linking an email will allow password recovery
 链接邮箱地址可以找回密码
 Update Email
@@ -337,13 +331,13 @@ Activation:
 Disable sexual activities
 禁用交互动作
 Allow without a meter
-无量表时允许
+启用量表
 Allow with a manual meter
-手动量表时允许
+启用手动量表
 Allow with a hybrid meter
-混合量表时允许
+启用混合量表
 Allow with a locked meter
-量表锁定时允许
+启用锁定量表
 Arousal meter visuals
 性奋量表外观
 Bare Meter
@@ -355,11 +349,9 @@ Temporary Animation
 Constant Animation
 持续动画
 Vibrator Screen Filters
-震动屏幕过滤
+振动屏幕过滤
 None
 无
-Solid Glow
-持续发光
 Flickering Glow
 闪烁发光
 Arousal Screen Filter
@@ -367,9 +359,9 @@ Arousal Screen Filter
 Strong Gradient
 强梯度
 Solid Color Filter
-强力颜色过滤
+固定颜色滤镜
 Solid Filter at High Arousal
-高性奋时强力颜色过滤
+高性奋时出现固定颜色滤镜
 Meter visibility:
 量表可见性:
 Show arousal to everyone
@@ -416,6 +408,8 @@ ABDL
 恋尿布
 Pet play
 宠物游戏
+Forniphilia (human furniture)
+物品化（人形家具）
 Hate it
 讨厌
 Doesn't like it
@@ -434,14 +428,6 @@ Doing it to others:
 对别人做:
 Forbid/Block it
 禁止
-Doesn't like it
-不喜欢
-Neutral on it
-无所谓
-Like it
-喜欢
-Adore it
-特别喜爱
 Click on yourself to set your erogenous zones
 点击你自己来设置你的敏感带
 Configure this zone to be erogenous or not
@@ -459,17 +445,19 @@ Love this zone, it's a big turn-on
 This zone can give you an orgasm
 该区域可以使你高潮
 Feet & Toes
-脚&足趾
+脚与足趾
 Lower Legs
 小腿
 Upper Legs
 大腿
-Clitoris & Vagina
-阴道&阴核
+Pussy & Vagina
+外阴与阴道
+Clitoris
+阴蒂
 Butt / Anal
 臀部/后庭
 Pelvis & Belly
-腹部&小腹
+腹部与小腹
 Torso & Ribs
 躯干&肋部
 Nipples
@@ -477,15 +465,15 @@ Nipples
 Breast
 乳房
 Arms & Shoulders
-手臂&肩膀
+手臂与肩膀
 Hands
 手
 Neck
 颈部
 Mouth & Lips
-嘴巴&嘴唇
+嘴巴与嘴唇
 Head & Hair
-头&头发
+头与头发
 Nose
 鼻子
 Ears
@@ -497,11 +485,11 @@ Speech stuttering:
 Never stutter
 从不混淆
 When you're aroused
-性奋时混淆
+性奋时
 When you're vibrated
-被震动时混淆
+被振动时
 Aroused & vibrated
-性奋&震动时
+性奋或振动时
 Group:
 分类:
 Asset:
@@ -620,6 +608,8 @@ Whispers
 悄悄话
 Items/Activities
 物品/行动
+Name Mentioned
+提到名字
 Players entering chat rooms
 玩家进入聊天室
 Owner
@@ -642,3 +632,7 @@ Hello there!
 啦哩吼!
 Page
 页
+Allow item tint effects
+启用物品染色效果
+Allow item blur effects (turn off if experiencing frame rate drops)
+启用物品模糊效果（如果遇到帧率降低，请关闭）

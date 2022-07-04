@@ -44,6 +44,24 @@ It's time for your treatment.
 It is?  (She thinks.)  Look!  A patient is trying to escape!  (She points behind you.)
 Правда?  (Она думает.)  Смотри!  Пациентка пытается сбежать!  (Она указывает тебе за спину.)
 ###_PLAYER
+Will you join GGTS?
+Ты присоединишься к GGTS?
+###_NPC
+I'll never join that program.  That stupid machine is brainwashing sane girls.
+Я никогда не присоединюсь к этой программе. Эта дурацкая машина промывает мозги нормальным девушкам.
+###_PLAYER
+Do you enjoy GGTS?
+Тебе нравится GGTS?
+###_NPC
+(She gets angry.)  Oh, hell no!  I was forced into it!  Selected by that piece of junk.
+(Она сердится.) О, черт возьми, нет! Меня заставили! Выбранный этим куском барахла.
+###_PLAYER
+You're wearing the collar now?
+Ты сейчас в ошейнике?
+###_NPC
+This is bullshit!  (She gets a strong shock and calms down.)  I'm sorry GGTS!  We will speak about something else.
+Это фигня! (Она испытывает сильный шок и успокаивается.) Прости, GGTS! Давай поговорим о другом.
+###_PLAYER
 I must go.  (Leave her.)
 Я должна идти.  (Оставь ее.)
 What can you provide?
@@ -63,6 +81,12 @@ I want a vibrator.
 ###_NPC
 I have a vibrating wand I can sell you.  It's used and it's not cheap, it goes for 80$.  Do you want it?
 У меня есть вибрирующая палочка, которую я могу тебе продать.  Она подержанная и не дешевая, стоит 80$.  Хочешь?
+###_PLAYER
+I want lock picks.
+Я хочу отмычки.
+###_NPC
+I have a bunch of hairpins from one of the nurses. They're pretty hard to come by, though. It'll cost $40 for a pair.
+У меня есть куча шпилек от одной из медсестер. Однако их довольно трудно найти. Пара будет стоить 40 долларов.
 ###_PLAYER
 I want to get out of here.
 Я хочу выбраться отсюда.
@@ -112,6 +136,14 @@ No way!  80$ for a used vibrator!
 Don't take it then.  I'm sure you'll come crawling back later to get it.
 Тогда не покупай его.  Уверена, ты приползешь за ним попозже.
 ###_PLAYER
+Sounds good!  (Pay her $40)
+Звучит отлично!  (Заплатите ей 40 долларов)
+###_NPC
+(She gives you a pair of hairpins you can use as lockpicks.)  Don't get yourself in too much trouble.
+(Она дает тебе пару шпилек, которые ты можешь использовать как отмычки.)  Не навлекайте на себя слишком много неприятностей.
+###_PLAYER
+Sounds like price gouging...
+Звучит как взвинчивание цен...
 Can you do it for free?
 Ты можешь сделать это бесплатно?
 ###_NPC
@@ -165,3 +197,188 @@ I can take it.  Do your worst.
 ###_NPC
 Enjoy your struggling.  (She uses lots of items on you and grins.)
 Наслаждайся своей борьбой.  (Она использует много предметов на тебе и улыбается.)
+###_PLAYER
+You were forced to join?
+Тебя заставили присоединиться?
+###_NPC
+Yeah, that stupid machine ran some kind of algorithm and I was selected.  Now I need to say: "I'm a good girl." like a robot.
+Да, эта дурацкая машина запустила какой-то алгоритм, и меня выбрали. Теперь мне нужно сказать: «Я хорошая девочка». как робот.
+###_PLAYER
+Calm down.
+Успокойся.
+###_NPC
+I won't calm down!  I can't stand saying: "I'm a good girl.".  Good girl my ass!
+Я не успокоюсь!  Терпеть не могу говорить: «Я хорошая девочка».  Хорошая девочка моя задница!
+###_PLAYER
+Piece of junk?
+Кусок хлама?
+###_NPC
+Fucking piece of computer junk.  I will smash it to the ground.  I can't stand saying: "I'm a good girl.".  Good girl my ass!
+Ебаный кусок компьютерного хлама.  Я разобью его на землю.  Терпеть не могу говорить: «Я хорошая девочка».  Хорошая девочка моя задница!
+###_PLAYER
+Let's talk about something else.
+Давай поговорим о чем-нибудь другом.
+###_NPC
+(She calms down.)  Yeah!  So, what's up?
+(Она успокаивается.) Да! Ну что, как поживаешь?
+###_PLAYER
+The AI wants to condition you.
+ИИ хочет обусловить вас.
+###_NPC
+It won't work!  But still, that GGTS stuff is dangerous.
+Это не сработает! Но тем не менее, эта штука с GGTS опасна.
+###_PLAYER
+But you're such a good girl.  (Laugh.)
+Но ты такая хорошая девочка. (Смех.)
+###_NPC
+Fuck you!  Let's talk about something else.
+Иди на хуй! Давай поговорим о чем-нибудь другом.
+###_PLAYER
+GGTS is a good program.
+GGTS - хорошая программа.
+###_NPC
+You've been brainwashed girl.  Let's talk about something else.
+Тебе промыли мозги, девочка. Давай поговорим о чем-нибудь другом.
+###_PLAYER
+That machine is going too far.
+Эта машина зашла слишком далеко.
+###_NPC
+Damn right!  That GGTS stuff is dangerous.
+Чертовски верно! Этот GGTS материал опасен.
+###_PLAYER
+Dangerous how?
+Опасный как?
+###_NPC
+(She whispers.)  Everyone is joining GGTS.  Soon that computer will take over the asylum.  We must stop it before it's too late.
+(Шепотом.) Все идут в GGTS.  Скоро этот компьютер захватит психлечебницу.  Мы должны остановить это, пока не стало слишком поздно.
+###_PLAYER
+You look scared.
+Ты выглядишь испуганно.
+###_NPC
+(She nods and whispers.)  Everyone is joining GGTS.  The computer will take over the asylum.  We must stop it before it's too late.
+(Она кивает и шепчет.) Все вступают в GGTS. Компьютер возьмет на себя психлечебницу.  Мы должны остановить это, пока не стало слишком поздно.
+###_PLAYER
+Don't be silly.
+Не глупи.
+###_NPC
+Think what you want, but that fucking AI is bad.  Let's talk about something else.
+Думай, что хочешь, но этот чертов ИИ плох. Давай поговорим о чем-нибудь другом.
+###_PLAYER
+Don't try to stop GGTS.
+Не пытайся остановить GGTS.
+How can we stop it?
+Как мы можем это остановить?
+###_NPC
+How the hell do I know?  You have a plan?
+Откуда, черт возьми, я знаю? У тебя есть план?
+###_PLAYER
+I'll think of something.
+Я что-нибудь придумаю.
+###_NPC
+Think fast before we all become slaves to that machine.
+Подумайте быстро, прежде чем мы все станем рабами этой машины.
+###_PLAYER
+Could we use the minutes currency somehow?
+Можем ли мы как-то использовать валюту минут?
+###_NPC
+(She ponders.)  If we have enough minutes, maybe we could have a close access to break the data server and get out.
+(Она размышляет.) Если у нас будет достаточно минут, может быть, мы могли бы получить доступ, чтобы взломать сервер данных и выбраться.
+###_PLAYER
+I don't have a plan.
+У меня нет плана.
+###_NPC
+Find one before we all become slaves to that machine.
+Найдите его, прежде чем мы все станем рабами этой машины.
+###_PLAYER
+I cannot betray Master GGTS.
+Я не могу предать Мастера GGTS.
+###_NPC
+Get lost then.
+Исчезни тогда.
+###_PLAYER
+How many minutes would that require?
+Сколько минут для этого потребуется?
+###_NPC
+(She thinks some more.)  It won't be easy.  At least three hundred.
+(Она думает еще немного.) Это будет нелегко. Хоть триста.
+###_PLAYER
+That won't work.
+Это не сработает.
+###_NPC
+(She sighs.)  The hell if I know.
+(Она вздыхает.) Черт возьми, если я знаю.
+###_PLAYER
+How many minutes de you have?
+Сколько минут де у тебя есть?
+###_NPC
+(She laughs.)  None!  Are you surprised?  I'm done serving that stupid robot.
+(Смеется.) Ни одного! Вы удивлены? Я больше не обслуживаю этого глупого робота.
+###_PLAYER
+I have three hundred minutes.
+У меня есть триста минут.
+###_NPC
+Ok, this is worth a try.  Let's go do GGTS and we'll use your minutes to get close to the machine.
+Хорошо, это стоит попробовать. Пойдем делать GGTS, и мы используем ваши минуты, чтобы подобраться к машине.
+###_PLAYER
+I don't have three hundred minutes.
+У меня нет трехсот минут.
+###_NPC
+Forget it then, we're stuck unless you can get the minutes.
+Тогда забудьте, мы застряли, если вы не можете получить минуты.
+###_PLAYER
+Let's do it!  (Try to break GGTS to leave it.)
+Давай сделаем это! (Попробуйте сломать GGTS, чтобы выйти из него.)
+###_NPC
+(You both do GGTS and you use your minutes to get very close to the server while she distracts the cameras.)
+(Вы оба делаете GGTS и используете свои минуты, чтобы подобраться очень близко к серверу, пока она отвлекает камеры.)
+###_PLAYER
+Let me think about it.
+Дай мне подумать об этом.
+###_NPC
+(She pouts.)  Fine!  Think about it all you want.
+(Она дуется.) Отлично! Думай об этом сколько хочешь.
+###_PLAYER
+(Break the database server.)
+(Сломать сервер базы данных.)
+###_NPC
+(You use your futuristic heels to smash the database server to pieces, hoping all data will be lost.)
+(Вы используете свои футуристические каблуки, чтобы разбить сервер базы данных на куски, надеясь, что все данные будут потеряны.)
+###_PLAYER
+(Run away from the asylum.)
+(Убежать из психлечебницы.)
+###_NPC
+(Your restraints deactivate as you both run away from the asylum.   You can see blinking red lights and hear alarms everywhere.)
+(Ваши ограничения деактивируются, когда вы оба убегаете из психлечебницы.  Вы можете повсюду видеть мигающие красные огни и слышать сигналы тревоги.)
+###_PLAYER
+(Hide for a while.)
+(Спрятаться на время.)
+###_NPC
+(From your hiding position, you see that they will rebuild GGTS from scratch and reopen the asylum later.  She cheers silently.)
+(Из своего укрытия ты видишь, что они восстановят GGTS с нуля и откроют психлечебницу позже. Она тихо аплодирует.)
+###_PLAYER
+We did it?  It's over?
+Мы сделали это? Все кончено?
+###_NPC
+(She nods.)  I think we're good.  Let's hope that stupid AI will not remember us.
+(Она кивает.) Думаю, у нас все хорошо. Будем надеяться, что тупой ИИ нас не запомнит.
+###_PLAYER
+Well done partner!
+Молодец партнер!
+###_NPC
+(She gives you a hug.)  Yeah!  That was fucking scary.  Well done sister.
+(Она обнимает тебя.) Да! Это было чертовски страшно. Молодец сестра.
+###_PLAYER
+We shut down the asylum?
+Мы закрыли лечебницу?
+###_NPC
+I'm sure they will reopen soon, but let's enjoy our victory for now.
+Я уверен, что скоро они снова откроются, а пока давайте радоваться нашей победе.
+###_PLAYER
+What will you do now?
+Что ты теперь будешь делать?
+###_NPC
+I'll find a place to get drunk and celebrate.  See you later!
+Я найду место, чтобы напиться и отпраздновать. До скорого!
+###_PLAYER
+(Back to the main hall.)
+(Вернутся в главный зал.)

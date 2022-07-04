@@ -1,0 +1,62 @@
+###_NPC
+(She thinks your gagged mumbling is part of the game)
+(Она думает, что твое бормотание с кляпом во рту — часть игры)
+(She is has a headset on and is busy playing.)
+(Она надела гарнитуру и занята игрой.)
+###_PLAYER
+HEY!!!
+ПРИВЕТ!!!
+###_NPC
+(She peeks out from under her headset.) What's up?
+(Она выглядывает из-под наушников.) Что случилось?
+###_PLAYER
+Do you need some help getting to a higher level?
+Вам нужна помощь, чтобы перейти на более высокий уровень?
+###_NPC
+Nah, not right now. (She goes back to her game)
+Нет, не сейчас. (Она возвращается к своей игре)
+###_PLAYER
+Do you know what there is to do around here?
+Ты знаешь, чем здесь можно заняться?
+###_NPC
+(She smirks) Are you looking for some fun? Have you heard of the Devious Dungeon Challenge?
+(Она ухмыляется) Хочешь повеселиться? Слышали ли вы о Devious Dungeon Challenge?
+###_PLAYER
+Nothing.
+Ничего такого.
+###_NPC
+Don't bother me, then. (She goes back to her game)
+Тогда не беспокой меня. (Она возвращается к своей игре)
+###_PLAYER
+Yes, tell me more!
+Да, расскажи мне больше!
+###_NPC
+It's a bet where you make ad revenue from streaming your game, but getting bound ingame means getting bound in real life as well!
+Это ставка, в которой вы получаете доход от рекламы, транслируя свою игру, но привязка в игре означает привязку и в реальной жизни!
+###_PLAYER
+I don't like the look on your face.
+Мне не нравится выражение твоего лица.
+###_NPC
+Hehe. Suit yourself.
+Хе-хе. одевать себя.
+###_PLAYER
+Let's do it!
+Давай сделаем это!
+###_NPC
+Righto! I'll get the recording equipment set up!
+Правильно! Я настрою записывающее оборудование!
+###_PLAYER
+Not right now.
+Не прямо сейчас.
+###_NPC
+(She goes back to playing her game)
+(Она возвращается к своей игре)
+###_PLAYER
+I'd like to stop participating in the Devious Dungeon Challenge.
+Я хочу прекратить участие в Devious Dungeon Challenge.
+###_NPC
+Fair enough.
+Достаточно справедливо.
+###_PLAYER
+(Leave her.)
+(Оставь ее.)

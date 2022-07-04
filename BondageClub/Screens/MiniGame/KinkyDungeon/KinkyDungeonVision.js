@@ -21,9 +21,11 @@ function KinkyDungeonCheckProjectileClearance(xx, yy, x2, y2) {
 	return true;
 }
 
-function KinkyDungeonCheckPath(x1, y1, x2, y2, allowBars, allowEnemies) {
+function KinkyDungeonCheckPath(x1, y1, x2, y2, allowBars, blockEnemies, maxFails) {
 	let length = Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2));
 	let obj = allowBars ? KinkyDungeonTransparentObjects : KinkyDungeonTransparentMovableObjects;
+	let maxFailsAllowed = maxFails ? maxFails : 1;
+	let fails = 0;
 
 	for (let F = 0; F <= length; F++) {
 		let xx = x1 + (x2-x1)*F/length;
@@ -31,12 +33,16 @@ function KinkyDungeonCheckPath(x1, y1, x2, y2, allowBars, allowEnemies) {
 
 		if ((Math.round(xx) != x1 || Math.round(yy) != y1) && (Math.round(xx) != x2 || Math.round(yy) != y2)) {
 			let hits = 0;
-			if (!obj.includes(KinkyDungeonMapGet(Math.floor(xx), Math.floor(yy))) || ((xx != x1 || yy != y1) && (allowEnemies && KinkyDungeonEnemyAt(Math.floor(xx), Math.floor(yy))))) hits += 1;
-			if (!obj.includes(KinkyDungeonMapGet(Math.round(xx), Math.round(yy))) || ((xx != x1 || yy != y1) && (allowEnemies && KinkyDungeonEnemyAt(Math.round(xx), Math.round(yy))))) hits += 1;
-			if (hits < 2 && !obj.includes(KinkyDungeonMapGet(Math.ceil(xx), Math.ceil(yy))) || ((xx != x1 || yy != y1) && (allowEnemies && KinkyDungeonEnemyAt(Math.ceil(xx), Math.ceil(yy))))) hits += 1;
+			if (!obj.includes(KinkyDungeonMapGet(Math.floor(xx), Math.floor(yy))) || ((xx != x1 || yy != y1) && (blockEnemies && KinkyDungeonEnemyAt(Math.floor(xx), Math.floor(yy))))) hits += 1;
+			if (!obj.includes(KinkyDungeonMapGet(Math.round(xx), Math.round(yy))) || ((xx != x1 || yy != y1) && (blockEnemies && KinkyDungeonEnemyAt(Math.round(xx), Math.round(yy))))) hits += 1;
+			if (hits < 2 && !obj.includes(KinkyDungeonMapGet(Math.ceil(xx), Math.ceil(yy))) || ((xx != x1 || yy != y1) && (blockEnemies && KinkyDungeonEnemyAt(Math.ceil(xx), Math.ceil(yy))))) hits += 1;
 
 
-			if (hits >= 2) return false;
+			if (hits >= 2) {
+				fails += 1;
+				if (fails >= maxFailsAllowed)
+					return false;
+			}
 		}
 	}
 
@@ -70,9 +76,11 @@ function KinkyDungeonMakeLightMap(width, height, Lights, delta) {
 	let brightestLight = 0;
 
 	for (let light of Lights) {
-		maxPass = Math.max(maxPass, light.brightness);
-		if (light.brightness > brightestLight) brightestLight = light.brightness;
-		KinkyDungeonLightSet(light.x, light.y, light.brightness);
+		if (light.brightness > 0) {
+			maxPass = Math.max(maxPass, light.brightness);
+			if (light.brightness > brightestLight) brightestLight = light.brightness;
+			KinkyDungeonLightSet(light.x, light.y, light.brightness);
+		}
 	}
 
 	let visionBlockers = {};
@@ -82,9 +90,14 @@ function KinkyDungeonMakeLightMap(width, height, Lights, delta) {
 			visionBlockers[EE.x + "," + EE.y] = true;
 	}
 
+	/**
+	 * @type {{x: number, y: number, brightness: number}[]}
+	 */
+	let nextBrightness = [];
+
 	for (let L = maxPass; L > 0; L--) {
 		// if a grid square is next to a brighter transparent object, it gets that light minus one, or minus two if diagonal
-
+		nextBrightness = [];
 		// Main grid square loop
 		for (let X = 0; X < KinkyDungeonGridWidth; X++) {
 			for (let Y = 0; Y < KinkyDungeonGridHeight; Y++) {
@@ -92,36 +105,37 @@ function KinkyDungeonMakeLightMap(width, height, Lights, delta) {
 				if (((flags.SeeThroughWalls || KinkyDungeonTransparentObjects.includes(tile)) || (X == KinkyDungeonPlayerEntity.x && Y == KinkyDungeonPlayerEntity.y)) && !visionBlockers[X + "," + Y]) {
 					let brightness = KinkyDungeonLightGet(X, Y);
 					if (brightness > 0) {
+						let decay = KinkyDungeonCheckPath(X, Y, KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, true, false) ? 0.5 : 1;
 						let nearbywalls = 0;
 						for (let XX = X-1; XX <= X+1; XX++)
 							for (let YY = Y-1; YY <= Y+1; YY++)
 								if (!KinkyDungeonTransparentObjects.includes(KinkyDungeonMapGet(XX, YY)) || visionBlockers[XX + "," + YY]) nearbywalls += 1;
-
-						if (nearbywalls > 3 && brightness <= 9 && X != KinkyDungeonPlayerEntity.x && Y != KinkyDungeonPlayerEntity.y) brightness -= nearbywalls * 0.25;
+						if (nearbywalls > 3 && brightness <= 9 && X != KinkyDungeonPlayerEntity.x && Y != KinkyDungeonPlayerEntity.y) decay += nearbywalls * (KinkyDungeonDeaf ? 0.8 : 0.2);
+						else if (nearbywalls > 1 && brightness <= 9 && X != KinkyDungeonPlayerEntity.x && Y != KinkyDungeonPlayerEntity.y) decay += nearbywalls * (KinkyDungeonDeaf ? 0.8 : 0.04);
 						if (flags.SeeThroughWalls && !KinkyDungeonTransparentObjects.includes(tile)) {
-							if (flags.SeeThroughWalls > 2)
-								brightness -= brightestLight < 7 ? 1 : 1;
-							else if (flags.SeeThroughWalls > 1)
-								brightness -= brightestLight < 7 ? 1 : 2;
-							else brightness -= brightestLight < 7 ? 1 : 3;
+							decay += 0.25 / flags.SeeThroughWalls * brightestLight / 6;
 						}
 
 						if (brightness > 0) {
-							if (Number(KinkyDungeonLightGet(X-1, Y)) < brightness) KinkyDungeonLightSet(X-1, Y, (brightness - 1));
-							if (Number(KinkyDungeonLightGet(X+1, Y)) < brightness) KinkyDungeonLightSet(X+1, Y, (brightness - 1));
-							if (Number(KinkyDungeonLightGet(X, Y-1)) < brightness) KinkyDungeonLightSet(X, Y-1, (brightness - 1));
-							if (Number(KinkyDungeonLightGet(X, Y+1)) < brightness) KinkyDungeonLightSet(X, Y+1, (brightness - 1));
+							if (Number(KinkyDungeonLightGet(X-1, Y)) < brightness) nextBrightness.push({x:X-1, y:Y, brightness: (brightness - decay)});// KinkyDungeonLightSet(X-1, Y, Math.max(Number(KinkyDungeonLightGet(X-1, Y)), (brightness - decay)));
+							if (Number(KinkyDungeonLightGet(X+1, Y)) < brightness) nextBrightness.push({x:X+1, y:Y, brightness: (brightness - decay)});//KinkyDungeonLightSet(X+1, Y, Math.max(Number(KinkyDungeonLightGet(X+1, Y)), (brightness - decay)));
+							if (Number(KinkyDungeonLightGet(X, Y-1)) < brightness) nextBrightness.push({x:X, y:Y-1, brightness: (brightness - decay)});//KinkyDungeonLightSet(X, Y-1, Math.max(Number(KinkyDungeonLightGet(X, Y-1)), (brightness - decay)));
+							if (Number(KinkyDungeonLightGet(X, Y+1)) < brightness) nextBrightness.push({x:X, y:Y+1, brightness: (brightness - decay)});//KinkyDungeonLightSet(X, Y+1, Math.max(Number(KinkyDungeonLightGet(X, Y+1)), (brightness - decay)));
 
-							if (brightness > 1) {
-								if (Number(KinkyDungeonLightGet(X-1, Y-1)) < brightness) KinkyDungeonLightSet(X-1, Y-1, (brightness - 1-0.25));
-								if (Number(KinkyDungeonLightGet(X-1, Y+1)) < brightness) KinkyDungeonLightSet(X-1, Y+1, (brightness - 1-0.25));
-								if (Number(KinkyDungeonLightGet(X+1, Y-1)) < brightness) KinkyDungeonLightSet(X+1, Y-1, (brightness - 1-0.25));
-								if (Number(KinkyDungeonLightGet(X+1, Y+1)) < brightness) KinkyDungeonLightSet(X+1, Y+1, (brightness - 1-0.25));
+							if (brightness > 0.5) {
+								if (Number(KinkyDungeonLightGet(X-1, Y-1)) < brightness) nextBrightness.push({x:X-1, y:Y-1, brightness: (brightness - decay)});//KinkyDungeonLightSet(X-1, Y-1, Math.max(Number(KinkyDungeonLightGet(X-1, Y-1)), brightness - decay));
+								if (Number(KinkyDungeonLightGet(X-1, Y+1)) < brightness) nextBrightness.push({x:X-1, y:Y+1, brightness: (brightness - decay)});//KinkyDungeonLightSet(X-1, Y+1, Math.max(Number(KinkyDungeonLightGet(X-1, Y+1)), brightness - decay));
+								if (Number(KinkyDungeonLightGet(X+1, Y-1)) < brightness) nextBrightness.push({x:X+1, y:Y-1, brightness: (brightness - decay)});//KinkyDungeonLightSet(X+1, Y-1, Math.max(Number(KinkyDungeonLightGet(X+1, Y-1)), brightness - decay));
+								if (Number(KinkyDungeonLightGet(X+1, Y+1)) < brightness) nextBrightness.push({x:X+1, y:Y+1, brightness: (brightness - decay)});//KinkyDungeonLightSet(X+1, Y+1, Math.max(Number(KinkyDungeonLightGet(X+1, Y+1)), brightness - decay));
 							}
 						}
 					}
 				}
 			}
+		}
+
+		for (let b of nextBrightness) {
+			KinkyDungeonLightSet(b.x, b.y, Math.max(Number(KinkyDungeonLightGet(b.x, b.y)), b.brightness));
 		}
 	}
 
@@ -142,12 +156,14 @@ function KinkyDungeonMakeLightMap(width, height, Lights, delta) {
 				if (X >= 0 && X <= width-1 && Y >= 0 && Y <= height-1) {
 					dist = KDistChebyshev(KinkyDungeonPlayerEntity.x - X, KinkyDungeonPlayerEntity.y - Y);
 					if (dist < 3) {
+						let distE = KDistEuclidean(KinkyDungeonPlayerEntity.x - X, KinkyDungeonPlayerEntity.y - Y);
 						if (dist < 3
-							&& KDistEuclidean(KinkyDungeonPlayerEntity.x - X, KinkyDungeonPlayerEntity.y - Y) < 2.9
+							&& distE < 2.9
 							&& KinkyDungeonCheckPath(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, X, Y)) {
 							KinkyDungeonFogGrid[X + Y*(width)] = Math.max(KinkyDungeonFogGrid[X + Y*(width)], 3);
 						}
-						if (dist < 1.5 && KinkyDungeonLightGrid[X + Y*(width)] == 0) {
+						if (distE < (KinkyDungeonDeaf ? 1.5 : 2.3) && KinkyDungeonLightGrid[X + Y*(width)] == 0
+							&& KinkyDungeonCheckPath(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, X, Y)) {
 							KinkyDungeonLightGrid[X + Y*(width)] = 1;
 						}
 					}

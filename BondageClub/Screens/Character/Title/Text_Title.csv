@@ -1,4 +1,5 @@
 SelectTitle,Select your displayed name and title
+CurrentTitle,Current title: TITLE
 Nickname,Nickname (letters and spaces)
 NicknameLocked,Nickname locked by your owner
 TitleNone,None

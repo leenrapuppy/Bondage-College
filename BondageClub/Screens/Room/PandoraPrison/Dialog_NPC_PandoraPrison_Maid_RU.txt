@@ -1,0 +1,62 @@
+###_NPC
+(She checks your gag.)  Gags are such a perfect fit for prisoners.
+(Она проверяет твой кляп.)  Кляпы так идеально подходят для заключенных.
+(A maid steps in carefully, escorted by guards.)  I've heard you're dangerous Miss DialogPlayerName.  Don't hurt me, I'm here to release you.
+(Осторожно входит горничная в сопровождении охранников.)  Я слышала, что ты опасна, мисс DialogPlayerName.  Не делай мне больно, я здесь, чтобы освободить тебя.
+(A maid steps in slowly, escorted by guards.)  You're Miss DialogPlayerName from the Bondage Club?  I'm here to release you.
+(Медленно входит горничная в сопровождении охранников.)  Вы мисс DialogPlayerName из Клуба Бондажа?  Я здесь, чтобы освободить тебя.
+(A maid steps in, escorted by a guard.)  You're the prisoner from the Bondage Club?  I'm here to release you.
+(Входит горничная в сопровождении охранника.)  Ты заключенная из Клуба бондажа?  Я здесь, чтобы освободить тебя.
+(A maid steps in carelessly, escorted by a guard.)  Hello there, I'm here to release you.
+(Небрежно входит горничная в сопровождении охранника.)  Привет всем, я здесь, чтобы освободить тебя.
+###_PLAYER
+My time is done?
+Мое время истекло?
+###_NPC
+(She nods.)  Yes Miss.  I will escort you out of the buidling when you're ready.
+(Она кивает.)  Да, мисс.  Я выведу вас из здания, когда вы будете готовы.
+###_PLAYER
+I was having fun.
+Мне было весело.
+###_NPC
+(She giggles.)  Well you can stay for a few more minutes, there's no hurry.
+(Она хихикает.)  Что ж, ты можешь остаться еще на несколько минут, спешить некуда.
+###_PLAYER
+Thanks Maid.
+Спасибо, Горничная.
+###_NPC
+(She nods, helps you out and escorts you out of Pandora's Box.)  I trust you've learned your lesson.
+(Она кивает, помогает вам выйти и сопровождает вас из Ящика Пандоры.) Я надеюсь, вы усвоили свой урок.
+###_PLAYER
+Finally!  You took your time.
+Наконец-то!  Ты не торопилась.
+###_NPC
+(She sighs, helps you out and escorts you out of Pandora's Box.)  I trust you've learned your lesson.
+(Она вздыхает, помогает вам выбраться и сопровождает вас из Ящика Пандоры.) Я надеюсь, вы усвоили свой урок.
+###_PLAYER
+(Mumble in your gag.)
+(Бормочи в свой кляп.)
+###_NPC
+(She helps you out and escorts you out of the building.)  I trust you've learned your lesson.
+(Она помогает вам выйти и сопровождает вас из здания.)  Я надеюсь, ты усвоил свой урок.
+###_PLAYER
+(Struggle in your restraints.)
+(Боритесь в своих оковах.)
+(Stay silent.)
+(Сохранять молчание.)
+(Look around.)
+(Оглядитесь вокруг.)
+Wait!  What about my clothes?
+Подожди!  А как насчет моей одежды?
+###_NPC
+We will mail them to you.  Some fresh air will be an extra lesson.  You better run.  (She giggles.)
+Мы отправим их вам по почте.  Немного свежего воздуха будет дополнительным уроком.  Тебе лучше бежать.  (Она хихикает.)
+###_PLAYER
+Lesson learned, I won't get caught again.
+Урок усвоен, я больше не попадусь.
+You will understand the next lesson.
+Вы поймете это из следующего урока.
+Yes Miss, I understand.
+Да, мисс, я понимаю.
+(Go back to the club.)
+(Возвращайтесь в клуб.)

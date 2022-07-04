@@ -1,0 +1,52 @@
+LARP Battle Team Selection
+Выбор боевой команды LARP
+Select your class:
+Выберите свой класс:
+Select your team:
+Выберите свою команду:
+Level (progress %):
+Уровень (progress %):
+Matron
+Начальница
+Seducer
+Соблазнительница
+Trickster
+Обманщица
+Servant
+Прислуга
+Artist
+Художник
+Protector
+Защитник
+Not playing
+Не играет
+Red
+Красная
+Green
+Зелёная
+Blue
+Синяя
+Yellow
+Жёлтая
+Cyan
+Голубая
+Purple
+Пурпурная
+Orange
+Оранжевая
+White
+Белая
+Gray
+Серая
+Black
+Чёрная
+A room administrator can start the game if two teams or more are selected.
+Администратор комнаты может начать игру, если выбрано две команды или более.
+The LARP game is running, you cannot change your class or team.
+Игра LARP запущена, вы не можете изменить свой класс или команду.
+Start the game
+Начало игры
+20 seconds turns
+20 секунд на ход
+60 seconds turns
+60 секунд на ход

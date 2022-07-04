@@ -123,8 +123,12 @@ Alright, how is this?
 (Nod for help.)
 (Кивни в знак помощи.)
 ###_NPC
-I'll help you right away.
-Я помогу вам прямо сейчас.
+I'll help you right away.  (She releases you.)
+Я помогу вам прямо сейчас. (Она освобождает тебя.)
+(She checks your locks.)  I'm sorry, you'll need to get a maid for that.
+(Она проверяет ваши замки.)  Извините, но для этого вам придется найти горничную.
+I'm sorry, the maids told me not to help you.
+Извините, горничные сказали мне не помогать вам.
 ###_PLAYER
 Goodbye. (Leave her.)
 До свидания. (Оставь ее.)
@@ -257,6 +261,74 @@ Alright, if you say so.
 Хорошо, если ты так хочешь.
 (She shows you a bright smile.)
 (Она выдает тебе яркую улыбку.)
+###_PLAYER
+Move your arms
+Двигай руками
+###_NPC
+How should I move them?
+Как я должна их перемещать?
+###_PLAYER
+Move your legs
+Двигай ногами
+###_NPC
+How should I stand?
+Как я должна стоять?
+###_PLAYER
+Relax your arms.
+Расслабьте руки.
+###_NPC
+(She holds her arms casually in front.)
+(Она небрежно вытягивает руки перед собой.)
+###_PLAYER
+Hold your arms up.
+Поднимите руки вверх.
+###_NPC
+(She lifts her arms up.)
+(Она поднимает руки вверх.)
+###_PLAYER
+Raise your arms high.
+Поднимите руки высоко.
+###_NPC
+(She reaches above her head.)
+(Она поднимает руки над головой.)
+###_PLAYER
+Hold your hands together behind your back.
+Держите руки вместе за спиной.
+###_NPC
+(She moves her hands behind her.)
+(Она прячет руки за спину.)
+###_PLAYER
+Show me your hands together behind you.
+Покажи мне свои руки, сложенные за спиной.
+###_NPC
+(She moves her hands out to the side.)
+(Она разводит руки в стороны.)
+###_PLAYER
+Touch your elbows together behind your back.
+Соедините локти вместе за спиной.
+###_NPC
+(She touches her wrists and elbows together behind herself.)
+(Она касается запястий и локтей за спиной.)
+Would you like any other pose?
+Хотели бы вы какую-нибудь другую позу?
+###_PLAYER
+Relax your legs.
+Расслабьте ноги.
+###_NPC
+(She stands upright.)
+(Она выпрямляется.)
+###_PLAYER
+Close your legs.
+Сомкни ноги.
+###_NPC
+(She stands with her legs together.)
+(Она стоит, сдвинув ноги вместе.)
+###_PLAYER
+Kneel down.
+Встать на колени.
+###_NPC
+(She kneels on the ground.)
+(Она опускается на колени.)
 ###_PLAYER
 What's going on here?
 Что здесь происходит?

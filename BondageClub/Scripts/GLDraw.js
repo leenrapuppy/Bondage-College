@@ -343,7 +343,7 @@ function GLDrawCreateProgram(gl, vertexShader, fragmentShader) {
  * @param {number} dstY - Position of the image on the Y axis
  * @param {string} color - Color of the image to draw
  * @param {boolean} fullAlpha - Whether or not the full alpha should be rendered
- * @param {number[][]} alphaMasks - A list of alpha masks to apply to the asset
+ * @param {RectTuple[]} alphaMasks - A list of alpha masks to apply to the asset
  * @param {number} opacity - The opacity at which to draw the image
  * @returns {void} - Nothing
  */
@@ -357,7 +357,7 @@ function GLDrawImageBlink(url, gl, dstX, dstY, color, fullAlpha, alphaMasks, opa
  * @param {number} offsetX - Additional offset to add to the X axis (for blinking)
  * @param {string} color - Color of the image to draw
  * @param {boolean} fullAlpha - Whether or not the full alpha should be rendered
- * @param {number[][]} alphaMasks - A list of alpha masks to apply to the asset
+ * @param {RectTuple[]} alphaMasks - A list of alpha masks to apply to the asset
  * @param {number} [opacity=1] - The opacity at which to draw the image
  * @param {boolean} [rotate=false] - If the image should be rotated by 180 degrees
  * @returns {void} - Nothing
@@ -409,7 +409,7 @@ function GLDrawImage(url, gl, dstX, dstY, offsetX, color, fullAlpha, alphaMasks,
  * @param {HTMLImageElement | HTMLCanvasElement} Img - Canvas to get the data of
  * @param {number} X - Position of the image on the X axis
  * @param {number} Y - Position of the image on the Y axis
- * @param {number[][]} alphaMasks - A list of alpha masks to apply to the asset
+ * @param {RectTuple[]} alphaMasks - A list of alpha masks to apply to the asset
  */
 function GLDraw2DCanvasBlink(gl, Img, X, Y, alphaMasks) { GLDraw2DCanvas(gl, Img, X + 500, Y, alphaMasks); }
 /**
@@ -418,7 +418,7 @@ function GLDraw2DCanvasBlink(gl, Img, X, Y, alphaMasks) { GLDraw2DCanvas(gl, Img
  * @param {HTMLImageElement | HTMLCanvasElement} Img - Canvas to get the data of
  * @param {number} X - Position of the image on the X axis
  * @param {number} Y - Position of the image on the Y axis
- * @param {number[][]} alphaMasks - A list of alpha masks to apply to the asset
+ * @param {RectTuple[]} alphaMasks - A list of alpha masks to apply to the asset
  */
 function GLDraw2DCanvas(gl, Img, X, Y, alphaMasks) {
 	const TempCanvasName = Img.getAttribute("name");
@@ -502,7 +502,7 @@ function GLDrawLoadImage(gl, url) {
  * @param {number} texHeight - The height of the texture to mask
  * @param {number} offsetX - The X offset at which the texture is to be drawn on the target canvas
  * @param {number} offsetY - The Y offset at which the texture is to be drawn on the target canvas
- * @param {number[][]} alphaMasks - A list of alpha masks to apply to the asset
+ * @param {RectTuple[]} alphaMasks - A list of alpha masks to apply to the asset
  * @return {WebGLTexture} - The WebGL texture corresponding to the mask
  */
 function GLDrawLoadMask(gl, texWidth, texHeight, offsetX, offsetY, alphaMasks) {

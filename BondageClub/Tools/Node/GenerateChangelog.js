@@ -59,6 +59,12 @@ const CONTRIBUTOR_NAMES = {
 	"Anonymous-WghrYkBGUjBt": "Anonymous-WghrYkBGUjBt",
 	"EliseRoland": "EliseRoland",
 	"estuiguang": "estuiguang",
+	"anniclub": "anniclub",
+	"DekuWang": "DekuWang",
+	"TheGnarp": "Gnarp",
+	"Da'Inihlus": "Da'Inihlus",
+	"Gelmezon": "Gelmezon",
+	"Lanarux": "Lanarux",
 };
 
 async function generateChangelogHtml() {

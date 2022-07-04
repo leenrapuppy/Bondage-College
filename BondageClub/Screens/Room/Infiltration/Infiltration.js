@@ -1,12 +1,15 @@
 "use strict";
 var InfiltrationBackground = "Infiltration";
+/** @type {NPCCharacter} */
 var InfiltrationSupervisor = null;
 var InfiltrationDifficulty = 0;
 var InfiltrationMission = "";
 var InfiltrationMissionType = ["Rescue", "Kidnap", "Retrieve", "CatBurglar", "ReverseMaid"];
 var InfiltrationObjectType = ["USBKey", "BDSMPainting", "GoldCollar", "GeneralLedger", "SilverVibrator", "DiamondRing", "SignedPhoto"];
+/** @type {InfiltrationMissionTarget} */
 var InfiltrationTarget = {};
 var InfiltrationCollectRansom = false;
+/** @type {NPCCharacter} */
 var InfiltrationKidnapper = null;
 
 /**
@@ -114,6 +117,7 @@ function InfiltrationClick() {
 
 /**
  * Sets the infiltration mission challenge difficulty
+ * @param {string} Difficulty
  * @returns {void} - Nothing
  */
 function InfiltrationSelectChallenge(Difficulty) {
@@ -134,7 +138,7 @@ function InfiltrationPrepareMission() {
 		InfiltrationTarget.Name = C.Name;
 		InfiltrationTarget.PrivateRoom = false;
 	} else {
-		InfiltrationTarget.Type = CommonRandomItemFromList(InfiltrationTarget.Type, InfiltrationObjectType);
+		InfiltrationTarget.Type = /** @type {InfiltrationTargetType} */(CommonRandomItemFromList(InfiltrationTarget.Type, InfiltrationObjectType));
 		InfiltrationTarget.Name = DialogFind(InfiltrationSupervisor, "Object" + InfiltrationTarget.Type);
 	}
 	InfiltrationTarget.Found = false;
@@ -271,6 +275,7 @@ function InfiltrationStartKidnapping() {
 
 /**
  * Ends the revenge kidnapping scenario and goes back to the main hall
+ * @param {"Money"|"Skill"|"Private"} [Reward]
  * @returns {void} - Nothing
  */
 function InfiltrationEndKidnapping(Reward) {
@@ -418,7 +423,7 @@ function InfiltrationStartNPCRescue() {
 
 /**
  * Dresses the player as a maid for the reverse maid mission
- * @param {number} Rep - The reputation change to apply
+ * @param {string} Rep - The reputation change to apply
  * @returns {void} - Nothing
  */
 function InfiltrationDressMaid(Rep) {

@@ -1,0 +1,384 @@
+﻿###_NPC
+Get that gag off or stop talking, you're driving me nuts.
+要么摘下口球好好说话，要么闭嘴，别哼哼唧唧的。
+What's up doc?
+怎么了，医生？
+What's up nurse?
+怎么了，护士小姐？
+Hey, it's the new nurse!
+嘿，这有个新护士。
+Yo DialogPlayerName.  You got in trouble again?  Do you need anything?
+哟DialogPlayerName。你遇到麻烦了？你需要什么吗？
+Hey DialogPlayerName.  What do you want?
+你好DialogPlayerName。你想要什么?
+Hey girls!  (She looks around the meeting room for approval.)  It's the new patient.
+嘿，女孩们！（她环顾会议室等待许可）这是个新病人呢。
+What do you want?
+你想要什么？
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm surprised you don't know, I'm DialogCharacterName.  I'm the girl you talk to if you need something.
+你竟然不知道？我是DialogCharacterName，如果你需要什么，我就是你要找的那个女孩。
+###_PLAYER
+I need something from you.
+我需要你的帮助。
+###_NPC
+I'm listening.  What do you need?
+我在听，你需要什么？
+You should know me, I'm DialogCharacterName.  I'm the best patient around.  (She smirks.)
+你应该知道我，我是DialogCharacterName。我是最好的病人。（她得意地笑起来。）
+###_PLAYER
+(Struggle in your restraints.)
+（挣扎着摆脱束缚）
+###_NPC
+I can see that you need help, but what's in there for me?  Give me $10 and I'll help you out.
+我看得出你需要帮助，但这对我有什么好处呢？给我$10，我就帮你。
+(She shakes her head no.)
+（她摇摇头，表示不愿意。）
+###_PLAYER
+It's time for your treatment.
+是你治疗的时候了。
+###_NPC
+It is?  (She thinks.)  Look!  A patient is trying to escape!  (She points behind you.)
+是吗？（她想了一下。）“看，有个病人正试图逃跑！”（她指了指你的身后。）
+###_PLAYER
+Will you join GGTS?
+你会加入GGTS吗？
+###_NPC
+I'll never join that program.  That stupid machine is brainwashing sane girls.
+我永远不会加入这个计划。那台蠢机器在把正常的女孩洗脑掉。
+###_PLAYER
+Do you enjoy GGTS?
+你喜欢GGTS吗？
+###_NPC
+(She gets angry.)  Oh, hell no!  I was forced into it!  Selected by that piece of junk.
+（她生气了。）啊，不可能！我是被迫的！我被那破垃圾选中了！
+###_PLAYER
+You're wearing the collar now?
+你现在佩戴着那项圈？
+###_NPC
+This is bullshit!  (She gets a strong shock and calms down.)  I'm sorry GGTS!  We will speak about something else.
+这根本是见鬼！（她被猛烈地电了一下，然后冷静下来。）对不起GGTS！我们讲点别的吧。
+###_PLAYER
+I must go.  (Leave her.)
+我必须走了。（离开她。）
+What can you provide?
+你可以给我什么呢？
+###_NPC
+What do you need?  A smoke?  A vibrator?  Some help with a jacket?  I'm here for you, and your money.
+你需要什么？来根烟？按摩棒？拘束衣太紧？我竭诚为你服务、和为你的钱服务。
+###_PLAYER
+I want a cigarette.
+我想要一支烟。
+###_NPC
+Sure, the price is $1 per smoke, do you want one?
+好的，每支烟$1，你想来一根吗？
+###_PLAYER
+I want a vibrator.
+我想要一个按摩棒。
+###_NPC
+I have a vibrating wand I can sell you.  It's used and it's not cheap, it goes for $80.  Do you want it?
+我有根按摩棒，并且我可以卖给你。但是这是用过的，并且不便宜。一口价$80。你要买吗？
+###_PLAYER
+I want lock picks.
+我想要撬锁器。
+###_NPC
+I have a bunch of hairpins from one of the nurses. They're pretty hard to come by, though. It'll cost $40 for a pair.
+我有一些从某个护士那里弄来的发卡。但这很难弄到。每只的价格是$40。
+###_PLAYER
+I want to get out of here.
+我想从这出去。
+###_NPC
+I can't help you there.  You can always try to fight your way out, but you'll get in trouble later.
+我帮不了你。你当然可以试着打出去，但是后面你可能会有麻烦。
+###_PLAYER
+Can I tie you up?
+我可以把你绑起来吗？
+###_NPC
+Forget it girl.  I'm here to do business, not to struggle.
+忘了它吧，女孩。我是来做生意的，不是来玩挣脱的。
+###_PLAYER
+Will you tie me up?
+你可以把我绑起来吗？
+###_NPC
+Bondage is free but freedom has a price.  How tight do you want it?
+束缚是免费的，但自由是有代价的。你想要绑多紧？
+###_PLAYER
+I have everything I need.
+我需要的我都有。
+###_NPC
+Alright.  You know where to find me if you need something else.
+好吧。如果你需要别的东西，你知道在哪里可以找到我。
+###_PLAYER
+Alright.  (Pay her $1 and smoke.)
+好吧。（给她$1然后抽烟。）
+###_NPC
+(You smoke with her for a while, it's kind of relaxing.)  Anything else you need?
+（你和她一起抽了会儿烟，这令你放松。）你还需要什么吗？
+###_PLAYER
+I've changed my mind.
+我改变主意了。
+###_NPC
+Whatever!  Anything else you need?
+无所谓！你还需要什么吗？
+###_PLAYER
+It's a deal!  (Pay her $80)
+成交了！（付给她$80）
+###_NPC
+(She sells you the used vibrating wand and grins.)  Have fun!  I'm sure you'll get popular with that toy.
+（她卖给你用过的按摩棒，然后咧嘴笑起来。）玩得开心！我相信你会喜欢那个玩具的。
+###_PLAYER
+No way!  $80 for a used vibrator!
+没门！用过的振动器要$80！
+###_NPC
+Don't take it then.  I'm sure you'll come crawling back later to get it.
+那就别拿了。我相信你稍后会爬回来拿它。
+###_PLAYER
+Sounds good!  (Pay her $40)
+听起来不错！（付给她$40）
+###_NPC
+(She gives you a pair of hairpins you can use as lockpicks.)  Don't get yourself in too much trouble.
+（她给你一只发卡，你可以当做撬锁器用。）别惹太大的麻烦哦。
+###_PLAYER
+Sounds like price gouging...
+你是在敲我竹杠吧……
+Can you do it for free?
+你可以免费做这个吗？
+###_NPC
+No way.  You pay or you stay like that.
+没门。你要么付钱，要么就保持这样吧。
+###_PLAYER
+(Nod yes.)
+（点头同意。）
+###_NPC
+It's a pleasure to do business with you.  (She releases you and smirks.)  Anything else you need?
+很高兴与您做生意。 （她释放了你，一脸得意的笑。）你还需要什么吗？
+###_PLAYER
+(Whimper and beg.)
+（呜咽乞求。）
+###_NPC
+Stop begging.  You pay or you stay like that.
+别求我。你要么付钱，要么就保持这样。
+###_PLAYER
+(Turn around.)
+（转过来。）
+###_NPC
+Sucker!  (She runs like hell and disappears in the halls.)
+傻逼！（她跑的很快，瞬间就不见了。）
+###_PLAYER
+What?  Where?
+怎么了？在哪？
+I'm not falling for that.
+这我可不会上当。
+###_NPC
+Catch me then!  (She runs like hell and disappears in the halls.)
+那就来抓我啊！（她跑的很快，瞬间就不见了。）
+###_PLAYER
+(Leave and report her behavior.)
+（离开，并举报她的行为。）
+(Leave and don't report her.)
+（离开，不举报她。）
+Nothing too tight please.
+请不要太紧了。
+###_NPC
+Chicken!  (She uses a few items on you and makes chicken sounds.)
+哟，小鸡仔怂了吗！（她对你用了一些物品，并发出小鸡的叫声。）
+###_PLAYER
+Some secure bondage I guess.
+我猜是些结实的束缚。
+###_NPC
+Alright!  (She uses some items on you and smirks.)
+好吧！（她在你身上使用了一些物品，得意地笑起来。）
+###_PLAYER
+I can take it.  Do your worst.
+我可以接受。按你最狠地来。
+###_NPC
+Enjoy your struggling.  (She uses lots of items on you and grins.)
+享受你的挣扎吧。（她在你身上使用了很多物品，咧嘴笑起来。）
+###_PLAYER
+You were forced to join?
+你是被迫加入的？
+###_NPC
+Yeah, that stupid machine ran some kind of algorithm and I was selected.  Now I need to say: "I'm a good girl." like a robot.
+是的，那台蠢机器运行了某种算法，并且我被选中了。现在我得像个机器人一样说：“我是好女孩。”
+###_PLAYER
+Calm down.
+冷静冷静。
+###_NPC
+I won't calm down!  I can't stand saying: "I'm a good girl.".  Good girl my ass!
+我怎么冷静啊！我根本受不了说：“我是好女孩。”好女孩个屁！
+###_PLAYER
+Piece of junk?
+破垃圾？
+###_NPC
+Fucking piece of computer junk.  I will smash it to the ground.  I can't stand saying: "I'm a good girl.".  Good girl my ass!
+一坨他妈的破垃圾。我要把它砸烂砸碎。我根本受不了说：“我是好女孩。”好女孩个屁！
+###_PLAYER
+Let's talk about something else.
+我们讲点别的吧。
+###_NPC
+(She calms down.)  Yeah!  So, what's up?
+（她冷静下来。）好啊！所以，最近怎么样？
+###_PLAYER
+The AI wants to condition you.
+那AI想要训练你。
+###_NPC
+It won't work!  But still, that GGTS stuff is dangerous.
+那不会有用的！但是，那GGTS挺危险的。
+###_PLAYER
+But you're such a good girl.  (Laugh.)
+但你真的是个好女孩。（笑起来。）
+###_NPC
+Fuck you!  Let's talk about something else.
+去死吧！我们讲点别的吧。
+###_PLAYER
+GGTS is a good program.
+GGTS是个好程序。
+###_NPC
+You've been brainwashed girl.  Let's talk about something else.
+你被洗脑了，女孩。我们讲点别的吧。
+###_PLAYER
+That machine is going too far.
+那机器做的过分了。
+###_NPC
+Damn right!  That GGTS stuff is dangerous.
+真他妈的对！那GGTS挺危险的。
+###_PLAYER
+Dangerous how?
+如何危险了？
+###_NPC
+(She whispers.)  Everyone is joining GGTS.  Soon that computer will take over the asylum.  We must stop it before it's too late.
+（她向你耳语。）每个人都加入了GGTS。不久那电脑就会控制整个收容所.我们必须在无可挽回前阻止它。
+###_PLAYER
+You look scared.
+你看起来很害怕。
+###_NPC
+(She nods and whispers.)  Everyone is joining GGTS.  The computer will take over the asylum.  We must stop it before it's too late.
+（她点点头，向你耳语。）每个人都加入了GGTS。不久那电脑就会控制整个收容所.我们必须在无可挽回前阻止它。
+###_PLAYER
+Don't be silly.
+别犯傻。
+###_NPC
+Think what you want, but that fucking AI is bad.  Let's talk about something else.
+想想你要什么，这该死的AI是坏东西。我们讲点别的吧。
+###_PLAYER
+Don't try to stop GGTS.
+别想阻止GGTS。
+How can we stop it?
+我们怎么阻止它？
+###_NPC
+How the hell do I know?  You have a plan?
+我怎么可能直到？你有计划吗？
+###_PLAYER
+I'll think of something.
+我会想个办法的。
+###_NPC
+Think fast before we all become slaves to that machine.
+赶紧想，在我们都变成那机器的奴隶之前。
+###_PLAYER
+Could we use the minutes currency somehow?
+我们能用某种方式利用分钟币吗？
+###_NPC
+(She ponders.)  If we have enough minutes, maybe we could have a close access to break the data server and get out.
+（她想了想。）如果我们有足够的分钟币，也许我们能够通过近距接入破坏数据服务器，然后逃出去。
+###_PLAYER
+I don't have a plan.
+我还没有计划。
+###_NPC
+Find one before we all become slaves to that machine.
+在我们都变成那机器的奴隶之前，想一个出来。
+###_PLAYER
+I cannot betray Master GGTS.
+我不能背叛GGTS主人。
+###_NPC
+Get lost then.
+那就快滚吧。
+###_PLAYER
+How many minutes would that require?
+这需要多少分钟？
+###_NPC
+(She thinks some more.)  It won't be easy.  At least three hundred.
+（她继续想了一会儿。）这不会简单。至少要三百。
+###_PLAYER
+That won't work.
+这不会有用的。
+###_NPC
+(She sighs.)  The hell if I know.
+（她叹气。）我他妈怎么知道。
+###_PLAYER
+How many minutes de you have?
+你有多少分钟？
+###_NPC
+(She laughs.)  None!  Are you surprised?  I'm done serving that stupid robot.
+（她笑起来。）零蛋！你惊讶吗？我受够了服务那个蠢机器人了。
+###_PLAYER
+I have three hundred minutes.
+我有三百分钟了。
+###_NPC
+Ok, this is worth a try.  Let's go do GGTS and we'll use your minutes to get close to the machine.
+好，这样就值得试试了。我们去做GGTS，然后使用你的分钟来接近那个机器。
+###_PLAYER
+I don't have three hundred minutes.
+我没有三百分钟。
+###_NPC
+Forget it then, we're stuck unless you can get the minutes.
+算了吧，除非你有那么多分钟，否则我们就困在这里。
+###_PLAYER
+Let's do it!  (Try to break GGTS to leave it.)
+动手吧！（尝试破坏GGTS来逃离。）
+###_NPC
+(You both do GGTS and you use your minutes to get very close to the server while she distracts the cameras.)
+（你们一起做GGTS，你使用你的分钟来接近服务器，同时她负责干扰摄像头。）
+###_PLAYER
+Let me think about it.
+（让我考虑一下。）
+###_NPC
+(She pouts.)  Fine!  Think about it all you want.
+（她撅撅嘴。）可以！你想考虑多久就考虑多久。
+###_PLAYER
+(Break the database server.)
+（破坏数据服务器。）
+###_NPC
+(You use your futuristic heels to smash the database server to pieces, hoping all data will be lost.)
+（你使用你的未来高跟鞋把数据服务器砸成了碎片，希望所有数据都丢失了。）
+###_PLAYER
+(Run away from the asylum.)
+（逃离收容所。）
+###_NPC
+(Your restraints deactivate as you both run away from the asylum.   You can see blinking red lights and hear alarms everywhere.)
+（你们共同逃离收容所，此时你们的束缚失效了。你看见红色的灯光闪烁，听见四处传来的警报声音。）
+###_PLAYER
+(Hide for a while.)
+（躲起来一会儿。）
+###_NPC
+(From your hiding position, you see that they will rebuild GGTS from scratch and reopen the asylum later.  She cheers silently.)
+（你从藏身处偷瞧，那些人会从头重建GGTS，并在不久后重新开启收容所。她无声地欢呼。）
+###_PLAYER
+We did it?  It's over?
+我们做到了？结束了？
+###_NPC
+(She nods.)  I think we're good.  Let's hope that stupid AI will not remember us.
+（她点点头。）我觉得我们安全了。希望那个愚蠢的AI不会记得我们。
+###_PLAYER
+Well done partner!
+干得漂亮，伙伴！
+###_NPC
+(She gives you a hug.)  Yeah!  That was fucking scary.  Well done sister.
+（她给你一个拥抱。）好耶！这真是太刺激了。干得漂亮，姐妹。
+###_PLAYER
+We shut down the asylum?
+我们关闭了收容所？
+###_NPC
+I'm sure they will reopen soon, but let's enjoy our victory for now.
+我很确定他们会再开门的，但让我们暂时享受胜利吧。
+###_PLAYER
+What will you do now?
+你现在准备做什么？
+###_NPC
+I'll find a place to get drunk and celebrate.  See you later!
+我准备找个地方喝一杯，庆祝一下。待会儿见！
+###_PLAYER
+(Back to the main hall.)
+（回到大厅。）

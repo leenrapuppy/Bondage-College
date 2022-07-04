@@ -1,44 +1,4 @@
 "use strict";
-/**
- * A callback function used for clearing a rectangular area of a canvas
- * @callback clearRect
- * @param {number} x - The x coordinate of the left of the rectangle to clear
- * @param {number} y - The y coordinate of the top of the rectangle to clear
- * @param {number} w - The width of the rectangle to clear
- * @param {number} h - The height of the rectangle to clear
- */
-
-/**
- * A callback function used to draw an image to a canvas
- * @callback drawImage
- * @param {string} src - The URL of the image to draw
- * @param {number} x - The x coordinate to draw the image at
- * @param {number} y - The y coordinate to draw the image at
- * @param {number[][]} alphaMasks - A list of alpha masks to apply to the image when drawing
- * @param {number} [opacity=1] - The opacity at which to draw the image with
- * @param {boolean} [rotate=false] - If the image should be rotated by 180 degrees
- */
-
-/**
- * A callback function used to draw a canvas on a canvas
- * @callback drawCanvas
- * @param {HTMLImageElement | HTMLCanvasElement} Img - The canvas to draw
- * @param {number} x - The x coordinate to draw the canvas at
- * @param {number} y - The y coordinate to draw the canvas at
- */
-
-/**
- * A callback function used to draw a colorized image to a canvas
- * @callback drawImageColorize
- * @param {string} src - The URL of the image to draw
- * @param {number} x - The x coordinate to draw the image at
- * @param {number} y - The y coordinate to draw the image at
- * @param {string} color - The color to apply to the image
- * @param {boolean} fullAlpha - Whether or not to apply color to the entire image
- * @param {number[][]} alphaMasks - A list of alpha masks to apply to the image when drawing
- * @param {number} [opacity=1] - The opacity at which to draw the image with
- * @param {boolean} [rotate=false] - If the image should be rotated by 180 degrees
- */
 
 /**
  * Prepares the character's drawing canvases before drawing the character's appearance.
@@ -63,15 +23,7 @@ function CommonDrawCanvasPrepare(C) {
 /**
  * Draws the given character's appearance using the provided drawing callbacks
  * @param {Character} C - The character whose appearance to draw
- * @param {object} callbacks
- * @param {clearRect} callbacks.clearRect - A callback to clear an area of the main character canvas
- * @param {clearRect} callbacks.clearRectBlink - A callback to clear an area of the blink character canvas
- * @param {drawCanvas} callbacks.drawCanvas - Function used to draw a canvas on top of the normal canvas
- * @param {drawCanvas} callbacks.drawCanvasBlink - Function used to draw a canvas on top of the blink canvas
- * @param {drawImage} callbacks.drawImage - A callback to draw an image to the main character canvas
- * @param {drawImage} callbacks.drawImageBlink - A callback to draw an image to the blink character canvas
- * @param {drawImageColorize} callbacks.drawImageColorize - A callback to draw a colorized image to the main character canvas
- * @param {drawImageColorize} callbacks.drawImageColorizeBlink - A callback to draw a colorized image to the blink character canvas
+ * @param {CommonDrawCallbacks} callbacks - The drawing callbacks to be used
  */
 function CommonDrawAppearanceBuild(C, {
 	clearRect,
@@ -183,6 +135,7 @@ function CommonDrawAppearanceBuild(C, {
 		let Opacity = (Property && typeof Property.Opacity === "number") ? Property.Opacity : Layer.Opacity;
 		Opacity = Math.min(Layer.MaxOpacity, Math.max(Layer.MinOpacity, Opacity));
 		const BlinkExpression = (A.OverrideBlinking ? !AG.DrawingBlink : AG.DrawingBlink) ? "Closed/" : Expression;
+		/** @type {RectTuple[]} */
 		let AlphaMasks = Layer.GroupAlpha
 			.filter(({ Pose }) => !Pose || !Array.isArray(Pose) || !!CommonDrawFindPose(C, Pose))
 			.reduce((Acc, { Masks }) => {
@@ -221,12 +174,15 @@ function CommonDrawAppearanceBuild(C, {
 		// CAREFUL! The dynamic function should not contain heavy computations, and should not have any side effects.
 		// Watch out for object references.
 		if (A.DynamicBeforeDraw && (!Player.GhostList || Player.GhostList.indexOf(C.MemberNumber) == -1)) {
+			/** @type {DynamicDrawingData} */
 			const DrawingData = {
-				C, X, Y, CA, GroupName, Color, Opacity, Property, A, G, AG, L, Pose, LayerType, BlinkExpression, drawCanvas, drawCanvasBlink, AlphaMasks, PersistentData: () => AnimationPersistentDataGet(
-					C, A),
+				C, X, Y, CA, GroupName, Color, Opacity, Property, A, G, AG, L, Pose, LayerType, BlinkExpression,
+				drawCanvas, drawCanvasBlink, AlphaMasks,
+				PersistentData: () => AnimationPersistentDataGet(C, A),
 			};
+			/** @type {DynamicBeforeDrawOverrides} */
 			const OverriddenData = CommonCallFunctionByNameWarn(`Assets${A.Group.Name}${A.Name}BeforeDraw`, DrawingData);
-			if (typeof OverriddenData == "object") {
+			if (typeof OverriddenData === "object") {
 				for (const key in OverriddenData) {
 					switch (key) {
 						case "Property": {
@@ -269,6 +225,10 @@ function CommonDrawAppearanceBuild(C, {
 							AlphaMasks = OverriddenData[key];
 							break;
 						}
+						case "Pose": {
+							Pose = OverriddenData[key];
+							break;
+						}
 					}
 				}
 			}
@@ -288,12 +248,10 @@ function CommonDrawAppearanceBuild(C, {
 
 		const Rotate = A.FixedPosition && C.IsInverted();
 
-		// const HideForPose = !!Pose && (A.HideForPose.find(P => Pose === P + "/") || Layer.HideForPose.find(P => Pose === P + "/"));
 		const ItemLocked = !!(Property && Property.LockedBy);
 
 		let PoseFolder = typeof Layer.PoseMapping[Pose] === "string" ? Layer.PoseMapping[Pose] : Pose;
 		if (PoseFolder) PoseFolder += '/';
-		// if (!HideForPose) {
 		if (Layer.HasImage && (!Layer.LockLayer || ItemLocked)) {
 			// Draw the item on the canvas (default or empty means no special color, # means apply a color, regular text means we apply
 			// that text)
@@ -341,14 +299,14 @@ function CommonDrawAppearanceBuild(C, {
 					"_Lock.png", X, Y, AlphaMasks);
 			}
 		}
-		// }
 
 		// After drawing hook, receives all processed data.
 		// CAREFUL! The dynamic function should not contain heavy computations, and should not have any side effects.
 		// Watch out for object references.
 		if (A.DynamicAfterDraw && (!Player.GhostList || Player.GhostList.indexOf(C.MemberNumber) == -1)) {
+			/** @type {DynamicDrawingData} */
 			const DrawingData = {
-				C, X, Y, CA, Property, Color, Opacity, A, G, AG, L, Pose, LayerType, BlinkExpression, drawCanvas, drawCanvasBlink, AlphaMasks,
+				C, X, Y, CA, GroupName, Property, Color, Opacity, A, G, AG, L, Pose, LayerType, BlinkExpression, drawCanvas, drawCanvasBlink, AlphaMasks,
 				PersistentData: () => AnimationPersistentDataGet(C, A),
 			};
 			CommonCallFunctionByNameWarn(`Assets${A.Group.Name}${A.Name}AfterDraw`, DrawingData);
