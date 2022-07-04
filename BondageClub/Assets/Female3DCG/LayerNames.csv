@@ -1163,6 +1163,8 @@ ItemHeadFrilledSleepMaskMask,Mask
 ItemHeadFuturisticMaskDisplay,Tint
 ItemHeadFuturisticMaskText,HUD
 ItemHeadFuturisticMaskLock,Lock Icon
+ItemHeadStitchesStraight,Thread Right
+ItemHeadStitchesStraight2,Thread Left
 ClothAccessoryBunnyCollarCuffsCuffs,Cuffs
 ClothAccessoryBunnyCollarCuffsCollar,Collar
 ClothAccessoryBunnyCollarCuffsBow,Bow

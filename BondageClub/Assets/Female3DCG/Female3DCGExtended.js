@@ -6733,26 +6733,34 @@ var AssetFemale3DCGExtended = {
 				ChangeWhenLocked: false,
 			}
 		}, // DroneMask
-		Stitches{
+		Stitches: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
 				Modules:[
 					{
-						Name:"Left", Key: "l",
-						Options: [ {}, {}, {}, {}, {}],
+						Name:"Main", Key: "m",
+						Options: [ 
+							{Property: { Hide: ["Eyes"]}, }, // Right Eye
+							{Property: { Hide: ["Eyes2"]}, }, // Left Eye
+							{Property: { Hide: ["Eyes","Eyes2"], Effect: ["BlindHeavy", "Prone"]},} //Both Eyes
+						],
 					},
 					{
 						Name:"Right", Key: "r",
-						Options: [ {}, {}, {}, {}, {} ],
-					},
-									{
-						Name:"Both", Key: "b",
 						Options: [ 
-							{}, 
-							{Property: { Effect: ["BlindHeavy", "Prone"]}, 
-							{Property: { Effect: ["BlindHeavy", "Prone"]}, 
-							{Property: { Effect: ["BlindHeavy", "Prone"]}, 
-							{Property: { Effect: ["BlindHeavy", "Prone"]} 
+							{}, // Straight
+							{}, // ZigZag
+							{}, // Skewed
+							{}, // Crossed
+						],
+					},
+					{
+						Name:"Left", Key: "l",
+						Options: [ 
+							{}, // Straight
+							{}, // ZigZag
+							{}, // Skewed
+							{}, // Crossed
 						],
 					},
 				],

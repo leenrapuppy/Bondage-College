@@ -2854,7 +2854,7 @@ var AssetFemale3DCG = [
 					{ Name: "OuterShine", AllowColorize: false },
 				],
 			},
-			{ Name: "Stitches", Category: ["Medical", "Extreme",], Priority: 10, BuyGroup: "Suture", Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, Prerequisite: ["AccessButt"] },
+			{ Name: "Stitches", Category: ["Medical", "Extreme",], Priority: 10, Visible: false, BuyGroup: "Suture", Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, Prerequisite: ["AccessButt"] },
 			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -5906,20 +5906,21 @@ var AssetFemale3DCG = [
 			{
 				Name: "Slime", Category: ["Fantasy"], BuyGroup: "Slime", DefaultColor: ["#57ab5e"], Random: false, Value: 200, Difficulty: 4, Time: 15, RemoveTime: 25, Effect: ["BlindLight", "Prone", "BlurNormal"], Tint: [{Color: 0, Strength: 0.4}]
 			},
+			{ Name: "FurScarf", BuyGroup: "FurScarf", Value: 40, Difficulty: 3, Effect: ["BlindLight", "Prone"] },
 			{
-				Name: "Stitches", Category: ["Medical", "Extreme"], Priority: 10, BuyGroup: "Suture", Random: false, Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, Left: 235, Top: 180, DefaultColor: ["Default", "#3f3c3a"], Hide: ["Eyes", "Eyes2"], Effect: [""], Extended: true, AlwaysExtend: true, 
+				Name: "Stitches", Category: ["Medical", "Extreme"], Priority: 8.5, BuyGroup: "Suture", Random: false, Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, DefaultColor: ["Default", "#3f3c3a"], Hide: [""], Effect: [""], Top:145, Extended: true, AlwaysExtend: true, 
 				AllowExpression: ["Angry", "Closed", "Daydream", "Dazed", "Dizzy", "Heart", "HeartPink", "Horny", "Lewd", "LewdHeart", "LewdHeartPink", "Sad", "Scared", "Scared", "Shy", "ShylyHappy", "Surprised", "VeryLewd"],
 				Layer: [
-					{ Name: "FakeEye", HasType: false, InheritColor: "Eyes", AllowTypes: ["r1", "r2", "r3", "r4", "b1", "b2", "b3", "b4"], MirrorExpression: "Eyes"},
-					{ Name: "FakeEye2", HasType: false, InheritColor: "Eyes2", AllowTypes: ["l1", "l2", "l3", "l4", "b1", "b2", "b3", "b4"], MirrorExpression: "Eyes2"},
-					{ Name: "Straight", HasType: false, AllowTypes: ["r1", "b1"], MirrorExpression: "Eyes"},
-					{ Name: "ZigZag", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["r2", "b2"], MirrorExpression: "Eyes"},
-					{ Name: "Skewed", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["r3", "b3"], MirrorExpression: "Eyes"},
-					{ Name: "Cross", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["r4", "b4"], MirrorExpression: "Eyes" },
-					{ Name: "Straight2", HasType: false, AllowTypes: ["l1", "b1"], MirrorExpression: "Eyes2"},
-					{ Name: "ZigZag2", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["l2", "b2"], MirrorExpression: "Eyes2"},
-					{ Name: "Skewed2", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["l3", "b3"],, MirrorExpression: "Eyes2"},
-					{ Name: "Cross2", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["l4", "b4"],, MirrorExpression: "Eyes2" },
+					{ Name: "FakeEye", HasType: false, AllowColorize: false, AllowModuleTypes: ["m0r0l0", "m0r0l1", "m0r0l2", "m0r0l3", "m0r1l0","m0r1l1","m0r1l2","m0r1l3", "m0r2l0","m0r2l1","m0r2l2","m0r2l3", "m0r3l0", "m0r3l1", "m0r3l2", "m0r3l3", "m2r0l0", "m2r0l1", "m2r0l2", "m2r0l3", "m2r1l0","m2r1l1","m2r1l2","m2r1l3", "m2r2l0","m2r2l1","m2r2l2","m2r2l3", "m2r3l0", "m2r3l1", "m2r3l2", "m2r3l3"], MirrorExpression: "Eyes", Left: 200},
+					{ Name: "FakeEye2", HasType: false, AllowColorize: false, AllowModuleTypes: ["m1r0l0", "m1r0l1", "m1r0l2", "m1r0l3", "m1r1l0","m1r1l1","m1r1l2","m1r1l3", "m1r2l0","m1r2l1","m1r2l2","m1r2l3", "m1r4l0", "m1r4l1", "m1r4l2", "m1r4l3", "m2r0l0", "m2r0l1", "m2r0l2", "m2r0l3", "m2r1l0","m2r1l1","m2r1l2","m2r1l3", "m2r2l0","m2r2l1","m2r2l2","m2r2l3", "m2r4l0", "m2r4l1", "m2r4l2", "m2r4l3"], MirrorExpression: "Eyes2", Left: 250},
+					{ Name: "Straight", HasType: false, AllowTypes: ["m0r0l0", "m0r0l1", "m0r0l2", "m0r0l3", "m2r0l0", "m2r0l1", "m2r0l2", "m2r0l3" ], MirrorExpression: "Eyes", Left: 200},
+					{ Name: "ZigZag", HasType: false, CopyLayerColor: "Straight", AllowModuleTypes: ["m0r1l0", "m0r1l1", "m0r1l2", "m0r1l3", "m2r1l0", "m2r1l1", "m2r1l2", "m2r1l3" ], MirrorExpression: "Eyes", Left: 200},
+					{ Name: "Skewed", HasType: false, CopyLayerColor: "Straight", AllowModuleTypes: ["m0r2l0", "m0r2l1", "m0r2l2", "m0r2l3", "m2r2l0", "m2r2l1", "m2r2l2", "m2r2l3"], MirrorExpression: "Eyes", Left: 200},
+					{ Name: "Cross", HasType: false, CopyLayerColor: "Straight", AllowModuleTypes: ["m0r3l0", "m0r3l1", "m0r3l2", "m0r3l3", "m2r3l0", "m2r0l1", "m2r0l2", "m2r0l3"], MirrorExpression: "Eyes", Left: 200},
+					{ Name: "Straight2", HasType: false, AllowTypes: ["m1r0l0", "m1r1l0", "m1r2l0", "m1r3l0", "m2r0l0", "m2r1l0", "m2r2l0", "m2r3l0"], MirrorExpression: "Eyes2", Left: 250},
+					{ Name: "ZigZag2", HasType: false, CopyLayerColor: "Straight2", AllowModuleTypes: ["m0r0l1", "m0r1l1", "m0r2l1", "m0r3l1", "m2r0l1", "m2r1l1", "m2r2l1", "m2r3l1"], MirrorExpression: "Eyes2", Left: 250},
+					{ Name: "Skewed2", HasType: false, CopyLayerColor: "Straight2", AllowModuleTypes:["m0r0l2", "m0r1l2", "m0r2l2", "m0r3l2", "m2r0l2", "m2r1l2", "m2r2l2", "m2r3l2"], MirrorExpression: "Eyes2", Left: 250},
+					{ Name: "Cross2", HasType: false, CopyLayerColor: "Straight2", AllowModuleTypes: ["m0r0l3", "m0r1l3", "m0r2l3", "m0r3l3", "m2r0l3", "m2r1l3", "m2r2l3", "m2r3l3"], MirrorExpression: "Eyes2", Left: 250},
 				],
 			},
 			AssetSpankingToys
