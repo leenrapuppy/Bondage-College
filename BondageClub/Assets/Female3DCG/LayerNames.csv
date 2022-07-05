@@ -393,6 +393,9 @@ ItemPelvisHybridChastityBeltBelt,Belt
 ItemPelvisHybridChastityBeltCrotchPlate,Crotch Plate
 ItemPelvisHybridChastityBeltRivets,Rivets
 ItemPelvisHybridChastityBeltLock,Lock
+ItemNipplesChainClampChain,Chain
+ItemNipplesChainClampMetal,Metal
+ItemNipplesChainClampClamp,Clamps
 ItemNipplesTapedVibeEggsEgg1,Left Vibe Egg
 ItemNipplesTapedVibeEggsEgg2,Right Vibe Egg
 ItemNipplesTapedVibeEggsTape1,Left Tape Strip
@@ -549,6 +552,16 @@ ItemNeckRestraintsPostChain,Chain
 ItemNeckRestraintsPostHead,Cap
 ItemNeckRestraintsPostPost,Post
 ItemNeckRestraintsPostBase,Baseplate
+ItemNeckRestraintsPetPostPole,Pole
+ItemNeckRestraintsPetPostPlaque,Plaque
+ItemNeckRestraintsPetPostPlaqueBorder,PlaqueBorder
+ItemNeckRestraintsPetPostPostit,Postit
+ItemNeckRestraintsPetPostPaw,Paw
+ItemNeckRestraintsPetPostPlaqueBolts,PlaqueBolts
+ItemNeckRestraintsPetPostLeash,Leash
+ItemNeckRestraintsPetPostRope,Rope
+ItemNeckRestraintsPetPostChain,Chain
+ItemNeckRestraintsPetPostText,Text
 ItemNeckComboHarnessRing,Ring
 ItemNeckComboHarnessStuds,Studs
 ItemNeckComboHarnessBall,Ball
@@ -685,6 +698,9 @@ ItemHoodKittyHoodBlindfold,Blindfold
 ItemHoodKittyHoodGag,Gag
 ItemHoodKittyHoodDrawings,Drawings
 ItemHoodKittyHoodLock,Lock
+ItemHoodOpenMouthPlugHoodLenses,Lenses
+ItemHoodOpenMouthPlugHoodHood,Hood
+ItemHoodOpenMouthPlugHoodPlug,Plug
 ItemBootsLockingBoots1Boots,Boots
 ItemBootsLockingBoots1Straps,Straps
 ItemBootsFuturisticHeelsShoes,Body

@@ -2135,6 +2135,42 @@ var AssetFemale3DCGExtended = {
 			},
 		} // CustomCollarTag
 	}, // ItemNeckAccessories
+	ItemNeckRestraints: {
+		PetPost: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config:{
+				Modules: [
+					{
+						Name: "Plaque", Key: "p",
+						Options: [ 
+						{}, //p0 - Border
+						{}, //p1 - Border
+						]
+					},
+					{
+						Name: "Dirt", Key: "d",
+						Options: [ 
+						{}, //d0 - Clean
+						{}, //d1 - Dirty
+						]
+					},
+					{
+						Name: "Leash", Key: "l",
+						Options: [
+							{}, //l0 - Leash
+							{Property: { Difficulty: 5 },}, //l1 - Rope
+							{Property: { Difficulty: 6 },}, //l2 - Chain
+						]
+					},
+					{
+						Name: "Txt", Key: "x",
+						Options: [{ HasSubscreen: true }],
+					},
+				],
+				ChangeWhenLocked: false,
+			},
+		},//PetPost
+	},//ItemNeckRestraints
 	ItemHood: {
 		OldGasMask: {
 			Archetype: ExtendedArchetype.MODULAR,
@@ -3661,6 +3697,32 @@ var AssetFemale3DCGExtended = {
 		}, // RoundPiercing
 	}, // ItemNipplesPiercings
 	ItemNipples: {
+		ChainClamp: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
+				Options: [
+					{
+						Name: "Chain",
+						Property: {
+							Type: null
+						},
+					},
+					{
+						Name: "Chain2",
+						Property: {
+							Type: "Chain2"
+						},
+					}
+				],
+				Dialog: {
+					Load: "SelectChainType",
+					TypePrefix: "ChainClapNipples",
+					ChatPrefix: "ChainClampSet",
+					NpcPrefix: "ItemNipplesChainClamp",
+				},
+			},
+		},  //ChainClamp
 		LactationPump: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
