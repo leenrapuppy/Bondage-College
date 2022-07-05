@@ -1074,11 +1074,10 @@ function PlatformDrawBackground() {
 	DrawText(PlatformPlayer.Health.toString(), 100, 32, "White", "Black");
 	DrawProgressBar(10, 60, 180, 40, PlatformPlayer.Experience / PlatformExperienceForLevel[PlatformPlayer.Level] * 100, "#0000B0", "Black");
 	DrawText(PlatformPlayer.Level.toString(), 100, 82, "White", "Black");
-	if (PlatformActionIs(PlatformPlayer, "Bind")) 
+	if (PlatformActionIs(PlatformPlayer, "Bind"))
 		DrawProgressBar(10, 110, 180, 40, (CommonTime() - PlatformPlayer.Action.Start) / (PlatformPlayer.Action.Expire - PlatformPlayer.Action.Start) * 100, "White", "Black");
-	else
-		 if ((PlatformPlayer.Health <= 0) && !PlatformPlayer.Bound && (PlatformPlayer.RiseTime != null) && (PlatformPlayer.RiseTime >= CommonTime()))
-			 DrawProgressBar(10, 110, 180, 40, 100 - ((PlatformPlayer.RiseTime - CommonTime()) / 100), "White", "Black");
+	else if ((PlatformPlayer.Health <= 0) && !PlatformPlayer.Bound && (PlatformPlayer.RiseTime != null) && (PlatformPlayer.RiseTime >= CommonTime()))
+		DrawProgressBar(10, 110, 180, 40, 100 - ((PlatformPlayer.RiseTime - CommonTime()) / 100), "White", "Black");
 
 	// Preloads the next rooms
 	if (PlatformRoom.Door != null)
@@ -1577,7 +1576,7 @@ function PlatformClick() {
 		PlatformSaveMode = !PlatformSaveMode;
 		if (PlatformSaveMode) PlatformMessageSet(TextGet("SelectSave"));
 		return;
-	} 
+	}
 	if (MouseIn(1700, 10, 90, 90) && (PlatformHeal != null)) return CommonSetScreen("Room", "PlatformProfile");
 	if (MouseIn(1600, 10, 90, 90) && (PlatformHeal != null)) return PlatformPartyNext();
 	if (!CommonIsMobile) PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
@@ -1798,6 +1797,6 @@ function PlatformTouch() {
  */
 function PlatformHasPerk(C, Perk) {
 	if ((C.Perk == null) || (C.PerkName == null)) return false;
-	if (C.PerkName.indexOf(Perk) < 0) return false;	
+	if (C.PerkName.indexOf(Perk) < 0) return false;
 	return (C.Perk.substr(C.PerkName.indexOf(Perk), 1) == "1");
 }
