@@ -2018,7 +2018,17 @@ var AssetFemale3DCG = [
 		AllowNone: false,
 		AllowColorize: false,
 		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "AllFours", "OverTheHead"],
-		Asset: ["Small", "Normal", "Large", "XLarge"],
+		Asset: [
+		//Breasts
+		"Small", 
+		"Normal",
+		 "Large", 
+		"XLarge",
+		//Flat Chests
+		{ Name: "FlatMedium", Random: false} ,
+		{ Name: "FlatSmall", Random: false} ,
+		],
+		
 		Color: ["White", "Asian", "Black"]
 	},
 

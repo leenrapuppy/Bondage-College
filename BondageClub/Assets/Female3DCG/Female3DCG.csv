@@ -548,6 +548,8 @@ BodyUpper,Small,Small
 BodyUpper,Normal,Normal
 BodyUpper,Large,Large
 BodyUpper,XLarge,Xlarge
+BodyUpper,FlatMedium,Bulky Flat Chest
+BodyUpper,FlatSmall,Flat Chest
 BodyLower,,Lower Body
 BodyLower,Small,Small
 BodyLower,Normal,Normal
