@@ -3697,6 +3697,32 @@ var AssetFemale3DCGExtended = {
 		}, // RoundPiercing
 	}, // ItemNipplesPiercings
 	ItemNipples: {
+		ChainClamp: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
+				Options: [
+					{
+						Name: "Chain",
+						Property: {
+							Type: null
+						},
+					},
+					{
+						Name: "Chain2",
+						Property: {
+							Type: "Chain2"
+						},
+					}
+				],
+				Dialog: {
+					Load: "SelectChainType",
+					TypePrefix: "ChainClapNipples",
+					ChatPrefix: "ChainClampSet",
+					NpcPrefix: "ItemNipplesChainClamp",
+				},
+			},
+		},  //ChainClamp
 		LactationPump: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {

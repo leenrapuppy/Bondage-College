@@ -3365,4 +3365,8 @@ GGTSInteractionPause5Target,,,[GGTS] SourceCharacter program five minutes pause 
 GGTSInteractionSpeed20Target,,,[GGTS] SourceCharacter program slower pace for TargetCharacter.,,
 GGTSInteractionSpeed10Target,,,[GGTS] SourceCharacter program normal pace for TargetCharacter.,,
 GGTSInteractionSpeed5Target,,,[GGTS] SourceCharacter program faster pace for TargetCharacter.,,
-
+SelectChainType,,,Select the chain style,,
+ChainClapNipplesChain,,,Style 1,,
+ChainClapNipplesChain2,,,Style 2,,
+ChainClampSetChain,,,SourceCharacter changes the chain style on DestinationCharacter chest.,,
+ChainClampSetChain2,,,SourceCharacter changes the chain style on DestinationCharacter chest.,,
