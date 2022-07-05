@@ -31,3 +31,23 @@ PerkMelody8,Persuasion
 PerkDescMelody8,Domination meter progresses faster
 PerkMelody9,Manipulation
 PerkDescMelody9,Allow new dialog options
+PerkOlivia0,Apprentice
+PerkDescOlivia0,"Unlock magic, use ""K"" to scream"
+PerkOlivia1,Magician
+PerkDescOlivia1,+10% magic points
+PerkOlivia2,Witch
+PerkDescOlivia2,+15% magic points
+PerkOlivia3,Regenaration
+PerkDescOlivia3,Faster magic regeneration
+PerkOlivia4,Heal
+PerkDescOlivia4,"Use ""P"" to heal yourself"
+PerkOlivia5,Cure
+PerkDescOlivia5,Faster healing cooldown
+PerkOlivia6,Howl
+PerkDescOlivia6,Faster screams cooldown
+PerkOlivia7,Roar
+PerkDescOlivia7,Screams will repel all ennemies
+PerkOlivia8,Teleport
+PerkDescOlivia8,"Use ""I"" to teleport forward"
+PerkOlivia9,Freedom
+PerkDescOlivia9,Faster teleports cooldown
