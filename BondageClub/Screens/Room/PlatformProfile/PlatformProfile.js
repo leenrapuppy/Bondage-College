@@ -84,6 +84,29 @@ function PlatformProfileRun() {
 		PlatformProfileDrawPerkButton(1300, 820, 8);
 		PlatformProfileDrawPerkButton(1500, 920, 9, "Seduction", "Persuasion");
 	}
+	if (PlatformPlayer.Name == "Olivia") {
+		PlatformProfileDrawArrow(1150, 50, 1250, 150);
+		PlatformProfileDrawArrow(1350, 150, 1450, 250);
+		PlatformProfileDrawArrow(1350, 150, 1450, 350);
+		PlatformProfileDrawArrow(1150, 50, 1250, 450);
+		PlatformProfileDrawArrow(1350, 450, 1450, 550);
+		PlatformProfileDrawArrow(1150, 50, 1250, 450);
+		PlatformProfileDrawArrow(1350, 450, 1450, 550);
+		PlatformProfileDrawArrow(1150, 50, 1250, 650);
+		PlatformProfileDrawArrow(1350, 650, 1450, 750);
+		PlatformProfileDrawArrow(1150, 50, 1250, 850);
+		PlatformProfileDrawArrow(1350, 850, 1450, 950);
+		PlatformProfileDrawPerkButton(1100, 20, 0);
+		PlatformProfileDrawPerkButton(1300, 120, 1, "Apprentice");
+		PlatformProfileDrawPerkButton(1500, 220, 2, "Magician");
+		PlatformProfileDrawPerkButton(1500, 320, 3, "Magician");
+		PlatformProfileDrawPerkButton(1300, 420, 4, "Apprentice");
+		PlatformProfileDrawPerkButton(1500, 520, 5, "Heal");
+		PlatformProfileDrawPerkButton(1300, 620, 6, "Apprentice");
+		PlatformProfileDrawPerkButton(1500, 720, 7, "Howl");
+		PlatformProfileDrawPerkButton(1300, 820, 8, "Apprentice");
+		PlatformProfileDrawPerkButton(1500, 920, 9, "Teleport");
+	}
 	DrawButton(1900, 10, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
 }
 
@@ -115,6 +138,16 @@ function PlatformProfileClick() {
 	if ((PlatformPlayer.Name == "Melody") && MouseIn(1100, 720, 400, 60)) PlatformProfileBuyPerk(7);
 	if ((PlatformPlayer.Name == "Melody") && MouseIn(1300, 820, 400, 60)) PlatformProfileBuyPerk(8);
 	if ((PlatformPlayer.Name == "Melody") && MouseIn(1500, 920, 400, 60) && PlatformHasPerk(PlatformPlayer, "Seduction") && PlatformHasPerk(PlatformPlayer, "Persuasion")) PlatformProfileBuyPerk(9);
+	if ((PlatformPlayer.Name == "Olivia") && MouseIn(1100, 20, 400, 60)) PlatformProfileBuyPerk(0);
+	if ((PlatformPlayer.Name == "Olivia") && MouseIn(1300, 120, 400, 60) && PlatformHasPerk(PlatformPlayer, "Apprentice")) PlatformProfileBuyPerk(1);
+	if ((PlatformPlayer.Name == "Olivia") && MouseIn(1500, 220, 400, 60) && PlatformHasPerk(PlatformPlayer, "Magician")) PlatformProfileBuyPerk(2);
+	if ((PlatformPlayer.Name == "Olivia") && MouseIn(1500, 320, 400, 60) && PlatformHasPerk(PlatformPlayer, "Magician")) PlatformProfileBuyPerk(3);
+	if ((PlatformPlayer.Name == "Olivia") && MouseIn(1300, 420, 400, 60) && PlatformHasPerk(PlatformPlayer, "Apprentice")) PlatformProfileBuyPerk(4);
+	if ((PlatformPlayer.Name == "Olivia") && MouseIn(1500, 520, 400, 60) && PlatformHasPerk(PlatformPlayer, "Heal")) PlatformProfileBuyPerk(5);
+	if ((PlatformPlayer.Name == "Olivia") && MouseIn(1300, 620, 400, 60) && PlatformHasPerk(PlatformPlayer, "Apprentice")) PlatformProfileBuyPerk(6);
+	if ((PlatformPlayer.Name == "Olivia") && MouseIn(1500, 720, 400, 60) && PlatformHasPerk(PlatformPlayer, "Howl")) PlatformProfileBuyPerk(7);
+	if ((PlatformPlayer.Name == "Olivia") && MouseIn(1300, 820, 400, 60) && PlatformHasPerk(PlatformPlayer, "Apprentice")) PlatformProfileBuyPerk(8);
+	if ((PlatformPlayer.Name == "Olivia") && MouseIn(1500, 920, 400, 60) && PlatformHasPerk(PlatformPlayer, "Teleport")) PlatformProfileBuyPerk(9);
 }
 
 /**
