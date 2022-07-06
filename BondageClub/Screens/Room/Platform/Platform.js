@@ -1147,8 +1147,8 @@ function PlatformDrawCharacter(C, Time) {
 	if (C.Damage != null)
 		for (let Damage of C.Damage)
 			if (Damage.Expire >= Time) {
-				DrawImageZoomCanvas("Screens/Room/Platform/" + (C.Camera ? "Enemy" : "Player") + "Hit.png", MainCanvas, 0, 0, 512, 512, X + C.Anim.Width / 2 - 50, Y - 250 + Math.floor((Damage.Expire - Time) / 10), 100, 100);
-				DrawText(Damage.Value.toString(), X + C.Anim.Width / 2, Y - 200 + Math.floor((Damage.Expire - Time) / 10), (C.Camera ? "White" : "Black"), (C.Camera ? "Black" : "White"));
+				DrawImageZoomCanvas("Screens/Room/Platform/" + (Damage.Value < 0 ? "Green" : (C.Camera ? "Enemy" : "Player")) + "Hit.png", MainCanvas, 0, 0, 512, 512, X + C.Anim.Width / 2 - 50, Y - 250 + Math.floor((Damage.Expire - Time) / 10), 100, 100);
+				DrawText(Math.abs(Damage.Value).toString(), X + C.Anim.Width / 2, Y - 200 + Math.floor((Damage.Expire - Time) / 10), (C.Camera && Damage.Value >= 0 ? "White" : "Black"), (C.Camera && Damage.Value >= 0 ? "Black" : "White"));
 			}
 }
 
@@ -1445,9 +1445,9 @@ function PlatformDraw() {
 	if (MustHeal) PlatformHeal = (PlatformRoom.Heal == null) ? null : CommonTime() + PlatformRoom.Heal;
 
 	// If we must regenarate magic for the player
-	if (!MustHeal && (PlatformPlayer.MaxMagic != null) && (PlatformPlayer.Magic != null) && (PlatformPlayer.Magic < PlatformPlayer.MaxMagic) && (PlatformRegen < PlatformTime)) {
-		PlatformPlayer.Magic++;
-		PlatformRegen = PlatformTime + 1000 + ((PlatformHasPerk("Regeneration") ? 45000 : 60000) / PlatformPlayer.MaxMagic);
+	if (!MustHeal && (PlatformPlayer.MaxMagic != null) && (PlatformPlayer.Magic != null) && (PlatformRegen < PlatformTime)) {
+		if (PlatformPlayer.Magic < PlatformPlayer.MaxMagic) PlatformPlayer.Magic++;
+		PlatformRegen = PlatformTime + (PlatformHasPerk("Regeneration") ? 6000 : 8000);
 	} 
 
 	// Draw each characters
@@ -1768,7 +1768,7 @@ function PlatformLoadGame(Slot) {
  * @param {Object} C - The character to teleport
  * @returns {void} - Nothing
  */
-function PlatformTeleport(C) {
+function PlatformCastTeleport(C) {
 	if (PlatformCooldownActive("Teleport")) return;
 	if ((C.Magic == null) || (C.Magic == 0)) return;
 	C.Magic--;
@@ -1777,6 +1777,25 @@ function PlatformTeleport(C) {
 	if (C.Camera) PlatformCooldown.push({Type: "Teleport", Time: CommonTime() + Time, Delay: Time});
 	C.ForceX = C.ForceX + (C.FaceLeft ? -250 : 250);
 	C.Immunity = CommonTime() + 500;
+}
+
+/**
+ * Heals the character for 20% of it's max HP
+ * @param {Object} C - The character to teleport
+ * @returns {void} - Nothing
+ */
+function PlatformCastHeal(C) {
+	if (PlatformCooldownActive("Heal")) return;
+	if ((C.Magic == null) || (C.Magic <= 2)) return;
+	if (C.Health >= C.MaxHealth) return;
+	let Heal = Math.round(C.MaxHealth * 0.2);
+	if (Heal > C.MaxHealth - C.Health) Heal = C.MaxHealth - C.Health;
+	C.Health = C.Health + Heal;
+	C.Magic = C.Magic - 3;
+	C.Damage.push({ Value: Heal * -1, Expire: CommonTime() + 2000});
+	let Time = 30000;
+	if (PlatformHasPerk(C, "Cure")) Time = 20000;
+	if (C.Camera) PlatformCooldown.push({Type: "Heal", Time: CommonTime() + Time, Delay: Time});
 }
 
 /**
@@ -1790,7 +1809,8 @@ function PlatformEventKeyDown(e) {
 	if (PlatformActionIs(PlatformPlayer, "Bind")) PlatformPlayer.Action = null;
 	if (e.keyCode == 32) PlatformPlayer.Action = null;
 	if ((e.keyCode == 87) || (e.keyCode == 119) || (e.keyCode == 90) || (e.keyCode == 122)) return PlatformEnterRoom("Up");
-	if (((e.keyCode == 73) || (e.keyCode == 105)) && PlatformHasPerk(PlatformPlayer, "Teleport")) return PlatformTeleport(PlatformPlayer);
+	if (((e.keyCode == 73) || (e.keyCode == 105)) && PlatformHasPerk(PlatformPlayer, "Teleport")) return PlatformCastTeleport(PlatformPlayer);
+	if (((e.keyCode == 80) || (e.keyCode == 112)) && PlatformHasPerk(PlatformPlayer, "Heal")) return PlatformCastHeal(PlatformPlayer);
 	if (((e.keyCode == 76) || (e.keyCode == 108)) && PlatformAnimAvailable(PlatformPlayer, "StandAttackFast")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
 	if (((e.keyCode == 75) || (e.keyCode == 107)) && !PlatformMoveActive("Crouch") && PlatformHasPerk(PlatformPlayer, "Apprentice")) return PlatformAttack(PlatformPlayer, "Scream");
 	if (((e.keyCode == 75) || (e.keyCode == 107)) && PlatformAnimAvailable(PlatformPlayer, "StandAttackSlow")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackSlow" : "StandAttackSlow");
