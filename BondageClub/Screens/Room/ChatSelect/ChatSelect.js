@@ -40,7 +40,7 @@ function ChatSelectLoad () {}
 
 
 function ChatSelectStartFemaleChat () {
-    ChatRoomStart("FemlaeOnly", "", "ChatSelect", "BrickWall", BackgroundsTagList)
+    ChatRoomStart("FemaleOnly", "", "ChatSelect", "BrickWall", BackgroundsTagList)
 }
 
 function ChatSelectStartMixedChat () {
@@ -48,6 +48,6 @@ function ChatSelectStartMixedChat () {
 }
 
 function ChatSelectStartMaleChat () {
-    ChatRoomStart("Male", "", "ChatSelect", "BrickWall", BackgroundsTagList)
+    ChatRoomStart("MaleOnly", "", "ChatSelect", "BrickWall", BackgroundsTagList)
 }
 
