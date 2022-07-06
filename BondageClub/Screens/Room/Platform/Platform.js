@@ -81,8 +81,8 @@ var PlatformTemplate = [
 		Height: 400,
 		Health: 10,
 		HealthPerLevel: 3,
-		Magic: 8,
-		MagicPerLevel: 2,
+		Magic: 6,
+		MagicPerLevel: 1,
 		HitBox: [0.42, 0.03, 0.58, 1],
 		JumpHitBox: [0.42, 0.03, 0.58, 0.65],
 		RunSpeed: 18,
@@ -1093,8 +1093,8 @@ function PlatformDrawBackground() {
 	else if ((PlatformPlayer.Health <= 0) && !PlatformPlayer.Bound && (PlatformPlayer.RiseTime != null) && (PlatformPlayer.RiseTime >= CommonTime()))
 		DrawProgressBar(10, 110, 180, 40, 100 - ((PlatformPlayer.RiseTime - CommonTime()) / 100), "White", "Black");
 	if ((PlatformPlayer.MaxMagic != null) && (PlatformPlayer.MaxMagic > 0) && PlatformHasPerk(PlatformPlayer, "Apprentice")) {
-		DrawProgressBar(210, 10, 180, 40, PlatformPlayer.Magic / PlatformPlayer.MaxMagic * 100, "#0000B0", "#000000");
-		DrawText(PlatformPlayer.Magic.toString(), 300, 32, "White", "Black");	
+		DrawProgressBar(200, 10, 180, 40, PlatformPlayer.Magic / PlatformPlayer.MaxMagic * 100, "#0000B0", "#000000");
+		DrawText(PlatformPlayer.Magic.toString(), 290, 32, "White", "Black");	
 	}
 
 	// Clears the past cooldowns
@@ -1107,8 +1107,8 @@ function PlatformDrawBackground() {
 	// Draws the cooldowns
 	let Y = 50;
 	for (let C of PlatformCooldown) {
-		DrawProgressBar(210, Y + 10, 180, 40, 100 - ((C.Time - CommonTime()) / C.Delay * 100), "White", "Black");
-		DrawImage("Screens/Room/Platform/Icon/" + C.Type + ".png", 212, Y + 12);
+		DrawProgressBar(200, Y + 10, 180, 40, 100 - ((C.Time - CommonTime()) / C.Delay * 100), "White", "Black");
+		DrawImage("Screens/Room/Platform/Icon/" + C.Type + ".png", 203, Y + 13);
 		Y = Y + 50;
 	}
 
@@ -1764,6 +1764,22 @@ function PlatformLoadGame(Slot) {
 }
 
 /**
+ * Teleports a character forward
+ * @param {Object} C - The character to teleport
+ * @returns {void} - Nothing
+ */
+function PlatformTeleport(C) {
+	if (PlatformCooldownActive("Teleport")) return;
+	if ((C.Magic == null) || (C.Magic == 0)) return;
+	C.Magic--;
+	let Time = 3000;
+	if (PlatformHasPerk(C, "Freedom")) Time = 2000;
+	if (C.Camera) PlatformCooldown.push({Type: "Teleport", Time: CommonTime() + Time, Delay: Time});
+	C.ForceX = C.ForceX + (C.FaceLeft ? -250 : 250);
+	C.Immunity = CommonTime() + 500;
+}
+
+/**
  * Handles keys pressed
  * @param {Object} e - The key pressed
  * @returns {void} - Nothing
@@ -1774,6 +1790,7 @@ function PlatformEventKeyDown(e) {
 	if (PlatformActionIs(PlatformPlayer, "Bind")) PlatformPlayer.Action = null;
 	if (e.keyCode == 32) PlatformPlayer.Action = null;
 	if ((e.keyCode == 87) || (e.keyCode == 119) || (e.keyCode == 90) || (e.keyCode == 122)) return PlatformEnterRoom("Up");
+	if (((e.keyCode == 73) || (e.keyCode == 105)) && PlatformHasPerk(PlatformPlayer, "Teleport")) return PlatformTeleport(PlatformPlayer);
 	if (((e.keyCode == 76) || (e.keyCode == 108)) && PlatformAnimAvailable(PlatformPlayer, "StandAttackFast")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
 	if (((e.keyCode == 75) || (e.keyCode == 107)) && !PlatformMoveActive("Crouch") && PlatformHasPerk(PlatformPlayer, "Apprentice")) return PlatformAttack(PlatformPlayer, "Scream");
 	if (((e.keyCode == 75) || (e.keyCode == 107)) && PlatformAnimAvailable(PlatformPlayer, "StandAttackSlow")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackSlow" : "StandAttackSlow");
