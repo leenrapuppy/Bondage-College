@@ -2276,9 +2276,11 @@ var AssetFemale3DCG = [
 		Priority: 12,
 		Left: 225,
 		Top: 500,
-		FullAlpha: false,
 		AllowNone: false,
-		Asset: ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"],
+		AllowExpression: ["Hard"],
+		Asset: ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3",
+			{ Name: "Penis", Random: false, Left: 200, Top: 410 }
+		],
 		Color: ["Default", "#6a3628", "#443330", "#222222"]
 	},
 
