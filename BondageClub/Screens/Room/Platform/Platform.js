@@ -25,6 +25,7 @@ var PlatformSaveMode = false;
 var PlatformJumpPhase = "";
 var PlatformParty = [];
 var PlatformRegen = 0;
+var PlatformCooldown = [];
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -110,7 +111,7 @@ var PlatformTemplate = [
 		Attack: [
 			{ Name: "StandAttackFast", HitBox: [0.7, 0.15, 0.9, 0.3], HitAnimation: [6, 7, 8, 9, 10], Damage: [1, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8], Speed: 300 },
 			{ Name: "CrouchAttackFast", HitBox: [0.725, 0.65, 0.925, 0.75], HitAnimation: [6, 7, 8, 9], Damage: [1, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8], Speed: 300 },
-			{ Name: "Scream", Magic: 2, HitBox: [-100, -100, 100, 100], HitAnimation: [8, 9, 10], Damage: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4], Speed: 200 }
+			{ Name: "Scream", Magic: 2, Cooldown: 3000, HitBox: [-100, -100, 100, 100], HitAnimation: [8, 9, 10], Damage: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4], Speed: 200 }
 		]
 	},
 	{
@@ -1096,6 +1097,21 @@ function PlatformDrawBackground() {
 		DrawText(PlatformPlayer.Magic.toString(), 300, 32, "White", "Black");	
 	}
 
+	// Clears the past cooldowns
+	for (let C = 0; C < PlatformCooldown.length; C++)
+		if (PlatformCooldown[C].Time < CommonTime()) {
+			PlatformCooldown.splice(C, 1);
+			C--;
+		}
+
+	// Draws the cooldowns
+	let Y = 50;
+	for (let C of PlatformCooldown) {
+		DrawProgressBar(210, Y + 10, 180, 40, 100 - ((C.Time - CommonTime()) / C.Delay * 100), "White", "Black");
+		DrawImage("Screens/Room/Platform/Icon/" + C.Type + ".png", 212, Y + 12);
+		Y = Y + 50;
+	}
+
 	// Preloads the next rooms
 	if (PlatformRoom.Door != null)
 		for (let Door of PlatformRoom.Door)
@@ -1178,7 +1194,7 @@ function PlatformAddExperience(C, Value) {
  * @returns {void} - Nothing
  */
 function PlatformDamage(Source, Target, Damage, Time, Type) {
-	if (!PlatformActionIs(Target, "Any")) {
+	if (!PlatformActionIs(Target, "Any") && (!PlatformActionIs(Source, "Scream") || PlatformHasPerk(Source, "Roar"))) {
 		if (Math.random() < Target.DamageBackOdds) Target.FaceLeft = (Source.X - Target.X > 0);
 		else if (Math.random() < Target.DamageFaceOdds) Target.FaceLeft = (Source.X - Target.X <= 0);
 	}
@@ -1588,9 +1604,15 @@ function PlatformAttack(Source, Type) {
 	if (Source.Attack != null)
 		for (let Attack of Source.Attack)
 			if (Attack.Name == Type) {
+				if ((Attack.Cooldown != null) && (Attack.Cooldown > 0) && PlatformCooldownActive(Type)) return;
 				if ((Attack.Magic != null) && (Attack.Magic > 0)) {
 					if ((PlatformPlayer.Magic == null) || (PlatformPlayer.Magic < Attack.Magic)) return;
 					PlatformPlayer.Magic = PlatformPlayer.Magic - Attack.Magic;
+				}
+				if ((Attack.Cooldown != null) && (Attack.Cooldown > 0)) {
+					let Time = Attack.Cooldown;
+					if ((Type == "Scream") && (PlatformHasPerk(PlatformPlayer, "Howl"))) Time = Time - 1000;
+					PlatformCooldown.push({Type: Attack.Name, Time: CommonTime() + Time, Delay: Time});
 				}
 				Source.Action = { Name: Type, Start: CommonTime(), Expire: CommonTime() + Attack.Speed };
 			}
@@ -1834,4 +1856,16 @@ function PlatformHasPerk(C, Perk) {
 	if ((C.Perk == null) || (C.PerkName == null)) return false;
 	if (C.PerkName.indexOf(Perk) < 0) return false;
 	return (C.Perk.substr(C.PerkName.indexOf(Perk), 1) == "1");
+}
+
+/**
+ * Returns TRUE if a specific cooldown is currently active
+ * @param {String} Name - The name of the cooldown to validate
+ * @returns {boolean} - TRUE if active
+ */
+function PlatformCooldownActive(Name) {
+	for (let C of PlatformCooldown)
+		if (C.Type == Name)
+			return true;
+	return false;
 }
