@@ -1,0 +1,139 @@
+###_NPC
+(She looks at your gag and smiles.)  You'll need to find a spell to remove that gag.
+（她看着你的堵嘴并微笑。）你需要找到一个咒语来移除那个口塞。
+(She congratulates you.)  Well done!  You're a true escape artist.  Here's your salary.  (She gives you $MoneyAmount.)
+（她祝贺你。）干得好！你是一个真正的逃脱艺术家。这是你的薪水。（她给你 $MoneyAmount。）
+(She releases you.)  I'm sorry you've failed.  I hope you will try again.
+（她放开了你。）我很遗憾，你失败了。我希望你能再试一次。
+Hello!  Are you ready to try a magical escape challenge?
+你好！你准备好尝试魔法逃脱挑战了吗？
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm grey witch DialogCharacterName, challenger of wizards.
+我是灰女巫DialogCharacterName，巫师的挑战者。
+###_PLAYER
+What is this place?
+这是什么地方？
+###_NPC
+You're in the escape challenge oubliette.  We prepare escape challenges and magic puzzles for kinky sorcerers.
+你在逃脱挑战地牢。我们为色情的术士们准备逃脱挑战和魔法谜题。
+###_PLAYER
+Tell me about the challenge.
+跟我讲讲挑战吧。
+###_NPC
+(She nods.)  What would you like to know?
+（她点头。）你想知道什么？
+###_PLAYER
+I'd like to do an escape challenge.
+我想来一次逃脱挑战。
+###_NPC
+Perfect!  What kind of challenge will you try?
+完美！你会尝试什么样的挑战？
+###_PLAYER
+I need to go.  (Leave her.)
+我得走了。（离开她。）
+How does it work?
+这怎么进行呢？
+###_NPC
+First, we restrain you from head to toe and lock you up in the oubliette.  Then you try to escape using magic.
+首先，我们会从头到脚束缚你，并把你锁在地牢里。然后你尝试使用魔法逃脱。
+###_PLAYER
+How do I escape from bondage?
+我如何摆脱束缚？
+###_NPC
+Your first spell is to remove your gag, then free your arms and legs.  The last spell is to unlock the door.
+你首先使用咒语移除你的口塞，然后解放你的胳膊和腿。最后一个咒语打开门。
+###_PLAYER
+What if I fail my spell?
+如果我的咒语失败了怎么办？
+###_NPC
+If you fail your spell, it might backfire on you and strip you down.  You can try to cast it again afterward.
+如果你的咒语失败了，它的魔法能量会产生回火，并脱掉你的衣服。之后你还是可以尝试再次施放它。
+###_PLAYER
+Is there a reward for escaping?
+逃跑有奖励吗？
+###_NPC
+It's a race against the clock.  The faster you escape, the higher the salary.  Your attempt will certainly please our customers.
+这是一场与时间的赛跑。你逃得越快，薪水就越高。你的尝试一定会让我们的客户满意。
+###_PLAYER
+That's all I wanted to know.
+我就想知道这些了。
+###_NPC
+(She smiles.)  Are you ready to try a magical escape challenge then?
+（她微笑起来。）那你准备好尝试魔法逃脱挑战了吗？
+###_PLAYER
+An easy one please.
+来一次简单的。
+###_NPC
+(She nods.)  You'll have 2 minutes to escape.  Are you ready to begin?  (She opens a box of bondage gear.)
+（她点头。）你有2分钟的时间逃脱。你准备好开始了吗？（她打开一个装着束缚装备的盒子。）
+###_PLAYER
+A regular one I guess.
+我想，来一次普通的吧。
+###_NPC
+(She smiles.)  You'll have 90 seconds to escape.  Are you ready to begin?  (She opens a box of bondage gear.)
+（她露出微笑。）你有90秒的时间逃脱。你准备好开始了吗？（她打开一个装着束缚装备的盒子。）
+###_PLAYER
+Give me a true challenge.
+给我真正的挑战。
+###_NPC
+(She grins.)  You'll have 1 minute to escape.  Are you ready to begin?  (She opens a box of bondage gear.)
+（她咧开嘴笑。）你有1分钟的时间逃脱。你准备好开始了吗？（她打开一个装着束缚装备的盒子。）
+###_PLAYER
+Send me to magic hell.
+把我送进魔法地狱。
+###_NPC
+(She smirks.)  You'll have 45 seconds to escape.  Are you ready to begin?  (She opens a box of bondage gear.)
+（她得意地笑起来。）你有45秒的时间逃脱。你准备好开始了吗？ （她打开一盒束缚装备。）
+###_PLAYER
+I'm ready!  (Start the challenge.)
+我准备好了！（开始挑战。）
+Wait!  I need more time.
+等一下！我要先准备一会儿。
+###_NPC
+(She sighs.)  Is there anything else you need from me?
+（她叹了口气。）你还需要我做什么吗？
+###_PLAYER
+I can't right now.
+我现在还不行。
+###_NPC
+(She nods.)  No problem.  Is there anything else you need from me?
+（她点点头。）没问题。你还需要我做什么吗？
+###_PLAYER
+That was a fun challenge.
+刚才是一场有趣的挑战。
+###_NPC
+(She smiles.)  I'm glad you had fun.  Let me know if you want to try another challenge.
+（她露出微笑。）我很高兴你玩得开心。如果你想再来一次挑战，请告诉我。
+###_PLAYER
+Nothing can stop a true Domme.
+没有什么能阻止一个真正的支配者。
+###_NPC
+(She bows her head.)  Yes Miss.  Let me know if you want to try another challenge.
+（她低下头。）是的，女士。如果你想再来一次挑战，请告诉我。
+###_PLAYER
+A subbie needs the best escape techniques.
+顺从者需要最好的逃生技术。
+###_NPC
+(She pets your head.)  Good girl.  Let me know if you want to try another challenge.
+（她摸摸你的头。）乖女孩。如果你想再来一次挑战，请告诉我。
+###_PLAYER
+It was kind of easy.
+这很容易。
+###_NPC
+Try to beat your current time then.  Challenging yourself is the best way to learn.
+那就试着超越你现在的时间。挑战自己是最好的学习方式。
+###_PLAYER
+I got too aroused to focus.  (Blush.)
+我太兴奋了，无法集中注意力。（脸红起来。）
+###_NPC
+(She pets your head.)  You did fine.  Let me know if you want to try another challenge.
+（她摸摸你的头。）你做得很好。如果你想再来一次挑战，请告诉我。
+###_PLAYER
+It was too hard.
+这太难了。
+###_NPC
+Try an easier challenge or take more time to focus.  Let me know if you want to try another challenge.
+试试更简单的挑战，或花更多时间保持专注吧。如果你想再来一次挑战，请告诉我。

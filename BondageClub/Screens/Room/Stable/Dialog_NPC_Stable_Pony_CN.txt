@@ -1,0 +1,281 @@
+###_NPC
+(She nods to you.)
+（她向你点头。）
+(She bows her head and presents her mouth so you can gag her easily.)
+（她低下头，露出嘴巴，让你轻松地堵住她的嘴。）
+(You remove her gag and she looks angry.) Give it back to me.
+（你取下她的口塞，她看起来很生气。）把它还给我。
+(She tugs really hard on her restraints, almost hurting herself, and moans.)  This feels sooooo good.
+（她非常用力地拉着她的束缚，几乎让自己受伤，并且呻吟着。）这感觉太好了。
+(You free her arms and she stretches a little.)  What will you use on me next?
+（你松开她的胳膊，她伸了伸懒腰。）接下来你要用什么来对付我？
+(She submits to you while you restrain her legs securely.)  That's how the race really gets tough.
+（她顺从地让你你牢牢地束缚住她的腿。）这是让比赛变难的真正原因。
+(You release her legs from the restraint.)  The training finally continues.
+（你松开她的双腿。）训练终于能继续了。
+(She looks puzzled as you restrain her feet.)  I'll stay on guard here, trainer.
+（你束缚住她的脚，她看起来很困惑。）我会在这里等着的，训练师。
+(You release her feet and she wiggles them.)  Thanks, it was troublesome.
+（你松开她的脚，她扭动双脚。）谢谢，之前这带来了不少麻烦。
+(You strap the collar on her.)  With that, the equipment is complete.
+（你把项圈系在她身上。）这样，装备就穿戴完毕了。
+(You remove the collar from her neck.)  Time to return to normal.
+（你取下她脖子上的项圈。）是时候恢复正常了。
+(You snap the belt around her waist and crotch while she sighs.)  No more fun.
+（你将贞操带系在她的腰部和胯部，她叹口气。）没有快乐了。
+(You unlock the belt from her waist and she smiles.)  Thanks a lot Miss DialogPlayerName.
+（你解开她腰间的贞操带，她笑了起来。）非常感谢，DialogPlayerName女士。
+(You strap the device on her head as she nods slowly.)  I understand, no distractions.
+（你将道具绑在她的头上，她慢慢地点点头时。）我明白，不要分​​心。
+(You remove the device and she nods rapidly.)
+（你取下道具，她迅速点头。）
+(She jumps from the searing pain on her breast.)  Ouch!
+（她因为胸口的灼痛而跳了起来。）哎哟！
+(You whip her breast with the leather crop as she whimpers and bows her head.)
+（你用皮革短鞭打她的乳房，她呜咽并低下头。）
+(You whip her butt hard as she sighs.)  I promise I'll train harder Miss.
+（你用力抽打她的屁股，她叹气。）我保证我会更加努力地训练，女士。
+(She grumbles as you strike her butt with the crop.)  Next time I will try harder.
+（你用硬鞭抽打她的屁股，她抱怨起来。）下次我会更加努力。
+(She radiates with joy.) Thanks, that makes life easier.
+（她洋溢着喜悦。）谢谢，这让生活轻松不少。
+(She steps after you.) That's part of the equipment.
+（她跟在你后面。）这也是装备的一部分。
+(She nods in agreement.) That is really necessary.
+（她点头表示同意。）这确实是必要的。
+(She flops her ears.)
+（她竖起耳朵。）
+(She holds her breath as you use the item.)  Oh my!  What did I do to deserve that?
+（当你使用这件物品时，她屏住呼吸。）哦，天哪！我做了什么应得的？
+(She wiggles her breast slowly as you remove the device.)  Do you have other items we could try?
+（当你取下道具时，她慢慢地摆动着她的胸部。）你还有其他我们可以尝试的东西吗？
+(She moans softly as you massage her pussy with the wand.)  Mmmmh, this is nice.  Whinny!
+（当你用按摩棒摩擦她的阴户时，她轻声呻吟。）嗯，这很好。呜呜！
+(She moans loudly as you slide the egg inside.)  This egg is so sexy.
+（当你把跳蛋滑进去时，她大声呻吟。）这个跳蛋太性感了。
+(She does one last moan as you remove the egg.)  Ooooh!  That was quite a stimulation.
+（当你取出跳蛋时，她发出最后一声呻吟。）噢噢！这刺激真厉害。
+(You restrain her feet and suspend her from the ceiling.)  Oh my!  Careful, I don't want to fall.
+（你束缚住她的脚，把她吊在天花板上）哦，天哪！小心，我不想掉下来。
+(You let her down from the ceiling.)  Much better!  I was slowly getting dizzy.
+（你让她从天花板上下来。）好多了！我刚才已经快晕了。
+(She whinnies.)
+（她发牢骚。）
+###_PLAYER
+Hello, I'm DialogPlayerName.  Pleased to meet you.
+你好，我是DialogPlayerName。很高兴见到你。
+What's going on in here?
+这里是做什么的？
+###_NPC
+(She stomps on the ground.)
+（她朝地上跺着脚。）
+###_PLAYER
+(Try to trot to her.)
+（试着小跑接近她。）
+###_NPC
+(She turns away.)
+（她转身离开。）
+###_PLAYER
+(Whinny to her.)
+（向她嘶鸣。）
+###_NPC
+(She kicks your butt.)
+（她踢你的屁股。）
+###_PLAYER
+(Trot to her.)
+（小跑接近她。）
+###_NPC
+(She nudges you with her nose.)
+（她用鼻子轻推你。）
+###_PLAYER
+(Start the training.)
+（开始训练。）
+###_NPC
+(She looks expectant.)
+（她看起来很期待。）
+###_PLAYER
+I can't stay to chat.  (Leave her.)
+我没时间聊天。（离开她。）
+(Try to talk to her.)
+（试着和她说话。）
+###_NPC
+(You both try to mumble to each other but it makes no sense.)
+（你们俩都试图咕哝着什么，但完全没能理解含义。）
+###_PLAYER
+(Lean on her.)
+（靠在她身上。）
+###_NPC
+(You lean and rest on each other's hips while she whinnies slowly.)
+（你靠在彼此的臀部上，她慢慢地发出呜咽声。）
+###_PLAYER
+(Nuzzle with her.)
+（摩擦她的肩膀。）
+###_NPC
+(You clumsily nuzzle each other in your restraints and giggle.)
+（你们在束缚中笨拙地相互依偎着，咯咯地笑着。）
+###_PLAYER
+(Rub your body against hers.)
+（用你的身体摩擦她的身体。）
+###_NPC
+(You both rub your bodies against each other and moan slowly.)
+（你们互相摩擦身体，慢慢地呻吟。）
+###_PLAYER
+(Try to masturbate her with your finger.)
+（试着用你的手指抚慰她。）
+###_NPC
+(You rub your armbinder against her and hear a satisfied snort.)
+（你用单手摩擦她，并听到她满意的哼哼声。）
+###_PLAYER
+(Try to masturbate her with your feet.)
+（试着用你的脚抚慰她。）
+###_NPC
+(You both rub your feet against each other's crotch and have a lot of fun.)
+（你们俩都用脚摩擦对方的胯部，玩得很开心。）
+###_PLAYER
+(More...)
+（更多……）
+(Step back.)
+（退后。）
+###_NPC
+(You step back.)
+（你退后一步。）
+###_PLAYER
+(Try to release her.)
+（尝试释放她。）
+###_NPC
+(You struggle in your armbinder and try to release her.  But you fail miserably.)
+（你在你的单手套里挣扎，试图释放她。但你失败了。）
+###_PLAYER
+(Try to kiss her.)
+（试着吻她。）
+###_NPC
+(You try to kiss her, but the gag prevents you from doing it.)
+（你试图吻她，但口塞让你做不到。）
+###_PLAYER
+(Try to masturbate her with your tongue.)
+（试着用你的舌头抚慰她。）
+###_NPC
+(You lick her to an orgasm.)
+（你通过舔让她达到高潮。）
+###_PLAYER
+(Check the equipment before the start of the exercise.)
+（在训练开始前检查装备。）
+(Send her back to the herd. End the training)
+（将她送回马群。结束训练）
+###_NPC
+(She trots back into her box.)
+（她小跑回到她的盒子里。）
+###_PLAYER
+(Make her gallop through the manege.)
+（让她在马术练习场内疾驰。）
+(Make her walk a few steps and lift her legs properly.)
+（让她规范地抬起双腿，走动几步。）
+(Make her dance around through the manege.)
+（让她在马术练习场内跳舞。）
+(Make her practice walking on the treadmill.)
+（让她练习在跑步机上行走。）
+(Make her practice with the carriage.)
+（让她使用马车练习。）
+(Send her out on the pasture to collect carrots.)
+（派她到牧场去收集胡萝卜。）
+(Make her practice jumping over the hurdles.)
+（让她练习跳过障碍。）
+(Check your whip.)
+（检查你的鞭子。）
+(Reward her.)
+（奖励她。）
+###_NPC
+(She trots to you.)
+（她朝你小跑过来。）
+###_PLAYER
+(Ignore her.)
+（无视她。）
+###_NPC
+(She waits patiently.)
+（她耐心地等待。）
+###_PLAYER
+(Punish her.)
+（惩罚她。）
+###_NPC
+(She ignores you.)
+（她不理你。）
+###_PLAYER
+(Caress her head.)
+（抚摸她的头。）
+###_NPC
+(She whinnies excitedly.)
+（她兴奋地呜咽着。）
+###_PLAYER
+(Scratch her back.)
+（抓她的背。）
+###_NPC
+(She moans satisfied.)
+（她满足地呻吟着。）
+###_PLAYER
+(Take a brush and straighten her hair.)
+（用刷子把她的头发拉直。）
+(Take a sponge and clean her.)
+（用海绵清洁她。）
+(Give her an oatcake.)
+（给她一个燕麦饼。）
+###_NPC
+(She grabs for it greedily.)
+（她贪婪地咬住它。）
+###_PLAYER
+(Stop rewarding her.)
+（停止奖励她。）
+###_NPC
+(She looks at you.)
+（她看着你。）
+###_PLAYER
+(Crack the whip.)
+（甩响鞭子。）
+###_NPC
+(She winces.)
+（她缩了一下。）
+###_PLAYER
+(Hit her back with the whip.)
+（用鞭子打她。）
+###_NPC
+(Startled, she takes a step forward.)
+（她吓了一跳，向前迈了一步。）
+###_PLAYER
+(Hit the whip against her hip.)
+（用鞭子抽打她的髋部。）
+###_NPC
+(She cries in pain.)
+（她痛苦地哭了起来。）
+###_PLAYER
+(Hit the whip against her butt.)
+（用鞭子抽打她的臀部。）
+###_NPC
+(She stands upright and looks at you carefully.)
+（她站直，仔细地看着你。）
+###_PLAYER
+(Hit her legs with the whip.)
+（用鞭子抽打她的腿。）
+###_NPC
+(She glances at the manege with a tense look.)
+（她紧张地看了一眼训练场。）
+###_PLAYER
+(Hit her breast with the whip.)
+（用鞭子抽打她的胸部。）
+###_NPC
+(She whimpers in pain.)
+（她痛苦地呜咽着。）
+###_PLAYER
+(Pour a bucket of ice water over her.)
+（将一桶冰水倒在她身上。）
+###_NPC
+(She stands rigid and motionless in fright.)
+（她吓得站住，一动不动。）
+###_PLAYER
+(Stop punishing her.)
+（停止惩罚她。）
+###_NPC
+(She is a good match.)
+（她是个好搭档。）
+(She fails miserably.)
+（她悲惨地失败了。）
+(She kicks you.)
+（她踢你。）

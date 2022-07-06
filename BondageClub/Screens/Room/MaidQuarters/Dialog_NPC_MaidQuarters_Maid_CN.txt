@@ -601,7 +601,7 @@ No, you don't.  And our guests are always thirsty.
 你确实没有。还有就是我们的客人一直都很饥渴。
 ###_PLAYER
 It's an honor to work for my owner.
-为主人工做是我的荣幸。
+为主人工作是我的荣幸。
 ###_NPC
 Good girl!  Our guests are always thirsty.
 好孩子！我们的客人一直都很饥渴。

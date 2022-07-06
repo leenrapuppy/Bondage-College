@@ -404,6 +404,18 @@ Post
 柱子
 Baseplate
 底板
+Pole
+杆子
+Plaque
+标牌
+PlaqueBorder
+标牌边框
+Postit
+便条纸
+Paw
+爪子
+PlaqueBolts
+标牌螺栓
 Harness
 束带
 Stripes
@@ -474,8 +486,6 @@ Caps
 盖子
 Plastic
 塑料
-Pole
-杆子
 Net
 网子
 Arms

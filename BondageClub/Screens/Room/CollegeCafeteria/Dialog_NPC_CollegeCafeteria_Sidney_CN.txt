@@ -1,0 +1,357 @@
+###_NPC
+(She gives you a curious look.)  Why are you wearing that?  Are you on a fucking diet?
+（她好奇地看了你一眼。）你为什么穿那个？你他妈在节食吗？
+(A teacher comes and separates you.  You both clean up as she catches her breath.)  Fuck this!  I'm too hungry to fight anyway.
+（一位老师过来把你们分开。你们拍了拍衣服，她调整呼吸。）操！反正我太饿了，打不过。
+(A teacher comes and separates you.  You both clean up as she smirks.)  This is what you get for messing with me bitch.
+（一位老师过来把你们分开。你们拍了拍衣服，她傻笑起来。）这就是你惹我的结果，婊子。
+(Sidney is waiting in line to get her food.)  Hey DialogPlayerName.  Don't you dare cutting in front of me.
+（Sidney正在排队等着拿她的食物。）嘿，DialogPlayerName。你竟敢在我面前插队。
+Sweetheart!  (She holds your hands and smiles.)  Are you having lunch with me?
+亲爱的！（她握着你的手微笑）你和我一起吃午饭吗？
+(She snobs you.)  You broke with me fucking fast.  What do you want now?
+（她嘲弄你。）你他妈的快跟我分手了。你现在想要什么？
+(She doesn't dare to look you in the eyes.)  Hello Mistress, would you like to step in front of me?
+（不敢看你的眼睛。）你好，女主人，要不要来我前面？
+(She laughs.)  My slut is back!  Stay behind me, you will carry my lunch.
+（她笑起来。）我的骚货回来了！来我身后吧，你会带我吃午饭。
+(She frowns.)  Hey ex-slut.  Don't you dare cutting in front of me.
+（她皱起眉头。）嘿，我的前任骚货。你竟敢在我面前插队。
+(She doesn't seem to recognize you.)  Hey!  Don't you dare cutting in front of me.
+（她看起来没认出来你。）嘿！你竟敢在我面前插队。
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+That's none of your business.  Get lost, I'm waiting to eat.
+这跟你没关系。走开，我等着吃饭呢。
+###_PLAYER
+How have you been?
+你最近怎么样？
+###_NPC
+Hungry as shit!  This line is taking forever.
+饿死了！这队要排一辈子。
+###_PLAYER
+What is that hat?
+你那帽子是什么？
+###_NPC
+(She grumbles.)  Let's change subject please.
+（她嘟哝起来。）我们换个话题吧。
+Shut up!  Don't talk about it.
+住口！别说这个。
+###_PLAYER
+What are you eating?
+你要吃什么？
+###_NPC
+I'll take your cunt.  (She laughs out loud.)  Seriously, they better have some red meat.  What are you getting my love?
+我会吃你的的阴户。（她放声大笑。）说真的，我希望今天有红肉吃。你准备吃什么，亲爱的？
+I don't know, but they better have some red meat.  What are you getting?
+我不知道，我希望今天有红肉吃。你准备吃什么？
+###_PLAYER
+I'll check the menu.  (Leave her.)
+我去看看菜单。（离开她。）
+Only a soup.  I'm not hungry.
+一份汤就行。我不饿。
+###_NPC
+That's lame.  Try something better like a steak.  I'm broke so I'll have the cheap ass fried chicken.
+那可太糟了。试试更好的吧，比如牛排。我没钱了，所以我不得不吃便宜的炸鸡。
+###_PLAYER
+Probably a hamburger.
+汉堡吧，大概。
+###_NPC
+Good choice, I would go for two burgers also, but I don't have enough money.
+不错的选择，我也会去吃两个汉堡，但我没有足够的钱。
+###_PLAYER
+A grilled cheese.
+一块烤奶酪。
+A bloody steak.
+一块带血的牛排。
+###_NPC
+Hell yeah!  I would eat a steak also, but it's too expensive.
+那真是太棒了！我也想吃牛排，但是太贵了。
+###_PLAYER
+I'll try the big salad.
+我要尝尝大沙拉。
+Fried chicken for me.
+我想来点炸鸡。
+###_NPC
+Same here, I would go for a steak, but I'm broke as shit.
+我也是，我挺想吃牛排的，但我已经没钱了。
+###_PLAYER
+You can't afford your lunch?
+你买不起午餐？
+###_NPC
+Yeah, I spent all my money on we...  on schoolbooks.  Can I borrow $20 from you?  I'll repay you next week.
+是的，我把所有的钱都花在了我们……教科书上。我可以向你借$20吗？下周我会还给你的。
+###_PLAYER
+How much do you need?
+你需要多少？
+###_NPC
+$20 for a good meal, can I borrow it from you?  I'll repay you next week.
+一顿$20美元，我可以向你借吗？下周我会还给你的。
+###_PLAYER
+I'm also broke.
+我也没钱了。
+###_NPC
+Yeah, life is a bitch.  (She replaces her hat.)  Fucking Mildred and her fucking rules.
+是的，生活就是个婊子。（她重新戴上帽子。）该死的Mildred和她该死的规矩。
+###_PLAYER
+No way, I'm keeping my money.
+不可能，我在存钱。
+###_NPC
+Fine, I don't care.  (She replaces her hat.)  Fucking Mildred and her fucking rules.
+好的，我也不在乎。（她重新戴上帽子。）该死的Mildred和她该死的规矩。
+###_PLAYER
+I would, but I don't have enough cash.
+我想借，但我没有足够的现金。
+###_NPC
+The economy is crap.  (She replaces her hat.)  Fucking Mildred and her fucking rules.
+经济是垃圾。（她重新戴上帽子。）该死的Mildred和她该死的规矩。
+###_PLAYER
+Here's $20, repay me next week.
+给你$20，下周还给我。
+###_NPC
+Thanks!  (She takes your $20.)  Come to think of it, can I borrow $40 more for boo... supper later?
+谢谢！（她拿走了你的$20。）要不再考虑一下，我可以再借$40买点书……晚饭吗？
+###_PLAYER
+Here's $20, no need to repay me.
+这是20美元，不用还我。
+###_NPC
+Fuck yeah!  (She takes your $20.)  Come to think of it, can I borrow $40 more for boo... for supper later?
+他妈的太好了！（她拿走了你的$20。）要不再考虑一下，我可以再借$40买点书……晚饭吗？
+###_PLAYER
+Not $40, but I can give you another $20.
+$40不行，但我可以再给你$20。
+###_NPC
+Wow!  Thanks!  (She replaces her hat.)  Fucking Mildred and her fucking rules.
+哇！谢谢！（她重新戴上帽子。）该死的Mildred和她该死的规矩。
+###_PLAYER
+Here's $40 for your "supper".
+为你的“晚餐”，给你，这是$40。
+###_NPC
+Jackpot!  (She takes your money and replaces her hat.)  Fucking Mildred and her fucking rules.
+中大奖了！（她拿了你的钱，重新戴上帽子。）该死的Mildred和她该死的规矩。
+###_PLAYER
+No, you're pushing your luck.
+不，你这是得寸进尺。
+###_NPC
+Can't blame me for trying.  (She replaces her hat.)  Fucking Mildred and her fucking rules.
+我就是提一下嘛。（她重新戴上帽子。）该死的Mildred和她该死的规矩。
+###_PLAYER
+That dunce hat is a punishment?
+那顶傻帽是惩罚吗？
+###_NPC
+Yeah, for texting in class.  That bitch Mildred won't give me back my phone if I don't wear it all day.
+是的，我在课堂上发短信。如果我不戴一整天的话，那婊子Mildred就不会把手机还给我的。
+###_PLAYER
+That hat is ridiculous.
+那顶帽子真蠢。
+###_NPC
+I know!  (She looks angry.)  That bitch Mildred won't give me back my phone if I don't wear it all day.
+我知道！（她看起来很生气。）如果我不戴一整天的话，那婊子Mildred就不会把手机还给我的。
+###_PLAYER
+Mildred is making you wear it?
+Mildred让你戴着它？
+###_NPC
+Fuck yeah, for texting in class.  That bitch won't give me back my phone if I don't wear it all day.
+他妈的就是，我在课堂上发短信。如果我不戴一整天的话，那婊子Mildred就不会把手机还给我的。
+###_PLAYER
+This is illegal!
+这是违法的！
+###_NPC
+Damn right!  We think alike.  (She turns to the other girls.)  That line is slow as shit!
+真他妈的对！我们想法一致。（她转向其他女孩。）这队列慢得像狗屎！
+###_PLAYER
+She can't do that.
+她不能那样做。
+###_NPC
+Yeah, she's the worst.  (She turns to the other girls.)  That line is slow as shit!
+是的，她坏透了。（她转向其他女孩。）这队列慢得像狗屎！
+###_PLAYER
+It's a fair punishment.
+这是一个公平的惩罚。
+###_NPC
+Fuck that.  (She turns to the other girls.)  That line is slow as shit!
+去他妈的。（她转向其他女孩。）这队列慢得像狗屎！
+###_PLAYER
+We should skip it.
+我们应该绕过去。
+###_NPC
+I agree, but I'm already in trouble.  I hate this school.
+我同意，但我已经惹了麻烦了。我讨厌这所学校。
+###_PLAYER
+There's not much to do.
+没什么可做的。
+###_NPC
+I guess.  (She sighs.)  I hate this school.
+我猜也是。（她叹了口气。）我讨厌这所学校。
+###_PLAYER
+We should go elsewhere.
+我们应该去别的地方。
+###_NPC
+What's your plan?  I hate this school.
+你有什么计划？我讨厌这所学校。
+###_PLAYER
+We could skip school and go downtown to eat.
+我们可以逃学去市中心吃饭。
+###_NPC
+(She seems to agree.)  I'm game!  But why should we go downtown?
+（她似乎同意。）那我加入！但是我们为什么要去市中心呢？
+(She shakes her head no.)  No way.  I'm not going downtown.  (She turns back to the line.)
+（她摇头不。）不可能。我不去市中心。（她转身回到队列。）
+###_PLAYER
+Let's wait in line.
+那我们排队等着吧。
+###_NPC
+(She shrugs.)  Not much else to do.
+（她耸了耸肩。）没什么可做的。
+###_PLAYER
+I have a room in a club downtown.
+我在市中心的俱乐部有一个房间。
+###_NPC
+A club?  What kind of club?  It better not be managed by the college.
+俱乐部？什么样的俱乐部？最好不是由学院管的。
+###_PLAYER
+You're right, let's stay here.
+你是对的，我们留在这里吧。
+###_NPC
+Fine, let's wait in the stupid line.
+好吧，我们继续在这愚蠢的队列里等着吧。
+###_PLAYER
+Come with me, I will explain on the road.
+跟我来，我会在路上解释的。
+###_NPC
+Adios suckers!  (She gives the middle finger to everyone in the line.)
+再会了混球们！（她对排队的每个人都竖起中指。）
+###_PLAYER
+(Bring her to your room.)
+（把她带到你的房间。）
+###_NPC
+(Sidney is waiting in line to get her food.)  This line is fucking ridiculous.
+（Sidney正在排队等着拿她的食物。）这队列真是太可笑了。
+###_PLAYER
+Is the line moving?
+这队列在走吗？
+###_NPC
+(She checks in front and shakes her head.)  Nope, this is hell.
+（她看了看队列的前方并摇摇头。）别吧，这根本是地狱。
+###_PLAYER
+(Try to cut in front of her.)
+（试着插队到她前面。）
+###_NPC
+(She blocks you.)  What the fuck do you think you're doing?
+（她挡住了你。）你他妈的在搞什么？
+###_PLAYER
+(Wait in line and leave her.)
+（排队等着，离开她。）
+I will eat before you.
+我会在你之前吃到饭。
+###_NPC
+(She gets ready to fight.)  Over my dead body!
+（她准备战斗。）除非踩过我的尸体！
+###_PLAYER
+Nothing, I'm sorry.
+没什么，对不起。
+###_NPC
+You're pathetic!  Now stay in your place and shut up.  (She smirks and ignores you.)
+你真可悲！现在呆在你的地方，闭嘴。（她得意地笑起来，不理你了。）
+###_PLAYER
+You're going down!  (Fight her.)
+你完了！（与她战斗。）
+Wait!  Calm down!  (Don't fight.)
+等一下！冷静下来！（不打架。）
+###_NPC
+(She ignores you.)
+（她不理你。）
+###_PLAYER
+Hey!  Can we talk?
+嘿！我们可以谈谈吗？
+That was quite a fight!
+那是一场相当激烈的战斗！
+###_NPC
+(She recovers her breath and nods.)  Yeah, you're dangerous.
+（她恢复呼吸，点点头。）是的，你真危险。
+###_PLAYER
+You're such a loser.
+你真是个失败者。
+###_NPC
+(She recovers her breath and frowns.)  I'll get my revenge someday.
+（她恢复了呼吸，皱起眉头。）总有一天我会报仇的。
+###_PLAYER
+(Stare at her.)
+（盯着她看。）
+###_NPC
+(She recovers her breath and stares back.)  This isn't over.
+（她恢复了呼吸，回头凝视。）这还没有结束。
+###_PLAYER
+(Crack your knuckles.)
+（捏响你的指关节。）
+###_NPC
+(She also cracks her knuckles as a teacher sermon you two on fighting and make sure you won't do it again.)
+（老师对这场打架给你们俩来了一场冗长的说教，她也捏响指关节，让你们保证不会再犯。）
+###_PLAYER
+We should ally instead of fighting each other.
+我们应该结盟而不是互相打架。
+###_NPC
+(She nods as a teacher sermon you two on fighting and make sure you won't do it again.)
+（她点点头，一位老师对这场打架给你们俩来了一场冗长的说教，让你们保证不会再犯。）
+###_PLAYER
+Don't cross my path again.
+别想再挡我的路。
+###_NPC
+(She grumbles as a teacher sermon you two on fighting and make sure you won't do it again.)
+（她嘟囔着，一位老师对这场打架给你们俩来了一场冗长的说教，让你们保证不会再犯。）
+(A teacher is making sure you don't fight again.  Sidney is ignoring you.)
+（老师让你们保证不会再犯。Sidney没有看你。）
+###_PLAYER
+Pssst!  Wanna skip the line and go out with me?
+嘘！想不用排队并且我出去吗？
+###_NPC
+(She seems intrigued.)  Anything to get out of here.  Where should we go?
+（她似乎很感兴趣。）只要能离开这里，什么都可以。我们要去哪里？
+###_PLAYER
+Can we talk?
+我们可以谈谈吗？
+Forget it then.
+那就别想了。
+###_NPC
+Fine, leave me alone.
+好吧，别管我了。
+###_PLAYER
+Well done.  That was quite a fight.
+做得好。那是一场激烈的战斗。
+###_NPC
+(She ignores you as a teacher sermon you two on fighting, and make sure you won't do it again.)
+（她故意不看你，老师对这场打架给你们俩来了一场冗长的说教，让你们保证不会再犯。）
+###_PLAYER
+You fight like a dirty bitch.
+你像个肮脏的婊子一样战斗。
+###_NPC
+(A student is waiting in line in front of you.)  Hey there.  Be patient, the line is long today.
+（一个学生在你面前排队等候。）嘿。耐心点，今天队列很长。
+I study music, I don't think I've seen you before.
+我学的是音乐，我想我以前没见过你。
+###_PLAYER
+I'm DialogPlayerName.
+我是DialogPlayerName。
+###_NPC
+Pleased to meet you.  I hope you're not too hungry, this line isn't moving much.
+很高兴见到你。我希望你不要太饿，这队列前进得很慢。
+###_PLAYER
+What's on the menu?
+菜单上有什么？
+###_NPC
+The usual stuff.  Yesterday's salad is today's soup.  (She giggles.)
+平常的东西。昨天的沙拉就是今天的汤。（她咯咯地笑起来。）
+###_PLAYER
+Can I cut in front of you?
+我可以插队到你前面吗？
+###_NPC
+No.  I've been here for longer than you.
+不，我在这里的时间比你长太多了。
+###_PLAYER
+Can I eat with you?
+我可以和你一起吃饭吗？
+###_NPC
+Sure, if that line gets moving before the bell rings.
+当然，如果这队列在铃声响起之前开始移动的话。

@@ -1,0 +1,18 @@
+Return to the Club
+返回俱乐部
+Your Profile
+个人档案
+Change Clothes
+更换服装
+Tennis Court
+网球场
+College Cafeteria
+大学餐厅
+College Theater
+大学剧院
+Chess Club
+国际象棋社
+Detention Room
+留堂教室
+Teacher Lounge (Require a key)
+教师休息室（需要钥匙）
