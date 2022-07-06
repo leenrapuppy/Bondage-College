@@ -63,7 +63,7 @@ function PlatformProfileRun() {
 	DrawText(TextGet("Owner") + " "  + TextGet("None"), 700, 240, "Black", "Silver");
 	DrawText(TextGet("Lover") + " "  + TextGet("None"), 700, 300, "Black", "Silver");
 	DrawText(TextGet("Health") + " " + PlatformPlayer.MaxHealth.toString(), 700, 360, "Black", "Silver");
-	DrawText(TextGet("Level") + " " + PlatformPlayer.Level.toString() + " (" + Math.floor(PlatformPlayer.Experience / PlatformExperienceForLevel[PlatformPlayer.Level] * 100).toString() + "%)", 700, 420, "Black", "Silver");
+	DrawText(TextGet("Level") + " " + PlatformPlayer.Level.toString() + " (" + (PlatformPlayer.Level >= 10 ? 0 : Math.floor(PlatformPlayer.Experience / PlatformExperienceForLevel[PlatformPlayer.Level] * 100)).toString() + "%)", 700, 420, "Black", "Silver");
 	DrawText(TextGet("Perks") + " " + PlatformProfileGetFreePerk().toString(), 700, 480, "Black", "Silver");
 	DrawTextWrap(TextGet("Intro" + PlatformPlayer.Name), 420, 500, 600, 500, "Black", null, 9);
 	if (PlatformPlayer.Name == "Melody") {
@@ -120,6 +120,10 @@ function PlatformProfileBuyPerk(PerkNum) {
 	if (PlatformHasPerk(PlatformPlayer, PlatformPlayer.PerkName[PerkNum])) return;
 	PlatformPlayer.Perk = PlatformPlayer.Perk.substring(0, PerkNum) + "1" + PlatformPlayer.Perk.substring(PerkNum + 1);
 	PlatformSetHealth(PlatformPlayer);
+	if ((PerkNum == 0) && (PlatformPlayer.Name == "Olivia")) {
+		PlatformProfileExit();
+		PlatformDialogStart("OliviaLearnMagic");
+	}
 }
 
 /**

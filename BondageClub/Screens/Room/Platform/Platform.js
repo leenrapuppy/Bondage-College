@@ -25,6 +25,7 @@ var PlatformSaveMode = false;
 var PlatformJumpPhase = "";
 var PlatformParty = [];
 var PlatformRegen = 0;
+var PlatformCooldown = [];
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -80,8 +81,8 @@ var PlatformTemplate = [
 		Height: 400,
 		Health: 10,
 		HealthPerLevel: 3,
-		Magic: 8,
-		MagicPerLevel: 2,
+		Magic: 6,
+		MagicPerLevel: 1,
 		HitBox: [0.42, 0.03, 0.58, 1],
 		JumpHitBox: [0.42, 0.03, 0.58, 0.65],
 		RunSpeed: 18,
@@ -110,7 +111,7 @@ var PlatformTemplate = [
 		Attack: [
 			{ Name: "StandAttackFast", HitBox: [0.7, 0.15, 0.9, 0.3], HitAnimation: [6, 7, 8, 9, 10], Damage: [1, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8], Speed: 300 },
 			{ Name: "CrouchAttackFast", HitBox: [0.725, 0.65, 0.925, 0.75], HitAnimation: [6, 7, 8, 9], Damage: [1, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8], Speed: 300 },
-			{ Name: "Scream", Magic: 2, HitBox: [-100, -100, 100, 100], HitAnimation: [8, 9, 10], Damage: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4], Speed: 200 }
+			{ Name: "Scream", Magic: 2, Cooldown: 3000, HitBox: [-100, -100, 100, 100], HitAnimation: [8, 9, 10], Damage: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4], Speed: 200 }
 		]
 	},
 	{
@@ -645,8 +646,10 @@ var PlatformRoomList = [
 	{
 		Name: "CastleTerrace",
 		Entry: function() {
-			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerrace");
-			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerraceEnd");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Melody")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerrace");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Melody")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerraceEnd");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Olivia")) PlatformCreateCharacter("Melody", "Maid", 500, true, false, "OliviaTerrace");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Olivia")) PlatformCreateCharacter("Melody", "Maid", 500, true, false, "OliviaTerraceEnd");
 			if (PlatformEventDone("EdlaranJoin") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerrace", true);
 			if (PlatformEventDone("EdlaranJoin") && PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerraceEnd", true);
 		},
@@ -1092,8 +1095,23 @@ function PlatformDrawBackground() {
 	else if ((PlatformPlayer.Health <= 0) && !PlatformPlayer.Bound && (PlatformPlayer.RiseTime != null) && (PlatformPlayer.RiseTime >= CommonTime()))
 		DrawProgressBar(10, 110, 180, 40, 100 - ((PlatformPlayer.RiseTime - CommonTime()) / 100), "White", "Black");
 	if ((PlatformPlayer.MaxMagic != null) && (PlatformPlayer.MaxMagic > 0) && PlatformHasPerk(PlatformPlayer, "Apprentice")) {
-		DrawProgressBar(210, 10, 180, 40, PlatformPlayer.Magic / PlatformPlayer.MaxMagic * 100, "#0000B0", "#000000");
-		DrawText(PlatformPlayer.Magic.toString(), 300, 32, "White", "Black");	
+		DrawProgressBar(200, 10, 180, 40, PlatformPlayer.Magic / PlatformPlayer.MaxMagic * 100, "#0000B0", "#000000");
+		DrawText(PlatformPlayer.Magic.toString(), 290, 32, "White", "Black");	
+	}
+
+	// Clears the past cooldowns
+	for (let C = 0; C < PlatformCooldown.length; C++)
+		if (PlatformCooldown[C].Time < CommonTime()) {
+			PlatformCooldown.splice(C, 1);
+			C--;
+		}
+
+	// Draws the cooldowns
+	let Y = 50;
+	for (let C of PlatformCooldown) {
+		DrawProgressBar(200, Y + 10, 180, 40, 100 - ((C.Time - CommonTime()) / C.Delay * 100), "White", "Black");
+		DrawImage("Screens/Room/Platform/Icon/" + C.Type + ".png", 203, Y + 13);
+		Y = Y + 50;
 	}
 
 	// Preloads the next rooms
@@ -1131,8 +1149,8 @@ function PlatformDrawCharacter(C, Time) {
 	if (C.Damage != null)
 		for (let Damage of C.Damage)
 			if (Damage.Expire >= Time) {
-				DrawImageZoomCanvas("Screens/Room/Platform/" + (C.Camera ? "Enemy" : "Player") + "Hit.png", MainCanvas, 0, 0, 512, 512, X + C.Anim.Width / 2 - 50, Y - 250 + Math.floor((Damage.Expire - Time) / 10), 100, 100);
-				DrawText(Damage.Value.toString(), X + C.Anim.Width / 2, Y - 200 + Math.floor((Damage.Expire - Time) / 10), (C.Camera ? "White" : "Black"), (C.Camera ? "Black" : "White"));
+				DrawImageZoomCanvas("Screens/Room/Platform/" + (Damage.Value < 0 ? "Green" : (C.Camera ? "Enemy" : "Player")) + "Hit.png", MainCanvas, 0, 0, 512, 512, X + C.Anim.Width / 2 - 50, Y - 250 + Math.floor((Damage.Expire - Time) / 10), 100, 100);
+				DrawText(Math.abs(Damage.Value).toString(), X + C.Anim.Width / 2, Y - 200 + Math.floor((Damage.Expire - Time) / 10), (C.Camera && Damage.Value >= 0 ? "White" : "Black"), (C.Camera && Damage.Value >= 0 ? "Black" : "White"));
 			}
 }
 
@@ -1178,7 +1196,7 @@ function PlatformAddExperience(C, Value) {
  * @returns {void} - Nothing
  */
 function PlatformDamage(Source, Target, Damage, Time, Type) {
-	if (!PlatformActionIs(Target, "Any")) {
+	if (!PlatformActionIs(Target, "Any") && (!PlatformActionIs(Source, "Scream") || PlatformHasPerk(Source, "Roar"))) {
 		if (Math.random() < Target.DamageBackOdds) Target.FaceLeft = (Source.X - Target.X > 0);
 		else if (Math.random() < Target.DamageFaceOdds) Target.FaceLeft = (Source.X - Target.X <= 0);
 	}
@@ -1429,9 +1447,9 @@ function PlatformDraw() {
 	if (MustHeal) PlatformHeal = (PlatformRoom.Heal == null) ? null : CommonTime() + PlatformRoom.Heal;
 
 	// If we must regenarate magic for the player
-	if (!MustHeal && (PlatformPlayer.MaxMagic != null) && (PlatformPlayer.Magic != null) && (PlatformPlayer.Magic < PlatformPlayer.MaxMagic) && (PlatformRegen < PlatformTime)) {
-		PlatformPlayer.Magic++;
-		PlatformRegen = PlatformTime + 1000 + ((PlatformHasPerk("Regeneration") ? 45000 : 60000) / PlatformPlayer.MaxMagic);
+	if (!MustHeal && (PlatformPlayer.MaxMagic != null) && (PlatformPlayer.Magic != null) && (PlatformRegen < PlatformTime)) {
+		if (PlatformPlayer.Magic < PlatformPlayer.MaxMagic) PlatformPlayer.Magic++;
+		PlatformRegen = PlatformTime + (PlatformHasPerk("Regeneration") ? 6000 : 8000);
 	} 
 
 	// Draw each characters
@@ -1588,9 +1606,15 @@ function PlatformAttack(Source, Type) {
 	if (Source.Attack != null)
 		for (let Attack of Source.Attack)
 			if (Attack.Name == Type) {
+				if ((Attack.Cooldown != null) && (Attack.Cooldown > 0) && PlatformCooldownActive(Type)) return;
 				if ((Attack.Magic != null) && (Attack.Magic > 0)) {
 					if ((PlatformPlayer.Magic == null) || (PlatformPlayer.Magic < Attack.Magic)) return;
 					PlatformPlayer.Magic = PlatformPlayer.Magic - Attack.Magic;
+				}
+				if ((Attack.Cooldown != null) && (Attack.Cooldown > 0)) {
+					let Time = Attack.Cooldown;
+					if ((Type == "Scream") && (PlatformHasPerk(PlatformPlayer, "Howl"))) Time = Time - 1000;
+					PlatformCooldown.push({Type: Attack.Name, Time: CommonTime() + Time, Delay: Time});
 				}
 				Source.Action = { Name: Type, Start: CommonTime(), Expire: CommonTime() + Attack.Speed };
 			}
@@ -1742,6 +1766,41 @@ function PlatformLoadGame(Slot) {
 }
 
 /**
+ * Teleports a character forward
+ * @param {Object} C - The character to teleport
+ * @returns {void} - Nothing
+ */
+function PlatformCastTeleport(C) {
+	if (PlatformCooldownActive("Teleport")) return;
+	if ((C.Magic == null) || (C.Magic == 0)) return;
+	C.Magic--;
+	let Time = 3000;
+	if (PlatformHasPerk(C, "Freedom")) Time = 2000;
+	if (C.Camera) PlatformCooldown.push({Type: "Teleport", Time: CommonTime() + Time, Delay: Time});
+	C.ForceX = C.ForceX + (C.FaceLeft ? -250 : 250);
+	C.Immunity = CommonTime() + 500;
+}
+
+/**
+ * Heals the character for 20% of it's max HP
+ * @param {Object} C - The character to teleport
+ * @returns {void} - Nothing
+ */
+function PlatformCastHeal(C) {
+	if (PlatformCooldownActive("Heal")) return;
+	if ((C.Magic == null) || (C.Magic <= 2)) return;
+	if (C.Health >= C.MaxHealth) return;
+	let Heal = Math.round(C.MaxHealth * 0.2);
+	if (Heal > C.MaxHealth - C.Health) Heal = C.MaxHealth - C.Health;
+	C.Health = C.Health + Heal;
+	C.Magic = C.Magic - 3;
+	C.Damage.push({ Value: Heal * -1, Expire: CommonTime() + 2000});
+	let Time = 30000;
+	if (PlatformHasPerk(C, "Cure")) Time = 20000;
+	if (C.Camera) PlatformCooldown.push({Type: "Heal", Time: CommonTime() + Time, Delay: Time});
+}
+
+/**
  * Handles keys pressed
  * @param {Object} e - The key pressed
  * @returns {void} - Nothing
@@ -1752,6 +1811,8 @@ function PlatformEventKeyDown(e) {
 	if (PlatformActionIs(PlatformPlayer, "Bind")) PlatformPlayer.Action = null;
 	if (e.keyCode == 32) PlatformPlayer.Action = null;
 	if ((e.keyCode == 87) || (e.keyCode == 119) || (e.keyCode == 90) || (e.keyCode == 122)) return PlatformEnterRoom("Up");
+	if (((e.keyCode == 73) || (e.keyCode == 105)) && PlatformHasPerk(PlatformPlayer, "Teleport")) return PlatformCastTeleport(PlatformPlayer);
+	if (((e.keyCode == 80) || (e.keyCode == 112)) && PlatformHasPerk(PlatformPlayer, "Heal")) return PlatformCastHeal(PlatformPlayer);
 	if (((e.keyCode == 76) || (e.keyCode == 108)) && PlatformAnimAvailable(PlatformPlayer, "StandAttackFast")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
 	if (((e.keyCode == 75) || (e.keyCode == 107)) && !PlatformMoveActive("Crouch") && PlatformHasPerk(PlatformPlayer, "Apprentice")) return PlatformAttack(PlatformPlayer, "Scream");
 	if (((e.keyCode == 75) || (e.keyCode == 107)) && PlatformAnimAvailable(PlatformPlayer, "StandAttackSlow")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackSlow" : "StandAttackSlow");
@@ -1834,4 +1895,16 @@ function PlatformHasPerk(C, Perk) {
 	if ((C.Perk == null) || (C.PerkName == null)) return false;
 	if (C.PerkName.indexOf(Perk) < 0) return false;
 	return (C.Perk.substr(C.PerkName.indexOf(Perk), 1) == "1");
+}
+
+/**
+ * Returns TRUE if a specific cooldown is currently active
+ * @param {String} Name - The name of the cooldown to validate
+ * @returns {boolean} - TRUE if active
+ */
+function PlatformCooldownActive(Name) {
+	for (let C of PlatformCooldown)
+		if (C.Type == Name)
+			return true;
+	return false;
 }
