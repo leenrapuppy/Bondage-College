@@ -759,6 +759,9 @@ interface Character {
 	HeHimPronouns: () => boolean;
 	SheHerPronounsSelf: (Player) => boolean;
 	HeHimPronounsSelf: (Player) => boolean;
+	HasMaleAspects: () => boolean;
+	HasFemaleAspects: () => boolean;
+
 
 	/**
 	 * Check whether a character can change its own outfit.

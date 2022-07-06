@@ -123,6 +123,16 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		HeHimPronounsSelf: function (Player) {
 			if(Player) return LogQuery("HeHimActive", "Pronouns")
 		},
+		HasMaleAspects: function () {
+			return !InventoryIsItemInList(Player, "Pussy", ["Penis"])&&
+			!InventoryIsItemInList(Player, "BodyUpper", ["FlatSmall", "FlatMedium"])&&
+			!LogQuery("HeHimActive", "Pronouns")
+		},
+		HasFemaleAspects: function () {
+			return !InventoryIsItemInList(Player, "BodyUpper", ["Small", "Normal", "Large", "XLarge"]) && 
+			!InventoryIsItemInList(Player, "Pussy", ["PussyDark1", "PussyDark2", "PussyDark3", "PussyLight1", "PussyLight2", "PussyLight3"]) && 
+			!LogQuery("SheHerActive", "Pronouns")
+		},
 		CanChangeOwnClothes: function () {
 			return this.CanChangeClothesOn(this);
 		},
