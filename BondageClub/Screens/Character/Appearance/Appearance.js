@@ -872,7 +872,7 @@ function CharacterAppearanceSetItem(C, Group, ItemAsset, NewColor, DifficultyFac
  */
 function CharacterAppearanceNextItem(C, Group, Forward, Description) {
 	var Current = CharacterAppearanceGetCurrentValue(C, Group, "Name");
-	var CAA = CharacterAppearanceAssets.filter(a => a.Group.Name == Group);
+	var CAA = CharacterAppearanceAssets.filter(a => a.Group.Name == Group && InventoryAllow(C, a, a.Prerequisite, false));
 	if (Description == true && CAA.length == 0) return "None";
 	if (Current != "None") {
 		// If we found the item we move forward or backward if possible
