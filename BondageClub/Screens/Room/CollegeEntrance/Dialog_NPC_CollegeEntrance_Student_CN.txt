@@ -1,0 +1,124 @@
+###_NPC
+(She looks at you and giggles.)  Did you annoy one of the teachers?
+（她看着你，咯咯地笑起来。）你惹恼了一位老师吗？
+(She gives you a curious look.)  Aren't you cold?  Go get some clothes before a teacher comes.
+（她好奇地看了你一眼。）你不冷吗？在老师来之前去买些衣服吧。
+Hello fellow student.  I hope you're doing well.
+你好同学。我希望你一切顺利。
+Hello there.  Welcome to our college.
+你好呀。欢迎来到我们的大学。
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm DialogCharacterName.  I study at the college.
+我是DialogCharacterName。我在大学学习。
+###_PLAYER
+Why are you here?
+你为什么在这儿？
+###_NPC
+I'm waiting for my bus.
+我在等公共汽车。
+###_PLAYER
+I'm a student here.
+我是这里的学生。
+###_NPC
+You should wear your uniform then.  They won't let you in without it, some shoes and socks.
+那你应该穿上你的制服。你没穿校服，鞋子和袜子的话，他们是不会让你进去的。
+###_PLAYER
+Can I go inside?
+我可以进去吗？
+###_NPC
+Absolutely.  Just beep security, they will open the gate for you.
+当然。只需要按门铃呼叫保安，他们就会为你开门。
+I don't think they will let you in dressed like that.  Get your school uniform, some shoes and socks.
+我觉得你穿成那样，他们不会让你进去的。穿上你的校服，穿好鞋子和袜子。
+###_PLAYER
+Can I use the tennis court?
+我可以使用网球场吗？
+###_NPC
+Sure, you're already dressed up to play.
+当然，你已经穿好网球的衣服了。
+You can, but only if you're wearing a tennis outfit and some sneakers.
+你可以，但前提是你穿着网球服和运动鞋。
+###_PLAYER
+Tell me about the college.
+跟我说说大学吧。
+###_NPC
+Sure.  What would you like to know?
+当然。你想知道什么？
+###_PLAYER
+Can I tie you up?
+我可以绑你吗？
+###_NPC
+(She takes a step back.)  What?  Are you some kind of pervert?
+（她后退一步。）什么？你是某种变态吗？
+###_PLAYER
+I need to go.  (Leave her.)
+我要走了。（离开她。）
+Who studies here?
+谁在这里学习？
+###_NPC
+It's a girl only college.  There's only women, both students and teachers.
+这是一所女子大学。只有女性，包括学生和老师。
+###_PLAYER
+Is it expensive?
+这很贵吗？
+###_NPC
+My family is paying so I'm not sure.  I've heard that it's pretty expensive.
+我的家人付的钱，所以我不确定。听说挺贵的
+###_PLAYER
+What is the required uniform?
+需要什么校服？
+###_NPC
+Students must wear ties, a skirt like mine and high leg socks.  Also, nothing too exotic will be accepted.
+学生必须系领带，像我这样的裙子和高筒袜。此外，任何过于奇特的东西也不会被接受。
+###_PLAYER
+Can I get a college uniform?
+我可以弄一件校服吗？
+###_NPC
+These uniforms are expensive and we can get punished if we lose them.  Try your luck with another student that knows you better.
+这些校服很贵，如果我们丢了它们会受到惩罚。换另一个你比较熟的学生试试运气吧。
+###_PLAYER
+How can I go in the teacher's lounge?
+怎么去老师休息室？
+###_NPC
+Students are not allowed in there.  You'll need a key for that and they only give them to teachers.
+那里不允许学生进入。你需要一把钥匙，只有老师才有。
+###_PLAYER
+The place looks pretty old.
+这个地方看起来很旧。
+###_NPC
+Yeah, both the buildings and teaching methods are outdated.  It's very strict.
+是的，建筑和教学方法都过时了。这里非常严格的。
+###_PLAYER
+Can I take classes?
+我可以上课吗？
+###_NPC
+Why are you asking me that?  Sure, go inside and get to your classes.
+你问我这个干嘛？当然，进去，去上你的课。
+You could register for the next semester if you have the required papers.  It's only in a few months.
+如果你有所需的文件，你可以注册下个学期。只需要过几个月就可以了。
+###_PLAYER
+Thanks for your time.
+谢谢你抽出时间。
+###_NPC
+No problem.  Is there anything else you want?
+没问题。你还有什么想要的吗？
+###_PLAYER
+I was kidding.
+我开玩笑的。
+###_NPC
+(She frowns.)  Yeah, alright.  Is there anything else you want?
+（她皱起眉头。）是的，好吧。你还有什么想要的吗？
+###_PLAYER
+I'm serious.  I want to tie you up.
+我是认真的。我想把你绑起来。
+###_NPC
+(She pushes you back.)  No!  I don't know you!  Go away now or I'll call security.
+（她把你推回去。）不！我不认识你！现在走开，否则我会叫保安。
+Go away!  I'm not speaking with you anymore.
+走开！我不再和你说话了。
+###_PLAYER
+(Leave her.)
+（离开她。）

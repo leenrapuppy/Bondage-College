@@ -1,0 +1,8 @@
+Stay fully in the green zone before starting.  Starts in
+在开始前完全位于绿色区域内。距离开始有
+Reach the red zone.  Never touch the dark zone.  Current time is
+到达红色区域。避开暗色区域。当前时间是
+You've succeeded.  Click here to return.  Your time was
+你成功了。点击这里返回。你的耗时是
+You've failed.  Click here to return.  Your time was
+你失败了。点击这里返回。你的耗时是

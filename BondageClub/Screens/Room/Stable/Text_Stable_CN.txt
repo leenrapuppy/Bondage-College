@@ -1,0 +1,12 @@
+Trial Training
+试训
+Treadmill
+跑步机
+Horse Carriage
+马车
+You wait in an isolation stable
+你在隔离马厩里等待
+Try to hide the dice.
+尝试隐藏骰子。
+You have successfully hidden the dice
+你成功隐藏了骰子

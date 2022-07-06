@@ -209,9 +209,9 @@ Catsuit
 Pilot Suit
 飞行服
 See-through Suit
-透视装
+透视紧身衣
 See-through Zipsuit
-透视拉链装
+透视拉链紧身衣
 Reverse Bunny Suit
 逆兔女郎装
 Slim Latex Leotard (Sleeveless)
@@ -505,7 +505,7 @@ Ankle
 Short
 短袜
 Regular
-高筒袜
+常规
 Middle Leg
 过膝袜
 High Leg
@@ -1261,7 +1261,7 @@ Taped Vibrating Egg
 Clitoris Ring
 阴蒂环
 Butt
-菊穴
+臀部
 Black Butt Plug
 黑肛塞
 Penis Butt Plug
@@ -1404,7 +1404,7 @@ Vibrating Nipple Clamps
 振动乳头夹
 Vibrating Clamps Remote
 振动乳头夹控制器
-Chain Clamp
+Chain Clamps
 铁链乳夹
 Screw Clamps
 螺丝乳夹
@@ -1838,6 +1838,8 @@ Short Rope
 短绳
 Medium Rope
 中长绳
+Pet Sign
+宠物标牌
 Cloth Gag
 布塞
 Wiffle Ball Gag
@@ -2100,6 +2102,8 @@ Kitty Hood
 猫咪头套
 Latex Dog Hood
 乳胶狗狗头套
+Latex Open Mouth Plug Hood
+乳胶开口塞头套
 Light Duty Ear Plugs
 轻型耳塞
 Heavy Duty Ear Plugs

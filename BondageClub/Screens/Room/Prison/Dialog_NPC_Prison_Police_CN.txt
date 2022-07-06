@@ -1,0 +1,196 @@
+###_NPC
+Madam please follow me. We have some questions. 
+夫人，请跟我来。我们有一些问题。
+Stop where you are and put your hands in the air! 
+停在原地，把手举起来！
+Now get on your knees, slowly. 
+现在慢慢地跪下。
+Higher! Don't try anything funny! 
+更高！不要尝试任何可疑的事情！
+You are under arrest. Place your hands behind your back. 
+你被捕了。将双手放在背后。
+(She handcuffs you.) You have the right to remain silent. 
+（她给你戴上手铐。）你有权保持沉默。
+(You try to get up and run, but she pins you down and restrains you.) Wrong move girl, now you're in big trouble! 
+（你想站起来跑，但她把你摁住并束缚住你。）错误的选择，女孩，现在你有大麻烦了！
+You're coming with me, prisoner. 
+跟我走，囚犯。
+(She forcefully gags you.) I told you to be silent! It's time for you to go to prison. 
+（她强行给你戴上口塞。）我跟你说过，保持沉默！是时候送你去坐牢了。
+Follow me, I'm serious.
+跟我走，我是认真的。
+###_PLAYER
+(Follow her.)
+（跟着她。）
+(Try to escape.)
+（尝试逃跑。）
+(Put your hands in the air.)
+（把手举起来。）
+(Raise your hands higher.)
+（把手举得更高。）
+(Get on your knees.)
+（跪下。）
+(Place your hands behind your back.)
+（把手放在背后。）
+(Nod resigned.)
+（点头投降。）
+Yes miss. I am your prisoner.
+是的，女士。我是你的囚犯。
+(Silence.)
+（安静。）
+What am I being arrested for?
+我为什么被捕？
+I'm sorry miss, I will be a good prisoner.
+对不起女士，我会做一个好囚犯的。
+(Bow your head in defeat.)
+（承认失败，低下头。）
+(Thrash in your bondage.)
+（在你的束缚中挣扎。）
+(Go to prison.)
+（进监狱。）
+###_NPC
+We'll get you next time.
+下次我们会抓到你的。
+###_PLAYER
+(Leave her.)
+（离开她。）
+###_NPC
+Someone saw you steal the dice at the arcade.
+有人看到你在街机店偷了骰子。
+###_PLAYER
+Yes, I did.
+是的，是我做的。
+###_NPC
+Well, that saves us a lot of work. Where are the dice now?
+很好，这为我们节省了很多工作。骰子现在在哪里？
+We'll find out the truth.  Where are the dice now?
+我们会查明真相的。骰子现在在哪里？
+###_PLAYER
+No, it wasn't me.
+不，不是我。
+###_NPC
+We'll find out the truth. So again where are the dice?
+我们会查明真相的。那么，我再问一次，骰子现在在哪里？
+###_PLAYER
+I have them here.
+在我身上。
+###_NPC
+Then hand them over.
+那么，把它们交出来。
+###_PLAYER
+I hid them in the Stable.
+我把它们藏在马厩里。
+###_NPC
+We'll check this out carefully later. Until then, you're under arrest.
+我们稍后会仔细检查。在那之前，你被逮捕了。
+###_PLAYER
+I won't tell.
+我不会说的。
+###_NPC
+You'll tell us. Until then, you're under arrest.
+你会告诉我们的。在那之前，你被逮捕了。
+You are under arrest as a suspect.
+你作为嫌疑人被逮捕了。
+###_PLAYER
+(Give her the dice.)
+（把骰子给她。）
+###_NPC
+(She takes the dice.) You're under arrest until further notice.
+（她拿走骰子。）你被逮捕了，直到另行通知。
+###_PLAYER
+I'll never give them up!
+我永远不会交出来的！
+###_NPC
+We'll check this out carefully in a moment. Until then, you're under arrest.
+我们稍后会仔细检查的。在那之前，你被逮捕了。
+Do you have any weapons or drugs on you?
+你身上有武器或药品吗？
+###_PLAYER
+No, you can't do that!
+不，你不能那样做！
+###_NPC
+You bet we can. If you have keys, weapons or drugs, give them up.
+你可以赌一赌我们能不能。如果您有钥匙、武器或药品，请交出来吧。
+###_PLAYER
+Here are my keys.
+这是我的钥匙。
+###_NPC
+Anything else?
+还有别的吗？
+###_PLAYER
+Here are my sleeping pills.
+这是我的安眠药。
+Here are my spanking toys.
+这是我的打屁股道具。
+I don't have that.
+我没有那个。
+###_NPC
+Well, let's get you strip-searched. Undress to check.
+好吧，我们会对你脱衣搜身。脱衣服，接受检查。
+###_PLAYER
+(Silence)
+（保持安静）
+###_NPC
+Guess we'll have to strip-search you to find out.
+我猜必须对你进行脱衣搜身才能找到。
+###_PLAYER
+(Take off all your clothes.)
+（脱掉你所有的衣服。）
+###_NPC
+There you go. Spread your legs and bend over.
+来吧。张开双腿，弯下腰。
+###_PLAYER
+(Take off your outer clothing.)
+（脱掉你的外衣。）
+###_NPC
+Completely undress.
+脱光衣服。
+###_PLAYER
+(Refuse and wait and see.)
+（拒绝，等着瞧。）
+###_NPC
+Will it be soon? We can do it differently!
+会很快吗？我们可以用别的方式来！
+###_PLAYER
+(Take off the underwear.)
+（脱掉内裤。）
+###_NPC
+Finally. Spread your legs and bend over.
+最后。张开双腿，弯下腰。
+Complete and a little bit snappy.
+全脱光，整快点。
+###_PLAYER
+(Spread your legs and bend over.)
+（张开你的双腿，弯下腰。）
+###_NPC
+She's patting you down. Then she hands you a prisoner suit. Put it on.
+她拍了拍你。然后她递给你一套囚服。穿上它。
+###_PLAYER
+(Dress it on.)
+（穿上它。）
+###_NPC
+Now the shackles.
+现在该用镣铐了。
+###_PLAYER
+(Wait and see.)
+（等着瞧。）
+###_NPC
+Now into the cell. I'll check your equipment.
+现在进牢房吧。我会检查你的装备。
+What is that? The Dices. Confiscated.
+这是什么？骰子。没收。
+What is that? Keys. Confiscated.
+这是什么？钥匙。没收。
+What is that? Spanking toys. Confiscated.
+这是什么？打屁股道具。没收。
+What is that? Sleeping pills. Confiscated.
+这是什么？安眠药。没收。
+All right, your bag is clear.
+好吧，你的包是干净的。
+Let me check your restraints again.
+让我再检查一下你的束缚。
+I'm going. Think about your behavior.
+我要走了。好好反思你的行为。
+###_PLAYER
+(Watch her leave.)
+（看着她离开。）
