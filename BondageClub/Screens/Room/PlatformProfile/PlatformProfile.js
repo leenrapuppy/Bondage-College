@@ -120,6 +120,10 @@ function PlatformProfileBuyPerk(PerkNum) {
 	if (PlatformHasPerk(PlatformPlayer, PlatformPlayer.PerkName[PerkNum])) return;
 	PlatformPlayer.Perk = PlatformPlayer.Perk.substring(0, PerkNum) + "1" + PlatformPlayer.Perk.substring(PerkNum + 1);
 	PlatformSetHealth(PlatformPlayer);
+	if ((PerkNum == 0) && (PlatformPlayer.Name == "Olivia")) {
+		PlatformProfileExit();
+		PlatformDialogStart("OliviaLearnMagic");
+	}
 }
 
 /**

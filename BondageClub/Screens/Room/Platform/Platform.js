@@ -646,8 +646,10 @@ var PlatformRoomList = [
 	{
 		Name: "CastleTerrace",
 		Entry: function() {
-			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerrace");
-			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerraceEnd");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Melody")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerrace");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Melody")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerraceEnd");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Olivia")) PlatformCreateCharacter("Melody", "Maid", 500, true, false, "OliviaTerrace");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Olivia")) PlatformCreateCharacter("Melody", "Maid", 500, true, false, "OliviaTerraceEnd");
 			if (PlatformEventDone("EdlaranJoin") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerrace", true);
 			if (PlatformEventDone("EdlaranJoin") && PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerraceEnd", true);
 		},

@@ -1159,6 +1159,35 @@ var PlatformDialogData = [
 	},
 
 	{
+		Name: "OliviaLearnMagic",
+		Dialog: [
+			{
+				Background: "Black",
+				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "Flustered" }]
+			},
+			{ Text: "(Olivia seems to be sweating and breathing heavily.)" },
+			{
+				Text: "M... M, M... Melody!",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "Flustered" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				],
+				Answer: [
+					{ Text: "That's my name.", Reply: "It's...  It's no time for jokes...  It's...  It's the belt...", Love: -1 },
+					{ Text: "Are you in distress Miss Olivia?", Reply: "(She nods quickly.)  It's...  It's the belt...", Domination: -1 },
+					{ Text: "Who dared to touch you?", Reply: "No...  No one...  It's...  It's the belt...", Domination: 1 },
+					{ Text: "Was your belt activated?", Reply: "Yes!  (She nods quickly.)  Y, y, yes...  The belt...", Love: 1, Perk: true }
+				]
+			},
+			{ Text: "It's moving!  (She shivers without much control.)" },
+			{ Text: "TO DO" },
+			{ Text: "(Olivia can now use magic.  Her magic points will be shown in the upper corner.)" },
+			{ Text: "(Use the K key to scream and harm all enemies in the current room.)" }
+			
+		]
+	},
+
+	{
 		Name: "CamilleIntro",
 		Dialog: [
 			{
