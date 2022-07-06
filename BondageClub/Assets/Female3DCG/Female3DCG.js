@@ -2281,7 +2281,7 @@ var AssetFemale3DCG = [
 		Asset: ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3",
 			{ Name: "Penis", Random: false, Left: 200, Top: 410 }
 		],
-		Color: ["Default", "#6a3628", "#443330", "#222222"]
+		Color: ["Default", "#674229", "#887467"]
 	},
 
 	{
