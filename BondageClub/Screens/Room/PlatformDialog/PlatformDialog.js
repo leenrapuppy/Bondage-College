@@ -1436,25 +1436,15 @@ var PlatformDialogData = [
 			{ Text: "(You exchange a long and passionate kiss.)" },
 			{ Text: "(Time seems to stop as you feel her sweet lips on yours.)" },
 			{ Text: "(You both moan slowly as you taste each other mouth for the first time.)" },
-			{ ID: "End", Text: "*** Congratulations!  You've reached the end of Bondage Brawl. ***" },
-			{ Text: "*** More playable characters, side quests, hidden scenes and a full new chapter might be added soon. ***" },
-			{ Text: "*** If you enjoyed the game or have ideas on how to improve it, please contact Ben987. ***" },
-		]
-	},
-
-	{
-		Name: "OliviaTerraceEnd",
-		Dialog: [
-			{
-				Background: "Terrace",
+			{ 
+				Text: "(You separate after a little while and smile at each other.)",
 				Character: [
 					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
-			{ Text: "*** Congratulations!  You've reached the end of Bondage Brawl. ***" },
-			{ Text: "*** More playable characters, side quests, hidden scenes and a full new chapter might be added soon. ***" },
-			{ Text: "*** If you enjoyed the game or have ideas on how to improve it, please contact Ben987. ***" },
+			{ ID: "End", Text: "Should we go down that rope?" },
+			{ Text: "(She points to the rope that runs down the castle wall.)" }
 		]
 	},
 
@@ -1471,23 +1461,6 @@ var PlatformDialogData = [
 			},
 			{ Text: "Where are they?" },
 			{ Text: "(She looks at Olivia.)" },
-		]
-	},
-
-	{
-		Name: "EdlaranTerraceEnd",
-		Dialog: [
-			{
-				Background: "Terrace",
-				Character: [
-					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
-					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
-					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
-				]
-			},
-			{ Text: "*** Congratulations!  You've reached the end of Bondage Brawl. ***" },
-			{ Text: "*** More playable characters, side quests, hidden scenes and a full new chapter might be added soon. ***" },
-			{ Text: "*** If you enjoyed the game or have ideas on how to improve it, please contact Ben987. ***" },
 		]
 	},
 	
