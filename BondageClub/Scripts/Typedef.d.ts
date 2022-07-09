@@ -396,6 +396,15 @@ interface StimulationEvent {
 	TalkChance?: number;
 }
 
+interface ChatRoomChatLogEntry {
+	Chat: string;
+	Garbled: string;
+	Original: string;
+	SenderName: string;
+	SenderMemberNumber: number;
+	Time: number;
+}
+
 type MessageActionType = "Action" | "Chat" | "Whisper" | "Emote" | "Activity" | "Hidden" |
 	"LocalMessage" | "ServerMessage" | "Status";
 

@@ -17,7 +17,7 @@ var ChatRoomBackground = "";
 let ChatRoomData = null;
 /** @type {Character[]} */
 var ChatRoomCharacter = [];
-/** @type {{ SenderMemberNumber: number, Time: number, Original: string, Chat: string, Garbled: string, SenderName: string }[]} */
+/** @type {ChatRoomChatLogEntry[]} */
 var ChatRoomChatLog = [];
 var ChatRoomLastMessage = [""];
 var ChatRoomLastMessageIndex = 0;
