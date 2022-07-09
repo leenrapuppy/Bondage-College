@@ -5756,6 +5756,52 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // PoofyDiaper
+		ObedienceBelt: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
+				ChangeWhenLocked: false,
+				Modules: [
+					{
+						Name: "CrotchShield", Key: "c",
+						Options: [
+							{}, // 0 - open
+							{ // 1 - close front
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemVulva", "ItemVulvaPiercings"],
+								}
+							},
+							{ // 2 - close back
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemButt"],
+								}
+							},
+							{ // 3 - close both
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+								}
+							}
+						],
+					},
+					{
+						Name: "ShockModule", Key: "s",
+						Options: [
+							{}, // 0 - disabled
+							{ HasSubscreen: true }, // 1 - enabled
+						]
+					},
+					{
+						Name: "Engraving", Key: "e",
+						Options: [
+							{ HasSubscreen: true },
+						],
+					}
+				],
+			}
+		}
 	}, // ItemPelvis
 	ItemEars: {
 		FuturisticEarphones: {

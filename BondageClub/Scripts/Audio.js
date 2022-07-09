@@ -227,7 +227,8 @@ var AudioActions = [
 	},
 	{
 		IsAction: (data) => [
-			"FuturisticChastityBeltShock"
+			"FuturisticChastityBeltShock",
+			"ObedienceBeltShock"
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "Shocks"
 	},
