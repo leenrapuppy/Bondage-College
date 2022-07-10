@@ -2039,7 +2039,7 @@ var AssetFemale3DCG = [
 
 	{
 		Group: "HairFront",
-		Priority: 52, 
+		Priority: 52,
 		Left: 150,
 		Top: 50,
 		AllowNone: false,
@@ -2050,7 +2050,7 @@ var AssetFemale3DCG = [
 			"HairFront11b", "HairFront12", "HairFront12b", "HairFront13", "HairFront13b", "HairFront14", "HairFront14b",
 			"HairFront15", "HairFront16", "HairFront17", "HairFront17b", "HairFront18", "HairFront19", "HairFront20",
 			"HairFront21",
-			{ Name: "HairFront22", Top: 6, Left: 134, 
+			{ Name: "HairFront22", Top: 6, Left: 134,
 				Layer: [
 					{ Name: "Base", Priority: 51 },
 					{ Name: "Fluff" },
@@ -2058,16 +2058,16 @@ var AssetFemale3DCG = [
 					{ Name: "FrontFluff", Priority: 54, CopyLayerColor: "Fluff" }
 				],
 			}, //HairFront22
-			{ Name: "HairFront22b", Top: 6, Left: 134, 
+			{ Name: "HairFront22b", Top: 6, Left: 134,
 				Layer: [
 					{ Name: "Base",Priority: 51 },
 					{ Name: "Fluff" },
 					{ Name: "Tip" },
-					{ Name: "FrontFluff", Priority: 54, CopyLayerColor: "Fluff"},	
+					{ Name: "FrontFluff", Priority: 54, CopyLayerColor: "Fluff"},
 					{ Name: "FrontTip", Priority: 54.5, CopyLayerColor: "Tip" },
 				],
 			}, //HairFront22b
-			{ Name: "HairFront23", Top: 6, Left: 134, 
+			{ Name: "HairFront23", Top: 6, Left: 134,
 				Layer: [
 					{ Name: "Base",Priority: 51 },
 					{ Name: "Fluff" },
@@ -3033,7 +3033,23 @@ var AssetFemale3DCG = [
 				{ Name: "Rivets" },
 				{ Name: "Lock", LockLayer: true }
 			] },
-
+			{
+				Name: "ObedienceBelt", Fetish: ["Metal"], ParentGroup: null, Value: 0,
+				Difficulty: 8, Time: 15, RemoveTime: 20,
+				Extended: true, DynamicScriptDraw: true, DynamicAfterDraw: true, AllowLock: true, Prerequisite: ["AccessVulva"], AllowEffect: ["Chaste"],
+				DefaultColor: ['Default', 'Default', "Default", "Default", "#FF0000", "#004A7F"],
+				AllowBlock: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+				Layer: [
+					{ Name: "Base", HasType: false, ColorGroup: "Metal", },
+					{ Name: "Trim", HasType: false, ColorGroup: "Metal", },
+					{ Name: "Text", HasType: false, HasImage: false, },
+					{ Name: "CrotchShield", HasType: false, ColorGroup: "Metal", AllowModuleTypes: ["c1", "c3"], },
+					{ Name: "WireOutline", HasType: false, AllowColorize: false, AllowModuleTypes: ["s1"], },
+					{ Name: "PositiveWire", HasType: false, AllowModuleTypes: ["s1"], },
+					{ Name: "NegativeWire", HasType: false, AllowModuleTypes: ["s1"], },
+					{ Name: "Locks", HasType: false, LockLayer: true, AllowColorize: false, },
+				],
+			},
 			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -3116,7 +3132,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "LockingSwimsuit", Left: 150, Top: 200, Difficulty: 4, BuyGroup: "LockingSwimsuit", Value: 60, AllowLock: true, DrawLocks: false, Prerequisite: "AccessTorso", Extended: true },
 			{ Name: "LockingSwimsuit2", Left: 150, Top: 200, Difficulty: 4, BuyGroup: "LockingSwimsuit2", Value: 70, AllowLock: true, DrawLocks: false, Prerequisite: "AccessTorso" },
-			AssetSpankingToys 
+			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -3147,7 +3163,7 @@ var AssetFemale3DCG = [
 				Layer: [
 					{ Name: "Rope" },
 					{ Name: "Shine", AllowColorize: false },
-				] 
+				]
 		},
 		{ Name: "HempRopeHarness", Fetish: ["Rope"], Value: 60, Difficulty: 3, Time: 20, RemoveTime: 25, DefaultColor: "#956B1C", BuyGroup: "HempRope", Audio: "RopeShort", Prerequisite: "AccessTorso", Extended: true },
 		{ Name: "AdultBabyHarness", Category: ["ABDL"], Fetish: ["Leather", "ABDL"], BuyGroup: "AdultBabyHarness", Priority: 33, Value: 50, Difficulty: 3, Time: 15, RemoveTime: 10, HideItem: ["ItemNipplesLactationPump"], AllowLock: true, DefaultColor: "#aaaaaa", ExpressionTrigger: [{ Name: "Low", Group: "Blush", Timer: 10 }], DrawLocks: false },
@@ -3220,7 +3236,14 @@ var AssetFemale3DCG = [
 			{ Name: "NippleClamp", Fetish: ["Metal", "Masochism"], Value: 25, Time: 10, Prerequisite: "AccessBreast", ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 5 }] },
 			{ Name: "VibeNippleClamp", Fetish: ["Metal", "Masochism"], Value: 40, Time: 10, Prerequisite: "AccessBreast", Effect: ["Egged"], AllowEffect: ["Egged", "Vibrating", "Edged"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 5 }], DynamicScriptDraw: true },
 			{ Name: "VibratorRemote", Value: 50, Wear: false, BuyGroup: "VibratorRemote", Prerequisite: ["RemotesAllowed"], Effect: ["Remote"] },
-			{ Name: "ChainClamp", Fetish: ["Metal", "Masochism"], Value: 25, Time: 10, Prerequisite: "AccessBreast", ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
+			{ Name: "ChainClamp", Fetish: ["Metal", "Masochism"], Value: 25, Time: 10, Prerequisite: "AccessBreast", ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }], Extended: true,
+				Layer: [
+					{ Name: "Chain", AllowColorize: true , HasType: false, AllowTypes: [""]},
+					{ Name: "Metal", AllowColorize: true , HasType: false},
+					{ Name: "Clamp", AllowColorize: true , HasType: false},
+					{ Name: "Chain2", CopyLayerColor: "Chain", HasType: false, AllowTypes: ["Chain2"]}
+				]
+			},
 			{ Name: "ScrewClamps", Fetish: ["Metal", "Masochism"], Value: 35, Time: 10, Prerequisite: "AccessBreast", ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
 			{ Name: "ChainTassles", Value: 45, Time: 10, Prerequisite: "AccessBreast", Hide: ["ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
 			{ Name: "HeartPasties", Value: 20, Time: 10, DefaultColor: "#800000", Prerequisite: "AccessBreast", Hide: ["ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
@@ -6252,6 +6275,20 @@ var AssetFemale3DCG = [
 				AllowLock: true,
 				Hide: ["HairFront", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
+			},
+			{
+				Name: "OpenMouthPlugHood", Fetish: ["Latex"], Random: false, Value: 40, Difficulty: 3, Top: 0,
+				DrawLocks: false,
+				AllowLock: true,
+				Hide: ["HairFront", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
+				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
+				Layer: [
+					{ Name: "FakeMouth", AllowColorize: false },
+					{ Name: "Lenses" },
+					{ Name: "Hood" },
+					{ Name: "Plug" }
+				]
+
 			},
 			AssetSpankingToys
 		],

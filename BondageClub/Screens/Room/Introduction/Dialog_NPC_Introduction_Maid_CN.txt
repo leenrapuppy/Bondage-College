@@ -52,9 +52,9 @@ Of course, head maid DialogPlayerName.  (She releases you.)
 (She grumbles as you strike her butt with the crop.)  Oww! That stings Miss.
 （你用硬鞭抽打她的臀部时，她嘟囔着。）哦！这好疼，女士。
 (You wrap the rope around her legs, tying them together.)  Please don't leave me tied up for too long.
-（你把绳子缠在她的腿上，把它们绑在一起。）请不要让我被绑太久。
+（你把绳子缠在她的腿上，把双腿绑在一起。）请不要让我被绑太久。
 (You wrap the rope around her legs, tying them in a mermaid pattern.)  There's lots of rope for my legs.
-（你把绳子缠在她的腿上，把系成美人鱼的样式。）我的腿上的绳子真多。
+（你把绳子缠在她的腿上，把双腿绑成美人鱼缚的样式。）我的腿上的绳子真多。
 (You slowly restrain her wrists behind her back.) This will make it hard to do work...
 （你慢慢地把她的手腕束缚在背后。）这会让工作变得很困难……
 (You restrain her wrists and elbows behind her back.) You're very skilled.
@@ -82,7 +82,7 @@ Of course, head maid DialogPlayerName.  (She releases you.)
 (You use the ropes and create a harness around her body.)  Harnesses can be very handy.
 （你用绳子在她的身体周围做一套束缚带。）束缚带非常有用。
 (You use the ropes and create a diamond harness around her body.)  Very chic!
-（你使用绳子在她的身体周围制作一个钻石束缚。）非常别致！
+（你使用绳子在她的身体周围制作一个菱形束缚带。）非常别致！
 (You see your target walking in the halls, she's stares at you and smirks.)  You're the new guard dog sent by the maids?
 （你看到你的目标在大厅里走来走去，她盯着你邪恶地笑了笑。）你是女仆派来的新看门狗？
 (You see your target finishing a drink in the halls.)  Hey you!  Go get me another drink!
@@ -149,7 +149,7 @@ Pleased to meet you.  I'm DialogCharacterName, I work here as a maid.
 很高兴认识你，我是DialogCharacterName，我在这里作为女仆工作。
 ###_PLAYER
 Thanks, little maid.  What's going on here?
-谢谢，小女仆。这里怎么了？
+谢谢，小女仆。这里是做什么的？
 ###_NPC
 In here, you can learn how to restrain someone, and how to escape by yourself.
 在这里，你可以学习如何束缚某人，以及如何自己脱逃。

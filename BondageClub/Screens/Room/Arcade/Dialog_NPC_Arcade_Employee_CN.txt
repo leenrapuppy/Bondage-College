@@ -1,0 +1,52 @@
+###_NPC
+(She giggles) You can play games while bound, but don't expect me to understand you.
+（她咯咯笑起来）你可以在被绑起来的时候玩游戏，但别指望我能理解你。
+Having fun in there?
+在里面玩得开心吗？
+Hello and welcome to the arcade. Put on your VR headset and you can play our games for free!
+你好，欢迎来到街机店。戴上你的VR头戴显示器，你就可以免费玩我们的游戏了！
+###_PLAYER
+I don't have a VR headset.
+我没有VR头戴显示器。
+###_NPC
+You can rent one of ours for $10.
+你可以用$10来租用我们的一台。
+###_PLAYER
+Can you take my headset off?
+你能把我的头戴显示器摘下来吗？
+###_NPC
+Nonsense, the fun never ends!
+不可能，快乐永无止境！
+###_PLAYER
+(Plead with her)
+（恳求她）
+###_NPC
+Lots of fun, isn't it?
+很有趣，不是吗？
+###_PLAYER
+Yes please!
+是的，请帮帮我！
+###_NPC
+Here you go!
+好的，帮你了！
+###_PLAYER
+No thanks.
+不，谢谢。
+###_NPC
+No problem. It's better to buy your own, that way you can play kinky games by yourself.
+没问题。最好是自己买一个，这样你就可以自己玩色情游戏了。
+###_PLAYER
+Can you put mine on for me?
+你能帮我戴上我自己的头显吗？
+###_NPC
+Sure thing! Enjoy the games!
+当然可以！享受游戏吧！
+###_PLAYER
+(Look at her and plead loudly)
+（看着她并大声恳求）
+###_NPC
+I see what you're trying to say. Enjoy the games!
+我明白你想说什么。享受游戏吧！
+###_PLAYER
+(Leave her.)
+（离开她。）

@@ -1,0 +1,139 @@
+###_NPC
+Rest is the first civil duty.
+休息是首要的公民义务。
+(She opens her mouth wide.)  I guess there's no way around it.
+（她张大嘴。）我想没有办法逃过它。
+(You remove her gag and she sighs.)  Finally.
+（你取下她的口塞，她叹了口气。）终于。
+(You put some earplugs into place.) Oh, everything is so quiet now.
+（你塞入耳塞。）哦，现在一切都那么安静了。
+(You pull the earplugs out.) Oh, I can hear you clearly again.
+（你把耳塞拔出来）哦，我又能清楚地听到你的声音了。
+(She tugs at the shackles.) Is that necessary? 
+（她拽了拽镣铐。）有必要吗？
+(You free her arms and she stretches a little.)  What will you use on me next?
+（你松开她的胳膊，她伸展身体。）接下来你要用什么来对付我？
+(She grumbles towards you.)  This isn't necessary.
+（她向你抱怨。）这没有必要。
+(You release her hands.)  What are you going to try next?
+（你松开她的手。）接下来你要试什么？
+(You restrain her legs securely.)  As if I could run away.
+（你牢牢地束缚住她的腿。）好像我可以逃跑似的。
+(You release her legs.)  You can tie me up any time you want Miss.
+（你松开她的腿。）你可以随时把我绑起来，女士。
+(She wiggles her feet playfully as you restrain them.)  More bondage Miss?
+（你束缚住她的脚，她顽皮地扭动她的脚。）有更多的束缚吗，小姐？
+(You release her feet and she jumps playfully.)  This is great.
+（你解开她的脚，她调皮地跳起来。）这太棒了。
+(You strap the collar on her neck while she frowns.)  I am a free club member.
+（你把项圈系在她的脖子上，她皱起眉头。）我是自由的俱乐部的会员。
+(You remove the collar around her neck.)  Much better!
+（你取下她脖子上的项圈。）好多了！
+(She tries to fight back while the device is put on.)
+（在戴上贞操带时，她试图反击。）
+(She seems relieved as you unlock the device.)
+（当你解开贞操带时，她看起来松了口气。）
+(You strap the device on her head.)  A dark cell in the prison cell.
+（你把道具绑在她头上。）牢房里的一个小黑屋。
+(You remove the device and she looks at you.)  Fiat lux.
+（你取下道具，她看着你。）要有光（拉丁语）。
+(You prepare a full body harness on her torso as she blushes.)  Something was missing.
+（你在她的躯干系上了全身束缚带，她脸红起来。）一些东西失去了。
+(You remove the body harness from her torso.)  A first step to freedom.
+（你从她的躯干上接下全身束缚带。）迈向自由的第一步。
+(She moans as you whip her breast, enjoying the pain.)
+（你鞭打她的乳房，她呻吟着，享受着痛苦。）
+(She jumps and makes her breast wiggle with each hit.)  I am a bad person.
+（每次击打她都会跳起来，让她的胸部摆动。）我是个坏人。
+(She trembles and moans with each lashe.)  I need to be punished!
+（每当鞭子抽下，她颤抖着呻吟着）我需要受到惩罚！
+(You whip her butt with the leather crop as she wiggles it for more.)
+（你用皮革硬鞭抽打她的屁股，她扭动着屁股索求更多。）
+(She wriggles in her shackles.)  I'll confess anything you want.
+（她在镣铐中扭动。）我会坦白你想要的任何东西。
+(She looks surprised.) Sweet pains.
+（她看起来很惊讶。）甜蜜的痛苦。
+Oof. I could not have lasted much longer.
+哦哦。我已经坚持不了多久了。
+(You restrain her legs with the long hemp rope and suspend her by the feet from the ceiling.)  Oh my god!
+（你用长长的麻绳束缚住她的腿，把她的脚从天花板上吊起来。）天哪！
+(You untie the hemp rope from the ceiling and slowly get her down.)  Wow!  That was quite a ride.
+（你解开天花板上的麻绳，慢慢把她放下来。）哇！这可真刺激。
+(A girl comes in and looks around.) Hello, what's going on here?
+（一个女孩进来环顾四周。）你好，这里是做什么的？
+###_PLAYER
+It's under construction. Please leave.
+这里正在建设中。请离开。
+I'm looking for a curious person in handcuffs for some tests.
+我正在寻找一个戴着手铐的好奇的人进行一些测试。
+(Shove her into the cell and close the door.)
+（将她推入牢房并关上门。）
+###_NPC
+(She looks surprised.)
+（她看起来很惊讶。）
+###_PLAYER
+(Strip search her for a key.)
+（脱衣搜索她的钥匙。）
+###_NPC
+Is that necessary?
+那有必要吗？
+###_PLAYER
+(Give her clothes back.)
+（把她的衣服还给她。）
+###_NPC
+(She nods slowly.)
+（她慢慢地点点头。）
+###_PLAYER
+(Torture her.)
+（折磨她。）
+###_NPC
+(She looks worried.)
+（她看起来很担心。）
+###_PLAYER
+(Let her out.)
+（让她出去。）
+###_NPC
+Thanks, next time it's your turn.
+谢谢，下次轮到你了。
+###_PLAYER
+(Leave her.)
+（离开她。）
+(Spank her butt.)
+（打她的屁股。）
+###_NPC
+(She squirms painfully.)
+（她痛苦地扭动着身体。）
+###_PLAYER
+(Slap her face.)
+（扇她的脸。）
+###_NPC
+(She whines and is scared.)
+（她呜咽着，很害怕。）
+###_PLAYER
+(Fondle her breast.)
+（抚摸她的乳房。）
+###_NPC
+(She moans joyfully.)
+（她高兴地呻吟着。）
+###_PLAYER
+(Tickle her feet.)
+（挠她的脚。）
+###_NPC
+(She laughs out loud.)
+（她放声大笑。）
+###_PLAYER
+(Massage her neck.)
+（按摩她的脖子。）
+###_NPC
+(She purrs like a kitten.)
+（她像小猫一样发出咕噜声。）
+###_PLAYER
+(End her torture.)
+（结束她的折磨。）
+###_NPC
+(She breathes in relief.)
+（她松了一口气。）
+Now, that sounds interesting. Here I am.
+总得来说，这听起来很有趣。我留下来。
+I guess I'd better go then.
+我想我最好还是走吧。

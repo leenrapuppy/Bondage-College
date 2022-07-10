@@ -1159,6 +1159,81 @@ var PlatformDialogData = [
 	},
 
 	{
+		Name: "OliviaLearnMagic",
+		Dialog: [
+			{
+				Background: "Black",
+				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "Flustered" }]
+			},
+			{ Text: "(Olivia seems to be sweating and breathing heavily.)" },
+			{
+				Text: "M... M, M... Melody!",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "Flustered" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				],
+				Answer: [
+					{ Text: "That's my name.", Reply: "It's...  It's no time for jokes...  It's...  It's the belt...", Love: -1 },
+					{ Text: "Are you in distress Miss Olivia?", Reply: "(She nods quickly.)  It's...  It's the belt...", Domination: -1 },
+					{ Text: "Who dared to touch you?", Reply: "No...  No one...  It's...  It's the belt...", Domination: 1 },
+					{ Text: "Was your belt activated?", Reply: "Yes!  (She nods quickly.)  Y, y, yes...  The belt...", Love: 1, Perk: true }
+				]
+			},
+			{ Text: "It's moving!  (She shivers without much control.)" },
+			{ 
+				Text: "What...  What is going on?", 
+				Answer: [
+					{ Text: "I don't know.", Reply: "Why...  Why is it moving like that?" },
+					{ Text: "Everything will be fine sweetie.", Reply: "You...  You think?  Why is it moving like that?", Love: 1 },
+					{ Text: "That belt is cursed.", Reply: "It's...  It's a family tradition.  Why is it moving like that?", Love: -1 },
+					{ Text: "I'm scared Lady Olivia.", Reply: "Don't worry...  Ever...  Everything will be aaaaaa....", Domination: -1, Perk: true }
+				]
+			},
+			{ Text: "AaaaaaaAAAAHHH!" },
+			{ Text: "(She starts to breath faster and faster.)" },
+			{ Text: "MELODY!  Why...  Why am I sweating?" },
+			{ 
+				Text: "Why am I so wet?", 
+				Answer: [
+					{ Text: "The chastity belt is training you.", Reply: "T... Train...  Training me?  What...", Domination: 1 },
+					{ Text: "I'm sorry, I cannot help you.", Reply: "D....  Don't worry...  You're a good...", Domination: -1 },
+					{ Text: "Relax and enjoy.  (Caress her hair.)", Reply: "R.... Relax?   En... En, en, enjoy...", Love: 1 },
+					{ Text: "Wake your naughty side.", Reply: "W... What?  No, no, no.  I cannot...", Love: -1 }
+				]
+			},
+			{ Text: "(She falls on her knees.)", Character: [{ Name: "Olivia", Status: "Oracle", Pose: "KneelOrgasm", Y: -400 }] },
+			{ Text: "Aaaaahhh!  AAAAAAaaahhhh!" },
+			{ Text: "EEEEEEEEEEEEEAAAAAAAAAAAAAAAAAHHHHHH!!!" },
+			{ Text: "(She gets a shattering orgasm right in front of you.)" },
+			{ Text: "(Her powerful scream rings in your ears, giving you a headache.)" },
+			{ Text: "Oh..." },
+			{ Text: "Melody..." },
+			{
+				Text: "(She stands up.)",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "Flustered" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				],
+			},
+			{ Text: "It stopped moving." },
+			{ 
+				Text: "I'm sorry.", 
+				Answer: [
+					{ Text: "It's fine.  Are you alright?", Reply: "I don't know." },
+					{ Text: "Welcome to heaven.", Reply: "That was so...  so wonderful.", Love: 1 },
+					{ Text: "That scream was horrible.", Reply: "I know, I could not control it.", Love: -1 },
+					{ Text: "You're a woman now, an Oracle.", Reply: "(She nods.)  You might be right.", Domination: 1, Perk: true }
+				]
+			},
+			{ Text: "I feel weird.  I feel different." },
+			{ Text: "It's like I've been sleeping and now I'm awake." },
+			{ Text: "Let's head out, there's something I'd like to try." },
+			{ Text: "(Olivia can now use magic.  Her magic points will be shown in the upper corner.)" },
+			{ Text: "(Use the K key to scream and harm all enemies in the current area.)" }
+		]
+	},
+
+	{
 		Name: "CamilleIntro",
 		Dialog: [
 			{
@@ -1361,25 +1436,15 @@ var PlatformDialogData = [
 			{ Text: "(You exchange a long and passionate kiss.)" },
 			{ Text: "(Time seems to stop as you feel her sweet lips on yours.)" },
 			{ Text: "(You both moan slowly as you taste each other mouth for the first time.)" },
-			{ ID: "End", Text: "*** Congratulations!  You've reached the end of Bondage Brawl. ***" },
-			{ Text: "*** More playable characters, side quests, hidden scenes and a full new chapter might be added soon. ***" },
-			{ Text: "*** If you enjoyed the game or have ideas on how to improve it, please contact Ben987. ***" },
-		]
-	},
-
-	{
-		Name: "OliviaTerraceEnd",
-		Dialog: [
-			{
-				Background: "Terrace",
+			{ 
+				Text: "(You separate after a little while and smile at each other.)",
 				Character: [
 					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
-			{ Text: "*** Congratulations!  You've reached the end of Bondage Brawl. ***" },
-			{ Text: "*** More playable characters, side quests, hidden scenes and a full new chapter might be added soon. ***" },
-			{ Text: "*** If you enjoyed the game or have ideas on how to improve it, please contact Ben987. ***" },
+			{ ID: "End", Text: "Should we go down that rope?" },
+			{ Text: "(She points to the rope that runs down the castle wall.)" }
 		]
 	},
 
@@ -1396,23 +1461,6 @@ var PlatformDialogData = [
 			},
 			{ Text: "Where are they?" },
 			{ Text: "(She looks at Olivia.)" },
-		]
-	},
-
-	{
-		Name: "EdlaranTerraceEnd",
-		Dialog: [
-			{
-				Background: "Terrace",
-				Character: [
-					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
-					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
-					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
-				]
-			},
-			{ Text: "*** Congratulations!  You've reached the end of Bondage Brawl. ***" },
-			{ Text: "*** More playable characters, side quests, hidden scenes and a full new chapter might be added soon. ***" },
-			{ Text: "*** If you enjoyed the game or have ideas on how to improve it, please contact Ben987. ***" },
 		]
 	},
 	

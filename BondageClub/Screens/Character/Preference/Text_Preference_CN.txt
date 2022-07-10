@@ -45,7 +45,7 @@ Item Visibility
 Online
 在线
 Immersion
-限制
+沉浸
 Graphics
 显示
 Controller

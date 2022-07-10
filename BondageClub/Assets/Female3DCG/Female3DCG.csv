@@ -864,6 +864,7 @@ ItemPelvis,SilkStraps,Silk Straps
 ItemPelvis,BulkyDiaper,Bulky Chastity Diaper
 ItemPelvis,PoofyDiaper,Poofy Chastity Diaper
 ItemPelvis,HybridChastityBelt,Hybrid Chastity Belt
+ItemPelvis,ObedienceBelt,Obedience Belt
 ItemTorso,,Torso
 ItemTorso,NylonRopeHarness,Nylon Rope
 ItemTorso,HempRopeHarness,Hemp Rope
@@ -918,7 +919,7 @@ ItemNipples,,Nipples
 ItemNipples,NippleClamp,Nipple Clamps
 ItemNipples,VibeNippleClamp,Vibrating Nipple Clamps
 ItemNipples,VibratorRemote,Vibrating Clamps Remote
-ItemNipples,ChainClamp,Chain Clamp
+ItemNipples,ChainClamp,Chain Clamps
 ItemNipples,ScrewClamps,Screw Clamps
 ItemNipples,ChainTassles,Chain Tassles
 ItemNipples,HeartPasties,Heart Pasties
@@ -1421,6 +1422,7 @@ ItemHood,HeadboxSeethrough,One-Way Glass Head Box
 ItemHood,Slime,Slime
 ItemHood,KittyHood,Kitty Hood
 ItemHood,LatexDogHood,Latex Dog Hood
+ItemHood,OpenMouthPlugHood,Latex Open Mouth Plug Hood
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs

@@ -24,6 +24,8 @@ var PlatformImmunityTime = 500;
 var PlatformSaveMode = false;
 var PlatformJumpPhase = "";
 var PlatformParty = [];
+var PlatformRegen = 0;
+var PlatformCooldown = [];
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -74,11 +76,13 @@ var PlatformTemplate = [
 		Name: "Olivia",
 		Status: "Oracle",
 		Perk: "0000000000",
-		PerkName: ["Healthy", "Robust", "Vigorous", "Spring", "Bounce", "Block", "Deflect", "Seduction", "Persuasion", "Manipulation"],
+		PerkName: ["Apprentice", "Magician", "Witch", "Regenaration", "Heal", "Cure", "Howl", "Roar", "Teleport", "Freedom"],
 		Width: 400,
 		Height: 400,
 		Health: 10,
 		HealthPerLevel: 3,
+		Magic: 6,
+		MagicPerLevel: 1,
 		HitBox: [0.42, 0.03, 0.58, 1],
 		JumpHitBox: [0.42, 0.03, 0.58, 0.65],
 		RunSpeed: 18,
@@ -98,7 +102,16 @@ var PlatformTemplate = [
 			{ Name: "Crouch", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
 			{ Name: "Crawl", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], Speed: 30 },
 			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
-			{ Name: "Stun", Cycle: [0], Speed: 1000 }
+			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 90 },
+			{ Name: "Stun", Cycle: [0], Speed: 1000 },
+			{ Name: "StandAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], Speed: 17 },
+			{ Name: "CrouchAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], Speed: 19 },
+			{ Name: "Scream", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 10 }
+		],
+		Attack: [
+			{ Name: "StandAttackFast", HitBox: [0.7, 0.15, 0.9, 0.3], HitAnimation: [6, 7, 8, 9, 10], Damage: [1, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8], Speed: 300 },
+			{ Name: "CrouchAttackFast", HitBox: [0.725, 0.65, 0.925, 0.75], HitAnimation: [6, 7, 8, 9], Damage: [1, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8], Speed: 300 },
+			{ Name: "Scream", Magic: 2, Cooldown: 3000, HitBox: [-100, -100, 100, 100], HitAnimation: [8, 9, 10], Damage: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4], Speed: 200 }
 		]
 	},
 	{
@@ -392,7 +405,7 @@ var PlatformRoomList = [
 		Height: 1200,
 		LimitLeft: 200,
 		LimitRight: 1750,
-		Heal: 500,
+		Heal: 250,
 		Door: [
 			{ Name: "CastleHall3W", FromX: 200, FromY: 0, FromW: 150, FromH: 1200, FromType: "Up", ToX: 500, ToFaceLeft: false },
 		]
@@ -467,7 +480,7 @@ var PlatformRoomList = [
 		Background: "Castle/BedroomOlivia",
 		Width: 3000,
 		Height: 1200,
-		Heal: 500,
+		Heal: 250,
 		Door: [
 			{ Name: "CastleHall3E", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 900, ToFaceLeft: false },
 			{ Name: "BathroomOlivia", FromX: 2900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
@@ -633,10 +646,10 @@ var PlatformRoomList = [
 	{
 		Name: "CastleTerrace",
 		Entry: function() {
-			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerrace");
-			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerraceEnd");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Melody")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerrace");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Olivia")) PlatformCreateCharacter("Melody", "Maid", 500, true, false, "OliviaTerrace");
 			if (PlatformEventDone("EdlaranJoin") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerrace", true);
-			if (PlatformEventDone("EdlaranJoin") && PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerraceEnd", true);
+			if (PlatformEventDone("OliviaTerrace")) PlatformRoom.Door.push({ Name: "ForestCastleWall", FromX: 400, FromY: 0, FromW: 550, FromH: 1200, FromType: "Up", ToX: 500, ToFaceLeft: false });
 		},
 		Text: "Countess Terrace",
 		Background: "Castle/Terrace",
@@ -644,7 +657,8 @@ var PlatformRoomList = [
 		Height: 1200,
 		LimitLeft: 200,
 		Door: [
-			{ Name: "CastleCountessHall", FromX: 1900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+			{ Name: "CastleCountessHall", FromX: 1900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+			{ Name: "ForestCastleWall", FromX: -1000, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false } // Used for faster loading
 		]
 	},
 	{
@@ -769,7 +783,7 @@ var PlatformRoomList = [
 		BackgroundFilter: "#00000080",
 		Width: 2200,
 		Height: 1200,
-		Heal: 500,
+		Heal: 250,
 		Door: [
 			{ Name: "CastleDungeon1C", FromX: 200, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 900, ToFaceLeft: false },
 		]
@@ -809,6 +823,58 @@ var PlatformRoomList = [
 			{ Name: "Chest", Status: "Metal", X: 1700, Combat: false, Fix: true, Dialog: "ChestRestraintsBeforeCurse" }
 		]
 	},
+	{
+		Name: "ForestCastleWall",
+		Text: "Wall Exterior",
+		Background: "Forest/CastleWall",
+		Width: 3800,
+		Height: 1200,
+		LimitLeft: 300,
+		Door: [
+			{ Name: "CastleTerrace", FromX: 350, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 625, ToFaceLeft: false },
+			{ Name: "ForestVulture", FromX: 3700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Lucy", Status: "Armor", X: 1300 },
+			{ Name: "Lucy", Status: "Armor", X: 2500 }
+		]
+	},
+	{
+		Name: "ForestVulture",
+		Text: "Forest Entrance",
+		Background: "Forest/VulturePlain",
+		Width: 2200,
+		Height: 1200,
+		Door: [
+			{ Name: "ForestCastleWall", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3700, ToFaceLeft: false },
+			{ Name: "ForestCabinPath", FromX: 2100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Yuna", Status: "Maid", X: 1400 }
+		]
+	},
+	{
+		Name: "ForestCabinPath",
+		Text: "Cabin Path",
+		Background: "Forest/CabinPath",
+		Width: 3800,
+		Height: 1200,
+		Door: [
+			{ Name: "ForestVulture", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2100, ToFaceLeft: true },
+			{ Name: "ForestCabin", FromX: 2200, FromY: 0, FromW: 350, FromH: 1200, FromType: "Up", ToX: 250, ToFaceLeft: false }
+		]
+	},
+	{
+		Name: "ForestCabin",
+		Text: "Wooden Cabin (heal and save)",
+		Background: "Forest/CabinInterior",
+		Width: 3300,
+		Height: 1000,
+		Heal: 250,
+		Door: [
+			{ Name: "ForestCabinPath", FromX: 0, FromY: 0, FromW: 500, FromH: 1200, FromType: "Up", ToX: 2375, ToFaceLeft: false }
+		]
+	},
 
 ]
 
@@ -842,6 +908,7 @@ function PlatformCreateCharacter(CharacterName, StatusName, X, Fix  = null, Comb
 	NewChar.Experience = 0;
 	NewChar.Level = 1;
 	NewChar.BaseHealth = NewChar.Health;
+	NewChar.BaseMagic = NewChar.Magic;
 	PlatformSetHealth(NewChar);
 	if (Fix != null) NewChar.Fix = Fix;
 	if (Combat != null) NewChar.Combat = Combat;
@@ -1072,13 +1139,31 @@ function PlatformDrawBackground() {
 	if (PlatformRoom.BackgroundFilter != null) DrawRect(0, 0, 2000, 1000, PlatformRoom.BackgroundFilter);
 	DrawProgressBar(10, 10, 180, 40, PlatformPlayer.Health / PlatformPlayer.MaxHealth * 100, "#00B000", "#B00000");
 	DrawText(PlatformPlayer.Health.toString(), 100, 32, "White", "Black");
-	DrawProgressBar(10, 60, 180, 40, PlatformPlayer.Experience / PlatformExperienceForLevel[PlatformPlayer.Level] * 100, "#0000B0", "Black");
+	DrawProgressBar(10, 60, 180, 40, PlatformPlayer.Experience / PlatformExperienceForLevel[PlatformPlayer.Level] * 100, "#600060", "Black");
 	DrawText(PlatformPlayer.Level.toString(), 100, 82, "White", "Black");
-	if (PlatformActionIs(PlatformPlayer, "Bind")) 
+	if (PlatformActionIs(PlatformPlayer, "Bind"))
 		DrawProgressBar(10, 110, 180, 40, (CommonTime() - PlatformPlayer.Action.Start) / (PlatformPlayer.Action.Expire - PlatformPlayer.Action.Start) * 100, "White", "Black");
-	else
-		 if ((PlatformPlayer.Health <= 0) && !PlatformPlayer.Bound && (PlatformPlayer.RiseTime != null) && (PlatformPlayer.RiseTime >= CommonTime()))
-			 DrawProgressBar(10, 110, 180, 40, 100 - ((PlatformPlayer.RiseTime - CommonTime()) / 100), "White", "Black");
+	else if ((PlatformPlayer.Health <= 0) && !PlatformPlayer.Bound && (PlatformPlayer.RiseTime != null) && (PlatformPlayer.RiseTime >= CommonTime()))
+		DrawProgressBar(10, 110, 180, 40, 100 - ((PlatformPlayer.RiseTime - CommonTime()) / 100), "White", "Black");
+	if ((PlatformPlayer.MaxMagic != null) && (PlatformPlayer.MaxMagic > 0) && PlatformHasPerk(PlatformPlayer, "Apprentice")) {
+		DrawProgressBar(200, 10, 180, 40, PlatformPlayer.Magic / PlatformPlayer.MaxMagic * 100, "#0000B0", "#000000");
+		DrawText(PlatformPlayer.Magic.toString(), 290, 32, "White", "Black");	
+	}
+
+	// Clears the past cooldowns
+	for (let C = 0; C < PlatformCooldown.length; C++)
+		if (PlatformCooldown[C].Time < CommonTime()) {
+			PlatformCooldown.splice(C, 1);
+			C--;
+		}
+
+	// Draws the cooldowns
+	let Y = 50;
+	for (let C of PlatformCooldown) {
+		DrawProgressBar(200, Y + 10, 180, 40, 100 - ((C.Time - CommonTime()) / C.Delay * 100), "White", "Black");
+		DrawImage("Screens/Room/Platform/Icon/" + C.Type + ".png", 203, Y + 13);
+		Y = Y + 50;
+	}
 
 	// Preloads the next rooms
 	if (PlatformRoom.Door != null)
@@ -1108,15 +1193,15 @@ function PlatformDrawBackground() {
 function PlatformDrawCharacter(C, Time) {
 	if (C.Anim == null) return;
 	let X = C.X - C.Anim.Width / 2 - PlatformViewX;
-	let Y = C.Y - C.Anim.Height - PlatformViewY
+	let Y = C.Y - C.Anim.Height - PlatformViewY - 1200 + PlatformRoom.Height;
 	if ((X >= 2000) || (Y >= 1000)) return;
 	if ((X + C.Anim.Width <= 0) || (Y + C.Anim.Height <= 0)) return;
 	DrawImageEx("Screens/Room/Platform/Character/" + C.Name + "/" + C.Status + "/" + C.Anim.Name + "/" + C.Anim.Image.toString() + ".png", X + C.Anim.OffsetX, Y + C.Anim.OffsetY, { Mirror: C.Anim.Mirror, Width: C.Anim.Width, Height: C.Anim.Height } );
 	if (C.Damage != null)
 		for (let Damage of C.Damage)
 			if (Damage.Expire >= Time) {
-				DrawImageZoomCanvas("Screens/Room/Platform/" + (C.Camera ? "Enemy" : "Player") + "Hit.png", MainCanvas, 0, 0, 512, 512, X + C.Anim.Width / 2 - 50, Y - 250 + Math.floor((Damage.Expire - Time) / 10), 100, 100);
-				DrawText(Damage.Value.toString(), X + C.Anim.Width / 2, Y - 200 + Math.floor((Damage.Expire - Time) / 10), (C.Camera ? "White" : "Black"), (C.Camera ? "Black" : "White"));
+				DrawImageZoomCanvas("Screens/Room/Platform/" + (Damage.Value < 0 ? "Green" : (C.Camera ? "Enemy" : "Player")) + "Hit.png", MainCanvas, 0, 0, 512, 512, X + C.Anim.Width / 2 - 50, Y - 250 + Math.floor((Damage.Expire - Time) / 10), 100, 100);
+				DrawText(Math.abs(Damage.Value).toString(), X + C.Anim.Width / 2, Y - 200 + Math.floor((Damage.Expire - Time) / 10), (C.Camera && Damage.Value >= 0 ? "White" : "Black"), (C.Camera && Damage.Value >= 0 ? "Black" : "White"));
 			}
 }
 
@@ -1127,9 +1212,13 @@ function PlatformDrawCharacter(C, Time) {
  */
  function PlatformSetHealth(C) {
 	C.MaxHealth = C.BaseHealth;
+	C.MaxMagic = C.BaseMagic;
 	if (C.HealthPerLevel != null) C.MaxHealth = C.MaxHealth + C.HealthPerLevel * C.Level;
+	if (C.MagicPerLevel != null) C.MaxMagic = C.MaxMagic + C.MagicPerLevel * C.Level;
 	C.MaxHealth = Math.round(C.MaxHealth * (1 + ((PlatformHasPerk(C, "Healthy") ? 0.1 : 0) + (PlatformHasPerk(C, "Robust") ? 0.15 : 0))));
+	if (C.MaxMagic != null) C.MaxMagic = Math.round(C.MaxMagic * (1 + ((PlatformHasPerk(C, "Magician") ? 0.1 : 0) + (PlatformHasPerk(C, "Witch") ? 0.15 : 0))));
 	C.Health = C.MaxHealth;
+	C.Magic = C.MaxMagic;
 }
 
 /**
@@ -1158,7 +1247,7 @@ function PlatformAddExperience(C, Value) {
  * @returns {void} - Nothing
  */
 function PlatformDamage(Source, Target, Damage, Time, Type) {
-	if (!PlatformActionIs(Target, "Any")) {
+	if (!PlatformActionIs(Target, "Any") && (!PlatformActionIs(Source, "Scream") || PlatformHasPerk(Source, "Roar"))) {
 		if (Math.random() < Target.DamageBackOdds) Target.FaceLeft = (Source.X - Target.X > 0);
 		else if (Math.random() < Target.DamageFaceOdds) Target.FaceLeft = (Source.X - Target.X <= 0);
 	}
@@ -1220,6 +1309,9 @@ function PlatformHitBoxClash(Source, Target, HitBox) {
 		console.log(SX1 + " " + SX2 + " " + SY1 + " " + SY2);
 		console.log(TX1 + " " + TX2 + " " + TY1 + " " + TY2);
 	}
+
+	// A full screen hitbox always works
+	if ((SX1 < 0) && (SX2 > 2000) && (SY1 < 0) && (SY2 > 1000)) return true;
 
 	// If both hitboxes clashes, we return TRUE
 	if ((SX1 >= TX1) && (SY1 >= TY1) && (SX1 <= TX2) && (SY1 <= TY2)) return true;
@@ -1401,10 +1493,15 @@ function PlatformDraw() {
 	if (!PlatformMoveActive("Jump") && (PlatformPlayer.ForceY < 0))
 		PlatformPlayer.ForceY = PlatformPlayer.ForceY + PlatformWalkFrame(PlatformGravitySpeed * 2, Frame);
 
-
 	// If we must heal 1 HP to all characters in the room
 	let MustHeal = ((PlatformHeal != null) && (PlatformHeal < PlatformTime));
 	if (MustHeal) PlatformHeal = (PlatformRoom.Heal == null) ? null : CommonTime() + PlatformRoom.Heal;
+
+	// If we must regenarate magic for the player
+	if (!MustHeal && (PlatformPlayer.MaxMagic != null) && (PlatformPlayer.Magic != null) && (PlatformRegen < PlatformTime)) {
+		if (PlatformPlayer.Magic < PlatformPlayer.MaxMagic) PlatformPlayer.Magic++;
+		PlatformRegen = PlatformTime + (PlatformHasPerk("Regeneration") ? 6000 : 8000);
+	} 
 
 	// Draw each characters
 	for (let C of PlatformChar) {
@@ -1414,8 +1511,8 @@ function PlatformDraw() {
 			C.Health = Math.round(C.MaxHealth / 4);
 
 		// Heal the character
-		if (MustHeal && (C.Health > 0) && (C.Health < C.MaxHealth))
-			C.Health++;
+		if (MustHeal && (C.Health > 0) && (C.Health < C.MaxHealth)) C.Health++;
+		if (MustHeal && (C.Magic != null) && (C.MaxMagic != null) && (C.MaxMagic > 0) && (C.Magic < C.MaxMagic)) C.Magic++;
 
 		// AI walks from left to right
 		if (!C.Camera && (C.Health > 0) && !C.Fix) {
@@ -1559,8 +1656,19 @@ function PlatformAttack(Source, Type) {
 	Source.Run = false;
 	if (Source.Attack != null)
 		for (let Attack of Source.Attack)
-			if (Attack.Name == Type)
+			if (Attack.Name == Type) {
+				if ((Attack.Cooldown != null) && (Attack.Cooldown > 0) && PlatformCooldownActive(Type)) return;
+				if ((Attack.Magic != null) && (Attack.Magic > 0)) {
+					if ((PlatformPlayer.Magic == null) || (PlatformPlayer.Magic < Attack.Magic)) return;
+					PlatformPlayer.Magic = PlatformPlayer.Magic - Attack.Magic;
+				}
+				if ((Attack.Cooldown != null) && (Attack.Cooldown > 0)) {
+					let Time = Attack.Cooldown;
+					if ((Type == "Scream") && (PlatformHasPerk(PlatformPlayer, "Howl"))) Time = Time - 1000;
+					PlatformCooldown.push({Type: Attack.Name, Time: CommonTime() + Time, Delay: Time});
+				}
 				Source.Action = { Name: Type, Start: CommonTime(), Expire: CommonTime() + Attack.Speed };
+			}
 }
 
 /**
@@ -1577,7 +1685,7 @@ function PlatformClick() {
 		PlatformSaveMode = !PlatformSaveMode;
 		if (PlatformSaveMode) PlatformMessageSet(TextGet("SelectSave"));
 		return;
-	} 
+	}
 	if (MouseIn(1700, 10, 90, 90) && (PlatformHeal != null)) return CommonSetScreen("Room", "PlatformProfile");
 	if (MouseIn(1600, 10, 90, 90) && (PlatformHeal != null)) return PlatformPartyNext();
 	if (!CommonIsMobile) PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
@@ -1709,6 +1817,41 @@ function PlatformLoadGame(Slot) {
 }
 
 /**
+ * Teleports a character forward
+ * @param {Object} C - The character to teleport
+ * @returns {void} - Nothing
+ */
+function PlatformCastTeleport(C) {
+	if (PlatformCooldownActive("Teleport")) return;
+	if ((C.Magic == null) || (C.Magic == 0)) return;
+	C.Magic--;
+	let Time = 3000;
+	if (PlatformHasPerk(C, "Freedom")) Time = 2000;
+	if (C.Camera) PlatformCooldown.push({Type: "Teleport", Time: CommonTime() + Time, Delay: Time});
+	C.ForceX = C.ForceX + (C.FaceLeft ? -250 : 250);
+	C.Immunity = CommonTime() + 500;
+}
+
+/**
+ * Heals the character for 20% of it's max HP
+ * @param {Object} C - The character to teleport
+ * @returns {void} - Nothing
+ */
+function PlatformCastHeal(C) {
+	if (PlatformCooldownActive("Heal")) return;
+	if ((C.Magic == null) || (C.Magic <= 2)) return;
+	if (C.Health >= C.MaxHealth) return;
+	let Heal = Math.round(C.MaxHealth * 0.2);
+	if (Heal > C.MaxHealth - C.Health) Heal = C.MaxHealth - C.Health;
+	C.Health = C.Health + Heal;
+	C.Magic = C.Magic - 3;
+	C.Damage.push({ Value: Heal * -1, Expire: CommonTime() + 2000});
+	let Time = 30000;
+	if (PlatformHasPerk(C, "Cure")) Time = 20000;
+	if (C.Camera) PlatformCooldown.push({Type: "Heal", Time: CommonTime() + Time, Delay: Time});
+}
+
+/**
  * Handles keys pressed
  * @param {Object} e - The key pressed
  * @returns {void} - Nothing
@@ -1719,7 +1862,10 @@ function PlatformEventKeyDown(e) {
 	if (PlatformActionIs(PlatformPlayer, "Bind")) PlatformPlayer.Action = null;
 	if (e.keyCode == 32) PlatformPlayer.Action = null;
 	if ((e.keyCode == 87) || (e.keyCode == 119) || (e.keyCode == 90) || (e.keyCode == 122)) return PlatformEnterRoom("Up");
+	if (((e.keyCode == 73) || (e.keyCode == 105)) && PlatformHasPerk(PlatformPlayer, "Teleport")) return PlatformCastTeleport(PlatformPlayer);
+	if (((e.keyCode == 80) || (e.keyCode == 112)) && PlatformHasPerk(PlatformPlayer, "Heal")) return PlatformCastHeal(PlatformPlayer);
 	if (((e.keyCode == 76) || (e.keyCode == 108)) && PlatformAnimAvailable(PlatformPlayer, "StandAttackFast")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
+	if (((e.keyCode == 75) || (e.keyCode == 107)) && !PlatformMoveActive("Crouch") && PlatformHasPerk(PlatformPlayer, "Apprentice")) return PlatformAttack(PlatformPlayer, "Scream");
 	if (((e.keyCode == 75) || (e.keyCode == 107)) && PlatformAnimAvailable(PlatformPlayer, "StandAttackSlow")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackSlow" : "StandAttackSlow");
 	if ((e.keyCode == 79) || (e.keyCode == 111)) return PlatformBindStart(PlatformPlayer);
 	if ((PlatformRoom.Heal != null) && (e.keyCode >= 48) && (e.keyCode <= 57)) return PlatformSaveGame(e.keyCode - 48);
@@ -1798,6 +1944,18 @@ function PlatformTouch() {
  */
 function PlatformHasPerk(C, Perk) {
 	if ((C.Perk == null) || (C.PerkName == null)) return false;
-	if (C.PerkName.indexOf(Perk) < 0) return false;	
+	if (C.PerkName.indexOf(Perk) < 0) return false;
 	return (C.Perk.substr(C.PerkName.indexOf(Perk), 1) == "1");
+}
+
+/**
+ * Returns TRUE if a specific cooldown is currently active
+ * @param {String} Name - The name of the cooldown to validate
+ * @returns {boolean} - TRUE if active
+ */
+function PlatformCooldownActive(Name) {
+	for (let C of PlatformCooldown)
+		if (C.Type == Name)
+			return true;
+	return false;
 }

@@ -1,0 +1,109 @@
+###_NPC
+Are you talking to me?
+你在跟我讲话吗？
+(She willingly opens her mouth.)
+（她自愿地张开嘴。）
+(She grins at you.) Was that it?
+（她朝你咧嘴一笑。）是这样吗？
+(She sighs and turns around while you restrain her arms.)  It's really tight.
+（她叹了口气，转过身，你束缚她的手臂。）这真紧。
+(You free her arms and she nods happily.)  Thanks a lot.
+（你松开她的手臂，她高兴地点点头。）非常感谢。
+(She submits to you while you restrain her legs securely.)  I don't need to move anyway.
+（她顺从地让你牢固地束缚住她的腿。）反正我也不需要动。
+(You release her legs from the restraint.)  Thanks a lot.
+（你松开她的双腿。）非常感谢。
+(She looks puzzled as you restrain her feet.)  I'll stay on guard here.
+（当你束缚住她的脚时，她看起来很困惑。）我会在这儿守着。
+(You release her feet and she wiggles them.)  Thanks, it was troublesome.
+（你松开她的脚，她扭了扭双脚。）谢谢，这很麻烦。
+(You strap the collar on her while she blushes.)  Is this really necessary?
+（你把项圈系在她的脖子上，她脸红起来。）这真的有必要吗？
+(You remove the collar from her neck.)  Thanks.
+（你取下她脖子上的项圈。）谢谢。
+(You snap the belt around her waist and crotch while she sighs.)  This is certainly not a trick.
+（你将贞操带系在她的腰部和胯部，她叹口气。）这肯定不是什么魔术戏法。
+(You unlock the belt from her waist and she smiles.)  Thanks a lot DialogPlayerName.
+（你解开她腰间的贞操带，她露出微笑。）非常感谢，DialogPlayerName。
+(You strap the device on her head as she nods slowly.)  It's dark in here.
+（你将道具绑在她的头上，她慢慢地点点头。）这里很黑。
+(You remove the device and she nods rapidly.)  Thanks a million, this is much better.
+（你取下道具，她迅速点头。）百万份感谢，这好多了。
+(She jumps from the searing pain on her breast.)  Ouch!
+（她因胸口的灼痛而跳了起来）哎呀！
+(You whip her breast with the leather crop as she whimpers and bows her head.)
+（你用皮革硬鞭抽打她的胸部，她呜咽并低下头。）
+(You whip her butt hard as she sighs.)  For the show.
+（你用力鞭打她的屁股，她叹口气。）为了演出。
+(She grumbles as you strike her butt with the crop.)  For the show.
+（你用硬鞭抽打她的屁股时，她嘟囔着。）为了演出。
+(She tries to fight back.)  This is how it's meant to be.
+（她试图反击。）这就是本来的意思。
+(You remove the device.)  Thanks, now I can work again.
+（你移除那个道具。）谢谢，现在我又能工作了。
+(She looks surprised.) Oops?
+（她看起来很惊讶。）哎呀？
+(She looks confused.) Thanks, are we done?
+（她看起来很困惑。）谢谢，我们好了吗？
+(She whimpers as you use the device on her breast.)  Sorry to object, but this isn't very convenient or comfortable.
+（你在她的乳房上使用道具，她呜咽着。）很抱歉反对，但这既不很方便也不不舒服。
+(She grumbles as you use remove the item.)  Be thoughtful and don't remove anything until I'm hurt and broken.
+（你移除物品时，她嘟囔着。）考虑清楚，如果我没有遍体鳞伤，不要移除任何东西。
+(You massage her pussy with the wand, but she stays cold.)  I'm very sorry.  I'm not in the mood.
+（你用按摩棒抚慰她的阴户，但她保持冷静。）我很抱歉。我心情不好。
+(You slide the egg inside, but she barely reacts to it.)  I don't want to top from the bottom, but this egg would work better on someone else.
+（你把跳蛋滑进去，但她几乎没有反应。）我不想完全反对你，但这个跳蛋在别人身上会更好。
+(She doesn't react as you remove the egg.)  Maybe it doesn't work, I didn't feel a thing in there.
+（你取出跳蛋，她没有反应。）它可能不起作用，我那里没有感觉。
+(She struggles against it.) Like the great master Houdini?
+（她挣扎着。）像伟大的逃脱大师胡迪尼一样？
+(She catches her breath.) Finally.  What was that supposed to be?
+（她调整呼吸。）终于来了。这是要做什么？
+Welcome to the theater!
+欢迎来到剧院！
+###_PLAYER
+Hello, I'm DialogPlayerName.  Nice to meet you.
+你好，我是DialogPlayerName。很高兴见到你。
+###_NPC
+Pleased to meet you too.  I'm DialogCharacterName, Would you like to assist me?
+也很高兴认识你。我是DialogCharacterName，你愿意协助我吗？
+###_PLAYER
+Please change, the show's starting.
+请换衣服吧，演出要开始了。
+###_NPC
+I'll hurry up.
+我会尽快的。
+###_PLAYER
+Take five, you are free.
+休息五分钟，你自由了。
+###_NPC
+Thank you very much!
+非常感谢！
+###_PLAYER
+(Sing "Sweet, Sweet Gwendolyne".)
+（唱“Sweet, Sweet Gwendolyne”。）
+###_NPC
+(During the song you tie each other. The spectators are thrilled.)
+（在歌曲中，你们互相捆住对方。观众们很激动。）
+###_PLAYER
+(Sing "Bad Girl".)
+（唱“Bad Girl”。）
+###_NPC
+(Some spectators give you money. You get $REPLACEMONEY.)
+（一些观众给你钱。你得到$REPLACEMONEY。）
+###_PLAYER
+I should tie you up.
+我应该把你绑起来。
+###_NPC
+Make it look really nice.
+那绑得要非常好看。
+I can't, I'm tied up. Please free me.
+我不能，我被束缚了。请放开我。
+###_PLAYER
+Goodbye.  (Leave her.)
+再见。（离开她。）
+Can we continue the show? 
+我们可以继续表演吗？
+###_NPC
+(She nods in agreement.) Yes, please.
+（她点头表示同意。）是的，请吧。
