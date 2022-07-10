@@ -4475,7 +4475,7 @@ var AssetFemale3DCG = [
 					{ Name: "Plate", AllowColorize: false, },
 				],
 			},
-			{ Name: "PetPost", Fetish: ["Metal", "Pet"], Value: 0, Difficulty: 4, Time: 5, Random: false, DefaultColor: ["Default", "#845343", "#A1794A", "Default", "#FFF483", "#237D22", "#F3F3F3", "#F3F3F3", "#FFBCD6", "Default"], AllowLock: true, Prerequisite: ["Collared", "NotSuspended", "NotMounted"], AllowPose: [], Effect: ["Freeze", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }], DynamicAfterDraw: true, Extended: true, AlwaysExtend: true, Top: 352, Left: 310, FixedPosition: true,
+			{ Name: "PetPost", Fetish: ["Metal", "Pet"], Value: 150, Difficulty: 4, Time: 5, Random: false, DefaultColor: ["Default", "#845343", "#A1794A", "Default", "#FFF483", "#237D22", "#F3F3F3", "#F3F3F3", "#FFBCD6", "Default"], AllowLock: true, Prerequisite: ["Collared", "NotSuspended", "NotMounted"], AllowPose: [], Effect: ["IsChained", "Tethered"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }], DynamicAfterDraw: true, Extended: true, AlwaysExtend: true, Top: 352, Left: 310, FixedPosition: true,
 				Layer: [
 					{ Name: "PoleShade", Priority: 10, AllowColorize: false, HasType: false},
 					{ Name: "Pole", Priority: 54, AllowModuleTypes: ["d1"], HasType: false, },
