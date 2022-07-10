@@ -3077,6 +3077,24 @@ var AssetFemale3DCG = [
 				{ Name: "Rivets" },
 				{ Name: "Lock", LockLayer: true }
 			] },
+			{
+				Name: "ObedienceBelt", Fetish: ["Metal"], ParentGroup: null, Value: 0,
+				Difficulty: 8, Time: 15, RemoveTime: 20,
+				Extended: true, DynamicScriptDraw: true, DynamicAfterDraw: true, AllowLock: true, Prerequisite: ["AccessVulva", "HasVagina"], AllowEffect: ["Chaste"],
+				DefaultColor: ['Default', 'Default', "Default", "Default", "#FF0000", "#004A7F"],
+				AllowBlock: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+				Layer: [
+					{ Name: "Base", HasType: false, ColorGroup: "Metal", },
+					{ Name: "Trim", HasType: false, ColorGroup: "Metal", },
+					{ Name: "Text", HasType: false, HasImage: false, },
+					{ Name: "CrotchShield", HasType: false, ColorGroup: "Metal", AllowModuleTypes: ["c1", "c3"], },
+					{ Name: "WireOutline", HasType: false, AllowColorize: false, AllowModuleTypes: ["s1"], },
+					{ Name: "PositiveWire", HasType: false, AllowModuleTypes: ["s1"], },
+					{ Name: "NegativeWire", HasType: false, AllowModuleTypes: ["s1"], },
+					{ Name: "Locks", HasType: false, LockLayer: true, AllowColorize: false, },
+				],
+			},
+
 			// Penis Compatible Items
 			AssetSpankingToys
 		],

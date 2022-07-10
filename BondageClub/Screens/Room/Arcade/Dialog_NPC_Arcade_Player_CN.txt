@@ -1,0 +1,62 @@
+###_NPC
+(She thinks your gagged mumbling is part of the game)
+（她认为你的嘴被堵住并且口齿不清，是游戏的一部分）
+(She is has a headset on and is busy playing.)
+（她戴着头显，正忙着玩游戏。）
+###_PLAYER
+HEY!!!
+嘿！！！
+###_NPC
+(She peeks out from under her headset.) What's up?
+（她从头显的下面向外张望）怎么了？
+###_PLAYER
+Do you need some help getting to a higher level?
+需要帮你到达更高的关卡吗？
+###_NPC
+Nah, not right now. (She goes back to her game)
+不，不是现在。（她回到她的游戏中）
+###_PLAYER
+Do you know what there is to do around here?
+你知道这附近有什么好玩的吗？
+###_NPC
+(She smirks) Are you looking for some fun? Have you heard of the Devious Dungeon Challenge?
+（她得意地笑起来）你在找点乐子吗？你听说过邪恶地下城挑战吗？
+###_PLAYER
+Nothing.
+没什么。
+###_NPC
+Don't bother me, then. (She goes back to her game)
+那就别打扰我了。（她回到她的游戏中）
+###_PLAYER
+Yes, tell me more!
+是的，告诉我更多！
+###_NPC
+It's a bet where you make ad revenue from streaming your game, but getting bound ingame means getting bound in real life as well!
+这是一场赌博，你会从直播游戏中获得收入，但在游戏中被束缚也意味着在现实中也被束缚！
+###_PLAYER
+I don't like the look on your face.
+我不喜欢你脸上的表情。
+###_NPC
+Hehe. Suit yourself.
+呵呵。你自便。
+###_PLAYER
+Let's do it!
+我们开始吧！
+###_NPC
+Righto! I'll get the recording equipment set up!
+很好！我去设置录音设备！
+###_PLAYER
+Not right now.
+现在算了。
+###_NPC
+(She goes back to playing her game)
+（她继续玩她的游戏）
+###_PLAYER
+I'd like to stop participating in the Devious Dungeon Challenge.
+我想停止参加邪恶地下城挑战。
+###_NPC
+Fair enough.
+很公平。
+###_PLAYER
+(Leave her.)
+（离开她。）

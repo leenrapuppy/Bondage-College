@@ -1,0 +1,237 @@
+###_NPC
+Silence is the highest form of truth!
+沉默是真理的最高形式！
+(She gives a curious look at the gag but doesn't resist as you silence her.)
+（她好奇地看了一眼口塞，但在你堵上她的嘴时，她没有反抗。）
+(You remove her gag slowly.)  I am the supervisor here.
+（你慢慢地取下她的口塞。）我是这里的主管。
+(She nods and turns around as you restrain her arms securely.)  It will be a kinky work day.
+（她点头并转身，你牢牢地束缚住她的手臂。）这将是一个变态的工作日。
+(You free her arms and she stretches.)  Thanks head maid DialogPlayerName, this will make my work easier.
+（你松开她的手臂，她伸了伸懒腰。）感谢，女仆长DialogPlayerName，这将使我的工作更轻松。
+(She submits as you restrain her legs.)  How am I supposed to work now?
+（她顺从地让你束缚她的腿。）我现在应该怎么工作呢？
+(You release her legs while she shakes her butt.)  Thanks Miss.
+（你松开她的腿，她摇晃她的屁股时。）谢谢，女士。
+(You restrain her feet securely.)  I can not get on like this.
+（你牢固地束缚住她的脚。）这样我就不能走路了。
+(You release her feet.)  Much better.
+（你松开她的脚。）这好多了。
+(You strap the collar on her while she blushes.)  Someday I'll find a wonderful Mistress like you Miss.
+（你给她戴上项圈，她脸红起来。）总有一天我会找到一个像你这样出色的情妇小姐。
+(You remove the collar around her neck.)  Freedom is overrated.
+（你取下她脖子上的项圈。）自由被高估了。
+(She frowns as you lock the device on her.)  I hope you will unlock it after my shift Miss.
+（你把贞操带锁在她身上，她起皱着。）我希望你能在我轮班接受后解开它，女士。
+(She nods happily as you unlock the device.)  Yes!  That's very nice of you Miss.
+（你解开贞操带，她高兴地点头。）是的！你真是太好了，女士。
+(You strap the device on her head as she mumbles.)  It will be a kinky work day it seems.
+（你将道具绑在她的头上，她咕哝着说话。）看起来这将是一个变态的工作日。
+(You remove the device and she nods slowly.)  You're the best head maid DialogPlayerName.
+（你取下道具，她慢慢点头。）你最棒了，女仆长DialogPlayerName。
+(She jumps from the searing pain on her breast.)  Ouch!  Miss Head Maid!
+（她因为胸口的灼痛而跳了起来）哎哟！女仆长女士！
+(You whip her breast with the leather crop as she whimpers and bows her head.)
+（你用皮革硬鞭打她的乳房，她呜咽并低下头。）
+(You whip her butt hard as she sighs.)  I promise I'll work harder Miss Head Maid.
+（你用力抽打她的屁股，她叹口气。）我保证我会更加努力地工作的，女仆长女士。
+(She grumbles as you strike her butt with the crop.)  A maids work isn't easy.
+（你硬鞭抽打她的屁股时，她嘟囔起来。）女佣的工作并不容易。
+(You restrain her legs with the long hemp rope and suspend her by the feet from the ceiling.)  Well done.
+（你用长长的麻绳束缚住她的腿，把她的脚从天花板上吊起来。）干得好。
+(You untie the hemp rope from the ceiling and slowly let her down.)  Always be careful when you suspend someone.
+（你从天花板上解开麻绳，慢慢地放她下来。）当你把某人吊起来时，一定要小心。
+(A maid stands around and greets you.) This room is under construction. Please leave.
+（一个女仆站在旁边和你打招呼。）这个房间正在建设中。请离开。
+###_PLAYER
+What's going on here?
+这里是做什么的？
+###_NPC
+I'm looking for someone in handcuffs to help me test something.
+我在找一个戴手铐的人来帮我测试一些东西。
+###_PLAYER
+What kind of test is it?
+这是什么样的测试？
+###_NPC
+(She shoves you into a cell and closes the door.)
+（她把你推进一个牢房并关上；额门。）
+###_PLAYER
+I heard something about a gang of bad girls?
+我听说了一些关于坏女孩帮的事情？
+###_NPC
+The gang includes the troublemakers, all of whom should be put in a prison cell.
+这个帮派都是些捣乱的，所有这些人都应该被关进牢房。
+###_PLAYER
+I don't want to be a part of the Bad Girls Gang anymore.
+我不想再成为坏女孩帮的一员了。
+###_NPC
+Well, if you promise to be good, we'll leave you alone.
+好吧，如果你保证做个好人，我们就不再麻烦你了。
+###_PLAYER
+(return the dice)
+（归还骰子）
+###_NPC
+Thanks.
+谢谢。
+###_PLAYER
+Okay. Bye! (Leave her.)
+好的。再见！（离开她。）
+###_NPC
+Pleased to meet you. I'm DialogCharacterName, I work here as a maid.
+很高兴见到你。我是DialogCharacterName，我在这里作为女佣工作。
+###_PLAYER
+(Look surprised.)
+（露出惊讶的表情。）
+###_NPC
+It's good that you're under lock and key!
+你被锁起来真是太好了！
+###_PLAYER
+Please, can you let me out?
+请问，可以放我出去吗？
+(Stay silent and wait.)
+（保持沉默并等待。）
+(Shake the bars.)
+（摇动铁栏杆。）
+(Try to free yourself.)
+（尝试释放自己。）
+(Whimper and make pleading eyes.)
+（呜咽并做出恳求的眼神。）
+(Leave her.)
+（离开她。）
+(Watch her leave.)
+（看着她离开。）
+Thanks, that was a nice experience.
+谢谢，那是一次不错的体验。
+###_NPC
+You're welcome.
+别客气。
+###_PLAYER
+Finally I am out of that hole.
+我终于走出了那个臭坑。
+###_NPC
+All ends well
+最终一切安好
+###_PLAYER
+(Continues)
+（继续）
+###_NPC
+The bad girls always steal the special Dices in the Gambling hall for fun.
+坏女孩总是为了好玩而偷走赌博大厅里的特殊骰子。
+Therefore the guards must check them regularly.
+因此，警卫必须定期检查它们。
+If they are caught, they are sent to prison for punishment.
+如果她们被抓到，她们会被送进监狱接受惩罚。
+You're not one of those bad girls, are you?
+你不是那些坏女孩之一，对吧？
+###_PLAYER
+I would never do that.
+我永远不会那样做。
+###_NPC
+You'd better not.
+你最好不要。
+###_PLAYER
+On the contrary, I want to help catch them.
+相反，我想帮助抓住他们。
+###_NPC
+(This feature will be available in a future version.)
+（此功能将在未来的版本中提供。）
+###_PLAYER
+Sure, that sounds like fun.
+当然，这听起来很有趣。
+###_NPC
+I'll be keeping an eye on you from now on. Just don't get caught.
+从现在开始，我会一直关注你的。只是不要被抓住。
+###_PLAYER
+I swear it.
+我发誓。
+###_NPC
+Then keep it.
+那就保持你的誓言。
+###_PLAYER
+Ha ha, I'm just kidding.
+哈哈，我只是在开玩笑。
+###_NPC
+You'll see what you get out of it.
+你会知道这会给你什么教训的。
+###_PLAYER
+Hey! That really hurts!
+嘿！那真的很痛！
+###_NPC
+You don't deserve any better!
+你不配变得更好！
+###_PLAYER
+Miss!  Is that proper?
+女士！这合适吗？
+###_NPC
+You have to learn modesty.
+你必须学会​​谦虚。
+###_PLAYER
+Thanks! You're really good to me.
+谢谢！你对我真的很好。
+###_NPC
+I'll gladly do it again.
+我很乐意再来一次。
+###_PLAYER
+(Whimper from the pain.)
+（因疼痛而呜咽。）
+###_NPC
+That's right my prisoner.
+没错，我的囚犯。
+###_PLAYER
+(Thrash in your bondage.)
+（在你的束缚中挣扎。）
+###_NPC
+You'll never escape!
+你永远也逃不掉的！
+###_PLAYER
+(Stay silent and cold.)
+（保持沉静和冷漠。）
+###_NPC
+(She turns away.)
+（她转身离开。）
+I don't want to hear it. (She gags you.)
+我不想听。（她给你戴上口塞。）
+Just be quiet! (She gags you.)
+保持安静！（她给你戴上口塞。）
+Prisoners like you shouldn't speak. (She gags you.)
+像你这样的囚犯不应该说话。（她给你戴上口塞。）
+I won't let you out. You're a bad girl!
+我不会让你出去的。你是个坏女孩！
+Alright, you can come out. Here are your clothes.
+好吧，你可以出来了。这是你的衣服。
+I won't let you out, but you can have your clothes back. 
+我不会让你出去，但你可以拿回你的衣服。
+Shut up! You're staying that way.
+住口！你就这样呆着。
+Prisoners must wear handcuffs and should not have keys. I'll strip search you, and then I'll leave.
+囚犯必须戴上手铐，且不应有钥匙。我会脱光你，然后我会离开。
+I'll give you some time to think about how bad you've been. I'll come back later.
+我会给你一些时间想想你有多糟糕。我稍后再来。
+Poor girl, there are too many restraints. I'll take some off of you.
+可怜的姑娘，你的束缚太多了。我会从你身上取下一些。
+Prisoners must wear handcuffs.
+囚犯必须戴上手铐。
+You're all good, but I'm going to take your keys and leave. 
+你完全没啥问题，但我会拿走你们的钥匙，然后离开。
+Chill out. I'm going to get a coffee in the maid quarters.
+冷静下来。我要去女仆宿舍喝杯咖啡。
+(She whips you.) You need to be punished!
+（她鞭打你。）你需要受到惩罚！
+(She spanks your butt.) This should teach you some discipline, prisoner!
+（她拍打你的屁股。）这应该教会你一些纪律，囚犯！
+(She spanks your breasts.) Stand upright.
+（她拍打你的乳房。）站直。
+(She fondles your butt.) What a soft body.
+（她抚摸着你的屁股。）多么柔软的身体啊。
+(She fondles your breast.) What a soft body.
+（她抚摸着你的乳房。）多么柔软的身体啊。
+(She tickles your feet.) Tickle, tickle, tickle.
+（她挠你的脚。）挠痒痒，痒痒挠，挠挠痒。
+(She slaps your face.) Give it a rest!
+（她扇你的脸。）休息一下！
+(She massages your neck.) A collar would look nice on you.
+（她按摩你的脖子。）你戴着项圈会很好看。
+(She uses her crop.) This hurts me more than it hurts you!
+（她挥动她的硬鞭。）这对我的伤害比对你的伤害大得多！
+You changed your clothes despite your mistress's ban. Therefore, you've been sent into a cell by other members.
+你不顾你的女主人的禁令换了衣服。因此，你被其他会员送入了牢房。

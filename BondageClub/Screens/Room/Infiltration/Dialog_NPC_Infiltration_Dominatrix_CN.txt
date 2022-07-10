@@ -116,7 +116,7 @@ Luck can turn quickly.  What will you do with me?
 （取下她的口塞。）
 ###_NPC
 (She catches her breath.)  What will you do with me?
-（她屏住呼吸。）你要对我做什么？
+（她调整呼吸。）你要对我做什么？
 ###_PLAYER
 You will fetch me a good ransom.
 你会给我带来一份好赎金的。

@@ -647,11 +647,9 @@ var PlatformRoomList = [
 		Name: "CastleTerrace",
 		Entry: function() {
 			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Melody")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerrace");
-			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Melody")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerraceEnd");
 			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Olivia")) PlatformCreateCharacter("Melody", "Maid", 500, true, false, "OliviaTerrace");
-			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Olivia")) PlatformCreateCharacter("Melody", "Maid", 500, true, false, "OliviaTerraceEnd");
 			if (PlatformEventDone("EdlaranJoin") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerrace", true);
-			if (PlatformEventDone("EdlaranJoin") && PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerraceEnd", true);
+			if (PlatformEventDone("OliviaTerrace")) PlatformRoom.Door.push({ Name: "ForestCastleWall", FromX: 400, FromY: 0, FromW: 550, FromH: 1200, FromType: "Up", ToX: 500, ToFaceLeft: false });
 		},
 		Text: "Countess Terrace",
 		Background: "Castle/Terrace",
@@ -659,7 +657,8 @@ var PlatformRoomList = [
 		Height: 1200,
 		LimitLeft: 200,
 		Door: [
-			{ Name: "CastleCountessHall", FromX: 1900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+			{ Name: "CastleCountessHall", FromX: 1900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+			{ Name: "ForestCastleWall", FromX: -1000, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false } // Used for faster loading
 		]
 	},
 	{
@@ -822,6 +821,32 @@ var PlatformRoomList = [
 		],
 		Character: [
 			{ Name: "Chest", Status: "Metal", X: 1700, Combat: false, Fix: true, Dialog: "ChestRestraintsBeforeCurse" }
+		]
+	},
+	{
+		Name: "ForestCastleWall",
+		Text: "Wall Exterior",
+		Background: "Forest/CastleWall",
+		Width: 3800,
+		Height: 1200,
+		LimitLeft: 300,
+		Door: [
+			{ Name: "CastleTerrace", FromX: 350, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 625, ToFaceLeft: false },
+			{ Name: "ForestCabin", FromX: 3700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Lucy", Status: "Armor", X: 1300 },
+			{ Name: "Lucy", Status: "Armor", X: 2500 }
+		]
+	},
+	{
+		Name: "ForestCabin",
+		Text: "Forest Cabin",
+		Background: "Forest/Cabin",
+		Width: 3800,
+		Height: 1200,
+		Door: [
+			{ Name: "ForestCastleWall", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3700, ToFaceLeft: true }
 		]
 	},
 

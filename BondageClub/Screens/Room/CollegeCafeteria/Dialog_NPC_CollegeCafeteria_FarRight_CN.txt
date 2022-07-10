@@ -1,0 +1,14 @@
+###_NPC
+(She's waiting in line in front of you.  She's too far away to notice you.)
+（在队列里，她排在你前面。她离你太远了，没注意到你。）
+###_PLAYER
+Hey there!
+嘿，你好！
+###_NPC
+(She's doesn't notice you.)
+（她没有注意到你。）
+###_PLAYER
+(Try to catch her attention.)
+（试着引起她的注意。）
+(Leave her.)
+（离开她。）
