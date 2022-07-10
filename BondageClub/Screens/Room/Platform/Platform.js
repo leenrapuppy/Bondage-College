@@ -832,7 +832,7 @@ var PlatformRoomList = [
 		LimitLeft: 300,
 		Door: [
 			{ Name: "CastleTerrace", FromX: 350, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 625, ToFaceLeft: false },
-			{ Name: "ForestCabin", FromX: 3700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+			{ Name: "ForestVulture", FromX: 3700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
 			{ Name: "Lucy", Status: "Armor", X: 1300 },
@@ -840,13 +840,39 @@ var PlatformRoomList = [
 		]
 	},
 	{
-		Name: "ForestCabin",
-		Text: "Forest Cabin",
-		Background: "Forest/Cabin",
+		Name: "ForestVulture",
+		Text: "Forest Entrance",
+		Background: "Forest/VulturePlain",
+		Width: 2200,
+		Height: 1200,
+		Door: [
+			{ Name: "ForestCastleWall", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3700, ToFaceLeft: false },
+			{ Name: "ForestCabinPath", FromX: 2100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Yuna", Status: "Maid", X: 1400 }
+		]
+	},
+	{
+		Name: "ForestCabinPath",
+		Text: "Cabin Path",
+		Background: "Forest/CabinPath",
 		Width: 3800,
 		Height: 1200,
 		Door: [
-			{ Name: "ForestCastleWall", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3700, ToFaceLeft: true }
+			{ Name: "ForestVulture", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2100, ToFaceLeft: true },
+			{ Name: "ForestCabin", FromX: 2200, FromY: 0, FromW: 350, FromH: 1200, FromType: "Up", ToX: 250, ToFaceLeft: false }
+		]
+	},
+	{
+		Name: "ForestCabin",
+		Text: "Wooden Cabin (heal and save)",
+		Background: "Forest/CabinInterior",
+		Width: 3300,
+		Height: 1000,
+		Heal: 250,
+		Door: [
+			{ Name: "ForestCabinPath", FromX: 0, FromY: 0, FromW: 500, FromH: 1200, FromType: "Up", ToX: 2375, ToFaceLeft: false }
 		]
 	},
 
@@ -1167,7 +1193,7 @@ function PlatformDrawBackground() {
 function PlatformDrawCharacter(C, Time) {
 	if (C.Anim == null) return;
 	let X = C.X - C.Anim.Width / 2 - PlatformViewX;
-	let Y = C.Y - C.Anim.Height - PlatformViewY
+	let Y = C.Y - C.Anim.Height - PlatformViewY - 1200 + PlatformRoom.Height;
 	if ((X >= 2000) || (Y >= 1000)) return;
 	if ((X + C.Anim.Width <= 0) || (Y + C.Anim.Height <= 0)) return;
 	DrawImageEx("Screens/Room/Platform/Character/" + C.Name + "/" + C.Status + "/" + C.Anim.Name + "/" + C.Anim.Image.toString() + ".png", X + C.Anim.OffsetX, Y + C.Anim.OffsetY, { Mirror: C.Anim.Mirror, Width: C.Anim.Width, Height: C.Anim.Height } );
