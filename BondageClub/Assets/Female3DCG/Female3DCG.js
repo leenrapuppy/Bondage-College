@@ -3046,6 +3046,7 @@ var AssetFemale3DCG = [
 					{ Name: "WireOutline", HasType: false, AllowColorize: false, AllowModuleTypes: ["s1"], },
 					{ Name: "PositiveWire", HasType: false, AllowModuleTypes: ["s1"], },
 					{ Name: "NegativeWire", HasType: false, AllowModuleTypes: ["s1"], },
+					{ Name: "CrotchLock", HasType: false, LockLayer: true, AllowColorize: false, AllowModuleTypes: ["c1", "c3"], },
 					{ Name: "Locks", HasType: false, LockLayer: true, AllowColorize: false, },
 				],
 			},
