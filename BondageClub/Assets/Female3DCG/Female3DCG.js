@@ -1706,7 +1706,37 @@ var AssetFemale3DCG = [
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
-
+	{
+		Group: "Hands",
+		ParentGroup: "BodyUpper",
+		Priority: 28,
+		Default: false,
+		Clothing: true,
+		Underwear: true,
+		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "AllFours", "OverTheHead"],
+		PreviewZone: [183, 360, 135, 135],
+		Asset: [
+			{
+				Name: "Rings", Value: 
+			}
+			{ 
+				Name: "HonorRing", Value: 55, HideForPose: ["BackElbowTouch"],
+				Layer: [
+					{ Name: "Base"},
+					{ Name: "Jewels"}
+				],
+			},
+			{ Name: "WeddingRing", Value: -1, HideForPose: ["BackElbowTouch"], },
+			{ 
+				Name: "RingO", Value: 20, HideForPose: ["BackElbowTouch"],
+				Layer: [
+					{ Name: "Base"},
+					{ Name: "Ring"}
+				],
+			},
+		],
+		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
+	},
 	{
 		Group: "Bracelet",
 		ParentGroup: "BodyUpper",
