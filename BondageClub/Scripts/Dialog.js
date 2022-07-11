@@ -713,9 +713,9 @@ function DialogInventoryAdd(C, item, isWorn, sortOrder) {
 		// Make sure we do not duplicate the item in the list, including crafted items
 		for (let I = 0; I < DialogInventory.length; I++)
 			if ((DialogInventory[I].Asset.Group.Name == asset.Group.Name) && (DialogInventory[I].Asset.Name == asset.Name)) {
-				if ((item.Craft == null) && (DialogInventory[I].Craft != null)) break;
-				if ((item.Craft != null) && (DialogInventory[I].Craft == null)) break;
-				if ((item.Craft != null) && (DialogInventory[I].Craft != null) && (item.Craft.Name != DialogInventory[I].Craft.Name)) break;
+				if ((item.Craft == null) && (DialogInventory[I].Craft != null)) continue;
+				if ((item.Craft != null) && (DialogInventory[I].Craft == null)) continue;
+				if ((item.Craft != null) && (DialogInventory[I].Craft != null) && (item.Craft.Name != DialogInventory[I].Craft.Name)) continue;
 				return;
 			}
 	}
