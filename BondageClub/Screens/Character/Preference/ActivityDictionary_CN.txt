@@ -3,9 +3,9 @@ Kiss
 French Kiss
 法式热吻
 Polite Kiss
-轻吻
+礼貌地吻
 Gagged Kiss
-带着口塞吻
+隔着口塞吻
 Lick
 舔
 Suck
@@ -101,7 +101,7 @@ Sit
 Struggle
 挣扎
 Step
-脚部互动
+踩
 SourceCharacter is tormented by the vibrations, struggling to keep her cool.
 SourceCharacter在欲望和快感的交替中,苦苦保持着自己为数不多的清明和理智.
 SourceCharacter struggles against the intense vibrations, hardly able to control herself.
@@ -177,13 +177,13 @@ Spank Feet
 Massage Feet
 按摩脚部
 Polish Toenails
-给脚趾涂油
+给脚指甲涂油
 Bite Foot
 咬脚
 Wiggle Feet
 摇晃脚部
 Touch Foot with Gag
-用口塞触碰脚部
+用口塞触碰脚
 Tickle Sole
 挠脚心
 Spank Sole
@@ -619,7 +619,7 @@ SourceCharacter拍打了自己的脚。
 SourceCharacter massages her feet.
 SourceCharacter按摩她的脚.
 SourceCharacter cleans and polishes her toenails.
-SourceCharacter修剪并打磨了她的脚趾甲.
+SourceCharacter清理了她的脚趾甲，并涂了指甲油。
 SourceCharacter bites her foot.
 SourceCharacter咬了一口她的脚.
 SourceCharacter wiggles her feet.
@@ -629,7 +629,7 @@ SourceCharacter咬了一口TargetCharacter的脚.
 SourceCharacter kisses TargetCharacter's foot.
 SourceCharacter亲吻TargetCharacter的脚.
 SourceCharacter gives a small and polite kiss on TargetCharacter's foot.
-SourceCharacter轻轻的吻TargetCharacter的脚.
+SourceCharacter轻轻地吻TargetCharacter的脚。
 SourceCharacter touches TargetCharacter's feet with her gag.
 SourceCharacter用口塞触碰TargetCharacter的脚.
 SourceCharacter licks TargetCharacter's foot.
@@ -647,7 +647,7 @@ SourceCharacter按摩TargetCharacter的脚.
 SourceCharacter plays with TargetCharacter's feet using her own feet.
 SourceCharacter用自己的脚玩弄TargetCharacter的脚.
 SourceCharacter cleans and polishes TargetCharacter's toenails.
-SourceCharacter修剪并打磨TargetCharacter的脚指甲.
+SourceCharacter清理TargetCharacter的脚指甲，并涂了指甲油。
 SourceCharacter tickles her legs.
 SourceCharacter挠了挠自己的小腿.
 SourceCharacter spanks her own leg.
@@ -757,9 +757,9 @@ SourceCharacter轻咬TargetCharacter的阴唇.
 SourceCharacter uses the device to masturbate TargetCharacter's pussy lips.
 SourceCharacter用物品玩弄TargetCharacter的阴唇。
 SourceCharacter penetrates TargetCharacter's vagina at a slow pace.
-SourceCharacter缓慢的插入TargetCharacter的阴道.
+SourceCharacter缓慢地插入TargetCharacter的阴道。
 SourceCharacter penetrates TargetCharacter's vagina at a fast pace.
-SourceCharacter快速的插入TargetCharacter的阴道.
+SourceCharacter快速地插入TargetCharacter的阴道。
 SourceCharacter masturbates her clitoris.
 SourceCharacter自慰自己的阴蒂。
 SourceCharacter caresses her clitoris.
@@ -795,9 +795,9 @@ SourceCharacter用拳头玩弄TargetCharacter的屁股。
 SourceCharacter fingers and masturbates her ass.
 SourceCharacter用手指玩弄自己的屁股.
 SourceCharacter spanks herself on the butt.
-SourceCharacter拍打自己的屁股.
+SourceCharacter拍打自己的臀部。
 SourceCharacter caresses her butt.
-SourceCharacter轻抚TargetCharacter的屁股.
+SourceCharacter轻抚TargetCharacter的臀部。
 SourceCharacter gropes her butt.
 SourceCharacter抚弄自己的臀部.
 SourceCharacter wiggles her butt.
@@ -823,9 +823,9 @@ SourceCharacter轻抚TargetCharacter的臀部.
 SourceCharacter gropes TargetCharacter's butt.
 SourceCharacter抚弄TargetCharacter的臀部.
 SourceCharacter penetrates TargetCharacter's butt at a slow pace.
-SourceCharacter缓慢的插入TargetCharacter的后庭.
+SourceCharacter缓慢地插入TargetCharacter的后庭。
 SourceCharacter penetrates TargetCharacter's butt at a fast pace.
-SourceCharacter快速的插入TargetCharacter的后庭.
+SourceCharacter快速地插入TargetCharacter的后庭。
 SourceCharacter presses her foot into TargetCharacter's ass.
 SourceCharacter把脚踩进了TargetCharacter的屁股.
 SourceCharacter injects TargetCharacter's butt.
@@ -943,13 +943,13 @@ SourceCharacter抚弄自己的乳房.
 SourceCharacter shakes her breasts around.
 SourceCharacter摇晃自己的乳房.
 SourceCharacter injects her breast.
-SourceCharacter注射自己的胸部。
+SourceCharacter注射自己的乳房。
 SourceCharacter bites TargetCharacter's breast.
 SourceCharacter咬了一口TargetCharacter的乳房.
 SourceCharacter kisses TargetCharacter's breast.
 SourceCharacter亲吻TargetCharacter的乳房.
 SourceCharacter presses her gag to TargetCharacter's breast.
-SourceCharacter把口塞埋进了TargetCharacter的乳肉里.
+SourceCharacter把她的口塞按向TargetCharacter乳房。
 SourceCharacter licks TargetCharacter's breast.
 SourceCharacter舔弄TargetCharacter的乳房.
 SourceCharacter tickles TargetCharacter's breast.
@@ -965,9 +965,9 @@ SourceCharacter抚弄TargetCharacter的双乳.
 SourceCharacter steps on TargetCharacter's breast.
 SourceCharacter踩在TargetCharacter的乳房上.
 SourceCharacter rests her head on TargetCharacter's breasts.
-SourceCharacter把头枕在TargetCharacter的胸上.
+SourceCharacter把头枕在TargetCharacter的乳房上。
 SourceCharacter injects TargetCharacter's breast.
-SourceCharacter注射TargetCharacter的胸部。
+SourceCharacter注射TargetCharacter的乳房。
 SourceCharacter kisses her own arm.
 SourceCharacter亲吻自己的手臂.
 SourceCharacter licks her own arm.
@@ -1033,7 +1033,7 @@ SourceCharacter拍手.
 SourceCharacter rubs her hands together.
 SourceCharacter搓手.
 SourceCharacter cleans and polishes her nails.
-SourceCharacter修剪并打磨了她的指甲.
+SourceCharacter清洁她的指甲，并涂了指甲油。
 SourceCharacter bites her hand.
 SourceCharacter咬了一口自己的手.
 SourceCharacter wiggles her fingers
@@ -1057,7 +1057,7 @@ SourceCharacter拍打TargetCharacter的手.
 SourceCharacter caresses TargetCharacter's hand.
 SourceCharacter轻抚TargetCharacter的手.
 SourceCharacter cleans and polishes TargetCharacter's nails.
-SourceCharacter修剪并打磨TargetCharacter的指甲.
+SourceCharacter清洁TargetCharacter的指甲，并涂了指甲油。
 SourceCharacter caresses her neck.
 SourceCharacter轻抚自己的脖子.
 SourceCharacter massages her neck.
@@ -1085,7 +1085,7 @@ SourceCharacter按摩TargetCharacter的脖子.
 SourceCharacter chokes TargetCharacter's neck.
 SourceCharacter掐住TargetCharacter的脖子.
 SourceCharacter gently places her foot over TargetCharacter's neck.
-SourceCharacter轻轻的把脚放在TargetCharacter的脖子上.
+SourceCharacter轻轻地把脚放在TargetCharacter的脖子上。
 SourceCharacter tickles TargetCharacter's neck.
 SourceCharacter挠了挠TargetCharacter的脖子。
 SourceCharacter injects TargetCharacter's neck.
@@ -1109,11 +1109,11 @@ SourceCharacter带着口塞愤怒的尖叫.
 SourceCharacter groans desperately into her gag.
 SourceCharacter带着口塞拼命叫喊.
 SourceCharacter giggles into her gag.
-SourceCharacter带着口塞笑了.
+SourceCharacter带着口塞呵呵笑起来。
 SourceCharacter mumbles incoherently into her gag.
 SourceCharacter带着口塞语无伦次的嘟囔.
 SourceCharacter gives TargetCharacter a kiss on her gag.
-SourceCharacter带着口塞亲吻TargetCharacter.
+SourceCharacter隔着口塞亲吻TargetCharacter。
 SourceCharacter bites TargetCharacter's lips.
 SourceCharacter咬了一口TargetCharacter的嘴唇.
 SourceCharacter kisses TargetCharacter's lips.
@@ -1121,7 +1121,7 @@ SourceCharacter亲吻TargetCharacter的嘴唇.
 SourceCharacter shares a long French kiss with TargetCharacter.
 SourceCharacter和TargetCharacter进行了一次法式热吻.
 SourceCharacter gives a friendly kiss on TargetCharacter's cheek.
-SourceCharacter友好的亲吻TargetCharacter的脸颊.
+SourceCharacter友好地亲吻TargetCharacter的脸颊。
 SourceCharacter gives a gagged kiss on TargetCharacter's cheek.
 SourceCharacter带着口塞亲吻TargetCharacter的脸颊.
 SourceCharacter licks TargetCharacter's lips.
@@ -1133,9 +1133,9 @@ SourceCharacter轻抚并擦净了TargetCharacter的嘴.
 SourceCharacter clamps her hand over TargetCharacter's mouth.
 SourceCharacter捂住了TargetCharacter的嘴.
 SourceCharacter penetrates TargetCharacter's mouth at a slow pace.
-SourceCharacter缓慢的插入TargetCharacter的嘴.
+SourceCharacter缓慢地插入TargetCharacter的嘴。
 SourceCharacter penetrates TargetCharacter's mouth at a fast pace.
-SourceCharacter快速的插入TargetCharacter的嘴.
+SourceCharacter快速地插入TargetCharacter的嘴。
 SourceCharacter slaps herself on the face.
 SourceCharacter扇了自己一巴掌.
 SourceCharacter caresses her face.
