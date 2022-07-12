@@ -1,0 +1,85 @@
+###_NPC
+Heehee   you sound funny.
+嘻嘻，你听起来真好玩。
+(She accepts the gag, giggles and tests its effects.)  Teehee.  This makes my voice sound funny
+（她接受了口塞，咯咯地笑着测试它的效果。）嘻嘻。这让我的声音听起来很好玩
+(You remove her gag while she stretches her mouth.)  It seems kind of funny for a baby to be able to talk.
+（她张开嘴，你摘下她的口塞。）婴儿能够说话感觉很有趣。
+(She wriggles nervously while you restrain her arms.)  It looks like my arms won't get to play for a while.
+（你束缚她的手臂，她紧张地扭动着身体。）看来我的手臂暂时不能玩了。
+(You free her arms and she nods happily.)  Thank you.  We could play all sorts of games now.
+（你松开她的手臂，她高兴地点点头。）谢谢。我们现在可以玩各种游戏了。
+(She submits to you while you restrain her legs securely.)  I don't need to move anyway.
+（她顺从地让你牢固地束缚住她的腿。）反正我也不需要动。
+(You release her legs from the restraint.)  Let me know if I can help you Miss.
+（你解开她的腿上的束缚。）如果我能帮助你，请告诉我女士。
+(She looks puzzled as you restrain her feet.)  I'll stay on guard here Miss.
+（当你克制她的脚时，她看起来很困惑。）女士，我会在这里守着。
+(You release her feet and she wiggles them.)  Thanks Miss, it was troublesome.
+（你松开她的脚，她扭动双脚。）谢谢女士，这很麻烦。
+(You strap the collar on her while she blushes.)  You're quite a Dominant Miss.
+（她满脸通红地看着你为她带上项圈。）你真是个天生的支配者。
+(You remove the collar around her neck.)  Thanks Miss.
+（你取下她脖子上的项圈。）谢谢，女士。
+(You snap the belt around her waist and crotch while she sighs.)  No more fun for the crew.
+（你将贞操带系在她的腰部和胯部，她叹口气。）工作人员失去了乐趣。
+(You unlock the belt from her waist and she smiles.)  Thanks a lot Miss DialogPlayerName.
+（你解开她腰间的贞操带，她露出微笑。）非常感谢，DialogPlayerName女士。
+(You strap the device on her head as she nods slowly.)  This will not make my job easier Miss.
+（你把道具绑在她头上，她慢慢点头。）这肯定不会让我的工作更轻松的，女士。
+(You remove the device and she nods rapidly.)  Thanks a million, this is much better.
+（你取下设备，她迅速点头。）百万份感谢，这好多了。
+(She jumps from the searing pain on her breast.)  Ouch!  Miss Head Maid!
+（她因胸口的灼痛而跳了起来）哎哟！女仆长女士！
+(You whip her breast with the leather crop as she whimpers and bows her head.)
+（你用皮鞭抽打她的胸部，她呜咽着低下头。）
+(You whip her butt hard as she sighs.)  I promise I'll work harder Miss Head Maid.
+（你使劲抽打她的屁股，她叹口气。）我保证我会更加努力的，女仆长。
+(She grumbles as you strike her butt with the crop.)  A maid's work is never easy.
+（你用皮鞭打她的屁股，她抱怨道。）女仆工作真不容易。
+Welcome to the Nursery.  How can I help you?
+欢迎来到育婴室。有什么需要我帮你的吗？
+###_PLAYER
+My name's DialogPlayerName.  Whats yours?
+我的名字是DialogPlayerName。你的名字呢？
+###_NPC
+I'm DialogCharacterName. Would you like to play?
+我是DialogCharacterName。你想要玩吗？
+###_PLAYER
+What is there to do here?
+这里有什么可做的？
+###_NPC
+There isn't a lot to do at the moment, but the nurse will come along later with bottles full of milk.
+目前没什么可做的，但护士稍后会带着装满牛奶的瓶子来。
+###_PLAYER
+Your dress looks pretty.
+你的裙子看起来很漂亮。
+###_NPC
+(She blushes and fiddles with the hem of her dress.)  If you want to try a different dress, you could try asking the nurse.
+（她脸红起来，摆弄着裙子的下摆。）如果你想试试另一条裙子，你可以问问护士。
+###_PLAYER
+(Show her your restraints.)
+（向她展示你的束缚。）
+###_NPC
+(She giggles and shakes her head.)
+（她咯咯笑着摇摇头。）
+###_PLAYER
+I can't stay to chat.  (Leave her.)
+我不能继续聊天了。（离开她。）
+Milk, is that all?
+这完全是牛奶吗？
+###_NPC
+I'm not sure it's just milk either.  We tend to need these diapers shortly afterwards.
+我也不确定这只是牛奶。我们往往过不久就需要用到尿布。
+###_PLAYER
+Can we play any games now?
+我们现在可以玩任何游戏吗？
+###_NPC
+I'm not sure what games we could play.  The nurse will organise some fun and games for us later.
+我不确定我们可以玩什么游戏。稍后护士会为我们组织一些有趣的游戏。
+###_PLAYER
+Is that all?
+这就是全部？
+###_NPC
+For the time being.  The nursery is still under development.
+暂时如此。幼儿园还在建设中。

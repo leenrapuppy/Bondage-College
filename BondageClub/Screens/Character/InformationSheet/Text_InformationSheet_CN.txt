@@ -203,7 +203,7 @@ Willpower:
 Infiltration:
 潜入：
 Dressage:
-盛装：
+马术：
 Skills modifier:
 技能倍率：
  Time left:
