@@ -2708,7 +2708,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "LoversVibrator", Value: 75, Time: 5, LoverOnly: true, DefaultColor: "#790c0c", Prerequisite: ["AccessVulva"], Effect: ["Egged", "FillVulva"], AllowEffect: ["Egged", "Vibrating", "Edged", "FillVulva"], ExpressionTrigger: [{ Name: "Low", Group: "Blush", Timer: 10 }], AllowRemoveExclusive: true, CharacterRestricted: true, DynamicScriptDraw: true},
 			{ Name: "LoversVibratorRemote", Value: 75, Wear: false, LoverOnly: true, Prerequisite: ["RemotesAllowed"], Effect: ["Remote"] },
-			{ Name: "DoubleEndDildo", Value: 15, Time: 10, DefaultColor: ["#624662"], Effect: ["FillVulva"], Prerequisite: ["AccessVulva"], AllowPose: [], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 20 }], Attribute: ["PenetrateItem"], HasType: true, Extended: true	},
+			{ Name: "DoubleEndDildo", Value: 15, Time: 10, DefaultColor: ["#624662"], Effect: ["FillVulva"], Prerequisite: ["AccessVulva"], AllowPose: [], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 20 }], Attribute: ["PenetrateItem"], HasType: true, Extended: true},
 			{
 				Name: "Stitches", Category: ["Medical", "Extreme"], Priority: 13, BuyGroup: "Suture", Random: false, Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, Prerequisite: "AccessVulva", Effect: ["Chaste"], DefaultColor: ["#3f3c3a"], AllowPose: ["Spread"], Extended: true, AlwaysExtend: true, 
 				Layer: [
@@ -2854,7 +2854,7 @@ var AssetFemale3DCG = [
 					{ Name: "OuterShine", AllowColorize: false },
 				],
 			},
-			{ Name: "Stitches", Category: ["Medical", "Extreme",], Priority: 10, Visible: false, BuyGroup: "Suture", Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, Prerequisite: ["AccessButt"] },
+			{ Name: "Stitches", Category: ["Medical", "Extreme",], Priority: 10, Visible: false, BuyGroup: "Suture", Random:  false, Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, Prerequisite: ["AccessButt"] },
 			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -5754,7 +5754,6 @@ var AssetFemale3DCG = [
 					{ Name: "Cross", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["Cross"], MirrorExpression: "Mouth" },
 				],
 			},
-			
 			{
 				Name: "Slime", Category: ["Fantasy"], BuyGroup: "Slime", DefaultColor: ["#57ab5e"], Random: false, Value: 200, Difficulty: 4, Time: 15, RemoveTime: 25, Left: 200, Top: 170, Effect: ["BlockMouth", "GagMedium"],
 			},
