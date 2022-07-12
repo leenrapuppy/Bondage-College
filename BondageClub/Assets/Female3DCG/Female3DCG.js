@@ -5931,7 +5931,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "FurScarf", BuyGroup: "FurScarf", Value: 40, Difficulty: 3, Effect: ["BlindLight", "Prone"] },
 			{
-				Name: "Stitches", Category: ["Medical", "Extreme"], Priority: 8.5, BuyGroup: "Suture", Random: false, Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, DefaultColor: ["#3f3c3a", "#3f3c3a"], Hide: [""], Effect: [""], Top:145, Extended: true, AlwaysExtend: true, 
+				Name: "Stitches", Category: ["Medical", "Extreme"], Priority: 8.5, BuyGroup: "Suture", Random: false, Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, DefaultColor: ["#3f3c3a", "#3f3c3a"], Effect: [], Top:145, Extended: true, AlwaysExtend: true, 
 				AllowExpression: ["Angry", "Closed", "Daydream", "Dazed", "Dizzy", "Heart", "HeartPink", "Horny", "Lewd", "LewdHeart", "LewdHeartPink", "Sad", "Scared", "Scared", "Shy", "ShylyHappy", "Surprised", "VeryLewd"],
 				Layer: [
 					{ Name: "FakeEye", HasType: false, AllowColorize: false, AllowModuleTypes: ["m0r0l0", "m0r0l1", "m0r0l2", "m0r0l3", "m0r1l0","m0r1l1","m0r1l2","m0r1l3", "m0r2l0","m0r2l1","m0r2l2","m0r2l3", "m0r3l0", "m0r3l1", "m0r3l2", "m0r3l3", "m2r0l0", "m2r0l1", "m2r0l2", "m2r0l3", "m2r1l0","m2r1l1","m2r1l2","m2r1l3", "m2r2l0","m2r2l1","m2r2l2","m2r2l3", "m2r3l0", "m2r3l1", "m2r3l2", "m2r3l3"], MirrorExpression: "Eyes", Left: 200},
