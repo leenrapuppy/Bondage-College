@@ -202,6 +202,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		Tint: Array.isArray(AssetDef.Tint) ? AssetDef.Tint : [],
 		AllowTint: Array.isArray(AssetDef.Tint) && AssetDef.Tint.length > 0,
 		DefaultTint: typeof AssetDef.DefaultTint === "string" ? AssetDef.DefaultTint : undefined,
+		Gender: AssetDef.Gender,
 	}, AssetParsePoseProperties(AssetDef, Group.AllowPose.slice()));
 
 	// Ensure opacity value is valid

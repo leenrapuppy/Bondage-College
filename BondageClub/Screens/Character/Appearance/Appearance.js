@@ -46,12 +46,18 @@ function CharacterAppearanceBuildAssets(C) {
 	// Adds all items with 0 value and from the appearance category
 	CharacterAppearanceAssets = [];
 	for (let A = 0; A < Asset.length; A++)
-		if ((Asset[A].Value == 0) && (Asset[A].Group.Family == C.AssetFamily) && (Asset[A].Group.Category == "Appearance"))
+		if ((Asset[A].Value == 0) && (Asset[A].Group.Family == C.AssetFamily) && (Asset[A].Group.Category == "Appearance") && AssetGenderedIsAllowed(Asset[A]))
 			CharacterAppearanceAssets.push(Asset[A]);
 	for (let A = 0; A < C.Inventory.length; A++)
-		if ((C.Inventory[A].Asset != null) && (C.Inventory[A].Asset.Group.Family == C.AssetFamily) && (C.Inventory[A].Asset.Group.Category == "Appearance"))
+		if ((C.Inventory[A].Asset != null) && (C.Inventory[A].Asset.Group.Family == C.AssetFamily) && (C.Inventory[A].Asset.Group.Category == "Appearance") && AssetGenderedIsAllowed(Asset[A]))
 			CharacterAppearanceAssets.push(C.Inventory[A].Asset);
 
+}
+
+function AssetGenderedIsAllowed(asset) {
+	if (ChatRoomSpace == "MaleOnly" && asset.Gender == "F") return false;
+	else if (ChatRoomSpace == "FemaleOnly" && asset.Gender == "M") return false;
+	else return true;
 }
 
 /**
