@@ -3033,7 +3033,7 @@ var AssetFemale3DCG = [
 				{ Name: "Lock", LockLayer: true }
 			] },
 			{
-				Name: "ObedienceBelt", Fetish: ["Metal"], ParentGroup: null, Value: 0,
+				Name: "ObedienceBelt", Fetish: ["Metal", "Chastity"], ParentGroup: null, Value: 150,
 				Difficulty: 8, Time: 15, RemoveTime: 20,
 				Extended: true, DynamicScriptDraw: true, DynamicAfterDraw: true, AllowLock: true, Prerequisite: ["AccessVulva"], AllowEffect: ["Chaste"],
 				DefaultColor: ['Default', 'Default', "Default", "Default", "#FF0000", "#004A7F"],
@@ -3046,6 +3046,7 @@ var AssetFemale3DCG = [
 					{ Name: "WireOutline", HasType: false, AllowColorize: false, AllowModuleTypes: ["s1"], },
 					{ Name: "PositiveWire", HasType: false, AllowModuleTypes: ["s1"], },
 					{ Name: "NegativeWire", HasType: false, AllowModuleTypes: ["s1"], },
+					{ Name: "CrotchLock", HasType: false, LockLayer: true, AllowColorize: false, AllowModuleTypes: ["c1", "c3"], },
 					{ Name: "Locks", HasType: false, LockLayer: true, AllowColorize: false, },
 				],
 			},
