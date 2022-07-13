@@ -7573,7 +7573,7 @@ var AssetFemale3DCG = [
 					{ Name: "MiscFlogger", HasType: false, AllowModuleTypes: ["m0"]},
 					{ Name: "MiscGag", HasType: false, AllowModuleTypes: ["m0"]},
 					{ Name: "Back", HasType: false, Top: 190 },
-					{ Name: "Text", HasType: false, Top: 190 },
+					{ Name: "Text", HasType: false, Top: 190, HasImage: false, },
 					{ Name: "Arrow", HasType: false, AllowModuleTypes: ["a0"]},
 					{ Name: "Arrow2", HasType: false, AllowModuleTypes: ["a1"]},
 					{ Name: "Arrow3", HasType: false, AllowModuleTypes: ["a2"]},
