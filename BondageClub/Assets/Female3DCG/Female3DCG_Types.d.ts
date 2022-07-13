@@ -142,6 +142,7 @@ interface AssetDefinition {
 	PreviewIcons?: InventoryIcon[];
 	Tint?: TintDefinition[];
 	DefaultTint?: string;
+	Gender?: string;
 }
 
 interface AssetLayerDefinition {
