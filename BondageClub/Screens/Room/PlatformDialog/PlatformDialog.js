@@ -451,7 +451,7 @@ var PlatformDialogData = [
 			{ Text: "(You help her out as she dresses up.)" },
 			{
 				Background: "BathroomOlivia",
-				Character: [{ Name: "Olivia", Status: "Flower", Pose: "Idle" }]
+				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "Idle" }]
 			},
 			{ Text: "Thanks Melody, what is your next duty today?" },
 			{
@@ -460,7 +460,7 @@ var PlatformDialogData = [
 			},
 			{
 				Text: "Very well, I'll ask the staff to open the gate.",
-				Character: [{ Name: "Olivia", Status: "Flower", Pose: "Idle" }]
+				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "Idle" }]
 			},
 			{ Text: "The dungeon is scary, good luck down there." },
 			{ Text: "(She heads back to her bedroom.)" }
@@ -472,7 +472,7 @@ var PlatformDialogData = [
 		Dialog: [
 			{
 				Background: "BedroomOlivia",
-				Character: [{ Name: "Olivia", Status: "Flower", Pose: "Idle" }]
+				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "Idle" }]
 			},
 			{ Text: "The gate leading downstairs should be open." },
 			{ Text: "The dungeon is scary, good luck down there." }
@@ -1044,14 +1044,15 @@ var PlatformDialogData = [
 			{
 				Text: "Melody!  (She tugs on the cuffs in vain.)",
 				Background: "BedroomOliviaFloor",
-				Character: [{ Name: "Olivia", Status: "Flower", Animation: "Bound", Y: -400 }]
+				Character: [{ Name: "Olivia", Status: "Oracle", Animation: "Bound", Y: -400 }]
 			},
 			{ 
 				Text: "I'm relieved to see you.",
 				Answer: [
 					{ Text: "Who dared to touch you?", Reply: "(She bows her head slowly.)", Domination: 1 },
 					{ Text: "Poor Lady Olivia.", Reply: "I know this is scary Melody.", Domination: -1 },
-					{ Text: "What happened?", Reply: "(She takes a long deep breath.)" }
+					{ Text: "What happened?", Reply: "(She takes a long deep breath.)" },
+					{ Text: "(Spank her butt.)  You're cute in chains.", Reply: "(She whimpers and blushes.)  Thanks, but it's not the best time to be flirty.", Domination: 2, Love: 1, Perk: true }
 				]
 			},			
 			{ Text: "My sister Camille came from far away to visit the family." },
@@ -1063,7 +1064,8 @@ var PlatformDialogData = [
 				Answer: [
 					{ Text: "Did you hear that horrible scream?", Reply: "(She blushes.)  Sorry about that.  I did that scream.", Love: -1 },
 					{ Text: "I heard a woman scream.", Reply: "(She sighs.)  I did that scream." },
-					{ Text: "I heard your voice in the dark.", Reply: "Wow, you recognized my scream from the dungeon?", Love: 1 }
+					{ Text: "I heard your voice in the dark.", Reply: "Wow, you recognized my scream from the dungeon?", Love: 1 },
+					{ Text: "I was terrified from a loud scream Miss.", Reply: "(She nods.)  Don't be scared Melody, I did that scream.", Domination: -2, Perk: true }
 				]
 			},
 			{ Text: "When darkness came, the maids came in my room with strange eyes." },
@@ -1078,6 +1080,7 @@ var PlatformDialogData = [
 					{ Text: "I'll go kick her butt.", Reply: "Do you really think violence is the answer?  Be careful.", Domination: 1, Love: -1 },
 					{ Text: "Maybe I can beg her for the key.", Reply: "Negotiation might be possible, but be careful.", Domination: -1, Love: 1 },
 					{ Text: "I'll see what I can do.", Reply: "(She nods.)  Be careful Melody." },
+					{ Text: "There will be blood!", Reply: "(She struggles.)  Please don't kill her Melody, she's my sister.", Domination: 2, Love: -2, Perk: true }
 				]
 			},
 			{ Text: "Camille is very dangerous, she might kill you." },
@@ -1092,7 +1095,7 @@ var PlatformDialogData = [
 			{
 				Text: "Please be careful Melody.",
 				Background: "BedroomOliviaFloor",
-				Character: [{ Name: "Olivia", Status: "Flower", Animation: "Bound", Y: -400 }]
+				Character: [{ Name: "Olivia", Status: "Oracle", Animation: "Bound", Y: -400 }]
 			},
 			{ Text: "Camille is very dangerous, she might kill you." },
 			{ Text: "I think she went upstairs, maybe she's still there." },
@@ -1102,12 +1105,12 @@ var PlatformDialogData = [
 
 	{
 		Name: "OliviaCurseRelease",
-		Exit : function () { PlatformEventSet("OliviaCurseRelease"); PlatformLoadRoom(); },
+		Exit : function () { PlatformEventSet("OliviaCurseRelease"); PlatformPartyBuild(); PlatformLoadRoom(); },
 		Dialog: [
 			{
 				Text: "Melody!  Are you alright?",
 				Background: "BedroomOliviaFloor",
-				Character: [{ Name: "Olivia", Status: "Flower", Animation: "Bound", Y: -400 }]
+				Character: [{ Name: "Olivia", Status: "Oracle", Animation: "Bound", Y: -400 }]
 			},
 			{
 				Text: "Yes, I found your sister Camille in the Countess Hall.",
@@ -1123,7 +1126,7 @@ var PlatformDialogData = [
 			{
 				Text: "(She stretches happily.)  Thank you so much Melody.",
 				Character: [
-					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
@@ -1131,7 +1134,8 @@ var PlatformDialogData = [
 				Text: "You're the best.",
 				Answer: [
 					{ Text: "It's my pleasure and duty.", Reply: "You're a wonderful protector.", Love: 1, Domination: 1 },
-					{ Text: "I would do anything for you.", Reply: "You're a wonderful friend.", Love: 2 },
+					{ Text: "I would do anything for you.", Reply: "You're the best friend ever.", Love: 2, Perk: true },
+					{ Text: "Don't mention it.", Reply: "You're such a good friend.", Love: 1, Perk: false },
 					{ Text: "(Do a maid curtsy.)", Reply: "You're a wonderful maid.", Domination: -1, Love: 1 },
 				]
 			},
@@ -1142,6 +1146,7 @@ var PlatformDialogData = [
 					{ Text: "I don't know.  This is scary.", Reply: "(She nods.)  Maybe it's another curse from Camille.", Domination: -1 },
 					{ Text: "Another curse?", Reply: "Yes, it could be another curse." },
 					{ Text: "Don't be afraid.  I'm here.", Reply: "(She gets closer to you.)  Maybe it's another curse from Camille.", Domination: 1 },
+					{ Text: "(Hold her in your arms.)", Reply: "(You hold each other close for a little while.)", Love: 1, Perk: true },
 				]
 			},
 			{ Text: "Could she have more magic tricks?" },
@@ -1149,7 +1154,82 @@ var PlatformDialogData = [
 			{ Text: "(Darkness fades after a few seconds.)", Background: "BedroomOlivia" },
 			{ Text: "It was faster than the previous time.  Is that a good sign?" },
 			{ Text: "Let's go check for Camille.  I'm worried for her." },
-			{ Text: "(Olivia joined your party.  She might be a playable character in a future version of the game.)" },
+			{ Text: "(Olivia joined your party.  You can switch your active character when you can save.)" },
+		]
+	},
+
+	{
+		Name: "OliviaLearnMagic",
+		Dialog: [
+			{
+				Background: "Black",
+				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "Flustered" }]
+			},
+			{ Text: "(Olivia seems to be sweating and breathing heavily.)" },
+			{
+				Text: "M... M, M... Melody!",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "Flustered" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				],
+				Answer: [
+					{ Text: "That's my name.", Reply: "It's...  It's no time for jokes...  It's...  It's the belt...", Love: -1 },
+					{ Text: "Are you in distress Miss Olivia?", Reply: "(She nods quickly.)  It's...  It's the belt...", Domination: -1 },
+					{ Text: "Who dared to touch you?", Reply: "No...  No one...  It's...  It's the belt...", Domination: 1 },
+					{ Text: "Was your belt activated?", Reply: "Yes!  (She nods quickly.)  Y, y, yes...  The belt...", Love: 1, Perk: true }
+				]
+			},
+			{ Text: "It's moving!  (She shivers without much control.)" },
+			{ 
+				Text: "What...  What is going on?", 
+				Answer: [
+					{ Text: "I don't know.", Reply: "Why...  Why is it moving like that?" },
+					{ Text: "Everything will be fine sweetie.", Reply: "You...  You think?  Why is it moving like that?", Love: 1 },
+					{ Text: "That belt is cursed.", Reply: "It's...  It's a family tradition.  Why is it moving like that?", Love: -1 },
+					{ Text: "I'm scared Lady Olivia.", Reply: "Don't worry...  Ever...  Everything will be aaaaaa....", Domination: -1, Perk: true }
+				]
+			},
+			{ Text: "AaaaaaaAAAAHHH!" },
+			{ Text: "(She starts to breath faster and faster.)" },
+			{ Text: "MELODY!  Why...  Why am I sweating?" },
+			{ 
+				Text: "Why am I so wet?", 
+				Answer: [
+					{ Text: "The chastity belt is training you.", Reply: "T... Train...  Training me?  What...", Domination: 1 },
+					{ Text: "I'm sorry, I cannot help you.", Reply: "D....  Don't worry...  You're a good...", Domination: -1 },
+					{ Text: "Relax and enjoy.  (Caress her hair.)", Reply: "R.... Relax?   En... En, en, enjoy...", Love: 1 },
+					{ Text: "Wake your naughty side.", Reply: "W... What?  No, no, no.  I cannot...", Love: -1 }
+				]
+			},
+			{ Text: "(She falls on her knees.)", Character: [{ Name: "Olivia", Status: "Oracle", Pose: "KneelOrgasm", Y: -400 }] },
+			{ Text: "Aaaaahhh!  AAAAAAaaahhhh!" },
+			{ Text: "EEEEEEEEEEEEEAAAAAAAAAAAAAAAAAHHHHHH!!!" },
+			{ Text: "(She gets a shattering orgasm right in front of you.)" },
+			{ Text: "(Her powerful scream rings in your ears, giving you a headache.)" },
+			{ Text: "Oh..." },
+			{ Text: "Melody..." },
+			{
+				Text: "(She stands up.)",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "Flustered" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				],
+			},
+			{ Text: "It stopped moving." },
+			{ 
+				Text: "I'm sorry.", 
+				Answer: [
+					{ Text: "It's fine.  Are you alright?", Reply: "I don't know." },
+					{ Text: "Welcome to heaven.", Reply: "That was so...  so wonderful.", Love: 1 },
+					{ Text: "That scream was horrible.", Reply: "I know, I could not control it.", Love: -1 },
+					{ Text: "You're a woman now, an Oracle.", Reply: "(She nods.)  You might be right.", Domination: 1, Perk: true }
+				]
+			},
+			{ Text: "I feel weird.  I feel different." },
+			{ Text: "It's like I've been sleeping and now I'm awake." },
+			{ Text: "Let's head out, there's something I'd like to try." },
+			{ Text: "(Olivia can now use magic.  Her magic points will be shown in the upper corner.)" },
+			{ Text: "(Use the K key to scream and harm all enemies in the current area.)" }
 		]
 	},
 
@@ -1178,6 +1258,7 @@ var PlatformDialogData = [
 					{ Text: "What curse?", Reply: "You've always been clueless little maid.", Domination: -1 },
 					{ Text: "So you're the source of the zombies.", Reply: "They are not zombies.", Love: -1 },
 					{ Text: "Your tricks cannot affect me.", Reply: "You've gained some confidence since we last met.", Domination: 1 },
+					{ Text: "You're way too weak for me.", Reply: "You're not afraid of anything aren't you?", Domination: 2, Perk: true }
 				]
 			},
 			{ Text: "I don't know why you're not affected.  You've always been weird." },
@@ -1189,6 +1270,7 @@ var PlatformDialogData = [
 					{ Text: "Stop the curse and I'll go.", Reply: "You think I will obey you?", Domination: 1 },
 					{ Text: "I'm not going anywhere bitch.", Reply: "Now you're in trouble.", Love: -2 },
 					{ Text: "Please Lady Camille, you must stop that curse.", Reply: "Forget it Melody.", Domination: -1, Love: 1 },
+					{ Text: "(Get on your knees.) I beg you Lady Camille.", Reply: "You're not worthy of my time.", Domination: -2, Perk: true }
 				]
 			},
 			{
@@ -1214,6 +1296,7 @@ var PlatformDialogData = [
 					{ Text: "Face it, you're not that strong.", Reply: "I underestimated you maid.", Domination: 2 },
 					{ Text: "I protect the manor.", Reply: "You've always been a loyal maid.", Domination: 1, Love: 1 },
 					{ Text: "It doesn't matter.", Reply: "You're very direct.", Domination: 1, Love: -1 },
+					{ Text: "The good Camille within you allowed me to win.", Reply: "The good Camille?  Don't...  Don't be ridiculous.", Love: 2, Perk: true }
 				]
 			},
 			{ Text: "(She struggles and sighs.)" },
@@ -1225,6 +1308,7 @@ var PlatformDialogData = [
 					{ Text: "I don't know.", Reply: "Only time will tell." },
 					{ Text: "She will hate you forever.", Reply: "Fine, I don't care.", Love: -1, Domination: 1 },
 					{ Text: "She will forgive you someday.", Reply: "You have a kind heart.", Love: 1, Domination: -1 },
+					{ Text: "I will convince her to forgive you.", Reply: "Thanks.  I don't think I deserve such good treatment from you.", Love: 1, Domination: 1, Perk: true }
 				]
 			},
 			{ Text: "Take these keys for her shackles and go rescue her." },
@@ -1260,7 +1344,7 @@ var PlatformDialogData = [
 			{
 				Background: "CountessHall",
 				Character: [
-					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
@@ -1269,7 +1353,8 @@ var PlatformDialogData = [
 			{
 				Text: "Where is she?",
 				Answer: [
-					{ Text: "This is dangerous!  She escaped.", Reply: "Don't worry Melody.  I'm sure she learned her lesson.", Domination: -1 },
+					{ Text: "This is dangerous!  She escaped.", Reply: "Don't worry Melody.  I'm sure she learned her lesson.", Domination: -1, Perk: false },
+					{ Text: "(Hide behind Lady Olivia.)", Reply: "(She moves to protect you.)  Don't worry little Melody.  I'm sure she learned her lesson.", Domination: -2, Perk: true },
 					{ Text: "Damn bitch!  I'll track her down.", Reply: "(She gulps.)  Is violence always the answer?", Domination: 1, Love: -1 },
 					{ Text: "Let's investigate.", Reply: "Yes, she cannot be too far away." },
 					{ Text: "Stay behind me, it could be a trap.", Reply: "(She nods and hides behind you.)", Domination: 1 },
@@ -1287,7 +1372,7 @@ var PlatformDialogData = [
 			{
 				Background: "Terrace",
 				Character: [
-					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
@@ -1302,12 +1387,13 @@ var PlatformDialogData = [
 					{ Text: "We could track them.", Reply: "It won't be easy, but if anyone can do it, it's you.", Domination: 1 },
 					{ Text: "Let's find a cure for that curse.", Reply: "(She smiles.)  Yes, we need to help our friends.", Love: 1 },
 					{ Text: "It's safer to stay here.", Reply: "(She nods.)  I'm sure Mother will manage on her own.", Domination: -1 },
-					{ Text: "I don't know.", Reply: "(She sighs.)  I'm sure we'll figure a way to help.", Love: -1 },
+					{ Text: "I don't know.", Reply: "(She sighs.)  I'm sure we'll figure a way to help.", Love: -1, Perk: false },
+					{ Text: "We will find her and cure everyone.", Reply: "(She nods happily.)  I know we can do it.", Love: 2, Perk: true }
 				]
 			},
 			{ Text: "Whatever you do Melody.  I will be there with you." },
 			{ 
-				TextScript:  function () {
+				TextScript: function () {
 					let Love = PlatformDialogGetCharacter("Olivia").Love - 10;
 					let Dom = PlatformDialogGetCharacter("Olivia").Domination;
 					if ((Love >= 5) && (Love >= Math.abs(Dom))) return "My dear Olivia, together we are unstoppable.";
@@ -1325,7 +1411,7 @@ var PlatformDialogData = [
 					PlatformDialogProcess();
 				},
 				Character: [
-					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
@@ -1345,30 +1431,20 @@ var PlatformDialogData = [
 					PlatformAddExperience(PlatformPlayer, 10);
 					if (PlatformDialogGetCharacter("Olivia").Domination < 0) PlatformDialogCharacterDisplay[0].Pose = "KissMaidMelodySub";
 				},
-				Character: [{ Name: "Olivia", Status: "Flower", Pose: "KissMaidMelody" }]
+				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "KissMaidMelody" }]
 			},
 			{ Text: "(You exchange a long and passionate kiss.)" },
 			{ Text: "(Time seems to stop as you feel her sweet lips on yours.)" },
 			{ Text: "(You both moan slowly as you taste each other mouth for the first time.)" },
-			{ ID: "End", Text: "*** Congratulations!  You've reached the end of Bondage Brawl. ***" },
-			{ Text: "*** More playable characters, side quests, hidden scenes and a full new chapter might be added soon. ***" },
-			{ Text: "*** If you enjoyed the game or have ideas on how to improve it, please contact Ben987. ***" },
-		]
-	},
-
-	{
-		Name: "OliviaTerraceEnd",
-		Dialog: [
-			{
-				Background: "Terrace",
+			{ 
+				Text: "(You separate after a little while and smile at each other.)",
 				Character: [
-					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
-			{ Text: "*** Congratulations!  You've reached the end of Bondage Brawl. ***" },
-			{ Text: "*** More playable characters, side quests, hidden scenes and a full new chapter might be added soon. ***" },
-			{ Text: "*** If you enjoyed the game or have ideas on how to improve it, please contact Ben987. ***" },
+			{ ID: "End", Text: "Should we go down that rope?" },
+			{ Text: "(She points to the rope that runs down the castle wall.)" }
 		]
 	},
 
@@ -1379,29 +1455,12 @@ var PlatformDialogData = [
 				Background: "Terrace",
 				Character: [
 					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
-					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
 			{ Text: "Where are they?" },
 			{ Text: "(She looks at Olivia.)" },
-		]
-	},
-
-	{
-		Name: "EdlaranTerraceEnd",
-		Dialog: [
-			{
-				Background: "Terrace",
-				Character: [
-					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
-					{ Name: "Olivia", Status: "Flower", Pose: "Idle" },
-					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
-				]
-			},
-			{ Text: "*** Congratulations!  You've reached the end of Bondage Brawl. ***" },
-			{ Text: "*** More playable characters, side quests, hidden scenes and a full new chapter might be added soon. ***" },
-			{ Text: "*** If you enjoyed the game or have ideas on how to improve it, please contact Ben987. ***" },
 		]
 	},
 	
@@ -1505,11 +1564,12 @@ function PlatformDialogDraw() {
 			DrawTextWrap(PlatformDialogText, 75, 700, 850, 260, Color, null, 6);
 			DrawEmptyRect(997, 677, 0, 306, Color, 6);
 			let Pos = 0;
-			for (let Answer of PlatformDialogAnswer) {
-				DrawText(Answer.Text, 1500, 725 + (Pos * 70), "#fe92cf", "Black");
-				if (Pos == PlatformDialogAnswerPosition) DrawEmptyRect(1050, 693 + (Pos * 70), 900, 63, "#fe92cf", 4);
-				Pos++;
-			}
+			for (let Answer of PlatformDialogAnswer)
+				if ((Answer.Perk == null) || ((Answer.Perk == true) && PlatformHasPerk(PlatformPlayer, "Manipulation")) || ((Answer.Perk == false) && !PlatformHasPerk(PlatformPlayer, "Manipulation"))) {
+					DrawText(Answer.Text, 1500, 725 + (Pos * 70), "#fe92cf", "Black");
+					if (Pos == PlatformDialogAnswerPosition) DrawEmptyRect(1050, 693 + (Pos * 70), 900, 63, "#fe92cf", 4);
+					Pos++;
+				}
 		}
 		if ((Love != null) && (Domination != null)) {
 			DrawEmptyRect(1617, 610, 366, 66, Color, 6);
@@ -1532,13 +1592,23 @@ function PlatformDialogRun() {
 	PlatformDialogDraw();
 }
 
-function PlatformDialogChangeValue(CurrentValue, Change) {
+/**
+ * Change the love/domination value based on the option picked, influenced also by perks
+ * @param {Number} CurrentValue - The current value
+ * @param {Number} Change - The modifier to apply
+ * @returns {Number} - The new stat after changes
+ */
+function PlatformDialogChangeValue(CurrentValue, Change, Bonus) {
 	if ((CurrentValue == null) || (Change == null)) return CurrentValue;
-	if ((CurrentValue >= 10) && (Change > 0)) Change = 1;
-	if ((CurrentValue <= -10) && (Change < 0)) Change = -1;
-	if ((CurrentValue >= 20) && (Change > 0)) Change = 0;
-	if ((CurrentValue <= -20) && (Change < 0)) Change = 0;
-	return CurrentValue + Change;
+	if (Bonus == null) Bonus = false;
+	if (!Bonus && (CurrentValue >= 10) && (Change > 0)) Change = 1;
+	if (!Bonus && (CurrentValue <= -10) && (Change < 0)) Change = -1;
+	if (Bonus && (CurrentValue < 10) && (Change > 0)) Change++;
+	if (Bonus && (CurrentValue > -10) && (Change < 0)) Change--;
+	let Value = CurrentValue + Change;
+	if (Value > 20) Value = 20;
+	if (Value < -20) Value = -20;
+	return Value;
 }
 
 /**
@@ -1548,21 +1618,22 @@ function PlatformDialogChangeValue(CurrentValue, Change) {
  */
 function PlatformDialogPickAnswer(Position) {
 	let P = 0;
-	for (let Answer of PlatformDialogAnswer) {
-		if (Position == P) {
-			PlatformDialogReply = Answer.Reply;
-			PlatformDialogGoto = Answer.Goto;
-			if ((Answer.Love != null) || (Answer.Domination != null))
-				if ((PlatformDialogCharacterDisplay != null) && (PlatformDialogCharacterDisplay.length > 0))
-					for (let Character of PlatformDialogCharacter)
-						if (Character.Name == PlatformDialogCharacterDisplay[0].Name) {
-							Character.Love = PlatformDialogChangeValue(Character.Love, Answer.Love);
-							Character.Domination = PlatformDialogChangeValue(Character.Domination, Answer.Domination);
-						}
-			if (Answer.Script != null) Answer.Script();
+	for (let Answer of PlatformDialogAnswer)
+		if ((Answer.Perk == null) || ((Answer.Perk == true) && PlatformHasPerk(PlatformPlayer, "Manipulation")) || ((Answer.Perk == false) && !PlatformHasPerk(PlatformPlayer, "Manipulation"))) {
+			if (Position == P) {
+				PlatformDialogReply = Answer.Reply;
+				PlatformDialogGoto = Answer.Goto;
+				if ((Answer.Love != null) || (Answer.Domination != null))
+					if ((PlatformDialogCharacterDisplay != null) && (PlatformDialogCharacterDisplay.length > 0))
+						for (let Character of PlatformDialogCharacter)
+							if (Character.Name == PlatformDialogCharacterDisplay[0].Name) {
+								Character.Love = PlatformDialogChangeValue(Character.Love, Answer.Love, PlatformHasPerk(PlatformPlayer, "Seduction"));
+								Character.Domination = PlatformDialogChangeValue(Character.Domination, Answer.Domination, PlatformHasPerk(PlatformPlayer, "Persuasion"));
+							}
+				if (Answer.Script != null) Answer.Script();
+			}
+			P++;
 		}
-		P++;
-	}
 }
 
 /**

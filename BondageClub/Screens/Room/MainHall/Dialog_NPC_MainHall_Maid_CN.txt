@@ -1,0 +1,671 @@
+###_NPC
+Do you need help?  Nod if you do.
+你需要帮助吗？如果你愿意，就点头。
+(DialogCharacterName comes to check on you again.)  You're in trouble again?  Do you need help?
+（DialogCharacterName又回来检查你的情况。）你又遇到麻烦了？你需要帮助吗？
+Still in trouble, are we?  Have you learned your lesson?  Nod if you did.
+我们这里还是有些甩不开的麻烦嘛~你吸取教训了吗？如果你吸取了教训，就点点头。
+It seems that you need to learn a lesson. (She grabs your arms and forces them in an armbinder.  She then gets a gag and silences you.)
+看来你需要吸取些教训了。（她抓住你的胳膊，把它们塞进单手套里。然后她给你戴上了口塞，让你无法说话。）
+(She gulps and bows her head.)  Yes Miss.  Sorry Miss.
+（她咽了咽口水，低下头。）是的，女士。对不起，女士。
+I'm sorry Miss.  I cannot help you now.
+对不起，女士，我现在帮不了你了。
+(A maid taps on your shoulder.)  Slave girl, why aren't you naked?
+（女仆拍拍你的肩膀。）奴隶女孩，你怎么穿着衣服呢？
+(A maid greets you as you enter the hall.)  Can I have a word with you Miss DialogPlayerName?
+（当你进入大厅时，一个女仆向你打招呼。）我可以和你谈谈吗，DialogPlayerName女士？
+(The maid leaves you with Club Mistress.)  We Mistresses have been speaking.  It seems you're not fit to wear the heels anymore.
+（女仆把你交给了俱乐部女主人。）我们女主人们讨论过了。看来你不适合穿那高跟鞋了。
+(She gives a curious look at the gag but doesn't resist as you silence her.)
+（她好奇地看了一眼口塞，但你堵住她的嘴的时候，她没有反抗。）
+(You remove her gag slowly.)  Thanks Miss, it will be easier to do my job.
+（你慢慢地取掉她的口塞。）谢谢，女士，这会让我的工作轻松一些。
+(She nods and turns around as you restrain her arms securely.)  It will be a kinky workday.
+（她点头并转身，你牢牢地束缚住她的手臂。）这个工作日将会很色情。
+(You free her arms and she stretches.)  Thanks head maid DialogPlayerName, this will make my work easier.
+（你松开她的手臂，她伸了伸懒腰。）感谢，女仆长DialogPlayerName，这会让我的工作轻松一些。
+(She submits as you restrain her legs.)  Another kinky day in our kinky club.
+（她顺从地让你束缚她的双腿。）在我们这个色情的俱乐部的又一个色情的日子。
+(You release her legs while she shakes her butt.)  Thanks Miss.
+（你松开她的腿，她摇晃她的屁股。）谢谢，女士。
+(You restrain her feet securely.)  I'll stay in the hall then.
+（你稳稳地束缚住她的脚。）那我就待在大厅里。
+(You release her feet.)  Much better.
+（你松开她的脚。）好多了。
+(You strap the collar on her while she blushes.)  Someday I'll find a wonderful Mistress like you Miss.
+（你给她戴上项圈，她脸红起来。）将来某天，我会遇到一个像你一样棒的女主人的，女士。
+(You remove the collar around her neck.)  Freedom is overrated.
+（你取下她脖子上的项圈。）自由被高估了。
+(She frowns as you lock the device on her.)  I hope you will unlock it after my shift Miss.
+（你把道具锁在她身上时，她皱起眉头。）希望你能在我轮班之后解开它，女士。
+(She nods happily as you unlock the device.)  Yes!  That's very nice of you Miss.
+（你解开道具，她开心地点头。）是的！你真好，女士。
+(You strap the device on her head as she mumbles.)  It will be a kinky workday it seems.
+（你将道具绑在她的头上，她喃喃自语。）看起来这会是一个色情的工作日。
+(You remove the device and she nods slowly.)  You're the best head maid DialogPlayerName.
+（你取下道具，她慢慢点头。）你最好了，女仆长DialogPlayerName。
+(She jumps from the searing pain on her breast.)  Ouch!  Miss Head Maid!
+（她因为胸口的灼痛而跳了起来。）哎呀！女仆长小姐！
+(You whip her breast with the leather crop as she whimpers and bows her head.)
+（你用皮革短发鞭打她的乳房，她呜咽并低下头。）
+(You whip her butt hard as she sighs.)  I promise I'll work harder Miss Head Maid.
+（你用力抽打她的屁股，她叹气。）我保证我会更加努力地工作，女仆长女士。
+(She grumbles as you strike her butt with the crop.)  A maid work isn't easy.
+（你用硬鞭抽打她的屁股，她抱怨起来。）女仆的工作并不容易。
+(A maid walks by and greets you.)  Hi naked girl, are you in trouble?  Do you need help?
+（一个女仆走过来和你打招呼。）嗨，裸体的女孩，你遇到了麻烦吗？你需要帮助吗？
+(A maid walks by and greets you.)  Greetings head maid DialogPlayerName, are you in trouble?  Do you need help?
+（一个女仆走过来和你打招呼。）你好，女仆长DialogPlayerName，你遇到了麻烦吗？你需要帮助吗？
+(A maid walks by and greets you.)  Hi Sister, are you in trouble?  Do you need help?
+（一个女仆走过来和你打招呼。）嗨，姐妹，你遇到了麻烦吗？你需要帮助吗？
+(A maid walks by and greets you.)  Are you in trouble?  Do you need help?
+（一个女仆走过来和你打招呼。）你遇到了麻烦吗？你需要帮助吗？
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm DialogCharacterName, I work here as a maid to help submissives in trouble.  Do you need help?
+我是DialogCharacterName，我在这里作为女仆工作，帮助陷入困境的顺从者。你需要帮助吗？
+###_PLAYER
+(Nod yes.)
+（点头，表示同意。）
+###_NPC
+(She releases you and smiles.)  Here you go!  Everything is ok now?
+（她松开你并露出微笑。）好了！现在一切都好吗？
+###_PLAYER
+Yes, can you release me?
+是的，你能放开我吗？
+###_NPC
+(She checks your locks and frowns.)  Is that an owner lock?  Your Mistress might not be pleased if I release you.
+（她检查你的锁，皱着眉头。）那是主人锁吗？如果我释放你，你的女主人可能会不高兴。
+(She checks your locks and frowns.)  Is that a lover lock?  Your lover might not be pleased if I release you.
+（她检查你的锁，皱着眉头）那是爱人锁吗？如果我释放你，你的爱人可能会不高兴。
+###_PLAYER
+(Nod yes and point to your slave collar.)
+（点头同意并指着你的奴隶项圈。）
+###_NPC
+(She checks the lock and frowns.) That is a slave collar. Your Mistress might not be pleased if I change it.
+（她检查锁，皱着眉头。）那是奴隶项圈。如果我改变它，你的女主人可能会不高兴。
+(She shakes her head no.)  I'm sorry, I cannot help hardcore or extreme members.  Change your membership or find someone in a chatroom.
+（她摇头，表示拒绝。）对不起，我无法帮助硬核和极端的成员。更改你的会员资料，或在聊天室中找人帮助你吧。
+(She shakes her head no.) Hang in there.  You have less than 10 minutes to go.
+（她摇头，表示拒绝。）坚持住。你还有不到10分钟的时间。
+(She shakes her head no.)  You have about an hour left.
+（她摇头，表示拒绝。）你还有一个小时左右。
+(She shakes her head no.)  You have a day of struggling ahead of you.
+（她摇头，表示拒绝。）你接下来还要挣扎一天。
+(She laughs.)  You have 2 days to go.  Hang tight.
+（她笑起来。）你还有2天的时间。加油哦。
+(She caresses your face).  You have 3 days to go.  Hope you're having fun.
+（她抚摸你的脸）。你还有3天的时间。希望你玩得开心。
+(She giggles.)  Having fun yet?  You have 4 days to go.
+（她咯咯笑起来。）玩得开心吗？你还有4天的时间。
+I still can't let you go.  You have 5 days to go.
+我还是不能放你走。你还有5天的时间。
+(She slaps your butt.)  I can't help you, my dear.  Have fun.
+（她拍拍你的屁股。）亲爱的，我帮不了你。玩得开心。
+(She looks at her clipboard, amazed.)  One whole week.  Good luck dear.
+（她惊讶地看着她的记事板。）整整一周。亲爱的，祝你好运。
+###_PLAYER
+(Shake your head firmly and plead for more.)
+（坚定地摇头并恳求更多。）
+###_NPC
+(She looks at her clipboard.)  Is that so?  I can extend your period of helplessness if you want.  (She goes over a list of durations and waits for you to answer.)
+（她看着她的记事板。）是这样吗？如果你愿意，我可以让你的无助更长久一些。（她查看了一下持续时间的清单，等待你回答。）
+###_PLAYER
+Yes, can you change my collar?
+是的，你能更换我的项圈吗？
+I'm fine.  But I have questions on the club.
+我很好。但我有一些关于俱乐部的疑问。
+###_NPC
+Sure.  What would you like to know?
+当然。你想知道什么？
+###_PLAYER
+Get lost girl!
+快滚，女孩！
+###_NPC
+It seems that you need something to shut your foul mouth.  (She produces a gag and silences you.)
+看来你需要一些东西帮你闭上你肮脏的嘴。（她使用一个口塞让你闭嘴。）
+###_PLAYER
+I'm fine, thanks. (Leave her.)
+我很好，谢谢。（离开她。）
+###_NPC
+Pleased to meet you.  I'm DialogCharacterName, I work here as a maid.
+很高兴见到你。我是DialogCharacterName，我在这里作为女佣工作。
+###_PLAYER
+(Shake your head no and leave her.)
+（摇头，表示否定，并离开她。）
+Thanks Miss.  I really appreciate your help.
+谢谢女士。非常感谢你的帮助。
+###_NPC
+Welcome.  I'll be around if you need help again.
+不用谢。如果你再次需要帮助，我会在附近。
+###_PLAYER
+Alright!  Thanks for helping.
+很好！感谢你的帮助。
+###_NPC
+(She nods.)  It's my pleasure Miss.  I'll be around if you need help again.
+（她点头。）是我的荣幸，女士。如果你再次需要帮助，我会在附近。
+###_PLAYER
+I owe you one, scream if you get in trouble.
+我欠你一次，如果你遇到麻烦了的话，就尖叫吧。
+###_NPC
+(She giggles.)  Of course, we take good care of each other in the Bondage Club.
+（她咯咯地笑起来。）当然，我们在束缚俱乐部会互相照顾的。
+###_PLAYER
+Take care!  (Leave her.)
+多保重！（离开她。）
+I have some questions on the club.
+我有一些关于俱乐部的问题。
+Can this slave ask you something else?
+这个奴隶能问你点别的事情吗？
+###_NPC
+Of course little club slave.  How can I help you?
+当然可以，小俱乐部奴隶。需要我做什么呢？
+###_PLAYER
+A club customer reserved a bedroom to punish me.
+一位俱乐部顾客预订了一间卧室来惩罚我。
+###_NPC
+Good for you.  (She laughs.)  And how can I help?
+祝你好运。（她笑起来。）需要我做什么呢？
+###_PLAYER
+Nothing, I'm good.  (Leave her.)
+没什么，我很好。（离开她。）
+There's already a girl chained on the bed.
+有一个女孩被锁在了床上。
+###_NPC
+I understand, we can't have unhappy customers, can we?  I'll go release her.
+我明白，我们不能有不满意的客户，对吧？我会去释放她。
+###_PLAYER
+You're the best!  (Leave her.)
+你太棒了！（离开她。）
+(Nod and whimper for help.)
+（点头并呜咽着求帮。）
+###_NPC
+I can help you girl, but you will be shamed for that.  Your reputation will be hurt.
+我可以帮助你女孩，但你会因此被羞辱。你的名誉会受到伤害。
+###_PLAYER
+I know, but can you still help me?
+我知道，但你还能帮我吗？
+You're right.  Forget it then. (Leave her.)
+你是对的。那就算了吧。（离开她。）
+(Sigh and leave her.)
+（叹气，然后离开她。）
+(Nod and bow your head.)
+（点头，然后低下头。）
+###_NPC
+Very well.  (She releases you, strips you and confiscate your clothes.)
+很好。（她释放你，剥光你的衣服，没收你的衣服。）
+###_PLAYER
+I will endure my punishment.
+我会忍受我的惩罚。
+Forget it then. (Leave her.)
+那就算了吧。（离开她。）
+Why are you taking my clothes?
+你为什么要拿走我的衣服？
+###_NPC
+(She frowns.)  Your clothes are confiscated for the next hour.  This humiliation might teach you to respect your owner's will.
+（她皱起眉头。）在接下来的一个小时内，你的衣服会被没收。这份羞辱，会教会你尊重主人的意愿。
+###_PLAYER
+When can I dress back?
+我什么时候可以穿回衣服？
+###_NPC
+Your clothes are confiscated for the next hour.  This humiliation might teach you to respect your owner's will.
+在接下来的一个小时内，你的衣服会被没收。这份羞辱，会教会你尊重主人的意愿。
+###_PLAYER
+I know I'm a bad submissive.
+我知道我是一个糟糕的顺从者。
+###_NPC
+(She sighs.)  Your clothes are confiscated for the next hour.  This humiliation might teach you to respect your owner's will.
+（她叹了口气。）在接下来的一个小时内，你的衣服会被没收。这份羞辱，会教会你尊重主人的意愿。
+###_PLAYER
+Very well, thank you.  (Leave her.)
+好吧，谢谢你。（离开她。）
+Fine, I'm going then.  (Leave her.)
+好的，那我走了。（离开她。）
+(Grumble and leave.)
+（咕哝着离开。）
+Please release me anyway.
+无论如何请放开我。
+###_NPC
+Well, that's something you should discuss with your lover.  (She releases you.)
+嗯，这是你应该和你的恋人讨论的事情。（她释放了你。）
+###_PLAYER
+(Nod slowly.)
+（慢慢点头。）
+Forget it then.
+那就别想了。
+###_NPC
+Alright!  Run to your lover.  (She spanks your butt and giggles.)
+好吧！去找你你的恋人吧。（她拍打你的屁股并咯咯地笑。）
+###_PLAYER
+(Shake your head no.)
+（摇头，表示拒绝。）
+Why do you care?
+关你什么事？
+###_NPC
+I'm doing my job.  Club slaves must stay naked, let me help you to strip.
+我在做我的工作。俱乐部奴隶必须保持赤身裸体，让我帮你脱光衣服。
+###_PLAYER
+Oops!  I forgot the rule.
+哎呀！我忘记了规则。
+###_NPC
+Rules are important.  Club slaves must stay naked, let me help you to strip.
+规则是重要的。俱乐部奴隶必须保持赤身裸体，让我帮你脱光衣服。
+###_PLAYER
+Sorry.  I was tricked by someone.
+对不起。我被某人骗了。
+###_NPC
+Make sure to remember the rules.  Club slaves must stay naked, let me help you to strip.
+一定要记住规则。俱乐部奴隶必须保持赤身裸体，让我帮你脱光衣服。
+###_PLAYER
+(Look surprised.)
+（露出惊讶的神情。）
+(Look ashamed.)
+（露出惭愧的神情。）
+Alright then.
+那好吧。
+###_NPC
+(She nods and slowly strips you down.)  Since you broke the rule, I will reset your hour of duty.  You must redo it fully.
+（她点点头，慢慢地剥去你的衣服。）既然你违反了规定，我会重新设置你的任务时间。你必须从头再来。
+###_PLAYER
+That sucks.
+太糟糕了。
+###_NPC
+(She sighs and slowly strips you down.)  Since you broke the rule, I will reset your hour of duty.  You must redo it fully.
+（她叹了口气，慢慢地剥去你的衣服。）既然你违反了规定，我会重新设置你的任务时间。你必须从头再来。
+###_PLAYER
+(Grumble a little.)
+（稍微咕哝。）
+(Comply and help her.)
+（服从并帮助她。）
+This is unfair!
+这不公平！
+###_NPC
+You should have read your contract girl.  I need to go now.
+你应该读过合约，女孩。我现在要走了。
+###_PLAYER
+I understand.
+我明白。
+###_NPC
+Very well.  I need to go now.
+很好。我现在要走了。
+###_PLAYER
+(Grumble in disagreement.)
+（不满地抱怨。）
+Wait!  Can you release me first?
+等待！你能先放开我吗？
+###_NPC
+No!  Struggle some more, I'll be back later.
+不能！再挣扎一会儿吧，我等会儿回来。
+###_PLAYER
+(Struggle and beg for help.)
+（挣扎求救。）
+###_NPC
+Keep on struggling girl, I might help you later.
+继续挣扎吧，女孩，我等会儿可能会来帮你。
+###_PLAYER
+Thank you for your time.
+感谢你为我花费时间。
+###_NPC
+Don't mention it.  I'm simply doing my job.
+别这么说。我只是在做我的工作。
+###_PLAYER
+(Leave her.)
+（离开她。）
+What do you want?
+你想要什么？
+###_NPC
+I was informed that the club management Mistresses want to meet you.
+我被告知俱乐部管理的女主人想见你。
+###_PLAYER
+Make it quick.
+快一点。
+###_NPC
+Yes Miss.  (She gulps.)  I was informed that the club management Mistresses want to meet you.
+是的，女士。（她咽了咽口水。）我被告知俱乐部管理的女主人想见你。
+###_PLAYER
+(Stay silent.)
+（保持沉默。）
+###_NPC
+Miss, I was informed that the club management Mistresses want to meet you.
+女士，我被告知俱乐部管理的女主人想见你。
+###_PLAYER
+Why is that?
+这是为什么？
+###_NPC
+I don't know Miss, but I was told to bring you there right away.
+我不知道女士，但有人告诉我马上带你去。
+###_PLAYER
+I don't have time for that.
+我没有时间做那个。
+###_NPC
+Miss, it's very important.  They told me to bring you there right away.
+女士，这很重要。他们让我马上带你过去。
+###_PLAYER
+Let's go see them.
+那去看看他们吧。
+###_NPC
+Absolutely, please come with me.
+当然，请跟我来。
+###_PLAYER
+Fine, let's go.  (Meet a Club Mistress.)
+好吧，我们走吧。（与一位俱乐部女主人见面。）
+(Walk with her to a Club Mistress.)
+（和她一起前往俱乐部女主人的位置。）
+###_NPC
+Very well.  (She changes the collar, strips you and confiscate your clothes.)
+很好。（她更换了项圈，脱下并没收了你的衣服。）
+###_PLAYER
+(Bow your head in thanks.)
+（低头，表示感谢。）
+(Frown and leave her.)
+（皱起眉毛，然后离开她。）
+(Nod and leave her.)
+（点头，然后离开她。）
+(Ask for 10 more minutes)
+（要求加10分钟）
+###_NPC
+You will be helpless for ten more minutes, and the maids will not rescue you, nor will our associates in the photography club assist you.
+接下来你会度过无助的10分钟，女仆不会救你，我们得和照相馆都不能帮你。
+###_PLAYER
+(Ask for 30 more minutes)
+（要求加30分钟）
+###_NPC
+You will be helpless for 30 more minutes, and the maids will not rescue you, nor will our associates in the photography club assist you.
+接下来你会度过无助的30分钟，女仆不会救你，我们得和照相馆都不能帮你。
+###_PLAYER
+(Ask for 1 more hour)
+（要求加1小时）
+###_NPC
+You will be helpless for the next hour, and the maids will not rescue you, nor will our associates in the photography club assist you.
+接下来你会度过无助的1小时，女仆不会救你，我们得和照相馆都不能帮你。
+###_PLAYER
+(Back out)
+（退开）
+###_NPC
+(She smiles and slaps your butt) Fair enough. Now go struggle some more.
+（她微笑着拍拍你的屁股）足够了。现在走吧，再挣扎一下。
+Welcome back! The Club went through some renovation since you last visited.
+欢迎回来！自从你上次访问以来，俱乐部进行了一些翻新。
+###_PLAYER
+(Open changelog.)
+（打开变更日志。）
+Thank you. (Leave her.)
+谢谢你。（离开她。）
+Yes, it's my very first time.
+是的，这是我的第一次。
+###_NPC
+It's fine.  I have a few important questions before I let you in, and I need honest answers.
+没关系。在我让你进来之前，我有几个重要的问题，我需要诚实的答案。
+###_PLAYER
+No, I've been here before.
+不，我以前来过这里。
+###_NPC
+Very well.  Before I let you in, we need to review the most important rules.  Will you give me honest answers?
+很好。在我让你进来之前，我们需要回顾一下最重要的规则。你会诚实地回答我吗？
+###_PLAYER
+Yes.  I will be honest.
+是的。我会诚实回答。
+###_NPC
+First, I need to make sure that you're an adult.  This place isn't for minors.  Are you an adult in your country?
+首先，我需要确定你是成年人。这个地方不适合未成年人。你在你的国家是成年人吗？
+###_PLAYER
+No.  I lie all the time.
+不，我一直在撒谎。
+###_NPC
+I'm sorry, but I must kick you out of the club.  Look around, the exit is marked with an "x".  (Please close the game.)
+对不起，我必须把你踢出俱乐部。往四周看看，退出标记有“x”。（请关闭游戏。）
+###_PLAYER
+I'm an adult.
+我是一个成年人。
+###_NPC
+(She nods.)  You understand that this is a BDSM club?  People from everywhere come to experience bondage, domination, discipline and more.
+（她点头。）你明白这是一个BDSM俱乐部吗？来自世界各地的人们来体验束缚、支配、管教等等。
+###_PLAYER
+I'm a minor.
+我是未成年人。
+I'm fine with BDSM.
+我能接受BDSM。
+###_NPC
+(She smiles.)  Not everyone has the same kinks, but you must respect everyone fetishes and be open-minded.
+（她笑起来。）不是每个人都有相同的癖好，但你必须尊重每个人的癖好，并保持开放的心态。
+###_PLAYER
+BDSM isn't for me.
+BDSM不适合我。
+I will be respectful and open-minded.
+我会尊重，并保持开放。
+###_NPC
+BDSM is and must remain consensual.  When you meet other members, you must always respect them and their limits.  Don't restrain them randomly.
+BDSM是双方同意的，并且必须保持双方同意。当你遇到其他成员时，你必须始终尊重他们，并尊重他们的限制。不要随意地束缚她们。
+###_PLAYER
+I don't respect other people fetishes.
+我不尊重其他人的癖好。
+Everything will be consensual, and I will respect limits.
+一切都将是自愿的，我会尊重限制。
+###_NPC
+(She nods.)  Your real-life well being is what matters most.  Never do anything that could harm you such as real-life asphyxiation or self-bondage.
+（她点头。）你在现实生活中安好是最重要的。切勿做任何可能伤害你的事情，例如现实生活中的窒息或自我束缚。
+###_PLAYER
+I don't care about limits.
+我不在乎限制。
+I will stay safe when I play.
+我玩的时候会保证安全的。
+###_NPC
+Great!  Your online security is also important.  Never give your account name, password, real name, phone number or any personal information to anyone.
+很好！你的线上信息安全也很重要。切勿将你的账户名、密码、真实姓名、电话号码或任何个人信息透露给任何人。
+###_PLAYER
+I like danger too much.
+我太喜欢危险了。
+My personal information will stay personal.
+我的个人信息只有我会知道。
+###_NPC
+Some people cheat and take shortcuts.  If you do cheat, promise me you will only do it for yourself and not ruin the experience of other members.
+有些人会作弊，走捷径。如果你作弊，答应我你只会为自己做，不会破坏其他成员的体验。
+###_PLAYER
+I prefer sharing my information.
+我更喜欢分享我的信息。
+I will never cheat.
+我永远不会作弊。
+###_NPC
+Excellent!  You're free to explore the club now.  Do you have any more questions?
+太棒了！你现在可以自由探索俱乐部了。你还有问题吗？
+###_PLAYER
+I won't use exploits against others.
+我不会利用漏洞来对付别人。
+I'll do what I want.
+我会做我想做的。
+Where should I begin?
+我应该从哪里开始？
+###_NPC
+You should go to the introduction class first, to learn about bondage.  Follow the sign with an "i".
+你应该先去介绍课程，了解束缚。找到那个“i”的标志。
+###_PLAYER
+How can I get items?
+我怎样才能获得道具？
+###_NPC
+Try the shop first, you can buy lots of items from there.  Follow the sign with the shopping bag.  You can also get special items and clothes by completing tasks.
+先试试商店，你可以从那里买到很多东西。找到购物袋的标志。你还可以通过完成任务获得特殊物品和衣服。
+###_PLAYER
+How can I make money?
+我怎样才能赚钱？
+###_NPC
+You can join the maid sorority and work for them, follow the maid sign.  Or join the kidnapper's league and take bounties, follow the tied hands sign.
+你可以加入女仆社团，并为他们工作，找到女仆的标志。或者加入绑匪联盟并获得赏金，找到双手被束缚的标志。
+###_PLAYER
+Where can I meet online players?
+我在哪里可以见到在线玩家？
+###_NPC
+In the online chat rooms.  From the main hall, follow the chat bubble sign.  Just enter a room and you're good to go.  Remember to be courteous and respectful.
+去在线聊天室。从大厅出发，找到聊天气泡标志。点进一个房间就好了。记住，要保持礼貌并尊重他人。
+###_PLAYER
+Tell me about the reputation system.
+跟我说说声望系统吧。
+###_NPC
+Your reputations will increase or decrease based on your actions and answers.  It affects your ranking, the activities you can do and how others perceive you.
+你的声望会根据你的行为和回答而增加或减少。这会影响你的分类、你可以进行的活动以及其他人对你的看法。
+###_PLAYER
+I want to learn about skills.
+我想学习技能。
+###_NPC
+There are different skills you can learn and get better with time and practice.  The maximum level is 10, the percentage is your current progress toward the next level.
+经过一定时间的练习，你可以学习不同的技能，并且能变得更好。技能的最高等级为10级，百分比是你当前距离下一等级的进度。
+###_PLAYER
+What are the most important rules again?
+最重要的规则是什么来着？
+###_NPC
+The first rule is that the club is only for adults.  This place isn't for minors.  Are you an adult in your country?
+第一条规则是俱乐部仅供成人使用。这个地方不适合未成年人。你在你的国家是成年人吗？
+###_PLAYER
+(Thank her and leave her.)
+（感谢她并离开她。）
+###_NPC
+(A pair of maids cut you loose and bring you to the main hall.)  You poor thing...
+（一对女仆放开你，把你带到正厅。）你这可怜的家伙……
+(A pair of maids cut you loose and drag you to the main hall.)  Oh how the tables have turned, head maid DialogPlayerName...
+（一对女仆放开你，把你拖到大厅。）哦，风水轮流转啊，女仆长DialogPlayerName...
+(A pair of maids cut you loose and drag you to the main hall.)  My my, what have we here...
+（一对女仆放开你，把你拖到正厅。）真是令我惊讶，我们这里有什么……
+(A pair of maids cut you loose and bring you to the main hall.)  Hello there, are you in trouble? Do you need help?
+（一对女仆放开你，把你带到正厅。）你好，你遇到麻烦了吗？你需要帮助吗？
+###_PLAYER
+(Blush and plead for help.)
+（脸红起来，并且求救。）
+###_NPC
+Sure. But first we need to have a talk.
+当然。但首先我们需要谈谈。
+###_PLAYER
+Please help me...
+请帮我……
+(Shake your head and refuse help)
+（摇头，拒绝帮助）
+###_NPC
+Not so fast, girl. We need to talk.
+别那么着急，女孩。我们需要谈谈。
+###_PLAYER
+(Blush and nod for help.)
+（脸红，并点头求救。）
+###_NPC
+(She checks your locks) You can talk with the next maid about getting your locks removed. This will hurt your reputation though.
+（她检查你的锁。）你可以和下一个女仆说，把你的锁取下来。但这会损害你的声望。
+Fair enough. You seem to be in a predicament already, so I don't need to punish you for calling room service. This will hurt your reputation though.
+够了。看起来你已经被捆得严严实实了，所以我不需要因为呼叫客房服务惩罚你。但这会损害你的声望。
+Room service is meant for truly bad situations. If we just answered calls as they came, the sorority would be swamped with work.
+客房服务只用在真正糟糕的情况。如果收到消息就回应，女仆社团会被工作淹没的。
+###_PLAYER
+What for?
+为什么？
+(Mmmph.)
+（唔唔唔。）
+###_NPC
+That's why we have regular patrols. In any case, it is club policy to punish you.
+这就是我们定期巡逻的原因。无论如何，惩罚你是俱乐部的规则。
+###_PLAYER
+But that's your job!
+但那是你的工作！
+###_NPC
+That's why we have regular patrols. In any case, it is club policy to publicly shame you.
+这就是我们定期巡逻的原因。无论如何，公开羞辱你是俱乐部的规则。
+###_PLAYER
+(Mumble incoherently in your gag)
+（在你的口塞中语无伦次地咕哝）
+###_NPC
+Don't worry, at least you'll be able to find the maids yourself next time~
+别着急，起码下次你自己能找女仆~
+###_PLAYER
+That's ridiculous! I needed help!
+太荒谬了！我需要帮助！
+(Sigh and resign to your punishment.)
+（叹气并接受你的惩罚。）
+###_NPC
+(She strips you) First, your clothes need to come off.
+（她脱下你的衣服）首先，你的衣服需要被脱掉。
+###_PLAYER
+I accept my punishment, miss.
+我接受我的惩罚，女士。
+(Cooperate)
+（配合她）
+###_NPC
+Next, we need to cover up those important bits (She pulls out a chastity belt and buckles it around your waist.)
+接下来，我们需要盖住那些重要的身体部位（她拿出一个贞操带，将它扣在你的腰上。）
+###_PLAYER
+(Wait for her to finish)
+（等她说完）
+###_NPC
+(She looks at you and giggles) Looks like your naughty bits are already covered up. (She pulls out a gag and forces it into your mouth)
+（她看着你，咯咯地笑起来）看来你调皮的身体部位已经被掩盖了。（她掏出一个口塞，把它塞进你的嘴里）
+###_PLAYER
+(Protest)
+（抗议）
+###_NPC
+Perhaps you need a little motivation (She stuffs a vibrator into your body)
+也许你需要一点动力（她把振动器塞进你的身体）
+###_PLAYER
+This seems a bit kinky for a punishment...
+这惩罚有点变态……
+###_NPC
+You'll be enjoying it, girl. (She pulls out a chastity belt and traps the vibrator in.)
+你会很享受的，女孩。（她拿出一个贞操带，把振动器困在里面。）
+(She giggles) It's going to stay in there a while~ (She pulls out a chastity belt and locks the vibrator in.)
+（她咯咯笑起来）它会在里面呆一会儿~（她拿出一个贞操带，把振动器锁在里面。）
+###_PLAYER
+(Tug on the belt)
+（拉紧腰带）
+###_NPC
+You won't be taking that off anytime soon. (She locks the chastity belt)
+你短时间内取不下来这个的。（她锁上了贞操带）
+###_PLAYER
+(Put your hands behind your back) Is that all, miss?
+（把手放在背后）就这样，女士？
+###_NPC
+We're just getting started. (She locks the chastity belt)
+我们才刚刚开始。（她锁上了贞操带）
+###_PLAYER
+What's next?
+下一步是什么？
+###_NPC
+Good girls need to wear their gags.
+好女孩需要戴上口塞。
+###_PLAYER
+(Scream and moan) This isn't fair!
+（尖叫并呻吟这）这不公平！
+###_NPC
+Looks like we need to plug up that mouth of yours. (She gags you)
+看起来我们需要堵住你的嘴。（她给你戴上口塞）
+###_PLAYER
+(Moan with pleasure)
+（高兴地呻吟）
+###_NPC
+Seems like you'll enjoy the next part, too. (She binds your arms)
+看起来，你也会喜欢下一部分。（她绑住你的手臂）
+###_PLAYER
+(Whimper into your gag)
+（在你的口塞里呜咽）
+###_NPC
+(She laughs) That's not the only freedom you'll be losing. (She binds your arms)
+（她笑起来）这不会是仅有的你将失去的自由。（她绑住你的手臂）
+###_PLAYER
+(Stay quiet)
+（保持安静）
+###_NPC
+Next, we need to make sure you know your place (She binds your arms)
+接下来，我们需要确保你知道你的地位（她绑住你的手臂）
+###_PLAYER
+(Try to take off the gag)
+（试着摘掉口塞）
+###_NPC
+(She slaps you) Not so fast, girl! (She pins your arms and binds you)
+（她打你耳光）别那么着急，女孩！（她按住你的手臂并捆绑你）
+###_PLAYER
+(Struggle in your bindings)
+（在你的束缚中挣扎）
+###_NPC
+(She finishes restraining you and slaps you on the butt) Have fun, girl.
+（她完成束缚并拍打你的屁股）玩得开心，女孩。
+###_PLAYER
+(Relax and stay quiet)
+（放松并保持安静）
+###_NPC
+(She finishes restraining you and slaps you on the breast) Now go enjoy yourself.
+（她束缚完你，拍了拍你的胸）现在去享受吧。

@@ -26,7 +26,10 @@ var AudioList = [
 	{ Name: "HydraulicUnlock", File: "HydraulicUnlock" },
 	{ Name: "Deflation", File: "Deflation" },
 	{ Name: "DuctTape", File: "DuctTape18" },
+	{ Name: "DuctTapeRoll", File: "DuctTapeRoll" },
+	{ Name: "DuctTapeRollShort", File: "DuctTapeRollShort" },
 	{ Name: "Inflation", File: "Inflation" },
+	{ Name: "MetalCuffs", File: "MetalCuffs" },
 	{ Name: "LockLarge", File: "LockLarge" },
 	{ Name: "LockSmall", File: "LockSmall" },
 	{ Name: "RopeLong", File: "RopeLong" },
@@ -224,7 +227,8 @@ var AudioActions = [
 	},
 	{
 		IsAction: (data) => [
-			"FuturisticChastityBeltShock"
+			"FuturisticChastityBeltShock",
+			"ObedienceBeltShock"
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "Shocks"
 	},

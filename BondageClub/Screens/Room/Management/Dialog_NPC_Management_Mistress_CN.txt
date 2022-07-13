@@ -241,7 +241,7 @@ Mistress Sophie is the club current Head Mistress.  She's a strict but fair mana
 女主人苏菲是俱乐部现任的女主人总管。她是一位严格但公平的经理。
 ###_PLAYER
 How do you choose the Head Mistress?
-你如何选择女主人总管？
+你们如何选出女主人总管？
 ###_NPC
 There's an electoral process between Mistresses.  You'll learn more if you become a club Mistress yourself.
 女主人中有一个选举的过程。如果你成为了俱乐部女主人，你会了解更多的。
@@ -372,7 +372,7 @@ She's enjoying herself?
 她开心吗？
 ###_NPC
 Absolutely, she's my submissive and she's a bondage slut.
-当然，她是我的服从者，她非常喜欢被绑起来。
+当然，她是我的sub，她非常喜欢被绑起来。
 ###_PLAYER
 Can I play with her?
 我可以玩弄她吗？
@@ -1105,7 +1105,7 @@ They have a special privilege that comes with responsibilities.  Every Mistress 
 女主人们有一种特殊的特权，这也伴随着责任。每个女主人都有独特的俱乐部挂锁和钥匙。
 ###_PLAYER
 What if a Mistress turns submissive?
-如果女主仍变得顺从会怎么样？
+如果女主人变得顺从会怎么样？
 ###_NPC
 She will be kicked out of the group and her Mistress clothes will be confiscated.
 她会被踢出小组，她的女主人服装会被没收。

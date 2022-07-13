@@ -33,7 +33,7 @@ Nurse
 Doctor
 医生
 Lady Luck
-幸运儿
+幸运女士
 Patron
 赞助者
 College Student
@@ -171,13 +171,13 @@ Gambling Hall:
 ABDL:
 恋尿布：
 House Maiestas:
-Maiestas家族：
+麦斯塔威法社：
 House Vincula:
-Vincula家族：
+温库拉束限社：
 House Amplector:
-Amplector家族：
+安派托怀围社：
 House Corporis:
-Corporis家族：
+科泼里躯形社：
 difficulty for NumberOfDays day(s)
 难度已游玩NumberOfDays天
 Roleplay

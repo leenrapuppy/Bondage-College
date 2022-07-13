@@ -1,0 +1,733 @@
+###_NPC
+Good. Horses don't speak.
+好的。马是不会说话的。
+(She first shakes her head to avoid the gag, but finally surrenders and lets you silence her.)
+（她先是摇头避开口塞，但最后还是投降了，任你让她无法说话。）
+(You remove her gag while she stretches her mouth.)  Thanks Miss, it's hard to dispatch ponies with that gag.
+（你取下她的口塞，她张张嘴。）谢谢女士，戴着口塞很难给小马们下指令。
+(She sighs and turns around while you restrain her arms.)  It might be a little hard to work like that Miss.
+（她叹了口气，转过身来，你抓住她的手臂。）那样工作可能有点辛苦，女士。
+(You free her arms and she nods happily.)  Thanks a lot Miss.
+（你松开她的手臂，她高兴地点点头。）非常感谢，女士。
+(She submits to you while you restrain her legs securely.)  I don't need to move anyway.
+（她顺从地让你牢固地束缚住她的腿。）反正我也不需要动。
+(You release her legs from the restraint.)  Let me know if I can help you Miss.
+（你解开了她的腿上的束缚。）如果我有什么地方能帮助你，请告诉我，女士。
+(She looks puzzled as you restrain her feet.)  I'll stay on guard here Miss.
+（你束缚住她的脚时，她露出困惑的神情。）女士，我会在这里等着的。
+(You release her feet and she wiggles them.)  Thanks Miss, that was quite troublesome.
+（你松开她的脚，她扭扭脚。）谢谢，女士，这很碍事。
+(You strap the collar on her while she blushes.)  You're quite a Dominant Miss.
+（你把项圈系在她的脖子上，她脸红起来。）你真有支配力，女士。
+(You remove the collar around her neck.)  Thanks Miss.
+（你取下她脖子上的项圈。）谢谢，女士。
+(You snap the belt around her waist and crotch while she sighs.)  No more fun for the crew.
+（你将贞操带系在她的腰部和胯部，她叹口气。）工作人员失去了乐趣。
+(You unlock the belt from her waist and she smiles.)  Thanks a lot Miss DialogPlayerName.
+（你解开她腰间的贞操带，她笑起来。）非常感谢，DialogPlayerName女士。
+(You strap the device on her head as she nods slowly.)  This will not make my job easier Miss.
+（你把道具绑在她头上，她慢慢点头。）这肯定不会让我的工作更轻松的，女士。
+(You remove the device and she nods rapidly.)  Thanks a million, this is much better.
+（你取下道具，她迅速点头。）百万份感谢，这好多了。
+(She jumps from the searing pain on her breast.)  Ouch!  Miss Head Maid!
+（她因为胸口的灼痛而跳了起来）哎哟！女仆长女士！
+(You whip her breast with the leather crop as she whimpers and bows her head.)
+（你用皮革硬鞭抽打她的乳房，她呜咽并低下头。）
+(You whip her butt hard as she sighs.)  I promise I'll work harder.
+（你用力鞭打她的屁股，她叹着气。）我保证我会更加努力工作的。
+(She grumbles as you strike her butt with the crop.)  I'm a Trainer, not a horse.
+（你用硬鞭抽打她的屁股时，她抱怨起来。）我是驯马师，不是马。
+(She tries to fight back.)  That's equipment for the horses.
+（她试图反击。）那是马的装备。
+(You remove the device.)  Thanks, now I can work again.
+（你移除道具。）谢谢，现在我可以再次工作了。
+(She looks surprised.) Is that not a saddle?
+（她看起来很惊讶。）那不是马鞍吗？
+(She looks confused.) Is the riding lesson over?
+（她看起来很困惑。）骑马课结束了吗？
+(She whimpers as you use the device on her breast.)  Sorry to object, but this isn't very convenient or comfortable.
+（你在她的乳房上使用这道具，她呜咽着。）很抱歉反对，但这既不方便也不舒服。
+(She grumbles as you use remove the item.)  Be thoughtful and don't remove anything until I'm hurt and broken.
+（你移除这件物品，她抱怨着。）要深思熟虑，如果我没有遍体鳞伤，不要移除任何东西。
+(You massage her pussy with the wand, but she stays cold.)  I'm very sorry.  I'm not in the mood.
+（你用按摩棒抚慰她的阴户，但她保持冷静。）我很抱歉。我心情不好。
+(You slide the egg inside, but she barely reacts to it.)  I don't want to top from the bottom, but this egg would work better on someone else.
+（你把跳蛋滑进去，但她几乎没有反应。）我不想完全反对你，但这个跳蛋在别人身上会更好。
+(She doesn't react as you remove the egg.)  Maybe it doesn't work, I didn't feel a thing in there.
+（你取出跳蛋，她没有反应。）它可能不起作用，我那里没有感觉。
+(She struggles against it.) Not a bridle?
+（她挣扎着。）不是缰绳吗？
+(She catches her breath.) Finally.  What was that supposed to be?
+（她调整呼吸。）终于来了。这是要做什么？
+Welcome to the Horse Stable.  How can I help you?
+欢迎来到马驹训练场。有什么需要吗？
+###_PLAYER
+Hello, I'm DialogPlayerName.  Pleased to meet you.
+你好，我是DialogPlayerName。很高兴见到你。
+###_NPC
+Pleased to meet you too.  I'm DialogCharacterName, I'm a Trainer for our Horse Club.
+也很高兴认识你。我是DialogCharacterName，我是我们马术俱乐部的驯马师。
+###_PLAYER
+Can you answer some questions?
+你能回答一些问题吗？
+###_NPC
+Yes sure, but hurry up, the ponies are waiting.
+是的，但是快点，小马们在等着呢。
+###_PLAYER
+Can I get a pony training? 
+我可以接受小马训练吗？
+I want to become a trainer.
+我想成为一名驯马师。
+I want a trial pony training.
+我想要体验小马训练。
+###_NPC
+Ok, let us start.
+好的，让我们开始吧。
+###_PLAYER
+I want a trial trainer training.
+我想要体验驯马师培训。
+I'm here for a training routine.
+我是来参加训练课程的。
+I'm here for a pony exam.
+我是来参加小马考试的。
+###_NPC
+You are not ready yet.  You have to train harder.
+你还没有准备好。你必须更加努力地训练。
+Do you think the training was successful? Then I get $50 exam fee.
+你觉得培训成功了吗？那么我要收你$50的考试费。
+###_PLAYER
+I'm here for a trainer exam.
+我是来参加驯马师考试的。
+###_NPC
+You? Don't make me laugh.
+你？别逗我笑。
+Do you think you're ready? Then pay the $50.
+你认为你准备好了吗？那么支付$50。
+###_PLAYER
+I want to train a pony.
+我想训练一匹小马。
+###_NPC
+That'll be a $10 cleaning fee for your riding gear.
+那么，你的骑乘装备的清洁费，$10。
+###_PLAYER
+(End the training and dress back up.)
+（结束训练并穿回衣服。）
+###_NPC
+(She begins to stow the bridle.)
+（她开始收起缰绳。）
+(You pick up your clothes and get to the changing room.)
+（你拿起衣服去更衣室。）
+###_PLAYER
+I can't stay to chat.  (Leave her.)
+我没时间聊天。（离开她。）
+Here's the money, let's start.
+给你钱，我们开始吧。
+###_NPC
+(She puts it in her pocket.) Undress.
+（她把钱放在口袋里。）脱衣服吧。
+###_PLAYER
+Thank you for the information.
+感谢你提供的信息。
+###_NPC
+No problem, always happy.
+没问题，祝你笑口常开。
+###_PLAYER
+No way!  Can't I stay clothed?
+没门！我不能穿衣服吗？
+###_NPC
+(She slaps your face.) Have you ever seen a horse wearing clothes?
+（她打你的脸。）你见过穿衣服的马吗？
+###_PLAYER
+(Undress.)
+（脱衣服。）
+###_NPC
+That's it. Now open your mouth.
+很好。现在张开你的嘴。
+###_PLAYER
+Why should I?
+为什么？
+###_NPC
+You can tell a horse's age by examining its teeth.
+你可以通过检查牙齿来判断一匹马的年龄。
+###_PLAYER
+(Open your mouth.)
+（张开嘴。）
+###_NPC
+(She looks inside.) That looks good. Now bend over.
+（她往里看。）看起来不错。现在弯腰。
+So I can check if you're healthy back there.
+这样我就能检查你的后面是否健康。
+###_PLAYER
+(Bend over.)
+（弯腰。）
+###_NPC
+(She feels your butt.) OK, I think that's good. Stand straight.
+（她摸你的屁股。）好吧，我觉得不错。站直。
+###_PLAYER
+(Bend over just a little.)
+（稍微弯腰。）
+###_NPC
+(She pushes you down by your shoulders.) We'll need to work on that resistance of yours.
+（她推你的肩膀，把你推倒。）我们需要努力克服你抵抗的态度。
+###_PLAYER
+(Wait.)
+（等待。）
+###_NPC
+(She feels your butt.) Your butt is a little bit pale. A few strands would suit it well. Stand straight.
+（她摸你的屁股。）你的屁股有点寂寞。很适合绑上些带子。站直。
+###_PLAYER
+(Stand straight.)
+（站直。）
+###_NPC
+(She cracks the whip.) Walk 10 steps.
+（她挥动鞭子。）走10步。
+###_PLAYER
+(Walk forwards slowly.)
+（慢慢地往前走。）
+###_NPC
+(She cracks the whip.)
+（她挥动鞭子。）
+###_PLAYER
+(Walk forwards quickly.)
+（快步往前走。）
+###_NPC
+Lift your legs properly.
+规范地抬起双腿。
+###_PLAYER
+(Go faster.)
+（走得更快一些。）
+###_NPC
+You have potential. Now wear the harness.
+你很有潜力。现在穿上束缚带。
+###_PLAYER
+(Do as she says.)
+（照她说的做。）
+###_NPC
+The leather harness will make your exercises easier, and you should always remember that horses are farm animals.
+皮革束缚带会让你的锻炼更轻松，你要永远记住马是农场动物。
+###_PLAYER
+(Dress up.)
+（穿上。）
+###_NPC
+Open your mouth.
+张开嘴。
+Horses D O   N O T   T A L K.
+马是不——会——说——话——的。
+Arms behind your back.
+双手放在背后。
+###_PLAYER
+(Wait and do nothing.)
+（等待，什么也不做。）
+###_NPC
+(The whip hits your butt.) Faster.
+（鞭子落在你的屁股上。）快点。
+###_PLAYER
+(Put your arms behind your back.)
+（把你的手臂放在背后。）
+###_NPC
+Bend over.
+弯腰。
+(She feels your butt.) OK. Here's your horse tail plug. And with that, you're all geared up. Stand straight.
+（她摸你的屁股。）好的。这是你的马尾肛塞。戴上这个，你就穿好装备了。站直。
+Take a step forward.
+向前迈出一步。
+###_PLAYER
+(Take a step.)
+（迈出一步。）
+###_NPC
+About as elegant as a fence post. You have a long way to go.
+就像栅栏柱一样优雅。你还需要更多的努力。
+###_PLAYER
+What's going on in here?
+这里是做什么的？
+###_NPC
+We train submissives to become pony girls. This allows them to move very elegantly.
+我们把顺从者训练为小马女孩。让她们学会非常优雅地走路。
+###_PLAYER
+May I play with the ponies?
+我可以和小马一起玩吗？
+###_NPC
+No. Ponies are only allowed to play with other ponies.
+不可以。小马只能和其他小马一起玩。
+###_PLAYER
+Is it allowed to release the ponies?
+可以释放小马吗？
+###_NPC
+No, the strict equipment is mandatory.
+不，那些严格的装备是强制性的。
+###_PLAYER
+How do I become a pony girl?
+我如何成为一个小马女孩？
+###_NPC
+You have to be submissive, have the right equipment and pay the training fee.
+你必须足够顺从，拥有需要的装备，并支付培训费。
+###_PLAYER
+Can i become a trainer?
+我可以成为驯马师吗？
+###_NPC
+The trainer guild is currently looking for some new strong members. 
+驯马师公会目前正在寻找一些新的强力的成员。
+###_PLAYER
+What does a training routine look like?
+训练课程是什么样的？
+###_NPC
+It consists of several exercises. First the equipment is checked. Afterwards docile ponies are rewarded.
+它由几个练习组成。首先要检查装备。之后，温顺的小马会得到奖励。
+###_PLAYER
+(More...)
+（更多……）
+Thank you, I have no further questions.
+谢谢，我没有其他问题了。
+###_NPC
+Run along then. What are you doing standing around here in the stable?
+快走吧。你现在还站在马厩里做什么？
+###_PLAYER
+Can a pony get better?
+小马会做得更好吗？
+###_NPC
+Yes, that requires a lot of training. Better ponies are also allowed to do more difficult exercises.
+是的，这需要大量的训练。更好的小马也可以做更困难的练习。
+###_PLAYER
+Is there an exam for ponies?
+小马们有考试吗？
+###_NPC
+Good ponies are allowed to take an exam. Three disciplines are required: hurdles, races, and dressage.
+优秀的小马可以参加考试。需要三种训练方法：跨栏，比赛和盛装。
+###_PLAYER
+Is there an exam for trainers?
+驯马师有考试吗？
+###_NPC
+Trainers can take an exam. Then they can take over the stall control.
+驯马师可以参加考试。然后他们可以接管马厩的管理。
+###_PLAYER
+I need to ask about a particular exercise.
+我想询问一个关于特定的练习的问题。
+###_NPC
+Sure, which one?
+当然，是哪一个？
+###_PLAYER
+(Listen.)
+（听。）
+###_NPC
+A trainer needs to know her dressage skills and be very dominant. You also need certain equipment like whips, crops and belts.
+驯马师需要有一些盛装技能并且有足够的支配力。你还需要某些设备，例如鞭子、硬鞭和皮带。
+If you're interested, start saving your money. Horses are an expensive hobby.
+如果你有兴趣，请开始存钱。马是一种昂贵的爱好。
+The fee will not be refunded if you cancel the training.
+如果你取消训练，费用不予退还。
+You'll have to attend every training routine wearing a collar.
+参加每项训练时，你必须佩带项圈。
+Three disciplines are required: dressage knowledge, handling a whip, and hurdles.
+需要三种训练方法：盛装知识，操作鞭子，以及通过障碍。
+It's really challenging. Therefore, it may be repeated. A fee is due each time.
+这相当有挑战性。因此，这些可能会重复进行。并且每次都要收费。
+After the exam, you can use the pony bit gag anywhere in the club.
+考试结束后，你可以在俱乐部的任何地方使用小马口塞。
+###_PLAYER
+(Stand still and wait.)
+（站着等待。）
+###_NPC
+What a cute pony.
+多么可爱的小马。
+###_PLAYER
+Here is the money, can we start?
+钱来了，我们可以开始了吗？
+###_NPC
+Get ready, we're getting serious now.
+准备好，我们现在要开始认真了。
+###_PLAYER
+Sorry, I changed my mind.
+对不起，我改变主意了。
+###_NPC
+Come back to me if you'd like to give it a try.
+如果你想试一试，回来找我吧。
+###_PLAYER
+I can not afford that.
+我付不起。
+###_NPC
+Then there is no exam.
+然后就没有考试了。
+###_PLAYER
+Here's the money, go ahead.
+给你钱，继续吧。
+On second thought, I'm not ready yet.
+我转念一想，我还没有准备好。
+###_NPC
+Get in touch if you change your mind.
+如果你改变主意，请与我们联系。
+###_PLAYER
+It's a bit too expensive for me.
+这对我来说有点太贵了。
+###_NPC
+Fine. But don't make lose my time.
+好的。但不要浪费我的时间。
+###_PLAYER
+How do I get over the hurdles?
+我如何通过障碍？
+###_NPC
+The success depends on your skill, so exercise more often.
+成功取决于你的技能，所以要经常锻炼。
+###_PLAYER
+I can't get all the hurdles / carrots in time.
+我无法按时解决所有障碍/胡萝卜。
+###_NPC
+The running speed depends on your skill, so exercise more often.
+跑步速度由你的技能决定，所以要经常锻炼。
+###_PLAYER
+The counter says I hit a trainer, but that's not true.
+计数的人说我撞到了驯马师，但那不是真的。
+###_NPC
+When you miss a pony, it counts as a trainer hit.
+当你错过一匹小马时，这会记为击中驯马师。
+###_PLAYER
+The running exercises do not seem to get shorter.
+跑步练习看起来没有变短。
+###_NPC
+Stronger ponies must train over a longer distance to achieve further learning success
+更强壮的小马必须训练更远的距离才能在学习上取得进一步的成功
+###_PLAYER
+No further special questions.
+我没其他特别的问题了。
+###_NPC
+What else do you want to know?
+你还想知道什么？
+###_PLAYER
+(Wait for instructions.)
+（等待指示。）
+(Do it quickly.)
+（迅速做。）
+###_NPC
+(She grins.)  You are not really dominant.
+（她咧开嘴笑了。）你并不是真正的支配者。
+###_PLAYER
+I want to become a trainer, not a stableboy!
+我想成为一名驯马师，而不是一个马童！
+###_NPC
+(She winks.) That's the dominant spirit we're looking for. Give me your money. Welcome to the guild! Here's your uniform.
+（她眨眨眼。）这就是我们需要的支配力。给我钱吧。欢迎加入公会！这是你的制服。
+###_PLAYER
+Here is the money.  Hurry up.
+给你钱。快点吧。
+###_NPC
+(She gives you clean clothes.) Have a lot of fun.
+（她给你干净的衣服。）玩得开心。
+###_PLAYER
+I forgot my wallet.
+我忘了带钱包。
+###_NPC
+Then it won't work, you loser.
+那么，这行不通，你这个失败者。
+That was great, right?
+那太好了，对吧？
+With a bit of practice, that will certainly get better.
+稍加练习，肯定会变得更好。
+No, not yet. Only submissive people can be trained.
+不，还没有。只有顺从的人才能被训练。
+No, not yet. You have to buy the necessary equipment in the shop first.
+不，还没有。你必须先在商店购买必要的设备。
+You need the following: a harness ball gag, a leather armbinder, a leather harness, and a horse tail plug.
+你需要以下物品：一个马具口球、一个皮革单手套、一个皮革束带和一个马尾肛塞。
+No, not yet. You also have to wear a collar.
+不，还没有。你还必须戴项圈。
+No, not yet.  The training fee is $50.
+不，还没有。训练费是$50。
+Yes, the training costs $50. It's long and demanding.
+是的，训练费是$50。训练很长而且要求很高。
+###_PLAYER
+When can I start?
+我什么时候可以开始？
+###_NPC
+Once you have paid the fee and the health check is completed.
+一旦你支付了费用并完成了健康检查就可以。
+###_PLAYER
+I do not want it.
+我不想要了。
+###_NPC
+Contact me if you change your mind.
+如果你改变主意，请与我联系。
+Before you become a trainer, you must first learn the subtleties of dressage.
+在成为训练师之前，你必须先了解盛装的精妙之处。
+Only dominant people can become trainers.
+只有拥有支配力的人才可以成为驯马师。
+You lack the necessary equipment. You have to buy the following: crops, whips, and leather belts for feet and legs.
+你缺乏必要的装备。你必须购买以下物品：硬鞭、皮鞭和用于脚和腿的皮带。
+You are too poor and cannot afford training ponies.
+你太穷了，支付不起训练小马的费用。
+Yes, you can join the trainer guild. The entrance fee is $500.
+是的，你可以加入驯马师公会。加入费用为$500。
+###_PLAYER
+Take my money. when can I start?
+拿钱吧。我什么时候可以开始？
+###_NPC
+First exercise: grab a broom and sweep the stable.
+第一个练习：拿起扫帚扫马厩。
+###_PLAYER
+That is too expensive for me.
+这对我来说太贵了。
+###_NPC
+Contact me when you've saved some cash.
+当你存下来一些现金时再联系我。
+Where is your collar?
+你的项圈在哪里？
+Let's go. Undress.
+我们开始吧。脱衣服。
+(She puts the equipment on you.)
+（她把装备用在你身上。）
+The training is over for today. I'll help you take off the Armbinder.
+今天的训练结束了。我会帮你摘下单手套。
+###_PLAYER
+(Shoot a hopeful glance at the other ponies.)
+（充满希望地瞥了一眼其他小马。）
+###_NPC
+Oh, I see. You want to hang out with the herd. Have Fun.
+我懂了。你想和马群一起玩。祝你玩得开心。
+###_PLAYER
+(Take the Armbinder off.)
+（取下单手套。）
+###_NPC
+(She stows the equipment.)
+（她收起装备。）
+Gallop through the manege.
+在训马场中疾驰。
+###_PLAYER
+(Run happily.)
+（快乐地奔跑。）
+(Start galloping.)
+（开始疾驰。）
+(Sneak forward.)
+（悄悄向前。）
+###_NPC
+Walk a few steps and lift your legs properly.
+走几步，并且规范地抬起双腿。
+###_PLAYER
+(Step elegantly.)
+（优雅地迈步。）
+(Walk forward.)
+（向前行走。）
+###_NPC
+Dance around through the manege.
+跳动着穿过训马场。
+###_PLAYER
+(Perform a feat.)
+（表演一个特技。）
+(Dance around.)
+（有节奏地跳来跳去。）
+(Stand still stubbornly.)
+（固执地站着不懂。）
+###_NPC
+Train walking on the treadmill.
+跑步机上训练行走。
+###_PLAYER
+(Run away.)
+（逃跑。）
+(Start.)
+（开始。）
+###_NPC
+Train walking on the treadmill with a belt around your legs.
+跑步机上训练行走，并且腿上要系着皮带。
+We'll train with the carriage.
+我们将使用马车进行训练。
+###_PLAYER
+(Wait with joyful excitement.)
+（怀着喜悦的心情等待。）
+(Try to escape.)
+（尝试逃跑。）
+###_NPC
+We train with the carriage with a belt around your legs.
+我们用马车训练，并且腿上要系着皮带。
+Get out on the pasture to collect carrots
+到牧场上去收集胡萝卜
+You have to practice jumping over hurdles.
+你接下来需要练习跳过障碍。
+###_PLAYER
+(Try to jump.)
+（尝试跳跃。）
+(Scuttle in small steps.)
+（小步走来走去。）
+###_NPC
+You have to do a race.
+你必须参加比赛。
+###_PLAYER
+(Look curious and wait for it to start.)
+（露出好奇的神情，等待开始。）
+(Go to the starting position.)
+（前往起始位置。）
+(Reluctantly go to the starting position.)
+（不情愿地走到起始位置。）
+###_NPC
+You have to do a race against a stronger pony.
+你必须与更强大的小马赛跑。
+Well done.
+做得好。
+###_PLAYER
+(Whinny happily.)
+（开心地嘶鸣。）
+###_NPC
+I suppose that did not work.
+我想那没有用。
+###_PLAYER
+(Lower your head.)
+（低下头。）
+###_NPC
+The exercise was successful.
+训练很成功。
+The exercise was successful, but your behavior left a lot to be desired.
+训练很成功，但你的表现还有很多不足之处。
+###_PLAYER
+(Look disappointed.)
+（露出失望的表情。）
+###_NPC
+You failed, we'll have to practice that again.
+你失败了，我们必须再次训练这个。
+The exercise has failed and your behavior is poor.
+训练失败了，你表现的很差。
+(She strokes you over the head.)
+（她抚摸你的头。）
+###_PLAYER
+(Wiggle your head.)
+（摇晃脑袋。）
+###_NPC
+(She is scratching your back.)
+（她在抓你的背。）
+###_PLAYER
+(Sigh satisfied.)
+（满意地叹气。）
+(Look around nervously.)
+（紧张地环顾四周。）
+###_NPC
+(She takes a brush and straightens your hair.)
+（她拿起一把刷子，把你的头发拉直。）
+###_PLAYER
+(Shake your head.)
+（摇头。）
+(Snort excited.)
+（兴奋地哼一声。）
+###_NPC
+(She takes a sponge and cleans you.)
+（她用海绵把你擦干净。）
+(She gives you an oatcake.) You deserve a treat.
+（她给了你一个燕麦饼。）你应该得到奖励。
+###_PLAYER
+(Grab it.)
+（咬住它。）
+(Wait calmly.)
+（冷静地等待。）
+###_NPC
+(She pushes you into the stall.)  Play with the other ponies.
+（她把你推到马厩里。）和其他小马一起玩吧。
+###_PLAYER
+(Go.)
+（离开。）
+###_NPC
+Welcome back.
+欢迎回来。
+You deserve a break.
+你应该休息一下。
+###_PLAYER
+(Scratch with your feet.)
+（用脚抓挠。）
+(Leave her.)
+（离开她。）
+(Tramp decisively.)
+（坚定地踩踏地面。）
+###_NPC
+(The whip cracks.) We'll continue when you're calm.
+（甩响鞭子。）等你冷静下来，我们再继续。
+###_PLAYER
+(Trot with lowered head.)
+（低着头小跑。）
+(Moan with pain.)
+（因为痛苦而呻吟。）
+(Wince.)
+（畏缩。）
+(Ignore her.)
+（无视她。）
+###_NPC
+(The whip hits your back.)
+（鞭子打在你的背上。）
+(The whip hits your hip.)
+（鞭子击中你的髋部。）
+(The whip hits your butt.)
+（鞭子打你的臀部。）
+(The whip hits your legs.)
+（鞭子打在你的腿上。）
+(The whip hits your breast.)
+（鞭子打在你的胸部。）
+(She pours a bucket of ice water over you.)
+（她把一桶冰水倒在你身上。）
+Go into the stable first, until you've calmed down.
+先进入马厩吧，等你平静下来。
+###_PLAYER
+(Wait patiently.)
+（耐心等待。）
+###_NPC
+Before the next exercise I just need to check the equipment quickly.
+在下一个练习之前，我需要快速检查一下装备。
+###_PLAYER
+(Whinny excitedly.)
+（兴奋地嘶鸣。）
+(Kick her.)
+（踢她。）
+###_NPC
+First part of the exam: hurdles.
+考试第一部分：障碍。
+Second Test: a race against a strong pony.
+第二个考试：与一匹强壮的小马赛跑。
+Finally, the dressage.
+最后，是盛装。
+###_PLAYER
+(Dance the test.)
+（跳舞测试。）
+###_NPC
+You failed in this exam. Continue training before you sign up again.
+你这次考试不及格。继续训练之后再重新申请考试吧。
+###_PLAYER
+(Leave the exam course and dress back up.)
+（离开考试课程并穿回衣服。）
+###_NPC
+That was an outstanding performance. You deserve an award.
+刚才的表现非常出色。你应该得到奖励。
+###_PLAYER
+(Go to the award ceremony.)
+（去颁奖典礼。）
+###_NPC
+We are proud of you and look forward to your training. 
+我们为你感到骄傲，期待你的培训。
+As a reward, you will receive a bottle of champagne, which you can drink with your friends.
+作为奖励，你会得到一瓶香槟，你可以与朋友一起饮用。
+###_PLAYER
+(Celebrate your victory.) 
+（庆祝你的胜利。）
+###_NPC
+(In addition, you may leave the stall during future training)
+（另外，你可以在以后的训练中离开马厩）
+What are you planning now?
+你现在有什么打算？
+First, I have some questions about dressage.
+首先，我有一些关于盛装的问题。
+###_PLAYER
+(Try to answer the questions.)
+（尝试回答问题。）
+###_NPC
+The knowledge is sufficient, now to the whip.
+你的知识已经足够了，现在开始鞭子测验。
+###_PLAYER
+(Check your whip.)
+（检查你的鞭子。）
+###_NPC
+That was good, now on to the practical exercise.
+很好，现在开始实地练习。
+###_PLAYER
+(Bring a pony to the hurdle course)
+（带一匹小马参加跨栏课程）
+###_NPC
+Keep training and then try again.
+继续训练，然后再试一次。
+Congratulations, you have passed all the exams.
+恭喜你，你通过了所有的考试。
+###_PLAYER
+(Give the present trainers a whiskey ($50).)
+（给现在的驯马师一杯威士忌（$50）。）
+###_NPC
+(They celebrate your success.) Hip Hip Hurray!
+（大家为你的成功庆祝。）你太棒了！

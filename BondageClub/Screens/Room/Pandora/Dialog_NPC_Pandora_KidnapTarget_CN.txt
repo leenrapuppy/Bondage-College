@@ -30,7 +30,7 @@
 (You release her legs as she shakes her butt.)  Fine.  Just tell me where to go.
 （你松开她的腿时，她摇晃她的屁股。）好吧。告诉我去哪儿就好。
 (She tests your feet restraints by jumping on her toes.)  I guess we are not going anywhere.
-（她用脚趾跳，来测试你的脚约束的程度。）我觉得我们哪儿也不去了。
+（她用脚趾跳，测试你对脚束缚的程度。）我觉得我们哪儿也不去了。
 (You release her feet and she wiggles them.)  Ok girl, where are we going?
 （你松开她的脚，她摆摆脚。）好吧，女孩，我们要去哪里？
 (She wiggles her feet as you restrain them.)  You're not make your escape any easier.
@@ -42,15 +42,15 @@
 (You remove the collar from her neck.)  Next time I will collar you.
 （你把她脖子上的项圈取下来。）下次我给你戴上项圈。
 (She struggles to avoid the belt but you're able to strap it on her.)  Fuck this!
-（她努力避开皮带，但你还是系到了她身上。）这太糟了！
+（她挣扎着想避开带子，但你还是成功系到她身上。）这太糟了！
 (She seems happy as you unlock the belt from her waist.)  I guess I can thank you.
-（当你解开她腰间的皮带时，她似乎很高兴。）我可以谢谢你。
+（当你解开她腰间的带子时，她似乎很高兴。）我可以谢谢你。
 (You strap the device on her head as she sighs.)  Enjoy it while it lasts.
-（当你解开皮带时，她叹了口气。）尽情享受吧。
+（你把道具绑在她头上时，她叹了口气。）趁道具还在，尽情享受吧。
 (You release her head as she nods rapidly.)  Don't think you're out of trouble.
 （你解开她的头时，她迅速点头。）别以为你没有麻烦了。
 (You put the hood on her head as she goes silent.)
-（你把头套戴在她头上，她逐渐沉默。）
+（你把头套戴在她头上，她逐渐安静了下来。）
 (She nods happily as you remove the hood from her head.)  Try not to freak me out.
 （你从她头上取下头罩，她开心地点头。）请不要让我吓坏。
 (You strap the item on her nose as she sighs.)  Do I look like a Guinea pig to you?
@@ -74,7 +74,7 @@
 (She takes a deep breath and stays silent as you remove the device.)
 （当你移除这件道具时，她深呼吸并保持沉默。）
 Oh fuck!  Help!  DialogPlayerName is here to kidnap me!  Someone help!
-哦不！帮帮我！DialogPlayerName是来绑架我的！有人帮帮我吗！
+妈的！帮帮我！DialogPlayerName是来绑架我的！有人帮帮我吗！
 I knew the Bondage Club would send someone like you DialogPlayerName.  I won't go down without a fight.
 我知道束缚俱乐部会派出像你这样的人，DialogPlayerName。但我不会不战而败。
 You're not from Pandora's aren't you?  Are you looking for trouble?
@@ -124,7 +124,7 @@ Where is the exit?
 出口在哪里？
 ###_NPC
 Fuck you!  I'm not helping you.
-滚蛋！我不是你这边的。
+滚蛋！我是不会帮你的。
 ###_PLAYER
 (Bring her with you.)
 （带上她。）
@@ -173,7 +173,7 @@ You might like this punishment subbie girl.  A Dominatrix will come to get you s
 你可能会喜欢这个惩罚的，顺从的女孩。女王很快就会来接你。
 ###_PLAYER
 (Scream in your gag.)
-（在你的堵嘴里尖叫。）
+（在你的口塞里尖叫。）
 ###_NPC
 Scream all you want.  A Dominatrix will come to get you soon.
 随便你叫吧。女王很快就会来接你。
@@ -187,10 +187,10 @@ You're not getting out.  A Dominatrix will come to get you soon.
 (Bow your head and stay silent.)
 （低下头，保持沉默。）
 You can't be serious.
-你不能是认真的。
+你不会是认真的吧。
 ###_NPC
 Oh yeah?  Watch me, I'm very serious.  (She waits for a Dominatrix.)
-哦？看我，我是认真的。（她在等待一位女王。）
+哦？看着我，我可是非常认真的。（她在等待一位女王。）
 ###_PLAYER
 I will have my revenge.
 我会复仇的。
