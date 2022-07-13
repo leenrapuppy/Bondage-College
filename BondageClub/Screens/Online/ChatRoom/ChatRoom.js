@@ -3958,6 +3958,7 @@ function ChatRoomNotificationRaiseChatJoin(C) {
 	if (!document.hasFocus()) {
 		const settings = Player.NotificationSettings.ChatJoin;
 		if (settings.AlertType === NotificationAlertType.NONE) raise = false;
+		else if (PreferenceIsPlayerInSensDep()) raise = false;
 		else if (!settings.Owner && !settings.Lovers && !settings.Friendlist && !settings.Subs) raise = true;
 		else if (settings.Owner && Player.IsOwnedByMemberNumber(C.MemberNumber)) raise = true;
 		else if (settings.Lovers && C.IsLoverOfPlayer()) raise = true;
