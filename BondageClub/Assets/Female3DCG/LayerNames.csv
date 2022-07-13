@@ -694,7 +694,14 @@ ItemDevicesSnowmanButtons,Buttons
 ItemDevicesSnowmanStickHands,Arms
 ItemDevicesWoodenHorseFrame,Frame
 ItemDevicesWoodenHorseWood,Wood
-ItemDevicesLuckyWheelBack,Back
+ItemDevicesLuckyWheelBase,Wooden Stand
+ItemDevicesLuckyWheelBase2,MetalStand
+ItemDevicesLuckyWheelBase2Metal,Metal Stand Frame
+ItemDevicesLuckyWheelBase2Text,Metal Stand Text
+ItemDevicesLuckyWheelBack,Wheel Border
+ItemDevicesLuckyWheelMisc,Toys
+ItemDevicesLuckyWheelMiscFlogger,Flogger
+ItemDevicesLuckyWheelMiscGag,Gag
 ItemDevicesLuckyWheelText,Text
 ItemDevicesLuckyWheelArrow,Arrow
 ItemAddonCoversOuter,Outer
