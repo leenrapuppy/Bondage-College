@@ -79,6 +79,8 @@ const CONTRIBUTOR_NAMES = {
 	"Ayesha": "Ayesha",
 	"luna-gleam": "Luna",
 	"Gatey": "gatetrek",
+	"Moonlight": "Luna",
+	"elliesec": "Ellie",
 };
 
 async function generateChangelogHtml() {
