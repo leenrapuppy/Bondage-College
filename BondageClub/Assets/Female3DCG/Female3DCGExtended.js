@@ -2163,6 +2163,19 @@ var AssetFemale3DCGExtended = {
 						]
 					},
 					{
+						Name: "Sticker", Key: "s",
+						Options: [
+							{}, //s0 - Paw
+							{}, //s1 - Triskel
+							{}, //s2 - Moon
+							{}, //s3 - LGBT
+							{}, //s4 - Trans
+							{}, //s5 - Bi
+							{}, //s6 - NoSwim
+							{}, //s7 - None
+						]
+					},
+					{
 						Name: "Txt", Key: "x",
 						Options: [{ HasSubscreen: true }],
 					},
