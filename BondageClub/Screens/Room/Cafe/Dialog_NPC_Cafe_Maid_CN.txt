@@ -46,7 +46,7 @@ I'm sorry Miss.  I cannot help you.
 (You unlock the belt from her waist, and she smiles.)  Thanks a lot Miss DialogPlayerName.
 （你解开了她腰上的贞操带，她微笑道。）非常感谢，DialogPlayerName女士
 (You strap the device on her head as she nods slowly.)  This will not make my job easier Miss.
-（她慢慢点头的时候，你把她脑袋上拘束具的带子系紧。）女士，这可不会让我的工作变轻松。
+（你把道具绑在她头上，她慢慢点头。）这肯定不会让我的工作更轻松的，女士。
 (You remove the device and she nods rapidly.)  Thanks a million, this is much better.
 （你解开了拘束，她连连点头。）非常感谢，这下好多了。
 (She jumps from the searing pain on her breast.)  Ouch!  Miss Head Maid!
@@ -120,7 +120,7 @@ What is so special about those items?
 这些东西有什么特别之处吗？
 ###_NPC
 Well the energy drinks are very stimulating for mind and body.  The nursery supplies this milk and the cupcakes seem to really amplify the mood you are in.
-能量饮料可以刺激你的身心。纸杯蛋糕和这些保育园提供的特调牛奶似乎可以影响你的情绪。
+能量饮料可以刺激你的身心。纸杯蛋糕和这些育婴室提供的特调牛奶似乎可以影响你的情绪。
 ###_PLAYER
 They sound a bit suspicious.  Are you sure they are safe?
 这些听起来有点可疑。你确定这些东西没问题吗？

@@ -272,7 +272,7 @@ What does a training routine look like?
 训练课程是什么样的？
 ###_NPC
 It consists of several exercises. First the equipment is checked. Afterwards docile ponies are rewarded.
-它由几个练习组成。首先要检查装备。之后，温顺的小马会得到奖励。
+训练由几个练习组成。训练开始时要检查装备。训练结束后，温顺的小马会得到奖励。
 ###_PLAYER
 (More...)
 （更多……）
@@ -292,7 +292,7 @@ Is there an exam for ponies?
 小马们有考试吗？
 ###_NPC
 Good ponies are allowed to take an exam. Three disciplines are required: hurdles, races, and dressage.
-优秀的小马可以参加考试。需要三种训练方法：跨栏，比赛和盛装。
+优秀的小马可以参加考试。需要通过三个科目的考试：跨栏，竞速和马术。
 ###_PLAYER
 Is there an exam for trainers?
 驯马师有考试吗？
@@ -310,7 +310,7 @@ Sure, which one?
 （听。）
 ###_NPC
 A trainer needs to know her dressage skills and be very dominant. You also need certain equipment like whips, crops and belts.
-驯马师需要有一些盛装技能并且有足够的支配力。你还需要某些设备，例如鞭子、硬鞭和皮带。
+驯马师需要了解马术技能并且有足够的支配力。你还需要某些装备，例如鞭子、硬鞭和皮带。
 If you're interested, start saving your money. Horses are an expensive hobby.
 如果你有兴趣，请开始存钱。马是一种昂贵的爱好。
 The fee will not be refunded if you cancel the training.
@@ -318,7 +318,7 @@ The fee will not be refunded if you cancel the training.
 You'll have to attend every training routine wearing a collar.
 参加每项训练时，你必须佩带项圈。
 Three disciplines are required: dressage knowledge, handling a whip, and hurdles.
-需要三种训练方法：盛装知识，操作鞭子，以及通过障碍。
+需要通过三个科目的考试：马术知识，操作鞭子，以及通过障碍。
 It's really challenging. Therefore, it may be repeated. A fee is due each time.
 这相当有挑战性。因此，这些可能会重复进行。并且每次都要收费。
 After the exam, you can use the pony bit gag anywhere in the club.
@@ -424,7 +424,7 @@ With a bit of practice, that will certainly get better.
 No, not yet. Only submissive people can be trained.
 不，还没有。只有顺从的人才能被训练。
 No, not yet. You have to buy the necessary equipment in the shop first.
-不，还没有。你必须先在商店购买必要的设备。
+不，还没有。你必须先在商店购买必要的装备。
 You need the following: a harness ball gag, a leather armbinder, a leather harness, and a horse tail plug.
 你需要以下物品：一个马具口球、一个皮革单手套、一个皮革束带和一个马尾肛塞。
 No, not yet. You also have to wear a collar.
@@ -446,11 +446,11 @@ I do not want it.
 Contact me if you change your mind.
 如果你改变主意，请与我联系。
 Before you become a trainer, you must first learn the subtleties of dressage.
-在成为训练师之前，你必须先了解盛装的精妙之处。
+在成为训练师之前，你必须先了解马术的精妙之处。
 Only dominant people can become trainers.
 只有拥有支配力的人才可以成为驯马师。
 You lack the necessary equipment. You have to buy the following: crops, whips, and leather belts for feet and legs.
-你缺乏必要的装备。你必须购买以下物品：硬鞭、皮鞭和用于脚和腿的皮带。
+你没有凑齐必要的装备。你必须购买以下物品：硬鞭、皮鞭和用于脚和腿的皮带。
 You are too poor and cannot afford training ponies.
 你太穷了，支付不起训练小马的费用。
 Yes, you can join the trainer guild. The entrance fee is $500.
@@ -472,7 +472,7 @@ Where is your collar?
 Let's go. Undress.
 我们开始吧。脱衣服。
 (She puts the equipment on you.)
-（她把装备用在你身上。）
+（她把那些装备用在你身上。）
 The training is over for today. I'll help you take off the Armbinder.
 今天的训练结束了。我会帮你摘下单手套。
 ###_PLAYER
@@ -648,7 +648,7 @@ You deserve a break.
 (The whip hits your hip.)
 （鞭子击中你的髋部。）
 (The whip hits your butt.)
-（鞭子打你的臀部。）
+（鞭子打中你的臀部。）
 (The whip hits your legs.)
 （鞭子打在你的腿上。）
 (The whip hits your breast.)
@@ -674,7 +674,7 @@ First part of the exam: hurdles.
 Second Test: a race against a strong pony.
 第二个考试：与一匹强壮的小马赛跑。
 Finally, the dressage.
-最后，是盛装。
+最后，是马术。
 ###_PLAYER
 (Dance the test.)
 （跳舞测试。）
@@ -704,7 +704,7 @@ As a reward, you will receive a bottle of champagne, which you can drink with yo
 What are you planning now?
 你现在有什么打算？
 First, I have some questions about dressage.
-首先，我有一些关于盛装的问题。
+首先，我有一些关于马术的问题。
 ###_PLAYER
 (Try to answer the questions.)
 （尝试回答问题。）

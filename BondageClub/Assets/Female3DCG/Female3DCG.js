@@ -3034,7 +3034,7 @@ var AssetFemale3DCG = [
 				{ Name: "Lock", LockLayer: true }
 			] },
 			{
-				Name: "ObedienceBelt", Fetish: ["Metal"], ParentGroup: null, Value: 0,
+				Name: "ObedienceBelt", Fetish: ["Metal", "Chastity"], ParentGroup: null, Value: 150,
 				Difficulty: 8, Time: 15, RemoveTime: 20,
 				Extended: true, DynamicScriptDraw: true, DynamicAfterDraw: true, AllowLock: true, Prerequisite: ["AccessVulva"], AllowEffect: ["Chaste"],
 				DefaultColor: ['Default', 'Default', "Default", "Default", "#FF0000", "#004A7F"],
@@ -3047,6 +3047,7 @@ var AssetFemale3DCG = [
 					{ Name: "WireOutline", HasType: false, AllowColorize: false, AllowModuleTypes: ["s1"], },
 					{ Name: "PositiveWire", HasType: false, AllowModuleTypes: ["s1"], },
 					{ Name: "NegativeWire", HasType: false, AllowModuleTypes: ["s1"], },
+					{ Name: "CrotchLock", HasType: false, LockLayer: true, AllowColorize: false, AllowModuleTypes: ["c1", "c3"], },
 					{ Name: "Locks", HasType: false, LockLayer: true, AllowColorize: false, },
 				],
 			},
@@ -3079,7 +3080,7 @@ var AssetFemale3DCG = [
 			{ Name: "HempRopeHarness", Fetish: ["Rope"], Value: 60, Difficulty: 3, Time: 20, RemoveTime: 25, DefaultColor: "#956B1C", BuyGroup: "HempRope", Audio: "RopeShort", Prerequisite: "AccessTorso", Extended: true },
 			{ Name: "LeatherHarness", Fetish: ["Leather"], BuyGroup: "LeatherHarness", Value: 60, Difficulty: 50, Time: 15, RemoveTime: 10, AllowLock: true, Prerequisite: "AccessTorso" },
 			{ Name: "LeatherStrapHarness", Fetish: ["Leather"], BuyGroup: "LeatherStrapHarness", Value: 50, Difficulty: 50, Time: 15, RemoveTime: 10, DefaultColor: "#101010", AllowLock: true, Prerequisite: "AccessTorso" },
-			{ Name: "AdultBabyHarness", Category: ["ABDL"], Fetish: ["Leather", "ABDL"], BuyGroup: "AdultBabyHarness", Priority: 33, Value: 50, Difficulty: 3, Time: 15, RemoveTime: 10, HideItem: ["ItemNipplesLactationPump"], AllowLock: true, DefaultColor: "#aaaaaa", ExpressionTrigger: [{ Name: "Low", Group: "Blush", Timer: 10 }], DrawLocks: false },
+			{ Name: "AdultBabyHarness", Category: ["ABDL"], Fetish: ["Leather", "ABDL"], BuyGroup: "AdultBabyHarness", Priority: 33, Value: 50, Difficulty: 3, Time: 15, RemoveTime: 10, HideItem: ["ItemNipplesLactationPump"], AllowLock: true, DefaultColor: "#aaaaaa", ExpressionTrigger: [{ Name: "Low", Group: "Blush", Timer: 10 }], DrawLocks: false, Attribute: ["CanAttachMittens"]},
 			{ Name: "HarnessBra1", Fetish: ["Leather"], Priority: 20, Value: 30, Difficulty: 8, Time: 15, RemoveTime: 10, HideItem: ["ItemNipplesLactationPump"], AllowLock: true, BuyGroup: "HarnessBra1", Prerequisite: "AccessTorso", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], DrawLocks: false },
 			{ Name: "HarnessBra2", Fetish: ["Leather"], Priority: 20, Value: 40, Difficulty: 8, Time: 15, RemoveTime: 10, HideItem: ["ItemNipplesLactationPump"], AllowLock: true, BuyGroup: "HarnessBra2", Prerequisite: "AccessTorso", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
 			{ Name: "Corset2", Fetish: ["Lingerie"], Priority: 22, Value: 30, Difficulty: 8, Time: 15, RemoveTime: 10, AllowLock: true, DrawLocks: false, Left: 150, BuyGroup: "Corset2", Prerequisite: "AccessTorso", Hide: ["ItemNipples", "ItemNipplesPiercings"], HideForPose: ["AllFours"], DynamicGroupName: "Corset" },
@@ -3166,7 +3167,7 @@ var AssetFemale3DCG = [
 				]
 		},
 		{ Name: "HempRopeHarness", Fetish: ["Rope"], Value: 60, Difficulty: 3, Time: 20, RemoveTime: 25, DefaultColor: "#956B1C", BuyGroup: "HempRope", Audio: "RopeShort", Prerequisite: "AccessTorso", Extended: true },
-		{ Name: "AdultBabyHarness", Category: ["ABDL"], Fetish: ["Leather", "ABDL"], BuyGroup: "AdultBabyHarness", Priority: 33, Value: 50, Difficulty: 3, Time: 15, RemoveTime: 10, HideItem: ["ItemNipplesLactationPump"], AllowLock: true, DefaultColor: "#aaaaaa", ExpressionTrigger: [{ Name: "Low", Group: "Blush", Timer: 10 }], DrawLocks: false },
+		{ Name: "AdultBabyHarness", Category: ["ABDL"], Fetish: ["Leather", "ABDL"], BuyGroup: "AdultBabyHarness", Priority: 33, Value: 50, Difficulty: 3, Time: 15, RemoveTime: 10, HideItem: ["ItemNipplesLactationPump"], AllowLock: true, DefaultColor: "#aaaaaa", ExpressionTrigger: [{ Name: "Low", Group: "Blush", Timer: 10 }], DrawLocks: false, Attribute: ["CanAttachMittens"] },
 		{ Name: "HarnessBra1", Fetish: ["Leather"], Priority: 20, Value: 30, Difficulty: 8, Time: 15, RemoveTime: 10, HideItem: ["ItemNipplesLactationPump"], AllowLock: true, BuyGroup: "HarnessBra1", Prerequisite: "AccessTorso", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], DrawLocks: false },
 		{ Name: "HarnessBra2", Fetish: ["Leather"], Priority: 20, Value: 40, Difficulty: 8, Time: 15, RemoveTime: 10, HideItem: ["ItemNipplesLactationPump"], AllowLock: true, BuyGroup: "HarnessBra2", Prerequisite: "AccessTorso", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
 		{ Name: "Corset2", Fetish: ["Lingerie"], Priority: 22, Value: 30, Difficulty: 8, Time: 15, RemoveTime: 10, AllowLock: true, DrawLocks: false, Left: 150, BuyGroup: "Corset2", Prerequisite: "AccessTorso", Hide: ["ItemNipples", "ItemNipplesPiercings"], HideForPose: ["AllFours"], DynamicGroupName: "Corset" },
@@ -4499,7 +4500,7 @@ var AssetFemale3DCG = [
 					{ Name: "Plate", AllowColorize: false, },
 				],
 			},
-			{ Name: "PetPost", Fetish: ["Metal", "Pet"], Value: 0, Difficulty: 4, Time: 5, Random: false, DefaultColor: ["Default", "#845343", "#A1794A", "Default", "#FFF483", "#237D22", "#F3F3F3", "#F3F3F3", "#FFBCD6", "Default"], AllowLock: true, Prerequisite: ["Collared", "NotSuspended", "NotMounted"], AllowPose: [], Effect: ["Freeze", "IsChained"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }], DynamicAfterDraw: true, Extended: true, AlwaysExtend: true, Top: 352, Left: 310, FixedPosition: true,
+			{ Name: "PetPost", Fetish: ["Metal", "Pet"], Value: 150, Difficulty: 4, Time: 5, Random: false, DefaultColor: ["Default", "#845343", "#A1794A", "Default", "#FFF483", "#237D22", "#F3F3F3", "#F3F3F3", "#FFBCD6", "Default"], AllowLock: true, Prerequisite: ["Collared", "NotSuspended", "NotMounted"], AllowPose: [], Effect: ["IsChained", "Tethered"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }], DynamicAfterDraw: true, Extended: true, AlwaysExtend: true, Top: 352, Left: 310, FixedPosition: true,
 				Layer: [
 					{ Name: "PoleShade", Priority: 10, AllowColorize: false, HasType: false},
 					{ Name: "Pole", Priority: 54, AllowModuleTypes: ["d1"], HasType: false, },

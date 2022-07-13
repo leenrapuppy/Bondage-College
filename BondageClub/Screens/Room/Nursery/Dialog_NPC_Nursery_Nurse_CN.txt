@@ -1,0 +1,979 @@
+###_NPC
+Pacified big babies sound adorable when they try to talk.
+咬着奶嘴的大宝宝们在试图说话的时候可真可爱。
+What do you think you're doing?  Bad babies like you shouldn't be free to cause more trouble.
+你在做什么？像你这样的坏宝宝不应该随意制造更多的麻烦。
+What do you think you’re doing?  You should be wearing diapers.  You've been a very bad baby removing them.
+你在做什么？你应该穿尿布。你总是那个把尿布脱掉的坏宝宝。
+Those are not appropriate clothes for an adult baby to wear in this nursery.  How am I supposed to check your diaper?
+在这个育婴室，这些衣服不适合成年宝宝穿。否则我怎么检查你的尿布？
+Where do you think you're trying to sneak off to?
+你想偷偷溜到哪里去？
+Looks like someone doesn't know when to stop misbehaving.
+看起来有人不知道该何时停止不当行为。
+Baby DialogPlayerName again??  You are by far the worst-behaved brat I have ever had to look after.
+DialogPlayerName宝宝又来了？？到目前为止，你是我所照顾过的最不乖的坏孩子。
+(She first shakes her head to avoid the gag, but finally surrenders as you silence her.)
+（刚开始她把头扭开不让你堵嘴，但是最后她任由你塞住了嘴。）
+(You remove her gag while she stretches her mouth.)  Thanks Miss, it's hard to dispatch maids with that gag.
+（你取下她的口塞，她张张嘴。）谢谢，女士，戴着口塞很难指派女仆。
+(She sighs and turns around while you restrain her arms.)  It might be a little hard to work like that Miss.
+（她叹了口气，转过身来让你束缚住她的手臂。）像这样工作可能有点辛苦，女士。
+(You free her arms and she nods happily.)  Thanks a lot Miss.
+（你松开她的手臂，她高兴地点点头。）非常感谢，女士。
+(She submits to you while you restrain her legs securely.)  I don't need to move anyway.
+（她顺从你让你牢固地束缚住她的腿。）反正我也不需要走开。
+(You release her legs from the restraints.)  Let me know if I can help you Miss.
+（你松开她的腿上的束缚。）如果我能帮助你，请告诉我女士。
+(She looks puzzled as you restrain her feet.)  I'll stay on guard here Miss.
+（你束缚住她的的脚，她露出困惑的表情。）女士，我会守在这里。
+(You release her feet and she wiggles them.)  Thanks Miss, it was troublesome.
+（你松开她的脚，她扭了扭双脚。）谢谢，女士，这很麻烦。
+(You strap the collar on her while she blushes.)  You're quite a Dominant Miss.
+（她满脸通红地看着你为她带上项圈。）你真是个天生的支配者。
+(You remove the collar around her neck.)  Thanks Miss.
+（你取下她脖子上的项圈。）谢谢，女士。
+(You snap the belt around her waist and crotch while she sighs.)  No more fun for the crew.
+（你将贞操带系在她的腰部和胯部，她叹口气。）工作人员失去了乐趣。
+(You unlock the belt from her waist and she smiles.)  Thanks a lot Miss DialogPlayerName.
+（你解开她腰间的贞操带，她露出微笑。）非常感谢，DialogPlayerName女士。
+(You strap the device on her head as she nods slowly.)  This will not make my job easier Miss.
+（你把道具绑在她头上，她慢慢点头。）这肯定不会让我的工作更轻松的，女士。
+(You remove the device and she nods rapidly.)  Thanks a million, this is much better.
+（你取下设备，她迅速点头。）百万份感谢，这好多了。
+(She jumps from the searing pain on her breast.)  Ouch!  Miss Head Maid!
+（她因胸口的灼痛而跳了起来）哎哟！女仆长女士！
+(You whip her breast with the leather crop as she whimpers and bows her head.)
+（你用皮鞭抽打她的胸部，她呜咽着低下头。）
+(You whip her butt hard as she sighs.)  I promise I'll work harder Miss Head Maid.
+（你使劲抽打她的屁股，她叹口气。）我保证我会更加努力的，女仆长。
+(She grumbles as you strike her butt with the crop.)  A maid's work is never easy.
+（你用皮鞭打她的屁股，她抱怨道。）女仆工作真不容易。
+Welcome to the Nursery.  How can I help you?
+欢迎来到育婴室。有什么需要我帮你的吗？
+###_PLAYER
+Hello, I'm DialogPlayerName.  Pleased to meet you.
+你好，我是 DialogPlayerName。很高兴认识你。
+###_NPC
+Pleased to meet you too.  I'm DialogCharacterName, I'm one of the nurses.
+也很高兴认识你。我是DialogCharacterName，我是一名护士。
+###_PLAYER
+What is this place?
+这是什么地方？
+###_NPC
+This is the nursery, set up as a safe environment for adult babies in need of some motherly compassion, fun and discipline.
+这是育婴室，为需要母爱、娱乐和训诫的成年宝宝提供了一个安全的环境。
+###_PLAYER
+May I join the nursery?
+我可以加入育婴室吗？
+###_NPC
+Of course, we are always welcoming good little boys and girls.  You are aware of what the nursery's requirements are from those in its care?
+当然，我们总是欢迎优秀的小男孩和小女孩。你是否了解育婴室对其护理人员的要求？
+###_PLAYER
+I'm ready to join the nursery again.
+我准备再次加入育婴室。
+###_NPC
+Wonderful, have you remembered the $10 fee for diapers?
+太好了，你还记得$10的尿布费吗？
+###_PLAYER
+Who runs this nursery?
+谁经营这个育婴室？
+###_NPC
+Nurses like me look after the adult babies.  We are supervised by the nursery's matrons.
+我这样的护士负责照顾成年婴儿。而护士们由育婴室的护士长监督。
+###_PLAYER
+I can't stay to chat.  (Leave her.)
+我不能继续聊天了。（离开她。）
+(Money.)
+（钱。）
+Delete item
+删除物品
+###_NPC
+lost
+丢失
+###_PLAYER
+Replace skill
+替换技能
+###_NPC
+Skill +1
+技能+1
+###_PLAYER
+ReduceRep
+减少声望
+###_NPC
+ABDL rep -1
+ABDL声望-1
+###_PLAYER
+ReduceDom
+减少Dom
+###_NPC
+Dom rep -1
+Dom声望-1
+###_PLAYER
+Can I become a nurse?
+我可以成为护士吗？
+###_NPC
+We are not hiring nurses at the moment.  When we do
+我们目前不招聘护士。当我们这样做
+###_PLAYER
+Can I become a matron?
+我可以成为护士长吗？
+###_NPC
+Only the top nurses are ever granted that privilege.
+只有顶级护士才能获得这种特权。
+###_PLAYER
+Ooh Matron.
+哦护士长。
+###_NPC
+Carry on like that and you will feel a painsy-wainsy in your little botty-wotty!
+再这样的话，你的小屁屁会感受到痛痛哦！
+###_PLAYER
+Would I have to wear a uniform?
+我必须穿制服吗？
+###_NPC
+This uniform is mandatory for the nurses working here.  The matrons have a choice of uniforms.
+在这里工作的护士必须穿这套制服。护士长可以选择多种制服。
+###_PLAYER
+I'll bear that in mind.
+我会记住这一点的。
+###_NPC
+If we do start hiring, we will put a notice up.
+如果我们确实开始招聘，我们会发布通知。
+###_PLAYER
+Who would want that?
+谁会想要那个？
+###_NPC
+You would be surprised and we don't judge our charges.  Even some of the most dominant kidnappers also like a cuddle and nap time.
+你会感到惊讶，并且我们不会调整我们的要求。即使是一些最有支配力的绑架者也喜欢拥抱和午睡时间。
+###_PLAYER
+I thought this place was a bondage club.
+我以为这个地方是束缚俱乐部。
+###_NPC
+It is indeed.  We can use a variety of items and methods to ensure our adult babies are always on their best behaviour.
+这的确是。我们可以使用各种物品和方法来确保我们的成年宝宝始终保持最佳行为。
+###_PLAYER
+Intriguing, do tell me more.
+有趣，请告诉我更多。
+###_NPC
+Club members can join in with our other adult babies, play in the nursery and be looked after by the nurses.
+俱乐部会员可以加入我们其他的成年宝宝，在育婴室玩耍并由护士照顾。
+###_PLAYER
+Is this place just for people with that fetish?
+这个地方只适合有这种恋物癖的人吗？
+###_NPC
+We will also provide a time out discipline service for trouble makers. We could also prep or provide full care for slaves and failed kidnappers.
+我们还将为麻烦制造者提供超时纪律服务。我们还可以为奴隶和失败的绑架者提供全面的照顾。
+###_PLAYER
+I want to talk about something else.
+我想谈点别的。
+###_NPC
+What can I help you with?
+有什么可以帮你？
+###_PLAYER
+Yes.
+是的。
+###_NPC
+Good.  That will be $10 and you need to sign this form, then I will help you into your first diaper.
+好的。这需要花费$10，你需要在此表上签名，然后我会帮助你穿上你的第一张尿布。
+###_PLAYER
+No.
+不。
+###_NPC
+The primary requirement is diapers.  Clean diapers are mandatory on entry.  We can provide a fresh diaper for each visit.  They cost $10 a time.
+尿布是基本要求。进入时必须穿上干净的尿布。我们可以为每次访问提供新的尿布。这每次会花费$10。
+###_PLAYER
+I don't want to join.
+我不想加入。
+###_NPC
+Make up your mind. Or do you need someone to help make those difficult decisions for you?
+下定决心。或者你做出这些艰难的决定的时候需要有人帮助你？
+###_PLAYER
+Okay, what else is there?
+好吧，还有什么？
+###_NPC
+We don't allow big girl clothes to hide diapers either.  You can wear only diapers, but we also have a super selection of lovely dresses you can try on.
+我们也不允许用大女孩的衣服隐藏尿布。你可以只穿尿布，不过我们也有一系列可爱的连衣裙可供你试穿。
+###_PLAYER
+Why the fee?
+为什么要收费？
+###_NPC
+This place is not cheap to run.  The price is both for the diapers as well as covering other running costs.
+这个地方运转起来并不便宜。价格不仅包括尿布，也包括其他运作费用。
+###_PLAYER
+What do you mean by a fresh diaper each visit?
+每次访问都换上新尿布是什么意思？
+###_NPC
+It would be incredibly irresponsible of us to risk putting a big baby in soiled diapers just to save a few dollars.
+我们冒着把一个大婴儿放在脏尿布里的风险，只为了节省几美元，显然是非常不负责任的。
+###_PLAYER
+Diapers? You're kidding me right?
+尿布？你在开玩笑吧？
+###_NPC
+Sorry but it is in the rules.  We wouldn't want an adult baby having a whoopsie and making a horrid mess.
+对不起，但这就是规则。我们不希望成年婴儿突然要控制不住，弄得一团糟。
+###_PLAYER
+This is not the place for me.
+这不是适合我的地方。
+###_NPC
+That's okay.  Let me know if you change your mind.
+没关系。如果你改变主意，请告诉我。
+###_PLAYER
+Is there just a dress code?
+只有着装要求吗？
+###_NPC
+No, this is peaceful place.  Adult babies can talk, although many prefer pacifiers.  However we will not tolerate disruptive behaviour.
+不，这里是安静的地方。成年宝宝可以说话，但许多人更喜欢奶嘴。总体而言，我们不会容忍破坏性行为。
+###_PLAYER
+What about clothes for boys?
+小男孩穿什么衣服好？
+###_NPC
+Boys also wear dresses in here.  In pre-Victorian nurseries, young boys were unbreeched and wore dresses, just like the girls.
+小男孩们也在这里穿裙子。在维多利亚时代之前的育婴室中，小男孩像小女孩们一样，不穿马裤，穿着裙子。
+###_PLAYER
+Why dresses?
+为什么要穿裙子？
+###_NPC
+To look gorgeous of course. And these dresses have high hemlines
+当然是要看起来漂亮。并且这些连衣裙的裙摆很高
+###_PLAYER
+What about long skirts?
+那么长裙呢？
+###_NPC
+Goodness me, certainly not.  We want out adult babies to look their best, but that must not interfere with making sure they have clean diapers.
+天哪，当然不行。我们当然希望成年宝宝是最好看的样子，但这不能影响确保尿布干净的工作。
+###_PLAYER
+No way am I dressing like that.
+我绝不可能穿成这样。
+###_NPC
+That's a shame.  I'm sure you would have looked fabulous. 
+真可惜。我敢肯定你会看起来很棒。
+###_PLAYER
+I Understand.  Is there anything else?
+我明白。还有别的事吗？
+###_NPC
+Adult babies can wander around the club, but we don't advise it. So we've fitted a safety gate to the door to keep those helpless babies safe inside.
+成年宝宝可以在俱乐部里闲逛，但我们不建议这样做。因此，我们在门上安装了安全门，以确保那些无助的婴儿在里面安全。
+###_PLAYER
+What if I want to play rough?
+如果我想表现得粗鲁会怎样呢？
+###_NPC
+We encourage you to play with each other, but play nicely or you will feel the sting of a hairbrush on your tooshie.
+我们鼓励你们一起玩耍，但要好好的玩，否则你会知道梳子落在屁屁上是怎样的刺痛。
+###_PLAYER
+I'll cry if I want to.
+如果我愿意，我会哭的。
+###_NPC
+Of course, and we will do our best to comfort those in distress. But we don't allow riotous behaviour that upsets others.
+当然，我们会尽最大努力安慰那些难受的人。但是，我们不允许让他人感到不安的暴躁行为。
+###_PLAYER
+What about bondage?
+那么束缚呢？
+###_NPC
+That is fine as long you are all playing happy, although some items are hardly suitable for use in here.  The nursery has some more... appropriate restraints.
+只要你们玩的开心就好，虽然有些物品不太适合在这里使用。育婴室有一些更……适当的约束。
+###_PLAYER
+I would like to join now, pwease.
+我现在想加入，求求了。
+###_NPC
+Wonderful.  That will be $10 and you will need to sign this form. Then I will help you into your first diaper.
+完美。这需要花费$10，并且你需要在此表格上签名。然后我会帮你穿上你的第一个尿布。
+###_PLAYER
+Thanks for reminding me.
+谢谢你提醒我。
+###_NPC
+You're welcome.  Have you remembered the $10 fee for diapers?
+别客气。你还记得$10的尿布费用吗？
+###_PLAYER
+Is there an issue with the rest of the club?
+和俱乐部的其他成员互动有问题吗？
+###_NPC
+Not really, but don't expect people to take you seriously while you are wearing a diaper or an adorable baby dress.
+基本没有，但是当你穿着尿布或可爱的婴儿连衣裙时，不要指望人们会认真对待你。
+###_PLAYER
+Actually I don't want to join now.
+其实我现在不想加入。
+###_NPC
+I am sorry to hear that.  Do let me know if your mind.
+我很遗憾听到这个。如果你有想法，请告诉我。
+###_PLAYER
+Yes here it is. (Pay $10.)
+是的，给你。（支付 $10。）
+###_NPC
+Thank you.  Now let’s get you changed.  (She takes you to one side and swiftly removes all of your clothes.)
+谢谢你。现在来给你换衣服吧。（她把你带到一边，迅速脱掉你所有的衣服。）
+###_PLAYER
+I am already diapered and ready to enter.
+我已经穿好尿布，准备进入。
+###_NPC
+(She checks you over and feels your diaper.)  Okay, you are nice and clean.  Welcome back to the nursery.
+（她检查了你，摸了摸你的尿布。）好吧，你很好，很干净。欢迎回到育婴室。
+###_PLAYER
+I don't have enough money.
+我没有足够的钱。
+###_NPC
+Sorry to hear that, but we can't run this place for free. Do come back later once you have earned some more.
+很抱歉听到这个消息，但我们不能免费经营这个地方。一旦你赚了更多，请稍后再回来。
+###_PLAYER
+Could I provide my own diapers and outfit?
+我可以自己准备尿布和衣服吗？
+###_NPC
+Yes
+是的
+###_PLAYER
+I'm not paying for this.
+我不会为此付钱。
+###_NPC
+That is a shame, but we can't run this place for free.  If you change your mind we are always very welcome.
+真可惜，但我们不能免费经营这个地方。如果你改变主意，我们总是非常欢迎你。
+###_PLAYER
+Sorry, maybe another time.
+对不起，也许下次吧。
+###_NPC
+Just let me know when you are ready.
+当你准备好时告诉我。
+###_PLAYER
+What were the nursery requirements again?
+育婴室的要求是什么来着？
+###_NPC
+The primary requirement is diapers.  Clean diapers are mandatory on entry.  We can provide fresh diapers.  They cost $10 a time.
+尿布是基本要求。进入时必须穿上干净的尿布。我们可以提供新的尿布。这每次会花费$10。
+###_PLAYER
+(Sign the form and pay $10.)
+（签署表格并支付$10。）
+###_NPC
+Thank you.  Now let’s get you changed.  (She takes you to one side and swiftly removes all your clothes.)
+谢谢你。现在来给你换衣服吧。（她把你带到一边，迅速脱掉你所有的衣服。）
+###_PLAYER
+I can't afford this right now.
+我现在付不起这个。
+###_NPC
+That is a pity.  There are plenty of ways to make money in the club.  I'm sure you could earn $10 in no time at all.
+真可惜。在俱乐部有很多赚钱的方法。我敢肯定，你很快就能赚到$10。
+###_PLAYER
+What is the $10 charge for?
+$10的费用是干什么的？
+###_NPC
+This place is not cheap to run.  The price for a diaper also covers other running costs, such as outfit hire.
+这个地方运行起来并不便宜。费用里除了尿布的价格，也包括其他运行成本，例如服装租赁。
+###_PLAYER
+What is this form for?
+这个表格是干什么用的？
+###_NPC
+It's just a formal agreement that during your stay we will care for you
+这只是一份正式的协议，在你入住期间我们会照顾你
+###_PLAYER
+Do I have to sign this?
+我必须签这个吗？
+###_NPC
+Yes, it is the backbone of the caring structure we provide.
+是的，它是我们提供的照顾服务的核心。
+###_PLAYER
+(Skim read the small print.)
+（略读小字。）
+###_NPC
+(...right to remain silent...   ...power of attorney...   ...any methods of discipline deemed necessary...)
+（……保持沉默的权利…………授权书…………任何必要的纪律处分方法……）
+###_PLAYER
+Actually I'll pass.
+其实，我觉得还是算了吧。
+###_NPC
+Agreeing to be cared for isn't for everyone I suppose.
+同意接受照顾并不适合每个人，我想。
+###_PLAYER
+(Blush and try to cover yourself.)
+（脸红并试图掩盖自己。）
+###_NPC
+No need to feel ashamed, I am just here to help you.  (She fits a large padded diaper to you.)
+不用感到羞耻，我只是来帮助你的。（她适合你的大号软垫尿布。）
+###_PLAYER
+Don't get any ideas.
+不要有任何想法。
+###_NPC
+I wasn't, I have to do this to help you.  (She hastily fits a large padded diaper to you.)
+我没有，我必须这样做来帮助你。（她急忙给你穿了一块大的软垫尿布。）
+###_PLAYER
+I can dress myself this time.
+这次我可以打扮自己了。
+###_NPC
+I'm sure you could, but this is part of my duty of care.  (She hastily fits a large padded diaper to you.)
+我相信你可以，但这是我照顾你的义务的一部分。（她急忙给你穿了一块大的软垫尿布。）
+###_PLAYER
+(Wait patiently.)
+（耐心等待。）
+###_NPC
+I've got a comfy clean diaper for you.  (She fits a large padded diaper to you.)
+我为你准备了舒适干净的尿布。（她给你穿上了合身的大号软垫尿布。）
+###_PLAYER
+You are going to give me a bra, aren't you?
+你会给我一个胸罩，对吧？
+###_NPC
+A bra on a baby?  That would be absurd.  Lift up your arms now.  (She pulls a dress over you head and helps you into it.)
+给宝宝戴胸罩？别傻了。现在举起你的手臂。（她把一件连衣裙拉到你头上，帮助你穿上它。）
+###_PLAYER
+Come on, this is taking too long.
+够了吧，这太花时间了。
+###_NPC
+Someone’s getting tetchy.  I bet you are just bursting to fill that diaper.  (She helps you into a dress.)
+有人急了哦。我敢打赌你马上就要填满尿布了。（她帮你穿上连衣裙。）
+You are and well behaved, you'll get on fine here.  Now lift up your arms.  (She pulls a dress over you head and helps you into it.)
+你很乖，在这里你会过得很好。现在举起你的手臂。（她把一件连衣裙拉到你头上，帮助你穿上它。）
+###_PLAYER
+Am I ready to play in the nursery now?
+我现在准备好去育婴室玩了吗？
+###_NPC
+Almost there.  (She buckles thumbless mittens over both your hands and puts a pacifier in your mouth.)  Perfect.
+差不多好了。（她把没有拇指的连指手套扣在你的双手上，然后把奶嘴塞进你的嘴里。）完美。
+###_PLAYER
+This dress is ridiculous.
+这件连衣裙真傻。
+###_NPC
+Ridiculously cute.  You look adorable in it.  (She buckles thumbless mittens over both your hands and puts a pacifier in your mouth.) Helplessly adorable.
+又傻又可爱。你穿着它看起来很迷人。（她把没有拇指的连指手套扣在你的双手上，然后把奶嘴塞进你的嘴里。）无助地迷人。
+Hold still just a little longer, only a few accessories left to add now.  (She adds thumbless mittens for your hands and a pacifier in your mouth.)
+再坚持一会儿，现在只剩下几个配件要添加了。（她给你的手戴上了了无拇指手套，然后把奶嘴塞进你的嘴里。）
+###_PLAYER
+(Twirl around.)
+（转一圈。）
+###_NPC
+Such a sweet little girl, you really do look precious.  You can waddle along now and enjoy the nursery.
+真是个可爱的小女孩，你看起来真漂亮。你现在可以摇摆步子走进育婴室啦。
+###_PLAYER
+(Spit out the pacifier.)
+（吐出奶嘴。）
+###_NPC
+What ever is the matter darling?
+亲爱的，这是怎么了？
+(This pacifier is not going anywhere.  The harness holds it securely in place with your mouth firmly closed around the nipple.)
+（这个奶嘴并没有掉下来。束缚带将它牢固地固定在适当的位置，你的嘴仍然紧紧地包裹着奶嘴的乳头。）
+###_PLAYER
+(Test the mittens.)
+（试试手套。）
+###_NPC
+(The mittens are buckled snugly around your wrists.  Your thumbs are trapped inside and you can't grip anything one handed.)
+（手套紧紧地扣在你的手腕上。你的拇指被困在里面，一只手无法抓住任何东西。）
+###_PLAYER
+(Leave her and join the rest of the nursery.)
+（离开她，加入育婴室里的其他人。）
+I want to suck on a real nipple.
+我想吸吮真正的乳头。
+###_NPC
+It's not feeding time yet dear.  This all you can have for now.  (She puts a pacifier in your mouth.)
+亲爱的，现在还不是喂食时间。你现在只能有这个。（她把奶嘴放在你嘴里。）
+###_PLAYER
+I am not sucking on a pacifier.
+我不会吸奶嘴的。
+###_NPC
+That's okay sweetie.  If you change your mind, just ask.
+没关系，亲爱的。如果你改变主意，就问我吧。
+Stop whining, it's not very lady like.  Here this will ease your anxiety.  (She puts a pacifier in your mouth.)
+别抱怨了，这不是很淑女。给你这个，这会缓解你的焦虑。（她把奶嘴放在你嘴里。）
+###_PLAYER
+No way can you keep that in my mouth.
+你不可能把它留在我嘴里。
+###_NPC
+This pacifier should help you avoid the naughty corner.  (She puts a different pacifier in your mouth and secures it with the harness attached to it.)
+这个奶嘴应该可以帮助你避免顽皮的角落。（她将另一个奶嘴放在你的嘴里，并用系在上面的束缚带固定住它。）
+(She hears you crying and rushes over.)  What's the matter Baby DialogPlayerName?
+（她听到你哭了，冲了过来。）DialogPlayerName宝宝，怎么了？
+###_PLAYER
+I woshth my binky.
+我弄丢了我的奶嘴嘴。
+###_NPC
+Awww never mind. Here, have another one.  (She puts a pacifier in your mouth.)
+啊啊，没关系。来，再来一个。（她把奶嘴放在你嘴里。）
+###_PLAYER
+I woshth my binky again.
+我又弄丢了我的奶嘴嘴。
+###_NPC
+I had better make sure you don't lose this one then.  (She straps a harness pacifier into your mouth.)
+我最好确保你不会弄丢这个。（她把一个有束缚带的奶嘴塞进你的嘴里。）
+###_PLAYER
+(Cry and mumble into your pacifier.)
+（在奶嘴里咕哝并哭喊。）
+###_NPC
+I'm sorry, I didn’t understand that.  Try again now.  (She removes the device from your mouth.)
+对不起，我没理解你要什么。现在再说一次吧。（她从你嘴里取出设备。）
+###_PLAYER
+Do I really have to wear this diaper?
+我真的必须穿这个尿布吗？
+###_NPC
+Oh course you do. You are a baby in the nursery now.  (She reaches between you legs and checks the diaper.)
+哦，你当然得穿。你现在是育婴室里的婴儿。（她伸手到你的两腿之间，检查尿布。）
+###_PLAYER
+I don't want to wear this dress.
+我不想穿这件连衣裙。
+###_NPC
+That is a pity, you look beautiful in it.  Do you want try on another of our gorgeous dresses instead?
+真可惜，你穿上它看起来很漂亮。你想试穿另一件我们的漂亮的连衣裙吗？
+###_PLAYER
+Can I wear a dress again?
+我可以再穿上连衣裙吗？
+###_NPC
+You certainly can, but you will need to pay for the laundry, which is $5.  We can't have our babies wearing dirty dresses.
+你当然可以，但你需要支付$5的洗衣费。我们不能让我们的宝宝穿脏连衣裙。
+###_PLAYER
+Can I have some restraints please?
+请问可以给一些束缚吗？
+###_NPC
+Baby DialogPlayerName have you been naughty?  We won't tolerate inappropriate behaviour from any of our babies here.
+DialogPlayerName宝宝，你做了调皮的事情吗？我们不会容忍这里任何宝宝的不当行为。
+###_PLAYER
+It's kind of fun to regress.
+变成小孩子挺有趣的。
+###_NPC
+I'm sure it is.  If you really want to regress properly, I can fix you up some special milk that will help you forget how to do things.
+我保证是的。如果你真想好好地变成小孩子，我可以给你弄点特制的牛奶，它会让你忘记怎么做事情。
+###_PLAYER
+I would like to leave the nursery now.
+我现在想离开育婴室。
+###_NPC
+It's been lovely having you here.  (She helps you change and disposes of the diaper.)
+有你在这里真是太好了。（她帮你更换和处理尿布。）
+###_PLAYER
+(Leave her.)
+（离开她。）
+I've been a good girl, honest!  My hands are cold.
+我一直是个好女孩，真的！我的手好冷。
+###_NPC
+Aww, you poor thing.  Slip you hands in these and they will soon warm up.  (She fastens mittens over your hands.)
+哇，你这个可怜的东西。把你的手放进去，很快就会暖和起来的。（她把无指手套系在你的手上。）
+###_PLAYER
+Maybe.  (Bow your head and avoid her gaze.)
+也许吧。（低下头，避开她的视线。）
+###_NPC
+Come here.  (She fastens mittens over your hands and a harness round you chest, connecting them with short chains.)  Now what did you do?
+过来。（她把无指手套系在你的手上，系紧你胸前的束缚带，并用短链子把它们连接起来。）现在，你刚刚做了什么？
+###_PLAYER
+They are not for me.
+这些不适合我。
+###_NPC
+I know bondage items look fun, but they are not suitable toys for ickle babies to play with.
+我知道束缚物品看起来很有趣，但它们不适合顽皮的婴儿玩耍。
+###_PLAYER
+Nothing wrong, I just like being bound.
+没有错，我就是喜欢被束缚。
+###_NPC
+(She puts a pacifier in your mouth.)  I suppose you like to be gagged as well.  Run along now before I change my mind and get the hair brush.
+（她把奶嘴放在你嘴里。）我想你也喜欢被塞住嘴。在我改变主意去拿梳子之前，快走吧吧。
+###_PLAYER
+We were all putting our hands in each other's diapers and masturbating each other and it felt so good and....
+我们都把手放在对方的尿布里，互相手淫，感觉很好，而且……
+###_NPC
+YOU WHAT!?  That is highly inappropriate behaviour in a nursery.  (She securely restrains and gags all of the adult babies.)
+你做了什么！？这在育婴室是非常不恰当的行为。（她牢固地束缚住了所有的成年宝宝，并给她们戴上了口塞。）
+###_PLAYER
+I'm not telling you.
+我不会告诉你的。
+###_NPC
+You had better not tell anyone then.  (She straps a pacifier in your mouth, checks the mittens are buckled tight and padlocks them.)
+那时你最好不要告诉任何人。（她把奶嘴塞进你嘴里，检查手套是否扣紧，并锁上了手套。）
+###_PLAYER
+Help me to forget what?
+帮我忘记什么？
+###_NPC
+Nothing too serious, you might not be as skillful as you used to be after drinking it.
+没什么大不了的，喝了以后可能没有以前那么熟练了。
+###_PLAYER
+What is in this milk?
+这牛奶里有什么？
+###_NPC
+Just a natural drug, which induces very mild amnesia and maybe some stimulant laxative as well.
+只是一种天然药物，它会引起非常轻微的健忘症，也许还有一些刺激性的泻药。
+###_PLAYER
+Is that safe?
+那安全吗？
+###_NPC
+Don't worry. It has been tested and the dose is far too small to risk wiping your mind blank. It does not affect your ability to learn afterwards either.
+不用担心。这已经测试过，这些剂量太小，不会让你的大脑一片空白。这也不会影响你以后学习的能力。
+###_PLAYER
+Can I have some, please.
+请给我一些。
+###_NPC
+Just wait there a moment.  (She fetches a bottle of milk with a teat on it.)  Are you ready?
+稍等片刻。（她拿起一瓶牛奶，上面有一个奶嘴）你准备好了吗？
+###_PLAYER
+I think I will pass.
+我想我还是算了吧。
+###_NPC
+That’s okay.  You can always ask if you change your mind.  (She puts the bottle back.)
+没关系。你可以随时问你是否改变主意。（她把瓶子放回去。）
+###_PLAYER
+Yes, really I want to regress.
+是的，我真的想变成小孩子。
+###_NPC
+(She puts an arm around you and holds the bottle up to your mouth, pushing the teat inside.)  You can drink as much of the bottle as you want and just nod to stop.
+（她用一只胳膊搂住你，把瓶子举到嘴边，把奶嘴往里推。）你想喝多少就喝多少，想停止的时候就点头。
+###_PLAYER
+Thank you, but I don't want it right now.
+谢谢，但我现在不想要。
+(Suck on the teat to start drinking.)
+（吸吮奶头开始喝奶。）
+###_NPC
+(You suck a mouthful of lukewarm milk from the bottle and swallow it.  A warm fuzzy feeling starts to creep over you.
+（你从瓶子里吸了一口温牛奶然后吞下去。一种温暖的模糊感觉开始蔓延到你身上。
+###_PLAYER
+This is kind of weird.
+这有点奇怪。
+###_NPC
+Don't try talking with your mouth full.  You will only end up wasting milk like a bad baby.
+嘴里有东西的时候不要说话。那样你只会像坏婴儿一样浪费牛奶。
+###_PLAYER
+(Drink some more milk.)
+（喝更多牛奶。）
+###_NPC
+(You swallow another mouthful of the milk.  Comforted by the fuzzy feeling and Nurse DialogCharacterName's embrace.)
+（你又吞了一口牛奶。那种模糊的感觉和DialogCharacterName护士的拥抱让你感到安慰。）
+###_PLAYER
+This feels kind of weird.
+这感觉有点奇怪。
+(Nod to stop drinking.)
+（点头停止喝奶。）
+###_NPC
+DialogCharacterName puts the bottle down and hugs you.  One hand holding your head over her shoulder
+DialogCharacterName放下瓶子并拥抱你。一只手把你的头放在她的肩膀上
+###_PLAYER
+(Burp quietly.)
+（小声打嗝。）
+###_NPC
+Good girl, you will feel better after that.  (She lets go of you and that warm cozy fuzzy feeling starts to diminish.)
+乖女孩，以后你会感觉好多了。（她放开你，那种温暖舒适的模糊感觉开始减弱。）
+###_PLAYER
+(Belch loudly.)
+（大声地打嗝。）
+###_NPC
+Oh my, that wasn't very lady like.  (She lets go of you and that warm cozy fuzzy feeling starts to diminish.)
+哦，我的天呀，这可不是很淑女。（她放开你，那种温暖舒适的模糊感觉开始减弱。）
+###_PLAYER
+Is this necessary?  I feel fine.
+这是必要的吗？我感觉很好。
+###_NPC
+Of course it is. You are bound to have some trapped bubbles after swallowing all that warm milk.
+当然是。喝完热牛奶后，你一定会咽下去不少气泡的。
+###_PLAYER
+Can I try a different dress?
+我可以试试不同的连衣裙吗？
+###_NPC
+You may, but you will have to pay $5 for the extra laundry.
+你可以，但你必须为额外的洗衣工作支付$5。
+###_PLAYER
+Do you have this style of dress in another color?
+你有另一种颜色的这种款式的连衣裙吗？
+###_NPC
+Yes.  The nursery has quite a stock of dresses in many lovely colors, but you will have to pay $5 for the extra laundry.
+是的。育婴室有很多颜色的可爱的连衣裙，但你必须为额外的洗衣工作支付$5。
+###_PLAYER
+I just want to wear my birthday suit.
+我只想穿我的生日套装。
+###_NPC
+I suppose you may.  Do you want me to put that dress on for washing?
+我觉得可以。你要我把那件连衣裙送去洗吗？
+###_PLAYER
+Can I choose the dress style and color please?
+请问我可以选择连衣裙的款式和颜色吗？
+###_NPC
+Sorry, that would be a very big decision for an ickle baby to make. I'm sure I can pick out something delightful for you to wear.
+抱歉，对于一个爱哭的婴儿来说，这将是过于重大的决定。我敢肯定，我能挑出一件令你愉快的连衣裙给你穿。
+###_PLAYER
+I will continue wearing this dress.
+我会继续穿这件连衣裙。
+###_NPC
+That is alright. You do look very pretty in it.
+这很好。你穿它看起来很漂亮。
+###_PLAYER
+Okay. (Pay $5)
+好的。（支付$5）
+###_NPC
+Great, I think you will look absolutely adorable in this dress.  (She changes your dress, fussing over you and making it sit just right.)
+太好了，我想你穿这件连衣裙会非常可爱。（她更换了你的连衣裙，细致地反复询问，让它舒适得恰到好处地。）
+Sorry honey. You will have to come back later when you have some pocket money to spend.
+宝贝，对不起。你得等有一些零用钱可花时再回来。
+###_PLAYER
+I will stay like this.
+我会保持这样。
+###_NPC
+You already look adorable as you are.
+你已经看起来很可爱了。
+###_PLAYER
+Eeeee, thish ish perfecth. Thanw you.
+诶诶，这真棒。谢谢你。
+###_NPC
+You are simply adorable and are very welcome baby DialogPlayerName.
+你很可爱，非常欢迎你，DialogPlayerName宝宝。
+###_PLAYER
+Thank you.
+谢谢你。
+###_NPC
+You're welcome.
+别客气。
+###_PLAYER
+This will do, I suppose.
+这应该可以，我想。
+###_NPC
+It suits you just fine. Try it for a while and I am sure you will grow to love it.
+这很适合你。试一试，我相信你会爱上它的。
+###_PLAYER
+I like this dress, but can I have it in another color?
+我喜欢这件连衣裙，但我可以换成其他颜色吗？
+###_NPC
+Of course you may, but that dress will have to be laundered. You will have to pay an extra $5.
+当然可以，但那件连衣裙会需要清洗。你会需要额外支付$5。
+###_PLAYER
+Hmmm, I want to try on another dress.
+嗯，我想试穿另一件连衣裙。
+Actually I want to wear the previous dress instead.
+其实我想穿以前的连衣裙。
+###_NPC
+Too late now, that one has already gone to the laundry.
+现在太晚了，那个已经去送去洗了。
+It suits you just fine.  Try it for a while and I am sure you will grow to love it.
+它很适合你。试一试，我相信你会爱上它的。
+###_PLAYER
+Hmmm, I want to try this dress in another color.
+嗯，我想试试这件连衣裙的另一种颜色。
+Okay.
+好的。
+###_NPC
+Come here then. (She unbuttons and removes your dress.)
+那你过来吧。（她解开扣子，脱下你的裙子。）
+You are simply adorable baby DialogPlayerName, almost as naked and vulnerable as the day you were born.
+你只是个可爱的宝宝，DialogPlayerName，几乎和你出生那天一样，一丝不挂，楚楚可怜。
+It will have to.  I have already sent that dress off for washing.  You're now almost as naked and vulnerable as the day you were born.
+必须这样。我已经把那件连衣裙送去洗了。你现在几乎和你出生那天一样，一丝不挂，楚楚可怜。
+###_PLAYER
+Actually I want to wear my dress again.
+其实我想再穿回连衣裙。
+###_NPC
+Great, I think you will look absolutely adorable in this dress.  (She takes a fresh dress and puts it on you, making it sit just right.)
+太好了，我想你穿这件连衣裙会非常可爱。（她拿了一件新连衣裙穿在你身上，让它舒适得恰到好处。）
+I've been very disappointed by your recent behavior. You can stay like that until you are ready to apologize.
+我对你最近的行为感到非常失望。你可以一直这样，直到你准备好道歉。
+Are you ready to apologize properly little DialogPlayerName?
+你准备好正确地道歉了吗？小DialogPlayerName？
+###_PLAYER
+Hey, let me go right now.
+嘿，让我现在就走。
+###_NPC
+You clearly haven't learnt your lesson yet.  (She straps a pacifier into your mouth)  That will help you learn some manners. Now for another lesson.
+你显然还没有吸取教训。（她把奶嘴塞进你嘴里）这会帮助你学会一些礼貌。现在再让你吸取一些教训吧。
+###_PLAYER
+Will you let me go now?
+你现在可以放我走吗？
+###_NPC
+Your behaviour has improved, but I think you may still need another lesson, don't you.
+你的行为有所改善，但我认为你可能还需要吸取一些教训，对吧。
+###_PLAYER
+I'm sorry Nurse.  I've learnt my lesson.
+对不起，护士。我已经吸取了教训。
+###_NPC
+I'm not so sure you have.  I think we need to continue your punishment.
+我不太确定你吸取了教训。我认为我们需要继续惩罚你。
+###_PLAYER
+I'm shorry Nurshe.
+我很抱歉，护士。
+###_NPC
+Aww, it is good to hear that.  Are you going to be a good little girl now?
+哇，听到这个真好。你现在会成为一个好女孩吗？
+###_PLAYER
+I am really sorry Nurse.
+真的对不起，护士。
+###_NPC
+I am glad to hear that.  Are you going to behave yourself and play nicely now?
+我很高兴听到这个。现在开始，你会好好表现，好好玩吗？
+###_PLAYER
+(Nod your head.)
+（点点头。）
+###_NPC
+No, I don't think you are ready to apologize yet.  What you need is more punishment.
+不，我认为你还没有准备好道歉。你需要的是更多的惩罚。
+I think you are ready to start apologizing.  (She removes your gag.)  Okay, what have you got to say for yourself?
+我想你已经准备好开始道歉了。（她取下你的口塞。）好，你有什么要说的？
+###_PLAYER
+(Shake your head.)
+（摇头。）
+###_NPC
+Well you had better keep quiet and think about your behaviour.
+好吧，你最好保持安静，反思你的行为。
+###_PLAYER
+Yes Nurse.
+是的，护士。
+###_NPC
+I'm glad to hear you’re getting the hang of this.  Now which punishment shall I give you this time?
+我很高兴听到你有所学习。这次，我要给你什么惩罚呢？
+###_PLAYER
+Please no, I'll be good.
+请不要，我会很乖的。
+###_NPC
+Don't try to fool me.  You are in this situation precisely because you have not been good.  Now which punishment will you get this time?
+别逗我了。你处于这种情况，就是因为你做得不好。这次你会受到什么样的惩罚呢？
+Fine, but you still need to think long and hard about your behaviour.
+很好，但是你仍然需要长时间认真考虑一下自己的行为。
+I'm glad to hear that you're getting the hang of this, now which punishment shall I give you this time?
+我很高兴听到你有所学习，这次，我要给你什么惩罚呢？
+It's far too late for that. You have been a very naughty girl.  Now which punishment shall I give you this time?
+太晚了。你这个女号淘气太久了。这次，我要给你什么惩罚呢？
+###_PLAYER
+What are you going to do?
+你会做什么？
+###_NPC
+(She produces a hair brush)  It is time you had your bottom spanked.  (She sits on a chair.)  Now lie down over my knees.
+（她拿出一把毛刷）是时候打屁股了。（她坐在椅子上。）现在躺在我的膝盖上。
+###_PLAYER
+(Wait quietly.)
+（安静地等待。）
+###_NPC
+Where do you think you're going?  (She grabs your arm and pulls you back close to her.)
+你要去哪里？ （她抓住你的手臂，把你拉回到她身边。）
+###_PLAYER
+Yesh Nurshe.
+是的，护士。
+###_NPC
+That is lovely to hear.  (She gives you a big hug, then frees you.)  Would you like an ordinary pacifier?
+很高兴听到这个。（她给了你一个大大的拥抱，然后松开了你。）你想要一个普通的奶嘴吗？
+That is good to hear.  (She gives you a hug, then frees you.)  Would you like an ordinary pacifier?
+听到这个真好。（她给了你一个拥抱，然后松开了你。）你想要一个普通的奶嘴吗？
+###_PLAYER
+Maybe.
+也许。
+###_NPC
+I can always give you more punishments until you are sure.  Now
+在你确定之前，我总是可以给你更多的惩罚。现在
+###_PLAYER
+Nope.
+没有。
+###_NPC
+I thought not.  (She gags you with a harness pacifier.)  It's time you had another punishment.
+我以为不是。（她用束缚带奶嘴堵住你的嘴。）是时候继续惩罚你了。
+###_PLAYER
+Yesh pweashe.
+是的，请温柔。
+###_NPC
+I thought you would.  (She helps your hands into mittens, slips a pacifier into your mouth and kisses you on the forehead.)  Run along now.
+我以为你会的。（她帮你戴上手套，把奶嘴塞进你的嘴里，亲吻你的额头。）现在快走吧。
+###_PLAYER
+No thank you.
+不，谢谢。
+###_NPC
+I do know when you are not being honest.  (She slips your hands into mittens and a pacifier into your mouth.)  Run along now like a good girl.
+我知道你什么时候在撒谎。（她把你的手塞进手套里，把奶嘴塞进你的嘴里。）现在像个好女孩一样走开吧。
+###_PLAYER
+Whatever
+随便你
+###_NPC
+Don't take that tone with me young lady.  (She forcibly restrains you again.)
+小小姐，不要用那种语气跟我说话。（她又强行束缚住了你。）
+You’re not going anywhere like that.  (She pulls you back and forcibly restrains you again.)
+像这样子，你哪里也去不了。（她把你拉了回来，又强行束缚住了你。）
+Don't take that tone with me.  I know you've been a very naughty girl.
+不要跟我用那种语说话。我知道你是一直是个非常淘气的女孩。
+###_PLAYER
+I'm sorry Nurse.
+对不起，护士。
+###_NPC
+I can tell you are not sorry.  Babies must ask to stop wearing diapers and leave the nursery.  It is part of our duty of care.
+我可以告诉你，你一点也不对不起。宝宝必须要求停止穿尿布再离开育婴室。这是我们照顾义务的一部分。
+###_PLAYER
+(Sulk.)
+（闷闷不乐。）
+###_NPC
+It’s no good sulking like that.  You know you must wear diapers the whole time while in our care.
+这样生闷气是不好的。你知道在我们的照顾下你必须一直穿尿布。
+Hold it right there.  (She grabs hold of your arm.)  You never asked to leave the nursery.
+把它放在那里。（她抓住你的手臂。）你从来没有要求离开育婴室。
+###_PLAYER
+So what now?
+所以现在怎么办？
+###_NPC
+You can be quiet for a start.  (She makes sure you are completely stripped naked and securely restrained. Then puts you in fresh diapers.)
+一开始你可以保持安静。（她确保你脱光衣服，并牢牢束缚住你。然后给你穿上新的尿布。）
+At least you still have some manners.  (She makes sure you are completely stripped naked and securely restrained. Then puts you in fresh diapers.)
+至少这样你还有一些礼貌。（她确保你脱光衣服，并牢牢束缚住你。然后给你穿上新的尿布。）
+###_PLAYER
+(Ignore the nurse.)
+（忽视护士。）
+###_NPC
+HEY look at me when I am talking to you.  (She makes sure you are completely stripped naked and securely restrained. Then puts you in fresh diapers.)
+嘿，当我和你说话的时候，看着我。（她确保你脱光衣服，并牢牢束缚住你。然后给你穿上新的尿布。）
+###_PLAYER
+This is so unfair.
+这太不公平了。
+###_NPC
+It's not fair that I have to deal with unruly brats like you.  Now you need a proper punishment.
+我不得不对付像你这样不守规矩的调皮蛋，更不公平。现在你需要接受适当的惩罚。
+What you need now is a proper punishment to teach you how to behave in the future.
+你现在需要的是适当的惩罚，教你将来如何好好表现。
+###_PLAYER
+(Pull away from her.)
+（推开她。）
+###_NPC
+(She holds you firm.)  You are not going anywhere without a proper punishment first.
+（她紧紧地抱住你。）如果没有接受适当的惩罚，你哪里也去不了。
+###_PLAYER
+Does it matter?
+这重要吗？
+###_NPC
+Of course it matters.  That attitude will get you into deep trouble.  (She removes your clothes.)
+这当然很重要。你这种态度会让你陷入深深的麻烦的。（她脱掉你的衣服。）
+It would be better if you behaved better and didn't have to be sorry.  (She removes your clothes.)
+如果你表现得更好，并且不必感到抱歉，那就更好了。（她脱掉你的衣服。）
+You’re not going anywhere dressed like that.  (She pulls you back and removes your clothes.)
+你穿成这样哪里也去不了的。（她把你拉回来，脱掉你的衣服。）
+###_PLAYER
+Can I go now?
+我现在可以走了吗？
+###_NPC
+Your diapers appear to be fine now, but I will make sure your hands can't cause any more mischief.  (She makes sure you are restrained.)
+你的尿布现在看起来很好，但我要确保你的手不会再制造任何恶作剧。（她确保你被束缚起来。）
+###_PLAYER
+Can I have some clothes please?
+请问我可以穿些衣服吗？
+###_NPC
+Not at the moment, you will have to earn that privilege again, along with the use of your hands.  (She makes sure you are restrained.)
+目前不行，你需要努力再次获得这项权利，以及使用你的双手的权利。（她确保你被束缚起来。）
+That’s better, the seriousness of this seems to be sinking in, but you have not been forgiven yet.  (She makes sure you are restrained.)
+那就更好了，这件事的严重性似乎正在降低，但你还没有被原谅。（她确保你被束缚起来。）
+You’re not even wearing your diaper!  You have been a very naughty girl.  I'm really disappointed in your behaviour DialogPlayerName.
+你连尿布都没穿！你真是个非常淘气的女孩。我对你的行为真的很失望，DialogPlayerName。
+###_PLAYER
+I was just making sure the gate was shut.
+我只是检查门是不是关的。
+###_NPC
+It closes perfectly well on its own.  Don't let me catch you messing with that gate again.
+门自己就能好好关上。你再折腾那扇门，别让我抓到。
+###_PLAYER
+(Bow your head and fidget anxiously.)
+（低下头，坐立不安。）
+###_NPC
+Yes, you know you should stay in here like a good baby.  Don't let me catch you messing with that gate again.
+是的，你知道你应该像个好孩子一样待在这里。你再折腾那扇门，别让我抓到。
+I know what you were trying to do.  Don't let me catch you messing with that gate again.
+我知道你想做什么。你再折腾那扇门，别让我抓到。
+###_PLAYER
+Hey, you can't do this too me.
+嘿，你不能这样对我。
+###_NPC
+Oh yes I can.  I have your signed consent to treat you like this.  I think you need a nap and a time out.  (She restrains and blinds you.)
+哦，是的，我可以。我已经得到了你签署的资源协议，让我这样对待你。我认为你需要睡一会儿来休息一下。（她束缚住你，并蒙上了你的双眼。）
+###_PLAYER
+Please just let me go.
+请放开我。
+###_NPC
+I will once you have learned to behave properly.  I think you need a nap and a time out.  (She makes sure you are restrained and blinds you.)
+当你理解了如何举止得体，我会放开你。我认为你需要睡一会儿来休息一下。（她确保你被束缚起来，并蒙上了你的双眼。）
+Don't try to worm your way out of this one.  I think you need a nap and a time out.  (She makes sure you are restrained and blinds you.)
+不要试图绕开这个问题。我认为你需要睡一会儿来休息一下。（她确保你被束缚起来，并蒙上了你的双眼。）
+(You don't get far before she pins you down.)  I think you need a nap and a time out.  (She makes sure you are restrained and blinds you.)
+（你没走多远，她就把你按倒。）我认为你需要睡一会儿来休息一下。（她确保你被束缚起来，并蒙上了你的双眼。）
+###_PLAYER
+(The nurse leaves you.)
+（护士离开了你。）
+Hey, you can't do this to me.
+嘿，你不能这样对我。
+###_NPC
+I have had enough of your bad behaviour.  (She forcibly makes sure you are kneeling and securely bound)  It is time to make your bottom glow.
+我受够了你的不良行为。（她强行让你跪下，并牢固地束缚住你）是时候让你的臀部发光了。
+###_PLAYER
+(Punishments to do)
+（要承受的惩罚）
+###_NPC
+She finishes punishing you
+她完成了对你的惩罚
