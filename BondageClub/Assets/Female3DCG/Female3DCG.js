@@ -7563,7 +7563,7 @@ var AssetFemale3DCG = [
 			 * Assets: preview, stand, invisible logical image for Text layer, add a pen font
 			 */
 			{
-				Name: "LuckyWheel", Priority: 62, Top: 450, Value: 100, Difficulty: -10, Time: 5, IsRestraint: false, Effect: [], RemoveAtLogin: true, FixedPosition: true, Extended: true,
+				Name: "LuckyWheel", Priority: 62, Top: 0, Value: 100, Difficulty: -10, Time: 5, IsRestraint: false, Effect: [], RemoveAtLogin: true, FixedPosition: true, Extended: true,
 				DefaultColor: ["#D7D5D5", "#7D1D89"], DynamicAfterDraw: true, DynamicScriptDraw: true,
 				Layer: [
 					{ Name: "Base", HasType: false, AllowModuleTypes: ["b0"]},
@@ -7572,8 +7572,8 @@ var AssetFemale3DCG = [
 					{ Name: "Misc", HasType: false, AllowModuleTypes: ["m0"]},
 					{ Name: "MiscFlogger", HasType: false, AllowModuleTypes: ["m0"]},
 					{ Name: "MiscGag", HasType: false, AllowModuleTypes: ["m0"]},
-					{ Name: "Back", HasType: false },
-					{ Name: "Text", HasType: false },
+					{ Name: "Back", HasType: false, Top: 190 },
+					{ Name: "Text", HasType: false, Top: 190 },
 					{ Name: "Arrow", HasType: false, AllowModuleTypes: ["a0"]},
 					{ Name: "Arrow2", HasType: false, AllowModuleTypes: ["a1"]},
 					{ Name: "Arrow3", HasType: false, AllowModuleTypes: ["a2"]},
