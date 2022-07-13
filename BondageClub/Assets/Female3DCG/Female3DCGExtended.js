@@ -4166,6 +4166,12 @@ var AssetFemale3DCGExtended = {
 			Config:{
 				Modules: [
 					{
+						Name: "Settings", Key: "s",
+						Options: [
+							{ HasSubscreen: true },
+						],
+					},
+					{
 						Name: "Stand", Key: "b",
 						Options: [
 							{}, {}, //b0 - WoodenBase, b2 - MetalBase
