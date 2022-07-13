@@ -3279,7 +3279,31 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //WoodenRack
-
+		LuckyWheel: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config:{
+				Modules: [
+					{
+						Name: "Stand", Key: "b",
+						Options: [
+							{}, {}, //b0 - WoodenBase, b2 - MetalBase
+						],
+					},
+					{
+						Name: "Misc", Key: "m"
+						Options: [
+							{}, {},//m0 - MiscOn, m1 - MiscOff
+						],
+					},
+					{
+						Name: "Arrow", Key: "a"
+						Options: [
+							{}, {}, {}, //a0 - DefaultArrow, a1 - AlternateArrow, a2 - PlugArrow
+						],
+					},
+				],
+			},
+		}, //LuckyWheel
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {
