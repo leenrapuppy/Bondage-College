@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-07-10
-* Last recorded PR: [#3540](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3540)
-* Last recorded commit hash: `e8f2c636c5555ec346dafca55c16d64bf4572fa6`
+* Changelog last updated: 2022-07-13
+* Last recorded PR: [#3550](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3550)
+* Last recorded commit hash: `9872e3ce57464b05c796253428482bb976969802`
 
 ## [R82]
 
@@ -30,7 +30,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Karamel - Added a new "Knotted" variation to the Cloth Gag ([#3526](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3526))
 * Emily R/Ayesha - Added 3 new chatroom backgrounds ([#3527](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3527))
 * RedStacey/Ayesha - Added Fur Scarf Gag & Blindfold items ([#3528](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3528))
-* Da'Inihlus - Added several Chinese translations ([#3529](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3529), [#3538](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3538))
+* Da'Inihlus - Added several Chinese translations ([#3529](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3529), [#3538](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3538), [#3549](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3549))
 * Karamel - Added new audio variations for tape and metal cuff items ([#3530](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3530))
 * Luna - Added a new Pet Sign item ([#3533](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3533))
 * Shion/Ayesha - Added a new Latex Open Mouth Plug Hood item ([#3534](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3534))
@@ -47,19 +47,24 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Da'Inihlus - Changed several items which trigger on speech to work with non-English languages ([#3531](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3531))
 * gatetrek - Updated the Chain Clamps item with new graphics, variants and multi-color support ([#3535](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3535))
 * Estsanatlehi - Updated the Metal & Leather Chastity Belt preview images to reflect the new assets ([#3540](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3540))
+* Nina - Changed notifications so that chatroom join notifications are no longer received when in full sensory deprivation ([#3550](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3550))
 
 ### [Fixed]
 
 * Estsanatlehi - Fixed a crash that could occur on login for some players ([#3532](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3532))
+* Estsanatlehi - Fixed an issue where item duplicates could appear in the inventory screen ([#3548](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3548))
 
 ### [Technical]
 
 * Technical changes, fixes and improvements:
-  * Estsanatlehi - [#3525](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3525), [#3536](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3536), [#3537](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3537)
+  * Estsanatlehi - [#3525](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3525), [#3536](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3536), [#3537](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3537), [#3542](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3542)
 
 ### [Beta Fixes]
 
-* Nothing... yet
+* Luna - Fixed an issue with the layer names for some of the new hairs ([#3544](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3544))
+* Estsanatlehi - Fixed several bugs with the Obedience Belt ([#3545](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3545))
+* Luna - Fixed several issues with the Pet Post ([#3546](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3546))
+* Estsanatlehi - Fixed an issue where mittens that can be chained to a harness wouldn't recognise the harness in the new torso slot ([#3547](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3547))
 
 
 ## [R81]
