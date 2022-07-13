@@ -2298,7 +2298,7 @@ var AssetFemale3DCG = [
 		AllowNone: false,
 		AllowExpression: ["Hard"],
 		Asset: ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3",
-			{ Name: "Penis", Random: false, Left: 200, Top: 410 }
+			{ Name: "Penis", Random: false, Left: 200, Top: 410, Gender: "M" }
 		],
 		Color: ["Default", "#674229", "#887467"]
 	},
@@ -2307,8 +2307,8 @@ var AssetFemale3DCG = [
 		Group: "Pronouns",
 		AllowNone: false,
 		Asset: [
-			{ Name: "SheHer", DynamicScriptDraw: true, Visible: false, Random: false },
-			{ Name: "HeHim", DynamicScriptDraw: true, Visible: false, Random: false }
+			{ Name: "SheHer", DynamicScriptDraw: true, Visible: false, Random: false, Gender: "F" },
+			{ Name: "HeHim", DynamicScriptDraw: true, Visible: false, Random: false, Gender: "M" }
 		]
 	},
 
