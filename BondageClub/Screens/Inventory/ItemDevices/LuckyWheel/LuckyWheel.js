@@ -165,11 +165,12 @@ function AssetsItemDevicesLuckyWheelScriptDraw({ C, PersistentData, Item }) {
 	}
 }
 
-function AssetsItemDevicesLuckyWheelAfterDraw({ C, PersistentData, Item, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color, Opacity }) {
+function AssetsItemDevicesLuckyWheelAfterDraw({ C, PersistentData, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color, Opacity }) {
 	if (L === "_Text") {
 		const Data = PersistentData();
 		const CurrentAngle = Data.AnimationAngleState;
 		const Properties = Property || {};
+		const Item = InventoryGet(C, A.Group.Name);
 
 		// Determine Color Layer/Text Status
 		let storedTexts = Properties.Texts && Array.isArray(Properties.Texts) ? Properties.Texts.filter(T => typeof T === "string") : [];
@@ -190,8 +191,26 @@ function AssetsItemDevicesLuckyWheelAfterDraw({ C, PersistentData, Item, A, X, Y
 		ctx.translate(diameter, diameter);
 		ctx.rotate(degreeToRadians(CurrentAngle));
 		ctx.translate(-diameter, -diameter);
+
+		const SectionsPerNumTexts = {
+			2: 2,
+			3: 3,
+			4: 2,
+			5: 3,
+			6: 3,
+			7: 3,
+			8: 2,
+		};
+
 		// Draw the background
-		DrawImageCanvas("Assets/Female3DCG/ItemDevices/LuckyWheel_" + nbTexts + ".png", ctx, 0, 0, AlphaMasks);
+		const colorLayerID = 10;
+		for (let sectionID = 0; sectionID < SectionsPerNumTexts[nbTexts]; sectionID++) {
+			const image = "Assets/Female3DCG/ItemDevices/LuckyWheel_" + nbTexts + "_" + (sectionID + 1) + ".png";
+			const color = Item.Color[colorLayerID + sectionID] || "#888";
+			// DrawImageCanvas(image, ctx, 0, 0, AlphaMasks);
+			DrawImageCanvasColorize(image, ctx, 0, 0, 1, color, false, AlphaMasks);
+		}
+
 
 		// Restore the canvas rotation
 		ctx.restore();
