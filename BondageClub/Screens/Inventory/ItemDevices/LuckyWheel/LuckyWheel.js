@@ -9,6 +9,44 @@ var ItemDevicesLuckyWheelAnimationMinSpeed = 4;
 var ItemDevicesLuckyWheelAnimationSpeedStep = 1;
 var ItemDevicesLuckyWheelAnimationFrameTime = 80;
 
+function InventoryItemDevicesLuckyWheelLoad() {
+	if (!DialogFocusItem.Property) DialogFocusItem.Property = {};
+	if (typeof DialogFocusItem.Property.TargetAngle !== "number") DialogFocusItem.Property.TargetAngle = 0;
+	if (!Array.isArray(DialogFocusItem.Property.Texts)) DialogFocusItem.Property.Texts = [];
+}
+
+function InventoryItemDevicesLuckyWheelDraw() {
+	// Draw the header and item
+	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
+
+	DrawButton(1380, 800, 260, 64, DialogFindPlayer("LuckyWheelTrigger"), "white");
+}
+
+function InventoryItemDevicesLuckyWheelClick() {
+	if (MouseIn(1885, 25, 90, 90)) {
+		InventoryItemDevicesLuckyWheelExit();
+		return;
+	}
+
+	if (MouseIn(1380, 800, 260, 64)) {
+		InventoryItemDevicesLuckyWheelTrigger();
+		return;
+	}
+}
+
+function InventoryItemDevicesLuckyWheelExit() {
+	DialogFocusItem = null;
+}
+
+function InventoryItemDevicesLuckyWheelTrigger() {
+	const randomAngle = Math.round(Math.random() * 360);
+	DialogFocusItem.Property.TargetAngle = randomAngle;
+
+	/** @type {ChatMessageDictionary} */
+	let Dictionary = [];
+	ChatRoomPublishCustomAction("LuckyWheelStartTurning", true, Dictionary);
+}
+
 function AssetsItemDevicesLuckyWheelScriptDraw({ C, PersistentData, Item }) {
 	const Data = PersistentData();
 	const Properties = Item.Property || {};
