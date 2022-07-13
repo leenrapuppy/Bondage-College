@@ -1919,6 +1919,8 @@ function PlatformController(Buttons) {
 	if ((Buttons[ControllerX].pressed == true) && (ControllerGameActiveButttons.X == false)) PlatformEventKeyDown({ keyCode: 75 });
 	if ((Buttons[ControllerY].pressed == true) && (ControllerGameActiveButttons.Y == false)) PlatformEventKeyDown({ keyCode: 79 });
 	if ((Buttons[ControllerDPadUp].pressed == true) && (ControllerGameActiveButttons.UP == false)) PlatformEventKeyDown({ keyCode: 90 });
+	if ((Buttons[ControllerTriggerRight].pressed == true) && (ControllerGameActiveButttons.TRIGHT == false)) PlatformEventKeyDown({ keyCode: 73 });
+	if ((Buttons[ControllerTriggerLeft].pressed == true) && (ControllerGameActiveButttons.TLEFT == false)) PlatformEventKeyDown({ keyCode: 80 });
 	PlatformButtons = Buttons;
 	return true;
 
