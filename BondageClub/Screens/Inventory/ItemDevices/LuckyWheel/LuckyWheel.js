@@ -249,7 +249,7 @@ function AssetsItemDevicesLuckyWheelAfterDraw({ C, PersistentData, A, X, Y, L, P
 				diameter + diameter * Math.sin(degreeToRadians(coordDegree + 90 + (nbTexts % 2 !== 0 ? sectorAngleSize / 2 : 0)))
 			]; // Appropriate point on the perimeter of a circle
 			DynamicDrawTextFromTo(validatedText, ctx, from, to, {
-				fontSize: 24,
+				fontSize: 32,
 				fontFamily: ItemDevicesLuckyWheelFont,
 				color: Color,
 				width: diameter - 40
