@@ -1463,7 +1463,83 @@ var PlatformDialogData = [
 			{ Text: "(She looks at Olivia.)" },
 		]
 	},
-	
+
+	{
+		Name: "OliviaCabin",
+		Dialog: [
+			{
+				Background: "ForestCabin",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				]
+			},
+			{ Text: "The fireplace feels so nice and cozy." },
+		]
+	},
+
+	{
+		Name: "EdlaranCabin",
+		Exit : function () { PlatformEventSet("EdlaranCabin"); PlatformLoadRoom(); },
+		Dialog: [
+			{
+				Background: "ForestCabin",
+				Entry: function() {
+					if (PlatformEventDone("EdlaranCabin")) PlatformDialogGoto = "End";
+					PlatformDialogProcess();
+				}
+			},
+			{	
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" }
+				]
+			},
+			{ Text: "I love this cabin, it's a good place to hide and get a free lunch." },
+			{ Text: "I mean... it would be a good place to hide and eat, since it's my first time here." },
+			{
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" }
+				],
+				Text: "Edlaran, this hunting cabin used to belong to my late father."
+			},
+			{ Text: "You should not break in to sleep or get a free meal.  This is not appropriate." },
+			{
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				],
+				Text: "Is it a crime to sleep in an unoccupied cabin?  Don't answer."
+			},
+			{ Text: "It's easy to judge others when you're rich and never knew cold or hunger." },
+			{ 
+				Text: "Tell her Melody.",
+				Answer: [
+					{ Text: "I don't want to get involved.", Reply: "Yeah, she would not understand anyway." },
+					{ Text: "Breaking in the cabin is wrong.", Reply: "(She looks disappointed.)  Don't side with her rich family.", Love: -2, Script: function() { PlatformDialogAlterProperty("Olivia", "Love", 2); } },
+					{ Text: "House Alberus can share it's cabin.", Reply: "Thanks Melody!  (She pulls her tongue at Olivia.)", Love: 2, Script: function() { PlatformDialogAlterProperty("Olivia", "Love", -2); } },
+					{ Text: "No jury would convict you Edlaran.", Reply: "(She nods.)  There's nothing wrong with finding some shelter.", Love: 1, Perk: true },
+				]
+			},
+			{ Text: "(She looks around.)  This cabin can be our new castle." },
+			{ 
+				Text: "I'll use the big chair as my throne.",
+				Answer: [
+					{ Text: "The throne is mine girl.", Reply: "(She gulps.)  You can have the comfy chair.", Domination: 2 },
+					{ Text: "You'll make a good cabin queen.", Reply: "(She smirks.)  Cabin queen?  I like it.", Domination: -2 },
+					{ Text: "This is not a throne.", Reply: "(She laughs.)  You need to use your imagination." },
+					{ Text: "Lady Olivia should have the throne.", Reply: "(She sighs.)  You're no fun.", Love: -1 },
+				]
+			},
+			{ 
+				ID: "End",
+				Character: [{ Name: "Edlaran", Status: "Archer", Pose: "Idle" }],
+				Text: "Let's rest while we can, we have a long journey ahead."
+			},
+		]
+	},
+
 ];
 
 /**
@@ -1565,7 +1641,7 @@ function PlatformDialogDraw() {
 			DrawEmptyRect(997, 677, 0, 306, Color, 6);
 			let Pos = 0;
 			for (let Answer of PlatformDialogAnswer)
-				if ((Answer.Perk == null) || ((Answer.Perk == true) && PlatformHasPerk(PlatformPlayer, "Manipulation")) || ((Answer.Perk == false) && !PlatformHasPerk(PlatformPlayer, "Manipulation"))) {
+				if ((Answer.Perk == null) || ((Answer.Perk == true) && PlatformDialogLeaderHasPerk("Manipulation")) || ((Answer.Perk == false) && !PlatformDialogLeaderHasPerk("Manipulation"))) {
 					DrawText(Answer.Text, 1500, 725 + (Pos * 70), "#fe92cf", "Black");
 					if (Pos == PlatformDialogAnswerPosition) DrawEmptyRect(1050, 693 + (Pos * 70), 900, 63, "#fe92cf", 4);
 					Pos++;
@@ -1596,6 +1672,7 @@ function PlatformDialogRun() {
  * Change the love/domination value based on the option picked, influenced also by perks
  * @param {Number} CurrentValue - The current value
  * @param {Number} Change - The modifier to apply
+ * @param {Boolean} Bonus - If there's a bonus to apply or not
  * @returns {Number} - The new stat after changes
  */
 function PlatformDialogChangeValue(CurrentValue, Change, Bonus) {
@@ -1619,7 +1696,7 @@ function PlatformDialogChangeValue(CurrentValue, Change, Bonus) {
 function PlatformDialogPickAnswer(Position) {
 	let P = 0;
 	for (let Answer of PlatformDialogAnswer)
-		if ((Answer.Perk == null) || ((Answer.Perk == true) && PlatformHasPerk(PlatformPlayer, "Manipulation")) || ((Answer.Perk == false) && !PlatformHasPerk(PlatformPlayer, "Manipulation"))) {
+		if ((Answer.Perk == null) || ((Answer.Perk == true) && PlatformDialogLeaderHasPerk("Manipulation")) || ((Answer.Perk == false) && !PlatformDialogLeaderHasPerk("Manipulation"))) {
 			if (Position == P) {
 				PlatformDialogReply = Answer.Reply;
 				PlatformDialogGoto = Answer.Goto;
@@ -1627,12 +1704,28 @@ function PlatformDialogPickAnswer(Position) {
 					if ((PlatformDialogCharacterDisplay != null) && (PlatformDialogCharacterDisplay.length > 0))
 						for (let Character of PlatformDialogCharacter)
 							if (Character.Name == PlatformDialogCharacterDisplay[0].Name) {
-								Character.Love = PlatformDialogChangeValue(Character.Love, Answer.Love, PlatformHasPerk(PlatformPlayer, "Seduction"));
-								Character.Domination = PlatformDialogChangeValue(Character.Domination, Answer.Domination, PlatformHasPerk(PlatformPlayer, "Persuasion"));
+								Character.Love = PlatformDialogChangeValue(Character.Love, Answer.Love, PlatformDialogLeaderHasPerk("Seduction"));
+								Character.Domination = PlatformDialogChangeValue(Character.Domination, Answer.Domination, PlatformDialogLeaderHasPerk("Persuasion"));
 							}
 				if (Answer.Script != null) Answer.Script();
 			}
 			P++;
+		}
+}
+
+/**
+ * Alters a property (love or domination) for a specific character
+ * @param {String} CharacterName - The name of the character to alter
+ * @param {String} Property - The name of the property to alter
+ * @param {Number} Value - The value to change
+ * @returns {void} - Nothing
+ */
+function PlatformDialogAlterProperty(CharacterName, Property, Value) {
+	if ((Character == null) || (Property == null) || (Value == null) || (Value == 0)) return;
+	for (let Character of PlatformDialogCharacter)
+		if (Character.Name == CharacterName) {
+			if (Property == "Love") Character.Love = PlatformDialogChangeValue(Character.Love, Value, PlatformDialogLeaderHasPerk("Seduction"));
+			if (Property == "Domination") Character.Domination = PlatformDialogChangeValue(Character.Domination, Value, PlatformDialogLeaderHasPerk("Persuasion"));
 		}
 }
 
@@ -1713,4 +1806,18 @@ function PlatformDialogController(Buttons) {
 	else if ((Buttons[ControllerDPadUp].pressed == true) && (ControllerGameActiveButttons.UP == false)) PlatformDialogKeyDown(90);
 	else if ((Buttons[ControllerDPadDown].pressed == true) && (ControllerGameActiveButttons.DOWN == false)) PlatformDialogKeyDown(83);
 	return true;
+}
+
+/**
+ * Returns TRUE if the party leader (Melody) has a specific social perk
+ * @param {String} PerkName - The name of the perk
+ * @returns {boolean} - TRUE if the perk is active
+ */
+function PlatformDialogLeaderHasPerk(PerkName) {
+	if ((PlatformParty == null) || (PlatformParty.length <= 0)) return false;
+	if ((PlatformParty[0].Perk == null) || (PlatformParty[0].Perk.length < 10)) return false;
+	if ((PerkName == "Seduction") && (PlatformParty[0].Perk.substr(7, 1) == "1")) return true;
+	if ((PerkName == "Persuasion") && (PlatformParty[0].Perk.substr(8, 1) == "1")) return true;
+	if ((PerkName == "Manipulation") && (PlatformParty[0].Perk.substr(9, 1) == "1")) return true;
+	return false;
 }
