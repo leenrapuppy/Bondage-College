@@ -17,6 +17,7 @@ var PlatformDialogCharacterTemplate = [
 	{
 		Name: "Olivia",
 		Color: "#ffffff",
+		IdlePose: ["Oracle"],
 		Love: 10,
 		Domination: 0
 	},
@@ -35,6 +36,7 @@ var PlatformDialogCharacterTemplate = [
 	{
 		Name: "Edlaran",
 		Color: "#add9a0",
+		IdlePose: ["Archer"],
 		Love: 0,
 		Domination: 0
 	},
@@ -1689,6 +1691,32 @@ function PlatformDialogChangeValue(CurrentValue, Change, Bonus) {
 }
 
 /**
+ * Pick a specific idle pose if the character allows it
+ * @param {Object} Character - The character to evaluate
+ * @param {Number} Love - The love value that changed
+ * @param {Number} Domination - The domination value that changed
+ * @returns {Object} - A unused object
+ */
+function PlatformDialogSetIdlePose(Character, Love, Domination) {
+	if (Character == null) return;
+	for (let C of PlatformDialogCharacterDisplay)
+		if (C.Name == Character.Name) {
+			if ((C.Pose == null) || (C.Pose.substr(0, 4) != "Idle")) return;
+			for (let T of PlatformDialogCharacterTemplate)
+				if (T.Name == Character.Name)
+					if ((T.IdlePose == null) || (T.IdlePose.indexOf(C.Status) < 0))
+						return;
+			if (Love == null) Love = 0;
+			if (Domination == null) Domination = 0;
+			if ((Love >= 2) && (Math.abs(Love) >= Math.abs(Domination))) return C.Pose = "IdleCheer";
+			if ((Love == 1) && (Math.abs(Love) >= Math.abs(Domination))) return C.Pose = "IdleHappy";
+			if ((Love == -1) && (Math.abs(Love) >= Math.abs(Domination))) return C.Pose = "IdleSad";
+			if ((Love <= -2) && (Math.abs(Love) >= Math.abs(Domination))) return C.Pose = "IdleAngry";
+			return C.Pose = "Idle";
+		}
+}
+
+/**
  * Pick an answer in a specific dialog
  * @param {Number} Position - The position of the answer picked
  * @returns {void} - Nothing
@@ -1704,6 +1732,7 @@ function PlatformDialogPickAnswer(Position) {
 					if ((PlatformDialogCharacterDisplay != null) && (PlatformDialogCharacterDisplay.length > 0))
 						for (let Character of PlatformDialogCharacter)
 							if (Character.Name == PlatformDialogCharacterDisplay[0].Name) {
+								PlatformDialogSetIdlePose(Character, Answer.Love, Answer.Domination);
 								Character.Love = PlatformDialogChangeValue(Character.Love, Answer.Love, PlatformDialogLeaderHasPerk("Seduction"));
 								Character.Domination = PlatformDialogChangeValue(Character.Domination, Answer.Domination, PlatformDialogLeaderHasPerk("Persuasion"));
 							}
