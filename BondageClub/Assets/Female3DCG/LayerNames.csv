@@ -647,6 +647,9 @@ ItemDevicesSnowmanButtons,Buttons
 ItemDevicesSnowmanStickHands,Arms
 ItemDevicesWoodenHorseFrame,Frame
 ItemDevicesWoodenHorseWood,Wood
+ItemDevicesLuckyWheelBack,Back
+ItemDevicesLuckyWheelText,Text
+ItemDevicesLuckyWheelArrow,Arrow
 ItemAddonCoversOuter,Outer
 ItemAddonCoversInner,Inner
 ItemNoseNoseHookBand,Strap
