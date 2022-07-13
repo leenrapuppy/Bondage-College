@@ -9,22 +9,37 @@ var ItemDevicesLuckyWheelAnimationMinSpeed = 4;
 var ItemDevicesLuckyWheelAnimationSpeedStep = 1;
 var ItemDevicesLuckyWheelAnimationFrameTime = 80;
 
-function InventoryItemDevicesLuckyWheelLoad() {
+function InventoryItemDevicesLuckyWheelSettings0Load() {
+	DynamicDrawLoadFont(ItemDevicesLuckyWheelFont);
+
 	if (!DialogFocusItem.Property) DialogFocusItem.Property = {};
 	if (typeof DialogFocusItem.Property.TargetAngle !== "number") DialogFocusItem.Property.TargetAngle = 0;
 	if (!Array.isArray(DialogFocusItem.Property.Texts)) DialogFocusItem.Property.Texts = [];
+	if (DialogFocusItem.Property.Texts.length > ItemDevicesLuckyWheelMaxTexts)
+		DialogFocusItem.Property.Texts = DialogFocusItem.Property.Texts.splice(0, ItemDevicesLuckyWheelMaxTexts);
+	if (typeof DialogFocusItem.Property.Texts[0] !== "string") DialogFocusItem.Property.Texts[0] = "Prize 1";
+	if (typeof DialogFocusItem.Property.Texts[1] !== "string") DialogFocusItem.Property.Texts[1] = "Prize 2";
+
+	const input1 = ElementCreateInput("LuckyWheelText0", "input", DialogFocusItem.Property.Texts[0], ItemDevicesLuckyWheelMaxTextLength);
+	if (input1) input1.pattern = DynamicDrawTextInputPattern;
+	const input2 = ElementCreateInput("LuckyWheelText1", "input", DialogFocusItem.Property.Texts[1], ItemDevicesLuckyWheelMaxTextLength);
+	if (input2) input2.pattern = DynamicDrawTextInputPattern;
 }
 
-function InventoryItemDevicesLuckyWheelDraw() {
+function InventoryItemDevicesLuckyWheelSettings0Draw() {
 	// Draw the header and item
 	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
+
+	for (let num = 0; num < DialogFocusItem.Property.Texts.length; num++) {
+		ElementPosition(`LuckyWheelText${num}`, 1510, 500 + (num * 60), 300);
+	}
 
 	DrawButton(1380, 800, 260, 64, DialogFindPlayer("LuckyWheelTrigger"), "white");
 }
 
-function InventoryItemDevicesLuckyWheelClick() {
+function InventoryItemDevicesLuckyWheelSettings0Click() {
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemDevicesLuckyWheelExit();
+		InventoryItemDevicesLuckyWheelSettings0Exit();
 		return;
 	}
 
@@ -34,8 +49,28 @@ function InventoryItemDevicesLuckyWheelClick() {
 	}
 }
 
-function InventoryItemDevicesLuckyWheelExit() {
-	DialogFocusItem = null;
+function InventoryItemDevicesLuckyWheelSettings0Exit() {
+	if (!DialogFocusItem) return;
+
+	let needsUpdate = false;
+	for (let num = 0; num < ItemDevicesLuckyWheelMaxTexts; num++) {
+		if (num < DialogFocusItem.Property.Texts.length) {
+			const text = ElementValue(`LuckyWheelText${num}`)
+			if (text != DialogFocusItem.Property.Texts[num]) {
+				DialogFocusItem.Property.Texts[num] = text;
+				needsUpdate = true;
+			}
+		}
+
+		ElementRemove(`LuckyWheelText${num}`);
+	}
+
+	if (needsUpdate) {
+		CharacterRefresh(CharacterGetCurrent(), false);
+		ChatRoomCharacterItemUpdate(CharacterGetCurrent());
+	}
+
+	ExtendedItemSubscreen = null;
 }
 
 function InventoryItemDevicesLuckyWheelTrigger() {
