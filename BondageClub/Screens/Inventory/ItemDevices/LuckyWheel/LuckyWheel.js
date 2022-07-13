@@ -9,7 +9,11 @@ var ItemDevicesLuckyWheelAnimationMinSpeed = 4;
 var ItemDevicesLuckyWheelAnimationSpeedStep = 1;
 var ItemDevicesLuckyWheelAnimationFrameTime = 80;
 
-function InventoryItemDevicesLuckyWheelSettings0Load() {
+function ItemDevicesLuckyWheelLabelForNum(num) {
+	return DialogFindPlayer("LuckyWheelSectionDefaultLabel").replace("NUM", num.toString());
+}
+
+function InventoryItemDevicesLuckyWheelGame0Load() {
 	DynamicDrawLoadFont(ItemDevicesLuckyWheelFont);
 
 	if (!DialogFocusItem.Property) DialogFocusItem.Property = {};
@@ -17,29 +21,49 @@ function InventoryItemDevicesLuckyWheelSettings0Load() {
 	if (!Array.isArray(DialogFocusItem.Property.Texts)) DialogFocusItem.Property.Texts = [];
 	if (DialogFocusItem.Property.Texts.length > ItemDevicesLuckyWheelMaxTexts)
 		DialogFocusItem.Property.Texts = DialogFocusItem.Property.Texts.splice(0, ItemDevicesLuckyWheelMaxTexts);
-	if (typeof DialogFocusItem.Property.Texts[0] !== "string") DialogFocusItem.Property.Texts[0] = "Prize 1";
-	if (typeof DialogFocusItem.Property.Texts[1] !== "string") DialogFocusItem.Property.Texts[1] = "Prize 2";
+	if (typeof DialogFocusItem.Property.Texts[0] !== "string") DialogFocusItem.Property.Texts[0] = ItemDevicesLuckyWheelLabelForNum(1);
+	if (typeof DialogFocusItem.Property.Texts[1] !== "string") DialogFocusItem.Property.Texts[1] = ItemDevicesLuckyWheelLabelForNum(2);
 
-	const input1 = ElementCreateInput("LuckyWheelText0", "input", DialogFocusItem.Property.Texts[0], ItemDevicesLuckyWheelMaxTextLength);
-	if (input1) input1.pattern = DynamicDrawTextInputPattern;
-	const input2 = ElementCreateInput("LuckyWheelText1", "input", DialogFocusItem.Property.Texts[1], ItemDevicesLuckyWheelMaxTextLength);
-	if (input2) input2.pattern = DynamicDrawTextInputPattern;
+	for (let num = 0; num < DialogFocusItem.Property.Texts.length; num++) {
+		const input = ElementCreateInput(`LuckyWheelText${num}`, "input", DialogFocusItem.Property.Texts[num] || "", ItemDevicesLuckyWheelMaxTextLength);
+		if (input) {
+			input.pattern = DynamicDrawTextInputPattern;
+			input.addEventListener("change", InventoryItemDevicesLuckyWheelUpdate);
+		}
+	}
+	InventoryItemDevicesLuckyWheelUpdate();
 }
 
-function InventoryItemDevicesLuckyWheelSettings0Draw() {
+var ItemDevicesLuckyWheelRowTop = 500;
+var ItemDevicesLuckyWheelRowLeft = 1380;
+var ItemDevicesLuckyWheelRowHeight = 60;
+var ItemDevicesLuckyWheelRowLength = 350;
+
+function InventoryItemDevicesLuckyWheelGame0Draw() {
 	// Draw the header and item
 	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
 
+	// Section labels & remove buttons grid
+	let top = ItemDevicesLuckyWheelRowTop;
+	let left = ItemDevicesLuckyWheelRowLeft;
 	for (let num = 0; num < DialogFocusItem.Property.Texts.length; num++) {
-		ElementPosition(`LuckyWheelText${num}`, 1510, 500 + (num * 60), 300);
+		let topRow = (num % (ItemDevicesLuckyWheelMaxTexts / 2) * ItemDevicesLuckyWheelRowHeight);
+		let leftCol = Math.floor(num / (ItemDevicesLuckyWheelMaxTexts / 2)) * ItemDevicesLuckyWheelRowLength;
+		ElementPosition(`LuckyWheelText${num}`, left + leftCol, top + topRow, 300);
 	}
+
+	const disabledAdd = DialogFocusItem.Property.Texts.length >= ItemDevicesLuckyWheelMaxTexts;
+	DrawButton(1360, 720, 120, 48, DialogFindPlayer("LuckyWheelAddSection"), disabledAdd ? "#888" : "white", null, null, disabledAdd);
+
+	const disabledRemove = DialogFocusItem.Property.Texts.length <= ItemDevicesLuckyWheelMinTexts;
+	DrawButton(1530, 720, 120, 48, DialogFindPlayer("LuckyWheelRemoveSection"), disabledRemove ? "#888" : "white", null, null, disabledRemove);
 
 	DrawButton(1380, 800, 260, 64, DialogFindPlayer("LuckyWheelTrigger"), "white");
 }
 
-function InventoryItemDevicesLuckyWheelSettings0Click() {
+function InventoryItemDevicesLuckyWheelGame0Click() {
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemDevicesLuckyWheelSettings0Exit();
+		InventoryItemDevicesLuckyWheelGame0Exit();
 		return;
 	}
 
@@ -47,15 +71,40 @@ function InventoryItemDevicesLuckyWheelSettings0Click() {
 		InventoryItemDevicesLuckyWheelTrigger();
 		return;
 	}
+
+	if (MouseIn(1360, 720, 120, 48)) {
+		if (DialogFocusItem.Property.Texts.length >= ItemDevicesLuckyWheelMaxTexts) return;
+
+		let last = DialogFocusItem.Property.Texts.length;
+		const label = ItemDevicesLuckyWheelLabelForNum(last + 1);
+		const input = ElementCreateInput(`LuckyWheelText${last}`, "input", label, ItemDevicesLuckyWheelMaxTextLength);
+		if (input) {
+			input.pattern = DynamicDrawTextInputPattern;
+			input.addEventListener("change", InventoryItemDevicesLuckyWheelUpdate);
+		}
+		DialogFocusItem.Property.Texts.push(label);
+		InventoryItemDevicesLuckyWheelUpdate();
+		return;
+	}
+
+	if (MouseIn(1530, 720, 120, 48)) {
+		if (DialogFocusItem.Property.Texts.length <= ItemDevicesLuckyWheelMinTexts) return;
+
+		const num = DialogFocusItem.Property.Texts.length - 1;
+		DialogFocusItem.Property.Texts.splice(num, 1);
+		ElementRemove(`LuckyWheelText${num}`);
+		InventoryItemDevicesLuckyWheelUpdate();
+		return;
+	}
 }
 
-function InventoryItemDevicesLuckyWheelSettings0Exit() {
+function InventoryItemDevicesLuckyWheelGame0Exit() {
 	if (!DialogFocusItem) return;
 
 	let needsUpdate = false;
 	for (let num = 0; num < ItemDevicesLuckyWheelMaxTexts; num++) {
 		if (num < DialogFocusItem.Property.Texts.length) {
-			const text = ElementValue(`LuckyWheelText${num}`)
+			const text = ElementValue(`LuckyWheelText${num}`);
 			if (text != DialogFocusItem.Property.Texts[num]) {
 				DialogFocusItem.Property.Texts[num] = text;
 				needsUpdate = true;
@@ -73,12 +122,20 @@ function InventoryItemDevicesLuckyWheelSettings0Exit() {
 	ExtendedItemSubscreen = null;
 }
 
+function InventoryItemDevicesLuckyWheelUpdate() {
+	CharacterRefresh(CharacterGetCurrent(), false);
+}
+
 function InventoryItemDevicesLuckyWheelTrigger() {
 	const randomAngle = Math.round(Math.random() * 360);
 	DialogFocusItem.Property.TargetAngle = randomAngle;
 
+	const C = CharacterGetCurrent();
 	/** @type {ChatMessageDictionary} */
-	let Dictionary = [];
+	let Dictionary = [
+		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+	];
 	ChatRoomPublishCustomAction("LuckyWheelStartTurning", true, Dictionary);
 }
 
