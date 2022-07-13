@@ -245,8 +245,8 @@ function AssetsItemDevicesLuckyWheelAfterDraw({ C, PersistentData, A, X, Y, L, P
 				width / 2
 			]; // Center of the wheel + constant
 			const from = [
-				diameter + diameter * Math.cos(degreeToRadians(coordDegree)),
-				diameter + diameter * Math.sin(degreeToRadians(coordDegree))
+				diameter + diameter * Math.cos(degreeToRadians(coordDegree + 90 + (nbTexts % 2 !== 0 ? sectorAngleSize / 2 : 0))),
+				diameter + diameter * Math.sin(degreeToRadians(coordDegree + 90 + (nbTexts % 2 !== 0 ? sectorAngleSize / 2 : 0)))
 			]; // Appropriate point on the perimeter of a circle
 			DynamicDrawTextFromTo(validatedText, ctx, from, to, {
 				fontSize: 24,
