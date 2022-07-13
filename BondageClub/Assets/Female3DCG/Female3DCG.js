@@ -6896,19 +6896,20 @@ var AssetFemale3DCG = [
 			 */
 			{
 				Name: "LuckyWheel", Priority: 62, Top: 0, Value: 100, Difficulty: -10, Time: 5, IsRestraint: false, Effect: [], RemoveAtLogin: true, FixedPosition: true, Extended: true,
-				DefaultColor: ["#D7D5D5", "#7D1D89"], DynamicAfterDraw: true, DynamicScriptDraw: true,
+				DefaultColor: ["#7F414", "#881818", "#FFA8DD", "#2C2C2C", "#Default", "#7B3D9E", "#FF3F3F", "#343434", "#F2F2F2", "#D43434",], DynamicAfterDraw: true, DynamicScriptDraw: true,
 				Layer: [
-					{ Name: "Base", HasType: false, AllowModuleTypes: ["b0"]},
-					{ Name: "Base2", HasType: false, AllowModuleTypes: ["b1"]},
-					{ Name: "Base2Metal", HasType: false, AllowModuleTypes: ["b1"]},
+					{ Name: "Base", HasType: false, AllowModuleTypes: ["s0"]},
+					{ Name: "Base2", HasType: false, AllowModuleTypes: ["s1"]},
+					{ Name: "Base2Text", HasType: false, AllowModuleTypes: ["s1"]},
+					{ Name: "Base2Metal", HasType: false, AllowModuleTypes: ["s1"]},
 					{ Name: "Misc", HasType: false, AllowModuleTypes: ["m0"]},
 					{ Name: "MiscFlogger", HasType: false, AllowModuleTypes: ["m0"]},
 					{ Name: "MiscGag", HasType: false, AllowModuleTypes: ["m0"]},
 					{ Name: "Back", HasType: false, Top: 190 },
 					{ Name: "Text", HasType: false, Top: 190, HasImage: false, },
 					{ Name: "Arrow", HasType: false, AllowModuleTypes: ["a0"]},
-					{ Name: "Arrow2", HasType: false, AllowModuleTypes: ["a1"]},
-					{ Name: "Arrow3", HasType: false, AllowModuleTypes: ["a2"]},
+					{ Name: "Arrow2", HasType: false, CopyLayerColor: "Arrow", AllowModuleTypes: ["a1"]},
+					{ Name: "Arrow3", HasType: false, CopyLayerColor: "Arrow", AllowModuleTypes: ["a2"]},
 				]
 			},
 		],
