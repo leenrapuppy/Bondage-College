@@ -159,5 +159,6 @@ function PlatformProfileClick() {
  * @returns {void} - Nothing
  */
 function PlatformProfileExit() {
+	PlatformPartySave();
 	CommonSetScreen("Room", "Platform");
 }

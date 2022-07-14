@@ -6,7 +6,7 @@ const util = require("util");
 const cheerio = require("cheerio");
 const { marked } = require("marked");
 const simpleGit = require("simple-git");
-const fetch = require("node-fetch");
+const nfetch = require("node-fetch");
 
 const readFileAsync = util.promisify(fs.readFile);
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -79,6 +79,8 @@ const CONTRIBUTOR_NAMES = {
 	"Ayesha": "Ayesha",
 	"luna-gleam": "Luna",
 	"Gatey": "gatetrek",
+	"Moonlight": "Luna",
+	"elliesec": "Ellie",
 };
 
 async function generateChangelogHtml() {
@@ -132,7 +134,7 @@ async function fetchMergeRequests(page) {
 	for (let i = 0; i < MAX_ATTEMPTS; i++) {
 		console.log(`Fetching page ${page} of merge requests` + (i > 0 ? `(attempt ${i + 1})` : ''));
 		try {
-			const response = await fetch(`https://gitgud.io/api/v4/projects/${GIT_GUD_PROJECT_ID}/merge_requests?page=${page}`);
+			const response = await nfetch(`https://gitgud.io/api/v4/projects/${GIT_GUD_PROJECT_ID}/merge_requests?page=${page}`);
 			return await response.json();
 		} catch (error) {
 			console.warn(`Fetch of merge request page ${page} failed. Retrying...`);

@@ -6,11 +6,13 @@ Lover,Lover:
 None,None
 AgeMelody,Age: 21
 AgeOlivia,Age: 20
+AgeEdlaran,Age: 138
 Level,Level:
 Perks,Free perks:
 Health,Health:
 IntroMelody,"As a baby orphan, Melody was adopted by Countess Isabella Alberus.  Her best friend is Lady Olivia, which she serves and protects like a sister.  She's trained as a maid, a career not particularly suited for her strong temper.  She's known to never take breaks and having no fear."
 IntroOlivia,"Olivia Alberus is the second daughter of Countess Isabella.  She’s over-protected by her mother who keeps her chained to sleep and locked permanently in a chastity belt.  She’s engaged to Duke Sunesk and her best friend is maid Melody.  She’s very kind-hearted and possess her bloodline magic powers."
+IntroEdlaran,"Edlaran Rouen'Dlaroft is an archer of the Lorian Elven Tribes.  She fled from her clan many years ago to pursue a life of liberty and shady businesses.  She joined the forest bandits for adventure and gold, but left them to help Melody.  She's a free spirit and doesn't care much for Olivia's royal blood."
 PerkMelody0,Healthy
 PerkDescMelody0,+10% Health
 PerkMelody1,Robust

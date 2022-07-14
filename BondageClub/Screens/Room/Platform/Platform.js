@@ -115,6 +115,30 @@ var PlatformTemplate = [
 		]
 	},
 	{
+		Name: "Edlaran",
+		Status: "Archer",
+		Perk: "0000000000",
+		PerkName: ["", "", "", "", "", "", "", "", "", ""],
+		Width: 400,
+		Height: 400,
+		Health: 14,
+		HealthPerLevel: 3,
+		HitBox: [0.42, 0.03, 0.58, 1],
+		JumpHitBox: [0.42, 0.03, 0.58, 0.65],
+		RunSpeed: 21,
+		WalkSpeed: 14,
+		CrawlSpeed: 7,
+		JumpForce: 43,
+		CollisionDamage: 0,
+		ExperienceValue: 0,
+		DamageBackOdds: 0,
+		DamageKnockForce: 25,
+		Animation: [
+			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 90 },
+			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], CycleLeft: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], Speed: 60 }
+		]
+	},
+	{
 		Name: "Olivia",
 		Status: "Chained",
 		Width: 400,
@@ -148,16 +172,6 @@ var PlatformTemplate = [
 		Height: 400,
 		Animation: [
 			{ Name: "Idle", Cycle: [0], Speed: 130 }
-		]
-	},
-	{
-		Name: "Edlaran",
-		Status: "Archer",
-		Perk: "0000000000",
-		Width: 400,
-		Height: 400,
-		Animation: [
-			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 90 },
 		]
 	},
 	{
@@ -832,7 +846,7 @@ var PlatformRoomList = [
 		LimitLeft: 300,
 		Door: [
 			{ Name: "CastleTerrace", FromX: 350, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 625, ToFaceLeft: false },
-			{ Name: "ForestCabin", FromX: 3700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+			{ Name: "ForestVulture", FromX: 3700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
 			{ Name: "Lucy", Status: "Armor", X: 1300 },
@@ -840,13 +854,45 @@ var PlatformRoomList = [
 		]
 	},
 	{
-		Name: "ForestCabin",
-		Text: "Forest Cabin",
-		Background: "Forest/Cabin",
+		Name: "ForestVulture",
+		Text: "Forest Entrance",
+		Background: "Forest/VulturePlain",
+		Width: 2200,
+		Height: 1200,
+		Door: [
+			{ Name: "ForestCastleWall", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3700, ToFaceLeft: false },
+			{ Name: "ForestCabinPath", FromX: 2100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Yuna", Status: "Maid", X: 1400 }
+		]
+	},
+	{
+		Name: "ForestCabinPath",
+		Text: "Cabin Path",
+		Background: "Forest/CabinPath",
 		Width: 3800,
 		Height: 1200,
 		Door: [
-			{ Name: "ForestCastleWall", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3700, ToFaceLeft: true }
+			{ Name: "ForestVulture", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2100, ToFaceLeft: true },
+			{ Name: "ForestCabin", FromX: 2200, FromY: 0, FromW: 350, FromH: 1200, FromType: "Up", ToX: 250, ToFaceLeft: false }
+		]
+	},
+	{
+		Name: "ForestCabin",
+		Entry: function() {
+			PlatformChar.splice(1, 100);
+			if (PlatformPlayer.Name != "Olivia") PlatformCreateCharacter("Olivia", "Oracle", 1300, true, false, "OliviaCabin");
+			if (PlatformPlayer.Name != "Melody") PlatformCreateCharacter("Melody", "Maid", 1700, true, false, "OliviaCabin", true);
+			if (PlatformEventDone("EdlaranJoin") && (PlatformPlayer.Name != "Edlaran")) PlatformCreateCharacter("Edlaran", "Archer", 2100, true, false, "EdlaranCabin", true);
+		},
+		Text: "Wooden Cabin (heal and save)",
+		Background: "Forest/CabinInterior",
+		Width: 3300,
+		Height: 1000,
+		Heal: 250,
+		Door: [
+			{ Name: "ForestCabinPath", FromX: 0, FromY: 0, FromW: 500, FromH: 1200, FromType: "Up", ToX: 2375, ToFaceLeft: false }
 		]
 	},
 
@@ -1024,6 +1070,9 @@ function PlatformPartyNext() {
 	PlatformPlayer.Experience = PlatformParty[Pos].Experience;
 	PlatformPlayer.Perk = PlatformParty[Pos].Perk;
 	PlatformSetHealth(PlatformPlayer);
+	for (let Room of PlatformRoomList)
+		if ((Room.Name == PlatformRoom.Name) && (Room.Entry != null))
+			Room.Entry();
 }
 
 /**
@@ -1167,7 +1216,7 @@ function PlatformDrawBackground() {
 function PlatformDrawCharacter(C, Time) {
 	if (C.Anim == null) return;
 	let X = C.X - C.Anim.Width / 2 - PlatformViewX;
-	let Y = C.Y - C.Anim.Height - PlatformViewY
+	let Y = C.Y - C.Anim.Height - PlatformViewY - 1200 + PlatformRoom.Height;
 	if ((X >= 2000) || (Y >= 1000)) return;
 	if ((X + C.Anim.Width <= 0) || (Y + C.Anim.Height <= 0)) return;
 	DrawImageEx("Screens/Room/Platform/Character/" + C.Name + "/" + C.Status + "/" + C.Anim.Name + "/" + C.Anim.Image.toString() + ".png", X + C.Anim.OffsetX, Y + C.Anim.OffsetY, { Mirror: C.Anim.Mirror, Width: C.Anim.Width, Height: C.Anim.Height } );
@@ -1893,6 +1942,8 @@ function PlatformController(Buttons) {
 	if ((Buttons[ControllerX].pressed == true) && (ControllerGameActiveButttons.X == false)) PlatformEventKeyDown({ keyCode: 75 });
 	if ((Buttons[ControllerY].pressed == true) && (ControllerGameActiveButttons.Y == false)) PlatformEventKeyDown({ keyCode: 79 });
 	if ((Buttons[ControllerDPadUp].pressed == true) && (ControllerGameActiveButttons.UP == false)) PlatformEventKeyDown({ keyCode: 90 });
+	if ((Buttons[ControllerTriggerRight].pressed == true) && (ControllerGameActiveButttons.TRIGHT == false)) PlatformEventKeyDown({ keyCode: 73 });
+	if ((Buttons[ControllerTriggerLeft].pressed == true) && (ControllerGameActiveButttons.TLEFT == false)) PlatformEventKeyDown({ keyCode: 80 });
 	PlatformButtons = Buttons;
 	return true;
 

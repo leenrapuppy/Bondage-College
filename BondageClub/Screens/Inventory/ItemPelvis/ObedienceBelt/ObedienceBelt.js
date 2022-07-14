@@ -94,23 +94,27 @@ function InventoryItemPelvisObedienceBeltShockModule1Click() {
 		return;
 	}
 
+	const C = CharacterGetCurrent();
 	if (MouseIn(1100, 590, 64, 64)) {
 		DialogFocusItem.Property.ChatMessage = !DialogFocusItem.Property.ChatMessage;
+		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 		return;
 	}
 
 	if (MouseIn(1100, 660, 64, 64)) {
 		DialogFocusItem.Property.PunishOrgasm = !DialogFocusItem.Property.PunishOrgasm;
+		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 		return;
 	}
 
 	if (MouseIn(1100, 730, 64, 64)) {
 		DialogFocusItem.Property.PunishStandup = !DialogFocusItem.Property.PunishStandup;
+		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 		return;
 	}
 
 	if (MouseIn(1387, 800, 225, 55)) {
-		InventoryItemPelvisObedienceBeltScriptTrigger(CharacterGetCurrent(), DialogFocusItem, "Trigger");
+		InventoryItemPelvisObedienceBeltScriptTrigger(C, DialogFocusItem, "Trigger");
 		return;
 	}
 }

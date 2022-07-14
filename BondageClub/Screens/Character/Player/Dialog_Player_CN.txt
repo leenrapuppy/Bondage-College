@@ -988,11 +988,11 @@ Blocked due to item permissions
 (As you enter the luxurious hallway, a maid comes to greet you.)  Welcome to the Bondage Club, is this your first visit?
 (当你走进富丽堂皇的入口时,一位女仆向你鞠躬.)   欢迎来到拘束俱乐部,这是您第一次来吗?
 SourceCharacter is offering you to start a trial period as her submissive.  Click on her and manage your relationship to accept, don't do anything to refuse.
-SourceCharacter 向您提供了试成为她从仆的机会。点击她并选择管理你和她的关系来接受邀请。若您拒绝则可忽略本消息。
+SourceCharacter向你提供了试成为她从仆的机会。点击她并选择管理你和她的关系来接受邀请。若你要拒绝，忽略本消息即可。
 The Bondage Club is pleased to announce that SourceCharacter is starting a 7 days minimum trial period as a submissive.
-束缚俱乐部很荣幸的宣布SourceCharacter开始了她不少于7天的从仆试做之旅。
+束缚俱乐部很荣幸的宣布SourceCharacter开始了她不少于7天的从仆试任之旅。
 SourceCharacter has prepared a great collaring ceremony.  A maid brings a slave collar, which her submissive must consent to wear.
-SourceCharacter准备了一场隆重的收奴典礼。一位女仆拿出了一个奴隶项圈，她的从仆必须同意戴上。
+SourceCharacter准备了一场隆重的收奴典礼。一位女仆拿出了一个奴隶项圈，她的从仆必须自愿才能戴上。
 The Bondage Club announces that SourceCharacter canceled the trial ownership of TargetCharacter.
 束缚俱乐部宣布SourceCharacter取消了与TargetCharacter的主从试用关系。
 The Bondage Club announces that SourceCharacter released TargetCharacter from her ownership.
@@ -1096,7 +1096,7 @@ TargetCharacterName被SourceCharacter移到了左边.
 TargetCharacterName was moved to the right by SourceCharacter.
 TargetCharacterName被SourceCharacter移到了右边.
 SourceCharacter swapped TargetCharacterName and DestinationCharacterName places.
-SourceCharacter交换了TargetCharacterName和DestinationCharacterName的位置.
+SourceCharacter交换了TargetCharacterName和DestinationCharacterName位置.
 SourceCharacter shuffles the position of everyone in the room randomly.
 SourceCharacter随机安排了房间中所有人的位置.
 TargetCharacterName was promoted to administrator by SourceCharacter.
@@ -1106,9 +1106,9 @@ TargetCharacterName被SourceCharacter取消了房间管理员权限.
 SourceCharacter updated the room. Name: ChatRoomName. Limit: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
 SourceCharacter更新了房间信息. 名称: ChatRoomName. 人数上限: ChatRoomLimit.  ChatRoomPrivacy.  ChatRoomLocked.
 SourceCharacter starts unlocking DestinationCharacterName suitcase! She will finish in 5 minutes.
-SourceCharacter开始打开DestinationCharacterName的箱子! 他会在5分钟内成功.
+SourceCharacter开始打开DestinationCharacterName箱子! 他会在5分钟内成功.
 SourceCharacter starts stealing more data from DestinationCharacterName laptop! She will finish in 5 minutes.
-SourceCharacter开始从DestinationCharacterName的笔记本里偷取更多数据! 他会在5分钟内成功.
+SourceCharacter开始从DestinationCharacterName笔记本里偷取更多数据! 他会在5分钟内成功.
 SourceCharacter's suitcase is safe... for now.
 SourceCharacter的箱子安全了...暂时性的.
 SourceCharacter's data is safe... for now.
@@ -1300,7 +1300,7 @@ SourceCharacter从DestinationCharacterFocusAssetGroup上的锁的计时器上移
 an unknown amount of time
 不知多久
 The LockName on DestinationCharacterName FocusAssetGroup opens with a click
-DestinationCharacterName的FocusAssetGroup上的LockName咔哒一声打开了
+DestinationCharacterNameFocusAssetGroup上的LockName咔哒一声打开了
 SourceCharacter updates the key settings for the lock on DestinationCharacter FocusAssetGroup
 SourceCharacter更新了DestinationCharacterFocusAssetGroup上的锁的钥匙设置
 Save key list
@@ -1338,9 +1338,9 @@ Save Voice Commands
 SourceCharacter changes the voice command settings on DestinationCharacter FocusAssetGroup.
 SourceCharacter 更改 DestinationCharacter FocusAssetGroup 的语音命令设置。
 DestinationCharacterName vibrator switches modes!
-DestinationCharacterName的振动玩具更改了模式！
+DestinationCharacterName振动玩具更改了模式！
 DestinationCharacterName vibrator lets out a sharp jolt!
-DestinationCharacterName的振动玩具发出一次猛烈的电击！
+DestinationCharacterName振动玩具发出一次猛烈的电击！
 Anyone
 任何人
 Others
@@ -1508,7 +1508,7 @@ SourceCharacter移除了DestinationCharacter项圈上的金属环。
 SourceCharacter attaches a ring to DestinationCharacter collar.
 SourceCharacter将一个金属环附在DestinationCharacter项圈上。
 Detached
-已移除
+分开
 Bind wrists
 绑上手腕
 Bind elbows
@@ -2154,17 +2154,17 @@ SourceCharacter将DestinationCharacter口塞设置为充满嘴的球。
 SourceCharacter configures DestinationCharacter gag to a long dildo.
 SourceCharacter将DestinationCharacter口塞设置为长长的假阳具。
 DestinationCharacterName gag inflates into a soft ball.
-DestinationCharacterName的口塞充气变为软球。
+DestinationCharacterName口塞充气变为软球。
 DestinationCharacterName gag inflates into a mouth-filling ball.
-DestinationCharacterName的口塞充气变为充满嘴的球。
+DestinationCharacterName口塞充气变为充满嘴的球。
 DestinationCharacterName gag inflates into a large dildo that forces its way down her throat.
-DestinationCharacterName的口塞充气变为大号的假阳具，强行深入她的喉咙。
+DestinationCharacterName口塞充气变为大号的假阳具，强行深入她的喉咙。
 DestinationCharacterName gag deflates into padded mode.
-DestinationCharacterName的口塞泄气变为板状。
+DestinationCharacterName口塞泄气变为板状。
 DestinationCharacterName gag deflates into a soft ball.
-DestinationCharacterName的口塞泄气变为软球。
+DestinationCharacterName口塞泄气变为软球。
 DestinationCharacterName gag deflates into a mouth-filling ball.
-DestinationCharacterName的口塞泄气变为充满嘴的球。
+DestinationCharacterName口塞泄气变为充满嘴的球。
 SourceCharacter configures DestinationCharacter gag to not punish her for speaking.
 SourceCharacter将DestinationCharacter口塞配置为停止惩罚她的说话行为。
 SourceCharacter configures DestinationCharacter gag to punish her for shouting.
@@ -2224,13 +2224,13 @@ Random Teasing
 Random Orgasms
 随机高潮
 DestinationCharacterName belt ceases all vibrations.
-DestinationCharacterName的贞操带停止了所有振动。
+DestinationCharacterName贞操带停止了所有振动。
 DestinationCharacterName plugs slow down to a frustrating tingle...
 DestinationCharacterName体内的玩具慢下来，只剩下令人沮丧的微微颤动……
 DestinationCharacterName belt starts pulsating strongly!
-DestinationCharacterName的贞操带猛烈地颤动起来！
+DestinationCharacterName贞操带猛烈地颤动起来！
 DestinationCharacterName belt starts vibrating intensely!
-DestinationCharacterName的贞操带激烈地振动起来！
+DestinationCharacterName贞操带激烈地振动起来！
 Your plugs slow down to a frustrating tingle...
 你体内的玩具慢下来，只剩下令人沮丧的微微颤动……
 Your belt starts pulsating strongly!
@@ -2238,25 +2238,25 @@ Your belt starts pulsating strongly!
 The plugs inside of you start buzzing intensely!
 你体内的玩具激烈地振动起来！
 DestinationCharacterName belt starts to tease her gently...
-DestinationCharacterName的贞操带开始温柔地逗弄她……
+DestinationCharacterName贞操带开始温柔地逗弄她……
 DestinationCharacterName belt starts teasing her...
-DestinationCharacterName的贞操带开始逗弄她……
+DestinationCharacterName贞操带开始逗弄她……
 DestinationCharacterName belt vibrates suddenly!
-DestinationCharacterName的贞操带突然开始振动！
+DestinationCharacterName贞操带突然开始振动！
 DestinationCharacterName belt vibrates intensely!
-DestinationCharacterName的贞操带激烈地振动！
+DestinationCharacterName贞操带激烈地振动！
 DestinationCharacterName belt starts buzzing strongly!
-DestinationCharacterName的贞操带猛烈地颤动起来！
+DestinationCharacterName贞操带猛烈地颤动起来！
 DestinationCharacterName belt tingles just a little bit...
-DestinationCharacterName的贞操带微微颤动了一下……
+DestinationCharacterName贞操带微微颤动了一下……
 DestinationCharacterName belt vibrates gently.
-DestinationCharacterName的贞操带柔和地振动着。
+DestinationCharacterName贞操带柔和地振动着。
 DestinationCharacterName belt slows down to a weak buzz...
-DestinationCharacterName的贞操带慢下来，微弱振动着……
+DestinationCharacterName贞操带慢下来，微弱振动着……
 DestinationCharacterName belt edges her strongly!
-DestinationCharacterName的贞操带让她几乎高潮！
+DestinationCharacterName贞操带让她几乎高潮！
 DestinationCharacterName belt brings her close to the edge!
-DestinationCharacterName的贞操带将她推向高潮边缘！
+DestinationCharacterName贞操带将她推向高潮边缘！
 Your belt slows down to a weak buzz...
 你的的贞操带慢下来，微弱振动着……
 Your belt edges you strongly!
@@ -2264,7 +2264,7 @@ Your belt edges you strongly!
 Your belt brings you close to the edge!
 你的贞操带将你推向高潮边缘！
 DestinationCharacterName belt gradually slows to a halt.
-DestinationCharacterName的贞操带逐渐变慢，最后停了下来。
+DestinationCharacterName贞操带逐渐变慢，最后停了下来。
 No standing up without help
 没有帮助无法站起
 Configure Belt
@@ -2350,25 +2350,25 @@ Time until recharged:
 Punishment Charged
 惩罚已充能
 DestinationCharacterName belt shocks her for standing up without permission!
-DestinationCharacterName的贞操带电击了她，因为她未经许可站起身！
+DestinationCharacterName贞操带电击了她，因为她未经许可站起身！
 DestinationCharacterName belt shocks her for speaking too much!
-DestinationCharacterName的贞操带电击了她，因为她话说得太多了！
+DestinationCharacterName贞操带电击了她，因为她话说得太多了！
 DestinationCharacterName belt shocks her for not saying 'ReplacementWord!'
-DestinationCharacterName的贞操带电击了她，因为她没有说'ReplacementWord'！
+DestinationCharacterName贞操带电击了她，因为她没有说'ReplacementWord'！
 DestinationCharacterName belt shocks her for saying 'ReplacementWord!'
-DestinationCharacterName的贞操带电击了她，因为她说了'ReplacementWord'！
+DestinationCharacterName贞操带电击了她，因为她说了'ReplacementWord'！
 DestinationCharacterName belt punishes her for speaking too much!
-DestinationCharacterName的贞操带惩罚了她，因为她话说得太多了！
+DestinationCharacterName贞操带惩罚了她，因为她话说得太多了！
 DestinationCharacterName belt punishes her for not saying 'ReplacementWord!'
-DestinationCharacterName的贞操带惩罚了她，因为她没有说'ReplacementWord'！
+DestinationCharacterName贞操带惩罚了她，因为她没有说'ReplacementWord'！
 DestinationCharacterName belt punishes her for saying 'ReplacementWord!'
-DestinationCharacterName的贞操带惩罚了她，因为她说了'ReplacementWord'！
+DestinationCharacterName贞操带惩罚了她，因为她说了'ReplacementWord'！
 DestinationCharacterName belt detects an orgasm and shocks her!
-DestinationCharacterName的贞操带探测到一次高潮，并对她释放电击！
+DestinationCharacterName贞操带探测到一次高潮，并对她释放电击！
 DestinationCharacterName belt detects tampering and shocks her!
-DestinationCharacterName的贞操带探测到一次擅动，并对她释放电击！
+DestinationCharacterName贞操带探测到一次擅动，并对她释放电击！
 DestinationCharacterName belt detects her struggling and delivers an intense shock!
-DestinationCharacterName的贞操带探测到她试图挣脱，并对她释放强烈电击！
+DestinationCharacterName贞操带探测到她试图挣脱，并对她释放强烈电击！
 DestinationCharacterName bindings tighten around her body with a hiss as they lock themselves automatically.
 DestinationCharacterName身上的束缚在短暂的电流声后，收紧并且自动地上了锁。
 DestinationCharacterName bindings release her with a hiss.
@@ -2384,27 +2384,27 @@ Let all players modify futuristic arm devices
 Let all players modify futuristic leg devices
 让所有玩家能修改未来腿部装置
 DestinationCharacterName collar can now be used by anyone.
-DestinationCharacterName的项圈现在可以被任何人使用了。
+DestinationCharacterName项圈现在可以被任何人使用了。
 DestinationCharacterName collar now can't be used while locked.
-DestinationCharacterName的项圈现在被锁定时不能被人使用。
+DestinationCharacterName项圈现在被锁定时不能被人使用。
 DestinationCharacterName chastity devices can now be altered by anyone.
-DestinationCharacterName的贞操装置现在可以被任何人更改。
+DestinationCharacterName贞操装置现在可以被任何人更改。
 DestinationCharacterName chastity devices now can't be changed while locked.
-DestinationCharacterName的贞操装置现在被锁定时不能被更改。
+DestinationCharacterName贞操装置现在被锁定时不能被更改。
 DestinationCharacterName arm bindings can now be altered by anyone.
-DestinationCharacterName的手臂束缚现在可以被任何人更改。
+DestinationCharacterName手臂束缚现在可以被任何人更改。
 DestinationCharacterName arm bindings now can't be changed while locked.
-DestinationCharacterName的手臂束缚现在被锁定时不能被更改。
+DestinationCharacterName手臂束缚现在被锁定时不能被更改。
 DestinationCharacterName leg bindings can now be altered by anyone.
-DestinationCharacterName的腿部束缚现在可以被任何人更改。
+DestinationCharacterName腿部束缚现在可以被任何人更改。
 DestinationCharacterName leg bindings now can't be changed while locked.
-DestinationCharacterName的腿部束缚现在被锁定时不能被更改。
+DestinationCharacterName腿部束缚现在被锁定时不能被更改。
 Block remotes on the wearer
 阻止对穿戴者使用遥控器
 DestinationCharacterName vibrator remotes are now locked.
-DestinationCharacterName的振动玩具模式现在被锁定。
+DestinationCharacterName振动玩具模式现在被锁定。
 DestinationCharacterName vibrator remotes are now unlocked.
-DestinationCharacterName的振动玩具模式现在已解锁。
+DestinationCharacterName振动玩具模式现在已解锁。
 Collar settings are locked
 项圈设置被锁定
 Current Status:
@@ -2842,9 +2842,61 @@ Select the amount of padding.
 Regular Padding
 常规垫子
 The extra padding is removed from DestinationCharacterName poofy diaper. Though it is still embarrassingly huge.
-DestinationCharacterName的屎尿布里，额外的垫子被移除了。但这仍然大得令人难堪。
+DestinationCharacterName屎尿布里，额外的垫子被移除了。但这仍然大得令人难堪。
 Extra padding is added to DestinationCharacterName poofy diaper. Making it crinkle louder and force the baby to waddle.
-额外的垫子被添加进了DestinationCharacterName的屎尿布里。这使得尿布皱褶的声音更响了，小宝贝也不得不蹒跚行走。
+额外的垫子被添加进了DestinationCharacterName屎尿布里。这使得尿布皱褶的声音更响了，小宝贝也不得不蹒跚行走。
+Choose the belt's options.
+选择贞操带的选项。
+Crotch Shield
+胯部护盾
+Shock Module
+电击模块
+Engraving
+刻字
+Choose the crotch shield's state.
+选择胯部护盾的状态
+Opened
+打开
+Close Front
+关闭前部
+Close Back
+关闭后部
+Close Both
+都关闭
+Select the shock module configuration.
+选择电击模块配置。
+Enabled
+启用
+Engrave the belt.
+为贞操带刻字
+Engrave
+刻字
+SourceCharacter opens the crotch shield on DestinationCharacter obedience belt.
+SourceCharacter打开了DestinationCharacter服从贞操带的胯部护盾。
+SourceCharacter closes the crotch shield on DestinationCharacter obedience belt.
+SourceCharacter关闭了DestinationCharacter服从贞操带的胯部护盾。
+SourceCharacter removes the shock module from DestinationCharacter obedience belt.
+SourceCharacter移除了DestinationCharacter服从贞操带的电击模块。
+SourceCharacter sets up the shock module on DestinationCharacter obedience belt.
+SourceCharacter为DestinationCharacter服从贞操带添加了电击模块。
+Engrave the following text on the belt:
+在贞操带上刻下了如下文字：
+SourceCharacter engraved “NewText” on DestinationCharacter obedience belt.
+SourceCharacter在DestinationCharacter的服从贞操带上刻下了“NewText”。
+SourceCharacter erases the engraving on DestinationCharacter obedience belt.
+SourceCharacter移除了DestinationCharacter的服从贞操带上的刻字。
+Show messages in chat
+在聊天中显示消息
+Punish orgasms
+惩罚高潮
+Punish standing up
+惩罚站立
+The obedience belt on SourceCharacter shocks her.
+SourceCharacter受到了身上的服从贞操带的电击。
+The obedience belt on SourceCharacter shocks her for having an orgasm.
+SourceCharacter因为得到了一次高潮，而受到了身上的服从贞操带的电击。
+The obedience belt on SourceCharacter shocks her for standing up.
+SourceCharacter因为站起来，而受到了身上的服从贞操带的电击。
 Reset trigger count
 重置触发计数
 Trigger count: ShockCount
@@ -2912,97 +2964,97 @@ SourceCharacter将DestinationCharacterAssetName设置为中敏感度。
 SourceCharacter sets DestinationCharacter AssetName to maximum sensitivity.
 SourceCharacter将DestinationCharacterAssetName设置为高敏感度。
 DestinationCharacterName AssetName gives her a light shock.
-DestinationCharacterName的AssetName轻微地电了她一下。
+DestinationCharacterNameAssetName轻微地电了她一下。
 DestinationCharacterName AssetName lets out a sharp jolt!
-DestinationCharacterName的AssetName发出尖锐的电击！
+DestinationCharacterNameAssetName发出尖锐的电击！
 DestinationCharacterName AssetName delivers an intense shock!
-DestinationCharacterName的AssetName猛烈地电击了她！
+DestinationCharacterNameAssetName猛烈地电击了她！
 DestinationCharacterName collar gives her a light shock.
-DestinationCharacterName的项圈轻微地电了她一下。
+DestinationCharacterName项圈轻微地电了她一下。
 DestinationCharacterName collar lets out a sharp jolt!
-DestinationCharacterName的项圈发出尖锐的电击！
+DestinationCharacterName项圈发出尖锐的电击！
 DestinationCharacterName collar delivers an intense shock!
-DestinationCharacterName的项圈猛烈地电击了她！
+DestinationCharacterName项圈猛烈地电击了她！
 DestinationCharacterName vibrating egg stops vibrating.
-DestinationCharacterName的振动跳蛋停止振动。
+DestinationCharacterName振动跳蛋停止振动。
 DestinationCharacterName vibrating egg slows down into a light tease.
-DestinationCharacterName的振动跳蛋慢下来，仅仅在轻微逗弄。
+DestinationCharacterName振动跳蛋慢下来，仅仅在轻微逗弄。
 DestinationCharacterName vibrating egg returns to a moderate pace.
-DestinationCharacterName的振动跳蛋恢复了中等的频率。
+DestinationCharacterName振动跳蛋恢复了中等的频率。
 DestinationCharacterName vibrating egg slows down a tiny bit.
-DestinationCharacterName的振动跳蛋稍微慢下来一点。
+DestinationCharacterName振动跳蛋稍微慢下来一点。
 DestinationCharacterName vibrating egg starts teasing her lightly.
-DestinationCharacterName的振动跳蛋微微逗弄起她来。
+DestinationCharacterName振动跳蛋微微逗弄起她来。
 DestinationCharacterName vibrating egg builds up to a moderate pace.
-DestinationCharacterName的振动跳蛋逐渐提升到中等的频率。
+DestinationCharacterName振动跳蛋逐渐提升到中等的频率。
 DestinationCharacterName vibrating egg starts buzzing strongly!
-DestinationCharacterName的振动跳蛋猛烈地振动起来！
+DestinationCharacterName振动跳蛋猛烈地振动起来！
 DestinationCharacterName vibrating egg jumps up to maximum intensity!
-DestinationCharacterName的振动跳蛋突然以最大强度振动起来！
+DestinationCharacterName振动跳蛋突然以最大强度振动起来！
 DestinationCharacterName sybian stops vibrating.
-DestinationCharacterName的鞍式振动器停止振动。
+DestinationCharacterName鞍式振动器停止振动。
 DestinationCharacterName sybian slows down into a light tease.
-DestinationCharacterName的鞍式振动器慢下来，仅仅在轻微逗弄。
+DestinationCharacterName鞍式振动器慢下来，仅仅在轻微逗弄。
 DestinationCharacterName sybian returns to a moderate pace.
-DestinationCharacterName的鞍式振动器恢复了中等的频率。
+DestinationCharacterName鞍式振动器恢复了中等的频率。
 DestinationCharacterName sybian slows down a tiny bit.
-DestinationCharacterName的鞍式振动器稍微慢下来一点。
+DestinationCharacterName鞍式振动器稍微慢下来一点。
 DestinationCharacterName sybian starts teasing her lightly.
-DestinationCharacterName的鞍式振动器微微逗弄起她来。
+DestinationCharacterName鞍式振动器微微逗弄起她来。
 DestinationCharacterName sybian builds up to a moderate pace.
-DestinationCharacterName的鞍式振动器逐渐提升到中等的频率。
+DestinationCharacterName鞍式振动器逐渐提升到中等的频率。
 DestinationCharacterName sybian starts buzzing strongly!
-DestinationCharacterName的鞍式振动器猛烈地颤动起来！
+DestinationCharacterName鞍式振动器猛烈地颤动起来！
 DestinationCharacterName sybian jumps up to maximum intensity!
-DestinationCharacterName的鞍式振动器突然以最大强度振动起来！
+DestinationCharacterName鞍式振动器突然以最大强度振动起来！
 DestinationCharacterName vibrating dildo stops vibrating.
-DestinationCharacterName的振动阳具停止振动。
+DestinationCharacterName振动阳具停止振动。
 DestinationCharacterName vibrating dildo slows down into a light tease.
-DestinationCharacterName的振动阳具慢下来，仅仅在轻微逗弄。
+DestinationCharacterName振动阳具慢下来，仅仅在轻微逗弄。
 DestinationCharacterName vibrating dildo returns to a moderate pace.
-DestinationCharacterName的振动阳具恢复了中等的频率。
+DestinationCharacterName振动阳具恢复了中等的频率。
 DestinationCharacterName vibrating dildo slows down a tiny bit.
-DestinationCharacterName的振动阳具稍微慢下来一点。
+DestinationCharacterName振动阳具稍微慢下来一点。
 DestinationCharacterName vibrating dildo starts teasing her lightly.
-DestinationCharacterName的振动阳具微微逗弄起她来。
+DestinationCharacterName振动阳具微微逗弄起她来。
 DestinationCharacterName vibrating dildo builds up to a moderate pace.
-DestinationCharacterName的振动阳具逐渐提升到中等的频率。
+DestinationCharacterName振动阳具逐渐提升到中等的频率。
 DestinationCharacterName vibrating dildo starts buzzing strongly!
-DestinationCharacterName的振动阳具猛烈地颤动起来！
+DestinationCharacterName振动阳具猛烈地颤动起来！
 DestinationCharacterName vibrating dildo jumps up to maximum intensity!
-DestinationCharacterName的振动阳具突然以最大强度振动起来！
+DestinationCharacterName振动阳具突然以最大强度振动起来！
 DestinationCharacterName clitoral stimulator stops vibrating.
-DestinationCharacterName的阴蒂刺激器停止振动。
+DestinationCharacterName阴蒂刺激器停止振动。
 DestinationCharacterName clitoral stimulator slows down into a light tease.
-DestinationCharacterName的阴蒂刺激器慢下来，仅仅在轻微逗弄。
+DestinationCharacterName阴蒂刺激器慢下来，仅仅在轻微逗弄。
 DestinationCharacterName clitoral stimulator returns to a moderate pace.
-DestinationCharacterName的阴蒂刺激器恢复了中等的频率。
+DestinationCharacterName阴蒂刺激器恢复了中等的频率。
 DestinationCharacterName clitoral stimulator slows down a tiny bit.
-DestinationCharacterName的阴蒂刺激器稍微慢下来一点。
+DestinationCharacterName阴蒂刺激器稍微慢下来一点。
 DestinationCharacterName clitoral stimulator starts teasing her lightly.
-DestinationCharacterName的阴蒂刺激器微微逗弄起她来。
+DestinationCharacterName阴蒂刺激器微微逗弄起她来。
 DestinationCharacterName clitoral stimulator builds up to a moderate pace.
-DestinationCharacterName的阴蒂刺激器逐渐提升到中等的频率。
+DestinationCharacterName阴蒂刺激器逐渐提升到中等的频率。
 DestinationCharacterName clitoral stimulator starts buzzing strongly!
-DestinationCharacterName的阴蒂刺激器猛烈地颤动起来！
+DestinationCharacterName阴蒂刺激器猛烈地颤动起来！
 DestinationCharacterName clitoral stimulator jumps up to maximum intensity!
-DestinationCharacterName的阴蒂刺激器突然以最大强度振动起来！
+DestinationCharacterName阴蒂刺激器突然以最大强度振动起来！
 DestinationCharacterName inflatable vibrating dildo stops vibrating.
-DestinationCharacterName的充气振动阳具停止振动。
+DestinationCharacterName充气振动阳具停止振动。
 DestinationCharacterName inflatable vibrating dildo slows down into a light tease.
-DestinationCharacterName的充气振动阳具慢下来，仅仅在轻微逗弄。
+DestinationCharacterName充气振动阳具慢下来，仅仅在轻微逗弄。
 DestinationCharacterName inflatable vibrating dildo returns to a moderate pace.
-DestinationCharacterName的充气振动阳具恢复了中等的频率。
+DestinationCharacterName充气振动阳具恢复了中等的频率。
 DestinationCharacterName inflatable vibrating dildo slows down a tiny bit.
-DestinationCharacterName的充气振动阳具稍微慢下来一点。
+DestinationCharacterName充气振动阳具稍微慢下来一点。
 DestinationCharacterName inflatable vibrating dildo starts teasing her lightly.
-DestinationCharacterName的充气振动阳具微微逗弄起她来。
+DestinationCharacterName充气振动阳具微微逗弄起她来。
 DestinationCharacterName inflatable vibrating dildo builds up to a moderate pace.
-DestinationCharacterName的充气振动阳具逐渐提升到中等的频率。
+DestinationCharacterName充气振动阳具逐渐提升到中等的频率。
 DestinationCharacterName inflatable vibrating dildo starts buzzing strongly!
-DestinationCharacterName的充气振动阳具猛烈地颤动起来！
+DestinationCharacterName充气振动阳具猛烈地颤动起来！
 DestinationCharacterName inflatable vibrating dildo jumps up to maximum intensity!
-DestinationCharacterName的充气振动阳具突然以最大强度振动起来！
+DestinationCharacterName充气振动阳具突然以最大强度振动起来！
 SourceCharacter deflates DestinationCharacter inflatable vibrating dildo till it's regular sized.
 SourceCharacter对DestinationCharacter充气振动阳具放气，直到它变为通常大小。
 SourceCharacter deflates DestinationCharacter inflatable vibrating dildo till only slighty bulging.
@@ -3036,21 +3088,21 @@ DestinationCharacterName乳头上的跳蛋猛烈地颤动起来！
 DestinationCharacterName vibrating eggs on her nipples jump up to maximum intensity!
 DestinationCharacterName乳头上的跳蛋突然以最大强度振动起来！
 DestinationCharacterName vibrating egg on her clitoris stops vibrating.
-DestinationCharacterName的跳蛋停止振动。
+DestinationCharacterName跳蛋停止振动。
 DestinationCharacterName vibrating egg on her clitoris slows down into a light tease.
-DestinationCharacterName的跳蛋慢下来，仅仅在轻微逗弄。
+DestinationCharacterName跳蛋慢下来，仅仅在轻微逗弄。
 DestinationCharacterName vibrating egg on her clitoris returns to a moderate pace.
-DestinationCharacterName的跳蛋恢复了中等的频率。
+DestinationCharacterName跳蛋恢复了中等的频率。
 DestinationCharacterName vibrating egg on her clitoris slows down a tiny bit.
-DestinationCharacterName的跳蛋稍微慢下来一点。
+DestinationCharacterName跳蛋稍微慢下来一点。
 DestinationCharacterName vibrating egg on her clitoris starts teasing her lightly.
-DestinationCharacterName的跳蛋微微逗弄起她来。
+DestinationCharacterName跳蛋微微逗弄起她来。
 DestinationCharacterName vibrating egg on her clitoris builds up to a moderate pace.
-DestinationCharacterName的跳蛋逐渐提升到中等的频率。
+DestinationCharacterName跳蛋逐渐提升到中等的频率。
 DestinationCharacterName vibrating egg on her clitoris starts buzzing strongly!
-DestinationCharacterName的跳蛋猛烈地颤动起来！
+DestinationCharacterName跳蛋猛烈地颤动起来！
 DestinationCharacterName vibrating egg on her clitoris jumps up to maximum intensity!
-DestinationCharacterName的跳蛋突然以最大强度振动起来！
+DestinationCharacterName跳蛋突然以最大强度振动起来！
 SourceCharacter loosens DestinationCharacter nipple suction cups until they hang loosely.
 SourceCharacter放松DestinationCharacter乳头吸吮杯，让杯子松垮地耷拉着。
 SourceCharacter loosens DestinationCharacter nipple suction cups to a light amount of suction.
@@ -3084,37 +3136,37 @@ SourceCharacter收紧DestinationCharacter阴蒂吮吸杯，让杯子沉重地吸
 SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in her clitoris entirely.
 SourceCharacter收紧DestinationCharacter阴蒂吮吸杯，让杯子完全吸附在她的阴蒂上。
 DestinationCharacterName vibrating latex panties stops vibrating.
-DestinationCharacterName的振动乳胶内裤停止振动。
+DestinationCharacterName振动乳胶内裤停止振动。
 DestinationCharacterName vibrating latex panties slows down into a light tease.
-DestinationCharacterName的振动乳胶内裤慢下来，仅仅在轻微逗弄。
+DestinationCharacterName振动乳胶内裤慢下来，仅仅在轻微逗弄。
 DestinationCharacterName vibrating latex panties returns to a moderate pace.
-DestinationCharacterName的振动乳胶内裤恢复了中等的频率。
+DestinationCharacterName振动乳胶内裤恢复了中等的频率。
 DestinationCharacterName vibrating latex panties slows down a tiny bit.
-DestinationCharacterName的振动乳胶内裤稍微慢下来一点。
+DestinationCharacterName振动乳胶内裤稍微慢下来一点。
 DestinationCharacterName vibrating latex panties starts teasing her lightly.
-DestinationCharacterName的振动乳胶内裤微微逗弄起她来。
+DestinationCharacterName振动乳胶内裤微微逗弄起她来。
 DestinationCharacterName vibrating latex panties builds up to a moderate pace.
-DestinationCharacterName的振动乳胶内裤逐渐提升到中等的频率。
+DestinationCharacterName振动乳胶内裤逐渐提升到中等的频率。
 DestinationCharacterName vibrating latex panties starts buzzing strongly!
-DestinationCharacterName的振动乳胶内裤猛烈地颤动起来！
+DestinationCharacterName振动乳胶内裤猛烈地颤动起来！
 DestinationCharacterName vibrating latex panties jumps up to maximum intensity!
-DestinationCharacterName的振动乳胶内裤突然以最大强度振动起来！
+DestinationCharacterName振动乳胶内裤突然以最大强度振动起来！
 DestinationCharacterName vibrating wand stops vibrating.
-DestinationCharacterName的振动乳胶内裤停止振动。
+DestinationCharacterName振动乳胶内裤停止振动。
 DestinationCharacterName vibrating wand slows down into a light tease.
-DestinationCharacterName的振动按摩棒慢下来，仅仅在轻微逗弄。
+DestinationCharacterName振动按摩棒慢下来，仅仅在轻微逗弄。
 DestinationCharacterName vibrating wand returns to a moderate pace.
-DestinationCharacterName的振动按摩棒恢复了中等的频率。
+DestinationCharacterName振动按摩棒恢复了中等的频率。
 DestinationCharacterName vibrating wand slows down a tiny bit.
-DestinationCharacterName的振动按摩棒稍微慢下来一点。
+DestinationCharacterName振动按摩棒稍微慢下来一点。
 DestinationCharacterName vibrating wand starts teasing her lightly.
-DestinationCharacterName的振动按摩棒微微逗弄起她来。
+DestinationCharacterName振动按摩棒微微逗弄起她来。
 DestinationCharacterName vibrating wand builds up to a moderate pace.
-DestinationCharacterName的振动按摩棒逐渐提升到中等的频率。
+DestinationCharacterName振动按摩棒逐渐提升到中等的频率。
 DestinationCharacterName vibrating wand starts buzzing strongly!
-DestinationCharacterName的振动按摩棒猛烈地颤动起来！
+DestinationCharacterName振动按摩棒猛烈地颤动起来！
 DestinationCharacterName vibrating wand jumps up to maximum intensity!
-DestinationCharacterName的振动按摩棒突然以最大强度振动起来！
+DestinationCharacterName振动按摩棒突然以最大强度振动起来！
 The dildo on DestinationCharacterName Vibrating Spreader Dildo Bar stops vibrating.
 DestinationCharacterName身上的假阳具的停止振动。
 The dildo on DestinationCharacterName Vibrating Spreader Dildo Bar slows down into a light tease.
@@ -3148,37 +3200,37 @@ SourceCharacter对DestinationCharacter肛门泵充气，让它充气到四分之
 SourceCharacter inflates DestinationCharacter butt pump to the maximum amount.
 SourceCharacter对DestinationCharacter肛门泵充气，让它充气到最大程度。
 DestinationCharacterName vibrating buttplug stops vibrating.
-DestinationCharacterName的振动肛塞停止振动。
+DestinationCharacterName振动肛塞停止振动。
 DestinationCharacterName vibrating buttplug slows down into a light tease.
-DestinationCharacterName的振动肛塞慢下来，仅仅在轻微逗弄。
+DestinationCharacterName振动肛塞慢下来，仅仅在轻微逗弄。
 DestinationCharacterName vibrating buttplug returns to a moderate pace.
-DestinationCharacterName的振动肛塞恢复了中等的频率。
+DestinationCharacterName振动肛塞恢复了中等的频率。
 DestinationCharacterName vibrating buttplug slows down a tiny bit.
-DestinationCharacterName的振动肛塞稍微慢下来一点。
+DestinationCharacterName振动肛塞稍微慢下来一点。
 DestinationCharacterName vibrating buttplug starts teasing her lightly.
-DestinationCharacterName的振动肛塞微微逗弄起她来。
+DestinationCharacterName振动肛塞微微逗弄起她来。
 DestinationCharacterName vibrating buttplug builds up to a moderate pace.
-DestinationCharacterName的振动肛塞逐渐提升到中等的频率。
+DestinationCharacterName振动肛塞逐渐提升到中等的频率。
 DestinationCharacterName vibrating buttplug starts buzzing strongly!
-DestinationCharacterName的振动肛塞猛烈地颤动起来！
+DestinationCharacterName振动肛塞猛烈地颤动起来！
 DestinationCharacterName vibrating buttplug jumps up to maximum intensity!
-DestinationCharacterName的突然以最大强度振动起来！
+DestinationCharacterName突然以最大强度振动起来！
 DestinationCharacterName inflatable vibrating butt plug stops vibrating.
-DestinationCharacterName的停止振动。
+DestinationCharacterName停止振动。
 DestinationCharacterName inflatable vibrating butt plug slows down into a light tease.
-DestinationCharacterName的充气式振动肛塞慢下来，仅仅在轻微逗弄。
+DestinationCharacterName充气式振动肛塞慢下来，仅仅在轻微逗弄。
 DestinationCharacterName inflatable vibrating butt plug returns to a moderate pace.
-DestinationCharacterName的充气式振动肛塞恢复了中等的频率。
+DestinationCharacterName充气式振动肛塞恢复了中等的频率。
 DestinationCharacterName inflatable vibrating butt plug slows down a tiny bit.
-DestinationCharacterName的充气式振动肛塞稍微慢下来一点。
+DestinationCharacterName充气式振动肛塞稍微慢下来一点。
 DestinationCharacterName inflatable vibrating butt plug starts teasing her lightly.
-DestinationCharacterName的充气式振动肛塞微微逗弄起她来。
+DestinationCharacterName充气式振动肛塞微微逗弄起她来。
 DestinationCharacterName inflatable vibrating butt plug builds up to a moderate pace.
-DestinationCharacterName的充气式振动肛塞逐渐提升到中等的频率。
+DestinationCharacterName充气式振动肛塞逐渐提升到中等的频率。
 DestinationCharacterName inflatable vibrating butt plug starts buzzing strongly!
-DestinationCharacterName的充气式振动肛塞猛烈地颤动起来！
+DestinationCharacterName充气式振动肛塞猛烈地颤动起来！
 DestinationCharacterName inflatable vibrating butt plug jumps up to maximum intensity!
-DestinationCharacterName的充气式振动肛塞突然以最大强度振动起来！
+DestinationCharacterName充气式振动肛塞突然以最大强度振动起来！
 SourceCharacter deflates DestinationCharacter inflatable vibrating butt plug till it's empty.
 SourceCharacter对DestinationCharacter充气式振动肛塞放气，把它放空。
 SourceCharacter deflates DestinationCharacter inflatable vibrating butt plug till only slightly filled.
@@ -3370,9 +3422,9 @@ Normal Size
 Large Size
 大号
 DestinationCharacterName AssetName shrinks down to it's normal size.
-DestinationCharacterName的AssetName缩小到了正常大小。
+DestinationCharacterNameAssetName缩小到了正常大小。
 DestinationCharacterName AssetName grows to it's large size.
-DestinationCharacterName的AssetName增长到了大号。
+DestinationCharacterNameAssetName增长到了大号。
 Padlock mitten buckles
 带锁连指手套
 Unlock mittens
@@ -3570,21 +3622,21 @@ SourceCharacter解开了DestinationCharacter爱人贞操带的臀部锁。
 SourceCharacter locks DestinationCharacter love chastity belt butt.
 SourceCharacter锁上了DestinationCharacter爱人贞操带的臀部锁。
 DestinationCharacterName love chastity belt starts teasing her lightly.
-DestinationCharacterName的爱人贞操带微微逗弄起她来。
+DestinationCharacterName爱人贞操带微微逗弄起她来。
 DestinationCharacterName love chastity belt builds up to a moderate pace.
-DestinationCharacterName的爱人贞操带逐渐提升到中等的频率。
+DestinationCharacterName爱人贞操带逐渐提升到中等的频率。
 DestinationCharacterName love chastity belt starts buzzing strongly!
-DestinationCharacterName的爱人贞操带猛烈地颤动起来！
+DestinationCharacterName爱人贞操带猛烈地颤动起来！
 DestinationCharacterName love chastity belt jumps up to maximum intensity!
-DestinationCharacterName的爱人贞操带突然以最大强度振动起来！
+DestinationCharacterName爱人贞操带突然以最大强度振动起来！
 DestinationCharacterName love chastity belt stops vibrating.
-DestinationCharacterName的爱人贞操带停止振动。
+DestinationCharacterName爱人贞操带停止振动。
 DestinationCharacterName love chastity belt slows down into a light tease.
-DestinationCharacterName的爱人贞操带慢下来，仅仅在轻微逗弄。
+DestinationCharacterName爱人贞操带慢下来，仅仅在轻微逗弄。
 DestinationCharacterName love chastity belt returns to a moderate pace.
-DestinationCharacterName的爱人贞操带恢复了中等的频率。
+DestinationCharacterName爱人贞操带恢复了中等的频率。
 DestinationCharacterName love chastity belt slows down a tiny bit.
-DestinationCharacterName的爱人贞操带稍微慢下来一点。
+DestinationCharacterName爱人贞操带稍微慢下来一点。
 SourceCharacter sets DestinationCharacter love chastity belt to low intensity.
 SourceCharacter将DestinationCharacter爱人贞操带设置为低强度。
 SourceCharacter sets DestinationCharacter love chastity belt to moderate intensity.
@@ -3592,11 +3644,11 @@ SourceCharacter将DestinationCharacter爱人贞操带设置为中强度。
 SourceCharacter sets DestinationCharacter love chastity belt to high intensity.
 SourceCharacter将DestinationCharacter爱人贞操带设置为高强度。
 DestinationCharacterName love chastity belt gives her a light shock.
-DestinationCharacterName的爱人贞操带轻微地电了她一下。
+DestinationCharacterName爱人贞操带轻微地电了她一下。
 DestinationCharacterName love chastity belt lets out a sharp jolt!
-DestinationCharacterName的爱人贞操带发出尖锐的电击！
+DestinationCharacterName爱人贞操带发出尖锐的电击！
 DestinationCharacterName love chastity belt delivers an intense shock!
-DestinationCharacterName的爱人贞操带猛烈地电击了她！
+DestinationCharacterName爱人贞操带猛烈地电击了她！
 SourceCharacter removes shield from DestinationCharacter love chastity belt.
 SourceCharacter移除了DestinationCharacter爱人贞操带上的贞操护盾。
 SourceCharacter locks shield to DestinationCharacter love chastity belt.
@@ -3606,47 +3658,47 @@ SourceCharacter锁定了DestinationCharacter爱人贞操带上的振动棒。
 SourceCharacter locks shock device to DestinationCharacter love chastity belt.
 SourceCharacter锁定了DestinationCharacter爱人贞操带电击装置。
 The rear chastity shield on DestinationCharacterName sci-fi pleasure panties opens.
-DestinationCharacterName的高科技快感管理内裤的后贞操护盾打开了。
+DestinationCharacterName高科技快感管理内裤的后贞操护盾打开了。
 The rear chastity shield on DestinationCharacterName sci-fi pleasure panties closes.
-DestinationCharacterName的高科技快感管理内裤的后贞操护盾关闭了。
+DestinationCharacterName高科技快感管理内裤的后贞操护盾关闭了。
 DestinationCharacterName sci-fi pleasure panties activates tease vibe mode.
-DestinationCharacterName的高科技快感管理内裤开始以玩弄模式振动。
+DestinationCharacterName高科技快感管理内裤开始以玩弄模式振动。
 DestinationCharacterName sci-fi pleasure panties builds up to vibration level 1.
-DestinationCharacterName的高科技快感管理内裤的振动强度提升到级别1。
+DestinationCharacterName高科技快感管理内裤的振动强度提升到级别1。
 DestinationCharacterName sci-fi pleasure panties starts buzzing at vibration level 2!
-DestinationCharacterName的高科技快感管理内裤开始以级别2的强度振动！
+DestinationCharacterName高科技快感管理内裤开始以级别2的强度振动！
 DestinationCharacterName sci-fi pleasure panties jumps up to vibration level 3!
-DestinationCharacterName的高科技快感管理内裤的振动强度突然到达级别3！
+DestinationCharacterName高科技快感管理内裤的振动强度突然到达级别3！
 DestinationCharacterName sci-fi pleasure panties vibration mode is deactivated.
-DestinationCharacterName的高科技快感管理内裤的振动模式关闭。
+DestinationCharacterName高科技快感管理内裤的振动模式关闭。
 DestinationCharacterName sci-fi pleasure panties slows down to tease vibe mode.
-DestinationCharacterName的高科技快感管理内裤减慢为玩弄模式。
+DestinationCharacterName高科技快感管理内裤减慢为玩弄模式。
 DestinationCharacterName sci-fi pleasure panties returns to vibration level 1.
-DestinationCharacterName的高科技快感管理内裤的振动强度回到了级别1。
+DestinationCharacterName高科技快感管理内裤的振动强度回到了级别1。
 DestinationCharacterName sci-fi pleasure panties slows down to vibration level 2.
-DestinationCharacterName的高科技快感管理内裤的振动强度降低到了级别2。
+DestinationCharacterName高科技快感管理内裤的振动强度降低到了级别2。
 DestinationCharacterName sci-fi pleasure panties are set to shock level 1.
-DestinationCharacterName的高科技快感管理内裤的电击强度被设定为级别1。
+DestinationCharacterName高科技快感管理内裤的电击强度被设定为级别1。
 DestinationCharacterName sci-fi pleasure panties are set to shock level 2.
-DestinationCharacterName的高科技快感管理内裤的电击强度被设定为级别2。
+DestinationCharacterName高科技快感管理内裤的电击强度被设定为级别2。
 DestinationCharacterName sci-fi pleasure panties are set to shock level 3.
-DestinationCharacterName的高科技快感管理内裤的电击强度被设定为级别3。
+DestinationCharacterName高科技快感管理内裤的电击强度被设定为级别3。
 DestinationCharacterName sci-fi pleasure panties gives her a light shock.
-DestinationCharacterName的高科技快感管理内裤轻微地电了她一下。
+DestinationCharacterName高科技快感管理内裤轻微地电了她一下。
 DestinationCharacterName sci-fi pleasure panties lets out a sharp jolt!
-DestinationCharacterName的高科技快感管理内裤发出尖锐的电击！
+DestinationCharacterName高科技快感管理内裤发出尖锐的电击！
 DestinationCharacterName sci-fi pleasure panties delivers an intense shock!
-DestinationCharacterName的高科技快感管理内裤猛烈地电击了她！
+DestinationCharacterName高科技快感管理内裤猛烈地电击了她！
 The crotch chastity shield on DestinationCharacterName sci-fi pleasure panties opens.
-DestinationCharacterName的高科技快感管理内裤的胯部贞操护盾打开了。
+DestinationCharacterName高科技快感管理内裤的胯部贞操护盾打开了。
 The crotch chastity shield on DestinationCharacterName sci-fi pleasure panties closes.
-DestinationCharacterName的高科技快感管理内裤的胯部贞操护盾关闭了。
+DestinationCharacterName高科技快感管理内裤的胯部贞操护盾关闭了。
 The denial mode on DestinationCharacterName sci-fi pleasure panties activates, teasing them endlessly.
-DestinationCharacterName的高科技快感管理内裤的拒绝模式启动了，开始无休止地逗弄。
+DestinationCharacterName高科技快感管理内裤的拒绝模式启动了，开始无休止地逗弄。
 The edging mode on DestinationCharacterName sci-fi pleasure panties activates, preventing orgasms no matter what.
-DestinationCharacterName的高科技快感管理内裤的寸止模式启动了，无论如何也不会再得到高潮。
+DestinationCharacterName高科技快感管理内裤的寸止模式启动了，无论如何也不会再得到高潮。
 The special mode on DestinationCharacterName sci-fi pleasure panties deactivates, allowing orgasms again.
-DestinationCharacterName的高科技快感管理内裤的特殊模式关闭了，无论如何也不会再得到高潮。
+DestinationCharacterName高科技快感管理内裤的特殊模式关闭了，无论如何也不会再得到高潮。
 Normal Mode
 通常模式
 Edge Mode
@@ -3686,7 +3738,7 @@ SourceCharacter改变了DestinationCharacter自定义名牌上的文字。
 SourceCharacter changes the wooden sign on TargetCharacterName.
 SourceCharacter改变了TargetCharacterName的木制挂牌。
 SourceCharacter changes the text on DestinationCharacterName Doll Box.
-SourceCharacter改变了DestinationCharacterName的人偶箱上的文字。
+SourceCharacter改变了DestinationCharacterName人偶箱上的文字。
 Select what tag you want to use
 选择你想要使用的名牌
 You cannot change the tag while it's locked
@@ -4168,37 +4220,37 @@ Tease
 Edge
 寸止
 DestinationCharacterName vibrating bunny vibe stops vibrating.
-DestinationCharacterName的兔尾式振动肛塞停止振动。
+DestinationCharacterName兔尾式振动肛塞停止振动。
 DestinationCharacterName vibrating bunny vibe slows down into a light tease.
-DestinationCharacterName的兔尾式振动肛塞慢下来，仅仅在轻微逗弄。
+DestinationCharacterName兔尾式振动肛塞慢下来，仅仅在轻微逗弄。
 DestinationCharacterName vibrating bunny vibe returns to a moderate pace.
-DestinationCharacterName的兔尾式振动肛塞恢复了中等的频率。
+DestinationCharacterName兔尾式振动肛塞恢复了中等的频率。
 DestinationCharacterName vibrating bunny vibe slows down a tiny bit.
-DestinationCharacterName的兔尾式振动肛塞稍微慢下来一点。
+DestinationCharacterName兔尾式振动肛塞稍微慢下来一点。
 DestinationCharacterName vibrating bunny vibe starts teasing her lightly.
-DestinationCharacterName的兔尾式振动肛塞微微逗弄起她来。
+DestinationCharacterName兔尾式振动肛塞微微逗弄起她来。
 DestinationCharacterName vibrating bunny vibe builds up to a moderate pace.
-DestinationCharacterName的兔尾式振动肛塞逐渐提升到中等的频率。
+DestinationCharacterName兔尾式振动肛塞逐渐提升到中等的频率。
 DestinationCharacterName vibrating bunny vibe starts buzzing strongly!
-DestinationCharacterName的兔尾式振动肛塞猛烈地颤动起来！
+DestinationCharacterName兔尾式振动肛塞猛烈地颤动起来！
 DestinationCharacterName vibrating bunny vibe jumps up to maximum intensity!
-DestinationCharacterName的兔尾式振动肛塞突然以最大强度振动起来！
+DestinationCharacterName兔尾式振动肛塞突然以最大强度振动起来！
 DestinationCharacterName vibrating XXL egg stops vibrating.
-DestinationCharacterName的超超大振动肛塞蛋停止振动。
+DestinationCharacterName超超大振动肛塞蛋停止振动。
 DestinationCharacterName vibrating XXL egg slows down into a gentle tease.
-DestinationCharacterName的超超大振动肛塞蛋慢下来，仅仅在轻微逗弄。
+DestinationCharacterName超超大振动肛塞蛋慢下来，仅仅在轻微逗弄。
 DestinationCharacterName vibrating XXL egg slows down into a modest pace.
-DestinationCharacterName的超超大振动肛塞蛋恢复了中等的节奏。
+DestinationCharacterName超超大振动肛塞蛋恢复了中等的节奏。
 DestinationCharacterName vibrating XXL egg slows down slightly.
-DestinationCharacterName的超超大振动肛塞蛋稍微慢下来一点。
+DestinationCharacterName超超大振动肛塞蛋稍微慢下来一点。
 DestinationCharacterName vibrating XXL egg starts to tease her pleasantly.
-DestinationCharacterName的超超大振动肛塞蛋愉悦地逗弄起她来。
+DestinationCharacterName超超大振动肛塞蛋愉悦地逗弄起她来。
 DestinationCharacterName vibrating XXL egg builds up to a mild pace.
-DestinationCharacterName的超超大振动肛塞蛋逐渐提升到平和的节奏。
+DestinationCharacterName超超大振动肛塞蛋逐渐提升到平和的节奏。
 DestinationCharacterName vibrating XXL egg starts buzzing strongly!
-DestinationCharacterName的超超大振动肛塞蛋猛烈地颤动起来！
+DestinationCharacterName超超大振动肛塞蛋猛烈地颤动起来！
 DestinationCharacterName vibrating XXL egg starts buzzing relentlessly!
-DestinationCharacterName的超超大振动肛塞蛋无情地震荡起来！
+DestinationCharacterName超超大振动肛塞蛋无情地震荡起来！
 SourceCharacter turns DestinationCharacter lactation pump off.
 SourceCharacter关闭了DestinationCharacter哺乳泵。
 SourceCharacter turns DestinationCharacter lactation pump down to low suction.
@@ -4426,25 +4478,25 @@ Attached Opaque Gloves
 Attached See-through Gloves
 已穿戴透明手套
 DestinationCharacterName AssetName stops vibrating.
-DestinationCharacterName的停止振动。
+DestinationCharacterNameAssetName停止振动。
 DestinationCharacterName AssetName slows down into a light tease.
-DestinationCharacterName的慢下来，仅仅在轻微逗弄。
+DestinationCharacterNameAssetName慢下来，仅仅在轻微逗弄。
 DestinationCharacterName AssetName returns to a moderate pace.
-DestinationCharacterName的恢复了中等的频率。
+DestinationCharacterNameAssetName恢复了中等的频率。
 DestinationCharacterName AssetName slows down a tiny bit.
-DestinationCharacterName的稍微慢下来一点。
+DestinationCharacterNameAssetName稍微慢下来一点。
 DestinationCharacterName AssetName starts teasing her lightly.
-DestinationCharacterName的微微逗弄起她来。
+DestinationCharacterNameAssetName微微逗弄起她来。
 DestinationCharacterName AssetName builds up to a moderate pace.
-DestinationCharacterName的逐渐提升到中等的频率。
+DestinationCharacterNameAssetName逐渐提升到中等的频率。
 DestinationCharacterName AssetName starts buzzing strongly!
-DestinationCharacterName的猛烈地颤动起来！
+DestinationCharacterNameAssetName猛烈地颤动起来！
 DestinationCharacterName AssetName jumps up to maximum intensity!
-DestinationCharacterName的突然以最大强度振动起来！
+DestinationCharacterNameAssetName突然以最大强度振动起来！
 SourceCharacter changes the settings on DestinationCharacterName AssetName
-SourceCharacter修改了DestinationCharacterName的AssetName的设置
+SourceCharacter修改了DestinationCharacterNameAssetName的设置
 DestinationCharacterName owner releases her from the slave collar.
-DestinationCharacterName的主人解开了她的奴隶项圈。
+DestinationCharacterName主人解开了她的奴隶项圈。
 TargetCharacterName is given her slave collar again.
 TargetCharacterName再次被戴上了她的奴隶项圈。
 Active Rules
@@ -4474,13 +4526,13 @@ Your owner cannot use lover locks on you
 Edit Text:
 编辑文字：
 SourceCharacter modifies DestinationCharacterName canvas hood to read "NewText"
-SourceCharacter修改DestinationCharacterName的帆布头套上的文本为"NewText"
+SourceCharacter修改DestinationCharacterName帆布头套上的文本为"NewText"
 Edit Text
 编辑文字
 SourceCharacter removes the text from DestinationCharacterName AssetName
-SourceCharacter移除了DestinationCharacterName的AssetName上的文本
+SourceCharacter移除了DestinationCharacterNameAssetName上的文本
 SourceCharacter changes the text on DestinationCharacterName AssetName to read "NewText"
-SourceCharacter修改DestinationCharacterName的AssetName上的文本为"NewText"
+SourceCharacter修改DestinationCharacterNameAssetName上的文本为"NewText"
 Select Text Orientation
 选择文字方向
 SourceCharacter modifies DestinationCharacter bowl to read "NewText"
@@ -4733,8 +4785,6 @@ SourceCharacter clips the bit onto DestinationCharacter harness.
 SourceCharacter扣上了了DestinationCharacter马具上的的衔铁。
 Open or close the gag
 打开或者关闭开口器
-Opened
-打开
 SourceCharacter closes the mouth of TargetCharacter.
 SourceCharacter关上了TargetCharacter的嘴巴。
 SourceCharacter forces the mouth of TargetCharacter open.
@@ -4985,8 +5035,6 @@ Configure Shock Module
 配置电击模块
 Collar Type
 项圈类型
-Shock Module
-电击模块
 Slender
 纤细
 Choker
@@ -5146,9 +5194,9 @@ Hexagon
 Lines
 线条
 SourceCharacter removes the text from DestinationCharacterName smooth latex mask.
-SourceCharacter移除了DestinationCharacterName的平滑乳胶面具上的文字。
+SourceCharacter移除了DestinationCharacterName平滑乳胶面具上的文字。
 SourceCharacter changes the text on DestinationCharacterName smooth latex mask to read 'NewText'.
-SourceCharacter改变DestinationCharacterName的平滑乳胶面具上的文字为'NewText'。
+SourceCharacter改变DestinationCharacterName平滑乳胶面具上的文字为'NewText'。
 SourceCharacter changes the pattern on DestinationCharacter smooth latex mask.
 SourceCharacter改变了DestinationCharacter平滑乳胶面具上的图案。
 Select Lens Quality
