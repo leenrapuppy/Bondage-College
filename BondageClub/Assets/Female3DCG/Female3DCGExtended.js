@@ -4190,6 +4190,10 @@ var AssetFemale3DCGExtended = {
 						],
 					},
 				],
+				ScriptHooks: {
+					Draw: (n) => InventoryItemDevicesLuckyWheelDrawHook(n),
+					Click: (n) => InventoryItemDevicesLuckyWheelClickHook(n),
+				}
 			},
 		}, //LuckyWheel
 	}, // ItemDevices

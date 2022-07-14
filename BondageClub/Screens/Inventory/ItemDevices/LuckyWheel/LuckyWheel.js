@@ -19,6 +19,26 @@ function ItemDevicesLuckyWheelLabelForNum(num) {
 }
 
 /**
+ * Modular item hook to draw the spin button on every subscreeen
+ */
+function InventoryItemDevicesLuckyWheelDrawHook(next) {
+	DrawButton(1380, 800, 260, 64, DialogFindPlayer("LuckyWheelTrigger"), "white");
+	next();
+}
+
+/**
+ * Modular item hook to handle clicks on the spin button on every subscreeen
+ */
+function InventoryItemDevicesLuckyWheelClickHook(next) {
+	if (MouseIn(1380, 800, 260, 64)) {
+		InventoryItemDevicesLuckyWheelTrigger();
+		return;
+	}
+
+	next();
+}
+
+/*
  *
  * @param {Item} Item
  */
@@ -74,7 +94,6 @@ function InventoryItemDevicesLuckyWheelGame0Draw() {
 	const disabledRemove = DialogFocusItem.Property.Texts.length <= ItemDevicesLuckyWheelMinTexts;
 	DrawButton(1530, 720, 120, 48, DialogFindPlayer("LuckyWheelRemoveSection"), disabledRemove ? "#888" : "white", null, null, disabledRemove);
 
-	DrawButton(1380, 800, 260, 64, DialogFindPlayer("LuckyWheelTrigger"), "white");
 }
 
 function InventoryItemDevicesLuckyWheelGame0Click() {
@@ -83,10 +102,6 @@ function InventoryItemDevicesLuckyWheelGame0Click() {
 		return;
 	}
 
-	if (MouseIn(1380, 800, 260, 64)) {
-		InventoryItemDevicesLuckyWheelTrigger();
-		return;
-	}
 
 	if (MouseIn(1360, 720, 120, 48)) {
 		if (DialogFocusItem.Property.Texts.length >= ItemDevicesLuckyWheelMaxTexts) return;
