@@ -16,7 +16,7 @@ var ServerReconnectCount = 0;
 
 const ServerScriptMessage = "WARNING! Console scripts can break your account or steal your data. Only run scripts if " +
 	"you know what you're doing and you trust the source. See " +
-	"https://github.com/Ben987/Bondage-College/wiki/Player-Safety#scripts--browser-extensions to learn more about " +
+	"https://gitgud.io/BondageProjects/Bondage-College/-/wikis/Player-Safety#scripts-browser-extensions to learn more about " +
 	"script safety.";
 const ServerScriptWarningStyle = "display: inline-block; color: black; background: #ffe3ad; margin: 16px 0 8px 0; " +
 	"padding: 8px 4px; font-size: 20px; border: 6px solid #ffa600; font-family: 'Arial', sans-serif; line-height: 1.6;";
