@@ -657,6 +657,9 @@ ItemDevicesLuckyWheelMiscFlogger,Flogger
 ItemDevicesLuckyWheelMiscGag,Gag
 ItemDevicesLuckyWheelText,Text
 ItemDevicesLuckyWheelArrow,Arrow
+ItemDevicesLuckyWheelSection1,Rope Sections
+ItemDevicesLuckyWheelSection2,Chain Sections
+ItemDevicesLuckyWheelSection3,Gag Sections
 ItemAddonCoversOuter,Outer
 ItemAddonCoversInner,Inner
 ItemNoseNoseHookBand,Strap
