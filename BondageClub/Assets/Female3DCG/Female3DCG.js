@@ -1707,8 +1707,7 @@ var AssetFemale3DCG = [
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
 	{
-		Group: "Hands",
-		ParentGroup: "BodyUpper",
+		Group: "LeftHand",
 		Priority: 28,
 		Default: false,
 		Clothing: true,
@@ -1717,21 +1716,29 @@ var AssetFemale3DCG = [
 		PreviewZone: [183, 360, 135, 135],
 		Asset: [
 			{
-				Name: "Rings", Value: 
-			}
-			{ 
-				Name: "HonorRing", Value: 55, HideForPose: ["BackElbowTouch"],
+				/*
+				To allow rings to have more diversity, they have been built as a modular item.
+				If you wish to add more rings, add the corresponding layers to the left and right hand groups and
+				also add the corresponding modules to the extended menu.
+				*/
+				Name: "Rings", Value: 0, HideForPose: ["BackElbowTouch"], Extended: true, AlwaysExtend: true,
 				Layer: [
-					{ Name: "Base"},
-					{ Name: "Jewels"}
-				],
-			},
-			{ Name: "WeddingRing", Value: -1, HideForPose: ["BackElbowTouch"], },
-			{ 
-				Name: "RingO", Value: 20, HideForPose: ["BackElbowTouch"],
-				Layer: [
-					{ Name: "Base"},
-					{ Name: "Ring"}
+					//Thumb
+					{ Name: "ThumbSteel", HasType: false, AllowModuleTypes: ["t1"] },
+					{ Name: "ThumbO", HasType: false, AllowModuleTypes: ["t2"] },
+					//Index
+					{ Name: "IndexSteel", HasType: false, AllowModuleTypes: ["i1"] },
+					{ Name: "IndexO", HasType: false, AllowModuleTypes: ["i2"] },				
+					//Middle
+					{ Name: "MiddleSteel", HasType: false, AllowModuleTypes: ["m1"] },	
+					{ Name: "MiddleO", HasType: false, AllowModuleTypes: ["m2"] },					
+					//Ring
+					{ Name: "RingSteel", HasType: false, AllowModuleTypes: ["r1"] },
+					{ Name: "Wedding", HasType: false, AllowModuleTypes: ["r2"] },				
+					//Pinkie
+					{ Name: "HonorBase", HasType: false, AllowModuleTypes: ["p1"] },
+					{ Name: "HonorJewels", HasType: false, AllowModuleTypes: ["p1"] },
+					{ Name: "PinkieSteel", HasType: false, AllowModuleTypes: ["p2"] },
 				],
 			},
 		],

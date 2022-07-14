@@ -163,6 +163,35 @@ var AssetFemale3DCGExtended = {
 			},
 		}, //BallCapFront
 	},
+	LeftHand: {
+		Rings: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Thumb", Key: "i",
+						Options: [{}, {}, {}],
+					},
+					{
+						Name: "Index", Key: "i",
+						Options: [{}, {}, {}],
+					},
+					{
+						Name: "Middle", Key: "i",
+						Options: [{}, {}, {}],
+					},
+					{
+						Name: "Ring", Key: "i",
+						Options: [{}, {}, {}, {}],
+					},
+					{
+						Name: "Index", Key: "i",
+						Options: [{}, {}, {}, {}],
+					},
+				],
+			},
+		},
+	},
 	Cloth: {
 		TShirt2: {
 			Archetype: ExtendedArchetype.TYPED,
