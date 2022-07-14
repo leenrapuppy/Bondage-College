@@ -144,6 +144,7 @@ function InventoryItemDevicesLuckyWheelUpdate() {
 function InventoryItemDevicesLuckyWheelTrigger() {
 	const randomAngle = Math.round(Math.random() * 360);
 	DialogFocusItem.Property.TargetAngle = randomAngle;
+	ChatRoomCharacterItemUpdate(CharacterGetCurrent());
 
 	const C = CharacterGetCurrent();
 	/** @type {ChatMessageDictionary} */
