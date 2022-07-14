@@ -55,8 +55,9 @@ function CharacterAppearanceBuildAssets(C) {
 }
 
 function AssetGenderedIsAllowed(asset) {
-	if (ChatRoomSpace == "MaleOnly" && asset.Gender == "F") return false;
-	else if (ChatRoomSpace == "FemaleOnly" && asset.Gender == "M") return false;
+	const inChatRoom = ServerPlayerIsInChatRoom();
+	if (inChatRoom && ChatRoomSpace == "MaleOnly" && asset.Gender == "F") return false;
+	else if (inChatRoom && ChatRoomSpace == "FemaleOnly" && asset.Gender == "M") return false;
 	else return true;
 }
 
