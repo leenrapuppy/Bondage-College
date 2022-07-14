@@ -188,6 +188,8 @@ function AssetsItemDevicesLuckyWheelAfterDraw({ C, PersistentData, A, X, Y, L, P
 		const Properties = Property || {};
 		const Item = InventoryGet(C, A.Group.Name);
 
+		DynamicDrawLoadFont(ItemDevicesLuckyWheelFont);
+
 		// Determine Color Layer/Text Status
 		let storedTexts = Properties.Texts && Array.isArray(Properties.Texts) ? Properties.Texts.filter(T => typeof T === "string") : [];
 		storedTexts = storedTexts.map(T => T.substring(0, ItemDevicesLuckyWheelMaxTextLength));
