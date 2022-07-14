@@ -161,11 +161,14 @@ function InventoryItemPelvisObedienceBeltScriptTrigger(C, Item, ShockType) {
  * @param {Item} Item
  */
 function InventoryObedienceBeltCheckPunish(Item) {
-	if (Item.Property.NextShockTime - CurrentTime <= 0 && (Item.Property.PunishOrgasm || (Item.Property.Type && Item.Property.Type.includes("o1"))) && Player.ArousalSettings && Player.ArousalSettings.OrgasmStage > 1) {
+	const Properties = Item.Property || { Type: "", PunishOrgasm: false, PunishStandup: false };
+	const { Type, PunishOrgasm, PunishStandup } = Properties;
+	const wearsShockModule = Type.includes("s1");
+	if (Item.Property.NextShockTime - CurrentTime <= 0 && PunishOrgasm && wearsShockModule && Player.ArousalSettings && Player.ArousalSettings.OrgasmStage > 1) {
 		// Punish the player if they orgasm
 		Item.Property.NextShockTime = CurrentTime + FuturisticChastityBeltShockCooldownOrgasm; // Difficult to have two orgasms in 10 seconds
 		return "Orgasm";
-	} else if (Item.Property.PunishStandup && FuturisticTrainingBeltStandUpFlag) {
+	} else if (PunishStandup && wearsShockModule && FuturisticTrainingBeltStandUpFlag) {
 		// Punish the player if they stand up
 		FuturisticTrainingBeltStandUpFlag = false;
 		return "StandUp";
