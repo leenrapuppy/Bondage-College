@@ -115,6 +115,30 @@ var PlatformTemplate = [
 		]
 	},
 	{
+		Name: "Edlaran",
+		Status: "Archer",
+		Perk: "0000000000",
+		PerkName: ["", "", "", "", "", "", "", "", "", ""],
+		Width: 400,
+		Height: 400,
+		Health: 14,
+		HealthPerLevel: 3,
+		HitBox: [0.42, 0.03, 0.58, 1],
+		JumpHitBox: [0.42, 0.03, 0.58, 0.65],
+		RunSpeed: 21,
+		WalkSpeed: 14,
+		CrawlSpeed: 7,
+		JumpForce: 43,
+		CollisionDamage: 0,
+		ExperienceValue: 0,
+		DamageBackOdds: 0,
+		DamageKnockForce: 25,
+		Animation: [
+			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 90 },
+			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], CycleLeft: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], Speed: 60 }
+		]
+	},
+	{
 		Name: "Olivia",
 		Status: "Chained",
 		Width: 400,
@@ -148,16 +172,6 @@ var PlatformTemplate = [
 		Height: 400,
 		Animation: [
 			{ Name: "Idle", Cycle: [0], Speed: 130 }
-		]
-	},
-	{
-		Name: "Edlaran",
-		Status: "Archer",
-		Perk: "0000000000",
-		Width: 400,
-		Height: 400,
-		Animation: [
-			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 90 },
 		]
 	},
 	{
