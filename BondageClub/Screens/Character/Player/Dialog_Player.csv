@@ -3610,7 +3610,7 @@ ItemDevicesLuckyWheelSeta0,,,SourceCharacter changes DestinationCharacter lucky 
 ItemDevicesLuckyWheelSeta1,,,SourceCharacter changes DestinationCharacter lucky wheel arrow for an arrow design.,,
 ItemDevicesLuckyWheelSeta2,,,SourceCharacter changes DestinationCharacter lucky wheel arrow for butt plug.,,
 LuckyWheelSectionDefaultLabel,,,Prize NUM,,
-LuckyWheelTrigger,,,Turn the wheel!,,
+LuckyWheelTrigger,,,Spin the wheel!,,
 LuckyWheelAddSection,,,Add,,
 LuckyWheelRemoveSection,,,Remove,,
 LuckyWheelStartTurning,,,SourceCharacter grabs DestinationCharacter lucky wheel and spins it!,,
