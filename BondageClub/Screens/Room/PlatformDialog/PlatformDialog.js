@@ -1207,6 +1207,7 @@ var PlatformDialogData = [
 			{ Text: "Aaaaahhh!  AAAAAAaaahhhh!" },
 			{ Text: "EEEEEEEEEEEEEAAAAAAAAAAAAAAAAAHHHHHH!!!" },
 			{ Text: "(She gets a shattering orgasm right in front of you.)" },
+			{ Text: "(Everything goes dark for a second and becomes bright again.)" },
 			{ Text: "(Her powerful scream rings in your ears, giving you a headache.)" },
 			{ Text: "Oh..." },
 			{ Text: "Melody..." },
@@ -1229,6 +1230,7 @@ var PlatformDialogData = [
 			},
 			{ Text: "I feel weird.  I feel different." },
 			{ Text: "It's like I've been sleeping and now I'm awake." },
+			{ Text: "Why did it become dark?  It's probably the same power that Camille is using." },
 			{ Text: "Let's head out, there's something I'd like to try." },
 			{ Text: "(Olivia can now use magic.  Her magic points will be shown in the upper corner.)" },
 			{ Text: "(Use the K key to scream and harm all enemies in the current area.)" }

@@ -26,11 +26,12 @@ var PlatformJumpPhase = "";
 var PlatformParty = [];
 var PlatformRegen = 0;
 var PlatformCooldown = [];
+var PlatformTimedScreenFilter = { End: 0, Filter: "" };
 
 // Template for characters with their animations
 var PlatformTemplate = [
 	{
-		Name: "Melody",
+		Name: "Melody", // MMD Z: 39
 		Status: "Maid",
 		Perk: "0000000000",
 		PerkName: ["Healthy", "Robust", "Vigorous", "Spring", "Bounce", "Block", "Deflect", "Seduction", "Persuasion", "Manipulation"],
@@ -73,7 +74,7 @@ var PlatformTemplate = [
 		]
 	},
 	{
-		Name: "Olivia",
+		Name: "Olivia", // MMD Z: 39
 		Status: "Oracle",
 		Perk: "0000000000",
 		PerkName: ["Apprentice", "Magician", "Witch", "Regenaration", "Heal", "Cure", "Howl", "Roar", "Teleport", "Freedom"],
@@ -114,8 +115,8 @@ var PlatformTemplate = [
 			{ Name: "Scream", Magic: 2, Cooldown: 3000, HitBox: [-100, -100, 100, 100], HitAnimation: [8, 9, 10], Damage: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4], Speed: 200 }
 		]
 	},
-	{
-		Name: "Edlaran",
+	{ 
+		Name: "Edlaran", // MMD Z: 35.30
 		Status: "Archer",
 		Perk: "0000000000",
 		PerkName: ["Thief", "Burglar", "Kidnapper", "Spring", "Bounce", "BackFlip", "Acrobat", "Archery", "Celerity", "Capacity"],
@@ -498,6 +499,7 @@ var PlatformRoomList = [
 	{
 		Name: "BedroomOlivia",
 		Entry: function() {
+			PlatformChar.splice(1, 100);
 			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", 2200, true, false, "IntroOliviaBeforeCollarKey");
 			if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", 2200, true, false, "IntroOliviaAfterCollarKey");
 			if (PlatformEventDone("OliviaBath") && !PlatformEventDone("Curse")) { PlatformCreateCharacter("Olivia", "Oracle", 2200, true, false, "OliviaAfterBath"); PlatformChar[1].FaceLeft = true; }
@@ -1183,6 +1185,7 @@ function PlatformDrawBackground() {
 	if (PlatformViewY > PlatformRoom.Height - 1000) PlatformViewY = PlatformRoom.Height - 1000;
 	DrawImageZoomCanvas("Screens/Room/Platform/Background/" + PlatformRoom.Background + ".jpg", MainCanvas, PlatformViewX, PlatformViewY, 2000, 1000, 0, 0, 2000, 1000);
 	if (PlatformRoom.BackgroundFilter != null) DrawRect(0, 0, 2000, 1000, PlatformRoom.BackgroundFilter);
+	if (PlatformTimedScreenFilter.End >= CommonTime()) DrawRect(0, 0, 2000, 1000, PlatformTimedScreenFilter.Filter);
 	DrawProgressBar(10, 10, 180, 40, PlatformPlayer.Health / PlatformPlayer.MaxHealth * 100, "#00B000", "#B00000");
 	DrawText(PlatformPlayer.Health.toString(), 100, 32, "White", "Black");
 	DrawProgressBar(10, 60, 180, 40, PlatformPlayer.Experience / PlatformExperienceForLevel[PlatformPlayer.Level] * 100, "#600060", "Black");
@@ -1243,6 +1246,7 @@ function PlatformDrawCharacter(C, Time) {
 	if ((X >= 2000) || (Y >= 1000)) return;
 	if ((X + C.Anim.Width <= 0) || (Y + C.Anim.Height <= 0)) return;
 	DrawImageEx("Screens/Room/Platform/Character/" + C.Name + "/" + C.Status + "/" + C.Anim.Name + "/" + C.Anim.Image.toString() + ".png", X + C.Anim.OffsetX, Y + C.Anim.OffsetY, { Mirror: C.Anim.Mirror, Width: C.Anim.Width, Height: C.Anim.Height } );
+	if ((C.Effect != null) && (C.Effect.Name != null) && (C.Effect.End != null) && (C.Effect.End >= Time)) DrawImageEx("Screens/Room/Platform/Effect/" + C.Effect.Name + ".png", X + C.Anim.OffsetX, Y + C.Anim.OffsetY, { Mirror: C.Anim.Mirror, Width: C.Anim.Width, Height: C.Anim.Height } );
 	if (C.Damage != null)
 		for (let Damage of C.Damage)
 			if (Damage.Expire >= Time) {
@@ -1711,6 +1715,7 @@ function PlatformAttack(Source, Type) {
 				if ((Attack.Cooldown != null) && (Attack.Cooldown > 0)) {
 					let Time = Attack.Cooldown;
 					if ((Type == "Scream") && (PlatformHasPerk(PlatformPlayer, "Howl"))) Time = Time - 1000;
+					if (Type == "Scream") PlatformTimedScreenFilter = { End: CommonTime() + 1000, Filter: "#00000060" };
 					PlatformCooldown.push({Type: Attack.Name, Time: CommonTime() + Time, Delay: Time});
 				}
 				Source.Action = { Name: Type, Start: CommonTime(), Expire: CommonTime() + Attack.Speed };
@@ -1876,6 +1881,7 @@ function PlatformCastTeleport(C) {
 	if (C.Camera) PlatformCooldown.push({Type: "Teleport", Time: CommonTime() + Time, Delay: Time});
 	C.ForceX = C.ForceX + (C.FaceLeft ? -250 : 250);
 	C.Immunity = CommonTime() + 500;
+	C.Effect = { Name: "Teleport", End: C.Immunity };
 }
 
 /**
