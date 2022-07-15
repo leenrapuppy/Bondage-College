@@ -3453,7 +3453,7 @@ var AssetFemale3DCG = [
 			{ Group: "ItemAddon", Name: "CeilingChain" },
 		],
 		Asset: [
-			// Breast Compatible Items
+			// Breast OnlyS Items
 			{ Name: "NylonRope", Fetish: ["Rope", "Nylon"], Prerequisite: ["HasBreasts"], Value: 30, SelfBondage: 2, Time: 15, BuyGroup: "NylonRope", SetPose: ["BackBoxTie"], Effect: ["Block", "Prone"], Audio: "RopeShort",
 				DefaultColor: "#CCCCCC",
 				Layer: [
@@ -4033,6 +4033,37 @@ var AssetFemale3DCG = [
 				Prerequisite: ["HasBreasts"],
 			},
 			// Flat Chest Compatible Items
+			{
+				Name: "SmoothLeatherArmbinder1", Fetish: ["Leather"], Priority: 6, Value: 70, Difficulty: 10, SelfBondage: 7, Time: 25, RemoveTime: 10, AllowLock: true, SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Block: ["ItemHands"], SelfUnlock: false,
+				Extended: true, 
+				AlwaysInteract: true,
+				ParentGroup: null,
+				Layer: [
+					// Binder
+					{ Name: "BinderLeft", AllowModuleTypes: ["b0"], HasType: false, },
+					{ Name: "BinderBack", CopyLayerColor: "BinderLeft", AllowModuleTypes: ["b1"], HasImage: false, HasType: false },
+					{ Name: "BinderRight", CopyLayerColor: "BinderLeft", AllowModuleTypes: ["b2"], HasType: false },
+					
+					// Seams
+					{ Name: "SeamsLeft", AllowModuleTypes: ["b0"], HasType: false },
+					{ Name: "SeamsBack", CopyLayerColor: "SeamsLeft", AllowModuleTypes: ["b1"], HasImage: false, HasType: false },
+					{ Name: "SeamsRight", CopyLayerColor: "SeamsLeft", AllowModuleTypes: ["b2"], HasType: false },
+
+					// Laces
+					{ Name: "LacesLeft", AllowModuleTypes: ["b0"], HasType: false },
+					{ Name: "LacesBack", CopyLayerColor: "LacesLeft", AllowModuleTypes: ["b1"], HasImage: false, HasType: false },
+					{ Name: "LacesRight", CopyLayerColor: "LacesLeft", AllowModuleTypes: ["b2"], HasType: false },
+
+					// Binder Straps
+					{ Name: "BinderStrapsLeft", AllowModuleTypes: ["b0"], HasType: false },
+					{ Name: "BinderStrapsBack", CopyLayerColor: "BinderStrapsLeft", AllowModuleTypes: ["b1"], HasImage: false, HasType: false },
+					{ Name: "BinderStrapsRight", CopyLayerColor: "BinderStrapsLeft", AllowModuleTypes: ["b2"], HasType: false },
+
+					// Shoulder Straps
+					{ Name: "BasicShoulderStraps", Priority: 31 , AllowModuleTypes: ["s1"], HasType: false },
+					{ Name: "WrappingShoulderStraps", Priority: 31, CopyLayerColor: "BasicShoulderStraps", AllowModuleTypes:  ["s2"], HasType: false}
+				]
+			},
 			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"],

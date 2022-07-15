@@ -2049,6 +2049,40 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // WoodenCuffs
+		SmoothLeatherArmbinder1: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "BinderPosition", Key: "b",
+						Options:  [
+							{}, // b0 Left
+							{}, // b1 Back
+							{} // b2 Right
+						]
+					},
+					{ 
+						Name: "ShoulderStraps", Key: "s",
+						Options:[
+							{}, // s0 No Straps
+							{
+								Property: {
+									Difficulty: 20
+								}
+							}, // s1 Basic Shoulder Straps
+							{ 
+								Property: {
+									Difficulty: 30
+								}
+							}, // s2 Wrapping Shoulder Straps
+							
+						],
+						
+						AllowSelfSelect: false,
+					}
+				]
+			}
+		} // SmoothLeatherArmbinder1
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {
