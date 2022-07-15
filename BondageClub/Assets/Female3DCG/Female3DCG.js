@@ -4515,7 +4515,7 @@ var AssetFemale3DCG = [
 					{ Name: "PlaqueBorderClean", Priority: 54, CopyLayerColor: "PlaqueBorder", AllowModuleTypes: ["p1d0"], HasType: false },
 					{ Name: "PlaqueBolts", Priority: 54, HasType: false },
 					//Details
-					{ Name: "Postit", Priority: 54, HasType: false },
+					{ Name: "Postit", Priority: 54, HasType: false, AllowModuleTypes: ["m0"] },
 					{ Name: "Text", HasImage: false, Priority: 55 },
 					{ Name: "Paw", Priority: 54, HasType: false, AllowModuleTypes: ["s0"] },
 					{ Name: "Triskel", Priority: 54, HasType: false, CopyLayerColor: "Paw", AllowModuleTypes: ["s1"] },

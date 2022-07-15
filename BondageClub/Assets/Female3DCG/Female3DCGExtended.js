@@ -2176,6 +2176,13 @@ var AssetFemale3DCGExtended = {
 						]
 					},
 					{
+						Name: "PostIt", Key: "m",
+						Options: [ 
+						{}, //m0 - Postit
+						{}, //m1 - No PostIt
+						]
+					},
+					{
 						Name: "Txt", Key: "x",
 						Options: [{ HasSubscreen: true }],
 					},
