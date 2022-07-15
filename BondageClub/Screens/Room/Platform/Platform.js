@@ -869,7 +869,7 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "ForestCabinPath",
-		Text: "Cabin Path",
+		Text: "Cabin Path (End of the game for now.)",
 		Background: "Forest/CabinPath",
 		Width: 3800,
 		Height: 1200,
