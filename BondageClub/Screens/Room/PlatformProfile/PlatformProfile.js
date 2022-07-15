@@ -120,7 +120,7 @@ function PlatformProfileRun() {
 		PlatformProfileDrawPerkButton(1100, 320, 3);
 		PlatformProfileDrawPerkButton(1300, 420, 4, "Spring");
 		PlatformProfileDrawPerkButton(1100, 520, 5);
-		PlatformProfileDrawPerkButton(1300, 620, 6, "BackFlip");
+		PlatformProfileDrawPerkButton(1300, 620, 6, "Backflip");
 		PlatformProfileDrawPerkButton(1100, 720, 7);
 		PlatformProfileDrawPerkButton(1300, 820, 8, "Archery");
 		PlatformProfileDrawPerkButton(1300, 920, 9, "Archery");
@@ -176,7 +176,7 @@ function PlatformProfileClick() {
 	if ((PlatformPlayer.Name == "Edlaran") && MouseIn(1100, 320, 400, 60)) PlatformProfileBuyPerk(3);
 	if ((PlatformPlayer.Name == "Edlaran") && MouseIn(1300, 420, 400, 60) && PlatformHasPerk(PlatformPlayer, "Spring")) PlatformProfileBuyPerk(4);
 	if ((PlatformPlayer.Name == "Edlaran") && MouseIn(1100, 520, 400, 60)) PlatformProfileBuyPerk(5);
-	if ((PlatformPlayer.Name == "Edlaran") && MouseIn(1300, 620, 400, 60) && PlatformHasPerk(PlatformPlayer, "BackFlip")) PlatformProfileBuyPerk(6);
+	if ((PlatformPlayer.Name == "Edlaran") && MouseIn(1300, 620, 400, 60) && PlatformHasPerk(PlatformPlayer, "Backflip")) PlatformProfileBuyPerk(6);
 	if ((PlatformPlayer.Name == "Edlaran") && MouseIn(1100, 720, 400, 60)) PlatformProfileBuyPerk(7);
 	if ((PlatformPlayer.Name == "Edlaran") && MouseIn(1300, 820, 400, 60) && PlatformHasPerk(PlatformPlayer, "Archery")) PlatformProfileBuyPerk(8);
 	if ((PlatformPlayer.Name == "Edlaran") && MouseIn(1300, 920, 400, 60) && PlatformHasPerk(PlatformPlayer, "Archery")) PlatformProfileBuyPerk(9);
