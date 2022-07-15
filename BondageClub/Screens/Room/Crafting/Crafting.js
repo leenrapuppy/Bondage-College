@@ -587,8 +587,8 @@ function CraftingItemListBuild() {
 	let Search = ElementValue("InputSearch");
 	if (Search == null) Search = "";
 	Search = Search.toUpperCase().trim();
-	for (let A = 0; A < Asset.length; A++)
-		CraftingItemList = [];
+
+	CraftingItemList = [];
 	for (let I of Player.Inventory)
 		if ((I.Asset != null) && (I.Asset.Name != null) && I.Asset.Enable && I.Asset.Wear && (I.Asset.Group != null) && (I.Asset.Group.Name.substr(0, 4) == "Item") && (I.Asset.Group.Name != "ItemAddon") && (I.Asset.Group.Name != "ItemMisc") && (I.Asset.Name.substr(0, 12) != "SpankingToys"))
 			if ((Search == "") || (I.Asset.Description == null) || (I.Asset.Description.toUpperCase().trim().indexOf(Search) >= 0)) {
