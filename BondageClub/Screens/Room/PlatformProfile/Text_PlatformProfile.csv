@@ -53,3 +53,23 @@ PerkOlivia8,Teleport
 PerkDescOlivia8,"Use ""I"" to teleport forward"
 PerkOlivia9,Freedom
 PerkDescOlivia9,Faster teleports cooldown
+PerkEdlaran0,Thief
+PerkDescEdlaran0,Steal arrows and money when restraining
+PerkEdlaran1,Burglar
+PerkDescEdlaran1,Steal 25% more arrows and money
+PerkEdlaran2,Kidnapper
+PerkDescEdlaran2,Double the speed to bind someone
+PerkEdlaran3,Spring
+PerkDescEdlaran3,Higher jump height
+PerkEdlaran4,Bounce
+PerkDescEdlaran4,Can jump twice
+PerkEdlaran5,Back-flip
+PerkDescEdlaran5,"Move back quickly with ""I"""
+PerkEdlaran6,Acrobat
+PerkDescEdlaran6,Faster back-flips
+PerkEdlaran7,Archery
+PerkDescEdlaran7,+20% arrow damage
+PerkEdlaran8,Celerity
+PerkDescEdlaran8,Faster arrow shoots
+PerkEdlaran9,Capacity
+PerkDescEdlaran9,+5 maximum arrows

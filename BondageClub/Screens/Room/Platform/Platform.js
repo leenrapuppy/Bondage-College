@@ -118,13 +118,13 @@ var PlatformTemplate = [
 		Name: "Edlaran",
 		Status: "Archer",
 		Perk: "0000000000",
-		PerkName: ["", "", "", "", "", "", "", "", "", ""],
+		PerkName: ["Thief", "Burglar", "Kidnapper", "Spring", "Bounce", "BackFlip", "Acrobat", "Archery", "Celerity", "Capacity"],
 		Width: 400,
 		Height: 400,
 		Health: 14,
 		HealthPerLevel: 3,
-		HitBox: [0.42, 0.03, 0.58, 1],
-		JumpHitBox: [0.42, 0.03, 0.58, 0.65],
+		HitBox: [0.43, 0.07, 0.57, 1],
+		JumpHitBox: [0.43, 0.07, 0.57, 0.7],
 		RunSpeed: 21,
 		WalkSpeed: 14,
 		CrawlSpeed: 7,
@@ -135,7 +135,8 @@ var PlatformTemplate = [
 		DamageKnockForce: 25,
 		Animation: [
 			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 90 },
-			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], CycleLeft: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], Speed: 60 }
+			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 25 },
+			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 35 },
 		]
 	},
 	{
@@ -883,7 +884,7 @@ var PlatformRoomList = [
 		Entry: function() {
 			PlatformChar.splice(1, 100);
 			if (PlatformPlayer.Name != "Olivia") PlatformCreateCharacter("Olivia", "Oracle", 1300, true, false, "OliviaCabin");
-			if (PlatformPlayer.Name != "Melody") PlatformCreateCharacter("Melody", "Maid", 1700, true, false, "OliviaCabin", true);
+			if (PlatformPlayer.Name != "Melody") PlatformCreateCharacter("Melody", "Maid", 1700, true, false, (PlatformPlayer.Name == "Olivia") ? "OliviaCabin" : "EdlaranCabin", true);
 			if (PlatformEventDone("EdlaranJoin") && (PlatformPlayer.Name != "Edlaran")) PlatformCreateCharacter("Edlaran", "Archer", 2100, true, false, "EdlaranCabin", true);
 		},
 		Text: "Wooden Cabin (heal and save)",
@@ -1089,6 +1090,14 @@ function PlatformPartyBuild() {
 				CreateOlivia = false;
 		if (CreateOlivia)
 			PlatformPartyAdd({ Character: "Olivia", Status: "Oracle", Level: 1, Experience: 0, Perk: "0000000000" });
+	}
+	if (PlatformEventDone("EdlaranJoin")) {
+		let CreateEdlaran = true;
+		for (let P of PlatformParty)
+			if (P.Character == "Edlaran")
+				CreateEdlaran = false;
+		if (CreateEdlaran)
+			PlatformPartyAdd({ Character: "Edlaran", Status: "Archer", Level: 1, Experience: 0, Perk: "0000000000" });
 	}
 }
 
