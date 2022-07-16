@@ -1248,137 +1248,139 @@ function ChatRoomSetLastChatRoom(room) {
  * @returns {void} - Nothing.
  */
 function ChatRoomStimulationMessage(Context, Color = "#FFB0B0", FlashIntensity = 0, AlphaStrength = 140) {
-	if (CurrentScreen == "ChatRoom" && Player.ImmersionSettings && Player.ImmersionSettings.StimulationEvents) {
-		var C = Player;
-		if (Context == null || Context == "") Context = "StruggleAction";
+	if (CurrentScreen !== "ChatRoom" || Player.ImmersionSettings && !Player.ImmersionSettings.StimulationEvents) return;
 
-		var modBase = 0;
-		var modArousal = 0;
-		var modVibe = 0;
-		var modInflation = 0;
-		var modGag = 0;
+	var C = Player;
+	if (Context == null || Context == "") Context = "StruggleAction";
 
-		if (ChatRoomArousalMsg_Chance[Context]) modBase = ChatRoomArousalMsg_Chance[Context];
-		if (ChatRoomArousalMsg_ChanceScaling[Context]) modArousal = ChatRoomArousalMsg_ChanceScaling[Context];
-		if (ChatRoomArousalMsg_ChanceVibeMod[Context]) modVibe = ChatRoomArousalMsg_ChanceVibeMod[Context];
-		if (ChatRoomArousalMsg_ChanceInflationMod[Context]) modInflation = ChatRoomArousalMsg_ChanceInflationMod[Context];
-		if (ChatRoomArousalMsg_ChanceGagMod[Context]) modGag = ChatRoomArousalMsg_ChanceGagMod[Context];
+	var modBase = 0;
+	var modArousal = 0;
+	var modVibe = 0;
+	var modInflation = 0;
+	var modGag = 0;
 
-		// Decide the trigger message
-		var trigPriority = 0.0;
-		var trigMsg = "";
-		var trigGroup = "";
-		var trigPlug = "";
-		var arousalAmount = 0; // Increases based on how many items
+	if (ChatRoomArousalMsg_Chance[Context]) modBase = ChatRoomArousalMsg_Chance[Context];
+	if (ChatRoomArousalMsg_ChanceScaling[Context]) modArousal = ChatRoomArousalMsg_ChanceScaling[Context];
+	if (ChatRoomArousalMsg_ChanceVibeMod[Context]) modVibe = ChatRoomArousalMsg_ChanceVibeMod[Context];
+	if (ChatRoomArousalMsg_ChanceInflationMod[Context]) modInflation = ChatRoomArousalMsg_ChanceInflationMod[Context];
+	if (ChatRoomArousalMsg_ChanceGagMod[Context]) modGag = ChatRoomArousalMsg_ChanceGagMod[Context];
+
+	// Decide the trigger message
+	var trigPriority = 0.0;
+	var trigMsg = "";
+	var trigGroup = "";
+	var trigPlug = "";
+	var arousalAmount = 0; // Increases based on how many items
+
+	if (Context == "Flash") {
+		trigMsg = "Flash";
+		trigPriority = 2;
+	} else {
+		for (let A of C.Appearance) {
+			var trigChance = 0;
+			var trigMsgTemp = "";
+			var Intensity = InventoryItemHasEffect(A, "Vibrating", true) ? InventoryGetItemProperty(A, "Intensity", true) : 0;
+			if (InventoryItemHasEffect(A, "CrotchRope", true)) {
+				if (trigChance == 0) trigChance = modBase;
+				trigMsgTemp = "CrotchRope";
+				arousalAmount += 2;
+			} else if (Intensity > 0) {
+				if (trigChance == 0 && modVibe > 0) trigChance = modBase; // Some things are not affected by vibration, like kneeling
+				trigChance += modVibe * Intensity;
+				trigMsgTemp = "Vibe";
+				arousalAmount += Intensity;
+				if (InventoryItemHasEffect(A, "FillVulva", true) && Math.random() < 0.5) {
+					trigMsgTemp = "VibePlugFront";
+					arousalAmount += 1;
+					if (trigPlug == "Back") trigPlug = "Both";
+					else trigPlug = "Front";
+				}
+				if (InventoryItemHasEffect(A, "IsPlugged", true) && Math.random() < 0.5) {
+					if (trigMsgTemp == "Vibe")
+						trigMsgTemp = "VibePlugFront";
+					arousalAmount += 1;
+					if (trigPlug == "Front") trigPlug = "Both";
+					else trigPlug = "Back";
+				}
+			} else {
+				if (InventoryItemHasEffect(A, "FillVulva", true)) {
+					if (trigChance == 0) trigChance = modBase;
+					trigMsgTemp = "PlugFront";
+					arousalAmount += 1;
+					if (trigPlug == "Back")
+						trigPlug = "Both";
+					else
+						trigPlug = "Front";
+				}
+				if (InventoryItemHasEffect(A, "IsPlugged", true)) {
+					if (trigChance == 0) trigChance = modBase;
+					if (trigMsgTemp == "")
+						trigMsgTemp = "PlugBack";
+					arousalAmount += 1;
+					if (trigPlug == "Front")
+						trigPlug = "Both";
+					else
+						trigPlug = "Back";
+				}
+			}
+			if (trigMsgTemp != "" && Player.ArousalSettings && Player.ArousalSettings.Progress > 0) {
+				trigChance += modArousal * Player.ArousalSettings.Progress / 100;
+			}
+			if (trigMsgTemp != "") {
+				const Inflation = InventoryGetItemProperty(A, "InflateLevel", true);
+				if (typeof Inflation === "number" && Inflation > 0) {
+					trigChance += modInflation * Inflation / 4;
+					arousalAmount += Inflation / 2;
+				}
+			}
+
+			if (trigPlug == "Both") {
+				if ((trigMsgTemp == "VibePlugFront" || trigMsgTemp == "VibePlugBack"
+				|| trigMsgTemp == "PlugFront" || trigMsgTemp == "PlugBack") && Math.random() > 0.7) {
+					trigMsgTemp = "PlugBoth";
+					arousalAmount += 1;
+				}
+			}
+
+
+			if (InventoryItemHasEffect(A, "GagTotal", true) || InventoryItemHasEffect(A, "GagTotal2", true)) {
+				if (trigChance == 0 && modGag > 0) trigChance = modBase; // Some things are not affected by vibration, like kneeling
+				trigChance += modGag;
+
+				if (trigChance > 0) {
+					arousalAmount += 12;
+					trigMsgTemp = "Gag";
+				}
+			}
+
+			if (trigMsgTemp != "" && Math.random() < trigChance && trigChance >= trigPriority) {
+				trigPriority = trigChance;
+				trigMsg = trigMsgTemp;
+				trigGroup = A.Asset.Group.Name;
+			}
+		}
+	}
+
+	// Now we have a trigger message, hopefully!
+	if (trigMsg != "") {
+
+		if ((Player.ChatSettings != null) && (Player.ChatSettings.ShowActivities != null) && !Player.ChatSettings.ShowActivities) return;
 
 		if (Context == "Flash") {
-			trigMsg = "Flash";
-			trigPriority = 2;
-		} else
-			for (let A = 0; A < C.Appearance.length; A++)
-				if ((C.Appearance[A].Asset != null) && (C.Appearance[A].Asset.Group.Family == C.AssetFamily)) {
-					var trigChance = 0;
-					var trigMsgTemp = "";
-					var Intensity = InventoryItemHasEffect(C.Appearance[A], "Vibrating", true) ? InventoryGetItemProperty(C.Appearance[A], "Intensity", true) : 0;
-					if (InventoryItemHasEffect(C.Appearance[A], "CrotchRope", true)) {
-						if (trigChance == 0) trigChance = modBase;
-						trigMsgTemp = "CrotchRope";
-						arousalAmount += 2;
-					} else if (Intensity > 0) {
-						if (trigChance == 0 && modVibe > 0) trigChance = modBase; // Some things are not affected by vibration, like kneeling
-						trigChance += modVibe * Intensity;
-						trigMsgTemp = "Vibe";
-						arousalAmount += Intensity;
-						if (InventoryItemHasEffect(C.Appearance[A], "FillVulva", true) && Math.random() < 0.5) {
-							trigMsgTemp = "VibePlugFront";
-							arousalAmount += 1;
-							if (trigPlug == "Back") trigPlug = "Both";
-							else trigPlug = "Front";
-						}
-						if (InventoryItemHasEffect(C.Appearance[A], "IsPlugged", true) && Math.random() < 0.5) {
-							if (trigMsgTemp == "Vibe")
-								trigMsgTemp = "VibePlugFront";
-							arousalAmount += 1;
-							if (trigPlug == "Front") trigPlug = "Both";
-							else trigPlug = "Back";
-						}
-					} else {
-						if (InventoryItemHasEffect(C.Appearance[A], "FillVulva", true)) {
-							if (trigChance == 0) trigChance = modBase;
-							trigMsgTemp = "PlugFront";
-							arousalAmount += 1;
-							if (trigPlug == "Back") trigPlug = "Both";
-							else trigPlug = "Front";
-						}
-						if (InventoryItemHasEffect(C.Appearance[A], "IsPlugged", true)) {
-							if (trigChance == 0) trigChance = modBase;
-							if (trigMsgTemp == "")
-								trigMsgTemp = "PlugBack";
-							arousalAmount += 1;
-							if (trigPlug == "Front") trigPlug = "Both";
-							else trigPlug = "Back";
-						}
-					}
-					if (trigMsgTemp != "" && Player.ArousalSettings && Player.ArousalSettings.Progress > 0) {
-						trigChance += modArousal * Player.ArousalSettings.Progress / 100;
-					}
-					if (trigMsgTemp != "") {
-						const Inflation = InventoryGetItemProperty(C.Appearance[A], "InflateLevel", true);
-						if (typeof Inflation === "number" && Inflation > 0) {
-							trigChance += modInflation * Inflation / 4;
-							arousalAmount += Inflation / 2;
-						}
-					}
+			ChatRoomPinkFlashTime = CommonTime() + (Math.random() + FlashIntensity) * 500;
+			ChatRoomPinkFlashColor = Color;
+			ChatRoomPinkFlashAlphaStrength = AlphaStrength;
+		} else {
+			// Increase player arousal to the zone
+			if (!Player.IsEdged() && Player.ArousalSettings && Player.ArousalSettings.Progress && Player.ArousalSettings.Progress < 70 - arousalAmount && trigMsgTemp != "Gag")
+				ActivityEffectFlat(Player, Player, arousalAmount, trigGroup, 1);
+			ChatRoomPinkFlashTime = CommonTime() + (Math.random() + arousalAmount / 2.4) * 500;
+			ChatRoomPinkFlashColor = Color;
+			ChatRoomPinkFlashAlphaStrength = AlphaStrength;
+			CharacterSetFacialExpression(Player, "Blush", "VeryHigh", Math.ceil((ChatRoomPinkFlashTime - CommonTime()) / 250));
 
-					if (trigPlug == "Both") {
-						if ((trigMsgTemp == "VibePlugFront" || trigMsgTemp == "VibePlugBack"
-						|| trigMsgTemp == "PlugFront" || trigMsgTemp == "PlugBack") && Math.random() > 0.7) {
-							trigMsgTemp = "PlugBoth";
-							arousalAmount += 1;
-						}
-					}
-
-
-					if (InventoryItemHasEffect(C.Appearance[A], "GagTotal", true) || InventoryItemHasEffect(C.Appearance[A], "GagTotal2", true)) {
-						if (trigChance == 0 && modGag > 0) trigChance = modBase; // Some things are not affected by vibration, like kneeling
-						trigChance += modGag;
-
-
-						if (trigChance > 0) {
-							arousalAmount += 12;
-							trigMsgTemp = "Gag";
-						}
-					}
-
-					if (trigMsgTemp != "" && Math.random() < trigChance && trigChance >= trigPriority) {
-						trigPriority = trigChance;
-						trigMsg = trigMsgTemp;
-						trigGroup = C.Appearance[A].Asset.Group.Name;
-					}
-
-				}
-
-		// Now we have a trigger message, hopefully!
-		if (trigMsg != "") {
-
-			if ((Player.ChatSettings != null) && (Player.ChatSettings.ShowActivities != null) && !Player.ChatSettings.ShowActivities) return;
-
-			if (Context == "Flash") {
-				ChatRoomPinkFlashTime = CommonTime() + (Math.random() + FlashIntensity) * 500;
-				ChatRoomPinkFlashColor = Color;
-				ChatRoomPinkFlashAlphaStrength = AlphaStrength;
-			} else {
-				// Increase player arousal to the zone
-				if (!Player.IsEdged() && Player.ArousalSettings && Player.ArousalSettings.Progress && Player.ArousalSettings.Progress < 70 - arousalAmount && trigMsgTemp != "Gag")
-					ActivityEffectFlat(Player, Player, arousalAmount, trigGroup, 1);
-				ChatRoomPinkFlashTime = CommonTime() + (Math.random() + arousalAmount / 2.4) * 500;
-				ChatRoomPinkFlashColor = Color;
-				ChatRoomPinkFlashAlphaStrength = AlphaStrength;
-				CharacterSetFacialExpression(Player, "Blush", "VeryHigh", Math.ceil((ChatRoomPinkFlashTime - CommonTime()) / 250));
-
-				var index = Math.floor(Math.random() * 3);
-				ChatRoomMessage({ Content: "ChatRoomStimulationMessage" + trigMsg + "" + index, Type: "Action", Sender: Player.MemberNumber });
-			}
+			var index = Math.floor(Math.random() * 3);
+			ChatRoomMessage({ Content: "ChatRoomStimulationMessage" + trigMsg + "" + index, Type: "Action", Sender: Player.MemberNumber });
 		}
 	}
 }
