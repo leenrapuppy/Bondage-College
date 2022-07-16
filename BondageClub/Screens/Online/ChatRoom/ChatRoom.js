@@ -1305,6 +1305,7 @@ function ChatRoomStimulationMessage(Action) {
 		const plugged = InventoryItemHasEffect(A, "IsPlugged", true);
 		const gagged = InventoryItemHasEffect(A, "GagTotal", true) || InventoryItemHasEffect(A, "GagTotal2", true);
 		const wearsCrotchRope = InventoryItemHasEffect(A, "CrotchRope", true);
+		const canWiggle = InventoryItemHasEffect(A, "Wiggling");
 
 		// Track modifiers for vibrating and inflated toys
 		const inflated = InventoryGetItemProperty(A, "InflateLevel", true) || 0;
@@ -1347,6 +1348,12 @@ function ChatRoomStimulationMessage(Action) {
 			chance += eventData.InflationScaling * inflated / 4;
 			chance += eventData.ArousalScaling * arousal / 100;
 			events.push({ chance: chance, arousal: inflated / 2, item: A, event: "Inflated" });
+		}
+
+		if (canWiggle && eventData.Chance > 0) {
+			let chance = eventData.Chance;
+			chance += eventData.ArousalScaling * arousal / 100;
+			events.push({ chance: chance, arousal: 1, item: A, event: "Wiggling" });
 		}
 	}
 

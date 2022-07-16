@@ -3693,6 +3693,7 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: "Weighted",
 							Difficulty: 0,
+							Effect: ["Wiggling"],
 						},
 					},
 					{
@@ -3703,7 +3704,8 @@ var AssetFemale3DCGExtended = {
 							Type: "WeightedChain",
 							Difficulty: 0,
 							Block: ["ItemNeck"],
-							AllowActivityOn: ["ItemNeck"]
+							AllowActivityOn: ["ItemNeck"],
+							Effect: ["Wiggling"],
 						},
 					},
 				],
