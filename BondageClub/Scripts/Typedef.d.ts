@@ -272,7 +272,20 @@ interface ChatRoom {
 	Character?: any[]; /* From server, not really a Character object */
 }
 
-type StimulationAction = "Kneel" | "Walk" | "StruggleAction" | "StruggleFail" | "Gag";
+type StimulationAction = "Kneel" | "Walk" | "StruggleAction" | "StruggleFail" | "Talk";
+
+interface StimulationEvent {
+	/** The chance that this event will trigger at 0 arousal */
+	Chance: number;
+	/** Scaling factor for chance, depending on the arousal */
+	ArousalScaling?: number;
+	/** Scaling factor for chance, depending on the vibe intensity */
+	VibeScaling?: number;
+	/** Scaling factor for chance, depending on the inflation amount */
+	InflationScaling?: number;
+	/** The chance that this event will trigger when talking */
+	TalkChance?: number;
+}
 
 type MessageActionType = "Action" | "Chat" | "Whisper" | "Emote" | "Activity" | "Hidden" |
 	"LocalMessage" | "ServerMessage" | "Status";
