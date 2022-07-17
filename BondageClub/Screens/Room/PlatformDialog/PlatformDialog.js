@@ -979,8 +979,8 @@ var PlatformDialogData = [
 			{ Text: "You're a shuper... friend.  (She hugs you some more.)" },
 			{ Text: "How about I (She hiccups.) repay you now?  I'll help you in bottles." },
 			{ Text: "Gimme a minute to shober up and I'll fight for you." },
-			{ Text: "(Edlaran joined your party.  She might be a playable character in a future version of the game.)" },
-			{ Entry: function() { PlatformEventSet("EdlaranJoin"); PlatformLoadRoom(); PlatformDialogLeave(); } },
+			{ Text: "(Edlaran joined your party.  She not fully coded yet, she will be ready in a future version of the game.)" },
+			{ Entry: function() { PlatformEventSet("EdlaranJoin"); PlatformPartyBuild(); PlatformLoadRoom(); PlatformDialogLeave(); } },
 			{ ID: "End", Text: "Drinking ish fun, but we have important shtuff to... do." },
 			{ Text: "Shee you later Meldy.  I'll repay you some (She hiccups.) day." },
 			{ Text: "(She leaves the room.)" },
@@ -1207,6 +1207,7 @@ var PlatformDialogData = [
 			{ Text: "Aaaaahhh!  AAAAAAaaahhhh!" },
 			{ Text: "EEEEEEEEEEEEEAAAAAAAAAAAAAAAAAHHHHHH!!!" },
 			{ Text: "(She gets a shattering orgasm right in front of you.)" },
+			{ Text: "(Everything goes dark for a second and becomes bright again.)" },
 			{ Text: "(Her powerful scream rings in your ears, giving you a headache.)" },
 			{ Text: "Oh..." },
 			{ Text: "Melody..." },
@@ -1229,6 +1230,7 @@ var PlatformDialogData = [
 			},
 			{ Text: "I feel weird.  I feel different." },
 			{ Text: "It's like I've been sleeping and now I'm awake." },
+			{ Text: "Why did it become dark?  It's probably the same power that Camille is using." },
 			{ Text: "Let's head out, there's something I'd like to try." },
 			{ Text: "(Olivia can now use magic.  Her magic points will be shown in the upper corner.)" },
 			{ Text: "(Use the K key to scream and harm all enemies in the current area.)" }
@@ -1468,21 +1470,53 @@ var PlatformDialogData = [
 
 	{
 		Name: "OliviaCabin",
+		Exit : function () { PlatformEventSet("OliviaCabin"); },
 		Dialog: [
 			{
 				Background: "ForestCabin",
+				Entry: function() {
+					if (PlatformEventDone("OliviaCabin")) PlatformDialogGoto = "End";
+					PlatformDialogProcess();
+				}
+			},
+			{
 				Character: [
 					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
 				]
 			},
-			{ Text: "The fireplace feels so nice and cozy." },
+			{ Text: "Way before the war, when I was a child, Father used to bring us to this hunting cabin." },
+			{ Text: "Mother and sister kept complaining about mosquitos, but I loved the fresh air." },
+			{ Text: "Father said that me and Camille needed to learn on how to survive in the forest.  That real life is harsher than a comfy manor." },
+			{ 
+				Text: "I guess he was right.  (She sighs.)",
+				Answer: [
+					{ Text: "The forest is a scary place.", Reply: "Don't worry Melody, we will be fine.", Domination: -1 },
+					{ Text: "(Nod in agreement.)", Reply: "(She nods and puts another log in the fireplace.)" },
+					{ Text: "The Count educated you well.", Reply: "(She bows her head slowly.)  He did.", Domination: 1 },
+					{ Text: "(Put a log in the fireplace.)", Reply: "Thanks Melody, I was getting cold.", Love: 1, Perk: true },
+				]
+			},
+			{ Text: "Father is dead, Mother is gone and sister went insane." },
+			{ 
+				Text: "I'm all alone now.",
+				Answer: [
+					{ Text: "Learn to accept it.", Reply: "(She sighs and nods.)  Complaining will not solve anything.", Love: -1 },
+					{ Text: "I know how you feel.", Reply: "As an orphan, you must certainly understand." },
+					{ Text: "You're not alone, you have me.", Reply: "(She smiles at you.)  I do, thanks my friend.", Love: 1 },
+				]
+			},
+			{
+				ID: "End",
+				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "Back" }],
+				Text: "(She warms herself by the fireplace and gets lost in her thoughts.)"
+			},
 		]
 	},
 
 	{
 		Name: "EdlaranCabin",
-		Exit : function () { PlatformEventSet("EdlaranCabin"); PlatformLoadRoom(); },
+		Exit : function () { PlatformEventSet("EdlaranCabin"); },
 		Dialog: [
 			{
 				Background: "ForestCabin",
@@ -1563,7 +1597,7 @@ function PlatformDialogLoadPosition(Position) {
 	PlatformDialogReply = null;
 	PlatformDialogGoto = null;
 	if ((Position == 0) || (PlatformDialog.Dialog[Position].Background != null)) PlatformDialogBackground = "../Screens/Room/PlatformDialog/Background/" + PlatformDialog.Dialog[Position].Background;
-	if ((Position == 0) || (PlatformDialog.Dialog[Position].Character != null)) PlatformDialogCharacterDisplay = PlatformDialog.Dialog[Position].Character;
+	if ((Position == 0) || (PlatformDialog.Dialog[Position].Character != null)) PlatformDialogCharacterDisplay = (PlatformDialog.Dialog[Position].Character == null) ? null : JSON.parse(JSON.stringify(PlatformDialog.Dialog[Position].Character));
 	if (PlatformDialog.Dialog[Position].Entry != null) PlatformDialog.Dialog[Position].Entry();
 }
 
@@ -1712,6 +1746,8 @@ function PlatformDialogSetIdlePose(Character, Love, Domination) {
 			if ((Love == 1) && (Math.abs(Love) >= Math.abs(Domination))) return C.Pose = "IdleHappy";
 			if ((Love == -1) && (Math.abs(Love) >= Math.abs(Domination))) return C.Pose = "IdleSad";
 			if ((Love <= -2) && (Math.abs(Love) >= Math.abs(Domination))) return C.Pose = "IdleAngry";
+			if (Domination > 0) return C.Pose = "IdleSubmissive";
+			if (Domination < 0) return C.Pose = "IdleDominant";
 			return C.Pose = "Idle";
 		}
 }
@@ -1728,14 +1764,13 @@ function PlatformDialogPickAnswer(Position) {
 			if (Position == P) {
 				PlatformDialogReply = Answer.Reply;
 				PlatformDialogGoto = Answer.Goto;
-				if ((Answer.Love != null) || (Answer.Domination != null))
-					if ((PlatformDialogCharacterDisplay != null) && (PlatformDialogCharacterDisplay.length > 0))
-						for (let Character of PlatformDialogCharacter)
-							if (Character.Name == PlatformDialogCharacterDisplay[0].Name) {
-								PlatformDialogSetIdlePose(Character, Answer.Love, Answer.Domination);
-								Character.Love = PlatformDialogChangeValue(Character.Love, Answer.Love, PlatformDialogLeaderHasPerk("Seduction"));
-								Character.Domination = PlatformDialogChangeValue(Character.Domination, Answer.Domination, PlatformDialogLeaderHasPerk("Persuasion"));
-							}
+				if ((PlatformDialogCharacterDisplay != null) && (PlatformDialogCharacterDisplay.length > 0))
+					for (let Character of PlatformDialogCharacter)
+						if (Character.Name == PlatformDialogCharacterDisplay[0].Name) {
+							PlatformDialogSetIdlePose(Character, Answer.Love, Answer.Domination);
+							Character.Love = PlatformDialogChangeValue(Character.Love, Answer.Love, PlatformDialogLeaderHasPerk("Seduction"));
+							Character.Domination = PlatformDialogChangeValue(Character.Domination, Answer.Domination, PlatformDialogLeaderHasPerk("Persuasion"));
+						}
 				if (Answer.Script != null) Answer.Script();
 			}
 			P++;

@@ -26,11 +26,12 @@ var PlatformJumpPhase = "";
 var PlatformParty = [];
 var PlatformRegen = 0;
 var PlatformCooldown = [];
+var PlatformTimedScreenFilter = { End: 0, Filter: "" };
 
 // Template for characters with their animations
 var PlatformTemplate = [
 	{
-		Name: "Melody",
+		Name: "Melody", // MMD Z: 39
 		Status: "Maid",
 		Perk: "0000000000",
 		PerkName: ["Healthy", "Robust", "Vigorous", "Spring", "Bounce", "Block", "Deflect", "Seduction", "Persuasion", "Manipulation"],
@@ -73,7 +74,7 @@ var PlatformTemplate = [
 		]
 	},
 	{
-		Name: "Olivia",
+		Name: "Olivia", // MMD Z: 39
 		Status: "Oracle",
 		Perk: "0000000000",
 		PerkName: ["Apprentice", "Magician", "Witch", "Regenaration", "Heal", "Cure", "Howl", "Roar", "Teleport", "Freedom"],
@@ -114,17 +115,17 @@ var PlatformTemplate = [
 			{ Name: "Scream", Magic: 2, Cooldown: 3000, HitBox: [-100, -100, 100, 100], HitAnimation: [8, 9, 10], Damage: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4], Speed: 200 }
 		]
 	},
-	{
-		Name: "Edlaran",
+	{ 
+		Name: "Edlaran", // MMD Z: 35.30
 		Status: "Archer",
 		Perk: "0000000000",
-		PerkName: ["", "", "", "", "", "", "", "", "", ""],
+		PerkName: ["Thief", "Burglar", "Kidnapper", "Spring", "Bounce", "Backflip", "Acrobat", "Archery", "Celerity", "Capacity"],
 		Width: 400,
 		Height: 400,
 		Health: 14,
 		HealthPerLevel: 3,
-		HitBox: [0.42, 0.03, 0.58, 1],
-		JumpHitBox: [0.42, 0.03, 0.58, 0.65],
+		HitBox: [0.43, 0.07, 0.57, 1],
+		JumpHitBox: [0.43, 0.07, 0.57, 0.7],
 		RunSpeed: 21,
 		WalkSpeed: 14,
 		CrawlSpeed: 7,
@@ -135,8 +136,25 @@ var PlatformTemplate = [
 		DamageKnockForce: 25,
 		Animation: [
 			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 90 },
-			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], CycleLeft: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], Speed: 60 }
+			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 130 },
+			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 25 },
+			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], Speed: 36 },
+			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 32 },
+			{ Name: "Crawl", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], Speed: 30 },
+			{ Name: "Crouch", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 120 },
+			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 60 },
+			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 100 },
+			{ Name: "Stun", Cycle: [0], Speed: 1000 },
+			{ Name: "StandAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], Speed: 15 },
+			{ Name: "CrouchAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], Speed: 20 },
+			{ Name: "Backflip", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], Speed: 16 },
+		],
+		Attack: [
+			{ Name: "StandAttackFast", HitBox: [0.8, 0.1, 1, 0.3], HitAnimation: [7, 8, 9, 10, 11, 12], Damage: [1, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8], Speed: 300 },
+			{ Name: "CrouchAttackFast", HitBox: [0.8, 0.58, 1, 0.78], HitAnimation: [4, 5, 6, 7], Damage: [1, 2, 3, 3, 4, 5, 5, 6, 7, 7, 8], Speed: 300 },
+			{ Name: "Backflip", Speed: 336 },
 		]
+
 	},
 	{
 		Name: "Olivia",
@@ -483,6 +501,7 @@ var PlatformRoomList = [
 	{
 		Name: "BedroomOlivia",
 		Entry: function() {
+			PlatformChar.splice(1, 100);
 			if (!PlatformEventDone("OliviaUnchain") && !PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", 2200, true, false, "IntroOliviaBeforeCollarKey");
 			if (!PlatformEventDone("OliviaUnchain") && PlatformEventDone("OliviaCollarKey")) PlatformCreateCharacter("Olivia", "Chained", 2200, true, false, "IntroOliviaAfterCollarKey");
 			if (PlatformEventDone("OliviaBath") && !PlatformEventDone("Curse")) { PlatformCreateCharacter("Olivia", "Oracle", 2200, true, false, "OliviaAfterBath"); PlatformChar[1].FaceLeft = true; }
@@ -869,7 +888,7 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "ForestCabinPath",
-		Text: "Cabin Path",
+		Text: "Cabin Path (End of the game for now.)",
 		Background: "Forest/CabinPath",
 		Width: 3800,
 		Height: 1200,
@@ -883,7 +902,7 @@ var PlatformRoomList = [
 		Entry: function() {
 			PlatformChar.splice(1, 100);
 			if (PlatformPlayer.Name != "Olivia") PlatformCreateCharacter("Olivia", "Oracle", 1300, true, false, "OliviaCabin");
-			if (PlatformPlayer.Name != "Melody") PlatformCreateCharacter("Melody", "Maid", 1700, true, false, "OliviaCabin", true);
+			if (PlatformPlayer.Name != "Melody") PlatformCreateCharacter("Melody", "Maid", 1700, true, false, (PlatformPlayer.Name == "Olivia") ? "OliviaCabin" : "EdlaranCabin", true);
 			if (PlatformEventDone("EdlaranJoin") && (PlatformPlayer.Name != "Edlaran")) PlatformCreateCharacter("Edlaran", "Archer", 2100, true, false, "EdlaranCabin", true);
 		},
 		Text: "Wooden Cabin (heal and save)",
@@ -1090,6 +1109,14 @@ function PlatformPartyBuild() {
 		if (CreateOlivia)
 			PlatformPartyAdd({ Character: "Olivia", Status: "Oracle", Level: 1, Experience: 0, Perk: "0000000000" });
 	}
+	if (PlatformEventDone("EdlaranJoin")) {
+		let CreateEdlaran = true;
+		for (let P of PlatformParty)
+			if (P.Character == "Edlaran")
+				CreateEdlaran = false;
+		if (CreateEdlaran)
+			PlatformPartyAdd({ Character: "Edlaran", Status: "Archer", Level: 1, Experience: 0, Perk: "0000000000" });
+	}
 }
 
 /**
@@ -1160,6 +1187,7 @@ function PlatformDrawBackground() {
 	if (PlatformViewY > PlatformRoom.Height - 1000) PlatformViewY = PlatformRoom.Height - 1000;
 	DrawImageZoomCanvas("Screens/Room/Platform/Background/" + PlatformRoom.Background + ".jpg", MainCanvas, PlatformViewX, PlatformViewY, 2000, 1000, 0, 0, 2000, 1000);
 	if (PlatformRoom.BackgroundFilter != null) DrawRect(0, 0, 2000, 1000, PlatformRoom.BackgroundFilter);
+	if (PlatformTimedScreenFilter.End >= CommonTime()) DrawRect(0, 0, 2000, 1000, PlatformTimedScreenFilter.Filter);
 	DrawProgressBar(10, 10, 180, 40, PlatformPlayer.Health / PlatformPlayer.MaxHealth * 100, "#00B000", "#B00000");
 	DrawText(PlatformPlayer.Health.toString(), 100, 32, "White", "Black");
 	DrawProgressBar(10, 60, 180, 40, PlatformPlayer.Experience / PlatformExperienceForLevel[PlatformPlayer.Level] * 100, "#600060", "Black");
@@ -1220,6 +1248,7 @@ function PlatformDrawCharacter(C, Time) {
 	if ((X >= 2000) || (Y >= 1000)) return;
 	if ((X + C.Anim.Width <= 0) || (Y + C.Anim.Height <= 0)) return;
 	DrawImageEx("Screens/Room/Platform/Character/" + C.Name + "/" + C.Status + "/" + C.Anim.Name + "/" + C.Anim.Image.toString() + ".png", X + C.Anim.OffsetX, Y + C.Anim.OffsetY, { Mirror: C.Anim.Mirror, Width: C.Anim.Width, Height: C.Anim.Height } );
+	if ((C.Effect != null) && (C.Effect.Name != null) && (C.Effect.End != null) && (C.Effect.End >= Time)) DrawImageEx("Screens/Room/Platform/Effect/" + C.Effect.Name + ".png", X + C.Anim.OffsetX, Y + C.Anim.OffsetY, { Mirror: C.Anim.Mirror, Width: C.Anim.Width, Height: C.Anim.Height } );
 	if (C.Damage != null)
 		for (let Damage of C.Damage)
 			if (Damage.Expire >= Time) {
@@ -1688,8 +1717,10 @@ function PlatformAttack(Source, Type) {
 				if ((Attack.Cooldown != null) && (Attack.Cooldown > 0)) {
 					let Time = Attack.Cooldown;
 					if ((Type == "Scream") && (PlatformHasPerk(PlatformPlayer, "Howl"))) Time = Time - 1000;
+					if (Type == "Scream") PlatformTimedScreenFilter = { End: CommonTime() + 1000, Filter: "#00000060" };
 					PlatformCooldown.push({Type: Attack.Name, Time: CommonTime() + Time, Delay: Time});
 				}
+				if (Type == "Backflip") Source.ForceX = (Source.FaceLeft ? 1 : -1) * (PlatformHasPerk(Source, "Acrobat") ? 180 : 120);
 				Source.Action = { Name: Type, Start: CommonTime(), Expire: CommonTime() + Attack.Speed };
 			}
 }
@@ -1853,6 +1884,7 @@ function PlatformCastTeleport(C) {
 	if (C.Camera) PlatformCooldown.push({Type: "Teleport", Time: CommonTime() + Time, Delay: Time});
 	C.ForceX = C.ForceX + (C.FaceLeft ? -250 : 250);
 	C.Immunity = CommonTime() + 500;
+	C.Effect = { Name: "Teleport", End: C.Immunity };
 }
 
 /**
@@ -1886,6 +1918,7 @@ function PlatformEventKeyDown(e) {
 	if (e.keyCode == 32) PlatformPlayer.Action = null;
 	if ((e.keyCode == 87) || (e.keyCode == 119) || (e.keyCode == 90) || (e.keyCode == 122)) return PlatformEnterRoom("Up");
 	if (((e.keyCode == 73) || (e.keyCode == 105)) && PlatformHasPerk(PlatformPlayer, "Teleport")) return PlatformCastTeleport(PlatformPlayer);
+	if (((e.keyCode == 73) || (e.keyCode == 105)) && PlatformHasPerk(PlatformPlayer, "Backflip")) return PlatformAttack(PlatformPlayer, "Backflip");
 	if (((e.keyCode == 80) || (e.keyCode == 112)) && PlatformHasPerk(PlatformPlayer, "Heal")) return PlatformCastHeal(PlatformPlayer);
 	if (((e.keyCode == 76) || (e.keyCode == 108)) && PlatformAnimAvailable(PlatformPlayer, "StandAttackFast")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
 	if (((e.keyCode == 75) || (e.keyCode == 107)) && !PlatformMoveActive("Crouch") && PlatformHasPerk(PlatformPlayer, "Apprentice")) return PlatformAttack(PlatformPlayer, "Scream");
