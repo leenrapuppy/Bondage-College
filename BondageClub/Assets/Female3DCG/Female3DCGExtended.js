@@ -2083,6 +2083,7 @@ var AssetFemale3DCGExtended = {
 							
 						],
 						
+						AllowSelfSelect: false
 					}
 				]
 			}
