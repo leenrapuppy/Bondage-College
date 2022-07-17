@@ -911,7 +911,7 @@ var PlatformDialogData = [
 					{ Name: "Melody", Status: "Maid", Pose: "ChainedKneel" }
 				]
 			},
-			{ Text: "Can here little maid, don't be shy." },
+			{ Text: "Come here little maid, don't be shy." },
 			{ Text: "(She snaps her fingers as you slowly crawl next to her.)" },
 			{ Character: [{ Name: "Edlaran", Status: "Archer", Pose: "LickedByMaidMelody" }] },
 			{ Text: "(You lick her slowly and skillfully, making her shiver from pleasure.)" },
