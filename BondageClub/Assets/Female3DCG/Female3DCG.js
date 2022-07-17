@@ -7199,6 +7199,7 @@ var ActivityFemale3DCG = [
 		Target: [],
 		TargetSelf: ["ItemMouth"],
 		MakeSound: true,
+		StimulationAction: "Talk",
 	},
 	{
 		Name: "MoanGagTalk",
@@ -7207,6 +7208,7 @@ var ActivityFemale3DCG = [
 		Target: [],
 		TargetSelf: ["ItemMouth"],
 		MakeSound: true,
+		StimulationAction: "Talk",
 	},
 	{
 		Name: "MoanGagWhimper",
@@ -7215,6 +7217,7 @@ var ActivityFemale3DCG = [
 		Target: [],
 		TargetSelf: ["ItemMouth"],
 		MakeSound: true,
+		StimulationAction: "Talk",
 	},
 	{
 		Name: "MoanGagGroan",
@@ -7223,6 +7226,7 @@ var ActivityFemale3DCG = [
 		Target: [],
 		TargetSelf: ["ItemMouth"],
 		MakeSound: true,
+		StimulationAction: "Talk",
 	},
 	{
 		Name: "MoanGagAngry",
@@ -7231,6 +7235,7 @@ var ActivityFemale3DCG = [
 		Target: [],
 		TargetSelf: ["ItemMouth"],
 		MakeSound: true,
+		StimulationAction: "Talk",
 	},
 	{
 		Name: "MoanGagGiggle",
@@ -7239,6 +7244,7 @@ var ActivityFemale3DCG = [
 		Target: [],
 		TargetSelf: ["ItemMouth"],
 		MakeSound: true,
+		StimulationAction: "Talk",
 	},
 	{
 		Name: "GagKiss",
@@ -7444,6 +7450,7 @@ var ActivityFemale3DCG = [
 		Prerequisite: ["CantUseArms"],
 		Target: [],
 		TargetSelf: ["ItemArms"],
+		StimulationAction: "Struggle",
 	},
 	{
 		Name: "StruggleLegs",
@@ -7478,6 +7485,7 @@ var ActivityFemale3DCG = [
 		Prerequisite: ["MoveHead"],
 		Target: [],
 		TargetSelf: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHands", "ItemHead", "ItemLegs", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2",],
+		StimulationAction: "Struggle",
 	},
 	/* Item activities */
 	{

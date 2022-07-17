@@ -60,7 +60,7 @@ const ChatRoomStimulationEvents = {
 		VibeScaling: 0.8,
 		InflationScaling: 0.5,
 	},
-	StruggleAction: {
+	Struggle: {
 		Chance: 0.05,
 		ArousalScaling: 0.2,
 		VibeScaling: 0.3,
@@ -1286,7 +1286,7 @@ function ChatRoomSetLastChatRoom(room) {
 function ChatRoomStimulationMessage(Action) {
 	if (CurrentScreen !== "ChatRoom"
 		|| Player.ImmersionSettings && !Player.ImmersionSettings.StimulationEvents
-		|| !["Kneel", "Walk", "StruggleAction", "StruggleFail", "Talk"].includes(Action))
+		|| !["Kneel", "Walk", "Struggle", "StruggleFail", "Talk"].includes(Action))
 		return;
 
 	const eventData = ChatRoomStimulationEvents[Action];

@@ -272,7 +272,7 @@ interface ChatRoom {
 	Character?: any[]; /* From server, not really a Character object */
 }
 
-type StimulationAction = "Kneel" | "Walk" | "StruggleAction" | "StruggleFail" | "Talk";
+type StimulationAction = "Kneel" | "Walk" | "Struggle" | "StruggleFail" | "Talk";
 
 interface StimulationEvent {
 	/** The chance that this event will trigger at 0 arousal */
@@ -608,6 +608,8 @@ interface Activity {
 	TargetSelf?: string[] | true;
 	/** used for setting AutoPunishGagActionFlag */
 	MakeSound?: boolean;
+	/** An action that trigger when that activity is used */
+	StimulationAction?: StimulationAction;
 }
 
 interface LogRecord {
