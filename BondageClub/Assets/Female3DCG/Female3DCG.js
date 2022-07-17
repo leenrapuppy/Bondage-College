@@ -2313,8 +2313,8 @@ var AssetFemale3DCG = [
 		Group: "Pronouns",
 		AllowNone: false,
 		Asset: [
-			{ Name: "SheHer", DynamicScriptDraw: true, Visible: false, Random: false, Gender: "F" },
-			{ Name: "HeHim", DynamicScriptDraw: true, Visible: false, Random: false, Gender: "M" }
+			{ Name: "SheHer", Visible: false, Random: false, Gender: "F" },
+			{ Name: "HeHim", Visible: false, Random: false, Gender: "M" }
 		]
 	},
 
