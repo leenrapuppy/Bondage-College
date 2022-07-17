@@ -69,8 +69,6 @@ type CommonChatTags =
 	| "DestinationCharacterName"
 	| "TargetCharacter"
 	| "TargetCharacterName"
-	| "SourcePronouns"
-	| "DestinationPronouns"
 	| "AssetName";
 
 type NotificationAudioType = 0 | 1 | 2;
@@ -755,13 +753,8 @@ interface Character {
 	CanWalk: () => boolean;
 	CanKneel: () => boolean;
 	CanInteract: () => boolean;
-	SheHerPronouns: () => boolean;
-	HeHimPronouns: () => boolean;
-	SheHerPronounsSelf: (Player) => boolean;
-	HeHimPronounsSelf: (Player) => boolean;
 	HasMaleAspects: () => boolean;
 	HasFemaleAspects: () => boolean;
-
 
 	/**
 	 * Check whether a character can change its own outfit.

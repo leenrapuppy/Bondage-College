@@ -110,28 +110,15 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		CanInteract: function () {
 			return (this.Effect.indexOf("Block") < 0);
 		},
-		SheHerPronouns: function () {
-			return !LogQuery("SheHerActive", "Pronouns")
-		},
-		HeHimPronouns: function () {
-			return !LogQuery("HeHimActive", "Pronouns")
-		},
-		
-		SheHerPronounsSelf: function (Player) {
-			if(Player) return LogQuery("SheHerActive", "Pronouns")
-		},
-		HeHimPronounsSelf: function (Player) {
-			if(Player) return LogQuery("HeHimActive", "Pronouns")
-		},
 		HasMaleAspects: function () {
-			return !InventoryIsItemInList(Player, "Pussy", ["Penis"])&&
-			!InventoryIsItemInList(Player, "BodyUpper", ["FlatSmall", "FlatMedium"])&&
-			!LogQuery("HeHimActive", "Pronouns")
+			return !InventoryIsItemInList(Player, "Pussy", ["Penis"]) &&
+				!InventoryIsItemInList(Player, "BodyUpper", ["FlatSmall", "FlatMedium"]) &&
+				!InventoryIsItemInList(Player, "Pronouns", ["HeHim"]);
 		},
 		HasFemaleAspects: function () {
-			return !InventoryIsItemInList(Player, "BodyUpper", ["Small", "Normal", "Large", "XLarge"]) && 
-			!InventoryIsItemInList(Player, "Pussy", ["PussyDark1", "PussyDark2", "PussyDark3", "PussyLight1", "PussyLight2", "PussyLight3"]) && 
-			!LogQuery("SheHerActive", "Pronouns")
+			return !InventoryIsItemInList(Player, "BodyUpper", ["Small", "Normal", "Large", "XLarge"]) &&
+				!InventoryIsItemInList(Player, "Pussy", ["PussyDark1", "PussyDark2", "PussyDark3", "PussyLight1", "PussyLight2", "PussyLight3"]) &&
+				!InventoryIsItemInList(Player, "Pronouns", ["SheHer"]);
 		},
 		CanChangeOwnClothes: function () {
 			return this.CanChangeClothesOn(this);
@@ -1797,7 +1784,7 @@ function CharacterClearOwnership(C) {
  * Returns the nickname of a character, or the name if the nickname isn't valid
  * Also validates if the character is a GGTS drone to alter her name
  * @param {Character} C - The character breaking from their owner
- * @returns {String} - The nickname to return
+ * @returns {string} - The nickname to return
  */
 function CharacterNickname(C) {
 	let Regex = /^[a-zA-Z\s]*$/;
@@ -1808,28 +1795,25 @@ function CharacterNickname(C) {
 	return AsylumGGTSCharacterName(C, Nick);
 }
 
-/**Returns the pronouns of a target
-*@param {PlayerCharacter} Player - The character whos pronouns are being returned
-*/
-function SourcePronouns(Player) {
-	if (!Player.SheHerPronounsSelf(Player)) return DialogFind(Player, "Her")
-	else if (!Player.HeHimPronounsSelf(Player)) return DialogFind(Player, "His")
+/**
+ * Returns dialog text for a character based on their chosen pronouns. Default to She/Her entries
+ * @param {Character} C - The character to fetch dialog for
+ * @param {string} DialogKey - The type of dialog entry to look for
+ * @returns {string} - The text to use
+ */
+function CharacterPronoun(C, DialogKey) {
+	const pronounItem = C.Appearance.find(A => A.Asset.Group.Name == "Pronouns");
+	const pronounName = pronounItem ? pronounItem.Asset.Name : "SheHer";
+	return DialogFindPlayer("Pronoun" + DialogKey + pronounName);
 }
 
-/**Returns the pronouns of a source
-*@param {Character} C - The character whos pronouns are being returned
-*/ 
-function TargetPronouns(C) {
-	if (!Player.SheHerPronouns())  return DialogFind(C, "Her")
-	 else if (!Player.HeHimPronouns())  return DialogFind(C, "His")
+/**
+ * Returns the description text for the character's chosen pronouns. Default to She/Her
+ * @param {Character} C - The character to fetch text for
+ * @returns {string} - The text to use
+ */
+function CharacterPronounDescription(C) {
+	const pronounItem = C.Appearance.find(A => A.Asset.Group.Name == "Pronouns");
+	const pronounAsset = pronounItem ? pronounItem.Asset : Asset.find(A => A.Group.Name == "Pronouns" && A.Name == "SheHer");
+	return pronounAsset.Description;
 }
-
-/**Returns the pronouns of a source
-*@param {Character} C - The character whos pronouns are being returned
-*/ 
-function SecondTargetPronouns(C) {
-	if (!Player.SheHerPronouns())  return DialogFind(C, "Herself")
-	 else if (!Player.HeHimPronouns())  return DialogFind(C, "Himself")
-}
-
-
