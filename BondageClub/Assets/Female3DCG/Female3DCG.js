@@ -4038,6 +4038,7 @@ var AssetFemale3DCG = [
 				Extended: true, 
 				AlwaysInteract: true,
 				ParentGroup: null,
+				DefaultColor: ["#323232", "#565656", "#323232", "#252525", "#252525"],
 				Layer: [
 					// Binder
 					{ Name: "BinderLeft", AllowModuleTypes: ["b0"], HasType: false, },
@@ -4061,7 +4062,9 @@ var AssetFemale3DCG = [
 
 					// Shoulder Straps
 					{ Name: "BasicShoulderStraps", Priority: 31 , AllowModuleTypes: ["s1"], HasType: false },
-					{ Name: "WrappingShoulderStraps", Priority: 31, CopyLayerColor: "BasicShoulderStraps", AllowModuleTypes:  ["s2"], HasType: false}
+					{ Name: "WrappingShoulderStraps", Priority: 31, CopyLayerColor: "BasicShoulderStraps", AllowModuleTypes:  ["s2"], HasType: false },
+					{ Name: "HarnessShoulderStraps", Priority: 31, CopyLayerColor: "BasicShoulderStraps", AllowModuleTypes:  ["s3"], HasType: false}
+
 				]
 			},
 			AssetSpankingToys

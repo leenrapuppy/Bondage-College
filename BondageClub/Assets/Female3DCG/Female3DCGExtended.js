@@ -2075,10 +2075,14 @@ var AssetFemale3DCGExtended = {
 									Difficulty: 30
 								}
 							}, // s2 Wrapping Shoulder Straps
+							{ 
+								Property: {
+									Difficulty: 40
+								}
+							}, // s3 Harness Shoulder Straps
 							
 						],
 						
-						AllowSelfSelect: false,
 					}
 				]
 			}
