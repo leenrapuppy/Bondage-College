@@ -48,9 +48,7 @@ function InformationSheetRun() {
 		DrawTextFit(TextGet("MemberNumber") + " " + C.MemberNumber.toString(), 550, currentY, 450, "Black", "Gray");
 		currentY += spacing;
 	}
-	if (Player.SheHerPronounsSelf(Player)) DrawTextFit(TextGet("PronounsSheHer"),  550, currentY, 450, "Black", "Gray");
-	if (Player.HeHimPronounsSelf(Player))DrawTextFit(TextGet("PronounsHeHim"),  550, currentY, 450, "Black", "Gray");
-
+	DrawTextFit(TextGet("Pronouns") + " " + CharacterPronounDescription(C), 550, currentY, 450, "Black", "Gray");
 	
 	currentY += spacingLarge;
 
