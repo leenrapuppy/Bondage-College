@@ -540,7 +540,7 @@ Pump gag level: Light
 Pump gag level: Inflated
 充气口塞等级: 中
 Pump gag level: Bloated
-充气口塞等级: 大多
+充气口塞等级: 多
 Pump gag level: Full mouth
 充气口塞等级: 满
 Empty
