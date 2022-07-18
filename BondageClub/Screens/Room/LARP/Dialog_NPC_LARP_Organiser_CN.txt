@@ -2,19 +2,19 @@
 Let me guess, you've lost your last battle?   (She laughs.)
 让我猜猜，你输掉了你的最后一场战斗？ （她笑了。）
 It's an honor to see you DialogPlayerName.  Would you like to try a new class?
-很荣幸见到您， DialogPlayerName。 你想要尝试新的职业吗？
+很荣幸见到您，DialogPlayerName。 你想要尝试新的职业吗？
 It's always a pleasure to see you DialogPlayerName.  Would you like to try a new class?
-见到你总是很高兴， DialogPlayerName。 你想尝试新的职业吗？
+见到你总是很高兴，DialogPlayerName。 你想尝试新的职业吗？
 Welcome to the Live Action Role Playing battles DialogPlayerName.  Do you need some explanations, or would you like to try a new class?
 欢迎来到实时角色扮演战斗 DialogPlayerName。 您想要一些介绍，还是想尝试新职业？
 Welcome to the Live Action Role Playing battles。  Would you like to join us?
-欢迎来到实时角色扮演战斗. 你想加入我们吗？
+欢迎来到实时角色扮演战斗。你想加入我们吗？
 ###_PLAYER
 Hi, I'm DialogPlayerName.
-嘿， 我是 DialogPlayerName.
+嘿，我是 DialogPlayerName.
 ###_NPC
 It's nice to meet you, I'm DialogCharacterName.  I organize the LARP battles and register the classes.
-很高兴认识你， 我是 DialogCharacterName。 我组织 LARP 战斗和注册职业。
+很高兴认识你，我是 DialogCharacterName。 我组织 LARP 战斗和注册职业。
 ###_PLAYER
 Can you help me?
 你能帮我吗？
