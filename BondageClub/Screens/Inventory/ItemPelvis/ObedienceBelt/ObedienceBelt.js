@@ -7,8 +7,7 @@ function InventoryItemPelvisObedienceBeltEngraving0Load() {
 	// Load the font
 	DynamicDrawLoadFont(InventoryItemPelvisObedienceBeltEngraveFont);
 
-	if (typeof DialogFocusItem.Property !== "object") DialogFocusItem.Property = {};
-	if (typeof DialogFocusItem.Property.Text !== "string") DialogFocusItem.Property.Text = "";
+	InventoryItemPelvisObedienceBeltInit(DialogFocusItem);
 
 	const input = ElementCreateInput("EngraveText", "text", DialogFocusItem.Property.Text, InventoryItemPelvisObedienceBeltEngraveLength);
 	if (input) input.pattern = DynamicDrawTextInputPattern;
@@ -67,12 +66,7 @@ function InventoryItemPelvisObedienceBeltEngravingUpdated(text) {
 }
 
 function InventoryItemPelvisObedienceBeltShockModule1Load() {
-	if (typeof DialogFocusItem.Property !== "object") DialogFocusItem.Property = {};
-	if (typeof DialogFocusItem.Property.Text !== "string") DialogFocusItem.Property.Text = "";
-	if (typeof DialogFocusItem.Property.NextShockTime !== "number") DialogFocusItem.Property.NextShockTime = 0;
-	if (typeof DialogFocusItem.Property.PunishStandup !== "boolean") DialogFocusItem.Property.PunishStandup = false;
-	if (typeof DialogFocusItem.Property.PunishOrgasm !== "boolean") DialogFocusItem.Property.PunishOrgasm = false;
-	if (typeof DialogFocusItem.Property.ChatMessage !== "boolean") DialogFocusItem.Property.ChatMessage = false;
+	InventoryItemPelvisObedienceBeltInit(DialogFocusItem);
 }
 
 function InventoryItemPelvisObedienceBeltShockModule1Draw() {
@@ -123,6 +117,19 @@ function InventoryItemPelvisObedienceBeltShockModule1Exit() {
 	ExtendedItemSubscreen = null;
 }
 
+/**
+ * @param {Item} item
+ */
+function InventoryItemPelvisObedienceBeltInit(item) {
+	if (!item) return;
+	item.Property = item.Property || {};
+	if (typeof item.Property.Type !== "string") item.Property.Type = "";
+	if (typeof item.Property.ChatMessage !== "boolean") item.Property.ChatMessage = false;
+	if (typeof item.Property.PunishOrgasm !== "boolean") item.Property.PunishOrgasm = false;
+	if (typeof item.Property.PunishStandup !== "boolean") item.Property.PunishStandup = false;
+	if (typeof item.Property.NextShockTime !== "number") item.Property.NextShockTime = 0;
+	if (typeof item.Property.Text !== "string") item.Property.Text = "";
+}
 
 /**
  * Trigger a shock automatically
@@ -161,8 +168,7 @@ function InventoryItemPelvisObedienceBeltScriptTrigger(C, Item, ShockType) {
  * @param {Item} Item
  */
 function InventoryObedienceBeltCheckPunish(Item) {
-	const Properties = Item.Property || { Type: "", PunishOrgasm: false, PunishStandup: false };
-	const { Type, PunishOrgasm, PunishStandup } = Properties;
+	const { Type, PunishOrgasm, PunishStandup } = Item.Property;
 	const wearsShockModule = Type.includes("s1");
 	if (Item.Property.NextShockTime - CurrentTime <= 0 && PunishOrgasm && wearsShockModule && Player.ArousalSettings && Player.ArousalSettings.OrgasmStage > 1) {
 		// Punish the player if they orgasm
@@ -197,13 +203,12 @@ function AssetsItemPelvisObedienceBeltUpdate(data, LastTime) {
 
 // Update data
 function AssetsItemPelvisObedienceBeltScriptDraw(data) {
-	var persistentData = data.PersistentData();
-	/** @type {ItemProperties} */
-	var property = (data.Item.Property = data.Item.Property || {});
+	const persistentData = data.PersistentData();
 	if (typeof persistentData.UpdateTime !== "number") persistentData.UpdateTime = CommonTime() + 4000;
 	if (typeof persistentData.LastMessageLen !== "number") persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;
 	if (typeof persistentData.CheckTime !== "number") persistentData.CheckTime = 0;
-	if (typeof property.NextShockTime !== "number") property.NextShockTime = 0;
+
+	InventoryItemPelvisObedienceBeltInit(data.Item);
 
 	// Trigger a check if a new message is detected
 	let lastMsgIndex = ChatRoomChatLog.length - 1;
@@ -212,7 +217,7 @@ function AssetsItemPelvisObedienceBeltScriptDraw(data) {
 
 	if (persistentData.UpdateTime < CommonTime() && data.C == Player) {
 
-		if (CommonTime() > property.NextShockTime) {
+		if (CommonTime() > data.Item.Property.NextShockTime) {
 			AssetsItemPelvisObedienceBeltUpdate(data, persistentData.CheckTime);
 			persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;
 		}
