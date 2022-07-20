@@ -466,6 +466,7 @@ var TranslationDictionary = [
 			"Screens/Room/CollegeTheater/Text_CollegeTheater_CN.txt",
 			"Screens/Room/Gambling/Dialog_NPC_Gambling_FirstSub_CN.txt",
 			"Screens/Room/Gambling/Dialog_NPC_Gambling_SecondSub_CN.txt",
+			"Screens/Room/Gambling/Text_Gambling_CN.txt",
 			"Screens/Room/Magic/Dialog_NPC_Magic_Assistant_CN.txt",
 			"Screens/Room/Magic/Dialog_NPC_Magic_Performer_CN.txt",
 			"Screens/Room/MagicSchoolEscape/Dialog_NPC_MagicSchoolEscape_Instructor_CN.txt",
