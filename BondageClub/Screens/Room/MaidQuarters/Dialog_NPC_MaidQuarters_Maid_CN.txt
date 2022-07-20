@@ -172,7 +172,7 @@ Tell me about the club.
 请和我讲讲俱乐部。
 ###_NPC
 The Bondage Club has a long history.  It was a secret club back then when BDSM was taboo and forbidden.
-捆绑俱乐部已经存在了很长一段时间了。因为以前BDSM是被禁止的，所以俱乐部一直保持着秘密的状态。
+束缚俱乐部已经存在了很长一段时间了。因为以前BDSM是被禁止的，所以俱乐部一直保持着秘密的状态。
 ###_PLAYER
 As head maid, I have a task for you.
 作为女仆长，我有个任务给你。
