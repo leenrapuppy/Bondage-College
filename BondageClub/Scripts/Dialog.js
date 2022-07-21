@@ -2022,12 +2022,10 @@ function DialogDrawActivityMenu(C) {
 	var Y = 125;
 	for (let A = DialogInventoryOffset; (A < DialogActivity.length) && (A < DialogInventoryOffset + 12); A++) {
 		var Act = DialogActivity[A];
-		var Hover = (MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275) && !CommonIsMobile;
-		DrawRect(X, Y, 225, 275, (Hover) ? "cyan" : "white");
-		DrawImageResize("Assets/" + C.AssetFamily + "/Activity/" + Act.Name + ".png", X + 2, Y + 2, 221, 221);
 		let group = ActivityGetGroupOrMirror(CharacterGetCurrent().AssetFamily, CharacterGetCurrent().FocusGroup.Name);
 		let label = ActivityBuildChatTag(CharacterGetCurrent(), group, Act, true);
-		DrawTextFit(ActivityDictionaryText(label), X + 112, Y + 250, 221, "black");
+		let image = "Assets/" + C.AssetFamily + "/Activity/" + Act.Name + ".png";
+		DrawPreviewBox(X, Y, image, ActivityDictionaryText(label), {Hover: !CommonIsMobile});
 		X = X + 250;
 		if (X > 1800) {
 			X = 1000;
