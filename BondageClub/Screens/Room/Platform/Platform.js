@@ -147,6 +147,8 @@ var PlatformTemplate = [
 			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 100 },
 			{ Name: "Stun", Cycle: [0], Speed: 1000 },
 			{ Name: "Aim", Cycle: [0], Speed: 1000 },
+			{ Name: "AimReady", Cycle: [0], Speed: 1000 },
+			{ Name: "AimFull", Cycle: [0], Speed: 1000 },
 			{ Name: "StandAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], Speed: 15 },
 			{ Name: "CrouchAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], Speed: 20 },
 			{ Name: "Backflip", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], Speed: 16 },
@@ -191,7 +193,17 @@ var PlatformTemplate = [
 		Width: 400,
 		Height: 400,
 		Animation: [
-			{ Name: "Idle", Cycle: [0], Speed: 130 }
+			{ Name: "Idle", Cycle: [0], Speed: 1000 }
+		]
+	},
+	{
+		Name: "Arrow",
+		Status: "Wood",
+		Width: 400,
+		Height: 400,
+		HitBox: [0.3, 0.95, 0.7, 1],
+		Animation: [
+			{ Name: "Jump", Cycle: [0], Speed: 1000 }
 		]
 	},
 	{
@@ -200,7 +212,7 @@ var PlatformTemplate = [
 		Width: 400,
 		Height: 400,
 		Animation: [
-			{ Name: "Idle", Cycle: [0], Speed: 130 }
+			{ Name: "Idle", Cycle: [0], Speed: 1000 }
 		]
 	},
 /*	{
@@ -1517,6 +1529,25 @@ function PlatformAnimAvailable(C, AnimationName) {
 }
 
 /**
+ * Creates a projectile that will disappear when it hits the floor or a wall
+ * @param {String} Name - The name of the projectile (Arrow, Bullet, etc.)
+ * @param {String} Type - The type of the projectile (Wood, Iron, etc.)
+ * @param {Boolean} FaceLeft - IF the projectile is facing the left direction
+ * @param {Number} X - The X position
+ * @param {Number} Y - The Y position
+ * @param {Number} Force - The speed of the projectile
+ * @param {Number} Damage - The damage done by the projectile
+ * @returns {void} - Nothing
+ */
+function PlatformCreateProjectile(Name, Type, FaceLeft, X, Y, Force, Damage) {
+	let Proj = PlatformCreateCharacter(Name, Type, X, false, true, null, FaceLeft, null);
+	Proj.Y = PlatformFloor - Y;
+	Proj.Gravity = 0.333;
+	Proj.CollisionDamage = Damage;
+	Proj.ProjectileForce = Force * (FaceLeft ? -1 : 1);
+}
+
+/**
  * Draw scenery + all characters, apply X and Y forces
  * @returns {void} - Nothing
  */
@@ -1587,6 +1618,7 @@ function PlatformDraw() {
 		if ((C.ProjectileAim != null) && !PlatformMoveActive("Aim")) {
 			if (PlatformTime - C.ProjectileAim >= 1000) {
 				C.Projectile--;
+				PlatformCreateProjectile("Arrow", "Wood", C.FaceLeft, C.X + ((C.FaceLeft) ? -200 : 200), C.Height * 0.8, (PlatformTime - C.ProjectileAim >= 2000) ? 60 : 40, 2);
 			}
 			C.ProjectileAim = null;
 		}
@@ -1637,12 +1669,12 @@ function PlatformDraw() {
 		}
 
 		// Applies the forces and turns the face
-		C.X = C.X + C.ForceX * Frame / 16.6667;
+		C.X = C.X + ((C.ProjectileForce != null) ? C.ProjectileForce : C.ForceX) * Frame / 16.6667;
 		if (C.X < 100) C.X = 100;
 		if ((PlatformRoom.LimitLeft != null) && (C.X < PlatformRoom.LimitLeft)) C.X = PlatformRoom.LimitLeft;
 		if (C.X > PlatformRoom.Width - 100) C.X = PlatformRoom.Width - 100;
 		if ((PlatformRoom.LimitRight != null) && (C.X > PlatformRoom.LimitRight)) C.X = PlatformRoom.LimitRight;
-		C.Y = C.Y + C.ForceY * Frame / 16.6667;
+		C.Y = C.Y + C.ForceY * ((C.Gravity != null) ? C.Gravity : 1) * Frame / 16.6667;
 		if (C.Y > PlatformFloor) {
 			C.Y = PlatformFloor;
 			C.NextJump = PlatformTime + 500;
@@ -1652,7 +1684,9 @@ function PlatformDraw() {
 		let Crouch = (C.Camera && PlatformMoveActive("Crouch"));
 		if ((C.Health <= 0) && C.Bound) C.Anim = PlatformGetAnim(C, "Bound");
 		else if (C.Health <= 0) C.Anim = PlatformGetAnim(C, "Wounded");
-		else if (C.ProjectileAim) C.Anim = PlatformGetAnim(C, "Aim");
+		else if ((C.ProjectileAim != null) && (PlatformTime - C.ProjectileAim < 1000)) C.Anim = PlatformGetAnim(C, "Aim");
+		else if ((C.ProjectileAim != null) && (PlatformTime - C.ProjectileAim < 2000)) C.Anim = PlatformGetAnim(C, "AimReady");
+		else if (C.ProjectileAim != null) C.Anim = PlatformGetAnim(C, "AimFull");
 		else if (PlatformActionIs(C, "Any")) C.Anim = PlatformGetAnim(C, C.Action.Name, false);
 		else if (C.Y != PlatformFloor) C.Anim = PlatformGetAnim(C, "Jump");
 		else if ((C.ForceX != 0) && Crouch) C.Anim = PlatformGetAnim(C, "Crawl");
