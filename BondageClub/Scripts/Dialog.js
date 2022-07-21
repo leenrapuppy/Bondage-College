@@ -562,7 +562,6 @@ function DialogLeave() {
 	if (DialogItemPermissionMode && CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
 	DialogLeaveFocusItem();
 	DialogItemPermissionMode = false;
-	DialogActivityMode = false;
 	DialogItemToLock = null;
 	Player.FocusGroup = null;
 	if (CurrentCharacter) {
@@ -631,10 +630,10 @@ function DialogEndExpression() {
 /**
  * Leaves the item menu for both characters. De-initializes global variables, sets the FocusGroup of
  * player and current character to null and calls various cleanup functions
- * @param {boolean} [resetPermissionsMode=true] - If TRUE and in permissions mode, exits the mode
+ * @param {boolean} [resetMode=true] - If TRUE exits the current mode
  * @returns {void} - Nothing
  */
-function DialogLeaveItemMenu(resetPermissionsMode = true) {
+function DialogLeaveItemMenu(resetMode = true) {
 	DialogEndExpression();
 	DialogItemToLock = null;
 	Player.FocusGroup = null;
@@ -649,8 +648,10 @@ function DialogLeaveItemMenu(resetPermissionsMode = true) {
 	DialogColor = null;
 	DialogMenuButton = [];
 	if (DialogItemPermissionMode && CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
-	if (resetPermissionsMode) DialogItemPermissionMode = false;
-	DialogActivityMode = false;
+	if (resetMode) {
+		DialogItemPermissionMode = false;
+		DialogActivityMode = false;
+	}
 	DialogTextDefault = "";
 	DialogTextDefaultTimer = 0;
 	DialogPreviousCharacterData = {};
@@ -1063,6 +1064,8 @@ function DialogMenuButtonBuild(C) {
 				DialogMenuButton.splice(DialogMenuButton.indexOf("Prev"), 1);
 
 		}
+	} else if (DialogActivityMode) {
+		DialogMenuButton.push("ActivityCancel");
 	}
 }
 
@@ -1335,6 +1338,17 @@ function DialogMenuButtonClick() {
 				if (DialogItemPermissionMode) ChatRoomCharacterUpdate(Player);
 				if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0) && (StruggleProgress > 0)) ChatRoomStimulationMessage("StruggleFail");
 				DialogLeaveItemMenu();
+				return;
+			}
+
+			// Activity Cancel - Switch back to managing restraints
+			else if (DialogMenuButton[I] == "ActivityCancel") {
+				DialogActivityMode = false;
+				DialogMenuButton = [];
+				DialogInventoryOffset = 0;
+				DialogTextDefault = "";
+				DialogTextDefaultTimer = 0;
+				DialogMenuButtonBuild(C);
 				return;
 			}
 
@@ -2025,12 +2039,10 @@ function DialogDrawActivityMenu(C) {
 	var Y = 125;
 	for (let A = DialogInventoryOffset; (A < DialogActivity.length) && (A < DialogInventoryOffset + 12); A++) {
 		var Act = DialogActivity[A];
-		var Hover = (MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275) && !CommonIsMobile;
-		DrawRect(X, Y, 225, 275, (Hover) ? "cyan" : "white");
-		DrawImageResize("Assets/" + C.AssetFamily + "/Activity/" + Act.Name + ".png", X + 2, Y + 2, 221, 221);
 		let group = ActivityGetGroupOrMirror(CharacterGetCurrent().AssetFamily, CharacterGetCurrent().FocusGroup.Name);
 		let label = ActivityBuildChatTag(CharacterGetCurrent(), group, Act, true);
-		DrawTextFit(ActivityDictionaryText(label), X + 112, Y + 250, 221, "black");
+		let image = "Assets/" + C.AssetFamily + "/Activity/" + Act.Name + ".png";
+		DrawPreviewBox(X, Y, image, ActivityDictionaryText(label), {Hover: !CommonIsMobile});
 		X = X + 250;
 		if (X > 1800) {
 			X = 1000;
@@ -2038,6 +2050,10 @@ function DialogDrawActivityMenu(C) {
 		}
 	}
 
+	// Show the no activities text
+	if (DialogActivity.length === 0) {
+		DrawText(DialogFindPlayer("ZoneNoActivities").replace("GroupName", SelectedGroup.toLowerCase()), 1500, 700, "White", "Black");
+	}
 }
 
 /**
@@ -2290,8 +2306,12 @@ function DialogDraw() {
 			CommonDynamicFunction("Inventory" + DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Draw()");
 			DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png");
 		} else {
-			if (DialogActivityMode) DialogDrawActivityMenu(C);
-			else DialogDrawItemMenu(C);
+			if (DialogActivityMode) {
+				DialogBuildActivities(C);
+				DialogDrawActivityMenu(C);
+			} else {
+				DialogDrawItemMenu(C);
+			}
 		}
 
 		// Draw a repositioning button if some zones are offscreen

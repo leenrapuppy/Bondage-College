@@ -451,6 +451,7 @@ Gloves,CowPrintedGloves,Cow Printed Gloves
 Gloves,LatexElbowGloves,Latex Elbow Gloves
 Gloves,FishnetGloves, Fishnet Gloves
 Gloves,HaremGlove,Harem Gloves
+Gloves,BikerGloves,Biker Gloves
 Bracelet,,Bracelet
 Bracelet,BowBand,Bow Band
 Bracelet,KinkBracelet, Kinky Band
@@ -1385,6 +1386,7 @@ ItemHead,MedicalPatch,Medical Patches
 ItemHead,DroneMask,Smooth Latex Mask
 ItemHead,Slime,Slime
 ItemHead,FurScarf,Fur Scarf
+ItemHead,Stitches,Stitches 
 ItemNose,,Nose
 ItemNose,NoseHook,Nose Hook
 ItemNose,PigNose,Pig Nose
