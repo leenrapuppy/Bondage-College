@@ -1703,6 +1703,14 @@ var AssetFemale3DCG = [
 					{ Name: "Bands" }
 				]
 			},
+			{
+				Name: "BikerGloves", Value: 15, ParentGroup: null, DefaultColor: ["#65696E", "#2A2A2A"], HideForPose: ["BackElbowTouch", "BackBoxTie", "TapedHands"],
+				Layer: [
+					{ Name: "Hands" },
+					{ Name: "Straps" },
+					{ Name: "Buckles", AllowColorize: false, HideForPose: ["AllFours", "BackCuffs", "OverTheHead", "Yoked"] },
+				]
+			},
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
