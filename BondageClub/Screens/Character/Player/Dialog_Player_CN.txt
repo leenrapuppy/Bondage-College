@@ -343,6 +343,8 @@ Blocked in this room.
 被房间禁止
 Cancel
 取消
+Restraints
+拘束具
 Back to character
 回到角色
 View next items
@@ -483,6 +485,8 @@ This zone is out of reach from another item
 这个区域目前因其他物品影响无法触及
 Another item is blocking access to this lock
 另一个物品挡住了这个锁
+You cannot do anything with your GroupName right now
+现在你无法对你的GroupName做任何事情
 You cannot access your items
 你无法使用你的物品
 You have no items in this category
@@ -1525,7 +1529,7 @@ SourceCharacter attaches the leather cuffs elbow chain behind DestinationCharact
 SourceCharacter将DestinationCharacter手肘的皮革手铐上的锁链从她的身后连在一起。
 SourceCharacter attaches the leather cuffs wrist and elbow chains behind DestinationCharacter back.
 SourceCharacter将DestinationCharacter手腕和手肘的皮革手铐上的锁链从她的身后连在一起。
-SourceCharacter attaches the leather cuffs wrist and elbow chains behind DestinationCharacter back and connects the wirst and ankle cuffs.
+SourceCharacter attaches the leather cuffs wrist and elbow chains behind DestinationCharacter back and connects the wrist and ankle cuffs.
 SourceCharacter将DestinationCharacter手腕和手肘的皮革手铐上的锁链从她的身后连在一起，并将手腕铐和脚踝铐连在一起.
 SourceCharacter detaches DestinationCharacter steel cuffs.
 SourceCharacter解开了DestinationCharacter不锈钢手铐上的锁链。
@@ -1597,6 +1601,8 @@ SourceCharacter attaches the Ornate cuffs elbow chain behind DestinationCharacte
 SourceCharacter将DestinationCharacter手肘的华丽手铐上的锁链从她的身后连在一起。
 SourceCharacter attaches the Ornate cuffs wrist and elbow chains behind DestinationCharacter back.
 SourceCharacter将DestinationCharacter手腕和华丽手铐上的锁链从她的身后连在一起。
+SourceCharacter attaches the Ornate cuffs wrist and elbow chains behind DestinationCharacter back and connects the wrist and ankle cuffs.
+SourceCharacter将DestinationCharacter手腕和手肘的华丽手铐上的锁链从她的身后连在一起，并将手腕铐和脚踝铐连在一起.
 SourceCharacter detaches the chain from DestinationCharacter Ornate leg cuffs.
 SourceCharacter解开了DestinationCharacter华丽腿铐上的锁链。
 SourceCharacter attaches the Ornate leg cuffs chain on DestinationCharacter legs.
@@ -2873,8 +2879,12 @@ Engrave
 刻字
 SourceCharacter opens the crotch shield on DestinationCharacter obedience belt.
 SourceCharacter打开了DestinationCharacter服从贞操带的胯部护盾。
-SourceCharacter closes the crotch shield on DestinationCharacter obedience belt.
-SourceCharacter关闭了DestinationCharacter服从贞操带的胯部护盾。
+SourceCharacter closes the front crotch shield of DestinationCharacter obedience belt.
+SourceCharacter关闭了DestinationCharacter服从贞操带的前部胯部护盾。
+SourceCharacter closes the back crotch shield on DestinationCharacter obedience belt.
+SourceCharacter关闭了DestinationCharacter服从贞操带的后部胯部护盾。
+SourceCharacter closes both crotch shields on DestinationCharacter obedience belt.
+SourceCharacter关闭了DestinationCharacter服从贞操带的前后两个胯部护盾。
 SourceCharacter removes the shock module from DestinationCharacter obedience belt.
 SourceCharacter移除了DestinationCharacter服从贞操带的电击模块。
 SourceCharacter sets up the shock module on DestinationCharacter obedience belt.
@@ -4279,8 +4289,6 @@ Select suit options
 选择禁闭拘束服选项
 Configure suit restraints
 选择套装拘束
-Restraints
-拘束具
 Shock Collar
 电击项圈
 Ankles locked
@@ -5549,6 +5557,76 @@ Sign text.
 标牌文本。
 SourceCharacter changes DestinationCharacter sign message.
 SourceCharacter改变了DestinationCharacter标牌上的文字。
+Choose the sticker on the sign
+选择标牌上的贴纸
+Sticker
+贴纸
+Paw
+爪子
+LGBT Flag
+LGBT旗帜
+Trans Flag
+性转旗帜
+Bi Flag
+双性恋旗帜
+No Swimming
+禁止游泳
+SourceCharacter puts a paw sticker on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一个爪子贴纸。
+SourceCharacter puts a triskel sticker on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一个三曲枝贴纸。
+SourceCharacter puts a moon sticker on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一个月亮贴纸。
+SourceCharacter puts an LGBT pride flag sticker on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一个LGBT旗帜贴纸。
+SourceCharacter puts a trans pride flag sticker on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一个性转旗帜贴纸。
+SourceCharacter puts a bi pride flag sticker on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一个双性恋旗帜贴纸。
+SourceCharacter puts a no swimming sticker on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一个禁止游泳贴纸。
+SourceCharacter removes the sticker on DestinationCharacter sign.
+SourceCharacter移除了DestinationCharacter标牌上的贴纸。
+Post It
+便条纸
+No PostIt
+没有便条纸
+SourceCharacter puts a post it on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一张便条纸。
+SourceCharacter removes the postit on DestinationCharacter sign.
+SourceCharacter移除了DestinationCharacter标牌上的便条纸。
+Choose what to stitch
+选择要缝线的位置
+Right Eye
+左眼
+Left Eye
+右眼
+Both Eyes
+双眼
+SourceCharacter stitches DestinationCharacter right eye's eyelids.
+SourceCharacter缝上了DestinationCharacter右眼的眼皮。
+SourceCharacter stitches DestinationCharacter left eye's eyelids.
+SourceCharacter缝上了DestinationCharacter左眼的眼皮。
+SourceCharacter stitches DestinationCharacter both eyes' eyelids.
+SourceCharacter缝上了DestinationCharacter双眼的眼皮。
+Choose stitches for the right eye
+选择右眼的缝线
+SourceCharacter stitches DestinationCharacter right eye shut with vertical threads.
+SourceCharacter将DestinationCharacter右眼用垂直的走线缝在一起。
+SourceCharacter stitches DestinationCharacter right eye with a zigzagging thread.
+SourceCharacter将DestinationCharacter右眼用之字形的走线缝在一起。
+SourceCharacter stitches DestinationCharacter right eye with a spiraling thread.
+SourceCharacter将DestinationCharacter右眼用绕圈的走线缝在一起。
+SourceCharacter stitches DestinationCharacter right eye with crossed threads.
+SourceCharacter将DestinationCharacter右眼用十字形的走线缝在一起。
+SourceCharacter stitches DestinationCharacter left eye with vertical threads.
+SourceCharacter将DestinationCharacter左眼用垂直的走线缝在一起。
+SourceCharacter stitches DestinationCharacter left eye with a zigzagging thread.
+SourceCharacter将DestinationCharacter左眼用之字形的走线缝在一起。
+SourceCharacter stitches DestinationCharacter left eye with a spiraling thread.
+SourceCharacter将DestinationCharacter左眼用绕圈的走线缝在一起。
+SourceCharacter stitches DestinationCharacter left eye with crossed threads.
+SourceCharacter将DestinationCharacter左眼用十字形的走线缝在一起。
 [GGTS] GGTS control public room.  Be good girl SourceCharacter.
 [GGTS] 该公开房间由GGTS控制。SourceCharacter，做个好姑娘。
 [GGTS] Launching GGTS private room.  Time counts triple.  GGTS more active.  Good girl follow commands.  Three strikes equal punishment.  GGTS in control.  Be good girl SourceCharacter.
@@ -5827,3 +5905,5 @@ Select the chain style
 选择锁链样式
 SourceCharacter changes the chain style on DestinationCharacter chest.
 SourceCharacter改变了DestinationCharacter胸前的锁链样式。
+SourceCharacter closes the crotch shield on DestinationCharacter obedience belt.
+SourceCharacter关闭了DestinationCharacter服从贞操带的胯部护盾。
