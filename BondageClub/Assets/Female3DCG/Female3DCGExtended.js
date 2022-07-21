@@ -5543,6 +5543,63 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // WoodenCuffs
+		HempRope: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR],
+				Options: [
+					{
+						Name: "Basic",
+						Property: { Type: null, SetPose: ["LegsClosed"], Difficulty: 1 }
+					}, {
+						Name: "FullBinding",
+						BondageLevel: 2,
+						Property: { Type: "FullBinding", SetPose: ["LegsClosed"], Difficulty: 2 }
+					}, {
+						Name: "Link",
+						BondageLevel: 2,
+						Property: { Type: "Link", SetPose: ["LegsClosed"], Difficulty: 2 }
+					}, {
+						Name: "Diamond",
+						BondageLevel: 4,
+						Property: { Type: "Diamond", SetPose: ["LegsClosed"], Difficulty: 4 }
+					}, {
+						Name: "Mermaid",
+						BondageLevel: 4,
+						Property: { Type: "Mermaid", SetPose: ["LegsClosed"], Difficulty: 4 }
+					}, {
+						Name: "Suspension",
+						BondageLevel: 6,
+						Property: {
+							Type: "Suspension",
+							SetPose: ["LegsClosed", "Suspension"],
+							AllowActivePose: [],
+							Difficulty: 6
+						},
+						Expression: [{ Group: "Blush", Name: "High", Timer: 30 }],
+						Prerequisite: ["NotKneeling", "NotMounted", "NotChained", "NotHogtied"]
+					}, {
+						Name: "BedSpreadEagle",
+						BondageLevel: 1,
+						Property: {
+							Type: "BedSpreadEagle",
+							Effect: ["Freeze", "Prone"],
+							Block: ["ItemLegs", "ItemBoots", "ItemDevices"],
+							AllowActivityOn: ["ItemLegs", "ItemBoots"],
+							SetPose: ["Spread"],
+							Difficulty: 5
+						},
+						Prerequisite: ["OnBed", "NoItemLegs", "LegsOpen"],
+					}
+				],
+				Dialog: {
+					Load: "SelectRopeBondage",
+					TypePrefix: "RopeBondage",
+					NpcPrefix: "RopeBondage",
+					ChatPrefix: "LegRopeSet",
+				}
+			},
+		},
 	}, // ItemFeet
 	ItemMisc: {
 		ServingTray: {
