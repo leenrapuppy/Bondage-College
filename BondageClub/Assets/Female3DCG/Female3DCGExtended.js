@@ -3477,7 +3477,7 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 			},
-		}, //StitchedPussy
+		}, // Stitches
 	}, // ItemVulva
 	ItemVulvaPiercings: {
 		ClitRing: {
@@ -6805,6 +6805,39 @@ var AssetFemale3DCGExtended = {
 				ChangeWhenLocked: false,
 			}
 		}, // DroneMask
+		Stitches: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules:[
+					{
+						Name:"Main", Key: "m",
+						Options: [ 
+							{Property: { Hide: ["Eyes"]}, }, // Right Eye
+							{Property: { Hide: ["Eyes2"]}, }, // Left Eye
+							{Property: { Hide: ["Eyes","Eyes2"], Effect: ["BlindHeavy", "Prone"]},} //Both Eyes
+						],
+					},
+					{
+						Name:"Right", Key: "r",
+						Options: [ 
+							{}, // Straight
+							{}, // ZigZag
+							{}, // Skewed
+							{}, // Crossed
+						],
+					},
+					{
+						Name:"Left", Key: "l",
+						Options: [ 
+							{}, // Straight
+							{}, // ZigZag
+							{}, // Skewed
+							{}, // Crossed
+						],
+					},
+				],
+			},
+		}, // Stitches
 	}, // ItemHead
 	ItemHands: {
 		FuturisticMittens: {
