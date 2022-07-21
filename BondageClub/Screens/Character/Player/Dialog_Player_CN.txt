@@ -5670,7 +5670,7 @@ SourceCharacter改变了DestinationCharacter标牌上的文字。
 [GGTS] SourceCharacter.  Tickle yourself.
 [GGTS] SourceCharacter.  挠(tickle)自己。
 [GGTS] SourceCharacter.  Pet yourself.
-[GGTS] SourceCharacter.  摸摸(pet)自己。
+[GGTS] SourceCharacter。摸摸(pet)自己的头。
 [GGTS] SourceCharacter.  Place hand over your mouth.
 [GGTS] SourceCharacter.  把手放在(clamp)嘴巴上。
 [GGTS] SourceCharacter.  Spank yourself.
@@ -5694,7 +5694,7 @@ SourceCharacter改变了DestinationCharacter标牌上的文字。
 [GGTS] SourceCharacter.  Tickle TargetCharacter.
 [GGTS] SourceCharacter.  挠(tickle) TargetCharacter.
 [GGTS] SourceCharacter.  Pet TargetCharacter.
-[GGTS] SourceCharacter.  摸摸(pet) TargetCharacter.
+[GGTS] SourceCharacter。摸摸(pet)TargetCharacter的头。
 [GGTS] SourceCharacter.  Place hand over TargetCharacter mouth.
 [GGTS] SourceCharacter.  把手放在(clamp)TargetCharacter嘴巴上。
 [GGTS] SourceCharacter.  Spank TargetCharacter.
