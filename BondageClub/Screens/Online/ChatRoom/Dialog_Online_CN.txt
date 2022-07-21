@@ -356,10 +356,10 @@
 (定时监牢、GGTS和强制劳动)
 ###_NPC
 (You can send her to a timed cell, the Good Girl Training System or force her to serve drinks and get her salary.)
-(你可以将她送入定时监牢，让她开始GGTS训练，或强制她送水并收取她的佣金。)
+(你可以将她送入定时监牢，让她开始GGTS训练，或强制她送水并收取她的工资)
 ###_PLAYER
 (Collar and nickname options.)
-(项圈与昵称选项。)
+(项圈与昵称选项)
 ###_NPC
 (Select the option.)
 (选择本选项)
