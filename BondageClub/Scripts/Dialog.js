@@ -562,7 +562,6 @@ function DialogLeave() {
 	if (DialogItemPermissionMode && CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
 	DialogLeaveFocusItem();
 	DialogItemPermissionMode = false;
-	DialogActivityMode = false;
 	DialogItemToLock = null;
 	Player.FocusGroup = null;
 	if (CurrentCharacter) {
@@ -631,10 +630,10 @@ function DialogEndExpression() {
 /**
  * Leaves the item menu for both characters. De-initializes global variables, sets the FocusGroup of
  * player and current character to null and calls various cleanup functions
- * @param {boolean} [resetPermissionsMode=true] - If TRUE and in permissions mode, exits the mode
+ * @param {boolean} [resetMode=true] - If TRUE exits the current mode
  * @returns {void} - Nothing
  */
-function DialogLeaveItemMenu(resetPermissionsMode = true) {
+function DialogLeaveItemMenu(resetMode = true) {
 	DialogEndExpression();
 	DialogItemToLock = null;
 	Player.FocusGroup = null;
@@ -649,8 +648,10 @@ function DialogLeaveItemMenu(resetPermissionsMode = true) {
 	DialogColor = null;
 	DialogMenuButton = [];
 	if (DialogItemPermissionMode && CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
-	if (resetPermissionsMode) DialogItemPermissionMode = false;
-	DialogActivityMode = false;
+	if (resetMode) {
+		DialogItemPermissionMode = false;
+		DialogActivityMode = false;
+	}
 	DialogTextDefault = "";
 	DialogTextDefaultTimer = 0;
 	DialogPreviousCharacterData = {};
@@ -1060,6 +1061,8 @@ function DialogMenuButtonBuild(C) {
 				DialogMenuButton.splice(DialogMenuButton.indexOf("Prev"), 1);
 
 		}
+	} else if (DialogActivityMode) {
+		DialogMenuButton.push("ActivityCancel");
 	}
 }
 
@@ -1332,6 +1335,17 @@ function DialogMenuButtonClick() {
 				if (DialogItemPermissionMode) ChatRoomCharacterUpdate(Player);
 				if ((StruggleProgressStruggleCount >= 50) && (StruggleProgressChallenge > 6) && (StruggleProgressAuto < 0) && (StruggleProgress > 0)) ChatRoomStimulationMessage("StruggleFail");
 				DialogLeaveItemMenu();
+				return;
+			}
+
+			// Activity Cancel - Switch back to managing restraints
+			else if (DialogMenuButton[I] == "ActivityCancel") {
+				DialogActivityMode = false;
+				DialogMenuButton = [];
+				DialogInventoryOffset = 0;
+				DialogTextDefault = "";
+				DialogTextDefaultTimer = 0;
+				DialogMenuButtonBuild(C);
 				return;
 			}
 
@@ -2033,6 +2047,10 @@ function DialogDrawActivityMenu(C) {
 		}
 	}
 
+	// Show the no activities text
+	if (DialogActivity.length === 0) {
+		DrawText(DialogFindPlayer("ZoneNoActivities").replace("GroupName", SelectedGroup.toLowerCase()), 1500, 700, "White", "Black");
+	}
 }
 
 /**
@@ -2285,8 +2303,12 @@ function DialogDraw() {
 			CommonDynamicFunction("Inventory" + DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Draw()");
 			DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png");
 		} else {
-			if (DialogActivityMode) DialogDrawActivityMenu(C);
-			else DialogDrawItemMenu(C);
+			if (DialogActivityMode) {
+				DialogBuildActivities(C);
+				DialogDrawActivityMenu(C);
+			} else {
+				DialogDrawItemMenu(C);
+			}
 		}
 
 		// Draw a repositioning button if some zones are offscreen
