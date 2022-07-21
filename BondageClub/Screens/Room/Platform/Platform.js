@@ -125,6 +125,9 @@ var PlatformTemplate = [
 		Health: 14,
 		HealthPerLevel: 3,
 		Projectile: 15,
+		ProjectileName: "Arrow",
+		ProjectileType: "Wood",
+		ProjectileDamage: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 		HitBox: [0.43, 0.07, 0.57, 1],
 		JumpHitBox: [0.43, 0.07, 0.57, 0.7],
 		RunSpeed: 21,
@@ -1223,7 +1226,7 @@ function PlatformDrawBackground() {
 	}
 	if ((PlatformPlayer.ProjectileAim == null) && PlatformMoveActive("Aim")) PlatformPlayer.ProjectileAim = CommonTime();
 	if (PlatformPlayer.ProjectileAim != null) {
-		let Progress = (CommonTime() - PlatformPlayer.ProjectileAim) / 20;
+		let Progress = (CommonTime() - PlatformPlayer.ProjectileAim) / (PlatformPlayer.ProjectileTime / 50);
 		if (Progress > 100) Progress = 100;
 		DrawProgressBar(200, 60, 180, 40, Progress, (Progress >= 100) ? "#00FF00" : (Progress >= 50) ? "#FFFF00" : "#FF0000", "#000000");
 	}
@@ -1301,6 +1304,7 @@ function PlatformDrawCharacter(C, Time) {
 	C.Health = C.MaxHealth;
 	C.Magic = C.MaxMagic;
 	C.Projectile = C.MaxProjectile;
+	if (C.MaxProjectile != null) C.ProjectileTime = (PlatformHasPerk(C, "Celerity")) ? 800 : 1000;
 }
 
 /**
@@ -1542,9 +1546,51 @@ function PlatformAnimAvailable(C, AnimationName) {
 function PlatformCreateProjectile(Name, Type, FaceLeft, X, Y, Force, Damage) {
 	let Proj = PlatformCreateCharacter(Name, Type, X, false, true, null, FaceLeft, null);
 	Proj.Y = PlatformFloor - Y;
-	Proj.Gravity = 0.333;
+	Proj.IsProjectile = true;
+	Proj.Gravity = 0.25;
 	Proj.CollisionDamage = Damage;
 	Proj.ProjectileForce = Force * (FaceLeft ? -1 : 1);
+}
+
+/**
+ * Calculates the projectiles
+ * @param {Number} Time - The current time stamp of the frame
+ * @returns {void} - Nothing
+ */
+function PlatformProcessProjectile(Time) {
+
+	// First, we remove projectiles that hit a wall or the floor
+	for (let C = 0; C < PlatformChar.length; C++)
+		if ((PlatformChar[C].IsProjectile != null) && (PlatformChar[C].IsProjectile == true)) {
+			let Remove = false;
+			if (PlatformChar[C].Y == PlatformFloor) Remove = true;
+			else if (PlatformChar[C].X <= 100) Remove = true;
+			else if (PlatformChar[C].X >= PlatformRoom.Width - 100) Remove = true;
+			else if ((PlatformChar[C].LimitLeft != null) && (PlatformChar[C].X <= PlatformChar[C].LimitLeft)) Remove = true;
+			else if ((PlatformChar[C].LimitRight != null) && (PlatformChar[C].X >= PlatformChar[C].LimitRight)) Remove = true;
+			if (Remove) {
+				PlatformChar.splice(C, 1);
+				C--;
+			} 
+		}
+
+	// Second, we remove projectiles that hit a target, applying damage
+	for (let C = 0; C < PlatformChar.length; C++)
+		if ((PlatformChar[C].IsProjectile != null) && (PlatformChar[C].IsProjectile == true) && (PlatformChar[C].CollisionDamage != null) && (PlatformChar[C].CollisionDamage > 0)) {
+			let Remove = false;
+			let Source = PlatformChar[C];
+			for (let Target of PlatformChar)
+				if ((Source.ID != Target.ID) && (Target.Health > 0) && !Remove && Target.Combat && ((Target.Immunity == null) || (Target.Immunity < Time)))
+					if (PlatformHitBoxClash(Source, Target, Source.HitBox)) {
+						PlatformDamage(Source, Target, Source.CollisionDamage, Time, "Collision");
+						Remove = true;
+					}
+			if (Remove) {
+				PlatformChar.splice(C, 1);
+				C--;
+			} 
+		}
+
 }
 
 /**
@@ -1616,9 +1662,12 @@ function PlatformDraw() {
 
 		// Fires a projectile if the aim was on
 		if ((C.ProjectileAim != null) && !PlatformMoveActive("Aim")) {
-			if (PlatformTime - C.ProjectileAim >= 1000) {
+			if (PlatformTime - C.ProjectileAim >= C.ProjectileTime) {
 				C.Projectile--;
-				PlatformCreateProjectile("Arrow", "Wood", C.FaceLeft, C.X + ((C.FaceLeft) ? -200 : 200), C.Height * 0.8, (PlatformTime - C.ProjectileAim >= 2000) ? 60 : 40, 2);
+				let Damage = PlatformPlayer.ProjectileDamage[PlatformPlayer.Level];
+				if ((Damage == null) || (Damage < 1)) Damage = 1;
+				if (PlatformHasPerk(C, "Archery")) Damage++;
+				PlatformCreateProjectile(C.ProjectileName, C.ProjectileType, C.FaceLeft, C.X + ((C.FaceLeft) ? -200 : 200), C.Height * 0.8, (PlatformTime - C.ProjectileAim >= C.ProjectileTime * 2) ? 60 : 36, Damage);
 			}
 			C.ProjectileAim = null;
 		}
@@ -1684,8 +1733,8 @@ function PlatformDraw() {
 		let Crouch = (C.Camera && PlatformMoveActive("Crouch"));
 		if ((C.Health <= 0) && C.Bound) C.Anim = PlatformGetAnim(C, "Bound");
 		else if (C.Health <= 0) C.Anim = PlatformGetAnim(C, "Wounded");
-		else if ((C.ProjectileAim != null) && (PlatformTime - C.ProjectileAim < 1000)) C.Anim = PlatformGetAnim(C, "Aim");
-		else if ((C.ProjectileAim != null) && (PlatformTime - C.ProjectileAim < 2000)) C.Anim = PlatformGetAnim(C, "AimReady");
+		else if ((C.ProjectileAim != null) && (PlatformTime - C.ProjectileAim < C.ProjectileTime)) C.Anim = PlatformGetAnim(C, "Aim");
+		else if ((C.ProjectileAim != null) && (PlatformTime - C.ProjectileAim < C.ProjectileTime * 2)) C.Anim = PlatformGetAnim(C, "AimReady");
 		else if (C.ProjectileAim != null) C.Anim = PlatformGetAnim(C, "AimFull");
 		else if (PlatformActionIs(C, "Any")) C.Anim = PlatformGetAnim(C, C.Action.Name, false);
 		else if (C.Y != PlatformFloor) C.Anim = PlatformGetAnim(C, "Jump");
@@ -1722,6 +1771,9 @@ function PlatformDraw() {
 
 	// Does collision damage for the player
 	PlatformCollisionDamage(PlatformPlayer, PlatformTime);
+
+	// Process the projectiles damage & life spawn
+	PlatformProcessProjectile(PlatformTime);
 
 	// Draws the UpArrow
 	if (PlatformDrawUpArrow[0] != null || PlatformDrawUpArrow[1] != null) {
