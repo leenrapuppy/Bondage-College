@@ -124,6 +124,7 @@ var PlatformTemplate = [
 		Height: 400,
 		Health: 14,
 		HealthPerLevel: 3,
+		Projectile: 15,
 		HitBox: [0.43, 0.07, 0.57, 1],
 		JumpHitBox: [0.43, 0.07, 0.57, 0.7],
 		RunSpeed: 21,
@@ -145,6 +146,7 @@ var PlatformTemplate = [
 			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 60 },
 			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 100 },
 			{ Name: "Stun", Cycle: [0], Speed: 1000 },
+			{ Name: "Aim", Cycle: [0], Speed: 1000 },
 			{ Name: "StandAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], Speed: 15 },
 			{ Name: "CrouchAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], Speed: 20 },
 			{ Name: "Backflip", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], Speed: 16 },
@@ -948,6 +950,7 @@ function PlatformCreateCharacter(CharacterName, StatusName, X, Fix  = null, Comb
 	NewChar.Level = 1;
 	NewChar.BaseHealth = NewChar.Health;
 	NewChar.BaseMagic = NewChar.Magic;
+	NewChar.BaseProjectile = NewChar.Projectile;
 	PlatformSetHealth(NewChar);
 	if (Fix != null) NewChar.Fix = Fix;
 	if (Combat != null) NewChar.Combat = Combat;
@@ -1196,9 +1199,21 @@ function PlatformDrawBackground() {
 		DrawProgressBar(10, 110, 180, 40, (CommonTime() - PlatformPlayer.Action.Start) / (PlatformPlayer.Action.Expire - PlatformPlayer.Action.Start) * 100, "White", "Black");
 	else if ((PlatformPlayer.Health <= 0) && !PlatformPlayer.Bound && (PlatformPlayer.RiseTime != null) && (PlatformPlayer.RiseTime >= CommonTime()))
 		DrawProgressBar(10, 110, 180, 40, 100 - ((PlatformPlayer.RiseTime - CommonTime()) / 100), "White", "Black");
+
+	// Draws the magic or projectile reserve
 	if ((PlatformPlayer.MaxMagic != null) && (PlatformPlayer.MaxMagic > 0) && PlatformHasPerk(PlatformPlayer, "Apprentice")) {
 		DrawProgressBar(200, 10, 180, 40, PlatformPlayer.Magic / PlatformPlayer.MaxMagic * 100, "#0000B0", "#000000");
 		DrawText(PlatformPlayer.Magic.toString(), 290, 32, "White", "Black");	
+	}
+	if ((PlatformPlayer.MaxProjectile != null) && (PlatformPlayer.MaxProjectile > 0)) {
+		DrawProgressBar(200, 10, 180, 40, PlatformPlayer.Projectile / PlatformPlayer.MaxProjectile * 100, "#808000", "#000000");
+		DrawText(PlatformPlayer.Projectile.toString(), 290, 32, "White", "Black");	
+	}
+	if ((PlatformPlayer.ProjectileAim == null) && PlatformMoveActive("Aim")) PlatformPlayer.ProjectileAim = CommonTime();
+	if (PlatformPlayer.ProjectileAim != null) {
+		let Progress = (CommonTime() - PlatformPlayer.ProjectileAim) / 20;
+		if (Progress > 100) Progress = 100;
+		DrawProgressBar(200, 60, 180, 40, Progress, (Progress >= 100) ? "#00FF00" : (Progress >= 50) ? "#FFFF00" : "#FF0000", "#000000");
 	}
 
 	// Clears the past cooldowns
@@ -1265,12 +1280,15 @@ function PlatformDrawCharacter(C, Time) {
  function PlatformSetHealth(C) {
 	C.MaxHealth = C.BaseHealth;
 	C.MaxMagic = C.BaseMagic;
+	C.MaxProjectile = C.BaseProjectile;
 	if (C.HealthPerLevel != null) C.MaxHealth = C.MaxHealth + C.HealthPerLevel * C.Level;
 	if (C.MagicPerLevel != null) C.MaxMagic = C.MaxMagic + C.MagicPerLevel * C.Level;
 	C.MaxHealth = Math.round(C.MaxHealth * (1 + ((PlatformHasPerk(C, "Healthy") ? 0.1 : 0) + (PlatformHasPerk(C, "Robust") ? 0.15 : 0))));
 	if (C.MaxMagic != null) C.MaxMagic = Math.round(C.MaxMagic * (1 + ((PlatformHasPerk(C, "Magician") ? 0.1 : 0) + (PlatformHasPerk(C, "Witch") ? 0.15 : 0))));
+	if ((C.MaxProjectile != null) && PlatformHasPerk(C, "Capacity")) C.MaxProjectile = C.MaxProjectile + 5;
 	C.Health = C.MaxHealth;
 	C.Magic = C.MaxMagic;
+	C.Projectile = C.MaxProjectile;
 }
 
 /**
@@ -1466,6 +1484,13 @@ function PlatformMoveActive(Move) {
 	if ((Move == "Jump") && ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerA].pressed) return true;
 	if ((Move == "Jump") && CommonTouchActive(1850, 750, 100, 100)) return true;
 
+	// Aiming requires holding the K key for a set time, only for Edlaran if she has arrows left
+	if ((Move == "Aim") && (PlatformPlayer.ForceX == 0) && (PlatformPlayer.ForceY == 0) && (PlatformPlayer.Name == "Edlaran") && (PlatformPlayer.Projectile != null) && (PlatformPlayer.Projectile > 0)) {
+		if ((PlatformKeys.indexOf(75) >= 0) || (PlatformKeys.indexOf(107) >= 0)) return true;
+		if (ControllerActive && (PlatformButtons != null) && PlatformButtons[ControllerX].pressed) return true;
+		if (CommonTouchActive(1750, 750, 100, 100)) return true;
+	}
+
 	// Blocking can be done using I, but you need to get the perk first
 	if ((Move == "Block") && (PlatformPlayer.ForceX == 0) && PlatformHasPerk(PlatformPlayer, "Block")) {
 		if ((PlatformKeys.indexOf(73) >= 0) || (PlatformKeys.indexOf(105) >= 0)) return true;
@@ -1558,6 +1583,14 @@ function PlatformDraw() {
 	// Draw each characters
 	for (let C of PlatformChar) {
 
+		// Fires a projectile if the aim was on
+		if ((C.ProjectileAim != null) && !PlatformMoveActive("Aim")) {
+			if (PlatformTime - C.ProjectileAim >= 1000) {
+				C.Projectile--;
+			}
+			C.ProjectileAim = null;
+		}
+
 		// Enemies will stand up at half health if they were not restrained
 		if ((C.Health == 0) && (C.RiseTime != null) && (C.RiseTime < PlatformTime) && !C.Bound)
 			C.Health = Math.round(C.MaxHealth / 4);
@@ -1565,6 +1598,7 @@ function PlatformDraw() {
 		// Heal the character
 		if (MustHeal && (C.Health > 0) && (C.Health < C.MaxHealth)) C.Health++;
 		if (MustHeal && (C.Magic != null) && (C.MaxMagic != null) && (C.MaxMagic > 0) && (C.Magic < C.MaxMagic)) C.Magic++;
+		if (MustHeal && (C.Projectile != null) && (C.MaxProjectile != null) && (C.MaxProjectile > 0) && (C.Projectile < C.MaxProjectile)) C.Projectile++;
 
 		// AI walks from left to right
 		if (!C.Camera && (C.Health > 0) && !C.Fix) {
@@ -1618,6 +1652,7 @@ function PlatformDraw() {
 		let Crouch = (C.Camera && PlatformMoveActive("Crouch"));
 		if ((C.Health <= 0) && C.Bound) C.Anim = PlatformGetAnim(C, "Bound");
 		else if (C.Health <= 0) C.Anim = PlatformGetAnim(C, "Wounded");
+		else if (C.ProjectileAim) C.Anim = PlatformGetAnim(C, "Aim");
 		else if (PlatformActionIs(C, "Any")) C.Anim = PlatformGetAnim(C, C.Action.Name, false);
 		else if (C.Y != PlatformFloor) C.Anim = PlatformGetAnim(C, "Jump");
 		else if ((C.ForceX != 0) && Crouch) C.Anim = PlatformGetAnim(C, "Crawl");
