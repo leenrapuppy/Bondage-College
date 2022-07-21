@@ -27,7 +27,7 @@ Black
 0
 0
 The game is over!  TeamName team wins.  Enjoy your spoils of war.
-游戏结束了！TeamName队获胜。享用你们的战利品吧！
+游戏结束！TeamName队胜利。享用你们的战利品吧！
 TargetName (TargetNumber) plays first and starts the game.
 TargetName(TargetNumber)最先行动，并开始了游戏。
 The turn is skipped.  TargetName (TargetNumber) plays.
