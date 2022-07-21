@@ -48,8 +48,6 @@ function ActivityDictionaryLoad() {
 				ActivityTranslate(TranslationPath);
 			}
 		});
-
-	ActivityTranslate(TranslationPath);
 }
 
 /**

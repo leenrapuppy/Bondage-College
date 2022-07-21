@@ -35,7 +35,6 @@ function OnlneGameDictionaryLoad() {
 				}
 					
 			});
-		OnlineGameTranslate(TranslationPath);
 	}
 }
 function OnlineGameTranslate(CachePath) {
