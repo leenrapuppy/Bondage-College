@@ -3,26 +3,26 @@
 (你可以选择身体的特定部位来使用或移除物品)
 ###_PLAYER
 (View your profile.)
-(查看你的资料。)
+(查看你的资料)
 (Change your clothes.)
-(更换你的衣服。)
+(更换你的衣服)
 (Room administrator action.)
 (房间管理员动作)
 ###_NPC
 (As a room administrator, you can take these actions.)
-(作为一个房间管理员,你可以做以下动作)
+(作为房间管理员，你可以做以下动作)
 ###_PLAYER
 (Character actions.)
-(角色动作。)
+(角色动作)
 ###_NPC
 (Possible character actions.)
-(可选的角色动作。)
+(可选的角色动作)
 ###_PLAYER
 (Spend GGTS minutes.)
-(花费GGTS分钟。)
+(花费GGTS分钟)
 ###_NPC
 (Select how to spend your minutes.)
-(选择如何花费你的分钟。)
+(选择如何花费你的分钟)
 ###_PLAYER
 (View your current rules.)
 (查看你目前的规则)
@@ -41,33 +41,33 @@
 (Back to main menu.)
 (回到主菜单.)
 (Spend 15 minutes for a bondage position change.)
-(花费15分钟，改变束缚姿势。)
+(花费15分钟，改变束缚姿势)
 ###_NPC
 (You don't have enough minutes available.)
-(你没有足够的可花费分钟。)
+(你没有足够的可花费分钟)
 ###_PLAYER
 (Spend 15 minutes for a new blindness level.)
-(花费15分钟，改变遮眼等级。)
+(花费15分钟，改变遮眼等级)
 (Spend 15 minutes for a new deafness level.)
-(花费15分钟，改变塞耳等级。)
+(花费15分钟，改变塞耳等级)
 (Spend 15 minutes for an sexual intensity change.)
-(花费15分钟，改变性刺激强度。)
+(花费15分钟，改变性刺激强度)
 (Spend 15 minutes for a sexual intensity change.)
-(花费15分钟，改变性刺激强度。)
+(花费15分钟，改变性刺激强度)
 (Spend 30 minutes to unlock the door.)
-(花费30分钟，解锁房间。)
+(花费30分钟，解锁房间)
 ###_NPC
 (You must have 30 minutes and be the admistrator of the locked room.)
 (你必须有30分钟，并且需要是被锁住房间的管理员。)
 ###_PLAYER
 (Spend 120 minutes to get $100.)
-(花费120分钟，获得$100。)
+(花费120分钟，获得$100)
 ###_NPC
 (GGTS gives you $100 and substracts 120 minutes to your total.)
-(GGTS给了你$100，并从你的总分钟中减少了120分钟。)
+(GGTS给了你$100，并从你的总分钟中减少了120分钟)
 ###_PLAYER
 (Spend 200 minutes to get your own GGTS helmet.)
-(花费200分钟，得到你自己的GGTS头盔。)
+(花费200分钟，得到你自己的GGTS头盔)
 ###_NPC
 (You get a GGTS helmet and the AI substracts 200 minutes from your total.)
 （你获得了一个GGTS头盔，AI从你的GGTS分钟代币中减去了200分钟）
@@ -540,7 +540,7 @@ Pump gag level: Light
 Pump gag level: Inflated
 充气口塞等级: 中
 Pump gag level: Bloated
-充气口塞等级: 大多
+充气口塞等级: 多
 Pump gag level: Full mouth
 充气口塞等级: 满
 Empty

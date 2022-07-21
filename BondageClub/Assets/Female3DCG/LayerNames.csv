@@ -564,7 +564,7 @@ ItemNeckRestraintsPetPostPole,Pole
 ItemNeckRestraintsPetPostPlaque,Plaque
 ItemNeckRestraintsPetPostPlaqueBorder,PlaqueBorder
 ItemNeckRestraintsPetPostPostit,Postit
-ItemNeckRestraintsPetPostPaw,Paw
+ItemNeckRestraintsPetPostPaw,Sticker
 ItemNeckRestraintsPetPostPlaqueBolts,PlaqueBolts
 ItemNeckRestraintsPetPostLeash,Leash
 ItemNeckRestraintsPetPostRope,Rope
@@ -1177,6 +1177,8 @@ ItemHeadFrilledSleepMaskMask,Mask
 ItemHeadFuturisticMaskDisplay,Tint
 ItemHeadFuturisticMaskText,HUD
 ItemHeadFuturisticMaskLock,Lock Icon
+ItemHeadStitchesStraight,Thread Right
+ItemHeadStitchesStraight2,Thread Left
 ClothAccessoryBunnyCollarCuffsCuffs,Cuffs
 ClothAccessoryBunnyCollarCuffsCollar,Collar
 ClothAccessoryBunnyCollarCuffsBow,Bow
@@ -1224,3 +1226,5 @@ GlassesVGlassesFrame,Frame
 GlassesVGlassesGlass,Lenses
 GlassesGradientSunglassesFrame,Frame
 GlassesGradientSunglassesGlass,Glass
+GlovesBikerGlovesHands,Gloves
+GlovesBikerGlovesStraps,Straps

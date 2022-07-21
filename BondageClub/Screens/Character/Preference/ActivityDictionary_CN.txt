@@ -949,7 +949,7 @@ SourceCharacter咬了一口TargetCharacter的乳房.
 SourceCharacter kisses TargetCharacter's breast.
 SourceCharacter亲吻TargetCharacter的乳房.
 SourceCharacter presses her gag to TargetCharacter's breast.
-SourceCharacter把她的口塞按向TargetCharacter乳房。
+SourceCharacter把她的口塞按向TargetCharacter的乳房。
 SourceCharacter licks TargetCharacter's breast.
 SourceCharacter舔弄TargetCharacter的乳房.
 SourceCharacter tickles TargetCharacter's breast.
@@ -1147,9 +1147,9 @@ SourceCharacter拉扯自己的头发.
 SourceCharacter pets herself on the head.
 SourceCharacter摸了摸自己的头.
 SourceCharacter shakes her head.
-SourceCharacter摇头.
+SourceCharacter摇头
 SourceCharacter nods.
-SourceCharacter点头.
+SourceCharacter点头
 SourceCharacter kisses TargetCharacter on the forehead.
 SourceCharacter亲吻TargetCharacter的额头.
 SourceCharacter gives a gagged kiss on TargetCharacter's forehead.
