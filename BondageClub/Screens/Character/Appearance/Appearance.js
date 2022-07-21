@@ -382,7 +382,8 @@ function CharacterAppearanceVisible(C, AssetName, GroupName, Recursive = true) {
 	for (const item of C.DrawAppearance) {
 		if (CharacterAppearanceItemIsHidden(item.Asset.Name, item.Asset.Group.Name)) continue;
 		let HidingItem = false;
-		const HideItemExclude = InventoryGetItemProperty(item, "HideItemExclude");
+		let HideItemExclude = InventoryGetItemProperty(item, "HideItemExclude");
+		if (HideItemExclude == null) HideItemExclude = [];
 		const Excluded = HideItemExclude.includes(GroupName + AssetName);
 		if ((item.Asset.Hide != null) && (item.Asset.Hide.indexOf(GroupName) >= 0) && !Excluded) HidingItem = true;
 		else if (!Excluded && item.Asset.HideItemAttribute.length && assetToCheck && assetToCheck.Attribute.length) {
