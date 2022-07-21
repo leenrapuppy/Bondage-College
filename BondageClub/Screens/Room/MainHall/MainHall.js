@@ -163,7 +163,7 @@ function MainHallRun() {
 		if (Player.ImmersionSettings && Player.LastChatRoom && (Player.LastChatRoom != "") && (AsylumGGTSGetLevel(Player) <= 5) && ((MainHallMaid === null) || (MainHallMaid.Stage === "0"))) {
 			if (MainHallFirstFrame) {
 				if (Player.ImmersionSettings.ReturnToChatRoom) {
-					ChatRoomStart("", "", "MainHall", "Introduction", BackgroundsTagList);
+					ChatRoomStart(Player.LastChatRoomSpace, "", "MainHall", "Introduction", BackgroundsTagList);
 					return;
 				} else ChatRoomSetLastChatRoom("");
 			} else MainHallFirstFrame = true;
