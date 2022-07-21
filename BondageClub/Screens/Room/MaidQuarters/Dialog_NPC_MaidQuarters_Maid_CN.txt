@@ -172,7 +172,7 @@ Tell me about the club.
 请和我讲讲俱乐部。
 ###_NPC
 The Bondage Club has a long history.  It was a secret club back then when BDSM was taboo and forbidden.
-捆绑俱乐部已经存在了很长一段时间了。因为以前BDSM是被禁止的，所以俱乐部一直保持着秘密的状态。
+束缚俱乐部已经存在了很长一段时间了。因为以前BDSM是被禁止的，所以俱乐部一直保持着秘密的状态。
 ###_PLAYER
 As head maid, I have a task for you.
 作为女仆长，我有个任务给你。
@@ -346,7 +346,7 @@ Restrain me?  I'm already naked.  Isn't that enough?
 绑我？我已经脱光了欸！这还不够吗！？
 ###_NPC
 You're in the Bondage Club sweetie, it's a regular initiation.
-你现在可是在捆绑俱乐部欸亲爱的，这可是基础操作。
+你现在可是在束缚俱乐部欸亲爱的，这可是基础操作。
 ###_PLAYER
 Very well.  (Allow them to restrain you.)
 那行吧（让他们拘束你）
@@ -610,7 +610,7 @@ Wait!  Restrain me?  Why?
 等等？！绑我干嘛？
 ###_NPC
 You're in the Bondage Club sweetie.  Waitresses need to be restrained.
-孩子你这是在捆绑俱乐部，这里的服务生都得被好好绑着❤~
+孩子你这是在束缚俱乐部，这里的服务生都得被好好绑着❤~
 ###_PLAYER
 Very well Miss.  (Blush and allow her to restrain you.)
 好吧女士。（脸红，但是让她继续绑你）
