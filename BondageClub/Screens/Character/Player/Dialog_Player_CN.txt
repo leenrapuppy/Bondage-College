@@ -2400,7 +2400,7 @@ DestinationCharacterName腿部束缚现在可以被任何人更改。
 DestinationCharacterName leg bindings now can't be changed while locked.
 DestinationCharacterName腿部束缚现在被锁定时不能被更改。
 Block remotes on the wearer
-阻止对穿戴者使用遥控器
+阻止穿戴者的遥控器
 DestinationCharacterName vibrator remotes are now locked.
 DestinationCharacterName振动玩具模式现在被锁定。
 DestinationCharacterName vibrator remotes are now unlocked.

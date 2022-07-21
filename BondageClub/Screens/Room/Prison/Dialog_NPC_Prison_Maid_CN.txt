@@ -54,7 +54,7 @@ What kind of test is it?
 这是什么样的测试？
 ###_NPC
 (She shoves you into a cell and closes the door.)
-（她把你推进一个牢房并关上；额门。）
+（她把你推进一个牢房并关上了门。）
 ###_PLAYER
 I heard something about a gang of bad girls?
 我听说了一些关于坏女孩帮的事情？
