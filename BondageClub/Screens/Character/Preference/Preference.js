@@ -449,6 +449,7 @@ function PreferenceInitPlayer() {
 	if (!C.LastChatRoomAdmin) C.LastChatRoomAdmin = [];
 	if (!C.LastChatRoomBan) C.LastChatRoomBan = [];
 	if (!C.LastChatRoomBlockCategory) C.LastChatRoomBlockCategory = [];
+	if (typeof C.LastChatRoomSpace !== "string") C.LastChatRoomSpace = "";
 
 	// Restriction settings
 	// @ts-ignore: Individual properties validated separately
