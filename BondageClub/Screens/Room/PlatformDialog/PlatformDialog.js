@@ -979,7 +979,7 @@ var PlatformDialogData = [
 			{ Text: "You're a shuper... friend.  (She hugs you some more.)" },
 			{ Text: "How about I (She hiccups.) repay you now?  I'll help you in bottles." },
 			{ Text: "Gimme a minute to shober up and I'll fight for you." },
-			{ Text: "(Edlaran joined your party.  She not fully coded yet, she will be ready in a future version of the game.)" },
+			{ Text: "(Edlaran joined your party.  You can switch your active character at any save point.)" },
 			{ Entry: function() { PlatformEventSet("EdlaranJoin"); PlatformPartyBuild(); PlatformLoadRoom(); PlatformDialogLeave(); } },
 			{ ID: "End", Text: "Drinking ish fun, but we have important shtuff to... do." },
 			{ Text: "Shee you later Meldy.  I'll repay you some (She hiccups.) day." },
@@ -1156,7 +1156,7 @@ var PlatformDialogData = [
 			{ Text: "(Darkness fades after a few seconds.)", Background: "BedroomOlivia" },
 			{ Text: "It was faster than the previous time.  Is that a good sign?" },
 			{ Text: "Let's go check for Camille.  I'm worried for her." },
-			{ Text: "(Olivia joined your party.  You can switch your active character when you can save.)" },
+			{ Text: "(Olivia joined your party.  You can switch your active character at any save point.)" },
 		]
 	},
 
