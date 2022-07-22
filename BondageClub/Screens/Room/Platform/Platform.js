@@ -1324,6 +1324,25 @@ function PlatformAddExperience(C, Value) {
 }
 
 /**
+ * Some perks allow the player to steal items from bound ennemies 
+ * @param {Object} C - The character that will gain experience
+ * @param {Number} Value - The experience value to factor the quantity
+ * @returns {void} - Nothing
+ */
+function PlatformSteal(C, Value) {
+	if ((C == null) || (Value == null) || (Value <= 0)) return;
+	if (PlatformHasPerk(C, "Thief") && (C.Projectile != null) && (C.MaxProjectile != null)) {
+		let Qty = Math.floor(Math.random() * (Value + 1));
+		C.Projectile = C.Projectile + Qty;
+		if (C.Projectile > C.MaxProjectile) C.Projectile = C.MaxProjectile;
+	}
+	if (PlatformHasPerk(C, "Burglar")) {
+		let Money = Math.floor(Math.random() * (Value + 1));
+		if (Money > 0) CharacterChangeMoney(Player, Money);
+	}
+}
+
+/**
  * Applies damage on a target, can become wounded at 0 health
  * @param {Object} Source - The character doing the damage
  * @param {Object} Target - The character getting the damage
@@ -1710,6 +1729,7 @@ function PlatformDraw() {
 				for (let Target of PlatformChar)
 					if (Target.ID == C.Action.Target) {
 						PlatformAddExperience(C, Target.ExperienceValue);
+						PlatformSteal(C, Target.ExperienceValue);
 						if (Target.OnBind != null) Target.OnBind();
 						Target.Bound = true;
 					}
@@ -1914,7 +1934,7 @@ function PlatformBindStart(Source) {
 		if ((Source.ID != C.ID) && (C.Bound == null) && (C.Status != "Bound") && (C.Health == 0) && (Math.abs(Source.X - C.X + (Source.FaceLeft ? -75 : 75)) < 150) && (Math.abs(Source.Y - C.Y) < 150) && (Source.Y == PlatformFloor)) {
 			C.RiseTime = CommonTime() + 10000;
 			Source.ForceX = 0;
-			Source.Action = { Name: "Bind", Target: C.ID, Start: CommonTime(), Expire: CommonTime() + 2000 };
+			Source.Action = { Name: "Bind", Target: C.ID, Start: CommonTime(), Expire: CommonTime() + (PlatformHasPerk(PlatformPlayer, "Kidnapper") ? 1200 : 2400)};
 			return;
 		}
 }
