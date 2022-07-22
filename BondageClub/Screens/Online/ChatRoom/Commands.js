@@ -79,7 +79,7 @@ function CommandParse(msg) {
 			// Regular chat can be prevented with an owner presence rule
 			if (!ChatRoomOwnerPresenceRule("BlockTalk", null)) {
 				ServerSend("ChatRoomChat", { Content: msg, Type: "Chat" });
-				ChatRoomStimulationMessage("Gag");
+				ChatRoomStimulationMessage("Talk");
 			}
 		} else {
 			// The whispers get sent to the server and shown on the client directly
