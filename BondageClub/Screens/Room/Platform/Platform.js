@@ -401,7 +401,33 @@ var PlatformTemplate = [
 			PlatformDialogStart("CamilleDefeat");
 			PlatformLoadRoom();
 		}
-	}
+	},
+	{
+		Name: "Vera", // MMD Z: 41.00
+		Status: "Leather",
+		Health: 31,
+		Width: 400,
+		Height: 400,
+		HitBox: [0.4, 0.05, 0.6, 1],
+		RunSpeed: 18,
+		WalkSpeed: 12,
+		CrawlSpeed: 6,
+		CollisionDamage: 4,
+		ExperienceValue: 6,
+		RunOdds: 0.0004,
+		DamageBackOdds: 0.5,
+		DamageFaceOdds: 0.5,
+		DamageKnockForce: 40,
+		Animation: [
+			{ Name: "Idle", Cycle: [0], Speed: 150 },
+			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], Speed: 40 },
+			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], Speed: 30 },
+			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 130 },
+			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 120 },
+			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
+			{ Name: "Stun", Cycle: [0], Speed: 1000 }
+		]
+	},
 
 ];
 
@@ -944,6 +970,9 @@ var PlatformRoomList = [
 		Height: 1400,
 		Door: [
 			{ Name: "ForestCabinPath", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3700, ToFaceLeft: true },
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 2100 }
 		]
 	},
 

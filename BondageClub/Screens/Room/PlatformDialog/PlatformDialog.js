@@ -1646,6 +1646,21 @@ var PlatformDialogData = [
 			{ Text: "Well, well, well, who dares to enter our forest?" },
 			{ Text: "(She looks at Olivia carefully.)" },
 			{ Text: "Wait... aren't you some kind of royalty?" },
+			{ 
+				Text: "You're the Countess daughter!",
+				Character: [
+					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive" }
+				],
+				Answer: [
+					{ Text: "You're mistaken.", Reply: "I'm not mistaken at all." },
+					{ Text: "Get lost or you'll get hurt.", Reply: "You think a maid can scare me?" },
+					{ Text: "Please don't give us trouble.", Reply: "You've set yourself in trouble." },
+				]
+			},
+			{ Text: "She will fetch a great ransom." },
+			{ Text: "Get her!  (The bandits attack you.)" },
 		]
 	},
 
