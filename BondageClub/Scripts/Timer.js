@@ -244,13 +244,6 @@ function TimerProcess(Timestamp) {
 		DrawRect(MouseX - 5, MouseY - 5, 10, 10, "Cyan");
 	}
 
-	if (BlindFlash == true && CurrentTime < DrawingBlindFlashTimer) {
-		if (Player.GetBlindLevel() == 0) {
-			let FlashTime = DrawingBlindFlashTimer - CurrentTime;
-			DrawRect(0, 0, 2000, 1000, "#ffffff" + DrawGetScreenFlash(FlashTime/Math.max(1, 4 - DrawLastDarkFactor)));
-		}
-	}
-
 	// Launches the main again for the next frame
 	requestAnimationFrame(MainRun);
 

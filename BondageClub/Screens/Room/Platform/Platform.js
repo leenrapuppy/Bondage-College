@@ -401,7 +401,33 @@ var PlatformTemplate = [
 			PlatformDialogStart("CamilleDefeat");
 			PlatformLoadRoom();
 		}
-	}
+	},
+	{
+		Name: "Vera", // MMD Z: 41.00
+		Status: "Leather",
+		Health: 31,
+		Width: 400,
+		Height: 400,
+		HitBox: [0.4, 0.05, 0.6, 1],
+		RunSpeed: 18,
+		WalkSpeed: 12,
+		CrawlSpeed: 6,
+		CollisionDamage: 4,
+		ExperienceValue: 6,
+		RunOdds: 0.0004,
+		DamageBackOdds: 0.5,
+		DamageFaceOdds: 0.5,
+		DamageKnockForce: 40,
+		Animation: [
+			{ Name: "Idle", Cycle: [0], Speed: 150 },
+			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], Speed: 40 },
+			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], Speed: 30 },
+			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 130 },
+			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 120 },
+			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
+			{ Name: "Stun", Cycle: [0], Speed: 1000 }
+		]
+	},
 
 ];
 
@@ -905,13 +931,14 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "ForestCabinPath",
-		Text: "Cabin Path (End of the game for now.)",
+		Text: "Cabin Path",
 		Background: "Forest/CabinPath",
 		Width: 3800,
 		Height: 1200,
 		Door: [
 			{ Name: "ForestVulture", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2100, ToFaceLeft: true },
-			{ Name: "ForestCabin", FromX: 2200, FromY: 0, FromW: 350, FromH: 1200, FromType: "Up", ToX: 250, ToFaceLeft: false }
+			{ Name: "ForestCabin", FromX: 2200, FromY: 0, FromW: 350, FromH: 1200, FromType: "Up", ToX: 250, ToFaceLeft: false },
+			{ Name: "ForestBirchWest", FromX: 3700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		]
 	},
 	{
@@ -929,6 +956,23 @@ var PlatformRoomList = [
 		Heal: 250,
 		Door: [
 			{ Name: "ForestCabinPath", FromX: 0, FromY: 0, FromW: 500, FromH: 1200, FromType: "Up", ToX: 2375, ToFaceLeft: false }
+		]
+	},
+	{
+		Name: "ForestBirchWest",
+		Entry: function() {
+			if (!PlatformEventDone("IntroForestBandit") && PlatformEventDone("EdlaranJoin")) PlatformDialogStart("IntroForestBanditEdlaran");
+			if (!PlatformEventDone("IntroForestBandit") && !PlatformEventDone("EdlaranJoin")) PlatformDialogStart("IntroForestBanditOlivia");
+		},
+		Text: "Birch Path West",
+		Background: "Forest/BirchLight",
+		Width: 3500,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestCabinPath", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3700, ToFaceLeft: true },
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 2100 }
 		]
 	},
 
@@ -1324,6 +1368,25 @@ function PlatformAddExperience(C, Value) {
 }
 
 /**
+ * Some perks allow the player to steal items from bound ennemies 
+ * @param {Object} C - The character that will gain experience
+ * @param {Number} Value - The experience value to factor the quantity
+ * @returns {void} - Nothing
+ */
+function PlatformSteal(C, Value) {
+	if ((C == null) || (Value == null) || (Value <= 0)) return;
+	if (PlatformHasPerk(C, "Thief") && (C.Projectile != null) && (C.MaxProjectile != null)) {
+		let Qty = Math.floor(Math.random() * (Value + 1));
+		C.Projectile = C.Projectile + Qty;
+		if (C.Projectile > C.MaxProjectile) C.Projectile = C.MaxProjectile;
+	}
+	if (PlatformHasPerk(C, "Burglar")) {
+		let Money = Math.floor(Math.random() * (Value + 1));
+		if (Money > 0) CharacterChangeMoney(Player, Money);
+	}
+}
+
+/**
  * Applies damage on a target, can become wounded at 0 health
  * @param {Object} Source - The character doing the damage
  * @param {Object} Target - The character getting the damage
@@ -1710,6 +1773,7 @@ function PlatformDraw() {
 				for (let Target of PlatformChar)
 					if (Target.ID == C.Action.Target) {
 						PlatformAddExperience(C, Target.ExperienceValue);
+						PlatformSteal(C, Target.ExperienceValue);
 						if (Target.OnBind != null) Target.OnBind();
 						Target.Bound = true;
 					}
@@ -1914,7 +1978,7 @@ function PlatformBindStart(Source) {
 		if ((Source.ID != C.ID) && (C.Bound == null) && (C.Status != "Bound") && (C.Health == 0) && (Math.abs(Source.X - C.X + (Source.FaceLeft ? -75 : 75)) < 150) && (Math.abs(Source.Y - C.Y) < 150) && (Source.Y == PlatformFloor)) {
 			C.RiseTime = CommonTime() + 10000;
 			Source.ForceX = 0;
-			Source.Action = { Name: "Bind", Target: C.ID, Start: CommonTime(), Expire: CommonTime() + 2000 };
+			Source.Action = { Name: "Bind", Target: C.ID, Start: CommonTime(), Expire: CommonTime() + (PlatformHasPerk(PlatformPlayer, "Kidnapper") ? 1200 : 2400)};
 			return;
 		}
 }
