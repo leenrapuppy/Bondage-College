@@ -54,9 +54,14 @@ var PlatformDialogCharacterTemplate = [
 		Name: "Lucy",
 		NickName: "Guard",
 		Color: "#6fd9d3",
-	}
-	
+	},
+	{
+		Name: "Vera",
+		NickName: "Forest Bandit",
+		Color: "#e38d00",
+	}	
 ];
+
 var PlatformDialogData = [
 	{
 		Name: "IntroMelody",
@@ -1573,6 +1578,74 @@ var PlatformDialogData = [
 				Character: [{ Name: "Edlaran", Status: "Archer", Pose: "Idle" }],
 				Text: "Let's rest while we can, we have a long journey ahead."
 			},
+		]
+	},
+
+	{
+		Name: "IntroForestBanditEdlaran",
+		Exit : function () { PlatformEventSet("IntroForestBandit"); },
+		Dialog: [
+			{
+				Background: "ForestBirchLight",
+				Character: [{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }]
+			},
+			{ Text: "(As you venture deeper in the woods, a shady lady jumps in front in you.)" },
+			{ Text: "You're finally back Edlaran.  I don't know why you're accompanied." },
+			{ Text: "How was the manor raid?  Any good loot to repay your debt?" },
+			{
+				Text: "Mmmmmh...  What?  Manor raid?  Loot?  Debt?  Do I know you?",
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" },
+					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }
+				]
+			},
+			{ 
+				Text: "I don't know what she's talking about.",
+				Answer: [
+					{ Text: "She's mistaken you for someone else.", Reply: "Exactly!  That peasant girl is confused.", Domination: -1, Love: 1 },
+					{ Text: "I think you know what's going on.", Reply: "(She shakes her head.)  That girl is delirious." },
+					{ Text: "You will be punished later Edlaran.", Reply: "(She bows her head and ponders for a few seconds.)", Domination: 2, Love: -1 },
+				]
+			},
+			{ Text: "We are on an official mission with her Highness Lady Olivia or Alberus!" },
+			{ Text: "Move out of the way or you'll get hurt." },
+			{ 
+				Text: "(She stares at your group.)",
+				Character: [{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }]
+			},
+			{ Text: "Lady Olivia you say?  Thanks for the tip, she would fetch a good ransom." },
+			{
+				Text: "What?  That wasn't a tip.",
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive" },
+					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }
+				],
+				Answer: [
+					{ Text: "She knows too much now.", Reply: "That's very true, we'll need to get rid of the bandits.", Love: 1 },
+					{ Text: "Edlaran, you're an idiot.", Reply: "That's not fair!  Damn it, let's get rid of the bandits.", Domination: 1, Love: -2 },
+					{ Text: "Oh my!  What do we do?.", Reply: "Don't stand there like a tree, we must get rid of the bandits.", Domination: -2 },
+					{ Text: "(Wink at Edlaran and flank the bandit.)", Reply: "(She winks back as you both flank her.)", Love: 2, Perk: true },
+				]
+			},
+			{ Text: "Attack!" },
+		]
+	},
+
+	{
+		Name: "IntroForestBanditOlivia",
+		Exit : function () { PlatformEventSet("IntroForestBandit"); },
+		Dialog: [
+			{
+				Background: "ForestBirchLight",
+				Character: [{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }]
+			},
+			{ Text: "(As you venture deeper in the woods, a shady lady jumps in front in you.)" },
+			{ Text: "Well, well, well, who dares to enter our forest?" },
+			{ Text: "(She looks at Olivia carefully.)" },
+			{ Text: "Wait... aren't you some kind of royalty?" },
 		]
 	},
 

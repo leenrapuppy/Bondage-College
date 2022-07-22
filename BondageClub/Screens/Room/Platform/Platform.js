@@ -934,6 +934,10 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "ForestBirchWest",
+		Entry: function() {
+			if (!PlatformEventDone("IntroForestBandit") && PlatformEventDone("EdlaranJoin")) PlatformDialogStart("IntroForestBanditEdlaran");
+			if (!PlatformEventDone("IntroForestBandit") && !PlatformEventDone("EdlaranJoin")) PlatformDialogStart("IntroForestBanditOlivia");
+		},
 		Text: "Birch Path West",
 		Background: "Forest/BirchLight",
 		Width: 3500,
