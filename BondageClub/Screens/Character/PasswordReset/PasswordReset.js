@@ -74,8 +74,7 @@ function PasswordResetClick() {
 	// Push a recovery request to the server
 	if ((MouseX >= 800) && (MouseX <= 1200) && (MouseY >= 180) && (MouseY <= 240)) {
 		var Email = ElementValue("InputEmail");
-		var E = /^[a-zA-Z0-9@.]+$/;
-		if (Email.match(E) && (Email.length >= 5) && (Email.length <= 100) && (Email.indexOf("@") > 0) && (Email.indexOf(".") > 0)) {
+		if (CommonEmailIsValid(Email)) {
 			ServerSend("PasswordReset", Email);
 			PasswordResetMessage = TextGet("QueryServer");
 		} else PasswordResetMessage = TextGet("InvalidEmail");
@@ -92,8 +91,7 @@ function PasswordResetClick() {
 		if (Password1 == Password2) {
 
 			// Validates the fields
-			var LN = /^[a-zA-Z0-9 ]+$/;
-			if (AccountName.match(LN) && ResetNumber.match(LN) && Password1.match(LN) && (AccountName.length > 0) && (AccountName.length <= 20) && (ResetNumber.length > 0) && (ResetNumber.length <= 20) && (Password1.length > 0) && (Password1.length <= 20)) {
+			if (AccountName.match(ServerAccountNameRegex) && ResetNumber.match(ServerAccountResetNumberRegex) && Password1.match(ServerAccountPasswordRegex)) {
 
 				// Sends the reset query to the server
 				var data = {

@@ -897,8 +897,7 @@ function LoginDoLogin() {
 	if (!LoginSubmitted && ServerIsConnected) {
 		var Name = ElementValue("InputName");
 		var Password = ElementValue("InputPassword");
-		var letters = /^[a-zA-Z0-9]+$/;
-		if (Name.match(letters) && Password.match(letters) && (Name.length > 0) && (Name.length <= 20) && (Password.length > 0) && (Password.length <= 20)) {
+		if (Name.match(ServerAccountPasswordRegex) && Password.match(ServerAccountPasswordRegex)) {
 			LoginSetSubmitted();
 			ServerSend("AccountLogin", { AccountName: Name, Password: Password });
 		} else LoginStatusReset("InvalidNamePassword");
