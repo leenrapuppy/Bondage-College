@@ -1797,12 +1797,10 @@ function CharacterNickname(C) {
 function CharacterSetNickname(C, Nick) {
 	if (!C.IsPlayer()) return null;
 
-	let Regex = /^[a-zA-Z\s]*$/;
-
 	Nick = Nick.trim();
 	if (Nick.length > 20) return "NicknameTooLong";
 
-	if (!Regex.test(Nick)) return "NicknameInvalidChars";
+	if (!ServerCharacterNicknameRegex.test(Nick)) return "NicknameInvalidChars";
 
 	if (C.Nickname != Nick) {
 		C.Nickname = Nick;
