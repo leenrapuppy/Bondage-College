@@ -1803,9 +1803,22 @@ function CharacterSetNickname(C, Nick) {
 	if (!ServerCharacterNicknameRegex.test(Nick)) return "NicknameInvalidChars";
 
 	if (C.Nickname != Nick) {
+		const oldNick = C.Nickname || C.Name;
 		C.Nickname = Nick;
 		if (C.IsPlayer()) {
 			ServerAccountUpdate.QueueData({ Nickname: Nick });
+		}
+
+		if (ServerPlayerIsInChatRoom()) {
+			// When in a chatroom, send a notification that the player updated their nick
+			const Dictionary = [
+				{ Tag: "SourceCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+				{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+				{ Tag: "OldNick", Text: oldNick },
+				{ Tag: "NewNick", Text: CharacterNickname(C) },
+			];
+
+			ServerSend("ChatRoomChat", { Content: "CharacterNicknameUpdated", Type: "Action", Dictionary: Dictionary });
 		}
 	}
 
