@@ -1784,3 +1784,32 @@ function CharacterNickname(C) {
 	if ((Nick == "") || !Regex.test(Nick)) Nick = C.Name;
 	return AsylumGGTSCharacterName(C, Nick);
 }
+
+/**
+ * Update the given character's nickname.
+ *
+ * Note that changing any nickname but yours (ie. Player) is not supported.
+ *
+ * @param {Character} C - The character to change the nickname of.
+ * @param {string} Nick - The name to use as the new nickname.
+ * @return {string} null if the nickname was valid, or an explanation for why the nickname was rejected.
+ */
+function CharacterSetNickname(C, Nick) {
+	if (!C.IsPlayer()) return null;
+
+	let Regex = /^[a-zA-Z\s]*$/;
+
+	Nick = Nick.trim();
+	if (Nick.length > 20) return "NicknameTooLong";
+
+	if (!Regex.test(Nick)) return "NicknameInvalidChars";
+
+	if (C.Nickname != Nick) {
+		C.Nickname = Nick;
+		if (C.IsPlayer()) {
+			ServerAccountUpdate.QueueData({ Nickname: Nick });
+		}
+	}
+
+	return null;
+}

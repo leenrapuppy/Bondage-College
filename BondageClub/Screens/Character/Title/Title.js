@@ -61,6 +61,8 @@ var TitleList = [
 	{ Name: "Drone", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 6); }, Earned: true }
 ];
 var TitleCanEditNickname = true;
+/** @type {string} */
+var TitleNicknameStatus = null;
 let TitleOffset = 0;
 let TitleListFiltered = [];
 const TitlePerPage = 28;
@@ -145,6 +147,7 @@ function TitleLoad() {
 		E.removeAttribute("onfocus");
 		E.setAttribute("readonly", "readonly");
 	}
+	TitleNicknameStatus = null;
 }
 
 /**
@@ -159,8 +162,10 @@ function TitleRun() {
 	DrawText(TextGet("CurrentTitle").replace("TITLE", TextGet("Title" + (Player.Title || "None"))), 300, 100, "Black", "Gray");
 	DrawText(TextGet(TitleCanEditNickname ? "Nickname" : "NicknameLocked"), 750, 180, "Black", "Gray");
 	ElementPosition("InputNickname", 1300, 175, 500, 60);
+	if (TitleNicknameStatus)
+		DrawText(TextGet(TitleNicknameStatus), 1000, 250, "red");
 	let X = 130;
-	let Y = 250;
+	let Y = 325;
 	for (let T = TitleOffset; T < TitleOffset + TitlePerPage && T < TitleListFiltered.length; T++) {
 		DrawButton(X, Y, 400, 65, TextGet("Title" + TitleListFiltered[T].Name), 'White', undefined, undefined, Player.Title == TitleListFiltered[T].Name);
 		X = X + 450;
@@ -191,7 +196,7 @@ function TitleClick() {
 
 	// When the user selects a title
 	let X = 130;
-	let Y = 250;
+	let Y = 325;
 	for (let T = TitleOffset; T < TitleOffset + TitlePerPage && T < TitleListFiltered.length; T++) {
 		if (MouseIn(X, Y, 400, 65)) {
 			TitleSet(TitleListFiltered[T].Name);
@@ -211,14 +216,15 @@ function TitleClick() {
  * @returns {void} - Nothing
  */
 function TitleExit() {
-	let Regex = /^[a-zA-Z\s]*$/;
 	let Nick = ElementValue("InputNickname");
 	if (Nick == null) Nick = "";
-	Nick = Nick.trim().substring(0, 20);
-	if (Regex.test(Nick)) {
-		Player.Nickname = Nick;
-		ServerAccountUpdate.QueueData({ Nickname: Nick });
-		ElementRemove("InputNickname");
-		CommonSetScreen("Character", "InformationSheet");
+	const status = CharacterSetNickname(Player, Nick);
+	if (status) {
+		TitleNicknameStatus = status;
+		return;
 	}
+
+	// Nickname was fine, return to the Info sheet
+	ElementRemove("InputNickname");
+	CommonSetScreen("Character", "InformationSheet");
 }
