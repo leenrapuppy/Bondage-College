@@ -427,7 +427,7 @@ var PlatformTemplate = [
 		ProjectileType: "Iron",
 		ProjectileDamage: [6, 6],
 		ProjectileOdds: 0.0002,
-		ProjectileTime: 1000,
+		ProjectileTime: 900,
 		CollisionDamage: 4,
 		ExperienceValue: 6,
 		RunOdds: 0.0004,
@@ -989,9 +989,24 @@ var PlatformRoomList = [
 		Height: 1400,
 		Door: [
 			{ Name: "ForestCabinPath", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3700, ToFaceLeft: true },
+			{ Name: "ForestBirchCenter", FromX: 3400, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
 			{ Name: "Vera", Status: "Leather", X: 2100 }
+		]
+	},
+	{
+		Name: "ForestBirchCenter",
+		Text: "Birch Path",
+		Background: "Forest/BirchClear",
+		Width: 4300,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestBirchWest", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3400, ToFaceLeft: true },
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1500 },
+			{ Name: "Vera", Status: "Leather", X: 2800 }
 		]
 	},
 
