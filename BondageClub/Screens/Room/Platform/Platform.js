@@ -210,6 +210,16 @@ var PlatformTemplate = [
 		]
 	},
 	{
+		Name: "Dagger",
+		Status: "Iron",
+		Width: 400,
+		Height: 400,
+		HitBox: [0.35, 0.65, 0.65, 1],
+		Animation: [
+			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], Speed: 25 }
+		]
+	},
+	{
 		Name: "Chest",
 		Status: "Metal",
 		Width: 400,
@@ -409,24 +419,33 @@ var PlatformTemplate = [
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
-		RunSpeed: 18,
-		WalkSpeed: 12,
-		CrawlSpeed: 6,
+		RunSpeed: 21,
+		WalkSpeed: 14,
+		CrawlSpeed: 7,
+		Projectile: 10,
+		ProjectileName: "Dagger",
+		ProjectileType: "Iron",
+		ProjectileDamage: [6, 6],
+		ProjectileOdds: 0.0002,
+		ProjectileTime: 900,
 		CollisionDamage: 4,
 		ExperienceValue: 6,
 		RunOdds: 0.0004,
-		DamageBackOdds: 0.5,
-		DamageFaceOdds: 0.5,
-		DamageKnockForce: 40,
+		DamageBackOdds: 1,
+		DamageKnockForce: 50,
 		Animation: [
 			{ Name: "Idle", Cycle: [0], Speed: 150 },
 			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], Speed: 40 },
 			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], Speed: 30 },
-			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 130 },
-			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 120 },
-			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
-			{ Name: "Stun", Cycle: [0], Speed: 1000 }
-		]
+			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 120 },
+			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 120 },
+			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
+			{ Name: "Stun", Cycle: [0], Speed: 1000 },
+			{ Name: "FireProjectile", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], Speed: 48 }
+		],
+		Attack: [
+			{ Name: "FireProjectile", Speed: 1000 }
+		],
 	},
 
 ];
@@ -970,9 +989,24 @@ var PlatformRoomList = [
 		Height: 1400,
 		Door: [
 			{ Name: "ForestCabinPath", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3700, ToFaceLeft: true },
+			{ Name: "ForestBirchCenter", FromX: 3400, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
 			{ Name: "Vera", Status: "Leather", X: 2100 }
+		]
+	},
+	{
+		Name: "ForestBirchCenter",
+		Text: "Birch Path",
+		Background: "Forest/BirchClear",
+		Width: 4300,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestBirchWest", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3400, ToFaceLeft: true },
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1500 },
+			{ Name: "Vera", Status: "Leather", X: 2800 }
 		]
 	},
 
@@ -1656,6 +1690,14 @@ function PlatformProcessProjectile(Time) {
 
 }
 
+function PlatformProjectile(C, LongShot) {
+	C.Projectile--;
+	let Damage = C.ProjectileDamage[C.Level];
+	if ((Damage == null) || (Damage < 1)) Damage = 1;
+	if (PlatformHasPerk(C, "Archery")) Damage++;
+	PlatformCreateProjectile(C.ProjectileName, C.ProjectileType, C.FaceLeft, C.X + ((C.FaceLeft) ? -200 : 200), C.Height * 0.8, LongShot ? 60 : 36, Damage);
+}
+
 /**
  * Draw scenery + all characters, apply X and Y forces
  * @returns {void} - Nothing
@@ -1725,13 +1767,7 @@ function PlatformDraw() {
 
 		// Fires a projectile if the aim was on
 		if ((C.ProjectileAim != null) && !PlatformMoveActive("Aim")) {
-			if (PlatformTime - C.ProjectileAim >= C.ProjectileTime) {
-				C.Projectile--;
-				let Damage = PlatformPlayer.ProjectileDamage[PlatformPlayer.Level];
-				if ((Damage == null) || (Damage < 1)) Damage = 1;
-				if (PlatformHasPerk(C, "Archery")) Damage++;
-				PlatformCreateProjectile(C.ProjectileName, C.ProjectileType, C.FaceLeft, C.X + ((C.FaceLeft) ? -200 : 200), C.Height * 0.8, (PlatformTime - C.ProjectileAim >= C.ProjectileTime * 2) ? 60 : 36, Damage);
-			}
+			if (PlatformTime - C.ProjectileAim >= C.ProjectileTime) PlatformProjectile(C, (PlatformTime - C.ProjectileAim >= C.ProjectileTime * 2));
 			C.ProjectileAim = null;
 		}
 
@@ -1745,7 +1781,7 @@ function PlatformDraw() {
 		if (MustHeal && (C.Projectile != null) && (C.MaxProjectile != null) && (C.MaxProjectile > 0) && (C.Projectile < C.MaxProjectile)) C.Projectile++;
 
 		// AI walks from left to right
-		if (!C.Camera && (C.Health > 0) && !C.Fix) {
+		if (!C.Camera && (C.Health > 0) && !C.Fix && !PlatformActionIs(C, "FireProjectile")) {
 			if (C.FaceLeft) {
 				if (C.X <= ((PlatformRoom.LimitLeft != null) ? PlatformRoom.LimitLeft + 50 : 100)) {
 					C.FaceLeft = false;
@@ -1763,6 +1799,10 @@ function PlatformDraw() {
 				C.Run = !C.Run;
 			if ((C.StandAttackSlowOdds != null) && (C.StandAttackSlowOdds > 0) && (Math.random() < C.StandAttackSlowOdds * Frame))
 				PlatformAttack(C, "StandAttackSlow");
+			if ((C.ProjectileOdds != null) && (C.Projectile != null) && (C.Projectile > 0) && (C.ProjectileOdds > 0) && (Math.random() < C.ProjectileOdds * Frame)) {
+				PlatformAttack(C, "FireProjectile");
+				setTimeout(PlatformProjectile, C.ProjectileTime, C, false);
+			}
 			PlatformBindPlayer(C, PlatformTime);
 		}
 
