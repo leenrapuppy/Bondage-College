@@ -2087,7 +2087,30 @@ var AssetFemale3DCGExtended = {
 					}
 				]
 			}
-		} // SmoothLeatherArmbinder1
+		}, // SmoothLeatherArmbinder1
+		SilkStraps: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Wrist",
+						Property: { Type: null }
+					},
+					{
+						Name: "WristElbow",
+						Property: { Type: "WristElbow", Difficulty: 6 }
+					},
+					{
+						Name: "Armbinder1",
+						Property: { Type: "Armbinder1", Difficulty: 7 }
+					},
+					{
+						Name: "Armbinder2",
+						Property: { Type: "Armbinder2", Difficulty: 7 }
+					},
+				]
+			}
+		}
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {
