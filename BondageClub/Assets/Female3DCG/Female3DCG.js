@@ -907,7 +907,6 @@ var AssetFemale3DCG = [
 			{ Name: "Camisole", Priority: 22, DefaultColor: "#908867", Value: 5, Hide: ["ItemNipples"] },
 			{ Name: "Ribbons", Fetish: ["Lingerie"], Value: 30, BuyGroup: "Ribbon", Extended: true, Hide:["ItemNipples"] },
 			{ Name: "LeatherBreastBinder", Fetish: ["Leather"], Value: 30, BuyGroup: "BreastBinder", AllowPose: [], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
-			{ Name: "SilkStraps", Value: 40, DefaultColor: "#E8E8E8", BuyGroup: "SilkStraps", Extended: true, Hide:["ItemNipples"] },
 			{ Name: "FullLatexBra", BuyGroup: "FullLatexBra", Fetish: ["Lingerie", "Latex"], Value: 45, Hide: ["ItemNipples"] },
 			{ Name: "FullLatexBra2", BuyGroup: "FullLatexBra", Fetish: ["Lingerie", "Latex"], Value: -1, Hide: ["ItemNipples"],
 				Layer:[
@@ -1093,7 +1092,6 @@ var AssetFemale3DCG = [
 			{ Name: "CatsuitPanties", Prerequisite: ["HasVagina"], BuyGroup: "Catsuit", Left: 95, Top: 380, Fetish: ["Latex"], Value: -1, DynamicGroupName: "SuitLower",
 				HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"],
 			},
-			{ Name: "SilkStraps", Prerequisite: ["HasVagina"], Value: 40, BuyGroup: "SilkStraps", DefaultColor: "#E8E8E8", Extended: true},
 			{ Name: "FlowerPanties", Prerequisite: ["HasVagina"], Fetish: ["Lingerie"], Value: 15,  HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"],
 				Layer: [
 					{ Name: "Panties", AllowColorize: true },
@@ -3063,7 +3061,6 @@ var AssetFemale3DCG = [
 			{ Name: "DiaperHarness", Category: ["ABDL"], Fetish: ["Leather", "ABDL"], Priority: 24, Value: 65, Difficulty: 50, Time: 25, RemoveTime: 30, AllowLock: true, Left: 150, Top: 395, Hide: ["ItemVulva", "ItemVulvaPiercings"], Effect: ["Chaste"], Block: ["ItemVulva", "ItemButt", "ItemVulvaPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }] },
 			{ Name: "PelvisChainLeash", Prerequisite: ["HasVagina"], Priority: 27, Fetish: ["Metal"], Value: 40, Difficulty: 5, Time: 20, RemoveTime: 25, AllowLock: true, Effect: ["Leash"] },
 			{ Name: "Ribbons", Fetish: ["Lingerie"], Value: 30, Difficulty: 3, Time: 10, RemoveTime: 5, BuyGroup: "Ribbon", Prerequisite: ["AccessVulva","HasVagina"], Extended: true },
-			{ Name: "SilkStraps", Value: 40, Difficulty: 3, Time: 20, RemoveTime: 25, DefaultColor: "#E8E8E8", BuyGroup: "SilkStraps", Audio: "RopeShort", Prerequisite: ["AccessTorso", "HasVagina"], AllowPose: ["KneelingSpread", "LegsClosed", "Kneel"], Extended: true },
 			{
 				Name: "BulkyDiaper", BuyGroup: "BulkyDiapers", Priority: 25, Prerequisite: ["HasVagina"], Category: ["ABDL"], Fetish: ["ABDL"], Random: false, Value: 30, Difficulty: 50, Time: 5, RemoveTime: 5, AllowLock: true, DrawLocks: false, Effect: ["Chaste"], Block: ["ItemVulva", "ItemButt", "ItemVulvaPiercings"], DefaultColor:["#688599", "#808080", "#8c7384", "#BF3F97"], AllowPose: ["LegsClosed", "Kneel"], HideForPose: ["KneelingSpread", "Hogtied", "AllFours"], HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing", "PantiesPoofyDiaper", "PantiesBulkyDiaper", "ClothMistressBottom", "ClothShorts1"], Left: 49, Top: 360, SetPose: ["LegsOpen"], AllowActivePose: ["Kneel"], WhitelistActivePose: ["BaseLower", "Kneel"],
 				Layer: [
@@ -3184,7 +3181,6 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "HeavyLatexCorset", Fetish: ["Lingerie", "Latex"], Priority: 22, Value: 60, Difficulty: 10, Time: 20, RemoveTime: 15, BuyGroup: "HeavyLatexCorset", AllowLock: true, DrawLocks: false, Prerequisite: ["AccessTorso", "HasBreasts"], AllowPose: ["OverTheHead"], HideForPose: ["AllFours", "Hogtied"], Extended: true},
 			{ Name: "Ribbons", Fetish: ["Lingerie"], Value: 30, Difficulty: 3, Time: 10, RemoveTime: 5, BuyGroup: "Ribbon", Prerequisite: ["AccessTorso", "HasBreasts"], AllowPose: ["AllFours", "Hogtied"], Extended: true },
-			{ Name: "SilkStraps", Value: 40, BuyGroup: "SilkStraps", DefaultColor: "#E8E8E8", Difficulty: 3, Time: 10, RemoveTime: 5, Prerequisite: ["AccessTorso", "HasBreasts"], Extended: true},
 			{ Name: "ThinLeatherStraps", Fetish: ["Leather"], Value: 70, Difficulty: 2, Time: 20, RemoveTime: 20, BuyGroup: "ThinLeatherStraps", Prerequisite: ["AccessTorso", "HasBreasts"], Random: false, AllowLock: true, DrawLocks: false, Extended: true,
 				Layer: [
 					{ Name: "Strap" },
@@ -3271,7 +3267,6 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "HeavyLatexCorset", Fetish: ["Lingerie", "Latex"], Priority: 22, Value: 60, Difficulty: 10, Time: 20, RemoveTime: 15, BuyGroup: "HeavyLatexCorset", AllowLock: true, DrawLocks: false, Prerequisite: ["AccessTorso", "HasBreasts"], AllowPose: ["OverTheHead"], HideForPose: ["AllFours", "Hogtied"], Extended: true },
 			{ Name: "Ribbons", Fetish: ["Lingerie"], Value: 30, Difficulty: 3, Time: 10, RemoveTime: 5, BuyGroup: "Ribbon", Prerequisite: ["AccessTorso", "HasBreasts"], AllowPose: ["AllFours", "Hogtied"], Extended: true },
-			{ Name: "SilkStraps", Value: 40, BuyGroup: "SilkStraps", DefaultColor: "#E8E8E8", Difficulty: 3, Time: 10, RemoveTime: 5, Prerequisite: ["AccessTorso", "HasBreasts"], Extended: true},
 			{ Name: "ThinLeatherStraps", Fetish: ["Leather"], Value: 70, Difficulty: 2, Time: 20, RemoveTime: 20, BuyGroup: "ThinLeatherStraps", Prerequisite: ["AccessTorso", "HasBreasts"], Random: false, AllowLock: true, DrawLocks: false, Extended: true,
 				Layer: [
 					{ Name: "Strap" },
