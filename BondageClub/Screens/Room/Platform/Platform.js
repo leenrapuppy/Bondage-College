@@ -134,6 +134,7 @@ var PlatformTemplate = [
 		ProjectileName: "Arrow",
 		ProjectileType: "Wood",
 		ProjectileDamage: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+		ProjectileTime: 1000,
 		HitBox: [0.43, 0.07, 0.57, 1],
 		JumpHitBox: [0.43, 0.07, 0.57, 0.7],
 		RunSpeed: 21,
@@ -421,19 +422,19 @@ var PlatformTemplate = [
 	{
 		Name: "Vera", // MMD Z: 41.00
 		Status: "Leather",
-		Health: 31,
+		Health: 29,
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
-		RunSpeed: 21,
-		WalkSpeed: 14,
+		RunSpeed: 19,
+		WalkSpeed: 13,
 		CrawlSpeed: 7,
 		Projectile: 10,
 		ProjectileName: "Dagger",
 		ProjectileType: "Iron",
 		ProjectileDamage: [6, 6],
 		ProjectileOdds: 0.0002,
-		ProjectileTime: 800,
+		ProjectileTime: 900,
 		CollisionDamage: 4,
 		ExperienceValue: 6,
 		RunOdds: 0.0004,
@@ -1026,8 +1027,8 @@ var PlatformRoomList = [
 			{ Name: "ForestOakHeavy", FromX: 1650, FromY: 0, FromW: 800, FromH: 1200, FromType: "Up", ToX: 100, ToFaceLeft: false },
 		],
 		Character: [
-			{ Name: "Vera", Status: "Leather", X: 1500 },
-			{ Name: "Vera", Status: "Leather", X: 2800 }
+			{ Name: "Vera", Status: "Leather", X: 1200 },
+			{ Name: "Vera", Status: "Leather", X: 3100 }
 		]
 	},
 	{
@@ -1079,6 +1080,7 @@ function PlatformCreateCharacter(CharacterName, StatusName, X, Fix  = null, Comb
 	NewChar.BaseHealth = NewChar.Health;
 	NewChar.BaseMagic = NewChar.Magic;
 	NewChar.BaseProjectile = NewChar.Projectile;
+	NewChar.BaseProjectileTime = NewChar.ProjectileTime;
 	NewChar.HalfBound = false;
 	PlatformSetHealth(NewChar);
 	if (Fix != null) NewChar.Fix = Fix;
@@ -1418,7 +1420,7 @@ function PlatformDrawCharacter(C, Time) {
 	C.Health = C.MaxHealth;
 	C.Magic = C.MaxMagic;
 	C.Projectile = C.MaxProjectile;
-	if (C.MaxProjectile != null) C.ProjectileTime = (PlatformHasPerk(C, "Celerity")) ? 800 : 1000;
+	if (C.BaseProjectileTime != null) C.ProjectileTime = C.BaseProjectileTime * (PlatformHasPerk(C, "Celerity") ? 0.8 : 1);
 }
 
 /**
@@ -1817,29 +1819,34 @@ function PlatformDraw() {
 		if (MustHeal && (C.Projectile != null) && (C.MaxProjectile != null) && (C.MaxProjectile > 0) && (C.Projectile < C.MaxProjectile)) C.Projectile++;
 
 		// AI walks from left to right
-		if (!C.Camera && (C.Health > 0) && !C.Fix && !PlatformActionIs(C, "FireProjectile")) {
-			if (C.FaceLeft) {
-				if (C.X <= ((PlatformRoom.LimitLeft != null) ? PlatformRoom.LimitLeft + 50 : 100)) {
-					C.FaceLeft = false;
-					C.ForceX = 0;
-				} else C.ForceX = C.ForceX - PlatformWalkFrame(C.Run ? C.RunSpeed : C.WalkSpeed, Frame);
+		if (!C.Camera && (C.Health > 0) && !C.Fix) {
+			if (PlatformActionIs(C, "FireProjectile")) {
+				if ((PlatformTime >= C.Action.Start + C.ProjectileTime) && (C.Action.Done == null)) {
+					PlatformProjectile(C, false);
+					C.Action.Done = true;
+				}
 			} else {
-				if (C.X >= ((PlatformRoom.LimitRight != null) ? PlatformRoom.LimitRight - 50 : PlatformRoom.Width - 100)) {
-					C.FaceLeft = true;
-					C.ForceX = 0;
-				} else C.ForceX = C.ForceX + PlatformWalkFrame(C.Run ? C.RunSpeed : C.WalkSpeed, Frame);
+				if (C.FaceLeft) {
+					if (C.X <= ((PlatformRoom.LimitLeft != null) ? PlatformRoom.LimitLeft + 50 : 100)) {
+						C.FaceLeft = false;
+						C.ForceX = 0;
+					} else C.ForceX = C.ForceX - PlatformWalkFrame(C.Run ? C.RunSpeed : C.WalkSpeed, Frame);
+				} else {
+					if (C.X >= ((PlatformRoom.LimitRight != null) ? PlatformRoom.LimitRight - 50 : PlatformRoom.Width - 100)) {
+						C.FaceLeft = true;
+						C.ForceX = 0;
+					} else C.ForceX = C.ForceX + PlatformWalkFrame(C.Run ? C.RunSpeed : C.WalkSpeed, Frame);
+				}
+				if ((C.JumpOdds != null) && (C.JumpOdds > 0) && (Math.random() < C.JumpOdds * Frame) && (C.Y == PlatformFloor) && (C.NextJump <= PlatformTime) && !PlatformActionIs(C, "Any"))
+					C.ForceY = (C.JumpForce + Math.random() * C.JumpForce) * -0.5;
+				if ((C.RunOdds != null) && (C.RunOdds > 0) && (Math.random() < C.RunOdds * Frame) && (C.Y == PlatformFloor))
+					C.Run = !C.Run;
+				if ((C.StandAttackSlowOdds != null) && (C.StandAttackSlowOdds > 0) && (Math.random() < C.StandAttackSlowOdds * Frame))
+					PlatformAttack(C, "StandAttackSlow");
+				if ((C.ProjectileOdds != null) && (C.Projectile != null) && (C.Projectile > 0) && (C.ProjectileOdds > 0) && (Math.random() < C.ProjectileOdds * Frame))
+					PlatformAttack(C, "FireProjectile");
+				PlatformBindPlayer(C, PlatformTime);
 			}
-			if ((C.JumpOdds != null) && (C.JumpOdds > 0) && (Math.random() < C.JumpOdds * Frame) && (C.Y == PlatformFloor) && (C.NextJump <= PlatformTime) && !PlatformActionIs(C, "Any"))
-				C.ForceY = (C.JumpForce + Math.random() * C.JumpForce) * -0.5;
-			if ((C.RunOdds != null) && (C.RunOdds > 0) && (Math.random() < C.RunOdds * Frame) && (C.Y == PlatformFloor))
-				C.Run = !C.Run;
-			if ((C.StandAttackSlowOdds != null) && (C.StandAttackSlowOdds > 0) && (Math.random() < C.StandAttackSlowOdds * Frame))
-				PlatformAttack(C, "StandAttackSlow");
-			if ((C.ProjectileOdds != null) && (C.Projectile != null) && (C.Projectile > 0) && (C.ProjectileOdds > 0) && (Math.random() < C.ProjectileOdds * Frame)) {
-				PlatformAttack(C, "FireProjectile");
-				setTimeout(PlatformProjectile, C.ProjectileTime, C, false);
-			}
-			PlatformBindPlayer(C, PlatformTime);
 		}
 
 		// If the bind action has expired, we bind or release the target
