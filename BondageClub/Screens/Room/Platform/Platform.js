@@ -1003,16 +1003,45 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "ForestBirchCenter",
-		Text: "Birch Path",
+		Text: "Birch Path Center",
+		Background: "Forest/BirchHeavy",
+		Width: 3200,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestBirchWest", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3400, ToFaceLeft: true },
+			{ Name: "ForestBirchEast", FromX: 3100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1800 },
+		]
+	},
+	{
+		Name: "ForestBirchEast",
+		Text: "Birch Path East",
 		Background: "Forest/BirchClear",
 		Width: 4300,
 		Height: 1400,
 		Door: [
-			{ Name: "ForestBirchWest", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3400, ToFaceLeft: true },
+			{ Name: "ForestBirchCenter", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3100, ToFaceLeft: true },
+			{ Name: "ForestOakHeavy", FromX: 1650, FromY: 0, FromW: 800, FromH: 1200, FromType: "Up", ToX: 100, ToFaceLeft: false },
 		],
 		Character: [
 			{ Name: "Vera", Status: "Leather", X: 1500 },
 			{ Name: "Vera", Status: "Leather", X: 2800 }
+		]
+	},
+	{
+		Name: "ForestOakHeavy",
+		Text: "Giant Oak",
+		Background: "Forest/OakHeavy",
+		Width: 2700,
+		Height: 1400,
+		LimitRight: 2500,
+		Door: [
+			{ Name: "ForestBirchEast", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2050, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1900 }
 		]
 	},
 
@@ -1670,8 +1699,8 @@ function PlatformProcessProjectile(Time) {
 			if (PlatformChar[C].Y == PlatformFloor) Remove = true;
 			else if (PlatformChar[C].X <= 100) Remove = true;
 			else if (PlatformChar[C].X >= PlatformRoom.Width - 100) Remove = true;
-			else if ((PlatformChar[C].LimitLeft != null) && (PlatformChar[C].X <= PlatformChar[C].LimitLeft)) Remove = true;
-			else if ((PlatformChar[C].LimitRight != null) && (PlatformChar[C].X >= PlatformChar[C].LimitRight)) Remove = true;
+			else if ((PlatformRoom.LimitLeft != null) && (PlatformChar[C].X <= PlatformRoom.LimitLeft)) Remove = true;
+			else if ((PlatformRoom.LimitRight != null) && (PlatformChar[C].X >= PlatformRoom.LimitRight)) Remove = true;
 			if (Remove) {
 				PlatformChar.splice(C, 1);
 				C--;
