@@ -2094,7 +2094,7 @@ var AssetFemale3DCGExtended = {
 				Options: [
 					{
 						Name: "Wrist",
-						Property: { Type: null }
+						Property: { Type: null, SetPose: ["BackBoxTie"] }
 					},
 					{
 						Name: "Boxtie1",
@@ -2110,7 +2110,7 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "Armbinder1",
-						Property: { Type: "Armbinder1", Difficulty: 7, SetPose: ["BackElbowTouch"] }
+						Property: { Type: "Armbinder1", Difficulty: 7, SetPose: ["BackElbowTouch"], OverridePriority: 6 }
 					},
 					{
 						Name: "Armbinder2",
