@@ -4068,7 +4068,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "SilkStraps", Prerequisite: ["HasFlatChest"], Value: 40, Difficulty: 6, SelfBondage: 4,
-				SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"],
+				SetPose: ["BackBoxTie"], Effect: ["Block", "Prone"],
 				Extended: true
 			},
 			AssetSpankingToys
