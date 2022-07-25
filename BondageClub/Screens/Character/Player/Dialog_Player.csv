@@ -3493,7 +3493,18 @@ ItemArmsSmoothLeatherArmbinder1Setb2,,,SourceCharacter shifts DestinationCharact
 ItemArmsSmoothLeatherArmbinder1Sets0,,,SourceCharacter removes any shoulder straps from DestinationCharacter armbinder.,,
 ItemArmsSmoothLeatherArmbinder1Sets1,,,SourceCharacter adds basic shoulder straps to DestinationCharacter armbinder.,,
 ItemArmsSmoothLeatherArmbinder1Sets2,,,SourceCharacter adds wrapping shoulder straps to DestinationCharacter armbinder.,,
-ItemArmsSmoothLeatherArmbinder1Sets3,,,SourceCharacter adds harness shoulder straps to DestinationCharacter armbinder.,,
+ItemArmsSmoothLeatherArmbinder1Sets3,,,SourceCharacter adds harness shoulder straps to DestinationCharacter armbinder.,
+ItemArmsSilkStrapsSelect,,,Select Silk Strap Bondage.,,
+ItemArmsSilkStrapsWrist,,,Wrist Tie,,
+ItemArmsSilkStrapsBoxtie1,,,BoxTie Style 1,,
+ItemArmsSilkStrapsWristElbow,,,Wrist & Elbow Tie,,
+ItemArmsSilkStrapsWristElbowHarness1,,,Wrist & Elbow Harness Tie 1,,
+ItemArmsSilkStrapsArmbinder1,,,Armbinder 1,,
+ItemArmsSilkStrapsArmbinder2,,,Armbinder 2,,
+
+
+
+
 
 
 

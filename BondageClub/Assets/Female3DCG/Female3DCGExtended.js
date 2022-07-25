@@ -2102,7 +2102,7 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "WristElbow",
-						Property: { Type: "WristElbow", Difficulty: 6, SetPose: ["BackElbowTouch"]  }
+						Property: { Type: "WristElbow", Difficulty: 6, SetPose: ["BackElbowTouch"] }
 					},
 					{
 						Name: "WristElbowHarness1",
@@ -2110,11 +2110,11 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "Armbinder1",
-						Property: { Type: "Armbinder1", Difficulty: 7 }
+						Property: { Type: "Armbinder1", Difficulty: 7, SetPose: ["BackElbowTouch"] }
 					},
 					{
 						Name: "Armbinder2",
-						Property: { Type: "Armbinder2", Difficulty: 7 }
+						Property: { Type: "Armbinder2", Difficulty: 7, SetPose: ["BackElbowTouch"] }
 					},
 				]
 			}
