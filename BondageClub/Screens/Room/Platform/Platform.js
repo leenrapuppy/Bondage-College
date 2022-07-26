@@ -435,7 +435,7 @@ var PlatformTemplate = [
 		ProjectileDamage: [6, 6],
 		ProjectileOdds: 0.0002,
 		ProjectileTime: 900,
-		CollisionDamage: 4,
+		CollisionDamage: 3,
 		ExperienceValue: 6,
 		RunOdds: 0.0004,
 		DamageBackOdds: 1,
@@ -453,6 +453,7 @@ var PlatformTemplate = [
 		Attack: [
 			{ Name: "FireProjectile", Speed: 1000 }
 		],
+		OnBind: function() { if (!PlatformEventDone("EdlaranJoin") && !PlatformEventDone("EdlaranForestKey") && PlatformEventDone("EdlaranForestIntro") && (Math.random() >= 0.8)) { PlatformMessageSet("You found keys for chains on the bandit."); PlatformEventSet("EdlaranForestKey"); } }
 	},
 
 ];
@@ -605,7 +606,7 @@ var PlatformRoomList = [
 		Name: "BedroomIsabella",
 		Entry: function() {
 			if (!PlatformEventDone("EdlaranUnlock")) PlatformCreateCharacter("Hazel", "Maid", 2200);
-			if (PlatformEventDone("EdlaranUnlock") && !PlatformEventDone("EdlaranBedroomIsabella")) PlatformCreateCharacter("Edlaran", "Archer", 2200, true, false, "EdlaranBedroomIsabella");
+			if (PlatformEventDone("EdlaranUnlock") && !PlatformEventDone("EdlaranBedroomIsabella") && !PlatformEventDone("CamilleDefeat")) PlatformCreateCharacter("Edlaran", "Archer", 2200, true, false, "EdlaranBedroomIsabella");
 		},
 		Text: "Isabella's Bedroom",
 		Background: "Castle/BedroomIsabella",
@@ -748,9 +749,9 @@ var PlatformRoomList = [
 	{
 		Name: "CastleTerrace",
 		Entry: function() {
-			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Melody")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerrace");
-			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Olivia")) PlatformCreateCharacter("Melody", "Maid", 500, true, false, "OliviaTerrace");
-			if (PlatformEventDone("EdlaranJoin") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerrace", true);
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name != "Olivia")) PlatformCreateCharacter("Olivia", "Oracle", 400, true, false, "OliviaTerrace");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name != "Melody")) PlatformCreateCharacter("Melody", "Maid", 600, true, false, "OliviaTerrace", true);
+			if (PlatformEventDone("EdlaranJoin") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name != "Edlaran")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerrace", true);
 			if (PlatformEventDone("OliviaTerrace")) PlatformRoom.Door.push({ Name: "ForestCastleWall", FromX: 400, FromY: 0, FromW: 550, FromH: 1200, FromType: "Up", ToX: 500, ToFaceLeft: false });
 		},
 		Text: "Countess Terrace",
@@ -788,7 +789,7 @@ var PlatformRoomList = [
 		Name: "WineCellar",
 		Entry: function() {
 			if (!PlatformEventDone("EdlaranBedroomIsabella")) PlatformCreateCharacter("Yuna", "Maid", 2500);
-			if (PlatformEventDone("EdlaranBedroomIsabella") && !PlatformEventDone("EdlaranWineCellar") && !PlatformEventDone("EdlaranJoin")) PlatformCreateCharacter("Edlaran", "Archer", 2500, true, false, "EdlaranWineCellar");
+			if (PlatformEventDone("EdlaranBedroomIsabella") && !PlatformEventDone("EdlaranWineCellar") && !PlatformEventDone("EdlaranJoin") && !PlatformEventDone("CamilleDefeat")) PlatformCreateCharacter("Edlaran", "Archer", 2500, true, false, "EdlaranWineCellar");
 		},
 		Text: "Wine Cellar",
 		Background: "Castle/WineCellar",
@@ -893,11 +894,11 @@ var PlatformRoomList = [
 	{
 		Name: "DungeonCell",
 		Entry: function() {
-			if (!PlatformEventDone("EdlaranFree") && !PlatformEventDone("Curse") && !PlatformEventDone("EdlaranIntro")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranBeforeCurseStart");
-			if (!PlatformEventDone("EdlaranFree") && !PlatformEventDone("Curse") && PlatformEventDone("EdlaranIntro")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranBeforeCurseEnd");
-			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("Curse") && !PlatformEventDone("EdlaranCurseIntro")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranAfterCurseStart");
-			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("EdlaranCurseIntro") && !PlatformEventDone("EdlaranKey")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranAfterCurseEnd");
-			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("EdlaranKey") && !PlatformEventDone("EdlaranUnlock")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "EdlaranUnlock");
+			if (!PlatformEventDone("EdlaranFree") && !PlatformEventDone("Curse") && !PlatformEventDone("EdlaranIntro") && !PlatformEventDone("CamilleDefeat")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranBeforeCurseStart");
+			if (!PlatformEventDone("EdlaranFree") && !PlatformEventDone("Curse") && PlatformEventDone("EdlaranIntro") && !PlatformEventDone("CamilleDefeat")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranBeforeCurseEnd");
+			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("Curse") && !PlatformEventDone("EdlaranCurseIntro") && !PlatformEventDone("CamilleDefeat")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranAfterCurseStart");
+			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("EdlaranCurseIntro") && !PlatformEventDone("EdlaranKey") && !PlatformEventDone("CamilleDefeat")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranAfterCurseEnd");
+			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("EdlaranKey") && !PlatformEventDone("EdlaranUnlock") && !PlatformEventDone("CamilleDefeat")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "EdlaranUnlock");
 		},
 		Text: "Dungeon Cell",
 		Background: "Castle/DungeonCell",
@@ -1033,6 +1034,14 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "ForestOakHeavy",
+		Entry: function() {
+			if (!PlatformEventDone("EdlaranForestIntro") && !PlatformEventDone("EdlaranJoin")) PlatformDialogStart("IntroForestBanditKidnapEdlaran");
+			if (!PlatformEventDone("EdlaranJoin")) {
+				let Char = PlatformCreateCharacter("Edlaran", "Archer", 2200, true, false, "EdlaranForestBeg");
+				Char.Health = 0; 
+				Char.Bound = true;
+			}
+		},
 		Text: "Giant Oak",
 		Background: "Forest/OakHeavy",
 		Width: 2700,
