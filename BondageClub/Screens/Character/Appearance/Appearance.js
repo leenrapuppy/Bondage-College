@@ -46,19 +46,12 @@ function CharacterAppearanceBuildAssets(C) {
 	// Adds all items with 0 value and from the appearance category
 	CharacterAppearanceAssets = [];
 	for (let A = 0; A < Asset.length; A++)
-		if ((Asset[A].Value == 0) && (Asset[A].Group.Family == C.AssetFamily) && (Asset[A].Group.Category == "Appearance") && AssetGenderedIsAllowed(Asset[A]))
+		if ((Asset[A].Value == 0) && (Asset[A].Group.Family == C.AssetFamily) && (Asset[A].Group.Category == "Appearance") && CharacterAppearanceGenderAllowed(Asset[A]))
 			CharacterAppearanceAssets.push(Asset[A]);
 	for (let A = 0; A < C.Inventory.length; A++)
-		if ((C.Inventory[A].Asset != null) && (C.Inventory[A].Asset.Group.Family == C.AssetFamily) && (C.Inventory[A].Asset.Group.Category == "Appearance") && AssetGenderedIsAllowed(Asset[A]))
+		if ((C.Inventory[A].Asset != null) && (C.Inventory[A].Asset.Group.Family == C.AssetFamily) && (C.Inventory[A].Asset.Group.Category == "Appearance") && CharacterAppearanceGenderAllowed(Asset[A]))
 			CharacterAppearanceAssets.push(C.Inventory[A].Asset);
 
-}
-
-function AssetGenderedIsAllowed(asset) {
-	const inChatRoom = ServerPlayerIsInChatRoom();
-	if (inChatRoom && ChatRoomSpace == "MaleOnly" && asset.Gender == "F") return false;
-	else if (inChatRoom && ChatRoomSpace == "FemaleOnly" && asset.Gender == "M") return false;
-	else return true;
 }
 
 /**
@@ -384,6 +377,10 @@ function CharacterAppearanceVisible(C, AssetName, GroupName, Recursive = true) {
 	if (assetToCheck) {
 		const Pose = CommonDrawResolveAssetPose(C, assetToCheck);
 		if (Pose && assetToCheck.HideForPose.includes(Pose)) return false;
+	}
+
+	if (!CharacterAppearanceGenderAllowed(assetToCheck)) {
+		return false;
 	}
 
 	for (const item of C.DrawAppearance) {
@@ -1517,4 +1514,12 @@ function CharacterAppearanceResolveSync(C, currentAppearance) {
 		// Merge the synced appearance with the ongoing appearance edits
 		C.Appearance = CharacterAppearanceResolveAppearance(baseAppearance, C.Appearance, currentAppearance);
 	}
+}
+
+/**
+ * Returns whether an asset with a specific gender is allowed in the current chatroom space
+ * @param {Asset} asset
+ */
+function CharacterAppearanceGenderAllowed(asset) {
+	return !asset.Gender || !ServerPlayerIsInChatRoom() || ChatSelectGendersAllowed(ChatRoomSpace, [asset.Gender]);
 }

@@ -51,3 +51,13 @@ function ChatSelectStartMaleChat () {
     ChatRoomStart("MaleOnly", "", "ChatSelect", "BrickWall", BackgroundsTagList)
 }
 
+/**
+ * Returns whether all provided genders are allowed in the specified space
+ * @param {string} space - The chatroom space
+ * @param {string[]} genders - A list of relevant genders to check#
+ * @returns {boolean} - Whether the genders are allowed
+ */
+function ChatSelectGendersAllowed(space, genders) {
+	return !(space == "MaleOnly" && genders.includes("F"))
+		&& !(space == "FemaleOnly" && genders.includes("M"))
+}

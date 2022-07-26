@@ -712,7 +712,7 @@ function DialogInventoryAdd(C, item, isWorn, sortOrder) {
 		if (LogQuery("KeyDeposit", "Cell") && InventoryIsKey(item)) return;
 
 		// Don't allow gendered assets in the opposite-gender-only space
-		if (!AssetGenderedIsAllowed(asset)) return;
+		if (!CharacterAppearanceGenderAllowed(asset)) return;
 
 		// Make sure we do not duplicate the item in the list, including crafted items
 		for (let I = 0; I < DialogInventory.length; I++)
