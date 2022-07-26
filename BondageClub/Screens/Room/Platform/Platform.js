@@ -96,15 +96,21 @@ var PlatformTemplate = [
 		DamageKnockForce: 25,
 		Animation: [
 			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61], Speed: 90 },
+			{ Name: "HalfBoundIdle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 90 },
 			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 150 },
+			{ Name: "HalfBoundWounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
 			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 30 },
+			{ Name: "HalfBoundWalk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 25 },
 			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], Speed: 40 },
+			{ Name: "HalfBoundRun", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 18 },
 			{ Name: "Jump", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 30 },
+			{ Name: "HalfBoundJump", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 30 },
 			{ Name: "Crouch", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
 			{ Name: "Crawl", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], Speed: 30 },
 			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
 			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 90 },
 			{ Name: "Stun", Cycle: [0], Speed: 1000 },
+			{ Name: "HalfBoundStun", Cycle: [0], Speed: 1000 },
 			{ Name: "StandAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], Speed: 17 },
 			{ Name: "CrouchAttackFast", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], Speed: 19 },
 			{ Name: "Scream", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 10 }
@@ -128,6 +134,7 @@ var PlatformTemplate = [
 		ProjectileName: "Arrow",
 		ProjectileType: "Wood",
 		ProjectileDamage: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+		ProjectileTime: 1000,
 		HitBox: [0.43, 0.07, 0.57, 1],
 		JumpHitBox: [0.43, 0.07, 0.57, 0.7],
 		RunSpeed: 21,
@@ -415,12 +422,12 @@ var PlatformTemplate = [
 	{
 		Name: "Vera", // MMD Z: 41.00
 		Status: "Leather",
-		Health: 31,
+		Health: 29,
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
-		RunSpeed: 21,
-		WalkSpeed: 14,
+		RunSpeed: 19,
+		WalkSpeed: 13,
 		CrawlSpeed: 7,
 		Projectile: 10,
 		ProjectileName: "Dagger",
@@ -428,7 +435,7 @@ var PlatformTemplate = [
 		ProjectileDamage: [6, 6],
 		ProjectileOdds: 0.0002,
 		ProjectileTime: 900,
-		CollisionDamage: 4,
+		CollisionDamage: 3,
 		ExperienceValue: 6,
 		RunOdds: 0.0004,
 		DamageBackOdds: 1,
@@ -446,6 +453,7 @@ var PlatformTemplate = [
 		Attack: [
 			{ Name: "FireProjectile", Speed: 1000 }
 		],
+		OnBind: function() { if (!PlatformEventDone("EdlaranJoin") && !PlatformEventDone("EdlaranForestKey") && PlatformEventDone("EdlaranForestIntro") && (Math.random() >= 0.8)) { PlatformMessageSet("You found keys for chains on the bandit."); PlatformEventSet("EdlaranForestKey"); } }
 	},
 
 ];
@@ -598,7 +606,7 @@ var PlatformRoomList = [
 		Name: "BedroomIsabella",
 		Entry: function() {
 			if (!PlatformEventDone("EdlaranUnlock")) PlatformCreateCharacter("Hazel", "Maid", 2200);
-			if (PlatformEventDone("EdlaranUnlock") && !PlatformEventDone("EdlaranBedroomIsabella")) PlatformCreateCharacter("Edlaran", "Archer", 2200, true, false, "EdlaranBedroomIsabella");
+			if (PlatformEventDone("EdlaranUnlock") && !PlatformEventDone("EdlaranBedroomIsabella") && !PlatformEventDone("CamilleDefeat")) PlatformCreateCharacter("Edlaran", "Archer", 2200, true, false, "EdlaranBedroomIsabella");
 		},
 		Text: "Isabella's Bedroom",
 		Background: "Castle/BedroomIsabella",
@@ -741,9 +749,9 @@ var PlatformRoomList = [
 	{
 		Name: "CastleTerrace",
 		Entry: function() {
-			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Melody")) PlatformCreateCharacter("Olivia", "Oracle", 500, true, false, "OliviaTerrace");
-			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name == "Olivia")) PlatformCreateCharacter("Melody", "Maid", 500, true, false, "OliviaTerrace");
-			if (PlatformEventDone("EdlaranJoin") && !PlatformEventDone("OliviaTerrace")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerrace", true);
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name != "Olivia")) PlatformCreateCharacter("Olivia", "Oracle", 400, true, false, "OliviaTerrace");
+			if (PlatformEventDone("Curse") && PlatformEventDone("CamilleDefeat") && PlatformEventDone("OliviaCurseRelease") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name != "Melody")) PlatformCreateCharacter("Melody", "Maid", 600, true, false, "OliviaTerrace", true);
+			if (PlatformEventDone("EdlaranJoin") && !PlatformEventDone("OliviaTerrace") && (PlatformPlayer.Name != "Edlaran")) PlatformCreateCharacter("Edlaran", "Archer", 800, true, false, "EdlaranTerrace", true);
 			if (PlatformEventDone("OliviaTerrace")) PlatformRoom.Door.push({ Name: "ForestCastleWall", FromX: 400, FromY: 0, FromW: 550, FromH: 1200, FromType: "Up", ToX: 500, ToFaceLeft: false });
 		},
 		Text: "Countess Terrace",
@@ -781,7 +789,7 @@ var PlatformRoomList = [
 		Name: "WineCellar",
 		Entry: function() {
 			if (!PlatformEventDone("EdlaranBedroomIsabella")) PlatformCreateCharacter("Yuna", "Maid", 2500);
-			if (PlatformEventDone("EdlaranBedroomIsabella") && !PlatformEventDone("EdlaranWineCellar") && !PlatformEventDone("EdlaranJoin")) PlatformCreateCharacter("Edlaran", "Archer", 2500, true, false, "EdlaranWineCellar");
+			if (PlatformEventDone("EdlaranBedroomIsabella") && !PlatformEventDone("EdlaranWineCellar") && !PlatformEventDone("EdlaranJoin") && !PlatformEventDone("CamilleDefeat")) PlatformCreateCharacter("Edlaran", "Archer", 2500, true, false, "EdlaranWineCellar");
 		},
 		Text: "Wine Cellar",
 		Background: "Castle/WineCellar",
@@ -886,11 +894,11 @@ var PlatformRoomList = [
 	{
 		Name: "DungeonCell",
 		Entry: function() {
-			if (!PlatformEventDone("EdlaranFree") && !PlatformEventDone("Curse") && !PlatformEventDone("EdlaranIntro")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranBeforeCurseStart");
-			if (!PlatformEventDone("EdlaranFree") && !PlatformEventDone("Curse") && PlatformEventDone("EdlaranIntro")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranBeforeCurseEnd");
-			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("Curse") && !PlatformEventDone("EdlaranCurseIntro")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranAfterCurseStart");
-			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("EdlaranCurseIntro") && !PlatformEventDone("EdlaranKey")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranAfterCurseEnd");
-			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("EdlaranKey") && !PlatformEventDone("EdlaranUnlock")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "EdlaranUnlock");
+			if (!PlatformEventDone("EdlaranFree") && !PlatformEventDone("Curse") && !PlatformEventDone("EdlaranIntro") && !PlatformEventDone("CamilleDefeat")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranBeforeCurseStart");
+			if (!PlatformEventDone("EdlaranFree") && !PlatformEventDone("Curse") && PlatformEventDone("EdlaranIntro") && !PlatformEventDone("CamilleDefeat")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranBeforeCurseEnd");
+			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("Curse") && !PlatformEventDone("EdlaranCurseIntro") && !PlatformEventDone("CamilleDefeat")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranAfterCurseStart");
+			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("EdlaranCurseIntro") && !PlatformEventDone("EdlaranKey") && !PlatformEventDone("CamilleDefeat")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "IntroEdlaranAfterCurseEnd");
+			if (!PlatformEventDone("EdlaranFree") && PlatformEventDone("EdlaranKey") && !PlatformEventDone("EdlaranUnlock") && !PlatformEventDone("CamilleDefeat")) PlatformCreateCharacter("Edlaran", "Chained", 1800, true, false, "EdlaranUnlock");
 		},
 		Text: "Dungeon Cell",
 		Background: "Castle/DungeonCell",
@@ -997,16 +1005,53 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "ForestBirchCenter",
-		Text: "Birch Path",
+		Text: "Birch Path Center",
+		Background: "Forest/BirchHeavy",
+		Width: 3200,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestBirchWest", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3400, ToFaceLeft: true },
+			{ Name: "ForestBirchEast", FromX: 3100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1800 },
+		]
+	},
+	{
+		Name: "ForestBirchEast",
+		Text: "Birch Path East",
 		Background: "Forest/BirchClear",
 		Width: 4300,
 		Height: 1400,
 		Door: [
-			{ Name: "ForestBirchWest", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3400, ToFaceLeft: true },
+			{ Name: "ForestBirchCenter", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3100, ToFaceLeft: true },
+			{ Name: "ForestOakHeavy", FromX: 1650, FromY: 0, FromW: 800, FromH: 1200, FromType: "Up", ToX: 100, ToFaceLeft: false },
 		],
 		Character: [
-			{ Name: "Vera", Status: "Leather", X: 1500 },
-			{ Name: "Vera", Status: "Leather", X: 2800 }
+			{ Name: "Vera", Status: "Leather", X: 1200 },
+			{ Name: "Vera", Status: "Leather", X: 3100 }
+		]
+	},
+	{
+		Name: "ForestOakHeavy",
+		Entry: function() {
+			if (!PlatformEventDone("EdlaranForestIntro") && !PlatformEventDone("EdlaranJoin")) PlatformDialogStart("IntroForestBanditKidnapEdlaran");
+			if (!PlatformEventDone("EdlaranJoin")) {
+				let Char = PlatformCreateCharacter("Edlaran", "Archer", 2200, true, false, "EdlaranForestBeg");
+				Char.Health = 0; 
+				Char.Bound = true;
+			}
+		},
+		Text: "Giant Oak",
+		Background: "Forest/OakHeavy",
+		Width: 2700,
+		Height: 1400,
+		LimitRight: 2500,
+		Door: [
+			{ Name: "ForestBirchEast", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2050, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1900 }
 		]
 	},
 
@@ -1044,6 +1089,8 @@ function PlatformCreateCharacter(CharacterName, StatusName, X, Fix  = null, Comb
 	NewChar.BaseHealth = NewChar.Health;
 	NewChar.BaseMagic = NewChar.Magic;
 	NewChar.BaseProjectile = NewChar.Projectile;
+	NewChar.BaseProjectileTime = NewChar.ProjectileTime;
+	NewChar.HalfBound = false;
 	PlatformSetHealth(NewChar);
 	if (Fix != null) NewChar.Fix = Fix;
 	if (Combat != null) NewChar.Combat = Combat;
@@ -1382,7 +1429,7 @@ function PlatformDrawCharacter(C, Time) {
 	C.Health = C.MaxHealth;
 	C.Magic = C.MaxMagic;
 	C.Projectile = C.MaxProjectile;
-	if (C.MaxProjectile != null) C.ProjectileTime = (PlatformHasPerk(C, "Celerity")) ? 800 : 1000;
+	if (C.BaseProjectileTime != null) C.ProjectileTime = C.BaseProjectileTime * (PlatformHasPerk(C, "Celerity") ? 0.8 : 1);
 }
 
 /**
@@ -1663,8 +1710,8 @@ function PlatformProcessProjectile(Time) {
 			if (PlatformChar[C].Y == PlatformFloor) Remove = true;
 			else if (PlatformChar[C].X <= 100) Remove = true;
 			else if (PlatformChar[C].X >= PlatformRoom.Width - 100) Remove = true;
-			else if ((PlatformChar[C].LimitLeft != null) && (PlatformChar[C].X <= PlatformChar[C].LimitLeft)) Remove = true;
-			else if ((PlatformChar[C].LimitRight != null) && (PlatformChar[C].X >= PlatformChar[C].LimitRight)) Remove = true;
+			else if ((PlatformRoom.LimitLeft != null) && (PlatformChar[C].X <= PlatformRoom.LimitLeft)) Remove = true;
+			else if ((PlatformRoom.LimitRight != null) && (PlatformChar[C].X >= PlatformRoom.LimitRight)) Remove = true;
 			if (Remove) {
 				PlatformChar.splice(C, 1);
 				C--;
@@ -1781,29 +1828,34 @@ function PlatformDraw() {
 		if (MustHeal && (C.Projectile != null) && (C.MaxProjectile != null) && (C.MaxProjectile > 0) && (C.Projectile < C.MaxProjectile)) C.Projectile++;
 
 		// AI walks from left to right
-		if (!C.Camera && (C.Health > 0) && !C.Fix && !PlatformActionIs(C, "FireProjectile")) {
-			if (C.FaceLeft) {
-				if (C.X <= ((PlatformRoom.LimitLeft != null) ? PlatformRoom.LimitLeft + 50 : 100)) {
-					C.FaceLeft = false;
-					C.ForceX = 0;
-				} else C.ForceX = C.ForceX - PlatformWalkFrame(C.Run ? C.RunSpeed : C.WalkSpeed, Frame);
+		if (!C.Camera && (C.Health > 0) && !C.Fix) {
+			if (PlatformActionIs(C, "FireProjectile")) {
+				if ((PlatformTime >= C.Action.Start + C.ProjectileTime) && (C.Action.Done == null)) {
+					PlatformProjectile(C, false);
+					C.Action.Done = true;
+				}
 			} else {
-				if (C.X >= ((PlatformRoom.LimitRight != null) ? PlatformRoom.LimitRight - 50 : PlatformRoom.Width - 100)) {
-					C.FaceLeft = true;
-					C.ForceX = 0;
-				} else C.ForceX = C.ForceX + PlatformWalkFrame(C.Run ? C.RunSpeed : C.WalkSpeed, Frame);
+				if (C.FaceLeft) {
+					if (C.X <= ((PlatformRoom.LimitLeft != null) ? PlatformRoom.LimitLeft + 50 : 100)) {
+						C.FaceLeft = false;
+						C.ForceX = 0;
+					} else C.ForceX = C.ForceX - PlatformWalkFrame(C.Run ? C.RunSpeed : C.WalkSpeed, Frame);
+				} else {
+					if (C.X >= ((PlatformRoom.LimitRight != null) ? PlatformRoom.LimitRight - 50 : PlatformRoom.Width - 100)) {
+						C.FaceLeft = true;
+						C.ForceX = 0;
+					} else C.ForceX = C.ForceX + PlatformWalkFrame(C.Run ? C.RunSpeed : C.WalkSpeed, Frame);
+				}
+				if ((C.JumpOdds != null) && (C.JumpOdds > 0) && (Math.random() < C.JumpOdds * Frame) && (C.Y == PlatformFloor) && (C.NextJump <= PlatformTime) && !PlatformActionIs(C, "Any"))
+					C.ForceY = (C.JumpForce + Math.random() * C.JumpForce) * -0.5;
+				if ((C.RunOdds != null) && (C.RunOdds > 0) && (Math.random() < C.RunOdds * Frame) && (C.Y == PlatformFloor))
+					C.Run = !C.Run;
+				if ((C.StandAttackSlowOdds != null) && (C.StandAttackSlowOdds > 0) && (Math.random() < C.StandAttackSlowOdds * Frame))
+					PlatformAttack(C, "StandAttackSlow");
+				if ((C.ProjectileOdds != null) && (C.Projectile != null) && (C.Projectile > 0) && (C.ProjectileOdds > 0) && (Math.random() < C.ProjectileOdds * Frame))
+					PlatformAttack(C, "FireProjectile");
+				PlatformBindPlayer(C, PlatformTime);
 			}
-			if ((C.JumpOdds != null) && (C.JumpOdds > 0) && (Math.random() < C.JumpOdds * Frame) && (C.Y == PlatformFloor) && (C.NextJump <= PlatformTime) && !PlatformActionIs(C, "Any"))
-				C.ForceY = (C.JumpForce + Math.random() * C.JumpForce) * -0.5;
-			if ((C.RunOdds != null) && (C.RunOdds > 0) && (Math.random() < C.RunOdds * Frame) && (C.Y == PlatformFloor))
-				C.Run = !C.Run;
-			if ((C.StandAttackSlowOdds != null) && (C.StandAttackSlowOdds > 0) && (Math.random() < C.StandAttackSlowOdds * Frame))
-				PlatformAttack(C, "StandAttackSlow");
-			if ((C.ProjectileOdds != null) && (C.Projectile != null) && (C.Projectile > 0) && (C.ProjectileOdds > 0) && (Math.random() < C.ProjectileOdds * Frame)) {
-				PlatformAttack(C, "FireProjectile");
-				setTimeout(PlatformProjectile, C.ProjectileTime, C, false);
-			}
-			PlatformBindPlayer(C, PlatformTime);
 		}
 
 		// If the bind action has expired, we bind or release the target
@@ -1836,20 +1888,26 @@ function PlatformDraw() {
 		// Finds the animation based on what the character is doing
 		let Crouch = (C.Camera && PlatformMoveActive("Crouch"));
 		if ((C.Health <= 0) && C.Bound) C.Anim = PlatformGetAnim(C, "Bound");
+		else if (C.Health <= 0 && C.HalfBound) C.Anim = PlatformGetAnim(C, "HalfBoundWounded");
 		else if (C.Health <= 0) C.Anim = PlatformGetAnim(C, "Wounded");
 		else if ((C.ProjectileAim != null) && (PlatformTime - C.ProjectileAim < C.ProjectileTime)) C.Anim = PlatformGetAnim(C, "Aim");
 		else if ((C.ProjectileAim != null) && (PlatformTime - C.ProjectileAim < C.ProjectileTime * 2)) C.Anim = PlatformGetAnim(C, "AimReady");
 		else if (C.ProjectileAim != null) C.Anim = PlatformGetAnim(C, "AimFull");
 		else if (PlatformActionIs(C, "Any")) C.Anim = PlatformGetAnim(C, C.Action.Name, false);
+		else if (C.Y != PlatformFloor && C.HalfBound) C.Anim = PlatformGetAnim(C, "HalfBoundJump");
 		else if (C.Y != PlatformFloor) C.Anim = PlatformGetAnim(C, "Jump");
 		else if ((C.ForceX != 0) && Crouch) C.Anim = PlatformGetAnim(C, "Crawl");
+		else if ((C.ForceX != 0) && (C.Immunity >= PlatformTime + PlatformImmunityTime * 0.6) && C.HalfBound && PlatformAnimAvailable(C, "HalfBoundStun")) C.Anim = PlatformGetAnim(C, "HalfBoundStun");
 		else if ((C.ForceX != 0) && (C.Immunity >= PlatformTime + PlatformImmunityTime * 0.6) && PlatformAnimAvailable(C, "Stun")) C.Anim = PlatformGetAnim(C, "Stun");
 		else if ((C.ForceX != 0) && (C.Immunity >= PlatformTime - PlatformImmunityTime) && PlatformAnimAvailable(C, "WalkHit")) C.Anim = PlatformGetAnim(C, "WalkHit");
+		else if ((C.ForceX != 0) && C.Run && PlatformAnimAvailable(C, "HalfBoundRun") && C.HalfBound) C.Anim = PlatformGetAnim(C, "HalfBoundRun");
 		else if ((C.ForceX != 0) && C.Run && PlatformAnimAvailable(C, "Run")) C.Anim = PlatformGetAnim(C, "Run");
 		else if ((C.ForceX != 0) && Crouch) C.Anim = PlatformGetAnim(C, "Crawl");
+		else if ((C.ForceX != 0) && C.HalfBound) C.Anim = PlatformGetAnim(C, "HalfBoundWalk");
 		else if (C.ForceX != 0) C.Anim = PlatformGetAnim(C, "Walk");
 		else if (Crouch) C.Anim = PlatformGetAnim(C, "Crouch");
 		else if (PlatformMoveActive("Block") && PlatformAnimAvailable(C, "Block")) C.Anim = PlatformGetAnim(C, "Block");
+		else if (C.HalfBound) C.Anim = PlatformGetAnim(C, "HalfBoundIdle");
 		else C.Anim = PlatformGetAnim(C, "Idle");
 
 		// Draws the background if we are focusing on that character

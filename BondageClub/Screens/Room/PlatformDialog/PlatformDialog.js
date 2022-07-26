@@ -1664,6 +1664,85 @@ var PlatformDialogData = [
 		]
 	},
 
+	{
+		Name: "IntroForestBanditKidnapEdlaran",
+		Exit : function () { PlatformEventSet("EdlaranForestIntro"); },
+		Dialog: [
+			{
+				Background: "OakHeavy",
+				Character: [
+					{ Name: "Vera", Status: "Leather", X: 600, Pose: "StareDownRight" },
+					{ Name: "Edlaran", Status: "Archer", X: 700, Animation: "Bound" }
+				]
+			},
+			{ Text: "(Next to a giant oak, you find a forest bandit tormenting a bound elf.)" },
+			{ Text: "This is your last warning!  Pay your debt or I cut your pretty ears Edlaran." },
+			{ Text: "(She pulls out a knife and the elf notices you.)" },
+			{
+				Text: "Help!  Please!",
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", X: 1100, Animation: "Bound" },
+					{ Name: "Vera", Status: "Leather", X: 1000, Pose: "StareDownRight" },
+					{ Name: "Melody", Status: "Maid", X: 400, Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", X: 0, Pose: "IdleAngry" }
+				],
+				Answer: [
+					{ Text: "Let her go.  Now!", Reply: "(The bandit grumbles and turns to you.)", Domination: 2 },
+					{ Text: "Can we please pay her debt?", Reply: "(The bandit smirks and turns to you.)", Domination: -2 },
+					{ Text: "This is none of my business.", Reply: "(The bandit turns to you.)" },
+				]
+			},
+			{ 
+				Text: "It seems I have more urgent mathers to settle first.  Don't try anything Edlaran.",
+				Character: [{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }]
+			},
+			{ Text: "(She charges toward you)." }
+		]
+	},
+
+	{
+		Name: "EdlaranForestBeg",
+		Dialog: [
+			{
+				Background: "OakHeavy",
+				Character: [{ Name: "Edlaran", Status: "Archer", Animation: "Bound" }]
+			},
+			{ Text: "Help!  One of these bandits must have the keys to these chains." },
+			{ Text: "(She struggles in vain and whimpers.)" },
+			{ Entry: function() { if (!PlatformEventDone("EdlaranForestKey")) PlatformDialogLeave(); else PlatformDialogProcess(); } },
+			{ 
+				Text: "Do you have the key?",
+				Answer: [
+					{ Text: "I don't.  (Leave her.)", Reply: "(She sighs and nods.)", Script: function() { PlatformDialogLeave(); } },
+					{ Text: "It's the least I can do.  (Unlock her.)", Reply: "(She nods slowly as you unlock her.)", Domination: -2, Love: 1 },
+					{ Text: "You owe me a big favor.  (Unlock her.)", Reply: "(The gulps as you unlock her.)", Domination: 2, Love: 1 },
+					{ Text: "Get up sexy elf.  (Unlock her.)", Reply: "(She smiles as you unlock her.)", Love: 2 },
+				]
+			},
+			{ 
+				Text: "Thanks!  You're the best.",
+				Character: [{ Name: "Edlaran", Status: "Archer", Pose: "IdleHappy" }]
+			},
+			{  
+				Text: "I owe you one.  I could help you against these bandits or in your adventures.",
+				Entry: function() { PlatformEventSet("EdlaranJoin"); PlatformLoadRoom(); }
+			},
+			{ 	
+				Text: "I'm Edlaran.  I know how to fight, shoot and plunder.  I also know these woods.",
+				Answer: [
+					{ Text: "Deal!  You can join our quest.", Reply: "(She gives you a thumbs up.)", Love: 1 },
+					{ Text: "Fine, but don't steal from us.", Reply: "Of course.  (She rolls her eyes up.)", Domination: 1 },
+					{ Text: "Fine, it will share the burden.", Reply: "I can share anything.  (She giggles.)", Domination: -1 },
+					{ Text: "Ok, but don't touch Lady Olivia.", Reply: "Very well, I won't." },
+				]
+			},
+			{ Text: "Just let me know what's going on and I'll be your best shooter." },
+			{ Text: "(You take some time to tell her about the castle, the curse and the quest.)" },
+			{ Text: "Thanks!  Let's go!" },
+			{ Text: "(Edlaran joined your party.  You can switch your active character at any save point.)" },
+		]
+	},
+
 ];
 
 /**
