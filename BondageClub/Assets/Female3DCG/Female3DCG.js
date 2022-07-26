@@ -1725,13 +1725,10 @@ var AssetFemale3DCG = [
 				Layer: [
 					//Thumb
 					{ Name: "ThumbSteel", HasType: false, AllowModuleTypes: ["t1"] },
-					{ Name: "ThumbO", HasType: false, AllowModuleTypes: ["t2"] },
 					//Index
-					{ Name: "IndexSteel", HasType: false, AllowModuleTypes: ["i1"] },
-					{ Name: "IndexO", HasType: false, AllowModuleTypes: ["i2"] },				
+					{ Name: "IndexSteel", HasType: false, AllowModuleTypes: ["i1"] },			
 					//Middle
-					{ Name: "MiddleSteel", HasType: false, AllowModuleTypes: ["m1"] },	
-					{ Name: "MiddleO", HasType: false, AllowModuleTypes: ["m2"] },					
+					{ Name: "MiddleSteel", HasType: false, AllowModuleTypes: ["m1"] },					
 					//Ring
 					{ Name: "RingSteel", HasType: false, AllowModuleTypes: ["r1"] },
 					{ Name: "Wedding", HasType: false, AllowModuleTypes: ["r2"] },				
