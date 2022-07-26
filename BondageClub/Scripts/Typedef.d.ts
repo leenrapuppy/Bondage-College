@@ -574,6 +574,7 @@ interface Asset {
 	Tint: TintDefinition[];
 	AllowTint: boolean;
 	DefaultTint?: string;
+	Gender?: string;
 }
 
 //#endregion
@@ -844,6 +845,7 @@ interface Character {
 	RegisterHook: (hookName: string, hookInstance: string, callback: any) => boolean | any;
 	UnregisterHook: (hookName: string, hookInstance: string) => boolean;
 	HeightRatioProportion?: number;
+	GetGenders: () => string[];
 	// Properties created in other places
 	ArousalSettings?: {
 		Active: string;

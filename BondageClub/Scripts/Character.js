@@ -349,6 +349,9 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		GetTints: function() {
 			return CharacterGetTints(this);
 		},
+		GetGenders: function () {
+			return this.Appearance.map(asset => asset.Asset.Gender).filter(a => a);
+		},
 		// Adds a new hook with a Name (determines when the hook will happen, an Instance ID (used to differentiate between different hooks happening at the same time), and a function that is run when the hook is called)
 		RegisterHook: function (hookName, hookInstance, callback) {
 			if (!this.Hooks) this.Hooks = new Map();
