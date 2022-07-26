@@ -110,16 +110,6 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		CanInteract: function () {
 			return (this.Effect.indexOf("Block") < 0);
 		},
-		HasMaleAspects: function () {
-			return !InventoryIsItemInList(Player, "Pussy", ["Penis"]) &&
-				!InventoryIsItemInList(Player, "BodyUpper", ["FlatSmall", "FlatMedium"]) &&
-				!InventoryIsItemInList(Player, "Pronouns", ["HeHim"]);
-		},
-		HasFemaleAspects: function () {
-			return !InventoryIsItemInList(Player, "BodyUpper", ["Small", "Normal", "Large", "XLarge"]) &&
-				!InventoryIsItemInList(Player, "Pussy", ["PussyDark1", "PussyDark2", "PussyDark3", "PussyLight1", "PussyLight2", "PussyLight3"]) &&
-				!InventoryIsItemInList(Player, "Pronouns", ["SheHer"]);
-		},
 		CanChangeOwnClothes: function () {
 			return this.CanChangeClothesOn(this);
 		},

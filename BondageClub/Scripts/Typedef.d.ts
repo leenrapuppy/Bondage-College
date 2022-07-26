@@ -769,8 +769,6 @@ interface Character {
 	CanWalk: () => boolean;
 	CanKneel: () => boolean;
 	CanInteract: () => boolean;
-	HasMaleAspects: () => boolean;
-	HasFemaleAspects: () => boolean;
 
 	/**
 	 * Check whether a character can change its own outfit.
@@ -1091,7 +1089,7 @@ interface PlayerCharacter extends Character {
 	LastChatRoomBan?: any[];
 	LastChatRoomBlockCategory?: string[];
 	LastChatRoomTimer?: any;
-	LastChatRoomSpace: string;
+	LastChatRoomSpace?: string;
 	RestrictionSettings?: {
 		BypassStruggle: boolean;
 		SlowImmunity: boolean;

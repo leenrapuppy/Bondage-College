@@ -2044,14 +2044,14 @@ var AssetFemale3DCG = [
 		AllowColorize: false,
 		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "AllFours", "OverTheHead"],
 		Asset: [
-		//Breasts
-		"Small", 
-		"Normal",
-		 "Large", 
-		"XLarge",
-		//Flat Chests
-		{ Name: "FlatMedium", Random: false} ,
-		{ Name: "FlatSmall", Random: false} ,
+			//Breasts
+			{ Name: "Small", Gender: "F" },
+			{ Name: "Normal", Gender: "F" },
+			{ Name: "Large", Gender: "F" },
+			{ Name: "XLarge", Gender: "F" },
+			//Flat Chests
+			{ Name: "FlatMedium", Random: false, Gender: "M" },
+			{ Name: "FlatSmall", Random: false, Gender: "M" },
 		],
 		
 		Color: ["White", "Asian", "Black"]
