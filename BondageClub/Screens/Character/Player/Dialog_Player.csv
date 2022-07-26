@@ -3501,6 +3501,17 @@ ItemArmsSilkStrapsWristElbow,,,Wrist & Elbow Tie,,
 ItemArmsSilkStrapsWristElbowHarness1,,,Wrist & Elbow Harness Tie 1,,
 ItemArmsSilkStrapsArmbinder1,,,Armbinder 1,,
 ItemArmsSilkStrapsArmbinder2,,,Armbinder 2,,
+ItemArmsSilkStrapsSetWrist,,,SourceCharacter ties DestinationCharacter wrists behind TargetPronounPossessive back with the silk straps.,,
+ItemArmsSilkStrapsSetBoxtie1,,,SourceCharacter ties DestinationCharacter arms into a boxtie with the silk straps.,,
+ItemArmsSilkStrapsSetWristElbow,,,SourceCharacter ties DestinationCharacter wrists and elbows with the silk straps.,,
+ItemArmsSilkStrapsSetWristElbowHarness1,,,SourceCharacter ties DestinationCharacter wrists and elbows into a harness tie with the silk straps.,,
+ItemArmsSilkStrapsSetArmbinder1,,,SourceCharacter ties and conceals DestinationCharacter arms into an armbinder with the silk straps.,,
+ItemArmsSilkStrapsSetArmbinder2,,,SourceCharacter ties and conceals DestinationCharacter arms and shoulders into an armbinder with the silk straps.,,
+
+
+
+
+
 
 
 
