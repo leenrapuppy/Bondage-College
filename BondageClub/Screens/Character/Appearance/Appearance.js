@@ -377,10 +377,10 @@ function CharacterAppearanceVisible(C, AssetName, GroupName, Recursive = true) {
 	if (assetToCheck) {
 		const Pose = CommonDrawResolveAssetPose(C, assetToCheck);
 		if (Pose && assetToCheck.HideForPose.includes(Pose)) return false;
-	}
 
-	if (!CharacterAppearanceGenderAllowed(assetToCheck)) {
-		return false;
+		if (!CharacterAppearanceGenderAllowed(assetToCheck)) {
+			return false;
+		}
 	}
 
 	for (const item of C.DrawAppearance) {
