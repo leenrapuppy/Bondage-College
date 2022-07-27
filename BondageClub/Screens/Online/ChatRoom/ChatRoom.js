@@ -2350,6 +2350,8 @@ function ChatRoomMessageCollectMetadata(data, SenderCharacter) {
 	const substitutions = [];
 	const meta = {};
 
+	meta.senderName = CharacterNickname(SenderCharacter);
+
 	if (!data.Dictionary)
 		return { msg_meta: meta, msg_substitutions: substitutions };
 
@@ -2508,9 +2510,6 @@ function ChatRoomMessage(data) {
 	}
 
 	if (data.Type == "Emote") {
-		// Stash the sender name
-		msg_meta.senderName = CharacterNickname(SenderCharacter);
-
 		// Fix up the recieved message
 		if (msg.indexOf('*') === 0) {
 			// **-message, yank starting *
@@ -2518,7 +2517,7 @@ function ChatRoomMessage(data) {
 		} else {
 			// *-message, prepend sender name and a space if needed
 			const sep = (msg.indexOf("'") === 0 || msg.indexOf(",") === 0);
-			msg = CharacterNickname(SenderCharacter) + (!sep ? " " : "") + msg;
+			msg = msg_meta.senderName + (!sep ? " " : "") + msg;
 		}
 
 		// Player is under sensory-dep, replace every character name from the message with the placeholder
@@ -2542,15 +2541,12 @@ function ChatRoomMessage(data) {
 	}
 
 	if (data.Type == "Chat" || data.Type == "Whisper") {
-		// Garble the sender name if needed, and store that in the metadata
+		// Garble the sender name if needed
 		if (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && SenderCharacter.MemberNumber != Player.MemberNumber && data.Type != "Whisper" && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SenderCharacter))) {
 			if (Player.GetDeafLevel() >= 4)
 				msg_meta.senderName = DialogFindPlayer("Someone");
 			else
-				msg_meta.senderName = SpeechGarble(SenderCharacter, CharacterNickname(SenderCharacter), true);
-		}
-		else {
-			msg_meta.senderName = CharacterNickname(SenderCharacter);
+				msg_meta.senderName = SpeechGarble(SenderCharacter, msg_meta.senderName, true);
 		}
 
 		// Make sure chat messages get garbled
