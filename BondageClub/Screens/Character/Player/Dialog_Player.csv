@@ -3507,16 +3507,4 @@ ItemArmsSilkStrapsSetWristElbow,,,SourceCharacter ties DestinationCharacter wris
 ItemArmsSilkStrapsSetWristElbowHarness1,,,SourceCharacter ties DestinationCharacter wrists and elbows into a harness tie with the silk straps.,,
 ItemArmsSilkStrapsSetArmbinder1,,,SourceCharacter ties and conceals DestinationCharacter arms into an armbinder with the silk straps.,,
 ItemArmsSilkStrapsSetArmbinder2,,,SourceCharacter ties and conceals DestinationCharacter arms and shoulders into an armbinder with the silk straps.,,
-
-
-
-
-
-
-
-
-
-
-
-
-
+CharacterNicknameUpdated,,,OldNick is now known as NewNick.,,

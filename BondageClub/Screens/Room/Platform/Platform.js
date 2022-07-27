@@ -1026,6 +1026,7 @@ var PlatformRoomList = [
 		Door: [
 			{ Name: "ForestBirchCenter", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3100, ToFaceLeft: true },
 			{ Name: "ForestOakHeavy", FromX: 1650, FromY: 0, FromW: 800, FromH: 1200, FromType: "Up", ToX: 100, ToFaceLeft: false },
+			{ Name: "ForestBirchMaze", FromX: 4200, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: true }
 		],
 		Character: [
 			{ Name: "Vera", Status: "Leather", X: 1200 },
@@ -1054,6 +1055,28 @@ var PlatformRoomList = [
 			{ Name: "Vera", Status: "Leather", X: 1900 }
 		]
 	},
+	{
+		Name: "ForestBirchMaze",
+		Text: "Birch Path ????",
+		Background: "Forest/BirchMaze",
+		BackgroundFilter: "#00000040",
+		Width: 3200,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestBirchEast", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 4200, ToFaceLeft: true },
+			{ Name: "ForestBirchMazePath", FromX: 3100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: true }
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1800 }
+		]
+	},
+	{
+		Name: "ForestBirchMazePath",
+		Background: "Forest/BirchMaze",
+		Entry: function() {
+			PlatformDialogStart(PlatformEventDone("EdlaranJoin") ? "ForestPath" : "ForestLost");
+		},
+	}
 
 ]
 

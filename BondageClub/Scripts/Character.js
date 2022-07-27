@@ -1809,4 +1809,42 @@ function CharacterPronounDescription(C) {
 	const pronounItem = C.Appearance.find(A => A.Asset.Group.Name == "Pronouns");
 	const pronounAsset = pronounItem ? pronounItem.Asset : Asset.find(A => A.Group.Name == "Pronouns" && A.Name == "SheHer");
 	return pronounAsset.Description;
+ /* Update the given character's nickname.
+ *
+ * Note that changing any nickname but yours (ie. Player) is not supported.
+ *
+ * @param {Character} C - The character to change the nickname of.
+ * @param {string} Nick - The name to use as the new nickname.
+ * @return {string} null if the nickname was valid, or an explanation for why the nickname was rejected.
+ */
+function CharacterSetNickname(C, Nick) {
+	if (!C.IsPlayer()) return null;
+
+	Nick = Nick.trim();
+	if (Nick.length > 20) return "NicknameTooLong";
+
+	if (!ServerCharacterNicknameRegex.test(Nick)) return "NicknameInvalidChars";
+
+	if (C.Nickname != Nick) {
+		const oldNick = C.Nickname || C.Name;
+		C.Nickname = Nick;
+		if (C.IsPlayer()) {
+			ServerAccountUpdate.QueueData({ Nickname: Nick });
+		}
+
+		if (ServerPlayerIsInChatRoom()) {
+			// When in a chatroom, send a notification that the player updated their nick
+			const Dictionary = [
+				{ Tag: "SourceCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+				{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+				{ Tag: "OldNick", Text: oldNick },
+				{ Tag: "NewNick", Text: CharacterNickname(C) },
+			];
+
+			ServerSend("ChatRoomChat", { Content: "CharacterNicknameUpdated", Type: "Action", Dictionary: Dictionary });
+		}
+	}
+
+	return null;
+}
 }

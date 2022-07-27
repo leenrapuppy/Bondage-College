@@ -1743,6 +1743,125 @@ var PlatformDialogData = [
 		]
 	},
 
+	{
+		Name: "ForestLost",
+		Dialog: [
+			{
+				Background: "ForestMaze",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				]
+			},
+			{ Text: "Wait... didn't we walk on that path a few minutes ago?" },
+			{ Text: "Yes!  It's the exact same tree!  And the same rock!" },
+			{ Text: "How is that possible?  We followed the path.  Did we?" },
+			{ 
+				Text: "Where should we go?",
+				Answer: [
+					{ Text: "Let's go straight on the path.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestBirchEast") } },
+					{ Text: "Let's turn left here.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestBirchMaze") }  },
+					{ Text: "We should go right.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestOakHeavy") }  },
+					{ Text: "We should go back.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestBirchCenter") }  },
+				]
+			},
+		]
+	},
+
+	{
+		Name: "ForestPath",
+		Dialog: [
+			{
+				Background: "ForestMaze",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" },
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" }
+				]
+			},
+			{ Text: "Wait... didn't we walk on that path a few minutes ago?" },
+			{ Text: "Yes!  It's the exact same tree!  And the same rock!" },
+			{ Text: "How is that possible?  We followed the path.  Did we?" },
+			{ 
+				Text: "(Edlaran steps foward.)  Move over princess.",
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "IdleHappy" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleAngry" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				]
+			},
+			{ Text: "You could not find your way out of your own golden bathroom." },
+			{ Text: "(She inspects the forest for a while.)" },
+			{ Text: "I see what's going on, this place is a clever maze." },
+			{ 
+				Text: "Let me guide the group.  I'll show you the way.",
+				Answer: [
+					{ Text: "Guide us Edlaran.", Script: function() { PlatformDialogStart("ForestTrap") } },
+					{ Text: "I fully trust you Edlaran.", Domination: -1, Love: 1, Script: function() { PlatformDialogStart("ForestTrap") } },
+					{ Text: "Fine.  Don't get us lost.", Domination: 1, Love: -1, Script: function() { PlatformDialogStart("ForestTrap") } },
+					{ Text: "No!  We're going this way.", Reply: "(She sighs as everyone follows you.)", Script: function() { PlatformLoadRoom("ForestBirchMaze") }  },
+				]
+			},
+		]
+	},
+
+	{
+		Name: "ForestTrap",
+		Dialog: [
+			{
+				Text: "(Eldaran finds many hidden paths and guides you in the forest.)",
+				Background: "ForestMaze",
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				]
+			},
+			{ Text: "(She tracks the steps on the ground and helps you to avoid bandits.)" },
+			{ Text: "(As you walk in the woods, Olivia steps on a rope.)" },
+			{
+				Text: "(A huge cloud of smoke springs for the ground.)",
+				Background: "Gas",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive" },
+					{ Name: "Melody", Status: "Maid", Pose: "Alert" }
+				]
+			},
+			{ Text: "That smoke!  *Cough*  It's coming from the soil." },
+			{ Text: "*Cough*  Where is Edlaran?  *Cough*" },
+			{ 
+				Text: "*Cough*   I feel sick.",
+				Answer: [
+					{ Text: "Everyone is afraid!", Reply: "(She whimpers and starts to get dizzy.)", Love: -1, Domination: -1 },
+					{ Text: "That cloud is toxic.", Reply: "(She nods and starts to get dizzy.)", },
+					{ Text: "I will protect you.", Reply: "(She smiles and starts to get dizzy.)", Love: 1, Domination: 1 },
+					{ Text: "Edlaran!", Reply: "(You scream as she starts to get dizzy.)", },
+				]
+			},
+			{ 
+				Text: "*Cough*  Melody!  *Cough*",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive" },
+					{ Name: "Melody", Status: "Maid", Pose: "Alert" }
+				]
+			},
+			{
+				Character: [
+					{ Name: "Melody", Status: "Maid", Pose: "CarrySleepingOlivia" },
+				]
+			},
+			{ Text: "(She passes out in your arms as you start coughing.)" },
+			{ Text: "(You carry her through the smoke, getting dizzy.)" },
+			{ Text: "(You run in the thick cloud, hurting yourself on trees.)" },
+			{ Text: "(You feel sick, sleepy and disoriented.)" },
+			{ 
+				Background: "Black",
+				Text: "(Everything turns dark...)",
+			},
+			{ Text: "TO DO" },
+		]
+	},
+
 ];
 
 /**
