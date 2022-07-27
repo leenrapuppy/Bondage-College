@@ -2491,6 +2491,51 @@ function ChatRoomMessage(data) {
 				}
 			}
 
+			// Outputs the sexual activities text and runs the activity if the player is targeted
+			if (data.Type === "Activity") {
+
+				// Creates the output message using the activity dictionary and tags, keep some values to calculate the activity effects on the player
+				msg = ActivityDictionaryText(msg);
+				let TargetMemberNumber = null;
+				let TargetCharacter = null;
+				let ActivityName = null;
+				var ActivityGroup = null;
+				let ActivityCounter = 1;
+				if (data.Dictionary != null)
+					for (let D = 0; D < data.Dictionary.length; D++) {
+						for (let T = 0; T < ChatRoomCharacter.length; T++)
+							if (ChatRoomCharacter[T].MemberNumber == data.Dictionary[D].MemberNumber)
+								TargetCharacter = ChatRoomCharacter[T];
+						if (data.Dictionary[D].MemberNumber != null) {
+							msg = msg.replace(data.Dictionary[D].Tag, (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && (data.Dictionary[D].MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(TargetCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(data.Dictionary[D].Text));
+						}
+						if ((data.Dictionary[D].MemberNumber != null) && (data.Dictionary[D].Tag == "TargetCharacter")) TargetMemberNumber = data.Dictionary[D].MemberNumber;
+						if (data.Dictionary[D].Tag == "ActivityName") ActivityName = data.Dictionary[D].Text;
+						if (data.Dictionary[D].Tag == "ActivityGroup") ActivityGroup = data.Dictionary[D].Text;
+						if (data.Dictionary[D].ActivityCounter != null) ActivityCounter = data.Dictionary[D].ActivityCounter;
+					}
+
+				// If the player does the activity on herself or an NPC, we calculate the result right away
+				AsylumGGTSActivity(SenderCharacter, TargetCharacter, ActivityName, ActivityGroup, ActivityCounter);
+				if ((data.Type === "Action") || ((TargetMemberNumber == Player.MemberNumber) && (SenderCharacter.MemberNumber != Player.MemberNumber)))
+					if ((Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic"))
+						ActivityEffect(SenderCharacter, Player, ActivityName, ActivityGroup, ActivityCounter);
+
+				// When the player is in total sensory deprivation, hide messages if the player is not involved
+				if (Player.ImmersionSettings.SenseDepMessages && TargetMemberNumber != Player.MemberNumber && SenderCharacter.MemberNumber != Player.MemberNumber && PreferenceIsPlayerInSensDep()) {
+					return;
+				}
+
+				AudioPlaySoundForChatMessage(data);
+
+				// Exits before outputting the text if the player doesn't want to see the sexual activity messages
+				if ((Player.ChatSettings != null) && (Player.ChatSettings.ShowActivities != null) && !Player.ChatSettings.ShowActivities) return;
+
+				// Raise a notification if required
+				if (TargetMemberNumber === Player.MemberNumber && Player.NotificationSettings.ChatMessage.Activity)
+					ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
+			}
+
 			// Prepares the HTML tags
 			if (data.Type != null) {
 				const HideOthersMessages = Player.ImmersionSettings.SenseDepMessages
@@ -2546,56 +2591,11 @@ function ChatRoomMessage(data) {
 					if (Player.NotificationSettings.ChatMessage.Normal || (Player.NotificationSettings.ChatMessage.Mention && playerMentioned))
 						ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
 				}
-				else if (data.Type == "Action") msg = "(" + msg + ")";
+				else if (data.Type === "Action" || data.Type === "Activity") msg = "(" + msg + ")";
 				else if (data.Type == "ServerMessage") msg = "<b>" + msg + "</b>";
 
 				// Local messages can have HTML embedded in them
 				else if (data.Type == "LocalMessage") msg = data.Content;
-			}
-
-			// Outputs the sexual activities text and runs the activity if the player is targeted
-			if (data.Type === "Activity") {
-
-				// Creates the output message using the activity dictionary and tags, keep some values to calculate the activity effects on the player
-				msg = "(" + ActivityDictionaryText(msg) + ")";
-				let TargetMemberNumber = null;
-				let TargetCharacter = null;
-				let ActivityName = null;
-				var ActivityGroup = null;
-				let ActivityCounter = 1;
-				if (data.Dictionary != null)
-					for (let D = 0; D < data.Dictionary.length; D++) {
-						for (let T = 0; T < ChatRoomCharacter.length; T++)
-							if (ChatRoomCharacter[T].MemberNumber == data.Dictionary[D].MemberNumber)
-								TargetCharacter = ChatRoomCharacter[T];
-						if (data.Dictionary[D].MemberNumber != null) {
-							msg = msg.replace(data.Dictionary[D].Tag, (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && (data.Dictionary[D].MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(TargetCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(data.Dictionary[D].Text));
-						}
-						if ((data.Dictionary[D].MemberNumber != null) && (data.Dictionary[D].Tag == "TargetCharacter")) TargetMemberNumber = data.Dictionary[D].MemberNumber;
-						if (data.Dictionary[D].Tag == "ActivityName") ActivityName = data.Dictionary[D].Text;
-						if (data.Dictionary[D].Tag == "ActivityGroup") ActivityGroup = data.Dictionary[D].Text;
-						if (data.Dictionary[D].ActivityCounter != null) ActivityCounter = data.Dictionary[D].ActivityCounter;
-					}
-
-				// If the player does the activity on herself or an NPC, we calculate the result right away
-				AsylumGGTSActivity(SenderCharacter, TargetCharacter, ActivityName, ActivityGroup, ActivityCounter);
-				if ((data.Type === "Action") || ((TargetMemberNumber == Player.MemberNumber) && (SenderCharacter.MemberNumber != Player.MemberNumber)))
-					if ((Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic"))
-						ActivityEffect(SenderCharacter, Player, ActivityName, ActivityGroup, ActivityCounter);
-
-				// When the player is in total sensory deprivation, hide messages if the player is not involved
-				if (Player.ImmersionSettings.SenseDepMessages && TargetMemberNumber != Player.MemberNumber && SenderCharacter.MemberNumber != Player.MemberNumber && PreferenceIsPlayerInSensDep()) {
-					return;
-				}
-
-				AudioPlaySoundForChatMessage(data);
-
-				// Exits before outputting the text if the player doesn't want to see the sexual activity messages
-				if ((Player.ChatSettings != null) && (Player.ChatSettings.ShowActivities != null) && !Player.ChatSettings.ShowActivities) return;
-
-				// Raise a notification if required
-				if (TargetMemberNumber === Player.MemberNumber && Player.NotificationSettings.ChatMessage.Activity)
-					ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
 			}
 
 			// Adds the message and scrolls down unless the user has scrolled up
