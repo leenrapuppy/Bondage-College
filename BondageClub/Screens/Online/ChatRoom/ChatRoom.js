@@ -2383,14 +2383,6 @@ function ChatRoomMessage(data) {
 		return;
 	}
 
-	// Checks if the message is a notification about the user entering or leaving the room
-	var MsgEnterLeave = "";
-	var MsgNonDialogue = "";
-	if ((data.Type == "Action") && (msg.startsWith("ServerEnter") || msg.startsWith("ServerLeave") || msg.startsWith("ServerDisconnect") || msg.startsWith("ServerBan") || msg.startsWith("ServerKick")))
-		MsgEnterLeave = " ChatMessageEnterLeave";
-	if ((data.Type != "Chat" && data.Type != "Whisper" && data.Type != "Emote"))
-		MsgNonDialogue = " ChatMessageNonDialogue";
-
 	if (msg.startsWith("ServerDisconnect") && SenderCharacter.MemberNumber == ChatRoomLeashPlayer) ChatRoomLeashPlayer = null;
 
 	// Substitute actions and server messages for their fulltext version
@@ -2601,20 +2593,48 @@ function ChatRoomMessage(data) {
 	}
 
 	// Prepares the HTML tags
-	if (data.Type == "Chat" || data.Type == "Whisper") {
-		let senderTag = '<span class="ChatMessageName" style="color:' + (SenderCharacter.LabelColor || 'gray');
-		if (data.Type == "Whisper") senderTag += '; font-style: italic';
-		senderTag += ';">';
-		senderTag += msg_meta.senderName;
-		senderTag += ':</span> ';
+	switch (data.Type) {
+		case "Chat":
+		case "Whisper": {
+			let senderTag = '<span class="ChatMessageName" style="color:' + (SenderCharacter.LabelColor || 'gray');
+			if (data.Type == "Whisper") senderTag += '; font-style: italic';
+			senderTag += ';">';
+			senderTag += msg_meta.senderName;
+			senderTag += ':</span> ';
 
-		msg = senderTag + msg;
+			msg = senderTag + msg;
+		}
+			break;
+
+		case "Action":
+		case "Activity":
+			msg = "(" + msg + ")";
+			break;
+
+		case "ServerMessage":
+			msg = "<b>" + msg + "</b>";
+			break;
+
+		case "LocalMessage":
+			// Local messages can have HTML embedded in them
+			msg = data.Content;
+			break;
+
+		case "Emote":
+			break;
+
+		default:
+			console.warn(`unknown message type ${data.Type}, ignoring`);
+			return;
 	}
-	else if (data.Type === "Action" || data.Type === "Activity") msg = "(" + msg + ")";
-	else if (data.Type == "ServerMessage") msg = "<b>" + msg + "</b>";
 
-	// Local messages can have HTML embedded in them
-	else if (data.Type == "LocalMessage") msg = data.Content;
+	// Checks if the message is a notification about the user entering or leaving the room
+	let MsgEnterLeave = "";
+	let MsgNonDialogue = "";
+	if ((data.Type == "Action") && (msg.startsWith("ServerEnter") || msg.startsWith("ServerLeave") || msg.startsWith("ServerDisconnect") || msg.startsWith("ServerBan") || msg.startsWith("ServerKick")))
+		MsgEnterLeave = " ChatMessageEnterLeave";
+	if ((data.Type != "Chat" && data.Type != "Whisper" && data.Type != "Emote"))
+		MsgNonDialogue = " ChatMessageNonDialogue";
 
 	// Adds the message and scrolls down unless the user has scrolled up
 	var div = document.createElement("div");
