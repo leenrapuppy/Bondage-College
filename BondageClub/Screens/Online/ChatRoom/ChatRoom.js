@@ -2615,6 +2615,20 @@ function ChatRoomMessage(data) {
 		|| (Player.NotificationSettings.ChatMessage.Mention && ChatRoomMessageMentionsCharacter(Player, msg)))
 		ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
 
+	// Push message to the chat log
+	ChatRoomMessageDisplay(data, msg, SenderCharacter, msg_meta);
+}
+
+/**
+ * Update the Chat log with the recieved message
+ *
+ * @param {IChatRoomMessage} data
+ * @param {string} msg
+ * @param {Character} SenderCharacter
+ * @param {object} metadata
+ * @returns {void}
+ */
+function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
 	// Prepares the HTML tags
 	switch (data.Type) {
 		case "Chat":
@@ -2622,7 +2636,7 @@ function ChatRoomMessage(data) {
 			let senderTag = '<span class="ChatMessageName" style="color:' + (SenderCharacter.LabelColor || 'gray');
 			if (data.Type == "Whisper") senderTag += '; font-style: italic';
 			senderTag += ';">';
-			senderTag += msg_meta.senderName;
+			senderTag += metadata.senderName;
 			senderTag += ':</span> ';
 
 			msg = senderTag + msg;
