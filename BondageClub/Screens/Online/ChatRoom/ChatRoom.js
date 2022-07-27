@@ -2339,6 +2339,107 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
 }
 
 /**
+ * Given a chatroom message, go through its dictionary component and extracts
+ * the metadata and message substitutions from it.
+ *
+ * @param {IChatRoomMessage} data - The message to parse.
+ * @param {Character} SenderCharacter - The resolved character that sent that message.
+ * @returns {{ msg_meta: object, msg_substitutions: string[][] }}
+ */
+function ChatRoomMessageCollectMetadata(data, SenderCharacter) {
+	const substitutions = [];
+	const meta = {};
+
+	if (!data.Dictionary)
+		return { msg_meta: meta, msg_substitutions: substitutions };
+
+	const dictionary = ChatRoomSortDictionary(data.Dictionary);
+	for (let entry of dictionary) {
+
+		// If there's a member number in the dictionary packet, we use that number to alter the chat message
+		if (entry.MemberNumber) {
+
+			// Alters the message displayed in the chat room log, and stores the source & target in case they're required later
+			if (["ServerEnter", "ServerLeave", "ServerDisconnect"].includes(data.Content)) {
+				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
+				if (C) {
+					let Nick = CharacterNickname(C);
+					if (Nick != C.Name) Nick = Nick + " [" + C.Name + "]";
+					substitutions.push([entry.Tag, Nick]);
+				}
+			}
+			else if (entry.Tag == "DestinationCharacter" || entry.Tag == "DestinationCharacterName") {
+				meta.TargetMemberNumber = entry.MemberNumber;
+				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
+				if (C)
+					meta.TargetCharacter = C;
+				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "DestinationCharacter")) ? DialogFindPlayer("Her") : (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && entry.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(entry.Text) + DialogFindPlayer("'s"));
+				substitutions.push([entry.Tag, repl]);
+			}
+			else if (entry.Tag == "TargetCharacter" || entry.Tag == "TargetCharacterName") {
+				meta.TargetMemberNumber = entry.MemberNumber;
+				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
+				if (C)
+					meta.TargetCharacter = C;
+				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "TargetCharacter")) ? DialogFindPlayer("Herself") : (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && entry.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(entry.Text));
+				substitutions.push([entry.Tag, repl]);
+			}
+			else if (entry.Tag == "SourceCharacter") {
+				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
+				if (C)
+					meta.SourceCharacter = C;
+				const repl = (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && (entry.MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.SourceCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(entry.Text);
+				substitutions.push([entry.Tag, repl]);
+			}
+		}
+
+		else if (entry.TextToLookUp) {
+			const repl = DialogFindPlayer(ChatRoomHTMLEntities(entry.TextToLookUp)).toLowerCase();
+			substitutions.push([entry.Tag, repl]);
+		}
+		else if (entry.AssetName) {
+			const A = Asset.find(a => a.Name === entry.AssetName);
+			if (A) {
+				meta.ActivityName = A.DynamicActivity(meta.SourceCharacter || Player);
+				const repl = A.DynamicDescription(meta.SourceCharacter || Player).toLowerCase();
+				substitutions.push([entry.Tag, repl]);
+			}
+		}
+		else if (entry.AssetGroupName) {
+			const G = AssetGroupGet('Female3DCG', entry.AssetGroupName);
+			if (G) {
+				meta.GroupName = entry.AssetGroupName;
+				const repl = G.Description.toLowerCase();
+				substitutions.push([entry.Tag, repl]);
+			}
+		}
+		else if (entry.Tag === "ActivityName") meta.ActivityName = entry.Text;
+		else if (entry.Tag === "ActivityGroup") meta.ActivityGroup = entry.Text;
+		else if (entry.ActivityCounter) meta.ActivityCounter = entry.ActivityCounter;
+		else if (entry.Automatic) meta.Automatic = true;
+		else if (entry.ShockIntensity != undefined) meta.ShockIntensity = entry.ShockIntensity;
+		else
+			substitutions.push([entry.Tag, ChatRoomHTMLEntities(entry.Text)]);
+	}
+	return { msg_meta: meta, msg_substitutions: substitutions };
+}
+
+/**
+ * Performs the required substitutions on the given message
+ * @param {string} msg - The string to perform the substitutions on.
+ * @param {string[][]} substitutions - An array of {string, string} subtitutions.
+ */
+function ChatRoomMessagePerformSubstitutions(msg, substitutions) {
+	if (typeof msg !== "string")
+		return "";
+
+	for (const [tag, subst] of substitutions) {
+		msg = msg.replace(tag, subst);
+	}
+	return msg;
+}
+
+/**
  * Handles the reception of a chatroom message. Ghost players' messages are ignored.
  * @param {IChatRoomMessage} data - Message object containing things like the message type, sender, content, etc.
  * @returns {void} - Nothing.
@@ -2372,11 +2473,8 @@ function ChatRoomMessage(data) {
 	if (!SenderCharacter) return;
 
 	// Replace < and > characters to prevent HTML injections
-	let msg = ChatRoomHTMLEntities(data.Content);
+	let msg = data.Content ? ChatRoomHTMLEntities(data.Content) : "";
 	let orig_msg = msg;
-
-	// Metadata extracted from the message's dictionary
-	let msg_meta = {};
 
 	// Hidden messages are processed separately, they are used by chat room mini-games / events
 	if (data.Type == "Hidden") {
@@ -2392,91 +2490,21 @@ function ChatRoomMessage(data) {
 
 	if (msg.startsWith("ServerDisconnect") && SenderCharacter.MemberNumber == ChatRoomLeashPlayer) ChatRoomLeashPlayer = null;
 
+	// Metadata extracted from the message's dictionary
+	const { msg_meta, msg_substitutions } = ChatRoomMessageCollectMetadata(data, SenderCharacter);
+
 	// Substitute actions and server messages for their fulltext version
 	if (data.Type && ((data.Type == "Action") || (data.Type == "ServerMessage"))) {
 		if (data.Type == "ServerMessage") msg = "ServerMessage" + msg;
+
 		msg = DialogFindPlayer(msg);
-		if (data.Dictionary) {
-			const dictionary = ChatRoomSortDictionary(data.Dictionary);
-			for (let D = 0; D < dictionary.length; D++) {
-
-				// If there's a member number in the dictionary packet, we use that number to alter the chat message
-				if (dictionary[D].MemberNumber) {
-
-					// Alters the message displayed in the chat room log, and stores the source & target in case they're required later
-					if ((msg == "SourceCharacter entered.") || (msg == "SourceCharacter left.") || (msg == "SourceCharacter disconnected.")) {
-						for (let T = 0; T < ChatRoomCharacter.length; T++)
-							if (ChatRoomCharacter[T].MemberNumber == dictionary[D].MemberNumber) {
-								let Nick = CharacterNickname(ChatRoomCharacter[T]);
-								if (Nick != ChatRoomCharacter[T].Name) Nick = Nick + " [" + ChatRoomCharacter[T].Name + "]";
-								msg = msg.replace(dictionary[D].Tag, Nick);
-								break;
-							}
-					}
-					else if ((dictionary[D].Tag == "DestinationCharacter") || (dictionary[D].Tag == "DestinationCharacterName")) {
-						msg_meta.TargetMemberNumber = dictionary[D].MemberNumber;
-						for (let T = 0; T < ChatRoomCharacter.length; T++)
-							if (ChatRoomCharacter[T].MemberNumber == dictionary[D].MemberNumber)
-								msg_meta.TargetCharacter = ChatRoomCharacter[T];
-						msg = msg.replace(dictionary[D].Tag, ((SenderCharacter.MemberNumber == dictionary[D].MemberNumber) && (dictionary[D].Tag == "DestinationCharacter")) ? DialogFindPlayer("Her") : (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && dictionary[D].MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(msg_meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(dictionary[D].Text) + DialogFindPlayer("'s")));
-					}
-					else if ((dictionary[D].Tag == "TargetCharacter") || (dictionary[D].Tag == "TargetCharacterName")) {
-						msg_meta.TargetMemberNumber = dictionary[D].MemberNumber;
-						for (let T = 0; T < ChatRoomCharacter.length; T++)
-							if (ChatRoomCharacter[T].MemberNumber == dictionary[D].MemberNumber)
-								msg_meta.TargetCharacter = ChatRoomCharacter[T];
-						msg = msg.replace(dictionary[D].Tag, ((SenderCharacter.MemberNumber == dictionary[D].MemberNumber) && (dictionary[D].Tag == "TargetCharacter")) ? DialogFindPlayer("Herself") : (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && dictionary[D].MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(msg_meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(dictionary[D].Text)));
-					}
-					else if (dictionary[D].Tag == "SourceCharacter") {
-						for (let T = 0; T < ChatRoomCharacter.length; T++)
-							if (ChatRoomCharacter[T].MemberNumber == dictionary[D].MemberNumber)
-								msg_meta.SourceCharacter = ChatRoomCharacter[T];
-						msg = msg.replace(dictionary[D].Tag, (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && (dictionary[D].MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(msg_meta.SourceCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(dictionary[D].Text));
-					}
-				}
-				else if (dictionary[D].TextToLookUp) msg = msg.replace(dictionary[D].Tag, DialogFindPlayer(ChatRoomHTMLEntities(dictionary[D].TextToLookUp)).toLowerCase());
-				else if (dictionary[D].AssetName) {
-					for (let A = 0; A < Asset.length; A++)
-						if (Asset[A].Name == dictionary[D].AssetName) {
-							msg = msg.replace(dictionary[D].Tag, Asset[A].DynamicDescription(msg_meta.SourceCharacter || Player).toLowerCase());
-							msg_meta.ActivityName = Asset[A].DynamicActivity(msg_meta.SourceCharacter || Player);
-							break;
-						}
-				}
-				else if (dictionary[D].AssetGroupName) {
-					const G = AssetGroupGet('Female3DCG', dictionary[D].AssetGroupName);
-					if (G) {
-						msg = msg.replace(dictionary[D].Tag, G.Description.toLowerCase());
-						msg_meta.GroupName = dictionary[D].AssetGroupName;
-					}
-				}
-				else if (dictionary[D].ActivityCounter) msg_meta.ActivityCounter = dictionary[D].ActivityCounter;
-				else if (dictionary[D].Automatic) msg_meta.Automatic = true;
-				else if (dictionary[D].ShockIntensity != undefined) msg_meta.ShockIntensity = dictionary[D].ShockIntensity;
-				else if (msg != null) msg = msg.replace(dictionary[D].Tag, ChatRoomHTMLEntities(dictionary[D].Text));
-			}
-		}
+		msg = ChatRoomMessagePerformSubstitutions(msg, msg_substitutions);
 	}
 
 	// Substitute activity messages for their fulltext version
 	if (data.Type === "Activity") {
-
-		// Creates the output message using the activity dictionary and tags, keep some values to calculate the activity effects on the player
 		msg = ActivityDictionaryText(msg);
-
-		if (data.Dictionary != null)
-			for (let D = 0; D < data.Dictionary.length; D++) {
-				for (let T = 0; T < ChatRoomCharacter.length; T++)
-					if (ChatRoomCharacter[T].MemberNumber == data.Dictionary[D].MemberNumber)
-						msg_meta.TargetCharacter = ChatRoomCharacter[T];
-				if (data.Dictionary[D].MemberNumber != null) {
-					msg = msg.replace(data.Dictionary[D].Tag, (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && (data.Dictionary[D].MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(msg_meta.TargetCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(data.Dictionary[D].Text));
-				}
-				if ((data.Dictionary[D].MemberNumber != null) && (data.Dictionary[D].Tag == "TargetCharacter")) msg_meta.TargetMemberNumber = data.Dictionary[D].MemberNumber;
-				if (data.Dictionary[D].Tag == "ActivityName") msg_meta.ActivityName = data.Dictionary[D].Text;
-				if (data.Dictionary[D].Tag == "ActivityGroup") msg_meta.ActivityGroup = data.Dictionary[D].Text;
-				if (data.Dictionary[D].ActivityCounter != null) msg_meta.ActivityCounter = data.Dictionary[D].ActivityCounter;
-			}
+		msg = ChatRoomMessagePerformSubstitutions(msg, msg_substitutions);
 	}
 
 	if (data.Type == "Emote") {
