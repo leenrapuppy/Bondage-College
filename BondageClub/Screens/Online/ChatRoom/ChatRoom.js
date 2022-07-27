@@ -2275,7 +2275,11 @@ function ChatRoomMessage(data) {
 	let IsPlayerInvolved = ChatRoomMessageInvolvesPlayer(data);
 
 	// Replace < and > characters to prevent HTML injections
-	var msg = ChatRoomHTMLEntities(data.Content);
+	let msg = ChatRoomHTMLEntities(data.Content);
+	let orig_msg = msg;
+
+	// Metadata extracted from the message's dictionary
+	let msg_meta = {};
 
 	// Hidden messages are processed separately, they are used by chat room mini-games / events
 	if (data.Type == "Hidden") {
@@ -2392,18 +2396,9 @@ function ChatRoomMessage(data) {
 	// Replace actions by the content of the dictionary
 	if (data.Type && ((data.Type == "Action") || (data.Type == "ServerMessage"))) {
 		if (data.Type == "ServerMessage") msg = "ServerMessage" + msg;
-		var orig_msg = msg;
 		msg = DialogFindPlayer(msg);
 		if (data.Dictionary) {
 			const dictionary = ChatRoomSortDictionary(data.Dictionary);
-			var SourceCharacter = null;
-			let TargetCharacter = null;
-			let TargetMemberNumber = null;
-			let ActivityName = null;
-			var GroupName = null;
-			let ActivityCounter = 1;
-			var Automatic = false;
-			var ShockIntensity = -1;
 			for (let D = 0; D < dictionary.length; D++) {
 
 				// If there's a member number in the dictionary packet, we use that number to alter the chat message
@@ -2420,32 +2415,32 @@ function ChatRoomMessage(data) {
 							}
 					}
 					else if ((dictionary[D].Tag == "DestinationCharacter") || (dictionary[D].Tag == "DestinationCharacterName")) {
-						TargetMemberNumber = dictionary[D].MemberNumber;
+						msg_meta.TargetMemberNumber = dictionary[D].MemberNumber;
 						for (let T = 0; T < ChatRoomCharacter.length; T++)
 							if (ChatRoomCharacter[T].MemberNumber == dictionary[D].MemberNumber)
-								TargetCharacter = ChatRoomCharacter[T];
-						msg = msg.replace(dictionary[D].Tag, ((SenderCharacter.MemberNumber == dictionary[D].MemberNumber) && (dictionary[D].Tag == "DestinationCharacter")) ? DialogFindPlayer("Her") : (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && dictionary[D].MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(dictionary[D].Text) + DialogFindPlayer("'s")));
+								msg_meta.TargetCharacter = ChatRoomCharacter[T];
+						msg = msg.replace(dictionary[D].Tag, ((SenderCharacter.MemberNumber == dictionary[D].MemberNumber) && (dictionary[D].Tag == "DestinationCharacter")) ? DialogFindPlayer("Her") : (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && dictionary[D].MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(msg_meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(dictionary[D].Text) + DialogFindPlayer("'s")));
 					}
 					else if ((dictionary[D].Tag == "TargetCharacter") || (dictionary[D].Tag == "TargetCharacterName")) {
-						TargetMemberNumber = dictionary[D].MemberNumber;
+						msg_meta.TargetMemberNumber = dictionary[D].MemberNumber;
 						for (let T = 0; T < ChatRoomCharacter.length; T++)
 							if (ChatRoomCharacter[T].MemberNumber == dictionary[D].MemberNumber)
-								TargetCharacter = ChatRoomCharacter[T];
-						msg = msg.replace(dictionary[D].Tag, ((SenderCharacter.MemberNumber == dictionary[D].MemberNumber) && (dictionary[D].Tag == "TargetCharacter")) ? DialogFindPlayer("Herself") : (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && dictionary[D].MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(dictionary[D].Text)));
+								msg_meta.TargetCharacter = ChatRoomCharacter[T];
+						msg = msg.replace(dictionary[D].Tag, ((SenderCharacter.MemberNumber == dictionary[D].MemberNumber) && (dictionary[D].Tag == "TargetCharacter")) ? DialogFindPlayer("Herself") : (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && dictionary[D].MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(msg_meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(dictionary[D].Text)));
 					}
 					else if (dictionary[D].Tag == "SourceCharacter") {
 						for (let T = 0; T < ChatRoomCharacter.length; T++)
 							if (ChatRoomCharacter[T].MemberNumber == dictionary[D].MemberNumber)
-								SourceCharacter = ChatRoomCharacter[T];
-						msg = msg.replace(dictionary[D].Tag, (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && (dictionary[D].MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SourceCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(dictionary[D].Text));
+								msg_meta.SourceCharacter = ChatRoomCharacter[T];
+						msg = msg.replace(dictionary[D].Tag, (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && (dictionary[D].MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(msg_meta.SourceCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(dictionary[D].Text));
 					}
 				}
 				else if (dictionary[D].TextToLookUp) msg = msg.replace(dictionary[D].Tag, DialogFindPlayer(ChatRoomHTMLEntities(dictionary[D].TextToLookUp)).toLowerCase());
 				else if (dictionary[D].AssetName) {
 					for (let A = 0; A < Asset.length; A++)
 						if (Asset[A].Name == dictionary[D].AssetName) {
-							msg = msg.replace(dictionary[D].Tag, Asset[A].DynamicDescription(SourceCharacter || Player).toLowerCase());
-							ActivityName = Asset[A].DynamicActivity(SourceCharacter || Player);
+							msg = msg.replace(dictionary[D].Tag, Asset[A].DynamicDescription(msg_meta.SourceCharacter || Player).toLowerCase());
+							msg_meta.ActivityName = Asset[A].DynamicActivity(msg_meta.SourceCharacter || Player);
 							break;
 						}
 				}
@@ -2453,23 +2448,23 @@ function ChatRoomMessage(data) {
 					const G = AssetGroupGet('Female3DCG', dictionary[D].AssetGroupName);
 					if (G) {
 						msg = msg.replace(dictionary[D].Tag, G.Description.toLowerCase());
-						GroupName = dictionary[D].AssetGroupName;
+						msg_meta.GroupName = dictionary[D].AssetGroupName;
 					}
 				}
-				else if (dictionary[D].ActivityCounter) ActivityCounter = dictionary[D].ActivityCounter;
-				else if (dictionary[D].Automatic) Automatic = true;
-				else if (dictionary[D].ShockIntensity != undefined) ShockIntensity = dictionary[D].ShockIntensity;
+				else if (dictionary[D].ActivityCounter) msg_meta.ActivityCounter = dictionary[D].ActivityCounter;
+				else if (dictionary[D].Automatic) msg_meta.Automatic = true;
+				else if (dictionary[D].ShockIntensity != undefined) msg_meta.ShockIntensity = dictionary[D].ShockIntensity;
 				else if (msg != null) msg = msg.replace(dictionary[D].Tag, ChatRoomHTMLEntities(dictionary[D].Text));
 			}
 
 			// Trigger a shock if the player is a target
-			if (ShockIntensity >= 0 && TargetCharacter == Player) {
-				const duration = (Math.random() + ShockIntensity) * 500;
+			if (msg_meta.ShockIntensity >= 0 && msg_meta.TargetCharacter == Player) {
+				const duration = (Math.random() + msg_meta.ShockIntensity) * 500;
 				DrawFlashScreen("#FFFFFF", duration, 500);
 			}
 
 			// For automatic messages, do not show the message if the player is not involved, depending on their preferences
-			if (Automatic && !IsPlayerInvolved && !Player.ChatSettings.ShowAutomaticMessages)
+			if (msg_meta.Automatic && !IsPlayerInvolved && !Player.ChatSettings.ShowAutomaticMessages)
 				return;
 
 			// When the player is in total sensory deprivation, hide messages if the player is not involved
@@ -2477,14 +2472,14 @@ function ChatRoomMessage(data) {
 				return;
 
 			// Handle stimulation
-			if ((orig_msg == "HelpKneelDown" || orig_msg == "HelpStandUp") && ((TargetMemberNumber != null && TargetMemberNumber == Player.MemberNumber) || (SenderCharacter.MemberNumber != null && SenderCharacter.MemberNumber == Player.MemberNumber)))
+			if ((orig_msg == "HelpKneelDown" || orig_msg == "HelpStandUp") && ((msg_meta.TargetMemberNumber != null && msg_meta.TargetMemberNumber == Player.MemberNumber) || (SenderCharacter.MemberNumber != null && SenderCharacter.MemberNumber == Player.MemberNumber)))
 				ChatRoomStimulationMessage("Kneel");
 
 			// If another player is using an item which applies an activity on the current player, apply the effect here
-			AsylumGGTSActivity(SenderCharacter, TargetCharacter, ActivityName, GroupName, ActivityCounter);
-			if ((ActivityName != null) && (TargetMemberNumber != null) && (TargetMemberNumber == Player.MemberNumber) && (SenderCharacter.MemberNumber != Player.MemberNumber))
+			AsylumGGTSActivity(SenderCharacter, msg_meta.TargetCharacter, msg_meta.ActivityName, msg_meta.GroupName, msg_meta.ActivityCounter);
+			if ((msg_meta.ActivityName != null) && (msg_meta.TargetMemberNumber != null) && (msg_meta.TargetMemberNumber == Player.MemberNumber) && (SenderCharacter.MemberNumber != Player.MemberNumber))
 				if ((Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic"))
-					ActivityEffect(SenderCharacter, Player, ActivityName, GroupName, ActivityCounter);
+					ActivityEffect(SenderCharacter, Player, msg_meta.ActivityName, msg_meta.GroupName, msg_meta.ActivityCounter);
 
 			// Show the data to the audio system so it can play sound effects
 			AudioPlaySoundForChatMessage(data);
@@ -2501,33 +2496,29 @@ function ChatRoomMessage(data) {
 
 		// Creates the output message using the activity dictionary and tags, keep some values to calculate the activity effects on the player
 		msg = ActivityDictionaryText(msg);
-		let TargetMemberNumber = null;
-		let TargetCharacter = null;
-		let ActivityName = null;
-		var ActivityGroup = null;
-		let ActivityCounter = 1;
+
 		if (data.Dictionary != null)
 			for (let D = 0; D < data.Dictionary.length; D++) {
 				for (let T = 0; T < ChatRoomCharacter.length; T++)
 					if (ChatRoomCharacter[T].MemberNumber == data.Dictionary[D].MemberNumber)
-						TargetCharacter = ChatRoomCharacter[T];
+						msg_meta.TargetCharacter = ChatRoomCharacter[T];
 				if (data.Dictionary[D].MemberNumber != null) {
-					msg = msg.replace(data.Dictionary[D].Tag, (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && (data.Dictionary[D].MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(TargetCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(data.Dictionary[D].Text));
+					msg = msg.replace(data.Dictionary[D].Tag, (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && (data.Dictionary[D].MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(msg_meta.TargetCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(data.Dictionary[D].Text));
 				}
-				if ((data.Dictionary[D].MemberNumber != null) && (data.Dictionary[D].Tag == "TargetCharacter")) TargetMemberNumber = data.Dictionary[D].MemberNumber;
-				if (data.Dictionary[D].Tag == "ActivityName") ActivityName = data.Dictionary[D].Text;
-				if (data.Dictionary[D].Tag == "ActivityGroup") ActivityGroup = data.Dictionary[D].Text;
-				if (data.Dictionary[D].ActivityCounter != null) ActivityCounter = data.Dictionary[D].ActivityCounter;
+				if ((data.Dictionary[D].MemberNumber != null) && (data.Dictionary[D].Tag == "TargetCharacter")) msg_meta.TargetMemberNumber = data.Dictionary[D].MemberNumber;
+				if (data.Dictionary[D].Tag == "ActivityName") msg_meta.ActivityName = data.Dictionary[D].Text;
+				if (data.Dictionary[D].Tag == "ActivityGroup") msg_meta.ActivityGroup = data.Dictionary[D].Text;
+				if (data.Dictionary[D].ActivityCounter != null) msg_meta.ActivityCounter = data.Dictionary[D].ActivityCounter;
 			}
 
 		// If the player does the activity on herself or an NPC, we calculate the result right away
-		AsylumGGTSActivity(SenderCharacter, TargetCharacter, ActivityName, ActivityGroup, ActivityCounter);
-		if ((data.Type === "Action") || ((TargetMemberNumber == Player.MemberNumber) && (SenderCharacter.MemberNumber != Player.MemberNumber)))
+		AsylumGGTSActivity(SenderCharacter, msg_meta.TargetCharacter, msg_meta.ActivityName, msg_meta.ActivityGroup, msg_meta.ActivityCounter);
+		if ((data.Type === "Action") || ((msg_meta.TargetMemberNumber == Player.MemberNumber) && (SenderCharacter.MemberNumber != Player.MemberNumber)))
 			if ((Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic"))
-				ActivityEffect(SenderCharacter, Player, ActivityName, ActivityGroup, ActivityCounter);
+				ActivityEffect(SenderCharacter, Player, msg_meta.ActivityName, msg_meta.ActivityGroup, msg_meta.ActivityCounter);
 
 		// When the player is in total sensory deprivation, hide messages if the player is not involved
-		if (Player.ImmersionSettings.SenseDepMessages && TargetMemberNumber != Player.MemberNumber && SenderCharacter.MemberNumber != Player.MemberNumber && PreferenceIsPlayerInSensDep()) {
+		if (Player.ImmersionSettings.SenseDepMessages && msg_meta.TargetMemberNumber != Player.MemberNumber && SenderCharacter.MemberNumber != Player.MemberNumber && PreferenceIsPlayerInSensDep()) {
 			return;
 		}
 
@@ -2537,7 +2528,7 @@ function ChatRoomMessage(data) {
 		if ((Player.ChatSettings != null) && (Player.ChatSettings.ShowActivities != null) && !Player.ChatSettings.ShowActivities) return;
 
 		// Raise a notification if required
-		if (TargetMemberNumber === Player.MemberNumber && Player.NotificationSettings.ChatMessage.Activity)
+		if (msg_meta.TargetMemberNumber === Player.MemberNumber && Player.NotificationSettings.ChatMessage.Activity)
 			ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
 	}
 
