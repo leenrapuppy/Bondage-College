@@ -2271,9 +2271,6 @@ function ChatRoomMessage(data) {
 	// Sender is not in room, skip message
 	if (!SenderCharacter) return;
 
-	// Keep track of whether the player is involved
-	let IsPlayerInvolved = ChatRoomMessageInvolvesPlayer(data);
-
 	// Replace < and > characters to prevent HTML injections
 	let msg = ChatRoomHTMLEntities(data.Content);
 	let orig_msg = msg;
@@ -2525,90 +2522,64 @@ function ChatRoomMessage(data) {
 	}
 
 	// With the message parsed and formatted, we can now do the required actions
-	if (data.Type === "Action" || data.Type === "ServerMessage") {
 
-		// Trigger a shock if the player is a target
-		if (msg_meta.ShockIntensity >= 0 && msg_meta.TargetCharacter == Player) {
-			const duration = (Math.random() + msg_meta.ShockIntensity) * 500;
-			DrawFlashScreen("#FFFFFF", duration, 500);
-		}
+	const IsPlayerInvolved = ChatRoomMessageInvolvesPlayer(data);
 
-		// For automatic messages, do not show the message if the player is not involved, depending on their preferences
-		if (msg_meta.Automatic && !IsPlayerInvolved && !Player.ChatSettings.ShowAutomaticMessages)
-			return;
+	const IsPlayerInSensoryDep = Player.ImmersionSettings.SenseDepMessages
+		&& PreferenceIsPlayerInSensDep()
+		&& Player.GetDeafLevel() >= 4
+		&& (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SenderCharacter));
 
-		// When the player is in total sensory deprivation, hide messages if the player is not involved
-		if (Player.ImmersionSettings.SenseDepMessages && !IsPlayerInvolved && PreferenceIsPlayerInSensDep())
-			return;
+	const IsPlayerMentioned = ChatRoomMessageMentionsCharacter(Player, msg);
 
-		// Handle stimulation
-		if ((orig_msg == "HelpKneelDown" || orig_msg == "HelpStandUp") && ((msg_meta.TargetMemberNumber != null && msg_meta.TargetMemberNumber == Player.MemberNumber) || (SenderCharacter.MemberNumber != null && SenderCharacter.MemberNumber == Player.MemberNumber)))
-			ChatRoomStimulationMessage("Kneel");
+	// Update the chat log with the new message
+	if (data.Type == "Chat" || data.Type == "Whisper") {
+		ChatRoomChatLog.push({ Chat: SpeechGarble(SenderCharacter, orig_msg, true), Garbled: msg, Original: orig_msg, SenderName: msg_meta.senderName, SenderMemberNumber: SenderCharacter.MemberNumber, Time: CommonTime() });
+		if (ChatRoomChatLog.length > 6) ChatRoomChatLog.splice(0, 1);
+	}
+
+	// Trigger a shock if the player was targetted by an action
+	if (data.Type === "Action" && msg_meta.ShockIntensity >= 0 && msg_meta.TargetCharacter == Player) {
+		const duration = (Math.random() + msg_meta.ShockIntensity) * 500;
+		DrawFlashScreen("#FFFFFF", duration, 500);
+	}
+
+	// For automatic actions, do not show the message if the player is not involved, depending on their preferences
+	if (data.Type === "Action" && msg_meta.Automatic && !IsPlayerInvolved && !Player.ChatSettings.ShowAutomaticMessages)
+		return;
+
+	// Handle stimulation
+	if (data.Type === "Action" && ["HelpKneelDown", "HelpStandUp"].includes(orig_msg) && IsPlayerInvolved)
+		ChatRoomStimulationMessage("Kneel");
+
+	if (["Action", "ServerMessage", "Activity"].includes(data.Type)) {
+		const arousalEnabled = (Player.ArousalSettings && (Player.ArousalSettings.Active == "Hybrid" || Player.ArousalSettings.Active == "Automatic"));
+
+		AsylumGGTSActivity(SenderCharacter, msg_meta.TargetCharacter, msg_meta.ActivityName, msg_meta.GroupName, msg_meta.ActivityCounter);
 
 		// If another player is using an item which applies an activity on the current player, apply the effect here
-		AsylumGGTSActivity(SenderCharacter, msg_meta.TargetCharacter, msg_meta.ActivityName, msg_meta.GroupName, msg_meta.ActivityCounter);
-		if ((msg_meta.ActivityName != null) && (msg_meta.TargetMemberNumber != null) && (msg_meta.TargetMemberNumber == Player.MemberNumber) && (SenderCharacter.MemberNumber != Player.MemberNumber))
-			if ((Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic"))
-				ActivityEffect(SenderCharacter, Player, msg_meta.ActivityName, msg_meta.GroupName, msg_meta.ActivityCounter);
+		if (arousalEnabled && msg_meta.ActivityName && msg_meta.TargetMemberNumber
+				&& (msg_meta.TargetMemberNumber === Player.MemberNumber) && (SenderCharacter.MemberNumber !== Player.MemberNumber))
+			ActivityEffect(SenderCharacter, Player, msg_meta.ActivityName, msg_meta.GroupName, msg_meta.ActivityCounter);
+	}
 
-		// Show the data to the audio system so it can play sound effects
+	// When the player is in total sensory deprivation, hide messages if the player is not involved
+	if (IsPlayerInSensoryDep && !IsPlayerInvolved && !IsPlayerMentioned)
+		return;
+
+	// Skip if the player doesn't want to see the sexual activity messages
+	if (data.Type === "Activity" && (Player.ChatSettings != null) && (Player.ChatSettings.ShowActivities != null) && !Player.ChatSettings.ShowActivities) return;
+
+	// Show the data to the audio system so it can play sound effects
+	if (["Activity", "Action", "ServerMessage"].includes(data.Type))
 		AudioPlaySoundForChatMessage(data);
 
-		// Raise a notification if required
-		if (data.Type === "Action" && IsPlayerInvolved && Player.NotificationSettings.ChatMessage.Activity)
-			ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
-
-	}
-
-	if (data.Type === "Activity") {
-		// If the player does the activity on herself or an NPC, we calculate the result right away
-		AsylumGGTSActivity(SenderCharacter, msg_meta.TargetCharacter, msg_meta.ActivityName, msg_meta.ActivityGroup, msg_meta.ActivityCounter);
-		if (msg_meta.TargetMemberNumber == Player.MemberNumber && SenderCharacter.MemberNumber != Player.MemberNumber)
-			if ((Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic"))
-				ActivityEffect(SenderCharacter, Player, msg_meta.ActivityName, msg_meta.ActivityGroup, msg_meta.ActivityCounter);
-
-		// When the player is in total sensory deprivation, hide messages if the player is not involved
-		if (Player.ImmersionSettings.SenseDepMessages && msg_meta.TargetMemberNumber != Player.MemberNumber && SenderCharacter.MemberNumber != Player.MemberNumber && PreferenceIsPlayerInSensDep()) {
-			return;
-		}
-
-		AudioPlaySoundForChatMessage(data);
-
-		// Exits before outputting the text if the player doesn't want to see the sexual activity messages
-		if ((Player.ChatSettings != null) && (Player.ChatSettings.ShowActivities != null) && !Player.ChatSettings.ShowActivities) return;
-
-		// Raise a notification if required
-		if (msg_meta.TargetMemberNumber === Player.MemberNumber && Player.NotificationSettings.ChatMessage.Activity)
-			ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
-	}
-
-	if (data.Type != null) {
-		const HideOthersMessages = Player.ImmersionSettings.SenseDepMessages
-			&& PreferenceIsPlayerInSensDep()
-			&& SenderCharacter.ID !== 0
-			&& Player.GetDeafLevel() >= 4
-			&& (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SenderCharacter));
-
-		if (data.Type == "Chat" || data.Type == "Whisper") {
-			ChatRoomChatLog.push({ Chat: SpeechGarble(SenderCharacter, orig_msg, true), Garbled: msg, Original: orig_msg, SenderName: msg_meta.senderName, SenderMemberNumber: SenderCharacter.MemberNumber, Time: CommonTime() });
-			if (ChatRoomChatLog.length > 6) ChatRoomChatLog.splice(0, 1);
-
-			if (HideOthersMessages && data.Type === "Chat") return;
-
-			if ((data.Type === "Chat" && Player.NotificationSettings.ChatMessage.Normal)
-				|| (data.Type === "Whisper" && Player.NotificationSettings.ChatMessage.Whisper)
-				|| (Player.NotificationSettings.ChatMessage.Mention && ChatRoomMessageMentionsCharacter(Player, msg)))
-				ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
-
-		}
-		else if (data.Type == "Emote") {
-			const playerMentioned = ChatRoomMessageMentionsCharacter(Player, msg);
-			if (HideOthersMessages && !playerMentioned) return;
-
-			if (Player.NotificationSettings.ChatMessage.Normal || (Player.NotificationSettings.ChatMessage.Mention && playerMentioned))
-				ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
-		}
-	}
+	// Raise a notification if required
+	if ((["Action", "Activity"].includes(data.Type) && IsPlayerInvolved && Player.NotificationSettings.ChatMessage.Activity)
+		|| (data.Type === "Chat" && Player.NotificationSettings.ChatMessage.Normal)
+		|| (data.Type === "Whisper" && Player.NotificationSettings.ChatMessage.Whisper)
+		|| (Player.NotificationSettings.ChatMessage.Mention && ChatRoomMessageMentionsCharacter(Player, msg)))
+		ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
 
 	// Prepares the HTML tags
 	switch (data.Type) {
