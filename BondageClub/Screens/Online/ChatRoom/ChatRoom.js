@@ -2344,7 +2344,7 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
  *
  * @param {IChatRoomMessage} data - The message to parse.
  * @param {Character} SenderCharacter - The resolved character that sent that message.
- * @returns {{ msg_meta: object, msg_substitutions: string[][] }}
+ * @returns {{ metadata: object, substitutions: string[][] }}
  */
 function ChatRoomMessageCollectMetadata(data, SenderCharacter) {
 	const substitutions = [];
@@ -2353,7 +2353,7 @@ function ChatRoomMessageCollectMetadata(data, SenderCharacter) {
 	meta.senderName = CharacterNickname(SenderCharacter);
 
 	if (!data.Dictionary)
-		return { msg_meta: meta, msg_substitutions: substitutions };
+		return { metadata: meta, substitutions: substitutions };
 
 	const dictionary = ChatRoomSortDictionary(data.Dictionary);
 	for (let entry of dictionary) {
@@ -2423,7 +2423,7 @@ function ChatRoomMessageCollectMetadata(data, SenderCharacter) {
 		else
 			substitutions.push([entry.Tag, ChatRoomHTMLEntities(entry.Text)]);
 	}
-	return { msg_meta: meta, msg_substitutions: substitutions };
+	return { metadata: meta, substitutions: substitutions };
 }
 
 /**
@@ -2476,7 +2476,6 @@ function ChatRoomMessage(data) {
 
 	// Replace < and > characters to prevent HTML injections
 	let msg = data.Content ? ChatRoomHTMLEntities(data.Content) : "";
-	let orig_msg = msg;
 
 	// Hidden messages are processed separately, they are used by chat room mini-games / events
 	if (data.Type == "Hidden") {
@@ -2493,20 +2492,20 @@ function ChatRoomMessage(data) {
 	if (msg.startsWith("ServerDisconnect") && SenderCharacter.MemberNumber == ChatRoomLeashPlayer) ChatRoomLeashPlayer = null;
 
 	// Metadata extracted from the message's dictionary
-	const { msg_meta, msg_substitutions } = ChatRoomMessageCollectMetadata(data, SenderCharacter);
+	const { metadata, substitutions } = ChatRoomMessageCollectMetadata(data, SenderCharacter);
 
 	// Substitute actions and server messages for their fulltext version
 	if (data.Type && ((data.Type == "Action") || (data.Type == "ServerMessage"))) {
 		if (data.Type == "ServerMessage") msg = "ServerMessage" + msg;
 
 		msg = DialogFindPlayer(msg);
-		msg = ChatRoomMessagePerformSubstitutions(msg, msg_substitutions);
+		msg = ChatRoomMessagePerformSubstitutions(msg, substitutions);
 	}
 
 	// Substitute activity messages for their fulltext version
 	if (data.Type === "Activity") {
 		msg = ActivityDictionaryText(msg);
-		msg = ChatRoomMessagePerformSubstitutions(msg, msg_substitutions);
+		msg = ChatRoomMessagePerformSubstitutions(msg, substitutions);
 	}
 
 	if (data.Type == "Emote") {
@@ -2517,12 +2516,12 @@ function ChatRoomMessage(data) {
 		} else {
 			// *-message, prepend sender name and a space if needed
 			const sep = (msg.indexOf("'") === 0 || msg.indexOf(",") === 0);
-			msg = msg_meta.senderName + (!sep ? " " : "") + msg;
+			msg = metadata.senderName + (!sep ? " " : "") + msg;
 		}
 
 		// Player is under sensory-dep, replace every character name from the message with the placeholder
 		if (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && SenderCharacter.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SenderCharacter))) {
-			msg_meta.senderName = DialogFindPlayer("Someone");
+			metadata.senderName = DialogFindPlayer("Someone");
 
 			for (const C of ChatRoomCharacter) {
 				if (C && C.Name && C.ID != 0 && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(C))) {
@@ -2544,9 +2543,9 @@ function ChatRoomMessage(data) {
 		// Garble the sender name if needed
 		if (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && SenderCharacter.MemberNumber != Player.MemberNumber && data.Type != "Whisper" && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SenderCharacter))) {
 			if (Player.GetDeafLevel() >= 4)
-				msg_meta.senderName = DialogFindPlayer("Someone");
+				metadata.senderName = DialogFindPlayer("Someone");
 			else
-				msg_meta.senderName = SpeechGarble(SenderCharacter, msg_meta.senderName, true);
+				metadata.senderName = SpeechGarble(SenderCharacter, metadata.senderName, true);
 		}
 
 		// Make sure chat messages get garbled
@@ -2568,33 +2567,33 @@ function ChatRoomMessage(data) {
 
 	// Update the chat log with the new message
 	if (data.Type == "Chat" || data.Type == "Whisper") {
-		ChatRoomChatLog.push({ Chat: SpeechGarble(SenderCharacter, orig_msg, true), Garbled: msg, Original: orig_msg, SenderName: msg_meta.senderName, SenderMemberNumber: SenderCharacter.MemberNumber, Time: CommonTime() });
+		ChatRoomChatLog.push({ Chat: SpeechGarble(SenderCharacter, data.Content, true), Garbled: msg, Original: data.Content, SenderName: metadata.senderName, SenderMemberNumber: SenderCharacter.MemberNumber, Time: CommonTime() });
 		if (ChatRoomChatLog.length > 6) ChatRoomChatLog.splice(0, 1);
 	}
 
 	// Trigger a shock if the player was targetted by an action
-	if (data.Type === "Action" && msg_meta.ShockIntensity >= 0 && msg_meta.TargetCharacter == Player) {
-		const duration = (Math.random() + msg_meta.ShockIntensity) * 500;
+	if (data.Type === "Action" && metadata.ShockIntensity >= 0 && metadata.TargetCharacter == Player) {
+		const duration = (Math.random() + metadata.ShockIntensity) * 500;
 		DrawFlashScreen("#FFFFFF", duration, 500);
 	}
 
 	// For automatic actions, do not show the message if the player is not involved, depending on their preferences
-	if (data.Type === "Action" && msg_meta.Automatic && !IsPlayerInvolved && !Player.ChatSettings.ShowAutomaticMessages)
+	if (data.Type === "Action" && metadata.Automatic && !IsPlayerInvolved && !Player.ChatSettings.ShowAutomaticMessages)
 		return;
 
 	// Handle stimulation
-	if (data.Type === "Action" && ["HelpKneelDown", "HelpStandUp"].includes(orig_msg) && IsPlayerInvolved)
+	if (data.Type === "Action" && ["HelpKneelDown", "HelpStandUp"].includes(data.Content) && IsPlayerInvolved)
 		ChatRoomStimulationMessage("Kneel");
 
 	if (["Action", "ServerMessage", "Activity"].includes(data.Type)) {
 		const arousalEnabled = (Player.ArousalSettings && (Player.ArousalSettings.Active == "Hybrid" || Player.ArousalSettings.Active == "Automatic"));
 
-		AsylumGGTSActivity(SenderCharacter, msg_meta.TargetCharacter, msg_meta.ActivityName, msg_meta.GroupName, msg_meta.ActivityCounter);
+		AsylumGGTSActivity(SenderCharacter, metadata.TargetCharacter, metadata.ActivityName, metadata.GroupName, metadata.ActivityCounter);
 
 		// If another player is using an item which applies an activity on the current player, apply the effect here
-		if (arousalEnabled && msg_meta.ActivityName && msg_meta.TargetMemberNumber
-				&& (msg_meta.TargetMemberNumber === Player.MemberNumber) && (SenderCharacter.MemberNumber !== Player.MemberNumber))
-			ActivityEffect(SenderCharacter, Player, msg_meta.ActivityName, msg_meta.GroupName, msg_meta.ActivityCounter);
+		if (arousalEnabled && metadata.ActivityName && metadata.TargetMemberNumber
+				&& (metadata.TargetMemberNumber === Player.MemberNumber) && (SenderCharacter.MemberNumber !== Player.MemberNumber))
+			ActivityEffect(SenderCharacter, Player, metadata.ActivityName, metadata.GroupName, metadata.ActivityCounter);
 	}
 
 	// When the player is in total sensory deprivation, hide messages if the player is not involved
@@ -2616,7 +2615,7 @@ function ChatRoomMessage(data) {
 		ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
 
 	// Push message to the chat log
-	ChatRoomMessageDisplay(data, msg, SenderCharacter, msg_meta);
+	ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata);
 }
 
 /**
