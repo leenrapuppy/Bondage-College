@@ -2473,18 +2473,36 @@ function ChatRoomMessage(data) {
 	}
 
 	if (data.Type == "Emote") {
-		if (msg.indexOf("*") == 0) {
-			msg = msg + "*";
-		} else if ((msg.indexOf("'") == 0) || (msg.indexOf(",") == 0)) {
-			msg = "*" + CharacterNickname(SenderCharacter) + msg + "*";
-		} else if (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && SenderCharacter.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SenderCharacter))) {
-			msg = "*" + DialogFindPlayer("Someone") + " " + msg + "*";
+		// Stash the sender name
+		msg_meta.senderName = CharacterNickname(SenderCharacter);
 
-			for (let C = 0; C < ChatRoomCharacter.length; C++)
-				if (ChatRoomCharacter[C] && ChatRoomCharacter[C].Name && ChatRoomCharacter[C].ID != 0 && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(ChatRoomCharacter[C])))
-					msg = msg.replace(ChatRoomCharacter[C].Name.charAt(0).toUpperCase() + ChatRoomCharacter[C].Name.slice(1), DialogFindPlayer("Someone"));
+		// Fix up the recieved message
+		if (msg.indexOf('*') === 0) {
+			// **-message, yank starting *
+			msg = msg.substring(1);
 		} else {
-			msg = "*" + CharacterNickname(SenderCharacter) + " " + msg + "*";
+			// *-message, prepend sender name and a space if needed
+			const sep = (msg.indexOf("'") === 0 || msg.indexOf(",") === 0);
+			msg = CharacterNickname(SenderCharacter) + (!sep ? " " : "") + msg;
+		}
+
+		// Player is under sensory-dep, replace every character name from the message with the placeholder
+		if (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && SenderCharacter.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SenderCharacter))) {
+			msg_meta.senderName = DialogFindPlayer("Someone");
+
+			for (const C of ChatRoomCharacter) {
+				if (C && C.Name && C.ID != 0 && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(C))) {
+					const nick = CharacterNickname(C);
+					let s = C.Name;
+					if (nick) {
+						s += "|" + nick;
+					}
+
+					// Hopefully there are no regex characters to escape from that pattern :-S
+					const r = new RegExp(s, "ig");
+					msg = msg.replace(r, DialogFindPlayer("Someone"));
+				}
+			}
 		}
 	}
 
@@ -2621,6 +2639,7 @@ function ChatRoomMessage(data) {
 			break;
 
 		case "Emote":
+			msg = "*" + msg + "*";
 			break;
 
 		default:
