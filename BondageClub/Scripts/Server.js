@@ -13,6 +13,7 @@ var ServerURL = "http://localhost:4288";
 var ServerBeep = { Message: "", Timer: 0 };
 var ServerIsConnected = false;
 var ServerReconnectCount = 0;
+var ServerCharacterNicknameRegex = /^[a-zA-Z\s]*$/;
 
 const ServerScriptMessage = "WARNING! Console scripts can break your account or steal your data. Only run scripts if " +
 	"you know what you're doing and you trust the source. See " +
