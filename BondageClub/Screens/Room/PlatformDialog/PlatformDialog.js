@@ -1743,6 +1743,31 @@ var PlatformDialogData = [
 		]
 	},
 
+	{
+		Name: "ForestLost",
+		Dialog: [
+			{
+				Background: "ForestMaze",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" }
+				]
+			},
+			{ Text: "Wait... didn't we walk on that path a few minutes ago?" },
+			{ Text: "Yes!  It's the exact same tree!  And the same rock!" },
+			{ Text: "How is that possible?  We followed the path.  Did we?" },
+			{ 
+				Text: "Where should we go?",
+				Answer: [
+					{ Text: "Let's go straight on the path.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestBirchEast") } },
+					{ Text: "Let's turn left here.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestBirchMaze") }  },
+					{ Text: "We should go right.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestOakHeavy") }  },
+					{ Text: "We should go back.", Reply: "(She nods as you walk together.)", Script: function() { PlatformLoadRoom("ForestBirchCenter") }  },
+				]
+			},
+		]
+	},
+
 ];
 
 /**
