@@ -1072,8 +1072,9 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "ForestBirchMazePath",
+		Background: "Forest/BirchMaze",
 		Entry: function() {
-			PlatformDialogStart("ForestLost");
+			PlatformDialogStart(PlatformEventDone("EdlaranJoin") ? "ForestPath" : "ForestLost");
 		},
 	}
 
