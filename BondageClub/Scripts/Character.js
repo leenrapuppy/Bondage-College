@@ -1809,6 +1809,7 @@ function CharacterPronounDescription(C) {
 	const pronounItem = C.Appearance.find(A => A.Asset.Group.Name == "Pronouns");
 	const pronounAsset = pronounItem ? pronounItem.Asset : Asset.find(A => A.Group.Name == "Pronouns" && A.Name == "SheHer");
 	return pronounAsset.Description;
+}
  /* Update the given character's nickname.
  *
  * Note that changing any nickname but yours (ie. Player) is not supported.
@@ -1846,5 +1847,4 @@ function CharacterSetNickname(C, Nick) {
 	}
 
 	return null;
-}
 }
