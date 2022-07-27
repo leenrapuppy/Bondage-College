@@ -2480,6 +2480,40 @@ function ChatRoomMessage(data) {
 			}
 	}
 
+	if (data.Type == "Emote") {
+		if (msg.indexOf("*") == 0) {
+			msg = msg + "*";
+		} else if ((msg.indexOf("'") == 0) || (msg.indexOf(",") == 0)) {
+			msg = "*" + CharacterNickname(SenderCharacter) + msg + "*";
+		} else if (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && SenderCharacter.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SenderCharacter))) {
+			msg = "*" + DialogFindPlayer("Someone") + " " + msg + "*";
+
+			for (let C = 0; C < ChatRoomCharacter.length; C++)
+				if (ChatRoomCharacter[C] && ChatRoomCharacter[C].Name && ChatRoomCharacter[C].ID != 0 && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(ChatRoomCharacter[C])))
+					msg = msg.replace(ChatRoomCharacter[C].Name.charAt(0).toUpperCase() + ChatRoomCharacter[C].Name.slice(1), DialogFindPlayer("Someone"));
+		} else {
+			msg = "*" + CharacterNickname(SenderCharacter) + " " + msg + "*";
+		}
+	}
+
+	if (data.Type == "Chat" || data.Type == "Whisper") {
+		// Garble the sender name if needed, and store that in the metadata
+		if (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && SenderCharacter.MemberNumber != Player.MemberNumber && data.Type != "Whisper" && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SenderCharacter))) {
+			if (Player.GetDeafLevel() >= 4)
+				msg_meta.senderName = DialogFindPlayer("Someone");
+			else
+				msg_meta.senderName = SpeechGarble(SenderCharacter, CharacterNickname(SenderCharacter), true);
+		}
+		else {
+			msg_meta.senderName = CharacterNickname(SenderCharacter);
+		}
+
+		// Make sure chat messages get garbled
+		if (data.Type === "Chat") {
+			msg = SpeechGarble(SenderCharacter, msg);
+		}
+	}
+
 	// With the message parsed and formatted, we can now do the required actions
 	if (data.Type === "Action" || data.Type === "ServerMessage") {
 
@@ -2538,7 +2572,6 @@ function ChatRoomMessage(data) {
 			ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
 	}
 
-	// Prepares the HTML tags
 	if (data.Type != null) {
 		const HideOthersMessages = Player.ImmersionSettings.SenseDepMessages
 			&& PreferenceIsPlayerInSensDep()
@@ -2547,58 +2580,41 @@ function ChatRoomMessage(data) {
 			&& (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SenderCharacter));
 
 		if (data.Type == "Chat" || data.Type == "Whisper") {
-			msg = '<span class="ChatMessageName" style="color:' + (SenderCharacter.LabelColor || 'gray');
-			if (data.Type == "Whisper") msg += '; font-style: italic';
-			msg += ';">';
-
-			// Garble names
-			let senderName = "";
-			if (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && SenderCharacter.MemberNumber != Player.MemberNumber && data.Type != "Whisper" && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SenderCharacter))) {
-				if ((Player.GetDeafLevel() >= 4))
-					senderName = DialogFindPlayer("Someone");
-				else
-					senderName = SpeechGarble(SenderCharacter, CharacterNickname(SenderCharacter), true);
-			}
-			else senderName = CharacterNickname(SenderCharacter);
-			msg += senderName;
-			msg += ':</span> ';
-
-			const chatMsg = ChatRoomHTMLEntities(data.Type === "Whisper" ? data.Content : SpeechGarble(SenderCharacter, data.Content));
-			msg += chatMsg;
-			ChatRoomChatLog.push({ Chat: SpeechGarble(SenderCharacter, data.Content, true), Garbled: chatMsg, Original: data.Content, SenderName: senderName, SenderMemberNumber: SenderCharacter.MemberNumber, Time: CommonTime() });
-
+			ChatRoomChatLog.push({ Chat: SpeechGarble(SenderCharacter, orig_msg, true), Garbled: msg, Original: orig_msg, SenderName: msg_meta.senderName, SenderMemberNumber: SenderCharacter.MemberNumber, Time: CommonTime() });
 			if (ChatRoomChatLog.length > 6) ChatRoomChatLog.splice(0, 1);
+
 			if (HideOthersMessages && data.Type === "Chat") return;
 
 			if ((data.Type === "Chat" && Player.NotificationSettings.ChatMessage.Normal)
 				|| (data.Type === "Whisper" && Player.NotificationSettings.ChatMessage.Whisper)
-				|| (Player.NotificationSettings.ChatMessage.Mention && ChatRoomMessageMentionsCharacter(Player, chatMsg)))
-				ChatRoomNotificationRaiseChatMessage(SenderCharacter, chatMsg);
+				|| (Player.NotificationSettings.ChatMessage.Mention && ChatRoomMessageMentionsCharacter(Player, msg)))
+				ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
 
 		}
 		else if (data.Type == "Emote") {
 			const playerMentioned = ChatRoomMessageMentionsCharacter(Player, msg);
 			if (HideOthersMessages && !playerMentioned) return;
 
-			if (msg.indexOf("*") == 0) msg = msg + "*";
-			else if ((msg.indexOf("'") == 0) || (msg.indexOf(",") == 0)) msg = "*" + CharacterNickname(SenderCharacter) + msg + "*";
-			else if (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && SenderCharacter.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SenderCharacter))) {
-				msg = "*" + DialogFindPlayer("Someone") + " " + msg + "*";
-				for (let C = 0; C < ChatRoomCharacter.length; C++)
-					if (ChatRoomCharacter[C] && ChatRoomCharacter[C].Name && ChatRoomCharacter[C].ID != 0 && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(ChatRoomCharacter[C])))
-						msg = msg.replace(ChatRoomCharacter[C].Name.charAt(0).toUpperCase() + ChatRoomCharacter[C].Name.slice(1), DialogFindPlayer("Someone"));
-			}
-			else msg = "*" + CharacterNickname(SenderCharacter) + " " + msg + "*";
-
 			if (Player.NotificationSettings.ChatMessage.Normal || (Player.NotificationSettings.ChatMessage.Mention && playerMentioned))
 				ChatRoomNotificationRaiseChatMessage(SenderCharacter, msg);
 		}
-		else if (data.Type === "Action" || data.Type === "Activity") msg = "(" + msg + ")";
-		else if (data.Type == "ServerMessage") msg = "<b>" + msg + "</b>";
-
-		// Local messages can have HTML embedded in them
-		else if (data.Type == "LocalMessage") msg = data.Content;
 	}
+
+	// Prepares the HTML tags
+	if (data.Type == "Chat" || data.Type == "Whisper") {
+		let senderTag = '<span class="ChatMessageName" style="color:' + (SenderCharacter.LabelColor || 'gray');
+		if (data.Type == "Whisper") senderTag += '; font-style: italic';
+		senderTag += ';">';
+		senderTag += msg_meta.senderName;
+		senderTag += ':</span> ';
+
+		msg = senderTag + msg;
+	}
+	else if (data.Type === "Action" || data.Type === "Activity") msg = "(" + msg + ")";
+	else if (data.Type == "ServerMessage") msg = "<b>" + msg + "</b>";
+
+	// Local messages can have HTML embedded in them
+	else if (data.Type == "LocalMessage") msg = data.Content;
 
 	// Adds the message and scrolls down unless the user has scrolled up
 	var div = document.createElement("div");
