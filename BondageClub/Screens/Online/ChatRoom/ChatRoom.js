@@ -2239,6 +2239,106 @@ function ChatRoomMessageInvolvesPlayer(data) {
 }
 
 /**
+ * Performs the processing for an hidden message
+ * @param {IChatRoomMessage} data
+ * @param {Character} SenderCharacter
+ */
+function ChatRoomMessageProcessHidden(data, SenderCharacter) {
+	if (data.Content == "RuleInfoGet") ChatRoomGetLoadRules(SenderCharacter);
+	else if (data.Content == "RuleInfoSet") ChatRoomSetLoadRules(SenderCharacter, data.Dictionary);
+	else if (data.Content.startsWith("StruggleAssist")) {
+		let A = parseInt(data.Content.substr("StruggleAssist".length));
+		if ((A >= 1) && (A <= 7)) {
+			ChatRoomStruggleAssistTimer = CurrentTime + 60000;
+			ChatRoomStruggleAssistBonus = A;
+		}
+	}
+	else if (data.Content == "SlowStop") {
+		ChatRoomSlowtimer = CurrentTime + 45000;
+		ChatRoomSlowStop = true;
+	}
+	else if (data.Content.startsWith("MaidDrinkPick")) {
+		let A = parseInt(data.Content.substr("MaidDrinkPick".length));
+		if ((A == 0) || (A == 5) || (A == 10)) MaidQuartersOnlineDrinkPick(data.Sender, A);
+	}
+	else if (data.Content.startsWith("PayQuest")) {
+		const money = parseInt(data.Content.substring(8));
+		ChatRoomPayQuest(data.Sender, money);
+	}
+	else if (data.Content.startsWith("OwnerRule") || data.Content.startsWith("LoverRule")) {
+		ChatRoomSetRule(data);
+	}
+	else if (data.Content == "HoldLeash") {
+		if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer && ChatRoomLeashPlayer != null) {
+			ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: ChatRoomLeashPlayer });
+		}
+		if (ChatRoomCanBeLeashedBy(SenderCharacter.MemberNumber, Player)) {
+			ChatRoomLeashPlayer = SenderCharacter.MemberNumber;
+		} else {
+			ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
+		}
+	}
+	else if (data.Content == "StopHoldLeash") {
+		if (SenderCharacter.MemberNumber == ChatRoomLeashPlayer) {
+			ChatRoomLeashPlayer = null;
+		}
+	}
+	else if (data.Content == "PingHoldLeash") {
+		// The dom will ping all players on her leash list and ones that no longer have her as their leasher will remove it
+		if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer || !ChatRoomCanBeLeashedBy(SenderCharacter.MemberNumber, Player)) {
+			ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
+		}
+	}
+	else if (data.Content == "RemoveLeash" || data.Content == "RemoveLeashNotFriend") {
+		if (ChatRoomLeashList.indexOf(SenderCharacter.MemberNumber) >= 0) {
+			ChatRoomLeashList.splice(ChatRoomLeashList.indexOf(SenderCharacter.MemberNumber), 1);
+		}
+	}
+	else if (data.Content == "GiveLockpicks") DialogLentLockpicks = true;
+	else if (data.Content == "RequestFullKinkyDungeonData") {
+		KinkyDungeonStreamingPlayers.push(SenderCharacter.MemberNumber);
+		if (CurrentScreen == "KinkyDungeon")
+			KinkyDungeonSendData(KinkyDungeonPackData(true, true, true, true));
+	}
+	else if (data.Content == "TakeSuitcase") {
+		if (!Player.CanInteract() && ServerChatRoomGetAllowItem(SenderCharacter, Player)) {
+			let misc = InventoryGet(Player, "ItemMisc");
+			if (KidnapLeagueSearchingPlayers.length == 0) {
+				if (misc && misc.Asset && misc.Asset.Name == "BountySuitcase") {
+					KidnapLeagueSearchFinishTime = CommonTime() + KidnapLeagueSearchFinishDuration;
+					ChatRoomPublishCustomAction("OnlineBountySuitcaseStart", true, [
+						{ Tag: "SourceCharacter", Text: CharacterNickname(SenderCharacter), MemberNumber: SenderCharacter.MemberNumber },
+						{ Tag: "DestinationCharacterName", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+					]);
+				} else if (misc && misc.Asset && misc.Asset.Name == "BountySuitcaseEmpty") {
+					KidnapLeagueSearchFinishTime = CommonTime() + KidnapLeagueSearchFinishDuration;
+					ChatRoomPublishCustomAction("OnlineBountySuitcaseStartOpened", true, [
+						{ Tag: "SourceCharacter", Text: CharacterNickname(SenderCharacter), MemberNumber: SenderCharacter.MemberNumber },
+						{ Tag: "DestinationCharacterName", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+					]);
+				}
+			} else {
+				ServerSend("ChatRoomGame", {
+					OnlineBounty: {
+						finishTime: KidnapLeagueSearchFinishTime,
+						target: SenderCharacter.MemberNumber,
+					}
+				});
+			}
+			if (!KidnapLeagueSearchingPlayers.includes(SenderCharacter.MemberNumber)) {
+				KidnapLeagueSearchingPlayers.push(SenderCharacter.MemberNumber);
+			}
+
+		}
+	}
+	else if (data.Content == "ReceiveSuitcaseMoney") {
+		ChatRoomReceiveSuitcaseMoney();
+	} else if (data.Content.substr(0, 4) == "GGTS") {
+		AsylumGGTSHiddenMessage(SenderCharacter, data.Content, data);
+	}
+}
+
+/**
  * Handles the reception of a chatroom message. Ghost players' messages are ignored.
  * @param {IChatRoomMessage} data - Message object containing things like the message type, sender, content, etc.
  * @returns {void} - Nothing.
@@ -2280,98 +2380,8 @@ function ChatRoomMessage(data) {
 
 	// Hidden messages are processed separately, they are used by chat room mini-games / events
 	if (data.Type == "Hidden") {
-		if (msg == "RuleInfoGet") ChatRoomGetLoadRules(SenderCharacter);
-		else if (msg == "RuleInfoSet") ChatRoomSetLoadRules(SenderCharacter, data.Dictionary);
-		else if (msg.startsWith("StruggleAssist")) {
-			let A = parseInt( msg.substr("StruggleAssist".length));
-			if ((A >= 1) && (A <= 7)) {
-				ChatRoomStruggleAssistTimer = CurrentTime + 60000;
-				ChatRoomStruggleAssistBonus = A;
-			}
-		}
-		else if (msg == "SlowStop") {
-			ChatRoomSlowtimer = CurrentTime + 45000;
-			ChatRoomSlowStop = true;
-		}
-		else if (msg.startsWith("MaidDrinkPick")) {
-			let A = parseInt(msg.substr("MaidDrinkPick".length));
-			if ((A == 0) || (A == 5) || (A == 10)) MaidQuartersOnlineDrinkPick(data.Sender, A);
-		}
-		else if (msg.startsWith("PayQuest")) ChatRoomPayQuest(data);
-		else if (msg.startsWith("OwnerRule")) data = ChatRoomSetRule(data);
-		else if (msg.startsWith("LoverRule")) data = ChatRoomSetRule(data);
-		else if (msg == "HoldLeash") {
-			if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer && ChatRoomLeashPlayer != null) {
-				ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: ChatRoomLeashPlayer });
-			}
-			if (ChatRoomCanBeLeashedBy(SenderCharacter.MemberNumber, Player)) {
-				ChatRoomLeashPlayer = SenderCharacter.MemberNumber;
-			} else {
-				ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
-			}
-		}
-		else if (msg == "StopHoldLeash") {
-			if (SenderCharacter.MemberNumber == ChatRoomLeashPlayer) {
-				ChatRoomLeashPlayer = null;
-			}
-		}
-		else if (msg == "PingHoldLeash") {
-			// The dom will ping all players on her leash list and ones that no longer have her as their leasher will remove it
-			if (SenderCharacter.MemberNumber != ChatRoomLeashPlayer || !ChatRoomCanBeLeashedBy(SenderCharacter.MemberNumber, Player)) {
-				ServerSend("ChatRoomChat", { Content: "RemoveLeash", Type: "Hidden", Target: SenderCharacter.MemberNumber });
-			}
-		}
-		else if (msg == "RemoveLeash" || msg == "RemoveLeashNotFriend") {
-			if (ChatRoomLeashList.indexOf(SenderCharacter.MemberNumber) >= 0) {
-				ChatRoomLeashList.splice(ChatRoomLeashList.indexOf(SenderCharacter.MemberNumber), 1);
-			}
-		}
-		else if (msg == "GiveLockpicks") DialogLentLockpicks = true;
-		else if (msg == "RequestFullKinkyDungeonData") {
-			KinkyDungeonStreamingPlayers.push(SenderCharacter.MemberNumber);
-			if (CurrentScreen == "KinkyDungeon")
-				KinkyDungeonSendData(KinkyDungeonPackData(true, true, true, true));
-		}
-		else if (msg == "TakeSuitcase") {
-			if (!Player.CanInteract() && ServerChatRoomGetAllowItem(SenderCharacter, Player)) {
-				let misc = InventoryGet(Player, "ItemMisc");
-				if (KidnapLeagueSearchingPlayers.length == 0) {
-					if (misc && misc.Asset && misc.Asset.Name == "BountySuitcase") {
-						KidnapLeagueSearchFinishTime = CommonTime() + KidnapLeagueSearchFinishDuration;
-						ChatRoomPublishCustomAction("OnlineBountySuitcaseStart", true, [
-							{ Tag: "SourceCharacter", Text: CharacterNickname(SenderCharacter), MemberNumber: SenderCharacter.MemberNumber },
-							{ Tag: "DestinationCharacterName", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-						]);
-					} else if (misc && misc.Asset && misc.Asset.Name == "BountySuitcaseEmpty") {
-						KidnapLeagueSearchFinishTime = CommonTime() + KidnapLeagueSearchFinishDuration;
-						ChatRoomPublishCustomAction("OnlineBountySuitcaseStartOpened", true, [
-							{ Tag: "SourceCharacter", Text: CharacterNickname(SenderCharacter), MemberNumber: SenderCharacter.MemberNumber },
-							{ Tag: "DestinationCharacterName", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-						]);
-					}
-				} else {
-					ServerSend("ChatRoomGame", {
-						OnlineBounty: {
-							finishTime: KidnapLeagueSearchFinishTime,
-							target: SenderCharacter.MemberNumber,
-						}
-					});
-				}
-				if (!KidnapLeagueSearchingPlayers.includes(SenderCharacter.MemberNumber)) {
-					KidnapLeagueSearchingPlayers.push(SenderCharacter.MemberNumber);
-				}
-
-			}
-		}
-		else if (msg == "ReceiveSuitcaseMoney") {
-			ChatRoomReceiveSuitcaseMoney();
-		}
-
-		// Process hidden GGTS messages
-		if (msg.substr(0, 4) == "GGTS") AsylumGGTSHiddenMessage(SenderCharacter, msg, data);
-
-		// If the message is still hidden after any modifications, stop processing
-		if (data.Type == "Hidden") return;
+		ChatRoomMessageProcessHidden(data, SenderCharacter);
+		return;
 	}
 
 	// Status messages will update that character status, anything else will cancel the status
@@ -3564,7 +3574,7 @@ function ChatRoomGetRule(RuleType, Sender) {
 /**
  * Processes a rule sent to the player from her owner or from her lover.
  * @param {object} data - Received rule data object.
- * @returns {object} - Returns the data object, used to continue processing the chat message.
+ * @returns {void}
  */
 function ChatRoomSetRule(data) {
 
@@ -3676,10 +3686,11 @@ function ChatRoomSetRule(data) {
 			MaidQuartersOnlineDrinkFromOwner = true;
 		}
 
+		ChatRoomGetLoadRules(data.Sender);
+
 		// Switches it to a server message to announce the new rule to the player
 		data.Type = "ServerMessage";
-
-		ChatRoomGetLoadRules(data.Sender);
+		ChatRoomMessage(data);
 	}
 
 	// Only works if the sender is the lover of the player
@@ -3689,14 +3700,12 @@ function ChatRoomSetRule(data) {
 		if (data.Content == "LoverRuleOwnerLoverLockAllow") LogDelete("BlockLoverLockOwner", "LoverRule");
 		if (data.Content == "LoverRuleOwnerLoverLockBlock") LogAdd("BlockLoverLockOwner", "LoverRule");
 
-		data.Type = "ServerMessage";
-
 		ChatRoomGetLoadRules(data.Sender);
+
+		// Switches it to a server message to announce the new rule to the player
+		data.Type = "ServerMessage";
+		ChatRoomMessage(data);
 	}
-
-	// Returns the data packet
-	return data;
-
 }
 
 /**
@@ -3714,18 +3723,19 @@ function ChatRoomGiveMoneyForOwner() {
 
 /**
  * Handles the reception of quest data, when payment is received.
- * @param {object} data - Data object containing the payment.
+ * @param {number} questGiverNumber
+ * @param {number} paymentAmount
  * @returns {void} - Nothing
  */
-function ChatRoomPayQuest(data) {
-	if ((data != null) && (data.Sender != null) && (ChatRoomQuestGiven.indexOf(data.Sender) >= 0)) {
-		var M = parseInt(data.Content.substring(8));
-		if ((M == null) || isNaN(M)) M = 0;
-		if (M < 0) M = 0;
-		if (M > 30) M = 30;
-		CharacterChangeMoney(Player, M);
-		ChatRoomQuestGiven.splice(ChatRoomQuestGiven.indexOf(data.Sender), 1);
-	}
+function ChatRoomPayQuest(questGiverNumber, paymentAmount) {
+	if (ChatRoomQuestGiven.indexOf(questGiverNumber) < 0) return;
+
+	if (paymentAmount == null || isNaN(paymentAmount)) return;
+
+	if (paymentAmount < 0) paymentAmount = 0;
+	if (paymentAmount > 30) paymentAmount = 30;
+	CharacterChangeMoney(Player, paymentAmount);
+	ChatRoomQuestGiven.splice(ChatRoomQuestGiven.indexOf(questGiverNumber), 1);
 }
 
 /**

@@ -1257,16 +1257,17 @@ function AsylumGGTSDialogInteraction(Interaction) {
 	ServerSend("ChatRoomChat", { Content: "GGTS" + Interaction + "|" + CurrentCharacter.MemberNumber.toString(), Type: "Hidden" });
 	AsylumGGTSMessage("Interaction" + Interaction, CurrentCharacter);
 	DialogLeave();
-	
+
 }
 
 /**
  * Called from chat room, processes hidden GGTS messages
  * @param {Character} SenderCharacter - The character sending the message
  * @param {String} Interaction - The message sent
+ * @param {IChatRoomMessage} data - The full message recieved
  * @returns {Object} - Nothing to be used
  */
-function AsylumGGTSHiddenMessage(SenderCharacter, Interaction) {
+function AsylumGGTSHiddenMessage(SenderCharacter, Interaction, data) {
 	if (Interaction == "GGTSNewTask|" + Player.MemberNumber.toString()) return AsylumGGTSNewTask();
 	if (Interaction == "GGTSSpeed5|" + Player.MemberNumber.toString()) return AsylumGGTSSpeed = 0.5;
 	if (Interaction == "GGTSSpeed10|" + Player.MemberNumber.toString()) return AsylumGGTSSpeed = 1;
