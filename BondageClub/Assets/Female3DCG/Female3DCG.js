@@ -4091,132 +4091,130 @@ var AssetFemale3DCG = [
 			{
 				Name: "SpankingToysCrop", ParentGroup: null, Priority: 46, Value: 20, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"], BuyGroup: "Crop",
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysFlogger", ParentGroup: null, Priority: 46, Value: 40, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"], ActivityAudio: ["SmackCrop"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysCane", ParentGroup: null, Priority: 46, Value: 15, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"], BuyGroup: "Cane",
-				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
+				ActivityExpression: {
+					"SpankItem": [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }],
+				}
 			},
 			{
 				Name: "SpankingToysHeartCrop", ParentGroup: null, Priority: 46, Value: 30, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysPaddle", ParentGroup: null, Priority: 46, Value: 35, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }]
+				ActivityExpression: {
+					"SpankItem": [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }],
+				}
 			},
 			{
 				Name: "SpankingToysWhipPaddle", ParentGroup: null, Priority: 46, Value: 25, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
+				ActivityExpression: {
+					"SpankItem": [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }],
+				}
 			},
 			{
 				Name: "SpankingToysWhip", ParentGroup: null, Priority: 46, Value: 50, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"], ActivityAudio: ["WhipCrack"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
+				ActivityExpression: {
+					"SpankItem": [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }],
+				}
 			},
 			{
 				Name: "SpankingToysCattleProd", ParentGroup: null, Priority: 46, Value: 45, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["ShockItem"], ActivityAudio: ["Shocks"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
 			},
 			{
 				Name: "SpankingToysTennisRacket", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"], Bonus: "KidnapBruteForce",
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysRainbowWand", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
-				ExpressionTrigger: [{ Group: "Eyebrows", Name: "Soft", Timer: 5 }]
+				ActivityExpression: { "SpankItem": [{ Group: "Eyebrows", Name: "Soft", Timer: 5 }] }
 			},
 			{
 				Name: "SpankingToysGavel", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"], Bonus: "KidnapDomination",
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }]
+				ActivityExpression: {
+					"SpankItem": [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }]
+				}
 			},
 			{
 				Name: "SpankingToysFeather", ParentGroup: null, Priority: 46, Value: 2, Random: false,
 				AllowActivity: ["TickleItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, {Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Grin", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
+				ActivityExpression: { "TickleItem": [{ Group: "Blush", Name: "Medium", Timer: 10 }, {Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Grin", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}], }
 			},
 			{
 				Name: "SpankingToysFeatherDuster", ParentGroup: null, Priority: 46, Value: 4, Random: false,
 				AllowActivity: ["TickleItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Laughing", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
 			},
 			{
 				Name: "SpankingToysLongDuster", ParentGroup: null, Priority: 46, Value: -1, Random: false,
 				AllowActivity: ["TickleItem"], Bonus: "KidnapSneakiness",
-				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Laughing", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
 			},
 			{
 				Name: "SpankingToysIceCube", ParentGroup: null, Priority: 46, Value: 3, Random: false,
 				AllowActivity: ["RubItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10}, { Group: "Mouth", Name: "Angry", Timer: 10}, { Group: "Eyes", Name: "Daydream", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
+				ActivityExpression: { "RubItem": [{ Group: "Blush", Name: "Medium", Timer: 10}, { Group: "Mouth", Name: "Angry", Timer: 10}, { Group: "Eyes", Name: "Daydream", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}] },
 			},
 			{
 				Name: "SpankingToysWartenbergWheel", ParentGroup: null, Priority: 46, Value: 10, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["RollItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}, { Group: "Eyes", Name: "Daydream", Timer: 10}]
+				ActivityExpression: { "RollItem": [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}, { Group: "Eyes", Name: "Daydream", Timer: 10}] }
 			},
 			{
 				Name: "SpankingToysVibratingWand", ParentGroup: null, Priority: 46, Value: 40, Random: false,
 				AllowActivity: ["MasturbateItem", "RubItem"], ActivityAudio: ["Wand"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "VeryLewd", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}, { Group: "Mouth", Name: "Open", Timer: 10}]
+				ActivityExpression: { "MasturbateItem": [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "VeryLewd", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}, { Group: "Mouth", Name: "Open", Timer: 10}], }
 			},
 			{
 				Name: "SpankingToysSmallVibratingWand", ParentGroup: null, Priority: 46, Value: 20, Random: false,
 				AllowActivity: ["MasturbateItem", "RubItem"], ActivityAudio: ["Wand"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyes", Name: "Dazed", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}, { Group: "Mouth", Name: "HalfOpen", Timer: 10}]
 			},
 			{
 				Name: "SpankingToysCandleWax", ParentGroup: null, Priority: 46, Value: 10, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["PourItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Surprised", Timer: 10}, { Group: "Mouth", Name: "Frown", Timer: 10}]
+				ActivityExpression: { "PourItem": [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Surprised", Timer: 10}, { Group: "Mouth", Name: "Frown", Timer: 10}] }
 			},
 			{
 				Name: "SpankingToysLargeDildo", ParentGroup: null, Priority: 46, Value: 30, Random: false,
 				AllowActivity: ["MasturbateItem", "RubItem", "PenetrateItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "HalfOpen", Timer: 10}, { Group: "Eyes", Name: "Lewd", Timer: 10}]
 			},
 			{
 				Name: "SpankingToysPetToy", ParentGroup: null, Priority: 46, Value: 5, Random: false,
-				AllowActivity: ["TickleItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyes", Name: "WinkL", Timer: 10 }, { Group: "Mouth", Name: "Smirk", Timer: 10 }]
+				AllowActivity: ["TickleItem", "SpankItem"],
 			},
 			{
 				Name: "SpankingToysVibrator", ParentGroup: null, Priority: 46, Value: 45, Random: false,
 				AllowActivity: ["MasturbateItem", "RubItem"], ActivityAudio: ["Wand"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "VeryLewd", Timer: 10 }, { Group: "Mouth", Name: "Open", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
+				ActivityExpression: { "MasturbateItem": [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "VeryLewd", Timer: 10 }, { Group: "Mouth", Name: "Open", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}], }
 			},
 			{
 				Name: "SpankingToysBelt", ParentGroup: null, Priority: 46, Value: 10, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}]
+				ActivityExpression: { "SpankItem": [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}], }
 			},
 			{
 				Name: "SpankingToysHairbrush", ParentGroup: null, Priority: 46, Value: 5, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}]
+				ActivityExpression: { "SpankItem": [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}], }
 			},
 			{
 				Name: "SpankingToysSmallDildo", ParentGroup: null, Priority: 46, Value: 20, Random: false,
 				AllowActivity: ["MasturbateItem", "RubItem", "PenetrateItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}, { Group: "Eyes", Name: "Lewd", Timer: 5 }, ]
 			},
 			{
 				Name: "SpankingToysElectricToothbrush", ParentGroup: null, Priority: 46, Value: 20, Random: false,
-				AllowActivity: ["TickleItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, {Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Grin", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
+				AllowActivity: ["TickleItem", "MasturbateItem"],
 			},
 			{
 				Name: "SpankingToysToothbrush", ParentGroup: null, Priority: 46, Value: 10, Random: false,
@@ -4226,32 +4224,27 @@ var AssetFemale3DCG = [
 			{
 				Name: "SpankingToysShockWand", ParentGroup: null, Priority: 46, Value: 50, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["ShockItem"], ActivityAudio: ["Shocks"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
 			},
 			{
 				Name: "SpankingToysLotion", ParentGroup: null, Priority: 46, Value: 10, Random: false,
 				AllowActivity: ["RubItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysRuler", ParentGroup: null, Priority: 46, Value: 3, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }]
 			},
 			{
 				Name: "SpankingToysSword", ParentGroup: null, Priority: 46, Value: 5, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 5 }, { Group: "Eyebrows", Name: "Harsh", Timer: 5 }]
+				ActivityExpression: { "SpankItem": [{ Group: "Blush", Name: "Low", Timer: 5 }, { Group: "Eyebrows", Name: "Harsh", Timer: 5 }], }
 			},
 			{
 				Name: "SpankingToysVibeRemote", ParentGroup: null, Priority: 46, Value: 50, Random: false,
 				AllowActivity: ["RubItem"], BuyGroup: "VibratorRemote",
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysShockRemote", ParentGroup: null, Priority: 46, Value: 50, Random: false,
 				AllowActivity: ["RubItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysTowel", ParentGroup: null, Priority: 46, Value: 10, Random: false, AllowActivity: ["RubItem"],
@@ -4259,47 +4252,38 @@ var AssetFemale3DCG = [
 			{
 				Name: "SpankingToysRopeCoilLong", ParentGroup: null, Priority: 46, Value: 60, Random: false, Fetish: ["Rope"],
 				AllowActivity: ["RubItem"], BuyGroup: "HempRope",
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysRopeCoilShort", ParentGroup: null, Priority: 46, Value: 60, Random: false, Fetish: ["Rope"],
 				AllowActivity: ["RubItem"], BuyGroup: "HempRope",
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysBallgag", ParentGroup: null, Priority: 46, Value: 40, Random: false,  Fetish: ["Gagged"],
 				AllowActivity: ["RubItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysLongSock", ParentGroup: null, Priority: 46, Value: 40, Random: false,  Fetish: ["Lingerie"],
 				AllowActivity: ["RubItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysBaguette", ParentGroup: null, Priority: 46, Value: -1, Random: false,  Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysPanties", ParentGroup: null, Priority: 46, Value: 10, Random: false,  Fetish: ["Lingerie"],
 				AllowActivity: ["RubItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysTapeRoll", ParentGroup: null, Priority: 46, Value: 50, Random: false, Fetish: ["Tape"],
 				AllowActivity: ["RubItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
 				Name: "SpankingToysSpatula", ParentGroup: null, Priority: 46, Value: 5, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 5 }, { Group: "Eyebrows", Name: "Harsh", Timer: 5 }]
 			},
 			{
 				Name: "SpankingToysBroom", ParentGroup: null, Priority: 46, Value: 15, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 5 }, { Group: "Eyebrows", Name: "Harsh", Timer: 5 }]
 			},
 			{
 				Name: "SpankingToysPhone1", ParentGroup: null, Priority: 46,  Value: 100, Random: false,
@@ -4322,7 +4306,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "SpankingToysGlassFilled", ParentGroup: null, Priority: 46, Value: 20, Random: false,
 				AllowActivity: ["RubItem"], BuyGroup: "DrinkingGlass",
-				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 5}, { Group: "Mouth", Name: "LipBite", Timer: 5}, { Group: "Eyes", Name: "Lewd", Timer: 5}, { Group: "Eyebrows", Name: "Raised", Timer: 5}],
+				ActivityExpression: { "RubItem": [{ Group: "Blush", Name: "Low", Timer: 5}, { Group: "Mouth", Name: "LipBite", Timer: 5}, { Group: "Eyes", Name: "Lewd", Timer: 5}, { Group: "Eyebrows", Name: "Raised", Timer: 5}], },
 			},
 			{
 				Name: "SpankingToysPotionBottle", Value: 40, Random: false,
@@ -7654,6 +7638,7 @@ var ActivityFemale3DCG = [
 		Prerequisite: ["Needs-SpankItem"],
 		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemFeet", "ItemLegs", "ItemNipples", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
+		ActivityExpression: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Daydream", Timer: 10 }],
 	},
 	{
 		Name: "TickleItem",
@@ -7661,6 +7646,7 @@ var ActivityFemale3DCG = [
 		Prerequisite: ["Needs-TickleItem"],
 		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHood", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
+		ActivityExpression: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Laughing", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}],
 	},
 	{
 		Name: "RubItem",
@@ -7668,6 +7654,7 @@ var ActivityFemale3DCG = [
 		Prerequisite: ["Needs-RubItem"],
 		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHood", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
+		ActivityExpression: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "LipBite", Timer: 10 }],
 	},
 	{
 		Name: "RollItem",
@@ -7682,6 +7669,7 @@ var ActivityFemale3DCG = [
 		Prerequisite: ["ZoneNaked", "Needs-MasturbateItem"],
 		Target: ["ItemBreast", "ItemButt", "ItemFeet", "ItemLegs", "ItemNipples", "ItemPelvis", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
+		ActivityExpression: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyes", Name: "Dazed", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}, { Group: "Mouth", Name: "HalfOpen", Timer: 10}],
 	},
 	{
 		Name: "PourItem",
@@ -7696,6 +7684,7 @@ var ActivityFemale3DCG = [
 		Prerequisite: ["Needs-ShockItem"],
 		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemFeet", "ItemLegs", "ItemNipples", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
+		ActivityExpression: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }],
 	},
 	{
 		Name: "Inject",

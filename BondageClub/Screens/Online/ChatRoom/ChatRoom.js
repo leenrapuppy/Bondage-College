@@ -2430,8 +2430,10 @@ var ChatRoomMessageHandlers = [
 
 			// If another player is using an item which applies an activity on the current player, apply the effect here
 			if (arousalEnabled && metadata.ActivityName && metadata.TargetMemberNumber
-					&& (metadata.TargetMemberNumber === Player.MemberNumber) && (sender.MemberNumber !== Player.MemberNumber))
-				ActivityEffect(sender, Player, metadata.ActivityName, ActivityGroup, metadata.ActivityCounter);
+				&& (metadata.TargetMemberNumber === Player.MemberNumber) && (sender.MemberNumber !== Player.MemberNumber)) {
+				const UsedAsset = AssetGet("Female3DCG", metadata.ActivityAssetGroup, metadata.ActivityAsset);
+				ActivityEffect(sender, Player, metadata.ActivityName, ActivityGroup, metadata.ActivityCounter, UsedAsset);
+			}
 			return false;
 		}
 	},
@@ -2711,6 +2713,8 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 			const repl = ChatSearchMuffle(entry.Text);
 			substitutions.push([entry.Tag, repl]);
 		}
+		else if (entry.Tag === "ActivityAsset") meta.ActivityAsset = entry.Text;
+		else if (entry.Tag === "ActivityAssetGroup") meta.ActivityAssetGroup = entry.Text;
 		else if (entry.ActivityCounter) meta.ActivityCounter = entry.ActivityCounter;
 		else if (entry.Automatic) meta.Automatic = true;
 		else if (entry.ShockIntensity != undefined) meta.ShockIntensity = entry.ShockIntensity;

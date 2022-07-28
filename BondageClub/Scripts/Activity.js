@@ -312,9 +312,10 @@ function ActivityCanBeDone(C, Activity, Group) {
  * @param {string} Z - The group/zone name where the activity was performed
  * @param {number} [Count=1] - If the activity is done repeatedly, this defines the number of times, the activity is done.
  * If you don't want an activity to modify arousal, set this parameter to '0'
+ * @param {Asset} [Asset] - The asset used to perform the activity
  * @return {void} - Nothing
  */
-function ActivityEffect(S, C, A, Z, Count) {
+function ActivityEffect(S, C, A, Z, Count, Asset) {
 
 	// Converts from activity name to the activity object
 	if (typeof A === "string") A = AssetGetActivity(C.AssetFamily, A);
@@ -328,6 +329,12 @@ function ActivityEffect(S, C, A, Z, Count) {
 	if ((C.ID != S.ID) && (((C.ID != 0) && C.IsLoverOfPlayer()) || ((C.ID == 0) && S.IsLoverOfPlayer()))) Factor = Factor + Math.floor((Math.random() * 8)); // Another random 0 to 7 bonus if the target is the player's lover
 	Factor = Factor + ActivityFetishFactor(C) * 2; // Adds a fetish factor based on the character preferences
 	Factor = Factor + Math.round(Factor * (Count - 1) / 3); // if the action is done repeatedly, we apply a multiplication factor based on the count
+
+	// Grab the relevant expression from either the asset or the activity
+	const expression = Asset && Asset.ActivityExpression && Asset.ActivityExpression[A.Name] ? Asset.ActivityExpression[A.Name] : A.ActivityExpression;
+	if (Array.isArray(expression))
+		InventoryExpressionTriggerApply(C, expression);
+
 	ActivitySetArousalTimer(C, A, Z, Factor);
 
 }
@@ -762,6 +769,9 @@ function ActivityRun(C, ItemActivity) {
 	// If the player does the activity on someone else, we calculate the progress for the player right away
 	ActivityRunSelf(Player, C, Activity);
 
+	// Trigger the used item's expression
+	InventoryExpressionTrigger(Player, ItemActivity.Item);
+
 	// The text result can be outputted in the chatroom or in the NPC dialog
 	if (CurrentScreen == "ChatRoom") {
 
@@ -775,6 +785,8 @@ function ActivityRun(C, ItemActivity) {
 		];
 		if (ItemActivity.Item) {
 			const A = ItemActivity.Item.Asset;
+			Dictionary.push({ Tag: "ActivityAssetGroup", Text: A.Group.Name });
+			Dictionary.push({ Tag: "ActivityAsset", Text: A.Name });
 			Dictionary.push({ Tag: "UsedAsset", Text: A.DynamicDescription(Player).toLowerCase() });
 		}
 		ServerSend("ChatRoomChat", { Content: ActivityBuildChatTag(C, group, Activity), Type: "Activity", Dictionary: Dictionary });

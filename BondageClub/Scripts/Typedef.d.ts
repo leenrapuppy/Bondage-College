@@ -659,6 +659,7 @@ interface Asset {
 	Activity: string | null;
 	AllowActivity?: string[];
 	ActivityAudio?: string[];
+	ActivityExpression: Record<string, ExpressionTrigger[]>;
 	AllowActivityOn?: AssetGroupName[];
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: string[];
@@ -794,6 +795,8 @@ interface Activity {
 	MakeSound?: boolean;
 	/** An action that trigger when that activity is used */
 	StimulationAction?: StimulationAction;
+	/** The default expression for that activity. Can be overriden using ActivityExpression on the asset */
+	ActivityExpression?: ExpressionTrigger[];
 }
 
 interface ItemActivity {
