@@ -215,7 +215,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			break;
 		default:
 			if (prereq.startsWith("Needs-")) {
-				return !acting.IsEnclose() && !acted.IsEnclose() && CharacterHasItemWithAttribute(acting, prereq.substring(6));
+				return !acting.IsEnclose() && !acted.IsEnclose() && CharacterHasItemForActivity(acting, prereq.substring(6));
 			}
 			break;
 	}
