@@ -59,7 +59,12 @@ var PlatformDialogCharacterTemplate = [
 		Name: "Vera",
 		NickName: "Forest Bandit",
 		Color: "#e38d00",
-	}	
+	},
+	{
+		Name: "Lyn",
+		NickName: "Thief",
+		Color: "#b329be",
+	},
 ];
 
 var PlatformDialogData = [
@@ -1847,7 +1852,7 @@ var PlatformDialogData = [
 			},
 			{
 				Character: [
-					{ Name: "Melody", Status: "Maid", Pose: "CarrySleepingOlivia" },
+					{ Name: "Melody", Status: "Maid", Pose: "CarrySleepingOlivia", X: 500 },
 				]
 			},
 			{ Text: "(She passes out in your arms as you start coughing.)" },
@@ -1857,8 +1862,23 @@ var PlatformDialogData = [
 			{ 
 				Background: "Black",
 				Text: "(Everything turns dark...)",
+				Character: []
 			},
-			{ Text: "TO DO" },
+			{ Text: "..." },
+			{ 
+				Character: [{ Name: "Lyn", Status: "Thief", Pose: "Curious" }]
+			},
+			{ Text: "You're waking up?  Good." },
+			{ Text: "We have a long trip ahead your highness." },
+			{ Text: "You must be wondering why you're restrained." },
+			{ Text: "That gag isn't pleasant, but it's necessary." },
+			{ 
+				Character: [
+					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
+				]
+			},
+			{ Text: "We don't want a screamer while we travel." },
 		]
 	},
 
