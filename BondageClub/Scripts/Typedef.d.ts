@@ -804,6 +804,8 @@ interface ItemActivity {
 	Activity: Activity;
 	/** An optional item used for the activity. Null if the player is used their hand, for example. */
 	Item?: Item;
+	/** Whether the item is blocked or limited on the target character. Undefined means no restriction. */
+	Blocked?: "blocked" | "limited";
 }
 
 interface LogRecord {

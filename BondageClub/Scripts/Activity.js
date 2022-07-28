@@ -278,7 +278,16 @@ function ActivityAllowedForGroup(character, groupname) {
 
 			const items = CharacterItemsForActivity(Player, needsItem);
 			for (const item of items) {
-				allowed.push({Activity: activity, Item: item});
+				const type = item.Property ? item.Property.Type : null;
+				/** @type {"limited"|"blocked"} */
+				let blocked = null;
+				if (InventoryIsAllowedLimited(character, item, type)) {
+					blocked = "limited";
+				} else if (InventoryBlockedOrLimited(character, item, type)) {
+					blocked = "blocked";
+				}
+
+				allowed.push({ Activity: activity, Item: item, Blocked: blocked });
 			}
 		} else {
 			allowed.push({ Activity: activity });

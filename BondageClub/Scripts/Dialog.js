@@ -1777,8 +1777,10 @@ function DialogClick() {
 
 				// If this specific activity is clicked, we run it
 				if ((MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275)) {
-					IntroductionJobProgress("SubActivity", DialogActivity[A].Activity.MaxProgress.toString(), true);
-					ActivityRun(C, DialogActivity[A]);
+					if (!DialogActivity[A].Blocked) {
+						IntroductionJobProgress("SubActivity", DialogActivity[A].Activity.MaxProgress.toString(), true);
+						ActivityRun(C, DialogActivity[A]);
+					}
 					return;
 				}
 
@@ -2065,8 +2067,9 @@ function DialogDrawActivityMenu(C) {
 			image = `${AssetGetPreviewPath(itemAct.Item.Asset)}/${itemAct.Item.Asset.Name}.png`;
 			icons.push("Handheld");
 		}
+		const background = (itemAct.Blocked === "blocked" ? "red" : (itemAct.Blocked === "limited" ? "amber" : "white"));
 
-		DrawPreviewBox(X, Y, image, ActivityDictionaryText(label), {Hover: !CommonIsMobile, Icons: icons});
+		DrawPreviewBox(X, Y, image, ActivityDictionaryText(label), {Hover: !CommonIsMobile, Icons: icons, Background: background});
 		X = X + 250;
 		if (X > 1800) {
 			X = 1000;
