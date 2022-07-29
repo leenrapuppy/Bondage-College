@@ -4761,8 +4761,8 @@ var AssetFemale3DCGExtended = {
 						Name: "Horn", Key: "h",
 						Options:[
 							{}, //h0 - None
-							{ Property: { Attribute: ["PenetrateItem"]},}, //h1 - Horn
-							{ Property: { Attribute: ["PenetrateItem"]},}, //h2 - Dildocorn
+							{ Property: { AllowActivity: ["PenetrateItem"]},}, //h1 - Horn
+							{ Property: { AllowActivity: ["PenetrateItem"]},}, //h2 - Dildocorn
 						],
 					},
 					{

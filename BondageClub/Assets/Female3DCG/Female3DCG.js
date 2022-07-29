@@ -1600,13 +1600,13 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "Antennae", Value: 10, BuyGroup: "Antennae", BodyCosplay: true, DefaultColor: "#151A1F" },
-			{ Name: "UnicornHorn", Value: 50, DefaultColor: "#EBAACB", BuyGroup: "UnicornHorn", BodyCosplay: true, Attribute: ["PenetrateItem"], Top: -30,
+			{ Name: "UnicornHorn", Value: 50, DefaultColor: "#EBAACB", BuyGroup: "UnicornHorn", BodyCosplay: true, AllowActivity: ["PenetrateItem"], Top: -30,
 				Layer: [
 					{ Name: "Base"},
 					{ Name: "Shine", AllowColorize: false}
 				]
 			},
-			{ Name: "DildocornHorn", Value: -1, DefaultColor: "Default", BuyGroup: "UnicornHorn", BodyCosplay: true, Attribute: ["PenetrateItem"], Top: -30,
+			{ Name: "DildocornHorn", Value: -1, DefaultColor: "Default", BuyGroup: "UnicornHorn", BodyCosplay: true, AllowActivity: ["PenetrateItem"], Top: -30,
 				Layer: [
 					{ Name: "Base"},
 					{ Name: "Shine", AllowColorize: false}
@@ -1681,7 +1681,7 @@ var AssetFemale3DCG = [
 					{ Name: "Shine", AllowColorize: false}
 				]
 			},
-			{ Name: "DildocornHorn", Value: -1, DefaultColor: "Default", BuyGroup: "UnicornHorn", BodyCosplay: true, Attribute: ["PenetrateItem"], Top: -30,
+			{ Name: "DildocornHorn", Value: -1, DefaultColor: "Default", BuyGroup: "UnicornHorn", BodyCosplay: true, AllowActivity: ["PenetrateItem"], Top: -30,
 				Layer: [
 					{ Name: "Base"},
 					{ Name: "Shine", AllowColorize: false}
@@ -1961,7 +1961,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Tentacles", Category: ["Fantasy"], BuyGroup: "Tentacles", Random: false, Value: 250, Top: 0,
 				DefaultColor: ["#c43ba4", "#b832b6", "#9221ba"],
-				Attribute: ["PenetrateItem"],
+				AllowActivity: ["PenetrateItem"],
 				Layer: [
 					{ Name: "Inner" },
 					{ Name: "Sucker" },
@@ -2770,9 +2770,9 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "LoversVibrator", Value: 75, Time: 5, LoverOnly: true, DefaultColor: "#790c0c", Prerequisite: ["AccessVulva", "HasVagina"], Effect: ["Egged", "FillVulva"], AllowEffect: ["Egged", "Vibrating", "Edged", "FillVulva"], ExpressionTrigger: [{ Name: "Low", Group: "Blush", Timer: 10 }], AllowRemoveExclusive: true, CharacterRestricted: true, DynamicScriptDraw: true},
 			{ Name: "LoversVibratorRemote", Value: 75, Wear: false, LoverOnly: true, Prerequisite: ["RemotesAllowed"], Effect: ["Remote"] },
-			{ Name: "DoubleEndDildo", Value: 15, Time: 10, DefaultColor: ["#624662"], Effect: ["FillVulva"], Prerequisite: ["AccessVulva"], AllowPose: [], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 20 }], Attribute: ["PenetrateItem"], HasType: true, Extended: true},
+			{ Name: "DoubleEndDildo", Value: 15, Time: 10, DefaultColor: ["#624662"], Effect: ["FillVulva"], Prerequisite: ["AccessVulva"], AllowPose: [], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 20 }], AllowActivity: ["PenetrateItem"], HasType: true, Extended: true, },
 			{
-				Name: "Stitches", Category: ["Medical", "Extreme"], Priority: 13, BuyGroup: "Suture", Random: false, Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, Prerequisite: "AccessVulva", Effect: ["Chaste"], DefaultColor: ["#3f3c3a"], AllowPose: ["Spread"], Extended: true, AlwaysExtend: true, 
+				Name: "Stitches", Category: ["Medical", "Extreme"], Priority: 13, BuyGroup: "Suture", Random: false, Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, Prerequisite: "AccessVulva", Effect: ["Chaste"], DefaultColor: ["#3f3c3a"], AllowPose: ["Spread"], Extended: true, AlwaysExtend: true,
 				Layer: [
 					{ Name: "Straight", HasType: false, AllowTypes: ["Straight"] },
 					{ Name: "ZigZag", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["ZigZag"] },
@@ -2909,7 +2909,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Tentacles", Category: ["Fantasy"], BuyGroup: "Tentacles", Random: false, Value: 250, Time: 10, Prerequisite: ["AccessVulva"], DynamicGroupName: "TailStraps",
 				DefaultColor: ["#c43ba4", "#b832b6", "#9221ba"],
-				Attribute: ["PenetrateItem"],
+				AllowActivity: ["PenetrateItem"],
 				Layer: [
 					{ Name: "Inner" },
 					{ Name: "Sucker" },
@@ -2938,8 +2938,7 @@ var AssetFemale3DCG = [
 			{ Group: "ItemAddon", Name: "CeilingChain" },
 		],
 		Asset: [
-			// Vagina Compatible Items
-			{ Name: "StraponPanties", Fetish: ["Latex"], Value: -1, Time: 15, DefaultColor: "#505050", Prerequisite: ["AccessVulva", "HasVagina"], Attribute: ["PenetrateItem"], Bonus: "KidnapBruteForce", HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaPenisDildo", "ItemVulvaShockDildo", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"], Effect: ["Chaste"], Block: ["ItemVulva", "ItemButt", "ItemVulvaPiercings"] },
+			{ Name: "StraponPanties", Fetish: ["Latex"], Value: -1, Time: 15, DefaultColor: "#505050", Prerequisite: ["AccessVulva", "HasVagina"], AllowActivity: ["PenetrateItem"], Bonus: "KidnapBruteForce", HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaPenisDildo", "ItemVulvaShockDildo", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"], Effect: ["Chaste"], Block: ["ItemVulva", "ItemButt", "ItemVulvaPiercings"] },
 			{ Name: "LeatherChastityBelt", Fetish: ["Leather"], ParentGroup: null, Value: 30, Difficulty: 8, Time: 20, RemoveTime: 10, AllowLock: true, Prerequisite: ["AccessVulva", "HasVagina"], HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaClitSuctionCup", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaPenisDildo", "ItemVulvaShockDildo"], Effect: ["Chaste"], Block: ["ItemVulva", "ItemButt", "ItemVulvaPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }], Layer: [
 				{ Name: "Belt" },
 				{ Name: "Studs" },
@@ -4126,7 +4125,7 @@ var AssetFemale3DCG = [
 			{ Name: "PolishedMittens", Prerequisite: ["HasBreasts"], Fetish: ["Metal"], Value: 80, Difficulty: 8, SelfBondage: 6, Time: 20, RemoveTime: 10, AllowLock: true, Audio: "CuffsMetal", AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], Effect: ["Block", "Prone"] },
 			{ Name: "DuctTape", Prerequisite: ["HasBreasts"], Fetish: ["Tape"], Value: 50, Difficulty: 5, SelfBondage: 3, Time: 20, RemoveTime: 10, BuyGroup: "DuctTape", Audio: "DuctTapeRollShort", Hide: ["Gloves"], AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], Effect: ["Block", "Prone"] },
 			{ Name: "KeyProp", Prerequisite: ["HasBreasts"], Value: 10, Priority: 46, Difficulty: -10, Time: 5, IsRestraint: false, AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], },
-			{ Name: "MedicalInjector", ParentGroup: null, Prerequisite: ["HasBreasts"], Category: ["SciFi"], Value: 75, Priority: 46, Time: 8, IsRestraint: false, Attribute: ["InjectItem"], AllowPose: ["Yoked"], HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "AllFours"], },
+			{ Name: "MedicalInjector", Prerequisite: ["HasBreasts"], Category: ["SciFi"], Value: 75, Priority: 46, Time: 8, IsRestraint: false, AllowActivity: ["InjectItem"], AllowPose: ["Yoked"], HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "AllFours"], },
 			{
 				Name: "SpankingToys", Fetish: ["Sadism"], Priority: 46, Random: false, Wear: true, IsRestraint: false, BuyGroup: "SpankingToys",
 				AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"],
@@ -4817,7 +4816,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "DildoGag", Fetish: ["Leather"], Priority: 42, Value: 60, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "DildoGag", Prerequisite: "GagUnique", Attribute: ["PenetrateItem"], Hide: ["Mouth"], Effect: ["BlockMouth", "GagMedium", "ProtrudingMouth"], Block: ["ItemMouth2", "ItemMouth3"],
+				Name: "DildoGag", Fetish: ["Leather"], Priority: 42, Value: 60, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "DildoGag", Prerequisite: "GagUnique", AllowActivity: ["PenetrateItem"], Hide: ["Mouth"], Effect: ["BlockMouth", "GagMedium", "ProtrudingMouth"], Block: ["ItemMouth2", "ItemMouth3"],
 				DefaultColor: ["Default", "#404040"],
 				Layer: [
 					{ Name: "Strap" },
@@ -5291,7 +5290,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "DildoGag", Fetish: ["Leather"], Priority: 42, Value: -1, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "DildoGag", Prerequisite: "GagFlat", Attribute: ["PenetrateItem"], Hide: ["Mouth"], Effect: ["BlockMouth", "GagMedium", "ProtrudingMouth"], Block: ["ItemMouth", "ItemMouth3"],
+				Name: "DildoGag", Fetish: ["Leather"], Priority: 42, Value: -1, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "DildoGag", Prerequisite: "GagFlat", AllowActivity: ["PenetrateItem"], Hide: ["Mouth"], Effect: ["BlockMouth", "GagMedium", "ProtrudingMouth"], Block: ["ItemMouth", "ItemMouth3"],
 				DefaultColor: ["Default", "#404040"],
 				Layer: [
 					{ Name: "Strap" },
@@ -5651,7 +5650,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "DildoGag", Fetish: ["Leather"], Priority: 42, Value: -1, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "DildoGag", Prerequisite: "GagFlat", Attribute: ["PenetrateItem"], Hide: ["Mouth"], Effect: ["BlockMouth", "GagMedium", "ProtrudingMouth"],
+				Name: "DildoGag", Fetish: ["Leather"], Priority: 42, Value: -1, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "DildoGag", Prerequisite: "GagFlat", AllowActivity: ["PenetrateItem"], Hide: ["Mouth"], Effect: ["BlockMouth", "GagMedium", "ProtrudingMouth"],
 				DefaultColor: ["Default", "#404040"],
 				Layer: [
 					{ Name: "Strap" },
@@ -5869,7 +5868,7 @@ var AssetFemale3DCG = [
 				]
 			}, //PonyGag
 			{
-				Name: "Stitches", Category: ["Medical", "Extreme"], Priority: 10, BuyGroup: "Suture", Random: false, Value: 20, Difficulty: 8, Time: 5, RemoveTime: 5, Left: 235, Top: 180, DefaultColor: ["Default", "#3f3c3a"], Hide: ["Mouth"], Prerequisite: ["GagUnique"], Effect: ["GagHeavy"], Extended: true, AlwaysExtend: true, 
+				Name: "Stitches", Category: ["Medical", "Extreme"], Priority: 10, BuyGroup: "Suture", Random: false, Value: 20, Difficulty: 8, Time: 5, RemoveTime: 5, Left: 235, Top: 180, DefaultColor: ["Default", "#3f3c3a"], Hide: ["Mouth"], Prerequisite: ["GagUnique"], Effect: ["GagHeavy"], Extended: true, AlwaysExtend: true,
 				AllowExpression: ["Frown", "Sad", "Pained", "Angry", "HalfOpen", "Open", "Ahegao", "Moan", "TonguePinch", "LipBite", "Happy", "Devious", "Laughing", "Grin", "Smirk", "Pout"],
 				Layer: [
 					{ Name: "FakeMouth", HasType: false, InheritColor: "Mouth", AllowTypes: ["Straight", "ZigZag", "Skewed", "Cross"], MirrorExpression: "Mouth"},
@@ -6055,7 +6054,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "FurScarf", BuyGroup: "FurScarf", Value: 40, Difficulty: 3, Effect: ["BlindLight", "Prone"] },
 			{
-				Name: "Stitches", Category: ["Medical", "Extreme"], Priority: 8.5, BuyGroup: "Suture", Random: false, Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, DefaultColor: ["#3f3c3a", "#3f3c3a"], Effect: [], Top:145, Extended: true, AlwaysExtend: true, 
+				Name: "Stitches", Category: ["Medical", "Extreme"], Priority: 8.5, BuyGroup: "Suture", Random: false, Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, DefaultColor: ["#3f3c3a", "#3f3c3a"], Effect: [], Top:145, Extended: true, AlwaysExtend: true,
 				AllowExpression: ["Angry", "Closed", "Daydream", "Dazed", "Dizzy", "Heart", "HeartPink", "Horny", "Lewd", "LewdHeart", "LewdHeartPink", "Sad", "Scared", "Scared", "Shy", "ShylyHappy", "Surprised", "VeryLewd"],
 				Layer: [
 					{ Name: "FakeEye", HasType: false, AllowColorize: false, AllowModuleTypes: ["m0r0l0", "m0r0l1", "m0r0l2", "m0r0l3", "m0r1l0","m0r1l1","m0r1l2","m0r1l3", "m0r2l0","m0r2l1","m0r2l2","m0r2l3", "m0r3l0", "m0r3l1", "m0r3l2", "m0r3l3", "m2r0l0", "m2r0l1", "m2r0l2", "m2r0l3", "m2r1l0","m2r1l1","m2r1l2","m2r1l3", "m2r2l0","m2r2l1","m2r2l2","m2r2l3", "m2r3l0", "m2r3l1", "m2r3l2", "m2r3l3"], MirrorExpression: "Eyes", Left: 200},
@@ -6640,8 +6639,8 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "TheDisplayFrame", Fetish: ["Metal"], Value: 100, Difficulty: 50, SelfBondage: 5, Time: 10, AllowLock: true, Audio: "LockLarge", Prerequisite: ["DisplayFrame", "AllFours", "NotSuspended", "NotHogtied", "NotHorse", "NotKneeling", "NotMasked"], SetPose: ["LegsClosed", "BackElbowTouch"], Effect: ["Prone", "Freeze", "Block", "Mounted"], HideItem: ["ShoesFlippers"],  Block: ["ItemArms", "ItemLegs", "ItemFeet", "ItemBoots", "ItemNeckAccessories"], RemoveAtLogin: true },
 			{ Name: "Sybian", Priority: 22, Value: 80, Difficulty: 1, Time: 10, IsRestraint: false, Prerequisite: ["AccessVulva", "AllFours", "LegsOpen", "NotSuspended", "NotHogtied", "NotShackled", "NotChaste", "NotHorse"], Hide: ["Shoes", "ItemBoots", "ItemLegs", "ItemVulva"], SetPose: ["KneelingSpread"], Effect: ["FillVulva", "Egged", "Freeze", "Mounted"], Block: ["ItemLegs", "ItemFeet", "ItemBoots", "ItemPelvis", "ItemButt", "ItemVulva"], AllowActivityOn: ["ItemLegs", "ItemFeet", "ItemBoots", "ItemPelvis"], RemoveAtLogin: true, ArousalZone: "ItemVulva", DynamicScriptDraw: true },
-			{ Name: "StrapOnSmooth", Fetish: ["Leather"], Priority: 34, Value: 25, Difficulty: 1, Time: 10, IsRestraint: false, Attribute: ["PenetrateItem"] },
-			{ Name: "StrapOnStuds", Fetish: ["Leather"], Priority: 34, Value: 25, Difficulty: 1, Time: 10, IsRestraint: false, Attribute: ["PenetrateItem"] },
+			{ Name: "StrapOnSmooth", Fetish: ["Leather"], Priority: 34, Value: 25, Difficulty: 1, Time: 10, IsRestraint: false, AllowActivity: ["PenetrateItem"] },
+			{ Name: "StrapOnStuds", Fetish: ["Leather"], Priority: 34, Value: 25, Difficulty: 1, Time: 10, IsRestraint: false, AllowActivity: ["PenetrateItem"] },
 			{ Name: "DisplayCase", Priority: 58, Fetish: ["Metal"], Value: 60, Difficulty: -2, SelfBondage: 1, Time: 15, RemoveTime: 10, AllowLock: true, Audio: "LockLarge", Prerequisite: ["NotSuspended", "NotLifted"], Effect: ["Prone", "Enclose", "DeafLight", "GagLight", "Freeze"], Block: ["ItemAddon"], HideItem: ["ShoesFlippers"], Alpha: [{ Masks: [[1, 1, 70, 999], [420, 1, 80, 999], AssetUpperOverflowAlpha, AssetLowerOverflowAlpha] }], RemoveAtLogin: true, SetPose: ["BaseLower"] },
 			{ Name: "SmallDisplayCase", Priority: 58, Fetish: ["Metal"], Value: 40, Difficulty: -2, SelfBondage: 1, Time: 15, RemoveTime: 10, AllowLock: true, Audio: "LockLarge", Prerequisite: ["NotSuspended", "NotHogtied", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "NotLifted"], Block: ["ItemAddon"], SetPose: ["Kneel"], Effect: ["ForceKneel", "Prone", "Enclose", "DeafLight", "GagLight", "Freeze"], HideItem: ["ShoesFlippers"],  Alpha: [{ Masks: [[1, 1, 70, 999], [420, 1, 80, 999], AssetUpperOverflowAlpha, AssetLowerOverflowAlpha] }], RemoveAtLogin: true },
 			{ Name: "FuturisticCrate", Priority: 58, Category: ["SciFi"], Fetish: ["Metal"], Value: 70, FixedPosition: true, Difficulty: -6, SelfBondage: 1, Time: 15, RemoveTime: 10, AllowLock: true, DrawLocks: false, Audio: "LockLarge", Prerequisite: ["NotSuspended", "NotLifted"], LayerVisibility: true,
