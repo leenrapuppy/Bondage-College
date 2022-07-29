@@ -311,7 +311,7 @@ var AssetFemale3DCG = [
 				Layer: [
 					{ Name: "Shirt" },
 					{ Name: "Collar", ColorGroup: "Details" },
-					{ Name: "Cuffs", ColorGroup: "Details" }
+					{ Name: "Cuffs", ColorGroup: "Details", HideForPose: ["BackBoxTie"] }
 				],
 			},
 			{ Name: "LongSleeveTShirt2", Prerequisite: ["HasFlatChest"] },
