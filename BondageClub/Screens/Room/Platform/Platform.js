@@ -1106,7 +1106,7 @@ var PlatformRoomList = [
 		},
 	},
 	{
-		Name: "BarnInterior",
+		Name: "ForestBarnInterior",
 		Entry: function() {
 			PlatformCreateCharacter("Lyn", "Thief", 1800, true, false, "BarnThief", true);
 		},		
@@ -1115,8 +1115,26 @@ var PlatformRoomList = [
 		Width: 2000,
 		Height: 1333,
 		Heal: 250,
-		Door: [
-		]
+		Door: []
+	},
+	{
+		Name: "ForestCrateInterior",
+		Text: "Wooden Crate (heal and save)",
+		Background: "Forest/CrateInterior",
+		Width: 2000,
+		Height: 1000,
+		Heal: 250,
+		Door: []
+	},
+	{
+		Name: "ForestCampGround",
+		Text: "Camp Site (heal and save)",
+		Background: "Forest/CampGround",
+		Width: 2000,
+		Height: 1400,
+		LimitLeft: 600,
+		Heal: 250,
+		Door: []
 	},
 
 ]
@@ -1295,8 +1313,8 @@ function PlatformPartyNext() {
 	PlatformPlayer.Level = PlatformParty[Pos].Level;
 	PlatformPlayer.Experience = PlatformParty[Pos].Experience;
 	PlatformPlayer.Perk = PlatformParty[Pos].Perk;
-	if (PlatformEventDone("ForestCapture") && (PlatformPlayer.Name == "Olivia")) PlatformPlayer.HalfBound = true;
 	PlatformSetHealth(PlatformPlayer);
+	PlatformDialogEvent();
 	for (let Room of PlatformRoomList)
 		if ((Room.Name == PlatformRoom.Name) && (Room.Entry != null))
 			Room.Entry();
@@ -1335,7 +1353,7 @@ function PlatformPartyBuild() {
 		if (CreateEdlaran)
 			PlatformPartyAdd({ Character: "Edlaran", Status: "Archer", Level: 1, Experience: 0, Perk: "0000000000" });
 	}
-	if (PlatformEventDone("ForestCapture") && (PlatformPlayer.Name == "Olivia")) PlatformPlayer.HalfBound = true;
+	PlatformDialogEvent();
 }
 
 /**
@@ -1835,7 +1853,7 @@ function PlatformDraw() {
 
 	// Check if we must enter a new room
 	PlatformEnterRoom(PlatformPlayer.FaceLeft ? "Left" : "Right");
-	if (PlatformPlayer.Bound) PlatformMessageSet(TextGet("GameOver"));
+	if (PlatformPlayer.Bound && (PlatformRoom.Heal == null)) PlatformMessageSet(TextGet("GameOver"));
 
 	// Keep the last time
 	let PlatformTime = CommonTime();

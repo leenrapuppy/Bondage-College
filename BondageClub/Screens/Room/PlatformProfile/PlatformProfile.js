@@ -189,4 +189,5 @@ function PlatformProfileClick() {
 function PlatformProfileExit() {
 	PlatformPartySave();
 	CommonSetScreen("Room", "Platform");
+	PlatformDialogEvent();
 }

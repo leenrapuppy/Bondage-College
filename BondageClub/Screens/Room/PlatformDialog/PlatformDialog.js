@@ -1812,7 +1812,7 @@ var PlatformDialogData = [
 
 	{
 		Name: "ForestTrap",
-		Exit : function () { PlatformEventSet("ForestCapture"); PlatformPartyActivate("Olivia"); PlatformLoadRoom("BarnInterior"); },
+		Exit : function () { PlatformEventSet("ForestCapture"); PlatformPartyActivate("Olivia"); },
 		Dialog: [
 			{
 				Text: "(Eldaran finds many hidden paths and guides you in the forest.)",
@@ -2240,4 +2240,33 @@ function PlatformDialogLeaderHasPerk(PerkName) {
 	if ((PerkName == "Persuasion") && (PlatformParty[0].Perk.substr(8, 1) == "1")) return true;
 	if ((PerkName == "Manipulation") && (PlatformParty[0].Perk.substr(9, 1) == "1")) return true;
 	return false;
+}
+
+/**
+ * Sets up some special event parameters based on the game progress
+ * @returns {void}
+ */
+function PlatformDialogEvent() {
+
+	// In the forest capture mode, Olivia is stuck half bound in a barn
+	if (PlatformEventDone("ForestCapture") && (PlatformPlayer.Name == "Olivia")) {
+		PlatformPlayer.HalfBound = true;
+		PlatformPlayer.X = 1000;
+		PlatformLoadRoom("ForestBarnInterior");
+	}
+
+	// In the forest capture mode, Melody is bound, stuck in a crate
+	if (PlatformEventDone("ForestCapture") && (PlatformPlayer.Name == "Melody")) {
+		PlatformPlayer.Health = 0;
+		PlatformPlayer.Bound = true;
+		PlatformPlayer.X = 1000;
+		PlatformLoadRoom("ForestCrateInterior");
+	}
+
+	// In the forest capture mode, Edlaran starts at a campfire
+	if (PlatformEventDone("ForestCapture") && (PlatformPlayer.Name == "Edlaran")) {
+		PlatformPlayer.X = 1000;
+		PlatformLoadRoom("ForestCampGround");
+	}
+
 }
