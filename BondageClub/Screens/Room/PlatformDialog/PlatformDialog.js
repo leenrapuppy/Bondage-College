@@ -1812,6 +1812,7 @@ var PlatformDialogData = [
 
 	{
 		Name: "ForestTrap",
+		Exit : function () { PlatformEventSet("ForestCapture"); PlatformPartyActivate("Olivia"); },
 		Dialog: [
 			{
 				Text: "(Eldaran finds many hidden paths and guides you in the forest.)",
@@ -1865,7 +1866,8 @@ var PlatformDialogData = [
 				Character: []
 			},
 			{ Text: "..." },
-			{ 
+			{
+				Background: "BarnInterior",
 				Character: [{ Name: "Lyn", Status: "Thief", Pose: "Curious" }]
 			},
 			{ Text: "You're waking up?  Good." },
@@ -1879,7 +1881,55 @@ var PlatformDialogData = [
 				]
 			},
 			{ Text: "We don't want a screamer while we travel." },
+			{ 
+				Text: "Mmmgnh!  Uuungmm mn!",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
+					{ Name: "Lyn", Status: "Thief", Pose: "Curious" }
+				]
+			},
+			{ 
+				Text: "Don't be afraid, we are bringing you back to your husband, the Duke.",
+				Character: [
+					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
+				]
+			},
+			{ Text: "He will surely pay a huge amount to see you safe." },
+			{ 
+				Text: "Aaamh mmhmm Mmmnndy!  Mh maaym!",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
+					{ Name: "Lyn", Status: "Thief", Pose: "Curious" }
+				]
+			},
+			{ 
+				Text: "We cannot bring your maid, she will be sold in a nearby town.",
+				Character: [
+					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
+				]
+			},
+			{ Text: "It's better than to be left for the crows." },
+			{ Text: "Exercise your legs, we will leave soon." },
+
 		]
+	},
+
+	{
+		Name: "BarnThief",
+		Dialog: [
+			{
+				Background: "BarnInterior",
+				Character: [
+					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
+				]
+			},
+			{ Text: "I'm not letting you out of the barn." },
+			{ Text: "Watching over you is so boring." },
+			{ Text: "Exercise your legs, we will leave soon." },
+		],
 	},
 
 ];
@@ -2190,4 +2240,33 @@ function PlatformDialogLeaderHasPerk(PerkName) {
 	if ((PerkName == "Persuasion") && (PlatformParty[0].Perk.substr(8, 1) == "1")) return true;
 	if ((PerkName == "Manipulation") && (PlatformParty[0].Perk.substr(9, 1) == "1")) return true;
 	return false;
+}
+
+/**
+ * Sets up some special event parameters based on the game progress
+ * @returns {void}
+ */
+function PlatformDialogEvent() {
+
+	// In the forest capture mode, Olivia is stuck half bound in a barn
+	if (PlatformEventDone("ForestCapture") && (PlatformPlayer.Name == "Olivia")) {
+		PlatformPlayer.HalfBound = true;
+		PlatformPlayer.X = 1000;
+		PlatformLoadRoom("ForestBarnInterior");
+	}
+
+	// In the forest capture mode, Melody is bound, stuck in a crate
+	if (PlatformEventDone("ForestCapture") && (PlatformPlayer.Name == "Melody")) {
+		PlatformPlayer.Health = 0;
+		PlatformPlayer.Bound = true;
+		PlatformPlayer.X = 1000;
+		PlatformLoadRoom("ForestCrateInterior");
+	}
+
+	// In the forest capture mode, Edlaran starts at a campfire
+	if (PlatformEventDone("ForestCapture") && (PlatformPlayer.Name == "Edlaran")) {
+		PlatformPlayer.X = 1000;
+		PlatformLoadRoom("ForestCampGround");
+	}
+
 }

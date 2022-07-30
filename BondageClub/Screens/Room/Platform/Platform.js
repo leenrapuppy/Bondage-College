@@ -455,6 +455,34 @@ var PlatformTemplate = [
 		],
 		OnBind: function() { if (!PlatformEventDone("EdlaranJoin") && !PlatformEventDone("EdlaranForestKey") && PlatformEventDone("EdlaranForestIntro") && (Math.random() >= 0.8)) { PlatformMessageSet("You found keys for chains on the bandit."); PlatformEventSet("EdlaranForestKey"); } }
 	},
+	{
+		Name: "Lyn", // MMD Z: 41.00
+		Status: "Thief",
+		Health: 29,
+		Width: 400,
+		Height: 400,
+		HitBox: [0.4, 0.05, 0.6, 1],
+		RunSpeed: 19,
+		WalkSpeed: 13,
+		CrawlSpeed: 7,
+		Projectile: 10,
+		ProjectileName: "Dagger",
+		ProjectileType: "Iron",
+		ProjectileDamage: [6, 6],
+		ProjectileOdds: 0.0002,
+		ProjectileTime: 900,
+		CollisionDamage: 3,
+		ExperienceValue: 6,
+		RunOdds: 0.0004,
+		DamageBackOdds: 1,
+		DamageKnockForce: 50,
+		Animation: [
+			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], Speed: 130 },
+		],
+		Attack: [
+			{ Name: "FireProjectile", Speed: 1000 }
+		],
+	},
 
 ];
 
@@ -1076,7 +1104,38 @@ var PlatformRoomList = [
 		Entry: function() {
 			PlatformDialogStart(PlatformEventDone("EdlaranJoin") ? "ForestPath" : "ForestLost");
 		},
-	}
+	},
+	{
+		Name: "ForestBarnInterior",
+		Entry: function() {
+			PlatformCreateCharacter("Lyn", "Thief", 1800, true, false, "BarnThief", true);
+		},		
+		Text: "Wooden Barn (heal and save)",
+		Background: "Forest/BarnInterior",
+		Width: 2000,
+		Height: 1333,
+		Heal: 250,
+		Door: []
+	},
+	{
+		Name: "ForestCrateInterior",
+		Text: "Wooden Crate (heal and save)",
+		Background: "Forest/CrateInterior",
+		Width: 2000,
+		Height: 1000,
+		Heal: 250,
+		Door: []
+	},
+	{
+		Name: "ForestCampGround",
+		Text: "Camp Site (heal and save)",
+		Background: "Forest/CampGround",
+		Width: 2000,
+		Height: 1400,
+		LimitLeft: 600,
+		Heal: 250,
+		Door: []
+	},
 
 ]
 
@@ -1255,9 +1314,20 @@ function PlatformPartyNext() {
 	PlatformPlayer.Experience = PlatformParty[Pos].Experience;
 	PlatformPlayer.Perk = PlatformParty[Pos].Perk;
 	PlatformSetHealth(PlatformPlayer);
+	PlatformDialogEvent();
 	for (let Room of PlatformRoomList)
 		if ((Room.Name == PlatformRoom.Name) && (Room.Entry != null))
 			Room.Entry();
+}
+
+/**
+ * Activates a specific character by name
+ * @param {String} CharacterName - The character name to activate
+ * @returns {void} - Nothing
+ */
+function PlatformPartyActivate(CharacterName) {
+	while (PlatformPlayer.Name != CharacterName)
+		PlatformPartyNext();
 }
 
 /**
@@ -1283,6 +1353,7 @@ function PlatformPartyBuild() {
 		if (CreateEdlaran)
 			PlatformPartyAdd({ Character: "Edlaran", Status: "Archer", Level: 1, Experience: 0, Perk: "0000000000" });
 	}
+	PlatformDialogEvent();
 }
 
 /**
@@ -1760,6 +1831,12 @@ function PlatformProcessProjectile(Time) {
 
 }
 
+/**
+ * Consume a projectile from the character and creates it on screen
+ * @param {Object} C - The character that generates the projectile
+ * @param {Boolean} LongShot - TRUE if it's a long shot
+ * @returns {void} - Nothing
+ */
 function PlatformProjectile(C, LongShot) {
 	C.Projectile--;
 	let Damage = C.ProjectileDamage[C.Level];
@@ -1776,7 +1853,7 @@ function PlatformDraw() {
 
 	// Check if we must enter a new room
 	PlatformEnterRoom(PlatformPlayer.FaceLeft ? "Left" : "Right");
-	if (PlatformPlayer.Bound) PlatformMessageSet(TextGet("GameOver"));
+	if (PlatformPlayer.Bound && (PlatformRoom.Heal == null)) PlatformMessageSet(TextGet("GameOver"));
 
 	// Keep the last time
 	let PlatformTime = CommonTime();
@@ -2048,7 +2125,7 @@ function PlatformClick() {
 	}
 	if (MouseIn(1700, 10, 90, 90) && (PlatformHeal != null)) return CommonSetScreen("Room", "PlatformProfile");
 	if (MouseIn(1600, 10, 90, 90) && (PlatformHeal != null)) return PlatformPartyNext();
-	if (!CommonIsMobile) PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
+	if (!CommonIsMobile && !PlatformPlayer.HalfBound) PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
 }
 
 /**
@@ -2223,12 +2300,13 @@ function PlatformEventKeyDown(e) {
 	if (PlatformActionIs(PlatformPlayer, "Bind")) PlatformPlayer.Action = null;
 	if (e.keyCode == 32) PlatformPlayer.Action = null;
 	if ((e.keyCode == 87) || (e.keyCode == 119) || (e.keyCode == 90) || (e.keyCode == 122)) return PlatformEnterRoom("Up");
-	if (((e.keyCode == 73) || (e.keyCode == 105)) && PlatformHasPerk(PlatformPlayer, "Teleport")) return PlatformCastTeleport(PlatformPlayer);
-	if (((e.keyCode == 73) || (e.keyCode == 105)) && PlatformHasPerk(PlatformPlayer, "Backflip")) return PlatformAttack(PlatformPlayer, "Backflip");
-	if (((e.keyCode == 80) || (e.keyCode == 112)) && PlatformHasPerk(PlatformPlayer, "Heal")) return PlatformCastHeal(PlatformPlayer);
-	if (((e.keyCode == 76) || (e.keyCode == 108)) && PlatformAnimAvailable(PlatformPlayer, "StandAttackFast")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
-	if (((e.keyCode == 75) || (e.keyCode == 107)) && !PlatformMoveActive("Crouch") && PlatformHasPerk(PlatformPlayer, "Apprentice")) return PlatformAttack(PlatformPlayer, "Scream");
-	if (((e.keyCode == 75) || (e.keyCode == 107)) && PlatformAnimAvailable(PlatformPlayer, "StandAttackSlow")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackSlow" : "StandAttackSlow");
+	if (((e.keyCode == 83) || (e.keyCode == 115)) && PlatformPlayer.HalfBound) return;
+	if (((e.keyCode == 73) || (e.keyCode == 105)) && !PlatformPlayer.HalfBound && PlatformHasPerk(PlatformPlayer, "Teleport")) return PlatformCastTeleport(PlatformPlayer);
+	if (((e.keyCode == 73) || (e.keyCode == 105)) && !PlatformPlayer.HalfBound && PlatformHasPerk(PlatformPlayer, "Backflip")) return PlatformAttack(PlatformPlayer, "Backflip");
+	if (((e.keyCode == 80) || (e.keyCode == 112)) && !PlatformPlayer.HalfBound && PlatformHasPerk(PlatformPlayer, "Heal")) return PlatformCastHeal(PlatformPlayer);
+	if (((e.keyCode == 76) || (e.keyCode == 108)) && !PlatformPlayer.HalfBound && PlatformAnimAvailable(PlatformPlayer, "StandAttackFast")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
+	if (((e.keyCode == 75) || (e.keyCode == 107)) && !PlatformPlayer.HalfBound && !PlatformMoveActive("Crouch") && PlatformHasPerk(PlatformPlayer, "Apprentice")) return PlatformAttack(PlatformPlayer, "Scream");
+	if (((e.keyCode == 75) || (e.keyCode == 107)) && !PlatformPlayer.HalfBound && PlatformAnimAvailable(PlatformPlayer, "StandAttackSlow")) return PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackSlow" : "StandAttackSlow");
 	if ((e.keyCode == 79) || (e.keyCode == 111)) return PlatformBindStart(PlatformPlayer);
 	if ((PlatformRoom.Heal != null) && (e.keyCode >= 48) && (e.keyCode <= 57)) return PlatformSaveGame(e.keyCode - 48);
 	if (PlatformKeys.indexOf(e.keyCode) < 0) PlatformKeys.push(e.keyCode);
