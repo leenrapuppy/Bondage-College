@@ -54,7 +54,7 @@ We need to sell this one first.  You can wait a little while for the next girl.
 ###_PLAYER
 I need to go.  (Leave her.)
 我要走了。（离开她。）
-How does the market works?
+How does the market work?
 市场是怎么运作的？
 ###_NPC
 Owners can sell their own slaves or free submissives can sell themselves for profit.  They get sold through an auction.
@@ -113,7 +113,7 @@ Yes, she will be auctioned today.  You will be able to bet on her if you like, a
 Why doesn't she talk with me?
 她为什么不和我说话？
 ###_NPC
-I run the auction, not her.  Don't speak with the merchandize.
+I run the auction, not her.  Don't speak with the merchandise.
 我负责拍卖，不是她。不要和商品说话。
 ###_PLAYER
 What if I buy her?

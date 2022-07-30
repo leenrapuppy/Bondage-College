@@ -1160,19 +1160,19 @@ Can I become a club slave?
 It's only for true submissives, go to the club management and ask if you're eligible.
 这仅适用于真正的顺从者，请前往俱乐部管理，并询问你是否有资格。
 ###_PLAYER
-What's the limit with you?
+What are your limits?
 你有什么限制？
 ###_NPC
 The usual limits Miss.  No blood or any permanent harm.  You can restrain me or have sex with me.
 通常的限制，女士。没有血，没有永久性伤害。你可以束缚我或与我性爱。
 ###_PLAYER
-Who's slut are you?
+Whose slut are you?
 你是谁的荡妇？
 ###_NPC
 (She blushes and bows her head in shame.)  I'm your slut Miss.
 （她羞红了脸，低下头。）我是你的荡妇女士。
 ###_PLAYER
-Enough chit-chat.
+That's all I wanted to talk about.
 闲聊够了。
 ###_NPC
 Very well.  Is there anything else I can do for you Miss?

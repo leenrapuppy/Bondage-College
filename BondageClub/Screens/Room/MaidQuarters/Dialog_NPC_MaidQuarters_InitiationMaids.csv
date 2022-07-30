@@ -19,9 +19,9 @@ MaidInitiationTransition,,,(A maid comes close to you with a large wooden paddle
 60,70,(Present your butt.),"(She swings a pretty mean one that stings right on impact.)  Sisters in pain, sisters for life!",
 70,80,(Fall on the floor.),"(They catch you before you fall and another one picks the paddle.)  Be strong, this is the last one.",ChangeInitiationMaid()
 70,80,(Try to stay strong.),"(Another maid picks the paddle and smiles.)  You're a pro sis, this is the last one.",ChangeInitiationMaid()
-80,90,(Close your eyes and prepare for impact.),"(She smashes the paddle with strength, almost making you fall.)  You've did it!  Welcome to the maid sorority!",
-80,90,(Whimper and try to beg for mercy.),"(She smashes the paddle with strength, almost making you fall.)  You've did it!  Welcome to the maid sorority!",DominantRepChange(-2)
-80,90,(Defy them and present your butt proudly.),"(She smashes the paddle with strength, almost making you fall.)  You've did it!  Welcome to the maid sorority!",DominantRepChange(2)
+80,90,(Close your eyes and prepare for impact.),"(She smashes the paddle with strength, almost making you fall.)  You've done it!  Welcome to the maid sorority!",
+80,90,(Whimper and try to beg for mercy.),"(She smashes the paddle with strength, almost making you fall.)  You've done it!  Welcome to the maid sorority!",DominantRepChange(-2)
+80,90,(Defy them and present your butt proudly.),"(She smashes the paddle with strength, almost making you fall.)  You've done it!  Welcome to the maid sorority!",DominantRepChange(2)
 80,,Oh my god!,,DialogRemove()
 90,,(Catch your breath.),,"InitiationTransition(""MainMaid"")"
 90,,(Jump of joy clumsily.),,"InitiationTransition(""MainMaid"")"

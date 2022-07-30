@@ -112,7 +112,7 @@ What do spells do?
 It depends on the spell.  Physical spells can dress up or strip down, animate restraints and gags.  Mental spells can arouse, charm or hypnotize someone.
 每个法术不同。物理法术可以穿上或脱掉衣服，操控束缚和口塞。精神法术可以让人兴奋、魅惑某人人或催眠某人。
 ###_PLAYER
-Enough questions.
+That's all the questions I had.
 我没问题了。
 ###_NPC
 (She nods.)  Is there anything else I can help you with?

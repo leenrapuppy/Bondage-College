@@ -1158,19 +1158,19 @@ Kann ich eine Clubsklavin werden?
 It's only for true submissives, go to the club management and ask if you're eligible.
 Das ist nur etwas für wahre Unterwürfige, lassen Sie das Clubmanagement einschätzen, ob Sie dazu geeignet sind.
 ###_PLAYER
-What's the limit with you?
+What are your limits?
 Welche Limits hast du?
 ###_NPC
 The usual limits Miss.  No blood or any permanent harm.  You can restrain me or have sex with me.
 Die gängigen Limits, Miss. Kein Blut und keine bleibenden Schäden. Sie können mich fesseln und Sex mit mir haben.
 ###_PLAYER
-Who's slut are you?
+Whose slut are you?
 Wessen Schlampe bist du?
 ###_NPC
 (She blushes and bows her head in shame.)  I'm your slut Miss.
 (Sie wird rot und senkt beschämt den Kopf.) Ich bin Ihre Schlampe, Miss.
 ###_PLAYER
-Enough chit-chat.
+That's all I wanted to talk about.
 Genug geplaudert.
 ###_NPC
 Very well.  Is there anything else I can do for you Miss?

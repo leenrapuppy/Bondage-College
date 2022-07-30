@@ -117,7 +117,7 @@ Sure!  Do you have more questions for me?
 What's the job?
 工作的内容是什么？
 ###_NPC
-Selling gears.  Customers wants to know if the items are secure and good looking.  You could demonstrate for them.
+Modelling gear so our customers can see that the items are secure and good looking.  You'd demonstrate and convince them.
 销售道具。当顾客想要了解这些东西是否安全又好看，你可以给他们演示一下
 ###_PLAYER
 How much does it pay?
