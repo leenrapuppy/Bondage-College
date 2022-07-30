@@ -1252,39 +1252,39 @@ SourceCharacter抓住TargetCharacter的牵绳。
 SourceCharacter releases the leash of TargetCharacter.
 SourceCharacter松开TargetCharacter的牵绳。
 SourceCharacter picks a glass of water from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯水。
+SourceCharacter从DestinationCharacter饮品托盘上拿了一杯水。
 SourceCharacter picks an orange juice from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯橙汁。
+SourceCharacter从DestinationCharacter饮品托盘上拿了一杯橙汁。
 SourceCharacter picks a beer from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯啤酒。
+SourceCharacter从DestinationCharacter饮品托盘上拿了一杯啤酒。
 SourceCharacter picks a glass of wine from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯红酒。
+SourceCharacter从DestinationCharacter饮品托盘上拿了一杯红酒。
 SourceCharacter buys a Virgin Mojito from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯初榨莫吉托。
+SourceCharacter从DestinationCharacter饮品托盘上购买了一杯初榨莫吉托。
 SourceCharacter buys a Margarita from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯玛格丽塔酒。
+SourceCharacter从DestinationCharacter饮品托盘上购买了一杯玛格丽塔酒。
 SourceCharacter buys a glass of Whiskey from TargetCharacter.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯威士忌。
+SourceCharacter从TargetCharacter的饮品托盘上购买了一杯威士忌。
 SourceCharacter buys a glass of champagne from TargetCharacter.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯香槟酒。
+SourceCharacter从TargetCharacter的饮品托盘上购买了一杯香槟酒。
 SourceCharacter buys a jug of refreshing lemonade for everyone, from TargetCharacter.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯提神柠檬水。
+SourceCharacter从TargetCharacter的饮品托盘上为所有人购买了一杯提神柠檬水。
 SourceCharacter buys a round of shooters for everyone, from TargetCharacter.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯子弹鸡尾酒。
+SourceCharacter从TargetCharacter的饮品托盘上为所有人购买了一杯子弹鸡尾酒。
 SourceCharacter buys a jug of Sex on the Beach for everyone, from TargetCharacter.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯性感海滩鸡尾酒。
+SourceCharacter从TargetCharacter的饮品托盘上为所有人购买了一杯性感海滩鸡尾酒。
 SourceCharacter buys a beer pitcher for everyone, from TargetCharacter.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯扎啤。
+SourceCharacter从TargetCharacter的饮品托盘上为所有人购买了一杯扎啤。
 SourceCharacter picks a tea from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯茶。
+SourceCharacter从DestinationCharacter饮品托盘上拿了一杯茶。
 SourceCharacter picks a coffee from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯咖啡。
+SourceCharacter从DestinationCharacter饮品托盘上拿了一杯咖啡。
 SourceCharacter buys a hot chocolate from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯热巧克力。
+SourceCharacter从DestinationCharacter饮品托盘上购买了一杯热巧克力。
 SourceCharacter buys an espresso from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯特浓咖啡。
+SourceCharacter从DestinationCharacter饮品托盘上购买了一杯特浓咖啡。
 SourceCharacter buys a cappuccino from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯卡布奇诺。
+SourceCharacter从DestinationCharacter饮品托盘上购买了一杯卡布奇诺。
 Member number on lock:
 锁上标着的会员编号:
 Item member number:
@@ -1704,13 +1704,13 @@ Full
 SourceCharacter removes the leather belts from DestinationCharacter body.
 SourceCharacter移除了DestinationCharacter身上的皮带。
 SourceCharacter loosely restrains TargetCharacter to the bondage bench with few leather belts.
-SourceCharacter用不多的皮带把DestinationCharacter松散地束缚在捆绑躺椅上。
+SourceCharacter用不多的皮带把TargetCharacter松散地束缚在捆绑躺椅上。
 SourceCharacter restrains TargetCharacter to the bondage bench with a handful of leather belts.
-SourceCharacter用一把皮带把DestinationCharacter束缚在捆绑躺椅上。
+SourceCharacter用一把皮带把TargetCharacter束缚在捆绑躺椅上。
 SourceCharacter strictly restrains TargetCharacter to the bondage bench with a good amount of leather belts.
-SourceCharacter用很多皮带把DestinationCharacter严格地束缚在捆绑躺椅上。
+SourceCharacter用很多皮带把TargetCharacter严格地束缚在捆绑躺椅上。
 SourceCharacter fully restrains TargetCharacter to the bondage bench with a large amount of leather belts.
-SourceCharacter用非常皮带把DestinationCharacter完全地束缚在捆绑躺椅上。
+SourceCharacter用非常皮带把TargetCharacter完全地束缚在捆绑躺椅上。
 Hands
 手
 Arms
@@ -1732,15 +1732,15 @@ SourceCharacter将胶带包裹在DestinationCharacter手上。
 SourceCharacter removes some of the duct tape from DestinationCharacter torso.
 SourceCharacter从DestinationCharacter躯干上移除了一些胶带。
 SourceCharacter creates a duct tape skirt on TargetCharacter and traps her hands in it.
-SourceCharacter给DestinationCharacter缠了一件胶带裙子，并把她的手臂困在其中。
+SourceCharacter给TargetCharacter缠了一件胶带裙子，并把她的手臂困在其中。
 SourceCharacter creates a duct tape top on TargetCharacter and traps her arms in it.
-SourceCharacter给DestinationCharacter缠了一件胶带上衣，并把她的手臂困在其中。
+SourceCharacter给TargetCharacter缠了一件胶带上衣，并把她的手臂困在其中。
 SourceCharacter creates a duct tape mummy on TargetCharacter and traps her arms in it.
-SourceCharacter给DestinationCharacter缠了一套胶带木乃伊，并把她的手臂困在其中。
+SourceCharacter给TargetCharacter缠了一套胶带木乃伊，并把她的手臂困在其中。
 SourceCharacter creates a completed duct tape mummy on TargetCharacter and traps her entire upper body in it.
-SourceCharacter给DestinationCharacter缠了一套全身覆盖的胶带木乃伊，并把她的整个身体困在其中。
+SourceCharacter给TargetCharacter缠了一套全身覆盖的胶带木乃伊，并把她的整个身体困在其中。
 SourceCharacter creates a completed duct tape mummy on TargetCharacter and cuts a hole so that her breasts are exposed.
-SourceCharacter给DestinationCharacter缠了一套全身覆盖的胶带木乃伊，并切开一个洞，让她的胸部露出来。
+SourceCharacter给TargetCharacter缠了一套全身覆盖的胶带木乃伊，并切开一个洞，让她的胸部露出来。
 SourceCharacter folds DestinationCharacter arms and wraps duct tape around them.
 SourceCharacter将DestinationCharacter手臂交叉在一起，并包裹上胶带。
 Above head
@@ -2806,9 +2806,9 @@ SourceCharacter用绳子在DestinationCharacter手腕上绑了一个绳子手铐
 SourceCharacter uses rope to tie DestinationCharacter wrists and elbows in a harness behind her back.
 SourceCharacter用绳子在DestinationCharacter身上绑了一个绳缚，并把她的手腕和手肘在她的身后绑在一起。
 SourceCharacter uses rope on TargetCharacter to have her crawling on all fours.
-SourceCharacter用绳子把DestinationCharacter绑起来，让她只能四肢着地。
+SourceCharacter用绳子把TargetCharacter绑起来，让她只能四肢着地。
 SourceCharacter uses rope to hogtie TargetCharacter on her knees.
-SourceCharacter用绳子把DestinationCharacter绑成驷马缚，并让她跪在地上。
+SourceCharacter用绳子把TargetCharacter绑成驷马缚，并让她跪在地上。
 SourceCharacter uses rope to tie DestinationCharacter arms to the bedposts.
 SourceCharacter用绳子把DestinationCharacter手臂绑到床柱上。
 Select Rope Bondage.
@@ -2818,15 +2818,15 @@ Lowered
 Suspended
 悬挂
 SourceCharacter uses the rope on TargetCharacter to suspend her.
-SourceCharacter用绳子把DestinationCharacter吊起来。
+SourceCharacter用绳子把TargetCharacter吊起来。
 SourceCharacter uses the rope on TargetCharacter to lower her.
-SourceCharacter用绳子把DestinationCharacter吊得更低。
+SourceCharacter用绳子把TargetCharacter吊得更低。
 Select Chain Bondage.
 选择链条束缚
 SourceCharacter uses the chain on TargetCharacter to suspend her.
-SourceCharacter用链条把DestinationCharacter吊起来。
+SourceCharacter用链条把TargetCharacter吊起来。
 SourceCharacter uses the chain on TargetCharacter to lower her.
-SourceCharacter用链条把DestinationCharacter吊得更低。
+SourceCharacter用链条把TargetCharacter吊得更低。
 How much do you want to inflate the strait leotard?
 你想要把拘束紧身衣充气到什么程度？
 SourceCharacter adjusts DestinationCharacter inflatable strait leotard to be only lightly filled.
@@ -2838,11 +2838,11 @@ SourceCharacter调整DestinationCharacter可充气式拘束紧身衣到充四分
 SourceCharacter adjusts DestinationCharacter inflatable strait leotard to fill the maximum amount.
 SourceCharacter调整DestinationCharacter可充气式拘束紧身衣到最大充气的程度。
 SourceCharacter uses the rope on TargetCharacter to do a crotch rope tie over her panties.
-SourceCharacter用绳子在DestinationCharacter内裤外面绑了一个股绳。
+SourceCharacter用绳子在TargetCharacter内裤外面绑了一个股绳。
 SourceCharacter uses the rope on TargetCharacter to do a swiss seat style rope tie.
-SourceCharacter用绳子给DestinationCharacter绑了一个瑞士座样式的绳缚。
+SourceCharacter用绳子给TargetCharacter绑了一个瑞士座样式的绳缚。
 SourceCharacter uses the rope on TargetCharacter to do a kikkou hip style rope tie.
-SourceCharacter用绳子给DestinationCharacter绑了一个龟甲臀缚。
+SourceCharacter用绳子给TargetCharacter绑了一个龟甲臀缚。
 Select the amount of padding.
 选择垫子的数量
 Regular Padding
@@ -4116,11 +4116,11 @@ SourceCharacter用锁链把DestinationCharacter手腕在她的身后绑在一起
 SourceCharacter uses chains to tie chain cuffs on DestinationCharacter wrists.
 SourceCharacter用锁链在DestinationCharacter手腕上绑了一个锁链手铐。
 SourceCharacter uses chains on TargetCharacter to have her crawling on all fours.
-SourceCharacter用锁链把DestinationCharacter绑起来，让她只能四肢着地。
+SourceCharacter用锁链把TargetCharacter绑起来，让她只能四肢着地。
 SourceCharacter uses chains to tie DestinationCharacter wrists and elbows in a harness behind her back.
 SourceCharacter用锁链在DestinationCharacter身上绑了一个绳缚，并把她的手腕和手肘在她的身后绑在一起。
 SourceCharacter uses chains to hogtie TargetCharacter on her knees.
-SourceCharacter用锁链把DestinationCharacter绑成驷马缚，并让她跪在地上。
+SourceCharacter用锁链把TargetCharacter绑成驷马缚，并让她跪在地上。
 Select suit type
 选择套装类型
 Selected chastity belt backing
@@ -4174,7 +4174,7 @@ Cocoon
 SourceCharacter creates a blindfold out of web for TargetCharacter
 SourceCharacter用网给TargetCharacter织了一副眼罩
 SourceCharacter creates a cocoon out of web for TargetCharacter
-SourceCharacter把argetCharacter的头完全裹在了茧里
+SourceCharacter把TargetCharacter的头完全裹在了茧里
 Make the cutie comfortable.
 让小可爱更舒服。
 Open/close the gate.
