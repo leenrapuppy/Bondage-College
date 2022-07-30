@@ -1,7 +1,5 @@
 Disclaimer
 免责声明
-
-
 Many assets (drawings, real pictures & sounds) used in the Bondage Club game are not owned by the
 束缚俱乐部游戏中使用的许多资源（绘图、真实图片和声音）不属于
 Bondage Club developers or Bondage Projects.  The game is an open source community and these assets
@@ -16,7 +14,6 @@ As owner, we will respect your decision.  We apologize for the inconvenience.
 作为所有者，我们将尊重您的决定。给您带来不便，我们深表歉意。
 Please accept this disclaimer to create your character.
 请接受此免责声明以创建您的角色。
-
 Return
 返回
 I accept
