@@ -1111,8 +1111,8 @@ var AssetFemale3DCG = [
 			{ 
 				Name: "BoxerShorts", Prerequisite: ["HasPenis"], Hide: ["Pussy"],
 				Layer: [
-					{ Name: "Shorts" },
-					{ Name: "Waistband"}
+					{ Name: "Shorts", AllowPose: ["KneelingSpread", "LegsClosed", "Spread", "Kneel"] },
+					{ Name: "Waistband", AllowPose: ["KneelingSpread"]}
 				]
 			}
 		],
