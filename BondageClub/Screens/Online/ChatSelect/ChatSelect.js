@@ -12,16 +12,16 @@ function ChatSelectRun() {
 	if (allowedInFemale) DrawRect(100, 45, 510, 125, "White");
 	DrawRect(100, 420, 510, 125, "White");
 	if (allowedInMale) DrawRect(100, 800, 510, 125, "White");
-	DrawImage("Screens/Room/ChatSelect/Female.png", 650, 45);
+	DrawImage("Screens/Online/ChatSelect/Female.png", 650, 45);
 	DrawText(TextGet("FemaleOnlyChatDescription1"), 1292, 100, "White", "Gray");
 	DrawText(TextGet("Barrier"), 1300, 350, "White", "Gray");
 	DrawText(TextGet("MixedChatDescription1"), 1300, 480, "White", "Gray");
-	DrawImage("Screens/Room/ChatSelect/Female.png", 650, 520);
-	DrawImage("Screens/Room/ChatSelect/Male.png", 650, 380);
+	DrawImage("Screens/Online/ChatSelect/Female.png", 650, 520);
+	DrawImage("Screens/Online/ChatSelect/Male.png", 650, 380);
 	DrawText(TextGet("Barrier"), 1300, 600, "White", "Gray");
 	DrawText(TextGet("MaleOnlyChat"), 350, 860, "Black", "Gray");
 	DrawText(TextGet("MaleOnlyChatDescription1"), 1300, 860, "White", "Gray");
-	DrawImage("Screens/Room/ChatSelect/Male.png", 650, 810);
+	DrawImage("Screens/Online/ChatSelect/Male.png", 650, 810);
 	if (!allowedInFemale) DrawRect(100, 45, 510, 125, "Grey");
 	if (!allowedInMale) DrawRect(100, 800, 510, 125, "Grey");
 	DrawText(TextGet("FemaleOnlyChat"), 350, 100, "Black", "Gray");
@@ -43,15 +43,15 @@ function ChatSelectLoad() {
 }
 
 function ChatSelectStartFemaleChat () {
-	ChatRoomStart("FemaleOnly", "", "ChatSelect", "BrickWall", BackgroundsTagList)
+	ChatRoomStart("FemaleOnly", "", "ChatSelect", "Online", "BrickWall", BackgroundsTagList)
 }
 
 function ChatSelectStartMixedChat () {
-	ChatRoomStart("", "", "ChatSelect", "BrickWall", BackgroundsTagList)
+	ChatRoomStart("", "", "ChatSelect", "Online", "BrickWall", BackgroundsTagList)
 }
 
 function ChatSelectStartMaleChat () {
-	ChatRoomStart("MaleOnly", "", "ChatSelect", "BrickWall", BackgroundsTagList)
+	ChatRoomStart("MaleOnly", "", "ChatSelect", "Online", "BrickWall", BackgroundsTagList)
 }
 
 function ChatSelectExit() {
