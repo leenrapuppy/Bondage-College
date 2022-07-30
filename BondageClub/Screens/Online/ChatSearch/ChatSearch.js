@@ -10,6 +10,7 @@ var ChatSearchResultOffset = 0;
 var ChatSearchRoomsPerPage = 24;
 var ChatSearchMessage = "";
 var ChatSearchLeaveRoom = "MainHall";
+var ChatSearchLeaveSpace = "Room";
 var ChatSearchSafewordAppearance = null;
 var ChatSearchSafewordPose = null;
 var ChatSearchPreviousActivePose = null;
@@ -133,7 +134,7 @@ function ChatSearchKeyDown() {
 function ChatSearchExit() {
 	ChatSearchPreviousActivePose = Player.ActivePose;
 	ElementRemove("InputSearch");
-	CommonSetScreen("Room", ChatSearchLeaveRoom);
+	CommonSetScreen(ChatSearchLeaveSpace, ChatSearchLeaveRoom);
 	DrawingGetTextSize.clearCache();
 }
 

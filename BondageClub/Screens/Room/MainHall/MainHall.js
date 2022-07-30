@@ -163,7 +163,7 @@ function MainHallRun() {
 		if (Player.ImmersionSettings && Player.LastChatRoom && (Player.LastChatRoom != "") && (AsylumGGTSGetLevel(Player) <= 5) && ((MainHallMaid === null) || (MainHallMaid.Stage === "0"))) {
 			if (MainHallFirstFrame) {
 				if (Player.ImmersionSettings.ReturnToChatRoom) {
-					ChatRoomStart(Player.LastChatRoomSpace, "", "MainHall", "Introduction", BackgroundsTagList);
+					ChatRoomStart(Player.LastChatRoomSpace, "", "MainHall", "Room", "Introduction", BackgroundsTagList);
 					return;
 				} else ChatRoomSetLastChatRoom("");
 			} else MainHallFirstFrame = true;
@@ -767,5 +767,5 @@ function MainHallSetMaidsDisabled(minutes) {
 }
 
 function MainHallMoveToChatSelect() {
-	CommonSetScreen("Room", "ChatSelect")
+	CommonSetScreen("Online", "ChatSelect")
 }

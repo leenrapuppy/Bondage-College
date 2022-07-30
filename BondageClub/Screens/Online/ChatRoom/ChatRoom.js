@@ -719,15 +719,17 @@ function ChatRoomClearAllElements() {
  * Starts the chatroom selection screen.
  * @param {string} Space - Name of the chatroom space
  * @param {string} Game - Name of the chatroom game to play
- * @param {string} LeaveRoom - Name of the room to go too when exiting chatsearch.
+ * @param {string} LeaveRoom - Name of the room to go back to when exiting chatsearch.
+ * @param {string} LeaveSpace - Name of the space to go back to when exiting chatsearch.
  * @param {string} Background - Name of the background to use in chatsearch.
  * @param {Array} BackgroundTagList - List of available backgrounds in the chatroom space.
  * @returns {void} - Nothing.
  */
-function ChatRoomStart(Space, Game, LeaveRoom, Background, BackgroundTagList) {
+function ChatRoomStart(Space, Game, LeaveRoom, LeaveSpace, Background, BackgroundTagList) {
 	ChatRoomSpace = Space;
 	ChatRoomGame = Game;
 	ChatSearchLeaveRoom = LeaveRoom;
+	ChatSearchLeaveSpace = LeaveSpace;
 	ChatSearchBackground = Background;
 	ChatCreateBackgroundList = BackgroundsGenerateList(BackgroundTagList);
 	BackgroundSelectionTagList = BackgroundTagList;
