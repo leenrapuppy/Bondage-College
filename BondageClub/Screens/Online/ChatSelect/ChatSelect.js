@@ -1,16 +1,16 @@
 "use strict";
 var ChatSelectBackground = "BrickWall";
-var ChatSelectAllowedInFemale;
-var ChatSelectAllowedInMale;
+var ChatSelectAllowedInFemaleOnly;
+var ChatSelectAllowedInMaleOnly;
 
 function ChatSelectRun() {
 	//top-right menu buttons
 	DrawButton(1895, 215, 90, 90, "", "White", "Icons/Character.png");
-	DrawButton(1895, 15, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"))
-	if (Player.CanChangeOwnClothes()) DrawButton(1895, 115, 90, 90, "", "White", "Icons/Dress.png")
+	DrawButton(1895, 15, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
+	if (Player.CanChangeOwnClothes()) DrawButton(1895, 115, 90, 90, "", "White", "Icons/Dress.png");
 
 	//female-only space
-	DrawButton(100, 45, 510, 125, TextGet("FemaleOnlyChat"), ChatSelectAllowedInFemale ? "White" : "Gray", "", "", !ChatSelectAllowedInFemale)
+	DrawButton(100, 45, 510, 125, TextGet("FemaleOnlyChat"), ChatSelectAllowedInFemaleOnly ? "White" : "Gray", "", "", !ChatSelectAllowedInFemaleOnly);
 	DrawImage("Screens/Online/ChatSelect/Female.png", 650, 45);
 	DrawText(TextGet("FemaleOnlyChatDescription1"), 1292, 100, "White", "Gray");
 	DrawText(TextGet("Barrier"), 1300, 350, "White", "Gray");
@@ -23,7 +23,7 @@ function ChatSelectRun() {
 	DrawText(TextGet("Barrier"), 1300, 600, "White", "Gray");
 
 	//male-only space
-	DrawButton(100, 800, 510, 125, TextGet("MaleOnlyChat"), ChatSelectAllowedInMale ? "White" : "Gray", "", "", !ChatSelectAllowedInMale)
+	DrawButton(100, 800, 510, 125, TextGet("MaleOnlyChat"), ChatSelectAllowedInMaleOnly ? "White" : "Gray", "", "", !ChatSelectAllowedInMaleOnly);
 	DrawText(TextGet("MaleOnlyChatDescription1"), 1300, 860, "White", "Gray");
 	DrawImage("Screens/Online/ChatSelect/Male.png", 650, 810);
 }
@@ -32,15 +32,15 @@ function ChatSelectClick() {
 	if (MouseIn(1895, 215, 90, 90)) InformationSheetLoadCharacter(Player);
 	if (MouseIn(1895, 15, 90, 90)) ChatSelectExit();
 	if (MouseIn(1895, 115, 90, 90) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
-	if (MouseIn(100, 45, 510, 125) && ChatSelectAllowedInFemale) ChatSelectStartFemaleChat();
+	if (MouseIn(100, 45, 510, 125) && ChatSelectAllowedInFemaleOnly) ChatSelectStartFemaleChat();
 	if (MouseIn(100, 420, 510, 125)) ChatSelectStartMixedChat();
-	if (MouseIn(100, 800, 510, 125) && ChatSelectAllowedInMale) ChatSelectStartMaleChat();
+	if (MouseIn(100, 800, 510, 125) && ChatSelectAllowedInMaleOnly) ChatSelectStartMaleChat();
 }
 
 function ChatSelectLoad() {
 	const playerGenders = Player.GetGenders();
-	ChatSelectAllowedInFemale = ChatSelectGendersAllowed("FemaleOnly", playerGenders);
-	ChatSelectAllowedInMale = ChatSelectGendersAllowed("MaleOnly", playerGenders);
+	ChatSelectAllowedInFemaleOnly = ChatSelectGendersAllowed("FemaleOnly", playerGenders);
+	ChatSelectAllowedInMaleOnly = ChatSelectGendersAllowed("MaleOnly", playerGenders);
 }
 
 function ChatSelectStartFemaleChat () {
