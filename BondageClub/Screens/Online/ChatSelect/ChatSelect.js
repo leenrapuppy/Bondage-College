@@ -1,57 +1,58 @@
 "use strict";
 var ChatSelectBackground = "BrickWall";
-var ChatSelectPlayerGenders = [];
+var ChatSelectAllowedInFemaleOnly;
+var ChatSelectAllowedInMaleOnly;
 
 function ChatSelectRun() {
-	const allowedInFemale = ChatSelectGendersAllowed("FemaleOnly", ChatSelectPlayerGenders);
-	const allowedInMale = ChatSelectGendersAllowed("MaleOnly", ChatSelectPlayerGenders);
-
+	//top-right menu buttons
 	DrawButton(1895, 215, 90, 90, "", "White", "Icons/Character.png");
-	DrawButton(1895, 15, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"))
-	if (Player.CanChangeOwnClothes()) DrawButton(1895, 115, 90, 90, "", "White", "Icons/Dress.png")
-	if (allowedInFemale) DrawRect(100, 45, 510, 125, "White");
-	DrawRect(100, 420, 510, 125, "White");
-	if (allowedInMale) DrawRect(100, 800, 510, 125, "White");
+	DrawButton(1895, 15, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
+	if (Player.CanChangeOwnClothes()) DrawButton(1895, 115, 90, 90, "", "White", "Icons/Dress.png");
+
+	//female-only space
+	DrawButton(100, 45, 510, 125, TextGet("FemaleOnlyChat"), ChatSelectAllowedInFemaleOnly ? "White" : "Gray", "", "", !ChatSelectAllowedInFemaleOnly);
 	DrawImage("Screens/Online/ChatSelect/Female.png", 650, 45);
 	DrawText(TextGet("FemaleOnlyChatDescription1"), 1292, 100, "White", "Gray");
 	DrawText(TextGet("Barrier"), 1300, 350, "White", "Gray");
+
+	//mixed space
+	DrawButton(100, 420, 510, 125, TextGet("MixedChat"), "White");
 	DrawText(TextGet("MixedChatDescription1"), 1300, 480, "White", "Gray");
 	DrawImage("Screens/Online/ChatSelect/Female.png", 650, 520);
 	DrawImage("Screens/Online/ChatSelect/Male.png", 650, 380);
 	DrawText(TextGet("Barrier"), 1300, 600, "White", "Gray");
-	DrawText(TextGet("MaleOnlyChat"), 350, 860, "Black", "Gray");
+
+	//male-only space
+	DrawButton(100, 800, 510, 125, TextGet("MaleOnlyChat"), ChatSelectAllowedInMaleOnly ? "White" : "Gray", "", "", !ChatSelectAllowedInMaleOnly);
 	DrawText(TextGet("MaleOnlyChatDescription1"), 1300, 860, "White", "Gray");
 	DrawImage("Screens/Online/ChatSelect/Male.png", 650, 810);
-	if (!allowedInFemale) DrawRect(100, 45, 510, 125, "Grey");
-	if (!allowedInMale) DrawRect(100, 800, 510, 125, "Grey");
-	DrawText(TextGet("FemaleOnlyChat"), 350, 100, "Black", "Gray");
-	DrawText(TextGet("MixedChat"), 350, 480, "Black", "Gray");
-	DrawText(TextGet("MaleOnlyChat"), 350, 860, "Black", "Gray");
 }
 
 function ChatSelectClick() {
 	if (MouseIn(1895, 215, 90, 90)) InformationSheetLoadCharacter(Player);
-	if (MouseIn(1895, 15, 90, 90)) ChatSelectExit()
+	if (MouseIn(1895, 15, 90, 90)) ChatSelectExit();
 	if (MouseIn(1895, 115, 90, 90) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
-	if (MouseIn(100, 45, 510, 125) && ChatSelectGendersAllowed("FemaleOnly", ChatSelectPlayerGenders)) ChatSelectStartFemaleChat()
-	if (MouseIn(100, 400, 510, 125)) ChatSelectStartMixedChat()
-	if (MouseIn(100, 800, 510, 125) && ChatSelectGendersAllowed("MaleOnly", ChatSelectPlayerGenders)) ChatSelectStartMaleChat()
+	if (MouseIn(100, 45, 510, 125) && ChatSelectAllowedInFemaleOnly) ChatSelectStartFemaleChat();
+	if (MouseIn(100, 420, 510, 125)) ChatSelectStartMixedChat();
+	if (MouseIn(100, 800, 510, 125) && ChatSelectAllowedInMaleOnly) ChatSelectStartMaleChat();
 }
 
 function ChatSelectLoad() {
-	ChatSelectPlayerGenders = Player.GetGenders();
+	const playerGenders = Player.GetGenders();
+	ChatSelectAllowedInFemaleOnly = ChatSelectGendersAllowed("FemaleOnly", playerGenders);
+	ChatSelectAllowedInMaleOnly = ChatSelectGendersAllowed("MaleOnly", playerGenders);
 }
 
 function ChatSelectStartFemaleChat () {
-	ChatRoomStart("FemaleOnly", "", "ChatSelect", "Online", "BrickWall", BackgroundsTagList)
+	ChatRoomStart("FemaleOnly", "", "ChatSelect", "Online", "Introduction", BackgroundsTagList);
 }
 
 function ChatSelectStartMixedChat () {
-	ChatRoomStart("", "", "ChatSelect", "Online", "BrickWall", BackgroundsTagList)
+	ChatRoomStart("", "", "ChatSelect", "Online", "Introduction", BackgroundsTagList);
 }
 
 function ChatSelectStartMaleChat () {
-	ChatRoomStart("MaleOnly", "", "ChatSelect", "Online", "BrickWall", BackgroundsTagList)
+	ChatRoomStart("MaleOnly", "", "ChatSelect", "Online", "Introduction", BackgroundsTagList);
 }
 
 function ChatSelectExit() {
@@ -66,5 +67,5 @@ function ChatSelectExit() {
  */
 function ChatSelectGendersAllowed(space, genders) {
 	return !(space == "MaleOnly" && genders.includes("F"))
-		&& !(space == "FemaleOnly" && genders.includes("M"))
+		&& !(space == "FemaleOnly" && genders.includes("M"));
 }
