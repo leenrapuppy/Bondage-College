@@ -173,11 +173,13 @@ function CharacterAppearanceFullRandom(C, ClothOnly=false) {
 			}
 
 	// Need to add chest and genitals first to allow associated Has<BodyPart> prerequisites on clothing to pass
-	const AssetGroupList = ClothOnly ? AssetGroup : AssetGroup.slice().sort(g1 => { return ["BodyUpper", "Pussy"].includes(g1.Name) ? -1 : 1 });
+	const firstGroups = ["BodyUpper", "Pussy"];
+	const assetGroupList = ClothOnly ? AssetGroup :
+		AssetGroup.filter(g => firstGroups.includes(g.Name)).concat(AssetGroup.filter(g => !firstGroups.includes(g.Name)))
 
 	// For each item group (non default items only show at a 8% rate, if it can occasionally happen)
-	for (let A = 0; A < AssetGroupList.length; A++) {
-		const group = AssetGroupList[A];
+	for (let A = 0; A < assetGroupList.length; A++) {
+		const group = assetGroupList[A];
 		if ((group.Category == "Appearance") && (group.IsDefault || (group.Random && Math.random() < 0.08) || CharacterAppearanceRequired(C, group.Name)) && (!CharacterAppearanceMustHide(C, group.Name) || !group.AllowNone) && (CharacterAppearanceGetCurrentValue(C, group.Name, "Name") == "None")) {
 
 			// Get the parent size
