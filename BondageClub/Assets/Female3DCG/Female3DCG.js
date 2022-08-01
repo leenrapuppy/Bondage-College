@@ -1110,6 +1110,7 @@ var AssetFemale3DCG = [
 			// Penis Compatible Clothing
 			{ 
 				Name: "BoxerShorts", Prerequisite: ["HasPenis"], Hide: ["Pussy"],
+				Top: 370, Left: 118,
 				Layer: [
 					{ Name: "Shorts", AllowPose: ["KneelingSpread", "LegsClosed", "Spread", "Kneel"] },
 					{ Name: "Waistband", AllowPose: ["KneelingSpread"]}
