@@ -30,13 +30,13 @@ Cancel
 取消
 Wins
 获胜
-Remove her cloth
+Remove her clothes
 移除她的衣服
 Use a collar item
 使用项圈道具
-Use a feet item
+Tie her feet
 使用脚部道具
-Use a gag item
+Use a gag
 使用口塞道具
 Dress back up
 穿上衣服
@@ -104,7 +104,7 @@ On your knees girl!
 跪下，姑娘！
 No!  You get on your knees!
 不，是你该跪下！
-(She tries to tickle you, but get stunned by your presence and kneels for you.)
+(She tries to tickle you, but gets stunned by your presence and kneels for you.)
 （她试图抓住你，但是被你的存在镇压到，并向你跪下。）
 This is your place: on your knees.
 你这样的人，站都不应该站着。

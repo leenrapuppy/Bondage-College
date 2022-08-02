@@ -343,6 +343,8 @@ Blocked in this room.
 被房间禁止
 Cancel
 取消
+Restraints
+拘束具
 Back to character
 回到角色
 View next items
@@ -483,6 +485,8 @@ This zone is out of reach from another item
 这个区域目前因其他物品影响无法触及
 Another item is blocking access to this lock
 另一个物品挡住了这个锁
+You cannot do anything with your GroupName right now
+现在你无法对你的GroupName做任何事情
 You cannot access your items
 你无法使用你的物品
 You have no items in this category
@@ -1125,30 +1129,30 @@ The kidnappers have stolen even more data using your laptop.
 绑匪从你的笔记本电脑中偷取了更多数据。
 You have disabled OOC/whispers while gagged. You can change this in the Immersion preferences screen.
 你禁用了被堵嘴时的OOC和悄悄话。你可以在沉浸偏好界面调整此设置。
-You choke momentarily on the gag inside your throat.
-你由于喉咙里的口塞呛住了一会儿。
-It is difficult to breath with the gag pushing inside your throat.
-口塞推入你的喉咙肿，呼吸变得困难起来。
-Your jaw aches from the gag shoved down your throat.
-口塞钻向你的喉咙深入，你的下巴疼起来。
-Your crotch rope rubs against your vulva.
-你胯间的绳子摩擦着你的外阴。
-The knot on your crotch rope rubs against your clitoris.
-你胯间绳子上的绳结摩擦着你的阴蒂。
-The rope between your legs digs into your crotch.
-你腿间的绳子陷入了你的胯间。
-You feel the dildo shift around inside of you.
-你感到假阳具在你的体内扭动着。
-You notice the large plug stuffed between your legs.
-你注意到你腿间的大肛塞膨胀起来。
-The dildo inside of you teases you constantly.
-你体内的假阳具一直在刺激你。
-The plug inside of you shifts around as you move.
-你体内的肛塞随着你的行动扭动着。
-Your butt plug stimulates you constantly as you move around.
-你四处走动的时候，你的肛塞一直在刺激你。
-The plug inside your butt feels awkward as you move.
-你屁股里的塞子让你感觉移动时非常怪。
+You choke momentarily on the AssetName inside your throat.
+你由于喉咙里的AssetName呛住了一会儿。
+It is difficult to breath with the AssetName pushing inside your throat.
+AssetName推入你的喉咙深处，呼吸变得困难起来。
+Your jaw aches from the AssetName shoved down your throat.
+AssetName钻向你的喉咙深入，你的下巴疼起来。
+Your AssetName rubs against your vulva.
+AssetName摩擦着你的外阴。
+The knot on your AssetName rubs against your clitoris.
+AssetName上的绳结摩擦着你的阴蒂。
+The AssetName between your legs digs into your crotch.
+你腿间的AssetName陷入了你的胯间。
+You feel the AssetName shift around inside your AssetGroup.
+你感到AssetName在你的AssetGroup内扭动着。
+You notice the AssetName stuffed between your legs.
+你注意到你腿间的AssetName膨胀起来。
+The AssetName inside of you teases you constantly.
+你体内的AssetName一直在刺激你。
+The AssetName inside of you shifts around as you move.
+你体内的AssetName随着你的行动扭动着。
+Your AssetName stimulates you constantly as you move around.
+你四处走动的时候，你的AssetName一直在刺激你。
+The AssetName inside your AssetGroup feels awkward as you move.
+你AssetGroup里的AssetName让你感觉移动时非常不自在。
 The plugs keep reminding you of their presence.
 肛塞总是突然让你记起它在那里。
 Your plugs torment you endlessly.
@@ -1157,22 +1161,34 @@ The plugs stuffed inside you keep you constantly on edge.
 你体内的肛塞让你一直保持在边缘。
 The vibration in your sensitive areas is impossible to ignore.
 你敏感部位内的振动根本无法忽视。
-Your body trembles from the vibrators' constant stimulation.
-振动棒不停的刺激，使你的身体颤动着。
-You can't stop noticing the vibrators teasing you.
-你的注意力不断被逗弄你的振动棒打断。
-The vibration deep inside of you teases you relentlessly.
-你身体深入的振动无休止地逗弄着你。
-The plug inside of you vibrates endlessly.
-你体内的塞子不停地振动着。
-The vibrator inside of you keeps you on edge.
-你体内的振动棒让你一直保持在边缘。
-Your butt feels numb from the vibrations.
-振动让你的臀部渐渐失去知觉。
-The vibrations in your butt leave you panting without release.
-你屁股内的振动让你一直娇喘却不得解脱。
-The vibrator inside your butt teases you constantly.
-你屁股内的振动棒持续地逗弄着你。
+Your body trembles from the AssetName' constant stimulation.
+AssetName不停的刺激，使你的身体颤动着。
+You can't stop noticing the AssetName teasing you.
+你的注意力不断被逗弄你的AssetName打断。
+The bloated AssetName in your AssetGroup makes you squirm.
+你AssetGroup内涨大AssetName让你坐立难安。
+You can't help but squeeze the bulging AssetName as you move.
+你试图避免，但仍然每个动作都会挤压到胀满的AssetName。
+You bite your lips as you're reminded of the AssetName filling your AssetGroup.
+塞满你的AssetGroup的AssetName不停地刺激你，你不由自主地咬住嘴唇。
+The vibration deep inside your AssetGroup teases you relentlessly.
+深入你AssetGroup的振动无休止地逗弄着你。
+The AssetName inside of you vibrates endlessly.
+你体内的AssetName不停地振动着。
+The AssetName inside of you keeps you on edge.
+你体内的AssetName让你一直保持在边缘。
+Your AssetGroup feels numb from the vibrations.
+振动让你的AssetGroup渐渐失去知觉。
+The vibrations in your AssetGroup leave you panting without release.
+你AssetGroup内的振动让你一直娇喘却不得解脱。
+The vibrator inside your AssetGroup teases you constantly.
+你AssetGroup内的振动棒持续地逗弄着你。
+Your AssetName wiggles from your AssetGroup as you move.
+随着你的动作，AssetName在你的AssetGroup进进出出来回晃动。
+You feel a sharp pain in your AssetGroup as the AssetName wiggle slightly.
+AssetName稍稍晃动，你感到AssetGroup传来剧烈的疼痛。
+The AssetName hanging from your AssetGroup get shuffled as you move around.
+你来回走动，挂在你的AssetGroup上的AssetName四处晃动着。
 Type /help for a list of commands
 输入 /help 查看命令列表
 You are not on that member's friendlist; ask her to friend you before leashing her.
@@ -1248,39 +1264,39 @@ SourceCharacter抓住TargetCharacter的牵绳。
 SourceCharacter releases the leash of TargetCharacter.
 SourceCharacter松开TargetCharacter的牵绳。
 SourceCharacter picks a glass of water from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯水。
+SourceCharacter从DestinationCharacter饮品托盘上拿了一杯水。
 SourceCharacter picks an orange juice from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯橙汁。
+SourceCharacter从DestinationCharacter饮品托盘上拿了一杯橙汁。
 SourceCharacter picks a beer from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯啤酒。
+SourceCharacter从DestinationCharacter饮品托盘上拿了一杯啤酒。
 SourceCharacter picks a glass of wine from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯红酒。
+SourceCharacter从DestinationCharacter饮品托盘上拿了一杯红酒。
 SourceCharacter buys a Virgin Mojito from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯初榨莫吉托。
+SourceCharacter从DestinationCharacter饮品托盘上购买了一杯初榨莫吉托。
 SourceCharacter buys a Margarita from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯玛格丽塔酒。
+SourceCharacter从DestinationCharacter饮品托盘上购买了一杯玛格丽塔酒。
 SourceCharacter buys a glass of Whiskey from TargetCharacter.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯威士忌。
+SourceCharacter从TargetCharacter的饮品托盘上购买了一杯威士忌。
 SourceCharacter buys a glass of champagne from TargetCharacter.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯香槟酒。
+SourceCharacter从TargetCharacter的饮品托盘上购买了一杯香槟酒。
 SourceCharacter buys a jug of refreshing lemonade for everyone, from TargetCharacter.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯提神柠檬水。
+SourceCharacter从TargetCharacter的饮品托盘上为所有人购买了一杯提神柠檬水。
 SourceCharacter buys a round of shooters for everyone, from TargetCharacter.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯子弹鸡尾酒。
+SourceCharacter从TargetCharacter的饮品托盘上为所有人购买了一杯子弹鸡尾酒。
 SourceCharacter buys a jug of Sex on the Beach for everyone, from TargetCharacter.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯性感海滩鸡尾酒。
+SourceCharacter从TargetCharacter的饮品托盘上为所有人购买了一杯性感海滩鸡尾酒。
 SourceCharacter buys a beer pitcher for everyone, from TargetCharacter.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上为所有人购买了一杯扎啤。
+SourceCharacter从TargetCharacter的饮品托盘上为所有人购买了一杯扎啤。
 SourceCharacter picks a tea from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯茶。
+SourceCharacter从DestinationCharacter饮品托盘上拿了一杯茶。
 SourceCharacter picks a coffee from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上拿了一杯咖啡。
+SourceCharacter从DestinationCharacter饮品托盘上拿了一杯咖啡。
 SourceCharacter buys a hot chocolate from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯热巧克力。
+SourceCharacter从DestinationCharacter饮品托盘上购买了一杯热巧克力。
 SourceCharacter buys an espresso from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯特浓咖啡。
+SourceCharacter从DestinationCharacter饮品托盘上购买了一杯特浓咖啡。
 SourceCharacter buys a cappuccino from DestinationCharacter tray.
-SourceCharacter 从 DestinationCharacter 的饮品托盘上购买了一杯卡布奇诺。
+SourceCharacter从DestinationCharacter饮品托盘上购买了一杯卡布奇诺。
 Member number on lock:
 锁上标着的会员编号:
 Item member number:
@@ -1525,7 +1541,7 @@ SourceCharacter attaches the leather cuffs elbow chain behind DestinationCharact
 SourceCharacter将DestinationCharacter手肘的皮革手铐上的锁链从她的身后连在一起。
 SourceCharacter attaches the leather cuffs wrist and elbow chains behind DestinationCharacter back.
 SourceCharacter将DestinationCharacter手腕和手肘的皮革手铐上的锁链从她的身后连在一起。
-SourceCharacter attaches the leather cuffs wrist and elbow chains behind DestinationCharacter back and connects the wirst and ankle cuffs.
+SourceCharacter attaches the leather cuffs wrist and elbow chains behind DestinationCharacter back and connects the wrist and ankle cuffs.
 SourceCharacter将DestinationCharacter手腕和手肘的皮革手铐上的锁链从她的身后连在一起，并将手腕铐和脚踝铐连在一起.
 SourceCharacter detaches DestinationCharacter steel cuffs.
 SourceCharacter解开了DestinationCharacter不锈钢手铐上的锁链。
@@ -1597,6 +1613,8 @@ SourceCharacter attaches the Ornate cuffs elbow chain behind DestinationCharacte
 SourceCharacter将DestinationCharacter手肘的华丽手铐上的锁链从她的身后连在一起。
 SourceCharacter attaches the Ornate cuffs wrist and elbow chains behind DestinationCharacter back.
 SourceCharacter将DestinationCharacter手腕和华丽手铐上的锁链从她的身后连在一起。
+SourceCharacter attaches the Ornate cuffs wrist and elbow chains behind DestinationCharacter back and connects the wrist and ankle cuffs.
+SourceCharacter将DestinationCharacter手腕和手肘的华丽手铐上的锁链从她的身后连在一起，并将手腕铐和脚踝铐连在一起.
 SourceCharacter detaches the chain from DestinationCharacter Ornate leg cuffs.
 SourceCharacter解开了DestinationCharacter华丽腿铐上的锁链。
 SourceCharacter attaches the Ornate leg cuffs chain on DestinationCharacter legs.
@@ -1698,13 +1716,13 @@ Full
 SourceCharacter removes the leather belts from DestinationCharacter body.
 SourceCharacter移除了DestinationCharacter身上的皮带。
 SourceCharacter loosely restrains TargetCharacter to the bondage bench with few leather belts.
-SourceCharacter用不多的皮带把DestinationCharacter松散地束缚在捆绑躺椅上。
+SourceCharacter用不多的皮带把TargetCharacter松散地束缚在捆绑躺椅上。
 SourceCharacter restrains TargetCharacter to the bondage bench with a handful of leather belts.
-SourceCharacter用一把皮带把DestinationCharacter束缚在捆绑躺椅上。
+SourceCharacter用一把皮带把TargetCharacter束缚在捆绑躺椅上。
 SourceCharacter strictly restrains TargetCharacter to the bondage bench with a good amount of leather belts.
-SourceCharacter用很多皮带把DestinationCharacter严格地束缚在捆绑躺椅上。
+SourceCharacter用很多皮带把TargetCharacter严格地束缚在捆绑躺椅上。
 SourceCharacter fully restrains TargetCharacter to the bondage bench with a large amount of leather belts.
-SourceCharacter用非常皮带把DestinationCharacter完全地束缚在捆绑躺椅上。
+SourceCharacter用非常皮带把TargetCharacter完全地束缚在捆绑躺椅上。
 Hands
 手
 Arms
@@ -1726,15 +1744,15 @@ SourceCharacter将胶带包裹在DestinationCharacter手上。
 SourceCharacter removes some of the duct tape from DestinationCharacter torso.
 SourceCharacter从DestinationCharacter躯干上移除了一些胶带。
 SourceCharacter creates a duct tape skirt on TargetCharacter and traps her hands in it.
-SourceCharacter给DestinationCharacter缠了一件胶带裙子，并把她的手臂困在其中。
+SourceCharacter给TargetCharacter缠了一件胶带裙子，并把她的手臂困在其中。
 SourceCharacter creates a duct tape top on TargetCharacter and traps her arms in it.
-SourceCharacter给DestinationCharacter缠了一件胶带上衣，并把她的手臂困在其中。
+SourceCharacter给TargetCharacter缠了一件胶带上衣，并把她的手臂困在其中。
 SourceCharacter creates a duct tape mummy on TargetCharacter and traps her arms in it.
-SourceCharacter给DestinationCharacter缠了一套胶带木乃伊，并把她的手臂困在其中。
+SourceCharacter给TargetCharacter缠了一套胶带木乃伊，并把她的手臂困在其中。
 SourceCharacter creates a completed duct tape mummy on TargetCharacter and traps her entire upper body in it.
-SourceCharacter给DestinationCharacter缠了一套全身覆盖的胶带木乃伊，并把她的整个身体困在其中。
+SourceCharacter给TargetCharacter缠了一套全身覆盖的胶带木乃伊，并把她的整个身体困在其中。
 SourceCharacter creates a completed duct tape mummy on TargetCharacter and cuts a hole so that her breasts are exposed.
-SourceCharacter给DestinationCharacter缠了一套全身覆盖的胶带木乃伊，并切开一个洞，让她的胸部露出来。
+SourceCharacter给TargetCharacter缠了一套全身覆盖的胶带木乃伊，并切开一个洞，让她的胸部露出来。
 SourceCharacter folds DestinationCharacter arms and wraps duct tape around them.
 SourceCharacter将DestinationCharacter手臂交叉在一起，并包裹上胶带。
 Above head
@@ -2800,9 +2818,9 @@ SourceCharacter用绳子在DestinationCharacter手腕上绑了一个绳子手铐
 SourceCharacter uses rope to tie DestinationCharacter wrists and elbows in a harness behind her back.
 SourceCharacter用绳子在DestinationCharacter身上绑了一个绳缚，并把她的手腕和手肘在她的身后绑在一起。
 SourceCharacter uses rope on TargetCharacter to have her crawling on all fours.
-SourceCharacter用绳子把DestinationCharacter绑起来，让她只能四肢着地。
+SourceCharacter用绳子把TargetCharacter绑起来，让她只能四肢着地。
 SourceCharacter uses rope to hogtie TargetCharacter on her knees.
-SourceCharacter用绳子把DestinationCharacter绑成驷马缚，并让她跪在地上。
+SourceCharacter用绳子把TargetCharacter绑成驷马缚，并让她跪在地上。
 SourceCharacter uses rope to tie DestinationCharacter arms to the bedposts.
 SourceCharacter用绳子把DestinationCharacter手臂绑到床柱上。
 Select Rope Bondage.
@@ -2812,15 +2830,15 @@ Lowered
 Suspended
 悬挂
 SourceCharacter uses the rope on TargetCharacter to suspend her.
-SourceCharacter用绳子把DestinationCharacter吊起来。
+SourceCharacter用绳子把TargetCharacter吊起来。
 SourceCharacter uses the rope on TargetCharacter to lower her.
-SourceCharacter用绳子把DestinationCharacter吊得更低。
+SourceCharacter用绳子把TargetCharacter吊得更低。
 Select Chain Bondage.
 选择链条束缚
 SourceCharacter uses the chain on TargetCharacter to suspend her.
-SourceCharacter用链条把DestinationCharacter吊起来。
+SourceCharacter用链条把TargetCharacter吊起来。
 SourceCharacter uses the chain on TargetCharacter to lower her.
-SourceCharacter用链条把DestinationCharacter吊得更低。
+SourceCharacter用链条把TargetCharacter吊得更低。
 How much do you want to inflate the strait leotard?
 你想要把拘束紧身衣充气到什么程度？
 SourceCharacter adjusts DestinationCharacter inflatable strait leotard to be only lightly filled.
@@ -2832,11 +2850,11 @@ SourceCharacter调整DestinationCharacter可充气式拘束紧身衣到充四分
 SourceCharacter adjusts DestinationCharacter inflatable strait leotard to fill the maximum amount.
 SourceCharacter调整DestinationCharacter可充气式拘束紧身衣到最大充气的程度。
 SourceCharacter uses the rope on TargetCharacter to do a crotch rope tie over her panties.
-SourceCharacter用绳子在DestinationCharacter内裤外面绑了一个股绳。
+SourceCharacter用绳子在TargetCharacter内裤外面绑了一个股绳。
 SourceCharacter uses the rope on TargetCharacter to do a swiss seat style rope tie.
-SourceCharacter用绳子给DestinationCharacter绑了一个瑞士座样式的绳缚。
+SourceCharacter用绳子给TargetCharacter绑了一个瑞士座样式的绳缚。
 SourceCharacter uses the rope on TargetCharacter to do a kikkou hip style rope tie.
-SourceCharacter用绳子给DestinationCharacter绑了一个龟甲臀缚。
+SourceCharacter用绳子给TargetCharacter绑了一个龟甲臀缚。
 Select the amount of padding.
 选择垫子的数量
 Regular Padding
@@ -2873,8 +2891,12 @@ Engrave
 刻字
 SourceCharacter opens the crotch shield on DestinationCharacter obedience belt.
 SourceCharacter打开了DestinationCharacter服从贞操带的胯部护盾。
-SourceCharacter closes the crotch shield on DestinationCharacter obedience belt.
-SourceCharacter关闭了DestinationCharacter服从贞操带的胯部护盾。
+SourceCharacter closes the front crotch shield of DestinationCharacter obedience belt.
+SourceCharacter关闭了DestinationCharacter服从贞操带的前部胯部护盾。
+SourceCharacter closes the back crotch shield on DestinationCharacter obedience belt.
+SourceCharacter关闭了DestinationCharacter服从贞操带的后部胯部护盾。
+SourceCharacter closes both crotch shields on DestinationCharacter obedience belt.
+SourceCharacter关闭了DestinationCharacter服从贞操带的前后两个胯部护盾。
 SourceCharacter removes the shock module from DestinationCharacter obedience belt.
 SourceCharacter移除了DestinationCharacter服从贞操带的电击模块。
 SourceCharacter sets up the shock module on DestinationCharacter obedience belt.
@@ -4106,11 +4128,11 @@ SourceCharacter用锁链把DestinationCharacter手腕在她的身后绑在一起
 SourceCharacter uses chains to tie chain cuffs on DestinationCharacter wrists.
 SourceCharacter用锁链在DestinationCharacter手腕上绑了一个锁链手铐。
 SourceCharacter uses chains on TargetCharacter to have her crawling on all fours.
-SourceCharacter用锁链把DestinationCharacter绑起来，让她只能四肢着地。
+SourceCharacter用锁链把TargetCharacter绑起来，让她只能四肢着地。
 SourceCharacter uses chains to tie DestinationCharacter wrists and elbows in a harness behind her back.
 SourceCharacter用锁链在DestinationCharacter身上绑了一个绳缚，并把她的手腕和手肘在她的身后绑在一起。
 SourceCharacter uses chains to hogtie TargetCharacter on her knees.
-SourceCharacter用锁链把DestinationCharacter绑成驷马缚，并让她跪在地上。
+SourceCharacter用锁链把TargetCharacter绑成驷马缚，并让她跪在地上。
 Select suit type
 选择套装类型
 Selected chastity belt backing
@@ -4164,7 +4186,7 @@ Cocoon
 SourceCharacter creates a blindfold out of web for TargetCharacter
 SourceCharacter用网给TargetCharacter织了一副眼罩
 SourceCharacter creates a cocoon out of web for TargetCharacter
-SourceCharacter把argetCharacter的头完全裹在了茧里
+SourceCharacter把TargetCharacter的头完全裹在了茧里
 Make the cutie comfortable.
 让小可爱更舒服。
 Open/close the gate.
@@ -4279,8 +4301,6 @@ Select suit options
 选择禁闭拘束服选项
 Configure suit restraints
 选择套装拘束
-Restraints
-拘束具
 Shock Collar
 电击项圈
 Ankles locked
@@ -5549,6 +5569,76 @@ Sign text.
 标牌文本。
 SourceCharacter changes DestinationCharacter sign message.
 SourceCharacter改变了DestinationCharacter标牌上的文字。
+Choose the sticker on the sign
+选择标牌上的贴纸
+Sticker
+贴纸
+Paw
+爪子
+LGBT Flag
+LGBT旗帜
+Trans Flag
+性转旗帜
+Bi Flag
+双性恋旗帜
+No Swimming
+禁止游泳
+SourceCharacter puts a paw sticker on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一个爪子贴纸。
+SourceCharacter puts a triskel sticker on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一个三曲枝贴纸。
+SourceCharacter puts a moon sticker on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一个月亮贴纸。
+SourceCharacter puts an LGBT pride flag sticker on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一个LGBT旗帜贴纸。
+SourceCharacter puts a trans pride flag sticker on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一个性转旗帜贴纸。
+SourceCharacter puts a bi pride flag sticker on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一个双性恋旗帜贴纸。
+SourceCharacter puts a no swimming sticker on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一个禁止游泳贴纸。
+SourceCharacter removes the sticker on DestinationCharacter sign.
+SourceCharacter移除了DestinationCharacter标牌上的贴纸。
+Post It
+便条纸
+No PostIt
+没有便条纸
+SourceCharacter puts a post it on DestinationCharacter sign.
+SourceCharacter在DestinationCharacter标牌上贴了一张便条纸。
+SourceCharacter removes the postit on DestinationCharacter sign.
+SourceCharacter移除了DestinationCharacter标牌上的便条纸。
+Choose what to stitch
+选择要缝线的位置
+Right Eye
+左眼
+Left Eye
+右眼
+Both Eyes
+双眼
+SourceCharacter stitches DestinationCharacter right eye's eyelids.
+SourceCharacter缝上了DestinationCharacter右眼的眼皮。
+SourceCharacter stitches DestinationCharacter left eye's eyelids.
+SourceCharacter缝上了DestinationCharacter左眼的眼皮。
+SourceCharacter stitches DestinationCharacter both eyes' eyelids.
+SourceCharacter缝上了DestinationCharacter双眼的眼皮。
+Choose stitches for the right eye
+选择右眼的缝线
+SourceCharacter stitches DestinationCharacter right eye shut with vertical threads.
+SourceCharacter将DestinationCharacter右眼用垂直的走线缝在一起。
+SourceCharacter stitches DestinationCharacter right eye with a zigzagging thread.
+SourceCharacter将DestinationCharacter右眼用之字形的走线缝在一起。
+SourceCharacter stitches DestinationCharacter right eye with a spiraling thread.
+SourceCharacter将DestinationCharacter右眼用绕圈的走线缝在一起。
+SourceCharacter stitches DestinationCharacter right eye with crossed threads.
+SourceCharacter将DestinationCharacter右眼用十字形的走线缝在一起。
+SourceCharacter stitches DestinationCharacter left eye with vertical threads.
+SourceCharacter将DestinationCharacter左眼用垂直的走线缝在一起。
+SourceCharacter stitches DestinationCharacter left eye with a zigzagging thread.
+SourceCharacter将DestinationCharacter左眼用之字形的走线缝在一起。
+SourceCharacter stitches DestinationCharacter left eye with a spiraling thread.
+SourceCharacter将DestinationCharacter左眼用绕圈的走线缝在一起。
+SourceCharacter stitches DestinationCharacter left eye with crossed threads.
+SourceCharacter将DestinationCharacter左眼用十字形的走线缝在一起。
 [GGTS] GGTS control public room.  Be good girl SourceCharacter.
 [GGTS] 该公开房间由GGTS控制。SourceCharacter，做个好姑娘。
 [GGTS] Launching GGTS private room.  Time counts triple.  GGTS more active.  Good girl follow commands.  Three strikes equal punishment.  GGTS in control.  Be good girl SourceCharacter.
@@ -5670,7 +5760,7 @@ SourceCharacter改变了DestinationCharacter标牌上的文字。
 [GGTS] SourceCharacter.  Tickle yourself.
 [GGTS] SourceCharacter.  挠(tickle)自己。
 [GGTS] SourceCharacter.  Pet yourself.
-[GGTS] SourceCharacter.  摸摸(pet)自己。
+[GGTS] SourceCharacter。摸摸(pet)自己的头。
 [GGTS] SourceCharacter.  Place hand over your mouth.
 [GGTS] SourceCharacter.  把手放在(clamp)嘴巴上。
 [GGTS] SourceCharacter.  Spank yourself.
@@ -5694,7 +5784,7 @@ SourceCharacter改变了DestinationCharacter标牌上的文字。
 [GGTS] SourceCharacter.  Tickle TargetCharacter.
 [GGTS] SourceCharacter.  挠(tickle) TargetCharacter.
 [GGTS] SourceCharacter.  Pet TargetCharacter.
-[GGTS] SourceCharacter.  摸摸(pet) TargetCharacter.
+[GGTS] SourceCharacter。摸摸(pet)TargetCharacter的头。
 [GGTS] SourceCharacter.  Place hand over TargetCharacter mouth.
 [GGTS] SourceCharacter.  把手放在(clamp)TargetCharacter嘴巴上。
 [GGTS] SourceCharacter.  Spank TargetCharacter.
@@ -5827,3 +5917,5 @@ Select the chain style
 选择锁链样式
 SourceCharacter changes the chain style on DestinationCharacter chest.
 SourceCharacter改变了DestinationCharacter胸前的锁链样式。
+OldNick is now known as NewNick.
+OldNick现在的昵称是NewNick。

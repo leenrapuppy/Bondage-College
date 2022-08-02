@@ -1,7 +1,7 @@
 Select your appearance
 选择你的外貌
 Select TargetCharacterName's appearance
-选择目标角色外貌
+选择TargetCharacterName的外貌
 You must pick an item of type:
 你必须选择该类别的物品：
 Set wardrobe character name:
