@@ -25,20 +25,20 @@ SuspensionHempRope,,,(You restrain her feet and suspend her from the ceiling wit
 RemoveSuspensionHempRope,,,(You release her from the ceiling and release her feet.)  Good!  I do prefer cages.,,
 0,,,Welcome to the Bondage Club private rooms.  Are you looking to rent a room?,,"!DialogLogQuery(""RentRoom"", ""PrivateRoom"")"
 0,,,Welcome to the Bondage Club private rooms.  Do you want to improve your room?,,"DialogLogQuery(""RentRoom"", ""PrivateRoom"")"
-0,,"Hi, I'm DialogPlayerName.","Nice to meet you, I'm DialogCharacterName.  I rent private rooms and rooms improvements.",DialogRemove(),
+0,,"Hi, I'm DialogPlayerName.","Nice to meet you, I'm DialogCharacterName.  I manage the private room rentals and improvements.",DialogRemove(),
 0,,Can you help me?,"No, I'm not allowed to play with customers.  And I prefer to see you like that.  (She winks.)",,!Player.CanInteract()
 0,10,I have a few questions.,Of course.  What would you like to know?,,
 0,100,I'd like to rent my own room.,The rent is $250.  Do you have enough money?,,"!DialogLogQuery(""RentRoom"", ""PrivateRoom"")"
 0,200,I'd like to improve my room.,"Excellent!  The club can provide wardrobes, cages, security and expansions for private rooms.  What would you like?",,"DialogLogQuery(""RentRoom"", ""PrivateRoom"")"
 0,20,Can we play some kinky games?,I don't have much to do and it's a quiet day.  I guess we can play.,,VendorCanPlay()
-0,,Can we play some kinky games?,"I'd love too, but I have rooms and items to rent.",,!VendorCanPlay()
+0,,Can we play some kinky games?,"I'd love to, but I have rooms and items to rent.",,!VendorCanPlay()
 0,,Let's talk later.  (Leave her.),,DialogLeave(),
 10,,How much is a room?,The price for a regular room is $250.,,
-10,,For how long I have the room?,For as long as you're a club member.,,
-10,,Can I invite friends over?,"Of course.  The room isn't huge though, it can accommodate four persons.",,
+10,,How long do I have the room for?,It's yours as long as you're a club member.,,
+10,,Can I invite friends over?,"Of course.  The room isn't huge, but it's big enough for four people.",,
 10,,Can I make my room bigger?,"Yes, you can get two room expansions.  Each of them will allow you to receive four more friends.",,
 10,,What are the improvements I can get?,"Wardrobe, cages, security and expansions for now.  But the club is always improving, you can check again later.",,
-10,0,Enough questions.,Alright.  What can I do for you then?,,
+10,0,That's all the questions I had.,Alright.  What can I do for you then?,,
 20,0,Can I tie you up?,"Alright, you can use anything you want on me.  I won't complain too much.",DialogAllowItem(true),"DialogReputationGreater(""Dominant"", -29)"
 20,0,Can I tie you up?,A subbie like you?  No way!  (She grabs your arms and restrains them.)  This is much better.,"DialogWearRandomItem(""ItemArms"")","DialogReputationLess(""Dominant"", -30)"
 20,0,Will you tie me up?,Sure!  Give me your hands.  (She restrains your arms.)  Anything else I can do for you?,"DialogWearRandomItem(""ItemArms"")","DialogReputationLess(""Dominant"", 29)"

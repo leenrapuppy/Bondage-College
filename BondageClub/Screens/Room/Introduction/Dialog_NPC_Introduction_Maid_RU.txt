@@ -271,19 +271,19 @@ The breast region can be used for more chastity devices, as well as whips or cro
 Область грудей может быть использована для усиленых устройств целомудрия, а также для плетей или стеков.
 The arms can be restrained using many devices.  This will prevent your victim from using her hands to free herself.
 Руки можно ограничить с помощью многих устройств. Это позволит помешать вашей жертве использовать руки, чтобы освободиться.
-You don't have to fully restrain your victim arms to keep her helpless.  Some items on target the hands and work as well.
+You don't have to fully restrain your victim's arms to keep her helpless.  Some items that target the hands will work as well.
 Вам не нужно полностью сдерживать руки жертвы, чтобы сделать ее беспомощной. Некоторые предметы нацелены на руки и тоже работают.
 You can use collars on your victim's neck to show everyone that they are yours, enslave them or leash them.
 Вы можете использовать ошейники на шее вашей жертвы, чтобы показать всем, что они являются вашими, поработить их или взять их на поводок.
 You can attach accessories items to a collar on your victim's neck.  Chains to the floor, leashes or just make them look pretty
 Вы можете прикрепить аксессуары к ошейнику на шее вашей жертвы. Цепи до пола, поводки или просто сделать вид более красивым.
-You can attach accessories to collars, to make them look extra special
+You can attach accessories to collars, to make them look extra special.
 Вы можете прикрепить аксессуары к ошейникам, чтобы они выглядели по-особенному
 You can attach leashes or chains to a collar on your victim's neck, to help control them.
 Вы можете прикрепить поводки или цепи к ошейнику на шее жертвы, чтобы контролировать ее.
 You can use gags to silence your victim, making her unable to speak.
 Вы можете использовать кляпы, чтобы заставить замолчать свою жертву, делая ее неспособной говорить.
-If you first used some stuffing on your victim mouth, you can apply a locking gag to keep in it.
+If you first used some stuffing on your victim's mouth, you can apply a locking gag to keep it in.
 Если вы впервые использовали какую-то начинку во рту жертвы, вы можете наложить кляп, чтобы удержать его внутри.
 For the finishing touch of your gag, the overlay can give a very nice effect.
 Для завершающего штриха вашего кляпа наложение может дать очень хороший эффект.
@@ -461,7 +461,7 @@ Your introduction class is done.  I hope you have fun in the club!
 You were a great teacher.
 Ты был великолепным учителем.
 ###_NPC
-Well thanks a lot.  (She smiles.)  You're a good student.
+Oh, well thank you!  (She smiles.)  You're a good student.
 Ну спасибо большое.  (Она улыбается.) Ты хорошая ученица.
 ###_PLAYER
 Thanks!  Have a great time.  (Leave her.)
@@ -548,7 +548,7 @@ How do I escape?
 Grab the rope on your arms and try to free yourself.  Good luck!
 Возьмись за веревку на руках и попытайся освободиться.  Удачи!
 ###_PLAYER
-Get me out now!
+I changed my mind, get me out now!
 Освободите меня сейчас же!
 ###_NPC
 You're not in control girl.  (She grabs your mouth and straps a cloth gag on you.)
@@ -599,7 +599,7 @@ Sure, have these ropes and this gag.  (She gives you some ropes and a cloth gag.
 Конечно, возьмите эти веревки и кляп.  (Она дает тебе веревки и тряпичный кляп.)
 You're ready to explore.  Remember to be courteous and respect others.
 Вы готовы к исследованию.  Не забывайте быть вежливой и уважать других.
-Well thanks a lot.  You're a good student.
+Oh, well thank you!  You're a good student.
 Ну спасибо большое.  Ты хорошая ученица.
 ###_PLAYER
 Thanks!  Take care.  (Leave her.)
@@ -684,7 +684,7 @@ Can I take another job?
 Sorry, come back tomorrow and I might have something else for you.
 Извините, приходите завтра, возможно, у меня есть для вас кое-что еще.
 ###_PLAYER
-There's nothing else to do?
+Is there anything else to do?
 Больше нечего нет?
 ###_NPC
 Not here, but there's lots of work to do in the club.  You can start by checking with the Maid Sorority.

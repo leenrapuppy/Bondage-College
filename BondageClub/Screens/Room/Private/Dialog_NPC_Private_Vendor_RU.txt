@@ -57,7 +57,7 @@ Welcome to the Bondage Club private rooms.  Do you want to improve your room?
 Hi, I'm DialogPlayerName.
 Привет, я DialogPlayerName.
 ###_NPC
-Nice to meet you, I'm DialogCharacterName.  I rent private rooms and rooms improvements.
+Nice to meet you, I'm DialogCharacterName.  I manage the private room rentals and improvements.
 Приятно познакомиться, я DialogCharacterName.  Я сдаю приватные комнаты и улутчшенные комнаты.
 ###_PLAYER
 Can you help me?
@@ -89,7 +89,7 @@ Can we play some kinky games?
 ###_NPC
 I don't have much to do and it's a quiet day.  I guess we can play.
 У меня не так много дел, и это тихий день.  Думаю, мы можем поиграть.
-I'd love too, but I have rooms and items to rent.
+I'd love to, but I have rooms and items to rent.
 Я бы тоже с удовольствием, но у меня есть комнаты и предметы для аренды.
 ###_PLAYER
 Let's talk later.  (Leave her.)
@@ -100,16 +100,16 @@ How much is a room?
 The price for a regular room is $250.
 Цена за обычный номер $250.
 ###_PLAYER
-For how long I have the room?
+How long do I have the room for?
 Как долго у меня будет комната?
 ###_NPC
-For as long as you're a club member.
+It's yours as long as you're a club member.
 До тех пор, пока вы член клуба.
 ###_PLAYER
 Can I invite friends over?
 Могу я пригласить друзей к себе?
 ###_NPC
-Of course.  The room isn't huge though, it can accommodate four persons.
+Of course.  The room isn't huge, but it's big enough for four people.
 Конечно.  Хотя комната небольшая, в ней могут разместиться четыре человека.
 ###_PLAYER
 Can I make my room bigger?
@@ -124,7 +124,7 @@ What are the improvements I can get?
 Wardrobe, cages, security and expansions for now.  But the club is always improving, you can check again later.
 Гардероб, клетки, защита и увиличение комнаты на данный момент.  Но клуб всегда совершенствуется, вы можете проверить позже.
 ###_PLAYER
-Enough questions.
+That's all the questions I had.
 Достаточно вопросов.
 ###_NPC
 Alright.  What can I do for you then?

@@ -215,7 +215,7 @@ No marks at all
 Yes, little sexy marks.
 Ja, kleine sexy Abdrücke.
 ###_NPC
-Nice.  And what about the price?  The quality is good for the price?
+Nice.  And what about the price?  Is the quality good for the price?
 Klasse. Und wie sieht es mit dem Preis aus? Lohnt er sich für die Qualität?
 ###_PLAYER
 Yes, pretty good marks.

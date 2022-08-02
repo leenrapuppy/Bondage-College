@@ -263,17 +263,17 @@ The breast region can be used for more chastity devices, as well as whips or cro
 胸部区域可以用来添加更多的贞操道具，并且也可以用鞭子或硬鞭。
 The arms can be restrained using many devices.  This will prevent your victim from using her hands to free herself.
 手臂可以通过使用许多种道具来束缚。这会让受害者无法使用手来解开自己。
-You don't have to fully restrain your victim arms to keep her helpless.  Some items on target the hands and work as well.
+You don't have to fully restrain your victim's arms to keep her helpless.  Some items that target the hands will work as well.
 你不一定要完全束缚受害者的手臂才能使她无助。一些用在手部的物品也有作用。
 You can use collars on your victim's neck to show everyone that they are yours, enslave them or leash them.
 你可以在你的受害者的脖子上使用项圈，以奴役她、牵着她、或向所有人展示她是你的所有物。
-You can attach accessories to collars, to make them look extra special
+You can attach accessories to collars, to make them look extra special.
 你可以将配件附加到项圈上，让项圈看起来更加特别
 You can attach leashes or chains to a collar on your victim's neck, to help control them.
 你可以将绳子或链子系在受害者脖子上的项圈上，以方便控制他们。
 You can use gags to silence your victim, making her unable to speak.
 你可以使用口塞来使你的受害者沉默，让她无法说话。
-If you first used some stuffing on your victim mouth, you can apply a locking gag to keep in it.
+If you first used some stuffing on your victim's mouth, you can apply a locking gag to keep it in.
 如果你首先在受害者嘴里塞入了一些东西，你可以使用能上锁的口塞，让这无法出来。
 For the finishing touch of your gag, the overlay can give a very nice effect.
 在口塞的最后，最外层可以产生好看的效果。
@@ -451,7 +451,7 @@ Your introduction class is done.  I hope you have fun in the club!
 You were a great teacher.
 你是一位很棒的老师。
 ###_NPC
-Well thanks a lot.  (She smiles.)  You're a good student.
+Oh, well thank you!  (She smiles.)  You're a good student.
 嗯，非常感谢。（她的脸上露出微笑。）你是一位好学生。
 ###_PLAYER
 Thanks!  Have a great time.  (Leave her.)
@@ -538,7 +538,7 @@ How do I escape?
 Grab the rope on your arms and try to free yourself.  Good luck!
 抓住你手臂上的绳子，然后尝试解放自己。祝你好运！
 ###_PLAYER
-Get me out now!
+I changed my mind, get me out now!
 赶紧放开我！
 ###_NPC
 You're not in control girl.  (She grabs your mouth and straps a cloth gag on you.)
@@ -672,7 +672,7 @@ Can I take another job?
 Sorry, come back tomorrow and I might have something else for you.
 对不起，明天再来吧，我可能有别的东西给你。
 ###_PLAYER
-There's nothing else to do?
+Is there anything else to do?
 没有别的事可做吗？
 ###_NPC
 Not here, but there's lots of work to do in the club.  You can start by checking with the Maid Sorority.

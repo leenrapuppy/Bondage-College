@@ -5,9 +5,9 @@ Can you go check on the Introduction Class?  Sometimes new members get out of co
 Ты можешь пойти проверить в ознакомительном классе?  Иногда новые члены тераят контроль.
 I've heard rumors of trouble going on at the Shibari Dojo.  Can you make sure everyone is fine?
 Я слышала слухи о неприятностях, происходящих в додзе шибари.  Ты можешь убедиться, что все в порядке?
-I think that something went wrong at the store.  Can you go there to help the vendor?
+I think something went wrong at the store.  Can you go there to help the vendor?
 Я думаю, что что-то пошло не так в магазине.  Ты можешь пойти туда, чтобы помочь продавцу?
-I think that something went wrong at the Gambling Hall.  Can you go there to help the players?
+I think something went wrong at the Gambling Hall.  Can you go there to help the players?
 Я думаю, что что-то пошло не так в игорном зале.  Можешь ли ты пойти туда, чтобы помочь игрокам?
 Guard the prison cell so that nothing happens there.
 Охраняй тюремную камеру, чтобы там ничего не случилось.
@@ -21,7 +21,7 @@ What happened to your tray, girl?  The club members are thirsty! Here, have anot
 Что случилось с твоим подносом, девочка? Члены клуба хотят пить! Вот, возьми еще один. (Вам нужно подать напитки 5 уникальным онлайн-игрокам.)
 (She checks your empty tray.)  Well done!  Our members were satisfied?
 (Она проверяет твой пустой поднос.) Молодец!  Наши члены были удовлетворены?
-(DialogCharacterName gets you back to the maid quarters and smiles.)  You've did it!
+(DialogCharacterName gets you back to the maid quarters and smiles.)  You've done it!
 (DialogCharacterName возвращает тебя в комнату для горничный и улыбается.)  Ты сделала это!
 (DialogCharacterName gets you back to the maid quarters and frowns.)  You failed to clean up in time.
 (DialogCharacterName возвращает тебя в комнату для горничных и хмурится.)  Ты не смогла вовремя убраться.
@@ -123,7 +123,7 @@ Aww, so pretty. You tied yourself for the cleaning chore.  I'll drag you to your
 Hello, I'm DialogPlayerName.  Pleased to meet you.
 Привет, я DialogPlayerName.  Приятно познакомиться.
 ###_NPC
-Pleased to meet you too.  I'm DialogCharacterName, I'm responsible to find work for maids.
+Pleased to meet you too.  I'm DialogCharacterName, I'm responsible for finding work for maids.
 Я тоже рада с вами познакомиться.  Я DialogCharacterName, Я отвечаю за поиск работы для горничных.
 ###_PLAYER
 What's going on in here?
@@ -132,7 +132,7 @@ What's going on in here?
 Maids come here to get job assignments.  They can earn some money by working for the club.
 Горничные приходят сюда, чтобы получить работу.  Они могут заработать немного денег, работая в клубе.
 ###_PLAYER
-What kind of chores do maid do in the club?
+What kind of chores do maids do in the club?
 Что за работу делают горничные в клубе?
 ###_NPC
 Cleaning, serving drinks, testing new devices, rescuing helpless people and more.
@@ -315,7 +315,7 @@ Sweet!  Who will fuck me first?  (Strip naked.)
 No way!  Can't I stay clothed?
 Ни за что!  Разве я не могу остаться одетой?
 ###_NPC
-Strip girl, we've all did it before.
+Strip girl, we've all done it before.
 Стриптиз девушка, мы все делали это раньше.
 ###_PLAYER
 I'll need some help to undress.
@@ -649,7 +649,7 @@ This is so kinky.
 Yes please.
 Да, пожалуйста.
 ###_NPC
-(She straps a drink platter on you.)  Get used to balance the platter with your body, you don't want to make a mess.
+(She straps a drink platter on you.)  Get used to balancing the platter with your body, you don't want to make a mess.
 (Она ставит перед тобой поднос с напитками.)  Привыкай балансировать поднос своим телом, ты же не хочешь сделать беспорядок.
 ###_PLAYER
 Make sure it won't tip.
@@ -742,7 +742,7 @@ Where should I go?
 Did you go to the Introduction Class?  Is there anything to report?
 Ты ходила к ознакомительному классу?  Есть ли что-нибудь, чтобы отчитаться?
 ###_PLAYER
-Everything is under control.
+It's all better now.
 Все под контролем.
 ###_NPC
 Perfect!  Let me pay you for your efforts then.  (She gives you REPLACEMONEY $.)
@@ -763,13 +763,13 @@ Have you inspected the Shibari Dojo?  Is everything alright?
 I'll go check the Shibari Dojo.  (Leave her.)
 Я пойду проверю Додзе шибари.  (Оставить ее.)
 ###_NPC
-What's going on at the Bondage Club store?  Did the vendor got in trouble?
+What's going on at the Bondage Club store?  Did the vendor get in trouble?
 Что происходит в магазине Бондаж Клуба?  Неужели продавец попал в беду?
 ###_PLAYER
 I'll go check the Bondage Club store.  (Leave her.)
 Я пойду проверю магазин Бондаж Клуба.  (Оставь ее.)
 ###_NPC
-What's going on at the Gambling Hall?  Did some Player got in trouble?
+What's going on at the Gambling Hall?  Did some players get in trouble?
 Что происходит в игорном зале?  Неужели какой-то игрок попал в беду?
 ###_PLAYER
 I'll go check the Gambling Hall.  (Leave her.)
@@ -851,7 +851,7 @@ Very well, you can tie my feet.
 I should have guessed.
 Я должна была догадаться.
 ###_NPC
-(She giggles and restrains your legs.)  Next is your arms, you won't need either.
+(She giggles and restrains your legs.)  Next is your arms, you won't need them either.
 (Она хихикает и связывает ноги.) Затем руки, тебе они не нужны.
 ###_PLAYER
 You really enjoy your job, don't you?
@@ -862,7 +862,7 @@ This is ridiculous!  How will I be able to clean?
 You will understand soon.  Give me your arms girl.
 Скоро ты все поймешь.  Дай мне свои руки, девочка.
 ###_PLAYER
-Fine, you can tie my arms.
+Sure, you can tie my arms.
 Ладно, можешь связать мне руки.
 ###_NPC
 (She restrains your arms behind your back.)  How does it feel to be restrained for work?
@@ -905,9 +905,9 @@ Very well, you can gag me.
 ###_NPC
 (She looks at you and laughs.)  You're learning the job pretty fast.  Are you ready now?
 (Она смотрит на тебя и смеется.)  Ты довольно быстро осваиваешь эту работу.  Теперь ты готова?
-Come sweetie!  I'll drag you to your workspace.  You need to clean the room before I come to get your back.
+Come sweetie!  I'll drag you to your workspace.  You need to clean the room before I come to get you back.
 Пойдем, милая!  Я проведу тебя на рабочее место.  Тебе нужно прибраться в комнате, прежде чем я приду за тобой.
-Come sweetie!  I'll drag you to your workspace.  You need to clean your area before I come to get your back.
+Come sweetie!  I'll drag you to your workspace.  You need to clean your area before I come to get you back.
 Пойдем, милая!  Я проведу тебя на рабочее место.  Тебе нужно очистить свой участок, прежде чем я приду за тобой.
 ###_PLAYER
 (Pick an easy place to clean.)
@@ -943,18 +943,18 @@ You should hit " S D K L " on your keyboard when the musical notes drop from the
 ###_NPC
 Each hit is judged with "PERFECT", "GREAT", or "MISS"; if you release your key early in case of a long note, you get an "END MISS".
 Каждое нажатие оценивается как "PERFECT", "GREAT" или "MISS" если ты отпустишь свой ключ рано в случае длинной ноты, ты получишь "END MISS".
-You break your combo if you get a "MISS" or "END MISS", and audience will eventually become unhappy.
+You'll break your combo if you get a "MISS" or "END MISS", and the audience will eventually become unhappy.
 Ты нарушишь свою комбинацию, если ты получишь "MISS" или "END MISS", и аудитория в конечном итоге станет несчастной.
-Audience will tie you up when they couldn't enjoy the music, because that's part of the entertainment for them.
+The audience will tie you up if they don't enjoy the music, because that's part of the entertainment for them.
 Зрители будут связывать тебя, если они не могли наслаждаться музыкой, потому что это часть развлечения для них.
-If you finished the play, you will be awarded based on your performance.
+When you finish the play, you will be awarded based on your performance.
 Когда ты закончишь игру, ты будешь награждена в зависимости от твоего выступления.
 That's basically everything, and you will find out more during the play.
 Это в основном все, и ты узнаешь больше во время игры.
 ###_PLAYER
-Thank you for the instruction.
+Thank you for the instructions.
 Спасибо за инструкцию.
-Select song.
+(Select song.)
 Выбери песню.
 ###_NPC
 (List of songs)
@@ -966,10 +966,10 @@ Select song.
 見えない何かに怯える夜 (LV 5)
 見えない何かに怯える夜 (LV 7)
 見えない何かに怯える夜 (LV 7)
-(Want more Songs)
+(Want more songs?)
 (Хочешь больше песен)
 ###_NPC
-We are adding more contents to this minigame. If you have royalty free songs or wish to create charts, you are welcomed to contact the dev for more information.
+(We're adding more content to this minigame. If you have royalty free songs or wish to create charts, you're welcome to contact the dev for more information.)
 Мы добавляем больше контента в эту мини-игру. Если у вас есть песни без роялти или вы хотите создать диаграммы, вы можете связаться с разработчиком для получения дополнительной информации.
 (She releases you.)  All set!  Are you ready for more chores?
 (Она отпускает тебя.) Все готово!  Готова ли ты к большим хлопотам?

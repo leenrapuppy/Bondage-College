@@ -1160,19 +1160,19 @@ Can I become a club slave?
 It's only for true submissives, go to the club management and ask if you're eligible.
 Это только для истинных сабмиссивов, идите к руководству клуба и спросите, можете ли вы ее стать.
 ###_PLAYER
-What's the limit with you?
+What are your limits?
 Какие у тебя пределы?
 ###_NPC
 The usual limits Miss.  No blood or any permanent harm.  You can restrain me or have sex with me.
 Обычные пределы, Мисс.  Ни крови, ни какого-либо постоянного вреда.  Вы можете связать меня или заниматься со мной сексом.
 ###_PLAYER
-Who's slut are you?
+Whose slut are you?
 Кто ты такая, шлюха?
 ###_NPC
 (She blushes and bows her head in shame.)  I'm your slut Miss.
 (Она краснеет и опускает голову от стыда.)  Я ваша шлюха Мисс.
 ###_PLAYER
-Enough chit-chat.
+That's all I wanted to talk about.
 Довольно болтовни.
 ###_NPC
 Very well.  Is there anything else I can do for you Miss?

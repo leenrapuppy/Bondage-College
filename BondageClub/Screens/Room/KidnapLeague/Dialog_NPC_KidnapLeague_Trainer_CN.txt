@@ -200,7 +200,7 @@ Give me a tough fight.
 来场硬仗。
 I can face any challenge!
 任何挑战我都行！
-Tell me of the rules.
+Tell me the rules.
 告诉我规则。
 ###_NPC
 First, all league members can kidnap and be kidnapped at any time in the Bondage Club.  Do you agree to that?
@@ -281,13 +281,13 @@ There's no cost to join and there are bounty hunter jobs that you can take if yo
 Can members leave the league?
 成员可以离开联盟吗？
 ###_NPC
-Of course.  Though you will lose any reputation gained in the league before.
+Of course.  Though you will lose any reputation you gained in the league.
 当然。但你会失去以前在联盟中获得的所有声望。
 ###_PLAYER
-That's enough.
+That's everything I need to know.
 够了。
 ###_NPC
-Very good.  Can I help you with anything else?
+Excellent.  Can I help you with anything else?
 很好。还有什么别的可以帮到你？
 ###_PLAYER
 How do I kidnap?
@@ -326,7 +326,7 @@ Can I use items that are not restraints?
 Yes, many unique items can be used passively to boost your moves strength.  They cannot be bought from the store, try to find them within the club.
 是的，许多独特的物品可以用来被动增强你的行动强度。它们不能从商店购买，请尝试在俱乐部内找到它们。
 ###_PLAYER
-I know everything I need.
+That's everything I need to know.
 我需要的我都知道了。
 ###_NPC
 Excellent.  Can I help you with anything else?
@@ -382,19 +382,19 @@ I'll try my best.
 Alright, good luck.  Come back when you've kidnapped her for your reward.
 好吧，祝你好运。你绑架了她后，回来领你的报酬。
 ###_PLAYER
-Yeah, she did put quite a fight.
+Yeah, she put up quite a fight.
 是的，她确实打得很厉害。
 ###_NPC
 That was to be expected of her.  Would you like to take another bounty?
 我觉得她的确会这样。你想领另外一个赏金目标吗？
 ###_PLAYER
-No problem, I represent the league.
+It was no problem, I represent the league.
 没问题，我代表联盟。
 ###_NPC
 Very good, I like your attitude.  Would you like to take another bounty then?
 很好，很喜欢你的态度。你想领另外一个赏金目标吗？
 ###_PLAYER
-It was fair and fun fight.
+It was a fair and fun fight.
 这是一场公平而有趣的战斗。
 ###_NPC
 That's what we aim for in the league.  Would you like to take another bounty?
