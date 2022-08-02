@@ -3,9 +3,13 @@ Select your displayed name and title
 Current title: TITLE
 当前称号：TITLE
 Nickname (letters and spaces)
-昵称（文字与空格）
+昵称（字母与空格）
 Nickname locked by your owner
 昵称被你的主人锁定
+Nickname is too long (max. 20 characters)
+昵称过长（最大20字符）
+Nickname contains invalid characters
+昵称中包含不可用字符
 None
 无
 Mistress
