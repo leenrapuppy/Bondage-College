@@ -2367,13 +2367,15 @@ var AssetFemale3DCG = [
 		FreezeActivePose: ["BodyLower"],
 		Zone: [[100, 750, 300, 120]],
 		Asset: [
-			{ Name: "NylonRope", Fetish: ["Rope", "Nylon"], Value: 30, Time: 15, BuyGroup: "NylonRope", SetPose: ["LegsClosed"], Audio: "RopeShort", AllowActivePose: ["Kneel"],
-				DefaultColor: ["#CCCCCC","#CCCCCC"],
+			{ Name: "NylonRope", Fetish: ["Rope", "Nylon"], Value: 30, Time: 15, BuyGroup: "NylonRope", SetPose: ["LegsClosed"], Audio: "RopeShort", Extended: true, AllowActivePose: ["Kneel"], DynamicBeforeDraw: true,
+				DefaultColor: ["#CCCCCC","#CCCCCC", "#CCCCCC"],
 				Layer: [
-					{ Name: "UpperRope" },
-					{ Name: "LowerRope" },
-					{ Name: "UpperShine", AllowColorize: false },
-					{ Name: "LowerShine", AllowColorize: false },
+					{ Name: "UpperRope", HasType: false, AllowTypes: ["Knees", "AnklesKnees"] },
+					{ Name: "LowerRope", HasType: false, AllowTypes: ["", "AnklesKnees"] },
+					{ Name: "BedSpreadEagleRope", HasType: false, AllowTypes: ["BedSpreadEagle"] },
+					{ Name: "UpperShine", AllowColorize: false, HasType: false, AllowTypes: ["Knees", "AnklesKnees"] },
+					{ Name: "LowerShine", AllowColorize: false, HasType: false, AllowTypes: ["", "AnklesKnees"] },
+					{ Name: "BedSpreadEagleShine", AllowColorize: false, HasType: false, AllowTypes: ["BedSpreadEagle"] },
 				]
 			},
 			{ Name: "HempRope", Fetish: ["Rope"], Value: 60, Difficulty: 3, Time: 15, DefaultColor: "#956B1C", BuyGroup: "HempRope", HideItem: ["ItemMiscTeddyBear", "ItemDevicesLittleMonster", "ItemDevicesFamiliar"], SetPose: ["LegsClosed"], Audio: "RopeShort", Extended: true, AllowActivePose: ["Kneel"], DynamicBeforeDraw: true },
@@ -2506,13 +2508,15 @@ var AssetFemale3DCG = [
 		FreezeActivePose: ["BodyLower"],
 		Zone: [[100, 580, 300, 170]],
 		Asset: [
-			{ Name: "NylonRope", Fetish: ["Rope", "Nylon"], Value: 30, Time: 10, BuyGroup: "NylonRope", Audio: "RopeShort", SetPose: ["LegsClosed"], AllowActivePose: ["Kneel"], Prerequisite: ["CanCloseLegs"],
-				DefaultColor: ["#CCCCCC","#CCCCCC"],
+			{ Name: "NylonRope", Fetish: ["Rope", "Nylon"], Value: 30, Time: 10, BuyGroup: "NylonRope", Audio: "RopeShort", SetPose: ["LegsClosed"], AllowPose: ["Kneel", "KneelingSpread"], AllowActivePose: ["Kneel", "LegsClosed"], FreezeActivePose: [], Extended: true,
+				DefaultColor: ["#CCCCCC","#CCCCCC", "#CCCCCC"],
 				Layer: [
-					{ Name: "UpperRope" },
-					{ Name: "LowerRope" },
-					{ Name: "UpperShine", AllowColorize: false },
-					{ Name: "LowerShine", AllowColorize: false },
+					{ Name: "UpperRope", HasType: false, AllowTypes: ["Tighs", "KneesTighs"] },
+					{ Name: "LowerRope", HasType: false, AllowTypes: ["", "KneesTighs"] },
+					{ Name: "FrogtieRope", HasType: false, AllowTypes: ["Frogtie"] },
+					{ Name: "UpperShine", AllowColorize: false, HasType: false, AllowTypes: ["Tighs", "KneesTighs"] },
+					{ Name: "LowerShine", AllowColorize: false, HasType: false, AllowTypes: ["", "KneesTighs"] },
+					{ Name: "FrogtieShine", AllowColorize: false, HasType: false, AllowTypes: ["Frogtie"] },
 				]
 			},
 			{ Name: "HempRope", Fetish: ["Rope"], Value: 60, Difficulty: 3, Time: 10, RemoveTime: 15, DefaultColor: "#956B1C", BuyGroup: "HempRope", SetPose: ["LegsClosed"], Extended: true, AllowPose: ["Kneel", "KneelingSpread"], AllowActivePose: ["Kneel", "LegsClosed"], FreezeActivePose: [] },
@@ -3402,7 +3406,7 @@ var AssetFemale3DCG = [
 			{ Group: "ItemAddon", Name: "CeilingChain" },
 		],
 		Asset: [
-			{ Name: "NylonRope", Fetish: ["Rope", "Nylon"], Value: 30, SelfBondage: 2, Time: 15, BuyGroup: "NylonRope", SetPose: ["BackBoxTie"], Effect: ["Block", "Prone"], Audio: "RopeShort",
+			{ Name: "NylonRope", Fetish: ["Rope", "Nylon"], Value: 30, SelfBondage: 2, Time: 15, BuyGroup: "NylonRope", SetPose: ["BackBoxTie"], Effect: ["Block", "Prone"], Audio: "RopeShort", Extended: true, DynamicBeforeDraw: true,
 				DefaultColor: "#CCCCCC",
 				Layer: [
 					{ Name: "Rope" },
