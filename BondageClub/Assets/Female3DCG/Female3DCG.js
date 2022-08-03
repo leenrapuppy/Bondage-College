@@ -1704,25 +1704,25 @@ var AssetFemale3DCG = [
 		PreviewZone: [125, 265, 250, 250],
 		Asset: [
 			// Breast Compatible Clothing
-			{ Name: "Gloves1", Prerequisite: ["HasBreast"], HideForPose: ["BackElbowTouch"] },
-			{ Name: "Gloves2", Prerequisite: ["HasBreast"], Alpha: [{ Group: ["BodyUpper"], Pose: ["OverTheHead"], Masks: [[90, 125, 30, 70], [370, 125, 30, 70]] }], HideForPose: ["BackElbowTouch"] },
-			{ Name: "Gloves3", Prerequisite: ["HasBreast"], Value: 15, Left: 60, Top: 109, HideForPose: ["BackElbowTouch"] },
-			{ Name: "MistressGloves", Prerequisite: ["HasBreast"], Fetish: ["Leather"], Value: -1, HideForPose: ["BackElbowTouch"] },
-			{ Name: "FingerlessGloves", Prerequisite: ["HasBreast"], Value: 20, HideForPose: ["BackElbowTouch"] },
+			{ Name: "Gloves1", Prerequisite: ["HasBreasts"], HideForPose: ["BackElbowTouch"] },
+			{ Name: "Gloves2", Prerequisite: ["HasBreasts"], Alpha: [{ Group: ["BodyUpper"], Pose: ["OverTheHead"], Masks: [[90, 125, 30, 70], [370, 125, 30, 70]] }], HideForPose: ["BackElbowTouch"] },
+			{ Name: "Gloves3", Prerequisite: ["HasBreasts"], Value: 15, Left: 60, Top: 109, HideForPose: ["BackElbowTouch"] },
+			{ Name: "MistressGloves", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Value: -1, HideForPose: ["BackElbowTouch"] },
+			{ Name: "FingerlessGloves", Prerequisite: ["HasBreasts"], Value: 20, HideForPose: ["BackElbowTouch"] },
 			{
-				Name: "GlovesFur", Prerequisite: ["HasBreast"], Value: 30, DefaultColor: ["#8c2331", "Default"], HideForPose: ["BackElbowTouch"],
+				Name: "GlovesFur", Prerequisite: ["HasBreasts"], Value: 30, DefaultColor: ["#8c2331", "Default"], HideForPose: ["BackElbowTouch"],
 				Layer: [
 					{ Name: "Fabric" },
 					{ Name: "Fur" }
 				]
 			},
-			{ Name: "Catsuit", Prerequisite: ["HasBreast"], Hide: ["Hands"], Fetish: ["Nylon"], Value: -1, BuyGroup: "Catsuit", HideForPose: ["BackElbowTouch"] },
-			{ Name: "SeethroughSuit", Prerequisite: ["HasBreast"], Fetish: ["Nylon"], Value: -1, BuyGroup: "SeethroughSuit", HideForPose: ["BackElbowTouch"] },
-			{ Name: "CowPrintedGloves", Prerequisite: ["HasBreast"], Value: 15, Alpha: [{ Group: ["BodyUpper"], Pose: ["OverTheHead"],  Masks: [[90, 125, 30, 70], [370, 125, 30, 70]] }], HideForPose: ["BackElbowTouch"] },
-			{ Name: "LatexElbowGloves", Prerequisite: ["HasBreast"], Fetish: ["Latex"], Value: 75, HideForPose: ["BackElbowTouch"] },
-			{ Name: "FishnetGloves", Prerequisite: ["HasBreast"], Value: 10, DefaultColor: ["#151515"], HideForPose: ["BackElbowTouch"] },
+			{ Name: "Catsuit", Prerequisite: ["HasBreasts"], Hide: ["Hands"], Fetish: ["Nylon"], Value: -1, BuyGroup: "Catsuit", HideForPose: ["BackElbowTouch"] },
+			{ Name: "SeethroughSuit", Prerequisite: ["HasBreasts"], Fetish: ["Nylon"], Value: -1, BuyGroup: "SeethroughSuit", HideForPose: ["BackElbowTouch"] },
+			{ Name: "CowPrintedGloves", Prerequisite: ["HasBreasts"], Value: 15, Alpha: [{ Group: ["BodyUpper"], Pose: ["OverTheHead"],  Masks: [[90, 125, 30, 70], [370, 125, 30, 70]] }], HideForPose: ["BackElbowTouch"] },
+			{ Name: "LatexElbowGloves", Prerequisite: ["HasBreasts"], Fetish: ["Latex"], Value: 75, HideForPose: ["BackElbowTouch"] },
+			{ Name: "FishnetGloves", Prerequisite: ["HasBreasts"], Value: 10, DefaultColor: ["#151515"], HideForPose: ["BackElbowTouch"] },
 			{
-				Name: "HaremGlove", Prerequisite: ["HasBreast"], Fetish: ["Nylon"], Value: 25,
+				Name: "HaremGlove", Prerequisite: ["HasBreasts"], Fetish: ["Nylon"], Value: 25,
 				Layer: [
 					{ Name: "Fabric" },
 					{ Name: "Bands" }
@@ -1751,16 +1751,16 @@ var AssetFemale3DCG = [
 		PreviewZone: [125, 265, 250, 250],
 		Asset: [
 			// Breast Compatible Clothing
-			{ Name: "BowBand", Prerequisite: ["HasBreast"], Value: 20, HideForPose: ["BackCuffs", "BackBoxTie"]},
-			{ Name: "KinkBracelet", Prerequisite: ["HasBreast"], Value: 25, HideForPose: ["BackCuffs", "BackBoxTie"]},
-			{ Name: "LesBand", Prerequisite: ["HasBreast"], Value: 30, HideForPose: ["BackCuffs", "BackBoxTie"]},
-			{ Name: "SpikeBands", Prerequisite: ["HasBreast"], Value: 15, DefaultColor: ["#232323", "#666666"], HideForPose: ["BackBoxTie"], Extended: true, Layer: [
+			{ Name: "BowBand", Prerequisite: ["HasBreasts"], Value: 20, HideForPose: ["BackCuffs", "BackBoxTie"]},
+			{ Name: "KinkBracelet", Prerequisite: ["HasBreasts"], Value: 25, HideForPose: ["BackCuffs", "BackBoxTie"]},
+			{ Name: "LesBand", Prerequisite: ["HasBreasts"], Value: 30, HideForPose: ["BackCuffs", "BackBoxTie"]},
+			{ Name: "SpikeBands", Prerequisite: ["HasBreasts"], Value: 15, DefaultColor: ["#232323", "#666666"], HideForPose: ["BackBoxTie"], Extended: true, Layer: [
 				{ Name: "Bands" },
 				{ Name: "Spikes" },
 			]
 			},
-			{ Name: "Band1", Prerequisite: ["HasBreast"], Value: 25, HideForPose: ["BackCuffs", "BackBoxTie"], Extended: true},
-			{ Name: "LaceBands", Prerequisite: ["HasBreast"], Value: 20, Priority: 29, DefaultColor: ["Default", "#151515"], Layer: [
+			{ Name: "Band1", Prerequisite: ["HasBreasts"], Value: 25, HideForPose: ["BackCuffs", "BackBoxTie"], Extended: true},
+			{ Name: "LaceBands", Prerequisite: ["HasBreasts"], Value: 20, Priority: 29, DefaultColor: ["Default", "#151515"], Layer: [
 				{ Name: "Lace" },
 				{ Name: "Bands" },
 			]
