@@ -14,10 +14,10 @@ UpperHandMove,Upper hand moves:
 SuddenDeath,Sudden Death
 Cancel,Cancel
 Wins,Wins
-Cloth,Remove her cloth
+Cloth,Remove her clothes
 ItemNeck,Use a collar item
-ItemFeet,Use a feet item
-ItemMouth,Use a gag item
+ItemFeet,Tie her feet
+ItemMouth,Use a gag
 UndoCloth,Dress back up
 UndoItemNeck,Remove your collar
 UndoItemFeet,Release your legs
@@ -51,7 +51,7 @@ PlayerDominationOpponentBruteForceOpponent,You're feeling smart now?
 PlayerDominationOpponentDominationAction,"(You both argue on who should kneel for the other, but nobody gives in.)"
 PlayerDominationOpponentDominationPlayer,On your knees girl!
 PlayerDominationOpponentDominationOpponent,No!  You get on your knees!
-PlayerDominationOpponentSneakinessAction,"(She tries to tickle you, but get stunned by your presence and kneels for you.)"
+PlayerDominationOpponentSneakinessAction,"(She tries to tickle you, but gets stunned by your presence and kneels for you.)"
 PlayerDominationOpponentSneakinessPlayer,This is your place: on your knees.
 PlayerDominationOpponentSneakinessOpponent,Well that trick did not work.
 PlayerDominationOpponentMeditationAction,"(She tries to relax, but get hypnotized and paralyzed by your glaring look.)"

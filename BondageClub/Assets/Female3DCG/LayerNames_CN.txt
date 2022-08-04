@@ -319,9 +319,9 @@ Engraving
 Crotch Shield
 胯部护盾
 Positive Wire
-亮线条
+阳极线
 Negative Wire
-暗线条
+阴极线
 Metal
 金属
 Clamps
@@ -420,8 +420,8 @@ PlaqueBorder
 标牌边框
 Postit
 便条纸
-Paw
-爪子
+Sticker
+贴纸
 PlaqueBolts
 标牌螺栓
 Harness
@@ -724,6 +724,10 @@ Right Lens
 右镜片
 HUD
 显示器
+Thread Right
+右侧线条
+Thread Left
+左侧线条
 Ears
 耳朵
 Right Eye

@@ -546,7 +546,7 @@
 (She will be sent to the maid quarters to prepare drinks.  You will earn her salary.)
 (她将被送到女仆宿舍准备饮品，你会获得她的工资)
 (She needs to be a maid in the sorority, be able to talk and be able to walk to do that job for you.)
-(她必须是女仆协会的医院来进行交谈和行动来为你工作)
+（她必须是女仆协会的一员，能交够说话和移动，才能为你做这个工作。）
 ###_PLAYER
 (Lock her for 5 minutes.)
 (把她锁上5分钟)

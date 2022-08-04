@@ -208,7 +208,7 @@ I've changed my mind.
 It's fine.  Would you like to talk then?
 Все нормально.  Может быть, вы хотите поговорить?
 ###_PLAYER
-Tell me of the rules.
+Tell me the rules.
 Расскажите мне о правилах.
 ###_NPC
 First, all league members can kidnap and be kidnapped at any time in the Bondage Club.  Do you agree to that?
@@ -289,13 +289,13 @@ There's no cost to join and there are bounty hunter jobs that you can take if yo
 Can members leave the league?
 Могут ли члены покинуть Лигу?
 ###_NPC
-Of course.  Though you will lose any reputation gained in the league before.
+Of course.  Though you will lose any reputation you gained in the league.
 Конечно.  Хотя вы потеряете любую репутацию, полученную в Лиге раньше.
 ###_PLAYER
-That's enough.
+That's everything I need to know.
 Этого достаточно.
 ###_NPC
-Very good.  Can I help you with anything else?
+Excellent.  Can I help you with anything else?
 Отлично.  Могу я вам еще чем-нибудь помочь?
 ###_PLAYER
 How do I kidnap?
@@ -340,7 +340,7 @@ Can I use items that are not restraints?
 Yes, many unique items can be used passively to boost your moves strength.  They cannot be bought from the store, try to find them within the club.
 Да, многие уникальные предметы можно пассивно использовать для повышения силы ваших движений. Их нельзя купить в магазине, попробуйте найти в клубе.
 ###_PLAYER
-I know everything I need.
+That's everything I need to know.
 Я узнала все, что мне нужно.
 ###_NPC
 Excellent.  Can I help you with anything else?
@@ -396,19 +396,19 @@ I'll try my best.
 Alright, good luck.  Come back when you've kidnapped her for your reward.
 Хорошо, удачи.  Возвращайся, когда похитишь ее, чтобы получить свою награду.
 ###_PLAYER
-Yeah, she did put quite a fight.
+Yeah, she put up quite a fight.
 Да, она устроила настоящую драку.
 ###_NPC
 That was to be expected of her.  Would you like to take another bounty?
 Этого от нее и следовало ожидать.  Не хотите ли вы получить еще один приз?
 ###_PLAYER
-No problem, I represent the league.
+It was no problem, I represent the league.
 Нет проблем, я представляю Лигу.
 ###_NPC
 Very good, I like your attitude.  Would you like to take another bounty then?
 Очень хорошо, мне нравится ваше отношение.  Не хотите ли вы получить еще один приз?
 ###_PLAYER
-It was fair and fun fight.
+It was a fair and fun fight.
 Это был честный и веселый бой.
 ###_NPC
 That's what we aim for in the league.  Would you like to take another bounty?
