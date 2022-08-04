@@ -856,13 +856,13 @@ var AssetFemale3DCG = [
 					{ Name: "Sides", AllowColorize: true}
 				]
 			},
-			{ Name: "SexyBikini2", Value: 40, Hide: ["ItemNipples"] },
-			{ Name: "SexyBikini3", Value: 45, Hide: ["ItemNipples"] },
-			{ Name: "Swimsuit1", Value: 15, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"], Extended: true },
-			{ Name: "Swimsuit2", Value: 25, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
-			{ Name: "BunnySuit", Fetish: ["Nylon", "Pet"], Value: 30, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
+			{ Name: "SexyBikini2", Prerequisite: ["HasBreasts"], Value: 40, Hide: ["ItemNipples"] },
+			{ Name: "SexyBikini3",Prerequisite: ["HasBreasts"], Value: 45, Hide: ["ItemNipples"] },
+			{ Name: "Swimsuit1", Prerequisite: ["HasBreasts"], Value: 15, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"], Extended: true },
+			{ Name: "Swimsuit2", Prerequisite: ["HasBreasts"], Value: 25, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
+			{ Name: "BunnySuit", Prerequisite: ["HasBreasts"], Fetish: ["Nylon", "Pet"], Value: 30, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
 			{
-				Name: "LatexBunnySuit", Top: 0, Left: 0, Fetish: ["Latex", "Pet"], AllowPose: ["Hogtied"], DefaultColor: "#6C33AE", Value: 30, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"],
+				Name: "LatexBunnySuit", Prerequisite: ["HasBreasts"], Top: 0, Left: 0, Fetish: ["Latex", "Pet"], AllowPose: ["Hogtied"], DefaultColor: "#6C33AE", Value: 30, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"],
 				Layer: [
 					{ Name: "Bottom", AllowColorize: true, HideForPose: ["Hogtied"] },
 					{ Name: "BottomShine", AllowColorize: false, HideForPose: ["Hogtied"] },
@@ -871,66 +871,66 @@ var AssetFemale3DCG = [
 					{ Name: "BreastsShine", AllowPose: [], AllowColorize: false }
 				]
 			},
-			{ Name: "FrameBra1", Value: 20, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
-			{ Name: "FrameBra2", Value: 15, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
-			{ Name: "BondageBra1", Fetish: ["Leather"], Priority: 20, Value: 40, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
-			{ Name: "LatexBra1", Fetish: ["Lingerie", "Latex"], Value: 30, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
-			{ Name: "HarnessBra1", Fetish: ["Leather"], Priority: 20, Value: 30, BuyGroup: "HarnessBra1", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
-			{ Name: "HarnessBra2", Fetish: ["Leather"], Priority: 20, Value: 40, BuyGroup: "HarnessBra2", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
-			{ Name: "CuteBikini1", Fetish: ["Lingerie"], Priority: 20, Value: 40, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], Extended: true,
+			{ Name: "FrameBra1", Prerequisite: ["HasBreasts"], Value: 20, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
+			{ Name: "FrameBra2", Prerequisite: ["HasBreasts"], Value: 15, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
+			{ Name: "BondageBra1", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Priority: 20, Value: 40, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
+			{ Name: "LatexBra1", Prerequisite: ["HasBreasts"], Fetish: ["Lingerie", "Latex"], Value: 30, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
+			{ Name: "HarnessBra1", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Priority: 20, Value: 30, BuyGroup: "HarnessBra1", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
+			{ Name: "HarnessBra2", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Priority: 20, Value: 40, BuyGroup: "HarnessBra2", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
+			{ Name: "CuteBikini1", Prerequisite: ["HasBreasts"], Fetish: ["Lingerie"], Priority: 20, Value: 40, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], Extended: true,
 				Layer:[
 					{ Name: "Main", AllowColorize: true},
 					{ Name: "Sides", AllowColorize: true}
 				]
 			},
-			{ Name: "CorsetBikini1", Fetish: ["Lingerie"], Priority: 20, Value: 40, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
-			{ Name: "OuvertPerl1", Fetish: ["Lingerie"], Priority: 20, Value: 40, HideItem: ["ItemNipplesLactationPump"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
-			{ Name: "Sarashi1", Value: 25, Hide: ["ItemNipples"] },
-			{ Name: "KittyBra1", Fetish: ["Pet"], Value: 30, Hide: ["ItemNipples"] },
-			{ Name: "FishnetBikini1", Priority: 20, Value: 45, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
-			{ Name: "SexyBeachBra1", Value: 25, Hide: ["ItemNipples"] },
+			{ Name: "CorsetBikini1", Prerequisite: ["HasBreasts"],Fetish: ["Lingerie"], Priority: 20, Value: 40, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
+			{ Name: "OuvertPerl1", Prerequisite: ["HasBreasts"], Fetish: ["Lingerie"], Priority: 20, Value: 40, HideItem: ["ItemNipplesLactationPump"], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
+			{ Name: "Sarashi1", Prerequisite: ["HasBreasts"], Value: 25, Hide: ["ItemNipples"] },
+			{ Name: "KittyBra1", Prerequisite: ["HasBreasts"], Fetish: ["Pet"], Value: 30, Hide: ["ItemNipples"] },
+			{ Name: "FishnetBikini1", Prerequisite: ["HasBreasts"], Priority: 20, Value: 45, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
+			{ Name: "SexyBeachBra1",Prerequisite: ["HasBreasts"], Value: 25, Hide: ["ItemNipples"] },
 			{ Name: "SexyBikiniBra1", Value: 25, Hide: ["ItemNipples"] },
-			{ Name: "StarHarnessBra", Fetish: ["Leather"], Priority: 20, Value: 40, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
-			{ Name: "HeartTop", Fetish: ["Lingerie"], Priority: 20, Value: 35, Hide: ["ItemNipples"] },
-			{ Name: "ChineseBra1", Fetish: ["Lingerie"], Value: 35, Hide: ["ItemNipples"] },
-			{ Name: "LeatherStrapBra1", Fetish: ["Leather"], Value: 15, BuyGroup: "LeatherStrapBra1", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], AllowPose: [] },
-			{ Name: "Swimsuit3", Value: 35, DefaultColor: "#E53771", Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
-			{ Name: "ClamShell", Value: 20, Left: 0, Top: 0, DefaultColor: "#E53771", Hide: ["ItemNipples", "ItemNipplesPiercings"] },
-			{ Name: "CowPrintedBra", Value: 15, Hide: ["ItemNipples"] },
+			{ Name: "StarHarnessBra",Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Priority: 20, Value: 40, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
+			{ Name: "HeartTop", Prerequisite: ["HasBreasts"], Fetish: ["Lingerie"], Priority: 20, Value: 35, Hide: ["ItemNipples"] },
+			{ Name: "ChineseBra1", Prerequisite: ["HasBreasts"], Fetish: ["Lingerie"], Value: 35, Hide: ["ItemNipples"] },
+			{ Name: "LeatherStrapBra1", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Value: 15, BuyGroup: "LeatherStrapBra1", Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"], AllowPose: [] },
+			{ Name: "Swimsuit3", Prerequisite: ["HasBreasts"], Value: 35, DefaultColor: "#E53771", Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
+			{ Name: "ClamShell", Prerequisite: ["HasBreasts"], Value: 20, Left: 0, Top: 0, DefaultColor: "#E53771", Hide: ["ItemNipples", "ItemNipplesPiercings"] },
+			{ Name: "CowPrintedBra", Prerequisite: ["HasBreasts"], Value: 15, Hide: ["ItemNipples"] },
 			{
-				Name: "StuddedHarness", Fetish: ["Lingerie", "Leather"], Priority: 20, Value: -1, DefaultColor:"#343131", BuyGroup: "StuddedHarness", Expose:["ItemBreast"], Hide: ["ItemNipples","ItemNipplesPiercings"], HideItem: ["PantiesDiapers1","PantiesDiapers2","PantiesDiapers3", "PantiesDiapers4"],
+				Name: "StuddedHarness", Prerequisite: ["HasBreasts"], Fetish: ["Lingerie", "Leather"], Priority: 20, Value: -1, DefaultColor:"#343131", BuyGroup: "StuddedHarness", Expose:["ItemBreast"], Hide: ["ItemNipples","ItemNipplesPiercings"], HideItem: ["PantiesDiapers1","PantiesDiapers2","PantiesDiapers3", "PantiesDiapers4"],
 				Layer:[
 					{ Name: "Harness", AllowColorize: true},
 					{ Name: "Metal", AllowColorize: false}
 				]
 			},
-			{ Name: "Camisole", Priority: 22, DefaultColor: "#908867", Value: 5, Hide: ["ItemNipples"] },
-			{ Name: "Ribbons", Fetish: ["Lingerie"], Value: 30, BuyGroup: "Ribbon", Extended: true, Hide:["ItemNipples"] },
-			{ Name: "LeatherBreastBinder", Fetish: ["Leather"], Value: 30, BuyGroup: "BreastBinder", AllowPose: [], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
-			{ Name: "FullLatexBra", BuyGroup: "FullLatexBra", Fetish: ["Lingerie", "Latex"], Value: 45, Hide: ["ItemNipples"] },
-			{ Name: "FullLatexBra2", BuyGroup: "FullLatexBra", Fetish: ["Lingerie", "Latex"], Value: -1, Hide: ["ItemNipples"],
+			{ Name: "Camisole", Prerequisite: ["HasBreasts"], Priority: 22, DefaultColor: "#908867", Value: 5, Hide: ["ItemNipples"] },
+			{ Name: "Ribbons", Prerequisite: ["HasBreasts"], Fetish: ["Lingerie"], Value: 30, BuyGroup: "Ribbon", Extended: true, Hide:["ItemNipples"] },
+			{ Name: "LeatherBreastBinder", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Value: 30, BuyGroup: "BreastBinder", AllowPose: [], Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
+			{ Name: "FullLatexBra", Prerequisite: ["HasBreasts"], BuyGroup: "FullLatexBra", Fetish: ["Lingerie", "Latex"], Value: 45, Hide: ["ItemNipples"] },
+			{ Name: "FullLatexBra2", Prerequisite: ["HasBreasts"], BuyGroup: "FullLatexBra", Fetish: ["Lingerie", "Latex"], Value: -1, Hide: ["ItemNipples"],
 				Layer:[
 					{ Name: "Bra", AllowColorize: true},
 					{ Name: "Shine", AllowColorize: true}
 				]
 			},
 			{
-				Name: "HaremBra", Fetish: ["Lingerie"], Value: 25, Left: 0, Top: 0, Hide: ["ItemNipples"], Layer:[
+				Name: "HaremBra", Prerequisite: ["HasBreasts"], Fetish: ["Lingerie"], Value: 25, Left: 0, Top: 0, Hide: ["ItemNipples"], Layer:[
 					{ Name: "Fabric" },
 					{ Name: "Straps" },
 					{ Name: "Jewel" }
 				]
 			},
-			{ Name: "FlowerBra", Fetish: ["Lingerie"], Value: 15, Hide: ["ItemNipples"],
+			{ Name: "FlowerBra", Prerequisite: ["HasBreasts"], Fetish: ["Lingerie"], Value: 15, Hide: ["ItemNipples"],
 				Layer: [
 					{ Name: "Bra", AllowColorize: true },
 					{ Name: "Flowers", AllowColorize: true },
 				]
 			},
-			{ Name: "Bra10", Value: 30, Hide: ["ItemNipples"] },
-			{ Name: "CoconutBra", Value: 15, Hide: ["ItemNipples"], AllowPose: [], DefaultColor: "#83440B" },
+			{ Name: "Bra10", Prerequisite: ["HasBreasts"], Value: 30, Hide: ["ItemNipples"] },
+			{ Name: "CoconutBra", Prerequisite: ["HasBreasts"], Value: 15, Hide: ["ItemNipples"], AllowPose: [], DefaultColor: "#83440B" },
 			{
-				Name: "SleevelessSlimLatexLeotard", Value: 50, Top: 0, Left: 0, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"], HideItemExclude: ["ItemVulvaWiredEgg"],
+				Name: "SleevelessSlimLatexLeotard", Prerequisite: ["HasBreasts"], Value: 50, Top: 0, Left: 0, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"], HideItemExclude: ["ItemVulvaWiredEgg"],
 				PoseMapping: { Yoked: "" },
 				Layer: [
 					{ Name: "Latex" },
