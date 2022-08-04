@@ -1310,3 +1310,11 @@ function AsylumGGTSDrawCharacter(C, X, Y, Zoom) {
 		}
 	}
 }
+
+/**
+ * Resets the state of the GGTS game
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSReset() {
+	AsylumGGTSPreviousPose = JSON.stringify(Player.Pose);
+}
