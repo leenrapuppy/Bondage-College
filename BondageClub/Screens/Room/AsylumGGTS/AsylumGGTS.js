@@ -1093,16 +1093,16 @@ function AsylumGGTSAddStrike() {
 	// Level 6 is infinite, getting a strike subtract 1 hour
 	if (AsylumGGTSGetLevel(Player) >= 6) return AsylumGGTSSpendMinute(60);
 
+	// On the third strike, we unlock the room if we can
+	if ((Player.Game.GGTS.Strike >= 2) && AsylumGGTSTaskCanBeDone(Player, "UnlockRoom")) {
+		AsylumGGTSTask = "UnlockRoom";
+		AsylumGGTSAutomaticTask();
+	}
+
 	// Adds the strike to the player record
 	Player.Game.GGTS.Strike++;
 	if (Player.Game.GGTS.Strike > 3) Player.Game.GGTS.Strike = 3;
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
-
-	// On the third strike, we unlock the room if we can
-	if ((Player.Game.GGTS.Strike >= 3) && AsylumGGTSTaskCanBeDone(Player, "UnlockRoom")) {
-		AsylumGGTSTask = "UnlockRoom";
-		AsylumGGTSAutomaticTask();
-	}
 
 	// On the third strike, we open the leg cuffs if we can
 	if ((Player.Game.GGTS.Strike >= 3) && InventoryIsWorn(Player, "FuturisticAnkleCuffs", "ItemFeet")) {
