@@ -1134,7 +1134,70 @@ var PlatformRoomList = [
 		Height: 1400,
 		LimitLeft: 600,
 		Heal: 250,
-		Door: []
+		Door: [
+			{ Name: "ForestLakePath", FromX: 1900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+	},
+	{
+		Name: "ForestLakePath",
+		Text: "Lake Path",
+		Background: "Forest/LakeBetweenRocks",
+		Width: 2800,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestCampGround", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 1900, ToFaceLeft: true },
+			{ Name: "ForestFirPath", FromX: 2700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Yuna", Status: "Maid", X: 600 },
+			{ Name: "Hazel", Status: "Maid", X: 2200 }
+		]
+	},
+	{
+		Name: "ForestFirPath",
+		Text: "Fir Path",
+		Background: "Forest/FirLight",
+		Width: 3000,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestLakePath", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2700, ToFaceLeft: true },
+			{ Name: "ForestPond", FromX: 2900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Lucy", Status: "Armor", X: 600 },
+			{ Name: "Yuna", Status: "Maid", X: 2400 }
+		]
+	},
+	{
+		Name: "ForestPond",
+		Text: "Frog Pond",
+		Background: "Forest/LostPond",
+		Width: 4200,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestFirPath", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2900, ToFaceLeft: true },
+			{ Name: "ForestSecluded", FromX: 4100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Hazel", Status: "Maid", X: 800 },
+			{ Name: "Vera", Status: "Leather", X: 3300 },
+			{ Name: "Yuna", Status: "Maid", X: 2050 }
+		]
+	},
+	{
+		Name: "ForestSecluded",
+		Text: "Secluded Clearing",
+		Background: "Forest/SecludedClearing",
+		Width: 2500,
+		Height: 1400,
+		LimitRight: 2350,
+		Door: [
+			{ Name: "ForestPond", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 4100, ToFaceLeft: true },
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 600 },
+			{ Name: "Lucy", Status: "Armor", X: 1800 }
+		]
 	},
 
 ]
