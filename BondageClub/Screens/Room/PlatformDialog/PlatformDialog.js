@@ -1990,18 +1990,49 @@ var PlatformDialogData = [
 			{
 				Character: [
 					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
-					{ Name: "Melody", Status: "Maid", Pose: "Bound" },
+					{ Name: "Melody", Status: "Maid", Animation: "Bound" },
 				],
 			},
 			{ Text: "(Melody slowly crawls out of the box in tight bondage.)" },
+			{ Text: "I'm glad to see you again." },
 			{ 
-				Text: "What happened?",
+				Text: "Why did you stay in the smoke trap?",
 				Answer: [
-					{ Text: "Opt1", Reply: "..." },
-					{ Text: "Opt2", Reply: "..." },
-					{ Text: "Opt3", Reply: "..." },
+					{ Text: "Why did you abandoned us?", Reply: "(She frowns.)  When there's a trap you run, it's common knowledge.", Love: -1 },
+					{ Text: "I was trying to save Lady Olivia.", Reply: "That princess needs to watch where she steps." },
+					{ Text: "Nevermind.  Thanks for the rescue.", Reply: "(She smiles.)  My pleasure Melody.", Love: 1 },
 				]
 	 		},
+			{ Text: "They got you in tight ropes." },
+			{ 
+				Text: "Can you struggle out?",
+				Answer: [
+					{ Text: "I don't think so.", Reply: "(She nods and unties you.)  There you go." },
+					{ Text: "Can you please help?", Reply: "(She smirks and unites you.)  There you go girl.", Domination: -1 },
+					{ Text: "Stop being silly and untie me.", Reply: "(She unties you quickly.)  You should be good now.", Domination: 1 },
+					{ Text: "Help me and I'll pay you.", Reply: "Deal!  (She releases you happily.)  There you go Melody.", Love: 1, Perk: true },
+				]
+	 		},
+			{
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" },
+				],
+			},
+			{ Text: "They wanted to sell you to a slaver." },
+			{ 
+				Text: "Did they sold Olivia?",
+				Answer: [
+					{ Text: "We must save our friend.", Reply: "(She nods.)  That's the spirit!", Love: 1 },
+					{ Text: "Let's move, we must find her.", Reply: "(She grabs her bow.)  Well said!", Domination: 1 },
+					{ Text: "Never say that!", Reply: "(She frowns.)  No need to yell.", Love: -1 },
+					{ Text: "I'm so scared for her.", Reply: "(She shakes her head.)  Everything will be alright.", Domination: -1 },
+				]
+	 		},
+			{ Text: "Let's go find her." },
+			{ Text: "(Meanwhile...  In Olivia's barn.)" },
+			{ Entry: function() { PlatformPartyActivate("Olivia"); PlatformDialogLeave(); } }
+
 		],
 	},
 

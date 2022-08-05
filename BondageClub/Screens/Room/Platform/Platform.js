@@ -1009,9 +1009,11 @@ var PlatformRoomList = [
 		Name: "ForestCabin",
 		Entry: function() {
 			PlatformChar.splice(1, 100);
-			if (PlatformPlayer.Name != "Olivia") PlatformCreateCharacter("Olivia", "Oracle", 1300, true, false, "OliviaCabin");
-			if (PlatformPlayer.Name != "Melody") PlatformCreateCharacter("Melody", "Maid", 1700, true, false, (PlatformPlayer.Name == "Olivia") ? "OliviaCabin" : "EdlaranCabin", true);
-			if (PlatformEventDone("EdlaranJoin") && (PlatformPlayer.Name != "Edlaran")) PlatformCreateCharacter("Edlaran", "Archer", 2100, true, false, "EdlaranCabin", true);
+			if (!PlatformEventDone("ForestCapture") || PlatformEventDone("ForestCaptureEnd")) {
+				if (PlatformPlayer.Name != "Olivia") PlatformCreateCharacter("Olivia", "Oracle", 1300, true, false, "OliviaCabin");
+				if (PlatformPlayer.Name != "Melody") PlatformCreateCharacter("Melody", "Maid", 1700, true, false, (PlatformPlayer.Name == "Olivia") ? "OliviaCabin" : "EdlaranCabin", true);
+				if (PlatformEventDone("EdlaranJoin") && (PlatformPlayer.Name != "Edlaran")) PlatformCreateCharacter("Edlaran", "Archer", 2100, true, false, "EdlaranCabin", true);
+			}
 		},
 		Text: "Wooden Cabin (heal and save)",
 		Background: "Forest/CabinInterior",
