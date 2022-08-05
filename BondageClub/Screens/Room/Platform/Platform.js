@@ -235,6 +235,15 @@ var PlatformTemplate = [
 			{ Name: "Idle", Cycle: [0], Speed: 1000 }
 		]
 	},
+	{
+		Name: "Crate",
+		Status: "Wood",
+		Width: 400,
+		Height: 400,
+		Animation: [
+			{ Name: "Idle", Cycle: [0], Speed: 1000 }
+		]
+	},
 /*	{
 		Name: "Kara",
 		Status: "Nude",
@@ -1186,6 +1195,9 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "ForestSecluded",
+		Entry: function() {
+			if (!PlatformEventDone("ForestBanditCrate")) PlatformDialogStart("ForestBanditCrate");
+		},
 		Text: "Secluded Clearing",
 		Background: "Forest/SecludedClearing",
 		Width: 2500,
@@ -1195,6 +1207,7 @@ var PlatformRoomList = [
 			{ Name: "ForestPond", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 4100, ToFaceLeft: true },
 		],
 		Character: [
+			{ Name: "Crate", Status: "Wood", X: 1800, Combat: false, Fix: true, Dialog: "MelodyCrate" },
 			{ Name: "Vera", Status: "Leather", X: 600 },
 			{ Name: "Lucy", Status: "Armor", X: 1800 }
 		]

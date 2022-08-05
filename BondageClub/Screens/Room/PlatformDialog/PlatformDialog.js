@@ -1927,8 +1927,41 @@ var PlatformDialogData = [
 				]
 			},
 			{ Text: "I'm not letting you out of the barn." },
-			{ Text: "Watching over you is so boring." },
+			{ Text: "Your husband will pay a royal ransom for you." },
 			{ Text: "Exercise your legs, we will leave soon." },
+		],
+	},
+
+	{
+		Name: "ForestBanditCrate",
+		Exit : function () { PlatformEventSet("ForestBanditCrate"); },
+		Dialog: [
+			{
+				Background: "SecludedClearing",
+				Character: [
+					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
+					{ Name: "Crate", Status: "Wood", Pose: "Idle" },
+					{ Name: "Lucy", Status: "Armor", Pose: "Idle" },
+				]
+			},
+			{ Text: "(Two thieves are watching a crate and talking.)" },
+			{ Text: "This is boring.  When is that slave trader coming?" },
+			{ Text: "Did you bring some cards or some..." },
+			{ Text: "(She turns to Edlaran.)" },
+			{ Text: "It seems we have a rat.  Get her!" },
+		],
+	},
+
+	{
+		Name: "MelodyCrate",
+		Dialog: [
+			{
+				Background: "SecludedClearing",
+				Character: [
+					{ Name: "Crate", Status: "Wood", Pose: "Idle" },
+				]
+			},
+			{ Text: "(It's too dangerous to inspect the crate while it's guarded.)" }
 		],
 	},
 
