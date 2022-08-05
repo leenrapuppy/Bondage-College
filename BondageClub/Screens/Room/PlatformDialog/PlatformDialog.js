@@ -62,7 +62,7 @@ var PlatformDialogCharacterTemplate = [
 	},
 	{
 		Name: "Lyn",
-		NickName: "Thief",
+		NickName: "Bandit Boss",
 		Color: "#b329be",
 	},
 ];
@@ -1959,9 +1959,49 @@ var PlatformDialogData = [
 				Background: "SecludedClearing",
 				Character: [
 					{ Name: "Crate", Status: "Wood", Pose: "Idle" },
+				],
+				Entry: function() {
+					if ((PlatformChar[2].Bound == true) && (PlatformChar[3].Bound == true) && !PlatformEventDone("ForestCaptureRescueMelody")) PlatformDialogStart("MelodyCrateOpen");
+				}
+			},
+			{ TextScript: function () { return (PlatformEventDone("ForestCaptureRescueMelody")) ? "(The crate is open and empty.)" : "(It's too dangerous to inspect the crate while it's guarded.)"; }  }
+		],
+	},
+
+	{
+		Name: "MelodyCrateOpen",
+		Dialog: [
+			{
+				Background: "SecludedClearing",
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Crate", Status: "Wood", Pose: "Idle" },
+				],
+				Text: "(There's a huge wooden crate in the middle of the woods.)"
+			},
+			{ Text: "(You can hear that someone is alive inside.)" },
+			{ 
+				Text: "(What will you do?)",
+				Answer: [
+					{ Text: "(Open the crate.)", Reply: "(You work hard to open the crate.)", Script: function() { PlatformEventSet("ForestCaptureRescueMelody") } },
+					{ Text: "(Leave it.)", Script: function() { PlatformDialogLeave(); } },
 				]
 			},
-			{ Text: "(It's too dangerous to inspect the crate while it's guarded.)" }
+			{
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Bound" },
+				],
+			},
+			{ Text: "(Melody slowly crawls out of the box in tight bondage.)" },
+			{ 
+				Text: "What happened?",
+				Answer: [
+					{ Text: "Opt1", Reply: "..." },
+					{ Text: "Opt2", Reply: "..." },
+					{ Text: "Opt3", Reply: "..." },
+				]
+	 		},
 		],
 	},
 
@@ -2289,11 +2329,17 @@ function PlatformDialogEvent() {
 	}
 
 	// In the forest capture mode, Melody is bound, stuck in a crate
-	if (PlatformEventDone("ForestCapture") && (PlatformPlayer.Name == "Melody")) {
+	if (PlatformEventDone("ForestCapture") && !PlatformEventDone("ForestCaptureRescueMelody") && (PlatformPlayer.Name == "Melody")) {
 		PlatformPlayer.Health = 0;
 		PlatformPlayer.Bound = true;
 		PlatformPlayer.X = 1000;
 		PlatformLoadRoom("ForestCrateInterior");
+	}
+
+	// In the forest capture mode, Melody can be rescued
+	if (PlatformEventDone("ForestCapture") && PlatformEventDone("ForestCaptureRescueMelody") && (PlatformPlayer.Name == "Melody")) {
+		PlatformPlayer.X = 1000;
+		PlatformLoadRoom("ForestCampGround");
 	}
 
 	// In the forest capture mode, Edlaran starts at a campfire

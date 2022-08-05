@@ -1094,14 +1094,14 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "ForestBirchMaze",
-		Text: "Birch Path ????",
+		Text: "Lost Birch Path",
 		Background: "Forest/BirchMaze",
 		BackgroundFilter: "#00000040",
 		Width: 3200,
 		Height: 1400,
 		Door: [
 			{ Name: "ForestBirchEast", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 4200, ToFaceLeft: true },
-			{ Name: "ForestBirchMazePath", FromX: 3100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: true }
+			{ Name: "ForestBirchMazePath", FromX: 3100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 1500, ToFaceLeft: true }
 		],
 		Character: [
 			{ Name: "Vera", Status: "Leather", X: 1800 }
@@ -1111,7 +1111,8 @@ var PlatformRoomList = [
 		Name: "ForestBirchMazePath",
 		Background: "Forest/BirchMaze",
 		Entry: function() {
-			PlatformDialogStart(PlatformEventDone("EdlaranJoin") ? "ForestPath" : "ForestLost");
+			if (PlatformEventDone("ForestCapture") || PlatformEventDone("ForestCaptureEnd")) PlatformLoadRoom("ForestFirPath");
+			else PlatformDialogStart(PlatformEventDone("EdlaranJoin") ? "ForestPath" : "ForestLost");
 		},
 	},
 	{
@@ -1170,6 +1171,7 @@ var PlatformRoomList = [
 		Height: 1400,
 		Door: [
 			{ Name: "ForestLakePath", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2700, ToFaceLeft: true },
+			{ Name: "ForestBirchMaze", FromX: 1200, FromY: 0, FromW: 600, FromH: 1200, FromType: "Up", ToX: 3100, ToFaceLeft: true },
 			{ Name: "ForestPond", FromX: 2900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
 		],
 		Character: [
