@@ -31,7 +31,13 @@ HelpText3,The Language filter allows to view only rooms in a particular language
 HelpText4,"Use ""Filter out terms"" to hide all rooms containing those words. Note this only checks the room name, not the description."
 HelpText5,Click on a room in this view to instantly hide that one room (until next login) and/or ghostlist the player who made the room (saved permanently until you remove them from ghostlist). Use the buttons at bottom right to select which action to take.
 HelpText6,"Use ""Show hidden rooms"" to show all the normally hidden rooms in case you want to unhide a particular room. Clicking a hidden room will take all actions necessary to show it (remove words from filter, remove room from Temp Hidden list, and/or remove creator from ghostlist)."
-HelpText7,Note that rooms hidden because of the language setting do not show on ""Show hidden rooms"". All other hidden rooms will show there.
+HelpText7,"Note that rooms hidden because of the language setting do not show on ""Show hidden rooms"". All other hidden rooms will show there. A confirmation will be shown if unhiding a room requires unghostlisting anyone or removing filter words."
+UnhideConfirmRoom,"In order to unhide ""{RoomLabel}"" you are also about to:"
+UnhideConfirmMember,"Remove ""{MemberLabel}"" from your ghostlist"
+UnhideConfirmWords,"Remove ""{WordsLabel}"" from your filtered words"
+UnhideConfirmEnd,Are you sure you want to do this?
+UnhideCancel,Cancel
+UnhideConfirm,Do it
 RefreshRooms,Refresh rooms
 Exit,Leave room search
 FriendList,Friends
