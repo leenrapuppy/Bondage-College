@@ -63,7 +63,7 @@ var PlatformDialogCharacterTemplate = [
 	{
 		Name: "Lyn",
 		NickName: "Bandit Boss",
-		Color: "#b329be",
+		Color: "#c32fce",
 	},
 ];
 
@@ -2035,6 +2035,47 @@ var PlatformDialogData = [
 
 		],
 	},
+
+	{
+		Name: "BarnThiefRescueMelody",
+		Exit : function () { PlatformEventSet("BarnThiefRescueMelody"); PlatformLoadRoom(); PlatformPlayer.X = 200; },
+		Dialog: [
+			{
+				Background: "BarnInterior",
+				Character: [
+					{ Name: "Hazel", Status: "Maid", Pose: "Angry" },
+					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+				]
+			},
+			{ Text: "(A servant enters the barn to speak with the thief boss.)" },
+			{ Text: "Boss, we have a problem." },
+			{ Text: "The slave trading outpost has been attacked." },
+			{ Text: "The maid we were expecting to sell has run away." },
+			{
+				Text: "(The boss gets angry.)",
+				Character: [
+					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+					{ Name: "Hazel", Status: "Maid", Pose: "Angry" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
+				]
+			},
+			{ Text: "Do I need to do everything myself?" },
+			{ Text: "I'll get the whip cracking, you stay here and guard the prisoner." },
+			{ Text: "Do not ungag her, do not unlock her and do not let her out." },
+			{ Text: "(She gets even more angry.)" },
+			{ Text: "You know what?  Torture the bitch!  It will teach her not to try to escape." },
+			{ Text: "(She runs away and slams the barn door, which makes a loud creaking sound.)" },
+			{
+				Text: "I can torture you?  Sweet!",
+				Character: [
+					{ Name: "Hazel", Status: "Maid", Pose: "Angry" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
+				]
+			},
+			{ Text: "(She charges toward you.  The barn door seems to be weak.)" },
+
+		],
+	},	
 
 ];
 

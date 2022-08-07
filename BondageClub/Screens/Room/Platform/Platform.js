@@ -1120,7 +1120,14 @@ var PlatformRoomList = [
 	{
 		Name: "ForestBarnInterior",
 		Entry: function() {
-			PlatformCreateCharacter("Lyn", "Thief", 1800, true, false, "BarnThief", true);
+			if (PlatformEventDone("ForestCaptureRescueMelody") && !PlatformEventDone("BarnThiefRescueMelody")) PlatformCreateCharacter("Hazel", "Maid", 1650, true, false, "BarnThiefRescueMelody", false);
+			if (!PlatformEventDone("BarnThiefRescueMelody")) PlatformCreateCharacter("Lyn", "Thief", 1800, true, false, PlatformEventDone("ForestCaptureRescueMelody") ? "BarnThiefRescueMelody" : "BarnThief", true);
+			if (PlatformEventDone("BarnThiefRescueMelody")) {
+				PlatformCreateCharacter("Hazel", "Maid", 1800, false, true, null, true);
+				PlatformRoom.Heal = null;
+				PlatformRoom.Door.push({ Name: "ForestBarnExterior", FromX: 900, FromY: 0, FromW: 250, FromH: 1200, FromType: "Up", ToX: 1050, ToFaceLeft: false });
+				PlatformMessageSet("Wooden Barn");
+			}
 		},		
 		Text: "Wooden Barn (heal and save)",
 		Background: "Forest/BarnInterior",
@@ -1214,6 +1221,19 @@ var PlatformRoomList = [
 			{ Name: "Crate", Status: "Wood", X: 1800, Combat: false, Fix: true, Dialog: "MelodyCrate" },
 			{ Name: "Vera", Status: "Leather", X: 600 },
 			{ Name: "Lucy", Status: "Armor", X: 1800 }
+		]
+	},
+	{
+		Name: "ForestBarnExterior",
+		Text: "Barn Exterior",
+		Background: "Forest/BarnExterior",
+		Width: 3000,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestBarnInterior", FromX: 900, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 1050, ToFaceLeft: false },
+		],
+		Character: [
+			{ Name: "Yuna", Status: "Maid", X: 2100 }
 		]
 	},
 
