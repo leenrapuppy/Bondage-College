@@ -733,7 +733,7 @@ function ChatSearchResponse(data) {
  * @returns {void} - Nothing
  */
 function ChatSearchResultResponse(data) {
-	ChatSearchResult = data;
+	ChatSearchResult = Array.isArray(data) ? data : [];
 	ChatSearchResultOffset = 0;
 	ChatSearchQuerySort();
 	ChatSearchApplyFilterTerms();
