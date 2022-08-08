@@ -257,6 +257,10 @@ function ChatSearchKeyDown() {
  * @returns {void} - Nothing
  */
 function ChatSearchExit() {
+	ChatSearchMode = "";
+	ChatSearchShowHiddenRoomsActive = false;
+	ChatSearchFilterHelpActive = false;
+	ChatSearchFilterUnhideConfirm = null;
 	ChatSearchPreviousActivePose = Player.ActivePose;
 	ElementRemove("InputSearch");
 	CommonSetScreen("Room", ChatSearchLeaveRoom);
