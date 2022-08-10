@@ -89,7 +89,7 @@ const CONTRIBUTOR_NAMES = {
 	"Timeline": "Timeline",
 	"meshwork100": "meshwork100",
 	"Tama-chan": "Tama-chan",
-	"tamachan": "tamachan",
+	"tamachan": "Tama-chan",
 	"zR1OQicz": "zR1OQicz",
 };
 
