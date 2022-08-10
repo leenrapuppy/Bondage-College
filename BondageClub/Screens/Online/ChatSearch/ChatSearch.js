@@ -413,12 +413,13 @@ function ChatSearchPermissionDraw() {
 		return;
 	}
 
+	let X = 25;
+	let Y = 25;
+	let ShownRooms = 0;
+
 	if (!ChatSearchShowHiddenRoomsActive)
 	{
 		// Show currently visible rooms
-		var X = 25;
-		var Y = 25;
-		var ShownRooms = 0;
 
 		for (let C = ChatSearchResultOffset; C < ChatSearchResult.length && ShownRooms < ChatSearchRoomsPerPage; C++) {
 			let Hover = (MouseX >= X) && (MouseX <= X + 630) && (MouseY >= Y) && (MouseY <= Y + 85) && !CommonIsMobile;
@@ -437,9 +438,6 @@ function ChatSearchPermissionDraw() {
 		}
 	} else {
 		// Show hidden rooms
-		var X = 25;
-		var Y = 25;
-		var ShownRooms = 0;
 
 		for (let C = ChatSearchResultOffset; C < ChatSearchHiddenResult.length && ShownRooms < ChatSearchRoomsPerPage; C++) {
 			let Hover = (MouseX >= X) && (MouseX <= X + 630) && (MouseY >= Y) && (MouseY <= Y + 85) && !CommonIsMobile;
