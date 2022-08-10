@@ -33,7 +33,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 ### [Changed]
 
 * sqrt10pi - Reworked some of the UI interactions around the sexual activities menu ([#3562](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3562))
-* tamachan - Made several enhancements to the chatroom filtering functionality ([#3577](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3577), [#3580](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3580))
+* Tama-chan - Made several enhancements to the chatroom filtering functionality ([#3577](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3577), [#3580](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3580))
 
 ### [Fixed]
 
@@ -41,7 +41,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Estsanatlehi - Fixed several bugs with the obedience belt ([#3557](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3557), [#3565](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3565))
 * Estsanatlehi - Fixed some missing assets for the Ornate Cuffs in the hogtied pose ([#3552](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3552))
 * meshwork100 - Fixed several typos & mistakes in the Chinese translations ([#3563](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3563), [#3571](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3571))
-* tamachan - Several typo/grammatical fixes and phrasing reworks to English text ([#3575](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3575))
+* Tama-chan - Several typo/grammatical fixes and phrasing reworks to English text ([#3575](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3575))
 * Ellie - Fixed a loophole that allowed players to crash other players' games via console ([#3578](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3578))
 * zR1OQicz - Fixed an issue with color handling in the magic puzzle minigame ([#3579](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3579))
 
