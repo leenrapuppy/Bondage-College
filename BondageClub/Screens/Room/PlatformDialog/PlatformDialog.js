@@ -2075,7 +2075,24 @@ var PlatformDialogData = [
 			{ Text: "(She charges toward you.  The barn door seems to be weak.)" },
 
 		],
-	},	
+	},
+
+	{
+		Name: "ForestCaptureEnd",
+		Exit : function () { PlatformEventSet("ForestCaptureEnd"); PlatformLoadRoom(); PlatformPlayer.HalfBound = false; PlatformAddExperience(PlatformPlayer, 20); },
+		Dialog: [
+			{
+				Background: "LakeRaft",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
+				]
+			},
+			{ Text: "TO DO" },
+
+		],
+	},
+
+	
 
 ];
 
@@ -2394,14 +2411,14 @@ function PlatformDialogLeaderHasPerk(PerkName) {
 function PlatformDialogEvent() {
 
 	// In the forest capture mode, Olivia is stuck half bound in a barn
-	if (PlatformEventDone("ForestCapture") && (PlatformPlayer.Name == "Olivia")) {
+	if (PlatformEventDone("ForestCapture") && !PlatformEventDone("ForestCaptureEnd") && (PlatformPlayer.Name == "Olivia")) {
 		PlatformPlayer.HalfBound = true;
 		PlatformPlayer.X = 1000;
 		PlatformLoadRoom("ForestBarnInterior");
 	}
 
 	// In the forest capture mode, Melody is bound, stuck in a crate
-	if (PlatformEventDone("ForestCapture") && !PlatformEventDone("ForestCaptureRescueMelody") && (PlatformPlayer.Name == "Melody")) {
+	if (PlatformEventDone("ForestCapture") && !PlatformEventDone("ForestCaptureEnd") && !PlatformEventDone("ForestCaptureRescueMelody") && (PlatformPlayer.Name == "Melody")) {
 		PlatformPlayer.Health = 0;
 		PlatformPlayer.Bound = true;
 		PlatformPlayer.X = 1000;
@@ -2409,13 +2426,13 @@ function PlatformDialogEvent() {
 	}
 
 	// In the forest capture mode, Melody can be rescued
-	if (PlatformEventDone("ForestCapture") && PlatformEventDone("ForestCaptureRescueMelody") && (PlatformPlayer.Name == "Melody")) {
+	if (PlatformEventDone("ForestCapture") && !PlatformEventDone("ForestCaptureEnd") && PlatformEventDone("ForestCaptureRescueMelody") && (PlatformPlayer.Name == "Melody")) {
 		PlatformPlayer.X = 1000;
 		PlatformLoadRoom("ForestCampGround");
 	}
 
 	// In the forest capture mode, Edlaran starts at a campfire
-	if (PlatformEventDone("ForestCapture") && (PlatformPlayer.Name == "Edlaran")) {
+	if (PlatformEventDone("ForestCapture") && !PlatformEventDone("ForestCaptureEnd") && (PlatformPlayer.Name == "Edlaran")) {
 		PlatformPlayer.X = 1000;
 		PlatformLoadRoom("ForestCampGround");
 	}

@@ -314,6 +314,7 @@ var PlatformTemplate = [
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
+		JumpHitBox: [0.4, 0.05, 0.6, 0.7],
 		RunSpeed: 12,
 		WalkSpeed: 8,
 		CrawlSpeed: 4,
@@ -341,6 +342,7 @@ var PlatformTemplate = [
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
+		JumpHitBox: [0.4, 0.05, 0.6, 0.7],
 		RunSpeed: 12,
 		WalkSpeed: 8,
 		CrawlSpeed: 4,
@@ -396,6 +398,7 @@ var PlatformTemplate = [
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
+		JumpHitBox: [0.4, 0.05, 0.6, 0.7],
 		RunSpeed: 9,
 		WalkSpeed: 6,
 		CrawlSpeed: 3,
@@ -1149,6 +1152,14 @@ var PlatformRoomList = [
 		Name: "ForestCampGround",
 		Text: "Camp Site (heal and save)",
 		Background: "Forest/CampGround",
+		AlternateBackground: "Forest/CampGroundRaft",
+		Entry: function() {
+			if (PlatformEventDone("ForestCaptureEnd")) {
+				PlatformRoom.Door.push({ Name: "ForestLakeShore", FromX: 200, FromY: 0, FromW: 400, FromH: 1200, FromType: "Up", ToX: 3100, ToFaceLeft: true });
+				PlatformRoom.LimitLeft = 200;
+				PlatformRoom.Background = "Forest/CampGroundRaft";
+			}
+		},
 		Width: 2000,
 		Height: 1400,
 		LimitLeft: 600,
@@ -1231,10 +1242,65 @@ var PlatformRoomList = [
 		Height: 1400,
 		Door: [
 			{ Name: "ForestBarnInterior", FromX: 900, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 1050, ToFaceLeft: false },
+			{ Name: "ForestPlainSparseRocks", FromX: 2900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
 		],
 		Character: [
 			{ Name: "Yuna", Status: "Maid", X: 2100 }
 		]
+	},
+	{
+		Name: "ForestPlainSparseRocks",
+		Text: "Sparse Plain",
+		Background: "Forest/PlainSparseRocks",
+		Width: 5000,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestBarnExterior", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2900, ToFaceLeft: true },
+			{ Name: "ForestMountainLake", FromX: 4900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+		],
+		Character: [
+			{ Name: "Yuna", Status: "Maid", X: 2100 },
+			{ Name: "Lucy", Status: "Armor", X: 2900 },
+		]
+	},
+	{
+		Name: "ForestMountainLake",
+		Text: "Lake Path",
+		Background: "Forest/MountainLake",
+		Width: 4400,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestPlainSparseRocks", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 4900, ToFaceLeft: true },
+			{ Name: "ForestLakeShore", FromX: 4300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1500 },
+			{ Name: "Hazel", Status: "Maid", X: 2900 },
+		]
+	},
+	{
+		Name: "ForestLakeShore",
+		Text: "Lake Shore",
+		Background: "Forest/LakeShoreRaft",
+		Width: 4000,
+		Height: 1400,
+		LimitRight: 3300,
+		Door: [
+			{ Name: "ForestMountainLake", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 4300, ToFaceLeft: true },
+			{ Name: "ForestLake", FromX: 2900, FromY: 0, FromW: 400, FromH: 1200, FromType: "Up", ToX: 400, ToFaceLeft: false },
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1500 },
+			{ Name: "Lucy", Status: "Armor", X: 2500 },
+		]
+	},
+	{
+		Name: "ForestLake",
+		Background: "Forest/LakeShore",
+		Entry: function() {
+			PlatformLoadRoom("ForestCampGround");
+			if (!PlatformEventDone("ForestCaptureEnd")) PlatformDialogStart("ForestCaptureEnd");
+		},
 	},
 
 ]
