@@ -1791,7 +1791,7 @@ function CharacterNickname(C) {
  * Note that changing any nickname but yours (ie. Player) is not supported.
  *
  * @param {Character} C - The character to change the nickname of.
- * @param {string} Nick - The name to use as the new nickname.
+ * @param {string} Nick - The name to use as the new nickname. An empty string uses the character's real name.
  * @return {string} null if the nickname was valid, or an explanation for why the nickname was rejected.
  */
 function CharacterSetNickname(C, Nick) {
@@ -1800,7 +1800,7 @@ function CharacterSetNickname(C, Nick) {
 	Nick = Nick.trim();
 	if (Nick.length > 20) return "NicknameTooLong";
 
-	if (!ServerCharacterNicknameRegex.test(Nick)) return "NicknameInvalidChars";
+	if (Nick.length > 0 && !ServerCharacterNicknameRegex.test(Nick)) return "NicknameInvalidChars";
 
 	if (C.Nickname != Nick) {
 		const oldNick = C.Nickname || C.Name;
