@@ -2191,7 +2191,62 @@ var PlatformDialogData = [
 		],
 	},
 
+	{
+		Name: "ThiefBossFlee",
+		Exit : function () { PlatformLoadRoom("ForestPlainToSavannah"); PlatformPlayer.X = 100; PlatformPlayer.FaceLeft = false; },
+		Dialog: [
+			{
+				Background: "Savannah",
+				Character: [
+					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
+					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }
+				]
+			},
+			{ Text: "(The bandit boss and her minions are having a loud argument.)" },
+			{ Text: "(It's way too dangerous to go that way.)" },
+			{ Text: "(Olivia retreats silently.)" },
+		],
 
+	},
+
+	{
+		Name: "ThiefBossIntro",
+		Exit : function () { PlatformLoadRoom("ForestPlainToSavannah"); PlatformPlayer.X = 100; PlatformPlayer.FaceLeft = false; },
+		Dialog: [
+			{
+				Background: "Savannah",
+				Character: [
+					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
+					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }
+				]
+			},
+			{ Text: "(The bandit boss and her minions are having a loud argument.)" },
+			{
+				Text: "(What will you do?)",
+				Answer: [
+					{ Text: "(Turn back silently.)", Script: function() { PlatformDialogLeave(); PlatformLoadRoom("ForestPlainToSavannah"); PlatformPlayer.X = 100; PlatformPlayer.FaceLeft = false; } },
+					{ Text: "(Walk around and try to avoid them.)", Reply: "(One of the bandits spots you.)" },
+					{ Text: "(Provoke them.)", Reply: "(All bandits turns toward you.)" },
+				]
+			},
+			{ Text: "Boss!  We have a rat in the camp." },
+			{
+				Character: [
+					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
+					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }
+				]
+			},
+			{ Text: "Good!  Spring the trap girls." },
+			{ Text: "(A fence springs from the ground behind you.)" },
+			{ Text: "I'll take care of that rat myself." },
+			{ Text: "(She charges toward you with her minions.)" },
+			{ Text: "TO DO" },
+		],
+
+	}
 
 ];
 

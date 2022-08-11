@@ -1130,6 +1130,7 @@ var PlatformRoomList = [
 				PlatformRoom.Heal = null;
 				PlatformRoom.Door.push({ Name: "ForestBarnExterior", FromX: 900, FromY: 0, FromW: 250, FromH: 1200, FromType: "Up", ToX: 1050, ToFaceLeft: false });
 				PlatformMessageSet("Wooden Barn");
+				PlatformHeal = null;
 			}
 		},		
 		Text: "Wooden Barn (heal and save)",
@@ -1241,12 +1242,13 @@ var PlatformRoomList = [
 		Width: 3000,
 		Height: 1400,
 		Door: [
+			{ Name: "ForestPlainToSavannah", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3500, ToFaceLeft: true },
 			{ Name: "ForestBarnInterior", FromX: 900, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 1050, ToFaceLeft: false },
 			{ Name: "ForestPlainSparseRocks", FromX: 2900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
 		],
 		Character: [
 			{ Name: "Yuna", Status: "Maid", X: 2100 }
-		]
+		]		
 	},
 	{
 		Name: "ForestPlainSparseRocks",
@@ -1301,6 +1303,40 @@ var PlatformRoomList = [
 			PlatformLoadRoom("ForestCampGround");
 			if (!PlatformEventDone("ForestCaptureEnd")) PlatformDialogStart("ForestCaptureEnd");
 		},
+	},
+	{
+		Name: "ForestPlainToSavannah",
+		Text: "Savannah Plain",
+		Background: "Forest/PlainToSavannah",
+		Width: 3600,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestSavannah", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 5400, ToFaceLeft: true },
+			{ Name: "ForestBarnExterior", FromX: 3500, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1300 },
+			{ Name: "Vera", Status: "Leather", X: 2300 },
+		]
+	},
+	{
+		Name: "ForestSavannah",
+		Text: "Savannah",
+		Background: "Forest/Savannah",
+		Entry: function() {
+			if (!PlatformEventDone("ForestCaptureEnd")) PlatformDialogStart("ThiefBossFlee");
+			else if (!PlatformEventDone("ThiefBossIntro")) PlatformDialogStart("ThiefBossIntro");
+		},
+		Width: 5500,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestPlainToSavannah", FromX: 5400, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1400 },
+			{ Name: "Lyn", Status: "Thief", X: 2800 },
+			{ Name: "Vera", Status: "Leather", X: 4100 },
+		]
 	},
 
 ]
