@@ -2087,8 +2087,107 @@ var PlatformDialogData = [
 					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
 				]
 			},
-			{ Text: "TO DO" },
-
+			{ Text: "(Olivia jumps on the wooden raft which starts to drift on the lake.)" },
+			{ Text: "(Her pursuers jump in the water but quickly turn back, failing to swin.)" },
+			{ Text: "(The raft slowly gets further toward the middle of the lake.)" },
+			{ 
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGaggedKneeling", X: 500, Y: 300 },
+				]
+			},
+			{ Text: "(After a while, the wooden embarcation stops completly.)" },
+			{ Text: "(Olivia is left bound, gagged and stranded on the huge lake.)" },
+			{ Text: "(A few hours later...)" },
+			{
+				Background: "CampGround",
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle" },
+				],
+			},
+			{ Text: "(Edlaran stares at the lake.)" },
+			{
+				Text: "The sea is a harsh Mistress.",
+				Answer: [
+					{ Text: "What's going on?", Reply: "I'm philosophizing by the lake." },
+					{ Text: "I should be your Mistress.", Reply: "(She blushes and looks down.)  That's not what I meant.", Domination: 2 },
+					{ Text: "Why are you saying that?", Reply: "It's an old sailor proverb." },
+					{ Text: "I would love to have a Mistress.", Reply: "(She grins.)  Be careful on what you wish for.", Domination: -2 },
+				]
+			},
+			{ Text: "(She points to the middle of the lake.)" },
+			{ Text: "Do you see that little raft?  Look carefully." },
+			{ Text: "You don't have my perfect elven vision.  (She winks at you.)" },
+			{ Text: "(You finally see the raft.)  Check the girl in white, isn't it Olivia?" },
+			{ Text: "Oh my!  I think she's bound.  Is she stranded on the lake?" },
+			{
+				Text: "What should we do?",
+				Answer: [
+					{ Text: "Move!  I'll go get her.", Reply: "No need to yell.  (She steps away from the lake.)", Love: -1 },
+					{ Text: "Save her!  Like the friends we are.", Reply: "(She nods in agreement.)  What will you do?", Love: 1 },
+					{ Text: "I think I can swim it.", Reply: "Are you sure?  (She looks at the middle of the lake.)" },
+					{ Text: "Heroes must get wet.", Reply: "You will try to swim?  (She seems impressed.)", Perk: true, Domination: 1 },
+				]
+			},
+			{
+				Character: [
+					{ Name: "Melody", Status: "Underwear", Pose: "Cocky" },
+					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
+				],
+			},
+			{ Text: "(You quickly remove your clothes.)" },
+			{ Text: "If I drown, you'll need to find another way to save her." },
+			{ Text: "(You dive in the water.)" },
+			{
+				Background: "Water",
+				Character: [
+					{ Name: "Melody", Status: "Underwear", Pose: "Swimming", X: 0 },
+				],
+			},
+			{ Text: "(You swim like you never did before.)" },
+			{ Text: "(Catching your breath when you need.)" },
+			{ Text: "(Focusing on the raft, focusing on Olivia.)" },
+			{ Text: "(You swim for hours, feeling your soar muscle.)" },
+			{ Text: "(You cannot give up, too much is at stake.)" },
+			{ Text: "(You finally reach Olivia's raft.)" },
+			{ 
+				Background: "LakeRaft",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGaggedKneeling", X: 250, Y: 300 },
+					{ Name: "Melody", Status: "Underwear", Pose: "ExhaustedRight" },
+				]
+			},
+			{ Text: "(You climb on the raft as she cheers in her gag.)" },
+			{
+				Text: "Mmnhdy!",
+				Answer: [
+					{ Text: "I almost drown for you.", Reply: "(She grumbles in her gag.)", Love: -1 },
+					{ Text: "I will always be there to protect you.", Reply: "(She bows her head.)", Domination: 1 },
+					{ Text: "I'm so happy to see you.", Reply: "(She nods happily.)", Love: 1 },
+					{ Text: "I was so scared for you.", Reply: "(She shakes her head from left to right.)", Domination: -1 },
+				]
+			},
+			{ Text: "(You release her from her bondage.)" },
+			{ 
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle" },
+					{ Name: "Melody", Status: "Underwear", Pose: "Cocky" },
+				]
+			},
+			{ Text: "Ah!  Thank you so much." },
+			{
+				Text: "I owe you one.",
+				Answer: [
+					{ Text: "Kiss me girl.", Reply: "(You grab her for a long kiss.)", Love: 1, Domination: 1 },
+					{ Text: "Don't mention it.", Reply: "You're way too humble." },
+					{ Text: "No Miss.  I'm doing my servant work.", Reply: "(She gives you a curious look.)  I'll have to raise your salary my maid.", Love: -1, Domination: -1 },
+					{ Text: "I would die to save your life Miss.", Reply: "(She gives you a hug.)  Please don't die my maid.", Perk: true, Love: 1, Domination: -1 },
+				]
+			},
+			{ Text: "It will take us hours to reach the shore." },
+			{ Text: "More time to know each other.  (She smiles.)" },
+			{ Text: "(You both work very hard to bring the raft back.)" },
+			
 		],
 	},
 
