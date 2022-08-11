@@ -2308,14 +2308,14 @@ var AssetFemale3DCGExtended = {
 				Modules: [
 					{
 						Name: "Plaque", Key: "p",
-						Options: [ 
+						Options: [
 						{}, //p0 - Border
 						{}, //p1 - Border
 						]
 					},
 					{
 						Name: "Dirt", Key: "d",
-						Options: [ 
+						Options: [
 						{}, //d0 - Clean
 						{}, //d1 - Dirty
 						]
@@ -2343,7 +2343,7 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "PostIt", Key: "m",
-						Options: [ 
+						Options: [
 						{}, //m0 - Postit
 						{}, //m1 - No PostIt
 						]
@@ -5210,13 +5210,13 @@ var AssetFemale3DCGExtended = {
 						Prerequisite: ["CanCloseLegs"],
 					},
 					{
-						Name: "Tighs",
-						Property: { Type: "Tighs", SetPose: ["LegsClosed"], Difficulty: 1 },
+						Name: "Thighs",
+						Property: { Type: "Thighs", SetPose: ["LegsClosed"], Difficulty: 1 },
 						Prerequisite: ["CanCloseLegs"],
 					},
 					{
-						Name: "KneesTighs",
-						Property: { Type: "KneesTighs", SetPose: ["LegsClosed"], Difficulty: 2 },
+						Name: "KneesThighs",
+						Property: { Type: "KneesThighs", SetPose: ["LegsClosed"], Difficulty: 2 },
 						Prerequisite: ["CanCloseLegs"],
 					},
 					{
@@ -7081,7 +7081,7 @@ var AssetFemale3DCGExtended = {
 				Modules:[
 					{
 						Name:"Main", Key: "m",
-						Options: [ 
+						Options: [
 							{Property: { Hide: ["Eyes"]}, }, // Right Eye
 							{Property: { Hide: ["Eyes2"]}, }, // Left Eye
 							{Property: { Hide: ["Eyes","Eyes2"], Effect: ["BlindHeavy", "Prone"]},} //Both Eyes
@@ -7089,7 +7089,7 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name:"Right", Key: "r",
-						Options: [ 
+						Options: [
 							{}, // Straight
 							{}, // ZigZag
 							{}, // Skewed
@@ -7098,7 +7098,7 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name:"Left", Key: "l",
-						Options: [ 
+						Options: [
 							{}, // Straight
 							{}, // ZigZag
 							{}, // Skewed

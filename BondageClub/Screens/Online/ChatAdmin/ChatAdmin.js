@@ -196,6 +196,7 @@ function ChatAdminClick() {
  * @returns {void} - Nothing
  */
 function ChatAdminExit() {
+	AsylumGGTSReset();
 	ChatAdminBackgroundSelected = null;
 	ChatAdminTemporaryData = null;
 	ElementRemove("InputName");

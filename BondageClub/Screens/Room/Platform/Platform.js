@@ -235,6 +235,15 @@ var PlatformTemplate = [
 			{ Name: "Idle", Cycle: [0], Speed: 1000 }
 		]
 	},
+	{
+		Name: "Crate",
+		Status: "Wood",
+		Width: 400,
+		Height: 400,
+		Animation: [
+			{ Name: "Idle", Cycle: [0], Speed: 1000 }
+		]
+	},
 /*	{
 		Name: "Kara",
 		Status: "Nude",
@@ -305,6 +314,7 @@ var PlatformTemplate = [
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
+		JumpHitBox: [0.4, 0.05, 0.6, 0.7],
 		RunSpeed: 12,
 		WalkSpeed: 8,
 		CrawlSpeed: 4,
@@ -332,6 +342,7 @@ var PlatformTemplate = [
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
+		JumpHitBox: [0.4, 0.05, 0.6, 0.7],
 		RunSpeed: 12,
 		WalkSpeed: 8,
 		CrawlSpeed: 4,
@@ -387,6 +398,7 @@ var PlatformTemplate = [
 		Width: 400,
 		Height: 400,
 		HitBox: [0.4, 0.05, 0.6, 1],
+		JumpHitBox: [0.4, 0.05, 0.6, 0.7],
 		RunSpeed: 9,
 		WalkSpeed: 6,
 		CrawlSpeed: 3,
@@ -1000,9 +1012,11 @@ var PlatformRoomList = [
 		Name: "ForestCabin",
 		Entry: function() {
 			PlatformChar.splice(1, 100);
-			if (PlatformPlayer.Name != "Olivia") PlatformCreateCharacter("Olivia", "Oracle", 1300, true, false, "OliviaCabin");
-			if (PlatformPlayer.Name != "Melody") PlatformCreateCharacter("Melody", "Maid", 1700, true, false, (PlatformPlayer.Name == "Olivia") ? "OliviaCabin" : "EdlaranCabin", true);
-			if (PlatformEventDone("EdlaranJoin") && (PlatformPlayer.Name != "Edlaran")) PlatformCreateCharacter("Edlaran", "Archer", 2100, true, false, "EdlaranCabin", true);
+			if (!PlatformEventDone("ForestCapture") || PlatformEventDone("ForestCaptureEnd")) {
+				if (PlatformPlayer.Name != "Olivia") PlatformCreateCharacter("Olivia", "Oracle", 1300, true, false, "OliviaCabin");
+				if (PlatformPlayer.Name != "Melody") PlatformCreateCharacter("Melody", "Maid", 1700, true, false, (PlatformPlayer.Name == "Olivia") ? "OliviaCabin" : "EdlaranCabin", true);
+				if (PlatformEventDone("EdlaranJoin") && (PlatformPlayer.Name != "Edlaran")) PlatformCreateCharacter("Edlaran", "Archer", 2100, true, false, "EdlaranCabin", true);
+			}
 		},
 		Text: "Wooden Cabin (heal and save)",
 		Background: "Forest/CabinInterior",
@@ -1085,14 +1099,14 @@ var PlatformRoomList = [
 	},
 	{
 		Name: "ForestBirchMaze",
-		Text: "Birch Path ????",
+		Text: "Lost Birch Path",
 		Background: "Forest/BirchMaze",
 		BackgroundFilter: "#00000040",
 		Width: 3200,
 		Height: 1400,
 		Door: [
 			{ Name: "ForestBirchEast", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 4200, ToFaceLeft: true },
-			{ Name: "ForestBirchMazePath", FromX: 3100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: true }
+			{ Name: "ForestBirchMazePath", FromX: 3100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 1500, ToFaceLeft: true }
 		],
 		Character: [
 			{ Name: "Vera", Status: "Leather", X: 1800 }
@@ -1102,13 +1116,22 @@ var PlatformRoomList = [
 		Name: "ForestBirchMazePath",
 		Background: "Forest/BirchMaze",
 		Entry: function() {
-			PlatformDialogStart(PlatformEventDone("EdlaranJoin") ? "ForestPath" : "ForestLost");
+			if (PlatformEventDone("ForestCapture") || PlatformEventDone("ForestCaptureEnd")) PlatformLoadRoom("ForestFirPath");
+			else PlatformDialogStart(PlatformEventDone("EdlaranJoin") ? "ForestPath" : "ForestLost");
 		},
 	},
 	{
 		Name: "ForestBarnInterior",
 		Entry: function() {
-			PlatformCreateCharacter("Lyn", "Thief", 1800, true, false, "BarnThief", true);
+			if (PlatformEventDone("ForestCaptureRescueMelody") && !PlatformEventDone("BarnThiefRescueMelody")) PlatformCreateCharacter("Hazel", "Maid", 1650, true, false, "BarnThiefRescueMelody", false);
+			if (!PlatformEventDone("BarnThiefRescueMelody")) PlatformCreateCharacter("Lyn", "Thief", 1800, true, false, PlatformEventDone("ForestCaptureRescueMelody") ? "BarnThiefRescueMelody" : "BarnThief", true);
+			if (PlatformEventDone("BarnThiefRescueMelody")) {
+				PlatformCreateCharacter("Hazel", "Maid", 1800, false, true, null, true);
+				PlatformRoom.Heal = null;
+				PlatformRoom.Door.push({ Name: "ForestBarnExterior", FromX: 900, FromY: 0, FromW: 250, FromH: 1200, FromType: "Up", ToX: 1050, ToFaceLeft: false });
+				PlatformMessageSet("Wooden Barn");
+				PlatformHeal = null;
+			}
 		},		
 		Text: "Wooden Barn (heal and save)",
 		Background: "Forest/BarnInterior",
@@ -1130,11 +1153,190 @@ var PlatformRoomList = [
 		Name: "ForestCampGround",
 		Text: "Camp Site (heal and save)",
 		Background: "Forest/CampGround",
+		AlternateBackground: "Forest/CampGroundRaft",
+		Entry: function() {
+			if (PlatformEventDone("ForestCaptureEnd")) {
+				PlatformRoom.Door.push({ Name: "ForestLakeShore", FromX: 200, FromY: 0, FromW: 400, FromH: 1200, FromType: "Up", ToX: 3100, ToFaceLeft: true });
+				PlatformRoom.LimitLeft = 200;
+				PlatformRoom.Background = "Forest/CampGroundRaft";
+			}
+		},
 		Width: 2000,
 		Height: 1400,
 		LimitLeft: 600,
 		Heal: 250,
-		Door: []
+		Door: [
+			{ Name: "ForestLakePath", FromX: 1900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+	},
+	{
+		Name: "ForestLakePath",
+		Text: "Lake Path",
+		Background: "Forest/LakeBetweenRocks",
+		Width: 2800,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestCampGround", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 1900, ToFaceLeft: true },
+			{ Name: "ForestFirPath", FromX: 2700, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Yuna", Status: "Maid", X: 600 },
+			{ Name: "Hazel", Status: "Maid", X: 2200 }
+		]
+	},
+	{
+		Name: "ForestFirPath",
+		Text: "Fir Path",
+		Background: "Forest/FirLight",
+		Width: 3000,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestLakePath", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2700, ToFaceLeft: true },
+			{ Name: "ForestBirchMaze", FromX: 1200, FromY: 0, FromW: 600, FromH: 1200, FromType: "Up", ToX: 3100, ToFaceLeft: true },
+			{ Name: "ForestPond", FromX: 2900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Lucy", Status: "Armor", X: 600 },
+			{ Name: "Yuna", Status: "Maid", X: 2400 }
+		]
+	},
+	{
+		Name: "ForestPond",
+		Text: "Frog Pond",
+		Background: "Forest/LostPond",
+		Width: 4200,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestFirPath", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2900, ToFaceLeft: true },
+			{ Name: "ForestSecluded", FromX: 4100, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false }
+		],
+		Character: [
+			{ Name: "Hazel", Status: "Maid", X: 800 },
+			{ Name: "Vera", Status: "Leather", X: 3300 },
+			{ Name: "Yuna", Status: "Maid", X: 2050 }
+		]
+	},
+	{
+		Name: "ForestSecluded",
+		Entry: function() {
+			if (!PlatformEventDone("ForestBanditCrate")) PlatformDialogStart("ForestBanditCrate");
+		},
+		Text: "Secluded Clearing",
+		Background: "Forest/SecludedClearing",
+		Width: 2500,
+		Height: 1400,
+		LimitRight: 2350,
+		Door: [
+			{ Name: "ForestPond", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 4100, ToFaceLeft: true },
+		],
+		Character: [
+			{ Name: "Crate", Status: "Wood", X: 1800, Combat: false, Fix: true, Dialog: "MelodyCrate" },
+			{ Name: "Vera", Status: "Leather", X: 600 },
+			{ Name: "Lucy", Status: "Armor", X: 1800 }
+		]
+	},
+	{
+		Name: "ForestBarnExterior",
+		Text: "Barn Exterior",
+		Background: "Forest/BarnExterior",
+		Width: 3000,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestPlainToSavannah", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 3500, ToFaceLeft: true },
+			{ Name: "ForestBarnInterior", FromX: 900, FromY: 0, FromW: 300, FromH: 1200, FromType: "Up", ToX: 1050, ToFaceLeft: false },
+			{ Name: "ForestPlainSparseRocks", FromX: 2900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+		],
+		Character: [
+			{ Name: "Yuna", Status: "Maid", X: 2100 }
+		]		
+	},
+	{
+		Name: "ForestPlainSparseRocks",
+		Text: "Sparse Plain",
+		Background: "Forest/PlainSparseRocks",
+		Width: 5000,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestBarnExterior", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 2900, ToFaceLeft: true },
+			{ Name: "ForestMountainLake", FromX: 4900, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+		],
+		Character: [
+			{ Name: "Yuna", Status: "Maid", X: 2100 },
+			{ Name: "Lucy", Status: "Armor", X: 2900 },
+		]
+	},
+	{
+		Name: "ForestMountainLake",
+		Text: "Lake Path",
+		Background: "Forest/MountainLake",
+		Width: 4400,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestPlainSparseRocks", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 4900, ToFaceLeft: true },
+			{ Name: "ForestLakeShore", FromX: 4300, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1500 },
+			{ Name: "Hazel", Status: "Maid", X: 2900 },
+		]
+	},
+	{
+		Name: "ForestLakeShore",
+		Text: "Lake Shore",
+		Background: "Forest/LakeShoreRaft",
+		Width: 4000,
+		Height: 1400,
+		LimitRight: 3300,
+		Door: [
+			{ Name: "ForestMountainLake", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 4300, ToFaceLeft: true },
+			{ Name: "ForestLake", FromX: 2900, FromY: 0, FromW: 400, FromH: 1200, FromType: "Up", ToX: 400, ToFaceLeft: false },
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1500 },
+			{ Name: "Lucy", Status: "Armor", X: 2500 },
+		]
+	},
+	{
+		Name: "ForestLake",
+		Background: "Forest/LakeShore",
+		Entry: function() {
+			PlatformLoadRoom("ForestCampGround");
+			if (!PlatformEventDone("ForestCaptureEnd")) PlatformDialogStart("ForestCaptureEnd");
+		},
+	},
+	{
+		Name: "ForestPlainToSavannah",
+		Text: "Savannah Plain",
+		Background: "Forest/PlainToSavannah",
+		Width: 3600,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestSavannah", FromX: 0, FromY: 0, FromW: 100, FromH: 1200, FromType: "Left", ToX: 5400, ToFaceLeft: true },
+			{ Name: "ForestBarnExterior", FromX: 3500, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1300 },
+			{ Name: "Vera", Status: "Leather", X: 2300 },
+		]
+	},
+	{
+		Name: "ForestSavannah",
+		Text: "Savannah",
+		Background: "Forest/Savannah",
+		Entry: function() {
+			if (!PlatformEventDone("ForestCaptureEnd")) PlatformDialogStart("ThiefBossFlee");
+			else if (!PlatformEventDone("ThiefBossIntro")) PlatformDialogStart("ThiefBossIntro");
+		},
+		Width: 5500,
+		Height: 1400,
+		Door: [
+			{ Name: "ForestPlainToSavannah", FromX: 5400, FromY: 0, FromW: 100, FromH: 1200, FromType: "Right", ToX: 100, ToFaceLeft: false },
+		],
+		Character: [
+			{ Name: "Vera", Status: "Leather", X: 1400 },
+			{ Name: "Lyn", Status: "Thief", X: 2800 },
+			{ Name: "Vera", Status: "Leather", X: 4100 },
+		]
 	},
 
 ]

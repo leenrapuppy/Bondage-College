@@ -11,9 +11,51 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-07-13
-* Last recorded PR: [#3550](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3550)
-* Last recorded commit hash: `9872e3ce57464b05c796253428482bb976969802`
+* Changelog last updated: 2022-08-09
+* Last recorded PR: [#3580](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3580)
+* Last recorded commit hash: `e5a21c15e24bb8ffb71840c6576592bc02ffe307`
+
+## [R83]
+
+### [Added]
+
+* Luna - Added several new Stitches items and variations ([#3543](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3543))
+* Kehhaja/Nina - Added a new Biker Gloves asset ([#3551](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3551))
+* Luna - Added several new sticker options to the Pet Sign ([#3556](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3556))
+* Timeline - Added several Chinese translations ([#3566](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3566))
+* Da'Inihlus - Added several Chinese translations ([#3574](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3574))
+* Karamel - Added several new variations for the Nylon Rope items ([#3576](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3576))
+
+### [Removed]
+
+* Nothing this release
+
+### [Changed]
+
+* sqrt10pi - Reworked some of the UI interactions around the sexual activities menu ([#3562](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3562))
+* Tama-chan - Made several enhancements to the chatroom filtering functionality ([#3577](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3577), [#3580](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3580))
+
+### [Fixed]
+
+* Ellie - Fixed the wiki link in the browser console safety message ([#3554](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3554))
+* Estsanatlehi - Fixed several bugs with the obedience belt ([#3557](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3557), [#3565](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3565))
+* Estsanatlehi - Fixed some missing assets for the Ornate Cuffs in the hogtied pose ([#3552](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3552))
+* meshwork100 - Fixed several typos & mistakes in the Chinese translations ([#3563](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3563), [#3571](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3571))
+* Tama-chan - Several typo/grammatical fixes and phrasing reworks to English text ([#3575](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3575))
+* Ellie - Fixed a loophole that allowed players to crash other players' games via console ([#3578](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3578))
+* zR1OQicz - Fixed an issue with color handling in the magic puzzle minigame ([#3579](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3579))
+
+### [Technical]
+
+* Demopans - Converted the old Git contribution guide into markdown and added it to the game repository ([#3555](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3555))
+* Technical changes, fixes and improvements:
+  * Estsanatlehi - [#3559](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3559), [#3560](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3560), [#3561](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3561), [#3568](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3568), [#3569](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3569), [#3570](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3570), [#3573](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3573)
+  * Da'Inihlus - [#3567](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3567)
+
+### [Beta Fixes]
+
+* Nothing... yet
+
 
 ## [R82]
 

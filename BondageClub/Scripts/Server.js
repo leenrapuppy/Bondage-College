@@ -371,6 +371,10 @@ function ServerAppearanceBundle(Appearance) {
  * @returns {boolean} - Whether or not the appearance bundle update contained invalid items
  */
 function ServerAppearanceLoadFromBundle(C, AssetFamily, Bundle, SourceMemberNumber, AppearanceFull=false) {
+	if (!Array.isArray(Bundle)) {
+		Bundle = [];
+	}
+
 	const appearanceDiffs = ServerBuildAppearanceDiff(AssetFamily, C.Appearance, Bundle);
 	ServerAddRequiredAppearance(AssetFamily, appearanceDiffs);
 
