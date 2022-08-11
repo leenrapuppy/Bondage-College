@@ -61,15 +61,15 @@ The Language filter allows to view only rooms in a particular language. Other fi
 Use "Filter out terms" to hide all rooms containing those words. Note this only checks the room name, not the description.
 使用“过滤条件”隐藏包含词语的所有房间。注意：这只检查房间名称，不检查描述。
 Click on a room in this view to instantly Temp Hide that one room (until next login) and/or ghostlist the player who made the room (saved permanently until you remove them from ghostlist). Use the buttons at bottom right to select which action to take.
-单击此视图中的某个房间可立即临时隐藏该房间（直到下次登录）和/或 将创建该房间的玩家列入灵魂列表（永久保存，直到您将其从灵魂列表中删除）。使用右下角的按钮选择要采取的操作。
+单击此视图中的某个房间可立即临时隐藏该房间（直到下次登录）和/或 将创建该房间的玩家列入幽灵列表（永久保存，直到您将其从幽灵列表中删除）。使用右下角的按钮选择要采取的操作。
 Use "Show hidden rooms" to show all the normally hidden rooms in case you want to unhide a particular room. Note that rooms hidden because of the language setting will not show here, but all other hidden rooms will.
 如果要取消隐藏特定房间，请使用“显示隐藏房间”显示所有通常隐藏的房间。请注意，此处不会显示由于语言设置而隐藏的房间，但所有其他隐藏房间都会显示。
 Clicking a hidden room will unhide it. If the room is just Temp Hidden it will be unhidden instantly. Otherwise you will be asked to confirm if you want to unghostlist the creator and/or remove some filter words to allow the room to be shown.
-单击隐藏的房间将取消隐藏。如果房间只是临时隐藏，它将立即被取消隐藏。否则，将要求您确认是否要取消列出灵魂列表的创建者和/或删除一些过滤词以显示房间。
+单击隐藏的房间将取消隐藏。如果房间只是临时隐藏，它将立即被取消隐藏。否则，将要求您确认是否要取消列出幽灵列表的创建者和/或删除一些过滤词以显示房间。
 In order to unhide "{RoomLabel}" you are also about to:
 为了取消隐藏"{RoomLabel}"，您还需要：
 Remove "{MemberLabel}" from your ghostlist
-从您的灵魂列表中移除 "{MemberLabel}"
+从您的幽灵列表中移除 "{MemberLabel}"
 Remove "{WordsLabel}" from your filtered words
 从您的过滤词中移除 "{WordsLabel}"
 Are you sure you want to do this?
