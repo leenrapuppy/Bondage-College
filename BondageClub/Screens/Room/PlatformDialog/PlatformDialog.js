@@ -2003,6 +2003,12 @@ var PlatformDialogData = [
 					{ Text: "Nevermind.  Thanks for the rescue.", Reply: "(She smiles.)  My pleasure Melody.", Love: 1 },
 				]
 			},
+			{
+				Entry: function() {
+					if (PlatformDialogGetCharacter("Edlaran").Domination <= -5) PlatformDialogGoto = "PayForRelease";
+					PlatformDialogProcess();
+				}
+			},
 			{ Text: "They got you in tight ropes." },
 			{
 				Text: "Can you struggle out?",
@@ -2014,6 +2020,7 @@ var PlatformDialogData = [
 				]
 			},
 			{
+				ID: "EndLick",
 				Character: [
 					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" },
@@ -2031,7 +2038,51 @@ var PlatformDialogData = [
 			},
 			{ Text: "Let's go find her." },
 			{ Text: "(Meanwhile...  In Olivia's barn.)" },
-			{ Entry: function() { PlatformPartyActivate("Olivia"); PlatformDialogLeave(); } }
+			{ Entry: function() { PlatformPartyActivate("Olivia"); PlatformDialogLeave(); } },
+			{
+				ID: "PayForRelease",
+				Text: "I could release you..."
+			},
+			{
+				Text: "But there's a price.",
+				Answer: [
+					{ Text: "What price?", Reply: "(She removes her bottom and smirks.)  Can you guess?" },
+					{ Text: "I will pay your price.", Reply: "(She removes her bottom and smirks.)  Good girl.", Domination: -1 },
+					{ Text: "I'm not giving you any money.", Reply: "(She removes her bottom and smirks.)  I don't want money from you.", Domination: 1 },
+				]
+			},
+			{
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "NoPants" },
+					{ Name: "Melody", Status: "Maid", Animation: "Bound" },
+				]
+			},
+			{ Text: "You will need to work for your freedom." },
+			{ Text: "(She gets on her knees and closer to your mouth.)" },
+			{
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "KneelingLickedByMaidMelody", X: 500 },
+				]
+			},
+			{
+				Text: "Get to work!",
+				Answer: [
+					{ Text: "(Lick her slowly, without much passion.)", Reply: "(You slowly lick as she masturbates to get an orasm.)", Love: 1 },
+					{ Text: "(Lick her lovingly and skillfully,)", Reply: "(You lick her with skill and she gets a wonderful orgasm.)", Love: 2, Domination: -1 },
+					{ Text: "(Do nothing.)", Reply: "(She grumbles, dresses back and releases you.)  Fine!  I'll release you for free.  You ungrateful bitch.", Love: -2, Domination: 1, Goto: "EndLick" },
+				]
+			},
+			{
+				Character: [
+					{ Name: "Edlaran", Status: "Archer", Pose: "KneelingLickedByMaidMelodyOrgasm", X: 500 },
+				]
+			},
+			{ Text: "OoooOOOooooh! Oooohhh yeah!  YEAAAAAAAAAAAAHHHH!!!" },
+			{ Text: "(She gets a shaterring orgasm in front of the bound bandits.)" },
+			{ Text: "Yes!  That feels so good.  I needed that." },
+			{ Text: "But we're wasting time with your naughty ideas, we need to rush." },
+			{ Text: "(She releases you and dresses back.)" },
+			{ Entry: function() { PlatformDialogGoto = "EndLick"; PlatformDialogProcess(); } },
 
 		],
 	},
