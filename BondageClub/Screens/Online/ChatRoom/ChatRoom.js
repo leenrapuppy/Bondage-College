@@ -2238,6 +2238,31 @@ function ChatRoomMessageInvolvesPlayer(data) {
 		}));
 }
 
+/** @type {ChatRoomMessageExtractor[]} */
+var ChatRoomMessageExtractors = [
+	ChatRoomMessageDefaultMetadataExtractor,
+];
+
+/** @type {ChatRoomMessageHandler[]} */
+var ChatRoomMessageHandlers = [
+	{
+		Priority: -1,
+		Callback: (data, sender, _msg) => {
+			if (data.Type === "Hidden")
+				return ChatRoomMessageProcessHidden(data, sender);
+		}
+	},
+	{
+		Priority: -1,
+		Callback: (data, sender, _msg) => {
+			if (data.Type == "Status") {
+				ChatRoomStatusUpdateLocalCharacter(sender, data.Content);
+				return true;
+			}
+		}
+	},
+];
+
 /**
  * Performs the processing for an hidden message
  * @param {IChatRoomMessage} data
@@ -2336,6 +2361,7 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
 	} else if (data.Content.substr(0, 4) == "GGTS") {
 		AsylumGGTSHiddenMessage(SenderCharacter, data.Content, data);
 	}
+	return true;
 }
 
 /**
@@ -2346,7 +2372,7 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
  * @param {Character} SenderCharacter - The resolved character that sent that message.
  * @returns {{ metadata: object, substitutions: string[][] }}
  */
-function ChatRoomMessageCollectMetadata(data, SenderCharacter) {
+function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 	const substitutions = [];
 	const meta = {};
 
@@ -2442,6 +2468,74 @@ function ChatRoomMessagePerformSubstitutions(msg, substitutions) {
 }
 
 /**
+ * Extracts all metadata and substitutions requested by a message.
+ *
+ * This goes through ChatRoomMessageExtractors and calls them in order
+ * on the recieved message, collecting their output.
+ *
+ * @param {IChatRoomMessage} data
+ * @param {Character} sender
+ */
+function ChatRoomMessageRunExtractors(data, sender) {
+	if (!data || !sender) return {};
+
+	let metadata = {};
+	let substitutions = [];
+
+	ChatRoomMessageExtractors.forEach(extractor => {
+		let extracted = extractor(data, sender);
+
+		if (extracted.metadata && typeof extracted.metadata === "object")
+			Object.assign(metadata, extracted.metadata);
+		if (extracted.substitutions && Array.isArray(extracted.substitutions))
+			substitutions = substitutions.concat(extracted.substitutions);
+	});
+
+	return { metadata, substitutions };
+}
+
+
+/**
+ * Run handlers for a given message.
+ *
+ * This runs a message and its metadata through the prioritized list
+ * of ChatRoomMessageHandlers, and stops processing if one of them
+ * requests it, ignoring the rest.
+ *
+ * @param {"pre"|"post"} type
+ * @param {IChatRoomMessage} data
+ * @param {Character} sender
+ * @param {string} msg
+ */
+function ChatRoomMessageRunHandlers(type, data, sender, msg, metadata) {
+	if (!['pre', 'post'].includes(type) || !data || !sender) return;
+
+	// Gather the handlers for the requested processing and sort by priority
+	const handlers = ChatRoomMessageHandlers.filter(proc => (type === "pre" && proc.Priority < 0 || type === "post" && proc.Priority >= 0));
+	handlers.sort((a, b) => a.Priority - b.Priority);
+
+	// Go through the handlers and show them the message
+	const originalMsg = msg;
+	for (const handler of handlers) {
+		const ret = handler.Callback(data, sender, msg, metadata);
+
+		if (typeof ret === "boolean") {
+			// Handler wishes to filter, and true means we should stop
+			if (ret)
+				return true;
+			// Fallthrough, keep processing
+		} else if (typeof ret === "object") {
+			// Handler wishes to transform, collect their result and continue
+			const { msg: newMsg } = ret;
+			if (newMsg) msg = newMsg;
+		}
+	}
+
+	// If the message was transformed, return it, otherwise just say we're fine
+	return msg === originalMsg ? false : msg;
+}
+
+/**
  * Handles the reception of a chatroom message. Ghost players' messages are ignored.
  * @param {IChatRoomMessage} data - Message object containing things like the message type, sender, content, etc.
  * @returns {void} - Nothing.
@@ -2477,22 +2571,14 @@ function ChatRoomMessage(data) {
 	// Replace < and > characters to prevent HTML injections
 	let msg = data.Content ? ChatRoomHTMLEntities(data.Content) : "";
 
-	// Hidden messages are processed separately, they are used by chat room mini-games / events
-	if (data.Type == "Hidden") {
-		ChatRoomMessageProcessHidden(data, SenderCharacter);
-		return;
-	}
-
-	// Status messages will update that character status, anything else will cancel the status
-	if (data.Type == "Status") {
-		ChatRoomStatusUpdateLocalCharacter(SenderCharacter, msg);
-		return;
-	}
+	ChatRoomMessageRunHandlers("pre", data, SenderCharacter, msg);
 
 	if (msg.startsWith("ServerDisconnect") && SenderCharacter.MemberNumber == ChatRoomLeashPlayer) ChatRoomLeashPlayer = null;
 
 	// Metadata extracted from the message's dictionary
-	const { metadata, substitutions } = ChatRoomMessageCollectMetadata(data, SenderCharacter);
+	const { metadata, substitutions } = ChatRoomMessageRunExtractors(data, SenderCharacter);
+
+	ChatRoomMessageRunHandlers("post", data, SenderCharacter, msg);
 
 	// Substitute actions and server messages for their fulltext version
 	if (data.Type && ((data.Type == "Action") || (data.Type == "ServerMessage"))) {

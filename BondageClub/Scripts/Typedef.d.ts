@@ -319,6 +319,39 @@ interface IChatRoomSyncBasic {
 
 interface IChatRoomSyncMessage extends IChatRoomSyncBasic, ChatRoom { }
 
+/**
+ * A metadata extractor for a given message.
+ * @param data - The chat message to extract from.
+ * @param sender - The character that sent the message.
+ * @return An object with the following keys:
+ *  - `metadata`: an object for the extracted metadata (key/value)
+ *  - `substitutions`: an array of [tag, substitutions] to perform on the message.
+ * @return null if the extraction has nothing to report.
+ */
+type ChatRoomMessageExtractor =
+	(data: IChatRoomMessage, sender: Character) => { metadata: object, substitutions: string[][] }?;
+
+interface ChatRoomMessageHandler {
+	/**
+	 * This handler's priority, used to determine when the code should run.
+	 * - Negative values make the handler run before extraction (mode "pre").
+	 *   Lower values mean higher priority.
+	 * - Positive values make it run after (mode "post").
+	 *   Higher values mean higher priority.
+	 */
+	Priority: number;
+
+	/**
+	 * Actual action to perform.
+	 * @param data - The chat message to handle.
+	 * @param sender - The character that sent the message.
+	 * @param msg - The formatted string extracted from the message.
+	 *              If the handler is in "post" mode, all substitutions have been performed.
+	 * @returns {boolean} true if the message was handled and the processing should stop, false otherwise.
+	 */
+	Callback: (data: IChatRoomMessage, sender: Character, msg: string, metadata?: any) => boolean | { msg?: string; };
+}
+
 //#endregion
 
 //#region FriendList
