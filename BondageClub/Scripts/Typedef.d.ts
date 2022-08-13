@@ -332,12 +332,16 @@ type ChatRoomMessageExtractor =
 	(data: IChatRoomMessage, sender: Character) => { metadata: object, substitutions: string[][] }?;
 
 interface ChatRoomMessageHandler {
+	/** A short description of what the handler does. For debugging purposes */
+	Description?: string;
+
 	/**
 	 * This handler's priority, used to determine when the code should run.
 	 * - Negative values make the handler run before extraction (mode "pre").
-	 *   Lower values mean higher priority.
 	 * - Positive values make it run after (mode "post").
-	 *   Higher values mean higher priority.
+	 *
+	 * In both cases, lower values mean higher priority, so -100 handler will
+	 * run before a -1, and a 1 handler will run before a 100.
 	 */
 	Priority: number;
 
