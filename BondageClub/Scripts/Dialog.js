@@ -1530,13 +1530,12 @@ function DialogMenuButtonClick() {
 			// Cycle through the layers of restraints for the mouth
 			else if (DialogMenuButton[I] == "ChangeLayersMouth") {
 				/** @type {AssetGroupName} */
-				var NewLayerName;
+				let NewLayerName;
 				if (C.FocusGroup.Name == "ItemMouth") NewLayerName = "ItemMouth2";
 				if (C.FocusGroup.Name == "ItemMouth2") NewLayerName = "ItemMouth3";
 				if (C.FocusGroup.Name == "ItemMouth3") NewLayerName = "ItemMouth";
 
-				C.FocusGroup = /** @type {AssetItemGroup} */ (AssetGroupGet(C.AssetFamily, NewLayerName));
-				DialogInventoryBuild(C);
+				DialogChangeFocusToGroup(C, NewLayerName);
 			}
 
 
@@ -1860,6 +1859,28 @@ function DialogInventoryTogglePermission(item, worn) {
 }
 
 /**
+ * Change the given character's focused group.
+ * @param {Character} C - The character to change the focus of.
+ * @param {AssetItemGroup|string} Group - The group that should gain focus.
+ */
+function DialogChangeFocusToGroup(C, Group) {
+	let G = null;
+	if (typeof Group === "string") {
+		G = AssetGroupGet(C.AssetFamily, /** @type {AssetGroupName} */ (Group));
+		if (!Group) return;
+	} else {
+		G = Group;
+	}
+
+	C.FocusGroup = /** @type {AssetItemGroup} */ (G);
+	DialogItemToLock = null;
+	DialogFocusItem = null;
+	DialogTightenLoosenItem = null;
+	DialogInventoryBuild(C);
+	DialogText = DialogTextDefault;
+}
+
+/**
  * Handles the click in the dialog screen
  * @returns {void} - Nothing
  */
@@ -1892,12 +1913,7 @@ function DialogClick() {
 			if (!Group.IsItem()) continue;
 			const Zone = Group.Zone.find(Z => DialogClickedInZone(C, Z, 1, X, 0, C.HeightRatio));
 			if (Zone) {
-				C.FocusGroup = Group;
-				DialogItemToLock = null;
-				DialogFocusItem = null;
-				DialogTightenLoosenItem = null;
-				DialogInventoryBuild(C);
-				DialogText = DialogTextDefault;
+				DialogChangeFocusToGroup(C, Group);
 				break;
 			}
 		}
