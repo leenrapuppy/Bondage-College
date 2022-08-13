@@ -889,7 +889,7 @@ var AssetFemale3DCG = [
 			{ Name: "KittyBra1", Prerequisite: ["HasBreasts"], Fetish: ["Pet"], Value: 30, Hide: ["ItemNipples"] },
 			{ Name: "FishnetBikini1", Prerequisite: ["HasBreasts"], Priority: 20, Value: 45, Hide: ["Panties", "ItemNipples", "ItemVulvaPiercings", "ItemVulva"] },
 			{ Name: "SexyBeachBra1",Prerequisite: ["HasBreasts"], Value: 25, Hide: ["ItemNipples"] },
-			{ Name: "SexyBikiniBra1", Value: 25, Hide: ["ItemNipples"] },
+			{ Name: "SexyBikiniBra1", Prerequisite: ["HasBreasts"], Value: 25, Hide: ["ItemNipples"] },
 			{ Name: "StarHarnessBra",Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Priority: 20, Value: 40, Expose: ["ItemNipples", "ItemBreast", "ItemNipplesPiercings"] },
 			{ Name: "HeartTop", Prerequisite: ["HasBreasts"], Fetish: ["Lingerie"], Priority: 20, Value: 35, Hide: ["ItemNipples"] },
 			{ Name: "ChineseBra1", Prerequisite: ["HasBreasts"], Fetish: ["Lingerie"], Value: 35, Hide: ["ItemNipples"] },
