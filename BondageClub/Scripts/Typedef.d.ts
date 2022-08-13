@@ -321,6 +321,7 @@ interface IChatRoomSyncMessage extends IChatRoomSyncBasic, ChatRoom { }
 
 /**
  * A metadata extractor for a given message.
+ *
  * @param data - The chat message to extract from.
  * @param sender - The character that sent the message.
  * @return An object with the following keys:
@@ -331,17 +332,50 @@ interface IChatRoomSyncMessage extends IChatRoomSyncBasic, ChatRoom { }
 type ChatRoomMessageExtractor =
 	(data: IChatRoomMessage, sender: Character) => { metadata: object, substitutions: string[][] }?;
 
+/**
+ * A chat message handler.
+ *
+ * This is used in ChatRoomMessage to perform filtering and actions on
+ * the recieved message. You can register one of those with
+ * ChatRoomRegisterMessageHandler if you need to peek at incoming messages.
+ *
+ * Message processing is done in three phases:
+ * - all pre-handlers are called
+ * - metadata extraction & tag substitutions are collected
+ *   from the message's dictionary, then latter are applied to
+ *   the message's contents.
+ * - finally, post-handlers are called.
+ *
+ * The handler's priority determines when the handler will get executed:
+ * - Negative values make the handler run before metadata extraction
+ * - Positive values make it run afterward.
+ * In both cases, lower values mean higher priority, so -100 handler will
+ * run before a -1, and a 1 handler will run before a 100.
+ *
+ * The return from the callback determines what will happen: if it's true,
+ * message processing will stop, making the filter act like a handler.
+ * If it's false, then it will continue. You can also return an object with
+ * a `msg` property if the handler is a transformation and wishes to update
+ * the message's contents inflight.
+ *
+ * A few notable priority values are:
+ * 0: emotes reformatting
+ * 10: ghosted player cutoff
+ * 100: sensory-deprivation processing
+ * 200: automatic actions on others' cutoff
+ * 300: sensory-deprivation cutoff.
+ * 500: usually output handlers. That's when audio, notifications and the
+ *      message being added to the chat happens.
+ *
+ * Hidden messages never make it to post-processing.
+ *
+ */
 interface ChatRoomMessageHandler {
 	/** A short description of what the handler does. For debugging purposes */
 	Description?: string;
 
 	/**
 	 * This handler's priority, used to determine when the code should run.
-	 * - Negative values make the handler run before extraction (mode "pre").
-	 * - Positive values make it run after (mode "post").
-	 *
-	 * In both cases, lower values mean higher priority, so -100 handler will
-	 * run before a -1, and a 1 handler will run before a 100.
 	 */
 	Priority: number;
 
@@ -351,6 +385,7 @@ interface ChatRoomMessageHandler {
 	 * @param sender - The character that sent the message.
 	 * @param msg - The formatted string extracted from the message.
 	 *              If the handler is in "post" mode, all substitutions have been performed.
+	 * @param metadata - The collected metadata from the message's dictionary, only available in "post" mode.
 	 * @returns {boolean} true if the message was handled and the processing should stop, false otherwise.
 	 */
 	Callback: (data: IChatRoomMessage, sender: Character, msg: string, metadata?: any) => boolean | { msg?: string; };

@@ -2490,7 +2490,40 @@ var ChatRoomMessageHandlers = [
 ];
 
 /**
- * Performs the processing for an hidden message
+ * Adds a function to the list of message extractors.
+ *
+ * @see ChatRoomMessageExtractor for more info.
+ *
+ * @param {ChatRoomMessageExtractor} func - The extractor to register
+ */
+function ChatRoomRegisterMessageExtractor(func) {
+	if (typeof func !== "function") {
+		console.error("Invalid message extractor registration");
+		return;
+	}
+
+	ChatRoomMessageExtractors.push(func);
+}
+
+/**
+ * Adds a function to the list of message handlers
+ *
+ * @see ChatRoomMessageHandler for more info.
+ *
+ * @param {ChatRoomMessageHandler} handler - The handler to register
+ */
+function ChatRoomRegisterMessageHandler(handler) {
+	if (!handler || typeof handler.Priority !== "number" || typeof handler.Callback !== "function") {
+		console.error("Invalid message handler registration");
+		return;
+	}
+
+	ChatRoomMessageHandlers.push(handler);
+}
+
+/**
+ * Performs the processing for an hidden message.
+ *
  * @param {IChatRoomMessage} data
  * @param {Character} SenderCharacter
  */
@@ -2591,8 +2624,7 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
 }
 
 /**
- * Given a chatroom message, go through its dictionary component and extracts
- * the metadata and message substitutions from it.
+ * Extracts the metadata and message substitutions from a message's dictionary.
  *
  * @param {IChatRoomMessage} data - The message to parse.
  * @param {Character} SenderCharacter - The resolved character that sent that message.
@@ -2684,6 +2716,7 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 
 /**
  * Performs the required substitutions on the given message
+ *
  * @param {string} msg - The string to perform the substitutions on.
  * @param {string[][]} substitutions - An array of {string, string} subtitutions.
  */
@@ -2701,7 +2734,7 @@ function ChatRoomMessagePerformSubstitutions(msg, substitutions) {
  * Extracts all metadata and substitutions requested by a message.
  *
  * This goes through ChatRoomMessageExtractors and calls them in order
- * on the recieved message, collecting their output.
+ * on the recieved message, collecting their output (metadata & tag substitutions).
  *
  * @param {IChatRoomMessage} data
  * @param {Character} sender
@@ -2724,18 +2757,18 @@ function ChatRoomMessageRunExtractors(data, sender) {
 	return { metadata, substitutions };
 }
 
-
 /**
- * Run handlers for a given message.
+ * Run the message handlers on a given message.
  *
  * This runs a message and its metadata through the prioritized list
  * of ChatRoomMessageHandlers, and stops processing if one of them
  * requests it, ignoring the rest.
  *
- * @param {"pre"|"post"} type
- * @param {IChatRoomMessage} data
- * @param {Character} sender
- * @param {string} msg
+ * @param {"pre"|"post"} type - The type of processing to perform
+ * @param {IChatRoomMessage} data - The recieved message
+ * @param {Character} sender - The actual message sender character object
+ * @param {string} msg - The escaped message, likely different from data.Contents
+ * @param {any} metadata - The message metadata, only available for post-handlers
  */
 function ChatRoomMessageRunHandlers(type, data, sender, msg, metadata) {
 	if (!['pre', 'post'].includes(type) || !data || !sender) return;
@@ -2766,7 +2799,9 @@ function ChatRoomMessageRunHandlers(type, data, sender, msg, metadata) {
 }
 
 /**
- * Handles the reception of a chatroom message. Ghost players' messages are ignored.
+ * Handles the reception of a chatroom message.
+ *
+ * @see ChatRoomMessageHandler for more information
  * @param {IChatRoomMessage} data - Message object containing things like the message type, sender, content, etc.
  * @returns {void} - Nothing.
  */
