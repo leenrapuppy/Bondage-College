@@ -3650,6 +3650,15 @@ var AssetFemale3DCGExtended = {
 							Effect: ["Wiggling"],
 						},
 					},
+					{
+						Name: "Chain",
+						Property: {
+							Type: "Chain",
+							Effect: ["Wiggling"],
+							Block: ["ItemNipplesPiercings"],
+						},
+						Prerequisite: ["NeedsNippleRings"],
+					},
 				],
 			},
 		}, // RoundClitPiercings
