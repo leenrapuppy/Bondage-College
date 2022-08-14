@@ -3613,7 +3613,7 @@ var AssetFemale3DCGExtended = {
 						Prerequisite: ["NotSuspended"],
 						Property: {
 							Type: "Leash",
-							Effect: ["Leash"],
+							Effect: ["Leash", "Wiggling"],
 						},
 					},
 				],
