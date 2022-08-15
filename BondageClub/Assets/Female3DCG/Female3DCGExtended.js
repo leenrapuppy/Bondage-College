@@ -3659,6 +3659,15 @@ var AssetFemale3DCGExtended = {
 						},
 						Prerequisite: ["NeedsNippleRings"],
 					},
+					{
+						Name: "HaremChain",
+						Property: {
+							Type: "HaremChain",
+							Effect: ["Wiggling"],
+							Block: ["ItemNipplesPiercings"],
+						},
+						Prerequisite: ["NeedsNippleRings"],
+					},
 				],
 			},
 		}, // RoundClitPiercings

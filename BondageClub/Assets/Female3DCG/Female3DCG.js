@@ -2750,10 +2750,12 @@ var AssetFemale3DCG = [
 				Extended: true, HasType: false,
 				Layer: [
 					{ Name: "Ring", AllowTypes: ["", "Weight", "Bell"], },
-					{ Name: "PulledRing", AllowTypes: ["Chain"], CopyLayerColor: "Ring", },
+					{ Name: "PulledRing", AllowTypes: ["Chain", "HaremChain"], CopyLayerColor: "Ring", },
 					{ Name: "Weight", AllowTypes: ["Weight"], ColorGroup: "Addons", },
 					{ Name: "Bell", AllowTypes: ["Bell"], ColorGroup: "Addons", },
 					{ Name: "Chain", AllowTypes: ["Chain"], ColorGroup: "Addons", Top: 263, },
+					{ Name: "HaremVeil", AllowTypes: ["HaremChain"], ColorGroup: "Addons", Top: 263, },
+					{ Name: "HaremChain", AllowTypes: ["HaremChain"], CopyLayerColor: "Chain", Top: 263, },
 				]
 			},
 			{ Name: "BarbellClitPiercing", Fetish: ["Metal"], Value: 20, Difficulty: 10, Time: 5, AllowLock: true, DrawLocks: false, Prerequisite: ["AccessVulva"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
