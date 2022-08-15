@@ -628,7 +628,7 @@ SourceCharacter帮助TargetCharacter站了起来
 SourceCharacter changes DestinationCharacter clothes.
 SourceCharacter换掉了DestinationCharacter衣服。
 SourceCharacter selects her team and class.
-SourceCharacter选择了她的队伍和班级
+SourceCharacter选择了她的队伍和职业
 SourceCharacter has started the LARP game.
 SourceCharacter开始了体感对战
 SourceCharacter has started the Magic Battle.
