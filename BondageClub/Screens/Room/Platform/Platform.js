@@ -1423,7 +1423,8 @@ function PlatformEventSet(Event) {
  * @returns {void} - Nothing
  */
 function PlatformMessageSet(Text) {
-	PlatformMessage = { Text: Text, Timer: CommonTime() + 4000 };
+	if (CurrentScreen == "Platform")
+		PlatformMessage = { Text: Text, Timer: CommonTime() + 4000 };
 }
 
 /**

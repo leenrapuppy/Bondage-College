@@ -2073,6 +2073,7 @@ var PlatformDialogData = [
 				]
 			},
 			{
+				Entry: function() { PlatformAddExperience(PlatformPlayer, 10); },
 				Character: [
 					{ Name: "Edlaran", Status: "Archer", Pose: "KneelingLickedByMaidMelodyOrgasm", X: 500 },
 				]
@@ -2235,10 +2236,64 @@ var PlatformDialogData = [
 					{ Text: "I would die to save your life Miss.", Reply: "(She gives you a hug.)  Please don't die my maid.", Perk: true, Love: 1, Domination: -1 },
 				]
 			},
-			{ Text: "It will take us hours to reach the shore." },
+			{
+				Entry: function() {
+					if (PlatformDialogGetCharacter("Olivia").Domination < 5) PlatformDialogGoto = "End";
+					PlatformDialogProcess();
+				}
+			},
+			{ 
+				Text: "It was very reckless to go on the lake alone, bound and gagged.",
+				Character: [
+					{ Name: "Melody", Status: "Underwear", Pose: "Cocky", X: 1000 },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle", X: 500 },
+				]
+			},
+			{ Text: "You could have been killed young lady." },
+			{
+				Text: "I'm sorry Melody.  (She bows her head.)",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive" },
+					{ Name: "Melody", Status: "Underwear", Pose: "Cocky" },
+				],
+				Answer: [
+					{ Text: "Promise me not to do it again.", Reply: "I promise!  (She smiles at you.)  Let's go back.", Domination: -1, Love: 1, Goto: "End" },
+					{ Text: "I forgive you.", Reply: "Very good.  (She nods.)  Let's go back.", Goto: "End" },
+					{ Text: "You must be punished.  (Spank her.)", Reply: "Punished?  What?  How?  Melody!  You cannot do that!", Love: -2, Domination: 2 },
+					{ Text: "What would your mother do?  (Spank her.)", Reply: "She... she would spank me Melody.", Perk: true, Domination: 2 },
+				]
+			},
+			{ 
+				Text: "Bend down young lady.  You will be spanked.",
+				Character: [
+					{ Name: "Melody", Status: "Underwear", Pose: "Cocky", X: 1000 },
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive", X: 500 },
+				]
+			},
+			{ Text: "(She blushes, bends down, and presents her butt.)" },
+			{
+				Entry: function() { PlatformAddExperience(PlatformPlayer, 10); },
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "SpankedByMelodyUnderwear", X: 500 },
+				]
+			},
+			{ Text: "(You spank her many times, making sure she remembers that lesson.)" },
+			{ Text: "Ow!  Melody!  Please don't hit me so hard." },
+			{ Text: "(She's cries from the physical pain and from the humiliation.)" },
+			{ Text: "(You spank her a few times again, hitting the same spots.)" },
+			{ Text: "I promise I will be a good girl, I won't do it again." },
+			{ Text: "I've learned my lesson, can we go back to firm land?" },
+			{
+				Text: "(You nod and stop spanking her.)",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive" },
+					{ Name: "Melody", Status: "Underwear", Pose: "Cocky" },
+				]
+			},
+			{ Text: "(She bows her head and changes subject.)" },
+			{ ID: "End", Text: "It will take us hours to reach the shore." },
 			{ Text: "More time to know each other.  (She smiles.)" },
-			{ Text: "(You both work very hard to bring the raft back.)" },
-			
+			{ Text: "(You work together to bring the raft back.)" },
 		],
 	},
 
