@@ -3624,6 +3624,35 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // ClitRing
+		RoundClitPiercing: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
+				Options: [
+					{
+						Name: "Ring",
+						Property: {
+							Type: null,
+							Effect: [],
+						}
+					},
+					{
+						Name: "Weight",
+						Property: {
+							Type: "Weight",
+							Effect: ["Wiggling"],
+						}
+					},
+					{
+						Name: "Bell",
+						Property: {
+							Type: "Bell",
+							Effect: ["Wiggling"],
+						},
+					},
+				],
+			},
+		}, // RoundClitPiercings
 	}, // ItemVulvaPiercings
 	ItemButt: {
 		AnalHook: {
