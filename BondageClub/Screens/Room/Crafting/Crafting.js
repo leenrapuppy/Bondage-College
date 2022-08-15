@@ -8,6 +8,8 @@ var CraftingItemList = [];
 var CraftingItem = null;
 var CraftingLock = null;
 var CraftingProperty = "";
+var CraftingSlotMax = 20;
+
 /**
  * @type {{Name: string, Allow: (asset: Asset) => boolean}[]}
  */
@@ -53,9 +55,9 @@ function CraftingItemHasEffect(Item, Effect) {
  * @returns {void} - Nothing.
  */
 function CraftingLoad() {
-	if ((Player.Crafting == null) || (Player.Crafting.length != 20)) {
+	if ((Player.Crafting == null) || (Player.Crafting.length != CraftingSlotMax)) {
 		Player.Crafting = [];
-		for (let C = 0; C < 20; C++)
+		for (let C = 0; C < CraftingSlotMax; C++)
 			Player.Crafting.push({});
 	}
 	CraftingModeSet("Slot");
@@ -80,7 +82,7 @@ function CraftingRun() {
 			DrawText(TextGet("SelectSlot"), 890, 60, "White", "Black");
 			DrawButton(1790, 15, 90, 90, "", "White", "Icons/Trash.png", TextGet("Destroy"));
 		}
-		for (let S = 0; S < 20; S++) {
+		for (let S = 0; S < CraftingSlotMax; S++) {
 			let X = (S % 4) * 500 + 15;
 			let Y = Math.floor(S / 4) * 180 + 130;
 			let Craft = Player.Crafting[S];
@@ -239,7 +241,7 @@ function CraftingLoadServer(Packet) {
 	if ((Packet == null) || (typeof Packet != "string")) return;
 	let PacketString = LZString.decompressFromUTF16(Packet);
 	let PacketArray = PacketString.split("§");
-	for (let P = 0; P < PacketArray.length && P < 20; P++) {
+	for (let P = 0; P < PacketArray.length && P < CraftingSlotMax; P++) {
 		let PacketData = PacketArray[P].split("¶");
 		Player.Crafting[P].Item = (PacketData.length >= 1) ? PacketData[0] : "";
 		Player.Crafting[P].Property = (PacketData.length >= 2) ? PacketData[1] : "";
@@ -263,7 +265,7 @@ function CraftingClick() {
 	// In slot mode, we can select which item slot to craft
 	if (CraftingMode == "Slot") {
 		if (MouseIn(1790, 15, 90, 90)) CraftingDestroy = !CraftingDestroy;
-		for (let S = 0; S < 20; S++) {
+		for (let S = 0; S < CraftingSlotMax; S++) {
 			let X = (S % 4) * 500 + 15;
 			let Y = Math.floor(S / 4) * 180 + 130;
 			if (MouseIn(X, Y, 470, 140)) {
