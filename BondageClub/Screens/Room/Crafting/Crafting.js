@@ -3,11 +3,10 @@ var CraftingBackground = "CraftingWorkshop";
 var CraftingMode = "Slot";
 var CraftingDestroy = false;
 var CraftingSlot = 0;
+/** @type {{Asset?: Asset, Property?: string, Lock?: Asset, }} */
+var CraftingSelectedItem = null;
 var CraftingOffset = 0;
 var CraftingItemList = [];
-var CraftingItem = null;
-var CraftingLock = null;
-var CraftingProperty = "";
 var CraftingSlotMax = 20;
 
 /**
@@ -126,10 +125,10 @@ function CraftingRun() {
 
 	// In item selection mode, we show all restraints from the player inventory
 	if (CraftingMode == "Property") {
-		DrawText(TextGet("SelectProperty").replace("AssetDescription", CraftingItem.Description), 880, 60, "White", "Black");
+		DrawText(TextGet("SelectProperty").replace("AssetDescription", CraftingSelectedItem.Asset.Description), 880, 60, "White", "Black");
 		let Pos = 0;
 		for (let Property of CraftingPropertyList)
-			if (Property.Allow(CraftingItem)) {
+			if (Property.Allow(CraftingSelectedItem.Asset)) {
 				let X = (Pos % 4) * 500 + 15;
 				let Y = Math.floor(Pos / 4) * 230 + 130;
 				DrawButton(X, Y, 470, 190, "", "White");
@@ -142,7 +141,7 @@ function CraftingRun() {
 	// In lock selection mode, the player can auto-apply a lock to it's item
 	if (CraftingMode == "Lock") {
 		DrawButton(1685, 15, 90, 90, "", "White", "Icons/Unlock.png", TextGet("NoLock"));
-		DrawText(TextGet("SelectLock").replace("AssetDescription", CraftingItem.Description).replace("PropertyName", TextGet("Property" + CraftingProperty)), 830, 60, "White", "Black");
+		DrawText(TextGet("SelectLock").replace("AssetDescription", CraftingSelectedItem.Asset.Description).replace("PropertyName", TextGet("Property" + CraftingSelectedItem.Property)), 830, 60, "White", "Black");
 		let Pos = 0;
 		for (let L = 0; L < CraftingLockList.length; L++)
 			for (let Item of Player.Inventory)
@@ -161,23 +160,23 @@ function CraftingRun() {
 	// In lock selection mode, the player can auto-apply a lock to it's item
 	if (CraftingMode == "Name") {
 		DrawButton(1685, 15, 90, 90, "", "White", "Icons/Accept.png", TextGet("Accept"));
-		DrawText(TextGet("SelectName").replace("AssetDescription", CraftingItem.Description).replace("PropertyName", TextGet("Property" + CraftingProperty)), 830, 60, "White", "Black");
-		let Hidden = CharacterAppearanceItemIsHidden(CraftingItem.Name, CraftingItem.Group.Name);
-		let Description = CraftingItem.Description;
+		DrawText(TextGet("SelectName").replace("AssetDescription", CraftingSelectedItem.Asset.Description).replace("PropertyName", TextGet("Property" + CraftingSelectedItem.Property)), 830, 60, "White", "Black");
+		let Hidden = CharacterAppearanceItemIsHidden(CraftingSelectedItem.Asset.Name, CraftingSelectedItem.Asset.Group.Name);
+		let Description = CraftingSelectedItem.Asset.Description;
 		let Background = MouseIn(80, 250, 225, 275) && !CommonIsMobile ? "cyan" : "#fff";
 		let Foreground = "Black";
-		let Icons = DialogGetAssetIcons(CraftingItem);
+		let Icons = DialogGetAssetIcons(CraftingSelectedItem.Asset);
 		if (Hidden) DrawPreviewBox(80, 250, "Icons/HiddenItem.png", Description, { Background, Foreground });
-		else DrawAssetPreview(80, 250, CraftingItem, { Description, Background, Foreground, Icons });
-		if (CraftingLock != null) {
-			Description = CraftingLock.Description;
+		else DrawAssetPreview(80, 250, CraftingSelectedItem.Asset, { Description, Background, Foreground, Icons });
+		if (CraftingSelectedItem.Lock != null) {
+			Description = CraftingSelectedItem.Lock.Description;
 			Background = MouseIn(425, 250, 225, 275) && !CommonIsMobile ? "cyan" : "#fff";
-			Icons = DialogGetAssetIcons(CraftingLock.Asset);
-			DrawAssetPreview(425, 250, CraftingLock.Asset, { Description, Background, Foreground, Icons });
+			Icons = DialogGetAssetIcons(CraftingSelectedItem.Lock);
+			DrawAssetPreview(425, 250, CraftingSelectedItem.Lock, { Description, Background, Foreground, Icons });
 		} else DrawButton(425, 250, 225, 275, TextGet("NoLock"), "White");
 		DrawButton(80, 650, 570, 190, "", "White");
-		DrawText(TextGet("Property" + CraftingProperty), 365, 690, "Black", "Silver");
-		DrawTextWrap(TextGet("Description" + CraftingProperty), 95, 730, 540, 100, "Black", null, 2);
+		DrawText(TextGet("Property" + CraftingSelectedItem.Property), 365, 690, "Black", "Silver");
+		DrawTextWrap(TextGet("Description" + CraftingSelectedItem.Property), 95, 730, 540, 100, "Black", null, 2);
 		DrawText(TextGet("EnterName"), 1325, 250, "White", "Black");
 		ElementPosition("InputName", 1325, 320, 1000);
 		DrawText(TextGet("EnterDescription"), 1325, 500, "White", "Black");
@@ -275,6 +274,7 @@ function CraftingClick() {
 				} else {
 					CraftingModeSet("Item");
 					CraftingSlot = S;
+					CraftingSelectedItem = {};
 					CraftingOffset = 0;
 					CraftingItemListBuild();
 				}
@@ -297,8 +297,8 @@ function CraftingClick() {
 			let X = ((I - CraftingOffset) % 8) * 249 + 17;
 			let Y = Math.floor((I - CraftingOffset) / 8) * 290 + 130;
 			if (MouseIn(X, Y, 225, 275)) {
-				CraftingItem = CraftingItemList[I];
-				CraftingLock = null;
+				CraftingSelectedItem.Asset = CraftingItemList[I];
+				CraftingSelectedItem.Lock = null;
 				CraftingModeSet("Property");
 				ElementRemove("InputSearch");
 			}
@@ -310,12 +310,12 @@ function CraftingClick() {
 	if (CraftingMode == "Property") {
 		let Pos = 0;
 		for (let Property of CraftingPropertyList)
-			if (Property.Allow(CraftingItem)) {
+			if (Property.Allow(CraftingSelectedItem.Asset)) {
 				let X = (Pos % 4) * 500 + 15;
 				let Y = Math.floor(Pos / 4) * 230 + 130;
 				if (MouseIn(X, Y, 470, 190)) {
-					CraftingProperty = Property.Name;
-					if (CraftingItem.AllowLock == true) CraftingModeSet("Lock");
+					CraftingSelectedItem.Property = Property.Name;
+					if (CraftingSelectedItem.Asset.AllowLock == true) CraftingModeSet("Lock");
 					else CraftingModeSet("Name");
 				}
 				Pos++;
@@ -334,7 +334,7 @@ function CraftingClick() {
 					let Y = Math.floor(Pos / 8) * 290 + 130;
 					if (MouseIn(X, Y, 225, 275)) {
 						CraftingModeSet("Name");
-						CraftingLock = Item;
+						CraftingSelectedItem.Lock = Item.Asset;
 					}
 					Pos++;
 				}
@@ -348,13 +348,14 @@ function CraftingClick() {
 		let Color = ElementValue("InputColor").trim();
 		if (Name == "") return;
 		Player.Crafting[CraftingSlot] = {
-			Item: CraftingItem.Name,
-			Property: CraftingProperty,
-			Lock: (CraftingLock == null) ? "" : CraftingLock.Name,
+			Item: CraftingSelectedItem.Asset.Name,
+			Property: CraftingSelectedItem.Property,
+			Lock: (CraftingSelectedItem.Lock == null) ? "" : CraftingSelectedItem.Lock.Name,
 			Name: Name,
 			Description: Description,
 			Color: Color
 		};
+		CraftingSelectedItem = null;
 		CraftingSaveServer();
 		CraftingModeSet("Slot");
 	}
