@@ -3,7 +3,7 @@ var CraftingBackground = "CraftingWorkshop";
 var CraftingMode = "Slot";
 var CraftingDestroy = false;
 var CraftingSlot = 0;
-/** @type {{Asset?: Asset, Property?: string, Lock?: Asset, }} */
+/** @type {{Name?: string, Description?: string, Color?: string, Asset?: Asset, Property?: string, Lock?: Asset, }} */
 var CraftingSelectedItem = null;
 var CraftingOffset = 0;
 var CraftingItemList = [];
@@ -198,13 +198,22 @@ function CraftingModeSet(NewMode) {
 	if (NewMode == "Item") {
 		let Input = ElementCreateInput("InputSearch", "text", "", "50");
 		Input.addEventListener("input", CraftingItemListBuild);
-	} else ElementRemove("InputSearch");
-	if (NewMode == "Name") ElementCreateInput("InputName", "text", "", "30");
-	else ElementRemove("InputName");
-	if (NewMode == "Name") ElementCreateInput("InputDescription", "text", "", "100");
-	else ElementRemove("InputDescription");
-	if (NewMode == "Name") ElementCreateInput("InputColor", "text", "", "100");
-	else ElementRemove("InputColor");
+	} else
+		ElementRemove("InputSearch");
+
+	if (NewMode == "Name") {
+		ElementCreateInput("InputName", "text", "", "30");
+		ElementCreateInput("InputDescription", "text", "", "100");
+		ElementCreateInput("InputColor", "text", "", "100");
+
+		ElementValue("InputName", CraftingSelectedItem.Name || "");
+		ElementValue("InputDescription", CraftingSelectedItem.Description || "");
+		ElementValue("InputColor", CraftingSelectedItem.Color || "");
+	} else {
+		ElementRemove("InputName");
+		ElementRemove("InputDescription");
+		ElementRemove("InputColor");
+	}
 }
 
 /**
@@ -267,17 +276,31 @@ function CraftingClick() {
 		for (let S = 0; S < CraftingSlotMax; S++) {
 			let X = (S % 4) * 500 + 15;
 			let Y = Math.floor(S / 4) * 180 + 130;
-			if (MouseIn(X, Y, 470, 140)) {
-				if (CraftingDestroy) {
+			const Craft = Player.Crafting[S];
+			if (!MouseIn(X, Y, 470, 140)) continue;
+
+			if (CraftingDestroy) {
+				if (Craft && Craft.Name) {
 					Player.Crafting[S] = {};
 					CraftingSaveServer();
-				} else {
-					CraftingModeSet("Item");
-					CraftingSlot = S;
-					CraftingSelectedItem = {};
-					CraftingOffset = 0;
-					CraftingItemListBuild();
 				}
+			} else if (Craft && Craft.Name) {
+				CraftingSlot = S;
+				CraftingSelectedItem = {};
+				CraftingSelectedItem.Name = Craft.Name;
+				CraftingSelectedItem.Description = Craft.Description;
+				CraftingSelectedItem.Color = Craft.Color;
+				CraftingSelectedItem.Property = Craft.Property;
+				CraftingSelectedItem.Asset = Player.Inventory.find(a => a.Asset.Name === Craft.Item).Asset;
+				CraftingSelectedItem.Lock = Player.Inventory.find(a => a.Asset.Group.Name === "ItemMisc" && a.Asset.Name == Craft.Lock).Asset;
+				CraftingOffset = 0;
+				CraftingModeSet("Name");
+			} else {
+				CraftingModeSet("Item");
+				CraftingSlot = S;
+				CraftingSelectedItem = {};
+				CraftingOffset = 0;
+				CraftingItemListBuild();
 			}
 		}
 		return;
