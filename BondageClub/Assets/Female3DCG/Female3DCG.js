@@ -6895,7 +6895,7 @@ var AssetFemale3DCG = [
 			 * Assets: preview, stand, invisible logical image for Text layer, add a pen font
 			 */
 			{
-				Name: "LuckyWheel", Priority: 62, Top: 0, Value: 100, Difficulty: -10, Time: 5, IsRestraint: false, Effect: [],
+				Name: "LuckyWheel", Priority: 62, Top: 2, Value: 100, Difficulty: -10, Time: 5, IsRestraint: false, Effect: [],
 				RemoveAtLogin: true, FixedPosition: true, Extended: true, DynamicAfterDraw: true, DynamicScriptDraw: true,
 				DefaultColor: ["#7F4141", "#881818", "#FFA8DD", "#2C2C2C", "Default", "#7B3D9E", "#FF3F3F", "#343434", "#F2F2F2", "#D43434", "#C2B556", "#81DA88", "#E18DC3"],
 				HasType: false,
