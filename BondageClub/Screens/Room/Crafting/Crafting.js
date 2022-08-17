@@ -8,6 +8,11 @@ var CraftingSelectedItem = null;
 var CraftingOffset = 0;
 var CraftingItemList = [];
 var CraftingSlotMax = 20;
+/** @type {Character} */
+var CraftingPreview = null;
+/** @type {boolean} */
+var CraftingNakedPreview = false;
+var CraftingColoring = false;
 
 /**
  * @type {{Name: string, Allow: (asset: Asset) => boolean}[]}
@@ -60,6 +65,52 @@ function CraftingLoad() {
 			Player.Crafting.push({});
 	}
 	CraftingModeSet("Slot");
+	// Create a dummy character for previews
+	CraftingPreview = CharacterLoadSimple(`CraftingPreview-${Player.MemberNumber}`);
+	CraftingPreview.Appearance = [...Player.Appearance];
+	CraftingPreview.Crafting = JSON.parse(JSON.stringify(Player.Crafting));
+	CharacterReleaseTotal(CraftingPreview);
+}
+
+/**
+ * Update the crafting character preview
+ */
+function CraftingUpdatePreview() {
+	CraftingPreview.Appearance = [...Player.Appearance];
+	CharacterReleaseTotal(CraftingPreview);
+	if (CraftingNakedPreview) {
+		CharacterNaked(CraftingPreview);
+	}
+
+	if (!CraftingSelectedItem) return;
+
+	const selectedAsset = CraftingSelectedItem.Asset;
+	const foundGroups = [];
+	const relevantAssets = Asset.filter((a, _i, ary) => {
+		if (!a.Group.Zone) return false;
+		if (a.Name !== selectedAsset.Name) return false;
+
+		if (foundGroups.includes(a.Group.Name))
+			return false;
+
+		foundGroups.push(a.DynamicGroupName || a.Group.Name);
+		return true;
+	});
+
+	const craft = CraftingConvertSelectedToItem();
+	for (const relevantAsset of relevantAssets) {
+		InventoryWear(
+			CraftingPreview,
+			relevantAsset.Name,
+			relevantAsset.Group.Name,
+			null,
+			null,
+			CraftingPreview.MemberNumber,
+			craft
+		);
+		InventoryCraft(CraftingPreview, CraftingPreview, relevantAsset.Group.Name, craft, false);
+	}
+	CharacterRefresh(CraftingPreview);
 }
 
 /**
@@ -92,7 +143,7 @@ function CraftingRun() {
 				DrawTextFit(Craft.Name, X + 295, Y + 25, 315, "Black", "Silver");
 				for (let Item of Player.Inventory)
 					if (Item.Asset.Name == Craft.Item) {
-						DrawImageResize("Assets/" + Player.AssetFamily + "/" + Item.Asset.Group.Name + "/Preview/" + Item.Asset.Name + ".png", X + 3, Y + 3, 135, 135)
+						DrawImageResize("Assets/" + Player.AssetFamily + "/" + Item.Asset.Group.Name + "/Preview/" + Item.Asset.Name + ".png", X + 3, Y + 3, 135, 135);
 						DrawTextFit(Item.Asset.Description, X + 295, Y + 70, 315,  "Black", "Silver");
 						DrawTextFit(TextGet("Property" + Craft.Property), X + 295, Y + 115, 315, "Black", "Silver");
 						if ((Craft.Lock != null) && (Craft.Lock != ""))
@@ -175,16 +226,30 @@ function CraftingRun() {
 			DrawAssetPreview(425, 250, CraftingSelectedItem.Lock, { Description, Background, Foreground, Icons });
 		} else DrawButton(425, 250, 225, 275, TextGet("NoLock"), "White");
 		DrawButton(80, 650, 570, 190, "", "White");
+
+		DrawCharacter(CraftingPreview, 665, 65, 0.9, false);
+		DrawButton(
+			560, 870, 90, 90,
+			"",
+			"white",
+			`Icons/${CraftingNakedPreview ? "Dress" : "Naked"}.png`
+		);
+
 		DrawText(TextGet("Property" + CraftingSelectedItem.Property), 365, 690, "Black", "Silver");
 		DrawTextWrap(TextGet("Description" + CraftingSelectedItem.Property), 95, 730, 540, 100, "Black", null, 2);
-		DrawText(TextGet("EnterName"), 1325, 250, "White", "Black");
-		ElementPosition("InputName", 1325, 320, 1000);
-		DrawText(TextGet("EnterDescription"), 1325, 500, "White", "Black");
-		ElementPosition("InputDescription", 1325, 570, 1000);
-		DrawText(TextGet("EnterColor"), 1325, 750, "White", "Black");
-		ElementPosition("InputColor", 1325, 820, 1000);
+		DrawText(TextGet("EnterName"), 1625, 150, "White", "Black");
+		ElementPosition("InputName", 1625, 200, 700);
+		DrawText(TextGet("EnterDescription"), 1625, 250, "White", "Black");
+		ElementPosition("InputDescription", 1625, 300, 700);
+		if (CraftingColoring) {
+			ItemColorDraw(
+				CraftingPreview, CraftingSelectedItem.Asset.Group.Name,
+				1200, 350, 800, 650, true
+			);
+		} else {
+			DrawButton(1275, 350, 700, 50, TextGet("OpenColorpicker"), "white");
+		}
 	}
-
 }
 
 /**
@@ -204,15 +269,14 @@ function CraftingModeSet(NewMode) {
 	if (NewMode == "Name") {
 		ElementCreateInput("InputName", "text", "", "30");
 		ElementCreateInput("InputDescription", "text", "", "100");
-		ElementCreateInput("InputColor", "text", "", "100");
 
 		ElementValue("InputName", CraftingSelectedItem.Name || "");
 		ElementValue("InputDescription", CraftingSelectedItem.Description || "");
-		ElementValue("InputColor", CraftingSelectedItem.Color || "");
+
+		CraftingUpdatePreview();
 	} else {
 		ElementRemove("InputName");
 		ElementRemove("InputDescription");
-		ElementRemove("InputColor");
 	}
 }
 
@@ -286,13 +350,8 @@ function CraftingClick() {
 				}
 			} else if (Craft && Craft.Name) {
 				CraftingSlot = S;
-				CraftingSelectedItem = {};
-				CraftingSelectedItem.Name = Craft.Name;
-				CraftingSelectedItem.Description = Craft.Description;
-				CraftingSelectedItem.Color = Craft.Color;
-				CraftingSelectedItem.Property = Craft.Property;
-				CraftingSelectedItem.Asset = Player.Inventory.find(a => a.Asset.Name === Craft.Item).Asset;
-				CraftingSelectedItem.Lock = Player.Inventory.find(a => a.Asset.Group.Name === "ItemMisc" && a.Asset.Name == Craft.Lock).Asset;
+				CraftingSelectedItem = CraftingConvertItemToSelected(Craft);
+				CraftingColoring = false;
 				CraftingOffset = 0;
 				CraftingModeSet("Name");
 			} else {
@@ -300,6 +359,7 @@ function CraftingClick() {
 				CraftingSlot = S;
 				CraftingSelectedItem = {};
 				CraftingOffset = 0;
+				CraftingColoring = false;
 				CraftingItemListBuild();
 			}
 		}
@@ -364,25 +424,100 @@ function CraftingClick() {
 		return;
 	}
 
-	// When we need to save the new item
-	if ((CraftingMode == "Name") && MouseIn(1685, 15, 90, 90)) {
-		let Name = ElementValue("InputName").trim();
-		let Description = ElementValue("InputDescription").trim();
-		let Color = ElementValue("InputColor").trim();
-		if (Name == "") return;
-		Player.Crafting[CraftingSlot] = {
-			Item: CraftingSelectedItem.Asset.Name,
-			Property: CraftingSelectedItem.Property,
-			Lock: (CraftingSelectedItem.Lock == null) ? "" : CraftingSelectedItem.Lock.Name,
-			Name: Name,
-			Description: Description,
-			Color: Color
-		};
-		CraftingSelectedItem = null;
-		CraftingSaveServer();
-		CraftingModeSet("Slot");
+	if (CraftingMode == "Name") {
+		if (MouseIn(1685, 15, 90, 90)) {
+			// When we need to save the new item
+			const prop = CraftingConvertSelectedToItem();
+			if (prop.Name == "") return;
+			Player.Crafting[CraftingSlot] = prop;
+			CraftingSelectedItem = null;
+			CraftingSaveServer();
+			CraftingModeSet("Slot");
+		} else if (MouseIn(560, 870, 90, 90)) {
+			CraftingNakedPreview = !CraftingNakedPreview;
+			CraftingUpdatePreview();
+		} else if (MouseIn(80, 250, 225, 275)) {
+			// Item change
+			CraftingModeSet("Item");
+			CraftingOffset = 0;
+			CraftingItemListBuild();
+			return null;
+		} else if (MouseIn(425, 250, 225, 275) && CraftingSelectedItem.Asset.AllowLock) {
+			// Lock change
+			CraftingModeSet("Lock");
+			return null;
+		} else if (MouseIn(80, 650, 570, 190)) {
+			CraftingModeSet("Property");
+			return null;
+		} else if (MouseIn(1200, 350, 800, 550)) {
+			if (!CraftingColoring) {
+				CraftingColoring = true;
+				const item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.Group.Name);
+				ItemColorLoad(
+					CraftingPreview,
+					item,
+					1200,
+					350,
+					800,
+					650,
+					true
+				);
+				ItemColorOnExit((c, i) => {
+					CraftingColoring = false;
+					const colorSpec = Array.isArray(i.Color)
+						? i.Color.join(",")
+						: i.Color || "";
+					CraftingSelectedItem.Color = colorSpec;
+					CraftingUpdatePreview();
+				});
+			} else {
+				ItemColorClick(
+					CraftingPreview,
+					CraftingSelectedItem.Asset.Group.Name,
+					1200,
+					350,
+					800,
+					650,
+					true
+				);
+			}
+		}
 	}
+}
 
+/**
+ * Converts the currently selected item into a crafting item.
+ *
+ * @return {CraftingItem}
+ * */
+function CraftingConvertSelectedToItem() {
+	let Name = ElementValue("InputName").trim();
+	let Description = ElementValue("InputDescription").trim();
+	return {
+		Item: CraftingSelectedItem.Asset.Name,
+		Property: CraftingSelectedItem.Property,
+		Lock: (CraftingSelectedItem.Lock == null) ? "" : CraftingSelectedItem.Lock.Name,
+		Name: Name,
+		Description: Description,
+		Color: CraftingSelectedItem.Color,
+	};
+}
+
+/**
+ * Convert a crafting item to its selected format.
+ *
+ * @param {CraftingItem} craft
+ */
+function CraftingConvertItemToSelected(craft) {
+	let obj = {
+		Name: craft.Name,
+		Description: craft.Description,
+		Color: craft.Color,
+		Property: craft.Property,
+		Asset: Player.Inventory.find(a => a.Asset.Name === craft.Item).Asset,
+		Lock: craft.Lock ? Player.Inventory.find(a => a.Asset.Group.Name === "ItemMisc" && a.Asset.Name == craft.Lock).Asset : null,
+	}
+	return obj;
 }
 
 /**
@@ -390,6 +525,7 @@ function CraftingClick() {
  * @returns {void} - Nothing.
  */
 function CraftingExit() {
+	CharacterDelete(CraftingPreview.AccountName);
 	CraftingModeSet("Slot");
 	CommonSetScreen("Room", "MainHall");
 }
