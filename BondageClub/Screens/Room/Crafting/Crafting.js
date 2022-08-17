@@ -59,11 +59,6 @@ function CraftingItemHasEffect(Item, Effect) {
  * @returns {void} - Nothing.
  */
 function CraftingLoad() {
-	if ((Player.Crafting == null) || (Player.Crafting.length != CraftingSlotMax)) {
-		Player.Crafting = [];
-		for (let C = 0; C < CraftingSlotMax; C++)
-			Player.Crafting.push({});
-	}
 	CraftingModeSet("Slot");
 	// Create a dummy character for previews
 	CraftingPreview = CharacterLoadSimple(`CraftingPreview-${Player.MemberNumber}`);
@@ -136,7 +131,7 @@ function CraftingRun() {
 			let X = (S % 4) * 500 + 15;
 			let Y = Math.floor(S / 4) * 180 + 130;
 			let Craft = Player.Crafting[S];
-			if ((Craft.Name == null) || (Craft.Name == "") || (Craft.Item == null) || (Craft.Item == "")) {
+			if (!Craft) {
 				DrawButton(X, Y, 470, 140, TextGet("EmptySlot"), CraftingDestroy ? "Pink" : "White");
 			} else {
 				DrawButton(X, Y, 470, 140, "", CraftingDestroy ? "Pink" : "White");
@@ -304,23 +299,64 @@ function CraftingSaveServer() {
 }
 
 /**
- * Loads the server packet and creates the crating array for the player
+ * Deserialize and unpack the crafting data from the server.
+ *
+ * @param {string|array} serializedData The serialized crafting data
+ * @returns {CraftingItem[]}
+ */
+function CraftingDecompressServerData(serializedData) {
+	if (Array.isArray(serializedData)) {
+		// Seems already deserialized, use that
+		return serializedData;
+	}
+
+	let decompressedData = null;
+	if (typeof serializedData !== "string" || !(decompressedData = LZString.decompressFromUTF16(serializedData))) {
+		console.error("Failed to decompress Crafting data:", serializedData);
+		return [];
+	}
+
+	const crafts = [];
+	const data = decompressedData.split("§");
+	for (let P = 0; P < data.length; P++) {
+		const element = data[P].split("¶");
+		const craft = {};
+		craft.Item = (element.length >= 1) ? element[0] : "";
+		craft.Property = (element.length >= 2) ? element[1] : "";
+		craft.Lock = /** @type {AssetLockType} */((element.length >= 3) ? element[2] : "");
+		craft.Name = (element.length >= 4) ? element[3] : "";
+		craft.Description = (element.length >= 5) ? element[4] : "";
+		craft.Color = (element.length >= 6) ? element[5] : "";
+
+		if (craft.Item && craft.Name)
+			crafts.push(craft);
+	}
+	return crafts;
+}
+
+/**
+ * Loads the server packet and creates the crafting array for the player
  * @param {string} Packet - The packet
  * @returns {void} - Nothing.
  */
 function CraftingLoadServer(Packet) {
-	CraftingLoad();
-	if ((Packet == null) || (typeof Packet != "string")) return;
-	let PacketString = LZString.decompressFromUTF16(Packet);
-	let PacketArray = PacketString.split("§");
-	for (let P = 0; P < PacketArray.length && P < CraftingSlotMax; P++) {
-		let PacketData = PacketArray[P].split("¶");
-		Player.Crafting[P].Item = (PacketData.length >= 1) ? PacketData[0] : "";
-		Player.Crafting[P].Property = (PacketData.length >= 2) ? PacketData[1] : "";
-		Player.Crafting[P].Lock = (PacketData.length >= 3) ? PacketData[2] : "";
-		Player.Crafting[P].Name = (PacketData.length >= 4) ? PacketData[3] : "";
-		Player.Crafting[P].Description = (PacketData.length >= 5) ? PacketData[4] : "";
-		Player.Crafting[P].Color = (PacketData.length >= 6) ? PacketData[5] : "";
+	Player.Crafting = [];
+	const data = CraftingDecompressServerData(Packet);
+	for (const item of data) {
+		let valid = true;
+
+		if (!item.Name || !item.Item)
+			valid = false;
+
+		// Make sure we own that item
+		if (!Player.Inventory.find(a => a.Name === item.Item))
+			valid = false;
+
+		if (valid)
+			Player.Crafting.push(item);
+
+		// Too many items, skip the rest
+		if (Player.Crafting.length >= CraftingSlotMax) break;
 	}
 }
 
@@ -345,7 +381,7 @@ function CraftingClick() {
 
 			if (CraftingDestroy) {
 				if (Craft && Craft.Name) {
-					Player.Crafting[S] = {};
+					Player.Crafting.splice(S, 1);
 					CraftingSaveServer();
 				}
 			} else if (Craft && Craft.Name) {
