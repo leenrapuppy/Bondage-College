@@ -261,6 +261,11 @@ function CraftingModeSet(NewMode) {
 	} else
 		ElementRemove("InputSearch");
 
+	if (NewMode === "Lock" && CraftingSelectedItem.Asset.AllowLock !== true) {
+		CraftingSelectedItem.Lock = null;
+		CraftingMode = NewMode = "Name";
+	}
+
 	if (NewMode == "Name") {
 		ElementCreateInput("InputName", "text", "", "30");
 		ElementCreateInput("InputDescription", "text", "", "100");
@@ -434,8 +439,13 @@ function CraftingClick() {
 				let Y = Math.floor(Pos / 4) * 230 + 130;
 				if (MouseIn(X, Y, 470, 190)) {
 					CraftingSelectedItem.Property = Property.Name;
-					if (CraftingSelectedItem.Asset.AllowLock == true) CraftingModeSet("Lock");
-					else CraftingModeSet("Name");
+					if (CraftingSelectedItem.Lock) {
+						// Editing item with a lock, skip to name
+						CraftingModeSet("Name");
+					} else {
+						CraftingModeSet("Lock");
+					}
+					return;
 				}
 				Pos++;
 			}
@@ -444,7 +454,10 @@ function CraftingClick() {
 
 	// In lock selection mode, the user can pick a default lock or no lock at all
 	if (CraftingMode == "Lock") {
-		if (MouseIn(1685, 15, 90, 90)) CraftingModeSet("Name");
+		if (MouseIn(1685, 15, 90, 90)) {
+			CraftingSelectedItem.Lock = null;
+			CraftingModeSet("Name");
+		}
 		let Pos = 0;
 		for (let L = 0; L < CraftingLockList.length; L++)
 			for (let Item of Player.Inventory)
