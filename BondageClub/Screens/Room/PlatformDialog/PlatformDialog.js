@@ -2349,7 +2349,9 @@ var PlatformDialogData = [
 			{ Text: "(A fence springs from the ground behind you.)" },
 			{ Text: "I'll take care of that rat myself." },
 			{ Text: "(She charges toward you with her minions.)" },
-			{ Text: "TO DO" },
+			{ Text: "(*** You've reached the end of Bondage Brawl for now. ***)" },
+			{ Text: "(*** The Brawl will continue in a future update of the Club. ***)" },
+			{ Text: "(*** If you like the game or have ideas for it, please reach Ben987. ***)" },
 		],
 
 	}
