@@ -356,7 +356,8 @@ type ChatRoomMessageExtractor =
  * message processing will stop, making the filter act like a handler.
  * If it's false, then it will continue. You can also return an object with
  * a `msg` property if the handler is a transformation and wishes to update
- * the message's contents inflight.
+ * the message's contents inflight and/or a `skip` property if you'd like
+ * to cause a subsequent handler to not be called.
  *
  * A few notable priority values are:
  * 0: emotes reformatting
@@ -388,7 +389,7 @@ interface ChatRoomMessageHandler {
 	 * @param metadata - The collected metadata from the message's dictionary, only available in "post" mode.
 	 * @returns {boolean} true if the message was handled and the processing should stop, false otherwise.
 	 */
-	Callback: (data: IChatRoomMessage, sender: Character, msg: string, metadata?: any) => boolean | { msg?: string; };
+	Callback: (data: IChatRoomMessage, sender: Character, msg: string, metadata?: any) => boolean | { msg?: string; skip?: (handler: ChatRoomMessageHandler) => boolean };
 }
 
 //#endregion

@@ -2779,7 +2779,12 @@ function ChatRoomMessageRunHandlers(type, data, sender, msg, metadata) {
 
 	// Go through the handlers and show them the message
 	const originalMsg = msg;
+	const skips = [];
 	for (const handler of handlers) {
+		// Check if one of the handlers wanted us to skip an oncoming handler
+		if (skips.some(s => s(handler)))
+			continue;
+
 		const ret = handler.Callback(data, sender, msg, metadata);
 
 		if (typeof ret === "boolean") {
@@ -2789,8 +2794,9 @@ function ChatRoomMessageRunHandlers(type, data, sender, msg, metadata) {
 			// Fallthrough, keep processing
 		} else if (typeof ret === "object") {
 			// Handler wishes to transform, collect their result and continue
-			const { msg: newMsg } = ret;
+			const { msg: newMsg, skip: skip } = ret;
 			if (newMsg) msg = newMsg;
+			if (skip) skips.push(skip);
 		}
 	}
 
