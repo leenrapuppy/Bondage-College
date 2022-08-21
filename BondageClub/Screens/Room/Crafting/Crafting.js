@@ -6,6 +6,7 @@ var CraftingSlot = 0;
 /** @type {{Name?: string, Description?: string, Color?: string, Asset?: Asset, Property?: string, Lock?: Asset, }} */
 var CraftingSelectedItem = null;
 var CraftingOffset = 0;
+/** @type {Asset[]} */
 var CraftingItemList = [];
 var CraftingSlotMax = 20;
 /** @type {Character} */
@@ -79,20 +80,21 @@ function CraftingUpdatePreview() {
 
 	if (!CraftingSelectedItem) return;
 
-	const selectedAsset = CraftingSelectedItem.Asset;
+	const craft = CraftingConvertSelectedToItem();
 	const foundGroups = [];
-	const relevantAssets = Asset.filter((a, _i, ary) => {
+	const relevantAssets = Asset.filter(a => {
 		if (!a.Group.Zone) return false;
-		if (a.Name !== selectedAsset.Name) return false;
 
-		if (foundGroups.includes(a.Group.Name))
+		if (!CraftingAppliesToItem(craft, a))
 			return false;
 
-		foundGroups.push(a.DynamicGroupName || a.Group.Name);
+		if (foundGroups.includes(a.DynamicGroupName || a.Group.Name))
+			return false;
+
+		foundGroups.push(a.Group.Name);
 		return true;
 	});
 
-	const craft = CraftingConvertSelectedToItem();
 	for (const relevantAsset of relevantAssets) {
 		InventoryWear(
 			CraftingPreview,
@@ -580,6 +582,25 @@ function CraftingExit() {
 }
 
 /**
+ *
+ * @param {CraftingItem} Craft
+ * @param {Asset} Item
+ */
+function CraftingAppliesToItem(Craft, Item) {
+	if (!Craft || !Item) return false;
+
+	const craftAsset = Asset.find(a => a.Name === Craft.Item && a.Group.Zone);
+	if (!craftAsset) return false;
+
+	// Find all assets that match our name/group combination, or have the same description
+	const matchingAssets = Asset.filter(a => a.Name === craftAsset.Name || a.CraftGroup === craftAsset.Name);
+	//&& ((a.Group.Name === craftAsset.Group.Name || a.Group.Name === craftAsset.DynamicGroupName)) || a.DynamicDescription(Player) === craftAsset.DynamicDescription(Player));
+
+	// Now check any of those matches are the item to test
+	return matchingAssets.find(m => m.Name === Item.Name && m.Group.Name === Item.Group.Name);
+}
+
+/**
  * Builds the item list from the player inventory, filters by the search box content
  * @returns {void} - Nothing.
  */
@@ -589,15 +610,33 @@ function CraftingItemListBuild() {
 	Search = Search.toUpperCase().trim();
 
 	CraftingItemList = [];
-	for (let I of Player.Inventory)
-		if ((I.Asset != null) && (I.Asset.Name != null) && I.Asset.Enable && I.Asset.Wear && (I.Asset.Group != null) && (I.Asset.Group.Name.substr(0, 4) == "Item") && (I.Asset.Group.Name != "ItemAddon") && (I.Asset.Group.Name != "ItemMisc") && (I.Asset.Name.substr(0, 12) != "SpankingToys"))
-			if ((Search == "") || (I.Asset.Description == null) || (I.Asset.Description.toUpperCase().trim().indexOf(Search) >= 0)) {
-				let Found = false;
-				for (let E of CraftingItemList)
-					if ((E.Name == I.Asset.Name) || (E.Description == I.Asset.Description))
-						Found = true;
-				if (!Found) CraftingItemList.push(I.Asset);
-			}
+	for (let A of Asset) {
+		if (!InventoryAvailable(Player, A.Name, A.Group.Name))
+			continue;
+
+		if (!A.Enable || !A.Wear || !A.Group.Name.startsWith("Item"))
+			continue;
+
+		if (A.Group.Name === "ItemAddon" || A.Group.Name === "ItemMisc" || A.Name.startsWith("SpankingToys"))
+			continue;
+
+		let matches = true;
+		// Match against the search term. The empty string matches every string.
+		const desc = A.DynamicDescription(Player).toUpperCase().trim();
+		if (desc.indexOf(Search) < 0)
+			matches = false;
+
+		// Make sure we don't add assets that are kinda-sorta the same asset (ropes, webs)
+		for (let E of CraftingItemList) {
+			if (E.CraftGroup === A.Name || E.Name === A.CraftGroup)
+			// if (CraftingAppliesToItem({ Item: E.Name }, A))
+				matches = false;
+		}
+
+		if (matches)
+			CraftingItemList.push(A);
+	}
+
 	CraftingItemList.sort((a,b) => (a.Description > b.Description) ? 1 : (b.Description > a.Description) ? -1 : 0);
 	if (CraftingOffset >= CraftingItemList.length) CraftingOffset = 0;
 }

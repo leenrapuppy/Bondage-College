@@ -142,6 +142,7 @@ interface AssetDefinition {
 	PreviewIcons?: InventoryIcon[];
 	Tint?: TintDefinition[];
 	DefaultTint?: string;
+	CraftGroup?: string;
 }
 
 interface AssetLayerDefinition {

@@ -1143,14 +1143,16 @@ function DialogInventoryBuild(C, Offset, redrawPreviews = false) {
 						DialogInventoryAdd(C, { Asset: A }, false);
 
 			// Fifth, we add all crafted items that matches that slot
-			if (Player.Crafting != null)
-				for (let Craft of Player.Crafting)
-					if ((Craft.Item != null) && (InventoryAvailable(Player, Craft.Item, C.FocusGroup.Name)))
-						for (let A of Asset)
-							if ((A.Name == Craft.Item) && (A.Group.Name == C.FocusGroup.Name))
-								if (DialogCanUseCraftedItem(C, Craft))
-									DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
-
+			if (Player.Crafting != null) {
+				for (let Craft of Player.Crafting) {
+					const group = AssetGroupGet(C.AssetFamily, C.FocusGroup.Name);
+					for (let A of group.Asset) {
+						if (CraftingAppliesToItem(Craft, A) && DialogCanUseCraftedItem(C, Craft)) {
+							DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
+						}
+					}
+				}
+			}
 		}
 
 		// Rebuilds the dialog menu and its buttons

@@ -574,6 +574,7 @@ interface Asset {
 	Tint: TintDefinition[];
 	AllowTint: boolean;
 	DefaultTint?: string;
+	CraftGroup: string;
 }
 
 //#endregion

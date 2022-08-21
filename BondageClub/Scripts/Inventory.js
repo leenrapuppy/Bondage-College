@@ -408,7 +408,7 @@ function InventoryGet(C, AssetGroup) {
 * @param {Character} Source - The character that used the item
 * @param {Character} Target - The character on which the item is used
 * @param {String} GroupName - The name of the asset group to scan
-* @param {Object} Craft - The crafted properties to apply
+* @param {CraftingItem} Craft - The crafted properties to apply
 * @param {Boolean} Refresh - TRUE if we must refresh the character
 * @returns {void}
 */
@@ -421,11 +421,11 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh) {
 	if (Item.Craft == null) Item.Craft = Craft;
 
 	// Applies the color schema, separated by commas
-	if ((Craft.Color != null) && (Craft.Color.indexOf(",") > 0)) {
+	if (Craft.Color != null && typeof Craft.Color === "string") {
 		Item.Color = Craft.Color.replace(" ", "").split(",");
 		for (let C of Item.Color)
 			if (CommonIsColor(C) == false)
-				C = "default";
+				C = "Default";
 	}
 
 	// Applies a lock to the item
