@@ -291,6 +291,8 @@ function CraftingModeSet(NewMode) {
 	} else {
 		ElementRemove("InputName");
 		ElementRemove("InputDescription");
+		// Can happen through the colorpicker
+		ElementRemove("InputColor");
 	}
 }
 
