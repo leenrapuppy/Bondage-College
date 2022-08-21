@@ -96,6 +96,8 @@ function CraftingUpdatePreview() {
 	});
 
 	for (const relevantAsset of relevantAssets) {
+		if (!InventoryAllow(CraftingPreview, relevantAsset))
+			continue;
 		InventoryWear(
 			CraftingPreview,
 			relevantAsset.Name,
@@ -617,7 +619,7 @@ function CraftingItemListBuild() {
 		if (!A.Enable || !A.Wear || !A.Group.Name.startsWith("Item"))
 			continue;
 
-		if (A.Group.Name === "ItemAddon" || A.Group.Name === "ItemMisc" || A.Name.startsWith("SpankingToys"))
+		if (A.Group.Name === "ItemMisc" || A.Name.startsWith("SpankingToys"))
 			continue;
 
 		let matches = true;
