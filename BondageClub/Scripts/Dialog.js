@@ -2577,3 +2577,20 @@ function DialogChatRoomSafewordRelease() {
 	DialogLeave();
 	ChatRoomSafewordRelease();
 }
+
+/**
+ * Close the dialog and switch to the crafting screen.
+ */
+function DialogOpenCraftingScreen() {
+	const fromRoom = CurrentScreen === "ChatRoom";
+	DialogLeave();
+	CraftingShowScreen(fromRoom);
+}
+
+/**
+ * Check whether it's possible to access the crafting interface.
+ * @returns {boolean}
+ */
+function DialogCanCraft() {
+	return !Player.IsRestrained() || !Player.IsBlind();
+}

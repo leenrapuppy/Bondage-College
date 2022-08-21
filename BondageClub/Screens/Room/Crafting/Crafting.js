@@ -14,6 +14,7 @@ var CraftingPreview = null;
 /** @type {boolean} */
 var CraftingNakedPreview = false;
 var CraftingColoring = false;
+var CraftingReturnToChatroom = false;
 
 /**
  * @type {{Name: string, Allow: (asset: Asset) => boolean}[]}
@@ -53,6 +54,15 @@ function CraftingItemHasEffect(Item, Effect) {
 			if (Item.AllowEffect.indexOf(E) >= 0)
 				return true;
 	return false;
+}
+
+/**
+ *
+ * @param {boolean} [fromRoom]
+ */
+function CraftingShowScreen(fromRoom) {
+	CraftingReturnToChatroom = fromRoom;
+	CommonSetScreen("Room", "Crafting");
 }
 
 /**
@@ -580,7 +590,10 @@ function CraftingConvertItemToSelected(craft) {
 function CraftingExit() {
 	CharacterDelete(CraftingPreview.AccountName);
 	CraftingModeSet("Slot");
-	CommonSetScreen("Room", "MainHall");
+	if (CraftingReturnToChatroom)
+		CommonSetScreen("Online", "ChatRoom");
+	else
+		CommonSetScreen("Room", "MainHall");
 }
 
 /**
