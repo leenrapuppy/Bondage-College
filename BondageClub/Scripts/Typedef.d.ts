@@ -330,7 +330,7 @@ interface IChatRoomSyncMessage extends IChatRoomSyncBasic, ChatRoom { }
  * @return null if the extraction has nothing to report.
  */
 type ChatRoomMessageExtractor =
-	(data: IChatRoomMessage, sender: Character) => { metadata: object, substitutions: string[][] }?;
+	(data: IChatRoomMessage, sender: Character) => { metadata: object, substitutions: string[][] } | null;
 
 /**
  * A chat message handler.
