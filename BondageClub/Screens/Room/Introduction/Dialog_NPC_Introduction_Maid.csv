@@ -199,7 +199,7 @@ JobDojoIntro2203,,,Konichiwa!  (She smiles and bows politely.)  I trust you want
 330,340,This is pretty kinky.,Absolutely!  Now do you think you can escape?,,
 340,,,You're still struggling to get out?  Don't give up.,,Player.IsRestrained()
 340,,How do I escape?,Grab the rope on your arms and try to free yourself.  Good luck!,,Player.IsRestrained()
-340,,I changed my mind, get me out now!,You're not in control girl.  (She grabs your mouth and straps a cloth gag on you.),GagPlayer(),Player.IsRestrained()
+340,,"I changed my mind, get me out now!",You're not in control girl.  (She grabs your mouth and straps a cloth gag on you.),GagPlayer(),Player.IsRestrained()
 340,,"Don't look, I will escape by myself.  (Leave her.)",,DialogLeave(),Player.IsRestrained()
 340,,,Well done!  You were able to struggle out.,,!Player.IsRestrained()
 340,350,That was easy.,I'll make it tighter next time.  Did you enjoy being tied up?,,!Player.IsRestrained()
