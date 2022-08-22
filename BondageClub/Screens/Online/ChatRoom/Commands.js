@@ -537,4 +537,13 @@ const CommonCommands = [
 					ServerSend("ChatRoomChat", { Content: "ChatRoomBot " + msg.substring(4), Type: "Hidden", Target: MemberNumber });
 		}
 	},
+	{
+		Tag: "craft",
+		Action: () => {
+			document.getElementById("InputChat").style.display = "none";
+			document.getElementById("TextAreaChatLog").style.display = "none";
+			ChatRoomChatHidden = true;
+			CraftingShowScreen(true);
+		},
+	},
 ];

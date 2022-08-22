@@ -172,8 +172,9 @@ let LoginInventoryFixups = [
  *
  * @param {Record<string, string[]>} Inventory - The server-provided inventory object
  * @param {{Group: string, Name: string}[]} Appearance - The server-provided appearance object
+ * @param {CraftingItem[]} Crafting - The server-provided, uncompressed crafting data
  */
-function LoginPerformInventoryFixups(Inventory, Appearance) {
+function LoginPerformInventoryFixups(Inventory, Appearance, Crafting) {
 	// Skip fixups on new characters
 	if (!Inventory || !Appearance) return;
 
@@ -211,7 +212,17 @@ function LoginPerformInventoryFixups(Inventory, Appearance) {
 				Appearance.push(worn);
 			}
 		}
+
+		// Move crafts over to the new name
+		if (Array.isArray(Crafting)) {
+			Crafting.forEach(c => {
+				if (c.Item !== fixup.Old.Name) return;
+
+				c.Item = fixup.New.Name;
+			});
+		}
 	});
+
 	if (listsUpdated)
 		ServerPlayerBlockItemsSync();
 }
@@ -625,7 +636,8 @@ function LoginResponse(C) {
 			LoginDifficulty(false);
 
 			// Loads the player character model and data
-			LoginPerformInventoryFixups(C.Inventory, C.Appearance);
+			C.Crafting = CraftingDecompressServerData(C.Crafting);
+			LoginPerformInventoryFixups(C.Inventory, C.Appearance, C.Crafting);
 			ServerAppearanceLoadFromBundle(Player, C.AssetFamily, C.Appearance, C.MemberNumber);
 			InventoryLoad(Player, C.Inventory);
 			LogLoad(C.Log);
