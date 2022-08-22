@@ -1617,7 +1617,7 @@ var PlatformDialogData = [
 			{ Text: "Move out of the way or you'll get hurt." },
 			{
 				Text: "(She stares at your group.)",
-				Character: [{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }]
+				Character: [{ Name: "Vera", Status: "Leather", Pose: "Angry" }]
 			},
 			{ Text: "Lady Olivia you say?  Thanks for the tip, she would fetch a good ransom." },
 			{
@@ -1626,7 +1626,7 @@ var PlatformDialogData = [
 					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" },
 					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive" },
-					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }
+					{ Name: "Vera", Status: "Leather", Pose: "Angry" }
 				],
 				Answer: [
 					{ Text: "She knows too much now.", Reply: "That's very true, we'll need to get rid of the bandits.", Love: 1 },
@@ -1654,7 +1654,7 @@ var PlatformDialogData = [
 			{
 				Text: "You're the Countess daughter!",
 				Character: [
-					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
+					{ Name: "Vera", Status: "Leather", Pose: "Angry" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" },
 					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive" }
 				],
@@ -1939,7 +1939,7 @@ var PlatformDialogData = [
 			{
 				Background: "SecludedClearing",
 				Character: [
-					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
+					{ Name: "Vera", Status: "Leather", Pose: "Angry" },
 					{ Name: "Crate", Status: "Wood", Pose: "Idle" },
 					{ Name: "Lucy", Status: "Armor", Pose: "Idle" },
 				]
@@ -2306,7 +2306,7 @@ var PlatformDialogData = [
 				Character: [
 					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
 					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
-					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }
+					{ Name: "Vera", Status: "Leather", Pose: "Angry" }
 				]
 			},
 			{ Text: "(The bandit boss and her minions are having a loud argument.)" },
@@ -2325,7 +2325,7 @@ var PlatformDialogData = [
 				Character: [
 					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
 					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
-					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }
+					{ Name: "Vera", Status: "Leather", Pose: "Angry" }
 				]
 			},
 			{ Text: "(The bandit boss and her minions are having a loud argument.)" },
@@ -2342,7 +2342,7 @@ var PlatformDialogData = [
 				Character: [
 					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
 					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
-					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }
+					{ Name: "Vera", Status: "Leather", Pose: "Angry" }
 				]
 			},
 			{ Text: "Good!  Spring the trap girls." },
