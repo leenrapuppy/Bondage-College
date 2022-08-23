@@ -1730,7 +1730,7 @@ var PlatformDialogData = [
 			},
 			{
 				Text: "I owe you one.  I could help you against these bandits or in your adventures.",
-				Entry: function() { PlatformEventSet("EdlaranJoin"); PlatformLoadRoom(); }
+				Entry: function() { PlatformEventSet("EdlaranJoin"); PlatformPartyBuild(); PlatformLoadRoom(); }
 			},
 			{
 				Text: "I'm Edlaran.  I know how to fight, shoot and plunder.  I also know these woods.",
