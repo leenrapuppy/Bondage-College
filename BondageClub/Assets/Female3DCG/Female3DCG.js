@@ -4054,7 +4054,8 @@ var AssetFemale3DCG = [
 		Priority: 35,
 		Default: false,
 		IsRestraint: true,
-		Zone: [[10, 400, 90, 200], [400, 400, 90, 200]],
+		Zone: [[10, 400, 90, 100], [400, 400, 90, 100]],
+		Block: ["ItemHandheld"],
 		Asset: [
 			{ Name: "PaddedMittens", Fetish: ["ABDL"], Value: 40, Difficulty: 4, SelfBondage: 2, Time: 15, AllowLock: true, DefaultColor: "#bbbbbb", AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], Effect: ["Block", "Prone"], Hide: ["LeftHand", "RightHand"], HideItem: ["BraceletSpikeBands"], Extended: true,
 				Layer: [
@@ -4086,233 +4087,245 @@ var AssetFemale3DCG = [
 			{ Name: "PaddedLeatherMittens", Fetish: ["Leather"], Value: 70, Difficulty: 6, SelfBondage: 5, Time: 15, RemoveTime: 5, AllowLock: true, AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], Effect: ["Block", "Prone"] },
 			{ Name: "PolishedMittens", Fetish: ["Metal"], Value: 80, Difficulty: 8, SelfBondage: 6, Time: 20, RemoveTime: 10, AllowLock: true, Audio: "CuffsMetal", AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], Effect: ["Block", "Prone"] },
 			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, Difficulty: 5, SelfBondage: 3, Time: 20, RemoveTime: 10, BuyGroup: "DuctTape", Audio: "DuctTapeRollShort", Hide: ["Gloves", "LeftHand", "RightHand"], AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], Effect: ["Block", "Prone"] },
+			{ Name: "HoofMittens", Fetish: ["Pony"], Value: -1, Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 5, AllowLock: true, DrawLocks: false, AllowPose: ["BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours", "OverTheHead"], SetPose: ["TapedHands"], Effect: ["Block", "Prone"], HideForPose: ["BackBoxTie", "BackElbowTouch"], },
+		],
+	},
+	{
+		Group: "ItemHandheld",
+		ParentGroup: "BodyUpper",
+		Category: "Item",
+		Priority: 34,
+		Default: false,
+		Zone: [[10, 500, 90, 100], [400, 500, 90, 100]],
+		MirrorActivitiesFrom: "ItemHands",
+		AllowPose: ["AllFours", "BackBoxTie", "BackCuffs", "BackElbowTouch", "OverTheHead", "Yoked"],
+		Asset: [
 			{ Name: "KeyProp", Value: 10, Priority: 46, Difficulty: -10, Time: 5, IsRestraint: false, AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], },
 			{ Name: "MedicalInjector", Category: ["SciFi"], Value: 75, Priority: 46, Time: 8, IsRestraint: false, AllowActivity: ["InjectItem"], AllowPose: ["Yoked"], HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "AllFours"], },
 			{
-				Name: "SpankingToysCrop", ParentGroup: null, Priority: 46, Value: 20, Random: false, Fetish: ["Sadism"],
+				Name: "Crop", ParentGroup: null, Priority: 46, Value: 20, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"], BuyGroup: "Crop",
 			},
 			{
-				Name: "SpankingToysFlogger", ParentGroup: null, Priority: 46, Value: 40, Random: false, Fetish: ["Sadism"],
+				Name: "Flogger", ParentGroup: null, Priority: 46, Value: 40, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"], ActivityAudio: ["SmackCrop"],
 			},
 			{
-				Name: "SpankingToysCane", ParentGroup: null, Priority: 46, Value: 15, Random: false, Fetish: ["Sadism"],
+				Name: "Cane", ParentGroup: null, Priority: 46, Value: 15, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"], BuyGroup: "Cane",
 				ActivityExpression: {
 					"SpankItem": [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }],
 				}
 			},
 			{
-				Name: "SpankingToysHeartCrop", ParentGroup: null, Priority: 46, Value: 30, Random: false, Fetish: ["Sadism"],
+				Name: "HeartCrop", ParentGroup: null, Priority: 46, Value: 30, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"],
 			},
 			{
-				Name: "SpankingToysPaddle", ParentGroup: null, Priority: 46, Value: 35, Random: false, Fetish: ["Sadism"],
+				Name: "Paddle", ParentGroup: null, Priority: 46, Value: 35, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"],
 				ActivityExpression: {
 					"SpankItem": [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }],
 				}
 			},
 			{
-				Name: "SpankingToysWhipPaddle", ParentGroup: null, Priority: 46, Value: 25, Random: false, Fetish: ["Sadism"],
+				Name: "WhipPaddle", ParentGroup: null, Priority: 46, Value: 25, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"],
 				ActivityExpression: {
 					"SpankItem": [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }],
 				}
 			},
 			{
-				Name: "SpankingToysWhip", ParentGroup: null, Priority: 46, Value: 50, Random: false, Fetish: ["Sadism"],
+				Name: "Whip", ParentGroup: null, Priority: 46, Value: 50, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"], ActivityAudio: ["WhipCrack"],
 				ActivityExpression: {
 					"SpankItem": [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }],
 				}
 			},
 			{
-				Name: "SpankingToysCattleProd", ParentGroup: null, Priority: 46, Value: 45, Random: false, Fetish: ["Sadism"],
+				Name: "CattleProd", ParentGroup: null, Priority: 46, Value: 45, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["ShockItem"], ActivityAudio: ["Shocks"],
 			},
 			{
-				Name: "SpankingToysTennisRacket", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
+				Name: "TennisRacket", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"], Bonus: "KidnapBruteForce",
 			},
 			{
-				Name: "SpankingToysRainbowWand", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
+				Name: "RainbowWand", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
 				ActivityExpression: { "SpankItem": [{ Group: "Eyebrows", Name: "Soft", Timer: 5 }] }
 			},
 			{
-				Name: "SpankingToysGavel", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
+				Name: "Gavel", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"], Bonus: "KidnapDomination",
 				ActivityExpression: {
 					"SpankItem": [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }]
 				}
 			},
 			{
-				Name: "SpankingToysFeather", ParentGroup: null, Priority: 46, Value: 2, Random: false,
+				Name: "Feather", ParentGroup: null, Priority: 46, Value: 2, Random: false,
 				AllowActivity: ["TickleItem"],
 				ActivityExpression: { "TickleItem": [{ Group: "Blush", Name: "Medium", Timer: 10 }, {Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Grin", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}], }
 			},
 			{
-				Name: "SpankingToysFeatherDuster", ParentGroup: null, Priority: 46, Value: 4, Random: false,
+				Name: "FeatherDuster", ParentGroup: null, Priority: 46, Value: 4, Random: false,
 				AllowActivity: ["TickleItem"],
 			},
 			{
-				Name: "SpankingToysLongDuster", ParentGroup: null, Priority: 46, Value: -1, Random: false,
+				Name: "LongDuster", ParentGroup: null, Priority: 46, Value: -1, Random: false,
 				AllowActivity: ["TickleItem"], Bonus: "KidnapSneakiness",
 			},
 			{
-				Name: "SpankingToysIceCube", ParentGroup: null, Priority: 46, Value: 3, Random: false,
+				Name: "IceCube", ParentGroup: null, Priority: 46, Value: 3, Random: false,
 				AllowActivity: ["RubItem"],
 				ActivityExpression: { "RubItem": [{ Group: "Blush", Name: "Medium", Timer: 10}, { Group: "Mouth", Name: "Angry", Timer: 10}, { Group: "Eyes", Name: "Daydream", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}] },
 			},
 			{
-				Name: "SpankingToysWartenbergWheel", ParentGroup: null, Priority: 46, Value: 10, Random: false, Fetish: ["Sadism"],
+				Name: "WartenbergWheel", ParentGroup: null, Priority: 46, Value: 10, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["RollItem"],
 				ActivityExpression: { "RollItem": [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}, { Group: "Eyes", Name: "Daydream", Timer: 10}] }
 			},
 			{
-				Name: "SpankingToysVibratingWand", ParentGroup: null, Priority: 46, Value: 40, Random: false,
+				Name: "VibratingWand", ParentGroup: null, Priority: 46, Value: 40, Random: false,
 				AllowActivity: ["MasturbateItem", "RubItem"], ActivityAudio: ["Wand"],
 				ActivityExpression: { "MasturbateItem": [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "VeryLewd", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}, { Group: "Mouth", Name: "Open", Timer: 10}], }
 			},
 			{
-				Name: "SpankingToysSmallVibratingWand", ParentGroup: null, Priority: 46, Value: 20, Random: false,
+				Name: "SmallVibratingWand", ParentGroup: null, Priority: 46, Value: 20, Random: false,
 				AllowActivity: ["MasturbateItem", "RubItem"], ActivityAudio: ["Wand"],
 			},
 			{
-				Name: "SpankingToysCandleWax", ParentGroup: null, Priority: 46, Value: 10, Random: false, Fetish: ["Sadism"],
+				Name: "CandleWax", ParentGroup: null, Priority: 46, Value: 10, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["PourItem"],
 				ActivityExpression: { "PourItem": [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Surprised", Timer: 10}, { Group: "Mouth", Name: "Frown", Timer: 10}] }
 			},
 			{
-				Name: "SpankingToysLargeDildo", ParentGroup: null, Priority: 46, Value: 30, Random: false,
+				Name: "LargeDildo", ParentGroup: null, Priority: 46, Value: 30, Random: false,
 				AllowActivity: ["MasturbateItem", "RubItem", "PenetrateItem"],
 			},
 			{
-				Name: "SpankingToysPetToy", ParentGroup: null, Priority: 46, Value: 5, Random: false,
+				Name: "PetToy", ParentGroup: null, Priority: 46, Value: 5, Random: false,
 				AllowActivity: ["TickleItem", "SpankItem"],
 			},
 			{
-				Name: "SpankingToysVibrator", ParentGroup: null, Priority: 46, Value: 45, Random: false,
+				Name: "Vibrator", ParentGroup: null, Priority: 46, Value: 45, Random: false,
 				AllowActivity: ["MasturbateItem", "RubItem"], ActivityAudio: ["Wand"],
 				ActivityExpression: { "MasturbateItem": [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "VeryLewd", Timer: 10 }, { Group: "Mouth", Name: "Open", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}], }
 			},
 			{
-				Name: "SpankingToysBelt", ParentGroup: null, Priority: 46, Value: 10, Random: false, Fetish: ["Sadism"],
+				Name: "Belt", ParentGroup: null, Priority: 46, Value: 10, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
 				ActivityExpression: { "SpankItem": [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}], }
 			},
 			{
-				Name: "SpankingToysHairbrush", ParentGroup: null, Priority: 46, Value: 5, Random: false, Fetish: ["Sadism"],
+				Name: "Hairbrush", ParentGroup: null, Priority: 46, Value: 5, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
 				ActivityExpression: { "SpankItem": [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}], }
 			},
 			{
-				Name: "SpankingToysSmallDildo", ParentGroup: null, Priority: 46, Value: 20, Random: false,
+				Name: "SmallDildo", ParentGroup: null, Priority: 46, Value: 20, Random: false,
 				AllowActivity: ["MasturbateItem", "RubItem", "PenetrateItem"],
 			},
 			{
-				Name: "SpankingToysElectricToothbrush", ParentGroup: null, Priority: 46, Value: 20, Random: false,
+				Name: "ElectricToothbrush", ParentGroup: null, Priority: 46, Value: 20, Random: false,
 				AllowActivity: ["TickleItem", "MasturbateItem"],
 			},
 			{
-				Name: "SpankingToysToothbrush", ParentGroup: null, Priority: 46, Value: 10, Random: false,
+				Name: "Toothbrush", ParentGroup: null, Priority: 46, Value: 10, Random: false,
 				AllowActivity: ["TickleItem"],
 				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, {Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Grin", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysShockWand", ParentGroup: null, Priority: 46, Value: 50, Random: false, Fetish: ["Sadism"],
+				Name: "ShockWand", ParentGroup: null, Priority: 46, Value: 50, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["ShockItem"], ActivityAudio: ["Shocks"],
 			},
 			{
-				Name: "SpankingToysLotion", ParentGroup: null, Priority: 46, Value: 10, Random: false,
+				Name: "Lotion", ParentGroup: null, Priority: 46, Value: 10, Random: false,
 				AllowActivity: ["RubItem"],
 			},
 			{
-				Name: "SpankingToysRuler", ParentGroup: null, Priority: 46, Value: 3, Random: false, Fetish: ["Sadism"],
+				Name: "Ruler", ParentGroup: null, Priority: 46, Value: 3, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
 			},
 			{
-				Name: "SpankingToysSword", ParentGroup: null, Priority: 46, Value: 5, Random: false, Fetish: ["Sadism"],
+				Name: "Sword", ParentGroup: null, Priority: 46, Value: 5, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
 				ActivityExpression: { "SpankItem": [{ Group: "Blush", Name: "Low", Timer: 5 }, { Group: "Eyebrows", Name: "Harsh", Timer: 5 }], }
 			},
 			{
-				Name: "SpankingToysVibeRemote", ParentGroup: null, Priority: 46, Value: 50, Random: false,
+				Name: "VibeRemote", ParentGroup: null, Priority: 46, Value: 50, Random: false,
 				AllowActivity: ["RubItem"], BuyGroup: "VibratorRemote",
 			},
 			{
-				Name: "SpankingToysShockRemote", ParentGroup: null, Priority: 46, Value: 50, Random: false,
+				Name: "ShockRemote", ParentGroup: null, Priority: 46, Value: 50, Random: false,
 				AllowActivity: ["RubItem"],
 			},
 			{
-				Name: "SpankingToysTowel", ParentGroup: null, Priority: 46, Value: 10, Random: false, AllowActivity: ["RubItem"],
+				Name: "Towel", ParentGroup: null, Priority: 46, Value: 10, Random: false, AllowActivity: ["RubItem"],
 			},
 			{
-				Name: "SpankingToysRopeCoilLong", ParentGroup: null, Priority: 46, Value: 60, Random: false, Fetish: ["Rope"],
+				Name: "RopeCoilLong", ParentGroup: null, Priority: 46, Value: 60, Random: false, Fetish: ["Rope"],
 				AllowActivity: ["RubItem"], BuyGroup: "HempRope",
 			},
 			{
-				Name: "SpankingToysRopeCoilShort", ParentGroup: null, Priority: 46, Value: 60, Random: false, Fetish: ["Rope"],
+				Name: "RopeCoilShort", ParentGroup: null, Priority: 46, Value: 60, Random: false, Fetish: ["Rope"],
 				AllowActivity: ["RubItem"], BuyGroup: "HempRope",
 			},
 			{
-				Name: "SpankingToysBallgag", ParentGroup: null, Priority: 46, Value: 40, Random: false,  Fetish: ["Gagged"],
+				Name: "Ballgag", ParentGroup: null, Priority: 46, Value: 40, Random: false,  Fetish: ["Gagged"],
 				AllowActivity: ["RubItem"],
 			},
 			{
-				Name: "SpankingToysLongSock", ParentGroup: null, Priority: 46, Value: 40, Random: false,  Fetish: ["Lingerie"],
+				Name: "LongSock", ParentGroup: null, Priority: 46, Value: 40, Random: false,  Fetish: ["Lingerie"],
 				AllowActivity: ["RubItem"],
 			},
 			{
-				Name: "SpankingToysBaguette", ParentGroup: null, Priority: 46, Value: -1, Random: false,  Fetish: ["Sadism"],
+				Name: "Baguette", ParentGroup: null, Priority: 46, Value: -1, Random: false,  Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
 			},
 			{
-				Name: "SpankingToysPanties", ParentGroup: null, Priority: 46, Value: 10, Random: false,  Fetish: ["Lingerie"],
+				Name: "Panties", ParentGroup: null, Priority: 46, Value: 10, Random: false,  Fetish: ["Lingerie"],
 				AllowActivity: ["RubItem"],
 			},
 			{
-				Name: "SpankingToysTapeRoll", ParentGroup: null, Priority: 46, Value: 50, Random: false, Fetish: ["Tape"],
+				Name: "TapeRoll", ParentGroup: null, Priority: 46, Value: 50, Random: false, Fetish: ["Tape"],
 				AllowActivity: ["RubItem"],
 			},
 			{
-				Name: "SpankingToysSpatula", ParentGroup: null, Priority: 46, Value: 5, Random: false, Fetish: ["Sadism"],
+				Name: "Spatula", ParentGroup: null, Priority: 46, Value: 5, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
 			},
 			{
-				Name: "SpankingToysBroom", ParentGroup: null, Priority: 46, Value: 15, Random: false, Fetish: ["Sadism"],
+				Name: "Broom", ParentGroup: null, Priority: 46, Value: 15, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem"],
 			},
 			{
-				Name: "SpankingToysPhone1", ParentGroup: null, Priority: 46,  Value: 100, Random: false,
+				Name: "Phone1", ParentGroup: null, Priority: 46,  Value: 100, Random: false,
 				AllowActivity: ["RubItem"],
 			},
 			{
-				Name: "SpankingToysPhone2", ParentGroup: null, Priority: 46, Value: 140, Random: false,
+				Name: "Phone2", ParentGroup: null, Priority: 46, Value: 140, Random: false,
 				AllowActivity: ["RubItem"],
 			},
 			{
-				Name: "SpankingToysScissors", ParentGroup: null, Priority: 46, Value: 15, Random: false,
+				Name: "Scissors", ParentGroup: null, Priority: 46, Value: 15, Random: false,
 			},
 			{
-				Name: "SpankingToysPlasticWrap", ParentGroup: null, Priority: 46, Value: 100, BuyGroup: "PlasticWrap", Random: false,
+				Name: "PlasticWrap", ParentGroup: null, Priority: 46, Value: 100, BuyGroup: "PlasticWrap", Random: false,
 			},
 			{
-				Name: "SpankingToysGlassEmpty", ParentGroup: null, Priority: 46, Value: 10, Random: false,
+				Name: "GlassEmpty", ParentGroup: null, Priority: 46, Value: 10, Random: false,
 				BuyGroup: "DrinkingGlass"
 			},
 			{
-				Name: "SpankingToysGlassFilled", ParentGroup: null, Priority: 46, Value: 20, Random: false,
+				Name: "GlassFilled", ParentGroup: null, Priority: 46, Value: 20, Random: false,
 				AllowActivity: ["RubItem"], BuyGroup: "DrinkingGlass",
 				ActivityExpression: { "RubItem": [{ Group: "Blush", Name: "Low", Timer: 5}, { Group: "Mouth", Name: "LipBite", Timer: 5}, { Group: "Eyes", Name: "Lewd", Timer: 5}, { Group: "Eyebrows", Name: "Raised", Timer: 5}], },
 			},
 			{
-				Name: "SpankingToysPotionBottle", Value: 40, Random: false,
+				Name: "PotionBottle", Value: 40, Random: false,
 				AllowActivity: ["RubItem"],
 			},
-			{ Name: "HoofMittens", Fetish: ["Pony"], Value: -1, Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 5, AllowLock: true, DrawLocks: false, AllowPose: ["BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours", "OverTheHead"], SetPose: ["TapedHands"], Effect: ["Block", "Prone"], HideForPose: ["BackBoxTie", "BackElbowTouch"], },
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
