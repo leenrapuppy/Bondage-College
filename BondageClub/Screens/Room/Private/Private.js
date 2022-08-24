@@ -1199,8 +1199,8 @@ function PrivateSelectPunishment() {
 		if ((PrivatePunishment == "ChastityBra") && !Player.IsBreastChaste() && (NPCTraitGet(CurrentCharacter, "Frigid") >= 0)) break;
 		if ((PrivatePunishment == "ForceNaked") && Player.CanChangeOwnClothes() && (NPCTraitGet(CurrentCharacter, "Horny") >= 0)) break;
 		if ((PrivatePunishment == "ConfiscateKey") && (InventoryAvailable(Player, "MetalCuffsKey", "ItemMisc") || InventoryAvailable(Player, "MetalPadlockKey", "ItemMisc") || InventoryAvailable(Player, "IntricatePadlockKey", "ItemMisc") || InventoryAvailable(Player, "HighSecurityPadlockKey", "ItemMisc"))) break;
-		if ((PrivatePunishment == "ConfiscateCrop") && InventoryAvailable(Player, "SpankingToysCrop", "ItemHands")) break;
-		if ((PrivatePunishment == "ConfiscateWhip") && InventoryAvailable(Player, "SpankingToysWhip", "ItemHands")) break;
+		if ((PrivatePunishment == "ConfiscateCrop") && InventoryAvailable(Player, "Crop", "ItemHandheld")) break;
+		if ((PrivatePunishment == "ConfiscateWhip") && InventoryAvailable(Player, "Whip", "ItemHandheld")) break;
 		if ((PrivatePunishment == "SleepCage") && LogQuery("Cage", "PrivateRoom") && !LogQuery("SleepCage", "Rule")) break;
 		if ((PrivatePunishment == "LockOut") && (NPCTraitGet(CurrentCharacter, "Serious") >= 0)) break;
 		if ((PrivatePunishment == "OwnerLocks") && Player.IsOwned() && InventoryHasLockableItems(Player)) break;
@@ -1231,8 +1231,8 @@ function PrivateRunPunishment(LoveFactor) {
 	if (PrivatePunishment == "ChastityBra") { InventoryWear(Player, "MetalChastityBra", "ItemBreast"); InventoryLock(Player, "ItemBreast", (Player.IsOwned() ? "OwnerPadlock" : "ExclusivePadlock"), null); }
 	if (PrivatePunishment == "ForceNaked") LogAdd("BlockChange", "Rule", CurrentTime + 1800000);
 	if (PrivatePunishment == "ConfiscateKey") InventoryConfiscateKey();
-	if (PrivatePunishment == "ConfiscateCrop") { InventoryDelete(Player, "SpankingToysCrop", "ItemHands"); }
-	if (PrivatePunishment == "ConfiscateWhip") { InventoryDelete(Player, "SpankingToysWhip", "ItemHands"); }
+	if (PrivatePunishment == "ConfiscateCrop") { InventoryDelete(Player, "Crop", "ItemHandheld"); }
+	if (PrivatePunishment == "ConfiscateWhip") { InventoryDelete(Player, "Whip", "ItemHandheld"); }
 	if (PrivatePunishment == "SleepCage") LogAdd("SleepCage", "Rule", CurrentTime + 604800000);
 	if (PrivatePunishment == "LockOut") { LogAdd("LockOutOfPrivateRoom", "Rule", CurrentTime + 3600000); DialogLeave(); CommonSetScreen("Room", "MainHall"); }
 	if (PrivatePunishment == "Cell") { DialogLeave(); CharacterFullRandomRestrain(Player, "ALL"); CellLock(5); }

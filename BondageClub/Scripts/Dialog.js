@@ -2183,19 +2183,6 @@ function DialogDrawItemMenu(C) {
 		if (DialogInventory == null) DialogInventoryBuild(C);
 
 		// If only activities are allowed, only keep DialogInventory items which can be used for interactions
-		if (!DialogItemPermissionMode && InventoryGroupIsBlocked(C)) {
-			let tempDialogInventory = [];
-			for (let I = 0; I < DialogInventory.length; I++) {
-				if ((DialogInventory[I].Asset.Name == "SpankingToys") && (C.FocusGroup.Name != "ItemHands"))
-					tempDialogInventory.push(DialogInventory[I]);
-			}
-			if (tempDialogInventory.length > 0) {
-				for (let I = 0; I < DialogInventory.length; I++) {
-					if (DialogInventory[I].Worn) tempDialogInventory.push(DialogInventory[I]);
-				}
-			}
-			DialogInventory = tempDialogInventory;
-		}
 
 		// Draw all possible items in that category (12 per screen)
 		let X = 1000;
