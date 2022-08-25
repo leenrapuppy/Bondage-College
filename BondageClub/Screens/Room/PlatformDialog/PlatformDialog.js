@@ -63,7 +63,7 @@ var PlatformDialogCharacterTemplate = [
 	{
 		Name: "Lyn",
 		NickName: "Bandit Boss",
-		Color: "#c32fce",
+		Color: "#c85c5c",
 	},
 ];
 
@@ -1884,8 +1884,8 @@ var PlatformDialogData = [
 			{
 				Text: "Mmmgnh!  Uuungmm mn!",
 				Character: [
-					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
-					{ Name: "Lyn", Status: "Thief", Pose: "Curious" }
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged", X: 1000 },
+					{ Name: "Lyn", Status: "Thief", Pose: "Curious", X: 500 }
 				]
 			},
 			{
@@ -1899,14 +1899,14 @@ var PlatformDialogData = [
 			{
 				Text: "Aaamh mmhmm Mmmnndy!  Mh maaym!",
 				Character: [
-					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
-					{ Name: "Lyn", Status: "Thief", Pose: "Curious" }
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged", X: 1000 },
+					{ Name: "Lyn", Status: "Thief", Pose: "Pretty", X: 500 }
 				]
 			},
 			{
 				Text: "We cannot bring your maid, she will be sold in a nearby town.",
 				Character: [
-					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+					{ Name: "Lyn", Status: "Thief", Pose: "Pretty" },
 					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
 				]
 			},
@@ -2106,7 +2106,7 @@ var PlatformDialogData = [
 			{
 				Text: "(The boss gets angry.)",
 				Character: [
-					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+					{ Name: "Lyn", Status: "Thief", Pose: "Angry" },
 					{ Name: "Hazel", Status: "Maid", Pose: "Angry" },
 					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
 				]
@@ -2340,7 +2340,7 @@ var PlatformDialogData = [
 			{ Text: "Boss!  We have a rat in the camp." },
 			{
 				Character: [
-					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+					{ Name: "Lyn", Status: "Thief", Pose: "Angry" },
 					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
 					{ Name: "Vera", Status: "Leather", Pose: "Angry" }
 				]
