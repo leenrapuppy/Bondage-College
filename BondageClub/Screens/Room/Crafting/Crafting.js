@@ -8,7 +8,7 @@ var CraftingSelectedItem = null;
 var CraftingOffset = 0;
 /** @type {Asset[]} */
 var CraftingItemList = [];
-var CraftingSlotMax = 20;
+var CraftingSlotMax = 40;
 /** @type {Character} */
 var CraftingPreview = null;
 /** @type {boolean} */
@@ -132,18 +132,19 @@ function CraftingRun() {
 	DrawButton(1895, 15, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
 	if (CraftingMode != "Slot") DrawButton(1790, 15, 90, 90, "", "White", "Icons/Cancel.png", TextGet("Cancel"));
 
-	// In slot selection mode, we show 20 slots to select from
+	// In slot selection mode, we show the slots to select from
 	if (CraftingMode == "Slot") {
+		DrawButton(1685, 15, 90, 90, "", "White", "Icons/Next.png", TextGet("Next"));
 		if (CraftingDestroy) {
-			DrawText(TextGet("SelectDestroy"), 890, 60, "White", "Black");
+			DrawText(TextGet("SelectDestroy"), 840, 60, "White", "Black");
 			DrawButton(1790, 15, 90, 90, "", "White", "Icons/Cancel.png", TextGet("Cancel"));
 		} else {
-			DrawText(TextGet("SelectSlot"), 890, 60, "White", "Black");
+			DrawText(TextGet("SelectSlot"), 840, 60, "White", "Black");
 			DrawButton(1790, 15, 90, 90, "", "White", "Icons/Trash.png", TextGet("Destroy"));
 		}
-		for (let S = 0; S < CraftingSlotMax; S++) {
-			let X = (S % 4) * 500 + 15;
-			let Y = Math.floor(S / 4) * 180 + 130;
+		for (let S = CraftingOffset; S < CraftingOffset + 20; S++) {
+			let X = ((S - CraftingOffset) % 4) * 500 + 15;
+			let Y = Math.floor((S - CraftingOffset) / 4) * 180 + 130;
 			let Craft = Player.Crafting[S];
 			if (!Craft) {
 				DrawButton(X, Y, 470, 140, TextGet("EmptySlot"), CraftingDestroy ? "Pink" : "White");
@@ -235,30 +236,18 @@ function CraftingRun() {
 			DrawAssetPreview(425, 250, CraftingSelectedItem.Lock, { Description, Background, Foreground, Icons });
 		} else DrawButton(425, 250, 225, 275, TextGet("NoLock"), "White");
 		DrawButton(80, 650, 570, 190, "", "White");
-
 		DrawCharacter(CraftingPreview, 665, 65, 0.9, false);
-		DrawButton(
-			560, 870, 90, 90,
-			"",
-			"white",
-			`Icons/${CraftingNakedPreview ? "Dress" : "Naked"}.png`
-		);
-
+		DrawButton(560, 870, 90, 90, "", "white", `Icons/${CraftingNakedPreview ? "Dress" : "Naked"}.png`);
 		DrawText(TextGet("Property" + CraftingSelectedItem.Property), 365, 690, "Black", "Silver");
 		DrawTextWrap(TextGet("Description" + CraftingSelectedItem.Property), 95, 730, 540, 100, "Black", null, 2);
 		DrawText(TextGet("EnterName"), 1625, 150, "White", "Black");
 		ElementPosition("InputName", 1625, 200, 700);
 		DrawText(TextGet("EnterDescription"), 1625, 250, "White", "Black");
 		ElementPosition("InputDescription", 1625, 300, 700);
-		if (CraftingColoring) {
-			ItemColorDraw(
-				CraftingPreview, CraftingSelectedItem.Asset.Group.Name,
-				1200, 350, 800, 650, true
-			);
-		} else {
-			DrawButton(1275, 350, 700, 50, TextGet("OpenColorpicker"), "white");
-		}
+		if (CraftingColoring) ItemColorDraw(CraftingPreview, CraftingSelectedItem.Asset.Group.Name, 1200, 350, 800, 650, true);
+		else DrawButton(1275, 350, 700, 50, TextGet("OpenColorpicker"), "white");
 	}
+
 }
 
 /**
@@ -269,29 +258,24 @@ function CraftingRun() {
 function CraftingModeSet(NewMode) {
 	CraftingDestroy = false;
 	CraftingMode = NewMode;
+	CraftingOffset = 0;
 	if (NewMode == "Item") {
 		let Input = ElementCreateInput("InputSearch", "text", "", "50");
 		Input.addEventListener("input", CraftingItemListBuild);
-	} else
-		ElementRemove("InputSearch");
-
+	} else ElementRemove("InputSearch");
 	if (NewMode === "Lock" && CraftingSelectedItem.Asset.AllowLock !== true) {
 		CraftingSelectedItem.Lock = null;
 		CraftingMode = NewMode = "Name";
 	}
-
 	if (NewMode == "Name") {
 		ElementCreateInput("InputName", "text", "", "30");
 		ElementCreateInput("InputDescription", "text", "", "100");
-
 		ElementValue("InputName", CraftingSelectedItem.Name || "");
 		ElementValue("InputDescription", CraftingSelectedItem.Description || "");
-
 		CraftingUpdatePreview();
 	} else {
 		ElementRemove("InputName");
 		ElementRemove("InputDescription");
-		// Can happen through the colorpicker
 		ElementRemove("InputColor");
 	}
 }
@@ -304,7 +288,7 @@ function CraftingSaveServer() {
 	if (Player.Crafting == null) return;
 	let P = "";
 	for (let C of Player.Crafting) {
-		if ((C.Item == null) || (C.Item == "")) {
+		if ((C == null) || (C.Item == null) || (C.Item == "")) {
 			P = P + "§";
 		} else {
 			P = P + C.Item + "¶";
@@ -321,24 +305,27 @@ function CraftingSaveServer() {
 
 /**
  * Deserialize and unpack the crafting data from the server.
- *
- * @param {string|array} serializedData The serialized crafting data
+ * @param {string|array} Data The serialized crafting data
  * @returns {CraftingItem[]}
  */
-function CraftingDecompressServerData(serializedData) {
-	if (Array.isArray(serializedData)) {
-		// Seems already deserialized, use that
-		return serializedData;
-	}
+function CraftingDecompressServerData(Data) {
 
-	let decompressedData = null;
-	if (typeof serializedData !== "string" || !(decompressedData = LZString.decompressFromUTF16(serializedData))) {
-		console.error("Failed to decompress Crafting data:", serializedData);
+	// Arrays are returned right away, only strings can be parsed
+	if (Array.isArray(Data)) return Data;
+	if (typeof Data !== "string") return [];
+
+	// Decompress the data
+	let DecompressedData = null;
+	try {
+		DecompressedData = LZString.decompressFromUTF16(Data);
+	} catch(err) {
+		console.warn("An error occured while decompressing Crafting data, entries have been reset.");
 		return [];
 	}
 
+	// Builds the craft array to assign to the player
 	const crafts = [];
-	const data = decompressedData.split("§");
+	const data = DecompressedData.split("§");
 	for (let P = 0; P < data.length; P++) {
 		const element = data[P].split("¶");
 		const craft = {};
@@ -348,11 +335,10 @@ function CraftingDecompressServerData(serializedData) {
 		craft.Name = (element.length >= 4) ? element[3] : "";
 		craft.Description = (element.length >= 5) ? element[4] : "";
 		craft.Color = (element.length >= 6) ? element[5] : "";
-
-		if (craft.Item && craft.Name)
-			crafts.push(craft);
+		if (craft.Item && craft.Name) crafts.push(craft);
 	}
 	return crafts;
+
 }
 
 /**
@@ -364,20 +350,16 @@ function CraftingLoadServer(Packet) {
 	Player.Crafting = [];
 	const data = CraftingDecompressServerData(Packet);
 	for (const item of data) {
+
+		// Make sure we own that item and it's a valid craft
 		let valid = true;
-
-		if (!item.Name || !item.Item)
-			valid = false;
-
-		// Make sure we own that item
-		if (!Player.Inventory.find(a => a.Name === item.Item))
-			valid = false;
-
-		if (valid)
-			Player.Crafting.push(item);
+		if (!item.Name || !item.Item) valid = false;
+		if (!Player.Inventory.find(a => a.Name === item.Item)) valid = false;
+		if (valid) Player.Crafting.push(item);
 
 		// Too many items, skip the rest
 		if (Player.Crafting.length >= CraftingSlotMax) break;
+
 	}
 }
 
@@ -393,32 +375,44 @@ function CraftingClick() {
 
 	// In slot mode, we can select which item slot to craft
 	if (CraftingMode == "Slot") {
+
+		// Two pages of slots
+		if (MouseIn(1685, 15, 90, 90)) {
+			CraftingOffset = CraftingOffset + 20;
+			if (CraftingOffset >= CraftingSlotMax) CraftingOffset = 0;
+		}
+
+		// Enter/Exit the destroy item mode
 		if (MouseIn(1790, 15, 90, 90)) CraftingDestroy = !CraftingDestroy;
-		for (let S = 0; S < CraftingSlotMax; S++) {
+
+		// Scan 20 items for clicks
+		for (let S = 0; S < 20; S++) {
+
+			// If the box was clicked
 			let X = (S % 4) * 500 + 15;
 			let Y = Math.floor(S / 4) * 180 + 130;
-			const Craft = Player.Crafting[S];
+			const Craft = Player.Crafting[S + CraftingOffset];
 			if (!MouseIn(X, Y, 470, 140)) continue;
 
+			// Destroy, edit or create a new crafting item
 			if (CraftingDestroy) {
 				if (Craft && Craft.Name) {
-					Player.Crafting.splice(S, 1);
+					Player.Crafting.splice(S + CraftingOffset, 1);
 					CraftingSaveServer();
 				}
 			} else if (Craft && Craft.Name) {
-				CraftingSlot = S;
+				CraftingSlot = S + CraftingOffset;
 				CraftingSelectedItem = CraftingConvertItemToSelected(Craft);
 				CraftingColoring = false;
-				CraftingOffset = 0;
 				CraftingModeSet("Name");
 			} else {
-				CraftingModeSet("Item");
-				CraftingSlot = S;
+				CraftingSlot = S + CraftingOffset;
 				CraftingSelectedItem = {};
-				CraftingOffset = 0;
 				CraftingColoring = false;
+				CraftingModeSet("Item");
 				CraftingItemListBuild();
 			}
+
 		}
 		return;
 	}
@@ -455,12 +449,8 @@ function CraftingClick() {
 				let Y = Math.floor(Pos / 4) * 230 + 130;
 				if (MouseIn(X, Y, 470, 190)) {
 					CraftingSelectedItem.Property = Property.Name;
-					if (CraftingSelectedItem.Lock) {
-						// Editing item with a lock, skip to name
-						CraftingModeSet("Name");
-					} else {
-						CraftingModeSet("Lock");
-					}
+					if (CraftingSelectedItem.Lock) CraftingModeSet("Name");
+					else CraftingModeSet("Lock");
 					return;
 				}
 				Pos++;
@@ -489,9 +479,9 @@ function CraftingClick() {
 		return;
 	}
 
+	// In naming mode, we can also modify the color or go back to previous screens
 	if (CraftingMode == "Name") {
 		if (MouseIn(1685, 15, 90, 90)) {
-			// When we need to save the new item
 			const prop = CraftingConvertSelectedToItem();
 			if (prop.Name == "") return;
 			Player.Crafting[CraftingSlot] = prop;
@@ -502,13 +492,10 @@ function CraftingClick() {
 			CraftingNakedPreview = !CraftingNakedPreview;
 			CraftingUpdatePreview();
 		} else if (MouseIn(80, 250, 225, 275)) {
-			// Item change
 			CraftingModeSet("Item");
-			CraftingOffset = 0;
 			CraftingItemListBuild();
 			return null;
 		} else if (MouseIn(425, 250, 225, 275) && CraftingSelectedItem.Asset.AllowLock) {
-			// Lock change
 			CraftingModeSet("Lock");
 			return null;
 		} else if (MouseIn(80, 650, 570, 190)) {
@@ -518,15 +505,7 @@ function CraftingClick() {
 			if (!CraftingColoring) {
 				CraftingColoring = true;
 				const item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.Group.Name);
-				ItemColorLoad(
-					CraftingPreview,
-					item,
-					1200,
-					350,
-					800,
-					650,
-					true
-				);
+				ItemColorLoad(CraftingPreview, item, 1200, 350, 800, 650, true);
 				ItemColorOnExit((c, i) => {
 					CraftingColoring = false;
 					const colorSpec = Array.isArray(i.Color)
@@ -535,19 +514,10 @@ function CraftingClick() {
 					CraftingSelectedItem.Color = colorSpec;
 					CraftingUpdatePreview();
 				});
-			} else {
-				ItemColorClick(
-					CraftingPreview,
-					CraftingSelectedItem.Asset.Group.Name,
-					1200,
-					350,
-					800,
-					650,
-					true
-				);
-			}
+			} else ItemColorClick(CraftingPreview, CraftingSelectedItem.Asset.Group.Name, 1200, 350, 800, 650, true);
 		}
 	}
+
 }
 
 /**
@@ -622,38 +592,39 @@ function CraftingAppliesToItem(Craft, Item) {
  * @returns {void} - Nothing.
  */
 function CraftingItemListBuild() {
+
+	// Prepares the search string to compare
 	let Search = ElementValue("InputSearch");
 	if (Search == null) Search = "";
 	Search = Search.toUpperCase().trim();
-
 	CraftingItemList = [];
+
+	// For all assets
 	for (let A of Asset) {
-		if (!InventoryAvailable(Player, A.Name, A.Group.Name))
-			continue;
 
-		if (!A.Enable || !A.Wear || !A.Group.Name.startsWith("Item"))
-			continue;
+		// That asset must be in the player inventory, not for clothes or spanking toys
+		if (!InventoryAvailable(Player, A.Name, A.Group.Name)) continue;
+		if (!A.Enable || !A.Wear || !A.Group.Name.startsWith("Item")) continue;
+		if (A.Group.Name === "ItemMisc" || A.Name.startsWith("SpankingToys")) continue;
 
-		if (A.Group.Name === "ItemMisc" || A.Name.startsWith("SpankingToys"))
-			continue;
-
-		let matches = true;
-		// Match against the search term. The empty string matches every string.
+		// Match against the search term. The empty string matches every string
+		let Match = true;
 		const desc = A.DynamicDescription(Player).toUpperCase().trim();
-		if (desc.indexOf(Search) < 0)
-			matches = false;
+		if (desc.indexOf(Search) < 0) Match = false;
 
 		// Make sure we don't add assets that are kinda-sorta the same asset (ropes, webs)
-		for (let E of CraftingItemList) {
-			if (E.CraftGroup === A.Name || E.Name === A.CraftGroup)
-			// if (CraftingAppliesToItem({ Item: E.Name }, A))
-				matches = false;
-		}
+		if (Match)
+			for (let E of CraftingItemList)
+				if (E.CraftGroup === A.Name || E.Name === A.CraftGroup)
+					Match = false;
 
-		if (matches)
-			CraftingItemList.push(A);
+		// If there's a match, we add it to the list
+		if (Match) CraftingItemList.push(A);
+
 	}
 
+	// Sorts and make sure the offset is still valid
 	CraftingItemList.sort((a,b) => (a.Description > b.Description) ? 1 : (b.Description > a.Description) ? -1 : 0);
 	if (CraftingOffset >= CraftingItemList.length) CraftingOffset = 0;
+
 }

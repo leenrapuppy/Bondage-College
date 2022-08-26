@@ -5,7 +5,7 @@ Cancel,Cancel
 Previous,Previous
 Next,Next
 NoLock,No lock
-SelectSlot,Select a slot for your new crafted item.  The previous item in that slot will be replaced.
+SelectSlot,"Select an empty slot to craft a new item, or click on the item to edit."
 SelectDestroy,Select a crafted item slot to destroy.
 SelectItem,Select an item to craft or search on your left.
 SelectProperty,Select a property for your AssetDescription.
