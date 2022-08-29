@@ -28,6 +28,8 @@ var CraftingPropertyList = [
 	{ Name: "Secure", Allow : function(Item) { return true; } },
 	{ Name: "Loose", Allow : function(Item) { return true; } },
 	{ Name: "Decoy", Allow : function(Item) { return true; } },
+	{ Name: "Malleable", Allow : function(Item) { return true; } },
+	{ Name: "Rigid", Allow : function(Item) { return true; } },
 	{ Name: "Painful", Allow : function(Item) { return true; } },
 	{ Name: "Comfy", Allow : function(Item) { return true; } },
 	{ Name: "Strong", Allow : function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); } },

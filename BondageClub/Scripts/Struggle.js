@@ -347,6 +347,8 @@ function StruggleStrengthGetDifficulty(C, PrevItem, NextItem) {
 	if ((PrevItem != null) && (PrevItem.Asset != null) && (PrevItem.Asset.RemoveTime != null)) Timer = Timer + PrevItem.Asset.RemoveTime; // Adds the time to remove the previous item
 	if ((NextItem != null) && (NextItem.Asset != null) && (NextItem.Asset.WearTime != null)) Timer = Timer + NextItem.Asset.WearTime; // Adds the time to add the new item
 	if (Player.IsBlind() || Player.IsSuspended()) Timer = Timer * 2; // Double the time if suspended from the ceiling or blind
+	if (InventoryCraftPropertyIs(PrevItem, "Malleable") || InventoryCraftPropertyIs(NextItem, "Malleable")) Timer = Timer * 0.5; // Half the time if the crafted item is malleable
+	if (InventoryCraftPropertyIs(PrevItem, "Rigid") || InventoryCraftPropertyIs(NextItem, "Rigid")) Timer = Timer * 2; // Double the time if the crafted item is rigid
 	if (Timer < 1) Timer = 1; // Nothing shorter than 1 second
 
 	// If there's a locking item, we add the time of that lock

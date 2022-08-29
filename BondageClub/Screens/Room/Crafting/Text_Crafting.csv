@@ -22,6 +22,8 @@ PropertyThin,Thin
 PropertySecure,Secure
 PropertyLoose,Loose
 PropertyDecoy,Decoy
+PropertyMalleable,Malleable
+PropertyRigid,Rigid
 PropertyPainful,Painful
 PropertyComfy,Comfy
 PropertyStrong,Strong
@@ -37,6 +39,8 @@ DescriptionThin,Easier to see through.
 DescriptionSecure,Harder to struggle out.
 DescriptionLoose,Easier to struggle out.
 DescriptionDecoy,Can always struggle out.
+DescriptionMalleable,Takes less time to wear and remove.
+DescriptionRigid,Takes more time to wear and remove.
 DescriptionPainful,More painful for the wearer.
 DescriptionComfy,Comfier for the wearer.
 DescriptionStrong,Cannot use brute force to struggle out.
