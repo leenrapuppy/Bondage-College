@@ -13,7 +13,6 @@ var CraftingSlotMax = 40;
 var CraftingPreview = null;
 /** @type {boolean} */
 var CraftingNakedPreview = false;
-var CraftingColoring = false;
 var CraftingReturnToChatroom = false;
 
 /**
@@ -86,10 +85,7 @@ function CraftingLoad() {
 function CraftingUpdatePreview() {
 	CraftingPreview.Appearance = [...Player.Appearance];
 	CharacterReleaseTotal(CraftingPreview);
-	if (CraftingNakedPreview) {
-		CharacterNaked(CraftingPreview);
-	}
-
+	if (CraftingNakedPreview) CharacterNaked(CraftingPreview);
 	if (!CraftingSelectedItem) return;
 
 	const craft = CraftingConvertSelectedToItem();
@@ -108,17 +104,8 @@ function CraftingUpdatePreview() {
 	});
 
 	for (const relevantAsset of relevantAssets) {
-		if (!InventoryAllow(CraftingPreview, relevantAsset))
-			continue;
-		InventoryWear(
-			CraftingPreview,
-			relevantAsset.Name,
-			relevantAsset.Group.Name,
-			null,
-			null,
-			CraftingPreview.MemberNumber,
-			craft
-		);
+		if (!InventoryAllow(CraftingPreview, relevantAsset)) continue;
+		InventoryWear(CraftingPreview, relevantAsset.Name, relevantAsset.Group.Name, null, null, CraftingPreview.MemberNumber, craft);
 		InventoryCraft(CraftingPreview, CraftingPreview, relevantAsset.Group.Name, craft, false);
 	}
 	CharacterRefresh(CraftingPreview);
@@ -131,8 +118,8 @@ function CraftingUpdatePreview() {
 function CraftingRun() {
 
 	// The exit button is everywhere
-	DrawButton(1895, 15, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
-	if (CraftingMode != "Slot") DrawButton(1790, 15, 90, 90, "", "White", "Icons/Cancel.png", TextGet("Cancel"));
+	if (CraftingMode != "Color") DrawButton(1895, 15, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
+	if ((CraftingMode != "Color") && (CraftingMode != "Slot")) DrawButton(1790, 15, 90, 90, "", "White", "Icons/Cancel.png", TextGet("Cancel"));
 
 	// In slot selection mode, we show the slots to select from
 	if (CraftingMode == "Slot") {
@@ -238,16 +225,26 @@ function CraftingRun() {
 			DrawAssetPreview(425, 250, CraftingSelectedItem.Lock, { Description, Background, Foreground, Icons });
 		} else DrawButton(425, 250, 225, 275, TextGet("NoLock"), "White");
 		DrawButton(80, 650, 570, 190, "", "White");
-		DrawCharacter(CraftingPreview, 665, 65, 0.9, false);
-		DrawButton(560, 870, 90, 90, "", "white", `Icons/${CraftingNakedPreview ? "Dress" : "Naked"}.png`);
+		DrawCharacter(CraftingPreview, 700, 100, 0.9, false);
+		DrawButton(880, 900, 90, 90, "", "white", `Icons/${CraftingNakedPreview ? "Dress" : "Naked"}.png`);
 		DrawText(TextGet("Property" + CraftingSelectedItem.Property), 365, 690, "Black", "Silver");
 		DrawTextWrap(TextGet("Description" + CraftingSelectedItem.Property), 95, 730, 540, 100, "Black", null, 2);
-		DrawText(TextGet("EnterName"), 1625, 150, "White", "Black");
-		ElementPosition("InputName", 1625, 200, 700);
-		DrawText(TextGet("EnterDescription"), 1625, 250, "White", "Black");
-		ElementPosition("InputDescription", 1625, 300, 700);
-		if (CraftingColoring) ItemColorDraw(CraftingPreview, CraftingSelectedItem.Asset.Group.Name, 1200, 350, 800, 650, true);
-		else DrawButton(1275, 350, 700, 50, TextGet("OpenColorpicker"), "white");
+		DrawText(TextGet("EnterName"), 1550, 200, "White", "Black");
+		ElementPosition("InputName", 1550, 275, 750);
+		DrawText(TextGet("EnterDescription"), 1550, 375, "White", "Black");
+		ElementPosition("InputDescription", 1550, 450, 750);
+		DrawText(TextGet("EnterColor"), 1550, 550, "White", "Black");
+		ElementPosition("InputColor", 1510, 625, 670);
+		DrawButton(1843, 598, 64, 64, "", "White", "Icons/Color.png");
+	}
+
+	// In color mode, the player can change the color of each parts of the item
+	if (CraftingMode == "Color") {
+		DrawText(TextGet("SelectColor"), 600, 60, "White", "Black");
+		DrawCharacter(CraftingPreview, -100, 100, 2, false);
+		DrawCharacter(CraftingPreview, 700, 100, 0.9, false);
+		DrawButton(880, 900, 90, 90, "", "white", `Icons/${CraftingNakedPreview ? "Dress" : "Naked"}.png`);
+		ItemColorDraw(CraftingPreview, CraftingSelectedItem.Asset.Group.Name, 1200, 25, 775, 950, true);
 	}
 
 }
@@ -272,14 +269,26 @@ function CraftingModeSet(NewMode) {
 	if (NewMode == "Name") {
 		ElementCreateInput("InputName", "text", "", "30");
 		ElementCreateInput("InputDescription", "text", "", "100");
+		ElementCreateInput("InputColor", "text", "", "500");
+		window.addEventListener('keyup', CraftingColorUpdate);
 		ElementValue("InputName", CraftingSelectedItem.Name || "");
 		ElementValue("InputDescription", CraftingSelectedItem.Description || "");
+		ElementValue("InputColor", CraftingSelectedItem.Color || "");
 		CraftingUpdatePreview();
 	} else {
 		ElementRemove("InputName");
 		ElementRemove("InputDescription");
 		ElementRemove("InputColor");
 	}
+}
+
+/**
+ * When the color field is updated manually
+ * @returns {void} - Nothing.
+ */
+function CraftingColorUpdate() {
+	if (CraftingMode == "Color") CraftingSelectedItem.Color = ElementValue("InputColor");
+	CraftingUpdatePreview();
 }
 
 /**
@@ -372,8 +381,8 @@ function CraftingLoadServer(Packet) {
 function CraftingClick() {
 
 	// Can always exit or cancel
-	if (MouseIn(1895, 15, 90, 90)) CraftingExit();
-	if (MouseIn(1790, 15, 90, 90) && (CraftingMode != "Slot")) return CraftingModeSet("Slot");
+	if (MouseIn(1895, 15, 90, 90) && (CraftingMode != "Color")) CraftingExit();
+	if (MouseIn(1790, 15, 90, 90) && (CraftingMode != "Color") && (CraftingMode != "Slot")) return CraftingModeSet("Slot");
 
 	// In slot mode, we can select which item slot to craft
 	if (CraftingMode == "Slot") {
@@ -405,12 +414,10 @@ function CraftingClick() {
 			} else if (Craft && Craft.Name) {
 				CraftingSlot = S + CraftingOffset;
 				CraftingSelectedItem = CraftingConvertItemToSelected(Craft);
-				CraftingColoring = false;
 				CraftingModeSet("Name");
 			} else {
 				CraftingSlot = S + CraftingOffset;
 				CraftingSelectedItem = {};
-				CraftingColoring = false;
 				CraftingModeSet("Item");
 				CraftingItemListBuild();
 			}
@@ -490,7 +497,7 @@ function CraftingClick() {
 			CraftingSelectedItem = null;
 			CraftingSaveServer();
 			CraftingModeSet("Slot");
-		} else if (MouseIn(560, 870, 90, 90)) {
+		} else if (MouseIn(880, 900, 90, 90)) {
 			CraftingNakedPreview = !CraftingNakedPreview;
 			CraftingUpdatePreview();
 		} else if (MouseIn(80, 250, 225, 275)) {
@@ -503,21 +510,27 @@ function CraftingClick() {
 		} else if (MouseIn(80, 650, 570, 190)) {
 			CraftingModeSet("Property");
 			return null;
-		} else if (MouseIn(1200, 350, 800, 550)) {
-			if (!CraftingColoring) {
-				CraftingColoring = true;
-				const item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.Group.Name);
-				ItemColorLoad(CraftingPreview, item, 1200, 350, 800, 650, true);
-				ItemColorOnExit((c, i) => {
-					CraftingColoring = false;
-					const colorSpec = Array.isArray(i.Color)
-						? i.Color.join(",")
-						: i.Color || "";
-					CraftingSelectedItem.Color = colorSpec;
-					CraftingUpdatePreview();
-				});
-			} else ItemColorClick(CraftingPreview, CraftingSelectedItem.Asset.Group.Name, 1200, 350, 800, 650, true);
+		} else if (MouseIn(1843, 598, 64, 64)) {
+			CraftingModeSet("Color");
+			const Item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.Group.Name);
+			ItemColorLoad(CraftingPreview, Item, 1200, 25, 775, 950, true);
+			ItemColorOnExit((c, i) => {
+				CraftingModeSet("Name");
+				CraftingSelectedItem.Color = Array.isArray(i.Color) ? i.Color.join(",") : i.Color || "";
+				ElementValue("InputColor", CraftingSelectedItem.Color);
+				CraftingUpdatePreview();
+			});
 		}
+		return;
+	}
+
+	// In color selection mode, we allow picking a color
+	if (CraftingMode == "Color") {
+		if (MouseIn(880, 900, 90, 90)) {
+			CraftingNakedPreview = !CraftingNakedPreview;
+			CraftingUpdatePreview();
+		} else ItemColorClick(CraftingPreview, CraftingSelectedItem.Asset.Group.Name, 1200, 25, 775, 950, true);
+		return;
 	}
 
 }
@@ -528,15 +541,16 @@ function CraftingClick() {
  * @return {CraftingItem}
  * */
 function CraftingConvertSelectedToItem() {
-	let Name = ElementValue("InputName").trim();
-	let Description = ElementValue("InputDescription").trim();
+	let Name = (CraftingMode == "Name") ? ElementValue("InputName").trim() : CraftingSelectedItem.Name;
+	let Description = (CraftingMode == "Name") ? ElementValue("InputDescription").trim() : CraftingSelectedItem.Description;
+	let Color = (CraftingMode == "Name") ? ElementValue("InputColor").trim() : CraftingSelectedItem.Color;
 	return {
 		Item: CraftingSelectedItem.Asset.Name,
 		Property: CraftingSelectedItem.Property,
 		Lock: (CraftingSelectedItem.Lock == null) ? "" : CraftingSelectedItem.Lock.Name,
 		Name: Name,
 		Description: Description,
-		Color: CraftingSelectedItem.Color,
+		Color: Color,
 	};
 }
 

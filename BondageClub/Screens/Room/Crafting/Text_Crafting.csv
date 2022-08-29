@@ -11,8 +11,10 @@ SelectItem,Select an item to craft or search on your left.
 SelectProperty,Select a property for your AssetDescription.
 SelectLock,Select a lock to use with your PropertyName AssetDescription.
 SelectName,Enter a name and description for your PropertyName AssetDescription.
+SelectColor,Pick the item colors
 EnterName,Name of the crafted item
 EnterDescription,Engrave a description
+EnterColor,Enter or pick the colors
 EmptySlot,Empty
 PropertyNormal,Normal
 PropertyLarge,Large
