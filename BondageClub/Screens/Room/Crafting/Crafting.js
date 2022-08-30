@@ -309,7 +309,9 @@ function CraftingSaveServer() {
 			P = P + ((C.Description == null) ? "" : C.Description.replace("¶", " ").replace("§", " ")) + "¶";
 			P = P + ((C.Color == null) ? "" : C.Color.replace("¶", " ").replace("§", " ")) + "¶";
 			P = P + (((C.Private != null) && C.Private) ? "T" : "") + "§";
-		}
+		} else P = P + "§";
+	while ((P.length >= 1) && (P.substring(P.length - 1) == "§"))
+		P = P.substring(0, P.length - 1);
 	let Obj = { Crafting: LZString.compressToUTF16(P) };
 	ServerAccountUpdate.QueueData(Obj, true);
 }
@@ -347,7 +349,8 @@ function CraftingDecompressServerData(Data) {
 		Craft.Description = (Element.length >= 5) ? Element[4] : "";
 		Craft.Color = (Element.length >= 6) ? Element[5] : "";
 		Craft.Private = ((Element.length >= 7) && (Element[6] == "T"));
-		if (Craft.Item && Craft.Name) Crafts.push(Craft);
+		if (Craft.Item && Craft.Name && (Craft.Item != "") && (Craft.Name != "")) Crafts.push(Craft);
+		else Crafts.push(null);
 	}
 	return Crafts;
 
@@ -365,9 +368,10 @@ function CraftingLoadServer(Packet) {
 
 		// Make sure we own that item and it's a valid craft
 		let valid = true;
-		if (!item.Name || !item.Item) valid = false;
-		if (!Player.Inventory.find(a => a.Name === item.Item)) valid = false;
+		if ((item == null) || !item.Name || !item.Item) valid = false;
+		if ((item == null) || !Player.Inventory.find(a => a.Name === item.Item)) valid = false;
 		if (valid) Player.Crafting.push(item);
+		else Player.Crafting.push(null);
 
 		// Too many items, skip the rest
 		if (Player.Crafting.length >= CraftingSlotMax) break;
@@ -409,7 +413,7 @@ function CraftingClick() {
 			// Destroy, edit or create a new crafting item
 			if (CraftingDestroy) {
 				if (Craft && Craft.Name) {
-					Player.Crafting.splice(S + CraftingOffset, 1);
+					if (S + CraftingOffset < Player.Crafting.length) Player.Crafting[S + CraftingOffset] = null;
 					CraftingSaveServer();
 				}
 			} else if (Craft && Craft.Name) {

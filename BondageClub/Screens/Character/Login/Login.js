@@ -215,12 +215,13 @@ function LoginPerformInventoryFixups(Inventory, Appearance, Crafting) {
 
 		// Move crafts over to the new name
 		if (Array.isArray(Crafting)) {
-			Crafting.forEach(c => {
-				if (c.Item !== fixup.Old.Name) return;
-
-				c.Item = fixup.New.Name;
+			Crafting.forEach(C => {
+				if (C == null) return;
+				if (C.Item !== fixup.Old.Name) return;
+				C.Item = fixup.New.Name;
 			});
 		}
+
 	});
 
 	if (listsUpdated)
