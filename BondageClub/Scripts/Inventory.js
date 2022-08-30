@@ -249,6 +249,8 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		// There's something in the mouth that's too large to allow that item on
 		case "NotProtrudingFromMouth": return C.Effect.includes("ProtrudingMouth") ? "CannotBeUsedOverGag" : "";
 
+		case "NeedsNippleRings": return !InventoryIsItemInList(C, "ItemNipplesPiercings", ["RoundPiercing"]) ? "NeedsNippleRings" : "";
+
 		// Returns no message, indicating that all prerequisites are fine
 		default: return "";
 	}

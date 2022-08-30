@@ -3624,6 +3624,53 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // ClitRing
+		RoundClitPiercing: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
+				Options: [
+					{
+						Name: "Ring",
+						Property: {
+							Type: null,
+							Effect: [],
+						}
+					},
+					{
+						Name: "Weight",
+						Property: {
+							Type: "Weight",
+							Effect: ["Wiggling"],
+						}
+					},
+					{
+						Name: "Bell",
+						Property: {
+							Type: "Bell",
+							Effect: ["Wiggling"],
+						},
+					},
+					{
+						Name: "Chain",
+						Property: {
+							Type: "Chain",
+							Effect: ["Wiggling"],
+							Block: ["ItemNipplesPiercings"],
+						},
+						Prerequisite: ["NeedsNippleRings"],
+					},
+					{
+						Name: "HaremChain",
+						Property: {
+							Type: "HaremChain",
+							Effect: ["Wiggling"],
+							Block: ["ItemNipplesPiercings"],
+						},
+						Prerequisite: ["NeedsNippleRings"],
+					},
+				],
+			},
+		}, // RoundClitPiercings
 	}, // ItemVulvaPiercings
 	ItemButt: {
 		AnalHook: {
