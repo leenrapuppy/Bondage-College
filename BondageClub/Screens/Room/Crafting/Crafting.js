@@ -3,7 +3,7 @@ var CraftingBackground = "CraftingWorkshop";
 var CraftingMode = "Slot";
 var CraftingDestroy = false;
 var CraftingSlot = 0;
-/** @type {{Name?: string, Description?: string, Color?: string, Asset?: Asset, Property?: string, Lock?: Asset, }} */
+/** @type {{Name?: string, Description?: string, Color?: string, Asset?: Asset, Property?: string, Lock?: Asset, Private?: boolean }} */
 var CraftingSelectedItem = null;
 var CraftingOffset = 0;
 /** @type {Asset[]} */
@@ -236,6 +236,8 @@ function CraftingRun() {
 		DrawText(TextGet("EnterColor"), 1550, 550, "White", "Black");
 		ElementPosition("InputColor", 1510, 625, 670);
 		DrawButton(1843, 598, 64, 64, "", "White", "Icons/Color.png");
+		DrawText(TextGet("EnterPrivate"), 1550, 775, "White", "Black");
+		DrawButton(1175, 743, 64, 64, "", "White", CraftingSelectedItem.Private ? "Icons/Checked.png" : "");
 	}
 
 	// In color mode, the player can change the color of each parts of the item
@@ -298,18 +300,16 @@ function CraftingColorUpdate() {
 function CraftingSaveServer() {
 	if (Player.Crafting == null) return;
 	let P = "";
-	for (let C of Player.Crafting) {
-		if ((C == null) || (C.Item == null) || (C.Item == "")) {
-			P = P + "§";
-		} else {
+	for (let C of Player.Crafting)
+		if ((C != null) && (C.Item != null) && (C.Item != "")) {
 			P = P + C.Item + "¶";
 			P = P + ((C.Property == null) ? "" : C.Property) + "¶";
 			P = P + ((C.Lock == null) ? "" : C.Lock) + "¶";
 			P = P + ((C.Name == null) ? "" : C.Name.replace("¶", " ").replace("§", " ")) + "¶";
 			P = P + ((C.Description == null) ? "" : C.Description.replace("¶", " ").replace("§", " ")) + "¶";
-			P = P + ((C.Color == null) ? "" : C.Color.replace("¶", " ").replace("§", " ")) + "§";
+			P = P + ((C.Color == null) ? "" : C.Color.replace("¶", " ").replace("§", " ")) + "¶";
+			P = P + (((C.Private != null) && C.Private) ? "T" : "") + "§";
 		}
-	}
 	let Obj = { Crafting: LZString.compressToUTF16(P) };
 	ServerAccountUpdate.QueueData(Obj, true);
 }
@@ -335,20 +335,21 @@ function CraftingDecompressServerData(Data) {
 	}
 
 	// Builds the craft array to assign to the player
-	const crafts = [];
-	const data = DecompressedData.split("§");
-	for (let P = 0; P < data.length; P++) {
-		const element = data[P].split("¶");
-		const craft = {};
-		craft.Item = (element.length >= 1) ? element[0] : "";
-		craft.Property = (element.length >= 2) ? element[1] : "";
-		craft.Lock = /** @type {AssetLockType} */((element.length >= 3) ? element[2] : "");
-		craft.Name = (element.length >= 4) ? element[3] : "";
-		craft.Description = (element.length >= 5) ? element[4] : "";
-		craft.Color = (element.length >= 6) ? element[5] : "";
-		if (craft.Item && craft.Name) crafts.push(craft);
+	const Crafts = [];
+	Data = DecompressedData.split("§");
+	for (let P = 0; P < Data.length; P++) {
+		const Element = Data[P].split("¶");
+		const Craft = {};
+		Craft.Item = (Element.length >= 1) ? Element[0] : "";
+		Craft.Property = (Element.length >= 2) ? Element[1] : "";
+		Craft.Lock = /** @type {AssetLockType} */((Element.length >= 3) ? Element[2] : "");
+		Craft.Name = (Element.length >= 4) ? Element[3] : "";
+		Craft.Description = (Element.length >= 5) ? Element[4] : "";
+		Craft.Color = (Element.length >= 6) ? Element[5] : "";
+		Craft.Private = ((Element.length >= 7) && (Element[6] == "T"));
+		if (Craft.Item && Craft.Name) Crafts.push(Craft);
 	}
-	return crafts;
+	return Crafts;
 
 }
 
@@ -520,6 +521,8 @@ function CraftingClick() {
 				ElementValue("InputColor", CraftingSelectedItem.Color);
 				CraftingUpdatePreview();
 			});
+		} else if (MouseIn(1175, 743, 64, 64)) {
+			CraftingSelectedItem.Private = !CraftingSelectedItem.Private;
 		}
 		return;
 	}
@@ -537,7 +540,6 @@ function CraftingClick() {
 
 /**
  * Converts the currently selected item into a crafting item.
- *
  * @return {CraftingItem}
  * */
 function CraftingConvertSelectedToItem() {
@@ -551,24 +553,25 @@ function CraftingConvertSelectedToItem() {
 		Name: Name,
 		Description: Description,
 		Color: Color,
+		Private: CraftingSelectedItem.Private
 	};
 }
 
 /**
  * Convert a crafting item to its selected format.
- *
- * @param {CraftingItem} craft
+ * @param {CraftingItem} Craft
  */
-function CraftingConvertItemToSelected(craft) {
-	let obj = {
-		Name: craft.Name,
-		Description: craft.Description,
-		Color: craft.Color,
-		Property: craft.Property,
-		Asset: Player.Inventory.find(a => a.Asset.Name === craft.Item).Asset,
-		Lock: craft.Lock ? Player.Inventory.find(a => a.Asset.Group.Name === "ItemMisc" && a.Asset.Name == craft.Lock).Asset : null,
+function CraftingConvertItemToSelected(Craft) {
+	let Obj = {
+		Name: Craft.Name,
+		Description: Craft.Description,
+		Color: Craft.Color,
+		Private: Craft.Private,
+		Property: Craft.Property,
+		Asset: Player.Inventory.find(a => a.Asset.Name === Craft.Item).Asset,
+		Lock: Craft.Lock ? Player.Inventory.find(a => a.Asset.Group.Name === "ItemMisc" && a.Asset.Name == Craft.Lock).Asset : null,
 	}
-	return obj;
+	return Obj;
 }
 
 /**
@@ -591,13 +594,11 @@ function CraftingExit() {
  */
 function CraftingAppliesToItem(Craft, Item) {
 	if (!Craft || !Item) return false;
-
 	const craftAsset = Asset.find(a => a.Name === Craft.Item && a.Group.Zone);
 	if (!craftAsset) return false;
 
 	// Find all assets that match our name/group combination, or have the same description
 	const matchingAssets = Asset.filter(a => a.Name === craftAsset.Name || a.CraftGroup === craftAsset.Name);
-	//&& ((a.Group.Name === craftAsset.Group.Name || a.Group.Name === craftAsset.DynamicGroupName)) || a.DynamicDescription(Player) === craftAsset.DynamicDescription(Player));
 
 	// Now check any of those matches are the item to test
 	return matchingAssets.find(m => m.Name === Item.Name && m.Group.Name === Item.Group.Name);

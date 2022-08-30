@@ -15,6 +15,7 @@ SelectColor,Pick the item colors
 EnterName,Name of the crafted item
 EnterDescription,Engrave a description
 EnterColor,Enter or pick the colors
+EnterPrivate,Private (only you can use it)
 EmptySlot,Empty
 PropertyNormal,Normal
 PropertyLarge,Large
