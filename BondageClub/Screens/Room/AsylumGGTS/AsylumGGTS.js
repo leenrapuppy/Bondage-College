@@ -63,7 +63,7 @@ function AsylumGGTSLevelCompleted() {
  * @returns {number} - Nothing
  */
 function AsylumGGTSGetLevel(C) {
-	return ((C.Game != null) && (C.Game.GGTS != null) && (C.Game.GGTS.Level != null) && (C.Game.GGTS.Level >= 1) && (C.Game.GGTS.Level <= 10)) ? C.Game.GGTS.Level : 0;
+	return ((C != null) && (C.Game != null) && (C.Game.GGTS != null) && (C.Game.GGTS.Level != null) && (C.Game.GGTS.Level >= 1) && (C.Game.GGTS.Level <= 10)) ? C.Game.GGTS.Level : 0;
 }
 
 /**

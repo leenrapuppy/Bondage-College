@@ -222,7 +222,8 @@ function StruggleProgressCheckEnd(C) {
 		if ((StruggleProgressNextItem != null) && StruggleProgressNextItem.Asset.Extended) {
 			DialogInventoryBuild(C);
 			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, false);
-			DialogExtendItem(InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name));
+			if ((StruggleProgressNextItem.Craft == null) || (StruggleProgressNextItem.Craft.Type == null) || (StruggleProgressNextItem.Craft.Type == ""))
+				DialogExtendItem(InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name));
 		} else ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true);
 
 		// Reset the the character's position

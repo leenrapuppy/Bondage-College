@@ -513,6 +513,28 @@ function InventoryCraftPropertyIs(Item, Property) {
 
 /**
 * Makes the character wear an item on a body area
+* @param {Item} Item - The item being applied
+* @param {Object} [Craft] - The crafting properties of the item
+*/
+function InventoryWearCraft(Item, Craft) {
+	if ((Item == null) || (Item.Asset == null) || (Craft == null)) return;
+	Item.Craft = Craft;
+	if ((Craft.Type != null) && (Item.Asset.AllowType != null) && (Item.Asset.AllowType.indexOf(Craft.Type) >= 0)) {
+		if (Item.Asset.Extended && (Item.Asset.Archetype == "typed")) {
+			let Config = AssetFemale3DCGExtended[Item.Asset.Group.Name][Item.Asset.Name].Config;
+			if ((Config != null) && (Config.Options != null))
+				for (let O of Config.Options)
+					if (O.Name == Craft.Type)
+						Item.Property = JSON.parse(JSON.stringify(O.Property));
+		} else {
+			if (Item.Property == null) Item.Property = {};
+			Item.Property.Type = Craft.Type;
+		}
+	}
+}
+
+/**
+* Makes the character wear an item on a body area
 * @param {Character} C - The character that must wear the item
 * @param {string} AssetName - The name of the asset to wear
 * @param {string} AssetGroup - The name of the asset group to wear
@@ -525,9 +547,9 @@ function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNu
 	const A = AssetGet(C.AssetFamily, AssetGroup, AssetName);
 	if (!A) return;
 	CharacterAppearanceSetItem(C, AssetGroup, A, ((ItemColor == null || ItemColor == "Default") && A.DefaultColor != null) ? A.DefaultColor : ItemColor, Difficulty, MemberNumber, false);
-	CharacterRefresh(C, true);
 	let Item = InventoryGet(C, AssetGroup);
-	if (Craft != null) Item.Craft = Craft;
+	InventoryWearCraft(Item, Craft);
+	CharacterRefresh(C, true);
 	InventoryExpressionTrigger(C, Item);
 }
 

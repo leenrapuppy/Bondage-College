@@ -3,7 +3,7 @@ var CraftingBackground = "CraftingWorkshop";
 var CraftingMode = "Slot";
 var CraftingDestroy = false;
 var CraftingSlot = 0;
-/** @type {{Name?: string, Description?: string, Color?: string, Asset?: Asset, Property?: string, Lock?: Asset, Private?: boolean }} */
+/** @type {{Name?: string, Description?: string, Color?: string, Asset?: Asset, Property?: string, Lock?: Asset, Private?: boolean, Type: String }} */
 var CraftingSelectedItem = null;
 var CraftingOffset = 0;
 /** @type {Asset[]} */
@@ -240,6 +240,8 @@ function CraftingRun() {
 		DrawButton(1843, 598, 64, 64, "", "White", "Icons/Color.png");
 		DrawText(TextGet("EnterPrivate"), 1550, 775, "White", "Black");
 		DrawButton(1175, 743, 64, 64, "", "White", CraftingSelectedItem.Private ? "Icons/Checked.png" : "");
+		if ((CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.AllowType != null) && (CraftingSelectedItem.Asset.AllowType.length > 0))
+			DrawButton(1350, 880, 400, 60, ((CraftingSelectedItem.Type == null) || (CraftingSelectedItem.Type == "")) ? TextGet("NoType") : CraftingSelectedItem.Type, "White");
 	}
 
 	// In color mode, the player can change the color of each parts of the item
@@ -310,7 +312,8 @@ function CraftingSaveServer() {
 			P = P + ((C.Name == null) ? "" : C.Name.replace("¶", " ").replace("§", " ")) + "¶";
 			P = P + ((C.Description == null) ? "" : C.Description.replace("¶", " ").replace("§", " ")) + "¶";
 			P = P + ((C.Color == null) ? "" : C.Color.replace("¶", " ").replace("§", " ")) + "¶";
-			P = P + (((C.Private != null) && C.Private) ? "T" : "") + "§";
+			P = P + (((C.Private != null) && C.Private) ? "T" : "") + "¶";
+			P = P + ((C.Type == null) ? "" : C.Type.replace("¶", " ").replace("§", " ")) + "§";
 		} else P = P + "§";
 	while ((P.length >= 1) && (P.substring(P.length - 1) == "§"))
 		P = P.substring(0, P.length - 1);
@@ -351,6 +354,7 @@ function CraftingDecompressServerData(Data) {
 		Craft.Description = (Element.length >= 5) ? Element[4] : "";
 		Craft.Color = (Element.length >= 6) ? Element[5] : "";
 		Craft.Private = ((Element.length >= 7) && (Element[6] == "T"));
+		Craft.Type = (Element.length >= 8) ? Element[7] : "";
 		if (Craft.Item && Craft.Name && (Craft.Item != "") && (Craft.Name != "")) Crafts.push(Craft);
 		else Crafts.push(null);
 	}
@@ -529,6 +533,15 @@ function CraftingClick() {
 			});
 		} else if (MouseIn(1175, 743, 64, 64)) {
 			CraftingSelectedItem.Private = !CraftingSelectedItem.Private;
+		} else if (MouseIn(1350, 880, 400, 60) && (CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.AllowType != null)) {
+			if ((CraftingSelectedItem.Type == null) || (CraftingSelectedItem.Type == "") || (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) < 0))
+				CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[0];
+			else
+				if (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) >= CraftingSelectedItem.Asset.AllowType.length - 1)
+					CraftingSelectedItem.Type = "";
+				else
+					CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) + 1];
+			CraftingUpdatePreview();
 		}
 		return;
 	}
@@ -538,7 +551,14 @@ function CraftingClick() {
 		if (MouseIn(880, 900, 90, 90)) {
 			CraftingNakedPreview = !CraftingNakedPreview;
 			CraftingUpdatePreview();
-		} else ItemColorClick(CraftingPreview, CraftingSelectedItem.Asset.Group.Name, 1200, 25, 775, 950, true);
+		} else if (MouseIn(1200, 25, 775, 950)) {
+			ItemColorClick(CraftingPreview, CraftingSelectedItem.Asset.Group.Name, 1200, 25, 775, 950, true);
+			let Item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.Group.Name);
+			if ((Item != null) && (Item.Color != null)) {
+				CraftingSelectedItem.Color = Array.isArray(Item.Color) ? Item.Color.join(",") : Item.Color || "";
+				CraftingUpdatePreview();
+			}
+		}
 		return;
 	}
 
@@ -559,7 +579,8 @@ function CraftingConvertSelectedToItem() {
 		Name: Name,
 		Description: Description,
 		Color: Color,
-		Private: CraftingSelectedItem.Private
+		Private: CraftingSelectedItem.Private,
+		Type: CraftingSelectedItem.Type
 	};
 }
 
@@ -573,6 +594,7 @@ function CraftingConvertItemToSelected(Craft) {
 		Description: Craft.Description,
 		Color: Craft.Color,
 		Private: Craft.Private,
+		Type: Craft.Type,
 		Property: Craft.Property,
 		Asset: Player.Inventory.find(a => a.Asset.Name === Craft.Item).Asset,
 		Lock: Craft.Lock ? Player.Inventory.find(a => a.Asset.Group.Name === "ItemMisc" && a.Asset.Name == Craft.Lock).Asset : null,
