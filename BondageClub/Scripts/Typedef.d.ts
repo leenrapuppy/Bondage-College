@@ -132,7 +132,7 @@ type EffectName =
 	"Unlock-MistressPadlock" | "Unlock-MistressTimerPadlock" |
 	"Unlock-PandoraPadlock" | "Unlock-MetalCuffs" | "Unlock-" |
 
-	"ProtrudingMouth" |
+	"ProtrudingMouth" | "Wiggling" |
 	""
 	;
 
@@ -142,7 +142,7 @@ type AssetGroupItemName =
 	'ItemHood' | 'ItemLegs' | 'ItemMisc' | 'ItemMouth' | 'ItemMouth2' |
 	'ItemMouth3' | 'ItemNeck' | 'ItemNeckAccessories' | 'ItemNeckRestraints' |
 	'ItemNipples' | 'ItemNipplesPiercings' | 'ItemNose' | 'ItemPelvis' |
-	'ItemTorso' | 'ItemVulva' | 'ItemVulvaPiercings' |
+	'ItemTorso' | 'ItemTorso2'| 'ItemVulva' | 'ItemVulvaPiercings' |
 
 	'ItemHidden' /* TODO: investigate, not a real group */
 	;
@@ -272,7 +272,20 @@ interface ChatRoom {
 	Character?: any[]; /* From server, not really a Character object */
 }
 
-type StimulationAction = "Flash" | "Kneel" | "Walk" | "StruggleAction" | "StruggleFail" | "Gag";
+type StimulationAction = "Kneel" | "Walk" | "Struggle" | "StruggleFail" | "Talk";
+
+interface StimulationEvent {
+	/** The chance that this event will trigger at 0 arousal */
+	Chance: number;
+	/** Scaling factor for chance, depending on the arousal */
+	ArousalScaling?: number;
+	/** Scaling factor for chance, depending on the vibe intensity */
+	VibeScaling?: number;
+	/** Scaling factor for chance, depending on the inflation amount */
+	InflationScaling?: number;
+	/** The chance that this event will trigger when talking */
+	TalkChance?: number;
+}
 
 type MessageActionType = "Action" | "Chat" | "Whisper" | "Emote" | "Activity" | "Hidden" |
 	"LocalMessage" | "ServerMessage" | "Status";
@@ -561,6 +574,7 @@ interface Asset {
 	Tint: TintDefinition[];
 	AllowTint: boolean;
 	DefaultTint?: string;
+	CraftGroup: string;
 }
 
 //#endregion
@@ -572,6 +586,7 @@ interface ItemBundle {
 	Difficulty?: number;
 	Color?: ItemColor;
 	Property?: ItemProperties;
+	Craft?: CraftedItemProperties;
 }
 
 /** An AppearanceBundle is whole minified appearance of a character */
@@ -594,6 +609,8 @@ interface Activity {
 	TargetSelf?: string[] | true;
 	/** used for setting AutoPunishGagActionFlag */
 	MakeSound?: boolean;
+	/** An action that trigger when that activity is used */
+	StimulationAction?: StimulationAction;
 }
 
 interface LogRecord {
@@ -609,7 +626,16 @@ interface Item {
 	Asset: Asset;
 	Color?: ItemColor;
 	Difficulty?: number;
+	Craft?: CraftedItemProperties;
 	Property?: ItemProperties;
+}
+
+interface CraftedItemProperties {
+	Name: string;
+	MemberName?: string;
+	MemberNumber?: number;
+	Description: string;
+	Property: string;
 }
 
 type FavoriteIcon = "Favorite" | "FavoriteBoth" | "FavoritePlayer";
@@ -872,6 +898,7 @@ interface Character {
 	Rule?: LogRecord[];
 	Status?: string | null;
 	StatusTimer?: number;
+	Crafting?: CraftingItem[];
 }
 
 type NPCArchetype =
@@ -2293,6 +2320,21 @@ interface PandoraBaseRoom {
 
 	/* PaintRoom */
 	Graffiti?: number;
+}
+
+//#endregion
+
+//#region Crafting items
+
+interface CraftingItem {
+	Name: string;
+	Description: string;
+	Property: string;
+	Color: string;
+	Lock: AssetLockType;
+	Item: string;
+	Private: boolean;
+	Type: string;
 }
 
 //#endregion

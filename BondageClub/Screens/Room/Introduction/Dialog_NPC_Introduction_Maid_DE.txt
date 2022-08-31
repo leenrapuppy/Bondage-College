@@ -335,7 +335,7 @@ Deine Einweisung ist beendet. Ich hoffe, du wirst im Club viel Spaß haben.
 You were a great teacher.
 Du warst eine gute Lehrerin.
 ###_NPC
-Well thanks a lot.  (She smiles.)  You're a good student.
+Oh, well thank you!  (She smiles.)  You're a good student.
 Na ja, vielen Dank. (Sie lächelt.) Du bist eine gute Schülerin.
 ###_PLAYER
 Thanks!  Have a great time.  (Leave her.)
@@ -422,7 +422,7 @@ Wie kann ich mich befreien?
 Grab the rope on your arms and try to free yourself.  Good luck!
 Nimm das Seil an deinen Armen und versuche dich daraus zu befreien. Viel Glück!
 ###_PLAYER
-Get me out now!
+I changed my mind, get me out now!
 Lass mich sofort frei!
 ###_NPC
 You're not in control girl.  (She grabs your mouth and straps a cloth gag on you.)
@@ -473,7 +473,7 @@ Sure, have these ropes and this gag.  (She gives you some ropes and a cloth gag.
 Klar, nimm diese Seile und den Knebel. (Sie gibt dir ein paar Seile und einen Stoffknebel.)
 You're ready to explore.  Remember to be courteous and respect others.
 Du bist bereit zum Erkunden. Vergiss nicht, dich den anderen gegenüber höflich und respektvoll zu verhalten.
-Well thanks a lot.  You're a good student.
+Oh, well thank you!  You're a good student.
 Na ja, vielen Dank. Du bist eine gute Schülerin.
 ###_PLAYER
 Thanks!  Take care.  (Leave her.)

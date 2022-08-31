@@ -26,7 +26,10 @@ var AudioList = [
 	{ Name: "HydraulicUnlock", File: "HydraulicUnlock" },
 	{ Name: "Deflation", File: "Deflation" },
 	{ Name: "DuctTape", File: "DuctTape18" },
+	{ Name: "DuctTapeRoll", File: "DuctTapeRoll" },
+	{ Name: "DuctTapeRollShort", File: "DuctTapeRollShort" },
 	{ Name: "Inflation", File: "Inflation" },
+	{ Name: "MetalCuffs", File: "MetalCuffs" },
 	{ Name: "LockLarge", File: "LockLarge" },
 	{ Name: "LockSmall", File: "LockSmall" },
 	{ Name: "RopeLong", File: "RopeLong" },
@@ -224,7 +227,8 @@ var AudioActions = [
 	},
 	{
 		IsAction: (data) => [
-			"FuturisticChastityBeltShock"
+			"FuturisticChastityBeltShock",
+			"ObedienceBeltShock"
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "Shocks"
 	},
@@ -292,6 +296,11 @@ var AudioActions = [
 			data.Type == "Activity" && (data.Content.endsWith('-Slap') || data.Content.endsWith('-Spank')),
 		GetSoundEffect: () => "SpankSkin"
 	},
+	{
+		IsAction: (data) =>
+			data.Type === "Action" && data.Content === "ItemVulvaPiercingsRoundClitPiercingSetBell",
+		GetSoundEffect: () => "BellSmall",
+	}
 ];
 
 /**

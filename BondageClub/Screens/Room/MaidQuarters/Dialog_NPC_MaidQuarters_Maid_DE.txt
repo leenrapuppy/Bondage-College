@@ -5,9 +5,9 @@ Can you go check on the Introduction Class?  Sometimes new members get out of co
 Kannst du bitte im Einstiegskurs nach dem Rechten sehen? Neulinge geraten manchmal außer Kontrolle.
 I've heard rumors of trouble going on at the Shibari Dojo.  Can you make sure everyone is fine?
 Ich habe von Ärger im Shibari-Dojo gehört. Kannst du nachsehen, ob alles in Ordnung ist?
-I think that something went wrong at the store.  Can you go there to help the vendor?
+I think something went wrong at the store.  Can you go there to help the vendor?
 Ich glaube, im Laden ist etwas schiefgelaufen. Könntest du hingehen und der Verkäuferin helfen?
-I think that something went wrong at the Gambling Hall.  Can you go there to help the players?
+I think something went wrong at the Gambling Hall.  Can you go there to help the players?
 Ich glaube, in der Spielhalle  ist etwas schiefgelaufen. Könntest du hingehen und den Spielern helfen?
 Guard the prison cell so that nothing happens there.
 Bewache die Gefängniszelle, damit dort nichts passiert.
@@ -19,7 +19,7 @@ Hurry to the chat rooms girl!  The club members are thirsty.  (You need to serve
 Mach, dass du zu den Chaträumen kommst, Mädchen! Die Clubmitglieder haben Durst. (Du musst 5 verschiedenen Online-Spielern Getränke servieren.)
 (She checks your empty tray.)  Well done!  Our members were satisfied?
 (Sie betrachtet dein leeres Serviertablett.) Gut gemacht! Waren unsere Mitglieder zufrieden?
-(DialogCharacterName gets you back to the maid quarters and smiles.)  You've did it!
+(DialogCharacterName gets you back to the maid quarters and smiles.)  You've done it!
 (DialogCharacterName holt dich lächelnd in die Dienerkammer zurück.) Du hast es geschafft!
 (DialogCharacterName gets you back to the maid quarters and frowns.)  You failed to clean up in time.
 (DialogCharacterName holt dich stirnrunzelnd in die Dienerkammer zurück.) Du hast nicht alles sauber bekommen.
@@ -107,7 +107,7 @@ Schön dich zu sehen, Schwester! Wie kann ich behilflich sein?
 Hello, I'm DialogPlayerName.  Pleased to meet you.
 Hallo, ich bin DialogPlayerName. Sehr erfreut.
 ###_NPC
-Pleased to meet you too.  I'm DialogCharacterName, I'm responsible to find work for maids.
+Pleased to meet you too.  I'm DialogCharacterName, I'm responsible for finding work for maids.
 Die Freude ist ganz meinerseits. Ich bin DialogCharacterName, ich verteile Aufgaben an Hausmädchen.
 ###_PLAYER
 What's going on in here?
@@ -116,7 +116,7 @@ Was geht hier vor sich?
 Maids come here to get job assignments.  They can earn some money by working for the club.
 Hier holen sich Hausmädchen ihre Aufträge ab. Sie verdienen etwas Geld, indem sie für den Club arbeiten.
 ###_PLAYER
-What kind of chores do maid do in the club?
+What kind of chores do maids do in the club?
 Welche Aufgaben erfüllen Hausmädchen im Club?
 ###_NPC
 Cleaning, serving drinks, testing new devices, rescuing helpless people and more.
@@ -291,7 +291,7 @@ Geil! Wer fickt mich als Erstes? (Dich ausziehen.)
 No way!  Can't I stay clothed?
 Niemals! Kann ich nicht angezogen bleiben?
 ###_NPC
-Strip girl, we've all did it before.
+Strip girl, we've all done it before.
 Ausziehen, Mädchen, da mussten wir alle durch.
 ###_PLAYER
 I'll need some help to undress.
@@ -617,7 +617,7 @@ Das ist so versaut.
 Yes please.
 Ja, bitte.
 ###_NPC
-(She straps a drink platter on you.)  Get used to balance the platter with your body, you don't want to make a mess.
+(She straps a drink platter on you.)  Get used to balancing the platter with your body, you don't want to make a mess.
 (Sie schnallt dir eine Servierplatte um.) Versuche, sie mit dem Körper zu balancieren, sonst gibt es eine Sauerei.
 ###_PLAYER
 Make sure it won't tip.
@@ -704,7 +704,7 @@ Wo sollte ich hin?
 Did you go to the Introduction Class?  Is there anything to report?
 Warst du schon beim Einstiegskurs? Gibt es da etwas zu berichten?
 ###_PLAYER
-Everything is under control.
+It's all better now.
 Alles ist unter Kontrolle.
 ###_NPC
 Perfect!  Let me pay you for your efforts then.  (She gives you REPLACEMONEY $.)
@@ -725,13 +725,13 @@ Hast du das Shibari-Dojo überprüft? Ist da alles in Ordnung?
 I'll go check the Shibari Dojo.  (Leave her.)
 Ich sehe im Shibari-Dojo nach. (Dialog beenden.)
 ###_NPC
-What's going on at the Bondage Club store?  Did the vendor got in trouble?
+What's going on at the Bondage Club store?  Did the vendor get in trouble?
 Was ist im Laden los? Steckt die Verkäuferin in Schwierigkeiten?
 ###_PLAYER
 I'll go check the Bondage Club store.  (Leave her.)
 Ich sehe im Laden nach. (Dialog beenden.)
 ###_NPC
-What's going on at the Gambling Hall?  Did some Player got in trouble?
+What's going on at the Gambling Hall?  Did some players get in trouble?
 Was ist in der Spielhalle los? Stecken Spieler in Schwierigkeiten?
 ###_PLAYER
 I'll go check the Gambling Hall.  (Leave her.)
@@ -807,7 +807,7 @@ Also gut, du kannst meine Füße verbinden.
 I should have guessed.
 Hätte ich mir denken sollen.
 ###_NPC
-(She giggles and restrains your legs.)  Next is your arms, you won't need either.
+(She giggles and restrains your legs.)  Next is your arms, you won't need them either.
 (Sie kichert und fesselt deine Beine.) Jetzt deine Arme, die brauchst du auch nicht.
 ###_PLAYER
 You really enjoy your job, don't you?
@@ -818,7 +818,7 @@ Das ist doch lächerlich! Wie soll ich putzen?
 You will understand soon.  Give me your arms girl.
 Du wirst es bald verstehen. Gib mir deine Arme, Mädchen.
 ###_PLAYER
-Fine, you can tie my arms.
+Sure, you can tie my arms.
 Na gut, du kannst meine Arme fesseln.
 ###_NPC
 (She restrains your arms behind your back.)  How does it feel to be restrained for work?
@@ -861,9 +861,9 @@ Also gut, du kannst mich knebeln.
 ###_NPC
 (She looks at you and laughs.)  You're learning the job pretty fast.  Are you ready now?
 (Sie sieht dich an und lacht.) Du lernst schnell. Bist du jetzt bereit?
-Come sweetie!  I'll drag you to your workspace.  You need to clean the room before I come to get your back.
+Come sweetie!  I'll drag you to your workspace.  You need to clean the room before I come to get you back.
 Komm, Süße! Ich bringe dich zu deinem Arbeitsplatz. Der Raum muss sauber sein, bevor ich dich abholen komme.
-Come sweetie!  I'll drag you to your workspace.  You need to clean your area before I come to get your back.
+Come sweetie!  I'll drag you to your workspace.  You need to clean your area before I come to get you back.
 Komm, Süße! Ich bringe dich zu deinem Arbeitsplatz. Der Bereich muss sauber sein, bevor ich dich abholen komme.
 ###_PLAYER
 (Pick an easy place to clean.)
@@ -899,18 +899,18 @@ Drücke " S D K L " auf deiner Tastatur, wenn die Noten von oben herabfallen. Ha
 ###_NPC
 Each hit is judged with "PERFECT", "GREAT", or "MISS"; if you release your key early in case of a long note, you get an "END MISS".
 Jeder Treffer wird mit "PERFECT", "GREAT", oder "MISS" bewertet; lässt du die Taste bei einer langen Note zu früh los, ist das ein "END MISS".
-You break your combo if you get a "MISS" or "END MISS", and audience will eventually become unhappy.
+You'll break your combo if you get a "MISS" or "END MISS", and the audience will eventually become unhappy.
 Bei einem "MISS" oder "END MISS" unterbrichst du deine Kombo, und das Publikum wird langsam unzufrieden.
-Audience will tie you up when they couldn't enjoy the music, because that's part of the entertainment for them.
+The audience will tie you up if they don't enjoy the music, because that's part of the entertainment for them.
 Das Publikum wird dich fesseln, wenn ihnen deine Musik nicht gefällt. Das ist Teil ihrer Unterhaltung.
-If you finished the play, you will be awarded based on your performance.
+When you finish the play, you will be awarded based on your performance.
 Dein Lohn am Ende hängt davon ab, wie gut du gespielt hast.
 That's basically everything, and you will find out more during the play.
 Das ist im Grunde schon alles, den Rest findest du beim Spielen heraus.
 ###_PLAYER
-Thank you for the instruction.
+Thank you for the instructions.
 Danke für die Erklärung.
-Select song.
+(Select song.)
 (Song wählen.)
 ###_NPC
 (List of songs)
@@ -922,10 +922,10 @@ Select song.
 見えない何かに怯える夜 (LV 5)
 見えない何かに怯える夜 (LV 7)
 見えない何かに怯える夜 (LV 7)
-(Want more Songs)
+(Want more songs?)
 (Ich will mehr Songs)
 ###_NPC
-We are adding more contents to this minigame. If you have royalty free songs or wish to create charts, you are welcomed to contact the dev for more information.
+(We're adding more content to this minigame. If you have royalty free songs or wish to create charts, you're welcome to contact the dev for more information.)
 Wir arbeiten an weiteren Inhalten für dieses Minispiel. Wenn du lizenzfreie Musik hast oder Levels erstellen willst, kannst du gern den Entwickler kontaktieren.
 (She releases you.)  All set!  Are you ready for more chores?
 (Sie befreit dich.) Alles klar! Bist du bereit für mehr Aufgaben?

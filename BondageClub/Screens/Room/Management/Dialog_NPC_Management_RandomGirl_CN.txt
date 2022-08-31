@@ -36,7 +36,7 @@ Club slaves are so much better when they are gagged.
 (She holds her breath as you use the item.)  Ow!  I'm your pain slut Miss.
 （当你使用这个物品时，她屏住呼吸。）噢！我任由你鞭笞，女士。
 (She catches her breath as you remove the device.)  That's quite a feeling.
-（当你取下这件物品时，她屏住呼吸。）这感觉真棒。
+（当你取下这件物品时，她调整呼吸。）这感觉真棒。
 (You strap the device on her head as she adjusts to it.)  This will enhance my helplessness.
 （你将这件物品绑在她的头上，她尝试适应它。）这会增加我的无助感。
 (You remove the device and she looks at you.)  You're quite a Dominant Miss.
@@ -364,7 +364,7 @@ Did you make it?  Are you fully free?
 You've failed girl.  The time is up.
 你失败了女孩。时间到了。
 Don't look at me.  Struggle girl!
-别看我。挣扎吧，VN还！
+别看我。挣扎吧，女孩！
 ###_PLAYER
 I've did it!
 我做到了！
@@ -1160,19 +1160,19 @@ Can I become a club slave?
 It's only for true submissives, go to the club management and ask if you're eligible.
 这仅适用于真正的顺从者，请前往俱乐部管理，并询问你是否有资格。
 ###_PLAYER
-What's the limit with you?
+What are your limits?
 你有什么限制？
 ###_NPC
 The usual limits Miss.  No blood or any permanent harm.  You can restrain me or have sex with me.
 通常的限制，女士。没有血，没有永久性伤害。你可以束缚我或与我性爱。
 ###_PLAYER
-Who's slut are you?
+Whose slut are you?
 你是谁的荡妇？
 ###_NPC
 (She blushes and bows her head in shame.)  I'm your slut Miss.
 （她羞红了脸，低下头。）我是你的荡妇女士。
 ###_PLAYER
-Enough chit-chat.
+That's all I wanted to talk about.
 闲聊够了。
 ###_NPC
 Very well.  Is there anything else I can do for you Miss?
@@ -1206,7 +1206,7 @@ Very well.  Is there anything else I can do for you Miss?
 （打她屁股。）
 ###_NPC
 (You spank her hard on the butt, and she sharply inhales from the pain.)
-（你用力打她的屁股，她因疼痛而猛吸一口气。）
+（你用力打她的屁股，她疼得倒吸一口气。）
 ###_PLAYER
 (Masturbate her.)
 （抚慰她。）
@@ -1223,4 +1223,4 @@ Very well.  Is there anything else I can do for you Miss?
 （她沉思。）好吧！ 我的奴隶合同很快就结束了。 我会去拜访你，女士。
 ###_PLAYER
 See you later!  (Leave her.)
-回头见！ （离开她。）
+回头见！（离开她。）

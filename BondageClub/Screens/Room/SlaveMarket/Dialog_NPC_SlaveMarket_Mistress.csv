@@ -15,7 +15,7 @@ TrainingFail,,,You've failed your training.  Thanks for your time but I cannot p
 0,,Can I help with slave training?,"Forget it girl, you're not Dominant enough.",,"DialogReputationLess(""Dominant"", 49)"
 0,40,When is the next slave coming up?,We need to sell this one first.  You can wait a little while for the next girl.,,
 0,,I need to go.  (Leave her.),,DialogLeave(),
-10,,How does the market works?,Owners can sell their own slaves or free submissives can sell themselves for profit.  They get sold through an auction.,,
+10,,How does the market work?,Owners can sell their own slaves or free submissives can sell themselves for profit.  They get sold through an auction.,,
 10,,Can I sell my slaves here?,"Yes, but only if your slave is fully collared.  You can sell her permanently or rent her for a day.  Go get her first.",,
 10,50,Can I be auctioned as a slave?,"You could, but you need to understand the rules first.",,CanBeAuctioned()
 10,,Can I be auctioned as a slave?,"No, to be auctioned you need to be a submissive, be unowned, be unrestrained, have space in your room and not have been auctioned in the last seven days.",,!CanBeAuctioned()
@@ -25,7 +25,7 @@ TrainingFail,,,You've failed your training.  Thanks for your time but I cannot p
 10,,How do you measure a slave training?,"It's hard to measure the training quality since every slave is different.  The longer the slave was with someone, the higher the training and market value.",,
 10,0,Let's talk about something else.,Fine.  What would you like know?,,
 20,,She's getting sold?,"Yes, she will be auctioned today.  You will be able to bet on her if you like, as long as you have some room to accommodate her.",,
-20,,Why doesn't she talk with me?,"I run the auction, not her.  Don't speak with the merchandize.",,
+20,,Why doesn't she talk with me?,"I run the auction, not her.  Don't speak with the merchandise.",,
 20,,What if I buy her?,She will move in with you and you two will be able to start a regular BDSM trial together.,,
 20,,What's the price?,"It's an auction.  You bet against other Dominants and the highest bet gets the girl.  Bring lots of money, you never know.",,
 20,21,I want to participate in the auction.,Excellent.  Just wait here for the other Dominants to come in and we'll be ready.,,CanStartAuction()

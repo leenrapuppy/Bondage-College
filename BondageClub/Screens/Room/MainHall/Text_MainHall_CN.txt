@@ -48,6 +48,10 @@ Bondage Poker
 紧缚扑克
 Magic School
 魔法学校
+Bondage Brawl
+束缚格斗
+Item Crafting
+物品制作
 Leave the Club
 离开俱乐部
 Do you want to leave the club?
@@ -57,13 +61,13 @@ Sarah的卧室
 Gambling by git4nick
 赌场 by git4nick
 Prison by git4nick
-监狱  by git4nick
+监狱 by git4nick
 Photographic by git4nick
-照相馆  by git4nick
+照相馆 by git4nick
 Stable by git4nick
 马驹训练场 by git4nick
 The Nursery by wildsj
-托儿所 by wildsj
+育婴室 by wildsj
 Houdini's Theater by git4nick
 逃脱剧场 by git4nick
 Cafe by wildsj
@@ -74,8 +78,8 @@ Request maid service
 呼叫女仆服务
 This game is for adults only.  Minors must leave immediately.
 本游戏仅限成人游玩. 未成年人请即刻离开.
-"All game characters are considered adults, no exceptions."
-"本游戏中所有角色都已成年，没有例外"
+All game characters are considered adults, no exceptions.
+本游戏中所有角色均已成年，没有例外。
 Please be courteous and polite.  Help new members to get started.
 请礼貌待人. 记得帮助萌新.
 Console cheating can break your account forever.  Please be careful.
@@ -90,14 +94,14 @@ Do not attempt anything that could harm you in your real life.
 请不要在现实中尝试任何可能会伤害到你的事。
 Remember your friends in your private room or they will leave.
 请记得你私人房间里的朋友不然她们会跑掉的。
-"If you find bugs or exploits, please report them and give details."
-"如果你发现了BUG或漏洞，记得详细上报它们"
+If you find bugs or exploits, please report them and give details.
+如果你发现了BUG或漏洞，记得详细上报它们
 Take good care of each other feelings and your submissives.
-请照顾好他人和M们的感受。
-"If you give any real-life information, it might be used against you."
-"如果你泄露了任何现实信息，它都可能被用来人肉你。"
+请照顾好他人和你的sub们的感受。
+If you give any real-life information, it might be used against you.
+如果你泄露了任何现实信息，它都可能被用来人肉你。
 A collared college girl can be convinced to give you her uniform.
-你驯服的学院女孩可能会愿意给你她们的校服。
+戴上项圈的大学女孩可能会愿意给你她们的校服。
 It's easier to destroy a reputation than to build one.
 摧毁声望比建立声望要容易的多。
 There's no best way to make money.  Simply find a job you enjoy.
@@ -108,7 +112,29 @@ Beta items will be lost if you go back to the regular version.
 Beta测试的物品可能会在正式版本遗失。
 You can protect yourself by blocking items and blacklisting players.
 你可以通过屏蔽物品和玩家来保护自己。
-"Reach us on Discord, DeviantArt or Patreon if you need help."
+Reach us on Discord, DeviantArt or Patreon if you need help.
 请在我们的Discord,DeviantArt或Patreon寻求帮助。
 Type /help in a chatroom to know the available chat commands.
 在聊天框中输入/help来显示可用的聊天指令。
+Try visiting your graphics preferences if you are experiencing performance issues.
+如果你遇到了性能问题，请尝试访问你的图像偏好。
+(A woman blocks your path.)  DialogPlayerName!  You've been a nuisance for Pandora's Box for far too long.  Surrender now or you will get hurt.
+（一个女人挡住了你的去路。）DialogPlayerName！你给潘多拉魔盒造成困扰的时间实在是太久了。立即投降，否则你会受伤的。
+(A girl taps on your shoulder.)  Here you are!  Pandora's Box sent me to get you.  Get on your knees right now or there will be trouble.
+（一个女孩拍拍你的肩膀。）你在这里啊！潘多拉魔盒派我来抓走你。立即跪下，否则你就有麻烦了。
+(Someone springs from behind you.)  No offense DialogPlayerName, but Pandora's Box as put a bounty on you.  Come with me quietly.
+（一个人从你身后跳了出来。）无意冒犯，DialogPlayerName，但潘多拉魔盒悬赏了你这个人。别乱叫跟我走吧。
+(A girl jumps in front of you.)  Your days of causing trouble are over DialogPlayerName.  I'm bringing you bound and gagged to Pandora's Box.
+（一个女孩跳到你面前。）你惹的麻烦到此为止了，DialogPlayerName。我要把你绑起来，戴上口塞，送到潘多拉魔盒。
+(A woman chases you down.)  You won't be running away this time girl.  Pandora's Box has a special cell ready for your ass.
+（一个女人追上了你。）这次你逃不掉了，女孩。潘多拉魔盒给你这混蛋专门准备了一间牢房。
+(A Dominatrix from Pandora's Box jumps in front of you.)  DialogPlayerName!  You've stolen our technology
+（一位潘多拉魔盒的女王跳到你面前。）DialogPlayerName！你偷窃了我们的技术
+(A Dominatrix from Pandora's Box taps on your shoulder.)  Here you are!  The Box sent me to recover the lock and key that you've stolen.
+（一位潘多拉魔盒的女王轻拍你的肩膀。）你在这里啊！魔盒派我来取回你偷的锁和钥匙。
+(Someone springs from behind you.)  No offense DialogPlayerName, but Pandora's Box wants to recover their lock and key.
+（一个人从你身后跳了出来。）无意冒犯，DialogPlayerName，但潘多拉魔盒想要取回他们的锁和钥匙。
+(A girl jumps in front of you.)  Your days of causing trouble are over DialogPlayerName.  I'm bringing back what you've stolen.
+（一个女孩跳到你面前。）你惹的麻烦到此为止了，DialogPlayerName。我要拿回你偷走的东西。
+(A Dominatrix chases you down.)  You won't be running away this time girl.  Give us back our technology or there will be trouble.
+（一个女王追上了你。）这次你逃不掉了，女孩。 把我们的技术还回来，否则你就有麻烦了。

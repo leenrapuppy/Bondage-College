@@ -729,7 +729,7 @@ function PrisonArrestHandoverSleepingPills() {
 }
 
 function PrisonArrestHandoverSpankingToys() {
-	PrisonerSleepingPills = true;
+	PrisonerSpankingToys = true;
 	InventoryDelete(Player, "SpankingToys", "ItemHands");
 	PrisonSetBehavior(1);
 }

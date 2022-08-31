@@ -1,0 +1,184 @@
+Select the item to use
+选择要使用的物品
+Next
+下一个
+Cancel
+取消
+Red
+红
+Green
+绿
+Blue
+蓝
+Yellow
+黄
+Cyan
+青
+Purple
+紫
+Orange
+橙
+White
+白
+Gray
+灰
+Black
+黑
+0
+0
+The game is over!  TeamName team wins.  Enjoy your spoils of war.
+游戏结束！TeamName队胜利。享用你们的战利品吧！
+TargetName (TargetNumber) plays first and starts the game.
+TargetName(TargetNumber)最先行动，并开始了游戏。
+The turn is skipped.  TargetName (TargetNumber) plays.
+这个回合跳过，TargetName(TargetNumber)行动。
+TargetName (TargetNumber) plays.
+TargetName(TargetNumber)行动。
+Back to characters
+回到角色。
+Pass your turn
+跳过回合
+SourceName (SourceNumber) does nothing and passes her turn.
+SourceName(SourceNumber)什么也没有做，并跳过了回合。
+Strip her (OptionOdds %)
+脱她的衣服(OptionOdds %)
+SourceName (SourceNumber) successfully strips TargetName (TargetNumber).  [ActionOdds >= ActionRNG]
+SourceName(SourceNumber)成功脱掉了TargetName(TargetNumber)的衣服。[ActionOdds >= ActionRNG]
+SourceName (SourceNumber) fails to strip TargetName (TargetNumber).  [ActionOdds < ActionRNG]
+SourceName(SourceNumber)未能脱掉TargetName(TargetNumber)的衣服。[ActionOdds < ActionRNG]
+Restrain arms (OptionOdds %)
+束缚手臂(OptionOdds %)
+SourceName (SourceNumber) successfully restrains TargetName (TargetNumber) arms using: ItemDesc.  [ActionOdds >= ActionRNG]
+SourceName(SourceNumber)成功使用ItemDesc束缚了TargetName(TargetNumber)的双臂。[ActionOdds >= ActionRNG]
+SourceName (SourceNumber) fails to restrain TargetName (TargetNumber) arms using: ItemDesc.  [ActionOdds < ActionRNG]
+SourceName(SourceNumber)未能使用ItemDesc束缚住TargetName(TargetNumber)的双臂。[ActionOdds < ActionRNG]
+Restrain legs (OptionOdds %)
+束缚双腿(OptionOdds %)
+SourceName (SourceNumber) successfully restrains TargetName (TargetNumber) legs using: ItemDesc.  [ActionOdds >= ActionRNG]
+SourceName(SourceNumber)成功使用ItemDesc束缚了TargetName(TargetNumber)的双腿。[ActionOdds >= ActionRNG]
+SourceName (SourceNumber) fails to restrain TargetName (TargetNumber) legs using: ItemDesc.  [ActionOdds < ActionRNG]
+SourceName(SourceNumber)未能使用ItemDesc束缚住TargetName(TargetNumber)的双腿。[ActionOdds < ActionRNG]
+Gag her (OptionOdds %)
+给她戴口塞(OptionOdds %)
+SourceName (SourceNumber) successfully gags TargetName (TargetNumber) using: ItemDesc.  [ActionOdds >= ActionRNG]
+SourceName(SourceNumber)成功使用ItemDesc塞住了TargetName(TargetNumber)的嘴。[ActionOdds >= ActionRNG]
+SourceName (SourceNumber) fails to gag TargetName (TargetNumber) using: ItemDesc.  [ActionOdds < ActionRNG]
+SourceName(SourceNumber)未能使用ItemDesc塞住TargetName(TargetNumber)的嘴。[ActionOdds < ActionRNG]
+Tighten (OptionOdds %)
+束紧(OptionOdds %)
+SourceName (SourceNumber) tightens TargetName (TargetNumber) bondage, resetting her struggle progress.
+SourceName(SourceNumber)收紧了TargetName(TargetNumber)的束缚，重置了她的挣扎进度。
+Struggle (OptionOdds %)
+挣扎(OptionOdds %)
+TargetName (TargetNumber) struggles out successfully and frees her arms.  [ActionOdds >= ActionRNG]
+SourceName(SourceNumber)成功挣脱，解放了她的双臂。[ActionOdds >= ActionRNG]
+TargetName (TargetNumber) tries to struggle out but fails.  [ActionOdds < ActionRNG]
+SourceName(SourceNumber)尝试挣脱，但是失败了。[ActionOdds < ActionRNG]
+Charge (OptionOdds %)
+鼓舞(OptionOdds %)
+SourceName (SourceNumber) charges with her team, giving a 25% offensive bonus for a full cycle.
+SourceName(SourceNumber)鼓舞她的队伍，在一整轮内，提供25%的攻击加成。
+Control (OptionOdds %)
+掌控(OptionOdds %)
+SourceName (SourceNumber) controls the room, preventing everyone from using special abilities for a full cycle.
+SourceName(SourceNumber)掌控房间，在一整轮内，阻止任何人使用特殊能力。
+Detain (OptionOdds %)
+扣押(OptionOdds %)
+SourceName (SourceNumber) detains TargetName (TargetNumber) and restrains her arms using: ItemDesc.
+SourceName(SourceNumber)使用ItemDesc扣押了TargetName(TargetNumber)并束缚了她的手臂。
+Expose (OptionOdds %)
+暴露(OptionOdds %)
+SourceName (SourceNumber) exposes TargetName (TargetNumber) and removes her clothes.
+SourceName(SourceNumber)暴露了TargetName(TargetNumber)并脱掉了她的衣服。
+Inspire (OptionOdds %)
+启发(OptionOdds %)
+SourceName (SourceNumber) inspires TargetName (TargetNumber), allowing her to use her special abilities again.
+SourceName(SourceNumber)启发了TargetName(TargetNumber)，让她能够再次使用特殊能力。
+Seduce (OptionOdds %)
+诱惑(OptionOdds %)
+SourceName (SourceNumber) seduces TargetName (TargetNumber), preventing her from acting in her next turn.
+SourceName(SourceNumber)诱惑了TargetName(TargetNumber)，她在下个回合无法行动。
+Confuse (OptionOdds %)
+迷惑(OptionOdds %)
+SourceName (SourceNumber) confuses TargetName (TargetNumber), preventing her from using special abilities for a full cycle.
+SourceName(SourceNumber)迷惑了TargetName(TargetNumber)，在一整轮内，她无法使用特殊能力。
+Hide (OptionOdds %)
+躲藏(OptionOdds %)
+SourceName (SourceNumber) hides in a corner, no opponent can target her until her next turn.
+SourceName(SourceNumber)躲在了角落里，直到她的下个回合，敌人不能以她为目标。
+Immobilize (OptionOdds %)
+固定(OptionOdds %)
+SourceName (SourceNumber) immobilize TargetName (TargetNumber) and restrains her legs using: ItemDesc.
+SourceName(SourceNumber)使用ItemDesc固定了TargetName(TargetNumber)并束缚了她的双腿。
+Cheer (OptionOdds %)
+庆贺(OptionOdds %)
+SourceName (SourceNumber) cheers for TargetName (TargetNumber), giving her a 25% offensive and defensive bonus for a full cycle.
+SourceName(SourceNumber)向TargetName(TargetNumber)庆贺，在一整轮内，向她提供25%的攻击和防御加成。
+Costume (OptionOdds %)
+装扮(OptionOdds %)
+SourceName (SourceNumber) costumes TargetName (TargetNumber) using: ItemDesc.
+SourceName(SourceNumber)使用ItemDesc装扮了TargetName(TargetNumber)。
+Evasion (OptionOdds %)
+逃脱(OptionOdds %)
+SourceName (SourceNumber) uses her evasion abilities to remove her restraint.
+SourceName(SourceNumber)使用她的逃脱能力从束缚中逃脱出来。
+Rescue (OptionOdds %)
+解救(OptionOdds %)
+SourceName (SourceNumber) rescues TargetName (TargetNumber).  Removing her restraint.
+SourceName(SourceNumber)解救了TargetName(TargetNumber)。并移除了她的束缚。
+Silence (OptionOdds %)
+沉默(OptionOdds %)
+SourceName (SourceNumber) silences TargetName (TargetNumber) and gag her using: ItemDesc.
+SourceName(SourceNumber)使用ItemDesc让TargetName(TargetNumber)沉默，并塞住了她的嘴。
+Ungag (OptionOdds %)
+解开口塞(OptionOdds %)
+SourceName (SourceNumber) ungags TargetName (TargetNumber).
+SourceName(SourceNumber)解开了TargetName(TargetNumber)的口塞。
+Cover (OptionOdds %)
+掩护(OptionOdds %)
+SourceName (SourceNumber) covers TargetName (TargetNumber), no opponent can target her for a full cycle.
+SourceName(SourceNumber)掩护TargetName(TargetNumber)，在一整轮内，敌人不能以她为目标。
+Dress (OptionOdds %)
+着装(OptionOdds %)
+SourceName (SourceNumber) dresses back using: ItemDesc.
+SourceName(SourceNumber)使用ItemDesc穿回衣服。
+Support (OptionOdds %)
+支援(OptionOdds %)
+SourceName (SourceNumber) supports her team, giving a 25% defensive bonus for a full cycle.
+SourceName(SourceNumber)支援她的队伍，在一整轮内，提供25%的防御加成。
+A free for all magic battle has begun.  To win, gag all other magicians using your spells.  Select your first target.
+一场自由对战的魔法对战开始了。要取得胜利，使用你的咒语封住所有其他魔法师的嘴。选择你的第一个目标吧。
+A team magic battle has begun.  To win, gag all magicians from other houses using your spells.  Select your first target.
+一场组队的魔法对战开始了。要取得胜利，使用你的咒语封住所有其他学院的魔法师的嘴。选择你的第一个目标吧。
+Administrator SourceName (SourceNumber) ended the magic battle manually.
+管理员SourceName(SourceNumber)手动结束了魔法对战。
+The turn is over, pick your next target.
+这个回合结束了，选择你的下个目标。
+Pallium Exuere
+除你外衣
+Animatus Funem
+绳索舞动
+Funem Tensis
+绳索紧束
+Oratio Angustos
+言语闭塞
+Animatus Ferrum
+锁链舞动
+Ferrum Tensis
+锁链紧束
+Nuda Caro
+赤裸肉身
+Stricta Lorum
+交手紧缚
+SourceName (SourceNumber) successfully cast SpellDesc on TargetName (TargetNumber) in SpellTime seconds.
+SourceName(SourceNumber)成功对TargetName(TargetNumber)施放了SpellDesc，用时SpellTime秒。
+SourceName (SourceNumber) fails to cast SpellDesc on TargetName (TargetNumber) in SpellTime seconds.
+SourceName(SourceNumber)未能对TargetName(TargetNumber)施放SpellDesc，用时SpellTime秒。
+Nobody was able to cast a spell successfully.
+没有人成功施放咒语。
+Two spells were cast at the same time
+两个咒语同时施放出来
+SpellDesc from SourceName (SourceNumber) affects TargetName (TargetNumber).
+SourceName(SourceNumber)施放的SpellDesc影响了TargetName(TargetNumber)。
+The battle is over!  Enjoy your spoils of war.
+战斗结束了！享受你们的战利品吧。

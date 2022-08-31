@@ -157,7 +157,7 @@ Sicher! Hast du noch mehr Fragen an mich?
 What's the job?
 Was ist meine Aufgabe?
 ###_NPC
-Selling gears.  Customers wants to know if the items are secure and good looking.  You could demonstrate for them.
+Modelling gear so our customers can see that the items are secure and good looking.  You'd demonstrate and convince them.
 Güter verkaufen. Die Kunden möchten wissen, ob unsere Ware sicher ist und gut aussieht. Das könntest du für sie demonstrieren.
 ###_PLAYER
 How much does it pay?

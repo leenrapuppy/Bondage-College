@@ -210,6 +210,16 @@ HatLatexHabitCape,Shoulders
 HatLatexHabitCollar,Collar
 HatLatexHabitBase,Shawl
 HatLatexHabitCowl,Cowl
+HatBallCapBackButton,Button
+HatBallCapBackPanelLeft,Panel
+HatBallCapBackSideLeft,Side
+HatBallCapBackStrap,Strap
+HatBallCapFrontPanel,Panel
+HatBallCapFrontPanelLeft,Left Panel
+HatBallCapFrontPanelRight,Right Panel
+HatBallCapFrontButton,Button
+HatBallCapFrontVisor,Visor
+HatBallCapFrontPrint,Print
 HairAccessory1KittenEars1Outer,Outer Ear
 HairAccessory1KittenEars1Inner,Inner Ear
 HairAccessory1FoxEars2Inner,Inner Ear
@@ -238,12 +248,28 @@ HairAccessory3HaloBase,Body
 HairAccessory3HaloCore,Core
 HairFrontHairFront22Fluff, Fluff
 HairFrontHairFront22Base, Base
+HairFrontHairFront22Tip, Tip
 HairFrontHairFront22bFluff, Fluff
 HairFrontHairFront22bBase, Base
+HairFrontHairFront22bTip, Tip
 HairFrontHairFront23Fluff, Fluff
 HairFrontHairFront23Base, Base
+HairFrontHairFront23Tip, Tip
 HairFrontHairFront23bFluff, Fluff
 HairFrontHairFront23bBase, Base
+HairFrontHairFront23bTip, Tip
+HairFrontHairFront27Base,Base
+HairFrontHairFront27Bangs,Bangs
+HairFrontHairFront27BangsTip,Tips
+HairFrontHairFront28Base,Base
+HairFrontHairFront28Bangs,Bangs
+HairFrontHairFront28Tips,Tips
+HairFrontHairFront29Left,Left
+HairFrontHairFront29Right,Right
+HairBackHairBack53Base,Base
+HairBackHairBack53Tip,Tips
+HairBackHairBack54Left,Left
+HairBackHairBack54Right,Right
 GlovesGlovesFurFabric,Glove
 GlovesGlovesFurFur,Fur
 GlovesHaremGloveFabric,Fabric
@@ -333,12 +359,19 @@ ItemVulvaVibratingDildoEnd,End
 ItemVulvaFuturisticVibratorBand,Body
 ItemVulvaFuturisticVibratorDisplay,Display
 ItemVulvaFuturisticVibratorLock,Lock
+ItemVulvaStitchesThread,Thread
 ItemVulvaPiercingsVibeHeartClitPiercingHeart,Heart
 ItemVulvaPiercingsVibeHeartClitPiercingRing,Ring
 ItemVulvaPiercingsTapedClitEggEgg,Egg
 ItemVulvaPiercingsTapedClitEggTape,Tape
 ItemVulvaPiercingsClitRingRing,Ring
 ItemVulvaPiercingsClitRingLeash,Leash
+ItemVulvaPiercingsRoundClitPiercingRing,Ring
+ItemVulvaPiercingsRoundClitPiercingWeight,Weight
+ItemVulvaPiercingsRoundClitPiercingBell,Bell
+ItemVulvaPiercingsRoundClitPiercingChain,Chain
+ItemVulvaPiercingsRoundClitPiercingHaremChain,Harem Chain
+ItemVulvaPiercingsRoundClitPiercingHaremVeil,Harem Veil
 ItemButtFoxTail1Base,Tail
 ItemButtFoxTail1Tip,Tip
 ItemButtFoxTail2Base,Tail
@@ -372,6 +405,15 @@ ItemPelvisHybridChastityBeltBelt,Belt
 ItemPelvisHybridChastityBeltCrotchPlate,Crotch Plate
 ItemPelvisHybridChastityBeltRivets,Rivets
 ItemPelvisHybridChastityBeltLock,Lock
+ItemPelvisObedienceBeltBase,Base
+ItemPelvisObedienceBeltTrim,Trim
+ItemPelvisObedienceBeltText,Engraving
+ItemPelvisObedienceBeltCrotchShield,Crotch Shield
+ItemPelvisObedienceBeltPositiveWire,Positive Wire
+ItemPelvisObedienceBeltNegativeWire,Negative Wire
+ItemNipplesChainClampChain,Chain
+ItemNipplesChainClampMetal,Metal
+ItemNipplesChainClampClamp,Clamps
 ItemNipplesTapedVibeEggsEgg1,Left Vibe Egg
 ItemNipplesTapedVibeEggsEgg2,Right Vibe Egg
 ItemNipplesTapedVibeEggsTape1,Left Tape Strip
@@ -528,6 +570,16 @@ ItemNeckRestraintsPostChain,Chain
 ItemNeckRestraintsPostHead,Cap
 ItemNeckRestraintsPostPost,Post
 ItemNeckRestraintsPostBase,Baseplate
+ItemNeckRestraintsPetPostPole,Pole
+ItemNeckRestraintsPetPostPlaque,Plaque
+ItemNeckRestraintsPetPostPlaqueBorder,PlaqueBorder
+ItemNeckRestraintsPetPostPostit,Postit
+ItemNeckRestraintsPetPostPaw,Sticker
+ItemNeckRestraintsPetPostPlaqueBolts,PlaqueBolts
+ItemNeckRestraintsPetPostLeash,Leash
+ItemNeckRestraintsPetPostRope,Rope
+ItemNeckRestraintsPetPostChain,Chain
+ItemNeckRestraintsPetPostText,Text
 ItemNeckComboHarnessRing,Ring
 ItemNeckComboHarnessStuds,Studs
 ItemNeckComboHarnessBall,Ball
@@ -664,6 +716,9 @@ ItemHoodKittyHoodBlindfold,Blindfold
 ItemHoodKittyHoodGag,Gag
 ItemHoodKittyHoodDrawings,Drawings
 ItemHoodKittyHoodLock,Lock
+ItemHoodOpenMouthPlugHoodLenses,Lenses
+ItemHoodOpenMouthPlugHoodHood,Hood
+ItemHoodOpenMouthPlugHoodPlug,Plug
 ItemBootsLockingBoots1Boots,Boots
 ItemBootsLockingBoots1Straps,Straps
 ItemBootsFuturisticHeelsShoes,Body
@@ -1013,6 +1068,8 @@ ItemMouth3PonyGagFlags,Flags
 ItemMouth3PonyGagRope,Rope
 ItemMouth3PonyGagBlinders,Blinders
 ItemMouth3PonyGagPost,Post
+ItemMouth3StitchesFakeMouth,Lips
+ItemMouth3StitchesStraight,Thread
 MaskFoxMaskUpper,Upper
 MaskFoxMaskLower,Lower
 MaskKittyMask3Highlights,Highlights
@@ -1130,6 +1187,8 @@ ItemHeadFrilledSleepMaskMask,Mask
 ItemHeadFuturisticMaskDisplay,Tint
 ItemHeadFuturisticMaskText,HUD
 ItemHeadFuturisticMaskLock,Lock Icon
+ItemHeadStitchesStraight,Thread Right
+ItemHeadStitchesStraight2,Thread Left
 ClothAccessoryBunnyCollarCuffsCuffs,Cuffs
 ClothAccessoryBunnyCollarCuffsCollar,Collar
 ClothAccessoryBunnyCollarCuffsBow,Bow
@@ -1175,3 +1234,7 @@ WingsPixieWingsWings,Wings
 WingsPixieWingsVeins,Veins
 GlassesVGlassesFrame,Frame
 GlassesVGlassesGlass,Lenses
+GlassesGradientSunglassesFrame,Frame
+GlassesGradientSunglassesGlass,Glass
+GlovesBikerGlovesHands,Gloves
+GlovesBikerGlovesStraps,Straps

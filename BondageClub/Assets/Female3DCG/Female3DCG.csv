@@ -337,7 +337,7 @@ Hat,NurseCap,Nurse Cap
 Hat,Santa1,Santa Hat
 Hat,CaptainHat1,Captain's Hat
 Hat,BunnySuccubus2,Bunny Succubus
-Hat,WitchHat1, Witch Hat
+Hat,WitchHat1,Witch Hat
 Hat,PirateBandana1,Pirate Bandana
 Hat,Bandana,Bandana
 Hat,PoliceWomanHat,Police Woman Hat
@@ -362,13 +362,15 @@ Hat,RoseCrown,Rose Crown
 Hat,FlowerCrown,Flower Crown
 Hat,PoppyCrown,Poppy Crown
 Hat,LatexHabit,Latex Habit
+Hat,BallCapBack,Baseball Cap Back
+Hat,BallCapFront,Baseball Cap Front
 HairAccessory3,,Hair Accessory
 HairAccessory3,Ribbons1,Hair Ribbon 1
 HairAccessory3,Ribbons2,Hair Ribbon 2
 HairAccessory3,Ribbons3,Hair Ribbon 3
 HairAccessory3,Ribbons4,Hair Ribbon 4
-HairAccessory3,GiantBow1, Giant Bow 1
-HairAccessory3,HairFlower1, Flower
+HairAccessory3,GiantBow1,Giant Bow 1
+HairAccessory3,HairFlower1,Flower
 HairAccessory3,WeddingVeil1,Wedding Veil
 HairAccessory3,HairFeathers1,Feathers
 HairAccessory3,Halo,Halo
@@ -380,7 +382,7 @@ HairAccessory1,Ribbons1,Hair Ribbon 1
 HairAccessory1,Ribbons2,Hair Ribbon 2
 HairAccessory1,Ribbons3,Hair Ribbon 3
 HairAccessory1,Ribbons4,Hair Ribbon 4
-HairAccessory1,GiantBow1, Giant Bow 1
+HairAccessory1,GiantBow1,Giant Bow 1
 HairAccessory1,BunnyEars1,Bunny Ears
 HairAccessory1,BunnyEars2,Floppy Bunny Ears
 HairAccessory1,PuppyEars1,Puppy Ears
@@ -450,6 +452,7 @@ Gloves,CowPrintedGloves,Cow Printed Gloves
 Gloves,LatexElbowGloves,Latex Elbow Gloves
 Gloves,FishnetGloves, Fishnet Gloves
 Gloves,HaremGlove,Harem Gloves
+Gloves,BikerGloves,Biker Gloves
 Bracelet,,Bracelet
 Bracelet,BowBand,Bow Band
 Bracelet,KinkBracelet, Kinky Band
@@ -470,6 +473,7 @@ Glasses,SunGlassesClear,Clear Sunglasses
 Glasses,EyePatch1,Eye Patch
 Glasses,CatGlasses,Cat-Eye Glasses
 Glasses,VGlasses,V Glasses
+Glasses,GradientSunglasses,Gradient Sunglasses
 Mask,,Mask
 Mask,VenetianMask,Venetian Mask
 Mask,DominoMask,Domino Mask
@@ -596,6 +600,8 @@ HairFront,HairFront24,Style 24
 HairFront,HairFront25,Style 25
 HairFront,HairFront26,Style 26
 HairFront,HairFront27,Style 27
+HairFront,HairFront28,Style 28
+HairFront,HairFront29,Style 29
 HairBack,,Back Hair
 HairBack,HairNone,None
 HairBack,HairBack1,Style 1
@@ -656,6 +662,8 @@ HairBack,HairBack50,Style 45
 HairBack,HairBack51,Style 46
 HairBack,HairBack52,Style 47
 HairBack,HairBack53,Style 48
+HairBack,HairBack54,Style 49
+HairBack,HairBack55,Style 50
 Eyes,,Left eye
 Eyes,Eyes1,Style 1
 Eyes,Eyes2,Style 2
@@ -779,10 +787,10 @@ ItemVulva,WiredEgg,Wired Vibrating Egg
 ItemVulva,LoversVibrator,Lovers Vibrator
 ItemVulva,LoversVibratorRemote,Lovers Remote
 ItemVulva,DoubleEndDildo,Double Ended Dildo
+ItemVulva,Stitches,Stitches
 ItemVulvaPiercings,,Clitoris
 ItemVulvaPiercings,StraightClitPiercing,Straight Clitoris Piercing
 ItemVulvaPiercings,RoundClitPiercing,Round Clitoris Piercing
-ItemVulvaPiercings,WeightedClitPiercing,Weighted Clitoris Piercing
 ItemVulvaPiercings,BarbellClitPiercing,Barbell Clitoris Piercing
 ItemVulvaPiercings,ChastityClitPiercing,Chastity Vulva Piercings
 ItemVulvaPiercings,ChastityClitShield,Chastity Vulva Shield
@@ -790,7 +798,6 @@ ItemVulvaPiercings,HighSecurityVulvaShield,High Security Vulva Shield
 ItemVulvaPiercings,JewelClitPiercing,Jewel Clitoris Piercing
 ItemVulvaPiercings,AdornedClitPiercing,Adorned Clitoris Piercing
 ItemVulvaPiercings,VibeHeartClitPiercing,Vibrating Heart Clitoris Piercing
-ItemVulvaPiercings,BellClitPiercing,Bell Clitoris Piercing
 ItemVulvaPiercings,TapedClitEgg,Taped Vibrating Egg
 ItemVulvaPiercings,ClitRing,Clitoris Ring
 ItemButt,,Butt
@@ -833,6 +840,7 @@ ItemButt,Cowtail,Cow Tail
 ItemButt,HollowButtPlug,Hollow Butt Plug
 ItemButt,LockingVibePlug,Locking Vibrating Butt Plug
 ItemButt,Tentacles,Tentacles
+ItemButt,Stitches,Stitches
 ItemPelvis,,Pelvis
 ItemPelvis,StraponPanties,Strap-On Panties
 ItemPelvis,LeatherChastityBelt,Leather Chastity Belt
@@ -857,6 +865,7 @@ ItemPelvis,SilkStraps,Silk Straps
 ItemPelvis,BulkyDiaper,Bulky Chastity Diaper
 ItemPelvis,PoofyDiaper,Poofy Chastity Diaper
 ItemPelvis,HybridChastityBelt,Hybrid Chastity Belt
+ItemPelvis,ObedienceBelt,Obedience Belt
 ItemTorso,,Torso
 ItemTorso,NylonRopeHarness,Nylon Rope
 ItemTorso,HempRopeHarness,Hemp Rope
@@ -880,11 +889,38 @@ ItemTorso,HeavyLatexCorset,Heavy Latex Corset
 ItemTorso,Ribbons,Ribbons
 ItemTorso,SilkStraps,Silk Straps
 ItemTorso,ThinLeatherStraps,Thin Leather Straps
+ItemTorso,LockingSwimsuit,Locking Swimsuit
+ItemTorso,LockingSwimsuit2,Locking Swimsuit 2
+ItemTorso2,,Torso
+ItemTorso2,LockingSwimsuit,Locking Swimsuit
+ItemTorso2,LeatherStrapHarness,Leather Strap Body Harness
+ItemTorso2,LeatherHarness,Leather Harness
+ItemTorso2,NylonRopeHarness,Nylon Rope
+ItemTorso2,HempRopeHarness,Hemp Rope
+ItemTorso2,AdultBabyHarness,Adult Baby Harness
+ItemTorso2,HarnessBra1,Bondage Harness
+ItemTorso2,HarnessBra2,Leather Strap Harness
+ItemTorso2,Corset2,Corset
+ItemTorso2,FuturisticHarness,Futuristic Harness
+ItemTorso2,HighSecurityHarness,High Security Harness
+ItemTorso2,Corset3,Half Cup Corset
+ItemTorso2,Corset4,Under Bust Corset
+ItemTorso2,Corset5,Floral Corset
+ItemTorso2,LatexCorset1,Latex Corset
+ItemTorso2,LeatherBreastBinder,Leather Breast Binder
+ItemTorso2,LeatherStrapBra1,Leather Strap Bra
+ItemTorso2,CrotchChain, Crotch Chain
+ItemTorso2,StuddedHarness,Studded Harness
+ItemTorso2,HeavyLatexCorset,Heavy Latex Corset
+ItemTorso2,Ribbons,Ribbons
+ItemTorso2,SilkStraps,Silk Straps
+ItemTorso2,ThinLeatherStraps,Thin Leather Straps
+ItemTorso2,LockingSwimsuit2,Locking Swimsuit 2
 ItemNipples,,Nipples
 ItemNipples,NippleClamp,Nipple Clamps
 ItemNipples,VibeNippleClamp,Vibrating Nipple Clamps
 ItemNipples,VibratorRemote,Vibrating Clamps Remote
-ItemNipples,ChainClamp,Chain Clamp
+ItemNipples,ChainClamp,Chain Clamps
 ItemNipples,ScrewClamps,Screw Clamps
 ItemNipples,ChainTassles,Chain Tassles
 ItemNipples,HeartPasties,Heart Pasties
@@ -1126,6 +1162,7 @@ ItemNeckRestraints,CollarChainMedium,Medium Chain
 ItemNeckRestraints,CollarRopeLong,Long Rope
 ItemNeckRestraints,CollarRopeShort,Short Rope
 ItemNeckRestraints,CollarRopeMedium,Medium Rope
+ItemNeckRestraints,PetPost,Pet Sign
 ItemMouth,,Mouth
 ItemMouth,ClothGag,Cloth Gag
 ItemMouth,WiffleGag,Wiffle Ball Gag
@@ -1182,6 +1219,7 @@ ItemMouth,SockStuffing,Sock Stuffing
 ItemMouth,GasMaskGag,Respirator Mask
 ItemMouth,WebGag,Web Gag
 ItemMouth,RopeGag,Rope Gag
+ItemMouth,RopeBallGag,Rope Ball Gag
 ItemMouth,MilkBottle,Milk Bottle
 ItemMouth,MedicalMask,Medical Mask
 ItemMouth,RegressedMilk,Nursery Milk
@@ -1203,6 +1241,7 @@ ItemMouth,OTNPlugGag,Harness OTN Plug Gag
 ItemMouth,PonyGag,Bridle Gag
 ItemMouth,LatexSheathGag, Latex Sheath Gag
 ItemMouth,Slime,Slime
+ItemMouth,FurScarf,Fur Scarf
 ItemMouth2,,Mouth
 ItemMouth2,ClothGag,Cloth Gag
 ItemMouth2,WiffleGag,Wiffle Ball Gag
@@ -1242,6 +1281,7 @@ ItemMouth2,LatexBallMuzzleGag,Latex Ball Muzzle Gag
 ItemMouth2,GasMaskGag,Respirator Mask
 ItemMouth2,WebGag,Web Gag
 ItemMouth2,RopeGag,Rope Gag
+ItemMouth2,RopeBallGag,Rope Ball Gag
 ItemMouth2,MedicalMask,Medical Mask
 ItemMouth2,RegressedMilk,Nursery Milk
 ItemMouth2,PrisonLockdownGag,Prison Lockdown Gag
@@ -1255,6 +1295,7 @@ ItemMouth2,Tentacles,Tentacle
 ItemMouth2,PonyGag,Bridle Gag
 ItemMouth2,MouthFeatureGag, Mouthfeature Gag
 ItemMouth2,Slime,Slime
+ItemMouth2,FurScarf,Fur Scarf
 ItemMouth3,,Mouth
 ItemMouth3,ClothGag,Cloth Gag
 ItemMouth3,WiffleGag,Wiffle Ball Gag
@@ -1294,6 +1335,7 @@ ItemMouth3,LatexBallMuzzleGag,Latex Ball Muzzle Gag
 ItemMouth3,GasMaskGag,Respirator Mask
 ItemMouth3,WebGag,Web Gag
 ItemMouth3,RopeGag,Rope Gag
+ItemMouth3,RopeBallGag,Rope Ball Gag
 ItemMouth3,MedicalMask,Medical Mask
 ItemMouth3,RegressedMilk,Nursery Milk
 ItemMouth3,PrisonLockdownGag,Prison Lockdown Gag
@@ -1306,6 +1348,8 @@ ItemMouth3,PaciGag,Pacifier Gag
 ItemMouth3,Tentacles,Tentacle
 ItemMouth3,PonyGag,Bridle Gag
 ItemMouth3,Slime,Slime
+ItemMouth3,Stitches,Stitches 
+ItemMouth3,FurScarf,Fur Scarf
 ItemHead,,Eyes
 ItemHead,ClothBlindfold,Cloth Blindfold
 ItemHead,ScarfBlindfold,Scarf Blindfold
@@ -1337,6 +1381,8 @@ ItemHead,Tentacles,Tentacles
 ItemHead,MedicalPatch,Medical Patches
 ItemHead,DroneMask,Smooth Latex Mask
 ItemHead,Slime,Slime
+ItemHead,FurScarf,Fur Scarf
+ItemHead,Stitches,Stitches 
 ItemNose,,Nose
 ItemNose,NoseHook,Nose Hook
 ItemNose,PigNose,Pig Nose
@@ -1380,6 +1426,7 @@ ItemHood,HeadboxSeethrough,One-Way Glass Head Box
 ItemHood,Slime,Slime
 ItemHood,KittyHood,Kitty Hood
 ItemHood,LatexDogHood,Latex Dog Hood
+ItemHood,OpenMouthPlugHood,Latex Open Mouth Plug Hood
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs

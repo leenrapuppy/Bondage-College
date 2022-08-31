@@ -13,6 +13,10 @@ Based on [Lauri Hartikka's tutorial](https://medium.freecodecamp.org/simple-ches
 
 var MiniGameChessBoard = null;
 var MiniGameChessGame = null;
+/**
+ * Dummy name for the module in Scripts/lib/chessboard
+ */
+var chess;
 
 // Starts the chess with a depth (difficulty)
 function MiniGameChessStart(Depth, PlayerColor) {
@@ -140,76 +144,79 @@ function MiniGameChessStart(Depth, PlayerColor) {
 		// Make the calculated move
 		game.move(move);
 		// Update board positions
-		board.position(game.fen());
+		await board.setPosition(game.fen(), true);
 
 		// Announce a move was made
 		document.dispatchEvent(chessOnMoveEvent);
-	}
-
-	// Handles what to do after human makes move.
-	// Computer automatically makes next move
-	function onDrop(source, target) {
-		// see if the move is legal
-		const move = game.move({
-			from: source,
-			to: target,
-			promotion: "q" // NOTE: always promote to a queen for example simplicity
-		});
-
-		// If illegal move, snapback
-		if (move === null) return "snapback";
-
-		// Log the move
-		//console.log(move)
-
-		// Announce a move was made
-		document.dispatchEvent(chessOnMoveEvent);
-
-		// make move for black
-		window.setTimeout(function () {
-			makeMove(MinMaxDepth);
-		}, 200);
 	}
 
 	let board;
 	let game = new Chess();
 
-	// Check before pick pieces that it is the player's color and game is not over
-	function onDragStart(source, piece, position, orientation) {
-		if (game.game_over() === true || moveInProgress || piece.search(PlayerColor) === -1) {
-			return false;
-		}
-	}
-
-	// Update the board position after the piece snap
-	// for castling, en passant, pawn promotion
-	function onSnapEnd() {
-		board.position(game.fen());
-	}
-
 	// Creates the board div
-	if (document.getElementById("DivChessBoard") == null) {
-		const div = document.createElement("div");
-		div.setAttribute("ID", "DivChessBoard");
-		div.className = "HideOnDisconnect";
-		document.body.appendChild(div);
+	let boardElem = document.getElementById("DivChessBoard");
+	if (!boardElem) {
+		boardElem = document.createElement("div");
+		boardElem.setAttribute("ID", "DivChessBoard");
+		boardElem.className = "HideOnDisconnect";
+		document.body.appendChild(boardElem);
 	}
 
 	// Configure the board
-	board = ChessBoard("DivChessBoard", {
-		draggable: true,
+	board = new chess.Chessboard(boardElem, {
 		position: "start",
-		pieceTheme: "Screens/MiniGame/Chess/{piece}.png",
-		orientation: PlayerColor === "w" ? "white" : "black",
-		// Handlers for user actions
-		onDragStart: onDragStart,
-		onDrop: onDrop,
-		onSnapEnd: onSnapEnd
+		orientation: PlayerColor === "w" ? chess.COLOR.white : chess.COLOR.black,
+		style: {
+			borderType: chess.BORDER_TYPE.thin,
+		},
+		sprite: {
+			url: "./CSS/chessboard-sprite.svg", // pieces and markers are stored in a sprite file
+			size: 40, // the sprite tiles size, defaults to 40x40px
+			cache: true // cache the sprite
+		},
 	});
 
+	board.enableMoveInput((event) => {
+		switch (event.type) {
+			case chess.INPUT_EVENT_TYPE.moveStart: {
+				// Check before pick pieces that it is the player's color and game is not over
+				if (game.game_over() === true || moveInProgress) {
+					return false;
+				}
+
+				const moves = game.moves({square: event.square, verbose: true});
+				return moves.length > 0;
+			}
+
+			case chess.INPUT_EVENT_TYPE.moveDone: {
+				// see if the move is legal
+				const move = game.move({
+					from: event.squareFrom,
+					to: event.squareTo,
+					promotion: "q" // NOTE: always promote to a queen for example simplicity
+				});
+
+				// If illegal move, snapback
+				if (move === null) return false;
+
+				// Update the board position after the piece snap
+				board.setPosition(game.fen(), true);
+
+				// Log the move
+				//console.log(move)
+
+				// Announce a move was made
+				document.dispatchEvent(chessOnMoveEvent);
+
+				// make move for black
+				window.setTimeout(function () {
+					makeMove(MinMaxDepth);
+				}, 200);
+			}
+		}
+	}, PlayerColor === "w" ? chess.COLOR.white : chess.COLOR.black);
+
 	// Resets the board and shows it
-	board.clear();
-	board.start();
 	game.reset();
 	MiniGameChessBoard = board;
 	MiniGameChessGame = game;
@@ -218,6 +225,6 @@ function MiniGameChessStart(Depth, PlayerColor) {
 	if (PlayerColor === "b") {
 		window.setTimeout(function () {
 			makeMove(MinMaxDepth);
-		}, 200);
+		}, board.props.animationDuration);
 	}
 }

@@ -16,7 +16,7 @@
 (She struggles as you restrain her arms securely.)  You're breaking the law again.
 （当你牢牢地束缚住她的手臂时，她挣扎着。）你又触犯了法律。
 (You free her arms and she stretches.)  You're still under arrest.
-（你松开她的手臂，她伸展身体。）你仍然处于被捕的状态。
+（你松开她的手臂，她伸展身体。）你依然被逮捕了。
 (She thrashes as you restrain her legs.)  You better carry me then!
 （当你束缚她的双腿时，她抖动着。）那你最好背着我走！
 (You release her legs.)  Justice will strike you down like a hammer.
@@ -32,15 +32,15 @@
 (You remove the collar from her neck.)  Too late, the crime has been done.
 （你取下她脖子上的项圈。）为时已晚，你已经犯下大罪。
 (She struggles to avoid the belt but you're able to strap it on her.)  Are you serious?
-（她努力避开皮带，但你还是成功系到她身上。）你是认真的吗？
+（她挣扎着想避开带子，但你还是成功系到她身上。）你是认真的吗？
 (She sighs as you unlock the belt.)  Can you make up your mind?
-（当你解开皮带时，她叹了口气）你就不能做好决定吗？
+（当你解开带子时，她叹了口气。）你就不能做好决定吗？
 (She stays silent as you strap the device on her head.)
 （当你绑紧她头上的道具时，她保持沉默。）
 (You release her head as she nods rapidly.)  That's better, but you're still in trouble.
 （你解开她的头时，她迅速点头。）这好多了，但你仍然有麻烦。
 (You put the hood on her head as she goes silent.)
-（你把头套戴在她头上，她逐渐沉默。）
+（你把头套戴在她头上，她逐渐安静了下来。）
 (She grins as you remove the hood from her head.)  I will never get out of here.
 （当你从她头上取下头罩时，她咧嘴笑起来。）我永远不会离开这里。
 (You strap the item on her nose as she sighs.)  Is that a joke to you?
@@ -98,7 +98,7 @@ So, what's up?
 （在口塞里咕哝着。）
 ###_NPC
 Here you go.  (She removes your gag.)  Don't piss me off or that gag is coming back.
-干得好。（她摘下你的口塞。）别惹我生气，不然口塞会回到原位。
+干得好。（她摘下你的口塞）别惹我生气，不然我会把口塞塞回去。
 ###_PLAYER
 (Leave her.)
 （离开她。）
@@ -200,7 +200,7 @@ You will take my place as prisoner.
 你将代替我成为囚犯。
 ###_NPC
 (She goes mad.)  No!  I'm a guard here!  Not a low life prisoner like you.
-（她疯狂地发怒。）不！我是这里的警卫！不是像你这样的低等囚犯。
+（她狂怒起来。）不！我是这里的警卫！不是像你这样低等的囚犯。
 ###_PLAYER
 I'm getting out.
 我要出去了。
@@ -286,13 +286,13 @@ Fine, let me help you.  (She removes your gag.)  Don't worry, I have other gags 
 （试着摆脱你的口塞。）
 ###_NPC
 Calm down.  (She removes your gag.)  Try to scream and that gag will pop right back.  It's time for new restraints.
-冷静。（她取下你的口塞。）如果你试图尖叫，那口塞就又回来了哦。是时候用上新的束缚了。
+冷静。（她取下你的口塞。）如果你试图尖叫，那口塞会立即塞回去。是时候用上新的束缚了。
 ###_PLAYER
 No!  You won't restrain me again.
 不！你不能再束缚我了。
 ###_NPC
 (She raises her fists.)  Girl!  Either you comply or get crushed.  Pick your poison.
-（她举起拳头。）女孩！你要么服从，要么被锤烂。你没得拒绝。
+（她举起拳头。）女孩！你要么服从，要么被击垮。选一个死法吧。
 ###_PLAYER
 (Fight her.)
 （与她战斗。）
@@ -386,7 +386,7 @@ Try to strip me and I'll crush you!
 你敢脱我衣服，我就砸烂你！
 ###_NPC
 (She raises her fists.)  Girl!  Either you strip willingly or get beat up.  I'm fine with both.
-（她举起拳头。）女孩！你要么心甘情愿地被脱光衣服，要么被打到脱光衣服。我两种都能来。
+（她举起拳头。）女孩！你要么心甘情愿地脱光衣服，要么被打一顿。我不介意两种都来。
 ###_PLAYER
 (Let her strip you.)
 （让她脱掉你的衣服。）
@@ -434,7 +434,7 @@ I'll have my revenge someday.
 总有一天我会报仇的。
 ###_NPC
 Don't make me laugh.  (She picks the devices.)  Now don't move while I lock you up.
-你在逗我笑。（她拿起道具。）现在我要把你锁起来，不要动。
+别逗了。（她拿起道具。）现在我要把你锁起来，不要动。
 That gag is perfect for you.  (She picks the devices.)  Now don't move while I lock you up.
 那个口塞很适合你。（她拿起道具。）现在我要把你锁起来，不要动。
 You're not getting out.  (She picks the devices.)  Now don't move while I lock you up.
@@ -520,10 +520,10 @@ I won't get beat up that easily.
 （投降。）
 ###_NPC
 (She picks a weapon and grins.)  You talk tough, but let's see how you handle pain.  Get ready!
-（她拿起武器，咧嘴一笑。）你嘴倒是挺硬，那么让我看看你怎么应付痛苦。做好准备！
+（她拿了个武器，咧嘴一笑。）你嘴倒是挺硬，那么让我看看你怎么应付痛苦。做好准备！
 ###_PLAYER
 No!  Please!  I'll be good!
-不！请！我会好的！
+不！请放过我！我会很乖的！
 ###_NPC
 (She hits you swiftly a few times and smiles.)  I'm not done yet.  Will you handle the pain?
 （她快速地打了你几下，微笑起来。）我还没完呢。你能承受这种痛苦吗？
@@ -550,7 +550,7 @@ Girl, give me pain.
 女孩，来点痛的。
 ###_NPC
 (She hits you painfully many times and smirks.)  You're still standing?  Time for one last round then.
-（她凶狠地打了你很多次，然后刻意笑了笑。）你还站吗？到最后一轮的时候了。
+（她凶狠地打了你很多次，然后刻意笑了笑。）你还能站着？那么是时候进行最后一轮了。
 ###_PLAYER
 I will endure Miss.
 我能承受，女士。
@@ -577,7 +577,7 @@ Ok.  One last round.
 （她快速地打了你几下，微笑起来。）好事总会结束。我希望你和我一样玩得开心。我要走了。
 ###_PLAYER
 Already?  That was boring.
-已经？那很无聊。
+已经到最后了？真无聊。
 ###_NPC
 (She hits you painfully many times and smirks.)  Don't pretend you're tough.  I hope you had as much fun as I did.  I need to go.
 （她凶狠地打了你很多次，然后刻意笑了笑。）别强装坚强了。我希望你和我一样玩得开心。我要走了。
@@ -608,7 +608,7 @@ You won't get any information from me.
 你不会从我这里得到任何信息。
 ###_NPC
 (She picks a tickling item and smirks.)  I'll make a great deal with you: you talk, I'll shorten your sentence and I won't tickle you.
-（她拿起一个挠痒痒的道具，刻意笑了笑。）我跟你有个大买卖要做：你老实交代，我会缩短你的刑期，并且我不会挠你痒痒的。
+（她拿起一个挠痒痒的道具，得意地笑了笑。）我跟你有个大买卖要做：你老实交代，我会缩短你的刑期，并且我不会挠你痒痒的。
 ###_PLAYER
 What will you give me if I squeal?
 那我告密的话，你会给我什么？
@@ -628,7 +628,7 @@ Wait!  I have a better bargain.
 等待！我出更好的价。
 ###_NPC
 I'm not here to negotiate.  (She starts to tickle you playfully.)  You will talk sooner or later.
-我不是来谈判的。（她调皮地挠你痒。）你迟早会交代的。
+我不是来谈判的。（她开始调皮地挠你痒。）你迟早会交代的。
 ###_PLAYER
 Let me think about it.
 让我想想。
@@ -652,22 +652,22 @@ Eeeeeeeaaaahahaha!
 额啊啊哈哈哈哈！
 ###_NPC
 (She laughs with you and continues to tickle you playfully.)  You know what to do to make it stop.
-（她和你一起笑起来，并继续调皮地挠你痒。）你知道的，做什么我就会停止挠痒痒。
+（她和你一起笑起来，并继续调皮地挠你痒。）你知道该怎么做我才会停手。
 ###_PLAYER
 Give me a break and I'll talk.
 让我休息一下，我会交代。
 ###_NPC
 No break, you need to talk now.  (She tickles you slowly.)  You know what to do to make it stop.
-没有休息，你现在就交代。（她慢慢地挠你痒。）你知道的，做什么我就会停止挠痒痒。
+没有休息，你现在就交代。（她慢慢地挠你痒。）你知道该怎么做我才会停手。
 ###_PLAYER
 That's the best you can do?
 你就只能做到这种程度？
 ###_NPC
 I can do much worse.  (She tickles you without mercy.)  You know what to do to make it stop.
-我可以更狠。（她毫不留情地挠你痒痒。）你知道的，做什么我就会停止挠痒痒。
+我可以更狠。（她毫不留情地挠你痒痒。）你知道该怎么做我才会停手。
 ###_PLAYER
 I cannot focus when you tickle me.
-你挠我的话，我根本无法集中。
+你挠我痒痒的话，我根本无法集中注意力。
 ###_NPC
 (She tickles you slowly.)  I'm getting tired of this.  It's your last chance to talk and get a shorter stay.
 （她慢慢地挠你痒。）我有点烦了。这是你最后一次暂停并交代的机会。
@@ -866,7 +866,7 @@ Can I have some water?
 我可以喝些水吗？
 ###_NPC
 (She helps you to drink the water, it feels pretty refreshing.)  I need to go, I'll be back later.
-（她帮你喝水，感觉非常提神。）我要走了，晚点回来。
+（她帮你喝水，感觉很清爽。）我要走了，晚点回来。
 ###_PLAYER
 I don't need water.
 我不需要水。
@@ -881,7 +881,7 @@ Enjoy your cell then, I'll be back later.
 （她帮你喝水，之后又塞上了口塞。）我得走了，我晚点回来。
 ###_PLAYER
 (Pick the bottle and splash her.)
-（拿起瓶子泼她。）
+（拿起瓶子，向她泼水。）
 ###_NPC
 (She raises her fists in anger.)  You little brat!  Are you looking for a fight?
 （她愤怒地举起拳头。）你这混蛋！你想打架吗？

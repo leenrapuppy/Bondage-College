@@ -202,6 +202,18 @@ Shawl
 头巾
 Cowl
 面巾
+Button
+扣子
+Panel
+嵌板
+Side
+侧边
+Left Panel
+左面板
+Right Panel
+右面板
+Visor
+面罩
 Outer Ear
 耳朵外侧
 Inner Ear
@@ -222,6 +234,16 @@ Core
 绒毛
  Base
 基础
+ Tip
+顶端
+Bangs
+刘海
+Tips
+顶端
+Left
+左侧
+Right
+右侧
 Glove
 手套
 String
@@ -232,8 +254,6 @@ Ribbon
 丝带
 Tails
 尾巴
-Tips
-顶端
 Heart
 心
 Tip
@@ -278,6 +298,8 @@ Dildo
 假阳具
 End
 顶端
+Thread
+线条
 Ring
 环圈
 Egg
@@ -292,6 +314,18 @@ Crotch Plate
 胯部挡板
 Rivets
 铆钉
+Engraving
+刻字
+Crotch Shield
+胯部护盾
+Positive Wire
+阳极线
+Negative Wire
+阴极线
+Metal
+金属
+Clamps
+夹子
 Left Vibe Egg
 左侧跳弹
 Right Vibe Egg
@@ -302,8 +336,6 @@ Right Tape Strip
 右侧胶带
 Frame
 框架
-Clamps
-夹子
 Piercings
 穿刺
 Weights
@@ -326,8 +358,6 @@ Bars
 杆子
 Wood
 木质
-Metal
-金属
 Buckles
 搭扣
 Ropes
@@ -382,6 +412,18 @@ Post
 柱子
 Baseplate
 底板
+Pole
+杆子
+Plaque
+标牌
+PlaqueBorder
+标牌边框
+Postit
+便条纸
+Sticker
+贴纸
+PlaqueBolts
+标牌螺栓
 Harness
 束带
 Stripes
@@ -429,9 +471,9 @@ Bed
 Bed Lining
 床内衬
 Blanket
-毯子
+毛毯
 Blanket Lining
-毯子内衬
+毛毯内衬
 Wheel Holders
 轮子挡板
 Wheels
@@ -452,8 +494,6 @@ Caps
 盖子
 Plastic
 塑料
-Pole
-杆子
 Net
 网子
 Arms
@@ -490,8 +530,6 @@ Blinding Lenses
 遮眼镜片
 Breathing Attachment
 呼吸附件
-Visor
-面罩
 Chin Strap
 下巴束带
 Helmet
@@ -524,6 +562,10 @@ Gag
 口塞
 Drawings
 图画
+Lenses
+镜片
+Plug
+塞子
 Boots
 靴子
 Heels
@@ -532,10 +574,6 @@ Mittens
 手套
 Vamp
 防水台
-Left
-左侧
-Right
-右侧
 Shoes
 鞋
 Soles
@@ -560,8 +598,6 @@ Carrot
 萝卜
 Pumpkin
 南瓜
-Panel
-嵌板
 Bit
 嚼子
 Bone
@@ -590,8 +626,6 @@ Highlights
 高光
 Cage
 笼子
-Plug
-塞子
 Lines
 线条
 Plume
@@ -690,6 +724,10 @@ Right Lens
 右镜片
 HUD
 显示器
+Thread Right
+右侧线条
+Thread Left
+左侧线条
 Ears
 耳朵
 Right Eye
@@ -716,5 +754,3 @@ Veins
 脉络
 Shade
 阴影
-Lenses
-镜片

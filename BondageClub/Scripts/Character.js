@@ -613,6 +613,7 @@ function CharacterOnlineRefresh(Char, data, SourceMemberNumber) {
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.ArousalSettings == null))) Char.ArousalSettings = data.ArousalSettings;
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.OnlineSharedSettings == null))) Char.OnlineSharedSettings = data.OnlineSharedSettings;
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.Game == null))) Char.Game = data.Game;
+	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.Crafting == null))) Char.Crafting = data.Crafting;
 	Char.Ownership = data.Ownership;
 	Char.Lovership = data.Lovership;
 	for (let L = Char.Lovership.length - 1; L >= 0; L--) {
@@ -734,6 +735,7 @@ function CharacterLoadOnline(data, SourceMemberNumber) {
 		if (!Refresh && (JSON.stringify(Char.ArousalSettings) !== JSON.stringify(data.ArousalSettings))) Refresh = true;
 		if (!Refresh && (JSON.stringify(Char.OnlineSharedSettings) !== JSON.stringify(data.OnlineSharedSettings))) Refresh = true;
 		if (!Refresh && (JSON.stringify(Char.Game) !== JSON.stringify(data.Game))) Refresh = true;
+		if (!Refresh && (JSON.stringify(Char.Crafting) !== JSON.stringify(data.Crafting))) Refresh = true;
 		if (!Refresh && Array.isArray(data.WhiteList) && (JSON.stringify(Char.WhiteList) !== JSON.stringify(data.WhiteList))) Refresh = true;
 		if (!Refresh && Array.isArray(data.BlackList) && (JSON.stringify(Char.BlackList) !== JSON.stringify(data.BlackList))) Refresh = true;
 		if (!Refresh && (data.BlockItems != null) && (Char.BlockItems.length != data.BlockItems.length)) Refresh = true;
@@ -1500,14 +1502,14 @@ function CharacterDecompressWardrobe(Wardrobe) {
 /**
  * Checks if the character is wearing an item that allows for a specific activity
  * @param {Character} C - The character to test for
- * @param {string} Attribute - The name of the activity that must be allowed
+ * @param {string} Activity - The name of the activity that must be allowed
  * @returns {boolean} - TRUE if at least one item allows that activity
  */
-function CharacterHasItemWithAttribute(C, Attribute) {
-	return C.Appearance.some(item =>
-		(item.Asset && item.Asset.Attribute.includes(Attribute))
-		|| (item.Property && Array.isArray(item.Property.Attribute) && item.Property.Attribute.includes(Attribute))
-	);
+function CharacterHasItemForActivity(C, Activity) {
+	return C.Appearance.some(item => {
+		const allowed = InventoryGetItemProperty(item, "AllowActivity");
+		return allowed && allowed.includes(Activity);
+	});
 }
 
 /**
@@ -1783,4 +1785,44 @@ function CharacterNickname(C) {
 	Nick = Nick.trim().substring(0, 20);
 	if ((Nick == "") || !Regex.test(Nick)) Nick = C.Name;
 	return AsylumGGTSCharacterName(C, Nick);
+}
+
+/**
+ * Update the given character's nickname.
+ *
+ * Note that changing any nickname but yours (ie. Player) is not supported.
+ *
+ * @param {Character} C - The character to change the nickname of.
+ * @param {string} Nick - The name to use as the new nickname. An empty string uses the character's real name.
+ * @return {string} null if the nickname was valid, or an explanation for why the nickname was rejected.
+ */
+function CharacterSetNickname(C, Nick) {
+	if (!C.IsPlayer()) return null;
+
+	Nick = Nick.trim();
+	if (Nick.length > 20) return "NicknameTooLong";
+
+	if (Nick.length > 0 && !ServerCharacterNicknameRegex.test(Nick)) return "NicknameInvalidChars";
+
+	if (C.Nickname != Nick) {
+		const oldNick = C.Nickname || C.Name;
+		C.Nickname = Nick;
+		if (C.IsPlayer()) {
+			ServerAccountUpdate.QueueData({ Nickname: Nick });
+		}
+
+		if (ServerPlayerIsInChatRoom()) {
+			// When in a chatroom, send a notification that the player updated their nick
+			const Dictionary = [
+				{ Tag: "SourceCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+				{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+				{ Tag: "OldNick", Text: oldNick },
+				{ Tag: "NewNick", Text: CharacterNickname(C) },
+			];
+
+			ServerSend("ChatRoomChat", { Content: "CharacterNicknameUpdated", Type: "Action", Dictionary: Dictionary });
+		}
+	}
+
+	return null;
 }

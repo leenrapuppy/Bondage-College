@@ -846,7 +846,7 @@ Lass uns plaudern. (Eine Weile mit ihr plaudern.)
 (You try to have a meaningful conversation, but it doesn't go anywhere.  All she seems to focus on is sex.)
 (Ihr versucht, eine sinnvolle Unterhaltung zu führen, aber daraus wird nichts. Sie scheint nur an Sex denken zu können.)
 ###_PLAYER
-Enough chit-chat.
+That's all I wanted to talk about.
 Genug geplaudert.
 ###_NPC
 (She nods.)  What would you like to do now?
@@ -855,13 +855,13 @@ Genug geplaudert.
 I agree, let's stop the trivial conversations that leads nowhere.
 Genau, unterbinden wir diese trivialen Konversationen, die nirgends hinführen.
 ###_NPC [Playful]
-Yep!  Time for some action and some fun!
+Yay!  Time for some action and some fun!
 Jep! Zeit für etwas Action und etwas Spaß!
 ###_NPC [Wise]
 We can speak again, whenever you want.  We can also play some chess later, if you like the game of course.
 Wir können auch später reden, wann immer du willst. Wir könnten dann auch Schach spielen, wenn du das magst, versteht sich.
 ###_NPC [Dumb]
-Yeah!  Let's go find some beer or something else to drink.
+Okay!  Let's go find some beer or something else to drink.
 Ja! Holen wir uns etwas Bier oder irgendwas anderes zu trinken.
 ###_PLAYER
 Get fully dressed.
@@ -1635,7 +1635,7 @@ Das ist alles, worüber ich reden wollte.
 Good, cause I was about to gag your ass to stop you from yacking.
 Gut, ich hätte dich nämlich gleich geknebelt, um dein Geplapper nicht mehr hören zu müssen.
 ###_NPC [Dumb]
-Yeah!  Let's go find some beer or something else to drink my girl.
+Okay!  Let's go find some beer or something else to drink my girl.
 Ja! Holen wir uns etwas Bier oder etwas anderes zu trinken, Mädchen.
 ###_PLAYER
 Yes Mistress.  I'm ready for the collar.
@@ -3226,7 +3226,7 @@ Ja, Herrin! Zeit für etwas Action und etwas Spaß!
 Hell yeah!  What could we do?
 Ja, verdammt! Was könnten wir tun?
 ###_NPC [Dumb]
-Yeah!  Let's go find some beer or something else to drink Mistress.
+Okay!  Let's go find some beer or something else to drink Mistress.
 Ja! Holen wir uns etwas Bier oder irgendwas anderes zu trinken, Herrin.
 ###_PLAYER
 Yes slave, I'm ready to collar you.

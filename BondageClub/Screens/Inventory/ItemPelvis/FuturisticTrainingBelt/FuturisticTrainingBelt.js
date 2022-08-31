@@ -275,12 +275,12 @@ function InventoryItemPelvisFuturisticTrainingBeltExit() {
 		FuturisticTrainingBeltSetMode = -1; // Reset for future
 		FuturisticTrainingBeltPage = 0; // Reset for future
 
-		if (ElementValue("PunishRequiredSpeechWord") && ElementValue("PunishRequiredSpeechWord").length > 1) {
-			DialogFocusItem.Property.PunishRequiredSpeechWord = ElementValue("PunishRequiredSpeechWord").replace(/[^a-z0-9,]/gmi, " ").replace(/\s+/g, " ");
+		if (ElementValue("PunishRequiredSpeechWord") && ElementValue("PunishRequiredSpeechWord").length > 0) {
+			DialogFocusItem.Property.PunishRequiredSpeechWord = ElementValue("PunishRequiredSpeechWord").split(',').map(_ => _.replace(/[\p{P}~+=^$|\\<>`\s]+/ugm, "")).join(',');
 		}
 
-		if (ElementValue("PunishProhibitedSpeechWords") && ElementValue("PunishProhibitedSpeechWords").length > 1) {
-			DialogFocusItem.Property.PunishProhibitedSpeechWords = ElementValue("PunishProhibitedSpeechWords").replace(/[^a-z0-9,]/gmi, " ").replace(/\s+/g, " ");
+		if (ElementValue("PunishProhibitedSpeechWords") && ElementValue("PunishProhibitedSpeechWords").length > 0) {
+			DialogFocusItem.Property.PunishProhibitedSpeechWords = ElementValue("PunishProhibitedSpeechWords").split(',').map(_ => _.replace(/[\p{P}~+=^$|\\<>`\s]+/ugm, "")).join(',');
 		}
 
 		InventoryItemPelvisFuturisticTrainingBeltPublishGeneric(CurrentCharacter, "FuturisticTrainingBeltSetGeneric");
@@ -408,8 +408,8 @@ function InventoryFuturisticTrainingBeltCheckPunishSpeech(Item, LastTime) {
 		if (ChatRoomChatLog[CH].Original.indexOf('(') == 0) return "";
 
 		if (ChatRoomChatLog[CH].SenderMemberNumber == Player.MemberNumber) {
-			let msg = ChatRoomChatLog[CH].Original.toUpperCase().replace(/[^a-z0-9]/gmi, " ");
-			let msgTruncated = ChatRoomChatLog[CH].Original.toUpperCase().replace(/[^a-z0-9]/gmi, "").replace(/\s+/g, "");
+			let msg = ChatRoomChatLog[CH].Original.toUpperCase().replace(/[\p{P}~+=^$|\\<>`]+/ugm, " ");
+			let msgTruncated = ChatRoomChatLog[CH].Original.toUpperCase().replace(/[\p{P}~+=^$|\\<>`\s]+/ugm, "");
 
 			if (Item.Property.PunishSpeech > 0 && msgTruncated.length > FuturisticTrainingBeltSpeechCharacterLimit) return "Speech";
 
@@ -420,7 +420,7 @@ function InventoryFuturisticTrainingBeltCheckPunishSpeech(Item, LastTime) {
 				if (gagLevel < 8) {
 					let pass = false;
 					for (let W = 0; W <  words.length; W++) {
-						let checkWord = words[W].replace(/[^a-z0-9]/gmi, " ").replace(/\s+/g, '').toUpperCase();
+						let checkWord = words[W].replace(/[\p{P} ~+=^$|\\<>`]+/ugm, "").toUpperCase();
 						if (msgTruncated.includes(checkWord)) {pass = true; break;}
 					}
 					if (!pass) return "RequiredSpeech";
@@ -430,10 +430,23 @@ function InventoryFuturisticTrainingBeltCheckPunishSpeech(Item, LastTime) {
 			if (Item.Property.PunishProhibitedSpeech > 0 && Item.Property.PunishProhibitedSpeechWords && msg.length > 0) {
 				let gagLevel = SpeechGetTotalGagLevel(Player);
 				let words =  Item.Property.PunishProhibitedSpeechWords.split(",");
+
+				const nonLatinCharRegex = new RegExp('^([^\\x20-\\x7F]|\\\\.\\*)+$');
+				let triggerRegex;
+
 				if (gagLevel < 8) {
 					for (let W = 0; W <  words.length; W++) {
-						let checkWord = words[W].replace(/[^a-z0-9]/gmi, " ").replace(/\s+/g, '').toUpperCase();
-						if (msg.match(`\\b${checkWord}\\b`)) return {name: "ProhibitedSpeech", word: checkWord};
+						let checkWord = words[W].replace(/[\p{P} ~+=^$|\\<>`]+/ugm, "").toUpperCase();
+
+						if (nonLatinCharRegex.test(checkWord)) {
+							triggerRegex = new RegExp(checkWord);
+						} else {
+							triggerRegex = new RegExp(`\\b${checkWord}\\b`);
+						}
+
+						const success = triggerRegex.test(msg);
+
+						if (success) return { name: "ProhibitedSpeech", word: checkWord };
 					}
 				}
 			}

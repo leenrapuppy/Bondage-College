@@ -249,6 +249,8 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		// There's something in the mouth that's too large to allow that item on
 		case "NotProtrudingFromMouth": return C.Effect.includes("ProtrudingMouth") ? "CannotBeUsedOverGag" : "";
 
+		case "NeedsNippleRings": return !InventoryIsItemInList(C, "ItemNipplesPiercings", ["RoundPiercing"]) ? "NeedsNippleRings" : "";
+
 		// Returns no message, indicating that all prerequisites are fine
 		default: return "";
 	}
@@ -408,7 +410,7 @@ function InventoryGet(C, AssetGroup) {
 * @param {Character} Source - The character that used the item
 * @param {Character} Target - The character on which the item is used
 * @param {String} GroupName - The name of the asset group to scan
-* @param {Object} Craft - The crafted properties to apply
+* @param {CraftingItem} Craft - The crafted properties to apply
 * @param {Boolean} Refresh - TRUE if we must refresh the character
 * @returns {void}
 */
@@ -421,15 +423,15 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh) {
 	if (Item.Craft == null) Item.Craft = Craft;
 
 	// Applies the color schema, separated by commas
-	if ((Craft.Color != null) && (Craft.Color.indexOf(",") > 0)) {
+	if (Craft.Color != null && typeof Craft.Color === "string") {
 		Item.Color = Craft.Color.replace(" ", "").split(",");
 		for (let C of Item.Color)
 			if (CommonIsColor(C) == false)
-				C = "default";
+				C = "Default";
 	}
 
 	// Applies a lock to the item
-	if ((Craft.Lock != null) && (Craft.Lock != "")) 
+	if ((Craft.Lock != null) && (Craft.Lock != ""))
 		InventoryLock(Target, Item, Craft.Lock, Source.MemberNumber, false);
 
 	// Sets the crafter name and ID
@@ -457,7 +459,7 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh) {
 		// Expressions cannot be changed if the settings doesn't allow it for the player
 		if (!Target.IsPlayer() || (Player.OnlineSharedSettings == null) || Player.OnlineSharedSettings.ItemsAffectExpressions) {
 
-			// The painful property triggers an expression change		
+			// The painful property triggers an expression change
 			if (Craft.Property === "Painful") {
 				CharacterSetFacialExpression(Target, "Blush", "ShortBreath", 10);
 				CharacterSetFacialExpression(Target, "Eyes", "Angry", 10);
@@ -511,6 +513,28 @@ function InventoryCraftPropertyIs(Item, Property) {
 
 /**
 * Makes the character wear an item on a body area
+* @param {Item} Item - The item being applied
+* @param {Object} [Craft] - The crafting properties of the item
+*/
+function InventoryWearCraft(Item, Craft) {
+	if ((Item == null) || (Item.Asset == null) || (Craft == null)) return;
+	Item.Craft = Craft;
+	if ((Craft.Type != null) && (Item.Asset.AllowType != null) && (Item.Asset.AllowType.indexOf(Craft.Type) >= 0)) {
+		if (Item.Asset.Extended && (Item.Asset.Archetype == "typed")) {
+			let Config = AssetFemale3DCGExtended[Item.Asset.Group.Name][Item.Asset.Name].Config;
+			if ((Config != null) && (Config.Options != null))
+				for (let O of Config.Options)
+					if (O.Name == Craft.Type)
+						Item.Property = JSON.parse(JSON.stringify(O.Property));
+		} else {
+			if (Item.Property == null) Item.Property = {};
+			Item.Property.Type = Craft.Type;
+		}
+	}
+}
+
+/**
+* Makes the character wear an item on a body area
 * @param {Character} C - The character that must wear the item
 * @param {string} AssetName - The name of the asset to wear
 * @param {string} AssetGroup - The name of the asset group to wear
@@ -523,9 +547,9 @@ function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNu
 	const A = AssetGet(C.AssetFamily, AssetGroup, AssetName);
 	if (!A) return;
 	CharacterAppearanceSetItem(C, AssetGroup, A, ((ItemColor == null || ItemColor == "Default") && A.DefaultColor != null) ? A.DefaultColor : ItemColor, Difficulty, MemberNumber, false);
-	CharacterRefresh(C, true);
 	let Item = InventoryGet(C, AssetGroup);
-	if (Craft != null) Item.Craft = Craft;
+	InventoryWearCraft(Item, Craft);
+	CharacterRefresh(C, true);
 	InventoryExpressionTrigger(C, Item);
 }
 

@@ -107,12 +107,12 @@ JobDojoIntro2203,,,Konichiwa!  (She smiles and bows politely.)  I trust you want
 30I,30J,(Listen.),Nipples can also be pierced for fashion or to please your owner.,"SetZone(""ItemNipplesPiercings"")",
 30J,30K,(Listen.),"The breast region can be used for more chastity devices, as well as whips or crops.","SetZone(""ItemBreast"")",
 30K,30L,(Listen.),The arms can be restrained using many devices.  This will prevent your victim from using her hands to free herself.,"SetZone(""ItemArms"")",
-30L,30M,(Listen.),You don't have to fully restrain your victim arms to keep her helpless.  Some items on target the hands and work as well.,"SetZone(""ItemHands"")",
+30L,30M,(Listen.),You don't have to fully restrain your victim's arms to keep her helpless.  Some items that target the hands will work as well.,"SetZone(""ItemHands"")",
 30M,30N,(Listen.),"You can use collars on your victim's neck to show everyone that they are yours, enslave them or leash them.","SetZone(""ItemNeck"")",
-30N,30O,(Listen.),"You can attach accessories to collars, to make them look extra special","SetZone(""ItemNeckAccessories"")",
+30N,30O,(Listen.),"You can attach accessories to collars, to make them look extra special.","SetZone(""ItemNeckAccessories"")",
 30O,30P,(Listen.),"You can attach leashes or chains to a collar on your victim's neck, to help control them.","SetZone(""ItemNeckRestraints"")",
 30P,30Q,(Listen.),"You can use gags to silence your victim, making her unable to speak.","SetZone(""ItemMouth"")",
-30Q,30R,(Listen.),"If you first used some stuffing on your victim mouth, you can apply a locking gag to keep in it.","SetZone(""ItemMouth2"")",
+30Q,30R,(Listen.),"If you first used some stuffing on your victim's mouth, you can apply a locking gag to keep it in.","SetZone(""ItemMouth2"")",
 30R,30S,(Listen.),"For the finishing touch of your gag, the overlay can give a very nice effect.","SetZone(""ItemMouth3"")",
 30S,30T,(Listen.),Blindfolds can be used to restrict vision.,"SetZone(""ItemHead"")",
 30T,30U,(Listen.),"On the nose, you can use items for esthetics or kinkier plays.","SetZone(""ItemNose"")",
@@ -158,12 +158,12 @@ JobDojoIntro2203,,,Konichiwa!  (She smiles and bows politely.)  I trust you want
 240I,240J,(Listen.),Nipples can also be pierced for fashion or to please your owner.,"SetZone(""ItemNipplesPiercings"")",
 240J,240K,(Listen.),"The breast region can be used for more chastity devices, as well as whips or crops.","SetZone(""ItemBreast"")",
 240K,240L,(Listen.),The arms can be restrained using many devices.  This will prevent your victim from using her hands to free herself.,"SetZone(""ItemArms"")",
-240L,240M,(Listen.),You don't have to fully restrain your victim arms to keep her helpless.  Some items on target the hands and work as well.,"SetZone(""ItemHands"")",
+240L,240M,(Listen.),You don't have to fully restrain your victim's arms to keep her helpless.  Some items that target the hands will work as well.,"SetZone(""ItemHands"")",
 240M,240N,(Listen.),"You can use collars on your victim's neck to show everyone that they are yours, enslave them or leash them.","SetZone(""ItemNeck"")",
-240N,240O,(Listen.),"You can attach accessories to collars, to make them look extra special","SetZone(""ItemNeckAccessories"")",
+240N,240O,(Listen.),"You can attach accessories to collars, to make them look extra special.","SetZone(""ItemNeckAccessories"")",
 240O,240P,(Listen.),"You can attach leashes or chains to a collar on your victim's neck, to help control them.","SetZone(""ItemNeckRestraints"")",
 240P,240Q,(Listen.),"You can use gags to silence your victim, making her unable to speak.","SetZone(""ItemMouth"")",
-240Q,240R,(Listen.),"If you first used some stuffing on your victim mouth, you can apply a locking gag to keep in it.","SetZone(""ItemMouth2"")",
+240Q,240R,(Listen.),"If you first used some stuffing on your victim's mouth, you can apply a locking gag to keep it in.","SetZone(""ItemMouth2"")",
 240R,240S,(Listen.),"For the finishing touch of your gag, the overlay can give a very nice effect.","SetZone(""ItemMouth3"")",
 240S,240T,(Listen.),Blindfolds and hoods can be used to restrict vision and hearing.,"SetZone(""ItemHead"")",
 240T,240U,(Listen.),Ear plugs can be used to deafen your victim.,"SetZone(""ItemEars"")",
@@ -177,7 +177,7 @@ JobDojoIntro2203,,,Konichiwa!  (She smiles and bows politely.)  I trust you want
 260,270,Can I tie you up now?,"(She giggles.)  Not now, I have work to do here.  But I'm sure you'll find victims if you wander around.",SaveMaidOpinion(),!IsHeadMaid
 260,270,Can I tie you up now?,(She giggles.)  If you wish head maid DialogPlayerName.,SaveMaidOpinion(),IsHeadMaid
 270,,,Your introduction class is done.  I hope you have fun in the club!,,
-270,,You were a great teacher.,Well thanks a lot.  (She smiles.)  You're a good student.,DialogRemove(),
+270,,You were a great teacher.,Oh, well thank you!  (She smiles.)  You're a good student.,DialogRemove(),
 270,,Thanks!  Have a great time.  (Leave her.),,DialogLeave(),
 270,,Can you teach me more about rope bondage?,"If you like rope bondage that much, try the Shibari Dojo.  You might learn a few new tricks.",,
 270,,Tell me about the other types of restraints.,"Some items are impossible to struggle out from, so you'll need to find help.  Also, items like cuffs can be locked, and you'll need a key to unlock them.",,
@@ -199,7 +199,7 @@ JobDojoIntro2203,,,Konichiwa!  (She smiles and bows politely.)  I trust you want
 330,340,This is pretty kinky.,Absolutely!  Now do you think you can escape?,,
 340,,,You're still struggling to get out?  Don't give up.,,Player.IsRestrained()
 340,,How do I escape?,Grab the rope on your arms and try to free yourself.  Good luck!,,Player.IsRestrained()
-340,,Get me out now!,You're not in control girl.  (She grabs your mouth and straps a cloth gag on you.),GagPlayer(),Player.IsRestrained()
+340,,"I changed my mind, get me out now!",You're not in control girl.  (She grabs your mouth and straps a cloth gag on you.),GagPlayer(),Player.IsRestrained()
 340,,"Don't look, I will escape by myself.  (Leave her.)",,DialogLeave(),Player.IsRestrained()
 340,,,Well done!  You were able to struggle out.,,!Player.IsRestrained()
 340,350,That was easy.,I'll make it tighter next time.  Did you enjoy being tied up?,,!Player.IsRestrained()
@@ -231,7 +231,7 @@ JobDojoIntro2203,,,Konichiwa!  (She smiles and bows politely.)  I trust you want
 400,530,Tell me about the pleasure giver job.,"The club members in the chat rooms need some extra care today.  If you're willing to give pleasure to five of them, you'll be paid $120.  Are you up for it?",,"JobAvailable(""SubActivity"")"
 400,540,Tell me about the maid helper job.,The Maid Sorority is getting swamped with work.  They offer a $120 bonus if you complete three chores for them.  Are you up for it?,,"JobAvailable(""SubMaid"")"
 400,,Can I take another job?,"Sorry, come back tomorrow and I might have something else for you.",DialogRemove(),
-400,,There's nothing else to do?,"Not here, but there's lots of work to do in the club.  You can start by checking with the Maid Sorority.",DialogRemove(),
+400,,Is there anything else to do?,"Not here, but there's lots of work to do in the club.  You can start by checking with the Maid Sorority.",DialogRemove(),
 400,0,I won't take any job now.,"Very well, you can always come back tomorrow to check for new assignments.  Would you like to know more about the club then?",,
 410,411,I'll do it!,Wonderful!  Let me go get the Mistress.  She will give you the instructions.,"JobStart(""DomPuppy"", 1)",
 410,400,Let me think about it.,"Of course, is there anything else you'd like to know about our special jobs?  (She shows you a notepad.)",,

@@ -34,15 +34,15 @@
 (You remove the collar from her neck.)  We have better collars for you at the Box.
 （你从她脖子上取下项圈。）我们魔盒为你准备了更好的项圈。
 (She struggles to avoid the belt but you're able to strap it on her.)  This is really annoying.
-（她努力避开皮带，但你还是系到了她身上。）这真的很烦人。
+（她挣扎着想避开带子，但你还是成功系到她身上。）这真的很烦人。
 (She sighs as you unlock the belt.)  The keys and locks will be back at the box sooner or later.
-（当你解开皮带时，她叹了口气。）钥匙和锁迟早会回到潘多拉魔盒。
+（当你解开带子时，她叹了口气。）钥匙和锁迟早会回到潘多拉魔盒。
 (She sighs as you strap the device on her head.)  Get lost girl!
 （当你绑紧她头上的道具时，她叹了口气。）走开，女孩！
 (You release her head as she nods.)  Fine, can I go now?
 （你解开她的头时，她点了点头。）好吧，我现在可以走了吗？
 (You put the hood on her head as she goes silent.)
-（你把头套戴在她头上，她逐渐沉默。）
+（你把头套戴在她头上，她逐渐安静了下来。）
 (She grins as you remove the hood from her head.)  I have many tools for you at home.
 （你从她头上取下头罩，她咧嘴笑起来。）我家里有很多为你准备的道具。
 (You strap the item on her nose as she sighs.)  Are you having fun?  I'm not!
@@ -116,7 +116,7 @@ Luck can turn quickly.  What will you do with me?
 （取下她的口塞。）
 ###_NPC
 (She catches her breath.)  What will you do with me?
-（她屏住呼吸。）你要对我做什么？
+（她调整呼吸。）你要对我做什么？
 ###_PLAYER
 You will fetch me a good ransom.
 你会给我带来一份好赎金的。

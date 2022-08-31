@@ -30,19 +30,23 @@ function InventoryItemHandsPaddedMittensClick() {
 // Chain/Unchain function
 function InventoryItemHandsPaddedMittensChain() {
 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (InventoryGet(C, "ItemArms") == null) {
-		if (InventoryGet(C, "ItemTorso") != null) {
-			if (InventoryGet(C, "ItemTorso").Asset.Name == "AdultBabyHarness") {
-				InventoryWear(C, "MittenChain1", "ItemArms");
-				if (C.ID == 0) ServerPlayerAppearanceSync();
-				if (CurrentScreen == "ChatRoom") {
-					var Dictionary = [];
-					Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
-					Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
-					ChatRoomPublishCustomAction("MittenChain", true, Dictionary);
-					ChatRoomCharacterUpdate(C);
-				}
-			} else InventoryItemHandsPaddedMittensMsg = "NeedHarness";
-		} else InventoryItemHandsPaddedMittensMsg = "NeedHarness";
-	} else InventoryItemHandsPaddedMittensMsg = "FreeArms";
+	if (InventoryGet(C, "ItemArms") != null) {
+		InventoryItemHandsPaddedMittensMsg = "FreeArms";
+		return;
+	}
+
+	if (!CharacterHasItemWithAttribute(C, "CanAttachMittens")) {
+		InventoryItemHandsPaddedMittensMsg = "NeedHarness";
+		return;
+	}
+
+	InventoryWear(C, "MittenChain1", "ItemArms");
+	if (C.ID == 0) ServerPlayerAppearanceSync();
+	if (CurrentScreen == "ChatRoom") {
+		var Dictionary = [];
+		Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
+		Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
+		ChatRoomPublishCustomAction("MittenChain", true, Dictionary);
+		ChatRoomCharacterUpdate(C);
+	}
 }
