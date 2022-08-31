@@ -1263,7 +1263,10 @@ function StruggleLockPickProgressStart(C, Item) {
 			// negative skill of 1 subtracts 2 from the normal lock and 4 from 10 pin locks,
 			// negative skill of 6 subtracts 12 from all locks
 
-
+		// More of less tries if the item is crafted with specific properties
 		StruggleLockPickProgressMaxTries = Math.max(1, NumTries - NumPins);
+		if (InventoryCraftPropertyIs(Item, "Puzzling")) StruggleLockPickProgressMaxTries = StruggleLockPickProgressMaxTries - 1;
+		if (InventoryCraftPropertyIs(Item, "Simple")) StruggleLockPickProgressMaxTries = StruggleLockPickProgressMaxTries + 2;
+
 	}
 }

@@ -29,6 +29,8 @@ var CraftingPropertyList = [
 	{ Name: "Decoy", Allow : function(Item) { return true; } },
 	{ Name: "Malleable", Allow : function(Item) { return true; } },
 	{ Name: "Rigid", Allow : function(Item) { return true; } },
+	{ Name: "Simple", Allow : function(Item) { return Item.AllowLock; } },
+	{ Name: "Puzzling", Allow : function(Item) { return Item.AllowLock; } },
 	{ Name: "Painful", Allow : function(Item) { return true; } },
 	{ Name: "Comfy", Allow : function(Item) { return true; } },
 	{ Name: "Strong", Allow : function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); } },
@@ -551,7 +553,7 @@ function CraftingConvertSelectedToItem() {
 	let Description = (CraftingMode == "Name") ? ElementValue("InputDescription").trim() : CraftingSelectedItem.Description;
 	let Color = (CraftingMode == "Name") ? ElementValue("InputColor").trim() : CraftingSelectedItem.Color;
 	return {
-		Item: CraftingSelectedItem.Asset.Name,
+		Item: (CraftingSelectedItem.Asset == null) ? "" : CraftingSelectedItem.Asset.Name,
 		Property: CraftingSelectedItem.Property,
 		Lock: (CraftingSelectedItem.Lock == null) ? "" : CraftingSelectedItem.Lock.Name,
 		Name: Name,

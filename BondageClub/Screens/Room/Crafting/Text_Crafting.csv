@@ -27,6 +27,8 @@ PropertyLoose,Loose
 PropertyDecoy,Decoy
 PropertyMalleable,Malleable
 PropertyRigid,Rigid
+PropertySimple,Simple
+PropertyPuzzling,Puzzling
 PropertyPainful,Painful
 PropertyComfy,Comfy
 PropertyStrong,Strong
@@ -44,6 +46,8 @@ DescriptionLoose,Easier to struggle out.
 DescriptionDecoy,Can always struggle out.
 DescriptionMalleable,Takes less time to wear and remove.
 DescriptionRigid,Takes more time to wear and remove.
+DescriptionSimple,Easier to picklock.
+DescriptionPuzzling,Harder to picklock.
 DescriptionPainful,More painful for the wearer.
 DescriptionComfy,Comfier for the wearer.
 DescriptionStrong,Cannot use brute force to struggle out.
