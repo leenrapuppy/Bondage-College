@@ -70,7 +70,7 @@ function CraftingShowScreen(fromRoom) {
 
 /**
  * Loads the club crafting room in slot selection mode
- * @returns {void} - Nothing.
+ * @returns {void} - Nothing
  */
 function CraftingLoad() {
 	CraftingModeSet("Slot");
@@ -82,40 +82,34 @@ function CraftingLoad() {
 }
 
 /**
- * Update the crafting character preview
+ * Update the crafting character preview image, applies the item on all possible body parts
+ * @returns {void} - Nothing
  */
 function CraftingUpdatePreview() {
-	CraftingPreview.Appearance = [...Player.Appearance];
+	CraftingPreview.Appearance = Player.Appearance.slice();
 	CharacterReleaseTotal(CraftingPreview);
 	if (CraftingNakedPreview) CharacterNaked(CraftingPreview);
 	if (!CraftingSelectedItem) return;
-
-	const craft = CraftingConvertSelectedToItem();
-	const foundGroups = [];
-	const relevantAssets = Asset.filter(a => {
+	const Craft = CraftingConvertSelectedToItem();
+	const FoundGroups = [];
+	const RelevantAssets = Asset.filter(a => {
 		if (!a.Group.Zone) return false;
-
-		if (!CraftingAppliesToItem(craft, a))
-			return false;
-
-		if (foundGroups.includes(a.DynamicGroupName || a.Group.Name))
-			return false;
-
-		foundGroups.push(a.Group.Name);
+		if (!CraftingAppliesToItem(Craft, a)) return false;
+		if (FoundGroups.includes(a.DynamicGroupName || a.Group.Name)) return false;
+		FoundGroups.push(a.Group.Name);
 		return true;
 	});
-
-	for (const relevantAsset of relevantAssets) {
-		if (!InventoryAllow(CraftingPreview, relevantAsset)) continue;
-		InventoryWear(CraftingPreview, relevantAsset.Name, relevantAsset.Group.Name, null, null, CraftingPreview.MemberNumber, craft);
-		InventoryCraft(CraftingPreview, CraftingPreview, relevantAsset.Group.Name, craft, false);
+	for (const RelevantAsset of RelevantAssets) {
+		if (!InventoryAllow(CraftingPreview, RelevantAsset)) continue;
+		InventoryWear(CraftingPreview, RelevantAsset.Name, RelevantAsset.Group.Name, null, null, CraftingPreview.MemberNumber, Craft);
+		InventoryCraft(CraftingPreview, CraftingPreview, RelevantAsset.Group.Name, Craft, false);
 	}
 	CharacterRefresh(CraftingPreview);
 }
 
 /**
  * Run the club crafting room if all possible modes
- * @returns {void} - Nothing.
+ * @returns {void} - Nothing
  */
 function CraftingRun() {
 
@@ -238,10 +232,13 @@ function CraftingRun() {
 		DrawText(TextGet("EnterColor"), 1550, 550, "White", "Black");
 		ElementPosition("InputColor", 1510, 625, 670);
 		DrawButton(1843, 598, 64, 64, "", "White", "Icons/Color.png");
-		DrawText(TextGet("EnterPrivate"), 1550, 775, "White", "Black");
-		DrawButton(1175, 743, 64, 64, "", "White", CraftingSelectedItem.Private ? "Icons/Checked.png" : "");
-		if ((CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.AllowType != null) && (CraftingSelectedItem.Asset.AllowType.length > 0))
-			DrawButton(1350, 880, 400, 60, ((CraftingSelectedItem.Type == null) || (CraftingSelectedItem.Type == "")) ? TextGet("NoType") : CraftingSelectedItem.Type, "White");
+		DrawText(TextGet("EnterPrivate"), 1550, 760, "White", "Black");
+		DrawButton(1175, 728, 64, 64, "", "White", CraftingSelectedItem.Private ? "Icons/Checked.png" : "");
+		if ((CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.AllowType != null) && (CraftingSelectedItem.Asset.AllowType.length > 0)) {
+			DrawText(TextGet("EnterType"), 1335, 890, "White", "Black");
+			ElementPosition("InputType", 1685, 883, 310);
+			DrawButton(1840, 858, 60, 60, "", "White", "Icons/Small/Next.png");
+		}
 	}
 
 	// In color mode, the player can change the color of each parts of the item
@@ -258,7 +255,7 @@ function CraftingRun() {
 /**
  * Sets the new mode and creates or removes the inputs
  * @param {string} NewMode - The new mode to set
- * @returns {void} - Nothing.
+ * @returns {void} - Nothing
  */
 function CraftingModeSet(NewMode) {
 	CraftingDestroy = false;
@@ -274,32 +271,44 @@ function CraftingModeSet(NewMode) {
 	}
 	if (NewMode == "Name") {
 		ElementCreateInput("InputName", "text", "", "30");
+		document.getElementById("InputName").addEventListener('keyup', CraftingKeyUp);
 		ElementCreateInput("InputDescription", "text", "", "100");
+		document.getElementById("InputDescription").addEventListener('keyup', CraftingKeyUp);
 		ElementCreateInput("InputColor", "text", "", "500");
-		window.addEventListener('keyup', CraftingColorUpdate);
+		document.getElementById("InputColor").addEventListener('keyup', CraftingKeyUp);
 		ElementValue("InputName", CraftingSelectedItem.Name || "");
 		ElementValue("InputDescription", CraftingSelectedItem.Description || "");
 		ElementValue("InputColor", CraftingSelectedItem.Color || "");
+		if ((CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.AllowType != null) && (CraftingSelectedItem.Asset.AllowType.length > 0)) {
+			ElementCreateInput("InputType", "text", "", "20");		
+			document.getElementById("InputType").addEventListener('keyup', CraftingKeyUp);
+			ElementValue("InputType", CraftingSelectedItem.Type || "");
+		}
 		CraftingUpdatePreview();
 	} else {
 		ElementRemove("InputName");
 		ElementRemove("InputDescription");
 		ElementRemove("InputColor");
+		ElementRemove("InputType");
 	}
 }
 
 /**
- * When the color field is updated manually
- * @returns {void} - Nothing.
+ * When the color or type field is updated manually, we update the preview image
+ * @returns {void} - Nothing
  */
-function CraftingColorUpdate() {
-	if (CraftingMode == "Color") CraftingSelectedItem.Color = ElementValue("InputColor");
+function CraftingKeyUp() {
+	//if (CraftingMode == "Color") CraftingSelectedItem.Color = ElementValue("InputColor");
+	if (document.getElementById("InputName") != null) CraftingSelectedItem.Name = ElementValue("InputName");
+	if (document.getElementById("InputDescription") != null) CraftingSelectedItem.Description = ElementValue("InputDescription");
+	if (document.getElementById("InputColor") != null) CraftingSelectedItem.Color = ElementValue("InputColor");
+	if (document.getElementById("InputType") != null) CraftingSelectedItem.Type = ElementValue("InputType");
 	CraftingUpdatePreview();
 }
 
 /**
  * Prepares a compressed packet of the crafting data and sends it to the server
- * @returns {void} - Nothing.
+ * @returns {void} - Nothing
  */
 function CraftingSaveServer() {
 	if (Player.Crafting == null) return;
@@ -365,7 +374,7 @@ function CraftingDecompressServerData(Data) {
 /**
  * Loads the server packet and creates the crafting array for the player
  * @param {string} Packet - The packet
- * @returns {void} - Nothing.
+ * @returns {void} - Nothing
  */
 function CraftingLoadServer(Packet) {
 	Player.Crafting = [];
@@ -387,7 +396,7 @@ function CraftingLoadServer(Packet) {
 
 /**
  * Handles clicks in the crafting room.
- * @returns {void} - Nothing.
+ * @returns {void} - Nothing
  */
 function CraftingClick() {
 
@@ -531,9 +540,9 @@ function CraftingClick() {
 				ElementValue("InputColor", CraftingSelectedItem.Color);
 				CraftingUpdatePreview();
 			});
-		} else if (MouseIn(1175, 743, 64, 64)) {
+		} else if (MouseIn(1175, 728, 64, 64)) {
 			CraftingSelectedItem.Private = !CraftingSelectedItem.Private;
-		} else if (MouseIn(1350, 880, 400, 60) && (CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.AllowType != null)) {
+		} else if (MouseIn(1840, 858, 60, 60) && (CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.AllowType != null)) {
 			if ((CraftingSelectedItem.Type == null) || (CraftingSelectedItem.Type == "") || (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) < 0))
 				CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[0];
 			else
@@ -541,6 +550,7 @@ function CraftingClick() {
 					CraftingSelectedItem.Type = "";
 				else
 					CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) + 1];
+			ElementValue("InputType", CraftingSelectedItem.Type);
 			CraftingUpdatePreview();
 		}
 		return;
@@ -553,15 +563,23 @@ function CraftingClick() {
 			CraftingUpdatePreview();
 		} else if (MouseIn(1200, 25, 775, 950)) {
 			ItemColorClick(CraftingPreview, CraftingSelectedItem.Asset.Group.Name, 1200, 25, 775, 950, true);
-			let Item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.Group.Name);
-			if ((Item != null) && (Item.Color != null)) {
-				CraftingSelectedItem.Color = Array.isArray(Item.Color) ? Item.Color.join(",") : Item.Color || "";
-				CraftingUpdatePreview();
-			}
+			setTimeout(CraftingRefreshPreview, 100);
 		}
 		return;
 	}
 
+}
+
+/**
+ * Refreshes the preview model with a slight delay so the item color process is done
+ * @returns {void} - Nothing
+ * */
+function CraftingRefreshPreview() {
+	let Item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.Group.Name);
+	if ((Item != null) && (Item.Color != null)) {
+		CraftingSelectedItem.Color = Array.isArray(Item.Color) ? Item.Color.join(",") : Item.Color || "";
+		CraftingUpdatePreview();
+	}
 }
 
 /**
@@ -572,6 +590,7 @@ function CraftingConvertSelectedToItem() {
 	let Name = (CraftingMode == "Name") ? ElementValue("InputName").trim() : CraftingSelectedItem.Name;
 	let Description = (CraftingMode == "Name") ? ElementValue("InputDescription").trim() : CraftingSelectedItem.Description;
 	let Color = (CraftingMode == "Name") ? ElementValue("InputColor").trim() : CraftingSelectedItem.Color;
+	let Type = ((CraftingMode == "Name") && (document.getElementById("InputType") != null)) ? ElementValue("InputType").trim() : CraftingSelectedItem.Type;
 	return {
 		Item: (CraftingSelectedItem.Asset == null) ? "" : CraftingSelectedItem.Asset.Name,
 		Property: CraftingSelectedItem.Property,
@@ -580,7 +599,7 @@ function CraftingConvertSelectedToItem() {
 		Description: Description,
 		Color: Color,
 		Private: CraftingSelectedItem.Private,
-		Type: CraftingSelectedItem.Type
+		Type: Type
 	};
 }
 
@@ -604,7 +623,7 @@ function CraftingConvertItemToSelected(Craft) {
 
 /**
  * When the player exits the crafting room
- * @returns {void} - Nothing.
+ * @returns {void} - Nothing
  */
 function CraftingExit() {
 	CharacterDelete(CraftingPreview.AccountName);
@@ -616,11 +635,13 @@ function CraftingExit() {
 }
 
 /**
- *
+ * Applies the craft to all matching items
  * @param {CraftingItem} Craft
  * @param {Asset} Item
  */
 function CraftingAppliesToItem(Craft, Item) {
+
+	// Validates the craft asset
 	if (!Craft || !Item) return false;
 	const craftAsset = Asset.find(a => a.Name === Craft.Item && a.Group.Zone);
 	if (!craftAsset) return false;
@@ -630,11 +651,12 @@ function CraftingAppliesToItem(Craft, Item) {
 
 	// Now check any of those matches are the item to test
 	return matchingAssets.find(m => m.Name === Item.Name && m.Group.Name === Item.Group.Name);
+
 }
 
 /**
  * Builds the item list from the player inventory, filters by the search box content
- * @returns {void} - Nothing.
+ * @returns {void} - Nothing
  */
 function CraftingItemListBuild() {
 
