@@ -1,5 +1,5 @@
 (Two maids grab you and escort you to their quarters.  Another maid addresses you.)  Your owner sent you here to work.
-（两个女仆把你架出了房间来到了宿舍,并且给你换了衣服。）你的主人把你送来了这里工作。
+（两个女仆把你架出了房间来到了宿舍,并且给你换了衣服）你的主人把你送来了这里工作
 Talk to everyone
 和所有人说话
 Whisper to
@@ -51,16 +51,16 @@ Whitelist:
 Blacklist:
 黑名单:
 (Two nurses wearing futuristic gear grab you and carry you to the Asylum.  Another nurse is waiting for you there.)  Welcome.  Don't be scared.
-（两个穿着未来装备的护士抓住你，把你带到收容所。另一名护士在那里等着你。）欢迎，不要害怕。
+（两个穿着未来装备的护士抓住你，把你带到收容所。另一名护士在那里等着你）欢迎，不要害怕
 Talking is forbidden when your owner is present.
-当你的主人在场时，禁止说话。
+当你的主人在场时，禁止说话
 Emoting is forbidden when your owner is present.
-当你的主人在场时，禁止发送心里话。
+当你的主人在场时，禁止发送心里话
 Whispering to others is forbidden when your owner is present.
-当你的主人在场时，禁止对其他人发送悄悄话。
+当你的主人在场时，禁止对其他人发送悄悄话
 Changing pose is forbidden when your owner is present.
-当你的主人在场时，禁止改变姿势。
+当你的主人在场时，禁止改变姿势
 Accessing yourself is forbidden when your owner is present.
-当你的主人在场时，禁止接触自己。
+当你的主人在场时，禁止接触自己
 Accessing others is forbidden when your owner is present.
-当你的主人在场时，禁止接触他人。
+当你的主人在场时，禁止接触他人

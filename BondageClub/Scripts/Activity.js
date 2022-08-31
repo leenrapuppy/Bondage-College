@@ -48,8 +48,6 @@ function ActivityDictionaryLoad() {
 				ActivityTranslate(TranslationPath);
 			}
 		});
-
-	ActivityTranslate(TranslationPath);
 }
 
 /**
@@ -217,7 +215,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			break;
 		default:
 			if (prereq.startsWith("Needs-")) {
-				return !acting.IsEnclose() && !acted.IsEnclose() && CharacterHasItemWithAttribute(acting, prereq.substring(6));
+				return !acting.IsEnclose() && !acted.IsEnclose() && CharacterHasItemForActivity(acting, prereq.substring(6));
 			}
 			break;
 	}
@@ -761,9 +759,10 @@ function ActivityRun(C, Activity) {
 		Dictionary.push({ Tag: "ActivityName", Text: Activity.Name });
 		ServerSend("ChatRoomChat", { Content: ActivityBuildChatTag(C, group, Activity), Type: "Activity", Dictionary: Dictionary });
 
-		if (C.ID == 0 && Activity.Name.indexOf("Struggle") >= 0)
-
-			ChatRoomStimulationMessage("StruggleAction");
+		// If the activity is a stimulation trigger, run it if the target is the player
+		if (C.IsPlayer() && Activity.StimulationAction) {
+			ChatRoomStimulationMessage(Activity.StimulationAction);
+		}
 
 		// Exits from dialog to see the result
 		DialogLeave();

@@ -1,0 +1,276 @@
+###_NPC
+(She looks at your gag and smiles.)  You'll need to find a spell to remove that gag.
+（她看着你的口塞，并微笑起来。）你需要找到一个咒语来拿掉那个口塞。
+Well done.  Would you like to practice another spell?
+做得好。你想练习另一个咒语吗？
+Don't be ashamed.  Would you like to practice another spell?
+别害羞。你想练习另一个咒语吗？
+(You release her.)  Congratulations on that victory.  Continue to do battles to become the best witch.  Would you like to practice another battle?
+（你放开了她。）恭喜你取得了胜利。继续战斗，成为最好的女巫。你想再练习一场战斗吗？
+(She releases you.)  Don't worry about losing.  It takes time and effort to become a Mistress of magic.  Would you like to practice another battle?
+（她放开你。）别担心失败。成为掌控魔法的女主人需要时间和奴隶。你想再练习一场战斗吗？
+(She salutes you politely.)  Welcome to the Bondage Club Magic School.  It's an honor to meet a member of the prestigious House Maiestas.
+（她礼貌地向你打招呼。）欢迎来到束缚俱乐部的魔法学校。我很荣幸能见到威望素着的麦斯塔威法社的成员。
+(She nods slowly.)  Welcome to the Bondage Club Magic School.  It's a pleasure to meet a member of the great House Vincula.
+（她慢慢地点点头。）欢迎来到束缚俱乐部的魔法学校。我很高兴能见到地位显赫的温库拉束限社的成员。
+(She smiles at you.)  Welcome to the Bondage Club Magic School.  It's heart-warming to meet a member of the wonderful House Amplector.
+（她对你微笑。）欢迎来到束缚俱乐部的魔法学校。我很安心能见到令人赞叹的安派托怀围社的成员。
+(She bows her head.)  Welcome to the Bondage Club Magic School.  I'm proud to meet a member of the powerful House Corporis.
+（她低下头。）欢迎来到束缚俱乐部的魔法学校。我很骄傲能见到强大的科泼里躯形社的成员。
+Welcome to the Bondage Club Magic School.  Would you like to become a spell caster and join one of the magical houses?
+欢迎来到束缚俱乐部的魔法学校。你想成为一名施法者，并加入魔法结社之一吗？
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm grey witch DialogCharacterName, teacher of spells.
+我是灰女巫DialogCharacterName，法术教师。
+###_PLAYER
+What is this place?
+这是什么地方？
+###_NPC
+You are in the Bondage Club Magical School.  This laboratory is where we teach magic.
+你在束缚俱乐部的魔法学校。这个实验室是我们教授魔法的地方。
+###_PLAYER
+Tell me about magic.
+跟我讲讲魔法。
+###_NPC
+My pleasure, what would you like to know?
+我的荣幸，你想知道什么？
+###_PLAYER
+About magic battles...
+关于魔法战斗……
+###_NPC
+What would you like to know?
+你想知道什么？
+###_PLAYER
+Can I practice a spell?
+我可以练习魔法吗？
+###_NPC
+(She takes a step back and nods.)  Which spell would you like to practice?
+（她后退一步，点点头）你想练习哪个法术？
+###_PLAYER
+On magic school houses...
+关于魔法学院的结社……
+###_NPC
+The current houses are Maiestas, Vincula, Amplector and Corporis.  Do you need details, or would you like to join any of them?
+现在有的结社包括麦斯塔、温库拉、安派托和科泼里。你想了解详细信息，还是想加入其中的某一个？
+###_PLAYER
+There's a rumor on a secret technique.
+传闻说有一种秘密的技巧。
+###_NPC
+(She lowers her voice.)  Yes, House Maiestas has a secret self-control technique, but they only teach it to their most acclaimed members.
+（她压低了声音。）是的，麦斯塔威法社有一个秘密的自我控制技巧，但她们只教给最有声望的成员。
+###_PLAYER
+There's a rumor on a secret bondage spell.
+传闻说有一种秘密的束缚咒语。
+###_NPC
+(She lowers her voice.)  Yes, House Vincula knows the armbinder spell, but they only teach it to their most acclaimed members.
+（她压低了声音。）是的，温库拉束限社知晓单手套咒语，但她们只教给最有声望的成员。
+###_PLAYER
+There's a rumor on a secret ritual.
+传闻说有一种秘密仪式。
+###_NPC
+(She lowers her voice.)  Yes, House Amplector has a secret ritual to cast naked, but they only teach it to their most acclaimed members.
+（她压低了声音。）是的，安派托怀围社有一个秘密的裸体才能施展的仪式，但她们只教给最有声望的成员。
+###_PLAYER
+There's a rumor on a secret strip spell.
+传闻说有一种的秘密脱衣咒。
+###_NPC
+(She lowers her voice.)  Yes, House Corporis knows a spell to fully strip, but they only teach it to their most acclaimed members.
+（她压低了声音。）是的，科泼里躯形社知道一个把人脱光的咒语，但她们只教给最有声望的成员。
+###_PLAYER
+I need to go.  (Leave her.)
+我得走了。（离开她。）
+Do you do real magic?
+你会真的魔法？
+###_NPC
+(She giggles.)  Of course not, don't be silly.  It's all roleplay.  Magic is created when everyone pretend it works.  Background work needs to be done for the spell to work.
+（她咯咯地笑起来。）当然不是，别傻了。这都是角色扮演。当每个人都假装有效，魔法就创造出来了。这需要完成一些背景工作才能使咒语起作用。
+###_PLAYER
+Can I join the school?
+我可以加入学校吗？
+###_NPC
+We don't take new students right now, but you can join a house to battle other magicians.
+我们现在不招收新学生，但你可以加入一个结社并和其她魔法师战斗。
+###_PLAYER
+Can I do magic?
+我可以施展魔法？
+###_NPC
+Only if you believe in it and you can speak clearly.  You cannot cast a spell while gagged.  It requires lots of focus.
+仅当你相信它，并且你能清楚讲话的时候才行。你在嘴被堵住时无法施法。这需要注意力非常集中。
+###_PLAYER
+How do I do magic?
+我该如何施展魔法？
+###_NPC
+Using your hands and words, you'll need to do the exact moves of the spell to cast.  (Use your mouse or finger to follow the spell pattern.)
+使用你的手和语言，你需要做出法术规定的动作，才能施放它。（使用鼠标或手指，按照法术的图案移动。）
+###_PLAYER
+What do spells do?
+法术都有什么作用？
+###_NPC
+It depends on the spell.  Physical spells can dress up or strip down, animate restraints and gags.  Mental spells can arouse, charm or hypnotize someone.
+每个法术不同。物理法术可以穿上或脱掉衣服，操控束缚和口塞。精神法术可以让人兴奋、魅惑某人人或催眠某人。
+###_PLAYER
+That's all the questions I had.
+我没问题了。
+###_NPC
+(She nods.)  Is there anything else I can help you with?
+（她点头。）还有什么我可以帮你的吗？
+###_PLAYER
+Who can I battle?
+我能和谁战斗？
+###_NPC
+If you're in a house, magicians from other houses will challenge you to battles.  Each house has a different philosophy.  You can also do online battles in chat rooms.
+如果你在一个结社里，其她结社的魔术师会向你挑战。每个结社都有不同的哲学准则。你还可以在聊天室进行在线战斗。
+###_PLAYER
+How do I battle against another magician?
+我如何与另一个魔法师战斗？
+###_NPC
+You and the other magician will try to cast a spell, the first one to succeed wins the round.  Each round you win is a step toward the four steps victory.
+你和另一个魔术师会尝试施法，首先成功的人赢得这一轮。你赢的每一轮都会朝着胜利前进一个阶段，四个阶段后就得到了胜利。
+###_PLAYER
+What are the four steps?
+这四个阶段是什么？
+###_NPC
+There are four steps to win a battle: use a stripping spell, animate a restraint, tighten it and use a gag spell.
+赢得一场战斗有四个阶段：使用脱衣咒、操控束缚、收紧束缚、以及使用口塞咒。
+###_PLAYER
+Why not use a gag spell right away?
+为什么不直接使用口塞咒？
+###_NPC
+Your adversary will counter the gag spell easily if she's not properly restrained.
+如果没有被足够地束缚起来，你的对手能很轻松地解除口塞咒。
+###_PLAYER
+Does it get harder?
+是不是越来越难了？
+###_NPC
+(She nods.)  Each step that's affecting you will make it harder for you to cast a spell.  (The blue square will be bigger, making it easier to fail.)
+（她点点头。）你承受的每一个阶段，都会让你更难施法。（蓝色方块会更大，使得你更容易失败。）
+###_PLAYER
+What do I do after I win?
+赢了之后我该做什么？
+###_NPC
+(She laughs.)  That's up to you, we are an adult club after all.  Use your imagination.
+（她笑起来。）这取决于你，我们这里是成人俱乐部嘛。用你的想象力。
+###_PLAYER
+Can we practice a battle?
+我们可以练习战斗吗？
+###_NPC
+(She grins.)  We certainly can.  Should I go easy on you or use all my tricks?
+（她咧开嘴笑起来。）我们当然可以。我应该对你轻松一点，还是全力以赴呢？
+###_PLAYER
+Go easy on me.  (Easy battle.)
+对我轻松点。（简单的战斗。）
+Let's do a casual battle.  (Regular battle.)
+来一场普通的战斗吧。（常规的战斗。）
+I can take a challenge.  (Hard battle.)
+我能接受挑战。（困难的战斗。）
+Give me all you got.  (Extreme battle.)
+尽你所能。（极限的战斗。）
+Let's talk about battles.
+我们讲讲战斗的事情吧。
+Let's not do any battle.
+我们别进行战斗吧。
+Pallium Exuere (Cloth Stripping)
+除你外衣（脱衣咒）
+Animatus Funem (Animate Rope)
+绳索舞动（操控绳索）
+Animatus Ferrum (Animate Chain)
+锁链舞动（操控锁链）
+Funem Tensis (Rope Tightening)
+绳索紧束（绳索收紧）
+Ferrum Tensis (Chain Tightening)
+锁链紧束（链条收紧）
+Oratio Angustos (Block Speech)
+言语闭塞（阻止说话）
+Chain spells are harder than rope?
+锁链比绳子更难吗？
+###_NPC
+Correct, chain spells are harder to cast than rope spells, but being chained will make it more difficult for a magician to cast new spells.
+没错，锁链法术比绳索法术更难施展，但被锁链束缚会使魔术师更难施展法术。
+###_PLAYER
+Enough practice.
+练习足够了。
+House Maiestas.
+麦斯塔威法社。
+###_NPC
+In House Maiestas, they focus on domination, submission and magic to control the mind.  They have a huge hierarchy with strict rules and etiquette that they follow by the book.
+在麦斯塔威法社中，她们专注于支配、服从和控制思想的魔法。她们有庞大的等级制度，有严格的规则和礼仪，并且她们按条文遵守。
+###_PLAYER
+House Vincula.
+温库拉束限社。
+###_NPC
+House Vincula is all about bondage magic.  The tighter the better.  They use spells to make evasion impossible or create devious traps.  Be careful if you're outnumbered.
+温库拉束限社研究束缚魔法。越紧越好。她们使用法术使逃避成为不可能或制造狡猾的陷阱。如果人数超过，请小心。
+###_PLAYER
+House Amplector.
+安派托怀围社。
+###_NPC
+The caring House Amplector focuses on charms, enchantments and love magic.  You will see them hug and cuddle all the time.  They greatly help and care about each other.
+充满爱心的安派托怀围社专注于魅惑、惑控和爱情魔法。你会看到她们常常拥抱或搂抱。她们相互之间非常乐于帮助，并相互关心。
+###_PLAYER
+House Corporis.
+科泼里躯形社。
+###_NPC
+House Corporis believes that true magic comes from the physical realm.  They use magic to inflict or endure pain, trigger arousal or orgasms.  They don't play soft.
+科泼里躯形社相信真正的魔法来自物质世界。她们使用魔法来施加或忍受痛苦，造成兴奋或性高潮。她们不玩口味软的。
+###_PLAYER
+Are there rivalries between houses?
+结社之间有争斗吗？
+###_NPC
+House Maiestas and House Vincula are in a constant magic war.  And there's no truce in sight between House Amplector and House Corporis.
+麦斯塔威法社和温库拉束限社一直处于魔法战争状态。而安派托怀围社和科泼里躯形社之间也没有休战的迹象。
+###_PLAYER
+I'd like to dress as a member from my house.
+我想穿成我的结社的成员。
+###_NPC
+(She nods and dresses you with the official clothes.)  Be proud to represent your house.
+（她点点头，给你穿上正式的衣服。）为代表你的结社而自豪吧。
+###_PLAYER
+I want to join a house.
+我想加入一个结社。
+###_NPC
+(She smiles.)  By joining a house, you will be able to climb its ladder.  Which house would you like to join?
+（她微笑起来。）加入一个结社后，你就能在这个结社爬得更高了。你想加入哪个结社？
+###_PLAYER
+I want to change my house.
+我想更换结社。
+###_NPC
+(She frowns.)  Joining a new house will reset your reputation.  Which house would you like to join?
+（她皱起眉头。）加入新的结社会重置你的声誉。你想加入哪个结社？
+###_PLAYER
+That's enough about houses.
+我足够了解结社了。
+I will join House Maiestas.
+我将加入麦斯塔威法社。
+###_NPC
+(She takes a few notes and dresses you with the official clothes.)  Very good, you will now be known as a member of House Maiestas.
+（她记了一些笔记，给你穿上正式的衣服。）很好，人们将会知道你是麦斯塔威法社的成员。
+###_PLAYER
+I will join House Vincula.
+我将加入温库拉束限社。
+###_NPC
+(She takes a few notes and dresses you with the official clothes.)  Very good, you will now be known as a member of House Vincula.
+（她记了一些笔记，给你穿上正式的衣服。）很好，人们将会知道你是温库拉束限社的成员。
+###_PLAYER
+I will join House Amplector.
+我将加入安派托怀围社。
+###_NPC
+(She takes a few notes and dresses you with the official clothes.)  Very good, you will now be known as a member of House Amplector.
+（她记了一些笔记，给你穿上正式的衣服。）很好，人们将会知道你是安派托怀围社的成员。
+###_PLAYER
+I will join House Corporis.
+我将加入科泼里躯形社。
+###_NPC
+(She takes a few notes and dresses you with the official clothes.)  Very good, you will now be known as a member of House Corporis.
+（她记了一些笔记，给你穿上正式的衣服。）很好，人们将会知道你是科泼里躯形社的成员。
+###_PLAYER
+I want to leave my house and the magic school.
+我想离开我的结社和魔法学校。
+###_NPC
+(She sighs and takes a few notes.)  Alright, you are not part of the magic school anymore.
+（她叹了口气，记下了一些笔记。）好吧，你不再是魔法学校的一员了。
+###_PLAYER
+I've changed my mind.
+我改变主意了。

@@ -157,18 +157,6 @@ function DrawGetImageOnError(Img, IsAsset) {
 	}
 }
 
-
-/**
- * Gets the alpha of a screen flash. append to a color like "#111111" + DrawGetScreenFlash(FlashTime)
- * @param {number} FlashTime - Time remaining as part of the screen flash
- * @returns {string} - alpha of screen flash
- */
-function DrawGetScreenFlash(FlashTime) {
-	let alpha = Math.max(0, Math.min(255, Math.floor(ChatRoomPinkFlashAlphaStrength * (1 - Math.exp(-FlashTime/2500))))).toString(16);
-	if (alpha.length < 2) alpha = "0" + alpha;
-	return alpha;
-}
-
 /**
  * Draws the glow under the arousal meter under the screen
  * @param {number} X - Position of the meter on the X axis
@@ -1289,11 +1277,42 @@ function DrawGetCustomBackground() {
 	return customBG;
 }
 
+/**
+ * Perform a global screen flash effect when a blindfold gets removed
+ * @param {number} intensity - The player's blind level before the removal
+ * TODO: that should be merged with DrawScreenFlash somehow
+ */
 function DrawBlindFlash(intensity) {
 	DrawingBlindFlashTimer = CurrentTime + 2000 * intensity;
 	BlindFlash = true;
 }
 
+var DrawScreenFlashTime = 0;
+var DrawScreenFlashColor = null;
+var DrawScreenFlashStrength = 140;
+
+/**
+ * Perform a global screen flash effect
+ * @param {string} Color - The color to use
+ * @param {number} Duration - How long should the flash effect be applied, in ms
+ * @param {number} Intensity - How important is the effect visually
+ */
+function DrawFlashScreen(Color, Duration, Intensity) {
+	DrawScreenFlashTime = CommonTime() + Duration;
+	DrawScreenFlashColor = Color;
+	DrawScreenFlashStrength = Intensity;
+}
+
+/**
+ * Gets the alpha of a screen flash. append to a color like "#111111" + DrawGetScreenFlash(FlashTime)
+ * @param {number} FlashTime - Time remaining as part of the screen flash
+ * @returns {string} - alpha of screen flash
+ */
+function DrawGetScreenFlashAlpha(FlashTime) {
+	let alpha = Math.max(0, Math.min(255, Math.floor(DrawScreenFlashStrength * (1 - Math.exp(-FlashTime/2500))))).toString(16);
+	if (alpha.length < 2) alpha = "0" + alpha;
+	return alpha;
+}
 
 /**
  * Constantly looping draw process. Draws beeps, handles the screen size, handles the current blindfold state and draws the current screen.
@@ -1351,6 +1370,9 @@ function DrawProcess(time) {
 	if (CurrentCharacter != null) DialogDraw();
 	else CurrentScreenFunctions.Run(time);
 
+	// Handle screen flash effects
+	DrawProcessScreenFlash();
+
 	// Draw Hovering text so they can be above everything else
 	DrawProcessHoverElements();
 
@@ -1375,6 +1397,26 @@ function DrawProcess(time) {
 		DialogLeave();
 	}
 
+}
+
+/**
+ * Handles drawing the screen flash effects
+ * @returns {void}
+ */
+function DrawProcessScreenFlash() {
+	if (BlindFlash == true && CurrentTime < DrawingBlindFlashTimer) {
+		if (Player.GetBlindLevel() == 0) {
+			let FlashTime = DrawingBlindFlashTimer - CurrentTime;
+			DrawRect(0, 0, 2000, 1000, "#ffffff" + DrawGetScreenFlashAlpha(FlashTime/Math.max(1, 4 - DrawLastDarkFactor)));
+		}
+	}
+
+	if ((Player.ImmersionSettings != null && Player.GraphicsSettings != null) && (Player.ImmersionSettings.StimulationEvents && Player.GraphicsSettings.StimulationFlash) && DrawScreenFlashTime > CommonTime()) {
+		// DrawScreenFlashTime is the end of the flash. The flash is brighter based on the distance to the end.
+		let FlashTime = DrawScreenFlashTime - CommonTime();
+		let PinkFlashAlpha = DrawGetScreenFlashAlpha(FlashTime);
+		DrawRect(0, 0, 2000, 1000, DrawScreenFlashColor + PinkFlashAlpha);
+	}
 }
 
 /**

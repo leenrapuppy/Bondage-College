@@ -215,7 +215,7 @@ No marks at all
 Yes, little sexy marks.
 是的，会有一点点性感的印记
 ###_NPC
-Nice.  And what about the price?  The quality is good for the price?
+Nice.  And what about the price?  Is the quality good for the price?
 很好。那么价格如何？它的质量对得起它的价格吗？
 ###_PLAYER
 Yes, pretty good marks.

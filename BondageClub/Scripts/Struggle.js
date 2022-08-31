@@ -222,7 +222,8 @@ function StruggleProgressCheckEnd(C) {
 		if ((StruggleProgressNextItem != null) && StruggleProgressNextItem.Asset.Extended) {
 			DialogInventoryBuild(C);
 			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, false);
-			DialogExtendItem(InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name));
+			if ((StruggleProgressNextItem.Craft == null) || (StruggleProgressNextItem.Craft.Type == null) || (StruggleProgressNextItem.Craft.Type == ""))
+				DialogExtendItem(InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name));
 		} else ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true);
 
 		// Reset the the character's position
@@ -347,6 +348,8 @@ function StruggleStrengthGetDifficulty(C, PrevItem, NextItem) {
 	if ((PrevItem != null) && (PrevItem.Asset != null) && (PrevItem.Asset.RemoveTime != null)) Timer = Timer + PrevItem.Asset.RemoveTime; // Adds the time to remove the previous item
 	if ((NextItem != null) && (NextItem.Asset != null) && (NextItem.Asset.WearTime != null)) Timer = Timer + NextItem.Asset.WearTime; // Adds the time to add the new item
 	if (Player.IsBlind() || Player.IsSuspended()) Timer = Timer * 2; // Double the time if suspended from the ceiling or blind
+	if (InventoryCraftPropertyIs(PrevItem, "Malleable") || InventoryCraftPropertyIs(NextItem, "Malleable")) Timer = Timer * 0.5; // Half the time if the crafted item is malleable
+	if (InventoryCraftPropertyIs(PrevItem, "Rigid") || InventoryCraftPropertyIs(NextItem, "Rigid")) Timer = Timer * 2; // Double the time if the crafted item is rigid
 	if (Timer < 1) Timer = 1; // Nothing shorter than 1 second
 
 	// If there's a locking item, we add the time of that lock
@@ -1261,7 +1264,10 @@ function StruggleLockPickProgressStart(C, Item) {
 			// negative skill of 1 subtracts 2 from the normal lock and 4 from 10 pin locks,
 			// negative skill of 6 subtracts 12 from all locks
 
-
+		// More of less tries if the item is crafted with specific properties
 		StruggleLockPickProgressMaxTries = Math.max(1, NumTries - NumPins);
+		if (InventoryCraftPropertyIs(Item, "Puzzling")) StruggleLockPickProgressMaxTries = StruggleLockPickProgressMaxTries - 1;
+		if (InventoryCraftPropertyIs(Item, "Simple")) StruggleLockPickProgressMaxTries = StruggleLockPickProgressMaxTries + 2;
+
 	}
 }

@@ -1,10 +1,10 @@
 "use strict";
-var InventoryItemNeckRestraintsPetPostAllowedChars = /^[a-zA-Z0-9 ~!]*$/;
+var InventoryItemNeckRestraintsPetPostAllowedChars = /^[a-zA-Z0-9 ~!'.,?!-*€$/]*$/;
 // Loads the item extension properties
 function InventoryItemNeckRestraintsPetPostTxt0Load() {
-	ElementCreateInput("SignText", "text", DialogFocusItem.Property.Text || "", "9");
-	ElementCreateInput("SignText2", "text2", DialogFocusItem.Property.Text2 || "", "9");
-	ElementCreateInput("SignText3", "text3", DialogFocusItem.Property.Text3 || "", "9");
+	ElementCreateInput("SignText", "text", DialogFocusItem.Property.Text || "", "14");
+	ElementCreateInput("SignText2", "text2", DialogFocusItem.Property.Text2 || "", "14");
+	ElementCreateInput("SignText3", "text3", DialogFocusItem.Property.Text3 || "", "14");
 }
 
 // Draw the extension screen
@@ -65,7 +65,7 @@ function InventoryItemNeckRestraintsPetPostChange() {
 	InventoryItemNeckRestraintsPetPostExit();
 }
 
-// Drawing function for the text on the tag
+// Drawing function for the text on the sign
 function AssetsItemNeckRestraintsPetPostAfterDraw({
     C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {
@@ -76,16 +76,16 @@ function AssetsItemNeckRestraintsPetPostAfterDraw({
 
         // We set up a canvas
         let Height = 100;
-        let Width = 98;
+		let Width = 90;
         let YOffset = 20;
         const FontName = "sans-serif";
         const TempCanvas = AnimationGenerateTempCanvas(C, A, Width, Height);
         let text = Property && typeof Property.Text === "string" && InventoryItemNeckRestraintsPetPostAllowedChars.test(Property.Text) ? Property.Text : "Pet";
 		let text2 = Property && typeof Property.Text2 === "string" && InventoryItemNeckRestraintsPetPostAllowedChars.test(Property.Text2) ? Property.Text2 : "Leashing";
 		let text3 = Property && typeof Property.Text3 === "string" && InventoryItemNeckRestraintsPetPostAllowedChars.test(Property.Text2) ? Property.Text3 : "Post";
+
         // We draw the desired info on that canvas
         let context = TempCanvas.getContext('2d');
-        //context.fillRect( 0, 0, Width, Height);
         context.font = "22px " + FontName;
         context.fillStyle = Color;
         context.textAlign = "center";
@@ -94,8 +94,8 @@ function AssetsItemNeckRestraintsPetPostAfterDraw({
 		context.fillText(text3, Width / 2, Height / 2 + 46, Width);
 
         // We print the canvas to the character based on the asset position
-        drawCanvas(TempCanvas, X + 20, Y + YOffset, AlphaMasks);
-        drawCanvasBlink(TempCanvas, X + 20, Y + YOffset, AlphaMasks);
+        drawCanvas(TempCanvas, X + 24, Y + YOffset, AlphaMasks);
+        drawCanvasBlink(TempCanvas, X + 24, Y + YOffset, AlphaMasks);
     }
 }
 

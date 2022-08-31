@@ -713,9 +713,9 @@ function DialogInventoryAdd(C, item, isWorn, sortOrder) {
 		// Make sure we do not duplicate the item in the list, including crafted items
 		for (let I = 0; I < DialogInventory.length; I++)
 			if ((DialogInventory[I].Asset.Group.Name == asset.Group.Name) && (DialogInventory[I].Asset.Name == asset.Name)) {
-				if ((item.Craft == null) && (DialogInventory[I].Craft != null)) break;
-				if ((item.Craft != null) && (DialogInventory[I].Craft == null)) break;
-				if ((item.Craft != null) && (DialogInventory[I].Craft != null) && (item.Craft.Name != DialogInventory[I].Craft.Name)) break;
+				if ((item.Craft == null) && (DialogInventory[I].Craft != null)) continue;
+				if ((item.Craft != null) && (DialogInventory[I].Craft == null)) continue;
+				if ((item.Craft != null) && (DialogInventory[I].Craft != null) && (item.Craft.Name != DialogInventory[I].Craft.Name)) continue;
 				return;
 			}
 	}
@@ -824,7 +824,7 @@ function DialogAlwaysAllowRestraint() {
  */
 function DialogCanUseRemoteState(C, Item) {
 	// Can't use remotes if there is no item, or if the item doesn't have the needed effects.
-	if (!Item || !(InventoryItemHasEffect(Item, "Egged") || InventoryItemHasEffect(Item, "UseRemote"))) return "InvalidItem";
+	if (!Item || !InventoryItemHasEffect(Item, "UseRemote")) return "InvalidItem";
 	// Can't use remotes if the player cannot interact with their hands
 	if (!Player.CanInteract()) return "CannotInteract";
 	// Can't use remotes on self if the player is owned and their remotes have been blocked by an owner rule
@@ -1142,14 +1142,31 @@ function DialogInventoryBuild(C, Offset, redrawPreviews = false) {
 					if (A.Value === 0 || (A.AvailableLocations.includes("Asylum") && (CurrentScreen.startsWith("Asylum") || ChatRoomSpace === "Asylum")))
 						DialogInventoryAdd(C, { Asset: A }, false);
 
-			// Fifth, we add all crafted items that matches that slot
-			if (Player.Crafting != null)
+			// Fifth, we add all crafted items for the player that matches that slot
+			if (Player.Crafting != null) {
 				for (let Craft of Player.Crafting)
-					if ((Craft.Item != null) && (InventoryAvailable(Player, Craft.Item, C.FocusGroup.Name)))
-						for (let A of Asset)
-							if ((A.Name == Craft.Item) && (A.Group.Name == C.FocusGroup.Name))
-								if (DialogCanUseCraftedItem(C, Craft))
+					if ((Craft != null) && (Craft.Item != null)) {
+						const group = AssetGroupGet(C.AssetFamily, C.FocusGroup.Name);
+						for (let A of group.Asset)
+							if (CraftingAppliesToItem(Craft, A) && DialogCanUseCraftedItem(C, Craft))
+								DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
+					}
+			}
+
+			// Sixth. we add all crafted items from the character that matches that slot
+			if (C.Crafting != null) {
+				let Crafting = CraftingDecompressServerData(C.Crafting);
+				for (let Craft of Crafting)
+					if ((Craft != null) && (Craft.Item != null))
+						if ((Craft.Private == null) || (Craft.Private == false)) {
+							Craft.MemberName = CharacterNickname(C);
+							Craft.MemberNumber = C.MemberNumber;
+							const group = AssetGroupGet(C.AssetFamily, C.FocusGroup.Name);
+							for (let A of group.Asset)
+								if (CraftingAppliesToItem(Craft, A) && DialogCanUseCraftedItem(C, Craft))
 									DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
+						}
+			}
 
 		}
 
@@ -2022,12 +2039,10 @@ function DialogDrawActivityMenu(C) {
 	var Y = 125;
 	for (let A = DialogInventoryOffset; (A < DialogActivity.length) && (A < DialogInventoryOffset + 12); A++) {
 		var Act = DialogActivity[A];
-		var Hover = (MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275) && !CommonIsMobile;
-		DrawRect(X, Y, 225, 275, (Hover) ? "cyan" : "white");
-		DrawImageResize("Assets/" + C.AssetFamily + "/Activity/" + Act.Name + ".png", X + 2, Y + 2, 221, 221);
 		let group = ActivityGetGroupOrMirror(CharacterGetCurrent().AssetFamily, CharacterGetCurrent().FocusGroup.Name);
 		let label = ActivityBuildChatTag(CharacterGetCurrent(), group, Act, true);
-		DrawTextFit(ActivityDictionaryText(label), X + 112, Y + 250, 221, "black");
+		let image = "Assets/" + C.AssetFamily + "/Activity/" + Act.Name + ".png";
+		DrawPreviewBox(X, Y, image, ActivityDictionaryText(label), {Hover: !CommonIsMobile});
 		X = X + 250;
 		if (X > 1800) {
 			X = 1000;
@@ -2576,4 +2591,21 @@ function DialogChatRoomSafewordRevert() {
 function DialogChatRoomSafewordRelease() {
 	DialogLeave();
 	ChatRoomSafewordRelease();
+}
+
+/**
+ * Close the dialog and switch to the crafting screen.
+ */
+function DialogOpenCraftingScreen() {
+	const fromRoom = CurrentScreen === "ChatRoom";
+	DialogLeave();
+	CraftingShowScreen(fromRoom);
+}
+
+/**
+ * Check whether it's possible to access the crafting interface.
+ * @returns {boolean}
+ */
+function DialogCanCraft() {
+	return !Player.IsRestrained() || !Player.IsBlind();
 }

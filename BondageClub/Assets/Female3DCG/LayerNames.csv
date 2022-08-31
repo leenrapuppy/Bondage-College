@@ -256,12 +256,14 @@ HairFrontHairFront23bBase, Base
 HairFrontHairFront23bTip, Tip
 HairFrontHairFront27Base,Base
 HairFrontHairFront27Bangs,Bangs
-HairFrontHairFront27Tips,Tips
+HairFrontHairFront27BangsTip,Tips
 HairFrontHairFront28Base,Base
 HairFrontHairFront28Bangs,Bangs
 HairFrontHairFront28Tips,Tips
 HairFrontHairFront29Left,Left
 HairFrontHairFront29Right,Right
+HairBackHairBack53Base,Base
+HairBackHairBack53Tip,Tips
 HairBackHairBack54Left,Left
 HairBackHairBack54Right,Right
 GlovesGlovesFurFabric,Glove
@@ -367,6 +369,12 @@ ItemVulvaPiercingsTapedClitEggEgg,Egg
 ItemVulvaPiercingsTapedClitEggTape,Tape
 ItemVulvaPiercingsClitRingRing,Ring
 ItemVulvaPiercingsClitRingLeash,Leash
+ItemVulvaPiercingsRoundClitPiercingRing,Ring
+ItemVulvaPiercingsRoundClitPiercingWeight,Weight
+ItemVulvaPiercingsRoundClitPiercingBell,Bell
+ItemVulvaPiercingsRoundClitPiercingChain,Chain
+ItemVulvaPiercingsRoundClitPiercingHaremChain,Harem Chain
+ItemVulvaPiercingsRoundClitPiercingHaremVeil,Harem Veil
 ItemButtFoxTail1Base,Tail
 ItemButtFoxTail1Tip,Tip
 ItemButtFoxTail2Base,Tail
@@ -400,6 +408,12 @@ ItemPelvisHybridChastityBeltBelt,Belt
 ItemPelvisHybridChastityBeltCrotchPlate,Crotch Plate
 ItemPelvisHybridChastityBeltRivets,Rivets
 ItemPelvisHybridChastityBeltLock,Lock
+ItemPelvisObedienceBeltBase,Base
+ItemPelvisObedienceBeltTrim,Trim
+ItemPelvisObedienceBeltText,Engraving
+ItemPelvisObedienceBeltCrotchShield,Crotch Shield
+ItemPelvisObedienceBeltPositiveWire,Positive Wire
+ItemPelvisObedienceBeltNegativeWire,Negative Wire
 ItemNipplesChainClampChain,Chain
 ItemNipplesChainClampMetal,Metal
 ItemNipplesChainClampClamp,Clamps
@@ -563,7 +577,7 @@ ItemNeckRestraintsPetPostPole,Pole
 ItemNeckRestraintsPetPostPlaque,Plaque
 ItemNeckRestraintsPetPostPlaqueBorder,PlaqueBorder
 ItemNeckRestraintsPetPostPostit,Postit
-ItemNeckRestraintsPetPostPaw,Paw
+ItemNeckRestraintsPetPostPaw,Sticker
 ItemNeckRestraintsPetPostPlaqueBolts,PlaqueBolts
 ItemNeckRestraintsPetPostLeash,Leash
 ItemNeckRestraintsPetPostRope,Rope
@@ -1176,6 +1190,8 @@ ItemHeadFrilledSleepMaskMask,Mask
 ItemHeadFuturisticMaskDisplay,Tint
 ItemHeadFuturisticMaskText,HUD
 ItemHeadFuturisticMaskLock,Lock Icon
+ItemHeadStitchesStraight,Thread Right
+ItemHeadStitchesStraight2,Thread Left
 ClothAccessoryBunnyCollarCuffsCuffs,Cuffs
 ClothAccessoryBunnyCollarCuffsCollar,Collar
 ClothAccessoryBunnyCollarCuffsBow,Bow
@@ -1223,3 +1239,5 @@ GlassesVGlassesFrame,Frame
 GlassesVGlassesGlass,Lenses
 GlassesGradientSunglassesFrame,Frame
 GlassesGradientSunglassesGlass,Glass
+GlovesBikerGlovesHands,Gloves
+GlovesBikerGlovesStraps,Straps

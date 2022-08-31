@@ -1,0 +1,614 @@
+###_NPC
+(She smirks and makes fun of your mumblings.)
+（她得意地笑起来，并取笑你咕哝的样子。）
+(A gray-haired woman stares at you as you enter the teacher's lounge.)  What are you doing here?
+（当你进入教师休息室时，一个灰色头发的女人盯着你。）你在这里做什么？
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm teacher Mildred.  How did you get here little miss?
+我是Mildred老师。你是怎么来的，小小姐？
+###_PLAYER
+Hello teacher Mildred.
+Mildred老师你好。
+###_NPC
+Greetings little miss DialogPlayerName.  How did you get here?
+你好，小小姐DialogPlayerName。你是怎么来到这里？
+###_PLAYER
+The door was open.
+门是开着的。
+###_NPC
+That's impossible.  I always double-check it.  You've sneaked in, didn't you?
+这不可能。我总是仔细检查它。你是偷偷溜进来的，对吧？
+###_PLAYER
+I've found this key.
+我找到了这把钥匙。
+###_NPC
+You've stolen it!  And now you're sneaking in to steal our belongings?
+你偷了它！现在你偷偷溜进来偷我们的东西？
+###_PLAYER
+Julia let me in.
+Julia让我进来的。
+###_NPC
+Even an eccentric like her wouldn't do that.  You've sneaked in, didn't you?
+即使是像她那样的怪人也不会做这种事。你是偷偷溜进来的，对吧？
+###_PLAYER
+Yuki let me in.
+Yuki让我进来的。
+###_NPC
+That's impossible.  Teacher Yuki knows the rules.  You've sneaked in, didn't you?
+这不可能。Yuki老师非常清楚规则。你是偷偷溜进来的，对吧？
+###_PLAYER
+Sorry, I will leave.  (Leave her.)
+对不起，我会离开。（离开她。）
+I was looking for a place to relax.
+我在寻找一个放松的地方。
+###_NPC
+That's not valid reason little miss.  You should not be here.
+这不是正当理由，小小姐。你不应该在这里。
+###_PLAYER
+I was curious.  Is that a crime?
+我很好奇。这是犯罪吗？
+###_NPC
+(She gets angry.)  Yes, it's against the rules!  You should not be here little miss.
+（她生气了。）是的，这是违反规定的！你不应该在这里，小小姐。
+###_PLAYER
+I want to be a teacher someday.
+我想将来当老师。
+###_NPC
+(She relaxes.)  And you've came to see our quarters?  That's not valid reason little miss.
+（她放松下来。）于是你是来看我们的休息室的吗？这不是正当理由，小小姐。
+Why are you still in the lounge?  Get out.
+你怎么还在休息室？出去。
+###_PLAYER
+Can I do my homework here?
+我可以在这里做作业吗？
+###_NPC
+It can be hard to find a quiet place to study, but you should not be here.  Now get out before I get mad.
+找到一个安静的地方学习很难，但你不应该在这里。现在，在我生气之前，出去。
+###_PLAYER
+Can we talk?
+我们可以谈谈吗？
+###_NPC
+This is not the time.  I have dozens of exams to correct.  Now get out before I get mad.
+现在不是时候。我有几十个考试要批改的。现在，在我生气之前，出去。
+###_PLAYER
+Can I smoke here?
+我可以在这里吸烟吗？
+###_NPC
+Absolutely not.  This is not a tavern.  Now get out before I get mad.
+绝对不。这不是酒馆。现在，在我生气之前，出去。
+###_PLAYER
+Fine, I will go.  (Leave her.)
+好吧，我会走的。（离开她。）
+I'll do whatever I want.
+我会做任何我想做的事。
+###_NPC
+(She bangs her fist on her desk.)  Little miss!  If you don't get out right now, I will discipline you.
+（她用拳头敲桌子。）小小姐！如果你现在不出去，我会训诫你的。
+###_PLAYER
+I'm sorry Miss.  Are you mad at me?
+对不起，女士，你在生我的气吗？
+###_NPC
+(She sighs.)  Little miss.  If you don't get out right now, I will discipline you.
+（她叹了口气。）小小姐。如果你现在不出去，我会训诫你的。
+###_PLAYER
+I'll just look around and I'll go.
+我只是四处看看，之后我会走的。
+###_NPC
+(She shakes her head.)  Little miss!  If you don't get out right now, I will discipline you.
+（她摇摇头。）小小姐！如果你现在不出去，我会惩罚你的。
+This is your last warning.  Get out or you will learn the meaning of discipline.
+这是你最后的警告。滚出去，否则你会知道训诫的意思是什么。
+###_PLAYER
+Please!  Only two minutes!
+请不要！就两分钟可以吗！
+###_NPC
+In the good old days, students would never dare to defy their teachers like that.
+在过去的美好时光里，学生们是不敢如此违抗老师的。
+###_PLAYER
+(Take a chair and check your phone.)
+（坐在椅子上看看你的手机。）
+###_NPC
+(She clinches her fists.)  In the good old days, students would never dare to defy their teachers like that.
+（她握紧了拳头。）在过去的美好时光里，学生们是不敢这样违抗老师的。
+###_PLAYER
+I could help you grade these exams.
+我可以帮你给这些考试打分。
+(Pour yourself a cup of coffee.)
+（给自己倒杯咖啡。）
+These days are long dead.
+这些日子早已死去。
+###_NPC
+Absolutely not.  I have a device from the good old days to discipline you.
+绝对没有。我有一个古老的装置来训诫你。
+###_PLAYER
+Times have changed.
+时代变了。
+###_NPC
+Don't be so sure.  I have a device from the good old days to discipline you.
+不要那么肯定。我有一个古老的装置来训诫你。
+###_PLAYER
+I guess it was better back then.
+我猜那时候比较好。
+###_NPC
+Absolutely.  And to prove it, I have a device from the good old days to discipline you.
+绝对的。为了证明这一点，我有一个古老的装置来训诫你。
+###_PLAYER
+What kind of device?
+什么样的装置？
+###_NPC
+(She gets a large wooden plank with three holes and a locking mechanism.)  This is your demise.
+（她拿出来一块带有三个孔和一个锁定装置的大木板。）这就是你人生的尽头。
+###_PLAYER
+Something as old as you?
+和你一样古老的东西？
+I'm curious Miss.
+我很好奇，女士。
+I didn't think that pillories were still used.
+我觉得颈手枷早就没人用了吧。
+###_NPC
+I'm surprised you know the proper name.  Little miss, you will experience it.
+你知道正确的名称，让我很惊讶。小小姐，你会体验到它的。
+###_PLAYER
+I didn't think that stocks were still used.
+我觉得手足枷早就没人用了吧。
+###_NPC
+Stocks are for legs.  The proper name is pillory.  And you will experience it little miss.
+手足枷是给腿用的。正确的名称是颈手枷。小小姐，你会体验到它的。
+###_PLAYER
+That's a glory hole from the previous century?
+这是上个世纪的，鸟洞？
+###_NPC
+He who laughs last, laughs best.  You will experience it little miss.
+看谁笑到最后吧。小小姐，你会体验到它的。
+###_PLAYER
+Funny!  You should be a comedian.
+有趣！你应该是个喜剧演员。
+What is that?
+那是什么？
+###_NPC
+It's a pillory little miss.  And you will experience.
+这是颈手枷，小小姐。你会体验到的。
+###_PLAYER
+Oh, hell no!
+哦，别这样吧！
+###_NPC
+Do not resist or I will call security.  Now raise your arms and give me your neck.
+不要抗拒，否则我会打电话给保安。现在举起你的手臂，把你的脖子给我。
+###_PLAYER
+(Bow your head slowly.)
+（慢慢低下头。）
+###_NPC
+Good girl.  Now raise your arms and give me your neck.
+乖女孩。现在举起你的手臂，把你的脖子给我。
+###_PLAYER
+You can't be serious.
+你不是认真的吧。
+(Try to run away.)
+（试着逃跑。）
+###_NPC
+(She blocks your path and locks the pillory on your wrists and neck.)
+（她挡住了你的去路，将颈手枷锁在你的手腕和脖子上。）
+###_PLAYER
+(Scream for help.)
+（大声求救。）
+###_NPC
+Nobody will come little miss.  (She locks the pillory on your wrists and neck.)
+没有人会来的，小小姐。（她将颈手枷锁在你的手腕和脖子上。）
+###_PLAYER
+(Let her restrain you.)
+（让她束缚住你。）
+###_NPC
+(She smiles and locks the pillory on your wrists and neck.)
+（她微笑着将颈手枷锁在你的手腕和脖子上。）
+###_PLAYER
+(Struggle to escape.)
+（挣扎试图逃脱。）
+###_NPC
+You're not getting out of that.  But to be certain.  (She shows you an old padlock.)
+你挣脱不了的。但为了确保这一点。（她给你展示一把旧挂锁。）
+###_PLAYER
+What the fuck?
+什么鬼？
+###_NPC
+You truly deserve this discipline.  (She shows you an old padlock.)
+你真的很需要这次训诫。（她给你展示一把旧挂锁。）
+###_PLAYER
+Please teacher Mildred.  It's too heavy.
+请放过我，Mildred老师。这太重了。
+###_NPC
+You will be fine little miss.  (She shows you an old padlock.)
+你会没事的，小小姐。（她给你展示一把旧挂锁。）
+###_PLAYER
+(Stay silent.)
+（保持沉默。）
+###_NPC
+(She gets an old padlock and shows it to you.)
+（她拿来一把旧挂锁，展示给你看。）
+###_PLAYER
+I guess this is fair.
+我想这是公平的。
+###_NPC
+(She pinches your cheek and nods.)  Stand still little miss.  (She locks the pillory.)
+（她捏着你的脸颊点点头。）别动，小小姐。（她锁上了颈手枷。）
+(She easily blocks you.)  Stand still little miss.  (She locks the pillory.)
+（她轻而易举地挡住了你。）别动，小小姐。（她锁上了颈手枷。）
+###_PLAYER
+Do you really need to lock it?
+你真的要锁上它吗？
+###_NPC
+It's for your own good.  Now stand still.  (She locks the pillory.)
+这是为了你好。现在站着别动。（她锁上了颈手枷。）
+###_PLAYER
+This is cruel.
+这真残酷。
+###_NPC
+That was the easy part.  I have more articles from the good old days to demonstrate.  (She gets a leather crop.)
+这才是轻松的部分。我还有更多过去美好时光的实例要向你展示。（她拿来一根硬鞭。）
+###_PLAYER
+I hate the good old days.
+我讨厌过去的美好时光。
+###_NPC
+Too bad, I have more articles from the good old days to demonstrate.  (She gets a leather crop.)
+太糟糕了，我还有更多过去美好时光的实例要向你展示。（她拿来一根硬鞭。）
+###_PLAYER
+(Struggle and test the lock.)
+（挣扎并试试锁的结实程度。）
+###_NPC
+You're not getting out until I decide so.  I have more articles from the good old days to demonstrate.  (She gets a leather crop.)
+在我决定放走你之前，你都不能出去。我还有更多过去美好时光的实例要向你展示。（她拿来一根硬鞭。）
+###_PLAYER
+This is so humiliating Miss.
+这太羞人了，女士。
+Is it a real one?
+这是真的东西吗？
+###_NPC
+(She whips your butt swiftly.)  Does it feel real enough for you?
+（她迅速地抽打你的屁股。）它感觉够真吗？
+###_PLAYER
+Please don't hurt me Miss.
+请不要伤害我，女士。
+###_NPC
+(She whips your butt slowly.)  It's for your own good little Miss.
+（她慢慢地抽打你的屁股。）这是为了你好，小小姐。
+###_PLAYER
+You can't scare me!
+你吓不到我的！
+###_NPC
+(She whips your butt furiously.)  We'll see about that!
+（她猛烈地抽打你的屁股。）我们等着瞧吧！
+###_PLAYER
+I'll be good.  I promise.
+我会没事的。我保证。
+###_NPC
+Of course you will.  (She whips your butt carefully.)
+你当然会。（她小心地鞭打你的屁股。）
+###_PLAYER
+(Give her a defiant look.)
+（用挑衅的眼神看着她。）
+###_NPC
+(She whips your butt twice at the same spot.)
+（她鞭打你的屁股的同一个地方两次。）
+###_PLAYER
+(Jump from the pain.)
+（因为痛苦而跳起来。）
+###_NPC
+(She whips your butt at the same spot.)
+（她鞭打你的屁股的同一个地方。）
+###_PLAYER
+Fuck, it hurts!
+妈的，好痛！
+###_NPC
+(She swings the crop faster and harder.)  Your torment will bring you salvation.
+（她挥动硬鞭的速度越来越快。）你的折磨会给你带来救赎。
+###_PLAYER
+That's all that you've got?
+你就只能做到这了？
+(Bite your lips not to scream.)
+（咬住嘴唇不要尖叫。）
+###_NPC
+(She swings the crop once again.)  Your torment will bring you salvation.
+（她再次挥动硬鞭。）你的痛苦会给你带来救赎。
+###_PLAYER
+(Whimper and make pleading eyes.)
+（呜咽并做出恳求的眼神。）
+(Pretend it doesn't hurt.)
+（假装不疼。）
+###_NPC
+I will break you little miss.  (She whips your butt again.)
+我会弄坏你的，小小姐。（她又抽了一下你的屁股。）
+###_PLAYER
+I promise I won't come back here.
+我保证，我不会回到这里的。
+###_NPC
+And I will make sure you keep that promise.  (She whips your butt again.)
+我会确保你信守诺言。（她又抽了一下你的屁股。）
+Nobody will come.  (She whips your butt again.)
+没有人会来。（她又抽了一下你的屁股。）
+###_PLAYER
+Please stop!  I beg you.
+请停下！我求求你。
+###_NPC
+Promise me you'll respect the teacher's jurisdiction and I'll stop.  (She whips you again.)
+答应我，你会尊重老师的管辖权，然后我会停下来。（她又抽了一下你的屁股。）
+###_PLAYER
+(Cringe your fists in anger.)
+（愤怒地握紧拳头。）
+(Try to look away.)
+（试着把目光移开。）
+Never!
+绝不！
+###_NPC
+(She whips you again.)  I will break you girl!  Promise or you will be in anguish for weeks.
+（她再次鞭打你。）我会弄坏你的，女孩！承诺，否则你将痛苦数周。
+(She whips you again.)  You know what to do.  Promise to respect the teachers from now on.
+（她再次鞭打你。）你知道该怎么做。承诺，从现在开始尊重老师。
+###_PLAYER
+I cannot promise that.
+我不会承诺这个。
+###_NPC
+(She whips you again.)  You can and you will make that oath.
+（她在鞭打你。）你可以，并且你会发誓。
+###_PLAYER
+I promise I will respect the teachers.
+我承诺我会尊重老师。
+###_NPC
+Fine, you've learned your lesson.  You seem to be a good student after all.
+很好，你已经吸取了教训。看来你终究是个好学生。
+And I will make sure you never forget that promise.
+我会确保你永远不会忘记那个承诺。
+###_PLAYER
+Thanks teacher Mildred.
+谢谢，Mildred老师。
+###_NPC
+I miss the days when we could punish students like that all the time.  The real discipline.  (She releases you.)
+我很怀念我们可以一直这样惩罚学生的日子。那是真正的训诫。（她放开了你。）
+###_PLAYER
+I try to be good.
+我会努力做好学生的。
+(Nod slowly.)
+（慢慢点头。）
+You can still give punishments.
+你仍然可以给予惩罚的。
+###_NPC
+I know, but I need something stronger.  I need to push the limits.
+我知道，但我需要更强的东西。我需要突破极限。
+###_PLAYER
+Discipline still exist nowadays.
+今天仍然有训诫的。
+Times are changing.
+时代变了。
+###_NPC
+Indeed.  Well that's enough little miss.  You must go now.
+的确。好吧，这已经足够了，小小姐。你现在得走了。
+###_PLAYER
+There's not much to do about that.
+对于这，确实没什么能做的。
+There's a place you could go.
+有一个地方可以去。
+###_NPC
+Disclose some more little miss.
+跟我讲讲，小小姐。
+###_PLAYER
+I know a spot for you.
+我知道一个适合你的地方。
+That's only a dream.
+那只是一个梦。
+There's a BDSM club downtown.
+市中心有一家BDSM俱乐部。
+###_NPC
+I'm genuinely interested.  Can you give me the address?
+我真的很感兴趣。能给我地址吗？
+###_PLAYER
+There's a club for those who enjoy discipline.
+有一个俱乐部适合那些喜欢训诫的人。
+I'll do better.  I'll show you the place.
+我会做得更好的。我带你看看那个地方。
+###_NPC
+You're a sweet little lady.  Very well, let's go then.  I'll finish grading these exams later.
+你真是个可爱的小女孩。很好，那我们走吧。我稍后再完成这些考试的评分。
+###_PLAYER
+Here it is.  (Give her the club address.)
+给你。（给她俱乐部地址。）
+###_NPC
+Thanks little miss.  I might visit the place someday.  Now you need to go.
+谢谢，小小姐。有一天我可能会去参观这个地方。现在你得走了。
+###_PLAYER
+I'll give it next time we meet.
+下次见面的时候，我会给你的。
+###_NPC
+Very well little miss.  Now you need to go.
+很好，小小姐。现在你得走了。
+###_PLAYER
+(Invite her to your private room.)
+（邀请她到你的私人房间。）
+###_NPC
+That's enough little miss.  You must go now.
+这已经足够了，小小姐。你现在必须走了。
+###_PLAYER
+Can I stay a little longer?
+我可以多呆一会儿吗？
+###_NPC
+No.  I have many exams to grade.  You need to go now.  (She points at the door.)
+不，我有很多考试要评分。你现在得走了。（她指着门口。）
+###_PLAYER
+Thanks for the lesson.  (Leave her.)
+谢谢你的课。（离开她。）
+I'll never come back.  (Leave her.)
+我永远不会回来了。（离开她。）
+(Leave her.)
+（离开她。）
+###_NPC
+Get out before I call security.
+在我给保安打电话之前，出去。
+###_PLAYER
+What do you mean?
+你这是什​​么意思？
+###_NPC
+It means we are going to take a little walk around school.
+这意味着我们要在学校周围散散步。
+###_PLAYER
+Isn't that enough?
+这还不够吗？
+###_NPC
+No.  We are going to take a little walk around school.
+不，我们要在学校周围散散步。
+We are going to take a little walk around school.
+我们要在学校周围散散步。
+It means we are going to take a little walk around school.  And you will be muzzled like a bitch.
+这意味着我们要在学校周围散散步。你会像婊子一样被封住嘴。
+No.  We are going to take a little walk around school.  And you will be muzzled like a bitch.
+不，我们要在学校周围散散步。你会像婊子一样被封住嘴。
+We are going to take a little walk around school.  And you will be muzzled like a bitch.
+我们要在学校周围散散步。你会像婊子一样被封住嘴。
+###_PLAYER
+Muzzled?  Are you crazy?
+封住嘴？你疯了吗？
+###_NPC
+(She straps a muzzle gag on your head and smirks.)  You will never forget this humiliation little bitch.
+（她在你的头上绑上捂嘴口塞，并得意地笑起来。）你永远不会忘记这个屈辱的，小婊子。
+###_PLAYER
+This is inhumane!
+这是不人道！
+Yes, teacher Mildred.
+是的，Mildred老师。
+Please don't be too harsh.
+请不要对我太严厉了。
+###_NPC
+Come, let's parade around the college.  (She whips you and takes you outside, so everyone can see you.)
+来吧，让我们在学院周围走一走。（她鞭打你，把你带到外面，这样每个人都能看到你。）
+###_PLAYER
+I will get you for that.
+我会报复你的。
+(Try to struggle out.)
+（努力挣扎。）
+(Bow your head.)
+（低头。）
+Hello everyone!
+大家好！
+###_NPC
+Yes, hello everyone, come see our model student.  (She pushes you to the college theater stage.)
+是的，大家好，来看看我们的模范生。（她把你推到大学剧院的舞台上。）
+###_PLAYER
+This is so embarrassing.
+这太羞人了。
+###_NPC
+And this is far from over.  (She pushes you to the college theater stage.)
+离结束还早得很呢。（她把你推到大学剧院的舞台上。）
+###_PLAYER
+(Try to kick her.)
+（试着踢她。）
+###_NPC
+I can also restrain your legs you know.  (She pushes you to the college theater stage.)
+你知道的，我也可以绑住你的腿。（她把你推到大学剧院的舞台上。）
+###_PLAYER
+(Blush red.)
+（脸红起来。）
+###_NPC
+It's only the beginning.  (She pushes you to the college theater stage.)
+这才刚刚开始。（她把你推到大学剧院的舞台上。）
+###_PLAYER
+You're a comedian?
+你是喜剧演员？
+###_NPC
+(She stays silent and whips you again.  Making you walk to the cafeteria where everyone stares at you.)
+（她保持沉默，再次鞭打你。让你走进餐厅，使所有人都能看着你。）
+###_PLAYER
+To be or not to be!
+生存还是毁灭！
+(Grumble.)
+（嘟哝。）
+How can the college allow this?
+这大学怎么会允许这种事？
+###_NPC
+It's a wonderful establishment isn't it?  (She guides you to a class.  To humiliate you in front of the students.)
+这是个很棒的地方，不是吗？（她带你去上课。在学生面前羞辱你。）
+###_PLAYER
+You're enjoying this?
+你享受这个吗？
+###_NPC
+(She smirks and guides you to a class.  To humiliate you in front of the students.)
+（她得意地笑，并着带你去上课。在学生面前羞辱你。）
+###_PLAYER
+(Turn your head.)
+（转过头。）
+###_NPC
+It's time to see your friends.  (She guides you to a class.  To humiliate you in front of the students.)
+是时候见见你的朋友了。（她带你去上课。在学生面前羞辱你。）
+###_PLAYER
+(Take loud breathes.)
+（大声地呼吸。）
+That's enough!
+够了！
+###_NPC
+Almost.  (She takes you back to the entrance for one last tour outside.)
+快了。（她带你回到大学入口，最后一次进行户外的游历。）
+###_PLAYER
+Alright Miss.  I get the lesson.
+好的女士，我学到教训了。
+###_NPC
+Very good.  (She takes you back to the entrance for one last tour outside.)
+很好。（她带你回到大学入口，最后一次进行户外的游历。）
+###_PLAYER
+(Try to break away.)
+（试着挣脱。）
+###_NPC
+Don't make me laugh.  (She takes you back to the entrance for one last tour outside.)
+别逗我笑。（她带你回到大学入口，最后一次进行户外的游历。）
+We are almost done.  (She takes you back to the entrance for one last tour outside.)
+我们快完事了。（她带你回到大学入口，最后一次进行户外的游历。）
+###_PLAYER
+This is horrible.
+这太可怕了。
+###_NPC
+It's over little miss, let's go back.  (She whips you one last time as you both get back to the lounge.)
+结束了，小小姐，我们回去吧。（你们俩回到休息室，她最后一次鞭打你。）
+###_PLAYER
+Can we go in now?
+我们现在可以进去吗？
+(Roll your eyes up.)
+（翻白眼。）
+That was humiliating.
+这真是太屈辱了。
+###_NPC
+That's the point.  From now on, will you be a good student?
+这才是重点。从今以后，你会做一个好学生吗？
+###_PLAYER
+Finally!  We're back.
+终于！我们回来了。
+###_NPC
+That was a nice walk.  From now on, will you be a good student?
+刚才这次散步还不错。从今以后，你会做一个好学生吗？
+###_PLAYER
+You're a cruel teacher.
+你是个残忍的老师。
+###_NPC
+Cruel for your own good.  From now on, will you be a good student?
+残忍是为了你好。从今以后，你会做一个好学生吗？
+###_PLAYER
+(Sigh loudly.)
+（大声叹气。）
+###_NPC
+From now on, will you be a good student?
+从今以后，你会做一个好学生吗？
+###_PLAYER
+Yes Miss.
+是的，女士。
+###_NPC
+Good girl.  (She releases you.)  Now get out before I call security.
+乖女孩。（她放开了你。）现在，在我给保安打电话之前，出去。
+###_PLAYER
+Forget it.
+算了吧。
+###_NPC
+Stay like that and get lost then.  Get out before I call security.
+那就保持这样，然后走吧。在我给保安打电话之前，出去。
+###_PLAYER
+(Nod yes.)
+（点头，表示同意。）
+(Shake your head no.)
+（摇头，表示拒绝。）
+I'll have my revenge someday.  (Leave her.)
+总有一天我会报仇的。（离开她。）

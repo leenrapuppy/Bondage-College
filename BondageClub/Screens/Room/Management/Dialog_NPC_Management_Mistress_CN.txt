@@ -372,7 +372,7 @@ She's enjoying herself?
 她开心吗？
 ###_NPC
 Absolutely, she's my submissive and she's a bondage slut.
-当然，她是我的服从者，她非常喜欢被绑起来。
+当然，她是我的sub，她非常喜欢被绑起来。
 ###_PLAYER
 Can I play with her?
 我可以玩弄她吗？
@@ -943,7 +943,7 @@ Let me think some more.
 What are club slaves?
 什么是俱乐部奴隶？
 ###_NPC
-Submissive girls can take slavery contracts with the club and get paid for it.  They become preys for anyone to play with while under that contract.
+Submissive girls can take slavery contracts with the club and get paid for it.  They become prey for anyone to play with while under that contract.
 顺从的女孩可以与俱乐部签订奴隶合约并获得报酬。在该合约生效时，他们会成为所有人可以玩弄的的猎物。
 ###_PLAYER
 What are the slave contract terms?

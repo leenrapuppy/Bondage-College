@@ -314,6 +314,18 @@ Crotch Plate
 胯部挡板
 Rivets
 铆钉
+Engraving
+刻字
+Crotch Shield
+胯部护盾
+Positive Wire
+阳极线
+Negative Wire
+阴极线
+Metal
+金属
+Clamps
+夹子
 Left Vibe Egg
 左侧跳弹
 Right Vibe Egg
@@ -324,8 +336,6 @@ Right Tape Strip
 右侧胶带
 Frame
 框架
-Clamps
-夹子
 Piercings
 穿刺
 Weights
@@ -348,8 +358,6 @@ Bars
 杆子
 Wood
 木质
-Metal
-金属
 Buckles
 搭扣
 Ropes
@@ -404,6 +412,18 @@ Post
 柱子
 Baseplate
 底板
+Pole
+杆子
+Plaque
+标牌
+PlaqueBorder
+标牌边框
+Postit
+便条纸
+Sticker
+贴纸
+PlaqueBolts
+标牌螺栓
 Harness
 束带
 Stripes
@@ -474,8 +494,6 @@ Caps
 盖子
 Plastic
 塑料
-Pole
-杆子
 Net
 网子
 Arms
@@ -544,6 +562,10 @@ Gag
 口塞
 Drawings
 图画
+Lenses
+镜片
+Plug
+塞子
 Boots
 靴子
 Heels
@@ -604,8 +626,6 @@ Highlights
 高光
 Cage
 笼子
-Plug
-塞子
 Lines
 线条
 Plume
@@ -704,6 +724,10 @@ Right Lens
 右镜片
 HUD
 显示器
+Thread Right
+右侧线条
+Thread Left
+左侧线条
 Ears
 耳朵
 Right Eye
@@ -730,5 +754,3 @@ Veins
 脉络
 Shade
 阴影
-Lenses
-镜片

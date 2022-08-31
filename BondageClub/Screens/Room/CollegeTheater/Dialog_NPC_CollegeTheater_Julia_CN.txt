@@ -1,0 +1,684 @@
+###_NPC
+Pupil!  This is not a silent play.  (She laughs.)
+学徒！这不是一场无声的戏。（她笑了。）
+(A large woman greets you warmly.)  Oooooh!  Are you here to audition for the next play?
+（一个高大的女人热情地向你打招呼。）噢噢噢！你是来试镜下一部戏的吗？
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm Julia!  An art teacher is this wonderful institution.  I'm pleased to meet you pupil.
+我是Julia！是这个美妙的机构里的一位艺术老师。很高兴认识你，学徒。
+###_PLAYER
+It's nice to see you again Julia.
+很高兴再次见到你，朱莉娅。
+###_NPC
+(She gives you a warm hug.)  It's grande to see you again young pupil!
+（她给了你一个温暖的拥抱。）很高兴再次见到你，年轻的学徒！
+###_PLAYER
+Theater is for losers.
+剧院是为失败者准备的。
+###_NPC
+No, no, no, no.  Teatro is one of the oldest and greatest form or art, it transcends time and your soul.
+不不不不。剧院是最古老、最伟大的形式或艺术之一，它超越了时间和你的灵魂。
+###_PLAYER
+I'm not a great actor.
+我不是一个伟大的演员。
+###_NPC
+Practice makes perfect!  Teatro is one of the oldest and greatest form or art, it transcends time and your soul.
+熟能生巧！剧院是最古老、最伟大的形式或艺术之一，它超越了时间和你的灵魂。
+###_PLAYER
+I would love to audition.
+我很想试演一下。
+###_NPC
+Magnifico!  Teatro is one of the oldest and greatest form or art, it transcends time and your soul.
+精彩绝伦！剧院是最古老、最伟大的形式或艺术之一，它超越了时间和你的灵魂。
+###_PLAYER
+Not now, maybe later.  (Leave her.)
+现在不行，也许以后吧。（离开她。）
+###_NPC
+Young pupil!  Are you ready to try for the play?
+年轻的学徒！你准备好试试这部戏了吗？
+###_PLAYER
+I'm ready for teatro!
+我准备好去剧院了！
+###_NPC
+Si, si , si, si!  Amaze me with your flame and presence.  And improvise!
+咻咻咻咻咻！用你的火焰和存在感让我惊讶吧。即兴发挥吧！
+###_PLAYER
+Can I audition now?
+我现在可以试演了吗？
+###_NPC
+Si, si!  Amaze me with your flame and presence.  And improvise!
+咻咻！用你的火焰和存在感让我惊讶吧。即兴发挥吧！
+###_PLAYER
+You do the audition?
+你在做试演？
+###_NPC
+Si!  Amaze me with your flame and presence.  And improvise!
+咻！用你的火焰和存在感让我惊讶吧。即兴发挥吧！
+###_PLAYER
+Give me a minute please.  (Leave her.)
+请给我一分钟。（离开她。）
+I don't know what to do.
+我不知道该做什么。
+###_NPC
+(She analyzes you and smiles.)  You will play the sinister old witch, who desire the beauty of the fragile young maiden.
+（她分析了一下你，然后微笑起来。）你将扮演一个邪恶的老巫婆，她渴望脆弱的年轻少女的美丽。
+###_PLAYER
+Ignite me teacher!
+点燃我吧，老师！
+What's my role?
+我的角色是什么？
+###_NPC
+(She analyzes you and smiles.)  You will play the fragile young maiden, who must convince the old witch to keep her beauty.
+（她分析了一下你，然后微笑起来。）你将扮演娇弱的年轻少女，她必须说服老巫婆，以留住她的美丽。
+(She seems undecided.)  Would you prefer to play the fragile young maiden or the sinister old witch who craves her beauty?
+（她似乎犹豫不决。）你更喜欢扮演娇弱的年轻少女还是渴望少女的美丽的邪恶的老巫婆？
+###_PLAYER
+The sinister old witch.
+邪恶的老巫婆。
+###_NPC
+(She smiles.)  Si!  You will play the sinister old witch, who desire the beauty of the fragile young maiden.
+（她微笑。）咻！你将扮演邪恶的老巫婆，她渴望娇弱的年轻少女的美丽。
+###_PLAYER
+The fragile young maiden.
+娇弱的年轻少女。
+###_NPC
+(She smiles.)  Si!  You will play the fragile young maiden, who must convince the old witch to keep her beauty.
+（她微笑。）咻！你将扮演娇弱的年轻少女，她必须说服老巫婆，以留住她的美丽。
+###_PLAYER
+I'm ready for it!
+我准备好了！
+###_NPC
+(She smiles as you both dress up.)  As the old witch, you can use magic powers on me the maiden.  Be creative!
+（你们两人穿衣打扮，她微笑着。）作为老巫婆，你可以对我这个少女使用魔法。要有创意！
+###_PLAYER
+Alright.  Let's try that.
+好吧。让我们试试看。
+###_NPC
+(She nods as you both dress up.)  As the old witch, you can use magic powers on me the maiden.  Be creative!
+（她点点头，你们都穿好衣服。）作为老巫婆，你可以对我这个少女使用魔法。要有创意！
+###_PLAYER
+You should be the ugly witch.
+你来做那个丑巫婆吧。
+###_NPC
+(She frowns as you both dress up.)  As the old witch, you can use magic powers on me the maiden.  Be creative!
+（你们两人穿衣打扮，她皱着眉头。）作为老巫婆，你可以对我这个少女使用魔法。要有创意！
+###_PLAYER
+(Stay silent.)
+（保持沉默。）
+###_NPC
+(She sighs as you both dress up.)  As the old witch, you can use magic powers on me the maiden.  Be creative!
+（你们两人穿衣打扮，她叹了口气。）作为老巫婆，你可以对我这个少女使用魔法。要有创意！
+###_PLAYER
+(Freeze and stay silent.)
+（纹丝不动并保持沉默。）
+###_NPC
+(She whispers to be more creative and starts to act.)  A pleasant evening milady.  What brings you to my lonely cottage?
+（她低声说要更有创意，并开始表演。）真是一个愉快的夜晚，夫人。是什么把你带到我孤独的小屋？
+###_PLAYER
+Good evening fair maiden.
+晚上好，美丽的少女。
+###_NPC
+(She seems impressed and starts to act.)  A pleasant evening milady.  What brings you to my lonely cottage?
+（她似乎很感动，开始行动。）真是一个愉快的夜晚，夫人。是什么把你带到我孤独的小屋？
+###_PLAYER
+Well...  Hello maiden.
+嗯……你好，少女。
+###_NPC
+(She nods and starts to act.)  A pleasant evening milady.  What brings you to my lonely cottage?
+（她点点头，开始行动。）真是一个愉快的夜晚，夫人。是什么把你带到我孤独的小屋？
+###_PLAYER
+I've been stalking you.
+我一直在跟踪你。
+###_NPC
+Oh!  You were the shadow in my window.  Why are you following me?
+哦！你是我窗外那闪烁的人影。你为什么跟着我？
+###_PLAYER
+I don't know.
+我不知道。
+###_NPC
+(She frowns and continues.)  I've seen your shadow in my window, were you spying on me?
+（她皱着眉头继续说。）我在我的窗户里看到了你闪烁的身影，你在监视我吗？
+###_PLAYER
+I've had a vision of you.
+我见过你的样貌。
+###_NPC
+(She smiles and continues.)  A vision you say...  You've been watching me?
+（她微笑着继续说。）你说见过……你一直在看着我？
+###_PLAYER
+I think I'm lost.
+我想我迷路了。
+###_NPC
+Lost you say?  I've seen your shadow in my window, were you spying on me?
+你说迷路了？我在我的窗户里看到了你闪烁的身影，你在监视我吗？
+###_PLAYER
+I'm admiring your youth and vitality.
+我很羡慕你的青春和活力。
+###_NPC
+My youth?  Well I thank you deeply, but I have no merit on that matter.
+我的青春？好吧，我深深地感谢你，但我在这件事上并不值得赞扬。
+###_PLAYER
+You're cute girl.
+你是个可爱的女孩。
+###_NPC
+Thanks, but I was made like that, I have no merit.
+谢谢，但我并非刻意如此，我并不值得赞扬。
+###_PLAYER
+Do you know that you're beautiful?
+你知道你很漂亮吗？
+###_NPC
+Well I thank you, but I was made like that, I have no merit.
+好吧，我很感谢你，但我并非刻意如此，我并不值得赞扬。
+###_PLAYER
+I want your beauty.
+我想要你的美丽。
+###_NPC
+What do you mean milady?  I'm afraid I don't understand what you require from me.
+这是什么意思，夫人？我觉得我不明白你想要我做什么。
+###_PLAYER
+I want your youth.
+我要你的青春。
+I want you.
+我要你。
+I desire what I have lost.
+我渴望我失去的东西。
+Magic!  Remove thy clothes!
+魔法！脱掉你的衣服！
+###_NPC
+(She swiftly gets into her underwear.)  Gosh!  Where is my dress?  Was that a curse?
+（她迅速脱到只剩内衣。）天哪！我的裙子呢？那是诅咒吗？
+###_PLAYER
+(Whisper to her that you do a spell to remove her clothes.)
+（对她耳语，说你施放了一个咒语，来脱掉她的衣服。）
+###_NPC
+(She reluctantly gets into her underwear.)  Gosh!  Where is my dress?  Was that a curse?
+（她不情愿地脱到只剩内衣。）天哪！我的裙子呢？那是诅咒吗？
+###_PLAYER
+Magic!  Make her naked!
+魔法！让她赤身裸体！
+###_NPC
+(She swiftly gets naked.)  Gosh!  Where are my clothes?  Was that a curse?
+（她很快就脱光了衣服。）天哪！我的衣服呢？那是诅咒吗？
+###_PLAYER
+(Whisper to her that you do a spell to fully strip her.)
+（对她耳语，说你施了一个咒语，来脱光她的衣服。）
+###_NPC
+(She reluctantly gets naked.)  Gosh!  Where are my clothes?  Was that a curse?
+（她不情愿地脱光衣服。）天哪！我的衣服呢？那是诅咒吗？
+###_PLAYER
+Magic!  Remove thy dress!
+魔法！脱掉你的衣服！
+###_NPC
+(She sighs and stops the play.)  I'm sorry little pupil, this is not working.  You don't have what it takes to be in the play.
+（她叹了口气，停下了这场戏。）对不起，学徒，这行不通。你没有参加这场戏所需要的东西。
+###_PLAYER
+(Whisper to her that you do a spell to remove her dress.)
+（对她耳语，说你施放了一个咒语，来脱掉她的连衣裙。）
+Uh?  What do I do now?
+呃？现在我该怎么做？
+Shut up!
+住口！
+###_NPC
+(She gives you a suspicious look.)  Lady, I beg and implore you not to hurt me.
+（她用怀疑的眼光看着你。）女士，我求求你不要伤害我。
+###_PLAYER
+This is black magic!
+这是黑魔法！
+###_NPC
+(She gives you a scared look.)  Lady, I beg and implore you not to hurt me.
+（她惊恐地看了你一眼。） 女士，我求求你不要伤害我。
+###_PLAYER
+Yes, you are cursed young one.
+是的，你被诅咒了，年轻人。
+###_NPC
+(She gives you an intimidated look.)  Lady, I beg and implore you not to hurt me.
+（她朝你露出惊恐的眼神。）女士，我求求你不要伤害我。
+###_PLAYER
+(Masturbate her.)
+（用手抚慰她。）
+###_NPC
+(She pushes you away and stops the play.)  Pupil!  What are you doing?  I'm sorry, you cannot be in the play.
+（她把你推开并停下了这场戏。）学徒！你在做什么？对不起，你不能参加这场戏。
+###_PLAYER
+Maiden, thy youth will be mine.
+少女，你的青春将属于我。
+###_NPC
+You cannot steal my youth!  Return to your cauldron old witch!
+你不能偷走我的青春！回你的大锅去吧，老巫婆！
+###_PLAYER
+Gimme your look.
+把你的模样给我吧。
+###_NPC
+You cannot steal my look!  Return to your cauldron old witch!
+你不能偷走我的样子！回你的大锅去吧，老巫婆！
+###_PLAYER
+I will steal your beauty.
+我会偷走你的美丽。
+###_NPC
+You cannot steal my beauty!  Return to your cauldron old witch!
+你不能偷走我的美丽！回你的大锅去吧，老巫婆！
+###_PLAYER
+On your knees, girl.
+跪下，女孩。
+###_NPC
+Never!  (She starts to run around you, pretending to run away.)
+绝不！（她开始绕着你跑，假装逃跑。）
+###_PLAYER
+Bow to my magic.
+臣服于我的魔法吧。
+Surrender or feel my wrath.
+投降吧，否则你就要感受我的愤怒。
+(Whisper to her that you do a rope spell.)
+（对她耳语，说你施放了一个绳子咒语。）
+###_NPC
+(You pick some random theater ropes and tie her up, pretending it's magic.)  By golly!  Your wickedness knows no end!
+（你随便挑了一些剧院的绳子把她绑起来，假装它是魔法。）天哪！你的罪恶无穷无尽！
+###_PLAYER
+Magika ropa!  (Pick some ropes and tie her up.)
+玛吉卡罗帕！（拿起一些绳子，把她绑起来。）
+(Point at some belts to notice her you're doing magic.)
+（指着一些皮带，提示她你在使用魔法。）
+###_NPC
+(You pick some random theater belts and strap her up, pretending it's magic.)  By golly!  Your wickedness knows no end!
+（你随便挑了几条剧院的皮带，把她绑起来，假装这是魔法。）天哪！你的罪恶无穷无尽！
+###_PLAYER
+Beltus magicus!  (Pick some belts and tie her up.)
+贝鲁图斯玛吉卡斯！（挑几条皮带把她绑起来。）
+Magika ropa!  (Pick a rope and tie her up.)
+玛吉卡罗帕！（拿起一根绳子，把她绑起来。）
+I'm out of ideas Julia.
+我没有想法，Julia。
+Struggle for me fair maiden.
+为我而挣扎吧，美丽的少女。
+###_NPC
+(She struggles playfully to get free.)  Sorceress!  You will not get away with that!
+（她顽皮地挣扎着，想挣脱出来。）女巫！你逃不掉的！
+###_PLAYER
+Savor thy beauty and youth one last time.
+最后一次，享受你的美丽和青春吧。
+###_NPC
+(She struggles with fervor to get free.)  Sorceress!  You will not get away with that!
+（她奋力挣脱。）女巫！你逃不掉的！
+###_PLAYER
+You're fucked girl.
+你完蛋了，女孩。
+###_NPC
+(She barely struggles to get free.)  Sorceress!  You will not get away with that!
+（她勉强挣脱出来。）女巫！你逃不掉的！
+###_PLAYER
+Feel the power of my magic.
+感受我魔法的力量吧。
+(Cover her eyes with your hand.)
+（用手遮住她的眼睛。）
+###_NPC
+(She tilts her head and still watches you.)  You fiend!  I will resist!  I will be strong!
+（她歪着头，仍然看着你。）你这个恶魔！我会反抗！我足够坚强！
+###_PLAYER
+Close your eyes and surrender.
+闭上眼睛，投降吧。
+###_NPC
+(She stares defiantly at you.)  You fiend!  I will resist!  I will be strong!
+（她挑衅地盯着你。）你这个恶魔！我会反抗！我足够坚强！
+###_PLAYER
+Shut your eyes and darkness will possess you.
+闭上你的眼睛，黑暗将占据你。
+Darkana!  (Dance and put a random blindfold on her.)
+达鲁卡娜！（跳起舞，并随便拿个眼罩蒙在她的眼睛上。）
+###_NPC
+(You pick a theater blindfold and put it on her while doing a magical dance.)  No!  I beg you!  Noooo!
+（你跳着魔法的舞蹈，拿起一个剧院的眼罩，给她戴上。）不！我求求你！不！
+###_PLAYER
+Darkana!  (Dance and blindfold her with a piece of cloth.)
+达鲁卡娜！（跳起舞，并用一块布蒙住她的眼睛。）
+###_NPC
+(You blindfold her with a piece of cloth while doing a magical dance.)  No!  I beg you!  Noooo!
+（你跳着魔法的舞蹈，并用一块布蒙住她的眼睛。）不！我求求你！不！
+###_PLAYER
+(Give her a French kiss.)
+（给她一个法式热吻。）
+###_NPC
+(She grumbles and stops the play.)  I'm sorry little pupil, this is not appropriated.  You don't have what it takes to be in the play.
+（她咕哝着，停下了这场戏。）对不起，学徒，这不合适。你没有参加比赛所需的一切。
+###_PLAYER
+(Blindfold her with a leather blindfold.)
+（用皮革眼罩蒙住她的眼睛。）
+###_NPC
+(You pick a theater blindfold and put it on her.)  No!  I beg you!
+（你拿起一个剧院眼罩，给她戴上。）不！我祈求你！
+###_PLAYER
+(Blindfold her with a piece of cloth.)
+（用一块布蒙住她的眼睛。）
+###_NPC
+(You blindfold her with a piece of cloth.)  No!  I beg you!
+（你用一块布蒙住她的眼睛。）不！我祈求你！
+###_PLAYER
+(Stop acting.)  And now what?
+（停止表演。）现在呢？
+###_NPC
+(She stops the play.)  Nice try little pupil.  But you're not exactly who I'm looking for.  It's time to release me.
+（她停下了这场戏。）不错的尝试，小学徒。但你并不是我要找的人。该放开我了。
+###_PLAYER
+Muahahaha!  (Dance and chant a youth ritual.)
+姆啊哈哈哈！（跳起舞，并吟唱起年轻的仪式。）
+###_NPC
+(She jumps on joy in her bondage.)  Bravo!  Magnifico!  You are a wonderful actress!
+（她在束缚里高兴得跳起来。）活灵活现！精彩绝伦！你是个完美的女演员！
+###_PLAYER
+(Check in her purse.)
+（检查她的钱包。）
+###_NPC
+(Since she's blindfolded, she cannot see you searching in her purse.  You find a teacher lounge key in it.)
+（因为她被蒙上眼睛，她看不到你在她的钱包里找东西。你在里面找到了一把教师休息室的钥匙。）
+(Since she's blindfolded, she cannot see you searching in her purse.  You don't find anything interesting in it.)
+（因为她被蒙上眼睛，她看不到你在她的钱包里找东西。你在里面没找到任何感兴趣的东西。）
+###_PLAYER
+Thanks a lot.
+非常感谢。
+###_NPC
+You get the role little pupil, you're excellent.  Where did you learn to act like that?
+你得到角色了，学徒，你很优秀。你从哪里学到这样表演的？
+###_PLAYER
+Do I get the role?
+我得到这个角色了吗？
+###_NPC
+Si!  You were excellent.  Where did you learn to act like that?
+咻！你太棒了。你从哪里学到这样表演的？
+###_PLAYER
+In a club downtown.
+在市中心的一个俱乐部。
+###_NPC
+A club where I could meet artists?  An acting club?  An impro club?
+可以结识艺术家的俱乐部？演艺社？一个即兴俱乐部？
+###_PLAYER
+I've had great teachers.
+我有很棒的老师。
+###_NPC
+I would love to meet them, are they in a school in town?  Or in a theater group?
+我很想见见他们，他们在城里的学校吗？还是在剧组？
+###_PLAYER
+That's my secret.
+这是我的秘密。
+###_NPC
+I respect that.  Check the school board, as soon as all the actors are found, we will start repeating.
+我尊重你。去找学校董事会吧，当我们找到所有演员，我们就会开始巡演了。
+###_PLAYER
+I could bring you there.
+我可以带你去那里。
+###_NPC
+I would love to go there.  But there's a small problem.  (She struggles in her bondage.)
+我很想去那里。但是有一个小问题。（她在束缚中挣扎。）
+Maybe another day.  For now, check the school board, as soon as all the actors are found, we will start repeating.
+也许改天吧。现在，去找学校董事会吧，当我们找到所有演员，我们就会开始巡演了。
+###_PLAYER
+I'll tell you more another time.
+下次我会告诉你更多。
+###_NPC
+Very well.  Check the school board, as soon as all the actors are found, we will start repeating.
+很好。去找学校董事会吧，当我们找到所有演员，我们就会开始巡演了。
+###_PLAYER
+That's not a problem.  I'll explain on the road.
+这不是问题。我会在路上解释。
+###_NPC
+If you say so.  Let's change and let's go young pupil.
+如果你这么说。那我们换好衣服就出发吧，年轻的学徒。
+###_PLAYER
+(Bring her to your room.)
+（把她带到你的房间。）
+###_NPC
+(She smiles as you both dress up.)  Beware of my magical powers and be creative!
+（你们穿衣打扮，她微笑着。）当心我的魔法，并发挥创造力！
+(She nods as you both dress up.)  Beware of my magical powers and be creative!
+（你们穿衣打扮，她点点头。）当心我的魔法，并发挥创造力！
+###_PLAYER
+You will be great as the fat witch.
+你会像肥胖女巫一样伟大。
+###_NPC
+(She frowns as you both dress up.)  Beware of my magical powers and be creative!
+（你们穿衣打扮，她皱起眉头。）当心我的魔力，并发挥创造力！
+(She sighs as you both dress up.)  Beware of my magical powers and be creative!
+（你们穿衣打扮，她叹了口气。）当心我的魔力，并发挥创造力！
+###_PLAYER
+What?  We start now?
+什么？我们现在开始了？
+###_NPC
+(She frowns and nods.)  Young maiden!  Are you alone in this cold night?
+（她皱起眉毛，并点点头）年轻的少女！在这个寒冷的夜晚，你一个人吗？
+###_PLAYER
+Hello old witch.
+你好，老巫婆。
+###_NPC
+Young maiden!  Are you alone in this cold night?
+年轻的少女！在这个寒冷的夜晚，你一个人吗？
+###_PLAYER
+What are you doing here milady?
+夫人，你在这里做什么？
+###_NPC
+(She smiles and catches on.)  Young maiden!  Are you alone in this cold night?
+（她微笑着，继续讲道。）年轻的少女！在这个寒冷的夜晚，你一个人吗？
+###_PLAYER
+My lovely husband will be coming back soon.
+我亲爱的丈夫很快就会回来。
+###_NPC
+Then I must hurry.  I've seen you in my dream's young lady.
+那我得快点了。我在梦中见过你，年轻的少女。
+(She sighs and continues.)  I've seen you in my dream's young lady.
+（她叹了口气，继续说。）我在梦中见过你，年轻的少女。
+###_PLAYER
+Yes.  Why do you ask?
+是的。你为什么要问？
+###_NPC
+No reasons.  I've seen you in my dream's young lady.
+没有理由。我在梦中见过你，年轻的少女。
+###_PLAYER
+Naughty dreams?  (Giggle.)
+春梦里吗？（咯咯地笑。）
+###_NPC
+In my dreams, your flesh was young, beautiful, perfect and desirable.
+在我的梦里，你的肉体年轻、美丽、完美、令人向往。
+###_PLAYER
+How is that possible?
+这怎么可能？
+Dream of something else.
+梦点别的东西吧。
+Dreams can deceive you milady.
+梦会欺骗你，夫人。
+My flesh isn't yours to desire.
+我的肉体不是你想要的。
+###_NPC
+(She smiles.)  It is.  Magic!  Unveil thy flesh!  (She does a magic incantation on you.)
+（她微笑起来。）是的。魔法！揭示汝身！（她对你施放了魔法咒语。）
+###_PLAYER
+You have wicked dreams.
+你的梦可真是古怪。
+###_NPC
+(She nods.)  Magic!  Unveil thy flesh!  (She does a magic incantation on you.)
+（她点头。）魔法！揭示汝身！（她对你施了魔法咒语。）
+###_PLAYER
+Are you flirting with me?
+你在和我调情吗？
+###_NPC
+(She grumbles and continues.)  Magic!  Unveil thy flesh!  (She does a magic incantation on you.)
+（她嘟囔起来，然后继续说。）魔法！揭示汝身！（她对你施了魔法咒语。）
+###_PLAYER
+Oh heavens!  (Act like magic is removing your dress.)
+天哪！（假装魔法脱掉了你的衣服。）
+###_NPC
+(She seems impressed by your courage.)  Magnifico!  Let me inspect your young and perfect body.
+（她似乎对你的勇气印象深刻。）精彩绝伦！让我来检查一下，你这年轻而完美的身体吧。
+###_PLAYER
+(Strip to your underwear.)
+（脱到只剩内衣。）
+###_NPC
+(She watches you strip.)  Magnifico!  Let me inspect your young and perfect body.
+（她看着你脱光衣服。）精彩绝伦！让我来检查一下，你这年轻而完美的身体吧。
+###_PLAYER
+Oh heavens!  (Act like magic is stripping you naked.)
+天哪！（像魔法一样剥光你的衣服。）
+(Strip naked.)
+（脱光衣服。）
+What happened to my clothes?
+我的衣服怎么了？
+###_NPC
+Your smile, your vitality, it shall be mine!
+你的笑容，你的活力，都是我的！
+###_PLAYER
+Gosh!  Did you curse me old lady?
+天哪！你对我下了诅咒吗，老女士？
+###_NPC
+(She seems impressed by your acting.)  Your smile, your vitality, it shall be mine!
+（她好像被你的演技打动了。）你的笑容，你的活力，都是我的！
+###_PLAYER
+Enjoy the show.
+享受这表演吧。
+###_NPC
+(She doesn't seem impressed by your acting.)  Your smile, your vitality, it shall be mine!
+（她好像对你的演技不以为然。）你的笑容，你的活力，都是我的！
+###_PLAYER
+Fuck off witch!
+滚开，女巫！
+You can't do that!
+你不能那样做！
+###_NPC
+Oh yes, little maiden.  You will come with me, and I shall steal thy youth.
+哦，是的，小姑娘。你会跟我走，我会偷走你的青春。
+###_PLAYER
+Old woman, maybe we can make a deal.
+老女人，也许我们可以做个交易。
+###_NPC
+No, precious little maiden.  You will come with me, and I shall steal thy youth.
+不，可爱的小姑娘。你会跟我来，我会偷走你的青春。
+###_PLAYER
+Mercy Milady!  I implore you!
+宽恕我吧，夫人！我恳求你！
+I shall never follow you!
+我永远不会跟你走！
+###_NPC
+Oh, but you shall!  I just need to prepare you for your long trip.  Alambra Magika!  (She chants a magic spell.)
+哦，但你会的！为你的长途旅行，我只差把你准备好啦。阿兰布拉玛吉卡！（她吟唱魔法咒语。）
+###_PLAYER
+I'm not moving from here witch.
+我不会离开这里的，女巫。
+Forget it lady.
+别想了，夫人。
+###_NPC
+(She frowns.)  A feisty one?  I just need to prepare you for your long trip.  Alambra Magika!  (She chants a magic spell.)
+（她皱起眉头。）一个会反抗的女孩？为你的长途旅行，我只差把你准备好啦。阿兰布拉玛吉卡！（她吟唱魔法咒语。）
+###_PLAYER
+(Lock some theater hand cuffs on yourself.)
+（给自己戴上一些剧院的手铐。）
+###_NPC
+(You pick some hand cuffs from the theater props and lock them on yourself.)  Muahahaha!  You are now my prisoner.
+（你从剧院的道具里挑了一些手铐，并把它们锁在自己身上。）姆啊哈哈哈哈！你现在是我的俘虏啦。
+###_PLAYER
+Sorcery!  (Act like magic is locking theater hand cuffs.)
+是巫术！（假装是魔法锁上了剧院的手铐。）
+(Lock some theater leg cuffs on yourself.)
+（将一些剧院的腿腿铐锁在自己身上。）
+###_NPC
+(You pick some leg cuffs from the theater props and lock them on yourself.)  Muahahaha!  You are now my prisoner.
+（你从剧院的道具里挑出一些腿铐，然后锁在自己身上。）姆啊哈哈哈哈！你现在是我的俘虏啦。
+###_PLAYER
+Sorcery!  (Act like magic is locking theater leg cuffs.)
+是巫术！（假装是魔法锁上了剧院的腿铐。）
+(Lock a theater ankle iron ball on yourself.)
+（将一个剧院的脚踝铁球锁在自己身上。）
+###_NPC
+(You pick an iron ball from the theater props and lock it on yourself.)  Muahahaha!  You are now my prisoner.
+（你从剧院的道具里挑出一个铁球，并把它锁在自己身上。）姆啊哈哈哈哈！你现在是我的俘虏啦。
+###_PLAYER
+Sorcery!  (Act like magic is locking an ankle iron ball.)
+是巫术！（假装是魔法锁上了剧院的脚踝铁球。）
+I'm confused.  What are you doing?
+我很困惑。你在做什么？
+(Struggle a little.)
+（稍微挣扎。）
+###_NPC
+Do not resist.  I will carry you to my lair in the woods.  To drain your precious youth.
+不要抵抗。我会把你带到我在树林里的巢穴。吸干你宝贵的青春。
+###_PLAYER
+(Struggle like a mad woman.)
+（像发疯的女人一样挣扎。）
+(Don't struggle.)
+（不挣扎。）
+Good luck with that.
+祝你好运。
+###_NPC
+(She frowns.)  I don't need chance.  I need magic to turn you into a fairy.  Magika faeria!  (She chants a spell to turn you into a fairy.)
+（她皱起眉猫。）我不会赌运气的。我会用魔法把你变成小仙子。玛吉卡法尔利亚！（她吟唱咒语把你变成小仙子。）
+###_PLAYER
+And how will you transport me?
+那你怎么运走我呢？
+###_NPC
+That's easy, I'll use magic to turn you into a fairy.  Magika faeria!  (She chants a spell to turn you into a fairy.)
+很简单，我会用魔法把你变成小仙子。玛吉卡法尔利亚！（她吟唱咒语把你变成小仙子。）
+###_PLAYER
+The guards will arrest you.
+警卫会逮捕你的。
+###_NPC
+If only they could see you, I'll use magic to turn you into a fairy.  Magika faeria!  (She chants a spell to turn you into a fairy.)
+他们首先要能看到你，我会用魔法把你变成小仙子。玛吉卡法尔利亚！（她吟唱咒语把你变成小仙子。）
+###_PLAYER
+Nooooo!  (Act like you're being changed into a fairy.)
+不！（假装你正在变成一个小仙子。）
+###_NPC
+(She smiles and straps some wings on your back.)  How do you like your new form mini maiden?
+（她微笑着在你背上系上一些翅膀。）喜欢你的新形态吗，迷你的少女？
+###_PLAYER
+(Pretend that you're being changed into a fairy.)
+（假装你正在变成一个小仙子。）
+###_NPC
+(She straps some wings on your back.)  How do you like your new form mini maiden?
+（她在你背上系上一些翅膀。）喜欢你的新形态吗，迷你的少女？
+###_PLAYER
+(Wait for her next line.)
+（等她的下一句。）
+###_NPC
+(She frowns and straps some wings on your back.)  How do you like your new form mini maiden?
+（她皱着眉头，在你背上系上一些翅膀。）喜欢你的新形态吗，迷你的少女？
+(She stops the play.)  Nice try little pupil.  But you're not exactly who I'm looking for.  I will release you.
+（她停下了这场戏。）不错的尝试，小学徒。但你并不是我要找的人。我会解开你。
+###_PLAYER
+Oh tragedy!  I'm doomed!
+哦，何等的悲剧！我完蛋了！
+###_NPC
+(She jumps on joy.)  Bravo!  Magnifico!  You are a wonderful actress!
+（她高兴得跳起来。）活灵活现！精彩绝伦！你是个完美的女演员！
+###_PLAYER
+I love that I can fly.  (Pretend to fly away.)
+我很喜欢会飞的感觉。（假装要飞走。）
+You're stopping the audition?
+你要停止试演？
+###_NPC
+(She nods as you both dress up.)  You don't have what it takes for the role.  You can try again on the next play.
+（你们穿回衣服，她点点头。）你不具备这个角色所需的东西。你可以在下一场戏中再试一次。
+###_PLAYER
+Can you give me another chance?
+你能再给我一次机会吗？
+###_NPC
+(She shakes her head as you both dress up.)  I'm sorry, it wouldn't be fair to the other students.  Everyone gets one try.
+（你们穿回衣服，她摇摇头。）对不起，这对其他学生不公平。每个人可以尝试一次。
+I would love to go there with you, but you cannot out like that.
+我很想和你一起去那里，但你不能那样出去。
+Sorry little pupil, I cannot give you the role.  You can try again on the next play.
+对不起，小学徒，我不能给你这个角色。你可以在下一场戏中再试一次。
+###_PLAYER
+Alright, take care.  (Leave her.)
+好吧，保重。（离开她。）
+Fine, get lost.  (Leave her.)
+好吧，你走吧。（离开她。）
+Great!  See you soon.
+太棒了！回头见。
+###_NPC
+(You both dress up as she smiles.)  You have lots of potential, see you soon little pupil.
+（当她微笑时，你们都打扮起来。）你很有潜力，回头见，小学徒。
+###_PLAYER
+I'll do that.
+我会去做的。
+###_NPC
+See you soon little pupil.  If you see the next student, you can tell her to come in.
+回头见，小学徒。如果你看到下一个学生，你可以告诉她进来。
+###_PLAYER
+See you soon.  (Leave her.)
+再见。（离开她。）

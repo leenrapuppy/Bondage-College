@@ -451,8 +451,7 @@ Gloves,CowPrintedGloves,Cow Printed Gloves
 Gloves,LatexElbowGloves,Latex Elbow Gloves
 Gloves,FishnetGloves, Fishnet Gloves
 Gloves,HaremGlove,Harem Gloves
-LeftHand,,Left Hand
-LeftHand,Rings,Rings
+Gloves,BikerGloves,Biker Gloves
 Bracelet,,Bracelet
 Bracelet,BowBand,Bow Band
 Bracelet,KinkBracelet, Kinky Band
@@ -791,7 +790,6 @@ ItemVulva,Stitches,Stitches
 ItemVulvaPiercings,,Clitoris
 ItemVulvaPiercings,StraightClitPiercing,Straight Clitoris Piercing
 ItemVulvaPiercings,RoundClitPiercing,Round Clitoris Piercing
-ItemVulvaPiercings,WeightedClitPiercing,Weighted Clitoris Piercing
 ItemVulvaPiercings,BarbellClitPiercing,Barbell Clitoris Piercing
 ItemVulvaPiercings,ChastityClitPiercing,Chastity Vulva Piercings
 ItemVulvaPiercings,ChastityClitShield,Chastity Vulva Shield
@@ -799,7 +797,6 @@ ItemVulvaPiercings,HighSecurityVulvaShield,High Security Vulva Shield
 ItemVulvaPiercings,JewelClitPiercing,Jewel Clitoris Piercing
 ItemVulvaPiercings,AdornedClitPiercing,Adorned Clitoris Piercing
 ItemVulvaPiercings,VibeHeartClitPiercing,Vibrating Heart Clitoris Piercing
-ItemVulvaPiercings,BellClitPiercing,Bell Clitoris Piercing
 ItemVulvaPiercings,TapedClitEgg,Taped Vibrating Egg
 ItemVulvaPiercings,ClitRing,Clitoris Ring
 ItemButt,,Butt
@@ -842,6 +839,7 @@ ItemButt,Cowtail,Cow Tail
 ItemButt,HollowButtPlug,Hollow Butt Plug
 ItemButt,LockingVibePlug,Locking Vibrating Butt Plug
 ItemButt,Tentacles,Tentacles
+ItemButt,Stitches,Stitches
 ItemPelvis,,Pelvis
 ItemPelvis,StraponPanties,Strap-On Panties
 ItemPelvis,LeatherChastityBelt,Leather Chastity Belt
@@ -866,6 +864,7 @@ ItemPelvis,SilkStraps,Silk Straps
 ItemPelvis,BulkyDiaper,Bulky Chastity Diaper
 ItemPelvis,PoofyDiaper,Poofy Chastity Diaper
 ItemPelvis,HybridChastityBelt,Hybrid Chastity Belt
+ItemPelvis,ObedienceBelt,Obedience Belt
 ItemTorso,,Torso
 ItemTorso,NylonRopeHarness,Nylon Rope
 ItemTorso,HempRopeHarness,Hemp Rope
@@ -1219,6 +1218,7 @@ ItemMouth,SockStuffing,Sock Stuffing
 ItemMouth,GasMaskGag,Respirator Mask
 ItemMouth,WebGag,Web Gag
 ItemMouth,RopeGag,Rope Gag
+ItemMouth,RopeBallGag,Rope Ball Gag
 ItemMouth,MilkBottle,Milk Bottle
 ItemMouth,MedicalMask,Medical Mask
 ItemMouth,RegressedMilk,Nursery Milk
@@ -1280,6 +1280,7 @@ ItemMouth2,LatexBallMuzzleGag,Latex Ball Muzzle Gag
 ItemMouth2,GasMaskGag,Respirator Mask
 ItemMouth2,WebGag,Web Gag
 ItemMouth2,RopeGag,Rope Gag
+ItemMouth2,RopeBallGag,Rope Ball Gag
 ItemMouth2,MedicalMask,Medical Mask
 ItemMouth2,RegressedMilk,Nursery Milk
 ItemMouth2,PrisonLockdownGag,Prison Lockdown Gag
@@ -1333,6 +1334,7 @@ ItemMouth3,LatexBallMuzzleGag,Latex Ball Muzzle Gag
 ItemMouth3,GasMaskGag,Respirator Mask
 ItemMouth3,WebGag,Web Gag
 ItemMouth3,RopeGag,Rope Gag
+ItemMouth3,RopeBallGag,Rope Ball Gag
 ItemMouth3,MedicalMask,Medical Mask
 ItemMouth3,RegressedMilk,Nursery Milk
 ItemMouth3,PrisonLockdownGag,Prison Lockdown Gag
@@ -1379,6 +1381,7 @@ ItemHead,MedicalPatch,Medical Patches
 ItemHead,DroneMask,Smooth Latex Mask
 ItemHead,Slime,Slime
 ItemHead,FurScarf,Fur Scarf
+ItemHead,Stitches,Stitches 
 ItemNose,,Nose
 ItemNose,NoseHook,Nose Hook
 ItemNose,PigNose,Pig Nose

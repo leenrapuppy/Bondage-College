@@ -6,11 +6,13 @@ Lover,Lover:
 None,None
 AgeMelody,Age: 21
 AgeOlivia,Age: 20
+AgeEdlaran,Age: 138
 Level,Level:
 Perks,Free perks:
 Health,Health:
 IntroMelody,"As a baby orphan, Melody was adopted by Countess Isabella Alberus.  Her best friend is Lady Olivia, which she serves and protects like a sister.  She's trained as a maid, a career not particularly suited for her strong temper.  She's known to never take breaks and having no fear."
 IntroOlivia,"Olivia Alberus is the second daughter of Countess Isabella.  She’s over-protected by her mother who keeps her chained to sleep and locked permanently in a chastity belt.  She’s engaged to Duke Sunesk and her best friend is maid Melody.  She’s very kind-hearted and possess her bloodline magic powers."
+IntroEdlaran,"Edlaran Rouen'Dlaroft is an archer of the Lorian Elven Tribes.  She fled from her clan many years ago to pursue a life of liberty and shady businesses.  She joined the forest bandits for adventure and gold, but left them to help Melody.  She's a free spirit and doesn't care much for Olivia's royal blood."
 PerkMelody0,Healthy
 PerkDescMelody0,+10% Health
 PerkMelody1,Robust
@@ -31,3 +33,43 @@ PerkMelody8,Persuasion
 PerkDescMelody8,Domination meter progresses faster
 PerkMelody9,Manipulation
 PerkDescMelody9,Allow new dialog options
+PerkOlivia0,Apprentice
+PerkDescOlivia0,"Unlock magic, use ""K"" to scream"
+PerkOlivia1,Magician
+PerkDescOlivia1,+10% magic points
+PerkOlivia2,Witch
+PerkDescOlivia2,+15% magic points
+PerkOlivia3,Regenaration
+PerkDescOlivia3,Faster magic regeneration
+PerkOlivia4,Heal
+PerkDescOlivia4,"Use ""P"" to heal yourself"
+PerkOlivia5,Cure
+PerkDescOlivia5,Faster healing cooldown
+PerkOlivia6,Howl
+PerkDescOlivia6,Faster screams cooldown
+PerkOlivia7,Roar
+PerkDescOlivia7,Screams can turn back ennemies
+PerkOlivia8,Teleport
+PerkDescOlivia8,"Use ""I"" to teleport forward"
+PerkOlivia9,Freedom
+PerkDescOlivia9,Faster teleports cooldown
+PerkEdlaran0,Thief
+PerkDescEdlaran0,Steal arrows when restraining
+PerkEdlaran1,Burglar
+PerkDescEdlaran1,Steal BC money when restraining
+PerkEdlaran2,Kidnapper
+PerkDescEdlaran2,Restrain at twice the speed
+PerkEdlaran3,Spring
+PerkDescEdlaran3,Higher jump height
+PerkEdlaran4,Bounce
+PerkDescEdlaran4,Can jump twice
+PerkEdlaran5,Backflip
+PerkDescEdlaran5,"Move back quickly with ""I"""
+PerkEdlaran6,Acrobat
+PerkDescEdlaran6,Longer backflips
+PerkEdlaran7,Archery
+PerkDescEdlaran7,+1 arrow damage
+PerkEdlaran8,Celerity
+PerkDescEdlaran8,Faster arrow shoots
+PerkEdlaran9,Capacity
+PerkDescEdlaran9,+5 maximum arrows

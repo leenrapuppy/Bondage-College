@@ -12,14 +12,13 @@
 	<title>Bondage Club</title>
 	<link rel="icon" type="image/png" href="Icons/Logo.png" id="favicon">
 	<link rel="stylesheet" href="CSS/Styles.css">
-	<link rel="stylesheet" href="CSS/chessboard-0.3.0.css">
+	<link rel="stylesheet" href="CSS/chessboard-4.3.9.css">
 	<link rel="stylesheet" href="CSS/Chess.css">
 	<script src="Scripts/lib/webgl/resources/m4.js"></script>
 	<script src="Scripts/lib/LZString.js"></script>
 	<script src="Scripts/lib/socket.io/socket.io.min.js"></script>
-	<script async src="Scripts/lib/jquery-3.2.1.min.js"></script>
-	<script async src="Scripts/lib/chess/chess.min.js"></script>
-	<script async src="Scripts/lib/chess/chessboard-0.3.0.js"></script>
+	<script async src="Scripts/lib/chess.min.js"></script>
+	<script async src="Scripts/lib/chessboard-4.3.9.min.js"></script>
 </head>
 
 <script src="Backgrounds/Backgrounds.js"></script>
@@ -168,6 +167,7 @@
 <script src="Screens/Inventory/ItemNeckAccessories/CollarShockUnit/CollarShockUnit.js"></script>
 <script src="Screens/Inventory/ItemNeckAccessories/CollarAutoShockUnit/CollarAutoShockUnit.js"></script>
 <script src="Screens/Inventory/ItemArms/HempRope/HempRope.js"></script>
+<script src="Screens/Inventory/ItemArms/NylonRope/NylonRope.js"></script>
 <script src="Screens/Inventory/ItemHands/PaddedMittens/PaddedMittens.js"></script>
 <script src="Screens/Inventory/ItemHands/PawMittens/PawMittens.js"></script>
 <script src="Screens/Inventory/ItemMisc/MetalPadlock/MetalPadlock.js"></script>
@@ -194,6 +194,7 @@
 <script src="Screens/Inventory/ItemTorso2/FuturisticHarness/FuturisticHarness.js"></script>
 <script src="Screens/Inventory/ItemHands/SpankingToys/SpankingToy.js"></script>
 <script src="Screens/Inventory/ItemFeet/HempRope/HempRope.js"></script>
+<script src="Screens/Inventory/ItemFeet/NylonRope/NylonRope.js"></script>
 <script src="Screens/Inventory/ItemPelvis/LoveChastityBelt/LoveChastityBelt.js"></script>
 <script src="Screens/Inventory/ItemNeckAccessories/CollarNameTag/CollarNameTag.js"></script>
 <script src="Screens/Inventory/ItemNeckAccessories/CollarNameTagOval/CollarNameTagOval.js"></script>
@@ -220,6 +221,7 @@
 <script src="Screens/Inventory/ItemPelvis/FuturisticChastityBelt/FuturisticChastityBelt.js"></script>
 <script src="Screens/Inventory/ItemPelvis/FuturisticTrainingBelt/FuturisticTrainingBelt.js"></script>
 <script src="Screens/Inventory/ItemPelvis/SciFiPleasurePanties/SciFiPleasurePanties.js"></script>
+<script src="Screens/Inventory/ItemPelvis/ObedienceBelt/ObedienceBelt.js"></script>
 <script src="Screens/Inventory/ItemBreast/FuturisticBra/FuturisticBra.js"></script>
 <script src="Screens/Inventory/ItemButt/ShockPlug/ShockPlug.js"></script>
 <script src="Screens/Inventory/ItemVulva/ShockDildo/ShockDildo.js"></script>
@@ -315,7 +317,7 @@
 window.onload = function() {
 	ServerURL = CommonGetServer();
 	//CheatImport();
-	GameVersion = "R81";
+	GameVersion = "R83";
 	console.log("Version: " + GameVersion + ", Server: " + ServerURL);
 	if (!GameVersionFormat.test(GameVersion)) console.error("GameVersion is not valid!");
 	CommonIsMobile = CommonDetectMobile();

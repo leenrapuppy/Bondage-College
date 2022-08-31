@@ -356,10 +356,10 @@
 (定时监牢、GGTS和强制劳动)
 ###_NPC
 (You can send her to a timed cell, the Good Girl Training System or force her to serve drinks and get her salary.)
-(你可以将她送入定时监牢，让她开始GGTS训练，或强制她送水并收取她的佣金。)
+(你可以将她送入定时监牢，让她开始GGTS训练，或强制她送水并收取她的工资)
 ###_PLAYER
 (Collar and nickname options.)
-(项圈与昵称选项。)
+(项圈与昵称选项)
 ###_NPC
 (Select the option.)
 (选择本选项)
@@ -546,7 +546,7 @@
 (She will be sent to the maid quarters to prepare drinks.  You will earn her salary.)
 (她将被送到女仆宿舍准备饮品，你会获得她的工资)
 (She needs to be a maid in the sorority, be able to talk and be able to walk to do that job for you.)
-(她必须是女仆协会的医院来进行交谈和行动来为你工作)
+（她必须是女仆协会的一员，能交够说话和移动，才能为你做这个工作。）
 ###_PLAYER
 (Lock her for 5 minutes.)
 (把她锁上5分钟)

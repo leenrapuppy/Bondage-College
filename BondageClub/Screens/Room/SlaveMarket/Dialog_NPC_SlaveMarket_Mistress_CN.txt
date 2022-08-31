@@ -1,0 +1,313 @@
+###_NPC
+Remove that gag or get lost.  I run the market and I don't have time for mumblings.
+要么拿掉那个口塞，要么就走开。我管理这个市场，没有时间管你嘟嘟囔囔。
+Too bad it didn't work for you, but a new girl is coming up right now if you want to check her.
+拍卖没成功真是太遗憾了，但是一个新女孩现在就要来了，如果你想的话可以看看。
+Well done!  I think this slave has learned a lot in your hands.  Here's your salary.  (She gives you $MoneyAmount)
+做得好！我想这个奴隶在你手中学到了很多东西。这是你的薪水。（她给你 $MoneyAmount）
+You've failed your training.  Thanks for your time but I cannot pay you.
+你的训练失败了。谢谢你抽出时间，但我不能付钱给你。
+Greetings Mistress DialogPlayerName.  It's always a pleasure to see you at the market.  Are you here to train our slaves?
+你好，女主人DialogPlayerName。在这个市场上见到你总是很高兴。你是来训练我们的奴隶的吗？
+Greetings head maid DialogPlayerName.  What do you need from the slave market?
+你好，女仆长DialogPlayerName。你想从奴隶市场得到什么？
+Greetings master kidnapper DialogPlayerName.  Do you have some merchandize for us?
+你好，绑架大师DialogPlayerName。你有一些商品提供给我们吗？
+Welcome little maid.  What are you doing in the slave market?
+欢迎，小女仆。你来奴隶市场做什么？
+Welcome kidnapper.  Do you have some merchandize for us?
+欢迎，绑匪。你有一些商品给我们吗？
+Welcome to the slave market.  Are you looking for a submissive?
+欢迎来到奴隶市场。你在找顺从者吗？
+###_PLAYER
+Hi, I'm DialogPlayerName.
+嗨，我是DialogPlayerName。
+###_NPC
+Hello, I'm Mistress DialogCharacterName.  I run the market auctions today and sell the slaves.
+你好，我是女主人DialogCharacterName。我今天管理市场的拍卖，并出售奴隶。
+###_PLAYER
+Tell me about the slave market.
+告诉我关于奴隶市场的事。
+###_NPC
+What would you like to know?
+你想知道什么？
+###_PLAYER
+Tell me about this slave girl.
+跟我讲讲这个奴隶女孩吧。
+###_NPC
+Sure.  Are you interested in buying her?
+当然。你有兴趣买她吗？
+###_PLAYER
+Can I help with slave training?
+我可以帮助训练奴隶吗？
+###_NPC
+You could, a well-trained slave has higher market value.
+你可以，一个训练有素的奴隶具有更高的市场价值。
+Forget it girl, you're not Dominant enough.
+算了，姑娘，你没有足够的支配力。
+###_PLAYER
+When is the next slave coming up?
+下一个奴隶什么时候送上来？
+###_NPC
+We need to sell this one first.  You can wait a little while for the next girl.
+我们需要先卖掉这个。你可以等一会儿，直到下一个女孩送上来。
+###_PLAYER
+I need to go.  (Leave her.)
+我要走了。（离开她。）
+How does the market work?
+市场是怎么运作的？
+###_NPC
+Owners can sell their own slaves or free submissives can sell themselves for profit.  They get sold through an auction.
+主人可以出售自己的奴隶，或者自由的顺从者可以出售自己以获取利润。出售的形式是通过拍卖。
+###_PLAYER
+Can I sell my slaves here?
+我可以在这里卖我的奴隶吗？
+###_NPC
+Yes, but only if your slave is fully collared.  You can sell her permanently or rent her for a day.  Go get her first.
+是的，但前提是你的奴隶已经认主。你可以永久卖掉她，或出租她一天。先把她带过来吧。
+###_PLAYER
+Can I be auctioned as a slave?
+我可以被拍卖为奴隶吗？
+###_NPC
+You could, but you need to understand the rules first.
+你可以，但你需要先了解规则。
+No, to be auctioned you need to be a submissive, be unowned, be unrestrained, have space in your room and not have been auctioned in the last seven days.
+不，要被拍卖，你需要顺从、无主、没有束缚、你的房间有空间、并且在过去7天内没有被拍卖。
+###_PLAYER
+It's consensual?
+这是自愿的吗？
+###_NPC
+Always.  Even if we call it the slave market, it remains consensual.  If the slave chickens out, we let her go.
+总是的。即使我们称其为奴隶市场，它仍然是自愿的。如果奴隶逃跑了，我们就放她走。
+###_PLAYER
+Who gets the profits?
+谁会获得利润？
+###_NPC
+If the slave is owned, the owner gets the profit.  If not, she gets it.  The Bondage Club takes half the amount of every transaction.
+如果奴隶是有主人的，那么主人将获得利润。如果没有，她自己会得到。束缚俱乐部会收取每笔交易金额的一半。
+###_PLAYER
+The prices are variable?
+价格是可变的？
+###_NPC
+Yes, since it's an auction and all slaves are different, some go at a higher price than others.  The better trained, the higher the auction goes.
+是的，因为这是一场拍卖，而且所有的奴隶都不一样，所以有些人的价格比其他人高。训练得越好，拍卖价就越高。
+###_PLAYER
+How do you measure a slave training?
+你如何衡量奴隶的训练？
+###_NPC
+It's hard to measure the training quality since every slave is different.  The longer the slave was with someone, the higher the training and market value.
+由于每个奴隶都是不同的，因此很难衡量训练的质量。奴隶有主人的时间越长，训练的程度越高，市场价值也就越高。
+###_PLAYER
+Let's talk about something else.
+我们谈些别的吧。
+###_NPC
+Fine.  What would you like know?
+好的。你想知道什么？
+###_PLAYER
+She's getting sold?
+她要被卖掉了？
+###_NPC
+Yes, she will be auctioned today.  You will be able to bet on her if you like, as long as you have some room to accommodate her.
+是的，她今天将被拍卖。只要你有给她的房间，你就可以在她身上下注。
+###_PLAYER
+Why doesn't she talk with me?
+她为什么不和我说话？
+###_NPC
+I run the auction, not her.  Don't speak with the merchandise.
+我负责拍卖，不是她。不要和商品说话。
+###_PLAYER
+What if I buy her?
+如果我买了她，会怎么样？
+###_NPC
+She will move in with you and you two will be able to start a regular BDSM trial together.
+她将和你住在一起，你们两个将能够一起开始常规的BDSM试任。
+###_PLAYER
+What's the price?
+价钱是多少？
+###_NPC
+It's an auction.  You bet against other Dominants and the highest bet gets the girl.  Bring lots of money, you never know.
+这是一场拍卖。你和其他支配者轮流下注，出价最高者将获得女孩。多带些钱，你永远不知道是什么价格。
+###_PLAYER
+I want to participate in the auction.
+我想参加拍卖。
+###_NPC
+Excellent.  Just wait here for the other Dominants to come in and we'll be ready.
+完美。在这里等其他支配者进来吧，我们会做好准备的。
+No girl.  You're way too submissive to take care of a slave.  You can watch but you cannot bet.
+不，女孩。你太顺从了，没办法照顾奴隶。你可以看着，但你不能下注。
+No.  You need to have some room for her first.  If you buy the merchandize you need to store it.
+不，你需要先给她准备房间。如果你购买商品，你首先要能收下它。
+###_PLAYER
+(Start the auction.)
+（开始拍卖。）
+I've changed my mind.
+我改变主意了。
+###_NPC
+(She frowns.)  Make up your mind girl.  What do you want?
+（她皱着眉头。）下定决心，女孩。你想要什么？
+Congratulations on your purchase!  I hope you two share a wonderful time.
+恭喜你买到了！我希望你们两个能分享一段美好的时光。
+###_PLAYER
+Thanks a lot!
+非常感谢！
+###_NPC
+We have brand new girl for sale.  Unless you want to talk about something else.
+我们有全新的女孩出售。除非你想谈点别的。
+###_PLAYER
+Very well.  (Check the new slave.)
+很好。（检查新的奴隶。）
+How does training work?
+训练是怎么进行的？
+###_NPC
+You'll get a slave to train, but they are all different: some need discipline, other need control and some even need corporal punishment.
+你会得到一个需要训练的奴隶，但这些奴隶各有不同：有些需要训诫，有些需要控制，有些甚至需要惩罚。
+###_PLAYER
+Who gets trained?
+有哪些人接受培训？
+###_NPC
+It depends.  Some owners send their slaves here for education and some girls come willingly to raise their market value.
+情况各异。有的主人把她们的奴隶送到这里接受教育，有的女孩自愿地来提高她们的市场价值。
+###_PLAYER
+Do I get paid?
+我会得到报酬吗？
+###_NPC
+Yes, you'll get paid for every successful training session.  The higher we can sell them the better.
+是的，每次成功的训练结束后，你都会获得报酬。她们的售价越高越好。
+###_PLAYER
+Can I train her?
+我可以训练她吗？
+###_NPC
+Not her, she's getting sold today.  We have many other slaves to train though.
+不是她，她今天要被出售了。不过，我们还有许多其他的奴隶需要训练。
+###_PLAYER
+I'm ready to train!
+我准备好训练了！
+###_NPC
+Very well, a maid will lead you to the training room.  The slave to train will be waiting there for you.
+很好，会有个女仆会带你去训练室。需要训练的奴隶会在那里等你。
+###_PLAYER
+Let's talk some more first.
+我们先多说几句。
+(Go train a slave.)
+（去训练一个奴隶。）
+(Wait for the next slave.)
+（等待下一个奴隶。）
+###_NPC
+(The auction goes on, the slave is sold and replaced by a new one.)  Here's the new product!
+（拍卖继续，奴隶被出售并被新的取代。）这是新的商品！
+###_PLAYER
+I'll check that one again.
+我想再看看这个。
+###_NPC
+Sure, check the curves on that fine product.  (She smirks.)
+当然，请看看这优秀商品的身体曲线。（她得意地笑起来。）
+###_PLAYER
+Thanks!  (Check on her.)
+谢谢！（仔细看看她。）
+###_NPC
+My pleasure.  Let me know if there's something else you need from me.
+我的荣幸。如果你需要我提供其他帮助，请告诉我。
+###_PLAYER
+There's no slave that I cannot train.
+没有我不能训练的奴隶。
+###_NPC
+That's the spirit!  Let me know if there's something else you need from me.
+很有精神！如果你需要我提供其他帮助，请告诉我。
+###_PLAYER
+I'll do better next time.
+下次我会做得更好。
+###_NPC
+I hope you're right.  Do you need anything else?
+我希望你是对的。你还有别的什么需要吗？
+###_PLAYER
+I'm sorry.
+对不起。
+###_NPC
+Being sorry won't help, you need to be stronger and focus on your slave needs.  Do you want anything else?
+道歉没有帮助，你需要变得更强，并且要专注于你的奴隶的需求。你还需要其它的东西吗？
+###_PLAYER
+That slave was a wimp.
+那个奴隶是个胆小鬼。
+###_NPC
+Maybe, but you still need to focus on your wimp needs.  Do you want anything else?
+也许吧，但你仍然需要专注于你的胆小鬼的需求。你还需要其它的东西吗？
+###_PLAYER
+Please tell me the rules.
+请告诉我规则。
+###_NPC
+As a slave on auction, you will be naked and chained for Dominants to examine and question you.
+作为拍卖的奴隶，你将赤身裸体，并用锁链锁住，以让支配者检查和询问你。
+###_PLAYER
+(Listen quietly.)
+（安静地听。）
+Alright.
+好吧。
+###_NPC
+After the exam, the bidding will start.  Each buyer will bid until no one wants to bid anymore.  The last bid wins you.
+检查结束后，拍卖就开始。每个买家都会出价，直到没有人愿意再出价为止。最后出价的人会赢得你。
+###_PLAYER
+This is kinky!
+这真色！
+Very well.
+很好。
+###_NPC
+I don't know the price you will raise, but the more submissive you are, the higher it usualy gets.
+我不知道你的价格会提高到什么程度，但你越顺从，这通常就会越高。
+###_PLAYER
+I know how auction works.  Get to the point.
+我知道拍卖是怎么进行的。说重点吧。
+###_NPC
+If you're not going to take this seriously, I cannot allow you to be auctioned.  Get lost girl.
+如果你不认真对待这件事，我不能让你被拍卖。快走吧，女孩。
+###_PLAYER
+(Listen carefully.)
+（仔细听。）
+###_NPC
+You will get about half the money and Bondage Club gets the rest of it.
+你会得到大约一半的钱，束缚俱乐部会得到剩下的。
+###_PLAYER
+I hope it pays well.
+我希望这会有很多钱。
+This is robbery!
+这是抢劫！
+###_NPC
+If you cannot accept our terms, I cannot allow you to be auctioned.  Get lost girl.
+如果你不能接受我们的规则，我不能让你被拍卖。快走吧，女孩。
+###_PLAYER
+This is fair.
+这很公平。
+###_NPC
+Once the transaction is done, your owner will go to your room, having started a regular trial period with her.
+交易完成后，你的主人将前往你的房间，并与她开始常规的试任期。
+###_PLAYER
+(Nod slowly.)
+（慢慢点头。）
+I understand.
+我明白。
+###_NPC
+Good girl.  So are you ready to be auctioned?  You first need to get naked and chained.
+乖女孩。那么你准备好被拍卖了吗？你首先需要脱光衣服，并用锁链锁住。
+###_PLAYER
+It sounds good.
+这听起来不错。
+Yes, I'm ready to be auctioned.
+是的，我准备好被拍卖了。
+###_NPC
+Very good.  (She grins and gets you naked and chained, so buyers can come to check on you.)
+很好。（她咧嘴一笑，脱光你的衣服并用链子锁住你，这样买家就可以来检查你了。）
+Don't waste my time then.  This is a place of business.
+那就不要浪费我的时间了。这里还得营业。
+###_PLAYER
+(Let the buyers examine you.)
+（让买家检查你。）
+###_NPC
+(A few Dominants seem to be interested in buying you.  They ask you about your fetishes, sexual preferences and limits.)
+（一些支配者似乎有兴趣买下你。她们询问你的癖好、性偏好和限制。）
+(Lots of Dominants seem to be very interested in buying you.  They ask you about your fetishes, sexual preferences and limits.)
+（很多支配者似乎对买下你很感兴趣。她们询问你的癖好、性偏好和限制。）
+###_PLAYER
+(Answer the questions.)
+（回答问题。）
+###_NPC
+(After many interviews and physcial examinations, the auctioneer comes in so you can be sold.)
+（经过多次询问和身体检查，拍卖师走进来，你已经可以出售了。）
