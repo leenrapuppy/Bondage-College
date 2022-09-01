@@ -1729,7 +1729,7 @@ var AssetFemale3DCG = [
 				If you wish to add more rings, add the corresponding layers to the left and right hand groups and
 				also add the corresponding modules to the extended menu.
 				*/
-				Name: "Rings", Value: 0, HideForPose: ["BackElbowTouch"], Extended: true, AlwaysExtend: true,
+				Name: "Rings", Value: 0, HideForPose: ["BackElbowTouch", "TapedHands", "BackBoxTie"], Extended: true, AlwaysExtend: true,
 				Layer: [
 					//Thumb
 					{ Name: "ThumbSteel", HasType: false, AllowModuleTypes: ["t1"] },
