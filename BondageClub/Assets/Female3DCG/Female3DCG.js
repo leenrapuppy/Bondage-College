@@ -3057,7 +3057,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "ObedienceBelt", Fetish: ["Metal", "Chastity"], ParentGroup: null, Value: 150,
 				Difficulty: 8, Time: 15, RemoveTime: 20,
-				Extended: true, DynamicScriptDraw: true, DynamicAfterDraw: true, AllowLock: true, Prerequisite: ["AccessVulva"], AllowEffect: ["Chaste"],
+				Extended: true, DynamicScriptDraw: true, DynamicAfterDraw: true, AllowLock: true, DrawLocks: false, Prerequisite: ["AccessVulva"], AllowEffect: ["Chaste"],
 				DefaultColor: ['Default', 'Default', "Default", "Default", "#FF0000", "#004A7F"],
 				AllowBlock: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
 				Layer: [
