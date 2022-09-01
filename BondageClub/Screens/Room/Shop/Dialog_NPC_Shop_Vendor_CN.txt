@@ -54,7 +54,7 @@ Greetings Mistress DialogPlayerName.  What are you looking for today?
 (She looks at you and giggles.)  Are you looking for some clothes?
 （她看着你咯咯地笑起来）你是在找些新衣服吗？
 Welcome to the Bondage Club store.  How can I help you today?
-欢迎光临捆绑俱乐部商店。今天有什么我能帮你的吗？
+欢迎光临束缚俱乐部商店。今天有什么我能帮你的吗？
 ###_PLAYER
 I'd like to buy something.
 我想买点什么
@@ -80,7 +80,7 @@ Who owns this store?
 这间商店归谁所有？
 ###_NPC
 It belongs to the Bondage Club.  All profits go back to the organization.
-它属于捆绑俱乐部。所有利润都归捆绑俱乐部所有。
+它属于束缚俱乐部。所有利润都归束缚俱乐部所有。
 ###_PLAYER
 Can I tie you up?
 我能把你绑起来吗？
@@ -117,7 +117,7 @@ Sure!  Do you have more questions for me?
 What's the job?
 工作的内容是什么？
 ###_NPC
-Selling gears.  Customers wants to know if the items are secure and good looking.  You could demonstrate for them.
+Modelling gear so our customers can see that the items are secure and good looking.  You'd demonstrate and convince them.
 销售道具。当顾客想要了解这些东西是否安全又好看，你可以给他们演示一下
 ###_PLAYER
 How much does it pay?

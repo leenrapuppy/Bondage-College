@@ -15,7 +15,7 @@ var NPCTrait = [
 
 /**
  * Sets a specific trait for a NPC
- * @param {Character} C - NPC to set the trait for
+ * @param {NPCCharacter} C - NPC to set the trait for
  * @param {string} TraitName - Name of the trait to set
  * @param {number} TraitValue - Value of the trait to set
  * @returns {void} - Nothing
@@ -30,7 +30,7 @@ function NPCTraitSet(C, TraitName, TraitValue) {
 
 /**
  * Generate random traits for a NPC (70% odds for each traits, can switch on both sides, strength is from 1 to 100). Will generate at least one trait.
- * @param {Character} C - NPC to generate the trait for
+ * @param {NPCCharacter} C - NPC to generate the trait for
  * @returns {void} - Nothing
  */
 function NPCTraitGenerate(C) {
@@ -84,7 +84,7 @@ function NPCTraitGetOptionValue(Dialog, NPCTrait) {
 
 /**
  * Finds and keeps the best possible option for a specified NPC dialog group. A group is a list of similar options where each option is influenced by a specified trait.
- * @param {Character} C - NPC to get the dialog of
+ * @param {NPCCharacter} C - NPC to get the dialog of
  * @param {string} Group - Name of the dialog group to look for
  * @returns {void} - Nothing.
  */
@@ -196,7 +196,7 @@ function NPCArousal(C) {
 
 /**
  * Returns the trait value of an NPC. If the opposite trait is found, it will return a negative value.
- * @param {Character} C - NPC to get the trait of
+ * @param {NPCCharacter} C - NPC to get the trait of
  * @param {string} TraitType - Name of the trait to get the value of
  * @returns {number} - Value of the trait, returns 0 if it was never set.
  */
@@ -214,7 +214,7 @@ function NPCTraitGet(C, TraitType) {
 
 /**
  * Adds a new event in a specified NPC log or updates an existing event if it was previously logged.
- * @param {Character} C - NPC for which to add the event to
+ * @param {NPCCharacter} C - NPC for which to add the event to
  * @param {string} EventName - Name of the even to add
  * @param {number} EventValue - Value of the even to add (time in ms)
  * @returns {void} - Nothing
@@ -236,7 +236,7 @@ function NPCEventAdd(C, EventName, EventValue) {
 
 /**
  * Deletes a specified NPC event from the log
- * @param {Character} C - NPC for which to delete the event
+ * @param {NPCCharacter} C - NPC for which to delete the event
  * @param {string} EventName - Name of the even to delete
  * @returns {void} - Nothing
  */
@@ -249,7 +249,7 @@ function NPCEventDelete(C, EventName) {
 
 /**
  * Returns a specified NPC event value.
- * @param {Character} C - NPC to get the event value of
+ * @param {NPCCharacter} C - NPC to get the event value of
  * @param {string} EventName - Name of the even to get the value of
  * @returns {number} - Value of the event as the time in ms, returns 0 if it was never logged
  */
@@ -263,7 +263,7 @@ function NPCEventGet(C, EventName) {
 
 /**
  * For longer events like a collaring, the serious trait will dictate the time (1 day if playful, 3 days if nothing, 7 days if serious)
- * @param {Character} C - NPC to get the event delay of
+ * @param {NPCCharacter} C - NPC to get the event delay of
  * @returns {number} - Delay required for the event.
  */
 function NPCLongEventDelay(C) {
@@ -275,7 +275,7 @@ function NPCLongEventDelay(C) {
 
 /**
  * The horny / frigid trait comes into play when a NPC decides if it can take the player as a lover. (1 week if horny, 2 weeks if nothing, 4 weeks if frigid)
- * @param {Character} C - NPC to get the event delay of
+ * @param {NPCCharacter} C - NPC to get the event delay of
  * @returns {number} - Delay required for the lover event.
  */
 function NPCLongLoverEventDelay(C) {
@@ -287,7 +287,7 @@ function NPCLongLoverEventDelay(C) {
 
 /**
  * Changes the love factor for a specified NPC, will stay within the -100 to 100 range
- * @param {Character} C - NPC to change the love factor of
+ * @param {NPCCharacter} C - NPC to change the love factor of
  * @param {number} LoveFactor - Amount to add to the current love factor (can be negative).
  * @returns {void} - Nothing
  */

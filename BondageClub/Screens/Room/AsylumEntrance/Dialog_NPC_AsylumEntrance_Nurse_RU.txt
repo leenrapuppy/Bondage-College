@@ -54,11 +54,29 @@ You can, but you will lose your patient status and reputation.  Are you sure abo
 Perfect!  We need staff to take care of our patients.  Are you ready to work now?
 Отлично!  Нам нужен персонал, чтобы заботиться о наших пациентах.  Готовы ли вы начать работать сейчас?
 ###_PLAYER
+Did you join GGTS?
+Вы вступили в GGTS?
+###_NPC
+Not really.  (She sighs.)  There are new rules in the Asylum and nurses must wear the collar while on duty.
+Не совсем. (Она вздыхает.) В психлечебнице новые правила, и медсестры должны носить ошейник при исполнении служебных обязанностей.
+###_PLAYER
 Can I get my own nurse uniform?
 Могу я получить свою собственную униформу медсестры?
 ###_NPC
 Of course.  Here you go nurse DialogPlayerName.  Wear it with pride.  (She gives you a nurse uniform.)
 Конечно.  Здесь вы идете медсестра DialogPlayerName.  Носите это с гордостью.  (Она дает тебе форму медсестры.)
+###_PLAYER
+Can I get my own set of Asylum restraints?
+Могу ли я получить свой собственный набор ограничителей Asylum?
+###_NPC
+We only give our most dedicated patients their own set of restraints. Talk to me again when you've taken some more treatments.
+Мы даем только нашим самым преданным пациенткам собственный набор ограничений. Поговори со мной снова, когда пройдешь еще несколько процедур.
+Of course. You're one of our most committed patients.  (She gives you a set of standard-issue Asylum restraints)
+Конечно. Вы одна из наших самых преданных пациентов. (Она дает вам набор стандартных ограничителей Психиатрической больницы)
+I'm afraid only our top doctors get their own set of restraints. Come back once you're a bit more experienced.
+Боюсь, только у наших лучших докторов есть свои ограничения. Возвращайтесь, как только станете немного опытнее.
+Of course, doctor DialogPlayerName.  (She gives you a set of standard-issue Asylum restraints)
+Конечно, доктор DialogPlayerName. (Она дает вам набор стандартных ограничителей Психиатрической больницы)
 ###_PLAYER
 I must go.  (Leave her.)
 Я должна идти.  (Оставь ее.)
@@ -451,3 +469,110 @@ Fine.  I'll do it.
 ###_NPC
 Very well.  (She smiles.)  Now carry on, I have work to do.
 Очень хорошо.  (Она улыбается.)  А теперь продолжай, у меня еще есть работа.
+Hello there.  I see that you've got punished by GGTS.
+Привет. Я вижу, что тебя наказал GGTS.
+###_PLAYER
+Can you unlock the asylum doors?
+Можешь ли ты открыть двери убежища?
+###_NPC
+(She shakes her head no.)  I can't, GGTS has taken control of the doors.  You must stay inside until your punishment time is done.
+(Она качает головой. Нет.) Я не могу, GGTS взяла под контроль двери. Ты должна оставаться внутри, пока не закончится ваше наказание.
+I cannot help you.  The doors are locked by the computer.  Do your time.
+Я не могу помочь тебе. Двери заблокированы компьютером. Делай свое время.
+###_PLAYER
+How do you feel about GGTS?
+Как ты относитесь к GGTS?
+###_NPC
+(She lowers her voice.)  Let's not speak about that.  I think he can hear us.
+(Понижает голос.) Не будем об этом. Я думаю, он нас слышит.
+You must be wondering why you're here.  Your owner sent you to participate in the Good Girl Training System or GGTS.
+Тебе должно быть интересно, почему ты здесь. Твоя хозяйка отправил вас для участия в системе обучения хороших девочек или GGTS.
+###_PLAYER
+What is going on Miss?
+Что происходит мисс?
+What the fuck?
+Какого хрена?
+What is that?
+Что это?
+###_NPC
+GGTS is a computer intelligence installed in the asylum to train obedience.  You've been selected to participate.
+GGTS — компьютерный интеллект, установленный в приюте для тренировки послушания. Ты была выбрана для участия.
+###_PLAYER
+I know GGTS.
+Я знаю GGTS.
+###_NPC
+Very good, it will be easy for you to participate then.  Your owner will be pleased.
+Очень хорошо, тогда тебе будет легко участвовать. Твоя хозяйка будет довольна.
+###_PLAYER
+When do I start?
+Когда я начну?
+###_NPC
+(The asylum door locks automatically.)  Right now.  Go to the Good Girl Training System room to begin.
+(Дверь приюта запирается автоматически.) Прямо сейчас. Иди в комнату GGTS, чтобы начать.
+###_PLAYER
+I don't want to do that!
+Я не хочу этого делать!
+###_NPC
+(The asylum door locks automatically.)  You don't have much choice.  Go to the Good Girl Training System room to begin.
+(Дверь приюта запирается автоматически.) У тебя нет особого выбора. Иди в комнату GGTS, чтобы начать.
+(The asylum door locks automatically.)  Go to the Good Girl Training System room to begin.
+(Дверь приюта запирается автоматически.) Иди в комнату с системой обучения хороших девочек, чтобы начать.
+###_PLAYER
+How much time do I need to do?
+Сколько времени мне нужно это делать?
+###_NPC
+(She looks at you and nods.)  Hello drone.
+(Она смотрит на тебя и кивает.) Привет, дрон.
+###_PLAYER
+Why are you calling me drone?
+Почему ты называешь меня дроном?
+###_NPC
+Look at you girl.  You're a drone, a total GGTS slave.
+Посмотри на себя, девочка. Ты дрон, полная рабыня GGTS.
+###_PLAYER
+Can I still use the asylum?
+Могу ли я по-прежнему пользоваться психлечебницой?
+###_NPC
+Yes, drones have full access to the asylum.
+Да, дроны имеют полный доступ к психлечебнице.
+###_PLAYER
+Can you let me out?
+Ты можешь меня выпустить?
+###_NPC
+(She nods.)  Drones can leave the asylum if they spend ten GGTS minutes.
+(Она кивает.) Дроны могут покинуть убежище, если потратят десять минут GGTS.
+It's the rule, you should read the fine prints before signing a contract.
+Это правило, ты должна была прочитать мелкий шрифт, прежде чем подписывать контракт.
+###_PLAYER
+I'll pay for it.  (Spend ten GGTS minutes.)
+Я заплачу за это. (Потратьте десять минут GGTS.)
+###_NPC
+(She scans your futuristic items and the door open.)  Get out before the door closes again.
+(Она сканирует твои футуристические предметы и открывает дверь.) Выходи, пока дверь снова не закрылась.
+###_PLAYER
+I have a better currency.  (Bribe her with $10.)
+У меня есть лучшая валюта. (Подкупите ее 10 долларами.)
+###_NPC
+(She counts the money discretely.)  I'll use my minutes to let you out.  You better return soon or we'll both get punished.
+(Она незаметно пересчитывает деньги.) Я использую свои минуты, чтобы выпустить тебя. Тебе лучше вернуться поскорее, иначе мы оба будем наказаны.
+###_PLAYER
+Please!  I'm so helpless!
+Пожалуйста! Я так беспомощна!
+###_NPC
+(She looks at you and sighs.)  Look drone, I'm not making the rules here.  Don't get us in trouble.
+(Она смотрит на вас и вздыхает.) Слушай, дрон, я не устанавливаю здесь правила. Не втягивай меня в неприятности.
+###_PLAYER
+I'll force my way out.
+Я выйду силой.
+###_NPC
+(She smirks.)  Good luck, the doors are bolted with magnets.
+(Она ухмыляется.) Удачи, двери заперты на магниты.
+###_PLAYER
+Fine!  Forget it.
+Отлично! Забудь это.
+###_NPC
+(She nods.)  Do you need anything else?
+(Она кивает.) Тебе еще что-нибудь нужно?
+###_PLAYER
+(Nod and go to the club.)
+(Кивает и идет в клуб.)

@@ -1,0 +1,172 @@
+###_NPC
+Being quiet is a good quality for students.
+安静对学生来说是一种很好的品质。
+Domo arigato!  That was a great evasion demonstration.  I'm sure our students learned a lot from your techniques.
+十分感谢（日语）！这是一次很好的逃脱示范。我相信我们的学生从你的技术中学到了很多。
+I'm sorry you could not make it, please practice your evasion techniques and come back when you're ready.
+很抱歉你没能成功，请练习一下你的逃脱技巧，准备好后再回来。
+###_PLAYER
+I'm here for the money.
+我来这里是为了钱。
+###_NPC
+I guess it will do.  Our group today wish to learn the fine art of evasion.  Come here girls!  (Many students come in.)
+我想会的。我们今天的小组希望学习逃脱的技巧。来这里，女孩们！（很多学生进来。）
+###_PLAYER
+I'm ready for anything!
+我准备好了！
+###_NPC
+Great spirit!  Our group today wish to learn the fine art of evasion.  Come here girls!  (Many students come in.)
+很有精神！我们今天的小组希望学习逃脱的技巧。来这里，女孩们！（很多学生进来。）
+###_PLAYER
+What's the event?
+有什么活动？
+###_NPC
+This is perfect.  Our group today wish to learn the fine art of evasion.  Come here girls!  (Many students come in.)
+太棒了。我们今天的小组希望学习逃脱的技巧。来这里，女孩们！（很多学生进来。）
+###_PLAYER
+Should I be scared?
+我应该害怕吗？
+###_NPC
+Don't worry girl.  Our group today wish to learn the fine art of evasion.  Come here girls!  (Many students come in.)
+别担心，女孩。我们今天的小组希望学习逃脱的技巧。来这里，女孩们！（很多学生进来。）
+###_PLAYER
+It's a public event?
+是公开活动吗？
+###_NPC
+Yes, I hope you're not prude.  You will be naked and restrained in front of our students.  Onegaishimasu strip.
+是的，我希望你不要太拘谨。你会在我们的学生面前赤身裸体，受到束缚。拜托你了（日语），脱衣服吧。
+###_PLAYER
+What should I do?
+我应该怎么办？
+###_NPC
+It's really easy, you will be naked and restrained in front of our students.  Onegaishimasu strip.
+这很简单，你会在我们的学生面前赤身裸体，受到束缚。拜托你了（日语），脱衣服吧。
+###_PLAYER
+How can I help?
+我能提供什么帮助？
+###_NPC
+I'll explain everything, you will be naked and restrained in front of our students.  Onegaishimasu strip.
+我会解释的，你会在我们的学生面前赤身裸体，受到束缚。拜托你了（日语），脱衣服吧。
+###_PLAYER
+Are you serious?
+你是认真的？
+###_NPC
+Absolutely.  Onegaishimasu, strip for our class.
+当然。拜托你了（日语），脱衣服吧。
+###_PLAYER
+This is not cool.  (Strip reluctantly.)
+这真怪。（不情愿地脱衣服。）
+###_NPC
+(You strip as she nods politely.)  Arigato.  Now turn around and give me your hands.
+（她礼貌地点点头，你脱光衣服。）谢谢你（日语）。现在转身，把你的手给我。
+###_PLAYER
+(Stay silent and strip.)
+（保持沉默并脱衣服。）
+It's really necessary?
+真的有必要吗？
+###_NPC
+(She nods and stays silent, showing your anatomy to her students.)
+（她点点头，保持沉默，向她的学生展示你的身体结构。）
+###_PLAYER
+Make it tight!
+绑紧！
+###_NPC
+(She ties you up very slowly in a strange fashion, showing every knot she does to her students.)
+（她以一种奇怪的方式，非常缓慢地把你绑起来，向她的学生展示她所绑的每一个结。）
+###_PLAYER
+Don't go crazy.
+别过火了啊。
+(Stay silent.)
+（保持沉默。）
+Miss!  This is very tight.
+女士！这非常紧。
+###_NPC
+It's an intriguing Shibari isn't it?  You'll have three chances to escape from it.  Please show every movements to our class.
+这是有趣的绳艺不是吗？你会有三次机会逃脱。请向课堂展示每一个动作。
+###_PLAYER
+I can escape from any rope.
+我可以逃脱任何绳索。
+###_NPC
+This will be your evasion challenge!  You'll have three tries.  Please show every movements to our class.
+这会是你的逃脱挑战！你能尝试三次。请向课堂展示每一个动作。
+###_PLAYER
+(Struggle a little.)
+（稍微挣扎。）
+###_NPC
+You'll have three chances to escape from this Shibari.  Please show every movements to our class.
+你会有三次机会逃脱这个绳艺。请向课堂展示每一个动作。
+###_PLAYER
+(Start to struggle.)
+（开始挣扎。）
+It's been my pleasure to struggle.
+挣扎让我快乐。
+###_NPC
+(She gives you $120 for your efforts.)  I will certainly contact you again when the next class is ready.
+（她为你的努力支付给你$120。）在下节课准备好后，我一定会再次与你联系。
+###_PLAYER
+You can restrain me anytime Miss.
+你随时可以束缚我，女士。
+Next time I could restrain you.
+下次可以是我束缚你。
+###_NPC
+(She smirks and gives you $120 for your efforts.)  Check with the maids to know when the next class is ready.
+（她得意地笑了笑，并为你的努力支付给你$120。）请与女仆确认下一堂课什么时候准备好。
+###_PLAYER
+(Stay silent and nod.)
+（保持沉默并点头。）
+###_NPC
+(She gives you $120 for your efforts.)  I might need you again for another class in the future.
+（她为你的努力支付给你$120。）将来，我上另一堂课的时候可能会再次需要你。
+###_PLAYER
+Thank you!  (Leave her.)
+谢谢！（离开她。）
+(Take the money and leave her.)
+（拿好钱，然后离开她。）
+I feel so ashamed.
+我感到很惭愧。
+###_NPC
+You should only be ashamed if you stopped trying.    Practice your evasion techniques and come back.
+你应该仅仅为停止尝试而惭愧。多练习你的逃脱技巧，然后回来吧。
+###_PLAYER
+I guess I need to practice.
+我想我需要练习一下。
+###_NPC
+Yes, that's why I will leave you like that, so you can practice your evasion techniques.
+是的，这就是为什么我让你保持这样子，这样你就能练习你的逃脱技巧。
+###_PLAYER
+You will leave me like that?
+你会让我保持这样？
+###_NPC
+Absolutely.  Onegaishimasu practice your evasion techniques and come back.
+当然。拜托你了（日文）。多练习你的逃脱技巧，然后回来吧。
+###_PLAYER
+I'll get better in no time.
+我不需要多久就会变得更厉害的。
+###_NPC
+A great attitude will help you to learn faster.  Practice your evasion techniques and come back when you're ready.
+良好的态度有助于你更快地学习。多练习你的逃脱技巧，准备好之后回来吧。
+###_PLAYER
+(Leave her.)
+（离开她。）
+Can I try again?
+我可以再试一次吗？
+###_NPC
+(She nods and makes sure you're naked.)  Yes, you can, turn around and give me your hands again.
+（她点点头，并确保你赤身裸体。）是的，你可以，转身，再把手给我。
+###_PLAYER
+I'll do better this time!
+这次我会做得更好！
+###_NPC
+(She nods and makes sure you're naked.)  I like your attitude, turn around and give me your hands.
+（她点点头，并确保你赤身裸体。）我喜欢你的态度，转身，再把手给我。
+###_PLAYER
+Don't make it too tight.
+不要太紧。
+###_NPC
+(She restrains you skillfully.)  Please show every evasion movements you will do for our class.
+（她熟练地约束你。）请展示你为这个课堂所做的每一个逃脱动作。
+###_PLAYER
+Do you worst girl.
+按你最狠的来，女孩。
+(Stay silent and give your hands.)
+（保持沉默，伸出双手。）

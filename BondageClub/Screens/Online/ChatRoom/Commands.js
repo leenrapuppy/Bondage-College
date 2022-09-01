@@ -79,7 +79,7 @@ function CommandParse(msg) {
 			// Regular chat can be prevented with an owner presence rule
 			if (!ChatRoomOwnerPresenceRule("BlockTalk", null)) {
 				ServerSend("ChatRoomChat", { Content: msg, Type: "Chat" });
-				ChatRoomStimulationMessage("Gag");
+				ChatRoomStimulationMessage("Talk");
 			}
 		} else {
 			// The whispers get sent to the server and shown on the client directly
@@ -407,11 +407,10 @@ const CommonCommands = [
 				NewExpression = "ShortBreath";
 			} else if (/^(\+|-)$/.test(args)) {
 				AcceptCmd = true;
-				let CurrentBlush = InventoryGet(Player, "Blush")
-				if (CurrentBlush == null || CurrentBlush.Property == null || CurrentBlush.Property.Expression == null) {
-					CurrentBlush = null;
-				} else {
-					CurrentBlush = CurrentBlush.Property.Expression;
+				const Blush = InventoryGet(Player, "Blush");
+				let CurrentBlush = null;
+				if (Blush && Blush.Property && Blush.Property.Expression) {
+					CurrentBlush = Blush.Property.Expression;
 				}
 				let Level = 0;
 				for (let i = 0; i < BlushLevels.length; i++) {
@@ -537,5 +536,14 @@ const CommonCommands = [
 				if (ID != 0 && MemberNumber >= 0)
 					ServerSend("ChatRoomChat", { Content: "ChatRoomBot " + msg.substring(4), Type: "Hidden", Target: MemberNumber });
 		}
+	},
+	{
+		Tag: "craft",
+		Action: () => {
+			document.getElementById("InputChat").style.display = "none";
+			document.getElementById("TextAreaChatLog").style.display = "none";
+			ChatRoomChatHidden = true;
+			CraftingShowScreen(true);
+		},
 	},
 ];

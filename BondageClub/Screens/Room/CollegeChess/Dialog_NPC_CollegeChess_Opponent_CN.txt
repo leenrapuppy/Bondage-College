@@ -1,0 +1,558 @@
+###_NPC
+(She laughs.)  I guess you don't need to talk to play chess.
+（她笑起来。）我猜你下棋不需要说话。
+(She frowns.)  Well done, I did not expect that tactic.  Do you want to play another game?
+（她皱起眉头。）干得好，我没想到会有这种策略。你想再来一局吗？
+(She cheers.)  Alright!  I can teach you some tricks if you want to play another game.
+（她欢呼。）好吧！如果你想再来一局，我可以教你一些技巧。
+(She nods.)  That was a good game.  We are at the same level.  Do you want to play another game?
+（她点点头。）那是一场精彩的比赛。我们处于同一水平。你想再来一局吗？
+(She frowns.)  Well done.  (She gives you the bet money.)  Do you want to play another game?
+（她皱起眉头。）干得不错。（她把赌的钱给你。）你想再来一局吗？
+(She cheers.)  Time to pay!  (You give her the money.)  Do you want to play another game?
+（她欢呼。）是时候付钱了！（你给她钱。）你想再来一局吗？
+(She nods.)  I guess nobody wins any money.  We are at the same level.  Do you want to play another game?
+（她点点头。）我猜没有人会赢钱。我们处于同一水平。你想再来一局吗？
+(She blushes and tries to cover herself.)  It's a good thing we are alone, this would be embarrassing.
+（她脸红起来，试图遮住自己。）还好只有我们在这里，这太令人害羞了。
+(She looks at you and smiles.)  Don't worry, i won't take pictures, but I could do something else.
+（她看着你，微笑起来。）别担心，我不会拍照，但我可以做点别的。
+(You both dress back up.)  That was kind of kinky, too bad nobody won.  Do you want to play another game?
+（你们都重新穿好衣服。）这挺色的，没人赢真是太糟了。你想再来一局吗？
+(She struggles lightly.)  Losing a game against you has consequences.  Will you help me so I can have my revenge?
+（她轻轻地挣扎。）和你对弈并失败，是要承担后果的呀。你能帮我解开吗，让我能报仇？
+(She looks at you and smiles.)  You look adorable like that, but you really need to learn some chess tricks.
+（她看着你，笑了起来。）你看起来很可爱，但你真的需要学习一些国际象棋技巧。
+(You both dress back up.)  Too bad nobody won, it could have been spicy.  Do you want to play another game?
+（你们都重新穿好衣服。）真可惜没有人赢，本来会有更多趣味的。你想再来一局吗？
+Hello, welcome to the chess club.  Would you like to play a game with me?
+你好，欢迎来到国际象棋俱乐部。你想和我来一局吗？
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+My name is DialogCharacterName.  I'm a new member of the college chess club.
+我的名字是DialogCharacterName。我是大学国际象棋俱乐部的新成员。
+###_PLAYER
+I'm DialogPlayerName.
+我是DialogPlayerName。
+###_NPC
+Nice to meet you, I don't think I've seen you here before.
+很高兴认识你，我想我以前没在这里见过你。
+###_PLAYER
+You're playing alone?
+你一个人玩？
+###_NPC
+Yeah, the chess club isn't busy today.  You'd like to play against me?
+是啊，国际象棋社今天不忙。你想和我来一局吗？
+###_PLAYER
+How do you play chess?
+国际象棋是怎么下的？
+###_NPC
+I don't have enough time to teach you.  Search on the web, you will find many tutorials.
+我没有足够的时间教你。在网上搜索，你会发现很多教程。
+###_PLAYER
+We could play a game.
+我们可以玩一局。
+###_NPC
+Absolutely!   Would you like to bet something on the game, or we play for fun?
+当然！你想赌点什么吗，还是单纯为开心来玩？
+###_PLAYER
+I need to go.  (Leave her.)
+我要走了。（离开她。）
+Let's play for honor.
+让我们赌上荣誉。
+###_NPC
+That sounds good.  Have you played before?  Should I go easy on you?
+听起来不错。你以前玩过吗？我应该对你放水吗？
+###_PLAYER
+Let's play for money.
+来赌点钱。
+###_NPC
+(She ponders.)  Alright.  How much do you want to bet?
+（她沉思。）好吧。你想赌多少？
+###_PLAYER
+Let's play strip chess.
+我们来下脱衣棋吧。
+###_NPC
+(She giggles and looks around.)  Since we are alone, I don't see anything wrong with that.  What are the rules?
+（她咯咯地笑起来，并环顾四周。）既然这里只有我们，我觉得没有问题。那这规则是什么呢？
+###_PLAYER
+Let's play a more daring game.
+我们玩一场更大胆的游戏吧。
+###_NPC
+(She gives you a curious look.)  What do you have in mind?
+（她好奇地看了你一眼。）你想的是什么？
+###_PLAYER
+Maybe we can play later.
+也许我们可以以后再玩。
+###_NPC
+Of course, let's play later.
+当然，以后再玩吧。
+###_PLAYER
+Yes, please go easy.
+是的，请对我放水。
+###_NPC
+Very well, I'll give you some chances.  (She prepares the chess board.)  Ready to go?
+很好，我会给你一些机会。（她布置好棋盘。）准备好了吗？
+###_PLAYER
+I've played before.
+我以前玩过。
+###_NPC
+Let's play a fair game then.  (She prepares the chess board.)  Ready to go?
+那我们就来一场公平的比赛吧。（她布置好棋盘。）准备好了吗？
+###_PLAYER
+I don't fear anyone.
+我不怕任何人。
+###_NPC
+I'll give everything I have then.  (She prepares the chess board.)  Ready to go?
+那我会全力以赴。（她布置好棋盘。）准备好了吗？
+###_PLAYER
+I've changed my mind.
+我改变主意了。
+###_NPC
+It's fine.  We can play later.
+没关系。我们以后可以玩。
+###_PLAYER
+(Play chess with her.)
+（和她下棋。）
+Let's bet $10.
+我们赌$10。
+###_NPC
+It's a small bet, but it should be fun.  (She prepares the chess board.)  Ready to go?
+这是一个小赌注，但应该会挺有趣。（她布置好棋盘。）准备好了吗？
+###_PLAYER
+Let's bet $20.
+我们赌$20。
+###_NPC
+That's a fair bet, let's do this!  (She prepares the chess board.)  Ready to go?
+这是一个有点分量的赌注，就这样吧！（她布置好棋盘。）准备好了吗？
+###_PLAYER
+Let's bet $30.
+我们赌$30。
+###_NPC
+A serious bet?  I won't pull any punches.  (She prepares the chess board.)  Ready to go?
+这么大的赌注？那我可不会留余力的。（她布置好棋盘。）准备好了吗？
+###_PLAYER
+(Play chess for $10 with her.)
+（和她下棋，赌$10。）
+(Play chess for $20 with her.)
+（与她下棋，赌$20。）
+(Play chess for $30 with her.)
+（和她下棋，赌$30。）
+I don't know.
+我不知道。
+###_NPC
+Let's make some rules.  Each major piece like a knight or a rook gets one cloth off.  Have you played before?  Should I go easy on you?
+我们定一些规则吧。每个骑士或城堡这样的主要棋子被吃掉时，都要脱一件衣服。你以前玩过吗？我应该对你放水吗？
+###_PLAYER
+Each major piece gets one cloth off.
+每个主要棋子被吃掉时，都要脱一件衣服。
+###_NPC
+That sounds perfect.  Each major piece like a knight or a rook gets one cloth off.  Have you played before?  Should I go easy on you?
+我觉得很完美。每个骑士或城堡这样的主要棋子被吃掉时，都要脱一件衣服。你以前玩过吗？我应该对你放水吗？
+###_PLAYER
+(Play strip chess with her.)
+（和她下脱衣棋。）
+The loser could get restrained.
+失败者会被绑起来。
+###_NPC
+You're a kinky student, aren't you?  Let's make some rules, each captured pawn gets a cloth off, other pieces get you restrained.  What do you think?
+你真是个变态的学生。我们定一些规则吧，每个兵被吃掉的，要脱一件衣服，其他棋子会让你被绑起来。你觉得如何？
+###_PLAYER
+How about some bondage?
+来点束缚怎么样？
+It sounds good.
+这听起来不错。
+###_NPC
+(She gives you a thumbs up.)  Have you played chess before?  Should I go easy on you?
+（她竖起大拇指。）你以前下过国际象棋吗？我应该对你放水吗？
+###_PLAYER
+I can go by these rules.
+这样的规则我能来。
+(Play bondage chess with her.)
+（和她下束缚棋。）
+We can play another game.
+我们可以再来一局。
+###_NPC
+Absolutely!   We play for fun again or you would like to bet something on the game?
+那是当然！我们继续为开心来玩，或者你想赌点什么东西？
+###_PLAYER
+I'll crush you again.
+我会再次粉碎你。
+###_NPC
+We'll see about that!   We play for fun again or you would like to bet something on the game?
+我们会看到的！我们继续为开心来玩，或者你想赌点什么东西？
+###_PLAYER
+Maybe later.  (Leave her.)
+也许以后吧。（离开她。）
+I will win the next one.
+下一次我会赢的。
+###_NPC
+That's the spirit!   We play for fun again or you would like to bet something on the game?
+这就对了！我们继续为开心来玩，或者你想赌点什么东西？
+###_PLAYER
+We cannot end on a draw.
+我们不能以平局告终。
+###_NPC
+Very true!   We play for fun again or you would like to bet something on the game?
+说得对！我们继续为开心来玩，或者你想赌点什么东西？
+Absolutely!   Would you like to bet some money on the game again?
+绝对地！你想再在游戏上赌点钱吗？
+###_PLAYER
+I do need more money.
+我确实需要更多的钱。
+###_NPC
+And I want my money back.  What would you like to bet on this game?
+我也想把我的钱要回来。在这次游戏上，你想赌什么？
+###_PLAYER
+I need to make my money back.
+我需要把钱要回来。
+###_NPC
+I can always use more money.  What would you like to bet on this game?
+我总是可以用更多的钱。在这次游戏上，你想赌什么？
+That's for sure.   Would you like to bet some money on the next game?
+这是肯定的。你想在下一局赌点钱吗？
+###_PLAYER
+You're really cute you know?
+你真的很可爱，你知道吗？
+###_NPC
+(She blushes.)  You really think so?  You're very kind, I love the way you look also.
+（她脸红起来。）你真的这么认为吗？你人很好，我也喜欢你的样子。
+###_PLAYER
+You don't need to be embarrassed.
+你不需要害羞。
+###_NPC
+(She smiles.)  That's very kind of you, I love the way you look also.
+（她笑了起来）你真好，我也喜欢你的样子。
+###_PLAYER
+Get dressed girl.
+穿好衣服，女孩。
+###_NPC
+Good idea, we don't want to get caught.  (You pick the removed clothes and dress back up.)  Another bet?
+好主意，我们都不想被抓到。（你捡起脱掉的衣服，重新穿上。）再赌一局？
+###_PLAYER
+Maybe you should dress back up.
+也许你应该重新穿好衣服。
+What will you do?
+你要做什么呢？
+###_NPC
+(She ponders.)  Since you're naked and you lost, you could do a sexy dance for me.
+（她沉思了一会儿。）既然你光着身子，并且不知道做啥，你可以为我跳一段性感的舞蹈。
+###_PLAYER
+This is kinky!
+这太变态了！
+###_NPC
+It could be even more kinky.  Since you're naked and you lost, you could do a sexy dance for me.
+这可以更变态。既然你光着身子，并且不知道做啥，你可以为我跳一段性感的舞蹈。
+###_PLAYER
+This is too embarrassing.
+这太羞人了。
+###_NPC
+Get clothed, we don't want to get caught.  (You pick the removed clothes and dress back up.)  Another bet?
+穿好衣服吧，我们都不想被抓到。（你捡起脱掉的衣服，重新穿上。）再赌一局？
+###_PLAYER
+Can I dress back up?
+我可以重新穿好衣服吗？
+###_NPC
+Of course, we don't want to get caught.  (You pick the removed clothes and dress back up.)  Another bet?
+当然，我们都不想被抓到。（你捡起脱掉的衣服，重新穿上。）再赌一局？
+Absolutely!   Should we bet some clothes again?  Or something else?
+那是当然！我们要再赌一些衣服吗？或者赌其他东西？
+That's for sure.  Should we bet some clothes again?  Or something else?
+这是当然的。我们要再赌一些衣服吗？或者赌其他东西？
+###_PLAYER
+You're right, there will be consequences.
+你说得对，后果自负。
+###_NPC
+(She seems to worry.)  What kind of consequences?
+（她似乎很担心。）什么样的后果？
+###_PLAYER
+Losers should be punished.
+失败者应该受到惩罚。
+###_NPC
+(She seems to worry.)  Punished?  What will you do?
+（她看起来有点慌张。）受到惩罚？你要做什么？
+###_PLAYER
+Let me help you.  (Release her.)
+让我来帮助你。（放开她。）
+###_NPC
+Thanks!  We don't want to get caught.  (You release her and dress back up.)  Another bet?
+谢谢！我们都不想被抓到。（你放开她，重新穿上衣服。）再赌一局？
+###_PLAYER
+It was a fun game.  (Release her.)
+这一局真有趣。（放开她。）
+Tricks?  What do you have in mind?
+诡计？你有什么考虑？
+###_NPC
+You will see pretty soon.  (She opens a gym bag, but doesn't show you what's inside,)
+你很快就知道了。（她打开一个健身包，但没有告诉你里面是什么，）
+###_PLAYER
+Will you release me?
+你会放开我吗？
+###_NPC
+Not now, you need to learn first.  (She opens a gym bag, but doesn't show you what's inside,)
+现在不行，你需要先学习。（她打开一个健身包，但没有告诉你里面是什么，）
+###_PLAYER
+(Struggle and stay silent.)
+（挣扎并保持沉默。）
+###_NPC
+(She giggles and opens a gym bag, but doesn't show you what's inside,)
+（她咯咯地笑着打开了一个健身包，但没有告诉你里面是什么，）
+Absolutely!   Should we bet clothes and restraints again?  Or something else?
+当然！我们要不要再赌一次衣服和束缚？或者是其他东西？
+That's for sure.  Should we bet clothes and restraints again?  Or something else?
+这是肯定的。我们要不要再赌一次衣服和束缚？或者是其他东西？
+###_PLAYER
+Kiss me, cute loser.
+吻我，可爱的失败者。
+###_NPC
+(She gets closer and you exchange a long kiss.  She smiles and you start to flirt with each other.)
+（她靠得更近了，你们长长地相吻。她微笑着，接着你们开始互相调情。）
+###_PLAYER
+Do a little dance for me.
+为我跳一段小舞。
+###_NPC
+(She does a sexy dance for you and giggles.  She smiles and you start to flirt with each other.)
+（她为你跳性感的舞蹈并咯咯地笑起来。她微笑着，接着你们开始互相调情。）
+###_PLAYER
+Would you like to be touched?
+你想要被摸吗？
+###_NPC
+(She nods as you caress her breast slowly.  She smiles and you start to flirt with each other.)
+（她点点头，你慢慢地抚摸她的乳房。她微笑着，接着你们开始互相调情。）
+###_PLAYER
+Very well.  (Dance for her.)
+好的。（为她跳舞。）
+###_NPC
+(You dance for her as she claps her hands.  She smiles and you start to flirt with each other.)
+（你为她跳舞，她拍起手来。她微笑着，接着你们开始互相调情。）
+###_PLAYER
+My pleasure!  (Do a sensual dance.)
+我的荣幸！（跳一段感性的舞蹈。）
+###_NPC
+(You dance sensually for her as she blushes.  She smiles and you start to flirt with each other.)
+（你为她深情地跳舞，她脸红起来。她微笑着，接着你们开始互相调情。）
+###_PLAYER
+I would rather kiss you.
+我更想要亲吻你。
+(Strip naked.)
+（脱光衣服。）
+###_NPC
+(You strip naked as she smiles.)  You're the prettiest chess player I've ever seen.
+（你脱光衣服，她微笑起来。）你是我见过的最漂亮的棋手。
+###_PLAYER
+(Strip her down.)
+（把她脱光。）
+###_NPC
+(You strip her naked as she blushes.)  Playing chess with you is so hot.
+（你脱光了她的衣服，她脸红起来。）和你下棋真是太色情了。
+###_PLAYER
+(Kiss her.)
+（亲她。）
+###_NPC
+(You exchange a long kiss as she moans from your lips.)
+（你们长长地相吻，她从你的唇边呻吟。）
+###_PLAYER
+(Caress her.)
+（抚摸她。）
+###_NPC
+(You caress each other slowly and exchange lovely smiles.)
+（你们慢慢地爱抚，互相对视，露出甜蜜的笑容。）
+###_PLAYER
+(Masturbate her.)
+（用手抚慰她。）
+###_NPC
+(She closes her eyes and breathes heavily as you masturbate her skillfully.)
+（当你熟练地抚慰她时，她闭上眼睛，大口呼吸。）
+###_PLAYER
+(Make love with her.)
+（和她做爱。）
+###_NPC
+(You knock over the chess board and start to make sweet love together.)
+（你打翻了棋盘，开始甜蜜地做爱。）
+###_PLAYER
+Enough.  Let's dress back up.
+够了。我们穿好衣服吧。
+###_NPC
+(She nods as you both dress back up.)  Would you like to play another game?  With another bet?
+（她点点头，你们都穿好衣服。）你想再来一局吗？赌另一种东西？
+###_PLAYER
+(Masturbate each other.)
+（用手互相抚慰。）
+###_NPC
+(You masturbate each other slowly and lovingly in the classroom, sharing a wonderful orgasm.)
+（你们在教室里缓慢而亲密地互相抚慰，分享美妙的高潮。）
+###_PLAYER
+(Eat each other.)
+（用嘴抚慰对方。）
+###_NPC
+(You eat each other passionately in the classroom, sharing a strong orgasm.)
+（你们在教室里用嘴抚慰对方，分享强烈的高潮。）
+###_PLAYER
+(Scissor each other.)
+（互相摩擦阴户。）
+###_NPC
+(You scissor together in the classroom, sharing a shattering orgasm.)
+（你们在教室里交错双腿，互相摩擦着阴户，分享猛烈的高潮。）
+###_PLAYER
+Wow!  That was great.
+哇！刚才好棒。
+###_NPC
+Oh yes!  That was wonderful, but let's dress before we get caught.  (You both dress back up.)  Another game?
+哦是的！那太完美了，但我们在被抓住之前先穿好衣服吧。（你们都穿好衣服。）再来一局？
+###_PLAYER
+I needed that.
+我需要那个。
+###_NPC
+Same here.  That was amazing, but let's dress before we get caught.  (You both dress back up.)  Another game?
+我也是。那太棒了，但我们在被抓住之前先穿好衣服吧。（你们都穿好衣服。）再来一局？
+###_PLAYER
+Best chess game ever.
+这是我玩过最棒的一局国际象棋。
+###_NPC
+Absolutely.  That was great, but let's dress before we get caught.  (You both dress back up.)  Another game?
+绝对的。那太好了，但我们在被抓住之前先穿好衣服吧。（你们都穿好衣服。）再来一局？
+###_PLAYER
+I have some toys for you.
+我有一些玩具给你。
+###_NPC
+What kind of toys?   What do you have in your bag?  (You can now use your items on her.)
+什么样的玩具？你的包里有什么？（你现在可以在她身上使用你的物品了。）
+###_PLAYER
+I've brought some BDSM items for you.
+我给你带来了一些BDSM物品。
+###_NPC
+BDSM items?   What do you have in your bag?  (You can now use your items on her.)
+BDSM物品？你的包里有什么？（你现在可以在她身上使用你的物品了。）
+###_PLAYER
+You will be my bondage model.
+你会成为我的束缚模特。
+###_NPC
+What's a bondage model?   What do you have in your bag?  (You can now use your items on her.)
+什么是束缚模特？你的包里有什么？（你现在可以在她身上使用你的物品了。）
+(She seems to worry a little.)  What will you do to me?
+（她似乎有点担心。）你要对我做什么？
+(You strip her naked as she blushes.)  I won't let you beat me again.
+（你脱光她的衣服，她脸红起来。）我不会让你再击败我的。
+###_PLAYER
+(Pinch her.)
+（掐她。）
+###_NPC
+(She screams softly as you pinch her skin.)  Ow!  Unfair!
+（你掐捏她的皮肤，她轻声尖叫）噢！不公平！
+(She blushes and moans silently as you caress her sensually.)
+（你深情地抚摸她，她脸红并无声地呻吟。）
+###_PLAYER
+(Tickle her.)
+（给她挠痒痒。）
+###_NPC
+(She laughs as you tickle her without mercy.)  Eeeeeeaaahahaha!
+（你毫不留情地挠她，她笑起来。）噫呀啊哈哈哈哈！
+###_PLAYER
+(Spank her.)
+（拍打她。）
+###_NPC
+(You spank her pretty hard as she tries not to whimper.)  It hurts after a while.
+（你狠狠地拍打她，她尽力忍住呜咽。）这过一会儿才开始疼。
+###_PLAYER
+(Slap her.)
+（扇她巴掌。）
+###_NPC
+(She thrashes and whimpers as you slap her all over her body.)  This is going to far!
+（你在她全身上下扇巴掌，她抖动着抽泣。）这太过分了！
+###_PLAYER
+That's enough.  (Release her.)
+已经够了。（放开她。）
+###_NPC
+(You release her as she stretches her limbs.)  That was intense, I want my revenge.  Another game?
+（你松开她，她伸展四肢。）刚才太激烈了，我想要报复回来。再来一局不？
+###_PLAYER
+(Check the class.)
+（检查教室。）
+What's in the bag?
+包里面有什么？
+###_NPC
+I have a few items that will help you to learn chess.  (She uses many items from her bag on you.)
+我有一些物品可以帮助你学习国际象棋。（她把她包里的很多东西都用在你身上。）
+###_PLAYER
+(Try to look inside.)
+（试着往里看。）
+###_NPC
+Take a peek, there's a few items that will help you to learn chess.  (She uses many items from her bag on you.)
+看看吧，有一些物品可以帮助你学习国际象棋。（她把她包里的很多东西都用在你身上。）
+###_PLAYER
+(Mumble in your gag.)
+（在口塞里咕哝。）
+###_NPC
+Stay silent, it's time to learn some chess.  You're in the perfect position to focus.
+保持沉默，是时候学习一些国际象棋了。你现在是集中注意力的最佳状态。
+###_PLAYER
+(Struggle in your restraints.)
+（在你的束缚中挣扎。）
+###_NPC
+Stop struggling, it's time to learn some chess.  You're in the perfect position to focus.
+别挣扎了，是时候学习一些国际象棋了。你现在是集中注意力的最佳状态。
+###_PLAYER
+(Bow your head.)
+（低头。）
+###_NPC
+Good girl, it's time to learn some chess.  You're in the perfect position to focus.
+好女孩，是时候学点象棋了。你现在是集中注意力的最佳状态。
+###_PLAYER
+(Grumble and try to shake the gag off.)
+（抱怨并试图甩掉口塞。）
+###_NPC
+Your first lesson will be on the openings.  (She shows you some opening strategies as you struggle with the gag.)
+你的第一课，是关于如何开局。（她向你展示一些开局的策略，而你试图挣脱口塞。）
+###_PLAYER
+(Listen to her lesson.)
+（听她的课。）
+###_NPC
+Your first lesson will be on the openings.  (She shows you some opening strategies as you try to keep your balance.)
+你的第一课，是关于如何开局。（她向你展示一些开场策略，而你试图保持平衡时。）
+###_PLAYER
+(Look away from her.)
+（把目光从她身上移开。）
+###_NPC
+Focus!  Your second lesson will be on the middlegame.  (She grabs your head and forces you to watch more strategies.)
+集中注意！你的第二课，是关于中局的处理。（她抓住你的头，强迫你看更多的策略。）
+###_PLAYER
+(Try to struggle free.)
+（尝试挣扎出来。）
+###_NPC
+Stop that!  Your second lesson will be on the middlegame.  (She grabs your head and forces you to watch more strategies.)
+停下来！你的第二课，是关于中局的处理。（她抓住你的头，强迫你看更多的策略。）
+###_PLAYER
+(Listen and keep quiet.)
+（听着，保持安静。）
+###_NPC
+Your second lesson will be on the middlegame.  (She shows you some strategies on how to play the middlegame.)
+你的第二课，是关于中局的处理。（她向你展示了一些关于中局处理的策略。）
+###_PLAYER
+(Try to insult her.)
+（试着侮辱她。）
+###_NPC
+Have some respect.  This last lesson will be on the endgame.  (She forces you to learn more chess moves.)
+保持尊重。最后一课是关于残局处理的。（她强迫你学习更多的国际象棋技巧。）
+###_PLAYER
+(Pretend to fall asleep.)
+（假装睡着了。）
+###_NPC
+You're not funny.  This last lesson will be on the endgame.  (She forces you to learn more chess moves.)
+你不好笑。最后一课是关于残局处理的。（她强迫你学习更多的国际象棋技巧。）
+###_PLAYER
+(Stay silent.)
+（保持沉默。）
+###_NPC
+You're a good student.  This last lesson will be on the endgame.  (She teaches you more chess moves.)
+你是个好学生。最后一课是关于残局处理的。（她强迫你学习更多的国际象棋技巧。）
+###_PLAYER
+(Sigh and struggle lightly.)
+（轻轻叹息和挣扎。）
+###_NPC
+That's enough!  I hope you learned some tricks.  (She releases you.)  Would you like to play another game?
+够了！我希望你学会了一些技巧。（她放开了你。）你想再来一局吗？
+###_PLAYER
+(Beg for help.)
+（乞求帮助。）

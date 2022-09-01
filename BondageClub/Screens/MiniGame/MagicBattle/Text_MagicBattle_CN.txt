@@ -1,0 +1,42 @@
+Magic Battle
+魔法战斗
+Select your spell.
+选择你的法术。
+You are victorious.
+你获得了胜利。
+You were defeated.
+你被击败了。
+End the battle.
+结束战斗。
+Pallium Exuere
+除你外衣
+Animatus Funem
+绳索舞动
+Funem Tensis
+绳索紧束
+Oratio Angustos
+言语闭塞
+Animatus Ferrum
+锁链舞动
+Ferrum Tensis
+锁链紧束
+Nuda Caro
+赤裸肉身
+Stricta Lorum
+交手紧缚
+Cloth Stripping
+脱掉衣服
+Animate Rope
+操控绳子
+Rope Tightening
+束紧绳子
+Block Speech
+防止说话
+Animate Chain
+操控锁链
+Chain Tightening
+束紧锁链
+Full Stripping
+完全脱光
+Magic Armbinder
+魔法单手套

@@ -118,6 +118,12 @@ I'll take a bounty hunter job.
 We have many kidnapping bounties available.  Are you looking for an easy target, or more of a challenge?
 У нас есть много возможностей для похищения людей.  Вы ищете легкую цель, или более сложную задачу?
 ###_PLAYER
+Do you have other jobs?
+Есть ли у вас другие работы?
+###_NPC
+Yes, we need someone to hand over a package to an agent in the field. You'll have to carry this suitcase into the online public chatrooms and have your permissions set to public.
+Да, нам нужен кто-то, кто передаст посылку агенту на месте. Вам придется нести этот чемодан в общедоступные онлайн-чаты, и ваши разрешения должны быть общедоступными.
+###_PLAYER
 Who's my bounty target again?
 Еще раз, кто моя цель для добычи?
 I've succeeded, my bounty was kidnapped.
@@ -125,17 +131,69 @@ I've succeeded, my bounty was kidnapped.
 I've failed to kidnap my bounty.
 Мне не удалось похитить свою добычу.
 ###_NPC
+Maybe the challenge was too tough for you.  You can take a break or pick up another bounty if you want.
+Может быть, испытание оказалось для вас слишком сложным. Вы можете сделать перерыв или забрать другую добычу, если хотите.
+###_PLAYER
+(Return the suitcase)
+(Вернуть чемодан)
+###_NPC
+Maybe the challenge was too tough for you.  You can take a break or pick up a bounty if you want.
+Может быть, испытание оказалось для вас слишком сложным. Вы можете сделать перерыв или забрать награду, если хотите.
+###_PLAYER
+(Return the ransacked laptop)
+(Вернуть украденный ноутбук)
+###_NPC
 Maybe the challenge was too tough for you.  You can take a break, or pick up another bounty if you want.
 Может быть, этот вызов был слишком трудным для вас.  Вы можете сделать перерыв, или забрать другую добычу, если хотите.
+Oh, it looks like someone got ahold of the package...
+О, похоже, кто-то завладел пакетом...
 ###_PLAYER
 I want to practice kidnappings with you.
 Я хочу попрактиковаться в похищениях вместе с вами.
 ###_NPC
-Great!  I can go easy on you, or use all my tricks if you're confident enough.  Which will it be?
+Great!  I can go easy on you or use all my tricks if you're confident enough.  Which will it be?
 Отлично!  Я могу быть с вами помягче или использовать все свои трюки, если вы достаточно уверены в себе.  Что же это будет?
 ###_PLAYER
 Let's talk later.  (Leave her.)
 Давайте поговорим позже.  (Оставь ее.)
+What do I do then?
+Что мне делать тогда?
+###_NPC
+Well, we haven't heard back from the agent yet. But I'm sure they'll find you in time.
+Ну, мы еще не получили ответа от агента. Но я уверен, что они найдут тебя вовремя.
+###_PLAYER
+I need to change my permissions first.
+Сначала мне нужно изменить свои разрешения.
+###_NPC
+Sounds good! See you soon.
+Звучит отлично! До скорого.
+###_PLAYER
+This is not for me.
+Это не для меня.
+###_NPC
+It's fine.  Would you like to talk then?
+Это отлично. Хочешь поговорить тогда?
+###_PLAYER
+It's a laptop, isn't it?
+Это ноутбук, не так ли?
+###_NPC
+Oh... I guess you know what you're doing.
+Ох... Думаю, ты знаешь, что делаешь.
+###_PLAYER
+I will deliver it.
+Я доставлю это.
+###_NPC
+(She attaches a suitcase to your hand with a cable)
+(Привязывает чемодан к твоей руке тросом)
+###_PLAYER
+I've changed my mind.
+Я передумала.
+(Nod yes)
+(Кивок)
+###_NPC
+That's alright. You put your body on the line, so you'll get paid for the trouble. (She gives you MONEYAMOUNT$)
+Все в порядке. Вы рискуете своим телом, так что вам заплатят за беспокойство. (Она дает вам MONEYAMOUNT$)
+###_PLAYER
 Please go easy on me.
 Пожалуйста, полегче со мной.
 A regular match please.
@@ -150,7 +208,7 @@ I've changed my mind.
 It's fine.  Would you like to talk then?
 Все нормально.  Может быть, вы хотите поговорить?
 ###_PLAYER
-Tell me of the rules.
+Tell me the rules.
 Расскажите мне о правилах.
 ###_NPC
 First, all league members can kidnap and be kidnapped at any time in the Bondage Club.  Do you agree to that?
@@ -231,13 +289,13 @@ There's no cost to join and there are bounty hunter jobs that you can take if yo
 Can members leave the league?
 Могут ли члены покинуть Лигу?
 ###_NPC
-Of course.  Though you will lose any reputation gained in the league before.
+Of course.  Though you will lose any reputation you gained in the league.
 Конечно.  Хотя вы потеряете любую репутацию, полученную в Лиге раньше.
 ###_PLAYER
-That's enough.
+That's everything I need to know.
 Этого достаточно.
 ###_NPC
-Very good.  Can I help you with anything else?
+Excellent.  Can I help you with anything else?
 Отлично.  Могу я вам еще чем-нибудь помочь?
 ###_PLAYER
 How do I kidnap?
@@ -249,20 +307,20 @@ To kidnap, you must fight your opponent and break her willpower.  You can use ma
 How do I win a kidnapping fight?
 Как мне победить в борьбе при похищение?
 ###_NPC
-To win, you must break your opponent's willpower before getting yours broken yourself.  The first to break will submit, and then their arms can be restrained.
-Чтобы победить, вы должны сломить волю противника, прежде чем сломают вас. Первая, кто сломается, подчинятся, и тогда их руки можно будет связать.
+To win, you must break your opponent's willpower before getting yours broken.  The first to break will submit, and then their arms can be restrained.
+Чтобы победить, вы должны сломить силу воли противника до того, как сломите свою. Кто первый сломается, тот подчинятся, и тогда его руки можно будет сдерживать.
 ###_PLAYER
 How can I attack?
 Как я могу атаковать?
 ###_NPC
-Both kidnappers attack at the same time and can perform any one of four moves.  Each move has strengths and weaknesses against other moves.
-Оба похитителя атакуют одновременно и могут выполнить любой из четырех действий. Каждое действие имеет сильные и слабые стороны против других действий.
+Both kidnappers attack at the same time and can perform four different moves.  Each move has strengths and weaknesses against other moves.
+Оба похитителя атакуют одновременно и могут выполнять четыре разных движения. Каждый ход имеет сильные и слабые стороны по сравнению с другими ходами.
 ###_PLAYER
 What are these different moves?
 Что это за разные действия?
 ###_NPC
-We call them the "BDSM" moves, they are: Brute force, Domination, Sneakiness, and Manipulation.
-Мы называем их" БДСМ " действия, они являются: Грубая сила, Доминирование, Подлость, и Манипуляция.
+We call them the "BDSM" moves, they are: Brute force, Domination, Sneakiness, and Meditation.  You will get 8 moves when you begin a fight.
+Мы называем их движениями «БДСМ», это: Грубая сила, Доминирование, Скрытность и Медитация. Вы получите 8 ходов, когда начнете бой.
 ###_PLAYER
 How does the strength move work?
 Как работает действие?
@@ -279,10 +337,10 @@ You get the upper hand when you carry out a good move against your opponent.  It
 Can I use items that are not restraints?
 Могу ли я использовать предметы, которые не являются ограничениями?
 ###_NPC
-Yes, if you have items such as whips, crops, or vibrators. They will give you a starting advantage on various moves.
-Да, если у вас есть такие предметы, как хлысты, стеки или вибраторы. Они дадут вам начальное преимущество на различных действиях.
+Yes, many unique items can be used passively to boost your moves strength.  They cannot be bought from the store, try to find them within the club.
+Да, многие уникальные предметы можно пассивно использовать для повышения силы ваших движений. Их нельзя купить в магазине, попробуйте найти в клубе.
 ###_PLAYER
-I know everything I need.
+That's everything I need to know.
 Я узнала все, что мне нужно.
 ###_NPC
 Excellent.  Can I help you with anything else?
@@ -293,22 +351,22 @@ Excellent.  Can I help you with anything else?
 ###_NPC
 Brute force is about using physical strength and endurance against your opponent.  You can slap, kick, punch, and choke, but don't go too far.
 Грубая сила - это использование физической силы и выносливости против вашего противника.  Вы можете шлепать, пинать, бить и душить, но не заходите слишком далеко.
-Brute force is good versus Domination, fair versus Manipulation, and bad versus Sneakiness.  Brute force is halved if clothes are removed.
-Грубая сила - хороша против Доминирования, равна против Манипуляции и плоха против Подлости.  Грубая сила уменьшается вдвое, если снять одежду.
+Brute force is good versus Domination and bad versus Sneakiness.  Brute force is halved if clothes are removed.
+Грубая сила хороша против Доминирования и плоха против Скрытности. Грубая сила уменьшается вдвое, если снять одежду.
 Domination consists of intimidating, insulting, and making your opponent feel weaker than you, which breaks their morale.
 Доминирование состоит в запугивании, оскорблении и заставлении противника чувствовать себя слабее вас, что подрывает ее моральный дух.
-Domination is good versus Manipulation, fair versus Sneakiness, and bad versus Brute force.  Domination is halved when collared.
-Доминирование - хорошо против Манипуляции, равно против Подлости и плохо против Грубой силы.  Доминирование сокращается вдвое, когда на вас ошейник.
-Sneakiness means to ambush, trip, surprise, sneak, tickle, or use rapid tricks to break your opponent.
-Подлость означает устроить засаду, подножку, неожиданно напасть, подкрасться, пощекотать или использовать быстрые трюки, чтобы сломать своего противника.
-Sneakiness is good versus Brute force, fair versus Domination, and bad versus Manipulation.  Sneakiness is halved if the feet are restrained.
-Подлость - хороша против Грубой силы, равноа против Доминирования и плоха против Манипуляции.  Подлость уменьшается вдвое, если связаны ступни.
-Manipulation is all about deceiving, fooling, charming, and seducing your opponent so she will submit to you.
-Манипуляция - это все о том, чтобы обмануть, одурачить, очаровать и соблазнить вашего противника, чтобы она подчинилася вам.
-Manipulation is good against Sneakiness, fair against Brute force, and bad against Domination.  Manipulation is halved if you're gagged.
-Манипуляция - хороша против Подлости, равна против Грубой силы и плоха против Доминирования.  Манипуляция сокращается вдвое, если вам заткнули рот.
-Each time you use a move, it's strength will be halved, so it's good to alternate between different moves.  Each move slowly recuperates with time.
-Каждый раз, когда вы используете действие, его сила будет уменьшена вдвое, поэтому хорошо чередовать различные действия.  Каждое действие медленно восстанавливается со временем.
+Domination is good versus Sneakiness and bad versus Brute force.  Domination is halved when gagged.
+Доминирование хорошо против Скрытности и плохо против Грубой силы. Доминирование уменьшается вдвое при затыкании рта.
+Sneakiness means to ambush, trip, surprise, sneak, tickle, or use tricks to break your opponent.
+Скрытность означает устроить засаду, споткнуться, удивить, подкрасться, пощекотать или использовать уловки, чтобы сломить противника.
+Sneakiness is good versus Brute force and bad versus Domination.  Sneakiness is halved if feet are restrained.
+Скрытность хороша против Грубой силы и плоха против Доминирования. Скрытность уменьшается вдвое, если ноги связаны.
+Meditation is used to recover.  If you use that move, you will get 8 new fresh moves that you'll be able to use in the next round.
+Медитация используется для восстановления. Если вы используете этот ход, вы получите 8 новых свежих ходов, которые вы сможете использовать в следующем раунде.
+Meditation is weak against everything, so you will probably take a hit when you use it, but come back stronger.
+Медитация слаба против всего, поэтому вы, вероятно, получите удар, когда будете ее использовать, но вернетесь сильнее.
+The strategy is using the right move at the right time and recovering when the timing is best.  Do not get caught off guard.  Anything else?
+Стратегия состоит в том, чтобы использовать правильный ход в нужное время и восстанавливаться в самый подходящий момент. Не застигнут врасплох. Что-нибудь еще?
 ###_PLAYER
 I want an easy bounty.
 Я хочу легкий приз.
@@ -338,19 +396,19 @@ I'll try my best.
 Alright, good luck.  Come back when you've kidnapped her for your reward.
 Хорошо, удачи.  Возвращайся, когда похитишь ее, чтобы получить свою награду.
 ###_PLAYER
-Yeah, she did put quite a fight.
+Yeah, she put up quite a fight.
 Да, она устроила настоящую драку.
 ###_NPC
 That was to be expected of her.  Would you like to take another bounty?
 Этого от нее и следовало ожидать.  Не хотите ли вы получить еще один приз?
 ###_PLAYER
-No problem, I represent the league.
+It was no problem, I represent the league.
 Нет проблем, я представляю Лигу.
 ###_NPC
 Very good, I like your attitude.  Would you like to take another bounty then?
 Очень хорошо, мне нравится ваше отношение.  Не хотите ли вы получить еще один приз?
 ###_PLAYER
-It was fair and fun fight.
+It was a fair and fun fight.
 Это был честный и веселый бой.
 ###_NPC
 That's what we aim for in the league.  Would you like to take another bounty?

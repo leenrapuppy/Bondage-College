@@ -378,7 +378,7 @@ function GameMagicBattleAddChatLog(Msg, Source, Target, Data, Color) {
 	div.setAttribute('class', 'ChatMessage ChatMessageServerMessage');
 	div.setAttribute('data-time', ChatRoomCurrentTime());
 	if ((Color != null) && (Color != "")) div.style.color = Color;
-	div.innerHTML = Msg;
+	div.innerText = Msg;
 	var Refocus = document.activeElement.id == "InputChat";
 	var ShouldScrollDown = ElementIsScrolledToEnd("TextAreaChatLog");
 	if (document.getElementById("TextAreaChatLog") != null) {

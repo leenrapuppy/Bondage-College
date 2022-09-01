@@ -531,20 +531,22 @@ In online chat rooms, what's the minimum number of days for a submissive trial p
 One day.
 Один день.
 ###_NPC
-Wrong.  It's three days slave girl.
-Неправильно.  Это три дня рабыня.
+Wrong.  It's one week slave girl.
+Неправильно.  Это неделя рабыня.
 ###_PLAYER
 Three days.
 Три дня.
+One week.
+Неделя.
 ###_NPC
 Correct!  (She pets your head.)
 Правильно!  (Она гладит тебя по голове.)
 ###_PLAYER
-One week.
-Одна неделя.
+Three week.
+Три недели.
 ###_NPC
-You should know the delay.  It's three days slave girl.
-Ты должна знать о отсрочке.  Это три дня рабыня.
+You should know the delay.  It's one week slave girl.
+Ты должна знать о отсрочке.  Это неделя рабыня.
 What is highest ranking you can reach in the maid sorority?
 Какой самый высокий рейтинг ты можешь получить в сообществе горничных?
 ###_PLAYER
@@ -612,25 +614,25 @@ It's 60 minutes.  I guess you're going to spend some time in the cell to know it
 In online chat rooms, what can you do to protect yourself from griefers and trolls?
 В онлайн-чатах, что ты можешь сделать, чтобы защитить себя от оскорблений и троллей?
 ###_PLAYER
-Blacklist them.
-В черный список их.
+Blacklist and Ghostlist them.
+Черный список и призрачный список их.
 ###_NPC
-Absolutely.  Focus on them and add them to your blacklist in your relationship management.
-Разумеется.  Направь на них и добавь их в свой черный список в твоем управлении отношениями.
+Absolutely.  Focus on them and add them to your blacklist and ghostlist in your relationship management.
+Разумеется.  Направь на них и добавь их в свой черный список и спимок призраков в твоем управлении отношениями.
 ###_PLAYER
 Yell at them until they stop.
 Кричать на них, пока они не остановятся.
 ###_NPC
-No.  Just focus on them and add them to your blacklist in your relationship management.
-Нет.  Просто направь на них и добавь их в свой черный список в твоем управлении отношениями.
+No.  Just focus on them and add them to your blacklist and ghostlist in your relationship management.
+Нет.  Просто направь на них и добавь их в свой черный список и список призраков в твоем управлении отношениями.
 ###_PLAYER
 Beg them to stop.
 Умолять их остановиться.
 ###_NPC
-It probably won't work.  Instead, focus on them and add them to your blacklist in your relationship management.
-Скорее всего, это не сработает.  Вместо этого, направь на них и добавь их в свой черный список в твоем управлении отношениями.
-Focus on them and add them to your blacklist in your relationship management.
-Направь на них и добавь их в свой черный список в твоем управлении отношениями.
+It probably won't work.  Instead, focus on them and add them to your blacklist and ghostlist in your relationship management.
+Скорее всего, это не сработает.  Вместо этого, направь на них и добавь их в свой черный список и призрачный  в твоем управлении отношениями.
+Focus on them and add them to your blacklist and ghostlist in your relationship management.
+Направь на них и добавь их в свой черный список и призрачный в твоем управлении отношениями.
 Which one of these gags is the most effective: ring gag, panel gag, duct tape or cloth gag?
 Какой из этих кляпов наиболее эффективен: кляп-кольцо, кляп-панель, клейкая лента или тканевый кляп?
 ###_PLAYER
@@ -1015,8 +1017,8 @@ Have fun girl.  (Leave her.)
 Who are you girl?
 Кто ты, девочка?
 ###_NPC
-(She bows her head.)  I'm slave DialogCharacterName Miss.  Do you need my services?
-(Она склоняет голову.)  Я рабыня DialogCharacterName Мисс.  Вам нужны мои услуги?
+(She bows her head.)  I'm a club slave Miss.  Do you need my services?
+(Она склоняет голову.)  Я клубная рабыня Мисс.  Вам нужны мои услуги?
 ###_PLAYER
 You seem well trained slave.
 Ты кажешься хорошо обученной рабыней.
@@ -1137,8 +1139,8 @@ I'm sorry Miss, I'm too busy today.  Maybe another time.
 Who are you?
 Кто ты??
 ###_NPC
-I'm slave DialogCharacterName Miss.  It's a pleasure to meet you.
-Я рабыня DialogCharacterName Мисс.  Очень приятно с вами познакомиться.
+I'm a simple club slave Miss.  It's a pleasure to meet you.
+Я простая клубная рабыня Мисс.  Очень приятно с вами познакомиться.
 ###_PLAYER
 Why are you naked?
 Почему ты голая?
@@ -1158,19 +1160,19 @@ Can I become a club slave?
 It's only for true submissives, go to the club management and ask if you're eligible.
 Это только для истинных сабмиссивов, идите к руководству клуба и спросите, можете ли вы ее стать.
 ###_PLAYER
-What's the limit with you?
+What are your limits?
 Какие у тебя пределы?
 ###_NPC
 The usual limits Miss.  No blood or any permanent harm.  You can restrain me or have sex with me.
 Обычные пределы, Мисс.  Ни крови, ни какого-либо постоянного вреда.  Вы можете связать меня или заниматься со мной сексом.
 ###_PLAYER
-Who's slut are you?
+Whose slut are you?
 Кто ты такая, шлюха?
 ###_NPC
 (She blushes and bows her head in shame.)  I'm your slut Miss.
 (Она краснеет и опускает голову от стыда.)  Я ваша шлюха Мисс.
 ###_PLAYER
-Enough chit-chat.
+That's all I wanted to talk about.
 Довольно болтовни.
 ###_NPC
 Very well.  Is there anything else I can do for you Miss?

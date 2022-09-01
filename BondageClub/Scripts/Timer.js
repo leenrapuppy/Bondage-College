@@ -116,7 +116,7 @@ function TimerPrivateOwnerBeep() {
 			ServerBeep = {
 				Timer: CommonTime() + 15000,
 				Message: DialogFindPlayer("BeepFromOwner"),
-			}
+			};
 			LogAdd("OwnerBeepActive", "PrivateRoom");
 			LogAdd("OwnerBeepTimer", "PrivateRoom", CurrentTime + 120000);
 			FriendListBeepLog.push({ MemberName: Player.Owner, ChatRoomName: DialogFindPlayer("YourRoom"), Sent: false, Time: new Date(), Private: false });
@@ -242,13 +242,6 @@ function TimerProcess(Timestamp) {
 			ControllerCurrentButton = 0;
 		}
 		DrawRect(MouseX - 5, MouseY - 5, 10, 10, "Cyan");
-	}
-
-	if (BlindFlash == true && CurrentTime < DrawingBlindFlashTimer) {
-		if (Player.GetBlindLevel() == 0) {
-			let FlashTime = DrawingBlindFlashTimer - CurrentTime;
-			DrawRect(0, 0, 2000, 1000, "#ffffff" + DrawGetScreenFlash(FlashTime/Math.max(1, 4 - DrawLastDarkFactor)));
-		}
 	}
 
 	// Launches the main again for the next frame

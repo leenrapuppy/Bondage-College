@@ -57,7 +57,7 @@ Willkommen bei den Privatzimmern des Bondage-Clubs. Möchtest du dein Zimmer auf
 Hi, I'm DialogPlayerName.
 Hi, ich bin DialogPlayerName.
 ###_NPC
-Nice to meet you, I'm DialogCharacterName.  I rent private rooms and rooms improvements.
+Nice to meet you, I'm DialogCharacterName.  I manage the private room rentals and improvements.
 Schön dich kennenzulernen, ich bin DialogCharacterName. Ich vermiete Privatzimmer und deren Ausstattung.
 ###_PLAYER
 Can you help me?
@@ -89,7 +89,7 @@ Können wir miteinander spielen?
 ###_NPC
 I don't have much to do and it's a quiet day.  I guess we can play.
 Ich habe nicht viel zu tun und es ist ein ruhiger Tag. Spielen wir, würde ich sagen.
-I'd love too, but I have rooms and items to rent.
+I'd love to, but I have rooms and items to rent.
 Ich würde ja gern, aber ich habe Zimmer und Möbel zu vermieten.
 ###_PLAYER
 Let's talk later.  (Leave her.)
@@ -100,16 +100,16 @@ Wie viel kostet ein Zimmer?
 The price for a regular room is 250$.
 Der Preis für ein gewöhnliches Zimmer beträgt 250$.
 ###_PLAYER
-For how long I have the room?
+How long do I have the room for?
 Wie lange gehört der Raum mir?
 ###_NPC
-For as long as you're a club member.
+It's yours as long as you're a club member.
 Solange du ein Mitglied des Clubs bist.
 ###_PLAYER
 Can I invite friends over?
 Darf ich Freunde einladen?
 ###_NPC
-Of course.  The room isn't huge though, it can accommodate four persons, or eight if you get an extension.
+Of course.  The room isn't huge, but it's big enough for four people, or eight if you get an extension.
 Selbstverständlich. Das Zimmer ist aber nicht gerade riesig, es passen vier Leute hinein, oder acht, wenn du eine Erweiterung kaufst.
 ###_PLAYER
 Can I get naked in my room?
@@ -124,7 +124,7 @@ Was für eine Ausstattung kann ich kaufen?
 Wardrobe, cages and a room expansion for now.  But the club is always improving, you can check later.
 Fürs Erste Kleiderschränke, Käfige und Zimmererweitrungen. Der Club wird stets ausgebaut, du kannst später erneut nachfragen.
 ###_PLAYER
-Enough questions.
+That's all the questions I had.
 Genug der Fragen.
 ###_NPC
 Alright.  What can I do for you then?

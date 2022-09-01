@@ -63,7 +63,7 @@ function AsylumGGTSLevelCompleted() {
  * @returns {number} - Nothing
  */
 function AsylumGGTSGetLevel(C) {
-	return ((C.Game != null) && (C.Game.GGTS != null) && (C.Game.GGTS.Level != null) && (C.Game.GGTS.Level >= 1) && (C.Game.GGTS.Level <= 10)) ? C.Game.GGTS.Level : 0;
+	return ((C != null) && (C.Game != null) && (C.Game.GGTS != null) && (C.Game.GGTS.Level != null) && (C.Game.GGTS.Level >= 1) && (C.Game.GGTS.Level <= 10)) ? C.Game.GGTS.Level : 0;
 }
 
 /**
@@ -388,6 +388,7 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if (((T == "ActivityKiss") || (T == "ActivityLick") || (T == "ActivityBite")) && !C.CanTalk()) return false; // Kiss, lick & bite require being able to talk
 	if (((T == "ActivityKiss") || (T == "ActivityLick") || (T == "ActivityBite")) && (Player.Effect != null) && (Player.Effect.indexOf("BlockMouth") >= 0)) return false; // Kiss, lick & bite require being able to use mouth
 	if ((T == "ActivityMasturbateHand") && C.IsVulvaChaste()) return false; // Cannot masturbate if chaste
+	if ((T == "ActivityMasturbateHand") && InventoryIsWorn(C, "FuckMachine", "ItemDevices")) return false; // Cannot masturbate if wearing the fuck machine
 	if (((T == "ClothHeels") || (T == "ClothSocks") || (T == "ClothBarefoot")) && (InventoryGet(C, "ItemBoots") != null)) return false; // No feet tasks if locked in boots
 	if ((T == "NewRuleNoOrgasm") && !PreferenceArousalAtLeast(C, "Hybrid")) return false; // Orgasm rule are only available on hybrid or auto
 	if (((T == "ItemRemoveLimb") || (T == "ItemRemoveBody") || (T == "ItemRemoveHead") || (T == "ItemUngag") || (T == "ItemUnchaste")) && (LogValue("Isolated", "Asylum") >= CurrentTime)) return false; // When punishment is active, items doesn't get removed
@@ -1062,6 +1063,13 @@ function AsylumGGTSControlItem(C, Item) {
 }
 
 /**
+ * Checks if the has enough GGTS minutes to spend on different activities, for GGTS level 6 and up
+ * @param {number} Minute - The number of minutes to compare
+ * @returns {boolean} - TRUE if the player has enough minutes
+ */
+function AsylumGGTSHasMinutes(Minute) { return ((AsylumGGTSGetLevel(Player) >= 6) && (Math.floor(Player.Game.GGTS.Time / 60000) >= Minute)); }
+
+/**
  * At level 6, the player can spend GGTS minutes for various reasons
  * @returns {void} - Nothing
  */
@@ -1086,16 +1094,16 @@ function AsylumGGTSAddStrike() {
 	// Level 6 is infinite, getting a strike subtract 1 hour
 	if (AsylumGGTSGetLevel(Player) >= 6) return AsylumGGTSSpendMinute(60);
 
+	// On the third strike, we unlock the room if we can
+	if ((Player.Game.GGTS.Strike >= 2) && AsylumGGTSTaskCanBeDone(Player, "UnlockRoom")) {
+		AsylumGGTSTask = "UnlockRoom";
+		AsylumGGTSAutomaticTask();
+	}
+
 	// Adds the strike to the player record
 	Player.Game.GGTS.Strike++;
 	if (Player.Game.GGTS.Strike > 3) Player.Game.GGTS.Strike = 3;
 	ServerAccountUpdate.QueueData({ Game: Player.Game }, true);
-
-	// On the third strike, we unlock the room if we can
-	if ((Player.Game.GGTS.Strike >= 3) && AsylumGGTSTaskCanBeDone(Player, "UnlockRoom")) {
-		AsylumGGTSTask = "UnlockRoom";
-		AsylumGGTSAutomaticTask();
-	}
 
 	// On the third strike, we open the leg cuffs if we can
 	if ((Player.Game.GGTS.Strike >= 3) && InventoryIsWorn(Player, "FuturisticAnkleCuffs", "ItemFeet")) {
@@ -1302,4 +1310,12 @@ function AsylumGGTSDrawCharacter(C, X, Y, Zoom) {
 			MainCanvas.font = CommonGetFont(36);
 		}
 	}
+}
+
+/**
+ * Resets the state of the GGTS game
+ * @returns {void} - Nothing
+ */
+function AsylumGGTSReset() {
+	AsylumGGTSPreviousPose = JSON.stringify(Player.Pose);
 }

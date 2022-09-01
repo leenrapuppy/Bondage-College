@@ -140,7 +140,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		Extended: (AssetDef.Extended == null) ? false : AssetDef.Extended,
 		AlwaysExtend: (AssetDef.AlwaysExtend == null) ? false : AssetDef.AlwaysExtend,
 		AlwaysInteract: (AssetDef.AlwaysInteract == null) ? false : AssetDef.AlwaysInteract,
-		AllowLock: (AssetDef.AllowLock == null) ? false : AssetDef.AllowLock,
+		AllowLock: typeof AssetDef.AllowLock === "boolean" ? AssetDef.AllowLock : false,
 		LayerVisibility: (AssetDef.LayerVisibility == null) ? false : AssetDef.LayerVisibility,
 		IsLock: (AssetDef.IsLock == null) ? false : AssetDef.IsLock,
 		PickDifficulty: (AssetDef.PickDifficulty == null) ? 0 : AssetDef.PickDifficulty,
@@ -202,6 +202,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		Tint: Array.isArray(AssetDef.Tint) ? AssetDef.Tint : [],
 		AllowTint: Array.isArray(AssetDef.Tint) && AssetDef.Tint.length > 0,
 		DefaultTint: typeof AssetDef.DefaultTint === "string" ? AssetDef.DefaultTint : undefined,
+		CraftGroup: typeof AssetDef.CraftGroup === "string" ? AssetDef.CraftGroup : AssetDef.Name,
 	}, AssetParsePoseProperties(AssetDef, Group.AllowPose.slice()));
 
 	// Ensure opacity value is valid

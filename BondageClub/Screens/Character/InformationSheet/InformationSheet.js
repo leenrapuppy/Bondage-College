@@ -1,26 +1,10 @@
 "use strict";
 var InformationSheetBackground = "Sheet";
+/** @type {Character} */
 var InformationSheetSelection = null;
 var InformationSheetPreviousModule = "";
 var InformationSheetPreviousScreen = "";
 var InformationSheetSecondScreen = false;
-
-/**
- * Returns the love sheet of an NPC
- * @param {number} Love - The current realtionship value
- * @returns {string} - The text describing the relationship to the NPC
- */
-function InformationSheetGetLove(Love) {
-	if (Love >= 100) return TextGet("Relationship") + " " + Love.toString() + " " + TextGet("RelationshipPerfect");
-	if (Love >= 75) return TextGet("Relationship") + " " + Love.toString() + " " + TextGet("RelationshipGreat");
-	if (Love >= 50) return TextGet("Relationship") + " " + Love.toString() + " " + TextGet("RelationshipGood");
-	if (Love >= 25) return TextGet("Relationship") + " " + Love.toString() + " " + TextGet("RelationshipFair");
-	if (Love > -25) return TextGet("Relationship") + " " + Love.toString() + " " + TextGet("RelationshipNeutral");
-	if (Love > -50) return TextGet("Relationship") + " " + Love.toString() + " " + TextGet("RelationshipPoor");
-	if (Love > -75) return TextGet("Relationship") + " " + Love.toString() + " " + TextGet("RelationshipBad");
-	if (Love > -100) return TextGet("Relationship") + " " + Love.toString() + " " + TextGet("RelationshipHorrible");
-	return TextGet("Relationship") + " " + Love.toString() + " " + TextGet("RelationshipAtrocious");
-}
 
 /**
  * Loads the Information Sheet, cache the sub screens
@@ -40,46 +24,100 @@ function InformationSheetLoad() {
 function InformationSheetRun() {
 
 	// Draw the character base values
-	var C = InformationSheetSelection;
-	var CurrentTitle = TitleGet(C);
+	const C = InformationSheetSelection;
+	const CurrentTitle = TitleGet(C);
+
 	DrawCharacter(C, 50, 50, 0.9);
 	MainCanvas.textAlign = "left";
-	DrawTextFit(TextGet("Name") + " " + C.Name, 550, 125, 450, "Black", "Gray");
-	DrawTextFit(TextGet("Nickname") + " " + CharacterNickname(C), 550, 200, 450, "Black", "Gray");
-	DrawTextFit(TextGet("Title") + " " + TextGet("Title" + CurrentTitle), 550, 275, 450, TitleIsForced(CurrentTitle) ? "Red" : TitleIsEarned(CurrentTitle) ? "#0000BF" : "Black", "Gray");
-	DrawTextFit(TextGet("MemberNumber") + " " + ((C.MemberNumber == null) ? TextGet("NoMemberNumber") : C.MemberNumber.toString()), 550, 350, 450, "Black", "Gray");
+
+	const spacing = 55;
+	const spacingLarge = 75;
+	let currentY = 125;
+
+	DrawTextFit(TextGet("Name") + " " + C.Name, 550, currentY, 450, "Black", "Gray");
+	currentY += spacing;
+	if (C.Name !== CharacterNickname(C)) {
+		DrawTextFit(TextGet("Nickname") + " " + CharacterNickname(C), 550, currentY, 450, "Black", "Gray");
+		currentY += spacing;
+	}
+	if (CurrentTitle !== "None") {
+		DrawTextFit(TextGet("Title") + " " + TextGet("Title" + CurrentTitle), 550, currentY, 450, TitleIsForced(CurrentTitle) ? "Red" : TitleIsEarned(CurrentTitle) ? "#0000BF" : "Black", "Gray");
+		currentY += spacing;
+	}
+	if (C.MemberNumber != null) {
+		DrawTextFit(TextGet("MemberNumber") + " " + C.MemberNumber.toString(), 550, currentY, 450, "Black", "Gray");
+		currentY += spacing;
+	}
+	currentY += spacingLarge;
 
 	// Some info are not available for online players
-	var OnlinePlayer = C.AccountName.indexOf("Online-") >= 0;
-	if (!OnlinePlayer) {
-		if (C.ID == 0) DrawTextFit(TextGet("MemberFor") + " " + (Math.floor((CurrentTime - C.Creation) / 86400000)).toString() + " " + TextGet("Days"), 550, 425, 450, "Black", "Gray");
-		else DrawTextFit(TextGet("FriendsFor") + " " + (Math.floor((CurrentTime - NPCEventGet(C, "PrivateRoomEntry")) / 86400000)).toString() + " " + TextGet("Days"), 550, 425, 450, "Black", "Gray");
-		if (C.ID == 0) DrawTextFit(TextGet("Money") + " " + C.Money.toString() + " $", 550, 500, 450, "Black", "Gray");
-		else if (C.Love != null) DrawTextFit(InformationSheetGetLove(C.Love), 550, 500, 450, "Black", "Gray");
-	} else {
-		if (C.Creation != null) DrawTextFit(TextGet("MemberFor") + " " + (Math.floor((CurrentTime - C.Creation) / 86400000)).toString() + " " + TextGet("Days"), 550, 425, 450, "Black", "Gray");
+	const OnlinePlayer = C.AccountName.indexOf("Online-") >= 0;
+	if (C.IsPlayer()) {
+		let memberForLine = TextGet("MemberFor") + " " + (Math.floor((CurrentTime - C.Creation) / 86400000)).toString() + " " + TextGet("Days");
+		DrawTextFit(memberForLine, 550, currentY, 450, "Black", "Gray");
+		currentY += spacing;
+
+		let moneyLine = TextGet("Money") + " " + C.Money.toString() + " $";
+		DrawTextFit(moneyLine, 550, currentY, 450, "Black", "Gray");
+		currentY += spacing;
+	} else if (OnlinePlayer && C.Creation != null) {
+		let memberForLine = TextGet("MemberFor") + " " + (Math.floor((CurrentTime - C.Creation) / 86400000)).toString() + " " + TextGet("Days");
+		DrawTextFit(memberForLine, 550, currentY, 450, "Black", "Gray");
+		currentY += spacing;
+	} else if (C.IsNpc()) {
+		let friendForLine = TextGet("FriendsFor") + " " + (Math.floor((CurrentTime - NPCEventGet(C, "PrivateRoomEntry")) / 86400000)).toString() + " " + TextGet("Days");
+		DrawTextFit(friendForLine, 550, currentY, 450, "Black", "Gray");
+		currentY += spacing;
+
+		let relationshipQualifier = "";
+		if (C.Love >= 100) relationshipQualifier = "RelationshipPerfect";
+		else if (C.Love >= 75) relationshipQualifier = "RelationshipGreat";
+		else if (C.Love >= 50) relationshipQualifier = "RelationshipGood";
+		else if (C.Love >= 25) relationshipQualifier = "RelationshipFair";
+		else if (C.Love > -25) relationshipQualifier = "RelationshipNeutral";
+		else if (C.Love > -50) relationshipQualifier = "RelationshipPoor";
+		else if (C.Love > -75) relationshipQualifier = "RelationshipBad";
+		else if (C.Love > -100) relationshipQualifier = "RelationshipHorrible";
+		else relationshipQualifier = "RelationshipAtrocious";
+
+		let loveLine = TextGet("Relationship") + " " + C.Love.toString() + " " + TextGet(relationshipQualifier);
+		DrawTextFit(loveLine, 550, currentY, 450, "Black", "Gray");
+		currentY += spacing;
 	}
+	currentY += spacingLarge;
 
 	// For the current player or an online player
 	if ((C.ID == 0) || OnlinePlayer) {
 
 		// Shows the difficulty level
 		let Days = Math.floor((CurrentTime - (((C.Difficulty == null) || (C.Difficulty.LastChange == null) || (typeof C.Difficulty.LastChange !== "number")) ? C.Creation : C.Difficulty.LastChange)) / 86400000);
-		DrawTextFit(TextGet("DifficultyLevel" + C.GetDifficulty()) + " " + TextGet("DifficultyTitle").replace("NumberOfDays", Days.toString()), 550, 575, 450, "Black", "Gray");
+		let difficultyLine = TextGet("DifficultyLevel" + C.GetDifficulty()) + " " + TextGet("DifficultyTitle").replace("NumberOfDays", Days.toString());
+		DrawTextFit(difficultyLine, 550, currentY, 450, "Black", "Gray");
+		currentY += spacing;
 
 		// Shows the owner
 		if ((C.Ownership != null) && (C.Ownership.Name != null) && (C.Ownership.MemberNumber != null) && (C.Ownership.Start != null) && (C.Ownership.Stage != null)) {
-			DrawTextFit(TextGet("Owner") + " " + C.Ownership.Name + " (" + C.Ownership.MemberNumber + ")", 550, 650, 450, "Black", "Gray");
-			DrawTextFit(TextGet((C.Ownership.Stage == 0) ? "TrialFor" : "CollaredFor") + " " + (Math.floor((CurrentTime - C.Ownership.Start) / 86400000)).toString() + " " + TextGet("Days"), 550, 725, 450, "Black", "Gray");
+			let ownerLine = TextGet("Owner") + " " + C.Ownership.Name + " (" + C.Ownership.MemberNumber + ")";
+			DrawTextFit(ownerLine, 550, currentY, 450, "Black", "Gray");
+			currentY += spacing;
+			let stageLine = TextGet((C.Ownership.Stage == 0) ? "TrialFor" : "CollaredFor") + " " + (Math.floor((CurrentTime - C.Ownership.Start) / 86400000)).toString() + " " + TextGet("Days");
+			DrawTextFit(stageLine, 550, currentY, 450, "Black", "Gray");
+			currentY += spacing;
 		}
-		else { DrawTextFit(TextGet("Owner") + " " + (((C.Owner == null) || (C.Owner == "")) ? TextGet((AsylumGGTSGetLevel(C) >= 6) ? "OwnerGGTS" : "OwnerNone") : C.Owner.replace("NPC-", "")), 550, 650, 450, "Black", "Gray"); }
+		else {
+			let ownerLine = TextGet("Owner") + " " + (((C.Owner == null) || (C.Owner == "")) ? TextGet((AsylumGGTSGetLevel(C) >= 6) ? "OwnerGGTS" : "OwnerNone") : C.Owner.replace("NPC-", ""));
+			DrawTextFit(ownerLine, 550, currentY, 450, "Black", "Gray");
+			currentY += spacing;
+		}
+
+		currentY = 800;
 
 		// Shows the member number and online permissions for other online players
-		if (C.ID != 0) {
-			DrawTextFit(TextGet("ItemPermission"), 550, 800, 450, "Black", "Gray");
-			DrawTextFit(TextGet("PermissionLevel" + C.ItemPermission.toString()), 550, 875, 450, "Black", "Gray");
-		}
 
+		DrawTextFit(TextGet("ItemPermission"), 550, currentY, 450, "Black", "Gray");
+		currentY += spacing;
+		DrawTextFit(TextGet("PermissionLevel" + C.ItemPermission.toString()), 550, currentY, 450, "Black", "Gray");
+		currentY += spacing;
 	}
 
 	// Draw the buttons on the right side
@@ -145,13 +183,13 @@ function InformationSheetSecondScreenRun() {
 	var C = InformationSheetSelection;
 	var OnlinePlayer = C.AccountName.indexOf("Online-") >= 0;
 	if ((C.ID == 0) || OnlinePlayer) {
-
+		const lineHeight = 55;
 		// Draw the reputation section
 		DrawText(TextGet("Reputation"), 1000, 125, "Black", "Gray");
-		var pos = 0;
+		let pos = 0;
 		for (let R = 0; R < C.Reputation.length; R++)
 			if (C.Reputation[R].Value != 0) {
-				DrawText(TextGet("Reputation" + C.Reputation[R].Type + ((C.Reputation[R].Value > 0) ? "Positive" : "Negative")) + " " + Math.abs(C.Reputation[R].Value).toString(), 1000, 200 + pos * 75, "Black", "Gray");
+				DrawText(TextGet("Reputation" + C.Reputation[R].Type + ((C.Reputation[R].Value > 0) ? "Positive" : "Negative")) + " " + Math.abs(C.Reputation[R].Value).toString(), 1000, 200 + pos * lineHeight, "Black", "Gray");
 				pos++;
 			}
 		if (pos == 0) DrawText(TextGet("ReputationNone"), 1000, 200, "Black", "Gray");
@@ -163,18 +201,19 @@ function InformationSheetSecondScreenRun() {
 		}
 		else {
 			for (let S = 0; S < C.Skill.length; S++)
-				DrawText(TextGet("Skill" + C.Skill[S].Type) + " " + C.Skill[S].Level.toString() + " (" + Math.floor(C.Skill[S].Progress / 10) + "%)", 1425, 200 + S * 75, ((C.Skill[S].Ratio != null) && (C.Skill[S].Ratio != 1)) ? "Red" : "Black", "Gray");
+				DrawText(TextGet("Skill" + C.Skill[S].Type) + " " + C.Skill[S].Level.toString() + " (" + Math.floor(C.Skill[S].Progress / 10) + "%)", 1425, 200 + S * lineHeight, ((C.Skill[S].Ratio != null) && (C.Skill[S].Ratio != 1)) ? "Red" : "Black", "Gray");
 			if (C.Skill.length == 0) DrawText(TextGet("SkillNone"), 1425, 200, "Black", "Gray");
 		}
 
 		// Draw the player skill modifier if there's one
 		SkillGetLevel(C, "Evasion");
 		if ((C.ID == 0) && (SkillModifier != 0)) {
+			let pos = 0;
 			var PlusSign = (SkillModifier > 0) ? "+" : "";
-			DrawText(TextGet("SkillModifier"), 1425, 650, "Black", "Gray");
-			DrawText(TextGet("SkillBondage") + " " + PlusSign + SkillModifier, 1425, 725, "Black", "Gray");
-			DrawText(TextGet("SkillEvasion") + " " + PlusSign + SkillModifier, 1425, 800, "Black", "Gray");
-			DrawText(TextGet("SkillModifierDuration") + " " + (TimermsToTime(LogValue("ModifierDuration", "SkillModifier") - CurrentTime)), 1425, 875, "Black", "Gray");
+			DrawText(TextGet("SkillModifier"), 1425, 650 + (pos++ * lineHeight), "Black", "Gray");
+			DrawText(TextGet("SkillBondage") + " " + PlusSign + SkillModifier, 1425, 650 + (pos++ * lineHeight), "Black", "Gray");
+			DrawText(TextGet("SkillEvasion") + " " + PlusSign + SkillModifier, 1425, 650 + (pos++ * lineHeight), "Black", "Gray");
+			DrawText(TextGet("SkillModifierDuration") + " " + (TimermsToTime(LogValue("ModifierDuration", "SkillModifier") - CurrentTime)), 1425, 650 + (pos++ * lineHeight), "Black", "Gray");
 		}
 
 	}

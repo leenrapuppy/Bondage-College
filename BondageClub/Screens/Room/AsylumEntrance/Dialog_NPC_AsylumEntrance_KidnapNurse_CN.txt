@@ -1,0 +1,186 @@
+###_NPC
+Gagged patients are the best patients.
+嘴被堵住的患者才是最棒的患者❤~
+(A nurse runs after you.)  Here you are patient DialogPlayerName!  You're going back to the asylum with me.
+（一个护士向你跑来）找到你了！DialogPlayerName！你现在得跟我回收容所。
+(A nurse catches you by surprise.)  DialogPlayerName!  I'm bringing you back to the asylum, whether you want it or not.
+（一个护士突然抓住了你）DialogPlayerName！不管你愿不愿意，我现在必须带你回收容所！
+(A nurse is blocking your way.)  I'm here for your own good patient DialogPlayerName.  Come to the asylum with me.
+（一个护士挡住了你的路）我正找你呢，DialogPlayerName，我们的好 病 人。现在跟我回收容所。
+(A nurse sees you and grins.)  This is too easy.  You're going back to the asylum patient DialogPlayerName.
+（一个护士看到了你，然后咧嘴一笑）这可太简单了。现在和我们回收容所吧，DialogPlayerName。
+(A nurse grabs your arm.)  You always get in trouble, do you  Come back to the asylum with me now.
+（一个护士抓住了你的胳膊）你总是给我们找麻烦，不是吗？现在和我一起回收容所。
+(A nurse blocks your path and smiles.)  Struggling is futile patient DialogPlayerName.  You're coming back with me.
+（一个护士笑着挡住了你的去路）挣扎是徒劳的，DialogPlayerName。你现在得和我一起回去。
+(She surrenders to you.)  You're too tough for me.  I can understand why you've escaped.
+（她向你屈服了）你太麻烦了，现在我倒是明白你为什么要跑了。
+(She crosses her arms and smiles.)  It's time to go back to the asylum girl.
+（她交叉双臂放在胸前，然后微笑）该回收容所了，妹纸。
+(She looks around and takes the money.)  Don't cross my path again.  Run!
+（她环顾四周，然后收下了你的贿赂）别再让我看到你，现在快跑吧。
+(She refuses the money.)  You cannot bribe me!  You're going back with me.
+（她拒绝了你的钱）你想贿赂我？！跟我回去，现在立刻马上！
+###_PLAYER
+I don't understand.
+我不理解。
+###_NPC
+Don't think you can fool me.  You escaped from the asylum and I'm brining you back.  I will use force if it's needed.
+别以为你能骗得了我。我知道你从收容所跑出来了，而我现在要带你回去。如果必要的话我可能会用点强硬的手段❤~
+###_PLAYER
+You're going down nurse!
+你完了，你这护士！
+Wait!  Can we negotiate
+等等！我们能谈谈吗？
+###_NPC
+(She thinks for a few seconds.)  Negotiate?  How much do you value your freedom?
+（她思考了几秒）谈谈？你觉得你的自由值多少钱呢？
+###_PLAYER
+(Fight her.)
+（与她战斗）
+(Surrender.)
+（屈服）
+###_NPC
+(You surrender without a fight as she grins.)  It's time to go back to the asylum girl.
+（因为你的不战而降，她笑出了声）该回收容所咯，姑娘。
+###_PLAYER
+I'll give you $10.
+我能给你10块。
+I'll give you $25.
+我能给你25块！
+I'll give you $50.
+我能给你50块！！
+I'll give you $100.
+我能给你100块！！！
+We could become friends.
+我们或许能当朋友？
+###_NPC
+Forget it!  I'm bringing you back to the asylum.
+行吧，当我没说。我会带你会收容所。
+###_PLAYER
+I won't knock you out if you run now.
+如果你现在离开的话，我就不会把你怎么样。
+###_NPC
+You think you can scare me?  I'm bringing you back to the asylum.
+你以为你能吓的了我吗？我会带你会收容所的。
+###_PLAYER
+(Run away.)
+（逃跑！）
+###_NPC
+NOEXIT
+哼，想逃？
+###_PLAYER
+You fought well.
+打得不错。
+###_NPC
+Thanks, but I still need to train.
+谢谢，但我仍需训练。
+###_PLAYER
+If I let you go, you need to forget about me.
+如果想要我放你走的话，你必须保证不透露任何与我有关的消息。
+###_NPC
+(She grumbles.)  Fine, I won't track you anymore.
+（她鼓囊着）行吧，我不会再跟踪你了。
+###_PLAYER
+(Play with her.)
+（和她玩玩）
+###_NPC
+(You get closer to play with her.)
+(你凑近了她)
+###_PLAYER
+(Bring her to your room.)
+（带她回你的房间）
+(Let her go.)
+（放走她）
+(Tickle her.)
+（挠她！）
+###_NPC
+(You tickle her on the ribs and tummy.  She thrashes in her bondage, failing to escape.)
+（你在她的两肋和肚子上挠痒痒，她挣扎的很用力，但是她跑不掉）
+###_PLAYER
+(Kiss her.)
+（亲她！）
+###_NPC
+(She stares at you as you put your hands behind her head and pull her to your lips for a long French kiss.)
+（她盯着你，而你把手放在了她的头后，接着把她拉到你的唇边。你们进行了一次法式长吻）
+###_PLAYER
+(Fondle her.)
+（摸她！）
+###_NPC
+(You playfully fondle her breasts and butt as she grumbles and blushes lightly.)
+（你俏皮的抚摸着她的胸和屁股，她鼓囊着什么，脸色也微微变红）
+###_PLAYER
+(Slap her.)
+（扇她！）
+###_NPC
+(She tries to avoid you as you slap her face swiftly.  She tries to stay strong but whimper a little.)
+（她试图躲避你的巴掌。她试图保持坚强，但还是藏不住呜咽）
+###_PLAYER
+(Spank her.)
+（打她屁股！）
+###_NPC
+(She jumps a little as you spank her pretty hard on the butt.)
+（你用力的打了她的屁股，而她也因此跳了起来）
+###_PLAYER
+(Stop playing with her.)
+（玩够了）
+###_NPC
+(You take a step back.)
+（你向后退了一步）
+###_PLAYER
+Fine, let's go.
+行吧，我们走吧
+###_NPC
+(She drags you to the asylum and smiles.)  You will feel right at home.
+（她把你拖到了收容所，然后微笑）就和到家了一样，不是吗？
+###_PLAYER
+Don't push me!
+别推我！
+(Go to the asylum.)
+（去收容所）
+We'll see about that.
+我们走着瞧！
+###_NPC
+(She nods and stares at you.) It's time to change patient DialogPlayerName.
+（她点了点头，然后盯着你）该换衣服了，病人DialogPlayerName。
+###_PLAYER
+I guess it will be fun to go back.
+我想回去应该会很有趣。
+###_NPC
+(She nods happily and stares at you.) It's time to change patient DialogPlayerName.
+（她开心的点了点头，然后盯着你）该换衣服了，病人DialogPlayerName。
+###_PLAYER
+One day I'll reverse the roles.
+总有一天，我会让你也尝尝我现在的滋味。
+###_NPC
+(She grumbles and stares at you.) It's time to change patient DialogPlayerName.
+（她鼓囊了些什么，然后盯着你）该换衣服了，病人DialogPlayerName。
+###_PLAYER
+(Nod slowly.)
+（慢慢的点头）
+###_NPC
+(She smiles and stares at you.) It's time to change patient DialogPlayerName.
+（她微笑着盯着你）该换衣服了，病人DialogPlayerName。
+###_PLAYER
+Very well.
+很好
+###_NPC
+(She helps you to change back as a patient.)  You also need to be restrained.
+（她帮你换上了病人的衣服）现在你需要被绑起来。
+###_PLAYER
+I hate these clothes.
+我讨厌那些衣服（
+(Nod and change.)
+（点了点头，然后换上）
+That's really necessary?
+这真的有必要吗？
+###_NPC
+(She straps you up tightly in a straitjacket.)  Welcome back patient DialogPlayerName.  Carry on.
+（她用一件拘束衣把你紧紧的绑了起来）欢迎回来！DialogPlayerName。那我们继续我们的治疗吧。
+###_PLAYER
+(Stay silent.)
+（静静的看着）
+Bye-bye nurse.
+再见，护士。
+(Leave her.)
+（离开她）

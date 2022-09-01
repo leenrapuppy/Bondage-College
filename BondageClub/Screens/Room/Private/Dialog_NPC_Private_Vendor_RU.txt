@@ -5,9 +5,9 @@ You've visited some kinky rooms recently?  (She laughs.)
 (Она качает головой слева направо, но ты можешь заставить ее замолчать.)
 (You remove her gag and she smiles.)  Thanks!  Do you think I should go back to work?
 (Ты вынимаешь у нее кляп, и она улыбается.)  Спасибо!  Как вы думаете, мне стоит вернуться на работу?
-(You push some earplugs into place.) How am i going to hear the tents now?.
-(Ты вставляешь затычки для ушей на место.) Как же я теперь буду слышать жилье?.
-(You pull the earplugs out.) Thank you i can hear you clearly again.
+(You push some earplugs into place.) How can I hear the clients now?
+(Вы вставляете на место несколько затычек для ушей.) Как я могу услышать клиентов сейчас?
+(You pull the earplugs out.) Thank you, I can hear you clearly again.
 (Ты вытаскиваешь затычки для ушей.) Спасибо, я снова хорошо вас слышу.
 (She doesn't resist much and allows you to restrain her.)  It will be a fun shift after all.
 (Она не очень сопротивляется и позволяет тебе связать ее.) В конце концов, это будет веселая смена.
@@ -37,8 +37,8 @@ You've visited some kinky rooms recently?  (She laughs.)
 (Ты надеваешь его ей на голову, а она ворчит.)  Я никогда не была их поклонницей.
 (You remove the device as she nods quickly.)  This is much better, thanks!
 (Ты убираешь устройство, когда она быстро кивает.)  Так намного лучше, спасибо!
-(She whimpers as you whip her breast.)  Ow!  You already got everything, you won't whip a discount out of me.
-(Она хнычет, когда ты хлещешь ее по груди.)  Ай!  У вас уже все есть, вы не выбьете из меня скидку.
+(She whimpers as you whip her breast.)  Ow!  You won't whip a discount out of me.
+(Она хнычет, когда ты хлещешь ее по груди.) Ой!  Ты не выбьешь из меня скидку.
 (You swing the crop on her torso.)  That's pretty unfair, I'm only trying to do my job.
 (Ты бьешь стеком по ее торсу.)  Это довольно несправедливо, я просто пытаюсь делать свою работу.
 (You whip her butt as she whimpers from the pain.)  Bring subs to your place and whip them, not me!
@@ -57,7 +57,7 @@ Welcome to the Bondage Club private rooms.  Do you want to improve your room?
 Hi, I'm DialogPlayerName.
 Привет, я DialogPlayerName.
 ###_NPC
-Nice to meet you, I'm DialogCharacterName.  I rent private rooms and rooms improvements.
+Nice to meet you, I'm DialogCharacterName.  I manage the private room rentals and improvements.
 Приятно познакомиться, я DialogCharacterName.  Я сдаю приватные комнаты и улутчшенные комнаты.
 ###_PLAYER
 Can you help me?
@@ -75,21 +75,21 @@ Of course.  What would you like to know?
 I'd like to rent my own room.
 Я бы хотела снять себе комнату.
 ###_NPC
-The rent is 250 $.  Do you have enough money?
-Арендная плата составляет 250 $.  У вас достаточно денег?
+The rent is $250.  Do you have enough money?
+Арендная плата составляет $250.  У вас достаточно денег?
 ###_PLAYER
 I'd like to improve my room.
 Я бы хотел улучшить свою комнату.
 ###_NPC
-Excellent!  The club can provide wardrobes, cages and expansions for private rooms.  What would you like?
-Отлично!  Клуб может предоставить гардероб, клетки и расширение приватной комнаты.  Что бы вы хотели?
+Excellent!  The club can provide wardrobes, cages, security and expansions for private rooms.  What would you like?
+Отлично!  Клуб может предоставить гардероб, клетки, зашита и  расширение приватной комнаты.  Что бы вы хотели?
 ###_PLAYER
 Can we play some kinky games?
 Мы можем играть в извращенные игры?
 ###_NPC
 I don't have much to do and it's a quiet day.  I guess we can play.
 У меня не так много дел, и это тихий день.  Думаю, мы можем поиграть.
-I'd love too, but I have rooms and items to rent.
+I'd love to, but I have rooms and items to rent.
 Я бы тоже с удовольствием, но у меня есть комнаты и предметы для аренды.
 ###_PLAYER
 Let's talk later.  (Leave her.)
@@ -97,34 +97,34 @@ Let's talk later.  (Leave her.)
 How much is a room?
 Сколько стоит комната?
 ###_NPC
-The price for a regular room is 250$.
-Цена за обычный номер 250$.
+The price for a regular room is $250.
+Цена за обычный номер $250.
 ###_PLAYER
-For how long I have the room?
+How long do I have the room for?
 Как долго у меня будет комната?
 ###_NPC
-For as long as you're a club member.
+It's yours as long as you're a club member.
 До тех пор, пока вы член клуба.
 ###_PLAYER
 Can I invite friends over?
 Могу я пригласить друзей к себе?
 ###_NPC
-Of course.  The room isn't huge though, it can accommodate four persons, or eight if you get an extension.
-Конечно.  Номер не огромный, хотя, он может вместить четырех человек, или восемь, если вы получите улутшение.
+Of course.  The room isn't huge, but it's big enough for four people.
+Конечно.  Хотя комната небольшая, в ней могут разместиться четыре человека.
 ###_PLAYER
-Can I get naked in my room?
-Можно мне раздеться в своей комнате?
+Can I make my room bigger?
+Могу ли я сделать свою комнату больше?
 ###_NPC
-Absolutely, it's your room after all.  You can get naked or have sex.
-Безусловно, это ваша комната, в конце концов.  Вы можете раздеться или заняться сексом.
+Yes, you can get two room expansions.  Each of them will allow you to receive four more friends.
+Да, вы можете получить расширение на две комнаты.  Каждый из них позволит вам получить еще четырех друзей.
 ###_PLAYER
 What are the improvements I can get?
 Какие улучшения я могу получить?
 ###_NPC
-Wardrobe, cages and a room expansion for now.  But the club is always improving, you can check later.
-Гардероб, клетки и увиличение комнаты на данный момент.  Но клуб всегда совершенствуется, вы можете проверить позже.
+Wardrobe, cages, security and expansions for now.  But the club is always improving, you can check again later.
+Гардероб, клетки, защита и увиличение комнаты на данный момент.  Но клуб всегда совершенствуется, вы можете проверить позже.
 ###_PLAYER
-Enough questions.
+That's all the questions I had.
 Достаточно вопросов.
 ###_NPC
 Alright.  What can I do for you then?
@@ -148,8 +148,8 @@ Miss, I cannot tie you up.  I don't want to get in trouble with a Domme.
 ###_PLAYER
 I've changed my mind.
 Я передумала.
-Here's the money. (Pay 250$)
-Вот деньги. (Оплатить 250$)
+Here's the money. (Pay $250)
+Вот деньги. (Оплатить $250)
 ###_NPC
 Marvelous!  Here are your room keys.  (She gives you keys for your own room.)
 Чудесно!  Вот ключи от вашей комнаты.  (Она дает тебе ключи от твоей комнаты.)
@@ -171,20 +171,38 @@ Thanks!  (Check your room.)
 I would like a wardrobe.
 Мне бы хотелось иметь гардероб.
 ###_NPC
-An excellent choice.  The price is 100$.  Can you afford it?
-Великолепный выбор.  Цена 100$.  Вы можете себе это позволить?
+An excellent choice.  The price is $100.  Can you afford it?
+Великолепный выбор.  Цена $100.  Вы можете себе это позволить?
 ###_PLAYER
 I want some cages.
 Мне нужны клетки.
 ###_NPC
-We have a kinky tenant.  (She giggles.)  We can prepare cages for your room for 150$, do you have the funds?
-У нас есть извращенный арендатор.  (Она хихикает.)  Мы можем подготовить клетки для вашей комнаты за 150$, у вас есть средства?
+We have a kinky tenant.  (She giggles.)  We can prepare cages for your room for $150, do you have the funds?
+У нас есть извращенный арендатор.  (Она хихикает.)  Мы можем подготовить клетки для вашей комнаты за $150, у вас есть средства?
 ###_PLAYER
 I'd like to invite more people.
 Я бы хотела пригласить больше людей.
 ###_NPC
-Of course, we can double the size of your room for 200$, do you have the funds?
-Конечно, мы можем удвоить размер вашей комнаты за 200$, у вас есть средства?
+Of course, we can double the size of your room for $200, do you have the funds?
+Конечно, мы можем удвоить размер вашего номера за 200 долларов, у вас есть средства?
+###_PLAYER
+I'd like even more space.
+Мне бы хотелось еще больше места.
+###_NPC
+(She ponders.)  It could be done, but we'll need to renovate to get you a bigger room.  Can you cover the $400 fees for it?
+(Она размышляет.)  Это можно было бы сделать, но нам нужно будет сделать ремонт, чтобы получить для вас комнату побольше.  Можете ли вы покрыть гонорар в размере 400 долларов за это?
+###_PLAYER
+Can I get a security service?
+Могу ли я воспользоваться услугами службы безопасности?
+###_NPC
+(She nods.)  Since Pandora's Box moved in town, security is a must to protect your friends.  For $200, they will never get kidnapped again.
+(Она кивает.)  С тех пор как Ящик Пандоры переехал в город, безопасность необходима для защиты ваших друзей.  За 200 долларов их больше никогда не похитят.
+###_PLAYER
+I want to cancel the security service.
+Я хочу отменить службу безопасности.
+###_NPC
+Are you sure?  The $200 security fee isn't refundable.  And Pandora's Box might strike again.
+Ты уверен?  Страховой взнос в размере 200 долларов возврату не подлежит.  И Ящик Пандоры может снова атаковать.
 ###_PLAYER
 How can I use the wardrobe?
 Как я могу использовать гардероб?
@@ -192,8 +210,8 @@ How can I use the wardrobe?
 The wardrobe allows you to sort your clothes and items.  To change from one look to another quickly.
 Гардероб позволяет сортировать одежду и предметы.  Быстро переходить от одного вида к другому.
 ###_PLAYER
-Here's the money. (Pay 100$)
-Вот деньги. (Оплатить 100$)
+Here's the money. (Pay $100)
+Вот деньги. (Оплатить $100)
 ###_NPC
 Wonderful!  Give us a few seconds and we'll prepare your wardrobe.
 Замечательно!  Дайте нам несколько секунд, и мы подготовим ваш гардероб.
@@ -204,8 +222,8 @@ Why do I need cages?
 To keep your submissives locked down of course.  You don't want to lose your properties.
 Чтобы держать ваших нижних под замком, конечно.  Вы же не хотите потерять свою собственность.
 ###_PLAYER
-Here's the money. (Pay 150$)
-Вот деньги. (Оплатить 150$)
+Here's the money. (Pay $150)
+Вот деньги. (Оплатить $150)
 ###_NPC
 Wonderful!  We'll move the cages in your room right now.
 Замечательно!  Мы сейчас же перенесем клетки в вашу комнату.
@@ -216,8 +234,37 @@ How does it work?
 It's easy, just navigate to check on your friends in the expanded part of your room.  Four more friends will be able to join.
 Это легко, просто перейдите, чтобы проверить своих друзей в расширенной части вашей комнаты.  Еще четыре ваших друга смогут присоединиться.
 ###_PLAYER
-Here's the money. (Pay 200$)
-Вот деньги. (Оплатить 200$)
+Here's the money. (Pay $200)
+Вот деньги. (Оплатить $200)
 ###_NPC
 Wonderful!  Here are the keys for the expansion doors.  (She gives you the room expansion keys.)
 Замечательно!  Вот ключи от расширенной комнаты.  (Она дает тебе ключи от комнаты.)
+###_PLAYER
+Here's the money. (Pay $400)
+Here's the money. (Pay $400)
+###_NPC
+This is great!  I'll call the maintenance team right now.  (They renovate your room to give you even more space.)
+Это здорово!  Я прямо сейчас вызову ремонтную бригаду.  (Они отремонтируют вашу комнату, чтобы дать вам еще больше места.)
+Wonderful!  Security will start patrolling right away.  Pandora's Box will not annoy you anymore.
+Замечательно!  Служба безопасности немедленно начнет патрулирование.  Ящик Пандоры больше не будет вас раздражать.
+###_PLAYER
+Why do I need security?
+Зачем мне нужна безопасность?
+###_NPC
+Security will patrol around your room and make sure that nobody from Pandora's Box touches your friends.
+Охрана будет патрулировать вокруг вашей комнаты и следить за тем, чтобы никто из Ящика Пандоры не прикоснулся к вашим друзьям.
+###_PLAYER
+Can I cancel that deal later?
+Могу ли я отменить эту сделку позже?
+###_NPC
+(She nods.)  You can, but there's no refund for the $200 fee.
+(Она кивает.)  Вы можете, но плата в размере 200 долларов не возвращается.
+###_PLAYER
+Yes, cancel the security service.
+Да, отмените службу безопасности.
+###_NPC
+Very well, the security team will not patrol around your room anymore.  Beware of Pandora's spies.
+Очень хорошо, команда безопасности больше не будет патрулировать вокруг вашей комнаты.  Остерегайтесь шпионов Пандоры.
+###_PLAYER
+No, I need to think about it.
+Нет, мне нужно подумать об этом.

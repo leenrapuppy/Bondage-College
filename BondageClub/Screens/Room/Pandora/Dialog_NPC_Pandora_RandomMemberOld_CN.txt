@@ -1,0 +1,121 @@
+###_NPC
+(She looks at your gag and laughs.)
+（她看着你的口塞，笑了起来。）
+I think I saw her with a guard.  Try the LevelName level.
+我感觉我见过她和一个警卫在一起。去LevelName层看看。
+I think I saw her roaming.  Try the LevelName level.
+我感觉我见过她在四处转。去LevelName层看看。
+I think I saw that object before.  Try the LevelName level.
+我感觉我见过那个东西。去LevelName层看看。
+I think I saw her with a guard.  Try the LevelName level and go FirstDirection.
+我感觉我见过她和一个警卫在一起。去LevelName层，往FirstDirection看看。
+I think I saw her roaming.  Try the LevelName level and go FirstDirection.
+我感觉我见过她在四处转。去LevelName层，往FirstDirection看看。
+I think I saw that object before.  Try the LevelName level and go FirstDirection.
+我感觉我见过那个东西。去LevelName层，往FirstDirection看看。
+Hey there little maid, will you brink me a drink?
+嘿，小女仆，你能给我带杯饮料吗？
+Hi Miss guard.  I hope I'm not in trouble.
+嗨，警卫女士。我希望我没有遇到麻烦。
+(She salutes you.)  It's an honor to meet you Miss Dominatrix, I don't think I've met before.
+（她向你致敬。）很荣幸见到你，女王女士，我想我以前从未见过面。
+Hey there, cute cosplay.
+嘿，真是可爱的cosplay。
+Hello there, I'm pretty sure we've met before.
+你好，我很确定我们以前见过。
+Hello there, have we met before?
+你好，我们以前见过吗？
+Hello there, I don't think we've met before.
+你好，我想我们以前没见过。
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm DialogCharacterName.  I've been a member of Pandora's Box for a while now.  I know my way around.
+我是DialogCharacterName。我加入潘多拉魔盒已经有一段时间了。我知道怎么走。
+###_PLAYER
+Can I tie you up?
+我可以绑你吗？
+###_NPC
+It would be an honor to be tied by a Dominatrix like you.  But sadly, I need to go back home soon.
+能被像你这样的女王捆绑是一种荣幸。但可惜，我马上要回家了。
+I'm sorry Miss Guard.  I need to go back home soon.  Please don't arrest me.
+对不起，警卫女士。我需要尽快回家。请不要逮捕我。
+(She laughs at you.)  Forget it, I'm not getting tied up by a maid.
+（她朝你笑起来。）大可不必，我不会被女仆绑起来的。
+I'm not getting tied by a cosplayer, find a slave for that.
+我可不想被cosplay玩家绑，去找个奴隶吧。
+I'm not in the mood right now, find a slave for that.
+我现在没心情，找个奴隶吧。
+###_PLAYER
+Can you help me?
+你能帮助我吗？
+###_NPC
+(She shakes her hands greedily.)  Maybe I can.  What do you want?
+（她贪婪地握手）也许我可以。你想要什么？
+Sorry girl.  Find some money first if you need help.
+对不起姑娘。如果您需要帮助，请先找一些钱。
+###_PLAYER
+I'll go get you a free drink.
+我去给你取一杯免费饮料。
+###_NPC
+(You go get her a free drink and she seems happy about it.)  Thanks!  You're a good maid.
+（你给她带回一杯免费的饮料，她看起来对此很高兴。）谢谢！你是个好女仆。
+###_PLAYER
+Are you enjoying Pandora's Box?
+你喜欢潘多拉魔盒吗？
+###_NPC
+Pandora is the best club in town.  I've been a member for a while now so trust me.
+潘多拉是城里最好的俱乐部。我已经成为会员有一段时间了，相信我吧。
+###_PLAYER
+Can I buy your clothes?
+我可以买你的衣服吗？
+###_NPC
+I already know that trap.  You get me naked, lock a slave collar on me and make me work for free?  Forget it!
+我已经知道那个陷阱了。你先让我脱光衣服，然后给我锁上奴隶项圈，然后让我免费工作？别想了！
+###_PLAYER
+I must go.  (Leave her.)
+我得走了。（离开她。）
+I'm looking for a girl.
+我在找一个女孩。
+###_NPC
+(You give some details on the girl you need to rescue.)  I think I could help, but information isn't free.
+（你提供了一些关于需要营救的女孩的细节。）我想我可以帮忙，但信息不是免费的。
+(You give some details on the girl you need to kidnap.)  I think I could help, but information isn't free.
+（你提供了一些关于需要绑架的女孩的细节。）我想我可以帮忙，但信息不是免费的。
+###_PLAYER
+I'm looking for an object.
+我正在寻找一个物品。
+###_NPC
+(You give some details on the object you need to retrieve.)  I think I could help, but information isn't free.
+（你提供了一些关于需要搜寻的物品的细节。）我想我可以帮忙，但信息不是免费的。
+###_PLAYER
+I'm looking for paint cans.
+我在找油漆罐。
+###_NPC
+Sorry, I don't know where to find that.  Maybe check with the cosplay girls.
+对不起，我不知道在哪里可以找到那个。也许你可以问问cosplay的女孩们。
+###_PLAYER
+Forget it.
+忘了它吧。
+###_NPC
+Alright then.  Anything else?
+好吧。有别的事吗？
+###_PLAYER
+Take this.  (Give her $5)
+拿着这个。（给她$5）
+Take this.  (Give her $3)
+拿着这个。（给她$3）
+Tell me everything.  (Give her $10)
+全都告诉我。（给她$10）
+Tell me everything.  (Give her $6)
+全都告诉我。（给她$6）
+You really think a guard will pay you?
+你真的觉得警卫会付钱给你吗？
+You really think a Dominatrix will pay you?
+你真的觉得女王会付钱给你吗？
+Thanks!
+谢谢！
+###_NPC
+My pleasure.  (She counts the money and smiles.)  Anything else?
+我的荣幸。（她数着钱，微笑着。）有别的事吗？

@@ -28,12 +28,6 @@ Welcome kidnapper.  How can I help you?
 Be direct and don't waste my time girl.
 Говори прямо и не трать мое время, девочка.
 ###_PLAYER
-Greetings Miss.  My name is DialogPlayerName.
-Приветствую, Мисс.  Меня зовут DialogPlayerName.
-###_NPC
-You seem to have some manners.  I'm DialogCharacterName, I'm in charge of the club today.
-Похоже, у тебя хорошие манеры.  Я DialogCharacterName, сегодня я отвечаю за клуб.
-###_PLAYER
 How come Sarah is locked down?
 Как получилось, что Сара заперта?
 ###_NPC
@@ -63,6 +57,12 @@ About Dominant/submissive relationships...
 ###_NPC
 I'm listening.  How can I educate you?
 Я слушаю.  Как я могу тебя просветить?
+###_PLAYER
+About love relationships...
+О любовных отношениях...
+###_NPC
+(She smiles.) What is it ?
+(Улыбается.) Что такое?
 ###_PLAYER
 About club Mistresses...
 О Госпожах клуба...
@@ -123,7 +123,7 @@ Forget it girl.  Don't bug me with these kinds of questions.
 Are there other slave collar models?
 Есть ли другие модели рабского ошейника?
 ###_NPC
-There is, some fancy slaves want fancy collars.  There's a 30$ fee to change your collar.  Are you willing to pay?
+There is, some fancy slaves want fancy collars.  There's a $30 fee to change your collar.  Are you willing to pay?
 Есть, некоторые модные рабы хотят модные ошейники.  За смену ошейника взимается плата в размере 30 долларов.  Ты готова заплатить?
 ###_PLAYER
 Let's talk about something else.
@@ -274,8 +274,8 @@ You dare to defy me?  Now you're in trouble!
 ###_PLAYER
 (Nod politely and look down.)
 (Вежливо кивни и опусти глаза.)
-I will pay the 30$.
-Я заплачу 30$.
+I will pay the $30.
+Я заплачу $30.
 ###_NPC
 Good.  What kind of model would you prefer?
 Хорошо.  Какую модель ты бы предпочла?
@@ -304,11 +304,58 @@ The steel posture collar please.
 Стальной позиционирующий ошейник, пожалуйста.
 The leather pet collar please.
 Кожаный ошейник для питомца, пожалуйста.
+The High collar please.
+Высокий ошейник, пожалуйста.
+The Bell collar please.
+Пожалуйста, ошейник-колокольчик.
+Can I see more collar selections please?
+Могу ли я увидеть больше вариантов ошейников, пожалуйста?
+###_NPC
+(She nods and shows the other types.)  Sure girl but make sure not to waste my time ok?
+(Она кивает и показывает другим типам.) Конечно, девочка, но не трать мое время зря, хорошо?
+###_PLAYER
 I've changed my mind.
 Я передумала.
 ###_NPC
 Stop wasting my time girl.  Is there anything else you need?
 Перестань тратить мое время, девочка.  Тебе еще что-нибудь нужно?
+###_PLAYER
+The Bow collar please.
+Ошейник с бантом, пожалуйста.
+The Maid collar please.
+Ошейник горничной, пожалуйста.
+The Bat collar please.
+Ошейник летучей мыши, пожалуйста.
+The High Security collar please.
+Пожалуйста, ошейник повышенной безопасности.
+The Spike collar please.
+Ошейник с шипами, пожалуйста.
+Can I see the ones before please?
+Могу я увидеть те, что раньше, пожалуйста?
+###_NPC
+(With a slightly annoyed look she agrees.)  Don't take too long or else.
+(Со слегка раздраженным взглядом она соглашается.) Не тяни слишком долго, иначе.
+(She nods and shows more types.)  Sure girl.
+(Она кивает и показывает больше типов.) Конечно, девочка.
+###_PLAYER
+The leather corset collar please.
+Пожалуйста, кожаный корсетный ошейник.
+The Bordelle collar please.
+Ошейник Борделя, пожалуйста.
+The strict posture collar please.
+Пожалуйста, строгий ошейник для осанки.
+The latex posture collar please.
+Латексный ошейник для осанки, пожалуйста.
+The heart collar please.
+Сердечный ошейник, пожалуйста.
+The noble corset collar please.
+Благородный корсетный ошейник, пожалуйста.
+The ornate collar please.
+Богато украшенный ошейник, пожалуйста.
+The slender Steel collar please.
+Тонкий стальной ошейник, пожалуйста.
+The heart link choker please.
+Колье с сердечком, пожалуйста.
 ###_PLAYER
 Why the ears and tail?
 Почему уши и хвост?
@@ -333,6 +380,8 @@ Can I play with her?
 ###_NPC
 (She ponders for a little while.)  You could, but there's a requirement.
 (Она долго размышляет.)  Ты можешь, но есть требование.
+(She checks your locks.)  Get a maid to release you first.  I don't have time for that.
+(Она проверяет ваши замки.)  Сначала попроси горничную освободить тебя.  У меня нет на это времени.
 Forget it.  I don't let any Dominant touch my pet.
 Забудь об этом.  Я не позволяю Доминам трогать моих питомцев.
 ###_PLAYER
@@ -481,8 +530,8 @@ I bet you deserved it.  You know that I need your Mistress approval to unlock an
 I'm not kissing your ass or licking your heels.
 Я не буду целовать вашу задницу или лизать вашу обувь.
 ###_NPC
-You can't blame me for trying.  Just pay the unlocking fee of 25$ then.
-Ты не можешь винить меня за эту попытку.  Просто заплати плату за разблокировку в размере 25$.
+You can't blame me for trying.  Just pay the unlocking fee of $25 then.
+Ты не можешь винить меня за эту попытку.  Просто заплати плату за разблокировку в размере $25.
 ###_PLAYER
 Lick your heels?  That's the regular procedure?
 Лизать вам обувь?  Это обычная процедура?
@@ -493,8 +542,8 @@ My duty, my rules.  You lick or your leave?
 Fine.  (Lick her heels.)
 Хорошо.  (Лижешь ей обувь.)
 ###_NPC
-(You bend down and slowly lick her heels as she laughs.)  Good girl, the unlocking fee is 25$.
-(Ты наклоняешься и медленно лижешь ей обувь, пока она смеется.) Хорошая девочка, плата за разблокировку составляет 25$.
+(You bend down and slowly lick her heels as she laughs.)  Good girl, the unlocking fee is $25.
+(Ты наклоняешься и медленно лижешь ей обувь, пока она смеется.) Хорошая девочка, плата за разблокировку составляет $25.
 ###_PLAYER
 I won't lick your heels!
 Я не буду лизать вашу обувь!
@@ -508,17 +557,35 @@ That's extortion!
 No, that's a lesson.  You pay or you go?
 Нет, это урок.  Ты платишь или уходишь?
 ###_PLAYER
-Please unlock the bra.  (Pay her 25$.)
-Пожалуйста, разблокируйте бюстгальтер.  (Заплати ей 25$.)
+Please unlock the bra.  (Pay her $25.)
+Пожалуйста, разблокируйте бюстгальтер.  (Заплати ей $25.)
 ###_NPC
 Alright.  (You remove your clothes and she unlocks the bra.)  How does it feel?
 Хорошо.  (Ты снимаешь одежду и она открывает лифчик.)  Как ты себя чувствуешь?
 ###_PLAYER
-Please unlock the belt.  (Pay her 25$.)
-Пожалуйста, разблокируйте пояс.  (Заплати ей 25$.)
+Please unlock the belt.  (Pay her $25.)
+Пожалуйста, разблокируйте пояс.  (Заплати ей $25.)
 ###_NPC
 Alright.  (You remove your clothes and she unlocks the belt.)  How does it feel?
 Хорошо.  (Ты снимаешь одежду, и она расстегивает пояс.)  Как ты себя чувствуешь?
+###_PLAYER
+Please unlock the nipple piercings.  (Pay her $25.)
+Пожалуйста, снимите пирсинг с сосков.  (Заплатите ей 25 долларов.)
+###_NPC
+Alright.  (You remove your clothes and she unlocks the piercings.)  How does it feel?
+Хорошо.  (Ты снимаешь одежду, и она открывает пирсинг.)  Как ты себя чувствуешь?
+###_PLAYER
+Please unlock the clitoris piercing.  (Pay her $25.)
+Пожалуйста, разблокируйте пирсинг клитора.  (Заплатите ей 25 долларов.)
+###_NPC
+Alright.  (You remove your clothes and she unlocks the piercing.)  How does it feel?
+Хорошо.  (Ты снимаешь одежду, и она открывает пирсинг.)  Как ты себя чувствуешь?
+###_PLAYER
+Please unlock the plug.  (Pay her $25.)
+Пожалуйста, разблокируйте пробку.  (Заплатите ей 25 долларов.)
+###_NPC
+Alright.  (You remove your clothes and she unlocks the butt plug.)  How does it feel?
+Хорошо.  (Ты снимаешь одежду, и она открывает анальную пробку.)  Как ты себя чувствуешь?
 Get to work then.  I'm not doing any discount.
 Тогда приступай к работе.  Я не делаю никаких скидок.
 Think about ways to stop wasting my time girl.
@@ -579,23 +646,23 @@ My Mistress isn't around.
 That's easy!
 Это же просто!
 ###_NPC
-It's not that easy, there's a 20$ fee to contact your Mistress and a 25$ fee for any item to remove.  And you won't get any refund if she refuses.
-Это не так просто, есть 20$ плата за контакт с твоей Госпожей и 25$ плата за любой предмет для разблокировки.  И ты не получишь никакого возмещения, если она откажет.
+It's not that easy, there's a $20 fee to contact your Mistress and a $25 fee for any item to remove.  And you won't get any refund if she refuses.
+Это не так просто, есть $20 плата за контакт с твоей Госпожей и $25 плата за любой предмет для разблокировки.  И ты не получишь никакого возмещения, если она откажет.
 ###_PLAYER
 Thanks Mistress.
 Спасибо, Госпожа.
 ###_NPC
-Hold on girl, there's a 20$ fee to contact your Mistress and a 25$ fee for any item to remove.  And you won't get any refund if she refuses.
-Держись девочка, есть 20$ плата за контакт с твоей Госпожей и 25$ плата за любой предмет для разблокировки.  И ты не получишь никакого возмещения, если она откажет.
+Hold on girl, there's a $20 fee to contact your Mistress and a $25 fee for any item to remove.  And you won't get any refund if she refuses.
+Держись девочка, есть $20 плата за контакт с твоей Госпожей и $25 плата за любой предмет для разблокировки.  И ты не получишь никакого возмещения, если она откажет.
 ###_PLAYER
 Does it cost anything?
 Это что-нибудь стоит?
 ###_NPC
-Of course, there's a 20$ fee to contact your Mistress and a 25$ fee for any item to remove.  And you won't get any refund if she refuses.
-Конечно, есть 20$ плата за контакт с твоей Госпожей и 25$ плата за любой предмет для разблокировки.  И ты не получишь никакого возмещения, если она откажет.
+Of course, there's a $20 fee to contact your Mistress and a $25 fee for any item to remove.  And you won't get any refund if she refuses.
+Конечно, есть $20 плата за контакт с твоей Госпожей и $25 плата за любой предмет для разблокировки.  И ты не получишь никакого возмещения, если она откажет.
 ###_PLAYER
-Please contact her. (Pay her 20$.)
-Пожалуйста, свяжитесь с ней. (Заплати ей 20$.)
+Please contact her. (Pay her $20.)
+Пожалуйста, свяжитесь с ней. (Заплати ей $20.)
 ###_NPC
 (She takes your money and sends a maid to contact your owner.)  Come back in a few minutes
 (Она берет твои деньги и посылает горничную, чтобы связаться с твоей хозяйкой.) Приходи через несколько минут
@@ -607,20 +674,26 @@ Have you contacted my owner?
 ###_NPC
 Not yet, don't be hasty.  Come back in a few minutes.
 Пока нет, не торопись.  Возвращайся через несколько минут.
-Yes, and your Mistress accepted to get you out.  It cost 25$ for each item to unlock.
-Да, и твоя Госпожа согласилась тебя выпустить.  Это стоит 25$ за каждый предмет, что надо разблокировать.
+Yes, and your Mistress accepted to get you out.  It cost $25 for each item to unlock.
+Да, и твоя Госпожа согласилась тебя выпустить.  Это стоит $25 за каждый предмет, что надо разблокировать.
 Yes, and your Mistress refused to unlock you.  You will stay chaste girl.
 Да, и твоя Госпожа отказалась отпереть тебя.  Ты останешься целомудренной девушкой.
 ###_PLAYER
 I'll wait. (Leave her.)
 Я подожду. (Оставить ее.)
 ###_NPC
-Which chastity device should I unlock?  The fee is 25$ per item.
-Какое устройство целомудрия я должна разблокировать?  Плата составляет 25$ за предмет.
+Which chastity device should I unlock?  The fee is $25 per item.
+Какое устройство целомудрия я должна разблокировать?  Плата составляет $25 за предмет.
 Very well, undress subbie girl.  (You remove your clothes and she unlocks the bra.)
 Очень хорошо, раздевайся девушка-сабба.  (Ты снимаешь одежду, и она расстегивает лифчик.)
 Very well, undress subbie girl.  (You remove your clothes and she unlocks the belt.)
 Очень хорошо, раздевайся девушка-сабба.  (Ты снимаешь одежду, и она расстегивает пояс.)
+Very well, undress subbie girl.  (You remove your clothes and she unlocks the piercings.)
+Очень хорошо, раздевайся девушка-сабба.  (Ты снимаешь одежду, и она открывает пирсинги.)
+Very well, undress subbie girl.  (You remove your clothes and she unlocks the piercing.)
+Очень хорошо, раздевайся девушка-сабба.  (Ты снимаешь одежду, и она открывает пирсинг.)
+Very well, undress subbie girl.  (You remove your clothes and she unlocks the plug.)
+Очень хорошо, раздевайся девушка-сабба.  (Ты снимаешь одежду, и она отсоединяет пробку.)
 ###_PLAYER
 I'm fine now.  Thanks.
 Теперь я в порядке.  Спасибо.
@@ -651,13 +724,13 @@ Good.  Is there anything else you need?
 She's in my private room.
 Она в моей приватной комнате.
 ###_NPC
-I'll make a deal with you then.  I'll send a maid to your room, and she will unlock all of your friends that are not owned by someone else for 50$.
-Тогда я заключу с тобой сделку.  Я пришлю горничную в твою комнату, и она разблокирует всех твоих подруг, которые не принадлежат кому-то, еще за 50$.
+I'll make a deal with you then.  I'll send a maid to your room, and she will unlock all of your friends that are not owned by someone else for $50.
+Тогда я заключу с тобой сделку.  Я пришлю горничную в твою комнату, и она разблокирует всех твоих подруг, которые не принадлежат кому-то, еще за $50.
 ###_PLAYER
 In my room Mistress.
 В моей комнате Госпожи.
-Deal!  (Pay her 50$.)
-Договорились!  (Заплати ей 50$.)
+Deal!  (Pay her $50.)
+Договорились!  (Заплати ей $50.)
 ###_NPC
 Very good.  (She takes the money and sends a maid to your private room.)  Anything else?
 Отлично.  (Она берет деньги и отправляет горничную в твою приватную комнату.)  Что-нибудь еще?
@@ -671,8 +744,8 @@ You can build your own D/s family or join a Dominant family.  A submissive can o
 Is there a fee to collar or be collared?
 Есть ли плата за ошейник или за  освобождения от ошейника?
 ###_NPC
-Yes, the Dominant must pay 100$ for each pet, we provide the locking collar.  If a slave wants freedom, she will pay 60$ on the first occurrence and 200$ on others.
-Да, Доминант должен заплатить 100$ за каждого питомца, мы предоставляем фиксирующий ошейник.  Если рабыня хочет свободы, она заплатит 60$ при первом появлении и 200$ при других.
+Yes, the Dominant must pay $100 for each pet, we provide the locking collar.  If a slave wants freedom, she will pay $60 on the first occurrence and $200 on others.
+Да, Доминант должен заплатить $100 за каждого питомца, мы предоставляем фиксирующий ошейник.  Если рабыня хочет свободы, она заплатит $60 при первом появлении и $200 при других.
 ###_PLAYER
 Will you be my Mistress?
 Вы будете моей Госопжей?
@@ -691,8 +764,8 @@ BDSM is consensual.  As long as the person isn't already owned and consent to be
 I want to collar a submissive.
 Я хочу надеть ошейник на сабмиссива.
 ###_NPC
-Perfect!  Go get your consenting pet and bring her here.  You will need to pay 100$ for the slave collar and the ceremony.
-Отлично!  Иди, возьми свою любимицу и приведи ее сюда.  Вам нужно будет заплатить 100$ за рабский ошейник и церемонию.
+Perfect!  Go get your consenting pet and bring her here.  You will need to pay $100 for the slave collar and the ceremony.
+Отлично!  Иди, возьми свою любимицу и приведи ее сюда.  Вам нужно будет заплатить $100 за рабский ошейник и церемонию.
 ###_PLAYER
 A Dominant wants to collar me.
 Доминант хочет взять меня под ошейник.
@@ -711,10 +784,12 @@ I want to be released from my owner.
 ###_NPC
 I'm sorry to hear that.  Breaking a BDSM bond is serious.  Tell me your story, why do you want to leave?
 Мне жаль это слышать.  Разрыв БДСМ-связи - это серьезно.  Расскажи мне свою историю, почему ты хочешь уйти?
-Girl, it's too soon for that.  There's a three days delay before we will uncollar anyone.
-Девочка, еще слишком рано для этого.  Есть трехдневная отсрочка, прежде чем мы с кого-нибудь снимем ошейник.
-Girl, I know your owner.  Speak with her about it first.
-Девочка, я знаю твоею хозяйку.  Сначала поговори с ней об этом.
+Girl, it's too soon for that.  There's a seven days delay before we will uncollar anyone.
+Девочка, еще слишком рано для этого.  Есть семидневная отсрочка, прежде чем мы с кого-нибудь снимем ошейник.
+Girl, I know your owner.  Go to your room and speak with her about it.
+Девочка, я знаю твою хозяйку.  Иди в свою комнату и поговори с ней об этом.
+An extreme slave girl like you isn't allowed to leave her owner.  Only your Mistress can release you.  Accept the weight of your choices and go back to her.
+Такой экстремальной рабыне, как ты, не разрешается покидать свою хозяйку.  Только твоя Госпожа может освободить тебя.  Прими тяжесть своего выбора и возвращайся к ней.
 As long as you don't ask anything idiotic.
 Главное, чтобы ты не задавала идиотских вопросов.
 ###_PLAYER
@@ -769,8 +844,8 @@ Then that collar stays around your neck girl.  Go see your Mistress and work thi
 How much does it cost?
 Сколько это стоит?
 ###_NPC
-The regular cost to be released from your owner bond is 200$.  But since everyone can make mistakes, it cost 60$ if it's the first time you do it.
-Обычная стоимость освобождения от хозяйке составляет 200$.  Но так как каждая может совершать ошибки, это стоит 60$, если ты делаешь это в первый раз.
+The regular cost to be released from your owner bond is $200.  But since everyone can make mistakes, it cost $60 if it's the first time you do it.
+Обычная стоимость освобождения от хозяйке составляет $200.  Но так как каждая может совершать ошибки, это стоит $60, если ты делаешь это в первый раз.
 ###_PLAYER
 I'm kind of poor.
 Я вроде как бедная.
@@ -782,14 +857,14 @@ Why are there two different prices?
 We want to make sure that our members take their D/s relationship seriously.  You can see the higher price as a punitive measure.
 Мы хотим убедиться, что наши члены серьезно относятся к своим  Д/с отношениям.  Ты можешь рассматривать более высокую цену как карательную меру.
 ###_PLAYER
-I want my freedom. (Pay her 60$)
-Я хочу свою свободу. (Заплати ей 60$)
+I want my freedom. (Pay her $60)
+Я хочу свою свободу. (Заплати ей $60)
 ###_NPC
 Very well, it seems that we've lost a pet.  I will remove the slave collar from your neck.
 Очень хорошо, кажется, что мы потеряли питомца.  Я сниму с твоей шеи рабский ошейник.
 ###_PLAYER
-I want my freedom. (Pay her 200$)
-Я хочу свою свободу. (Заплати ей 200$)
+I want my freedom. (Pay her $200)
+Я хочу свою свободу. (Заплати ей $200)
 ###_NPC
 Take your time before getting collared again.  I will remove the slave collar from your neck.
 Не торопись, прежде чем получить ошейник снова.  Я сниму с твоей шеи рабский ошейник.
@@ -869,14 +944,14 @@ Let me think some more.
 What are club slaves?
 Что такое клубные рабыни?
 ###_NPC
-Submissive girls can take slavery contracts with the club and get paid for it.  They become preys for anyone to play with while under that contract.
+Submissive girls can take slavery contracts with the club and get paid for it.  They become prey for anyone to play with while under that contract.
 Покорные девушки могут заключать рабские контракты с клубом и получать за это деньги.  Они становятся добычей для любого, с кем можно играть, находясь под этим контрактом.
 ###_PLAYER
 What are the slave contract terms?
 Каковы условия рабского контракта?
 ###_NPC
-The contract lasts for one hour and the girl gets paid 80$ at the end of it.  A special collar will be locked for the contract duration.
-Контракт длится один час, и девушка получает 80$ в конце его.  Специальный ошейник будет заблокирован на время действия контракта.
+The contract lasts for one hour and the girl gets paid $80 at the end of it.  A special collar will be locked for the contract duration.
+Контракт длится один час, и девушка получает $80 в конце его.  Специальный ошейник будет заблокирован на время действия контракта.
 ###_PLAYER
 There's a special collar?
 Там есть специальный ошейник?
@@ -903,6 +978,8 @@ No, you're not submissive enough.
 Нет, ты недостаточно покорная.
 (She checks your locks.)  No, your Mistress has put an owner lock on you, get released first.
 (Она проверяет твои замки.)  Нет, твоя Госпожа закрыла тебя на замок хозяйки, освободись сначала.
+(She checks your locks.)  No, your Lover has put a lover lock on you, get released first.
+(Она проверяет ваши замки.)  Нет, твоя любовница наложил на тебя любовный замок, сначала освободись.
 You could, are you sure you understand the terms and commitments?  Do you accept the contract?
 Ты могла бы, ты уверена, что понимаешь условия и обязательства?  Ты принимаешь контракт?
 Alright girl, but don't waste my time.
@@ -983,26 +1060,26 @@ Very good, did you enjoy your experience?
 It was very kinky Miss.
 Это было очень извращенно, Мисс.
 ###_NPC
-(She swaps your collars and laughs.)  Very good, here's your money slave.  (She gives you 80$.)
-(Она меняет ошейники и смеется.)  Очень хорошо, вот твой деньги, рабыня.  (Она дает тебе 80$.)
-(She removes your collar and laughs.)  Very good, here's your money slave.  (She gives you 80$.)
-(Она снимает с тебя ошейник и смеется.)  Очень хорошо, вот твой деньги, рабыня.   (Она дает тебе 80$.)
+(She swaps your collars and laughs.)  Very good, here's your money slave.  (She gives you $80.)
+(Она меняет ошейники и смеется.)  Очень хорошо, вот твой деньги, рабыня.  (Она дает тебе $80.)
+(She removes your collar and laughs.)  Very good, here's your money slave.  (She gives you $80.)
+(Она снимает с тебя ошейник и смеется.)  Очень хорошо, вот твой деньги, рабыня.   (Она дает тебе $80.)
 ###_PLAYER
 I loved it.  I hope to do it again.
 Мне понравилось.  Я надеюсь сделать это снова.
 ###_NPC
-(She swaps your collars and grins.)  You can come back anytime.  Here's your money slave.  (She gives you 80$.)
-(Она меняет ошейники и ухмыляется)  Ты можешь вернуться в любое время.  Вот твой деньги, рабыня.  (Она дает тебе 80$.)
-(She removes your collar and grins.)  You can come back anytime.  Here's your money slave.  (She gives you 80$.)
-(Она снимает с тебя ошейник и улыбается.)  Ты можешь вернуться в любое время.  Вот твой деньги, рабыня.  (Она дает тебе 80$.)
+(She swaps your collars and grins.)  You can come back anytime.  Here's your money slave.  (She gives you $80.)
+(Она меняет ошейники и ухмыляется)  Ты можешь вернуться в любое время.  Вот твой деньги, рабыня.  (Она дает тебе $80.)
+(She removes your collar and grins.)  You can come back anytime.  Here's your money slave.  (She gives you $80.)
+(Она снимает с тебя ошейник и улыбается.)  Ты можешь вернуться в любое время.  Вот твой деньги, рабыня.  (Она дает тебе $80.)
 ###_PLAYER
 Maybe I'm not fit to be a public slave.
 Может быть, я не гожусь на роль общественной рабыни.
 ###_NPC
-(She swaps your collars and nods.)  Going public isn't for everyone.  Here's your money girl.  (She gives you 80$.)
-(Она меняет местами ошейники и кивает.)  Выход на публику - это не для всех.  Вот твой деньги, рабыня.  (Она дает тебе 80$.)
-(She removes your collar and nods.)  Going public isn't for everyone.  Here's your money girl.  (She gives you 80$.)
-(Она снимает с тебя ошейник и кивает.)  Выход на публику - это не для всех.  Вот твой деньги, рабыня.  (Она дает тебе 80$.)
+(She swaps your collars and nods.)  Going public isn't for everyone.  Here's your money girl.  (She gives you $80.)
+(Она меняет местами ошейники и кивает.)  Выход на публику - это не для всех.  Вот твой деньги, рабыня.  (Она дает тебе $80.)
+(She removes your collar and nods.)  Going public isn't for everyone.  Here's your money girl.  (She gives you $80.)
+(Она снимает с тебя ошейник и кивает.)  Выход на публику - это не для всех.  Вот твой деньги, рабыня.  (Она дает тебе $80.)
 ###_PLAYER
 What are club Mistresses?
 Что такое клубные Госпожи?
@@ -1019,8 +1096,8 @@ To apply to be a club Mistress, someone must be a club member for at least one m
 Do they get paid?
 Они получают деньги?
 ###_NPC
-Absolutely.  The salary is 100$ per week and they will receive the official Mistress outfit that I'm wearing right now.
-Разумется.  Зарплата составляет 100$ в неделю, и они получат официальный наряд Госпожи, который я ношу прямо сейчас.
+Absolutely.  The salary is $150 per week and they will receive the official Mistress outfit that I'm wearing right now.
+Разумется.  Зарплата составляет $150 в неделю, и они получат официальный наряд Госпожи, который я ношу прямо сейчас.
 ###_PLAYER
 Do they have privileges?
 Есть ли у них привилегии?
@@ -1049,8 +1126,8 @@ Girl, you're a new member.  You must be a club member for at least one month bef
 I'm here to collect my salary.
 Я здесь, чтобы получить свою зарплату.
 ###_NPC
-(She checks her book and gives you 100$.)  Here you go Mistress DialogPlayerName.  Come again in seven days for your next pay.
-(Она проверяет свою книгу и дает тебе 100$.)  Вот и вы Госпожа DialogPlayerName.  Приходите через семь дней за следующей зарплатой.
+(She checks her book and gives you $150.)  Here you go Mistress DialogPlayerName.  Come again in seven days for your next pay.
+(Она проверяет свою книгу и дает тебе $150.)  Вот и вы Госпожа DialogPlayerName.  Приходите через семь дней за следующей зарплатой.
 (She checks her book and frowns.)  You're too early Mistress DialogPlayerName.  It takes a full week between each payment.
 (Она проверяет свою книгу и хмурится.)  Вы слишком рано Госпожа DialogPlayerName.  Обычно проходит целая неделя между каждой оплатой.
 ###_PLAYER
@@ -1154,3 +1231,98 @@ Fine, take it.  (Give your Mistress items.)
 ###_PLAYER
 That sucks!  (Give your Mistress items.)
 Это отстой!  (Отдай свои предметы Госпожи.)
+What exactly does it mean to be a lover?
+Что именно значит быть любовницей?
+###_NPC
+The lover's relationship is based on mutual trust and caring.  The details may differ from one relationship to another.
+Отношения влюбленных основаны на взаимном доверии и заботе.  Детали могут отличаться от одного отношения к другому.
+###_PLAYER
+Is there a fee to host a wedding?
+Есть ли плата за проведение свадьбы?
+###_NPC
+There's a $100 fee required from both partners.  But before any wedding, you'll have to spend time with your lover.
+С обоих партнеров требуется плата в размере 100 долларов.  Но перед любой свадьбой вам придется провести время со своей возлюбленной.
+###_PLAYER
+Can I ask anyone to be my lover?
+Могу ли я попросить кого-нибудь стать моей любовницей?
+###_NPC
+Yes, but you can only have up to five official lovers at a time.  And as long as that lucky one
+Да, но у вас может быть только до пяти официальных любовниц одновременно.  И до тех пор, пока этот счастливчик
+###_PLAYER
+I want to break up with one of my lovers.
+Я хочу порвать с одной из моих любовниц.
+###_NPC
+Which one are you talking about ?
+О какой из них ты говоришь?
+###_PLAYER
+The first.
+Первой
+###_NPC
+Breaking up while dating is alright, it happens all the time.  But are you totally sure?  Have you really thought about it?
+Расставаться во время свидания - это нормально, такое случается постоянно.  Но вы полностью уверены?  Вы действительно подумали об этом?
+I'm sorry to hear that.  Breaking a lovers bond is a big decision.  Tell me your story, why do you want to end your relationship?
+Мне жаль это слышать.  Разрыв любовных уз - это серьезное решение.  Расскажи мне свою историю, почему ты хочешь разорвать ваши отношения?
+No girl.  Try to fix things up with her first.  I can only officialize a divorce if you've been wed for a least a week.
+Нет девушка.  Сначала попытайся наладить с ней отношения.  Я могу официально оформить развод только в том случае, если вы женаты не менее недели.
+I know your lover, she's probably in your room right now.  Go talk with her, this is none of my business.
+Я знаю твою любовницу, она, наверное, сейчас в твоей комнате.  Иди поговори с ней, это не мое дело.
+###_PLAYER
+The second.
+Второй
+The third.
+Третьей
+The fourth.
+Четвёртой
+The fifth.
+Пятой
+Yes, I want to break up.
+Да, я хочу расстаться.
+###_NPC
+(She announces the end of your relationship and makes it official.)  You're free to go girl, enjoy the club.
+(Она объявляет об окончании ваших отношений и делает это официально.) Ты свободна, девочка, наслаждайся клубом.
+Think carefully girl, this is a serious decision.
+Подумай хорошенько, девочка, это серьезное решение.
+###_PLAYER
+(Remain silent.)
+(Сохранять молчание.)
+###_NPC
+Good, is there anything else you need?
+Хорошо, тебе еще что-нибудь нужно?
+###_PLAYER
+She doesn't want to join the club.
+Она не хочет вступать в клуб.
+###_NPC
+It's a shame, but I understand. Let me ask again, are you really sure about this?
+Обидно, но я понимаю. Позвольте еще раз спросить, вы действительно уверены в этом?
+###_PLAYER
+She is a student, she's not mature enough.
+Она студентка, она недостаточно зрелая.
+###_NPC
+That makes sense. Let me ask again, are you really sure about this?
+Это имеет смысл. Позвольте еще раз спросить, вы действительно уверены в этом?
+###_PLAYER
+She disappeared.
+Она исчезла.
+###_NPC
+Poor girl, I'm sure you'll find another lover someday. Let me ask again, are you really sure about this?
+Бедняжка, я уверен, что когда-нибудь ты найдешь другую любовницу. Позвольте еще раз спросить, вы действительно уверены в этом?
+###_PLAYER
+She abused my trust.
+Она злоупотребила моим доверием.
+###_NPC
+Poor girl, Some people do not know what they are doing. Let me ask again, are you really sure about this?
+Бедная девочка, Некоторые люди не знают, что они делают. Позвольте еще раз спросить, вы действительно уверены в этом?
+###_PLAYER
+I've found a better lover.
+Я нашла любовницу получше.
+###_NPC
+(She shakes her head) I only hope that you've discussed this with her before coming here... Let me ask again, are you really sure about this?
+(Она качает головой) Я только надеюсь, что вы обсудили это с ней, прежде чем прийти сюда... Позвольте еще раз спросить, вы действительно в этом уверены?
+###_PLAYER
+My lover doesn't want me anymore.
+Моя возлюбленная больше не хочет меня.
+###_NPC
+Poor girl, I'm sure you'll find a good lover someday. Let me ask again, are you really sure about this?
+Бедняжка, я уверена, что когда-нибудь ты найдешь хорошую любовницу. Позвольте еще раз спросить, вы действительно уверены в этом?
+Then you'd better work things out with her. Take some time to discuss.
+Тогда вам лучше разобраться с ней. Найдите время, чтобы обсудить.

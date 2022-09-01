@@ -1,0 +1,614 @@
+###_NPC
+(She smirks and makes fun of your mumblings.)
+(Она ухмыляется и высмеивает ваше бормотание.)
+(A gray-haired woman stares at you as you enter the teacher's lounge.)  What are you doing here?
+(Седая женщина пристально смотрит на вас, когда вы входите в учительскую.) Что вы здесь делаете?
+###_PLAYER
+Who are you?
+Кто вы?
+###_NPC
+I'm teacher Mildred.  How did you get here little miss?
+Я учительница Милдред. Как вы сюда попали, маленькая мисс?
+###_PLAYER
+Hello teacher Mildred.
+Здравствуйте учительница Милдред.
+###_NPC
+Greetings little miss DialogPlayerName.  How did you get here?
+Привет, маленькая мисс DialogPlayerName. Как вы сюда попали?
+###_PLAYER
+The door was open.
+Дверь была открыта.
+###_NPC
+That's impossible.  I always double-check it.  You've sneaked in, didn't you?
+Это невозможно. Я всегда перепроверяю. Ты пробралась внутрь, не так ли?
+###_PLAYER
+I've found this key.
+Я нашла этот ключ.
+###_NPC
+You've stolen it!  And now you're sneaking in to steal our belongings?
+Ты украла его! А теперь ты прокрадываешься, чтобы украсть наши вещи?
+###_PLAYER
+Julia let me in.
+Джулия впустила меня.
+###_NPC
+Even an eccentric like her wouldn't do that.  You've sneaked in, didn't you?
+Даже такой эксцентричный человек, как она, не стал бы этого делать. Ты пробралась внутрь, не так ли?
+###_PLAYER
+Yuki let me in.
+Юки впустила меня.
+###_NPC
+That's impossible.  Teacher Yuki knows the rules.  You've sneaked in, didn't you?
+Это невозможно. Учительница Юки знает правила. Ты пробралась внутрь, не так ли?
+###_PLAYER
+Sorry, I will leave.  (Leave her.)
+Извините, я уйду. (Оставь ее.)
+I was looking for a place to relax.
+Я искала место для отдыха.
+###_NPC
+That's not valid reason little miss.  You should not be here.
+Это не уважительная причина, маленькая мисс. Вы не должны быть здесь.
+###_PLAYER
+I was curious.  Is that a crime?
+Мне было любопытно. Это преступление?
+###_NPC
+(She gets angry.)  Yes, it's against the rules!  You should not be here little miss.
+(Сердится.) Да, это против правил! Вам не следует быть здесь, маленькая мисс.
+###_PLAYER
+I want to be a teacher someday.
+Я хочу когда-нибудь стать учительницой.
+###_NPC
+(She relaxes.)  And you've came to see our quarters?  That's not valid reason little miss.
+(Она расслабляется.) И вы пришли посмотреть наши апартаменты? Это не уважительная причина, маленькая мисс.
+Why are you still in the lounge?  Get out.
+Почему ты до сих пор здесь? Убирайся.
+###_PLAYER
+Can I do my homework here?
+Могу я сделать домашнее задание здесь?
+###_NPC
+It can be hard to find a quiet place to study, but you should not be here.  Now get out before I get mad.
+Трудно найти тихое место для занятий, но вам не следует здесь находиться. А теперь уходи, пока я не разозлилась.
+###_PLAYER
+Can we talk?
+Мы можем поговорить?
+###_NPC
+This is not the time.  I have dozens of exams to correct.  Now get out before I get mad.
+Сейчас не время. Мне нужно сдать десятки экзаменов. А теперь уходи, пока я не разозлилась.
+###_PLAYER
+Can I smoke here?
+Можно мне покурить здесь?
+###_NPC
+Absolutely not.  This is not a tavern.  Now get out before I get mad.
+Точно нет. Это не таверна. А теперь уходи, пока я не разозлилась.
+###_PLAYER
+Fine, I will go.  (Leave her.)
+Хорошо, я пойду. (Оставь ее.)
+I'll do whatever I want.
+Я буду делать все, что хочу.
+###_NPC
+(She bangs her fist on her desk.)  Little miss!  If you don't get out right now, I will discipline you.
+(Бьет кулаком по столу.) Маленькая мисс! Если ты не уйдешь прямо сейчас, я накажу тебя.
+###_PLAYER
+I'm sorry Miss.  Are you mad at me?
+Простите, мисс. Вы злитесь на меня?
+###_NPC
+(She sighs.)  Little miss.  If you don't get out right now, I will discipline you.
+(Она вздыхает.) Маленькая мисс. Если ты не уйдешь прямо сейчас, я накажу тебя.
+###_PLAYER
+I'll just look around and I'll go.
+Я просто осмотрюсь и пойду.
+###_NPC
+(She shakes her head.)  Little miss!  If you don't get out right now, I will discipline you.
+(Она качает головой.) Маленькая мисс! Если ты не уйдешь прямо сейчас, я накажу тебя.
+This is your last warning.  Get out or you will learn the meaning of discipline.
+Это твое последнее предупреждение. Убирайся, или ты узнаешь, что такое дисциплина.
+###_PLAYER
+Please!  Only two minutes!
+Пожалуйста! Всего две минуты!
+###_NPC
+In the good old days, students would never dare to defy their teachers like that.
+В старые добрые времена ученики никогда бы не осмелились так бросить вызов своим учителям.
+###_PLAYER
+(Take a chair and check your phone.)
+(Возьмите стул и проверьте свой телефон.)
+###_NPC
+(She clinches her fists.)  In the good old days, students would never dare to defy their teachers like that.
+(Сжимает кулаки.) В старые добрые времена ученики никогда бы не осмелились так бросить вызов своим учителям.
+###_PLAYER
+I could help you grade these exams.
+Я мог бы помочь тебе оценить эти экзамены.
+(Pour yourself a cup of coffee.)
+(Налейте себе чашку кофе.)
+These days are long dead.
+Эти дни давно мертвы.
+###_NPC
+Absolutely not.  I have a device from the good old days to discipline you.
+Точно нет. У меня есть средство из старых добрых времен, чтобы дисциплинировать тебя.
+###_PLAYER
+Times have changed.
+Времена изменились.
+###_NPC
+Don't be so sure.  I have a device from the good old days to discipline you.
+Не будь так уверена. У меня есть средство из старых добрых времен, чтобы дисциплинировать тебя.
+###_PLAYER
+I guess it was better back then.
+Думаю, тогда было лучше.
+###_NPC
+Absolutely.  And to prove it, I have a device from the good old days to discipline you.
+Абсолютно. И чтобы доказать это, у меня есть средство из старых добрых времен, чтобы дисциплинировать вас.
+###_PLAYER
+What kind of device?
+Что за устройство?
+###_NPC
+(She gets a large wooden plank with three holes and a locking mechanism.)  This is your demise.
+(Она берет большую деревянную доску с тремя отверстиями и запорным механизмом.) Это твоё наказание.
+###_PLAYER
+Something as old as you?
+Что-то такое же старое, как ты?
+I'm curious Miss.
+Мне любопытно, мисс.
+I didn't think that pillories were still used.
+Я не думала, что позорные столбы все еще используются.
+###_NPC
+I'm surprised you know the proper name.  Little miss, you will experience it.
+Я удивлена, что ты знаешь правильное имя. Маленькая мисс, вы это испытаете.
+###_PLAYER
+I didn't think that stocks were still used.
+Я не думала, что стоки все еще используются.
+###_NPC
+Stocks are for legs.  The proper name is pillory.  And you will experience it little miss.
+Стоки для ног. Правильное название — позорный столб. И вы испытаете это, маленькая мисс.
+###_PLAYER
+That's a glory hole from the previous century?
+Это дыра славы из прошлого века?
+###_NPC
+He who laughs last, laughs best.  You will experience it little miss.
+Хорошо смеется тот, кто смеется последним. Вы испытаете это, маленькая мисс.
+###_PLAYER
+Funny!  You should be a comedian.
+Смешно! Тебе следует стать комиком.
+What is that?
+Что это?
+###_NPC
+It's a pillory little miss.  And you will experience.
+Это позорный столб маленькая мисс. И вы испытаете его.
+###_PLAYER
+Oh, hell no!
+Oh, hell no!
+###_NPC
+Do not resist or I will call security.  Now raise your arms and give me your neck.
+Не сопротивляйтесь, иначе я вызову охрану. А теперь поднимите руки и отдайте мне свою шею.
+###_PLAYER
+(Bow your head slowly.)
+(Медленно склонить голову.)
+###_NPC
+Good girl.  Now raise your arms and give me your neck.
+Хорошая девочка. А теперь поднимите руки и отдайте мне свою шею.
+###_PLAYER
+You can't be serious.
+Вы же не серьёзно.
+(Try to run away.)
+(Попытаться убежать.)
+###_NPC
+(She blocks your path and locks the pillory on your wrists and neck.)
+(Она преграждает вам путь и запирает позорный столб на ваших запястьях и шее.)
+###_PLAYER
+(Scream for help.)
+(Кричать о помощи.)
+###_NPC
+Nobody will come little miss.  (She locks the pillory on your wrists and neck.)
+Никто не придет, маленькая мисс. (Она запирает позорный столб на ваших запястьях и шее.)
+###_PLAYER
+(Let her restrain you.)
+(Позвольте ей удержать вас.)
+###_NPC
+(She smiles and locks the pillory on your wrists and neck.)
+(Она улыбается и запирает позорный столб на ваших запястьях и шее.)
+###_PLAYER
+(Struggle to escape.)
+(Бороться что бы сбежать)
+###_NPC
+You're not getting out of that.  But to be certain.  (She shows you an old padlock.)
+Ты не выберешься из этого. Но чтобы быть уверенным. (Она показывает вам старый замок.)
+###_PLAYER
+What the fuck?
+Какого хрена?
+###_NPC
+You truly deserve this discipline.  (She shows you an old padlock.)
+Вы действительно заслуживаете этой дисциплины. (Она показывает вам старый замок.)
+###_PLAYER
+Please teacher Mildred.  It's too heavy.
+Пожалуйста, учитель Милдред. Это слишком тяжело.
+###_NPC
+You will be fine little miss.  (She shows you an old padlock.)
+Вы будете в порядке, маленькая мисс. (Она показывает вам старый замок.)
+###_PLAYER
+(Stay silent.)
+(Промолчи.)
+###_NPC
+(She gets an old padlock and shows it to you.)
+(Она берет старый замок и показывает его вам.)
+###_PLAYER
+I guess this is fair.
+Думаю, это справедливо.
+###_NPC
+(She pinches your cheek and nods.)  Stand still little miss.  (She locks the pillory.)
+(Она щиплет тебя за щеку и кивает.) Стой спокойно, маленькая мисс. (Запирает позорный столб.)
+(She easily blocks you.)  Stand still little miss.  (She locks the pillory.)
+(Она легко блокирует вас.) Стой спокойно, маленькая мисс. (Запирает позорный столб.)
+###_PLAYER
+Do you really need to lock it?
+Вам действительно нужно заблокировать его?
+###_NPC
+It's for your own good.  Now stand still.  (She locks the pillory.)
+Это для твоего же блага. Теперь стой на месте. (Запирает позорный столб.)
+###_PLAYER
+This is cruel.
+Это жестоко.
+###_NPC
+That was the easy part.  I have more articles from the good old days to demonstrate.  (She gets a leather crop.)
+Это была легкая часть. У меня есть еще статьи из старых добрых времен для демонстрации. (Она берёт кожаный хлыст.)
+###_PLAYER
+I hate the good old days.
+Я ненавижу старые добрые времена.
+###_NPC
+Too bad, I have more articles from the good old days to demonstrate.  (She gets a leather crop.)
+Жаль, у меня есть еще статьи из старых добрых времен для демонстрации. (Она берёт кожаный хлыст.)
+###_PLAYER
+(Struggle and test the lock.)
+(Борьба и испытание замка.)
+###_NPC
+You're not getting out until I decide so.  I have more articles from the good old days to demonstrate.  (She gets a leather crop.)
+Ты не уйдешь, пока я так не решу. У меня есть еще статьи из старых добрых времен для демонстрации. (Она берёт кожаный хлыст.)
+###_PLAYER
+This is so humiliating Miss.
+Это так унизительно, мисс.
+Is it a real one?
+Он настоящий?
+###_NPC
+(She whips your butt swiftly.)  Does it feel real enough for you?
+(Она быстро хлещет тебя по заднице.) Тебе кажется, что это достаточно реально?
+###_PLAYER
+Please don't hurt me Miss.
+Пожалуйста, не делайте мне больно, мисс.
+###_NPC
+(She whips your butt slowly.)  It's for your own good little Miss.
+(Она медленно хлещет тебя по заднице.) Это для твоего же блага, маленькая мисс.
+###_PLAYER
+You can't scare me!
+Вы не сможете напугать меня!
+###_NPC
+(She whips your butt furiously.)  We'll see about that!
+(Она яростно хлещет тебя по заднице.) Посмотрим!
+###_PLAYER
+I'll be good.  I promise.
+Я буду хорошей. Обещаю.
+###_NPC
+Of course you will.  (She whips your butt carefully.)
+Конечно ты будешь. (Осторожно хлещет тебя по заднице.)
+###_PLAYER
+(Give her a defiant look.)
+(Окинуть ее вызывающим взглядом.)
+###_NPC
+(She whips your butt twice at the same spot.)
+(Она дважды бьет тебя по заднице в одно и то же место.)
+###_PLAYER
+(Jump from the pain.)
+(Прыгать от боли.)
+###_NPC
+(She whips your butt at the same spot.)
+(Она хлещет тебя по тому же месту.)
+###_PLAYER
+Fuck, it hurts!
+Бля, больно!
+###_NPC
+(She swings the crop faster and harder.)  Your torment will bring you salvation.
+(Размахивает хлыстом быстрее и сильнее.) Твои муки принесут тебе спасение.
+###_PLAYER
+That's all that you've got?
+Это все, что у тебя есть?
+(Bite your lips not to scream.)
+(Кусай губы, чтобы не закричать.)
+###_NPC
+(She swings the crop once again.)  Your torment will bring you salvation.
+(Еще раз взмахивает хлыстом.) Твои муки принесут тебе спасение.
+###_PLAYER
+(Whimper and make pleading eyes.)
+(Хныкать и делать умоляющие глаза.)
+(Pretend it doesn't hurt.)
+(Притвориться, что это не больно.)
+###_NPC
+I will break you little miss.  (She whips your butt again.)
+Я сломаю тебя, маленькая мисс. (Она снова бьет тебя по заднице.)
+###_PLAYER
+I promise I won't come back here.
+Я обещаю, что не вернусь сюда.
+###_NPC
+And I will make sure you keep that promise.  (She whips your butt again.)
+И я позабочусь о том, чтобы ты сдержал это обещание. (Она снова бьет тебя по заднице.)
+Nobody will come.  (She whips your butt again.)
+Никто не придет. (Она снова бьет тебя по заднице.)
+###_PLAYER
+Please stop!  I beg you.
+Пожалуйста остановись! Я умоляю вас.
+###_NPC
+Promise me you'll respect the teacher's jurisdiction and I'll stop.  (She whips you again.)
+Обещай мне, что будешь уважать юрисдикцию учителя, и я перестану. (Она снова тебя хлещет.)
+###_PLAYER
+(Cringe your fists in anger.)
+(Сжать кулаки в гневе.)
+(Try to look away.)
+(Попробуйте отвести взгляд.)
+Never!
+Никогда!
+###_NPC
+(She whips you again.)  I will break you girl!  Promise or you will be in anguish for weeks.
+(Снова хлещет тебя.) Я сломаю тебя, девочка! Обещай, или ты будешь страдать неделями.
+(She whips you again.)  You know what to do.  Promise to respect the teachers from now on.
+(Она снова тебя хлещет.) Ты знаешь, что делать. Обещай уважать учителей с этого момента.
+###_PLAYER
+I cannot promise that.
+Я не могу этого обещать.
+###_NPC
+(She whips you again.)  You can and you will make that oath.
+(Она снова хлещет вас.) Вы можете и вы дадите эту клятву.
+###_PLAYER
+I promise I will respect the teachers.
+Я обещаю, что буду уважать учителей.
+###_NPC
+Fine, you've learned your lesson.  You seem to be a good student after all.
+Отлично, ты усвоила урок. В конце концов, ты, кажется, хорошая студентка.
+And I will make sure you never forget that promise.
+И я позабочусь о том, чтобы ты никогда не забыла об этом обещании.
+###_PLAYER
+Thanks teacher Mildred.
+Спасибо, учительница Милдред.
+###_NPC
+I miss the days when we could punish students like that all the time.  The real discipline.  (She releases you.)
+Я скучаю по тем дням, когда мы могли постоянно так наказывать студентов. Настоящая дисциплина. (Она отпускает тебя.)
+###_PLAYER
+I try to be good.
+Я постараюсь быть хорошей.
+(Nod slowly.)
+(Медленно кивнуть.)
+You can still give punishments.
+Вы все еще можете давать наказания.
+###_NPC
+I know, but I need something stronger.  I need to push the limits.
+Я знаю, но мне нужно что-то покрепче. Мне нужно раздвинуть границы.
+###_PLAYER
+Discipline still exist nowadays.
+Дисциплина существует и в наши дни.
+Times are changing.
+Времена меняются.
+###_NPC
+Indeed.  Well that's enough little miss.  You must go now.
+Верно. Ну, хватит, маленькая мисс. Вы должны идти сейчас.
+###_PLAYER
+There's not much to do about that.
+С этим особо нечего делать.
+There's a place you could go.
+Есть место, куда ты мог бы пойти.
+###_NPC
+Disclose some more little miss.
+Раскрой еще немного, маленькая мисс.
+###_PLAYER
+I know a spot for you.
+Я знаю местечко для тебя.
+That's only a dream.
+Это только мечта.
+There's a BDSM club downtown.
+В центре есть БДСМ-клуб.
+###_NPC
+I'm genuinely interested.  Can you give me the address?
+Я искренне заинтересована. Вы можете дать мне адрес?
+###_PLAYER
+There's a club for those who enjoy discipline.
+Есть клуб для тех, кто любит дисциплину.
+I'll do better.  I'll show you the place.
+Я сделаю лучше. Я покажу тебе место.
+###_NPC
+You're a sweet little lady.  Very well, let's go then.  I'll finish grading these exams later.
+Ты милая маленькая леди. Хорошо, тогда пошли. Я закончу оценивать эти экзамены позже.
+###_PLAYER
+Here it is.  (Give her the club address.)
+Вот. (Дайте ей адрес клуба.)
+###_NPC
+Thanks little miss.  I might visit the place someday.  Now you need to go.
+Спасибо, маленькая мисс. Я могла бы посетить это место как-нибудь. Теперь вам нужно идти.
+###_PLAYER
+I'll give it next time we meet.
+Я дам его в следующий раз, когда мы встретимся.
+###_NPC
+Very well little miss.  Now you need to go.
+Очень хорошо, маленькая мисс. Теперь вам нужно идти.
+###_PLAYER
+(Invite her to your private room.)
+(Пригласите ее в свою личную комнату.)
+###_NPC
+That's enough little miss.  You must go now.
+Хватит, маленькая мисс. Вы должны идти сейчас.
+###_PLAYER
+Can I stay a little longer?
+Могу я остаться еще немного?
+###_NPC
+No.  I have many exams to grade.  You need to go now.  (She points at the door.)
+Нет. Мне нужно оценить много экзаменов. Вам нужно идти сейчас. (Указывает на дверь.)
+###_PLAYER
+Thanks for the lesson.  (Leave her.)
+Спасибо за урок. (Оставь ее.)
+I'll never come back.  (Leave her.)
+Я никогда не вернусь. (Оставь ее.)
+(Leave her.)
+(Оставь ее.)
+###_NPC
+Get out before I call security.
+Уходи, пока я не вызвала охрану.
+###_PLAYER
+What do you mean?
+Что ты имеешь в виду?
+###_NPC
+It means we are going to take a little walk around school.
+Это значит, что мы собираемся немного прогуляться по школе.
+###_PLAYER
+Isn't that enough?
+Разве этого недостаточно?
+###_NPC
+No.  We are going to take a little walk around school.
+Нет. Мы собираемся немного прогуляться по школе.
+We are going to take a little walk around school.
+Мы собираемся немного прогуляться по школе.
+It means we are going to take a little walk around school.  And you will be muzzled like a bitch.
+Это значит, что мы собираемся немного прогуляться по школе. И ты будешь в наморднике, как сука.
+No.  We are going to take a little walk around school.  And you will be muzzled like a bitch.
+Нет. Мы собираемся немного прогуляться по школе. И ты будешь в наморднике, как сука.
+We are going to take a little walk around school.  And you will be muzzled like a bitch.
+Мы собираемся немного прогуляться по школе. И ты будешь в наморднике, как сука.
+###_PLAYER
+Muzzled?  Are you crazy?
+В наморднике? Ты не в своем уме?
+###_NPC
+(She straps a muzzle gag on your head and smirks.)  You will never forget this humiliation little bitch.
+(Она надевает тебе на голову кляп и ухмыляется.) Ты никогда не забудешь это униженние маленькая сучка.
+###_PLAYER
+This is inhumane!
+Это бесчеловечно!
+Yes, teacher Mildred.
+Да, учительница Милдред.
+Please don't be too harsh.
+Пожалуйста, не будьте слишком суровы.
+###_NPC
+Come, let's parade around the college.  (She whips you and takes you outside, so everyone can see you.)
+Пошли, прогуляемся по колледжу. (Она хлещет тебя и выводит на улицу, чтобы все могли тебя видеть.)
+###_PLAYER
+I will get you for that.
+Я достану тебя за это.
+(Try to struggle out.)
+(Попробуйте вырваться.)
+(Bow your head.)
+(Склонить голову.)
+Hello everyone!
+Всем привет!
+###_NPC
+Yes, hello everyone, come see our model student.  (She pushes you to the college theater stage.)
+Да, всем привет, приходите посмотреть на нашу модельку-студентку. (Она подталкивает вас к театральной сцене колледжа.)
+###_PLAYER
+This is so embarrassing.
+Это так неловко.
+###_NPC
+And this is far from over.  (She pushes you to the college theater stage.)
+И это далеко не конец. (Она подталкивает вас к театральной сцене колледжа.)
+###_PLAYER
+(Try to kick her.)
+(Попробуйте пнуть ее.)
+###_NPC
+I can also restrain your legs you know.  (She pushes you to the college theater stage.)
+Я также могу сдерживать твои ноги, знаешь ли. (Она подталкивает вас к театральной сцене колледжа.)
+###_PLAYER
+(Blush red.)
+(Покраснеть.)
+###_NPC
+It's only the beginning.  (She pushes you to the college theater stage.)
+Это только начало. (Она подталкивает вас к театральной сцене колледжа.)
+###_PLAYER
+You're a comedian?
+Вы комик?
+###_NPC
+(She stays silent and whips you again.  Making you walk to the cafeteria where everyone stares at you.)
+(Она молчит и снова хлещет тебя. Заставляет идти в столовую, где все смотрят на тебя.)
+###_PLAYER
+To be or not to be!
+Быть или не быть!
+(Grumble.)
+(Ворчать.)
+How can the college allow this?
+Как колледж может это допустить?
+###_NPC
+It's a wonderful establishment isn't it?  (She guides you to a class.  To humiliate you in front of the students.)
+Чудесное заведение, не так ли? (Она ведет вас на урок. Чтобы унизить вас перед учениками.)
+###_PLAYER
+You're enjoying this?
+Тебе это нравится?
+###_NPC
+(She smirks and guides you to a class.  To humiliate you in front of the students.)
+(Она ухмыляется и ведет вас в класс. Чтобы унизить вас перед учениками.)
+###_PLAYER
+(Turn your head.)
+(Повернуть голову.)
+###_NPC
+It's time to see your friends.  (She guides you to a class.  To humiliate you in front of the students.)
+Пришло время увидеться с друзьями. (Она ведет вас на урок. Чтобы унизить вас перед учениками.)
+###_PLAYER
+(Take loud breathes.)
+(Сделать громкие вдохи.)
+That's enough!
+Достаточно!
+###_NPC
+Almost.  (She takes you back to the entrance for one last tour outside.)
+Почти. (Она отводит вас обратно ко входу для последней прогулки снаружи.)
+###_PLAYER
+Alright Miss.  I get the lesson.
+Хорошо мисс. Я получила урок.
+###_NPC
+Very good.  (She takes you back to the entrance for one last tour outside.)
+Отлично. (Она отводит вас обратно ко входу для последней прогулки снаружи.)
+###_PLAYER
+(Try to break away.)
+(Попробуйте оторваться.)
+###_NPC
+Don't make me laugh.  (She takes you back to the entrance for one last tour outside.)
+Не смеши меня. (Она отводит вас обратно ко входу для последней прогулки снаружи.)
+We are almost done.  (She takes you back to the entrance for one last tour outside.)
+Мы почти закончили. (Она отводит вас обратно ко входу для последней прогулки снаружи.)
+###_PLAYER
+This is horrible.
+Это ужасно.
+###_NPC
+It's over little miss, let's go back.  (She whips you one last time as you both get back to the lounge.)
+Все кончено, мисс, вернемся. (Она хлещет вас в последний раз, когда вы оба возвращаетесь в гостиную.)
+###_PLAYER
+Can we go in now?
+Мы можем войти сейчас?
+(Roll your eyes up.)
+(Закатить глаза вверх.)
+That was humiliating.
+Это было унизительно.
+###_NPC
+That's the point.  From now on, will you be a good student?
+В этом-то и дело. Отныне ты будешь хорошей студенткой?
+###_PLAYER
+Finally!  We're back.
+Наконец! Мы вернулись.
+###_NPC
+That was a nice walk.  From now on, will you be a good student?
+Это была хорошая прогулка. Отныне ты будешь хорошей студенткой
+###_PLAYER
+You're a cruel teacher.
+Ты жестокая учительница.
+###_NPC
+Cruel for your own good.  From now on, will you be a good student?
+Жестокая для твоего же блага. Отныне ты будешь хорошей студенткой?
+###_PLAYER
+(Sigh loudly.)
+(Громко вздыхает.)
+###_NPC
+From now on, will you be a good student?
+Отныне ты будешь хорошей студенткой?
+###_PLAYER
+Yes Miss.
+Да Мисс.
+###_NPC
+Good girl.  (She releases you.)  Now get out before I call security.
+Хорошая девочка. (Она отпускает вас.) А теперь уходите, пока я не вызвала охрану.
+###_PLAYER
+Forget it.
+Забудь это.
+###_NPC
+Stay like that and get lost then.  Get out before I call security.
+Оставайся такой и проваливай. Убирайся, пока я не вызвала охрану.
+###_PLAYER
+(Nod yes.)
+(Кивок)
+(Shake your head no.)
+(Покачать головой (нет).)
+I'll have my revenge someday.  (Leave her.)
+Когда-нибудь я отомщу. (Оставь ее.)

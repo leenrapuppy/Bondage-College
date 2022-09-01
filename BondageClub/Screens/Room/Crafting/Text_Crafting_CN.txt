@@ -1,0 +1,94 @@
+Return to the main hall
+返回大厅
+Destroy an item
+摧毁一件物品
+Craft your item
+制作物品
+Cancel
+取消
+Previous
+上一页
+Next
+下一页
+No lock
+无锁
+Select a slot for your new crafted item.  The previous item in that slot will be replaced.
+为你新制作的物品选择一个栏位。之前在该栏位的物品会被替换。
+Select a crafted item slot to destroy.
+选择一个已经制作的物品栏来摧毁。
+Select an item to craft or search on your left.
+从你的左边选择一个物品来制作或者研究。
+Select a property for your AssetDescription.
+为你的AssetDescription选择一个特性。
+Select a lock to use with your PropertyName AssetDescription.
+为你的PropertyName AssetDescription选择一个锁。
+Enter a name and description for your PropertyName AssetDescription.
+为你的PropertyName AssetDescription输入一个名称和描述。
+Name of the crafted item
+制作物品的名称
+Engrave a description
+雕刻描述
+Color schema (Use commas to split colors)
+色彩模式（使用逗号分隔色彩）
+Empty
+空
+Normal
+正常
+Large
+大型
+Small
+小型
+Thick
+厚实
+Thin
+轻薄
+Secure
+牢靠
+Loose
+松弛
+Decoy
+诱饵
+Painful
+痛苦
+Comfy
+舒适
+Strong
+强力
+Flexible
+柔韧
+Nimble
+灵敏
+Arousing
+煽情
+Dull
+倦怠
+No special property.
+无特殊特性
+Harder to understand gagged speech.
+更难理解塞口说话。
+Easier to understand gagged speech.
+更易理解塞口说话。
+Harder to see through.
+更难看透。
+Easier to see through.
+更易看透。
+Harder to struggle out.
+更难挣脱。
+Easier to struggle out.
+更易挣脱。
+Can always struggle out.
+总是能挣脱。
+More painful for the wearer.
+让穿戴者更痛苦。
+Comfier for the wearer.
+让穿戴者更舒适。
+Cannot use brute force to struggle out.
+无法使用蛮力挣脱。
+Cannot use squeeze out to struggle out.
+无法使用挤出去来挣脱。
+Cannot use unfasten to struggle out.
+无法使用打开扣锁来挣脱。
+Harder to resist an orgasm.
+更难抵抗高潮。
+Easier to resist an orgasm.
+更易抵抗高潮。

@@ -20,7 +20,7 @@ var ShibariTrainingPriceList = [20, 40, 75, 125, 200, 300, 450, 600, 800, 1000];
  * Checks if the player can restrain the Shibari dojo teacher.
  * @returns {boolean} - Returns TRUE if the player is able to restrain the teacher.
  */
-function ShibariAllowTeacherBondage() { return (!ShibariAllowTeacherItem && DialogReputationGreater("Dominant", 75)); }
+function ShibariAllowTeacherBondage() { return (!ShibariAllowTeacherItem && ReputationGet("Dominant") >= 75); }
 /**
  * Checks if the player can strip the Shibari dojo teacher.
  * @returns {boolean} - Returns TRUE if the player is able to strip the teacher.

@@ -343,11 +343,14 @@ function GLDrawCreateProgram(gl, vertexShader, fragmentShader) {
  * @param {number} dstY - Position of the image on the Y axis
  * @param {string} color - Color of the image to draw
  * @param {boolean} fullAlpha - Whether or not the full alpha should be rendered
- * @param {number[][]} alphaMasks - A list of alpha masks to apply to the asset
+ * @param {RectTuple[]} alphaMasks - A list of alpha masks to apply to the asset
  * @param {number} opacity - The opacity at which to draw the image
  * @returns {void} - Nothing
  */
-function GLDrawImageBlink(url, gl, dstX, dstY, color, fullAlpha, alphaMasks, opacity, rotate) { GLDrawImage(url, gl, dstX, dstY, 500, color, fullAlpha, alphaMasks, opacity, rotate); }
+function GLDrawImageBlink(url, gl, dstX, dstY, color, fullAlpha, alphaMasks, opacity, rotate) {
+	GLDrawImage(url, gl, dstX, dstY, GLDrawCanvasBlinkOffset, color, fullAlpha, alphaMasks, opacity, rotate);
+}
+
 /**
  * Draws an image from a given url to a WebGLRenderingContext
  * @param {string} url - URL of the image to render
@@ -357,7 +360,7 @@ function GLDrawImageBlink(url, gl, dstX, dstY, color, fullAlpha, alphaMasks, opa
  * @param {number} offsetX - Additional offset to add to the X axis (for blinking)
  * @param {string} color - Color of the image to draw
  * @param {boolean} fullAlpha - Whether or not the full alpha should be rendered
- * @param {number[][]} alphaMasks - A list of alpha masks to apply to the asset
+ * @param {RectTuple[]} alphaMasks - A list of alpha masks to apply to the asset
  * @param {number} [opacity=1] - The opacity at which to draw the image
  * @param {boolean} [rotate=false] - If the image should be rotated by 180 degrees
  * @returns {void} - Nothing
@@ -404,27 +407,19 @@ function GLDrawImage(url, gl, dstX, dstY, offsetX, color, fullAlpha, alphaMasks,
 }
 
 /**
- * Draws a canvas on the WebGL canvas for the blinking effect
- * @param {WebGL2RenderingContext} gl - WebGL context
- * @param {HTMLImageElement | HTMLCanvasElement} Img - Canvas to get the data of
- * @param {number} X - Position of the image on the X axis
- * @param {number} Y - Position of the image on the Y axis
- * @param {number[][]} alphaMasks - A list of alpha masks to apply to the asset
- */
-function GLDraw2DCanvasBlink(gl, Img, X, Y, alphaMasks) { GLDraw2DCanvas(gl, Img, X + 500, Y, alphaMasks); }
-/**
  * Draws a canvas on the WebGL canvas
  * @param {WebGL2RenderingContext} gl - WebGL context
  * @param {HTMLImageElement | HTMLCanvasElement} Img - Canvas to get the data of
  * @param {number} X - Position of the image on the X axis
  * @param {number} Y - Position of the image on the Y axis
- * @param {number[][]} alphaMasks - A list of alpha masks to apply to the asset
+ * @param {number} blinkOffset - Offset for the blink canvas
+ * @param {RectTuple[]} alphaMasks - A list of alpha masks to apply to the asset
  */
-function GLDraw2DCanvas(gl, Img, X, Y, alphaMasks) {
+function GLDraw2DCanvas(gl, Img, X, Y, blinkOffset, alphaMasks) {
 	const TempCanvasName = Img.getAttribute("name");
 	gl.textureCache.delete(TempCanvasName);
 	GLDrawImageCache.set(TempCanvasName, Img);
-	GLDrawImage(TempCanvasName, gl, X, Y, 0, null, null, alphaMasks);
+	GLDrawImage(TempCanvasName, gl, X, Y, blinkOffset, null, null, alphaMasks);
 }
 
 /**
@@ -502,7 +497,7 @@ function GLDrawLoadImage(gl, url) {
  * @param {number} texHeight - The height of the texture to mask
  * @param {number} offsetX - The X offset at which the texture is to be drawn on the target canvas
  * @param {number} offsetY - The Y offset at which the texture is to be drawn on the target canvas
- * @param {number[][]} alphaMasks - A list of alpha masks to apply to the asset
+ * @param {RectTuple[]} alphaMasks - A list of alpha masks to apply to the asset
  * @return {WebGLTexture} - The WebGL texture corresponding to the mask
  */
 function GLDrawLoadMask(gl, texWidth, texHeight, offsetX, offsetY, alphaMasks) {
@@ -538,21 +533,12 @@ function GLDrawLoadMask(gl, texWidth, texHeight, offsetX, offsetY, alphaMasks) {
  * @param {number} y - Position of the image on the Y axis
  * @param {number} width - Width of the rectangle to clear
  * @param {number} height - Height of the rectangle to clear
+ * @param {number} blinkOffset - Offset in case of a blink draw
  * @returns {void} - Nothing
  */
-function GLDrawClearRectBlink(gl, x, y, width, height) { GLDrawClearRect(gl, x + 500, y, width, height); }
-/**
- * Clears a rectangle on WebGLRenderingContext
- * @param {WebGLRenderingContext} gl - WebGL context
- * @param {number} x - Position of the image on the X axis
- * @param {number} y - Position of the image on the Y axis
- * @param {number} width - Width of the rectangle to clear
- * @param {number} height - Height of the rectangle to clear
- * @returns {void} - Nothing
- */
-function GLDrawClearRect(gl, x, y, width, height) {
+function GLDrawClearRect(gl, x, y, width, height, blinkOffset) {
 	gl.enable(gl.SCISSOR_TEST);
-	gl.scissor(x, y, width, height);
+	gl.scissor(x + blinkOffset, y, width, height);
 	gl.clearColor(0, 0, 0, 0);
 	gl.clear(gl.COLOR_BUFFER_BIT);
 	gl.disable(gl.SCISSOR_TEST);
@@ -577,18 +563,19 @@ function GLDrawHexToRGBA(color, alpha = 1) {
  * @returns {void} - Nothing
  */
 function GLDrawAppearanceBuild(C) {
+	const blinkOffset = 500;
 	GLDrawClearRect(GLDrawCanvas.GL, 0, 0, 1000, CanvasDrawHeight);
 	CommonDrawCanvasPrepare(C);
 	CommonDrawAppearanceBuild(C, {
-		clearRect: (x, y, w, h) => GLDrawClearRect(GLDrawCanvas.GL, x, CanvasDrawHeight - y - h, w, h),
-		clearRectBlink: (x, y, w, h) => GLDrawClearRectBlink(GLDrawCanvas.GL, x, CanvasDrawHeight - y - h, w, h),
+		clearRect: (x, y, w, h) => GLDrawClearRect(GLDrawCanvas.GL, x, CanvasDrawHeight - y - h, w, h, 0),
+		clearRectBlink: (x, y, w, h) => GLDrawClearRect(GLDrawCanvas.GL, x, CanvasDrawHeight - y - h, w, h, blinkOffset),
 		drawImage: (src, x, y, alphaMasks, opacity, rotate) => GLDrawImage(src, GLDrawCanvas.GL, x, y, 0, null, null, alphaMasks, opacity, rotate),
-		drawImageBlink: (src, x, y, alphaMasks, opacity, rotate) => GLDrawImageBlink(src, GLDrawCanvas.GL, x, y, null, null, alphaMasks, opacity, rotate),
+		drawImageBlink: (src, x, y, alphaMasks, opacity, rotate) => GLDrawImage(src, GLDrawCanvas.GL, x, y, blinkOffset, null, null, alphaMasks, opacity, rotate),
 		drawImageColorize: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate) => GLDrawImage(src, GLDrawCanvas.GL, x, y, 0, color, fullAlpha, alphaMasks, opacity, rotate),
-		drawImageColorizeBlink: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate) => GLDrawImageBlink(src, GLDrawCanvas.GL, x, y, color, fullAlpha, alphaMasks, opacity, rotate),
-		drawCanvas: (Img, x, y, alphaMasks) => GLDraw2DCanvas(GLDrawCanvas.GL, Img, x, y, alphaMasks),
-		drawCanvasBlink: (Img, x, y, alphaMasks) => GLDraw2DCanvasBlink(GLDrawCanvas.GL, Img, x, y, alphaMasks),
+		drawImageColorizeBlink: (src, x, y, color, fullAlpha, alphaMasks, opacity, rotate) => GLDrawImage(src, GLDrawCanvas.GL, x, y, blinkOffset, color, fullAlpha, alphaMasks, opacity, rotate),
+		drawCanvas: (Img, x, y, alphaMasks) => GLDraw2DCanvas(GLDrawCanvas.GL, Img, x, y, 0, alphaMasks),
+		drawCanvasBlink: (Img, x, y, alphaMasks) => GLDraw2DCanvas(GLDrawCanvas.GL, Img, x, y, blinkOffset, alphaMasks),
 	});
 	C.Canvas.getContext("2d").drawImage(GLDrawCanvas, 0, 0);
-	C.CanvasBlink.getContext("2d").drawImage(GLDrawCanvas, -500, 0);
+	C.CanvasBlink.getContext("2d").drawImage(GLDrawCanvas, -blinkOffset, 0);
 }

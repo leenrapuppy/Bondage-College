@@ -6,11 +6,11 @@ var LoginCreditsPosition = 0;
 var LoginThankYou = "";
 /* eslint-disable */
 var LoginThankYouList = [
-	"Aceffect", "Anna", "Aylea", "BlueWinter", "Brian", "Bryce", "Christian", "Clash", "DarkStar", 
-	"Desch", "Din", "Edwin", "Epona", "Escurse", "Fura", "Greendragon", "Hayden", "JoeyDubDee", 
-	"Kimuriel", "Michal", "Michel", "Mike", "Mike", "Mindtie", "Mob", "MrUniver", "Nick", 
-	"Nicolas", "Nightcore", "Rika", "Riley", "Ryner", "Samuel", "Shadow", "SirRobben", "Tam", 
-	"Tarram1010", "Tommy", "TopHat", "Troubadix", "Xepherio", "Ying", "Yuna", "Znarf", 
+	"Aceffect", "Anna", "ArashiSama", "Aylea", "Bjugh", "BlueWinter", "Brian", "Bryce", "Christian", 
+	"Clash", "DarkStar", "Desch", "Dini", "Edwin", "Epona", "Escurse", "FanRunner", "Greendragon", 
+	"JoeyDubDee", "Kimuriel", "Michal", "Michel", "Mike", "Mike", "Mindtie", "MinxakaFlux", 
+	"Misa", "Nick", "Nightcore", "Qrroww", "Rika", "Riley", "Samuel", "Sasha", "Shadow", 
+	"SirRobben", "Tam", "Tarram", "TopHat", "Troubadix", "Xepherio", "Ying", "Znarf"
 ];
 
 /* eslint-enable */
@@ -153,10 +153,12 @@ function LoginRun() {
 /**
  * The list of item fixups to apply on login.
  *
- * @type {{ Old: {Group: string, Name: string}, New: {Group: string, Name: string} }[]}
+ * @type {{ Old: {Group: string, Name: string}, New: {Group: string, Name: string, Option?: string} }[]}
  */
 let LoginInventoryFixups = [
 	{ Old: { Group: "ItemLegs", Name: "WoodenHorse" }, New: { Group: "ItemDevices", Name: "WoodenHorse" } },
+	{ Old: { Group: "ItemVulvaPiercings", Name: "WeightedClitPiercing" }, New: { Group: "ItemVulvaPiercings", Name: "RoundClitPiercing", Option: "Weight" } },
+	{ Old: { Group: "ItemVulvaPiercings", Name: "BellClitPiercing" }, New: { Group: "ItemVulvaPiercings", Name: "RoundClitPiercing", Option: "Bell" } },
 ];
 
 /**
@@ -167,26 +169,38 @@ let LoginInventoryFixups = [
  * and applies the specified asset fixups by swapping Old with New in the list
  * of owned items, in the various player item lists, and in the appearance.
  *
- * Note that it copies properties verbatim, so its better if the Old and New
- * asset definitions are kept compatible.
+ * If you're only moving items around, it should work just fine as long as
+ * the `Old` and `New` asset definitions are compatible.
+ * If it's an asset merge (say 3 into one typed asset), it will either set
+ * the fixed up item to the specified `Option` or the first one if unspecified.
+ *
+ * TODO: only typed items are supported.
  *
  * @param {Record<string, string[]>} Inventory - The server-provided inventory object
- * @param {{Group: string, Name: string}[]} Appearance - The server-provided appearance object
+ * @param {{Group: string, Name: string, Property?: any}[]} Appearance - The server-provided appearance object
+ * @param {CraftingItem[]} Crafting - The server-provided, uncompressed crafting data
  */
-function LoginPerformInventoryFixups(Inventory, Appearance) {
+function LoginPerformInventoryFixups(Inventory, Appearance, Crafting) {
+	// Skip fixups on new characters
+	if (!Inventory || !Appearance) return;
+
 	let listsUpdated = false;
 	LoginInventoryFixups.forEach(fixup => {
 		// For every asset fixup to do, update the inventory
-		let group;
-		let idx;
-		if ((group = Inventory[fixup.Old.Group]) && group.indexOf(fixup.Old.Name) != -1) {
+		const group = Inventory[fixup.Old.Group];
+		let idx = group && group.indexOf(fixup.Old.Name);
+		if (group && idx != -1) {
+			// Replace the old with the new in the inventory, making sure we don't add a duplicate
 			group.splice(idx, 1);
-			Inventory[fixup.New.Group].push(fixup.New.Name);
+			if (!Inventory[fixup.New.Group])
+				Inventory[fixup.New.Group] = [];
+			if (!Inventory[fixup.New.Group].includes(fixup.New.Name))
+				Inventory[fixup.New.Group].push(fixup.New.Name);
 		}
 
 		// Update the player's item lists
 		["BlockItems", "LimitedItems", "HiddenItems", "FavoriteItems"].forEach(prop => {
-			const idx = Player[prop].findIndex(item => item.Group === fixup.Old.Group && item.Name === fixup.Old.Name);
+			idx = Player[prop].findIndex(item => item.Group === fixup.Old.Group && item.Name === fixup.Old.Name);
 			if (idx === -1) return;
 
 			Player[prop][idx].Group = fixup.New.Group;
@@ -199,14 +213,60 @@ function LoginPerformInventoryFixups(Inventory, Appearance) {
 			// The item is currently worn, remove it
 			let worn = Appearance[idx];
 			Appearance.splice(idx, 1);
-			// Add the new one, unless there's already something there
-			if (!Appearance.find(a => a.Group === fixup.New.Group)) {
-				worn.Group = fixup.New.Group;
-				worn.Name = fixup.New.Name;
-				Appearance.push(worn);
+
+			// There're already something else in that slot, preserve it
+			if (Appearance.find(a => a.Group === fixup.New.Group))
+				return;
+
+			// Set up the new item and its properties
+			worn.Group = fixup.New.Group;
+			worn.Name = fixup.New.Name;
+
+			const asset = AssetGet("Female3DCG", worn.Group, worn.Name);
+			let opt = null;
+			if (asset.Archetype) {
+				switch (asset.Archetype) {
+					case ExtendedArchetype.TYPED:
+						{
+							const opts = TypedItemGetOptions(fixup.New.Group, fixup.New.Name);
+							if (typeof fixup.New.Option === "undefined")
+								opt = opts[0];
+							else
+								opt = opts.find(o => o.Name === fixup.New.Option);
+
+							if (!opt) {
+								console.error(`Unknown option ${fixup.New.Option}`);
+								return;
+							}
+						}
+						break;
+				}
+
+				// Replace old previous properties with the wanted ones
+				if (opt && opt.Property)
+					worn.Property = Object.assign(opt.Property);
+			} else if (asset.Extended) {
+				// Old-style extended item
+
+			} else {
+				delete worn.Property;
 			}
+
+			// Push back the updated data
+			Appearance.push(worn);
 		}
+
+		// Move crafts over to the new name
+		if (Array.isArray(Crafting)) {
+			Crafting.forEach(C => {
+				if (C == null) return;
+				if (C.Item !== fixup.Old.Name) return;
+				C.Item = fixup.New.Name;
+			});
+		}
+
 	});
+
 	if (listsUpdated)
 		ServerPlayerBlockItemsSync();
 }
@@ -506,7 +566,7 @@ function LoginResponse(C) {
 			if (CommonIsNumeric(C.Money)) Player.Money = C.Money;
 			Player.Owner = ((C.Owner == null) || (C.Owner == "undefined")) ? "" : C.Owner;
 			Player.Game = C.Game;
-			if (typeof C.Description === "string" && C.Description.startsWith("╬")) {
+			if (typeof C.Description === "string" && C.Description.startsWith(ONLINE_PROFILE_DESCRIPTION_COMPRESSION_MAGIC)) {
 				C.Description = LZString.decompressFromUTF16(C.Description.substr(1));
 			}
 			Player.Description = (C.Description == null) ? "" : C.Description.substr(0, 10000);
@@ -598,9 +658,11 @@ function LoginResponse(C) {
 			}
 			Player.SavedColors.length = ColorPickerNumSaved;
 
+			// Loads the online lists
 			Player.WhiteList = ((C.WhiteList == null) || !Array.isArray(C.WhiteList)) ? [] : C.WhiteList;
 			Player.BlackList = ((C.BlackList == null) || !Array.isArray(C.BlackList)) ? [] : C.BlackList;
 			Player.FriendList = ((C.FriendList == null) || !Array.isArray(C.FriendList)) ? [] : C.FriendList;
+
 			// Attempt to parse friend names
 			if (typeof C.FriendNames === "string") {
 				try {
@@ -618,12 +680,14 @@ function LoginResponse(C) {
 			LoginDifficulty(false);
 
 			// Loads the player character model and data
-			LoginPerformInventoryFixups(C.Inventory, C.Appearance);
+			C.Crafting = CraftingDecompressServerData(C.Crafting);
+			LoginPerformInventoryFixups(C.Inventory, C.Appearance, C.Crafting);
 			ServerAppearanceLoadFromBundle(Player, C.AssetFamily, C.Appearance, C.MemberNumber);
 			InventoryLoad(Player, C.Inventory);
 			LogLoad(C.Log);
 			ReputationLoad(C.Reputation);
 			SkillLoad(C.Skill);
+			CraftingLoadServer(C.Crafting);
 
 			// Calls the preference init to make sure the preferences are loaded correctly
 			PreferenceInitPlayer();

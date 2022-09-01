@@ -2,3 +2,9 @@
 Введите описание в Интернете (10000 максимум символов)
 CharacterName's online description
 Имя персонажа Описание в интернете
+Exit profile
+Выйти из профиля
+Accept changes
+Принять изменения
+Cancel changes
+Отменить изменения

@@ -1,6 +1,9 @@
 SelectTitle,Select your displayed name and title
+CurrentTitle,Current title: TITLE
 Nickname,Nickname (letters and spaces)
 NicknameLocked,Nickname locked by your owner
+NicknameTooLong,Nickname is too long (max. 20 characters)
+NicknameInvalidChars,Nickname contains invalid characters
 TitleNone,None
 TitleMistress,Mistress
 TitleClubSlave,Club Slave

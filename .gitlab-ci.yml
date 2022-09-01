@@ -1,0 +1,13 @@
+variables:
+  NPM_PREFIX: BondageClub/Tools/Node/
+
+check:
+  stage: build
+  only:
+    - merge_requests
+  image: node:16
+  script:
+    - npm --prefix $NPM_PREFIX ci
+    - npm --prefix $NPM_PREFIX run -s lintscripts
+    - npm --prefix $NPM_PREFIX run -s assetcheck-typescript -- --pretty
+    - npm --prefix $NPM_PREFIX run -s assetcheck

@@ -1,0 +1,430 @@
+###_NPC
+(She checks your gag.)  This gag is a perfect fit Miss.
+(Она проверяет твой кляп.)  Этот кляп идеально подходит мисс.
+(She seems pretty mad.)  What do you think you're doing?   You will get caught right away.
+(Она кажется довольно сумасшедшей.)  Как ты думаешь, что ты делаешь?   Вас сразу же поймают.
+(She seems very happy.)  You're no match for Pandora's staff.  Now it's time to prepare your punishment.
+(Она кажется очень счастливой.)  Тебе не сравниться с посохом Пандоры.  Теперь пришло время подготовить твое наказание.
+(A Dominatrix takes you away from the maid.)  So, we've caught the infamous DialogPlayerName.  You'll never forget this lesson.
+(Доминатрикс забирает тебя у горничной.)  Итак, мы поймали печально известную DialogPlayerName.  Ты никогда не забудешь этот урок.
+(A Dominatrix takes you away from the maid.)  You've been on list for a while DialogPlayerName.  I'll teach you a lesson.
+(Доминатрикс забирает тебя у горничной.)  Ты уже некоторое время в списке DialogPlayerName.  Я преподам тебе урок.
+(A Dominatrix takes you away from the maid.)  (She cracks her knuckles.)  So, you're a troublemaker?  I'll teach you a lesson.
+(Доминатрикс забирает тебя у горничной.)  (Она хрустит костяшками пальцев.)  Значит, ты нарушительница спокойствия?  Я преподам тебе урок.
+(A Dominatrix takes you away from the maid.)  (She stares at you.)  You've caused some trouble?  Then it's time for your lesson.
+(Доминатрикс забирает тебя у горничной.)  (Она пристально смотрит на тебя.) Ты причинила какие-то неприятности?  Тогда пришло время для твоего урока.
+Welcome to Pandora's Box, the best BDSM club in town.  It will be my pleasure to introduce you.
+Добро пожаловать в Ящик Пандоры, лучший БДСМ-клуб в городе.  Мне будет приятно ознакомить вас.
+###_PLAYER
+I'm a member.  (Show your fake ID.)
+Я член клуба.  (Покажите свое поддельное удостоверение личности.)
+###_NPC
+(She looks at your ID and nods.)  I'm so sorry Miss, please come inside and have fun.
+(Она смотрит на ваше удостоверение личности и кивает.)  Мне так жаль, мисс, пожалуйста, заходите внутрь и получайте удовольствие.
+###_PLAYER
+Thanks.  What goes on around here?
+Спасибо.  Что здесь происходит?
+###_NPC
+We are an adult club, aimed at fulfilling your wildest fantasies.  Be careful when you open the box.  (She giggles.)
+Мы - клуб для взрослых, нацеленный на исполнение ваших самых смелых фантазий.  Будьте осторожны, когда будете открывать коробку.  (Она хихикает.)
+###_PLAYER
+You're cute in that costume.
+Ты такая милая в этом костюме.
+###_NPC
+Thanks Miss, but this is not a costume, it's my work uniform.  I work here as a full-time maid.  (She smiles.)
+Спасибо, мисс, но это не костюм, это моя рабочая форма.  Я работаю здесь горничной на полный рабочий день.  (Она улыбается.)
+###_PLAYER
+Yes, can you introduce me?
+Да, не могли бы вы ознакомить меня?
+###_NPC
+(She nods.)  We are an adult club, aimed at fulfilling your wildest fantasies.  Be careful when you open the box.
+(Она кивает.)  Мы - клуб для взрослых, нацеленный на исполнение ваших самых смелых фантазий.  Будьте осторожны, когда будете открывать коробку.
+###_PLAYER
+(Look around.)
+(Оглядитесь вокруг.)
+###_NPC
+Welcome to Pandora's Box, the best BDSM club in town.  (She stares at you.)  You've been here before haven't you?
+Добро пожаловать в Ящик Пандоры, лучший БДСМ-клуб в городе. (Она пристально смотрит на тебя.) Ты ведь бывала здесь раньше, не так ли?
+###_PLAYER
+No.  This is my first visit.
+Нет.  Это мой первый визит.
+###_NPC
+Very well Miss.  (She seems a little suspicious.)  Would you like to know about Pandora's Box?
+Очень хорошо, мисс.  (Она кажется немного подозрительной.)  Хотели бы вы узнать о Ящике Пандоры?
+###_PLAYER
+I've been here a while ago.
+Я была здесь некоторое время назад.
+###_NPC
+That's probably it.  (She seems a little suspicious.)  Would you like to know about Pandora's Box?
+Наверное, так оно и есть.  (Она кажется немного подозрительной.)  Хотели бы вы узнать о Ящике Пандоры?
+###_PLAYER
+I'm from the Bondage Club, get lost maid.
+Я из Клуба Бондажа, убирайся, горничная.
+###_NPC
+(She frowns at you.)  Then you better leave now, you are not welcome here.
+(Она хмуро смотрит на тебя.) Тогда тебе лучше уйти сейчас, тебе здесь не рады.
+Welcome to Pandora's Box, the best BDSM club in town.  I've seen you before, who are you Miss?
+Добро пожаловать в Ящик Пандоры, лучший БДСМ-клуб в городе.  Я видел вас раньше, кто вы, мисс?
+###_PLAYER
+You might have met my evil twin sister.
+Возможно, вы встречали мою злую сестру-близнеца.
+###_NPC
+(She doesn't seem to believe you.)  Yes!  You're DialogPlayerName from the Bondage Club!  You are not welcome here.
+(Кажется, она тебе не верит.) Да!  Ты DialogPlayerName из Клуба Бондажа!  Тебе здесь не рады.
+###_PLAYER
+You're confused little maid.
+Ты перепутала, маленькая служанка.
+###_NPC
+Maybe you're right Miss.  (She seems suspicious.)  Would you like to know about Pandora's Box?
+Может быть, вы и правы, мисс.  (Она кажется подозрительной.)  Хотели бы вы узнать о Ящике Пандоры?
+Welcome to Pandora's Box, the best BDSM club in town.  Wait!  You look like someone we are searching for.
+Добро пожаловать в Ящик Пандоры, лучший БДСМ-клуб в городе.  Подожди!  Вы похожи на того, кого мы ищем.
+(She recognizes you.)  Yes!  You're DialogPlayerName from the Bondage Club!  You are not welcome here.
+(Она узнает тебя.) Да!  Ты DialogPlayerName из Клуба Бондажа!  Тебе здесь не рады.
+(She frowns at you.)  I knew it!  You're DialogPlayerName!  You are not welcome here.
+(Она хмуро смотрит на тебя.) Я так и знала!  Ты DialogPlayerName!  Тебе здесь не рады.
+Sister!  What were you doing outside?
+Сестра!  Что ты делала на улице?
+###_PLAYER
+Let me in.  (Show your fake ID.)
+Впусти меня.  (Покажите свое поддельное удостоверение личности.)
+###_NPC
+(She looks at your ID and nods.)  Welcome back sister.
+(Она смотрит на ваше удостоверение личности и кивает.)  С возвращением, сестра.
+###_PLAYER
+I'm from the Bondage Club.
+Я из Клуба Бондажа.
+###_NPC
+(She frowns at you.)  What?  Get lost then.  You're not welcome here.
+(Она хмуро смотрит на тебя.) Что?  Тогда проваливай.  Тебе здесь не рады.
+###_PLAYER
+I went out for a smoke.
+Я вышла покурить.
+###_NPC
+(She nods.)  Smoking is bad, you should be punished.  Get to work sister!
+(Она кивает.)  Курение - это плохо, вы должны быть наказаны.  Приступай к работе, сестра!
+###_PLAYER
+I don't know.
+Я не знаю.
+###_NPC
+(She gives you a confused look.)  Maybe you should not be here.  Get out girl.
+(Она бросает на тебя растерянный взгляд.)  Может быть, тебе не следует быть здесь.  Убирайся, девочка.
+###_PLAYER
+I forgot something in my car.
+Я кое-что забыла в своей машине.
+###_NPC
+Get inside then, we have tons of work today.
+Тогда заходи внутрь, у нас сегодня куча работы.
+Hello sister.  Do you need anything?
+Привет, сестра.  Тебе что-нибудь нужно?
+###_PLAYER
+Where can I find some paint?
+Где я могу найти немного краски?
+###_NPC
+(She shrugs.)  I don't know sis.  Can you check with the other maids?  I'm pretty busy at the entrance.
+(Она пожимает плечами.)  Я не знаю, сестренка.  Не могли бы вы посоветоваться с другими горничными?  Я очень занята у входа.
+###_PLAYER
+Take care.  (Go explore.)
+Береги себя. (Иди исследуй.)
+###_NPC
+You're not welcome here.  You need to go now.
+Тебе здесь не рады.  Тебе нужно уйти прямо сейчас.
+###_PLAYER
+(Fight her.)
+(Сражайся с ней.)
+(Leave Pandora's Box.)
+(Оставьте Ящик Пандоры.)
+Tell me about this club.
+Расскажи мне об этом клубе.
+###_NPC
+Pandora's Box is a young BDSM club, but we are growing quickly.  We have the best Dominatrixes in town.
+Ящик Пандоры - молодой БДСМ-клуб, но мы быстро растем.  У нас лучшие Доминатриксы в городе.
+###_PLAYER
+Who runs this club?
+Кто управляет этим клубом?
+###_NPC
+The leaders are called the Dominatrixes, they wear golden leather, you cannot miss them.
+Лидеров называют Доминатрикс, они носят золотую кожу, вы не можете пропустить их.
+###_PLAYER
+Can anyone join?
+Кто-нибудь может присоединиться?
+###_NPC
+Yes, anyone that's open minded can enter.  Don't cause any trouble or you'll get punished.
+Да, любой непредубежденный человек может войти.  Не создавай никаких проблем, иначе тебя накажут.
+###_PLAYER
+Can I visit?
+Могу я навестить вас?
+###_NPC
+Absolutely.  Do you need help on how to explore Pandora's Box or you're fine on your own?
+Абсолютно.  Вам нужна помощь в том, как исследовать Ящик Пандоры, или вы справитесь сами?
+Hi sister!  How can I help you?
+Привет, сестра!  Чем я могу вам помочь?
+Hello cosplayer.  (She does a maid curtsy.)  Is there anything I can do for you?
+Привет, косплеер.  (Она делает реверанс горничной.)  Могу ли я что-нибудь для вас сделать?
+Hello Miss Guard.  (She does a maid curtsy.)  Is there anything I can do for you?
+Здравствуйте, мисс Страж.  (Она делает реверанс горничной.)  Могу ли я что-нибудь для вас сделать?
+It's an honor to speak with you Miss Dominatrix.  (She does a maid curtsy.)  How can I serve you?
+Для меня большая честь говорить с вами, мисс Доминатрикс.  (Она делает реверанс горничной.)  Как я могу служить вам?
+(She does a maid curtsy.)  Is there anything else you'd like to know Miss?
+(Она делает реверанс горничной.)  Есть ли что-нибудь еще, что вы хотели бы знать, мисс?
+###_PLAYER
+I can go anywhere?
+Я могу пойти куда угодно?
+###_NPC
+Yes and no.  If someone is on official duty, she might not let you pass.  Just go back from where you came from.
+И да, и нет.  Если кто-то находится на официальном дежурстве, она может не пропустить вас.  Просто возвращайся туда, откуда ты пришла.
+###_PLAYER
+There are many levels?
+Есть много уровней?
+###_NPC
+Pandora's Box has three levels.  We are on the ground level.  You can go downstairs for the dungeons or upstairs for the chambers.
+Ящик Пандоры состоит из трех уровней.  Мы находимся на первом этаже.  Вы можете спуститься вниз в подземелья или подняться наверх в покои.
+###_PLAYER
+What if I get lost?
+Что, если я заблужусь?
+###_NPC
+Just scream.  (She giggles.)  I know this place might be confusing but keep on walking and you'll find your way back.
+Просто кричи.  (Она хихикает.)  Я знаю, это место может сбить с толку, но продолжай идти, и ты найдешь дорогу обратно.
+###_PLAYER
+Can you come with me?
+Ты можешь пойти со мной?
+###_NPC
+(She shakes her head no.)  I'm sorry Miss, I'm working at the entrance right now.  Maybe you'll find more help inside.
+(Она отрицательно качает головой.)  Извините, мисс, я сейчас работаю на входе.  Может быть, вы найдете больше помощи внутри.
+###_PLAYER
+I should be fine, thanks.  (Go explore.)
+Со мной все будет в порядке, спасибо.  (Иди исследуй.)
+###_NPC
+It's always a pleasure to see you Miss.
+Всегда приятно видеть вас Мисс.
+###_PLAYER
+I will do what I want.
+Я буду делать то, что хочу.
+###_NPC
+(She grumbles.)  The Dominatrixes will hunt you down like a pig.  You're in so much trouble.
+(Она ворчит.)  Доминатрикс выследят тебя, как свинью.  У тебя столько неприятностей.
+###_PLAYER
+(Strip her naked.)
+(Разденьте ее догола.)
+###_NPC
+(She seems furious as you strip her naked.)
+(Она кажется разъяренной, когда ты раздеваешь ее догола.)
+###_PLAYER
+(Wear her clothes.)
+(Наденьте ее одежду.)
+###_NPC
+(She stares at you as you quickly dress up as her.)
+(Она пристально смотрит на тебя, пока ты быстро переодеваешься в нее.)
+###_PLAYER
+(Lock her up in a broom closet.)
+(Заприте ее в чулане для метел.)
+###_NPC
+(She tries to resist as you lock her up in a broom closet.)  (Your infiltration skill has gone up.)
+(Она пытается сопротивляться, когда вы запираете ее в чулане для метел.)  (Ваш навык проникновения повысился.)
+###_PLAYER
+(Leave her.)
+(Оставь ее.)
+Punishment?  What do you mean?
+Наказание?  Что ты имеешь в виду?
+###_NPC
+You will understand and remember your lesson.  Don't try anything funny, a Dominatrix will take care of you soon.
+Вы поймете и запомните свой урок.  Не пытайся выкинуть что-нибудь смешное, Доминатрикс скоро позаботится о тебе.
+###_PLAYER
+You're not punishing me girl.
+Ты не накажешь меня, девочка.
+###_NPC
+Of course, I won't do it myself, a Dominatrix will take care of you soon.
+Конечно, я не буду делать это сам, Доминатрикс скоро позаботится о тебе.
+###_PLAYER
+I will accept it Miss.
+Я приму это, мисс.
+###_NPC
+Very good, you're already learning.  A Dominatrix will take care of you soon.
+Очень хорошо, ты уже учишься. Доминатрикс скоро позаботится о тебе.
+###_PLAYER
+(Scream in your gag.)
+(Кричи в свой кляп.)
+###_NPC
+Stop making all that noise.  A Dominatrix will take care of you soon.
+Прекрати издавать весь этот шум.  Доминатрикс скоро позаботится о тебе.
+###_PLAYER
+(Thrash in your bondage.)
+(Извивайся в своем рабстве.)
+###_NPC
+Don't try to do anything funny.  A Dominatrix will take care of you soon.
+Не пытайся делать ничего смешного.  Доминатрикс скоро позаботится о тебе.
+###_PLAYER
+(Bow your head and stay silent.)
+(Склоните голову и храните молчание.)
+###_NPC
+Good girl.  A Dominatrix will take care of you soon.
+Хорошая девочка.  Доминатрикс скоро позаботится о тебе.
+###_PLAYER
+Can we negotiate?
+Можем ли мы договорится?
+###_NPC
+It's too late for that.  Just wait and be quiet.
+Для этого уже слишком поздно.  Просто подожди и помолчи.
+###_PLAYER
+I will have my revenge.
+Я отомщу.
+###_NPC
+You won't.  We will teach you a lesson that you will never forget.
+Ты этого не сделаешь.  Мы преподадим вам урок, который вы никогда не забудете.
+###_PLAYER
+(Wait for the Dominatrix.)
+(Дождитесь Доминатрикс.)
+###_NPC
+Sorry for the trouble Miss.  Please have a good day.
+Извините за беспокойство, мисс.  Пожалуйста, хорошего дня.
+(A maid jumps in front of you and blocks your path.)  Can I speak with you Miss?
+(Горничная прыгает перед вами и преграждает вам путь.)  Могу я поговорить с вами, мисс?
+###_PLAYER
+Of course.
+Конечно.
+###_NPC
+Very good.  An object has been stolen and I'm mandated to search everyone.  Can I please search on you?
+Очень хорошо.  Был украден предмет, и мне поручено обыскать всех.  Могу я, пожалуйста, поискать вас?
+###_PLAYER
+Make it quick.
+Сделай это быстро.
+###_NPC
+I will.  An object has been stolen and I'm mandated to search everyone.  Can I please search on you?
+Я буду.  Был украден предмет, и мне поручено обыскать всех.  Могу я, пожалуйста, поискать вас?
+###_PLAYER
+I don't have time.
+У меня нет времени.
+###_NPC
+I'm sorry, but an object has been stolen and I'm mandated to search everyone.  Can I please search on you?
+Мне очень жаль, но был украден предмет, и мне поручено обыскать всех.  Могу я, пожалуйста, поискать вас?
+###_PLAYER
+(Nod.)
+(Кивок.)
+Don't touch me!
+Не прикасайся ко мне!
+###_NPC
+(She jumps and looks angry.)  Are you the thief?  Surrender right now!
+(Она подпрыгивает и выглядит сердитой.)  Ты вор?  Сдавайтесь прямо сейчас!
+###_PLAYER
+Go ahead.
+Идти вперед.
+###_NPC
+(She starts to search but doesn't find the object.)  Sorry for the trouble Miss, you're good to go.
+(Она начинает искать, но не находит предмет.)  Извините за беспокойство, мисс, вы можете идти.
+(She starts to search and quickly finds the object.)  You're the thief!  Surrender right now!
+(Она начинает искать и быстро находит нужный предмет.)  Ты вор!  Сдавайтесь прямо сейчас!
+###_PLAYER
+(Surrender.)
+(Сдаться)
+###_NPC
+(You surrender as she quickly restrains you.)  A Dominatrix will come to take you away.
+(Ты сдаешься, когда она быстро удерживает тебя.) Доминатрикс придет, чтобы забрать тебя.
+(A maid jumps in front of you and blocks your path.)  Sister, can I speak with you?
+(Горничная прыгает перед вами и преграждает вам путь.)  Сестра, могу я поговорить с тобой?
+###_PLAYER
+Of course, sister.
+Конечно, сестра.
+###_NPC
+An object has been stolen, can you stop your duty and bring a Dominatrix here?
+Был украден предмет, можете ли вы прекратить свои обязанности и привести сюда Доминатрикс?
+###_PLAYER
+What's going on?
+Что происходит?
+###_NPC
+I'm sorry, but an object has been stolen, can you stop your duty and bring a Dominatrix here?
+Извините, но был украден предмет, не могли бы вы прекратить свои обязанности и привести сюда Доминатрикс?
+###_PLAYER
+I will do it.
+Я сделаю это.
+###_NPC
+Thank you so much.  You're good to go, please hurry.
+Огромное спасибо.  Вы можете идти, пожалуйста, поторопитесь.
+###_PLAYER
+No problem sis.
+Нет проблем, сестренка.
+I'm too busy.
+Я слишком занята.
+###_NPC
+I'm sorry.  You're good to go then.  See you later.
+Мне жаль.  Тогда ты можешь идти.  Увидимся позже.
+(A maid jumps in front of you and blocks your path.)  What are you doing with this prisoner?
+(Горничная прыгает перед вами и преграждает вам путь.)  Что вы делаете с этим заключенным?
+###_PLAYER
+That's none of your business.
+Это не твое дело.
+###_NPC
+You're trying to rescue her?  Surrender right now!
+Ты пытаешься спасти ее?  Сдавайтесь прямо сейчас!
+###_PLAYER
+I'm rescuing her.
+Я спасаю ее.
+###_NPC
+Not while I'm on duty!  Surrender right now!
+Только не тогда, когда я на дежурстве!  Сдавайтесь прямо сейчас!
+###_PLAYER
+Her ransom was paid.
+Ее выкуп был выплачен.
+###_NPC
+(She nods.)  Very good, please take her away then.  You're good to go.
+(Она кивает.)  Очень хорошо, тогда, пожалуйста, заберите ее отсюда.  Ты можешь идти.
+(She shakes her head no.)  I know you're lying!  Surrender right now!
+(Она отрицательно качает головой.)  Я знаю, что ты лжешь!  Сдавайтесь прямо сейчас!
+(A maid jumps in front of you and blocks your path.)  Miss guard, what is going on with this prisoner?
+(Горничная прыгает перед вами и преграждает вам путь.)  Мисс охранник, что происходит с этим заключенным?
+(She sighs.)  I know I'm too curious, sorry.  You're good to go.
+(Она вздыхает.)  Я знаю, что я слишком любопытна, извини.  Ты можешь идти.
+I'm watching the door.  This is my business!  (She inspects you.)  You're not a real guard, surrender right now!
+Я наблюдаю за дверью.  Это мое дело!  (Она осматривает тебя.) Ты не настоящий охранник, сдавайся прямо сейчас!
+###_PLAYER
+She's getting transferred.
+Ее переводят.
+###_NPC
+(She nods.)  Of course, please be careful she doesn't escape.  You're good to go.
+(Она кивает.)  Конечно, пожалуйста, будьте осторожны, чтобы она не сбежала.  Ты можешь идти.
+###_PLAYER
+Do I need to put you in jail?
+Мне нужно посадить тебя в тюрьму?
+###_NPC
+You're going to jail!  You're not fooling me with that disguise.  Surrender right now!
+Ты отправишься в тюрьму!  Ты не обманешь меня этой маскировкой.  Сдавайтесь прямо сейчас!
+(Your prisoner screams for help and the maid jumps in.)  Stop!  Are you kidnapping her?
+(Ваш заключенный кричит о помощи, и горничная подскакивает.) Остановитесь!  Ты что, похищаешь ее?
+###_PLAYER
+I would never do that.
+Я бы никогда этого не сделала.
+###_NPC
+You're lying, she just said so.  Surrender right now!
+Ты лжешь, она только что так сказала. Сдавайтесь прямо сейчас!
+###_PLAYER
+What if I am?
+Что, если это так?
+###_NPC
+Then you're in trouble.  Surrender right now!
+Тогда у тебя неприятности.  Сдавайтесь прямо сейчас!
+###_PLAYER
+Get out of my way.
+Убирайся с моего пути.
+###_NPC
+I'm not moving.  Surrender right now!
+Я не сдвинусь.  Сдавайтесь прямо сейчас!
+(The maid at the entrance stops you.)  Wait!  What are you doing with one of Pandora's Box Dominatrix?
+(Горничная у входа останавливает вас.) Подождите!  Что ты делаешь с одной из Доминатрикс Ящика Пандоры?
+###_PLAYER
+(Show her a forged document.)
+(Покажите ей поддельный документ.)
+###_NPC
+(She scans the forged document as the Dominatrix grumbles.)  I'm sorry Miss.  Everything looks fine, you can go.
+(Она просматривает поддельный документ, пока Госпожа ворчит.)  Мне очень жаль, мисс.  Все выглядит нормально, вы можете идти.
+###_PLAYER
+She's not a Dominatrix.
+Она не Доминатрикс.
+###_NPC
+I know the administrators around here, that's why I'm in charge of the entrance.  Surrender right now!
+Я знаю здешних администраторов, вот почему я отвечаю за вход.  Сдавайтесь прямо сейчас!
+(She stands her ground.)  Never!  You'll know why I'm in charge of the entrance.  Surrender right now!
+(Она стоит на своем.)  Никогда!  Вы поймете, почему я отвечаю за вход.  Сдавайтесь прямо сейчас!
+Please have a good day Miss.  Sorry for interrupting your important work.
+Пожалуйста, хорошего дня, мисс.  Извините, что прерываю вашу важную работу.
+###_PLAYER
+(Explore Pandora's Box.)
+(Исследовать Ящик Пандоры.)

@@ -1,5 +1,7 @@
 ﻿Remaining Time:
 Оставшееся Время:
+Punishment Time:
+Время наказания:
 Asylum Entrance
 Вход в Психушку
 Your Profile

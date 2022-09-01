@@ -12,6 +12,12 @@ var ControllerA = 1;
 var ControllerB = 0;
 var ControllerX = 3;
 var ControllerY = 2;
+var ControllerTriggerRight = 6;
+var ControllerTriggerLeft = 7;
+var ControllerStart = 9;
+var ControllerSelect = 8;
+var ControllerDPadPressLeft = 10;
+var ControllerDPadPressRight = 11;
 var ControllerStickUpDown = 1;
 var ControllerStickLeftRight = 0;
 var ControllerStickRight = 1;
@@ -27,7 +33,6 @@ var ControllerSensitivity = 5;
 var ControllerIgnoreStick = [];
 var ControllerDeadZone = 0.01;
 var ControllerGameActiveButttons = {};
-
 
 /**
  *removes all buttons from the lists
@@ -206,6 +211,8 @@ function ControllerManagedByGame(Buttons) {
 		ControllerGameActiveButttons.B = Buttons[ControllerB].pressed;
 		ControllerGameActiveButttons.X = Buttons[ControllerX].pressed;
 		ControllerGameActiveButttons.Y = Buttons[ControllerY].pressed;
+		ControllerGameActiveButttons.TLEFT = Buttons[ControllerTriggerLeft].pressed;
+		ControllerGameActiveButttons.TRIGHT = Buttons[ControllerTriggerRight].pressed;
 		ControllerGameActiveButttons.DOWN = Buttons[ControllerDPadDown].pressed;
 		ControllerGameActiveButttons.UP = Buttons[ControllerDPadUp].pressed;
 		ControllerGameActiveButttons.LEFT = Buttons[ControllerDPadLeft].pressed;

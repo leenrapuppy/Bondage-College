@@ -9,6 +9,7 @@ const neededFiles = [
 	"Scripts/Dialog.js",
 	"Scripts/ModularItem.js",
 	"Scripts/TypedItem.js",
+	"Scripts/VariableHeight.js",
 	"Screens/Inventory/Futuristic/Futuristic.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"
@@ -39,7 +40,7 @@ function CommonParseCSV(str) {
 	let c;
 	let col;
 	// We remove whitespace on start and end
-	str = str.trim();
+	str = str.trim() + "\n";
 
 	// iterate over each character, keep track of current row and column (of the returned array)
 	for (let row = (col = c = 0); c < str.length; c++) {
@@ -119,6 +120,7 @@ function loadCSV(path, expectedWidth) {
 	}
 
 	const assetDescriptions = loadCSV("Assets/Female3DCG/Female3DCG.csv", 3);
+	const dialogArray = loadCSV("Screens/Character/Player/Dialog_Player.csv", 6);
 
 	// No further checks if initial data load failed
 	if (localError) {
@@ -244,4 +246,31 @@ function loadCSV(path, expectedWidth) {
 	for (const desc of assetDescriptions) {
 		error(`Unused Asset/Group description: ${desc.join(",")}`);
 	}
+
+	// Check player dialog in AssetFemale3DCGExtended
+	Object.values(AssetFemale3DCGExtended).forEach((category) => {
+		Object.values(Object(category)).forEach((asset) => {
+			const dialog = asset.Config && asset.Config.Dialog;
+			const options = asset.Config && asset.Config.Options;
+			if (!dialog || !options) {
+				return;
+			}
+
+			options.forEach((option) => {
+				if (option.ArchetypeConfig && option.ArchetypeConfig.Dialog) {
+					const optionDialog = option.ArchetypeConfig.Dialog;
+					if (!dialogArray.find(e => e[0] === optionDialog.ChatPrefix)) {
+						error(`Missing Dialog: '${optionDialog.ChatPrefix}'`);
+					}
+					return;
+				}
+
+				[dialog.ChatPrefix, dialog.TypePrefix].forEach((prefix) => {
+					if (prefix && !dialogArray.find(e => e[0] === prefix + option.Name)) {
+						error(`Missing Dialog: '${prefix + option.Name}'`);
+					}
+				});
+			});
+		});
+	});
 })();

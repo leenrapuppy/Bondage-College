@@ -1,0 +1,218 @@
+###_NPC
+Silence is gold, and gags are better than gold.
+Молчание - золото, а кляпы лучше золота.
+(She sighs and bows her head.)  Well done, you're too strong for me.
+(Она вздыхает и склоняет голову.) Молодец, ты слишком сильна для меня.
+(She laughs at you and smirks.)  Ha!  You're so pathetic.
+(Она смеется над вами и ухмыляется.) Ха! Ты такая жалкая.
+(She sighs and reluctantly allows you to gag her.)
+(Она вздыхает и неохотно позволяет вам заткнуть ей рот.)
+(You remove her gag and she seems happy.)  You had fun?  It's over now?
+(Вы снимаете ее кляп, и она кажется счастливой.) Тебе было весело? Теперь все кончено?
+(She turns around as you restrain her arms securely.)  Enjoy your victory while it lasts.
+(Она оборачивается, когда вы крепко сдерживаете ее руки.) Наслаждайся своей победой, пока можешь.
+(You free her arms as she stretches them.)  Alright.  Am I allowed to leave?
+(Вы освобождаете ее руки, когда она их вытягивает.) Хорошо. Я могу уйти?
+(She grumbles and gives you her hands as you restrain them.)  Enjoy your victory while it lasts.
+(Она ворчит и подает вам руки, пока вы их сдерживаете.) Наслаждайся своей победой, пока можешь.
+(You free her hands and she gives you a thumbs up.)  Alright.  Am I allowed to leave?
+(Вы освобождаете ее руки, и она показывает вам большой палец вверх.) Хорошо. Я могу уйти?
+(She submits to you while you restrain her legs.)  You sure know your bondage.
+(Она подчиняется тебе, пока ты сдерживаешь ее ноги.) Ты наверняка знаешь, что такое бондаж.
+(You release her legs as she shakes her butt.)  How long will you keep me here?
+(Ты отпускаешь ее ноги, когда она трясет задницей.) Как долго ты будешь держать меня здесь?
+(She tests your feet restraints by jumping on her toes.)
+(Она проверяет ваши ограничения стоп, прыгая на носочках.)
+(You release her feet and she wiggles them.)
+(Вы отпускаете ее ноги, и она шевелит ими.)
+(She adjusts her neck to the new collar.)  I will never become your slave.
+(Она приспосабливает шею к новому ошейнику.) Я никогда не стану твоей рабыней.
+(You remove the collar from her neck.)  Next time I will collar you.
+(Вы снимаете ошейник с ее шеи.) В следующий раз я надену на тебя ошейник.
+(She struggles to avoid the belt but you're able to strap it on her.)  These belts should be banned.
+(Она изо всех сил пытается избежать ремня, но вы можете надеть его на нее.) Эти ремни должны быть запрещены.
+(She seems happy as you unlock the belt from her waist.)  Thanks, DialogPlayerName.
+(Она кажется счастливой, когда вы расстегиваете ремень на ее талии.) Спасибо, DialogPlayerName.
+(You strap the device on her head as she sighs.)  Next time I won't lose against you.
+(Ты надеваешь устройство ей на голову, пока она вздыхает.) В следующий раз я не проиграю тебе.
+(You release her head as she nods rapidly.)  Enjoy that short-term victory.
+(Вы отпускаете ее голову, она быстро кивает.) Наслаждайтесь этой краткосрочной победой.
+(You strap the harness on her torso as she blushes.)  Stop the kinky stuff.
+(Ты привязываешь ремни к ее туловищу, когда она краснеет.) Прекрати извращения.
+(She stretches as you release her from the harness.)  It will be easier to breath like that.
+(Она потягивается, когда вы освобождаете ее от ремней.) Так будет легче дышать.
+(She whimpers and cries as you whip her breast.)  Revenge will be sweet!
+(Она скулит и плачет, когда ты хлестаешь ее по груди.) Месть будет сладкой!
+(You lash the crop on her torso, hitting her breast.)  Ow!  Careful with that crop.
+(Вы хлещете хлыстом по ее туловищу, ударяя по груди.) Ой! Осторожнее с этим урожаем.
+(You whip her butt as she grumbles.)  I'll make sure to get a whip next time I'm facing you.
+(Вы хлещете ее по заднице, пока она ворчит.) Я обязательно отхлещу тебя в следующий раз, когда встречусь с тобой лицом к лицу.
+(You whack the leather crop right on her butt.)  Ouch! I'll put my next bounty on you.
+(Вы бьете кожаным хлыстом прямо по ее заднице.) Ой! Я назначу за тебя награду.
+###_PLAYER
+The maids want you bound and gagged.
+Горничные хотят, чтобы тебя связали и заткнули рот.
+###_NPC
+(She laughs at you.)  Get off my path or there will be trouble.
+(Она смеется над вами.) Уйди с моего пути, или будут проблемы.
+###_PLAYER
+I'm sorry, but there's money on your head.
+Мне очень жаль, но за твою голову назначена награда.
+###_NPC
+And you're not getting it.  Get off my path or there will be trouble.
+И ты не получишь её. Уйди с моего пути, иначе у тебя будут проблемы.
+###_PLAYER
+Surrender now and I won't be too rough with you.
+Сдавайся, и я не буду с тобой слишком груба.
+###_NPC
+I'll make a better deal: run away now and I won't crush you!
+Я предлагаю сделку получше: беги сейчас же, и я тебя не раздавлю!
+###_PLAYER
+I'm here to teach you a lesson.
+Я здесь, чтобы преподать тебе урок.
+###_NPC
+You and what army?  Get off my path or there will be trouble.
+Ты что армия? Сойди с моего пути, иначе у тебя будут проблемы.
+###_PLAYER
+(Fight her.)
+(Бороться с ней.)
+(Run away.)
+(Убегать.)
+Many people will enjoy your humiliation.
+Многим понравится твоё унижение.
+###_NPC
+(She stays silent as more club members gathers around you two.)
+(Она молчит, пока вокруг вас двоих собирается все больше членов клуба.)
+###_PLAYER
+Beg for your freedom slave.
+Умоляй о своей свободе, рабыня.
+###_NPC
+(She gulps as more club members gathers around you two.)
+(Она сглатывает, когда вокруг вас двоих собирается все больше членов клуба.)
+###_PLAYER
+Wow!  I was so lucky.
+Ух ты! Мне так повезло.
+###_NPC
+(She sighs as more club members gathers around you two.)
+(Она вздыхает, когда вокруг вас двоих собирается все больше членов клуба.)
+###_PLAYER
+(Invite other members.)
+(Пригласить других участников.)
+###_NPC
+(She grumbles as more club members gathers around you two.)
+(Она ворчит, когда вокруг вас двоих собирается все больше членов клуба.)
+###_PLAYER
+Time to strip girl.
+Время раздеть девушку.
+###_NPC
+(She blushes as you strip her down, while everyone is watching her humiliation.)
+(Она краснеет, когда вы раздеваете ее, пока все наблюдают за ее унижением.)
+###_PLAYER
+You're wearing too many clothes.
+На тебе слишком много одежды.
+(Strip her.)
+(Раздеть ее.)
+###_NPC
+NOEXIT
+NOEXIT
+###_PLAYER
+(Restrain her.)
+(Сдерживать ее.)
+###_NPC
+(Use the items from your inventory to restrain her.)
+(Использовать предметы из своего инвентаря, чтобы удержать ее.)
+###_PLAYER
+(Humiliate her.)
+(Унизить ее.)
+###_NPC
+(Everyone laughs and has a good time as you humiliate her publicly in the main hall.)
+(Все смеются и хорошо проводят время, пока вы публично унижаете ее в главном зале.)
+###_PLAYER
+(Let her go.)
+(Отпусти ее.)
+Congrats girl.  You got the best of me.
+Поздравляю девушка. Ты взяла надо мной верх.
+###_NPC
+I'm the best, never forget that.  (She calls for other club members to see you.)
+Я лучшая, никогда не забывай об этом. (Она зовет к вам других членов клуба.)
+###_PLAYER
+I'll get you next time.
+Я достану тебя в следующий раз.
+###_NPC
+There won't be another time.  (She calls for other club members to see you.)
+Другого раза не будет. (Она зовет к вам других членов клуба.)
+###_PLAYER
+(Bow your head.)
+(Склонить голову.)
+###_NPC
+(She smirks and calls for other club members to see you.)
+(Она ухмыляется и призывает других членов клуба увидеть вас.)
+###_PLAYER
+(Struggle to get out.)
+(Бороться, чтобы выбраться.)
+###_NPC
+(She laughs and calls for other club members to see you.)
+(Она смеется и зовет к вам других членов клуба.)
+###_PLAYER
+Now what?
+Что теперь?
+###_NPC
+Now you get naked.  (She strips you down.)
+Сейчас ты разденешься. (Она раздевает тебя.)
+###_PLAYER
+Why the crowd?
+Зачем толпа?
+###_NPC
+So you remember that day.  (She strips you down.)
+Итак, ты запомнишь этот день. (Она раздевает тебя.)
+###_PLAYER
+(Stay silent.)
+(Промолчи.)
+###_NPC
+(She quickly strips you down.)
+(Она быстро раздевает тебя.)
+###_PLAYER
+I'll have my revenge someday.
+Когда-нибудь я отомщу.
+###_NPC
+We'll see about that.  (She opens a gym bag full of restraints and grins.)
+Посмотрим на это. (Она открывает спортивную сумку, полную ремней безопасности, и ухмыляется.)
+###_PLAYER
+This is too much!
+Это уже слишком!
+###_NPC
+It's not enough.  (She opens a gym bag full of restraints and grins.)
+Этого не достаточно. (Она открывает спортивную сумку, полную ремней безопасности, и ухмыляется.)
+###_PLAYER
+(Blush red.)
+(Покраснеть.)
+###_NPC
+Isn't it fun?  (She opens a gym bag full of restraints and grins.)
+Разве это не весело? (Она открывает спортивную сумку, полную ремней безопасности, и ухмыляется.)
+###_PLAYER
+(Act like you don't care.)
+(Вести себя так, как будто тебе все равно.)
+###_NPC
+Time for more trouble.  (She opens a gym bag full of restraints and grins.)
+Время для новых неприятностей. (Она открывает спортивную сумку, полную ремней безопасности, и ухмыляется.)
+###_PLAYER
+Alright, can we stop now?
+Хорошо, мы можем остановиться сейчас?
+###_NPC
+(She stares at you and uses many restraints on you, while everyone around watches.)
+(Она смотрит на вас и применяет к вам множество ограничений, в то время как все вокруг смотрят.)
+###_PLAYER
+(Shake your head no.)
+(Отрицательно покачать головой.)
+(Look away.)
+(Отвести взгляд.)
+(Grumble and struggle.)
+(Ворчать и бороться.)
+###_NPC
+(She humiliates you some more and leaves you bound in the main hall.)
+(Она еще немного унижает вас и оставляет связанной в главном зале.)
+###_PLAYER
+(Wait patiently.)
+(Терпеливо ждать.)
+(Leave her.)
+(Оставь ее.)

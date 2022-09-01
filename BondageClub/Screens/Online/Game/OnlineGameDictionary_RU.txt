@@ -1,0 +1,184 @@
+Select the item to use
+Выберите предмет, который хотите использовать
+Next
+Следующий
+Cancel
+Отмена
+Red
+Красный
+Green
+Зелёный
+Blue
+Синий
+Yellow
+Жёлтый
+Cyan
+Голубой
+Purple
+Пурпурный
+Orange
+Оранжевый
+White
+Белый
+Gray
+Серый
+Black
+Чёрный
+0
+0
+The game is over!  TeamName team wins.  Enjoy your spoils of war.
+Игра окончена! Команда TeamName побеждает. Наслаждайтесь своими военными трофеями.
+TargetName (TargetNumber) plays first and starts the game.
+TargetName (TargetNumber) играет первым и начинает игру.
+The turn is skipped.  TargetName (TargetNumber) plays.
+Ход пропускается. TargetName (TargetNumber) играет.
+TargetName (TargetNumber) plays.
+TargetName (TargetNumber) играет.
+Back to characters
+Назад к персонажам
+Pass your turn
+Пропустить свой ход
+SourceName (SourceNumber) does nothing and passes her turn.
+SourceName (SourceNumber) ничего не делает и пропускает свой ход.
+Strip her (OptionOdds %)
+Раздеть её (OptionOdds %)
+SourceName (SourceNumber) successfully strips TargetName (TargetNumber).  [ActionOdds >= ActionRNG]
+SourceName (SourceNumber) успешно раздевает TargetName (TargetNumber).  [ActionOdds >= ActionRNG]
+SourceName (SourceNumber) fails to strip TargetName (TargetNumber).  [ActionOdds < ActionRNG]
+SourceName (SourceNumber) проваливате раздевание TargetName (TargetNumber).  [ActionOdds < ActionRNG]
+Restrain arms (OptionOdds %)
+Сдерживать руки (OptionOdds %)
+SourceName (SourceNumber) successfully restrains TargetName (TargetNumber) arms using: ItemDesc.  [ActionOdds >= ActionRNG]
+SourceName (SourceNumber) успешно сдерживает TargetName (TargetNumber) использовав на руках: ItemDesc.  [ActionOdds >= ActionRNG]
+SourceName (SourceNumber) fails to restrain TargetName (TargetNumber) arms using: ItemDesc.  [ActionOdds < ActionRNG]
+SourceName (SourceNumber) не удается сдержать TargetName (TargetNumber) использовав на руках: ItemDesc.  [ActionOdds < ActionRNG]
+Restrain legs (OptionOdds %)
+Сдерживать ноги (OptionOdds %)
+SourceName (SourceNumber) successfully restrains TargetName (TargetNumber) legs using: ItemDesc.  [ActionOdds >= ActionRNG]
+SourceName (SourceNumber) успешно сдерживает TargetName (TargetNumber) использовав на ногах: ItemDesc.  [ActionOdds >= ActionRNG]
+SourceName (SourceNumber) fails to restrain TargetName (TargetNumber) legs using: ItemDesc.  [ActionOdds < ActionRNG]
+SourceName (SourceNumber) не удается сдержать TargetName (TargetNumber) использовав на ногах: ItemDesc.  [ActionOdds < ActionRNG]
+Gag her (OptionOdds %)
+Затыкать ей рот (OptionOdds %)
+SourceName (SourceNumber) successfully gags TargetName (TargetNumber) using: ItemDesc.  [ActionOdds >= ActionRNG]
+SourceName (SourceNumber) успешно затыкает TargetName (TargetNumber) использовав: ItemDesc.  [ActionOdds >= ActionRNG]
+SourceName (SourceNumber) fails to gag TargetName (TargetNumber) using: ItemDesc.  [ActionOdds < ActionRNG]
+SourceName (SourceNumber) не удается заткнуть TargetName (TargetNumber) использовав: ItemDesc.  [ActionOdds < ActionRNG]
+Tighten (OptionOdds %)
+Затянуть (OptionOdds %)
+SourceName (SourceNumber) tightens TargetName (TargetNumber) bondage, resetting her struggle progress.
+SourceName (SourceNumber) Затягивает TargetName (TargetNumber) бондаж, сбросив ее прогресс борьбы.
+Struggle (OptionOdds %)
+Бороться (OptionOdds %)
+TargetName (TargetNumber) struggles out successfully and frees her arms.  [ActionOdds >= ActionRNG]
+TargetName (TargetNumber) успешно борется и освобождает руки.  [ActionOdds >= ActionRNG]
+TargetName (TargetNumber) tries to struggle out but fails.  [ActionOdds < ActionRNG]
+TargetName (TargetNumber) пытается вырваться, но терпит неудачу.  [ActionOdds < ActionRNG]
+Charge (OptionOdds %)
+Заряжать (OptionOdds %)
+SourceName (SourceNumber) charges with her team, giving a 25% offensive bonus for a full cycle.
+SourceName (SourceNumber) Заряжает вместе со своей командой, давая 25% бонус к атаке на весь цикл.
+Control (OptionOdds %)
+Контроль (OptionOdds %)
+SourceName (SourceNumber) controls the room, preventing everyone from using special abilities for a full cycle.
+SourceName (SourceNumber) контролирует комнату, не давая всем использовать особые способности на протяжении полного цикла.
+Detain (OptionOdds %)
+Задержать (OptionOdds %)
+SourceName (SourceNumber) detains TargetName (TargetNumber) and restrains her arms using: ItemDesc.
+SourceName (SourceNumber) задерживает TargetName (TargetNumber) и удерживает ее руки, используя: ItemDesc.
+Expose (OptionOdds %)
+Раскрыть (OptionOdds %)
+SourceName (SourceNumber) exposes TargetName (TargetNumber) and removes her clothes.
+SourceName (SourceNumber) раскрывает TargetName (TargetNumber) и снимает с нее одежду.
+Inspire (OptionOdds %)
+Вдохновлять (OptionOdds %)
+SourceName (SourceNumber) inspires TargetName (TargetNumber), allowing her to use her special abilities again.
+SourceName (SourceNumber) вдохновляет TargetName (TargetNumber), позволяя ей снова использовать свои особые способности.
+Seduce (OptionOdds %)
+Соблазнять (OptionOdds %)
+SourceName (SourceNumber) seduces TargetName (TargetNumber), preventing her from acting in her next turn.
+SourceName (SourceNumber) соблазняет TargetName (TargetNumber), не позволяя ей действовать в следующий ход.
+Confuse (OptionOdds %)
+Сбить с толку (OptionOdds %)
+SourceName (SourceNumber) confuses TargetName (TargetNumber), preventing her from using special abilities for a full cycle.
+SourceName (SourceNumber) сбивает с толку TargetName (TargetNumber), не позволяя ей использовать особые способности в течение полного цикла.
+Hide (OptionOdds %)
+Скрыться (OptionOdds %)
+SourceName (SourceNumber) hides in a corner, no opponent can target her until her next turn.
+SourceName (SourceNumber) прячется в углу, ни один противник не может выбрать ее целью до ее следующего хода.
+Immobilize (OptionOdds %)
+Обездвижить (OptionOdds %)
+SourceName (SourceNumber) immobilize TargetName (TargetNumber) and restrains her legs using: ItemDesc.
+SourceName (SourceNumber) обездвиживает TargetName (TargetNumber) и удерживает ее ноги, используя: ItemDesc.
+Cheer (OptionOdds %)
+взбодрить (OptionOdds %)
+SourceName (SourceNumber) cheers for TargetName (TargetNumber), giving her a 25% offensive and defensive bonus for a full cycle.
+SourceName (SourceNumber) взбодрить TargetName (TargetNumber), давая ей 25% бонус к атаке и защите на весь цикл.
+Costume (OptionOdds %)
+Costume (OptionOdds %)
+SourceName (SourceNumber) costumes TargetName (TargetNumber) using: ItemDesc.
+SourceName (SourceNumber) costumes TargetName (TargetNumber), используя: ItemDesc.
+Evasion (OptionOdds %)
+Уклонение (OptionOdds %)
+SourceName (SourceNumber) uses her evasion abilities to remove her restraint.
+SourceName (SourceNumber) использует свои способности уклонения, чтобы снять ограничение.
+Rescue (OptionOdds %)
+Спасти (OptionOdds %)
+SourceName (SourceNumber) rescues TargetName (TargetNumber).  Removing her restraint.
+SourceName (SourceNumber) спасает TargetName (TargetNumber). Снимает ее ограничения.
+Silence (OptionOdds %)
+Тишина(кляп) (OptionOdds %)
+SourceName (SourceNumber) silences TargetName (TargetNumber) and gag her using: ItemDesc.
+SourceName (SourceNumber) заставляет замолчать TargetName (TargetNumber) и затыкает ей рот, используя: ItemDesc.
+Ungag (OptionOdds %)
+Снять кляп (OptionOdds %)
+SourceName (SourceNumber) ungags TargetName (TargetNumber).
+SourceName (SourceNumber) Снимает кляп с TargetName (TargetNumber).
+Cover (OptionOdds %)
+Покрытие (OptionOdds %)
+SourceName (SourceNumber) covers TargetName (TargetNumber), no opponent can target her for a full cycle.
+SourceName (SourceNumber) покрывает TargetName (TargetNumber), ни один противник не может нацелить ее на полный цикл.
+Dress (OptionOdds %)
+Одеться (OptionOdds %)
+SourceName (SourceNumber) dresses back using: ItemDesc.
+SourceName (SourceNumber) одевается обратно, используя: ItemDesc.
+Support (OptionOdds %)
+Поддержка (OptionOdds%)
+SourceName (SourceNumber) supports her team, giving a 25% defensive bonus for a full cycle.
+SourceName (SourceNumber) поддерживает свою команду, давая 25% бонус к защите на весь цикл.
+A free for all magic battle has begun.  To win, gag all other magicians using your spells.  Select your first target.
+Свободная для всех магическая битва началась. Чтобы победить, заткните рот всем другим магам, используя ваши заклинания. Выберите свою первую цель.
+A team magic battle has begun.  To win, gag all magicians from other houses using your spells.  Select your first target.
+Началась командная магическая битва. Чтобы победить, заткните рот всем магам из других домов, используя свои заклинания. Выберите свою первую цель.
+Administrator SourceName (SourceNumber) ended the magic battle manually.
+Администратор SourceName (SourceNumber) завершил магическую битву вручную.
+The turn is over, pick your next target.
+Ход окончен, выберите следующую цель.
+Pallium Exuere
+Паллиум Экзюэр
+Animatus Funem
+Аниматус Фунем
+Funem Tensis
+Фунем Тенсис
+Oratio Angustos
+Орацио Ангустос
+Animatus Ferrum
+Аниматус Феррум
+Ferrum Tensis
+Феррум Тенсис
+Nuda Caro
+Нуда Каро
+Stricta Lorum
+Стрикта Лорум
+SourceName (SourceNumber) successfully cast SpellDesc on TargetName (TargetNumber) in SpellTime seconds.
+SourceName (SourceNumber) успешно применил SpellDesc к TargetName (TargetNumber) в секундах SpellTime.
+SourceName (SourceNumber) fails to cast SpellDesc on TargetName (TargetNumber) in SpellTime seconds.
+SourceName (SourceNumber) не может применить SpellDesc к TargetName (TargetNumber) в секундах SpellTime.
+Nobody was able to cast a spell successfully.
+Никто не смог успешно произнести заклинание.
+Two spells were cast at the same time
+Два заклинания были произнесены одновременно
+SpellDesc from SourceName (SourceNumber) affects TargetName (TargetNumber).
+SpellDesc из SourceName (SourceNumber) влияет на TargetName (TargetNumber).
+The battle is over!  Enjoy your spoils of war.
+Битва окончена! Наслаждайтесь своими военными трофеями.

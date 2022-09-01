@@ -16,3 +16,5 @@ Opens in
 Открыть через
 Kneel / Stand
 На колени / Встать
+Key deposit
+Депозит ключей

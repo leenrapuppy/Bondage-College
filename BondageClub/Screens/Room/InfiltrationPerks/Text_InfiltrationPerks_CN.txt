@@ -1,0 +1,38 @@
+Perks allocated:
+已选择的特技：
+You cannot change you perks while in mission
+在任务中时，你无法改变你的特技
+Strength: +2 Brute force in Pandora's Box
+力量：在潘多拉魔盒里时，+2蛮力
+Charisma: +2 Domination in Pandora's Box
+魅力：在潘多拉魔盒里时，+2支配
+Agility: +2 Sneakiness in Pandora's Box
+敏捷：在潘多拉魔盒里时，+2隐匿
+Resilience: +5 willpower in Pandora's Box
+坚韧：在潘多拉魔盒里时，+5意志
+Endurance: +5 willpower in Pandora's Box
+耐久：在潘多拉魔盒里时，+5意志
+Investigation: Easier to find hidden objects
+调查：更容易发现隐藏物体
+Running: Skip one fight freely, lose willpower
+飞跑：自由地跳过一场战斗，但会失去意志
+Mapping: 1 less room to complete mission
+绘图：完成任务所需的房间减少1个
+Forgery: Fake papers for entrance maid
+伪造：用于通过门口女仆的伪造证件
+Begging: Less prison time if the mission fails
+乞求：减少任务失败时的牢狱时间
+Bribery: Pay less to bribe members or guards
+贿赂：在贿赂会员或警卫时，花费较少的钱
+Negotiation: More money when successful
+交涉：在成功时得到更多钱
+Recruiter: Easier to recruit members
+征召：更容易招募会员
+Recovery: Heal faster in prison and after fights
+恢复：在监狱中和战斗后回复得更快
+Cartographer: Map the return path in yellow
+制图器：将返回路线标记为黄色
+Lockpicker: One less turn to lockpick
+开锁器：开锁所需圈数减少一
+Detector: Shows the number of chests left
+探测器：显示剩余的箱子数量

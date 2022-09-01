@@ -1,0 +1,578 @@
+###_NPC
+(She frowns at you.)  Go see a maid girl.  I don't have time for this.
+（她向你皱眉。）去找女仆。我没时间做这个。
+Comrade DialogPlayerName!  (She gives you a military salute.)  The bunker is yours to command.
+DialogPlayerName同志！（她向你敬了一个军礼。）这处潜入暗堡听你指挥。
+Comrade DialogPlayerName!  (She gives you a military salute.)  We were waiting for you to review the planning.
+DialogPlayerName同志！（她向你敬了一个军礼。）我们正等你审查任务计划。
+Comrade DialogPlayerName!  (She gives you a military salute.)  Are you ready for duty?
+DialogPlayerName同志！（她向你敬了一个军礼。）你准备好为使命献身了吗？
+It's a pleasure to see you comrade DialogPlayerName.
+很高兴见到你，DialogPlayerName同志。
+Don't waste my time comrade DialogPlayerName, this is serious.
+别浪费我的时间DialogPlayerName同志，这很严肃。
+Are you lost?  We do serious business here.
+你迷路了吗？我们这里有严肃的工作。
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+My name isn't important, I serve the Bondage Club best interests and give infiltration missions.
+我的名字不重要，我为束缚俱乐部的利益服务，并派发潜入任务。
+###_PLAYER
+Greetings comrade.  (Salute her.)
+同志你好。（向她敬礼。）
+###_NPC
+(She salutes you back.)  Greetings, we have lots of work ahead.
+（她向你回礼。）你好，我们有一大堆工作要处理。
+###_PLAYER
+What's going on here?
+这里发生什么了？
+###_NPC
+You're in the bunker.  This is where we plan missions against Pandora's Box, our rival club.
+你正在地堡掩体里。我们在这里谋划对抗我们的对手俱乐部，潘多拉魔盒的任务。
+###_PLAYER
+Tell me about the missions.
+跟我讲讲这些任务。
+###_NPC
+Make it quick, what would you like to know?
+长话短说，你有什么想知道的？
+###_PLAYER
+What are the perks?
+特技是什么？
+###_NPC
+You can train some perks to help you, before going into a mission.  Do you need details?
+在执行任务之前，你可以进行一些特技训练来取得帮助。你需要详细信息吗？
+###_PLAYER
+I'd like to take a mission.
+我想接个任务。
+###_NPC
+Very good comrade DialogPlayerName!  (She salutes you.)  What kind of challenge are you up to?
+非常好，DialogPlayerName同志！（她向你敬礼。）你准备迎接什么样的挑战？
+Very good!  What kind of challenge are you up to?
+很好！你准备迎接什么样的挑战？
+###_PLAYER
+I need to go.  (Leave her.)
+我要走了。（离开她。）
+Pandora's Box?
+潘多拉魔盒？
+###_NPC
+Yes, they opened their BDSM club right next to us a few months ago.  At first it was healthy competition, until they started to play dirty.
+是的，就在几个月前，他们把BDSM俱乐部开在了在我们旁边。一开始这只是良性竞争，不过后来他们开始耍起了阴招。
+###_PLAYER
+They play dirty?
+他们玩脏的？
+###_NPC
+They sell our slaves, attack our Mistresses, jail our members, hack our computers and steal our money.  Is that dirty enough?
+他们卖掉我们的奴隶，攻击我们的女主人，监禁我们的成员，入侵我们的电脑，偷我们的钱财。够脏了吗？
+###_PLAYER
+You're at war with that club?
+你们在和那个俱乐部交战？
+###_NPC
+It's too risky for BDSM clubs to do a public war, we could both get closed.  That's why we created this bunker and do infiltration missions.
+BDSM俱乐部之间，在明面上进行对抗的风险太大了，我们可能会被同时勒令关闭。所以这就是我们转入地下，安排潜入任务的原因。
+###_PLAYER
+That's all I wanted to know.
+我就想知道这么多。
+###_NPC
+Fine.  Do you want to take a mission now?
+很好。你现在要接任务吗？
+###_PLAYER
+Anyone can take missions?
+任何人都可以接任务吗？
+###_NPC
+If you've never done an infiltration before, you will get easy missions.  Once we trust you, you will get more important missions.
+如果你从未进行过潜入，你只会得到简单的任务。当我们信任你时，你将获得更重要的任务。
+###_PLAYER
+What kind of missions can I do?
+我可以执行哪些任务？
+###_NPC
+You can rescue a kidnapped girl, capture someone for a prisoner exchange, find a stolen item or steal documents from them.
+你可以营救被绑架的女孩、抓获某人来交换囚犯、找回被盗物品或从他们那里窃取文件。
+###_PLAYER
+Do I need a disguise?
+我需要伪装吗？
+###_NPC
+Yes, we will disguise you before all missions.  Having different clothes will help you to blend into Pandora's Box.
+是的，在所有任务之前，我们会伪装你。有各种不同的衣服，能让你更易融入潘多拉魔盒。
+###_PLAYER
+Will I get paid?
+我会得到报酬吗？
+###_NPC
+Of course, the higher the danger, the higher you get paid.
+当然，危险越高，你得到的报酬就越高。
+###_PLAYER
+What happens if I fail?
+如果我失败了怎么办？
+###_NPC
+We leave no one behind.  If you get captured, we will bribe them or plan your escape, just be patient.
+我们不会抛弃任何人。如果你被抓住了，我们会贿赂他们或为你计划越狱，请耐心等待。
+###_PLAYER
+Can I get some training?
+我可以接受一些训练吗？
+###_NPC
+There's no better training than going to the battlefield.  The more missions you do, the more perks you will be able to train.
+没有比上战场更好的训练了。你执行的任务越多，你能够训练得到的特技就越多。
+###_PLAYER
+What kind of perks are there?
+有哪些特技？
+###_NPC
+There are two categories of perks you can train.  The first one will help you in battles.  The second will help you in infiltration.  You can change them before any mission.
+你可以训练两类特技。首先是在战斗中帮助你的特技。其次是能帮助你进行潜入的特技。你可以在开始任务之前进行更改。
+###_PLAYER
+Tell me about battle perks.
+跟我讲讲战斗特技。
+###_NPC
+Training these perks will only change your battles in Pandora's Box.  It will give you passive bonuses to hit harder or stand your ground against your opponents.
+这些特技只会影响你在潘多拉魔盒中的战斗。这会给你一些被动加成，让你在面对敌人的时候，打的更狠或站得更稳
+###_PLAYER
+Do I recover after a battle?
+战斗后我会得到恢复吗？
+###_NPC
+You will not recover your willpower after a battle, so fight wisely.  Your willpower will also go down when you fail in your infiltration tasks like lockpicking.
+战斗后你不会恢复意志，所以要谨慎地战斗。另外当你在开锁之类的潜入作业中失败时，你的意志力也会下降。
+###_PLAYER
+Tell me about the infiltration perks.
+跟我讲讲潜入特技。
+###_NPC
+The infiltration perks will help you navigate Pandora's Box faster.  It can be used to lockpick easier or bribe a rival girl to get out of trouble.
+潜入特技能让你更快捷地在潘多拉魔盒中探索。这能让你开锁更容易，或者能贿赂敌人以摆脱困境。
+###_PLAYER
+How many perks can I allocate?
+我可以分配多少特技？
+###_NPC
+The number of perks you can allocate is your infiltration skill level plus one.
+你可以分配的特技数量等于你的潜入技能等级加一。
+Great!  What kind of challenge are you up to?
+棒极了！你准备迎接什么样的挑战？
+###_PLAYER
+An easy challenge please.
+请来个简单的挑战。
+###_NPC
+Alright.  Let me fetch an easy mission for you, give me a minute.
+好。我给你找一个简单的任务，等我一会儿。
+###_PLAYER
+A regular mission I guess.
+我想，来个普通任务。
+###_NPC
+Very good.  Let me fetch a regular mission for you, give me a minute.
+很好。我给你找一个普通任务，等我一会儿。
+###_PLAYER
+Give me something serious.
+给我一些难办的。
+###_NPC
+My pleasure, comrade DialogPlayerName.  Let me fetch a hard mission for you, give me a minute.
+很荣幸，DialogPlayerName同志。我给你找一个困难的任务，等我一会儿。
+###_PLAYER
+I can take on anything.
+我能搞定任何事情。
+###_NPC
+(She gives you a military salute.)  Let me fetch a harder mission for you, give me a minute.
+（她向你行军礼。）我给你找一个难上加难的任务，等我一会儿。
+###_PLAYER
+Send me to hell comrade.
+把我送进地狱吧，同志。
+###_NPC
+You will be remembered for years to come.  Let me fetch an extreme mission for you, give me a minute.
+在未来的岁月里，你会被铭记。我给你找一个极限任务，等我一会儿。
+###_PLAYER
+Have you heard about Pandora's locks?
+你听说过潘多拉锁吗？
+###_NPC
+(She nods and starts to whisper.)  A few spies told me about them.  Pandora seems to be developing a new kind of padlock.
+（她点点头，开始悄声说。）有几个间谍告诉我。潘多拉似乎正在开发一种新型锁。
+###_PLAYER
+I don't think I'm ready.
+我不认为我准备好了。
+###_NPC
+Alright.  Let me know when you're ready.
+好吧。准备好后告诉我。
+###_PLAYER
+(Wait for her.)
+（等着她。）
+Why are you whispering?
+怎么突然开始讲悄悄话了？
+###_NPC
+(She continues to whisper.)  Shhhh.  They've put lots of effort to hide and protect this technology.  We could get in trouble.
+（她继续悄声说。）嘘。他们花了很多功夫来隐藏和保护这项技术。我们可能会遇到麻烦。
+###_PLAYER
+(Whisper.)  I could steal that technology.
+（悄声说。）我可以偷来那个技术。
+###_NPC
+Are you sure?  You might have to search for weeks before you find it.  Pandora's Box is huge.
+你确定吗？你可能需要搜索数周才能找到它。潘多拉魔盒是一片大地方。
+###_PLAYER
+It sounds too dangerous for me.
+这对我来说太危险了。
+###_NPC
+(She nods and stops whispering.)  Let's change subject.  Isn't the weather nice lately?
+（她点点头，不再悄声说话。）我们换个话题吧。最近天气不是很好吗？
+###_PLAYER
+I'll do it comrade.
+我会做的同志。
+###_NPC
+(She salutes and picks a disguise for you.)  I knew we could count on you.  Will you go now?
+（她向你敬礼并为你挑选伪装。）我就知道你是最可靠的。你现在去吗？
+###_PLAYER
+I need to prepare first.
+我需要先做好准备。
+###_NPC
+USB key
+USB密钥
+BDSM painting
+BSDM绘画
+gold plated collar
+镀金项圈
+general ledger
+总账簿
+silver vibrator
+银色振动棒
+diamond ring
+钻戒
+porn star signed photo
+色情明星签名照片
+Pandora's locks & keys
+潘多拉锁和钥匙
+Poor TargetName has been kidnapped by Pandora's Box.  We need someone like you to go there and rescue her.
+可怜的TargetName被潘多拉魔盒绑架了。我们需要你这样的人去救她出来。
+###_PLAYER
+Give me her profile.
+给我她的资料。
+###_NPC
+(She gives you some information so you can rescue her.)  She really needs you.  It's time for your disguise comrade.
+（她给了你一些信息，这样你就可以救她出来了。）她真的需要你。同志，是你伪装的时候了。
+###_PLAYER
+How will I recognize her?
+我要怎么认出她？
+###_NPC
+We have a specific target that you'll need to kidnap:  TargetName.  Restrain her and bring her back so we can arrange a prisoner exchange.
+我们有一个你需要绑架的特殊目标：TargetName。绑了她，把她带回来，这样我们就可以安排一次交换囚犯。
+###_PLAYER
+She's a tough one?
+她很厉害吗？
+###_NPC
+(She gives you some information so you can kidnap her.)  Don't let her escape.  It's time for your disguise comrade.
+（她给了你一些信息，这样你就可以绑架她。）不要让她逃了。同志，是你伪装的时候了。
+###_PLAYER
+Where does she hang out?
+她在哪里闲逛？
+###_NPC
+We need you to retrieve a stolen TargetName.  Get it back at any cost and sneak back in here quickly.
+我们需要你找回被盗的TargetName。不惜一切代价把它拿回来，然后迅速潜回这里。
+###_PLAYER
+Give me a description.
+给我些描述。
+###_NPC
+(She gives you some details on the item to retrieve.)  It belongs to us.  It's time for your disguise comrade.
+（她给你一些关于要取回的物品的细节。）它属于我们。同志，是你伪装的时候了。
+###_PLAYER
+I'll need more details.
+我需要更多细节。
+###_NPC
+We need you to steal a TargetName for us.  Search for it, take it and bring it here without getting caught.
+我们需要你为我们窃取TargetName。搜索它，得到它，把它带回这里，并且不被抓住。
+###_PLAYER
+How will I recognize it?
+我怎么识别它？
+###_NPC
+(She gives you some details on the item to steal.)  They cannot keep it.  It's time for your disguise comrade.
+（她给你一些关于偷东西的细节。）他们留不住它的。同志，是你伪装的时候了。
+###_PLAYER
+It's easy to spot?
+这容易找到吗？
+###_NPC
+It's getting late, the timing is perfect to send a cat burglar and get back some of our stolen goods.
+天色渐晚，正是派个小偷来取回我们被窃取的财物的好时机。
+###_PLAYER
+I'll go steal after they close?
+我在他们关门之后去偷？
+###_NPC
+(She nods.)  Yes comrade.  Pandora's Box should be mostly empty, but you won't have much time.
+（她点点头。）是的，同志。潘多拉魔盒应该基本上没人了，但你的时间不会很多。
+###_PLAYER
+What should I look for?
+我应该寻找什么？
+###_NPC
+Find the locked chests and picklock them.  Our stolen goods should be inside.
+找到上锁的箱子，撬开它。我们失窃的财物应该在里面。
+###_PLAYER
+How much time do I have?
+我有多少时间？
+###_NPC
+Around one hour.  Don't stay beyond that time or you'll get caught.
+一小时左右。不要超过那个时间，否则你会被抓住的。
+###_PLAYER
+Do I keep the goods?
+我可以保留这些财物吗？
+###_NPC
+No, you bring it back here and we'll pay you for half the value of what you found.
+不可以，你需要把它们带回这里，我们将支付你找回财物总价值价值的一半的报酬。
+###_PLAYER
+Is that legal?
+那合法吗？
+###_NPC
+Everything is legal if you don't caught comrade.  (She winks at you.)
+同志，只要你没有被抓住，一切都是合法的。（她对你眨眨眼。）
+###_PLAYER
+I'm ready.  What's my disguise?
+我准备好了。我伪装成什么？
+###_NPC
+(She produces a sexy cat burglar outfit for you.)  Perfect!  You're ready for your mission!
+（她为你制作了一套性感窃贼服装。）完美！你已经准备好执行任务了！
+###_PLAYER
+I've changed my mind.
+我改变主意了。
+###_NPC
+I'm sorry to hear that.  Come another time then.
+我很遗憾听到这个消息。以后再来吧。
+###_PLAYER
+(Go to Pandora's Box.)
+（前往潘多拉魔盒。）
+###_NPC
+Welcome back comrade.  Have you recovered our stolen goods?
+欢迎回来，同志。找回我们的赃物了吗？
+###_PLAYER
+The mission was a success.
+任务很成功。
+###_NPC
+Congratulation comrade DialogPlayerName!  Your salary will be half of what you recovered.
+恭喜DialogPlayerName同志！你会得到等于你找回财物一半的薪酬。
+###_PLAYER
+I'm going back right now.
+我马上回去。
+Sorry, I've failed.
+对不起，我失败了。
+###_NPC
+Don't be ashamed, I'm sure you've tried your best.  We'll send someone else.  You can pick another mission if you want.
+不要内疚，我相信你已经尽力了。我们会派人其他去。如果你愿意的话，你可以再选择一个任务。
+###_PLAYER
+Give me a minute.  (Leave her.)
+等我一会儿。（离开她。）
+###_NPC
+Since they are sending members to do damage on our buildings, it's only fair that we do the same.  I'll send you on a maid sabotage mission.
+既然他们派遣会员来破坏我们的建筑，那只有我们也这样做才算公平。我将派你去执行女仆破坏任务。
+###_PLAYER
+Sabotage how?
+怎么破坏？
+###_NPC
+Find some paint within Pandora's Box and do graffities in all dead-end rooms.  They will need to clean-up for days.
+在潘多拉魔盒里找点颜料，在所有通道尽头的房间里涂鸦。这会要他们清理好几天。
+###_PLAYER
+Where can I find paint?
+我在哪里可以找到油漆？
+###_NPC
+You won't be able to enter with paint cans, but you'll find some while you're inside.  The maid disguise will help you.
+你没法儿带着油漆桶进门，但你进去后会在里面找到一些的。伪装成女仆能帮到你。
+###_PLAYER
+I'll play a maid?
+我要扮演一个女仆？
+###_NPC
+(She nods.)  We'll send you with a maid costume, it should help you to find some paint to decorate the walls.
+（她点头。）我们会送你一套女仆装，这应该可以帮助你找到一些可以装饰墙壁的油漆。
+###_PLAYER
+I get paid for graffities?
+我涂鸦还能挣钱？
+###_NPC
+Exactly comrade!  Damage at least fifty percent of the rooms and we'll pay you.  We'll give you a bonus if you damage everything.
+正是如此，同志！破坏至少百分之五十的房间后，我们就会付钱给你。如果你破坏了所有的房间，我们还会给你奖金。
+We'll send you disguised as a maid.  Make sure to decorate well.  (She winks at you.)  Be warned, the costume is sexy.
+我们派出你时，会把你伪装成女仆。一定要好好装点那里。 （她对你使眼色。）注意啊，女仆装很性感。
+###_PLAYER
+I can handle a silly costume.
+我能应付愚蠢的衣服。
+###_NPC
+(She nods and dresses you up as a maid from Pandora.)  It's time to go comrade!
+（她点点头，然后把你打扮成潘多拉的女仆。）同志，是时候出发了！
+###_PLAYER
+The sexier the better.
+越性感越好。
+###_NPC
+(She giggles and dresses you up as a maid from Pandora.)  It's time to go comrade!
+（她笑着把你打扮成潘多拉的女仆。）同志，是时候出发了！
+###_PLAYER
+(Stay silent and dress.)
+（保持沉默，穿好衣服。）
+###_NPC
+(She dresses you up as a maid from Pandora.)  It's time to go comrade!
+（她把你打扮成潘多拉的女仆。）同志，是时候出发了！
+Welcome back comrade.  Are you the next Picasso of BDSM?
+欢迎回来同志。你简直是BDSM领域的毕加索！
+Congratulation comrade DialogPlayerName!  I'll remember not to hire you when I renovate my place.
+恭喜，DialogPlayerName同志！当我装修自己家的时候，我保证不会雇你。
+###_PLAYER
+Yes!  Dress me up!
+是的！把我打扮好吧！
+###_NPC
+(She smiles and picks random clothes for you, to help you blend into Pandora's Box.)  Perfect!  Are you ready for your mission?
+（她微笑着为你挑选衣服，让你能融入潘多拉魔盒。）完美！你准备好执行任务了吗？
+###_PLAYER
+Is it really needed?
+真的需要吗？
+###_NPC
+(She grumbles and picks random clothes for you, to help you blend into Pandora's Box.)  Alright!  Are you ready for your mission?
+（她嘟嘟囔囔地为你挑选衣服，让你能融入潘多拉魔盒。）很好！你准备好执行任务了吗？
+###_PLAYER
+(Disguise yourself.)
+（伪装自己。）
+###_NPC
+(You pick some random clothes to blend easier into Pandora's Box.)  Very good!  Are you ready for your mission?
+（你随机挑选一些衣服，以更容易融入潘多拉魔盒。）非常好！你准备好执行任务了吗？
+###_PLAYER
+I'd like another disguise.
+我想换一套伪装。
+###_NPC
+(You pick new random clothes to blend better into Pandora's Box.)  A good spy must dress well.
+（你随机挑选了一些新衣服，以更好地融入潘多拉魔盒。）一个好的间谍必须穿着得体。
+###_PLAYER
+I'm ready to go!
+我准备好了！
+###_NPC
+(She salutes you.)  Make us proud comrade DialogPlayerName.
+（她向你致敬。）DialogPlayerName同志，让我们为以你为荣吧。
+###_PLAYER
+I'm the best.  I will be back quick.
+我是最棒的那个。我会很快回来的。
+###_NPC
+That's the spirit comrade!  The Bondage Club is proud of you.
+同志，就是这种精神！束缚俱乐部以你为荣。
+###_PLAYER
+I hope nothing will go wrong.
+我希望不会出什么问题。
+###_NPC
+Be more confident girl.  Go and make us proud!
+再自信一点吧女孩。出发去赢得荣耀吧！
+Welcome back comrade.  Is your mission complete?
+欢迎回来，同志。你的任务完成了吗？
+Congratulation comrade DialogPlayerName!  (She salutes you.)  The Bondage Club is proud of you.
+恭喜，DialogPlayerName同志！（她向你致敬。）束缚俱乐部以你为荣。
+(You pick new random clothes to blend better into Pandora's Box.)  A true chameleon!
+（你随机挑选新衣服以更好地融入潘多拉魔盒。）你是真正的变色龙！
+###_PLAYER
+Can I keep the locks and keys?
+我可以保留锁和钥匙吗？
+###_NPC
+(She ponders.)  This is highly unusual, but you're such a great spy, you deserve it.  Keep them and serve the Bondage Club comrade.
+（她沉思。）这很难办，但你是一个伟大的间谍，你应得的。留下它们，为束缚俱乐部的同志服务吧。
+###_PLAYER
+Thank you, comrade.
+谢谢你，同志。
+###_NPC
+(She nods quickly and gives you a sealed envelope with your salary.)  Come back anytime for more assignments.
+（她快速地点头，给你一个密封的信封，里面装着你的薪水。）想做更多任务时，随时回来。
+###_PLAYER
+I was scared, but I did it.
+我很害怕，但我做到了。
+###_NPC
+(She cheers you up and gives you a sealed envelope with your salary.)  Come back anytime for more assignments.
+（她鼓励你振作，并给了你一个密封的信封，里面装着你的薪水。）想做更多任务时，随时回来。
+###_PLAYER
+You should know that I never fail.
+你应该知道，我从不失败。
+###_NPC
+(She bows her head and gives you a sealed envelope with your salary.)  Come back anytime for more assignments.
+（她低下头，给你一个密封的信封，里面装着你的薪水。）想做更多任务时，随时回来。
+(She looks at the Dominatrix that came with you and grins.)  Comrade!  Who did you bring with you?
+（她看着和你一起来的女王，咧嘴一笑）同志！你带谁来了？
+###_PLAYER
+You think we can get a ransom for her?
+你觉得我们可以用她来取得赎金吗？
+###_NPC
+Absolutely.  We can keep her for ransom until they pay.  Would you like to get your cut?
+完全可以。我们可以扣留她，直到他们付清赎金。你想得到你的一份吗？
+###_PLAYER
+This Pandora's bitch will make me rich and famous.
+这个潘多拉的婊子会让我名利双收。
+###_NPC
+(She nods slowly.)  We can keep her for ransom until they pay.  Would you like to get your cut?
+（她慢慢地点点头。）我们可以扣留她，直到他们付清赎金。你想得到你的一份吗？
+###_PLAYER
+I kidnapped one of their administrators.
+我绑架了一名他们的管理员。
+###_NPC
+This is impressive.  We can keep her for ransom until they pay.  Would you like to get your cut?
+令人惊叹。我们可以扣留她，直到他们付清赎金。你想得到你的一份吗？
+###_PLAYER
+Yes, I'll take the money.
+是的，我会收钱的。
+###_NPC
+Here you go comrade.  (She gives you a money envelope.)  Are you ready to go back?
+给你，同志。（她给你一个装着钱的信封。）你准备好回去了吗？
+###_PLAYER
+No, but I want some infiltration training.
+不，但我想要一些潜入训练。
+###_NPC
+Of course, comrade.  (She gives you great infiltration tricks.)  Are you ready to go back?
+当然，同志。（她教给了你一些很棒的潜入技巧。）你准备好回去了吗？
+###_PLAYER
+I don't want anything.
+我什么都不想要。
+###_NPC
+You make us proud comrade.  (She salutes you.)  Are you ready to go back?
+同志，我们以你为荣。（她向你敬礼。）你准备好回去了吗？
+Comrade DialogPlayerName!  (She gives you a military salute.)  What's wrong?  You look worried.
+DialogPlayerName同志！（她向你行军礼。）怎么了？你看起来很焦虑。
+Comrade DialogPlayerName!  Is there something troubling you?
+DialogPlayerName同志！有什么困扰你的事情吗？
+Hello!  Is there anything I can do to help you?
+你好！有什么可以帮助你的吗？
+###_PLAYER
+My friend was kidnapped.
+我的朋友被绑架了。
+###_NPC
+Sorry about that.  Pandora's Box has been causing lots of trouble lately.  Is there a ransom to pay?
+对于那个，我很抱歉。潘多拉魔盒最近引起了很多麻烦。有赎金要付吗？
+###_PLAYER
+I don't need anything.  (Leave her.)
+我什么都不需要。（离开她。）
+I'm not paying.  I'll go free her.
+我不会付钱。我会去解救她。
+###_NPC
+That's what I wanted to hear comrade!  The Bondage Club will support you for that mission.  Are you ready for your disguise?
+这就是我想听到的同志！束缚俱乐部会支持你完成这项任务。你准备好穿上伪装了吗？
+###_PLAYER
+Yes, the ransom amount is $100.
+是的，赎金是$100。
+###_NPC
+(She nods.)  That's the usual price.  Will you pay to free her?
+（她点点头。）这是通常的价格。你会花钱来解救她吗？
+###_PLAYER
+For how long they will keep her?
+他们会扣留她多久？
+###_NPC
+It depends on the guards and Dominatrixes.  Most victims are usually kept for a week.
+这取决于警卫和女王。大多数受害者通常会被拘留一周。
+###_PLAYER
+Let's drop this.  (Leave her.)
+别管这个了。（离开她。）
+It's time to change.  (Find a disguise.)
+是时候变装了。（找个伪装。）
+###_NPC
+(You pick a random disguise together.)  Your friend is waiting for you.  Are you ready to go?
+（你们一起选择了一套随机的伪装。）你的朋友在等你。你准备好出发了吗？
+###_PLAYER
+I'll do it later.
+我稍后会做。
+###_NPC
+Very well, you know where to find me when you're ready.  (She salutes you.)
+很好，当你准备好时，你知道在哪里可以找到我。（她向你致敬。）
+###_PLAYER
+I don't have enough money.
+我没有足够的钱。
+###_NPC
+I understand comrade.  It's a big sum and it might be used to finance more kidnappings.  Let me know if you get the funds.
+我理解同志。这是一笔巨款，而且可能会用来资助更多的绑架。如果你得到足够资金了，请告诉我。
+###_PLAYER
+I'll pay right now.  (Give her $100.)
+我现在就付钱。（给她$100。）
+###_NPC
+(She takes the money and arranges her liberation.)  Your friend should be back in a few minutes comrade.
+（她拿了钱，然后安排了她的释放。）同志，你的朋友应该几分钟后就能回来了。
+###_PLAYER
+I don't know yet.
+我还不知道。
+###_NPC
+Think about it, comrade.  It's a big sum and it might be used to finance more kidnappings.
+想一想，同志。这是一笔巨款，而且可能会用来资助更多的绑架。
+###_PLAYER
+Thanks.  Take care.  (Leave her.)
+谢谢。多小心。（离开她。）

@@ -13,10 +13,11 @@ var ServerURL = "http://localhost:4288";
 var ServerBeep = { Message: "", Timer: 0 };
 var ServerIsConnected = false;
 var ServerReconnectCount = 0;
+var ServerCharacterNicknameRegex = /^[a-zA-Z\s]*$/;
 
 const ServerScriptMessage = "WARNING! Console scripts can break your account or steal your data. Only run scripts if " +
 	"you know what you're doing and you trust the source. See " +
-	"https://github.com/Ben987/Bondage-College/wiki/Player-Safety#scripts--browser-extensions to learn more about " +
+	"https://gitgud.io/BondageProjects/Bondage-College/-/wikis/Player-Safety#scripts-browser-extensions to learn more about " +
 	"script safety.";
 const ServerScriptWarningStyle = "display: inline-block; color: black; background: #ffe3ad; margin: 16px 0 8px 0; " +
 	"padding: 8px 4px; font-size: 20px; border: 6px solid #ffa600; font-family: 'Arial', sans-serif; line-height: 1.6;";
@@ -205,9 +206,8 @@ function ServerDisconnect(data, close = false) {
 
 			// Exits out of the chat room or a sub screen of the chatroom, so we'll be able to get in again when we log back
 			if (ServerPlayerIsInChatRoom()) {
-				RelogChatLog = document.getElementById("TextAreaChatLog").cloneNode(true);
+				RelogChatLog = /** @type {HTMLDivElement} */(document.getElementById("TextAreaChatLog").cloneNode(true));
 				RelogChatLog.id = "RelogChatLog";
-				RelogChatLog.name = "RelogChatLog";
 				RelogInputText = ElementValue("InputChat").trim();
 				ElementRemove("InputChat");
 				ElementRemove("TextAreaChatLog");
@@ -353,6 +353,7 @@ function ServerAppearanceBundle(Appearance) {
 		if ((Appearance[A].Color != null) && (Appearance[A].Color != "Default")) N.Color = Appearance[A].Color;
 		if ((Appearance[A].Difficulty != null) && (Appearance[A].Difficulty != 0)) N.Difficulty = Appearance[A].Difficulty;
 		if (Appearance[A].Property != null) N.Property = Appearance[A].Property;
+		if (Appearance[A].Craft != null) N.Craft = Appearance[A].Craft;
 		Bundle.push(N);
 	}
 	return Bundle;
@@ -370,6 +371,10 @@ function ServerAppearanceBundle(Appearance) {
  * @returns {boolean} - Whether or not the appearance bundle update contained invalid items
  */
 function ServerAppearanceLoadFromBundle(C, AssetFamily, Bundle, SourceMemberNumber, AppearanceFull=false) {
+	if (!Array.isArray(Bundle)) {
+		Bundle = [];
+	}
+
 	const appearanceDiffs = ServerBuildAppearanceDiff(AssetFamily, C.Appearance, Bundle);
 	ServerAddRequiredAppearance(AssetFamily, appearanceDiffs);
 
@@ -444,6 +449,7 @@ function ServerBundledItemToAppearanceItem(assetFamily, item) {
 		Asset: asset,
 		Difficulty: parseInt(item.Difficulty == null ? 0 : item.Difficulty),
 		Color: ServerParseColor(asset, item.Color, asset.Group.ColorSchema),
+		Craft: item.Craft,
 		Property: item.Property,
 	};
 }
@@ -594,7 +600,7 @@ function ServerAccountBeep(data) {
 				Message: `${DialogFindPlayer("BeepFrom")} ${data.MemberName} (${data.MemberNumber})`,
 				Timer: CommonTime() + 10000,
 				ChatRoomName: data.ChatRoomName
-			}
+			};
 			if (ServerBeep.ChatRoomName != null)
 				ServerBeep.Message = ServerBeep.Message + " " + DialogFindPlayer("InRoom") + " \"" + ServerBeep.ChatRoomName + "\"" + (data.ChatRoomSpace === "Asylum" ? " " + DialogFindPlayer("InAsylum") : '');
 			if (data.Message) {
@@ -672,7 +678,12 @@ function ServerClickBeep() {
 function ServerOpenFriendList() {
 	DialogLeave();
 	ElementToggleGeneratedElements(CurrentScreen, false);
-	FriendListReturn = { Screen: CurrentScreen , Module: CurrentModule, IsInChatRoom: ServerPlayerIsInChatRoom() };
+	FriendListReturn = {
+		Screen: CurrentScreen,
+		Module: CurrentModule,
+		IsInChatRoom: ServerPlayerIsInChatRoom(),
+		hasScrolledChat: ServerPlayerIsInChatRoom() && ElementIsScrolledToEnd("TextAreaChatLog")
+	};
 	CommonSetScreen("Character", "FriendList");
 }
 

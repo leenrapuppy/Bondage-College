@@ -12,3 +12,11 @@ Sorry, I cannot sell you keys.
 Извините, я не могу продать вам ключи.
 Thank you!  Something else?
 Спасибо!  Что-то еще?
+Select or search for an item to buy.
+Выберите или найдите товар для покупки.
+Select the item to sell it for half price.
+Выберите товар, чтобы продать его за полцены.
+Sorry, I cannot sell you remotes.
+Извините, я не могу продать вам пульты дистанционного управления.
+Thank you!  Anything else?
+Спасибо!  Что-нибудь еще?

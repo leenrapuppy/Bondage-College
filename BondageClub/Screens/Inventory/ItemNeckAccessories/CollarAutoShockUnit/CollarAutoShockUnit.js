@@ -97,22 +97,23 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitSetSensitivity(Modifier)
 }
 
 function InventoryItemNeckAccessoriesCollarAutoShockUnitDetectSpeech(Sensitivity, Emote, Keywords, LastMessages) {
+	let msg = ChatRoomLastMessage[ChatRoomLastMessage.length - 1];
 	if (Sensitivity == 3 && (Emote || (ChatRoomLastMessage && ChatRoomLastMessage.length != LastMessages
-			&& !ChatRoomLastMessage[ChatRoomLastMessage.length-1].startsWith("(") && !ChatRoomLastMessage[ChatRoomLastMessage.length-1].startsWith("*") && ChatRoomLastMessage[ChatRoomLastMessage.length-1].replace(/[A-Za-z]+/g, '') != ChatRoomLastMessage[ChatRoomLastMessage.length-1]
-			&& (!ChatRoomLastMessage[ChatRoomLastMessage.length-1].startsWith("/")
-		|| (Keywords && (ChatRoomLastMessage[ChatRoomLastMessage.length-1].startsWith("/me") || ChatRoomLastMessage[ChatRoomLastMessage.length-1].startsWith("*")))))))
+		&& !msg.startsWith("(") && !msg.startsWith("*") && (msg.replace(/[^\p{P} ~+=^$|\\<>`]+/ug, '') != msg || (msg.includes('!')))
+		&& (!msg.startsWith("/")
+			|| (Keywords && (msg.startsWith("/me") || msg.startsWith("*")))))))
 			return true;
-		if (Sensitivity == 2 && ChatRoomLastMessage && ChatRoomLastMessage.length != LastMessages
-			&& !ChatRoomLastMessage[ChatRoomLastMessage.length-1].startsWith("(") && !ChatRoomLastMessage[ChatRoomLastMessage.length-1].startsWith("*") && !ChatRoomLastMessage[ChatRoomLastMessage.length-1].startsWith("/")
-			&& (ChatRoomLastMessage[ChatRoomLastMessage.length-1].length > 25
-				|| (ChatRoomLastMessage[ChatRoomLastMessage.length-1].replace(/[A-Za-z]+/g, '') != ChatRoomLastMessage[ChatRoomLastMessage.length-1] && (ChatRoomLastMessage[ChatRoomLastMessage.length-1] == ChatRoomLastMessage[ChatRoomLastMessage.length-1].toUpperCase()
-				|| (ChatRoomLastMessage[ChatRoomLastMessage.length-1].includes('!'))))))
-			return true;
-		if (Sensitivity == 1 && ChatRoomLastMessage && ChatRoomLastMessage.length != LastMessages
-			&& !ChatRoomLastMessage[ChatRoomLastMessage.length-1].startsWith("(") && !ChatRoomLastMessage[ChatRoomLastMessage.length-1].startsWith("*") && !ChatRoomLastMessage[ChatRoomLastMessage.length-1].startsWith("/")
-			&& (ChatRoomLastMessage[ChatRoomLastMessage.length-1].replace(/[A-Za-z]+/g, '') != ChatRoomLastMessage[ChatRoomLastMessage.length-1] && (ChatRoomLastMessage[ChatRoomLastMessage.length-1] == ChatRoomLastMessage[ChatRoomLastMessage.length-1].toUpperCase()
-				|| (ChatRoomLastMessage[ChatRoomLastMessage.length-1].includes('!')))))
-			return true;
+	if (Sensitivity == 2 && ChatRoomLastMessage && ChatRoomLastMessage.length != LastMessages
+		&& !msg.startsWith("(") && !msg.startsWith("*") && !msg.startsWith("/")
+		&& (msg.length > 25
+			|| (msg.replace(/[^\p{P} ~+=^$|\\<>`]+/ug, '') != msg && ((msg === msg.toUpperCase() && msg !== msg.toLowerCase())
+				|| (msg.includes('!')) || (msg.includes('！'))))))
+		return true;
+	if (Sensitivity == 1 && ChatRoomLastMessage && ChatRoomLastMessage.length != LastMessages
+		&& !msg.startsWith("(") && !msg.startsWith("*") && !msg.startsWith("/")
+		&& (msg.replace(/[^\p{P} ~+=^$|\\<>`]+/ug, '') != msg && ((msg === msg.toUpperCase() && msg !== msg.toLowerCase())
+			|| (msg.includes('!')) || (msg.includes('！')))))
+		return true;
 	return false;
 }
 

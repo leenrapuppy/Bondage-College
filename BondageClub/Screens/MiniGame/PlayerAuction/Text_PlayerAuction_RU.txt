@@ -1,0 +1,28 @@
+Current bid:
+Текущая ставка:
+Highest bidder:
+Самая высокая ставка:
+I bid
+я предлагаю
+Nobody
+Никто
+First
+Первый
+Second
+Второй
+Third
+Третий
+Plead
+Умолять
+Do I hear
+Я слышу
+Going once!
+Идем один раз!
+Going twice!
+Идем дважды!
+Sold!
+Продано!
+Silence!
+Тишина!
+Return
+Возвращаться

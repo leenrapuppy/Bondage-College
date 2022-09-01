@@ -1,0 +1,736 @@
+###_NPC
+Isn't the sound of silence wonderful?  (She laughs at you.)
+寂静的声音不是很好吗？（她对你笑起来。）
+Enough shit!  Since you can't behave, you'll spend detention restrained.
+够了！既然你不能表现得体，那你这次留堂的时候会被捆起来。
+You're a little whore, aren't you?  A bad girl?  I have a proposal for you.
+你简直是个小婊子，对吧？坏女孩？我有一个提议给你。
+(She shakes and screams from a long orgasm.)  Fuuuuuuuuck yeah!  That... that was intense!
+（她长时间的高潮，颤抖并尖叫着。）我草嗷嗷啊啊啊啊！这……这真是激烈！
+(She pushes you away.)  That's enough!  I'm not in the mood anymore and I need to go.
+（她把你推开。）够了！我没心情继续了，我得走了。
+(A small woman welcomes you coldly.)  Another one?  What's your story?  Why were you sent to detention?
+（一个身形比较小的女人冷冷地欢迎你。）另一个？你的故事是什么？你为什么被留堂？
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm teacher Yuki.  I monitor the detention room today.  Why are you here?
+我是Yuki老师。我今天负责留堂教室。你为什么在这？
+###_PLAYER
+Hello teacher Yuki.
+Yuki老师你好。
+###_NPC
+Hello DialogPlayerName.  Why were you sent to detention today?
+你好DialogPlayerName。你今天为什么被留堂？
+###_PLAYER
+I shouldn't be here.
+我不应该在这里。
+###_NPC
+If a teacher sent you here, then you should be here.  What did you do wrong?
+如果老师把你送到这里，那么你就应该在这里。你做错了什么？
+###_PLAYER
+You're mistaken.
+你搞错了。
+###_NPC
+You've made the mistake by getting sent here.  What did you do wrong?
+你被送到这里就是犯过错误。你做错了什么？
+###_PLAYER
+That's none of your business.
+这跟你没关系。
+###_NPC
+(She frowns.)  That's absolutely my business.  What did you do wrong?
+（她皱着眉头。）这当然跟我有关系。你做错了什么？
+###_PLAYER
+I'm sorry Miss.
+我很抱歉，女士。
+###_NPC
+You better be sorry.  What did you do wrong?
+道歉很好。你做错了什么？
+###_PLAYER
+Oops, wrong door.
+哎呀，走错门了。
+###_NPC
+Very funny young lady.  What did you do wrong?
+这真有趣，年轻女士。你做错了什么？
+###_PLAYER
+I should go.  (Leave her.)
+我该走了。（离开她。）
+###_NPC
+(She stops you.)  You're not going anywhere young lady.  What did you do wrong?
+（她拦住你。）女士，你哪儿也去不了。你做错了什么？
+###_PLAYER
+Fuck you bitch.
+操你个婊子
+###_NPC
+That answer alone, is worth your detention time.  You'll spend the rest of the day with me.
+光是这个答案，你留堂就有价值了。今天剩下的时间，你会和我一起度过。
+###_PLAYER
+I didn't do anything.
+我什么也没做。
+###_NPC
+I'll check with your teacher later.  Whatever you did, you'll spend the rest of the day with me.
+稍后我会和你的老师核实一下。不管你做了什么，今天剩下的时间，你会和我一起度过。
+###_PLAYER
+I'm innocent!
+我是无辜的！
+I've chatted in class.
+我在上课时聊天。
+###_NPC
+Bad girl, you know you shouldn't do that.  You'll spend the rest of the day with me.
+坏女孩，你知道你不该那样做。今天剩下的时间，你会和我一起度过。
+###_PLAYER
+I've texted in class.
+我在上课时发短信。
+I've slept in class.
+我在上课时睡觉了。
+I've watched porn in class.
+我在上课时看色情片。
+###_NPC
+So, you're a horny student, aren't you?  Well, you'll spend the rest of the day with me.
+所以，你是一个好色的学生，没错吧？好吧，今天剩下的时间，你会和我一起度过。
+###_PLAYER
+I've masturbated in class.
+我在上课时手淫。
+Oh please!  Can we make a deal?
+哦拜托！我们可以做个交易吗？
+###_NPC
+(She smirks.)  Maybe later.  You'll write: "I will be a good student." thirty times on the board.
+（她得意地笑起来。）也许以后吧。你要在黑白上写“我会成为一个好学生。”三十次。
+###_PLAYER
+All day?  Really?
+一整天？真的吗？
+###_NPC
+Absolutely.  You'll write: "I will be a good student." thirty times on the board.
+当然。你要在黑白上写“我会成为一个好学生。”三十次。
+###_PLAYER
+Teacher Yuki.  I will miss a class.
+Yuki老师。我会错过一堂课的。
+###_NPC
+You're the only one to blame.  You'll write: "I will be a good student." thirty times on the board.
+错过课而被指责的人只有你。你要在黑白上写“我会成为一个好学生。”三十次。
+###_PLAYER
+I'll run as soon as I can.
+我找到机会就会立即跑掉。
+###_NPC
+We have ways to prevent that.  You'll write: "I will be a good student." thirty times on the board.
+我们有很多办法防止这种情况发生。你要在黑白上写“我会成为一个好学生。”三十次。
+###_PLAYER
+(Bow your head and nod.)
+（低下头，并点点头。）
+###_NPC
+Good girl.  You'll write: "I will be a good student." thirty times on the board.
+乖女孩。你要在黑白上写“我会成为一个好学生。”三十次。
+###_PLAYER
+I don't care.
+我不在乎。
+###_NPC
+(She frowns.)  You'll write: "I will be a good student." thirty times on the board.
+（她皱起眉头。）你要在黑白上写“我会成为一个好学生。”三十次。
+###_PLAYER
+Are you nuts?
+你是不是傻？
+###_NPC
+(She grumbles and points to the board.)  Shut-up and get a chalk.
+（她嘟囔着指着黑板。）闭嘴，拿粉笔。
+###_PLAYER
+Yes, teacher Yuki.
+是的，Yuki老师。
+###_NPC
+(She smiles and points to the board.)  Go get a chalk girl.
+（她微笑着指着黑板。）去拿个粉笔，女孩。
+###_PLAYER
+Can't I do some homework?
+我不能做功课吗？
+###_NPC
+(She shakes her head no and points to the board.)  Get a chalk.
+（她摇头，表示拒绝，并指着黑板。）去拿粉笔。
+###_PLAYER
+Fine.  (Get a chalk.)
+好吧。（拿粉笔。）
+###_NPC
+(She snaps her fingers.)  Start writing!  Thirty times.
+（她打了个响指。）开始写吧！三十次。
+###_PLAYER
+A chalkboard?  Don't you have computers?
+黑板？你没有电脑吗？
+###_NPC
+(She gets mad and gives you a chalk.)  Start writing!  Thirty times.
+（她生气了，给了你一支粉笔。）开始写！三十次。
+###_PLAYER
+It's a fair punishment.  (Get a chalk.)
+这惩罚可真行。（拿一个粉笔。）
+###_NPC
+(She nods and snaps her fingers.)  Start writing!  Thirty times.
+（她点点头，打了个响指。）开始写吧！三十次。
+###_PLAYER
+What's the phrase again?
+要我写什么来着？
+###_NPC
+It's the last time I repeat.  You will write: "I will be a good student.".
+这是我最后一次重复。你要写“我会成为一个好学生。”
+###_PLAYER
+(Write: "I will be a good student.".)
+（写：“我会成为一个好学生。”）
+###_NPC
+(She watches you write and smirks.)  It's a good start.
+（她看着你写，得意地笑起来。）这是一个好的开始。
+###_PLAYER
+(Write: "I will be a bad student.".)
+（写：“我会成为一个坏学生。”。）
+###_NPC
+(She gets mad.)  You think you're fucking funny?  You know what to write.
+（她变得生气。）你觉得你他妈的很有趣吗？你知道要写什么。
+###_PLAYER
+(Write: "Fuck the teachers.".)
+（写：“去他妈的老师。”。）
+###_NPC
+(She nods and watches you write.)
+（她点点头，看着你写。）
+###_PLAYER
+(Scratch your butt.)
+（抓挠你的屁股。）
+###_NPC
+Don't get lazy!  It's only beginning.
+不要偷懒！这只是开始。
+(She checks her cell phone as you write.)
+（她在你写的时候查看她的手机。）
+###_PLAYER
+(Write: "I'll be a good student.".)
+（写：“我会做个好学生。”。）
+###_NPC
+(She snaps her fingers.)  No cutting corners!  Write the full words.
+（她打了个响指。）不要偷工减料！写完整。
+###_PLAYER
+Are we done yet?
+我们这里够了吗？
+###_NPC
+Don't make me laugh, you're barely begun.  Get writing girl!
+别逗我笑，你才刚刚开始。继续写，女孩！
+Keep it up.
+继续。
+###_PLAYER
+(Write: "I'll be the best student.".)
+（写：“我会做最好的学生。”。）
+###_NPC
+Nice try, but the best students don't end up in here.
+不错的尝试，但最好的学生不会来这里的。
+(She yawns and looks at the clock.)
+（她打了个哈欠，看看表。）
+###_PLAYER
+(Write: "I will be a good slut.".)
+（写：“我会成为一个好荡妇。”）
+###_NPC
+(She laughs.)  I'm sure you already are.  But that's not what I asked for.
+（她笑了。）我相信你已经是了。但这不是我要你做的。
+(She barely watches you.)
+（她几乎不看你。）
+###_PLAYER
+(Check your phone.)
+（看看你的手机。）
+###_NPC
+Do I need to confiscate that phone?  Continue your task.
+需要我没收那个手机吗？继续你的任务。
+(She checks if her shoes are clean.)
+（她检查她的鞋子是否干净。）
+###_PLAYER
+(Draw a cartoon character.)
+（画一个卡通人物。）
+###_NPC
+(She gets mad.)  Erase that and write your phrase.
+（她变得生气。）把它擦掉，然后继续写你的句子。
+###_PLAYER
+(Draw a penis.)
+（画一个阴茎。）
+###_NPC
+My, my, my, aren't you a little slut?  Erase that and write your phrase, little slut.
+我的小可爱，你真是一个小荡妇啊？把这个擦掉，然后继续写你的句子，小荡妇。
+(She seems to think about something and barely watches you.)
+（她似乎在想什么，几乎没有看你。）
+###_PLAYER
+(Yawn loudly.)
+（大声打哈欠。）
+###_NPC
+This isn't a rollercoaster ride for me either.  Continue!
+这对我来说也很没意思。继续！
+Write faster girl.  We haven't got all day.
+写快点，女孩。我们可没有一整天的时间。
+###_PLAYER
+(Show her what's under your skirt.)
+（把你的裙底展示给她看看。）
+###_NPC
+(She watches closely as you raise your skirt and seems to like it.)  Focus girl.
+（她仔细地看着你掀起裙子，似乎很喜欢。）专心点，女孩。
+(She texts something on her phone.)
+（她在手机上发短信。）
+###_PLAYER
+Are we good now?  Is it enough?
+我们这里现在好了吗？够了吗？
+###_NPC
+No!  I'll tell you when it's enough.  Keep writing.
+不！我会告诉你什么时候够了。继续写。
+###_PLAYER
+This is stupid.
+这真蠢。
+###_NPC
+You're the one that was stupid enough to get in trouble.  Keep writing.
+你是那个蠢到惹麻烦的人。继续写。
+(She checks a window.)
+（她看了看窗户。）
+###_PLAYER
+I'll give you $20 if we forget this.
+我们忘记这个，然后我会给你$20。
+###_NPC
+You think you can bribe me?  Don't make me laugh.
+你以为你可以贿赂我？别逗我笑了。
+I miss the days when we rarely had anyone in detention.
+我很怀念这里几乎没人被留堂的日子。
+###_PLAYER
+(Wink at her.)
+（对她眨眼。）
+###_NPC
+(She winks back.)  You're a curious student, aren't you?  Keep writing.
+（她也对你眨眼。）你是个好奇的学生，对吧？继续写。
+###_PLAYER
+(Try to steal her key.)
+（试着偷走她的钥匙。）
+###_NPC
+(As she watches her cell phone, you steal her teacher lounge key from her desk.)
+（当她看手机时，你从她的桌子上偷走了她的教师休息室钥匙。）
+###_PLAYER
+(Write: "I will be a student good.".)
+（写：“我会成为一名学生好。”。）
+###_NPC
+Watch your phrase young lady.  Stay focused.
+看着点写，年轻的女士。保持专注。
+(She watches you write and scratches her back.)
+（她看着你写字，抓挠她的背。）
+(She checks her social network on her phone.)
+（她在手机上查看她的社交账号。）
+###_PLAYER
+(Wiggle your butt as you write.)
+（一边写，一边晃动屁股。）
+###_NPC
+(She snaps her fingers following your moves.)  Nice moves, but only your arm should move.
+（她随着你的动作打了个响指。）不错的动作，但你应该只有手臂在动。
+###_PLAYER
+(Do a loud fart as you write.)
+（写的时候放个屁。）
+###_NPC
+Shit!  That's disgusting.  Were you raised in a barn?
+靠！真恶心。你是在谷仓里长大的吗？
+(She cracks her knuckles.)
+（她捏响指关节。）
+###_PLAYER
+I think I would rather learn math.
+我想我宁愿学数学。
+###_NPC
+And I would rather go out shopping.  Keep that chalk moving.
+而我宁愿出去购物。继续写，让粉笔动起来。
+(She checks her nails.)
+（她看了看她的指甲。）
+###_PLAYER
+(Hum a metal song.)
+（哼一首金属歌曲。）
+###_NPC
+Nobody cares about your music, get back to work.
+没人关心你的音乐，继续写你的。
+###_PLAYER
+(Hum a sexy song.)
+（哼一首性感的歌曲。）
+###_NPC
+(She hums it with you and smiles.)
+（她和你一起哼唱并微笑。）
+###_PLAYER
+(Hum a pop song.)
+（哼一首流行歌曲。）
+###_NPC
+(She nods passively.)
+（她不经意地点起头。）
+###_PLAYER
+(Write: "This is pointless.".)
+（写：“这毫无意义。”。）
+###_NPC
+You know what's pointless?  Your fucking education.  Get serious girl.
+你知道什么是无意义的吗？你他妈的接受的教育。认真点，女孩。
+(She looks bored.)
+（她看起来很无聊。）
+###_PLAYER
+(Rub your breast against the chalkboard.)
+（用你的乳房摩擦黑板。）
+###_NPC
+(You rub your breast against the chalkboard as she smirks.)  You're a dirty girl, aren't you?  Don't erase anything with your jugs.
+（你用乳房摩擦黑板，她得意地笑起来。）你是个下贱的女孩，是把？别用你奶子擦掉任何东西。
+###_PLAYER
+(Write: "I will be a good student".)
+（写：“我会成为一个好学生”。）
+###_NPC
+Write everything girl.  Including punctuation.
+写完整，女孩。包括标点符号。
+(She counts the number you've done so far.)
+（她数了数你到目前为止完成的次数。）
+###_PLAYER
+(Write: "You will be a good teacher.".)
+（写：“你会成为一个好老师。”）
+###_NPC
+I don't know why you haven't got expelled yet.  You're a horrible student.
+我不知道你为什么还没有被开除。你是个糟透了的学生。
+Keep going.  There's more to do.
+继续。还有更多要写的。
+###_PLAYER
+Is it enough now?
+现在够了吗？
+###_NPC
+I'll tell you when it's enough.  Keep working.
+我会告诉你什么时候够了。继续吧。
+I hope you will remember that phrase.
+我希望你能记住这句话。
+###_PLAYER
+(Touch yourself while writing.)
+（写的时候摸摸自己。）
+###_NPC
+(She stays silent, but you can see that she also touches herself.)
+（她保持沉默，但你可以看到她也摸了摸自己。）
+(She checks her phone and barely checks on you.)
+（她看了看她的手机，几乎不看你。）
+###_PLAYER
+(Pick your nose.)
+（抠你的鼻子。）
+###_NPC
+Nobody thought you any good manners young lady?
+就没有人教你如何有礼貌吗，年轻的小姐？
+###_PLAYER
+(Sneeze silently.)
+（无声地打喷嚏。）
+###_NPC
+(She checks her phone and barely notices it.)
+（她看了看她的手机，几乎没有注意到它。）
+(She checks the ceiling and notices that one light is burned out.)
+（她看了看天花板，发现一盏灯烧坏了。）
+###_PLAYER
+(Break the chalk.)
+（弄断粉笔。）
+###_NPC
+Use the stub girl, you're too clumsy to get a new one.
+用断掉的粉笔头继续，女孩，你太笨了，别拿新的了。
+If only that board was true.
+要是那块黑板是真的就好了。
+###_PLAYER
+This is cruel and pointless!
+这又残忍又毫无意义！
+###_NPC
+You don't want to know what's cruel.  Keep going.
+你不会想知道什么是残酷的。继续。
+Keep going, you're slowly getting there.
+继续，你快完成了。
+###_PLAYER
+(Fart while writing.)
+（写的时候放个屁。）
+###_NPC
+This is disgusting, you need to stop the fast food.
+这太恶心了，你不能再吃快餐了。
+###_PLAYER
+(Queef while writing.)
+（写的时候用阴道吹气。）
+###_NPC
+(She notices and smirks.)  Got something stuck in there?  Keep going.
+（她注意到并得意地笑起来。）有什么东西卡在里面了吗？继续。
+(She seems to be thinking about something else.)
+（她似乎在想别的事情。）
+###_PLAYER
+(Yawn lightly.)
+（轻轻打哈欠。）
+###_NPC
+(She also yawns a little.)  Keep going.
+（她也打了个哈欠。）继续。
+You'll sleep later girl.  Keep going.
+你会很晚睡的，女孩。继续。
+So many empty phrases on that board over the years.
+这么多年来，这黑板上写下了太多的空话。
+###_PLAYER
+(Write: "Will you go out with me?".)
+（写：“你愿意和我出去玩吗？”。）
+###_NPC
+Is that a proposal?  (She laughs.)  You're sweet, but you're not done yet.
+这是在约我吗？（她笑了起来。）你很可爱，但你还没有写完。
+(She scratches her nose.)
+（她挠了挠鼻子。）
+###_PLAYER
+(Write: "I will be a good student x3.".)
+（写：“我会成为一个好学生 x3。”。）
+###_NPC
+Nice try, but you're not getting out of it that easily.
+不错的尝试，但你要做的可不会这么简单搞定。
+###_PLAYER
+(Check in her purse.)
+（检查她的钱包。）
+###_NPC
+(You swiftly check in her purse while she's looking away.  You find some sleeping pills that you keep for yourself.)
+（当她移开视线时，你迅速检查了她的钱包。你找到了一些你安眠药，并自己留了下来。）
+I don't know what's worse.  That, or correcting homework.
+我不知道还有什么更糟的。这个，或者批改作业。
+No!  Keep going, you're almost done.
+不！继续，你差不多完成了。
+###_PLAYER
+Is it the last one Miss?
+这是最后一个吗，女士？
+###_NPC
+Keep going girl, you're almost done.
+继续，女孩，你几乎完成了。
+Ok girl, that's enough.  I hope you learned your lesson.  You're good to go.
+好的，女孩，这就够了。我希望你吸取教训。你可以走了。
+###_PLAYER
+(Write: "Will you fuck with me?".)
+（写：“你会操我吗？”。）
+###_NPC
+That's enough girl.  It seems that nothing will teach you a lesson.  Just get out of here.
+够了，妹子。似乎没有什么可以给你上一课。直接离开这里。
+You can go girl.  I'm closing the room soon.  I hope you learned something.
+你可以走了，女孩。我要关上这间教室了。我希望你学到了一些东西。
+###_PLAYER
+I'm free?
+我自由了？
+###_NPC
+Yeah, I don't want to see you anymore.
+是的，我不想再见到你了。
+###_PLAYER
+Was that thirty?
+那是三十次吗？
+###_NPC
+I don't care.  I need to go and close the room soon.
+我不在乎。我得赶紧关上教室。
+###_PLAYER
+What are you doing later?
+待会你要做什么？
+###_NPC
+That's none of your business.  Now go.
+这跟你没关系。现在，快走吧。
+###_PLAYER
+(Leave her.)
+（离开她。）
+Restrained?  You can't do that!
+捆起来？你不能那样做！
+###_NPC
+Oh, hell yeah.  (She quickly grabs your arms and restrains you.)
+哦，该死的。（她迅速抓住你的手臂并绑住了你。）
+###_PLAYER
+Wait!  I'll be good.
+等待！我会好的。
+###_NPC
+Too late.  (She quickly grabs your arms and restrains you.)
+为时已晚。（她迅速抓住你的手臂并绑住了你。）
+Good girl.  (She grabs your arms and restrains you.)
+乖女孩。（她抓住你的手臂并绑住了你。）
+###_PLAYER
+This is too extreme!
+这也太过分了！
+###_NPC
+And let's make sure you don't run.
+让我们保证你跑不掉。
+###_PLAYER
+It hurts.
+好痛。
+(Stay silent.)
+（保持沉默。）
+Is that legal?
+那合法吗？
+###_NPC
+I don't fucking care.  (She silences you with a gag.)  Now you stay like that until I close the place.
+我他妈的不在乎。（她用口塞堵住你的嘴。）现在，你要保持这样，直到我要关闭教室为止。
+###_PLAYER
+Alright, you've made your point.
+好吧，你说的有道理。
+###_NPC
+Almost.  (She silences you with a gag.)  Now you stay like that until I close the place.
+有些道理。（她用口塞堵住你的嘴。）现在，你要保持这样，直到我要关闭教室为止。
+(She silences you with a gag.)  Now you stay like that until I close the place.
+（她用口塞堵住你的嘴。）现在，你要保持这样，直到我要关闭教室为止。
+###_PLAYER
+You cannot do that!
+你不能这样做！
+###_NPC
+(She laughs.)  It seems I've just did it.
+（她笑了起来。）看起来我已经做了。
+###_PLAYER
+Ok, that's enough.
+好的，这就够了。
+###_NPC
+I'll tell you when it's enough.  You need to wait young lady.
+我会告诉你什么时候叫够了。你需要等待，年轻的女士。
+###_PLAYER
+(Struggle and beg for help.)
+（挣扎着求救。）
+###_NPC
+(She checks the clock.)  No, your time isn't done yet.  Learn your lesson.
+（她看了看钟。）不，你的时间还没有结束。吸取教训吧。
+(She checks the clock and nods.)  Fine, your time is done.  (She releases you.)  I hope you've learned something.
+（她看了看钟，点点头。）好吧，你的时间到了。（她放开了你。）我希望你学到了教训。
+###_PLAYER
+(Wait patiently.)
+（耐心等待。）
+###_NPC
+(You both wait together as the clock turns very slowly.)
+（你们俩一起等待，时钟转动得很慢。）
+I'm closing the detention room soon.  You must go.
+我马上要关闭留堂教室了。你得走了。
+###_PLAYER
+I'm free to go?
+我可以走了吗？
+###_NPC
+Yeah, I'm closing the detention room really soon.
+是的，我马上要关闭留堂教室了。
+###_PLAYER
+I'm listening.
+我在听。
+###_NPC
+You're a naughty girl and I need some pussy.  I need to cum.  You catch my drift?
+你是个淘气女孩，而我需要一些阴户。我需要高潮。你明白我的意思吗？
+###_PLAYER
+What's your proposal?
+你有什么想法呢？
+I think we can help each other.
+我想我们可以互相帮助。
+###_NPC
+Great.  (She walks to the door and locks it.)  We don't have much time, get naked.
+太棒了。（她走到门前把门锁上。）我们没有多少时间，脱光衣服吧。
+###_PLAYER
+Anything to get out of here.
+只要能离开这里，什么都可以。
+No way!  This is immoral!
+没门！这不道德！
+###_NPC
+Fine, you'll spend your detention time restrained then.
+好吧，那你在留堂的时候会被绑起来。
+###_PLAYER
+Sorry, you're not my type.
+对不起，你不是我喜欢的类型。
+Alright!  (Strip naked.)
+好的！（脱光衣服。）
+###_NPC
+(You both get naked quickly as she watches the clock.)  Get busy little cunt.
+（她看了看时钟，你们俩很快就脱光了衣服。）忙碌起来吧，你这小穴。
+###_PLAYER
+Make it quick.  (Strip naked.)
+做快点。（脱光衣服。）
+I've changed my mind.
+我改变主意了。
+(Caress her hips.)
+（抚摸她的臀部。）
+###_NPC
+(She doesn't seem to appreciate much.)  Check the clock girl.
+（她似乎不太满意。）看看时间，女孩。
+###_PLAYER
+(Kiss her.)
+（亲她。）
+###_NPC
+(She pushes you back.)  We don't have time for that!  Get busy.
+（她把你往后推。）我们没时间了！快点。
+###_PLAYER
+(Fondle her breast.)
+（抚摸她的乳房。）
+###_NPC
+(She moans a little but checks the clock.)  We don't have much time.
+（她呻吟了一声，但看了看时钟。）我们没有多少时间了。
+###_PLAYER
+(Masturbate her.)
+（用手抚慰她。）
+###_NPC
+(She moans from the pleasure.)  Oh yeah, faster, harder!
+（她因快乐而呻吟。）哦，是的，快点，用点力！
+###_PLAYER
+(Spank her butt.)
+（打她的屁股。）
+###_NPC
+(She grumbles and points at the clock.)  That's the best you can do?
+（她咕哝着指了指时钟）你就只能做到这些？
+###_PLAYER
+(Eat her.)
+（用嘴抚慰她。）
+###_NPC
+(She screams from the intense pleasure.)  Oh, fuck yeah!  Keep going!
+（她因强烈的快感而尖叫。）哦，操，是的！继续！
+###_PLAYER
+(Slap her face.)
+（扇她的脸。）
+###_NPC
+(She stunned by your slap for a second but recovers.)  I want to cum girl!  C, U, M!
+（她被你的一巴掌惊呆了一会儿，但又恢复了过来。）我想高潮，女孩！高——潮——！
+###_PLAYER
+(Fist her.)
+（用拳头抚慰她。）
+###_NPC
+(She moans from the pleasure and the pain.)  You're a real whore!  Keep it up.
+（她因快乐和痛苦而呻吟。）你真是个婊子！继续。
+###_PLAYER
+Is it my turn?
+轮到我了吗？
+###_NPC
+There's not enough time, but we need to see each other again.  (You both dress back up.)
+时间不够了，但我们需要再见一见。（你们俩都穿好衣服。）
+###_PLAYER
+I'm glad you enjoyed it.
+我很高兴你喜欢它。
+###_NPC
+Oh yeah, we need to see each other again.  (You both dress back up.)
+哦，是的，我们需要再见一见。（你们俩都穿好衣服。）
+###_PLAYER
+That was great.
+那很棒。
+###_NPC
+Absolutely, we need to see each other again.  (You both dress back up.)
+当然，我们需要再见一见。 （你们俩都穿好衣服。）
+###_PLAYER
+I know a place where we could meet.
+我知道一个我们可以见面的地方。
+###_NPC
+Really?  Where could we go?
+真的吗？我们可以去哪里？
+###_PLAYER
+We'll meet when I go back to detention.
+当我回到留堂教室的时候，我们会见面的。
+###_NPC
+Alright.  Get out then, I need to close the room.
+好吧。那快走吧，我需要关上教室了。
+###_PLAYER
+I don't want to see you again.
+我不想再见到你。
+###_NPC
+(She snobs you.)  Fine, get out then.  I need to close the room anyway.
+（她嘲弄你。）好吧，那快出去。不管怎样，我需要关上教室了。
+###_PLAYER
+No goodbye kisses?
+没有告别的吻吗？
+###_NPC
+Don't think you're funny young lady.
+别觉得你很有趣，年轻的女士。
+###_PLAYER
+It's a club downtown.
+是市中心的一个俱乐部。
+###_NPC
+I'm in, just give me the address and I'll meet you there later.
+我会去的，给我地址，我稍后会在那里见你。
+###_PLAYER
+(Invite her to your private room.)
+（邀请她到你的私人房间。）
+You're frigid bitch.
+你是个冷酷的婊子。
+###_NPC
+Go to hell girl.  (You both dress back up.)  Get out before I kick your ass.
+下地狱吧，女孩。（你们都穿好衣服。）在我踢你之前，快滚。
+###_PLAYER
+We barely begun!
+我们才刚刚开始！
+###_NPC
+I know girl.  (You both dress back up.)  You're not good enough, now get out.
+我知道，女孩。（你们俩都穿好衣服。）你还不够好，现在快走。
+###_PLAYER
+That was too quick.
+那太快了。
+Do we dress back up?
+我们要穿回衣服吗？
+###_NPC
+We do.  (You both dress back up.)  You're not good enough, now get out.
+我们当然要。（你们俩都穿好衣服。）你还不够好，现在快走。
+###_PLAYER
+That's it?  I can go?
+就这了吗？我可以走了？

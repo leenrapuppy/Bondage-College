@@ -1,0 +1,42 @@
+Magic Battle
+Магическая битва
+Select your spell.
+Выберите свое заклинание.
+You are victorious.
+Вы победили.
+You were defeated.
+Вы потерпели поражение.
+End the battle.
+Конец битвы.
+Pallium Exuere
+Паллиум Экзюэр
+Animatus Funem
+Аниматус Фунем
+Funem Tensis
+Фунем Тенсис
+Oratio Angustos
+Орацио Ангустос
+Animatus Ferrum
+Аниматус Феррум
+Ferrum Tensis
+Феррум Тенсис
+Nuda Caro
+Нуда Каро
+Stricta Lorum
+Стрикта Лорум
+Cloth Stripping
+Раздевание одежды
+Animate Rope
+Анимированная веревка
+Rope Tightening
+Затяжка веревки
+Block Speech
+Блокировать речь
+Animate Chain
+Анимированная цепочка
+Chain Tightening
+Затяжка цепи
+Full Stripping
+Полное раздевание
+Magic Armbinder
+Волшебный армбиндер

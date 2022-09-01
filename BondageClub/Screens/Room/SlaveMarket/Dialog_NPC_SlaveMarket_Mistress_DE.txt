@@ -54,7 +54,7 @@ Wir müssen erst diese hier verkaufen. Du kannst gerne abwarten, bis die nächst
 ###_PLAYER
 I need to go.  (Leave her.)
 Ich muss weg. (Dialog beenden.)
-How does the market works?
+How does the market work?
 Wie funktioniert der Markt?
 ###_NPC
 Owners can sell their own slaves or free submissives can sell themselves for profit.  They get sold through an auction.
@@ -113,7 +113,7 @@ Ja, sie wird heute versteigert. Du kannst für sie bieten, wenn du willst, solan
 Why doesn't she talk with me?
 Warum spricht sie nicht mit mir?
 ###_NPC
-I run the auction, not her.  Don't speak with the merchandize.
+I run the auction, not her.  Don't speak with the merchandise.
 Ich leite die Auktion, nicht sie. Unterhalte dich nicht mit der Ware.
 ###_PLAYER
 What if I buy her?

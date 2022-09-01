@@ -157,18 +157,6 @@ function DrawGetImageOnError(Img, IsAsset) {
 	}
 }
 
-
-/**
- * Gets the alpha of a screen flash. append to a color like "#111111" + DrawGetScreenFlash(FlashTime)
- * @param {number} FlashTime - Time remaining as part of the screen flash
- * @returns {string} - alpha of screen flash
- */
-function DrawGetScreenFlash(FlashTime) {
-	let alpha = Math.max(0, Math.min(255, Math.floor(ChatRoomPinkFlashAlphaStrength * (1 - Math.exp(-FlashTime/2500))))).toString(16);
-	if (alpha.length < 2) alpha = "0" + alpha;
-	return alpha;
-}
-
 /**
  * Draws the glow under the arousal meter under the screen
  * @param {number} X - Position of the meter on the X axis
@@ -433,7 +421,7 @@ function DrawAssetGroupZone(C, Zone, Zoom, X, Y, HeightRatio, Color, Thickness =
 /**
  * Return a semi-transparent copy of a canvas
  * @param {HTMLCanvasElement} Canvas - source
- * @param {number} Alpha - transparency between 0-1
+ * @param {number} [Alpha] - transparency between 0-1
  * @returns {HTMLCanvasElement} - result
  */
 function DrawAlpha(Canvas, Alpha) {
@@ -495,7 +483,7 @@ function DrawImageResize(Source, X, Y, Width, Height) {
  * @param {CanvasRenderingContext2D} Canvas - Canvas on which to draw the image
  * @param {number} X - Position of the image on the X axis
  * @param {number} Y - Position of the image on the Y axis
- * @param {number[][]} [AlphaMasks] - A list of alpha masks to apply to the asset
+ * @param {RectTuple[]} [AlphaMasks] - A list of alpha masks to apply to the asset
  * @param {number} [Opacity=1] - The opacity at which to draw the image
  * @param {boolean} [Rotate=false] - If the image should be rotated by 180 degrees
  * @returns {boolean} - whether the image was complete or not
@@ -536,7 +524,7 @@ function DrawImageCanvas(Source, Canvas, X, Y, AlphaMasks, Opacity, Rotate) {
  * @param {CanvasRenderingContext2D} Canvas - Canvas on which to draw the image
  * @param {number} X - Position of the image on the X axis
  * @param {number} Y - Position of the image on the Y axis
- * @param {number[][]} AlphaMasks - A list of alpha masks to apply to the asset
+ * @param {RectTuple[]} AlphaMasks - A list of alpha masks to apply to the asset
  * @returns {boolean} - whether the image was complete or not
  */
 function DrawCanvas(Img, Canvas, X, Y, AlphaMasks) {
@@ -601,7 +589,7 @@ function DrawImage(Source, X, Y, Invert) {
  * @param {number} Zoom - Zoom factor
  * @param {string} HexColor - Color of the image to draw
  * @param {boolean} FullAlpha - Whether or not it is drawn in full alpha mode
- * @param {number[][]} AlphaMasks - A list of alpha masks to apply to the asset
+ * @param {RectTuple[]} [AlphaMasks] - A list of alpha masks to apply to the asset
  * @param {number} [Opacity=1] - The opacity at which to draw the image
  * @param {boolean} [Rotate=false] - If the image should be rotated by 180 degrees
  * @returns {boolean} - whether the image was complete or not
@@ -1289,11 +1277,42 @@ function DrawGetCustomBackground() {
 	return customBG;
 }
 
+/**
+ * Perform a global screen flash effect when a blindfold gets removed
+ * @param {number} intensity - The player's blind level before the removal
+ * TODO: that should be merged with DrawScreenFlash somehow
+ */
 function DrawBlindFlash(intensity) {
 	DrawingBlindFlashTimer = CurrentTime + 2000 * intensity;
 	BlindFlash = true;
 }
 
+var DrawScreenFlashTime = 0;
+var DrawScreenFlashColor = null;
+var DrawScreenFlashStrength = 140;
+
+/**
+ * Perform a global screen flash effect
+ * @param {string} Color - The color to use
+ * @param {number} Duration - How long should the flash effect be applied, in ms
+ * @param {number} Intensity - How important is the effect visually
+ */
+function DrawFlashScreen(Color, Duration, Intensity) {
+	DrawScreenFlashTime = CommonTime() + Duration;
+	DrawScreenFlashColor = Color;
+	DrawScreenFlashStrength = Intensity;
+}
+
+/**
+ * Gets the alpha of a screen flash. append to a color like "#111111" + DrawGetScreenFlash(FlashTime)
+ * @param {number} FlashTime - Time remaining as part of the screen flash
+ * @returns {string} - alpha of screen flash
+ */
+function DrawGetScreenFlashAlpha(FlashTime) {
+	let alpha = Math.max(0, Math.min(255, Math.floor(DrawScreenFlashStrength * (1 - Math.exp(-FlashTime/2500))))).toString(16);
+	if (alpha.length < 2) alpha = "0" + alpha;
+	return alpha;
+}
 
 /**
  * Constantly looping draw process. Draws beeps, handles the screen size, handles the current blindfold state and draws the current screen.
@@ -1351,6 +1370,9 @@ function DrawProcess(time) {
 	if (CurrentCharacter != null) DialogDraw();
 	else CurrentScreenFunctions.Run(time);
 
+	// Handle screen flash effects
+	DrawProcessScreenFlash();
+
 	// Draw Hovering text so they can be above everything else
 	DrawProcessHoverElements();
 
@@ -1378,6 +1400,26 @@ function DrawProcess(time) {
 }
 
 /**
+ * Handles drawing the screen flash effects
+ * @returns {void}
+ */
+function DrawProcessScreenFlash() {
+	if (BlindFlash == true && CurrentTime < DrawingBlindFlashTimer) {
+		if (Player.GetBlindLevel() == 0) {
+			let FlashTime = DrawingBlindFlashTimer - CurrentTime;
+			DrawRect(0, 0, 2000, 1000, "#ffffff" + DrawGetScreenFlashAlpha(FlashTime/Math.max(1, 4 - DrawLastDarkFactor)));
+		}
+	}
+
+	if ((Player.ImmersionSettings != null && Player.GraphicsSettings != null) && (Player.ImmersionSettings.StimulationEvents && Player.GraphicsSettings.StimulationFlash) && DrawScreenFlashTime > CommonTime()) {
+		// DrawScreenFlashTime is the end of the flash. The flash is brighter based on the distance to the end.
+		let FlashTime = DrawScreenFlashTime - CommonTime();
+		let PinkFlashAlpha = DrawGetScreenFlashAlpha(FlashTime);
+		DrawRect(0, 0, 2000, 1000, DrawScreenFlashColor + PinkFlashAlpha);
+	}
+}
+
+/**
  * Draws every element that is considered a "hover" element such has button tooltips.
  * @returns {void} - Nothing
  */
@@ -1402,16 +1444,18 @@ function DrawProcessHoverElements() {
  * @param {boolean} [Options.Hover] - Whether or not the button should enable hover behavior (background color change)
  * @param {string} [Options.HoverBackground] - The background color that should be used on mouse hover, if any
  * @param {boolean} [Options.Disabled] - Whether or not the element is disabled (prevents hover functionality)
- * @param {string[]} [Options.Icons] - A list of small icons to display in the top-left corner
+ * @param {InventoryIcon[]} [Options.Icons] - A list of small icons to display in the top-left corner
+ * @param {object} [Options.Craft] - The crafted properties of the item
  * @returns {void} - Nothing
  */
 function DrawAssetPreview(X, Y, A, Options) {
-	let { C, Description, Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons} = (Options || {});
+	let { C, Description, Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons, Craft} = (Options || {});
 	const DynamicPreviewImage = C ? A.DynamicPreviewImage(C) : "";
 	const Path = `${AssetGetPreviewPath(A)}/${A.Name}${DynamicPreviewImage}.png`;
+	if ((Description == null) && (Craft != null) && (Craft.Name != null) && (Craft.Name != "")) Description = Craft.Name;
 	if (Description == null) Description = C ? A.DynamicDescription(C) : A.Description;
-	DrawPreviewBox(X, Y, Path, Description, { Background, Foreground, Vibrating, Border, Hover,
-		HoverBackground, Disabled, Icons });
+	DrawPreviewBox(X, Y, Path, Description, { Background, Foreground, Vibrating, Border, Hover, HoverBackground, Disabled, Icons });
+	if ((Craft != null) && (Craft.Lock != null) && (Craft.Lock != "")) DrawImageResize("Assets/" + Player.AssetFamily + "/ItemMisc/Preview/" + Craft.Lock + ".png", X + 150, Y + 150, 75, 75);
 }
 
 /**
@@ -1428,7 +1472,7 @@ function DrawAssetPreview(X, Y, A, Options) {
  * @param {boolean} [Options.Hover] - Whether or not the button should enable hover behavior (background color change)
  * @param {string} [Options.HoverBackground] - The background color that should be used on mouse hover, if any
  * @param {boolean} [Options.Disabled] - Whether or not the element is disabled (prevents hover functionality)
- * @param {string[]} [Options.Icons] - A list of images to draw in the top-left of the preview box
+ * @param {InventoryIcon[]} [Options.Icons] - A list of images to draw in the top-left of the preview box
  * @returns {void} - Nothing
  */
 function DrawPreviewBox(X, Y, Path, Description, Options) {
@@ -1450,7 +1494,7 @@ function DrawPreviewBox(X, Y, Path, Description, Options) {
 
 /**
  * Draws a list of small icons over a preview box
- * @param {string[]} icons - An array of icon names
+ * @param {InventoryIcon[]} icons - An array of icon names
  * @param {number} X - The X co-ordinate to start drawing from
  * @param {number} Y - The Y co-ordinate to start drawing from
  * @returns {void} - Nothing

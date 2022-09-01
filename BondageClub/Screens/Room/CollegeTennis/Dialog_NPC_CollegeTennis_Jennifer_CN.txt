@@ -1,0 +1,252 @@
+###_NPC
+(She laughs.)  If you play tennis like that, I'll keep the score.
+（她笑起来。）如果你那样打网球，那由我来记分吧。
+(She catches her breath.)  Good game!  Do you want a rematch?  I know I can do better.
+（她调整呼吸。）精彩的比赛！你想再来一场吗？我知道我可以做得更好。
+(She looks happy.)  Good game!  But you need some practice.  We can play again if you want.
+（她看起来很开心。）精彩的比赛！但是你需要一些练习。如果你愿意，我们可以再玩一次。
+It's nice to see you DialogPlayerName.  Would you like to play tennis with me?
+很高兴见到你，DialogPlayerName。你愿意和我一起打网球吗？
+Darling!  (She gives you a loving kiss on the lips.)  Would you like to play tennis with me?
+亲爱的！（她给了你一个充满爱意的吻。）你愿意和我一起打网球吗？
+Oh, it's you DialogPlayerName.  (She sighs, seeming a little heartbroken.)  Are you here to play tennis?
+哦，是你DialogPlayerName。（她叹了口气，似乎有点伤心。）你是来打网球的吗？
+(She bows respectfully.)  It's wonderful to see you Mentor.  Would you like to play tennis with me?
+（她恭敬地鞠躬。）很高兴见到你，导师。你愿意和我一起打网球吗？
+(She smirks.)  My little protege is here!  Are you here to get trained at tennis?
+（她假笑。）我的小弟子来了！你是来接受网球训练的吗？
+(She frowns.)  Hello my ex-protege.  Are you here to play some tennis?
+（她皱起眉头。）你好，我的前弟子。你是来打网球的吗？
+Hello there.  Would you like to play tennis with me?
+你好呀。你愿意和我一起打网球吗？
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm Jennifer, pleased to meet you.  I study and live here at the college.
+我是Jennifer，很高兴认识你。我在这所大学学习和生活。
+###_PLAYER
+How have you been?
+你最近怎么样？
+###_NPC
+(She shrugs.)  Not too bad, I guess.  Nothing exciting is going on right now.
+（她耸了耸肩。）我想还不错。现在没有什么令人兴奋的事情发生。
+###_PLAYER
+You're playing alone?
+你一个人玩？
+###_NPC
+(She sighs.)  Yeah, I'm practicing alone today.
+（她叹了口气。）是的，我今天一个人练习。
+###_PLAYER
+How do tennis points work?
+网球是如何计分的？
+###_NPC
+The first point is 15, second is 30 and third is 40.  You win if you score after 40.  There's a tie breaker if we are both at 40.
+一个球是15分，二个球是30分，三个球是40分。如果你在40分之后得分，你就赢了。如果我们都在40分，那就会开始决胜。
+###_PLAYER
+We could play a tennis game.
+我们可以打一场网球。
+###_NPC
+Alright!  It's time for some sport.  (She starts to warm up.)
+好吧！是时候进行一些运动了。（她开始热身。）
+###_PLAYER
+My love, I've found a wonderful club.
+亲爱的，我找到了一家很棒的俱乐部。
+###_NPC
+A club darling?  What kind of club?
+亲爱的，一个俱乐部？什么样的俱乐部？
+###_PLAYER
+Mentor, I've found a wonderful club.
+导师，我找到了一个很棒的俱乐部。
+###_NPC
+A club my protege?  What kind of club?
+我的弟子，一个俱乐部？什么样的俱乐部？
+###_PLAYER
+My girl, I've found a wonderful club.
+我的女孩，我找到了一个很棒的俱乐部。
+###_NPC
+A club Mentor?  What kind of club?
+导师，一个俱乐部？什么样的俱乐部？
+###_PLAYER
+I need to go.  (Leave her.)
+我得走了。（离开她。）
+An easy game ok?  (Play tennis.)
+来场轻松的比赛好吗？（打网球。）
+A game for honor?  (Play tennis.)
+一场为了荣誉的比赛？（打网球。）
+You'll bite the dust.  (Play tennis.)
+败者食尘。（打网球。）
+Maybe we can play later.
+也许我们能以后再玩。
+###_NPC
+Of course.  You can come back whenever you want.
+当然。你可以随时回来。
+###_PLAYER
+It's called the Bondage Club.
+那里叫做束缚俱乐部。
+###_NPC
+(She giggles.)  I've heard of it.  It's an adult club downtown?
+（她咯咯地笑起来。）我听说过。这是市中心的成人俱乐部？
+###_PLAYER
+Its a BDSM club.
+那是一个BDSM俱乐部。
+###_NPC
+Oh yes, I've heard of the adult club downtown.
+哦，是的，我听说过，那个市中心的成人俱乐部。
+###_PLAYER
+You should come there with me.
+你应该和我一起去。
+###_NPC
+(She looks intrigued.)  Sure, I'm curious to see your club.  Should we go there now?
+（她看起来很感兴趣。）当然，我很想看看你的俱乐部。我们要现在就去那里吗？
+###_PLAYER
+One day I will show you.
+将来我会带你去的。
+###_NPC
+Thanks, I'm curious now.  I'm not sure this is a place for me though.  Invite me over if you have room for me.
+谢谢，我现在很好奇。我不确定这是否适合我。如果你有房间的话，邀请我过去吧。
+###_PLAYER
+Let's go now!  (Bring her to your room.)
+现在走吧！（把她带到你的房间。）
+Not now.
+不是现在。
+###_NPC
+Very well.  Would you like to play tennis with me?
+很好。你愿意和我一起打网球吗？
+###_PLAYER
+Another match?  Sure!
+再来一场比赛？当然！
+###_NPC
+That's the spirit!  I'm glad you still have some energy left.
+就是这样！我很高兴你还有一些精力。
+###_PLAYER
+That was a great game.
+那是一场精彩的比赛。
+###_NPC
+(She smiles.)  Yes!  I love a good challenge.  Winning or losing isn't very important.
+（她露出微笑。）是的！我喜欢好的挑战。输赢并不是很重要。
+###_PLAYER
+I love your attitude.
+我喜欢你的态度。
+###_NPC
+Thanks a lot!  I'm glad you came to the court today.
+非常感谢！我很高兴你今天来到网球场。
+###_PLAYER
+You won't win with that attitude.
+以这种态度，你不会取胜的。
+###_NPC
+(She sighs.)  Yes, maybe you're right.  Let's talk about something else.
+（她叹了口气。）是的，也许你是对的。我们谈些别的吧。
+###_PLAYER
+I need to go though.
+不过我得走了。
+###_NPC
+(She nods.)  Alright.  Come back whenever you want.
+（她点头。）好吧。随时回来。
+###_PLAYER
+We could become friends.
+我们可以成为朋友。
+###_NPC
+(She seems very excited.)  Wow!  I'd love to have a fr...  I mean...  I'd love to be your friend.
+（她似乎很兴奋。）哇！我很想有个朋友……我的意思是……我很想成为你的朋友。
+###_PLAYER
+Alright friend!
+好的，朋友！
+###_NPC
+You're so nice.  Do you live near the campus?
+你真好。你住在校园附近吗？
+###_PLAYER
+Another game my friend?
+再来一局，我的朋友？
+###_NPC
+(She nods happily.)  Absolutely!  I want my revenge.
+（她高兴地点点头。）当然！我要报仇。
+###_PLAYER
+I live out of town.
+我住在城外。
+###_NPC
+That's fine.  Would you like to play another match?
+没关系。你想再来一场比赛吗？
+###_PLAYER
+I live with my parents.
+我和我的父母住在一起。
+I own a place in a club.
+我在一个俱乐部有一个自己的地方。
+###_NPC
+In a club?  That's very special.  What kind of club?
+在俱乐部？这可很特别。什么样的俱乐部？
+###_PLAYER
+It's a sex club for adults.
+这是一个成人的性俱乐部。
+###_NPC
+(She looks baffled.)  Oh my!  Anyway.  Would you like to play another game?
+（她看起来很困惑。）哦，天哪！不论如何。你想再来一场吗？
+###_PLAYER
+It's hard to describe, would you like to see it?
+那很难形容，你想去看吗？
+###_NPC
+(She looks curious.)  Sure, should we go there right now?  You can tell me about it on the road.
+（她看起来很好奇。）当然，我们要现在就去那里吗？你可以在路上跟我讲讲。
+###_PLAYER
+It's a torture dungeon.
+那是一个充满酷刑的地牢。
+###_NPC
+(She looks shocked.)  Oh my!  Anyway.  Would you like to play another game?
+（她看起来很震惊。）哦，天哪！不论如何。你想再来一场吗？
+###_PLAYER
+Yes, I want my revenge.
+是的，我要报仇。
+No, that's enough.
+不，已经够了。
+###_NPC
+Very well.  We can play later if you want.
+很好。如果你愿意，我们可以稍后再玩。
+Hey!  Are you up for a tennis match against me?
+嘿！你准备和我比一比网球吗？
+I'm a student here.  Tennis is my favorite sport.  Do you want to play?
+我是这里的学生。网球是我最喜欢的运动。你想玩吗？
+###_PLAYER
+I'm DialogPlayerName.
+我是DialogPlayerName。
+###_NPC
+It's nice to meet you.  Do you want to play against me?
+很高兴认识你。你想和我比一场吗？
+No.  I'm waiting for a challenger.
+不，我在等待挑战者。
+Absolutely, have you played before?  I can go easy on you if you're a beginner.
+绝对的，你以前玩过吗？如果你是初学者，我可以对你轻松一点。
+###_PLAYER
+Please go easy.  (Play tennis.)
+那请对我轻松一点。（打网球。）
+Let's do a regular game.  (Play tennis.)
+我们来场常规的比赛吧。（打网球。）
+We can bet some money on the game.
+我们可以在比赛上赌一些钱。
+###_NPC
+Are you willing to bet $25 on the game?  The winner keeps everything.  I won't go easy on you.
+你愿意在比赛上赌$25吗？胜利者保留一切。我不会对你放水的。
+You're too poor for that.  Get $25 and we can bet it on a real tennis match.
+你太穷了。去弄到$25，我们就可以在真正的网球比赛上赌一场。
+Sure, let me know when you're ready.
+当然，准备好后告诉我。
+###_PLAYER
+Here's $25, you're going down.  (Play tennis.)
+这是$25，你要完了。（打网球。）
+Forget it.
+算了吧。
+###_NPC
+Chicken!
+胆小鬼！
+Perfect, this time I will crush you.
+完美，这一次我要粉碎你。
+Alright, you can come back to play anytime.
+好的，你可以随时回来玩。
+###_PLAYER
+I want my revenge!
+我要报仇！
+###_NPC
+That's the only way to get better.  Should I go easy on you?
+只有这样才能变得更好。我应该对你放水吗？
+###_PLAYER
+That's enough.
+够了。

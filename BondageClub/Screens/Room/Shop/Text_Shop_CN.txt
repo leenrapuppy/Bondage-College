@@ -1,7 +1,7 @@
 Can I interest you in anything else?
 还有别的什么感兴趣的吗？
-Select the item you want to buy.
-选择你想要购买的物品
+Select or search for an item to buy.
+选择或搜索一件要购买的物品。
 Select the item to sell it for half price.
 选择要以半价出售的物品
 There are no items to sell for this category.

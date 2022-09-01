@@ -1,15 +1,15 @@
 Enter your account & character information
 输入你的账号&角色信息
 Character name (letters & spaces)
-角色名(可包含英文字符和空格)
+角色名（英文字符和空格）
 Account name (letters & numbers)
-账号名(可包含英文字符和数字)
+账号名（英文字符和数字）
 Account password (letters & numbers)
-密码(可包含英文字符和数字)
+密码（英文字符和数字）
 Confirm password (letters & numbers)
-确认密码(可包含英文字符和数字)
+确认密码（英文字符和数字）
 Email (optional, to recover password)
-邮箱地址(可选,用于忘记密码)
+邮箱地址（可选，用于恢复密码）
 Create your account
 创建账号
 Your account already exists?
@@ -19,7 +19,7 @@ Login
 Creating your character...
 创建你的角色...
 Error:
-错误:
+错误：
 Invalid character, account name, password or email
 无效的角色名、账号名、密码或邮箱
 Both passwords do not match
@@ -27,7 +27,7 @@ Both passwords do not match
 Import Bondage College data
 导入紧缚学院数据
 Invalid server answer, it could be outdated.
-服务器返回错误,游戏版本是否有误?
+服务器返回错误,游戏版本是否有误？
 Your character name
 你的角色名
 
@@ -35,4 +35,4 @@ Your character name
 ### DEPRECATED LINES ###
 ########################
 Your character name, account name and password cannot be more than 20 characters long.
-你的角色名、账号名和密码不能超过20个字符.
+角色名、账号名和密码不能超过20个字符

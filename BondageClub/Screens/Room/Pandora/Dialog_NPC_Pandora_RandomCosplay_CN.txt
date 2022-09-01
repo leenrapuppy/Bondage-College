@@ -1,0 +1,197 @@
+###_NPC
+(She looks at your gag and makes a thumbs up.)
+（她看着你的口塞，竖起大拇指。）
+Hello cutie maid.  I hope you're not working too hard.
+你好，可爱的女仆。我希望你不要工作太辛苦。
+Hello Miss guard.  I trust everything is going smoothly.
+你好，警卫女士。我相信一切都很顺利。
+(She bows for you.)  It's a pleasure to meet you Miss Dominatrix.
+（她向你鞠躬。）很高兴见到你，女王女士。
+(She growls.)  Rawr!  You look good sis.
+（她咆哮起来。）嗷呜！你看起来真棒，姐妹。
+Hello lady, I think I've seen you before, are you in the cosplay club?
+你好女士，我想我以前见过你，你在cosplay俱乐部吗？
+Hello lady, you look familiar, you do cosplay?
+你好女士，你看起来很眼熟，你是玩cosplay的吗？
+Hello lady, are you new in the Box?
+你好女士，你是魔盒的新人吗？
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm DialogCharacterName.  I'm a member of the cosplay club here in the Box.
+我是DialogCharacterName。我是魔盒里cosplay俱乐部的成员。
+###_PLAYER
+Why are you costumed?
+你为什么穿着戏装？
+###_NPC
+I'm a member of the Cosplay Club, or CC.  We are a new club in the Box.
+我是cosplay俱乐部，简称cos部的成员。我们是魔盒里的一个新俱乐部。
+###_PLAYER
+Can I tie you up?
+我可以绑你吗？
+###_NPC
+(She blushes.)  Being restrained in a pet suit by a Dominatrix would be sweet.  But I have a club meeting very soon.
+（她脸上泛起红润。）被一位女王束缚在宠物服里，真好啊。但是我马上有个俱乐部会议。
+(She bows her head.)  I'm can't Miss Guard.  I have a club meeting very soon.
+（她低下头。）我不能，警卫女上司。我马上有个俱乐部会议。
+(She laughs at you.)  You're a kinky maid?  Sadly, I have a club meeting very soon.
+（她笑你。）你是个好色的女仆哦？可惜，我马上有个俱乐部会议。
+(She smiles at you.)  I can't sis!  I have a CC meeting soon.
+（她对你微笑）我不能，姐妹！我马上有个cos部会议。
+(She giggles.)  Sorry, I have a cosplay club meeting soon.
+（她咯咯地笑。）抱歉，我马上有个cosplay俱乐部会议。
+###_PLAYER
+Can you help me?
+你能帮助我吗？
+###_NPC
+Maybe, what are you looking for?
+可能哦，你在找什么东西？
+###_PLAYER
+I'll go get you a free drink.
+我去为你带一杯免费饮料来。
+###_NPC
+(You go get her a free drink and she smiles.)  Rawr!  You're a wonderful maid.
+（你给她带来一杯免费的饮料，她笑了。）嗷呜！你是个很棒的女仆。
+###_PLAYER
+Are you enjoying Pandora's Box?
+你喜欢潘多拉魔盒吗？
+###_NPC
+The Box is a nice place.  But what I really like is the cosplay club.
+魔盒是个好地方。但我真正喜欢的是cosplay俱乐部。
+###_PLAYER
+Can I cosplay with you?
+我可以和你一起cosplay吗？
+###_NPC
+Rawr!  I can't refuse a cosplay offer.  Strip down and I'll dress you to cosplay.
+嗷呜！我没办法拒绝cosplay的提议呀。脱衣服吧，我给你穿好cosplay。
+###_PLAYER
+I must go.  (Leave her.)
+我得走了。（离开她。）
+I'm looking for a girl.
+我在找一个女孩。
+###_NPC
+(You give some details on the girl you need to rescue, and she shrugs.)  I can't help you there.
+（你提供了一些关于你需要营救的女孩的细节，她耸了耸肩。）我帮不了你。
+(You give some details on the girl you need to kidnap, and she shrugs.)  I can't help you there.
+（你提供了一些你需要绑架的女孩的细节，她耸了耸肩。）我帮不了你。
+###_PLAYER
+I'm looking for an object.
+我正在寻找一件物品。
+###_NPC
+(You give some details on the object you need to retrieve, and she shrugs.)  I can't help you there.
+（你提供了一些关于你需要找到的物品的详细信息，她耸了耸肩。）我帮不了你。
+###_PLAYER
+I'm looking for paint cans.
+我在找油漆罐。
+###_NPC
+You found the right girl!  We have lots of paint at the cosplay club.
+你找对了女孩！我们cosplay俱乐部有很多油漆。
+###_PLAYER
+Forget it.
+忘了它吧。
+###_NPC
+Alright then.  Anything else?
+那好吧。还要别的需求吗？
+###_PLAYER
+Can I have some?
+可以给我一些吗？
+###_NPC
+You certainly can!  (She runs to her club and returns with many paint cans.)
+你当然可以！（她跑到她的俱乐部，带着许多油漆罐回来。）
+###_PLAYER
+Thanks!  (Take the cans.)
+谢谢！（拿走罐子。）
+###_NPC
+Rawr!  Use it well, have fun!  Anything else?
+嗷呜！好好利用哦，玩得开心！有别的事吗？
+###_PLAYER
+You do have a great cosplay club.
+你确实有很棒的cosplay俱乐部。
+###_NPC
+Rawr!  Well said.  Anything else?
+嗷呜！说得好。有别的事吗？
+###_PLAYER
+I know the best place for cosplay.
+我知道最适合cosplay的地方在哪儿。
+###_NPC
+Oh really?  Where do you go for cosplay?
+哦真的吗？你去哪里玩cosplay？
+###_PLAYER
+The Box isn't nice, it's great!
+魔盒可不是不错，而是棒极了！
+###_NPC
+(She giggles and nods.)
+（她笑着点点头。）
+###_PLAYER
+We can wait until Halloween.
+我们可以等到万圣节。
+###_NPC
+(She laughs at you.)  No way!  Rawr!  I do cosplay all year long.
+（她对你笑。）不可能！嗷呜！我一整年都在玩cosplay。
+###_PLAYER
+I think they have costumes at the supermarket.
+我想他们在超市有服装。
+###_NPC
+(She shakes her head no.)  That's not good enough for me.
+（她摇头，表示不。）这对我来说还不够好。
+###_PLAYER
+Have you heard of the Bondage Club?
+你听说过束缚俱乐部吗？
+###_NPC
+I've heard a little about it.  It's a good place to cosplay?
+我听说过一点。那里是cosplay的好地方吗？
+###_PLAYER
+I don't know.
+我不知道。
+###_NPC
+(She shakes her head no.)  Anything else?
+（她摇头，表示不。）有别的事吗？
+###_PLAYER
+The have the best cosplayers in town.
+那里有城里最好的cosplay玩家。
+###_NPC
+This is tempting!  Maybe I should go there someday.
+这很诱人！也许有一天我应该去那里。
+###_PLAYER
+Maybe the Box is better.
+也许魔盒更好。
+###_NPC
+(She shrugs.)  Yeah, probably.
+（她耸了耸肩。）是的，也许吧。
+###_PLAYER
+Yeah, go visit later.
+嗯，晚点去看看。
+###_NPC
+(She nods.)  Anything else?
+（她点头。）有别的事吗？
+###_PLAYER
+Would you like to go now?
+你现在想去吗？
+###_NPC
+(She thinks for a few seconds.)  Deal!  I'll skip the meeting and go right now.  (Your infiltration skill has increased.)
+（她想了几秒。）好！我不去开会了，现在就过去。 （你的渗透技能增加了。）
+I cannot do it now.  I have a meeting with the cosplay club.  Maybe another day.
+我现在做不到。我在cosplay俱乐部有个会。也许改天吧。
+###_PLAYER
+(Let her go to the Bondage Club.)
+（让她去束缚俱乐部。）
+(Give her a key to your private room.)
+（给她一把你私人房间的钥匙。）
+(Dress to cosplay.)
+（穿上cosplay。）
+###_NPC
+(She dresses you to cosplay and giggles.)  Rawr!  You're looking great sis.
+（她给你穿上cosplay，呵呵笑起来。）嗷呜！你看起来很棒，姐妹。
+###_PLAYER
+Thanks sis!
+谢谢姐妹！
+###_NPC
+(She makes a thumbs up.)  Anything else I can do?
+（她竖起大拇指。）还有什么需要我做的？
+###_PLAYER
+I don't like it.
+我不喜欢这个。
+###_NPC
+(She makes a thumbs down.)  I've tried my best.
+（她朝下伸出大拇指。）我已经尽力了。

@@ -1,0 +1,893 @@
+###_NPC
+(She laughs at you.)  Scream all you want.  Nobody is coming to help you.
+（她朝你笑起来。）你想叫就叫吧。没有人会来帮助你。
+(She sighs and surrender to you.)  Beaten by a prisoner, this is unbelievable.  What will you do now?
+（她叹了口气，向你投降。）被一个囚犯打败，这不可能。你现在要做什么？
+(She smirks.)  You thought you could defeat me?  No more breaks for you, and your bondage will be extra tight.
+（她刻意笑了笑。）你以为你能打败我？你没有休息了，而且你的束缚会更紧。
+(She sighs and reluctantly allows you to gag her.)
+（她叹了口气，不情愿地让你塞住她的嘴。）
+(She grumbles as you remove her gag.)  Are you finally coming back to your senses?
+（你摘下她的口塞，她嘟囔着。）你终于恢复了理智吗？
+(She seems angry as you push earplugs inside.)  How can I follow your orders now?
+（你把耳塞塞进去，她看起来很生气。）我现在如何听你的命令？
+(You pull the earplugs out.)  You're only adding more time to your sentence.
+（你拔出耳塞。）你只是给你的刑期加了些时间。
+(She struggles as you restrain her arms securely.)  You're breaking the law again.
+（当你牢牢地束缚住她的手臂时，她挣扎着。）你又触犯了法律。
+(You free her arms and she stretches.)  You're still under arrest.
+（你松开她的手臂，她伸展身体。）你依然被逮捕了。
+(She thrashes as you restrain her legs.)  You better carry me then!
+（当你束缚她的双腿时，她抖动着。）那你最好背着我走！
+(You release her legs.)  Justice will strike you down like a hammer.
+（你松开她的腿。）正义之锤会击倒你。
+(She grumbles as you restrain her feet.)  This will be reported in your trial.
+（你束缚她的脚，她嘟囔着。）这次记录会出现在对你的审判中。
+(You release her feet.)  Let's walk until you get caught.
+（你松开她的脚。）我们走着瞧，你会被抓住的。
+(She grumbles as you restrain her feet.)  How can I follow you now?
+（你束缚她的脚，她嘟囔着。）我现在如何跟着你？
+(She adjusts her neck to the new collar.)  Soon you will wear the Box collar.
+（她调整脖子适应新的项圈。）不久你就会戴上潘多拉魔盒的项圈。
+(You remove the collar from her neck.)  Too late, the crime has been done.
+（你取下她脖子上的项圈。）为时已晚，你已经犯下大罪。
+(She struggles to avoid the belt but you're able to strap it on her.)  Are you serious?
+（她挣扎着想避开带子，但你还是成功系到她身上。）你是认真的吗？
+(She sighs as you unlock the belt.)  Can you make up your mind?
+（当你解开带子时，她叹了口气。）你就不能做好决定吗？
+(She stays silent as you strap the device on her head.)
+（当你绑紧她头上的道具时，她保持沉默。）
+(You release her head as she nods rapidly.)  That's better, but you're still in trouble.
+（你解开她的头时，她迅速点头。）这好多了，但你仍然有麻烦。
+(You put the hood on her head as she goes silent.)
+（你把头套戴在她头上，她逐渐安静了下来。）
+(She grins as you remove the hood from her head.)  I will never get out of here.
+（当你从她头上取下头罩时，她咧嘴笑起来。）我永远不会离开这里。
+(You strap the item on her nose as she sighs.)  Is that a joke to you?
+（当她叹气时，你把那物品系在她的鼻子上。）这好笑吗？
+(She nods as you remove the device.)  Someday Pandora's Box will make you pay.
+（当你取下道具时，她点点头。）总有一天潘多拉魔盒会让你付出代价的。
+(You strap the harness on her torso.)  Causing more trouble will only extend your jail time.
+（你把束缚带系在她的躯干上。）制造更多麻烦只会延长你的监禁时间。
+(She stretches as you release her from the harness.)  You're only toying with me?
+（当你解开她身上的束缚带时，她伸展身体。）你只是在玩弄我？
+(She jumps as you slide the device inside.)  How dare you?  You're under arrest!
+（当你把道具滑进去时，她跳了起来。）你怎么敢？你被捕了！
+(She sighs as you remove the plug.)  Your butt will rot in jail.
+（当你拔掉塞子时，她叹了口气。）你的屁股会在监狱里腐烂。
+(She holds her breath as you use the item.)  Pandora's police won't be kind with you.
+（当你使用这件道具时，她屏住呼吸。）潘多拉的警察可不会好好对你。
+(She wiggles her breast slowly as you remove the device.)  Enjoy your freedom while it lasts.
+（当你取下这件道具时，她慢慢地摆动她的胸部。）尽情享受你的自由吧。
+(She whimpers as you use the device on her breast.)  Another violation to add to the list.
+（当你在她的胸部上使用这件道具时，她呜咽起来。）又一个要记录的违规行为。
+(She takes a deep breath and stays silent as you remove the device.)
+（当你移除设备时，她深呼吸并保持沉默。）
+(A guard steps inside and looks at you.)  Prisoner DialogPlayerName.  How come you're not restrained?  Anyway, I will take care of you today.
+（一个守卫走进来看着你。）囚犯DialogPlayerName。你为什么没有被束缚？不管了，今天我会照顾好你的。
+(A guard steps inside and looks at your bondage.)  Prisoner DialogPlayerName.  I see you are already bound.  I will take care of you today.
+（一个守卫走进来，看着你的束缚。）囚犯DialogPlayerName。我看到你已经被牢牢束缚了。今天我会照顾你的。
+###_PLAYER
+Who are you?
+你是谁？
+###_NPC
+I'm guard DialogCharacterName.  I keep the Box safe and our prisoners secure.
+我是守卫DialogCharacterName。我保证魔盒的安全，也保证我们的囚犯的安全。
+###_PLAYER
+Can you release me?
+你能放开我吗？
+###_NPC
+Don't be silly, you must do your time like everyone else.
+别傻了，你必须像其他人一样熬过你的牢狱时间。
+###_PLAYER
+Can I have something to eat?
+我可以吃点东西吗？
+###_NPC
+Do I look like a maid?  I'm not here to cook for you.
+我看起来像女仆吗？我不是来给你做饭的。
+###_PLAYER
+How will you take care of me?
+你会怎么照顾我？
+###_NPC
+I will come to check on you from time to time.  To make sure you're safely bound and you're not trying to escape.
+我会时不时过来看看你。以确保你被安全地束缚起来，并且你没有试图逃跑。
+###_PLAYER
+So, what's up?
+那么这是什么一回事？
+(Mumble in your gag.)
+（在口塞里咕哝着。）
+###_NPC
+Here you go.  (She removes your gag.)  Don't piss me off or that gag is coming back.
+干得好。（她摘下你的口塞）别惹我生气，不然我会把口塞塞回去。
+###_PLAYER
+(Leave her.)
+（离开她。）
+I'm not trying to escape.
+我没想逃跑。
+###_NPC
+I won't give you any chance to escape.  First thing first, I need to secure your restraints.  Don't give me a hard time.
+我不会给你任何逃跑的机会。首先，我需要确保你的束缚可靠。别让我难办。
+###_PLAYER
+Safely bound?
+安全地束缚？
+###_NPC
+You heard me right.  First thing first, I need to secure your restraints.  Don't give me a hard time.
+你没听错。首先，我需要确保你的束缚可靠。别让我难办。
+###_PLAYER
+I will easily escape.
+我会轻松逃脱的。
+###_NPC
+Trust me, you won't.  First thing first, I need to secure your restraints.  Don't give me a hard time.
+相信我，你不会的。首先，我需要确保你的束缚可靠。别让我难办。
+###_PLAYER
+(Listen to her.)
+（听着她。）
+###_NPC
+First thing first, I need to secure your restraints.  Don't give me a hard time.
+首先，我需要确保你的束缚可靠。别让我难办。
+###_PLAYER
+Can we negotiate?
+我们可以沟通一下吗？
+###_NPC
+No, we cannot.  (She uses many restraints on you and smiles.)  Are you comfy, prisoner?
+不，我们不可以。（她对你使用了许多束缚，然后微笑起来。）你舒服吗，囚犯？
+###_PLAYER
+Don't even try!  (Give her a hard time.)
+你敢试试！（让她很难办。）
+###_NPC
+(She grumbles, works hard, and uses all her restraints on you.)  There!  Are you comfy, prisoner?
+（她嘟囔着，费劲地折腾，并对你使用了她所有的束缚。）好了！你舒服吗，囚犯？
+###_PLAYER
+Very well Miss.  (Make it easy for her.)
+好的，女士。（让她轻松一点。）
+###_NPC
+Good girl.  (She smiles and uses a few restraints on you.)  Are you comfy, prisoner?
+乖女孩。（她微笑着对你用了一些束缚。）你舒服吗，囚犯？
+###_PLAYER
+(Stay silent.)
+（保持沉默。）
+###_NPC
+Very well.  I need to go.  Enjoy your struggling, I'll be back later.
+很好。我要走了。你享受挣扎吧，我稍后会回来。
+###_PLAYER
+(Nod yes.)
+（点头，表示同意。）
+###_NPC
+Excellent.  I need to go.  Enjoy your struggling, I'll be back later.
+很好。我要走了。你享受挣扎吧，我稍后会回来。
+###_PLAYER
+(Shake your head no.)
+（摇头，表示反对。）
+###_NPC
+Too bad.  I need to go.  Enjoy your struggling, I'll be back later.
+那可不妙。我要走了。你享受挣扎吧，我稍后会回来。
+###_PLAYER
+Wait!  You can't leave me here.
+等待！你不能把我留在这里。
+###_NPC
+I sure can.  (She starts to walk away.)
+我当然可以。（她开始走开。）
+###_PLAYER
+(Struggle in your bondage.)
+（在你的束缚中挣扎。）
+###_NPC
+You're so cute when you struggle.  (She starts to walk away.)
+你挣扎的时候非常可爱。（她开始走开。）
+You might have beaten me, but you're still a prisoner.
+你可能打败了我，但你仍然是个囚犯。
+###_PLAYER
+Who's the boss now?
+现在谁是老大？
+###_NPC
+(She grumbles and bows her head to you.)
+（她嘟囔着向你低下头。）
+###_PLAYER
+(Strip her naked.)
+（脱光她的衣服。）
+###_NPC
+(She seems furious as you strip her naked.)  One day you will pay for this.
+（当你脱光她的衣服时，她似乎很生气。）总有一天你会为此付出代价的。
+###_PLAYER
+(Wear her clothes.)
+（穿上她的衣服。）
+###_NPC
+(She shakes her head no, as you dress up as a guard.)  This town isn't big enough for you to hide from us.
+（当你打扮成警卫时，她摇头。）这镇子还不够大，不够你藏起来。
+What's your plan wise girl?
+你的计划是什么，聪明的女孩？
+###_PLAYER
+You will take my place as prisoner.
+你将代替我成为囚犯。
+###_NPC
+(She goes mad.)  No!  I'm a guard here!  Not a low life prisoner like you.
+（她狂怒起来。）不！我是这里的警卫！不是像你这样低等的囚犯。
+###_PLAYER
+I'm getting out.
+我要出去了。
+###_NPC
+(She shakes her head no.)  You can try, but you'll never make it.
+（她摇头。）你可以试试，但你永远不会成功。
+###_PLAYER
+(Escape from Pandora's Box.)
+（逃离潘多拉魔盒。）
+###_NPC
+(Disguised as a guard, you quickly escape from Pandora's Box before they uncover your plot.  Your infiltration skill has increased.)
+（你伪装成守卫，并在他们发现你的计划之前，迅速逃离潘多拉魔盒。你的潜入技能增加了。）
+###_PLAYER
+(Go back to the Bondage Club.)
+（回到束缚俱乐部。）
+Fine, I surrender.
+好吧，我投降。
+###_NPC
+I'll make sure you stay in that state.  (She restrains you really tight.)  Now will you be a good prisoner?
+我会保证你保持这种状态的。（她把你束缚得很紧。）现在你会做一个好囚犯吗？
+###_PLAYER
+There's no need to go crazy.
+没必要发疯。
+###_NPC
+You're the crazy one that started this fight.  (She restrains you really tight.)  Now will you be a good prisoner?
+你才是发起这场战斗的疯子。（她把你束缚得很紧。）现在你会做一个好囚犯吗？
+###_PLAYER
+You can't blame me for trying.
+你不能因为我试试就怪我。
+###_NPC
+I'll make sure you'll never try that again.  (She restrains you really tight.)  Now will you be a good prisoner?
+我会确保你不会再试一次。（她把你束缚得很紧。）现在你会做一个好囚犯吗？
+###_PLAYER
+(Grumble in your gag.)
+（在你的口塞里嘟囔。）
+###_NPC
+(She uses lots of new restraints on you.  Making your bondage really tight.)  Now will you be a good prisoner?
+（她对你使用了很多新的束缚。让你的束缚变得非常紧。）现在你会做一个好囚犯吗？
+Fine, we'll see about that.  I need to go.  I'll be back later to check on you.
+好吧，我们会知道的。我要走了。我稍后会回来检查你。
+(She sighs.)  Whatever!  I need to go.  I'll be back later to check on you.
+（她叹了口气。）随便！我要走了。我稍后会回来检查你。
+I'll take that as a yes.  I need to go.  I'll be back later to check on you.
+我把这当做同意了。我要走了。我稍后会回来检查你。
+###_PLAYER
+Can we talk some more?
+我们能多聊几句吗？
+###_NPC
+Shut up.  I'm going now.  (She starts to walk away.)
+闭嘴吧。我现在要走了。（她转身走开。）
+(She smirks and starts to walk away.)
+（她刻意地笑了笑，转身走开。）
+(Guard DialogCharacterName steps inside and looks at you.)  Prisoner DialogPlayerName, it's time to get you restrained again.
+（警卫DialogCharacterName走进来看着你。）囚犯DialogPlayerName，到再次束缚你的时候了。
+(Guard DialogCharacterName steps inside and looks at your bondage.)  Prisoner DialogPlayerName, it's time to change your bondage.
+（警卫DialogCharacterName走进来，看着你的束缚。）囚犯DialogPlayerName，到改变你的束缚的时候了。
+###_PLAYER
+Why restrain me again?
+为什么又要束缚我？
+###_NPC
+Don't argue prisoner, and don't give me any trouble while I restrain you.
+不要争论，囚犯，并且不要在我束缚你的时候给我添麻烦。
+###_PLAYER
+Fine, you can strap me up.
+好吧，你可以绑我。
+###_NPC
+(She nods.)  Don't give me any trouble while I restrain you.
+（她点点头。）在我束缚你的时候别给我添麻烦。
+###_PLAYER
+Wait!  Are you interested in money?
+等待！你对钱感兴趣吗？
+###_NPC
+(She ponders.)  I might.  Are you offering me a bribe to get a shorter sentence?
+（她沉思。）我可能会。你在试图贿赂我来缩短刑期吗？
+###_PLAYER
+(Mumble some words.)
+（咕哝几句。）
+###_NPC
+Fine, let me help you.  (She removes your gag.)  Don't worry, I have other gags for you.  It's time for new restraints.
+好吧，我帮你一下。（她取下你的口塞。）别担心，我还有其他的口塞给你。是时候用上新的束缚了。
+###_PLAYER
+(Try to shake your gag off.)
+（试着摆脱你的口塞。）
+###_NPC
+Calm down.  (She removes your gag.)  Try to scream and that gag will pop right back.  It's time for new restraints.
+冷静。（她取下你的口塞。）如果你试图尖叫，那口塞会立即塞回去。是时候用上新的束缚了。
+###_PLAYER
+No!  You won't restrain me again.
+不！你不能再束缚我了。
+###_NPC
+(She raises her fists.)  Girl!  Either you comply or get crushed.  Pick your poison.
+（她举起拳头。）女孩！你要么服从，要么被击垮。选一个死法吧。
+###_PLAYER
+(Fight her.)
+（与她战斗。）
+(Let her restrain you.)
+（让她束缚你。）
+###_NPC
+(She grabs you and uses all her items on you.  Restraining you tight.)  So, who's the boss around here?
+（她抓住你，把她所有的物品都用在你身上。紧紧地束缚住你。）那么，这里谁是老大？
+###_PLAYER
+(Thrash and give her a hard time.)
+（使劲挣扎，让她很难办。）
+###_NPC
+(She struggles to restrain you but finally uses all her items on you.)  So, who's the boss around here?
+（她费劲地束缚你，最后还是把她所有的物品都用在了你身上。）那么，这里谁是老大？
+###_PLAYER
+(Make it a little harder to restrain you.)
+（让她束缚你时稍微有点难。）
+###_NPC
+(She grumbles and restrains you with many of her items.)  So, who's the boss around here?
+（她嘟囔着，并用许多她的物品束缚你。）那么，这里谁是老大？
+(She smirks and restrains you with some of her items.)  So, who's the boss around here?
+（她刻意笑了笑，并用一些她的物品束缚你。）那么，这里谁是老大？
+###_PLAYER
+You're the boss.
+你是老大。
+###_NPC
+Damn right!  I'm leaving, prisoner DialogPlayerName.  I'll be back to check on you later.
+说的太对了！我要走了，囚犯DialogPlayerName。我稍后会回来检查你。
+###_PLAYER
+You'll never be my boss.
+你永远不会成为我的老大。
+###_NPC
+I'm already your boss.  I'm leaving, prisoner DialogPlayerName.  Enjoy your bondage.
+我已经是你的老大了。我要走了，囚犯DialogPlayerName。享受你的束缚。
+I'm leaving, prisoner DialogPlayerName.  Enjoy your bondage.
+我要走了，囚犯DialogPlayerName。享受你的束缚。
+I'm leaving, prisoner DialogPlayerName.  I'll be back to check on you later.
+我要走了，囚犯DialogPlayerName。我稍后会回来检查你。
+###_PLAYER
+Hold on.  Can we talk some more?
+稍等。我们能多聊几句吗？
+###_NPC
+Not now.  I'll be back later.  (She starts to walk away.)
+现在不行。我很快回来。（她转身走开。）
+Have fun struggling.  (She starts to walk away.)
+享受挣扎吧。（她转身走开。）
+###_PLAYER
+Here you go.  (Give her $5.)
+给你。（给她$5。）
+###_NPC
+(She smiles and takes the money.)  I'll lower your jail time a little, but you still need new restraints.
+（她微笑着接过钱。）我会减少你的监禁时间，但你仍然需要新的束缚。
+###_PLAYER
+Here you go.  (Give her $3.)
+给你。（给她$3。）
+Here you go.  (Give her $10.)
+给你。（给她$10。）
+Here you go.  (Give her $6.)
+给你。（给她$6。）
+Forget it.
+别想了。
+###_NPC
+(She sighs.)  It's time to get some fresh restraints on you then.
+（她叹了口气。）那么是时候给你一些新的约束了。
+(Guard DialogCharacterName steps inside and looks at you.)  Prisoner DialogPlayerName, since you're not restrained, let's get you naked.
+（警卫DialogCharacterName走进来看着你。）囚犯DialogPlayerName，既然你没有被束缚，那就让你赤身裸体吧。
+(Guard DialogCharacterName steps inside and looks at your bondage.)  Prisoner DialogPlayerName, it's time to strip you naked.
+（警卫DialogCharacterName走进来，看着你的束缚。）囚犯DialogPlayerName，是时候剥光你的衣服了。
+###_PLAYER
+No way!  It's cold in here.
+没门！这里面很冷的。
+###_NPC
+Don't complain prisoner, you're not in a position to negotiate.  I'll get you naked and bound.
+别抱怨，囚犯，你没有资格谈判。我会脱光你并束缚你。
+###_PLAYER
+Alright.  Strip me and get out.
+好吧。脱光我，然后快滚。
+###_NPC
+(She smirks.)  Be good and I'll get you naked and bound quickly.
+（她刻意地笑了笑。）乖，我会很快地脱光你的衣服，并把你绑起来的。
+###_PLAYER
+This is inhumane!
+这不人道！
+###_NPC
+You should have thought of that before you came here.  I'll get you naked and bound.
+你来这里之前就应该想到这一点。我会脱光你的衣服，并把你绑起来。
+Let me help you.  (She removes your gag and shakes her hands.)  Time to see some flesh!
+我来帮帮你。（她摘下你的口塞，甩了甩手。）是时候看看肉体了！
+###_PLAYER
+Try to strip me and I'll crush you!
+你敢脱我衣服，我就砸烂你！
+###_NPC
+(She raises her fists.)  Girl!  Either you strip willingly or get beat up.  I'm fine with both.
+（她举起拳头。）女孩！你要么心甘情愿地脱光衣服，要么被打一顿。我不介意两种都来。
+###_PLAYER
+(Let her strip you.)
+（让她脱掉你的衣服。）
+###_NPC
+(She strips you down and restrains you extra tight.)  Aren't you pretty?  You can thank me later.
+（她脱下你的衣服，把你束缚得更紧。）你真漂亮！稍后再感谢我吧。
+(She strips you down and restrains you with many items.)  Aren't you pretty?  You can thank me later.
+（她脱下你的衣服，用很多物品束缚你。）你真漂亮！稍后再感谢我吧。
+###_PLAYER
+(Help her to strip you.)
+（帮她剥你的衣服。）
+###_NPC
+(You strip down as she restrains you with some items.)  Aren't you pretty?  You can thank me later.
+（当她用一些东西束缚你时，你脱光衣服。）你真漂亮！稍后再感谢我吧。
+###_PLAYER
+(Give her a hard time.)
+（让她很难受。）
+###_NPC
+(She struggles to strip and restrain you firmly with lots of items.)  Aren't you pretty?  You can thank me later.
+（她费劲地脱掉你的衣服，用很多物品牢牢地束缚住你。）你真漂亮！稍后再感谢我吧。
+###_PLAYER
+You cannot leave me like that.
+你不能把我这样留在这里。
+###_NPC
+I can and I will.  Enjoy the cold air, I'll be back later.  (She starts to walk away.)
+我当然能。享受凉爽的空气吧，我稍后会回来。（她转身走开。）
+Enjoy the cold air, I'll be back later.  (She starts to walk away.)
+享受凉爽的空气吧，我稍后会回来。（她转身走开。）
+(Guard DialogCharacterName steps inside with chastity devices.)  Prisoner DialogPlayerName, you're going to be chaste.
+（警卫DialogCharacterName拿着贞操带走进来。）囚犯DialogPlayerName，你会被戴上贞操带。
+###_PLAYER
+Chaste?  Please!  This is too much.
+贞操带？别啊！这太过了。
+###_NPC
+You deserve it little spy.  (She picks the devices.)  Now don't move while I lock you up.
+你应得的，小间谍。（她拿起道具。）现在我要把你锁起来，不要动。
+###_PLAYER
+Do what you want, I'll never talk.
+随便你，我永远不会交代。
+###_NPC
+You'll talk someday, I'm patient.  (She picks the devices.)  Now don't move while I lock you up.
+总有一天你会交代的，我很有耐心。（她拿起道具。）现在我要把你锁起来，不要动。
+###_PLAYER
+I'll have my revenge someday.
+总有一天我会报仇的。
+###_NPC
+Don't make me laugh.  (She picks the devices.)  Now don't move while I lock you up.
+别逗了。（她拿起道具。）现在我要把你锁起来，不要动。
+That gag is perfect for you.  (She picks the devices.)  Now don't move while I lock you up.
+那个口塞很适合你。（她拿起道具。）现在我要把你锁起来，不要动。
+You're not getting out.  (She picks the devices.)  Now don't move while I lock you up.
+你出不去的。（她拿起道具。）现在我要把你锁起来，不要动。
+###_PLAYER
+(Nod slowly.)
+（慢慢点头。）
+###_NPC
+That's a good girl.  (She picks the devices.)  Now don't move while I lock you up.
+真个乖女孩。 （她拿起道具。）现在我要把你锁起来，不要动。
+###_PLAYER
+Try to touch me and I'll beat you up.
+你敢摸我，我就揍烂你。
+###_NPC
+(She raises her fists.)  This device is going on you girl, don't get me mad.
+（她举起拳头。）这个道具会用到你身上，女孩，别让我生气。
+###_PLAYER
+(Let her lock you up.)
+（让她把你锁起来。）
+###_NPC
+(She locks you up in chastity devices, using exclusive locks.)  All sealed up!  Your orgasms are mine now.
+（她把你锁在贞操道具里，并使用了专属锁。）全都封好了！你的高潮现在是我东西的了。
+###_PLAYER
+(Help her to lock you.)
+（帮助她锁上你。）
+###_NPC
+(She locks you up in chastity devices, using metal locks.)  All sealed up!  Your orgasms are mine now.
+（她把你锁在贞操道具里，并使用了金属锁。）全都封好了！你的高潮现在是我东西的了。
+(She locks you up in chastity devices, using intricate locks.)  All sealed up!  Your orgasms are mine now.
+（她把你锁在贞操道具里，并使用了复杂锁。）全都封好了！你的高潮现在是我东西的了。
+###_PLAYER
+What would you know about orgasms?
+你是不怎么懂高潮吧？
+###_NPC
+Aren't you smug?  I will enjoy seeing you beg for one on your knees.
+你在吹嘘自己？等你跪下乞求一次高潮的时候我会很享受的。
+###_PLAYER
+Are you happy now?
+现在你高兴了？
+###_NPC
+Not yet, I'll be happy when you beg me for freedom later.  (She starts to walk away.)
+还没，等你乞求自由的时候我就会高兴了。（她转身走开。）
+###_PLAYER
+(Struggle in the devices.)
+（在道具中挣扎。）
+###_NPC
+You'll beg me for freedom later.  (She starts to walk away.)
+等会儿你就会向我乞求自由了。（她转身走开。）
+(Guard DialogCharacterName steps inside with whips and paddles.)  Prisoner DialogPlayerName, your corporal punishment will begin.
+（警卫DialogCharacterName拿着鞭子和拍子走进去。）囚犯DialogPlayerName，接下来要体罚你了。
+###_PLAYER
+There's no need to go physical.
+没必要用体罚吧。
+###_NPC
+(She picks a weapon and grins.)  There's no need, but it will be fun.  Well, maybe not for you.  Get ready!
+（她拿起武器，咧嘴一笑。）的确没必要，但这会很有趣。嗯，也许对你是有需要的。做好准备吧！
+###_PLAYER
+Wait!  What are you talking about?
+等一下！你在说什么？
+###_NPC
+(She picks a weapon and grins.)  You're clueless, aren't you?  You will get beat up.  Get ready!
+（她拿起武器，咧嘴一笑）你还没弄清情况吧？你将被打烂。做好准备把！
+###_PLAYER
+This must be against the law.
+这一定是违法的。
+###_NPC
+(She picks a weapon and grins.)  I'm the law around here.  Your sentence is pain.  Get ready!
+（她拿起武器，咧嘴一笑。）我就是这里的法律。你的刑罚叫做痛苦。做好准备把！
+(She picks a weapon and grins.)  Scream if you can, it will be funnier for me.  Get ready!
+（她拿起武器，咧嘴一笑。）能叫就叫出来吧，对我来说这更有趣。做好准备把！
+(She picks a weapon and grins.)  Chew on that gag, it's going to hurt.  Get ready!
+（她拿起武器，咧嘴一笑。）咬紧口塞，接下来会很疼哦。做好准备把！
+(She picks a weapon and grins.)  You're enjoying this aren't you?  So am I.  Get ready!
+（她拿起武器，咧嘴一笑。）你很享受这个，不是吗？我也是。做好准备把！
+###_PLAYER
+I won't get beat up that easily.
+我不会那么容易被打败的。
+###_NPC
+(She raises her fists.)  Oh yeah?  You better surrender right now, or it will leave scars.
+（她举起拳头。）哦，是吗？你最好现在就投降，否则会留疤的。
+###_PLAYER
+(Surrender.)
+（投降。）
+###_NPC
+(She picks a weapon and grins.)  You talk tough, but let's see how you handle pain.  Get ready!
+（她拿了个武器，咧嘴一笑。）你嘴倒是挺硬，那么让我看看你怎么应付痛苦。做好准备！
+###_PLAYER
+No!  Please!  I'll be good!
+不！请放过我！我会很乖的！
+###_NPC
+(She hits you swiftly a few times and smiles.)  I'm not done yet.  Will you handle the pain?
+（她快速地打了你几下，微笑起来。）我还没完呢。你能承受这种痛苦吗？
+###_PLAYER
+You think you can scare me?
+你以为你能吓到我？
+###_NPC
+(She hits you painfully many times and smirks.)  It's far from over.  Will you handle the pain?
+（她凶狠地打了你很多次，然后刻意笑了笑。）这还远没有结束。你能承受这种痛苦吗？
+###_PLAYER
+I'm ready Miss.
+我准备好了，小姐。
+###_NPC
+(She hits you pretty good a few times and giggles.)  This is fun.  Will you handle the pain?
+（她用力打了你好几次，然后呵呵地笑。）真有趣。你能承受这种痛苦吗？
+###_PLAYER
+(Whimper and beg.)
+（呜咽乞求。）
+(Struggle madly.)
+（疯狂地挣扎。）
+(Brace for impact.)
+（准备承受打击。）
+Girl, give me pain.
+女孩，来点痛的。
+###_NPC
+(She hits you painfully many times and smirks.)  You're still standing?  Time for one last round then.
+（她凶狠地打了你很多次，然后刻意笑了笑。）你还能站着？那么是时候进行最后一轮了。
+###_PLAYER
+I will endure Miss.
+我能承受，女士。
+###_NPC
+(She hits you pretty good a few times and giggles.)  I'm sure you can take one last round.
+（她用力打了你好几次，然后呵呵地笑。）我保证你能承受最后这轮。
+###_PLAYER
+(Close your eyes.)
+（闭上眼睛。）
+###_NPC
+(She hits you swiftly a few times and smiles.)  Too bad I can't beat you all day.  One last round!
+（她快速地打了你几下，微笑起来。）可惜我不能整天都在打你。最后一轮了！
+###_PLAYER
+(Try to avoid her.)
+（尽量避开她。）
+(Cry from the pain.)
+（因疼痛而哭泣。）
+(Stand strong.)
+（站稳脚步。）
+Ok.  One last round.
+好的。最后一轮。
+###_NPC
+(She hits you swiftly a few times and smiles.)  All good things must end.  I hope you had as much fun as I did.  I need to go.
+（她快速地打了你几下，微笑起来。）好事总会结束。我希望你和我一样玩得开心。我要走了。
+###_PLAYER
+Already?  That was boring.
+已经到最后了？真无聊。
+###_NPC
+(She hits you painfully many times and smirks.)  Don't pretend you're tough.  I hope you had as much fun as I did.  I need to go.
+（她凶狠地打了你很多次，然后刻意笑了笑。）别强装坚强了。我希望你和我一样玩得开心。我要走了。
+###_PLAYER
+I'll try to endure it.
+我会努力忍受的。
+###_NPC
+(She hits you pretty good a few times and giggles.)  Was it that bad?  I hope you had as much fun as I did.  I need to go.
+（她用力打了你好几次，然后呵呵地笑。）有那么糟糕吗？我希望你和我一样玩得开心。我要走了。
+###_PLAYER
+(Pretend to faint.)
+（假装晕倒。）
+(Scream in your gag.)
+（在口塞里尖叫。）
+(Take long deep breaths.)
+（深呼吸。）
+You're a sadist!
+你是个虐待狂！
+###_NPC
+Thanks!  It's one of my many qualities.  I'll see you later.  (She starts to walk away.)
+谢谢！我就是这样的。一会儿见。（她转身走开。）
+That gag fits you so well, you can keep it.  See you later.  (She starts to walk away.)
+那个口塞很适合你，你可以留着它。一会儿见。（她转身走开。）
+(Guard DialogCharacterName comes with a leather bag.)  Prisoner DialogPlayerName, we need some information on the Bondage Club.
+（守卫DialogCharacterName带着一个皮包走进来。）囚犯DialogPlayerName，我们需要一些关于束缚俱乐部的信息。
+###_PLAYER
+You won't get any information from me.
+你不会从我这里得到任何信息。
+###_NPC
+(She picks a tickling item and smirks.)  I'll make a great deal with you: you talk, I'll shorten your sentence and I won't tickle you.
+（她拿起一个挠痒痒的道具，得意地笑了笑。）我跟你有个大买卖要做：你老实交代，我会缩短你的刑期，并且我不会挠你痒痒的。
+###_PLAYER
+What will you give me if I squeal?
+那我告密的话，你会给我什么？
+I don't know anything.
+我什么都不知道。
+###_NPC
+(She removes your gag and picks a tickling item.)  I'll make a great deal with you: you talk, I'll shorten your sentence and I won't tickle you.
+（她摘下你的口塞，挑了一个挠痒痒的道具。）我跟你有个大买卖要做：你老实交代，我会缩短你的刑期，并且我不会挠你痒痒的。
+###_PLAYER
+No deal!
+没有成交！
+###_NPC
+Very well.  (She grins and starts to tickle you without mercy.)  You will talk sooner or later.
+很好。（她咧嘴一笑，毫不留情地开始挠你痒。）你迟早会交代的。
+###_PLAYER
+Wait!  I have a better bargain.
+等待！我出更好的价。
+###_NPC
+I'm not here to negotiate.  (She starts to tickle you playfully.)  You will talk sooner or later.
+我不是来谈判的。（她开始调皮地挠你痒。）你迟早会交代的。
+###_PLAYER
+Let me think about it.
+让我想想。
+###_NPC
+I don't have time to wait.  (She starts to tickle you slowly.)  You will talk sooner or later.
+我没时间等。（她开始慢慢地挠你痒。）你迟早会交代的。
+###_PLAYER
+Fine, I'll talk.  (Give her some information.)
+好吧，我会交代。（给她一些信息。）
+###_NPC
+(She takes notes as you give her some information on the Bondage Club.)  Alright, I'll shorten your sentence for this.
+（当你给她一些关于束缚俱乐部的信息时，她做了一些笔记。）好的，为此我会缩短你的刑期。
+###_PLAYER
+I'll tell you everything.  (Give her lots of information.)
+我会告诉你一切。（给她很多信息。）
+###_NPC
+(She takes notes as you give her lots of information on the Bondage Club.)  Very good, I'll shorten your sentence for this.
+（当你给她很多关于束缚俱乐部的信息时，她做了一些笔记。）好的，为此我会缩短你的刑期。
+###_PLAYER
+Eeeeeeeaaaahahaha!
+额啊啊哈哈哈哈！
+###_NPC
+(She laughs with you and continues to tickle you playfully.)  You know what to do to make it stop.
+（她和你一起笑起来，并继续调皮地挠你痒。）你知道该怎么做我才会停手。
+###_PLAYER
+Give me a break and I'll talk.
+让我休息一下，我会交代。
+###_NPC
+No break, you need to talk now.  (She tickles you slowly.)  You know what to do to make it stop.
+没有休息，你现在就交代。（她慢慢地挠你痒。）你知道该怎么做我才会停手。
+###_PLAYER
+That's the best you can do?
+你就只能做到这种程度？
+###_NPC
+I can do much worse.  (She tickles you without mercy.)  You know what to do to make it stop.
+我可以更狠。（她毫不留情地挠你痒痒。）你知道该怎么做我才会停手。
+###_PLAYER
+I cannot focus when you tickle me.
+你挠我痒痒的话，我根本无法集中注意力。
+###_NPC
+(She tickles you slowly.)  I'm getting tired of this.  It's your last chance to talk and get a shorter stay.
+（她慢慢地挠你痒。）我有点烦了。这是你最后一次暂停并交代的机会。
+###_PLAYER
+Fuck you!  I'm not talking!
+去你的吧！我不会交代！
+###_NPC
+(She tickles you without mercy.)  I'm getting tired of this.  It's your last chance to talk and get a shorter stay.
+（她毫不留情地挠你痒痒。）我有点烦了。这是你最后一次暂停并交代的机会。
+###_PLAYER
+Oooooeeeehehe!  Aaaahh!  Stop!
+喔喔喔呵呵哈！啊啊啊！停一下！
+###_NPC
+(She tickles you some more.)  I'm getting tired of this.  It's your last chance to talk and get a shorter stay.
+（她又挠了你一会儿。）我有点烦了。这是你最后一次暂停并交代的机会。
+###_PLAYER
+I'll never talk.
+我永远不会交代。
+###_NPC
+Fine, have fun struggling.  I'm leaving for now.  (She starts to walk away.)
+好吧，享受挣扎吧。我现在要离开了。（她转身走开。）
+###_PLAYER
+Your torture methods are lame.
+你折磨的方法很蹩脚。
+###_NPC
+I'll do better next time.  I'm leaving for now.  (She starts to walk away.)
+下次我会做得更好。我现在要离开了。（她转身走开。）
+###_PLAYER
+You better do it.
+你最好这样做。
+###_NPC
+A deal is a deal.  And no one will know you squealed.  I must leave for now.  (She starts to walk away.)
+交易就是交易。并没人会知道你告密过。我得离开了。（她转身走开。）
+###_PLAYER
+Don't tell anyone I talked.
+不要告诉任何人我说过。
+###_NPC
+Don't worry, nobody will know that you squealed.  I must leave for now.  (She starts to walk away.)
+别担心，没有人会知道你告密的。我得离开了。（她转身走开。）
+###_PLAYER
+Can you also release me?
+你也可以放开我吗？
+###_NPC
+That's not part of the deal.  I must leave for now.  (She starts to walk away.)
+这不是交易的一部分。我得离开了。（她转身走开。）
+(Guard DialogCharacterName comes with a hood.)  Prisoner DialogPlayerName, you're getting transferred.
+（警卫DialogCharacterName带着一个头套进来。）囚犯DialogPlayerName，你要被转移了。
+###_PLAYER
+Fine, I don't care.
+好吧，我不在乎。
+###_NPC
+Alright, come with me.  (She puts a thick hood over your head and starts to drag you.)
+好的，跟我来。（她给你戴上厚实的头套，并开始拽着你走。）
+###_PLAYER
+I'm not going anywhere.
+我哪儿也不去。
+###_NPC
+You don't have a choice.  (She puts a thick hood over your head and starts to drag you.)
+你没得选。（她给你戴上厚实的头套，并开始拽着你走。）
+###_PLAYER
+To another country?
+去别的国家？
+###_NPC
+Don't be ridiculous.  (She puts a thick hood over your head and starts to drag you.)
+别傻了。（她给你戴上厚实的头套，并开始拽着你走。）
+(She puts a thick hood over your head and starts to drag you.)
+（她给你戴上厚实的头套，并开始拽着你走。）
+###_PLAYER
+Touch me and I'll kick your butt.
+你敢碰我，我就踢你的屁股。
+(Let her transfer you.)
+（让她转移你。）
+(Let her drag you.)
+（让她拽着你。）
+###_NPC
+(She drags you through the halls of Pandora's Box.  You can hear other girls laughing at you.)
+（她拽着着你穿过潘多拉魔盒的大厅。你可以听到其他女孩在嘲笑你。）
+###_PLAYER
+(Try to give her trouble.)
+（试着给她添麻烦。）
+###_NPC
+(You give her trouble as she spanks and drags you forcefully through the halls of Pandora's Box.)
+（她拖着你穿过潘多拉魔盒的大厅时，你给她造成了点麻烦，她拍打你，并用力拉拽你。）
+Good girl.  We arrived in your new home.  (She removes your hood.)  Enjoy!
+乖女孩。我们到你的新家了。（她取下你的头套。）享受吧！
+###_PLAYER
+(Try to bump her.)
+（试着撞她。）
+###_NPC
+Enough!  We arrived in your new cell.  (She removes your hood.)  Enjoy!
+够了！我们到你的新牢房。（她取下你的头套。）享受吧！
+We arrived in your new home.  (She removes your hood.)  Enjoy!
+我们到了你的新家。（她取下你的头套。）享受吧！
+(Guard DialogCharacterName enters with a smirk.)  Prisoner DialogPlayerName, I have a deal for you.
+（警卫DialogCharacterName走进来，刻意地笑了笑。）囚犯DialogPlayerName，我给你带来了一份交易。
+###_PLAYER
+What's your deal?
+什么交易？
+###_NPC
+The deal is simple, I'll remove some time from the clock if you know how use your mouth.
+交易很简单，如果你知道如何利用你的嘴，我就从时钟上移除一些时间。
+###_PLAYER
+I don't like it.
+我不喜欢这个。
+Are you allowed to make deal?
+你可以做交易吗？
+(Listen to her deal.)
+（听她的交易。）
+###_NPC
+(She removes your gag.)  The deal is simple, I'll remove some time from the clock if you know how use your mouth.
+（她移除了你的口塞。）交易很简单，如果你知道如何利用你的嘴，我就从时钟上移除一些时间。
+###_PLAYER
+I have a better deal: let me out or suffer.
+我有一个更好的交易：让我出去或让我受苦。
+###_NPC
+(She raises her fists.)  Girl!  If you don't listen to my deal I'll beat you down.
+（她举起拳头。）女孩！如果你不听我的交易，我会打烂你。
+###_PLAYER
+My mouth?  What do you mean?
+我的嘴？你是什​​么意思？
+###_NPC
+Don't play dumb.  Give me a quickie with your mouth and I'll remove some prison time.  Deal?
+别装傻。用你的嘴给我来发快的，我会减少一些监狱时间。成交？
+###_PLAYER
+Very well, we have a deal.
+很好，我们成交。
+###_NPC
+(She strips down and gets you on your knees.)  Get to work prisoner!
+（她脱光衣服，并让你跪下。）开始工作吧，囚犯！
+###_PLAYER
+No way!  I refuse.
+没门！我拒绝。
+###_NPC
+Fine!  Enjoy your cell.  I'm going.
+很好！享受你的牢房吧。我走了。
+(She frowns and dresses back.)  Enough!  That was too slow, I need to go.  Enjoy your cell.
+（她皱起眉头，穿好衣服。）够了！太慢了，我得走了。享受你的牢房吧。
+(She pushes you away and frowns.)  You're going too fast prisoner.  Slow down, take your time.
+（她把你推开，皱着眉头，）你太快了，囚犯。慢一点，耐心。
+(She trembles, screams and gets a shattering orgasm.)  YYYEEEEEAAAAAHHH!!!
+（她颤抖着，尖叫着，高潮了。）咿咿咿啊啊啊啊！！！
+###_PLAYER
+(Insert your tongue inside.)
+（把舌头伸进去。）
+###_NPC
+(You insert your tongue as she pushes your face closer and moans loudly.)  Yes!  Yes!  Yes!
+（你把舌头伸进去，她把你的脸压得更近并大声呻吟。）对！对！是那里！
+###_PLAYER
+(Dig for her g spot.)
+（挖掘她的G点。）
+(Lick her clitoris slowly.)
+（慢慢舔她的阴蒂。）
+###_NPC
+(You lick her clitoris slowly as she moans silently.)
+（你慢慢舔她的阴蒂，她无声地呻吟。）
+###_PLAYER
+(Lick her clitoris quickly.)
+（快速地舔她的阴蒂。）
+###_NPC
+(You lick her clitoris quickly as she moans and trembles.)  Good girl.
+（你快速地舔她的阴蒂，她呻吟并颤抖时。）乖女孩。
+###_PLAYER
+(Lick her pussy slowly.)
+（慢慢舔她的阴户。）
+###_NPC
+(She rocks her hips slowly as you lick her pussy lips.)
+（你舔她的阴户，她慢慢地摇晃着她的臀部。）
+###_PLAYER
+(Lick her pussy quickly.)
+（快速舔她的阴户。）
+###_NPC
+(She rocks her hips with energy as you lick her pussy lips lovingly.)  Good prisoner.
+（你深情地舔她的阴户，她有力地摇晃着她的臀部。）好囚犯。
+###_PLAYER
+(Stay silent and smile.)
+（保持沉默并微笑。）
+###_NPC
+(She helps you to stand up and dresses back.)  You're a good prisoner, I'll remove some minutes on the clock.  I need to go.
+（她帮你站起来，然后穿好了衣服。）你是一个好囚犯，我会给时钟减少几分钟。我要走了。
+###_PLAYER
+You remember the deal?
+你还记得那笔交易吗？
+###_NPC
+(She helps you to stand up and dresses back.)  A deal is a deal, I'll remove some minutes on the clock.  I need to go.
+（她帮你站起来，然后穿好了衣服。）交易就是交易，我会给时钟减少几分钟。我要走了。
+###_PLAYER
+You're a naughty guard.
+你这警卫很调皮。
+###_NPC
+(She helps you to stand up and dresses back.)  And you're a kinky prisoner, I'll remove some minutes on the clock.  I need to go.
+（她帮你站起来，然后穿好了衣服。）你这囚犯真变态，我会给时钟减少几分钟。我要走了。
+(Guard DialogCharacterName enters with a water bottle.)  Prisoner DialogPlayerName, it's time to drink.  Are you thirsty?
+（警卫DialogCharacterName拿着水瓶走进来。）囚犯DialogPlayerName，该喝水了。你口渴吗？
+###_PLAYER
+Can I have some water?
+我可以喝些水吗？
+###_NPC
+(She helps you to drink the water, it feels pretty refreshing.)  I need to go, I'll be back later.
+（她帮你喝水，感觉很清爽。）我要走了，晚点回来。
+###_PLAYER
+I don't need water.
+我不需要水。
+###_NPC
+Enjoy your cell then, I'll be back later.
+那就享受你的牢房吧，我晚点回来。
+###_PLAYER
+(Look at the bottle and nod.)
+（看着瓶子，点点头。）
+###_NPC
+(She helps you to drink the water and gags you again.)  I need to go, I'll be back later.
+（她帮你喝水，之后又塞上了口塞。）我得走了，我晚点回来。
+###_PLAYER
+(Pick the bottle and splash her.)
+（拿起瓶子，向她泼水。）
+###_NPC
+(She raises her fists in anger.)  You little brat!  Are you looking for a fight?
+（她愤怒地举起拳头。）你这混蛋！你想打架吗？
+###_PLAYER
+(Beg not to fight.)
+（乞求不要打架。）
+###_NPC
+(She dries her face.)  Fine, rot in that cell.  I'm going.
+（她擦干脸。）好吧，在这个牢房里烂掉吧。我要走了。

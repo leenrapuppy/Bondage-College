@@ -41,7 +41,7 @@ var TitleList = [
 	{ Name: "MagicSchoolOracle", Requirement: function () { return (ReputationGet("HouseAmplector") >= 100); }, Earned: true },
 	{ Name: "MagicSchoolWitch", Requirement: function () { return (ReputationGet("HouseCorporis") >= 50); }, Earned: true },
 	{ Name: "MagicSchoolWarlock", Requirement: function () { return (ReputationGet("HouseCorporis") >= 100); }, Earned: true },
-	{ Name: "Duchess", Requirement: function () { return LogQuery("KidnapSophie", "Sarah"); }, Earned: true},
+	{ Name: "Duchess", Requirement: function () { return LogQuery("KidnapSophie", "Sarah"); }, Earned: true },
 	{ Name: "LittleOne", Requirement: function () { return (ReputationGet("ABDL") >= 1); }, Earned: true },
 	{ Name: "Baby", Requirement: function () { return (ReputationGet("ABDL") >= 1); }, Earned: true },
 	{ Name: "DL", Requirement: function () { return (ReputationGet("ABDL") >= 1); }, Earned: true },
@@ -60,7 +60,13 @@ var TitleList = [
 	{ Name: "GoodSlave", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 6); }, Earned: true },
 	{ Name: "Drone", Requirement: function () { return (AsylumGGTSGetLevel(Player) >= 6); }, Earned: true }
 ];
+var TitleSelectedTitle = null;
 var TitleCanEditNickname = true;
+/** @type {string} */
+var TitleNicknameStatus = null;
+let TitleOffset = 0;
+let TitleListFiltered = [];
+const TitlePerPage = 28;
 
 /**
  * Sets the new title of the player, if the title has changed
@@ -134,6 +140,8 @@ function TitleIsEarned(Title) {
  * @returns {void} - Nothing
  */
 function TitleLoad() {
+	TitleSelectedTitle = TitleGet(Player);
+	TitleListFiltered = TitleList.filter(T => T.Requirement());
 	TitleCanEditNickname = (!LogQuery("BlockNickname", "OwnerRule") || (Player.Ownership == null) || (Player.Ownership.Stage !== 1));
 	let E = ElementCreateInput("InputNickname", "text", Player.Nickname, "20");
 	if (!TitleCanEditNickname) {
@@ -141,6 +149,7 @@ function TitleLoad() {
 		E.removeAttribute("onfocus");
 		E.setAttribute("readonly", "readonly");
 	}
+	TitleNicknameStatus = null;
 }
 
 /**
@@ -150,25 +159,34 @@ function TitleLoad() {
  */
 function TitleRun() {
 
-	// List all the available titles
 	DrawText(TextGet("SelectTitle"), 1000, 100, "Black", "Gray");
+
+	// Draw nickname field
 	DrawText(TextGet(TitleCanEditNickname ? "Nickname" : "NicknameLocked"), 750, 180, "Black", "Gray");
 	ElementPosition("InputNickname", 1300, 175, 500, 60);
-	var X = 130;
-	var Y = 250;
-	for (let T = 0; T < TitleList.length; T++)
-		if (TitleList[T].Requirement()) {
-			DrawButton(X, Y, 400, 65, TextGet("Title" + TitleList[T].Name), "White");
-			X = X + 450;
-			if (X > 1500) {
-				X = 130;
-				Y = Y + 90;
-			}
+	if (TitleNicknameStatus)
+		DrawText(TextGet(TitleNicknameStatus), 1000, 250, "red");
+
+	MainCanvas.textAlign = "left";
+	DrawText(TextGet("CurrentTitle").replace("TITLE", TextGet("Title" + (Player.Title || "None"))), 130, 285, "Black", "Gray");
+	MainCanvas.textAlign = "center";
+
+	// List all the available titles
+	let X = 130;
+	let Y = 325;
+	for (let T = TitleOffset; T < TitleOffset + TitlePerPage && T < TitleListFiltered.length; T++) {
+		const isCurrentTitle = TitleSelectedTitle == TitleListFiltered[T].Name;
+		DrawButton(X, Y, 400, 65, TextGet("Title" + TitleListFiltered[T].Name), isCurrentTitle ? "yellow" : 'White', undefined, undefined, isCurrentTitle);
+		X = X + 450;
+		if (X > 1500) {
+			X = 130;
+			Y = Y + 100;
 		}
+	}
 
 	// Draw the exit button
 	DrawButton(1815, 75, 90, 90, "", "White", "Icons/Exit.png");
-
+	if (TitleListFiltered.length > TitlePerPage) DrawButton(1705, 75, 90, 90, "", "White", "Icons/Next.png");
 }
 
 /**
@@ -178,24 +196,26 @@ function TitleRun() {
 function TitleClick() {
 
 	// When the user exits
-	if ((MouseX >= 1815) && (MouseX < 1905) && (MouseY >= 75) && (MouseY < 165)) TitleExit();
+	if (MouseIn(1815, 75, 90, 90)) TitleExit();
+
+	if (TitleListFiltered.length > TitlePerPage && MouseIn(1705, 75, 90, 90)) {
+		TitleOffset += TitlePerPage;
+		if (TitleOffset >= TitleListFiltered.length) TitleOffset = 0;
+	}
 
 	// When the user selects a title
-	var X = 130;
-	var Y = 250;
-	for (let T = 0; T < TitleList.length; T++)
-		if (TitleList[T].Requirement()) {
-			if ((MouseX >= X) && (MouseX <= X + 400) && (MouseY >= Y) && (MouseY <= Y + 65)) {
-				TitleSet(TitleList[T].Name);
-				TitleExit();
-			}
-			X = X + 450;
-			if (X > 1500) {
-				X = 130;
-				Y = Y + 90;
-			}
+	let X = 130;
+	let Y = 325;
+	for (let T = TitleOffset; T < TitleOffset + TitlePerPage && T < TitleListFiltered.length; T++) {
+		if (MouseIn(X, Y, 400, 65)) {
+			TitleSelectedTitle = TitleListFiltered[T].Name;
 		}
-
+		X = X + 450;
+		if (X > 1500) {
+			X = 130;
+			Y = Y + 100;
+		}
+	}
 }
 
 // when the user exit this screen
@@ -204,14 +224,17 @@ function TitleClick() {
  * @returns {void} - Nothing
  */
 function TitleExit() {
-	let Regex = /^[a-zA-Z\s]*$/;
 	let Nick = ElementValue("InputNickname");
 	if (Nick == null) Nick = "";
-	Nick = Nick.trim().substring(0, 20);
-	if (Regex.test(Nick)) {
-		Player.Nickname = Nick;
-		ServerAccountUpdate.QueueData({ Nickname: Nick });
-		ElementRemove("InputNickname");
-		CommonSetScreen("Character", "InformationSheet");
+	const status = CharacterSetNickname(Player, Nick);
+	if (status) {
+		TitleNicknameStatus = status;
+		return;
 	}
+
+	TitleSet(TitleSelectedTitle);
+
+	// Nickname was fine, return to the Info sheet
+	ElementRemove("InputNickname");
+	CommonSetScreen("Character", "InformationSheet");
 }
