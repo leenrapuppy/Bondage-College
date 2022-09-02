@@ -208,7 +208,8 @@ var AudioActions = [
 	},
 	{
 		IsAction: (data) => [
-			"ChainSet"
+			"ChainSet",
+			"CeilingShacklesSet"
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "ChainLong"
 	},
