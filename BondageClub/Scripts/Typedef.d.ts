@@ -2336,6 +2336,8 @@ interface CraftingItem {
 	Color: string;
 	Lock: AssetLockType;
 	Item: string;
+	Private: boolean;
+	Type: string;
 }
 
 //#endregion

@@ -153,10 +153,12 @@ function LoginRun() {
 /**
  * The list of item fixups to apply on login.
  *
- * @type {{ Old: {Group: string, Name: string}, New: {Group: string, Name: string} }[]}
+ * @type {{ Old: {Group: string, Name: string}, New: {Group: string, Name: string, Option?: string} }[]}
  */
 let LoginInventoryFixups = [
 	{ Old: { Group: "ItemLegs", Name: "WoodenHorse" }, New: { Group: "ItemDevices", Name: "WoodenHorse" } },
+	{ Old: { Group: "ItemVulvaPiercings", Name: "WeightedClitPiercing" }, New: { Group: "ItemVulvaPiercings", Name: "RoundClitPiercing", Option: "Weight" } },
+	{ Old: { Group: "ItemVulvaPiercings", Name: "BellClitPiercing" }, New: { Group: "ItemVulvaPiercings", Name: "RoundClitPiercing", Option: "Bell" } },
 ];
 
 /**
@@ -167,11 +169,15 @@ let LoginInventoryFixups = [
  * and applies the specified asset fixups by swapping Old with New in the list
  * of owned items, in the various player item lists, and in the appearance.
  *
- * Note that it copies properties verbatim, so its better if the Old and New
- * asset definitions are kept compatible.
+ * If you're only moving items around, it should work just fine as long as
+ * the `Old` and `New` asset definitions are compatible.
+ * If it's an asset merge (say 3 into one typed asset), it will either set
+ * the fixed up item to the specified `Option` or the first one if unspecified.
+ *
+ * TODO: only typed items are supported.
  *
  * @param {Record<string, string[]>} Inventory - The server-provided inventory object
- * @param {{Group: string, Name: string}[]} Appearance - The server-provided appearance object
+ * @param {{Group: string, Name: string, Property?: any}[]} Appearance - The server-provided appearance object
  * @param {CraftingItem[]} Crafting - The server-provided, uncompressed crafting data
  */
 function LoginPerformInventoryFixups(Inventory, Appearance, Crafting) {
@@ -184,10 +190,12 @@ function LoginPerformInventoryFixups(Inventory, Appearance, Crafting) {
 		const group = Inventory[fixup.Old.Group];
 		let idx = group && group.indexOf(fixup.Old.Name);
 		if (group && idx != -1) {
+			// Replace the old with the new in the inventory, making sure we don't add a duplicate
 			group.splice(idx, 1);
 			if (!Inventory[fixup.New.Group])
 				Inventory[fixup.New.Group] = [];
-			Inventory[fixup.New.Group].push(fixup.New.Name);
+			if (!Inventory[fixup.New.Group].includes(fixup.New.Name))
+				Inventory[fixup.New.Group].push(fixup.New.Name);
 		}
 
 		// Update the player's item lists
@@ -205,22 +213,58 @@ function LoginPerformInventoryFixups(Inventory, Appearance, Crafting) {
 			// The item is currently worn, remove it
 			let worn = Appearance[idx];
 			Appearance.splice(idx, 1);
-			// Add the new one, unless there's already something there
-			if (!Appearance.find(a => a.Group === fixup.New.Group)) {
-				worn.Group = fixup.New.Group;
-				worn.Name = fixup.New.Name;
-				Appearance.push(worn);
+
+			// There're already something else in that slot, preserve it
+			if (Appearance.find(a => a.Group === fixup.New.Group))
+				return;
+
+			// Set up the new item and its properties
+			worn.Group = fixup.New.Group;
+			worn.Name = fixup.New.Name;
+
+			const asset = AssetGet("Female3DCG", worn.Group, worn.Name);
+			let opt = null;
+			if (asset.Archetype) {
+				switch (asset.Archetype) {
+					case ExtendedArchetype.TYPED:
+						{
+							const opts = TypedItemGetOptions(fixup.New.Group, fixup.New.Name);
+							if (typeof fixup.New.Option === "undefined")
+								opt = opts[0];
+							else
+								opt = opts.find(o => o.Name === fixup.New.Option);
+
+							if (!opt) {
+								console.error(`Unknown option ${fixup.New.Option}`);
+								return;
+							}
+						}
+						break;
+				}
+
+				// Replace old previous properties with the wanted ones
+				if (opt && opt.Property)
+					worn.Property = Object.assign(opt.Property);
+			} else if (asset.Extended) {
+				// Old-style extended item
+
+			} else {
+				delete worn.Property;
 			}
+
+			// Push back the updated data
+			Appearance.push(worn);
 		}
 
 		// Move crafts over to the new name
 		if (Array.isArray(Crafting)) {
-			Crafting.forEach(c => {
-				if (c.Item !== fixup.Old.Name) return;
-
-				c.Item = fixup.New.Name;
+			Crafting.forEach(C => {
+				if (C == null) return;
+				if (C.Item !== fixup.Old.Name) return;
+				C.Item = fixup.New.Name;
 			});
 		}
+
 	});
 
 	if (listsUpdated)

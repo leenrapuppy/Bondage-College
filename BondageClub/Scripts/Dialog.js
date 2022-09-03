@@ -1147,25 +1147,28 @@ function DialogInventoryBuild(C, Offset, redrawPreviews = false) {
 
 			// Fifth, we add all crafted items for the player that matches that slot
 			if (Player.Crafting != null) {
-				for (let Craft of Player.Crafting) {
-					const group = AssetGroupGet(C.AssetFamily, C.FocusGroup.Name);
-					for (let A of group.Asset)
-						if (CraftingAppliesToItem(Craft, A) && DialogCanUseCraftedItem(C, Craft))
-							DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
-				}
+				for (let Craft of Player.Crafting)
+					if ((Craft != null) && (Craft.Item != null)) {
+						const group = AssetGroupGet(C.AssetFamily, C.FocusGroup.Name);
+						for (let A of group.Asset)
+							if (CraftingAppliesToItem(Craft, A) && DialogCanUseCraftedItem(C, Craft))
+								DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
+					}
 			}
 
 			// Sixth. we add all crafted items from the character that matches that slot
 			if (C.Crafting != null) {
 				let Crafting = CraftingDecompressServerData(C.Crafting);
-				for (let Craft of Crafting) {
-					Craft.MemberName = CharacterNickname(C);
-					Craft.MemberNumber = C.MemberNumber;
-					const group = AssetGroupGet(C.AssetFamily, C.FocusGroup.Name);
-					for (let A of group.Asset)
-						if (CraftingAppliesToItem(Craft, A) && DialogCanUseCraftedItem(C, Craft))
-							DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
-				}
+				for (let Craft of Crafting)
+					if ((Craft != null) && (Craft.Item != null))
+						if ((Craft.Private == null) || (Craft.Private == false)) {
+							Craft.MemberName = CharacterNickname(C);
+							Craft.MemberNumber = C.MemberNumber;
+							const group = AssetGroupGet(C.AssetFamily, C.FocusGroup.Name);
+							for (let A of group.Asset)
+								if (CraftingAppliesToItem(Craft, A) && DialogCanUseCraftedItem(C, Craft))
+									DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
+						}
 			}
 
 		}

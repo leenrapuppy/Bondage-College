@@ -15,6 +15,8 @@ SelectColor,Pick the item colors
 EnterName,Name of the crafted item
 EnterDescription,Engrave a description
 EnterColor,Enter or pick the colors
+EnterPrivate,Private (only you can use it)
+EnterType,Automatic selection:
 EmptySlot,Empty
 PropertyNormal,Normal
 PropertyLarge,Large
@@ -26,6 +28,8 @@ PropertyLoose,Loose
 PropertyDecoy,Decoy
 PropertyMalleable,Malleable
 PropertyRigid,Rigid
+PropertySimple,Simple
+PropertyPuzzling,Puzzling
 PropertyPainful,Painful
 PropertyComfy,Comfy
 PropertyStrong,Strong
@@ -43,6 +47,8 @@ DescriptionLoose,Easier to struggle out.
 DescriptionDecoy,Can always struggle out.
 DescriptionMalleable,Takes less time to wear and remove.
 DescriptionRigid,Takes more time to wear and remove.
+DescriptionSimple,Easier to picklock.
+DescriptionPuzzling,Harder to picklock.
 DescriptionPainful,More painful for the wearer.
 DescriptionComfy,Comfier for the wearer.
 DescriptionStrong,Cannot use brute force to struggle out.

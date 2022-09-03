@@ -208,7 +208,8 @@ var AudioActions = [
 	},
 	{
 		IsAction: (data) => [
-			"ChainSet"
+			"ChainSet",
+			"CeilingShacklesSet"
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "ChainLong"
 	},
@@ -296,6 +297,11 @@ var AudioActions = [
 			data.Type == "Activity" && (data.Content.endsWith('-Slap') || data.Content.endsWith('-Spank')),
 		GetSoundEffect: () => "SpankSkin"
 	},
+	{
+		IsAction: (data) =>
+			data.Type === "Action" && data.Content === "ItemVulvaPiercingsRoundClitPiercingSetBell",
+		GetSoundEffect: () => "BellSmall",
+	}
 ];
 
 /**
