@@ -31,6 +31,7 @@ PlayerGagged,,,(You can use or remove items by selecting specific body regions o
 100,0,(Call the maids for help),(The maids will be here shortly...),DialogCallMaids(),DialogCanCallMaidsPunishmentOff()
 100,120,(Use your safeword.),"(A safeword is serious and should not be used to cheat.  It can revert your clothes and restraints to when you entered the lobby, or release you completely.)",,DialogChatRoomCanSafeword()
 100,,(Take a photo of yourself.),(You can use or remove items by selecting specific body regions on yourself.),DialogPhotoPlayer(),DialogCanTakePhotos()
+100,,(Craft an item.),(You can use or remove items by selecting specific body regions on yourself.),DialogOpenCraftingScreen(),DialogCanCraft()
 100,,(Play Kinky Dungeon),,DialogStartKinkyDungeon(),DialogHasGamingHeadset()
 100,0,(Back to main menu.),(Main menu.),,
 101,,,"(By default, you restrain using your full bondage skill.  You can use less of your skill and make it easier for your victims to escape.)",,

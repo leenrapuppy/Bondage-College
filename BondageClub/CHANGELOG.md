@@ -11,9 +11,9 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-08-09
-* Last recorded PR: [#3580](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3580)
-* Last recorded commit hash: `e5a21c15e24bb8ffb71840c6576592bc02ffe307`
+* Changelog last updated: 2022-08-16
+* Last recorded PR: [#3590](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3590)
+* Last recorded commit hash: `f6013c4a86ce879b43228d147b183d6b12e195d1`
 
 ## [R83]
 
@@ -22,9 +22,10 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Luna - Added several new Stitches items and variations ([#3543](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3543))
 * Kehhaja/Nina - Added a new Biker Gloves asset ([#3551](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3551))
 * Luna - Added several new sticker options to the Pet Sign ([#3556](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3556))
-* Timeline - Added several Chinese translations ([#3566](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3566))
-* Da'Inihlus - Added several Chinese translations ([#3574](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3574))
+* Timeline - Added several Chinese translations ([#3566](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3566), [#3585](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3585))
+* Da'Inihlus - Added/fixed several Chinese translations ([#3574](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3574), [#3590](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3590))
 * Karamel - Added several new variations for the Nylon Rope items ([#3576](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3576))
+* Estsanatlehi - Added stimulation messages to the clit leash ([#3589](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3589))
 
 ### [Removed]
 
@@ -34,6 +35,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 * sqrt10pi - Reworked some of the UI interactions around the sexual activities menu ([#3562](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3562))
 * Tama-chan - Made several enhancements to the chatroom filtering functionality ([#3577](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3577), [#3580](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3580))
+* Estsanatlehi - Changed the behaviour of the nickname screen to permit an empty nickname (exiting the screen with the nickname input empty will reset you nickname to your character name) ([#3587](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3587))
 
 ### [Fixed]
 
@@ -49,12 +51,14 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 * Demopans - Converted the old Git contribution guide into markdown and added it to the game repository ([#3555](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3555))
 * Technical changes, fixes and improvements:
-  * Estsanatlehi - [#3559](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3559), [#3560](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3560), [#3561](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3561), [#3568](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3568), [#3569](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3569), [#3570](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3570), [#3573](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3573)
+  * Estsanatlehi - [#3559](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3559), [#3560](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3560), [#3561](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3561), [#3568](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3568), [#3569](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3569), [#3570](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3570), [#3573](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3573), [#3584](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3584)
   * Da'Inihlus - [#3567](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3567)
 
 ### [Beta Fixes]
 
-* Nothing... yet
+* Estsanatlehi - Fixed the missing name for the stitches in the butt slot ([#3583](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3583))
+* Karamel - Changed the assets for the nylon rope arms item to render under breasts on the XLarge body ([#3586](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3586))
+* sqrt10pi - Reverted the change to the sexual activities/restraints UI following community feedback ([#3588](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3588))
 
 
 ## [R82]

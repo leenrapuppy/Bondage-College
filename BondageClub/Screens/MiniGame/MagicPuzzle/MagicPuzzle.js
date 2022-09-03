@@ -192,7 +192,7 @@ function MagicPuzzleDrawTrail() {
 		
 		MagicPuzzleTrail.reduce((prevSquares, currSquare, index) => {
 			const startingColor = MagicPuzzleTrailRainbow ? ColorPickerHSVToCSS({ H: Math.random(), S: 1, V: 1 }) : "#0000FF";
-			const fadePercentage = index / MagicPuzzleTrail.length;
+			const fadePercentage = 0.8 * index / MagicPuzzleTrail.length;
 			const squareColor = MagicPuzzleTransitionToColor(startingColor, "#FFFFFF", fadePercentage);
 
 			DrawLineCorner(currSquare.X, currSquare.Y,

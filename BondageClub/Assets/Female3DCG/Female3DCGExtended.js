@@ -2856,7 +2856,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									SetPose: ["BaseLower"],
 									AllowActivePose: ["Spread", "LegsClosed", "BaseLower"],
-									Effect: ["Egged", "Prone", "Freeze", "BlockKneel"],
+									Effect: ["Egged", "UseRemote", "Prone", "Freeze", "BlockKneel"],
 									OverrideHeight: { Height: 0, Priority: 60 },
 								}
 							},
@@ -3683,7 +3683,7 @@ var AssetFemale3DCGExtended = {
 						Prerequisite: ["NotSuspended"],
 						Property: {
 							Type: "Leash",
-							Effect: ["Leash"],
+							Effect: ["Leash", "Wiggling"],
 						},
 					},
 				],
@@ -4404,6 +4404,32 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // BallGag
+		RopeBallGag: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Normal",
+						Property: {
+							Type: null,
+							Effect: ["BlockMouth", "GagEasy"],
+						},
+					},
+					{
+						Name: "Tight",
+						Property: {
+							Type: "Tight",
+							Effect: ["BlockMouth", "GagNormal"],
+						},
+					},
+				],
+				Dialog: {
+					Load: "SelectGagType",
+					TypePrefix: "BallGagMouthType",
+					ChatPrefix: "BallGagMouthSet",
+				},
+			},
+		}, // RopeBallGag
 		HarnessBallGag: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { AssetName: "BallGag" },
@@ -4916,6 +4942,10 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "BallGag" },
 		},
+		RopeBallGag: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "RopeBallGag" },
+		},
 		HarnessBallGag: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "BallGag" },
@@ -4961,6 +4991,10 @@ var AssetFemale3DCGExtended = {
 		BallGag: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "BallGag" },
+		},
+		RopeBallGag: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "RopeBallGag" },
 		},
 		HarnessBallGag: {
 			Archetype: ExtendedArchetype.TYPED,

@@ -143,6 +143,7 @@ interface AssetDefinition {
 	Tint?: TintDefinition[];
 	DefaultTint?: string;
 	Gender?: string;
+	CraftGroup?: string;
 }
 
 interface AssetLayerDefinition {

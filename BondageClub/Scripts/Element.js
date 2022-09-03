@@ -9,7 +9,7 @@
 function ElementValue(ID, Value) {
 	const e = /** @type {HTMLInputElement} */(document.getElementById(ID));
 	if (!e) {
-		console.error("ElementValue called on a missing element");
+		console.error("ElementValue called on a missing element: " + ID.toString);
 		return "";
 	}
 
@@ -29,7 +29,7 @@ function ElementValue(ID, Value) {
 function ElementContent(ID, Content) {
 	const e = document.getElementById(ID);
 	if (!e) {
-		console.error("ElementContent called on a missing element");
+		console.error("ElementContent called on a missing element: " + ID.toString());
 		return "";
 	}
 

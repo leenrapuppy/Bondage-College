@@ -827,7 +827,7 @@ function DialogAlwaysAllowRestraint() {
  */
 function DialogCanUseRemoteState(C, Item) {
 	// Can't use remotes if there is no item, or if the item doesn't have the needed effects.
-	if (!Item || !(InventoryItemHasEffect(Item, "Egged") || InventoryItemHasEffect(Item, "UseRemote"))) return "InvalidItem";
+	if (!Item || !InventoryItemHasEffect(Item, "UseRemote")) return "InvalidItem";
 	// Can't use remotes if the player cannot interact with their hands
 	if (!Player.CanInteract()) return "CannotInteract";
 	// Can't use remotes on self if the player is owned and their remotes have been blocked by an owner rule
@@ -1145,14 +1145,28 @@ function DialogInventoryBuild(C, Offset, redrawPreviews = false) {
 					if (A.Value === 0 || (A.AvailableLocations.includes("Asylum") && (CurrentScreen.startsWith("Asylum") || ChatRoomSpace === "Asylum")))
 						DialogInventoryAdd(C, { Asset: A }, false);
 
-			// Fifth, we add all crafted items that matches that slot
-			if (Player.Crafting != null)
-				for (let Craft of Player.Crafting)
-					if ((Craft.Item != null) && (InventoryAvailable(Player, Craft.Item, C.FocusGroup.Name)))
-						for (let A of Asset)
-							if ((A.Name == Craft.Item) && (A.Group.Name == C.FocusGroup.Name))
-								if (DialogCanUseCraftedItem(C, Craft))
-									DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
+			// Fifth, we add all crafted items for the player that matches that slot
+			if (Player.Crafting != null) {
+				for (let Craft of Player.Crafting) {
+					const group = AssetGroupGet(C.AssetFamily, C.FocusGroup.Name);
+					for (let A of group.Asset)
+						if (CraftingAppliesToItem(Craft, A) && DialogCanUseCraftedItem(C, Craft))
+							DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
+				}
+			}
+
+			// Sixth. we add all crafted items from the character that matches that slot
+			if (C.Crafting != null) {
+				let Crafting = CraftingDecompressServerData(C.Crafting);
+				for (let Craft of Crafting) {
+					Craft.MemberName = CharacterNickname(C);
+					Craft.MemberNumber = C.MemberNumber;
+					const group = AssetGroupGet(C.AssetFamily, C.FocusGroup.Name);
+					for (let A of group.Asset)
+						if (CraftingAppliesToItem(Craft, A) && DialogCanUseCraftedItem(C, Craft))
+							DialogInventoryAdd(C, { Asset: A, Craft: Craft }, false);
+				}
+			}
 
 		}
 
@@ -2577,4 +2591,21 @@ function DialogChatRoomSafewordRevert() {
 function DialogChatRoomSafewordRelease() {
 	DialogLeave();
 	ChatRoomSafewordRelease();
+}
+
+/**
+ * Close the dialog and switch to the crafting screen.
+ */
+function DialogOpenCraftingScreen() {
+	const fromRoom = CurrentScreen === "ChatRoom";
+	DialogLeave();
+	CraftingShowScreen(fromRoom);
+}
+
+/**
+ * Check whether it's possible to access the crafting interface.
+ * @returns {boolean}
+ */
+function DialogCanCraft() {
+	return !Player.IsRestrained() || !Player.IsBlind();
 }

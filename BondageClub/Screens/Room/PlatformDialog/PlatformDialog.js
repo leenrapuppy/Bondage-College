@@ -63,7 +63,7 @@ var PlatformDialogCharacterTemplate = [
 	{
 		Name: "Lyn",
 		NickName: "Bandit Boss",
-		Color: "#c32fce",
+		Color: "#c85c5c",
 	},
 ];
 
@@ -1617,7 +1617,7 @@ var PlatformDialogData = [
 			{ Text: "Move out of the way or you'll get hurt." },
 			{
 				Text: "(She stares at your group.)",
-				Character: [{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }]
+				Character: [{ Name: "Vera", Status: "Leather", Pose: "Angry" }]
 			},
 			{ Text: "Lady Olivia you say?  Thanks for the tip, she would fetch a good ransom." },
 			{
@@ -1626,7 +1626,7 @@ var PlatformDialogData = [
 					{ Name: "Edlaran", Status: "Archer", Pose: "Idle" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" },
 					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive" },
-					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }
+					{ Name: "Vera", Status: "Leather", Pose: "Angry" }
 				],
 				Answer: [
 					{ Text: "She knows too much now.", Reply: "That's very true, we'll need to get rid of the bandits.", Love: 1 },
@@ -1654,7 +1654,7 @@ var PlatformDialogData = [
 			{
 				Text: "You're the Countess daughter!",
 				Character: [
-					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
+					{ Name: "Vera", Status: "Leather", Pose: "Angry" },
 					{ Name: "Melody", Status: "Maid", Pose: "Idle" },
 					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive" }
 				],
@@ -1730,7 +1730,7 @@ var PlatformDialogData = [
 			},
 			{
 				Text: "I owe you one.  I could help you against these bandits or in your adventures.",
-				Entry: function() { PlatformEventSet("EdlaranJoin"); PlatformLoadRoom(); }
+				Entry: function() { PlatformEventSet("EdlaranJoin"); PlatformPartyBuild(); PlatformLoadRoom(); }
 			},
 			{
 				Text: "I'm Edlaran.  I know how to fight, shoot and plunder.  I also know these woods.",
@@ -1884,8 +1884,8 @@ var PlatformDialogData = [
 			{
 				Text: "Mmmgnh!  Uuungmm mn!",
 				Character: [
-					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
-					{ Name: "Lyn", Status: "Thief", Pose: "Curious" }
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged", X: 1000 },
+					{ Name: "Lyn", Status: "Thief", Pose: "Curious", X: 500 }
 				]
 			},
 			{
@@ -1899,14 +1899,14 @@ var PlatformDialogData = [
 			{
 				Text: "Aaamh mmhmm Mmmnndy!  Mh maaym!",
 				Character: [
-					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
-					{ Name: "Lyn", Status: "Thief", Pose: "Curious" }
+					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged", X: 1000 },
+					{ Name: "Lyn", Status: "Thief", Pose: "Pretty", X: 500 }
 				]
 			},
 			{
 				Text: "We cannot bring your maid, she will be sold in a nearby town.",
 				Character: [
-					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+					{ Name: "Lyn", Status: "Thief", Pose: "Pretty" },
 					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
 				]
 			},
@@ -1939,7 +1939,7 @@ var PlatformDialogData = [
 			{
 				Background: "SecludedClearing",
 				Character: [
-					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
+					{ Name: "Vera", Status: "Leather", Pose: "Angry" },
 					{ Name: "Crate", Status: "Wood", Pose: "Idle" },
 					{ Name: "Lucy", Status: "Armor", Pose: "Idle" },
 				]
@@ -2073,6 +2073,7 @@ var PlatformDialogData = [
 				]
 			},
 			{
+				Entry: function() { PlatformAddExperience(PlatformPlayer, 10); },
 				Character: [
 					{ Name: "Edlaran", Status: "Archer", Pose: "KneelingLickedByMaidMelodyOrgasm", X: 500 },
 				]
@@ -2105,7 +2106,7 @@ var PlatformDialogData = [
 			{
 				Text: "(The boss gets angry.)",
 				Character: [
-					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+					{ Name: "Lyn", Status: "Thief", Pose: "Angry" },
 					{ Name: "Hazel", Status: "Maid", Pose: "Angry" },
 					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGagged" },
 				]
@@ -2235,10 +2236,64 @@ var PlatformDialogData = [
 					{ Text: "I would die to save your life Miss.", Reply: "(She gives you a hug.)  Please don't die my maid.", Perk: true, Love: 1, Domination: -1 },
 				]
 			},
-			{ Text: "It will take us hours to reach the shore." },
+			{
+				Entry: function() {
+					if (PlatformDialogGetCharacter("Olivia").Domination < 5) PlatformDialogGoto = "End";
+					PlatformDialogProcess();
+				}
+			},
+			{ 
+				Text: "It was very reckless to go on the lake alone, bound and gagged.",
+				Character: [
+					{ Name: "Melody", Status: "Underwear", Pose: "Cocky", X: 1000 },
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle", X: 500 },
+				]
+			},
+			{ Text: "You could have been killed young lady." },
+			{
+				Text: "I'm sorry Melody.  (She bows her head.)",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive" },
+					{ Name: "Melody", Status: "Underwear", Pose: "Cocky" },
+				],
+				Answer: [
+					{ Text: "Promise me not to do it again.", Reply: "I promise!  (She smiles at you.)  Let's go back.", Domination: -1, Love: 1, Goto: "End" },
+					{ Text: "I forgive you.", Reply: "Very good.  (She nods.)  Let's go back.", Goto: "End" },
+					{ Text: "You must be punished.  (Spank her.)", Reply: "Punished?  What?  How?  Melody!  You cannot do that!", Love: -2, Domination: 2 },
+					{ Text: "What would your mother do?  (Spank her.)", Reply: "She... she would spank me Melody.", Perk: true, Domination: 2 },
+				]
+			},
+			{ 
+				Text: "Bend down young lady.  You will be spanked.",
+				Character: [
+					{ Name: "Melody", Status: "Underwear", Pose: "Cocky", X: 1000 },
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive", X: 500 },
+				]
+			},
+			{ Text: "(She blushes, bends down, and presents her butt.)" },
+			{
+				Entry: function() { PlatformAddExperience(PlatformPlayer, 10); },
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "SpankedByMelodyUnderwear", X: 500 },
+				]
+			},
+			{ Text: "(You spank her many times, making sure she remembers that lesson.)" },
+			{ Text: "Ow!  Melody!  Please don't hit me so hard." },
+			{ Text: "(She's cries from the physical pain and from the humiliation.)" },
+			{ Text: "(You spank her a few times again, hitting the same spots.)" },
+			{ Text: "I promise I will be a good girl, I won't do it again." },
+			{ Text: "I've learned my lesson, can we go back to firm land?" },
+			{
+				Text: "(You nod and stop spanking her.)",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive" },
+					{ Name: "Melody", Status: "Underwear", Pose: "Cocky" },
+				]
+			},
+			{ Text: "(She bows her head and changes subject.)" },
+			{ ID: "End", Text: "It will take us hours to reach the shore." },
 			{ Text: "More time to know each other.  (She smiles.)" },
-			{ Text: "(You both work very hard to bring the raft back.)" },
-			
+			{ Text: "(You work together to bring the raft back.)" },
 		],
 	},
 
@@ -2251,7 +2306,7 @@ var PlatformDialogData = [
 				Character: [
 					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
 					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
-					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }
+					{ Name: "Vera", Status: "Leather", Pose: "Angry" }
 				]
 			},
 			{ Text: "(The bandit boss and her minions are having a loud argument.)" },
@@ -2270,7 +2325,7 @@ var PlatformDialogData = [
 				Character: [
 					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
 					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
-					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }
+					{ Name: "Vera", Status: "Leather", Pose: "Angry" }
 				]
 			},
 			{ Text: "(The bandit boss and her minions are having a loud argument.)" },
@@ -2285,16 +2340,18 @@ var PlatformDialogData = [
 			{ Text: "Boss!  We have a rat in the camp." },
 			{
 				Character: [
-					{ Name: "Lyn", Status: "Thief", Pose: "Curious" },
+					{ Name: "Lyn", Status: "Thief", Pose: "Angry" },
 					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" },
-					{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }
+					{ Name: "Vera", Status: "Leather", Pose: "Angry" }
 				]
 			},
 			{ Text: "Good!  Spring the trap girls." },
 			{ Text: "(A fence springs from the ground behind you.)" },
 			{ Text: "I'll take care of that rat myself." },
 			{ Text: "(She charges toward you with her minions.)" },
-			{ Text: "TO DO" },
+			{ Text: "(*** You've reached the end of Bondage Brawl for now. ***)" },
+			{ Text: "(*** The Brawl will continue in a future update of the Club. ***)" },
+			{ Text: "(*** If you like the game or have ideas for it, please reach Ben987. ***)" },
 		],
 
 	}

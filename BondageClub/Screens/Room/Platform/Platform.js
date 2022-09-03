@@ -454,11 +454,11 @@ var PlatformTemplate = [
 		DamageKnockForce: 50,
 		Animation: [
 			{ Name: "Idle", Cycle: [0], Speed: 150 },
-			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19], Speed: 40 },
+			{ Name: "Walk", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], Speed: 30 },
 			{ Name: "Run", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], Speed: 30 },
-			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 120 },
-			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 120 },
-			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
+			{ Name: "Wounded", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 120 },
+			{ Name: "Bound", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 120 },
+			{ Name: "Bind", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1], Speed: 110 },
 			{ Name: "Stun", Cycle: [0], Speed: 1000 },
 			{ Name: "FireProjectile", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], Speed: 48 }
 		],
@@ -489,7 +489,7 @@ var PlatformTemplate = [
 		DamageBackOdds: 1,
 		DamageKnockForce: 50,
 		Animation: [
-			{ Name: "Idle", Cycle: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], Speed: 130 },
+			{ Name: "Idle", Cycle: [0], Speed: 1000 },
 		],
 		Attack: [
 			{ Name: "FireProjectile", Speed: 1000 }
@@ -1423,7 +1423,8 @@ function PlatformEventSet(Event) {
  * @returns {void} - Nothing
  */
 function PlatformMessageSet(Text) {
-	PlatformMessage = { Text: Text, Timer: CommonTime() + 4000 };
+	if (CurrentScreen == "Platform")
+		PlatformMessage = { Text: Text, Timer: CommonTime() + 4000 };
 }
 
 /**

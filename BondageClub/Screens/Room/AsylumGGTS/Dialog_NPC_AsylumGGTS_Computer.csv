@@ -71,6 +71,7 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 110,,I'll do GGTS in private.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
 110,,I'll do GGTS in public.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
 110,200,I have three strikes.,Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,,AsylumGGTSHasThreeStrikes()
+110,200,(Bow your head.),Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,,AsylumGGTSHasThreeStrikes()
 110,200,(Whimper and beg in your gag.),(The gag opens and falls on the floor.)  Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,Ungag(),FuturisticGaggedPunished()
 110,300,I've completed the training time.,Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level one complete.  Promotion available.,,AsylumGGTSLevelCompleted()
 110,,I want to quit GGTS.,Three strikes on record.  Three strikes equal punishment.  Punishment time pending.  Cannot quit.,,!CanQuit()
@@ -86,13 +87,19 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 118,110,(Listen.),Level one rules listing complete.  Level one in progress.  Good girl proof require two hours.,,
 120,99,It's not for me.  (Quit GGTS.),Good girl data erased.  Girl no longer good.  Sleep mode.  (The computer seems to go to sleep.  Staying silent.),Quit(),
 120,110,Let me think about it.  (Don't quit.),Level one in progress.  Good girl proof require two hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
-200,,How can you judge a human?,GGTS programmed to judge.  Three strikes equal punishment.  Good girl sorry?,DialogRemove(),
-200,210,"Yes, I'm very sorry Sir.",Punishment selected.  Good girl learn from lock down.  Sentence 3 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(3),
-200,210,"Yeah, I accept your punishment.",Punishment selected.  Good girl learn from lock down.  Sentence 4 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(4),
-200,210,Don't be too harsh.,Punishment selected.  Good girl learn from lock down.  Sentence 5 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(5),
-200,210,Make it quick.,Punishment selected.  Good girl learn from lock down.  Sentence 7 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(7),
-200,210,You can't punish me!,Punishment selected.  Good girl learn from lock down.  Sentence 8 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(8),
-200,210,Touch me and I'll unplug you.,Punishment selected.  Good girl learn from lock down.  Sentence 9 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(9),
+200,,How can you judge a human?,GGTS programmed to judge.  Three strikes equal punishment.  Good girl sorry?,DialogRemove(),Player.CanTalk()
+200,210,"Yes, I'm very sorry Sir.",Punishment selected.  Good girl learn from lock down.  Sentence 3 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(3),Player.CanTalk()
+200,210,"Yeah, I accept your punishment.",Punishment selected.  Good girl learn from lock down.  Sentence 4 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(4),Player.CanTalk()
+200,210,Don't be too harsh.,Punishment selected.  Good girl learn from lock down.  Sentence 5 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(5),Player.CanTalk()
+200,210,Make it quick.,Punishment selected.  Good girl learn from lock down.  Sentence 7 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(7),Player.CanTalk()
+200,210,You can't punish me!,Punishment selected.  Good girl learn from lock down.  Sentence 8 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(8),Player.CanTalk()
+200,210,Touch me and I'll unplug you.,Punishment selected.  Good girl learn from lock down.  Sentence 9 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(9),Player.CanTalk()
+200,210,(Get on your knees and cry.),Punishment selected.  Good girl learn from lock down.  Sentence 3 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(3),!Player.CanTalk()
+200,210,(Whimper and beg in your gag.),Punishment selected.  Good girl learn from lock down.  Sentence 4 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(4),!Player.CanTalk()
+200,210,(Bow your head slowly.),Punishment selected.  Good girl learn from lock down.  Sentence 5 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(5),!Player.CanTalk()
+200,210,(Roll your eyes up.),Punishment selected.  Good girl learn from lock down.  Sentence 7 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(7),!Player.CanTalk()
+200,210,(Grumble in your gag.),Punishment selected.  Good girl learn from lock down.  Sentence 8 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(8),!Player.CanTalk()
+200,210,(Curse at the machine in your gag.),Punishment selected.  Good girl learn from lock down.  Sentence 9 minutes.  Asylum crew alert.  (A siren rings.),PunishmentTime(9),!Player.CanTalk()
 210,,This is too much!,Punishment algorithm never fails.,DialogRemove(),
 210,,What is that siren?,Asylum doors locked.  Asylum crew alert.  Asylum crew carry good girl to punishment room.,DialogRemove(),
 210,220,(Wait for the asylum crew.),(Two nurses wearing GGTS items come to get you.  They inform you that you will be locked up in the asylum for your punishment.),,
@@ -125,6 +132,7 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 1010,,I'll do GGTS in private.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
 1010,,I'll do GGTS in public.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
 1010,1100,I have three strikes.,Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,,AsylumGGTSHasThreeStrikes()
+1010,1100,(Bow your head.),Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,,AsylumGGTSHasThreeStrikes()
 1010,1100,(Whimper and beg in your gag.),(The gag opens and falls on the floor.)  Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,Ungag(),FuturisticGaggedPunished()
 1010,1200,I've completed the training time.,Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level two complete.  Promotion available.,,AsylumGGTSLevelCompleted()
 1010,,I want to quit GGTS.,Three strikes on record.  Three strikes equal punishment.  Punishment time pending.  Cannot quit.,,!CanQuit()
@@ -140,13 +148,19 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 1018,1010,(Listen.),Level two rules listing complete.  Level two in progress.  Good girl proof require three hours.,,
 1020,99,It's not for me.  (Quit GGTS.),Good girl data erased.  Girl no longer good.  Sleep mode.  (The computer seems to go to sleep.  Staying silent.),Quit(),
 1020,1010,Let me think about it.  (Don't quit.),Level two in progress.  Good girl proof require three hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
-1100,,How can you judge a human?,GGTS has authority to judge.  Three strikes equal punishment.  Good girl sorry?,DialogRemove(),
-1100,1110,"Yes, I'm very sorry Sir.",Punishment selected.  Good girl learn from lock down.  Sentence 5 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(5),
-1100,1110,"Yeah, I accept your punishment.",Punishment selected.  Good girl learn from lock down.  Sentence 7 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(7),
-1100,1110,Don't be too harsh.,Punishment selected.  Good girl learn from lock down.  Sentence 9 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(9),
-1100,1110,Make it quick.,Punishment selected.  Good girl learn from lock down.  Sentence 11 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(11),
-1100,1110,You can't punish me!,Punishment selected.  Good girl learn from lock down.  Sentence 13 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(13),
-1100,1110,Touch me and I'll unplug you.,Punishment selected.  Good girl learn from lock down.  Sentence 15 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(15),
+1100,,How can you judge a human?,GGTS has authority to judge.  Three strikes equal punishment.  Good girl sorry?,DialogRemove(),Player.CanTalk()
+1100,1110,"Yes, I'm very sorry Sir.",Punishment selected.  Good girl learn from lock down.  Sentence 5 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(5),Player.CanTalk()
+1100,1110,"Yeah, I accept your punishment.",Punishment selected.  Good girl learn from lock down.  Sentence 7 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(7),Player.CanTalk()
+1100,1110,Don't be too harsh.,Punishment selected.  Good girl learn from lock down.  Sentence 9 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(9),Player.CanTalk()
+1100,1110,Make it quick.,Punishment selected.  Good girl learn from lock down.  Sentence 11 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(11),Player.CanTalk()
+1100,1110,You can't punish me!,Punishment selected.  Good girl learn from lock down.  Sentence 13 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(13),Player.CanTalk()
+1100,1110,Touch me and I'll unplug you.,Punishment selected.  Good girl learn from lock down.  Sentence 15 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(15),Player.CanTalk()
+1100,1110,(Get on your knees and cry.),Punishment selected.  Good girl learn from lock down.  Sentence 5 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(5),!Player.CanTalk()
+1100,1110,(Whimper and beg in your gag.),Punishment selected.  Good girl learn from lock down.  Sentence 7 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(7),!Player.CanTalk()
+1100,1110,(Bow your head slowly.),Punishment selected.  Good girl learn from lock down.  Sentence 9 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(9),!Player.CanTalk()
+1100,1110,(Roll your eyes up.),Punishment selected.  Good girl learn from lock down.  Sentence 11 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(11),!Player.CanTalk()
+1100,1110,(Grumble in your gag.),Punishment selected.  Good girl learn from lock down.  Sentence 13 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(13),!Player.CanTalk()
+1100,1110,(Curse at the machine in your gag.),Punishment selected.  Good girl learn from lock down.  Sentence 15 minutes cuffed.  Asylum crew alert.  (A siren rings.),PunishmentTime(15),!Player.CanTalk()
 1110,,Why cuffed?,Punishment proper for good girl level.,DialogRemove(),
 1110,,This is too much!,Punishment algorithm never fails.,DialogRemove(),
 1110,,What is that siren?,Asylum doors locked.  Asylum crew alert.  Asylum crew carry good girl to punishment room.,DialogRemove(),
@@ -181,6 +195,7 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 2010,,I'll do GGTS in private.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
 2010,,I'll do GGTS in public.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
 2010,2100,I have three strikes.,Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,,AsylumGGTSHasThreeStrikes()
+2010,2100,(Bow your head.),Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,,AsylumGGTSHasThreeStrikes()
 2010,2100,(Whimper and beg in your gag.),(The gag opens and falls on the floor.)  Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,Ungag(),FuturisticGaggedPunished()
 2010,2200,I've completed the training time.,Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level three complete.  Promotion available.,,AsylumGGTSLevelCompleted()
 2010,,I want to quit GGTS.,Three strikes on record.  Three strikes equal punishment.  Punishment time pending.  Cannot quit.,,!CanQuit()
@@ -205,13 +220,19 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 2030,2010,Nothing can make me happy.,GGTS will make happy.  Level three in progress.  Good girl proof require five hours.,,
 2040,99,It's not for me.  (Quit GGTS.),Good girl data erased.  Girl no longer good.  Sleep mode.  (The computer seems to go to sleep.  Staying silent.),Quit(),
 2040,2010,Let me think about it.  (Don't quit.),Level three in progress.  Good girl proof require five hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
-2100,,How can you judge a human?,GGTS superior.  GGTS rule humans.  Three strikes equal punishment.  Good girl sorry?,DialogRemove(),
-2100,2110,"Yes, I'm very sorry Sir.",Punishment selected.  Good girl learn from lock down.  Sentence 8 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(8),
-2100,2110,"Yeah, I accept your punishment.",Punishment selected.  Good girl learn from lock down.  Sentence 11 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(11),
-2100,2110,Don't be too harsh.,Punishment selected.  Good girl learn from lock down.  Sentence 14 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(14),
-2100,2110,Make it quick.,Punishment selected.  Good girl learn from lock down.  Sentence 18 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(18),
-2100,2110,You can't punish me!,Punishment selected.  Good girl learn from lock down.  Sentence 21 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(21),
-2100,2110,Touch me and I'll unplug you.,Punishment selected.  Good girl learn from lock down.  Sentence 24 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(24),
+2100,,How can you judge a human?,GGTS superior.  GGTS rule humans.  Three strikes equal punishment.  Good girl sorry?,DialogRemove(),Player.CanTalk()
+2100,2110,"Yes, I'm very sorry Sir.",Punishment selected.  Good girl learn from lock down.  Sentence 8 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(8),Player.CanTalk()
+2100,2110,"Yeah, I accept your punishment.",Punishment selected.  Good girl learn from lock down.  Sentence 11 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(11),Player.CanTalk()
+2100,2110,Don't be too harsh.,Punishment selected.  Good girl learn from lock down.  Sentence 14 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(14),Player.CanTalk()
+2100,2110,Make it quick.,Punishment selected.  Good girl learn from lock down.  Sentence 18 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(18),Player.CanTalk()
+2100,2110,You can't punish me!,Punishment selected.  Good girl learn from lock down.  Sentence 21 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(21),Player.CanTalk()
+2100,2110,Touch me and I'll unplug you.,Punishment selected.  Good girl learn from lock down.  Sentence 24 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(24),Player.CanTalk()
+2100,2110,(Get on your knees and cry.),Punishment selected.  Good girl learn from lock down.  Sentence 8 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(8),!Player.CanTalk()
+2100,2110,(Whimper and beg in your gag.),Punishment selected.  Good girl learn from lock down.  Sentence 11 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(11),!Player.CanTalk()
+2100,2110,(Bow your head slowly.),Punishment selected.  Good girl learn from lock down.  Sentence 14 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(14),!Player.CanTalk()
+2100,2110,(Roll your eyes up.),Punishment selected.  Good girl learn from lock down.  Sentence 18 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(18),!Player.CanTalk()
+2100,2110,(Grumble in your gag.),Punishment selected.  Good girl learn from lock down.  Sentence 21 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(21),!Player.CanTalk()
+2100,2110,(Curse at the machine in your gag.),Punishment selected.  Good girl learn from lock down.  Sentence 24 minutes naked.  Asylum crew alert.  (A siren rings.),PunishmentTime(24),!Player.CanTalk()
 2110,,Wait!  Naked?,Punishment tuned for good girl level.,DialogRemove(),
 2110,,This is too much!,Punishment algorithm never fails.,DialogRemove(),
 2110,,No!  I want to quit.,Invalid request.  Good girl punished.  Good girl belong to GGTS.,DialogRemove(),
@@ -246,6 +267,7 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 3010,,I'll do GGTS in private.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
 3010,,I'll do GGTS in public.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
 3010,3100,I have three strikes.,Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,,AsylumGGTSHasThreeStrikes()
+3010,3100,(Bow your head.),Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,,AsylumGGTSHasThreeStrikes()
 3010,3100,(Whimper and beg in your gag.),(The gag opens and falls on the floor.)  Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,Ungag(),FuturisticGaggedPunished()
 3010,3200,I've completed the training time.,Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level four complete.  Promotion available.,,AsylumGGTSLevelCompleted()
 3010,,I want to quit GGTS.,Three strikes on record.  Three strikes equal punishment.  Punishment time pending.  Cannot quit.,,!CanQuit()
@@ -269,12 +291,18 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 3030,3010,Nothing can make me happy.,GGTS will make happy.  Level four in progress.  Good girl proof require eight hours.,,
 3040,99,It's not for me.  (Quit GGTS.),Good girl data erased.  Girl no longer good.  Sleep mode.  (The computer seems to go to sleep.  Staying silent.),Quit(),
 3040,3010,Let me think about it.  (Don't quit.),Level four in progress.  Good girl proof require eight hours.  Private time triple speed.  Fast girl get bonus time.  Follow progress in chat room.,,
-3100,3110,"Yes, I'm very sorry Sir.",Punishment selected.  Good girl learn from lock down.  Sentence 13 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(13),
-3100,3110,"Yeah, I accept your punishment.",Punishment selected.  Good girl learn from lock down.  Sentence 18 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(18),
-3100,3110,Don't be too harsh.,Punishment selected.  Good girl learn from lock down.  Sentence 23 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(23),
-3100,3110,Make it quick.,Punishment selected.  Good girl learn from lock down.  Sentence 29 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(29),
-3100,3110,You can't punish me!,Punishment selected.  Good girl learn from lock down.  Sentence 34 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(34),
-3100,3110,Touch me and I'll unplug you.,Punishment selected.  Good girl learn from lock down.  Sentence 39 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(39),
+3100,3110,"Yes, I'm very sorry Sir.",Punishment selected.  Good girl learn from lock down.  Sentence 13 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(13),Player.CanTalk()
+3100,3110,"Yeah, I accept your punishment.",Punishment selected.  Good girl learn from lock down.  Sentence 18 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(18),Player.CanTalk()
+3100,3110,Don't be too harsh.,Punishment selected.  Good girl learn from lock down.  Sentence 23 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(23),Player.CanTalk()
+3100,3110,Make it quick.,Punishment selected.  Good girl learn from lock down.  Sentence 29 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(29),Player.CanTalk()
+3100,3110,You can't punish me!,Punishment selected.  Good girl learn from lock down.  Sentence 34 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(34),Player.CanTalk()
+3100,3110,Touch me and I'll unplug you.,Punishment selected.  Good girl learn from lock down.  Sentence 39 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(39),Player.CanTalk()
+3100,3110,(Get on your knees and cry.),Punishment selected.  Good girl learn from lock down.  Sentence 13 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(13),!Player.CanTalk()
+3100,3110,(Whimper and beg in your gag.),Punishment selected.  Good girl learn from lock down.  Sentence 18 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(18),!Player.CanTalk()
+3100,3110,(Bow your head slowly.),Punishment selected.  Good girl learn from lock down.  Sentence 23 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(23),!Player.CanTalk()
+3100,3110,(Roll your eyes up.),Punishment selected.  Good girl learn from lock down.  Sentence 29 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(29),!Player.CanTalk()
+3100,3110,(Grumble in your gag.),Punishment selected.  Good girl learn from lock down.  Sentence 34 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(34),!Player.CanTalk()
+3100,3110,(Curse at the machine in your gag.),Punishment selected.  Good girl learn from lock down.  Sentence 39 minutes chaste.  Asylum crew alert.  (A siren rings.),PunishmentTime(39),!Player.CanTalk()
 3110,,Why should I be chaste?,Punishment tuned for good girl level.,DialogRemove(),
 3110,,Enough!  I quit GGTS!,Invalid request.  Good girl punished.  Good girl belong to GGTS.,DialogRemove(),
 3110,3120,(Wait for the asylum crew.),(Two nurses wearing GGTS items come to get you.  They inform you that you will be locked up naked in the asylum for your punishment.),,
@@ -309,6 +337,7 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 4010,,I'll do GGTS in private.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
 4010,,I'll do GGTS in public.,Three strikes on record.  Three strikes equal punishment.  Punishment pending.  GGTS inactive.,,AsylumGGTSHasThreeStrikes()
 4010,4100,I have three strikes.,Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,,AsylumGGTSHasThreeStrikes()
+4010,4100,(Bow your head.),Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,,AsylumGGTSHasThreeStrikes()
 4010,4100,(Whimper and beg in your gag.),(The gag opens and falls on the floor.)  Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?,Ungag(),FuturisticGaggedPunished()
 4010,4200,I've completed the training time.,Analysing good girl progress.  (The computer goes silent for a few seconds.)  GGTS level five complete.  Promotion available.,,AsylumGGTSLevelCompleted()
 4010,,I want to quit GGTS.,Three strikes on record.  Three strikes equal punishment.  Punishment time pending.  Cannot quit.,,!CanQuit()
@@ -342,12 +371,18 @@ PlayerGagged,,,"Thomas Carlyle wrote: Speech is silver, silence is golden.",,
 4070,4010,(Give up.),Good slave girl GGTS forever.,,
 4080,99,It's not for me.  (Quit GGTS.),Good slave girl data erased.  Girl no longer good.  Sleep mode.  (The computer seems to go to sleep.  Staying silent.),Quit(),
 4080,4010,Let me think about it.  (Don't quit.),Good slave girl GGTS forever.,,
-4100,4110,"Yes, I'm very sorry Sir.",Punishment selected.  Good slave girl learn from lock down.  Sentence 21 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(21),
-4100,4110,"Yeah, I accept your punishment.",Punishment selected.  Good slave girl learn from lock down.  Sentence 29 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(29),
-4100,4110,Don't be too harsh.,Punishment selected.  Good slave girl learn from lock down.  Sentence 37 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(37),
-4100,4110,Make it quick.,Punishment selected.  Good slave girl learn from lock down.  Sentence 47 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(47),
-4100,4110,You can't punish me!,Punishment selected.  Good slave girl learn from lock down.  Sentence 55 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(55),
-4100,4110,Touch me and I'll unplug you.,Punishment selected.  Good slave girl learn from lock down.  Sentence 63 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(63),
+4100,4110,"Yes, I'm very sorry Sir.",Punishment selected.  Good slave girl learn from lock down.  Sentence 21 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(21),Player.CanTalk()
+4100,4110,"Yeah, I accept your punishment.",Punishment selected.  Good slave girl learn from lock down.  Sentence 29 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(29),Player.CanTalk()
+4100,4110,Don't be too harsh.,Punishment selected.  Good slave girl learn from lock down.  Sentence 37 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(37),Player.CanTalk()
+4100,4110,Make it quick.,Punishment selected.  Good slave girl learn from lock down.  Sentence 47 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(47),Player.CanTalk()
+4100,4110,You can't punish me!,Punishment selected.  Good slave girl learn from lock down.  Sentence 55 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(55),Player.CanTalk()
+4100,4110,Touch me and I'll unplug you.,Punishment selected.  Good slave girl learn from lock down.  Sentence 63 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(63),Player.CanTalk()
+4100,4110,(Get on your knees and cry.),Punishment selected.  Good slave girl learn from lock down.  Sentence 21 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(21),!Player.CanTalk()
+4100,4110,(Whimper and beg in your gag.),Punishment selected.  Good slave girl learn from lock down.  Sentence 29 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(29),!Player.CanTalk()
+4100,4110,(Bow your head slowly.),Punishment selected.  Good slave girl learn from lock down.  Sentence 37 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(37),!Player.CanTalk()
+4100,4110,(Roll your eyes up.),Punishment selected.  Good slave girl learn from lock down.  Sentence 47 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(47),!Player.CanTalk()
+4100,4110,(Grumble in your gag.),Punishment selected.  Good slave girl learn from lock down.  Sentence 55 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(55),!Player.CanTalk()
+4100,4110,(Curse at the machine in your gag.),Punishment selected.  Good slave girl learn from lock down.  Sentence 63 minutes enslaved.  Asylum crew alert.  (A siren rings.),PunishmentTime(63),!Player.CanTalk()
 4110,,Wait!  Did you say enslaved?,Punishment tuned for good slave girl level.,DialogRemove(),
 4110,,Enough!  I quit GGTS!,Invalid request.  Good slave girl punished.  Good slave girl belong to GGTS.,DialogRemove(),
 4110,4120,(Wait for the asylum crew.),(Two nurses wearing GGTS items come to get you.  They inform you that you will be enslaved in the asylum for your punishment.),,

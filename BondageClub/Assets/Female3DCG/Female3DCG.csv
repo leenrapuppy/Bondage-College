@@ -1226,6 +1226,7 @@ ItemMouth,SockStuffing,Sock Stuffing
 ItemMouth,GasMaskGag,Respirator Mask
 ItemMouth,WebGag,Web Gag
 ItemMouth,RopeGag,Rope Gag
+ItemMouth,RopeBallGag,Rope Ball Gag
 ItemMouth,MilkBottle,Milk Bottle
 ItemMouth,MedicalMask,Medical Mask
 ItemMouth,RegressedMilk,Nursery Milk
@@ -1287,6 +1288,7 @@ ItemMouth2,LatexBallMuzzleGag,Latex Ball Muzzle Gag
 ItemMouth2,GasMaskGag,Respirator Mask
 ItemMouth2,WebGag,Web Gag
 ItemMouth2,RopeGag,Rope Gag
+ItemMouth2,RopeBallGag,Rope Ball Gag
 ItemMouth2,MedicalMask,Medical Mask
 ItemMouth2,RegressedMilk,Nursery Milk
 ItemMouth2,PrisonLockdownGag,Prison Lockdown Gag
@@ -1340,6 +1342,7 @@ ItemMouth3,LatexBallMuzzleGag,Latex Ball Muzzle Gag
 ItemMouth3,GasMaskGag,Respirator Mask
 ItemMouth3,WebGag,Web Gag
 ItemMouth3,RopeGag,Rope Gag
+ItemMouth3,RopeBallGag,Rope Ball Gag
 ItemMouth3,MedicalMask,Medical Mask
 ItemMouth3,RegressedMilk,Nursery Milk
 ItemMouth3,PrisonLockdownGag,Prison Lockdown Gag
