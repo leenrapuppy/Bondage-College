@@ -51,35 +51,35 @@ ActivitySit,Sit
 ActivityStruggleArms,Struggle
 ActivityStruggleLegs,Struggle
 ActivityStep,Step
-OrgasmFailResist0,"SourceCharacter is tormented by the vibrations, struggling to keep TargetPronouns cool."
+OrgasmFailResist0,"SourceCharacter is tormented by the vibrations, struggling to keep SourcePronounPossessive cool."
 OrgasmFailResist1,"SourceCharacter struggles against the intense vibrations, hardly able to control herself."
 OrgasmFailResist2,SourceCharacter resists the stimulation until it finally cuts off abruptly.
-OrgasmFailTimeout0,"SourceCharacter vibrators stop abruptly, leaving TargetPronouns trembling yet still just as aroused as before."
+OrgasmFailTimeout0,"SourceCharacter vibrators stop abruptly, leaving SourcePronounPossessive trembling yet still just as aroused as before."
 OrgasmFailTimeout1,"SourceCharacter moans and trembles, holding back only because the vibrators abruptly stopped."
-OrgasmFailTimeout2,"SourceCharacter twists and turns trying to hold back, vindicated by an abrupt end to TargetPronouns torment."
-OrgasmFailSurrender0,"SourceCharacter closes TargetPronouns eyes and tries to let herself go, clinging to the edge until it abruptly stops and leaves TargetPronouns feeling empty."
-OrgasmFailSurrender1,SourceCharacter moans and silently screams as the vibrators almost bring TargetPronouns to the edge before stopping.
+OrgasmFailTimeout2,"SourceCharacter twists and turns trying to hold back, vindicated by an abrupt end to SourcePronounPossessive torment."
+OrgasmFailSurrender0,"SourceCharacter closes SourcePronounPossessive eyes and tries to let SourcePronounSelf go, clinging to the edge until it abruptly stops and leaves SourcePronounObject feeling empty."
+OrgasmFailSurrender1,SourceCharacter moans and silently screams as the vibrators almost bring SourcePronounObject to the edge before stopping.
 OrgasmFailSurrender2,"SourceCharacter trembles with pleasure until the teasing comes to an abrupt end, feeling just as aroused as before."
 Orgasm0,"SourceCharacter trembles and moans loudly, getting a powerful orgasm."
 Orgasm1,"SourceCharacter thrashes and loses all control, getting an intense orgasm."
-Orgasm2,"SourceCharacter screams silently and rocks TargetPronouns hips, getting a wonderful orgasm."
+Orgasm2,"SourceCharacter screams silently and rocks SourcePronounPossessive hips, getting a wonderful orgasm."
 Orgasm3,"With intense pleasure, SourceCharacter gets a shattering orgasm."
-Orgasm4,"SourceCharacter closes TargetPronouns eyes and lets herself go, getting a lovely orgasm."
+Orgasm4,"SourceCharacter closes SourcePronounPossessive eyes and lets SourcePronounSelf go, getting a lovely orgasm."
 Orgasm5,SourceCharacter cannot resist the pleasure and succumbs to a great orgasm.
 Orgasm6,"Trembling and moaning rapidly, SourceCharacter gets a fierce orgasm."
-Orgasm7,"SourceCharacter squirts lots of liquid from TargetPronouns vagina, getting a wet orgasm."
+Orgasm7,"SourceCharacter erupts into a loud moan, having a massive orgasm."
 Orgasm8,"SourceCharacter's body cringes and becomes rigid, getting a long and solid orgasm."
-Orgasm9,"SourceCharacter goes berserk with pleasure, giving TargetPronouns two back-to-back orgasms."
-OrgasmResist0,"Using all of TargetPronouns strengths, SourceCharacter is able to resist TargetPronouns building orgasm."
-OrgasmResist1,SourceCharacter fights really hard against TargetPronouns orgasm and is able to resist it.
-OrgasmResist2,"While panting and moaning, SourceCharacter is able to resist TargetPronouns orgasm."
-OrgasmResist3,"SourceCharacter fights off TargetPronouns coming orgasm, TargetPronouns willpower is greater than TargetPronouns urges."
-OrgasmResist4,SourceCharacter concentrates hard and is able to calm down TargetPronouns upcoming orgasm.
-OrgasmResist5,SourceCharacter screams silently and fights hard to finally control TargetPronouns orgasm.
-OrgasmResist6,"Even while trembling without much control, SourceCharacter can resist TargetPronouns orgasm."
-OrgasmResist7,"SourceCharacter's body jerks in all directions, but she manages to fight off TargetPronouns orgasm."
-OrgasmResist8,"SourceCharacter meditates and takes deep breathes, resisting TargetPronouns building orgasm."
-OrgasmResist9,"By pure luck or some miracle, SourceCharacter is able to combat TargetPronouns orgasm."
+Orgasm9,"SourceCharacter goes berserk with pleasure, giving SourcePronounObject two back-to-back orgasms."
+OrgasmResist0,"Using all of SourcePronounPossessive strengths, SourceCharacter is able to resist SourcePronounPossessive building orgasm."
+OrgasmResist1,SourceCharacter fights really hard against SourcePronounPossessive orgasm and is able to resist it.
+OrgasmResist2,"While panting and moaning, SourceCharacter is able to resist SourcePronounPossessive orgasm."
+OrgasmResist3,"SourceCharacter fights off SourcePronounPossessive coming orgasm, SourcePronounPossessive willpower is greater than SourcePronounPossessive urges."
+OrgasmResist4,SourceCharacter concentrates hard and is able to calm down SourcePronounPossessive upcoming orgasm.
+OrgasmResist5,SourceCharacter screams silently and fights hard to finally control SourcePronounPossessive orgasm.
+OrgasmResist6,"Even while trembling without much control, SourceCharacter can resist SourcePronounPossessive orgasm."
+OrgasmResist7,"SourceCharacter's body jerks in all directions, but she manages to fight off SourcePronounPossessive orgasm."
+OrgasmResist8,"SourceCharacter meditates and takes deep breathes, resisting SourcePronounPossessive building orgasm."
+OrgasmResist9,"By pure luck or some miracle, SourceCharacter is able to combat SourcePronounPossessive orgasm."
 Label-ChatSelf-ItemBoots-Kiss,Kiss Foot
 Label-ChatSelf-ItemBoots-PoliteKiss,Polite Kiss on Foot
 Label-ChatSelf-ItemBoots-Lick,Lick Feet
@@ -404,8 +404,8 @@ ChatSelf-ItemBoots-Suck,SourceCharacter sucks on TargetPronouns big toe.
 ChatSelf-ItemBoots-Nibble,SourceCharacter nibbles TargetPronouns own foot.
 ChatSelf-ItemBoots-Tickle,SourceCharacter tickles TargetPronouns own feet.
 ChatSelf-ItemBoots-Spank,SourceCharacter spanks TargetPronouns own feet.
-ChatSelf-ItemBoots-MassageHands,SourceCharacter massages TargetPronouns feet.
-ChatSelf-ItemBoots-TakeCare,SourceCharacter cleans and polishes TargetPronouns toenails.
+ChatSelf-ItemBoots-MassageHands,SourceCharacter massages TargetPronounPossessive feet.
+ChatSelf-ItemBoots-TakeCare,SourceCharacter cleans and polishes TargetPronounPossessive toenails.
 ChatSelf-ItemBoots-Bite,SourceCharacter bites TargetPronouns foot.
 ChatSelf-ItemBoots-Wiggle,SourceCharacter wiggles TargetPronouns feet.
 ChatOther-ItemBoots-Bite,SourceCharacter bites TargetCharacter's foot.
