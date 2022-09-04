@@ -1483,7 +1483,7 @@ var PlatformDialogData = [
 		Exit : function () { PlatformEventSet("OliviaCabin"); },
 		Dialog: [
 			{
-				Background: "ForestCabin",
+				Background: "ForestCabinInterior",
 				Entry: function() {
 					if (PlatformEventDone("OliviaCabin")) PlatformDialogGoto = "End";
 					PlatformDialogProcess();
@@ -1529,7 +1529,7 @@ var PlatformDialogData = [
 		Exit : function () { PlatformEventSet("EdlaranCabin"); },
 		Dialog: [
 			{
-				Background: "ForestCabin",
+				Background: "ForestCabinInterior",
 				Entry: function() {
 					if (PlatformEventDone("EdlaranCabin")) PlatformDialogGoto = "End";
 					PlatformDialogProcess();
@@ -2354,7 +2354,85 @@ var PlatformDialogData = [
 			{ Text: "(*** If you like the game or have ideas for it, please reach Ben987. ***)" },
 		],
 
-	}
+	},
+
+	{
+		Name: "OliviaLover1Start",
+		Dialog: [
+			{
+				Entry: function() { PlatformDialogBackground = "../Screens/Room/PlatformDialog/Background/" + PlatformRoom.Background.replace("/", ""); },
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle", X: 1000 },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle", X: 500 },
+				]
+			},
+
+			{
+				Prerequisite: function() { return (PlatformDialogGetCharacter("Olivia").Domination > 5); },
+				Text: "(You get closer to Olivia with a grin on your face.)",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive", X: 1000 },
+					{ Name: "Melody", Status: "Maid", Pose: "IdleDominant", X: 500 },
+				]
+			},
+			{
+				Prerequisite: function() { return ((PlatformDialogGetCharacter("Olivia").Domination >= -5) && (PlatformDialogGetCharacter("Olivia").Domination <= 5)); },
+				Text: "(You come closer to Olivia and look at each other in the eyes.)",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleHappy", X: 1000 },
+					{ Name: "Melody", Status: "Maid", Pose: "IdleHappy", X: 500 },
+				]
+			},
+			{
+				Prerequisite: function() { return (PlatformDialogGetCharacter("Olivia").Domination < -5); },
+				Text: "(You timidly come closer to Olivia and blush.)",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleDominant", X: 1000 },
+					{ Name: "Melody", Status: "Maid", Pose: "IdleSubmissive", X: 500 },
+				]
+			},
+
+			{
+				Prerequisite: function() { return (PlatformDialogGetCharacter("Olivia").Domination > 5); },
+				Text: "(She gets flustered and looks down at the ground.)",
+			},
+			{
+				Prerequisite: function() { return ((PlatformDialogGetCharacter("Olivia").Domination >= -5) && (PlatformDialogGetCharacter("Olivia").Domination <= 5)); },
+				Text: "(She seems a little nervous but makes a huge smile.)",
+			},
+			{
+				Prerequisite: function() { return (PlatformDialogGetCharacter("Olivia").Domination < -5); },
+				Text: "(She looks at you carefully and smirks.)",
+			},
+
+			{
+				Text: "What's on your mind Melody?",
+				Answer: [
+					{ Text: "(Propose to become girlfriends.)", Reply: "(You look at each other and smiles.)" },
+					{ Text: "(Talk about the weather.)", Reply: "(She sighs and turns away.)", Love: -1, Goto: "Skip" },
+					{ Text: "(Compliment her.)", Reply: "(She smiles but quickly turns away.)", Perk: true, Goto: "Skip" }
+				]
+			},
+			{ 
+				Text: "Olivia, we've been best friends for most of our lives.",
+				Character: [
+					{ Name: "Melody", Status: "Maid", Pose: "IdleHappy" },
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleHappy" }
+				]
+			},
+			{ Text: "Whenever you're around, the sun is brighter." },
+			{ Text: "Whenever you're around, the flowers smell better." },
+			{ Text: "Whenever you're around, I smile a little wider." },
+			{ Text: "I know this is foolish, we are both women." },
+			{ Text: "I know this is foolish, we come from different casts of society." },
+			{ Text: "I know this is foolish, you will marry some Duke someday." },
+			{ Text: "But for this brief moment in your lives, in our adventures." },
+			{ Text: "Would you be my girlfriend?" },
+			{ Text: "TO DO" },
+			{ ID: "Skip", Entry: function() { PlatformDialogLeave(); } },
+
+		],
+	},
 
 ];
 
@@ -2370,6 +2448,7 @@ function PlatformDialogLoadPosition(Position) {
 		PlatformDialogLeave();
 		return;
 	}
+	if ((PlatformDialog.Dialog[Position].Prerequisite != null) && !PlatformDialog.Dialog[Position].Prerequisite()) return PlatformDialogLoadPosition(PlatformDialogPosition + 1);
 	PlatformDialogText = PlatformDialog.Dialog[Position].Text;
 	if (PlatformDialog.Dialog[Position].TextScript != null) PlatformDialogText = PlatformDialog.Dialog[Position].TextScript();
 	PlatformDialogAnswer = PlatformDialog.Dialog[Position].Answer;
