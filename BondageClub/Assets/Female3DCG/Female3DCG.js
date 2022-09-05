@@ -1241,6 +1241,14 @@ var AssetFemale3DCG = [
 					{ Name: "Shine", AllowColorize: false },
 				],
 			},
+			{
+				Name: "DropBag", Value: 20, HideForPose: ["Hogtied", "AllFours"],
+				Layer: [
+					{ Name: "Bag", Priority: 22 },
+					{ Name: "LegStrap", Priority: 21, CopyLayerColor: "Bag", HideForPose: ["KneelingSpread"] }
+
+				],
+			}
 		],
 		Color: ["Default", "#bbbbbb", "#808080", "#202020", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
