@@ -142,15 +142,17 @@ Label-ChatOther-ItemLegs-Grope,Grope Thigh
 Label-ChatOther-ItemLegs-Sit,Sit in Lap
 Label-ChatOther-ItemLegs-RestHead,Rest Head in Lap
 Label-ChatOther-ItemLegs-Inject,Inject Legs
-Label-ChatSelf-ItemVulva-MasturbateHand,Masturbate Pussy
-Label-ChatSelf-ItemVulva-MasturbateFist,Fist Pussy
-Label-ChatSelf-ItemVulva-Caress,Caress Pussy
+Label-ChatSelf-ItemVulva-MasturbateHandVagina,Masturbate Pussy
+Label-ChatSelf-ItemVulva-MasturbateHandPenis,Stroke Shaft
+Label-ChatSelf-ItemVulva-MasturbateFistVagina,Fist Pussy
+Label-ChatSelf-ItemVulva-CaressVagina,Caress Pussy
 Label-ChatSelf-ItemVulva-Slap,Slap Pussy
-Label-ChatOther-ItemVulva-MasturbateHand,Finger Pussy
-Label-ChatOther-ItemVulva-MasturbateFist,Fist Pussy
+Label-ChatOther-ItemVulva-MasturbateHandVagina,Finger Pussy
+Label-ChatOther-ItemVulva-MasturbateHandPenis,Stroke Shaft
+Label-ChatOther-ItemVulva-MasturbateFistVagina,Fist Pussy
 Label-ChatOther-ItemVulva-MasturbateFoot,Foot Masturbate Pussy
 Label-ChatOther-ItemVulva-MasturbateTongue,Tongue Masturbate Pussy
-Label-ChatOther-ItemVulva-Caress,Caress Pussy
+Label-ChatOther-ItemVulva-CaressVagina,Caress Pussy
 Label-ChatOther-ItemVulva-Slap,Slap Pussy Lips
 Label-ChatOther-ItemVulva-Kiss,Kiss Pussy Lips
 Label-ChatOther-ItemVulva-GaggedKiss,Push Gag in Pussy
@@ -159,14 +161,16 @@ Label-ChatOther-ItemVulva-Nibble,Nibble Pussy Lips
 Label-ChatOther-ItemVulva-MasturbateItem,Device on Pussy
 Label-ChatOther-ItemVulva-PenetrateSlow,Slow Penetration
 Label-ChatOther-ItemVulva-PenetrateFast,Fast Penetration
-Label-ChatSelf-ItemVulvaPiercings-MasturbateHand,Masturbate Clitoris
-Label-ChatSelf-ItemVulvaPiercings-Caress,Caress Clitoris
+Label-ChatSelf-ItemVulvaPiercings-MasturbateHandVagina,Masturbate Clitoris
+Label-ChatSelf-ItemVulvaPiercings-MasturbateHandPenis,Stroke Tip
+Label-ChatSelf-ItemVulvaPiercings-CaressVagina,Caress Clitoris
 Label-ChatSelf-ItemVulvaPiercings-Slap,Slap Clitoris
 Label-ChatSelf-ItemVulvaPiercings-Inject,Inject Clitoris
-Label-ChatOther-ItemVulvaPiercings-MasturbateHand,Finger Clitoris
+Label-ChatOther-ItemVulvaPiercings-MasturbateHandVagina,Finger Clitoris
+Label-ChatOther-ItemVulvaPiercings-MasturbateHandPenis,Stroke Tip
 Label-ChatOther-ItemVulvaPiercings-MasturbateFoot,Foot Masturbate Clitoris
 Label-ChatOther-ItemVulvaPiercings-MasturbateTongue,Tongue Masturbate Clitoris
-Label-ChatOther-ItemVulvaPiercings-Caress,Caress Clitoris
+Label-ChatOther-ItemVulvaPiercings-CaressVagina,Caress Clitoris
 Label-ChatOther-ItemVulvaPiercings-Slap,Slap Clitoris
 Label-ChatOther-ItemVulvaPiercings-Kiss,Kiss Clitoris
 Label-ChatOther-ItemVulvaPiercings-GaggedKiss,Gag Kiss Clitoris
