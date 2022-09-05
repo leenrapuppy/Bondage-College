@@ -27,6 +27,7 @@ var PlatformParty = [];
 var PlatformRegen = 0;
 var PlatformCooldown = [];
 var PlatformTimedScreenFilter = { End: 0, Filter: "" };
+var PlatformRightButtons = [];
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -2268,6 +2269,40 @@ function PlatformDraw() {
 }
 
 /**
+ * Draws all the buttons on the right side of the screen for extra lovers/Ds interactions
+ * @returns {void} - Nothing
+ */
+function PlatformDrawRightButtons() {
+
+	// Gets the two characters that must interact, Melody is always C1 for now
+	PlatformRightButtons = [];
+	let C1 = null;
+	let C2 = null;
+	if (PlatformPlayer.Name == "Melody") {
+		C1 = PlatformDialogGetCharacter(PlatformPlayer.Name);
+		for (let Char of PlatformChar)
+			if ((Char.Dialog != null) && (Math.abs(PlatformPlayer.X - Char.X) <= 150) && (Math.abs(PlatformPlayer.Y - Char.Y) <= 450))
+				C2 = PlatformDialogGetCharacter(Char.Name);
+	} else {
+		C2 = PlatformDialogGetCharacter(PlatformPlayer.Name);
+		for (let Char of PlatformChar)
+			if ((Char.Dialog != null) && (Math.abs(PlatformPlayer.X - Char.X) <= 150) && (Math.abs(PlatformPlayer.Y - Char.Y) <= 450))
+				C1 = PlatformDialogGetCharacter(Char.Name);
+	}
+
+	// Adds the possible buttons, only available if Melody is C1
+	if ((C1 == null) || (C2 == null)) return;
+	if (C1.Name != "Melody") return;
+	if ((C2.Love >= 20) && ((C1.LoverName == null) || (C1.LoverName == ""))&& ((C2.LoverName == null) || (C2.LoverName == ""))) PlatformRightButtons.push(C2.Name + "Lover1Start");
+	if ((C2.LoverName != null) && (C2.LoverName == C1.Name)) PlatformRightButtons.push(C2.Name + "Lover1End");
+
+	// Draw the buttons on the right side
+	for (let B = 0; B < PlatformRightButtons.length; B++)
+		DrawButton(1900, 10 + (B + 1) * 100, 90, 90, "", "White", "Screens/Room/Platform/Button/" + PlatformRightButtons[B] + ".png", TextGet("Button" + PlatformRightButtons[B]));
+
+}
+
+/**
  * Runs and draws the screen.
  * @returns {void} - Nothing
  */
@@ -2280,6 +2315,7 @@ function PlatformRun() {
 	if ((PlatformHeal != null) && PlatformSaveMode)
 		for (let S = 0; S < 10; S++)
 			DrawButton(250 + (S * 157), 200, 90, 90, S.toString(), "White", "", TextGet("SaveOn") + S.toString());
+	if (PlatformHeal != null) PlatformDrawRightButtons();
 	if (CommonIsMobile) PlatformTouch();
 }
 
@@ -2329,6 +2365,9 @@ function PlatformClick() {
 	if (MouseIn(1700, 10, 90, 90) && (PlatformHeal != null)) return CommonSetScreen("Room", "PlatformProfile");
 	if (MouseIn(1600, 10, 90, 90) && (PlatformHeal != null)) return PlatformPartyNext();
 	if (!CommonIsMobile && !PlatformPlayer.HalfBound) PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
+	for (let B = 0; B < PlatformRightButtons.length; B++)
+		if (MouseIn(1900, 10 + (B + 1) * 100, 90, 90))
+			PlatformDialogStart(PlatformRightButtons[B]);
 }
 
 /**
@@ -2394,8 +2433,8 @@ function PlatformSaveGame(Slot) {
 	PlatformSaveMode = false;
 	let SaveDialog = [];
 	for (let Char of PlatformDialogCharacter)
-		if ((Char.Love != null) || (Char.Domination != null))
-			SaveDialog.push({ Name: Char.Name, Love: Char.Love, Domination: Char.Domination });
+		if ((Char.Love != null) || (Char.Domination != null) || (Char.LoverName != null) || (Char.LoverLevel != null))
+			SaveDialog.push({ Name: Char.Name, Love: Char.Love, Domination: Char.Domination, LoverName: Char.LoverName, LoverLevel: Char.LoverLevel });
 	let SaveObj = {
 		Character: PlatformPlayer.Name,
 		Status: PlatformPlayer.Status,
@@ -2445,8 +2484,10 @@ function PlatformLoadGame(Slot) {
 		for (let DialogChar of LoadObj.Dialog)
 			for (let Char of PlatformDialogCharacter)
 				if (DialogChar.Name == Char.Name) {
-					Char.Love = DialogChar.Love;
-					Char.Domination = DialogChar.Domination;
+					if (DialogChar.Love != null) Char.Love = DialogChar.Love;
+					if (DialogChar.Domination != null) Char.Domination = DialogChar.Domination;
+					if (DialogChar.LoverName != null) Char.LoverName = DialogChar.LoverName;
+					if (DialogChar.LoverLevel != null) Char.LoverLevel = DialogChar.LoverLevel;
 				}
 
 	// Loads the current room and launches it

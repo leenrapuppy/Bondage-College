@@ -1,8 +1,14 @@
 Exit,Return to Bondage Brawl
 Name,Name:
 Class,Profession:
-Owner,Owner:
-Lover,Lover:
+Owner0,Dominant:
+Owner1,Protector:
+Owner2,Owner:
+Owner3,Mistress:
+Lover0,Lover:
+Lover1,Girlfriend:
+Lover2,Fiancée:
+Lover3,Wife:
 None,None
 AgeMelody,Age: 21
 AgeOlivia,Age: 20

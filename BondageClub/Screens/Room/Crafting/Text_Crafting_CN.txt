@@ -12,8 +12,8 @@ Next
 下一页
 No lock
 无锁
-Select a slot for your new crafted item.  The previous item in that slot will be replaced.
-为你新制作的物品选择一个栏位。之前在该栏位的物品会被替换。
+Select an empty slot to craft a new item, or click on the item to edit.
+为你新制作的物品选择一个栏位，或者点击物品来编辑它。
 Select a crafted item slot to destroy.
 选择一个已经制作的物品栏来摧毁。
 Select an item to craft or search on your left.
@@ -24,12 +24,18 @@ Select a lock to use with your PropertyName AssetDescription.
 为你的PropertyName AssetDescription选择一个锁。
 Enter a name and description for your PropertyName AssetDescription.
 为你的PropertyName AssetDescription输入一个名称和描述。
+Pick the item colors
+选择该物品的颜色
 Name of the crafted item
 制作物品的名称
 Engrave a description
 雕刻描述
-Color schema (Use commas to split colors)
-色彩模式（使用逗号分隔色彩）
+Enter or pick the colors
+输入或者选择颜色
+Private (only you can use it)
+私用（只有你能使用它）
+Automatic selection:
+自动选择：
 Empty
 空
 Normal
@@ -48,6 +54,14 @@ Loose
 松弛
 Decoy
 诱饵
+Malleable
+柔韧
+Rigid
+坚硬
+Simple
+简洁
+Puzzling
+费解
 Painful
 痛苦
 Comfy
@@ -78,6 +92,14 @@ Easier to struggle out.
 更易挣脱。
 Can always struggle out.
 总是能挣脱。
+Takes less time to wear and remove.
+穿上或移除所花费的时间更少。
+Takes more time to wear and remove.
+穿上或移除所花费的时间更多。
+Easier to picklock.
+更易撬锁。
+Harder to picklock.
+更难撬锁。
 More painful for the wearer.
 让穿戴者更痛苦。
 Comfier for the wearer.
@@ -92,3 +114,5 @@ Harder to resist an orgasm.
 更难抵抗高潮。
 Easier to resist an orgasm.
 更易抵抗高潮。
+Open Colorpicker
+打开颜色选择器
