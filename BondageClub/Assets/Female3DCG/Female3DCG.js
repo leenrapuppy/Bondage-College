@@ -2786,10 +2786,10 @@ var AssetFemale3DCG = [
 				],
 			},
 			// Penis Compatible Items
-			{ Name: "BasicCockring", Value: 10, Prerequisite: ["AccessVulva", "HasPenis"], AllowExpression: ["Hard"],
+			{ Name: "BasicCockring", Value: 10, Left: 200, Top: 410, Prerequisite: ["AccessVulva", "HasPenis"], AllowExpression: ["Hard"], Hide: ["Pussy"],
 				Layer: [
-					{ Name: "CockRing" },
-					{ Name: "Penis", InheritColor: "Pussy", }
+					{ Name: "CockRing", MirrorExpression: "Pussy" },
+					{ Name: "Penis", InheritColor: "Pussy", MirrorExpression: "Pussy" }
 				]
 			},
 			AssetSpankingToys
