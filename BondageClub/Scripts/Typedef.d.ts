@@ -103,7 +103,7 @@ type EffectName =
 
 	"Lock" | "NotSelfPickable" |
 
-	"Chaste" | "BreastChaste" |
+	"Chaste" | "BreastChaste" | "ButtChaste" |
 
 	"Leash" | "CrotchRope" |
 
@@ -792,6 +792,7 @@ interface Character {
 	IsChaste: () => boolean;
 	IsVulvaChaste: () => boolean;
 	IsBreastChaste: () => boolean;
+	IsButtChaste: () => boolean;
 	IsEgged: () => boolean;
 	IsOwned: () => boolean;
 	IsOwnedByPlayer: () => boolean;

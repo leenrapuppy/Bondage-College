@@ -202,6 +202,9 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		IsPlugged: function () {
 			return (this.Effect.indexOf("IsPlugged") >= 0);
 		},
+		IsButtChaste: function () {
+			return this.Effect.includes("ButtChaste");
+		},
 		IsBreastChaste: function () {
 			return (this.Effect.indexOf("BreastChaste") >= 0);
 		},
