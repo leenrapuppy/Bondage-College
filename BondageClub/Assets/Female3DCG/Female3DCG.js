@@ -7550,7 +7550,7 @@ var ActivityFemale3DCG = [
 		Target: ["ItemNeck", "ItemNose"],
 		TargetSelf: true,
 	},
-	// Vagina Specific sActitvites
+	// Vagina Actitvites
 	{
 		Name: "MasturbateHandVagina",
 		MaxProgress: 100,
@@ -7572,15 +7572,7 @@ var ActivityFemale3DCG = [
 		Target: ["ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 	},
-	// Breast Specific Activites
-	{
-		Name: "MasturbateHandBreast",
-		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "UseHands", "ZoneNaked", "HasBreasts"],
-		Target: ["ItemBreast"],
-		TargetSelf: true,
-	},
-	// Penis Specific Activites
+	// Penis Activites
 	{
 		Name: "MasturbateHandPenis",
 		MaxProgress: 100,
