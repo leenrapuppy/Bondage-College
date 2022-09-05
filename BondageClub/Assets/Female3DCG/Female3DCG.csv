@@ -1349,7 +1349,7 @@ ItemMouth3,PaciGag,Pacifier Gag
 ItemMouth3,Tentacles,Tentacle
 ItemMouth3,PonyGag,Bridle Gag
 ItemMouth3,Slime,Slime
-ItemMouth3,Stitches,Stitches 
+ItemMouth3,Stitches,Stitches
 ItemMouth3,FurScarf,Fur Scarf
 ItemHead,,Eyes
 ItemHead,ClothBlindfold,Cloth Blindfold
@@ -1383,7 +1383,7 @@ ItemHead,MedicalPatch,Medical Patches
 ItemHead,DroneMask,Smooth Latex Mask
 ItemHead,Slime,Slime
 ItemHead,FurScarf,Fur Scarf
-ItemHead,Stitches,Stitches 
+ItemHead,Stitches,Stitches
 ItemNose,,Nose
 ItemNose,NoseHook,Nose Hook
 ItemNose,PigNose,Pig Nose
@@ -1428,6 +1428,7 @@ ItemHood,Slime,Slime
 ItemHood,KittyHood,Kitty Hood
 ItemHood,LatexDogHood,Latex Dog Hood
 ItemHood,OpenMouthPlugHood,Latex Open Mouth Plug Hood
+ItemHood,DroneMask,Smooth Latex Mask
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs
