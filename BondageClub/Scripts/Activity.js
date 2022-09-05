@@ -213,6 +213,19 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			else if (group.Name === "ItemHands")
 				return InventoryPrerequisiteMessage(acted, "NakedHands") === "";
 			break;
+			case "HasPenis":
+				return InventoryIsItemInList(acted, "Pussy", ["Penis"]);
+				case "HasVagina":
+				return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
+				case "HasPenisSelf":
+				return InventoryIsItemInList(acting, "Pussy", ["Penis1"]);
+				case "HasVaginaSelf":
+				return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
+				case "HasBreasts":
+				!InventoryIsItemInList(acted, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
+				case "HasBreastsSelf":
+				!InventoryIsItemInList(acting, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
+
 		default:
 			if (prereq.startsWith("Needs-")) {
 				return !acting.IsEnclose() && !acted.IsEnclose() && CharacterHasItemForActivity(acting, prereq.substring(6));

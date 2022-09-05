@@ -7456,11 +7456,13 @@ var ActivityFemale3DCG = [
 		TargetSelf: ["ItemArms", "ItemBoots", "ItemFeet", "ItemHands", "ItemLegs", "ItemMouth"],
 	},
 	/* Hand activities */
+
+	// General Actitvites
 	{
 		Name: "Caress",
 		MaxProgress: 80,
 		Prerequisite: ["ZoneAccessible", "UseHands"],
-		Target: ["ItemArms", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHands", "ItemHead", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2", "ItemVulva", "ItemVulvaPiercings"],
+		Target: ["ItemArms", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHands", "ItemHead", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2"],
 		TargetSelf: true,
 	},
 	{
@@ -7540,18 +7542,34 @@ var ActivityFemale3DCG = [
 		Target: ["ItemNeck", "ItemNose"],
 		TargetSelf: true,
 	},
+	// Vagina Actitvites
 	{
-		Name: "MasturbateHand",
+		Name: "MasturbateHandVagina",
 		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "UseHands", "ZoneNaked"],
-		Target: ["ItemBreast", "ItemButt", "ItemVulva", "ItemVulvaPiercings"],
+		Prerequisite: ["ZoneAccessible", "UseHands", "ZoneNaked", "HasVagina"],
+		Target: ["ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 	},
 	{
-		Name: "MasturbateFist",
+		Name: "MasturbateFistVagina",
 		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "VulvaEmpty", "UseHands", "ZoneNaked"],
-		Target: ["ItemButt", "ItemVulva"],
+		Prerequisite: ["ZoneAccessible", "VulvaEmpty", "UseHands", "ZoneNaked", "HasVagina"],
+		Target: ["ItemVulva"],
+		TargetSelf: true,
+	},
+	{
+		Name: "CaressVagina",
+		MaxProgress: 80,
+		Prerequisite: ["ZoneAccessible", "UseHands", "HasVagina"],
+		Target: ["ItemVulva", "ItemVulvaPiercings"],
+		TargetSelf: true,
+	},
+	// Penis Compatible Activites
+	{
+		Name: "MasturbateHandPenis",
+		MaxProgress: 100,
+		Prerequisite: ["ZoneAccessible", "UseHands", "ZoneNaked", "HasPenis"],
+		Target: ["ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 	},
 	/* Feet activities */
