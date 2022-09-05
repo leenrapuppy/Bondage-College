@@ -2290,10 +2290,11 @@ function PlatformDrawRightButtons() {
 				C1 = PlatformDialogGetCharacter(Char.Name);
 	}
 
-	// Adds the possible buttons
+	// Adds the possible buttons, only available if Melody is C1
 	if ((C1 == null) || (C2 == null)) return;
-	if ((C2.Love >= 20) && ((C1.Lover == null) || (C1.Lover == ""))&& ((C2.Lover == null) || (C2.Lover == ""))) PlatformRightButtons.push(C2.Name + "Lover1Start");
-	if ((C2.Lover != null) && (C2.Lover == C1.Name)) PlatformRightButtons.push(C2.Name + "Lover1End");
+	if (C1.Name != "Melody") return;
+	if ((C2.Love >= 20) && ((C1.LoverName == null) || (C1.LoverName == ""))&& ((C2.LoverName == null) || (C2.LoverName == ""))) PlatformRightButtons.push(C2.Name + "Lover1Start");
+	if ((C2.LoverName != null) && (C2.LoverName == C1.Name)) PlatformRightButtons.push(C2.Name + "Lover1End");
 
 	// Draw the buttons on the right side
 	for (let B = 0; B < PlatformRightButtons.length; B++)
@@ -2432,8 +2433,8 @@ function PlatformSaveGame(Slot) {
 	PlatformSaveMode = false;
 	let SaveDialog = [];
 	for (let Char of PlatformDialogCharacter)
-		if ((Char.Love != null) || (Char.Domination != null))
-			SaveDialog.push({ Name: Char.Name, Love: Char.Love, Domination: Char.Domination });
+		if ((Char.Love != null) || (Char.Domination != null) || (Char.LoverName != null) || (Char.LoverLevel != null))
+			SaveDialog.push({ Name: Char.Name, Love: Char.Love, Domination: Char.Domination, LoverName: Char.LoverName, LoverLevel: Char.LoverLevel });
 	let SaveObj = {
 		Character: PlatformPlayer.Name,
 		Status: PlatformPlayer.Status,
@@ -2483,8 +2484,10 @@ function PlatformLoadGame(Slot) {
 		for (let DialogChar of LoadObj.Dialog)
 			for (let Char of PlatformDialogCharacter)
 				if (DialogChar.Name == Char.Name) {
-					Char.Love = DialogChar.Love;
-					Char.Domination = DialogChar.Domination;
+					if (DialogChar.Love != null) Char.Love = DialogChar.Love;
+					if (DialogChar.Domination != null) Char.Domination = DialogChar.Domination;
+					if (DialogChar.LoverName != null) Char.LoverName = DialogChar.LoverName;
+					if (DialogChar.LoverLevel != null) Char.LoverLevel = DialogChar.LoverLevel;
 				}
 
 	// Loads the current room and launches it

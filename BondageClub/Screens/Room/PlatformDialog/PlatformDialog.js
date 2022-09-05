@@ -1518,9 +1518,16 @@ var PlatformDialogData = [
 			},
 			{
 				ID: "End",
+				Prerequisite: function() { return !PlatformDialogIsLover("Olivia"); },
 				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "Back" }],
 				Text: "(She warms herself by the fireplace and gets lost in her thoughts.)"
 			},
+			{
+				Prerequisite: function() { return PlatformDialogIsLover("Olivia"); },
+				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "FrenchKissMaidMelody", X: 500 }],
+				Text: "I love you sweetie.  (You exchange a lovely kiss.)"
+			},
+
 		]
 	},
 
@@ -2428,9 +2435,124 @@ var PlatformDialogData = [
 			{ Text: "I know this is foolish, you will marry some Duke someday." },
 			{ Text: "But for this brief moment in your lives, in our adventures." },
 			{ Text: "Would you be my girlfriend?" },
-			{ Text: "TO DO" },
+
+			{
+				Prerequisite: function() { return (PlatformDialogGetCharacter("Olivia").Domination > 5); },
+				Text: "I would be honored to be your girlfriend.  (She blushes as you jump on her for a passionate kiss.)",
+			},
+			{
+				Prerequisite: function() { return ((PlatformDialogGetCharacter("Olivia").Domination >= -5) && (PlatformDialogGetCharacter("Olivia").Domination <= 5)); },
+				Text: "Yes Melody!  Yes, yes yes!  (You both get closer and exchange a passionate kiss.)",
+			},
+			{
+				Prerequisite: function() { return (PlatformDialogGetCharacter("Olivia").Domination < -5); },
+				Text: "No!  YOU will be my girlfriend.  (She laughs and jumps on you for a passionate kiss.)",
+			},
+			{
+				Entry: function() { 
+					PlatformDialogGetCharacter("Olivia").Love = PlatformDialogGetCharacter("Olivia").Love + 3;
+					PlatformDialogGetCharacter("Olivia").LoverName = "Melody";
+					PlatformDialogGetCharacter("Melody").LoverName = "Olivia";
+					PlatformDialogGetCharacter("Olivia").LoverLevel = 1;
+					PlatformDialogGetCharacter("Melody").LoverLevel = 1;
+				},
+				Character: [{ Name: "Olivia", Status: "Oracle", Pose: "FrenchKissMaidMelody", X: 500 }]
+			},
+
+			{ Text: "(You kiss and kiss again for a long time, exchanging heat and saliva.)" },
+			{ Text: "(You look at each other in the eyes and run to find a comfy and private place.)" },
+			{
+				Text: "(You both strip down in haste and exchange giggles.)",
+				Background: "Black",
+				Character: [
+					{ Name: "Olivia", Status: "Chastity", Pose: "LookLeft", X: 1000 },
+					{ Name: "Melody", Status: "Naked", Pose: "LookRight", X: 500 }
+				]
+			},
+			{},
+			{ Text: "(She looks down at her chastity belt and sighs loudly.)" },
+			{ 
+				Text: "This belt will be a problem sweetheart.",
+				Answer: [
+					{ Text: "I know!  We are so helpless my love.", Reply: "(She caresses your head slowly.)  We will find a solution someday honey.", Domination: -2 },
+					{ Text: "I promise to unlock you someday.", Reply: "(She smiles at you.)  I know you will Melody.", Domination: 2 },
+					{ Text: "Let's forget about it for a moment.", Reply: "(She nods in agreement.)  That's a good idea my love." },
+				]
+			},
+			{ Text: "(You both lie down and exchange kisses and caresses all night.)" },
+			{ Character: [{ Name: "Olivia", Status: "Chastity", Pose: "LayingOnNakedMelody", X: 0 }] },
+			{ Text: "(Even without an orgasm, you learn to discover each other intimately.)" },
+			{ Text: "(You spend your first night together as lovers, almost naked.)" },
+			{ Text: "(You wake up in each other arms, smiling and talking about what lies ahead.)" },
+			{ Text: "(You and Olivia are now girlfriends, the first lover stage.)" },
+			{ Text: "(The adventure continues...)" },
+
 			{ ID: "Skip", Entry: function() { PlatformDialogLeave(); } },
 
+		],
+	},
+
+	{
+		Name: "OliviaLover1End",
+		Dialog: [
+			{
+				Entry: function() { PlatformDialogBackground = "../Screens/Room/PlatformDialog/Background/" + PlatformRoom.Background.replace("/", ""); },
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "Idle", X: 1000 },
+					{ Name: "Melody", Status: "Maid", Pose: "Idle", X: 500 },
+				]
+			},
+			{ Text: "(You exchange a cold stare.)" },
+			{ Text: "I don't like that look on your face." },
+			{
+				Text: "What's on your mind Melody?",
+				Answer: [
+					{
+						Text: "(Break up with her.)",
+						Reply: "So it's over.  You don't want me as your lover.",
+						Script: function() {
+							PlatformDialogGetCharacter("Olivia").Love = PlatformDialogGetCharacter("Olivia").Love - 6;
+							if (PlatformDialogGetCharacter("Olivia").Love >= 19) PlatformDialogGetCharacter("Olivia").Love = 18;
+							delete PlatformDialogGetCharacter("Olivia").LoverName;
+							delete PlatformDialogGetCharacter("Melody").LoverName;
+							delete PlatformDialogGetCharacter("Olivia").LoverLevel;
+							delete PlatformDialogGetCharacter("Melody").LoverLevel;
+						}
+					},
+					{ Text: "(Kiss her.)", Reply: "(You share a quick kiss and the adventure continues.)", Goto: "Skip" },
+				]
+			},
+			{
+				Prerequisite: function() { return (PlatformDialogGetCharacter("Olivia").Domination > 5); },
+				Text: "Life is so unfair!  (She starts to cry.)",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSubmissive", X: 1000 },
+					{ Name: "Melody", Status: "Maid", Pose: "IdleDominant", X: 500 },
+				]
+			},
+			{
+				Prerequisite: function() { return ((PlatformDialogGetCharacter("Olivia").Domination >= -5) && (PlatformDialogGetCharacter("Olivia").Domination <= 5)); },
+				Text: "I'm sad to hear that.  (She sighs loudly.)",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleSad", X: 1000 },
+					{ Name: "Melody", Status: "Maid", Pose: "IdleSubmissive", X: 500 },
+				]
+			},
+			{
+				Prerequisite: function() { return (PlatformDialogGetCharacter("Olivia").Domination < -5); },
+				Text: "It's fine for me.  You're only a maid, I can do much better.",
+				Character: [
+					{ Name: "Olivia", Status: "Oracle", Pose: "IdleDominant", X: 1000 },
+					{ Name: "Melody", Status: "Maid", Pose: "IdleSubmissive", X: 500 },
+				]
+			},
+			{ Text: "Our love was doomed from the beginning." },
+			{ Text: "I will marry the Duke of Sunesk next year." },
+			{ Text: "Let's pretend we've never dated and continue our quest." },
+			{ Text: "There is more at stake than a silly impossible romance." },
+			{ Text: "(You and Olivia are no longer lovers.)" },
+			{ Text: "(The adventure continues...)" },
+			{ ID: "Skip", Entry: function() { PlatformDialogLeave(); } },
 		],
 	},
 
@@ -2512,6 +2634,8 @@ function PlatformDialogDraw() {
 		let Name;
 		let Love;
 		let Domination;
+		let LoverLevel;
+		let OwnerLevel;
 		if ((PlatformDialogCharacterDisplay != null) && (PlatformDialogCharacterDisplay.length > 0))
 			for (let Character of PlatformDialogCharacter)
 				if (Character.Name == PlatformDialogCharacterDisplay[0].Name) {
@@ -2519,6 +2643,8 @@ function PlatformDialogDraw() {
 					Color = Character.Color;
 					Love = Character.Love;
 					Domination = Character.Domination;
+					LoverLevel = (Character.LoverLevel == null) ? 0 : Character.LoverLevel;
+					OwnerLevel = (Character.OwnerLevel == null) ? 0 : Character.OwnerLevel;
 				}
 		if (Color == null) Color = "#ffffff";
 		if ((PlatformDialogCharacterDisplay != null) && (PlatformDialogCharacterDisplay.length > 0)) {
@@ -2545,8 +2671,8 @@ function PlatformDialogDraw() {
 		if ((Love != null) && (Domination != null)) {
 			DrawEmptyRect(1617, 610, 366, 66, Color, 6);
 			DrawRect(1620, 613, 360, 60, "#000000D0");
-			DrawImage("Screens/Room/PlatformDialog/Love.png", 1640, 613);
-			DrawImage("Screens/Room/PlatformDialog/Domination.png", 1805, 613);
+			DrawImage("Screens/Room/PlatformDialog/Love" + LoverLevel.toString() + ".png", 1640, 613);
+			DrawImage("Screens/Room/PlatformDialog/Domination" + OwnerLevel.toString() + ".png", 1805, 613);
 			DrawText(((Love > 0) ? "+" : "") + Love.toString(), 1755, 645, Color, "Black");
 			DrawText(((Domination > 0) ? "+" : "") + Domination.toString(), 1915, 645, Color, "Black");
 		}
@@ -2570,16 +2696,17 @@ function PlatformDialogRun() {
  * @param {Boolean} Bonus - If there's a bonus to apply or not
  * @returns {Number} - The new stat after changes
  */
-function PlatformDialogChangeValue(CurrentValue, Change, Bonus) {
+function PlatformDialogChangeValue(CurrentValue, Change, Bonus, Level) {
 	if ((CurrentValue == null) || (Change == null)) return CurrentValue;
+	if (Level == null) Level = 0;
 	if (Bonus == null) Bonus = false;
 	if (!Bonus && (CurrentValue >= 10) && (Change > 0)) Change = 1;
 	if (!Bonus && (CurrentValue <= -10) && (Change < 0)) Change = -1;
 	if (Bonus && (CurrentValue < 10) && (Change > 0)) Change++;
 	if (Bonus && (CurrentValue > -10) && (Change < 0)) Change--;
 	let Value = CurrentValue + Change;
-	if (Value > 20) Value = 20;
-	if (Value < -20) Value = -20;
+	if (Value > 20 + Level * 10) Value = 20 + Level * 10;
+	if (Value < -20 + Level * 10) Value = -20 + Level * 10;
 	return Value;
 }
 
@@ -2627,8 +2754,8 @@ function PlatformDialogPickAnswer(Position) {
 					for (let Character of PlatformDialogCharacter)
 						if (Character.Name == PlatformDialogCharacterDisplay[0].Name) {
 							PlatformDialogSetIdlePose(Character, Answer.Love, Answer.Domination);
-							Character.Love = PlatformDialogChangeValue(Character.Love, Answer.Love, PlatformDialogLeaderHasPerk("Seduction"));
-							Character.Domination = PlatformDialogChangeValue(Character.Domination, Answer.Domination, PlatformDialogLeaderHasPerk("Persuasion"));
+							Character.Love = PlatformDialogChangeValue(Character.Love, Answer.Love, PlatformDialogLeaderHasPerk("Seduction"), Character.LoverLevel);
+							Character.Domination = PlatformDialogChangeValue(Character.Domination, Answer.Domination, PlatformDialogLeaderHasPerk("Persuasion"), Character.OwnerLevel);
 						}
 				if (Answer.Script != null) Answer.Script();
 			}
@@ -2778,4 +2905,13 @@ function PlatformDialogEvent() {
 		PlatformLoadRoom("ForestCampGround");
 	}
 
+}
+
+/**
+ * Returns TRUE if the character is Melody's lover, make sure that character or Melody is currently active
+ * @param {String} Name - The name of a character
+ * @returns {boolean} - TRUE if lover
+ */
+function PlatformDialogIsLover(Name) {
+	return ((PlatformDialogGetCharacter(Name).LoverName === "Melody") && ((PlatformPlayer.Name === "Melody") || (PlatformPlayer.Name === Name)));
 }
