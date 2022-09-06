@@ -7149,6 +7149,7 @@ var PoseFemale3DCG = [
 		OverrideHeight: { Height: -560, Priority: 50 },
 		Hide: ["ItemFeet", "ClothLower", "SuitLower", "Nipples", "Pussy", "BodyLower", "Wings", "ItemPelvis", "ItemVulva", "ItemVulvaPiercings", "ItemLegs", "ItemBoots", "Suit", "Panties", "Bra", "Socks", "Shoes", "LeftAnklet", "RightAnklet", "Garters", "Bracelet"],
 		MovePosition: [{ Group: "TailStraps", X: 0, Y: -300 }, { Group: "ItemButt", X: 0, Y: -300 }, {Group: "Head", X: 0, Y: 1}],
+		AllowMenuTransient: true,
 	},
 	{
 		Name: "BackBoxTie",
