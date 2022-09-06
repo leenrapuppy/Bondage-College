@@ -1737,6 +1737,7 @@ function PlatformDrawCharacter(C, Time) {
  * @returns {void} - Nothing
  */
 function PlatformAddExperience(C, Value) {
+	if (C.Camera) Value = Value * CheatFactor("DoubleBrawlExperience", 2);
 	C.Experience = C.Experience + Value;
 	if (C.Experience >= PlatformExperienceForLevel[C.Level]) {
 		if (C.Camera) PlatformMessageSet(TextGet("LevelUp").replace("CharacterName", C.Name));
