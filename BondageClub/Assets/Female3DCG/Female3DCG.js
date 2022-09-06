@@ -3896,17 +3896,22 @@ var AssetFemale3DCG = [
 				Effect: ["Block", "Prone"],
 				Block: ["ItemBreast", "ItemButt", "ItemHands", "ItemNipples", "ItemNipplesPiercings", "ItemPelvis", "ItemTorso", "ItemTorso2", "ItemVulva", "ItemVulvaPiercings"], SelfUnlock: false, Extended:true
 			},
-			{ Name: "StrictLeatherPetCrawler", Fetish: ["Leather", "Pet"], Value: 150, Difficulty: 15, SelfBondage: 8, Time: 40, RemoveTime: 30, Random: false, AllowLock: true, DefaultColor: "#888888",
-				Prerequisite: ["NotSuspended", "NotHogtied", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "CanKneel"],
+			{ Name: "StrictLeatherPetCrawler", ParentGroup: null, Fetish: ["Leather", "Pet"], Value: 150, Difficulty: 15, SelfBondage: 8, Time: 40, RemoveTime: 30, Random: false, AllowLock: true, DrawLocks: false,
+				Prerequisite: ["NotSuspended", "NotHogtied", "NotMounted", "NoFeetSpreader", "CanKneel"],
 				Hide: ["Cloth", "ClothLower","Shoes", "ItemBoots", "ItemLegs", "ItemFeet"],
 				HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper", "GartersTentacles", "ClothAccessoryPoncho"],
-				SetPose: ["BackElbowTouch", "Kneel", "LegsClosed"],
+				AllowPose: ["BackElbowTouch", "Kneel", "KneelingSpread", "AllFours"],
+				AllowActivePose: ["BackElbowTouch", "Kneel", "KneelingSpread", "AllFours"],
+				SetPose: ["BackElbowTouch", "Kneel"],
 				Effect: ["Block", "Prone", "ForceKneel"],
 				Block: ["ItemHands"],
 				SelfUnlock: false,
+				DefaultColor: ["#888888", "Default"],
 				Layer:[
-					{ Name: "Arms", AllowColorize: true},
-					{ Name: "Legs", CopyLayerColor: "Arms", ParentGroup: "BodyLower"},
+					{ Name: "Arms", AllowPose: ["BackElbowTouch", "AllFours"], AllowColorize: true, ParentGroup: "BodyUpper", },
+					{ Name: "Legs", AllowPose: ["Kneel", "KneelingSpread"], CopyLayerColor: "Arms", ParentGroup: "BodyLower", },
+					{ Name: "ArmsLock", AllowPose: ["BackElbowTouch", "AllFours"], AllowColorize: true, HideColoring: true, LockLayer: true, },
+					{ Name: "LegsLock", AllowPose: ["Kneel", "KneelingSpread"], CopyLayerColor: "ArmsLock", LockLayer: true, ParentGroup: null, }
 				]
 			},
 			{
