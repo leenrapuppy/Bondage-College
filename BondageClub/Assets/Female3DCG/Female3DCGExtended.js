@@ -888,50 +888,9 @@ var AssetFemale3DCGExtended = {
 						],
 						AllowSelfSelect: false,
 					},
-					{
-						Name: "Pose",
-						Key: "p",
-						Options: [
-							{ // p0 - Kneeling
-								Property: { SetPose: ["BackElbowTouch", "Kneel", "LegsClosed"] },
-							},
-							{ // p1 - All fours
-								Property: { SetPose: ["AllFours"] },
-							},
-						],
-					},
 				],
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR, CommonChatTags.DEST_CHAR],
-				Dialog: {
-					ChatPrefix: ({ C }) => `ItemArmsBitchSuit${C.ID === 0 ? "Self" : ""}Set`,
-				},
 			},
 		}, // BitchSuit
-		BitchSuitExposed: {
-			Archetype: ExtendedArchetype.TYPED,
-			Config: {
-				Options: [
-					{
-						Name: "Kneel",
-						Property: {
-							Type: null,
-							SetPose: ["BackElbowTouch", "Kneel", "LegsClosed"],
-						},
-					},
-					{
-						Name: "AllFours",
-						Property: {
-							Type: "AllFours",
-							SetPose: ["AllFours"],
-						}
-					}
-				],
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR],
-				Dialog: {
-					ChatPrefix: ({ C }) => `ItemArmsBitchSuitExposed${C.ID === 0 ? "Self" : ""}Set`,
-				}
-			},
-		}, // BitchSuitExposed
 		LeatherArmbinder: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
