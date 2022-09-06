@@ -2663,7 +2663,11 @@ var AssetFemale3DCGExtended = {
 					}
 				]
 			}
-		}
+		},
+		DroneMask: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemHead", AssetName: "DroneMask" },
+		}, // DroneMask
 	}, // ItemHood
 	ItemDevices: {
 		FuturisticCrate: {
