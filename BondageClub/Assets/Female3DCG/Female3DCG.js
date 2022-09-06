@@ -6663,11 +6663,11 @@ var AssetFemale3DCG = [
 				Prerequisite: ["NotKneeling", "AllFours", "NotSuspended", "NotHogtied", "NotKneelingSpread", "NoItemArms", "LegsOpen", "NoItemHands", "NoItemLegs", "NoHorse", "NoItemFeet"],
 				Hide: ["ItemNeckAccessories", "ItemNeckRestraints", "HairBack", "ClothAccessory", "Bracelet", "Garters"],
 				SetPose: ["Yoked", "BaseLower"],
-				Effect: ["Prone", "Freeze", "Block", "Mounted", "IsPlugged"],
+				Effect: ["Prone", "Freeze", "Block", "Mounted", "Chaste", "ButtChaste"],
 				HideItem: ["ShoesFlippers"],
 				Alpha: [{ Masks: [[1, 1, 70, 999], [420, 1, 80, 999]] }],
 				Block: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemFeet", "ItemHands", "ItemLegs", "ItemMisc", "ItemAddon", "ItemNeck", "ItemNeckAccessories", "ItemNeckRestraints", "ItemNipples", "ItemNipplesPiercings", "ItemPelvis", "ItemTorso", "ItemTorso2", "ItemVulva", "ItemVulvaPiercings"],
-				AllowActivityOn: ["ItemNeck", "ItemArms", "ItemHands", "ItemBreast", "ItemNipples", "ItemPelvis", "ItemLegs", "ItemFeet", "ItemBoots", "ItemButt"],
+				AllowActivityOn: ["ItemNeck", "ItemArms", "ItemHands", "ItemBreast", "ItemNipples", "ItemPelvis", "ItemLegs", "ItemFeet", "ItemBoots", "ItemButt", "ItemVulva", "ItemVulvaPiercings"],
 				RemoveAtLogin: true
 			},
 			{
@@ -6698,10 +6698,10 @@ var AssetFemale3DCG = [
 				Hide: ["ItemNeckAccessories", "ItemNeckRestraints", "ClothAccessory", "Shoes"],
 				HideItem: ["ItemMiscTeddyBear"],
 				SetPose: ["Yoked", "BaseLower"],
-				Effect: ["Prone", "Freeze", "Block", "Mounted", "IsPlugged"],
+				Effect: ["Prone", "Freeze", "Block", "Mounted", "Chaste", "ButtChaste"],
 				Alpha: [{ Masks: [[1, 1, 60, 999], [440, 1, 60, 999]] }],
 				Block: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemFeet", "ItemHands", "ItemLegs", "ItemMisc", "ItemAddon", "ItemNeck", "ItemNeckAccessories", "ItemNeckRestraints", "ItemNipples", "ItemNipplesPiercings", "ItemPelvis", "ItemTorso", "ItemTorso2", "ItemVulva", "ItemVulvaPiercings"],
-				AllowActivityOn: ["ItemNeck", "ItemArms", "ItemHands", "ItemBreast", "ItemNipples", "ItemPelvis", "ItemLegs", "ItemFeet", "ItemBoots", "ItemButt"],
+				AllowActivityOn: ["ItemNeck", "ItemArms", "ItemHands", "ItemBreast", "ItemNipples", "ItemPelvis", "ItemLegs", "ItemFeet", "ItemBoots", "ItemButt", "ItemVulva", "ItemVulvaPiercings"],
 				RemoveAtLogin: true
 			},
 			{
