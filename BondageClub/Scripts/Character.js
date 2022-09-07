@@ -1503,6 +1503,19 @@ function CharacterDecompressWardrobe(Wardrobe) {
 }
 
 /**
+ * Checks if the character is wearing an item that has a specific attribute
+ * @param {Character} C - The character to test for
+ * @param {string} Attribute - The name of the attribute that must be allowed
+ * @returns {boolean} - TRUE if at least one item has that attribute
+ */
+ function CharacterHasItemWithAttribute(C, Attribute) {
+	return C.Appearance.some(item => {
+		const attrs = InventoryGetItemProperty(item, "Attribute");
+		return attrs && attrs.includes(Attribute);
+	});
+}
+
+/**
  * Checks if the character is wearing an item that allows for a specific activity
  * @param {Character} C - The character to test for
  * @param {string} Activity - The name of the activity that must be allowed
