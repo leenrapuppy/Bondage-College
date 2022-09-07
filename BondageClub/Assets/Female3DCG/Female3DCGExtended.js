@@ -2184,37 +2184,6 @@ var AssetFemale3DCGExtended = {
 				]
 			}
 		}, // SmoothLeatherArmbinder1
-		SilkStraps: {
-			Archetype: ExtendedArchetype.TYPED,
-			Config: {
-				Options: [
-					{
-						Name: "Wrist",
-						Property: { Type: null, SetPose: ["BackBoxTie"] }
-					},
-					{
-						Name: "Boxtie1",
-						Property: { Type: "Boxtie1", SetPose: ["BackBoxTie"] }
-					},
-					{
-						Name: "WristElbow",
-						Property: { Type: "WristElbow", Difficulty: 6, SetPose: ["BackElbowTouch"] }
-					},
-					{
-						Name: "WristElbowHarness1",
-						Property: { Type: "WristElbowHarness1", Difficulty: 7, SetPose: ["BackElbowTouch"] }
-					},
-					{
-						Name: "Armbinder1",
-						Property: { Type: "Armbinder1", Difficulty: 7, SetPose: ["BackElbowTouch"], OverridePriority: 6 }
-					},
-					{
-						Name: "Armbinder2",
-						Property: { Type: "Armbinder2", Difficulty: 7, SetPose: ["BackElbowTouch"] }
-					},
-				]
-			}
-		}
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {
