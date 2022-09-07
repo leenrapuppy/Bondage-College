@@ -2184,6 +2184,26 @@ var AssetFemale3DCGExtended = {
 				]
 			}
 		}, // SmoothLeatherArmbinder1
+		BondageTape: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "WristTie",
+						Property: { Type: null }
+					},
+					{
+						Name: "WristElbow",
+						Property: { Type: "WristElbow" }
+					},
+					{
+						Name: "Boxtie1",
+						Property: { Type: "Boxtie1" }
+					},
+				],
+			},
+
+		}, // BondageTape
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {
