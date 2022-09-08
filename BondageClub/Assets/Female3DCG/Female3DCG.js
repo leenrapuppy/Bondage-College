@@ -4117,7 +4117,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "BondageTape", Fetish: ["Tape"], Value: 70,  Prerequisite: ["HasFlatChest"], SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Extended: true
+				Name: "BondageTape", Fetish: ["Tape"], Value: 70,  Prerequisite: ["HasFlatChest"], SetPose: ["BackBoxtie"], Effect: ["Block", "Prone"], Extended: true, Difficulty: 4,
 			},
 			AssetSpankingToys
 		],

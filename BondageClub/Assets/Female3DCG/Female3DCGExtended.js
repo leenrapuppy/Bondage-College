@@ -2190,15 +2190,35 @@ var AssetFemale3DCGExtended = {
 				Options: [
 					{
 						Name: "WristTie",
-						Property: { Type: null }
+						Property: { Type: null, Difficulty: 3, SetPose: ["BackBoxTie"] }
 					},
 					{
 						Name: "WristElbow",
-						Property: { Type: "WristElbow" }
+						Property: { Type: "WristElbow", Difficulty: 5, SetPose: ["BackElbowTouch"] }
 					},
 					{
 						Name: "Boxtie1",
-						Property: { Type: "Boxtie1" }
+						Property: { Type: "Boxtie1", Difficulty: 5, SetPose: ["BackBoxTie"] }
+					},
+					{
+						Name: "WristElbowHarness1",
+						Property: { Type: "WristElbowHarness1", Difficulty: 5, SetPose: ["BackElbowTouch"] }
+					},
+					{
+						Name: "BoxtieMummy1",
+						Property: { Type: "BoxtieMummy1", Difficulty: 6, SetPose: ["BackBoxTie"]}
+					},
+					{
+						Name: "BoxtieMummy2",
+						Property: { Type: "BoxtieMummy2", Difficulty: 6, SetPose: ["BackBoxTie"]}
+					},
+					{
+						Name: "TightMummy1",
+						Property: { Type: "TightMummy1", Difficulty: 7, SetPose: ["BackElbowTouch"] }
+					},
+					{
+						Name: "TightMummy2",
+						Property: { Type: "TightMummy2", Difficulty: 7, SetPose: ["BackElbowTouch"] }
 					},
 				],
 			},
