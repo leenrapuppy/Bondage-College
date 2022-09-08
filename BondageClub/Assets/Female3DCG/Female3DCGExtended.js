@@ -2220,6 +2220,14 @@ var AssetFemale3DCGExtended = {
 						Name: "TightMummy2",
 						Property: { Type: "TightMummy2", Difficulty: 7, SetPose: ["BackElbowTouch"] }
 					},
+					{
+						Name: "SideMummy1",
+						Property: { Type: "SideMummy1", Difficulty: 7, SetPose: ["BackElbowTouch"] }
+					},
+					{
+						Name: "SideMummy2",
+						Property: { Type: "SideMummy2", Difficulty: 7, SetPose: ["BackElbowTouch"] }
+					},
 				],
 			},
 
