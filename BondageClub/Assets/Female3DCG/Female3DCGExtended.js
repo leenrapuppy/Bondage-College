@@ -2749,7 +2749,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									SetPose: ["BaseLower"],
 									AllowActivePose: ["Spread", "LegsClosed", "BaseLower"],
-									Effect: ["Egged", "UseRemote", "Prone", "Freeze", "BlockKneel"],
+									Effect: ["Egged", "Prone", "Freeze", "BlockKneel"],
 									OverrideHeight: { Height: 0, Priority: 60 },
 								}
 							},
