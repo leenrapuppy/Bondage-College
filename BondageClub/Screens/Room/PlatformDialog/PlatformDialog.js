@@ -179,7 +179,7 @@ var PlatformDialogData = [
 				Text: "Maids must be clean.  Why are you sweaty?",
 				Answer: [
 					{ Text: "I had a scuffle with other maids.", Reply: "I understand.  They envy your position." },
-					{ Text: "I crushed some jealous maids.", Reply: "Very good, you have a sacred duty to to.", Domination: 2 },
+					{ Text: "I crushed some jealous maids.", Reply: "Very good, you have a sacred duty to do.", Domination: 2 },
 					{ Text: "Other maids were mean with me Countess.", Reply: "Get stronger, don't let your sisters step on your toes.", Domination: -2 }
 				]
 			},
@@ -632,7 +632,7 @@ var PlatformDialogData = [
 				]
 			},
 			{ Text: "I'm Edlaran by the way, a wood elf archer." },
-			{ Text: "I protect travellers, but we were attacked by zombies." },
+			{ Text: "I protect travelers, but we were attacked by zombies." },
 			{ Text: "I came here for help, but they wanted to take my bow, so I aimed for a guard." },
 			{ Text: "Is it a crime to threaten a guard?  Don't answer."},
 			{ Text: "So after an unsuccessful negotiation, they threw me in jail."},
@@ -1705,7 +1705,7 @@ var PlatformDialogData = [
 				]
 			},
 			{
-				Text: "It seems I have more urgent mathers to settle first.  Don't try anything Edlaran.",
+				Text: "It seems I have more urgent matters to settle first.  Don't try anything Edlaran.",
 				Character: [{ Name: "Vera", Status: "Leather", Pose: "Grumpy" }]
 			},
 			{ Text: "(She charges toward you)." }
@@ -1795,7 +1795,7 @@ var PlatformDialogData = [
 			{ Text: "Yes!  It's the exact same tree!  And the same rock!" },
 			{ Text: "How is that possible?  We followed the path.  Did we?" },
 			{
-				Text: "(Edlaran steps foward.)  Move over princess.",
+				Text: "(Edlaran steps forward.)  Move over princess.",
 				Character: [
 					{ Name: "Edlaran", Status: "Archer", Pose: "IdleHappy" },
 					{ Name: "Olivia", Status: "Oracle", Pose: "IdleAngry" },
@@ -2007,7 +2007,7 @@ var PlatformDialogData = [
 				Answer: [
 					{ Text: "Why did you abandoned us?", Reply: "(She frowns.)  When there's a trap you run, it's common knowledge.", Love: -1 },
 					{ Text: "I was trying to save Lady Olivia.", Reply: "That princess needs to watch where she steps." },
-					{ Text: "Nevermind.  Thanks for the rescue.", Reply: "(She smiles.)  My pleasure Melody.", Love: 1 },
+					{ Text: "Never mind.  Thanks for the rescue.", Reply: "(She smiles.)  My pleasure Melody.", Love: 1 },
 				]
 			},
 			{
@@ -2147,14 +2147,14 @@ var PlatformDialogData = [
 				]
 			},
 			{ Text: "(Olivia jumps on the wooden raft which starts to drift on the lake.)" },
-			{ Text: "(Her pursuers jump in the water but quickly turn back, failing to swin.)" },
+			{ Text: "(Her pursuers jump in the water but quickly turn back, failing to swim.)" },
 			{ Text: "(The raft slowly gets further toward the middle of the lake.)" },
 			{ 
 				Character: [
 					{ Name: "Olivia", Status: "Oracle", Pose: "BoundGaggedKneeling", X: 500, Y: 300 },
 				]
 			},
-			{ Text: "(After a while, the wooden embarcation stops completly.)" },
+			{ Text: "(After a while, the wooden ship stops completely.)" },
 			{ Text: "(Olivia is left bound, gagged and stranded on the huge lake.)" },
 			{ Text: "(A few hours later...)" },
 			{
@@ -2442,7 +2442,7 @@ var PlatformDialogData = [
 			},
 			{
 				Prerequisite: function() { return ((PlatformDialogGetCharacter("Olivia").Domination >= -5) && (PlatformDialogGetCharacter("Olivia").Domination <= 5)); },
-				Text: "Yes Melody!  Yes, yes yes!  (You both get closer and exchange a passionate kiss.)",
+				Text: "Yes Melody!  Yes, yes, yes!  (You both get closer and exchange a passionate kiss.)",
 			},
 			{
 				Prerequisite: function() { return (PlatformDialogGetCharacter("Olivia").Domination < -5); },
