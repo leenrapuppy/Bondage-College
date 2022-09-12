@@ -421,6 +421,7 @@ function AsylumGGTSTaskCanBeDone(C, T) {
 	if ((T == "LockRoom") && (((ChatRoomData != null) && (ChatRoomData.Locked == true)) || !ChatRoomPlayerIsAdmin())) return false; // Can only lock/unlock if admin
 	if ((T == "UnlockRoom") && (((ChatRoomData != null) && (ChatRoomData.Locked == false)) || !ChatRoomPlayerIsAdmin())) return false; // Can only lock/unlock if admin
 	if ((T == "RestrainLegs") && !C.CanInteract()) return false; // To restrain own legs, must be able to interact
+	if ((T == "RestrainLegs") && InventoryIsWorn(C, "FuckMachine", "ItemDevices")) return false; // Cannot restrain own legs if wearing the fuck machine
 	if ((T.substr(0, 4) == "Item") && (T.length >= 15) && !C.CanInteract()) return false; // To use an item, must be able to interact
 	if ((T == "ItemHandsFuturisticMittens") && ((InventoryGet(C, "ItemHands") != null) || InventoryGroupIsBlocked(C, "ItemHands"))) return false;
 	if ((T == "ItemHeadFuturisticMask") && ((InventoryGet(C, "ItemHead") != null) || InventoryGroupIsBlocked(C, "ItemHead"))) return false;
