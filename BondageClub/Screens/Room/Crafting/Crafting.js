@@ -280,7 +280,7 @@ function CraftingModeSet(NewMode) {
 		ElementValue("InputDescription", CraftingSelectedItem.Description || "");
 		ElementValue("InputColor", CraftingSelectedItem.Color || "");
 		if ((CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.AllowType != null) && (CraftingSelectedItem.Asset.AllowType.length > 0)) {
-			ElementCreateInput("InputType", "text", "", "20");		
+			ElementCreateInput("InputType", "text", "", "20");
 			document.getElementById("InputType").addEventListener('keyup', CraftingKeyUp);
 			ElementValue("InputType", CraftingSelectedItem.Type || "");
 		}
