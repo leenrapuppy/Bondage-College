@@ -888,50 +888,9 @@ var AssetFemale3DCGExtended = {
 						],
 						AllowSelfSelect: false,
 					},
-					{
-						Name: "Pose",
-						Key: "p",
-						Options: [
-							{ // p0 - Kneeling
-								Property: { SetPose: ["BackElbowTouch", "Kneel", "LegsClosed"] },
-							},
-							{ // p1 - All fours
-								Property: { SetPose: ["AllFours"] },
-							},
-						],
-					},
 				],
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR, CommonChatTags.DEST_CHAR],
-				Dialog: {
-					ChatPrefix: ({ C }) => `ItemArmsBitchSuit${C.ID === 0 ? "Self" : ""}Set`,
-				},
 			},
 		}, // BitchSuit
-		BitchSuitExposed: {
-			Archetype: ExtendedArchetype.TYPED,
-			Config: {
-				Options: [
-					{
-						Name: "Kneel",
-						Property: {
-							Type: null,
-							SetPose: ["BackElbowTouch", "Kneel", "LegsClosed"],
-						},
-					},
-					{
-						Name: "AllFours",
-						Property: {
-							Type: "AllFours",
-							SetPose: ["AllFours"],
-						}
-					}
-				],
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR],
-				Dialog: {
-					ChatPrefix: ({ C }) => `ItemArmsBitchSuitExposed${C.ID === 0 ? "Self" : ""}Set`,
-				}
-			},
-		}, // BitchSuitExposed
 		LeatherArmbinder: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
@@ -2341,8 +2300,8 @@ var AssetFemale3DCGExtended = {
 						Name: "Leash", Key: "l",
 						Options: [
 							{}, //l0 - Leash
-							{Property: { Difficulty: 5 },}, //l1 - Rope
-							{Property: { Difficulty: 6 },}, //l2 - Chain
+							{Property: { Difficulty: 5,  },}, //l1 - Rope
+							{AllowLock: true, Property: { Difficulty: 6 },}, //l2 - Chain
 						]
 					},
 					{
@@ -2750,7 +2709,11 @@ var AssetFemale3DCGExtended = {
 					}
 				]
 			}
-		}
+		},
+		DroneMask: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemHead", AssetName: "DroneMask" },
+		}, // DroneMask
 	}, // ItemHood
 	ItemDevices: {
 		FuturisticCrate: {
@@ -2873,7 +2836,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									SetPose: ["BaseLower"],
 									AllowActivePose: ["Spread", "LegsClosed", "BaseLower"],
-									Effect: ["Egged", "UseRemote", "Prone", "Freeze", "BlockKneel"],
+									Effect: ["Egged", "Prone", "Freeze", "BlockKneel"],
 									OverrideHeight: { Height: 0, Priority: 60 },
 								}
 							},

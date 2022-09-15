@@ -1737,6 +1737,7 @@ function PlatformDrawCharacter(C, Time) {
  * @returns {void} - Nothing
  */
 function PlatformAddExperience(C, Value) {
+	if (C.Camera) Value = Value * CheatFactor("DoubleBrawlExperience", 2);
 	C.Experience = C.Experience + Value;
 	if (C.Experience >= PlatformExperienceForLevel[C.Level]) {
 		if (C.Camera) PlatformMessageSet(TextGet("LevelUp").replace("CharacterName", C.Name));
@@ -2070,15 +2071,19 @@ function PlatformDraw() {
 		// Walk/Crawl left (A or Q for QWERTY and AZERTY)
 		if (PlatformMoveActive("Left")) {
 			PlatformPlayer.FaceLeft = true;
-			if (PlatformPlayer.ForceX > 0) PlatformPlayer.ForceX = 0;
-			else PlatformPlayer.ForceX = PlatformPlayer.ForceX - PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && PlatformMoveActive("Crouch")) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
+			if (!PlatformMoveActive("Aim")) {
+				if (PlatformPlayer.ForceX > 0) PlatformPlayer.ForceX = 0;
+				else PlatformPlayer.ForceX = PlatformPlayer.ForceX - PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && PlatformMoveActive("Crouch")) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
+			}
 		}
 
 		// Walk/Crawl right
 		if (PlatformMoveActive("Right")) {
 			PlatformPlayer.FaceLeft = false;
-			if (PlatformPlayer.ForceX < 0) PlatformPlayer.ForceX = 0;
-			else PlatformPlayer.ForceX = PlatformPlayer.ForceX + PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && PlatformMoveActive("Crouch")) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
+			if (!PlatformMoveActive("Aim")) {
+				if (PlatformPlayer.ForceX < 0) PlatformPlayer.ForceX = 0;
+				else PlatformPlayer.ForceX = PlatformPlayer.ForceX + PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && PlatformMoveActive("Crouch")) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
+			}
 		}
 
 		// Jump forces the player up on the Y axis
@@ -2574,6 +2579,11 @@ function PlatformEventKeyUp(e) {
  */
 function PlatformController(Buttons) {
 
+	// Stops any binding if buttons have changed
+	if (PlatformActionIs(PlatformPlayer, "Bind"))
+		if ((Buttons[ControllerX].pressed == true) || (Buttons[ControllerA].pressed == true) || (Buttons[ControllerB].pressed == true) || (Buttons[ControllerDPadLeft].pressed == true) || (Buttons[ControllerDPadRight].pressed == true) || (Buttons[ControllerTriggerRight].pressed == true) || (Buttons[ControllerTriggerLeft].pressed == true))
+			PlatformPlayer.Action = null;
+
 	// Double-tap management to run left
 	if ((Buttons[ControllerDPadLeft].pressed == true) && (ControllerGameActiveButttons.LEFT == false)) {
 		PlatformPlayer.Run = false;
@@ -2600,7 +2610,7 @@ function PlatformController(Buttons) {
 
 	// On a new A, X, Y or UP button, we activate the keyboard equivalent
 	if ((Buttons[ControllerB].pressed == true) && (ControllerGameActiveButttons.B == false)) PlatformEventKeyDown({ keyCode: 76 });
-	if ((Buttons[ControllerX].pressed == true) && (ControllerGameActiveButttons.X == false)) PlatformEventKeyDown({ keyCode: 75 });
+	if ((Buttons[ControllerX].pressed == true) && (ControllerGameActiveButttons.X == false) && (PlatformPlayer.Name != "Edlaran")) PlatformEventKeyDown({ keyCode: 75 });
 	if ((Buttons[ControllerY].pressed == true) && (ControllerGameActiveButttons.Y == false)) PlatformEventKeyDown({ keyCode: 79 });
 	if ((Buttons[ControllerDPadUp].pressed == true) && (ControllerGameActiveButttons.UP == false)) PlatformEventKeyDown({ keyCode: 90 });
 	if ((Buttons[ControllerTriggerRight].pressed == true) && (ControllerGameActiveButttons.TRIGHT == false)) PlatformEventKeyDown({ keyCode: 73 });
