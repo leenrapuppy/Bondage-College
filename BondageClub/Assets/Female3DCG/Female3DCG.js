@@ -2310,7 +2310,11 @@ var AssetFemale3DCG = [
 		Left: 175,
 		Top: 285,
 		AllowNone: false,
-		Asset: ["Nipples1", "Nipples2", "Nipples3"],
+		Asset: [
+		{ Name: "Nipples1"  },
+		{ Name: "Nipples2",Prerequisite: ["HasBreasts"] }, 
+		{ Name: "Nipples3" ,Prerequisite: ["HasBreasts"] }, 
+	],
 		Color: ["Default", "#a6665b", "#803d26", "#d68777", "#9b4a2e", "#bb6655"]
 	},
 
