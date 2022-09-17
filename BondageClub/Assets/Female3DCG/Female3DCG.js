@@ -1709,6 +1709,7 @@ var AssetFemale3DCG = [
 		Clothing: true,
 		Underwear: true,
 		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "AllFours", "OverTheHead"],
+		Hide: ["Fingernails"],
 		PreviewZone: [125, 265, 250, 250],
 		Asset: [
 			// Breast Compatible Clothing
@@ -2088,6 +2089,18 @@ var AssetFemale3DCG = [
 		Color: ["Default", "White", "Asian", "Black"],
 		InheritColor: "BodyUpper"
 
+	},
+	
+	{
+		Group: "Fingernails",
+		Priority: 28,
+		ParentGroup: null,
+		AllowPose: ["BackCuffs", "Yoked", "AllFours", "OverTheHead"],
+		Asset: [
+			{
+				Name: "VisibleNails"
+			},
+		],
 	},
 
 	{
@@ -7331,7 +7344,7 @@ var PoseFemale3DCG = [
 		Name: "Hogtied",
 		Category: "BodyFull",
 		OverrideHeight: { Height: -575, Priority: 50 },
-		Hide: ["BodyLower", "Hands", "ClothLower", "Wings", "Gloves", "Panties", "Pussy", "ItemHands", "ItemPelvis", "ItemVulva", "ItemVulvaPiercings", "ItemLegs", "ItemFeet", "LeftAnklet", "RightAnklet", "Garters", "Bracelet"],
+		Hide: ["BodyLower", "Hands", "ClothLower", "Wings", "Gloves", "Panties", "Pussy", "ItemHands", "ItemPelvis", "ItemVulva", "ItemVulvaPiercings", "ItemLegs", "ItemFeet", "LeftAnklet", "RightAnklet", "Garters", "Bracelet", "Fingernails"],
 		MovePosition: [{ Group: "Socks", X: 0, Y: -400 }, { Group: "Shoes", X: 0, Y: -500 }, { Group: "ItemBoots", X: 0, Y: -500 }, { Group: "SuitLower", X: 0, Y: -380 }, { Group: "TailStraps", X: 0, Y: -300 }, { Group: "ItemButt", X: 0, Y: -300 }]
 	},
 	{
@@ -7350,6 +7363,7 @@ var PoseFemale3DCG = [
 	{
 		Name: "BackBoxTie",
 		Category: "BodyUpper",
+		Hide: ["Fingernails"],
 		AllowMenu: true,
 	},
 	{
@@ -7366,7 +7380,7 @@ var PoseFemale3DCG = [
 		Name: "BackElbowTouch",
 		Category: "BodyUpper",
 		AllowMenu: true,
-		Hide: ["Bracelet"],
+		Hide: ["Bracelet", "Fingernails"],
 	},
 	{
 		Name: "BackCuffs",
@@ -7375,6 +7389,7 @@ var PoseFemale3DCG = [
 	},
 	{
 		Name: "TapedHands",
+		Hide: ["Fingernails"],
 	},
 	{
 		Name: "LegsOpen",
