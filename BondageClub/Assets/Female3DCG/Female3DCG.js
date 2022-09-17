@@ -1109,11 +1109,11 @@ var AssetFemale3DCG = [
 			{Name: "MicroThong", Prerequisite: ["HasVagina"], Value: 25, HideItem: ["ItemButtAnalBeads2", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaPiercingsVibeHeartClitPiercing", "ItemVulvaPiercingsClitRing"] },
 			// Penis Compatible Clothing
 			{ 
-				Name: "BoxerShorts", Prerequisite: ["HasPenis"], Hide: ["Pussy"],
+				Name: "BoxerShorts", Prerequisite: ["HasPenis"], Hide: ["Pussy"], AllowExpression: ["Hard"],
 				DefaultColor: ["#FFFFFF", "Default"],
 				Top: 370, Left: 118,
 				Layer: [
-					{ Name: "Shorts", AllowPose: ["KneelingSpread", "LegsClosed", "Spread", "Kneel"] },
+					{ Name: "Shorts", AllowPose: ["KneelingSpread", "LegsClosed", "Spread", "Kneel"], MirrorExpression: "Pussy" },
 					{ Name: "Waistband", AllowPose: ["KneelingSpread"]}
 				]
 			}
