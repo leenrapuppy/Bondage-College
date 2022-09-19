@@ -222,14 +222,13 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 				case "HasVaginaSelf":
 				return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
 				case "HasBreasts":
-				InventoryIsItemInList(acted, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
+				return InventoryIsItemInList(acted, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
 				case "HasBreastsSelf":
-				InventoryIsItemInList(acting, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
+				return InventoryIsItemInList(acting, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
 				case "HasFlatChest":
-				InventoryIsItemInList(acted, "BodyUpper", ["FlatSmall", "FlatMedium"]);
+				return InventoryIsItemInList(acted, "BodyUpper", ["FlatSmall", "FlatMedium"]);
 				case "HasFlatChestSelf":
-				InventoryIsItemInList(acting, "BodyUpper", ["FlatSmall", "FlatMedium"]);
-				break;
+				return InventoryIsItemInList(acting, "BodyUpper", ["FlatSmall", "FlatMedium"]);
 
 		default:
 			if (prereq.startsWith("Needs-")) {
