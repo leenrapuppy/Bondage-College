@@ -637,6 +637,7 @@ function LoginResponse(C) {
 			Player.OnlineSharedSettings = C.OnlineSharedSettings;
 			Player.GraphicsSettings = C.GraphicsSettings;
 			Player.NotificationSettings = C.NotificationSettings;
+			Player.GenderSettings = C.GenderSettings;
 			Player.SavedExpressions = C.SavedExpressions;
 			if (!Array.isArray(Player.SavedExpressions)) {
 				Player.SavedExpressions = [];

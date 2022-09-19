@@ -639,7 +639,7 @@ function ServerAccountBeep(data) {
 						ServerSend("ChatRoomLeave", "");
 						CommonSetScreen("Online", "ChatSearch");
 					}
-					else ChatRoomStart(data.ChatRoomSpace, "", "MainHall", "Room", "Introduction", BackgroundsTagList); //CommonSetScreen("Room", "ChatSearch")
+					else ChatRoomStart(data.ChatRoomSpace, "", null, null, "Introduction", BackgroundsTagList); //CommonSetScreen("Room", "ChatSearch")
 				} else {
 					ChatRoomLeashPlayer = null;
 				}

@@ -1086,7 +1086,7 @@ interface PlayerCharacter extends Character {
 	LastChatRoomBan?: any[];
 	LastChatRoomBlockCategory?: string[];
 	LastChatRoomTimer?: any;
-	LastChatRoomSpace?: string;
+	LastChatRoomSpace?: ChatRoomSpaceType;
 	RestrictionSettings?: {
 		BypassStruggle: boolean;
 		SlowImmunity: boolean;
@@ -1150,6 +1150,10 @@ interface PlayerCharacter extends Character {
 	FriendNames?: Map<number, string>;
 	SubmissivesList?: Set<number>;
 	ChatSearchFilterTerms?: string;
+	GenderSettings: {
+		HideShopItems: GenderSetting;
+		AutoJoinSearch: GenderSetting;
+	};
 }
 
 /** Pandora Player extension */

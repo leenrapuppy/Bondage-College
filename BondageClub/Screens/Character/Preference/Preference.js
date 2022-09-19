@@ -4,7 +4,7 @@ var PreferenceMessage = "";
 var PreferenceSafewordConfirm = false;
 var PreferenceColorPick = "";
 var PreferenceSubscreen = "";
-var PreferenceSubscreenList = ["General", "Difficulty", "Restriction", "Chat", "Audio", "Arousal", "Security", "Online", "Visibility", "Immersion", "Graphics", "Controller", "Notifications"];
+var PreferenceSubscreenList = ["General", "Difficulty", "Restriction", "Chat", "Audio", "Arousal", "Security", "Online", "Visibility", "Immersion", "Graphics", "Controller", "Notifications", "Gender"];
 var PreferencePageCurrent = 1;
 var PreferenceChatColorThemeList = ["Light", "Dark", "Light2", "Dark2"];
 var PreferenceChatColorThemeIndex = 0;
@@ -62,6 +62,14 @@ var PreferenceGraphicsPowerModeIndex = null;
 var PreferenceGraphicsWebGLOptions = null;
 var PreferenceGraphicsAnimationQualityList = [10000, 2000, 200, 100, 50, 0];
 var PreferenceCalibrationStage = 0;
+
+/**
+ * An object defining which genders a setting is active for
+ * @typedef {object} GenderSetting
+ * @property {boolean} Female - Whether the setting is active for female cases
+ * @property {boolean} Male - Whether the setting is active for male cases
+ * @property {boolean} MutuallyExclusive - Whether the setting can only be enabled for one gender
+ */
 
 /**
  * Compares the arousal preference level and returns TRUE if that level is met, or an higher level is met
@@ -334,6 +342,7 @@ function PreferenceInitPlayer() {
 		OnlineSharedSettings: JSON.stringify(C.OnlineSharedSettings) || "",
 		GraphicsSettings: JSON.stringify(C.GraphicsSettings) || "",
 		NotificationSettings: JSON.stringify(C.NotificationSettings) || "",
+		GenderSettings: JSON.stringify(C.GenderSettings) || "",
 	};
 
 	// Non-player specific settings
@@ -449,7 +458,7 @@ function PreferenceInitPlayer() {
 	if (!C.LastChatRoomAdmin) C.LastChatRoomAdmin = [];
 	if (!C.LastChatRoomBan) C.LastChatRoomBan = [];
 	if (!C.LastChatRoomBlockCategory) C.LastChatRoomBlockCategory = [];
-	if (typeof C.LastChatRoomSpace !== "string") C.LastChatRoomSpace = "";
+	if (typeof C.LastChatRoomSpace !== "string") C.LastChatRoomSpace = ChatRoomSpaceType.MIXED;
 
 	// Restriction settings
 	// @ts-ignore: Individual properties validated separately
@@ -542,6 +551,12 @@ function PreferenceInitPlayer() {
 	if (typeof NS.Test !== "object") NS.Test = PreferenceInitNotificationSetting(NS.Test, defaultAudio, NotificationAlertType.TITLEPREFIX);
 	C.NotificationSettings = NS;
 
+	// Graphical settings
+	// @ts-ignore: Individual properties validated separately
+	if (!C.GenderSettings) C.GenderSettings = {};
+	if (typeof C.GenderSettings.AutoJoinSearch !== "object") C.GenderSettings.AutoJoinSearch = PreferenceInitGenderSetting(false);
+	if (typeof C.GenderSettings.HideShopItems !== "object") C.GenderSettings.HideShopItems = PreferenceInitGenderSetting(false);
+
 	// Forces some preferences depending on difficulty
 
 	// Difficulty: non-Roleplay settings
@@ -604,6 +619,19 @@ function PreferenceInitNotificationSetting(setting, audio, defaultAlertType) {
 	setting = {};
 	setting.AlertType = alertType;
 	setting.Audio = audio;
+	return setting;
+}
+
+/**
+ * Initialise a Gender setting
+ * @param {boolean} mutuallyExclusive - Whether the setting can only be enabled for one gender
+ * @returns {GenderSetting} - The setting to use
+ */
+function PreferenceInitGenderSetting(mutuallyExclusive) {
+	let setting = {};
+	setting.Female = false;
+	setting.Male = false;
+	setting.MutuallyExclusive = mutuallyExclusive;
 	return setting;
 }
 
@@ -1093,6 +1121,7 @@ function PreferenceExit() {
 			OnlineSharedSettings: Player.OnlineSharedSettings,
 			GraphicsSettings: Player.GraphicsSettings,
 			NotificationSettings: Player.NotificationSettings,
+			GenderSettings: Player.GenderSettings,
 			ItemPermission: Player.ItemPermission,
 			LabelColor: Player.LabelColor,
 			LimitedItems: CommonPackItemArray(Player.LimitedItems),
@@ -1448,6 +1477,42 @@ function PreferenceSubscreenGraphicsRun() {
 			() => TextGet(PreferenceSettingsVFXVibratorList[(PreferenceSettingsVFXVibratorIndex + 1) % PreferenceSettingsVFXVibratorList.length]));
 
 	}
+}
+
+/**
+ * Sets the gender preferences for a player. Redirected to from the main Run function if the player is in the
+ * gender settings subscreen
+ * @returns {void} - Nothing
+ */
+function PreferenceSubscreenGenderRun() {
+	// Character and exit buttons
+	DrawCharacter(Player, 50, 50, 0.9);
+	DrawButton(1815, 75, 90, 90, "", "White", "Icons/Exit.png");
+
+	MainCanvas.textAlign = "left";
+
+	DrawText(TextGet("GenderPreferences"), 500, 125, "Black", "Gray");
+	DrawText(TextGet("GenderFemales"), 1410, 160, "Black", "Gray");
+	DrawText(TextGet("GenderMales"), 1590, 160, "Black", "Gray");
+
+	PreferenceGenderDrawSetting(500, 225, TextGet("GenderAutoJoinSearch"), Player.GenderSettings.AutoJoinSearch);
+	PreferenceGenderDrawSetting(500, 305, TextGet("GenderHideShopItems"), Player.GenderSettings.HideShopItems);
+
+	MainCanvas.textAlign = "center";
+}
+
+/**
+ * Draws the two checkbox row for a gender setting
+ * @param {number} Left - The X co-ordinate the row starts on
+ * @param {number} Top - The Y co-ordinate the row starts on
+ * @param {string} Text - The text for the setting's description
+ * @param {GenderSetting} Setting - The player setting the row corresponds to
+ * @returns {void} - Nothing
+ */
+function PreferenceGenderDrawSetting(Left, Top, Text, Setting) {
+	DrawText(Text, Left, Top, "Black", "Gray");
+	DrawCheckbox(Left + 950, Top - 32, 64, 64, "", Setting.Female);
+	DrawCheckbox(Left + 950 + 155, Top - 32, 64, 64, "", Setting.Male);
 }
 
 /**
@@ -1814,6 +1879,40 @@ function PreferenceSubscreenSecurityClick() {
 			ElementValue("InputEmailNew", TextGet("UpdateEmailInvalid"));
 	}
 
+}
+
+/**
+ * Handles the click events for the notifications settings of a player.  Redirected from the main Click function.
+ * @returns {void} - Nothing
+ */
+function PreferenceSubscreenGenderClick() {
+	if (MouseIn(1815, 75, 90, 90)) PreferenceSubscreen = "";
+
+	PreferenceGenderClickSetting(1450, 225, Player.GenderSettings.AutoJoinSearch);
+	PreferenceGenderClickSetting(1450, 305, Player.GenderSettings.HideShopItems);
+}
+
+/**
+ * Handles the click for a gender setting row
+ * @param {number} Left - The X co-ordinate the row starts on
+ * @param {number} Top - The Y co-ordinate the row starts on
+ * @param {GenderSetting} Setting - The player setting the row corresponds to
+ * @returns {void} - Nothing
+ */
+function PreferenceGenderClickSetting(Left, Top, Setting) {
+	if (MouseIn(Left, Top - 32, 64, 64)) {
+		Setting.Female = !Setting.Female;
+		if (Setting.MutuallyExclusive && Setting.Female) {
+			Setting.Male = false;
+		}
+	}
+
+	if (MouseIn(Left + 155, Top - 32, 64, 64)) {
+		Setting.Male = !Setting.Male;
+		if (Setting.MutuallyExclusive && Setting.Male) {
+			Setting.Female = false;
+		}
+	}
 }
 
 /**

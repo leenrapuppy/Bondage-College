@@ -1,4 +1,17 @@
 "use strict";
+
+/**
+ * An enum for the options for chat room spaces
+ * @readonly
+ * @enum {string}
+ */
+const ChatRoomSpaceType = {
+	MIXED: "",
+	FEMALE_ONLY: "F",
+	MALE_ONLY: "M",
+	ASYLUM: "Asylum",
+};
+
 var ChatRoomBackground = "";
 /** @type {ChatRoom} */
 let ChatRoomData = {};
@@ -13,7 +26,7 @@ var ChatRoomLovershipOption = "";
 var ChatRoomPlayerCanJoin = false;
 var ChatRoomMoneyForOwner = 0;
 var ChatRoomQuestGiven = [];
-var ChatRoomSpace = "";
+var ChatRoomSpace = ChatRoomSpaceType.MIXED;
 var ChatRoomGame = "";
 var ChatRoomMoveTarget = null;
 var ChatRoomHelpSeen = false;
@@ -115,6 +128,7 @@ const ChatRoomArousalMsg_ChanceGagMod = {
 	"StruggleAction" : 0,
 	"Gag" : 0.3,
 };
+
 var ChatRoomHideIconState = 0;
 var ChatRoomMenuButtons = [];
 let ChatRoomFontSize = 30;
@@ -717,7 +731,7 @@ function ChatRoomClearAllElements() {
 
 /**
  * Starts the chatroom selection screen.
- * @param {string} Space - Name of the chatroom space
+ * @param {ChatRoomSpaceType} Space - Name of the chatroom space
  * @param {string} Game - Name of the chatroom game to play
  * @param {string} LeaveRoom - Name of the room to go back to when exiting chatsearch.
  * @param {string} LeaveSpace - Name of the space to go back to when exiting chatsearch.
@@ -726,10 +740,21 @@ function ChatRoomClearAllElements() {
  * @returns {void} - Nothing.
  */
 function ChatRoomStart(Space, Game, LeaveRoom, LeaveSpace, Background, BackgroundTagList) {
+	if (!LeaveRoom || !LeaveSpace) {
+		if (Player.GenderSettings.AutoJoinSearch.Female || Player.GenderSettings.AutoJoinSearch.Male) {
+			ChatSearchLeaveRoom = "MainHall";
+			ChatSearchLeaveSpace = "Room";
+		} else {
+			ChatSearchLeaveRoom = "ChatSelect";
+			ChatSearchLeaveSpace = "Online";
+		}
+	} else {
+		ChatSearchLeaveRoom = LeaveRoom;
+		ChatSearchLeaveSpace = LeaveSpace;
+	}
+
 	ChatRoomSpace = Space;
 	ChatRoomGame = Game;
-	ChatSearchLeaveRoom = LeaveRoom;
-	ChatSearchLeaveSpace = LeaveSpace;
 	ChatSearchBackground = Background;
 	ChatCreateBackgroundList = BackgroundsGenerateList(BackgroundTagList);
 	BackgroundSelectionTagList = BackgroundTagList;
