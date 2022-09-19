@@ -7412,7 +7412,7 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
  *
  * @type {Activity[]}
  */
-var ActivityFemale3DCG = [
+ var ActivityFemale3DCG = [
 	/* Mouth activities */
 	{
 		Name: "Whisper",
@@ -7541,13 +7541,11 @@ var ActivityFemale3DCG = [
 		TargetSelf: ["ItemArms", "ItemBoots", "ItemFeet", "ItemHands", "ItemLegs", "ItemMouth"],
 	},
 	/* Hand activities */
-
-	// General Actitvites
 	{
 		Name: "Caress",
 		MaxProgress: 80,
 		Prerequisite: ["ZoneAccessible", "UseHands"],
-		Target: ["ItemArms", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHands", "ItemHead", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2"],
+		Target: ["ItemArms", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHands", "ItemHead", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 	},
 	{
@@ -7627,42 +7625,18 @@ var ActivityFemale3DCG = [
 		Target: ["ItemNeck", "ItemNose"],
 		TargetSelf: true,
 	},
-	// Vagina Only Actitvites
 	{
-		Name: "MasturbateHandVagina",
+		Name: "MasturbateHand",
 		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "UseHands", "ZoneNaked", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
+		Prerequisite: ["ZoneAccessible", "UseHands", "ZoneNaked"],
+		Target: ["ItemBreast", "ItemButt", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 	},
 	{
-		Name: "MasturbateFistVagina",
+		Name: "MasturbateFist",
 		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "VulvaEmpty", "UseHands", "ZoneNaked", "HasVagina"],
-		Target: ["ItemVulva"],
-		TargetSelf: true,
-	},
-	{
-		Name: "CaressVagina",
-		MaxProgress: 80,
-		Prerequisite: ["ZoneAccessible", "UseHands", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-	},
-	// Penis Only Activites
-	{
-		Name: "MasturbateHandPenis",
-		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "UseHands", "ZoneNaked", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-	},
-	// Breast Only Activites
-	{
-		Name: "MasturbateHandBreasts",
-		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "UseHands", "ZoneNaked", "HasBreasts"],
-		Target: ["ItemBreast"],
+		Prerequisite: ["ZoneAccessible", "VulvaEmpty", "UseHands", "ZoneNaked"],
+		Target: ["ItemButt", "ItemVulva"],
 		TargetSelf: true,
 	},
 	/* Feet activities */
@@ -7811,6 +7785,7 @@ var ActivityFemale3DCG = [
 		Target: ["ItemButt", "ItemMouth", "ItemVulva"],
 	},
 ];
+
 
 /**
  * Display order for activities.
