@@ -3,6 +3,10 @@ var ChatSelectBackground = "BrickWall";
 var ChatSelectAllowedInFemaleOnly;
 var ChatSelectAllowedInMaleOnly;
 
+/**
+ * Runs the chatroom search select screen
+ * @returns {void} - Nothing
+ */
 function ChatSelectRun() {
 	//top-right menu buttons
 	DrawButton(1895, 215, 90, 90, "", "White", "Icons/Character.png");
@@ -28,31 +32,51 @@ function ChatSelectRun() {
 	DrawImage("Screens/Online/ChatSelect/Male.png", 650, 810);
 }
 
+/**
+ * Handles clicks on the chat select screen
+ * @returns {void} - Nothing
+ */
 function ChatSelectClick() {
 	if (MouseIn(1895, 215, 90, 90)) InformationSheetLoadCharacter(Player);
 	if (MouseIn(1895, 15, 90, 90)) ChatSelectExit();
 	if (MouseIn(1895, 115, 90, 90) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
-	if (MouseIn(100, 45, 510, 125) && ChatSelectAllowedInFemaleOnly) ChatSelectStartFemaleChat();
-	if (MouseIn(100, 420, 510, 125)) ChatSelectStartMixedChat();
-	if (MouseIn(100, 800, 510, 125) && ChatSelectAllowedInMaleOnly) ChatSelectStartMaleChat();
+
+	if (MouseIn(100, 45, 510, 125) && ChatSelectAllowedInFemaleOnly) {
+		ChatSelectStartSearch(ChatRoomSpaceType.FEMALE_ONLY);
+	}
+	if (MouseIn(100, 420, 510, 125)) {
+		ChatSelectStartSearch(ChatRoomSpaceType.MIXED);
+	}
+	if (MouseIn(100, 800, 510, 125) && ChatSelectAllowedInMaleOnly) {
+		ChatSelectStartSearch(ChatRoomSpaceType.MALE_ONLY);
+	}
 }
 
+/**
+ * Loads the chat select screen, automatically joining a chat search space if configured
+ * @returns {void} - Nothing
+ */
 function ChatSelectLoad() {
+	const autoJoinSpace = Player.GenderSettings.AutoJoinSearch.Female
+		? Player.GenderSettings.AutoJoinSearch.Male ? ChatRoomSpaceType.MIXED : ChatRoomSpaceType.FEMALE_ONLY
+		: Player.GenderSettings.AutoJoinSearch.Male ? ChatRoomSpaceType.MALE_ONLY : null;
+
+	if (autoJoinSpace != null) {
+		ChatSelectStartSearch(autoJoinSpace);
+		return;
+	}
+
 	const playerGenders = Player.GetGenders();
-	ChatSelectAllowedInFemaleOnly = ChatSelectGendersAllowed("FemaleOnly", playerGenders);
-	ChatSelectAllowedInMaleOnly = ChatSelectGendersAllowed("MaleOnly", playerGenders);
+	ChatSelectAllowedInFemaleOnly = ChatSelectGendersAllowed(ChatRoomSpaceType.FEMALE_ONLY, playerGenders);
+	ChatSelectAllowedInMaleOnly = ChatSelectGendersAllowed(ChatRoomSpaceType.MALE_ONLY, playerGenders);
 }
 
-function ChatSelectStartFemaleChat () {
-	ChatRoomStart("FemaleOnly", "", "ChatSelect", "Online", "Introduction", BackgroundsTagList);
-}
-
-function ChatSelectStartMixedChat () {
-	ChatRoomStart("", "", "ChatSelect", "Online", "Introduction", BackgroundsTagList);
-}
-
-function ChatSelectStartMaleChat () {
-	ChatRoomStart("MaleOnly", "", "ChatSelect", "Online", "Introduction", BackgroundsTagList);
+/**
+ * Start the chat search screen for the relevant chat room space
+ * @param {ChatRoomSpaceType} space - The space to join
+ */
+function ChatSelectStartSearch(space) {
+	ChatRoomStart(space, "", null, null, "Introduction", BackgroundsTagList);
 }
 
 function ChatSelectExit() {
@@ -66,6 +90,6 @@ function ChatSelectExit() {
  * @returns {boolean} - Whether the genders are allowed
  */
 function ChatSelectGendersAllowed(space, genders) {
-	return !(space == "MaleOnly" && genders.includes("F"))
-		&& !(space == "FemaleOnly" && genders.includes("M"));
+	return !(space == ChatRoomSpaceType.MALE_ONLY && genders.includes("F"))
+		&& !(space == ChatRoomSpaceType.FEMALE_ONLY && genders.includes("M"));
 }

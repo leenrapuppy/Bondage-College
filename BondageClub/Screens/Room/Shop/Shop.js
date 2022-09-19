@@ -145,7 +145,13 @@ function ShopRun() {
  * @returns {boolean} - Returns TRUE if the item is purchasable and part of the focus group.
  */
 function ShopAssetFocusGroup(Asset) {
-	return (Asset != null) && (Asset.Group != null) && (Asset.Value > 0) && (Asset.Group.Name == ShopVendor.FocusGroup.Name) && (ShopBuyMode || ShopCanSell(Asset));
+	return (Asset != null)
+		&& (Asset.Group != null)
+		&& (Asset.Value > 0)
+		&& (Asset.Group.Name == ShopVendor.FocusGroup.Name)
+		&& (ShopBuyMode || ShopCanSell(Asset))
+		&& !(ShopBuyMode && Player.GenderSettings.HideShopItems.Female && Asset.Gender == "F")
+		&& !(ShopBuyMode && Player.GenderSettings.HideShopItems.Male && Asset.Gender == "M");
 }
 
 /**
