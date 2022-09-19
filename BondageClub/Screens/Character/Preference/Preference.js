@@ -68,7 +68,6 @@ var PreferenceCalibrationStage = 0;
  * @typedef {object} GenderSetting
  * @property {boolean} Female - Whether the setting is active for female cases
  * @property {boolean} Male - Whether the setting is active for male cases
- * @property {boolean} MutuallyExclusive - Whether the setting can only be enabled for one gender
  */
 
 /**
@@ -554,8 +553,8 @@ function PreferenceInitPlayer() {
 	// Graphical settings
 	// @ts-ignore: Individual properties validated separately
 	if (!C.GenderSettings) C.GenderSettings = {};
-	if (typeof C.GenderSettings.AutoJoinSearch !== "object") C.GenderSettings.AutoJoinSearch = PreferenceInitGenderSetting(false);
-	if (typeof C.GenderSettings.HideShopItems !== "object") C.GenderSettings.HideShopItems = PreferenceInitGenderSetting(false);
+	if (typeof C.GenderSettings.AutoJoinSearch !== "object") C.GenderSettings.AutoJoinSearch = PreferenceInitGenderSetting();
+	if (typeof C.GenderSettings.HideShopItems !== "object") C.GenderSettings.HideShopItems = PreferenceInitGenderSetting();
 
 	// Forces some preferences depending on difficulty
 
@@ -624,15 +623,13 @@ function PreferenceInitNotificationSetting(setting, audio, defaultAlertType) {
 
 /**
  * Initialise a Gender setting
- * @param {boolean} mutuallyExclusive - Whether the setting can only be enabled for one gender
  * @returns {GenderSetting} - The setting to use
  */
-function PreferenceInitGenderSetting(mutuallyExclusive) {
-	let setting = {};
-	setting.Female = false;
-	setting.Male = false;
-	setting.MutuallyExclusive = mutuallyExclusive;
-	return setting;
+function PreferenceInitGenderSetting() {
+	return {
+		Female: false,
+		Male: false
+	};
 }
 
 /**
@@ -1888,8 +1885,8 @@ function PreferenceSubscreenSecurityClick() {
 function PreferenceSubscreenGenderClick() {
 	if (MouseIn(1815, 75, 90, 90)) PreferenceSubscreen = "";
 
-	PreferenceGenderClickSetting(1450, 225, Player.GenderSettings.AutoJoinSearch);
-	PreferenceGenderClickSetting(1450, 305, Player.GenderSettings.HideShopItems);
+	PreferenceGenderClickSetting(1450, 225, Player.GenderSettings.AutoJoinSearch, false);
+	PreferenceGenderClickSetting(1450, 305, Player.GenderSettings.HideShopItems, false);
 }
 
 /**
@@ -1897,19 +1894,20 @@ function PreferenceSubscreenGenderClick() {
  * @param {number} Left - The X co-ordinate the row starts on
  * @param {number} Top - The Y co-ordinate the row starts on
  * @param {GenderSetting} Setting - The player setting the row corresponds to
+ * @param {boolean} MutuallyExclusive - Whether only one option can be enabled at a time
  * @returns {void} - Nothing
  */
-function PreferenceGenderClickSetting(Left, Top, Setting) {
+function PreferenceGenderClickSetting(Left, Top, Setting, MutuallyExclusive) {
 	if (MouseIn(Left, Top - 32, 64, 64)) {
 		Setting.Female = !Setting.Female;
-		if (Setting.MutuallyExclusive && Setting.Female) {
+		if (MutuallyExclusive && Setting.Female) {
 			Setting.Male = false;
 		}
 	}
 
 	if (MouseIn(Left + 155, Top - 32, 64, 64)) {
 		Setting.Male = !Setting.Male;
-		if (Setting.MutuallyExclusive && Setting.Male) {
+		if (MutuallyExclusive && Setting.Male) {
 			Setting.Female = false;
 		}
 	}
