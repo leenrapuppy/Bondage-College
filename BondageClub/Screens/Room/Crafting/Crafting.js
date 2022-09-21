@@ -234,7 +234,7 @@ function CraftingRun() {
 		DrawButton(1843, 598, 64, 64, "", "White", "Icons/Color.png");
 		DrawText(TextGet("EnterPrivate"), 1550, 760, "White", "Black");
 		DrawButton(1175, 728, 64, 64, "", "White", CraftingSelectedItem.Private ? "Icons/Checked.png" : "");
-		if ((CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.AllowType != null) && (CraftingSelectedItem.Asset.AllowType.length > 0)) {
+		if ((CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.Name != null) && (CraftingSelectedItem.Asset.Name.substring(0, 10) != "Futuristic") && (CraftingSelectedItem.Asset.AllowType != null) && (CraftingSelectedItem.Asset.AllowType.length > 0)) {
 			DrawText(TextGet("EnterType"), 1335, 890, "White", "Black");
 			ElementPosition("InputType", 1685, 883, 310);
 			DrawButton(1840, 858, 60, 60, "", "White", "Icons/Small/Next.png");
@@ -279,7 +279,7 @@ function CraftingModeSet(NewMode) {
 		ElementValue("InputName", CraftingSelectedItem.Name || "");
 		ElementValue("InputDescription", CraftingSelectedItem.Description || "");
 		ElementValue("InputColor", CraftingSelectedItem.Color || "");
-		if ((CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.AllowType != null) && (CraftingSelectedItem.Asset.AllowType.length > 0)) {
+		if ((CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.Name != null) && (CraftingSelectedItem.Asset.Name.substring(0, 10) != "Futuristic") && (CraftingSelectedItem.Asset.AllowType != null) && (CraftingSelectedItem.Asset.AllowType.length > 0)) {
 			ElementCreateInput("InputType", "text", "", "20");
 			document.getElementById("InputType").addEventListener('keyup', CraftingKeyUp);
 			ElementValue("InputType", CraftingSelectedItem.Type || "");
@@ -542,7 +542,7 @@ function CraftingClick() {
 			});
 		} else if (MouseIn(1175, 728, 64, 64)) {
 			CraftingSelectedItem.Private = !CraftingSelectedItem.Private;
-		} else if (MouseIn(1840, 858, 60, 60) && (CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.AllowType != null)) {
+		} else if (MouseIn(1840, 858, 60, 60) && (CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.Name != null) && (CraftingSelectedItem.Asset.Name.substring(0, 10) != "Futuristic") && (CraftingSelectedItem.Asset.AllowType != null)) {
 			if ((CraftingSelectedItem.Type == null) || (CraftingSelectedItem.Type == "") || (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) < 0))
 				CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[0];
 			else
