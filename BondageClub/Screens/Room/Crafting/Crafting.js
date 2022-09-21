@@ -100,6 +100,7 @@ function CraftingUpdatePreview() {
 		return true;
 	});
 	for (const RelevantAsset of RelevantAssets) {
+		if ((RelevantAsset.Group == null) || (RelevantAsset.Group.Name == null) || (RelevantAsset.Group.Name == "ItemAddon")) continue;
 		InventoryWear(CraftingPreview, RelevantAsset.Name, RelevantAsset.Group.Name, null, null, CraftingPreview.MemberNumber, Craft);
 		InventoryCraft(CraftingPreview, CraftingPreview, RelevantAsset.Group.Name, Craft, false);
 	}
