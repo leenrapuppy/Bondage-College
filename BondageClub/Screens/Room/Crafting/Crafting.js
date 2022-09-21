@@ -175,10 +175,10 @@ function CraftingRun() {
 		for (let Property of CraftingPropertyList)
 			if (Property.Allow(CraftingSelectedItem.Asset)) {
 				let X = (Pos % 4) * 500 + 15;
-				let Y = Math.floor(Pos / 4) * 230 + 130;
-				DrawButton(X, Y, 470, 190, "", "White");
-				DrawText(TextGet("Property" + Property.Name), X + 235, Y + 40, "Black", "Silver");
-				DrawTextWrap(TextGet("Description" + Property.Name), X + 20, Y + 80, 440, 100, "Black", null, 2);
+				let Y = Math.floor(Pos / 4) * 175 + 130;
+				DrawButton(X, Y, 470, 150, "", "White");
+				DrawText(TextGet("Property" + Property.Name), X + 235, Y + 30, "Black", "Silver");
+				DrawTextWrap(TextGet("Description" + Property.Name), X + 20, Y + 50, 440, 100, "Black", null, 2);
 				Pos++;
 			}
 	}
@@ -474,8 +474,8 @@ function CraftingClick() {
 		for (let Property of CraftingPropertyList)
 			if (Property.Allow(CraftingSelectedItem.Asset)) {
 				let X = (Pos % 4) * 500 + 15;
-				let Y = Math.floor(Pos / 4) * 230 + 130;
-				if (MouseIn(X, Y, 470, 190)) {
+				let Y = Math.floor(Pos / 4) * 175 + 130;
+				if (MouseIn(X, Y, 470, 150)) {
 					CraftingSelectedItem.Property = Property.Name;
 					if (CraftingSelectedItem.Lock) CraftingModeSet("Name");
 					else CraftingModeSet("Lock");
