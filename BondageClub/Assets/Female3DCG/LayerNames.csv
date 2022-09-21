@@ -715,6 +715,11 @@ ItemHoodKittyHoodLock,Lock
 ItemHoodOpenMouthPlugHoodLenses,Lenses
 ItemHoodOpenMouthPlugHoodHood,Hood
 ItemHoodOpenMouthPlugHoodPlug,Plug
+ItemHoodDroneMaskBase,Mask
+ItemHoodDroneMaskShine,Shine
+ItemHoodDroneMaskEyeRegular,Eyes
+ItemHoodDroneMaskMouthOnahole,Mouth
+ItemHoodDroneMaskBarcode,Pattern
 ItemBootsLockingBoots1Boots,Boots
 ItemBootsLockingBoots1Straps,Straps
 ItemBootsFuturisticHeelsShoes,Body
