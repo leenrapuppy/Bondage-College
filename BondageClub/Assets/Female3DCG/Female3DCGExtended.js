@@ -163,30 +163,59 @@ var AssetFemale3DCGExtended = {
 			},
 		}, //BallCapFront
 	},
-	LeftHand: {
+		RightHand: {
 		Rings: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
 				Modules: [
 					{
-						Name: "Thumb", Key: "i",
-						Options: [{}, {}, {}],
+						Name: "Thumb", Key: "t",
+						Options: [{}, {}],
 					},
 					{
 						Name: "Index", Key: "i",
+						Options: [{}, {}],
+					},
+					{
+						Name: "Middle", Key: "m",
+						Options: [{}, {}],
+					},
+					{
+						Name: "Ring", Key: "r",
 						Options: [{}, {}, {}],
 					},
 					{
-						Name: "Middle", Key: "i",
+						Name: "Pinkie", Key: "p",
 						Options: [{}, {}, {}],
 					},
+				],
+			},
+		},
+	},
+	RightHand: {
+		Rings: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
 					{
-						Name: "Ring", Key: "i",
-						Options: [{}, {}, {}, {}],
+						Name: "Thumb", Key: "t",
+						Options: [{}, {}],
 					},
 					{
 						Name: "Index", Key: "i",
-						Options: [{}, {}, {}, {}],
+						Options: [{}, {}],
+					},
+					{
+						Name: "Middle", Key: "m",
+						Options: [{}, {},],
+					},
+					{
+						Name: "Ring", Key: "r",
+						Options: [{}, {}, {}],
+					},
+					{
+						Name: "Pinkie", Key: "p",
+						Options: [{}, {}, {}],
 					},
 				],
 			},
