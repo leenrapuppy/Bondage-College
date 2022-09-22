@@ -6,3 +6,5 @@ Character,Character details
 ChangeCharacter,Change active character
 GameOver,Game over.  Use the exit button to try again.
 LevelUp,CharacterName gained a level!
+ButtonOliviaLover1Start,Start dating Olivia
+ButtonOliviaLover1End,Break-up with Olivia

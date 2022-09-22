@@ -11,9 +11,44 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-08-16
-* Last recorded PR: [#3590](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3590)
-* Last recorded commit hash: `f6013c4a86ce879b43228d147b183d6b12e195d1`
+* Changelog last updated: 2022-09-12
+* Last recorded PR: [#3610](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3610)
+* Last recorded commit hash: `5baccc87c46011a963bfe234138896a005b04d69`
+
+## [R84]
+
+### [Added]
+* Gnarp - Added a new Rope ball-gag ([#3597](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3597))
+* bananarama92 - Added a hood-based variant of the Smooth Latex Mask ([#3604](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3604))
+* Estsanatlehi - Added a few missing sound effects ([#3601](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3601))
+* Estsanatlehi - Added Kneeling Spread & AllFours support for the Strict Pet Crawler ([#3606](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3606))
+
+
+### [Removed]
+
+### [Changed]
+* Estsanatlehi - Ported over the crafting enhancements from BCE back into the game ([#3593](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3593))
+* Estsanatlehi - Merged some of the clit piercings into one ([#3600](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3600))
+
+### [Fixed]
+* Estsanatlehi - Corrected a syntax error in the maid intro dialog that led to server disconnects ([#3594](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3594))
+* Nina - Restored Magic Trail's minimum fade modifier ([#3595](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3595))
+* Estsanatlehi - Fixed incorrect variable being set when handing over your spanking toys ([#3596](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3596))
+* Estsanatlehi - Changed the Latex Dog Hood to hide the Mask group ([#3598](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3598))
+* Estsanatlehi - Fixed the obedience belt trying to load the default lock layer ([#3602](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3602))
+* Estsanatlehi - Fixed the Vacbeds triggering stimulation events ([#3605](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3605))
+* Luna - FIX: PetPost. Added draw locks, locks now usable when chain leash is applied. ([#3607](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3607))
+* Estsanatlehi - Fixed crash with the padded mittens ([#3609](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3609))
+* Estsanatlehi - Split Egged from the remote-needed function ([#3599](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3599))
+
+### [Technical]
+
+* Da'Inihlus - Updated the chinese translation ([#3603](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3603))
+* Estsanatlehi - Updated russian activity translations ([#3608](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3608))
+
+### [Beta Fixes]
+* Estsanatlehi - Reverted !3599, which prevented many vibrating items to be controlled ([#3610](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3610))
+
 
 ## [R83]
 

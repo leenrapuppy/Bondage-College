@@ -103,7 +103,7 @@ type EffectName =
 
 	"Lock" | "NotSelfPickable" |
 
-	"Chaste" | "BreastChaste" |
+	"Chaste" | "BreastChaste" | "ButtChaste" |
 
 	"Leash" | "CrotchRope" |
 
@@ -596,6 +596,8 @@ interface Pose {
 	Name: string;
 	Category?: 'BodyUpper' | 'BodyLower' | 'BodyFull';
 	AllowMenu?: true;
+	/** Only show in menu if an asset supports it */
+	AllowMenuTransient?: true;
 	OverrideHeight?: AssetOverrideHeight;
 	Hide?: string[];
 	MovePosition?: { Group: string; X: number; Y: number; }[];
@@ -792,6 +794,7 @@ interface Character {
 	IsChaste: () => boolean;
 	IsVulvaChaste: () => boolean;
 	IsBreastChaste: () => boolean;
+	IsButtChaste: () => boolean;
 	IsEgged: () => boolean;
 	IsOwned: () => boolean;
 	IsOwnedByPlayer: () => boolean;

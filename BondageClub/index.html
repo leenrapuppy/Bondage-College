@@ -301,6 +301,7 @@
 <script src="Screens/Inventory/Wings/SteampunkWings/SteampunkWings.js"></script>
 <script src="Screens/Inventory/ItemNeck/TechnoCollar/TechnoCollar.js"></script>
 <script src="Screens/Inventory/ItemHead/DroneMask/DroneMask.js"></script>
+<script src="Screens/Inventory/ItemHood/DroneMask/DroneMask.js"></script>
 <script src="Screens/Inventory/ItemNipples/LactationPump/LactationPump.js"></script>
 <script>
 
@@ -317,7 +318,7 @@
 window.onload = function() {
 	ServerURL = CommonGetServer();
 	//CheatImport();
-	GameVersion = "R83";
+	GameVersion = "R84";
 	console.log("Version: " + GameVersion + ", Server: " + ServerURL);
 	if (!GameVersionFormat.test(GameVersion)) console.error("GameVersion is not valid!");
 	CommonIsMobile = CommonDetectMobile();

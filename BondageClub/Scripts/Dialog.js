@@ -824,7 +824,7 @@ function DialogAlwaysAllowRestraint() {
  */
 function DialogCanUseRemoteState(C, Item) {
 	// Can't use remotes if there is no item, or if the item doesn't have the needed effects.
-	if (!Item || !InventoryItemHasEffect(Item, "UseRemote")) return "InvalidItem";
+	if (!Item || !(InventoryItemHasEffect(Item, "Egged") || InventoryItemHasEffect(Item, "UseRemote"))) return "InvalidItem";
 	// Can't use remotes if the player cannot interact with their hands
 	if (!Player.CanInteract()) return "CannotInteract";
 	// Can't use remotes on self if the player is owned and their remotes have been blocked by an owner rule
@@ -1319,13 +1319,16 @@ function DialogClickSavedExpressionsMenu() {
 function DialogActivePoseMenuBuild() {
 	DialogActivePoses = [];
 
-	PoseFemale3DCG
-		.filter(P => P.AllowMenu)
+	// Gather all unique categories from poses
+	const PoseCategories = PoseFemale3DCG
+		.filter(P => (P.AllowMenu || P.AllowMenuTransient && CurrentCharacter.AllowedActivePose.includes(P.Name)))
 		.map(P => P.Category)
-		.filter((C, I, Categories) => C && Categories.indexOf(C) === I)
-		.forEach(Category => {
-			DialogActivePoses.push(PoseFemale3DCG.filter(P => P.AllowMenu && P.Category == Category));
-		});
+		.filter((C, I, Categories) => C && Categories.indexOf(C) === I);
+
+	// Add their pose in order so they're grouped together
+	PoseCategories.forEach(Category => {
+		DialogActivePoses.push(PoseFemale3DCG.filter(P => (P.AllowMenu || P.AllowMenuTransient && CurrentCharacter.AllowedActivePose.includes(P.Name)) && P.Category == Category));
+	});
 }
 
 

@@ -27,6 +27,7 @@ var PlatformParty = [];
 var PlatformRegen = 0;
 var PlatformCooldown = [];
 var PlatformTimedScreenFilter = { End: 0, Filter: "" };
+var PlatformRightButtons = [];
 
 // Template for characters with their animations
 var PlatformTemplate = [
@@ -1736,6 +1737,7 @@ function PlatformDrawCharacter(C, Time) {
  * @returns {void} - Nothing
  */
 function PlatformAddExperience(C, Value) {
+	if (C.Camera) Value = Value * CheatFactor("DoubleBrawlExperience", 2);
 	C.Experience = C.Experience + Value;
 	if (C.Experience >= PlatformExperienceForLevel[C.Level]) {
 		if (C.Camera) PlatformMessageSet(TextGet("LevelUp").replace("CharacterName", C.Name));
@@ -2069,15 +2071,19 @@ function PlatformDraw() {
 		// Walk/Crawl left (A or Q for QWERTY and AZERTY)
 		if (PlatformMoveActive("Left")) {
 			PlatformPlayer.FaceLeft = true;
-			if (PlatformPlayer.ForceX > 0) PlatformPlayer.ForceX = 0;
-			else PlatformPlayer.ForceX = PlatformPlayer.ForceX - PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && PlatformMoveActive("Crouch")) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
+			if (!PlatformMoveActive("Aim")) {
+				if (PlatformPlayer.ForceX > 0) PlatformPlayer.ForceX = 0;
+				else PlatformPlayer.ForceX = PlatformPlayer.ForceX - PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && PlatformMoveActive("Crouch")) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
+			}
 		}
 
 		// Walk/Crawl right
 		if (PlatformMoveActive("Right")) {
 			PlatformPlayer.FaceLeft = false;
-			if (PlatformPlayer.ForceX < 0) PlatformPlayer.ForceX = 0;
-			else PlatformPlayer.ForceX = PlatformPlayer.ForceX + PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && PlatformMoveActive("Crouch")) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
+			if (!PlatformMoveActive("Aim")) {
+				if (PlatformPlayer.ForceX < 0) PlatformPlayer.ForceX = 0;
+				else PlatformPlayer.ForceX = PlatformPlayer.ForceX + PlatformWalkFrame(((PlatformPlayer.Y == PlatformFloor) && PlatformMoveActive("Crouch")) ? PlatformPlayer.CrawlSpeed : (PlatformPlayer.Run ? PlatformPlayer.RunSpeed : PlatformPlayer.WalkSpeed), Frame);
+			}
 		}
 
 		// Jump forces the player up on the Y axis
@@ -2268,6 +2274,40 @@ function PlatformDraw() {
 }
 
 /**
+ * Draws all the buttons on the right side of the screen for extra lovers/Ds interactions
+ * @returns {void} - Nothing
+ */
+function PlatformDrawRightButtons() {
+
+	// Gets the two characters that must interact, Melody is always C1 for now
+	PlatformRightButtons = [];
+	let C1 = null;
+	let C2 = null;
+	if (PlatformPlayer.Name == "Melody") {
+		C1 = PlatformDialogGetCharacter(PlatformPlayer.Name);
+		for (let Char of PlatformChar)
+			if ((Char.Dialog != null) && (Math.abs(PlatformPlayer.X - Char.X) <= 150) && (Math.abs(PlatformPlayer.Y - Char.Y) <= 450))
+				C2 = PlatformDialogGetCharacter(Char.Name);
+	} else {
+		C2 = PlatformDialogGetCharacter(PlatformPlayer.Name);
+		for (let Char of PlatformChar)
+			if ((Char.Dialog != null) && (Math.abs(PlatformPlayer.X - Char.X) <= 150) && (Math.abs(PlatformPlayer.Y - Char.Y) <= 450))
+				C1 = PlatformDialogGetCharacter(Char.Name);
+	}
+
+	// Adds the possible buttons, only available if Melody is C1
+	if ((C1 == null) || (C2 == null)) return;
+	if (C1.Name != "Melody") return;
+	if ((C2.Love >= 20) && ((C1.LoverName == null) || (C1.LoverName == ""))&& ((C2.LoverName == null) || (C2.LoverName == ""))) PlatformRightButtons.push(C2.Name + "Lover1Start");
+	if ((C2.LoverName != null) && (C2.LoverName == C1.Name)) PlatformRightButtons.push(C2.Name + "Lover1End");
+
+	// Draw the buttons on the right side
+	for (let B = 0; B < PlatformRightButtons.length; B++)
+		DrawButton(1900, 10 + (B + 1) * 100, 90, 90, "", "White", "Screens/Room/Platform/Button/" + PlatformRightButtons[B] + ".png", TextGet("Button" + PlatformRightButtons[B]));
+
+}
+
+/**
  * Runs and draws the screen.
  * @returns {void} - Nothing
  */
@@ -2280,6 +2320,7 @@ function PlatformRun() {
 	if ((PlatformHeal != null) && PlatformSaveMode)
 		for (let S = 0; S < 10; S++)
 			DrawButton(250 + (S * 157), 200, 90, 90, S.toString(), "White", "", TextGet("SaveOn") + S.toString());
+	if (PlatformHeal != null) PlatformDrawRightButtons();
 	if (CommonIsMobile) PlatformTouch();
 }
 
@@ -2329,6 +2370,9 @@ function PlatformClick() {
 	if (MouseIn(1700, 10, 90, 90) && (PlatformHeal != null)) return CommonSetScreen("Room", "PlatformProfile");
 	if (MouseIn(1600, 10, 90, 90) && (PlatformHeal != null)) return PlatformPartyNext();
 	if (!CommonIsMobile && !PlatformPlayer.HalfBound) PlatformAttack(PlatformPlayer, PlatformMoveActive("Crouch") ? "CrouchAttackFast" : "StandAttackFast");
+	for (let B = 0; B < PlatformRightButtons.length; B++)
+		if (MouseIn(1900, 10 + (B + 1) * 100, 90, 90))
+			PlatformDialogStart(PlatformRightButtons[B]);
 }
 
 /**
@@ -2394,8 +2438,8 @@ function PlatformSaveGame(Slot) {
 	PlatformSaveMode = false;
 	let SaveDialog = [];
 	for (let Char of PlatformDialogCharacter)
-		if ((Char.Love != null) || (Char.Domination != null))
-			SaveDialog.push({ Name: Char.Name, Love: Char.Love, Domination: Char.Domination });
+		if ((Char.Love != null) || (Char.Domination != null) || (Char.LoverName != null) || (Char.LoverLevel != null))
+			SaveDialog.push({ Name: Char.Name, Love: Char.Love, Domination: Char.Domination, LoverName: Char.LoverName, LoverLevel: Char.LoverLevel });
 	let SaveObj = {
 		Character: PlatformPlayer.Name,
 		Status: PlatformPlayer.Status,
@@ -2445,8 +2489,10 @@ function PlatformLoadGame(Slot) {
 		for (let DialogChar of LoadObj.Dialog)
 			for (let Char of PlatformDialogCharacter)
 				if (DialogChar.Name == Char.Name) {
-					Char.Love = DialogChar.Love;
-					Char.Domination = DialogChar.Domination;
+					if (DialogChar.Love != null) Char.Love = DialogChar.Love;
+					if (DialogChar.Domination != null) Char.Domination = DialogChar.Domination;
+					if (DialogChar.LoverName != null) Char.LoverName = DialogChar.LoverName;
+					if (DialogChar.LoverLevel != null) Char.LoverLevel = DialogChar.LoverLevel;
 				}
 
 	// Loads the current room and launches it
@@ -2533,6 +2579,11 @@ function PlatformEventKeyUp(e) {
  */
 function PlatformController(Buttons) {
 
+	// Stops any binding if buttons have changed
+	if (PlatformActionIs(PlatformPlayer, "Bind"))
+		if ((Buttons[ControllerX].pressed == true) || (Buttons[ControllerA].pressed == true) || (Buttons[ControllerB].pressed == true) || (Buttons[ControllerDPadLeft].pressed == true) || (Buttons[ControllerDPadRight].pressed == true) || (Buttons[ControllerTriggerRight].pressed == true) || (Buttons[ControllerTriggerLeft].pressed == true))
+			PlatformPlayer.Action = null;
+
 	// Double-tap management to run left
 	if ((Buttons[ControllerDPadLeft].pressed == true) && (ControllerGameActiveButttons.LEFT == false)) {
 		PlatformPlayer.Run = false;
@@ -2559,7 +2610,7 @@ function PlatformController(Buttons) {
 
 	// On a new A, X, Y or UP button, we activate the keyboard equivalent
 	if ((Buttons[ControllerB].pressed == true) && (ControllerGameActiveButttons.B == false)) PlatformEventKeyDown({ keyCode: 76 });
-	if ((Buttons[ControllerX].pressed == true) && (ControllerGameActiveButttons.X == false)) PlatformEventKeyDown({ keyCode: 75 });
+	if ((Buttons[ControllerX].pressed == true) && (ControllerGameActiveButttons.X == false) && (PlatformPlayer.Name != "Edlaran")) PlatformEventKeyDown({ keyCode: 75 });
 	if ((Buttons[ControllerY].pressed == true) && (ControllerGameActiveButttons.Y == false)) PlatformEventKeyDown({ keyCode: 79 });
 	if ((Buttons[ControllerDPadUp].pressed == true) && (ControllerGameActiveButttons.UP == false)) PlatformEventKeyDown({ keyCode: 90 });
 	if ((Buttons[ControllerTriggerRight].pressed == true) && (ControllerGameActiveButttons.TRIGHT == false)) PlatformEventKeyDown({ keyCode: 73 });
