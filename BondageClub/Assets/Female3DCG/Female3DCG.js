@@ -5834,7 +5834,7 @@ var AssetFemale3DCG = [
 				Tint: [{Color: 0, Strength: 0.1}],
 			},
 			{ Name: "InteractiveVRHeadset", Difficulty: 6, Value: 80, Time: 3, DefaultColor: ["Default", "Default"], Random: false, AllowLock: true, DrawLocks: false, Hide: ["Mask", "Glasses"], HideItem: ["ItemNoseNoseRing"], FuturisticRecolor: true,
-				Effect: ["VR"], AllowEffect: ["BlindHeavy", "Prone", "VRAvatars", "HideRestraints", "KinkyDungeonParty"], Extended: true, AlwaysExtend: true, Audio: "FuturisticApply",
+				Effect: ["VR"], AllowEffect: ["BlindHeavy", "BlindTotal", "Prone", "VRAvatars", "HideRestraints", "KinkyDungeonParty"], Extended: true, AlwaysExtend: true, Audio: "FuturisticApply",
 				Layer: [
 					{ Name: "Body", HasType: false},
 					{ Name: "Display", HasType: false},

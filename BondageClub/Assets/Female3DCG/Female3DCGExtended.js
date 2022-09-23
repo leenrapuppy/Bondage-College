@@ -6902,6 +6902,8 @@ var AssetFemale3DCGExtended = {
 						],
 					},
 					{
+						// Use `BlindTotal` for VR avatars to ensure that the `thin` property never reduces the blindness level below `BlindHeavy`,
+						// as lowering it any more will result in visual odities related to partial blindness
 						Name: "Function", Key: "f",
 						Options: [
 							{ // f0 - Passthrough
@@ -6916,12 +6918,12 @@ var AssetFemale3DCGExtended = {
 							},
 							{ // f2 - VR Avatar
 								Property: {
-									Effect: ["BlindHeavy", "Prone", "VRAvatars"],
+									Effect: ["BlindTotal", "Prone", "VRAvatars"],
 								}
 							},
 							{ // f3 - VR Avatar (hide restraints)
 								Property: {
-									Effect: ["BlindHeavy", "VRAvatars", "HideRestraints"],
+									Effect: ["BlindTotal", "VRAvatars", "HideRestraints"],
 								}
 							},
 						],
