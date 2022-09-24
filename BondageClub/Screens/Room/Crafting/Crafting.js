@@ -138,7 +138,7 @@ function CraftingRun() {
 				DrawTextFit(Craft.Name, X + 295, Y + 25, 315, "Black", "Silver");
 				for (let Item of Player.Inventory)
 					if (Item.Asset.Name == Craft.Item) {
-						DrawImageResize("Assets/" + Player.AssetFamily + "/" + Item.Asset.Group.Name + "/Preview/" + Item.Asset.Name + ".png", X + 3, Y + 3, 135, 135);
+						DrawImageResize("Assets/" + Player.AssetFamily + "/" + Item.Asset.DynamicGroupName + "/Preview/" + Item.Asset.Name + ".png", X + 3, Y + 3, 135, 135);
 						DrawTextFit(Item.Asset.Description, X + 295, Y + 70, 315,  "Black", "Silver");
 						DrawTextFit(TextGet("Property" + Craft.Property), X + 295, Y + 115, 315, "Black", "Silver");
 						if ((Craft.Lock != null) && (Craft.Lock != ""))
