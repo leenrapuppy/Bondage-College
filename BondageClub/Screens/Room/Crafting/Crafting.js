@@ -247,7 +247,7 @@ function CraftingRun() {
 		DrawCharacter(CraftingPreview, -100, 100, 2, false);
 		DrawCharacter(CraftingPreview, 700, 100, 0.9, false);
 		DrawButton(880, 900, 90, 90, "", "white", `Icons/${CraftingNakedPreview ? "Dress" : "Naked"}.png`);
-		ItemColorDraw(CraftingPreview, CraftingSelectedItem.Asset.Group.Name, 1200, 25, 775, 950, true);
+		ItemColorDraw(CraftingPreview, CraftingSelectedItem.Asset.DynamicGroupName, 1200, 25, 775, 950, true);
 	}
 
 }
@@ -532,7 +532,7 @@ function CraftingClick() {
 			return null;
 		} else if (MouseIn(1843, 598, 64, 64)) {
 			CraftingModeSet("Color");
-			const Item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.Group.Name);
+			const Item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.DynamicGroupName);
 			ItemColorLoad(CraftingPreview, Item, 1200, 25, 775, 950, true);
 			ItemColorOnExit((c, i) => {
 				CraftingModeSet("Name");
@@ -562,7 +562,7 @@ function CraftingClick() {
 			CraftingNakedPreview = !CraftingNakedPreview;
 			CraftingUpdatePreview();
 		} else if (MouseIn(1200, 25, 775, 950)) {
-			ItemColorClick(CraftingPreview, CraftingSelectedItem.Asset.Group.Name, 1200, 25, 775, 950, true);
+			ItemColorClick(CraftingPreview, CraftingSelectedItem.Asset.DynamicGroupName, 1200, 25, 775, 950, true);
 			setTimeout(CraftingRefreshPreview, 100);
 		}
 		return;
@@ -575,7 +575,7 @@ function CraftingClick() {
  * @returns {void} - Nothing
  * */
 function CraftingRefreshPreview() {
-	let Item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.Group.Name);
+	let Item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.DynamicGroupName);
 	if ((Item != null) && (Item.Color != null)) {
 		CraftingSelectedItem.Color = Array.isArray(Item.Color) ? Item.Color.join(",") : Item.Color || "";
 		CraftingUpdatePreview();
