@@ -2472,7 +2472,7 @@ function ChatRoomMessage(data) {
 									hideIdentity
 										? DialogFindPlayer("Someone")
 										: ChatRoomHTMLEntities(dictionary[D].Text));
-								msg = ChatRoomMessageReplacePronouns(C, "SourcePronoun", msg, hideIdentity);
+								msg = ChatRoomMessageReplacePronouns(C, "Pronoun", msg, hideIdentity);
 							}
 						}
 						else if (dictionary[D].TextToLookUp) msg = msg.replace(dictionary[D].Tag, DialogFindPlayer(ChatRoomHTMLEntities(dictionary[D].TextToLookUp)).toLowerCase());
@@ -2616,7 +2616,7 @@ function ChatRoomMessage(data) {
 								hideIdentity
 									? DialogFindPlayer("Someone")
 									: ChatRoomHTMLEntities(data.Dictionary[D].Text));
-							const pronounKey = data.Dictionary[D].Tag == "SourceCharacter" ? "SourcePronoun" : "TargetPronoun";
+							const pronounKey = data.Dictionary[D].Tag == "SourceCharacter" ? "Pronoun" : "TargetPronoun";
 							msg = ChatRoomMessageReplacePronouns(C, pronounKey, msg, hideIdentity);
 						}
 						if (data.Dictionary[D].Tag == "ActivityName") ActivityName = data.Dictionary[D].Text;
