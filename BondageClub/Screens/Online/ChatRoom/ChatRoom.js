@@ -2424,7 +2424,7 @@ function ChatRoomMessage(data) {
 				msg = DialogFindPlayer(msg);
 				if (data.Dictionary) {
 					const dictionary = ChatRoomSortDictionary(data.Dictionary);
-					var SourceCharacter = null;
+					let SourceCharacter = null;
 					let TargetCharacter = null;
 					let TargetMemberNumber = null;
 					let ActivityName = null;
@@ -2436,58 +2436,44 @@ function ChatRoomMessage(data) {
 
 						// If there's a member number in the dictionary packet, we use that number to alter the chat message
 						if (dictionary[D].MemberNumber) {
+							const C = ChatRoomCharacter.find(c => c.MemberNumber == dictionary[D].MemberNumber);
+							const hideIdentity = ChatRoomHideIdentity(C);
 
 							// Alters the message displayed in the chat room log, and stores the source & target in case they're required later
 							if ((msg == "SourceCharacter entered.") || (msg == "SourceCharacter left.") || (msg == "SourceCharacter disconnected.")) {
-								for (let T = 0; T < ChatRoomCharacter.length; T++)
-									if (ChatRoomCharacter[T].MemberNumber == dictionary[D].MemberNumber) {
-										let Nick = CharacterNickname(ChatRoomCharacter[T]);
-										if (Nick != ChatRoomCharacter[T].Name) Nick = Nick + " [" + ChatRoomCharacter[T].Name + "]";
-										msg = msg.replace(dictionary[D].Tag, Nick);
-										break;
-									}
+								let Nick = CharacterNickname(C);
+								if (Nick != C.Name) Nick = Nick + " [" + C.Name + "]";
+								msg = msg.replace(dictionary[D].Tag, Nick);
 							}
 							else if ((dictionary[D].Tag == "DestinationCharacter") || (dictionary[D].Tag == "DestinationCharacterName")) {
 								TargetMemberNumber = dictionary[D].MemberNumber;
-								for (let T = 0; T < ChatRoomCharacter.length; T++)
-									if (ChatRoomCharacter[T].MemberNumber == dictionary[D].MemberNumber)
-										TargetCharacter = ChatRoomCharacter[T];
+								TargetCharacter = C;
 								msg = msg.replace(dictionary[D].Tag,
-									((SenderCharacter.MemberNumber == dictionary[D].MemberNumber) && (dictionary[D].Tag == "DestinationCharacter"))
-										? CharacterPronoun(TargetCharacter, "Possessive")
-										: (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass)
-											&& dictionary[D].MemberNumber != Player.MemberNumber
-											&& (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(TargetCharacter))
+									(SenderCharacter.MemberNumber == dictionary[D].MemberNumber) && (dictionary[D].Tag == "DestinationCharacter")
+										? CharacterPronoun(C, "Possessive", hideIdentity)
+										: hideIdentity
 											? DialogFindPlayer("Someone").toLowerCase()
-											: ChatRoomHTMLEntities(dictionary[D].Text) + DialogFindPlayer("'s")));
+											: ChatRoomHTMLEntities(dictionary[D].Text) + DialogFindPlayer("'s"));
 							}
 							else if ((dictionary[D].Tag == "TargetCharacter") || (dictionary[D].Tag == "TargetCharacterName")) {
 								TargetMemberNumber = dictionary[D].MemberNumber;
-								for (let T = 0; T < ChatRoomCharacter.length; T++)
-									if (ChatRoomCharacter[T].MemberNumber == dictionary[D].MemberNumber)
-										TargetCharacter = ChatRoomCharacter[T];
+								TargetCharacter = C;
 								msg = msg.replace(dictionary[D].Tag,
-									((SenderCharacter.MemberNumber == dictionary[D].MemberNumber) && (dictionary[D].Tag == "TargetCharacter"))
-										? CharacterPronoun(TargetCharacter, "Self")
-										: (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass)
-											&& dictionary[D].MemberNumber != Player.MemberNumber
-											&& (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(TargetCharacter))
+									(SenderCharacter.MemberNumber == dictionary[D].MemberNumber) && (dictionary[D].Tag == "TargetCharacter")
+										? CharacterPronoun(C, "Self", hideIdentity)
+										: hideIdentity
 											? DialogFindPlayer("Someone").toLowerCase()
-											: ChatRoomHTMLEntities(dictionary[D].Text)));
+											: ChatRoomHTMLEntities(dictionary[D].Text));
+								msg = ChatRoomMessageReplacePronouns(C, "TargetPronoun", msg, hideIdentity);
 							}
 							else if (dictionary[D].Tag == "SourceCharacter") {
-								for (let T = 0; T < ChatRoomCharacter.length; T++)
-									if (ChatRoomCharacter[T].MemberNumber == dictionary[D].MemberNumber)
-										SourceCharacter = ChatRoomCharacter[T];
+								SourceCharacter = C;
 								msg = msg.replace(dictionary[D].Tag,
-									(PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass)
-										&& (dictionary[D].MemberNumber != Player.MemberNumber)
-										&& (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SourceCharacter)))
+									hideIdentity
 										? DialogFindPlayer("Someone")
 										: ChatRoomHTMLEntities(dictionary[D].Text));
+								msg = ChatRoomMessageReplacePronouns(C, "SourcePronoun", msg, hideIdentity);
 							}
-
-							msg = ChatRoomMessageReplacePronouns(msg, SourceCharacter, TargetCharacter);
 						}
 						else if (dictionary[D].TextToLookUp) msg = msg.replace(dictionary[D].Tag, DialogFindPlayer(ChatRoomHTMLEntities(dictionary[D].TextToLookUp)).toLowerCase());
 						else if (dictionary[D].AssetName) {
@@ -2560,7 +2546,7 @@ function ChatRoomMessage(data) {
 
 					// Garble names
 					let senderName = "";
-					if (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && SenderCharacter.MemberNumber != Player.MemberNumber && data.Type != "Whisper" && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SenderCharacter))) {
+					if (data.Type != "Whisper" && ChatRoomHideIdentity(SenderCharacter)) {
 						if ((Player.GetDeafLevel() >= 4))
 							senderName = DialogFindPlayer("Someone");
 						else
@@ -2589,7 +2575,7 @@ function ChatRoomMessage(data) {
 
 					if (msg.indexOf("*") == 0) msg = msg + "*";
 					else if ((msg.indexOf("'") == 0) || (msg.indexOf(",") == 0)) msg = "*" + CharacterNickname(SenderCharacter) + msg + "*";
-					else if (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && SenderCharacter.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(SenderCharacter))) {
+					else if (ChatRoomHideIdentity(SenderCharacter)) {
 						msg = "*" + DialogFindPlayer("Someone") + " " + msg + "*";
 						for (let C = 0; C < ChatRoomCharacter.length; C++)
 							if (ChatRoomCharacter[C] && ChatRoomCharacter[C].Name && ChatRoomCharacter[C].ID != 0 && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(ChatRoomCharacter[C])))
@@ -2614,28 +2600,25 @@ function ChatRoomMessage(data) {
 				msg = "(" + ActivityDictionaryText(msg) + ")";
 				let TargetMemberNumber = null;
 				let TargetCharacter = null;
-				let SourceCharacter = null;
 				let ActivityName = null;
 				var ActivityGroup = null;
 				let ActivityCounter = 1;
 				if (data.Dictionary != null)
 					for (let D = 0; D < data.Dictionary.length; D++) {
-						if (data.Dictionary[D].Tag == "TargetCharacter") {
-							for (let T = 0; T < ChatRoomCharacter.length; T++)
-								if (ChatRoomCharacter[T].MemberNumber == data.Dictionary[D].MemberNumber)
-									TargetCharacter = ChatRoomCharacter[T];
-						}
-						if (data.Dictionary[D].Tag == "SourceCharacter") {
-							for (let T = 0; T < ChatRoomCharacter.length; T++)
-								if (ChatRoomCharacter[T].MemberNumber == data.Dictionary[D].MemberNumber)
-									SourceCharacter = ChatRoomCharacter[T];
-						}
-						
 						if (data.Dictionary[D].MemberNumber != null) {
-							msg = msg.replace(data.Dictionary[D].Tag, (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && (data.Dictionary[D].MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(TargetCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(data.Dictionary[D].Text));
-							msg = ChatRoomMessageReplacePronouns(msg, SourceCharacter, TargetCharacter);
+							const C = ChatRoomCharacter.find(c => c.MemberNumber == data.Dictionary[D].MemberNumber);
+							if (data.Dictionary[D].Tag == "TargetCharacter") {
+								TargetMemberNumber = data.Dictionary[D].MemberNumber;
+								TargetCharacter = C;
+							}
+							const hideIdentity = ChatRoomHideIdentity(C);
+							msg = msg.replace(data.Dictionary[D].Tag,
+								hideIdentity
+									? DialogFindPlayer("Someone")
+									: ChatRoomHTMLEntities(data.Dictionary[D].Text));
+							const pronounKey = data.Dictionary[D].Tag == "SourceCharacter" ? "SourcePronoun" : "TargetPronoun";
+							msg = ChatRoomMessageReplacePronouns(C, pronounKey, msg, hideIdentity);
 						}
-						if ((data.Dictionary[D].MemberNumber != null) && (data.Dictionary[D].Tag == "TargetCharacter")) TargetMemberNumber = data.Dictionary[D].MemberNumber;
 						if (data.Dictionary[D].Tag == "ActivityName") ActivityName = data.Dictionary[D].Text;
 						if (data.Dictionary[D].Tag == "ActivityGroup") ActivityGroup = data.Dictionary[D].Text;
 						if (data.Dictionary[D].ActivityCounter != null) ActivityCounter = data.Dictionary[D].ActivityCounter;
@@ -2643,7 +2626,7 @@ function ChatRoomMessage(data) {
 
 				// If the player does the activity on herself or an NPC, we calculate the result right away
 				AsylumGGTSActivity(SenderCharacter, TargetCharacter, ActivityName, ActivityGroup, ActivityCounter);
-				if ((data.Type === "Action") || ((TargetMemberNumber == Player.MemberNumber) && (SenderCharacter.MemberNumber != Player.MemberNumber)))
+				if ((TargetMemberNumber == Player.MemberNumber) && (SenderCharacter.MemberNumber != Player.MemberNumber))
 					if ((Player.ArousalSettings == null) || (Player.ArousalSettings.Active == null) || (Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic"))
 						ActivityEffect(SenderCharacter, Player, ActivityName, ActivityGroup, ActivityCounter);
 
@@ -2683,6 +2666,17 @@ function ChatRoomMessage(data) {
 			}
 		}
 	}
+}
+
+/**
+ * Whether to replace message details which reveal information about an unseen/unheard character
+ * @param {Character} C - The character whose identity should remain unknown
+ * @returns {boolean} - Whether the character details should be hidden
+ */
+function ChatRoomHideIdentity(C) {
+	return PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass)
+		&& C.MemberNumber != Player.MemberNumber
+		&& (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(C));
 }
 
 /**
@@ -4181,20 +4175,19 @@ function ChatRoomOwnerPresenceRule(RuleName, Target) {
 
 }
 
+
 /**
- * Replaces pronoun-related tags with the relevant text for the characters
- * @param {string} msg - The original message containing the tags
- * @param {Character} SourceCharacter - The character the action came form
- * @param {Character} TargetCharacter - The character the action was directed at
- * @returns {string} - The updated message with tags replaced
+ * Replaces pronoun-related tags with the relevant text for the character
+ * @param {Character} C - The character that the message key relates to
+ * @param {string} key - Key for the dialog entry to use
+ * @param {string} msg - The original message
+ * @param {boolean} hideIdentity - Whether to hide details revealing the character's identity
+ * @returns {string} - The updated message with the pronoun key replaced
  */
-function ChatRoomMessageReplacePronouns(msg, SourceCharacter, TargetCharacter) {
+function ChatRoomMessageReplacePronouns(C, key, msg, hideIdentity) {
 	for (const pronounType of ["Possessive", "Self", "Object"]) {
-		if (msg.includes("SourcePronoun" + pronounType) && SourceCharacter) {
-			msg = msg.replace("SourcePronoun" + pronounType, CharacterPronoun(SourceCharacter, pronounType));
-		}
-		if (msg.includes("TargetPronoun" + pronounType) && TargetCharacter) {
-			msg = msg.replace("TargetPronoun" + pronounType, CharacterPronoun(TargetCharacter, pronounType));
+		if (msg.includes(key + pronounType)) {
+			msg = msg.replace(key + pronounType, CharacterPronoun(C, pronounType, hideIdentity));
 		}
 	}
 	return msg;
