@@ -1,2 +1,29 @@
 Exit,Apply the advanced rule
-ScreenBlockTitle,Select the Bondage Club areas that your submissive won't be able to enter.
+BlockScreenTitle,Check the Bondage Club areas that your submissive won't be able to enter.
+BlockScreenA,Club Shop
+BlockScreenB,Private Room
+BlockScreenC,Introduction Class
+BlockScreenD,Maid Quarters
+BlockScreenE,Kidnappers League
+BlockScreenF,Shibari Dojo
+BlockScreenG,Explore the Club
+BlockScreenH,Look for Trouble
+BlockScreenI,Slave Market
+BlockScreenJ,Timer Cell
+BlockScreenK,LARP Battles
+BlockScreenL,Visit the College
+BlockScreenM,Asylum
+BlockScreenN,Bondage Poker
+BlockScreenO,Infiltration
+BlockScreenP,Movie Studio
+BlockScreenQ,Magic School
+BlockScreenR,Bondage Brawl
+BlockScreenS,Item Crafting
+BlockScreen0,Gambling
+BlockScreen1,Prison
+BlockScreen2,Photographic
+BlockScreen3,Stable
+BlockScreen4,Houdini's Theater
+BlockScreen5,The Nursery
+BlockScreen6,Cafe
+BlockScreen7,Arcade

@@ -2386,6 +2386,7 @@ function ChatRoomMessage(data) {
 
 			// Replace actions by the content of the dictionary
 			if (data.Type && ((data.Type == "Action") || (data.Type == "ServerMessage"))) {
+				if ((data.Type == "ServerMessage") && (msg.substring(0, 20) == "OwnerRuleBlockScreen")) msg = "OwnerRuleBlockScreen";
 				if (data.Type == "ServerMessage") msg = "ServerMessage" + msg;
 				var orig_msg = msg;
 				msg = DialogFindPlayer(msg);
@@ -3617,7 +3618,7 @@ function ChatRoomSetRule(data) {
 		if (data.Content == "OwnerRuleNicknameAllow") LogDelete("BlockNickname", "OwnerRule");
 		if (data.Content == "OwnerRuleNicknameBlock") LogAdd("BlockNickname", "OwnerRule");
 
-		// Collar Rules
+		// Collar rules
 		if (data.Content == "OwnerRuleCollarRelease") {
 			if ((InventoryGet(Player, "ItemNeck") != null) && (InventoryGet(Player, "ItemNeck").Asset.Name == "SlaveCollar")) {
 				InventoryRemove(Player, "ItemNeck");
@@ -3632,6 +3633,12 @@ function ChatRoomSetRule(data) {
 			}
 			LogDelete("ReleasedCollar", "OwnerRule");
 			LoginValidCollar();
+		}
+
+		// Advanced rules
+		if (data.Content.substring(0, 20) == "OwnerRuleBlockScreen") {
+			LogDeleteStarting("BlockScreen", "OwnerRule")
+			LogAdd("BlockScreen" + data.Content.substring(20, 100), "OwnerRule");
 		}
 
 		// Forced labor
