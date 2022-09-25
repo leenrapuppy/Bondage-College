@@ -1810,11 +1810,17 @@ function CharacterNickname(C) {
  * Returns dialog text for a character based on their chosen pronouns. Default to She/Her entries
  * @param {Character} C - The character to fetch dialog for
  * @param {string} DialogKey - The type of dialog entry to look for
+ * @param {boolean} HideIdentity - Whether to use generic they/them pronouns
  * @returns {string} - The text to use
  */
-function CharacterPronoun(C, DialogKey) {
-	const pronounItem = C.Appearance.find(A => A.Asset.Group.Name == "Pronouns");
-	const pronounName = pronounItem ? pronounItem.Asset.Name : "SheHer";
+function CharacterPronoun(C, DialogKey, HideIdentity) {
+	let pronounName;
+	if (HideIdentity && ChatRoomSpace == ChatRoomSpaceType.MIXED) {
+		pronounName = "TheyThem";
+	} else {
+		const pronounItem = C.Appearance.find(A => A.Asset.Group.Name == "Pronouns");
+		pronounName = pronounItem ? pronounItem.Asset.Name : "SheHer";
+	}
 	return DialogFindPlayer("Pronoun" + DialogKey + pronounName);
 }
 
@@ -1825,7 +1831,7 @@ function CharacterPronoun(C, DialogKey) {
  */
 function CharacterPronounDescription(C) {
 	const pronounItem = C.Appearance.find(A => A.Asset.Group.Name == "Pronouns");
-	const pronounAsset = pronounItem ? pronounItem.Asset : Asset.find(A => A.Group.Name == "Pronouns" && A.Name == "SheHer");
+	const pronounAsset = pronounItem ? pronounItem.Asset : AssetGet(C.AssetFamily, "Pronouns", "SheHer");
 	return pronounAsset.Description;
 }
 

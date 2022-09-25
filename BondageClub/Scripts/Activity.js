@@ -213,22 +213,22 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			else if (group.Name === "ItemHands")
 				return InventoryPrerequisiteMessage(acted, "NakedHands") === "";
 			break;
-			case "HasPenis":
-				return InventoryIsItemInList(acted, "Pussy", ["Penis"]);
-				case "HasVagina":
-				return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
-				case "HasPenisSelf":
-				return InventoryIsItemInList(acting, "Pussy", ["Penis1"]);
-				case "HasVaginaSelf":
-				return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
-				case "HasBreasts":
-				return InventoryIsItemInList(acted, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
-				case "HasBreastsSelf":
-				return InventoryIsItemInList(acting, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
-				case "HasFlatChest":
-				return InventoryIsItemInList(acted, "BodyUpper", ["FlatSmall", "FlatMedium"]);
-				case "HasFlatChestSelf":
-				return InventoryIsItemInList(acting, "BodyUpper", ["FlatSmall", "FlatMedium"]);
+		case "HasPenis":
+			return InventoryIsItemInList(acted, "Pussy", ["Penis"]);
+		case "HasVagina":
+			return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
+		case "HasPenisSelf":
+			return InventoryIsItemInList(acting, "Pussy", ["Penis1"]);
+		case "HasVaginaSelf":
+			return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
+		case "HasBreasts":
+			return InventoryIsItemInList(acted, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
+		case "HasBreastsSelf":
+			return InventoryIsItemInList(acting, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
+		case "HasFlatChest":
+			return InventoryIsItemInList(acted, "BodyUpper", ["FlatSmall", "FlatMedium"]);
+		case "HasFlatChestSelf":
+			return InventoryIsItemInList(acting, "BodyUpper", ["FlatSmall", "FlatMedium"]);
 
 		default:
 			if (prereq.startsWith("Needs-")) {
