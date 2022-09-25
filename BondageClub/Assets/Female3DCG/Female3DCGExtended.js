@@ -4790,7 +4790,8 @@ var AssetFemale3DCGExtended = {
 							{ Property: {},}, //g1 - No Gag
 							{ Property: { Effect: ["BlockMouth", "GagMedium"] },}, //g2 - Thick BitGag
 							{ Property: { Effect: ["BlockMouth", "GagHeavy"] },}, //g3 - Tongue Depresor
-							{ Property: { Effect: ["BlockMouth", "GagVeryHeavy"], Hide: ["Mouth"] },}, //g4 - DildoGag
+							{ Property: { Effect: ["BlockMouth", "GagMedium"] },}, //g4 - Ballgag
+							{ Property: { Effect: ["BlockMouth", "GagVeryHeavy"], Hide: ["Mouth"] },}, //g5 - DildoGag
 						],
 					},
 					{
