@@ -2275,10 +2275,25 @@ interface DynamicBeforeDrawOverrides {
 	Opacity?: number;
 	X?: number;
 	Y?: number;
-	LayerType?: number;
+	LayerType?: string;
 	L?: string;
 	AlphaMasks?: RectTuple[];
 }
+
+/**
+ * A dynamic BeforeDraw callback
+ */
+type DynamicBeforeDrawCallback = (data: DynamicDrawingData) => DynamicBeforeDrawOverrides;
+
+/**
+ * A dynamic AfterDraw callback
+ */
+type DynamicAfterDrawCallback = (data: DynamicDrawingData) => void;
+
+/**
+ * A dynamic ScriptDraw callback
+ */
+type DynamicScriptDrawCallback = (data: {C: Character, Item: Item, PersistentData: <T>() => T}) => void;
 
 // #endregion
 

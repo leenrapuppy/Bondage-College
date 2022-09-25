@@ -193,7 +193,7 @@ function InventoryItemMouthFuturisticHarnessBallGagNpcDialog(C, Option) {
 	InventoryItemMouthFuturisticPanelGagNpcDialog(C, Option);
 }
 
-// Update data
+/** @type {DynamicScriptDrawCallback} */
 function AssetsItemMouthFuturisticHarnessBallGagScriptDraw(data) {
 	var persistentData = data.PersistentData();
 	/** @type {ItemProperties} */
@@ -223,7 +223,7 @@ function AssetsItemMouthFuturisticHarnessBallGagScriptDraw(data) {
 }
 
 
-// Drawing function for the blinking light
+/** @type {DynamicBeforeDrawCallback} */
 function AssetsItemMouthFuturisticHarnessBallGagBeforeDraw(data) {
 	return AssetsItemMouthFuturisticPanelGagBeforeDraw(data);
 }
