@@ -2253,19 +2253,34 @@ var ChatRoomMessageExtractors = [
 	ChatRoomMessageDefaultMetadataExtractor,
 ];
 
-/** @type {ChatRoomMessageHandler[]} */
+/**
+ * Global list of handlers for incoming messages.
+ * @type {ChatRoomMessageHandler[]}
+ * */
 var ChatRoomMessageHandlers = [
 	{
-		Description: "Process hidden messages",
-		Priority: -1,
-		Callback: (data, sender, _msg) => {
-			if (data.Type === "Hidden")
-				return ChatRoomMessageProcessHidden(data, sender);
+		Description: "Reset minigame on room updates",
+		Priority: -210,
+		Callback: (data, _sender, _msg) => {
+			if (data.Type === "Action" && data.Content === "ServerUpdateRoom")
+				OnlineGameReset();
+			return false;
+		}
+	},
+	{
+		Description: "Ghosted player handling",
+		Priority: -200,
+		Callback: (data, _sender, _msg, __metadata) => {
+			if (data.Type === "Action" && data.Content === "ServerUpdateRoom")
+				return false;
+
+			if (Player.GhostList.indexOf(data.Sender) >= 0)
+				return true;
 		}
 	},
 	{
 		Description: "Process status messages",
-		Priority: -10,
+		Priority: -100,
 		Callback: (data, sender, _msg) => {
 			if (data.Type == "Status") {
 				ChatRoomStatusUpdateLocalCharacter(sender, data.Content);
@@ -2274,21 +2289,20 @@ var ChatRoomMessageHandlers = [
 		}
 	},
 	{
-		Description: "Reset minigame on room updates",
-		Priority: -10,
-		Callback: (data, _sender, _msg) => {
-			if (data.Type === "Action" && data.Content === "ServerUpdateRoom")
-				OnlineGameReset();
-			return false;
-		}
-	},
-	{
 		Description: "Break leash after a server disconnect",
-		Priority: -10,
+		Priority: -100,
 		Callback: (data, sender, _msg) => {
 			if (data.Type === "Action" && data.Content.startsWith("ServerDisconnect") && sender.MemberNumber == ChatRoomLeashPlayer)
 				ChatRoomLeashPlayer = null;
 			return false;
+		}
+	},
+	{
+		Description: "Process hidden messages",
+		Priority: -1,
+		Callback: (data, sender, _msg) => {
+			if (data.Type === "Hidden")
+				return ChatRoomMessageProcessHidden(data, sender);
 		}
 	},
 	{
@@ -2307,17 +2321,6 @@ var ChatRoomMessageHandlers = [
 			}
 
 			return { msg: msg };
-		}
-	},
-	{
-		Description: "Ghosted player handling",
-		Priority: 10,
-		Callback: (data, _sender, _msg, __metadata) => {
-			if (data.Type === "Action" && data.Content === "ServerUpdateRoom")
-				return false;
-
-			if (Player.GhostList.indexOf(data.Sender) >= 0)
-				return true;
 		}
 	},
 	{

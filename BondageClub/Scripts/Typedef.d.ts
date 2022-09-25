@@ -360,8 +360,10 @@ type ChatRoomMessageExtractor =
  * to cause a subsequent handler to not be called.
  *
  * A few notable priority values are:
+ *
+ * -200: ghosted player cutoff
+ * -1: default Hidden message processing (and cutoff)
  * 0: emotes reformatting
- * 10: ghosted player cutoff
  * 100: sensory-deprivation processing
  * 200: automatic actions on others' cutoff
  * 300: sensory-deprivation cutoff.
