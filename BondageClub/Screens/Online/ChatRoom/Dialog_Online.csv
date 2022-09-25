@@ -108,6 +108,7 @@ ReleaseSubmissiveConfirm,0,(Cancel),(Main menu),,
 100,140,(Remote restrictions.),(Select her restrictions for remotes.),,
 100,150,"(Timed cell, GGTS and forced labor.)","(You can send her to a timed cell, the Good Girl Training System or force her to serve drinks and get her salary.)",,
 100,160,(Collar and nickname options.),(Select the option.),,
+100,170,(Advanced rules.),(Select the advanced rule to configure.),,
 100,0,(Back to main menu.),(Main menu.),,
 110,100,(Allow her wardrobe access.),(She can now access her wardrobe and change clothes.),"SendOwnerRule(""ChangeAllow"")",
 110,100,(Block her wardrobe for 1 hour.),(Her wardrobe access will be blocked for the next hour.),"SendOwnerRule(""ChangeBlock1Hour"")",
@@ -170,6 +171,9 @@ ReleaseSubmissiveConfirm,0,(Cancel),(Main menu),,
 160,100,(Allow her to change her nickname.),(She will be able to change her nickname.),"SendOwnerRule(""NicknameAllow"")","GetOwnerRule(""BlockNickname"")"
 160,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 160,0,(Back to main menu.),(Main menu.),,
+170,100,(Restrict Bondage Club areas.),(The areas you've selected will be blocked for your submissive.),"AdvancedRule(""ScreenBlock"")",
+170,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
+170,0,(Back to main menu.),(Main menu.),,
 200,200,(Allow her to use lovers locks on herself.),(She will be able to use lovers locks on herself.),"SendLoverRule(""SelfLoverLockAllow"")","GetLoverRule(""BlockLoverLockSelf"")"
 200,200,(Block her from using lovers locks on herself.),(She will not be able to use lovers locks on herself anymore.),"SendLoverRule(""SelfLoverLockBlock"")","!GetLoverRule(""BlockLoverLockSelf"")"
 200,200,(Allow her owner to use lovers locks on her.),(Her owner will be able to use lovers locks on her.),"SendLoverRule(""OwnerLoverLockAllow"")","GetLoverRule(""BlockLoverLockOwner"")"

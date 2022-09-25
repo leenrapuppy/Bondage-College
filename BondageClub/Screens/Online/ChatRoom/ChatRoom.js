@@ -3502,6 +3502,8 @@ function ChatRoomDrinkPick(DrinkType, Money) {
 
 function ChatRoomSendLoverRule(RuleType, Option) { ChatRoomSendRule(RuleType, Option, "Lover"); }
 function ChatRoomSendOwnerRule(RuleType, Option) { ChatRoomSendRule(RuleType, Option, "Owner"); }
+function ChatRoomAdvancedRule(RuleType) { AdvancedRuleOpen(RuleType); }
+
 /**
  * Sends a rule / restriction / punishment to the player's slave/lover client, it will be handled on the slave/lover's
  * side when received.
