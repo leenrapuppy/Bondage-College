@@ -171,7 +171,7 @@ ReleaseSubmissiveConfirm,0,(Cancel),(Main menu),,
 160,100,(Allow her to change her nickname.),(She will be able to change her nickname.),"SendOwnerRule(""NicknameAllow"")","GetOwnerRule(""BlockNickname"")"
 160,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 160,0,(Back to main menu.),(Main menu.),,
-170,100,(Restrict Bondage Club areas.),(The areas you've selected will be blocked for your submissive.),"AdvancedRule(""ScreenBlock"")",
+170,100,(Restrict Bondage Club areas.),(The areas you've selected will be blocked for your submissive.),"AdvancedRule(""BlockScreen"")",
 170,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 170,0,(Back to main menu.),(Main menu.),,
 200,200,(Allow her to use lovers locks on herself.),(She will be able to use lovers locks on herself.),"SendLoverRule(""SelfLoverLockAllow"")","GetLoverRule(""BlockLoverLockSelf"")"
