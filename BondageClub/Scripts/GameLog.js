@@ -63,6 +63,21 @@ function LogDelete(DelLogName, DelLogGroup, Push) {
 }
 
 /**
+ * Deletes all log entries to starts with the name.
+ * @param {string} DelLogName - The name of the log
+ * @param {string} DelLogGroup - The name of the log's group
+ * @param {boolean} [Push=true] - TRUE if we must push the log to the server
+ * @returns {void} - Nothing
+ */
+function LogDeleteStarting(DelLogName, DelLogGroup, Push) {
+	for (let L = 0; L < Log.length; L++)
+		if ((Log[L].Name.substring(0, DelLogName.length) == DelLogName) && (Log[L].Group == DelLogGroup)) {
+			LogDelete(Log[L].Name, DelLogGroup, Push);
+			L = L - 1;
+		}
+}
+
+/**
  * Deletes all log entries in a particular log group.
  * @param {string} DelLogGroup - The name of the log's group
  * @param {boolean} [Push=true] - TRUE if we must push the log to the server
@@ -92,6 +107,21 @@ function LogQuery(QueryLogName, QueryLogGroup) {
 	return false;
 }
 
+/**
+ * Checks if there's a log entry with extra ID characters in the log of the player (Exemple: BlockScreenABC return true for ID: A, B or C)
+ * @param {string} LogName - The log name to scan
+ * @param {string} LogGroup - The log group to scan
+ * @param {string} ID - The ID to validate (letter, number or other chars are fine)
+ * @returns {boolean} - Returns true, if the log contains that ID
+ */
+ function LogContain(LogName, LogGroup, ID) {
+	if (Log == null) return false;
+	for (let L of Log)
+		if (LogGroup == L.Group)
+			if (L.Name.substring(0, LogName.length) == LogName)
+				return (L.Name.substring(LogName.length, 100).indexOf(ID) >= 0);
+	return false;
+}
 
 /**
  * Returns the value associated to a log.

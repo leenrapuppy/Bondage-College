@@ -115,7 +115,7 @@ type EffectName =
 
 	"GagVeryLight" | "GagEasy" | "GagLight" | "GagNormal" | "GagMedium" | "GagHeavy" | "GagVeryHeavy" | "GagTotal" | "GagTotal2" |
 
-	"BlindLight" | "BlindNormal" | "BlindHeavy" |
+	"BlindLight" | "BlindNormal" | "BlindHeavy" | "BlindTotal" |
 	"BlurLight" | "BlurNormal" | "BlurHeavy" | "BlurTotal" |
 	"DeafLight" | "DeafNormal" | "DeafHeavy" | "DeafTotal" |
 

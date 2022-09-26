@@ -4813,7 +4813,8 @@ var AssetFemale3DCGExtended = {
 							{ Property: {},}, //g1 - No Gag
 							{ Property: { Effect: ["BlockMouth", "GagMedium"] },}, //g2 - Thick BitGag
 							{ Property: { Effect: ["BlockMouth", "GagHeavy"] },}, //g3 - Tongue Depresor
-							{ Property: { Effect: ["BlockMouth", "GagVeryHeavy"], Hide: ["Mouth"] },}, //g4 - DildoGag
+							{ Property: { Effect: ["BlockMouth", "GagMedium"] },}, //g4 - Ballgag
+							{ Property: { Effect: ["BlockMouth", "GagVeryHeavy"], Hide: ["Mouth"] },}, //g5 - DildoGag
 						],
 					},
 					{
@@ -6891,6 +6892,8 @@ var AssetFemale3DCGExtended = {
 						],
 					},
 					{
+						// Use `BlindTotal` for VR avatars to ensure that the `thin` property never reduces the blindness level below `BlindHeavy`,
+						// as lowering it any more will result in visual odities related to partial blindness
 						Name: "Function", Key: "f",
 						Options: [
 							{ // f0 - Passthrough
@@ -6905,12 +6908,12 @@ var AssetFemale3DCGExtended = {
 							},
 							{ // f2 - VR Avatar
 								Property: {
-									Effect: ["BlindHeavy", "Prone", "VRAvatars"],
+									Effect: ["BlindTotal", "Prone", "VRAvatars"],
 								}
 							},
 							{ // f3 - VR Avatar (hide restraints)
 								Property: {
-									Effect: ["BlindHeavy", "VRAvatars", "HideRestraints"],
+									Effect: ["BlindTotal", "VRAvatars", "HideRestraints"],
 								}
 							},
 						],
