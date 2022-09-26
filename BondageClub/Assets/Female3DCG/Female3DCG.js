@@ -3565,34 +3565,14 @@ var AssetFemale3DCG = [
 				AllowActivityOn: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemBreast", "ItemHands"],
 				Extended: true,
 				DrawLocks: false,
-				HasType: false,
+				// HasType: true,
 				Alpha: [{Group: ["BodyLower"], Pose: ["Kneel"], Masks: [[140, 462, 75, 238], [285, 462, 75, 238], [215 ,545, 70, 155]]}],
 				Layer: [
-					{ Name: "Latex", AllowModuleTypes: ["z0", "z1"], HasType: true, },
-					{ Name: "Straps", AllowPose: ["AllFours"], CopyLayerColor: "Latex", ParentGroup: null, },
-					{ Name: "Lock", ParentGroup: null, LockLayer: true },
+					{ Name: "Latex", },
+					{ Name: "Straps", HasType: false, AllowPose: ["AllFours"], CopyLayerColor: "Latex", ParentGroup: null, },
+					{ Name: "Lock", HasType: false, ParentGroup: null, LockLayer: true },
 				],
 				SelfUnlock: false
-			},
-			{
-				Name: "BitchSuitExposed", Fetish: ["Latex", "Pet"], Priority: 21, Value: 175, Difficulty: 15, SelfBondage: 8, Time: 40, RemoveTime: 30, Random: false, AllowLock: true, DefaultColor: ["#888888", "Default"], Top: 150,
-				Prerequisite: ["NotSuspended", "NotHogtied", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "CanKneel"],
-				Hide: ["Cloth", "ClothLower", "Shoes", "Socks", "ItemBoots", "ItemLegs", "ItemFeet", "ItemHands", "Hands", "Gloves", "Garters"],
-				AllowPose: ["BackElbowTouch", "Kneel", "AllFours"],
-				HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper", "ClothAccessoryPoncho", "NecklaceBodyChainNecklace"],
-				AllowActivePose: ["BackElbowTouch", "Kneel", "AllFours"],
-				SetPose: ["BackElbowTouch", "Kneel"],
-				Effect: ["Block", "Prone", "ForceKneel", "Slow"],
-				Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands"],
-				AllowActivityOn: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands"],
-				Alpha: [{Group: ["BodyLower"], Masks: [[140, 462, 75, 238], [285, 462, 75, 238], [215 ,545, 70, 155]]}],
-				SelfUnlock: false,
-				DrawLocks: false,
-				Layer: [
-					{ Name: "Latex" },
-					{ Name: "Straps", AllowPose: ["AllFours"], CopyLayerColor: "Latex", ParentGroup: null, },
-					{ Name: "Lock", ParentGroup: null, LockLayer: true },
-				]
 			},
 			{ Name: "CollarLeashHolding", Fetish: ["Sadism"], Priority: 36, Value: -1, Difficulty: 1, Time: 3, RemoveTime: 3, Random: false, Prerequisite: ["NotSuspended", "NotHogtied"], SetPose: ["BaseUpper"], Effect: ["Leash"] },
 			{
