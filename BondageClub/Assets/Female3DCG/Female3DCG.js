@@ -3905,9 +3905,9 @@ var AssetFemale3DCG = [
 				DefaultColor: ["#888888", "Default"],
 				Layer:[
 					{ Name: "Arms", AllowPose: ["BackElbowTouch", "AllFours"], AllowColorize: true, ParentGroup: "BodyUpper", },
-					{ Name: "Legs", AllowPose: ["Kneel", "KneelingSpread"], CopyLayerColor: "Arms", ParentGroup: "BodyLower", },
+					{ Name: "Legs", AllowPose: ["Kneel", "KneelingSpread"], HideForPose: ["AllFours"], CopyLayerColor: "Arms", ParentGroup: "BodyLower", },
 					{ Name: "ArmsLock", AllowPose: ["BackElbowTouch", "AllFours"], AllowColorize: true, HideColoring: true, LockLayer: true, },
-					{ Name: "LegsLock", AllowPose: ["Kneel", "KneelingSpread"], CopyLayerColor: "ArmsLock", LockLayer: true, ParentGroup: null, }
+					{ Name: "LegsLock", AllowPose: ["Kneel", "KneelingSpread"], HideForPose: ["AllFours"], CopyLayerColor: "ArmsLock", LockLayer: true, ParentGroup: null, }
 				]
 			},
 			{
