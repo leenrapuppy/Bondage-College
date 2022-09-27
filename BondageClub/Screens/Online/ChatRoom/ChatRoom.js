@@ -2245,7 +2245,7 @@ function ChatRoomMessageInvolvesPlayer(data) {
  * @returns true if the player is sensory-deprived from character, false otherwise.
  */
 function ChatRoomIsCharacterImpactedBySensoryDeprivation(character) {
-	return PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && character.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(character));
+	return PreferenceIsPlayerInSensDep() && character.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(character));
 }
 
 /** @type {ChatRoomMessageExtractor[]} */
@@ -2662,7 +2662,7 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
 				if (C)
 					meta.TargetCharacter = C;
-				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "DestinationCharacter")) ? DialogFindPlayer("Her") : (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && entry.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(entry.Text) + DialogFindPlayer("'s"));
+				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "DestinationCharacter")) ? DialogFindPlayer("Her") : (PreferenceIsPlayerInSensDep() && entry.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(entry.Text) + DialogFindPlayer("'s"));
 				substitutions.push([entry.Tag, repl]);
 			}
 			else if (entry.Tag == "TargetCharacter" || entry.Tag == "TargetCharacterName") {
@@ -2670,14 +2670,14 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
 				if (C)
 					meta.TargetCharacter = C;
-				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "TargetCharacter")) ? DialogFindPlayer("Herself") : (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && entry.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(entry.Text));
+				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "TargetCharacter")) ? DialogFindPlayer("Herself") : (PreferenceIsPlayerInSensDep() && entry.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(entry.Text));
 				substitutions.push([entry.Tag, repl]);
 			}
 			else if (entry.Tag == "SourceCharacter") {
 				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
 				if (C)
 					meta.SourceCharacter = C;
-				const repl = (PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass) && (entry.MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.SourceCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(entry.Text);
+				const repl = (PreferenceIsPlayerInSensDep() && (entry.MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.SourceCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(entry.Text);
 				substitutions.push([entry.Tag, repl]);
 			}
 		}
