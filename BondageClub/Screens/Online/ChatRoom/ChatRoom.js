@@ -3951,11 +3951,18 @@ function ChatRoomSetRule(data) {
 			LoginValidCollar();
 		}
 
-		// Advanced rules
+		// Advanced rules - Block screens
 		if (data.Content.startsWith("OwnerRuleBlockScreen")) {
-			LogDeleteStarting("BlockScreen", "OwnerRule")
+			LogDeleteStarting("BlockScreen", "OwnerRule");
 			LogAdd("BlockScreen" + data.Content.substring(20, 100), "OwnerRule");
 			data.Content = "OwnerRuleBlockScreen";
+		}
+
+		// Advanced rules - Block appearance zones
+		if (data.Content.startsWith("OwnerRuleBlockAppearance")) {
+			LogDeleteStarting("BlockAppearance", "OwnerRule");
+			LogAdd("BlockAppearance" + data.Content.substring(24, 100), "OwnerRule");
+			data.Content = "OwnerRuleBlockAppearance";
 		}
 
 		// Forced labor
