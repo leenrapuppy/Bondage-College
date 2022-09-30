@@ -3820,6 +3820,7 @@ function ChatRoomDrinkPick(DrinkType, Money) {
 function ChatRoomSendLoverRule(RuleType, Option) { ChatRoomSendRule(RuleType, Option, "Lover"); }
 function ChatRoomSendOwnerRule(RuleType, Option) { ChatRoomSendRule(RuleType, Option, "Owner"); }
 function ChatRoomAdvancedRule(RuleType) { AdvancedRuleOpen(RuleType); }
+function ChatRoomForbiddenWords() { ForbiddenWordsOpen(); }
 
 /**
  * Sends a rule / restriction / punishment to the player's slave/lover client, it will be handled on the slave/lover's
@@ -3954,15 +3955,22 @@ function ChatRoomSetRule(data) {
 		// Advanced rules - Block screens
 		if (data.Content.startsWith("OwnerRuleBlockScreen")) {
 			LogDeleteStarting("BlockScreen", "OwnerRule");
-			LogAdd("BlockScreen" + data.Content.substring(20, 100), "OwnerRule");
+			LogAdd("BlockScreen" + data.Content.substring("OwnerRuleBlockScreen".length, 100), "OwnerRule");
 			data.Content = "OwnerRuleBlockScreen";
 		}
 
 		// Advanced rules - Block appearance zones
 		if (data.Content.startsWith("OwnerRuleBlockAppearance")) {
 			LogDeleteStarting("BlockAppearance", "OwnerRule");
-			LogAdd("BlockAppearance" + data.Content.substring(24, 100), "OwnerRule");
+			LogAdd("BlockAppearance" + data.Content.substring("OwnerRuleBlockAppearance".length, 100), "OwnerRule");
 			data.Content = "OwnerRuleBlockAppearance";
+		}
+
+		// Advanced rules - Forbidden Words List
+		if (data.Content.startsWith("OwnerRuleForbiddenWords")) {
+			LogDeleteStarting("ForbiddenWords", "OwnerRule");
+			LogAdd("ForbiddenWords" + data.Content.substring("OwnerRuleForbiddenWords".length, 10000), "OwnerRule");
+			data.Content = "OwnerRuleForbiddenWords";
 		}
 
 		// Forced labor

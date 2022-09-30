@@ -173,6 +173,7 @@ ReleaseSubmissiveConfirm,0,(Cancel),(Main menu),,
 160,0,(Back to main menu.),(Main menu.),,
 170,100,(Restrict Bondage Club areas.),(The areas you've selected will be blocked for your submissive.),"AdvancedRule(""BlockScreen"")",
 170,100,(Lock specific appearance zones.),(The appearance zones you've selected will be locked for your submissive.),"AdvancedRule(""BlockAppearance"")",
+170,100,(Forbidden words list.),(The forbidden words list for your submissive has been updated.),"ForbiddenWords()",
 170,100,(Back to rules.),"(Select the owner rule, restriction or punishment that you want to enforce.)",,
 170,0,(Back to main menu.),(Main menu.),,
 200,200,(Allow her to use lovers locks on herself.),(She will be able to use lovers locks on herself.),"SendLoverRule(""SelfLoverLockAllow"")","GetLoverRule(""BlockLoverLockSelf"")"

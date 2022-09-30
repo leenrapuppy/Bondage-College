@@ -503,6 +503,7 @@ ServerMessageOwnerRuleNicknameAllow,,,Your owner is now allowing you to change y
 ServerMessageOwnerRuleNicknameBlock,,,Your owner is now preventing you from changing your nickname.,,
 ServerMessageOwnerRuleBlockScreen,,,Your owner has changed the Bondage Club areas you can access.,,
 ServerMessageOwnerRuleBlockAppearance,,,Your owner has changed the appearance zones you can modify.,,
+ServerMessageOwnerRuleForbiddenWords,,,Your owner has changed your list of forbidden words.,,
 ServerMessageLoverRuleSelfLoverLockAllow,,,Your lover is now allowing you to use lovers locks on yourself.,,
 ServerMessageLoverRuleSelfLoverLockBlock,,,Your lover is now preventing you from using lovers locks on yourself.,,
 ServerMessageLoverRuleOwnerLoverLockAllow,,,Your lover is now allowing your owner to use lovers locks on you.,,
