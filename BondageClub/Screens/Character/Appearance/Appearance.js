@@ -614,6 +614,7 @@ function AppearanceMenuBuild(C) {
  * @returns {boolean} - Return TRUE if the appearance group isn't blocked 
  */
 function AppearanceGroupAllowed(C, GroupName) {
+	if (CurrentScreen != "Appearance") return true;
 	if (!C.IsPlayer()) return true;
 	if (Player.IsOwned() == false) return true;
 	const Dict = [
