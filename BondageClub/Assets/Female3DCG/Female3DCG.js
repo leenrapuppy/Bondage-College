@@ -2024,10 +2024,10 @@ var AssetFemale3DCG = [
 		Group: "BodyUpper",
 		Priority: 7,
 		AllowNone: false,
-		AllowColorize: false,
 		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "AllFours", "OverTheHead"],
 		Asset: ["Small", "Normal", "Large", "XLarge"],
-		Color: ["White", "Asian", "Black"]
+		Color: ["White", "Asian", "Black"],
+		ColorSuffix: { "HEX_COLOR": "White" },
 	},
 
 	{
@@ -2037,10 +2037,10 @@ var AssetFemale3DCG = [
 		Priority: 9,
 		Top: 462,
 		AllowNone: false,
-		AllowColorize: false,
 		AllowPose: ["LegsClosed", "Kneel", "KneelingSpread", "Spread"],
 		Asset: ["Small", "Normal", "Large", "XLarge"],
 		Color: ["Default", "White", "Asian", "Black"],
+		ColorSuffix: { "HEX_COLOR": "White" },
 		InheritColor: "BodyUpper"
 
 	},
@@ -2255,7 +2255,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "Discreet" }
 		],
-		Color: ["Default", "#803d26", "#aa5555", "#cc3333", "#55aa55", "#5555aa", "#55aaaa", "#aa55aa", "#aaaa55"]
+		Color: ["Default", "#803d26", "#aa5555", "#cc3333", "#55aa55", "#5555aa", "#55aaaa", "#aa55aa", "#aaaa55"],
 	},
 
 	{
@@ -2266,7 +2266,9 @@ var AssetFemale3DCG = [
 		Top: 285,
 		AllowNone: false,
 		Asset: ["Nipples1", "Nipples2", "Nipples3"],
-		Color: ["Default", "#a6665b", "#803d26", "#d68777", "#9b4a2e", "#bb6655"]
+		Color: ["Default", "#a6665b", "#803d26", "#d68777", "#9b4a2e", "#bb6655"],
+		ColorSuffix: { "White": "Default", "Asian": "Default", "Black": "Default" },
+		InheritColor: "BodyUpper",
 	},
 
 	{
@@ -2277,7 +2279,9 @@ var AssetFemale3DCG = [
 		FullAlpha: false,
 		AllowNone: false,
 		Asset: ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"],
-		Color: ["Default", "#6a3628", "#443330", "#222222"]
+		Color: ["Default", "#6a3628", "#443330", "#222222"],
+		ColorSuffix: { "White": "Default", "Asian": "Default", "Black": "Default" },
+		InheritColor: "BodyUpper",
 	},
 
 	// Facial Expression specific
@@ -2334,10 +2338,10 @@ var AssetFemale3DCG = [
 		ParentColor: "BodyUpper",
 		Priority: 27,
 		AllowNone: false,
-		AllowColorize: false,
 		AllowCustomize: false,
 		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "AllFours"],
 		Asset: [{ Name: "Default", HideForPose: ["BackBoxTie", "BackCuffs", "BackElbowTouch"] }],
+		ColorSuffix: { "HEX_COLOR": "White" },
 		InheritColor: "BodyUpper",
 		Color: ["Default"],
 	},
@@ -2347,9 +2351,9 @@ var AssetFemale3DCG = [
 		ParentColor: "BodyUpper",
 		Priority: 7,
 		AllowNone: false,
-		AllowColorize: false,
 		AllowCustomize: false,
 		Asset: ["Default"],
+		ColorSuffix: { "HEX_COLOR": "White" },
 		InheritColor: "BodyUpper"
 	},
 
