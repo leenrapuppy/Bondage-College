@@ -1428,11 +1428,11 @@ function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride, Color = 
 
 	if (Player.ArousalSettings.VFXFilter == "VFXFilterHeavy") {
 		const Grad = MainCanvas.createLinearGradient(0, y1, 0, h);
-		let alphamin = Math.max(0, alpha / 2 - 0.05);
+		let alphamin = 0;//Math.max(0, alpha / 2 - 0.05);
 		Grad.addColorStop(0, `rgba(${Color}, ${alpha})`);
-		Grad.addColorStop(0.1 + 0.2*percent * (1.2 + 0.2 * oscillation), `rgba(${Color}, ${alphamin})`);
+		Grad.addColorStop(0.1 + 0.2*percent * (1.2 + 0.1 * oscillation), `rgba(${Color}, ${alphamin})`);
 		Grad.addColorStop(0.5, `rgba(${Color}, ${alphamin/2})`);
-		Grad.addColorStop(0.9 - 0.2*percent * (1.2 + 0.2 * oscillation), `rgba(${Color}, ${alphamin})`);
+		Grad.addColorStop(0.9 - 0.2*percent * (1.2 + 0.1 * oscillation), `rgba(${Color}, ${alphamin})`);
 		Grad.addColorStop(1, `rgba(${Color}, ${alpha})`);
 		MainCanvas.fillStyle = Grad;
 		MainCanvas.fillRect(0, y1, Width, h);
