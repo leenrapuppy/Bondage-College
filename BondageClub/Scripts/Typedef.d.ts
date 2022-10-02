@@ -152,7 +152,7 @@ type AssetGroupBodyName =
 	'ClothAccessory' | 'ClothLower' | 'Corset' | 'Emoticon' | 'Eyebrows' |
 	'Eyes' | 'Eyes2' | 'Fluids' | 'Garters' | 'Glasses' | 'Gloves' |
 	'HairAccessory1' | 'HairAccessory2' | 'HairAccessory3' | 'HairBack' |
-	'HairFront' | 'Hands' | 'Fingernails' | 'Hat' | 'Head' | 'Height' | 'LeftAnklet' | 'Mask' |
+	'HairFront' | 'Hands' | 'Hat' | 'Head' | 'Height' | 'LeftAnklet' | 'Mask' |
 	'Mouth' | 'Necklace' | 'Nipples' | 'Panties' | 'Pussy'| 'Pronouns' | 'RightAnklet' |
 	'Shoes' | 'Socks' | 'Suit' | 'SuitLower' | 'TailStraps' | 'Wings'
 	;
