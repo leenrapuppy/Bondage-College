@@ -2131,13 +2131,8 @@ function PreferenceSubscreenSecurityLoad() {
  * Get the sensory deprivation setting for the player
  * @returns {boolean} - Return true if sensory deprivation is active, false otherwise
  */
-function PreferenceIsPlayerInSensDep() {
-	return (
-		Player.GameplaySettings
-		&& ((Player.GameplaySettings.SensDepChatLog == "SensDepNames") || (Player.GameplaySettings.SensDepChatLog == "SensDepTotal") || (Player.GameplaySettings.SensDepChatLog == "SensDepExtreme"))
-		&& (Player.GetDeafLevel() >= 3)
-		&& (Player.GetBlindLevel() >= 3 || ChatRoomSenseDepBypass)
-	);
+function PreferenceIsPlayerInSensDep(BypassBlindness) {
+	return (Player.GameplaySettings && ((Player.GameplaySettings.SensDepChatLog == "SensDepNames") || (Player.GameplaySettings.SensDepChatLog == "SensDepTotal") || (Player.GameplaySettings.SensDepChatLog == "SensDepExtreme")) && (Player.GetDeafLevel() >= 3) && (Player.GetBlindLevel() >= 3 || BypassBlindness));
 }
 
 /**

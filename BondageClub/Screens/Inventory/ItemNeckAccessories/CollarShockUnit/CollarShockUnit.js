@@ -137,7 +137,6 @@ function InventoryItemNeckAccessoriesCollarShockUnitTrigger() {
 	InventoryShockExpression(C);
 }
 
-/** @type {DynamicBeforeDrawCallback} */
 function AssetsItemNeckAccessoriesCollarShockUnitBeforeDraw(data) {
 	if (data.L === "_Light") {
 		var persistentData = data.PersistentData();
@@ -154,7 +153,6 @@ function AssetsItemNeckAccessoriesCollarShockUnitBeforeDraw(data) {
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
 function AssetsItemNeckAccessoriesCollarShockUnitScriptDraw(data) {
 	var persistentData = data.PersistentData();
 	/** @type {ItemProperties} */

@@ -253,39 +253,22 @@ function CommonDrawAppearanceBuild(C, {
 		let PoseFolder = typeof Layer.PoseMapping[Pose] === "string" ? Layer.PoseMapping[Pose] : Pose;
 		if (PoseFolder) PoseFolder += '/';
 		if (Layer.HasImage && (!Layer.LockLayer || ItemLocked)) {
-			/** Check whether the asset requires a custom suffix
-			 * @type {string?} */
-			let SuffixName = null;
-			if ((A.ColorSuffix != null) && (Color != null)) {
-				SuffixName = (Color.indexOf("#") == 0) ? A.ColorSuffix["HEX_COLOR"] : A.ColorSuffix[Color];
-			}
-
 			// Draw the item on the canvas (default or empty means no special color, # means apply a color, regular text means we apply
 			// that text)
 			if ((Color != null) && (Color.indexOf("#") == 0) && Layer.AllowColorize) {
-				const ColorName = (SuffixName != null) ? "_" + SuffixName : ""
 
 				drawImageColorize(
-					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + G + LayerType + ColorName + L + ".png", X, Y,
+					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + G + LayerType + L + ".png", X, Y,
 					Color,
 					AG.DrawingFullAlpha, AlphaMasks, Opacity, Rotate
 				);
 				drawImageColorizeBlink(
-					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + BlinkExpression + A.Name + G + LayerType + ColorName + L + ".png", X, Y,
+					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + BlinkExpression + A.Name + G + LayerType + L + ".png", X, Y,
 					Color, AG.DrawingFullAlpha, AlphaMasks, Opacity, Rotate
 				);
 			} else {
-				let ColorName = (
-					(Color == null)
-					|| (Color == "Default")
-					|| (Color == "")
-					|| (Color.length == 1)
-					|| (Color.indexOf("#") == 0)
-				) ? "" : "_" + Color;
-				if (SuffixName != null) {
-					ColorName = ((SuffixName == "Default") || (SuffixName == "")) ? "" : "_" + SuffixName;
-				}
-
+				const ColorName = ((Color == null) || (Color == "Default") || (Color == "") || (Color.length == 1) ||
+					(Color.indexOf("#") == 0)) ? "" : "_" + Color;
 				drawImage(
 					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + G + LayerType + ColorName + L + ".png",
 					X, Y,

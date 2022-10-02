@@ -12,7 +12,7 @@ function InventoryItemDevicesFuckMachineClick() {
 	VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 }
 
-/** @type {DynamicBeforeDrawCallback} */
+
 function AssetsItemDevicesFuckMachineBeforeDraw({ PersistentData, L, Y, Property }) {
 	const Data = PersistentData();
 	if (typeof Data.DildoState !== "number") Data.DildoState = 0;
@@ -43,7 +43,6 @@ function AssetsItemDevicesFuckMachineBeforeDraw({ PersistentData, L, Y, Property
 	return { Y: Y + Data.DildoState };
 }
 
-/** @type {DynamicScriptDrawCallback} */
 function AssetsItemDevicesFuckMachineScriptDraw(data) {
 	VibratorModeScriptDraw(data);
 	const Data = data.PersistentData();

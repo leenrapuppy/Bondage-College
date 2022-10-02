@@ -78,7 +78,7 @@ function InventoryItemMiscWoodenSignChange() {
 	}
 }
 
-/** @type {DynamicAfterDrawCallback} */
+// Drawing function for the after-render
 function AssetsItemMiscWoodenSignAfterDraw({
 	C, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color
 }) {

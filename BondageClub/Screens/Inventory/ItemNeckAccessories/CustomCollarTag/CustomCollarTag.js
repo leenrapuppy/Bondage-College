@@ -51,7 +51,7 @@ function InventoryItemNeckAccessoriesCustomCollarTagChange() {
 	InventoryItemNeckAccessoriesCustomCollarTagExit();
 }
 
-/** @type {DynamicAfterDrawCallback} */
+// Drawing function for the text on the tag
 function AssetsItemNeckAccessoriesCustomCollarTagAfterDraw({
 	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {

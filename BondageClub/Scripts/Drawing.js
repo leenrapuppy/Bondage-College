@@ -1,8 +1,6 @@
+// The main game canvas where everything will be drawn
 "use strict";
-/**
- * The main game canvas where everything will be drawn
- * @type {CanvasRenderingContext2D}
- */
+/** @type {CanvasRenderingContext2D} */
 let MainCanvas;
 /** @type {CanvasRenderingContext2D} */
 let TempCanvas;

@@ -16,7 +16,6 @@ function InventoryItemVulvaLoversVibratorClick() {
 	VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED], 525);
 }
 
-/** @type {DynamicScriptDrawCallback} */
 function AssetsItemVulvaLoversVibratorScriptDraw(data) {
 	VibratorModeScriptDraw(data);
 }

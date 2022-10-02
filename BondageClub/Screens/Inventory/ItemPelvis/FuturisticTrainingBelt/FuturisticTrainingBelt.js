@@ -713,7 +713,7 @@ function AssetsItemPelvisFuturisticTrainingBeltScriptStateMachine(data) {
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
+// Update data
 function AssetsItemPelvisFuturisticTrainingBeltScriptDraw(data) {
 	var persistentData = data.PersistentData();
 	/** @type {ItemProperties} */

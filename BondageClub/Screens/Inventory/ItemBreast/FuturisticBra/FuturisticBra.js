@@ -144,8 +144,7 @@ function InventoryItemBreastFuturisticBraPublishAction(C, Option) {
 	ChatRoomPublishCustomAction(msg, true, Dictionary);
 }
 
-
-/** @type {DynamicAfterDrawCallback} */
+// Drawing function for the text on the bra
 function AssetsItemBreastFuturisticBraAfterDraw({
     C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, G, Color
 }) {
@@ -166,16 +165,15 @@ function AssetsItemBreastFuturisticBraAfterDraw({
 		context.font = "bold 14px sansserif";
 		context.fillStyle = "Black";
 		context.textAlign = "center";
-		const rate = (Property && Property.HeartRate) ? Property.HeartRate.toString() : "--";
-		context.fillText(rate, Width / 2 + 1, Width / 2 - 1, Width);
-		context.fillText(rate, Width / 2 - 1, Width / 2 + 1, Width);
-		context.fillText(rate, Width / 2 + 1, Width / 2 + 1, Width);
-		context.fillText(rate, Width / 2 - 1, Width / 2 - 1, Width);
+		context.fillText((Property && Property.HeartRate) ? Property.HeartRate : "--", Width / 2 + 1, Width / 2 - 1, Width);
+		context.fillText((Property && Property.HeartRate) ? Property.HeartRate : "--", Width / 2 - 1, Width / 2 + 1, Width);
+		context.fillText((Property && Property.HeartRate) ? Property.HeartRate : "--", Width / 2 + 1, Width / 2 + 1, Width);
+		context.fillText((Property && Property.HeartRate) ? Property.HeartRate : "--", Width / 2 - 1, Width / 2 - 1, Width);
 
 		context.font = "bold 14px sansserif";
 		context.fillStyle = Color;
 		context.textAlign = "center";
-		context.fillText(rate, Width / 2, Width / 2, Width);
+		context.fillText((Property && Property.HeartRate) ? Property.HeartRate : "--", Width / 2, Width / 2, Width);
 
 		// We print the canvas to the character based on the asset position
 		drawCanvas(TempCanvas, X + 47, Y + 103.5 + offset, AlphaMasks);
@@ -183,7 +181,7 @@ function AssetsItemBreastFuturisticBraAfterDraw({
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
+// Update data
 function AssetsItemBreastFuturisticBraScriptDraw(data) {
 	var persistentData = data.PersistentData();
 	/** @type {ItemProperties} */

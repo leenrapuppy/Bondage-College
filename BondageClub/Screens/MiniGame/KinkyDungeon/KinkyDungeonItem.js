@@ -11,7 +11,7 @@ function KinkyDungeonItemDrop(x, y, dropTable, summoned) {
 			dropWeights.push({drop: drop, weight: dropWeightTotal});
 			if (drop.ignoreInInventory && KinkyDungeonInventoryGet(drop.name)) weight = 0;
 			if (drop.chance && KDRandom() > drop.chance) weight = 0;
-			dropWeightTotal += Math.max(weight, 0);
+			dropWeightTotal += weight;
 		}
 
 		let selection = KDRandom() * dropWeightTotal;
@@ -74,7 +74,7 @@ function KinkyDungeonDropItem(Item, Origin, AllowOrigin, noMsg, allowEnemies) {
 
 		KinkyDungeonGroundItems.push(dropped);
 		if (!noMsg)
-			KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonDrop" + Item.name), "#ff0000", 2);
+			KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonDrop" + Item.name), "red", 2);
 
 		return true;
 	}
@@ -86,8 +86,6 @@ function KinkyDungeonItemEvent(Item) {
 	let color = "white";
 	let priority = 1;
 	let sfx = "Coins";
-	let name = Item.name;
-	let replace = "";
 	if (Item.name == "Gold") {
 		color = "yellow";
 		KinkyDungeonAddGold(Item.amount);
@@ -162,11 +160,10 @@ function KinkyDungeonItemEvent(Item) {
 		color = "orange";
 		KinkyDungeonInventoryAddWeapon(Item.name);
 	} else if (Item.name == "Heart") {
-		if (KinkyDungeonStatDistractionMax >= KDMaxStat && KinkyDungeonStatStaminaMax >= KDMaxStat && KinkyDungeonStatManaMax >= KDMaxStat && KinkyDungeonStatWillMax >= KDMaxStat) {
+		if (KinkyDungeonStatDistractionMax >= 70 && KinkyDungeonStatStaminaMax >= 70 && KinkyDungeonStatManaMax >= 70) {
 			KinkyDungeonDrawState = "Game";
-			KinkyDungeonChangeStamina(30);
-			KinkyDungeonChangeMana(5);
-			KinkyDungeonChangeWill(2.5);
+			KinkyDungeonChangeStamina(24);
+			KinkyDungeonChangeMana(24);
 			KDGameData.HeartTaken = true;
 		} else if (KinkyDungeonIsPlayer()) {
 			KinkyDungeonDrawState = "Heart";
@@ -175,19 +172,9 @@ function KinkyDungeonItemEvent(Item) {
 	} else if (Item.name == "Keyring") {
 		KDGameData.JailKey = true;
 		KinkyDungeonAggroAction('key', {});
-	} else if (KinkyDungeonGetRestraintByName(Item.name)) {
-		if (!KinkyDungeonInventoryGetLoose(Item.name)) {
-			KinkyDungeonInventoryAdd({name: Item.name, type: LooseRestraint, events:Item.events, quantity: 1});
-		} else {
-			if (!KinkyDungeonInventoryGetLoose(Item.name).quantity) KinkyDungeonInventoryGetLoose(Item.name).quantity = 0;
-			KinkyDungeonInventoryGetLoose(Item.name).quantity += 1;
-		}
-		color = "#ffffff";
-		name = "Generic";
-		replace = TextGet("Restraint" + Item.name);
 	}
-	if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/" + sfx + ".ogg");
-	KinkyDungeonSendActionMessage(priority, TextGet("ItemPickup" + name).replace("XXX", Item.amount).replace("ReplaceValue", replace), color, 2);
+	if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/" + sfx + ".ogg");
+	KinkyDungeonSendActionMessage(priority, TextGet("ItemPickup" + Item.name).replace("XXX", Item.amount), color, 2);
 }
 
 
@@ -205,11 +192,11 @@ function KinkyDungeonItemCheck(x, y, Index) {
 function KinkyDungeonDrawItems(canvasOffsetX, canvasOffsetY, CamX, CamY) {
 	for (let item of KinkyDungeonGroundItems) {
 		let sprite = item.name;
-		if (KinkyDungeonRestraintsCache.has(item.name)) sprite = "Restraint";
-		if (item.x >= CamX && item.y >= CamY && item.x < CamX + KinkyDungeonGridWidthDisplay && item.y < CamY + KinkyDungeonGridHeightDisplay && KinkyDungeonVisionGet(item.x, item.y) > 0) {
-			KDDraw(kdgameboard, kdpixisprites, item.x + "," + item.y + "_" + item.name, KinkyDungeonRootDirectory + "Items/" + sprite + ".png",
+		if (item.x >= CamX && item.y >= CamY && item.x < CamX + KinkyDungeonGridWidthDisplay && item.y < CamY + KinkyDungeonGridHeightDisplay && KinkyDungeonLightGet(item.x, item.y) > 0) {
+			DrawImageZoomCanvas(KinkyDungeonRootDirectory + "Items/" + sprite + ".png",
+				KinkyDungeonContext, 0, 0, KinkyDungeonSpriteSize, KinkyDungeonSpriteSize,
 				(item.x - CamX)*KinkyDungeonGridSizeDisplay, (item.y - CamY)*KinkyDungeonGridSizeDisplay,
-				KinkyDungeonGridSizeDisplay, KinkyDungeonGridSizeDisplay);
+				KinkyDungeonGridSizeDisplay, KinkyDungeonGridSizeDisplay, false);
 		}
 	}
 }
@@ -218,35 +205,29 @@ function KinkyDungeonDrawItems(canvasOffsetX, canvasOffsetY, CamX, CamY) {
 
 function KinkyDungeonDrawHeart() {
 
-	DrawTextKD(TextGet("KinkyDungeonHeartIntro"), 1250, 200, "#ffffff", KDTextGray2);
-	DrawTextKD(TextGet("KinkyDungeonHeartIntro1"), 1250, 300, "#ffffff", KDTextGray2);
-	DrawTextKD(TextGet("KinkyDungeonHeartIntro2"), 1250, 350, "#ffffff", KDTextGray2);
-	DrawTextKD(TextGet("KinkyDungeonHeartIntro3"), 1250, 400, "#ffffff", KDTextGray2);
-	DrawTextKD(TextGet("KinkyDungeonHeartIntro4"), 1250, 450, "#ffffff", KDTextGray2);
+	DrawText(TextGet("KinkyDungeonHeartIntro"), 1250, 200, "white", "silver");
+	DrawText(TextGet("KinkyDungeonHeartIntro1"), 1250, 300, "white", "silver");
+	DrawText(TextGet("KinkyDungeonHeartIntro2"), 1250, 350, "white", "silver");
+	DrawText(TextGet("KinkyDungeonHeartIntro3"), 1250, 400, "white", "silver");
 
-	DrawTextKD(TextGet("StatDistraction").replace("PERCENT", "" + Math.round(100*KinkyDungeonStatDistractionMax / KDMaxStatStart)), 650 + 250/2, 650, "#ffffff", KDTextGray2);
-	DrawTextKD(TextGet("StatStamina").replace("CURRENT/MAX", "" + KinkyDungeonStatStaminaMax * KDMaxStatStart), 950 + 250/2, 650, "#ffffff", KDTextGray2);
-	DrawTextKD(TextGet("StatMana").replace("CURRENT/MAX", "" + KinkyDungeonStatManaMax * KDMaxStatStart), 1250 + 250/2, 650, "#ffffff", KDTextGray2);
-	DrawTextKD(TextGet("StatWill").replace("CURRENT/MAX", "" + KinkyDungeonStatWillMax * KDMaxStatStart), 1550 + 250/2, 650, "#ffffff", KDTextGray2);
+	DrawText(TextGet("StatDistraction").replace("CURRENT/MAX", "" + KinkyDungeonStatDistractionMax), 650 + 350/2, 650, "white", "silver");
+	DrawText(TextGet("StatStamina").replace("CURRENT/MAX", "" + KinkyDungeonStatStaminaMax), 1050 + 350/2, 650, "white", "silver");
+	DrawText(TextGet("StatMana").replace("CURRENT/MAX", "" + KinkyDungeonStatManaMax), 1450 + 350/2, 650, "white", "silver");
 
-	DrawButtonVis(650, 700, 250, 60, TextGet("KinkyDungeonHeartDistraction"), KinkyDungeonStatDistractionMax < KDMaxStat ? "#ffffff" : "#999999");
-	DrawButtonVis(950, 700, 250, 60, TextGet("KinkyDungeonHeartStamina"), KinkyDungeonStatStaminaMax < KDMaxStat ? "#ffffff" : "#999999");
-	DrawButtonVis(1250, 700, 250, 60, TextGet("KinkyDungeonHeartMana"), KinkyDungeonStatManaMax < KDMaxStat ? "#ffffff" : "#999999");
-	DrawButtonVis(1550, 700, 250, 60, TextGet("KinkyDungeonHeartWill"), KinkyDungeonStatWillMax < KDMaxStat ? "#ffffff" : "#999999");
+	DrawButton(650, 700, 350, 60, TextGet("KinkyDungeonHeartDistraction"), KinkyDungeonStatDistractionMax < 70 ? "White" : "Grey");
+	DrawButton(1050, 700, 350, 60, TextGet("KinkyDungeonHeartStamina"), KinkyDungeonStatStaminaMax < 70 ? "White" : "Grey");
+	DrawButton(1450, 700, 350, 60, TextGet("KinkyDungeonHeartMana"), KinkyDungeonStatManaMax < 70 ? "White" : "Grey");
 }
 
 function KinkyDungeonHandleHeart() {
-	if (MouseIn(650, 700, 250, 60) && KinkyDungeonStatDistractionMax < KDMaxStat) {
+	if (MouseIn(650, 700, 350, 60) && KinkyDungeonStatDistractionMax < 70) {
 		KDSendInput("heart", {type: "AP"});
 		KinkyDungeonDrawState = "Game";
-	} else if (MouseIn(950, 700, 250, 60) && KinkyDungeonStatStaminaMax < KDMaxStat) {
+	} else if (MouseIn(1050, 700, 350, 60) && KinkyDungeonStatStaminaMax < 70) {
 		KDSendInput("heart", {type: "SP"});
 		KinkyDungeonDrawState = "Game";
-	} else if (MouseIn(1250, 700, 250, 60) && KinkyDungeonStatManaMax < KDMaxStat) {
+	} else if (MouseIn(1450, 700, 350, 60) && KinkyDungeonStatManaMax < 70) {
 		KDSendInput("heart", {type: "MP"});
-		KinkyDungeonDrawState = "Game";
-	} else if (MouseIn(1550, 700, 250, 60) && KinkyDungeonStatWillMax < KDMaxStat) {
-		KDSendInput("heart", {type: "WP"});
 		KinkyDungeonDrawState = "Game";
 	}
 

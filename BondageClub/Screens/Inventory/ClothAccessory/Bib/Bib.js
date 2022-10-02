@@ -49,7 +49,7 @@ function InventoryClothAccessoryBibChange() {
 	InventoryClothAccessoryBibExit();
 }
 
-/** @type {DynamicAfterDrawCallback} */
+// Drawing function for the text on the tag
 function AssetsClothAccessoryBibAfterDraw({
 	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {

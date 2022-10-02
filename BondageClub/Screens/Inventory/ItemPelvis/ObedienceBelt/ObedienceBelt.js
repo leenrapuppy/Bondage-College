@@ -201,7 +201,7 @@ function AssetsItemPelvisObedienceBeltUpdate(data, LastTime) {
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
+// Update data
 function AssetsItemPelvisObedienceBeltScriptDraw(data) {
 	const persistentData = data.PersistentData();
 	if (typeof persistentData.UpdateTime !== "number") persistentData.UpdateTime = CommonTime() + 4000;
@@ -227,7 +227,6 @@ function AssetsItemPelvisObedienceBeltScriptDraw(data) {
 	}
 }
 
-/** @type {DynamicAfterDrawCallback} */
 function AssetsItemPelvisObedienceBeltAfterDraw({
 	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {

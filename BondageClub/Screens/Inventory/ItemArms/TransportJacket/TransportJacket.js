@@ -122,7 +122,6 @@ function InventoryItemArmsTransportJacketExit() {
 	if (DialogInventory != null) DialogMenuButtonBuild(C);
 }
 
-/** @type {DynamicAfterDrawCallback} */
 function AssetsItemArmsTransportJacketAfterDraw({ C, A, X, Y, L, Pose, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color }) {
 	if (L === "_Text") {
 		const width = 150;

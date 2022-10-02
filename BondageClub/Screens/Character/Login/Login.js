@@ -159,7 +159,6 @@ let LoginInventoryFixups = [
 	{ Old: { Group: "ItemLegs", Name: "WoodenHorse" }, New: { Group: "ItemDevices", Name: "WoodenHorse" } },
 	{ Old: { Group: "ItemVulvaPiercings", Name: "WeightedClitPiercing" }, New: { Group: "ItemVulvaPiercings", Name: "RoundClitPiercing", Option: "Weight" } },
 	{ Old: { Group: "ItemVulvaPiercings", Name: "BellClitPiercing" }, New: { Group: "ItemVulvaPiercings", Name: "RoundClitPiercing", Option: "Bell" } },
-	{ Old: { Group: "ItemArms", Name: "BitchSuitExposed"}, New: { Group: "ItemArms", Name: "BitchSuit", Option: "Exposed" } },
 ];
 
 /**

@@ -4,11 +4,9 @@
  * @type {Record<string, consumable>}
  */
 let KinkyDungeonConsumables = {
-	"PotionMana" : {name: "PotionMana", potion: true, rarity: 0, shop: true, type: "restore", mp_instant: 5, mpool_instant: 0, mp_gradual: 0, scaleWithMaxMP: true, duration: 0, sfx: "PotionDrink"},
-	"ManaOrb" : {name: "ManaOrb", noHands: true, rarity: 2, shop: true, type: "restore", mp_instant: 0, mpool_instant: 20, mp_gradual: 0, scaleWithMaxMP: false, duration: 0, sfx: "Invis"},
-	"PotionWill" : {name: "PotionWill", potion: true, rarity: 0, shop: true, type: "restore", wp_instant: 2.5, wp_gradual: 0, scaleWithMaxWP: true, duration: 0, gagFloor: 0.5, sfx: "PotionDrink"},
-	"PotionStamina" : {name: "PotionStamina", potion: true, rarity: 1, shop: true, type: "restore", sp_instant: 5, sp_gradual: 25, scaleWithMaxSP: true, duration: 25, sfx: "PotionDrink"},
-	"PotionFrigid" : {name: "PotionFrigid", potion: true, rarity: 1, shop: true, type: "restore", ap_instant: -10, ap_gradual: -20, duration: 50, arousalRatio: 1.0, gagFloor: 0.5, sfx: "PotionDrink"},
+	"PotionMana" : {name: "PotionMana", potion: true, rarity: 0, shop: true, type: "restore", mp_instant: 36, mp_gradual: 0, scaleWithMaxMP: true, duration: 0, sfx: "PotionDrink"},
+	"PotionStamina" : {name: "PotionStamina", potion: true, rarity: 1, shop: true, type: "restore", sp_instant: 12, sp_gradual: 24, scaleWithMaxSP: true, duration: 12, sfx: "PotionDrink"},
+	"PotionFrigid" : {name: "PotionFrigid", potion: true, rarity: 1, shop: true, type: "restore", ap_instant: -72, ap_gradual: -40, duration: 50, arousalRatio: 1.0, sfx: "PotionDrink"},
 	"SmokeBomb" : {name: "SmokeBomb", noHands: true, rarity: 2, costMod: -1, shop: true, type: "spell", spell: "Shroud", sfx: "FireSpell"},
 	"PotionInvisibility" : {name: "PotionInvisibility", potion: true, rarity: 3, costMod: -1, shop: true, type: "spell", spell: "Invisibility", sfx: "PotionDrink"},
 	"Ectoplasm" : {name: "Ectoplasm", noHands: true, rarity: 1, shop: false, type: "spell", spell: "LesserInvisibility", sfx: "Invis"},
@@ -20,7 +18,7 @@ let KinkyDungeonConsumables = {
 	"ElfCrystal" : {name: "ElfCrystal", noHands: true, rarity: 3, costMod: -1, shop: false, type: "spell", spell: "Slippery", sfx: "MagicSlash"},
 	"EnchantedGrinder" : {name: "EnchantedGrinder", noHands: true, rarity: 4, shop: true, type: "spell", spell: "Cutting", sfx: "Laser"},
 	"MistressKey" : {name: "MistressKey", rarity: 8, costMod: -1, shop: false, type: "goldKey"},
-	"AncientPowerSource" : {name: "AncientPowerSource", noHands: true, rarity: 4, costMod: -1, shop: true, type: "charge", amount: 0.250},
+	"AncientPowerSource" : {name: "AncientPowerSource", noHands: true, rarity: 4, costMod: -1, shop: true, type: "charge", amount: 0.251},
 	"AncientPowerSourceSpent" : {name: "AncientPowerSourceSpent", noHands: true, rarity: 3, costMod: -1, shop: false, type: "recharge"},
 	"ScrollArms" : {name: "ScrollArms", noHands: true, rarity: 2, costMod: 1, shop: true, type: "buff", buff: "NoArmsComp", duration: 12, power: 1, aura: "#aaffaa", sfx: "FireSpell"},
 	"ScrollVerbal" : {name: "ScrollVerbal", noHands: true, rarity: 2, costMod: 1, shop: true, type: "buff", buff: "NoVerbalComp", duration: 12, power: 1, aura: "#aaaaff", sfx: "FireSpell"},

@@ -99,7 +99,7 @@ function InventoryItemDevicesPetBowlGetText() {
 /**
  * Post-render drawing function. Draws custom text in a slight arc to mimic the
  * curvature of the bowl.
- * @type {DynamicAfterDrawCallback}
+ * @returns {void} - Nothing
  */
 function AssetsItemDevicesPetBowlAfterDraw({ C, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color }) {
 	if (L === "_Text") {

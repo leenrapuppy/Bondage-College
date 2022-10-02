@@ -375,7 +375,7 @@ function AssetsItemMouthFuturisticPanelGagScriptUpdatePlayer(data, Options) {
 
 }
 
-/** @type {DynamicScriptDrawCallback} */
+// Update data
 function AssetsItemMouthFuturisticPanelGagScriptDraw(data) {
 	var persistentData = data.PersistentData();
 	/** @type {ItemProperties} */
@@ -405,7 +405,7 @@ function AssetsItemMouthFuturisticPanelGagScriptDraw(data) {
 }
 
 
-/** @type {DynamicBeforeDrawCallback} */
+// Drawing function for the blinking light
 function AssetsItemMouthFuturisticPanelGagBeforeDraw(data) {
 	if (data.L === "_Light" && data.Property && data.Property.AutoPunish > 0 && data.Property.BlinkState == 1) {
 

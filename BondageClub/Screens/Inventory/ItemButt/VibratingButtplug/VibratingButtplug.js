@@ -12,7 +12,6 @@ function InventoryItemButtVibratingButtplugClick() {
 	VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 }
 
-/** @type {DynamicScriptDrawCallback} */
 function AssetsItemButtVibratingButtplugScriptDraw(data) {
 	VibratorModeScriptDraw(data);
 }

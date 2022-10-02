@@ -5,7 +5,7 @@
 		"browser": true
 	},
 	"parserOptions": {
-		"ecmaVersion": 2021
+		"ecmaVersion": 2018
 	},
 	"root": true,
 	"ignorePatterns": [

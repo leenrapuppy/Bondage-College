@@ -16,11 +16,10 @@ let KDDialogueTriggers = {
 		prerequisite: (enemy, dist) => {
 			return (KinkyDungeonPlayerDamage
 				&& !KinkyDungeonPlayerDamage.unarmed
-				&& KinkyDungeonPlayerDamage.name
+				&& KinkyDungeonPlayerDamage.name != "Unarmed"
 				&& dist < 3.9
 				&& KDHostile(enemy)
-				&& KDRandom() < 0.25
-				&& !KinkyDungeonFlags.has("demand"));
+				&& KDRandom() < 0.25);
 		},
 		weight: (enemy, dist) => {
 			return KDStrictPersonalities.includes(enemy.personality) ? 10 : 1;
@@ -30,17 +29,14 @@ let KDDialogueTriggers = {
 		dialogue: "OfferDress",
 		allowedPrisonStates: ["parole", ""],
 		allowedPersonalities: ["Sub"],
-		requireTagsSingle: ["dressRestraints", "bindingDress"],
 		excludeTags: ["zombie", "skeleton", "robot"],
 		playRequired: true,
 		nonHostile: true,
 		noCombat: true,
 		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
+		blockDuringPlaytime: true,
 		prerequisite: (enemy, dist) => {
 			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
 				&& !KinkyDungeonFlags.get("DangerFlag")
 				&& !KinkyDungeonFlags.get("BondageOffer")
 				&& !KinkyDungeonFlags.get("NoTalk")
@@ -51,471 +47,18 @@ let KDDialogueTriggers = {
 			return 1 + 0.8 * Math.max(Math.abs(KinkyDungeonGoddessRep.Latex)/100, Math.abs(KinkyDungeonGoddessRep.Conjure)/100);
 		},
 	},
-	"OfferHighSec": {
-		dialogue: "OfferHighSec",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Dom"],
-		requireTagsSingle: ["jail"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.1);
-		},
-		weight: (enemy, dist) => {
-			return 0.1 + 0.1 * Math.max(Math.abs(KinkyDungeonGoddessRep.Prisoner)/100, Math.abs(KinkyDungeonGoddessRep.Ghost)/100);
-		},
-	},
-	"OfferArmor": {
-		dialogue: "OfferArmor",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Sub"],
-		requireTagsSingle: ["melee"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.1
-				&& KinkyDungeonGetRestraint({tags: ["shackleGag"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.max(Math.abs(KinkyDungeonGoddessRep.Metal)/100, Math.abs(KinkyDungeonGoddessRep.Illusion)/100);
-		},
-	},
-	"OfferChain": {
-		dialogue: "OfferChain",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Sub"],
-		requireTagsSingle: ["chainRestraints", "witch"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["chainRestraints"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.max(Math.abs(KinkyDungeonGoddessRep.Metal)/100, Math.abs(KinkyDungeonGoddessRep.Conjure)/100);
-		},
-	},
-	"OfferVine": {
-		dialogue: "OfferVine",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Dom"],
-		requireTagsSingle: ["vineRestraints"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["vineRestraints"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.max(Math.abs(KinkyDungeonGoddessRep.Rope)/100, Math.abs(KinkyDungeonGoddessRep.Will)/100);
-		},
-	},
-	"OfferObsidian": {
-		dialogue: "OfferObsidian",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Dom", "Sub"],
-		requireTagsSingle: ["obsidianRestraints"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["obsidianRestraints"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.max(Math.abs(KinkyDungeonGoddessRep.Metal)/100, Math.abs(KinkyDungeonGoddessRep.Elements)/100);
-		},
-	},
-	"OfferMaidRestraint": {
-		dialogue: "OfferMaidRestraint",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Sub"],
-		requireTagsSingle: ["maidRestraints"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["maidRestraints"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.max(Math.abs(KinkyDungeonGoddessRep.Latex)/100, Math.abs(KinkyDungeonGoddessRep.Illusion)/100);
-		},
-	},
-	"OfferDragon": {
-		dialogue: "OfferDragon",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Dom"],
-		requireTagsSingle: ["dragonRestraints"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["dragonRestraints"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.abs(KinkyDungeonGoddessRep.Leather)/100;
-		},
-	},
-	"OfferComfy": {
-		dialogue: "OfferComfy",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Sub"],
-		requireTagsSingle: ["submissive"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["comfyRestraints"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.max(Math.abs(KinkyDungeonGoddessRep.Conjure)/100, Math.abs(KinkyDungeonGoddessRep.Illusion)/100);
-		},
-	},
-	"OfferShackles": {
-		dialogue: "OfferShackles",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Dom"],
-		requireTagsSingle: ["shackleRestraints", "steelCuffs", "handcuffer"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["shackleRestraints", "steelCuffs"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.max(Math.abs(KinkyDungeonGoddessRep.Metal)/100, Math.abs(KinkyDungeonGoddessRep.Prisoner)/100);
-		},
-	},
-	"OfferKitty": {
-		dialogue: "OfferKitty",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Dom", "Sub"],
-		requireTagsSingle: ["kittyRestraints"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["kittyRestraints"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.max(Math.abs(KinkyDungeonGoddessRep.Leather)/100, Math.abs(KinkyDungeonGoddessRep.Will)/100);
-		},
-	},
-	"OfferMithrilRope": {
-		dialogue: "OfferMithrilRope",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Dom","Sub"],
-		requireTagsSingle: ["mithrilRope","mithrilRopeHogtie"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["mithrilRope","mithrilRopeHogtie"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.max(Math.abs(KinkyDungeonGoddessRep.Rope)/100, Math.abs(KinkyDungeonGoddessRep.Will)/100);
-		},
-	},
-	"OfferMithril": {
-		dialogue: "OfferMithril",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Dom","Sub"],
-		requireTagsSingle: ["mithrilRestraints"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["mithrilRestraints"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.max(Math.abs(KinkyDungeonGoddessRep.Metal)/100, Math.abs(KinkyDungeonGoddessRep.Ghost)/100);
-		},
-	},
-	"OfferWolfRestraint": {
-		dialogue: "OfferWolfRestraint",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Dom"],
-		requireTagsSingle: ["trainer"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["wolfRestraints"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.max(Math.abs(KinkyDungeonGoddessRep.Metal)/100, Math.abs(KinkyDungeonGoddessRep.Will)/100);
-		},
-	},
-	"OfferSlime": {
-		dialogue: "OfferSlime",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Dom"],
-		requireTags: ["alchemist","human"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["slimeRestraintsRandom"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.max(Math.abs(KinkyDungeonGoddessRep.Latex)/100, Math.abs(KinkyDungeonGoddessRep.Will)/100);
-		},
-	},
-	"OfferScarf": {
-		dialogue: "OfferScarf",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Dom", "Sub"],
-		requireTagsSingle: ["scarfRestraints","ropeAuxiliary"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["scarfRestraints"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.abs(KinkyDungeonGoddessRep.Rope)/100;
-		},
-	},
-	"OfferAutoTape": {
-		dialogue: "OfferAutoTape",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Robot"],
-		requireTags: ["robot","autoTape"],
-		excludeTags: ["zombie", "skeleton"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["autoTape"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.abs(KinkyDungeonGoddessRep.Metal + 50)/100;
-		},
-	},
-	"OfferHiTechCables": {
-		dialogue: "OfferHiTechCables",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Robot"],
-		requireTags: ["robot"],
-		requireTagsSingle: ["hitechCables", "cableGag"],
-		excludeTags: ["zombie", "skeleton"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["hitechCables", "cableGag"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 1 + 0.4 * Math.abs(KinkyDungeonGoddessRep.Metal + 50)/100;
-		},
-	},
-	"OfferIce": {
-		dialogue: "OfferIce",
-		allowedPrisonStates: ["parole", ""],
-		allowedPersonalities: ["Dom"],
-		requireTagsSingle: ["iceRestraints", "ice", "apprentice", "witch", "water"],
-		excludeTags: ["zombie", "skeleton", "robot"],
-		playRequired: true,
-		nonHostile: true,
-		noCombat: true,
-		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
-		prerequisite: (enemy, dist) => {
-			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
-				&& !KinkyDungeonFlags.get("DangerFlag")
-				&& !KinkyDungeonFlags.get("BondageOffer")
-				&& !KinkyDungeonFlags.get("NoTalk")
-				&& KDRandom() < 0.25
-				&& KinkyDungeonGetRestraint({tags: ["iceRestraints"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
-		},
-		weight: (enemy, dist) => {
-			return 0.5 + 0.1 * Math.max(Math.abs(KinkyDungeonGoddessRep.Elements)/100, Math.abs(KinkyDungeonGoddessRep.Ghost)/100);
-		},
-	},
 	"OfferLatex": {
 		dialogue: "OfferLatex",
 		allowedPrisonStates: ["parole", ""],
 		allowedPersonalities: ["Sub"],
-		requireTagsSingle: ["latexRestraints", "latexRestraintsHeavy"],
 		excludeTags: ["zombie", "skeleton", "robot"],
 		playRequired: true,
 		nonHostile: true,
 		noCombat: true,
 		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
+		blockDuringPlaytime: true,
 		prerequisite: (enemy, dist) => {
 			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
 				&& !KinkyDungeonFlags.get("DangerFlag")
 				&& !KinkyDungeonFlags.get("BondageOffer")
 				&& !KinkyDungeonFlags.get("NoTalk")
@@ -554,17 +97,14 @@ let KDDialogueTriggers = {
 		dialogue: "OfferRopes",
 		allowedPrisonStates: ["parole", ""],
 		allowedPersonalities: ["Dom"],
-		requireTagsSingle: ["ropeRestraints", "ropeRestraints2", "ropeRestraintsWrist"],
 		excludeTags: ["zombie", "skeleton", "robot"],
 		playRequired: true,
 		nonHostile: true,
 		noCombat: true,
 		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
+		blockDuringPlaytime: true,
 		prerequisite: (enemy, dist) => {
 			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
 				&& !KinkyDungeonFlags.get("DangerFlag")
 				&& !KinkyDungeonFlags.get("BondageOffer")
 				&& !KinkyDungeonFlags.get("NoTalk")
@@ -575,20 +115,42 @@ let KDDialogueTriggers = {
 			return 1 + 0.4 * Math.abs(KinkyDungeonGoddessRep.Rope + 50)/100;
 		},
 	},
-	"OfferLeather": {
-		dialogue: "OfferLeather",
+
+	"OfferMithril": {
+		dialogue: "OfferMithril",
 		allowedPrisonStates: ["parole", ""],
-		requireTagsSingle: ["leatherRestraints", "leatherRestraintsHeavy"],
+		allowedPersonalities: ["Dom","Sub"],
+		requireTagsSingle: ["mithrilRestraints"],
 		excludeTags: ["zombie", "skeleton", "robot"],
 		playRequired: true,
 		nonHostile: true,
 		noCombat: true,
 		noAlly: true,
-		blockDuringPlaytime: false,
-		onlyDuringPlay: true,
+		blockDuringPlaytime: true,
 		prerequisite: (enemy, dist) => {
 			return (dist < 1.5
-				&& !KDEnemyHasFlag(enemy, "playstart")
+                && !KinkyDungeonFlags.get("DangerFlag")
+                && !KinkyDungeonFlags.get("BondageOffer")
+                && !KinkyDungeonFlags.get("NoTalk")
+                && KDRandom() < 0.25
+                && KinkyDungeonGetRestraint({tags: ["mithrilRestraints"]}, MiniGameKinkyDungeonLevel * 2, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]) != undefined);
+		},
+		weight: (enemy, dist) => {
+			return 1 + 0.4 * Math.max(Math.abs(KinkyDungeonGoddessRep.Metal)/100, Math.abs(KinkyDungeonGoddessRep.Ghost)/100);
+		},
+	},
+
+	"OfferLeather": {
+		dialogue: "OfferLeather",
+		allowedPrisonStates: ["parole", ""],
+		excludeTags: ["zombie", "skeleton", "robot"],
+		playRequired: true,
+		nonHostile: true,
+		noCombat: true,
+		noAlly: true,
+		blockDuringPlaytime: true,
+		prerequisite: (enemy, dist) => {
+			return (dist < 1.5
 				&& !KinkyDungeonFlags.get("DangerFlag")
 				&& !KinkyDungeonFlags.get("BondageOffer")
 				&& !KinkyDungeonFlags.get("NoTalk")
@@ -600,7 +162,6 @@ let KDDialogueTriggers = {
 		},
 	},
 	"OfferWolfgirl": KDRecruitTrigger("OfferWolfgirl"),
-	"OfferMaid": KDRecruitTrigger("OfferMaid"),
 	"PotionSell": KDShopTrigger("PotionSell"),
 	"ElfCrystalSell": KDShopTrigger("ElfCrystalSell"),
 	"NinjaSell": KDShopTrigger("NinjaSell"),
@@ -622,7 +183,6 @@ function KDShopTrigger(name) {
 		blockDuringPlaytime: true,
 		prerequisite: (enemy, dist) => {
 			return (dist < 1.5
-				&& !KinkyDungeonFlags.get("NoTalk")
 				&& !(KDGameData.SleepTurns > 0)
 				&& KDEnemyHasFlag(enemy, name)
 				&& !KDEnemyHasFlag(enemy, "NoShop"));
@@ -639,7 +199,7 @@ function KDShopTrigger(name) {
  * @returns {KinkyDialogueTrigger}
  */
 function KDRecruitTrigger(name) {
-	let dialogue = KDRecruitDialog[name];
+	let dialogue = KDRecruitDialog.find((e) => {return name == e.name;});
 	if (dialogue)
 		return {
 			dialogue: name,
@@ -675,7 +235,6 @@ function KDBossTrigger(name, enemyName) {
 		nonHostile: true,
 		prerequisite: (enemy, dist) => {
 			return (dist < 1.5
-				&& !KinkyDungeonFlags.get("NoTalk")
 				&& !(KDGameData.SleepTurns > 0)
 				&& enemyName.includes(enemy.Enemy.name)
 				&& !KinkyDungeonFlags.has("BossUnlocked")
@@ -693,11 +252,10 @@ function KDBossLose(name, enemyName) {
 		dialogue: name,
 		prerequisite: (enemy, dist) => {
 			return (dist < 1.5
-				&& !KinkyDungeonFlags.get("NoTalk")
 				&& !(KDGameData.SleepTurns > 0)
 				&& enemyName.includes(enemy.Enemy.name)
 				&& !KinkyDungeonFlags.has("BossUnlocked")
-				&& !KinkyDungeonHasWill(0.1));
+				&& !KinkyDungeonHasStamina(1.1));
 		},
 		weight: (enemy, dist) => {
 			return 100;
@@ -708,7 +266,7 @@ function KDBossLose(name, enemyName) {
 function KinkyDungeonGetShopForEnemy(enemy, guaranteed) {
 	if (enemy.Enemy.tags.has("noshop")) return "";
 	let shoplist = [];
-	for (let s of Object.values(KDShops)) {
+	for (let s of KDShops) {
 		let end = false;
 		if (s.tags) {
 			for (let t of s.tags) {

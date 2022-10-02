@@ -10,7 +10,7 @@ const KinkyDungeonMapParams = {
 		"crackchance" : 0.07,
 		"barchance" : 0.2,
 		"brightness" : 7,
-		"chestcount" : 5,
+		"chestcount" : 3,
 		"shrinecount" : 11,
 		"shrinechance" : 0.75,
 		"ghostchance" : 1,
@@ -19,28 +19,18 @@ const KinkyDungeonMapParams = {
 		"doorlockchance" : -0.1,
 		"trapchance" : 0.5,
 		"grateChance" : 0.4,
-		"rubblechance" : 0.4,
+		"rubblechance" : 0.7,
 		"brickchance" : 0.1,
 		"cacheInterval" : 1,
 		"forbiddenChance" : 0.7, // If a forbidden gold chance is generated. Otherwise a silver chest will appear
 		"forbiddenGreaterChance" : 0.33, // Chance after a forbidden area is generated with a restraint, otherwise its a lesser gold chest
-		"torchchance": 0.35,
-		"torchchanceboring": 1.0,
-
-		tagModifiers: {
-			"jungle": 0,
-			"cavern": 0,
-		},
-
-		enemyTags: ["magical", "zombie"],
 
 		"setpieces": [
 			{Type: "Bedroom", Weight: 3},
 			{Type: "Graveyard", Weight: 6},
 			{Type: "Altar", Weight: 3},
 			{Type: "SmallAltar", Weight: 18},
-			{Type: "GuardedChest", Weight: 10},
-			{Type: "LargeGuardedChest", Weight: 20},
+			{Type: "GuardedChest", Weight: 30},
 			{Type: "QuadCell", Weight: 3},
 			{Type: "Storage", Weight: 5},
 		],
@@ -50,7 +40,7 @@ const KinkyDungeonMapParams = {
 			{Level: 3, checkpoint: "tmb", chance: 1.0},
 		],
 		"mainpath": [
-			{Level: 6, checkpoint: "cat"},
+			{Level: 5, checkpoint: "cat"},
 		],
 
 		"traps": [
@@ -63,10 +53,29 @@ const KinkyDungeonMapParams = {
 			{Name: "SpawnEnemies", Enemy: "Bandit", strict: true, Level: 0, Power: 1, Weight: 10},
 		],
 
-		"min_width" : 6,
-		"max_width" : 9,
-		"min_height" : 5,
-		"max_height" : 8,
+		"min_width" : 25,
+		"max_width" : 31,
+		"min_height" : 13,
+		"max_height" : 19,
+
+		"enemytags": ["zombie"],
+		"defeat_restraints": [
+			{Name: "Stuffing", Level: 20},
+			{Name: "TrapGag", Level: 20},
+			{Name: "HighsecBallGag", Level: 50},
+			{Name: "DragonMuzzleGag", Level: 100},
+			{Name: "FeetShackles", Level: 5},
+			{Name: "HighsecShackles", Level: 40},
+			{Name: "LegShackles", Level: 15},
+			{Name: "HighsecLegbinder", Level: 25},
+			{Name: "WristShackles", Level: 0},
+			{Name: "TrapArmbinder", Level: 40},
+			{Name: "HighsecArmbinder", Level: 70},
+			{Name: "PrisonBelt", Level: 30},
+			{Name: "PrisonVibe", Level: 30},
+			{Name: "TrapBlindfold", Level: 90},
+			{Name: "TrapBoots", Level: 60},
+		],
 		"defeat_outfit": "Prisoner",
 		"shrines": [
 			//{Type: "Charms", Weight: 5},
@@ -89,7 +98,7 @@ const KinkyDungeonMapParams = {
 		"crackchance" : 0.09,
 		"barchance" : 0.2,
 		"brightness" : 4,
-		"chestcount" : 7,
+		"chestcount" : 4,
 		"shrinecount" : 12,
 		"chargerchance": 0.5,
 		"litchargerchance": 0.5,
@@ -101,21 +110,11 @@ const KinkyDungeonMapParams = {
 		"doorlockchance" : -0.05,
 		"trapchance" : 0.65,
 		"grateChance" : 0.1,
-		"rubblechance" : 0.3,
+		"rubblechance" : 0.6,
 		"brickchance" : 0.4,
 		"cacheInterval" : 1,
 		"forbiddenChance" : 0.72,
 		"forbiddenGreaterChance" : 0.33,
-		cageChance: 0.8,
-		torchchance: 0.05,
-		torchchanceboring: 1.0,
-
-		tagModifiers: {
-			"narrow": 2,
-			"open": 0.5,
-			"jungle": 0,
-			"cavern": 0,
-		},
 
 		"setpieces": [
 			{Type: "Bedroom", Weight: 2},
@@ -123,8 +122,7 @@ const KinkyDungeonMapParams = {
 			{Type: "QuadCell", Weight: 8},
 			{Type: "Storage", Weight: 5},
 			{Type: "SmallAltar", Weight: 18},
-			{Type: "GuardedChest", Weight: 10},
-			{Type: "LargeGuardedChest", Weight: 20},
+			{Type: "GuardedChest", Weight: 30},
 			{Type: "ExtraCell", Weight: 10},
 		],
 
@@ -150,12 +148,31 @@ const KinkyDungeonMapParams = {
 			{Name: "SpawnEnemies", Enemy: "Bandit", strict: true, Level: 0, Power: 2, Weight: 10},
 		],
 
-		"min_width" : 6,
-		"max_width" : 9,
-		"min_height" : 5,
-		"max_height" : 8,
+		"min_width" : 21,
+		"max_width" : 27,
+		"min_height" : 15,
+		"max_height" : 19,
 
-		enemyTags: ["skeleton"],
+		"enemytags": ["skeleton"],
+		"defeat_restraints": [
+			{Name: "Stuffing", Level: 20},
+			{Name: "TrapGag", Level: 20},
+			{Name: "HighsecBallGag", Level: 50},
+			{Name: "PanelGag", Level: 70},
+			{Name: "DragonMuzzleGag", Level: 95},
+			{Name: "FeetShackles", Level: 5},
+			{Name: "HighsecShackles", Level: 40},
+			{Name: "LegShackles", Level: 15},
+			{Name: "HighsecLegbinder", Level: 25},
+			{Name: "WristShackles", Level: 0},
+			{Name: "TrapArmbinder", Level: 40},
+			{Name: "HighsecArmbinder", Level: 70},
+			{Name: "PrisonBelt", Level: 30},
+			{Name: "PrisonVibe", Level: 30},
+			{Name: "TrapBlindfold", Level: 90},
+			{Name: "TrapBoots", Level: 60},
+
+		],
 		"defeat_outfit": "Dungeon",
 		"shrines": [
 			{Type: "Latex", Weight: 3},
@@ -177,7 +194,7 @@ const KinkyDungeonMapParams = {
 		"crackchance" : 0.15,
 		"barchance" : 0.05,
 		"brightness" : 6,
-		"chestcount" : 7,
+		"chestcount" : 5,
 		"shrinecount" : 13,
 		"shrinechance" : 0.4,
 		"ghostchance" : 0.5,
@@ -186,28 +203,16 @@ const KinkyDungeonMapParams = {
 		"doorlockchance" : -0.05,
 		"trapchance" : 0.4,
 		"grateChance" : 0.1,
-		"rubblechance" : 0.25,
+		"rubblechance" : 0.5,
 		"brickchance" : 0.25,
 		"cacheInterval" : 1,
 		"forbiddenChance" : 0.72,
 		"forbiddenGreaterChance" : 0.33,
-		torchchance: 0.2,
-		torchchanceboring: 0.25,
-
-		tagModifiers: {
-			"open": 6,
-			"door": 0.5,
-			"jungle": 100,
-			"cavern": 60,
-		},
 
 		"setpieces": [
 			{Type: "Altar", Weight: 6},
 			{Type: "SmallAltar", Weight: 20},
-			{Type: "GuardedChest", Weight: 10},
-			{Type: "LargeGuardedChest", Weight: 20},
-			{Type: "JungleLight", Weight: 20},
-			{Type: "Fireflies", Weight: 40},
+			{Type: "GuardedChest", Weight: 30},
 		],
 
 		"shortcuts": [
@@ -215,7 +220,7 @@ const KinkyDungeonMapParams = {
 			{Level: 15, checkpoint: "cry", chance: 1.0},
 		],
 		"mainpath": [
-			{Level: 16, checkpoint: "tmp"},
+			{Level: 17, checkpoint: "tmp"},
 		],
 
 		"traps": [
@@ -228,12 +233,30 @@ const KinkyDungeonMapParams = {
 			{Name: "SpawnEnemies", Enemy: "Bandit", strict: true, Level: 0, Power: 3, Weight: 10},
 		],
 
-		"min_width" : 6,
-		"max_width" : 9,
-		"min_height" : 5,
-		"max_height" : 8,
+		"min_width" : 29,
+		"max_width" : 39,
+		"min_height" : 13,
+		"max_height" : 17,
 
-		enemyTags: ["plant", "jungle"],
+		"enemytags": ["plant"],
+		"defeat_restraints": [
+			{Name: "Stuffing", Level: 20},
+			{Name: "TrapGag", Level: 20},
+			{Name: "HighsecBallGag", Level: 50},
+			{Name: "PanelGag", Level: 70},
+			{Name: "DragonMuzzleGag", Level: 95},
+			{Name: "FeetShackles", Level: 5},
+			{Name: "HighsecShackles", Level: 40},
+			{Name: "LegShackles", Level: 15},
+			{Name: "HighsecLegbinder", Level: 25},
+			{Name: "WristShackles", Level: 0},
+			{Name: "TrapArmbinder", Level: 40},
+			{Name: "HighsecArmbinder", Level: 70},
+			{Name: "PrisonBelt", Level: 30},
+			{Name: "PrisonVibe", Level: 30},
+			{Name: "TrapBlindfold", Level: 90},
+			{Name: "TrapBoots", Level: 60},
+		],
 		"defeat_outfit": "LatexPrisoner",
 		"shrines": [
 			{Type: "Latex", Weight: 5},
@@ -253,7 +276,7 @@ const KinkyDungeonMapParams = {
 		"crackchance" : 0.05,
 		"barchance" : 0.1,
 		"brightness" : 3,
-		"chestcount" : 7,
+		"chestcount" : 4,
 		"chargerchance": 0.9,
 		"litchargerchance": 0.2,
 		"chargercount": 10,
@@ -265,7 +288,7 @@ const KinkyDungeonMapParams = {
 		"doorlockchance" : -0.05,
 		"trapchance" : 0.5,
 		"grateChance" : 0.8,
-		"rubblechance" : 0.35,
+		"rubblechance" : 0.7,
 		"brickchance" : 0.1,
 		"floodchance" : 0.33,
 		"gaschance" : 0.5, // Chance for gas to appear on the level
@@ -274,37 +297,19 @@ const KinkyDungeonMapParams = {
 		"cacheInterval" : 1,
 		"forbiddenChance" : 0.8,
 		"forbiddenGreaterChance" : 0.4,
-		torchchance: 0.4,
-		torchchanceboring: -0.4,
-		torchlitchance: 0.15,
-		torchreplace: {
-			sprite: "Lantern",
-			unlitsprite: "LanternUnlit",
-			brightness: 6,
-		},
-
-		tagModifiers: {
-			"jungle": 0,
-			"cavern": 0,
-			"temple": 3,
-		},
-
-		shadowColor: 0x000703,
 
 		"setpieces": [
 			{Type: "Bedroom", Weight: 1},
 			{Type: "Altar", Weight: 6},
 			{Type: "SmallAltar", Weight: 20},
-			{Type: "GuardedChest", Weight: 10},
-			{Type: "LargeGuardedChest", Weight: 20},
-			{Type: "Magicflies", Weight: 12},
+			{Type: "GuardedChest", Weight: 30},
 		],
 
 		"shortcuts": [
 
 		],
 		"mainpath": [
-			{Level: 21, checkpoint: "tmp"},
+			{Level: 23, checkpoint: "tmp"},
 		],
 
 		"traps": [
@@ -317,12 +322,30 @@ const KinkyDungeonMapParams = {
 			{Name: "SpawnEnemies", Enemy: "HeavySkeleton", strict: true, Level: 0, Power: 1, Weight: 10},
 		],
 
-		"min_width" : 6,
-		"max_width" : 9,
-		"min_height" : 5,
-		"max_height" : 8,
+		"min_width" : 29,
+		"max_width" : 39,
+		"min_height" : 13,
+		"max_height" : 17,
 
-		enemyTags: ["skeleton", "temple", "ghost"],
+		"enemytags": ["skeleton", "temple", "ghost"],
+		"defeat_restraints": [
+			{Name: "Stuffing", Level: 20},
+			{Name: "TrapGag", Level: 20},
+			{Name: "HighsecBallGag", Level: 50},
+			{Name: "PanelGag", Level: 70},
+			{Name: "DragonMuzzleGag", Level: 95},
+			{Name: "FeetShackles", Level: 5},
+			{Name: "HighsecShackles", Level: 40},
+			{Name: "LegShackles", Level: 15},
+			{Name: "HighsecLegbinder", Level: 25},
+			{Name: "WristShackles", Level: 0},
+			{Name: "TrapArmbinder", Level: 40},
+			{Name: "HighsecArmbinder", Level: 70},
+			{Name: "PrisonBelt", Level: 30},
+			{Name: "PrisonVibe", Level: 30},
+			{Name: "TrapBlindfold", Level: 90},
+			{Name: "TrapBoots", Level: 60},
+		],
 		"defeat_outfit": "LatexPrisoner",
 		"shrines": [
 			{Type: "Latex", Weight: 5},
@@ -344,7 +367,7 @@ const KinkyDungeonMapParams = {
 		"crackchance" : 0.06,
 		"barchance" : 0.05,
 		"brightness" : 3,
-		"chestcount" : 9,
+		"chestcount" : 8,
 		"chargerchance": 0.8,
 		"litchargerchance": 0.65,
 		"chargercount": 6,
@@ -356,34 +379,25 @@ const KinkyDungeonMapParams = {
 		"doorlockchance" : -0.05,
 		"trapchance" : 0.65,
 		"grateChance" : 0.3,
-		"rubblechance" : 0.35,
+		"rubblechance" : 0.7,
 		"brickchance" : 0.4,
 		"cacheInterval" : 1,
 		// Side routes have more high-value loot
 		"forbiddenChance" : 1.0,
 		"forbiddenGreaterChance" : 0.45,
-		torchchance: 0.1,
-		torchchanceboring: 0.1,
 
 		"setpieces": [
 			{Type: "Altar", Weight: 6},
 			{Type: "SmallAltar", Weight: 20},
-			{Type: "GuardedChest", Weight: 10},
-			{Type: "LargeGuardedChest", Weight: 20},
+			{Type: "GuardedChest", Weight: 30},
 			{Type: "Storage", Weight: 7},
 		],
-
-		tagModifiers: {
-			"temple": 2,
-			"jungle": 0,
-			"cavern": 0,
-		},
 
 		"shortcuts": [
 			{Level: 4, checkpoint: "cry", chance: 1.0},
 		],
 		"mainpath": [
-			{Level: 6, checkpoint: "cat"},
+			{Level: 5, checkpoint: "cat"},
 		],
 
 		"traps": [
@@ -396,12 +410,30 @@ const KinkyDungeonMapParams = {
 			{Name: "SpawnEnemies", Enemy: "Bandit", strict: true, Level: 0, Power: 3, Weight: 10},
 		],
 
-		"min_width" : 6,
-		"max_width" : 9,
-		"min_height" : 5,
-		"max_height" : 8,
+		"min_width" : 21,
+		"max_width" : 27,
+		"min_height" : 13,
+		"max_height" : 17,
 
-		enemyTags: ["mummy", "ghost"],
+		"enemytags": ["mummy", "ghost"],
+		"defeat_restraints": [
+			{Name: "Stuffing", Level: 20},
+			{Name: "TrapGag", Level: 20},
+			{Name: "HighsecBallGag", Level: 50},
+			{Name: "PanelGag", Level: 70},
+			{Name: "DragonMuzzleGag", Level: 95},
+			{Name: "FeetShackles", Level: 5},
+			{Name: "HighsecShackles", Level: 40},
+			{Name: "LegShackles", Level: 15},
+			{Name: "HighsecLegbinder", Level: 25},
+			{Name: "WristShackles", Level: 0},
+			{Name: "TrapArmbinder", Level: 40},
+			{Name: "HighsecArmbinder", Level: 70},
+			{Name: "PrisonBelt", Level: 30},
+			{Name: "PrisonVibe", Level: 30},
+			{Name: "TrapBlindfold", Level: 90},
+			{Name: "TrapBoots", Level: 60},
+		],
 		"defeat_outfit": "Egyptian",
 		"shrines": [
 			{Type: "Latex", Weight: 3},
@@ -423,7 +455,7 @@ const KinkyDungeonMapParams = {
 		"wallRubblechance" : 0.035,
 		"barchance" : 0.1,
 		"brightness" : 6,
-		"chestcount" : 10,
+		"chestcount" : 6,
 		"chargerchance": 0.8,
 		"litchargerchance": 0.25,
 		"chargercount": 6,
@@ -435,24 +467,12 @@ const KinkyDungeonMapParams = {
 		"doorlockchance" : -0.05,
 		"trapchance" : 0.3,
 		"grateChance" : 0.7,
-		"rubblechance" : 0.3,
+		"rubblechance" : 0.7,
 		"brickchance" : 0.03,
 		"cacheInterval" : 1,
 		// Side routes have more high-value loot
 		"forbiddenChance" : 1.0,
 		"forbiddenGreaterChance" : 0.45,
-		torchchance: 0.6,
-		torchchanceboring: -0.4,
-		torchreplace: {
-			sprite: "TorchOrb",
-			brightness: 4,
-		},
-
-		tagModifiers: {
-			"urban": 2,
-			"jungle": 0,
-			"cavern": 0,
-		},
 
 		"shortcuts": [
 			{Level: 9, checkpoint: "cat", chance: 1.0},
@@ -469,12 +489,30 @@ const KinkyDungeonMapParams = {
 			{Name: "SpawnEnemies", Enemy: "Bandit", strict: true, Level: 0, Power: 3, Weight: 10},
 		],
 
-		"min_width" : 5,
-		"max_width" : 5,
-		"min_height" : 5,
-		"max_height" : 5,
+		"min_width" : 25,
+		"max_width" : 25,
+		"min_height" : 25,
+		"max_height" : 25,
 
-		enemyTags: ["book", "witch", "dressmaker"],
+		"enemytags": ["book", "witch", "dressmaker"],
+		"defeat_restraints": [
+			{Name: "Stuffing", Level: 20},
+			{Name: "TrapGag", Level: 20},
+			{Name: "HighsecBallGag", Level: 50},
+			{Name: "PanelGag", Level: 70},
+			{Name: "DragonMuzzleGag", Level: 95},
+			{Name: "FeetShackles", Level: 5},
+			{Name: "HighsecShackles", Level: 40},
+			{Name: "LegShackles", Level: 15},
+			{Name: "HighsecLegbinder", Level: 25},
+			{Name: "WristShackles", Level: 0},
+			{Name: "TrapArmbinder", Level: 40},
+			{Name: "HighsecArmbinder", Level: 70},
+			{Name: "PrisonBelt", Level: 30},
+			{Name: "PrisonVibe", Level: 30},
+			{Name: "TrapBlindfold", Level: 90},
+			{Name: "TrapBoots", Level: 60},
+		],
 		"defeat_outfit": "Prisoner",
 		"shrines": [
 			{Type: "Latex", Weight: 3},
@@ -497,7 +535,7 @@ const KinkyDungeonMapParams = {
 		"chargerchance": 1.0,
 		"litchargerchance": 1.0,
 		"chargercount": 4,
-		"chestcount" : 10,
+		"chestcount" : 4,
 		"shrinecount" : 13,
 		"shrinechance" : 0.8,
 		"ghostchance" : 0.5,
@@ -506,12 +544,8 @@ const KinkyDungeonMapParams = {
 		"doorlockchance" : -0.05,
 		"trapchance" : 0.5,
 		"grateChance" : 0.7,
-		"rubblechance" : 0.45,
+		"rubblechance" : 0.9,
 		"brickchance" : 0.2,
-		torchchance: 0.3,
-		torchchanceboring: 0.1,
-
-		shadowColor: 0x080311,
 
 		"gaschance" : 0.33, // Chance for gas to appear on the level
 		"gasdensity" : 0.05, // Chance for a passage to be filled with happy gas
@@ -523,21 +557,11 @@ const KinkyDungeonMapParams = {
 		"forbiddenChance" : 1.0,
 		"forbiddenGreaterChance" : 0.45,
 
-		tagModifiers: {
-			"open": 4,
-			"jungle": 20,
-			"cavern": 80,
-			"urban": 0.5,
-			"door": 0.5,
-		},
-
 		"setpieces": [
 			{Type: "Altar", Weight: 6},
 			{Type: "SmallAltar", Weight: 20},
-			{Type: "GuardedChest", Weight: 10},
-			{Type: "LargeGuardedChest", Weight: 20},
+			{Type: "GuardedChest", Weight: 30},
 			{Type: "Storage", Weight: 2},
-			{Type: "Magicflies", Weight: 40},
 		],
 
 		"shortcuts": [
@@ -548,7 +572,7 @@ const KinkyDungeonMapParams = {
 		"mainpath": [
 			{Level: 5, checkpoint: "cry"},
 			{Level: 7, checkpoint: "cat"},
-			{Level: 16, checkpoint: "tmp"},
+			{Level: 17, checkpoint: "tmp"},
 		],
 
 		"traps": [
@@ -559,12 +583,30 @@ const KinkyDungeonMapParams = {
 			{Name: "SpawnEnemies", Enemy: "Bandit", strict: true, Level: 0, Power: 3, Weight: 10},
 		],
 
-		"min_width" : 4,
-		"max_width" : 8,
-		"min_height" : 4,
-		"max_height" : 8,
+		"min_width" : 15,
+		"max_width" : 25,
+		"min_height" : 15,
+		"max_height" : 25,
 
-		enemyTags: ["mushroom", "slimeBonus", "crystalline"],
+		"enemytags": ["mushroom", "slimeBonus", "crystalline"],
+		"defeat_restraints": [
+			{Name: "Stuffing", Level: 20},
+			{Name: "TrapGag", Level: 20},
+			{Name: "HighsecBallGag", Level: 50},
+			{Name: "PanelGag", Level: 70},
+			{Name: "DragonMuzzleGag", Level: 95},
+			{Name: "FeetShackles", Level: 5},
+			{Name: "HighsecShackles", Level: 40},
+			{Name: "LegShackles", Level: 15},
+			{Name: "HighsecLegbinder", Level: 25},
+			{Name: "WristShackles", Level: 0},
+			{Name: "TrapArmbinder", Level: 40},
+			{Name: "HighsecArmbinder", Level: 70},
+			{Name: "PrisonBelt", Level: 30},
+			{Name: "PrisonVibe", Level: 30},
+			{Name: "TrapBlindfold", Level: 90},
+			{Name: "TrapBoots", Level: 60},
+		],
 		"defeat_outfit": "Prisoner",
 		"shrines": [
 			{Type: "Latex", Weight: 3},

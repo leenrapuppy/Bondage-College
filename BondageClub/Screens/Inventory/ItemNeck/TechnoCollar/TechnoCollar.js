@@ -24,7 +24,6 @@ function InventoryItemNeckTechnoCollarShockModule1Click() {
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
 function AssetsItemNeckTechnoCollarShockModule1ScriptDraw(data) {
 	AssetsItemNeckAccessoriesCollarShockUnitScriptDraw(data);
 }

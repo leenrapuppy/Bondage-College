@@ -28,38 +28,7 @@ let KinkyDungeonHiddenFactions = [
 	"Ambush",
 	"Rage",
 	"Ghost",
-	"Trap",
-	"Rebel",
-	"Rock",
-	"Delinquent",
-	"Chase",
 ];
-
-/** Shows tooltips for these factions even though they are hidden */
-let KinkyDungeonTooltipFactions = [
-	"Rebel",
-	"Ambush",
-	"Delinquent",
-	"Rock",
-];
-
-/** Tag for these factions */
-let KinkyDungeonFactionTag = {
-	Bountyhunter: "bountyhunter",
-	Bandit: "bandit",
-	Alchemist: "alchemist",
-	Nevermere: "wolfgirl",
-	Apprentice: "apprentice",
-	Dressmaker: "dressmaker",
-	Witch: "witch",
-	Elemental: "elemental",
-	Dragon: "dragon",
-	Maidforce: "maid",
-	Bast: "mummy",
-	Elf: "elf",
-	Mushy: "mushy",
-	AncientRobot: "robot",
-};
 
 let KinkyDungeonFactionRelationsBase = {
 	"Player": {
@@ -100,17 +69,10 @@ let KinkyDungeonFactionRelationsBase = {
 		Dragon: 0.05,
 		AncientRobot: -0.25,
 		Nevermere: -0.1,
-		Enemy: 0.1,
 	},
 	"Ghost": {
 		Player: -1.0,
-		Jail: -0.25,
-	},
-	"Rock": {
-		Player: -1.0,
-	},
-	"Rebel": {
-		Jail: -0.1,
+		Jail: -1.0,
 	},
 	"Demon": {
 		Elf: -1.0,
@@ -130,26 +92,6 @@ let KinkyDungeonFactionRelationsBase = {
 		AncientRobot: -0.45,
 	},
 	"Enemy": {
-		KinkyConstruct: .1,
-		Dragon: .1,
-		Bountyhunter: .1,
-		Bandit: .1,
-		Alchemist: .1,
-		Nevermere: .1,
-		Apprentice: .1,
-		Dressmaker: .1,
-		Witch: .1,
-		Elemental: .1,
-		Maidforce: .1,
-		Bast: .1,
-		Elf: .1,
-		Mushy: .1,
-		AncientRobot: .1,
-	},
-	"Delinquent": {
-		Player: -1,
-		Maidforce: -1,
-		Chase: -1,
 	},
 	"Trap": {
 		Enemy: 1.0,
@@ -181,21 +123,12 @@ let KinkyDungeonFactionRelationsBase = {
 		// Special factions
 		Angel: 1,
 		Demon: 1,
-
-
-		Chase: -1,
 	},
 	"Boss": {
-		Chase: -1,
-	},
-	"Chase": {
-		// Dummy faction, used for deciding if a faction will make you go On The Run
 	},
 	"Ambush": {
 		Player: -1.0,
 		Jail: -0.25,
-
-		Chase: -1,
 	},
 	"Prisoner": {
 	},
@@ -247,7 +180,7 @@ let KinkyDungeonFactionRelationsBase = {
 		Nevermere: -0.4,
 		Apprentice: -0.4,
 		Dressmaker: -0.4,
-		Witch: -0.1,
+		Witch: -0.55,
 		Elemental: -0.4,
 		Dragon: -1.0,
 		Maidforce: -0.4,
@@ -263,6 +196,8 @@ let KinkyDungeonFactionRelationsBase = {
 	},
 	"Plant": {
 		Jail: -0.25,
+		Apprentice: -0.55,
+		Dragon: -0.55,
 	},
 	"Nevermere": {
 		"Alchemist": 1.0,
@@ -313,10 +248,10 @@ let KinkyDungeonFactionRelationsBase = {
 	"AncientRobot": {
 		"Bast": 0.55,
 		"Elf": -0.6,
-		//"Maidforce": 0.55,
-		//"Dragon": 0.45,
-		//"Dressmaker": 0.55,
-		//"Apprentice": 0.52,
+		"Maidforce": 0.55,
+		"Dragon": 0.45,
+		"Dressmaker": 0.55,
+		"Apprentice": 0.52,
 	},
 	"Dragon": {
 		"Jail": 1.0,

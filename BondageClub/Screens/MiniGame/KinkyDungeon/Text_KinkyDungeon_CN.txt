@@ -6,22 +6,12 @@ News and Updates
 新闻和更新
 Support @ Patreon
 资助@Patreon
-Thank you to the following awesome people for supporting me at <patreon.com/ada18980>:|Alexthymia (for CN translation!)|Song (bound enemy graphics!)|cyberjoel|Samantha Lear|Kara|The-Fisher-King|selly-grim|Dex♪|Churro|Gamefan|Shogo|X27|Blox|Slacker|Nikos S.|WATA|Flame|Alexis Octavia|Finn|Dmitri S.|Noxgarm|Siegfried K.|Hellgete
-感谢以下杰出的人在<patreon.com/ada18980>中支持我:|Alexthymia (for CN translation!)|Song (bound enemy graphics!)|cyberjoel|Samantha Lear|Kara|The-Fisher-King|selly-grim|Dex♪|Churro|Gamefan|Shogo|X27|Blox|Slacker|Nikos S.|WATA|Flame|Alexis Octavia|Finn|Dmitri S.|Noxgarm|Siegfried K.|Hellgete
 Back
 后退
 Next
 下一个
-Audio:|Potion drink - Jamius|Click - StrikeWhistler - Modified|StoneDoor_Close - AudioTorpedo - Modified|Footstep - Fission9 - Modified|FireSpell - Julien Matthey|LightSwing - qubodup|Heavy Swing - orangesheepdog|Miss - Brsjak - Modified|Clap - DWSD - Modified|'Door, Front, Closing, A.wav' by InspectorJ (www.jshaw.co.uk) of Freesound.org|'Door, Front, Opening, A.wav' by InspectorJ (www.jshaw.co.uk) of Freesound.org|Chest Open - spookymodem - Modified|Unlock - BeezleFM|Unbuckle - danhelbling|Scissors - qubodup|Rummage - adcbicycle|Fairy Dust - jacksonacademyashmore|Metal Smash - gristi|Door locked.wav - mitchanary - Modified|Coins.wav - Saviraz
-音频：|Potion drink - Jamius|Click - StrikeWhistler - Modified|StoneDoor_Close - AudioTorpedo - Modified|Footstep - Fission9 - Modified|FireSpell - Julien Matthey|LightSwing - qubodup|Heavy Swing - orangesheepdog|Miss - Brsjak - Modified|Clap - DWSD - Modified|'Door, Front, Closing, A.wav' by InspectorJ (www.jshaw.co.uk) of Freesound.org|'Door, Front, Opening, A.wav' by InspectorJ (www.jshaw.co.uk) of Freesound.org|Chest Open - spookymodem - Modified|Unlock - BeezleFM|Unbuckle - danhelbling|Scissors - qubodup|Rummage - adcbicycle|Fairy Dust - jacksonacademyashmore|Metal Smash - gristi|Door locked.wav - mitchanary - Modified|Coins.wav - Saviraz
-Language
-语言
-English
-英语
-Chinese
-简体中文
-Kinky Dungeon v3.7
-变态地牢 v3.7
+Kinky Dungeon v3.34.2
+变态地牢 v3.34.2
 You are an adventurer descending into an ancient underground city of magic.
 你是一个冒险家，下降到一个古老的地下魔法城市。
 Beneath its depths lies the Mistress' Staff, an artifact of untold power.
@@ -62,10 +52,8 @@ Harder: A more difficult journey
 更难：更困难的旅程
 Select your character's background. You cannot change these in the future.
 选择角色的背景。您将来无法更改这些。
-Advanced start (choose perks)
-高级启动（选择额外选项）
-Confirm and start playing!
-确认并开始游戏！
+Start Playing
+开始游戏
 Point Cost: AMOUNT
 积分成本：AMOUNT
 Points Available: AMOUNT
@@ -120,12 +108,12 @@ Your security level starts at 100 and cannot go below 70.
 您的安全级别从 100 开始，不能低于 70。
 Studious
 好学
-You start the game with +3 additional spell points.
-游戏开始时，您将获得3点额外法术点数。
+You start the game with Level 2 in all schools and +1 additional spell point.
+游戏开始时您的所有法术类型的等级都会是2级，并获得额外1点法术点。
 Meditation
 冥想
-You slowly regenerate mana, up to a maximum of 50.
-你缓慢地恢复法力值，最多 50 点。
+You slowly regenerate mana, up to a maximum of 4.
+你缓慢地恢复法力值，最多 4 点。
 Willpower
 坚毅
 -50% stamina drain from being at high arousal.
@@ -212,8 +200,8 @@ You can cast Elemental spells without having the components, at twice the cost. 
 你可以以两倍魔力消耗为代价无视施法条件使用元素法术。开局获得技能 火焰弹。
 Conjurer
 咒术师
-You can cast Conjuration spells without having the components, at twice the cost. Start w/ Conjure Chain.
-你可以以两倍魔力消耗为代价无视施法条件使用咒术。开局获得技能 咒术。
+You can cast Conjuration spells without having the components, at twice the cost. Start w/ Binding Chain.
+你可以以两倍魔力消耗为代价无视施法条件使用咒术。开局获得技能 捆绑锁链。
 Magician
 魔术师
 You can cast Illusion spells without having the components, at twice the cost. Start w/ Shadow Dagger.
@@ -239,8 +227,8 @@ Enemies see you through walls and at greater distance.
 敌人透过墙壁和更远的距离看到你。
 Supermarket
 超市
-Commerce shrines can appear in levels and have slightly more items.
-商业神殿可以出现在不同的层次上，并拥有更多的物品。
+Commerce shrines are more commmon, and the shop contains 5 more items than usual.
+商业神泉更常见，商店里的物品比平时多 5 件。
 Price Gouging
 敲竹杠
 Items are 5x as expensive in the shop.
@@ -287,20 +275,8 @@ You don't lose stamina when walking with one slowing item, unless it binds your 
 带着一件减速物品走路时不会失去耐力，除非它把你的腿绑在一起。
 Well-Equipped
 设备精良
-Restraints and traps that are limited by level appear sooner, and enemies will stack many restraints.
-限制在一定层数以后出现的拘束具和陷阱会更早的出现，并且敌人会堆叠更多的束缚。
-Butterfingers
-黄油手指
-Having arms bound prevents you from using your hands to struggle or unlock yourself.
-被束缚的手臂会阻止你用手挣扎或解锁自己。
-Weak Grip
-弱式握杆
-Having arms bound prevents you from holding weapons or potions.
-被束缚的手臂无法持有武器或药剂。
-Can't Hear You!
-听不见你说话！
-Being gagged blocks you from casting verbal spells regardless of gag power.
-被堵嘴会阻止你施放言语咒语，无论堵嘴的等级如何。
+Restraints and traps that are limited by level now appear much earlier.
+限制在一定层数以后出现的拘束具和陷阱会更早的出现。
 Quick-Draw
 快速拔刀
 Switching weapons does not take a turn.
@@ -339,44 +315,34 @@ Goddesses will expect you to wear their restraints as their champion.
 女神会期望你作为她们的卫士时穿戴她们的拘束具。
 Nowhere is Safe
 草木皆兵
-Beds and furniture are often trapped.
-床和木桶经常会是陷阱。
+Beds and barrels have a 50% chance to be trapped.
+床和木桶有 50% 的几率是陷阱。
 Quickness
 速度
 Grants Quickness after not moving for 4 turns. Quickness lets you move 1 space without ticking the clock.
 4回合不动后获得"敏捷"。"敏捷"可以让您瞬间移动 1 格。
 Dominant
 支配者
-Trespasser
-入侵者
-You lose reputation with the goddesses every time you advance a floor.
-每次你进入下一层楼时，你会失去女神们的声誉。
 They're trapped here with you. Ghosts are more helpful, and you can bind enemies that confront you about bondage.
 他们和你一起被困在这里。鬼魂更有帮助，你可以束缚与你对抗的敌人。
 Prisoner
 囚犯
-Start the game as a submissive prisoner wandering the halls.
-作为一个在大厅里游荡的顺从囚犯开始游戏。
+Start the game as a released prisoner wandering the halls.
+以在大厅里游荡的释放囚犯的身份开始游戏。
 Rusty Bolts
 生锈的螺栓
 Most traps have a 25% misfire chance.
 大多数陷阱有 25% 的失效几率。
 Unmasked
-无面罩
+揭开面纱
 Hoods and full-face covering masks do not appear, but blindfolds are more powerful.
 头套和全覆盖面罩不会出现，但眼罩更强大。
-Panic!!!
-惊恐！！！
-When you step on a trap, you are stunned for 2 turns.
-当你踩到陷阱时，你会晕眩2回合。
-Panic sets in! (Stunned 2 turns)
-恐慌！（眩晕2回合）
 Maid Sweeper
 女仆清洁工
 Start in a magically locked maid outfit.
 开局时穿戴使用魔法锁住的女仆装。
-Wolf Trainee
-受训狼
+Trainee
+实习生
 Start in a uniform of a naughty wolfgirl.
 开局时穿戴狼女的衣服。
 Latex Mannequin
@@ -387,20 +353,10 @@ Iron Slave
 钢铁奴隶
 Start in a full set of magically locked obsidian cuffs.
 开局时穿戴被魔法锁住的全套黑曜石铐。
-Copy to Clipboard
-复制到剪贴板
 Ignited!!!
 点燃！！！
 The air around you is ablaze! (-DamageDealt SP)
 你周围的空气在燃烧！ (-DamageDealt SP)
-Arcane Power
-神秘强化
-Arcane Protection
-神秘保护
-Arcane Explosion
-神秘爆炸
-Arcane Cunning
-诡计多端
 Slime Form
 史莱姆形态
 Shroud
@@ -509,64 +465,22 @@ Come back later for new dungeons!
 请以后再来游玩全新的地牢！
 
 
-Got the keys!
-拿到钥匙了！
-Missing key
-未找到钥匙
 Miscast: Percent
 施法失败：Percent
-Evasion: Percent%
-闪避: Percent%
-Sight Range: RADIUS
-视距: RADIUS
-Speed: SPD
-速度: SPD
-Normal
-正常
-Stunned!
-眩晕！
-Slowed
-缓慢
-Very Slow
-非常慢
-Immobile
-无法移动
-DP: PERCENT%
-干扰值: PERCENT%
+DP: CURRENT/MAX
+干扰值: CURRENT/MAX
 SP: CURRENT/MAX
 体力值: CURRENT/MAX
 Willpower: CURRENT/MAX
 体力值: CURRENT/MAX
 MP: CURRENT/MAX
 魔力值：CURRENT/MAX
-WP: CURRENT/MAX
-意志力: CURRENT/MAX
-Charge: PERCENT
-电荷: PERCENT
 Use Potion
 使用药水
  MP
 魔力
-Mana slowly recovers from a pool equal to 4x your max mana. Drink potions to restore the pool.
-法力从一个相当于你最大法力4倍的池中缓慢恢复。喝药水恢复池。
-Your minimum distraction increases over time as you encounter distracting things.
-当你遇到分心的事情时，你的最小干扰值会随着时间的推移而增加。
-Stamina recovers more quickly when you aren't spending it.
-当你休息时，耐力恢复得更快。
-Willpower is restored by food, sleep, and potions. Without willpower, it becomes very difficult to escape.
-意志力通过食物、睡眠和药剂恢复。没有意志力，就很难逃脱。
-Charge is used to power various magic items and weapons.
-电荷用于为各种魔法物品和武器提供能量。
 Go to sleep
 睡觉
-Make noise!
-制造噪音！
-Wait until interrupted
-等待至被打断
-Auto-struggle
-自动尝试挣脱
-Auto-path
-自动寻路
 Play with yourself
 自慰
 Let go...
@@ -603,14 +517,10 @@ Save Outfit (overwrites!)
 保存服装（覆盖！）
 Save Keybindings
 保存键位
-Cancel Changes
-取消修改
 Change Keybindings
 更改键位
 Load from code
 从代码加载
-Start Playing
-开始游玩
 Back to main menu
 返回主菜单
 Clear Perks
@@ -643,14 +553,6 @@ Spell 4
 法术 4
 Spell 5
 法术 5
-Spell 6
-法术 6
-Spell 7
-法术 7
-Cycle Spell Page
-循环法术页面
-Last Held Weapon
-最后持有的武器
 Ranged Attack
 远程攻击
 Wait
@@ -787,8 +689,6 @@ You find gold, plus a filling and tormenting magical trap! (+RestraintType) (+XX
 你找到了金币，外加一个充满且折磨人的魔法陷阱！ (+RestrainType) (+XXX gold)
 You find gold, plus a devious magical trap! (+RestraintType) (+XXX gold)
 你找到了黄金，外加一个狡猾的魔法陷阱！ (+RestrainType) (+XXX gold)
-Magical runes glow as animated restraints fly out of the chest!
-拘束具随着魔法符文的动画而发着光从箱子中飞出！
 You find a special collar that lets you absorb energy from potions.
 你会发现一个特殊的项圈，可以让你从药水中直接吸收能量。
 You find a pair of garish pink high heels with a slippery surface.
@@ -1037,24 +937,16 @@ You drink the stamina potion and feel invigorated.
 你喝了体力药水，感觉精力充沛。
 A potion brimming with heat and energy.
 充满热量和能量的药水。
-Restores 50% stamina and 250% more over 25 turns. Effect does not stack.
-立即恢复50%最大耐力，并在接下来12回合中恢复67%耐力。效果不能叠加。
-Willpower Potion
-意志力药水
-You drink the willpower potion and feel motivated.
-你喝了意志力药水，感觉到了动力。
-A sweet potion, brimming with determination.
-充满决心的甜蜜药水
-Restores 25% willpower instantly.
-立即恢复25%的意志力。
+Restores 33% stamina and 67% more over 12 turns. Effect does not stack.
+立即恢复33%最大耐力，并在接下来12回合中恢复67%耐力。效果不能叠加。
 Frigid Potion
 寒冰药水
 You chug the concoction and your senses numb, helping you concentrate.
 你喝下混合物，感觉变得麻木，你的注意力开始集中。
 A freezing cold bottle with a bitter scent.
 一个冰冷的瓶子，带着苦涩的气味。
-Reduces distraction by 100% instantly and grants additional Distraction decay for 50 turns.
-立即减少100%的干扰值，并允许额外的干扰值衰减50回合。
+Reduces distraction to 0 instantly and grants 0.8 Distraction decay for 50 turns.
+立即将干扰值减少到 0，并在 50 回合内给予 0.8 干扰值衰减。
 Smoke Bomb
 烟雾弹
 You toss the smoke bomb and it explodes in your location!
@@ -1159,13 +1051,8 @@ Staff of Binding
 束缚法杖
 A magical weapon made to use on novices.
 适合新手使用的魔法武器。
-+20% chain damage. Deals chain damage and roots the target for 4 turns. 150% binding efficiency.
-锁链伤害+20%并定身4回合。绑定效率为150%。
-Arcane Orb
-神秘球
-Look into my eyes...
-看着我的眼睛。。。
-造成暗影伤害。可以不用手使用。敌人易受攻击并不会使其受益。
+Deals chain damage and roots the target for 4 turns.
+对目标造成锁链伤害并定身4回合。
 Hammer
 锤子
 A rather simplistic bludgeoning weapon.
@@ -1322,22 +1209,8 @@ Hit Chance:
 命中几率：
 No Exit Keys
 没有离开的钥匙
-Find the keys..
-寻找钥匙...
-Find the exit!
-寻找出口！
-Found something sharp!
-找到了锋利的东西！
-Found a corner!
-找到一个角落！
-Found a crack!
-找到一条裂缝！
-Found something sticky!
-发现了一些黏糊糊的东西！
 Receiving Help...
 正在接受帮助...
-Found a hook!
-找到了一个钩子！
 Found an edge!
 找到了边缘！
 Evasion:
@@ -1346,26 +1219,22 @@ Visibility:
 可见度：
 Armor:
 盔甲：
-Spell Ward:
+SpellResist:
 法术抗性：
-In the Shadows
-在阴影中
 Invisible!
-隐身！
+无形的！
 Quickness!!!
-敏捷！！！
+速度！！！
 Shield:
-护盾：
+盾：
 DAMAGETYPE Mod:
-受伤类型 Mod：
+DAMAGETYPE Mod：
 Released from Jail
 出狱
 On the Run!
 快跑！
-Prisoner
-囚犯
-Freedom
-自由
+Imprisoned!
+入狱！
 Crawling slowly!
 缓慢爬行！
 Inching slowly!
@@ -1413,7 +1282,7 @@ Rear
 Feet
 脚
 Everywhere!
-任何位置！
+到处！
 You feel a gentle buzz...
 你感觉到了轻轻的振动...
 Your toys tease you gently...
@@ -1423,7 +1292,7 @@ Your toys are vibrating.
 Your toys are buzzing strongly!
 你的玩具发出强烈的嗡嗡声！
 Your toys vibrate intensely!
-你的玩具剧烈振动！
+你的玩具会剧烈振动！
 The vibration is torturous!
 震动令你感到痛苦！
 Edged!
@@ -1564,84 +1433,84 @@ The zombie moans and collapses to the ground.
 僵尸呻吟着倒在地上。
 The zombie's charms attach to your body (+RestraintAdded)
 僵尸的绷带附在你的身上（+RestraintAdded）
-The zombie caresses your body! (DamageTaken)
-僵尸爱抚你的身体！ (DamageTaken)
+The zombie caresses your body! (-DamageTaken SP)
+僵尸爱抚你的身体！ (-DamageTaken SP)
 Maidforce Recruit
 女佣招募
 The maid does a fumbled retreat.
 女仆手忙脚乱地撤退。
 The maid uses a fast-binding technique! (+RestraintAdded)
 女仆使用快速绑定技术！ （+RestraintAdded）
-The maid snaps a lock on one of your restraints! (DamageTaken)
-女仆锁住了你的一个拘束具！ (DamageTaken)
-The maid tickles you with her feather duster! (DamageTaken)
-女仆用她的鸡毛掸子逗你！ (DamageTaken)
+The maid snaps a lock on one of your restraints! (-DamageTaken SP)
+女仆锁住了你的一个拘束具！ (-DamageTaken SP)
+The maid tickles you with her feather duster! (-DamageTaken SP)
+女仆用她的鸡毛掸子逗你！ (-DamageTaken SP)
 M.F. 'Unseen Blade'
 M.F. "隐秘之刃"
 The maid runs back to the shadows.
 女仆逃回阴影中。
 The maid uses secure restraints on you! (+RestraintAdded)
 女仆对你进行严密的拘束！ （+RestraintAdded）
-The maid snaps a lock on one of your restraints! (DamageTaken)
-女仆锁住了你的一个拘束具！ (DamageTaken)
-The maid stealthily rubs your sensitive areas! (DamageTaken)
-女仆偷偷摸摸你的敏感部位！ (DamageTaken)
+The maid snaps a lock on one of your restraints! (-DamageTaken SP)
+女仆锁住了你的一个拘束具！ (-DamageTaken SP)
+The maid stealthily rubs your sensitive areas! (-DamageTaken SP)
+女仆偷偷摸摸你的敏感部位！ (-DamageTaken SP)
 The maid throws a smoke bomb at the ground!
 女仆向地面投掷烟雾弹！
 M.F. 'Unseen Blade'
 M.F. "隐秘之刃"
 The maid does a fumbled retreat.
 女仆手忙脚乱地撤退。
-The maid rubs you from many angles! (DamageTaken)
-女仆从多个角度爱抚你的身体！ (DamageTaken)
+The maid rubs you from many angles! (-DamageTaken SP)
+女仆从多个角度爱抚你的身体！ (-DamageTaken SP)
 M.F. 'Going Loud'
 M.F.“大声”
 The maid does a fumbled retreat.
 女仆手忙脚乱地撤退。
 The maid uses secure restraints on you! (+RestraintAdded)
 女仆对你进行严密的拘束！ （+RestraintAdded）
-The maid snaps a lock on one of your restraints! (DamageTaken)
-女仆锁住了你的一个拘束具！ (DamageTaken)
-The maid lands a kick and stuns you! (DamageTaken)
-女仆一脚踢晕了你！ (DamageTaken)
-The maid slaps you with a scornful expression! (DamageTaken)
-女仆一脸不屑的打你！ (DamageTaken)
+The maid snaps a lock on one of your restraints! (-DamageTaken SP)
+女仆锁住了你的一个拘束具！ (-DamageTaken SP)
+The maid lands a kick and stuns you! (-DamageTaken SP)
+女仆一脚踢晕了你！ (-DamageTaken SP)
+The maid slaps you with a scornful expression! (-DamageTaken SP)
+女仆一脸不屑的打你！ (-DamageTaken SP)
 M.F. 'Parasol'
-M.F. 帕拉索尔
+M.F. 帕拉索尔 
 The maid leaps out of sight.
 女仆跳出视线。
 The maid uses secure restraints on you! (+RestraintAdded)
 女仆对你进行严密的拘束！ （+RestraintAdded）
-The maid snaps a lock on one of your restraints! (DamageTaken)
-女仆锁住了你的一个拘束具！ (DamageTaken)
-The maid caresses your breasts with a smile! (DamageTaken)
-女仆微笑着抚摸你的乳房！ (DamageTaken)
+The maid snaps a lock on one of your restraints! (-DamageTaken SP)
+女仆锁住了你的一个拘束具！ (-DamageTaken SP)
+The maid caresses your breasts with a smile! (-DamageTaken SP)
+女仆微笑着抚摸你的乳房！ (-DamageTaken SP)
 M.F. 'Master Plan'
 MF“总体规划”
 The head maid surrenders gracefully.
 女仆长优雅地投降。
 The head maid suddenly whips out a restraint and locks it on! (+RestraintAdded)
 女仆长突然抽出拘束具，将其锁在你身上！ （+RestraintAdded）
-The head maid snaps her fingers and locks your restraints! (DamageTaken)
-女仆长打了个响指，锁住了你们的拘束具！ (DamageTaken)
-The head maid tickles you strategically! (DamageTaken)
-女仆长有策略地逗你！ (DamageTaken)
+The head maid snaps her fingers and locks your restraints! (-DamageTaken SP)
+女仆长打了个响指，锁住了你们的拘束具！ (-DamageTaken SP)
+The head maid tickles you strategically! (-DamageTaken SP)
+女仆长有策略地逗你！ (-DamageTaken SP)
 Fire Elemental
 火元素
 The fire elemental dissolves into ash.
 火元素溶解成灰烬。
 The fire elemental conjures forged restraints around your limbs! (+RestraintAdded)
 火元素在你的四肢周围召唤出锻造的束缚！ （+RestraintAdded）
-The fire elemental places a heavy lock on your restraint! (DamageTaken)
-火元素重重地锁住了你的拘束具！ (DamageTaken)
-The fire elemental touches you with her burning finger! (DamageTaken)
-火元素用她燃烧的手指触碰你！ (DamageTaken)
+The fire elemental places a heavy lock on your restraint! (-DamageTaken SP)
+火元素重重地锁住了你的拘束具！ (-DamageTaken SP)
+The fire elemental touches you with her burning finger! (-DamageTaken SP)
+火元素用她燃烧的手指触碰你！ (-DamageTaken SP)
 Ranger of the Wild
 荒野游侠
 The ranger disappears into the environment.
 游侠消失在环境中。
-The ranger gropes your chest with a smile on her face! (DamageTaken)
-游侠带着微笑摸着你的胸膛！ (DamageTaken)
+The ranger gropes your chest with a smile on her face! (-DamageTaken SP)
+游侠带着微笑摸着你的胸膛！ (-DamageTaken SP)
 The ranger surprises you and binds you! (+RestraintAdded)
 游侠偷袭了你并绑住了你！ （+RestraintAdded）
 Druid of the Wild
@@ -1650,8 +1519,8 @@ The druid calls forth vines to mask her retreat.
 德鲁伊召唤出藤蔓来掩护她撤退。
 The druid calls forth vines to mask her retreat.
 德鲁伊召唤出藤蔓来掩护的撤退。
-The druid holds your face and kisses you! (DamageTaken)
-德鲁伊捧着你的脸亲吻你！ (DamageTaken)
+The druid holds your face and kisses you! (-DamageTaken SP)
+德鲁伊捧着你的脸亲吻你！ (-DamageTaken SP)
 The druid binds you with mithril restraints! (+RestraintAdded)
 德鲁伊用秘银拘束具束缚你！ （+RestraintAdded）
 Water Elemental
@@ -1662,8 +1531,8 @@ The water elemental's song compels you to be bound! (+RestraintAdded)
 水元素的歌声强迫你被束缚！ （+RestraintAdded）
 The water elemental's song compels you to step forward and receive a binding!
 水元素的歌声让你走过去被束缚！
-The water elemental sings an arousing song! (DamageTaken)
-水元素唱起挑逗的歌！ (DamageTaken)
+The water elemental sings an arousing song! (-DamageTaken SP)
+水元素唱起挑逗的歌！ (-DamageTaken SP)
 Ice Elemental
 冰元素
 The ice elemental melts into a pool of water.
@@ -1672,8 +1541,8 @@ The ice elemental touches you, forming tendrils of ice! (+RestraintAdded)
 冰元素接触到你，用冰拘束了你！ （+RestraintAdded）
 The ice elemental creates icy locks on your restraints!
 冰元素在你的拘束具上形成冰锁！
-The ice elemental gives a chilling touch to your body! (DamageTaken)
-冰元素给你的身体带来冰冷的触感！ (DamageTaken)
+The ice elemental gives a chilling touch to your body! (-DamageTaken SP)
+冰元素给你的身体带来冰冷的触感！ (-DamageTaken SP)
 Earth Elemental
 土元素
 The earth elemental sinks into the ground.
@@ -1684,8 +1553,8 @@ The earth elemental locks a restraint!
 土元素锁了一个拘束具！
 The earth elemental dashes through the earth!
 土元素冲破大地！
-The earth elemental gives you a heavy massage! (DamageTaken)
-土元素重重地按压你！ (DamageTaken)
+The earth elemental gives you a heavy massage! (-DamageTaken SP)
+土元素重重地按压你！ (-DamageTaken SP)
 Air Elemental
 风元素
 There is no more elemental. Must have been just the wind.
@@ -1696,48 +1565,48 @@ The air elemental blinks to your position!
 气元素闪烁到你的位置！
 The air elemental slips a lock on!
 气元素锁上了一个拘束具！
-The air elemental spanks you playfully! (DamageTaken)
-气元素玩弄地拍打你！ (DamageTaken)
+The air elemental spanks you playfully! (-DamageTaken SP)
+气元素玩弄地拍打你！ (-DamageTaken SP)
 Angry Zombie
 愤怒的僵尸
 The zombie screams and tumbles to the floor.
 僵尸尖叫着摔倒在地。
 The zombie swiftly wraps you in charms! (+RestraintAdded)
 僵尸迅速将你包裹在绷带中！ （+RestraintAdded）
-The zombie gropes your body! (DamageTaken)
-僵尸摸索着你的身体！ (DamageTaken)
+The zombie gropes your body! (-DamageTaken SP)
+僵尸摸索着你的身体！ (-DamageTaken SP)
 Zombie
 僵尸
 The zombie screams and tumbles to the floor.
 僵尸尖叫着摔倒在地。
 The zombie swiftly wraps you in charms! (+RestraintAdded)
 僵尸迅速将你包裹在绷带中！ （+RestraintAdded）
-The zombie gropes your body! (DamageTaken)
-僵尸摸索着你的身体！ (DamageTaken)
+The zombie gropes your body! (-DamageTaken SP)
+僵尸摸索着你的身体！ (-DamageTaken SP)
 Skillful Zombie
 熟练的僵尸
 The zombie smiles as it collapses to the ground.
 丧尸微笑着倒在地上。
 The zombie swiftly ties you! (+RestraintAdded)
 僵尸迅速地束缚了你！ （+RestraintAdded）
-The zombie cuddles with your body! (DamageTaken)
-僵尸拥抱你的身体！ (DamageTaken)
+The zombie cuddles with your body! (-DamageTaken SP)
+僵尸拥抱你的身体！ (-DamageTaken SP)
 Mage Zombie
 法师僵尸
 The zombie frowns and disappears in a puff of ice and ribbons.
 僵尸皱起眉头，消失在一阵冰和丝带中。
 The zombie smiles as she wraps you in charms! (+RestraintAdded)
 僵尸在用绷带包裹你时微笑！ （+RestraintAdded）
-The zombie gropes your body! (DamageTaken)
-僵尸摸索着你的身体！ (DamageTaken)
+The zombie gropes your body! (-DamageTaken SP)
+僵尸摸索着你的身体！ (-DamageTaken SP)
 Talisman Zombie
 丝带僵尸
 The zombie pouts and puts up a shield to let her retreat.
 僵尸撅着嘴，竖起盾牌让她撤退。
 The zombie giggles as she wraps you in charms! (+RestraintAdded)
 当她用绷带包裹你时，僵尸会咯咯地笑！ （+RestraintAdded）
-The zombie gropes your body! (DamageTaken)
-僵尸摸索着你的身体！ (DamageTaken)
+The zombie gropes your body! (-DamageTaken SP)
+僵尸摸索着你的身体！ (-DamageTaken SP)
 Warrior Zombie
 战士僵尸
 The Warrior zombie yells and falls cinematically.
@@ -1746,16 +1615,16 @@ The Warrior zombie uses a traditional binding technique (+RestraintAdded)
 战士僵尸使用传统的绑定技术（+RestraintAdded）
 The Warrior zombie strikes you with her wooden sword! (+STUN)
 战士僵尸用她的木剑攻击你！ （+眩晕）
-The Warrior zombie runs its fingers along your body! (DamageTaken)
-战士僵尸的手指沿着你的身体移动！ (DamageTaken)
+The Warrior zombie runs its fingers along your body! (-DamageTaken SP)
+战士僵尸的手指沿着你的身体移动！ (-DamageTaken SP)
 Rope Artist
 绳艺师
 The rope artist frowns and walks away, looking defeated.
 绳艺师皱着眉头走开了，看起来很泄气。
 The rope artist performs an intricate technique! (+RestraintAdded)
 绳索艺术家表演了一项复杂的技术！ （+RestraintAdded）
-The rope artist smiles and tickles your feet! (DamageTaken)
-绳艺师微笑着挠你的脚！ (DamageTaken)
+The rope artist smiles and tickles your feet! (-DamageTaken SP)
+绳艺师微笑着挠你的脚！ (-DamageTaken SP)
 Ninja Warrior
 忍者战士
 The warrior retreats into the shadows.
@@ -1764,84 +1633,84 @@ The warrior uses a traditional binding technique (+RestraintAdded)
 战士使用传统的绑定技术（+RestraintAdded）
 The warrior tosses a shuriken and hits you! (Stunned!)
 战士扔手里剑，打你！ （眩晕！）
-The warrior uses a subduing technique! (DamageTaken)
-武者使用了捆绑之术！ (DamageTaken)
+The warrior uses a subduing technique! (-DamageTaken SP)
+武者使用了捆绑之术！ (-DamageTaken SP)
 Ninja Assassin
 忍者刺客
 The assassin retreats into the shadows.
 刺客撤退到阴影中。
 The assassin uses a traditional binding technique (+RestraintAdded)
 刺客使用传统的捆绑技术（+RestraintAdded）
-The assassin uses a subduing technique! (DamageTaken)
-刺客使用了捆绑技术！ (DamageTaken)
+The assassin uses a subduing technique! (-DamageTaken SP)
+刺客使用了捆绑技术！ (-DamageTaken SP)
 Animated Armor
 活化盔甲
 The Animated Armor falls into pieces.
 活化盔甲碎成碎片。
 The Animated Armor restrains you with shackles (+RestraintAdded)
 活化盔甲用镣铐束缚你（+RestraintAdded）
-The Animated Armor hugs your body with an iron grip! (DamageTaken)
-活化盔甲包裹着你的身体！ (DamageTaken)
+The Animated Armor hugs your body with an iron grip! (-DamageTaken SP)
+活化盔甲包裹着你的身体！ (-DamageTaken SP)
 Mimic
 宝箱怪
 The mimic spills out its contents.
 宝箱怪吐出了它的内容。
 The mimic spits out a restraint which latches onto you! (+RestraintAdded)
 宝箱怪吐出一个拘束具并束缚住了你！ （+RestraintAdded）
-The mimic tickles you with its tongue! (DamageTaken)
-模仿者用它的舌头逗你！ (DamageTaken)
+The mimic tickles you with its tongue! (-DamageTaken SP)
+模仿者用它的舌头逗你！ (-DamageTaken SP)
 Skeleton
 骷髅
 The Skeleton falls to pieces.
 骷髅碎了。
 The Skeleton restrains you! (+RestraintAdded)
 骷髅束缚了你！ （+RestraintAdded）
-The Skeleton tackles you! (DamageTaken)
-骷髅在攻击你！ (DamageTaken)
+The Skeleton tackles you! (-DamageTaken SP)
+骷髅在攻击你！ (-DamageTaken SP)
 Dragonheart Initiate
 龙心新手
 The Dragonheart Initiate retreats hurriedly.
 龙心新手连忙撤退。
 The Dragonheart Initiate apprehends you! (+RestraintAdded)
 龙心新手逮捕了你！ （+RestraintAdded）
-The Dragonheart Initiate squeezes your body! (DamageTaken)
-龙心新手在揉捏你的身体！ (DamageTaken)
+The Dragonheart Initiate squeezes your body! (-DamageTaken SP)
+龙心新手在揉捏你的身体！ (-DamageTaken SP)
 Dragonheart Shield
 龙心之盾
 The Dragonheart Shield makes a tactical retreat.
 龙心之盾进行战术撤退。
 The Dragonheart Shield apprehends you! (+RestraintAdded)
 龙心之盾逮捕了你！ （+RestraintAdded）
-The Dragonheart Shield bonks you! (DamageTaken)
-龙心之盾在撞击你！ (DamageTaken)
-The Dragonheart Shield squeezes your body! (DamageTaken)
-龙心之盾压迫你的身体！ (DamageTaken)
+The Dragonheart Shield bonks you! (-DamageTaken SP)
+龙心之盾在撞击你！ (-DamageTaken SP)
+The Dragonheart Shield squeezes your body! (-DamageTaken SP)
+龙心之盾压迫你的身体！ (-DamageTaken SP)
 Ice Dragonheart
 冰龙之心
 The Ice Dragonheart retreats in a blast of snow.
 冰龙之心在一阵暴雪中撤退。
 The Ice Dragonheart apprehends you! (+RestraintAdded)
 冰龙之心逮捕了你！ （+RestraintAdded）
-The Ice Dragonheart gives your body a cold touch! (DamageTaken)
-冰龙之心给你的身体带来冰冷的触感！ (DamageTaken)
+The Ice Dragonheart gives your body a cold touch! (-DamageTaken SP)
+冰龙之心给你的身体带来冰冷的触感！ (-DamageTaken SP)
 Poison Dragonheart
 毒龙心
 The Poison Dragonheart retreats in a green mist.
 毒龙心在一片绿雾中退去。
 The Poison Dragonheart apprehends you! (+RestraintAdded)
 毒龙心逮捕了你！ （+RestraintAdded）
-The Poison Dragonheart smacks you with her axe! (DamageTaken)
-毒龙心用她的斧头砸你！ (DamageTaken)
-The Poison Dragonheart thrums her claws across your figure! (DamageTaken)
-毒龙心用爪子划过你的身体！ (DamageTaken)
+The Poison Dragonheart smacks you with her axe! (-DamageTaken SP)
+毒龙心用她的斧头砸你！ (-DamageTaken SP)
+The Poison Dragonheart thrums her claws across your figure! (-DamageTaken SP)
+毒龙心用爪子划过你的身体！ (-DamageTaken SP)
 Crystal Dragonheart
 水晶龙心
 The Crystal Dragonheart screams and falls to the ground dramatically.
 水晶龙心惨叫一声，剧烈的倒在了地上。
 The Crystal Dragonheart apprehends you! (+RestraintAdded)
 水晶龙心逮捕了你！ （+RestraintAdded）
-The Crystal Dragonheart squeezes you in a big hug! (DamageTaken)
-水晶龙之心紧紧拥抱你！ (DamageTaken)
+The Crystal Dragonheart squeezes you in a big hug! (-DamageTaken SP)
+水晶龙之心紧紧拥抱你！ (-DamageTaken SP)
 Many crystals rise up out of the ground!
 许多水晶从地下升起！
 A crystal rises up out of the ground!
@@ -1860,34 +1729,34 @@ The statue topples over and reveals a mechanism!
 雕像倒塌，露出一个机械装置！
 The statue shoves a gag into your mouth, which inflates to fill the space! (+RestraintAdded)
 雕像将一个口球塞进你的嘴里，口球膨胀并塞满了你的嘴！ （+RestraintAdded）
-The statue kisses your gag! (DamageTaken)
-雕像亲吻你的口球！ (DamageTaken)
+The statue kisses your gag! (-DamageTaken SP)
+雕像亲吻你的口球！ (-DamageTaken SP)
 Chaotic Crystal
 混沌水晶
 The crystal shatters!
 水晶碎了！
-The chaotic crystal leeches willpower from you! (DamageTaken)
-混沌水晶从你身上汲取体力！ (DamageTaken)
+The chaotic crystal leeches willpower from you! (-DamageTaken SP)
+混沌水晶从你身上汲取体力！ (-DamageTaken SP)
 Grand Chaotic Crystal
 大混沌水晶
 The grand crystal shatters!
 大水晶碎裂！
-The grand crystal leeches willpower from you! (DamageTaken)
-大水晶从你身上汲取体力！ (DamageTaken)
+The grand crystal leeches willpower from you! (-DamageTaken SP)
+大水晶从你身上汲取体力！ (-DamageTaken SP)
 Crystals erupt from the ground and slowly grow around your limbs! (+RestraintAdded)
 水晶从地下喷涌而出，在你的四肢周围慢慢生长！ （+RestraintAdded）
 Soul Crystal
 灵魂水晶
 The crystal shatters into a puff of soul dust!
 水晶碎成一团魂尘！
-The soul crystal leeches willpower from you! (DamageTaken)
-灵魂水晶吸取你的体力！ (DamageTaken)
+The soul crystal leeches willpower from you! (-DamageTaken SP)
+灵魂水晶吸取你的体力！ (-DamageTaken SP)
 Active Soul Crystal
 活化灵魂水晶
 The crystal shatters into a puff of soul dust!
 水晶碎成一团魂尘！
-The soul crystal leeches willpower from you! (DamageTaken)
-灵魂水晶在吸取你的体力！ (DamageTaken)
+The soul crystal leeches willpower from you! (-DamageTaken SP)
+灵魂水晶在吸取你的体力！ (-DamageTaken SP)
 Shadow Dragonheart
 影龙心
 The Shadow Dragonheart frowns and runs away.
@@ -1896,8 +1765,8 @@ The Shadow Dragonheart apprehends you! (+RestraintAdded)
 暗影龙心逮捕了你！ （+RestraintAdded）
 The Shadow Dragonheart extends her scythe and pulls you closer!!!
 影龙心伸出她的镰刀，把你拉近了！！！
-The Shadow Dragonheart catches you with her scythe! (DamageTaken)
-暗影龙心用她的镰刀抓住了你！ (DamageTaken)
+The Shadow Dragonheart catches you with her scythe! (-DamageTaken SP)
+暗影龙心用她的镰刀抓住了你！ (-DamageTaken SP)
 Dragonheart Leader
 龙心领袖
 The Dragonheart Leader retreats hurriedly.
@@ -1906,36 +1775,36 @@ The Dragonheart Leader apprehends you! (+RestraintAdded)
 龙心领袖逮捕了你！ （+RestraintAdded）
 The Dragonheart Leader dashes to you!
 龙心领袖正在冲向你！
-The Dragonheart Leader squeezes your body! (DamageTaken)
-龙心首领揉捏你的身体！ (DamageTaken)
+The Dragonheart Leader squeezes your body! (-DamageTaken SP)
+龙心首领揉捏你的身体！ (-DamageTaken SP)
 Dryad
 树妖
 The dryad sinks into the ground.
 树妖沉入地下。
 The dryad extends an arm, and she wraps you in vines! (+RestraintAdded)
 树妖伸出一只手臂，用藤蔓缠绕着你！ （+RestraintAdded）
-The dryad sings a song that mesmerizes you! (DamageTaken)
-树妖唱起了一首催眠之歌！ (DamageTaken)
-The dryad tickles you with a leaf! (DamageTaken)
-树精在用一片叶子逗你！ (DamageTaken)
+The dryad sings a song that mesmerizes you! (-DamageTaken SP)
+树妖唱起了一首催眠之歌！ (-DamageTaken SP)
+The dryad tickles you with a leaf! (-DamageTaken SP)
+树精在用一片叶子逗你！ (-DamageTaken SP)
 Dryad
 树妖
 The dryad sinks into the ground.
 树妖沉入地下。
 The dryad extends an arm, and she wraps you in vines! (+RestraintAdded)
 树妖伸出一只手臂，用藤蔓缠绕着你！ （+RestraintAdded）
-The dryad sings a song that mesmerizes you! (DamageTaken)
-树妖唱起了一首催眠之歌！ (DamageTaken)
-The dryad tickles you with a leaf! (DamageTaken)
-树精在用一片叶子逗你！ (DamageTaken)
+The dryad sings a song that mesmerizes you! (-DamageTaken SP)
+树妖唱起了一首催眠之歌！ (-DamageTaken SP)
+The dryad tickles you with a leaf! (-DamageTaken SP)
+树精在用一片叶子逗你！ (-DamageTaken SP)
 Alchemist
 炼金术士
 The alchemist screams and runs.
 炼金术士尖叫着跑了。
 The Alchemist restrains you! (+RestraintAdded)
 炼金术士拘束了你！ （+RestraintAdded）
-The alchemist hugs you in a rubbery embrace! (DamageTaken)
-炼金术士用橡胶般的拥抱了你！ (DamageTaken)
+The alchemist hugs you in a rubbery embrace! (-DamageTaken SP)
+炼金术士用橡胶般的拥抱了你！ (-DamageTaken SP)
 Alchemist's Pet
 炼金术士的宠物
 The wolfgirl escapes!
@@ -1944,8 +1813,8 @@ The wolfgirl lunges at you with a powerful kick!
 狼女强力地向你踢来！
 The wolfgirl lunges at you with a powerful kick!
 狼女强力地向你踢来！
-The wolfgirl cuddles with you! (DamageTaken)
-狼女抱住了你！ (DamageTaken)
+The wolfgirl cuddles with you! (-DamageTaken SP)
+狼女抱住了你！ (-DamageTaken SP)
 Wolfgirl
 狼女
 The wolfgirl escapes!
@@ -1954,14 +1823,14 @@ The wolfgirl lunges at you with a powerful kick!
 狼女强力地向你踢来！
 The wolfgirl lunges at you with a powerful kick!
 狼女强力地向你踢来！
-The wolfgirl cuddles with you! (DamageTaken)
-狼女抱住了你！ (DamageTaken)
+The wolfgirl cuddles with you! (-DamageTaken SP)
+狼女抱住了你！ (-DamageTaken SP)
 Wolfgirl Trainer
 狼女训练师
 The trainer retreats!
 训练师撤退！
-The wolfgirl trainer squeezes your breasts playfully! (DamageTaken)
-狼女训练师玩弄地挤你的胸！ (DamageTaken)
+The wolfgirl trainer squeezes your breasts playfully! (-DamageTaken SP)
+狼女训练师玩弄地挤你的胸！ (-DamageTaken SP)
 The wolfgirl trainer secures you in training gear! (+RestraintAdded)
 狼女训练师给你穿上了训练装备！ （+RestraintAdded）
 The wolfgirl trainer pins you and skillfully locks all of your restraints.
@@ -1970,26 +1839,26 @@ Ancient Drone
 远古无人机
 The drone fizzles and falls to the ground!
 无人机发出嘶嘶声并掉到地上！
-The drone zaps you with a restraining energy ray! (DamageTaken)
-无人机用抑制能量射线击杀你！ (DamageTaken)
-The drone uses a short-ranged electrocution attack! (DamageTaken)
-无人机使用短程电击攻击！ (DamageTaken)
+The drone zaps you with a restraining energy ray! (-DamageTaken SP)
+无人机用抑制能量射线击杀你！ (-DamageTaken SP)
+The drone uses a short-ranged electrocution attack! (-DamageTaken SP)
+无人机使用短程电击攻击！ (-DamageTaken SP)
 The drone deconstructs itself into a set of bindings!
 无人机将自己解构为一组绑定！
 Ancient Patrol Unit
 远古巡逻队
 The patrol unit releases magic smoke and explodes.
 巡逻队释放魔法烟雾并爆炸。
-The patrol unit uses a short-ranged electrocution attack! (DamageTaken)
-巡逻队使用近距离电击！ (DamageTaken)
+The patrol unit uses a short-ranged electrocution attack! (-DamageTaken SP)
+巡逻队使用近距离电击！ (-DamageTaken SP)
 The patrol unit extends its appendages and wraps them around you!
 巡逻队伸出它的附属物并将它们缠在你周围！
 Ancient Enforcer Unit
 远古执行者
 The enforcer unit releases magic smoke and explodes.
 执行者释放魔法烟雾并爆炸。
-The enforcer unit fires many cables that squeeze you! (DamageTaken)
-执法者发射了许多压迫你的电缆！ (DamageTaken)
+The enforcer unit fires many cables that squeeze you! (-DamageTaken SP)
+执法者发射了许多压迫你的电缆！ (-DamageTaken SP)
 The enforcer fires off restraints that wrap around your body and apprehend you!
 执法者发射拘束具束缚在你身上，并逮捕了你！
 The energy bolt hits you and paralyzes you!
@@ -2002,48 +1871,48 @@ The alkahestor resigns to her fate.
 宗师炼金师听天由命。
 The Alkahestor releases a vial of liquid that wraps around you! (+RestraintAdded)
 宗师炼金师释放一小瓶液体，并包裹住您！ （+RestraintAdded）
-The alkahestor shoves you! (DamageTaken)
-宗师炼金师推了你！ (DamageTaken)
+The alkahestor shoves you! (-DamageTaken SP)
+宗师炼金师推了你！ (-DamageTaken SP)
 Latex Elemental
 乳胶元素
 The latex elemental melts into sticky rubber.
 乳胶元素融化成粘性橡胶。
 The latex elemental molds itself into restraints! (+RestraintAdded)
 乳胶元素将自己塑造成拘束具！ （+RestraintAdded）
-The latex elemental slaps you with its appendages! (DamageTaken)
-乳胶元素用它的附肢拍打你！ (DamageTaken)
+The latex elemental slaps you with its appendages! (-DamageTaken SP)
+乳胶元素用它的附肢拍打你！ (-DamageTaken SP)
 Rope Elemental
 绳元素
 The rope elemental gets knotted and falls to the floor, inert.
 绳元素打结并掉到地板上，失去了活性。
 The rope elemental's limbs lash out at you, wrapping themselves around your body! (+RestraintAdded)
 绳元素的触手向你扑来，缠绕在你的身体上！ （+RestraintAdded）
-The rope elemental squeezes you tightly! (DamageTaken)
-绳元素紧紧地压迫着你！ (DamageTaken)
+The rope elemental squeezes you tightly! (-DamageTaken SP)
+绳元素紧紧地压迫着你！ (-DamageTaken SP)
 Leather Elemental
 皮革元素
 The leather elemental sits down and sulks.
 皮革元素坐下来闷闷不乐。
 The leather elemental wraps her long extremities around your body! (+RestraintAdded)
 皮革元素将她修长的四肢包裹在你的身体周围！ （+RestraintAdded）
-The leather elemental strikes you with her leather belts! (DamageTaken)
-皮革元素用她的皮带打动你！ (DamageTaken)
+The leather elemental strikes you with her leather belts! (-DamageTaken SP)
+皮革元素用她的皮带打动你！ (-DamageTaken SP)
 Slime Enthusiast
 史莱姆爱好者
 The slime enthusiast screams and runs.
 史莱姆爱好者尖叫着奔跑。
 The slime enthusiast restrains you! (+RestraintAdded)
 史莱姆爱好者拘束了你！ （+RestraintAdded）
-The Slime Enthusiast hugs you in a rubbery embrace! (DamageTaken)
-史莱姆爱好者橡胶般的拥抱你！ (DamageTaken)
+The Slime Enthusiast hugs you in a rubbery embrace! (-DamageTaken SP)
+史莱姆爱好者橡胶般的拥抱你！ (-DamageTaken SP)
 Miner
 矿工
 The bandit tosses her pick to the ground and complains about her pay.
 强盗把她的镐扔在地上，抱怨她的薪水。
 The miner restrains you! (+RestraintAdded)
 矿工拘束了你！ （+RestraintAdded）
-The miner pins you with the haft of her pickaxe! (DamageTaken)
-矿工用她的镐柄钉住你！ (DamageTaken)
+The miner pins you with the haft of her pickaxe! (-DamageTaken SP)
+矿工用她的镐柄钉住你！ (-DamageTaken SP)
 You hear a fuse going off...
 你听到引线在燃烧...
 Miner Bomb
@@ -2054,40 +1923,40 @@ The bandit collapses.
 盗贼崩溃了。
 The bandit restrains you! (+RestraintAdded)
 盗贼拘束了你！ （+RestraintAdded）
-The bandit caresses your restrained body! (DamageTaken)
-强盗抚摸着你被束缚的身体！ (DamageTaken)
+The bandit caresses your restrained body! (-DamageTaken SP)
+强盗抚摸着你被束缚的身体！ (-DamageTaken SP)
 Bandit Chief
 盗贼头领
 The bandit scoffs and retreats until next time.
 盗贼嗤之以鼻，撤退了。
 The bandit restrains you tightly! (+RestraintAdded)
 强盗紧紧地束缚了你！ （+RestraintAdded）
-The bandit runs her hands all along your restrained body! (DamageTaken)
-强盗的双手顺着你拘束的身体摸来摸去！ (DamageTaken)
+The bandit runs her hands all along your restrained body! (-DamageTaken SP)
+强盗的双手顺着你拘束的身体摸来摸去！ (-DamageTaken SP)
 Bandit Pet
 盗贼的宠物
 The bandit blushes and runs away.
 盗贼脸红了，跑了。
 The girl nervously restrains you! (+RestraintAdded)
 女孩紧张地拘束了你！ （+RestraintAdded）
-The bandit tickes you nervously! (DamageTaken)
-强盗紧张地对你挠痒！ (DamageTaken)
+The bandit tickes you nervously! (-DamageTaken SP)
+强盗紧张地对你挠痒！ (-DamageTaken SP)
 Bandit Hunter
 盗贼猎人
 The bandit hunter retreats.
 盗贼猎人撤退。
 The bandit hunter restrains you! (+RestraintAdded)
 盗贼猎人拘束了你！ （+RestraintAdded）
-The bandit hunter caresses your restrained body! (DamageTaken)
-盗贼猎人爱抚你拘束住的身体！ (DamageTaken)
+The bandit hunter caresses your restrained body! (-DamageTaken SP)
+盗贼猎人爱抚你拘束住的身体！ (-DamageTaken SP)
 Bandit Grappler
 盗贼格斗家
 The bandit grappler retreats.
 盗贼擒抱者撤退。
 The bandit grappler loops her chains around you! (+RestraintAdded)
 盗贼格斗家将她的锁链缠绕在你身上！ （+RestraintAdded）
-The bandit grappler caresses your restrained body! (DamageTaken)
-强盗擒抱者爱抚你拘束住的身体！ (DamageTaken)
+The bandit grappler caresses your restrained body! (-DamageTaken SP)
+强盗擒抱者爱抚你拘束住的身体！ (-DamageTaken SP)
 The bandit grappler hooks you closer!!!
 强盗抓钩将您钩了过去！
 Mummy
@@ -2096,82 +1965,82 @@ The Mummy collapses and her body vanishes.
 木乃伊倒下了，她的身体消失了。
 The Mummy conjures a mystic wrapping! (+RestraintAdded)
 木乃伊变出了神秘的包层！ （+RestraintAdded）
-The Mummy punishes you with a blow from her staff! (DamageTaken)
-木乃伊用她的法杖惩罚了你！ (DamageTaken)
+The Mummy punishes you with a blow from her staff! (-DamageTaken SP)
+木乃伊用她的法杖惩罚了你！ (-DamageTaken SP)
 Bast Warrior
 Bast战士
 The Bast Warrior collapses and meows loudly.
 Bast战士倒地并大声喵喵叫。
 The Bast Warrior restrains you! (+RestraintAdded)
 Bast战士拘束了你！ （+RestraintAdded）
-The Bast Warrior tickles you with her claws! (DamageTaken)
-Bast战士用她的爪子逗你！ (DamageTaken)
+The Bast Warrior tickles you with her claws! (-DamageTaken SP)
+Bast战士用她的爪子逗你！ (-DamageTaken SP)
 Bast Cleric
 Bast牧师
 The Bast Cleric collapses and meows softly.
 Bast牧师倒下，轻轻地喵喵叫。
-A ray of light shoots out and paralyzes you! (DamageTaken)
-一道光芒射出，让你麻痹！ (DamageTaken)
-A ray of light shoots out and paralyzes you! (DamageTaken)
-一道光芒射出，让你麻痹！ (DamageTaken)
+A ray of light shoots out and paralyzes you! (-DamageTaken SP)
+一道光芒射出，让你麻痹！ (-DamageTaken SP)
+A ray of light shoots out and paralyzes you! (-DamageTaken SP)
+一道光芒射出，让你麻痹！ (-DamageTaken SP)
 Skeleton
 骷髅
 The skeleton falls to pieces.
 骷髅碎了。
 The Skeleton restrains you! (+RestraintAdded)
 骷髅束缚了你！ （+RestraintAdded）
-The Skeleton tackles you! (DamageTaken)
-骷髅在拍打你！ (DamageTaken)
+The Skeleton tackles you! (-DamageTaken SP)
+骷髅在拍打你！ (-DamageTaken SP)
 Ghost
 幽灵
 The ghost vanishes.
 幽灵消失了。
 The Ghost restrains you! (+RestraintAdded)
 幽灵束缚了你！ （+RestraintAdded）
-The Ghost tickles you! (DamageTaken)
-鬼在对你挠痒！ (DamageTaken)
+The Ghost tickles you! (-DamageTaken SP)
+鬼在对你挠痒！ (-DamageTaken SP)
 Revenant
 亡魂
 The revenant pouts as it vanishes.
 亡魂生气的消失了。
 The revenant restrains you! (+RestraintAdded)
 亡灵束缚了你！ （+RestraintAdded）
-The revenant squeezes your breasts! (DamageTaken)
-亡魂在揉捏你的胸！ (DamageTaken)
-The revenant grabs you and caresses your tummy! (DamageTaken)
-亡魂抓住了你，抚摸你的肚子！ (DamageTaken)
+The revenant squeezes your breasts! (-DamageTaken SP)
+亡魂在揉捏你的胸！ (-DamageTaken SP)
+The revenant grabs you and caresses your tummy! (-DamageTaken SP)
+亡魂抓住了你，抚摸你的肚子！ (-DamageTaken SP)
 Skeleton Warrior
 骷髅战士
 The skeleton warrior collapses and falls into pieces.
 骷髅战士倒地，摔成碎片。
-The Skeleton lands a wide, crippling blow! (DamageTaken)
-骷髅对周围进行了致命一击！ (DamageTaken)
+The Skeleton lands a wide, crippling blow! (-DamageTaken SP)
+骷髅对周围进行了致命一击！ (-DamageTaken SP)
 The Skeleton leashes you!
 骷髅牵着你！
 Skeleton Knight
 骷髅骑士
 The skeleton knight collapses and falls into pieces.
 骷髅骑士倒下，化为碎片。
-The skeleton apprehends you and pins you with the haft of its axe! (DamageTaken)
-骷髅抓住了你，并用它的斧柄钉住了你！ (DamageTaken)
+The skeleton apprehends you and pins you with the haft of its axe! (-DamageTaken SP)
+骷髅抓住了你，并用它的斧柄钉住了你！ (-DamageTaken SP)
 The skeleton grabs you and slips a black cuff on! (+RestraintAdded)
 骷髅抓住你并套上黑色手铐！ （+RestraintAdded）
 Vine Plant
 藤蔓
 The plant leaks purple juices everywhere as it wilts.
 这种植物在枯萎紫色汁液流的到处都是。
-The vine plant whips you with its tendrils! (DamageTaken)
-藤本植物用它的卷须鞭打你！ (DamageTaken)
+The vine plant whips you with its tendrils! (-DamageTaken SP)
+藤本植物用它的卷须鞭打你！ (-DamageTaken SP)
 The vine plant wraps its tendrils around you! (+RestraintAdded)
 藤蔓植物将卷须缠绕在您周围！ （+RestraintAdded）
-The vine plant grips you tightly! (DamageTaken)
-藤本植物紧紧抓住你！ (DamageTaken)
+The vine plant grips you tightly! (-DamageTaken SP)
+藤本植物紧紧抓住你！ (-DamageTaken SP)
 Bramble
 荆棘
 The brambles are hacked away.
 荆棘被砍掉了。
-The bramble snares you! (DamageTaken)
-荆棘缠住了你！ (DamageTaken)
+The bramble snares you! (-DamageTaken SP)
+荆棘缠住了你！ (-DamageTaken SP)
 The red liquid bubbles and several round slimes pop out!
 红色的液体开始冒泡，几个圆形的史莱姆跳了出来！
 The red liquid bubbles and a round slime pops out!
@@ -2192,32 +2061,32 @@ Red Slime
 红色史莱姆
 The red slime bounces away.
 红色史莱姆弹走了。
-The red slime bounces off you! (DamageTaken)
-红色史莱姆撞在你身上！ (DamageTaken)
+The red slime bounces off you! (-DamageTaken SP)
+红色史莱姆撞在你身上！ (-DamageTaken SP)
 The slime shoves itself into your mouth! (+RestraintAdded)
 史莱姆自己塞进了你的嘴里！ （+RestraintAdded）
 Slime
 史莱姆
 The slime melts into a puddle.
 史莱姆融化成了一摊水。
-The sticky slime splashes against you! (DamageTaken)
-粘稠的史莱姆泼到你身上！ (DamageTaken)
+The sticky slime splashes against you! (-DamageTaken SP)
+粘稠的史莱姆泼到你身上！ (-DamageTaken SP)
 The slime attaches itself to your body! (+RestraintAdded)
 史莱姆附着在你的身体上！ （+RestraintAdded）
 Fast Slime
 快速史莱姆
 The slime melts into a puddle.
 史莱姆融化成水坑。
-The sticky slime leaps and splashes against you! (DamageTaken)
-粘稠的史莱姆跳跃并溅到你身上！ (DamageTaken)
+The sticky slime leaps and splashes against you! (-DamageTaken SP)
+粘稠的史莱姆跳跃并溅到你身上！ (-DamageTaken SP)
 The slime leaps and attaches itself to your body! (+RestraintAdded)
 史莱姆跳跃并附着在你的身体上！ （+RestraintAdded）
 Large Slime
 大史莱姆
 The large slime splits apart!
 巨大的史莱姆裂开了！
-The sticky slime splashes against you! (DamageTaken)
-粘稠的史莱姆溅到你身上！ (DamageTaken)
+The sticky slime splashes against you! (-DamageTaken SP)
+粘稠的史莱姆溅到你身上！ (-DamageTaken SP)
 The slime spreads to your body! (+RestraintAdded)
 史莱姆扩散到你的身体！ （+RestraintAdded）
 The slime splits into many smaller droplets!
@@ -2234,150 +2103,102 @@ Rope Tentacle
 绳索触手
 The rope kraken retreats its tentacle.
 绳妖收回了它的触手。
-The rope kraken squeezes you with one of its tentacles! (DamageTaken)
-绳妖用它的一根触手压迫你！ (DamageTaken)
+The rope kraken squeezes you with one of its tentacles! (-DamageTaken SP)
+绳妖用它的一根触手压迫你！ (-DamageTaken SP)
 Rope Kraken
 绳妖
 The rope kraken devolves into a bundle of premium bondage rope.
 绳妖演变成一束优质束缚绳索。
-The rope kraken tightly cinches itself around your body! (DamageTaken)
-绳妖的绳子紧紧地缠绕在你的身体上！ (DamageTaken)
+The rope kraken tightly cinches itself around your body! (-DamageTaken SP)
+绳妖的绳子紧紧地缠绕在你的身体上！ (-DamageTaken SP)
 Magic Rope
 魔绳
 The magic rope returns to being a normal rope.
 魔绳变回普通绳索。
 The magic rope wraps itself tightly around your body! (+RestraintAdded)
 魔绳紧紧地缠绕在你的身体上！ （+RestraintAdded）
-The magic rope wriggles into your outfit! (DamageTaken)
-魔绳蠕动到你的衣服里！ (DamageTaken)
+The magic rope wriggles into your outfit! (-DamageTaken SP)
+魔绳蠕动到你的衣服里！ (-DamageTaken SP)
 Cloud of Feathers
 一团羽毛
 The feathers fall to the floor.
 羽毛掉到地上。
-The feathers tickle you mercilessly! (DamageTaken)
-羽毛无情地挠你痒痒！ (DamageTaken)
+The feathers tickle you mercilessly! (-DamageTaken SP)
+羽毛无情地挠你痒痒！ (-DamageTaken SP)
 Cloud of Scarves
 一团围巾
 The scarves become knotted and fall to the floor.
 围巾打结并掉到地板上。
 The scarves wrap themselves around you! (+RestraintAdded)
 围巾包裹了你！ （+RestraintAdded）
-The scarves rub against your body, tickling you! (DamageTaken)
-围巾摩擦你的身体，让你发痒！ (DamageTaken)
+The scarves rub against your body, tickling you! (-DamageTaken SP)
+围巾摩擦你的身体，让你发痒！ (-DamageTaken SP)
 Cloud of Ribbons
 一团丝带
 The ribbons knot themselves in a bow and fall to the floor.
 丝带结成蝴蝶结，掉到地上。
 The ribbons wrap themselves around you! (+RestraintAdded)
 丝带包裹了你！ （+RestraintAdded）
-The ribbons wrap themselves around you! (DamageTaken)
-丝带包裹了你！ (DamageTaken)
+The ribbons wrap themselves around you! (-DamageTaken SP)
+丝带包裹了你！ (-DamageTaken SP)
 Gravitating Gag
 诱惑的口球
 The gag buckles itself in place and falls.
 口球停在原地并掉在地上。
 The gravitating gag wedges itself firmly in your mouth and buckles itself! (+RestraintAdded)
 诱惑的口球牢牢地塞进你的嘴里，然后自己扣住！ （+RestraintAdded）
-The gravitating gag rubs itself against your gagged lips! (DamageTaken)
-诱惑的口球在你的嘴唇上摩擦！ (DamageTaken)
+The gravitating gag rubs itself against your gagged lips! (-DamageTaken SP)
+诱惑的口球在你的嘴唇上摩擦！ (-DamageTaken SP)
 Seductive Shackles
 诱惑的镣铐
 The shackles' chain breaks as they fall to the floor.
 镣铐的链子掉到地上，断了。
 The shackles force themselves around your limbs and click tightly! (+RestraintAdded)
 镣铐将自己强行缠绕在您的四肢上并紧紧地咔哒一声锁住了！ （+RestraintAdded）
-The shackles click seductively in your face... (DamageTaken)
+The shackles click seductively in your face... (-DamageTaken SP)
 镣铐在你面前咔哒咔哒作响……（-DamageTaken SP）
-Lurid Legbinder
-可怕的绑腿
-The legbinder unravels.
-绑腿解开了。
-The legbinder zips itself around your legs and squeezes them together! (+RestraintAdded)
-绑腿会自动拉合住你的双腿，并将它们挤压在一起！(+RestraintAdded)
-The legbinder wraps around and squeezes your body! (DamageTaken)
-绑腿包裹并挤压你的身体！ (DamageTaken)
-Bratty Blindfold
-顽皮的眼罩
-The blindfold floats to the floor.
-眼罩飘到地板上。
-The blindfold buckles itself tightly around your head! (+RestraintAdded)
-眼罩紧紧地扣在你的头上！ (+RestraintAdded)
-The blindfold crawls over your helpless face! (DamageTaken)
-眼罩在你无助的脸上爬行！ (DamageTaken)
-Amorous Armbinder
-色情的绑臂
-The armbinder flops to the floor.
-绑臂扑通一声倒在地板上。
-The armbinder slips itself around your arms and pushes your elbows together! (+RestraintAdded)
-绑臂会绕着你的手臂滑动，并将你的肘部挤压到一起！ (+RestraintAdded)
-The armbinder rubs itself all over your body! (DamageTaken)
-绑臂在你身上摩擦！(DamageTaken)
-Stringent Straitjacket
-严格的紧身衣
-The straitjacket falls apart.
-紧身衣散开了。
-The straitjacket slips itself on over your head and pulls your arms close to your body! (+RestraintAdded)
-紧身衣会在你的头上滑动，并将你的手臂拉到身体附近！ (+RestraintAdded)
-The straitjacket squeezes you tightly! (DamageTaken)
-紧身衣把你挤得紧紧的！ (DamageTaken)
-Lurid Chastity Belt
-可怕的贞操带
-The chastity belt falls to the floor with a clang.
-贞操带哐当一声掉在地上。
-The chastity belt secures itself around your waist! (+RestraintAdded)
-贞操带系在了你的腰上！(+RestraintAdded)
-The chastity belt buzzes against your body alluringly! (DamageTaken)
-贞操带在你诱人的身体上发出了嗡嗡声！(DamageTaken)
-Haughty Harness
-傲慢的束衣
-The harness unravels.
-束衣解开了。
-The harness buckles itself tightly around your body! (+RestraintAdded)
-束衣紧紧地扣在你身上！ (+RestraintAdded)
-The harness wraps itself around your body and squeezes! (DamageTaken)
-束衣缠绕在你的身体上并挤压！ (DamageTaken)
 Levitating Locks
 悬浮锁
 The locks and chains fall to the floor in a loud crash.
 锁和锁链掉到地上，发出一声巨响。
 A lock clicks itself onto one of your restraints! (+RestraintAdded)
-一把锁自动锁在了在你的一个拘束具上！ （+RestraintAdded）
-A chain locks itself in place on your body! (DamageTaken)
-一条铁链将自己锁定在您的身体上！ (DamageTaken)
-The floating locks and chains rub themselves across your body! (DamageTaken)
-浮动锁和链条在您的身体上摩擦！ (DamageTaken)
+一把锁自动锁在了在你的一个拘束具    上！ （+RestraintAdded）
+A chain locks itself in place on your body! (-DamageTaken SP)
+一条链子将自己锁定在您的身体上！ (-DamageTaken SP)
+The floating locks and chains rub themselves across your body! (-DamageTaken SP)
+浮动锁和链条在您的身体上摩擦！ (-DamageTaken SP)
 Conjured Gag
 咒术口球
 The conjured gag buckles itself in place and falls.
 被咒术口球卡在原地并掉了下来。
 The gag wedges itself firmly in your mouth and buckles itself! (+RestraintAdded)
 口球牢牢地塞进你的嘴里，然后自己扣住！ （+RestraintAdded）
-The gag rubs itself against you! (DamageTaken)
-口球在你身上摩擦！ (DamageTaken)
+The gag rubs itself against you! (-DamageTaken SP)
+口球在你身上摩擦！ (-DamageTaken SP)
 Learned Rope
 学习绳索
 The learned rope untangles into a mess of rope.
 绳索解开成一堆乱七八糟的绳索。
 The magic rope wraps itself intricately around your body! (+RestraintAdded)
 魔绳错综复杂地缠绕在你的身体上！ （+RestraintAdded）
-The magic rope wriggles into your outfit! (DamageTaken)
-魔绳蠕动到你的衣服里！ (DamageTaken)
+The magic rope wriggles into your outfit! (-DamageTaken SP)
+魔绳蠕动到你的衣服里！ (-DamageTaken SP)
 Unforseen Rope
 袭击绳索
 The unforseen rope is gone... or is it?
 袭击绳索消失了……是吗？
 The unforseen rope wraps itself clandestinely around your body! (+RestraintAdded)
 袭击绳索悄悄地缠绕在你的身体上！ （+RestraintAdded）
-The unforseen rope wriggles into your outfit! (DamageTaken)
-袭击绳索会蠕动到你的装备中！ (DamageTaken)
+The unforseen rope wriggles into your outfit! (-DamageTaken SP)
+袭击绳索会蠕动到你的装备中！ (-DamageTaken SP)
 Monster Rope
 怪物绳索
 The monster rope bundle collapses into a pile of ropes.
 怪物绳束坍塌成一堆绳索。
 The magic rope wraps itself overwhelmingly around your body! (+RestraintAdded)
 魔绳以压倒性的方式缠绕在你的身体上！ （+RestraintAdded）
-The magic rope wriggles into your outfit! (DamageTaken)
-魔绳蠕动到你的衣服里！ (DamageTaken)
+The magic rope wriggles into your outfit! (-DamageTaken SP)
+魔绳蠕动到你的衣服里！ (-DamageTaken SP)
 Shock Witch
 电击女巫
 The shock witch vanishes into a cloud of thunder, leaving behind a keyring.
@@ -2436,40 +2257,6 @@ The wizard clips a restraint around your neck!
 巫师在你的脖子上装上了一个拘束具！
 The wizard laughs maniacally as she tickles you!
 巫师一边狂笑一边对你挠痒！
-FunGal
-真菌
-The fun-gal retreats into the ground.
-真菌后退到地下。
-The fun-gal clips a restraint around your neck!
-真菌在你脖子上夹了一个束缚！
-The fun-gal rubs your chest with her long, slender fingers!
-真菌用她细长的手指摩擦你的胸部！
-Crystal Glyph
-水晶雕文
-Tailor
-裁缝
-You murder the tailor!
-你杀了裁缝！
-Student
-学生
-You murder the student!
-你杀了学生！
-Tactician
-战术家
-You murder the tactician!
-你杀了战术家！
-Informant
-线人
-You murder the informant!
-你杀了线人！
-Thug
-恶棍
-You murder the thug!
-你杀了恶棍！
-Blacksmith
-铁匠
-You murder the blacksmith!
-你杀了铁匠！
 Dressmaker
 裁缝
 The dressmaker storms out in a rage.
@@ -2478,28 +2265,8 @@ The dressmaker has you try on one of her new accessories! (+RestraintAdded)
 裁缝让你试穿她的一件新配饰！ （+RestraintAdded）
 The dressmaker adds a lock 'just to complete the look, you know?'
 裁缝加了一把锁，“只是为了完成造型，你知道吗？”
-The dressmaker cuddles your helpless body~ (DamageTaken)
-裁缝拥抱你无助的身体~(DamageTaken)
-Nurse
-护士
-The Nurse checks her notes and runs off.
-护士检查了她的笔记，然后跑开了。
-The Nurse tries to pacify this rowdy patient! (+RestraintAdded)
-护士试图安抚这个吵闹的病人！(+RestraintAdded)
-The Nurse adds a lock to keep you from hurting the staff.
-护士加了一把锁，防止你伤害工作人员。
-The Nurse assures you it's going to be alright~ (DamageTaken)
-护士向你保证一切都会好起来的~ (DamageTaken)
-Librarian
-图书管理员
-The librarian gets angry and retreats.
-图书管理员生气的离开了。
-The librarian shushes you as she brandishes a restraint! (+RestraintAdded)
-图书管理员挥舞着一种拘束具，让你安静！ (+RestraintAdded)
-The librarian snaps her fingers and sends a lock flying at you!
-图书管理员啪的一声，一把锁朝你飞来！
-The librarian whispers seductively into your ear! (DamageTaken)
-图书管理员在你耳边诱人地低语！ (DamageTaken)
+The dressmaker cuddles your helpless body~ (-DamageTaken SP)
+裁缝拥抱你无助的身体~(-DamageTaken SP)
 Giant Mushroom
 巨型蘑菇
 The giant mushroom explodes into a cloud of spores!!!
@@ -2512,24 +2279,24 @@ The giant mushroom spits spores into your face and ties you while you are distra
 巨大的蘑菇将孢子吐到您的脸上，并在您干扰值时将您绑起来！ （+RestraintAdded）
 The giant mushroom spits spores into your face and tries to tie you!
 巨大的蘑菇将孢子吐到你的脸上并试图绑住你！
-The giant mushroom emits soporific spores! (DamageTaken)
-巨型蘑菇散发出催眠孢子！ (DamageTaken)
+The giant mushroom emits soporific spores! (-DamageTaken SP)
+巨型蘑菇散发出催眠孢子！ (-DamageTaken SP)
 Happy Mushy
 快乐蘑糊
 The giant mushroom explodes into a cloud of spores!!!
 巨大的蘑菇爆炸成孢子云！！！
 The giant mushroom tickles you silly!
 巨大的蘑菇让你发痒！
-The giant mushroom tickles you silly! (DamageTaken)
-巨大的蘑菇让你发痒！ (DamageTaken)
+The giant mushroom tickles you silly! (-DamageTaken SP)
+巨大的蘑菇让你发痒！ (-DamageTaken SP)
 Infected Mushy
 受感染的蘑姑
 The giant mushroom explodes into a cloud of spores!!!
 巨大的蘑菇爆炸成孢子云！！！
 The giant mushroom gives you a crushing hug!
 巨型蘑菇给你一个破碎的拥抱！
-The giant mushroom gives you a crushing hug! (DamageTaken)
-巨型蘑菇给你一个破碎的拥抱！ (DamageTaken)
+The giant mushroom gives you a crushing hug! (-DamageTaken SP)
+巨型蘑菇给你一个破碎的拥抱！ (-DamageTaken SP)
 Jailer
 狱卒
 The jailer passes out and drops her possessions!
@@ -2612,38 +2379,38 @@ Tickle Hand
 挠痒痒的手
 The hand vanishes!
 手不见了！
-The hand tickles you! (DamageTaken)
-手在挠你！ (DamageTaken)
+The hand tickles you! (-DamageTaken SP)
+手在挠你！ (-DamageTaken SP)
 Tickle Terror
 挠痒恶魂
 The tickle terror vanishes... for now
 挠痒恶魂消失了……现在
-The monstrous spirit tickles you mercilessly!!! (DamageTaken)
-恶灵在无情地挠你！！！ (DamageTaken)
+The monstrous spirit tickles you mercilessly!!! (-DamageTaken SP)
+恶灵在无情地挠你！！！ (-DamageTaken SP)
 The monstrous spirit binds you to make you more vulnerable! (+RestraintAdded)
 恶灵拘束了你，并让你更加脆弱！ （+RestraintAdded）
 Hug Horror
 拥抱恶魂
 The hug horror vanishes... for now
 拥抱恶魂消失了……暂时
-The monstrous spirit gives a crushing hug!!! (DamageTaken)
-恶魂给了一个重压的拥抱！！！ (DamageTaken)
-The monstrous spirit gives a crushing hug!!! (DamageTaken)
-恶魂给了一个重压的拥抱！！！ (DamageTaken)
+The monstrous spirit gives a crushing hug!!! (-DamageTaken SP)
+恶魂给了一个重压的拥抱！！！ (-DamageTaken SP)
+The monstrous spirit gives a crushing hug!!! (-DamageTaken SP)
+恶魂给了一个重压的拥抱！！！ (-DamageTaken SP)
 The monstrous spirit's chains latch on! (+RestraintAdded)
 恶魂的锁链锁住了！ （+RestraintAdded）
 Greedy Ghast
 贪婪的恶魂
 The ghast vanishes... for now
 恶魂消失了……暂时
-The moaning spirit gropes your body!!! (DamageTaken)
-呻吟的灵魂摸索着你的身体！！！ (DamageTaken)
+The moaning spirit gropes your body!!! (-DamageTaken SP)
+呻吟的灵魂摸索着你的身体！！！ (-DamageTaken SP)
 Tickle Hand
 挠痒痒的手
 The hand vanishes!
 手不见了！
-The hand tickles you! (DamageTaken)
-手在挠你！ (DamageTaken)
+The hand tickles you! (-DamageTaken SP)
+手在挠你！ (-DamageTaken SP)
 Tome of Chains
 锁链之书
 The floating tome burns into ashes!
@@ -2702,58 +2469,56 @@ Filthy Rat
 肮脏的老鼠
 The rat skitters back into a hole in the wall.
 老鼠飞快地跑回墙上的一个洞里。
-The filthy rat nibbles at you! (DamageTaken)
-肮脏的老鼠在咬你！ (DamageTaken)
+The filthy rat nibbles at you! (-DamageTaken SP)
+肮脏的老鼠在咬你！ (-DamageTaken SP)
 Annoying Bat
 烦人的蝙蝠
 You stomp the bat into the ground to make sure it's dead.
 你把蝙蝠踩在地上，以确保它已经死了。
-The bat nibbles incessantly at you! (DamageTaken)
-蝙蝠不停地啃咬你！ (DamageTaken)
+The bat nibbles incessantly at you! (-DamageTaken SP)
+蝙蝠不停地啃咬你！ (-DamageTaken SP)
 Pixie
 小精灵
 The pixie huffs and floats away.
 小精灵气呼呼地飘走了。
-The pixie tickles you with a feather! (DamageTaken)
-小精灵用羽毛逗你！ (DamageTaken)
+The pixie tickles you with a feather! (-DamageTaken SP)
+小精灵用羽毛逗你！ (-DamageTaken SP)
 Orb of Light
 光球
 The orb vanishes in a flash of light.
 球体在一道闪光中消失。
-The orb blinds you with its intense light!!! (DamageTaken)
-球体以其强烈的光芒让你失明！！！ (DamageTaken)
+The orb blinds you with its intense light!!! (-DamageTaken SP)
+球体以其强烈的光芒让你失明！！！ (-DamageTaken SP)
 A light restores the health of its allies!
 一道光可以恢复了周围敌人的生命！
 You do not have enough resources to cast the spell! (Consider pleading with a goddess)
 你没有足够的资源来施法！ （考虑向女神请求）
-You AttackName TargetEnemy for DamageDealt DamageType damage!
-你 AttackName TargetEnemy 造成 DamageDealt 点 DamageType 伤害！
-You AttackName TargetEnemy for a decreased DamageDealt DamageType damage!
-你 AttackName TargetEnemy 造成了少量的 DamageDealt 点 DamageType 伤害！
-You AttackName TargetEnemy for an increased DamageDealt DamageType damage!
-你 AttackName TargetEnemy 造成大量的 DamageDealt 点 DamageType 伤害！
-You AttackName TargetEnemy for a devastating DamageDealt DamageType damage!
-你 AttackName TargetEnemy 造成毁灭性的 DamageDealt 点 DamageType 伤害！
-You AttackName TargetEnemy, but your DamageType weapon has no effect!
-你 AttackName TargetEnemy，但你的武器没有效果！
-You AttackName TargetEnemy for DamageDealt DamageType damage!, reduced by an anti-magic ward!
-你 AttackName TargetEnemy 造成 DamageDealt 点 DamageType 伤害！减少了它的魔法抗性！
-AttackName hits TargetEnemy for DamageDealt DamageType damage!
-AttackName 击中 TargetEnemy 造成 DamageDealt 点 DamageType 伤害！
-AttackName hits TargetEnemy for a reduced DamageDealt DamageType damage!
-AttackName 击中 TargetEnemy 造成了少量的 DamageDealt 点 DamageType 伤害！
-AttackName hits TargetEnemy but DamageType damage doesn't have any effect!
-AttackName 击中了 TargetEnemy，但是 DamageType 伤害没有作用！
-AttackName hits TargetEnemy for an increased DamageDealt DamageType damage!
-AttackName 击中 TargetEnemy 以大量的 DamageDealt 点 DamageType 伤害！
-AttackName hits TargetEnemy for DamageDealt DamageType damage, reduced by an anti-magic ward!
-AttackName 击中 TargetEnemy 造成 DamageDealt 点 DamageType 伤害，减少了它的魔法抗性！
-AttackName hits TargetEnemy for a devastating DamageDealt DamageType damage!
-AttackName 击中 TargetEnemy 造成毁灭性的 DamageDealt 点 DamageType 伤害！
+You attack the TargetEnemy for DamageDealt damage!
+你攻击 TargetEnemy 造成 DamageDealt 伤害！
+You attack the TargetEnemy for a decreased DamageDealt damage!
+你攻击 TargetEnemy 造成了少量的 DamageDealt 伤害！
+You attack the TargetEnemy for an increased DamageDealt damage!
+你攻击 TargetEnemy 造成大量的 DamageDealt 伤害！
+You attack the TargetEnemy for a devastating DamageDealt damage!
+你攻击 TargetEnemy 造成毁灭性的 DamageDealt 伤害！
+You attack the TargetEnemy, but your weapon has no effect!
+你攻击 TargetEnemy，但你的武器没有效果！
+You attack the TargetEnemy for DamageDealt damage!, reduced by its magic resistance!
+你攻击 TargetEnemy 造成 DamageDealt 伤害！减少了它的魔法抗性！
+AttackName hits the TargetEnemy for DamageDealt damage!
+AttackName 击中 TargetEnemy 造成 DamageDealt 伤害！
+AttackName hits the TargetEnemy for a reduced DamageDealt damage!
+AttackName 击中 TargetEnemy 造成了少量的 DamageDealt 伤害！
+AttackName hits the TargetEnemy but it doesn't do anything!
+AttackName 击中了 TargetEnemy，但没有作用！
+AttackName hits the TargetEnemy for an increased DamageDealt damage!
+AttackName 击中 TargetEnemy 以大量的 DamageDealt 伤害！
+AttackName hits the TargetEnemy for DamageDealt damage, reduced by its magic resistance!
+AttackName 击中 TargetEnemy 造成 DamageDealt 伤害，减少其魔法抗性！
+AttackName hits the TargetEnemy for a devastating DamageDealt damage!
+AttackName 击中 TargetEnemy 造成毁灭性的 DamageDealt 伤害！
 attack
 攻击
-damage
-伤害
 You miss the TargetEnemy!
 你没有命中目标敌人！
 Your attack is too feeble to hurt the TargetEnemy!
@@ -2928,50 +2693,10 @@ You wiggle uselessly. Maybe you need some kind of corner or edge...
 你徒劳地扭动。也许你需要某种角落或边缘......
 You rub your body against the floor to no avail, and sigh.
 你在地板上摩擦你的身体无济于事，叹了口气。
-You contort your body but you don't have leverage. Maybe you need some kind of tool...
-你扭曲你的身体，但没有影响。也许你需要某种工具。。。
+You contort your body but you don't have enough. Maybe you need a corner or edge...
+你扭曲你的身体，但完全不够。也许你需要一个角落或边缘......
 You wiggle madly, trying to push against the restraint. You need more leverage...
-你疯狂地扭动身体，试图反抗束缚。你需要更多的工具...
-That doesn't seem to work. Maybe something else will.
-这似乎不起作用。也许会有别的事情发生。
-You squirm helplessly against the furniture. Maybe something else will help more.
-你无助地在附属品上蠕动。也许其他的东西会更有用。
-You twist your body trying to use the furniture, but it doesn't seem to work. Try something else.
-你扭动身体试图使用附属品，但似乎不起作用。试试别的。
-You wiggle and squirm, trying to use the furniture to no avail. Try something else.
-你扭动和蠕动，试图使用附属品但是没有任何作用。试试别的。
-You need something sharp to loosen the fasteners.
-你需要一些锋利的东西来松开紧固件。
-This is not a job for your fingers right now. You need something sharp.
-这不是你手现在需要的工作。你需要锋利的东西。
-There's no way to loosen it without some kind of sharp tool...
-没有锋利的工具就无法松开它...
-You sigh as the material resists all your attempts at breaking through.
-你叹了口气，因为材料抵抗了你所有的突破尝试。
-You need some kind of corner for leverage.
-你需要一些角落的工具。
-You flail about but cant get any leverage without an edge or corner.
-你四处挥舞，但没有边缘或角落就无法获得任何工具。
-You need something rough to get the item loose.
-你需要一些锋利的东西才能把这个东西弄松。
-You squirm against the smooth floor to no avail. Maybe if you had some kind of corner...
-你在光滑的地板上扭动也没有用。也许如果你有一个角落...
-You need some kind of tool to pull at the knots.
-你需要某种工具来解开绳结。
-You struggle fruitlessly against the knots, but they're too tight.
-你徒劳地尝试从绳结中挣脱，但绳结太紧了。
-You don't have any grip or hook to tug at your restraints with.
-你没有任何东西可以来拉动你的拘束具。
-You cant tug at your restraints with them tightly wrapped against your body.
-你不能用紧紧包裹在身体上的拘束具来拉扯。
-You need a way to stick the tool in place...
-你需要一种方法来将工具固定到位...
-Your trembling hands cant grip anything as they are.
-你颤抖的手抓不住任何东西。
-You need something grippy...
-你需要一些有力的东西...
-You rub yourself against the floor to no avail. Maybe if you had something adhesive...
-你把自己擦在地板上没有用。也许如果你有粘合剂。。。
+你疯狂地扭动身体，试图反抗束缚。你需要更多的手段...
 The fastenings are tightly secured!
 扣子被牢固固定住了！
 You roll around tryng to loosen the item to no avail.
@@ -3172,14 +2897,6 @@ Close door
 关门
 Close Door
 关门
-Sprinting!!!
-疾跑中！！！
-Sprint!
-疾跑！
-Hopping!!!
-跳跃中！！！
-Hop!
-跳跃！
 Unlock
 开锁
 Command
@@ -3286,26 +3003,12 @@ MaidForce
 女仆势力
 Fungal Kingdom
 真菌王国
-Wanted
-通缉犯
-Delinquent
-违法者
-Nature
-自然界
-Surprise!
-惊喜！
-Angels
-天使
-Demons
-恶魔
 You sense that the chest contains a trap and a lot of gold.
 你感觉到箱子里有一个陷阱和很多金币。
 You sense that the chest is safe to open.
 你感觉到箱子可以安全打开。
 Drink
 喝
-Bottle
-瓶子
 You drink from the pool and your mana is restored.
 你从池子里喝下泉水，你的法力就会恢复。
 You drink again, but you feel as if you are trespassing.
@@ -3348,20 +3051,6 @@ You can push the lid off with enough force...
 你可以用足够的力推开盖子...
 The lid of the barrel suddenly snaps shut as you hide inside!!!
 当你躲在里面时，桶盖突然关上！！！
-Cage Trap
-笼式陷阱
-A booby-trapped cage!
-一个陷阱笼子！
-Fit for a pretty toy like you~
-适合你这样漂亮的玩具~
-You hear a click as the door shuts behind you...
-你听到门在你身后关上的咔哒声...
-You're not fooling anyone...
-你骗不到任何人...
-You might be able to fool someone like this...
-你也许能像这样骗到某些人...
-You look like you're right at home!
-你看起来就在家里！
 Restraining Bed
 拘束床
 A bed with a booby trap designed to trap you on top of it!
@@ -3452,7 +3141,7 @@ They are not coming off without the key.
 没有钥匙，他们就不会离开。
 The enemy attaches your ankle cuffs together!
 敌人将你的脚铐绑在一起！
-Cuffs Chain
+Linked Blacksteel Cuffs
 连接黑钢手铐
 Highly durable cuffs that can withstand even powerful acid.
 高度耐用的手铐，甚至可以承受强酸。
@@ -3551,7 +3240,7 @@ A chastity belt to protect prisoners from themselves.
 Made of a highly durable material.
 由高度耐用的材料制成。
 Charms (Arms)
-丝带（手臂）
+丝带（武器）
 A band of faintly magic ribbon wrapped tight around your arms.
 一条微弱的魔法丝带紧紧地缠绕在你的手臂上。
 It clings, almost of its own accord, but seems vulnerable to both cutting and stretching.
@@ -3593,7 +3282,7 @@ A layer of faintly magic ribbon wrapped tight around your face.
 It clings, almost of its own accord, but seems vulnerable to both cutting and stretching.
 它几乎是自发地紧贴着它，但似乎很容易受到切割和拉扯的影响。
 Charm Wrapping (Arms)
-丝带包裹（手臂）
+丝带包裹（武器）
 A layer of faintly magic ribbon wrapped tight around your body.
 一层淡淡的魔法丝带紧紧的缠绕在你的身上。
 It clings, almost of its own accord, but seems vulnerable to both cutting and stretching.
@@ -3665,7 +3354,7 @@ A band of magic embalming ribbon wrapped tight around your mouth.
 It clings, almost of its own accord, but seems vulnerable to both cutting and stretching.
 它几乎是自发地紧贴着它，但似乎很容易受到切割和拉扯的影响。
 Blessed Wrappings (Arms)
-祝福丝带包裹（手臂）
+祝福丝带包裹（武器）
 A layer of magic embalming ribbon wrapped tight around your body.
 一层神奇的防腐丝带紧紧地缠绕在你的身上。
 It clings, almost of its own accord, but seems vulnerable to both cutting and stretching.
@@ -3695,7 +3384,7 @@ Sticky tape made from a metallic material. Used to great effect in police situat
 It's very sticky and tough but you could probably get a knife through it.
 它非常粘稠且坚韧，但您可以用刀解决它。
 Autotape (Arms)
-自动胶带（手臂）
+自动胶带（武器）
 Sticky tape made from a metallic material. Used to great effect in police situations.
 由金属材料制成的胶带。在警察情况下使用效果很好。
 It's very sticky and tough but you could probably get a knife through it.
@@ -4085,7 +3774,7 @@ A tie that hobbles your legs together..
 The ropes squeeze you gently.
 绳索轻轻地压迫你。
 Ankle Ropes
-脚踝绳缚
+脚踝绳缚    
 A tie keeping your feet secured together.
 一条将双脚固定在一起的捆绑。
 The ropes squeeze you gently.
@@ -4310,7 +3999,7 @@ They're made of tough cowhide.
 它们由坚韧的牛皮制成。
 The enemy attaches your wrist cuffs together!
 敌人将你的手腕铐在一起！
-Lthr Wrist Chain
+Linked Leather Cuffs
 链接皮革手铐
 A pair of cuffs keeping your arms behind your back.
 一对手铐将您的手臂束缚在背后。
@@ -4320,7 +4009,7 @@ Your cuffs detatch!
 你的手铐松了！
 The enemy attaches your elbow cuffs together!
 敌人将你的肘部手铐绑在一起！
-Lthr Wrist Chain
+Linked Leather Elbow Cuffs
 链接皮革肘部手铐
 A pair of cuffs keeping your arms in a strict elbow tie!
 一对手铐使您的手臂保持严格的肘部捆绑！
@@ -4328,7 +4017,7 @@ They're made of tough cowhide.
 它们由坚韧的牛皮制成。
 Your wrists detatch, leaving your elbows still bound!
 你的手腕松开了，你的手肘仍然被束缚着！
-Lthr Elbow Chain
+Leather Elbow Cuffs
 皮革肘部手铐
 A pair of cuffs keeping your elbows locked together!.
 一对手铐将您的肘部固定在一起！
@@ -4338,7 +4027,7 @@ Your elbows detatch!
 你的手肘处手铐断开了！
 The enemy attaches your wrist cuffs back together!
 敌人将你的手腕重新绑在一起！
-Scale Wrist Chain
+Scale Cuffs
 鳞片手铐
 A pair of cuffs that make it easy to restrain you.
 一对手铐，易于束缚。
@@ -4346,8 +4035,8 @@ They're made of dragonscale.
 它们是由龙鳞制成的。
 The enemy attaches your wrist cuffs together!
 敌人将你的手腕铐在一起！
-Scale Wrist Chain
-鳞片手铐
+Linked Scale Cuffs
+连接鳞片手铐
 A pair of cuffs keeping your arms behind your back.
 一对手铐将您的手臂放在背后。
 They're made of dragonscale.
@@ -4356,7 +4045,7 @@ Your cuffs detatch!
 你的手铐松了！
 The enemy attaches your elbow cuffs together!
 敌人将你的肘部手铐绑在一起！
-Scale Elbow Chain
+Linked Scale Elbow Cuffs
 连接鳞片肘部手铐
 A pair of cuffs keeping your arms in a strict elbow tie!
 一对手铐使您的手臂保持严格的肘部捆绑！
@@ -4434,7 +4123,7 @@ It's made of a dark, glistening volcanic metal.
 它是由一种深色的、闪闪发光的火山金属制成的。
 The enemy attaches your wrist cuffs together!
 敌人将你的手腕铐在一起！
-Obs. Wrist Chain
+Linked Obsidian Cuffs
 连接黑曜石手铐
 A pair of cuffs keeping your arms behind your back.
 一对手铐将您的手臂绑在背后。
@@ -4444,7 +4133,7 @@ Your cuffs detatch!
 你的手铐松了！
 The enemy attaches your elbow cuffs together!
 敌人将你的肘部手铐绑在一起！
-Obs. Wrist Chain
+Linked Obsidian Elbow Cuffs
 连接黑曜石肘部手铐
 A pair of cuffs keeping your arms in a strict elbow tie!
 一对手铐使您的手臂保持严格的肘部捆绑！
@@ -4452,7 +4141,7 @@ It's made of a dark, glistening volcanic metal.
 它是由一种深色的、闪闪发光的火山金属制成的。
 Your wrists detatch, leaving your elbows still bound!
 你的手腕松开了，你的手肘仍然被束缚着！
-Obs. Elbow Chain
+Obsidian Elbow Cuffs
 黑曜石肘部手铐
 A pair of cuffs keeping your elbows locked together!.
 一对手铐将您的肘部固定在一起！
@@ -4476,7 +4165,7 @@ It's made of a dark, glistening volcanic metal.
 它是由一种深色的、闪闪发光的火山金属制成的。
 The enemy attaches your ankle cuffs together!
 敌人将你的脚铐绑在一起！
-Cuffs Chain
+Linked Obsidian Cuffs
 连接黑曜石脚铐
 A pair of cuffs chaining your legs together.
 一对手铐将你的双腿拴在一起。
@@ -4567,7 +4256,7 @@ Cables made from a high-tech metallized polyfiber. Impervious to steel edges!
 They are wrapped methodically around your body!
 它们有条不紊地包裹在您的身体上！
 Magic Ribbons (Arms)
-魔法丝带（手臂）
+魔法丝带（武器）
 Ribbons enchanted with powerful magic. They can't be cut without a magic implement!
 丝带附有强大的魔法。没有魔法工具是无法切割的！
 They are wrapped tightly around your body with a bow knot!
@@ -4609,7 +4298,7 @@ Ribbons enchanted with powerful magic. They can't be cut without a magic impleme
 They are wrapped tightly around your mouth with a bow knot!
 它们用蝴蝶结紧紧地包裹在你的嘴上！
 Ice (Arms)
-冰（手臂）
+冰（武器）
 Frigid restraints made out of ice.
 冰冷的束缚。
 There's no way to remove it without breaking it off.
@@ -4777,7 +4466,7 @@ Magic chains that serve as an anchor point around your waist.
 It doesn't look like a knife is up to the task...
 看来一把刀不能胜任这项任务……
 Shadow Chains (Arms)
-暗影锁链（手臂）
+暗影锁链（武器）
 Black chains for those who cross the divines
 穿越神界者的黑链
 It doesn't look like a knife is up to the task...
@@ -4801,7 +4490,7 @@ Black chains for those who cross the divines
 It doesn't look like a knife is up to the task...
 看来一把刀不能胜任这项任务……
 Ectoplasmic Chains (Arms)
-灵界链（手臂）
+灵界链（武器）
 Ghostly chains from a ghost that just doesn't want to let go.
 来自一个不想放手的幽灵的幽灵锁链。
 It's made of an ethereal substance.
@@ -5612,16 +5301,8 @@ Make the targeted creature invisible
 使目标生物隐形
 You snap your fingers!
 你打了一个响指！
-Command: Bind
-命令：绑定
-Select which creature to bind
-选择要绑定的生物
-Commands nearby restraints to bind targets standing on them. Rope: 30 chain dmg/5 turn snare. Chain: 30 crush dmg/8 turn disarm. Belts: 50 binding/3 turns vulnerability.
-命令附近的约束装置约束站在其上的目标。绳索：30链条伤害/5回合陷阱。链条：30粉碎伤害/8回合无武器。皮带：50绑定/3回合脆弱。
-You say a command word, and the bindings on the ground do your bidding!
-你说了一个命令，地面上的绑定就按你的命令做！
-Command: Unlock
-命令: 解锁
+Command Word
+命令咒语
 Select which creature to unlock
 选择要解锁的生物
 On yourself: Removes all purple locks. On a creature: Reduces the target's binding by 20 points.
@@ -6019,9 +5700,41 @@ You wriggle uselessly, aroused by the plugs inside you!
 You wriggle uselessly, tormented by the massive plugs inside of you!
 你无用地扭动着，被你体内的巨大塞子折磨着！
 You climb into the grate
-你爬进隔间
+你爬进grate
+Mmmph...
+唔……
+Mmmmmmmmm...
+嗯嗯嗯……
+Hhmmpphh...
+哼哼……
+Gghhhh!!!
+呃呃呃！！！
+Mmmmmphh!!!
+嗯嗯！！！
+Mmm...
+嗯……
+MMM!!!
+嗯！！！
+Mmmmmm.
+嗯嗯。
+Mmmaaaaahhh...
+嗯嗯嗯……
+Mmmmmmmmm~
+嗯嗯嗯~
+Unnnghhh...
+嗯嗯……
+Mmmmmmmphhh..
+嗯嗯嗯嗯嗯。。
+Mmmmmphh~
+嗯嗯~
+Mmm~
+嗯~
+Mmmmm~~
+嗯嗯~~
+Mmmmmm~~~
+嗯嗯~~~
 You are blinded!
-你失明了！
+你瞎了眼！
 You took DamageDealt damage!
 你受到了DamageDealt点伤害！
 Your own rope trap springs upon you!
@@ -6146,26 +5859,10 @@ You feel a prick as a small dart hits you, and you start feeling drowsy...
 当一个小飞镖击中您时，您感到刺痛，并且您开始感到昏昏欲睡……
 You breathe in the gas, and a wave of pleasure hits your whole body.
 你吸入了气体，一阵快感袭上你的全身。
-You breathe in the gas, and feel lethargic...
-你吸入了气体，您开始感到昏昏欲睡……
-Message Log
-消息日志
-Pass thru allies
-通过盟友
-Auto-Struggle
-自动尝试挣脱
-Auto-Pathfind
-自动寻路
-Sprint/Hop
-疾跑/跳跃
-Quick Inventory
-快速物品栏
 Inventory
 背包
 Reputation
 声望
-Spell List
-法术列表
 Spells
 法术
 Learn New Spells
@@ -6431,7 +6128,7 @@ You channel ghastly energy into the lock and break the seal!!!
 The item seems to drain divine energy from shrines. Maybe that has something to do with it.
 该物品似乎从神殿中汲取了神圣能量。也许这与它有关。
 The collar is enchanted with multiple layers of magical seals.
-项圈附有多层魔法封印。
+项圈附有多层魔法封印。 
 The collar has absorbed enough energy and pops off!
 项圈吸收了足够的能量，然后打开！
 That item cant be used.
@@ -6604,50 +6301,50 @@ You run up against the TETHER pulling you back.
 你逃跑的同时 TETHER 在把你拉回来。
 You are yanked back by the TETHER!
 你被 TETHER 拉了回来！
-We will be going for a walk. Follow me.
-我们要去散步。跟我来。
-I told you to follow me!
-我让你跟我来！
-I said, FOLLOW ME!
-快点，跟我来！
-I won't repeat myself
-我不想再重复一遍
-Then let's put you back in your cell!
-那么你就滚回牢房里吧！
-I hope you learned your lesson. Now get your butt out of here.
-我希望你吸取教训。现在滚出去。
-You've been a good girl. I hope you don't make the same mistake again. You can leave.
-你之前表现得很好。希望你不要再犯同样的错误。你可以走了。
-That's a good girl. Now behave yourself, okay? You're free to go.
-做得很好。现在规矩点，好吗？你可以走了。
-Looks like you got yourself in a bind! (she pats your butt playfully) Go make the others happy!
-看起来你绑的很好！ （她开戏谑地拍拍你的屁股）去让别人开心吧！
-Good girl.
-好姑娘。
-You'll be making others happy in no time.
-你很快就会让别人开心。
-You're shaping up to be a good slave.
-你正在成为一个好奴隶。
-I wish I could take you to my room...
-我希望我能带你去我的房间……
-It seems your training is going well.
-看来你的训练进行得很顺利。
-Perhaps you are enjoying this, hehe.
-也许你很享受这个，呵呵。
+EnemyName: We will be going for a walk. Follow me.
+EnemyName：我们要去散步。跟我来。
+EnemyName: I told you to follow me!
+EnemyName：我让你跟我来！
+EnemyName: I said, FOLLOW ME!
+EnemyName：快点，跟我来！
+EnemyName: I won't repeat myself
+EnemyName：我不想再重复一遍
+EnemyName: Then let's put you back in your cell!
+EnemyName：那么你就滚回牢房里吧！
+EnemyName: I hope you learned your lesson. Now get your butt out of here.
+EnemyName：我希望你吸取教训。现在滚出去。
+EnemyName: You've been a good girl. I hope you don't make the same mistake again. You can leave.
+EnemyName：你之前表现得很好。希望你不要再犯同样的错误。你可以走了。
+EnemyName: That's a good girl. Now behave yourself, okay? You're free to go.
+EnemyName：做得很好。现在规矩点，好吗？你可以走了。
+EnemyName: Looks like you got yourself in a bind! (she pats your butt playfully) Go make the others happy!
+EnemyName：看起来你绑的很好！ （她开戏谑地拍拍你的屁股）去让别人开心吧！
+EnemyName: Good girl.
+EnemyName：好姑娘。
+EnemyName: You'll be making others happy in no time.
+EnemyName：你很快就会让别人开心。
+EnemyName: You're shaping up to be a good slave.
+EnemyName：你正在成为一个好奴隶。
+EnemyName: I wish I could take you to my room...
+EnemyName：我希望我能带你去我的房间……
+EnemyName: It seems your training is going well.
+EnemyName：看来你的训练进行得很顺利。
+EnemyName: Perhaps you are enjoying this, hehe.
+EnemyName：也许你很享受这个，呵呵。
 The EnemyName starts adding a RestraintName!
 EnemyName 开始添加 RestraintName！
-You're missing part of your uniform.
-你的身上少了一点东西。
+EnemyName: You're missing part of your uniform.
+EnemyName：你的身上少了一点东西。
 The EnemyName starts to remove your RestraintName!
 EnemyName 开始移除你的 RestraintName！
 The EnemyName starts to lock your RestraintName!
 EnemyName 开始给你的 RestraintName 上锁！
 The EnemyName locks your RestraintName with a LockType!
 EnemyName 使用 LockType 锁上了您的 RestraintName！
-I am going to change your restraints. Hold still!
-我要更换你的拘束具。站好了！
-Looks like somebody forgot to lock those~
-好像有人忘记给你上锁了~
+EnemyName: I am going to change your restraints. Hold still!
+EnemyName：我要更换你的拘束具。站好了！
+EnemyName: Looks like somebody forgot to lock those~
+EnemyName：好像有人忘记给你上锁了~
 Layered underneath:
 下方隐藏的拘束具：
 Increased strictness due to:
@@ -6792,10 +6489,10 @@ You would never do such a thing.
 你永远不会做这样的事情。
 You try to rub your erogenous zones by squirming your legs...
 你试图通过蠕动你的腿来摩擦你的敏感带......
-Your will is draining as you crave release, but can't quite get there without help...
-当你渴望释放时，你的意志正在枯竭，但没有帮助就无法完全实现。。。
-Your will is draining as you crave release, and the toys continue to vibrate...
-当你渴望释放时，你的意志正在枯竭，玩具继续振动。。。
+Your stamina is draining as you crave release, but can't quite get there without help...
+当你渴望释放时，你的体力正在耗尽，但没有帮助就无法到达高潮......
+Your stamina is draining as you crave release, and the toys continue to vibrate...
+当您渴望释放时，您的体力正在消耗，而玩具继续振动……
 A buzzing vibration wakes you up!
 嗡嗡的振动将您唤醒！
 Your RestraintName punishes you for your behavior!
@@ -7070,20 +6767,6 @@ The spirit inside the restraint is vengeful and emerges to wreak havoc on the wo
 禁锢内的灵魂是报复性的，并出现对世界造成严重破坏！
 You hide inside the container...
 你躲在容器里...
-It's a crumpled piece of scrap metal with a sharp edge.
-这是一块皱巴巴的废金属，但是边缘很锋利。
-You use the scrap to try and cut the item.
-你试着用废料切割物品。
-You rub the item against the broken object's sharp edges...
-你把物品擦在破碎物体的锋利边缘上。。。
-A hook hangs at shoulder height.
-一个钩子挂在肩上。
-You can't reach that with the hook!
-你用钩子够不到的！
-There's a hook on the wall.
-墙上有个钩子。
-The wall is cracked.
-墙裂了。
 Many ropes emerge around you, removing weaker ropes from your body and binding enemies!
 许多绳索出现在你周围，从你的身体上移除较弱的绳索并束缚敌人！
 Distracted
@@ -7098,42 +6781,24 @@ Allow Rear Plugs
 允许肛塞
 Allow Piercings
 允许穿孔
-Fighter
-战士
-Start with 200 willpower and 2 spell points, good for escaping and taking blows.
-从200点意志力和2点法术点开始，有利于逃跑和打击。
-Rogue
-流氓
-Start with 200 stamina and 2 spell points, good for sprinting around.
-从200点耐力和2点咒语开始，有利于短跑。
-Mage
-法师
-Start with 200 mana and 3 spell points, good for casting spells.
-从200点法力和3点法术点开始，适合施法。
-Peasant
-普通人
-Start with nothing to your name. For those who want a challenge.
-从你的名字开始。对于那些想要挑战的人。
-Choose Spells
-选择法术
-Random Spells
-随机法术
+Empirical Formulae
+经验公式
+Divine Providence
+天意
 Break orbs. Get points. Buy spells. It's that simple.
-打破水晶。获得积分。购买法术。就是这么简单。
+打破水晶。获得积分。购买咒语。就是这么简单。
 Break orbs and pray you get something good.
 打破水晶，祈祷你能得到好东西。
-Save Codes
-存档码
-Roguelike
-单人
-Grants you a save code every 5 floors you can write down elsewhere.
-每 5 个楼层授予您一个保存代码，您可以在其他地方写下。
+Recordkeeper
+记录员
+Who needs a map?
+谁需要地图？
+Grants you a save code every 3 floors you can write down elsewhere.
+每 3 个楼层授予您一个保存代码，您可以在其他地方写下。
 No save codes. You are in it to win it.
-没有保存代码。你参与其中是为了获胜。
+没有保存代码。你参与其中是为了战胜它。
 Lock your settings in, nice and tight.
 锁定您的设置，又好又紧。
-Choose some perks to spice up your run.
-选择一些额外选项，为您的游玩增添趣味。
 This game engages in safe and consensual analytics.
 该游戏涉及安全和自愿的数据分析。
 It sends data about spell choices, levels reached, etc, to help balance and improve the game.
@@ -7150,584 +6815,582 @@ You found a keyring to the stairs! Now you just need to get there.
 你找到了楼梯的钥匙圈！现在你只需要到达那里。
 There seems to be a locked high-security door. Looks like you need a key.
 似乎有一扇锁着的高安全门。看来你需要一把钥匙。
-Hey! Where do you think you're going?
-喂！你以为你能去哪里？
-You look like you're having fun!
-你看起来很开心！
-I have somewhere else in mind for you~
-我想给你找个别的地方~
-What do you think you're doing with that?
-你以为你在做什么？
-Looks like you found my keys! Hand them over.
-看来你找到了我的钥匙！给我。
-You look like a good girl. Come on~
-你看起来像个好女孩。过来吧~
-Come here, let's play!
-过来，一起玩吧！
-*grins and starts walking toward you*
-*咧嘴一笑，开始向你走来*
-Hey! Play nice!
-嘿！ 玩的开心！！
-Stop that! Guards!
-停下！警卫！
-You're mine!
-你归我了！
-Sorceress!
-女巫！
-Get her!
-抓住她！
-She's a mage! Stop her!
-她是个法师！阻止她！
-Watch it!
-注意！
-Don't touch that!
-别碰那个！
-Don't touch that!
-别碰那个！
-Don't touch that!
-别碰那个！
-We have an escapee!
-有逃犯！
-Not so fast!
-别那么快！
-Try that again!
-再试一次！
-Do your worst!
-尽你最大的努力！
-Got you!
-抓住你了！
-Get back here!
-回来！
-Missed me!
-错过我！
-You're coming with me!
-你跟我来！
-Get over here!
-过来！
-Not so slippery now!
-现在不那么滑了！
-Hand it over.
-把它交出来。
-Nice and tight!
-又好又紧！
-*looks at you nervously*
-*紧张地看着你*
-*groans*
-*呻吟*
-*giggles*
-*咯咯地笑*
-*rubs her hands together eagerly*
-*急切地搓着她的手*
-*looks at you suspiciously*
-*怀疑地看着你*
-*looks at you angrily*
-*愤怒地看着你*
-Hey! You should know your place.
-喂！你应该知道你自己什么地位。
-I'm gonna teach you a lesson, girl.
-我要给你一个教训，姑娘。
-What are you rummaging around for?
-你在翻什么？
-Oh no you don't!
-哦不，你不能这么做！
-I'm gonna teach you a lesson, girl.
-我要给你一个教训，女孩。
-I'm gonna miss you when we find you a nice master...
-当我们找到你一个好主人时，我会想念你的......
-Looks like you need some training, girl.
-看起来你需要一些调教，女孩。
-You picked a bad time to get lost, friend.
-你在错误的时间出现在错误的地点，朋友。
-Never should have come here.
-你不应该出现在这里。
-I used to be an adventurer like you.
-我曾经和你一样是冒险者。
-You must be one of those wizards.
-你一定是那些巫师之一。
-The mages sell real well...
-法师卖得真好……
-Mage! Stop her!
-法师！阻止她！
-Watch it!
-小心！
-Not on my watch.
-不是我的收藏品。
-That's my stash...
-那是我的藏匿处...
-You'll fetch a pretty penny from that goddess you just pissed off.
-你会从你刚刚惹怒的那个女神那里赚到一大笔钱。
-Hah! Found ya!
-哈！找到你了！
-Got you!
-抓住你了！
-*scoffs* Amateur.
-*嘲笑* 业余。
-Do your worst!
-尽你最大的努力！
-Hmph. Get back here!
-Hmph。 回来！
-Boss! We got another one!
-老板！我们还有一个！
-Get over here!
-过来！
-Caught ya~
-抓住你~
-Dibs on this one!
-这里有一个零钱！
-Gotta make sure no one gets to you~
-要确保没有人接近你~
-*starts chasing you*
-*开始追你*
-*won't leave you be!*
-*不会离开你！*
-*tugs at your body!*
-*拉扯你的身体！*
-*runs at you*
-*冲着你跑*
-*notices you!*
-*注意到你了！*
-*wants to socialize*
-*想要社交*
-*sends shivers down your spine*
-*让你脊背发凉*
-*runs at you*
-*冲着你跑*
-*is rattled*
-*惊慌失措*
-*scrabbles slowly by*
-*缓慢地拼字*
-*shrieks*
-*尖叫*
-*wants to shock your soul*
-*想要震撼你的灵魂*
-*comes to seal your doom*
-*来决定你的命运*
-*shouts a startling shrilling scream!*
-*发出令人吃惊的尖叫声！*
-*walks toward you with arms outstretched*
-*张开双臂向你走来*
-*defending the goddess*
-*保卫女神*
-*defends its cache*
-*保护着他的隐匿处*
-*lets out a shriek*
-*发出一声尖叫*
-*tries to catch you*
-*试图抓住你*
-*grabs you*
-*抓住你*
-*disarms*
-*解除武装*
-*is rattled*
-*紧张*
-*rattles excitedly*
-*兴奋地嘎嘎作响*
-*misses*
-*错过*
-*trembles*
-*颤抖*
-*rattles*
-*嘎嘎作响*
-*rattles excitedly*
-*兴奋地嘎嘎作响*
-Insufficient bindings. Commence submission protocol.
-束缚不足。开始提交协议。
-Struggling detected. Commence inspection.
-检测到挣扎。开始检查。
-Theft detected. This is a warning.
-检测到盗窃。这是一个警告。
-Confiscating item.
-没收物品。
-Inmate detected. Commence training protocol.
-检测到犯人。开始培训协议。
-Inmate detected. Commence routine inspection.
-检测到犯人。开始例行检查。
-Inmate detected. Commence submission training.
-检测到犯人。开始提交培训。
-Violence detected. Subduing assailant.
-检测到暴力。制服袭击者。
-Damage detected. Initiating combat routine
-检测到伤害。启动战斗程序
-Unruly inmate detected. Performing corrective action.
-检测到不守规矩的囚犯。执行纠正措施。
-Magic detected. Subduing assailant.
-检测到魔法。制服袭击者。
-Energy spike detected. Preparing shields.
-检测到能量峰值。准备防护。
-Unlawful use of magic. Please submit to arrest.
-非法使用魔法。请提交逮捕。
-Violence detected. Subduing assailant.
-检测到暴力。制服袭击者。
-Unlawful conduct. Please submit to arrest.
-非法行为。请提交逮捕。
-Theft detected. Please submit to arrest.
-检测到盗窃。请提交逮捕。
-Unlawful conduct. Please submit to arrest.
-非法行为。请提交逮捕。
-Inmate has escaped. Commence capture protocol.
-犯人逃跑了。开始捕获协议。
-Look! A fine specimen!
-看！很好的标本！
-You'd look good in some latex!
-你穿上乳胶会很好看！
-Hey! That's mine!
-喂！那是我的！
-You're not supposed to have that!
-你不应该有那个！
-You'll make a fine test subject...
-你会成为一个很好的测试对象......
-Come here, I want to perform some tests!
-过来，我要进行一些测试！
-Looks like it's time to drop some science!
-看起来是时候放弃一些科学了！
-Bad girl!
-坏女孩！
-Keep your filthy hands off me!
-把你的脏手拿开！
-Your chances of winning are... less than zero.
-你获胜的机会……小于零。
-Good girls don't use magic without permission.
-好女孩未经许可不会使用魔法。
-Keep that magic away from my experiments!
-让那个魔法理我的实验远点！
-You're going to break something!
-你会破坏掉一些东西的！
-That's dangerous!
-那很危险！
-Stop! That's scientific equipment!
-停下！那是科学仪器！
-Don't touch my supplies!
-别碰我的补给品！
-That's off-limits!
-那是禁区！
-You're not supposed to be here!
-你不应该在这里！
-You look just gorgeous, dear...
-你看起来真漂亮，亲爱的……
-Why don't you try these on?
-你为什么不试试这些？
-You'll make a fine addition to my collection!
-你会为我的收藏锦上添花！
-You'd be more elegant if you weren't moving around...
-如果你不四游荡，你会更优雅……
-We should put away those grasping hands of yours~
-我们应该收起你那紧握的手~
-That belongs to someone else.
-那是属于别人的。
-Oh no you don't, sweetie!
-哦，不，别这样，亲爱的！
-Oof! Looks like you need to be taught a lesson!
-哎呀！看来你需要被教训一顿了！
-We better put away those hands of yours.
-我们最好收起你的手。
-Why don't you just give up and pose for us~
-你为什么不放弃并为我们摆姿势呢~
-Oh my, that's dangerous!
-哦，天哪，这很危险！
-You're going to damage my dress!
-你会弄坏我的衣服的！
-Keep those pretty hands to yourself, dear~
-亲爱的，把那双漂亮的手留给自己吧~
-Where'd you find that, dear?
-你在哪里找到的，亲爱的？
-Silly girl, you should be looking to your mistress for guidance.
-傻丫头，你应该向你的女主人寻求指导。
-That's not yours, sweetie~
-那不是你的，亲爱的~
-You shouldn't break things with such dainty hands~
-你不应该用这么精致的手来破坏东西~
-I knew something was amiss!
-我知道有些不对劲！
-What a beautiful one.
-多么美丽的姑娘。
-I will take you back home~
-跟我回家吧~
-You'd look great in my palace.
-你会成为我宫殿里漂亮的装饰品。
-Are we having fun?
-玩得开心吗？
-Humans like you make for great toys.
-像你这样的人会成为很棒的玩具。
-That won't help you.
-这对你没用。
-You won't escape.
-你逃不掉的。
-Such feeble attempts.
-没用的。
-Humans are fun to play with.
-和人类一起玩很有趣。
-Toying with me? I shall oblige!
-戏弄我？我会让你履约的！
-Cast your last pathetic spell, human.
-这会是你最后一个咒语，人类。
-Your magic is weak, human.
-你的魔法很弱，人类。
-It tickles, hehe!
-就跟挠痒一样，呵呵！
-Look what humans need to match only a fraction of our power!
-看看人类需要什么才能匹配我们的一小部分力量！
-Our goddess doesn't need to listen to the likes of you!
-我们的女神不需要听你们这些东西的话！
-Keep your hands out of our possessions.
-别碰我们的东西。
-Defiler! You will pay for your crimes!
-异教徒！你会为你的罪行付出代价！
-A game of chase? Fun.
-追逐游戏？有意思。
-Look, a new recruit!
-看，新兵！
-I'll teach you a thing or two!
-我会教你两招的！
-Let's test your manners~
-让我们测试一下你的举止~
-Having fun there?
-玩的很开心吗？
-It's time for your training.
-是时候训练了。
-You need to be taught some manners, maid.
-你需要被教导一些礼仪，女仆。
-Good girl. I'll take that to the storage room.
-好姑娘。我会把它带到储藏室。
-I'll be taking those.
-我会带走那些。
-Oh, you're approaching me?
-哦，你在接近我？
-You've gotten yourself into a big mess.
-你把自己弄得一团糟。
-You're going to regret that.
-你会后悔的。
-A maid uses magic only when told!
-女仆只有在被允许时才会使用魔法！
-I look forward to plugging that mouth of yours.
-我要堵住你的嘴。
-How unruly... What a pain.
-多么不守规矩……多么痛苦。
-Put that away!
-把它收起来！
-That's off limits. You need to be punished!
-那是禁区。你需要受到惩罚！
-Thief! Get her!
-盗贼！抓住她！
-Yikes! I'm calling backup!
-哎呀！需要后援！
-Found you!
-找到你了！
-Miss, your uniform is dirty...
-小姐，你的制服脏了……
-Why hello miss...
-你好小姐...
-Let me fix your outfit...
-让我修补你的衣服……
-Hmm, do I need to tighten those?
-嗯，我需要收紧那些吗？
-Umm, miss, you're supposed to report to the head maid...
-嗯，小姐，你应该向女仆长报告……
-Thanks for picking up.
-谢谢。
-I'll take those to the head maid!
-我会把那些汇报给女仆长！
-Ooof!
-哎哟！
-Oh no!
-哦不！
-Stop it!
-住手！
-Miss! You're not allowed to cast that!
-小姐！你不能用那个！
-Miss, I have to report that!
-小姐，我必须报告！
-Magic!
-魔法！
-Eeep!
-呃！
-Miss, that's reserved for the head maid!
-小姐，这是留给女仆长的！
-Thief! I'm reporting this!
-盗贼！我要举报这个！
-Oh no! I have to report this!
-哦不！我必须报告这个！
-Oh no!
-哦不！
-Come now, it's time for training.
-来吧，训练时间到了。
-Do you need to be punished?
-你需要受到惩罚吗？
-It's time for a test.
-是时候进行测试了。
-You are making too much noise. A maid remains quiet until asked.
-你太吵了。一个女仆在被问到之前不应该说话。
-You need to work on your ladylike manners.
-你需要提升你的淑女风度。
-Good girl, finding lost items.
-好女孩，寻找丢失的物品。
-I do not give you permmission to leave.
-我不允许你离开。
-Do you know who I am?
-你知道我是谁吗？
-You need to learn some manners!
-你需要学习一些礼仪！
-How rude!
-好粗鲁！
-There is a more proper way to cast spells...
-还有更合适的施法方式……
-Perhaps you need to receive some gag training.
-也许你需要接受一些堵嘴训练。
-You lack discipline, and self-control.
-你缺乏纪律和自制力。
-Do not use what belongs to others.
-不要使用属于他人的东西。
-A good maid pleads only to her mistress.
-一个好女仆只向她的女主人恳求。
-Do not take what is not yours.
-不要拿不属于你的东西。
-I will personally attend to your act of disgrace.
-我会亲自处理你的耻辱行为。
-An unruly pest.
-不守规矩的害虫。
-I must say, you've got me under your spell~
-我必须说，你把我迷住了~
-Why aren't you a pretty one...
-为什么你不够漂亮……
-I've got to kiss those tender lips of yours~
-我要亲亲你的嫩唇~
-Having fun, little lady?
-玩得开心吗，小女士？
-Look at you, pretty and free!
-看看你，漂亮又自由！
-Must have misplaced it...
-一定是放错地方了……
-Those are mine!
-那些是我的！
-That's not very nice!
-那不是很好！
-Curse you!
-诅咒你！
-I'll turn you into a newt!
-我会把你变成蝾螈！
-Oh, so you've got a spellbook. What's it written in, curse-ive?
-哦，所以你有一本法术书。它是用什么写的，诅咒的？
-Snap, crackle, and pop!
-啪、啪、啪！
-Looks like I need to seal that foul mouth of yours.
-看来我需要封住你那张臭嘴。
-I recognize that thing you're holding!
-我认得你拿着的那个东西！
-You'll be praying for freedom soon, my dear~
-你很快就会为自由祈祷，亲爱的~
-Oh, breaking into my collection, are you?
-哦，闯入我的收藏，是吗？
-Even I wouldn't do such a thing!
-即使我也不会做这种事！
-Witch way to the jail cell, you say?
-你觉得这是前往剑雨的女巫之路吗？
-Mind if I play with you a bit?
-介意我陪你玩一会儿吗？
-Oooh! My new friend!
-哦！我的新朋友！
-My mistress told me to give you a good time...
-我的女主人让我给你一个愉快的时光......
-Hehe, having fun?
-嘿嘿，玩得开心吗？
-Hey, you're free to play, right~?
-嘿，可以随便玩弄你，对吧~？
-Hey, uh, give that back... (blushes)
-嘿，呃，把那个还给我……（脸红）
-Um, you have to return those!
-嗯，你必须归还那些！
-Eeep!
-呃！
-Help me!
-救救我！
-Somebody help!
-谁来救救我！
-A battle of wits, huh?
-斗智斗勇，嗯？
-You underestimate my power!
-你低估了我的力量！
-I'll show you true skill!
-我会向你展示真正的技能！
-Please put that down...
-请把它记下来……
-Hey, I used to pray at that shrine...
-嘿，我曾经在那个神泉祈祷......
-Hey, my mistress won't appreciate you taking those...
-嘿，你拿走那些我的女主人会不高兴的……
-The horror!
-恶灵！
-You're supposed to be in jail!
-你应该在监狱里！
-I've got a bone to pick with you!
-我有话要跟你说！
-Hey bonehead! What's up?
-嘿，白痴！这是怎么回事？
-Finally, something to toy with after working myself to the bone...
-终于，在自己努力工作之后，我可以玩玩了......
-I find your struggling quite humerus.
-我发现你的肱骨很有去。
-Looks like I get a bone-us!
-看起来我得到了一个奖-励！
-You're getting under my skin...
-你惹怒我了......
-Thought you were making a marrow escape, eh?
-你是在逃跑，是吗？
-You numskull!
-你这个笨蛋！
-You've got a lot of spine to fight me!
-想挑战我，你很有骨气嘛！
-You don't have a leg to stand on...
-你完全站不住脚..
-Magic... I feel it in my bones...
-魔法……是刻在我骨头里的东西……
-You've made a grave mistake!
-你犯了一个严重的错误！
-Your spells are pathetic, I'm cracking up~
-你的咒语很可怜，我要崩溃了~
-You've made a bone-a fide error.
-你犯了一个彻头彻尾的错误。
-Defiling the shrines... that's where I jaw the line!
-亵渎神殿……这就是我的底线！
-There's a skele-tonne of things in there and none of them are yours!
-里面有很多东西，但没有一个是你的！
-You're bad to the bone...
-你坏到骨子里了……
-Looks like you're bone to be wild, eh?
-看起来你很野蛮，是吗？
-Cute... Girl...
-可爱……女孩……
-Helpless...
-无奈……
-Mine...
-我的...
-Shiny...
-闪亮...
+EnemyName: Hey! Where do you think you're going?
+EnemyName：喂！你以为你能去哪里？
+EnemyName: You look like you're having fun, why don't we play?
+EnemyName：你看起来很开心，一起来玩吧？
+EnemyName: What do you think you're doing with that?
+EnemyName：你以为你在做什么？
+EnemyName: Looks like you found my keys! Hand them over.
+EnemyName：看来你找到了我的钥匙！给我。
+EnemyName: You look like a good girl. Come on~
+EnemyName：你看起来像个好女孩。过来吧~
+EnemyName: Come here, let's play!
+EnemyName：过来，一起玩吧！
+The EnemyName grins and starts walking toward you...
+EnemyName 咧嘴一笑，开始朝你走来……
+EnemyName: Hey! Play nice!
+EnemyName：喂,玩的开心！！
+EnemyName: Stop that! Guards!
+EnemyName：停下！卫兵！
+EnemyName: You're mine!
+EnemyName：你归我了！
+EnemyName: Sorceress!
+EnemyName：女巫！
+EnemyName: Get her!
+EnemyName：抓住她！
+EnemyName: She's a mage! Stop her!
+EnemyName：她是个法师！阻止她！
+EnemyName: Watch it!
+EnemyName：注意！
+EnemyName: Don't touch that!
+EnemyName：别碰那个！
+EnemyName: Don't touch that!
+EnemyName：别碰那个！
+EnemyName: Don't touch that!
+EnemyName：别碰那个！
+EnemyName: We have an escapee!
+EnemyName：有逃犯！
+The EnemyName looks at you nervously.
+EnemyName 紧张地看着你。
+The EnemyName giggles.
+EnemyName 咯咯地笑。
+EnemyName: Mmmph?
+EnemyName：嗯？
+EnemyName: Mmmghgh!!!
+EnemyName：嗯哼！！！
+EnemyName: Mmmmph...
+EnemyName：嗯……
+EnemyName: Hhhhmph!
+EnemyName：哼哼！
+EnemyName: Mmmmmmmmm...
+EnemyName：嗯嗯嗯嗯……
+EnemyName: Mmmph!
+EnemyName：嗯！
+EnemyName: Nngghhh!
+EnemyName：Nngghhh！
+EnemyName: Gggghh!!!
+EnemyName：Gggghh！！！
+EnemyName: Mmmaaghthh!
+EnemyName：嗯！
+EnemyName: Wwwmmmthhh!
+EnemyName：Wwwmmmthhh！
+EnemyName: Mmmmmph!
+EnemyName：嗯嗯！
+EnemyName: Mmmph.
+EnemyName：嗯。
+EnemyName: Mmmph!
+EnemyName：嗯！
+The EnemyName looks at you suspiciously.
+EnemyName 怀疑地看着你。
+The EnemyName looks at you angrily.
+EnemyName 愤怒地看着你。
+EnemyName: Mmmmph!!!
+EnemyName：嗯哼！！！
+EnemyName: Hey! You should know your place.
+EnemyName：喂！你应该知道你自己什么地位。
+EnemyName: I'm gonna teach you a lesson, girl.
+EnemyName：我要给你一个教训，姑娘。
+EnemyName: What are you rummaging around for?
+EnemyName：你在翻什么？
+EnemyName: Oh no you don't!
+EnemyName：哦不，你不能这么做！
+EnemyName: I'm gonna teach you a lesson, girl.
+EnemyName：我要给你一个教训，女孩。
+EnemyName: I'm gonna miss you when we find you a nice master...
+EnemyName：当我们找到你一个好主人时，我会想念你的......
+EnemyName: Looks like you need some training, girl.
+EnemyName：看起来你需要一些调教，女孩。
+EnemyName: You picked a bad time to get lost, friend.
+EnemyName：你在错误的时间出现在错误的地点，朋友。
+EnemyName: Never should have come here.
+EnemyName：你不应该出现在这里。
+EnemyName: I used to be an adventurer like you.
+EnemyName：我曾经和你一样是冒险者。
+EnemyName: You must be one of those wizards.
+EnemyName：你一定是那些巫师之一。
+EnemyName: The mages sell real well...
+EnemyName：法师卖得真好……
+EnemyName: Mage! Stop her!
+EnemyName：法师！阻止她！
+EnemyName: Watch it!
+EnemyName：小心！
+EnemyName: Not on my watch.
+EnemyName：不是我的收藏品。
+EnemyName: That's my stash...
+EnemyName：那是我的藏匿处...
+EnemyName: You'll fetch a pretty penny from that goddess you just pissed off.
+EnemyName：你会从你刚刚惹怒的那个女神那里赚到一大笔钱。
+EnemyName: Hah! Found ya!
+EnemyName：哈！找到你了！
+The EnemyName starts chasing you!
+EnemyName 开始追你！
+The EnemyName won't leave you be!
+EnemyName 不会离开你！
+The EnemyName walks toward you with arms outstretched...
+EnemyName 张开双臂向你走来……
+The EnemyName notices you taking the key!
+EnemyName 注意到你拿走了钥匙！
+The EnemyName wants to socialize...
+EnemyName 想要社交...
+The EnemyName sends shivers down your spine...
+EnemyName 让你脊背发凉……
+The EnemyName walks toward you with arms outstretched...
+EnemyName 张开双臂向你走来……
+The EnemyName is rattled!
+EnemyName 惊慌失措！
+The EnemyName scrabbles slowly by...
+EnemyName 慢慢地拼字...
+You shake and shudder at the EnemyName's shriek!
+敌人的尖叫声让你不寒而栗！
+The EnemyName wants to shock your soul...
+EnemyName 想要震撼你的灵魂……
+The EnemyName comes to seal your doom...
+EnemyName 来封印你的厄运……
+The EnemyName shouts a startling shrilling scream!
+EnemyName 发出令人吃惊的尖叫声！
+The EnemyName walks toward you with arms outstretched...
+EnemyName 张开双臂向你走来……
+The EnemyName moves to defend the goddess...
+EnemyName 为保护女神而行动……
+The EnemyName defends its cache...
+EnemyName 保护着他的隐匿处...
+The EnemyName lets out a shriek!
+EnemyName 发出一声尖叫！
+The EnemyName tries to catch you!
+EnemyName 试图抓住你！
+EnemyName: Insufficient bindings. Commence submission protocol.
+EnemyName：束缚不足。开始提交协议。
+EnemyName: Struggling detected. Commence inspection.
+EnemyName：检测到挣扎。开始检查。
+EnemyName: Theft detected. This is a warning.
+EnemyName：检测到盗窃。这是一个警告。
+EnemyName: Confiscating item.
+EnemyName：没收物品。
+EnemyName: Inmate detected. Commence training protocol.
+EnemyName：检测到犯人。开始培训协议。
+EnemyName: Inmate detected. Commence routine inspection.
+EnemyName：检测到犯人。开始例行检查。
+EnemyName: Inmate detected. Commence submission training.
+EnemyName：检测到犯人。开始提交培训。
+EnemyName: Violence detected. Subduing assailant.
+EnemyName：检测到暴力。制服袭击者。
+EnemyName: Damage detected. Initiating combat routine
+EnemyName：检测到伤害。启动战斗程序
+EnemyName: Unruly inmate detected. Performing corrective action.
+EnemyName：检测到不守规矩的囚犯。执行纠正措施。
+EnemyName: Magic detected. Subduing assailant.
+EnemyName：检测到魔法。制服袭击者。
+EnemyName: Energy spike detected. Preparing shields.
+EnemyName：检测到能量峰值。准备防护。
+EnemyName: Unlawful use of magic. Please submit to arrest.
+EnemyName：非法使用魔法。请提交逮捕。
+EnemyName: Violence detected. Subduing assailant.
+EnemyName：检测到暴力。制服袭击者。
+EnemyName: Unlawful conduct. Please submit to arrest.
+EnemyName：非法行为。请提交逮捕。
+EnemyName: Theft detected. Please submit to arrest.
+EnemyName：检测到盗窃。请提交逮捕。
+EnemyName: Unlawful conduct. Please submit to arrest.
+EnemyName：非法行为。请提交逮捕。
+EnemyName: Inmate has escaped. Commence capture protocol.
+EnemyName：犯人逃跑了。开始捕获协议。
+EnemyName: Look! A fine specimen!
+EnemyName：看！很好的标本！
+EnemyName: You'd look good in some latex!
+EnemyName：你穿上乳胶会很好看！
+EnemyName: Hey! That's mine!
+EnemyName：喂！那是我的！
+EnemyName: You're not supposed to have that!
+EnemyName：你不应该有那个！
+EnemyName: You'll make a fine test subject...
+EnemyName：你会成为一个很好的测试对象......
+EnemyName: Come here, I want to perform some tests!
+EnemyName：过来，我要进行一些测试！
+EnemyName: Looks like it's time to drop some science!
+EnemyName：看起来是时候放弃一些科学了！
+EnemyName: Bad girl!
+EnemyName：坏女孩！
+EnemyName: Keep your filthy hands off me!
+EnemyName: 把你的脏手拿开！
+EnemyName: Your chances of winning are... less than zero.
+EnemyName：你获胜的机会……小于零。
+EnemyName: Good girls don't use magic without permission.
+EnemyName：好女孩未经许可不会使用魔法。
+EnemyName: Keep that magic away from my experiments!
+EnemyName：让那个魔法理我的实验远点！
+EnemyName: You're going to break something!
+EnemyName：你会破坏掉一些东西的！
+EnemyName: That's dangerous!
+EnemyName：那很危险！
+EnemyName: Stop! That's scientific equipment!
+EnemyName：停下！那是科学仪器！
+EnemyName: Don't touch my supplies!
+EnemyName：别碰我的补给品！
+EnemyName: That's off-limits!
+EnemyName：那是禁区！
+EnemyName: You're not supposed to be here!
+EnemyName：你不应该在这里！
+EnemyName: You look just gorgeous, dear...
+EnemyName：你看起来真漂亮，亲爱的……
+EnemyName: Why don't you try these on?
+EnemyName：你为什么不试试这些？
+EnemyName: You'll make a fine addition to my collection!
+EnemyName：你会为我的收藏锦上添花！
+EnemyName: You'd be more elegant if you weren't moving around...
+EnemyName：如果你不四游荡，你会更优雅……
+EnemyName: We should put away those grasping hands of yours~
+EnemyName：我们应该收起你那紧握的手~
+EnemyName: That belongs to someone else.
+EnemyName：那是属于别人的。
+EnemyName: Oh no you don't, sweetie!
+EnemyName：哦，不，别这样，亲爱的！
+EnemyName: Oof! Looks like you need to be taught a lesson!
+EnemyName：哎呀！看来你需要被教训一顿了！
+EnemyName: We better put away those hands of yours.
+EnemyName：我们最好收起你的手。
+EnemyName: Why don't you just give up and pose for us~
+EnemyName：你为什么不放弃并为我们摆姿势呢~
+EnemyName: Oh my, that's dangerous!
+EnemyName：哦，天哪，这很危险！
+EnemyName: You're going to damage my dress!
+EnemyName：你会弄坏我的衣服的！
+EnemyName: Keep those pretty hands to yourself, dear~
+EnemyName：亲爱的，把那双漂亮的手留给自己吧~
+EnemyName: Where'd you find that, dear?
+EnemyName：你在哪里找到的，亲爱的？
+EnemyName: Silly girl, you should be looking to your mistress for guidance.
+EnemyName：傻丫头，你应该向你的女主人寻求指导。
+EnemyName: That's not yours, sweetie~
+EnemyName：那不是你的，亲爱的~
+EnemyName: You shouldn't break things with such dainty hands~
+EnemyName：你不应该用这么精致的手来破坏东西~
+EnemyName: I knew something was amiss!
+EnemyName：我知道有些不对劲！
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName:
+EnemyName：
+EnemyName: What a beautiful one.
+EnemyName：多么美丽的姑娘。
+EnemyName: I will take you back home~
+EnemyName：跟我回家吧~
+EnemyName: You'd look great in my palace.
+EnemyName：你会成为我宫殿里漂亮的装饰品。
+EnemyName: Are we having fun?
+EnemyName：玩得开心吗？
+EnemyName: Humans like you make for great toys.
+EnemyName：像你这样的人会成为很棒的玩具。
+EnemyName: That won't help you.
+EnemyName：这对你没用。
+EnemyName: You won't escape.
+EnemyName：你逃不掉的。
+EnemyName: Such feeble attempts.
+EnemyName：没用的。
+EnemyName: Humans are fun to play with.
+EnemyName：和人类一起玩很有趣。
+EnemyName: Toying with me? I shall oblige!
+EnemyName：戏弄我？我会让你履约的！
+EnemyName: Cast your last pathetic spell, human.
+EnemyName：这会是你最后一个咒语，人类。
+EnemyName: Your magic is weak, human.
+EnemyName：你的魔法很弱，人类。
+EnemyName: It tickles, hehe!
+EnemyName：就跟挠痒一样，呵呵！
+EnemyName: Look what humans need to match only a fraction of our power!
+EnemyName：看看人类需要什么才能匹配我们的一小部分力量！
+EnemyName: Our goddess doesn't need to listen to the likes of you!
+EnemyName：我们的女神不需要听你们这些东西的话！
+EnemyName: Keep your hands out of our possessions.
+EnemyName: 别碰我们的东西。
+EnemyName: Defiler! You will pay for your crimes!
+EnemyName：异教徒！你会为你的罪行付出代价！
+EnemyName: A game of chase? Fun.
+EnemyName：追逐游戏？有意思。
+EnemyName: Look, a new recruit!
+EnemyName：看，新兵！
+EnemyName: I'll teach you a thing or two!
+EnemyName：我会教你两招的！
+EnemyName: Let's test your manners~
+EnemyName：让我们测试一下你的举止~
+The EnemyName giggles: Having fun there?
+EnemyName 咯咯地笑：玩的很开心吗？
+EnemyName: You need to be taught some manners, maid.
+EnemyName：你需要被教导一些礼仪，女仆。
+EnemyName: Good girl. I'll take that to the storage room.
+EnemyName：好姑娘。我会把它带到储藏室。
+EnemyName: I'll be taking those.
+EnemyName：我会带走那些。
+EnemyName: Oh, you're approaching me?
+EnemyName：哦，你在接近我？
+EnemyName: You've gotten yourself into a big mess.
+EnemyName：你把自己弄得一团糟。
+EnemyName: You're going to regret that.
+EnemyName：你会后悔的。
+EnemyName: A maid uses magic only when told!
+EnemyName：女仆只有在被允许时才会使用魔法！
+EnemyName: I look forward to plugging that mouth of yours.
+EnemyName：我要堵住你的嘴。
+EnemyName: How unruly... What a pain.
+EnemyName：多么不守规矩……多么痛苦。
+EnemyName: Put that away!
+EnemyName: 把它收起来！
+EnemyName: That's off limits. You need to be punished!
+EnemyName：那是禁区。你需要受到惩罚！
+EnemyName: Thief! Get her!
+EnemyName：盗贼！抓住她！
+EnemyName: Yikes! I'm calling backup!
+EnemyName：哎呀！需要后援！
+EnemyName: Found you!
+EnemyName：找到你了！
+EnemyName: Miss, your uniform is dirty...
+EnemyName：小姐，你的制服脏了……
+EnemyName: Why hello miss...
+EnemyName：你好小姐...
+EnemyName: Let me fix your outfit...
+EnemyName：让我修补你的衣服……
+EnemyName: Hmm, do I need to tighten those?
+EnemyName：嗯，我需要收紧那些吗？
+EnemyName: Umm, miss, you're supposed to report to the head maid...
+EnemyName：嗯，小姐，你应该向女仆长报告……
+EnemyName: Thanks for picking up.
+EnemyName：谢谢。
+EnemyName: I'll take those to the head maid!
+EnemyName：我会把那些汇报给女仆长！
+EnemyName: Ooof!
+EnemyName：哎哟！
+EnemyName: Oh no!
+EnemyName：哦不！
+EnemyName: Stop it!
+EnemyName：住手！
+EnemyName: Miss! You're not allowed to cast that!
+EnemyName：小姐！你不能用那个！
+EnemyName: Miss, I have to report that!
+EnemyName：小姐，我必须报告！
+EnemyName: Magic!
+EnemyName：魔法！
+EnemyName: Eeep!
+EnemyName：呃！
+EnemyName: Miss, that's reserved for the head maid!
+EnemyName：小姐，这是留给女仆长的！
+EnemyName: Thief! I'm reporting this!
+EnemyName：盗贼！我要举报这个！
+EnemyName: Oh no! I have to report this!
+EnemyName：哦不！我必须报告这个！
+EnemyName: Oh no!
+EnemyName：哦不！
+EnemyName: Come now, it's time for training.
+EnemyName：来吧，训练时间到了。
+EnemyName: Do you need to be punished?
+EnemyName：你需要受到惩罚吗？
+EnemyName: It's time for a test.
+EnemyName：是时候进行测试了。
+EnemyName: You are making too much noise. A maid remains quiet until asked.
+EnemyName：你太吵了。一个女仆在被问到之前不应该说话。
+EnemyName: You need to work on your ladylike manners.
+EnemyName：你需要提升你的淑女风度。
+EnemyName: Good girl, finding lost items.
+EnemyName：好女孩，寻找丢失的物品。
+EnemyName: I do not give you permmission to leave.
+EnemyName：我不允许你离开。
+EnemyName: Do you know who I am?
+EnemyName：你知道我是谁吗？
+EnemyName: You need to learn some manners!
+EnemyName：你需要学习一些礼仪！
+EnemyName: How rude!
+EnemyName：好粗鲁！
+EnemyName: There is a more proper way to cast spells...
+EnemyName：还有更合适的施法方式……
+EnemyName: Perhaps you need to receive some gag training.
+EnemyName：也许你需要接受一些堵嘴训练。
+EnemyName: You lack discipline, and self-control.
+EnemyName：你缺乏纪律和自制力。
+EnemyName: Do not use what belongs to others.
+EnemyName：不要使用属于他人的东西。
+EnemyName: A good maid pleads only to her mistress.
+EnemyName：一个好女仆只向她的女主人恳求。
+EnemyName: Do not take what is not yours.
+EnemyName：不要拿不属于你的东西。
+EnemyName: I will personally attend to your act of disgrace.
+EnemyName：我会亲自处理你的耻辱行为。
+EnemyName: An unruly pest.
+EnemyName：不守规矩的害虫。
+EnemyName: I must say, you've got me under your spell~
+EnemyName：我必须说，你把我迷住了~
+EnemyName: Why aren't you a pretty one...
+EnemyName：为什么你不够漂亮……
+EnemyName: I've got to kiss those tender lips of yours~
+EnemyName：我要亲亲你的嫩唇~
+EnemyName: Having fun, little lady?
+EnemyName：玩得开心吗，小女士？
+EnemyName: Look at you, pretty and free!
+EnemyName：看看你，漂亮又自由！
+EnemyName: Must have misplaced it...
+EnemyName：一定是放错地方了……
+EnemyName: Those are mine!
+EnemyName：那些是我的！
+EnemyName: That's not very nice!
+EnemyName：那不是很好！
+EnemyName: Curse you!
+EnemyName：诅咒你！
+EnemyName: I'll turn you into a newt!
+EnemyName：我会把你变成蝾螈！
+EnemyName: Oh, so you've got a spellbook. What's it written in, curse-ive?
+EnemyName：哦，所以你有一本法术书。它是用什么写的，诅咒的？
+EnemyName: Snap, crackle, and pop!
+EnemyName：啪、啪、啪！
+EnemyName: Looks like I need to seal that foul mouth of yours.
+EnemyName：看来我需要封住你那张臭嘴。
+EnemyName: I recognize that thing you're holding!
+EnemyName：我认得你拿着的那个东西！
+EnemyName: You'll be praying for freedom soon, my dear~
+EnemyName：你很快就会为自由祈祷，亲爱的~
+EnemyName: Oh, breaking into my collection, are you?
+EnemyName：哦，闯入我的收藏，是吗？
+EnemyName: Even I wouldn't do such a thing!
+EnemyName：即使我也不会做这种事！
+EnemyName: Witch way to the jail cell, you say?
+EnemyName：你觉得这是前往剑雨的女巫之路吗？
+EnemyName: Mind if I play with you a bit?
+EnemyName：介意我陪你玩一会儿吗？
+EnemyName: Oooh! My new friend!
+EnemyName：哦！我的新朋友！
+EnemyName: My mistress told me to give you a good time...
+EnemyName：我的女主人让我给你一个愉快的时光......
+EnemyName: Hehe, having fun?
+EnemyName：嘿嘿，玩得开心吗？
+EnemyName: Hey, you're free to play, right~?
+EnemyName：嘿，可以随便玩弄你，对吧~？
+EnemyName: Hey, uh, give that back... (blushes)
+EnemyName：嘿，呃，把那个还给我……（脸红）
+EnemyName: Um, you have to return those!
+EnemyName：嗯，你必须归还那些！
+EnemyName: Eeep!
+EnemyName：呃！
+EnemyName: Help me!
+EnemyName：救救我！
+EnemyName: Somebody help!
+EnemyName：谁来救救我！
+EnemyName: A battle of wits, huh?
+EnemyName：斗智斗勇，嗯？
+EnemyName: You underestimate my power!
+EnemyName：你低估了我的力量！
+EnemyName: I'll show you true skill!
+EnemyName：我会向你展示真正的技能！
+EnemyName: Please put that down...
+EnemyName：请把它记下来……
+EnemyName: Hey, I used to pray at that shrine...
+EnemyName：嘿，我曾经在那个神泉祈祷......
+EnemyName: Hey, my mistress won't appreciate you taking those...
+EnemyName：嘿，你拿走那些我的女主人会不高兴的……
+EnemyName: The horror!
+EnemyName：恶灵！
+EnemyName: You're supposed to be in jail!
+EnemyName：你应该在监狱里！
+EnemyName: I've got a bone to pick with you!
+EnemyName：我有话要跟你说！
+EnemyName: Hey bonehead! What's up?
+EnemyName：嘿，白痴！这是怎么回事？
+EnemyName: Finally, something to toy with after working myself to the bone...
+EnemyName：终于，在自己努力工作之后，我可以玩玩了......
+EnemyName: I find your struggling quite humerus.
+EnemyName：我发现你的肱骨很有去。
+EnemyName: Looks like I get a bone-us!
+EnemyName：看起来我得到了一个奖-励！
+EnemyName: You're getting under my skin...
+EnemyName：你惹怒我了......
+EnemyName: Thought you were making a marrow escape, eh?
+EnemyName：你是在逃跑，是吗？
+EnemyName: You numskull!
+EnemyName：你这个笨蛋！
+EnemyName: You've got a lot of spine to fight me!
+EnemyName：想挑战我，你很有骨气嘛！
+EnemyName: You don't have a leg to stand on...
+EnemyName：你完全站不住脚..
+EnemyName: Magic... I feel it in my bones...
+EnemyName：魔法……是刻在我骨头里的东西……
+EnemyName: You've made a grave mistake!
+EnemyName：你犯了一个严重的错误！
+EnemyName: Your spells are pathetic, I'm cracking up~
+EnemyName：你的咒语很可怜，我要崩溃了~
+EnemyName: You've made a bone-a fide error.
+EnemyName：你犯了一个彻头彻尾的错误。
+EnemyName: Defiling the shrines... that's where I jaw the line!
+EnemyName: 亵渎神殿……这就是我的底线！
+EnemyName: There's a skele-tonne of things in there and none of them are yours!
+EnemyName：里面有很多东西，但没有一个是你的！
+EnemyName: You're bad to the bone...
+EnemyName：你坏到骨子里了……
+EnemyName: Looks like you're bone to be wild, eh?
+EnemyName：看起来你很野蛮，是吗？
+EnemyName: Cute... Girl...
+EnemyName：可爱……女孩……
+EnemyName: Helpless...
+EnemyName：无奈……
+EnemyName: Mine...
+EnemyName：我的...
+EnemyName: Shiny...
+EnemyName：闪亮...
 The EnemyName giggles...
 EnemyName 在咯咯地笑……
-Brains...
-大脑...
-Squishy...
-软软的...
-Rude...
-粗鲁……
-Mean...
-好自私……
-Ouch...
-哎哟……
-Pretty... Lights...
-漂亮……灯光……
-Sparkles...
-火花...
-It... Burns...
-它……在燃烧……
-Hey...
-喂……
-Defiler...
-亵渎者...
-Thief...
-盗贼...
-Intruder...
-入侵者...
-Give... Hug...
-给……拥抱……
+EnemyName: Brains...
+EnemyName：大脑...
+EnemyName: Squishy...
+EnemyName：软软的...
+EnemyName: Rude...
+EnemyName：粗鲁……
+EnemyName: Mean...
+EnemyName：好自私……
+EnemyName: Ouch...
+EnemyName：哎哟……
+EnemyName: Pretty... Lights...
+EnemyName：漂亮……灯光……
+EnemyName: Sparkles...
+EnemyName：火花...
+EnemyName: It... Burns...
+EnemyName：它……在燃烧……
+EnemyName: Hey...
+EnemyName：喂……
+EnemyName: Defiler...
+EnemyName：亵渎者...
+EnemyName: Thief...
+EnemyName：盗贼...
+EnemyName: Intruder...
+EnemyName：入侵者...
+EnemyName: Give... Hug...
+EnemyName：给……拥抱……
 The weapon requires power from an Ancient Crystal to function.
 该武器需要来自远古水晶的能量才能发挥作用。
 Target an enemy: Attack with Dragonslaver. Target a tile: Launch binding belts
@@ -7790,7 +7453,7 @@ You hand over your weapon reluctantly...
 （SPEAKER 发出哔哔声）|感谢您的遵守。
 (The SPEAKER frowns)|Looks like you'll need to be punished. Get her!
 （SPEAKER皱眉）|看来你需要受到惩罚。抓住她！
-(The SPEAKER looks Embarrassed)|Then... then... uh... someone stop her!
+(The SPEAKER looks embarrased)|Then... then... uh... someone stop her!
 （SPEAKER看起来很尴尬）|那么……那么……呃……来人阻止她！
 (The SPEAKER grins)|Then allow me to personally show you the rules.
 （SPEAKER咧嘴一笑）|那么请允许我亲自向你展示规则。
@@ -8390,74 +8053,52 @@ Fuuka surrounds herself in defensive talismans!
 Fuuka将自己包围在防御丝带中！
 Fuuka wraps you tightly in restraints! (+RestraintAdded)
 Fuuka将你紧紧包裹在束缚中！ （+RestraintAdded）
-Fuuka squeezes your breasts and smiles! (DamageTaken)
-Fuuka一边捏着你的胸一边微笑！ (DamageTaken)
+Fuuka squeezes your breasts and smiles! (-DamageTaken SP)
+Fuuka一边捏着你的胸一边微笑！ (-DamageTaken SP)
 Angry Fuuka
 愤怒的Fuuka
 Fuuka surrounds herself in defensive talismans one more time!
 Fuuka再一次用防御丝带包围自己！
 Fuuka wraps you furiously in restraints! (+RestraintAdded)
 Fuuka用狂怒地将你包裹起来！ （+RestraintAdded）
-Fuuka pouts as she tickles you relentlessly! (DamageTaken)
-Fuuka 一边噘嘴一边无情地给你挠痒痒！ (DamageTaken)
-Well well, what have we got here?
-好了好了，看看这是什么？
-You're not here to take away my pets, are you?
-你不是来带走我的宠物的，对吧？
-You'd make a lovely pet...
-你会成为一只可爱的宠物……
-Daw, you're so cute when you're struggling!
-Daw，你挣扎的时候真可爱！
-You need to be bound tight!
-你需要被绑紧！
-Cleaning up for me, huh?
-为我打扫卫生，嗯？
-Uh uh, give that back!
-呃呃，把那个还给我！
-I see how it is.
-我明白了。
-I've taken on hundreds of adventurers like you.
-我已经对付了数百个像你这样的冒险者。
-You don't stand a chance/
-你没有机会/
-Your magic is nothing compared to mine!
-与我相比，你的魔法根本不值一提！
-I've been a master wizard for over a thousand years!
-我已经是一千多年的巫术大师了！
-You call that a spell?
-你管这叫咒语？
-My spells are far superior!
-我的法术远超一流！
-She won't help you!
-她不会帮助你的！
-Not yours!
-不是你的！
-Oh, that's not going to help~
-哦，那可没用~
-Let's play a game!
-我们来玩个游戏吧！
-Didn't think you would get away, did you?
-没想到你会逃脱，是吗？
-Oh ho~
-呵呵~
-'Tis but a scratch!
-'这只是擦伤！
-You'll be my pet soon~
-你很快就会成为我的宠物~
-Cute~
-可爱捏~
-Don't even try~
-不要尝试~
-It's over~
-结束了~
-Get over here!
-过来！
-Not so slippery now!
-现在不那么滑了！
-I'll be taking that~
-我会拿走那个~
-'Click!'
-'咔哒！'
+Fuuka pouts as she tickles you relentlessly! (-DamageTaken SP)
+Fuuka 一边噘嘴一边无情地给你挠痒痒！ (-DamageTaken SP)
+EnemyName: Well well, what have we got here?
+EnemyName：好了好了，看看这是什么？
+EnemyName: You're not here to take away my pets, are you?
+EnemyName：你不是来带走我的宠物的，对吧？
+EnemyName: You'd make a lovely pet...
+EnemyName：你会成为一只可爱的宠物……
+EnemyName: Daw, you're so cute when you're struggling!
+EnemyName：Daw，你挣扎的时候真可爱！
+EnemyName: You need to be bound tight!
+EnemyName：你需要被绑紧！
+EnemyName: Cleaning up for me, huh?
+EnemyName：为我打扫卫生，嗯？
+EnemyName: Uh uh, give that back!
+EnemyName：呃呃，把那个还给我！
+EnemyName: I see how it is.
+EnemyName：我明白了。
+EnemyName: I've taken on hundreds of adventurers like you.
+EnemyName：我已经对付了数百个像你这样的冒险者。
+EnemyName: You don't stand a chance/
+EnemyName：你没有机会/
+EnemyName: Your magic is nothing compared to mine!
+EnemyName：与我相比，你的魔法根本不值一提！
+EnemyName: I've been a master wizard for over a thousand years!
+EnemyName：我已经是一千多年的巫术大师了！
+EnemyName: You call that a spell?
+EnemyName：你管这叫咒语？
+EnemyName: My spells are far superior!
+EnemyName：我的法术远超一流！
+EnemyName: She won't help you!
+EnemyName：她不会帮助你的！
+EnemyName: Not yours!
+EnemyName：不是你的！
+EnemyName: Oh, that's not going to help~
+EnemyName：哦，那可没用~
+EnemyName: Let's play a game!
+EnemyName：我们来玩个游戏吧！
 (You find a girl wearing an ornate dress)|(She glances at you)|And who might you be?
 （你发现一个穿着华丽衣服的女孩）|（她瞥了你一眼）|你是谁？
 I should be asking the same of you.
@@ -8626,6 +8267,8 @@ Exciting!
 令人兴奋！
 That sounds great. But who are you miss?
 这听起来很不错。但您是谁？
+Mmmmph~
+嗯~
 (SPEAKER giggles)|Hehe... We will have so much fun~
 （SPEAKER咯咯笑）|呵呵……我们会玩得很开心的~
 (...)
@@ -8691,7 +8334,7 @@ Mmmmph...
 You beat me fair and square.
 你公平地打败了我。
 Mmmph. (Submit)
-嗯。 （顺从）
+嗯。 （提交）
 You cheated!
 你作弊！
 Mmmph! (Struggle weakly)
@@ -8714,239 +8357,5 @@ Mmmph! (Struggle weakly)
 （总之服从于她）
 (SPEAKER resists but ultimately you force a gag into her mouth)|MMMMMPH!
 （SPEAKER 反抗，但最终你把堵嘴塞进她的嘴里）|MMMMPH！
-(Gag her)
-（堵住她的嘴）
-(This ghost had something to say,|but it appears you've run into a bug instead)|Please report this to Ada18980 on deviantart!
-（这个幽灵有话要说，|但似乎你遇到了一个bug）|请将此报告给deviantart上的Ada18980！
-(Continue)
-（继续）
-(Make a smug face as you walk past)
-（走过时摆出一副沾沾自喜的样子）
-Thank you!
-谢谢你！
-Mmmph!
-呜呜！
-I don't need your advice, strange ghostly person.
-我不需要你的建议，一个奇怪的幽灵。
-The next floor is a normal floor.
-下一层是普通层。
-This floor is suffering from a slime mold infestation.|Maids have been deployed to deal with the problem.|They could use a hand.
-这层楼受到黏菌侵扰|已经部署了女仆来处理这个问题|她们需要帮忙。
-This floor is being ransacked by bandits.|They are armed and dangerous.|But I hear there's a bounty on their heads?
-这层楼被强盗洗劫一空|他们有武器而且很危险|但我听说她们头上有赏金？
-A cave dragon was captured in the next floor.|It's brimming with elemental magic,|and there are a lot of interested parties!
-一条洞穴龙在下一层被捕获|它充满了元素魔法，|而且有很多感兴趣的人！
-The witches told me to keep you out.|I'm not exactly capable of doing that,|so feel free to do as you please.
-女巫让我别让你进来|我完全没有能力做到这一点|所以请随意做你想做的事。
-The next floor is overgrown.|I'd watch your feet if I were you.
-下一层杂草丛生|如果我是你，我会注意你的脚。
-Slimes, slimes EVERYWHERE!|Fortunately there's a slime-harvesting|operation going on.
-粘液，到处都是粘液|幸运的是，有一个黏液收集|手术正在进行。
-The trainers are taking their wolfgirls out for a walk.|I'd steer clear.|Unless you want to become one of their pets~
-训练师们带着她们的狼女出去散步|我会避开的|除非你想成为她们的宠物~
-Rumor has it that one of the cyber-dolls escaped.|Their handlers are looking for her.|They're catching every young girl they can find!
-有传言说其中一个网络娃娃逃走了|她们的处理人员正在寻找她|她们抓住了所有能找到的年轻女孩！
-This is totally a normal floor.|No doubt about it.
-这完全是正常的楼层|毫无疑问。
-This is the normal entrance to the dungeon.|The tutorial is at the beginning of the hall.
-这是地牢的正常入口|教程在大厅的开头。
-This is the entrance to the ancient tombs.|It's harder than the normal entrance.
-这是古墓的入口|这比正常的入口更难。
-This part of the dungeon has been altered by the goddess of chaos.|The order of zones you'll go through is totally random.
-地牢的这一部分被混沌女神改变了|你要经过的区域顺序完全是随机的。
-These are the stairs to the tutorial hall.
-这是通往教程室的楼梯。
-Congratulations! You've completed the tutorial!|Now get in there and stay out of trouble~
-祝贺您已经完成了教程|现在进去，别惹麻烦~
-Welcome to the dungeon!|Don't panic, this is a turn-based game,|and nothing will happen until you move.|On your left you'll see your character,|displayed with all of the bondage they don't have.|Don't worry, you'll find some soon!
-欢迎来到地牢|不要惊慌，这是一个回合制游戏，|除非你移动，否则什么都不会发生|在您的左侧，您将看到您的角色，显示了她们没有的所有束缚|别担心，你很快就会找到的！
-You might be wondering what all these barrels are for.|Don't worry, they're, uh, totally safe!|When you are inside one you can click on yourself to wait.|Enemies have a hard time seeing you inside a barrel,|so you can wait until they pass by you.
-你可能想知道这些桶是干什么用的|别担心，他们完全安全|当你在里面时，你可以点击自己等待|敌人很难在桶里看到你，所以你可以等到他们从你身边经过。
-On the right you'll see your stats and spells slots.|Your DP, SP, and MP are displayed there, we'll get into what these do.|Below that you'll see your current consumable items,|your gold, and your currently equipped weapon.|Below that, two icons allow you to toggle automatic escape and movement modes.
-在右边，你会看到你的统计数据和法术插槽|您的DP、SP和MP显示在那里，我们将了解它们的作用|在下面，您将看到您当前的消耗品、|黄金和当前装备的武器|在此下方，两个图标允许您切换自动逃生和移动模式。
-Your WP, or willpower, is an important resource.|Without it, escaping from restraints is more difficult.|There is a willpower potion on the floor up there. Go get it!
-你的WP或意志力是一个重要的资源|没有它，摆脱束缚更加困难|前面的地板上有一种意志力药剂。去拿着吧！
-Oh no! That trap wiped out all your willpower!|Fortunately you have a potion.|You can drink it by clicking the '+' icon next to your WP bar.|You can also go into your Inventory in the bottom bar.|There is also a quick-inventory icon (backpack).
-哦，不！那个陷阱把你的意志力都消灭了|幸运的是你有药水|您可以通过单击意志力旁边的“+”图标来饮用|您还可以在底部栏中查看您的库存|还有一个快速库存图标（背包）。
-Another trap!|You'll notice that the trap also drained your stamina considerably, forcing you to kneel.|You can protect yourself while your stamina regenerates by retreating into the room above.|Close the door by clicking the Close Door button in the bottom bar.|
-又是一个陷阱|你会注意到陷阱也消耗了你的体力，迫使你跪下|当你的耐力恢复时，你可以退到上面的房间里保护自己|单击底部栏中的“关门”按钮关闭门|
-Your MP, or Mana, used used to cast spells.|In order to cast spells though, you need to learn one.|Click the Spells button in the bottom right.|Then click on Flame Apprentice and learn it to unlock Firebolt.|Then, press space to go back, and press Right to switch pages.|Click on Firebolt, learn it, then assign it to slot 1.
-你的MP，或法力，用来施法|为了施展法术，你需要学习一种|点击右下角的咒语按钮|然后点击火焰学徒，学习解锁火焰弹|然后，按空格键返回，然后按向右键切换页面|点击Firebolt，学习它，然后将其分配到法术1。
-On the right you'll see your stats and spells slots.|You can click on a spell slot or hit 1-4 on your keyboard to cast a spell|then click on the map for where you want to aim it.|The small wrench icon above them will let you|swap them out for another spell from your spellbook.
-在右边，你会看到你的统计数据和法术插槽|你可以点击一个法术槽，或者点击键盘上的1-4来施放一个法术|然后在地图上点击你想要瞄准的地方|它们上面的小扳手图标可以让你|将它们换成法术书中的另一个法术。
-There's a zombie over there!|Fortunately zombies are weak to fire.|Firebolt has a very long range,|so simply cast firebolt and click on the zombie.|Repeat until it is dead.
-那边有个僵尸|幸运的是，僵尸的火力很弱|火焰弹射程很长|所以只需施放火焰弹并点击僵尸即可|重复，直到它死去。
-Mana potions restore your mana fully.
-法力药剂完全恢复了你的法力。
-Your DP, or Distraction, is a measure of...|How much you are enjoying things.|These sorts of thoughts cloud your mind,|so spellcasting is more difficult when you are distracted.|Go grab the potion over there.
-你的DP，或干扰值，是标准…|你享受事物的程度|这些想法让你的头脑变得模糊，所以当你分心时，施法会更加困难|去那边拿药水。
-Did you like that?|Anyway, there's a zombie over there. You should drink that potion.|It will clear your mind so you can cast again.|Hurry, or it will get you!
-你喜欢吗|不管怎样，那边有个僵尸。你应该喝那种药水|它会让你头脑清醒，这样你就可以再次施展|快点，不然它会抓住你的！
-That wasn't so hard, was it?|Now then, there's a treasure chest over here. Why don't you open it?
-这并不难，是吗|现在，这里有一个宝箱。你为什么不打开它？
-Yikes, looks like you're in a bind!|No worries, though. There's a key to those cuffs over there.|Simply hover over the cuffs item test on the left side.|Then, click the lock icon to remove the lock.|Finally, click the buckle to remove the cuffs.
-哎呀，看来你陷入困境了|不过，别担心。那边有一把钥匙|只需将鼠标悬停在左侧的手铐上|然后，单击锁图标以移除锁|最后，单击带扣以卸下手铐。
-I think we all know what's in the next chest.|It's important to understand the different ways you can escape.|You can struggle, which costs the most stamina|but makes other struggle methods faster.|You can cut, which requires a knife in hand.|You can remove, which represents untying or unbuckling.
-我想我们都知道下一个箱子里有什么|重要的是要了解你可以逃避的不同方式|你可以挣扎，这会消耗最多的耐力|但使其他挣扎方法更快|你可以切割，这需要手里拿着刀|您可以语出，这表示松开或解除绑定。
-Ouch, that looked tight...|Sometimes you won't be able to struggle out of things.|You'll have to find some other way to take it off...
-哎哟，看起来很紧…|有时候你无法摆脱困境|你得想办法把它取下来...
-There's a few zombies up ahead.|Fight your way through and claim the treasure!
-前面有几个僵尸|奋力拼搏，夺回宝藏！
-You're not feeling it...
-你没有感觉...
-You close your eyes but the vibrations keep you from dozing off...
-你闭上眼睛，但振动器让你无法休息。。。
-(A SPEAKER lies hogtied in front of you)|(She looks at you with pleading eyes,)|(and mumbles incoherently through her gag)
-（SPEAKER 躺在你面前）|（她用恳求的眼神看着你，）|（并通过她被堵住的嘴语无伦次地咕哝着。）
-(A SPEAKER lies hogtied in front of you)|(She looks at you, mumbling and giggling into her gag)
-（SPEAKER 躺在你面前）|（她看着你，嘴里咕哝着，咯咯笑着）
-(SPEAKER looks grateful)|Thank you so much|I shall join your party.
-（SPEAKER 看起来很感激）|非常感谢|我会加入你的队伍。
-(SPEAKER looks grateful)|Thank you so much miss!|I owe you everything.
-（SPEAKER 看起来很感激）|非常感谢您，小姐！|我欠您一切。
-(SPEAKER groans and wriggles around uselessly)
-（SPEAKER 呻吟着，毫无用处地扭动着。）
-(SPEAKER moans and rolls around, blushing deeply)
-（SPEAKER 呻吟着，转过身来，脸红得很厉害）
-Untie her
-解开她
-Make sure she is tight and secure
-确保她安全可靠
-(A SPEAKER bumps into you while immersed in her thoughts)|Oh! Hello!|Say, you look adorable...|Do you mind helping me find something?
-（SPEAKER 沉浸在她的思想中时撞到了你）|噢！你好！|喂，你看起来很可爱…|你介意帮我找点东西吗？
-(The SPEAKER jumps up and down)|Ah, wonderful!|I've misplaced one of my dresses.|If you could find one, wear it, and bring it to me,|I'd greatly appreciate it! Thanks!
-（SPEAKER 跳上跳下）|啊，太棒了|我把一件衣服放错地方了|如果你能找到一个，戴上它，带给我，我将非常感激！谢谢！
-(The SPEAKER stares at you like a rabid animal)|Wowie! You look gorgeous!|Thank you so much!|(She snaps a photo of you using a magic crystal)
-（SPEAKER 像一只疯狂的动物一样盯着你）|哇！你看起来真漂亮|非常感谢！|（她用魔法水晶给你拍了张照片。）
-(The SPEAKER giggles)|I never said I'd take it off, did I?
-（SPEAKER 咯咯地笑）|我从没说过我会把它拿下来，不是吗？
-(The SPEAKER smiles)|Sure thing!
-（SPEAKER 笑了）|当然！
-(Show interest)
-（表示感兴趣）
-I found your dress...
-我找到了你的裙子。。。
-Mmmph... (Found the dress!)
-呜呜呜…（找到裙子了！）
-Great! Can you take it off?
-太棒了！你能把它拿下来吗？
-Mmmmm! (Struggle)
-呜呜呜呜！（挣扎）
-(A SPEAKER clutching her books approaches you)|Miss adventurer!|I happen to need a magic scroll of any kind.|It's for my studies.
-（SPEAKER 抓着她的书走近你）|冒险家小姐|我碰巧需要任何一种魔法卷轴|这是为了我的学习。
-(The SPEAKER smiles)|Yes, thank you so much!|It's been so difficult to get them lately.|The magic library is closed off these days,|and there are mean people trying to get the scrolls back...
-（SPEAKER 微笑）|是的，非常感谢|最近很难找到它们|魔法图书馆最近关闭了|还有一些卑鄙的人试图拿回卷轴...
-(The SPEAKER is happy)|Thank you so much!
-（SPEAKER 很高兴）|非常感谢！
-Give her a Scroll of Sauntering
-给她一卷闲置的卷轴
-Give her a Scroll of Sleight
-给她一卷狡猾的卷轴
-Give her a Scroll of Speech
-给她一卷演讲的卷轴
-Give her a Scroll of Purity
-给她一卷纯洁的卷轴
-(A SPEAKER looks distraught)|Well met, adventurer!|We have a problem...
-（SPEAKER 看起来心烦意乱）|很好，冒险家|我们有个问题...
-(The SPEAKER folds her arms)|A rebel has been causing us problems lately...|If you run into her, give her all you got!|She needs to be brought to justice.
-（SPEAKER 交叉双臂）|最近一个叛军给我们带来了麻烦…|如果你碰到她，把你所有的东西都给她|她需要被绳之以法。
-(A SPEAKER scoffs in your direction)|Well? You lookin' for work or no?
-（SPEAKER 朝着你笑）|好吧？你在找工作吗，或者不是？
-(The SPEAKER grins)|A bunch of delinquents stormed out recently.|They're looking for a way out of their belts.|Someone oughta show em their place,|if you catch what I'm saying.
-（演讲者咧嘴笑）|最近一群违法者暴跳如雷|他们正在寻找摆脱困境的方法|应该有人带他们去他们的地方，|如果你明白我说的话。
-(Nod)
-（点头）
-(A SPEAKER approaches you in your cell)|Since you've been a bad girl,|we're taking you to the high-security prison.
-（SPEAKER 在你的牢房里走近你）|既然你是个坏女孩，|我们就把你带到高度戒备的监狱。
-(The SPEAKER folds her arms)|Want to or not, you're going.
-（SPEAKER 交叉双臂）|不管你想不想，你都要去。
-(Resist)
-（抵抗）
-(Submit)
-（顺从）
-(A SPEAKER crosses her arms)|Who you lookin' at?|Oh, it's an adventurer.|Say, you wouldn't be interested|in working with us, would ya?
-（SPEAKER 交叉双臂）|你在看什|哦，是个冒险家|喂，你不会感兴趣的|和我们一起工作，好吗？
-(The SPEAKER smiles)|That's more like it.|Here's the scoop: One of ours was captured on the next floor.|We need you to go get her out.
-（SPEAKER 微笑）|更像是这样|独家报道：我们其中一人在下一层被抓获|我们需要你去把她救出来。
-(The SPEAKER sits bound in high-security manacles)|You'll need to open the lock to get her out...
-（SPEAKER 戴着高安全性的手铐坐着）|你需要打开锁才能让她出来...
-(You don't have any keys that work on the lock)
-（你没有锁的钥匙。）
-(You can't help her, bound as tightly as you are...)
-（你帮不了她，像你一样紧紧地绑着…）
-(You unlock her, fumbling around for a while with your bound hands)
-（你解开了她的锁，用绑着的手摸索了一会儿。）
-(You unlock the SPEAKER)|Thank you!|Let's get out of here!
-（你解开了 SPEAKER）|谢谢|我们从这里出去吧！
-(You unlock the SPEAKER)|Mmmmph!|(She wants to keep her gag...)
-（你解开了 SPEAKER）|呜呜呜！|（她想保持自己的堵嘴…）
-(You don't have any lockpicks)
-（您没有任何撬锁器。）
-(You can't pick the lock with your hands bound)
-（你不能用在手被绑住的时候撬锁。）
-(After a while, you free the SPEAKER)|Thank you!|Let's get moving!
-（过了一会儿，你解开了 SPEAKER）|谢谢|让我们开始行动！
-(After a while, you free the SPEAKER)|Mmmmph!|(She shakes her head when you go for her gag...)
-（过了一会儿，你解开了 SPEAKER)|呜呜呜！|(她在你给她解开堵嘴时摇头...)
-(You don't have enough mana for a command word)
-（你没有足够的法力来写命令词。）
-(Try as you might, your mouth is sealed tight)
-（你尽你所能，你的嘴封得很紧）
-(You utter a command word to free the SPEAKER)|Many thanks!|Let's go!
-（你发出命令释放 SPEAKER）|非常感谢|走吧！
-(You utter a command word to free the SPEAKER)|Mmmmph!|(She locks her gag back on...)
-（你发出命令释放 SPEAKER）|呜呜呜！|(她把堵嘴又锁上了...)
-Use a key to unlock her
-用钥匙解开她
-Try to pick her restraints
-试着解开她的束缚
-Use a command word
-使用命令词
-An enemy found you while you were busy!
-敌人在你忙的时候发现了你！
-(A SPEAKER wakes you up by banging on the bars)|Wake up! Let's get out of here!|(She managed to pick the lock on your cell door)
-（SPEAKER 砰的一声把你吵醒）|醒醒！让我们离开这里|（她设法撬开了你牢房门上的锁。）
-(A SPEAKER wakes you up)|We came to rescue you. Come on!
-（SPEAKER 把你叫醒）|我们是来救你的。来吧！
-(The bed looks comfy and inviting)|(Napping here will restore half of your willpower)|(You can only sleep once per floor)
-（这张床看起来既舒适又诱人）|（在这里小睡会恢复你一半的意志力）|（每层只能睡一次）
-(You lay in the bed and doze off...)
-（你躺在床上打瞌睡…）
-(Lie down and sleep)
-（躺下睡觉）
-(Mystic energies spring forth from the ground)|(Standing here will fully replenish your passive mana pool)|(One use only)
-（神秘能量从地面涌出）|（站在这里将完全补充你的被动法力池）|（仅限一次使用）
-(You step on the magical fissue and its energies absorb into you)|(Afterward, the ground crackles and fizzles, but no energy is left.)
-（你踩到魔法的石头，它的能量吸收到你身上）|（之后，地面噼啪作响，但没有留下任何能量。）
-(Recharge your mana pool)
-（补充你的法力池）
-Prerequisite
-先决条件
-Unlocks:
-解锁：
-You need to learn REQUIREDSPELL before you can learn this one.
-你需要先学习 REQUIREDSPELL 才能学习这个。
-You no longer have the will to struggle.
-你不再有挣扎的意志。
-Help yourself!
-请随意
-You eat the delicious food and feel your will restored.
-你吃了美味的食物，感觉你的意志恢复了。
-Your gag prevents you from eating...
-你的堵嘴物阻止你进食...
-It's a table.
-这是一张桌子。
-It's a table, with evidence of a grisly deed.
-这是一张桌子，有恐怖行为的证据。
-Someone left their cookies unattended.
-有人把饼干放在无人看管的地方。
-You smell delicious pizza.
-你闻到了美味的比萨饼。
-You call for help!
-你呼救！
-You let out a garbled cry!
-你乱叫了一声！
-Your screams are muffled by your gag!
-你的尖叫声被你的堵嘴掩盖了！
-You can hardly make a noise...
-你几乎不能发出声音...
+(Gag her)"
+（堵住她的嘴）”

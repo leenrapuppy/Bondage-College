@@ -12,7 +12,6 @@ function InventoryItemVulvaPiercingsVibeHeartClitPiercingClick() {
 	VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 }
 
-/** @type {DynamicScriptDrawCallback} */
 function AssetsItemVulvaPiercingsVibeHeartClitPiercingScriptDraw(data) {
 	VibratorModeScriptDraw(data);
 }

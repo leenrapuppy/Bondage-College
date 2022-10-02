@@ -76,15 +76,12 @@ function CommandParse(msg) {
 	const WhisperTarget = ChatRoomCharacter.find(C => C.MemberNumber == ChatRoomTargetMemberNumber);
 	if (!ChatRoomShouldBlockGaggedOOCMessage(msg, WhisperTarget)) {
 		if (ChatRoomTargetMemberNumber == null) {
-
-			// Regular chat can be prevented with an owner presence rule, also validates for forbidden words
-			if (!ChatRoomOwnerPresenceRule("BlockTalk", null) && ChatRoomOwnerForbiddenWordCheck(msg)) {
+			// Regular chat can be prevented with an owner presence rule
+			if (!ChatRoomOwnerPresenceRule("BlockTalk", null)) {
 				ServerSend("ChatRoomChat", { Content: msg, Type: "Chat" });
 				ChatRoomStimulationMessage("Talk");
 			}
-
 		} else {
-
 			// The whispers get sent to the server and shown on the client directly
 			ServerSend("ChatRoomChat", { Content: msg, Type: "Whisper", Target: ChatRoomTargetMemberNumber });
 			const TargetName = WhisperTarget ? WhisperTarget.Name : "";
@@ -549,25 +546,4 @@ const CommonCommands = [
 			CraftingShowScreen(true);
 		},
 	},
-	{
-		Tag: "forbiddenwords",
-		Action: () => {
-
-			// No forbidden words if not owned
-			if (CurrentScreen != "ChatRoom") return;
-			if (!Player.IsOwned()) return;
-		
-			// Gets the forbidden words list from the log
-			let ForbiddenList = [];
-			for (let L of Log)
-				if ((L.Group == "OwnerRule") && L.Name.startsWith("ForbiddenWords"))
-					ForbiddenList = L.Name.substring("ForbiddenWords".length, 10000).split("|");
-			if (ForbiddenList.length <= 1) return true;
-			ForbiddenList.splice(0, 1);
-
-			// Shows the list in the chat window
-			ChatRoomMessage({Type: "LocalMessage",  Content: ForbiddenList.join(", "), Sender: Player.MemberNumber});
-
-		},
-	}
 ];

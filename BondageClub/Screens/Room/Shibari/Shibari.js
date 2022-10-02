@@ -58,16 +58,6 @@ function ShibariCanTrainSkill(SkillType) { return (SkillGetLevelReal(Player, Ski
  * @returns {boolean} - Returns TRUE if the player can pay for the requested training.
  */
 function ShibariCanPayForTraining() { return (Player.Money >= ShibariTrainingPrice); }
-/**
- * Checks if the player can pay for a training.
- * @returns {boolean} - Returns TRUE if the player can pay for the requested training.
- */
- function ShibariCanTrain() { return (!Player.IsRestrained() && !LogQuery("Training", "Shibari")); }
-/**
- * Checks if the player can pay for a training.
- * @returns {boolean} - Returns TRUE if the player can pay for the requested training.
- */
- function ShibariCannotTrainDelay() { return (!Player.IsRestrained() && LogQuery("Training", "Shibari")); }
 
 /**
  * Puts a character in a random bondage position.
@@ -304,8 +294,5 @@ function ShibariPayForTraining(SkillType) {
 	// Updates the player skill and money
 	SkillChange(SkillType, L, P);
 	CharacterChangeMoney(Player, ShibariTrainingPrice * -1);
-
-	// The next training will be available in 1 hour
-	LogAdd("Training", "Shibari", CurrentTime + 60 * 60 * 1000);
 
 }

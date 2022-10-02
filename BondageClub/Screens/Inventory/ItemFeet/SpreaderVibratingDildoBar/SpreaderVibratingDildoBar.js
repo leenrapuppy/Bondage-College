@@ -12,7 +12,6 @@ function InventoryItemFeetSpreaderVibratingDildoBarClick() {
 	VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 }
 
-/** @type {DynamicScriptDrawCallback} */
 function AssetsItemFeetSpreaderVibratingDildoBarScriptDraw(data) {
 	VibratorModeScriptDraw(data);
 }

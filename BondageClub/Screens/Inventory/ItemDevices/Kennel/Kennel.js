@@ -67,7 +67,6 @@ function InventoryItemDevicesKennelValidate(C, Item, Option) {
 	return Allowed;
 }
 
-/** @type {DynamicBeforeDrawCallback} */
 function AssetsItemDevicesKennelBeforeDraw({ PersistentData, L, Property }) {
 	if (L !== "_Door") return;
 
@@ -85,7 +84,6 @@ function AssetsItemDevicesKennelBeforeDraw({ PersistentData, L, Property }) {
 	}
 }
 
-/** @type {DynamicScriptDrawCallback} */
 function AssetsItemDevicesKennelScriptDraw({ C, PersistentData, Item }) {
 	const Data = PersistentData();
 	const Properties = Item.Property || {};

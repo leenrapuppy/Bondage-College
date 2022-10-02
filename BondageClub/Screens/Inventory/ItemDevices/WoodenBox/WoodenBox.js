@@ -213,7 +213,8 @@ function InventoryItemDevicesWoodenBoxGetInputOpacity() {
 
 /**
  * Dynamic AfterDraw function. Draws text onto the box.
- * @type {DynamicAfterDrawCallback}
+ * @param {object} DrawingData - The dynamic drawing data
+ * @returns {void} - Nothing
  */
 function AssetsItemDevicesWoodenBoxAfterDraw({ C, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color, Opacity }) {
 	if (L === "_Text") {

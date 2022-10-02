@@ -872,35 +872,23 @@ var AssetFemale3DCGExtended = {
 			},
 		}, // CeilingShackles
 		BitchSuit: {
-			Archetype: ExtendedArchetype.TYPED,
+			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
-				Options: [
+				Modules: [
 					{
-						Name: "Zipped",
-						Property: {
-							Type: null,
-							Block: ["ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-							Hide: ["ItemNipples"],
-						}
-					},
-					{
-						Name: "Unzipped",
-						Property: {
-							Type: "z1",
-							Block: [],
-						}
-					},
-					{
-						Name: "Exposed",
-						Property: {
-							Type: "z2",
-							Block: [],
-							Hide: ["Cloth", "ClothLower", "Shoes", "Socks", "ItemBoots", "ItemLegs", "ItemFeet", "ItemHands", "Hands", "Gloves", "Garters"],
-						}
+						Name: "Zip",
+						Key: "z",
+						Options: [
+							{ // z0 - Zipped up
+								Property: { Block: ["ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"], Hide: ["ItemNipples"] },
+							},
+							{ // z1 - Unzipped
+								Property: { Block: [] },
+							},
+						],
+						AllowSelfSelect: false,
 					},
 				],
-				ChangeWhenLocked: false,
 			},
 		}, // BitchSuit
 		LeatherArmbinder: {

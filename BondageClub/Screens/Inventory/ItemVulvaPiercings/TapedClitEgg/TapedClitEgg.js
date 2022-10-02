@@ -11,7 +11,6 @@ function InventoryItemVulvaPiercingsTapedClitEggClick() {
 	VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 }
 
-/** @type {DynamicScriptDrawCallback} */
 function AssetsItemVulvaPiercingsTapedClitEggScriptDraw(data) {
 	VibratorModeScriptDraw(data);
 }

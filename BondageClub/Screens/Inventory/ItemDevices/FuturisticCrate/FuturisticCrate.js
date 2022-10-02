@@ -29,7 +29,7 @@ function InventoryItemDevicesFuturisticCrateDevice1Exit() {
 }
 
 
-/** @type {DynamicBeforeDrawCallback} */
+
 function AssetsItemDevicesFuturisticCrateBeforeDraw({ PersistentData, L, X, Y, Property }) {
 	const Data = PersistentData();
 	if (typeof Data.DildoState !== "number") Data.DildoState = 0;
@@ -61,7 +61,6 @@ function AssetsItemDevicesFuturisticCrateBeforeDraw({ PersistentData, L, X, Y, P
 	return { Y: Y + FuckLength * (-Math.cos(Data.DildoState * 2 * Math.PI)) };
 }
 
-/** @type {DynamicScriptDrawCallback} */
 function AssetsItemDevicesFuturisticCrateScriptDraw(data) {
 	VibratorModeScriptDraw(data);
 
@@ -80,3 +79,4 @@ function AssetsItemDevicesFuturisticCrateScriptDraw(data) {
 		AnimationRequestDraw(data.C);
 	}
 }
+

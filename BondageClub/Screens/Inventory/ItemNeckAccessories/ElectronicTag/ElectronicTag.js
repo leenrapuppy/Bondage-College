@@ -75,7 +75,7 @@ function InventoryItemNeckAccessoriesElectronicTagChange() {
     }
 }
 
-/** @type {DynamicAfterDrawCallback} */
+// Drawing function for the text on the tag
 function AssetsItemNeckAccessoriesElectronicTagAfterDraw({
 	C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {

@@ -15,7 +15,7 @@ function KDTestMapGen(count, Ranges, Checkpoints) {
 	for (let Checkpoint of Checkpoints) {
 		MiniGameKinkyDungeonCheckpoint = Checkpoint;
 		for (let FloorRange of Ranges)
-			for (let f = FloorRange; f < FloorRange + KDLevelsPerCheckpoint; f++) {
+			for (let f = FloorRange; f < FloorRange + 6; f++) {
 				console.log(`Testing floor ${f}`);
 				MiniGameKinkyDungeonLevel = f;
 				for (let i = 0; i < count; i++) {
@@ -77,21 +77,4 @@ function KDTestFullRunthrough(GameLoops, Init, NGP) {
 	}
 	console.log(EnemySpawnData);
 	return true;
-}
-
-function KDTestjailer(iter) {
-	let totals = {};
-	for (let i = 0; i < iter; i++) {
-		KDJailEvents.spawnGuard.trigger(KinkyDungeonJailGuard(), KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y);
-		if (KinkyDungeonJailGuard()) {
-			if (!totals[KinkyDungeonJailGuard().Enemy.name]) totals[KinkyDungeonJailGuard().Enemy.name] = 1;
-			else totals[KinkyDungeonJailGuard().Enemy.name] = totals[KinkyDungeonJailGuard().Enemy.name] + 1;
-		} else {
-			if (!totals.null) totals.null = 1;
-			else totals.null = totals.null + 1;
-		}
-		KDSpliceIndex(KinkyDungeonEntities.indexOf(KinkyDungeonJailGuard()), 1);
-		KDGameData.KinkyDungeonJailGuard = 0;
-	}
-	console.log(totals);
 }

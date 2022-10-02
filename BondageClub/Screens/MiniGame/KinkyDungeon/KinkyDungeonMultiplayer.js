@@ -76,14 +76,13 @@ function KinkyDungeonUpdateFromData() {
 	}
 	if (KinkyDungeonGameData.enemies) {
 		KinkyDungeonEntities = [];
-		KDUpdateEnemyCache = true;
 		let enemies = JSON.parse(KinkyDungeonGameData.enemies);
 
 		for (let N = 0; N < enemies.length; N++) {
 			let enemy = enemies[N].split('/');
 			let i = 1;
 			// @ts-ignore
-			KDAddEntity({Enemy: {name: enemy[i++]}, stun: enemy[i++], x:enemy[i++], y:enemy[i++]}); // Push the enemy
+			KinkyDungeonEntities.push({Enemy: {name: enemy[i++]}, stun: enemy[i++], x:enemy[i++], y:enemy[i++]}); // Push the enemy
 		}
 	}
 	if (KinkyDungeonGameData.inventory) {
@@ -102,7 +101,7 @@ function KinkyDungeonUpdateFromData() {
 					KinkyDungeonAddRestraint(restraint, 0, true); // Add the item
 					let createdrestraint = KinkyDungeonGetRestraintItem(restraint.Group);
 					if (createdrestraint)
-						createdrestraint.lock = undefined; // Lock if applicable
+						createdrestraint.lock = ""; // Lock if applicable
 				}
 			}
 		KinkyDungeonUpdateStats(0);

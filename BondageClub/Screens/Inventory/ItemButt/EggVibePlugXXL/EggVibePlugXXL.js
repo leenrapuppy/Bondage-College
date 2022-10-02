@@ -12,7 +12,6 @@ function InventoryItemButtEggVibePlugXXLClick() {
 	VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 }
 
-/** @type {DynamicScriptDrawCallback} */
 function AssetsItemButtEggVibePlugXXLScriptDraw(data) {
 	VibratorModeScriptDraw(data);
 }
