@@ -83,19 +83,10 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		HasHiddenItems: false,
 		SavedColors: GetDefaultSavedColors(),
 		CanTalk: function () {
-			return (
-				(this.Effect.indexOf("GagVeryLight") < 0) &&
-				(this.Effect.indexOf("GagLight") < 0) &&
-				(this.Effect.indexOf("GagEasy") < 0) &&
-				(this.Effect.indexOf("GagNormal") < 0) &&
-				(this.Effect.indexOf("GagMedium") < 0) &&
-				(this.Effect.indexOf("GagHeavy") < 0) &&
-				(this.Effect.indexOf("GagVeryHeavy") < 0) &&
-				(this.Effect.indexOf("GagTotal") < 0) &&
-				(this.Effect.indexOf("GagTotal2") < 0) &&
-				(this.Effect.indexOf("GagTotal3") < 0) &&
-				(this.Effect.indexOf("GagTotal4") < 0)
-			);
+			let GagEffect = SpeechGetGagLevel(this, ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemHood", "ItemNeck", "ItemDevices"]);
+			GagEffect += InventoryCraftCount(this, "Large") * 2;
+			GagEffect -= InventoryCraftCount(this, "Small") * 2;
+			return (GagEffect <= 0);
 		},
 		CanWalk: function () {
 			return (

@@ -206,10 +206,12 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitTrigger(data) {
 	InventoryShockExpression(C);
 }
 
+/** @type {DynamicBeforeDrawCallback} */
 function AssetsItemNeckAccessoriesCollarAutoShockUnitBeforeDraw(data) {
 	return data.L === "_Light" ? { Color: "#2f0" } : null;
 }
 
+/** @type {DynamicScriptDrawCallback} */
 function AssetsItemNeckAccessoriesCollarAutoShockUnitScriptDraw(data) {
 	var persistentData = data.PersistentData();
 	/** @type {ItemProperties} */
