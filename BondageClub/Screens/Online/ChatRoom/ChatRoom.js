@@ -4418,6 +4418,70 @@ function ChatRoomSortDictionary(dictionary) {
 }
 
 /**
+ * Validates that the words said in the local chat are not breaking any forbidden words rule
+ * @param {string} Message - The message typed by the player
+ * @returns {boolean} - Returns FALSE if we must block the message from being sent
+ */
+function ChatRoomOwnerForbiddenWordCheck(Message) {
+
+	// Exits right away if not owned
+	if (CurrentScreen != "ChatRoom") return true;
+	if (!Player.IsOwned()) return true;
+	if (LogQuery("BlockTalkForbiddenWords", "OwnerRule")) return false;
+
+	// Gets the forbidden words list from the log
+	let ForbiddenList = [];
+	for (let L of Log)
+		if ((L.Group == "OwnerRule") && L.Name.startsWith("ForbiddenWords"))
+			ForbiddenList = L.Name.substring("ForbiddenWords".length, 10000).split("|");
+	if (ForbiddenList.length <= 1) return true;
+
+	// Gets the consequence for saying the forbidden word
+	let Consequence = ForbiddenList[0].trim();
+	if (ForbiddenWordsConsequenceList.indexOf(Consequence) < 0) Consequence = "";
+	ForbiddenList.splice(0, 1);
+	if (Consequence == "") return true;
+
+	// Prepares an array of all words said
+	let M = Message.trim().toUpperCase();
+	M = M.replace(/-/g, "");
+	M = M.replace(/\ /g, "|");
+	M = M.replace(/\,/g, "|");
+	M = M.replace(/\./g, "|");
+	let WordList = M.split("|");
+	if (WordList.length <= 0) return true;
+
+	// For each word said, we check if that word is forbidden
+	let FoundWord = "";
+	for (let W of WordList)
+		if ((W != "") && (ForbiddenList.indexOf(W) >= 0)) {
+			FoundWord = W;
+			break;
+		}
+	if (FoundWord == "") return true;
+
+	// If we must block the message
+	if (Consequence == "Block") {
+		ChatRoomMessage({Type: "ServerMessage", Content: "ForbiddenWordsBlocked", Sender: Player.MemberNumber});
+		return false;
+	}
+
+	// If we must mute the player after she said the words
+	if (Consequence.startsWith("Mute")) {
+		let Minutes = parseInt(Consequence.substring(4, 100));
+		if (isNaN(Minutes)) Minutes = 5;
+		if ((Minutes != 5) && (Minutes != 15) && (Minutes != 30)) Minutes = 5;
+		ChatRoomMessage({Type: "ServerMessage", Content: "ForbiddenWordsMute" + Minutes.toString(), Sender: Player.MemberNumber});
+		LogAdd("BlockTalkForbiddenWords", "OwnerRule",  CurrentTime + Minutes * 60 * 1000);
+		return true;
+	}
+
+	// If no valid consquence, we continue
+	return true;
+
+}
+
+/**
  * Returns TRUE if the owner presence rule is enforced for the current player
  * @param {string} RuleName - The name of the rule to validate (BlockWhisper, BlockTalk, etc.)
  * @param {Character} Target - The target character
