@@ -18,24 +18,33 @@ function KDProcessInput(type, data) {
 		case "move":
 			KinkyDungeonToggleAutoDoor = data.AutoDoor;
 			KinkyDungeonToggleAutoPass = data.AutoPass;
-			KinkyDungeonMove(data.dir, data.delta, data.AllowInteract);
+			KinkyDungeonToggleAutoSprint = data.sprint;
+			KinkyDungeonSuppressSprint = data.SuppressSprint;
+			KinkyDungeonMove(data.dir, data.delta, data.AllowInteract, data.SuppressSprint);
 			break;
 		case "setMoveDirection":
 			KinkyDungeonMoveDirection = data.dir;
 			break;
 		case "tick":
+			if (data.sleep == 10 && (KDGameData.PrisonerState == 'jail' || KDGameData.PrisonerState == 'parole') && KinkyDungeonPlayerInCell()) {
+				KDKickEnemies(KinkyDungeonNearestJailPoint(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y));
+			}
+			if (data.sleep && KinkyDungeonStatWill < KinkyDungeonStatWillMax * KDGetSleepWillFraction()) KinkyDungeonChangeWill(KinkyDungeonStatWillMax/KDMaxStatStart * KDSleepRegenWill, false);
 			KinkyDungeonAdvanceTime(data.delta, data.NoUpdate, data.NoMsgTick);
 			break;
 		case "tryCastSpell": {
 			let sp = data.spell ? data.spell : KinkyDungeonFindSpell(data.spellname, true);
 			if (sp) {
-				Result = KinkyDungeonCastSpell(data.tx, data.ty, sp, data.enemy, data.player, data.bullet);
-				if (Result == "Cast" && sp.sfx) {
+				/** @type {{result: string, data: any}} */
+				let res = KinkyDungeonCastSpell(data.tx, data.ty, sp, data.enemy, data.player, data.bullet);
+				if (res.result == "Cast" && sp.sfx) {
 					KinkyDungeonPlaySound(KinkyDungeonRootDirectory + "/Audio/" + sp.sfx + ".ogg");
 				}
-				if (Result != "Fail")
-					KinkyDungeonAdvanceTime(1);
+				if (res.result != "Fail") {
+					KinkyDungeonAdvanceTime(res.data.delta);
+				}
 				KinkyDungeonInterruptSleep();
+				Result = res.result;
 				return Result;
 			}
 			return "Fail";
@@ -63,11 +72,17 @@ function KDProcessInput(type, data) {
 					KinkyDungeonChangeMana(-KinkyDungeonGetManaCost(KinkyDungeonSpells[KinkyDungeonSpellChoices[data.i]]));
 				} else KinkyDungeonSpellChoicesToggle[data.i] = false;
 			}
+			KinkyDungeonSendEvent("toggleSpell", {index: data.i});
 			break;
 		case "consumable":
+			KDModalArea = false;
+			KinkyDungeonTargetTile = null;
+			KinkyDungeonTargetTileLocation = null;
 			KinkyDungeonAttemptConsumable(data.item, data.quantity);
 			break;
-		case "switchWeapon":
+		case "switchWeapon": {
+			let oldweapon = KinkyDungeonPlayerWeapon;
+			KDGameData.PreviousWeapon = oldweapon;
 			KDSetWeapon(data.weapon);
 			KinkyDungeonGetPlayerWeaponDamage(KinkyDungeonCanUseWeapon());
 			if (KinkyDungeonStatsChoice.has("Disorganized")) {
@@ -75,21 +90,27 @@ function KDProcessInput(type, data) {
 				KinkyDungeonSlowMoveTurns = 2;
 			} else if (!KinkyDungeonStatsChoice.has("QuickDraw"))
 				KinkyDungeonAdvanceTime(1);
-			KinkyDungeonSendActionMessage(7, TextGet("KinkyDungeonEquipWeapon").replace("WEAPONNAME", TextGet("KinkyDungeonInventoryItem" + data.weapon)), "white", 5);
+			KinkyDungeonSendActionMessage(2, TextGet("KinkyDungeonEquipWeapon").replace("WEAPONNAME", TextGet("KinkyDungeonInventoryItem" + data.weapon)), "white", 5);
+			if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/Equip.ogg");
 			break;
+		}
 		case "unequipWeapon":
+			KDGameData.PreviousWeapon = data.weapon;
 			KDSetWeapon(null);
 			KinkyDungeonGetPlayerWeaponDamage(KinkyDungeonCanUseWeapon());
-			KinkyDungeonSendActionMessage(7, TextGet("KinkyDungeonUnEquipWeapon").replace("WEAPONNAME", TextGet("KinkyDungeonInventoryItem" + data.weapon)), "white", 5);
+			KinkyDungeonSendActionMessage(2, TextGet("KinkyDungeonUnEquipWeapon").replace("WEAPONNAME", TextGet("KinkyDungeonInventoryItem" + data.weapon)), "white", 5);
+			if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/Equip.ogg");
 			break;
 		case "dress":
 			KinkyDungeonSetDress(data.dress, data.outfit);
 			KinkyDungeonSlowMoveTurns = 3;
 			KinkyDungeonSleepTime = CommonTime() + 200;
+			if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/Equip.ogg");
 			break;
 		case "equip":
 			success = KinkyDungeonAddRestraintIfWeaker(KinkyDungeonRestraintsCache.get(data.name), 0, true, "", KinkyDungeonGetRestraintItem(data.Group) && !KinkyDungeonLinkableAndStricter(KinkyDungeonRestraintsCache.get(data.currentItem), KinkyDungeonRestraintsCache.get(data.name)), false, data.events);
-			if (success) {
+			if (success != undefined) {
+				if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/Unlock.ogg");
 				KDSendStatus('bound', data.name, "self");
 				loose = KinkyDungeonInventoryGetLoose(data.name);
 				msg = "KinkyDungeonSelfBondage";
@@ -111,8 +132,7 @@ function KDProcessInput(type, data) {
 					loose.quantity -= 1;
 				}
 				return msg;
-			}
-			break;
+			} else return "KDCantEquip";
 		case "tryOrgasm":
 			KinkyDungeonDoTryOrgasm();
 			break;
@@ -122,6 +142,12 @@ function KDProcessInput(type, data) {
 		case "sleep":
 			KDGameData.SleepTurns = KinkyDungeonSleepTurnsMax;
 			break;
+		case "noise": {
+			let gagTotal = KinkyDungeonGagTotal(true);
+			KinkyDungeonMakeNoise(Math.ceil(10 - 8 * Math.min(1, gagTotal * gagTotal)), KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y);
+			KinkyDungeonSendTextMessage(10, TextGet("KDShoutHelp" + Math.min(3, Math.floor(gagTotal *3.3))), "yellow", 1);
+			break;
+		}
 		case "pick":
 			tile = KinkyDungeonTiles.get(data.targetTile);
 			KinkyDungeonTargetTile = tile;
@@ -139,6 +165,8 @@ function KDProcessInput(type, data) {
 			tile = KinkyDungeonTiles.get(data.targetTile);
 			KinkyDungeonTargetTile = tile;
 			KinkyDungeonTargetTileLocation = data.targetTile;
+
+			KDUpdateDoorNavMap();
 			KinkyDungeonAdvanceTime(1, true);
 			if (KinkyDungeonUnlockAttempt(KinkyDungeonTargetTile.Lock)) {
 				KinkyDungeonTargetTile.Lock = undefined;
@@ -162,6 +190,7 @@ function KDProcessInput(type, data) {
 			if (KDRandom() > miscast) {
 				KinkyDungeonTargetTile.Lock = undefined;
 				if (KinkyDungeonTargetTile.Type == "Lock") delete KinkyDungeonTargetTile.Type;
+				KDUpdateDoorNavMap();
 				KinkyDungeonTargetTile = null;
 				KinkyDungeonTargetTileLocation = "";
 				if (gagTotal) {
@@ -169,30 +198,21 @@ function KDProcessInput(type, data) {
 				} else {
 					KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonUnlockDoorPurpleUse"), "#aa44ff", 1);
 				}
+				KinkyDungeonChangeMana(-KinkyDungeonGetManaCost(spell));
 			} else {
 				KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonUnlockDoorPurpleUseGaggedFail"), "#ff0000", 1);
 			}
-			KinkyDungeonChangeMana(-KinkyDungeonGetManaCost(spell));
 			KinkyDungeonMultiplayerUpdate(KinkyDungeonNextDataSendTimeDelay);
 			break;
 		}
 		case "closeDoor":
-			tile = KinkyDungeonTiles.get(data.targetTile);
-			KinkyDungeonTargetTileLocation = data.targetTile;
-			KinkyDungeonTargetTile = null;
-			KinkyDungeonMapSet(parseInt(KinkyDungeonTargetTileLocation.split(',')[0]), parseInt(KinkyDungeonTargetTileLocation.split(',')[1]), "D");
-			KinkyDungeonTargetTileLocation = "";
-			if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/DoorClose.ogg");
-			KinkyDungeonToggleAutoDoor = false;
-			KinkyDungeonSendActionMessage(3, TextGet("KinkyDungeonCloseDoorDone"), "white", 2);
-			KinkyDungeonAdvanceTime(1, true);
-			KinkyDungeonMultiplayerUpdate(KinkyDungeonNextDataSendTimeDelay);
+			KinkyDungeonCloseDoor(data);
 			break;
 		case "shrineBuy":
 			KinkyDungeonShopIndex = data.shopIndex;
 			KinkyDungeonPayShrine(data.type);
 			KinkyDungeonAggroAction('shrine', {});
-			if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
+			if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
 			break;
 		case "shrineUse":
 			tile = KinkyDungeonTiles.get(data.targetTile);
@@ -210,44 +230,60 @@ function KDProcessInput(type, data) {
 				KinkyDungeonAggroAction('shrine', {x: parseInt(x), y:parseInt(y)});
 				KDGameData.AlreadyOpened.push({x: parseInt(x), y: parseInt(y)});
 				KinkyDungeonUpdateStats(0);
-				if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
+				if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
 			} else {
-				KinkyDungeonSendActionMessage(1, TextGet("KinkyDungeonPayShrineFail"), "red", 1);
-				if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Damage.ogg");
+				KinkyDungeonSendActionMessage(1, TextGet("KinkyDungeonPayShrineFail"), "#ff0000", 1);
+				if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/Damage.ogg");
 			}
 			KinkyDungeonMultiplayerUpdate(KinkyDungeonNextDataSendTimeDelay);
 			break;
 		case "shrineDrink": {
-			let chance = 0 + KinkyDungeonShrinePoolChancePerUse * KDGameData.PoolUses;
-
+			if (!KDCanDrinkShrine(false)) break;
+			tile = KinkyDungeonTiles.get(data.targetTile);
+			if (tile) tile.drunk = true;
 			KinkyDungeonAdvanceTime(1, true);
 
-			if ((KDRandom() > chance || KDGameData.PoolUsesGrace > 0) && (!KinkyDungeonGoddessRep[data.type] || KinkyDungeonGoddessRep[data.type] > -49.9 || KinkyDungeonStatsChoice.get("Blessed"))) {
-				let slimed = 0;
-				for (let inv of KinkyDungeonAllRestraint()) {
-					if (KDRestraint(inv).slimeLevel) {
-						slimed += 1;
-						KinkyDungeonRemoveRestraint(KDRestraint(inv).Group, false);
-					}
+			// KinkyDungeonStatsChoice.get("Blessed")
+			let slimed = 0;
+			for (let inv of KinkyDungeonAllRestraint()) {
+				if (KDRestraint(inv).slimeLevel) {
+					slimed += 1;
+					KinkyDungeonRemoveRestraint(KDRestraint(inv).Group, false);
 				}
-				if (slimed) KinkyDungeonSendActionMessage(9, TextGet("KinkyDungeonPoolDrinkSlime"), "#FF00FF", 2);
-				else KinkyDungeonSendActionMessage(9, TextGet("KinkyDungeonPoolDrink" + Math.min(2, KDGameData.PoolUses)), "#AAFFFF", 2);
-				KinkyDungeonStatMana = KinkyDungeonStatManaMax;
-				if (chance > 0) KDGameData.PoolUsesGrace -= 1;
-				KinkyDungeonChangeRep(data.type, -2 - slimed * 2);
-				KDSendStatus('goddess', data.type, 'shrineDrink');
-				KinkyDungeonAggroAction('shrine', {});
-				if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
-			} else {
-				// You have angered the gods!
-				KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonPoolDrinkAnger").replace("TYPE", TextGet("KinkyDungeonShrine" + data.type)), "#AA0000", 3);
-				KinkyDungeonSendTextMessage(10, TextGet("KinkyDungeonPoolDrinkAnger").replace("TYPE", TextGet("KinkyDungeonShrine" + data.type)), "#AA0000", 3);
-
-				KinkyDungeonShrineAngerGods(data.type);
-				KDGameData.PoolUses = 10000;
-				if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Damage.ogg");
-				KDSendStatus('goddess', data.type, 'shrineEnrage');
 			}
+			if (slimed) {
+				KinkyDungeonSendActionMessage(9, TextGet("KinkyDungeonPoolDrinkSlime"), "#FF00FF", 2);
+				KinkyDungeonChangeRep(data.type, -slimed * 2);
+			}
+			else KinkyDungeonSendActionMessage(9, TextGet(KinkyDungeonGagTotal() > 0 ? "KinkyDungeonPoolDrinkFace" : "KinkyDungeonPoolDrink"), "#AAFFFF", 2);
+			KinkyDungeonChangeMana(5, false, 0, false, true);
+			KDSendStatus('goddess', data.type, 'shrineDrink');
+			KinkyDungeonAggroAction('shrine', {});
+			if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
+
+			let x =  data.targetTile.split(',')[0];
+			let y =  data.targetTile.split(',')[1];
+			KDSummonRevengeMobs(parseInt(x), parseInt(y), tile.type, slimed ? 1.5 : 1);
+
+			KDGameData.PoolUses += 1;
+			break;
+		}
+		case "shrineBottle": {
+			if (!KDCanDrinkShrine(true)) break;
+			tile = KinkyDungeonTiles.get(data.targetTile);
+			if (tile) tile.drunk = true;
+
+			KinkyDungeonAdvanceTime(1, true);
+			let x =  data.targetTile.split(',')[0];
+			let y =  data.targetTile.split(',')[1];
+			KDSummonRevengeMobs(parseInt(x), parseInt(y), tile.type, 1.0);
+
+			// KinkyDungeonStatsChoice.get("Blessed")
+			KinkyDungeonSendActionMessage(9, TextGet("KinkyDungeonPoolBottle"), "#AAFFFF", 2);
+			KinkyDungeonChangeConsumable(KinkyDungeonFindConsumable("PotionMana"), 1);
+			KDSendStatus('goddess', data.type, 'shrineBottle');
+			KinkyDungeonAggroAction('shrine', {});
+			if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/PotionDrink.ogg");
 
 			KDGameData.PoolUses += 1;
 			break;
@@ -316,17 +352,16 @@ function KDProcessInput(type, data) {
 			break;
 		case "heart":
 			if (data.type == "AP") {
-				if (KinkyDungeonStatDistractionMax < 40) KinkyDungeonSpells.push(KinkyDungeonFindSpell("APUp1"));
-				else if (KinkyDungeonStatDistractionMax < 50) KinkyDungeonSpells.push(KinkyDungeonFindSpell("APUp2"));
-				else KinkyDungeonSpells.push(KinkyDungeonFindSpell("APUp3"));
+				if (KinkyDungeonStatDistractionMax < KDMaxStat) KinkyDungeonSpells.push(KinkyDungeonFindSpell("APUp1"));
 				KinkyDungeonUpdateStats(0);
 			}else if (data.type == "SP") {
-				if (KinkyDungeonStatStaminaMax < 70) KinkyDungeonSpells.push(KinkyDungeonFindSpell("SPUp1"));
+				if (KinkyDungeonStatStaminaMax < KDMaxStat) KinkyDungeonSpells.push(KinkyDungeonFindSpell("SPUp1"));
 				KinkyDungeonUpdateStats(0);
 			} else if (data.type == "MP") {
-				if (KinkyDungeonStatManaMax < 40) KinkyDungeonSpells.push(KinkyDungeonFindSpell("MPUp1"));
-				else if (KinkyDungeonStatManaMax < 50) KinkyDungeonSpells.push(KinkyDungeonFindSpell("MPUp2"));
-				else KinkyDungeonSpells.push(KinkyDungeonFindSpell("MPUp3"));
+				if (KinkyDungeonStatManaMax < KDMaxStat) KinkyDungeonSpells.push(KinkyDungeonFindSpell("MPUp1"));
+				KinkyDungeonUpdateStats(0);
+			} else if (data.type == "WP") {
+				if (KinkyDungeonStatWillMax < KDMaxStat) KinkyDungeonSpells.push(KinkyDungeonFindSpell("WPUp1"));
 				KinkyDungeonUpdateStats(0);
 			}
 			break;
@@ -398,6 +433,7 @@ function KDProcessInput(type, data) {
 			KDSendStatus('goddess', data.rep, 'helpPenance');
 			break;
 		case "spellChoice":
+			KinkyDungeonEvasionPityModifier = 0.0;
 			KinkyDungeonSpellChoices[data.I] = data.CurrentSpell;
 			KinkyDungeonSpellChoicesToggle[data.I] = !KinkyDungeonSpells[KinkyDungeonSpellChoices[data.I]].defaultOff;
 			if (KinkyDungeonSpellChoicesToggle[data.I] && KinkyDungeonSpells[KinkyDungeonSpellChoices[data.I]].costOnToggle) {
@@ -412,12 +448,13 @@ function KDProcessInput(type, data) {
 				KinkyDungeonAdvanceTime(1);
 			break;
 		case "spellRemove":
+			KinkyDungeonEvasionPityModifier = 0.0;
 			KinkyDungeonSpellChoices[data.I] = -1;
 			KinkyDungeonSpellChoicesToggle[data.I] = true;
 			break;
 		case "spellCastFromBook": {
 			let spell = KinkyDungeonHandleSpellCast(KinkyDungeonSpells[data.CurrentSpell]);
-			if (spell && !(KinkyDungeonSpells[data.CurrentSpell].type == "passive") && !KinkyDungeonSpells[data.CurrentSpell].passive) {
+			if (spell && !(KinkyDungeonSpells[data.CurrentSpell].type == "passive") && !KinkyDungeonSpells[data.CurrentSpell].passive && !KinkyDungeonSpells[data.CurrentSpell].upcastFrom) {
 				if (KinkyDungeonStatsChoice.has("Disorganized")) {
 					KinkyDungeonAdvanceTime(1);
 					KinkyDungeonSlowMoveTurns = 2;
@@ -427,29 +464,109 @@ function KDProcessInput(type, data) {
 			}
 			break;
 		}
+		case "upcast": {
+			KDEmpower(data, KinkyDungeonPlayerEntity);
+			break;
+		}
+		case "upcastcancel": {
+			KinkyDungeonTickBuffTag(KinkyDungeonPlayerBuffs, "upcast", 1);
+			break;
+		}
 		case "spellLearn": {
+			KinkyDungeonEvasionPityModifier = 0.0;
 			let spell = KinkyDungeonFindSpell(data.SpellName, true);
 			let cost = KinkyDungeonGetCost(spell);
 			if (KinkyDungeonCheckSpellPrerequisite(spell)) {
 				if (KinkyDungeonSpellPoints >= cost) {
-					KinkyDungeonSpellPoints -= cost;
-					KinkyDungeonSpells.push(spell);
-					KDSendStatus('learnspell', spell.name);
-					KinkyDungeonSetMaxStats();
-					if (KinkyDungeonSound && KinkyDungeonIsPlayer()) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
-					KinkyDungeonCurrentPage = KinkyDungeonSpellIndex(spell.name);
-					if (KinkyDungeonStatsChoice.has("Disorganized")) {
-						KinkyDungeonAdvanceTime(1);
-						KinkyDungeonSlowMoveTurns = 2;
-					} else if (!KinkyDungeonStatsChoice.has("QuickScribe"))
-						KinkyDungeonAdvanceTime(1);
-					if (KinkyDungeonIsPlayer()) {
-						KinkyDungeonPreviewSpell = undefined;
-						if (KinkyDungeonTextMessageTime > 0)
-							KinkyDungeonDrawState = "Game";
+					if (spell.manacost <= KinkyDungeonStatManaMax) {
+						KinkyDungeonSpellPoints -= cost;
+						KinkyDungeonSpells.push(spell);
+						KDSendStatus('learnspell', spell.name);
+						if (spell.goToPage) {
+							KinkyDungeonCurrentSpellsPage = spell.goToPage;
+						}
+						if (spell.autoLearn) {
+							for (let sp of spell.autoLearn) {
+								if (KinkyDungeonSpellIndex(sp) < 0) {
+									KinkyDungeonSpells.push(KinkyDungeonFindSpell(sp, true));
+									KDSendStatus('learnspell', sp);
+								}
+							}
+						}
+						KinkyDungeonSetMaxStats();
+						if (KinkyDungeonSound && KinkyDungeonIsPlayer()) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
+						KinkyDungeonCurrentPage = KinkyDungeonSpellIndex(spell.name);
+						if (KinkyDungeonStatsChoice.has("Disorganized")) {
+							KinkyDungeonAdvanceTime(1);
+							KinkyDungeonSlowMoveTurns = 2;
+						} else if (!KinkyDungeonStatsChoice.has("QuickScribe"))
+							KinkyDungeonAdvanceTime(1);
+						if (KinkyDungeonIsPlayer()) {
+							KinkyDungeonPreviewSpell = undefined;
+							if (KinkyDungeonTextMessageTime > 0)
+								KinkyDungeonDrawState = "Game";
+						}
+					} else if (KinkyDungeonIsPlayer()) KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonSpellsNotEnoughMana"), "#b4dbfc", 1);
+				} else if (KinkyDungeonIsPlayer()) KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonSpellsNotEnoughPoints"), "#ffff00", 1);
+			} else if (KinkyDungeonIsPlayer()) KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonSpellsNotPrerequisite").replace("REQUIREDSPELL", TextGet("KinkyDungeonSpell" + spell.prerequisite)), "#ff4444", 1);
+			break;
+		}
+		case "tabletInteract": {
+			if (data.action == "read") {
+				tile = KinkyDungeonTiles.get(data.targetTile);
+				if (tile && tile.Type == "Tablet") {
+					// Perform the tablet buff action
+					if (tile.Name == "Will") {
+						// Restoration shrine gets a regeneration buff
+						KinkyDungeonApplyBuffToEntity(KinkyDungeonPlayerEntity, {id: "TabletWill", type: "restore_mp", power: 0.5, duration: 20});
+						KinkyDungeonApplyBuffToEntity(KinkyDungeonPlayerEntity, {id: "TabletWill2", type: "restore_sp", power: 0.5, duration: 20});
+						KinkyDungeonApplyBuffToEntity(KinkyDungeonPlayerEntity, {id: "TabletWill3", type: "restore_wp", power: 0.5, duration: 5});
+					} else if (tile.Name == "Determination") {
+						KinkyDungeonApplyBuffToEntity(KinkyDungeonPlayerEntity, {id: "TabletDetermination", type: "restore_wp", power: 1, duration: 5});
+					} else {
+						KinkyDungeonApplyBuffToEntity(KinkyDungeonPlayerEntity,
+							{id: "Tablet" + tile.Name, aura: KDGoddessColor(tile.Name), type: "event", duration: 9999, power: 2, player: true, enemies: false, maxCount: 3, tags: ["cast_" + tile.Name.toLowerCase()], events: [
+								{trigger: "calcMana", type: "Tablet", requiredTag: tile.Name.toLowerCase(), power: 0.5},
+							]}
+						);
 					}
-				} else if (KinkyDungeonIsPlayer()) KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonSpellsNotEnoughPoints"), "orange", 1);
-			} else if (KinkyDungeonIsPlayer()) KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonSpellsNotPrerequisite").replace("REQUIREDSPELL", TextGet("KinkyDungeonSpell" + spell.prerequisite)), "orange", 1);
+
+					// Send the message and advance time
+					KinkyDungeonAdvanceTime(1);
+					KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonTabletReadSuccess"), "lightgreen", 1);
+
+					// Remove the tile
+					let x = parseInt(data.targetTile.split(',')[0]);
+					let y = parseInt(data.targetTile.split(',')[1]);
+					if (x && y) {
+						KinkyDungeonMapSet(x, y, 'm');
+						KinkyDungeonTiles.delete(data.targetTile);
+					}
+				}
+			}
+			break;
+		}
+		case "foodInteract": {
+			if (data.action == "eat") {
+				tile = KinkyDungeonTiles.get(data.targetTile);
+				if (tile && tile.Type == "Food") {
+					let gagged = KinkyDungeonGagTotal();
+					if (gagged > 0) {
+						KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonFoodEatenGag"), "#ff8800", 1);
+					} else {
+						// Perform the deed
+						let amount = tile.Amount ? tile.Amount : 2.0;
+						KinkyDungeonChangeWill(amount);
+
+						// Send the message and advance time
+						KinkyDungeonAdvanceTime(1);
+						KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonFoodEaten"), "lightgreen", 1);
+
+						// Remove the food
+						tile.Food = "Plate";
+					}
+				}
+			}
 			break;
 		}
 		case "chargerInteract":
@@ -486,7 +603,7 @@ function KDProcessInput(type, data) {
 				}
 			} else if (data.action == "remove") {
 				tile = KinkyDungeonTiles.get(data.targetTile);
-				if (tile && tile.Type == "Charger" && tile.Light > 0) {
+				if (tile && tile.Type == "Charger" && tile.Light > 0 && !tile.NoRemove) {
 					KinkyDungeonChangeConsumable(KinkyDungeonConsumables.AncientPowerSource, 1);
 					tile.Light = undefined;
 					KinkyDungeonAdvanceTime(1);
@@ -496,6 +613,8 @@ function KDProcessInput(type, data) {
 					if (x && y) {
 						KinkyDungeonMapSet(x, y, '+');
 					}
+				} else if (tile && tile.NoRemove) {
+					KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonChargerNoRemove"), "yellow", 1);
 				}
 			}
 			break;
@@ -567,7 +686,16 @@ function KDProcessInput(type, data) {
  * @param {any} data
  * @returns {string}
  */
-function KDSendInput(type, data) {
+function KDSendInput(type, data, frame, noUpdate) {
+
+	if (!noUpdate) {
+		KDGameData.OrigEnergyLevel = KDGameData.AncientEnergyLevel;
+		KDGameData.LastSP = KinkyDungeonStatStamina;
+		KDGameData.LastMP = KinkyDungeonStatMana;
+		KDGameData.LastAP = KinkyDungeonStatDistraction;
+		KDGameData.LastWP = KinkyDungeonStatWill;
+	}
+
 	KinkyDungeonInputQueue.push({type: type, data: data});
 	return KDProcessInputs(true);
 }
