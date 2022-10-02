@@ -1,5 +1,10 @@
 "use strict";
 
+let KDJailPersonalities = {
+	"Robot": true,
+	"Dom": true,
+	"Sub": true,
+};
 
 let KDStrictPersonalities = [
 	"Dom",
@@ -55,7 +60,7 @@ function KDGetPersonality(enemy) {
 			for (let tag of Object.entries(p.tags)) {
 				if (enemy.Enemy.tags.has(tag[0])) weight += tag[1];
 			}
-		WeightTotal += weight;
+		WeightTotal += Math.max(weight, 0);
 	}
 
 	let selection = KDRandom() * WeightTotal;
@@ -70,4 +75,13 @@ function KDGetPersonality(enemy) {
 	}
 
 	return "";
+}
+
+/**
+ *
+ * @param {entity} enemy
+ * @returns {string}
+ */
+function KDJailPersonality(enemy) {
+	return (enemy.personality && KDJailPersonalities[enemy.personality]) ? enemy.personality : "";
 }

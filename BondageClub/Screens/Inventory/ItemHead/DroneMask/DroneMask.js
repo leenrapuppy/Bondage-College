@@ -104,7 +104,7 @@ const InventoryItemHeadDroneMaskTextChange = CommonLimitFunction((C, item, text)
 	}
 });
 
-// Drawing function for tag text
+/** @type {DynamicAfterDrawCallback} */
 function AssetsItemHeadDroneMaskAfterDraw({
     C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
 }) {

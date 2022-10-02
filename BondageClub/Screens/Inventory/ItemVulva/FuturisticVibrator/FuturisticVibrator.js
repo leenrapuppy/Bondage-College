@@ -249,6 +249,7 @@ function InventoryItemVulvaFuturisticVibratorHandleChat(C, Item, LastTime) {
 	}
 }
 
+/** @type {DynamicScriptDrawCallback} */
 function AssetsItemVulvaFuturisticVibratorScriptDraw(data) {
 	var PersistentData = data.PersistentData();
 	var C = data.C;
