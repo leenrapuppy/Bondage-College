@@ -32,6 +32,7 @@ const ExtendedArchetype = {
  */
 var AssetFemale3DCGExtended = {
 	BodyUpper: {
+		// NOTE: Switch to the `MODULAR` archetype if we'd want to allow for the simultaneous use of multiple overlays
 		Small: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
