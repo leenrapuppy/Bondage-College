@@ -13,7 +13,8 @@ module.exports = {
 		'sort-keys-custom',
 	],
 	ignorePatterns: [
-		"Scripts/lib/**/*.js"
+		"Scripts/lib/**/*.js",
+		"*.min.js"
 	],
 	rules: {
 		"dot-notation": "error",
