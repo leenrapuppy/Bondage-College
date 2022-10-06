@@ -48,7 +48,9 @@ function AdvancedRuleRun() {
 
 	// Draw the exit button
 	MainCanvas.textAlign = "center";
-	DrawText(TextGet(AdvancedRuleType + "Title"), 930, 105, "Black", "Silver");
+	DrawText(TextGet(AdvancedRuleType + "Title"), 830, 105, "Black", "Silver");
+	DrawButton(1600, 60, 90, 90, "", "White", "Icons/CheckAll.png", TextGet("CheckAll"));
+	DrawButton(1715, 60, 90, 90, "", "White", "Icons/CheckNone.png", TextGet("CheckNone"));
 	DrawButton(1830, 60, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
 
 }
@@ -59,8 +61,10 @@ function AdvancedRuleRun() {
  */
 function AdvancedRuleClick() {
 
-	// When the user exits
-	if (MouseIn(1830, 60, 250, 65)) AdvancedRuleExit();
+	// When the user exits or check all/none
+	if (MouseIn(1600, 60, 90, 90)) AdvancedRuleSelection = AdvancedRuleOption.join();
+	if (MouseIn(1715, 60, 90, 90)) AdvancedRuleSelection = "";
+	if (MouseIn(1830, 60, 90, 90)) AdvancedRuleExit();
 
 	// When the user clicks on one of the options
 	for (let O = 0; O < AdvancedRuleOption.length; O++) {
