@@ -2025,7 +2025,37 @@ var AssetFemale3DCG = [
 		Priority: 7,
 		AllowNone: false,
 		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "AllFours", "OverTheHead"],
-		Asset: ["Small", "Normal", "Large", "XLarge"],
+		PreviewZone: [0, 150, 500, 500],
+		Asset: [
+			{
+				Name: "Small",
+				Extended: true,
+				Layer: [
+					{ Name: "", ParentGroup: null, HasType: false },
+				],
+			},
+			{
+				Name: "Normal",
+				Extended: true,
+				Layer: [
+					{ Name: "", ParentGroup: null, HasType: false },
+				],
+			},
+			{
+				Name: "Large",
+				Extended: true,
+				Layer: [
+					{ Name: "", ParentGroup: null, HasType: false },
+				],
+			},
+			{
+				Name: "XLarge",
+				Extended: true,
+				Layer: [
+					{ Name: "", ParentGroup: null, HasType: false },
+				],
+			},
+		],
 		Color: ["White", "Asian", "Black"],
 		ColorSuffix: { "HEX_COLOR": "White" },
 	},

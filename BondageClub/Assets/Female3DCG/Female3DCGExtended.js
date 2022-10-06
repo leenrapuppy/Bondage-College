@@ -31,6 +31,32 @@ const ExtendedArchetype = {
  * @const
  */
 var AssetFemale3DCGExtended = {
+	BodyUpper: {
+		// NOTE: Switch to the `MODULAR` archetype if we'd want to allow for the simultaneous use of multiple overlays
+		Small: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Default",
+						Property: { Type: null, },
+					},
+				],
+			},
+		},  // Small
+		Normal: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "BodyUpper", AssetName: "Small" },
+		},  // Normal
+		Large: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "BodyUpper", AssetName: "Small" },
+		},  // Large
+		XLarge: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "BodyUpper", AssetName: "Small" },
+		},  // XLarge
+	},
 	Hat: {
 		Bandana: {
 			Archetype: ExtendedArchetype.TYPED,
