@@ -122,7 +122,7 @@ var PlatformTemplate = [
 			{ Name: "Scream", Magic: 2, Cooldown: 3000, HitBox: [-100, -100, 100, 100], HitAnimation: [8, 9, 10], Damage: [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4], Speed: 200 }
 		]
 	},
-	{ 
+	{
 		Name: "Edlaran", // MMD Z: 35.30
 		Status: "Archer",
 		Perk: "0000000000",
@@ -1082,7 +1082,7 @@ var PlatformRoomList = [
 			if (!PlatformEventDone("EdlaranForestIntro") && !PlatformEventDone("EdlaranJoin")) PlatformDialogStart("IntroForestBanditKidnapEdlaran");
 			if (!PlatformEventDone("EdlaranJoin")) {
 				let Char = PlatformCreateCharacter("Edlaran", "Archer", 2200, true, false, "EdlaranForestBeg");
-				Char.Health = 0; 
+				Char.Health = 0;
 				Char.Bound = true;
 			}
 		},
@@ -1133,7 +1133,7 @@ var PlatformRoomList = [
 				PlatformMessageSet("Wooden Barn");
 				PlatformHeal = null;
 			}
-		},		
+		},
 		Text: "Wooden Barn (heal and save)",
 		Background: "Forest/BarnInterior",
 		Width: 2000,
@@ -1249,7 +1249,7 @@ var PlatformRoomList = [
 		],
 		Character: [
 			{ Name: "Yuna", Status: "Maid", X: 2100 }
-		]		
+		]
 	},
 	{
 		Name: "ForestPlainSparseRocks",
@@ -1641,11 +1641,11 @@ function PlatformDrawBackground() {
 	// Draws the magic or projectile reserve
 	if ((PlatformPlayer.MaxMagic != null) && (PlatformPlayer.MaxMagic > 0) && PlatformHasPerk(PlatformPlayer, "Apprentice")) {
 		DrawProgressBar(200, 10, 180, 40, PlatformPlayer.Magic / PlatformPlayer.MaxMagic * 100, "#0000B0", "#000000");
-		DrawText(PlatformPlayer.Magic.toString(), 290, 32, "White", "Black");	
+		DrawText(PlatformPlayer.Magic.toString(), 290, 32, "White", "Black");
 	}
 	if ((PlatformPlayer.MaxProjectile != null) && (PlatformPlayer.MaxProjectile > 0)) {
 		DrawProgressBar(200, 10, 180, 40, PlatformPlayer.Projectile / PlatformPlayer.MaxProjectile * 100, "#808000", "#000000");
-		DrawText(PlatformPlayer.Projectile.toString(), 290, 32, "White", "Black");	
+		DrawText(PlatformPlayer.Projectile.toString(), 290, 32, "White", "Black");
 	}
 	if ((PlatformPlayer.ProjectileAim == null) && PlatformMoveActive("Aim")) PlatformPlayer.ProjectileAim = CommonTime();
 	if (PlatformPlayer.ProjectileAim != null) {
@@ -1748,7 +1748,7 @@ function PlatformAddExperience(C, Value) {
 }
 
 /**
- * Some perks allow the player to steal items from bound ennemies 
+ * Some perks allow the player to steal items from bound ennemies
  * @param {Object} C - The character that will gain experience
  * @param {Number} Value - The experience value to factor the quantity
  * @returns {void} - Nothing
@@ -2014,7 +2014,7 @@ function PlatformProcessProjectile(Time) {
 			if (Remove) {
 				PlatformChar.splice(C, 1);
 				C--;
-			} 
+			}
 		}
 
 	// Second, we remove projectiles that hit a target, applying damage
@@ -2031,7 +2031,7 @@ function PlatformProcessProjectile(Time) {
 			if (Remove) {
 				PlatformChar.splice(C, 1);
 				C--;
-			} 
+			}
 		}
 
 }
@@ -2116,7 +2116,7 @@ function PlatformDraw() {
 	if (!MustHeal && (PlatformPlayer.MaxMagic != null) && (PlatformPlayer.Magic != null) && (PlatformRegen < PlatformTime)) {
 		if (PlatformPlayer.Magic < PlatformPlayer.MaxMagic) PlatformPlayer.Magic++;
 		PlatformRegen = PlatformTime + (PlatformHasPerk("Regeneration") ? 6000 : 8000);
-	} 
+	}
 
 	// Draw each characters
 	for (let C of PlatformChar) {
