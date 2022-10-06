@@ -810,6 +810,52 @@ function InventoryGroupIsBlockedForCharacter(C, GroupName, Activity) {
 }
 
 /**
+* Returns TRUE if the body area is blocked by an owner rule
+* @param {Character} C - The character on which we validate the group
+* @param {string} [GroupName] - The name of the asset group (body area)
+* @returns {boolean} - TRUE if the group is blocked
+*/
+function InventoryGroupIsBlockedByOwnerRule(C, GroupName) {
+	if (!C.IsPlayer()) return false;
+	if (!Player.IsOwned()) return false;
+	if (CurrentCharacter == null) return false;
+	if (GroupName == null) GroupName = C.FocusGroup.Name;
+	const Dict = [
+		["A", "ItemBoots"],
+		["B", "ItemFeet"],
+		["C", "ItemLegs"],
+		["D", "ItemVulva"],
+		["E", "ItemVulvaPiercings"],
+		["F", "ItemButt"],
+		["G", "ItemPelvis"],
+		["H", "ItemTorso"],
+		["I", "ItemTorso2"],
+		["J", "ItemNipples"],
+		["K", "ItemNipplesPiercings"],
+		["L", "ItemBreast"],
+		["M", "ItemHands"],
+		["N", "ItemArms"],
+		["O", "ItemNeck"],
+		["P", "ItemNeckAccessories"],
+		["Q", "ItemNeckRestraints"],
+		["R", "ItemMouth"],
+		["S", "ItemMouth2"],
+		["T", "ItemMouth3"],
+		["U", "ItemNose"],
+		["V", "ItemEars"],
+		["W", "ItemHead"],
+		["X", "ItemHood"],
+		["0", "ItemMisc"],
+		["1", "ItemDevices"],
+		["2", "ItemAddon"]
+	];
+	for (let D of Dict)
+		if (D[1] == GroupName)
+			return LogContain("BlockItemGroup", "OwnerRule", D[0]);
+	return false;
+}
+
+/**
 * Returns TRUE if the body area (Asset Group) for a character is blocked and cannot be used
 * Similar to InventoryGroupIsBlockedForCharacter but also blocks groups on all characters if the player is enclosed.
 * @param {Character} C - The character on which we validate the group
@@ -818,9 +864,15 @@ function InventoryGroupIsBlockedForCharacter(C, GroupName, Activity) {
 * @returns {boolean} - TRUE if the group is blocked
 */
 function InventoryGroupIsBlocked(C, GroupName, Activity) {
+
+	// Checks for regular blocks
 	if (InventoryGroupIsBlockedForCharacter(C, GroupName, Activity)) return true;
+
 	// If the player is enclosed, all groups for another character are blocked
 	if ((C.ID != 0) && Player.IsEnclose()) return true;
+
+	// Checks if there's an owner rule that blocks the group
+	if (InventoryGroupIsBlockedByOwnerRule(C, GroupName)) return true;
 
 	// Nothing is preventing the group from being used
 	return false;

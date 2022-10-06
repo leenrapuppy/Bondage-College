@@ -3966,6 +3966,13 @@ function ChatRoomSetRule(data) {
 			data.Content = "OwnerRuleBlockAppearance";
 		}
 
+		// Advanced rules - Block item groups
+		if (data.Content.startsWith("OwnerRuleBlockItemGroup")) {
+			LogDeleteStarting("BlockItemGroup", "OwnerRule");
+			LogAdd("BlockItemGroup" + data.Content.substring("OwnerRuleBlockItemGroup".length, 100), "OwnerRule");
+			data.Content = "OwnerRuleBlockItemGroup";
+		}
+
 		// Advanced rules - Forbidden Words List
 		if (data.Content.startsWith("OwnerRuleForbiddenWords")) {
 			LogDeleteStarting("ForbiddenWords", "OwnerRule");

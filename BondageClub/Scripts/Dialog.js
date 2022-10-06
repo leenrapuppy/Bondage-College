@@ -2199,10 +2199,15 @@ function DialogDrawItemMenu(C) {
 			}
 		}
 
+		// Shows the "Zone blocked" or "Zone locked by owner" warning
 		if (DialogInventory.length > 0) {
-			if (!DialogItemPermissionMode && InventoryGroupIsBlocked(C)) DrawText(DialogFindPlayer("ZoneBlocked"), 1500, 700, "White", "Black");
+			if (!DialogItemPermissionMode) {
+				if (InventoryGroupIsBlockedByOwnerRule(C)) DrawText(DialogFindPlayer("ZoneBlockedOwner"), 1500, 700, "White", "Black");
+				else if (InventoryGroupIsBlocked(C)) DrawText(DialogFindPlayer("ZoneBlocked"), 1500, 700, "White", "Black");
+			}
 			return;
 		}
+
 	}
 
 	// If the player is progressing
@@ -2223,7 +2228,8 @@ function DialogDrawItemMenu(C) {
 	}
 
 	// Show the no access text
-	if (InventoryGroupIsBlocked(C)) DrawText(DialogFindPlayer("ZoneBlocked"), 1500, 700, "White", "Black");
+	if (InventoryGroupIsBlockedByOwnerRule(C)) DrawText(DialogFindPlayer("ZoneBlockedOwner"), 1500, 700, "White", "Black");
+	else if (InventoryGroupIsBlocked(C)) DrawText(DialogFindPlayer("ZoneBlocked"), 1500, 700, "White", "Black");
 	else if (DialogInventory.length > 0) DrawText(DialogFindPlayer("AccessBlocked"), 1500, 700, "White", "Black");
 	else DrawText(DialogFindPlayer("NoItems"), 1500, 700, "White", "Black");
 
