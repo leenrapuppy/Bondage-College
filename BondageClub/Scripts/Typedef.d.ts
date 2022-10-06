@@ -2182,6 +2182,11 @@ interface GameLARPParameters {
 	}[];
 }
 
+interface GameLARPOption {
+	Name: string;
+	Odds: number;
+}
+
 interface GameMagicBattleParameters {
 	Status: OnlineGameStatus;
 	House: string;
