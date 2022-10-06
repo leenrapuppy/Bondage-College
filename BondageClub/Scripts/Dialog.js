@@ -95,6 +95,7 @@ var DialogFavoriteStateDetails = [
  * @type {Array.<{
  *     Name: string,
  *     IsAvailable: () => boolean,
+ *     Load?: () => void,
  *     Draw: () => void,
  *     Click: () => void
  * }>}
@@ -109,6 +110,7 @@ var DialogSelfMenuOptions = [
 	{
 		Name: "Pose",
 		IsAvailable: () => (CurrentScreen == "ChatRoom" || CurrentScreen == "Photographic"),
+		Load: DialogLoadPoseMenu,
 		Draw: DialogDrawPoseMenu,
 		Click: DialogClickPoseMenu,
 	},
@@ -1316,7 +1318,7 @@ function DialogClickSavedExpressionsMenu() {
  * Build the initial state of the pose menu
  * @returns {void} - Nothing
  */
-function DialogActivePoseMenuBuild() {
+function DialogLoadPoseMenu() {
 	DialogActivePoses = [];
 
 	// Gather all unique categories from poses
@@ -1919,6 +1921,8 @@ function DialogFindNextSubMenu() {
 
 	for (let SM = NextIndex; SM < DialogSelfMenuOptions.length; SM++) {
 		if (DialogSelfMenuOptions[SM].IsAvailable()) {
+			if (DialogSelfMenuOptions[SM].Load)
+				DialogSelfMenuOptions[SM].Load();
 			DialogSelfMenuSelected = DialogSelfMenuOptions[SM];
 			return;
 		}
@@ -1936,6 +1940,8 @@ function DialogFindSubMenu(MenuName) {
 		let MenuOption = DialogSelfMenuOptions[MenuIndex];
 		if (MenuOption.Name == MenuName) {
 			if (MenuOption.IsAvailable()) {
+				if (MenuOption.Load)
+					MenuOption.Load();
 				DialogSelfMenuSelected = MenuOption;
 				return true;
 			}
@@ -2462,8 +2468,6 @@ function DialogDrawPoseMenu() {
 	// Draw the pose groups
 	DrawText(DialogFindPlayer("PoseMenu"), 250, 100, "White", "Black");
 
-	if (!DialogActivePoses || !DialogActivePoses.length) DialogActivePoseMenuBuild();
-
 	for (let I = 0; I < DialogActivePoses.length; I++) {
 		var OffsetX = 140 + 140 * I;
 		var PoseGroup = DialogActivePoses[I];
@@ -2524,7 +2528,10 @@ function DialogClickPoseMenu() {
  * @returns {void} - Nothing
  */
 function DialogViewOwnerRules() {
-	DialogSelfMenuSelected = DialogSelfMenuOptions.find(M => M.Name == "OwnerRules");
+	let MenuOption = DialogSelfMenuOptions.find(M => M.Name == "OwnerRules");
+	if (MenuOption.Load)
+		MenuOption.Load();
+	DialogSelfMenuSelected = MenuOption;
 }
 
 /**
