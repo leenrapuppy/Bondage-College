@@ -264,7 +264,7 @@ function CommonDrawAppearanceBuild(C, {
 			// Draw the item on the canvas (default or empty means no special color, # means apply a color, regular text means we apply
 			// that text)
 			if ((Color != null) && (Color.indexOf("#") == 0) && Layer.AllowColorize) {
-				const ColorName = ((SuffixName == undefined) || (L != "")) ? "" : "_" + SuffixName
+				const ColorName = ((SuffixName == undefined) || (L != "")) ? "" : "_" + SuffixName;
 
 				drawImageColorize(
 					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + G + LayerType + ColorName + L + ".png", X, Y,
