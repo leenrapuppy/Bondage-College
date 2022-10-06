@@ -2060,15 +2060,36 @@ var AssetFemale3DCG = [
 		Priority: 7,
 		AllowNone: false,
 		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "AllFours", "OverTheHead"],
+		PreviewZone: [0, 150, 500, 500],
 		Asset: [
-			//Breasts
-			{ Name: "Small", Gender: "F" },
-			{ Name: "Normal", Gender: "F" },
-			{ Name: "Large", Gender: "F" },
-			{ Name: "XLarge", Gender: "F" },
-			//Flat Chests
-			{ Name: "FlatMedium", Random: false, Gender: "M" },
-			{ Name: "FlatSmall", Random: false, Gender: "M" },
+			{
+				Name: "Small",
+				Extended: true,
+				Layer: [
+					{ Name: "", ParentGroup: null, HasType: false },
+				],
+			},
+			{
+				Name: "Normal",
+				Extended: true,
+				Layer: [
+					{ Name: "", ParentGroup: null, HasType: false },
+				],
+			},
+			{
+				Name: "Large",
+				Extended: true,
+				Layer: [
+					{ Name: "", ParentGroup: null, HasType: false },
+				],
+			},
+			{
+				Name: "XLarge",
+				Extended: true,
+				Layer: [
+					{ Name: "", ParentGroup: null, HasType: false },
+				],
+			},
 		],
 		Color: ["White", "Asian", "Black"],
 		ColorSuffix: { "HEX_COLOR": "White" },
