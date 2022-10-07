@@ -5008,13 +5008,13 @@ var AssetFemale3DCG = [
 
 					// All Gags
 					{ Name: "Bit", HasType: false, AllowModuleTypes: ["g0"], CopyLayerColor: "BaseMetal" },
-					{ Name: "BitLarge", HasType: false, AllowModuleTypes: ["g2"] },
+					{ Name: "BitLarge", HasType: false, AllowModuleTypes: ["g2"], ColorGroup: "Gag" },
 					{ Name: "BitDepressor", HasType: false, AllowModuleTypes: ["g3"], CopyLayerColor: "BaseMetal" },
 					{ Name: "BallLips", HasType: false, AllowModuleTypes: ["g4"], InheritColor: "Mouth", AllowColorize: false },
 					{ Name: "BallStraps", HasType: false, AllowModuleTypes: ["g4"], CopyLayerColor: "BaseStraps" },
-					{ Name: "Ballgag", HasType: false, AllowModuleTypes: ["g4"], CopyLayerColor: "BitLarge" },
+					{ Name: "Ballgag", HasType: false, AllowModuleTypes: ["g4"], ColorGroup: "Gag" },
 					{ Name: "DildoLips", HasType: false, AllowModuleTypes: ["g5"], InheritColor: "Mouth", AllowColorize: false },
-					{ Name: "Dildo", HasType: false, AllowModuleTypes: ["g5"], CopyLayerColor: "BitLarge" },
+					{ Name: "Dildo", HasType: false, AllowModuleTypes: ["g5"], CopyLayerColor: "BitLarge", ColorGroup: "Gag" },
 					{ Name: "DildoMetal", HasType: false, AllowModuleTypes: ["g5"], CopyLayerColor: "BaseMetal", Priority: 42 },
 
 					//ExtraStraps
@@ -5369,13 +5369,13 @@ var AssetFemale3DCG = [
 
 					// All Gags
 					{ Name: "Bit", HasType: false, AllowModuleTypes: ["g0"], CopyLayerColor: "BaseMetal" },
-					{ Name: "BitLarge", HasType: false, AllowModuleTypes: ["g2"] },
+					{ Name: "BitLarge", HasType: false, AllowModuleTypes: ["g2"], ColorGroup: "Gag" },
 					{ Name: "BitDepressor", HasType: false, AllowModuleTypes: ["g3"], CopyLayerColor: "BaseMetal" },
 					{ Name: "BallLips", HasType: false, AllowModuleTypes: ["g4"], InheritColor: "Mouth", AllowColorize: false },
 					{ Name: "BallStraps", HasType: false, AllowModuleTypes: ["g4"], CopyLayerColor: "BaseStraps" },
-					{ Name: "Ballgag", HasType: false, AllowModuleTypes: ["g4"], CopyLayerColor: "BitLarge" },
+					{ Name: "Ballgag", HasType: false, AllowModuleTypes: ["g4"], ColorGroup: "Gag" },
 					{ Name: "DildoLips", HasType: false, AllowModuleTypes: ["g5"], InheritColor: "Mouth", AllowColorize: false },
-					{ Name: "Dildo", HasType: false, AllowModuleTypes: ["g5"], CopyLayerColor: "BitLarge" },
+					{ Name: "Dildo", HasType: false, AllowModuleTypes: ["g5"], CopyLayerColor: "BitLarge", ColorGroup: "Gag" },
 					{ Name: "DildoMetal", HasType: false, AllowModuleTypes: ["g5"], CopyLayerColor: "BaseMetal" },
 
 					//ExtraStraps
@@ -5723,7 +5723,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "PonyGag", Category: ["Pony"], Fetish: ["Leather", "Pony", "Pet"], Value: 150, Difficulty: 5, Time: 8, Random: false, AllowLock: true, DrawLocks: false, BuyGroup: "PonyGag", Prerequisite: "GagUnique", DefaultColor: ["Default", "Default", "#383838", "Default", "#B24031", "#EAEAEA", "Default", "#FF95DB", "#383838", "Default", "#383838", "#956B1C", "#8A7055", "#383838"], Effect: [], Extended: true, AlwaysExtend: true, Bonus: "KidnapBruteForce", Top: -57, Left: 133,
+				Name: "PonyGag", Category: ["Pony"], Fetish: ["Leather", "Pony", "Pet"], Value: 150, Difficulty: 5, Time: 8, Random: false, AllowLock: true, DrawLocks: false, BuyGroup: "PonyGag", Prerequisite: "GagUnique", DefaultColor: ["Default", "Default", "#383838", "Default", "#B24031", "#EAEAEA", "Default", "#FF95DB", "#383838", "Default", "#383838", "#956B1C", "#8A7055", "#8A7055", "#383838"], Effect: [], Extended: true, AlwaysExtend: true, Bonus: "KidnapBruteForce", Top: -57, Left: 133,
 				Layer: [
 					// Layers: Metal, Straps, Plume, Horn, Panel
 					{ Name: "BaseMetal", HasType: false},
@@ -5732,13 +5732,13 @@ var AssetFemale3DCG = [
 
 					// All Gags
 					{ Name: "Bit", HasType: false, AllowModuleTypes: ["g0"], CopyLayerColor: "BaseMetal" },
-					{ Name: "BitLarge", HasType: false, AllowModuleTypes: ["g2"] },
+					{ Name: "BitLarge", HasType: false, AllowModuleTypes: ["g2"], ColorGroup: "Gag" },
 					{ Name: "BitDepressor", HasType: false, AllowModuleTypes: ["g3"], CopyLayerColor: "BaseMetal" },
 					{ Name: "BallLips", HasType: false, AllowModuleTypes: ["g4"], InheritColor: "Mouth", AllowColorize: false },
 					{ Name: "BallStraps", HasType: false, AllowModuleTypes: ["g4"], CopyLayerColor: "BaseStraps" },
-					{ Name: "Ballgag", HasType: false, AllowModuleTypes: ["g4"], CopyLayerColor: "BitLarge" },
-					{ Name: "DildoLips", HasType: false, AllowModuleTypes: ["g4"], InheritColor: "Mouth", AllowColorize: false },
-					{ Name: "Dildo", HasType: false, AllowModuleTypes: ["g4"], CopyLayerColor: "BitLarge" },
+					{ Name: "Ballgag", HasType: false, AllowModuleTypes: ["g4"], ColorGroup: "Gag" },
+					{ Name: "DildoLips", HasType: false, AllowModuleTypes: ["g5"], InheritColor: "Mouth", AllowColorize: false },
+					{ Name: "Dildo", HasType: false, AllowModuleTypes: ["g5"], CopyLayerColor: "BitLarge", ColorGroup: "Gag" },
 					{ Name: "DildoMetal", HasType: false, AllowModuleTypes: ["g4"], CopyLayerColor: "BaseMetal" },
 
 					//ExtraStraps
