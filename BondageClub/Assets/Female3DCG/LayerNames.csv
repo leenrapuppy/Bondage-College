@@ -274,9 +274,18 @@ LeftHandRingsThumbSteel,Thumb Ring
 LeftHandRingsIndexSteel,Index Ring
 LeftHandRingsMiddleSteel,Middle Finger Ring
 LeftHandRingsRingSteel,Ring Finger Ring
+LefttHandRingsWedding,Wedding Ring
 LeftHandRingsPinkieSteel,Pinkie Ring
-LeftHandRingsHonorGems,Honor Ring Gems
-LeftHandRingsThumbO,O Ring Ring
+LeftHandRingsHonorBase,Honor Ring
+LeftHandRingsHonorJewels,Honor Ring Jewels
+RightHandRingsThumbSteel,Thumb Ring
+RightHandRingsIndexSteel,Index Ring
+RightHandRingsMiddleSteel,Middle Finger Ring
+RightHandRingsRingSteel,Ring Finger Ring
+RightHandRingsWedding,Wedding Ring
+RightHandRingsPinkieSteel,Pinkie Ring
+RightHandRingsHonorBase,Honor Ring
+RightHandRingsHonorJewels,Honor Ring Jewels
 MaskFaceVeilFabric,Fabric
 MaskFaceVeilString,String
 TailStrapsTailStrapTail,Tail

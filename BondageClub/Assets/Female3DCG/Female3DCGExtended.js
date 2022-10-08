@@ -163,7 +163,7 @@ var AssetFemale3DCGExtended = {
 			},
 		}, //BallCapFront
 	},
-		RightHand: {
+		LeftHand: {
 		Rings: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
