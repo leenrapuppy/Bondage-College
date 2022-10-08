@@ -456,7 +456,7 @@ interface AssetGroup {
 
 	/** A dict mapping colors to custom filename suffices.
 	The "HEX_COLOR" key is special-cased to apply to all color hex codes. */
-	ColorSuffix?: { [string]: string };
+	ColorSuffix?: Record<string, string>;
 }
 
 /** An object defining a drawable layer of an asset */
@@ -654,7 +654,7 @@ interface Asset {
 	AllowTint: boolean;
 	DefaultTint?: string;
 	CraftGroup: string;
-	ColorSuffix: { [string]: string};
+	ColorSuffix: Record<string, string>;
 }
 
 //#endregion
@@ -2180,6 +2180,11 @@ interface GameLARPParameters {
 		Level: number;
 		Progress: number;
 	}[];
+}
+
+interface GameLARPOption {
+	Name: string;
+	Odds: number;
 }
 
 interface GameMagicBattleParameters {

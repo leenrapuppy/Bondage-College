@@ -4452,8 +4452,8 @@ function ChatRoomOwnerForbiddenWordCheck(Message) {
 	// Prepares an array of all words said
 	let M = Message.trim().toUpperCase();
 	M = M.replace(/-/g, "");
-	M = M.replace(/\ /g, "|");
-	M = M.replace(/\,/g, "|");
+	M = M.replace(/ /g, "|");
+	M = M.replace(/,/g, "|");
 	M = M.replace(/\./g, "|");
 	let WordList = M.split("|");
 	if (WordList.length <= 0) return true;

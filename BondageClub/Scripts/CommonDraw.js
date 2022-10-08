@@ -257,13 +257,14 @@ function CommonDrawAppearanceBuild(C, {
 			 * @type {string | undefined} */
 			let SuffixName = undefined;
 			if ((A.ColorSuffix != null) && (Color != null)) {
+				// eslint-disable-next-line dot-notation
 				SuffixName = (Color.indexOf("#") == 0) ? A.ColorSuffix["HEX_COLOR"] : A.ColorSuffix[Color];
 			}
 
 			// Draw the item on the canvas (default or empty means no special color, # means apply a color, regular text means we apply
 			// that text)
 			if ((Color != null) && (Color.indexOf("#") == 0) && Layer.AllowColorize) {
-				const ColorName = ((SuffixName == undefined) || (L != "")) ? "" : "_" + SuffixName
+				const ColorName = ((SuffixName == undefined) || (L != "")) ? "" : "_" + SuffixName;
 
 				drawImageColorize(
 					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + G + LayerType + ColorName + L + ".png", X, Y,
