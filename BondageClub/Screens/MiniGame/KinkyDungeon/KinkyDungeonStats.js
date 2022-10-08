@@ -291,10 +291,19 @@ function KinkyDungeonDefaultStats(Load) {
 	KDOrigWill = KinkyDungeonStatWillMax * 10;
 	KDOrigDistraction = 0;
 
+	if (test == 'godmode') {
+		KinkyDungeonSeeAll = true;
+		KinkyDungeonSpellPoints = 9001;
+	}
+
 	if (!Load) {
-		for (let perk of KinkyDungeonStatsChoice.keys()) {
+		for (let perk of [...KinkyDungeonStatsChoice.keys()].filter((e) => {return KDPerkStart[e] != undefined;})
+			.sort((a, b) => {
+				return ((KinkyDungeonStatsPresets[a] && KinkyDungeonStatsPresets[a].startPriority) || -1) - ((KinkyDungeonStatsPresets[b] && KinkyDungeonStatsPresets[b].startPriority) || -1);
+			})) {
 			if (KinkyDungeonStatsChoice.get(perk) && KDPerkStart[perk]) {
 				KDPerkStart[perk](Load);
+				console.log("started with perk " + perk);
 			}
 		}
 	}
@@ -586,7 +595,7 @@ function KinkyDungeonChangeDistraction(Amount, NoFloater, lowerPerc) {
 		KDOrigDistraction = Math.max(0, Math.floor(KinkyDungeonStatDistraction/KinkyDungeonStatDistractionMax * 100));
 	}
 }
-function KinkyDungeonChangeStamina(Amount, NoFloater, Pause) {
+function KinkyDungeonChangeStamina(Amount, NoFloater, Pause, NoSlow) {
 	KinkyDungeonStatStamina += Amount;
 	KinkyDungeonStatStamina = Math.min(Math.max(0, KinkyDungeonStatStamina), KinkyDungeonStatStaminaMax);
 	if (!NoFloater && Math.abs(KDOrigStamina - Math.floor(KinkyDungeonStatStamina * 10)) >= 0.99) {
@@ -596,7 +605,7 @@ function KinkyDungeonChangeStamina(Amount, NoFloater, Pause) {
 	if (Pause) {
 		if (!(KDGameData.StaminaPause > Pause))
 			KDGameData.StaminaPause = Pause;
-		if (!(KDGameData.StaminaSlow > 5))
+		if (!(KDGameData.StaminaSlow > 5) && !NoSlow)
 			KDGameData.StaminaSlow = 5;
 	}
 }

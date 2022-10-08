@@ -90,6 +90,10 @@ interface consumable {
 	useQuantity?: number,
 }
 
+type KDHasTags = {
+	tags: any
+}
+
 type restraint = {
 	/** Affinity type: Hook, Edge, or Sharp, Sticky, defaults are Hook (struggle), Sharp (Cut), Edge (Pick), Sticky (Unlock), and none (Pick)*/
 	affinity?: {
@@ -146,7 +150,7 @@ type restraint = {
 	/** The item is present on all floors */
 	allFloors?: boolean,
 	/** Determines the floors the restraint can appear on */
-	floors?: Map<any, any>,
+	floors?: Record<string, boolean>,
 	escapeChance: {
 		Struggle?: number,
 		Cut?: number,
@@ -438,7 +442,7 @@ interface overrideDisplayItem {
 	OverridePriority?: number[]|number,
 }
 
-interface enemy {
+interface enemy extends KDHasTags {
 	/** These enemies wont appear in distracted mode */
 	arousalMode?: boolean,
 	name: string,
@@ -447,7 +451,7 @@ interface enemy {
 	/** Overrides the default weight reduction for being outside of a miniboss/boss/minor/elite box */
 	outOfBoxWeightMult?: number,
 	/** Tags, used for determining weaknesses, spawning, restraints applied, and rank*/
-	tags: Map<string, boolean>,
+	tags: Record<string, boolean>,
 	/** Spell resist, formula is spell damage taken = 1 / (1 + spell resist) */
 	spellResist?: number,
 	/** Whether or not the enemy is friendly to the player and attacks enemies */
@@ -499,7 +503,7 @@ interface enemy {
 	/** */
 	terrainTags?: Record<string, number>,
 	/** */
-	floors?: Map<string, boolean>,
+	floors?: Record<string, boolean>,
 	/** Enemy events */
 	events?: KinkyDungeonEvent[];
 	/** */
@@ -1057,11 +1061,14 @@ type KDPerk = {
 	locked?: boolean,
 	outfit?: string,
 	require?: string,
+	startPriority?: number,
 }
 
 interface spell {
 	/** Stops the spell from moving more than 1 tile */
 	slowStart?: boolean,
+	/** Forces spell to move more than 1 tile at beginning */
+	fastStart?: boolean,
 	/** Affects aoe type
 	 * acceptable values are:
 	 * vert - creates a vertical line

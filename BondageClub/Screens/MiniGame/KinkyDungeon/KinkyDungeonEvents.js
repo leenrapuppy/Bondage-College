@@ -111,7 +111,7 @@ let KDEventMapInventory = {
 	"kill": {
 		"MikoGhost": (e, item, data) => {
 			if (!e.chance || KDRandom() < e.chance) {
-				if (data.enemy && data.enemy.lifetime == undefined && data.enemy.playerdmg && !data.enemy.Enemy.tags.has("ghost") && !data.enemy.Enemy.tags.has("construct")) {
+				if (data.enemy && data.enemy.lifetime == undefined && data.enemy.playerdmg && !data.enemy.Enemy.tags.ghost && !data.enemy.Enemy.tags.construct) {
 					KinkyDungeonSummonEnemy(data.enemy.x, data.enemy.y, "MikoGhost", 1, 1.5, true);
 					KinkyDungeonSendTextMessage(5, TextGet("KDMikoCollarSummmon"), "purple", 2);
 				}
@@ -125,14 +125,14 @@ let KDEventMapInventory = {
 				item.tx = undefined;
 				item.ty = undefined;
 			} else {
-				if (item.tx && item.ty && (!enemy || (e.requiredTag && !enemy.Enemy.tags.has(e.requiredTag)))) {
+				if (item.tx && item.ty && (!enemy || (e.requiredTag && !enemy.Enemy.tags[e.requiredTag]))) {
 					item.tx = undefined;
 					item.ty = undefined;
 					return;
 				} else {
 					// The shadow hands will link to a nearby enemy if possible
 					for (enemy of KDNearbyEnemies(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, e.dist)) {
-						if (!e.requiredTag || enemy.Enemy.tags.has(e.requiredTag)) {
+						if (!e.requiredTag || enemy.Enemy.tags[e.requiredTag]) {
 							item.tx = enemy.x;
 							item.ty = enemy.y;
 						}
@@ -983,7 +983,9 @@ let KDEventMapBuff = {
 			}
 		},
 		"CounterattackSpell": (e, buff, entity, data) => {
-			if (data.attacker && data.target == entity && (!(e.prereq == "hit") || (!data.missed && data.hit))) {
+			if (data.attacker && data.target == entity
+				&& (!(e.prereq == "hit") || (!data.missed && data.hit))
+				&& (!(e.prereq == "hit-hostile") || (!data.missed && data.hit && !data.attacker.player && KDHostile(data.attacker)))) {
 				// @ts-ignore
 				KinkyDungeonCastSpell(data.attacker.x, data.attacker.y, KinkyDungeonFindSpell(e.spell, true), undefined, undefined, undefined, entity.player ? "Player" : KDGetFaction(entity));
 				if (e.requiredTag)
@@ -1272,7 +1274,7 @@ function KinkyDungeonHandleBuffEvent(Event, e, buff, entity, data) {
 let KDEventMapOutfit = {
 	"calcEvasion": {
 		"AccuracyBuff": (e, outfit, data) => {
-			if (data.enemy && data.enemy.Enemy && data.enemy.Enemy.tags.has(e.requiredTag)) {
+			if (data.enemy && data.enemy.Enemy && data.enemy.Enemy.tags[e.requiredTag]) {
 				data.hitmult *= e.power;
 			}
 		},
@@ -1476,7 +1478,7 @@ let KDEventMapSpell = {
 		},
 		"MakeVulnerable": (e, spell, data) => {
 			if (data.enemy && data.spell == spell) {
-				if ((!e.humanOnly || data.enemy.Enemy.bound) && (!e.chance || KDRandom() < e.chance) && !data.enemy.Enemy.tags.has("nonvulnerable")) {
+				if ((!e.humanOnly || data.enemy.Enemy.bound) && (!e.chance || KDRandom() < e.chance) && !data.enemy.Enemy.tags.nonvulnerable) {
 					if (!data.enemy.vulnerable) data.enemy.vulnerable = 0;
 					data.enemy.vulnerable = Math.max(0, e.time);
 				}
@@ -1576,7 +1578,7 @@ let KDEventMapSpell = {
 	},
 	"beforeStruggleCalc": {
 		"ModifyStruggle": (e, spell, data) => {
-			if (KinkyDungeonHasMana(KinkyDungeonGetManaCost(spell)) && data.escapeChance && (!e.StruggleType || data.StruggleType)) {
+			if (KinkyDungeonHasMana(KinkyDungeonGetManaCost(spell)) && data.escapeChance != undefined && (!e.StruggleType || e.StruggleType == data.struggleType)) {
 				KinkyDungeonChangeMana(-KinkyDungeonGetManaCost(spell));
 				if (e.mult && data.escapeChance > 0)
 					data.escapeChance *= e.mult;
@@ -1882,8 +1884,8 @@ let KDEventMapWeapon = {
 			}
 		},
 		"ChangeDamageUnaware": (e, weapon, data) => {
-			if (data.enemy && !data.miss && !data.disarm && !KDHelpless(data.enemy) && data.Damage && data.Damage.damage > 0 && !data.enemy.Enemy.tags.has("nobrain")) {
-				if ((!e.requiredTag || data.enemy.Enemy.tags.has(e.requiredTag)) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
+			if (data.enemy && !data.miss && !data.disarm && !KDHelpless(data.enemy) && data.Damage && data.Damage.damage > 0 && !data.enemy.Enemy.tags.nobrain) {
+				if ((!e.requiredTag || data.enemy.Enemy.tags[e.requiredTag]) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
 					if (!data.enemy.aware) {
 						data.Damage.damage = e.power;
 						data.Damage.type = e.damage;
@@ -1894,8 +1896,8 @@ let KDEventMapWeapon = {
 			}
 		},
 		"ChangeDamageVulnerable": (e, weapon, data) => {
-			if (data.enemy && !data.miss && !data.disarm && !KDHelpless(data.enemy) && data.Damage && data.Damage.damage > 0 && !data.enemy.Enemy.tags.has("nonvulnerable")) {
-				if (data.enemy && (!e.requiredTag || data.enemy.Enemy.tags.has(e.requiredTag)) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
+			if (data.enemy && !data.miss && !data.disarm && !KDHelpless(data.enemy) && data.Damage && data.Damage.damage > 0 && !data.enemy.Enemy.tags.nonvulnerable) {
+				if (data.enemy && (!e.requiredTag || data.enemy.Enemy.tags[e.requiredTag]) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
 					if (data.enemy.vulnerable > 0) {
 						data.Damage.damage = e.power;
 						data.Damage.type = e.damage;
@@ -1996,7 +1998,7 @@ let KDEventMapWeapon = {
 		},
 		"DamageToTag": (e, weapon, data) => {
 			if (data.enemy && !data.miss && !data.disarm && !KDHelpless(data.enemy)) {
-				if (data.enemy && data.enemy.Enemy.tags.has(e.requiredTag) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
+				if (data.enemy && data.enemy.Enemy.tags[e.requiredTag] && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
 					KinkyDungeonDamageEnemy(data.enemy, {
 						type: e.damage,
 						damage: e.power,
@@ -2019,8 +2021,8 @@ let KDEventMapWeapon = {
 			}
 		},
 		"ElementalOnVulnerable": (e, weapon, data) => {
-			if (data.enemy && !data.miss && !data.disarm && !KDHelpless(data.enemy) && !data.enemy.Enemy.tags.has("nonvulnerable")) {
-				if (data.enemy && (!e.requiredTag || data.enemy.Enemy.tags.has(e.requiredTag)) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
+			if (data.enemy && !data.miss && !data.disarm && !KDHelpless(data.enemy) && !data.enemy.Enemy.tags.nonvulnerable) {
+				if (data.enemy && (!e.requiredTag || data.enemy.Enemy.tags[e.requiredTag]) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
 					if (data.enemy.vulnerable > 0) {
 						KinkyDungeonDamageEnemy(data.enemy, {
 							type: e.damage,
@@ -2033,8 +2035,8 @@ let KDEventMapWeapon = {
 			}
 		},
 		"ElementalOnUnaware": (e, weapon, data) => {
-			if (data.enemy && !data.miss && !data.disarm && !KDHelpless(data.enemy) && !data.enemy.Enemy.tags.has("nobrain")) {
-				if (data.enemy && (!e.requiredTag || data.enemy.Enemy.tags.has(e.requiredTag)) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
+			if (data.enemy && !data.miss && !data.disarm && !KDHelpless(data.enemy) && !data.enemy.Enemy.tags.nobrain) {
+				if (data.enemy && (!e.requiredTag || data.enemy.Enemy.tags[e.requiredTag]) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
 					if (!data.enemy.aware) {
 						KinkyDungeonDamageEnemy(data.enemy, {
 							type: e.damage,
@@ -2048,15 +2050,15 @@ let KDEventMapWeapon = {
 		},
 		"ElementalDreamcatcher": (e, weapon, data) => {
 			if (data.enemy && !data.miss && !data.disarm && !KDHelpless(data.enemy)) {
-				if (data.enemy && (!e.requiredTag || data.enemy.Enemy.tags.has(e.requiredTag)) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
-					if (!data.enemy.aware && !data.enemy.Enemy.tags.has("nobrain")) {
+				if (data.enemy && (!e.requiredTag || data.enemy.Enemy.tags[e.requiredTag]) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
+					if (!data.enemy.aware && !data.enemy.Enemy.tags.nobrain) {
 						KinkyDungeonDamageEnemy(data.enemy, {
 							type: e.damage,
 							damage: e.power,
 							time: e.time,
 							bind: e.bind
 						}, false, false, undefined, undefined, KinkyDungeonPlayerEntity);
-					} else if (data.enemy.vulnerable > 0 && !data.enemy.Enemy.tags.has("nonvulnerable")) {
+					} else if (data.enemy.vulnerable > 0 && !data.enemy.Enemy.tags.nonvulnerable) {
 						KinkyDungeonDamageEnemy(data.enemy, {
 							type: e.damage,
 							damage: e.power * 0.5,
@@ -2068,8 +2070,8 @@ let KDEventMapWeapon = {
 			}
 		},
 		"ElementalUnaware": (e, weapon, data) => {
-			if (data.enemy && !data.miss && !data.disarm && !KDHelpless(data.enemy) && !data.enemy.Enemy.tags.has("nobrain")) {
-				if (data.enemy && (!e.requiredTag || data.enemy.Enemy.tags.has(e.requiredTag)) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
+			if (data.enemy && !data.miss && !data.disarm && !KDHelpless(data.enemy) && !data.enemy.Enemy.tags.nobrain) {
+				if (data.enemy && (!e.requiredTag || data.enemy.Enemy.tags[e.requiredTag]) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
 					if (!data.enemy.aware) {
 						KinkyDungeonDamageEnemy(data.enemy, {
 							type: e.damage,
@@ -2082,8 +2084,8 @@ let KDEventMapWeapon = {
 			}
 		},
 		"ElementalVulnerable": (e, weapon, data) => {
-			if (data.enemy && !data.miss && !data.disarm && !KDHelpless(data.enemy) && !data.enemy.Enemy.tags.has("nonvulnerable")) {
-				if (data.enemy && (!e.requiredTag || data.enemy.Enemy.tags.has(e.requiredTag)) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
+			if (data.enemy && !data.miss && !data.disarm && !KDHelpless(data.enemy) && !data.enemy.Enemy.tags.nonvulnerable) {
+				if (data.enemy && (!e.requiredTag || data.enemy.Enemy.tags[e.requiredTag]) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
 					if (data.enemy.vulnerable > 0) {
 						KinkyDungeonDamageEnemy(data.enemy, {
 							type: e.damage,
@@ -2097,8 +2099,8 @@ let KDEventMapWeapon = {
 		},
 		"Dreamcatcher": (e, weapon, data) => {
 			if (data.enemy && !data.miss && !data.disarm) {
-				if (data.enemy && (!e.requiredTag || data.enemy.Enemy.tags.has(e.requiredTag)) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
-					if (!data.enemy.aware && !data.enemy.Enemy.tags.has("Temporary")) {
+				if (data.enemy && (!e.requiredTag || data.enemy.Enemy.tags[e.requiredTag]) && (!e.chance || KDRandom() < e.chance) && data.enemy.hp > 0) {
+					if (!data.enemy.aware && !data.enemy.Enemy.tags.Temporary) {
 						let point = KinkyDungeonGetNearbyPoint(data.enemy.x,  data.enemy.y, true, undefined, true);
 						if (point) {
 							let Enemy = KinkyDungeonGetEnemyByName("ShadowWarrior");
@@ -2123,7 +2125,7 @@ let KDEventMapWeapon = {
 		},
 		"Knockback": (e, weapon, data) => {
 			if (e.dist && data.enemy && data.targetX && data.targetY && !data.miss && !data.disarm && !KDHelpless(data.enemy)) {
-				if (data.enemy.Enemy && !data.enemy.Enemy.tags.has("unflinching") && !data.enemy.Enemy.tags.has("stunresist") && !data.enemy.Enemy.tags.has("unstoppable") && !data.enemy.Enemy.tags.has("noknockback")) {
+				if (data.enemy.Enemy && !data.enemy.Enemy.tags.unflinching && !data.enemy.Enemy.tags.stunresist && !data.enemy.Enemy.tags.unstoppable && !data.enemy.Enemy.tags.noknockback) {
 					let newX = data.targetX + Math.round(e.dist * (data.targetX - KinkyDungeonPlayerEntity.x));
 					let newY = data.targetY + Math.round(e.dist * (data.targetY - KinkyDungeonPlayerEntity.y));
 					if (KinkyDungeonMovableTilesEnemy.includes(KinkyDungeonMapGet(newX, newY)) && KinkyDungeonNoEnemy(newX, newY, true)
@@ -2248,7 +2250,7 @@ let KDEventMapBullet = {
 	},
 	"bulletHitEnemy": {
 		"Knockback": (e, b, data) => {
-			if (b && data.enemy && !data.enemy.Enemy.tags.has("noknockback") && !data.enemy.Enemy.immobile) {
+			if (b && data.enemy && !data.enemy.Enemy.tags.noknockback && !data.enemy.Enemy.immobile) {
 				let pushPower = KDPushModifier(e.power, data.enemy, false);
 
 				if (pushPower > 0) {
@@ -2267,13 +2269,13 @@ let KDEventMapBullet = {
 			}
 		},
 		"GreaterRage": (e, b, data) => {
-			if (b && data.enemy && !(data.enemy.Enemy.tags.has("soulimmune"))) {
+			if (b && data.enemy && !(data.enemy.Enemy.tags.soulimmune)) {
 				let time = 300;
-				if (data.enemy.Enemy.tags.has("soulresist")) time *= 0.5;
-				else if (data.enemy.Enemy.tags.has("soulweakness")) time *= 2;
-				else if (data.enemy.Enemy.tags.has("soulsevereweakness")) time *= 4;
-				if (data.enemy.Enemy.tags.has("boss")) time *= 0.033;
-				else if (data.enemy.Enemy.tags.has("miniboss")) time *= 0.1;
+				if (data.enemy.Enemy.tags.soulresist) time *= 0.5;
+				else if (data.enemy.Enemy.tags.soulweakness) time *= 2;
+				else if (data.enemy.Enemy.tags.soulsevereweakness) time *= 4;
+				if (data.enemy.Enemy.tags.boss) time *= 0.033;
+				else if (data.enemy.Enemy.tags.miniboss) time *= 0.1;
 				if (time > 100) time = 9999;
 
 				if (!data.enemy.rage) data.enemy.rage = time;
@@ -2571,6 +2573,7 @@ let KDEventMapEnemy = {
 							if (slot) {
 								KDCreateEffectTile(enemy.x + slot.x, enemy.y + slot.y, {
 									name: e.kind,
+									duration: e.duration
 								}, e.time);
 							}
 						}

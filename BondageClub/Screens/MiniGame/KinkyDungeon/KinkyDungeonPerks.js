@@ -1,5 +1,10 @@
 "use strict";
 
+let KDDoorKnobChance = 0.1; // Chance to open door with mitts and arms bound
+let KDDoorKnobChanceArms = 0.5; // Chance to open door with mitts but no arm bindings
+let KDDoorAttractChance = 0.25; // Chance to attract someone by banging
+let KDDoorAttractChanceArms = 0.1; // Chance to attract someone by rattling
+
 let KDCategoriesStart = [
 	{name: "Restraints", buffs: [], debuffs: [],},
 	{name: "Kinky", buffs: [], debuffs: [],},
@@ -105,6 +110,12 @@ let KDPerkUpdateStats = {
 	"CommonFuuka": () => {
 		KDExtraEnemyTags.mikoRestraints = 0;
 	},
+	"CommonExp": () => {
+		KDExtraEnemyTags.expRestraints = 0;
+	},
+	"CommonKitty": () => {
+		KDExtraEnemyTags.kittyRestraints = 0;
+	},
 };
 
 /**
@@ -132,8 +143,9 @@ let KDPerkCount = {
  * @type {Record<string, KDPerk>}
  */
 let KinkyDungeonStatsPresets = {
-	"FutileStruggles":  {category: "Kinky", id: "FutileStruggles", cost: -1, block: ["SecondWind"]},
-	"SecondWind":  {category: "Kinky", id: "SecondWind", cost: 1, block: ["FutileStruggles"]},
+	"FutileStruggles":  {category: "Restraints", id: "FutileStruggles", cost: -2, block: ["SecondWind"]},
+	"SecondWind":  {category: "Restraints", id: "SecondWind", cost: 1, block: ["FutileStruggles"]},
+
 	"Strong": {category: "Restraints", id: 0, cost: 2, block: ["Weak"]},
 	"Weak": {category: "Restraints", id: 1, cost: -1, block: ["Strong"]},
 	"Flexible": {category: "Restraints", id: 2, cost: 2, block: ["Inflexible"]},
@@ -154,7 +166,7 @@ let KinkyDungeonStatsPresets = {
 	"Dragon": {category: "Kinky", id: 33, cost: -1, block: ["Escapee"]},
 	"Dodge": {category: "Combat", id: 18, cost: 3, block: ["Distracted"]},
 	"Distracted": {category: "Combat", id: 19, cost: -1, block: ["Dodge"]},
-	"Submissive": {category: "Kinky", id: 10, cost: 0},
+	"Submissive": {startPriority: -1, category: "Kinky", id: 10, cost: 0},
 	"Wanted": {category: "Kinky", id: 11, cost: -1},
 	"QuickDraw": {category: "Combat", id: 55, cost: 1, block: ["Disorganized"]},
 	"Disorganized": {category: "Combat", id: 57, cost: -2, block: ["QuickDraw", "QuickScribe"]},
@@ -179,20 +191,20 @@ let KinkyDungeonStatsPresets = {
 	"LostTechnology": {category: "Map", id: 23, cost: -1},
 	//"Blessed": {category: "Map", id: 8, cost: 1},
 	"Cursed": {category: "Enemies", id: 9, cost: -3},
-	"Studious": {category: "Magic", id: 12, cost: 1},
-	"Novice": {category: "Magic", id: 7, cost: -1},
+	"Studious": {category: "Magic", id: 12, cost: 1, tags: ["start"]},
+	//"Novice": {category: "Magic", id: 7, cost: -1},
 	"Meditation": {category: "Magic", id: 13, cost: 2},
 	"QuickScribe": {category: "Magic", id: 56, cost: 1, block: ["Disorganized"]},
-	"FuukaCollar": {category: "Boss", id: "FuukaCollar", cost: -3, locked: true},
 	"BerserkerRage": {category: "Combat", id: "BerserkerRage", cost: 3},
 	"UnstableMagic": {category: "Magic", id: "UnstableMagic", cost: 2},
 	"Vengeance": {category: "Enemies", id: "Vengeance", cost: -1},
 	"AbsoluteFocus": {category: "Magic", id: "AbsoluteFocus", cost: -1},
 
-	"StartMaid": {category: "Start", id: "StartMaid", cost: -2, outfit: "Maid", block: ["StartLatex", "StartWolfgirl", "StartObsidian"]},
-	"StartLatex": {category: "Start", id: "StartLatex", cost: -2, block: ["StartMaid", "StartWolfgirl", "StartObsidian"]},
-	"StartWolfgirl": {category: "Start", id: "StartWolfgirl", cost: -2, outfit: "Wolfgirl", block: ["StartMaid", "StartLatex", "StartObsidian"]},
-	"StartObsidian": {category: "Start", id: "StartObsidian", cost: -2, outfit: "Obsidian", block: ["StartMaid", "StartLatex", "StartWolfgirl"]},
+	"StartObsidian": {startPriority: 0, category: "Start", id: "StartObsidian", cost: -2, outfit: "Obsidian", tags: ["start"]},
+	"StartWolfgirl": {startPriority: 10, category: "Start", id: "StartWolfgirl", cost: -2, outfit: "Wolfgirl", tags: ["start"]},
+	"StartMaid": {startPriority: 20, category: "Start", id: "StartMaid", cost: -2, outfit: "Maid", tags: ["start"]},
+	"StartLatex": {startPriority: 30, category: "Start", id: "StartLatex", cost: -2, tags: ["start"]},
+	"FuukaCollar": {startPriority: 40, category: "Boss", id: "FuukaCollar", cost: -3, locked: true, tags: ["start"]},
 
 	"Nowhere": {category: "Enemies", id: "Nowhere", cost: -1},
 	"Prisoner": {category: "Start", id: "Prisoner", cost: 0},
@@ -233,10 +245,15 @@ let KinkyDungeonStatsPresets = {
 	"CommonFuuka": {category: "Enemies", id: "CommonFuuka", cost: 0, locked: true},
 	"CommonMaid": {category: "Enemies", id: "CommonMaid", cost: 0},
 	"CommonLatex": {category: "Enemies", id: "CommonLatex", cost: 0},
+	"CommonExp": {category: "Enemies", id: "CommonExp", cost: 0},
 	"CommonDress": {category: "Enemies", id: "CommonDress", cost: 0},
 	"CommonWolf": {category: "Enemies", id: "CommonWolf", cost: 0},
+	"CommonKitty": {category: "Enemies", id: "CommonKitty", cost: 0},
 
 	"KeepOutfit":  {category: "Kinky", id: "KeepOutfit", cost: 0},
+
+	"KinkyPrison":  {category: "Map", id: "KinkyPrison", cost: -1},
+	"Doorknobs":  {category: "Map", id: "Doorknobs", cost: -1},
 };
 
 function KinkyDungeonGetStatPoints(Stats) {
@@ -251,10 +268,10 @@ function KinkyDungeonGetStatPoints(Stats) {
 	return total;
 }
 
-function KinkyDungeonCanPickStat(Stat) {
+function KinkyDungeonCanPickStat(Stat, points) {
 	let stat = KinkyDungeonStatsPresets[Stat];
 	if (!stat) return false;
-	if (stat.cost > 0 && KinkyDungeonGetStatPoints(KinkyDungeonStatsChoice) < stat.cost) return false;
+	if (stat.cost > 0 && (points != undefined ? points : KinkyDungeonGetStatPoints(KinkyDungeonStatsChoice)) < stat.cost) return false;
 	for (let k of KinkyDungeonStatsChoice.keys()) {
 		if (KinkyDungeonStatsChoice.get(k)) {
 			if (KinkyDungeonStatsPresets[k] && KinkyDungeonStatsPresets[k].block && KinkyDungeonStatsPresets[k].block.includes(Stat)) {
@@ -268,6 +285,20 @@ function KinkyDungeonCanPickStat(Stat) {
 	}
 	return true;
 }
+
+function KDPerkBlocked(perk1, perk2) {
+	if (KinkyDungeonStatsPresets[perk2] && KinkyDungeonStatsPresets[perk1]) {
+		if (KinkyDungeonStatsPresets[perk2].block && KinkyDungeonStatsPresets[perk2].block.includes(perk1)) {
+			return true;
+		}
+		if (KinkyDungeonStatsPresets[perk2] && KinkyDungeonStatsPresets[perk1].tags && KinkyDungeonStatsPresets[perk2].blocktags) {
+			for (let t of KinkyDungeonStatsPresets[perk2].blocktags)
+				if (KinkyDungeonStatsPresets[perk1].tags.includes(t)) return true;
+		}
+	}
+	return false;
+}
+
 function KinkyDungeonCanUnPickStat(Stat) {
 	let stat = KinkyDungeonStatsPresets[Stat];
 	if (!stat) return false;
@@ -331,7 +362,7 @@ let KDPerkStart = {
 				KinkyDungeonAddRestraintIfWeaker(r, 0, true, r.Group == "ItemNeck" ? "Blue" : "Purple");
 		}
 		for (let i = 0; i < 30; i++) {
-			let r = KinkyDungeonGetRestraint({tags: ["latexRestraints", "latexRestraintsHeavy"]}, 12, "grv", true, "Red");
+			let r = KinkyDungeonGetRestraint({tags: ["latexRestraints", "latexRestraintsHeavy", "latexCollar"]}, 12, "grv", true, "Red");
 			if (r)
 				KinkyDungeonAddRestraintIfWeaker(r, 0, true, r.Group == "ItemNeck" ? "Blue" : "Purple");
 		}
@@ -353,8 +384,15 @@ let KDPerkStart = {
 		KDChangeFactionRelation("Player", "Nevermere", 0.2 - KDFactionRelation("Player", "Nevermere"), true);
 		for (let i = 0; i < 30; i++) {
 			let r = KinkyDungeonGetRestraint({tags: (i < (KinkyDungeonStatsChoice.has("NoWayOut") ? 3 : 1) ? ["wolfCuffs"] : ["wolfGear", "wolfRestraints"])}, 12, "grv", true, "Red");
-			if (r)
+			if (r) {
 				KinkyDungeonAddRestraintIfWeaker(r, 0, true, r.Group == "ItemNeck" ? "Blue" : "Red");
+				let item = KinkyDungeonGetRestraintItem(r.Group);
+				if (item && KDRestraint(item).Link) {
+					let newRestraint = KinkyDungeonGetRestraintByName(KDRestraint(item).Link);
+					KinkyDungeonAddRestraint(newRestraint, item.tightness, true, "Red", false, undefined, undefined, undefined, item.faction);
+					//KinkyDungeonLinkItem(newRestraint, item, item.tightness, "");
+				}
+			}
 		}
 		let outfit = {name: "Wolfgirl", type: Outfit};
 		if (!KinkyDungeonInventoryGet("Wolfgirl")) KinkyDungeonInventoryAdd(outfit);
@@ -364,7 +402,7 @@ let KDPerkStart = {
 	StartObsidian: () =>{
 		KDChangeFactionRelation("Player", "Elemental", 0.2 - KDFactionRelation("Player", "Elemental"), true);
 		for (let i = 0; i < 30; i++) {
-			let r = KinkyDungeonGetRestraint({tags: ["obsidianRestraints", "genericChastity", "genericToys"]}, 12, "grv", true, "Red");
+			let r = KinkyDungeonGetRestraint({tags: ["obsidianRestraints", "ornateChastity", "genericToys"]}, 12, "grv", true, "Red");
 			if (r) {
 				KinkyDungeonAddRestraintIfWeaker(r, 0, true, r.Group == "ItemNeck" ? "Blue" : "Purple");
 				let item = KinkyDungeonGetRestraintItem(r.Group);
@@ -372,6 +410,10 @@ let KDPerkStart = {
 					let newRestraint = KinkyDungeonGetRestraintByName(KDRestraint(item).Link);
 					KinkyDungeonAddRestraint(newRestraint, item.tightness, true, "Purple", false, undefined, undefined, undefined, item.faction);
 					//KinkyDungeonLinkItem(newRestraint, item, item.tightness, "");
+					if (newRestraint && KDRestraint(newRestraint).Link) {
+						let newRestraint2 = KinkyDungeonGetRestraintByName(KDRestraint(newRestraint).Link);
+						KinkyDungeonAddRestraint(newRestraint2, item.tightness, true, "Purple", false, undefined, undefined, undefined, item.faction);
+					}
 				}
 			}
 		}
@@ -568,4 +610,61 @@ function drawVertList(list, x, y, w, h, max, fontSize, clickfnc, prefix) {
 		let name = list[i];
 		DrawButtonKDEx(name + x + "," + y, clickfnc({name: name}), true, x - w/2, y - (h+1) * i, w, h, TextGet(prefix + name), KDTextWhite, undefined, undefined, undefined, true, undefined, fontSize);
 	}
+}
+
+/**
+ *
+ * @param {Record<string, boolean>} existing
+ * @returns {string[]}
+ */
+function KDGetRandomPerks(existing) {
+	let poscandidates = [];
+	let singlepointcandidates = [];
+	let negcandidates = [];
+	for (let p of Object.entries(KinkyDungeonStatsPresets)) {
+		if (!existing[p[0]] && !KinkyDungeonStatsChoice.get(p[0]) && KinkyDungeonCanPickStat(p[0], 999)) { // No dupes
+			if ((!p[1].tags || !p[1].tags.includes("start"))) {
+				if (!p[1].locked || KDUnlockedPerks.includes(p[0])) {
+					if (p[1].cost > 0) {
+						poscandidates.push(p);
+						if (p[1].cost == 1)
+							singlepointcandidates.push(p);
+					} else if (p[1].cost < 0) {
+						negcandidates.push(p);
+					}
+				}
+			}
+		}
+	}
+
+	let poscandidate = poscandidates[Math.floor(poscandidates.length * KDRandom())];
+	if (!poscandidate) return [];
+
+	let netcost = poscandidate[1].cost;
+	let perks = [poscandidate[0]];
+	if (poscandidate[1].cost > 1) {
+		negcandidates = negcandidates.filter((p) => {
+			return (KinkyDungeonCanPickStat(p[0], 999))
+				&& !KDPerkBlocked(p[0], poscandidate[0])
+				&& (-p[1].cost) >= (poscandidate[1].cost - 1);
+		});
+		let negperk = null;
+		if (negcandidates.length > 0) {
+			negperk = negcandidates[Math.floor(negcandidates.length * KDRandom())];
+			perks.push(negperk[0]);
+			netcost += negperk[1].cost;
+		}
+
+		if (netcost < 0 && negperk) {
+			singlepointcandidates = negcandidates.filter((p) => {
+				return (KinkyDungeonCanPickStat(p[0], 999)
+				&& p[0] != poscandidate[0]
+				&& !KDPerkBlocked(p[0], poscandidate[0])
+				&& !KDPerkBlocked(p[0], negperk[0]));
+			});
+			let newperk = singlepointcandidates[Math.floor(singlepointcandidates.length * KDRandom())];
+			perks = [perks[0], newperk[0], perks[1]];
+		}
+	}
+	return perks;
 }
