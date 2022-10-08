@@ -376,9 +376,14 @@ function KDInitProtectedGroups() {
  * If the player is wearing a restraint that has a `alwaysDress` property, and the player is not wearing the item specified
  * in the `alwaysDress` property, the player will be forced to wear the items.
  */
+/**
+ *
+ * @param {item[]} [restraints]
+ */
 function KinkyDungeonWearForcedClothes(restraints) {
 	if (!restraints) restraints = KinkyDungeonAllRestraint();
-	for (let inv of restraints) {
+	for (let i = restraints.length - 1; i >= 0; i--) {
+		let inv = restraints[i];
 		if (KDRestraint(inv).alwaysDress) {
 			KDRestraint(inv).alwaysDress.forEach(dress=>{ // for .. of  loop has issues with iterations
 				if (dress.override || !dress.Group.includes("Item") || !InventoryGet(KinkyDungeonPlayer, dress.Group)) {

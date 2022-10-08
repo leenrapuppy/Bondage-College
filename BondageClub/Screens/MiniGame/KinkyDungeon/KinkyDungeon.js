@@ -3,6 +3,14 @@
 // Disable interpolation when scaling, will make texture be pixelated
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
+
+// Check URL to see if indev branch
+const pp = new URLSearchParams(window.location.search);
+let branch = pp.has('branch') ? pp.get('branch') : "";
+let test = pp.has('test') ? pp.get('test') : "";
+let localhost = pp.has('localhost') ? pp.get('localhost') : "";
+let TestMode = test || branch || localhost || ServerURL == 'https://bc-server-test.herokuapp.com/';
+
 let KDDebugMode = false;
 let KDDebug = false;
 let KDDebugPerks = false;
@@ -430,12 +438,12 @@ function KDLoadPerks(Perk) {
 /**
  *
  * @param {any[]} list
- * @return {Map<any, any>}
+ * @return {Record<any, any>}
  */
 function KDMapInit(list) {
-	let map = new Map();
+	let map = {};
 	for (let l of list) {
-		map.set(l, true);
+		map[l] = true;
 	}
 	return map;
 }
@@ -485,7 +493,11 @@ function KinkyDungeonLoad() {
 	if (!KinkyDungeonGameRunning) {
 		if (!KinkyDungeonPlayer) { // new game
 			KDrandomizeSeed(false);
-			KinkyDungeonPlayer = CharacterLoadNPC("NPC_Avatar");
+			if (KDPatched)
+				// @ts-ignore
+				KinkyDungeonPlayer = suppressCanvasUpdate(() => CharacterLoadNPC("NPC_Avatar"));
+			else
+				KinkyDungeonPlayer = CharacterLoadNPC("NPC_Avatar");
 			KinkyDungeonPlayer.Type = "simple";
 			// @ts-ignore
 			KinkyDungeonPlayer.OnlineSharedSettings = {BlockBodyCosplay: true, };
@@ -520,9 +532,18 @@ function KinkyDungeonLoad() {
 
 			CharacterAppearanceRestore(KinkyDungeonPlayer, appearance);
 
-			CharacterReleaseTotal(KinkyDungeonPlayer);
+
+			if (KDPatched)
+				// @ts-ignore
+				suppressCanvasUpdate(() => CharacterReleaseTotal(KinkyDungeonPlayer));
+			else
+				CharacterReleaseTotal(KinkyDungeonPlayer);
 			KinkyDungeonDressSet();
-			CharacterNaked(KinkyDungeonPlayer);
+			if (KDPatched)
+				// @ts-ignore
+				suppressCanvasUpdate(() => CharacterNaked(KinkyDungeonPlayer));
+			else
+				CharacterNaked(KinkyDungeonPlayer);
 			KinkyDungeonInitializeDresses();
 			KinkyDungeonDressPlayer();
 			KDInitProtectedGroups();
@@ -631,9 +652,6 @@ function KinkyDungeonRun() {
 	KDButtonsCache = {};
 	KDUpdateVibeSounds();
 	let BG = "BrickWall";
-	//let params = KinkyDungeonMapParams[KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]];
-	//if (params && params.background) BG = params.background;
-	if (KDLose) BG = "Pandora/Underground/Cell4";
 	DrawImage("Backgrounds/" + BG + ".jpg", 0, 0);
 
 	if (ServerURL != "foobar")
@@ -734,11 +752,7 @@ function KinkyDungeonRun() {
 			return true;
 		}, true, 1075, 780, 350, 64, TextGet("GameConfigKeys"), "#ffffff", "");
 
-		// Check URL to see if indev branch
-		const pp = new URLSearchParams(window.location.search);
-		let branch = pp.has('branch') ? pp.get('branch') : "";
-		let localhost = pp.has('localhost') ? pp.get('localhost') : "";
-		if (branch || localhost || ServerURL == 'https://bc-server-test.herokuapp.com/') {
+		if (TestMode) {
 			DrawButtonKDEx("TileEditor", () => {
 				KDInitTileEditor();
 				KinkyDungeonState = "TileEditor";
@@ -904,7 +918,8 @@ function KinkyDungeonRun() {
 
 	} else if (KinkyDungeonState == "Stats") {
 		let tooltip = KinkyDungeonDrawPerks(false);
-		DrawTextKD(TextGet("KinkyDungeonStats"), 1000, 80, "#ffffff", KDTextGray2);
+		DrawTextKD(TextGet("KinkyDungeonStats"), 1000, 30, "#ffffff", KDTextGray2);
+		DrawTextKD(TextGet("KinkyDungeonStats2"), 1000, 80, "#ffffff", KDTextGray2);
 		if (!tooltip) {
 			let points = KinkyDungeonGetStatPoints(KinkyDungeonStatsChoice);
 			let hardmode = points >= KDHardModeThresh ? TextGet("KDHardMode") : "";

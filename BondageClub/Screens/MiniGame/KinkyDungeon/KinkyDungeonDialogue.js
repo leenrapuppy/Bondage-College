@@ -495,7 +495,7 @@ function KDAllyDialogue(name, requireTags, requireSingleTag, excludeTags, weight
 		prerequisiteFunction: (gagged) => {
 			let enemy = KinkyDungeonFindID(KDGameData.CurrentDialogMsgID);
 			if (enemy && enemy.Enemy.name == KDGameData.CurrentDialogMsgSpeaker) {
-				return !KDHostile(enemy) && enemy.Enemy.bound && !enemy.Enemy.tags.has("nohelp") && !KDHelpless(enemy)
+				return !KDHostile(enemy) && enemy.Enemy.bound && !enemy.Enemy.tags.nohelp && !KDHelpless(enemy)
 				&& !KDEnemyHasFlag(enemy, "NoHelp") && !KDEnemyHasFlag(enemy, "HelpMe") && KinkyDungeonAllRestraint().length > 0;
 			}
 			return false;
@@ -530,7 +530,7 @@ function KDAllyDialogue(name, requireTags, requireSingleTag, excludeTags, weight
 		prerequisiteFunction: (gagged) => {
 			let enemy = KinkyDungeonFindID(KDGameData.CurrentDialogMsgID);
 			if (enemy && enemy.Enemy.name == KDGameData.CurrentDialogMsgSpeaker) {
-				return enemy.Enemy.bound && !enemy.Enemy.tags.has("nohelp") && !KDEnemyHasFlag(enemy, "NoHelp") && KDEnemyHasFlag(enemy, "HelpMe") && KinkyDungeonAllRestraint().length > 0;
+				return enemy.Enemy.bound && !enemy.Enemy.tags.nohelp && !KDEnemyHasFlag(enemy, "NoHelp") && KDEnemyHasFlag(enemy, "HelpMe") && KinkyDungeonAllRestraint().length > 0;
 			}
 			return false;
 		},
@@ -1117,16 +1117,23 @@ clickFunction: (gagged) => {
 },*/
 
 /** Yoinks a nearby enemy and brings them next to x */
+/**
+ *
+ * @param {number} x
+ * @param {number} y
+ * @param {number} radius
+ * @returns {entity}
+ */
 function DialogueBringNearbyEnemy(x, y, radius) {
 	for (let e of KinkyDungeonEntities) {
-		if (!KDHelpless(e) && KDistChebyshev(x - e.x, y - e.y) <= radius && KinkyDungeonAggressive(e) && !e.Enemy.immobile && !e.Enemy.tags.has("temporary") && !e.Enemy.tags.has("immobile")) {
-			let point = KinkyDungeonGetNearbyPoint(x, y, true);
+		if (!KDHelpless(e) && KDistChebyshev(x - e.x, y - e.y) <= radius && KinkyDungeonAggressive(e) && !e.Enemy.immobile && !e.Enemy.tags.temporary && !e.Enemy.tags.immobile) {
+			let point = KinkyDungeonNoEnemy(x, y, true) ? {x:x, y:y} : KinkyDungeonGetNearbyPoint(x, y, true);
 			if (point) {
 				KinkyDungeonSendTextMessage(10, TextGet("KinkyDungeonDiscovered"), "#ff0000", 1);
 				KDMoveEntity(e, point.x, point.y, true);
-				break;
+				return e;
 			}
-
 		}
 	}
+	return null;
 }

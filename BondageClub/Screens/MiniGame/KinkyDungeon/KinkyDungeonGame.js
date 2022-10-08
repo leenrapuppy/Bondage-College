@@ -66,10 +66,13 @@ let KinkyDungeonGroundTiles = "023w][?/";
 let KinkyDungeonWallTiles = "14";
 let KinkyDungeonMovableTilesEnemy = KinkyDungeonGroundTiles + "HBlSsRrdTgL"; // Objects which can be moved into: floors, debris, open doors, staircases
 let KinkyDungeonMovableTilesSmartEnemy = "D" + KinkyDungeonMovableTilesEnemy; //Smart enemies can open doors as well
-let KinkyDungeonMovableTiles = "OCAMG$Y+=-F" + KinkyDungeonMovableTilesSmartEnemy; // Player can open chests, orbs, shrines, chargers
+let KinkyDungeonMovableTiles = "OPCAMG$Y+=-F" + KinkyDungeonMovableTilesSmartEnemy; // Player can open chests, orbs, shrines, chargers
 let KinkyDungeonTransparentObjects = KinkyDungeonMovableTiles.replace("D", "").replace("g", "").replace("Y", "") + "OoAaMmCcBlb+=-F"; // Light does not pass thru doors or grates or shelves
 let KinkyDungeonTransparentMovableObjects = KinkyDungeonMovableTiles.replace("D", "").replace("g", ""); // Light does not pass thru doors or grates
 
+let KDRandomDisallowedNeighbors = "AasSHcCHDdOoPp+F"; // tiles that can't be neighboring a randomly selected point
+let KDTrappableNeighbors = "DA+-F"; // tiles that might have traps bordering them with a small chance
+let KDTrappableNeighborsLikely = "COP="; // tiles that might have traps bordering them with a big chance
 /**
  * Cost growth, overrides the default amount
 //@type {Map<string, {x: number, y: number, tags?:string[]}>}
@@ -810,7 +813,7 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 		{requiredTags: ["boss"], tags: [], currentCount: 0, maxCount: 0.001},
 		{requiredTags: ["miniboss"], tags: [], currentCount: 0, maxCount: 0.1},
 		{requiredTags: ["elite"], tags: [], currentCount: 0, maxCount: 0.2},
-		{requiredTags: ["minor"], tags: [], currentCount: 0, maxCount: 0.25},
+		{requiredTags: ["minor"], tags: [], currentCount: 0, maxCount: 0.2},
 		{requiredTags: [KinkyDungeonFactionTag[randomFaction]], tags: [KinkyDungeonFactionTag[randomFaction]], currentCount: 0, maxCount: 0.1},
 	];
 	if (KDGameData.MapMod) {
@@ -970,7 +973,7 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 			if (box && !Enemy) {
 				box.currentCount += 0.1;
 			}
-			if (Enemy && (!InJail || (Enemy.tags.has("jailer") || Enemy.tags.has("jail")))) {
+			if (Enemy && (!InJail || (Enemy.tags.jailer || Enemy.tags.jail || Enemy.tags.leashing))) {
 				let e = {Enemy: Enemy, id: KinkyDungeonGetEnemyID(), x:X, y:Y, hp: (Enemy.startinghp) ? Enemy.startinghp : Enemy.maxhp, movePoints: 0, attackPoints: 0, AI: AI};
 				KDAddEntity(e);
 				// Give it a custom name, 5% chance
@@ -994,8 +997,8 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 				}
 				if (!spawnPoint && !currentCluster && Enemy.clusterWith) {
 					let clusterChance = 1.0; //1.1 + 0.9 * MiniGameKinkyDungeonLevel/KinkyDungeonMaxLevel;
-					if (Enemy.tags.has("boss")) clusterChance *= 0.4;
-					//else if (Enemy.tags.has("elite") || Enemy.tags.has("miniboss")) clusterChance *= 0.6;
+					if (Enemy.tags.boss) clusterChance *= 0.4;
+					//else if (Enemy.tags.elite || Enemy.tags.miniboss) clusterChance *= 0.6;
 					if (KDRandom() < clusterChance)
 						currentCluster = {
 							x : X,
@@ -1008,20 +1011,20 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 				if (!currentCluster && Enemy.guardChance && KDRandom() < Enemy.guardChance) {
 					e.AI = "looseguard";
 				} else if (currentCluster && currentCluster.AI) e.AI = currentCluster.AI;
-				if (Enemy.tags.has("mimicBlock") && KinkyDungeonGroundTiles.includes(KinkyDungeonMapGet(X, Y))) KinkyDungeonMapSet(X, Y, '3');
-				if (Enemy.tags.has("minor")) incrementCount = 0.2; else incrementCount = currentCluster ? 0.5 : 1.0; // Minor enemies count as 1/5th of an enemy
+				if (Enemy.tags.mimicBlock && KinkyDungeonGroundTiles.includes(KinkyDungeonMapGet(X, Y))) KinkyDungeonMapSet(X, Y, '3');
+				if (Enemy.tags.minor) incrementCount = 0.2; else incrementCount = currentCluster ? 0.5 : 1.0; // Minor enemies count as 1/5th of an enemy
 				if (Enemy.difficulty) incrementCount += Enemy.difficulty;
-				if (Enemy.tags.has("boss")) {
+				if (Enemy.tags.boss) {
 					//boss = true;
 				}
-				else if (Enemy.tags.has("elite"))
+				else if (Enemy.tags.elite)
 					incrementCount += 0.5; // Elite enemies count as 1.5 normal enemies
-				if (Enemy.tags.has("miniboss")) miniboss = true; // Adds miniboss as a tag
-				if (Enemy.tags.has("removeDoorSpawn") && KinkyDungeonMapGet(X, Y) == "d") {
+				if (Enemy.tags.miniboss) miniboss = true; // Adds miniboss as a tag
+				if (Enemy.tags.removeDoorSpawn && KinkyDungeonMapGet(X, Y) == "d") {
 					KinkyDungeonMapSet(X, Y, '0');
 					KinkyDungeonTiles.delete(X + "," + Y);
 				}
-				if (Enemy.tags.has("jailer")) jailerCount += 1;
+				if (Enemy.tags.jailer) jailerCount += 1;
 
 				if (Enemy.summon) {
 					for (let sum of Enemy.summon) {
@@ -1299,9 +1302,6 @@ function KinkyDungeonPlaceShortcut(checkpoint, width, height) {
 	}
 }
 
-let KDRandomDisallowedNeighbors = "AasSHcCHDdOo+F"; // tiles that can't be neighboring a randomly selected point
-let KDTrappableNeighbors = "DA+-F"; // tiles that might have traps bordering them with a small chance
-let KDTrappableNeighborsLikely = "CO="; // tiles that might have traps bordering them with a big chance
 
 let KDMinBoringness = 0; // Minimum boringness for treasure spawn
 
@@ -1460,12 +1460,16 @@ function KinkyDungeonPlaceLore(width, height) {
 		for (let Y = 1; Y < height; Y += 1)
 			if (KinkyDungeonGroundTiles.includes(KinkyDungeonMapGet(X, Y)) && (!KinkyDungeonTiles.get(X + "," + Y) || !KinkyDungeonTiles.get(X + "," + Y).OffLimits) && KDRandom() < 0.6) loreList.push({x:X, y:Y});
 
+	let count = 0;
+	let maxcount = 2;
 	while (loreList.length > 0) {
 		let N = Math.floor(KDRandom()*loreList.length);
 		KinkyDungeonGroundItems.push({x:loreList[N].x, y:loreList[N].y, name: "Lore"});
-		return true;
+		count += 1;
+		if (count >= maxcount)
+			return count;
 	}
-
+	return count;
 }
 
 function KinkyDungeonPlaceHeart(width, height, Floor) {
@@ -2571,6 +2575,7 @@ function KinkyDungeonClickGame(Level) {
 
 	// First we handle buttons
 	let prevSpell = KinkyDungeonTargetingSpell;
+	let prevInv = KinkyDungeonShowInventory;
 	if (KDGameData.CurrentDialog) {
 		let result = false;
 		try {
@@ -2586,7 +2591,10 @@ function KinkyDungeonClickGame(Level) {
 	}
 	if (KinkyDungeonControlsEnabled() && KinkyDungeonHandleHUD()) {
 		try {
-			if (prevSpell) KinkyDungeonTargetingSpell = null;
+			if (prevSpell) {
+				if (prevInv) KinkyDungeonShowInventory = false;
+				else KinkyDungeonTargetingSpell = null;
+			}
 			if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/Click.ogg");
 			KinkyDungeonGameKey.keyPressed = [
 				false,
@@ -2950,7 +2958,7 @@ function KinkyDungeonLaunchAttack(Enemy, skip) {
 	let noadvance = false;
 	if (KinkyDungeonHasStamina(Math.abs(attackCost), true)) {
 		if (!KDGameData.ConfirmAttack && (!KinkyDungeonAggressive(Enemy) || KDAllied(Enemy))) {
-			if ((!Enemy.lifetime || Enemy.lifetime > 9000) && !Enemy.Enemy.tags.has("notalk")) { // KDAllied(Enemy)
+			if ((!Enemy.lifetime || Enemy.lifetime > 9000) && !Enemy.Enemy.tags.notalk) { // KDAllied(Enemy)
 				let d = Enemy.Enemy.specialdialogue ? Enemy.Enemy.specialdialogue : "GenericAlly";
 				if (Enemy.specialdialogue) d = Enemy.specialdialogue; // Special dialogue override
 				KDStartDialog(d, Enemy.Enemy.name, true, Enemy.personality, Enemy);
@@ -3118,7 +3126,7 @@ function KinkyDungeonMove(moveDirection, delta, AllowInteract, SuppressSprint) {
 						if ((moveDirection.x != 0 || moveDirection.y != 0)) {
 							if (KinkyDungeonSlowLevel > 1 || (!KinkyDungeonStatsChoice.has("HeelWalker") && KinkyDungeonSlowLevel > 0)) {
 								if (KinkyDungeonSlowLevel < 10) {
-									KinkyDungeonChangeStamina(moveMult * (KinkyDungeonStatStaminaRegenPerSlowLevel * KinkyDungeonSlowLevel) * delta, false, moveMult);
+									KinkyDungeonChangeStamina(moveMult * (KinkyDungeonStatStaminaRegenPerSlowLevel * KinkyDungeonSlowLevel) * delta, false, moveMult, true);
 								}
 							}
 							let plugIncreaseAmount = (KinkyDungeonStatPlugLevel * KinkyDungeonDistractionPerPlug * moveMult);
