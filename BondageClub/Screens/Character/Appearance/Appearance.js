@@ -637,6 +637,8 @@ function AppearanceGroupAllowed(C, GroupName) {
 		["Q", "HairAccessory1"],
 		["R", "HairAccessory2"],
 		["S", "Gloves"],
+		["!", "LeftHand"],
+		["$", "RightHand"],
 		["T", "Bracelet"],
 		["U", "Glasses"],
 		["V", "Mask"],

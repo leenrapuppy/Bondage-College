@@ -25,7 +25,7 @@ function AdvancedRuleOpen(RuleType) {
 	AdvancedRuleType = RuleType;
 	AdvancedRuleTarget = CurrentCharacter;
 	if (RuleType == "BlockScreen") AdvancedRuleOption = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "0", "1", "2", "3", "4", "5", "6", "7"];
-	if (RuleType == "BlockAppearance") AdvancedRuleOption = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+	if (RuleType == "BlockAppearance") AdvancedRuleOption = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "!", "$", "T", "U", "V", "W", "X", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 	if (RuleType == "BlockItemGroup") AdvancedRuleOption = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "0", "1", "2"];
 	DialogLeave();
 	CommonSetScreen("Online", "AdvancedRule");
