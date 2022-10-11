@@ -157,7 +157,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 			}
 			if (!eyesOnly) {
 				const effects = CharacterGetEffects(this, ["ItemHead", "ItemHood", "ItemNeck", "ItemDevices"], true)
-				blindLevel += effects.reduce((Start, EffectName) => Start + (CharacterBlindLevels[EffectName] || 0), 0);
+				blindLevel += effects.reduce((Start, EffectName) => Start + (CharacterBlindLevels.get(EffectName) || 0), 0);
 				blindLevel += InventoryCraftCount(this, "Thick");
 				blindLevel -= InventoryCraftCount(this, "Thin");
 			}
