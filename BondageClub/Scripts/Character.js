@@ -293,6 +293,10 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		IsDeaf: function () {
 			return this.GetDeafLevel() > 0;
 		},
+		/* Check if one or more gag effects are active (thus bypassing the crafted small/large properties) */
+		IsGagged: function () {
+			return this.Effect.some(effect => effect in SpeechGagLevelLookup);
+		},
 		HasNoItem: function () {
 			return CharacterHasNoItem(this);
 		},

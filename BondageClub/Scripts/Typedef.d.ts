@@ -882,6 +882,7 @@ interface Character {
 	IsKneeling: () => boolean;
 	IsNaked: () => boolean;
 	IsDeaf: () => boolean;
+	IsGagged: () => boolean;
 	HasNoItem: () => boolean;
 	IsLoverOfPlayer: () => boolean;
 	GetLoversNumbers: (MembersOnly?: boolean) => (number | string)[];
