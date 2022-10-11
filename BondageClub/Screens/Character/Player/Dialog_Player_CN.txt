@@ -102,6 +102,8 @@
 ###_PLAYER
 (Take a photo of yourself.)
 (给自己拍张照片。)
+(Craft an item.)
+(制作一件物品。)
 (Play Kinky Dungeon)
 (玩淫靡地城)
 ###_NPC
@@ -339,12 +341,12 @@ Cannot be used over the applied mask.
 不能在已穿戴的口罩上使用
 Cannot be used over the applied hood.
 不能在已穿戴的头套上使用
+Requires round piercings on nipples.
+Requires round piercings on nipples.
 Blocked in this room.
 被房间禁止
 Cancel
 取消
-Restraints
-拘束具
 Back to character
 回到角色
 View next items
@@ -485,8 +487,6 @@ This zone is out of reach from another item
 这个区域目前因其他物品影响无法触及
 Another item is blocking access to this lock
 另一个物品挡住了这个锁
-You cannot do anything with your GroupName right now
-现在你无法对你的GroupName做任何事情
 You cannot access your items
 你无法使用你的物品
 You have no items in this category
@@ -1688,7 +1688,7 @@ Suspension
 SourceCharacter throws a net over TargetCharacterName .
 SourceCharacter朝TargetCharacterName身上扔了个捕捉网。
 SourceCharacter adds some weights to the net forcing TargetCharacterName down on all fours.
-SourceCharacter在捕捉网上加了一些配种，迫使TargetCharacterName四肢着地。
+SourceCharacter在捕捉网上加了一些配重，迫使TargetCharacterName四肢着地。
 SourceCharacter suspends TargetCharacterName up in the air.
 SourceCharacter将TargetCharacterName悬挂在空中。
 How many leather belts do you want to apply?
@@ -2633,6 +2633,16 @@ Swiss Seat
 瑞士座
 Kikkou Hip
 龟甲臀缚
+Ankles Tie
+脚踝结
+Knees Tie
+膝盖结
+Ankles and Knees Tie
+脚踝和膝盖结
+Thighs Tie
+大腿结
+Knees and Thighs Tie
+膝盖和大腿结
 Select straitjacket prep
 选择拘束衣
 Basic
@@ -2801,6 +2811,20 @@ SourceCharacter uses the rope on TargetCharacter to do a crossed style binding t
 SourceCharacter用绳子在TargetCharacter身上绑了一个十字缚形式的束缚带。
 SourceCharacter uses the rope on TargetCharacter to tie her legs to the bedposts.
 SourceCharacter用绳子把TargetCharacter的腿绑到床柱上。
+SourceCharacter ties the rope above TargetCharacter's knees.
+SourceCharacter ties the rope above TargetCharacter's knees.
+SourceCharacter uses the rope to tie TargetCharacter's thighs.
+SourceCharacter uses the rope to tie TargetCharacter's thighs.
+SourceCharacter uses the ropes to tie TargetCharacter's knees and thighs.
+SourceCharacter uses the ropes to tie TargetCharacter's knees and thighs.
+SourceCharacter ties the rope around TargetCharacter's ankles.
+SourceCharacter ties the rope around TargetCharacter's ankles.
+SourceCharacter ties the rope below TargetCharacter's knees.
+SourceCharacter ties the rope below TargetCharacter's knees.
+SourceCharacter ties the ropes around TargetCharacter's ankles and knees.
+SourceCharacter ties the ropes around TargetCharacter's ankles and knees.
+SourceCharacter uses the ropes on TargetCharacter to tie her legs to the bedposts.
+SourceCharacter uses the ropes on TargetCharacter to tie her legs to the bedposts.
 SourceCharacter uses rope on TargetCharacter to do a box tie.
 SourceCharacter用绳子在TargetCharacter身上绑了一个后手缚。
 SourceCharacter uses rope on TargetCharacter to do a tight boxtie.
@@ -3447,6 +3471,26 @@ DestinationCharacterName AssetName shrinks down to it's normal size.
 DestinationCharacterNameAssetName缩小到了正常大小。
 DestinationCharacterName AssetName grows to it's large size.
 DestinationCharacterNameAssetName增长到了大号。
+Choose piercing addons.
+选择穿环配件。
+Ring
+环
+Weight
+配重
+Bell
+铃铛
+Harem Chains
+后宫链
+SourceCharacter removes addons from DestinationCharacter clit piercing.
+SourceCharacter移除了DestinationCharacter阴蒂穿环上的配件。
+SourceCharacter adds a small weight onto DestinationCharacter clit piercing.
+SourceCharacter在DestinationCharacter阴蒂穿环上添加了配重。
+SourceCharacter adds a small bell onto DestinationCharacter clit piercing.
+SourceCharacter在DestinationCharacter阴蒂穿环上添加了一个小铃铛。
+SourceCharacter links DestinationCharacter clit piercing to her nipple rings with a chain.
+SourceCharacter将DestinationCharacter的阴蒂穿环用一根锁链和她的乳头穿环连接起来。
+SourceCharacter links DestinationCharacter clit piercing to her nipple rings with a small veiled chain.
+SourceCharacter将DestinationCharacter的阴蒂穿环用一根系着薄纱的锁链和她的乳头穿环连接起来。
 Padlock mitten buckles
 带锁连指手套
 Unlock mittens
@@ -4301,6 +4345,8 @@ Select suit options
 选择禁闭拘束服选项
 Configure suit restraints
 选择套装拘束
+Restraints
+拘束具
 Shock Collar
 电击项圈
 Ankles locked
@@ -5475,8 +5521,6 @@ SourceCharacter puts DestinationCharacter ankles in stocks.
 SourceCharacter把DestinationCharacter脚踝束缚在木枷里。
 No Ring
 没有环
-Ring
-环
 Select Gag Thickness
 选择口塞粗细
 Thin

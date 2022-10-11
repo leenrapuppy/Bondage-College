@@ -32,8 +32,8 @@ var AudioList = [
 	{ Name: "MetalCuffs", File: "MetalCuffs" },
 	{ Name: "LockLarge", File: "LockLarge" },
 	{ Name: "LockSmall", File: "LockSmall" },
-	{ Name: "RopeLong", File: "RopeLong" },
-	{ Name: "RopeShort", File: "RopeShort" },
+	{ Name: "RopeLong", File: ["RopeLong1", "RopeLong2", "RopeLong3"] },
+	{ Name: "RopeShort", File: ["RopeShort1", "RopeShort2", "RopeShort3", "RopeShort4", "RopeShort5"] },
 	{ Name: "Shocks", File: "Shocks" },
 	{ Name: "SmackCrop", File: ["SmackCrop1", "SmackCrop2", "SmackCrop3"] },
 	{ Name: "Whip1", File: "SmackWhip1" },
@@ -208,7 +208,8 @@ var AudioActions = [
 	},
 	{
 		IsAction: (data) => [
-			"ChainSet"
+			"ChainSet",
+			"CeilingShacklesSet"
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "ChainLong"
 	},

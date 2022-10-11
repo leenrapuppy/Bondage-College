@@ -48,3 +48,5 @@ Metal
 金属
 Wood
 木质
+Addons
+配件

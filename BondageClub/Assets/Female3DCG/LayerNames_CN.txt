@@ -306,6 +306,12 @@ Egg
 跳蛋
 Leash
 牵绳
+Weight
+配重
+Harem Chain
+后宫链
+Harem Veil
+后宫纱
 Studs
 嵌钉
 Locks

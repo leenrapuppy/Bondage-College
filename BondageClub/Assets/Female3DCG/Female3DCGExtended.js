@@ -31,6 +31,32 @@ const ExtendedArchetype = {
  * @const
  */
 var AssetFemale3DCGExtended = {
+	BodyUpper: {
+		// NOTE: Switch to the `MODULAR` archetype if we'd want to allow for the simultaneous use of multiple overlays
+		Small: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Default",
+						Property: { Type: null, },
+					},
+				],
+			},
+		},  // Small
+		Normal: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "BodyUpper", AssetName: "Small" },
+		},  // Normal
+		Large: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "BodyUpper", AssetName: "Small" },
+		},  // Large
+		XLarge: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "BodyUpper", AssetName: "Small" },
+		},  // XLarge
+	},
 	Hat: {
 		Bandana: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -162,6 +188,64 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //BallCapFront
+	},
+		LeftHand: {
+		Rings: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Thumb", Key: "t",
+						Options: [{}, {}],
+					},
+					{
+						Name: "Index", Key: "i",
+						Options: [{}, {}],
+					},
+					{
+						Name: "Middle", Key: "m",
+						Options: [{}, {}],
+					},
+					{
+						Name: "Ring", Key: "r",
+						Options: [{}, {}, {}],
+					},
+					{
+						Name: "Pinkie", Key: "p",
+						Options: [{}, {}, {}],
+					},
+				],
+			},
+		},
+	},
+	RightHand: {
+		Rings: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Thumb", Key: "t",
+						Options: [{}, {}],
+					},
+					{
+						Name: "Index", Key: "i",
+						Options: [{}, {}],
+					},
+					{
+						Name: "Middle", Key: "m",
+						Options: [{}, {},],
+					},
+					{
+						Name: "Ring", Key: "r",
+						Options: [{}, {}, {}],
+					},
+					{
+						Name: "Pinkie", Key: "p",
+						Options: [{}, {}, {}],
+					},
+				],
+			},
+		},
 	},
 	Cloth: {
 		TShirt2: {
@@ -900,66 +984,37 @@ var AssetFemale3DCGExtended = {
 			},
 		}, // CeilingShackles
 		BitchSuit: {
-			Archetype: ExtendedArchetype.MODULAR,
-			Config: {
-				Modules: [
-					{
-						Name: "Zip",
-						Key: "z",
-						Options: [
-							{ // z0 - Zipped up
-								Property: { Block: ["ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"], Hide: ["ItemNipples"] },
-							},
-							{ // z1 - Unzipped
-								Property: { Block: [] },
-							},
-						],
-						AllowSelfSelect: false,
-					},
-					{
-						Name: "Pose",
-						Key: "p",
-						Options: [
-							{ // p0 - Kneeling
-								Property: { SetPose: ["BackElbowTouch", "Kneel", "LegsClosed"] },
-							},
-							{ // p1 - All fours
-								Property: { SetPose: ["AllFours"] },
-							},
-						],
-					},
-				],
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR, CommonChatTags.DEST_CHAR],
-				Dialog: {
-					ChatPrefix: ({ C }) => `ItemArmsBitchSuit${C.ID === 0 ? "Self" : ""}Set`,
-				},
-			},
-		}, // BitchSuit
-		BitchSuitExposed: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
 				Options: [
 					{
-						Name: "Kneel",
+						Name: "Zipped",
 						Property: {
 							Type: null,
-							SetPose: ["BackElbowTouch", "Kneel", "LegsClosed"],
-						},
+							Block: ["ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+							Hide: ["ItemNipples"],
+						}
 					},
 					{
-						Name: "AllFours",
+						Name: "Unzipped",
 						Property: {
-							Type: "AllFours",
-							SetPose: ["AllFours"],
+							Type: "z1",
+							Block: [],
 						}
-					}
+					},
+					{
+						Name: "Exposed",
+						Property: {
+							Type: "z2",
+							Block: [],
+							Hide: ["Cloth", "ClothLower", "Shoes", "Socks", "ItemBoots", "ItemLegs", "ItemFeet", "ItemHands", "Hands", "Gloves", "Garters"],
+						}
+					},
 				],
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.TARGET_CHAR],
-				Dialog: {
-					ChatPrefix: ({ C }) => `ItemArmsBitchSuitExposed${C.ID === 0 ? "Self" : ""}Set`,
-				}
+				ChangeWhenLocked: false,
 			},
-		}, // BitchSuitExposed
+		}, // BitchSuit
 		LeatherArmbinder: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
@@ -2282,8 +2337,8 @@ var AssetFemale3DCGExtended = {
 						Name: "Leash", Key: "l",
 						Options: [
 							{}, //l0 - Leash
-							{Property: { Difficulty: 5 },}, //l1 - Rope
-							{Property: { Difficulty: 6 },}, //l2 - Chain
+							{Property: { Difficulty: 5,  },}, //l1 - Rope
+							{AllowLock: true, Property: { Difficulty: 6 },}, //l2 - Chain
 						]
 					},
 					{
@@ -2691,7 +2746,11 @@ var AssetFemale3DCGExtended = {
 					}
 				]
 			}
-		}
+		},
+		DroneMask: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemHead", AssetName: "DroneMask" },
+		}, // DroneMask
 	}, // ItemHood
 	ItemDevices: {
 		FuturisticCrate: {
@@ -2814,7 +2873,7 @@ var AssetFemale3DCGExtended = {
 								Property: {
 									SetPose: ["BaseLower"],
 									AllowActivePose: ["Spread", "LegsClosed", "BaseLower"],
-									Effect: ["Egged", "UseRemote", "Prone", "Freeze", "BlockKneel"],
+									Effect: ["Egged", "Prone", "Freeze", "BlockKneel"],
 									OverrideHeight: { Height: 0, Priority: 60 },
 								}
 							},
@@ -4855,7 +4914,8 @@ var AssetFemale3DCGExtended = {
 							{ Property: {},}, //g1 - No Gag
 							{ Property: { Effect: ["BlockMouth", "GagMedium"] },}, //g2 - Thick BitGag
 							{ Property: { Effect: ["BlockMouth", "GagHeavy"] },}, //g3 - Tongue Depresor
-							{ Property: { Effect: ["BlockMouth", "GagVeryHeavy"], Hide: ["Mouth"] },}, //g4 - DildoGag
+							{ Property: { Effect: ["BlockMouth", "GagMedium"] },}, //g4 - Ballgag
+							{ Property: { Effect: ["BlockMouth", "GagVeryHeavy"], Hide: ["Mouth"] },}, //g5 - DildoGag
 						],
 					},
 					{
@@ -6967,6 +7027,8 @@ var AssetFemale3DCGExtended = {
 						],
 					},
 					{
+						// Use `BlindTotal` for VR avatars to ensure that the `thin` property never reduces the blindness level below `BlindHeavy`,
+						// as lowering it any more will result in visual odities related to partial blindness
 						Name: "Function", Key: "f",
 						Options: [
 							{ // f0 - Passthrough
@@ -6981,12 +7043,12 @@ var AssetFemale3DCGExtended = {
 							},
 							{ // f2 - VR Avatar
 								Property: {
-									Effect: ["BlindHeavy", "Prone", "VRAvatars"],
+									Effect: ["BlindTotal", "Prone", "VRAvatars"],
 								}
 							},
 							{ // f3 - VR Avatar (hide restraints)
 								Property: {
-									Effect: ["BlindHeavy", "VRAvatars", "HideRestraints"],
+									Effect: ["BlindTotal", "VRAvatars", "HideRestraints"],
 								}
 							},
 						],

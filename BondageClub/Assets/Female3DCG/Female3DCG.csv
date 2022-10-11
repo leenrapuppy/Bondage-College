@@ -453,6 +453,10 @@ Gloves,LatexElbowGloves,Latex Elbow Gloves
 Gloves,FishnetGloves, Fishnet Gloves
 Gloves,HaremGlove,Harem Gloves
 Gloves,BikerGloves,Biker Gloves
+LeftHand,,Left Hand
+LeftHand,Rings,Rings
+RightHand,,Right Hand
+RightHand,Rings,Rings
 Bracelet,,Bracelet
 Bracelet,BowBand,Bow Band
 Bracelet,KinkBracelet, Kinky Band
@@ -983,7 +987,6 @@ ItemArms,FurStraitJacket,Fur Straitjacket
 ItemArms,Bolero,Bolero Straitjacket
 ItemArms,DuctTape,Duct Tape
 ItemArms,BitchSuit,Pet Suit
-ItemArms,BitchSuitExposed,Pet Suit Exposed
 ItemArms,CollarLeashHolding,Holding Leash
 ItemArms,StraitDress,Strait Dress
 ItemArms,StraitDressOpen,Open Crotch Strait Dress
@@ -1348,7 +1351,7 @@ ItemMouth3,PaciGag,Pacifier Gag
 ItemMouth3,Tentacles,Tentacle
 ItemMouth3,PonyGag,Bridle Gag
 ItemMouth3,Slime,Slime
-ItemMouth3,Stitches,Stitches 
+ItemMouth3,Stitches,Stitches
 ItemMouth3,FurScarf,Fur Scarf
 ItemHead,,Eyes
 ItemHead,ClothBlindfold,Cloth Blindfold
@@ -1382,7 +1385,7 @@ ItemHead,MedicalPatch,Medical Patches
 ItemHead,DroneMask,Smooth Latex Mask
 ItemHead,Slime,Slime
 ItemHead,FurScarf,Fur Scarf
-ItemHead,Stitches,Stitches 
+ItemHead,Stitches,Stitches
 ItemNose,,Nose
 ItemNose,NoseHook,Nose Hook
 ItemNose,PigNose,Pig Nose
@@ -1427,6 +1430,7 @@ ItemHood,Slime,Slime
 ItemHood,KittyHood,Kitty Hood
 ItemHood,LatexDogHood,Latex Dog Hood
 ItemHood,OpenMouthPlugHood,Latex Open Mouth Plug Hood
+ItemHood,DroneMask,Smooth Latex Mask
 ItemEars,,Ears
 ItemEars,LightDutyEarPlugs,Light Duty Ear Plugs
 ItemEars,HeavyDutyEarPlugs,Heavy Duty Ear Plugs

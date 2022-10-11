@@ -27,6 +27,7 @@ function InventoryItemDevicesTransportWoodenBoxExit() {
 	InventoryItemDevicesWoodenBoxExit();
 }
 
+/** @type {DynamicAfterDrawCallback} */
 function AssetsItemDevicesTransportWoodenBoxAfterDraw(options) {
 	AssetsItemDevicesWoodenBoxAfterDraw(options);
 }

@@ -803,7 +803,7 @@ function MovieStudioCanDoActivity(Activity) {
 	if (Activity == "InterviewMistressWhip") return ((InventoryGet(Player, "ItemHands") != null) && (InventoryGet(Player, "ItemHands").Property.Type == "Whip"));
 	if (Activity == "InterviewMistressProd") return ((InventoryGet(Player, "ItemHands") != null) && (InventoryGet(Player, "ItemHands").Property.Type == "CattleProd"));
 	if (Activity == "InterviewMistressPunishCross") return !InventoryIsWorn(CurrentCharacter, "X-Cross", "ItemDevices");
-	if (Activity == "InterviewMistressPunishGavel") return InventoryIsWorn(Player, "SpankingToys", "ItemHands");
+	if (Activity == "InterviewMistressPunishGavel") return (InventoryIsWorn(Player, "SpankingToys", "ItemHands") && InventoryGet(Player, "ItemHands").Property.Type === "Gavel");
 	if (Activity == "InterviewWearDusterGag") return (InventoryGet(Player, "ItemMouth") == null);
 	if (Activity == "InterviewLeaveHandItem") return !(InventoryGet(Player, "ItemHands") == null);
 	if (Activity == "InterviewMaidFeatherDusterJournalist") return (InventoryIsWorn(Player, "SpankingToys", "ItemHands") && (InventoryGet(Player, "ItemHands").Property.Type == "FeatherDuster"));
