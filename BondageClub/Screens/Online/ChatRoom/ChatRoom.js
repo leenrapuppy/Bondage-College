@@ -2423,12 +2423,15 @@ var ChatRoomMessageHandlers = [
 				return false;
 			const arousalEnabled = (Player.ArousalSettings && (Player.ArousalSettings.Active == "Hybrid" || Player.ArousalSettings.Active == "Automatic"));
 
-			AsylumGGTSActivity(sender, metadata.TargetCharacter, metadata.ActivityName, metadata.GroupName, metadata.ActivityCounter);
+			// Because the handhelds go through GroupName, we have to check both keys
+			const ActivityGroup = metadata.ActivityGroup || metadata.GroupName;
+
+			AsylumGGTSActivity(sender, metadata.TargetCharacter, metadata.ActivityName, ActivityGroup, metadata.ActivityCounter);
 
 			// If another player is using an item which applies an activity on the current player, apply the effect here
 			if (arousalEnabled && metadata.ActivityName && metadata.TargetMemberNumber
 					&& (metadata.TargetMemberNumber === Player.MemberNumber) && (sender.MemberNumber !== Player.MemberNumber))
-				ActivityEffect(sender, Player, metadata.ActivityName, metadata.GroupName, metadata.ActivityCounter);
+				ActivityEffect(sender, Player, metadata.ActivityName, ActivityGroup, metadata.ActivityCounter);
 			return false;
 		}
 	},
