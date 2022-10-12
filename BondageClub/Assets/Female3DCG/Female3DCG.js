@@ -311,10 +311,10 @@ var AssetFemale3DCG = [
 				{Name: "BaseStains", HasType: false, AllowModuleTypes: ["c1"]},
 				{Name: "Torn1", HasType: false, AllowModuleTypes: ["c2", "c3"], CopyLayerColor: "Base"},
 				{Name: "Torn1Stains", HasType: false, AllowModuleTypes:["c3"], CopyLayerColor: "Stains"},
-				{Name: "Torn2", HasType: false, AllowModuleTypes: ["c4", "c5"], CopyLayerColor: "Base"},
+				/*{Name: "Torn2", HasType: false, AllowModuleTypes: ["c4", "c5"], CopyLayerColor: "Base"},
 				{Name: "Torn2Stains", HasType: false, AllowModuleTypes: ["c5"], CopyLayerColor: "Stains"},
 				{Name: "Torn3", HasType: false, AllowModuleTypes: ["c6", "c7"], CopyLayerColor: "Base"},
-				{Name: "Torn3Stains", HasType: false, AllowModuleTypes: ["c7"], CopyLayerColor: "Stains"},
+				{Name: "Torn3Stains", HasType: false, AllowModuleTypes: ["c7"], CopyLayerColor: "Stains"},*/
 				{Name: "Rope", HasType: false, AllowModuleTypes: ["b1"]},
 				{Name: "Chains", HasType: false, AllowModuleTypes: ["b2"]},
 				],
