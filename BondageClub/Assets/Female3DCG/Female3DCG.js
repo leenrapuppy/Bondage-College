@@ -1736,6 +1736,7 @@ var AssetFemale3DCG = [
 		Clothing: true,
 		Underwear: true,
 		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "AllFours", "OverTheHead"],
+		HideForPose: ["TapedHands", "BackBoxTie", "BackElbowTouch"],
 		PreviewZone: [183, 360, 135, 135],
 		Asset: [
 			{
@@ -1744,7 +1745,7 @@ var AssetFemale3DCG = [
 				If you wish to add more rings, add the corresponding layers to the left and right hand groups and
 				also add the corresponding modules to the extended menu.
 				*/
-				Name: "Rings", Value: 0, DefaultColor: ["Default", "Default", "Default", "Default", "#A48537", "Default", "#707070", "#00D307"],HideForPose: ["BackElbowTouch", "TapedHands", "BackBoxTie"], Extended: true, AlwaysExtend: true,
+				Name: "Rings", Value: 0, DefaultColor: ["Default", "Default", "Default", "Default", "#A48537", "Default", "#707070", "#00D307"], HideForPose: ["BackElbowTouch", "TapedHands", "BackBoxTie"], Extended: true, AlwaysExtend: true,
 				Layer: [
 					//Thumb
 					{ Name: "ThumbSteel", HasType: false, AllowModuleTypes: ["t1"] },
@@ -1781,7 +1782,7 @@ var AssetFemale3DCG = [
 				If you wish to add more rings, add the corresponding layers to the left and right hand groups and
 				also add the corresponding modules to the extended menu.
 				*/
-				Name: "Rings", Value: 0, DefaultColor: ["Default", "Default", "Default", "Default", "#A48537", "Default", "#707070", "#00D307"],HideForPose: ["BackElbowTouch", "TapedHands", "BackBoxTie"], Extended: true, AlwaysExtend: true,
+				Name: "Rings", Value: 0, DefaultColor: ["Default", "Default", "Default", "Default", "#A48537", "Default", "#707070", "#00D307"], HideForPose: ["TapedHands", "BackBoxTie", "BackElbowTouch", "BackCuffs"], Extended: true, AlwaysExtend: true,
 				Layer: [
 					//Thumb
 					{ Name: "ThumbSteel", HasType: false, AllowModuleTypes: ["t1"] },
@@ -1791,7 +1792,7 @@ var AssetFemale3DCG = [
 					{ Name: "MiddleSteel", HasType: false, AllowModuleTypes: ["m1"] },					
 					//Ring
 					{ Name: "RingSteel", HasType: false, AllowModuleTypes: ["r1"] },
-					{ Name: "Wedding", HasType: false, AllowModuleTypes: ["r2"] },				
+					{ Name: "Wedding", HasType: false, AllowModuleTypes: ["r2"]},				
 					//Pinkie
 					{ Name: "PinkieSteel", HasType: false, AllowModuleTypes: ["p1"] },
 					{ Name: "HonorBase", HasType: false, AllowModuleTypes: ["p2"] },
@@ -5117,7 +5118,7 @@ var AssetFemale3DCG = [
 					{ Name: "Ballgag", HasType: false, AllowModuleTypes: ["g4"], ColorGroup: "Gag" },
 					{ Name: "DildoLips", HasType: false, AllowModuleTypes: ["g5"], InheritColor: "Mouth", AllowColorize: false },
 					{ Name: "Dildo", HasType: false, AllowModuleTypes: ["g5"], ColorGroup: "Gag" },
-					{ Name: "DildoMetal", HasType: false, AllowModuleTypes: ["g4"], CopyLayerColor: "BaseMetal" },
+					{ Name: "DildoMetal", HasType: false, AllowModuleTypes: ["g5"], CopyLayerColor: "BaseMetal" },
 
 					//ExtraStraps
 					{ Name: "ExtraMetal", HasType: false, AllowModuleTypes: ["e1", "e2", "b1", "p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], CopyLayerColor: "BaseMetal", Priority: 55 },

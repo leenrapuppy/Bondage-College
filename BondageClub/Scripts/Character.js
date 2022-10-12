@@ -157,7 +157,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 			}
 			if (!eyesOnly) {
 				const effects = CharacterGetEffects(this, ["ItemHead", "ItemHood", "ItemNeck", "ItemDevices"], true)
-				blindLevel += effects.reduce((Start, EffectName) => Start + (CharacterBlindLevels[EffectName] || 0), 0);
+				blindLevel += effects.reduce((Start, EffectName) => Start + (CharacterBlindLevels.get(EffectName) || 0), 0);
 				blindLevel += InventoryCraftCount(this, "Thick");
 				blindLevel -= InventoryCraftCount(this, "Thin");
 			}
@@ -292,6 +292,10 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		},
 		IsDeaf: function () {
 			return this.GetDeafLevel() > 0;
+		},
+		/* Check if one or more gag effects are active (thus bypassing the crafted small/large properties) */
+		IsGagged: function () {
+			return this.Effect.some(effect => effect in SpeechGagLevelLookup);
 		},
 		HasNoItem: function () {
 			return CharacterHasNoItem(this);

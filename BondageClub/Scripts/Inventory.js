@@ -512,6 +512,21 @@ function InventoryCraftPropertyIs(Item, Property) {
 }
 
 /**
+* Helper function for `InventoryWearCraft` for handling Modular items
+* @param {Item} Item - The item being applied
+* @param {string} Type - The type string for a modular item
+* @returns {void}
+*/
+function InventoryWearCraftModular(Item, Type) {
+	const Data = ModularItemDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
+	if (Data == undefined) {
+		return;
+	}
+	const CurrentModuleValues = ModularItemParseCurrent(Data, Type);
+	Item.Property = ModularItemMergeModuleValues(Data, CurrentModuleValues);
+}
+
+/**
 * Sets the craft and type on the item, uses the achetype properties if possible
 * @param {Item} Item - The item being applied
 * @param {Object} [Craft] - The crafting properties of the item
@@ -526,6 +541,8 @@ function InventoryWearCraft(Item, Craft) {
 				for (let O of Config.Options)
 					if (O.Name == Craft.Type)
 						return Item.Property = JSON.parse(JSON.stringify(O.Property));
+		} else if (Item.Asset.Extended && (Item.Asset.Archetype == "modular")) {
+			InventoryWearCraftModular(Item, Craft.Type);
 		}
 		if (Item.Property == null) Item.Property = {};
 		Item.Property.Type = Craft.Type;
