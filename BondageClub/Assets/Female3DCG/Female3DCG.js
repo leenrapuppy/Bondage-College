@@ -1721,7 +1721,6 @@ var AssetFemale3DCG = [
 		Clothing: true,
 		Underwear: true,
 		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "AllFours", "OverTheHead"],
-		HideForPose: ["TapedHands", "BackBoxTie", "BackElbowTouch"],
 		PreviewZone: [183, 360, 135, 135],
 		Asset: [
 			{
