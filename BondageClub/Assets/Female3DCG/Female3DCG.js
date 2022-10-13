@@ -2139,6 +2139,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Small",
 				Extended: true,
+				Gender: "F",
 				Layer: [
 					{ Name: "", ParentGroup: null, HasType: false },
 				],
@@ -2146,6 +2147,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Normal",
 				Extended: true,
+				Gender: "F",
 				Layer: [
 					{ Name: "", ParentGroup: null, HasType: false },
 				],
@@ -2153,6 +2155,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Large",
 				Extended: true,
+				Gender: "F",
 				Layer: [
 					{ Name: "", ParentGroup: null, HasType: false },
 				],
@@ -2160,10 +2163,29 @@ var AssetFemale3DCG = [
 			{
 				Name: "XLarge",
 				Extended: true,
+				Gender: "F",
 				Layer: [
 					{ Name: "", ParentGroup: null, HasType: false },
 				],
 			},
+			{
+				Name: "FlatSmall",
+				Extended: true,
+				Random: false,
+				Gender: "M",
+				Layer: [
+					{ Name: "", ParentGroup: null, HasType: false },
+				],
+			},
+			{
+				Name: "FlatMedium",
+				Extended: true,
+				Random: false,
+				Gender: "M",
+				Layer: [
+					{ Name: "", ParentGroup: null, HasType: false },
+				],
+			}
 		],
 		Color: ["White", "Asian", "Black"],
 		ColorSuffix: { "HEX_COLOR": "White" },
