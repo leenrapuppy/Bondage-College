@@ -2913,7 +2913,7 @@ function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
 	// Checks if the message is a notification about the user entering or leaving the room
 	let MsgEnterLeave = "";
 	let MsgNonDialogue = "";
-	if ((data.Type == "Action") && (msg.startsWith("ServerEnter") || msg.startsWith("ServerLeave") || msg.startsWith("ServerDisconnect") || msg.startsWith("ServerBan") || msg.startsWith("ServerKick")))
+	if (data.Type === "Action" && ["ServerEnter", "ServerLeave", "ServerDisconnect", "ServerBan", "ServerKick"].some(msg => data.Content.startsWith(msg)))
 		MsgEnterLeave = " ChatMessageEnterLeave";
 	if ((data.Type != "Chat" && data.Type != "Whisper" && data.Type != "Emote"))
 		MsgNonDialogue = " ChatMessageNonDialogue";
