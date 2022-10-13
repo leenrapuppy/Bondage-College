@@ -1470,7 +1470,7 @@ let KDDialogue = {
 						created.personality = e.personality;
 						if (KDFactionRelation("Player", "Bandit") < -0.5) {
 							for (let enemy of KinkyDungeonEntities) {
-								if (enemy.Enemy.tags.has("bandit")) {
+								if (enemy.Enemy.tags.bandit) {
 									if (enemy.hostile && enemy.hostile < 9000) {
 										enemy.hostile = 0;
 									}
@@ -1540,7 +1540,7 @@ let KDDialogue = {
 									KDGameData.CurrentDialogMsg = "PrisonerJailUnlockSlow";
 								} else {
 									KDGameData.CurrentDialogMsg = "PrisonerJailUnlock";
-									if (e.Enemy.tags.has("gagged")) {
+									if (e.Enemy.tags.gagged) {
 										KDGameData.CurrentDialogMsg = KDGameData.CurrentDialogMsg + "Gagged";
 									}
 								}
@@ -1582,7 +1582,7 @@ let KDDialogue = {
 										KinkyDungeonChangeFactionRep(faction, 0.0025);
 								}
 								KDGameData.CurrentDialogMsg = "PrisonerJailPick";
-								if (e.Enemy.tags.has("gagged")) {
+								if (e.Enemy.tags.gagged) {
 									KDGameData.CurrentDialogMsg = KDGameData.CurrentDialogMsg + "Gagged";
 								}
 								DialogueBringNearbyEnemy(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, 8);

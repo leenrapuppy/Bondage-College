@@ -618,6 +618,66 @@ function AppearanceMenuBuild(C) {
 }
 
 /**
+ * Checks if the appearance is locked for the current player
+ * @param {Character} C - The character to validate
+ * @param {String} GroupName - The group name to validate, can be "ALL" to check all groups
+ * @returns {boolean} - Return TRUE if the appearance group isn't blocked 
+ */
+function AppearanceGroupAllowed(C, GroupName) {
+	if (CurrentScreen != "Appearance") return true;
+	if (!C.IsPlayer()) return true;
+	if (Player.IsOwned() == false) return true;
+	const Dict = [
+		["A", "Cloth"],
+		["B", "ClothAccessory"],
+		["C", "Necklace"],
+		["D", "Suit"],
+		["E", "ClothLower"],
+		["F", "SuitLower"],
+		["G", "Bra"],
+		["H", "Corset"],
+		["I", "Panties"],
+		["J", "Socks"],
+		["K", "RightAnklet"],
+		["L", "LeftAnklet"],
+		["M", "Garters"],
+		["N", "Shoes"],
+		["O", "Hat"],
+		["P", "HairAccessory3"],
+		["Q", "HairAccessory1"],
+		["R", "HairAccessory2"],
+		["S", "Gloves"],
+		["!", "LeftHand"],
+		["$", "RightHand"],
+		["T", "Bracelet"],
+		["U", "Glasses"],
+		["V", "Mask"],
+		["W", "TailStraps"],
+		["X", "Wings"],
+		["0", "Height"],
+		["1", "BodyUpper"],
+		["2", "BodyLower"],
+		["3", "HairFront"],
+		["4", "HairBack"],
+		["5", "Eyes"],
+		["6", "Eyes2"],
+		["7", "Mouth"],
+		["8", "Nipples"],
+		["9", "Pussy"]
+	];
+	if (GroupName == "ALL") {
+		for (let D of Dict)
+			if (LogContain("BlockAppearance", "OwnerRule", D[0]))
+				return false;
+	} else {
+		for (let D of Dict)
+			if (D[1] == GroupName)
+				return !LogContain("BlockAppearance", "OwnerRule", D[0]);
+	}
+	return true;
+}
+
+/**
  * Run the character appearance selection screen. The function name is created dynamically.
  * @returns {void} - Nothing
  */

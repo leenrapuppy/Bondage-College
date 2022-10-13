@@ -207,7 +207,7 @@ function KinkyDungeonPayShrine(type) {
 			]});
 		} else if (type == "Conjure") {
 			KinkyDungeonApplyBuff(KinkyDungeonPlayerBuffs, {id: "ShrineConjure", type: "event", maxCount: 10, tags: ["defense", "shrineConjure"], aura: "#4572e3", power: 1.5, duration: 9999, events: [
-				{trigger: "beforeAttack", type: "CounterattackSpell", spell: "ArcaneStrike", requiredTag: "shrineConjure", prereq: "hit"},
+				{trigger: "beforeAttack", type: "CounterattackSpell", spell: "ArcaneStrike", requiredTag: "shrineConjure", prereq: "hit-hostile"},
 			]});
 			KinkyDungeonApplyBuff(KinkyDungeonPlayerBuffs, {id: "ShrineConjure2", type: "SpellResist", maxCount: 10, tags: ["defense", "shrineConjure"], power: 5, duration: 9999});
 			KinkyDungeonApplyBuff(KinkyDungeonPlayerBuffs, {id: "ShrineConjure3", type: "Armor", maxCount: 10, tags: ["defense", "shrineConjure"], power: 5, duration: 9999});
@@ -392,17 +392,17 @@ function KDSummonRevengeMobs(x, y, Goddess, mult = 1.0, LevelBoost = 2) {
 	let tags = ["revenge"];
 	KinkyDungeonAddTags(tags, MiniGameKinkyDungeonLevel);
 
-	for (let i = 0; i < 30; i++) {
+	for (let i = 0; i < 30 + maxspawn; i++) {
 		if (spawned < maxspawn) {
 			let Enemy = KinkyDungeonGetEnemy(
 				tags, MiniGameKinkyDungeonLevel + LevelBoost,
 				KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint],
 				'0', requireTags, false, undefined, filter, requireSingleTag);
 			if (Enemy) {
-				let pass = KinkyDungeonSummonEnemy(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, Enemy.name, 1, 10, false, undefined, true, false, "Ambush", true, 1.5, true, undefined, true, true);
+				let pass = KinkyDungeonSummonEnemy(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, Enemy.name, 1, 10, false, undefined, i < 24, false, "Ambush", true, 1.5, true, undefined, true, true);
 
 				if (pass) {
-					if (Enemy.tags.has("minor")) spawned += 0.4;
+					if (Enemy.tags.minor) spawned += 0.4;
 					else spawned += 1;
 				}
 			}
@@ -650,4 +650,62 @@ function KinkyDungeonHandleOrb() {
 
 
 	return true;
+}
+
+let KDPerkConfirm = false;
+let KDPerkOrbPerks = [];
+function KinkyDungeonTakePerk(Amount, X, Y) {
+	KinkyDungeonSetFlag("NoDialogue", 3);
+	KDPerkOrbPerks = KinkyDungeonTiles.get(X + "," + Y).Perks;
+	KinkyDungeonDrawState = "PerkOrb";
+	KinkyDungeonOrbAmount = Amount;
+	KDOrbX = X;
+	KDOrbY = Y;
+}
+function KinkyDungeonDrawPerkOrb() {
+	let bwidth = 350;
+	let bheight = 64;
+	let Twidth = 1250;
+
+	MainCanvas.textAlign = "center";
+	DrawTextKD(TextGet("KinkyDungeonPerkIntro"), 1250, 200, "#ffffff", KDTextGray2);
+	DrawTextKD(TextGet("KinkyDungeonPerkIntro2"), 1250, 250, "#ffffff", KDTextGray2);
+
+	let count = 0;
+	let pspacing = 120;
+	for (let p of KDPerkOrbPerks) {
+		DrawTextFitKD(TextGet("KinkyDungeonStat" + KinkyDungeonStatsPresets[p].id), 1250, 350 + count * pspacing, Twidth, "#ffffff", KDTextGray2, 30);
+		DrawTextFitKD(TextGet("KinkyDungeonStatDesc" + KinkyDungeonStatsPresets[p].id), 1250, 385 + count * pspacing, Twidth, "#ffffff", KDTextGray2, 22);
+		FillRectKD(kdcanvas, kdpixisprites, "bg_" + KinkyDungeonStatsPresets[p].id, {
+			Left: 1250-Twidth/2 - 10,
+			Top: 350 + count * pspacing - 30,
+			Width: Twidth + 20,
+			Height: 70 + 20,
+			Color: KDTextGray0,
+			LineWidth: 1,
+			zIndex: 60,
+			alpha: 0.7,
+		});
+		count += 1;
+	}
+
+	if (KDPerkConfirm) {
+		DrawTextFitKD(TextGet("KinkyDungeonPerkConfirm"), 1250, 720, 1300, "#ffffff", KDTextGray2, 30);
+	}
+
+	DrawButtonKDEx("accept", (bdata) => {
+		if (KDPerkConfirm) {
+			KDSendInput("perkorb", {shrine: "perk", perks: KDPerkOrbPerks, Amount: 1, x: KDOrbX, y: KDOrbY});
+			KinkyDungeonDrawState = "Game";
+		}
+		KDPerkConfirm = true;
+		return true;
+	}, true, 1250 - bwidth/2, 750, bwidth, bheight, TextGet("KinkyDungeonPerkAccept" + (KDPerkConfirm ? "Confirm" : "")), "#ffffff");
+
+	DrawButtonKDEx("reject", (bdata) => {
+		KinkyDungeonDrawState = "Game";
+		return true;
+	}, true, 1250 - bwidth/2, 750 + 80, bwidth, bheight, TextGet("KinkyDungeonPerkReject"), "#ffffff");
+
+	MainCanvas.textAlign = "center";
 }

@@ -44,7 +44,8 @@ KinkyDungeonJourney0,"Standard: The intended experience"
 KinkyDungeonJourney1,"Random: A chaotic journey"
 KinkyDungeonJourney2,"Harder: A more difficult journey"
 
-KinkyDungeonStats,"Select perks to start with. Having 10+ spare points will trigger Hard Mode, granting unique loot."
+KinkyDungeonStats,"Select perks to start with."
+KinkyDungeonStats2,"Having 10+ spare points will trigger Hard Mode, granting unique loot."
 KDHardMode," (HARD MODE ENABLED)"
 KinkyDungeonStartGameAdv,"Advanced start (choose perks)"
 KinkyDungeonStartGameQuick,"Confirm and start playing!"
@@ -148,6 +149,10 @@ KinkyDungeonStatCommonMaid,"Maid Lovers"
 KinkyDungeonStatDescCommonMaid,"All humanoids that can bind you also apply maid restraints."
 KinkyDungeonStatCommonDress,"Dress Lovers"
 KinkyDungeonStatDescCommonDress,"All humanoids that can bind you also apply dress restraints."
+KinkyDungeonStatCommonKitty,"Kitty Lovers"
+KinkyDungeonStatDescCommonKitty,"All humanoids that can bind you also apply kitty restraints."
+KinkyDungeonStatCommonExp,"Adv Latex Lovers"
+KinkyDungeonStatDescCommonExp,"All humanoids that can bind you also apply advanced latex restraints."
 KinkyDungeonStat39,"Conspicuous"
 KinkyDungeonStatDesc39,"Enemies detect you more easily."
 
@@ -241,6 +246,22 @@ KinkyDungeonStatBreathless,"Breathless"
 KinkyDungeonStatDescBreathless,"Taking chain, poison, and crush damage makes you dizzy."
 
 
+
+KinkyDungeonStatKinkyPrison,"Kinky Prisoner"
+KinkyDungeonStatDescKinkyPrison,"Guards never remove restraints you are already wearing, unless they are applying something tighter."
+
+KinkyDungeonStatDoorknobs,"Unfair Doors"
+KinkyDungeonStatDescDoorknobs,"Doors are harder to open while your hands are bound."
+KDDoorknobFail,"You rattle the doorknob uselessly and end up banging on the door."
+KDDoorknobFailArms,"You can't quite get a grip on the doorknob."
+KDDoorknobAttract,"Someone hears you banging and opens the door from the other side!"
+KDDoorknobAttractArms,"Someone notices you fiddling with the door and opens it from the other side!"
+KDDoorknobSuccess,"The door squeaks open as the latch wasn't fully engaged."
+KDDoorknobSuccessArms,"You grab the doorknob with your wrists and flex it open."
+KDDoorknobFeet,You use your flexible feet to open the door.
+
+KinkyDungeonStatSelfMiscast,"Poor Technique"
+KinkyDungeonStatDescSelfMiscast,"Instead of fizzling, most miscasted projectiles and AoE spells will target you instead."
 
 
 KinkyDungeonStatT,""
@@ -485,7 +506,7 @@ KinkyDungeonRestartWait,"I will simply wait to see what happens."
 KinkyDungeonRestartYes,"Give up (Clears save file)"
 KinkyDungeonRestartCapture,"Actually, I will let the enemy capture me instead."
 KinkyDungeonRestartNo,"No, I wish to press on"
-KinkyDungeonCheckPerks,"See Background"
+KinkyDungeonCheckPerks,"See Perks"
 
 KinkyDungeonChestFaction,This chest belongs to the FACTION
 
@@ -1599,6 +1620,7 @@ AttackMeleeCleric,"The Bast Warrior tickles you with her claws! (DamageTaken)"
 NameCleric,Bast Cleric
 KillCleric,"The Bast Cleric collapses and meows softly."
 AttackCleric,"A ray of light shoots out and paralyzes you! (DamageTaken)"
+AttackMeleeClericBind,"The Bast Cleric restrains you! (+RestraintAdded)"
 AttackClericStun,"A ray of light shoots out and paralyzes you! (DamageTaken)"
 
 NameSummonedSkeleton,Skeleton
@@ -1750,7 +1772,7 @@ KillAnimStraitjacket,"The straitjacket falls apart."
 AttackAnimStraitjacketBind,"The straitjacket slips itself on over your head and pulls your arms close to your body! (+RestraintAdded)"
 AttackAnimStraitjacket,"The straitjacket squeezes you tightly! (DamageTaken)"
 
-NameAnimChastity,Lurid Chastity Belt
+NameAnimChastity,Brusque Belt
 KillAnimChastity,"The chastity belt falls to the floor with a clang."
 AttackAnimChastityBind,"The chastity belt secures itself around your waist! (+RestraintAdded)"
 AttackAnimChastity,"The chastity belt buzzes against your body alluringly! (DamageTaken)"
@@ -3154,6 +3176,9 @@ KinkyDungeonLinkScaleArmCuffs4,"The enemy attaches your wrist cuffs back togethe
 RestraintMaidJacket,Latex Jacket
 RestraintMaidJacketDesc,"A bolero jacket keeping your arms pinned snugly. You can't even move them."
 RestraintMaidJacketDesc2,"There is no hope of struggling out. Better hope you can cut it..."
+RestraintMaidDress,Devious Maid Costume
+RestraintMaidDressDesc,"A devious maid outfit that forces the arms into an elbows-touching position."
+RestraintMaidDressDesc2,"Makes sure you focus on your work and not fooling around."
 RestraintMaidBelt,Reinforced Leather Belt
 RestraintMaidBeltDesc,"A leather belt used to keep your legs hobbled."
 RestraintMaidBeltDesc2,"It's made of a very tough reinforced leather. It will take some time to cut."
@@ -5101,6 +5126,15 @@ KinkyDungeonTrapCustomVine,"A vine crawls from the ground, already wrapping arou
 KinkyDungeonOrbIntro,"You have broken a magic orb, gaining a Spell Point and angering a goddess."
 KinkyDungeonOrbIntroKinky,"You have broken a magic orb, gaining a random spell and angering a goddess."
 KinkyDungeonOrbIntro2,"Choose one. She will send her minions after you."
+
+KinkyDungeonPerkIntro,"An altar stands before you, bestowing a heavenly contract."
+KinkyDungeonPerkIntro2,"Do you choose to accept its terms?"
+
+KinkyDungeonPerkConfirm,"Are you sure? This choice is final."
+
+KinkyDungeonPerkAccept,"Yes, I will accept."
+KinkyDungeonPerkAcceptConfirm,"(Accept the contract)"
+KinkyDungeonPerkReject,"I'll think about it."
 
 KinkyDungeonFreeze,You are frozen!
 KinkyDungeonChill,You are chilled!

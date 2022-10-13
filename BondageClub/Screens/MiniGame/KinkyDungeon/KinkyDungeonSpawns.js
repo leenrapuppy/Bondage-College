@@ -136,7 +136,7 @@ function KinkyDungeonGetEnemy(tags, Level, Index, Tile, requireTags, requireHost
 		for (let t of tags) {
 			if (!noOverride.includes(t)) {
 				// We don't override the floor just for having the seniority tags specified
-				if (enemy.tags.has(t)) {
+				if (enemy.tags[t]) {
 					overrideFloor = true;
 					weightMulti *= 1.25;
 				}
@@ -151,26 +151,26 @@ function KinkyDungeonGetEnemy(tags, Level, Index, Tile, requireTags, requireHost
 		}
 		if (bonusTags)
 			for (let t of Object.entries(bonusTags)) {
-				if (enemy.tags.has(t[0])) {
+				if (enemy.tags[t[0]]) {
 					weightBonus += t[1].bonus;
 					weightMulti *= t[1].mult;
 				}
 			}
 
 		if (effLevel >= enemy.minLevel && (!enemy.maxLevel || effLevel < enemy.maxLevel)
-			&& (!filterTags || !filterTags.some((tag) => {return enemy.tags.has(tag);}))
+			&& (!filterTags || !filterTags.some((tag) => {return enemy.tags[tag];}))
 			&& (!requireHostile || !enemy.faction || KDFactionRelation("Player", enemy.faction) <= -0.5)
-			&& (overrideFloor || enemy.allFloors || !enemy.floors || enemy.floors.get(Index))
-			&& (KinkyDungeonGroundTiles.includes(Tile) || !enemy.tags.has("spawnFloorsOnly"))) {
+			&& (overrideFloor || enemy.allFloors || !enemy.floors || enemy.floors[Index])
+			&& (KinkyDungeonGroundTiles.includes(Tile) || !enemy.tags.spawnFloorsOnly)) {
 			let rt = true;
 			let rst = false;
 			if (requireTags)
 				for (let t of requireTags) {
-					if (!enemy.tags.has(t)) {rt = false; break;}
+					if (!enemy.tags[t]) {rt = false; break;}
 				}
 			if (requireSingleTag)
 				for (let t of requireSingleTag) {
-					if (enemy.tags.has(t)) {rst = true; break;}
+					if (enemy.tags[t]) {rst = true; break;}
 				}
 			else rst = true;
 			if (rt && rst) {
@@ -356,13 +356,13 @@ function KinkyDungeonHandleWanderingSpawns(delta) {
 							KinkyDungeonSetEnemyFlag(e, shop, -1);
 						}
 
-						if (Enemy.tags.has("minor")) count += 0.1; else count += 1; // Minor enemies count as 1/10th of an enemy
-						if (Enemy.tags.has("boss")) {
+						if (Enemy.tags.minor) count += 0.1; else count += 1; // Minor enemies count as 1/10th of an enemy
+						if (Enemy.tags.boss) {
 							count += 3 * Math.max(1, 100/(100 + KinkyDungeonDifficulty));
 							tags.push("boss");
 						} // Boss enemies count as 4 normal enemies
-						else if (Enemy.tags.has("elite")) count += Math.max(1, 1000/(2000 + 20*KinkyDungeonDifficulty + KinkyDungeonTotalSleepTurns)); // Elite enemies count as 1.5 normal enemies
-						if (Enemy.tags.has("miniboss")) {
+						else if (Enemy.tags.elite) count += Math.max(1, 1000/(2000 + 20*KinkyDungeonDifficulty + KinkyDungeonTotalSleepTurns)); // Elite enemies count as 1.5 normal enemies
+						if (Enemy.tags.miniboss) {
 							if (!miniboss) tags.push("boss");
 							miniboss = true; // Adds miniboss as a tag
 						}

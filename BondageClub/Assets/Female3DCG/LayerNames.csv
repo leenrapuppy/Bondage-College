@@ -270,6 +270,22 @@ GlovesGlovesFurFabric,Glove
 GlovesGlovesFurFur,Fur
 GlovesHaremGloveFabric,Fabric
 GlovesHaremGloveBands,Bands
+LeftHandRingsThumbSteel,Thumb Ring
+LeftHandRingsIndexSteel,Index Ring
+LeftHandRingsMiddleSteel,Middle Finger Ring
+LeftHandRingsRingSteel,Ring Finger Ring
+LefttHandRingsWedding,Wedding Ring
+LeftHandRingsPinkieSteel,Pinkie Ring
+LeftHandRingsHonorBase,Honor Ring
+LeftHandRingsHonorJewels,Honor Ring Jewels
+RightHandRingsThumbSteel,Thumb Ring
+RightHandRingsIndexSteel,Index Ring
+RightHandRingsMiddleSteel,Middle Finger Ring
+RightHandRingsRingSteel,Ring Finger Ring
+RightHandRingsWedding,Wedding Ring
+RightHandRingsPinkieSteel,Pinkie Ring
+RightHandRingsHonorBase,Honor Ring
+RightHandRingsHonorJewels,Honor Ring Jewels
 MaskFaceVeilFabric,Fabric
 MaskFaceVeilString,String
 TailStrapsTailStrapTail,Tail
@@ -882,7 +898,9 @@ ItemMouthKittyMuzzleGagLines,Lines
 ItemMouthKittyMuzzleGagMouth,Mouth
 ItemMouthPonyGagBaseMetal,Metal
 ItemMouthPonyGagBaseStraps,Straps
-ItemMouthPonyGagBitLarge,Gag
+ItemMouthPonyGagBitLarge,Rubber Bit
+ItemMouthPonyGagBallgag,Ballgag
+ItemMouthPonyGagDildo,Dildo
 ItemMouthPonyGagPlume,Plume
 ItemMouthPonyGagManeB,ManeBase
 ItemMouthPonyGagManeL,Mane
@@ -971,7 +989,9 @@ ItemMouth2KittyMuzzleGagLines,Lines
 ItemMouth2KittyMuzzleGagMouth,Mouth
 ItemMouth2PonyGagBaseMetal,Metal
 ItemMouth2PonyGagBaseStraps,Straps
-ItemMouth2PonyGagBitLarge,Gag
+ItemMouth2PonyGagBitLarge,Rubber Bit
+ItemMouth2PonyGagBallgag,Ballgag
+ItemMouth2PonyGagDildo,Dildo
 ItemMouth2PonyGagPlume,Plume
 ItemMouth2PonyGagManeB,ManeBase
 ItemMouth2PonyGagManeL,Mane
@@ -1062,7 +1082,9 @@ ItemMouth3KittyMuzzleGagLines,Lines
 ItemMouth3KittyMuzzleGagMouth,Mouth
 ItemMouth3PonyGagBaseMetal,Metal
 ItemMouth3PonyGagBaseStraps,Straps
-ItemMouth3PonyGagBitLarge,Gag
+ItemMouth3PonyGagBitLarge,Rubber Bit
+ItemMouth3PonyGagBallgag,Ballgag
+ItemMouth3PonyGagDildo,Dildo
 ItemMouth3PonyGagPlume,Plume
 ItemMouth3PonyGagManeB,ManeBase
 ItemMouth3PonyGagManeL,Mane

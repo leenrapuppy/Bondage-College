@@ -172,7 +172,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 		case "TargetMouthBlocked":
 			return acted.IsMouthBlocked();
 		case "IsGagged":
-			return !acting.CanTalk();
+			return acting.IsGagged();
 		case "TargetKneeling":
 			return acted.IsKneeling();
 		case "UseHands":

@@ -106,7 +106,7 @@ function KinkyDungeonUpdateBuffs(delta, endFloor) {
 					for (let enemy of KinkyDungeonEntities) {
 						if ((KDHostile(enemy) || !buff.noAlly)
 							&& (KDAllied(enemy) || !buff.onlyAlly)
-							&& (!b.bullet.spell.filterTags || b.bullet.spell.filterTags.some((tag) => {return enemy.Enemy.tags.has(tag);}))
+							&& (!b.bullet.spell.filterTags || b.bullet.spell.filterTags.some((tag) => {return enemy.Enemy.tags[tag];}))
 							&& buff.range >= Math.sqrt((enemy.x - b.x) * (enemy.x - b.x) + (enemy.y - b.y) * (enemy.y - b.y))) {
 							KinkyDungeonApplyBuff(enemy.buffs, buff);
 						}

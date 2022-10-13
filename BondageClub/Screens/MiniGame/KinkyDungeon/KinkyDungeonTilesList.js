@@ -66,15 +66,39 @@ let KDMoveObjectFunctions = {
 		return false;
 	},
 	'D': (moveX, moveY) => { // Open the door
-		KinkyDungeonMapSet(moveX, moveY, 'd');
+		let open = !KinkyDungeonStatsChoice.get("Doorknobs") || !KinkyDungeonIsHandsBound(true, true);
+		if (!open) {
+			if (KinkyDungeonCanUseFeet()) {
+				KinkyDungeonSendActionMessage(10, TextGet("KDDoorknobFeet"), "#88ff88", 2);
+				open = true;
+			} else {
+				let armsbound = KinkyDungeonIsArmsBound(true, true);
+				if (KDRandom() < (armsbound ? KDDoorKnobChance : KDDoorKnobChanceArms)) {
+					KinkyDungeonSendActionMessage(10, TextGet("KDDoorknobSuccess" + ((armsbound) ? "" : "Arms")), "#88ff88", 2);
+					open = true;
+				} else if (KDRandom() < (armsbound ? KDDoorAttractChance : KDDoorAttractChanceArms) && DialogueBringNearbyEnemy(moveX, moveY, 10)) {
+					KinkyDungeonSendActionMessage(10, TextGet("KDDoorknobAttract" + ((armsbound) ? "" : "Arms")), "#ff5555", 2);
+					KinkyDungeonMakeNoise(armsbound ? 6 : 3, moveX, moveY);
+					open = true;
+				} else {
+					KinkyDungeonSendActionMessage(10, TextGet("KDDoorknobFail" + (armsbound ? "" : "Arms")), "#ff5555", 2);
+					KinkyDungeonMakeNoise(armsbound ? 6 : 3, moveX, moveY);
+					if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/Locked.ogg");
+				}
+			}
+		}
+		if (open) {
+			KinkyDungeonMapSet(moveX, moveY, 'd');
 
-		// For private doors, aggro the faction
-		let faction = KinkyDungeonTiles.get(moveX + "," +moveY) && KinkyDungeonTiles.get(moveX + "," +moveY).Faction ? KinkyDungeonTiles.get(moveX + "," +moveY).Faction : undefined;
-		if (faction) {
-			KinkyDungeonAggroFaction(faction, true);
+			// For private doors, aggro the faction
+			let faction = KinkyDungeonTiles.get(moveX + "," +moveY) && KinkyDungeonTiles.get(moveX + "," +moveY).Faction ? KinkyDungeonTiles.get(moveX + "," +moveY).Faction : undefined;
+			if (faction) {
+				KinkyDungeonAggroFaction(faction, true);
+			}
+
+			if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/DoorOpen.ogg");
 		}
 
-		if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/DoorOpen.ogg");
 		return true;
 	},
 	'C': (moveX, moveY) => { // Open the chest
@@ -109,6 +133,14 @@ let KDMoveObjectFunctions = {
 			KinkyDungeonTakeOrb(1, moveX, moveY); // 1 spell point
 		if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
 		KDGameData.AlreadyOpened.push({x: moveX, y: moveY});
+		return true;
+	},
+	'P': (moveX, moveY) => { // Open the chest
+		if (KinkyDungeonIsPlayer()) {
+			KDPerkConfirm = false;
+			KinkyDungeonTakePerk(1, moveX, moveY); // 1 perk choice
+		}
+		if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/Magic.ogg");
 		return true;
 	},
 	'-': (moveX, moveY) => { // Open the chest
@@ -192,12 +224,12 @@ function KDSlimeImmuneEntity(entity) {
 
 function KDSlimeWalker(entity) {
 	if (KDSlimeImmuneEntity(entity)) return true;
-	else if (!entity.player && entity.Enemy?.tags.has("flying")) return true;
+	else if (!entity.player && entity.Enemy?.tags.flying) return true;
 	return false;
 }
 
 function KDSlimeImmune(enemy) {
-	return enemy.Enemy?.tags.has("slime") || enemy.Enemy?.tags.has("glueimmune") || enemy.Enemy?.tags.has("slimewalk") || KDEntityBuffedStat(enemy, "glueDamageResist") >= 0.45;
+	return enemy.Enemy?.tags.slime || enemy.Enemy?.tagsglueimmune || enemy.Enemy?.tagsslimewalk || KDEntityBuffedStat(enemy, "glueDamageResist") >= 0.45;
 }
 
 /**
@@ -278,7 +310,7 @@ let KDEffectTileFunctions = {
 		return false;
 	},
 	"Ice": (delta, entity, tile) => {
-		if ((!entity.player && !entity.Enemy.tags.has("ice") && !entity.Enemy.tags.has("nofreeze")) || (entity.player && !KDChillWalk(entity)))
+		if ((!entity.player && !entity.Enemy.tags.ice && !entity.Enemy.tags.nofreeze) || (entity.player && !KDChillWalk(entity)))
 			KinkyDungeonApplyBuffToEntity(entity, KDChilled);
 		if (entity.player && KinkyDungeonPlayerBuffs.Slipping)
 			KDSlip({x: KinkyDungeonPlayerEntity.x - KinkyDungeonPlayerEntity.lastx, y: KinkyDungeonPlayerEntity.y - KinkyDungeonPlayerEntity.lasty});
@@ -447,12 +479,12 @@ let KDEffectTileMoveOnFunctions = {
 	"Cracked": (entity, tile, willing, dir, sprint) => {
 		if (tile.pauseDuration > 0) {
 			// Meep
-		} else if (!entity.Enemy || (!entity.Enemy.tags.has("earth") && !entity.Enemy.tags.has("unstoppable"))) {
+		} else if (!entity.Enemy || (!entity.Enemy.tags.earth && !entity.Enemy.tags.unstoppable)) {
 			KinkyDungeonApplyBuffToEntity(entity, KDUnsteady);
 			if (entity.player) {
 				KinkyDungeonApplyBuffToEntity(entity, KDUnsteady2);
 				KinkyDungeonApplyBuffToEntity(entity, KDUnsteady3);
-			} else if (!entity.Enemy || !entity.Enemy.tags.has("unflinching")) {
+			} else if (!entity.Enemy || !entity.Enemy.tags.unflinching) {
 				if (!entity.vulnerable) entity.vulnerable = 1;
 				else entity.vulnerable = Math.max(entity.vulnerable, 1);
 			}

@@ -11,7 +11,7 @@ let KDIntentEvents = {
 		// This will make the enemy want to leash you
 		weight: (enemy, AIData, allied, hostile, aggressive) => {
 			if (allied) return 0;
-			if (!enemy.Enemy.tags.has('leashing')) return 0;
+			if (!enemy.Enemy.tags.leashing) return 0;
 			if (KinkyDungeonFlags.get("Released")) return 0;
 			if (KDGameData.PrisonerState == 'jail') return 0;
 			if (KinkyDungeonGetRestraintItem("ItemDevices")) return 0;
@@ -128,7 +128,7 @@ let KDIntentEvents = {
 		forceattack: true,
 		// This is the basic leash to jail mechanic
 		weight: (enemy, AIData, allied, hostile, aggressive) => {
-			return hostile && (enemy.Enemy.tags.has("jailer") || enemy.Enemy.tags.has("jail")) && (KinkyDungeonFlags.has("Released")) ? 100 : 0;
+			return hostile && (enemy.Enemy.tags.jailer || enemy.Enemy.tags.jail || enemy.Enemy.tags.leashing) && (KinkyDungeonFlags.has("Released")) ? 100 : 0;
 		},
 		trigger: (enemy, AIData) => {
 			KinkyDungeonSetEnemyFlag(enemy, "noResetIntent", 30);
@@ -154,7 +154,7 @@ let KDIntentEvents = {
 		aggressive: true,
 		// This will make the enemy want to leash you
 		weight: (enemy, AIData, allied, hostile, aggressive) => {
-			if (!enemy.Enemy.tags.has('leashing')) return 0;
+			if (!enemy.Enemy.tags.leashing) return 0;
 			if (KinkyDungeonFlags.get("Released")) return 0;
 			if (KDGameData.PrisonerState == 'jail') return 0;
 			if (KinkyDungeonGetRestraintItem("ItemDevices")) return 0;

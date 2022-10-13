@@ -205,7 +205,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		DefaultTint: typeof AssetDef.DefaultTint === "string" ? AssetDef.DefaultTint : undefined,
 		Gender: AssetDef.Gender,
 		CraftGroup: typeof AssetDef.CraftGroup === "string" ? AssetDef.CraftGroup : AssetDef.Name,
-		ColorSuffix: Group.ColorSuffix,
+		ColorSuffix: typeof Group.ColorSuffix === "object" ? Group.ColorSuffix : {},
 	}, AssetParsePoseProperties(AssetDef, Group.AllowPose.slice()));
 
 	// Ensure opacity value is valid

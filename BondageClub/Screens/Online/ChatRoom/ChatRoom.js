@@ -1461,11 +1461,11 @@ function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride, Color = 
 
 	if (Player.ArousalSettings.VFXFilter == "VFXFilterHeavy") {
 		const Grad = MainCanvas.createLinearGradient(0, y1, 0, h);
-		let alphamin = 0;//Math.max(0, alpha / 2 - 0.05);
+		let alphamin = Math.max(0, alpha / 2 - 0.05);
 		Grad.addColorStop(0, `rgba(${Color}, ${alpha})`);
-		Grad.addColorStop(0.1 + 0.2*percent * (1.2 + 0.1 * oscillation), `rgba(${Color}, ${alphamin})`);
+		Grad.addColorStop(0.1 + 0.2*percent * (1.2 + 0.2 * oscillation), `rgba(${Color}, ${alphamin})`);
 		Grad.addColorStop(0.5, `rgba(${Color}, ${alphamin/2})`);
-		Grad.addColorStop(0.9 - 0.2*percent * (1.2 + 0.1 * oscillation), `rgba(${Color}, ${alphamin})`);
+		Grad.addColorStop(0.9 - 0.2*percent * (1.2 + 0.2 * oscillation), `rgba(${Color}, ${alphamin})`);
 		Grad.addColorStop(1, `rgba(${Color}, ${alpha})`);
 		MainCanvas.fillStyle = Grad;
 		MainCanvas.fillRect(0, y1, Width, h);
@@ -2456,12 +2456,15 @@ var ChatRoomMessageHandlers = [
 				return false;
 			const arousalEnabled = (Player.ArousalSettings && (Player.ArousalSettings.Active == "Hybrid" || Player.ArousalSettings.Active == "Automatic"));
 
-			AsylumGGTSActivity(sender, metadata.TargetCharacter, metadata.ActivityName, metadata.GroupName, metadata.ActivityCounter);
+			// Because the handhelds go through GroupName, we have to check both keys
+			const ActivityGroup = metadata.ActivityGroup || metadata.GroupName;
+
+			AsylumGGTSActivity(sender, metadata.TargetCharacter, metadata.ActivityName, ActivityGroup, metadata.ActivityCounter);
 
 			// If another player is using an item which applies an activity on the current player, apply the effect here
 			if (arousalEnabled && metadata.ActivityName && metadata.TargetMemberNumber
 					&& (metadata.TargetMemberNumber === Player.MemberNumber) && (sender.MemberNumber !== Player.MemberNumber))
-				ActivityEffect(sender, Player, metadata.ActivityName, metadata.GroupName, metadata.ActivityCounter);
+				ActivityEffect(sender, Player, metadata.ActivityName, ActivityGroup, metadata.ActivityCounter);
 			return false;
 		}
 	},
@@ -4010,6 +4013,13 @@ function ChatRoomSetRule(data) {
 			data.Content = "OwnerRuleBlockAppearance";
 		}
 
+		// Advanced rules - Block item groups
+		if (data.Content.startsWith("OwnerRuleBlockItemGroup")) {
+			LogDeleteStarting("BlockItemGroup", "OwnerRule");
+			LogAdd("BlockItemGroup" + data.Content.substring("OwnerRuleBlockItemGroup".length, 100), "OwnerRule");
+			data.Content = "OwnerRuleBlockItemGroup";
+		}
+
 		// Advanced rules - Forbidden Words List
 		if (data.Content.startsWith("OwnerRuleForbiddenWords")) {
 			LogDeleteStarting("ForbiddenWords", "OwnerRule");
@@ -4491,8 +4501,8 @@ function ChatRoomOwnerForbiddenWordCheck(Message) {
 	// Prepares an array of all words said
 	let M = Message.trim().toUpperCase();
 	M = M.replace(/-/g, "");
-	M = M.replace(/\ /g, "|");
-	M = M.replace(/\,/g, "|");
+	M = M.replace(/ /g, "|");
+	M = M.replace(/,/g, "|");
 	M = M.replace(/\./g, "|");
 	let WordList = M.split("|");
 	if (WordList.length <= 0) return true;

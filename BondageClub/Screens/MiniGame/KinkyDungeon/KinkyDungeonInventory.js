@@ -305,9 +305,9 @@ function KDGetItemPreview(item) {
 		if (KDRestraint(item).AssetGroup) ret = {name: item.name, item: item, preview: `Assets/Female3DCG/${KDRestraint(item).AssetGroup}/Preview/${KDRestraint(item).Asset}.png`};
 		else ret = {name: KDRestraint(item).name, item: item, preview: `Assets/Female3DCG/${Group}/Preview/${KDRestraint(item).Asset}.png`};
 	}
-	else if (item.type == Consumable) ret = {name: KDConsumable(item).name, item: item, preview: `Screens/MiniGame/KinkyDungeon/Items/${KDConsumable(item).name}.png`};
-	else if (item.type == Weapon) ret = {name: KDWeapon(item).name, item: item, preview: `Screens/MiniGame/KinkyDungeon/Items/${KDWeapon(item).name}.png`};
-	else if (item.type == Outfit) ret = {name: KDOutfit(item) ? KDOutfit(item).name : "Prisoner", item: item, preview: `Screens/MiniGame/KinkyDungeon/Outfits/${KDOutfit(item).name}.png`};
+	else if (item.type == Consumable) ret = {name: KDConsumable(item).name, item: item, preview: KinkyDungeonRootDirectory + `/Items/${KDConsumable(item).name}.png`};
+	else if (item.type == Weapon) ret = {name: KDWeapon(item).name, item: item, preview: KinkyDungeonRootDirectory + `/Items/${KDWeapon(item).name}.png`};
+	else if (item.type == Outfit) ret = {name: KDOutfit(item) ? KDOutfit(item).name : "Prisoner", item: item, preview: KinkyDungeonRootDirectory + `/Outfits/${KDOutfit(item).name}.png`};
 	//else if (item && item.name) ret.push({name: item.name, item: item, preview: ``});
 	return ret;
 }

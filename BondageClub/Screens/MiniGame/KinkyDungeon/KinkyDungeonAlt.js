@@ -58,12 +58,40 @@ let alts = {
 		shortcut: false,
 		enemies: false,
 		nojail: true,
+		nolore: true,
 		nokeys: true,
 		nostairs: true,
 		notraps: true,
 		noClutter: true,
 		noShrineTypes: ["Commerce", "Will"],
 		tickFlags: true,
+	},
+	"PerkRoom": {
+		name: "PerkRoom",
+		bossroom: false,
+		width: 9,
+		height: 8,
+		genType: "PerkRoom",
+		setpieces: {
+			"PearlChest": 100,
+		},
+		spawns: false,
+		chests: false,
+		shrines: false,
+		orbs: 0,
+		chargers: false,
+		torches: true,
+		heart: false,
+		specialtiles: true,
+		shortcut: false,
+		enemies: false,
+		nojail: true,
+		nolore: true,
+		nokeys: true,
+		nostairs: true,
+		notraps: true,
+		noClutter: true,
+		noShrineTypes: ["Commerce", "Will"],
 	},
 	"Jail": {
 		name: "Jail",
@@ -169,6 +197,9 @@ let KinkyDungeonCreateMapGenType = {
 	},
 	"Tunnel": (POI, VisitedRooms, width, height, openness, density, hallopenness, data) => {
 		KinkyDungeonCreateTunnel(POI, VisitedRooms, width, height, openness, density, hallopenness, data);
+	},
+	"PerkRoom": (POI, VisitedRooms, width, height, openness, density, hallopenness, data) => {
+		KinkyDungeonCreatePerkRoom(POI, VisitedRooms, width, height, openness, density, hallopenness, data);
 	},
 	"Chamber": (POI, VisitedRooms, width, height, openness, density, hallopenness, data) => {
 		KinkyDungeonCreateMaze(POI, VisitedRooms, width, height, 2, 1.5, 8, data);
@@ -627,7 +658,9 @@ function KinkyDungeonCreateTunnel(POI, VisitedRooms, width, height, openness, de
 
 	KinkyDungeonCreateRectangle(0, 0, width, height, true, true, false, false);
 
-	KinkyDungeonCreateRectangle(VisitedRooms[0].x, VisitedRooms[0].y - 1, 2, 2, false, false, false, false);
+	// Starting rectangle
+	KinkyDungeonCreateRectangle(VisitedRooms[0].x, VisitedRooms[0].y - 1, width - 3, 2, false, false, false, false);
+	// Main passage
 	KinkyDungeonCreateRectangle(VisitedRooms[0].x, VisitedRooms[0].y, width - 2, 1, false, false, false, false);
 
 	// Create the two branching hallways
@@ -678,6 +711,9 @@ function KinkyDungeonCreateTunnel(POI, VisitedRooms, width, height, openness, de
 
 	//KinkyDungeonMapSet(VisitedRooms[0].x*2 + 3, VisitedRooms[0].y*2 + 1, 'A');
 	//KinkyDungeonTiles.set("" + (VisitedRooms[0].x*2 + 3) + "," + (VisitedRooms[0].y*2 + 1), {Type: "Shrine", Name: "Will"});
+
+	// Removing shrine and leyline and putting in perk room instead
+	/*
 	KinkyDungeonMapSet(VisitedRooms[0].x*2 + 3, VisitedRooms[0].y*2 + 1, 'l');
 	KinkyDungeonTiles.set("" + (VisitedRooms[0].x*2 + 3) + "," + (VisitedRooms[0].y*2 + 1), {Leyline: true, Light: KDLeylineLight, lightColor: KDLeylineLightColor});
 
@@ -686,7 +722,7 @@ function KinkyDungeonCreateTunnel(POI, VisitedRooms, width, height, openness, de
 
 	// Place lost items chest
 	if (KinkyDungeonLostItems.length > 0)
-		KDChest(VisitedRooms[0].x*2 + 0, VisitedRooms[0].y*2 - 2, "lost_items");
+		KDChest(VisitedRooms[0].x*2 + 0, VisitedRooms[0].y*2 - 2, "lost_items");*/
 
 	// Place the exit stairs
 
@@ -721,6 +757,77 @@ function KinkyDungeonCreateTunnel(POI, VisitedRooms, width, height, openness, de
 		if (q.npc)
 			KinkyDungeonSummonEnemy(KinkyDungeonStartPosition.x, KinkyDungeonStartPosition.y, q.npc, 1, 14, true);
 	}
+}
+
+
+function KinkyDungeonCreatePerkRoom(POI, VisitedRooms, width, height, openness, density, hallopenness, data) {
+	// Variable setup
+
+	KinkyDungeonCreateRectangle(0, 0, width, height, true, true, false, false);
+
+	KinkyDungeonCreateRectangle(VisitedRooms[0].x, VisitedRooms[0].y - 1, 2, 2, false, false, false, false);
+	KinkyDungeonCreateRectangle(VisitedRooms[0].x, VisitedRooms[0].y, width - 2, 1, false, false, false, false);
+
+	// Create the two branching hallways
+	let b1 = 3 + Math.floor(KDRandom() * (width-7));
+	let b2 = 4 + Math.floor(KDRandom() * (width-6));
+
+	if (Math.abs(b1 - b2) < 2) {
+		if (b1 < width - 4) b2 = b1 + 2;
+		else b2 = b1 - 2;
+	}
+
+	// Now we STRETCH the map
+	let KinkyDungeonOldGrid = KinkyDungeonGrid;
+	let w = KinkyDungeonGridWidth;
+	let h = KinkyDungeonGridHeight;
+	KinkyDungeonGridWidth = Math.floor(KinkyDungeonGridWidth*2);
+	KinkyDungeonGridHeight = Math.floor(KinkyDungeonGridHeight*2);
+	KinkyDungeonGrid = "";
+
+	// Generate the grid
+	for (let Y = 0; Y < KinkyDungeonGridHeight; Y++) {
+		for (let X = 0; X < KinkyDungeonGridWidth; X++)
+			KinkyDungeonGrid = KinkyDungeonGrid + KinkyDungeonOldGrid[Math.floor(X * w / KinkyDungeonGridWidth) + Math.floor(Y * h / KinkyDungeonGridHeight)*(w+1)];
+		KinkyDungeonGrid = KinkyDungeonGrid + '\n';
+	}
+
+	// Place a shop and a Leyline Tap
+	KinkyDungeonMapSet(VisitedRooms[0].x*2 + 3, VisitedRooms[0].y*2 + 1, 'l');
+	KinkyDungeonTiles.set("" + (VisitedRooms[0].x*2 + 3) + "," + (VisitedRooms[0].y*2 + 1), {Leyline: true, Light: KDLeylineLight, lightColor: KDLeylineLightColor});
+
+	KinkyDungeonMapSet(VisitedRooms[0].x*2 + 3, VisitedRooms[0].y*2 - 2, 'A');
+	KinkyDungeonTiles.set("" + (VisitedRooms[0].x*2 + 3) + "," + (VisitedRooms[0].y*2 - 2), {Type: "Shrine", Name: "Commerce"});
+
+	// Create the perk altars
+	let py = VisitedRooms[0].y*2 - 2;
+	let p1x = VisitedRooms[0].x*2 + 5;
+	KinkyDungeonCreateRectangle(p1x, py, 5, 2, false, false, false, false);
+
+	let perkCount = 3;
+	/** @type {Record<string, boolean>} */
+	let perks = {};
+	for (let i = 0; i < perkCount; i++) {
+		let newperks = KDGetRandomPerks(perks);
+		if (newperks.length > 0) {
+			KinkyDungeonMapSet(p1x + i * 2, py, 'P');
+			KinkyDungeonTiles.set("" + (p1x + i * 2) + "," + (py), {Perks: newperks});
+			for (let p of newperks) {
+				perks[p] = true;
+			}
+		}
+	}
+
+	// Place lost items chest
+	if (KinkyDungeonLostItems.length > 0)
+		KDChest(VisitedRooms[0].x*2 + 0, VisitedRooms[0].y*2 - 2, "lost_items");
+
+	// Place the exit stairs
+	KinkyDungeonMapSet(width*2 - 2, VisitedRooms[0].y*2, 's');
+	KinkyDungeonMapSet(width*2 - 2, VisitedRooms[0].y*2 + 1, 'G');
+	KinkyDungeonTiles.set("" + (width*2 - 2) + "," + (VisitedRooms[0].y*2), {RoomType: "Tunnel"});
+
+	KinkyDungeonEndPosition = {x: width*2 - 2, y: VisitedRooms[0].y*2};
 }
 
 

@@ -1140,7 +1140,10 @@ Features
 - New perk section with a lot of perks (Damage and resists)
 
 3.72 (October 2022)
-
+- Fixed a bug where you couldnt use bolas
+- Fixed a bug where Arcane Protection would attack enemies that are non-hostile trying to play with you
+- More perks: Kinky Prison, Unfair Doors
+- Added a perk room with a choice of 3 perk combinations!
 
 TODO ValidationFindBlockCycles to prevent bugs
 

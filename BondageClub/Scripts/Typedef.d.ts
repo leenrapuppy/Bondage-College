@@ -152,8 +152,8 @@ type AssetGroupBodyName =
 	'ClothAccessory' | 'ClothLower' | 'Corset' | 'Emoticon' | 'Eyebrows' |
 	'Eyes' | 'Eyes2' | 'Fluids' | 'Garters' | 'Glasses' | 'Gloves' |
 	'HairAccessory1' | 'HairAccessory2' | 'HairAccessory3' | 'HairBack' |
-	'HairFront' | 'Hands' | 'Hat' | 'Head' | 'Height' | 'LeftAnklet' | 'Mask' |
-	'Mouth' | 'Necklace' | 'Nipples' | 'Panties' | 'Pussy'| 'Pronouns' | 'RightAnklet' |
+	'HairFront' | 'Hands' | 'Hat' | 'Head' | 'Height' | 'LeftAnklet' | 'LeftHand' | 'Mask' |
+	'Mouth' | 'Necklace' | 'Nipples' | 'Panties' | 'Pussy' | 'RightAnklet' | 'RightHand' |
 	'Shoes' | 'Socks' | 'Suit' | 'SuitLower' | 'TailStraps' | 'Wings'
 	;
 
@@ -456,7 +456,7 @@ interface AssetGroup {
 
 	/** A dict mapping colors to custom filename suffices.
 	The "HEX_COLOR" key is special-cased to apply to all color hex codes. */
-	ColorSuffix?: { [string]: string };
+	ColorSuffix?: Record<string, string>;
 }
 
 /** An object defining a drawable layer of an asset */
@@ -655,7 +655,7 @@ interface Asset {
 	DefaultTint?: string;
 	Gender?: string;
 	CraftGroup: string;
-	ColorSuffix: { [string]: string};
+	ColorSuffix: Record<string, string>;
 }
 
 //#endregion
@@ -883,6 +883,7 @@ interface Character {
 	IsKneeling: () => boolean;
 	IsNaked: () => boolean;
 	IsDeaf: () => boolean;
+	IsGagged: () => boolean;
 	HasNoItem: () => boolean;
 	IsLoverOfPlayer: () => boolean;
 	GetLoversNumbers: (MembersOnly?: boolean) => (number | string)[];
@@ -2187,6 +2188,11 @@ interface GameLARPParameters {
 		Level: number;
 		Progress: number;
 	}[];
+}
+
+interface GameLARPOption {
+	Name: string;
+	Odds: number;
 }
 
 interface GameMagicBattleParameters {

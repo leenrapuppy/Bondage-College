@@ -350,6 +350,24 @@ function KDProcessInput(type, data) {
 				KinkyDungeonAggroAction('orb', {});
 			}
 			break;
+		case "perkorb":
+			if (KinkyDungeonMapGet(data.x, data.y) == 'P') {
+				KDSendStatus('goddess', data.perks, 'takePerkOrb');
+
+				if (data.perks) {
+					for (let p of data.perks) {
+						KinkyDungeonStatsChoice.set(p, true);
+					}
+				}
+
+				KinkyDungeonMapSet(data.x, data.y, 'p');
+				for (let x = 0; x < KinkyDungeonGridWidth; x++) {
+					if (KinkyDungeonMapGet(x, data.y) == 'P') {
+						KinkyDungeonMapSet(x, data.y, 'p');
+					}
+				}
+			}
+			break;
 		case "heart":
 			if (data.type == "AP") {
 				if (KinkyDungeonStatDistractionMax < KDMaxStat) KinkyDungeonSpells.push(KinkyDungeonFindSpell("APUp1"));
@@ -383,7 +401,7 @@ function KDProcessInput(type, data) {
 				/*let allies = KinkyDungeonGetAllies();
 				// Tie up all non-allies
 				for (let e of KinkyDungeonEntities) {
-					if (e.Enemy.bound && !e.Enemy.tags.has("angel")) {
+					if (e.Enemy.bound && !e.Enemy.tags.angel) {
 						allies.push(e);
 						if (!e.boundLevel) e.boundLevel = e.Enemy.maxhp;
 						else e.boundLevel += e.Enemy.maxhp;

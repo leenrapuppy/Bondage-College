@@ -331,7 +331,7 @@ function KinkyDungeonGetCost(Spell) {
 
 function KinkyDungeonMakeNoise(radius, noiseX, noiseY) {
 	for (let e of KinkyDungeonEntities) {
-		if (!e.aware && !e.Enemy.tags.has("deaf") && !KDAmbushAI(e) && KDistChebyshev(e.x - noiseX, e.y - noiseY) <= radius) {
+		if (!e.aware && !e.Enemy.tags.deaf && !KDAmbushAI(e) && KDistChebyshev(e.x - noiseX, e.y - noiseY) <= radius) {
 			e.gx = noiseX;
 			e.gy = noiseY;
 			KDAddThought(e.id, "Search", 2, 1 + KDistChebyshev(e.x - noiseX, e.y - noiseY));
