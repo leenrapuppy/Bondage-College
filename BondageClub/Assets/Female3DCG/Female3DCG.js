@@ -5464,7 +5464,7 @@ var AssetFemale3DCG = [
 					{ Name: "Ballgag", HasType: false, AllowModuleTypes: ["g4"], ColorGroup: "Gag" },
 					{ Name: "DildoLips", HasType: false, AllowModuleTypes: ["g5"], InheritColor: "Mouth", AllowColorize: false },
 					{ Name: "Dildo", HasType: false, AllowModuleTypes: ["g5"], ColorGroup: "Gag" },
-					{ Name: "DildoMetal", HasType: false, AllowModuleTypes: ["g4"], CopyLayerColor: "BaseMetal" },
+					{ Name: "DildoMetal", HasType: false, AllowModuleTypes: ["g5"], CopyLayerColor: "BaseMetal" },
 
 					//ExtraStraps
 					{ Name: "ExtraMetal", HasType: false, AllowModuleTypes: ["e1", "e2", "b1", "p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], CopyLayerColor: "BaseMetal", Priority: 55 },
@@ -5827,7 +5827,7 @@ var AssetFemale3DCG = [
 					{ Name: "Ballgag", HasType: false, AllowModuleTypes: ["g4"], ColorGroup: "Gag" },
 					{ Name: "DildoLips", HasType: false, AllowModuleTypes: ["g5"], InheritColor: "Mouth", AllowColorize: false },
 					{ Name: "Dildo", HasType: false, AllowModuleTypes: ["g5"], ColorGroup: "Gag" },
-					{ Name: "DildoMetal", HasType: false, AllowModuleTypes: ["g4"], CopyLayerColor: "BaseMetal" },
+					{ Name: "DildoMetal", HasType: false, AllowModuleTypes: ["g5"], CopyLayerColor: "BaseMetal" },
 
 					//ExtraStraps
 					{ Name: "ExtraMetal", HasType: false, AllowModuleTypes: ["e1", "e2", "b1", "p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], CopyLayerColor: "BaseMetal", Priority: 55 },
