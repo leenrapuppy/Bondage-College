@@ -1,0 +1,9 @@
+Exit,Apply to forbidden words
+Title,"If your submissive uses a forbidden word, she will get a consequence."
+Consequence,Consequence:
+ConsequenceBlock,Block the text from being sent
+ConsequenceMute5,Silence her for 5 minutes
+ConsequenceMute15,Silence her for 15 minutes
+ConsequenceMute30,Silence her for 30 minutes
+Word,Forbidden word:
+Add,Add

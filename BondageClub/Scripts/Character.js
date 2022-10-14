@@ -4,6 +4,16 @@ var Character = [];
 var CharacterNextId = 1;
 
 /** @type Map<EffectName, number> */
+const CharacterBlindLevels = new Map([
+	/** Reserve `BlindTotal` for situations where the blindness level should never
+	 *  be lowered by crafted properties (e.g. while in VR) */
+	["BlindTotal", 99],
+	["BlindHeavy", 3],
+	["BlindNormal", 2],
+	["BlindLight", 1],
+]);
+
+/** @type Map<EffectName, number> */
 const CharacterDeafLevels = new Map([
 	["DeafTotal", 4],
 	["DeafHeavy", 3],
@@ -83,19 +93,10 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		HasHiddenItems: false,
 		SavedColors: GetDefaultSavedColors(),
 		CanTalk: function () {
-			return (
-				(this.Effect.indexOf("GagVeryLight") < 0) &&
-				(this.Effect.indexOf("GagLight") < 0) &&
-				(this.Effect.indexOf("GagEasy") < 0) &&
-				(this.Effect.indexOf("GagNormal") < 0) &&
-				(this.Effect.indexOf("GagMedium") < 0) &&
-				(this.Effect.indexOf("GagHeavy") < 0) &&
-				(this.Effect.indexOf("GagVeryHeavy") < 0) &&
-				(this.Effect.indexOf("GagTotal") < 0) &&
-				(this.Effect.indexOf("GagTotal2") < 0) &&
-				(this.Effect.indexOf("GagTotal3") < 0) &&
-				(this.Effect.indexOf("GagTotal4") < 0)
-			);
+			let GagEffect = SpeechGetGagLevel(this, ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemHood", "ItemNeck", "ItemDevices"]);
+			GagEffect += InventoryCraftCount(this, "Large") * 2;
+			GagEffect -= InventoryCraftCount(this, "Small") * 2;
+			return (GagEffect <= 0);
 		},
 		CanWalk: function () {
 			return (
@@ -155,16 +156,17 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 				}
 			}
 			if (!eyesOnly) {
-				if (this.Effect.includes("BlindHeavy")) blindLevel += 3;
-				else if (this.Effect.includes("BlindNormal")) blindLevel += 2;
-				else if (this.Effect.includes("BlindLight")) blindLevel += 1;
-				if (InventoryCraftCount(this, "Thick") > 0) blindLevel++;
-				if (InventoryCraftCount(this, "Thin") > 0) blindLevel--;
+				const effects = CharacterGetEffects(this, ["ItemHead", "ItemHood", "ItemNeck", "ItemDevices"], true)
+				blindLevel += effects.reduce((Start, EffectName) => Start + (CharacterBlindLevels.get(EffectName) || 0), 0);
+				blindLevel += InventoryCraftCount(this, "Thick");
+				blindLevel -= InventoryCraftCount(this, "Thin");
 			}
-			blindLevel = Math.min(3, blindLevel);
 			// Light sensory deprivation setting limits blindness
-			if (this.IsPlayer() && this.GameplaySettings && this.GameplaySettings.SensDepChatLog == "SensDepLight") blindLevel = Math.min(2, blindLevel);
-			return blindLevel;
+			if (this.IsPlayer() && this.GameplaySettings && this.GameplaySettings.SensDepChatLog == "SensDepLight") {
+				return Math.max(0, Math.min(2, blindLevel));
+			} else {
+				return Math.max(0, Math.min(3, blindLevel));
+			}
 		},
 		GetBlurLevel: function() {
 			if ((this.IsPlayer() && this.GraphicsSettings && !this.GraphicsSettings.AllowBlur) || CommonPhotoMode) {
@@ -290,6 +292,10 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		},
 		IsDeaf: function () {
 			return this.GetDeafLevel() > 0;
+		},
+		/* Check if one or more gag effects are active (thus bypassing the crafted small/large properties) */
+		IsGagged: function () {
+			return this.Effect.some(effect => effect in SpeechGagLevelLookup);
 		},
 		HasNoItem: function () {
 			return CharacterHasNoItem(this);

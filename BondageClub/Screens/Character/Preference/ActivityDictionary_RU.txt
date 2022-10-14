@@ -83,7 +83,7 @@ Moan into Gag
 Whimper into Gag
 Скулить в кляп (мольба)
 Shout into Gag
-Кричать в кляп
+Кричать в кляп (злость)
 Groan into Gag
 Стонать в кляп (боль)
 Talk into Gag
@@ -99,7 +99,7 @@ Nod
 Sit
 Сесть кому-то на колени
 Struggle
-Борьба
+Бороться
 Step
 Наступить ногой
 SourceCharacter is tormented by the vibrations, struggling to keep her cool.
@@ -113,7 +113,7 @@ SourceCharacter vibrators stop abruptly, leaving her trembling yet still just as
 SourceCharacter moans and trembles, holding back only because the vibrators abruptly stopped.
 SourceCharacter стонет и дрожит, сдерживаясь только потому, что вибраторы резко остановились.
 SourceCharacter twists and turns trying to hold back, vindicated by an abrupt end to her torment.
-SourceCharacter извивается и крутится, пытаясь сдержаться, и е мучения резко прекращаются.
+SourceCharacter извивается и крутится, пытаясь сдержаться, и ее мучения резко прекращаются.
 SourceCharacter closes her eyes and tries to let herself go, clinging to the edge until it abruptly stops and leaves her feeling empty.
 SourceCharacter закрывает глаза и пытается отпустить себя, цепляясь за край, пока он резко не обрывается, оставляя у нее ощущение пустоты.
 SourceCharacter moans and silently screams as the vibrators almost bring her to the edge before stopping.
@@ -137,7 +137,7 @@ SourceCharacter дрожит и быстро стонет, испытывает 
 SourceCharacter squirts lots of liquid from her vagina, getting a wet orgasm.
 SourceCharacter выбрасывает много жидкости из своего влагалища, получая влажный оргазм.
 SourceCharacter's body cringes and becomes rigid, getting a long and solid orgasm.
-Тело SourceCharacter сжимается и становится твердым, получая длительный и твердый оргазм.
+Тело SourceCharacter сжимается и становится твердым, получая длительный и сильный оргазм.
 SourceCharacter goes berserk with pleasure, giving her two back-to-back orgasms.
 SourceCharacter приходит в ярость от удовольствия, получая два оргазма подряд.
 Using all of her strengths, SourceCharacter is able to resist her building orgasm.
@@ -155,7 +155,7 @@ SourceCharacter тихо кричит и отчаянно борется, что
 Even while trembling without much control, SourceCharacter can resist her orgasm.
 Даже дрожа без особого контроля, SourceCharacter может сопротивляться своему оргазму.
 SourceCharacter's body jerks in all directions, but she manages to fight off her orgasm.
-Тело SourceCharacter дергается во все стороны, но ей удается подавить оргазм.
+Тело SourceCharacter мечется во все стороны, но ей удается подавить оргазм.
 SourceCharacter meditates and takes deep breathes, resisting her building orgasm.
 SourceCharacter медитирует и делает глубокие вдохи, сопротивляясь нарастающему оргазму.
 By pure luck or some miracle, SourceCharacter is able to combat her orgasm.
@@ -196,12 +196,14 @@ Caress Legs
 Ласкать лодыжки
 Massage Legs
 Массаж лодыжек
+Grope Leg
+Ощупать лодыжку
+Inject Legs
+Инъекция в лодыжку
 Bite Leg
 Укусить лодыжку
 Wiggle Legs
 Шевелить лодыжками
-Inject Legs
-Инъекция в лодыжку
 Kiss Leg
 Поцелуй лодыжки
 Touch Leg with Gag
@@ -216,8 +218,6 @@ Caress Leg
 Ласкать лодыжку
 Massage Leg
 Массаж лодыжки
-Grope Leg
-Ощупать лодыжку
 Tickle Thighs
 Щекотать бедра
 Spank Thigh
@@ -267,7 +267,7 @@ Slap Pussy Lips
 Kiss Pussy Lips
 Поцеловать половые губы
 Push Gag in Pussy
-Толкнуть кляп в киску
+Толкнуть кляпом в киску
 Lick Pussy Lips
 Лизать половые губы
 Nibble Pussy Lips
@@ -297,7 +297,7 @@ Lick Clitoris
 Nibble Clitoris
 Покусывать клитор
 Device on Clitoris
-Применить девайс на клиторе
+Применить девайс на клитор
 Finger Ass
 Палец в задницу
 Fist Ass
@@ -325,7 +325,7 @@ Press Foot in Ass
 Tickle Tummy
 Щекотать животик
 Spank Tummy
-Отшлепать живот
+Отшлепать животик
 Caress Tummy
 Ласкать животик
 Pinch Tummy
@@ -407,7 +407,7 @@ Masturbate Breast
 Grope Breast
 Ощупать грудь
 Shake Breasts
-Трясти грудью
+Качать грудью
 Inject Breasts
 Иньекция в грудь
 Bite Breast
@@ -541,7 +541,7 @@ Pull Hair
 Pet Head
 Гладить голову
 Shake Head
-Трясти головой
+Помотать головой
 Kiss Forehead
 Поцелуй в лоб
 Gag Kiss Forehead
@@ -555,9 +555,7 @@ Rub Foot on Face
 Nose-nuzzle
 Тыкнуться носом в нос
 Boop Nose
-Вздернутый Нос
 Нажать на нос
-Поцеловать нос
 Bump Gag on Nose
 Толкнуться кляпом в нос
 Pinch Nose
@@ -574,6 +572,8 @@ Pinch Nostrils Shut
 Зажать ноздри
 Lick Nose
 Лизать нос
+kiss nose
+Поцеловать нос
 Bite Nose
 Укусить за нос
 Force to Smell Feet
@@ -1147,7 +1147,7 @@ SourceCharacter тянет себя за волосы.
 SourceCharacter pets herself on the head.
 SourceCharacter гладит себя по голове.
 SourceCharacter shakes her head.
-SourceCharacter качает головой.
+SourceCharacter отрицательно мотает головой.
 SourceCharacter nods.
 SourceCharacter кивает.
 SourceCharacter kisses TargetCharacter on the forehead.

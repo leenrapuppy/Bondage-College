@@ -23,3 +23,4 @@ ColorPick,Select a color
 MultiColorPick,Select colors
 ColorPickDisabled,Unable to change color due to player permissions,,
 MultiColorPickDisabled,Unable to change color due to player permissions,,
+OwnerBlock,blocked by owner

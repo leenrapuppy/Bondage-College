@@ -6,10 +6,10 @@ var LoginCreditsPosition = 0;
 var LoginThankYou = "";
 /* eslint-disable */
 var LoginThankYouList = [
-	"Aceffect", "Anna", "ArashiSama", "Aylea", "Bjugh", "Brian", "Bryce", "Christian", "Clash", 
-	"DarkStar", "Desch", "Dini", "Edwin", "Epona", "Escurse", "FanRunner", "Greendragon", "JoeyDubDee", 
-	"Jon", "Kimuriel", "Micah", "Michal", "Michel", "Mike", "Mike", "Mindtie", "MinxakaFlux", "Misa", 
-	"Nick", "Nightcore", "Qrroww", "Rika", "Riley", "Samuel", "Shadow", "SirRobben", 
+	"Aceffect", "Anna", "ArashiSama", "Aylea", "Bjugh", "Brian", "Bryce", "Christian", "Clash",
+	"DarkStar", "Desch", "Dini", "Edwin", "Epona", "Escurse", "FanRunner", "Greendragon", "JoeyDubDee",
+	"Jon", "Kimuriel", "Micah", "Michal", "Michel", "Mike", "Mike", "Mindtie", "MinxakaFlux", "Misa",
+	"Nick", "Nightcore", "Qrroww", "Rika", "Riley", "Samuel", "Shadow", "SirRobben",
 	"Tam", "Tarram", "TopHat", "Troubadix", "Xepherio", "Ying", "Znarf"
 ];
 
@@ -159,6 +159,7 @@ let LoginInventoryFixups = [
 	{ Old: { Group: "ItemLegs", Name: "WoodenHorse" }, New: { Group: "ItemDevices", Name: "WoodenHorse" } },
 	{ Old: { Group: "ItemVulvaPiercings", Name: "WeightedClitPiercing" }, New: { Group: "ItemVulvaPiercings", Name: "RoundClitPiercing", Option: "Weight" } },
 	{ Old: { Group: "ItemVulvaPiercings", Name: "BellClitPiercing" }, New: { Group: "ItemVulvaPiercings", Name: "RoundClitPiercing", Option: "Bell" } },
+	{ Old: { Group: "ItemArms", Name: "BitchSuitExposed"}, New: { Group: "ItemArms", Name: "BitchSuit", Option: "Exposed" } },
 ];
 
 /**

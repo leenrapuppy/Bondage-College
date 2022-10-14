@@ -31,6 +31,32 @@ const ExtendedArchetype = {
  * @const
  */
 var AssetFemale3DCGExtended = {
+	BodyUpper: {
+		// NOTE: Switch to the `MODULAR` archetype if we'd want to allow for the simultaneous use of multiple overlays
+		Small: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Default",
+						Property: { Type: null, },
+					},
+				],
+			},
+		},  // Small
+		Normal: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "BodyUpper", AssetName: "Small" },
+		},  // Normal
+		Large: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "BodyUpper", AssetName: "Small" },
+		},  // Large
+		XLarge: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "BodyUpper", AssetName: "Small" },
+		},  // XLarge
+	},
 	Hat: {
 		Bandana: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -162,6 +188,64 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //BallCapFront
+	},
+		LeftHand: {
+		Rings: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Thumb", Key: "t",
+						Options: [{}, {}],
+					},
+					{
+						Name: "Index", Key: "i",
+						Options: [{}, {}],
+					},
+					{
+						Name: "Middle", Key: "m",
+						Options: [{}, {}],
+					},
+					{
+						Name: "Ring", Key: "r",
+						Options: [{}, {}, {}],
+					},
+					{
+						Name: "Pinkie", Key: "p",
+						Options: [{}, {}, {}],
+					},
+				],
+			},
+		},
+	},
+	RightHand: {
+		Rings: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Thumb", Key: "t",
+						Options: [{}, {}],
+					},
+					{
+						Name: "Index", Key: "i",
+						Options: [{}, {}],
+					},
+					{
+						Name: "Middle", Key: "m",
+						Options: [{}, {},],
+					},
+					{
+						Name: "Ring", Key: "r",
+						Options: [{}, {}, {}],
+					},
+					{
+						Name: "Pinkie", Key: "p",
+						Options: [{}, {}, {}],
+					},
+				],
+			},
+		},
 	},
 	Cloth: {
 		TShirt2: {
@@ -872,23 +956,35 @@ var AssetFemale3DCGExtended = {
 			},
 		}, // CeilingShackles
 		BitchSuit: {
-			Archetype: ExtendedArchetype.MODULAR,
+			Archetype: ExtendedArchetype.TYPED,
 			Config: {
-				Modules: [
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR],
+				Options: [
 					{
-						Name: "Zip",
-						Key: "z",
-						Options: [
-							{ // z0 - Zipped up
-								Property: { Block: ["ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"], Hide: ["ItemNipples"] },
-							},
-							{ // z1 - Unzipped
-								Property: { Block: [] },
-							},
-						],
-						AllowSelfSelect: false,
+						Name: "Zipped",
+						Property: {
+							Type: null,
+							Block: ["ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+							Hide: ["ItemNipples"],
+						}
+					},
+					{
+						Name: "Unzipped",
+						Property: {
+							Type: "z1",
+							Block: [],
+						}
+					},
+					{
+						Name: "Exposed",
+						Property: {
+							Type: "z2",
+							Block: [],
+							Hide: ["Cloth", "ClothLower", "Shoes", "Socks", "ItemBoots", "ItemLegs", "ItemFeet", "ItemHands", "Hands", "Gloves", "Garters"],
+						}
 					},
 				],
+				ChangeWhenLocked: false,
 			},
 		}, // BitchSuit
 		LeatherArmbinder: {
@@ -6903,6 +6999,8 @@ var AssetFemale3DCGExtended = {
 						],
 					},
 					{
+						// Use `BlindTotal` for VR avatars to ensure that the `thin` property never reduces the blindness level below `BlindHeavy`,
+						// as lowering it any more will result in visual odities related to partial blindness
 						Name: "Function", Key: "f",
 						Options: [
 							{ // f0 - Passthrough
@@ -6917,12 +7015,12 @@ var AssetFemale3DCGExtended = {
 							},
 							{ // f2 - VR Avatar
 								Property: {
-									Effect: ["BlindHeavy", "Prone", "VRAvatars"],
+									Effect: ["BlindTotal", "Prone", "VRAvatars"],
 								}
 							},
 							{ // f3 - VR Avatar (hide restraints)
 								Property: {
-									Effect: ["BlindHeavy", "VRAvatars", "HideRestraints"],
+									Effect: ["BlindTotal", "VRAvatars", "HideRestraints"],
 								}
 							},
 						],

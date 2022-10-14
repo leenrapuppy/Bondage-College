@@ -32,10 +32,12 @@ function InventoryItemMouthFuturisticHarnessPanelNpcDialog(C, Option) {
 	InventoryItemMouthFuturisticPanelGagNpcDialog(C, Option);
 }
 
-
+/** @type {DynamicScriptDrawCallback} */
 function AssetsItemMouthFuturisticHarnessPanelGagScriptDraw(data) {
 	AssetsItemMouthFuturisticPanelGagScriptDraw(data);
 }
+
+/** @type {DynamicBeforeDrawCallback} */
 function AssetsItemMouthFuturisticHarnessPanelGagBeforeDraw(data) {
 	return AssetsItemMouthFuturisticPanelGagBeforeDraw(data);
 }

@@ -452,6 +452,10 @@ Gloves,LatexElbowGloves,Latex Elbow Gloves
 Gloves,FishnetGloves, Fishnet Gloves
 Gloves,HaremGlove,Harem Gloves
 Gloves,BikerGloves,Biker Gloves
+LeftHand,,Left Hand
+LeftHand,Rings,Rings
+RightHand,,Right Hand
+RightHand,Rings,Rings
 Bracelet,,Bracelet
 Bracelet,BowBand,Bow Band
 Bracelet,KinkBracelet, Kinky Band
@@ -982,7 +986,6 @@ ItemArms,FurStraitJacket,Fur Straitjacket
 ItemArms,Bolero,Bolero Straitjacket
 ItemArms,DuctTape,Duct Tape
 ItemArms,BitchSuit,Pet Suit
-ItemArms,BitchSuitExposed,Pet Suit Exposed
 ItemArms,CollarLeashHolding,Holding Leash
 ItemArms,StraitDress,Strait Dress
 ItemArms,StraitDressOpen,Open Crotch Strait Dress

@@ -12,6 +12,7 @@ function InventoryItemDevicesSybianClick() {
 	VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 }
 
+/** @type {DynamicScriptDrawCallback} */
 function AssetsItemDevicesSybianScriptDraw(data) {
 	VibratorModeScriptDraw(data);
 }

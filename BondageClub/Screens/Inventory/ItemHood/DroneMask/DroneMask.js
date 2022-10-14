@@ -40,7 +40,7 @@ function InventoryItemHoodDroneMaskExit() {
 	InventoryItemHeadDroneMaskExit();
 }
 
-// Drawing function for tag text
+/** @type {DynamicAfterDrawCallback} */
 function AssetsItemHoodDroneMaskAfterDraw({
     C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color,
 }) {

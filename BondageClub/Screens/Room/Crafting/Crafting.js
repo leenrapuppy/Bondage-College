@@ -22,8 +22,8 @@ var CraftingPropertyList = [
 	{ Name: "Normal", Allow : function(Item) { return true; } },
 	{ Name: "Large", Allow : function(Item) { return CraftingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); } },
 	{ Name: "Small", Allow : function(Item) { return CraftingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); } },
-	{ Name: "Thick", Allow : function(Item) { return CraftingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy"]); } },
-	{ Name: "Thin", Allow : function(Item) { return CraftingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy"]); } },
+	{ Name: "Thick", Allow : function(Item) { return CraftingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy", "BlindTotal"]); } },
+	{ Name: "Thin", Allow : function(Item) { return CraftingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy", "BlindTotal"]); } },
 	{ Name: "Secure", Allow : function(Item) { return true; } },
 	{ Name: "Loose", Allow : function(Item) { return true; } },
 	{ Name: "Decoy", Allow : function(Item) { return true; } },
@@ -138,7 +138,7 @@ function CraftingRun() {
 				DrawTextFit(Craft.Name, X + 295, Y + 25, 315, "Black", "Silver");
 				for (let Item of Player.Inventory)
 					if (Item.Asset.Name == Craft.Item) {
-						DrawImageResize("Assets/" + Player.AssetFamily + "/" + Item.Asset.Group.Name + "/Preview/" + Item.Asset.Name + ".png", X + 3, Y + 3, 135, 135);
+						DrawImageResize("Assets/" + Player.AssetFamily + "/" + Item.Asset.DynamicGroupName + "/Preview/" + Item.Asset.Name + ".png", X + 3, Y + 3, 135, 135);
 						DrawTextFit(Item.Asset.Description, X + 295, Y + 70, 315,  "Black", "Silver");
 						DrawTextFit(TextGet("Property" + Craft.Property), X + 295, Y + 115, 315, "Black", "Silver");
 						if ((Craft.Lock != null) && (Craft.Lock != ""))
@@ -247,7 +247,7 @@ function CraftingRun() {
 		DrawCharacter(CraftingPreview, -100, 100, 2, false);
 		DrawCharacter(CraftingPreview, 700, 100, 0.9, false);
 		DrawButton(880, 900, 90, 90, "", "white", `Icons/${CraftingNakedPreview ? "Dress" : "Naked"}.png`);
-		ItemColorDraw(CraftingPreview, CraftingSelectedItem.Asset.Group.Name, 1200, 25, 775, 950, true);
+		ItemColorDraw(CraftingPreview, CraftingSelectedItem.Asset.DynamicGroupName, 1200, 25, 775, 950, true);
 	}
 
 }
@@ -532,7 +532,7 @@ function CraftingClick() {
 			return null;
 		} else if (MouseIn(1843, 598, 64, 64)) {
 			CraftingModeSet("Color");
-			const Item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.Group.Name);
+			const Item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.DynamicGroupName);
 			ItemColorLoad(CraftingPreview, Item, 1200, 25, 775, 950, true);
 			ItemColorOnExit((c, i) => {
 				CraftingModeSet("Name");
@@ -562,7 +562,7 @@ function CraftingClick() {
 			CraftingNakedPreview = !CraftingNakedPreview;
 			CraftingUpdatePreview();
 		} else if (MouseIn(1200, 25, 775, 950)) {
-			ItemColorClick(CraftingPreview, CraftingSelectedItem.Asset.Group.Name, 1200, 25, 775, 950, true);
+			ItemColorClick(CraftingPreview, CraftingSelectedItem.Asset.DynamicGroupName, 1200, 25, 775, 950, true);
 			setTimeout(CraftingRefreshPreview, 100);
 		}
 		return;
@@ -575,7 +575,7 @@ function CraftingClick() {
  * @returns {void} - Nothing
  * */
 function CraftingRefreshPreview() {
-	let Item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.Group.Name);
+	let Item = InventoryGet(CraftingPreview, CraftingSelectedItem.Asset.DynamicGroupName);
 	if ((Item != null) && (Item.Color != null)) {
 		CraftingSelectedItem.Color = Array.isArray(Item.Color) ? Item.Color.join(",") : Item.Color || "";
 		CraftingUpdatePreview();

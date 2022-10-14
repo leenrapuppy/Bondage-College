@@ -34,6 +34,7 @@ interface AssetGroupDefinition {
 	PreviewZone?: [number, number, number, number];
 	DynamicGroupName?: AssetGroupName;
 	MirrorActivitiesFrom?: string;
+	ColorSuffix?: Record<string, string>;
 }
 
 interface AssetDefinition {

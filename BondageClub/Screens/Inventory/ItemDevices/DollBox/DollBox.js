@@ -78,7 +78,7 @@ function InventoryItemDevicesDollBoxChange() {
 	}
 }
 
-// Drawing function for the after-render
+/** @type {DynamicAfterDrawCallback} */
 function AssetsItemDevicesDollBoxAfterDraw({C, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color}) {
 	if (L === "_Text") {
 		// We set up a canvas

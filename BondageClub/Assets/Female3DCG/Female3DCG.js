@@ -1714,7 +1714,81 @@ var AssetFemale3DCG = [
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
-
+	{
+		Group: "LeftHand",
+		Priority: 28,
+		Default: false,
+		Clothing: true,
+		Underwear: true,
+		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "AllFours", "OverTheHead"],
+		HideForPose: ["TapedHands", "BackBoxTie", "BackElbowTouch"],
+		PreviewZone: [183, 360, 135, 135],
+		Asset: [
+			{
+				/*
+				To allow rings to have more diversity, they have been built as a modular item.
+				If you wish to add more rings, add the corresponding layers to the left and right hand groups and
+				also add the corresponding modules to the extended menu.
+				*/
+				Name: "Rings", Value: 0, DefaultColor: ["Default", "Default", "Default", "Default", "#A48537", "Default", "#707070", "#00D307"], HideForPose: ["BackElbowTouch", "TapedHands", "BackBoxTie"], Extended: true, AlwaysExtend: true,
+				Layer: [
+					//Thumb
+					{ Name: "ThumbSteel", HasType: false, AllowModuleTypes: ["t1"] },
+					//Index
+					{ Name: "IndexSteel", HasType: false, AllowModuleTypes: ["i1"] },			
+					//Middle
+					{ Name: "MiddleSteel", HasType: false, AllowModuleTypes: ["m1"] },					
+					//Ring
+					{ Name: "RingSteel", HasType: false, AllowModuleTypes: ["r1"] },
+					{ Name: "Wedding", HasType: false, AllowModuleTypes: ["r2"] },				
+					//Pinkie
+					{ Name: "PinkieSteel", HasType: false, AllowModuleTypes: ["p1"] },
+					{ Name: "HonorBase", HasType: false, AllowModuleTypes: ["p2"] },
+					{ Name: "HonorJewels", HasType: false, AllowModuleTypes: ["p2"] },
+					
+				],
+			},
+			
+		],
+		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
+	},
+	{
+		Group: "RightHand",
+		Priority: 28,
+		Default: false,
+		Clothing: true,
+		Underwear: true,
+		AllowPose: ["TapedHands", "BackBoxTie", "BackElbowTouch", "Yoked", "AllFours", "OverTheHead"],
+		PreviewZone: [183, 360, 135, 135],
+		Asset: [
+			{
+				/*
+				To allow rings to have more diversity, they have been built as a modular item.
+				If you wish to add more rings, add the corresponding layers to the left and right hand groups and
+				also add the corresponding modules to the extended menu.
+				*/
+				Name: "Rings", Value: 0, DefaultColor: ["Default", "Default", "Default", "Default", "#A48537", "Default", "#707070", "#00D307"], HideForPose: ["TapedHands", "BackBoxTie", "BackElbowTouch", "BackCuffs"], Extended: true, AlwaysExtend: true,
+				Layer: [
+					//Thumb
+					{ Name: "ThumbSteel", HasType: false, AllowModuleTypes: ["t1"] },
+					//Index
+					{ Name: "IndexSteel", HasType: false, AllowModuleTypes: ["i1"] },			
+					//Middle
+					{ Name: "MiddleSteel", HasType: false, AllowModuleTypes: ["m1"] },					
+					//Ring
+					{ Name: "RingSteel", HasType: false, AllowModuleTypes: ["r1"] },
+					{ Name: "Wedding", HasType: false, AllowModuleTypes: ["r2"]},				
+					//Pinkie
+					{ Name: "PinkieSteel", HasType: false, AllowModuleTypes: ["p1"] },
+					{ Name: "HonorBase", HasType: false, AllowModuleTypes: ["p2"] },
+					{ Name: "HonorJewels", HasType: false, AllowModuleTypes: ["p2"] },
+					
+				],
+			},
+			
+		],
+		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
+	},
 	{
 		Group: "Bracelet",
 		ParentGroup: "BodyUpper",
@@ -2024,10 +2098,40 @@ var AssetFemale3DCG = [
 		Group: "BodyUpper",
 		Priority: 7,
 		AllowNone: false,
-		AllowColorize: false,
 		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "AllFours", "OverTheHead"],
-		Asset: ["Small", "Normal", "Large", "XLarge"],
-		Color: ["White", "Asian", "Black"]
+		PreviewZone: [0, 150, 500, 500],
+		Asset: [
+			{
+				Name: "Small",
+				Extended: true,
+				Layer: [
+					{ Name: "", ParentGroup: null, HasType: false },
+				],
+			},
+			{
+				Name: "Normal",
+				Extended: true,
+				Layer: [
+					{ Name: "", ParentGroup: null, HasType: false },
+				],
+			},
+			{
+				Name: "Large",
+				Extended: true,
+				Layer: [
+					{ Name: "", ParentGroup: null, HasType: false },
+				],
+			},
+			{
+				Name: "XLarge",
+				Extended: true,
+				Layer: [
+					{ Name: "", ParentGroup: null, HasType: false },
+				],
+			},
+		],
+		Color: ["White", "Asian", "Black"],
+		ColorSuffix: { "HEX_COLOR": "White" },
 	},
 
 	{
@@ -2037,10 +2141,10 @@ var AssetFemale3DCG = [
 		Priority: 9,
 		Top: 462,
 		AllowNone: false,
-		AllowColorize: false,
 		AllowPose: ["LegsClosed", "Kneel", "KneelingSpread", "Spread"],
 		Asset: ["Small", "Normal", "Large", "XLarge"],
 		Color: ["Default", "White", "Asian", "Black"],
+		ColorSuffix: { "HEX_COLOR": "White" },
 		InheritColor: "BodyUpper"
 
 	},
@@ -2255,7 +2359,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "Discreet" }
 		],
-		Color: ["Default", "#803d26", "#aa5555", "#cc3333", "#55aa55", "#5555aa", "#55aaaa", "#aa55aa", "#aaaa55"]
+		Color: ["Default", "#803d26", "#aa5555", "#cc3333", "#55aa55", "#5555aa", "#55aaaa", "#aa55aa", "#aaaa55"],
 	},
 
 	{
@@ -2266,7 +2370,9 @@ var AssetFemale3DCG = [
 		Top: 285,
 		AllowNone: false,
 		Asset: ["Nipples1", "Nipples2", "Nipples3"],
-		Color: ["Default", "#a6665b", "#803d26", "#d68777", "#9b4a2e", "#bb6655"]
+		Color: ["Default", "#a6665b", "#803d26", "#d68777", "#9b4a2e", "#bb6655"],
+		ColorSuffix: { "White": "Default", "Asian": "Default", "Black": "Default" },
+		InheritColor: "BodyUpper",
 	},
 
 	{
@@ -2277,7 +2383,9 @@ var AssetFemale3DCG = [
 		FullAlpha: false,
 		AllowNone: false,
 		Asset: ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"],
-		Color: ["Default", "#6a3628", "#443330", "#222222"]
+		Color: ["Default", "#6a3628", "#443330", "#222222"],
+		ColorSuffix: { "White": "Default", "Asian": "Default", "Black": "Default" },
+		InheritColor: "BodyUpper",
 	},
 
 	// Facial Expression specific
@@ -2334,10 +2442,10 @@ var AssetFemale3DCG = [
 		ParentColor: "BodyUpper",
 		Priority: 27,
 		AllowNone: false,
-		AllowColorize: false,
 		AllowCustomize: false,
 		AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "AllFours"],
 		Asset: [{ Name: "Default", HideForPose: ["BackBoxTie", "BackCuffs", "BackElbowTouch"] }],
+		ColorSuffix: { "HEX_COLOR": "White" },
 		InheritColor: "BodyUpper",
 		Color: ["Default"],
 	},
@@ -2347,9 +2455,9 @@ var AssetFemale3DCG = [
 		ParentColor: "BodyUpper",
 		Priority: 7,
 		AllowNone: false,
-		AllowColorize: false,
 		AllowCustomize: false,
 		Asset: ["Default"],
+		ColorSuffix: { "HEX_COLOR": "White" },
 		InheritColor: "BodyUpper"
 	},
 
@@ -3565,34 +3673,14 @@ var AssetFemale3DCG = [
 				AllowActivityOn: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemBreast", "ItemHands"],
 				Extended: true,
 				DrawLocks: false,
-				HasType: false,
+				// HasType: true,
 				Alpha: [{Group: ["BodyLower"], Pose: ["Kneel"], Masks: [[140, 462, 75, 238], [285, 462, 75, 238], [215 ,545, 70, 155]]}],
 				Layer: [
-					{ Name: "Latex", AllowModuleTypes: ["z0", "z1"], HasType: true, },
-					{ Name: "Straps", AllowPose: ["AllFours"], CopyLayerColor: "Latex", ParentGroup: null, },
-					{ Name: "Lock", ParentGroup: null, LockLayer: true },
+					{ Name: "Latex", },
+					{ Name: "Straps", HasType: false, AllowPose: ["AllFours"], CopyLayerColor: "Latex", ParentGroup: null, },
+					{ Name: "Lock", HasType: false, ParentGroup: null, LockLayer: true },
 				],
 				SelfUnlock: false
-			},
-			{
-				Name: "BitchSuitExposed", Fetish: ["Latex", "Pet"], Priority: 21, Value: 175, Difficulty: 15, SelfBondage: 8, Time: 40, RemoveTime: 30, Random: false, AllowLock: true, DefaultColor: ["#888888", "Default"], Top: 150,
-				Prerequisite: ["NotSuspended", "NotHogtied", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "CanKneel"],
-				Hide: ["Cloth", "ClothLower", "Shoes", "Socks", "ItemBoots", "ItemLegs", "ItemFeet", "ItemHands", "Hands", "Gloves", "Garters"],
-				AllowPose: ["BackElbowTouch", "Kneel", "AllFours"],
-				HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper", "ClothAccessoryPoncho", "NecklaceBodyChainNecklace"],
-				AllowActivePose: ["BackElbowTouch", "Kneel", "AllFours"],
-				SetPose: ["BackElbowTouch", "Kneel"],
-				Effect: ["Block", "Prone", "ForceKneel", "Slow"],
-				Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands"],
-				AllowActivityOn: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands"],
-				Alpha: [{Group: ["BodyLower"], Masks: [[140, 462, 75, 238], [285, 462, 75, 238], [215 ,545, 70, 155]]}],
-				SelfUnlock: false,
-				DrawLocks: false,
-				Layer: [
-					{ Name: "Latex" },
-					{ Name: "Straps", AllowPose: ["AllFours"], CopyLayerColor: "Latex", ParentGroup: null, },
-					{ Name: "Lock", ParentGroup: null, LockLayer: true },
-				]
 			},
 			{ Name: "CollarLeashHolding", Fetish: ["Sadism"], Priority: 36, Value: -1, Difficulty: 1, Time: 3, RemoveTime: 3, Random: false, Prerequisite: ["NotSuspended", "NotHogtied"], SetPose: ["BaseUpper"], Effect: ["Leash"] },
 			{
@@ -3905,9 +3993,9 @@ var AssetFemale3DCG = [
 				DefaultColor: ["#888888", "Default"],
 				Layer:[
 					{ Name: "Arms", AllowPose: ["BackElbowTouch", "AllFours"], AllowColorize: true, ParentGroup: "BodyUpper", },
-					{ Name: "Legs", AllowPose: ["Kneel", "KneelingSpread"], CopyLayerColor: "Arms", ParentGroup: "BodyLower", },
+					{ Name: "Legs", AllowPose: ["Kneel", "KneelingSpread"], HideForPose: ["AllFours"], CopyLayerColor: "Arms", ParentGroup: "BodyLower", },
 					{ Name: "ArmsLock", AllowPose: ["BackElbowTouch", "AllFours"], AllowColorize: true, HideColoring: true, LockLayer: true, },
-					{ Name: "LegsLock", AllowPose: ["Kneel", "KneelingSpread"], CopyLayerColor: "ArmsLock", LockLayer: true, ParentGroup: null, }
+					{ Name: "LegsLock", AllowPose: ["Kneel", "KneelingSpread"], HideForPose: ["AllFours"], CopyLayerColor: "ArmsLock", LockLayer: true, ParentGroup: null, }
 				]
 			},
 			{
@@ -5843,7 +5931,7 @@ var AssetFemale3DCG = [
 				Tint: [{Color: 0, Strength: 0.1}],
 			},
 			{ Name: "InteractiveVRHeadset", Difficulty: 6, Value: 80, Time: 3, DefaultColor: ["Default", "Default"], Random: false, AllowLock: true, DrawLocks: false, Hide: ["Mask", "Glasses"], HideItem: ["ItemNoseNoseRing"], FuturisticRecolor: true,
-				Effect: ["VR"], AllowEffect: ["BlindHeavy", "Prone", "VRAvatars", "HideRestraints", "KinkyDungeonParty"], Extended: true, AlwaysExtend: true, Audio: "FuturisticApply",
+				Effect: ["VR"], AllowEffect: ["BlindHeavy", "BlindTotal", "Prone", "VRAvatars", "HideRestraints", "KinkyDungeonParty"], Extended: true, AlwaysExtend: true, Audio: "FuturisticApply",
 				Layer: [
 					{ Name: "Body", HasType: false},
 					{ Name: "Display", HasType: false},
