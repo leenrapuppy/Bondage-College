@@ -359,6 +359,11 @@ type ChatRoomMessageExtractor =
  * the message's contents inflight and/or a `skip` property if you'd like
  * to cause a subsequent handler to not be called.
  *
+ * @warning Note that the in-flight message is only escaped when it gets
+ * sent to the chat log via ChatRoomMessageDisplay. If you're manipulating
+ * that by any other means, make sure to call ChatRoomEscapeEntities on its
+ * content to close any injection attacks.
+ *
  * A few notable priority values are:
  *
  * -200: ghosted player cutoff
