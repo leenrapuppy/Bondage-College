@@ -547,6 +547,11 @@ interface ExpressionTrigger {
 	Timer: number;
 }
 
+/**
+ * The internal Asset definition of an asset.
+ *
+ * See AssetDefinition in Female3DCG.d.ts for documentation.
+ */
 interface Asset {
 	Name: string;
 	Description: string;
@@ -562,7 +567,7 @@ interface Asset {
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: string[];
 	Effect?: EffectName[];
-	Bonus?: string;
+	Bonus?: AssetBonusName;
 	Block?: AssetGroupItemName[];
 	Expose: string[];
 	Hide?: string[];
