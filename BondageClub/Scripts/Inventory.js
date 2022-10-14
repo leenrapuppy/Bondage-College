@@ -528,6 +528,25 @@ function InventoryWearCraftModular(Item, Type) {
 }
 
 /**
+* Helper function for `InventoryWearCraft` for handling Typed items
+* @param {Item} Item - The item being applied
+* @param {string} Type - The type string for a modular item
+* @returns {void}
+*/
+function InventoryWearCraftTyped(Item, Type) {
+	const Config = AssetFemale3DCGExtended[Item.Asset.Group.Name][Item.Asset.Name].Config;
+	if ((Config == null) || (Config.Options == null)) {
+		return;
+	}
+	for (const O of Config.Options) {
+		if (O.Name == Type) {
+			Item.Property = JSON.parse(JSON.stringify(O.Property));
+			return;
+		}
+	}
+}
+
+/**
 * Sets the craft and type on the item, uses the achetype properties if possible
 * @param {Item} Item - The item being applied
 * @param {Object} [Craft] - The crafting properties of the item
@@ -536,14 +555,15 @@ function InventoryWearCraft(Item, Craft) {
 	if ((Item == null) || (Item.Asset == null) || (Craft == null)) return;
 	Item.Craft = Craft;
 	if ((Craft.Type != null) && (Item.Asset.AllowType != null) && (Item.Asset.AllowType.indexOf(Craft.Type) >= 0)) {
-		if (Item.Asset.Extended && (Item.Asset.Archetype == "typed")) {
-			let Config = AssetFemale3DCGExtended[Item.Asset.Group.Name][Item.Asset.Name].Config;
-			if ((Config != null) && (Config.Options != null))
-				for (let O of Config.Options)
-					if (O.Name == Craft.Type)
-						return Item.Property = JSON.parse(JSON.stringify(O.Property));
-		} else if (Item.Asset.Extended && (Item.Asset.Archetype == "modular")) {
-			InventoryWearCraftModular(Item, Craft.Type);
+		if (Item.Asset.Extended) {
+			switch(Item.Asset.Archetype) {
+				case "typed":
+					InventoryWearCraftTyped(Item, Craft.Type);
+					break;
+				case "modular":
+					InventoryWearCraftModular(Item, Craft.Type);
+					break;
+			}
 		}
 		if (Item.Property == null) Item.Property = {};
 		Item.Property.Type = Craft.Type;
