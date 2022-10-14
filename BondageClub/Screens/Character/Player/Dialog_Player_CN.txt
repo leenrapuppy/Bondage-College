@@ -485,6 +485,8 @@ You cannot unlock yourself
 你不能自己解锁
 This zone is out of reach from another item
 这个区域目前因其他物品影响无法触及
+Your owner doesn't allow you to access that zone
+你的主人不允许你接触该区域
 Another item is blocking access to this lock
 另一个物品挡住了这个锁
 You cannot access your items
@@ -1065,6 +1067,22 @@ Your owner is now allowing you to change your nickname.
 你的主人现在允许你改变你的昵称。
 Your owner is now preventing you from changing your nickname.
 你的主人现在禁止你改变你的昵称。
+Your owner has changed the Bondage Club areas you can access.
+你的主人改变了你能够访问的束缚俱乐部区域。
+Your owner has changed the appearance zones you can modify.
+你的主人改变了你能够修改的外观区域。
+Your owner has changed the item zones you can access.
+你的主人改变了你能够接触的物品区域。
+Your owner has changed your list of forbidden words.  You can use /forbiddenwords to review the words.
+你的主人改变了你的禁止词列表。你可以使用/forbiddenwords来查看这些词。
+Saying a forbidden word is blocked by your owner.  You can use /forbiddenwords to review the words.
+你被你的主人禁止说出禁止词。你可以使用/forbiddenwords来查看这些词。
+You said a forbidden word and will be silenced for 5 minutes.  You can use /forbiddenwords to review the words.
+你因为说出禁止词而被禁言5分钟。你可以使用/forbiddenwords来查看这些词。
+You said a forbidden word and will be silenced for 15 minutes.  You can use /forbiddenwords to review the words.
+你因为说出禁止词而被禁言10分钟。你可以使用/forbiddenwords来查看这些词。
+You said a forbidden word and will be silenced for 30 minutes.  You can use /forbiddenwords to review the words.
+你因为说出禁止词而被禁言30分钟。你可以使用/forbiddenwords来查看这些词。
 Your lover is now allowing you to use lovers locks on yourself.
 你的恋人现在允许你对自己使用恋人锁。
 Your lover is now preventing you from using lovers locks on yourself.
@@ -3641,26 +3659,12 @@ SourceCharacter unzips DestinationCharacter suit.
 SourceCharacter解开了DestinationCharacter套装拉链。
 SourceCharacter attaches a wand to DestinationCharacter suit.
 SourceCharacter将一根按摩棒DestinationCharacter附在的套装上。
-Configure suit
-配置套装
-Zip or unzip the suit
-拉上或解开套装拉链
-Select position
-选择姿势
-Zipper
-拉链
-Position
-姿势
-Kneeling
-跪下
-SourceCharacter helps TargetCharacter up into a kneeling position.
-SourceCharacter帮助TargetCharacter起身，跪在地上。
-SourceCharacter guides TargetCharacter down onto all fours.
-SourceCharacter帮助TargetCharacter俯下身子四肢着地。
-SourceCharacter sits up on her knees.
-SourceCharacter起身，跪在地上。
-SourceCharacter carefully lowers herself down onto all fours.
-SourceCharacter小心地俯下身子，四肢着地。
+Configure suit's zippers
+配置套装的拉链
+Exposed
+露出
+SourceCharacter unzips DestinationCharacter suit and fully exposes her breasts and pussy.
+SourceCharacter拉开了DestinationCharacter套装上的拉链，将她的胸部和阴部完全展示出来。
 Turn Off
 关闭
 High
@@ -4967,8 +4971,12 @@ SourceCharacter uses the straps on DestinationCharacter to do a hogtie harness.
 SourceCharacter用束带给DestinationCharacter绑了一个驷马缚。
 Arrange slime
 调整史莱姆
+Select position
+选择姿势
 Select slime type
 选择史莱姆类型
+Position
+姿势
 Slime Type
 史莱姆类型
 Torso only
@@ -5351,6 +5359,8 @@ SourceCharacter uses a large bit gag on DestinationCharacter bridle gag.
 SourceCharacter在DestinationCharacter缰绳口塞上使用了大号衔铁。
 SourceCharacter uses a tongue depressor on DestinationCharacter bridle gag.
 SourceCharacter在DestinationCharacter缰绳口塞上使用了舌压迫衔铁。
+SourceCharacter uses a ballgag on DestinationCharacter bridle gag.
+SourceCharacter在DestinationCharacter缰绳口塞上使用了口球。
 SourceCharacter uses a dildo gag on DestinationCharacter bridle gag.
 SourceCharacter在DestinationCharacter缰绳口塞上使用了假阳具衔铁。
 Select Extra Straps
@@ -5683,6 +5693,34 @@ SourceCharacter stitches DestinationCharacter left eye with a spiraling thread.
 SourceCharacter将DestinationCharacter左眼用绕圈的走线缝在一起。
 SourceCharacter stitches DestinationCharacter left eye with crossed threads.
 SourceCharacter将DestinationCharacter左眼用十字形的走线缝在一起。
+Choose your rings
+选择你的戒指
+Thumb
+大拇指
+Choose a ring for the Thumb
+为大拇指选择一个戒指
+Steel Ring
+钢戒指
+Index
+食指
+Choose a ring for the Index
+为食指选择一个戒指
+Middle finger
+中指
+Choose a ring for the Middle finger
+为中指选择一个戒指
+Ring finger
+无名指
+Choose a ring for the Ring finger
+为无名指选择一个戒指
+Wedding Ring
+结婚戒指
+Pinkie
+小拇指
+Choose a ring for the Pinkie
+为小拇指选择一个戒指
+Honor Ring
+荣誉戒指
 [GGTS] GGTS control public room.  Be good girl SourceCharacter.
 [GGTS] 该公开房间由GGTS控制。SourceCharacter，做个好姑娘。
 [GGTS] Launching GGTS private room.  Time counts triple.  GGTS more active.  Good girl follow commands.  Three strikes equal punishment.  GGTS in control.  Be good girl SourceCharacter.
@@ -5899,6 +5937,8 @@ SourceCharacter将DestinationCharacter左眼用十字形的走线缝在一起。
 [GGTS] GGTS更改了SourceCharacter的致盲等级。
 [GGTS] GGTS transform SourceCharacter restraints.
 [GGTS] GGTS转换了SourceCharacter的拘束器。
+[GGTS] GGTS change SourceCharacter gag level.
+[GGTS] GGTS更改了SourceCharacter塞口等级。
 [GGTS] GGTS bring penetration machine to replace SourceCharacter belt.
 [GGTS] GGTS用炮机更替了SourceCharacter的腰带。
 [GGTS] GGTS penetration machine lock back SourceCharacter belt and leave.
@@ -5963,3 +6003,7 @@ SourceCharacter changes the chain style on DestinationCharacter chest.
 SourceCharacter改变了DestinationCharacter胸前的锁链样式。
 OldNick is now known as NewNick.
 OldNick现在的昵称是NewNick。
+Select body overlay.
+选择身体外观。
+Default
+默认

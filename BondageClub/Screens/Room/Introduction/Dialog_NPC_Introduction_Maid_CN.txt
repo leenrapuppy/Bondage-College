@@ -451,8 +451,8 @@ Your introduction class is done.  I hope you have fun in the club!
 You were a great teacher.
 你是一位很棒的老师。
 ###_NPC
-Oh, well thank you!  (She smiles.)  You're a good student.
-嗯，非常感谢。（她的脸上露出微笑。）你是一位好学生。
+Oh
+哦
 ###_PLAYER
 Thanks!  Have a great time.  (Leave her.)
 谢谢！玩得愉快。（离开她。）
