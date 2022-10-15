@@ -7576,6 +7576,8 @@ var AssetFemale3DCG = [
 					{ Name: "MiscFlogger", AllowModuleTypes: ["m0"], ColorGroup: "Misc", },
 					{ Name: "MiscGag", AllowModuleTypes: ["m0"], ColorGroup: "Misc", },
 					{ Name: "Back", Top: 190, },
+					{ Name: "LightsBase", Top: 190, AllowColorize: false, },
+					{ Name: "BlinkingLights", Top: 190, HasImage: false, AllowColorize: false, },
 					{ Name: "Text", Top: 190, HasImage: false, },
 					{ Name: "Arrow", AllowModuleTypes: ["a0"], },
 					{ Name: "Arrow2", CopyLayerColor: "Arrow", AllowModuleTypes: ["a1"], },

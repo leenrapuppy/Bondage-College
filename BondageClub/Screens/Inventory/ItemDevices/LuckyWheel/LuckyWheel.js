@@ -171,6 +171,7 @@ function InventoryItemDevicesLuckyWheelTrigger() {
 	ChatRoomPublishCustomAction("LuckyWheelStartTurning", true, Dictionary);
 }
 
+/** @type {DynamicScriptDrawCallback} */
 function AssetsItemDevicesLuckyWheelScriptDraw({ C, PersistentData, Item }) {
 	const Data = PersistentData();
 	const Properties = Item.Property || {};
@@ -181,6 +182,7 @@ function AssetsItemDevicesLuckyWheelScriptDraw({ C, PersistentData, Item }) {
 	if (typeof Data.AnimationAngleState !== "number") Data.AnimationAngleState = TargetAngle;
 	if (typeof Data.AnimationSpeed !== "number" || Data.AnimationAngleState == TargetAngle) Data.AnimationSpeed = ItemDevicesLuckyWheelAnimationMaxSpeed;
 	if (typeof Data.ChangeTime !== "number") Data.ChangeTime = CommonTime() + FrameTime;
+	if (typeof Data.LightStep !== "number" || isNaN(Data.LightStep)) Data.LightStep = 0;
 
 	if (Data.AnimationAngleState != TargetAngle && Data.ChangeTime < CommonTime()) {
 		Data.AnimationSpeed = Math.max(Data.AnimationSpeed - ItemDevicesLuckyWheelAnimationSpeedStep, ItemDevicesLuckyWheelAnimationMinSpeed);
@@ -197,7 +199,44 @@ function AssetsItemDevicesLuckyWheelScriptDraw({ C, PersistentData, Item }) {
 	}
 }
 
+/** @type {DynamicAfterDrawCallback} */
 function AssetsItemDevicesLuckyWheelAfterDraw({ C, PersistentData, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color, Opacity }) {
+	const height = 500;
+	const width = 500;
+
+	if (L === "_BlinkingLights") {
+		const Data = PersistentData();
+		const CurrentAngle = Data.AnimationAngleState;
+		const Properties = Property || {};
+
+		/** Only draw lights when spinning */
+		if (!Properties.TargetAngle || Properties.TargetAngle === CurrentAngle)
+			return;
+
+		const tmpCanvas = AnimationGenerateTempCanvas(C, A, width, height);
+		const ctx = tmpCanvas.getContext("2d");
+
+		if (Data.AnimationSpeed < 2 * ItemDevicesLuckyWheelAnimationMinSpeed) {
+			// Start blinking
+			Data.LightStep = (++Data.LightStep) % 2;
+
+			if (Data.LightStep === 0)
+				return;
+
+			const image = "Assets/Female3DCG/ItemDevices/LuckyWheel_BlinkingLights_All.png";
+			DrawImageCanvas(image, ctx, 0, 0, AlphaMasks);
+		} else {
+			// Light trace
+			Data.LightStep = (++Data.LightStep) % 3;
+
+			const image = "Assets/Female3DCG/ItemDevices/LuckyWheel_BlinkingLights_" + (Data.LightStep + 1) + ".png";
+			DrawImageCanvas(image, ctx, 0, 0, AlphaMasks);
+		}
+
+		drawCanvas(tmpCanvas, X, Y, AlphaMasks);
+		drawCanvasBlink(tmpCanvas, X, Y, AlphaMasks);
+	}
+
 	if (L === "_Text") {
 		const Data = PersistentData();
 		const CurrentAngle = Data.AnimationAngleState;
@@ -212,8 +251,6 @@ function AssetsItemDevicesLuckyWheelAfterDraw({ C, PersistentData, A, X, Y, L, P
 		const nbTexts = Math.max(Math.min(ItemDevicesLuckyWheelMaxTextLength, storedTexts.length), ItemDevicesLuckyWheelMinTexts);
 
 		// Draw
-		const height = 500;
-		const width = 500;
 		const diameter = height / 2;
 		const degreeToRadians = (degrees) => degrees * Math.PI / 180;
 		const tmpCanvas = AnimationGenerateTempCanvas(C, A, width, height);
