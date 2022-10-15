@@ -547,6 +547,41 @@ function InventoryWearCraftTyped(Item, Type) {
 }
 
 /**
+* Helper function for `InventoryWearCraft` for handling extended items that lack an archetype
+* @param {Item} Item - The item being applied
+* @param {string} Type - The type string for a modular item
+* @returns {void}
+*/
+function InventoryWearCraftMisc(Item, Type) {
+	// Emulate the dialog focus screen so we can safely call `Load`, `SetType` and `Exit`
+	const C = CharacterGetCurrent();
+	C.FocusGroup = AssetGroup.find((a) => a.Name == Item.Asset.Group.Name);
+	DialogFocusItem = Item;
+
+	// Check whether a custom `SetType` function is defined or, if not, try to use the more
+	// generic `ExtendedItemSetType` function with the items Options
+	const Prefix = ExtendedItemFunctionPrefix();
+	if ((Prefix + "SetType" in window) || !(Prefix + "Options" in window)) {
+		CommonCallFunctionByNameWarn(Prefix + "Load");
+		CommonCallFunctionByName(Prefix + "SetType", Type);
+		CommonCallFunctionByName(Prefix + "Exit");
+	} else {
+		/** @type {ExtendedItemOption[]} */
+		const ItemOptions = window[Prefix + "Options"];
+		const Option = ItemOptions.find((o) => o.Name == Type);
+		if (Option != undefined) {
+			ExtendedItemSetType(C, ItemOptions, Option);
+		} else {
+			CommonCallFunctionByNameWarn(Prefix + "Load");
+			CommonCallFunctionByName(Prefix + "Exit");
+		}
+	}
+
+	C.FocusGroup = null;
+	DialogFocusItem = null;
+}
+
+/**
 * Sets the craft and type on the item, uses the achetype properties if possible
 * @param {Item} Item - The item being applied
 * @param {Object} [Craft] - The crafting properties of the item
@@ -556,12 +591,16 @@ function InventoryWearCraft(Item, Craft) {
 	Item.Craft = Craft;
 	if ((Craft.Type != null) && (Item.Asset.AllowType != null) && (Item.Asset.AllowType.indexOf(Craft.Type) >= 0)) {
 		if (Item.Asset.Extended) {
-			switch(Item.Asset.Archetype) {
+			const Archetype = Item.Asset.Archetype || "misc";
+			switch(Archetype) {
 				case "typed":
 					InventoryWearCraftTyped(Item, Craft.Type);
 					break;
 				case "modular":
 					InventoryWearCraftModular(Item, Craft.Type);
+					break;
+				case "misc":
+					InventoryWearCraftMisc(Item, Craft.Type);
 					break;
 			}
 		}

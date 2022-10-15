@@ -115,8 +115,6 @@ function CraftingUpdatePreview() {
 	const ItemAsset = CraftingSelectedItem.Asset;
 	if (ItemAsset == null) {
 		return false;
-	} else if (ItemAsset.Extended && (ItemAsset.Archetype == null)) {
-		return false;  // TODO: Add support for extended items that lack an archetype
 	} else {
 		return (ItemAsset.AllowType != null) && (ItemAsset.AllowType.length > 0);
 	}
