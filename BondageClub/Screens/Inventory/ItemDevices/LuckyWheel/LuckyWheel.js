@@ -166,6 +166,25 @@ function InventoryItemDevicesLuckyWheelTrigger() {
 	ChatRoomPublishCustomAction("LuckyWheelStartTurning", true, Dictionary);
 }
 
+function InventoryItemDevicesLuckyWheelStoppedTurning(C, Item, Angle) {
+	if (!C.IsPlayer() || Item.Asset.Name !== "LuckyWheel") return;
+
+	let storedTexts = Item.Property.Texts && Array.isArray(Item.Property.Texts) ? Item.Property.Texts.filter(T => typeof T === "string") : [];
+	storedTexts = storedTexts.map(T => T.substring(0, ItemDevicesLuckyWheelMaxTextLength));
+	const nbTexts = Math.max(Math.min(ItemDevicesLuckyWheelMaxTextLength, storedTexts.length), ItemDevicesLuckyWheelMinTexts);
+	const sectorAngleSize = 360 / nbTexts;
+
+	const landedIn = Math.round((Angle + 270) / sectorAngleSize);
+	const section = storedTexts[landedIn];
+
+	/** @type {ChatMessageDictionary} */
+	let Dictionary = [
+		{ Tag: "SourceCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+		{ Tag: "SectionName", Text: section },
+	];
+	ChatRoomPublishCustomAction("LuckyWheelStoppedTurning", true, Dictionary);
+}
+
 /** @type {DynamicScriptDrawCallback} */
 function AssetsItemDevicesLuckyWheelScriptDraw({ C, PersistentData, Item }) {
 	const Data = PersistentData();
@@ -188,6 +207,7 @@ function AssetsItemDevicesLuckyWheelScriptDraw({ C, PersistentData, Item }) {
 		// Stop detected
 		if (Data.AnimationSpeed == ItemDevicesLuckyWheelAnimationMinSpeed && Math.abs(Data.AnimationAngleState - TargetAngle) <= ItemDevicesLuckyWheelAnimationMinSpeed) {
 			Data.AnimationAngleState = TargetAngle;
+			InventoryItemDevicesLuckyWheelStoppedTurning(C, Item, TargetAngle);
 		}
 
 		Data.ChangeTime = CommonTime() + FrameTime;
