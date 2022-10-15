@@ -5696,7 +5696,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "CollarLeash", Fetish: ["Leather"], Value: 20, Difficulty: 6, Time: 5, Random: false, AllowLock: true, Audio: "LockSmall", Prerequisite: "Collared", AllowPose: ["AllFours", "Hogtied", "SuspensionHogtied"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }],
+				Name: "CollarLeash", Fetish: ["Leather"], Value: 20, Difficulty: 6, Time: 5, Random: false, AllowLock: true, Audio: "LockSmall", Prerequisite: "Collared", AllowPose: ["AllFours", "Hogtied"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }],
 				PoseMapping: { AllFours: "Hogtied", SuspensionHogtied: "Hogtied", }, DynamicBeforeDraw: true, Effect: ["Leash"], AllowEffect: ["Leash", "Block", "IsLeashed"],
 				Layer: [
 					{ Name: "Leash" },
@@ -5705,7 +5705,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "ChainLeash", Fetish: ["Metal"], Value: 25, Difficulty: 6, Time: 5, Random: false, AllowLock: true, Audio: "LockSmall", Prerequisite: "Collared", AllowPose: ["AllFours", "Hogtied", "SuspensionHogtied"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }],
+				Name: "ChainLeash", Fetish: ["Metal"], Value: 25, Difficulty: 6, Time: 5, Random: false, AllowLock: true, Audio: "LockSmall", Prerequisite: "Collared", AllowPose: ["AllFours", "Hogtied"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }],
 				PoseMapping: { AllFours: "Hogtied", SuspensionHogtied: "Hogtied", }, DynamicBeforeDraw: true, Effect: ["Leash"], AllowEffect: ["Leash", "Block", "IsLeashed"],
 				Layer: [
 					{ Name: "Leash" },

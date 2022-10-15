@@ -812,7 +812,7 @@ function CharacterDeleteAllOnline() {
 /**
  * Adds a pose to a character's pose list, does not add it if it's already there
  * @param {Character} C - Character for which to add a pose to its list
- * @param {string} NewPose - The name of the pose to add
+ * @param {AssetPoseName[]} NewPose - The name of the pose to add
  * @returns {void} - Nothing
  */
 function CharacterAddPose(C, NewPose) {
@@ -824,7 +824,7 @@ function CharacterAddPose(C, NewPose) {
 /**
  * Checks whether the given character can change to the named pose unaided
  * @param {Character} C - The character to check
- * @param {string} poseName - The name of the pose to check for
+ * @param {AssetPoseName} poseName - The name of the pose to check for
  * @returns {boolean} - Returns true if the character has no conflicting items and is not prevented from changing to
  * the provided pose
  */
@@ -839,8 +839,8 @@ function CharacterCanChangeToPose(C, poseName) {
 /**
  * Checks if a certain pose is whitelisted and available for the pose menu
  * @param {Character} C - Character to check for the pose
- * @param {string|undefined} Type - Pose type to check for within items
- * @param {string} Pose - Pose to check for whitelist
+ * @param {AssetPoseCategory|undefined} Type - Pose type to check for within items
+ * @param {AssetPoseName} Pose - Pose to check for whitelist
  * @returns {boolean} - TRUE if the character has the pose available
  */
 function CharacterItemsHavePoseAvailable(C, Type, Pose) {
@@ -864,7 +864,7 @@ function CharacterItemsHavePoseAvailable(C, Type, Pose) {
 /**
  * Checks if a character has a pose from items (not active pose unless an item lets it through)
  * @param {Character} C - Character to check for the pose
- * @param {string} Pose - Pose to check for within items
+ * @param {AssetPoseName} Pose - Pose to check for within items
  * @param {boolean} [ExcludeClothes=false] - Ignore clothing items in the check
  * @returns {boolean} - TRUE if the character has the pose
  */
@@ -876,7 +876,7 @@ function CharacterItemsHavePose(C, Pose, ExcludeClothes = false) {
 /**
  * Checks whether the items on a character set a given pose on the character
  * @param {Character} C - The character to check
- * @param {string} pose - The name of the pose to check for
+ * @param {AssetPoseName} pose - The name of the pose to check for
  * @param {boolean} [excludeClothes=false] - Ignore clothing items in the check
  * @returns {boolean} - Returns true if the character is wearing an item that sets the given pose, false otherwise
  */
@@ -1420,7 +1420,7 @@ function CharacterFullRandomRestrain(C, Ratio, Refresh) {
 /**
  * Sets a new pose for the character
  * @param {Character} C - Character for which to set the pose
- * @param {string} NewPose - Name of the pose to set as active
+ * @param {AssetPoseName} NewPose - Name of the pose to set as active
  * @param {boolean} [ForceChange=false] - TRUE if the set pose(s) should overwrite current active pose(s)
  * @returns {void} - Nothing
  */

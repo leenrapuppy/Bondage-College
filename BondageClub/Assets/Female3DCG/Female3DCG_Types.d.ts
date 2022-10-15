@@ -21,8 +21,8 @@ interface AssetGroupDefinition {
 	Hide?: AssetGroupName[];
 	Block?: AssetGroupItemName[];
 	Zone?: [number, number, number, number][];
-	SetPose?: string[];
-	AllowPose?: string[];
+	SetPose?: AssetPoseName[];
+	AllowPose?: AssetPoseName[];
 	AllowExpression?: string[];
 	Effect?: EffectName[];
 	MirrorGroup?: AssetGroupName;
@@ -33,7 +33,7 @@ interface AssetGroupDefinition {
 	FullAlpha?: boolean;
 	Blink?: boolean;
 	InheritColor?: AssetGroupName;
-	FreezeActivePose?: string[];
+	FreezeActivePose?: AssetPoseCategory[];
 	PreviewZone?: [number, number, number, number];
 	DynamicGroupName?: AssetGroupName;
 	MirrorActivitiesFrom?: AssetGroupItemName;
@@ -151,7 +151,7 @@ interface AssetDefinition {
 	 *
 	 * Works like DynamicGroupName, but for poses.
 	 */
-	PoseMapping?: { [index: string]: string};
+	PoseMapping?: AssetPoseMapping;
 
 	/** A list of poses that wearing the asset also enables. */
 	AllowActivePose?: AssetPoseName[];
@@ -272,7 +272,7 @@ interface AssetDefinition {
 	AvailableLocations?: string[];
 
 	OverrideHeight?: AssetOverrideHeight;
-	FreezeActivePose?: string[];
+	FreezeActivePose?: AssetPoseCategory[];
 
 	/** Whether the game should auto-add a Lock layer to the asset. */
 	DrawLocks?: boolean;
@@ -351,7 +351,7 @@ interface AssetLayerDefinition {
 	ParentGroup?: AssetGroupName | "",
 
 	/** A list of poses that layer supports. */
-	AllowPose?: string[];
+	AllowPose?: AssetPoseName[];
 
 	/** The drawing priority for that layer. Defaults to the asset's priority. */
 	Priority?: number;
@@ -385,8 +385,8 @@ interface AssetLayerDefinition {
 	LockLayer?: boolean;
 
 	MirrorExpression?: string;
-	HideForPose?: string[];
-	PoseMapping?: { [index: string]: string };
+	HideForPose?: (AssetPoseName | "")[];
+	PoseMapping?: AssetPoseMapping;
 	AllowModuleTypes?: string[];
 	ModuleType?: string[];
 	/* Specifies that this layer should not be drawn if the character is wearing any item with the given attributes */

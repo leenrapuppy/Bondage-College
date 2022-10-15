@@ -250,15 +250,17 @@ type AssetGroupBodyName =
 
 type AssetGroupName = AssetGroupBodyName | AssetGroupItemName;
 
-type AssetPoseName =
-	'AllFours' | 'BackBoxTie' | 'BackCuffs' | 'BackElbowTouch' | 'BaseLower' |
-	'BaseUpper' | 'Hogtied' | 'Horse' | 'Kneel' | 'KneelingSpread' | 'LegsClosed' |
-	'LegsOpen' | 'OverTheHead' | 'Spread' | 'Suspension' | 'SuspensionHogtied' |
-	'TapedHands' | 'Yoked' |
+type AssetPoseCategory = 'BodyUpper' | 'BodyLower' | 'BodyFull';
 
-	/* FIXME: Those are pose categories */
-	'BodyUpper' | 'BodyLower'
+type AssetPoseName =
+	/* BodyUpper */ 'BaseUpper' | 'BackBoxTie' | 'BackCuffs' | 'BackElbowTouch' | 'OverTheHead' | 'TapedHands' | 'Yoked' |
+	/* BodyLower */ 'BaseLower' | 'Kneel' | 'KneelingSpread' | 'LegsClosed' | 'LegsOpen' | 'Spread' |
+
+	/* BodyFull  */ 'Hogtied' | 'AllFours' |
+	/* BodyAddon */ 'Suspension'
 	;
+
+type AssetPoseMapping = { [index: string]: AssetPoseName | "" };
 
 type AssetLockType =
 	"CombinationPadlock" | "ExclusivePadlock" | "HighSecurityPadlock" |
@@ -804,8 +806,8 @@ interface AssetGroup {
 	Hide?: AssetGroupName[];
 	Block?: AssetGroupItemName[];
 	Zone?: [number, number, number, number][];
-	SetPose?: string[];
-	AllowPose: string[];
+	SetPose?: AssetPoseName[];
+	AllowPose: AssetPoseName[];
 	AllowExpression?: string[];
 	Effect?: EffectName[];
 	MirrorGroup: AssetGroupName | "";
@@ -816,7 +818,7 @@ interface AssetGroup {
 	DrawingFullAlpha: boolean;
 	DrawingBlink: boolean;
 	InheritColor?: AssetGroupName;
-	FreezeActivePose: string[];
+	FreezeActivePose: AssetPoseCategory[];
 	PreviewZone?: RectTuple;
 	DynamicGroupName: AssetGroupName;
 	MirrorActivitiesFrom?: AssetGroupItemName;
@@ -851,11 +853,11 @@ interface AssetLayer {
 	ParentGroupName?: AssetGroupName | "" | null;
 	/** An array of poses that this layer permits. If set, it will override the poses permitted
 	by the parent asset/group. */
-	AllowPose: string[] | null;
+	AllowPose: AssetPoseName[];
 	/** An array of poses that this layer should be hidden for. */
-	HideForPose: string[];
+	HideForPose: (AssetPoseName | "")[];
 	/** An array of objects mapping poses to other poses to determine their draw folder */
-	PoseMapping?: { [index: string]: string };
+	PoseMapping?: AssetPoseMapping;
 	/** The drawing priority of this layer. Inherited from the parent asset/group if not specified in the layer
 	definition. */
 	Priority: number;
@@ -896,7 +898,7 @@ alpha masks will be applied to every layer underneath the present one. */
 	Group?: string[];
 	/** A list of the poses that the given alpha masks should be applied to. If empty or not present, the alpha
 masks will be applied regardless of character pose. */
-	Pose?: string[];
+	Pose?: AssetPoseName[];
 	/** A list of the extended types that the given alpha masks should be applied to. If empty or not present, the alpha
 masks will be applied regardless of the extended type. */
 	Type?: string[];
@@ -952,12 +954,12 @@ interface Asset {
 	HideItemExclude: string[];
 	HideItemAttribute: AssetAttribute[];
 	Require: string[];
-	SetPose?: string[];
-	AllowPose: string[] | null;
-	HideForPose: string[];
-	PoseMapping?: { [index: string]: string };
-	AllowActivePose?: string[];
-	WhitelistActivePose?: string[];
+	SetPose?: AssetPoseName[];
+	AllowPose: AssetPoseName[];
+	HideForPose: (AssetPoseName | "")[];
+	PoseMapping?: AssetPoseMapping;
+	AllowActivePose?: AssetPoseName[];
+	WhitelistActivePose?: AssetPoseName[];
 	Value: number;
 	Difficulty: number;
 	SelfBondage: number;
@@ -1024,7 +1026,7 @@ interface Asset {
 	AllowColorizeAll: boolean;
 	AvailableLocations: string[];
 	OverrideHeight?: AssetOverrideHeight;
-	FreezeActivePose: string[];
+	FreezeActivePose: AssetPoseCategory[];
 	DrawLocks: boolean;
 	AllowExpression?: string[];
 	MirrorExpression?: string;
@@ -1061,8 +1063,8 @@ interface ItemBundle {
 type AppearanceBundle = ItemBundle[];
 
 interface Pose {
-	Name: string;
-	Category?: 'BodyUpper' | 'BodyLower' | 'BodyFull';
+	Name: AssetPoseName;
+	Category?: AssetPoseCategory;
 	AllowMenu?: true;
 	/** Only show in menu if an asset supports it */
 	AllowMenuTransient?: true;
@@ -1226,7 +1228,9 @@ interface Character {
 	Dialog: any[];
 	Reputation: Reputation[];
 	Skill: Skill[];
-	Pose: string[];
+	Pose: AssetPoseName[];
+	ActivePose: AssetPoseName[];
+	AllowedActivePose: AssetPoseName[];
 	Effect: string[];
 	Tints: ResolvedTintDefinition[];
 	Attribute: AssetAttribute[];
@@ -1284,7 +1288,6 @@ interface Character {
 	HasNoItem: () => boolean;
 	IsLoverOfPlayer: () => boolean;
 	GetLoversNumbers: (MembersOnly?: boolean) => (number | string)[];
-	AllowedActivePose: string[];
 	HiddenItems: ItemPermissions[];
 	HeightRatio: number;
 	HasHiddenItems: boolean;
@@ -1315,13 +1318,13 @@ interface Character {
 	GetDifficulty: () => number;
 	IsSuspended: () => boolean;
 	IsInverted: () => boolean;
-	CanChangeToPose: (Pose: string) => boolean;
+	CanChangeToPose: (Pose: AssetPoseName) => boolean;
 	GetClumsiness: () => number;
 	HasEffect: (Effect: string) => boolean;
 	HasTints: () => boolean;
 	GetTints: () => RGBAColor[];
 	HasAttribute: (attribute: AssetAttribute) => boolean;
-	DrawPose?: string[];
+	DrawPose?: AssetPoseName[];
 	DrawAppearance?: Item[];
 	AppearanceLayers?: AssetLayer[];
 	Hooks: Map<string, Map<string, any>> | null;
@@ -1357,7 +1360,6 @@ interface Character {
 	AppearanceFull?: Item[];
 	// Online character properties
 	Title?: string;
-	ActivePose?: any;
 	LabelColor?: any;
 	Creation?: any;
 	Description?: any;
@@ -1807,7 +1809,7 @@ interface AssetDefinitionProperties {
 	 * A list of poses that should be frozen
 	 * @see {@link Asset.FreezeActivePose}
 	 */
-	FreezeActivePose?: AssetPoseName[];
+	FreezeActivePose?: AssetPoseCategory[];
 
 	/**
 	 * Whether an item can be unlocked by the player even if they're restrained
@@ -2334,7 +2336,7 @@ interface ModularItemOptionBase {
 	/** Whether that option applies effects */
 	Effect?: string[];
 	/** Whether the option forces a given pose */
-	SetPose?: string;
+	SetPose?: AssetPoseName;
 	/** A list of activities enabled by that module */
 	AllowActivity?: string[];
 	/** A buy group to check for that module to be available */
@@ -3085,7 +3087,7 @@ interface DynamicDrawingData {
 	G: string;
 	AG: AssetGroup;
 	L: string;
-	Pose: string;
+	Pose: AssetPoseName;
 	LayerType: string;
 	BlinkExpression: string;
 	drawCanvas: DrawCanvasCallback;

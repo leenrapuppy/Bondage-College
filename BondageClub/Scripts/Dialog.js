@@ -319,7 +319,7 @@ function DialogCanInteract(C) { return DialogGetCharacter(C).CanInteract(); }
  * Sets a new pose for the given character
  * @param {string} C - The character whose pose should be altered.
  * Either the player (value: Player) or the current character (value: CurrentCharacter)
- * @param {string} [NewPose=null] - The new pose, the character should take.
+ * @param {AssetPoseName} [NewPose=null] - The new pose, the character should take.
  * Can be omitted to bring the character back to the standing position.
  * @returns {void} - Nothing
  */

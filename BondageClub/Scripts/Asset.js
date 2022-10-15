@@ -359,9 +359,9 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 /**
  * Resolves the AllowPose and HideForPose properties on a layer or an asset
  * @param {Asset | AssetLayerDefinition} obj - The asset or layer object
- * @param {string[] | null} defaultAllowPose - A fallback value for the AllowPose property if it's not defined on the
+ * @param {AssetPoseName[] | null} defaultAllowPose - A fallback value for the AllowPose property if it's not defined on the
  * object
- * @return {{AllowPose: string[] | null, HideForPose: string[]}} - A partial object containing AllowPose and HideForPose
+ * @return {{AllowPose: AssetPoseName[] | null, HideForPose: (AssetPoseName | "")[]}} - A partial object containing AllowPose and HideForPose
  * properties
  */
 function AssetParsePoseProperties(obj, defaultAllowPose = null) {
