@@ -102,7 +102,6 @@ function InventoryItemDevicesLuckyWheelGame0Click() {
 		return;
 	}
 
-
 	if (MouseIn(1360, 720, 120, 48)) {
 		if (DialogFocusItem.Property.Texts.length >= ItemDevicesLuckyWheelMaxTexts) return;
 
@@ -132,23 +131,19 @@ function InventoryItemDevicesLuckyWheelGame0Click() {
 function InventoryItemDevicesLuckyWheelGame0Exit() {
 	if (!DialogFocusItem) return;
 
-	let needsUpdate = false;
 	for (let num = 0; num < ItemDevicesLuckyWheelMaxTexts; num++) {
 		if (num < DialogFocusItem.Property.Texts.length) {
 			const text = ElementValue(`LuckyWheelText${num}`);
 			if (text != DialogFocusItem.Property.Texts[num]) {
 				DialogFocusItem.Property.Texts[num] = text;
-				needsUpdate = true;
 			}
 		}
 
 		ElementRemove(`LuckyWheelText${num}`);
 	}
 
-	if (needsUpdate) {
-		CharacterRefresh(CharacterGetCurrent(), false);
-		ChatRoomCharacterItemUpdate(CharacterGetCurrent());
-	}
+	ChatRoomCharacterItemUpdate(CharacterGetCurrent());
+	CharacterRefresh(CharacterGetCurrent(), true);
 
 	ExtendedItemSubscreen = null;
 }
@@ -177,6 +172,8 @@ function AssetsItemDevicesLuckyWheelScriptDraw({ C, PersistentData, Item }) {
 	const Properties = Item.Property || {};
 	const TargetAngle = Math.min(Math.max(Properties.TargetAngle || 0, 0), 360);
 	const FrameTime = ItemDevicesLuckyWheelAnimationFrameTime;
+
+	InventoryItemDevicesLuckyWheelInit(Item);
 
 	// Initialized to a non-spinning value (aka target value), to avoid "misfires" on asset load
 	if (typeof Data.AnimationAngleState !== "number") Data.AnimationAngleState = TargetAngle;
