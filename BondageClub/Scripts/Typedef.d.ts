@@ -1966,6 +1966,13 @@ interface ItemPropertiesCustom {
 
 	/** Only available as overrides on the script item */
 	UnHide?: AssetGroupName[];
+
+	/** Lucky Wheel: the section labels */
+	Texts?: string[];
+
+	/** Lucky Wheel: the angle the wheel should spin to */
+	TargetAngle?: number;
+
 }
 
 interface ItemProperties extends ItemPropertiesBase, AssetDefinitionProperties, ItemPropertiesCustom { }
