@@ -47,7 +47,7 @@ function SpeechGetEffectGagLevel(Effect) {
  *     - Item.Asset.Effect
  *     - Item.Asset.Group.Effect
  * @param {Character} C - The character, whose assets are used for the check
- * @param {string[]} AssetGroups - The name of the asset groups to look through
+ * @param {AssetGroupName[]} AssetGroups - The name of the asset groups to look through
  * @returns {number} - Returns the total gag effect of the character's assets
  */
 function SpeechGetGagLevel(C, AssetGroups) {

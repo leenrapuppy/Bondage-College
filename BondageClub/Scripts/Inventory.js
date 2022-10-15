@@ -321,8 +321,8 @@ function InventoryDoesItemHavePrerequisite(C, ItemGroup, Prerequisite) {
  * Prerequisite utility function to check whether the target group for the given character is blocked by any of the
  * given groups to check.
  * @param {Character} C - The character whose items should be checked
- * @param {String} TargetGroup - The name of the group that should be checked for being blocked
- * @param {String[]} GroupsToCheck - The name(s) of the groups whose items should be checked
+ * @param {AssetGroupItemName} TargetGroup - The name of the group that should be checked for being blocked
+ * @param {AssetGroupName[]} GroupsToCheck - The name(s) of the groups whose items should be checked
  * @returns {boolean} - TRUE if the character has an item equipped in any of the given groups to check which blocks the
  * target group, FALSE otherwise.
  */
@@ -337,8 +337,8 @@ function InventoryDoItemsBlockGroup(C, TargetGroup, GroupsToCheck) {
  * Prerequisite utility function to check whether the target group for the given character is exposed by all of the
  * given groups to check.
  * @param {Character} C - The character whose items should be checked
- * @param {String} TargetGroup - The name of the group that should be checked for being exposed
- * @param {String[]} GroupsToCheck - The name(s) of the groups whose items should be checked
+ * @param {AssetGroupName} TargetGroup - The name of the group that should be checked for being exposed
+ * @param {AssetGroupName[]} GroupsToCheck - The name(s) of the groups whose items should be checked
  * @returns {boolean} - FALSE if the character has an item equipped in ANY of the given groups to check that does not
  * expose the target group. Returns TRUE otherwise.
  */
@@ -353,7 +353,7 @@ function InventoryDoItemsExposeGroup(C, TargetGroup, GroupsToCheck) {
  * Prerequisite utility function that returns TRUE if the given character has an item equipped in any of the named group
  * slots.
  * @param {Character} C - The character whose items should be checked
- * @param {String[]} GroupList - The list of groups to check for items in
+ * @param {AssetGroupName[]} GroupList - The list of groups to check for items in
  * @returns {boolean} - TRUE if the character has any item equipped in any of the named groups, FALSE otherwise.
  */
 function InventoryHasItemInAnyGroup(C, GroupList) {
@@ -695,7 +695,7 @@ function InventoryWearCraft(Item, Craft) {
 * Makes the character wear an item on a body area
 * @param {Character} C - The character that must wear the item
 * @param {string} AssetName - The name of the asset to wear
-* @param {string} AssetGroup - The name of the asset group to wear
+* @param {AssetGroupName} AssetGroup - The name of the asset group to wear
 * @param {string | string[]} [ItemColor] - The hex color of the item, can be undefined or "Default"
 * @param {number} [Difficulty] - The difficulty, on top of the base asset difficulty, to assign to the item
 * @param {number} [MemberNumber] - The member number of the character putting the item on - defaults to -1
@@ -739,7 +739,7 @@ function InventoryLocked(C, AssetGroup, CheckProperties) {
 /**
  * Makes the character wear a random item from a body area
  * @param {Character} C - The character that must wear the item
- * @param {string} GroupName - The name of the asset group (body area)
+ * @param {AssetGroupName} GroupName - The name of the asset group (body area)
  * @param {number} [Difficulty] - The difficulty, on top of the base asset difficulty, to assign to the item
  * @param {boolean} [Refresh=true] - Do not call CharacterRefresh if false
  * @param {boolean} [MustOwn=false] - If TRUE, only assets that the character owns can be worn. Otherwise any asset can

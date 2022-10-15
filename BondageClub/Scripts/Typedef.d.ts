@@ -787,7 +787,7 @@ interface AssetGroup {
 	Name: AssetGroupName;
 	Description: string;
 	Asset: Asset[];
-	ParentGroupName: string;
+	ParentGroupName: AssetGroupName | "";
 	Category: 'Appearance' | 'Item' | 'Script';
 	IsDefault: boolean;
 	IsRestraint: boolean;
@@ -801,25 +801,25 @@ interface AssetGroup {
 	Clothing: boolean;
 	Underwear: boolean;
 	BodyCosplay: boolean;
-	Hide?: string[];
+	Hide?: AssetGroupName[];
 	Block?: AssetGroupItemName[];
 	Zone?: [number, number, number, number][];
 	SetPose?: string[];
 	AllowPose: string[];
 	AllowExpression?: string[];
 	Effect?: EffectName[];
-	MirrorGroup: string;
-	RemoveItemOnRemove: { Group: string; Name: string; Type?: string }[];
+	MirrorGroup: AssetGroupName | "";
+	RemoveItemOnRemove: { Group: AssetGroupItemName; Name: string; Type?: string }[];
 	DrawingPriority: number;
 	DrawingLeft: number;
 	DrawingTop: number;
 	DrawingFullAlpha: boolean;
 	DrawingBlink: boolean;
-	InheritColor: AssetGroupName | null;
+	InheritColor?: AssetGroupName;
 	FreezeActivePose: string[];
 	PreviewZone?: RectTuple;
 	DynamicGroupName: AssetGroupName;
-	MirrorActivitiesFrom: string | null;
+	MirrorActivitiesFrom?: AssetGroupItemName;
 
 	/** A dict mapping colors to custom filename suffices.
 	The "HEX_COLOR" key is special-cased to apply to all color hex codes. */
@@ -848,7 +848,7 @@ interface AssetLayer {
 	HasType: boolean;
 	/** The name of the parent group for this layer. If null, the layer has no parent group. If
 	undefined, the layer inherits its parent group from it's asset/group. */
-	ParentGroupName?: string | null;
+	ParentGroupName?: AssetGroupName | "" | null;
 	/** An array of poses that this layer permits. If set, it will override the poses permitted
 	by the parent asset/group. */
 	AllowPose: string[] | null;
@@ -865,7 +865,7 @@ interface AssetLayer {
 	Asset: Asset;
 	DrawingLeft?: number;
 	DrawingTop?: number;
-	HideAs?: { Group: string; Asset?: string };
+	HideAs?: { Group: AssetGroupName; Asset?: string };
 	/** That layer is drawing at a fixed Y position */
 	FixedPosition?: boolean;
 	HasImage: boolean;
@@ -916,7 +916,7 @@ interface ResolvedTintDefinition extends TintDefinition {
 }
 
 interface ExpressionTrigger {
-	Group: string;
+	Group: AssetGroupName;
 	Name: string;
 	Timer: number;
 }
@@ -940,14 +940,14 @@ interface Asset {
 	AllowActivity?: string[];
 	ActivityAudio?: string[];
 	ActivityExpression: Record<string, ExpressionTrigger[]>;
-	AllowActivityOn?: AssetGroupName[];
+	AllowActivityOn?: AssetGroupItemName[];
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: string[];
 	Effect?: EffectName[];
 	Bonus?: AssetBonusName;
 	Block?: AssetGroupItemName[];
 	Expose: string[];
-	Hide?: string[];
+	Hide?: AssetGroupName[];
 	HideItem?: string[];
 	HideItemExclude: string[];
 	HideItemAttribute: AssetAttribute[];
@@ -986,7 +986,7 @@ interface Asset {
 	OwnerOnly: boolean;
 	LoverOnly: boolean;
 	ExpressionTrigger?: ExpressionTrigger[];
-	RemoveItemOnRemove: { Name: string; Group: string; Type?: string; }[];
+	RemoveItemOnRemove: { Name: string; Group: AssetGroupItemName; Type?: string; }[];
 	AllowEffect?: EffectName[];
 	AllowBlock?: AssetGroupItemName[];
 	AllowHide?: AssetGroupItemName[];
@@ -1643,7 +1643,7 @@ interface PlayerCharacter extends Character {
 	GhostList?: number[];
 	Wardrobe?: any[][];
 	WardrobeCharacterNames?: string[];
-	SavedExpressions?: ({ Group: string, CurrentExpression?: string }[] | null)[];
+	SavedExpressions?: ({ Group: AssetGroupName, CurrentExpression?: string }[] | null)[];
 	SavedColors: HSVColor[];
 	FriendList?: number[];
 	FriendNames?: Map<number, string>;

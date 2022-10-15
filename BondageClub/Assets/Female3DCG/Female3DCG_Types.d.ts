@@ -1,7 +1,7 @@
 interface AssetGroupDefinition {
 	Asset: (AssetDefinition | string)[];
 	Group: AssetGroupName;
-	ParentGroup?: string;
+	ParentGroup?: AssetGroupName;
 	Category?: 'Appearance' | 'Item' | 'Script';
 	/** Whether the group should have an asset selected at random at character creation. */
 	Default?: boolean;
@@ -25,8 +25,8 @@ interface AssetGroupDefinition {
 	AllowPose?: string[];
 	AllowExpression?: string[];
 	Effect?: EffectName[];
-	MirrorGroup?: string;
-	RemoveItemOnRemove?: { Group: string, Name: string, Type?: string }[];
+	MirrorGroup?: AssetGroupName;
+	RemoveItemOnRemove?: { Group: AssetGroupItemName, Name: string, Type?: string }[];
 	Priority?: number;
 	Left?: number;
 	Top?: number;
@@ -36,7 +36,7 @@ interface AssetGroupDefinition {
 	FreezeActivePose?: string[];
 	PreviewZone?: [number, number, number, number];
 	DynamicGroupName?: AssetGroupName;
-	MirrorActivitiesFrom?: string;
+	MirrorActivitiesFrom?: AssetGroupItemName;
 	ColorSuffix?: Record<string, string>;
 	ExpressionPrerequisite?: string[];
 	HasPreviewImages?: boolean;
@@ -57,7 +57,7 @@ interface AssetDefinition {
 	ParentItem?: string;
 
 	/** The group the asset belongs to. Mainly useful to inherit the body size. */
-	ParentGroup?: string | null;
+	ParentGroup?: AssetGroupName | null;
 
 	/**
 	 * Whether the asset is enabled or not. Defaults to true.
@@ -89,7 +89,7 @@ interface AssetDefinition {
 	ActivityExpression?: Record<string, ExpressionTrigger[]>;
 
 	/** A list of groups that should still be allowed to be acted on even though they should be blocked by the asset. */
-	AllowActivityOn?: AssetGroupName[];
+	AllowActivityOn?: AssetGroupItemName[];
 
 	/** Identifies a set of assets that's part of the same group for shopping purposes. Buying one will give access to all of them. */
 	BuyGroup?: string;
@@ -206,7 +206,7 @@ interface AssetDefinition {
 	LoverOnly?: boolean;
 
 	/** A list of facial expression using the asset causes to the character */
-	ExpressionTrigger?: { Name: string, Group: string, Timer: number }[];
+	ExpressionTrigger?: { Name: string, Group: AssetGroupName, Timer: number }[];
 
 	/** A list of assets to also remove when the asset is taken off. */
 	RemoveItemOnRemove?: { Name: string, Group: AssetGroupItemName, Type?: string }[];
@@ -348,7 +348,7 @@ interface AssetLayerDefinition {
 	Visibility?: string;
 
 	/** The group the layer belongs to. Mainly useful to inherit the body's size. */
-	ParentGroup?: string | null,
+	ParentGroup?: AssetGroupName | "",
 
 	/** A list of poses that layer supports. */
 	AllowPose?: string[];

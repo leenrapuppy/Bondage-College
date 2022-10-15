@@ -155,7 +155,7 @@ function CharacterAppearanceRequired(C, GroupName) {
 /**
  * Checks, wether the item group must be hidden for a certain asset
  * @param {Character} C - The character, whose assets are used for the check
- * @param {string} GroupName - The name of the group to check
+ * @param {AssetGroupName} GroupName - The name of the group to check
  * @returns {boolean} - Returns TRUE if the item group must be hidden and not chosen
  */
 function CharacterAppearanceMustHide(C, GroupName) {
@@ -392,7 +392,7 @@ function CharacterAppearanceSortLayers(C) {
  * Determines whether an item or a whole item group is visible or not
  * @param {Character} C - The character whose assets are checked
  * @param {string} AssetName - The name of the asset to check
- * @param {string} GroupName - The name of the item group to check
+ * @param {AssetGroupName} GroupName - The name of the item group to check
  * @param {boolean} Recursive - If TRUE, then other items which are themselves hidden will not hide this item. Parameterising this prevents
  *     infinite loops.
  * @returns {boolean} - Returns TRUE if we can show the item or the item group

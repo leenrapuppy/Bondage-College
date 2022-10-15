@@ -983,9 +983,9 @@ function CharacterLoadAttributes(C) {
 /**
  * Returns a list of effects for a character from some or all groups
  * @param {Character} C - The character to check
- * @param {string[]} [Groups=null] - Optional: The list of groups to consider. If none defined, check all groups
+ * @param {AssetGroupName[]} [Groups=null] - Optional: The list of groups to consider. If none defined, check all groups
  * @param {boolean} [AllowDuplicates=false] - Optional: If true, keep duplicates of the same effect provided they're taken from different groups
- * @returns {string[]} - A list of effects
+ * @returns {EffectName[]} - A list of effects
  */
 function CharacterGetEffects(C, Groups = null, AllowDuplicates = false) {
 	let totalEffects = [];
@@ -1317,7 +1317,7 @@ function CharacterDress(C, Appearance) {
 /**
  * Removes all binding items from a given character
  * @param {Character} C - Character to release
- * @param {false} [Refresh] - do not call CharacterRefresh if false
+ * @param {boolean} [Refresh=false] - do not call CharacterRefresh if false
  * @returns {void} - Nothing
  */
 function CharacterRelease(C, Refresh) {
@@ -1331,7 +1331,7 @@ function CharacterRelease(C, Refresh) {
 /**
  * Releases a character from all locks matching the given lock name
  * @param {Character} C - Character to release from the lock(s)
- * @param {string} LockName - Name of the lock to look for
+ * @param {AssetLockType} LockName - Name of the lock to look for
  * @returns {void} - Nothing
  */
 function CharacterReleaseFromLock(C, LockName) {
@@ -1455,7 +1455,7 @@ function CharacterSetActivePose(C, NewPose, ForceChange = false) {
  * Sets a specific facial expression for the character's specified AssetGroup, if there's a timer, the expression will expire after it, a
  * timed expression cannot override another one.
  * @param {Character} C - Character for which to set the expression of
- * @param {string} AssetGroup - Asset group for the expression
+ * @param {AssetGroupName} AssetGroup - Asset group for the expression
  * @param {string} Expression - Name of the expression to use
  * @param {number} [Timer] - Optional: time the expression will last
  * @param {string|string[]} [Color] - Optional: color of the expression to set
@@ -1820,7 +1820,7 @@ function CharacterCheckHooks(C, IgnoreHooks) {
  * Transfers an item from one character to another
  * @param {Character} FromC - The character from which to pick the item
  * @param {Character} ToC - The character on which we must put the item
- * @param {string} Group - The item group to transfer (Cloth, Hat, etc.)
+ * @param {AssetGroupName} Group - The item group to transfer (Cloth, Hat, etc.)
  * @returns {void} - Nothing
  */
 function CharacterTransferItem(FromC, ToC, Group, Refresh) {
