@@ -589,23 +589,25 @@ function InventoryWearCraftMisc(Item, Type) {
 function InventoryWearCraft(Item, Craft) {
 	if ((Item == null) || (Item.Asset == null) || (Craft == null)) return;
 	Item.Craft = Craft;
-	if ((Craft.Type != null) && (Item.Asset.AllowType != null) && (Item.Asset.AllowType.indexOf(Craft.Type) >= 0)) {
-		if (Item.Asset.Extended) {
-			const Archetype = Item.Asset.Archetype || "misc";
-			switch(Archetype) {
-				case "typed":
-					InventoryWearCraftTyped(Item, Craft.Type);
-					break;
-				case "modular":
-					InventoryWearCraftModular(Item, Craft.Type);
-					break;
-				case "misc":
-					InventoryWearCraftMisc(Item, Craft.Type);
-					break;
-			}
+
+	if (
+		(Craft.Type != null)
+		&& (Item.Asset.AllowType != null)
+		&& (Item.Asset.AllowType.indexOf(Craft.Type) >= 0)
+		&& (Item.Asset.Extended)
+	) {
+		const Archetype = Item.Asset.Archetype || "misc";
+		switch(Archetype) {
+			case "typed":
+				InventoryWearCraftTyped(Item, Craft.Type);
+				break;
+			case "modular":
+				InventoryWearCraftModular(Item, Craft.Type);
+				break;
+			case "misc":
+				InventoryWearCraftMisc(Item, Craft.Type);
+				break;
 		}
-		if (Item.Property == null) Item.Property = {};
-		Item.Property.Type = Craft.Type;
 	}
 }
 
