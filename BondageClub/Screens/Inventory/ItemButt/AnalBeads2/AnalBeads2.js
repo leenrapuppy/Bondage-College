@@ -34,7 +34,7 @@ function InventoryItemButtAnalBeads2Click() {
 // Sets the amount of beads
 function InventoryItemButtAnalBeads2SetBeads(Modifier) {
 	// Gets the current item and character
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 		InventoryItemButtAnalBeads2Load();

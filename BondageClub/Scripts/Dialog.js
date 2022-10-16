@@ -1618,7 +1618,7 @@ function DialogAllowItemClick(CurrentItem, ClickItem) {
 function DialogItemClick(ClickItem) {
 
 	// Gets the current character and item
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	var CurrentItem = InventoryGet(C, C.FocusGroup.Name);
 	if (AsylumGGTSControlItem(C, CurrentItem)) return;
 

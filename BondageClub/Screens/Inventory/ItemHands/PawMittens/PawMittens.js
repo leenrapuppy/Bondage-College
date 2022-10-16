@@ -29,7 +29,7 @@ function InventoryItemHandsPawMittensClick() {
 
 // Chain/Unchain function
 function InventoryItemHandsPawMittensChain() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryGet(C, "ItemArms") == null) {
 		if (InventoryGet(C, "ItemTorso") != null) {
 			if (InventoryGet(C, "ItemTorso").Asset.Name == "AdultBabyHarness") {

@@ -11,7 +11,7 @@ const ItemVulvaFuturisticVibratorAccessMode = {
 const ItemVulvaFuturisticVibratorAccessModes = Object.values(ItemVulvaFuturisticVibratorAccessMode);
 
 function InventoryItemVulvaFuturisticVibratorLoad() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied();
 	} else {
@@ -128,10 +128,10 @@ function InventoryItemVulvaFuturisticVibratorDetectMsg(msg, TriggerValues) {
 		let triggerRegex;
 
 		// In general, in most of the Asian language, the full sentence will be considered as one whole word
-		// Because how regex consider word boundaries to be position between \w -> [A-Za-z0-9_] and \W. 
+		// Because how regex consider word boundaries to be position between \w -> [A-Za-z0-9_] and \W.
 
 		// So if commands are set to those languages, the command will never be triggered.
-		// Or if the command is not a word 
+		// Or if the command is not a word
 		// This enhancement should allow Asian language commands, and also emoji/special characters
 		// (e.g. A symbol such as ↑ or ↓, Languages in CJK group such as Chinese, Japanese, and Korean.)
 		// This should be a fun addition to boost the user's experience.

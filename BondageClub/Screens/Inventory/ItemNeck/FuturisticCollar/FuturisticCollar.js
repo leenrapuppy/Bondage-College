@@ -6,7 +6,7 @@ var FuturisticCollarMaxPage = 2;
 
 // Loads the item extension properties
 function InventoryItemNeckFuturisticCollarLoad() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied();
 	} else {
@@ -24,7 +24,7 @@ function InventoryItemNeckFuturisticCollarLoad() {
 
 // Draw the item extension screen
 function InventoryItemNeckFuturisticCollarDraw() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticDrawAccessDenied();
 	} else {
@@ -133,7 +133,7 @@ function InventoryItemNeckFuturisticCollarExit() {
 // Catches the item extension clicks
 function InventoryItemNeckFuturisticCollarClick() {
 
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticClickAccessDenied();
 	} else {

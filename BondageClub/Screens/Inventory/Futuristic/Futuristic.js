@@ -5,7 +5,7 @@
 // In the load function, add this before your load function, without changing functions from the
 // futuristic panel gag functions. Just make sure your item loads after the panel gag and not before in index.html:
 /*
- 	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+ 	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied()
 	} else
@@ -13,7 +13,7 @@
 
 // In the draw function, add:
 /*
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticDrawAccessDenied()
 	} else
@@ -21,7 +21,7 @@
 
 // In the click function, add:
 /*
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticClickAccessDenied()
 	} else
@@ -50,7 +50,7 @@ var FuturisticAccessChastityGroups = ["ItemPelvis", "ItemTorso", "ItemButt", "It
  * @returns {void} - Nothing
  */
 function FuturisticAccessLoad(OriginalFunction) {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied()
 	} else OriginalFunction();
@@ -62,7 +62,7 @@ function FuturisticAccessLoad(OriginalFunction) {
  * @returns {void} - Nothing
  */
 function FuturisticAccessClick(OriginalFunction) {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticClickAccessDenied()
 	} else OriginalFunction();
@@ -74,7 +74,7 @@ function FuturisticAccessClick(OriginalFunction) {
  * @returns {void} - Nothing
  */
 function FuturisticAccessDraw(OriginalFunction) {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticDrawAccessDenied()
 	} else OriginalFunction();
@@ -134,19 +134,19 @@ function InventoryItemFuturisticClickAccessDenied() {
 	if (MouseIn(1400, 800, 200, 64)) {
 		var pw = ElementValue("PasswordField").toUpperCase();
 		if (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.LockedBy == "PasswordPadlock" && pw == DialogFocusItem.Property.Password) {
-			let C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+			let C = CharacterGetCurrent();
 			CommonPadlockUnlock(C, DialogFocusItem);
 			DialogFocusItem = null;
 			Player.FocusGroup = null;
 			InventoryItemFuturisticExitAccessDenied();
 		} else if (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.LockedBy == "TimerPasswordPadlock" && pw == DialogFocusItem.Property.Password) {
-			let C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+			let C = CharacterGetCurrent();
 			CommonPadlockUnlock(C, DialogFocusItem);
 			DialogFocusItem = null;
 			Player.FocusGroup = null;
 			InventoryItemFuturisticExitAccessDenied();
 		} else if (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.LockedBy == "CombinationPadlock" && pw == DialogFocusItem.Property.CombinationNumber) {
-			let C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+			let C = CharacterGetCurrent();
 			InventoryItemMiscCombinationPadlockUnlock(C, DialogFocusItem);
 			DialogFocusItem = null;
 			Player.FocusGroup = null;
@@ -155,7 +155,7 @@ function InventoryItemFuturisticClickAccessDenied() {
 			FuturisticAccessDeniedMessage = DialogFindPlayer("CantChangeWhileLockedFuturistic");
 			AudioPlayInstantSound("Audio/AccessDenied.mp3");
 			if (CurrentScreen == "ChatRoom") {
-				InventoryItemFuturisticPublishAccessDenied((Player.FocusGroup != null) ? Player : CurrentCharacter);
+				InventoryItemFuturisticPublishAccessDenied(CharacterGetCurrent());
 			}
 		}
 	}
