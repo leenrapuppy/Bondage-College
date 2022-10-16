@@ -12,6 +12,7 @@ function InventoryItemNipplesVibeNippleClampClick() {
 	VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 }
 
+/** @type {DynamicScriptDrawCallback} */
 function AssetsItemNipplesVibeNippleClampScriptDraw(data) {
 	VibratorModeScriptDraw(data);
 }

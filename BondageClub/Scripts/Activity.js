@@ -172,7 +172,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 		case "TargetMouthBlocked":
 			return acted.IsMouthBlocked();
 		case "IsGagged":
-			return !acting.CanTalk();
+			return acting.IsGagged();
 		case "TargetKneeling":
 			return acted.IsKneeling();
 		case "UseHands":
@@ -203,7 +203,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			return ActivityGetAllMirrorGroups(acted.AssetFamily, group.Name).some((g) => !InventoryGroupIsBlocked(acted, g.Name, true));
 		case "ZoneNaked":
 			if (group.Name === "ItemButt")
-				return InventoryPrerequisiteMessage(acted, "AccessButt") === "" && !acted.IsPlugged();
+				return InventoryPrerequisiteMessage(acted, "AccessButt") === "" && !(acted.IsPlugged() || acted.IsButtChaste());
 			else if (group.Name === "ItemVulva")
 				return (InventoryPrerequisiteMessage(acted, "AccessVulva") === "") && !acted.IsVulvaChaste();
 			else if (group.Name === "ItemBreast" || group.Name === "ItemNipples")

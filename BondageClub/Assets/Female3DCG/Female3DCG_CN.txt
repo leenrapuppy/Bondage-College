@@ -766,6 +766,12 @@ Harem Gloves
 后宫手套
 Biker Gloves
 单车手套
+Left Hand
+左手
+Rings
+指环
+Right Hand
+右手
 Bracelet
 手镯
 Bow Band
@@ -1240,8 +1246,6 @@ Straight Clitoris Piercing
 垂直阴蒂穿孔
 Round Clitoris Piercing
 圆形阴蒂穿环
-Weighted Clitoris Piercing
-负重阴蒂穿环
 Barbell Clitoris Piercing
 半圆阴蒂穿环
 Chastity Vulva Piercings
@@ -1256,8 +1260,6 @@ Adorned Clitoris Piercing
 装饰阴蒂穿环
 Vibrating Heart Clitoris Piercing
 心形振动阴蒂穿环
-Bell Clitoris Piercing
-铃铛阴蒂穿环
 Taped Vibrating Egg
 胶带 + 跳蛋
 Clitoris Ring
@@ -1520,8 +1522,6 @@ Bolero Straitjacket
 波蕾若拘束衣
 Pet Suit
 宠物拘束服
-Pet Suit Exposed
-露出宠物拘束服
 Holding Leash
 牵引绳
 Strait Dress
@@ -1743,7 +1743,7 @@ Pet Collar
 Maid Collar
 女仆围脖
 Bordelle Collar
-妓女项圈
+波戴尔项圈
 Lover Leather Collar
 恋人皮革项圈
 Noble Corset Collar
@@ -1944,6 +1944,8 @@ Web Gag
 蜘蛛丝堵嘴
 Rope Gag
 麻绳堵嘴
+Rope Ball Gag
+麻绳口球
 Milk Bottle
 奶瓶
 Medical Mask
@@ -1978,8 +1980,6 @@ Bridle Gag
 乳胶隐藏口塞
  Mouthfeature Gag
 嘴内特征口塞
-Stitches 
-缝线
 Eyes
 眼睛
 Cloth Blindfold

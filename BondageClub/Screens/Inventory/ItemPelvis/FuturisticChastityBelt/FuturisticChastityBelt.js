@@ -90,8 +90,7 @@ function AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, ShockType,
 	InventoryShockExpression(C);
 }
 
-
-// Update data
+/** @type {DynamicScriptDrawCallback} */
 function AssetsItemPelvisFuturisticChastityBeltScriptDraw(data) {
 	var persistentData = data.PersistentData();
 	/** @type {ItemProperties} */

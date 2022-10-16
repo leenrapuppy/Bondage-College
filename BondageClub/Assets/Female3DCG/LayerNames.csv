@@ -731,6 +731,11 @@ ItemHoodKittyHoodLock,Lock
 ItemHoodOpenMouthPlugHoodLenses,Lenses
 ItemHoodOpenMouthPlugHoodHood,Hood
 ItemHoodOpenMouthPlugHoodPlug,Plug
+ItemHoodDroneMaskBase,Mask
+ItemHoodDroneMaskShine,Shine
+ItemHoodDroneMaskEyeRegular,Eyes
+ItemHoodDroneMaskMouthOnahole,Mouth
+ItemHoodDroneMaskBarcode,Pattern
 ItemBootsLockingBoots1Boots,Boots
 ItemBootsLockingBoots1Straps,Straps
 ItemBootsFuturisticHeelsShoes,Body
@@ -888,7 +893,9 @@ ItemMouthKittyMuzzleGagLines,Lines
 ItemMouthKittyMuzzleGagMouth,Mouth
 ItemMouthPonyGagBaseMetal,Metal
 ItemMouthPonyGagBaseStraps,Straps
-ItemMouthPonyGagBitLarge,Gag
+ItemMouthPonyGagBitLarge,Rubber Bit
+ItemMouthPonyGagBallgag,Ballgag
+ItemMouthPonyGagDildo,Dildo
 ItemMouthPonyGagPlume,Plume
 ItemMouthPonyGagManeB,ManeBase
 ItemMouthPonyGagManeL,Mane
@@ -977,7 +984,9 @@ ItemMouth2KittyMuzzleGagLines,Lines
 ItemMouth2KittyMuzzleGagMouth,Mouth
 ItemMouth2PonyGagBaseMetal,Metal
 ItemMouth2PonyGagBaseStraps,Straps
-ItemMouth2PonyGagBitLarge,Gag
+ItemMouth2PonyGagBitLarge,Rubber Bit
+ItemMouth2PonyGagBallgag,Ballgag
+ItemMouth2PonyGagDildo,Dildo
 ItemMouth2PonyGagPlume,Plume
 ItemMouth2PonyGagManeB,ManeBase
 ItemMouth2PonyGagManeL,Mane
@@ -1068,7 +1077,9 @@ ItemMouth3KittyMuzzleGagLines,Lines
 ItemMouth3KittyMuzzleGagMouth,Mouth
 ItemMouth3PonyGagBaseMetal,Metal
 ItemMouth3PonyGagBaseStraps,Straps
-ItemMouth3PonyGagBitLarge,Gag
+ItemMouth3PonyGagBitLarge,Rubber Bit
+ItemMouth3PonyGagBallgag,Ballgag
+ItemMouth3PonyGagDildo,Dildo
 ItemMouth3PonyGagPlume,Plume
 ItemMouth3PonyGagManeB,ManeBase
 ItemMouth3PonyGagManeL,Mane
@@ -1250,3 +1261,7 @@ GlassesGradientSunglassesFrame,Frame
 GlassesGradientSunglassesGlass,Glass
 GlovesBikerGlovesHands,Gloves
 GlovesBikerGlovesStraps,Straps
+BodyUpperSmall,Body
+BodyUpperNormal,Body
+BodyUpperLarge,Body
+BodyUpperXLarge,Body

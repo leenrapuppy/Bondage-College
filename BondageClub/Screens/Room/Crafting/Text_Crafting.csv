@@ -5,7 +5,6 @@ Cancel,Cancel
 Previous,Previous
 Next,Next
 NoLock,No lock
-NoType,No Default
 SelectSlot,"Select an empty slot to craft a new item, or click on the item to edit."
 SelectDestroy,Select a crafted item slot to destroy.
 SelectItem,Select an item to craft or search on your left.
@@ -17,6 +16,7 @@ EnterName,Name of the crafted item
 EnterDescription,Engrave a description
 EnterColor,Enter or pick the colors
 EnterPrivate,Private (only you can use it)
+EnterType,Automatic selection:
 EmptySlot,Empty
 PropertyNormal,Normal
 PropertyLarge,Large

@@ -570,8 +570,8 @@ I'll change first.  (Wear the maid uniform.)
 (You change into the maid uniform.)  Perfect!  Let me restrain you then.
 （你穿上了女仆装）完美！那接下来让我绑住你吧。
 ###_PLAYER
-I'll change first. (Leave her.)
-我先换下衣服（离开她）
+I’ll change first. (Leave her.)
+我先换下衣服。（离开她。）
 ###_NPC
 Are you ready? Our guests are thirsty.
 你准备好了吗？客人们都很饥渴。
@@ -733,7 +733,7 @@ You'll have to patrol around the club and release members that are stuck.  I'll 
 Is my outfit suitable for a rescue missiong?
 我得着装适合解救任务吗？
 ###_NPC
-Are you ready ? I’ll give you a specific location to monitor.
+Are you ready ? I’ll give you a specific location to monitor.
 你准备好了吗？我会给你指定一个位置去监视。
 ###_PLAYER
 Where should I go?
@@ -956,12 +956,12 @@ Thank you for the instructions.
 (List of songs)
 （歌单）
 ###_PLAYER
-見えない何かに怯える夜(LV 2)
-見えない何かに怯える夜(LV 2)
-見えない何かに怯える夜(LV 5)
-見えない何かに怯える夜(LV 5)
-見えない何かに怯える夜(LV 7)
-見えない何かに怯える夜(LV 7)
+見えない何かに怯える夜 (LV 2)
+見えない何かに怯える夜 (LV 2)
+見えない何かに怯える夜 (LV 5)
+見えない何かに怯える夜 (LV 5)
+見えない何かに怯える夜 (LV 7)
+見えない何かに怯える夜 (LV 7)
 (Want more songs?)
 （想要更多的曲目）
 ###_NPC

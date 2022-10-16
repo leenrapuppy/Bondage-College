@@ -103,7 +103,7 @@ type EffectName =
 
 	"Lock" | "NotSelfPickable" |
 
-	"Chaste" | "BreastChaste" |
+	"Chaste" | "BreastChaste" | "ButtChaste" |
 
 	"Leash" | "CrotchRope" |
 
@@ -115,7 +115,7 @@ type EffectName =
 
 	"GagVeryLight" | "GagEasy" | "GagLight" | "GagNormal" | "GagMedium" | "GagHeavy" | "GagVeryHeavy" | "GagTotal" | "GagTotal2" |
 
-	"BlindLight" | "BlindNormal" | "BlindHeavy" |
+	"BlindLight" | "BlindNormal" | "BlindHeavy" | "BlindTotal" |
 	"BlurLight" | "BlurNormal" | "BlurHeavy" | "BlurTotal" |
 	"DeafLight" | "DeafNormal" | "DeafHeavy" | "DeafTotal" |
 
@@ -152,8 +152,8 @@ type AssetGroupBodyName =
 	'ClothAccessory' | 'ClothLower' | 'Corset' | 'Emoticon' | 'Eyebrows' |
 	'Eyes' | 'Eyes2' | 'Fluids' | 'Garters' | 'Glasses' | 'Gloves' |
 	'HairAccessory1' | 'HairAccessory2' | 'HairAccessory3' | 'HairBack' |
-	'HairFront' | 'Hands' | 'Hat' | 'Head' | 'Height' | 'LeftAnklet' | 'Mask' |
-	'Mouth' | 'Necklace' | 'Nipples' | 'Panties' | 'Pussy' | 'RightAnklet' |
+	'HairFront' | 'Hands' | 'Hat' | 'Head' | 'Height' | 'LeftAnklet' | 'LeftHand' | 'Mask' |
+	'Mouth' | 'Necklace' | 'Nipples' | 'Panties' | 'Pussy' | 'RightAnklet' | 'RightHand' |
 	'Shoes' | 'Socks' | 'Suit' | 'SuitLower' | 'TailStraps' | 'Wings'
 	;
 
@@ -319,6 +319,86 @@ interface IChatRoomSyncBasic {
 
 interface IChatRoomSyncMessage extends IChatRoomSyncBasic, ChatRoom { }
 
+/**
+ * A metadata extractor for a given message.
+ *
+ * @param data - The chat message to extract from.
+ * @param sender - The character that sent the message.
+ * @return An object with the following keys:
+ *  - `metadata`: an object for the extracted metadata (key/value)
+ *  - `substitutions`: an array of [tag, substitutions] to perform on the message.
+ * @return null if the extraction has nothing to report.
+ */
+type ChatRoomMessageExtractor =
+	(data: IChatRoomMessage, sender: Character) => { metadata: object, substitutions: string[][] } | null;
+
+/**
+ * A chat message handler.
+ *
+ * This is used in ChatRoomMessage to perform filtering and actions on
+ * the recieved message. You can register one of those with
+ * ChatRoomRegisterMessageHandler if you need to peek at incoming messages.
+ *
+ * Message processing is done in three phases:
+ * - all pre-handlers are called
+ * - metadata extraction & tag substitutions are collected
+ *   from the message's dictionary, then latter are applied to
+ *   the message's contents.
+ * - finally, post-handlers are called.
+ *
+ * The handler's priority determines when the handler will get executed:
+ * - Negative values make the handler run before metadata extraction
+ * - Positive values make it run afterward.
+ * In both cases, lower values mean higher priority, so -100 handler will
+ * run before a -1, and a 1 handler will run before a 100.
+ *
+ * The return from the callback determines what will happen: if it's true,
+ * message processing will stop, making the filter act like a handler.
+ * If it's false, then it will continue. You can also return an object with
+ * a `msg` property if the handler is a transformation and wishes to update
+ * the message's contents inflight and/or a `skip` property if you'd like
+ * to cause a subsequent handler to not be called.
+ *
+ * @warning Note that the in-flight message is only escaped when it gets
+ * sent to the chat log via ChatRoomMessageDisplay. If you're manipulating
+ * that by any other means, make sure to call ChatRoomEscapeEntities on its
+ * content to close any injection attacks.
+ *
+ * A few notable priority values are:
+ *
+ * -200: ghosted player cutoff
+ * -1: default Hidden message processing (and cutoff)
+ * 0: emotes reformatting
+ * 100: sensory-deprivation processing
+ * 200: automatic actions on others' cutoff
+ * 300: sensory-deprivation cutoff.
+ * 500: usually output handlers. That's when audio, notifications and the
+ *      message being added to the chat happens.
+ *
+ * Hidden messages never make it to post-processing.
+ *
+ */
+interface ChatRoomMessageHandler {
+	/** A short description of what the handler does. For debugging purposes */
+	Description?: string;
+
+	/**
+	 * This handler's priority, used to determine when the code should run.
+	 */
+	Priority: number;
+
+	/**
+	 * Actual action to perform.
+	 * @param data - The chat message to handle.
+	 * @param sender - The character that sent the message.
+	 * @param msg - The formatted string extracted from the message.
+	 *              If the handler is in "post" mode, all substitutions have been performed.
+	 * @param metadata - The collected metadata from the message's dictionary, only available in "post" mode.
+	 * @returns {boolean} true if the message was handled and the processing should stop, false otherwise.
+	 */
+	Callback: (data: IChatRoomMessage, sender: Character, msg: string, metadata?: any) => boolean | { msg?: string; skip?: (handler: ChatRoomMessageHandler) => boolean };
+}
+
 //#endregion
 
 //#region FriendList
@@ -378,6 +458,10 @@ interface AssetGroup {
 	PreviewZone?: RectTuple;
 	DynamicGroupName: AssetGroupName;
 	MirrorActivitiesFrom: string | null;
+
+	/** A dict mapping colors to custom filename suffices.
+	The "HEX_COLOR" key is special-cased to apply to all color hex codes. */
+	ColorSuffix?: Record<string, string>;
 }
 
 /** An object defining a drawable layer of an asset */
@@ -575,6 +659,7 @@ interface Asset {
 	AllowTint: boolean;
 	DefaultTint?: string;
 	CraftGroup: string;
+	ColorSuffix: Record<string, string>;
 }
 
 //#endregion
@@ -596,6 +681,8 @@ interface Pose {
 	Name: string;
 	Category?: 'BodyUpper' | 'BodyLower' | 'BodyFull';
 	AllowMenu?: true;
+	/** Only show in menu if an asset supports it */
+	AllowMenuTransient?: true;
 	OverrideHeight?: AssetOverrideHeight;
 	Hide?: string[];
 	MovePosition?: { Group: string; X: number; Y: number; }[];
@@ -792,6 +879,7 @@ interface Character {
 	IsChaste: () => boolean;
 	IsVulvaChaste: () => boolean;
 	IsBreastChaste: () => boolean;
+	IsButtChaste: () => boolean;
 	IsEgged: () => boolean;
 	IsOwned: () => boolean;
 	IsOwnedByPlayer: () => boolean;
@@ -799,6 +887,7 @@ interface Character {
 	IsKneeling: () => boolean;
 	IsNaked: () => boolean;
 	IsDeaf: () => boolean;
+	IsGagged: () => boolean;
 	HasNoItem: () => boolean;
 	IsLoverOfPlayer: () => boolean;
 	GetLoversNumbers: (MembersOnly?: boolean) => (number | string)[];
@@ -2099,6 +2188,11 @@ interface GameLARPParameters {
 	}[];
 }
 
+interface GameLARPOption {
+	Name: string;
+	Odds: number;
+}
+
 interface GameMagicBattleParameters {
 	Status: OnlineGameStatus;
 	House: string;
@@ -2272,10 +2366,25 @@ interface DynamicBeforeDrawOverrides {
 	Opacity?: number;
 	X?: number;
 	Y?: number;
-	LayerType?: number;
+	LayerType?: string;
 	L?: string;
 	AlphaMasks?: RectTuple[];
 }
+
+/**
+ * A dynamic BeforeDraw callback
+ */
+type DynamicBeforeDrawCallback = (data: DynamicDrawingData) => DynamicBeforeDrawOverrides;
+
+/**
+ * A dynamic AfterDraw callback
+ */
+type DynamicAfterDrawCallback = (data: DynamicDrawingData) => void;
+
+/**
+ * A dynamic ScriptDraw callback
+ */
+type DynamicScriptDrawCallback = (data: {C: Character, Item: Item, PersistentData: <T>() => T}) => void;
 
 // #endregion
 

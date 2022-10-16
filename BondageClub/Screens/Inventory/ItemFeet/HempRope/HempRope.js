@@ -1,5 +1,6 @@
 "use strict";
 
+/** @type {DynamicBeforeDrawCallback} */
 function AssetsItemFeetHempRopeBeforeDraw(data) {
 	if (data.LayerType === "BedSpreadEagle") {
 		return {

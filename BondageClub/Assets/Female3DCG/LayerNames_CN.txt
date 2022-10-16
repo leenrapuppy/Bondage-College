@@ -246,6 +246,22 @@ Right
 右侧
 Glove
 手套
+Thumb Ring
+大拇指戒指
+Index Ring
+食指戒指
+Middle Finger Ring
+中指戒指
+Ring Finger Ring
+无名指戒指
+Wedding Ring
+结婚戒指
+Pinkie Ring
+小拇指戒指
+Honor Ring
+荣誉戒指
+Honor Ring Jewels
+荣誉戒指珠宝
 String
 系绳
 Tail
@@ -306,6 +322,12 @@ Egg
 跳蛋
 Leash
 牵绳
+Weight
+配重
+Harem Chain
+后宫链
+Harem Veil
+后宫纱
 Studs
 嵌钉
 Locks
@@ -628,6 +650,10 @@ Cage
 笼子
 Lines
 线条
+Rubber Bit
+橡胶嚼子
+Ballgag
+口球
 Plume
 羽饰
 ManeBase

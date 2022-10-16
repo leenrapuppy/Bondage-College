@@ -11,6 +11,7 @@ function InventoryItemNipplesTapedVibeEggsClick() {
 	VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 }
 
+/** @type {DynamicScriptDrawCallback} */
 function AssetsItemNipplesTapedVibeEggsScriptDraw(data) {
 	VibratorModeScriptDraw(data);
 }

@@ -8,14 +8,14 @@ let bosses = {
 		height: 13,
 		setpieces: {
 			"GuaranteedCell": 1000,
-			"Altar": 10,
-			"FuukaAltar": 10,
+			"FuukaAltar": 1000,
 		},
 		genType: "Chamber",
 		spawns: false,
 		chests: false,
 		shrines: true,
 		chargers: true,
+		torches: true,
 		heart: false,
 		specialtiles: true,
 		shortcut: false,
@@ -26,6 +26,6 @@ let bosses = {
 };
 
 function KinkyDungeonBossFloor(Floor) {
-	if (Floor == 6) return bosses.Fuuka;
+	if (Floor == 4) return bosses.Fuuka;
 	return null;
 }

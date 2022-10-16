@@ -42,9 +42,13 @@ Pleasure Module
 刺激模块
 Harness
 绳束
+Gag
+口塞
 Belts
 皮带
 Metal
 金属
 Wood
 木质
+Addons
+配件
