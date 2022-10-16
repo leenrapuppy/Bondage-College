@@ -207,7 +207,10 @@ function InventoryItemNeckSlaveCollarClick() {
 
 }
 
-// Sets the slave collar model
+/**
+ * Sets the slave collar model
+ * @type {TypedItemSetTypeCallback}
+ */
 function InventoryItemNeckSlaveCollarSetType(NewType) {
 	var C = CharacterGetCurrent();
 	var Type = InventoryItemNeckSlaveCollarTypes.find(Collar => Collar.Name == NewType) || InventoryItemNeckSlaveCollarTypes[0];

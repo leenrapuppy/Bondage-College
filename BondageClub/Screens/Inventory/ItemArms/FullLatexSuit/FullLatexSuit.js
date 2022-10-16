@@ -49,7 +49,10 @@ function InventoryItemArmsFullLatexSuitClick() {
 	else if (MouseIn(1375, 750, 225, 225) && InventoryGet(CharacterGetCurrent(), "ItemVulva") == null) InventoryItemArmsFullLatexSuitSetType("Wand");
 }
 
-// Sets the suit properties when it's model changes
+/**
+ * Sets the suit properties when it's model changes
+ * @type {TypedItemSetTypeCallback}
+ */
 function InventoryItemArmsFullLatexSuitSetType(NewType) {
 
 	// Sets the type, blocking zones and wand

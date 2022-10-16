@@ -1,6 +1,12 @@
 "use strict";
 
 var InventoryItemPelvisLoveChastityBeltLastAction = "";
+const InventoryItemPelvisLoveChastityBeltMessages = new Map([
+  ["Open", "LoveChastityBeltRemoveShieldMessage"],
+  ["Closed", "LoveChastityBeltAddShieldMessage"],
+  ["Vibe", "LoveChastityBeltAddVibeMessage"],
+  ["Shock", "LoveChastityBeltAddShockMessage"],
+]);
 
 // Loads the item extension properties
 function InventoryItemPelvisLoveChastityBeltLoad() {
@@ -97,21 +103,21 @@ function InventoryItemPelvisLoveChastityBeltClick() {
     if ((DialogFocusItem.Property.Type == "Closed") || (DialogFocusItem.Property.Type == "Vibe") || (DialogFocusItem.Property.Type == "Shock")) {
       if (MouseIn(1200, 800, 250, 65)) {
         DialogFocusItem.Property.Intensity = -1;
-        InventoryItemPelvisLoveChastityBeltSetTypeTo("Open", "LoveChastityBeltRemoveShieldMessage");
+        InventoryItemPelvisLoveChastityBeltSetType("Open");
         return;
       }
     } else {
       if (MouseIn(1200, 800, 250, 65)) {
-        InventoryItemPelvisLoveChastityBeltSetTypeTo("Closed", "LoveChastityBeltAddShieldMessage");
+        InventoryItemPelvisLoveChastityBeltSetType("Closed");
         return;
       }
       if (InventoryItemPelvisLoveChastityBeltCanInsert(C)) {
         if (MouseIn(1200, 900, 250, 65)) {
-          InventoryItemPelvisLoveChastityBeltSetTypeTo("Vibe", "LoveChastityBeltAddVibeMessage");
+          InventoryItemPelvisLoveChastityBeltSetType("Vibe");
           return;
         }
         if (MouseIn(1550, 900, 250, 65)) {
-          InventoryItemPelvisLoveChastityBeltSetTypeTo("Shock", "LoveChastityBeltAddShockMessage");
+          InventoryItemPelvisLoveChastityBeltSetType("Shock");
           return;
         }
       }
@@ -131,10 +137,14 @@ function InventoryItemPelvisLoveChastityBeltCanInsert(C) {
   return true;
 }
 
-// set the type on the belt
-function InventoryItemPelvisLoveChastityBeltSetTypeTo(Type, Message) {
-  InventoryItemPelvisLoveChastityBeltLastAction = Type;
-  DialogFocusItem.Property.Type = Type;
+/**
+ * Set the type on the belt
+ * @type {TypedItemSetTypeCallback}
+ */
+function InventoryItemPelvisLoveChastityBeltSetType(NewType) {
+  const Message = InventoryItemPelvisLoveChastityBeltMessages.get(NewType);
+  InventoryItemPelvisLoveChastityBeltLastAction = NewType;
+  DialogFocusItem.Property.Type = NewType;
   InventoryItemPelvisLoveChastityBeltUpdate();
   InventoryExpressionTrigger(CharacterGetCurrent(), DialogFocusItem);
   var Dictionary = [];

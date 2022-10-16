@@ -86,3 +86,13 @@ function InventoryItemButtAnalBeads2SetBeads(Modifier) {
 		DialogMenuButtonBuild(C);
 	}
 }
+
+/**
+ * Sets the number of beads.
+ * Used for setting the Type of crafted items.
+ * @type {TypedItemSetTypeCallback}
+ */
+function InventoryItemButtAnalBeads2SetType(NewType) {
+	const NBeads = NewType == "Base" ? 1 : parseInt(NewType.split('')[1]);
+	InventoryItemButtAnalBeads2SetBeads(NBeads);
+}

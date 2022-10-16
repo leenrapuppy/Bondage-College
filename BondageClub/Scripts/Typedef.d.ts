@@ -2077,6 +2077,12 @@ interface AppearanceValidationWrapper {
 	valid: boolean;
 }
 
+/**
+ * Callback for custom functions used for setting the `DialogFocusItem.Type` attribute.
+ * Relevant for typed items that lack an archetype.
+ */
+type TypedItemSetTypeCallback = (NewType: string) => void;
+
 //#endregion
 
 //#region Vibrating Items

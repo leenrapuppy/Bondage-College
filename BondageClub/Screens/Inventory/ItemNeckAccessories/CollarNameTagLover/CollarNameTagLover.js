@@ -49,7 +49,10 @@ function InventoryItemNeckAccessoriesCollarNameTagLoverClick() {
 	}
 }
 
-// Sets the type of tag
+/**
+ * Sets the type of tag
+ * @type {TypedItemSetTypeCallback}
+ */
 function InventoryItemNeckAccessoriesCollarNameTagLoverSetType(NewType) {
 	var C = CharacterGetCurrent();
 	if (CurrentScreen == "ChatRoom") {
