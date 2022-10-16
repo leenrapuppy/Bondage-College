@@ -1,7 +1,7 @@
 "use strict";
 const InventoryItemDevicesLockerOpacityInputId = "InventoryItemDevicesLockerOpacity";
 
-const ItemDevicesLockerOptions = [
+var ItemDevicesLockerOptions = [
 	{
 		Name: "Vents",
 		Property: { Type: null }

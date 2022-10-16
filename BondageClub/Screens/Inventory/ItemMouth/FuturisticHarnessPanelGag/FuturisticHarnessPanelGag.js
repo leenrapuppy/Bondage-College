@@ -1,5 +1,7 @@
 "use strict";
 
+var InventoryItemMouthFuturisticHarnessPanelGagOptions = InventoryItemMouthFuturisticPanelGagOptions;
+
 // Loads the item extension properties
 function InventoryItemMouthFuturisticHarnessPanelGagLoad() {
 	InventoryItemMouthFuturisticPanelGagLoad();
