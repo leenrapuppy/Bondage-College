@@ -3568,7 +3568,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "ArmbinderJacket", Fetish: ["Leather"], Priority: 33, Value: 100, Difficulty: 12, SelfBondage: 8, DefaultColor: ["#B23E46", "#0A0A0A", "Default"], Time: 35, RemoveTime: 25, AllowLock: true, Hide: ["Cloth"], SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Hide: ["LeftHand", "RightHand"], HideItem: ["ClothAccessoryStudentOutfit3Scarf", "ClothAccessoryStudentOutfit3Bow1", "ClothAccessoryStudentOutfit3Bow2", "ClothAccessoryStudentOutfit3Bow3", "ClothAccessoryBunnyCollarCuffs"], Block: ["ItemHands"], SelfUnlock: false,
+				Name: "ArmbinderJacket", Fetish: ["Leather"], Priority: 33, Value: 100, Difficulty: 12, SelfBondage: 8, DefaultColor: ["#B23E46", "#0A0A0A", "Default"], Time: 35, RemoveTime: 25, AllowLock: true, Hide: ["Cloth", "LeftHand", "RightHand"], SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"],  HideItem: ["ClothAccessoryStudentOutfit3Scarf", "ClothAccessoryStudentOutfit3Bow1", "ClothAccessoryStudentOutfit3Bow2", "ClothAccessoryStudentOutfit3Bow3", "ClothAccessoryBunnyCollarCuffs"], Block: ["ItemHands"], SelfUnlock: false,
 				Alpha: [{Group: ["Cloth", "Necklace", "Suit"], Masks: [[0, 200, 500, 40], [0, 240, 135, 20], [365, 240, 135, 20]]}],
 				Layer: [
 					{ Name: "Jacket" },
