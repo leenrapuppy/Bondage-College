@@ -1734,20 +1734,20 @@ var AssetFemale3DCG = [
 					//Thumb
 					{ Name: "ThumbSteel", HasType: false, AllowModuleTypes: ["t1"] },
 					//Index
-					{ Name: "IndexSteel", HasType: false, AllowModuleTypes: ["i1"] },			
+					{ Name: "IndexSteel", HasType: false, AllowModuleTypes: ["i1"] },
 					//Middle
-					{ Name: "MiddleSteel", HasType: false, AllowModuleTypes: ["m1"] },					
+					{ Name: "MiddleSteel", HasType: false, AllowModuleTypes: ["m1"] },
 					//Ring
 					{ Name: "RingSteel", HasType: false, AllowModuleTypes: ["r1"] },
-					{ Name: "Wedding", HasType: false, AllowModuleTypes: ["r2"] },				
+					{ Name: "Wedding", HasType: false, AllowModuleTypes: ["r2"] },
 					//Pinkie
 					{ Name: "PinkieSteel", HasType: false, AllowModuleTypes: ["p1"] },
 					{ Name: "HonorBase", HasType: false, AllowModuleTypes: ["p2"] },
 					{ Name: "HonorJewels", HasType: false, AllowModuleTypes: ["p2"] },
-					
+
 				],
 			},
-			
+
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -1771,20 +1771,20 @@ var AssetFemale3DCG = [
 					//Thumb
 					{ Name: "ThumbSteel", HasType: false, AllowModuleTypes: ["t1"] },
 					//Index
-					{ Name: "IndexSteel", HasType: false, AllowModuleTypes: ["i1"] },			
+					{ Name: "IndexSteel", HasType: false, AllowModuleTypes: ["i1"] },
 					//Middle
-					{ Name: "MiddleSteel", HasType: false, AllowModuleTypes: ["m1"] },					
+					{ Name: "MiddleSteel", HasType: false, AllowModuleTypes: ["m1"] },
 					//Ring
 					{ Name: "RingSteel", HasType: false, AllowModuleTypes: ["r1"] },
-					{ Name: "Wedding", HasType: false, AllowModuleTypes: ["r2"]},				
+					{ Name: "Wedding", HasType: false, AllowModuleTypes: ["r2"]},
 					//Pinkie
 					{ Name: "PinkieSteel", HasType: false, AllowModuleTypes: ["p1"] },
 					{ Name: "HonorBase", HasType: false, AllowModuleTypes: ["p2"] },
 					{ Name: "HonorJewels", HasType: false, AllowModuleTypes: ["p2"] },
-					
+
 				],
 			},
-			
+
 		],
 		Color: ["Default", "#cccccc", "#aaaaaa", "#888888", "#666666", "#444444", "#222222", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -5463,7 +5463,7 @@ var AssetFemale3DCG = [
 					{ Name: "Ballgag", HasType: false, AllowModuleTypes: ["g4"], ColorGroup: "Gag" },
 					{ Name: "DildoLips", HasType: false, AllowModuleTypes: ["g5"], InheritColor: "Mouth", AllowColorize: true, HideColoring: true },
 					{ Name: "Dildo", HasType: false, AllowModuleTypes: ["g5"], ColorGroup: "Gag" },
-					
+
 
 					//ExtraStraps
 					{ Name: "ExtraMetal", HasType: false, AllowModuleTypes: ["e1", "e2", "b1", "p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], CopyLayerColor: "BaseMetal", Priority: 55 },
@@ -5826,7 +5826,7 @@ var AssetFemale3DCG = [
 					{ Name: "Ballgag", HasType: false, AllowModuleTypes: ["g4"], ColorGroup: "Gag" },
 					{ Name: "DildoLips", HasType: false, AllowModuleTypes: ["g5"], InheritColor: "Mouth", AllowColorize: true, HideColoring: true },
 					{ Name: "Dildo", HasType: false, AllowModuleTypes: ["g5"], ColorGroup: "Gag" },
-					
+
 
 					//ExtraStraps
 					{ Name: "ExtraMetal", HasType: false, AllowModuleTypes: ["e1", "e2", "b1", "p1", "p2","p3" ,"p4" ,"p5" ,"p6" ,"p7" ,"p8"], CopyLayerColor: "BaseMetal", Priority: 55 },
