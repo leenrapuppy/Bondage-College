@@ -102,9 +102,13 @@ function CraftingUpdatePreview() {
 		return true;
 	});
 	for (const RelevantAsset of RelevantAssets) {
-		if ((RelevantAsset.Group == null) || (RelevantAsset.Group.Name == null) || (RelevantAsset.Group.Name == "ItemAddon")) continue;
 		InventoryWear(CraftingPreview, RelevantAsset.Name, RelevantAsset.Group.Name, null, null, CraftingPreview.MemberNumber, Craft);
 		InventoryCraft(CraftingPreview, CraftingPreview, RelevantAsset.Group.Name, Craft, false);
+		// Hack for the stuff in ItemAddons, since there's no way to resolve their prerequisites
+		if (RelevantAsset.Prerequisite.includes("OnBed")) {
+			const bed = AssetGet(CraftingPreview.AssetFamily, "ItemDevices", "Bed");
+			InventoryWear(CraftingPreview, bed.Name, bed.Group.Name, null, null, CraftingPreview.MemberNumber);
+		}
 	}
 	CharacterRefresh(CraftingPreview);
 }
