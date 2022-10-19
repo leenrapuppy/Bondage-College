@@ -49,6 +49,7 @@ var VibratorModeSet = {
  * @type {{
  *     Standard: ExtendedItemOption[],
  *     Advanced: (ExtendedItemOption | {
+ *         Name: string,
  *         Property: {
  *             Mode: VibratorMode,
  *             Intensity: number | (() => number),
