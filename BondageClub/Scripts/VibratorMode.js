@@ -242,6 +242,9 @@ function VibratorModeCreateScriptDrawFunction({ dynamicAssetsFunctionPrefix }) {
 function VibratorModeSetAssetProperties(data) {
 	const { asset } = data;
 	asset.DynamicScriptDraw = true;
+	asset.AllowType = Object.values(VibratorMode);
+	asset.AllowType[0] = "TurnOff";
+	asset.Extended = true;
 	VibratorModeSetAllowEffect(data);
 	VibratorModeSetEffect(data);
 }
