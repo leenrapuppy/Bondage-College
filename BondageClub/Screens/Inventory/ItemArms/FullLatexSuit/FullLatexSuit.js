@@ -56,10 +56,11 @@ function InventoryItemArmsFullLatexSuitSetWand(C) {
 	ChatRoomCharacterItemUpdate(C, "ItemVulva");
 	CharacterRefresh(C);
 
-	const Prefix = DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name;
+	const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
 	const Dictionary = [
 		{Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber},
 		{Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber},
 	]
-	ExtendedItemCustomExit(`${Prefix}SetWand`, C, Dictionary)
+
+	ExtendedItemCustomExit(`${Data.chatTags}SetWand`, C, Dictionary)
 }

@@ -6757,7 +6757,88 @@ var AssetFemale3DCGExtended = {
 					}
 				],
 			}
-		}
+		},
+		SciFiPleasurePanties: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "CrotchShield", Key: "c",
+						DrawImages: false,
+						Options: [
+							{}, // 0 - open
+							{ // 1 - close front
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemVulva", "ItemVulvaPiercings"],
+								},
+							},
+							{ // 2 - close back
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemButt"],
+								},
+							},
+							{ // 3 - close both
+								Property: {
+									Effect: ["Chaste"],
+									Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+								},
+							},
+						],
+					},
+					{
+						Name: "Intensity", Key: "i",
+						DrawImages: false,
+						Options: [
+							{ Property: { Intensity: -1, Effect: ["Egged"] } }, // i0 - Turn Off
+							{ Property: { Intensity: 0, Effect: ["Egged", "Vibrating"] } }, // i1 - Low
+							{ Property: { Intensity: 1, Effect: ["Egged", "Vibrating"] } }, // i2 - Medium
+							{ Property: { Intensity: 2, Effect: ["Egged", "Vibrating"] } }, // i3 - High
+							{ Property: { Intensity: 3, Effect: ["Egged", "Vibrating"] } }, // i4 - Maximum
+						],
+					},
+					{
+						Name: "OrgasmLock", Key: "o",
+						DrawImages: false,
+						Options: [
+							{}, // o0 - Normal
+							{ Property: { Effect: ["DenialMode"] } }, // o1 - Edge
+							{ Property: { Effect: ["RuinOrgasms"] } }, // o2 - Deny
+						],
+					},
+					{
+						Name: "ShockLevel", Key: "s",
+						DrawImages: false,
+						Options: [
+							{ Property: { ShockLevel: 0 } }, // s0 - Level 1
+							{ Property: { ShockLevel: 1 } }, // s1 - Level 2
+							{ Property: { ShockLevel: 2 } }, // s2 - Level 3
+						],
+					},
+				],
+				BaselineProperty: { ShowText: true },
+				ScriptHooks: {
+					Load: FuturisticAccessLoad,
+					Click: InventoryItemPelvisSciFiPleasurePantiesClick,
+					Draw: InventoryItemPelvisSciFiPleasurePantiesDraw,
+					Exit: FuturisticAccessExit,
+					Validate: FuturisticAccessValidate,
+				},
+				Dialog: {
+					ChatPrefix: ({previousOption, newOption}) => {
+						const Prefix = `${DialogFocusItem.Asset.Group.Name}${DialogFocusItem.Asset.Name}Set`;
+						const IntensityPattern = /^(i)(\d+)$/g;
+						if (!IntensityPattern.test(newOption.Name)) {
+							return Prefix;
+						}
+						const Change = Number.parseInt(newOption.Name.slice(1)) - Number.parseInt(previousOption.Name.slice(1));
+						const StateChange = (Change > 0) ? "Increase" : "Decrease";
+						return `${Prefix}${StateChange}`;
+					},
+				},
+			},
+		},
 	}, // ItemPelvis
 	ItemEars: {
 		FuturisticEarphones: {

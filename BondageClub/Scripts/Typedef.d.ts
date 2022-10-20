@@ -1768,16 +1768,8 @@ interface ItemPropertiesCustom {
 	/** A string denoting who has permission to use the vibrator's trigger words */
 	AccessMode?: ItemVulvaFuturisticVibratorAccessMode;
 
-	// #region Pleasure panties settings
-
 	/** How intense the shock should be */
 	ShockLevel?: 0 | 1 | 2;
-	/** Whether the crotch is accessible */
-	LockCrotch?: boolean;
-	/** Whether orgasms are allowed, edged or denied */
-	OrgasmLock?: 0 | 1 | 2;
-
-	// #endregion
 
 	/** The number of inserted beads */
 	InsertedBeads?: 1 | 2 | 3 | 4 | 5;

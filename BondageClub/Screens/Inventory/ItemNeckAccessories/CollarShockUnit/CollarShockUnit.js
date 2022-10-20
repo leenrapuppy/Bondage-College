@@ -17,7 +17,7 @@ function InventoryItemNeckAccessoriesCollarShockUnitDraw() {
 	DrawButton(1550, 650, 200, 55, DialogFindPlayer("Medium"), (DialogFocusItem.Property.ShockLevel < 1 || DialogFocusItem.Property.ShockLevel > 1) ? "White" : "Gray");
 	DrawButton(1375, 710, 200, 55, DialogFindPlayer("High"), DialogFocusItem.Property.ShockLevel < 2 ? "White" : "Gray");
 	if (CurrentScreen == "ChatRoom") DrawButton(1325, 800, 64, 64, "", "White", DialogFocusItem.Property.ShowText ? "Icons/Checked.png" : "");
-	if (CurrentScreen == "ChatRoom") DrawText(DialogFindPlayer("ShockCollarShowChat"), 1570, 833, "White", "Gray");
+	if (CurrentScreen == "ChatRoom") DrawText(DialogFindPlayer("ShowChat"), 1570, 833, "White", "Gray");
 	DrawButton(1250, 900, 200, 55, DialogFindPlayer("ResetShockCount"), Player.CanInteract() && DialogFocusItem.Property.TriggerCount > 0 ? "White" : "Gray");
 	DrawButton(1500, 900, 200, 55, DialogFindPlayer("TriggerShock"), Player.CanInteract() ? "White" : "Gray");
 }
