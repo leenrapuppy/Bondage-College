@@ -80,6 +80,18 @@ var ExtendedItemPermissionMode = false;
 var ExtendedItemSubscreen = null;
 
 /**
+ * Get an asset-appropriate array with button coordinates, based on the number to be displayed per page.
+ * @param {Asset} Asset - The relevant asset
+ * @param {boolean} ShowImages - Whether images should be shown or not.
+ * Note that whether an asset is clothing-based or not takes priority over this option.
+ * @returns {[number, number][][]} The coordinates array
+ */
+function ExtendedItemGetXY(Asset, ShowImages=true) {
+	const IsCloth = Asset.Group.Clothing;
+	return !IsCloth ? ShowImages ? ExtendedXY : ExtendedXYWithoutImages : ExtendedXYClothes;
+}
+
+/**
  * Loads the item extension properties
  * @param {ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
  *     in the array should be the default option.
@@ -146,7 +158,7 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 	const Asset = DialogFocusItem.Asset;
 	const ItemOptionsOffset = ExtendedItemGetOffset();
 	if (XYPositions === null) {
-		const XYPositionsArray = !Asset.Group.Clothing ? (ShowImages ? ExtendedXY : ExtendedXYWithoutImages) : ExtendedXYClothes;
+		const XYPositionsArray = ExtendedItemGetXY(Asset, ShowImages);
 		OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositionsArray.length - 1);
 		XYPositions = XYPositionsArray[OptionsPerPage];
 	} else {
@@ -326,10 +338,9 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 	}
 
 	const ItemOptionsOffset = ExtendedItemGetOffset();
-	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
 	const ImageHeight = ShowImages ? 220 : 0;
 	if (XYPositions === null) {
-		const XYPositionsArray = !IsCloth ? ShowImages ? ExtendedXY : ExtendedXYWithoutImages : ExtendedXYClothes;
+		const XYPositionsArray = ExtendedItemGetXY(DialogFocusItem.Asset, ShowImages);
 		OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositionsArray.length - 1);
 		XYPositions = XYPositionsArray[OptionsPerPage];
 	} else {
