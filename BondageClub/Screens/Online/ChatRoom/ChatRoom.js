@@ -3440,7 +3440,7 @@ function ChatRoomSyncItem(data) {
 				if (item.Craft != null)
 					for (let Char of ChatRoomCharacter)
 						if (Char.MemberNumber === data.Source)
-							InventoryCraft(Char, ChatRoomCharacter[C], data.Item.Group, item.Craft, false);
+							InventoryCraft(Char, ChatRoomCharacter[C], data.Item.Group, item.Craft, false, false);
 				InventoryGet(ChatRoomCharacter[C], data.Item.Group).Property = item.Property;
 
 				/** @type {AppearanceDiffMap} */
