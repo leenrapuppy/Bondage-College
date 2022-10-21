@@ -287,7 +287,7 @@ function AssetFindExtendedConfig(ExtendedConfig, GroupName, AssetName) {
  * @return {AssetLayer[]} - An array of layer objects representing the drawable layers of the asset
  */
 function AssetBuildLayer(AssetDefinition, A) {
-	var Layers = Array.isArray(AssetDefinition.Layer) ? AssetDefinition.Layer : [{}];
+	const Layers = Array.isArray(AssetDefinition.Layer) ? AssetDefinition.Layer : /** @type {AssetLayerDefinition[]} */([{}]);
 	return Layers.map((Layer, I) => AssetMapLayer(Layer, AssetDefinition, A, I));
 }
 
