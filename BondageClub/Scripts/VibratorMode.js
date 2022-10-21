@@ -147,6 +147,11 @@ var VibratorModeOptions = {
 };
 
 /**
+ * An alias for the vibrators OFF mode. See {@link VibratorModeOptions}.
+ */
+const VibratorModeOff = VibratorModeOptions[VibratorModeSet.STANDARD][0];
+
+/**
  * A lookup for the vibrator configurations for each registered vibrator item
  * @const
  * @type {Record<string, VibratingItemData>}
@@ -282,7 +287,7 @@ function VibratorModeLoad(Options) {
 	var Property = DialogFocusItem.Property;
 	if (!Property || !Property.Mode) {
 		Options = (Options && Options.length) ? Options : [VibratorModeSet.STANDARD];
-		var FirstOption = VibratorModeOptions[Options[0]][0] || VibratorModeOptions[VibratorModeSet.STANDARD][0];
+		var FirstOption = VibratorModeOptions[Options[0]][0] || VibratorModeOff;
 		VibratorModeSetProperty(DialogFocusItem, FirstOption.Property);
 		var C = CharacterGetCurrent();
 		CharacterRefresh(C);
@@ -387,7 +392,7 @@ function VibratorModeGetOption(ModeName) {
 	});
 
 	if (result) return result;
-	return VibratorModeOptions.Standard[0];
+	return VibratorModeOff;
 
 }
 
