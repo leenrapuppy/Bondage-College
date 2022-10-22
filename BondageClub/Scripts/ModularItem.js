@@ -576,6 +576,11 @@ function ModularItemSanitizeProperties(Property, mergedProperty, Asset) {
 	if (typeof Property.InflateLevel === "number") mergedProperty.InflateLevel = Property.InflateLevel;
 	if (typeof Property.Intensity === "number") mergedProperty.Intensity = Property.Intensity;
 	if (typeof Property.Opacity === "number") mergedProperty.Opacity = Property.Opacity;
+	if (typeof Property.AutoPunish === "number") mergedProperty.AutoPunish = Property.AutoPunish;
+	if (typeof Property.AutoPunishUndoTimeSetting === "number") mergedProperty.AutoPunishUndoTimeSetting = Property.AutoPunishUndoTimeSetting;
+	if (typeof Property.OriginalSetting === "number") mergedProperty.OriginalSetting = Property.OriginalSetting;
+	if (typeof Property.BlinkState === "boolean") mergedProperty.BlinkState = Property.BlinkState;
+	if (typeof Property.AutoPunishUndoTime === "number") mergedProperty.AutoPunishUndoTime = Property.AutoPunishUndoTime;
 	return mergedProperty;
 }
 

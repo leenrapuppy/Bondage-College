@@ -24,6 +24,7 @@ const neededFiles = [
 	"Screens/Inventory/ItemVulva/ClitAndDildoVibratorbelt/ClitAndDildoVibratorbelt.js",
 	"Screens/Inventory/ItemBreast/FuturisticBra/FuturisticBra.js",
 	"Screens/Inventory/ItemArms/TransportJacket/TransportJacket.js",
+	"Screens/Inventory/ItemMouth/FuturisticPanelGag/FuturisticPanelGag.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"
 ];

@@ -5108,12 +5108,18 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "FuturisticPanelGag", Category: ["SciFi"], Fetish: ["Metal"], Value: 100, Difficulty: 4, Time: 15, Random: false, AllowLock: true, DrawLocks: false, DefaultColor: ["#50913C", "Default"], BuyGroup: "FuturisticPanelGag", Prerequisite: "GagFlat", Hide: ["Mouth"], FuturisticRecolor: true, Effect: [ "BlockMouth", "UseRemote"], AllowEffect: ["BlockMouth", "GagVeryLight", "LightBall", "GagMedium", "GagTotal"], AllowType: ["Padded", "LightBall", "Ball", "Plug", "AutoPunish", "AutoPunishUndoTime", "AutoPunishUndoTimeSetting", "OriginalSetting", "ChatMessage"], HideItem: ["ItemNoseNoseRing"], Extended: true, DynamicScriptDraw: true,DynamicBeforeDraw: true, Audio: "FuturisticApply",
+				Name: "FuturisticPanelGag", Category: ["SciFi"], Fetish: ["Metal"], Value: 100, Difficulty: 4, Time: 15, Random: false, AllowLock: true,
+				DrawLocks: false, DefaultColor: ["#50913C", "Default"], BuyGroup: "FuturisticPanelGag", Prerequisite: "GagFlat", Hide: ["Mouth"],
+				FuturisticRecolor: true, Effect: [ "BlockMouth", "UseRemote"], HideItem: ["ItemNoseNoseRing"], Extended: true, DynamicScriptDraw: true,
+				DynamicBeforeDraw: true, Audio: "FuturisticApply", HasType: false,
 				Layer: [
-					{ Name: "Ball", AllowColorize: true, HasType: false },
-					{ Name: "Mask" , AllowColorize: true, HasType: false },
-					{ Name: "Light" , AllowColorize: true, AllowTypes: ["", "LightBall", "Ball", "Plug", "Blink"]},
-					{ Name: "Lock", LockLayer: true,AllowColorize: true, ParentGroup: null},
+					{ Name: "Ball", AllowColorize: true },
+					{ Name: "Mask" , AllowColorize: true },
+					{ Name: "Light" , AllowColorize: true },
+					{ Name: "Lock", LockLayer: true, AllowColorize: true, ParentGroup: null, AllowModuleTypes: ["g0"] },
+					{ Name: "LightBallLock", LockLayer: true, AllowColorize: true, ParentGroup: null, AllowModuleTypes: ["g1"], CopyLayerColor: "Lock" },
+					{ Name: "BallLock", LockLayer: true, AllowColorize: true, ParentGroup: null, AllowModuleTypes: ["g2"], CopyLayerColor: "Lock" },
+					{ Name: "PlugLock", LockLayer: true, AllowColorize: true, ParentGroup: null, AllowModuleTypes: ["g3"], CopyLayerColor: "Lock" },
 				]
 			},
 			{

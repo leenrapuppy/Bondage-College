@@ -195,10 +195,7 @@ var AudioActions = [
 	},
 	{
 		IsAction: (data) => [
-			"FuturisticPanelGagMouthSetLightBall",
-			"FuturisticPanelGagMouthSetBall",
-			"FuturisticPanelGagMouthSetPadded",
-			"FuturisticPanelGagMouthSetPlug"
+			"ItemMouthFuturisticPanelGagSetg",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "SciFiPump"
 	},
@@ -254,20 +251,21 @@ var AudioActions = [
 	{
 		IsAction: (data) => [
 			"FuturisticTrainingBeltSetGeneric",
-			"FuturisticPanelGagMouthSetAutoPunish",
+			"ItemMouthFuturisticPanelGagSetp",
+			"ItemMouthFuturisticPanelGagSett",
 			"ItemPelvisSciFiPleasurePantiesSeto",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "SciFiBeeps"
 	},
 	{
 		IsAction: (data) => [
-			"FuturisticPanelGagMouthSetAutoInflate"
+			"ItemMouthFuturisticPanelGagSetPumpInflate",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "Inflation"
 	},
 	{
 		IsAction: (data) => [
-			"FuturisticPanelGagMouthSetAutoDeflate"
+			"ItemMouthFuturisticPanelGagSetPumpDeflate",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "Deflation"
 	},

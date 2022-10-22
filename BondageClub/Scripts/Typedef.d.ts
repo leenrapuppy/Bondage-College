@@ -1723,9 +1723,9 @@ interface ItemPropertiesCustom {
 	/** The remaining time for the gag's auto-inflation */
 	AutoPunishUndoTime?: number;
 	/** The default time for the gag's auto-inflation */
-	AutoPunishUndoTimeSetting?: number;
-	/** The gag's {@link ItemProperties.Type} prior to triggering auto-inflation */
-	OriginalSetting?: "Padded" | "LightBall" | "Ball" | "Plug";
+	AutoPunishUndoTimeSetting?: 120000 | 300000 | 900000 | 3600000 | 72000000;
+	/** The gag module-index prior to triggering auto-inflation */
+	OriginalSetting?: 0 | 1 | 2 | 3;
 	/** Whether gag's blinking light is on or off */
 	BlinkState?: boolean;
 	/**
