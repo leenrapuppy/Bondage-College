@@ -34,7 +34,7 @@ function InventoryItemButtAnalBeads2Click() {
 // Sets the amount of beads
 function InventoryItemButtAnalBeads2SetBeads(Modifier) {
 	// Gets the current item and character
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 		InventoryItemButtAnalBeads2Load();
@@ -85,4 +85,14 @@ function InventoryItemButtAnalBeads2SetBeads(Modifier) {
 		DialogFocusItem = null;
 		DialogMenuButtonBuild(C);
 	}
+}
+
+/**
+ * Sets the number of beads.
+ * Used for setting the Type of crafted items.
+ * @type {TypedItemSetTypeCallback}
+ */
+function InventoryItemButtAnalBeads2SetType(NewType) {
+	const NBeads = NewType == "Base" ? 1 : parseInt(NewType.split('')[1]);
+	InventoryItemButtAnalBeads2SetBeads(NBeads);
 }

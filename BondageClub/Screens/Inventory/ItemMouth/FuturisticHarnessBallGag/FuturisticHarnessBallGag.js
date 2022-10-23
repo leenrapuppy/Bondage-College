@@ -30,7 +30,7 @@ var InventoryItemMouthFuturisticBallGagOptions = [
  * @returns {void} - Nothing
  */
 function InventoryItemMouthFuturisticHarnessBallGagLoad() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied();
 	} else {
@@ -55,7 +55,7 @@ function InventoryItemMouthFuturisticHarnessBallGagExit() {
 * @returns {void} - Nothing
 */
 function InventoryItemMouthFuturisticHarnessBallGagDraw() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticDrawAccessDenied();
 	} else {
@@ -111,7 +111,7 @@ function InventoryItemMouthFuturisticHarnessBallGagDraw() {
  * @returns {void} - Nothing
  */
 function InventoryItemMouthFuturisticHarnessBallGagClick() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticClickAccessDenied();
 	} else {

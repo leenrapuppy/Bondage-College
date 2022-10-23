@@ -17,7 +17,7 @@ var InventoryItemTorso2FuturisticHarnessOptions = [
 
 // Loads the item extension properties
 function InventoryItemTorso2FuturisticHarnessLoad() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied();
 	}  else
@@ -26,7 +26,7 @@ function InventoryItemTorso2FuturisticHarnessLoad() {
 
 // Draw the item extension screen
 function InventoryItemTorso2FuturisticHarnessDraw() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticDrawAccessDenied();
 	} else {
@@ -54,7 +54,7 @@ function InventoryItemTorso2FuturisticHarnessPublishAction(C, Option) {
 
 // Catches the item extension clicks
 function InventoryItemTorso2FuturisticHarnessClick() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticClickAccessDenied();
 	} else {

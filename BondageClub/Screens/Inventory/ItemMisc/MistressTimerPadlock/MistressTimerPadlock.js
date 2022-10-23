@@ -92,7 +92,7 @@ function InventoryItemMiscMistressTimerPadlockAdd(TimeToAdd, PlayerMemberNumberT
     if (PlayerMemberNumberToList) DialogFocusSourceItem.Property.MemberNumberList.push(Player.MemberNumber);
     var TimerBefore = DialogFocusSourceItem.Property.RemoveTimer;
     if (DialogFocusItem.Asset.RemoveTimer > 0) DialogFocusSourceItem.Property.RemoveTimer = Math.round(Math.min(DialogFocusSourceItem.Property.RemoveTimer + (TimeToAdd * 1000), CurrentTime + (DialogFocusItem.Asset.MaxTimer * 1000)));
-    var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+    var C = CharacterGetCurrent();
     if (CurrentScreen == "ChatRoom") {
         var timeAdded = (DialogFocusSourceItem.Property.RemoveTimer - TimerBefore) / (1000 * 60);
         var msg = ((timeAdded < 0) && DialogFocusSourceItem.Property.ShowTimer ? "TimerRemoveTime" : "TimerAddTime");
@@ -121,5 +121,5 @@ function InventoryItemMiscMistressTimerPadlockAdd(TimeToAdd, PlayerMemberNumberT
 // Exits the extended menu
 function InventoryItemMiscMistressTimerPadlockExit() {
     DialogFocusItem = null;
-    if (DialogInventory != null) DialogMenuButtonBuild((Player.FocusGroup != null) ? Player : CurrentCharacter);
+    if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
 }

@@ -1,5 +1,7 @@
 "use strict";
 
+var InventoryItemDevicesSmallLockerOptions = ItemDevicesLockerOptions;
+
 function InventoryItemDevicesSmallLockerLoad() {
 	InventoryItemDevicesLockerLoad();
 }

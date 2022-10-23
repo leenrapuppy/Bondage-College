@@ -6911,7 +6911,7 @@ var AssetFemale3DCG = [
 				Prerequisite: ["NotLifted", "NotSuspended", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "CanKneel"],
 				SetPose: ["Kneel"],
 				Block: ["ItemAddon"],
-				AllowType: ["OpenPadding", "Closed", "ClosedPadding"],
+				AllowType: ["OpenPadding", "ClosedNoPadding", "ClosedPadding"],
 				AllowEffect: ["OneWayEnclose", "Prone", "Freeze"],
 				Effect: ["ForceKneel", "Tethered"],
 				Layer: [

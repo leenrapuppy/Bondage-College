@@ -1,7 +1,7 @@
 "use strict";
 const InventoryHairAccessory1HaloBrightnessInputId = "InventoryHairAccessory1HaloBrightness";
 
-const InventoryHairAccessory1HaloOptions = [
+var InventoryHairAccessory1HaloOptions = [
 	{
 		Name: "Default",
 		Property: { Type: null },
