@@ -2611,11 +2611,12 @@ function DialogChatRoomSafewordRelease() {
 
 /**
  * Close the dialog and switch to the crafting screen.
+ * @returns {void} - Nothing
  */
 function DialogOpenCraftingScreen() {
-	const fromRoom = CurrentScreen === "ChatRoom";
+	const FromChatRoom = (CurrentScreen === "ChatRoom");
 	DialogLeave();
-	CraftingShowScreen(fromRoom);
+	CraftingShowScreen(FromChatRoom);
 }
 
 /**

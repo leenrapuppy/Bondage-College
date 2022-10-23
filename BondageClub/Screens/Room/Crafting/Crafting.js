@@ -45,7 +45,7 @@ var CraftingLockList = ["", "MetalPadlock", "IntricatePadlock", "HighSecurityPad
  * Returns TRUE if a crafting item has an effect from a list or allows that effect
  * @param {Asset} Item - The item asset to validate
  * @param {EffectName[]} Effect - The list of effects to validate
- * @returns {Boolean}
+ * @returns {Boolean} - TRUE if the item has that effect
  */
 function CraftingItemHasEffect(Item, Effect) {
 	if (Item.Effect != null)
@@ -60,21 +60,21 @@ function CraftingItemHasEffect(Item, Effect) {
 }
 
 /**
- *
- * @param {boolean} [fromRoom]
+ * Shows the crating screen and remember if the entry came from an online chat room
+ * @param {boolean} FromChatRoom - TRUE if we come from an online chat room
+ * @returns {void} - Nothing
  */
-function CraftingShowScreen(fromRoom) {
-	CraftingReturnToChatroom = fromRoom;
+function CraftingShowScreen(FromChatRoom) {
+	CraftingReturnToChatroom = FromChatRoom;
 	CommonSetScreen("Room", "Crafting");
 }
 
 /**
- * Loads the club crafting room in slot selection mode
+ * Loads the club crafting room in slot selection mode, creates a dummy character for previews
  * @returns {void} - Nothing
  */
 function CraftingLoad() {
 	CraftingModeSet("Slot");
-	// Create a dummy character for previews
 	CraftingPreview = CharacterLoadSimple(`CraftingPreview-${Player.MemberNumber}`);
 	CraftingPreview.Appearance = [...Player.Appearance];
 	CraftingPreview.Crafting = JSON.parse(JSON.stringify(Player.Crafting));
