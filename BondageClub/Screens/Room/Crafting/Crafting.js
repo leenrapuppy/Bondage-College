@@ -3,7 +3,7 @@ var CraftingBackground = "CraftingWorkshop";
 var CraftingMode = "Slot";
 var CraftingDestroy = false;
 var CraftingSlot = 0;
-/** @type {{Name?: string, Description?: string, Color?: string, Asset?: Asset, Property?: string, Lock?: Asset, Private?: boolean, Type: String }} */
+/** @type {{Name?: string, Description?: string, Color?: string, Asset?: Asset, Property?: CraftingPropertyType, Lock?: Asset, Private?: boolean, Type?: String }} */
 var CraftingSelectedItem = null;
 var CraftingOffset = 0;
 /** @type {Asset[]} */
@@ -16,7 +16,7 @@ var CraftingNakedPreview = false;
 var CraftingReturnToChatroom = false;
 
 /**
- * @type {{Name: string, Allow: (asset: Asset) => boolean}[]}
+ * @type {{Name: CraftingPropertyType, Allow: (asset: Asset) => boolean}[]}
  */
 var CraftingPropertyList = [
 	{ Name: "Normal", Allow : function(Item) { return true; } },
@@ -39,6 +39,8 @@ var CraftingPropertyList = [
 	{ Name: "Arousing", Allow : function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); } },
 	{ Name: "Dull", Allow : function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); } }
 ];
+
+/** @type {(AssetLockType | "")[]} */
 var CraftingLockList = ["", "MetalPadlock", "IntricatePadlock", "HighSecurityPadlock", "OwnerPadlock", "LoversPadlock", "MistressPadlock", "PandoraPadlock", "ExclusivePadlock"];
 
 /**
@@ -607,7 +609,7 @@ function CraftingConvertSelectedToItem() {
 	return {
 		Item: (CraftingSelectedItem.Asset == null) ? "" : CraftingSelectedItem.Asset.Name,
 		Property: CraftingSelectedItem.Property,
-		Lock: (CraftingSelectedItem.Lock == null) ? "" : CraftingSelectedItem.Lock.Name,
+		Lock: (CraftingSelectedItem.Lock == null) ? "" : /**@type {AssetLockType}*/(CraftingSelectedItem.Lock.Name),
 		Name: Name,
 		Description: Description,
 		Color: Color,
