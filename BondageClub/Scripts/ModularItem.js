@@ -106,7 +106,7 @@ function ModularItemCreateLoadFunction(data) {
 		if (!DialogFocusItem.Property) {
 			const C = CharacterGetCurrent();
 			const currentModuleValues = ModularItemParseCurrent(data);
-			DialogFocusItem.Property = ModularItemMergeModuleValues(data, currentModuleValues);
+			DialogFocusItem.Property = ModularItemMergeModuleValues(data, currentModuleValues, data.BaselineProperty);
 			CharacterRefresh(C);
 			ChatRoomCharacterItemUpdate(C, data.asset.Group.Name);
 		}
@@ -193,9 +193,15 @@ function ModularItemUpdateModules(Modules) {
  * @param {ModularItemConfig} config - The item's extended item configuration
  * @returns {ModularItemData} - The generated modular item data for the asset
  */
-function ModularItemCreateModularData(asset,
-	{ Modules, ChatSetting, ChatTags, ChangeWhenLocked, Dialog, ScriptHooks }
-) {
+function ModularItemCreateModularData(asset, {
+	Modules,
+	ChatSetting,
+	ChatTags,
+	ChangeWhenLocked,
+	Dialog,
+	ScriptHooks,
+	BaselineProperty=null,
+}) {
 	// Set the name of all modular item options
 	// Use an external function as typescript does not like the inplace updating of an object's type
 	const ModulesParsed = ModularItemUpdateModules(Modules);
@@ -230,6 +236,7 @@ function ModularItemCreateModularData(asset,
 		},
 		drawFunctions: {},
 		clickFunctions: {},
+		BaselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
 	};
 	data.drawFunctions[ModularItemBase] = ModularItemCreateDrawBaseFunction(data);
 	data.clickFunctions[ModularItemBase] = ModularItemCreateClickBaseFunction(data);
@@ -522,32 +529,12 @@ function ModularItemParseCurrent({ asset, modules }, type=null) {
  * Merges all of the selected module options for a modular item into a single Property object to set on the item
  * @param {ModularItemData} data - The modular item's data
  * @param {number[]} moduleValues - The numeric values representing the current options for each module
+ * @param {ItemProperties|null} BaselineProperty - Initial properties
  * @returns {ItemProperties} - A property object created from combining each module of the modular item
  */
-function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
+function ModularItemMergeModuleValues({ asset, modules }, moduleValues, BaselineProperty=null) {
 	const options = modules.map((module, i) => module.Options[moduleValues[i] || 0]);
-	return options.reduce((mergedProperty, { Property }) => {
-		Property = Property || {};
-		mergedProperty.Difficulty += (Property.Difficulty || 0);
-		if (Property.CustomBlindBackground) mergedProperty.CustomBlindBackground = Property.CustomBlindBackground;
-		if (Property.Block) CommonArrayConcatDedupe(mergedProperty.Block, Property.Block);
-		if (Property.Effect) CommonArrayConcatDedupe(mergedProperty.Effect, Property.Effect);
-		if (Property.Hide) CommonArrayConcatDedupe(mergedProperty.Hide, Property.Hide);
-		if (Property.HideItem) CommonArrayConcatDedupe(mergedProperty.HideItem, Property.HideItem);
-		if (Property.SetPose) mergedProperty.SetPose = CommonArrayConcatDedupe(mergedProperty.SetPose || [], Property.SetPose);
-		if (Property.AllowActivity) CommonArrayConcatDedupe(mergedProperty.AllowActivity, Property.AllowActivity);
-		if (Property.Attribute) CommonArrayConcatDedupe(mergedProperty.Attribute, Property.Attribute);
-		if (typeof Property.OverridePriority === "number") mergedProperty.OverridePriority = Property.OverridePriority;
-		if (typeof Property.HeightModifier === "number") mergedProperty.HeightModifier = (mergedProperty.HeightModifier || 0) + Property.HeightModifier;
-		if (Property.OverrideHeight) mergedProperty.OverrideHeight = ModularItemMergeOverrideHeight(mergedProperty.OverrideHeight, Property.OverrideHeight);
-		if (asset.AllowTint && Property.Tint) mergedProperty.Tint = CommonArrayConcatDedupe(mergedProperty.Tint, Property.Tint);
-		if (typeof Property.Door === "boolean") mergedProperty.Door = Property.Door;
-		if (typeof Property.Padding === "boolean") mergedProperty.Padding = Property.Padding;
-		if (typeof Property.ShockLevel === "number") mergedProperty.ShockLevel = Property.ShockLevel;
-		if (typeof Property.TriggerCount === "number") mergedProperty.TriggerCount = Property.TriggerCount;
-		if (typeof Property.ShowText === "boolean") mergedProperty.ShowText = Property.ShowText;
-		return mergedProperty;
-	}, /** @type ItemProperties */({
+	const BaseLineProperties = /** @type {ItemProperties} */({
 		Type: ModularItemConstructType(modules, moduleValues),
 		Difficulty: 0,
 		CustomBlindBackground: asset.CustomBlindBackground,
@@ -558,7 +545,44 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
 		AllowActivity: Array.isArray(asset.AllowActivity) ? asset.AllowActivity.slice() : [],
 		Attribute: Array.isArray(asset.Attribute) ? asset.Attribute.slice() : [],
 		Tint: asset.AllowTint ? Array.isArray(asset.Tint) ? asset.Tint.slice() : [] : undefined,
-	}));
+	})
+	if (BaselineProperty != null) {
+		ModularItemSanitizeProperties(BaselineProperty, BaseLineProperties, asset);
+	}
+
+	return options.reduce((mergedProperty, { Property }) => {
+		return ModularItemSanitizeProperties(Property, mergedProperty, asset);
+	}, BaseLineProperties);
+}
+
+/**
+ * Sanitize and merge all modular item properties
+ * @param {ItemProperties} Property - The to-be sanitized properties
+ * @param {ItemProperties} mergedProperty - The to-be returned object with the newly sanitized properties
+ * @param {Asset} Asset - The relevant asset
+ * @returns {ItemProperties} - The updated merged properties
+ */
+function ModularItemSanitizeProperties(Property, mergedProperty, Asset) {
+	Property = Property || {};
+	mergedProperty.Difficulty += (Property.Difficulty || 0);
+	if (Property.CustomBlindBackground) mergedProperty.CustomBlindBackground = Property.CustomBlindBackground;
+	if (Property.Block) CommonArrayConcatDedupe(mergedProperty.Block, Property.Block);
+	if (Property.Effect) CommonArrayConcatDedupe(mergedProperty.Effect, Property.Effect);
+	if (Property.Hide) CommonArrayConcatDedupe(mergedProperty.Hide, Property.Hide);
+	if (Property.HideItem) CommonArrayConcatDedupe(mergedProperty.HideItem, Property.HideItem);
+	if (Property.SetPose) mergedProperty.SetPose = CommonArrayConcatDedupe(mergedProperty.SetPose || [], Property.SetPose);
+	if (Property.AllowActivity) CommonArrayConcatDedupe(mergedProperty.AllowActivity, Property.AllowActivity);
+	if (Property.Attribute) CommonArrayConcatDedupe(mergedProperty.Attribute, Property.Attribute);
+	if (typeof Property.OverridePriority === "number") mergedProperty.OverridePriority = Property.OverridePriority;
+	if (typeof Property.HeightModifier === "number") mergedProperty.HeightModifier = (mergedProperty.HeightModifier || 0) + Property.HeightModifier;
+	if (Property.OverrideHeight) mergedProperty.OverrideHeight = ModularItemMergeOverrideHeight(mergedProperty.OverrideHeight, Property.OverrideHeight);
+	if (Asset.AllowTint && Property.Tint) mergedProperty.Tint = CommonArrayConcatDedupe(mergedProperty.Tint, Property.Tint);
+	if (typeof Property.Door === "boolean") mergedProperty.Door = Property.Door;
+	if (typeof Property.Padding === "boolean") mergedProperty.Padding = Property.Padding;
+	if (typeof Property.ShockLevel === "number") mergedProperty.ShockLevel = Property.ShockLevel;
+	if (typeof Property.TriggerCount === "number") mergedProperty.TriggerCount = Property.TriggerCount;
+	if (typeof Property.ShowText === "boolean") mergedProperty.ShowText = Property.ShowText;
+	return mergedProperty;
 }
 
 /**
@@ -639,7 +663,7 @@ function ModularItemSetType(module, index, data) {
 		const currentProperty = ModularItemMergeModuleValues(data, currentModuleValues);
 
 		// Create a shallow copy of the old property, and remove any module-defined keys from it (should only leave any
-		// lock-related keys behind)
+		// lock-related and BaselineProperty keys behind)
 		const newProperty = Object.assign({}, DialogFocusItem.Property);
 		for (const key of Object.keys(currentProperty)) {
 			delete newProperty[key];

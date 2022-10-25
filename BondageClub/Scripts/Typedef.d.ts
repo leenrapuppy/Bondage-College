@@ -1814,6 +1814,11 @@ interface ModularItemConfig {
 		Exit?: () => void;
 		Validate?: ExtendedItemValidateScriptHookCallback<ModularItemOption>;
 	};
+	/**
+	 * To-be initialized properties independant of the selected item module(s).
+	 * Relevant if there are properties that are (near) exclusively managed by {@link ModularItemConfig.ScriptHooks} functions.
+	 */
+	BaselineProperty?: ItemProperties;
 }
 
 interface ModularItemDialogConfig {
@@ -1983,6 +1988,11 @@ interface ModularItemData {
 		exit?: () => void,
 		validate?: ExtendedItemValidateScriptHookCallback<ModularItemOption>,
 	};
+	/**
+	 * To-be initialized properties independant of the selected item module(s).
+	 * Relevant if there are properties that are (near) exclusively managed by {@link ModularItemData.scriptHooks} functions.
+	 */
+	BaselineProperty: ItemProperties | null;
 }
 
 /** A 3-tuple containing data for drawing a button in a modular item screen. A button definition takes the
@@ -2049,6 +2059,11 @@ interface TypedItemConfig {
 		Validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>,
 		PublishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
 	};
+	/**
+	 * To-be initialized properties independant of the selected item module(s).
+	 * Relevant if there are properties that are (near) exclusively managed by {@link TypedItemConfig.ScriptHooks} functions.
+	 */
+	BaselineProperty?: ItemProperties;
 }
 
 interface TypedItemDialogConfig {
@@ -2141,6 +2156,11 @@ interface TypedItemData {
 		validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>,
 		publishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
 	};
+	/**
+	 * To-be initialized properties independant of the selected item module(s).
+	 * Relevant if there are properties that are (near) exclusively managed by {@link TypedItemData.scriptHooks} functions.
+	 */
+	BaselineProperty: ItemProperties | null;
 }
 
 /**

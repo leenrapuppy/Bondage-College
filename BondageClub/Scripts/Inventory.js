@@ -583,31 +583,20 @@ function InventoryWearCraftTyped(Item, Type) {
 * @returns {void}
 */
 function InventoryWearCraftMisc(Item, Type) {
-	// Emulate the dialog focus screen so we can safely call `Load`, `SetType` and `Exit`
-	const C = CharacterGetCurrent();
-	C.FocusGroup = AssetGroup.find((a) => a.Name == Item.Asset.Group.Name);
-	DialogFocusItem = Item;
-
-	// Check whether a custom `SetType` function is defined or, if not, try to use the more
-	// generic `ExtendedItemSetType` function with the items Options
 	const Prefix = ExtendedItemFunctionPrefix();
-	CommonCallFunctionByNameWarn(Prefix + "Load");
-	if ((Prefix + "SetType" in window) || !(Prefix + "Options" in window)) {
+	if (typeof window[`${Prefix}SetType`] === "function") {
 		CommonCallFunctionByName(Prefix + "SetType", Type);
-	} else {
+	} else if (Array.isArray(window[`${Prefix}Options`])) {
 		/** @type {ExtendedItemOption[]} */
 		const ItemOptions = window[Prefix + "Options"];
 		const Option = ItemOptions.find((o) => o.Name == Type);
+		const C = CharacterGetCurrent();
 		if (Option !== undefined) {
 			// NOTE: Avoid `ExtendedItemSetType` usage as the `ChatRoomCharacterUpdate` call therein can cause issues with
 			// the applying of crafted item colors (which conventionally happens *after* calling `InventoryWearCraft`)
 			TypedItemSetOption(C, Item, ItemOptions, Option, true);
 		}
 	}
-	CommonCallFunctionByName(Prefix + "Exit");
-
-	C.FocusGroup = null;
-	DialogFocusItem = null;
 }
 
 /**
@@ -633,6 +622,27 @@ function InventoryWearCraftVibrating(Item, Type) {
 }
 
 /**
+* Helper function for `InventoryWearCraft` for handling extended items
+* @param {Item} Item - The item being applied
+* @param {string} Type - The type string for a modular item
+* @param {(Item: Item, Type: string) => void} SetTypeCallback - A callback for setting the extend item's type
+* @returns {void}
+*/
+function InventoryWearCraftExtended(Item, Type, SetTypeCallback) {
+	// Emulate the dialog focus screen so we can safely call `Load`, `SetType` and `Exit`
+	const C = CharacterGetCurrent();
+	C.FocusGroup = AssetGroup.find((a) => a.Name == Item.Asset.Group.Name);
+	DialogFocusItem = Item;
+
+	// Call `Load`, `SetType` and `Exit`
+	const Prefix = ExtendedItemFunctionPrefix();
+	CommonCallFunctionByNameWarn(`${Prefix}Load`);
+	SetTypeCallback(Item, Type);
+	ExtendedItemExit();
+	C.FocusGroup = null;
+}
+
+/**
 * Sets the craft and type on the item, uses the achetype properties if possible
 * @param {Item} Item - The item being applied
 * @param {CraftingItem} [Craft] - The crafting properties of the item
@@ -650,16 +660,16 @@ function InventoryWearCraft(Item, Craft) {
 		const Archetype = Item.Asset.Archetype || "misc";
 		switch(Archetype) {
 			case ExtendedArchetype.TYPED:
-				InventoryWearCraftTyped(Item, Craft.Type);
+				InventoryWearCraftExtended(Item, Craft.Type, InventoryWearCraftTyped);
 				break;
 			case ExtendedArchetype.MODULAR:
-				InventoryWearCraftModular(Item, Craft.Type);
+				InventoryWearCraftExtended(Item, Craft.Type, InventoryWearCraftModular);
 				break;
 			case ExtendedArchetype.VIBRATING:
-				InventoryWearCraftVibrating(Item, Craft.Type);
+				InventoryWearCraftExtended(Item, Craft.Type, InventoryWearCraftVibrating);
 				break;
 			case "misc":
-				InventoryWearCraftMisc(Item, Craft.Type);
+				InventoryWearCraftExtended(Item, Craft.Type, InventoryWearCraftMisc);
 				break;
 		}
 	}

@@ -85,9 +85,10 @@ var ExtendedItemSubscreen = null;
  *     in the array should be the default option.
  * @param {string} DialogKey - The dialog key for the message to display prompting the player to select an extended
  *     type
+ * @param {ItemProperties | null} BaselineProperty - To-be initialized properties independent of the selected item types
  * @returns {void} Nothing
  */
-function ExtendedItemLoad(Options, DialogKey) {
+function ExtendedItemLoad(Options, DialogKey, BaselineProperty=null) {
 	if (!DialogFocusItem.Property) {
 		const C = CharacterGetCurrent();
 		// Default to the first option if no property is set
@@ -101,9 +102,13 @@ function ExtendedItemLoad(Options, DialogKey) {
 			if (InitialOption) InitialProperty = InitialOption.Property;
 		}
 
-		// If there is an initial property, set it and update the character
-		if (InitialProperty) {
-			DialogFocusItem.Property = JSON.parse(JSON.stringify(InitialProperty));
+		// If there is an initial and/or baseline property, set it and update the character
+		if (InitialProperty || BaselineProperty) {
+			DialogFocusItem.Property = (BaselineProperty != null) ? JSON.parse(JSON.stringify(BaselineProperty)) : {};
+			DialogFocusItem.Property = Object.assign(
+				DialogFocusItem.Property,
+				(InitialProperty != null) ? JSON.parse(JSON.stringify(InitialProperty)) : {},
+			)
 			const RefreshDialog = (CurrentScreen != "Crafting");
 			CharacterRefresh(C, true, RefreshDialog);
 			ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
