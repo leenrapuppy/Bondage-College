@@ -5933,6 +5933,10 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // FuturisticPanelGag
+		FuturisticHarnessPanelGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticPanelGag" },
+		}, // FuturisticHarnessPanelGag
 	}, // ItemMouth
 	ItemMouth2: {
 		ClothGag: {
@@ -5987,6 +5991,10 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticPanelGag" },
 		},
+		FuturisticHarnessPanelGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticHarnessPanelGag" },
+		},
 	}, // ItemMouth2
 	ItemMouth3: {
 		ClothGag: {
@@ -6040,6 +6048,10 @@ var AssetFemale3DCGExtended = {
 		FuturisticPanelGag: {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticPanelGag" },
+		},
+		FuturisticHarnessPanelGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticHarnessPanelGag" },
 		},
 		Stitches: {
 			Archetype: ExtendedArchetype.TYPED,
