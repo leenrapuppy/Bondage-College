@@ -805,8 +805,8 @@ function AsylumGGTSAutomaticTask() {
  */
 function AsylumGGTSFindTaskTarget(T) {
 
-	// Only in public GGTS when there's at least another character
-	if ((ChatSearchReturnToScreen == "AsylumGGTS") || (ChatRoomCharacter.length <= 1)) return null;
+	// Only in public GGTS when there's at least another character and the player isn't blind
+	if ((ChatSearchReturnToScreen == "AsylumGGTS") || (ChatRoomCharacter.length <= 1) || Player.IsBlind()) return null;
 
 	// Nurses can use items on other players with less reputation or herself
 	if ((ReputationGet("Asylum") > 0) && (T.substr(0, 4) == "Item") && (T.length >= 15)) {
