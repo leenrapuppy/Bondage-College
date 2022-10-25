@@ -5139,14 +5139,19 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "FuturisticHarnessBallGag", Category: ["SciFi"], Fetish: ["Metal"], Value: -1, Difficulty: 6, Time: 15, Random: false, AllowLock: true, DrawLocks: false, DefaultColor: ["#50913C", "Default", "Default", "Default"], BuyGroup: "FuturisticPanelGag", Prerequisite: "GagFlat", Hide: ["Mouth"], FuturisticRecolor: true, Effect: [ "BlockMouth", "GagLight", "UseRemote"], AllowEffect: ["BlockMouth", "GagLight", "GagMedium", "GagTotal"], AllowType: ["LightBall", "Ball", "Plug", "AutoPunish", "AutoPunishUndoTime", "AutoPunishUndoTimeSetting", "OriginalSetting", "ChatMessage"], Extended: true, DynamicScriptDraw: true,DynamicBeforeDraw: true, Audio: "FuturisticApply",
+				Name: "FuturisticHarnessBallGag", Category: ["SciFi"], Fetish: ["Metal"], Value: -1, Difficulty: 6, Time: 15, Random: false,
+				AllowLock: true, DrawLocks: false, DefaultColor: ["#50913C", "Default", "Default", "Default"], BuyGroup: "FuturisticPanelGag",
+				Prerequisite: "GagFlat", Hide: ["Mouth"], FuturisticRecolor: true, Effect: [ "BlockMouth", "GagLight", "UseRemote"],
+				Extended: true, DynamicScriptDraw: true, DynamicBeforeDraw: true, Audio: "FuturisticApply", HasType: false,
 				Layer: [
-					{ Name: "Ball", AllowColorize: true, HasType: false },
-					{ Name: "Mask" , AllowColorize: true, HasType: false },
-					{ Name: "Straps" , AllowColorize: true, HasType: false },
-					{ Name: "Light" , AllowColorize: true, AllowTypes: ["", "LightBall", "Ball", "Plug", "Blink"]},
-					{ Name: "Lock", LockLayer: true,AllowColorize: true, ParentGroup: null},
-					{ Name: "BallHighlights", AllowColorize: false, HasType: false },
+					{ Name: "Ball", AllowColorize: true },
+					{ Name: "Mask" , AllowColorize: true },
+					{ Name: "Straps" , AllowColorize: true },
+					{ Name: "Light" , AllowColorize: true },
+					{ Name: "BallHighlights", AllowColorize: false },
+					{ Name: "Lock", LockLayer: true, AllowColorize: true, ParentGroup: null, AllowModuleTypes: ["g0"] },
+					{ Name: "BallLock", LockLayer: true, AllowColorize: true, ParentGroup: null, AllowModuleTypes: ["g1"], CopyLayerColor: "Lock" },
+					{ Name: "PlugLock", LockLayer: true, AllowColorize: true, ParentGroup: null, AllowModuleTypes: ["g2"], CopyLayerColor: "Lock" },
 				]
 			},
 			{ Name: "RegularSleepingPill", Value: -1, Enable: false, Wear: false, Bonus: "KidnapSneakiness" },
