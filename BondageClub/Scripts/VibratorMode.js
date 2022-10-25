@@ -49,6 +49,7 @@ var VibratorModeSet = {
  * @type {{
  *     Standard: ExtendedItemOption[],
  *     Advanced: (ExtendedItemOption | {
+ *         Name: string,
  *         Property: {
  *             Mode: VibratorMode,
  *             Intensity: number | (() => number),
@@ -144,6 +145,11 @@ var VibratorModeOptions = {
 		},
 	],
 };
+
+/**
+ * An alias for the vibrators OFF mode. See {@link VibratorModeOptions}.
+ */
+const VibratorModeOff = VibratorModeOptions[VibratorModeSet.STANDARD][0];
 
 /**
  * A lookup for the vibrator configurations for each registered vibrator item
@@ -242,6 +248,9 @@ function VibratorModeCreateScriptDrawFunction({ dynamicAssetsFunctionPrefix }) {
 function VibratorModeSetAssetProperties(data) {
 	const { asset } = data;
 	asset.DynamicScriptDraw = true;
+	asset.AllowType = Object.values(VibratorMode);
+	asset.AllowType[0] = "TurnOff";
+	asset.Extended = true;
 	VibratorModeSetAllowEffect(data);
 	VibratorModeSetEffect(data);
 }
@@ -278,7 +287,7 @@ function VibratorModeLoad(Options) {
 	var Property = DialogFocusItem.Property;
 	if (!Property || !Property.Mode) {
 		Options = (Options && Options.length) ? Options : [VibratorModeSet.STANDARD];
-		var FirstOption = VibratorModeOptions[Options[0]][0] || VibratorModeOptions[VibratorModeSet.STANDARD][0];
+		var FirstOption = VibratorModeOptions[Options[0]][0] || VibratorModeOff;
 		VibratorModeSetProperty(DialogFocusItem, FirstOption.Property);
 		var C = CharacterGetCurrent();
 		CharacterRefresh(C);
@@ -383,7 +392,7 @@ function VibratorModeGetOption(ModeName) {
 	});
 
 	if (result) return result;
-	return VibratorModeOptions.Standard[0];
+	return VibratorModeOff;
 
 }
 

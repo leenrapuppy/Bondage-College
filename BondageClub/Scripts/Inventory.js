@@ -582,6 +582,28 @@ function InventoryWearCraftMisc(Item, Type) {
 }
 
 /**
+* Helper function for `InventoryWearCraft` for handling Vibrating items
+* @param {Item} Item - The item being applied
+* @param {string} Type - The type string for a modular item
+* @returns {void}
+*/
+function InventoryWearCraftVibrating(Item, Type) {
+	let IsAdvanced = true;
+	let Option = VibratorModeOptions.Advanced.find((o) => o.Name == Type);
+	if (Option == undefined) {
+		IsAdvanced = false;
+		Option = VibratorModeOptions.Standard.find((o) => o.Name == Type);
+	}
+
+	const C = CharacterGetCurrent();
+	if ((Option == undefined) || (IsAdvanced && C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes)) {
+		VibratorModeSetProperty(Item, VibratorModeOff);
+	} else {
+		VibratorModeSetProperty(Item, Option.Property);
+	}
+}
+
+/**
 * Sets the craft and type on the item, uses the achetype properties if possible
 * @param {Item} Item - The item being applied
 * @param {Object} [Craft] - The crafting properties of the item
@@ -598,11 +620,14 @@ function InventoryWearCraft(Item, Craft) {
 	) {
 		const Archetype = Item.Asset.Archetype || "misc";
 		switch(Archetype) {
-			case "typed":
+			case ExtendedArchetype.TYPED:
 				InventoryWearCraftTyped(Item, Craft.Type);
 				break;
-			case "modular":
+			case ExtendedArchetype.MODULAR:
 				InventoryWearCraftModular(Item, Craft.Type);
+				break;
+			case ExtendedArchetype.VIBRATING:
+				InventoryWearCraftVibrating(Item, Craft.Type);
 				break;
 			case "misc":
 				InventoryWearCraftMisc(Item, Craft.Type);
