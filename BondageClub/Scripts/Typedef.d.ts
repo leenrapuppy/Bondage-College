@@ -259,6 +259,12 @@ type AssetLockType =
 	"TimerPasswordPadlock"
 	;
 
+type CraftingPropertyType =
+	"Normal" | "Large" | "Small" | "Thick" | "Thin" | "Secure" | "Loose" | "Decoy" |
+	"Malleable" | "Rigid" | "Simple" | "Puzzling" | "Painful" | "Comfy" | "Strong" |
+	"Flexible" | "Nimble" | "Arousing" | "Dull"
+	;
+
 //#endregion
 
 //#region index.html
@@ -757,7 +763,7 @@ interface ItemBundle {
 	Difficulty?: number;
 	Color?: ItemColor;
 	Property?: ItemProperties;
-	Craft?: CraftedItemProperties;
+	Craft?: CraftingItem;
 }
 
 /** An AppearanceBundle is whole minified appearance of a character */
@@ -799,16 +805,8 @@ interface Item {
 	Asset: Asset;
 	Color?: ItemColor;
 	Difficulty?: number;
-	Craft?: CraftedItemProperties;
+	Craft?: CraftingItem;
 	Property?: ItemProperties;
-}
-
-interface CraftedItemProperties {
-	Name: string;
-	MemberName?: string;
-	MemberNumber?: number;
-	Description: string;
-	Property: string;
 }
 
 type FavoriteIcon = "Favorite" | "FavoriteBoth" | "FavoritePlayer";
@@ -2529,10 +2527,12 @@ interface PandoraBaseRoom {
 
 interface CraftingItem {
 	Name: string;
+	MemberName?: string;
+	MemberNumber?: number;
 	Description: string;
-	Property: string;
+	Property: CraftingPropertyType;
 	Color: string;
-	Lock: AssetLockType;
+	Lock: "" | AssetLockType;
 	Item: string;
 	Private: boolean;
 	Type: string;

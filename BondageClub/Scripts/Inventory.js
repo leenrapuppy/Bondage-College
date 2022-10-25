@@ -606,7 +606,7 @@ function InventoryWearCraftVibrating(Item, Type) {
 /**
 * Sets the craft and type on the item, uses the achetype properties if possible
 * @param {Item} Item - The item being applied
-* @param {Object} [Craft] - The crafting properties of the item
+* @param {CraftingItem} [Craft] - The crafting properties of the item
 */
 function InventoryWearCraft(Item, Craft) {
 	if ((Item == null) || (Item.Asset == null) || (Craft == null)) return;
@@ -644,7 +644,7 @@ function InventoryWearCraft(Item, Craft) {
 * @param {string | string[]} [ItemColor] - The hex color of the item, can be undefined or "Default"
 * @param {number} [Difficulty] - The difficulty, on top of the base asset difficulty, to assign to the item
 * @param {number} [MemberNumber] - The member number of the character putting the item on - defaults to -1
-* @param {Object} [Craft] - The crafting properties of the item
+* @param {CraftingItem} [Craft] - The crafting properties of the item
 */
 function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNumber, Craft) {
 	const A = AssetGet(C.AssetFamily, AssetGroup, AssetName);
@@ -916,7 +916,7 @@ function InventoryGroupIsBlockedForCharacter(C, GroupName, Activity) {
 /**
 * Returns TRUE if the body area is blocked by an owner rule
 * @param {Character} C - The character on which we validate the group
-* @param {string} [GroupName] - The name of the asset group (body area)
+* @param {AssetGroupName} [GroupName] - The name of the asset group (body area)
 * @returns {boolean} - TRUE if the group is blocked
 */
 function InventoryGroupIsBlockedByOwnerRule(C, GroupName) {
@@ -963,7 +963,7 @@ function InventoryGroupIsBlockedByOwnerRule(C, GroupName) {
 * Returns TRUE if the body area (Asset Group) for a character is blocked and cannot be used
 * Similar to InventoryGroupIsBlockedForCharacter but also blocks groups on all characters if the player is enclosed.
 * @param {Character} C - The character on which we validate the group
-* @param {string} [GroupName] - The name of the asset group (body area)
+* @param {AssetGroupName} [GroupName] - The name of the asset group (body area)
 * @param {boolean} [Activity] - if TRUE check if activity is allowed on the asset group
 * @returns {boolean} - TRUE if the group is blocked
 */
@@ -1019,7 +1019,7 @@ function InventoryItemIsPickable(Item) {
 
 /**
  * Returns the value of a given property of an appearance item, prioritizes the Property object.
- * @param {object} Item - The appearance item to scan
+ * @param {Item} Item - The appearance item to scan
  * @param {string} PropertyName - The property name to get.
  * @param {boolean} [CheckGroup=false] - Whether or not to fall back to the item's group if the property is not found on
  * Property or Asset.
