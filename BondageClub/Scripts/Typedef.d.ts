@@ -666,7 +666,7 @@ interface Asset {
 	HideItem?: string[];
 	HideItemExclude: string[];
 	HideItemAttribute: string[];
-	Require?: string[];
+	Require: string[];
 	SetPose?: string[];
 	AllowPose: string[] | null;
 	HideForPose: string[];
@@ -690,7 +690,7 @@ interface Asset {
 	HeightModifier: number;
 	ZoomModifier: number;
 	Alpha?: AlphaDefinition[];
-	Prerequisite?: string | string[];
+	Prerequisite: string[];
 	Extended: boolean;
 	AlwaysExtend: boolean;
 	AlwaysInteract: boolean;

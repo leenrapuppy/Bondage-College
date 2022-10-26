@@ -102,9 +102,14 @@ function CraftingUpdatePreview() {
 		return true;
 	});
 	for (const RelevantAsset of RelevantAssets) {
-		if ((RelevantAsset.Group == null) || (RelevantAsset.Group.Name == null) || (RelevantAsset.Group.Name == "ItemAddon")) continue;
 		InventoryWear(CraftingPreview, RelevantAsset.Name, RelevantAsset.Group.Name, null, null, CraftingPreview.MemberNumber, Craft);
 		InventoryCraft(CraftingPreview, CraftingPreview, RelevantAsset.Group.Name, Craft, false);
+		// Hack for the stuff in ItemAddons, since there's no way to resolve their prerequisites
+		if (RelevantAsset.Prerequisite.includes("OnBed")) {
+			const bedType = RelevantAsset.Name.includes("Medical") ? "MedicalBed" : "Bed";
+			const bed = AssetGet(CraftingPreview.AssetFamily, "ItemDevices", bedType);
+			InventoryWear(CraftingPreview, bed.Name, bed.Group.Name, null, null, CraftingPreview.MemberNumber);
+		}
 	}
 	CharacterRefresh(CraftingPreview);
 }
@@ -684,8 +689,8 @@ function CraftingItemListBuild() {
 	// For all assets
 	for (let A of Asset) {
 
-		// That asset must be in the player inventory, not for clothes or spanking toys
-		if (!InventoryAvailable(Player, A.Name, A.Group.Name)) continue;
+		// That asset must be in the player inventory or location-specific, not for clothes or spanking toys
+		if (!InventoryAvailable(Player, A.Name, A.Group.Name) && A.AvailableLocations.length === 0) continue;
 		if (!A.Enable || !A.Wear || !A.Group.Name.startsWith("Item")) continue;
 		if (A.Group.Name === "ItemMisc" || A.Name.startsWith("SpankingToys")) continue;
 
