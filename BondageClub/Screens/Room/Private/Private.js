@@ -342,6 +342,15 @@ function PrivateIsFromPandoraPositive() { return ((CurrentCharacter.FromPandora 
  * @returns {boolean} - TRUE if the character has the title in the parameter
  */
 function PrivateTitleIs(Title) { return ((CurrentCharacter.Title != null) && (CurrentCharacter.Title == Title)); }
+/**
+ * Returns TRUE if it's the player birthday of at least 1 year (based on same month and day, different year)
+ * @returns {boolean} - TRUE if it's the birthday
+ */
+ function PrivateIsPlayerBirthday() {
+	return ((new Date(Player.Creation)).getDate() == (new Date(CurrentTime)).getDate()) &&
+		   ((new Date(Player.Creation)).getMonth() == (new Date(CurrentTime)).getMonth()) &&
+		   ((new Date(Player.Creation)).getFullYear() != (new Date(CurrentTime)).getFullYear());
+}
 
 /**
  * Loads the private room screen and the vendor NPC.
