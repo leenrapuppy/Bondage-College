@@ -107,7 +107,7 @@ function InventoryItemBreastFuturisticBraClick() {
 	if (MouseIn(1885, 25, 90, 90)) DialogFocusItem = null;
 
 	if (MouseIn(1150, 900, 800, 64)) {
-		var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+		var C = CharacterGetCurrent();
 
 		// If the player can modify
 		if (InventoryItemFuturisticValidate(C) == "") {

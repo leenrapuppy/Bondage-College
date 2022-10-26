@@ -225,5 +225,5 @@ function InventoryItemMiscCombinationPadlockExit() {
 	ElementRemove("NewCombinationNumber");
 	PreferenceMessage = "";
 	DialogFocusItem = null;
-	if (DialogInventory != null) DialogMenuButtonBuild((Player.FocusGroup != null) ? Player : CurrentCharacter);
+	if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
 }

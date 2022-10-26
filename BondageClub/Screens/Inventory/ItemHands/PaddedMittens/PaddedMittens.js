@@ -29,7 +29,7 @@ function InventoryItemHandsPaddedMittensClick() {
 
 // Chain/Unchain function
 function InventoryItemHandsPaddedMittensChain() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryGet(C, "ItemArms") != null) {
 		InventoryItemHandsPaddedMittensMsg = "FreeArms";
 		return;

@@ -54,7 +54,7 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitClick() {
 function InventoryItemNeckAccessoriesCollarAutoShockUnitSetIntensity(Modifier) {
 
 	// Gets the current item and character
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 		InventoryItemNeckAccessoriesCollarAutoShockUnitLoad();
@@ -77,7 +77,7 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitSetIntensity(Modifier) {
 function InventoryItemNeckAccessoriesCollarAutoShockUnitSetSensitivity(Modifier) {
 
 	// Gets the current item and character
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 		InventoryItemNeckAccessoriesCollarAutoShockUnitLoad();
@@ -180,7 +180,7 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitTriggerAutomatic(data) {
 // Trigger a shock from the dialog menu
 function InventoryItemNeckAccessoriesCollarAutoShockUnitTrigger(data) {
 	// Gets the current item and character
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 		InventoryItemNeckAccessoriesCollarAutoShockUnitLoad();

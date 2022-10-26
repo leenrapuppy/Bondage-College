@@ -1465,8 +1465,13 @@ function CharacterResetFacialExpression(C) {
  * @returns {Character|null} - Currently selected character
  */
 function CharacterGetCurrent() {
-	if (CurrentScreen == "Appearance" && CharacterAppearanceSelection) return CharacterAppearanceSelection;
-	return (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	if (CurrentScreen == "Appearance" && CharacterAppearanceSelection) {
+		return CharacterAppearanceSelection;
+	} else if (CurrentScreen == "Crafting") {
+		return CraftingPreview;
+	} else {
+		return (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	}
 }
 
 /**

@@ -569,5 +569,13 @@ const CommonCommands = [
 			ChatRoomMessage({Type: "LocalMessage",  Content: ForbiddenList.join(", "), Sender: Player.MemberNumber});
 
 		},
+	},
+	{
+		Tag: "release",
+		Action: args => {
+			let MemberNumber = parseInt(args);
+			if ((typeof MemberNumber == "number") && !isNaN(MemberNumber) && (MemberNumber >= 0))
+				ServerSend("AccountOwnership", { MemberNumber: MemberNumber, Action: "Release" });
+		},
 	}
 ];

@@ -3,7 +3,7 @@ var CraftingBackground = "CraftingWorkshop";
 var CraftingMode = "Slot";
 var CraftingDestroy = false;
 var CraftingSlot = 0;
-/** @type {{Name?: string, Description?: string, Color?: string, Asset?: Asset, Property?: string, Lock?: Asset, Private?: boolean, Type: String }} */
+/** @type {{Name?: string, Description?: string, Color?: string, Asset?: Asset, Property?: CraftingPropertyType, Lock?: Asset, Private?: boolean, Type?: String }} */
 var CraftingSelectedItem = null;
 var CraftingOffset = 0;
 /** @type {Asset[]} */
@@ -16,7 +16,7 @@ var CraftingNakedPreview = false;
 var CraftingReturnToChatroom = false;
 
 /**
- * @type {{Name: string, Allow: (asset: Asset) => boolean}[]}
+ * @type {{Name: CraftingPropertyType, Allow: (asset: Asset) => boolean}[]}
  */
 var CraftingPropertyList = [
 	{ Name: "Normal", Allow : function(Item) { return true; } },
@@ -39,13 +39,15 @@ var CraftingPropertyList = [
 	{ Name: "Arousing", Allow : function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); } },
 	{ Name: "Dull", Allow : function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); } }
 ];
+
+/** @type {(AssetLockType | "")[]} */
 var CraftingLockList = ["", "MetalPadlock", "IntricatePadlock", "HighSecurityPadlock", "OwnerPadlock", "LoversPadlock", "MistressPadlock", "PandoraPadlock", "ExclusivePadlock"];
 
 /**
  * Returns TRUE if a crafting item has an effect from a list or allows that effect
  * @param {Asset} Item - The item asset to validate
  * @param {EffectName[]} Effect - The list of effects to validate
- * @returns {Boolean}
+ * @returns {Boolean} - TRUE if the item has that effect
  */
 function CraftingItemHasEffect(Item, Effect) {
 	if (Item.Effect != null)
@@ -60,21 +62,21 @@ function CraftingItemHasEffect(Item, Effect) {
 }
 
 /**
- *
- * @param {boolean} [fromRoom]
+ * Shows the crating screen and remember if the entry came from an online chat room
+ * @param {boolean} FromChatRoom - TRUE if we come from an online chat room
+ * @returns {void} - Nothing
  */
-function CraftingShowScreen(fromRoom) {
-	CraftingReturnToChatroom = fromRoom;
+function CraftingShowScreen(FromChatRoom) {
+	CraftingReturnToChatroom = FromChatRoom;
 	CommonSetScreen("Room", "Crafting");
 }
 
 /**
- * Loads the club crafting room in slot selection mode
+ * Loads the club crafting room in slot selection mode, creates a dummy character for previews
  * @returns {void} - Nothing
  */
 function CraftingLoad() {
 	CraftingModeSet("Slot");
-	// Create a dummy character for previews
 	CraftingPreview = CharacterLoadSimple(`CraftingPreview-${Player.MemberNumber}`);
 	CraftingPreview.Appearance = [...Player.Appearance];
 	CraftingPreview.Crafting = JSON.parse(JSON.stringify(Player.Crafting));
@@ -105,6 +107,19 @@ function CraftingUpdatePreview() {
 		InventoryCraft(CraftingPreview, CraftingPreview, RelevantAsset.Group.Name, Craft, false);
 	}
 	CharacterRefresh(CraftingPreview);
+}
+
+/**
+ * Check whether the item can safely be used with the crafting auto-type system.
+ * @returns {Boolean}
+ */
+ function CraftingItemSupportsAutoType() {
+	const ItemAsset = CraftingSelectedItem.Asset;
+	if (ItemAsset == null) {
+		return false;
+	} else {
+		return (ItemAsset.AllowType != null) && (ItemAsset.AllowType.length > 0);
+	}
 }
 
 /**
@@ -234,7 +249,7 @@ function CraftingRun() {
 		DrawButton(1843, 598, 64, 64, "", "White", "Icons/Color.png");
 		DrawText(TextGet("EnterPrivate"), 1550, 760, "White", "Black");
 		DrawButton(1175, 728, 64, 64, "", "White", CraftingSelectedItem.Private ? "Icons/Checked.png" : "");
-		if ((CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.Name != null) && (CraftingSelectedItem.Asset.Name.substring(0, 10) != "Futuristic") && (CraftingSelectedItem.Asset.AllowType != null) && (CraftingSelectedItem.Asset.AllowType.length > 0)) {
+		if (CraftingItemSupportsAutoType()) {
 			DrawText(TextGet("EnterType"), 1335, 890, "White", "Black");
 			ElementPosition("InputType", 1685, 883, 310);
 			DrawButton(1840, 858, 60, 60, "", "White", "Icons/Small/Next.png");
@@ -279,7 +294,7 @@ function CraftingModeSet(NewMode) {
 		ElementValue("InputName", CraftingSelectedItem.Name || "");
 		ElementValue("InputDescription", CraftingSelectedItem.Description || "");
 		ElementValue("InputColor", CraftingSelectedItem.Color || "");
-		if ((CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.Name != null) && (CraftingSelectedItem.Asset.Name.substring(0, 10) != "Futuristic") && (CraftingSelectedItem.Asset.AllowType != null) && (CraftingSelectedItem.Asset.AllowType.length > 0)) {
+		if (CraftingItemSupportsAutoType()) {
 			ElementCreateInput("InputType", "text", "", "20");
 			document.getElementById("InputType").addEventListener('keyup', CraftingKeyUp);
 			ElementValue("InputType", CraftingSelectedItem.Type || "");
@@ -542,7 +557,7 @@ function CraftingClick() {
 			});
 		} else if (MouseIn(1175, 728, 64, 64)) {
 			CraftingSelectedItem.Private = !CraftingSelectedItem.Private;
-		} else if (MouseIn(1840, 858, 60, 60) && (CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.Name != null) && (CraftingSelectedItem.Asset.Name.substring(0, 10) != "Futuristic") && (CraftingSelectedItem.Asset.AllowType != null)) {
+		} else if (MouseIn(1840, 858, 60, 60) && CraftingItemSupportsAutoType()) {
 			if ((CraftingSelectedItem.Type == null) || (CraftingSelectedItem.Type == "") || (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) < 0))
 				CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[0];
 			else
@@ -594,7 +609,7 @@ function CraftingConvertSelectedToItem() {
 	return {
 		Item: (CraftingSelectedItem.Asset == null) ? "" : CraftingSelectedItem.Asset.Name,
 		Property: CraftingSelectedItem.Property,
-		Lock: (CraftingSelectedItem.Lock == null) ? "" : CraftingSelectedItem.Lock.Name,
+		Lock: (CraftingSelectedItem.Lock == null) ? "" : /**@type {AssetLockType}*/(CraftingSelectedItem.Lock.Name),
 		Name: Name,
 		Description: Description,
 		Color: Color,

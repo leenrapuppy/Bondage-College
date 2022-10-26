@@ -1,6 +1,6 @@
 "use strict";
 /** @type { (ExtendedItemOption & { ExpressionTrigger: ExpressionTrigger[] } )[]} */
-const InventoryItemHandsSpankingToysOptions = [
+var InventoryItemHandsSpankingToysOptions = [
 	{
 		Name: "Crop",
 		Property: { Type: null },

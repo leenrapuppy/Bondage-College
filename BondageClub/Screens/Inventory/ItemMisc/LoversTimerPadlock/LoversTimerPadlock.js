@@ -14,7 +14,7 @@ function InventoryItemMiscLoversTimerPadlockLoad() {
 
 // Draw the extension screen
 function InventoryItemMiscLoversTimerPadlockDraw() {
-    var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+    var C = CharacterGetCurrent();
     if ((DialogFocusItem == null) || (DialogFocusSourceItem.Property.RemoveTimer < CurrentTime)) { InventoryItemMiscLoversTimerPadlockExit(); return; }
     if (DialogFocusSourceItem.Property.ShowTimer) {
         DrawText(DialogFindPlayer("TimerLeft") + " " + TimerToString(DialogFocusSourceItem.Property.RemoveTimer - CurrentTime), 1500, 150, "white", "gray");
@@ -95,7 +95,7 @@ function InventoryItemMiscLoversTimerPadlockAdd(TimeToAdd, PlayerMemberNumberToL
     if (PlayerMemberNumberToList) DialogFocusSourceItem.Property.MemberNumberList.push(Player.MemberNumber);
     var TimerBefore = DialogFocusSourceItem.Property.RemoveTimer;
     if (DialogFocusItem.Asset.RemoveTimer > 0) DialogFocusSourceItem.Property.RemoveTimer = Math.round(Math.min(DialogFocusSourceItem.Property.RemoveTimer + (TimeToAdd * 1000), CurrentTime + (DialogFocusItem.Asset.MaxTimer * 1000)));
-    var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+    var C = CharacterGetCurrent();
     if (CurrentScreen == "ChatRoom") {
         var timeAdded = (DialogFocusSourceItem.Property.RemoveTimer - TimerBefore) / (1000 * 3600);
         var msg = ((timeAdded < 0) && DialogFocusSourceItem.Property.ShowTimer ? "TimerRemoveTime" : "TimerAddTime");

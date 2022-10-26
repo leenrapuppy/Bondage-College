@@ -6,7 +6,7 @@ const InventoryItemDevicesVacBedDeluxeSelectionOffsetY = 700;
 const InventoryItemDevicesVacBedDeluxeSelectionWidth = 256;
 
 /** @type {ExtendedItemOption[]} */
-let InventoryItemDevicesVacBedDeluxeOptions = [
+var InventoryItemDevicesVacBedDeluxeOptions = [
 	{
 		Name: "ArmsDownLegsSpread",
 		Property: {

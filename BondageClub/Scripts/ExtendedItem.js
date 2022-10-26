@@ -95,7 +95,8 @@ function ExtendedItemLoad(Options, DialogKey) {
 		// If there is an initial property, set it and update the character
 		if (InitialProperty) {
 			DialogFocusItem.Property = JSON.parse(JSON.stringify(InitialProperty));
-			CharacterRefresh(C);
+			const RefreshDialog = (CurrentScreen != "Crafting");
+			CharacterRefresh(C, true, RefreshDialog);
 			ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 		}
 	}
