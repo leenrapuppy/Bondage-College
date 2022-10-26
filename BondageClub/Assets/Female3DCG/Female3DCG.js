@@ -21,29 +21,6 @@
 // Don't create anything that could be viewed by lots of players as racist, sexist, anti-LGBT, pedophilic, religious or political
 // If you change an item or a piece of code made by someone else, make sure to get their approval first
 
-/**
- * Spanking Toys Asset
- * @type {AssetDefinition}
- */
-var AssetSpankingToys = {
-	Name: "SpankingToys", Random: false, Wear: false, BuyGroup: "SpankingToys",
-	DynamicAllowInventoryAdd: C => InventoryIsWorn(Player, "SpankingToys", "ItemHands") && InventorySpankingToysActivityAllowed(C),
-	DynamicDescription: C => InventorySpankingToysGetDescription(C),
-	DynamicExpressionTrigger: () => {
-		const Type = InventorySpankingToysGetType(Player);
-		const Option = InventoryItemHandsSpankingToysOptions.find(x => x.Name === Type);
-		return Option && Option.ExpressionTrigger;
-	},
-	DynamicPreviewImage: () => InventorySpankingToysGetType(Player),
-	DynamicName: C => "SpankingToys" + InventorySpankingToysGetType(C),
-	DynamicGroupName: "ItemHands",
-	DynamicActivity: C => InventorySpankingToysGetActivity(C),
-	DynamicAudio: C => InventorySpankingToysGetAudio(C),
-	ParentGroup: null,
-	Effect: [],
-	DialogSortOverride: DialogSortOrder.Equipped,
-	PreviewIcons: ["Handheld"]
-};
 
 // Alpha mask regions based on Appearance.js CanvasUpperOverflow and CanvasLowerOverflow values
 /** @type {[number, number, number, number]} */
@@ -2596,7 +2573,6 @@ var AssetFemale3DCG = [
 					{ Name: "Two" },
 				],
 			},
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -2730,7 +2706,6 @@ var AssetFemale3DCG = [
 					{ Name: "Two" },
 				],
 			},
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -2837,7 +2812,6 @@ var AssetFemale3DCG = [
 					{ Name: "Cross", HasType: false, CopyLayerColor: "Straight", AllowTypes: ["Cross"] },
 				],
 			},
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -2891,7 +2865,6 @@ var AssetFemale3DCG = [
 					{ Name: "Tape" }
 				]
 			},
-			AssetSpankingToys,
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -2983,7 +2956,6 @@ var AssetFemale3DCG = [
 				],
 			},
 			{ Name: "Stitches", Category: ["Medical", "Extreme",], Priority: 10, Visible: false, BuyGroup: "Suture", Random:  false, Value: -1, Difficulty: 8, Time: 5, RemoveTime: 5, Prerequisite: ["AccessButt"] },
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -3179,7 +3151,6 @@ var AssetFemale3DCG = [
 					{ Name: "Locks", HasType: false, LockLayer: true, AllowColorize: false, },
 				],
 			},
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -3261,7 +3232,6 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "LockingSwimsuit", Left: 150, Top: 200, Difficulty: 4, BuyGroup: "LockingSwimsuit", Value: 60, AllowLock: true, DrawLocks: false, Prerequisite: "AccessTorso", Extended: true },
 			{ Name: "LockingSwimsuit2", Left: 150, Top: 200, Difficulty: 4, BuyGroup: "LockingSwimsuit2", Value: 70, AllowLock: true, DrawLocks: false, Prerequisite: "AccessTorso" },
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -3346,7 +3316,6 @@ var AssetFemale3DCG = [
 				]
 			},
 			{ Name: "LockingSwimsuit2", Left: 150, Top: 200, Difficulty: 4, BuyGroup: "LockingSwimsuit2", Value: 70, AllowLock: true, DrawLocks: false, Prerequisite: "AccessTorso" },
-			AssetSpankingToys
 		]
 	},
 
@@ -3405,7 +3374,6 @@ var AssetFemale3DCG = [
 					{ Name: "Clamps" }
 				],
 			},
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -3502,7 +3470,6 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "Ribbons", Fetish: ["Lingerie"], Value: 30, Difficulty: 3, Time: 10, RemoveTime: 5, BuyGroup: "Ribbon", Prerequisite: "AccessBreast", Extended: true },
 			{ Name: "LeatherBreastBinder", Fetish: ["Leather"], Value: 30, Difficulty: 5, Time: 15, BuyGroup: "BreastBinder", RemoveTime: 10, AllowLock: true, Prerequisite: "AccessTorso" },
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -4076,7 +4043,6 @@ var AssetFemale3DCG = [
 				Effect: ["Block", "Prone"],
 				Block: ["ItemHands"],
 			},
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"],
 	},
@@ -4123,217 +4089,244 @@ var AssetFemale3DCG = [
 			{ Name: "KeyProp", Value: 10, Priority: 46, Difficulty: -10, Time: 5, IsRestraint: false, AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], },
 			{ Name: "MedicalInjector", Category: ["SciFi"], Value: 75, Priority: 46, Time: 8, IsRestraint: false, AllowActivity: ["InjectItem"], AllowPose: ["Yoked"], HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "AllFours"], },
 			{
-				Name: "SpankingToys", Fetish: ["Sadism"], Priority: 46, Random: false, Wear: true, IsRestraint: false, BuyGroup: "SpankingToys",
-				AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"],
-				AllowType: ["Flogger", "Cane", "HeartCrop", "Paddle", "WhipPaddle", "Whip", "CattleProd", "TennisRacket", "RainbowWand", "Gavel", "Feather",
-					"FeatherDuster", "LongDuster", "IceCube", "WartenbergWheel", "VibratingWand", "SmallVibratingWand", "CandleWax", "LargeDildo",
-					"PetToy", "Vibrator", "Belt", "Hairbrush", "SmallDildo", "ElectricToothbrush", "Toothbrush", "ShockWand", "Lotion", "Ruler",
-					"Sword", "VibeRemote", "ShockRemote", "Towel", "RopeCoilLong", "RopeCoilShort", "Ballgag", "LongSock", "Baguette", "Panties",
-					"TapeRoll", "Spatula", "Broom", "Phone1", "Phone2", "Scissors", "GlassEmpty", "GlassFilled", "PlasticWrap", "PotionBottle"],
-				DynamicPreviewImage: C => InventorySpankingToysGetType(C),
-				DynamicAllowInventoryAdd: C => { return InventorySpankingToysAvailableToys(C).length > 0; },
-				Extended: true,
-				ParentGroup: null
+				Name: "SpankingToysCrop", ParentGroup: null, Priority: 46, Value: 20, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"], Audio: "SmackCrop", BuyGroup: "Crop",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysCrop", Value: 20, Random: false, BuyGroup: "Crop", AllowActivity: ["SpankItem"], Audio: "SmackCrop", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysFlogger", ParentGroup: null, Priority: 46, Value: 40, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"], Audio: "SmackCrop",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysFlogger", Value: 40, Random: false, AllowActivity: ["SpankItem"], Audio: "SmackCrop", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysCane", ParentGroup: null, Priority: 46, Value: 15, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"], Audio: "SmackCrop", BuyGroup: "Cane",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
 			},
 			{
-				Name: "SpankingToysCane", Value: 15, Random: false, BuyGroup: "Cane", AllowActivity: ["SpankItem"], Audio: "SmackCrop", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysHeartCrop", ParentGroup: null, Priority: 46, Value: 30, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"], Audio: "SmackCrop",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysHeartCrop", Value: 30, Random: false, AllowActivity: ["SpankItem"], Audio: "SmackCrop", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysPaddle", ParentGroup: null, Priority: 46, Value: 35, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"], Audio: "SmackCrop",
+				ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }]
 			},
 			{
-				Name: "SpankingToysPaddle", Value: 35, Random: false, AllowActivity: ["SpankItem"], Audio: "SmackCrop", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysWhipPaddle", ParentGroup: null, Priority: 46, Value: 25, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"], Audio: "SmackCrop",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
 			},
 			{
-				Name: "SpankingToysWhipPaddle", Value: 25, Random: false, AllowActivity: ["SpankItem"], Audio: "SmackCrop", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysWhip", ParentGroup: null, Priority: 46, Value: 50, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"], Audio: "WhipCrack",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
 			},
 			{
-				Name: "SpankingToysWhip", Value: 50, Random: false, AllowActivity: ["SpankItem"], Audio: "WhipCrack", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysCattleProd", ParentGroup: null, Priority: 46, Value: 45, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["ShockItem"], Audio: "Shocks",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
 			},
 			{
-				Name: "SpankingToysCattleProd", Value: 45, Random: false, AllowActivity: ["ShockItem"], Audio: "Shocks", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysTennisRacket", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"], Bonus: "KidnapBruteForce",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysTennisRacket", Value: -1, Random: false, AllowActivity: ["SpankItem"], Bonus: "KidnapBruteForce", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysRainbowWand", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"],
+				ExpressionTrigger: [{ Group: "Eyebrows", Name: "Soft", Timer: 5 }]
 			},
 			{
-				Name: "SpankingToysRainbowWand", Value: -1, Random: false, AllowActivity: ["SpankItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysGavel", ParentGroup: null, Priority: 46, Value: -1, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"], Bonus: "KidnapDomination",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }]
 			},
 			{
-				Name: "SpankingToysGavel", Value: -1, Random: false, AllowActivity: ["SpankItem"], Bonus: "KidnapDomination", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysFeather", ParentGroup: null, Priority: 46, Value: 2, Random: false,
+				AllowActivity: ["TickleItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, {Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Grin", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysFeather", Value: 2, Random: false, AllowActivity: ["TickleItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysFeatherDuster", ParentGroup: null, Priority: 46, Value: 4, Random: false,
+				AllowActivity: ["TickleItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Laughing", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysFeatherDuster", Value: 4, Random: false, AllowActivity: ["TickleItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysLongDuster", ParentGroup: null, Priority: 46, Value: -1, Random: false,
+				AllowActivity: ["TickleItem"], Bonus: "KidnapSneakiness",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Laughing", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysLongDuster", Value: -1, Random: false, AllowActivity: ["TickleItem"], Bonus: "KidnapSneakiness", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysIceCube", ParentGroup: null, Priority: 46, Value: 3, Random: false,
+				AllowActivity: ["RubItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10}, { Group: "Mouth", Name: "Angry", Timer: 10}, { Group: "Eyes", Name: "Daydream", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysIceCube", Value: 3, Random: false, AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysWartenbergWheel", ParentGroup: null, Priority: 46, Value: 10, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["RollItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}, { Group: "Eyes", Name: "Daydream", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysWartenbergWheel", Value: 10, Random: false, AllowActivity: ["RollItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysVibratingWand", ParentGroup: null, Priority: 46, Value: 40, Random: false,
+				AllowActivity: ["MasturbateItem"], Audio: "Wand",
+				ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "VeryLewd", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}, { Group: "Mouth", Name: "Open", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysVibratingWand", Value: 40, Random: false, AllowActivity: ["MasturbateItem"], Audio: "WandBig", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysSmallVibratingWand", ParentGroup: null, Priority: 46, Value: 20, Random: false,
+				AllowActivity: ["MasturbateItem"], Audio: "Wand",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyes", Name: "Dazed", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}, { Group: "Mouth", Name: "HalfOpen", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysSmallVibratingWand", Value: 20, Random: false, AllowActivity: ["MasturbateItem"], Audio: "Wand", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysCandleWax", ParentGroup: null, Priority: 46, Value: 10, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["PourItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Surprised", Timer: 10}, { Group: "Mouth", Name: "Frown", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysCandleWax", Value: 10, Random: false, AllowActivity: ["PourItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysLargeDildo", ParentGroup: null, Priority: 46, Value: 30, Random: false,
+				AllowActivity: ["RubItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "HalfOpen", Timer: 10}, { Group: "Eyes", Name: "Lewd", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysLargeDildo", Value: 30, Random: false, AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysPetToy", ParentGroup: null, Priority: 46, Value: 5, Random: false,
+				AllowActivity: ["TickleItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyes", Name: "WinkL", Timer: 10 }, { Group: "Mouth", Name: "Smirk", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysPetToy", Value: 5, Random: false, AllowActivity: ["TickleItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysVibrator", ParentGroup: null, Priority: 46, Value: 45, Random: false,
+				AllowActivity: ["MasturbateItem"], Audio: "Wand",
+				ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "VeryLewd", Timer: 10 }, { Group: "Mouth", Name: "Open", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysVibrator", Value: 45, Random: false, AllowActivity: ["MasturbateItem"], Audio: "Vibrator", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysBelt", ParentGroup: null, Priority: 46, Value: 10, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysBelt", Value: 10, Random: false, AllowActivity: ["SpankItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysHairbrush", ParentGroup: null, Priority: 46, Value: 5, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysHairbrush", Value: 5, Random: false, AllowActivity: ["SpankItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysSmallDildo", ParentGroup: null, Priority: 46, Value: 20, Random: false,
+				AllowActivity: ["RubItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10}, { Group: "Eyes", Name: "Lewd", Timer: 5 }, ]
 			},
 			{
-				Name: "SpankingToysSmallDildo", Value: 20, Random: false, AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysElectricToothbrush", ParentGroup: null, Priority: 46, Value: 20, Random: false,
+				AllowActivity: ["TickleItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, {Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Grin", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysElectricToothbrush", Value: 20, Random: false, AllowActivity: ["TickleItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysToothbrush", ParentGroup: null, Priority: 46, Value: 10, Random: false,
+				AllowActivity: ["TickleItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, {Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Grin", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}]
 			},
 			{
-				Name: "SpankingToysToothbrush", Value: 10, Random: false, AllowActivity: ["TickleItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysShockWand", ParentGroup: null, Priority: 46, Value: 50, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["ShockItem"], Audio: "Shocks",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Wink", Timer: 5 }]
 			},
 			{
-				Name: "SpankingToysShockWand", Value: 50, Random: false, AllowActivity: ["ShockItem"], Audio: "Shocks", DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysLotion", ParentGroup: null, Priority: 46, Value: 10, Random: false,
+				AllowActivity: ["RubItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysLotion", Value: 10, Random: false, AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysRuler", ParentGroup: null, Priority: 46, Value: 3, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }]
 			},
 			{
-				Name: "SpankingToysRuler", Value: 3, Random: false, AllowActivity: ["SpankItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysSword", ParentGroup: null, Priority: 46, Value: 5, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 5 }, { Group: "Eyebrows", Name: "Harsh", Timer: 5 }]
 			},
 			{
-				Name: "SpankingToysSword", Value: 5, Random: false, AllowActivity: ["SpankItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysVibeRemote", ParentGroup: null, Priority: 46, Value: 50, Random: false,
+				AllowActivity: ["RubItem"], BuyGroup: "VibratorRemote",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysVibeRemote", Value: 50, Random: false, BuyGroup: "VibratorRemote", AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysShockRemote", ParentGroup: null, Priority: 46, Value: 50, Random: false,
+				AllowActivity: ["RubItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysShockRemote", Value: 50, Random: false, AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysTowel", ParentGroup: null, Priority: 46, Value: 10, Random: false, AllowActivity: ["RubItem"],
 			},
 			{
-				Name: "SpankingToysTowel", Value: 10, Random: false, AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysRopeCoilLong", ParentGroup: null, Priority: 46, Value: 60, Random: false, Fetish: ["Rope"],
+				AllowActivity: ["RubItem"], BuyGroup: "HempRope",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysRopeCoilLong", Value: 60, BuyGroup: "HempRope", Random: false, AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysRopeCoilShort", ParentGroup: null, Priority: 46, Value: 60, Random: false, Fetish: ["Rope"],
+				AllowActivity: ["RubItem"], BuyGroup: "HempRope",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysRopeCoilShort", Value: 60, BuyGroup: "HempRope", Random: false, AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysBallgag", ParentGroup: null, Priority: 46, Value: 40, Random: false,  Fetish: ["Gagged"],
+				AllowActivity: ["RubItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysBallgag", Value: 40, Random: false,  AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysLongSock", ParentGroup: null, Priority: 46, Value: 40, Random: false,  Fetish: ["Lingerie"],
+				AllowActivity: ["RubItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysLongSock", Value: 40, Random: false,  AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysBaguette", ParentGroup: null, Priority: 46, Value: -1, Random: false,  Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysBaguette", Value: -1, Random: false,  AllowActivity: ["SpankItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysPanties", ParentGroup: null, Priority: 46, Value: 10, Random: false,  Fetish: ["Lingerie"],
+				AllowActivity: ["RubItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysPanties", Value: 10, Random: false,  AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysTapeRoll", ParentGroup: null, Priority: 46, Value: 50, Random: false, Fetish: ["Tape"],
+				AllowActivity: ["RubItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "Frown", Timer: 10 }]
 			},
 			{
-				Name: "SpankingToysTapeRoll", Value: 50, Random: false, AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysSpatula", ParentGroup: null, Priority: 46, Value: 5, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 5 }, { Group: "Eyebrows", Name: "Harsh", Timer: 5 }]
 			},
 			{
-				Name: "SpankingToysSpatula", Value: 5, Random: false, AllowActivity: ["SpankItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysBroom", ParentGroup: null, Priority: 46, Value: 15, Random: false, Fetish: ["Sadism"],
+				AllowActivity: ["SpankItem"],
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 5 }, { Group: "Eyebrows", Name: "Harsh", Timer: 5 }]
 			},
 			{
-				Name: "SpankingToysBroom", Value: 15, Random: false, AllowActivity: ["SpankItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysPhone1", ParentGroup: null, Priority: 46,  Value: 100, Random: false,
+				AllowActivity: ["RubItem"],
 			},
 			{
-				Name: "SpankingToysPhone1", Value: 100, Random: false, AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysPhone2", ParentGroup: null, Priority: 46, Value: 140, Random: false,
+				AllowActivity: ["RubItem"],
 			},
 			{
-				Name: "SpankingToysPhone2", Value: 140, Random: false, AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysScissors", ParentGroup: null, Priority: 46, Value: 15, Random: false,
 			},
 			{
-				Name: "SpankingToysScissors", Value: 15, Random: false, DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysPlasticWrap", ParentGroup: null, Priority: 46, Value: 100, BuyGroup: "PlasticWrap", Random: false,
 			},
 			{
-				Name: "SpankingToysPlasticWrap", Value: 100, BuyGroup: "PlasticWrap", Random: false, DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysGlassEmpty", ParentGroup: null, Priority: 46, Value: 10, Random: false,
+				BuyGroup: "DrinkingGlass"
 			},
 			{
-				Name: "SpankingToysGlassEmpty", Value: 10, Random: false, DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysGlassFilled", ParentGroup: null, Priority: 46, Value: 20, Random: false,
+				AllowActivity: ["RubItem"], BuyGroup: "DrinkingGlass",
+				ExpressionTrigger: [{ Group: "Blush", Name: "Low", Timer: 5}, { Group: "Mouth", Name: "LipBite", Timer: 5}, { Group: "Eyes", Name: "Lewd", Timer: 5}, { Group: "Eyebrows", Name: "Raised", Timer: 5}],
 			},
 			{
-				Name: "SpankingToysGlassFilled", Value: 20, Random: false, AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
-			},
-			{
-				Name: "SpankingToysPotionBottle", Value: 40, Random: false, AllowActivity: ["RubItem"], DynamicAllowInventoryAdd: () => { return false; },
-				PrerequisiteBuyGroups: ["SpankingToys"], PreviewIcons: ["Handheld"]
+				Name: "SpankingToysPotionBottle", Value: 40, Random: false,
+				AllowActivity: ["RubItem"],
 			},
 			{ Name: "HoofMittens", Fetish: ["Pony"], Value: -1, Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 5, AllowLock: true, DrawLocks: false, AllowPose: ["BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours", "OverTheHead"], SetPose: ["TapedHands"], Effect: ["Block", "Prone"], HideForPose: ["BackBoxTie", "BackElbowTouch"], },
 		],
@@ -4497,7 +4490,6 @@ var AssetFemale3DCG = [
 					{ Name: "Ring", HasType: false, AllowTypes: ["Ring"],},
 				],
 			},
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -5161,7 +5153,6 @@ var AssetFemale3DCG = [
 				Name: "Slime", Category: ["Fantasy"], BuyGroup: "Slime", DefaultColor: ["#57ab5e"], Random: false, Value: 200, Difficulty: 4, Time: 15, RemoveTime: 25, Left: 200, Top: 170, Effect: ["BlockMouth", "GagMedium"],
 			},
 			{ Name: "FurScarf",  Value: 40, Top: 0, Left: 0, Difficulty: 3, BuyGroup: "FurScarf", Effect: ["BlockMouth", "GagLight"] },
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -6077,7 +6068,6 @@ var AssetFemale3DCG = [
 					{ Name: "Cross2", HasType: false, CopyLayerColor: "Straight2", AllowModuleTypes: ["m1r0l3", "m1r1l3", "m1r2l3", "m1r3l3", "m2r0l3", "m2r1l3", "m2r2l3", "m2r3l3"], MirrorExpression: "Eyes2", Left: 250},
 				],
 			},
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -6114,7 +6104,6 @@ var AssetFemale3DCG = [
 					{ Name: "Hook" },
 				]
 			},
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -6480,7 +6469,6 @@ var AssetFemale3DCG = [
 					{ Name: "MouthSculpted", HasType: false, AllowModuleTypes: ["m5"], CopyLayerColor: "MouthOnahole" },
 				],
 			},
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -6512,7 +6500,6 @@ var AssetFemale3DCG = [
 					{ Name: "Dark" },
 				]
 			},
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -7234,7 +7221,6 @@ var AssetFemale3DCG = [
 					{ Name: "Shine", AllowColorize: false },
 				]
 			},
-			AssetSpankingToys
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
