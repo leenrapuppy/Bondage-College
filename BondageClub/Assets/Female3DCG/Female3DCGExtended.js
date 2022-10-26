@@ -3777,6 +3777,18 @@ var AssetFemale3DCGExtended = {
 				}
 			},
 		}, // Locker
+		SmallLocker: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemDevices", AssetName: "Locker" },
+			Config: {
+				Dialog: {
+					Load: "ItemDevicesLockerSelect",
+					TypePrefix: "ItemDevicesLocker",
+					ChatPrefix: "ItemDevicesLockerSet",
+					NpcPrefix: (C, Option, PreviousOption) => `ItemDevicesLocker${Option.Name}`,
+				},
+			},
+		}, // SmallLocker
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {
