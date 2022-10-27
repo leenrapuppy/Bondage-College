@@ -1014,7 +1014,7 @@ function ValidationGetBlockedGroups(item, groupNames) {
  * item due to prerequisites
  */
 function ValidationGetPrerequisiteBlockingGroups(item, appearance) {
-	if (!item.Asset.Prerequisite) return [];
+	if (!item.Asset.Prerequisite.length) return [];
 
 	appearance = appearance.filter((appearanceItem) => appearanceItem.Asset !== item.Asset);
 	const char = CharacterLoadSimple(`PrerequisiteCheck${item.Asset.Group.Name}`);
