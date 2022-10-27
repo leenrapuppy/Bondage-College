@@ -534,16 +534,7 @@ function InventoryWearCraftModular(Item, Type) {
 * @returns {void}
 */
 function InventoryWearCraftTyped(Item, Type) {
-	const Config = AssetFemale3DCGExtended[Item.Asset.Group.Name][Item.Asset.Name].Config;
-	if ((Config == null) || (Config.Options == null)) {
-		return;
-	}
-	for (const O of Config.Options) {
-		if (O.Name == Type) {
-			Item.Property = JSON.parse(JSON.stringify(O.Property));
-			return;
-		}
-	}
+	TypedItemSetOptionByName(CharacterGetCurrent(), Item, Type);
 }
 
 /**
