@@ -1689,7 +1689,8 @@ interface ModularItemConfig {
 	Dialog?: ModularItemDialogConfig;
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
-	 * and parameters passed on to them. If undefined, these are ignored
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	ScriptHooks?: {
 		Load?: (next: () => void) => void;
@@ -1835,7 +1836,8 @@ interface ModularItemData {
 	changeWhenLocked: boolean;
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
-	 * and parameters passed on to them. If undefined, these are ignored
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	scriptHooks?: {
 		load?: (next: () => void) => void,
@@ -1899,7 +1901,8 @@ interface TypedItemConfig {
 	Dictionary?: TypedItemDictionaryCallback[];
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
-	 * and parameters passed on to them. If undefined, these are ignored
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	ScriptHooks?: {
 		Load?: (next: () => void) => void,
@@ -1989,7 +1992,8 @@ interface TypedItemData {
 	validate?: ExtendedItemValidateCallback<ExtendedItemOption>;
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
-	 * and parameters passed on to them. If undefined, these are ignored
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	scriptHooks?: {
 		load?: (next: () => void) => void,
