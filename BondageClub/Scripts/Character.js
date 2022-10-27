@@ -1452,10 +1452,14 @@ function CharacterSetActivePose(C, NewPose, ForceChange = false) {
 }
 
 /**
- * Sets a specific facial expression for the character's specified AssetGroup, if there's a timer, the expression will expire after it, a
- * timed expression cannot override another one.
+ * Sets a specific facial expression on the character's specified AssetGroup.
+ *
+ * If there's a timer, the expression will expire after it. Note that a timed expression cannot override another one.
+ *
+ * Be careful that "Eyes" for this function means both eyes. Use Eyes1/Eyes2 to target the left or right one only.
+ *
  * @param {Character} C - Character for which to set the expression of
- * @param {AssetGroupName} AssetGroup - Asset group for the expression
+ * @param {AssetGroupName | "Eyes1"} AssetGroup - Asset group for the expression
  * @param {string} Expression - Name of the expression to use
  * @param {number} [Timer] - Optional: time the expression will last
  * @param {string|string[]} [Color] - Optional: color of the expression to set
@@ -1463,7 +1467,7 @@ function CharacterSetActivePose(C, NewPose, ForceChange = false) {
  */
 function CharacterSetFacialExpression(C, AssetGroup, Expression, Timer, Color) {
 	// A normal eye expression is triggered for both eyes
-	if (AssetGroup == "Eyes") CharacterSetFacialExpression(C, "Eyes2", Expression, Timer);
+	if (AssetGroup == "Eyes") CharacterSetFacialExpression(C, "Eyes2", Expression, Timer, Color);
 	if (AssetGroup == "Eyes1") AssetGroup = "Eyes";
 
 	var Ex = InventoryGet(C, AssetGroup);
