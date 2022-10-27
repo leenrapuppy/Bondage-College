@@ -898,6 +898,23 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1058,0,I hope we can still be friends.,"Yes, lets hope it won't ruin our friendship.  What would you like to do now?",NPCInteraction(5),,,
 1058,0,Let's talk about something else.,Yes.  What would you like to do now?,,,,
 1058,0,I'm glad this collar is gone.,You could have told me sooner you know?  What would you like to do now?,NPCInteraction(-5),,,
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  I've been looking for you.",,,DomCatchPlayerOnEntry,
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  I was wet thinking of you, my girl.",,,DomCatchPlayerOnEntry,Horny
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  I've wanted to spend time with you.",,,DomCatchPlayerOnEntry,Frigid
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  It's a delight to see you my submissive.",,,DomCatchPlayerOnEntry,Polite
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  Yo my bitch!",,,DomCatchPlayerOnEntry,Rude
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees without saying a word.)",,,DomCatchPlayerOnEntry,Serious
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  Yes!  You're back!",,,DomCatchPlayerOnEntry,Playful
+1061,1062,"Yes, Mistress?","I want to spend some time with you, my girl.  To have some fun and get to know you better.",,Player.CanTalk(),,
+1061,1062,What's going on Mistress?,"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,Player.CanTalk(),,
+1061,1062,That was quick!,"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,Player.CanTalk(),,
+1061,1062,(Mumble in your gag.),"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,!Player.CanTalk(),,
+1061,1062,(Stay silent.),"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,!Player.CanTalk(),,
+1061,1062,(Get comfy on your knees.),"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,!Player.CanTalk(),,
+1062,,I love to spend time with you.,,StartActivity(),Player.CanTalk(),,
+1062,,What would you like to do?,,StartActivity(),Player.CanTalk(),,
+1062,,(Nod happily.),,StartActivity(),!Player.CanTalk(),,
+1062,,(Listen to her.),,StartActivity(),!Player.CanTalk(),,
 1090,,(Make her more Dominant.),(She's now a little more Dominant.),"NPCCheat(""TraitDominant"")",,,
 1090,,(Make her more submissive.),(She's now a little more submissive.),"NPCCheat(""TraitSubmissive"")",,,
 1090,1000,(Leave her.),(She seems curious.)  What would you like to do my girl?,DialogLeave(),,,

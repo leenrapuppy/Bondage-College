@@ -380,6 +380,17 @@ function PrivateLoad() {
 	MustSync = (MustSync || PrivateRelationDecay());
 	MustSync = (MustSync || PrivateRansomStart());
 	if (MustSync) ServerPrivateCharacterSync();
+
+	// There's a 25% odds that the owner will interecpt the player as soon as she enters the room
+	if ((Math.random() < 0.25) && Player.IsOwned() && !LogQuery("OwnerBeepActive", "PrivateRoom"))
+		for (let C = 1; C < PrivateCharacter.length; C++)
+			if (PrivateCharacter[C].IsOwner()) {
+				CharacterSetActivePose(Player, "Kneel", true);
+				CharacterSetCurrent(PrivateCharacter[C]);
+				PrivateCharacter[C].CurrentDialog = DialogFind(CurrentCharacter, "1060");
+				PrivateCharacter[C].Stage = "1061";
+			}
+
 }
 
 /**
