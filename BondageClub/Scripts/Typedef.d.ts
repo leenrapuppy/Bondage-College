@@ -1313,7 +1313,7 @@ interface Character {
 	IsPlayer: () => this is PlayerCharacter;
 	IsBirthday: () => boolean;
 	IsOnline: () => boolean;
-	IsNpc: () => boolean;
+	IsNpc: () => this is NPCCharacter;
 	IsSimple: () => boolean;
 	GetDifficulty: () => number;
 	IsSuspended: () => boolean;

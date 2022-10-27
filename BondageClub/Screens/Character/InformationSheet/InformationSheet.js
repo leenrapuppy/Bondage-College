@@ -161,7 +161,7 @@ function InformationSheetRun() {
 	if (InformationSheetSecondScreen) return InformationSheetSecondScreenRun();
 
 	// For player and online characters, we show the lover list (NPC or online)
-	if ((C.ID == 0) || OnlinePlayer) {
+	if (C.IsPlayer() || OnlinePlayer) {
 		DrawText(TextGet("Relationships"), 1200, 125, "Black", "Gray");
 		if (C.Lovership.length < 1) DrawText(TextGet("Lover") + " " + TextGet("LoverNone"), 1200, 200, "Black", "Gray");
 		for (let L = 0; L < C.Lovership.length; L++) {
@@ -172,7 +172,7 @@ function InformationSheetRun() {
 				DrawText(TextGet((C.Lovership[L].Stage == 0) ? "DatingFor" : (C.Lovership[L].Stage == 1) ? "EngagedFor" : "MarriedFor") + " " + (Math.floor((CurrentTime - C.Lovership[L].Start) / 86400000)).toString() + " " + TextGet("Days"), 1200, 260 + L * 150, "Black", "Gray");
 			}
 		}
-	} else {
+	} else if (C.IsNpc()) {
 
 		// For NPC characters, shows the lover, owner & traits
 		DrawText(TextGet("Lover") + " " + (((C.Lover == null) || (C.Lover == "")) ? TextGet("LoverNone") : C.Lover.replace("NPC-", "")), 550, 500, "Black", "Gray");
