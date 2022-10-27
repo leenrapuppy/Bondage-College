@@ -529,7 +529,7 @@ function GameLARPClothed(C) { return (InventoryGet(C, "Cloth") != null); }
 /**
  * Checks if an item can be removed in LARP.
  * @param {Character} C - Character to check for a lock on the given group.
- * @param {string} Zone - Group to check for a lock.
+ * @param {AssetGroupItemName} Zone - Group to check for a lock.
  * @returns {boolean} - Returns TRUE if we can remove an item at a specific zone (cannot remove if there's a custom lock)
  */
 function GameLARPCanRemoveItem(C, Zone) {

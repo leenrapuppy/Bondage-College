@@ -278,7 +278,7 @@ interface AssetDefinition {
 	DrawLocks?: boolean;
 
 	AllowExpression?: string[];
-	MirrorExpression?: string;
+	MirrorExpression?: AssetGroupName;
 
 	/** Whether the asset is drawn at an absolute position. */
 	FixedPosition?: boolean;
@@ -384,7 +384,7 @@ interface AssetLayerDefinition {
 	/** Specify that this is (one of) the asset's lock layer. See DrawsLock at the asset level. */
 	LockLayer?: boolean;
 
-	MirrorExpression?: string;
+	MirrorExpression?: AssetGroupName;
 	HideForPose?: (AssetPoseName | "")[];
 	PoseMapping?: AssetPoseMapping;
 	AllowModuleTypes?: string[];

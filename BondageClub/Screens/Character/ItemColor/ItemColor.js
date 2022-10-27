@@ -85,7 +85,7 @@ function ItemColorLoad(c, item, x, y, width, height, includeResetButton) {
 /**
  * Draws the item color UI according to its current state
  * @param {Character} c - The character being colored
- * @param {string} group - The name of the item group being colored
+ * @param {AssetGroupName} group - The name of the item group being colored
  * @param {number} x - The x-coordinate at which to draw the UI
  * @param {number} y - The y-coordinate at which to draw the UI
  * @param {number} width - The width the UI should be drawn at
@@ -220,7 +220,7 @@ const ItemColorOnPickerChange = CommonLimitFunction((color) => {
 /**
  * Click handler for the item color UI according to its current state
  * @param {Character} c - The character being colored
- * @param {string} group - The name of the item group being colored
+ * @param {AssetGroupName} group - The name of the item group being colored
  * @param {number} x - The x-coordinate at which the UI was drawn
  * @param {number} y - The y-coordinate at which the UI was drawn
  * @param {number} width - The width with which the UI was drawn

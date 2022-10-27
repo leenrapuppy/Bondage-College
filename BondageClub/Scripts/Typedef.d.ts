@@ -876,7 +876,7 @@ interface AssetLayer {
 	MaxOpacity: number;
 	BlendingMode: GlobalCompositeOperation;
 	LockLayer: boolean;
-	MirrorExpression?: string;
+	MirrorExpression?: AssetGroupName;
 	AllowModuleTypes?: string[];
 	/** The coloring index for this layer */
 	ColorIndex: number;
@@ -933,7 +933,7 @@ interface Asset {
 	Description: string;
 	Group: AssetGroup;
 	ParentItem?: string;
-	ParentGroupName?: string | null;
+	ParentGroupName?: AssetGroupName | null;
 	Enable: boolean;
 	Visible: boolean;
 	NotVisibleOnScreen?: string[];
