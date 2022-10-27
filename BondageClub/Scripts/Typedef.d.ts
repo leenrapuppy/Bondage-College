@@ -1668,7 +1668,7 @@ type ModularItemAssetConfig = ExtendedItemAssetConfig<"modular", ModularItemConf
 /** An object defining all of the required configuration for registering a modular item */
 interface ModularItemConfig {
 	/** The module definitions for the item */
-	Modules: ModularItemModule[];
+	Modules?: ModularItemModule[];
 	/**
 	 * The item's chatroom message setting. Determines the level of
 	 * granularity for chatroom messages when the item's module values change.
@@ -1867,7 +1867,7 @@ type TypedItemAssetConfig = ExtendedItemAssetConfig<"typed", TypedItemConfig>;
 /** An object defining all of the required configuration for registering a typed item */
 interface TypedItemConfig {
 	/** The list of extended item options available for the item */
-	Options: ExtendedItemOption[];
+	Options?: ExtendedItemOption[];
 	/** The optional text configuration for the item. Custom text keys can be configured within this object */
 	Dialog?: TypedItemDialogConfig;
 	/**
