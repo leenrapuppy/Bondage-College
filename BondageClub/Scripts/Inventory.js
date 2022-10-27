@@ -1259,6 +1259,18 @@ function InventoryFullLockRandom(C, FromOwner) {
 }
 
 /**
+* Applies a specific lock  on each character items that can be locked
+* @param {Character} C - The character on which the items must be locked
+* @param {String} LockType - The lock type to apply
+*/
+function InventoryFullLock(C, LockType) {
+	if ((C != null) && (LockType != null))
+		for (let I = 0; I < C.Appearance.length; I++)
+			if (InventoryDoesItemAllowLock(C.Appearance[I]))
+				InventoryLock(C, C.Appearance[I], LockType);
+}
+
+/**
 * Removes all common keys from the player inventory
 */
 function InventoryConfiscateKey() {

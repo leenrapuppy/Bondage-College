@@ -14,7 +14,7 @@ var PrivateActivityAffectLove = true;
 var PrivateActivityList = ["Gag", "Ungag", "Restrain", "RestrainOther", "FullRestrain", "FullRestrainOther", "Release", "Tickle", "Spank", "Pet", "Slap", "Kiss", "Fondle", "Naked", "Underwear", "RandomClothes", "CollegeClothes", "Shibari", "Gift", "PetGirl", "Locks"];
 var PrivateActivityTarget = null;
 var PrivatePunishment = "";
-var PrivatePunishmentList = ["Cage", "Bound", "BoundPet", "ChastityBelt", "ChastityBra", "ForceNaked", "ConfiscateKey", "ConfiscateCrop", "ConfiscateWhip", "SleepCage", "LockOut", "Cell"];
+var PrivatePunishmentList = ["Cage", "Bound", "BoundPet", "ChastityBelt", "ChastityBra", "ForceNaked", "ConfiscateKey", "ConfiscateCrop", "ConfiscateWhip", "SleepCage", "LockOut", "Cell", "OwnerLocks"];
 var PrivateCharacterNewClothes = null;
 var PrivateSlaveImproveType = "";
 var PrivateNextLoveYou = 0;
@@ -1192,6 +1192,7 @@ function PrivateSelectPunishment() {
 		if ((PrivatePunishment == "ConfiscateWhip") && InventoryAvailable(Player, "SpankingToysWhip", "ItemHands")) break;
 		if ((PrivatePunishment == "SleepCage") && LogQuery("Cage", "PrivateRoom") && !LogQuery("SleepCage", "Rule")) break;
 		if ((PrivatePunishment == "LockOut") && (NPCTraitGet(CurrentCharacter, "Serious") >= 0)) break;
+		if ((PrivatePunishment == "OwnerLocks") && InventoryHasLockableItems(Player)) break;
 		if (PrivatePunishment == "Cell") break;
 
 	}
@@ -1224,6 +1225,7 @@ function PrivateRunPunishment(LoveFactor) {
 	if (PrivatePunishment == "SleepCage") LogAdd("SleepCage", "Rule", CurrentTime + 604800000);
 	if (PrivatePunishment == "LockOut") { LogAdd("LockOutOfPrivateRoom", "Rule", CurrentTime + 3600000); DialogLeave(); CommonSetScreen("Room", "MainHall"); }
 	if (PrivatePunishment == "Cell") { DialogLeave(); CharacterFullRandomRestrain(Player, "ALL"); CellLock(5); }
+	if (PrivatePunishment == "OwnerLocks") InventoryFullLock(Player, "OwnerPadlock");
 }
 
 /**

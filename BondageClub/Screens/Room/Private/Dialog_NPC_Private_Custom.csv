@@ -1232,6 +1232,11 @@ PunishCellIntro,,,Some time alone in a cell will help you to think about what yo
 PunishCell,1000,Very well.  (Go to the cell.),,RunPunishment(0),,,
 PunishCell,1000,This is bullshit!  (Go to the cell.),,RunPunishment(-2),,,
 PunishCell,1000,It's fair Mistress.  (Go to the cell.),,RunPunishment(1),,,
+PunishOwnerLocksIntro,,,"My girl, you're going to stay restrained until I say otherwise.  To prove it, I will fully lock you with owner locks.",,,,
+PunishOwnerLocks,1001,Is that necessary?,(She nods and smirks.)  It is.  (She locks all your items with owner locks and smiles.)  You belong to me.,RunPunishment(0),,,
+PunishOwnerLocks,1001,That is bullshit!,(She slaps your face.)  Shut up!  (She locks all your items with owner locks and grins.)  You belong to me.,RunPunishment(-2),,,
+PunishOwnerLocks,1001,It will be hard to find help.,You won't get any help.  (She locks all your items with owner locks and grins.)  You belong to me.,RunPunishment(0),,,
+PunishOwnerLocks,1001,(Nod and bow your head.),Good girl.  (She locks all your items with owner locks and smiles.)  You belong to me.,RunPunishment(1),,,
 2000,,,(She seems confused seeing you on your knees.)  Yes Mistress?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,
 2000,,,(She seems confused seeing you on your knees.)  What the fuck?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,Dominant|Rude
 2000,,,(She seems confused seeing you on your knees.)  Is everything alright Mistress?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,Peaceful|Wise
