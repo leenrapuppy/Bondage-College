@@ -1267,7 +1267,7 @@ function InventoryFullLock(C, LockType) {
 	if ((C != null) && (LockType != null))
 		for (let I = 0; I < C.Appearance.length; I++)
 			if (InventoryDoesItemAllowLock(C.Appearance[I]))
-				InventoryLock(C, C.Appearance[I], LockType);
+				InventoryLock(C, C.Appearance[I], LockType, null);
 }
 
 /**
