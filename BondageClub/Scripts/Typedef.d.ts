@@ -790,8 +790,8 @@ interface Activity {
 	Name: string;
 	MaxProgress: number;
 	Prerequisite: string[];
-	Target: string[];
-	TargetSelf?: string[] | true;
+	Target: AssetGroupItemName[];
+	TargetSelf?: AssetGroupItemName[] | true;
 	/** used for setting AutoPunishGagActionFlag */
 	MakeSound?: boolean;
 	/** An action that trigger when that activity is used */

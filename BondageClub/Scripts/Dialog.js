@@ -1563,28 +1563,7 @@ function DialogPublishAction(C, ClickItem) {
 
 	InventoryExpressionTrigger(C, ClickItem);
 
-	// The shock triggers can trigger items that can shock the wearer
-	if (C.FocusGroup != null) {
-		var TargetItem = (InventoryGet(C, C.FocusGroup.Name));
-		if (InventoryItemHasEffect(ClickItem, "TriggerShock") && InventoryItemHasEffect(TargetItem, "ReceiveShock")) {
-			if (TargetItem.Property && typeof TargetItem.Property.TriggerCount == "number")
-				TargetItem.Property.TriggerCount++;
-			if (CurrentScreen == "ChatRoom") {
-				let intensity = TargetItem.Property ? TargetItem.Property.Intensity : 0;
-				if (typeof intensity !== "number")
-					intensity = 0;
-				ChatRoomPublishCustomAction(TargetItem.Asset.Name + "Trigger" + intensity, true, [{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber }]);
-			} else {
-				let intensity = TargetItem.Property ? TargetItem.Property.Intensity : 0;
-				let D = (DialogFindPlayer(TargetItem.Asset.Name + "Trigger" + intensity)).replace("DestinationCharacterName", CharacterNickname(C));
-				if (D != "") {
-					C.CurrentDialog = "(" + D + ")";
-					DialogLeaveItemMenu();
-				}
-			}
-			return;
-		}
-	}
+	// TODO: The shock triggers can trigger items that can shock the wearer
 
 	// Publishes the item result
 	if ((CurrentScreen == "ChatRoom") && !InventoryItemHasEffect(ClickItem)) {
@@ -1784,6 +1763,13 @@ function DialogClick() {
 							}
 						}
 						IntroductionJobProgress("SubActivity", act.Activity.MaxProgress.toString(), true);
+						if (act.Item && act.Item.Asset.Name === "ShockRemote") {
+							let targetItem = InventoryGet(C, C.FocusGroup.Name);
+							if (targetItem && targetItem.Property && typeof targetItem.Property.TriggerCount === "number") {
+								targetItem.Property.TriggerCount++;
+								ChatRoomCharacterItemUpdate(C, C.FocusGroup.Name);
+							}
+						}
 						ActivityRun(C, act);
 					}
 					return;

@@ -255,6 +255,7 @@ Label-ChatOther-ItemNeck-Nibble,Nibble Neck
 Label-ChatOther-ItemNeck-RollItem,Roll over Neck
 Label-ChatOther-ItemNeck-RubItem,Rub on Neck
 Label-ChatOther-ItemNeck-Step,Gently Foot on Neck
+Label-ChatOther-ItemNeck-ShockItem,Shock Neck
 Label-ChatOther-ItemNeck-Tickle,Tickle Neck
 Label-ChatOther-ItemNeck-TickleItem,Tickle Neck
 Label-ChatOther-ItemNipples-Bite,Bite Nipple
@@ -496,6 +497,7 @@ Label-ChatSelf-ItemNeck-Inject,Inject Neck
 Label-ChatSelf-ItemNeck-MassageHands,Massage Neck
 Label-ChatSelf-ItemNeck-RollItem,Roll over Neck
 Label-ChatSelf-ItemNeck-RubItem,Rub on Neck
+Label-ChatSelf-ItemNeck-ShockItem,Shock Neck
 Label-ChatSelf-ItemNeck-Tickle,Tickle Neck
 Label-ChatSelf-ItemNeck-TickleItem,Tickle Neck
 Label-ChatSelf-ItemNipples-Caress,Caress Nipple
@@ -736,6 +738,7 @@ ChatOther-ItemNeck-MassageHands,SourceCharacter massages TargetCharacter's neck.
 ChatOther-ItemNeck-Nibble,SourceCharacter nibbles TargetCharacter's neck.
 ChatOther-ItemNeck-RollItem,SourceCharacter rolls a UsedAsset over TargetCharacter's neck.
 ChatOther-ItemNeck-RubItem,SourceCharacter rubs TargetCharacter's neck with a UsedAsset.
+ChatOther-ItemNeck-ShockItem,SourceCharacter shocks TargetCharacter's neck with a UsedAsset.
 ChatOther-ItemNeck-Step,SourceCharacter gently places her foot over TargetCharacter's neck.
 ChatOther-ItemNeck-Tickle,SourceCharacter tickles TargetCharacter's neck.
 ChatOther-ItemNeck-TickleItem,SourceCharacter tickles TargetCharacter's neck with a UsedAsset.
@@ -977,6 +980,7 @@ ChatSelf-ItemNeck-Inject,SourceCharacter injects her neck.
 ChatSelf-ItemNeck-MassageHands,SourceCharacter massages her neck.
 ChatSelf-ItemNeck-RollItem,SourceCharacter rolls a UsedAsset over her own neck.
 ChatSelf-ItemNeck-RubItem,SourceCharacter rubs her own neck with a UsedAsset.
+ChatSelf-ItemNeck-ShockItem,SourceCharacter shocks her own neck with a UsedAsset.
 ChatSelf-ItemNeck-Tickle,SourceCharacter tickles her neck.
 ChatSelf-ItemNeck-TickleItem,SourceCharacter tickles her own neck with a UsedAsset.
 ChatSelf-ItemNipples-Caress,SourceCharacter caresses her nipples.

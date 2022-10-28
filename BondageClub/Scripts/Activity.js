@@ -254,6 +254,8 @@ function ActivityAllowedForGroup(character, groupname) {
 	if (!ActivityPossibleOnGroup(character, groupname))
 		return [];
 
+	const targetedItem = InventoryGet(character, groupname);
+
 	/** @type {ItemActivity[]} */
 	let allowed = [];
 
@@ -272,9 +274,12 @@ function ActivityAllowedForGroup(character, groupname) {
 			return;
 
 		// All checks complete, this activity is allowed
+
+		let handled = false;
 		let needsItem = activity.Prerequisite.find(p => p.startsWith("Needs-"));
 		if (needsItem && !Player.IsEnclose() && !character.IsEnclose()) {
 			needsItem = needsItem.substring(6);
+			handled = true;
 
 			const items = CharacterItemsForActivity(Player, needsItem);
 			for (const item of items) {
@@ -287,9 +292,23 @@ function ActivityAllowedForGroup(character, groupname) {
 					blocked = "blocked";
 				}
 
-				allowed.push({ Activity: activity, Item: item, Blocked: blocked });
+				if (InventoryItemHasEffect(item, "UseRemote")) {
+					// That item actually needs a remote, so handle it separately
+				} else {
+					allowed.push({ Activity: activity, Item: item, Blocked: blocked });
+				}
 			}
-		} else {
+		}
+
+		if (activity.Name === "ShockItem" && InventoryItemHasEffect(targetedItem, "ReceiveShock")) {
+			let remote = Player.Appearance.find(a => InventoryItemHasEffect(a, "TriggerShock"));
+			if (remote) {
+				allowed.push({ Activity: activity, Item: remote });
+				handled = true;
+			}
+		}
+
+		if (!handled) {
 			allowed.push({ Activity: activity });
 		}
 	});

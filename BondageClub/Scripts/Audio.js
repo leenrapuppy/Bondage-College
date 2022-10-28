@@ -509,7 +509,7 @@ function AudioGetSoundFromChatMessage(data) {
 
 	if (data.Type === "Activity") {
 		const activity = data.Content.split("-")[2];
-		let group, name;
+		let group, name, target, targetGroup;
 
 		let entry = data.Dictionary.find(e => e.Tag === "ActivityAssetGroup");
 		if (entry) {
@@ -519,8 +519,24 @@ function AudioGetSoundFromChatMessage(data) {
 		if (entry) {
 			name = entry.Text;
 		}
-		const item = InventoryGet(Char, group);
-		if (!item || item.Asset.Name !== name || !item.Asset.ActivityAudio) return;
+		entry = data.Dictionary.find(e => e.Tag === "TargetCharacter");
+		if (entry) {
+			target = ChatRoomCharacter.find((C) => C.MemberNumber == entry.MemberNumber);
+		}
+		entry = data.Dictionary.find(e => e.Tag === "ActivityGroup");
+		if (entry) {
+			targetGroup = entry.Text;
+		}
+
+		let item = InventoryGet(Char, group);
+		if (!item || item.Asset.Name !== name) return;
+
+		// Workaround for the shock remote; select the item on the target instead
+		if (item.Asset.Name === "ShockRemote") {
+			item = InventoryGet(target, targetGroup);
+		}
+
+		if (!item || !item.Asset.ActivityAudio) return;
 
 		const idx = item.Asset.AllowActivity.findIndex(a => a === activity);
 		const soundEffect = item.Asset.ActivityAudio[idx];
