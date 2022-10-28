@@ -2339,7 +2339,7 @@ interface AudioChatAction {
 	IsAction: (data: IChatRoomMessage) => boolean;
 
 	/** Extracts the actual sound effect from the chat message */
-	GetSoundEffect: (data: IChatRoomMessage) => (AudioSoundEffect | string | null);
+	GetSoundEffect: (data: IChatRoomMessage, metadata: any) => (AudioSoundEffect | string | null);
 }
 
 // #endregion

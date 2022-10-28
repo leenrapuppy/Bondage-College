@@ -2468,11 +2468,7 @@ var ChatRoomMessageHandlers = [
 	{
 		Description: "Audio system hook for sound effects",
 		Priority: 500,
-		Callback: (data, sender, msg, metadata) => {
-			if (["Activity", "Action", "ServerMessage"].includes(data.Type))
-				AudioPlaySoundForChatMessage(data);
-			return false;
-		}
+		Callback: AudioPlaySoundForChatMessage,
 	},
 	{
 		Description: "Raise a notification if required",

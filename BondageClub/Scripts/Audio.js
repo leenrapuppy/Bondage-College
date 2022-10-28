@@ -382,11 +382,14 @@ function AudioShouldSilenceSound(IsPlayerInvolved = false) {
 /**
  * Takes the received data dictionary content and identifies the audio to be played
  * @param {IChatRoomMessage} data - Data received
- * @returns {void} - Nothing
+ * @param {Character} sender
+ * @param {string} msg
+ * @param {any} metadata
+ * @returns {boolean}
  */
-function AudioPlaySoundForChatMessage(data) {
-	// Exits right away if we are missing content data
-	if (!data.Dictionary || !data.Dictionary.length) return;
+function AudioPlaySoundForChatMessage(data, sender, msg, metadata) {
+	if (!data || !sender || !metadata || !["Activity", "Action", "ServerMessage"].includes(data.Type))
+		return false;
 
 	if (AudioShouldSilenceSound(ChatRoomMessageInvolvesPlayer(data))) return;
 
@@ -395,22 +398,23 @@ function AudioPlaySoundForChatMessage(data) {
 	/** @type AudioSoundEffect */
 	let soundEffect = null;
 	if (Action) {
-		let snd = Action.GetSoundEffect(data);
+		let snd = Action.GetSoundEffect(data, metadata);
 		if (typeof snd === "string")
 			soundEffect = [snd, 0];
 		else
 			soundEffect = snd;
 	}
 
+	const Target = metadata.TargetCharacter;
+	if (!soundEffect || !Target) return false;
+
 	// Update noise level depending on who the interaction took place between.  Sensory isolation increases volume for self, decreases for others.
-	var Target = data.Dictionary.find((el) => el.Tag == "DestinationCharacter" || el.Tag == "DestinationCharacterName" || el.Tag == "TargetCharacter");
-
-	if (!soundEffect || !Target || !Target.MemberNumber) return;
-
 	if (Target.MemberNumber == Player.MemberNumber) soundEffect[1] += 3;
 	else if (data.Sender != Player.MemberNumber) soundEffect[1] -= 3;
 
 	AudioPlaySoundEffect(soundEffect);
+
+	return false;
 }
 
 /**
@@ -502,43 +506,22 @@ function AudioGetFileName(sound) {
  * @param {IChatRoomMessage} data - Data content triggering the potential sound
  * @returns {AudioSoundEffect?} - The name of the sound to play, followed by the noise modifier
  */
-function AudioGetSoundFromChatMessage(data) {
-	const Char = ChatRoomCharacter.find((C) => C.MemberNumber == data.Sender);
-
-	if (!Char) return null;
+function AudioGetSoundFromChatMessage(data, metadata) {
+	const sender = metadata.SourceCharacter;
+	if (!data || !sender) return null;
 
 	if (data.Type === "Activity") {
-		const activity = data.Content.split("-")[2];
-		let group, name, target, targetGroup;
-
-		let entry = data.Dictionary.find(e => e.Tag === "ActivityAssetGroup");
-		if (entry) {
-			group = entry.Text;
-		}
-		entry = data.Dictionary.find(e => e.Tag === "ActivityAsset");
-		if (entry) {
-			name = entry.Text;
-		}
-		entry = data.Dictionary.find(e => e.Tag === "TargetCharacter");
-		if (entry) {
-			target = ChatRoomCharacter.find((C) => C.MemberNumber == entry.MemberNumber);
-		}
-		entry = data.Dictionary.find(e => e.Tag === "ActivityGroup");
-		if (entry) {
-			targetGroup = entry.Text;
-		}
-
-		let item = InventoryGet(Char, group);
-		if (!item || item.Asset.Name !== name) return;
+		let item = InventoryGet(sender, metadata.ActivityAssetGroup);
+		if (!item || item.Asset.Name !== metadata.ActivityAsset) return;
 
 		// Workaround for the shock remote; select the item on the target instead
 		if (item.Asset.Name === "ShockRemote") {
-			item = InventoryGet(target, targetGroup);
+			item = InventoryGet(metadata.TargetCharacter, metadata.ActivityGroup);
 		}
 
 		if (!item || !item.Asset.ActivityAudio) return;
 
-		const idx = item.Asset.AllowActivity.findIndex(a => a === activity);
+		const idx = item.Asset.AllowActivity.findIndex(a => a === metadata.ActivityName);
 		const soundEffect = item.Asset.ActivityAudio[idx];
 
 		if (!soundEffect) return;
@@ -550,7 +533,7 @@ function AudioGetSoundFromChatMessage(data) {
 
 		if (!NextAsset || !NextAsset.AssetName || !NextAssetGroup || !NextAssetGroup.AssetGroupName) return null;
 
-		return AudioGetSoundFromAsset(Char, NextAssetGroup.AssetGroupName, NextAsset.AssetName);
+		return AudioGetSoundFromAsset(sender, NextAssetGroup.AssetGroupName, NextAsset.AssetName);
 	}
 }
 
