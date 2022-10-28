@@ -41,6 +41,19 @@ var CraftingPropertyMap = new Map([
 	["Dull", function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); } ],
 ]);
 
+/**
+ * An enum with {@link CraftingStatusType} status codes for crafting validation.
+ * @property OK - The validation proceded without errors
+ * @property ERROR - The validation produced one or more errors that were successfully resolved
+ * @property CRITICAL_ERROR - The validation produced an unrecoverable error
+ * @type {{OK: 2, ERROR: 1, CRITICAL_ERROR: 0}}
+ */
+const CraftingStatusCode = {
+	OK: 2,
+	ERROR: 1,
+	CRITICAL_ERROR: 0,
+}
+
 /** @type {(AssetLockType | "")[]} */
 var CraftingLockList = ["", "MetalPadlock", "IntricatePadlock", "HighSecurityPadlock", "OwnerPadlock", "LoversPadlock", "MistressPadlock", "PandoraPadlock", "ExclusivePadlock"];
 
@@ -299,7 +312,7 @@ function CraftingModeSet(NewMode) {
 		document.getElementById("InputColor").addEventListener('keyup', CraftingKeyUp);
 		ElementValue("InputName", CraftingSelectedItem.Name || "");
 		ElementValue("InputDescription", CraftingSelectedItem.Description || "");
-		ElementValue("InputColor", CraftingSelectedItem.Color || "");
+		ElementValue("InputColor", CraftingSelectedItem.Color || "Default");
 		if (CraftingItemSupportsAutoType()) {
 			ElementCreateInput("InputType", "text", "", "20");
 			document.getElementById("InputType").addEventListener('keyup', CraftingKeyUp);
@@ -399,19 +412,32 @@ function CraftingDecompressServerData(Data) {
  */
 function CraftingLoadServer(Packet) {
 	Player.Crafting = [];
+	let Refresh = false;
 	const data = CraftingDecompressServerData(Packet);
 	for (const item of data) {
-
-		// Make sure we own that item and it's a valid craft
-		let valid = true;
-		if ((item == null) || !item.Name || !item.Item) valid = false;
-		if ((item == null) || !Player.Inventory.find(a => a.Name === item.Item)) valid = false;
-		if (valid) Player.Crafting.push(item);
-		else Player.Crafting.push(null);
+		// Make sure that the item is a valid craft
+		switch (CraftingValidate(item)) {
+			case CraftingStatusCode.OK:
+				Player.Crafting.push(item);
+				break;
+			case CraftingStatusCode.ERROR:
+				Player.Crafting.push(item);
+				Refresh = true;
+				break;
+			case CraftingStatusCode.CRITICAL_ERROR:
+				Player.Crafting.push(null);
+				Refresh = true;
+				break;
+		}
 
 		// Too many items, skip the rest
 		if (Player.Crafting.length >= CraftingSlotMax) break;
-
+	}
+	/**
+	 * One or more validation errors were encountered that were successfully resolved;
+	 * push the fixed items back to the server */
+	if (Refresh) {
+		CraftingSaveServer();
 	}
 }
 
@@ -715,4 +741,176 @@ function CraftingItemListBuild() {
 	CraftingItemList.sort((a,b) => (a.Description > b.Description) ? 1 : (b.Description > a.Description) ? -1 : 0);
 	if (CraftingOffset >= CraftingItemList.length) CraftingOffset = 0;
 
+}
+
+/**
+ * A record with tools for validating {@link CraftingItem} properties.
+ * @type {Record<string, CratingValidationStruct>}
+ * @see {@link CratingValidationStruct}
+ */
+ const CraftingValidationRecord = {
+	Color: {
+		Validate: function(c, a) {
+			if (typeof c.Color !== "string") {
+				return false;
+			} else if ((c.Color === "") || (a == null)) {
+				return true
+			} else {
+				const Colors = c.Color.replace(" ", "").split(",");
+				return (
+					Colors.every((c) => CommonIsColor(c) || (c === "Default"))
+					&& (Colors.length <= a.ColorableLayerCount)
+				);
+			}
+		},
+		GetDefault: function(c, a) {
+			if ((typeof c.Color !== "string") || (a == null)) {
+				return "";
+			} else {
+				const Colors = c.Color.replace(" ", "").split(",");
+				const ColorsNew = Colors.map((c) => CommonIsColor(c) ? c : "Default");
+				return ColorsNew.slice(0, a.ColorableLayerCount).join(",");
+			}
+		},
+		StatusCode: CraftingStatusCode.ERROR,
+	},
+	Description: {
+		Validate: (c, a) => typeof c.Description === "string",
+		GetDefault: (c, a) => "",
+		StatusCode: CraftingStatusCode.ERROR,
+	},
+	Item: {
+		Validate: (c, a) => Player.Inventory.some((i) => i.Name === c.Item),
+		GetDefault: (c, a) => null,
+		StatusCode: CraftingStatusCode.CRITICAL_ERROR,
+	},
+	Lock: {
+		Validate: function (c, a) {
+			if ((a != null) && (!a.AllowLock)) {
+				return (c.Lock === "");
+			} else if (c.Lock === "") {
+				return true;
+			} else {
+				return CraftingLockList.includes(c.Lock) && Player.Inventory.some((i) => i.Name === c.Lock);
+			}
+		},
+		GetDefault: (c, a) => "",
+		StatusCode: CraftingStatusCode.ERROR,
+	},
+	MemberName: {
+		Validate: (c, a) => c.MemberName == null || typeof c.MemberName === "string",
+		GetDefault: (c, a) => null,
+		StatusCode: CraftingStatusCode.ERROR,
+	},
+	MemberNumber: {
+		Validate: (c, a) => c.MemberNumber == null || typeof c.MemberNumber === "number",
+		GetDefault: (c, a) => null,
+		StatusCode: CraftingStatusCode.ERROR,
+	},
+	Name: {
+		Validate: (c, a) => typeof c.Name === "string",
+		GetDefault: (c, a) => "",
+		StatusCode: CraftingStatusCode.CRITICAL_ERROR,
+	},
+	Private: {
+		Validate: (c, a) => typeof c.Private === "boolean",
+		GetDefault: (c, a) => false,
+		StatusCode: CraftingStatusCode.ERROR,
+	},
+	Property: {
+		Validate: function (c, a) {
+			if (a == null) {
+				return CraftingPropertyMap.has(c.Property);
+			} else {
+				const Allow = CraftingPropertyMap.get(c.Property);
+				return (Allow !== undefined) ? Allow(a) : false;
+			}
+		},
+		GetDefault: (c, a) => "Normal",
+		StatusCode: CraftingStatusCode.ERROR,
+	},
+	Type: {
+		Validate: function (c, a) {
+			if ((a == null) || (c.Type === "")) {
+				return true;
+			} else if ((a.Archetype === ExtendedArchetype.TYPED) && (c.Type === null)) {
+				return true;
+			} else {
+				return (a.AllowType && a.AllowType.includes(c.Type));
+			}
+		},
+		GetDefault: function (c, a) {
+			if (a == null) {
+				return c.Type;
+			} else if (a.Archetype === ExtendedArchetype.TYPED) {
+				return null;
+			} else {
+				return (a.AllowType && (a.AllowType.length >= 1)) ? a.AllowType[0] : "";
+			}
+		},
+		StatusCode: CraftingStatusCode.ERROR,
+	},
+}
+
+/**
+ * Validate and sanitinize crafting properties of the passed item inplace.
+ * @param {CraftingItem} Craft - The crafted item properties or `null`
+ * @param {Asset | null} Asset - The matching Asset. Will be extracted from the player inventory if `null`
+ * @param {boolean} Warn - Whether a warning should logged whenever the crafting validation fails
+ * @return {CraftingStatusType} - One of the {@link CraftingStatusCode} status codes; 0 denoting an unrecoverable validation error
+ */
+function CraftingValidate(Craft, Asset=null, Warn=true) {
+	if (Craft == null) {
+		return CraftingStatusCode.CRITICAL_ERROR;
+	}
+	/** @type {Map<string, CraftingStatusType>} */
+	const StatusMap = new Map();
+	const Name = Craft.Name;
+
+	// Manually search for the Asset if it has not been provided
+	if (Asset == null) {
+		const Item = Player.Inventory.find((a) => a.Name === Craft.Item);
+		if (Item === undefined) {
+			StatusMap.set("Item", CraftingStatusCode.CRITICAL_ERROR);
+		} else {
+			Asset = Item.Asset;
+		}
+	}
+
+	/**
+	 * Check all legal attributes.
+	 * If `Asset == null` at this point then let all Asset-requiring checks pass, as we
+	 * can't properly validate them. Note that this will introduce the potential for false negatives.
+	 */
+	for (const [AttrName, {Validate, GetDefault, StatusCode}] of Object.entries(CraftingValidationRecord)) {
+		if (!Validate(Craft, Asset)) {
+			const AttrValue = (typeof Craft[AttrName] === "string") ? `"${Craft[AttrName]}"` : Craft[AttrName];
+			if (Warn) {
+				console.warn(`Invalid "Craft.${AttrName}" value for crafted item "${Name}": ${AttrValue}`);
+			}
+			Craft[AttrName] = GetDefault(Craft, Asset);
+			StatusMap.set(AttrName, StatusCode);
+		} else {
+			StatusMap.set(AttrName, CraftingStatusCode.OK);
+		}
+	}
+
+	// If the Asset has been explicetly passed then `Craft.Item` errors are fully recoverable
+	if ((Asset != null) && (StatusMap.get("Item") === CraftingStatusCode.CRITICAL_ERROR)) {
+		StatusMap.set("Item", CraftingStatusCode.ERROR);
+		Craft.Item = Asset.Name;
+	}
+
+	// Check for extra attributes
+	const LegalAttributes = Object.keys(CraftingValidationRecord);
+	for (const AttrName of Object.keys(Craft)) {
+		if (!LegalAttributes.includes(AttrName)) {
+			if (Warn) {
+				console.warn(`Invalid extra "Craft.${AttrName}" attribute for crafted item "${Name}"`);
+			}
+			delete Craft[AttrName];
+			StatusMap.set(AttrName, CraftingStatusCode.ERROR);
+		}
+	}
+	return /** @type {CraftingStatusType} */(Math.min(...StatusMap.values()));
 }
