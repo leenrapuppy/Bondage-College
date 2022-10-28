@@ -2751,6 +2751,7 @@ function ChatRoomMessagePerformSubstitutions(msg, substitutions) {
  *
  * @param {IChatRoomMessage} data
  * @param {Character} sender
+ * @returns {{ metadata?: IChatRoomMessageMetadata, substitutions?: string[][] }}
  */
 function ChatRoomMessageRunExtractors(data, sender) {
 	if (!data || !sender) return {};

@@ -410,6 +410,30 @@ interface IChatRoomSyncBasic {
 
 interface IChatRoomSyncMessage extends IChatRoomSyncBasic, ChatRoom { }
 
+interface IChatRoomMessageMetadata {
+	/** The name of the sender character, appropriately garbled if deafened */
+	senderName?: string;
+	/** The character targetted by the message */
+	TargetCharacter?: Character;
+	/** The member number of the target */
+	TargetMemberNumber?: number;
+	/** Whether the message is considered game-initiated. Used for automatic vibe changes for example. */
+	Automatic?: boolean;
+	/** The group the message applies to */
+	GroupName?: string;
+	/** How intense the shock should be */
+	ShockIntensity?: number;
+	ActivityCounter?: 0;
+	/** The triggered activity */
+	ActivityName?: string;
+	/** The group where the activity is triggered */
+	ActivityGroup?: string;
+	/** The name of the asset used for the activity */
+	ActivityAsset?: string;
+	/** The group the asset used is in */
+	ActivityAssetGroup?: string;
+}
+
 /**
  * A metadata extractor for a given message.
  *
@@ -421,7 +445,7 @@ interface IChatRoomSyncMessage extends IChatRoomSyncBasic, ChatRoom { }
  * @return null if the extraction has nothing to report.
  */
 type ChatRoomMessageExtractor =
-	(data: IChatRoomMessage, sender: Character) => { metadata: object, substitutions: string[][] } | null;
+	(data: IChatRoomMessage, sender: Character) => { metadata: IChatRoomMessageMetadata, substitutions: string[][] } | null;
 
 /**
  * A chat message handler.
@@ -487,7 +511,7 @@ interface ChatRoomMessageHandler {
 	 * @param metadata - The collected metadata from the message's dictionary, only available in "post" mode.
 	 * @returns {boolean} true if the message was handled and the processing should stop, false otherwise.
 	 */
-	Callback: (data: IChatRoomMessage, sender: Character, msg: string, metadata?: any) => boolean | { msg?: string; skip?: (handler: ChatRoomMessageHandler) => boolean };
+	Callback: (data: IChatRoomMessage, sender: Character, msg: string, metadata?: IChatRoomMessageMetadata) => boolean | { msg?: string; skip?: (handler: ChatRoomMessageHandler) => boolean };
 }
 
 //#endregion
