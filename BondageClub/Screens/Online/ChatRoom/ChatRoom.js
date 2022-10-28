@@ -2381,7 +2381,7 @@ var ChatRoomMessageHandlers = [
 			if (data.Type !== "Action")
 				return false;
 
-			if (metadata.ShockIntensity >= 0 && metadata.TargetCharacter == Player) {
+			if (metadata.ShockIntensity >= 0 && metadata.TargetCharacter.IsPlayer()) {
 				const duration = (Math.random() + metadata.ShockIntensity) * 500;
 				DrawFlashScreen("#FFFFFF", duration, 500);
 			}
