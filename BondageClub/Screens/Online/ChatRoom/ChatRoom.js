@@ -2378,13 +2378,20 @@ var ChatRoomMessageHandlers = [
 		Description: "Handle action visual effects",
 		Priority: 120,
 		Callback: (data, sender, msg, metadata) => {
-			if (data.Type !== "Action")
-				return false;
+			let intensity = null;
+			if (data.Type === "Action" && metadata.ShockIntensity >= 0) {
+				intensity = metadata.ShockIntensity;
+			} else if (data.Type === "Activity" && data.Content.includes("ShockItem")) {
+				let item = InventoryGet(Player, metadata.ActivityGroup);
+				if (item && item.Property)
+					intensity = item.Property.Intensity || 0;
+			}
 
-			if (metadata.ShockIntensity >= 0 && metadata.TargetCharacter.IsPlayer()) {
-				const duration = (Math.random() + metadata.ShockIntensity) * 500;
+			if (intensity !== null && metadata.TargetCharacter.IsPlayer()) {
+				const duration = (Math.random() + intensity) * 500;
 				DrawFlashScreen("#FFFFFF", duration, 500);
 			}
+
 			return false;
 		}
 	},
