@@ -16,29 +16,30 @@ var CraftingNakedPreview = false;
 var CraftingReturnToChatroom = false;
 
 /**
- * @type {{Name: CraftingPropertyType, Allow: (asset: Asset) => boolean}[]}
+ * Map crafting properties to their respective validation function.
+ * @type {Map<CraftingPropertyType, (asset: Asset) => boolean>}
  */
-var CraftingPropertyList = [
-	{ Name: "Normal", Allow : function(Item) { return true; } },
-	{ Name: "Large", Allow : function(Item) { return CraftingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); } },
-	{ Name: "Small", Allow : function(Item) { return CraftingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); } },
-	{ Name: "Thick", Allow : function(Item) { return CraftingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy", "BlindTotal"]); } },
-	{ Name: "Thin", Allow : function(Item) { return CraftingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy", "BlindTotal"]); } },
-	{ Name: "Secure", Allow : function(Item) { return true; } },
-	{ Name: "Loose", Allow : function(Item) { return true; } },
-	{ Name: "Decoy", Allow : function(Item) { return true; } },
-	{ Name: "Malleable", Allow : function(Item) { return true; } },
-	{ Name: "Rigid", Allow : function(Item) { return true; } },
-	{ Name: "Simple", Allow : function(Item) { return Item.AllowLock; } },
-	{ Name: "Puzzling", Allow : function(Item) { return Item.AllowLock; } },
-	{ Name: "Painful", Allow : function(Item) { return true; } },
-	{ Name: "Comfy", Allow : function(Item) { return true; } },
-	{ Name: "Strong", Allow : function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); } },
-	{ Name: "Flexible", Allow : function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); } },
-	{ Name: "Nimble", Allow : function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); } },
-	{ Name: "Arousing", Allow : function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); } },
-	{ Name: "Dull", Allow : function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); } }
-];
+var CraftingPropertyMap = new Map([
+	["Normal", function(Item) { return true; }],
+	["Large", function(Item) { return CraftingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); }],
+	["Small", function(Item) { return CraftingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); }],
+	["Thick", function(Item) { return CraftingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy", "BlindTotal"]); }],
+	["Thin", function(Item) { return CraftingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy", "BlindTotal"]); }],
+	["Secure", function(Item) { return true; }],
+	["Loose", function(Item) { return true; }],
+	["Decoy", function(Item) { return true; }],
+	["Malleable", function(Item) { return true; }],
+	["Rigid", function(Item) { return true; }],
+	["Simple", function(Item) { return Item.AllowLock; }],
+	["Puzzling", function(Item) { return Item.AllowLock; }],
+	["Painful", function(Item) { return true; }],
+	["Comfy", function(Item) { return true; }],
+	["Strong", function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); }],
+	["Flexible", function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); }],
+	["Nimble", function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); }],
+	["Arousing", function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); }],
+	["Dull", function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); } ],
+]);
 
 /** @type {(AssetLockType | "")[]} */
 var CraftingLockList = ["", "MetalPadlock", "IntricatePadlock", "HighSecurityPadlock", "OwnerPadlock", "LoversPadlock", "MistressPadlock", "PandoraPadlock", "ExclusivePadlock"];
@@ -193,13 +194,13 @@ function CraftingRun() {
 	if (CraftingMode == "Property") {
 		DrawText(TextGet("SelectProperty").replace("AssetDescription", CraftingSelectedItem.Asset.Description), 880, 60, "White", "Black");
 		let Pos = 0;
-		for (let Property of CraftingPropertyList)
-			if (Property.Allow(CraftingSelectedItem.Asset)) {
+		for (const [Name, Allow] of CraftingPropertyMap)
+			if (Allow(CraftingSelectedItem.Asset)) {
 				let X = (Pos % 4) * 500 + 15;
 				let Y = Math.floor(Pos / 4) * 175 + 130;
 				DrawButton(X, Y, 470, 150, "", "White");
-				DrawText(TextGet("Property" + Property.Name), X + 235, Y + 30, "Black", "Silver");
-				DrawTextWrap(TextGet("Description" + Property.Name), X + 20, Y + 50, 440, 100, "Black", null, 2);
+				DrawText(TextGet("Property" + Name), X + 235, Y + 30, "Black", "Silver");
+				DrawTextWrap(TextGet("Description" + Name), X + 20, Y + 50, 440, 100, "Black", null, 2);
 				Pos++;
 			}
 	}
@@ -492,12 +493,12 @@ function CraftingClick() {
 	// In property mode, the user can select a special property to apply to the item
 	if (CraftingMode == "Property") {
 		let Pos = 0;
-		for (let Property of CraftingPropertyList)
-			if (Property.Allow(CraftingSelectedItem.Asset)) {
+		for (const [Name, Allow] of CraftingPropertyMap)
+			if (Allow(CraftingSelectedItem.Asset)) {
 				let X = (Pos % 4) * 500 + 15;
 				let Y = Math.floor(Pos / 4) * 175 + 130;
 				if (MouseIn(X, Y, 470, 150)) {
-					CraftingSelectedItem.Property = Property.Name;
+					CraftingSelectedItem.Property = Name;
 					if (CraftingSelectedItem.Lock) CraftingModeSet("Name");
 					else CraftingModeSet("Lock");
 					return;
