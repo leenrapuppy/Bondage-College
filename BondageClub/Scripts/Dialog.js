@@ -1561,6 +1561,8 @@ function DialogMenuButtonClick() {
  */
 function DialogPublishAction(C, ClickItem) {
 
+	InventoryExpressionTrigger(C, ClickItem);
+
 	// The shock triggers can trigger items that can shock the wearer
 	if (C.FocusGroup != null) {
 		var TargetItem = (InventoryGet(C, C.FocusGroup.Name));
@@ -1571,13 +1573,11 @@ function DialogPublishAction(C, ClickItem) {
 				let intensity = TargetItem.Property ? TargetItem.Property.Intensity : 0;
 				if (typeof intensity !== "number")
 					intensity = 0;
-				InventoryExpressionTrigger(C, ClickItem);
 				ChatRoomPublishCustomAction(TargetItem.Asset.Name + "Trigger" + intensity, true, [{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber }]);
 			} else {
 				let intensity = TargetItem.Property ? TargetItem.Property.Intensity : 0;
 				let D = (DialogFindPlayer(TargetItem.Asset.Name + "Trigger" + intensity)).replace("DestinationCharacterName", CharacterNickname(C));
 				if (D != "") {
-					InventoryExpressionTrigger(C, ClickItem);
 					C.CurrentDialog = "(" + D + ")";
 					DialogLeaveItemMenu();
 				}
@@ -1588,14 +1588,12 @@ function DialogPublishAction(C, ClickItem) {
 
 	// Publishes the item result
 	if ((CurrentScreen == "ChatRoom") && !InventoryItemHasEffect(ClickItem)) {
-		InventoryExpressionTrigger(C, ClickItem);
 		ChatRoomPublishAction(C, null, ClickItem, true);
 	}
-	else {
-		let Line = ClickItem.Asset.Group.Name + (ClickItem.Asset.DynamicName ? ClickItem.Asset.DynamicName(Player) : ClickItem.Asset.Name);
+	else if (C.IsNpc()) {
+		let Line = ClickItem.Asset.Group.Name + ClickItem.Asset.DynamicName(Player);
 		let D = DialogFind(C, Line, null, false);
 		if (D != "") {
-			InventoryExpressionTrigger(C, ClickItem);
 			C.CurrentDialog = D;
 			DialogLeaveItemMenu();
 		}
@@ -1774,12 +1772,19 @@ function DialogClick() {
 			let X = 1000;
 			let Y = 125;
 			for (let A = DialogInventoryOffset; (A < DialogActivity.length) && (A < DialogInventoryOffset + 12); A++) {
-
+				const act = DialogActivity[A];
 				// If this specific activity is clicked, we run it
 				if ((MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275)) {
-					if (!DialogActivity[A].Blocked) {
-						IntroductionJobProgress("SubActivity", DialogActivity[A].Activity.MaxProgress.toString(), true);
-						ActivityRun(C, DialogActivity[A]);
+					if (!act.Blocked) {
+						if (C.IsNpc()) {
+							let Line = C.FocusGroup.Name + act.Item.Asset.DynamicName(Player);
+							let D = DialogFind(C, Line, null, false);
+							if (D != "") {
+								C.CurrentDialog = D;
+							}
+						}
+						IntroductionJobProgress("SubActivity", act.Activity.MaxProgress.toString(), true);
+						ActivityRun(C, act);
 					}
 					return;
 				}
