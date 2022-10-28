@@ -4057,14 +4057,14 @@ var AssetFemale3DCG = [
 		Zone: [[10, 400, 90, 100], [400, 400, 90, 100]],
 		Block: ["ItemHandheld"],
 		Asset: [
-			{ Name: "PaddedMittens", Fetish: ["ABDL"], Value: 40, Difficulty: 4, SelfBondage: 2, Time: 15, AllowLock: true, DefaultColor: "#bbbbbb", AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], Effect: ["Block", "Prone"], Hide: ["LeftHand", "RightHand", "ItemHandheld"], HideItem: ["BraceletSpikeBands"], Extended: true,
+			{ Name: "PaddedMittens", Fetish: ["ABDL"], Value: 40, Difficulty: 4, SelfBondage: 2, Time: 15, AllowLock: true, DefaultColor: "#bbbbbb", AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], Effect: ["Block", "Prone", "MergedFingers"], Hide: ["LeftHand", "RightHand", "ItemHandheld"], HideItem: ["BraceletSpikeBands"], Extended: true,
 				Layer: [
 					{ Name: "Gloves", AllowColorize: true},
 					{ Name: "Straps", AllowColorize: true},
 					{ Name: "Buckles", AllowColorize: true},
 				]
 			},
-			{ Name: "PawMittens", Fetish: ["ABDL", "Pet"], Value: 50, Difficulty: 4, SelfBondage: 1, Time: 15, AllowLock: true, DefaultColor: ["#bbbbbb","#bbbbbb","#bbbbbb","#B38295"], AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], Effect: ["Block", "Prone"], Hide: ["LeftHand", "RightHand", "ItemHandheld"], HideItem: ["BraceletSpikeBands"], Extended: true,
+			{ Name: "PawMittens", Fetish: ["ABDL", "Pet"], Value: 50, Difficulty: 4, SelfBondage: 1, Time: 15, AllowLock: true, DefaultColor: ["#bbbbbb","#bbbbbb","#bbbbbb","#B38295"], AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], Effect: ["Block", "Prone", "MergedFingers"], Hide: ["LeftHand", "RightHand", "ItemHandheld"], HideItem: ["BraceletSpikeBands"], Extended: true,
 				Layer: [
 					{ Name: "Gloves", AllowColorize: true},
 					{ Name: "Straps", AllowColorize: true},
@@ -4072,7 +4072,7 @@ var AssetFemale3DCG = [
 					{ Name: "Paws", AllowColorize: true},
 				]
 			},
-			{ Name: "LeatherMittens", Fetish: ["Leather"], Value: 60, Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 5, AllowLock: true, AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], Effect: ["Block", "Prone"], Hide: ["ItemHandheld"] },
+			{ Name: "LeatherMittens", Fetish: ["Leather"], Value: 60, Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 5, AllowLock: true, AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], Effect: ["Block", "Prone", "MergedFingers"], Hide: ["ItemHandheld"] },
 			{ Name: "FuturisticMittens", Fetish: ["Metal"], Category: ["SciFi"], Value: 70, Difficulty: 5, SelfBondage: 0, Time: 5, RemoveTime: 5, Audio: "FuturisticApply", Random: false, AllowLock: true, DrawLocks: false,
 				DefaultColor: ["#93C48C", "#3B7F2C", "Default"], AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], FuturisticRecolor: true,
 				Effect: ["UseRemote"], SelfUnlock: false, Extended: true, Block: [],
@@ -4084,10 +4084,10 @@ var AssetFemale3DCG = [
 
 				]
 			},
-			{ Name: "PaddedLeatherMittens", Fetish: ["Leather"], Value: 70, Difficulty: 6, SelfBondage: 5, Time: 15, RemoveTime: 5, AllowLock: true, AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], Effect: ["Block", "Prone"], Hide: ["ItemHandheld"] },
-			{ Name: "PolishedMittens", Fetish: ["Metal"], Value: 80, Difficulty: 8, SelfBondage: 6, Time: 20, RemoveTime: 10, AllowLock: true, Audio: "CuffsMetal", AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], Effect: ["Block", "Prone"], Hide: ["ItemHandheld"] },
-			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, Difficulty: 5, SelfBondage: 3, Time: 20, RemoveTime: 10, BuyGroup: "DuctTape", Audio: "DuctTapeRollShort", Hide: ["Gloves", "LeftHand", "RightHand", "ItemHandheld"], AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], Effect: ["Block", "Prone"], },
-			{ Name: "HoofMittens", Fetish: ["Pony"], Value: -1, Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 5, AllowLock: true, DrawLocks: false, AllowPose: ["BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours", "OverTheHead"], SetPose: ["TapedHands"], Effect: ["Block", "Prone"], HideForPose: ["BackBoxTie", "BackElbowTouch"], Hide: ["ItemHandheld"], },
+			{ Name: "PaddedLeatherMittens", Fetish: ["Leather"], Value: 70, Difficulty: 6, SelfBondage: 5, Time: 15, RemoveTime: 5, AllowLock: true, AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], Effect: ["Block", "Prone", "MergedFingers"], Hide: ["ItemHandheld"] },
+			{ Name: "PolishedMittens", Fetish: ["Metal"], Value: 80, Difficulty: 8, SelfBondage: 6, Time: 20, RemoveTime: 10, AllowLock: true, Audio: "CuffsMetal", AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], Effect: ["Block", "Prone", "MergedFingers"], Hide: ["ItemHandheld"] },
+			{ Name: "DuctTape", Fetish: ["Tape"], Value: 50, Difficulty: 5, SelfBondage: 3, Time: 20, RemoveTime: 10, BuyGroup: "DuctTape", Audio: "DuctTapeRollShort", Hide: ["Gloves", "LeftHand", "RightHand", "ItemHandheld"], AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], SetPose: ["TapedHands"], Effect: ["Block", "Prone", "MergedFingers"], },
+			{ Name: "HoofMittens", Fetish: ["Pony"], Value: -1, Difficulty: 5, SelfBondage: 4, Time: 15, RemoveTime: 5, AllowLock: true, DrawLocks: false, AllowPose: ["BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours", "OverTheHead"], SetPose: ["TapedHands"], Effect: ["Block", "Prone", "MergedFingers"], HideForPose: ["BackBoxTie", "BackElbowTouch"], Hide: ["ItemHandheld"], },
 		],
 	},
 	{

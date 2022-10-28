@@ -100,6 +100,7 @@ type VibratorRemoteAvailability = "Available" | "NoRemote" | "NoRemoteOwnerRuleA
  * @property CuffedArms - Enable items that have the CuffedArms prerequisite to be applied.
  * @property IsChained - Prevents items that have the NotChained prerequisite from being applied.
  * @property FixedHead - Locks the character's head in-place. Prevents nodding and shaking activities on it.
+ * @property MergedFingers - Indicates the character can't use their fingers normally. Limits activities.
  *
  * @property Shackled - Prevents items that have the NotShackled prerequisite from being applied.
  * @property Tethered - Prevents leashing items from working.
@@ -170,7 +171,7 @@ type VibratorRemoteAvailability = "Available" | "NoRemote" | "NoRemoteOwnerRuleA
 type EffectName =
 	"Freeze" | "Prone" | "Block" | "Mounted" | "KneelFreeze" | "ForceKneel" | "BlockKneel" |
 
-	"CuffedFeet" | "CuffedLegs" | "CuffedArms" | "IsChained" | "FixedHead" |
+	"CuffedFeet" | "CuffedLegs" | "CuffedArms" | "IsChained" | "FixedHead" | "MergedFingers" |
 
 	"Shackled" | "Tethered" | "Enclose" | "OneWayEnclose" | "OnBed" | "Lifted" | "Suspended" |
 

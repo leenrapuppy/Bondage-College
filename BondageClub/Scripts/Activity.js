@@ -176,7 +176,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 		case "TargetKneeling":
 			return acted.IsKneeling();
 		case "UseHands":
-			return acting.CanInteract();
+			return acting.CanInteract() && !acting.Effect.includes("MergedFingers");
 		case "UseArms":
 			return acting.CanInteract() || (!InventoryGet(acting, "ItemArms") && !InventoryGroupIsBlocked(acting, "ItemArms"));
 		case "UseFeet":
