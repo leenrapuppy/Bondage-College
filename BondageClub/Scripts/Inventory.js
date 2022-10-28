@@ -413,26 +413,23 @@ function InventoryGet(C, AssetGroup) {
 * @param {CraftingItem} Craft - The crafted properties to apply
 * @param {Boolean} Refresh - TRUE if we must refresh the character
 * @param {Boolean} ApplyColor - TRUE if the items color must be (re-)applied
+* @param {Boolean} CraftWarn - Whether a warning should logged whenever the crafting validation fails
 * @returns {void}
 */
-function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=true) {
-
+function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=true, CraftWarn=true) {
 	// Gets the item first
-	if ((Source == null) || (Target == null) || (GroupName == null) || (Craft == null)) return;
+	if ((Source == null) || (Target == null) || (GroupName == null)) return;
 	let Item = InventoryGet(Target, GroupName);
-	if (Item == null) return;
+	if ((Item == null) || !CraftingValidate(Craft, Item.Asset, CraftWarn)) return;
 	if (Item.Craft == null) Item.Craft = Craft;
 
 	// Applies the color schema, separated by commas
-	if (ApplyColor && (Craft.Color != null) && (typeof Craft.Color === "string")) {
+	if (ApplyColor) {
 		Item.Color = Craft.Color.replace(" ", "").split(",");
-		for (let C of Item.Color)
-			if (CommonIsColor(C) == false)
-				C = "Default";
 	}
 
 	// Applies a lock to the item
-	if ((Craft.Lock != null) && (Craft.Lock != ""))
+	if (Craft.Lock != "")
 		InventoryLock(Target, Item, Craft.Lock, Source.MemberNumber, false);
 
 	// Sets the crafter name and ID
@@ -440,7 +437,7 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=tr
 	if (Item.Craft.MemberName == null) Item.Craft.MemberName = CharacterNickname(Source);
 
 	// The properties are only applied on self or NPCs to prevent duplicating the effect
-	if ((Craft.Property != null) && (Target.IsPlayer() || Target.IsNpc())) {
+	if (Target.IsPlayer() || Target.IsNpc()) {
 
 		// The secure property adds 5 to the difficulty rating to struggle out
 		if (Craft.Property === "Secure") {
