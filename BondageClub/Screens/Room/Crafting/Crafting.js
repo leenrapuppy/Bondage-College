@@ -3,7 +3,7 @@ var CraftingBackground = "CraftingWorkshop";
 var CraftingMode = "Slot";
 var CraftingDestroy = false;
 var CraftingSlot = 0;
-/** @type {{Name?: string, Description?: string, Color?: string, Asset?: Asset, Property?: CraftingPropertyType, Lock?: Asset, Private?: boolean, Type?: String }} */
+/** @type {{Name: string, Description: string, Color: string, Asset: Asset | null, Property: CraftingPropertyType, Lock: Asset | null, Private: boolean, Type: String }} */
 var CraftingSelectedItem = null;
 var CraftingOffset = 0;
 /** @type {Asset[]} */
@@ -484,7 +484,16 @@ function CraftingClick() {
 				CraftingModeSet("Name");
 			} else {
 				CraftingSlot = S + CraftingOffset;
-				CraftingSelectedItem = {};
+				CraftingSelectedItem = {
+					Name: "",
+					Description: "",
+					Color: "Default",
+					Asset: null,
+					Property: "Normal",
+					Lock: null,
+					Private: false,
+					Type: "",
+				};
 				CraftingModeSet("Item");
 				CraftingItemListBuild();
 			}
