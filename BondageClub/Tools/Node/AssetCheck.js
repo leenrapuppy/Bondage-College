@@ -11,6 +11,7 @@ const neededFiles = [
 	"Scripts/TypedItem.js",
 	"Scripts/VariableHeight.js",
 	"Screens/Inventory/Futuristic/Futuristic.js",
+	"Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"
 ];
