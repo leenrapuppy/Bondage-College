@@ -3454,7 +3454,6 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //WoodenRack
-
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {
@@ -5960,6 +5959,55 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // TeddyBear
+		PetPost: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config:{
+				Modules: [
+					{
+						Name: "Plaque", Key: "p",
+						Options: [
+						{}, //p0 - Border
+						{}, //p1 - Border
+						]
+					},
+					{
+						Name: "Dirt", Key: "d",
+						Options: [
+						{}, //d0 - Clean
+						{}, //d1 - Dirty
+						]
+					},
+					{
+						Name: "Sticker", Key: "s",
+						Options: [
+							{}, //s0 - Paw
+							{}, //s1 - Triskel
+							{}, //s2 - Moon
+							{}, //s3 - LGBT
+							{}, //s4 - Trans
+							{}, //s5 - Bi
+							{}, //s6 - NoSwim
+							{}, //s7 - None
+						]
+					},
+					{
+						Name: "PostIt", Key: "m",
+						Options: [
+						{}, //m0 - Postit
+						{}, //m1 - No PostIt
+						]
+					},
+					{
+						Name: "Txt", Key: "x",
+						Options: [{ HasSubscreen: true }],
+					},
+				],
+				ChangeWhenLocked: false,
+				Dialog: {
+					ChatPrefix: "ItemNeckRestraintsPetPost",
+				}
+			},
+		},//PetPost
 	}, // ItemMisc
 	ItemPelvis: {
 		SilkStraps: {
