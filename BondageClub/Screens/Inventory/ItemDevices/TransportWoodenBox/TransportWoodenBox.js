@@ -1,4 +1,7 @@
 "use strict";
+
+var InventoryItemDevicesTransportWoodenBoxOptions = InventoryItemDevicesWoodenBoxOptions;
+
 function InventoryItemDevicesTransportWoodenBoxLoad() {
 	InventoryItemDevicesWoodenBoxLoad();
 }

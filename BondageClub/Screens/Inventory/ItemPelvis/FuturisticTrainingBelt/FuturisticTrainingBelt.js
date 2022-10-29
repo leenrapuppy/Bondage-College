@@ -44,7 +44,7 @@ var FuturisticTrainingBeltPage = 0;
 var FuturisticTrainingBeltMaxPage = 1;
 
 function InventoryItemPelvisFuturisticTrainingBeltLoad() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied();
 	} else{
@@ -114,7 +114,7 @@ function InventoryItemPelvisFuturisticTrainingBeltLoad() {
 function InventoryItemPelvisFuturisticTrainingBeltDraw() {
 	const Item = DialogFocusItem;
 	var canViewMode = false;
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticDrawAccessDenied();
 	} else if (DialogFocusItem && DialogFocusItem.Property) {
@@ -201,7 +201,7 @@ function InventoryItemPelvisFuturisticTrainingBeltDraw() {
 function InventoryItemPelvisFuturisticTrainingBeltClick() {
 	const Item = DialogFocusItem;
 	var canViewMode = false;
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		if (MouseIn(1885, 25, 90, 90)) InventoryItemPelvisFuturisticTrainingBeltExit();
 		else InventoryItemFuturisticClickAccessDenied();

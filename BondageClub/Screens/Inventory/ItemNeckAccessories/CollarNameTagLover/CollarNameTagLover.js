@@ -49,9 +49,12 @@ function InventoryItemNeckAccessoriesCollarNameTagLoverClick() {
 	}
 }
 
-// Sets the type of tag
+/**
+ * Sets the type of tag
+ * @type {TypedItemSetTypeCallback}
+ */
 function InventoryItemNeckAccessoriesCollarNameTagLoverSetType(NewType) {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (CurrentScreen == "ChatRoom") {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 		InventoryItemNeckAccessoriesCollarNameTagLoverLoad();

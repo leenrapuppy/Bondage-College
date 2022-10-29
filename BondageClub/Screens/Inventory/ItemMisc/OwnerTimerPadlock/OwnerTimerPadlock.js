@@ -21,7 +21,7 @@ function InventoryItemMiscOwnerTimerPadlockDraw() {
 	DrawAssetPreview(1387, 225, DialogFocusItem.Asset);
     DrawText(DialogFindPlayer(DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Intro"), 1500, 600, "white", "gray");
 
-    var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+    var C = CharacterGetCurrent();
     // Draw the settings
     if (Player.CanInteract() && C.IsOwnedByPlayer()) {
         MainCanvas.textAlign = "left";
@@ -61,7 +61,7 @@ function InventoryItemMiscOwnerTimerPadlockClick() {
     if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) InventoryItemMiscOwnerTimerPadlockExit();
     if (!Player.CanInteract()) return;
 
-    var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+    var C = CharacterGetCurrent();
     if (C.IsOwnedByPlayer()) {
         if ((MouseX >= 1100) && (MouseX <= 1164)) {
             if ((MouseY >= 666) && (MouseY <= 730)) { DialogFocusSourceItem.Property.RemoveItem = !(DialogFocusSourceItem.Property.RemoveItem); }
@@ -95,7 +95,7 @@ function InventoryItemMiscOwnerTimerPadlockAdd(TimeToAdd, PlayerMemberNumberToLi
     if (PlayerMemberNumberToList) DialogFocusSourceItem.Property.MemberNumberList.push(Player.MemberNumber);
     var TimerBefore = DialogFocusSourceItem.Property.RemoveTimer;
     if (DialogFocusItem.Asset.RemoveTimer > 0) DialogFocusSourceItem.Property.RemoveTimer = Math.round(Math.min(DialogFocusSourceItem.Property.RemoveTimer + (TimeToAdd * 1000), CurrentTime + (DialogFocusItem.Asset.MaxTimer * 1000)));
-    var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+    var C = CharacterGetCurrent();
     if (CurrentScreen == "ChatRoom") {
         var timeAdded = (DialogFocusSourceItem.Property.RemoveTimer - TimerBefore) / (1000 * 3600);
         var msg = ((timeAdded < 0) && DialogFocusSourceItem.Property.ShowTimer ? "TimerRemoveTime" : "TimerAddTime");
@@ -124,5 +124,5 @@ function InventoryItemMiscOwnerTimerPadlockAdd(TimeToAdd, PlayerMemberNumberToLi
 // Exits the extended menu
 function InventoryItemMiscOwnerTimerPadlockExit() {
     DialogFocusItem = null;
-    if (DialogInventory != null) DialogMenuButtonBuild((Player.FocusGroup != null) ? Player : CurrentCharacter);
+    if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
 }

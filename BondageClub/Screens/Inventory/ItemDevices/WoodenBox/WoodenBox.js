@@ -6,7 +6,7 @@ const InventoryItemDevicesWoodenBoxFont = "'Saira Stencil One', 'Arial', sans-se
 
 let InventoryItemDevicesWoodenBoxOriginalText = null;
 
-let InventoryItemDevicesWoodenBoxOptions = [
+var InventoryItemDevicesWoodenBoxOptions = [
 	{
 		Name: "SWNE",
 		Property: { Type: null },

@@ -11,6 +11,7 @@ const neededFiles = [
 	"Scripts/TypedItem.js",
 	"Scripts/VariableHeight.js",
 	"Screens/Inventory/Futuristic/Futuristic.js",
+	"Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"
 ];
@@ -184,7 +185,7 @@ function loadCSV(path, expectedWidth) {
 					if (assetConfig.Archetype === "typed" && Asset.AllowType !== undefined) {
 						error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowType`);
 					}
-					if (!["modular", "typed"].includes(assetConfig.Archetype)) {
+					if (!["modular", "typed", "vibrating"].includes(assetConfig.Archetype)) {
 						error(`Extended asset archetype for ${Group.Group}:${Asset.Name}: Unknown Archetype ${assetConfig.Archetype}`);
 					}
 				}

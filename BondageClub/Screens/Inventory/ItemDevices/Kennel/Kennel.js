@@ -1,6 +1,6 @@
 "use strict";
 
-const InventoryItemDevicesKennelOptions = [
+var InventoryItemDevicesKennelOptions = [
 	{
 		Name: "OpenNoPadding",
 		ItemValue: { Door: false, Padding: false},

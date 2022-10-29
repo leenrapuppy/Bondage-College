@@ -1618,7 +1618,7 @@ function DialogAllowItemClick(CurrentItem, ClickItem) {
 function DialogItemClick(ClickItem) {
 
 	// Gets the current character and item
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	var CurrentItem = InventoryGet(C, C.FocusGroup.Name);
 	if (AsylumGGTSControlItem(C, CurrentItem)) return;
 
@@ -2611,11 +2611,12 @@ function DialogChatRoomSafewordRelease() {
 
 /**
  * Close the dialog and switch to the crafting screen.
+ * @returns {void} - Nothing
  */
 function DialogOpenCraftingScreen() {
-	const fromRoom = CurrentScreen === "ChatRoom";
+	const FromChatRoom = (CurrentScreen === "ChatRoom");
 	DialogLeave();
-	CraftingShowScreen(fromRoom);
+	CraftingShowScreen(FromChatRoom);
 }
 
 /**

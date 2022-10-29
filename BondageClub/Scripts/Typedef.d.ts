@@ -86,6 +86,87 @@ type VibratorModeState = "Default" | "Deny" | "Orgasm" | "Rest";
 
 type VibratorRemoteAvailability = "Available" | "NoRemote" | "NoRemoteOwnerRuleActive" | "NoLoversRemote" | "RemotesBlocked" | "CannotInteract" | "NoAccess" | "InvalidItem";
 
+/**
+ * @property Freeze - Prevents walking and kneeling unaided. There's a few caveats with the kneeling part.
+ * @property Prone - Indicates the character is prone. Looks non-functional.
+ * @property Block - Indicates that the character is "blocked". Acts as a restraint.
+ * @property Mounted - Indicates that the character is mounted onto something. Acts as a restraint.
+ * @property KneelFreeze - Prevents walking.
+ * @property ForceKneel - Prevents kneeling unaided.
+ * @property BlockKneel - Prevents items that have the CanKneel prerequisite from being applied.
+ *
+ * @property CuffedFeet - Enable items that have the CuffedFeet prerequisite to be applied.
+ * @property CuffedLegs - Enable items that have the CuffedLegs prerequisite to be applied.
+ * @property CuffedArms - Enable items that have the CuffedArms prerequisite to be applied.
+ * @property IsChained - Prevents items that have the NotChained prerequisite from being applied.
+ * @property FixedHead - Locks the character's head in-place. Prevents nodding and shaking activities on it.
+ *
+ * @property Shackled - Prevents items that have the NotShackled prerequisite from being applied.
+ * @property Tethered - Prevents leashing items from working.
+ * @property Enclose - Indicates the character cannot be interacted with and can't interact back.
+ * @property OneWayEnclose - Indicates the character can be interacted with but can't interact back.
+ * @property OnBed - Enable items that have the OnBed prerequisite to be applied.
+ * @property Lifted - Prevents items that have the NotLifted prerequisite to be applied.
+ *
+ * @property Slow - Indicates the character is slowed. Used when exiting chatrooms.
+ * @property FillVulva - Marks the item as filling the character's vulva.
+ *   Used when checking activities' prerequisites and the auto-stimulation events.
+ * @property IsPlugged - Marks the item as filling the character's butt.
+ *   Used when checking activities' prerequisites and the auto-stimulation events.
+ *
+ * @property Egged - Marks the item as being a "vibrator" kind-of item.
+ *   Make the item's Vibrator-related properties be taken into account for arousal,
+ *   as well as the stuttering effect.
+ * @property Vibrating - Indicates an "Egged" item as being vibrating.
+ *   Normally handled automatically by VibrationMode. Makes the item preview wobble
+ *   in the inventory, as well as cause auto-stimulation events.
+ *
+ * @property Edged - Marks the item as causing the character to be edged.
+ *   Normally handled automatically by VibrationMode. Causes the character's arousal
+ *   to be capped, and ruins its orgasms.
+ * @property DenialMode - Marks the item as causing the character to be denied.
+ *   Causes the character's arousal to be capped (higher that Edged).
+ * @property RuinOrgasms - Marks the item as ruining orgasms.
+ *   Requires DenialMode. Makes the character unable to fully orgasm.
+ *
+ * @property Remote - Marks the item as a remote. Looks non-functional.
+ * @property UseRemote - Marks the item as needing a remote to be changed.
+ * @property BlockRemotes - Marks the item as preventing remotes from being used
+ *   on the character.
+ *
+ * @property Lock - Marks the item as being some kind of lock.
+ * @property NotSelfPickable - Disables the item from being lock-picked.
+ *
+ * @property Chaste - Marks the item as applying chastity.
+ *   Prevents items that have the NotChaste prerequisite from being applied.
+ *   Allows the item to be taken off at the club management.
+ * @property BreastChaste - Marks the item as applying breast chastity.
+ *   Allows the item to be taken off at the club management.
+ *
+ * @property Leash - Marks the item as being usable as a leash.
+ * @property CrotchRope - Marks the item as being a crotchrope-style item.
+ *   Used for the auto-stimulation events.
+ *
+ * @property ReceiveShock - Marks the item as being a shock-dispensing item.
+ * @property TriggerShock - Marks the item as being a trigger for shock-dispensing items.
+ *
+ * @property OpenPermission - Marks the item as requiring collar-permissions (Futuristic).
+ * @property OpenPermissionArm - Marks the item as requiring arm-permissions (Futuristic).
+ * @property OpenPermissionLeg - Marks the item as requiring arm-permissions (Futuristic).
+ * @property OpenPermissionChastity - Marks the item as requiring chastity-permissions (Futuristic).
+ *
+ * @property BlockMouth - Marks the item as blocking the character's mouth.
+ *   Prevents items that have the NotLifted prerequisite to be applied.
+ *   Also used when checking activities' prerequisites.
+ * @property OpenMouth - Marks the item as opening the character's mouth.
+ *   Used when checking activities' prerequisites.
+ *
+ * @property ProtrudingMouth - Indicates that the item bulges out from the character's mouth.
+ *   Prevents items that wrap the head to be applied.
+ *
+ * @property Wiggling - Indicates that the item hangs from the character and can wiggle from it,
+ *   triggering arousal. Used as part of the stimulation event system.
+ */
 type EffectName =
 	"Freeze" | "Prone" | "Block" | "Mounted" | "KneelFreeze" | "ForceKneel" | "BlockKneel" |
 
@@ -177,6 +258,15 @@ type AssetLockType =
 	"PasswordPadlock" | "SafewordPadlock" | "TimerPadlock" |
 	"TimerPasswordPadlock"
 	;
+
+type CraftingPropertyType =
+	"Normal" | "Large" | "Small" | "Thick" | "Thin" | "Secure" | "Loose" | "Decoy" |
+	"Malleable" | "Rigid" | "Simple" | "Puzzling" | "Painful" | "Comfy" | "Strong" |
+	"Flexible" | "Nimble" | "Arousing" | "Dull"
+	;
+
+/** Enum values for {@link CraftingStatusCode}. */
+type CraftingStatusType = 0 | 1 | 2;
 
 //#endregion
 
@@ -358,6 +448,11 @@ type ChatRoomMessageExtractor =
  * a `msg` property if the handler is a transformation and wishes to update
  * the message's contents inflight and/or a `skip` property if you'd like
  * to cause a subsequent handler to not be called.
+ *
+ * @warning Note that the in-flight message is only escaped when it gets
+ * sent to the chat log via ChatRoomMessageDisplay. If you're manipulating
+ * that by any other means, make sure to call ChatRoomEscapeEntities on its
+ * content to close any injection attacks.
  *
  * A few notable priority values are:
  *
@@ -547,6 +642,11 @@ interface ExpressionTrigger {
 	Timer: number;
 }
 
+/**
+ * The internal Asset definition of an asset.
+ *
+ * See AssetDefinition in Female3DCG.d.ts for documentation.
+ */
 interface Asset {
 	Name: string;
 	Description: string;
@@ -562,14 +662,14 @@ interface Asset {
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: string[];
 	Effect?: EffectName[];
-	Bonus?: string;
+	Bonus?: AssetBonusName;
 	Block?: AssetGroupItemName[];
 	Expose: string[];
 	Hide?: string[];
 	HideItem?: string[];
 	HideItemExclude: string[];
 	HideItemAttribute: string[];
-	Require?: string[];
+	Require: string[];
 	SetPose?: string[];
 	AllowPose: string[] | null;
 	HideForPose: string[];
@@ -593,7 +693,7 @@ interface Asset {
 	HeightModifier: number;
 	ZoomModifier: number;
 	Alpha?: AlphaDefinition[];
-	Prerequisite?: string | string[];
+	Prerequisite: string[];
 	Extended: boolean;
 	AlwaysExtend: boolean;
 	AlwaysInteract: boolean;
@@ -666,7 +766,7 @@ interface ItemBundle {
 	Difficulty?: number;
 	Color?: ItemColor;
 	Property?: ItemProperties;
-	Craft?: CraftedItemProperties;
+	Craft?: CraftingItem;
 }
 
 /** An AppearanceBundle is whole minified appearance of a character */
@@ -708,16 +808,8 @@ interface Item {
 	Asset: Asset;
 	Color?: ItemColor;
 	Difficulty?: number;
-	Craft?: CraftedItemProperties;
+	Craft?: CraftingItem;
 	Property?: ItemProperties;
-}
-
-interface CraftedItemProperties {
-	Name: string;
-	MemberName?: string;
-	MemberNumber?: number;
-	Description: string;
-	Property: string;
 }
 
 type FavoriteIcon = "Favorite" | "FavoriteBoth" | "FavoritePlayer";
@@ -1579,7 +1671,7 @@ type ModularItemAssetConfig = ExtendedItemAssetConfig<"modular", ModularItemConf
 /** An object defining all of the required configuration for registering a modular item */
 interface ModularItemConfig {
 	/** The module definitions for the item */
-	Modules: ModularItemModule[];
+	Modules?: ModularItemModule[];
 	/**
 	 * The item's chatroom message setting. Determines the level of
 	 * granularity for chatroom messages when the item's module values change.
@@ -1600,7 +1692,8 @@ interface ModularItemConfig {
 	Dialog?: ModularItemDialogConfig;
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
-	 * and parameters passed on to them. If undefined, these are ignored
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	ScriptHooks?: {
 		Load?: (next: () => void) => void;
@@ -1746,7 +1839,8 @@ interface ModularItemData {
 	changeWhenLocked: boolean;
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
-	 * and parameters passed on to them. If undefined, these are ignored
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	scriptHooks?: {
 		load?: (next: () => void) => void,
@@ -1778,7 +1872,7 @@ type TypedItemAssetConfig = ExtendedItemAssetConfig<"typed", TypedItemConfig>;
 /** An object defining all of the required configuration for registering a typed item */
 interface TypedItemConfig {
 	/** The list of extended item options available for the item */
-	Options: ExtendedItemOption[];
+	Options?: ExtendedItemOption[];
 	/** The optional text configuration for the item. Custom text keys can be configured within this object */
 	Dialog?: TypedItemDialogConfig;
 	/**
@@ -1810,7 +1904,8 @@ interface TypedItemConfig {
 	Dictionary?: TypedItemDictionaryCallback[];
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
-	 * and parameters passed on to them. If undefined, these are ignored
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	ScriptHooks?: {
 		Load?: (next: () => void) => void,
@@ -1900,7 +1995,8 @@ interface TypedItemData {
 	validate?: ExtendedItemValidateCallback<ExtendedItemOption>;
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
-	 * and parameters passed on to them. If undefined, these are ignored
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	scriptHooks?: {
 		load?: (next: () => void) => void,
@@ -1985,6 +2081,12 @@ interface AppearanceValidationWrapper {
 	 */
 	valid: boolean;
 }
+
+/**
+ * Callback for custom functions used for setting the `DialogFocusItem.Type` attribute.
+ * Relevant for typed items that lack an archetype.
+ */
+type TypedItemSetTypeCallback = (NewType: string) => void;
 
 //#endregion
 
@@ -2432,13 +2534,27 @@ interface PandoraBaseRoom {
 
 interface CraftingItem {
 	Name: string;
+	MemberName?: string;
+	MemberNumber?: number;
 	Description: string;
-	Property: string;
+	Property: CraftingPropertyType;
 	Color: string;
-	Lock: AssetLockType;
+	Lock: "" | AssetLockType;
 	Item: string;
 	Private: boolean;
 	Type: string;
+}
+
+/**
+ * A struct with tools for validating {@link CraftingItem} properties.
+ * @property {function} Validate - The validation function
+ * @property {function} GetDefault - A function that creates default values for when the validation fails
+ * @property {CraftingStatusType} - The {@link CraftingStatusCode} code for when the validation fails
+ */
+interface CratingValidationStruct {
+	Validate: (Craft: CraftingItem, Asset: Asset | null) => boolean;
+	GetDefault: (Craft: CraftingItem, Asset: Asset | null) => any;
+	StatusCode: CraftingStatusType;
 }
 
 //#endregion

@@ -64,6 +64,7 @@
 <script src="Scripts/VariableHeight.js"></script>
 <script src="Assets/Female3DCG/Female3DCG.js"></script>
 <script src="Screens/Inventory/Futuristic/Futuristic.js"></script>
+<script src="Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js"></script>
 <script src="Assets/Female3DCG/Female3DCGExtended.js"></script>
 <script src="Screens/Character/Login/Login.js"></script>
 <script src="Screens/Character/Appearance/Appearance.js"></script>
@@ -89,6 +90,7 @@
 <script src="Screens/Room/Empty/Empty.js"></script>
 <script src="Screens/Room/KidnapLeague/KidnapLeague.js"></script>
 <script src="Screens/Room/Private/Private.js"></script>
+<script src="Screens/Room/PrivateBed/PrivateBed.js"></script>
 <script src="Screens/Room/PrivateRansom/PrivateRansom.js"></script>
 <script src="Screens/Room/Management/Management.js"></script>
 <script src="Screens/Room/SlaveMarket/SlaveMarket.js"></script>
@@ -193,8 +195,6 @@
 <script src="Screens/Inventory/ItemMouth/FuturisticHarnessPanelGag/FuturisticHarnessPanelGag.js"></script>
 <script src="Screens/Inventory/ItemMouth/FuturisticHarnessBallGag/FuturisticHarnessBallGag.js"></script>
 <script src="Screens/Inventory/ItemNeck/FuturisticCollar/FuturisticCollar.js"></script>
-<script src="Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js"></script>
-<script src="Screens/Inventory/ItemTorso2/FuturisticHarness/FuturisticHarness.js"></script>
 <script src="Screens/Inventory/ItemHands/SpankingToys/SpankingToy.js"></script>
 <script src="Screens/Inventory/ItemFeet/HempRope/HempRope.js"></script>
 <script src="Screens/Inventory/ItemFeet/NylonRope/NylonRope.js"></script>
@@ -333,7 +333,7 @@
 window.onload = function() {
 	ServerURL = CommonGetServer();
 	//CheatImport();
-	GameVersion = "R85Beta2";
+	GameVersion = "R85";
 	console.log("Version: " + GameVersion + ", Server: " + ServerURL);
 	if (!GameVersionFormat.test(GameVersion)) console.error("GameVersion is not valid!");
 	CommonIsMobile = CommonDetectMobile();

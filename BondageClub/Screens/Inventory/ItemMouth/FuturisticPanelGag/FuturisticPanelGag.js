@@ -59,7 +59,7 @@ var AutoPunishUndoCD = 300000; // Five minutes of being gagged, resetting each t
  * @returns {void} - Nothing
  */
 function InventoryItemMouthFuturisticPanelGagLoad() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied();
 	} else {
@@ -84,7 +84,7 @@ function InventoryItemMouthFuturisticPanelGagExit() {
 * @returns {void} - Nothing
 */
 function InventoryItemMouthFuturisticPanelGagDraw() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticDrawAccessDenied();
 	} else {
@@ -139,7 +139,7 @@ function InventoryItemMouthFuturisticPanelGagDraw() {
  * @returns {void} - Nothing
  */
 function InventoryItemMouthFuturisticPanelGagClick() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticClickAccessDenied();
 	} else {

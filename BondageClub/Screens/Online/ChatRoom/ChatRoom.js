@@ -1155,7 +1155,7 @@ function ChatRoomFocusCharacter(C) {
  * @returns {void} - Nothing.
  */
 function ChatRoomCheckRelationships() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (C.ID != 0) ServerSend("AccountOwnership", { MemberNumber: C.MemberNumber });
 	if (C.ID != 0) ServerSend("AccountLovership", { MemberNumber: C.MemberNumber });
 }
@@ -2665,7 +2665,7 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
 				if (C)
 					meta.TargetCharacter = C;
-				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "DestinationCharacter")) ? DialogFindPlayer("Her") : (PreferenceIsPlayerInSensDep() && entry.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(entry.Text) + DialogFindPlayer("'s"));
+				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "DestinationCharacter")) ? DialogFindPlayer("Her") : (PreferenceIsPlayerInSensDep() && entry.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : entry.Text + DialogFindPlayer("'s"));
 				substitutions.push([entry.Tag, repl]);
 			}
 			else if (entry.Tag == "TargetCharacter" || entry.Tag == "TargetCharacterName") {
@@ -2673,20 +2673,20 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
 				if (C)
 					meta.TargetCharacter = C;
-				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "TargetCharacter")) ? DialogFindPlayer("Herself") : (PreferenceIsPlayerInSensDep() && entry.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(entry.Text));
+				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "TargetCharacter")) ? DialogFindPlayer("Herself") : (PreferenceIsPlayerInSensDep() && entry.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : entry.Text);
 				substitutions.push([entry.Tag, repl]);
 			}
 			else if (entry.Tag == "SourceCharacter") {
 				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
 				if (C)
 					meta.SourceCharacter = C;
-				const repl = (PreferenceIsPlayerInSensDep() && (entry.MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.SourceCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(entry.Text);
+				const repl = (PreferenceIsPlayerInSensDep() && (entry.MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.SourceCharacter))) ? DialogFindPlayer("Someone") : entry.Text;
 				substitutions.push([entry.Tag, repl]);
 			}
 		}
 
 		else if (entry.TextToLookUp) {
-			const repl = DialogFindPlayer(ChatRoomHTMLEntities(entry.TextToLookUp)).toLowerCase();
+			const repl = DialogFindPlayer(entry.TextToLookUp).toLowerCase();
 			substitutions.push([entry.Tag, repl]);
 		}
 		else if (entry.AssetName) {
@@ -2715,7 +2715,7 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 		else if (entry.Automatic) meta.Automatic = true;
 		else if (entry.ShockIntensity != undefined) meta.ShockIntensity = entry.ShockIntensity;
 		else
-			substitutions.push([entry.Tag, ChatRoomHTMLEntities(entry.Text)]);
+			substitutions.push([entry.Tag, entry.Text]);
 	}
 	return { metadata: meta, substitutions: substitutions };
 }
@@ -2825,12 +2825,10 @@ function ChatRoomMessage(data) {
 
 	// Make sure the sender is in the room
 	const SenderCharacter = ChatRoomCharacter.find(c => c.MemberNumber == data.Sender);
-
-	// Sender is not in room, skip message
 	if (!SenderCharacter) return;
 
-	// Replace < and > characters to prevent HTML injections
-	let msg = data.Content ? ChatRoomHTMLEntities(data.Content) : "";
+	// Make a copy of the message for the purpose of substitutions
+	let msg = String(data.Content);
 
 	const preHandlers = ChatRoomMessageRunHandlers("pre", data, SenderCharacter, msg);
 	if (typeof preHandlers === "boolean" && preHandlers)
@@ -2885,17 +2883,17 @@ function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
 			senderTag += metadata.senderName;
 			senderTag += ':</span> ';
 
-			msg = senderTag + msg;
+			msg = senderTag + ChatRoomHTMLEntities(msg);
 		}
 			break;
 
 		case "Action":
 		case "Activity":
-			msg = "(" + msg + ")";
+			msg = "(" + ChatRoomHTMLEntities(msg) + ")";
 			break;
 
 		case "ServerMessage":
-			msg = "<b>" + msg + "</b>";
+			msg = "<b>" + ChatRoomHTMLEntities(msg) + "</b>";
 			break;
 
 		case "LocalMessage":
@@ -2904,7 +2902,7 @@ function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
 			break;
 
 		case "Emote":
-			msg = "*" + msg + "*";
+			msg = "*" + ChatRoomHTMLEntities(msg) + "*";
 			break;
 
 		default:
@@ -2915,7 +2913,7 @@ function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
 	// Checks if the message is a notification about the user entering or leaving the room
 	let MsgEnterLeave = "";
 	let MsgNonDialogue = "";
-	if ((data.Type == "Action") && (msg.startsWith("ServerEnter") || msg.startsWith("ServerLeave") || msg.startsWith("ServerDisconnect") || msg.startsWith("ServerBan") || msg.startsWith("ServerKick")))
+	if (data.Type === "Action" && ["ServerEnter", "ServerLeave", "ServerDisconnect", "ServerBan", "ServerKick"].some(msg => data.Content.startsWith(msg)))
 		MsgEnterLeave = " ChatMessageEnterLeave";
 	if ((data.Type != "Chat" && data.Type != "Whisper" && data.Type != "Emote"))
 		MsgNonDialogue = " ChatMessageNonDialogue";
@@ -3442,7 +3440,7 @@ function ChatRoomSyncItem(data) {
 				if (item.Craft != null)
 					for (let Char of ChatRoomCharacter)
 						if (Char.MemberNumber === data.Source)
-							InventoryCraft(Char, ChatRoomCharacter[C], data.Item.Group, item.Craft, false);
+							InventoryCraft(Char, ChatRoomCharacter[C], data.Item.Group, item.Craft, false, false);
 				InventoryGet(ChatRoomCharacter[C], data.Item.Group).Property = item.Property;
 
 				/** @type {AppearanceDiffMap} */

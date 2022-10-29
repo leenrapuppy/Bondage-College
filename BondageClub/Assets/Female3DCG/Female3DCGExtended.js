@@ -4245,6 +4245,32 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //LockingSwimsuit
+		FuturisticHarness: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Full",
+						Property: { Type: null, Difficulty: 2 },
+					},
+					{
+						Name: "Upper",
+						Property: { Type: "Upper", Difficulty: 0 },
+					},
+					{
+						Name: "Lower",
+						Property: { Type: "Lower", Difficulty: 0 },
+					},
+				],
+				ScriptHooks: {
+					Load: FuturisticAccessLoad,
+					Click: InventoryItemTorsoFuturisticHarnessClick,
+					Draw: InventoryItemTorsoFuturisticHarnessDraw,
+					Exit: FuturisticAccessExit,
+					Validate: FuturisticAccessValidate,
+				},
+			},
+		}, // FuturisticHarness
 	}, // ItemTorso
 	ItemTorso2: {
 		LockingSwimsuit: {
@@ -4283,6 +4309,17 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemTorso", AssetName: "ThinLeatherStraps" },
 		}, // ThinLeatherStraps
+		FuturisticHarness: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemTorso", AssetName: "FuturisticHarness" },
+			Config: {
+				Dialog: {
+					Load: "ItemTorsoFuturisticHarnessSelect",
+					TypePrefix: "ItemTorsoFuturisticHarness",
+					ChatPrefix: "ItemTorsoFuturisticHarnessSet",
+				},
+			}
+		}, // FuturisticHarness
 	}, //ItemTorso2
 	Shoes: {
 		FuturisticHeels2: {

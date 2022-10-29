@@ -293,6 +293,13 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 0,,,What troubles you my dear?,,IsLover(),IntroGirlfriend,Frigid|Serious
 0,,,Let's have a tete-a-tete my love.,,IsLover(),IntroGirlfriend,Polite|Wise
 0,,,What's up luv?,,IsLover(),IntroGirlfriend,Dumb|Rude
+0,,,Happy Bondage Club birthday!,,IsPlayerBirthday(),IntroBirthday,
+0,,,Have a great Bondage Club birthday girl.  Get spanked.,,IsPlayerBirthday(),IntroBirthday,Dominant|Violent
+0,,,"Miss, you're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),IntroBirthday,Submissive|Serious
+0,,,Happy BC birthday!  (She sings cheerfully.)  Ya got paddled yet?,,IsPlayerBirthday(),IntroBirthday,Playful|Rude
+0,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday.,,IsPlayerBirthday(),IntroBirthday,Frigid|Peaceful
+0,,,Best wishes for your Bondage Club birthday.  May you stay with us for years upon years.,,IsPlayerBirthday(),IntroBirthday,Polite|Wise
+0,,,Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),IntroBirthday,Horny|Dumb
 0,,,What's on your mind?,,,Intro,
 0,,,This place is kind of sexy.  What would you like to do?,,,Intro,Horny
 0,,,"Cool room you have there.  So, what's up?",,,Intro,Rude
@@ -625,7 +632,7 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,,,(She smiles seeing you on your knees.)  What's on your mind my subbie?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,
 1000,,,(She gives you a stern look and nods.)  Your posture shows respect and docility.  What do you need little one?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,Dominant|Polite
 1000,,,(She stays far from you but smiles seeing your position.)  Is there anything you desire my protege?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,Frigid|Wise
-1000,,,"Yes, my sexy subbie?  (She comes closer and pets your head gently.)",,,DomIntroPlayerKneeling,Peaceful|Horny
+1000,,,"Yes, my sexy subbie?  (She comes closer and pets your head gently.)",,DialogIsKneeling(Player),DomIntroPlayerKneeling,Peaceful|Horny
 1000,,,What's on your mind my submissive love?,,IsLover(),DomIntroGirlfriend,
 1000,,,What's going on little hun?,,IsLover(),DomIntroGirlfriend,Dominant|Violent
 1000,,,Please tell me of your feelings my sweet pet.,,IsLover(),DomIntroGirlfriend,Submissive|Peaceful
@@ -633,6 +640,13 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,,,What troubles you my little loved one?,,IsLover(),DomIntroGirlfriend,Frigid|Serious
 1000,,,Let's have a tete-a-tete my submissive love.,,IsLover(),DomIntroGirlfriend,Polite|Wise
 1000,,,What's up slave luv?,,IsLover(),DomIntroGirlfriend,Dumb|Rude
+1000,,,Happy Bondage Club birthday my girl!,,IsPlayerBirthday(),DomIntroBirthday,
+1000,,,Have a great Bondage Club birthday my slave.  You will get spanked a lot.,,IsPlayerBirthday(),DomIntroBirthday,Dominant|Violent
+1000,,,"You're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),DomIntroBirthday,Submissive|Serious
+1000,,,Happy BC birthday my girl!  (She sings cheerfully.)  Where's the freaking paddle?,,IsPlayerBirthday(),DomIntroBirthday,Playful|Rude
+1000,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday my submissive.,,IsPlayerBirthday(),DomIntroBirthday,Frigid|Peaceful
+1000,,,Best wishes for your Bondage Club birthday.  May you stay well constrained for years upon years.,,IsPlayerBirthday(),DomIntroBirthday,Polite|Wise
+1000,,,Hey slave!  Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),DomIntroBirthday,Horny|Dumb
 1000,,,What's on your mind my subbie?,,,DomIntro,
 1000,,,Hey there my cute sub.  What's on your mind?,,,DomIntro,Horny
 1000,,,Yo bitch.  What's up?,,,DomIntro,Rude
@@ -884,6 +898,23 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1058,0,I hope we can still be friends.,"Yes, lets hope it won't ruin our friendship.  What would you like to do now?",NPCInteraction(5),,,
 1058,0,Let's talk about something else.,Yes.  What would you like to do now?,,,,
 1058,0,I'm glad this collar is gone.,You could have told me sooner you know?  What would you like to do now?,NPCInteraction(-5),,,
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  I've been looking for you.",,,DomCatchPlayerOnEntry,
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  I was wet thinking of you, my girl.",,,DomCatchPlayerOnEntry,Horny
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  I've wanted to spend time with you.",,,DomCatchPlayerOnEntry,Frigid
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  It's a delight to see you my submissive.",,,DomCatchPlayerOnEntry,Polite
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  Yo my bitch!",,,DomCatchPlayerOnEntry,Rude
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees without saying a word.)",,,DomCatchPlayerOnEntry,Serious
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  Yes!  You're back!",,,DomCatchPlayerOnEntry,Playful
+1061,1062,"Yes, Mistress?","I want to spend some time with you, my girl.  To have some fun and get to know you better.",,Player.CanTalk(),,
+1061,1062,What's going on Mistress?,"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,Player.CanTalk(),,
+1061,1062,That was quick!,"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,Player.CanTalk(),,
+1061,1062,(Mumble in your gag.),"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,!Player.CanTalk(),,
+1061,1062,(Stay silent.),"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,!Player.CanTalk(),,
+1061,1062,(Get comfy on your knees.),"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,!Player.CanTalk(),,
+1062,,I love to spend time with you.,,StartActivity(),Player.CanTalk(),,
+1062,,What would you like to do?,,StartActivity(),Player.CanTalk(),,
+1062,,(Nod happily.),,StartActivity(),!Player.CanTalk(),,
+1062,,(Listen to her.),,StartActivity(),!Player.CanTalk(),,
 1090,,(Make her more Dominant.),(She's now a little more Dominant.),"NPCCheat(""TraitDominant"")",,,
 1090,,(Make her more submissive.),(She's now a little more submissive.),"NPCCheat(""TraitSubmissive"")",,,
 1090,1000,(Leave her.),(She seems curious.)  What would you like to do my girl?,DialogLeave(),,,
@@ -1218,6 +1249,11 @@ PunishCellIntro,,,Some time alone in a cell will help you to think about what yo
 PunishCell,1000,Very well.  (Go to the cell.),,RunPunishment(0),,,
 PunishCell,1000,This is bullshit!  (Go to the cell.),,RunPunishment(-2),,,
 PunishCell,1000,It's fair Mistress.  (Go to the cell.),,RunPunishment(1),,,
+PunishOwnerLocksIntro,,,"My girl, you're going to stay restrained until I say otherwise.  To prove it, I will fully lock you with owner locks.",,,,
+PunishOwnerLocks,1001,Is that necessary?,(She nods and smirks.)  It is.  (She locks all your items with owner locks and smiles.)  You belong to me.,RunPunishment(0),,,
+PunishOwnerLocks,1001,That is bullshit!,(She slaps your face.)  Shut up!  (She locks all your items with owner locks and grins.)  You belong to me.,RunPunishment(-2),,,
+PunishOwnerLocks,1001,It will be hard to find help.,You won't get any help.  (She locks all your items with owner locks and grins.)  You belong to me.,RunPunishment(0),,,
+PunishOwnerLocks,1001,(Nod and bow your head.),Good girl.  (She locks all your items with owner locks and smiles.)  You belong to me.,RunPunishment(1),,,
 2000,,,(She seems confused seeing you on your knees.)  Yes Mistress?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,
 2000,,,(She seems confused seeing you on your knees.)  What the fuck?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,Dominant|Rude
 2000,,,(She seems confused seeing you on your knees.)  Is everything alright Mistress?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,Peaceful|Wise
@@ -1228,6 +1264,13 @@ PunishCell,1000,It's fair Mistress.  (Go to the cell.),,RunPunishment(1),,,
 2000,,,(She bows her head and stays silent.),,IsLover(),SubIntroGirlfriend,Frigid|Serious
 2000,,,"Mistress, what do you desire from your loved submissive?",,IsLover(),SubIntroGirlfriend,Polite|Wise
 2000,,,Yes my luv?  Errr... Mistress?,,IsLover(),SubIntroGirlfriend,Dumb|Rude
+2000,,,Happy Bondage Club birthday Mistress!,,IsPlayerBirthday(),SubIntroBirthday,
+2000,,,Have a great Bondage Club birthday Mistress.  Spank all the subs you want.,,IsPlayerBirthday(),SubIntroBirthday,Dominant|Violent
+2000,,,"Mistress, you're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),SubIntroBirthday,Submissive|Serious
+2000,,,Happy BC birthday Mam!  (She sings cheerfully.)  You can paddle me.  (She giggles.),,IsPlayerBirthday(),SubIntroBirthday,Playful|Rude
+2000,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday Mistress.,,IsPlayerBirthday(),SubIntroBirthday,Frigid|Peaceful
+2000,,,Best wishes for your Bondage Club birthday.  May you stay in control for years upon years.,,IsPlayerBirthday(),SubIntroBirthday,Polite|Wise
+2000,,,Hey Mistress!  Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),SubIntroBirthday,Horny|Dumb
 2000,,,What would you like to do Mistress?,,,SubIntro,
 2000,,,Is there something kinky you would like to do Mistress?,,,SubIntro,Horny
 2000,,,(She bows her head and stays silent.),,,SubIntro,Frigid
