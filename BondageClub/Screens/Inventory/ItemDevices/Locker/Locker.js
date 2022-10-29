@@ -106,7 +106,6 @@ function InventoryItemDevicesLockerExit() {
 
 	ElementRemove(InventoryItemDevicesLockerOpacityInputId);
 	PreferenceMessage = "";
-	DialogFocusItem = null;
 }
 
 /**

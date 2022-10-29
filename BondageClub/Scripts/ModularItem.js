@@ -385,7 +385,6 @@ function ModularItemCreateClickBaseFunction(data) {
 				// The item's lock may have been automatically removed in a module change, so rebuild buttons
 				DialogInventoryBuild(CharacterGetCurrent(), DialogInventoryOffset);
 				DialogMenuButtonBuild(CharacterGetCurrent());
-				DialogFocusItem = null;
 			},
 			i => {
 				const pageNumber = Math.min(pageCount - 1, data.pages[ModularItemBase] || 0);

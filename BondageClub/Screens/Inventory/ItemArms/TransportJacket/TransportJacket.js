@@ -71,8 +71,8 @@ function InventoryItemArmsTransportJacketDraw() {
 function InventoryItemArmsTransportJacketClick() {
 	// Exits the screen
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemArmsTransportJacketExit();
-		return ExtendedItemExit();
+		ExtendedItemExit();
+		return;
 	}
 
 	ExtendedItemClick(InventoryItemArmsTransportJacketOptions, 3);
@@ -118,7 +118,6 @@ function InventoryItemArmsTransportJacketExit() {
 
 	ElementRemove(InventoryItemArmsTransportJacketInputId);
 	InventoryItemArmsTransportJacketOriginalText = null;
-	DialogFocusItem = null;
 	if (DialogInventory != null) DialogMenuButtonBuild(C);
 }
 

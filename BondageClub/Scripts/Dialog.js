@@ -671,17 +671,9 @@ function DialogLeaveItemMenu(resetPermissionsMode = true) {
  */
 function DialogLeaveFocusItem() {
 	if (DialogFocusItem != null) {
-		if (DialogFocusItem.Asset.Extended) {
-			ExtendedItemExit();
-		}
-
-		var funcName = "Inventory" + DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name + "Exit";
-		if (typeof window[funcName] === "function") {
-			window[funcName]();
-			DialogFocusItem = null;
-			return true;
-		}
-		DialogFocusItem = null;
+		const FuncName = ExtendedItemFunctionPrefix() + "Exit";
+		ExtendedItemExit();
+		return (typeof window[FuncName] === "function");
 	}
 	return false;
 }

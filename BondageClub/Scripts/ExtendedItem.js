@@ -338,7 +338,6 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 
 	// Exit button
 	if (MouseIn(1885, 25, 90, 90)) {
-		DialogFocusItem = null;
 		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
 		ExtendedItemPermissionMode = false;
 		ExtendedItemExit();
@@ -375,17 +374,26 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 
 /**
  * Exit function for the extended item dialog.
- * Mainly removes the cache from memory
+ *
+ * Used for:
+ *  1. Removing the cache from memory
+ *  2. Calling item-appropriate `Exit` functions
+ *  3. Setting {@link DialogFocusItem} back to `null`
  * @returns {void} - Nothing
  */
 function ExtendedItemExit() {
+	// Check if an `Exit` function has already been called
+	if (DialogFocusItem == null) {
+		return;
+	}
+
 	// invalidate the cache
 	ExtendedItemRequirementCheckMessageMemo.clearCache();
 
 	// Run the subscreen's Exit function if any
-	if (ExtendedItemSubscreen) {
-		CommonCallFunctionByName(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Exit");
-	}
+	const FuncName = ExtendedItemFunctionPrefix() + (ExtendedItemSubscreen || "") + "Exit";
+	CommonCallFunctionByName(FuncName);
+	DialogFocusItem = null;
 }
 
 /**
@@ -421,8 +429,7 @@ function ExtendedItemSetType(C, Options, Option) {
 			// If we're in a chatroom, call the item's publish function to publish a message to the chatroom
 			CommonCallFunctionByName(FunctionPrefix + "PublishAction", C, Option, previousOption);
 		} else {
-			CommonCallFunctionByName(FunctionPrefix + "Exit");
-			DialogFocusItem = null;
+			ExtendedItemExit();
 			if (C.ID === 0) {
 				// Player is using the item on herself
 				DialogMenuButtonBuild(C);
@@ -464,7 +471,6 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
 			CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load", C, Option);
 		} else {
 			ExtendedItemSetType(C, Options, Option);
-			ExtendedItemExit();
 		}
 	}
 }
