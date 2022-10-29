@@ -824,13 +824,15 @@ interface Activity {
 	ActivityExpression?: ExpressionTrigger[];
 }
 
+type ItemActivityRestriction = "blocked" | "limited" | "unavail";
+
 interface ItemActivity {
 	/** The activity performed */
 	Activity: Activity;
 	/** An optional item used for the activity. Null if the player is used their hand, for example. */
 	Item?: Item;
-	/** Whether the item is blocked or limited on the target character. Undefined means no restriction. */
-	Blocked?: "blocked" | "limited";
+	/** Whether the item is blocked or limited on the target character, or unavailable because the player is blocked. Undefined means no restriction. */
+	Blocked?: ItemActivityRestriction;
 }
 
 interface LogRecord {

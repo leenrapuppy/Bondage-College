@@ -2053,12 +2053,18 @@ function DialogDrawActivityMenu(C) {
 		let group = ActivityGetGroupOrMirror(CharacterGetCurrent().AssetFamily, CharacterGetCurrent().FocusGroup.Name);
 		let label = ActivityBuildChatTag(CharacterGetCurrent(), group, Act, true);
 		let image = "Assets/" + C.AssetFamily + "/Activity/" + Act.Name + ".png";
+		/** @type {InventoryIcon[]} */
 		let icons = [];
 		if (itemAct.Item) {
 			image = `${AssetGetPreviewPath(itemAct.Item.Asset)}/${itemAct.Item.Asset.Name}.png`;
 			icons.push("Handheld");
 		}
-		const background = (itemAct.Blocked === "blocked" ? "red" : (itemAct.Blocked === "limited" ? "amber" : "white"));
+		const colors = {
+			"blocked": "red",
+			"limited": "amber",
+			"unavail": "grey",
+		};
+		const background = colors[itemAct.Blocked] || "white";
 
 		DrawPreviewBox(X, Y, image, ActivityDictionaryText(label), {Hover: !CommonIsMobile, Icons: icons, Background: background});
 		X = X + 250;

@@ -284,12 +284,14 @@ function ActivityAllowedForGroup(character, groupname) {
 			const items = CharacterItemsForActivity(Player, needsItem);
 			for (const item of items) {
 				const type = item.Property ? item.Property.Type : null;
-				/** @type {"limited"|"blocked"} */
+				/** @type {ItemActivityRestriction} */
 				let blocked = null;
 				if (InventoryIsAllowedLimited(character, item, type)) {
 					blocked = "limited";
 				} else if (InventoryBlockedOrLimited(character, item, type)) {
 					blocked = "blocked";
+				} else if (InventoryGroupIsBlocked(Player, item.Asset.Group.Name)) {
+					blocked = "unavail";
 				}
 
 				if (InventoryItemHasEffect(item, "UseRemote")) {
