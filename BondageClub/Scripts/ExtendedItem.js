@@ -631,3 +631,24 @@ function ExtendItemGetIcons(C, Asset, Type=null) {
 	}
 	return icons;
 }
+
+/**
+ * Creates an asset's extended item NPC dialog function
+ * @param {Asset} Asset - The asset for the typed item
+ * @param {string} FunctionPrefix - The prefix of the new `NpcDialog` function
+ * @param {string | ExtendedItemNPCCallback<ExtendedItemOption>} NpcPrefix - A dialog prefix or a function for creating one
+ * @returns {void} - Nothing
+ */
+function ExtendedItemCreateNpcDialogFunction(Asset, FunctionPrefix, NpcPrefix) {
+	const npcDialogFunctionName = `${FunctionPrefix}NpcDialog`;
+	if (typeof NpcPrefix === "function") {
+		window[npcDialogFunctionName] = function (C, Option, PreviousOption) {
+			const Prefix = NpcPrefix(C, Option, PreviousOption);
+			C.CurrentDialog = DialogFind(C, Prefix, Asset.Group.Name);
+		};
+	} else {
+		window[npcDialogFunctionName] = function (C, Option, PreviousOption) {
+			C.CurrentDialog = DialogFind(C, `${NpcPrefix}${Option.Name}`, Asset.Group.Name);
+		};
+	}
+}

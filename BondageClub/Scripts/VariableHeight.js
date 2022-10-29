@@ -40,7 +40,7 @@ function VariableHeightRegister(asset, config, property, parentOptions = null) {
 	VariableHeightCreateClickFunction(data);
 	VariableHeightCreateExitFunction(data);
 	VariableHeightCreatePublishFunction(data);
-	VariableHeightCreateNpcDialogFunction(data);
+	ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialog.npcPrefix);
 }
 
 /**
@@ -205,18 +205,6 @@ function VariableHeightCreatePublishFunction({ functionPrefix, dialog, asset, ch
 	const loadFunctionName = `${functionPrefix}PublishAction`;
 	window[loadFunctionName] = function () {
 		VariableHeightPublish(dialog, asset, chatTags, getHeight);
-	};
-}
-
-/**
- * Creates an asset's extended item NPC dialog function
- * @param {VariableHeightData} data - The variable height data for the asset
- * @returns {void} - Nothing
- */
-function VariableHeightCreateNpcDialogFunction({ asset, functionPrefix, dialog }) {
-	const npcDialogFunctionName = `${functionPrefix}NpcDialog`;
-	window[npcDialogFunctionName] = function (C, option) {
-		C.CurrentDialog = DialogFind(C, `${dialog.npcPrefix}${option.Name}`, asset.Group.Name);
 	};
 }
 

@@ -59,7 +59,7 @@ function TypedItemRegister(asset, config) {
 	TypedItemCreateExitFunction(data);
 	TypedItemCreateValidateFunction(data);
 	TypedItemCreatePublishFunction(data);
-	TypedItemCreateNpcDialogFunction(data);
+	ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialog.npcPrefix);
 	TypedItemCreatePublishActionFunction(data);
 	TypedItemGenerateAllowType(data);
 	TypedItemGenerateAllowEffect(data);
@@ -247,18 +247,6 @@ function TypedItemCreatePublishFunction(typedItemData) {
 
 		const dictionary = TypedItemBuildChatMessageDictionary(chatData, typedItemData);
 		ChatRoomPublishCustomAction(msg, true, dictionary);
-	};
-}
-
-/**
- * Creates an asset's extended item NPC dialog function
- * @param {TypedItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function TypedItemCreateNpcDialogFunction({ asset, functionPrefix, dialog }) {
-	const npcDialogFunctionName = `${functionPrefix}NpcDialog`;
-	window[npcDialogFunctionName] = function (C, option) {
-		C.CurrentDialog = DialogFind(C, `${dialog.npcPrefix}${option.Name}`, asset.Group.Name);
 	};
 }
 
