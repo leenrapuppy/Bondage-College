@@ -1668,7 +1668,7 @@ type ModularItemAssetConfig = ExtendedItemAssetConfig<"modular", ModularItemConf
 /** An object defining all of the required configuration for registering a modular item */
 interface ModularItemConfig {
 	/** The module definitions for the item */
-	Modules: ModularItemModule[];
+	Modules?: ModularItemModule[];
 	/**
 	 * The item's chatroom message setting. Determines the level of
 	 * granularity for chatroom messages when the item's module values change.
@@ -1689,7 +1689,8 @@ interface ModularItemConfig {
 	Dialog?: ModularItemDialogConfig;
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
-	 * and parameters passed on to them. If undefined, these are ignored
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	ScriptHooks?: {
 		Load?: (next: () => void) => void;
@@ -1835,7 +1836,8 @@ interface ModularItemData {
 	changeWhenLocked: boolean;
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
-	 * and parameters passed on to them. If undefined, these are ignored
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	scriptHooks?: {
 		load?: (next: () => void) => void,
@@ -1867,7 +1869,7 @@ type TypedItemAssetConfig = ExtendedItemAssetConfig<"typed", TypedItemConfig>;
 /** An object defining all of the required configuration for registering a typed item */
 interface TypedItemConfig {
 	/** The list of extended item options available for the item */
-	Options: ExtendedItemOption[];
+	Options?: ExtendedItemOption[];
 	/** The optional text configuration for the item. Custom text keys can be configured within this object */
 	Dialog?: TypedItemDialogConfig;
 	/**
@@ -1899,7 +1901,8 @@ interface TypedItemConfig {
 	Dictionary?: TypedItemDictionaryCallback[];
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
-	 * and parameters passed on to them. If undefined, these are ignored
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	ScriptHooks?: {
 		Load?: (next: () => void) => void,
@@ -1989,7 +1992,8 @@ interface TypedItemData {
 	validate?: ExtendedItemValidateCallback<ExtendedItemOption>;
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
-	 * and parameters passed on to them. If undefined, these are ignored
+	 * and parameters passed on to them. If undefined, these are ignored.
+	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	scriptHooks?: {
 		load?: (next: () => void) => void,
