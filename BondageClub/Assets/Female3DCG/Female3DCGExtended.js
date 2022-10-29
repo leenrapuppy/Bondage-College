@@ -7276,7 +7276,7 @@ var AssetFemale3DCGExtended = {
 				Options: [
 					{
 						Name: "Mittens",
-						Property: { Type: null, Difficulty: 8, SelfUnlock: false, Block: ["ItemHandheld"]},
+						Property: { Type: null, Difficulty: 8, SelfUnlock: false, Block: ["ItemHandheld"], Hide: ["ItemHandheld"]},
 					},
 					{
 						Name: "Gloves",
