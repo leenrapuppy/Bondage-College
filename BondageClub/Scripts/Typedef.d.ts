@@ -265,6 +265,9 @@ type CraftingPropertyType =
 	"Flexible" | "Nimble" | "Arousing" | "Dull"
 	;
 
+/** Enum values for {@link CraftingStatusCode}. */
+type CraftingStatusType = 0 | 1 | 2;
+
 //#endregion
 
 //#region index.html
@@ -2540,6 +2543,18 @@ interface CraftingItem {
 	Item: string;
 	Private: boolean;
 	Type: string;
+}
+
+/**
+ * A struct with tools for validating {@link CraftingItem} properties.
+ * @property {function} Validate - The validation function
+ * @property {function} GetDefault - A function that creates default values for when the validation fails
+ * @property {CraftingStatusType} - The {@link CraftingStatusCode} code for when the validation fails
+ */
+interface CratingValidationStruct {
+	Validate: (Craft: CraftingItem, Asset: Asset | null) => boolean;
+	GetDefault: (Craft: CraftingItem, Asset: Asset | null) => any;
+	StatusCode: CraftingStatusType;
 }
 
 //#endregion
