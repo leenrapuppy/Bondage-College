@@ -16,7 +16,7 @@ var ActivityOrgasmRuined = false; // If set to true, the orgasm will be ruined r
  */
 function ActivityAllowed() {
 	return (CurrentScreen == "ChatRoom" && !(ChatRoomData && ChatRoomData.BlockCategory && ChatRoomData.BlockCategory.includes("Arousal")))
-		|| ((CurrentScreen == "Private") && LogQuery("RentRoom", "PrivateRoom")); }
+		|| (((CurrentScreen == "Private") || (CurrentScreen == "PrivateBed")) && LogQuery("RentRoom", "PrivateRoom")); }
 
 /**
  * Loads the activity dictionary that will be used throughout the game to output messages. Loads from cache first if possible.

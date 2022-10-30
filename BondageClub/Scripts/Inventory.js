@@ -421,26 +421,23 @@ function InventoryGet(C, AssetGroup) {
 * @param {CraftingItem} Craft - The crafted properties to apply
 * @param {Boolean} Refresh - TRUE if we must refresh the character
 * @param {Boolean} ApplyColor - TRUE if the items color must be (re-)applied
+* @param {Boolean} CraftWarn - Whether a warning should logged whenever the crafting validation fails
 * @returns {void}
 */
-function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=true) {
-
+function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=true, CraftWarn=true) {
 	// Gets the item first
-	if ((Source == null) || (Target == null) || (GroupName == null) || (Craft == null)) return;
+	if ((Source == null) || (Target == null) || (GroupName == null)) return;
 	let Item = InventoryGet(Target, GroupName);
-	if (Item == null) return;
+	if ((Item == null) || !CraftingValidate(Craft, Item.Asset, CraftWarn)) return;
 	if (Item.Craft == null) Item.Craft = Craft;
 
 	// Applies the color schema, separated by commas
-	if (ApplyColor && (Craft.Color != null) && (typeof Craft.Color === "string")) {
+	if (ApplyColor) {
 		Item.Color = Craft.Color.replace(" ", "").split(",");
-		for (let C of Item.Color)
-			if (CommonIsColor(C) == false)
-				C = "Default";
 	}
 
 	// Applies a lock to the item
-	if ((Craft.Lock != null) && (Craft.Lock != ""))
+	if (Craft.Lock != "")
 		InventoryLock(Target, Item, Craft.Lock, Source.MemberNumber, false);
 
 	// Sets the crafter name and ID
@@ -448,7 +445,7 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=tr
 	if (Item.Craft.MemberName == null) Item.Craft.MemberName = CharacterNickname(Source);
 
 	// The properties are only applied on self or NPCs to prevent duplicating the effect
-	if ((Craft.Property != null) && (Target.IsPlayer() || Target.IsNpc())) {
+	if (Target.IsPlayer() || Target.IsNpc()) {
 
 		// The secure property adds 5 to the difficulty rating to struggle out
 		if (Craft.Property === "Secure") {
@@ -542,16 +539,7 @@ function InventoryWearCraftModular(Item, Type) {
 * @returns {void}
 */
 function InventoryWearCraftTyped(Item, Type) {
-	const Config = AssetFemale3DCGExtended[Item.Asset.Group.Name][Item.Asset.Name].Config;
-	if ((Config == null) || (Config.Options == null)) {
-		return;
-	}
-	for (const O of Config.Options) {
-		if (O.Name == Type) {
-			Item.Property = JSON.parse(JSON.stringify(O.Property));
-			return;
-		}
-	}
+	TypedItemSetOptionByName(CharacterGetCurrent(), Item, Type);
 }
 
 /**
@@ -1264,6 +1252,18 @@ function InventoryFullLockRandom(C, FromOwner) {
 	for (let I = 0; I < C.Appearance.length; I++)
 		if (InventoryGetLock(C.Appearance[I]) == null)
 			InventoryLockRandom(C, C.Appearance[I], FromOwner);
+}
+
+/**
+* Applies a specific lock  on each character items that can be locked
+* @param {Character} C - The character on which the items must be locked
+* @param {String} LockType - The lock type to apply
+*/
+function InventoryFullLock(C, LockType) {
+	if ((C != null) && (LockType != null))
+		for (let I = 0; I < C.Appearance.length; I++)
+			if (InventoryDoesItemAllowLock(C.Appearance[I]))
+				InventoryLock(C, C.Appearance[I], LockType, null);
 }
 
 /**

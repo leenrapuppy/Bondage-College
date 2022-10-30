@@ -638,14 +638,15 @@ function ValidationSanitizeLock(C, item) {
 	const ownerNumber = C.Ownership && C.Ownership.MemberNumber;
 	const lockedByOwner = (typeof ownerNumber === 'number' && lockNumber === ownerNumber);
 
-	// Ensure the lock & its member number is valid on owner-only locks
+	// Ensure the lock & its member number is valid on owner-only locks, also validtes for NPC owners
 	if (lock.Asset.OwnerOnly) {
 		const selfCanUseOwnerLocks = !C.IsPlayer() || !LogQuery("BlockOwnerLockSelf", "OwnerRule");
 		const lockNumberValid = (lockedBySelf && selfCanUseOwnerLocks) || lockedByOwner;
-		if (!(C.IsOwned() || typeof ownerNumber === 'number') || !lockNumberValid) {
-			console.warn(`Removing invalid owner-only lock with member number: ${lockNumber}`);
-			return ValidationDeleteLock(property);
-		}
+		if (!(C.IsOwned() || typeof ownerNumber === 'number') || !lockNumberValid)
+			if (!(C.IsOwned() && !C.IsOwnedByPlayer() && !lockNumberValid)) {
+				console.warn(`Removing invalid owner-only lock with member number: ${lockNumber}`);
+				return ValidationDeleteLock(property);
+			}
 	}
 
 	// Ensure the lock & its member number is valid on lover-only locks
