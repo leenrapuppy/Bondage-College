@@ -105,6 +105,31 @@ function InventoryDelete(C, DelItemName, DelItemGroup, Push) {
 }
 
 /**
+ * Deletes all currently-owned items from a given group.
+ *
+ * @param {Character} C - The character to remove items from
+ * @param {AssetGroupName} group - The group name to clear
+ * @param {boolean} [push=true] - Whether to send an update to the server
+ * @return {InventoryItem[]} The list of deleted items
+ */
+function InventoryDeleteGroup(C, group, push) {
+	const deleted = [];
+
+	for (let I = 0; I < C.Inventory.length; I++) {
+		let item = C.Inventory[I];
+		if (item.Group != group) continue;
+
+		deleted.push(item);
+		C.Inventory.splice(I, 1);
+	}
+
+	if (deleted.length > 0 && (C.ID == 0) && ((push == null) || push))
+		ServerPlayerInventorySync();
+
+	return deleted;
+}
+
+/**
 * Loads the current inventory for a character, can be loaded from an object of Name/Group or a compressed array using
 * LZString
 * @param {Character} C - The character on which we should load the inventory
@@ -136,12 +161,12 @@ function InventoryLoad(C, Inventory) {
 /**
 * Checks if the character has the inventory available
 * @param {Character} C - The character on which we should remove the item
-* @param {String} InventoryName - The name of the item to validate
+* @param {String|'*'} InventoryName - The name of the item to validate, * means any
 * @param {String} InventoryGroup - The group name of the item to validate
 */
 function InventoryAvailable(C, InventoryName, InventoryGroup) {
 	for (let I = 0; I < C.Inventory.length; I++)
-		if ((C.Inventory[I].Name == InventoryName) && (C.Inventory[I].Group == InventoryGroup))
+		if ((C.Inventory[I].Name == InventoryName || InventoryName === "*") && (C.Inventory[I].Group == InventoryGroup))
 			return true;
 	return false;
 }
@@ -1276,7 +1301,7 @@ function InventoryConfiscateRemote() {
 	InventoryDelete(Player, "VibratorRemote", "ItemVulva");
 	InventoryDelete(Player, "VibratorRemote", "ItemNipples");
 	InventoryDelete(Player, "LoversVibratorRemote", "ItemVulva");
-	InventoryDelete(Player, "SpankingToysVibeRemote", "ItemHands");
+	InventoryDelete(Player, "VibeRemote", "ItemHandheld");
 }
 
 /**

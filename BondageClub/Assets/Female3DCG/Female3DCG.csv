@@ -1037,60 +1037,60 @@ ItemHands,FuturisticMittens,Futuristic Mittens
 ItemHands,PaddedLeatherMittens,Padded Leather Mittens
 ItemHands,PolishedMittens,Polished Steel Mittens
 ItemHands,DuctTape,Duct Tape
-ItemHands,SpankingToys,Handheld Items
-ItemHands,SpankingToysCrop,Crop
-ItemHands,SpankingToysFlogger,Flogger
-ItemHands,SpankingToysCane,Cane
-ItemHands,SpankingToysHeartCrop,Heart Crop
-ItemHands,SpankingToysPaddle,Paddle
-ItemHands,SpankingToysWhipPaddle,Whip Paddle
-ItemHands,SpankingToysWhip,Whip
-ItemHands,SpankingToysCattleProd,Cattle Prod
-ItemHands,SpankingToysTennisRacket,Tennis Racket
-ItemHands,SpankingToysRainbowWand,Rainbow Wand
-ItemHands,SpankingToysGavel,Gavel
-ItemHands,SpankingToysFeather,Feather
-ItemHands,SpankingToysFeatherDuster,Feather Duster
-ItemHands,SpankingToysLongDuster,Long Duster
-ItemHands,SpankingToysIceCube,Ice Cube
-ItemHands,SpankingToysWartenbergWheel,Wartenberg Wheel
-ItemHands,SpankingToysVibratingWand,Vibrating Wand
-ItemHands,SpankingToysSmallVibratingWand,Small Vibe Wand
-ItemHands,SpankingToysCandleWax,Candle Wax
-ItemHands,SpankingToysLargeDildo,Large Dildo
-ItemHands,SpankingToysPetToy,Pet Toy
-ItemHands,SpankingToysVibrator,Vibrator
-ItemHands,SpankingToysBelt,Belt
-ItemHands,SpankingToysHairbrush,Hairbrush
-ItemHands,SpankingToysSmallDildo,Small Dildo
-ItemHands,SpankingToysElectricToothbrush,Electric Toothbrush
-ItemHands,SpankingToysToothbrush,Toothbrush
-ItemHands,SpankingToysShockWand,Shock Wand
-ItemHands,SpankingToysLotion,Lotion
-ItemHands,SpankingToysRuler,Ruler
-ItemHands,SpankingToysSword,Foam Sword
-ItemHands,SpankingToysVibeRemote,Vibrator Remote
-ItemHands,SpankingToysShockRemote,Shock Remote
-ItemHands,SpankingToysTowel,Towel
-ItemHands,SpankingToysRopeCoilLong,Long Coiled Rope
-ItemHands,SpankingToysRopeCoilShort,Short Coiled Rope
-ItemHands,SpankingToysBallgag,Ballgag
-ItemHands,SpankingToysLongSock,Long Sock
-ItemHands,SpankingToysBaguette,Baguette
-ItemHands,SpankingToysPanties,Panties
-ItemHands,SpankingToysTapeRoll,Duct Tape Roll
-ItemHands,SpankingToysSpatula,Spatula
-ItemHands,SpankingToysBroom,Broom
-ItemHands,KeyProp,Key
-ItemHands,SpankingToysPhone1,Mobile Phone
-ItemHands,SpankingToysPhone2,Mobile Phone 2
 ItemHands,HoofMittens, Hoof Mittens
-ItemHands,SpankingToysScissors,Scissors
-ItemHands,SpankingToysPlasticWrap,Plastic Wrap Roll
-ItemHands,SpankingToysGlassEmpty,Empty Glass
-ItemHands,SpankingToysGlassFilled,Filled Glass
-ItemHands,SpankingToysPotionBottle,Potion Bottle
-ItemHands,MedicalInjector,Medical Injector
+ItemHandheld,,Hands
+ItemHandheld,Crop,Crop
+ItemHandheld,Flogger,Flogger
+ItemHandheld,Cane,Cane
+ItemHandheld,HeartCrop,Heart Crop
+ItemHandheld,Paddle,Paddle
+ItemHandheld,WhipPaddle,Whip Paddle
+ItemHandheld,Whip,Whip
+ItemHandheld,CattleProd,Cattle Prod
+ItemHandheld,TennisRacket,Tennis Racket
+ItemHandheld,RainbowWand,Rainbow Wand
+ItemHandheld,Gavel,Gavel
+ItemHandheld,Feather,Feather
+ItemHandheld,FeatherDuster,Feather Duster
+ItemHandheld,LongDuster,Long Duster
+ItemHandheld,IceCube,Ice Cube
+ItemHandheld,WartenbergWheel,Wartenberg Wheel
+ItemHandheld,VibratingWand,Vibrating Wand
+ItemHandheld,SmallVibratingWand,Small Vibe Wand
+ItemHandheld,CandleWax,Candle Wax
+ItemHandheld,LargeDildo,Large Dildo
+ItemHandheld,PetToy,Pet Toy
+ItemHandheld,Vibrator,Vibrator
+ItemHandheld,Belt,Belt
+ItemHandheld,Hairbrush,Hairbrush
+ItemHandheld,SmallDildo,Small Dildo
+ItemHandheld,ElectricToothbrush,Electric Toothbrush
+ItemHandheld,Toothbrush,Toothbrush
+ItemHandheld,ShockWand,Shock Wand
+ItemHandheld,Lotion,Lotion
+ItemHandheld,Ruler,Ruler
+ItemHandheld,Sword,Foam Sword
+ItemHandheld,VibeRemote,Vibrator Remote
+ItemHandheld,ShockRemote,Shock Remote
+ItemHandheld,Towel,Towel
+ItemHandheld,RopeCoilLong,Long Coiled Rope
+ItemHandheld,RopeCoilShort,Short Coiled Rope
+ItemHandheld,Ballgag,Ballgag
+ItemHandheld,LongSock,Long Sock
+ItemHandheld,Baguette,Baguette
+ItemHandheld,Panties,Panties
+ItemHandheld,TapeRoll,Duct Tape Roll
+ItemHandheld,Spatula,Spatula
+ItemHandheld,Broom,Broom
+ItemHandheld,KeyProp,Key
+ItemHandheld,Phone1,Mobile Phone
+ItemHandheld,Phone2,Mobile Phone 2
+ItemHandheld,Scissors,Scissors
+ItemHandheld,PlasticWrap,Plastic Wrap Roll
+ItemHandheld,GlassEmpty,Empty Glass
+ItemHandheld,GlassFilled,Filled Glass
+ItemHandheld,PotionBottle,Potion Bottle
+ItemHandheld,MedicalInjector,Medical Injector
 ItemNeck,,Neck
 ItemNeck,LeatherCollar,Leather Collar
 ItemNeck,LeatherCollarBell,Bell Collar
@@ -1099,7 +1099,6 @@ ItemNeck,SlaveCollar,Slave Collar
 ItemNeck,ClubSlaveCollar,Club Slave Collar
 ItemNeck,ShockCollar,Shock Collar
 ItemNeck,AutoShockCollar,Automatic Shock Collar
-ItemNeck,ShockCollarRemote,Shock Collar Remote
 ItemNeck,BatCollar,Bat Collar
 ItemNeck,PostureCollar,Posture Collar
 ItemNeck,SteelPostureCollar,Steel Collar
@@ -1137,7 +1136,6 @@ ItemNeckAccessories,CollarBell,Bell
 ItemNeckAccessories,CollarBow,Bow
 ItemNeckAccessories,CollarShockUnit,Shock Unit
 ItemNeckAccessories,CollarAutoShockUnit,Automatic Shock Unit
-ItemNeckAccessories,ShockCollarRemote,Shock Collar Remote
 ItemNeckAccessories,CollarNameTag,Name Tag
 ItemNeckAccessories,CollarNameTagOval,Oval Name Tag
 ItemNeckAccessories,CollarNameTagPet,Pet Name Tag

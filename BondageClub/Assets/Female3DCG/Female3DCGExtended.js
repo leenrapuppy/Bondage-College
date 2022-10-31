@@ -7360,11 +7360,11 @@ var AssetFemale3DCGExtended = {
 				Options: [
 					{
 						Name: "Mittens",
-						Property: { Type: null, Difficulty: 8, Effect: ["Block", "Prone"], SelfUnlock: false},
+						Property: { Type: null, Difficulty: 8, SelfUnlock: false, Effect: ["Block", "Prone", "MergedFingers"], Block: ["ItemHandheld"], Hide: ["ItemHandheld"]},
 					},
 					{
 						Name: "Gloves",
-						Property: { Type: "Gloves", Difficulty: 0, Effect: [], SelfUnlock: true},
+						Property: { Type: "Gloves", Difficulty: 0, SelfUnlock: true, Block: [] },
 					},
 				],
 				Dialog: {

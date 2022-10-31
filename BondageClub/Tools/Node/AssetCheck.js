@@ -229,10 +229,6 @@ function loadCSV(path, expectedWidth) {
 
 		// Check all type-valid assets for specific data
 		for (const Asset of Assets[Group.Group]) {
-			// Ignore SpankingToys, because it's a snowflake
-			if (Asset.Name === "SpankingToys" && Group.Group !== "ItemHands") continue;
-
-
 			// Description name
 			const descriptionIndexAsset = assetDescriptions.findIndex(d => d[0] === Group.Group && d[1] === Asset.Name);
 			if (descriptionIndexAsset < 0) {

@@ -728,7 +728,7 @@ function CraftingItemListBuild() {
 		// That asset must be in the player inventory or location-specific, not for clothes or spanking toys
 		if (!InventoryAvailable(Player, A.Name, A.Group.Name) && A.AvailableLocations.length === 0) continue;
 		if (!A.Enable || !A.Wear || !A.Group.Name.startsWith("Item")) continue;
-		if (A.Group.Name === "ItemMisc" || A.Name.startsWith("SpankingToys")) continue;
+		if (A.Group.Name === "ItemMisc") continue;
 
 		// Match against the search term. The empty string matches every string
 		let Match = true;
