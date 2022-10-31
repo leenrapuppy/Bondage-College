@@ -2,7 +2,7 @@
 var PrivateBedBackground = "Private";
 var PrivateBedCharacter = [];
 var PrivateBedActivity = "Caress";
-var PrivateBedActivityList = ["Caress", "Kiss"];
+var PrivateBedActivityList = [];
 var PrivateBedLog = [];
 
 /**
@@ -18,6 +18,14 @@ function PrivateBedLoad() {
 	Player.PrivateBedLeft = 1100;
 	Player.PrivateBedTop = 0;
 	if (Player.HeightRatio != null) Player.PrivateBedTop = (1 - Player.HeightRatio) * -1000;
+	PrivateBedActivityList = [];
+	for (let A of ActivityFemale3DCG)
+		if ((A.Name != null) && !A.Name.includes("Item") && !A.Name.includes("Inject") && (A.MaxProgress != null) && (A.MaxProgress > 0))
+			if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseTongue") || !Player.IsGagged())
+				if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseMouth") || !Player.IsGagged())
+					if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
+						if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
+							PrivateBedActivityList.push(A.Name);
 }
 
 /**
@@ -40,12 +48,19 @@ function PrivateBedRun() {
 		PrivateBedDrawCharacter(C);
 	DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
 	if (Player.CanChangeOwnClothes()) DrawButton(1885, 145, 90, 90, "", "White", "Icons/Dress.png", TextGet("Dress"));
-	for (let A = PrivateBedActivityList.length - 1; A >= 0; A--)
-		DrawButton(20 + (A * 110), 20, 90, 90, "", ((PrivateBedActivityList[A] == PrivateBedActivity) ? "#AAFFAA" : "White"), "Icons/Activity/" + PrivateBedActivityList[A] + ".png", TextGet("Activity" + PrivateBedActivityList[A]));
-	DrawRect(20, 260, 820, 720, "#000000A0");
-	DrawEmptyRect(20, 260, 820, 720, "#FFFFFF", 2);
+	DrawButton(1885, 265, 90, 90, "", "White", "Icons/Character.png", TextGet("Character"));
+	for (let A = PrivateBedActivityList.length - 1; A >= 0; A--) {
+		let X = 20 + ((A % 9) * 91);
+		let Y = 20 + Math.floor(A / 9) * 91;
+		DrawRect(X, Y, 90, 90, (MouseIn(X, Y, 90, 90) && !CommonIsMobile) ? "Cyan" : ((PrivateBedActivityList[A] == PrivateBedActivity) ? "#AAFFAA" : "White"));
+		DrawEmptyRect(X, Y, 91, 91, "Black", 2);
+		DrawImageResize("Assets/Female3DCG/Activity/" + PrivateBedActivityList[A] + ".png", X + 2, Y + 2, 87, 87);
+		if (MouseIn(X, Y, 90, 90)) DrawButtonHover(X, Y, 90, 90, ActivityDictionaryText("Activity" + PrivateBedActivityList[A]));
+	}
+	DrawRect(20, 400, 820, 580, "#000000B0");
+	DrawEmptyRect(20, 400, 820, 580, "#FFFFFF", 2);
 	for (let L = PrivateBedLog.length - 1; L >= 0; L--)
-		DrawTextFit(PrivateBedLog[L], 420, (L * 57) + 305, 800, "#FFFFFF", "#000000");
+		DrawTextFit(PrivateBedLog[L], 420, (L * 55) + 445, 800, "#FFFFFF", "#000000");
 }
 
 /**
@@ -58,8 +73,11 @@ function PrivateBedRun() {
  */
 function PrivateBedActivityStart(Source, Target, Group, Activity) {
 	ActivityEffect(Source, Target, Activity, Group.Name, 1);
-	if (PrivateBedLog.length >= 12) PrivateBedLog.splice(0, 1);
-	PrivateBedLog.push(CharacterNickname(Source) + " " + TextGet("Activity" + Activity) + " " + ((Source.ID == Target.ID) ? TextGet("Her") : CharacterNickname(Target)) + " " + Group.Description);
+	if (PrivateBedLog.length >= 10) PrivateBedLog.splice(0, 1);
+	let Text = ActivityDictionaryText(ActivityBuildChatTag(Target, Group, AssetGetActivity(Source.AssetFamily, Activity), false));
+	Text = Text.replace("SourceCharacter", CharacterNickname(Source));
+	Text = Text.replace("TargetCharacter", CharacterNickname(Target));
+	PrivateBedLog.push(Text);
 }
 
 /**
@@ -71,11 +89,14 @@ function PrivateBedClick() {
 	// Bedroom buttons on the right side
 	if (MouseIn(1885, 25, 90, 90)) PrivateBedExit();
 	if (MouseIn(1885, 145, 90, 90) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
+	if (MouseIn(1885, 265, 90, 90)) CharacterSetCurrent(Player);
 
 	// Activity buttons on the left side
-	for (let A = PrivateBedActivityList.length - 1; A >= 0; A--)
-		if (MouseIn(20 + (A * 110), 20, 90, 90))
-			PrivateBedActivity = PrivateBedActivityList[A];
+	for (let A = PrivateBedActivityList.length - 1; A >= 0; A--) {
+		let X = 20 + ((A % 9) * 91);
+		let Y = 20 + Math.floor(A / 9) * 91;
+		if (MouseIn(X, Y, 90, 90)) PrivateBedActivity = PrivateBedActivityList[A];
+	}
 
 	// If an arousal zone on one of the character was clicked
 	for (let C of PrivateBedCharacter)
