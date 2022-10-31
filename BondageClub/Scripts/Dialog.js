@@ -2626,5 +2626,6 @@ function DialogOpenCraftingScreen() {
  * @returns {boolean}
  */
 function DialogCanCraft() {
+	if ((CurrentModule != "Online") || (CurrentScreen != "ChatRoom")) return false;
 	return !Player.IsRestrained() || !Player.IsBlind();
 }
