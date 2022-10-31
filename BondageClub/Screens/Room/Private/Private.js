@@ -11,7 +11,7 @@ var PrivateReleaseTimer = 0;
 var PrivateActivity = "";
 var PrivateActivityCount = 0;
 var PrivateActivityAffectLove = true;
-var PrivateActivityList = ["Gag", "Ungag", "Restrain", "RestrainOther", "FullRestrain", "FullRestrainOther", "Release", "Tickle", "Spank", "Pet", "Slap", "Kiss", "Fondle", "Naked", "Underwear", "RandomClothes", "CollegeClothes", "Shibari", "Gift", "PetGirl", "Locks"];
+var PrivateActivityList = ["Gag", "Ungag", "Restrain", "RestrainOther", "FullRestrain", "FullRestrainOther", "Release", "Unchaste", "Tickle", "Spank", "Pet", "Slap", "Kiss", "Fondle", "Naked", "Underwear", "RandomClothes", "CollegeClothes", "Shibari", "Gift", "PetGirl", "Locks"];
 var PrivateActivityTarget = null;
 var PrivatePunishment = "";
 var PrivatePunishmentList = ["Cage", "Bound", "BoundPet", "ChastityBelt", "ChastityBra", "ForceNaked", "ConfiscateKey", "ConfiscateCrop", "ConfiscateWhip", "SleepCage", "LockOut", "Cell", "OwnerLocks"];
@@ -1032,6 +1032,7 @@ function PrivateStartActivity() {
 		if ((Act == "FullRestrain") && (InventoryGet(Player, "ItemArms") == null)) break;
 		if ((Act == "FullRestrainOther") && PrivateCanRestrainOther()) break;
 		if ((Act == "Release") && Player.IsRestrained() && (CommonTime() > PrivateReleaseTimer)) break;
+		if ((Act == "Unchaste") && Player.IsChaste() && (CommonTime() > PrivateReleaseTimer)) break;
 		if ((Act == "Tickle") && (NPCTraitGet(CurrentCharacter, "Playful") >= 0)) break;
 		if ((Act == "Spank") && (NPCTraitGet(CurrentCharacter, "Violent") >= 0)) break;
 		if ((Act == "Pet") && (NPCTraitGet(CurrentCharacter, "Peaceful") > 0)) break;
@@ -1122,6 +1123,17 @@ function PrivateActivityRun(LoveFactor) {
 	if (PrivateActivity == "RandomClothes") CharacterAppearanceFullRandom(Player, true);
 	if (PrivateActivity == "CollegeClothes") { CollegeEntranceWearStudentClothes(Player); InventoryAdd(Player, "CollegeOutfit1", "Cloth"); InventoryAdd(Player, "CollegeSkirt", "ClothLower"); }
 	if (PrivateActivity == "Locks") InventoryFullLockRandom(Player, true);
+
+	// The unchaste activity removes all pelvis, breast, vulva and butt items
+	if (PrivateActivity == "Unchaste") {
+		InventoryRemove(Player, "ItemPelvis");
+		InventoryRemove(Player, "ItemBreast");
+		InventoryRemove(Player, "ItemNipples");
+		InventoryRemove(Player, "ItemNipplesPiercings");
+		InventoryRemove(Player, "ItemVulva");
+		InventoryRemove(Player, "ItemVulvaPiercings");
+		InventoryRemove(Player, "ItemButt");
+	}
 
 	// Some activities creates a release timer
 	if ((PrivateActivity == "Gag") || (PrivateActivity == "Restrain") || (PrivateActivity == "FullRestrain") || (PrivateActivity == "Locks")) PrivateReleaseTimer = CommonTime() + (Math.random() * 60000) + 60000;

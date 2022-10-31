@@ -995,6 +995,15 @@ ActivityRelease,1000,Thanks Mistress.,(She releases you and laughs.)  Don't get 
 ActivityRelease,1000,You're the best!,(She releases you and gives you a hug.)  And you're the best submissive.,ActivityRun(1),Player.CanTalk(),,
 ActivityRelease,1000,(Nod happily.),(She releases you and smiles back at you.),ActivityRun(1),,,
 ActivityRelease,1000,(Struggle one last time.),"(She releases you and laughs.)  Too bad, I love to see you struggle.",ActivityRun(0),,,
+ActivityUnchasteIntro,,,"My girl, you deserve a break from chastity.  I will help you.",,,DomActivityUnchasteIntro,
+ActivityUnchasteIntro,,,"Even if your chastity is important to me, let me help you out for a while.",,,DomActivityUnchasteIntro,Frigid
+ActivityUnchasteIntro,,,"This chastity is cruel, I want to see your sexy body, let me help you out.",,,DomActivityUnchasteIntro,Horny
+ActivityUnchasteIntro,,,"Slave!  Let's get rid of that chastity, then we can fuck when we want.",,,DomActivityUnchasteIntro,Rude
+ActivityUnchasteIntro,,,"My beloved submissive, your chastity time is over.  I'll help you to let loose your wildest desires.",,,DomActivityUnchasteIntro,Polite
+ActivityUnchaste,1000,This is wonderful Mistress.,(She releases your private parts and smiles.)  And you're a wonderful submissive.,ActivityRun(1),Player.CanTalk(),,
+ActivityUnchaste,1000,Thanks a lot.,(She releases your private parts and nods.)  Don't forget that I can lock you back.,ActivityRun(0),Player.CanTalk(),,
+ActivityUnchaste,1000,(Nod slowly.),(She releases your private parts and nods.)  Don't forget that I can lock you back.,ActivityRun(0),,,
+ActivityUnchaste,1000,(Struggle one last time.),(She releases your private parts and smirks.)  I love to see you struggle.,ActivityRun(1),,,
 ActivityTickleIntro,,,(She starts to tickle you lightly.)  Are you ticklish my girl?,,,DomActivityTickleIntro,
 ActivityTickleIntro,,,"(She starts to tickle you lightly.)  Tell me slut, are you ticklish?",,,DomActivityTickleIntro,Rude
 ActivityTickleIntro,,,"(She starts to tickle you lightly.)  Be honest little one, do you appreciate the fine art of tickling?",,,DomActivityTickleIntro,Polite
