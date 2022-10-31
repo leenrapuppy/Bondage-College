@@ -60,7 +60,7 @@ function PrivateBedRun() {
 	DrawRect(20, 400, 820, 580, "#000000B0");
 	DrawEmptyRect(20, 400, 820, 580, "#FFFFFF", 2);
 	for (let L = PrivateBedLog.length - 1; L >= 0; L--)
-		DrawTextFit(PrivateBedLog[L], 420, (L * 55) + 445, 800, "#FFFFFF", "#000000");
+		DrawTextFit(PrivateBedLog[L], 420, (L * 55) + 445, 780, "#FFFFFF", "#000000");
 }
 
 /**
