@@ -3730,6 +3730,12 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // RoundClitPiercings
+		VibeHeartClitPiercing: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // VibeHeartClitPiercing
+		TapedClitEgg: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // TapedClitEgg
 	}, // ItemVulvaPiercings
 	ItemButt: {
 		AnalHook: {
@@ -3861,6 +3867,21 @@ var AssetFemale3DCGExtended = {
 				DrawImages: false,
 			},
 		}, // ButtPump
+		VibratingButtplug: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // VibratingButtplug
+		VibratingDildoPlug: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // VibratingDildoPlug
+		BunnyTailVibePlug: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // BunnyTailVibePlug
+		EggVibePlugXXL: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // EggVibePlugXXL
+		LockingVibePlug: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // LockingVibePlug
 	}, // ItemButt
 	ItemNipplesPiercings: {
 		RoundPiercing: {
@@ -3919,6 +3940,9 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // RoundPiercing
+		VibeHeartPiercings: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // VibeHeartPiercings
 	}, // ItemNipplesPiercings
 	ItemNipples: {
 		ChainClamp: {
@@ -4071,6 +4095,12 @@ var AssetFemale3DCGExtended = {
 				DrawImages: false,
 			},
 		}, // PlateClamps
+		VibeNippleClamp: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // VibeNippleClamp
+		TapedVibeEggs: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // TapedVibeEggs
 	}, // ItemNipples
 	Corset: {
 		LatexCorset1: {
@@ -5574,6 +5604,9 @@ var AssetFemale3DCGExtended = {
 				}
 			}
 		}, // Zipties
+		MermaidTail: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // MermaidTail
 	}, // ItemLegs
 	ItemFeet: {
 		SpreaderMetal: {
@@ -5951,6 +5984,9 @@ var AssetFemale3DCGExtended = {
 				}
 			},
 		},
+		SpreaderVibratingDildoBar: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // SpreaderVibratingDildoBar
 	}, // ItemFeet
 	ItemMisc: {
 		ServingTray: {
