@@ -526,6 +526,7 @@ function ActivityOrgasmStart(C) {
 	if ((C.ID == 0) || C.IsNpc()) {
 		if (C.ID == 0 && !ActivityOrgasmRuined) ActivityOrgasmGameResistCount = 0;
 		AsylumGGTSTOrgasm(C);
+		PrivateBedOrgasm(C);
 		ActivityOrgasmWillpowerProgress(C);
 		if (!ActivityOrgasmRuined) {
 			C.ArousalSettings.OrgasmTimer = CurrentTime + (Math.random() * 10000) + 5000;
