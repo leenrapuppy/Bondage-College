@@ -91,6 +91,18 @@ function PrivateBedRun() {
 	for (let L = PrivateBedLog.length - 1; L >= 0; L--)
 		DrawTextFit(PrivateBedLog[L], 430, (L * 55) + 445, 800, "#FFFFFF", "#000000");
 
+	// If we move the mouse over a character or a zone, we highlight it
+	if (!CommonIsMobile)
+		for (let C of PrivateBedCharacter) {
+			if ((MouseX >= C.PrivateBedLeft + 60) && (MouseX <= C.PrivateBedLeft + 140) && (MouseY >= C.PrivateBedTop + 400) && (MouseY <= C.PrivateBedTop + 500) && !C.ArousalZoom) { DrawEmptyRect(C.PrivateBedLeft + 60, C.PrivateBedTop + 400, 80, 100, "Cyan", 3); break; }
+			if ((MouseX >= C.PrivateBedLeft + 50) && (MouseX <= C.PrivateBedLeft + 150) && (MouseY >= C.PrivateBedTop + 615) && (MouseY <= C.PrivateBedTop + 715) && C.ArousalZoom) { DrawEmptyRect(C.PrivateBedLeft + 50, C.PrivateBedTop + 615, 100, 100, "Cyan", 3); break; }
+			if (MouseIn(C.PrivateBedLeft, C.PrivateBedTop, 500, C.HeightRatio * 1000))
+				for (let A = 0; A < AssetGroup.length; A++)
+					if ((AssetGroup[A].Zone != null) && !AssetGroup[A].MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
+						for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
+							DrawEmptyRect(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3], (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3])) ? "Cyan" : "#00000040", 3);
+		}
+
 }
 
 /**
@@ -133,7 +145,7 @@ function PrivateBedClick() {
 	if (MouseIn(1885, 145, 90, 90) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
 	if (MouseIn(1885, 265, 90, 90)) CharacterSetCurrent(Player);
 
-	// Cannot do more than 1 action each 3 seconds
+	// Cannot do more than 1 action each 5 seconds
 	if (PrivateBedActivityTimer > CommonTime()) return;
 
 	// Activity buttons on the left side
