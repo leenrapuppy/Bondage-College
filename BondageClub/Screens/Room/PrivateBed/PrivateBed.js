@@ -35,6 +35,12 @@ function PrivateBedLoad() {
  * @returns {void} - Nothing.
  */
 function PrivateBedDrawCharacter(C) {
+	if (C.PrivateBedMoveTimer == null) C.PrivateBedMoveTimer = 0;
+	if (C.PrivateBedMoveTimer < CommonTime()) {
+		CharacterSetActivePose(C, CommonRandomItemFromList("NONE", ["OverTheHead", "Yoked", null]));
+		CharacterSetActivePose(C, CommonRandomItemFromList("NONE", ["LegsOpen", "LegsClosed"]));
+		C.PrivateBedMoveTimer = CommonTime() + 10000 + Math.round(Math.random() * 20000);
+	}
 	DrawCharacter(C, C.PrivateBedLeft, C.PrivateBedTop, 1);
 }
 
@@ -180,6 +186,10 @@ function PrivateBedClick() {
  * @returns {void} - Nothing.
  */
 function PrivateBedExit(Type) {
+	for (let C of PrivateBedCharacter) {
+		CharacterSetActivePose(C, null);
+		CharacterSetActivePose(C, "LegsOpen");
+	}
 	CommonSetScreen("Room", "Private");
 }
 
