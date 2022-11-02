@@ -3881,6 +3881,20 @@ var AssetFemale3DCGExtended = {
 		LockingVibePlug: {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // LockingVibePlug
+		AnalBeads2: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{ Name: "_1in", Property: { Type: null, InsertedBeads: 1 } },
+					{ Name: "_2in", Property: { Type: "_2in", InsertedBeads: 2 } },
+					{ Name: "_3in", Property: { Type: "_3in", InsertedBeads: 3 } },
+					{ Name: "_4in", Property: { Type: "_4in", InsertedBeads: 4 } },
+					{ Name: "_5in", Property: { Type: "_5in", InsertedBeads: 5 } },
+				],
+				DrawImages: false,
+				ChatSetting: TypedItemChatSetting.SILENT,
+			},
+		}, // AnalBeads2
 	}, // ItemButt
 	ItemNipplesPiercings: {
 		RoundPiercing: {
