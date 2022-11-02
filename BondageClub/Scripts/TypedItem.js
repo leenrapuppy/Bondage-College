@@ -66,6 +66,7 @@ function TypedItemRegister(asset, config) {
 	TypedItemGenerateAllowTint(data);
 	TypedItemGenerateAllowLockType(data);
 	TypedItemRegisterSubscreens(asset, config);
+	asset.Extended = true;
 }
 
 /**
