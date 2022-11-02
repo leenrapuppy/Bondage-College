@@ -1,21 +1,28 @@
 "use strict";
 module.exports = {
-	extends: "eslint:recommended",
+	extends: ["eslint:recommended", "plugin:compat/recommended"],
 	env: {
 		browser: true,
 		es6: true,
 	},
 	parserOptions: {
-		ecmaVersion: 2021,
+		ecmaVersion: 2020,
 	},
 	root: true,
 	plugins: [
 		'sort-keys-custom',
+		'compat'
 	],
 	ignorePatterns: [
 		"Scripts/lib/**/*.js",
 		"*.min.js"
 	],
+	settings: {
+		polyfills: [
+			// Notification is not supported in iOS Safari 14.5-14.8
+			"Notification",
+		],
+	},
 	rules: {
 		"dot-notation": "error",
 		"no-unused-expressions": "error",

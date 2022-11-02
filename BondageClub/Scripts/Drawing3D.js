@@ -1,4 +1,5 @@
 // @ts-nocheck
+/* eslint-disable */
 /* This file is old and currently unused */
 "use strict";
 var renderer;
