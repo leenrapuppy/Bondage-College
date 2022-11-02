@@ -30,7 +30,7 @@ var DialogActivePoses = [];
 var DialogItemPermissionMode = false;
 var DialogExtendedMessage = "";
 var DialogActivityMode = false;
-/** @type {Array<Activity>} */
+/** @type {ItemActivity[]} */
 var DialogActivity = [];
 /** @type {Record<"Enabled" | "Equipped" | "BothFavoriteUsable" | "TargetFavoriteUsable" | "PlayerFavoriteUsable" | "Usable" | "TargetFavoriteUnusable" | "PlayerFavoriteUnusable" | "Unusable" | "Blocked", DialogSortOrder>} */
 var DialogSortOrder = {
@@ -810,6 +810,7 @@ function DialogGetAssetIcons(asset) {
 	icons = icons.concat(asset.PreviewIcons);
 	if (asset.OwnerOnly) icons.push("OwnerOnly");
 	if (asset.LoverOnly) icons.push("LoverOnly");
+	if (asset.AllowActivity && asset.AllowActivity.length > 0) icons.push("Handheld");
 	return icons;
 }
 
@@ -917,7 +918,7 @@ function DialogMenuButtonBuild(C) {
 		DialogMenuButton.push("LockCancel");
 
 	// Out of struggle mode, we calculate which buttons to show in the UI
-	if ((StruggleProgress < 0) && !StruggleLockPickOrder && !DialogActivityMode) {
+	if ((StruggleProgress < 0) && !StruggleLockPickOrder) {
 
 		// Pushes all valid main buttons, based on if the player is restrained, has a blocked group, has the key, etc.
 		const IsItemLocked = InventoryItemHasEffect(Item, "Lock", true);
@@ -956,6 +957,11 @@ function DialogMenuButtonBuild(C) {
 
 			DialogMenuButton.push("CraftingCancel");
 
+		} else if (DialogActivityMode) {
+			if (DialogInventory != null && DialogActivity.length > 12 && Player.CanInteract()) {
+				DialogMenuButton.push("Next");
+				DialogMenuButton.push("Prev");
+			}
 		} else {
 
 			if ((DialogInventory != null) && (DialogInventory.length > 12) && ((Player.CanInteract() && !IsGroupBlocked) || DialogItemPermissionMode)) {
@@ -1048,11 +1054,7 @@ function DialogMenuButtonBuild(C) {
 			// Color selection
 			if (DialogCanColor(C, Item)) DialogMenuButton.push(ItemBlockedOrLimited ? "ColorPickDisabled" : "ColorPick");
 
-			// Make sure the target player zone is allowed for an activity
-			if (ActivityPossibleOnGroup(C, C.FocusGroup.Name)) {
-				DialogBuildActivities(C);
-				if (DialogActivity.length > 0) DialogMenuButton.push("Activity");
-			}
+			if (DialogActivity.length > 0) DialogMenuButton.push("Activity");
 
 			// Item permission enter/exit
 			if (C.ID == 0) {
@@ -1105,6 +1107,10 @@ function DialogInventoryBuild(C, Offset, redrawPreviews = false) {
 
 	// Make sure there's a focused group
 	DialogInventoryOffset = Offset == null ? 0 : Offset;
+
+	// Refresh the list of activities
+	DialogBuildActivities(C);
+
 	const DialogInventoryBefore = DialogInventoryStringified(C);
 	DialogInventory = [];
 	if (C.FocusGroup != null) {
@@ -1362,15 +1368,17 @@ function DialogMenuButtonClick() {
 
 			// Next Icon - Shows the next 12 items
 			else if (DialogMenuButton[I] == "Next") {
+				let contents = DialogActivityMode ? DialogActivity : DialogInventory;
 				DialogInventoryOffset = DialogInventoryOffset + 12;
-				if (DialogInventoryOffset >= DialogInventory.length) DialogInventoryOffset = 0;
+				if (DialogInventoryOffset >= contents.length) DialogInventoryOffset = 0;
 				return;
 			}
 
 			// Prev Icon - Shows the previous 12 items
 			else if (DialogMenuButton[I] == "Prev") {
+				let contents = DialogActivityMode ? DialogActivity : DialogInventory;
 				DialogInventoryOffset = DialogInventoryOffset - 12;
-				if (DialogInventoryOffset < 0) { DialogInventoryOffset = DialogInventory.length - ((DialogInventory.length % 12) == 0 ? 12 : DialogInventory.length % 12); }
+				if (DialogInventoryOffset < 0) { DialogInventoryOffset = contents.length - ((contents.length % 12) == 0 ? 12 : contents.length % 12); }
 				return;
 			}
 
@@ -1556,41 +1564,18 @@ function DialogMenuButtonClick() {
  */
 function DialogPublishAction(C, ClickItem) {
 
-	// The shock triggers can trigger items that can shock the wearer
-	if (C.FocusGroup != null) {
-		var TargetItem = (InventoryGet(C, C.FocusGroup.Name));
-		if (InventoryItemHasEffect(ClickItem, "TriggerShock") && InventoryItemHasEffect(TargetItem, "ReceiveShock")) {
-			if (TargetItem.Property && typeof TargetItem.Property.TriggerCount == "number")
-				TargetItem.Property.TriggerCount++;
-			if (CurrentScreen == "ChatRoom") {
-				let intensity = TargetItem.Property ? TargetItem.Property.Intensity : 0;
-				if (typeof intensity !== "number")
-					intensity = 0;
-				InventoryExpressionTrigger(C, ClickItem);
-				ChatRoomPublishCustomAction(TargetItem.Asset.Name + "Trigger" + intensity, true, [{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber }]);
-			} else {
-				let intensity = TargetItem.Property ? TargetItem.Property.Intensity : 0;
-				let D = (DialogFindPlayer(TargetItem.Asset.Name + "Trigger" + intensity)).replace("DestinationCharacterName", CharacterNickname(C));
-				if (D != "") {
-					InventoryExpressionTrigger(C, ClickItem);
-					C.CurrentDialog = "(" + D + ")";
-					DialogLeaveItemMenu();
-				}
-			}
-			return;
-		}
-	}
+	InventoryExpressionTrigger(C, ClickItem);
+
+	// TODO: The shock triggers can trigger items that can shock the wearer
 
 	// Publishes the item result
 	if ((CurrentScreen == "ChatRoom") && !InventoryItemHasEffect(ClickItem)) {
-		InventoryExpressionTrigger(C, ClickItem);
 		ChatRoomPublishAction(C, null, ClickItem, true);
 	}
-	else {
-		let Line = ClickItem.Asset.Group.Name + (ClickItem.Asset.DynamicName ? ClickItem.Asset.DynamicName(Player) : ClickItem.Asset.Name);
+	else if (C.IsNpc()) {
+		let Line = ClickItem.Asset.Group.Name + ClickItem.Asset.DynamicName(Player);
 		let D = DialogFind(C, Line, null, false);
 		if (D != "") {
-			InventoryExpressionTrigger(C, ClickItem);
 			C.CurrentDialog = D;
 			DialogLeaveItemMenu();
 		}
@@ -1769,11 +1754,27 @@ function DialogClick() {
 			let X = 1000;
 			let Y = 125;
 			for (let A = DialogInventoryOffset; (A < DialogActivity.length) && (A < DialogInventoryOffset + 12); A++) {
-
+				const act = DialogActivity[A];
 				// If this specific activity is clicked, we run it
 				if ((MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275)) {
-					IntroductionJobProgress("SubActivity", DialogActivity[A].MaxProgress.toString(), true);
-					ActivityRun(C, DialogActivity[A]);
+					if (!act.Blocked) {
+						if (C.IsNpc()) {
+							let Line = C.FocusGroup.Name + act.Item.Asset.DynamicName(Player);
+							let D = DialogFind(C, Line, null, false);
+							if (D != "") {
+								C.CurrentDialog = D;
+							}
+						}
+						IntroductionJobProgress("SubActivity", act.Activity.MaxProgress.toString(), true);
+						if (act.Item && act.Item.Asset.Name === "ShockRemote") {
+							let targetItem = InventoryGet(C, C.FocusGroup.Name);
+							if (targetItem && targetItem.Property && typeof targetItem.Property.TriggerCount === "number") {
+								targetItem.Property.TriggerCount++;
+								ChatRoomCharacterItemUpdate(C, C.FocusGroup.Name);
+							}
+						}
+						ActivityRun(C, act);
+					}
 					return;
 				}
 
@@ -2050,11 +2051,25 @@ function DialogDrawActivityMenu(C) {
 	var X = 1000;
 	var Y = 125;
 	for (let A = DialogInventoryOffset; (A < DialogActivity.length) && (A < DialogInventoryOffset + 12); A++) {
-		var Act = DialogActivity[A];
+		const itemAct = DialogActivity[A];
+		const Act = itemAct.Activity;
 		let group = ActivityGetGroupOrMirror(CharacterGetCurrent().AssetFamily, CharacterGetCurrent().FocusGroup.Name);
 		let label = ActivityBuildChatTag(CharacterGetCurrent(), group, Act, true);
 		let image = "Assets/" + C.AssetFamily + "/Activity/" + Act.Name + ".png";
-		DrawPreviewBox(X, Y, image, ActivityDictionaryText(label), {Hover: !CommonIsMobile});
+		/** @type {InventoryIcon[]} */
+		let icons = [];
+		if (itemAct.Item) {
+			image = `${AssetGetPreviewPath(itemAct.Item.Asset)}/${itemAct.Item.Asset.Name}.png`;
+			icons.push("Handheld");
+		}
+		const colors = {
+			"blocked": "red",
+			"limited": "amber",
+			"unavail": "grey",
+		};
+		const background = colors[itemAct.Blocked] || "white";
+
+		DrawPreviewBox(X, Y, image, ActivityDictionaryText(label), {Hover: !CommonIsMobile, Icons: icons, Background: background});
 		X = X + 250;
 		if (X > 1800) {
 			X = 1000;
@@ -2168,19 +2183,6 @@ function DialogDrawItemMenu(C) {
 		if (DialogInventory == null) DialogInventoryBuild(C);
 
 		// If only activities are allowed, only keep DialogInventory items which can be used for interactions
-		if (!DialogItemPermissionMode && InventoryGroupIsBlocked(C)) {
-			let tempDialogInventory = [];
-			for (let I = 0; I < DialogInventory.length; I++) {
-				if ((DialogInventory[I].Asset.Name == "SpankingToys") && (C.FocusGroup.Name != "ItemHands"))
-					tempDialogInventory.push(DialogInventory[I]);
-			}
-			if (tempDialogInventory.length > 0) {
-				for (let I = 0; I < DialogInventory.length; I++) {
-					if (DialogInventory[I].Worn) tempDialogInventory.push(DialogInventory[I]);
-				}
-			}
-			DialogInventory = tempDialogInventory;
-		}
 
 		// Draw all possible items in that category (12 per screen)
 		let X = 1000;
@@ -2627,5 +2629,6 @@ function DialogOpenCraftingScreen() {
  * @returns {boolean}
  */
 function DialogCanCraft() {
+	if ((CurrentModule != "Online") || (CurrentScreen != "ChatRoom")) return false;
 	return !Player.IsRestrained() || !Player.IsBlind();
 }

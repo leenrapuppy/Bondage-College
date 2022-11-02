@@ -2411,13 +2411,20 @@ var ChatRoomMessageHandlers = [
 		Description: "Handle action visual effects",
 		Priority: 120,
 		Callback: (data, sender, msg, metadata) => {
-			if (data.Type !== "Action")
-				return false;
+			let intensity = null;
+			if (data.Type === "Action" && metadata.ShockIntensity >= 0) {
+				intensity = metadata.ShockIntensity;
+			} else if (data.Type === "Activity" && data.Content.includes("ShockItem")) {
+				let item = InventoryGet(Player, metadata.ActivityGroup);
+				if (item && item.Property)
+					intensity = item.Property.Intensity || 0;
+			}
 
-			if (metadata.ShockIntensity >= 0 && metadata.TargetCharacter == Player) {
-				const duration = (Math.random() + metadata.ShockIntensity) * 500;
+			if (intensity !== null && metadata.TargetCharacter.IsPlayer()) {
+				const duration = (Math.random() + intensity) * 500;
 				DrawFlashScreen("#FFFFFF", duration, 500);
 			}
+
 			return false;
 		}
 	},
@@ -2463,8 +2470,10 @@ var ChatRoomMessageHandlers = [
 
 			// If another player is using an item which applies an activity on the current player, apply the effect here
 			if (arousalEnabled && metadata.ActivityName && metadata.TargetMemberNumber
-					&& (metadata.TargetMemberNumber === Player.MemberNumber) && (sender.MemberNumber !== Player.MemberNumber))
-				ActivityEffect(sender, Player, metadata.ActivityName, ActivityGroup, metadata.ActivityCounter);
+				&& (metadata.TargetMemberNumber === Player.MemberNumber) && (sender.MemberNumber !== Player.MemberNumber)) {
+				const UsedAsset = AssetGet("Female3DCG", metadata.ActivityAssetGroup, metadata.ActivityAsset);
+				ActivityEffect(sender, Player, metadata.ActivityName, ActivityGroup, metadata.ActivityCounter, UsedAsset);
+			}
 			return false;
 		}
 	},
@@ -2499,11 +2508,7 @@ var ChatRoomMessageHandlers = [
 	{
 		Description: "Audio system hook for sound effects",
 		Priority: 500,
-		Callback: (data, sender, msg, metadata) => {
-			if (["Activity", "Action", "ServerMessage"].includes(data.Type))
-				AudioPlaySoundForChatMessage(data);
-			return false;
-		}
+		Callback: AudioPlaySoundForChatMessage,
 	},
 	{
 		Description: "Raise a notification if required",
@@ -2744,6 +2749,8 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 			const repl = ChatSearchMuffle(entry.Text);
 			substitutions.push([entry.Tag, repl]);
 		}
+		else if (entry.Tag === "ActivityAsset") meta.ActivityAsset = entry.Text;
+		else if (entry.Tag === "ActivityAssetGroup") meta.ActivityAssetGroup = entry.Text;
 		else if (entry.ActivityCounter) meta.ActivityCounter = entry.ActivityCounter;
 		else if (entry.Automatic) meta.Automatic = true;
 		else if (entry.ShockIntensity != undefined) meta.ShockIntensity = entry.ShockIntensity;
@@ -2777,6 +2784,7 @@ function ChatRoomMessagePerformSubstitutions(msg, substitutions) {
  *
  * @param {IChatRoomMessage} data
  * @param {Character} sender
+ * @returns {{ metadata?: IChatRoomMessageMetadata, substitutions?: string[][] }}
  */
 function ChatRoomMessageRunExtractors(data, sender) {
 	if (!data || !sender) return {};

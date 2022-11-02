@@ -612,6 +612,12 @@ ItemMiscWoodenSignRope,Rope
 ItemMiscWoodenSignText,Text
 ItemMiscWoodenSignRope,Rope
 ItemMiscWoodenSignText,Text
+ItemMiscPetPostPole,Pole
+ItemMiscPetPostPlaque,Plaque
+ItemMiscPetPostPlaqueBorder,PlaqueBorder
+ItemMiscPetPostPostit,Postit
+ItemMiscPetPostPaw,Sticker
+ItemMiscPetPostPlaqueBolts,PlaqueBolts
 ItemDevicesBedPillow,Pillow
 ItemDevicesBedMattress,Mattress
 ItemDevicesBedHeadboard,Headboard

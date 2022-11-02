@@ -19,10 +19,10 @@ ItemPelvis,,,(You snap the belt around her waist while she sighs.)  Damn it.  I 
 RemoveItemPelvis,,,"(You unlock the belt from her waist, and she smiles.)  I owe you one.",,
 ItemHead,,,(You strap the device on her head as she complains.)  The store!  Think about the store!,,
 RemoveItemHead,,,(You remove the device and she looks relived.)  Thanks.  Nothing was stolen?,,
-ItemBreastSpankingToysWhip,,,(She whimpers as you whip her breast.)  Ouch!  You're whipping too hard.,,
-ItemBreastSpankingToysCrop,,,(You swing the crop on her torso as she grumbles.)  That's what they call trying the merchandise.,,
-ItemPelvisSpankingToysWhip,,,(You whip her butt as she whimpers.)  Oooww.  Are you a satisfied customer?,,
-ItemPelvisSpankingToysCrop,,,(You lash the leather crop pretty hard on her butt.)  Damn it!  I need a better job.,,
+ItemBreastWhip,,,(She whimpers as you whip her breast.)  Ouch!  You're whipping too hard.,,
+ItemBreastCrop,,,(You swing the crop on her torso as she grumbles.)  That's what they call trying the merchandise.,,
+ItemPelvisWhip,,,(You whip her butt as she whimpers.)  Oooww.  Are you a satisfied customer?,,
+ItemPelvisCrop,,,(You lash the leather crop pretty hard on her butt.)  Damn it!  I need a better job.,,
 0,,,Greetings Mistress DialogPlayerName.  What are you looking for today?,,"DialogLogQuery(""ClubMistress"", ""Management"")"
 0,,,(She looks at you and giggles.)  Are you looking for some clothes?,,Player.IsNaked()
 0,,,Welcome to the Bondage Club store.  How can I help you today?,,

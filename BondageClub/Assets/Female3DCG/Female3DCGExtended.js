@@ -3493,7 +3493,6 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //WoodenRack
-
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {
@@ -3769,6 +3768,12 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // RoundClitPiercings
+		VibeHeartClitPiercing: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // VibeHeartClitPiercing
+		TapedClitEgg: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // TapedClitEgg
 	}, // ItemVulvaPiercings
 	ItemButt: {
 		AnalHook: {
@@ -3900,6 +3905,21 @@ var AssetFemale3DCGExtended = {
 				DrawImages: false,
 			},
 		}, // ButtPump
+		VibratingButtplug: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // VibratingButtplug
+		VibratingDildoPlug: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // VibratingDildoPlug
+		BunnyTailVibePlug: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // BunnyTailVibePlug
+		EggVibePlugXXL: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // EggVibePlugXXL
+		LockingVibePlug: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // LockingVibePlug
 	}, // ItemButt
 	ItemNipplesPiercings: {
 		RoundPiercing: {
@@ -3958,6 +3978,9 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // RoundPiercing
+		VibeHeartPiercings: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // VibeHeartPiercings
 	}, // ItemNipplesPiercings
 	ItemNipples: {
 		ChainClamp: {
@@ -4110,6 +4133,12 @@ var AssetFemale3DCGExtended = {
 				DrawImages: false,
 			},
 		}, // PlateClamps
+		VibeNippleClamp: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // VibeNippleClamp
+		TapedVibeEggs: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // TapedVibeEggs
 	}, // ItemNipples
 	Corset: {
 		LatexCorset1: {
@@ -5597,6 +5626,9 @@ var AssetFemale3DCGExtended = {
 				}
 			}
 		}, // Zipties
+		MermaidTail: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // MermaidTail
 	}, // ItemLegs
 	ItemFeet: {
 		SpreaderMetal: {
@@ -5974,6 +6006,9 @@ var AssetFemale3DCGExtended = {
 				}
 			},
 		},
+		SpreaderVibratingDildoBar: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // SpreaderVibratingDildoBar
 	}, // ItemFeet
 	ItemMisc: {
 		ServingTray: {
@@ -6020,6 +6055,55 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // TeddyBear
+		PetPost: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config:{
+				Modules: [
+					{
+						Name: "Plaque", Key: "p",
+						Options: [
+						{}, //p0 - Border
+						{}, //p1 - Border
+						]
+					},
+					{
+						Name: "Dirt", Key: "d",
+						Options: [
+						{}, //d0 - Clean
+						{}, //d1 - Dirty
+						]
+					},
+					{
+						Name: "Sticker", Key: "s",
+						Options: [
+							{}, //s0 - Paw
+							{}, //s1 - Triskel
+							{}, //s2 - Moon
+							{}, //s3 - LGBT
+							{}, //s4 - Trans
+							{}, //s5 - Bi
+							{}, //s6 - NoSwim
+							{}, //s7 - None
+						]
+					},
+					{
+						Name: "PostIt", Key: "m",
+						Options: [
+						{}, //m0 - Postit
+						{}, //m1 - No PostIt
+						]
+					},
+					{
+						Name: "Txt", Key: "x",
+						Options: [{ HasSubscreen: true }],
+					},
+				],
+				ChangeWhenLocked: false,
+				Dialog: {
+					ChatPrefix: "ItemNeckRestraintsPetPost",
+				}
+			},
+		},//PetPost
 	}, // ItemMisc
 	ItemPelvis: {
 		FuturisticChastityBelt: {
@@ -7265,11 +7349,11 @@ var AssetFemale3DCGExtended = {
 				Options: [
 					{
 						Name: "Mittens",
-						Property: { Type: null, Difficulty: 8, Effect: ["Block", "Prone"], SelfUnlock: false},
+						Property: { Type: null, Difficulty: 8, SelfUnlock: false, Effect: ["Block", "Prone", "MergedFingers"], Block: ["ItemHandheld"], Hide: ["ItemHandheld"]},
 					},
 					{
 						Name: "Gloves",
-						Property: { Type: "Gloves", Difficulty: 0, Effect: [], SelfUnlock: true},
+						Property: { Type: "Gloves", Difficulty: 0, SelfUnlock: true, Block: [] },
 					},
 				],
 				Dialog: {

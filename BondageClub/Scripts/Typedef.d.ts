@@ -100,6 +100,7 @@ type VibratorRemoteAvailability = "Available" | "NoRemote" | "NoRemoteOwnerRuleA
  * @property CuffedArms - Enable items that have the CuffedArms prerequisite to be applied.
  * @property IsChained - Prevents items that have the NotChained prerequisite from being applied.
  * @property FixedHead - Locks the character's head in-place. Prevents nodding and shaking activities on it.
+ * @property MergedFingers - Indicates the character can't use their fingers normally. Limits activities.
  *
  * @property Shackled - Prevents items that have the NotShackled prerequisite from being applied.
  * @property Tethered - Prevents leashing items from working.
@@ -170,7 +171,7 @@ type VibratorRemoteAvailability = "Available" | "NoRemote" | "NoRemoteOwnerRuleA
 type EffectName =
 	"Freeze" | "Prone" | "Block" | "Mounted" | "KneelFreeze" | "ForceKneel" | "BlockKneel" |
 
-	"CuffedFeet" | "CuffedLegs" | "CuffedArms" | "IsChained" | "FixedHead" |
+	"CuffedFeet" | "CuffedLegs" | "CuffedArms" | "IsChained" | "FixedHead" | "MergedFingers" |
 
 	"Shackled" | "Tethered" | "Enclose" | "OneWayEnclose" | "OnBed" | "Lifted" | "Suspended" |
 
@@ -224,6 +225,7 @@ type AssetGroupItemName =
 	'ItemMouth3' | 'ItemNeck' | 'ItemNeckAccessories' | 'ItemNeckRestraints' |
 	'ItemNipples' | 'ItemNipplesPiercings' | 'ItemNose' | 'ItemPelvis' |
 	'ItemTorso' | 'ItemTorso2'| 'ItemVulva' | 'ItemVulvaPiercings' |
+	'ItemHandheld' |
 
 	'ItemHidden' /* TODO: investigate, not a real group */
 	;
@@ -409,6 +411,30 @@ interface IChatRoomSyncBasic {
 
 interface IChatRoomSyncMessage extends IChatRoomSyncBasic, ChatRoom { }
 
+interface IChatRoomMessageMetadata {
+	/** The name of the sender character, appropriately garbled if deafened */
+	senderName?: string;
+	/** The character targetted by the message */
+	TargetCharacter?: Character;
+	/** The member number of the target */
+	TargetMemberNumber?: number;
+	/** Whether the message is considered game-initiated. Used for automatic vibe changes for example. */
+	Automatic?: boolean;
+	/** The group the message applies to */
+	GroupName?: string;
+	/** How intense the shock should be */
+	ShockIntensity?: number;
+	ActivityCounter?: 0;
+	/** The triggered activity */
+	ActivityName?: string;
+	/** The group where the activity is triggered */
+	ActivityGroup?: string;
+	/** The name of the asset used for the activity */
+	ActivityAsset?: string;
+	/** The group the asset used is in */
+	ActivityAssetGroup?: string;
+}
+
 /**
  * A metadata extractor for a given message.
  *
@@ -420,7 +446,7 @@ interface IChatRoomSyncMessage extends IChatRoomSyncBasic, ChatRoom { }
  * @return null if the extraction has nothing to report.
  */
 type ChatRoomMessageExtractor =
-	(data: IChatRoomMessage, sender: Character) => { metadata: object, substitutions: string[][] } | null;
+	(data: IChatRoomMessage, sender: Character) => { metadata: IChatRoomMessageMetadata, substitutions: string[][] } | null;
 
 /**
  * A chat message handler.
@@ -486,7 +512,7 @@ interface ChatRoomMessageHandler {
 	 * @param metadata - The collected metadata from the message's dictionary, only available in "post" mode.
 	 * @returns {boolean} true if the message was handled and the processing should stop, false otherwise.
 	 */
-	Callback: (data: IChatRoomMessage, sender: Character, msg: string, metadata?: any) => boolean | { msg?: string; skip?: (handler: ChatRoomMessageHandler) => boolean };
+	Callback: (data: IChatRoomMessage, sender: Character, msg: string, metadata?: IChatRoomMessageMetadata) => boolean | { msg?: string; skip?: (handler: ChatRoomMessageHandler) => boolean };
 }
 
 //#endregion
@@ -658,6 +684,8 @@ interface Asset {
 	Wear: boolean;
 	Activity: string | null;
 	AllowActivity?: string[];
+	ActivityAudio?: string[];
+	ActivityExpression: Record<string, ExpressionTrigger[]>;
 	AllowActivityOn?: AssetGroupName[];
 	BuyGroup?: string;
 	PrerequisiteBuyGroups?: string[];
@@ -788,12 +816,25 @@ interface Activity {
 	Name: string;
 	MaxProgress: number;
 	Prerequisite: string[];
-	Target: string[];
-	TargetSelf?: string[] | true;
+	Target: AssetGroupItemName[];
+	TargetSelf?: AssetGroupItemName[] | true;
 	/** used for setting AutoPunishGagActionFlag */
 	MakeSound?: boolean;
 	/** An action that trigger when that activity is used */
 	StimulationAction?: StimulationAction;
+	/** The default expression for that activity. Can be overriden using ActivityExpression on the asset */
+	ActivityExpression?: ExpressionTrigger[];
+}
+
+type ItemActivityRestriction = "blocked" | "limited" | "unavail";
+
+interface ItemActivity {
+	/** The activity performed */
+	Activity: Activity;
+	/** An optional item used for the activity. Null if the player is used their hand, for example. */
+	Item?: Item;
+	/** Whether the item is blocked or limited on the target character, or unavailable because the player is blocked. Undefined means no restriction. */
+	Blocked?: ItemActivityRestriction;
 }
 
 interface LogRecord {
@@ -2332,7 +2373,7 @@ interface AudioChatAction {
 	IsAction: (data: IChatRoomMessage) => boolean;
 
 	/** Extracts the actual sound effect from the chat message */
-	GetSoundEffect: (data: IChatRoomMessage) => (AudioSoundEffect | string | null);
+	GetSoundEffect: (data: IChatRoomMessage, metadata: any) => (AudioSoundEffect | string | null);
 }
 
 // #endregion

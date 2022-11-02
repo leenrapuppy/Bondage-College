@@ -176,13 +176,13 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 		case "TargetKneeling":
 			return acted.IsKneeling();
 		case "UseHands":
-			return acting.CanInteract();
+			return acting.CanInteract() && !acting.Effect.includes("MergedFingers");
 		case "UseArms":
 			return acting.CanInteract() || (!InventoryGet(acting, "ItemArms") && !InventoryGroupIsBlocked(acting, "ItemArms"));
 		case "UseFeet":
 			return acting.CanWalk();
 		case "CantUseArms":
-			return !acting.CanInteract() && (!!InventoryGet(Player, "ItemArms") || InventoryGroupIsBlocked(Player, "ItemArms"));
+			return !acting.CanInteract() && (!!InventoryGet(acting, "ItemArms") || InventoryGroupIsBlocked(acting, "ItemArms"));
 		case "CantUseFeet":
 			return !acting.CanWalk();
 		case "TargetCanUseTongue":
@@ -194,6 +194,10 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 		case "VulvaEmpty":
 			if (group.Name === "ItemVulva")
 				return !acted.IsVulvaFull();
+			break;
+		case "AssEmpty":
+			if (group.Name === "ItemButt")
+				return !acted.IsPlugged();
 			break;
 		case "MoveHead":
 			if (group.Name === "ItemHead")
@@ -231,9 +235,6 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			return InventoryIsItemInList(acting, "BodyUpper", ["FlatSmall", "FlatMedium"]);
 
 		default:
-			if (prereq.startsWith("Needs-")) {
-				return !acting.IsEnclose() && !acted.IsEnclose() && CharacterHasItemForActivity(acting, prereq.substring(6));
-			}
 			break;
 	}
 	return true;
@@ -258,39 +259,81 @@ function ActivityCheckPrerequisites(activity, acting, acted, group) {
  * Builds the allowed activities on a group given the character's settings.
  * @param {Character} character - The character for which to build the activity dialog options
  * @param {string} groupname - The group to check
- * @param {boolean} [allowItem] - Should item-related activities be checked
- * @return {Array} - The list of allowed activities
+ * @return {ItemActivity[]} - The list of allowed activities
  */
-function ActivityAllowedForGroup(character, groupname, allowItem = false) {
+function ActivityAllowedForGroup(character, groupname) {
 	// Get the group and all possible activities
 	let activities = AssetAllActivities(character.AssetFamily);
 	let group = ActivityGetGroupOrMirror(character.AssetFamily, groupname);
 	if (!activities || !group) return [];
 
-	let allowed = activities.filter(activity => {
-		// Item-related activity, skip
-		if (!allowItem && activity.Name.indexOf("Item") >= 0)
-			return false;
+	// Make sure the target player zone is allowed for an activity
+	if (!ActivityPossibleOnGroup(character, groupname))
+		return [];
 
+	const targetedItem = InventoryGet(character, groupname);
+
+	/** @type {ItemActivity[]} */
+	let allowed = [];
+
+	activities.forEach(activity => {
 		// Validate that this activity can be done
 		if (!ActivityHasValidTarget(character, activity, group))
-			return false;
+			return;
 
 		// Make sure all the prerequisites are met
 		if (!ActivityCheckPrerequisites(activity, Player, character, group))
-			return false;
+			return;
 
 		// Ensure this activity is permitted for both actors
 		if (!ActivityCheckPermissions(activity, Player, true)
 			|| !ActivityCheckPermissions(activity, character, false))
-			return false;
+			return;
 
 		// All checks complete, this activity is allowed
-		return true;
+
+		let handled = false;
+		let needsItem = activity.Prerequisite.find(p => p.startsWith("Needs-"));
+		if (needsItem && !Player.IsEnclose() && !character.IsEnclose()) {
+			needsItem = needsItem.substring(6);
+			handled = true;
+
+			const items = CharacterItemsForActivity(Player, needsItem);
+			for (const item of items) {
+				const type = item.Property ? item.Property.Type : null;
+				/** @type {ItemActivityRestriction} */
+				let blocked = null;
+				if (InventoryIsAllowedLimited(character, item, type)) {
+					blocked = "limited";
+				} else if (InventoryBlockedOrLimited(character, item, type)) {
+					blocked = "blocked";
+				} else if (InventoryGroupIsBlocked(Player, item.Asset.Group.Name)) {
+					blocked = "unavail";
+				}
+
+				if (InventoryItemHasEffect(item, "UseRemote")) {
+					// That item actually needs a remote, so handle it separately
+				} else {
+					allowed.push({ Activity: activity, Item: item, Blocked: blocked });
+				}
+			}
+		}
+
+		if (activity.Name === "ShockItem" && InventoryItemHasEffect(targetedItem, "ReceiveShock")) {
+			let remote = Player.Appearance.find(a => InventoryItemHasEffect(a, "TriggerShock"));
+			if (remote) {
+				allowed.push({ Activity: activity, Item: remote });
+				handled = true;
+			}
+		}
+
+		if (!handled) {
+			allowed.push({ Activity: activity });
+		}
 	});
 
 	// Sort allowed activities by their group declaration order
-	return allowed.sort((a, b) => Math.sign(ActivityFemale3DCGOrdering.indexOf(a.Name) - ActivityFemale3DCGOrdering.indexOf(b.Name)));
+	return allowed.sort((a, b) => Math.sign(ActivityFemale3DCGOrdering.indexOf(a.Activity.Name) - ActivityFemale3DCGOrdering.indexOf(b.Activity.Name)));
 }
 
 /**
@@ -303,7 +346,7 @@ function ActivityAllowedForGroup(character, groupname, allowItem = false) {
 function ActivityCanBeDone(C, Activity, Group) {
 	let ActList = ActivityAllowedForGroup(C, Group);
 	for (let A = 0; A < ActList.length; A++)
-		if (ActList[A].Name == Activity)
+		if (ActList[A].Activity.Name == Activity)
 			return true;
 	return false;
 }
@@ -316,9 +359,10 @@ function ActivityCanBeDone(C, Activity, Group) {
  * @param {string} Z - The group/zone name where the activity was performed
  * @param {number} [Count=1] - If the activity is done repeatedly, this defines the number of times, the activity is done.
  * If you don't want an activity to modify arousal, set this parameter to '0'
+ * @param {Asset} [Asset] - The asset used to perform the activity
  * @return {void} - Nothing
  */
-function ActivityEffect(S, C, A, Z, Count) {
+function ActivityEffect(S, C, A, Z, Count, Asset) {
 
 	// Converts from activity name to the activity object
 	if (typeof A === "string") A = AssetGetActivity(C.AssetFamily, A);
@@ -332,6 +376,12 @@ function ActivityEffect(S, C, A, Z, Count) {
 	if ((C.ID != S.ID) && (((C.ID != 0) && C.IsLoverOfPlayer()) || ((C.ID == 0) && S.IsLoverOfPlayer()))) Factor = Factor + Math.floor((Math.random() * 8)); // Another random 0 to 7 bonus if the target is the player's lover
 	Factor = Factor + ActivityFetishFactor(C) * 2; // Adds a fetish factor based on the character preferences
 	Factor = Factor + Math.round(Factor * (Count - 1) / 3); // if the action is done repeatedly, we apply a multiplication factor based on the count
+
+	// Grab the relevant expression from either the asset or the activity
+	const expression = Asset && Asset.ActivityExpression && Asset.ActivityExpression[A.Name] ? Asset.ActivityExpression[A.Name] : A.ActivityExpression;
+	if (Array.isArray(expression))
+		InventoryExpressionTriggerApply(C, expression);
+
 	ActivitySetArousalTimer(C, A, Z, Factor);
 
 }
@@ -493,6 +543,7 @@ function ActivityOrgasmStart(C) {
 	if ((C.ID == 0) || C.IsNpc()) {
 		if (C.ID == 0 && !ActivityOrgasmRuined) ActivityOrgasmGameResistCount = 0;
 		AsylumGGTSTOrgasm(C);
+		PrivateBedOrgasm(C);
 		ActivityOrgasmWillpowerProgress(C);
 		if (!ActivityOrgasmRuined) {
 			C.ArousalSettings.OrgasmTimer = CurrentTime + (Math.random() * 10000) + 5000;
@@ -719,7 +770,7 @@ function ActivityVibratorLevel(C, Level) {
  * Calculates the progress one character does on another right away
  * @param {Character} Source - The character who performed the activity
  * @param {Character} Target - The character on which the activity was performed
- * @param {object} Activity - The activity performed
+ * @param {Activity} Activity - The activity performed
  * @returns {void} - Nothing
  */
 function ActivityRunSelf(Source, Target, Activity) {
@@ -744,10 +795,11 @@ function ActivityBuildChatTag(character, group, activity, is_label = false) {
 /**
  * Launches a sexual activity for a character and sends the chatroom message if applicable.
  * @param {Character} C - Character on which the activity was triggered
- * @param {object} Activity - Activity performed
+ * @param {ItemActivity} ItemActivity - Activity performed
  * @returns {void} - Nothing
  */
-function ActivityRun(C, Activity) {
+function ActivityRun(C, ItemActivity) {
+	const Activity = ItemActivity.Activity;
 
 	let group = ActivityGetGroupOrMirror(C.AssetFamily, C.FocusGroup.Name);
 	// If the player does the activity on herself or an NPC, we calculate the result right away
@@ -765,15 +817,26 @@ function ActivityRun(C, Activity) {
 	// If the player does the activity on someone else, we calculate the progress for the player right away
 	ActivityRunSelf(Player, C, Activity);
 
+	// Trigger the used item's expression
+	InventoryExpressionTrigger(Player, ItemActivity.Item);
+
 	// The text result can be outputted in the chatroom or in the NPC dialog
 	if (CurrentScreen == "ChatRoom") {
 
 		// Publishes the activity to the chatroom
-		var Dictionary = [];
-		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
-		Dictionary.push({ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		Dictionary.push({ Tag: "ActivityGroup", Text: group.Name });
-		Dictionary.push({ Tag: "ActivityName", Text: Activity.Name });
+		/** @type {ChatMessageDictionary} */
+		const Dictionary = [
+			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+			{ Tag: "TargetCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+			{ Tag: "ActivityGroup", Text: group.Name },
+			{ Tag: "ActivityName", Text: Activity.Name },
+		];
+		if (ItemActivity.Item) {
+			const A = ItemActivity.Item.Asset;
+			Dictionary.push({ Tag: "ActivityAssetGroup", Text: A.Group.Name });
+			Dictionary.push({ Tag: "ActivityAsset", Text: A.Name });
+			Dictionary.push({ Tag: "UsedAsset", Text: A.DynamicDescription(Player).toLowerCase() });
+		}
 		ServerSend("ChatRoomChat", { Content: ActivityBuildChatTag(C, group, Activity), Type: "Activity", Dictionary: Dictionary });
 
 		// If the activity is a stimulation trigger, run it if the target is the player
