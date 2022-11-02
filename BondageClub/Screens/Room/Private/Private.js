@@ -352,6 +352,20 @@ function PrivateTitleIs(Title) { return ((CurrentCharacter.Title != null) && (Cu
 		   ((new Date(Player.Creation)).getMonth() == (new Date(CurrentTime)).getMonth()) &&
 		   ((new Date(Player.Creation)).getFullYear() != (new Date(CurrentTime)).getFullYear());
 }
+/**
+ * Returns TRUE if the private room friend will join the player in bed, love must be positive and higher than frigid trait
+ * @returns {boolean} - TRUE if she will join
+ */
+ function PrivateWillJoinBed() {
+	return (PrivateBedCount() <= 3) && ((CurrentCharacter.Love >= 0) && (NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
+}
+/**
+ * Returns TRUE if the private room friend will join the player in bed, love must be positive and higher than frigid trait
+ * @returns {boolean} - TRUE if she will join
+ */
+ function PrivateWillNotJoinBed() {
+	return (PrivateBedCount() <= 3) && !((CurrentCharacter.Love >= 0) && (NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
+}
 
 /**
  * Loads the private room screen and the vendor NPC.
@@ -1577,4 +1591,21 @@ function PrivateExit(Type) {
 		PrivateOwnerCanIntercept = true;
 		CommonSetScreen("Room", "MainHall");
 	}
+}
+
+/**
+ * When the player joins the NPC in bed
+ * @returns {void} - Nothing.
+ */
+function PrivateJoinInBed() {
+	DialogLeave();
+	CommonSetScreen("Room", "PrivateBed");
+}
+
+/**
+ * When the NPC enters the bed
+ * @returns {void} - Nothing.
+ */
+ function PrivateEnterBed() {
+	CurrentCharacter.PrivateBed = true;
 }

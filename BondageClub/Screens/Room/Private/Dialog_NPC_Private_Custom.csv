@@ -727,6 +727,16 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,,"Mistress, can I wear something else now?",Stop thinking about your body and your clothes and focus on serving me.  Wait until the time is up.,,"DialogLogQuery(""BlockChange"", ""Rule"")",DomCanChange,Frigid
 1000,,"Mistress, can I wear something else now?","Girl, if you complain too much, I'll have to extend the time.  You need to wait.",,"DialogLogQuery(""BlockChange"", ""Rule"")",DomCanChange,Serious
 1000,,"Mistress, can I wear something else now?","Not yet my subbie, you need to wait a little more.",,"DialogLogQuery(""BlockChange"", ""Rule"")",DomCanChange,Playful
+1000,1070,Would you like to use the bed Mistress?,(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,
+1000,1070,Would you like to use the bed Mistress?,(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Horny
+1000,1070,Would you like to use the bed Mistress?,(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Frigid
+1000,1070,Would you like to use the bed Mistress?,(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Serious
+1000,1070,Would you like to use the bed Mistress?,(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Playful
+1000,,Would you like to use the bed Mistress?,"No girl, I'm not in that mood.",,WillNotJoinBed(),DomAskBedNo,
+1000,,Would you like to use the bed Mistress?,"No girl, I'm not in that mood.",,WillNotJoinBed(),DomAskBedNo,Horny
+1000,,Would you like to use the bed Mistress?,"No girl, I'm not in that mood.",,WillNotJoinBed(),DomAskBedNo,Frigid
+1000,,Would you like to use the bed Mistress?,"No girl, I'm not in that mood.",,WillNotJoinBed(),DomAskBedNo,Serious
+1000,,Would you like to use the bed Mistress?,"No girl, I'm not in that mood.",,WillNotJoinBed(),DomAskBedNo,Playful
 1000,1090,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 1000,,(Leave her.),,DialogLeave(),,,
 1001,,,(She looks angry.)  What do you want now?,,,DomAngry,
@@ -915,6 +925,8 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1062,,What would you like to do?,,StartActivity(),Player.CanTalk(),,
 1062,,(Nod happily.),,StartActivity(),!Player.CanTalk(),,
 1062,,(Listen to her.),,StartActivity(),!Player.CanTalk(),,
+1070,1000,(Join her in bed.),(She seems curious.)  What would you like to do my girl?,JoinInBed(),,,
+1070,1000,(Check your room first.),(She seems curious.)  What would you like to do my girl?,DialogLeave(),,,
 1090,,(Make her more Dominant.),(She's now a little more Dominant.),"NPCCheat(""TraitDominant"")",,,
 1090,,(Make her more submissive.),(She's now a little more submissive.),"NPCCheat(""TraitSubmissive"")",,,
 1090,1000,(Leave her.),(She seems curious.)  What would you like to do my girl?,DialogLeave(),,,
