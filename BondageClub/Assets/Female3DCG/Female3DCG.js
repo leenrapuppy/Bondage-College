@@ -6989,7 +6989,6 @@ var AssetFemale3DCG = [
 				Prerequisite: ["AccessVulva", "NotSuspended", "NotHogtied", "NotHorse", "NotKneeling", "NotChaste", "VulvaEmpty"],
 				Effect: ["Mounted", "Freeze", "Egged", "BlockKneel"],
 				Block: ["ItemVulva", "ItemPelvis", "ItemVulvaPiercings", "ItemLegs", "ItemFeet"],
-				AllowEffect: ["Egged", "Vibrating", "Edged"],
 				DynamicBeforeDraw: true, DynamicScriptDraw: true,
 				AllowActivityOn: ["ItemFeet", "ItemLegs", "ItemBoots"],
 				ArousalZone: "ItemVulva",

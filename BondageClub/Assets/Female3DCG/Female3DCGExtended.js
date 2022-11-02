@@ -3454,6 +3454,12 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //WoodenRack
+		Sybian: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // Sybian
+		FuckMachine: {
+			Archetype: ExtendedArchetype.VIBRATING,
+		}, // FuckMachine
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {
