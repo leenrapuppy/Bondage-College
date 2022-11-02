@@ -7,18 +7,45 @@ var PrivateBedLog = [];
 var PrivateBedActivityTimer = 0;
 
 /**
+ * Returns the number of girls in the private bedroom.
+ * @returns {Number} - The number of girls.
+ */
+function PrivateBedCount() {
+	let Count = 1;
+	for (let C of PrivateCharacter)
+		if ((C.PrivateBed != null) && (C.PrivateBed == true))
+			Count++;
+	return Count;
+}
+
+/**
  * Loads the private bedroom screen.
  * @returns {void} - Nothing.
  */
 function PrivateBedLoad() {
+
+	// Clears the previous data and adds the player in bed
 	PrivateBedLog = [];
 	CharacterSetActivePose(Player, null, true);
 	PrivateBedBackground = PrivateBackground;
 	PrivateBedCharacter = [];
 	PrivateBedCharacter.push(Player);
-	Player.PrivateBedLeft = 1100;
-	Player.PrivateBedTop = 0;
-	if (Player.HeightRatio != null) Player.PrivateBedTop = (1 - Player.HeightRatio) * -1000;
+
+	// Adds all NPCs that were supposed to join in bed
+	for (let C of PrivateCharacter)
+		if ((C.PrivateBed != null) && (C.PrivateBed == true))
+			if (PrivateBedCharacter.length <= 4)
+				PrivateBedCharacter.push(C);
+			
+	// Shuffles the position in the bed
+	PrivateBedCharacter.sort( () => Math.random() - 0.5);
+	for (let Pos = 0; Pos < PrivateBedCharacter.length; Pos++) {
+		PrivateBedCharacter[Pos].PrivateBedLeft = 1300 - (PrivateBedCharacter.length * 200) + (Pos * 400);
+		PrivateBedCharacter[Pos].PrivateBedTop = 0;
+		if (PrivateBedCharacter[Pos].HeightRatio != null) PrivateBedCharacter[Pos].PrivateBedTop = (1 - PrivateBedCharacter[Pos].HeightRatio) * -1000;
+	}
+
+	// Prepares the list of all activities for the player
 	PrivateBedActivityList = [];
 	for (let A of ActivityFemale3DCG)
 		if ((A.Name != null) && !A.Name.includes("Item") && !A.Name.includes("Inject") && (A.MaxProgress != null) && (A.MaxProgress > 0))
@@ -27,6 +54,7 @@ function PrivateBedLoad() {
 					if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
 						if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
 							PrivateBedActivityList.push(A.Name);
+
 }
 
 /**
@@ -102,11 +130,12 @@ function PrivateBedRun() {
 		for (let C of PrivateBedCharacter) {
 			if ((MouseX >= C.PrivateBedLeft + 60) && (MouseX <= C.PrivateBedLeft + 140) && (MouseY >= C.PrivateBedTop + 400) && (MouseY <= C.PrivateBedTop + 500) && !C.ArousalZoom) { DrawEmptyRect(C.PrivateBedLeft + 60, C.PrivateBedTop + 400, 80, 100, "Cyan", 3); break; }
 			if ((MouseX >= C.PrivateBedLeft + 50) && (MouseX <= C.PrivateBedLeft + 150) && (MouseY >= C.PrivateBedTop + 615) && (MouseY <= C.PrivateBedTop + 715) && C.ArousalZoom) { DrawEmptyRect(C.PrivateBedLeft + 50, C.PrivateBedTop + 615, 100, 100, "Cyan", 3); break; }
-			if (MouseIn(C.PrivateBedLeft, C.PrivateBedTop, 500, C.HeightRatio * 1000))
+			if (MouseIn(C.PrivateBedLeft + 100, C.PrivateBedTop, 300, C.HeightRatio * 1000))
 				for (let A = 0; A < AssetGroup.length; A++)
 					if ((AssetGroup[A].Zone != null) && !AssetGroup[A].MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
 						for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
-							DrawEmptyRect(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3], (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3])) ? "Cyan" : "#00000040", 3);
+							if ((AssetGroup[A].Zone[Z][0] >= 100) && (AssetGroup[A].Zone[Z][0] < 400))
+								DrawEmptyRect(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3], (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3])) ? "Cyan" : "#00000040", 3);
 		}
 
 }
@@ -174,8 +203,9 @@ function PrivateBedClick() {
 				if ((AssetGroup[A].Zone != null) && !AssetGroup[A].MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
 					if (ActivityCanBeDone(C, PrivateBedActivity, AssetGroup[A].Name) && !InventoryGroupIsBlocked(C, AssetGroup[A].Name, true))
 						for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
-							if (DialogClickedInZone(C, AssetGroup[A].Zone[Z], 1, C.PrivateBedLeft, C.PrivateBedTop, C.HeightRatio))
-								return PrivateBedActivityStart(Player, C, AssetGroup[A], PrivateBedActivity);
+							if ((AssetGroup[A].Zone[Z][0] >= 100) && (AssetGroup[A].Zone[Z][0] < 400))
+								if (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3]))
+									return PrivateBedActivityStart(Player, C, AssetGroup[A], PrivateBedActivity);
 
 	}
 
@@ -189,6 +219,7 @@ function PrivateBedExit(Type) {
 	for (let C of PrivateBedCharacter) {
 		CharacterSetActivePose(C, null);
 		CharacterSetActivePose(C, "LegsOpen");
+		C.PrivateBed = false;
 	}
 	CommonSetScreen("Room", "Private");
 }

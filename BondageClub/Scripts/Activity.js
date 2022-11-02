@@ -7,7 +7,6 @@ var ActivityOrgasmGameDifficulty = 0;
 var ActivityOrgasmGameResistCount = 0;
 var ActivityOrgasmGameTimer = 0;
 var ActivityOrgasmResistLabel = "";
-
 var ActivityOrgasmRuined = false; // If set to true, the orgasm will be ruined right before it happens
 
 /**
@@ -653,6 +652,7 @@ function ActivityOrgasmPrepare(C, Bypass) {
 		// Starts the timer and exits from dialog if necessary
 		C.ArousalSettings.OrgasmTimer = (C.ID == 0) ? CurrentTime + 5000 : CurrentTime + (Math.random() * 10000) + 5000;
 		C.ArousalSettings.OrgasmStage = (C.ID == 0) ? 0 : 2;
+		if (C.IsNpc()) PrivateBedOrgasm(C);
 		if (C.ID == 0) ActivityOrgasmGameTimer = C.ArousalSettings.OrgasmTimer - CurrentTime;
 		if ((CurrentCharacter != null) && ((C.ID == 0) || (CurrentCharacter.ID == C.ID))) DialogLeave();
 		ActivityChatRoomArousalSync(C);
