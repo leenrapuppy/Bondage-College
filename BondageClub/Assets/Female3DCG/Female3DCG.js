@@ -4183,7 +4183,7 @@ var AssetFemale3DCG = [
 				Extended: true, 
 				AlwaysInteract: true,
 				ParentGroup: null,
-				DefaultColor: ["#323232", "#565656", "#323232", "#252525", "#252525"],
+
 				Layer: [
 					// Binder
 					{ Name: "BinderLeft", AllowModuleTypes: ["b0"], HasType: false, },
@@ -4212,6 +4212,17 @@ var AssetFemale3DCG = [
 
 				]
 			},
+			{
+				Name: "CanvasStraitjacket1", Gender: "M", Prerequisite: ["HasFlatChest"], SetPose: ["BackElbowTouch"], Value: 80, AllowLock: true, DrawLocks: false, Difficulty: 6, SelfBondage: 8, Time: 35, RemoveTime: 20,
+				DefaultColor: "#FFFFFF",
+				Effect: ["Block", "Prone"],
+				Hide: ["Cloth", "ItemNipplesPiercings"],
+				Layer: [
+					{ Name: "Straps", Priority: 11, ParentGroup: null },
+					{ Name: "Jacket" },
+					{ Name: "ArmStraps", ParentGroup: null}
+				]
+			}
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"],
 	},
@@ -4264,7 +4275,7 @@ var AssetFemale3DCG = [
 				Layer: [
 					{ Name: "Mittens" },
 					{ Name: "Straps" },
-					{ Name: "Buckles", HideForPose: ["OverTheHead", "Yoked", "BackCuffs", "AllFours"] },
+					{ Name: "Buckles", HideForPose: ["OverTheHead", "Yoked", "BackCuffs", "AllFours" ] },
 					{ Name: "Locks", LockLayer: true, HideForPose: ["OverTheHead", "Yoked", "BackCuffs", "AllFours"] }
 
 				],
