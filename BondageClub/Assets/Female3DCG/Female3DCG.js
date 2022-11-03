@@ -2898,6 +2898,18 @@ var AssetFemale3DCG = [
 					{ Name: "Penis", InheritColor: "Pussy", MirrorExpression: "Pussy" }
 				]
 			},
+			{
+				Name: "PlasticChastityCage1", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, Effect: ["Chaste"], Hide: ["Pussy"],
+				AllowLock: true, DrawLocks: false,
+				DefaultColor: ["Default", "Default", "Default", "#8D8D8D"],
+				Left: 200, Top: 410,
+				Layer: [
+					{ Name: "Ring" },
+					{ Name: "Penis", InheritColor: "Pussy" },
+					{ Name: "Cage" },
+					{ Name: "Lock", LockLayer: true}
+				],
+			}
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
