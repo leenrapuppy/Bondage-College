@@ -270,9 +270,12 @@ function ActivityGenerateItemActivitiesFromNeed(allowed, acting, acted, needsIte
 			blocked = "unavail";
 		}
 
+		// FIXME: workaround because those are in a non-activity group
+		const isStrapon = item.Asset.Group.Name === "ItemDevices" && ["StrapOnSmooth", "StrapOnStuds"].includes(item.Asset.Name);
+
 		if (InventoryItemHasEffect(item, "UseRemote")) {
 			// That item actually needs a remote, so handle it separately
-		} else if (reverse && acted.FocusGroup.Name !== item.Asset.Group.Name) {
+		} else if (reverse && acted.FocusGroup.Name !== item.Asset.Group.Name && !isStrapon) {
 			// This is a reverse activity, but we're targetting the wrong slot, just skip
 			handled = true;
 		} else {
