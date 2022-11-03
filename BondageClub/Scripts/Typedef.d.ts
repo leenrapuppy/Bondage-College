@@ -385,10 +385,15 @@ type MessageActionType = "Action" | "Chat" | "Whisper" | "Emote" | "Activity" | 
 type MessageContentType = string;
 
 interface ChatMessageDictionaryEntry {
-	[k: string]: any;
 	Tag?: CommonChatTags | string;
 	Text?: string;
 	MemberNumber?: number;
+	TextToLookUp?: string;
+	AssetName?: string;
+	AssetGroupName?: string;
+	Automatic?: boolean;
+	ShockIntensity?: number;
+	ActivityCounter?: number;
 }
 
 type ChatMessageDictionary = ChatMessageDictionaryEntry[];
@@ -416,6 +421,8 @@ interface IChatRoomMessageMetadata {
 	senderName?: string;
 	/** The character targetted by the message */
 	TargetCharacter?: Character;
+	/** The character sending the message */
+	SourceCharacter?: Character;
 	/** The member number of the target */
 	TargetMemberNumber?: number;
 	/** Whether the message is considered game-initiated. Used for automatic vibe changes for example. */
@@ -424,7 +431,7 @@ interface IChatRoomMessageMetadata {
 	GroupName?: string;
 	/** How intense the shock should be */
 	ShockIntensity?: number;
-	ActivityCounter?: 0;
+	ActivityCounter?: number;
 	/** The triggered activity */
 	ActivityName?: string;
 	/** The group where the activity is triggered */
@@ -2060,7 +2067,7 @@ interface TypedItemData {
  */
 type TypedItemDictionaryCallback = (
 	chatData: ExtendedItemChatData<ExtendedItemOption>
-) => { Tag: string, Text: string };
+) => ChatMessageDictionaryEntry;
 
 /**
  * A parameter object containing information used to validate and sanitize character appearance update diffs. An
