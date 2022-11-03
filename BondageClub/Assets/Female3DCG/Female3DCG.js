@@ -2893,6 +2893,7 @@ var AssetFemale3DCG = [
 			},
 			// Penis Compatible Items
 			{ Name: "BasicCockring", Gender: "M", Value: 10, Left: 200, Top: 410, Prerequisite: ["AccessVulva", "HasPenis"], AllowExpression: ["Hard"], Hide: ["Pussy"],
+			AllowPose: [],
 				Layer: [
 					{ Name: "CockRing", MirrorExpression: "Pussy" },
 					{ Name: "Penis", InheritColor: "Pussy", MirrorExpression: "Pussy" }
@@ -2900,15 +2901,27 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "PlasticChastityCage1", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, Effect: ["Chaste"], Hide: ["Pussy"],
+				AllowPose: [],
 				AllowLock: true, DrawLocks: false,
 				DefaultColor: ["Default", "Default", "Default", "#8D8D8D"],
 				Left: 200, Top: 410,
 				Layer: [
 					{ Name: "Ring" },
-					{ Name: "Penis", InheritColor: "Pussy" },
+					{ Name: "Penis", InheritColor: "Pussy", HideColoring: true },
 					{ Name: "Cage" },
 					{ Name: "Lock", LockLayer: true}
 				],
+			},
+			{
+				Name: "VibeEggPenisBase", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, Hide: ["Pussy"], AllowExpression: ["Hard"],
+				Left: 200, Top: 410,
+				DefaultColor: ["Default", "#323232", "#EFB0F4" ],
+				AllowPose: [],
+				Layer: [
+					{ Name: "Penis", HideColoring: true, MirrorExpression: "Pussy", InheritColor: "Pussy" },
+					{ Name: "Strap", MirrorExpression: "Pussy" },
+					{ Name: "Egg", MirrorExpression: "Pussy" }
+				]
 			}
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]

@@ -3697,6 +3697,9 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // Stitches
+		VibeEggPenisBase: {
+			Archetype: ExtendedArchetype.VIBRATING
+		}, // VibeEggPenisBase
 	}, // ItemVulva
 	ItemVulvaPiercings: {
 		ClitRing: {
