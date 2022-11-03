@@ -2417,6 +2417,21 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // CollarNameTagLover
+		CollarNameTagLivestock: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarNameTag" },
+			Config: {
+				Options: [
+					{ Name: "Blank", Property: { Type: null } },
+					{ Name: "Animal", Property: { Type: "Animal" } },
+					{ Name: "BreedMe", Property: { Type: "BreedMe" } },
+					{ Name: "Cow", Property: { Type: "Cow" } },
+					{ Name: "Meat", Property: { Type: "Meat" } },
+					{ Name: "MilkMe", Property: { Type: "MilkMe" } },
+					{ Name: "Pig", Property: { Type: "Pig" } },
+				],
+			},
+		}, // CollarNameTagLivestock
 	}, // ItemNeckAccessories
 	ItemNeckRestraints: {
 		PetPost: {
