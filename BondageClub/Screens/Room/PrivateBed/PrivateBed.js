@@ -4,7 +4,7 @@ var PrivateBedCharacter = [];
 var PrivateBedActivity = "Caress";
 var PrivateBedActivityList = [];
 var PrivateBedLog = [];
-var PrivateBedActivityTimer = 0;
+var PrivateBedActivityDelay = 4000;
 
 /**
  * Returns the number of girls in the private bedroom.
@@ -36,6 +36,10 @@ function PrivateBedLoad() {
 		if ((C.PrivateBed != null) && (C.PrivateBed == true))
 			if (PrivateBedCharacter.length <= 4)
 				PrivateBedCharacter.push(C);
+
+	// Resets the activity timer
+	for (let C of PrivateCharacter)
+		C.PrivateBedActivityTimer = CommonTime() + ((C.IsPlayer()) ? 0 : PrivateBedActivityDelay + Math.round(Math.random() * PrivateBedActivityDelay));
 
 	// Shuffles the position in the bed
 	PrivateBedCharacter.sort( () => Math.random() - 0.5);
@@ -74,6 +78,7 @@ function PrivateBedDrawCharacter(C) {
 		CharacterSetActivePose(C, CommonRandomItemFromList("NONE", ["LegsOpen", "LegsClosed"]));
 		C.PrivateBedMoveTimer = CommonTime() + 10000 + Math.round(Math.random() * 20000);
 	}
+	if (C.IsNpc() && (C.PrivateBedActivityTimer < CommonTime())) PrivateBedNPCActivity(C);
 	DrawCharacter(C, C.PrivateBedLeft, C.PrivateBedTop, 1);
 }
 
@@ -111,9 +116,9 @@ function PrivateBedRun() {
 	DrawButton(1890, 20, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
 	if (Player.CanChangeOwnClothes()) DrawButton(1890, 130, 90, 90, "", "White", "Icons/Dress.png", TextGet("Dress"));
 	DrawButton(1890, 240, 90, 90, "", "White", "Icons/Character.png", TextGet("Character"));
-	if (PrivateBedActivityTimer > CommonTime()) {
+	if (Player.PrivateBedActivityTimer > CommonTime()) {
 		DrawText(ActivityDictionaryText("Activity" + PrivateBedActivity), 430, 120, "White", "Black");
-		let Progress = 100 - (PrivateBedActivityTimer - CommonTime()) / 50;
+		let Progress = 100 - (Player.PrivateBedActivityTimer - CommonTime()) / (PrivateBedActivityDelay / 100);
 		DrawProgressBar(20, 180, 820, 80, Progress);
 	} else {
 		for (let A = PrivateBedActivityList.length - 1; A >= 0; A--) {
@@ -139,8 +144,12 @@ function PrivateBedRun() {
 				for (let A = 0; A < AssetGroup.length; A++)
 					if ((AssetGroup[A].Zone != null) && !AssetGroup[A].MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
 						for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
-							if ((AssetGroup[A].Zone[Z][0] >= 100) && (AssetGroup[A].Zone[Z][0] < 400))
-								DrawEmptyRect(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3], (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3])) ? "Cyan" : "#00000040", 3);
+							if ((AssetGroup[A].Zone[Z][0] >= 100) && (AssetGroup[A].Zone[Z][0] < 400)) {
+								let Color = "#FF000040";
+								if (ActivityCanBeDone(C, PrivateBedActivity, AssetGroup[A].Name) && !InventoryGroupIsBlocked(C, AssetGroup[A].Name, true)) Color = "#00FF0040";
+								if (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3])) Color = "Cyan";
+								DrawEmptyRect(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3], Color, 3);
+							}
 		}
 
 }
@@ -154,13 +163,40 @@ function PrivateBedRun() {
  * @returns {void} - Nothing.
  */
 function PrivateBedActivityStart(Source, Target, Group, Activity) {
-	if (Source.IsPlayer()) PrivateBedActivityTimer = CommonTime() + 5000;
+	Source.PrivateBedActivityTimer = CommonTime() + PrivateBedActivityDelay + ((Source.IsPlayer()) ? 0 : Math.round(Math.random() * PrivateBedActivityDelay));
 	ActivityEffect(Source, Target, Activity, Group.Name, 1);
 	if (PrivateBedLog.length >= 10) PrivateBedLog.splice(0, 1);
-	let Text = ActivityDictionaryText(ActivityBuildChatTag(Target, Group, AssetGetActivity(Source.AssetFamily, Activity), false));
+	let Text = ActivityDictionaryText(((Source.ID == Target.ID) ? "ChatSelf" : "ChatOther") + "-" + Group.Name + "-" + Activity);
 	Text = Text.replace("SourceCharacter", CharacterNickname(Source));
 	Text = Text.replace("TargetCharacter", CharacterNickname(Target));
 	PrivateBedLog.push(Text);
+}
+
+/**
+ * Starts a random activity for a source NPC
+ * @param {Character} Source - The source character.
+ * @returns {void} - Nothing.
+ */
+function PrivateBedNPCActivity(Source) {
+
+	// Selects a random target in the room
+	let Target = CommonRandomItemFromList(null, PrivateBedCharacter);
+
+	// Selects a random activity
+	let Activity = "Caress";
+
+	// Selects a random location on the body from available locations
+	let GroupList = [];
+	for (let A = 0; A < AssetGroup.length; A++)
+		if ((AssetGroup[A].Zone != null) && !AssetGroup[A].MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
+			if (ActivityCanBeDone(Target, Activity, AssetGroup[A].Name) && !InventoryGroupIsBlocked(Target, AssetGroup[A].Name, true))
+				GroupList.push(AssetGroup[A]);
+	if (GroupList.length == 0) return;
+	let Group = CommonRandomItemFromList(null, GroupList);
+
+	// Launches the activity
+	PrivateBedActivityStart(Source, Target, Group, Activity);
+
 }
 
 /**
@@ -185,8 +221,8 @@ function PrivateBedClick() {
 	if (MouseIn(1890, 130, 90, 90) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
 	if (MouseIn(1890, 240, 90, 90)) CharacterSetCurrent(Player);
 
-	// Cannot do more than 1 action each 5 seconds
-	if (PrivateBedActivityTimer > CommonTime()) return;
+	// Cannot do more than 1 action each X seconds
+	if (Player.PrivateBedActivityTimer > CommonTime()) return;
 
 	// Activity buttons on the left side
 	for (let A = PrivateBedActivityList.length - 1; A >= 0; A--) {
