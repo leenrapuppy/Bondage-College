@@ -404,6 +404,16 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 0,,(Play with her.),(She pushes you back.)  Hold on girl.  I'm not in the mood for that.,,!AllowRestain(),WontPlay,Dominant|Frigid
 0,,(Play with her.),"(She swiftly pushes you back, almost making you fall.)  Sorry to be so harsh, but I must clearly decline your offer.",,!AllowRestain(),WontPlay,Polite|Violent
 0,,(Play with her.),(She blocks you right away.)  Shit!  Don't be foolish.  I'm the freaking boss in here and I decide.,,!AllowRestain(),WontPlay,Rude|Serious
+0,70,Can I invite you to my bed?,(She smiles.)  That's a wild idea my friend.  (She gets in bed.),EnterBed(),WillJoinBed(),AskBedYes,
+0,70,Can I invite you to my bed?,(She moans.)  Oh yeah!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBed(),AskBedYes,Horny
+0,70,Can I invite you to my bed?,"(She nods.)  Very well, some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBed(),AskBedYes,Frigid
+0,70,Can I invite you to my bed?,(She ponders and nods.)  Some intimate time with you will strenghten our friendship.  (She gets in bed.),EnterBed(),WillJoinBed(),AskBedYes,Serious
+0,70,Can I invite you to my bed?,(She cheers.)  Pillow fight!  (She gets in bed.),EnterBed(),WillJoinBed(),AskBedYes,Playful
+0,,Can I invite you to my bed?,"Sorry, but I'm not in the mood.",,WillNotJoinBed(),AskBedNo,
+0,,Can I invite you to my bed?,(She moans and seems tormented.)  Yes?  No?  Maybe later.  I'm tired.,,WillNotJoinBed(),AskBedNo,Horny
+0,,Can I invite you to my bed?,(She shakes her head no.)  I'm not in the mood for sexual intercourse.,,WillNotJoinBed(),AskBedNo,Frigid
+0,,Can I invite you to my bed?,No.  Can we do something more productive?,,WillNotJoinBed(),AskBedNo,Serious
+0,,Can I invite you to my bed?,(She takes a deep breath.)  I rarely say no to have bedroom fun.  But not now.,,WillNotJoinBed(),AskBedNo,Playful
 0,90,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 0,,(Leave her.),,DialogLeave(),,,
 10,,,What's on your mind?,,,,
@@ -595,6 +605,8 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 42,0,Making love will only be better.,"(She nods slowly.)  It will, sweetie.  What would you like to do now?",,,,
 42,0,I hope we'll never argue.,(She raises an eyebrow.)  Don't talk about that.  What would you like to do now?,NPCInteraction(-3),,,
 42,0,I hope we'll be together forever.,(She smiles at you.)  Let's make it work my love.  What would you like to do now?,NPCInteraction(3),,,
+70,0,(Join her in bed.),What would you like to do now?,JoinInBed(),,,
+70,0,(Check your room first.),What would you like to do now?,DialogLeave(),,,
 90,,(Make her more Dominant.),(She's now a little more Dominant.),"NPCCheat(""TraitDominant"")",,,
 90,,(Make her more submissive.),(She's now a little more submissive.),"NPCCheat(""TraitSubmissive"")",,,
 90,0,(Leave her.),(She seems curious.)  What would you like to do?,DialogLeave(),,,
@@ -728,15 +740,11 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,,"Mistress, can I wear something else now?","Girl, if you complain too much, I'll have to extend the time.  You need to wait.",,"DialogLogQuery(""BlockChange"", ""Rule"")",DomCanChange,Serious
 1000,,"Mistress, can I wear something else now?","Not yet my subbie, you need to wait a little more.",,"DialogLogQuery(""BlockChange"", ""Rule"")",DomCanChange,Playful
 1000,1070,Would you like to use the bed Mistress?,(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,
-1000,1070,Would you like to use the bed Mistress?,(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Horny
-1000,1070,Would you like to use the bed Mistress?,(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Frigid
-1000,1070,Would you like to use the bed Mistress?,(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Serious
-1000,1070,Would you like to use the bed Mistress?,(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Playful
-1000,,Would you like to use the bed Mistress?,"No girl, I'm not in that mood.",,WillNotJoinBed(),DomAskBedNo,
-1000,,Would you like to use the bed Mistress?,"No girl, I'm not in that mood.",,WillNotJoinBed(),DomAskBedNo,Horny
-1000,,Would you like to use the bed Mistress?,"No girl, I'm not in that mood.",,WillNotJoinBed(),DomAskBedNo,Frigid
-1000,,Would you like to use the bed Mistress?,"No girl, I'm not in that mood.",,WillNotJoinBed(),DomAskBedNo,Serious
-1000,,Would you like to use the bed Mistress?,"No girl, I'm not in that mood.",,WillNotJoinBed(),DomAskBedNo,Playful
+1000,1070,Would you like to use the bed Mistress?,(She moans.)  Oh yeah!  Time for some spicy fun my girl.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Horny
+1000,1070,Would you like to use the bed Mistress?,"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBed(),DomAskBedYes,Frigid
+1000,1070,Would you like to use the bed Mistress?,(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Serious
+1000,1070,Would you like to use the bed Mistress?,(She cheers.)  Yes!  But I get the best pillows my girl.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Playful
+1000,,Would you like to use the bed Mistress?,"No girl, I'm not in the mood.",,WillNotJoinBed(),,
 1000,1090,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 1000,,(Leave her.),,DialogLeave(),,,
 1001,,,(She looks angry.)  What do you want now?,,,DomAngry,
@@ -1387,6 +1395,12 @@ PunishOwnerLocks,1001,(Nod and bow your head.),Good girl.  (She locks all your i
 2000,,Stand up.,"Tremendous!  (She stands up slowly.)  I must confess, my legs were starting to hurt.","DialogSetPose(CurrentCharacter, """")",CanStandUp(),SubStandUp,Peaceful|Polite
 2000,,(Point at the floor then upward.),(She nods and stands up.),"DialogSetPose(CurrentCharacter, """")",CanStandUpGagged(),,
 2000,,Stand up.,(She wiggles her restrained legs and shrugs.),,CannotStandUp(),,
+2000,2075,It's time to get to bed my girl.,(She smiles.)  That's a great idea Mistress.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,
+2000,2075,It's time to get to bed my girl.,(She moans.)  Oh yeah Mistress!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,Horny
+2000,2075,It's time to get to bed my girl.,"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBed(),SubAskBedYes,Frigid
+2000,2075,It's time to get to bed my girl.,(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,Serious
+2000,2075,It's time to get to bed my girl.,(She cheers.)  Yes!  And you can have the best pillows Mistress.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,Playful
+2000,,It's time to get to bed my girl.,"No Mistress.  Sorry, but I'm not in the mood.  Please do not punish me.",,WillNotJoinBed(),,
 2000,2100,(Play with her.),"(You move closer, ready to play with her.)",,AllowRestain(),,
 2000,2090,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 2000,,(Leave her.),,DialogLeave(),,,
@@ -1574,6 +1588,8 @@ PunishOwnerLocks,1001,(Nod and bow your head.),Good girl.  (She locks all your i
 2072,2000,Making love will only be better.,"(She nods slowly.)  It will.  I'm yours, body and soul.",,,,
 2072,2000,I hope we'll never argue.,"(She raises an eyebrow.)  Let's not talk about that.  I'm yours, body and soul.",NPCInteraction(-3),,,
 2072,2000,I hope we'll be together forever.,"(She smiles at you.)  Let's make it work.  I'm yours, body and soul.",NPCInteraction(3),,,
+2075,2000,(Join her in bed.),(She seems curious.)  What would you like to do Mistress?,JoinInBed(),,,
+2075,2000,(Check your room first.),(She seems curious.)  What would you like to do Mistress?,DialogLeave(),,,
 2080,2081,Turn the tables?  What do you mean?,"Since I'm more Dominant than you, you should wear my collar and not the reverse.",,,,
 2080,2081,(Stay silent and listen to her.),"Since I'm more Dominant than you, you should wear my collar and not the reverse.",,,,
 2080,2000,We will not turn any tables girl.,(She seems disappointed.)  Alright Mistress.  What's on your mind then?,,,,
