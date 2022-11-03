@@ -2381,6 +2381,29 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // CollarNameTagOval
+		CollarNameTagPet: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarNameTag" },
+			Config: {
+				Options: [
+					{ Name: "Blank", Property: { Type: null } },
+					{ Name: "Bunny", Property: { Type: "Bunny" } },
+					{ Name: "Cat", Property: { Type: "Cat" } },
+					{ Name: "Dog", Property: { Type: "Dog" } },
+					{ Name: "Foxy", Property: { Type: "Foxy" } },
+					{ Name: "Kitten", Property: { Type: "Kitten" } },
+					{ Name: "Kitty", Property: { Type: "Kitty" } },
+					{ Name: "Mochi", Property: { Type: "Mochi" } },
+					{ Name: "Panda", Property: { Type: "Panda" } },
+					{ Name: "Pet", Property: { Type: "Pet" } },
+					{ Name: "PetMe", Property: { Type: "PetMe" } },
+					{ Name: "Pixie", Property: { Type: "Pixie" } },
+					{ Name: "Pony", Property: { Type: "Pony" } },
+					{ Name: "Puppy", Property: { Type: "Puppy" } },
+					{ Name: "Racoon", Property: { Type: "Racoon" } },
+				],
+			},
+		}, // CollarNameTagPet
 	}, // ItemNeckAccessories
 	ItemNeckRestraints: {
 		PetPost: {
