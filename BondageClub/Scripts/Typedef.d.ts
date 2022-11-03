@@ -1554,7 +1554,7 @@ interface ItemPropertiesCustom {
 	OrgasmLock?: number;
 
 	/** The number of inserted beads */
-	InsertedBeads?: number;
+	InsertedBeads?: 1 | 2 | 3 | 4 | 5;
 
 	/** Whether the item displays a chat message or not */
 	ShowText?: boolean;

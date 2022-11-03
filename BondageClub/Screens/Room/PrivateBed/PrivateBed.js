@@ -36,11 +36,16 @@ function PrivateBedLoad() {
 		if ((C.PrivateBed != null) && (C.PrivateBed == true))
 			if (PrivateBedCharacter.length <= 4)
 				PrivateBedCharacter.push(C);
-			
+
 	// Shuffles the position in the bed
 	PrivateBedCharacter.sort( () => Math.random() - 0.5);
+	let Left = 1125;
+	let Space = 0;
+	if (PrivateBedCharacter.length == 2) { Left = 900; Space = 450; }
+	if (PrivateBedCharacter.length == 3) { Left = 820; Space = 305; }
+	if (PrivateBedCharacter.length == 4) { Left = 750; Space = 250; }
 	for (let Pos = 0; Pos < PrivateBedCharacter.length; Pos++) {
-		PrivateBedCharacter[Pos].PrivateBedLeft = 1300 - (PrivateBedCharacter.length * 200) + (Pos * 400);
+		PrivateBedCharacter[Pos].PrivateBedLeft = Left + Pos * Space;
 		PrivateBedCharacter[Pos].PrivateBedTop = 0;
 		if (PrivateBedCharacter[Pos].HeightRatio != null) PrivateBedCharacter[Pos].PrivateBedTop = (1 - PrivateBedCharacter[Pos].HeightRatio) * -1000;
 	}
@@ -65,7 +70,7 @@ function PrivateBedLoad() {
 function PrivateBedDrawCharacter(C) {
 	if (C.PrivateBedMoveTimer == null) C.PrivateBedMoveTimer = 0;
 	if (C.PrivateBedMoveTimer < CommonTime()) {
-		CharacterSetActivePose(C, CommonRandomItemFromList("NONE", ["OverTheHead", "Yoked", null]));
+		CharacterSetActivePose(C, CommonRandomItemFromList("NONE", ["OverTheHead", "Yoked", "BackBoxTie", null, null, null]));
 		CharacterSetActivePose(C, CommonRandomItemFromList("NONE", ["LegsOpen", "LegsClosed"]));
 		C.PrivateBedMoveTimer = CommonTime() + 10000 + Math.round(Math.random() * 20000);
 	}
@@ -103,9 +108,9 @@ function PrivateBedRun() {
 	}
 
 	// Draws all the buttons
-	DrawButton(1885, 25, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
-	if (Player.CanChangeOwnClothes()) DrawButton(1885, 145, 90, 90, "", "White", "Icons/Dress.png", TextGet("Dress"));
-	DrawButton(1885, 265, 90, 90, "", "White", "Icons/Character.png", TextGet("Character"));
+	DrawButton(1890, 20, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
+	if (Player.CanChangeOwnClothes()) DrawButton(1890, 130, 90, 90, "", "White", "Icons/Dress.png", TextGet("Dress"));
+	DrawButton(1890, 240, 90, 90, "", "White", "Icons/Character.png", TextGet("Character"));
 	if (PrivateBedActivityTimer > CommonTime()) {
 		DrawText(ActivityDictionaryText("Activity" + PrivateBedActivity), 430, 120, "White", "Black");
 		let Progress = 100 - (PrivateBedActivityTimer - CommonTime()) / 50;
@@ -176,9 +181,9 @@ function PrivateBedClick() {
 	}
 
 	// Bedroom buttons on the right side
-	if (MouseIn(1885, 25, 90, 90)) PrivateBedExit();
-	if (MouseIn(1885, 145, 90, 90) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
-	if (MouseIn(1885, 265, 90, 90)) CharacterSetCurrent(Player);
+	if (MouseIn(1890, 20, 90, 90)) PrivateBedExit();
+	if (MouseIn(1890, 130, 90, 90) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
+	if (MouseIn(1890, 240, 90, 90)) CharacterSetCurrent(Player);
 
 	// Cannot do more than 1 action each 5 seconds
 	if (PrivateBedActivityTimer > CommonTime()) return;
@@ -212,14 +217,14 @@ function PrivateBedClick() {
 }
 
 /**
- * When the player exits the private bedroom.
+ * When the player exits the private bedroom.  The next sex scene will wait from 5 to 20 depending on luck and the frigid/honry trait.
  * @returns {void} - Nothing.
  */
 function PrivateBedExit(Type) {
 	for (let C of PrivateBedCharacter) {
 		CharacterSetActivePose(C, null);
 		CharacterSetActivePose(C, "LegsOpen");
-		C.PrivateBed = false;
+		if (C.IsNpc()) NPCEventAdd(C, "NextBed", CurrentTime + 300000 + Math.round(Math.random() * 300000) + NPCTraitGet(C, "Frigid") * 3000);
 	}
 	CommonSetScreen("Room", "Private");
 }
