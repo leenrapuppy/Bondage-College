@@ -2404,6 +2404,19 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // CollarNameTagPet
+		CollarNameTagLover: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarNameTag" },
+			Config: {
+				Options: [
+					{ Name: "Blank", Property: { Type: null } },
+					{ Name: "Cookie", Property: { Type: "Cookie" } },
+					{ Name: "Feather", Property: { Type: "Feather" } },
+					{ Name: "Lover", Property: { Type: "Lover" } },
+					{ Name: "Muffin", Property: { Type: "Muffin" } },
+				],
+			},
+		}, // CollarNameTagLover
 	}, // ItemNeckAccessories
 	ItemNeckRestraints: {
 		PetPost: {
