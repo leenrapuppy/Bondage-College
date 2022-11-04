@@ -201,20 +201,21 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
  * @param {ExtendedItemOption} CurrentOption - The currently selected option for the item
  * @param {boolean} Hover - TRUE if the mouse cursor is on the button
  * @param {boolean} IsSelected - TRUE if the item's current type matches Option
+ * @param {Item} Item - The item in question; defaults to {@link DialogFocusItem}
  * @returns {string} The name or hex code of the color
  */
-function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected) {
+function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected, Item=DialogFocusItem) {
 	const IsSelfBondage = C.ID === 0;
 	let ButtonColor;
 	if (ExtendedItemPermissionMode) {
 		const PlayerBlocked = InventoryIsPermissionBlocked(
-			Player, DialogFocusItem.Asset.DynamicName(Player), DialogFocusItem.Asset.Group.Name,
-			Option.Property.Type,
+			Player, Item.Asset.DynamicName(Player), Item.Asset.Group.Name, Option.Property.Type,
 		);
 		const PlayerLimited = InventoryIsPermissionLimited(
-			Player, DialogFocusItem.Asset.Name, DialogFocusItem.Asset.Group.Name, Option.Property.Type);
+			Player, Item.Asset.Name, Item.Asset.Group.Name, Option.Property.Type
+		);
 
-		if ((IsSelfBondage && IsSelected) || Option.Property.Type == null) {
+		if (IsSelfBondage && IsSelected) {
 			ButtonColor = "#888888";
 		} else if (PlayerBlocked) {
 			ButtonColor = Hover ? "red" : "pink";
@@ -224,7 +225,7 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected)
 			ButtonColor = Hover ? "green" : "lime";
 		}
 	} else {
-		const BlockedOrLimited = InventoryBlockedOrLimited(C, DialogFocusItem, Option.Property.Type);
+		const BlockedOrLimited = InventoryBlockedOrLimited(C, Item, Option.Property.Type);
 		const FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Option, CurrentOption);
 
 		if (IsSelected && !Option.HasSubscreen) {
