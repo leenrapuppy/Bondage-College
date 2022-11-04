@@ -4,7 +4,7 @@ var PrivateBedCharacter = [];
 var PrivateBedActivity = "Caress";
 var PrivateBedActivityList = [];
 var PrivateBedLog = [];
-var PrivateBedActivityTimer = 0;
+var PrivateBedActivityDelay = 4000;
 
 /**
  * Returns the number of girls in the private bedroom.
@@ -37,6 +37,10 @@ function PrivateBedLoad() {
 			if (PrivateBedCharacter.length <= 4)
 				PrivateBedCharacter.push(C);
 
+	// Resets the activity timer
+	for (let C of PrivateCharacter)
+		C.PrivateBedActivityTimer = CommonTime() + ((C.IsPlayer()) ? 0 : PrivateBedActivityDelay + Math.round(Math.random() * PrivateBedActivityDelay));
+
 	// Shuffles the position in the bed
 	PrivateBedCharacter.sort( () => Math.random() - 0.5);
 	let Left = 1125;
@@ -49,16 +53,6 @@ function PrivateBedLoad() {
 		PrivateBedCharacter[Pos].PrivateBedTop = 0;
 		if (PrivateBedCharacter[Pos].HeightRatio != null) PrivateBedCharacter[Pos].PrivateBedTop = (1 - PrivateBedCharacter[Pos].HeightRatio) * -1000;
 	}
-
-	// Prepares the list of all activities for the player
-	PrivateBedActivityList = [];
-	for (let A of ActivityFemale3DCG)
-		if ((A.Name != null) && !A.Name.includes("Item") && !A.Name.includes("Inject") && (A.MaxProgress != null) && (A.MaxProgress > 0))
-			if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseTongue") || !Player.IsGagged())
-				if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseMouth") || !Player.IsGagged())
-					if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
-						if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
-							PrivateBedActivityList.push(A.Name);
 
 }
 
@@ -74,6 +68,7 @@ function PrivateBedDrawCharacter(C) {
 		CharacterSetActivePose(C, CommonRandomItemFromList("NONE", ["LegsOpen", "LegsClosed"]));
 		C.PrivateBedMoveTimer = CommonTime() + 10000 + Math.round(Math.random() * 20000);
 	}
+	if (C.IsNpc() && (C.PrivateBedActivityTimer < CommonTime())) PrivateBedNPCActivity(C);
 	DrawCharacter(C, C.PrivateBedLeft, C.PrivateBedTop, 1);
 }
 
@@ -111,11 +106,23 @@ function PrivateBedRun() {
 	DrawButton(1890, 20, 90, 90, "", "White", "Icons/Exit.png", TextGet("Exit"));
 	if (Player.CanChangeOwnClothes()) DrawButton(1890, 130, 90, 90, "", "White", "Icons/Dress.png", TextGet("Dress"));
 	DrawButton(1890, 240, 90, 90, "", "White", "Icons/Character.png", TextGet("Character"));
-	if (PrivateBedActivityTimer > CommonTime()) {
+	if (Player.PrivateBedActivityTimer > CommonTime()) {
 		DrawText(ActivityDictionaryText("Activity" + PrivateBedActivity), 430, 120, "White", "Black");
-		let Progress = 100 - (PrivateBedActivityTimer - CommonTime()) / 50;
+		let Progress = 100 - (Player.PrivateBedActivityTimer - CommonTime()) / (PrivateBedActivityDelay / 100);
 		DrawProgressBar(20, 180, 820, 80, Progress);
 	} else {
+
+		// Prepares the list of all activities for the player
+		PrivateBedActivityList = [];
+		for (let A of ActivityFemale3DCG)
+			if ((A.Name != null) && !A.Name.includes("Item") && !A.Name.includes("Inject") && (A.MaxProgress != null) && (A.MaxProgress > 0))
+				if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseTongue") || !Player.IsGagged())
+					if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseMouth") || !Player.IsGagged())
+						if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
+							if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
+								PrivateBedActivityList.push(A.Name);
+
+		// For each possible activities
 		for (let A = PrivateBedActivityList.length - 1; A >= 0; A--) {
 			let X = 20 + ((A % 9) * 91);
 			let Y = 20 + Math.floor(A / 9) * 91;
@@ -124,6 +131,7 @@ function PrivateBedRun() {
 			DrawImageResize("Assets/Female3DCG/Activity/" + PrivateBedActivityList[A] + ".png", X + 2, Y + 2, 87, 87);
 			if (MouseIn(X, Y, 90, 90)) DrawButtonHover(X, Y, 90, 90, ActivityDictionaryText("Activity" + PrivateBedActivityList[A]));
 		}
+
 	}
 	DrawRect(20, 400, 820, 580, "#000000B0");
 	DrawEmptyRect(20, 400, 820, 580, "#FFFFFF", 2);
@@ -135,12 +143,18 @@ function PrivateBedRun() {
 		for (let C of PrivateBedCharacter) {
 			if ((MouseX >= C.PrivateBedLeft + 60) && (MouseX <= C.PrivateBedLeft + 140) && (MouseY >= C.PrivateBedTop + 400) && (MouseY <= C.PrivateBedTop + 500) && !C.ArousalZoom) { DrawEmptyRect(C.PrivateBedLeft + 60, C.PrivateBedTop + 400, 80, 100, "Cyan", 3); break; }
 			if ((MouseX >= C.PrivateBedLeft + 50) && (MouseX <= C.PrivateBedLeft + 150) && (MouseY >= C.PrivateBedTop + 615) && (MouseY <= C.PrivateBedTop + 715) && C.ArousalZoom) { DrawEmptyRect(C.PrivateBedLeft + 50, C.PrivateBedTop + 615, 100, 100, "Cyan", 3); break; }
-			if (MouseIn(C.PrivateBedLeft + 100, C.PrivateBedTop, 300, C.HeightRatio * 1000))
+			if (MouseIn(C.PrivateBedLeft + 100, C.PrivateBedTop, 300, C.HeightRatio * 1000)) {
 				for (let A = 0; A < AssetGroup.length; A++)
 					if ((AssetGroup[A].Zone != null) && !AssetGroup[A].MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
 						for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
-							if ((AssetGroup[A].Zone[Z][0] >= 100) && (AssetGroup[A].Zone[Z][0] < 400))
-								DrawEmptyRect(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3], (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3])) ? "Cyan" : "#00000040", 3);
+							if ((AssetGroup[A].Zone[Z][0] >= 100) && (AssetGroup[A].Zone[Z][0] < 400)) {
+								let Color = "#FF000040";
+								if (ActivityCanBeDone(C, PrivateBedActivity, AssetGroup[A].Name) && !InventoryGroupIsBlocked(C, AssetGroup[A].Name, true)) Color = "#00FF0040";
+								if (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3])) Color = "Cyan";
+								DrawEmptyRect(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3], Color, 3);
+							}
+				break;
+			}
 		}
 
 }
@@ -154,13 +168,92 @@ function PrivateBedRun() {
  * @returns {void} - Nothing.
  */
 function PrivateBedActivityStart(Source, Target, Group, Activity) {
-	if (Source.IsPlayer()) PrivateBedActivityTimer = CommonTime() + 5000;
+
+	// If there's no text linked to it, the activity is rejected
+	let Text = ActivityDictionaryText(((Source.ID == Target.ID) ? "ChatSelf" : "ChatOther") + "-" + Group.Name + "-" + Activity);
+	if (Text.startsWith("MISSING ACTIVITY DESCRIPTION FOR")) return;
+
+	// Sets the next timer and effect
+	Source.PrivateBedActivityTimer = CommonTime() + PrivateBedActivityDelay + ((Source.IsPlayer()) ? 0 : Math.round(Math.random() * PrivateBedActivityDelay));
 	ActivityEffect(Source, Target, Activity, Group.Name, 1);
+
+	// Publishes in the log
 	if (PrivateBedLog.length >= 10) PrivateBedLog.splice(0, 1);
-	let Text = ActivityDictionaryText(ActivityBuildChatTag(Target, Group, AssetGetActivity(Source.AssetFamily, Activity), false));
 	Text = Text.replace("SourceCharacter", CharacterNickname(Source));
 	Text = Text.replace("TargetCharacter", CharacterNickname(Target));
 	PrivateBedLog.push(Text);
+
+	// If the player uses that activity on an NPC, it can raise the love between them
+	if (Source.IsPlayer() && Target.IsNpc() && (Target.Love <= Math.random() * 100))
+		if ((Target.Love < 60) || (Target.IsOwner()) || (Target.IsOwnedByPlayer()) || Target.IsLoverPrivate())
+			NPCLoveChange(Target, 1);
+
+}
+
+/**
+ * Starts a random activity for a source NPC
+ * @param {Character} Source - The source character.
+ * @returns {void} - Nothing.
+ */
+function PrivateBedNPCActivity(Source) {
+
+	// Selects a random target in the room
+	let Target = CommonRandomItemFromList(null, PrivateBedCharacter);
+
+	// Selects a random activity (high max progress activities like masturbation will occur more often when arousal progress is high)
+	let ActivityList = [];
+	let MinMaxProgress = ((Target.ArousalSettings != null) && (Target.ArousalSettings.Progress != null) && (Target.ArousalSettings.Progress >= Math.random() * 120)) ? Target.ArousalSettings.Progress : 0;
+	for (let A of ActivityFemale3DCG)
+		if ((A.MaxProgress != null) && (A.MaxProgress >= MinMaxProgress) && !A.Name.includes("Item") && !A.Name.includes("Inject")) {
+			if ((A.Name.includes("Gag")) && !Source.IsGagged()) continue; // No gagged activities if ungagged
+			if ((A.Name == "MasturbateFist") && (NPCTraitGet(Source, "Violent") <= 50)) continue; // Only violent NPCs will fist
+			if ((A.Name == "MasturbateFist") && (NPCTraitGet(Source, "Horny") <= 0)) continue; // Only horny NPCs will fist
+			if ((A.Name == "MoanGagGiggle") && (NPCTraitGet(Source, "Playful") <= 0)) continue; // Only playful NPCs will giggle
+			if ((A.Name == "MoanGagWhimper") && (NPCTraitGet(Source, "Submissive") <= 0)) continue; // Only submissive NPCs will whimper
+			if ((A.Name == "MoanGagGroan") && (NPCTraitGet(Source, "Peaceful") <= 0)) continue; // Only peaceful NPCs will groan
+			if ((A.Name == "MoanGagAngry") && (NPCTraitGet(Source, "Dominant") <= 0)) continue; // Only dominant NPCs will get angry
+			if ((A.Name == "Nibble") && (NPCTraitGet(Source, "Submissive") <= 0)) continue; // Only submissive NPCs will nibble
+			if ((A.Name == "GagKiss") && (Source.Love < 25)) continue; // Gag kisses will only happen if love is positive
+			if ((A.Name == "Kiss") && (Source.Love < 25)) continue; // Gag kisses will only happen if love is positive
+			if ((A.Name == "Suck") && (Source.Love < 50)) continue; // Sucks will only happen if love is positive
+			if ((A.Name == "FrenchKiss") && (Source.Love < 75)) continue; // French kisses will only happen if love is positive
+			if ((A.Name == "FrenchKiss") && !Source.IsLover(Target)) continue; // French kisses will only happen if source and target are lovers
+			if ((A.Name == "PoliteKiss") && (Source.Love < 0)) continue; // Polite kisses will only happen if love is positive
+			if ((A.Name == "PoliteKiss") && (NPCTraitGet(Source, "Polite") <= 0)) continue; // Only polite NPCs will do polite kisses
+			if ((A.Name == "Lick") && (NPCTraitGet(Source, "Horny") <= 0)) continue; // Only horny NPCs will lick
+			if ((A.Name == "Bite") && (NPCTraitGet(Source, "Violent") <= 0)) continue; // Only violent NPCs will bite
+			if ((A.Name == "TakeCare") && (NPCTraitGet(Source, "Wise") <= 0)) continue; // Only wise NPCs will take care
+			if ((A.Name == "Pet") && (NPCTraitGet(Source, "Peaceful") <= 0)) continue; // Only peaceful NPCs will groan
+			if ((A.Name == "Tickle") && (NPCTraitGet(Source, "Playful") <= 0)) continue; // Only playful NPCs will tickle
+			if ((A.Name == "Pinch") && (NPCTraitGet(Source, "Violent") <= 0)) continue; // Only violent NPCs will pinch
+			if ((A.Name == "Spank") && (NPCTraitGet(Source, "Violent") < 20)) continue; // Only violent NPCs will spank
+			if ((A.Name == "Pull") && (NPCTraitGet(Source, "Violent") < 40)) continue; // Only violent NPCs will pull
+			if ((A.Name == "Slap") && (NPCTraitGet(Source, "Violent") < 60)) continue; // Only violent NPCs will slap
+			if ((A.Name == "Choke") && (NPCTraitGet(Source, "Violent") < 80)) continue; // Only violent NPCs will chore
+			if ((A.Name == "Step") && (NPCTraitGet(Source, "Dominant") <= 0)) continue; // Only dominant NPCs will step
+			if ((A.Name == "Step") && !Source.IsOwned()) continue; // Only unowned NPCs will step
+			if ((A.Name == "Sit") && (NPCTraitGet(Source, "Dominant") <= 0)) continue; // Only dominant NPCs will sit
+			if ((A.Name == "Sit") && !Source.IsOwned()) continue; // Only unowned NPCs will sit
+			if ((A.Name == "StruggleArms") && (NPCTraitGet(Source, "Submissive") <= 0)) continue; // Only submissive NPCs will struggle
+			if ((A.Name == "StruggleLegs") && (NPCTraitGet(Source, "Submissive") <= 0)) continue; // Only submissive NPCs will struggle
+			if ((A.Name == "Nod") && (NPCTraitGet(Source, "Dump") <= 0)) continue; // Only dumb NPCs will nod
+			if ((A.Name == "Wiggle") && (NPCTraitGet(Source, "Playful") <= 0)) continue; // Only playful NPCs will wiggle
+			ActivityList.push(A.Name);
+		}
+	let Activity = CommonRandomItemFromList(null, ActivityList);
+
+	// Selects a random location on the body from available locations
+	let GroupList = [];
+	for (let A = 0; A < AssetGroup.length; A++)
+		if ((AssetGroup[A].Zone != null) && (AssetGroup[A].Name != "ItemNose") && !AssetGroup[A].MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
+			if (ActivityCanBeDone(Target, Activity, AssetGroup[A].Name) && !InventoryGroupIsBlocked(Target, AssetGroup[A].Name, true))
+				GroupList.push(AssetGroup[A]);
+	if (GroupList.length == 0) return;
+	let Group = CommonRandomItemFromList(null, GroupList);
+
+	// Launches the activity
+	PrivateBedActivityStart(Source, Target, Group, Activity);
+
 }
 
 /**
@@ -185,8 +278,8 @@ function PrivateBedClick() {
 	if (MouseIn(1890, 130, 90, 90) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
 	if (MouseIn(1890, 240, 90, 90)) CharacterSetCurrent(Player);
 
-	// Cannot do more than 1 action each 5 seconds
-	if (PrivateBedActivityTimer > CommonTime()) return;
+	// Cannot do more than 1 action each X seconds
+	if (Player.PrivateBedActivityTimer > CommonTime()) return;
 
 	// Activity buttons on the left side
 	for (let A = PrivateBedActivityList.length - 1; A >= 0; A--) {
@@ -240,4 +333,5 @@ function PrivateBedOrgasm(C) {
 	let Text = ActivityDictionaryText("Orgasm" + Math.floor(Math.random() * 10));
 	Text = Text.replace("SourceCharacter", CharacterNickname(C));
 	PrivateBedLog.push(Text);
+	if (C.IsNpc()) C.PrivateBedActivityTimer = CommonTime() + 15000 + Math.round(Math.random() * 15000);
 }
