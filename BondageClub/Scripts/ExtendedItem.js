@@ -180,16 +180,7 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 		DrawButton(X, Y, 225, 55 + ImageHeight, "", ButtonColor, null, null, IsSelected);
 		if (ShowImages) {
 			DrawImage(`${AssetGetInventoryPath(Asset)}/${Option.Name}.png`, X + 2, Y);
-			/** @type {InventoryIcon[]} */
-			const icons = [];
-			if (!C.IsPlayer() && InventoryIsAllowedLimited(C, DialogFocusItem, OptionType)) {
-				icons.push("AllowedLimited");
-			}
-			const FavoriteDetails = DialogGetFavoriteStateDetails(C, Asset, OptionType);
-			if (FavoriteDetails && FavoriteDetails.Icon) {
-				icons.push(FavoriteDetails.Icon);
-			}
-			DrawPreviewIcons(icons, X + 2, Y);
+			DrawPreviewIcons(ExtendItemGetIcons(C, Asset, OptionType), X + 2, Y);
 		}
 		DrawTextFit((IsFavorite && !ShowImages ? "★ " : "") + DialogFindPlayer(DialogPrefix + Option.Name), X + 112, Y + 30 + ImageHeight, 225, "black");
 		if (ControllerActive == true) {
@@ -551,4 +542,27 @@ function ExtendedItemMapChatTagToDictionaryEntry(C, asset, tag) {
 		default:
 			return null;
 	}
+}
+
+/**
+ * Construct an array of inventory icons for a given asset and type
+ * @param {Character} C - The target character
+ * @param {Asset} Asset - The asset for the typed item
+ * @param {string | null} Type - The type of the asse
+ * @returns {InventoryIcon[]} - The inventory icons
+ */
+function ExtendItemGetIcons(C, Asset, Type=null) {
+	const IsBlocked = InventoryIsPermissionBlocked(C, Asset.Name, Asset.Group.Name, Type);
+	const IsLimited = InventoryIsPermissionLimited(C, Asset.Name, Asset.Group.Name, Type);
+
+	/** @type {InventoryIcon[]} */
+	const icons = [];
+	if (!C.IsPlayer() && !IsBlocked && IsLimited) {
+		icons.push("AllowedLimited");
+	}
+	const FavoriteDetails = DialogGetFavoriteStateDetails(C, Asset, Type);
+	if (FavoriteDetails && FavoriteDetails.Icon) {
+		icons.push(FavoriteDetails.Icon);
+	}
+	return icons;
 }
