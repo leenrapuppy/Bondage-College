@@ -92,6 +92,7 @@ function PrivateBedRun() {
 	// Draws the bed & characters
 	if (LogQuery("BedBlack", "PrivateRoom")) DrawImage("Screens/Room/PrivateBed/Black.png", 0, 0);
 	if (LogQuery("BedWhite", "PrivateRoom")) DrawImage("Screens/Room/PrivateBed/White.png", 0, 0);
+	if (LogQuery("BedPink", "PrivateRoom")) DrawImage("Screens/Room/PrivateBed/Pink.png", 0, 0);
 	for (let C of PrivateBedCharacter)
 		PrivateBedDrawCharacter(C);
 
@@ -327,7 +328,6 @@ function PrivateBedClick() {
 function PrivateBedExit(Type) {
 	for (let C of PrivateBedCharacter) {
 		CharacterSetActivePose(C, null);
-		CharacterSetActivePose(C, "LegsOpen");
 		if (C.IsNpc()) {
 			NPCEventAdd(C, "NextBed", CurrentTime + 300000 + Math.round(Math.random() * 300000) + NPCTraitGet(C, "Frigid") * 3000);
 			CharacterAppearanceRestore(C, C.PrivateBedAppearance);
