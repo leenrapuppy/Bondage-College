@@ -773,6 +773,12 @@ Harem Gloves
 Гаремные перчатки
 Biker Gloves
 Байкерские перчатки
+Left Hand
+Левая рука
+Right Hand
+Правая рука
+Rings
+Кольца
 Bracelet
 Браслет на руку
 Bow Band
@@ -962,7 +968,7 @@ Default
 Back Hair
 Волосы сзади
 None
-нет
+Нет
 Front Hair
 передние волосы
 Style 1b
