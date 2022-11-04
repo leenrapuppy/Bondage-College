@@ -1578,6 +1578,10 @@ interface ItemPropertiesCustom {
 
 	/** Allows reverting back to these properties on exiting an extended menu */
 	Revert?: boolean;
+
+	/** Door and padding options for the kennel */
+	Door?: boolean;
+	Padding?: boolean;
 }
 
 interface ItemProperties extends ItemPropertiesBase, ItemPropertiesCustom { }

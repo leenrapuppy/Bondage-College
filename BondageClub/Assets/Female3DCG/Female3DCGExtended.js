@@ -3607,6 +3607,28 @@ var AssetFemale3DCGExtended = {
 		FuckMachine: {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // FuckMachine
+		Kennel: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Door", Key: "d",
+						Options: [
+							{ Property: { Difficulty: -100, Door: false } },
+							{ Property: { Difficulty: 10, Effect: ["OneWayEnclose", "Prone", "Freeze"], Door: true } },
+						],
+					},
+					{
+						Name: "Padding", Key: "p",
+						Options: [
+							{ Property: { Padding: false } },
+							{ Property: { Padding: true } },
+						],
+					},
+				],
+				ChangeWhenLocked: false,
+			},
+		}, // Kennel
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {

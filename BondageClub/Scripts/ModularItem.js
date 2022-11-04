@@ -507,6 +507,8 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
 		if (typeof Property.HeightModifier === "number") mergedProperty.HeightModifier = (mergedProperty.HeightModifier || 0) + Property.HeightModifier;
 		if (Property.OverrideHeight) mergedProperty.OverrideHeight = ModularItemMergeOverrideHeight(mergedProperty.OverrideHeight, Property.OverrideHeight);
 		if (asset.AllowTint && Property.Tint) mergedProperty.Tint = CommonArrayConcatDedupe(mergedProperty.Tint, Property.Tint);
+		if (typeof Property.Door === "boolean") mergedProperty.Door = Property.Door;
+		if (typeof Property.Padding === "boolean") mergedProperty.Padding = Property.Padding;
 		return mergedProperty;
 	}, /** @type ItemProperties */({
 		Type: ModularItemConstructType(modules, moduleValues),

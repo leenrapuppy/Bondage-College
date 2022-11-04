@@ -6916,12 +6916,10 @@ var AssetFemale3DCG = [
 				Prerequisite: ["NotLifted", "NotSuspended", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "CanKneel"],
 				SetPose: ["Kneel"],
 				Block: ["ItemAddon"],
-				AllowType: ["OpenPadding", "ClosedNoPadding", "ClosedPadding"],
-				AllowEffect: ["OneWayEnclose", "Prone", "Freeze"],
 				Effect: ["ForceKneel", "Tethered"],
 				Layer: [
 					{ Name: "Kennel", Priority: 1, HasType: false },
-					{ Name: "Padding", Priority: 1, AllowTypes: ["OpenPadding", "ClosedPadding"], HasType: false },
+					{ Name: "Padding", Priority: 1, AllowTypes: ["d0p1", "d1p1"], HasType: false },
 					{
 						Name: "Frame", HasType: false, Priority: 58,
 						Alpha: [{
