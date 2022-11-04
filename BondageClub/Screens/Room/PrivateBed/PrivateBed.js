@@ -54,16 +54,6 @@ function PrivateBedLoad() {
 		if (PrivateBedCharacter[Pos].HeightRatio != null) PrivateBedCharacter[Pos].PrivateBedTop = (1 - PrivateBedCharacter[Pos].HeightRatio) * -1000;
 	}
 
-	// Prepares the list of all activities for the player
-	PrivateBedActivityList = [];
-	for (let A of ActivityFemale3DCG)
-		if ((A.Name != null) && !A.Name.includes("Item") && !A.Name.includes("Inject") && (A.MaxProgress != null) && (A.MaxProgress > 0))
-			if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseTongue") || !Player.IsGagged())
-				if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseMouth") || !Player.IsGagged())
-					if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
-						if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
-							PrivateBedActivityList.push(A.Name);
-
 }
 
 /**
@@ -121,6 +111,18 @@ function PrivateBedRun() {
 		let Progress = 100 - (Player.PrivateBedActivityTimer - CommonTime()) / (PrivateBedActivityDelay / 100);
 		DrawProgressBar(20, 180, 820, 80, Progress);
 	} else {
+
+		// Prepares the list of all activities for the player
+		PrivateBedActivityList = [];
+		for (let A of ActivityFemale3DCG)
+			if ((A.Name != null) && !A.Name.includes("Item") && !A.Name.includes("Inject") && (A.MaxProgress != null) && (A.MaxProgress > 0))
+				if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseTongue") || !Player.IsGagged())
+					if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseMouth") || !Player.IsGagged())
+						if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
+							if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
+								PrivateBedActivityList.push(A.Name);
+
+		// For each possible activities
 		for (let A = PrivateBedActivityList.length - 1; A >= 0; A--) {
 			let X = 20 + ((A % 9) * 91);
 			let Y = 20 + Math.floor(A / 9) * 91;
@@ -129,6 +131,7 @@ function PrivateBedRun() {
 			DrawImageResize("Assets/Female3DCG/Activity/" + PrivateBedActivityList[A] + ".png", X + 2, Y + 2, 87, 87);
 			if (MouseIn(X, Y, 90, 90)) DrawButtonHover(X, Y, 90, 90, ActivityDictionaryText("Activity" + PrivateBedActivityList[A]));
 		}
+
 	}
 	DrawRect(20, 400, 820, 580, "#000000B0");
 	DrawEmptyRect(20, 400, 820, 580, "#FFFFFF", 2);
