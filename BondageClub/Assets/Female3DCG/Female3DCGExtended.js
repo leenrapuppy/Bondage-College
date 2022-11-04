@@ -2200,6 +2200,35 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // WoodenCuffs
+		FullLatexSuit: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Latex",
+						Property: {
+							Type: null,
+							Block: [
+								"ItemBreast",
+								"ItemNipples",
+								"ItemNipplesPiercings",
+								"ItemVulva",
+								"ItemVulvaPiercings",
+								"ItemButt",
+							],
+						},
+					},
+					{
+						Name: "UnZip",
+						Property: { Type: "UnZip" },
+					},
+				],
+				ScriptHooks: {
+					Draw: InventoryItemArmsFullLatexSuitDraw,
+					Click: InventoryItemArmsFullLatexSuitClick,
+				},
+			},
+		}, // FullLatexSuit
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {

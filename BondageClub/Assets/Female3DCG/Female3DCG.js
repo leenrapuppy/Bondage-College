@@ -3723,14 +3723,12 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "FullLatexSuit", Fetish: ["Leather", "Latex"], Value: 200, Difficulty: 15, SelfBondage: 8, Time: 40, RemoveTime: 30, Random: false, AllowLock: true, DefaultColor: "#888888", Prerequisite: ["NotSuspended", "NotKneeling", "NotHogtied", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "NotShackled", "CannotBeSuited"],
+				Name: "FullLatexSuit", Fetish: ["Leather", "Latex"], Value: 200, Difficulty: 15, SelfBondage: 8, Time: 40, RemoveTime: 30, Random: false, AllowLock: true, DefaultColor: "#888888",
+				Prerequisite: ["NotSuspended", "NotKneeling", "NotHogtied", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "NotShackled", "CannotBeSuited"],
 				Hide: ["Socks", "Cloth", "ClothLower", "Bra", "Shoes", "ItemBoots", "ItemLegs", "ItemFeet", "Suit", "SuitLower", "Corset", "Panties", "Garters"],
 				HideItem: ["ItemNipplesLactationPump"],
 				SetPose: ["BackElbowTouch", "LegsClosed"],
 				Effect: ["Block", "Prone", "Freeze", "BlockKneel", "Slow"],
-				AllowBlock: ["ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-				AllowEffect: ["Egged", "Vibrating"],
-				AllowType: ["", "UnZip"],
 				Block: ["ItemBoots", "ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemLegs", "ItemFeet"],
 				Extended: true,
 				Layer: [
