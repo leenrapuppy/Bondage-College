@@ -4183,7 +4183,7 @@ var AssetFemale3DCG = [
 				Extended: true, 
 				AlwaysInteract: true,
 				ParentGroup: null,
-
+				DefaultColor: ["#323232", "#565656", "#323232", "#252525", "#252525"],
 				Layer: [
 					// Binder
 					{ Name: "BinderLeft", AllowModuleTypes: ["b0"], HasType: false, },
