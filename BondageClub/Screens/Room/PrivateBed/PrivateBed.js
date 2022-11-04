@@ -38,7 +38,7 @@ function PrivateBedLoad() {
 				PrivateBedCharacter.push(C);
 
 	// Resets the activity timer
-	for (let C of PrivateCharacter)
+	for (let C of PrivateBedCharacter)
 		C.PrivateBedActivityTimer = CommonTime() + ((C.IsPlayer()) ? 0 : PrivateBedActivityDelay + Math.round(Math.random() * PrivateBedActivityDelay));
 
 	// Shuffles the position in the bed
@@ -53,6 +53,17 @@ function PrivateBedLoad() {
 		PrivateBedCharacter[Pos].PrivateBedTop = 0;
 		if (PrivateBedCharacter[Pos].HeightRatio != null) PrivateBedCharacter[Pos].PrivateBedTop = (1 - PrivateBedCharacter[Pos].HeightRatio) * -1000;
 	}
+
+	// Strips the NPC or put her in lingerie with random odds
+	for (let C of PrivateBedCharacter)
+		if (C.IsNpc()) {
+			C.PrivateBedAppearance = CharacterAppearanceStringify(C);
+			if (C.CanInteract()) {
+				CharacterNaked(C);
+				if (Math.random() > 0.5) InventoryWear(C, CommonRandomItemFromList(null,  ["Bandeau1", "BondageBra1", "HarnessBra1", "CorsetBikini1", "CuteBikini1", "SexyBikini1", "FishnetBikini1", "FrameBra1", "FrameBra2", "FullLatexBra", "HeartTop", "LatexBra1", "LeatherBreastBinder", "LeatherStrapBra1", "HarnessBra2", "SexyBikini2", "SexyBikiniBra1", "OuvertPerl1", "Ribbons", "Bustier1", "SexyBeachBra1", "StarHarnessBra", "Bra10"]), "Bra", "Default");
+				if (Math.random() > 0.7) InventoryWear(C, CommonRandomItemFromList(null,  ["Stockings1", "Stockings2", "Pantyhose2", "Stockings4", "Socks6", "LatexSocks1", "Pantyhose1"]), "Socks", "Default");
+			}
+		}
 
 }
 
@@ -223,9 +234,9 @@ function PrivateBedNPCActivity(Source) {
 			if ((A.Name == "Lick") && (NPCTraitGet(Source, "Horny") <= 0)) continue; // Only horny NPCs will lick
 			if ((A.Name == "Bite") && (NPCTraitGet(Source, "Violent") <= 0)) continue; // Only violent NPCs will bite
 			if ((A.Name == "TakeCare") && (NPCTraitGet(Source, "Wise") <= 0)) continue; // Only wise NPCs will take care
-			if ((A.Name == "Pet") && (NPCTraitGet(Source, "Peaceful") <= 0)) continue; // Only peaceful NPCs will groan
-			if ((A.Name == "Tickle") && (NPCTraitGet(Source, "Playful") <= 0)) continue; // Only playful NPCs will tickle
-			if ((A.Name == "Pinch") && (NPCTraitGet(Source, "Violent") <= 0)) continue; // Only violent NPCs will pinch
+			if ((A.Name == "Pet") && (NPCTraitGet(Source, "Peaceful") < 0)) continue; // Only peaceful NPCs will groan
+			if ((A.Name == "Tickle") && (NPCTraitGet(Source, "Playful") < 0)) continue; // Only playful NPCs will tickle
+			if ((A.Name == "Pinch") && (NPCTraitGet(Source, "Violent") < 0)) continue; // Only violent NPCs will pinch
 			if ((A.Name == "Spank") && (NPCTraitGet(Source, "Violent") < 20)) continue; // Only violent NPCs will spank
 			if ((A.Name == "Pull") && (NPCTraitGet(Source, "Violent") < 40)) continue; // Only violent NPCs will pull
 			if ((A.Name == "Slap") && (NPCTraitGet(Source, "Violent") < 60)) continue; // Only violent NPCs will slap
@@ -234,10 +245,10 @@ function PrivateBedNPCActivity(Source) {
 			if ((A.Name == "Step") && !Source.IsOwned()) continue; // Only unowned NPCs will step
 			if ((A.Name == "Sit") && (NPCTraitGet(Source, "Dominant") <= 0)) continue; // Only dominant NPCs will sit
 			if ((A.Name == "Sit") && !Source.IsOwned()) continue; // Only unowned NPCs will sit
-			if ((A.Name == "StruggleArms") && (NPCTraitGet(Source, "Submissive") <= 0)) continue; // Only submissive NPCs will struggle
-			if ((A.Name == "StruggleLegs") && (NPCTraitGet(Source, "Submissive") <= 0)) continue; // Only submissive NPCs will struggle
+			if ((A.Name == "StruggleArms") && (NPCTraitGet(Source, "Submissive") < 0)) continue; // Only submissives will struggle
+			if ((A.Name == "StruggleLegs") && (NPCTraitGet(Source, "Submissive") < 0)) continue; // Only submissives will struggle
 			if ((A.Name == "Nod") && (NPCTraitGet(Source, "Dump") <= 0)) continue; // Only dumb NPCs will nod
-			if ((A.Name == "Wiggle") && (NPCTraitGet(Source, "Playful") <= 0)) continue; // Only playful NPCs will wiggle
+			if ((A.Name == "Wiggle") && (NPCTraitGet(Source, "Playful") < 0)) continue; // Only playful NPCs will wiggle
 			ActivityList.push(A.Name);
 		}
 	let Activity = CommonRandomItemFromList(null, ActivityList);
@@ -246,7 +257,7 @@ function PrivateBedNPCActivity(Source) {
 	let GroupList = [];
 	for (let A = 0; A < AssetGroup.length; A++)
 		if ((AssetGroup[A].Zone != null) && (AssetGroup[A].Name != "ItemNose") && !AssetGroup[A].MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
-			if (ActivityCanBeDone(Target, Activity, AssetGroup[A].Name) && !InventoryGroupIsBlocked(Target, AssetGroup[A].Name, true))
+			if (ActivityCanBeDone(Target, Activity, AssetGroup[A].Name) && ActivityCheckPrerequisites(AssetGetActivity(Target.AssetFamily, Activity), Source, Target, AssetGroup[A]) && !InventoryGroupIsBlocked(Target, AssetGroup[A].Name, true))
 				GroupList.push(AssetGroup[A]);
 	if (GroupList.length == 0) return;
 	let Group = CommonRandomItemFromList(null, GroupList);
@@ -317,7 +328,11 @@ function PrivateBedExit(Type) {
 	for (let C of PrivateBedCharacter) {
 		CharacterSetActivePose(C, null);
 		CharacterSetActivePose(C, "LegsOpen");
-		if (C.IsNpc()) NPCEventAdd(C, "NextBed", CurrentTime + 300000 + Math.round(Math.random() * 300000) + NPCTraitGet(C, "Frigid") * 3000);
+		if (C.IsNpc()) {
+			NPCEventAdd(C, "NextBed", CurrentTime + 300000 + Math.round(Math.random() * 300000) + NPCTraitGet(C, "Frigid") * 3000);
+			CharacterAppearanceRestore(C, C.PrivateBedAppearance);
+			CharacterRefresh(C);
+		}
 	}
 	CommonSetScreen("Room", "Private");
 }

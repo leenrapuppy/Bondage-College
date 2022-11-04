@@ -1637,5 +1637,6 @@ function PrivateJoinInBed() {
  * @returns {void} - Nothing.
  */
  function PrivateEnterBed() {
+	NPCEventAdd(CurrentCharacter, "NextBed", CurrentTime + 300000 + Math.round(Math.random() * 300000) + NPCTraitGet(CurrentCharacter, "Frigid") * 3000);
 	CurrentCharacter.PrivateBed = true;
 }
