@@ -513,7 +513,7 @@ function PrivateRun() {
 		if ((Player.Cage == null) && Player.CanWalk()) DrawButton(1885, PrivateButtonTop(2), 90, 90, "", "White", "Icons/Shop.png", TextGet("Shop"));
 		if (Player.CanChangeOwnClothes()) DrawButton(1885, PrivateButtonTop(3), 90, 90, "", "White", "Icons/Dress.png", TextGet("Dress"));
 		if (LogQuery("Wardrobe", "PrivateRoom") && Player.CanChangeOwnClothes()) DrawButton(1885, PrivateButtonTop(4), 90, 90, "", "White", "Icons/Wardrobe.png", TextGet("Wardrobe"));
-		if (LogQuery("BedWhite", "PrivateRoom") || LogQuery("BedBlack", "PrivateRoom")) DrawButton(1885, PrivateButtonTop(5), 90, 90, "", "White", "Icons/Bed.png", TextGet("Bed"));
+		if ((LogQuery("BedWhite", "PrivateRoom") || LogQuery("BedBlack", "PrivateRoom") || LogQuery("BedPink", "PrivateRoom")) && (Player.Cage == null)) DrawButton(1885, PrivateButtonTop(5), 90, 90, "", "White", "Icons/Bed.png", TextGet("Bed"));
 		if (LogQuery("Expansion", "PrivateRoom")) DrawButton(1885, PrivateButtonTop(6), 90, 90, "", "White", "Icons/Next.png", TextGet("Next"));
 	} else {
 		DrawCharacter(Player, 500, 0, 1);
@@ -715,7 +715,7 @@ function PrivateClick() {
 	if (MouseIn(1885, PrivateButtonTop(2), 90, 90) && LogQuery("RentRoom", "PrivateRoom") && Player.CanWalk() && (Player.Cage == null)) CharacterSetCurrent(PrivateVendor);
 	if (MouseIn(1885, PrivateButtonTop(3), 90, 90) && LogQuery("RentRoom", "PrivateRoom") && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
 	if (MouseIn(1885, PrivateButtonTop(4), 90, 90) && LogQuery("RentRoom", "PrivateRoom") && Player.CanChangeOwnClothes() && LogQuery("Wardrobe", "PrivateRoom")) CommonSetScreen("Character", "Wardrobe");
-	if (MouseIn(1885, PrivateButtonTop(5), 90, 90) && LogQuery("RentRoom", "PrivateRoom") && (LogQuery("BedWhite", "PrivateRoom") || LogQuery("BedBlack", "PrivateRoom"))) CommonSetScreen("Room", "PrivateBed");
+	if (MouseIn(1885, PrivateButtonTop(5), 90, 90) && LogQuery("RentRoom", "PrivateRoom") && (Player.Cage == null) && (LogQuery("BedWhite", "PrivateRoom") || LogQuery("BedBlack", "PrivateRoom") || LogQuery("BedPink", "PrivateRoom"))) CommonSetScreen("Room", "PrivateBed");
 	if (MouseIn(1885, PrivateButtonTop(6), 90, 90) && LogQuery("RentRoom", "PrivateRoom") && LogQuery("Expansion", "PrivateRoom")) PrivateCharacterOffset = (PrivateCharacterOffset + 4 == PrivateCharacterMax) ? 0 : PrivateCharacterOffset + 4;
 	if (MouseIn(1885, PrivateButtonTop(7), 90, 90) && LogQuery("RentRoom", "PrivateRoom")) {
 		if (Player.VisualSettings == null) Player.VisualSettings = {};
@@ -1609,6 +1609,7 @@ function PrivateGetBed(Type) {
 	CharacterChangeMoney(Player, -150);
 	LogDelete("BedWhite", "PrivateRoom");
 	LogDelete("BedBlack", "PrivateRoom");
+	LogDelete("BedPink", "PrivateRoom");
 	LogAdd("Bed" + Type, "PrivateRoom");
 }
 
@@ -1637,5 +1638,6 @@ function PrivateJoinInBed() {
  * @returns {void} - Nothing.
  */
  function PrivateEnterBed() {
+	NPCEventAdd(CurrentCharacter, "NextBed", CurrentTime + 300000 + Math.round(Math.random() * 300000) + NPCTraitGet(CurrentCharacter, "Frigid") * 3000);
 	CurrentCharacter.PrivateBed = true;
 }

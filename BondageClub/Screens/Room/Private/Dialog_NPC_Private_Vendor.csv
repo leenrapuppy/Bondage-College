@@ -81,6 +81,7 @@ RemoveSuspensionHempRope,,,(You release her from the ceiling and release her fee
 260,200,"No, I need to think about it.",Alright.  What can I do for you then?,,
 270,,Can I change my bed later?,"Of course, but you will need to pay $150 again.",,
 270,120,I'll take the white bed. (Pay $150),Great!  We'll deliver your new bed right now.,"GetBed(""White"")",DialogMoneyGreater(150)
+270,120,I'll take the pink bed. (Pay $150),Great!  We'll deliver your new bed right now.,"GetBed(""Pink"")",DialogMoneyGreater(150)
 270,120,I'll take the black bed. (Pay $150),Great!  We'll deliver your new bed right now.,"GetBed(""Black"")",DialogMoneyGreater(150)
 270,0,I don't have enough money.,You can get work as a maid or take kidnapping bounties if you need money.,,!DialogMoneyGreater(150)
 270,0,I've changed my mind.,Alright.  What can I do for you then?,,
