@@ -2573,19 +2573,46 @@ interface PandoraBaseRoom {
 
 //#region Crafting items
 
+/** A struct with an items crafting-related information; see {@link Item.Craft}. */
 interface CraftingItem {
+	/** The name of the crafted item. */
 	Name: string;
+	/** The name of the crafter. */
 	MemberName?: string;
+	/** The member ID of the crafter. */
 	MemberNumber?: number;
+	/** The custom item description. */
 	Description: string;
+	/** The crafted item propery. */
 	Property: CraftingPropertyType;
+	/** The comma-separated color(s) of the item. */
 	Color: string;
+	/** The name of the lock or, if absent, an empty string. */
 	Lock: "" | AssetLockType;
+	/** The name of the item; see {@link Asset.Name}. */
 	Item: string;
+	/** Whether the crafted item should be private or not. */
 	Private: boolean;
+	/**
+	 * The of the crafted item; only relevant for extended items and should be an empty string otherwise.
+	 * See {@link ItemPropertiesBase.Type}
+	 */
 	Type: string;
+	/** An integer representing the item layering priority; see {@link ItemPropertiesBase.OverridePriority} */
 	OverridePriority: number;
 }
+
+interface CraftingItemSelected {
+	Name: string;
+	Description: string;
+	Color: string;
+	Asset: Asset | null;
+	Property: CraftingPropertyType;
+	Lock: Asset | null;
+	Private: boolean;
+	Type: string;
+	OverridePriority: number | null;
+ }
 
 /**
  * A struct with tools for validating {@link CraftingItem} properties.

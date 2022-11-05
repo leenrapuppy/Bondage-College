@@ -3,7 +3,7 @@ var CraftingBackground = "CraftingWorkshop";
 var CraftingMode = "Slot";
 var CraftingDestroy = false;
 var CraftingSlot = 0;
-/** @type {{Name: string, Description: string, Color: string, Asset: Asset | null, Property: CraftingPropertyType, Lock: Asset | null, Private: boolean, Type: String }} */
+/** @type {CraftingItemSelected} */
 var CraftingSelectedItem = null;
 var CraftingOffset = 0;
 /** @type {Asset[]} */
@@ -696,6 +696,7 @@ function CraftingConvertSelectedToItem() {
 /**
  * Convert a crafting item to its selected format.
  * @param {CraftingItem} Craft
+ * @returns {CraftingItemSelected}
  */
 function CraftingConvertItemToSelected(Craft) {
 	return {
