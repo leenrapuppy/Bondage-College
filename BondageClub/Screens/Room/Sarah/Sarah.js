@@ -513,7 +513,7 @@ function SarahTransferSophieToRoom(Love) {
 	var ItemsToEarn = [];
 	ItemsToEarn.push({Name: "LeatherCuffs", Group: "ItemArms"});
 	ItemsToEarn.push({Name: "LeatherCuffsKey", Group: "ItemArms"});
-	ItemsToEarn.push({Name: "SpankingToysBaguette", Group: "ItemHands"});
+	ItemsToEarn.push({Name: "Baguette", Group: "ItemHandheld"});
 	InventoryAddMany(Player, ItemsToEarn);
 	CharacterRelease(Sophie);
 	CharacterArchetypeClothes(Sophie, "Mistress", "#333333");
@@ -800,8 +800,8 @@ function SarahGiveFourthSlaveItem(C) {
 		if (SarahAmandaIsInside()) SarahGiveFourthSlaveItem(Amanda);
 	} else {
 		InventoryAdd(C, "VibratorRemote", "ItemVulva");
-		InventoryAdd(C, "SpankingToysWhip", "ItemHands");
-		InventoryAdd(C, "SpankingToysCrop", "ItemHands");
+		InventoryAdd(C, "Whip", "ItemHandheld");
+		InventoryAdd(C, "Crop", "ItemHandheld");
 		C.Stage = "1010";
 		C.OrgasmMeter = 0;
 		C.OrgasmDone = false;

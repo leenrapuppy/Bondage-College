@@ -33,7 +33,7 @@ var InventoryItemHeadInteractiveVisorOptions = [
 ];
 
 function InventoryItemHeadInteractiveVisorLoad() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied();
 	} else
@@ -41,7 +41,7 @@ function InventoryItemHeadInteractiveVisorLoad() {
 }
 
 function InventoryItemHeadInteractiveVisorDraw() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticDrawAccessDenied();
 	} else
@@ -49,7 +49,7 @@ function InventoryItemHeadInteractiveVisorDraw() {
 }
 
 function InventoryItemHeadInteractiveVisorClick() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticClickAccessDenied();
 	} else

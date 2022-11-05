@@ -51,7 +51,7 @@ function KinkyDungeonLoot(Level, Index, Type, roll, tile, returnOnly, noTrap) {
 			effLevel *= KDTightRestraintsMult;
 			effLevel += KDTightRestraintsMod;
 		}
-		if ((effLevel >= loot.minLevel || KinkyDungeonNewGame > 0) && (loot.allFloors || loot.floors.get(Index))) {
+		if ((effLevel >= loot.minLevel || KinkyDungeonNewGame > 0) && (loot.allFloors || loot.floors[Index])) {
 			let prereqs = true;
 			if (loot.arousalMode && !KinkyDungeonStatsChoice.get("arousalMode")) prereqs = false;
 
@@ -659,9 +659,9 @@ function KDSpawnLootTrap(x, y, trap, mult) {
 				KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint],
 				'0', requireTags, true);
 			if (Enemy) {
-				let pass = KinkyDungeonSummonEnemy(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, Enemy.name, 1, 7, true, Enemy.tags.has("construct") ? 40 : undefined, undefined, false, "Ambush", true, 1.5, true, undefined, true, true);
+				let pass = KinkyDungeonSummonEnemy(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, Enemy.name, 1, 7, true, Enemy.tags.construct ? 40 : undefined, undefined, false, "Ambush", true, 1.5, true, undefined, true, true);
 				if (pass) {
-					if (Enemy.tags.has("minor")) spawned += 0.4;
+					if (Enemy.tags.minor) spawned += 0.4;
 					else spawned += 1;
 				}
 			}

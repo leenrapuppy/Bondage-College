@@ -58,7 +58,7 @@ function KDGetPersonality(enemy) {
 		Weights.push({p: p, weight: WeightTotal});
 		if (p.tags)
 			for (let tag of Object.entries(p.tags)) {
-				if (enemy.Enemy.tags.has(tag[0])) weight += tag[1];
+				if (enemy.Enemy.tags[tag[0]]) weight += tag[1];
 			}
 		WeightTotal += Math.max(weight, 0);
 	}

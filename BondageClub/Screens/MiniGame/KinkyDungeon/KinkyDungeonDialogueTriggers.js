@@ -706,13 +706,13 @@ function KDBossLose(name, enemyName) {
 }
 
 function KinkyDungeonGetShopForEnemy(enemy, guaranteed) {
-	if (enemy.Enemy.tags.has("noshop")) return "";
+	if (enemy.Enemy.tags.noshop) return "";
 	let shoplist = [];
 	for (let s of Object.values(KDShops)) {
 		let end = false;
 		if (s.tags) {
 			for (let t of s.tags) {
-				if (!enemy.Enemy.tags.has(t)) {
+				if (!enemy.Enemy.tags[t]) {
 					end = true;
 					break;
 				}
@@ -721,7 +721,7 @@ function KinkyDungeonGetShopForEnemy(enemy, guaranteed) {
 		let hasTag = !s.singletag;
 		if (!end && s.singletag) {
 			for (let t of s.singletag) {
-				if (enemy.Enemy.tags.has(t)) {
+				if (enemy.Enemy.tags[t]) {
 					hasTag = true;
 					break;
 				}

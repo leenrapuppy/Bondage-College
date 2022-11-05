@@ -104,8 +104,10 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		Visible: (AssetDef.Visible == null) ? true : AssetDef.Visible,
 		Wear: (AssetDef.Wear == null) ? true : AssetDef.Wear,
 		Activity: (typeof AssetDef.Activity === "string" ? AssetDef.Activity : null),
+		ActivityAudio: Array.isArray(AssetDef.ActivityAudio) ? AssetDef.ActivityAudio : [],
 		AllowActivity: Array.isArray(AssetDef.AllowActivity) ? AssetDef.AllowActivity : [],
 		AllowActivityOn: Array.isArray(AssetDef.AllowActivityOn) ? AssetDef.AllowActivityOn : [],
+		ActivityExpression: Array.isArray(AssetDef.ActivityExpression) ? AssetDef.ActivityExpression : {},
 		BuyGroup: AssetDef.BuyGroup,
 		PrerequisiteBuyGroups: AssetDef.PrerequisiteBuyGroups,
 		Effect: (AssetDef.Effect == null) ? Group.Effect : AssetDef.Effect,
@@ -116,7 +118,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		HideItem: AssetDef.HideItem,
 		HideItemExclude: AssetDef.HideItemExclude || [],
 		HideItemAttribute: AssetDef.HideItemAttribute || [],
-		Require: AssetDef.Require,
+		Require: (!Array.isArray(AssetDef.Require) ? [] : AssetDef.Require),
 		SetPose: (AssetDef.SetPose == null) ? Group.SetPose : AssetDef.SetPose,
 		AllowActivePose: AssetDef.AllowActivePose,
 		WhitelistActivePose: AssetDef.WhitelistActivePose,
@@ -137,7 +139,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		HeightModifier: (AssetDef.Height == null) ? 0 : AssetDef.Height,
 		ZoomModifier: (AssetDef.Zoom == null) ? 1 : AssetDef.Zoom,
 		Alpha: AssetDef.Alpha,
-		Prerequisite: AssetDef.Prerequisite,
+		Prerequisite: (typeof AssetDef.Prerequisite === "string" ? [AssetDef.Prerequisite] : Array.isArray(AssetDef.Prerequisite) ? AssetDef.Prerequisite : []),
 		Extended: (AssetDef.Extended == null) ? false : AssetDef.Extended,
 		AlwaysExtend: (AssetDef.AlwaysExtend == null) ? false : AssetDef.AlwaysExtend,
 		AlwaysInteract: (AssetDef.AlwaysInteract == null) ? false : AssetDef.AlwaysInteract,
@@ -205,7 +207,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		DefaultTint: typeof AssetDef.DefaultTint === "string" ? AssetDef.DefaultTint : undefined,
 		Gender: AssetDef.Gender,
 		CraftGroup: typeof AssetDef.CraftGroup === "string" ? AssetDef.CraftGroup : AssetDef.Name,
-		ColorSuffix: Group.ColorSuffix,
+		ColorSuffix: typeof Group.ColorSuffix === "object" ? Group.ColorSuffix : {},
 	}, AssetParsePoseProperties(AssetDef, Group.AllowPose.slice()));
 
 	// Ensure opacity value is valid
@@ -288,7 +290,7 @@ function AssetFindExtendedConfig(ExtendedConfig, GroupName, AssetName) {
  * @return {AssetLayer[]} - An array of layer objects representing the drawable layers of the asset
  */
 function AssetBuildLayer(AssetDefinition, A) {
-	var Layers = Array.isArray(AssetDefinition.Layer) ? AssetDefinition.Layer : [{}];
+	const Layers = Array.isArray(AssetDefinition.Layer) ? AssetDefinition.Layer : /** @type {AssetLayerDefinition[]} */([{}]);
 	return Layers.map((Layer, I) => AssetMapLayer(Layer, AssetDefinition, A, I));
 }
 

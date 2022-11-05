@@ -1,6 +1,9 @@
+CheckAll,Check all
+CheckNone,Check none
 Exit,Apply the advanced rule
 BlockScreenTitle,Check the Bondage Club areas that your submissive won't be able to enter.
 BlockAppearanceTitle,Check the appearance zones that your submissive won't be able to change by herself.
+BlockItemGroupTitle,Check the item zones that your submissive won't be able to access on herself.
 BlockScreenA,Club Shop
 BlockScreenB,Private Room
 BlockScreenC,Introduction Class
@@ -47,6 +50,8 @@ BlockAppearanceP,Hair Accessory
 BlockAppearanceQ,Hair Accessory (All)
 BlockAppearanceR,Ears
 BlockAppearanceS,Gloves
+BlockAppearance!,Left Hand Rings
+BlockAppearance$,Right Hand Rings
 BlockAppearanceT,Bracelet
 BlockAppearanceU,Glasses
 BlockAppearanceV,Mask
@@ -62,3 +67,30 @@ BlockAppearance6,Right Eye
 BlockAppearance7,Mouth
 BlockAppearance8,Nipples
 BlockAppearance9,Pussy
+BlockItemGroupA,Feet & Toes
+BlockItemGroupB,Lower Legs
+BlockItemGroupC,Upper Legs
+BlockItemGroupD,Pussy & Vagina
+BlockItemGroupE,Clitoris
+BlockItemGroupF,Butt / Anal
+BlockItemGroupG,Pelvis & Belly
+BlockItemGroupH,Torso (Left)
+BlockItemGroupI,Torso (Right)
+BlockItemGroupJ,Nipples
+BlockItemGroupK,Nipples Piercings
+BlockItemGroupL,Breast
+BlockItemGroupM,Hands
+BlockItemGroupN,Arms & Shoulders
+BlockItemGroupO,Neck
+BlockItemGroupP,Neck Accessories
+BlockItemGroupQ,Neck Restraints
+BlockItemGroupR,Mouth (Left)
+BlockItemGroupS,Mouth (Center)
+BlockItemGroupT,Mouth (Right)
+BlockItemGroupU,Nose
+BlockItemGroupV,Ears
+BlockItemGroupW,Head
+BlockItemGroupX,Hood
+BlockItemGroup0,Misc (Top Left)
+BlockItemGroup1,Device (Bottom Left & Right)
+BlockItemGroup2,Addon (Top Right)

@@ -398,7 +398,7 @@ function MainHallClick() {
 		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 385) && (MouseY < 475) && SarahRoomAvailable && MainHallAllow("G")) MainHallWalk("Sarah");
 
 		// Cell, Slave Market & Look for trouble
-		if ((MouseX >= 1525) && (MouseX < 1615) && (MouseY >= 505) && (MouseY < 595) && MainHallAllow("S")) MainHallWalk("Crafting");
+		if ((MouseX >= 1525) && (MouseX < 1615) && (MouseY >= 505) && (MouseY < 595) && MainHallAllow("S")) CraftingShowScreen(false);
 		if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 505) && (MouseY < 595) && MainHallAllow("H")) MainHallWalk("Trouble");
 		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 505) && (MouseY < 595) && MainHallAllow("I")) MainHallWalk("SlaveMarket");
 		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 505) && (MouseY < 595) && MainHallAllow("J")) MainHallWalk("Cell");

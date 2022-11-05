@@ -27,7 +27,7 @@ let KinkyDungeonSpellSpecials = {
 	"BoulderKick": (spell, data, targetX, targetY, tX, tY, entity, enemy, moveDirection, bullet, miscast, faction, cast, selfCast) => {
 		let en = KinkyDungeonEnemyAt(targetX, targetY);
 		if (en) {
-			if (en.Enemy.tags.has("summonedRock")) {
+			if (en.Enemy.tags.summonedRock) {
 				en.hp = 0;
 				let spell2 = KinkyDungeonFindSpell("BoulderKicked", true);
 				let size = (spell2.size) ? spell2.size : 1;
@@ -55,7 +55,7 @@ let KinkyDungeonSpellSpecials = {
 	"Volcanism": (spell, data, targetX, targetY, tX, tY, entity, enemy, moveDirection, bullet, miscast, faction, cast, selfCast) =>  {
 		let rocks = [];
 		for (let e of KinkyDungeonEntities) {
-			if (spell.filterTags.some((tag) => {return e.Enemy.tags.has(tag);}) && KDistEuclidean(targetX - e.x, targetY - e.y) <= spell.aoe
+			if (spell.filterTags.some((tag) => {return e.Enemy.tags[tag];}) && KDistEuclidean(targetX - e.x, targetY - e.y) <= spell.aoe
 				&& (!e.buffs || !KinkyDungeonHasBuff(e.buffs, KDVolcanism.id))) {
 				rocks.push(e);
 			}
@@ -530,7 +530,7 @@ let KinkyDungeonSpellSpecials = {
 		if (enList.length > 0) {
 			KinkyDungeonSendActionMessage(3, TextGet("KinkyDungeonSpellCast"+spell.name), "#88AAFF", 2 + (spell.channel ? spell.channel - 1 : 0));
 			for (let en of enList) {
-				if (en.Enemy.tags.has("construct") && (!en.buffs || !en.buffs.Disenchant1)) {
+				if (en.Enemy.tags.construct && (!en.buffs || !en.buffs.Disenchant1)) {
 					KinkyDungeonApplyBuffToEntity(en, KDDisenchant1);
 					KinkyDungeonApplyBuffToEntity(en, KDDisenchant2);
 					KinkyDungeonDamageEnemy(en, {
@@ -640,9 +640,9 @@ let KinkyDungeonSpellSpecials = {
 		if (en) {
 			let time = Math.max(1, spell.time
 				- (en.Enemy.disarm ? en.Enemy.disarm : 0)
-				- (en.Enemy.tags.has("elite") ? 1 : 0)
-				- (en.Enemy.tags.has("miniboss") ? 2 : 0)
-				- (en.Enemy.tags.has("boss") ? 4 : 0));
+				- (en.Enemy.tags.elite ? 1 : 0)
+				- (en.Enemy.tags.miniboss ? 2 : 0)
+				- (en.Enemy.tags.boss ? 4 : 0));
 			en.disarm = Math.max(0, time);
 			return "Cast";
 		} else return "Fail";

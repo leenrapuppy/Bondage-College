@@ -7,6 +7,7 @@ var PrisonerMetalPadlockKey = null;
 var PrisonerIntricatePadlockKey = null;
 var PrisonerSleepingPills = null;
 var PrisonerSpankingToys = null;
+var PrisonerConfiscatedHandhelds = null;
 
 var PrisonBehavior = 0;
 
@@ -45,7 +46,7 @@ function PrisonPlayerIsStriped()    {return !(PrisonCharacterAppearanceGroupAvai
 function PrisonPlayerIsBadGirl()    {return LogQuery("Joined", "BadGirl");}
 function PrisonPlayerIsBadGirlThief() {return (LogQuery("Joined", "BadGirl") && (LogQuery("Stolen", "BadGirl") || LogQuery("Hide", "BadGirl") || LogQuery("Caught", "BadGirl")));}
 function PrisonPlayerHasSleepingPills() {return (InventoryAvailable(Player, "RegularSleepingPill", "ItemMouth"));}
-function PrisonPlayerHasSpankingToys() {return (InventoryAvailable(Player, "SpankingToys", "ItemHands"));}
+function PrisonPlayerHasSpankingToys() {return (InventoryAvailable(Player, "*", "ItemHandheld"));}
 function PrisonPlayerHasKeys() {return (InventoryAvailable(Player, "MetalPadlockKey", "ItemMisc") || InventoryAvailable(Player, "IntricatePadlockKey", "ItemMisc") ||  InventoryAvailable(Player, "MetalCuffsKey", "ItemMisc"));}
 function PrisonSubIsHandcuffedOut() {return (PrisonSubSelfCuffed && !PrisonSubBehindBars);}
 function PrisonSubIsBehindBars()    {return PrisonSubBehindBars;}
@@ -244,9 +245,9 @@ function PrisonCellPlayerOut() {
 		InventoryAdd(Player, "RegularSleepingPill", "ItemMouth");
 		PrisonerSleepingPills = null;
 	}
-	if (PrisonerSpankingToys != null) {
-		InventoryAdd(Player, "SpankingToys", "ItemHands");
-		PrisonerSpankingToys = null;
+	if (Array.isArray(PrisonerConfiscatedHandhelds)) {
+		InventoryAddMany(Player, PrisonerConfiscatedHandhelds);
+		PrisonerConfiscatedHandhelds = null;
 	}
 }
 
@@ -572,7 +573,7 @@ function PrisonWearPoliceEquipment(C) {
 	InventoryWear(C, "Boots1", "Shoes", "#202020");
 	InventoryWear(C, "TShirt1", "Cloth", "#3333cc");
 	InventoryWear(C, "PoliceWomanHat", "Hat");
-	InventoryWear(C, "SpankingToys", "ItemHands");
+	InventoryWear(C, "Crop", "ItemHandheld");
 }
 
 /*
@@ -730,7 +731,7 @@ function PrisonArrestHandoverSleepingPills() {
 
 function PrisonArrestHandoverSpankingToys() {
 	PrisonerSpankingToys = true;
-	InventoryDelete(Player, "SpankingToys", "ItemHands");
+	PrisonerConfiscatedHandhelds = InventoryDeleteGroup(Player, "ItemHandheld");
 	PrisonSetBehavior(1);
 }
 
@@ -804,8 +805,7 @@ function PrisonArrestConfiscatSleepingPills() {
 }
 
 function PrisonArrestConfiscatSpankingToys() {
-	PrisonerSpankingToys = true;
-	InventoryDelete(Player, "SpankingToys", "ItemHands");
+	PrisonerConfiscatedHandhelds = InventoryDeleteGroup(Player, "ItemHandheld");
 	PrisonSetBehavior(-1);
 	PrisonArrestEquipmentSearch();
 }

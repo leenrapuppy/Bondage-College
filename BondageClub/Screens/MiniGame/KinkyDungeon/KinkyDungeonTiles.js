@@ -6,7 +6,7 @@
  * @returns {boolean}
  */
 function KDWettable(entity) {
-	return entity.player || (!entity.Enemy.tags.has("acidimmune") && !entity.Enemy.tags.has("acidresist") && !entity.Enemy.tags.has("fire") && !entity.Enemy.tags.has("nowet"));
+	return entity.player || (!entity.Enemy.tags.acidimmune && !entity.Enemy.tags.acidresist && !entity.Enemy.tags.fire && !entity.Enemy.tags.nowet);
 }
 
 /**
@@ -15,7 +15,7 @@ function KDWettable(entity) {
  * @returns {boolean}
  */
 function KDConducting(entity) {
-	return entity.player || (!entity.Enemy.tags.has("electricimmune") && !entity.Enemy.tags.has("electricresist") && !entity.Enemy.tags.has("electric") && !entity.Enemy.tags.has("noconduct"));
+	return entity.player || (!entity.Enemy.tags.electricimmune && !entity.Enemy.tags.electricresist && !entity.Enemy.tags.electric && !entity.Enemy.tags.noconduct);
 }
 
 function KinkyDungeonHandleTilesEnemy(enemy, delta) {
@@ -134,7 +134,7 @@ function KinkyDungeonHandleStairs(toTile, suppressCheckPoint) {
 					suppressCheckPoint = true;
 				}
 			} else {
-				roomType = "Tunnel"; // We do a tunnel every other room
+				roomType = "PerkRoom"; // We do a perk room, then a tunnel
 				KDGameData.MapMod = ""; // Reset the map mod
 
 				// Reduce security level when entering a new area
@@ -189,7 +189,7 @@ function KinkyDungeonHandleStairs(toTile, suppressCheckPoint) {
 				KDGameData.HeartTaken = false;
 				KinkyDungeonCreateMap(KinkyDungeonMapParams[KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint]], MiniGameKinkyDungeonLevel, undefined, undefined);
 				let saveData = KinkyDungeonSaveGame(true);
-				if (KDGameData.RoomType == "Tunnel" && Math.floor(MiniGameKinkyDungeonLevel / 3) == MiniGameKinkyDungeonLevel / 3 && KDDefaultJourney.includes(MiniGameKinkyDungeonCheckpoint)) {
+				if (KDGameData.RoomType == "PerkRoom" && Math.floor(MiniGameKinkyDungeonLevel / 3) == MiniGameKinkyDungeonLevel / 3 && KDDefaultJourney.includes(MiniGameKinkyDungeonCheckpoint)) {
 					if ((!KinkyDungeonStatsChoice.get("saveMode")) && !suppressCheckPoint) {
 						KinkyDungeonState = "Save";
 						ElementCreateTextArea("saveDataField");

@@ -1183,7 +1183,7 @@ function ChatRoomFocusCharacter(C) {
  * @returns {void} - Nothing.
  */
 function ChatRoomCheckRelationships() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (C.ID != 0) ServerSend("AccountOwnership", { MemberNumber: C.MemberNumber });
 	if (C.ID != 0) ServerSend("AccountLovership", { MemberNumber: C.MemberNumber });
 }
@@ -1461,11 +1461,11 @@ function ChatRoomDrawArousalScreenFilter(y1, h, Width, ArousalOverride, Color = 
 
 	if (Player.ArousalSettings.VFXFilter == "VFXFilterHeavy") {
 		const Grad = MainCanvas.createLinearGradient(0, y1, 0, h);
-		let alphamin = 0;//Math.max(0, alpha / 2 - 0.05);
+		let alphamin = Math.max(0, alpha / 2 - 0.05);
 		Grad.addColorStop(0, `rgba(${Color}, ${alpha})`);
-		Grad.addColorStop(0.1 + 0.2*percent * (1.2 + 0.1 * oscillation), `rgba(${Color}, ${alphamin})`);
+		Grad.addColorStop(0.1 + 0.2*percent * (1.2 + 0.2 * oscillation), `rgba(${Color}, ${alphamin})`);
 		Grad.addColorStop(0.5, `rgba(${Color}, ${alphamin/2})`);
-		Grad.addColorStop(0.9 - 0.2*percent * (1.2 + 0.1 * oscillation), `rgba(${Color}, ${alphamin})`);
+		Grad.addColorStop(0.9 - 0.2*percent * (1.2 + 0.2 * oscillation), `rgba(${Color}, ${alphamin})`);
 		Grad.addColorStop(1, `rgba(${Color}, ${alpha})`);
 		MainCanvas.fillStyle = Grad;
 		MainCanvas.fillRect(0, y1, Width, h);
@@ -2411,13 +2411,20 @@ var ChatRoomMessageHandlers = [
 		Description: "Handle action visual effects",
 		Priority: 120,
 		Callback: (data, sender, msg, metadata) => {
-			if (data.Type !== "Action")
-				return false;
+			let intensity = null;
+			if (data.Type === "Action" && metadata.ShockIntensity >= 0) {
+				intensity = metadata.ShockIntensity;
+			} else if (data.Type === "Activity" && data.Content.includes("ShockItem")) {
+				let item = InventoryGet(Player, metadata.ActivityGroup);
+				if (item && item.Property)
+					intensity = item.Property.Intensity || 0;
+			}
 
-			if (metadata.ShockIntensity >= 0 && metadata.TargetCharacter == Player) {
-				const duration = (Math.random() + metadata.ShockIntensity) * 500;
+			if (intensity !== null && metadata.TargetCharacter.IsPlayer()) {
+				const duration = (Math.random() + intensity) * 500;
 				DrawFlashScreen("#FFFFFF", duration, 500);
 			}
+
 			return false;
 		}
 	},
@@ -2456,12 +2463,17 @@ var ChatRoomMessageHandlers = [
 				return false;
 			const arousalEnabled = (Player.ArousalSettings && (Player.ArousalSettings.Active == "Hybrid" || Player.ArousalSettings.Active == "Automatic"));
 
-			AsylumGGTSActivity(sender, metadata.TargetCharacter, metadata.ActivityName, metadata.GroupName, metadata.ActivityCounter);
+			// Because the handhelds go through GroupName, we have to check both keys
+			const ActivityGroup = metadata.ActivityGroup || metadata.GroupName;
+
+			AsylumGGTSActivity(sender, metadata.TargetCharacter, metadata.ActivityName, ActivityGroup, metadata.ActivityCounter);
 
 			// If another player is using an item which applies an activity on the current player, apply the effect here
 			if (arousalEnabled && metadata.ActivityName && metadata.TargetMemberNumber
-					&& (metadata.TargetMemberNumber === Player.MemberNumber) && (sender.MemberNumber !== Player.MemberNumber))
-				ActivityEffect(sender, Player, metadata.ActivityName, metadata.GroupName, metadata.ActivityCounter);
+				&& (metadata.TargetMemberNumber === Player.MemberNumber) && (sender.MemberNumber !== Player.MemberNumber)) {
+				const UsedAsset = AssetGet("Female3DCG", metadata.ActivityAssetGroup, metadata.ActivityAsset);
+				ActivityEffect(sender, Player, metadata.ActivityName, ActivityGroup, metadata.ActivityCounter, UsedAsset);
+			}
 			return false;
 		}
 	},
@@ -2496,11 +2508,7 @@ var ChatRoomMessageHandlers = [
 	{
 		Description: "Audio system hook for sound effects",
 		Priority: 500,
-		Callback: (data, sender, msg, metadata) => {
-			if (["Activity", "Action", "ServerMessage"].includes(data.Type))
-				AudioPlaySoundForChatMessage(data);
-			return false;
-		}
+		Callback: AudioPlaySoundForChatMessage,
 	},
 	{
 		Description: "Raise a notification if required",
@@ -2699,7 +2707,7 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 					? CharacterPronoun(C, "Possessive", hideIdentity)
 					: hideIdentity
 						? DialogFindPlayer("Someone").toLowerCase()
-						: ChatRoomHTMLEntities(entry.Text) + DialogFindPlayer("'s");
+						: entry.Text + DialogFindPlayer("'s");
 				substitutions.push([entry.Tag, repl]);
 			}
 			else if (entry.Tag == "TargetCharacter" || entry.Tag == "TargetCharacterName") {
@@ -2710,7 +2718,7 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 					? CharacterPronoun(C, "Self", hideIdentity)
 					: hideIdentity
 						? DialogFindPlayer("Someone").toLowerCase()
-						: ChatRoomHTMLEntities(entry.Text);
+						: entry.Text;
 				substitutions.push([entry.Tag, repl]);
 
 				const pronounRepls = ChatRoomPronounSubstitutions(C, "TargetPronoun", hideIdentity);
@@ -2721,7 +2729,7 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 					meta.SourceCharacter = C;
 				const repl = hideIdentity
 					? DialogFindPlayer("Someone")
-					: ChatRoomHTMLEntities(entry.Text);
+					: entry.Text;
 				substitutions.push([entry.Tag, repl]);
 
 				const pronounRepls = ChatRoomPronounSubstitutions(C, "Pronoun", hideIdentity);
@@ -2730,7 +2738,7 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 		}
 
 		else if (entry.TextToLookUp) {
-			const repl = DialogFindPlayer(ChatRoomHTMLEntities(entry.TextToLookUp)).toLowerCase();
+			const repl = DialogFindPlayer(entry.TextToLookUp).toLowerCase();
 			substitutions.push([entry.Tag, repl]);
 		}
 		else if (entry.AssetName) {
@@ -2755,11 +2763,13 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 			const repl = ChatSearchMuffle(entry.Text);
 			substitutions.push([entry.Tag, repl]);
 		}
+		else if (entry.Tag === "ActivityAsset") meta.ActivityAsset = entry.Text;
+		else if (entry.Tag === "ActivityAssetGroup") meta.ActivityAssetGroup = entry.Text;
 		else if (entry.ActivityCounter) meta.ActivityCounter = entry.ActivityCounter;
 		else if (entry.Automatic) meta.Automatic = true;
 		else if (entry.ShockIntensity != undefined) meta.ShockIntensity = entry.ShockIntensity;
 		else
-			substitutions.push([entry.Tag, ChatRoomHTMLEntities(entry.Text)]);
+			substitutions.push([entry.Tag, entry.Text]);
 	}
 	return { metadata: meta, substitutions: substitutions };
 }
@@ -2788,6 +2798,7 @@ function ChatRoomMessagePerformSubstitutions(msg, substitutions) {
  *
  * @param {IChatRoomMessage} data
  * @param {Character} sender
+ * @returns {{ metadata?: IChatRoomMessageMetadata, substitutions?: string[][] }}
  */
 function ChatRoomMessageRunExtractors(data, sender) {
 	if (!data || !sender) return {};
@@ -2869,12 +2880,10 @@ function ChatRoomMessage(data) {
 
 	// Make sure the sender is in the room
 	const SenderCharacter = ChatRoomCharacter.find(c => c.MemberNumber == data.Sender);
-
-	// Sender is not in room, skip message
 	if (!SenderCharacter) return;
 
-	// Replace < and > characters to prevent HTML injections
-	let msg = data.Content ? ChatRoomHTMLEntities(data.Content) : "";
+	// Make a copy of the message for the purpose of substitutions
+	let msg = String(data.Content);
 
 	const preHandlers = ChatRoomMessageRunHandlers("pre", data, SenderCharacter, msg);
 	if (typeof preHandlers === "boolean" && preHandlers)
@@ -2929,17 +2938,17 @@ function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
 			senderTag += metadata.senderName;
 			senderTag += ':</span> ';
 
-			msg = senderTag + msg;
+			msg = senderTag + ChatRoomHTMLEntities(msg);
 		}
 			break;
 
 		case "Action":
 		case "Activity":
-			msg = "(" + msg + ")";
+			msg = "(" + ChatRoomHTMLEntities(msg) + ")";
 			break;
 
 		case "ServerMessage":
-			msg = "<b>" + msg + "</b>";
+			msg = "<b>" + ChatRoomHTMLEntities(msg) + "</b>";
 			break;
 
 		case "LocalMessage":
@@ -2948,7 +2957,7 @@ function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
 			break;
 
 		case "Emote":
-			msg = "*" + msg + "*";
+			msg = "*" + ChatRoomHTMLEntities(msg) + "*";
 			break;
 
 		default:
@@ -2959,7 +2968,7 @@ function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
 	// Checks if the message is a notification about the user entering or leaving the room
 	let MsgEnterLeave = "";
 	let MsgNonDialogue = "";
-	if ((data.Type == "Action") && (msg.startsWith("ServerEnter") || msg.startsWith("ServerLeave") || msg.startsWith("ServerDisconnect") || msg.startsWith("ServerBan") || msg.startsWith("ServerKick")))
+	if (data.Type === "Action" && ["ServerEnter", "ServerLeave", "ServerDisconnect", "ServerBan", "ServerKick"].some(msg => data.Content.startsWith(msg)))
 		MsgEnterLeave = " ChatMessageEnterLeave";
 	if ((data.Type != "Chat" && data.Type != "Whisper" && data.Type != "Emote"))
 		MsgNonDialogue = " ChatMessageNonDialogue";
@@ -3497,7 +3506,7 @@ function ChatRoomSyncItem(data) {
 				if (item.Craft != null)
 					for (let Char of ChatRoomCharacter)
 						if (Char.MemberNumber === data.Source)
-							InventoryCraft(Char, ChatRoomCharacter[C], data.Item.Group, item.Craft, false);
+							InventoryCraft(Char, ChatRoomCharacter[C], data.Item.Group, item.Craft, false, false);
 				InventoryGet(ChatRoomCharacter[C], data.Item.Group).Property = item.Property;
 
 				/** @type {AppearanceDiffMap} */
@@ -4024,6 +4033,13 @@ function ChatRoomSetRule(data) {
 			data.Content = "OwnerRuleBlockAppearance";
 		}
 
+		// Advanced rules - Block item groups
+		if (data.Content.startsWith("OwnerRuleBlockItemGroup")) {
+			LogDeleteStarting("BlockItemGroup", "OwnerRule");
+			LogAdd("BlockItemGroup" + data.Content.substring("OwnerRuleBlockItemGroup".length, 100), "OwnerRule");
+			data.Content = "OwnerRuleBlockItemGroup";
+		}
+
 		// Advanced rules - Forbidden Words List
 		if (data.Content.startsWith("OwnerRuleForbiddenWords")) {
 			LogDeleteStarting("ForbiddenWords", "OwnerRule");
@@ -4505,8 +4521,8 @@ function ChatRoomOwnerForbiddenWordCheck(Message) {
 	// Prepares an array of all words said
 	let M = Message.trim().toUpperCase();
 	M = M.replace(/-/g, "");
-	M = M.replace(/\ /g, "|");
-	M = M.replace(/\,/g, "|");
+	M = M.replace(/ /g, "|");
+	M = M.replace(/,/g, "|");
 	M = M.replace(/\./g, "|");
 	let WordList = M.split("|");
 	if (WordList.length <= 0) return true;

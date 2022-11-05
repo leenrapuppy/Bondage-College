@@ -4,6 +4,16 @@ var Character = [];
 var CharacterNextId = 1;
 
 /** @type Map<EffectName, number> */
+const CharacterBlindLevels = new Map([
+	/** Reserve `BlindTotal` for situations where the blindness level should never
+	 *  be lowered by crafted properties (e.g. while in VR) */
+	["BlindTotal", 99],
+	["BlindHeavy", 3],
+	["BlindNormal", 2],
+	["BlindLight", 1],
+]);
+
+/** @type Map<EffectName, number> */
 const CharacterDeafLevels = new Map([
 	["DeafTotal", 4],
 	["DeafHeavy", 3],
@@ -146,17 +156,17 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 				}
 			}
 			if (!eyesOnly) {
-				if (this.Effect.includes("BlindTotal")) blindLevel += 4;
-				else if (this.Effect.includes("BlindHeavy")) blindLevel += 3;
-				else if (this.Effect.includes("BlindNormal")) blindLevel += 2;
-				else if (this.Effect.includes("BlindLight")) blindLevel += 1;
-				if (InventoryCraftCount(this, "Thick") > 0) blindLevel++;
-				if (InventoryCraftCount(this, "Thin") > 0) blindLevel--;
+				const effects = CharacterGetEffects(this, ["ItemHead", "ItemHood", "ItemNeck", "ItemDevices"], true)
+				blindLevel += effects.reduce((Start, EffectName) => Start + (CharacterBlindLevels.get(EffectName) || 0), 0);
+				blindLevel += InventoryCraftCount(this, "Thick");
+				blindLevel -= InventoryCraftCount(this, "Thin");
 			}
-			blindLevel = Math.min(3, blindLevel);
 			// Light sensory deprivation setting limits blindness
-			if (this.IsPlayer() && this.GameplaySettings && this.GameplaySettings.SensDepChatLog == "SensDepLight") blindLevel = Math.min(2, blindLevel);
-			return blindLevel;
+			if (this.IsPlayer() && this.GameplaySettings && this.GameplaySettings.SensDepChatLog == "SensDepLight") {
+				return Math.max(0, Math.min(2, blindLevel));
+			} else {
+				return Math.max(0, Math.min(3, blindLevel));
+			}
 		},
 		GetBlurLevel: function() {
 			if ((this.IsPlayer() && this.GraphicsSettings && !this.GraphicsSettings.AllowBlur) || CommonPhotoMode) {
@@ -282,6 +292,10 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		},
 		IsDeaf: function () {
 			return this.GetDeafLevel() > 0;
+		},
+		/* Check if one or more gag effects are active (thus bypassing the crafted small/large properties) */
+		IsGagged: function () {
+			return this.Effect.some(effect => effect in SpeechGagLevelLookup);
 		},
 		HasNoItem: function () {
 			return CharacterHasNoItem(this);
@@ -1451,8 +1465,13 @@ function CharacterResetFacialExpression(C) {
  * @returns {Character|null} - Currently selected character
  */
 function CharacterGetCurrent() {
-	if (CurrentScreen == "Appearance" && CharacterAppearanceSelection) return CharacterAppearanceSelection;
-	return (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	if (CurrentScreen == "Appearance" && CharacterAppearanceSelection) {
+		return CharacterAppearanceSelection;
+	} else if (CurrentScreen == "Crafting") {
+		return CraftingPreview;
+	} else {
+		return (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	}
 }
 
 /**
@@ -1514,13 +1533,23 @@ function CharacterDecompressWardrobe(Wardrobe) {
  * Checks if the character is wearing an item that allows for a specific activity
  * @param {Character} C - The character to test for
  * @param {string} Activity - The name of the activity that must be allowed
- * @returns {boolean} - TRUE if at least one item allows that activity
+ * @returns {Item[]} - A list of items allowing that activity
  */
-function CharacterHasItemForActivity(C, Activity) {
-	return C.Appearance.some(item => {
+function CharacterItemsForActivity(C, Activity) {
+	return C.Appearance.filter(item => {
 		const allowed = InventoryGetItemProperty(item, "AllowActivity");
 		return allowed && allowed.includes(Activity);
 	});
+}
+
+/**
+ * Checks if the character is wearing an item that allows for a specific activity
+ * @param {Character} C - The character to test for
+ * @param {String} Activity - The name of the activity that must be allowed
+ * @returns {boolean} - TRUE if at least one item allows that activity
+ */
+function CharacterHasItemForActivity(C, Activity) {
+	return CharacterItemsForActivity(C, Activity).length > 0;
 }
 
 /**

@@ -11,9 +11,60 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-09-12
-* Last recorded PR: [#3610](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3610)
-* Last recorded commit hash: `5baccc87c46011a963bfe234138896a005b04d69`
+* Changelog last updated: 2022-10-17
+* Last recorded PR: [#3652](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3652)
+* Last recorded commit hash: `192132e54490b97c98c44b2515cff89191e38c0c`
+
+## [R85]
+
+### [Added]
+
+* Ben987 - Added more owner rules to block items, prevent accessing specific rooms and forbid chosen words
+* Luna - Added a Ballgag option to the Bridle Gag ([#3616](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3616), [#3633](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3633))
+* Evilwumpus - Added a GGTS task for inflatable ball/panel gags ([#3624](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3624))
+* bananarama92 - Added support for bodies with arbitrary colors ([#3625](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3625))
+* bananarama92 - Changed blindness effect to be cumulative ([#3629](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3629))
+* Luna - Added new Rings items ([#3634](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3634), [#3642](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3642), [#3647](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3647), [#3651](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3651))
+* Ada - Updated Kinky Dungeon to 3.71 ([#3623](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3623), [#3632](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3632))
+
+### [Removed]
+
+* Nothing this release
+
+### [Changed]
+
+* Ben987 - Limited the Shibari Dojo training to one per hour
+* Estsanatlehi - Cleaned up rope sound effects ([#3627](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3627))
+* MAKeevchanin - Updated Russian translations ([#3636](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3636), [#3652](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3652))
+* Da'Inihlus - Updated Chinese translations ([#3646](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3646))
+
+### [Fixed]
+
+* Estsanatlehi - Removed allowed-check when updating the crafting dummy ([#3612](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3612))
+* Nina - Fixed missing effects on the Bamboo and Muzzle Gag ([#3613](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3613))
+* Estsanatlehi - Added a description to the new /craft command ([#3614](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3614))
+* bananarama92 - Fixed three bugs related to the hood-based Smooth Latex Mask ([#3615](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3615))
+* bananarama92 - Fixed a visual oddity with VR goggles when combined with the `thin` property ([#3617](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3617))
+* bananarama92 - Fixed crafting failures related to dynamic group names ([#3618](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3618))
+* Estsanatlehi - Fixed visual bug with the suspended pet crawler ([#3621](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3621))
+* Estsanatlehi - Fixed the visual issues with the pet suit ([#3622](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3622))
+* bananarama92 - Fixed chat join audio notifications not getting suppressed when in full sensory deprivation ([#3619](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3619))
+* bananarama92 - Changed `Character.CanTalk` to account for crafted properties ([#3626](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3626))
+* Estsanatlehi - Fixed a bug with the pose menu not reflecting the available poses ([#3628](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3628))
+* Estsanatlehi - Fixed a bug with the gavel detection in the movie studio ([#3635](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3635))
+* bananarama92 - Used the incorrect syntax instead of `Map.get` ([#3638](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3638))
+* bananarama92 - Fixed `InventoryWearCraft` failing to parse the type strings of modular items ([#3640](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3640))
+* Luna - Fixed a few problems with the Ponygag ([#3641](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3641), [#3649](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3649))
+* bananarama92 - Reenabled gagged actions while wearing `small` gags ([#3644](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3644))
+
+
+### [Technical]
+
+* Estsanatlehi - Refactored ChatRoomMessage ([#3592](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3592), [#3643](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3643), [#3645](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3645))
+* Estsanatlehi - Added typedefs for the dynamic drawing callbacks ([#3620](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3620))
+* bananarama92 - Added support for custom `UpperBody` overlays ([#3630](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3630))
+* Estsanatlehi - Fixed CI breakage ([#3631](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3631))
+* Estsanatlehi - Added the two new hand groups to the known groups ([#3639](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3639))
 
 ## [R84]
 
@@ -25,6 +76,8 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 
 ### [Removed]
+
+* Nothing this release
 
 ### [Changed]
 * Estsanatlehi - Ported over the crafting enhancements from BCE back into the game ([#3593](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3593))

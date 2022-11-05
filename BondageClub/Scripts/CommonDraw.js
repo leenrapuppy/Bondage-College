@@ -254,16 +254,17 @@ function CommonDrawAppearanceBuild(C, {
 		if (PoseFolder) PoseFolder += '/';
 		if (Layer.HasImage && (!Layer.LockLayer || ItemLocked)) {
 			/** Check whether the asset requires a custom suffix
-			 * @type {string?} */
-			let SuffixName = null;
+			 * @type {string | undefined} */
+			let SuffixName = undefined;
 			if ((A.ColorSuffix != null) && (Color != null)) {
+				// eslint-disable-next-line dot-notation
 				SuffixName = (Color.indexOf("#") == 0) ? A.ColorSuffix["HEX_COLOR"] : A.ColorSuffix[Color];
 			}
 
 			// Draw the item on the canvas (default or empty means no special color, # means apply a color, regular text means we apply
 			// that text)
 			if ((Color != null) && (Color.indexOf("#") == 0) && Layer.AllowColorize) {
-				const ColorName = (SuffixName != null) ? "_" + SuffixName : ""
+				const ColorName = ((SuffixName == undefined) || (L != "")) ? "" : "_" + SuffixName;
 
 				drawImageColorize(
 					"Assets/" + AG.Family + "/" + GroupName + "/" + PoseFolder + Expression + A.Name + G + LayerType + ColorName + L + ".png", X, Y,
@@ -282,7 +283,10 @@ function CommonDrawAppearanceBuild(C, {
 					|| (Color.length == 1)
 					|| (Color.indexOf("#") == 0)
 				) ? "" : "_" + Color;
-				if (SuffixName != null) {
+
+				if (L != "") {
+					ColorName = "";
+				} else if (SuffixName != undefined) {
 					ColorName = ((SuffixName == "Default") || (SuffixName == "")) ? "" : "_" + SuffixName;
 				}
 

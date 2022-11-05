@@ -395,7 +395,7 @@ function ElementGetScrollPercentage(ID) {
  */
 function ElementIsScrolledToEnd(ID) {
 	var element = document.getElementById(ID);
-	return element != null && element.scrollHeight - element.scrollTop - element.clientHeight < 1;
+	return element != null && element.scrollHeight - element.scrollTop - element.clientHeight <= 1;
 }
 
 /**

@@ -1,6 +1,6 @@
 "use strict";
 function InventoryItemPelvisSciFiPleasurePantiesLoad() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied();
 	}
@@ -22,7 +22,7 @@ function InventoryItemPelvisSciFiPleasurePantiesDraw() {
 	const Vibrating = DialogFocusItem.Property.Intensity >= 0;
 	DrawAssetPreview(1387, 175, DialogFocusItem.Asset, {Vibrating});
 
-    var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+    var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticDrawAccessDenied();
 	}
@@ -53,7 +53,7 @@ function InventoryItemPelvisSciFiPleasurePantiesDraw() {
 
 function InventoryItemPelvisSciFiPleasurePantiesClick() {
 
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticClickAccessDenied();
 	}

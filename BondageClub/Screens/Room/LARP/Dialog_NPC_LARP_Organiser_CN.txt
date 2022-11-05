@@ -7,7 +7,7 @@ It's always a pleasure to see you DialogPlayerName.  Would you like to try a new
 见到你总是很高兴，DialogPlayerName。 你想尝试新的职业吗？
 Welcome to the Live Action Role Playing battles DialogPlayerName.  Do you need some explanations, or would you like to try a new class?
 欢迎来到实时角色扮演战斗 DialogPlayerName。 您想要一些介绍，还是想尝试新职业？
-Welcome to the Live Action Role Playing battles。  Would you like to join us?
+Welcome to the Live Action Role Playing battles.  Would you like to join us?
 欢迎来到实时角色扮演战斗。你想加入我们吗？
 ###_PLAYER
 Hi, I'm DialogPlayerName.

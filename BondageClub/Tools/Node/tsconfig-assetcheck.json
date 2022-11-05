@@ -14,6 +14,7 @@
 		"../../Backgrounds/**/*.js"
 	],
 	"exclude": [
-		"../../Scripts/lib/**/*.js"
+		"../../Scripts/lib/**/*.js",
+		"../../Screens/MiniGame/KinkyDungeon/*"
 	]
 }

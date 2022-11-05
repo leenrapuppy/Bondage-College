@@ -149,21 +149,21 @@ ItemMetalChastityBra,,,"(She nods as you lock the chastity bra on her.)  Support
 RemoveMetalChastityBra,,,(She wiggles her breast slowly as you unlock the chastity bra.)  Thanks!  That was kind of cruel.,,,RemoveMetalChastityBra,
 RemoveMetalChastityBra,,,(She stays silent as you use unlock the chastity bra.)  Be thoughtful and don't unlock anything until I'm disciplined.,,,RemoveMetalChastityBra,Violent|Serious
 RemoveMetalChastityBra,,,"(She wiggles her breast happily as you unlock the chastity bra.)  Oh, hell yeah!  The metal was fucking hurting.",,,RemoveMetalChastityBra,Peaceful|Rude
-ItemBreastSpankingToysWhip,,,(She jumps and does small whimpers each time you hit her.)  It stings!,,,ItemBreastSpankingToysWhip,
-ItemBreastSpankingToysWhip,,,(She moans of pleasure with each lash on her breast and torso.)  Oh yeah!  Hit me harder!,,,ItemBreastSpankingToysWhip,Violent
-ItemBreastSpankingToysWhip,,,(She whimpers and cries as you whip her breast and torso.)  Ow!  Please stop!  It hurts really bad.,,,ItemBreastSpankingToysWhip,Peaceful
-ItemBreastSpankingToysCrop,,,(She jumps a little as you swing the crop on her breast and tummy.)  It gets painful after a while.,,,ItemBreastSpankingToysCrop,
-ItemBreastSpankingToysCrop,,,(She wiggles her breast as you swing the crop on them.)  They are red hot!  This is so kinky.,,,ItemBreastSpankingToysCrop,Violent
-ItemBreastSpankingToysCrop,,,"(She whimpers and begs you to stop.)  Please, please, please, it's really painful.",,,ItemBreastSpankingToysCrop,Peaceful
-ItemPelvisSpankingToysWhip,,,(You whip her butt as she grumbles.)  What did I do to deserve that?,,,ItemPelvisSpankingToysWhip,
-ItemPelvisSpankingToysWhip,,,(She moans from the pain and pleasure as you whip her butt.)  Don't stop!  I crave the pain.,,,ItemPelvisSpankingToysWhip,Violent
-ItemPelvisSpankingToysWhip,,,(She cries from the pain as you whip her butt.)  Aaagn!  Stop!  It will leave permanent marks.,,,ItemPelvisSpankingToysWhip,Peaceful
-ItemPelvisSpankingToysCrop,,,"(You lash the leather crop pretty hard on her butt.)  Ow!  You're the sadist type, aren't you?",,,ItemPelvisSpankingToysCrop,
-ItemPelvisSpankingToysCrop,,,(You swing the leather crop on her butt as she moans.)  Harder!  The pain feels so good.,,,ItemPelvisSpankingToysCrop,Violent
-ItemPelvisSpankingToysCrop,,,(She trembles and whimpers from the pain.)  I'll be good Miss.  Please stop hurting me.,,,ItemPelvisSpankingToysCrop,Peaceful
-ItemVulvaSpankingToysVibratingWand,,,"(She moans softly as you massage her pussy with the wand.)  Mmmmh, this is lovely.",,,ItemVulvaSpankingToysVibratingWand,
-ItemVulvaSpankingToysVibratingWand,,,"(She moans loudly as you massage her pussy with the wand.)  Oh, fuck yeah!  Babe, this is hot!",,,ItemVulvaSpankingToysVibratingWand,Horny|Rude
-ItemVulvaSpankingToysVibratingWand,,,"(You massage her pussy with the wand, but she stays cold.)  I'm very sorry Miss.  I'm not in the mood.",,,ItemVulvaSpankingToysVibratingWand,Frigid|Submissive
+ItemBreastWhip,,,(She jumps and does small whimpers each time you hit her.)  It stings!,,,ItemBreastWhip,
+ItemBreastWhip,,,(She moans of pleasure with each lash on her breast and torso.)  Oh yeah!  Hit me harder!,,,ItemBreastWhip,Violent
+ItemBreastWhip,,,(She whimpers and cries as you whip her breast and torso.)  Ow!  Please stop!  It hurts really bad.,,,ItemBreastWhip,Peaceful
+ItemBreastCrop,,,(She jumps a little as you swing the crop on her breast and tummy.)  It gets painful after a while.,,,ItemBreastCrop,
+ItemBreastCrop,,,(She wiggles her breast as you swing the crop on them.)  They are red hot!  This is so kinky.,,,ItemBreastCrop,Violent
+ItemBreastCrop,,,"(She whimpers and begs you to stop.)  Please, please, please, it's really painful.",,,ItemBreastCrop,Peaceful
+ItemPelvisWhip,,,(You whip her butt as she grumbles.)  What did I do to deserve that?,,,ItemPelvisWhip,
+ItemPelvisWhip,,,(She moans from the pain and pleasure as you whip her butt.)  Don't stop!  I crave the pain.,,,ItemPelvisWhip,Violent
+ItemPelvisWhip,,,(She cries from the pain as you whip her butt.)  Aaagn!  Stop!  It will leave permanent marks.,,,ItemPelvisWhip,Peaceful
+ItemPelvisCrop,,,"(You lash the leather crop pretty hard on her butt.)  Ow!  You're the sadist type, aren't you?",,,ItemPelvisCrop,
+ItemPelvisCrop,,,(You swing the leather crop on her butt as she moans.)  Harder!  The pain feels so good.,,,ItemPelvisCrop,Violent
+ItemPelvisCrop,,,(She trembles and whimpers from the pain.)  I'll be good Miss.  Please stop hurting me.,,,ItemPelvisCrop,Peaceful
+ItemVulvaVibratingWand,,,"(She moans softly as you massage her pussy with the wand.)  Mmmmh, this is lovely.",,,ItemVulvaVibratingWand,
+ItemVulvaVibratingWand,,,"(She moans loudly as you massage her pussy with the wand.)  Oh, fuck yeah!  Babe, this is hot!",,,ItemVulvaVibratingWand,Horny|Rude
+ItemVulvaVibratingWand,,,"(You massage her pussy with the wand, but she stays cold.)  I'm very sorry Miss.  I'm not in the mood.",,,ItemVulvaVibratingWand,Frigid|Submissive
 VibratingEgg,,,(She wiggles her butt as you slide the egg inside.)  Now this is kinky!,,,VibratingEgg,
 VibratingEgg,,,"(She moans loudly as you slide the egg inside.)  This egg is perfect.  It's soft, sexy, discrete and so pleasurable.",,,VibratingEgg,Horny|Peaceful
 VibratingEgg,,,"(You slide the egg inside, but she barely reacts to it.)  I don't want to top from the bottom, but this egg would work better on someone else.",,,VibratingEgg,Frigid|Wise
@@ -293,6 +293,13 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 0,,,What troubles you my dear?,,IsLover(),IntroGirlfriend,Frigid|Serious
 0,,,Let's have a tete-a-tete my love.,,IsLover(),IntroGirlfriend,Polite|Wise
 0,,,What's up luv?,,IsLover(),IntroGirlfriend,Dumb|Rude
+0,,,Happy Bondage Club birthday!,,IsPlayerBirthday(),IntroBirthday,
+0,,,Have a great Bondage Club birthday girl.  Get spanked.,,IsPlayerBirthday(),IntroBirthday,Dominant|Violent
+0,,,"Miss, you're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),IntroBirthday,Submissive|Serious
+0,,,Happy BC birthday!  (She sings cheerfully.)  Ya got paddled yet?,,IsPlayerBirthday(),IntroBirthday,Playful|Rude
+0,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday.,,IsPlayerBirthday(),IntroBirthday,Frigid|Peaceful
+0,,,Best wishes for your Bondage Club birthday.  May you stay with us for years upon years.,,IsPlayerBirthday(),IntroBirthday,Polite|Wise
+0,,,Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),IntroBirthday,Horny|Dumb
 0,,,What's on your mind?,,,Intro,
 0,,,This place is kind of sexy.  What would you like to do?,,,Intro,Horny
 0,,,"Cool room you have there.  So, what's up?",,,Intro,Rude
@@ -397,6 +404,26 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 0,,(Play with her.),(She pushes you back.)  Hold on girl.  I'm not in the mood for that.,,!AllowRestain(),WontPlay,Dominant|Frigid
 0,,(Play with her.),"(She swiftly pushes you back, almost making you fall.)  Sorry to be so harsh, but I must clearly decline your offer.",,!AllowRestain(),WontPlay,Polite|Violent
 0,,(Play with her.),(She blocks you right away.)  Shit!  Don't be foolish.  I'm the freaking boss in here and I decide.,,!AllowRestain(),WontPlay,Rude|Serious
+0,70,Can I invite you to my bed?,(She smiles.)  That's a wild idea my friend.  (She gets in bed.),EnterBed(),WillJoinBed(),AskBedYes,
+0,70,Can I invite you to my bed?,(She moans.)  Oh yeah!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBed(),AskBedYes,Horny
+0,70,Can I invite you to my bed?,"(She nods.)  Very well, some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBed(),AskBedYes,Frigid
+0,70,Can I invite you to my bed?,(She ponders and nods.)  Some intimate time with you will strenghten our friendship.  (She gets in bed.),EnterBed(),WillJoinBed(),AskBedYes,Serious
+0,70,Can I invite you to my bed?,(She cheers.)  Pillow fight!  (She gets in bed.),EnterBed(),WillJoinBed(),AskBedYes,Playful
+0,,Can I invite you to my bed?,"Sorry, but I'm not in the mood.",,WillNotJoinBed(),AskBedNo,
+0,,Can I invite you to my bed?,(She moans and seems tormented.)  Yes?  No?  Maybe later.  I'm tired.,,WillNotJoinBed(),AskBedNo,Horny
+0,,Can I invite you to my bed?,(She shakes her head no.)  I'm not in the mood for sexual intercourse.,,WillNotJoinBed(),AskBedNo,Frigid
+0,,Can I invite you to my bed?,No.  Can we do something more productive?,,WillNotJoinBed(),AskBedNo,Serious
+0,,Can I invite you to my bed?,(She takes a deep breath.)  I rarely say no to have bedroom fun.  But not now.,,WillNotJoinBed(),AskBedNo,Playful
+0,70,(Mumble and invite her to your bed.),(She smiles.)  That's a wild idea my friend.  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,
+0,70,(Mumble and invite her to your bed.),(She moans.)  Oh yeah!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,Horny
+0,70,(Mumble and invite her to your bed.),"(She nods.)  Very well, some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBedGag(),AskBedYesGag,Frigid
+0,70,(Mumble and invite her to your bed.),(She ponders and nods.)  Some intimate time with you will strenghten our friendship.  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,Serious
+0,70,(Mumble and invite her to your bed.),(She cheers.)  Pillow fight!  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,Playful
+0,,(Mumble and invite her to your bed.),"Sorry, but I'm not in the mood.",,WillNotJoinBedGag(),AskBedNoGag,
+0,,(Mumble and invite her to your bed.),(She moans and seems tormented.)  Yes?  No?  Maybe later.  I'm tired.,,WillNotJoinBedGag(),AskBedNoGag,Horny
+0,,(Mumble and invite her to your bed.),(She shakes her head no.)  I'm not in the mood for sexual intercourse.,,WillNotJoinBedGag(),AskBedNoGag,Frigid
+0,,(Mumble and invite her to your bed.),No.  Can we do something more productive?,,WillNotJoinBedGag(),AskBedNoGag,Serious
+0,,(Mumble and invite her to your bed.),(She takes a deep breath.)  I rarely say no to have bedroom fun.  But not now.,,WillNotJoinBedGag(),AskBedNoGag,Playful
 0,90,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 0,,(Leave her.),,DialogLeave(),,,
 10,,,What's on your mind?,,,,
@@ -588,6 +615,8 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 42,0,Making love will only be better.,"(She nods slowly.)  It will, sweetie.  What would you like to do now?",,,,
 42,0,I hope we'll never argue.,(She raises an eyebrow.)  Don't talk about that.  What would you like to do now?,NPCInteraction(-3),,,
 42,0,I hope we'll be together forever.,(She smiles at you.)  Let's make it work my love.  What would you like to do now?,NPCInteraction(3),,,
+70,0,(Join her in bed.),What would you like to do now?,JoinInBed(),,,
+70,0,(Check your room first.),What would you like to do now?,DialogLeave(),,,
 90,,(Make her more Dominant.),(She's now a little more Dominant.),"NPCCheat(""TraitDominant"")",,,
 90,,(Make her more submissive.),(She's now a little more submissive.),"NPCCheat(""TraitSubmissive"")",,,
 90,0,(Leave her.),(She seems curious.)  What would you like to do?,DialogLeave(),,,
@@ -625,7 +654,7 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,,,(She smiles seeing you on your knees.)  What's on your mind my subbie?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,
 1000,,,(She gives you a stern look and nods.)  Your posture shows respect and docility.  What do you need little one?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,Dominant|Polite
 1000,,,(She stays far from you but smiles seeing your position.)  Is there anything you desire my protege?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,Frigid|Wise
-1000,,,"Yes, my sexy subbie?  (She comes closer and pets your head gently.)",,,DomIntroPlayerKneeling,Peaceful|Horny
+1000,,,"Yes, my sexy subbie?  (She comes closer and pets your head gently.)",,DialogIsKneeling(Player),DomIntroPlayerKneeling,Peaceful|Horny
 1000,,,What's on your mind my submissive love?,,IsLover(),DomIntroGirlfriend,
 1000,,,What's going on little hun?,,IsLover(),DomIntroGirlfriend,Dominant|Violent
 1000,,,Please tell me of your feelings my sweet pet.,,IsLover(),DomIntroGirlfriend,Submissive|Peaceful
@@ -633,6 +662,13 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,,,What troubles you my little loved one?,,IsLover(),DomIntroGirlfriend,Frigid|Serious
 1000,,,Let's have a tete-a-tete my submissive love.,,IsLover(),DomIntroGirlfriend,Polite|Wise
 1000,,,What's up slave luv?,,IsLover(),DomIntroGirlfriend,Dumb|Rude
+1000,,,Happy Bondage Club birthday my girl!,,IsPlayerBirthday(),DomIntroBirthday,
+1000,,,Have a great Bondage Club birthday my slave.  You will get spanked a lot.,,IsPlayerBirthday(),DomIntroBirthday,Dominant|Violent
+1000,,,"You're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),DomIntroBirthday,Submissive|Serious
+1000,,,Happy BC birthday my girl!  (She sings cheerfully.)  Where's the freaking paddle?,,IsPlayerBirthday(),DomIntroBirthday,Playful|Rude
+1000,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday my submissive.,,IsPlayerBirthday(),DomIntroBirthday,Frigid|Peaceful
+1000,,,Best wishes for your Bondage Club birthday.  May you stay well constrained for years upon years.,,IsPlayerBirthday(),DomIntroBirthday,Polite|Wise
+1000,,,Hey slave!  Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),DomIntroBirthday,Horny|Dumb
 1000,,,What's on your mind my subbie?,,,DomIntro,
 1000,,,Hey there my cute sub.  What's on your mind?,,,DomIntro,Horny
 1000,,,Yo bitch.  What's up?,,,DomIntro,Rude
@@ -713,6 +749,18 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,,"Mistress, can I wear something else now?",Stop thinking about your body and your clothes and focus on serving me.  Wait until the time is up.,,"DialogLogQuery(""BlockChange"", ""Rule"")",DomCanChange,Frigid
 1000,,"Mistress, can I wear something else now?","Girl, if you complain too much, I'll have to extend the time.  You need to wait.",,"DialogLogQuery(""BlockChange"", ""Rule"")",DomCanChange,Serious
 1000,,"Mistress, can I wear something else now?","Not yet my subbie, you need to wait a little more.",,"DialogLogQuery(""BlockChange"", ""Rule"")",DomCanChange,Playful
+1000,1070,Would you like to use the bed Mistress?,(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,
+1000,1070,Would you like to use the bed Mistress?,(She moans.)  Oh yeah!  Time for some spicy fun my girl.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Horny
+1000,1070,Would you like to use the bed Mistress?,"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBed(),DomAskBedYes,Frigid
+1000,1070,Would you like to use the bed Mistress?,(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Serious
+1000,1070,Would you like to use the bed Mistress?,(She cheers.)  Yes!  But I get the best pillows my girl.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Playful
+1000,,Would you like to use the bed Mistress?,"No girl, I'm not in the mood.",,WillNotJoinBed(),,
+1000,1070,(Whimper and invite her to your bed.),(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,
+1000,1070,(Whimper and invite her to your bed.),(She moans.)  Oh yeah!  Time for some spicy fun my girl.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Horny
+1000,1070,(Whimper and invite her to your bed.),"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Frigid
+1000,1070,(Whimper and invite her to your bed.),(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Serious
+1000,1070,(Whimper and invite her to your bed.),(She cheers.)  Yes!  But I get the best pillows my girl.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Playful
+1000,,(Whimper and invite her to your bed.),"No girl, I'm not in the mood.",,WillNotJoinBedGag(),,
 1000,1090,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 1000,,(Leave her.),,DialogLeave(),,,
 1001,,,(She looks angry.)  What do you want now?,,,DomAngry,
@@ -884,6 +932,25 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1058,0,I hope we can still be friends.,"Yes, lets hope it won't ruin our friendship.  What would you like to do now?",NPCInteraction(5),,,
 1058,0,Let's talk about something else.,Yes.  What would you like to do now?,,,,
 1058,0,I'm glad this collar is gone.,You could have told me sooner you know?  What would you like to do now?,NPCInteraction(-5),,,
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  I've been looking for you.",,,DomCatchPlayerOnEntry,
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  I was wet thinking of you, my girl.",,,DomCatchPlayerOnEntry,Horny
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  I've wanted to spend time with you.",,,DomCatchPlayerOnEntry,Frigid
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  It's a delight to see you my submissive.",,,DomCatchPlayerOnEntry,Polite
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  Yo my bitch!",,,DomCatchPlayerOnEntry,Rude
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees without saying a word.)",,,DomCatchPlayerOnEntry,Serious
+1060,,,"(As soon as you enter, your Mistress intercepts you and forces you on your knees.)  Yes!  You're back!",,,DomCatchPlayerOnEntry,Playful
+1061,1062,"Yes, Mistress?","I want to spend some time with you, my girl.  To have some fun and get to know you better.",,Player.CanTalk(),,
+1061,1062,What's going on Mistress?,"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,Player.CanTalk(),,
+1061,1062,That was quick!,"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,Player.CanTalk(),,
+1061,1062,(Mumble in your gag.),"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,!Player.CanTalk(),,
+1061,1062,(Stay silent.),"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,!Player.CanTalk(),,
+1061,1062,(Get comfy on your knees.),"I want to spend some time with you, my girl.  To have some fun and get to know you better.",,!Player.CanTalk(),,
+1062,,I love to spend time with you.,,StartActivity(),Player.CanTalk(),,
+1062,,What would you like to do?,,StartActivity(),Player.CanTalk(),,
+1062,,(Nod happily.),,StartActivity(),!Player.CanTalk(),,
+1062,,(Listen to her.),,StartActivity(),!Player.CanTalk(),,
+1070,1000,(Join her in bed.),(She seems curious.)  What would you like to do my girl?,JoinInBed(),,,
+1070,1000,(Check your room first.),(She seems curious.)  What would you like to do my girl?,DialogLeave(),,,
 1090,,(Make her more Dominant.),(She's now a little more Dominant.),"NPCCheat(""TraitDominant"")",,,
 1090,,(Make her more submissive.),(She's now a little more submissive.),"NPCCheat(""TraitSubmissive"")",,,
 1090,1000,(Leave her.),(She seems curious.)  What would you like to do my girl?,DialogLeave(),,,
@@ -964,6 +1031,15 @@ ActivityRelease,1000,Thanks Mistress.,(She releases you and laughs.)  Don't get 
 ActivityRelease,1000,You're the best!,(She releases you and gives you a hug.)  And you're the best submissive.,ActivityRun(1),Player.CanTalk(),,
 ActivityRelease,1000,(Nod happily.),(She releases you and smiles back at you.),ActivityRun(1),,,
 ActivityRelease,1000,(Struggle one last time.),"(She releases you and laughs.)  Too bad, I love to see you struggle.",ActivityRun(0),,,
+ActivityUnchasteIntro,,,"My girl, you deserve a break from chastity.  I will help you.",,,DomActivityUnchasteIntro,
+ActivityUnchasteIntro,,,"Even if your chastity is important to me, let me help you out for a while.",,,DomActivityUnchasteIntro,Frigid
+ActivityUnchasteIntro,,,"This chastity is cruel, I want to see your sexy body, let me help you out.",,,DomActivityUnchasteIntro,Horny
+ActivityUnchasteIntro,,,"Slave!  Let's get rid of that chastity, then we can fuck when we want.",,,DomActivityUnchasteIntro,Rude
+ActivityUnchasteIntro,,,"My beloved submissive, your chastity time is over.  I'll help you to let loose your wildest desires.",,,DomActivityUnchasteIntro,Polite
+ActivityUnchaste,1000,This is wonderful Mistress.,(She releases your private parts and smiles.)  And you're a wonderful submissive.,ActivityRun(1),Player.CanTalk(),,
+ActivityUnchaste,1000,Thanks a lot.,(She releases your private parts and nods.)  Don't forget that I can lock you back.,ActivityRun(0),Player.CanTalk(),,
+ActivityUnchaste,1000,(Nod slowly.),(She releases your private parts and nods.)  Don't forget that I can lock you back.,ActivityRun(0),,,
+ActivityUnchaste,1000,(Struggle one last time.),(She releases your private parts and smirks.)  I love to see you struggle.,ActivityRun(1),,,
 ActivityTickleIntro,,,(She starts to tickle you lightly.)  Are you ticklish my girl?,,,DomActivityTickleIntro,
 ActivityTickleIntro,,,"(She starts to tickle you lightly.)  Tell me slut, are you ticklish?",,,DomActivityTickleIntro,Rude
 ActivityTickleIntro,,,"(She starts to tickle you lightly.)  Be honest little one, do you appreciate the fine art of tickling?",,,DomActivityTickleIntro,Polite
@@ -1218,6 +1294,11 @@ PunishCellIntro,,,Some time alone in a cell will help you to think about what yo
 PunishCell,1000,Very well.  (Go to the cell.),,RunPunishment(0),,,
 PunishCell,1000,This is bullshit!  (Go to the cell.),,RunPunishment(-2),,,
 PunishCell,1000,It's fair Mistress.  (Go to the cell.),,RunPunishment(1),,,
+PunishOwnerLocksIntro,,,"My girl, you're going to stay restrained until I say otherwise.  To prove it, I will fully lock you with owner locks.",,,,
+PunishOwnerLocks,1001,Is that necessary?,(She nods and smirks.)  It is.  (She locks all your items with owner locks and smiles.)  You belong to me.,RunPunishment(0),,,
+PunishOwnerLocks,1001,That is bullshit!,(She slaps your face.)  Shut up!  (She locks all your items with owner locks and grins.)  You belong to me.,RunPunishment(-2),,,
+PunishOwnerLocks,1001,It will be hard to find help.,You won't get any help.  (She locks all your items with owner locks and grins.)  You belong to me.,RunPunishment(0),,,
+PunishOwnerLocks,1001,(Nod and bow your head.),Good girl.  (She locks all your items with owner locks and smiles.)  You belong to me.,RunPunishment(1),,,
 2000,,,(She seems confused seeing you on your knees.)  Yes Mistress?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,
 2000,,,(She seems confused seeing you on your knees.)  What the fuck?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,Dominant|Rude
 2000,,,(She seems confused seeing you on your knees.)  Is everything alright Mistress?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,Peaceful|Wise
@@ -1228,6 +1309,13 @@ PunishCell,1000,It's fair Mistress.  (Go to the cell.),,RunPunishment(1),,,
 2000,,,(She bows her head and stays silent.),,IsLover(),SubIntroGirlfriend,Frigid|Serious
 2000,,,"Mistress, what do you desire from your loved submissive?",,IsLover(),SubIntroGirlfriend,Polite|Wise
 2000,,,Yes my luv?  Errr... Mistress?,,IsLover(),SubIntroGirlfriend,Dumb|Rude
+2000,,,Happy Bondage Club birthday Mistress!,,IsPlayerBirthday(),SubIntroBirthday,
+2000,,,Have a great Bondage Club birthday Mistress.  Spank all the subs you want.,,IsPlayerBirthday(),SubIntroBirthday,Dominant|Violent
+2000,,,"Mistress, you're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),SubIntroBirthday,Submissive|Serious
+2000,,,Happy BC birthday Mam!  (She sings cheerfully.)  You can paddle me.  (She giggles.),,IsPlayerBirthday(),SubIntroBirthday,Playful|Rude
+2000,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday Mistress.,,IsPlayerBirthday(),SubIntroBirthday,Frigid|Peaceful
+2000,,,Best wishes for your Bondage Club birthday.  May you stay in control for years upon years.,,IsPlayerBirthday(),SubIntroBirthday,Polite|Wise
+2000,,,Hey Mistress!  Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),SubIntroBirthday,Horny|Dumb
 2000,,,What would you like to do Mistress?,,,SubIntro,
 2000,,,Is there something kinky you would like to do Mistress?,,,SubIntro,Horny
 2000,,,(She bows her head and stays silent.),,,SubIntro,Frigid
@@ -1323,6 +1411,18 @@ PunishCell,1000,It's fair Mistress.  (Go to the cell.),,RunPunishment(1),,,
 2000,,Stand up.,"Tremendous!  (She stands up slowly.)  I must confess, my legs were starting to hurt.","DialogSetPose(CurrentCharacter, """")",CanStandUp(),SubStandUp,Peaceful|Polite
 2000,,(Point at the floor then upward.),(She nods and stands up.),"DialogSetPose(CurrentCharacter, """")",CanStandUpGagged(),,
 2000,,Stand up.,(She wiggles her restrained legs and shrugs.),,CannotStandUp(),,
+2000,2075,It's time to get to bed my girl.,(She smiles.)  That's a great idea Mistress.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,
+2000,2075,It's time to get to bed my girl.,(She moans.)  Oh yeah Mistress!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,Horny
+2000,2075,It's time to get to bed my girl.,"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBed(),SubAskBedYes,Frigid
+2000,2075,It's time to get to bed my girl.,(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,Serious
+2000,2075,It's time to get to bed my girl.,(She cheers.)  Yes!  And you can have the best pillows Mistress.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,Playful
+2000,,It's time to get to bed my girl.,"No Mistress.  Sorry, but I'm not in the mood.  Please do not punish me.",,WillNotJoinBed(),,
+2000,2075,(Grumble and invite her to your bed.),(She smiles.)  That's a great idea Mistress.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,
+2000,2075,(Grumble and invite her to your bed.),(She moans.)  Oh yeah Mistress!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Horny
+2000,2075,(Grumble and invite her to your bed.),"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Frigid
+2000,2075,(Grumble and invite her to your bed.),(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Serious
+2000,2075,(Grumble and invite her to your bed.),(She cheers.)  Yes!  And you can have the best pillows Mistress.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Playful
+2000,,(Grumble and invite her to your bed.),"No Mistress.  Sorry, but I'm not in the mood.  Please do not punish me.",,WillNotJoinBedGag(),,
 2000,2100,(Play with her.),"(You move closer, ready to play with her.)",,AllowRestain(),,
 2000,2090,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 2000,,(Leave her.),,DialogLeave(),,,
@@ -1510,6 +1610,8 @@ PunishCell,1000,It's fair Mistress.  (Go to the cell.),,RunPunishment(1),,,
 2072,2000,Making love will only be better.,"(She nods slowly.)  It will.  I'm yours, body and soul.",,,,
 2072,2000,I hope we'll never argue.,"(She raises an eyebrow.)  Let's not talk about that.  I'm yours, body and soul.",NPCInteraction(-3),,,
 2072,2000,I hope we'll be together forever.,"(She smiles at you.)  Let's make it work.  I'm yours, body and soul.",NPCInteraction(3),,,
+2075,2000,(Join her in bed.),(She seems curious.)  What would you like to do Mistress?,JoinInBed(),,,
+2075,2000,(Check your room first.),(She seems curious.)  What would you like to do Mistress?,DialogLeave(),,,
 2080,2081,Turn the tables?  What do you mean?,"Since I'm more Dominant than you, you should wear my collar and not the reverse.",,,,
 2080,2081,(Stay silent and listen to her.),"Since I'm more Dominant than you, you should wear my collar and not the reverse.",,,,
 2080,2000,We will not turn any tables girl.,(She seems disappointed.)  Alright Mistress.  What's on your mind then?,,,,

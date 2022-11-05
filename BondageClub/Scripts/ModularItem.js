@@ -464,10 +464,13 @@ function ModularItemModuleTransition(newModule, data) {
 /**
  * Parses the focus item's current type into an array representing the currently selected module options
  * @param {ModularItemData} data - The modular item's data
+ * @param {string?} type - The type string for a modular item. If null, use a type string extracted from the selected module options
  * @returns {number[]} - An array of numbers representing the currently selected options for each of the item's modules
  */
-function ModularItemParseCurrent({ asset, modules }) {
-	const type = (DialogFocusItem.Property && DialogFocusItem.Property.Type) || ModularItemConstructType(modules);
+function ModularItemParseCurrent({ asset, modules }, type=null) {
+	if (type == null) {
+		type = (DialogFocusItem.Property && DialogFocusItem.Property.Type) || ModularItemConstructType(modules);
+	}
 	return modules.map(module => {
 		const index = type.indexOf(module.Key);
 		if (index !== -1) {
@@ -792,6 +795,7 @@ function ModularItemRequirementMessageCheck(option, currentOption, changeWhenLoc
  */
 function ModularItemGenerateValidationProperties(data) {
 	const {asset, modules} = data;
+	asset.Extended = true;
 	asset.AllowType = ModularItemGenerateTypeList(data);
 	asset.AllowEffect = Array.isArray(asset.AllowEffect) ? asset.AllowEffect.slice() : [];
 	CommonArrayConcatDedupe(asset.AllowEffect, asset.Effect);

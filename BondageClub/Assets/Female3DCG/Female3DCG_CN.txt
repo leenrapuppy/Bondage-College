@@ -766,6 +766,12 @@ Harem Gloves
 后宫手套
 Biker Gloves
 单车手套
+Left Hand
+左手
+Rings
+指环
+Right Hand
+右手
 Bracelet
 手镯
 Bow Band
@@ -1516,8 +1522,6 @@ Bolero Straitjacket
 波蕾若拘束衣
 Pet Suit
 宠物拘束服
-Pet Suit Exposed
-露出宠物拘束服
 Holding Leash
 牵引绳
 Strait Dress
@@ -1976,8 +1980,6 @@ Bridle Gag
 乳胶隐藏口塞
  Mouthfeature Gag
 嘴内特征口塞
-Stitches 
-缝线
 Eyes
 眼睛
 Cloth Blindfold

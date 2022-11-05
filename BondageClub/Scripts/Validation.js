@@ -565,7 +565,7 @@ function ValidationSanitizeProperties(C, item) {
 	// Block advanced vibrator modes if disabled
 	if (typeof property.Mode === "string" && C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes && !VibratorModeOptions[VibratorModeSet.STANDARD].includes(VibratorModeGetOption(property.Mode))) {
 		console.warn(`Removing invalid mode "${property.Mode}" from ${asset.Name}`);
-		property.Mode = VibratorModeOptions[VibratorModeSet.STANDARD][0].Name;
+		property.Mode = VibratorModeOff.Name;
 		changed = true;
 	}
 
@@ -638,14 +638,15 @@ function ValidationSanitizeLock(C, item) {
 	const ownerNumber = C.Ownership && C.Ownership.MemberNumber;
 	const lockedByOwner = (typeof ownerNumber === 'number' && lockNumber === ownerNumber);
 
-	// Ensure the lock & its member number is valid on owner-only locks
+	// Ensure the lock & its member number is valid on owner-only locks, also validtes for NPC owners
 	if (lock.Asset.OwnerOnly) {
 		const selfCanUseOwnerLocks = !C.IsPlayer() || !LogQuery("BlockOwnerLockSelf", "OwnerRule");
 		const lockNumberValid = (lockedBySelf && selfCanUseOwnerLocks) || lockedByOwner;
-		if (!(C.IsOwned() || typeof ownerNumber === 'number') || !lockNumberValid) {
-			console.warn(`Removing invalid owner-only lock with member number: ${lockNumber}`);
-			return ValidationDeleteLock(property);
-		}
+		if (!(C.IsOwned() || typeof ownerNumber === 'number') || !lockNumberValid)
+			if (!(C.IsOwned() && !C.IsOwnedByPlayer() && !lockNumberValid)) {
+				console.warn(`Removing invalid owner-only lock with member number: ${lockNumber}`);
+				return ValidationDeleteLock(property);
+			}
 	}
 
 	// Ensure the lock & its member number is valid on lover-only locks
@@ -1014,7 +1015,7 @@ function ValidationGetBlockedGroups(item, groupNames) {
  * item due to prerequisites
  */
 function ValidationGetPrerequisiteBlockingGroups(item, appearance) {
-	if (!item.Asset.Prerequisite) return [];
+	if (!item.Asset.Prerequisite.length) return [];
 
 	appearance = appearance.filter((appearanceItem) => appearanceItem.Asset !== item.Asset);
 	const char = CharacterLoadSimple(`PrerequisiteCheck${item.Asset.Group.Name}`);

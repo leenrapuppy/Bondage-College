@@ -740,8 +740,8 @@ function StablePlayerExamEnd() {
 //Check if the Player can become a Trainer
 function StableCanBecomeTrainer() {
 	const needed = [
-		["SpankingToysCrop", "ItemHands"],
-		["SpankingToysWhip", "ItemHands"],
+		["Crop", "ItemHandheld"],
+		["Whip", "ItemHandheld"],
 		["LeatherBelt", "ItemLegs"],
 		["LeatherBelt", "ItemFeet"]
 	];

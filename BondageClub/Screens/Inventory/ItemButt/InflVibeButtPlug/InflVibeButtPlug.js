@@ -45,7 +45,7 @@ function InventoryItemButtInflVibeButtPlugClick(actionPrefix) {
 
 // Sets the inflatable vibe butt plug pump Level
 function InventoryItemButtInflVibeButtPlugInflation(Modifier, actionPrefix) {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	DialogFocusItem.Property.InflateLevel = DialogFocusItem.Property.InflateLevel + Modifier;
 	if (C.ID == 0) ServerPlayerAppearanceSync();
 	var Dictionary = [];
@@ -57,7 +57,7 @@ function InventoryItemButtInflVibeButtPlugInflation(Modifier, actionPrefix) {
 
 // Sets the inflatable vibe butt plug vibration Level
 function InventoryItemButtInflVibeButtPlugSetIntensity(Modifier, actionPrefix) {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	DialogFocusItem.Property.Intensity = DialogFocusItem.Property.Intensity + Modifier;
 	if (DialogFocusItem.Property.Intensity == -1) DialogFocusItem.Property.Effect = ["Egged"];
 	if (DialogFocusItem.Property.Intensity >= 0) DialogFocusItem.Property.Effect = ["Egged", "Vibrating"];

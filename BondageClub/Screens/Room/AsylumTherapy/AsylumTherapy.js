@@ -131,9 +131,10 @@ function AsylumTherapyTherapySuccess() {
 function AsylumTherapyPainTherapyRestrain() {
 	InventoryWear(Player, "FourLimbsShackles", "ItemArms");
 	CharacterSetActivePose(Player, "Kneel", true);
-	InventoryWear(AsylumTherapyNurse, "SpankingToys", "ItemHands");
-	if ((ReputationGet("Asylum") <= -50) && (ReputationGet("Asylum") >= -99)) InventoryGet(AsylumTherapyNurse, "ItemHands").Property = { Type: "Paddle" };
-	if (ReputationGet("Asylum") <= -100) InventoryGet(AsylumTherapyNurse, "ItemHands").Property = { Type: "Whip" };
+	if ((ReputationGet("Asylum") <= -50) && (ReputationGet("Asylum") >= -99))
+		InventoryWear(AsylumTherapyNurse, "Paddle", "ItemHandheld");
+	if (ReputationGet("Asylum") <= -100)
+		InventoryWear(AsylumTherapyNurse, "Whip", "ItemHandheld");
 	CharacterRefresh(AsylumTherapyNurse);
 }
 
@@ -185,9 +186,8 @@ function AsylumTherapyPatientPainIntro(RepChange) {
 	DialogChangeReputation("Dominant", RepChange);
 	InventoryWear(AsylumTherapyPatient, "FourLimbsShackles", "ItemArms");
 	CharacterSetActivePose(AsylumTherapyPatient, "Kneel", true);
-	InventoryWear(Player, "SpankingToys", "ItemHands");
-	if ((ReputationGet("Asylum") >= 50) && (ReputationGet("Asylum") <= 99)) InventoryGet(Player, "ItemHands").Property = { Type: "Paddle" };
-	if (ReputationGet("Asylum") >= 100) InventoryGet(Player, "ItemHands").Property = { Type: "Whip" };
+	if ((ReputationGet("Asylum") >= 50) && (ReputationGet("Asylum") <= 99)) InventoryWear(Player, "Paddle", "ItemHandheld");
+	if (ReputationGet("Asylum") >= 100) InventoryWear(Player, "Whip", "ItemHandheld");
 	CharacterRefresh(Player);
 }
 

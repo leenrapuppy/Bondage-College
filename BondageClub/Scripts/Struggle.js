@@ -25,7 +25,10 @@ var StruggleLockPickTotalTries = 0;
 var StruggleProgressStruggleCount = 0;
 var StruggleProgressAuto = 0;
 var StruggleProgressOperation = "...";
+
+/** @type {Item | null} */
 var StruggleProgressPrevItem = null;
+/** @type {Item | null} */
 var StruggleProgressNextItem = null;
 var StruggleProgressSkill = 0;
 var StruggleProgressLastKeyPress = 0;
@@ -33,7 +36,9 @@ var StruggleProgressChallenge = 0;
 
 
 var StruggleProgressCurrentMinigame = "Strength";
+/** @type {Item | null} */
 var StruggleProgressChoosePrevItem = null;
+/** @type {Item | null} */
 var StruggleProgressChooseNextItem = null;
 
 // For flexibility

@@ -207,9 +207,12 @@ function InventoryItemNeckSlaveCollarClick() {
 
 }
 
-// Sets the slave collar model
+/**
+ * Sets the slave collar model
+ * @type {TypedItemSetTypeCallback}
+ */
 function InventoryItemNeckSlaveCollarSetType(NewType) {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	var Type = InventoryItemNeckSlaveCollarTypes.find(Collar => Collar.Name == NewType) || InventoryItemNeckSlaveCollarTypes[0];
 	DialogFocusItem.Property = Type.Property;
 	var Dictionary = [];

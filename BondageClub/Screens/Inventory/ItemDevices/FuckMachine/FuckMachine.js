@@ -1,17 +1,5 @@
 "use strict";
 
-function InventoryItemDevicesFuckMachineLoad() {
-	VibratorModeLoad([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
-}
-
-function InventoryItemDevicesFuckMachineDraw() {
-	VibratorModeDraw([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
-}
-
-function InventoryItemDevicesFuckMachineClick() {
-	VibratorModeClick([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
-}
-
 /** @type {DynamicBeforeDrawCallback} */
 function AssetsItemDevicesFuckMachineBeforeDraw({ PersistentData, L, Y, Property }) {
 	const Data = PersistentData();

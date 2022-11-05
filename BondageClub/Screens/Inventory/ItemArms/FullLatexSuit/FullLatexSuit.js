@@ -5,7 +5,7 @@ function InventoryItemArmsFullLatexSuitLoad() {
 	if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Type: null };
 	if (DialogFocusItem.Property.Block == null) {
 		DialogFocusItem.Property.Block = DialogFocusItem.Property.Type ? [] : ["ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"];
-		var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+		var C = CharacterGetCurrent();
 		CharacterRefresh(C);
 		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 	}
@@ -49,11 +49,14 @@ function InventoryItemArmsFullLatexSuitClick() {
 	else if (MouseIn(1375, 750, 225, 225) && InventoryGet(CharacterGetCurrent(), "ItemVulva") == null) InventoryItemArmsFullLatexSuitSetType("Wand");
 }
 
-// Sets the suit properties when it's model changes
+/**
+ * Sets the suit properties when it's model changes
+ * @type {TypedItemSetTypeCallback}
+ */
 function InventoryItemArmsFullLatexSuitSetType(NewType) {
 
 	// Sets the type, blocking zones and wand
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
 		InventoryItemArmsFullLatexSuitLoad();
