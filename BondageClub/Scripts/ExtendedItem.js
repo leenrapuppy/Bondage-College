@@ -138,10 +138,8 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 		return;
 	}
 
-	const C = CharacterGetCurrent();
 	const Asset = DialogFocusItem.Asset;
 	const ItemOptionsOffset = ExtendedItemGetOffset();
-	const ImageHeight = ShowImages ? 220 : 0;
 	if (XYPositions === null) {
 		const XYPositionsArray = !Asset.Group.Clothing ? (ShowImages ? ExtendedXY : ExtendedXYWithoutImages) : ExtendedXYClothes;
 		OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositionsArray.length - 1);
@@ -169,29 +167,49 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 		const PageOffset = I - ItemOptionsOffset;
 		const X = XYPositions[PageOffset][0];
 		const Y = XYPositions[PageOffset][1];
-
-		const Option = Options[I];
-		const OptionType = Option.Property && Option.Property.Type;
-		const Hover = MouseIn(X, Y, 225, 55 + ImageHeight) && !CommonIsMobile;
-		const IsSelected = DialogFocusItem.Property.Type == OptionType;
-		const IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, OptionType);
-		const ButtonColor = ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected);
-
-		DrawButton(X, Y, 225, 55 + ImageHeight, "", ButtonColor, null, null, IsSelected);
-		if (ShowImages) {
-			DrawImage(`${AssetGetInventoryPath(Asset)}/${Option.Name}.png`, X + 2, Y);
-			DrawPreviewIcons(ExtendItemGetIcons(C, Asset, OptionType), X + 2, Y);
-		}
-		DrawTextFit((IsFavorite && !ShowImages ? "★ " : "") + DialogFindPlayer(DialogPrefix + Option.Name), X + 112, Y + 30 + ImageHeight, 225, "black");
-		if (ControllerActive == true) {
-			setButton(X + 112, Y + 30 + ImageHeight);
-		}
+		ExtendedItemDrawButton(Options[I], CurrentOption, DialogPrefix, X, Y, ShowImages);
 	}
 
 	// Permission mode toggle
 	DrawButton(1775, 25, 90, 90, "", "White",
 		ExtendedItemPermissionMode ? "Icons/DialogNormalMode.png" : "Icons/DialogPermissionMode.png",
 		DialogFindPlayer(ExtendedItemPermissionMode ? "DialogNormalMode" : "DialogPermissionMode"));
+}
+
+/**
+ * Draw a single button in the extended item type selection screen.
+ * @param {ExtendedItemOption | null} Option - The new extended item option
+ * @param {ExtendedItemOption | null} CurrentOption - The current extended item option
+ * @param {number} X - The X coordinate of the button
+ * @param {number} Y - The Y coordinate of the button
+ * @param {string} DialogPrefix - The prefix to the dialog keys for the display strings describing each extended type.
+ *     The full dialog key will be <Prefix><Option.Name>
+ * @param {boolean} ShowImages - Denotes wether images should be shown for the specific item
+ * @param {Item} Item - The item in question; defaults to {@link DialogFocusItem}
+ * @param {boolean | null} IsSelected - Whether the button is already selected or not. If `null` compute this value by checking if the item's current type matches `Option`.
+ * @see {@link ExtendedItemDraw}
+ */
+function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowImages=true, Item=DialogFocusItem, IsSelected=null) {
+	const Asset = Item.Asset;
+	const C = CharacterGetCurrent();
+	const ImageHeight = ShowImages ? 220 : 0;
+	const OptionType = Option.Property && Option.Property.Type;
+	if (IsSelected == null) {
+		IsSelected = Item.Property.Type == OptionType;
+	}
+	const Hover = MouseIn(X, Y, 225, 55 + ImageHeight) && !CommonIsMobile;
+	const IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, OptionType);
+	const ButtonColor = ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected, Item);
+
+	DrawButton(X, Y, 225, 55 + ImageHeight, "", ButtonColor, null, null, IsSelected);
+	if (ShowImages) {
+		DrawImage(`${AssetGetInventoryPath(Asset)}/${Option.Name}.png`, X + 2, Y);
+		DrawPreviewIcons(ExtendItemGetIcons(C, Asset, OptionType), X + 2, Y);
+	}
+	DrawTextFit((IsFavorite && !ShowImages ? "★ " : "") + DialogFindPlayer(DialogPrefix + Option.Name), X + 112, Y + 30 + ImageHeight, 225, "black");
+	if (ControllerActive == true) {
+		setButton(X + 112, Y + 30 + ImageHeight);
+	}
 }
 
 /**
