@@ -3,7 +3,7 @@
 // Loads the item extension properties
 function InventoryItemNeckAccessoriesCollarShockUnitLoad() {
 	if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Intensity: 0, ShowText: true };
-	if (DialogFocusItem.Property.Intensity == null) DialogFocusItem.Property.Intensity = 0;
+	if (DialogFocusItem.Property.ShockLevel == null) DialogFocusItem.Property.ShockLevel = 0;
 	if (DialogFocusItem.Property.TriggerCount == null) DialogFocusItem.Property.TriggerCount = 0;
 	if (DialogFocusItem.Property.ShowText == null) DialogFocusItem.Property.ShowText = true;
 }
@@ -11,11 +11,11 @@ function InventoryItemNeckAccessoriesCollarShockUnitLoad() {
 // Draw the item extension screen
 function InventoryItemNeckAccessoriesCollarShockUnitDraw() {
 	DrawAssetPreview(1387, 225, DialogFocusItem.Asset);
-	DrawText(DialogFindPlayer("Intensity" + DialogFocusItem.Property.Intensity.toString()).replace("Item", DialogFocusItem.Asset.Description), 1500, 550, "White", "Gray");
+	DrawText(DialogFindPlayer("Intensity" + DialogFocusItem.Property.ShockLevel.toString()).replace("Item", DialogFocusItem.Asset.Description), 1500, 550, "White", "Gray");
 	DrawText(DialogFindPlayer("ShockCount").replace("ShockCount", DialogFocusItem.Property.TriggerCount), 1500, 600, "White", "Gray");
-	DrawButton(1200, 650, 200, 55, DialogFindPlayer("Low"), DialogFocusItem.Property.Intensity > 0 ? "White" : "Gray");
-	DrawButton(1550, 650, 200, 55, DialogFindPlayer("Medium"), (DialogFocusItem.Property.Intensity < 1 || DialogFocusItem.Property.Intensity > 1) ? "White" : "Gray");
-	DrawButton(1375, 710, 200, 55, DialogFindPlayer("High"), DialogFocusItem.Property.Intensity < 2 ? "White" : "Gray");
+	DrawButton(1200, 650, 200, 55, DialogFindPlayer("Low"), DialogFocusItem.Property.ShockLevel > 0 ? "White" : "Gray");
+	DrawButton(1550, 650, 200, 55, DialogFindPlayer("Medium"), (DialogFocusItem.Property.ShockLevel < 1 || DialogFocusItem.Property.ShockLevel > 1) ? "White" : "Gray");
+	DrawButton(1375, 710, 200, 55, DialogFindPlayer("High"), DialogFocusItem.Property.ShockLevel < 2 ? "White" : "Gray");
 	if (CurrentScreen == "ChatRoom") DrawButton(1325, 800, 64, 64, "", "White", DialogFocusItem.Property.ShowText ? "Icons/Checked.png" : "");
 	if (CurrentScreen == "ChatRoom") DrawText(DialogFindPlayer("ShockCollarShowChat"), 1570, 833, "White", "Gray");
 	DrawButton(1250, 900, 200, 55, DialogFindPlayer("ResetShockCount"), Player.CanInteract() && DialogFocusItem.Property.TriggerCount > 0 ? "White" : "Gray");
@@ -29,18 +29,18 @@ function InventoryItemNeckAccessoriesCollarShockUnitClick() {
 		return;
 	}
 
-	if (MouseIn(1200, 650, 200, 55) && (DialogFocusItem.Property.Intensity > 0)) {
-		InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(0 - DialogFocusItem.Property.Intensity);
+	if (MouseIn(1200, 650, 200, 55) && (DialogFocusItem.Property.ShockLevel > 0)) {
+		InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(0 - DialogFocusItem.Property.ShockLevel);
 		return;
 	}
 
-	if (MouseIn(1550, 650, 200, 55) && (DialogFocusItem.Property.Intensity < 1 || DialogFocusItem.Property.Intensity > 1)) {
-		InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(1 - DialogFocusItem.Property.Intensity);
+	if (MouseIn(1550, 650, 200, 55) && (DialogFocusItem.Property.ShockLevel < 1 || DialogFocusItem.Property.ShockLevel > 1)) {
+		InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(1 - DialogFocusItem.Property.ShockLevel);
 		return;
 	}
 
-	if (MouseIn(1375, 710, 200, 55) && (DialogFocusItem.Property.Intensity < 2)) {
-		InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(2 - DialogFocusItem.Property.Intensity);
+	if (MouseIn(1375, 710, 200, 55) && (DialogFocusItem.Property.ShockLevel < 2)) {
+		InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(2 - DialogFocusItem.Property.ShockLevel);
 		return;
 	}
 
@@ -90,13 +90,13 @@ function InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(Modifier) {
 		InventoryItemNeckAccessoriesCollarShockUnitLoad();
 	}
 
-	DialogFocusItem.Property.Intensity = DialogFocusItem.Property.Intensity + Modifier;
+	DialogFocusItem.Property.ShockLevel = DialogFocusItem.Property.ShockLevel + Modifier;
 	if (DialogFocusItem.Property.ShowText) {
 		var Dictionary = [];
 		Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
 		Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
 		Dictionary.push({Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
-		ChatRoomPublishCustomAction("ShockCollarSet" + DialogFocusItem.Property.Intensity, true, Dictionary);
+		ChatRoomPublishCustomAction("ShockCollarSet" + DialogFocusItem.Property.ShockLevel, true, Dictionary);
 	}
 	else
 		DialogLeave();
@@ -121,11 +121,11 @@ function InventoryItemNeckAccessoriesCollarShockUnitTrigger() {
 	Dictionary.push({ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
 	Dictionary.push({ Tag: "ActivityName", Text: "ShockItem" });
 	Dictionary.push({ Tag: "ActivityGroup", Text: DialogFocusItem.Asset.Group.Name });
-	Dictionary.push({ ShockIntensity : DialogFocusItem.Property.Intensity * 1.5});
+	Dictionary.push({ ShockIntensity : DialogFocusItem.Property.ShockLevel * 1.5});
 	Dictionary.push({ AssetName: DialogFocusItem.Asset.Name });
 	Dictionary.push({ AssetGroupName: DialogFocusItem.Asset.Group.Name });
 
-	ChatRoomPublishCustomAction("TriggerShock" + DialogFocusItem.Property.Intensity, false, Dictionary);
+	ChatRoomPublishCustomAction("TriggerShock" + DialogFocusItem.Property.ShockLevel, false, Dictionary);
 
 	if (C.ID == Player.ID) {
 		// The Player shocks herself
@@ -143,7 +143,7 @@ function AssetsItemNeckAccessoriesCollarShockUnitBeforeDraw(data) {
 		var persistentData = data.PersistentData();
 		var property = data.Property || {};
 		var Triggered = persistentData.LastTriggerCount < property.TriggerCount;
-		var intensity = property.Intensity ? property.Intensity : 0;
+		var intensity = property.ShockLevel ? property.ShockLevel : 0;
 		var wasBlinking = property.Type === "Blink";
 		if (wasBlinking && Triggered) persistentData.DisplayCount++;
 		if (persistentData.DisplayCount >= intensity * 1.5 + 3) {

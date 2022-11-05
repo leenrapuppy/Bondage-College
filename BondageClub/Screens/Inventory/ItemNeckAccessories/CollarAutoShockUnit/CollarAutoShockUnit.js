@@ -6,7 +6,7 @@ var AutoShockGagActionFlag = false;
 // Loads the item extension properties
 function InventoryItemNeckAccessoriesCollarAutoShockUnitLoad() {
 	if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Intensity: 0, Sensitivity: 0, ShowText: true };
-	if (DialogFocusItem.Property.Intensity == null) DialogFocusItem.Property.Intensity = 0;
+	if (DialogFocusItem.Property.ShockLevel == null) DialogFocusItem.Property.ShockLevel = 0;
 	if (DialogFocusItem.Property.Sensitivity == null) DialogFocusItem.Property.Sensitivity = 0;
 	if (DialogFocusItem.Property.ShowText == null) DialogFocusItem.Property.ShowText = true;
 }
@@ -14,10 +14,10 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitLoad() {
 // Draw the item extension screen
 function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw() {
 	DrawAssetPreview(1387, 205, DialogFocusItem.Asset);
-	DrawText(DialogFindPlayer("Intensity" + DialogFocusItem.Property.Intensity.toString()).replace("Item", DialogFocusItem.Asset.Description), 1500, 520, "White", "Gray");
-	if (DialogFocusItem.Property.Intensity > 0) DrawButton(1100, 550, 200, 55, DialogFindPlayer("Low"), "White");
-	if (DialogFocusItem.Property.Intensity < 1 || DialogFocusItem.Property.Intensity > 1) DrawButton(1375, 550, 200, 55, DialogFindPlayer("Medium"), "White");
-	if (DialogFocusItem.Property.Intensity < 2) DrawButton(1650, 550, 200, 55, DialogFindPlayer("High"), "White");
+	DrawText(DialogFindPlayer("Intensity" + DialogFocusItem.Property.ShockLevel.toString()).replace("Item", DialogFocusItem.Asset.Description), 1500, 520, "White", "Gray");
+	if (DialogFocusItem.Property.ShockLevel > 0) DrawButton(1100, 550, 200, 55, DialogFindPlayer("Low"), "White");
+	if (DialogFocusItem.Property.ShockLevel < 1 || DialogFocusItem.Property.ShockLevel > 1) DrawButton(1375, 550, 200, 55, DialogFindPlayer("Medium"), "White");
+	if (DialogFocusItem.Property.ShockLevel < 2) DrawButton(1650, 550, 200, 55, DialogFindPlayer("High"), "White");
 
 	DrawText(DialogFindPlayer("Sensitivity" + (DialogFocusItem.Property.Sensitivity-1).toString()).replace("Item", DialogFocusItem.Asset.Description), 1500, 660, "White", "Gray");
 
@@ -37,9 +37,9 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitClick() {
 	if ((MouseX >= 1125) && (MouseX <= 1189) && (MouseY >= 780) && (MouseY <= 844) && (CurrentScreen == "ChatRoom")) {
 		DialogFocusItem.Property.ShowText = !DialogFocusItem.Property.ShowText;
 	}
-	if ((MouseX >= 1100) && (MouseX <= 1300) && (MouseY >= 550) && (MouseY <= 605) && (DialogFocusItem.Property.Intensity > 0)) InventoryItemNeckAccessoriesCollarAutoShockUnitSetIntensity(0 - DialogFocusItem.Property.Intensity);
-	if ((MouseX >= 1375) && (MouseX <= 1575) && (MouseY >= 550) && (MouseY <= 605) && (DialogFocusItem.Property.Intensity < 1 || DialogFocusItem.Property.Intensity > 1)) InventoryItemNeckAccessoriesCollarAutoShockUnitSetIntensity(1 - DialogFocusItem.Property.Intensity);
-	if ((MouseX >= 1650) && (MouseX <= 1850) && (MouseY >= 550) && (MouseY <= 605) && (DialogFocusItem.Property.Intensity < 2)) InventoryItemNeckAccessoriesCollarAutoShockUnitSetIntensity(2 - DialogFocusItem.Property.Intensity);
+	if ((MouseX >= 1100) && (MouseX <= 1300) && (MouseY >= 550) && (MouseY <= 605) && (DialogFocusItem.Property.ShockLevel > 0)) InventoryItemNeckAccessoriesCollarAutoShockUnitSetIntensity(0 - DialogFocusItem.Property.ShockLevel);
+	if ((MouseX >= 1375) && (MouseX <= 1575) && (MouseY >= 550) && (MouseY <= 605) && (DialogFocusItem.Property.ShockLevel < 1 || DialogFocusItem.Property.ShockLevel > 1)) InventoryItemNeckAccessoriesCollarAutoShockUnitSetIntensity(1 - DialogFocusItem.Property.ShockLevel);
+	if ((MouseX >= 1650) && (MouseX <= 1850) && (MouseY >= 550) && (MouseY <= 605) && (DialogFocusItem.Property.ShockLevel < 2)) InventoryItemNeckAccessoriesCollarAutoShockUnitSetIntensity(2 - DialogFocusItem.Property.ShockLevel);
 
 
 	if ((MouseIn(1100, 700, 150, 55)) && (DialogFocusItem.Property.Sensitivity != 0)) InventoryItemNeckAccessoriesCollarAutoShockUnitSetSensitivity(0 - DialogFocusItem.Property.Sensitivity);
@@ -60,13 +60,13 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitSetIntensity(Modifier) {
 		InventoryItemNeckAccessoriesCollarAutoShockUnitLoad();
 	}
 
-	DialogFocusItem.Property.Intensity = DialogFocusItem.Property.Intensity + Modifier;
+	DialogFocusItem.Property.ShockLevel = DialogFocusItem.Property.ShockLevel + Modifier;
 	if (DialogFocusItem.Property.ShowText) {
 		var Dictionary = [];
 		Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
 		Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
 		Dictionary.push({Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
-		ChatRoomPublishCustomAction("ShockCollarSet" + DialogFocusItem.Property.Intensity, true, Dictionary);
+		ChatRoomPublishCustomAction("ShockCollarSet" + DialogFocusItem.Property.ShockLevel, true, Dictionary);
 	}
 	else
 		DialogLeave();
@@ -160,7 +160,7 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitUpdate(data) {
 
 // Trigger a shock outside of the dialog menu
 function InventoryItemNeckAccessoriesCollarAutoShockUnitTriggerAutomatic(data) {
-	var msg = "TriggerShock" + data.Item.Property.Intensity;
+	var msg = "TriggerShock" + data.Item.Property.ShockLevel;
 	var C = data.C;
 
 
@@ -168,7 +168,7 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitTriggerAutomatic(data) {
 		var Dictionary = [
 			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 			{ Tag: "AssetName", AssetName: data.Item.Asset.Name },
-			{ ShockIntensity : data.Item.Property.Intensity * 1.5},
+			{ ShockIntensity : data.Item.Property.ShockLevel * 1.5},
 		];
 		ServerSend("ChatRoomChat", { Content: msg, Type: "Action", Dictionary });
 		ChatRoomCharacterItemUpdate(C, data.Item.Asset.Group.Name);
@@ -201,7 +201,7 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitTrigger(data) {
 		ActivityArousalItem(C, C, DialogFocusItem.Asset);
 	}
 
-	ChatRoomPublishCustomAction("TriggerShock" + DialogFocusItem.Property.Intensity, true, Dictionary);
+	ChatRoomPublishCustomAction("TriggerShock" + DialogFocusItem.Property.ShockLevel, true, Dictionary);
 
 	InventoryShockExpression(C);
 }

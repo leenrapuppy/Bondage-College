@@ -8,7 +8,7 @@ function InventoryItemNeckTechnoCollarShockModule1Load() {
 // Draw the item extension screen
 function InventoryItemNeckTechnoCollarShockModule1Draw() {
 	if (DialogFocusItem && DialogFocusItem.Property) {
-		if (DialogFocusItem.Property.Intensity == null) DialogFocusItem.Property.Intensity = 0;
+		if (DialogFocusItem.Property.ShockLevel == null) DialogFocusItem.Property.ShockLevel = 0;
 		if (DialogFocusItem.Property.TriggerCount == null) DialogFocusItem.Property.TriggerCount = 0;
 	}
 	InventoryItemNeckAccessoriesCollarShockUnitDraw();
