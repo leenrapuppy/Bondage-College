@@ -2229,6 +2229,53 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // FullLatexSuit
+		PrisonLockdownSuit: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Restraints", Key: "r",
+						Options: [
+							{
+								Property: {
+									Type: "Free",
+									Difficulty: 0,
+									Effect: ["Block", "Prone", "Slow"],
+								},
+							}, // r0 - Free
+							{
+								Property: {
+									Type: "Ankles",
+									Difficulty: 2,
+									Effect: ["Block", "Prone", "Slow"],
+								},
+							}, // r1 - Ankles
+							{
+								Property: {
+									Type: "Thighs",
+									Difficulty: 1,
+									Effect: ["Block", "Prone", "Slow"],
+								},
+							}, // r2 - Thighs
+							{
+								Property: {
+									Type: "Full",
+									Difficulty: 3,
+									Effect: ["Block", "Prone", "Freeze"],
+								},
+							}, // r3 - Full
+						],
+					},
+					{
+						Name: "ShockModule", Key: "s",
+						Options: [
+							{}, // s0 No Shock Module
+							{ HasSubscreen: true }, // s1 Shock Module
+						],
+					},
+				],
+			},
+		}, // PrisonLockdownSuit
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {

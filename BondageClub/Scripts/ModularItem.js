@@ -509,6 +509,9 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
 		if (asset.AllowTint && Property.Tint) mergedProperty.Tint = CommonArrayConcatDedupe(mergedProperty.Tint, Property.Tint);
 		if (typeof Property.Door === "boolean") mergedProperty.Door = Property.Door;
 		if (typeof Property.Padding === "boolean") mergedProperty.Padding = Property.Padding;
+		if (typeof Property.ShockLevel === "number") mergedProperty.ShockLevel = Property.ShockLevel;
+		if (typeof Property.TriggerCount === "number") mergedProperty.TriggerCount = Property.TriggerCount;
+		if (typeof Property.ShowText === "boolean") mergedProperty.ShowText = Property.ShowText;
 		return mergedProperty;
 	}, /** @type ItemProperties */({
 		Type: ModularItemConstructType(modules, moduleValues),
