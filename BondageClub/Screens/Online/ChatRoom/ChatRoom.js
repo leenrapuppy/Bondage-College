@@ -2667,7 +2667,7 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
  * @returns {{ metadata: object, substitutions: string[][] }}
  */
 function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
-	const substitutions = [];
+	let substitutions = [];
 	const meta = {};
 
 	meta.senderName = CharacterNickname(SenderCharacter);
@@ -2680,10 +2680,11 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 
 		// If there's a member number in the dictionary packet, we use that number to alter the chat message
 		if (entry.MemberNumber) {
+			const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
+			const hideIdentity = ChatRoomHideIdentity(C);
 
 			// Alters the message displayed in the chat room log, and stores the source & target in case they're required later
 			if (["ServerEnter", "ServerLeave", "ServerDisconnect"].includes(data.Content)) {
-				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
 				if (C) {
 					let Nick = CharacterNickname(C);
 					if (Nick != C.Name) Nick = Nick + " [" + C.Name + "]";
@@ -2692,26 +2693,39 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 			}
 			else if (entry.Tag == "DestinationCharacter" || entry.Tag == "DestinationCharacterName") {
 				meta.TargetMemberNumber = entry.MemberNumber;
-				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
 				if (C)
 					meta.TargetCharacter = C;
-				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "DestinationCharacter")) ? DialogFindPlayer("Her") : (PreferenceIsPlayerInSensDep() && entry.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(entry.Text) + DialogFindPlayer("'s"));
+				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "DestinationCharacter"))
+					? CharacterPronoun(C, "Possessive", hideIdentity)
+					: hideIdentity
+						? DialogFindPlayer("Someone").toLowerCase()
+						: ChatRoomHTMLEntities(entry.Text) + DialogFindPlayer("'s");
 				substitutions.push([entry.Tag, repl]);
 			}
 			else if (entry.Tag == "TargetCharacter" || entry.Tag == "TargetCharacterName") {
 				meta.TargetMemberNumber = entry.MemberNumber;
-				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
 				if (C)
 					meta.TargetCharacter = C;
-				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "TargetCharacter")) ? DialogFindPlayer("Herself") : (PreferenceIsPlayerInSensDep() && entry.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(entry.Text));
+				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "TargetCharacter"))
+					? CharacterPronoun(C, "Self", hideIdentity)
+					: hideIdentity
+						? DialogFindPlayer("Someone").toLowerCase()
+						: ChatRoomHTMLEntities(entry.Text);
 				substitutions.push([entry.Tag, repl]);
+
+				const pronounRepls = ChatRoomPronounSubstitutions(C, "TargetPronoun", hideIdentity);
+				substitutions = substitutions.concat(pronounRepls);
 			}
 			else if (entry.Tag == "SourceCharacter") {
-				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
 				if (C)
 					meta.SourceCharacter = C;
-				const repl = (PreferenceIsPlayerInSensDep() && (entry.MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.SourceCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(entry.Text);
+				const repl = hideIdentity
+					? DialogFindPlayer("Someone")
+					: ChatRoomHTMLEntities(entry.Text);
 				substitutions.push([entry.Tag, repl]);
+
+				const pronounRepls = ChatRoomPronounSubstitutions(C, "Pronoun", hideIdentity);
+				substitutions = substitutions.concat(pronounRepls);
 			}
 		}
 
@@ -2977,7 +2991,7 @@ function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
  * @returns {boolean} - Whether the character details should be hidden
  */
 function ChatRoomHideIdentity(C) {
-	return PreferenceIsPlayerInSensDep(ChatRoomSenseDepBypass)
+	return PreferenceIsPlayerInSensDep()
 		&& C.MemberNumber != Player.MemberNumber
 		&& (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(C));
 }
@@ -4566,20 +4580,17 @@ function ChatRoomOwnerPresenceRule(RuleName, Target) {
 
 }
 
-
 /**
  * Replaces pronoun-related tags with the relevant text for the character
  * @param {Character} C - The character that the message key relates to
  * @param {string} key - Key for the dialog entry to use
- * @param {string} msg - The original message
  * @param {boolean} hideIdentity - Whether to hide details revealing the character's identity
- * @returns {string} - The updated message with the pronoun key replaced
+ * @returns {any[]} - The replacement pronoun text for keywords in the original message
  */
-function ChatRoomMessageReplacePronouns(C, key, msg, hideIdentity) {
+function ChatRoomPronounSubstitutions(C, key, hideIdentity) {
+	let repls = [];
 	for (const pronounType of ["Possessive", "Self", "Object"]) {
-		if (msg.includes(key + pronounType)) {
-			msg = msg.replace(key + pronounType, CharacterPronoun(C, pronounType, hideIdentity));
-		}
+		repls.push([key + pronounType, CharacterPronoun(C, pronounType, hideIdentity)]);
 	}
-	return msg;
+	return repls;
 }
