@@ -2584,6 +2584,7 @@ interface CraftingItem {
 	Item: string;
 	Private: boolean;
 	Type: string;
+	OverridePriority: number;
 }
 
 /**
