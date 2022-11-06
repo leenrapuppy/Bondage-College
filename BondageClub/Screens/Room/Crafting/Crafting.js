@@ -3,7 +3,7 @@ var CraftingBackground = "CraftingWorkshop";
 var CraftingMode = "Slot";
 var CraftingDestroy = false;
 var CraftingSlot = 0;
-/** @type {{Name: string, Description: string, Color: string, Asset: Asset | null, Property: CraftingPropertyType, Lock: Asset | null, Private: boolean, Type: String }} */
+/** @type {CraftingItemSelected} */
 var CraftingSelectedItem = null;
 var CraftingOffset = 0;
 /** @type {Asset[]} */
@@ -266,8 +266,10 @@ function CraftingRun() {
 		DrawText(TextGet("EnterColor"), 1550, 550, "White", "Black");
 		ElementPosition("InputColor", 1510, 625, 670);
 		DrawButton(1843, 598, 64, 64, "", "White", "Icons/Color.png");
-		DrawText(TextGet("EnterPrivate"), 1550, 760, "White", "Black");
-		DrawButton(1175, 728, 64, 64, "", "White", CraftingSelectedItem.Private ? "Icons/Checked.png" : "");
+		DrawText(TextGet("EnterPriority"), 1550, 715, "White", "Black");
+		ElementPosition("InputPriority", 1225, 710, 100);
+		DrawText(TextGet("EnterPrivate"), 1550, 805, "White", "Black");
+		DrawButton(1175, 768, 64, 64, "", "White", CraftingSelectedItem.Private ? "Icons/Checked.png" : "");
 		if (CraftingItemSupportsAutoType()) {
 			DrawText(TextGet("EnterType"), 1335, 890, "White", "Black");
 			ElementPosition("InputType", 1685, 883, 310);
@@ -310,9 +312,13 @@ function CraftingModeSet(NewMode) {
 		document.getElementById("InputDescription").addEventListener('keyup', CraftingKeyUp);
 		ElementCreateInput("InputColor", "text", "", "500");
 		document.getElementById("InputColor").addEventListener('keyup', CraftingKeyUp);
+		ElementCreateInput("InputPriority", "number", "", "20");
+		document.getElementById("InputPriority").addEventListener('input', CraftingKeyUp);
+
 		ElementValue("InputName", CraftingSelectedItem.Name || "");
 		ElementValue("InputDescription", CraftingSelectedItem.Description || "");
 		ElementValue("InputColor", CraftingSelectedItem.Color || "Default");
+		ElementValue("InputPriority", CraftingSelectedItem.OverridePriority.toString());
 		if (CraftingItemSupportsAutoType()) {
 			ElementCreateInput("InputType", "text", "", "20");
 			document.getElementById("InputType").addEventListener('keyup', CraftingKeyUp);
@@ -324,6 +330,7 @@ function CraftingModeSet(NewMode) {
 		ElementRemove("InputDescription");
 		ElementRemove("InputColor");
 		ElementRemove("InputType");
+		ElementRemove("InputPriority");
 	}
 }
 
@@ -337,7 +344,27 @@ function CraftingKeyUp() {
 	if (document.getElementById("InputDescription") != null) CraftingSelectedItem.Description = ElementValue("InputDescription");
 	if (document.getElementById("InputColor") != null) CraftingSelectedItem.Color = ElementValue("InputColor");
 	if (document.getElementById("InputType") != null) CraftingSelectedItem.Type = ElementValue("InputType");
+	if (document.getElementById("InputPriority") != null) CraftingSelectedItem.OverridePriority = CraftingParsePriorityElement();
 	CraftingUpdatePreview();
+}
+
+/**
+ * Helper function for parsing the `InputPriority` HTML element.
+ * @returns {number}
+ */
+function CraftingParsePriorityElement() {
+	const DrawingPriority = Number.parseInt(ElementValue("InputPriority"));
+
+	// Plan A, B, C and D
+	if (!Number.isNaN(DrawingPriority)) {
+		return DrawingPriority;
+	} else if (CraftingSelectedItem.OverridePriority != null) {
+		return CraftingSelectedItem.OverridePriority;
+	} else if (CraftingSelectedItem.Asset != null) {
+		return CraftingSelectedItem.Asset.DrawingPriority || CraftingSelectedItem.Asset.Group.DrawingPriority;
+	} else {
+		return 0;
+	}
 }
 
 /**
@@ -356,7 +383,8 @@ function CraftingSaveServer() {
 			P = P + ((C.Description == null) ? "" : C.Description.replace("¶", " ").replace("§", " ")) + "¶";
 			P = P + ((C.Color == null) ? "" : C.Color.replace("¶", " ").replace("§", " ")) + "¶";
 			P = P + (((C.Private != null) && C.Private) ? "T" : "") + "¶";
-			P = P + ((C.Type == null) ? "" : C.Type.replace("¶", " ").replace("§", " ")) + "§";
+			P = P + ((C.Type == null) ? "" : C.Type.replace("¶", " ").replace("§", " ")) + "¶";
+			P = P + ((C.OverridePriority == null) ? "" : C.OverridePriority.toString()) + "§";
 		} else P = P + "§";
 	while ((P.length >= 1) && (P.substring(P.length - 1) == "§"))
 		P = P.substring(0, P.length - 1);
@@ -385,6 +413,7 @@ function CraftingDecompressServerData(Data) {
 	}
 
 	// Builds the craft array to assign to the player
+	/** @type {CraftingItem[]} */
 	const Crafts = [];
 	Data = DecompressedData.split("§");
 	for (let P = 0; P < Data.length; P++) {
@@ -398,6 +427,7 @@ function CraftingDecompressServerData(Data) {
 		Craft.Color = (Element.length >= 6) ? Element[5] : "";
 		Craft.Private = ((Element.length >= 7) && (Element[6] == "T"));
 		Craft.Type = (Element.length >= 8) ? Element[7] : "";
+		Craft.OverridePriority = (Element.length >= 9) ? Number.parseInt(Element[8]) : null;
 		if (Craft.Item && Craft.Name && (Craft.Item != "") && (Craft.Name != "")) Crafts.push(Craft);
 		else Crafts.push(null);
 	}
@@ -493,6 +523,7 @@ function CraftingClick() {
 					Lock: null,
 					Private: false,
 					Type: "",
+					OverridePriority: null,
 				};
 				CraftingModeSet("Item");
 				CraftingItemListBuild();
@@ -517,6 +548,7 @@ function CraftingClick() {
 			let Y = Math.floor((I - CraftingOffset) / 8) * 290 + 130;
 			if (MouseIn(X, Y, 225, 275)) {
 				CraftingSelectedItem.Asset = CraftingItemList[I];
+				CraftingSelectedItem.OverridePriority = CraftingSelectedItem.Asset.DrawingPriority || CraftingSelectedItem.Asset.Group.DrawingPriority;
 				CraftingSelectedItem.Lock = null;
 				CraftingModeSet("Property");
 				ElementRemove("InputSearch");
@@ -596,7 +628,7 @@ function CraftingClick() {
 				ElementValue("InputColor", CraftingSelectedItem.Color);
 				CraftingUpdatePreview();
 			});
-		} else if (MouseIn(1175, 728, 64, 64)) {
+		} else if (MouseIn(1175, 768, 64, 64)) {
 			CraftingSelectedItem.Private = !CraftingSelectedItem.Private;
 		} else if (MouseIn(1840, 858, 60, 60) && CraftingItemSupportsAutoType()) {
 			if ((CraftingSelectedItem.Type == null) || (CraftingSelectedItem.Type == "") || (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) < 0))
@@ -647,6 +679,7 @@ function CraftingConvertSelectedToItem() {
 	let Description = (CraftingMode == "Name") ? ElementValue("InputDescription").trim() : CraftingSelectedItem.Description;
 	let Color = (CraftingMode == "Name") ? ElementValue("InputColor").trim() : CraftingSelectedItem.Color;
 	let Type = ((CraftingMode == "Name") && (document.getElementById("InputType") != null)) ? ElementValue("InputType").trim() : CraftingSelectedItem.Type;
+	let OverridePriority = (CraftingMode == "Name") ? CraftingParsePriorityElement() : CraftingSelectedItem.OverridePriority;
 	return {
 		Item: (CraftingSelectedItem.Asset == null) ? "" : CraftingSelectedItem.Asset.Name,
 		Property: CraftingSelectedItem.Property,
@@ -655,16 +688,18 @@ function CraftingConvertSelectedToItem() {
 		Description: Description,
 		Color: Color,
 		Private: CraftingSelectedItem.Private,
-		Type: Type
+		Type: Type,
+		OverridePriority: OverridePriority,
 	};
 }
 
 /**
  * Convert a crafting item to its selected format.
  * @param {CraftingItem} Craft
+ * @returns {CraftingItemSelected}
  */
 function CraftingConvertItemToSelected(Craft) {
-	let Obj = {
+	return {
 		Name: Craft.Name,
 		Description: Craft.Description,
 		Color: Craft.Color,
@@ -673,8 +708,8 @@ function CraftingConvertItemToSelected(Craft) {
 		Property: Craft.Property,
 		Asset: Player.Inventory.find(a => a.Asset.Name === Craft.Item).Asset,
 		Lock: Craft.Lock ? Player.Inventory.find(a => a.Asset.Group.Name === "ItemMisc" && a.Asset.Name == Craft.Lock).Asset : null,
+		OverridePriority: Craft.OverridePriority,
 	}
-	return Obj;
 }
 
 /**
@@ -820,6 +855,11 @@ function CraftingItemListBuild() {
 		Validate: (c, a) => typeof c.Name === "string",
 		GetDefault: (c, a) => "",
 		StatusCode: CraftingStatusCode.CRITICAL_ERROR,
+	},
+	OverridePriority: {
+		Validate: (c, a) => Number.isInteger(c.OverridePriority),
+		GetDefault: (c, a) => a == null ? null : a.DrawingPriority || a.Group.DrawingPriority,
+		StatusCode: CraftingStatusCode.ERROR,
 	},
 	Private: {
 		Validate: (c, a) => typeof c.Private === "boolean",

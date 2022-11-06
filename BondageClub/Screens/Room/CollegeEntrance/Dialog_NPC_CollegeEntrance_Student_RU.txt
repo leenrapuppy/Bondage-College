@@ -23,16 +23,16 @@ I'm waiting for my bus.
 I'm a student here.
 Я здесь студентка.
 ###_NPC
-You should wear your uniform then.  They won't let you in without it.
-Тогда тебе следует надеть форму.  Без него тебя не пустят.
+You should wear your uniform then.  They won't let you in without it, some shoes and socks.
+Тогда тебе следует надеть форму. Без нее, туфель и носков тебя не пустят.
 ###_PLAYER
 Can I go inside?
 Можно мне зайти внутрь?
 ###_NPC
 Absolutely.  Just beep security, they will open the gate for you.
 Конечно.  Просто позови охрану, она откроет тебе ворота.
-I don't think they will let you in dressed like that.
-Не думаю, что они впустят тебя в таком виде.
+I don't think they will let you in dressed like that.  Get your school uniform, some shoes and socks.
+Я не думаю, что они пропустят тебя в таком виде. Надень школьную форму, туфли и носки.
 ###_PLAYER
 Can I use the tennis court?
 Могу я воспользоваться теннисным кортом?
@@ -62,7 +62,7 @@ Who studies here?
 It's a girl only college.  There's only women, both students and teachers.
 Это всего лишь колледж для девочек.  Там только женщины, и студенты, и учителя.
 ###_PLAYER
-Is it expansive?
+Is it expensive?
 Это дорого?
 ###_NPC
 My family is paying so I'm not sure.  I've heard that it's pretty expensive.

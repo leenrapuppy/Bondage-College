@@ -707,7 +707,7 @@ Come sweetie!  Our guests are waiting for your drinks.
 (Serve drinks in online chat rooms.)
 (Подавай напитки в чат-комнатах.)
 ###_NPC
-Here's your share of the tips.  (She gives you REPLACEMONEY $.)
+Here's your share of the tips.  (She gives you $REPLACEMONEY.)
 Вот твоя доля чаевых.  (Она дает тебе REPLACEMONEY $.)
 ###_PLAYER
 (Bow your head.)
@@ -715,9 +715,9 @@ Here's your share of the tips.  (She gives you REPLACEMONEY $.)
 ###_NPC
 Nice try, but maybe you're not fit for that job.  I can't pay you.
 Хорошая попытка, но, возможно, ты не подходишь для этой работы. Я не могу заплатить тебе.
-Excellent!  Here's your salary.  (She gives you REPLACEMONEY $.)
+Excellent!  Here's your salary.  (She gives you $REPLACEMONEY.)
 Отлично!  Вот твоя зарплата.  (Она дает тебе REPLACEMONEY $.)
-Excellent!  Go see your owner and give her this.  (She gives you a sealed envelope with REPLACEMONEY $ for your owner.)
+Excellent!  Go see your owner and give her this.  (She gives you a sealed envelope with $REPLACEMONEY for your owner.)
 Отлично!  Иди к своей хозяйке и передай ей это.  (Она дает тебе запечатанный конверт с REPLACEMONEY $ для твоей хозяйке.)
 (She releases you and helps you to get dressed.)  All set!  Are you ready for more chores?
 (Она освобождает тебя и помогает одеться.) Все готово!  Готова ли ты к большим хлопотам?
@@ -745,7 +745,7 @@ Did you go to the Introduction Class?  Is there anything to report?
 It's all better now.
 Все под контролем.
 ###_NPC
-Perfect!  Let me pay you for your efforts then.  (She gives you REPLACEMONEY $.)
+Perfect!  Let me pay you for your efforts then.  (She gives you $REPLACEMONEY.)
 Отлично!  Тогда позвольте мне заплатить тебе за твои усилия.  (Она дает тебе REPLACEMONEY $.)
 (You change into the maid uniform.)  Wonderful!  Make the sorority proud.
 (Ты переодеваешься в форму горничной.) Замечательно!  Заставь женское общество гордиться тобой.
@@ -917,7 +917,7 @@ Come sweetie!  I'll drag you to your workspace.  You need to clean your area bef
 (Pick the dirtiest place to impress her.)
 (Выбери самое грязное место, чтобы произвести на нее впечатление.)
 ###_NPC
-Here's your pay for your hard work.  (She gives you REPLACEMONEY $.)
+Here's your pay for your hard work.  (She gives you $REPLACEMONEY.)
 Вот тебе плата за твою тяжелую работу.  (Она дает тебе REPLACEMONEY $.)
 I hope you understand why I can't reward you.  You can try again though.
 Надеюсь, ты понимаешь, почему я не могу вознаградить тебя.  Хотя, ты можешь попробовать еще раз.
@@ -1083,3 +1083,9 @@ Yes.  I want to be a helpless slave.
 ###_NPC
 (She nods.)  Very well.  Your fate is now sealed, girl.
 (Она кивает.) Очень хорошо. Твоя судьба решена, девочка.
+You must at least wear your maid hairband.
+Ты должна, по крайней мере, носить свою повязку горничной для волос.
+You are either not wearing the dress, or covering too much.
+Ты либо не носишь платье, либо слишком много прикрываешься.
+Does your outfit look like mine?
+Твой наряд похож на мой?
