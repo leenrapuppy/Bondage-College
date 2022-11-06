@@ -342,7 +342,7 @@ Cannot be used over the applied mask.
 Cannot be used over the applied hood.
 不能在已穿戴的头套上使用
 Requires round piercings on nipples.
-Requires round piercings on nipples.
+需要乳头上是圆形穿环。
 Blocked in this room.
 被房间禁止
 Cancel
@@ -996,7 +996,7 @@ Blocked due to item permissions
 SourceCharacter is offering you to start a trial period as her submissive.  Click on her and manage your relationship to accept, don't do anything to refuse.
 SourceCharacter向你提供了试成为她从仆的机会。点击她并选择管理你和她的关系来接受邀请。若你要拒绝，忽略本消息即可。
 The Bondage Club is pleased to announce that SourceCharacter is starting a 7 days minimum trial period as a submissive.
-束缚俱乐部很荣幸的宣布SourceCharacter开始了她不少于7天的从仆试任之旅。
+束缚俱乐部很荣幸的宣布SourceCharacter开始了她的仆从试任期，试任至少7天后才能转正。
 SourceCharacter has prepared a great collaring ceremony.  A maid brings a slave collar, which her submissive must consent to wear.
 SourceCharacter准备了一场隆重的收奴典礼。一位女仆拿出了一个奴隶项圈，她的从仆必须自愿才能戴上。
 The Bondage Club announces that SourceCharacter canceled the trial ownership of TargetCharacter.
@@ -1094,15 +1094,21 @@ Your lover is now preventing your owner from using lovers locks on you.
 SourceCharacter is asking you to be her girlfriend.  Click on her and manage your relationship to accept, don't do anything to refuse.
 SourceCharacter 正在请求你做她的女朋友。点击该玩家并选择“管理你们的关系”以接受。如果要拒绝，你不需要执行任何操作。
 The Bondage Club is pleased to announce that SourceCharacter and TargetCharacter are starting a 7 days minimum period as lovers.
-束缚俱乐部荣幸地宣布 SourceCharacter 与 TargetCharacter 成为了爱人。该阶段将持续至少7天。
+束缚俱乐部荣幸地宣布 SourceCharacter 与 TargetCharacter 成为了爱人。爱人阶段至少7天可以订婚。
 SourceCharacter is asking you to become her fiancée.  Click on her and manage your relationship to accept, don't do anything to refuse.
 SourceCharacter 正在请求你做她的未婚妻。点击该玩家并选择“管理你们的关系”以接受。如果要拒绝，你不需要执行任何操作。
 The Bondage Club is pleased to announce that SourceCharacter and TargetCharacter are now engaged and are starting a 7 days minimum period as fiancées.
-束缚俱乐部荣幸地宣布 SourceCharacter 与 TargetCharacter 已订婚，成为了未婚妻。该阶段将持续至少7天。
+束缚俱乐部荣幸地宣布 SourceCharacter 与 TargetCharacter 已订婚，成为了未婚妻。订婚阶段至少7天可以结婚。
 SourceCharacter is proposing you to become her wife.  Click on her and manage your relationship to accept, don't do anything to refuse.
 SourceCharacter 正在请求你做她的妻子。点击该玩家并选择“管理你们的关系”以接受。如果要拒绝，你不需要执行任何操作。
 The Bondage Club is proud to announce that SourceCharacter and TargetCharacter are now married. Long may it last.
 束缚俱乐部骄傲地宣布 SourceCharacter 与 TargetCharacter 结婚了。祝你们的婚姻长长久久。
+Your submissive is now fully released from your ownership.
+你的顺从者已经完全从你的拥有中得到释放。
+The member number is invalid or you do not own this submissive.
+会员编号无效，或者你并不拥有这个顺从者。
+Your owner has released you.  You're free from all ownership.
+你的主人释放了你。你已经不再被拥有。
 SourceCharacter entered.
 SourceCharacter进来了.
 SourceCharacter left.
@@ -1245,20 +1251,6 @@ TargetCharacterName gets grabbed by two maids and escorted to the maid quarters 
 TargetCharacterName被两个女仆拽走，按照她的主人的命令，押送她到女仆宿舍开始送饮料。
 TargetCharacterName gives a sealed envelope to her owner.
 TargetCharacterName把一个封住的信封交给了她的主人。
-SourceCharacter hits DestinationCharacter FocusAssetGroup with a NextAsset.
-SourceCharacter使用NextAsset击打DestinationCharacterFocusAssetGroup。
-SourceCharacter holds a NextAsset against DestinationCharacter FocusAssetGroup.
-SourceCharacter用NextAsset抵靠在DestinationCharacterFocusAssetGroup。
-SourceCharacter tickles DestinationCharacter FocusAssetGroup with a NextAsset.
-SourceCharacter用NextAsset在DestinationCharacterFocusAssetGroup挠痒痒。
-SourceCharacter rubs DestinationCharacter FocusAssetGroup with a NextAsset.
-SourceCharacter用NextAsset摩擦DestinationCharacterFocusAssetGroup。
-SourceCharacter rolls a NextAsset over DestinationCharacter FocusAssetGroup.
-SourceCharacter用NextAsset在DestinationCharacterFocusAssetGroup上滚动。
-SourceCharacter pours NextAsset onto DestinationCharacter FocusAssetGroup.
-SourceCharacter将NextAsset泼在DestinationCharacterFocusAssetGroup上。
-SourceCharacter shocks DestinationCharacter FocusAssetGroup with a NextAsset.
-SourceCharacter用NextAsset电击DestinationCharacterFocusAssetGroup。
 SourceCharacter was interrupted while trying to use a NextAsset on TargetCharacter.
 SourceCharacter 试图在 TargetCharacter 身上使用 NextAsset，但是操作被中断了。
 SourceCharacter was interrupted while going for the PrevAsset on TargetCharacter.
@@ -1688,7 +1680,7 @@ SourceCharacter调整DestinationCharacter充气式全包袋，使它充气到最
 Select belt tightness?
 选择皮带的松紧度？
 Tight with belts
-使用皮带赏金
+使用皮带绑紧
 SourceCharacter wraps TargetCharacterName comfortably in a fur blanket.
 SourceCharacter把TargetCharacterName舒适地包裹在毛毯里。
 SourceCharacter wraps TargetCharacterName tightly in a fur blanket.
@@ -2830,19 +2822,19 @@ SourceCharacter用绳子在TargetCharacter身上绑了一个十字缚形式的�
 SourceCharacter uses the rope on TargetCharacter to tie her legs to the bedposts.
 SourceCharacter用绳子把TargetCharacter的腿绑到床柱上。
 SourceCharacter ties the rope above TargetCharacter's knees.
-SourceCharacter ties the rope above TargetCharacter's knees.
+SourceCharacter把绳子绑在TargetCharacter的膝盖上方。
 SourceCharacter uses the rope to tie TargetCharacter's thighs.
-SourceCharacter uses the rope to tie TargetCharacter's thighs.
+SourceCharacter用绳子把TargetCharacter的大腿绑起来。
 SourceCharacter uses the ropes to tie TargetCharacter's knees and thighs.
-SourceCharacter uses the ropes to tie TargetCharacter's knees and thighs.
+SourceCharacter用绳子把TargetCharacter的膝盖和大腿绑起来。
 SourceCharacter ties the rope around TargetCharacter's ankles.
-SourceCharacter ties the rope around TargetCharacter's ankles.
+SourceCharacter把绳子绑在TargetCharacter的脚踝周围。
 SourceCharacter ties the rope below TargetCharacter's knees.
-SourceCharacter ties the rope below TargetCharacter's knees.
+SourceCharacter把绳子绑在TargetCharacter的膝盖下方。
 SourceCharacter ties the ropes around TargetCharacter's ankles and knees.
-SourceCharacter ties the ropes around TargetCharacter's ankles and knees.
+SourceCharacter用绳子把TargetCharacter的脚踝和膝盖绑起来。
 SourceCharacter uses the ropes on TargetCharacter to tie her legs to the bedposts.
-SourceCharacter uses the ropes on TargetCharacter to tie her legs to the bedposts.
+SourceCharacter用绳子把TargetCharacter的腿绑在床柱上。
 SourceCharacter uses rope on TargetCharacter to do a box tie.
 SourceCharacter用绳子在TargetCharacter身上绑了一个后手缚。
 SourceCharacter uses rope on TargetCharacter to do a tight boxtie.
@@ -3033,12 +3025,6 @@ DestinationCharacterName AssetName lets out a sharp jolt!
 DestinationCharacterNameAssetName发出尖锐的电击！
 DestinationCharacterName AssetName delivers an intense shock!
 DestinationCharacterNameAssetName猛烈地电击了她！
-DestinationCharacterName collar gives her a light shock.
-DestinationCharacterName项圈轻微地电了她一下。
-DestinationCharacterName collar lets out a sharp jolt!
-DestinationCharacterName项圈发出尖锐的电击！
-DestinationCharacterName collar delivers an intense shock!
-DestinationCharacterName项圈猛烈地电击了她！
 DestinationCharacterName vibrating egg stops vibrating.
 DestinationCharacterName振动跳蛋停止振动。
 DestinationCharacterName vibrating egg slows down into a light tease.
@@ -3331,30 +3317,34 @@ SourceCharacter attaches a chain to DestinationCharacter anal hook.
 SourceCharacter将一根锁链连接到DestinationCharacter肛钩上。
 SourceCharacter attaches DestinationCharacter anal hook to her hair.
 SourceCharacter将DestinationCharacter肛钩连接到她的头发上。
-Inserted Beads Count: 
-塞入珠子数量：
-Insert One
-塞入一个
-Remove One
-拉出一个
-Remove All Except One
-只留下一个
-Insert All
-全塞进去
-SourceCharacter inserts a second bead in DestinationCharacter butt
-SourceCharacter将第二个珠子塞入DestinationCharacter肛门
-SourceCharacter inserts a third bead in DestinationCharacter butt
-SourceCharacter将第三个珠子塞入DestinationCharacter肛门
-SourceCharacter inserts a fourth bead in DestinationCharacter butt
-SourceCharacter将第四个珠子塞入DestinationCharacter肛门
-SourceCharacter inserts a fifth bead in DestinationCharacter butt
-SourceCharacter将第五个珠子塞入DestinationCharacter肛门
-SourceCharacter pulls a bead out of DestinationCharacter butt
-SourceCharacter将一个珠子从DestinationCharacter肛门拉出来
-SourceCharacter inserts all five beads in DestinationCharacter butt
-SourceCharacter将全部五个珠子塞入DestinationCharacter肛门
+SourceCharacter inserts a bead in DestinationCharacter butt
+SourceCharacter将一个珠子塞入DestinationCharacter肛门
+SourceCharacter inserts two beads in DestinationCharacter butt
+SourceCharacter将二个珠子塞入DestinationCharacter肛门
+SourceCharacter inserts three beads in DestinationCharacter butt
+SourceCharacter将三个珠子塞入DestinationCharacter肛门
+SourceCharacter inserts all beads in DestinationCharacter butt
+SourceCharacter将所有珠子塞入DestinationCharacter肛门
+SourceCharacter pulls a bead from DestinationCharacter butt
+SourceCharacter将一个珠子拉出DestinationCharacter肛门
+SourceCharacter pulls two beads from DestinationCharacter butt
+SourceCharacter将二个珠子拉出DestinationCharacter肛门
+SourceCharacter pulls three beads from DestinationCharacter butt
+SourceCharacter将三个珠子拉出DestinationCharacter肛门
 SourceCharacter pulls all but one bead from DestinationCharacter butt
 SourceCharacter将所有珠子从DestinationCharacter肛门拉出来，但留下一个
+Select the number of inserted beads
+选择塞入的珠子数量
+1 Bead
+1个珠子
+2 Beads
+2个珠子
+3 Beads
+3个珠子
+4 Beads
+4个珠子
+5 Beads
+5个珠子
 SourceCharacter deflates DestinationCharacter gag fully till it's empty.
 SourceCharacter对DestinationCharacter口塞放气，把它放空。
 SourceCharacter deflates DestinationCharacter gag till only slighty filled.
@@ -3539,110 +3529,6 @@ You must free her arms before attaching mitten chains.
 连接无指手套的链子前，你必须解开她的手臂。
 Facial expression
 面部表情
-Select a handheld item
-选择一个持握物
-Crop
-硬鞭
-Flogger
-短鞭
-Cane
-竹竿
-Heart Crop
-心形硬鞭
-Paddle
-板子
-Whip Paddle
-板鞭
-Whip
-皮鞭
-Cattle Prod
-赶牛棒
-Tennis Racket
-网球拍
-Rainbow Wand
-彩虹魔杖
-Gavel
-木槌
-Feather
-羽毛
-Feather Duster
-羽毛掸
-Long Duster
-长鸡毛掸
-Ice Cube
-冰块
-Wartenberg Wheel
-刺轮
-Vibrating Wand
-振动按摩棒
-Small Vibe Wand
-小振动棒
-Candle Wax
-蜡烛
-Large Dildo
-大假阳具
-Pet Toy
-逗猫棒
-Vibrator
-振动棒
-Hairbrush
-梳子
-Small Dildo
-小假阳具
-Electric Toothbrush
-电动牙刷
-Toothbrush
-牙刷
-Shock Wand
-电击棒
-Lotion
-洗液
-Ruler
-尺子
-Foam Sword
-泡沫剑
-Vibrator Remote
-振动玩具遥控器
-Shock Remote
-电击遥控器
-Towel
-毛巾
-Long Coiled Rope
-长捆绳
-Short Coiled Rope
-短捆绳
-Ballgag
-口球
-Long Sock
-长袜
-Baguette
-法棍面包
-Panties
-内裤
-Duct Tape Roll
-胶带卷
-Spatula
-菜铲
-Broom
-扫帚
-Mobile Phone
-手机
-Mobile Phone 2
-手机2
-Scissors
-剪刀
-Plastic Wrap Roll
-保鲜膜卷
-Empty Glass
-空玻璃杯
-Filled Glass
-装液体的玻璃杯
-Potion Bottle
-药剂瓶
-SourceCharacter takes out a ItemUsed
-SourceCharacter拿出来一个ItemUsed
-SourceCharacter gives TargetCharacter a ItemUsed
-SourceCharacter递给TargetCharacter一个ItemUsed
 Select suit type and wand attachment
 选择套装类型和按摩棒附件
 Check the vulva to use the wand
@@ -3995,6 +3881,8 @@ SourceCharacter uses a NameTagType lover name tag on DestinationCharacter collar
 SourceCharacter在DestinationCharacter项圈上装了一个NameTagType爱人名牌。
 Cookie
 饼干
+Feather
+羽毛
 Lover
 爱人
 Muffin
@@ -4951,6 +4839,8 @@ Double Strips
 双条
 Thong
 丁字裤
+Panties
+内裤
 Select strap bondage.
 选择束带束缚。
 Boxtie
@@ -5349,6 +5239,8 @@ Large Bit Gag
 大号衔铁
 Tongue Depressor Bit Gag
 舌压迫衔铁
+Ballgag
+口球
 Dildo Gag
 假阳具衔铁
 SourceCharacter uses a bit gag on DestinationCharacter bridle gag.

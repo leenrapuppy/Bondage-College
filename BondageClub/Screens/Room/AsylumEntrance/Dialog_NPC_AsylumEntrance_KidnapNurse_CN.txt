@@ -9,7 +9,7 @@ Gagged patients are the best patients.
 （一个护士挡住了你的路）我正找你呢，DialogPlayerName，我们的好 病 人。现在跟我回收容所。
 (A nurse sees you and grins.)  This is too easy.  You're going back to the asylum patient DialogPlayerName.
 （一个护士看到了你，然后咧嘴一笑）这可太简单了。现在和我们回收容所吧，DialogPlayerName。
-(A nurse grabs your arm.)  You always get in trouble, do you  Come back to the asylum with me now.
+(A nurse grabs your arm.)  You always get in trouble, do you?  Come back to the asylum with me now.
 （一个护士抓住了你的胳膊）你总是给我们找麻烦，不是吗？现在和我一起回收容所。
 (A nurse blocks your path and smiles.)  Struggling is futile patient DialogPlayerName.  You're coming back with me.
 （一个护士笑着挡住了你的去路）挣扎是徒劳的，DialogPlayerName。你现在得和我一起回去。
@@ -30,7 +30,7 @@ Don't think you can fool me.  You escaped from the asylum and I'm brining you ba
 ###_PLAYER
 You're going down nurse!
 你完了，你这护士！
-Wait!  Can we negotiate
+Wait!  Can we negotiate?
 等等！我们能谈谈吗？
 ###_NPC
 (She thinks for a few seconds.)  Negotiate?  How much do you value your freedom?
