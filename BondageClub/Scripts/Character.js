@@ -505,12 +505,13 @@ function CharacterArchetypeClothes(C, Archetype, ForceColor) {
 	// Maid archetype
 	if (Archetype == "Maid") {
 		InventoryAdd(C, "MaidOutfit1", "Cloth", false);
-		CharacterAppearanceSetItem(C, "Cloth", C.Inventory[C.Inventory.length - 1].Asset);
-		CharacterAppearanceSetColorForGroup(C, "Default", "Cloth");
+		InventoryWear(C, "MaidOutfit1", "Cloth");
 		InventoryAdd(C, "MaidHairband1", "Hat", false);
-		CharacterAppearanceSetItem(C, "Hat", C.Inventory[C.Inventory.length - 1].Asset);
-		CharacterAppearanceSetColorForGroup(C, "Default", "Hat");
+		InventoryWear(C, "MaidHairband1", "Hat");
 		InventoryAdd(C, "MaidOutfit2", "Cloth", false);
+		if (InventoryGet(C, "Socks") == null) InventoryWear(C, "Socks4", "Socks", "#AAAAAA");
+		if (InventoryGet(C, "Shoes") == null) InventoryWear(C, "Shoes2", "Shoes", "#222222");
+		if ((InventoryGet(C, "Gloves") == null) && (Math.random() > 0.5)) InventoryWear(C, "Gloves1", "Gloves", "#AAAAAA");
 		InventoryRemove(C, "ClothAccessory");
 		InventoryRemove(C, "HairAccessory1");
 		InventoryRemove(C, "HairAccessory2");
