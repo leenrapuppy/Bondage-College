@@ -385,10 +385,15 @@ type MessageActionType = "Action" | "Chat" | "Whisper" | "Emote" | "Activity" | 
 type MessageContentType = string;
 
 interface ChatMessageDictionaryEntry {
-	[k: string]: any;
 	Tag?: CommonChatTags | string;
 	Text?: string;
 	MemberNumber?: number;
+	TextToLookUp?: string;
+	AssetName?: string;
+	AssetGroupName?: string;
+	Automatic?: boolean;
+	ShockIntensity?: number;
+	ActivityCounter?: number;
 }
 
 type ChatMessageDictionary = ChatMessageDictionaryEntry[];
@@ -416,6 +421,8 @@ interface IChatRoomMessageMetadata {
 	senderName?: string;
 	/** The character targetted by the message */
 	TargetCharacter?: Character;
+	/** The character sending the message */
+	SourceCharacter?: Character;
 	/** The member number of the target */
 	TargetMemberNumber?: number;
 	/** Whether the message is considered game-initiated. Used for automatic vibe changes for example. */
@@ -424,7 +431,7 @@ interface IChatRoomMessageMetadata {
 	GroupName?: string;
 	/** How intense the shock should be */
 	ShockIntensity?: number;
-	ActivityCounter?: 0;
+	ActivityCounter?: number;
 	/** The triggered activity */
 	ActivityName?: string;
 	/** The group where the activity is triggered */
@@ -1702,6 +1709,19 @@ type ExtendedItemValidateScriptHookCallback<OptionType> = (
 	CurrentOption: OptionType,
 ) => string;
 
+/**
+ * @param {Character} C - The character wearing the item
+ * @param {OptionType} Option - The newly selected option
+ * @param {OptionType} CurrentOption - The currently selected option
+ * @return {void} - Nothing
+ * @template OptionType
+ */
+ type ExtendedItemPublishActionCallback<OptionType> = (
+	C: Character,
+	CurrentOption: OptionType,
+	PreviousOption: OptionType,
+) => void;
+
 //#endregion
 
 //#region Modular items
@@ -1944,8 +1964,8 @@ interface TypedItemConfig {
 	 */
 	Dictionary?: TypedItemDictionaryCallback[];
 	/**
-	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
-	 * and parameters passed on to them. If undefined, these are ignored.
+	 * A recond containing functions that are run on load, click, draw, exit, validate and publishaction,
+	 * with the original archetype function and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	ScriptHooks?: {
@@ -1954,6 +1974,7 @@ interface TypedItemConfig {
 		Draw?: (next: () => void) => void,
 		Exit?: () => void,
 		Validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>,
+		PublishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
 	};
 }
 
@@ -2035,8 +2056,8 @@ interface TypedItemData {
 	 */
 	validate?: ExtendedItemValidateCallback<ExtendedItemOption>;
 	/**
-	 * A recond containing functions that are run on load, click, draw, exit, and validate, with the original archetype function
-	 * and parameters passed on to them. If undefined, these are ignored.
+	 * A recond containing functions that are run on load, click, draw, exit, validate and publishaction,
+	 * with the original archetype function and parameters passed on to them. If undefined, these are ignored.
 	 * Note that scripthook functions must be loaded before `Female3DCGExtended.js` in `index.html`.
 	 */
 	scriptHooks?: {
@@ -2045,6 +2066,7 @@ interface TypedItemData {
 		draw?: (next: () => void) => void,
 		exit?: () => void,
 		validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>,
+		publishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
 	};
 }
 
@@ -2060,7 +2082,7 @@ interface TypedItemData {
  */
 type TypedItemDictionaryCallback = (
 	chatData: ExtendedItemChatData<ExtendedItemOption>
-) => { Tag: string, Text: string };
+) => ChatMessageDictionaryEntry;
 
 /**
  * A parameter object containing information used to validate and sanitize character appearance update diffs. An
