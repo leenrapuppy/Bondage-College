@@ -12,6 +12,7 @@ const neededFiles = [
 	"Scripts/VariableHeight.js",
 	"Screens/Inventory/Futuristic/Futuristic.js",
 	"Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js",
+	"Screens/Inventory/ItemNeckAccessories/CollarNameTag/CollarNameTag.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"
 ];

@@ -2672,10 +2672,12 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
  *
  * @param {IChatRoomMessage} data - The message to parse.
  * @param {Character} SenderCharacter - The resolved character that sent that message.
- * @returns {{ metadata: object, substitutions: string[][] }}
+ * @returns {{ metadata: IChatRoomMessageMetadata, substitutions: [string, string][] }}
  */
 function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
-	let substitutions = [];
+	/** @type {[string, string][]} */
+	const substitutions = [];
+	/** @type {IChatRoomMessageMetadata} */
 	const meta = {};
 
 	meta.senderName = CharacterNickname(SenderCharacter);

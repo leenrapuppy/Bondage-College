@@ -1,0 +1,28 @@
+Current bid:
+当前出价：
+Highest bidder:
+最高出价者：
+I bid
+我出
+Bid
+出价
+You
+你
+Someone else
+其他人
+Nobody
+没有人
+Your money:
+你的钱款：
+Give up
+放弃
+Return
+返回
+Do I hear
+我听到了
+Going once!
+确认一次！
+Going twice!
+确认二次！
+Sold!
+成交！

@@ -17,7 +17,10 @@
  */
 var ExtendedItemOffsets = {};
 
-/** The X & Y co-ordinates of each option's button, based on the number to be displayed per page. */
+/**
+ * The X & Y co-ordinates of each option's button, based on the number to be displayed per page.
+ * @type {[number, number][][]}
+ */
 const ExtendedXY = [
 	[], //0 placeholder
 	[[1385, 500]], //1 option per page
@@ -30,7 +33,10 @@ const ExtendedXY = [
 	[[1020, 400], [1265, 400], [1510, 400], [1755, 400], [1020, 700], [1265, 700], [1510, 700], [1755, 700]], //8 options per page
 ];
 
-/** The X & Y co-ordinates of each option's button, based on the number to be displayed per page. */
+/**
+ * The X & Y co-ordinates of each option's button, based on the number to be displayed per page.
+ * @type {[number, number][][]}
+ */
 const ExtendedXYWithoutImages = [
 	[], //0 placeholder
 	[[1400, 450]], //1 option per page
@@ -43,7 +49,10 @@ const ExtendedXYWithoutImages = [
 	[[1050, 450], [1200, 450], [1450, 450], [1700, 450], [1050, 525], [1200, 525], [1425, 525], [1675, 525]], //8 options per page
 ];
 
-/** The X & Y co-ordinates of each option's button, based on the number to be displayed per page. */
+/**
+ * The X & Y co-ordinates of each option's button, based on the number to be displayed per page.
+ * @type {[number, number][][]}
+ */
 const ExtendedXYClothes = [
 	[], //0 placeholder
 	[[1385, 450]], //1 option per page
@@ -119,9 +128,10 @@ function ExtendedItemLoad(Options, DialogKey) {
  *     The full dialog key will be <Prefix><Option.Name>
  * @param {number} [OptionsPerPage] - The number of options displayed on each page
  * @param {boolean} [ShowImages=true] - Denotes wether images should be shown for the specific item
+ * @param {[number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
  * @returns {void} Nothing
  */
-function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages = true) {
+function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true, XYPositions=null) {
 	// If an option's subscreen is open, it overrides the standard screen
 	if (ExtendedItemSubscreen) {
 		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Draw");
@@ -131,9 +141,14 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages = tr
 	const C = CharacterGetCurrent();
 	const Asset = DialogFocusItem.Asset;
 	const ItemOptionsOffset = ExtendedItemGetOffset();
-	const XYPositions = !Asset.Group.Clothing ? (ShowImages ? ExtendedXY : ExtendedXYWithoutImages) : ExtendedXYClothes;
 	const ImageHeight = ShowImages ? 220 : 0;
-	OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositions.length - 1);
+	if (XYPositions === null) {
+		const XYPositionsArray = !Asset.Group.Clothing ? (ShowImages ? ExtendedXY : ExtendedXYWithoutImages) : ExtendedXYClothes;
+		OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositionsArray.length - 1);
+		XYPositions = XYPositionsArray[OptionsPerPage];
+	} else {
+		OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositions.length - 1);
+	}
 
 	// If we have to paginate, draw the back/next button
 	if (Options.length > OptionsPerPage) {
@@ -152,8 +167,8 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages = tr
 	// Draw the possible variants and their requirements, arranged based on the number per page
 	for (let I = ItemOptionsOffset; I < Options.length && I < ItemOptionsOffset + OptionsPerPage; I++) {
 		const PageOffset = I - ItemOptionsOffset;
-		const X = XYPositions[OptionsPerPage][PageOffset][0];
-		const Y = XYPositions[OptionsPerPage][PageOffset][1];
+		const X = XYPositions[PageOffset][0];
+		const Y = XYPositions[PageOffset][1];
 
 		const Option = Options[I];
 		const OptionType = Option.Property && Option.Property.Type;
@@ -242,9 +257,10 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected)
  *     in the array should be the default option.
  * @param {number} [OptionsPerPage] - The number of options displayed on each page
  * @param {boolean} [ShowImages=true] - Denotes wether images are shown for the specific item
+ * @param {[number, number][]} [XYPositions] - An array with custom X & Y coordinates of the buttons
  * @returns {void} Nothing
  */
-function ExtendedItemClick(Options, OptionsPerPage, ShowImages = true) {
+function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions=null) {
 	const C = CharacterGetCurrent();
 
 	// If an option's subscreen is open, pass the click into it
@@ -255,9 +271,14 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages = true) {
 
 	const ItemOptionsOffset = ExtendedItemGetOffset();
 	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
-	const XYPositions = !IsCloth ? ShowImages ? ExtendedXY : ExtendedXYWithoutImages : ExtendedXYClothes;
 	const ImageHeight = ShowImages ? 220 : 0;
-	OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositions.length - 1);
+	if (XYPositions === null) {
+		const XYPositionsArray = !IsCloth ? ShowImages ? ExtendedXY : ExtendedXYWithoutImages : ExtendedXYClothes;
+		OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositionsArray.length - 1);
+		XYPositions = XYPositionsArray[OptionsPerPage];
+	} else {
+		OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositions.length - 1);
+	}
 
 	// Exit button
 	if (MouseIn(1885, 25, 90, 90)) {
@@ -287,8 +308,8 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages = true) {
 	// Options
 	for (let I = ItemOptionsOffset; I < Options.length && I < ItemOptionsOffset + OptionsPerPage; I++) {
 		const PageOffset = I - ItemOptionsOffset;
-		const X = XYPositions[OptionsPerPage][PageOffset][0];
-		const Y = XYPositions[OptionsPerPage][PageOffset][1];
+		const X = XYPositions[PageOffset][0];
+		const Y = XYPositions[PageOffset][1];
 		const Option = Options[I];
 		if (MouseIn(X, Y, 225, 55 + ImageHeight)) {
 			ExtendedItemHandleOptionClick(C, Options, Option);
