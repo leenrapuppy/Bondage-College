@@ -266,7 +266,7 @@ function CraftingRun() {
 		DrawText(TextGet("EnterColor"), 1550, 550, "White", "Black");
 		ElementPosition("InputColor", 1510, 625, 670);
 		DrawButton(1843, 598, 64, 64, "", "White", "Icons/Color.png");
-		DrawText("Item priority", 1550, 715, "White", "Black");
+		DrawText(TextGet("EnterPriority"), 1550, 715, "White", "Black");
 		ElementPosition("InputPriority", 1225, 710, 100);
 		DrawText(TextGet("EnterPrivate"), 1550, 805, "White", "Black");
 		DrawButton(1175, 768, 64, 64, "", "White", CraftingSelectedItem.Private ? "Icons/Checked.png" : "");
