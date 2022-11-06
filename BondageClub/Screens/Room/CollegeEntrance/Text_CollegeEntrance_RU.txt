@@ -10,9 +10,7 @@ College Cafeteria
 Кафетерий колледжа
 College Theater
 Театр колледжа
-Chess Club
-Шахматный клуб
 Detention Room
 Комната наказаний
-Teacher Lounge (Require a key)
-Учительская (требуется ключ)
+Teacher Lounge
+Учительская

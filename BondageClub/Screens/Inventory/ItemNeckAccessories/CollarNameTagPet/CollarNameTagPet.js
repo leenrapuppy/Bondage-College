@@ -1,23 +1,23 @@
 "use strict";
 
 // Loads the item extension properties
-function InventoryItemNeckAccessoriesCollarNameTagLoad() {
+function InventoryItemNeckAccessoriesCollarNameTagPetLoad() {
 	if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Type: null };
 }
 
 // Draw the item extension screen
-function InventoryItemNeckAccessoriesCollarNameTagDraw() {
+function InventoryItemNeckAccessoriesCollarNameTagPetDraw() {
 	// Draw the header and item
 	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
 
 	// Draw the possible tags
 	if (!InventoryItemHasEffect(DialogFocusItem, "Lock", true)) {
-		DrawText(DialogFindPlayer("SelectCollarNameTagType"), 1500, 500, "white", "gray");
+		DrawText(DialogFindPlayer("SelectCollarNameTagPetType"), 1500, 500, "white", "gray");
 		var List = DialogFocusItem.Asset.AllowType;
 		var X = 955;
 		var Y = 530;
 		for (let T = 0; T < List.length; T++) {
-			if ((DialogFocusItem.Property.Type != List[T])) DrawButton(X, Y, 200, 55, DialogFindPlayer("CollarNameTagType" + List[T]), "White");
+			if ((DialogFocusItem.Property.Type != List[T])) DrawButton(X, Y, 200, 55, DialogFindPlayer("CollarNameTagPetType" + List[T]), "White");
 			X = X + 210;
 			if (T % 5 == 4) {
 				X = 955;
@@ -26,12 +26,12 @@ function InventoryItemNeckAccessoriesCollarNameTagDraw() {
 		}
 	}
 	else {
-		DrawText(DialogFindPlayer("SelectCollarNameTagTypeLocked"), 1500, 500, "white", "gray");
+		DrawText(DialogFindPlayer("SelectCollarNameTagPetTypeLocked"), 1500, 500, "white", "gray");
 	}
 }
 
 // Catches the item extension clicks
-function InventoryItemNeckAccessoriesCollarNameTagClick() {
+function InventoryItemNeckAccessoriesCollarNameTagPetClick() {
 	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) { DialogFocusItem = null; return; }
 	if (!InventoryItemHasEffect(DialogFocusItem, "Lock", true)) {
 		var List = DialogFocusItem.Asset.AllowType;
@@ -39,7 +39,7 @@ function InventoryItemNeckAccessoriesCollarNameTagClick() {
 		var Y = 530;
 		for (let T = 0; T < List.length; T++) {
 			if ((MouseX >= X) && (MouseX <= X + 200) && (MouseY >= Y) && (MouseY <= Y + 55) && (DialogFocusItem.Property.Type != List[T]))
-				InventoryItemNeckAccessoriesCollarNameTagSetType(List[T]);
+				InventoryItemNeckAccessoriesCollarNameTagPetSetType(List[T]);
 			X = X + 210;
 			if (T % 5 == 4) {
 				X = 955;
@@ -53,11 +53,11 @@ function InventoryItemNeckAccessoriesCollarNameTagClick() {
  * Sets the type of tag
  * @type {TypedItemSetTypeCallback}
  */
-function InventoryItemNeckAccessoriesCollarNameTagSetType(NewType) {
+function InventoryItemNeckAccessoriesCollarNameTagPetSetType(NewType) {
 	var C = CharacterGetCurrent();
 	if (CurrentScreen == "ChatRoom") {
 		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
-		InventoryItemNeckAccessoriesCollarNameTagLoad();
+		InventoryItemNeckAccessoriesCollarNameTagPetLoad();
 	}
 	DialogFocusItem.Property.Type = NewType;
 	DialogFocusItem.Property.Effect = [];
@@ -67,8 +67,8 @@ function InventoryItemNeckAccessoriesCollarNameTagSetType(NewType) {
 	var Dictionary = [];
 	Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
 	Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
-	Dictionary.push({Tag: "NameTagType", TextToLookUp: "CollarNameTagType" + ((NewType) ? NewType : "")});
-	ChatRoomPublishCustomAction("CollarNameTagSet", true, Dictionary);
+	Dictionary.push({Tag: "NameTagType", TextToLookUp: "CollarNameTagPetType" + ((NewType) ? NewType : "")});
+	ChatRoomPublishCustomAction("CollarNameTagPetSet", true, Dictionary);
 	if (DialogInventory != null) {
 		DialogFocusItem = null;
 		DialogMenuButtonBuild(C);

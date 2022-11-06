@@ -5,7 +5,6 @@ var PrivateBedActivity = "Caress";
 var PrivateBedActivityList = [];
 var PrivateBedLog = [];
 var PrivateBedActivityDelay = 4000;
-var PrivateBedActivityMustRefresh = true;
 
 /**
  * Returns the number of girls in the private bedroom.
@@ -26,7 +25,6 @@ function PrivateBedCount() {
 function PrivateBedLoad() {
 
 	// Clears the previous data and adds the player in bed
-	PrivateBedActivityMustRefresh = true;
 	PrivateBedLog = [];
 	CharacterSetActivePose(Player, null, true);
 	PrivateBedBackground = PrivateBackground;
@@ -127,17 +125,14 @@ function PrivateBedRun() {
 	} else {
 
 		// Prepares the list of all activities for the player
-		if (PrivateBedActivityMustRefresh) {
-			PrivateBedActivityMustRefresh = false;
-			PrivateBedActivityList = [];
-			for (let A of ActivityFemale3DCG)
-				if ((A.Name != null) && !A.Name.includes("Item") && !A.Name.includes("Reverse") && !A.Name.includes("Inject") && (A.MaxProgress != null) && (A.MaxProgress > 0))
-					if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseTongue") || !Player.IsGagged())
-						if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseMouth") || !Player.IsGagged())
+		PrivateBedActivityList = [];
+		for (let A of ActivityFemale3DCG)
+			if ((A.Name != null) && !A.Name.includes("Item") && !A.Name.includes("Inject") && (A.MaxProgress != null) && (A.MaxProgress > 0))
+				if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseTongue") || !Player.IsGagged())
+					if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseMouth") || !Player.IsGagged())
+						if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
 							if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
-								if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
-									PrivateBedActivityList.push(A.Name);
-		}
+								PrivateBedActivityList.push(A.Name);
 
 		// For each possible activities
 		for (let A = PrivateBedActivityList.length - 1; A >= 0; A--) {
@@ -221,7 +216,7 @@ function PrivateBedNPCActivity(Source) {
 	let ActivityList = [];
 	let MinMaxProgress = ((Target.ArousalSettings != null) && (Target.ArousalSettings.Progress != null) && (Target.ArousalSettings.Progress >= Math.random() * 120)) ? Target.ArousalSettings.Progress : 0;
 	for (let A of ActivityFemale3DCG)
-		if ((A.MaxProgress != null) && (A.MaxProgress >= MinMaxProgress) && !A.Name.includes("Item") && !A.Name.includes("Reverse") && !A.Name.includes("Inject")) {
+		if ((A.MaxProgress != null) && (A.MaxProgress >= MinMaxProgress) && !A.Name.includes("Item") && !A.Name.includes("Inject")) {
 			if ((A.Name.includes("Gag")) && !Source.IsGagged()) continue; // No gagged activities if ungagged
 			if ((A.Name == "MasturbateFist") && (NPCTraitGet(Source, "Violent") <= 50)) continue; // Only violent NPCs will fist
 			if ((A.Name == "MasturbateFist") && (NPCTraitGet(Source, "Horny") <= 0)) continue; // Only horny NPCs will fist
@@ -293,7 +288,7 @@ function PrivateBedClick() {
 	// Bedroom buttons on the right side
 	if (MouseIn(1890, 20, 90, 90)) PrivateBedExit();
 	if (MouseIn(1890, 130, 90, 90) && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
-	if (MouseIn(1890, 240, 90, 90)) { PrivateBedActivityMustRefresh = true; CharacterSetCurrent(Player); }
+	if (MouseIn(1890, 240, 90, 90)) CharacterSetCurrent(Player);
 
 	// Cannot do more than 1 action each X seconds
 	if (Player.PrivateBedActivityTimer > CommonTime()) return;

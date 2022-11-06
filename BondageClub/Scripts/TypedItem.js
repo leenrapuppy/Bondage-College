@@ -60,7 +60,6 @@ function TypedItemRegister(asset, config) {
 	TypedItemCreateValidateFunction(data);
 	TypedItemCreatePublishFunction(data);
 	TypedItemCreateNpcDialogFunction(data);
-	TypedItemCreatePublishActionFunction(data);
 	TypedItemGenerateAllowType(data);
 	TypedItemGenerateAllowEffect(data);
 	TypedItemGenerateAllowBlock(data);
@@ -102,7 +101,6 @@ function TypedItemCreateTypedItemData(asset,
 			draw: ScriptHooks ? ScriptHooks.Draw : undefined,
 			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
 			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
-			publishAction: ScriptHooks ? ScriptHooks.PublishAction : undefined,
 		},
 		dictionary: Dictionary || [],
 		chatSetting: ChatSetting || TypedItemChatSetting.TO_ONLY,
@@ -246,20 +244,6 @@ function TypedItemCreateNpcDialogFunction({ asset, functionPrefix, dialog }) {
 	window[npcDialogFunctionName] = function (C, option) {
 		C.CurrentDialog = DialogFind(C, `${dialog.npcPrefix}${option.Name}`, asset.Group.Name);
 	};
-}
-
-/**
- * Creates an asset's extended item PublishAction function
- * @param {TypedItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function TypedItemCreatePublishActionFunction({ scriptHooks, functionPrefix }) {
-	const publishFunctionName = `${functionPrefix}PublishAction`;
-	if (scriptHooks && scriptHooks.publishAction) {
-		window[publishFunctionName] = function (C, CurrentOption, PreviousOption) {
-			scriptHooks.publishAction(C, CurrentOption, PreviousOption);
-		};
-	}
 }
 
 /**

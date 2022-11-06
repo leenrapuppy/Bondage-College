@@ -1,5 +1,5 @@
 Gain reputation at double the rate
-获得双倍声望
+获得双倍信用
 Gain skills at double the rate
 获得双倍技能熟练度
 Gain double amount of money
@@ -19,12 +19,10 @@ Cannot lose Mistress status
 Get college outfit for free
 免费获得学院校服
 Hit "C" in mini-games for bonus
-在各种小游戏中按C键获得奖励
+在小游戏中按C键获得隐藏效果
 Free NPC dress up
 免费NPC换衣
 Change Domme/sub NPC trait
 更换NPC的S/M特点
 Double GGTS time progress
 双倍GGTS时间进度
-Double Bondage Brawl Experience
-双倍束缚格斗经验

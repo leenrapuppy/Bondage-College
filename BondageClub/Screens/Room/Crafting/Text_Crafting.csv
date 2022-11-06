@@ -15,7 +15,6 @@ SelectColor,Pick the item colors
 EnterName,Name of the crafted item
 EnterDescription,Engrave a description
 EnterColor,Enter or pick the colors
-EnterPriority,Item drawing priority
 EnterPrivate,Private (only you can use it)
 EnterType,Automatic selection:
 EmptySlot,Empty

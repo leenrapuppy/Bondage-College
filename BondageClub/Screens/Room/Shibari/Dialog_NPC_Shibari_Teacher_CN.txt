@@ -154,7 +154,7 @@ Yes, you can, but there's a hefty price.  Would you like to get better at using 
 (She looks at you and giggles.)  Your training session will be to get out of that.
 （她看着你，咯咯地笑。）你的训练课程就是从这束缚里逃脱出来。
 (She shakes her head no.)  You need to rest and practice for at least one hour before I can train you again.
-(她摇摇头，表示拒绝。)你需要至少休息并练习一个小时，我才能再次训练你。
+(She shakes her head no.)  You need to rest and practice for at least one hour before I can train you again.
 ###_PLAYER
 Let's talk later.  (Leave her.)
 以后再说吧。（离开她。）
@@ -269,10 +269,10 @@ It depends on your current knowledge.  It can get quite costly if you want to be
 这取决于你目前的知识。如果你想成为最好的，这可能会变得非常昂贵。
 ###_PLAYER
 Can I train all day long?
-我可以一整天都训练吗。
+Can I train all day long?
 ###_NPC
 No.  You need to rest and practice between training sessions.  Wait at least one hour before training again.
-不。在训练课程之间，你需要休息和练习。等至少一个小时后再训练吧。
+No.  You need to rest and practice between training sessions.  Wait at least one hour before training again.
 ###_PLAYER
 I'd like to learn new bondage techniques.
 我想学习新的束缚技巧。

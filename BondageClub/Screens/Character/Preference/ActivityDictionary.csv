@@ -29,9 +29,6 @@ ActivityMasturbateFoot,Foot Masturbation
 ActivityMasturbateItem,Masturbate
 ActivityPenetrateSlow,Slow Penetration
 ActivityPenetrateFast,Fast Penetration
-ActivityReversePenetratePussy,Reverse Pussy
-ActivityReversePenetrateAss,Reverse Ass
-ActivityReverseSuckItem,Reverse Suck
 ActivityHandGag,Hand Gag
 ActivityRestHead,Rest Head
 ActivitySpankItem,Spank
@@ -246,9 +243,6 @@ Label-ChatOther-ItemMouth-PoliteKiss,Kiss on Cheek
 Label-ChatOther-ItemMouth-RollItem,Roll over Mouth
 Label-ChatOther-ItemMouth-RubItem,Rub on Mouth
 Label-ChatOther-ItemMouth-TickleItem,Tickle Mouth
-Label-ChatOther-ItemMouth-ReversePenetrateAss,Take in Ass
-Label-ChatOther-ItemMouth-ReversePenetratePussy,Take in Pussy
-Label-ChatOther-ItemMouth-ReverseSuckItem,Take in Mouth
 Label-ChatOther-ItemNeck-Bite,Bite Neck
 Label-ChatOther-ItemNeck-Caress,Caress Neck
 Label-ChatOther-ItemNeck-Choke,Choke Neck
@@ -260,8 +254,8 @@ Label-ChatOther-ItemNeck-MassageHands,Massage Neck
 Label-ChatOther-ItemNeck-Nibble,Nibble Neck
 Label-ChatOther-ItemNeck-RollItem,Roll over Neck
 Label-ChatOther-ItemNeck-RubItem,Rub on Neck
-Label-ChatOther-ItemNeck-ShockItem,Shock Neck
 Label-ChatOther-ItemNeck-Step,Gently Foot on Neck
+Label-ChatOther-ItemNeck-ShockItem,Shock Neck
 Label-ChatOther-ItemNeck-Tickle,Tickle Neck
 Label-ChatOther-ItemNeck-TickleItem,Tickle Neck
 Label-ChatOther-ItemNipples-Bite,Bite Nipple
@@ -331,9 +325,7 @@ Label-ChatOther-ItemTorso-SpankItem,Spank Back
 Label-ChatOther-ItemTorso-Step,Rest Feet on Back
 Label-ChatOther-ItemTorso-Tickle,Tickle Ribs
 Label-ChatOther-ItemTorso-TickleItem,Tickle Back
-Label-ChatOther-ItemVulva-ReversePenetrateAss,Take in Ass
 Label-ChatOther-ItemVulva-Caress,Caress Pussy
-Label-ChatOther-ItemVulva-ReversePenetratePussy,Take in Pussy
 Label-ChatOther-ItemVulva-GaggedKiss,Push Gag in Pussy
 Label-ChatOther-ItemVulva-Kiss,Kiss Pussy Lips
 Label-ChatOther-ItemVulva-Lick,Lick Pussy Lips
@@ -349,7 +341,6 @@ Label-ChatOther-ItemVulva-RubItem,Rub on Vulva
 Label-ChatOther-ItemVulva-ShockItem,Shock Vulva
 Label-ChatOther-ItemVulva-Slap,Slap Pussy Lips
 Label-ChatOther-ItemVulva-SpankItem,Spank Pussy
-Label-ChatOther-ItemVulva-ReverseSuckItem,Suck On
 Label-ChatOther-ItemVulva-TickleItem,Tickle Vulva
 Label-ChatOther-ItemVulvaPiercings-Caress,Caress Clitoris
 Label-ChatOther-ItemVulvaPiercings-GaggedKiss,Gag Kiss Clitoris
@@ -732,9 +723,6 @@ ChatOther-ItemMouth-Lick,SourceCharacter licks TargetCharacter's lips.
 ChatOther-ItemMouth-Nibble,SourceCharacter nibbles TargetCharacter's lips.
 ChatOther-ItemMouth-PenetrateFast,SourceCharacter roughly penetrates TargetCharacter's mouth with her UsedAsset.
 ChatOther-ItemMouth-PenetrateSlow,SourceCharacter slowly penetrates TargetCharacter's mouth with her UsedAsset.
-ChatOther-ItemMouth-ReversePenetrateAss,SourceCharacter fucks TargetCharacter's UsedAsset with her ass.
-ChatOther-ItemMouth-ReversePenetratePussy,SourceCharacter fucks TargetCharacter's UsedAsset with her pussy.
-ChatOther-ItemMouth-ReverseSuckItem,SourceCharacter sucks on TargetCharacter's UsedAsset.
 ChatOther-ItemMouth-PoliteKiss,SourceCharacter gives a friendly kiss on TargetCharacter's cheek.
 ChatOther-ItemMouth-RollItem,SourceCharacter rolls a UsedAsset over TargetCharacter's mouth.
 ChatOther-ItemMouth-RubItem,SourceCharacter rubs TargetCharacter's mouth with a UsedAsset.
@@ -821,9 +809,7 @@ ChatOther-ItemTorso-SpankItem,SourceCharacter hits TargetCharacter's back with h
 ChatOther-ItemTorso-Step,SourceCharacter rests her feet on TargetCharacter's back.
 ChatOther-ItemTorso-Tickle,SourceCharacter tickles TargetCharacter's ribs.
 ChatOther-ItemTorso-TickleItem,SourceCharacter tickles TargetCharacter's back with a UsedAsset.
-ChatOther-ItemVulva-ReversePenetrateAss,SourceCharacter fucks TargetCharacter's UsedAsset with her ass.
 ChatOther-ItemVulva-Caress,SourceCharacter caresses TargetCharacter's pussy with her fingers.
-ChatOther-ItemVulva-ReversePenetratePussy,SourceCharacter fucks TargetCharacter's UsedAsset with her pussy.
 ChatOther-ItemVulva-GaggedKiss,SourceCharacter pushes her gag into TargetCharacter's vagina.
 ChatOther-ItemVulva-Kiss,SourceCharacter kisses TargetCharacter's pussy lips.
 ChatOther-ItemVulva-Lick,SourceCharacter licks TargetCharacter's pussy lips.
@@ -839,7 +825,6 @@ ChatOther-ItemVulva-RubItem,SourceCharacter rubs TargetCharacter's vulva with a 
 ChatOther-ItemVulva-ShockItem,SourceCharacter shocks TargetCharacter's vulva with a UsedAsset.
 ChatOther-ItemVulva-Slap,SourceCharacter slaps TargetCharacter's pussy lips.
 ChatOther-ItemVulva-SpankItem,SourceCharacter hits TargetCharacter's pussy with her UsedAsset.
-ChatOther-ItemVulva-ReverseSuckItem,SourceCharacter eagerly sucks TargetCharacter's UsedAsset.
 ChatOther-ItemVulva-TickleItem,SourceCharacter tickles TargetCharacter's vulva with a UsedAsset.
 ChatOther-ItemVulvaPiercings-Caress,SourceCharacter caresses TargetCharacter's clitoris with her fingers.
 ChatOther-ItemVulvaPiercings-GaggedKiss,SourceCharacter gags kiss TargetCharacter's clitoris.

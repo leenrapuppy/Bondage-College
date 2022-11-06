@@ -29,10 +29,10 @@ Be direct and don't waste my time girl.
 直接点，别浪费我的时间，女孩。
 ###_PLAYER
 How come Sarah is locked down?
-Sarah怎么被关起来了？
+莎拉怎么被关起来了？
 ###_NPC
 Sarah you say?  Oh yes, the blond college student.  Mistress Sophie reserved a room for her punishment.
-你说Sarah？哦，是的，那位金发碧眼的大学生。女主人Sophie为惩罚她预留了一个房间。
+你说莎拉？哦，是的，那位金发碧眼的大学生。女主人苏菲为惩罚她预留了一个房间。
 ###_PLAYER
 I have a few questions.
 我有几个问题。
@@ -238,7 +238,7 @@ Who's the Head Mistress?
 女主人总管是谁？
 ###_NPC
 Mistress Sophie is the club current Head Mistress.  She's a strict but fair manager.
-女主人Sophie是俱乐部现任的女主人总管。她是一位严格但公平的经理。
+女主人苏菲是俱乐部现任的女主人总管。她是一位严格但公平的经理。
 ###_PLAYER
 How do you choose the Head Mistress?
 你们如何选出女主人总管？
@@ -442,7 +442,7 @@ Can you please release her?
 你能放开她吗？
 ###_NPC
 No, Mistress Sophie already made plans.  Do not interfere.
-不，女主人Sophie已经有计划了。别打扰。
+不，女主人苏菲已经有计划了。别打扰。
 ###_PLAYER
 She's my property, let her go.
 她是我的财产，放了她吧。
@@ -454,7 +454,7 @@ Very well, punish her properly then.
 很好，那就好好惩罚她吧。
 ###_NPC
 Don't worry, Mistress Sophie will discipline her well.
-别担心，女主人Sophie会好好管教她的。
+别担心，女主人苏菲会好好管教她的。
 ###_PLAYER
 Thank you.
 谢谢你。

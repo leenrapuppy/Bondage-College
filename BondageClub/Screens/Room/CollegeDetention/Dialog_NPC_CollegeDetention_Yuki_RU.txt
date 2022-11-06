@@ -74,7 +74,7 @@ I'll check with your teacher later.  Whatever you did, you'll spend the rest of 
 ###_PLAYER
 I'm innocent!
 Я невиновна!
-I've chatted in class.
+Я болтала на уроке.
 Я чатилась в классе.
 ###_NPC
 Bad girl, you know you shouldn't do that.  You'll spend the rest of the day with me.

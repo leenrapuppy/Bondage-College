@@ -198,10 +198,6 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			if (group.Name === "ItemButt")
 				return !acted.IsPlugged();
 			break;
-		case "UseVulva":
-			return !acting.IsVulvaFull();
-		case "UseAss":
-			return !acting.IsAssFull();
 		case "MoveHead":
 			if (group.Name === "ItemHead")
 				return !acted.IsFixedHead();
@@ -255,52 +251,7 @@ function ActivityCheckPrerequisites(activity, acting, acted, group) {
 	if (!activity.Prerequisite)
 		return true;
 
-	const reverse = activity.Reverse;
-	return activity.Prerequisite.every((pre) => ActivityCheckPrerequisite(pre, (!reverse ? acting : acted), (!reverse ? acted : acting), group));
-}
-
-/**
- *
- * @param {ItemActivity[]} allowed
- * @param {Character} acting
- * @param {Character} acted
- * @param {string} needsItem
- * @param {Activity} activity
- */
-function ActivityGenerateItemActivitiesFromNeed(allowed, acting, acted, needsItem, activity) {
-	if (acting.IsEnclose() || acted.IsEnclose()) return false;
-
-	const reverse = activity.Reverse;
-	const items = CharacterItemsForActivity(!reverse ? acting : acted, needsItem);
-	if (items.length === 0) return true;
-
-	let handled = false;
-	for (const item of items) {
-		const type = item.Property ? item.Property.Type : null;
-		/** @type {ItemActivityRestriction} */
-		let blocked = null;
-		if (InventoryIsAllowedLimited(acted, item, type)) {
-			blocked = "limited";
-		} else if (InventoryBlockedOrLimited(acted, item, type)) {
-			blocked = "blocked";
-		} else if (InventoryGroupIsBlocked(acting, item.Asset.Group.Name)) {
-			blocked = "unavail";
-		}
-
-		// FIXME: workaround because those are in a non-activity group
-		const isStrapon = item.Asset.Group.Name === "ItemDevices" && ["StrapOnSmooth", "StrapOnStuds"].includes(item.Asset.Name);
-
-		if (InventoryItemHasEffect(item, "UseRemote")) {
-			// That item actually needs a remote, so handle it separately
-		} else if (reverse && acted.FocusGroup.Name !== item.Asset.Group.Name && !isStrapon) {
-			// This is a reverse activity, but we're targetting the wrong slot, just skip
-			handled = true;
-		} else {
-			allowed.push({ Activity: activity, Item: item, Blocked: blocked });
-			handled = true;
-		}
-	}
-	return handled;
+	return activity.Prerequisite.every((pre) => ActivityCheckPrerequisite(pre, acting, acted, group));
 }
 
 /**
@@ -342,9 +293,29 @@ function ActivityAllowedForGroup(character, groupname) {
 
 		let handled = false;
 		let needsItem = activity.Prerequisite.find(p => p.startsWith("Needs-"));
+		if (needsItem && !Player.IsEnclose() && !character.IsEnclose()) {
+			needsItem = needsItem.substring(6);
+			handled = true;
 
-		if (needsItem) {
-			handled = ActivityGenerateItemActivitiesFromNeed(allowed, Player, character, needsItem.substring(6), activity);
+			const items = CharacterItemsForActivity(Player, needsItem);
+			for (const item of items) {
+				const type = item.Property ? item.Property.Type : null;
+				/** @type {ItemActivityRestriction} */
+				let blocked = null;
+				if (InventoryIsAllowedLimited(character, item, type)) {
+					blocked = "limited";
+				} else if (InventoryBlockedOrLimited(character, item, type)) {
+					blocked = "blocked";
+				} else if (InventoryGroupIsBlocked(Player, item.Asset.Group.Name)) {
+					blocked = "unavail";
+				}
+
+				if (InventoryItemHasEffect(item, "UseRemote")) {
+					// That item actually needs a remote, so handle it separately
+				} else {
+					allowed.push({ Activity: activity, Item: item, Blocked: blocked });
+				}
+			}
 		}
 
 		if (activity.Name === "ShockItem" && InventoryItemHasEffect(targetedItem, "ReceiveShock")) {
