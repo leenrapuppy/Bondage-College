@@ -1754,7 +1754,8 @@ function DialogClick() {
 				const act = DialogActivity[A];
 				// If this specific activity is clicked, we run it
 				if ((MouseX >= X) && (MouseX < X + 225) && (MouseY >= Y) && (MouseY < Y + 275)) {
-					if (!act.Blocked) {
+					const type = (act.Item && act.Item.Property ? act.Item.Property.Type : null);
+					if (!act.Blocked || act.Blocked === "limited" && InventoryCheckLimitedPermission(C, act.Item, type)) {
 						if (C.IsNpc()) {
 							let Line = C.FocusGroup.Name + act.Item.Asset.DynamicName(Player);
 							let D = DialogFind(C, Line, null, false);
@@ -2055,13 +2056,17 @@ function DialogDrawActivityMenu(C) {
 		let image = "Assets/" + C.AssetFamily + "/Activity/" + Act.Name + ".png";
 		/** @type {InventoryIcon[]} */
 		let icons = [];
+		if (itemAct.Blocked === "limited") {
+			icons.push("AllowedLimited");
+		}
+
 		if (itemAct.Item) {
 			image = `${AssetGetPreviewPath(itemAct.Item.Asset)}/${itemAct.Item.Asset.Name}.png`;
 			icons.push("Handheld");
 		}
+
 		const colors = {
 			"blocked": "red",
-			"limited": "amber",
 			"unavail": "grey",
 		};
 		const background = colors[itemAct.Blocked] || "white";

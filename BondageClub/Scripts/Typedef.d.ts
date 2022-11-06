@@ -824,6 +824,8 @@ interface Activity {
 	Prerequisite: string[];
 	Target: AssetGroupItemName[];
 	TargetSelf?: AssetGroupItemName[] | true;
+	/** Whether to reverse the prerequisite checks for that one */
+	Reverse?: true;
 	/** used for setting AutoPunishGagActionFlag */
 	MakeSound?: boolean;
 	/** An action that trigger when that activity is used */
@@ -1041,6 +1043,7 @@ interface Character {
 	IsMouthBlocked: () => boolean;
 	IsMouthOpen: () => boolean;
 	IsVulvaFull: () => boolean;
+	IsAssFull: () => boolean;
 	IsFixedHead: () => boolean;
 	IsOwnedByMemberNumber: (memberNumber: number) => boolean;
 	IsLover: (C: Character) => boolean;
