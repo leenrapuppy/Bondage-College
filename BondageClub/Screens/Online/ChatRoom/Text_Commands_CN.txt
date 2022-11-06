@@ -1,7 +1,9 @@
 [Message]: Send a message starting with /. Example: //message will send /message
 [Message]: 发送一条包含/的消息. 如: //message会发送 /message
 [Message]: Display the message as an action
-[Message]: 显示动作信息，但不包含你的名字. **[Message]也是同样的效果
+[Message]: 以动作来表现跟随的信息
+[Message]: Display the message as an action,without including your name. **[Message] does the same
+[Message]: 以动作来表现跟随的信息，但不包含你的名字. **[Message]是同样的效果
 : Toggle AFK emote
 :切换AFK表情
 [MemberNumber]: Ban the player from the room
@@ -12,14 +14,22 @@
 [MemberNumber]:将玩家添加到黑名单
 [MemberNumber]: Remove the player from your blacklist
 [MemberNumber]:将玩家从黑名单移除
+[0-5], ”+”, ”-” or ”b” or ”blue”: Remove blush with ”0”, set red blush intensity with ”1” to ”5” or increase and decrease it with ”+” and ”-”, or set blue blush with ”b” or ”blue”. Giving no blush opens the blush menu.
+[0-5]、“+”、”-”或者“b”或者”blue”: 使用“0”移除脸红，使用“1”到“5”设置脸红程度，或者使用“+”或者“-”来增减脸红程度，或使用“b”或者“blue”设置为蓝色。不提供脸红会打开脸红菜单。
 [Message]: sends hidden message to bots
 [Message]:对机器人发送隐藏消息
 : Toss a coin
 :丢一枚硬币
+: Open the crafting menu
+: 打开制作物品菜单
 [MemberNumber]: Demote the player from room administrator
 [MemberNumber]:取消玩家房管权限
 [Number]: Roll a 6-sided die. Adding “[Number]” after the command for any number between 2 and 100 will roll a die of that many sides instead. Adding “[Number]d[Number]” will roll multiple dice and sum the total.
 [Number]:丢一个6面骰.追加一个“[Number]”在命令后将会丢一个D[Number]的骰子.添加“[Number]d[Number]”会丢出多枚多面骰.
+[0-5]: Clear or load facial expression. ”0” after the command will clear current expression. ”1” to ”5” will load expression from the saved slot. Giving no number opens the saved expression menu.
+[0-5]: 清空或加载面部表情。指令后的“0”会清空当前的表情。“1”到“5”会从保存栏位加载表情。如果没有提供数字，会打开已保存的表情菜单。
+[o|c][l|r] or [expression]: Open or close eyes or change expression. ”c” will close, ”o” will open, using ”l” or ”r” will target only one eye. Giving no action opens the expression menu, using one of ”default”, ”dazed”, ”shy”, ”sad”, ”horny”, ”lewd”, ”verylewd”, ”heart”, ”heartpink”, ”lewdheart”, ”lewdheartpink”, ”dizzy” (or ”@@”), ”daydream” (or ”><”), ”shylyhappy” (or ”^^”), ”angry” (or ”èé”), ”surprised” (or ”éè”) or ”scared” will change expression.
+[o|c][l|r] 或者 [expression]: 睁开或关闭眼睛，或者改变表情。“c”会闭眼，“o”会睁眼，使用“l”或者“r”来只针对一侧的眼睛。如果没有提供动作，会打开表情菜单，使用下列之一来改变表情：“defualt”、“dazed”、“shy”、“sad”、“horny”、“lewd”、“verylewd”、“heart”、“heartpink”、“lewdheartpink”、“dizzy”（或“@@”）、“daydream”（或者“><”）、“shylyhappy”（或者“^^”）、“angry”（或“èé”）、“surprised”（或“éè”）、“scared”。
 [MemberNumber]: Add the player to your friendlist
 [MemberNumber]:将玩家添加到好友列表
 [MemberNumber]: Remove the player from your friendlist
@@ -56,6 +66,7 @@ use safeword
 [MemberNumber]:将玩家添加到白名单
 [MemberNumber]: Remove a player from your whitelist
 [MemberNumber]:将玩家从白名单移除
-
-[Message]: Display the message as an action,without including your name. **[Message] does the same
-[Message]: 显示动作信息，但不包含你的名字. **[Message]也是同样的效果
+Display your forbidden words set by your owner
+显示你的主人设置的禁止词
+[MemberNumber]: Release a submissive from your ownership
+[MemberNumber]: 释放一个被你拥有的顺从者
