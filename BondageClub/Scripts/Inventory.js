@@ -461,6 +461,13 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=tr
 	if (Item.Craft.MemberNumber == null) Item.Craft.MemberNumber = Source.MemberNumber;
 	if (Item.Craft.MemberName == null) Item.Craft.MemberName = CharacterNickname(Source);
 
+	// Set the item priority
+	if (Item.Property == null) {
+		Item.Property = {OverridePriority: Craft.OverridePriority};
+	} else {
+		Item.Property.OverridePriority = Craft.OverridePriority;
+	}
+
 	// The properties are only applied on self or NPCs to prevent duplicating the effect
 	if (Target.IsPlayer() || Target.IsNpc()) {
 
