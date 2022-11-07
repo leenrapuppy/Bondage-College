@@ -2676,7 +2676,7 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
  */
 function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 	/** @type {[string, string][]} */
-	const substitutions = [];
+	let substitutions = [];
 	/** @type {IChatRoomMessageMetadata} */
 	const meta = {};
 
