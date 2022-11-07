@@ -1969,16 +1969,16 @@ interface ModularItemData {
 	};
 }
 
-/** A 3-tuple (or 2-tuple) containing data for drawing a button in a modular item screen. A button definition takes the
+/** A 3-tuple containing data for drawing a button in a modular item screen. A button definition takes the
  * format:
  * ```
- * [imageUrl, textKey, background]
+ * [moduleOrOption, currentOption, prefix]
  * ```
- * The imageUrl is the URL for the image that should be drawn in the button.
- * The textKey is the CSV key for the text that should be displayed in the button.
- * The background is an optional CSS color string defining the background color for the button.
+ * The moduleOrOption is the to be drawn item module or option.
+ * The currentOption is currently active option within the relevant module.
+ * The prefix is the dialog prefix for the buttons text.
  */
-type ModularItemButtonDefinition = [string, string] | [string, string, string];
+type ModularItemButtonDefinition = [ModularItemOption | ModularItemModule, ModularItemOption, string]
 
 //#endregion
 

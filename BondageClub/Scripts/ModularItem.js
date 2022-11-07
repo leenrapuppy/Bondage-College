@@ -285,14 +285,12 @@ function ModularItemCreateDrawData(itemCount) {
  */
 function ModularItemCreateDrawBaseFunction(data) {
 	return () => {
-		const currentModuleValues = ModularItemParseCurrent(data);
-		const buttonDefinitions = data.modules.map((module, i) => (
-			/** @type ModularItemButtonDefinition */([
-				`${AssetGetInventoryPath(data.asset)}/${module.Key}${currentModuleValues[i]}.png`,
-				`${data.dialogModulePrefix}${module.Name}`,
-				CharacterGetCurrent().ID === 0 && module.AllowSelfSelect === false ? "pink" : "white",
-			])
-		));
+		/** @type {ModularItemButtonDefinition[]} */
+		const buttonDefinitions = data.modules.map((module, i) => {
+			const currentValues = ModularItemParseCurrent(data);
+			const currentOption = module.Options[currentValues[i]];
+			return [module, currentOption, data.dialogModulePrefix];
+		});
 		return ModularItemDrawCommon(ModularItemBase, buttonDefinitions, data);
 	};
 }
@@ -300,24 +298,14 @@ function ModularItemCreateDrawBaseFunction(data) {
 /**
  * Maps a modular item option to a button definition for rendering the option's button.
  * @param {ModularItemOption} option - The option to draw a button for
- * @param {number} optionIndex - The option's index within its parent module
  * @param {ModularItemModule} module - A reference to the option's parent module
  * @param {ModularItemData} data - The modular item's data
  * @param {number} currentOptionIndex - The currently selected option index for the module
  * @returns {ModularItemButtonDefinition} - A button definition array representing the provided option
  */
-function ModularItemMapOptionToButtonDefinition(option, optionIndex, module,
-	{ asset, dialogOptionPrefix, changeWhenLocked }, currentOptionIndex) {
-	const optionName = `${module.Key}${optionIndex}`;
-	let color = "#fff";
+function ModularItemMapOptionToButtonDefinition(option, module, { dialogOptionPrefix }, currentOptionIndex) {
 	const currentOption = module.Options[currentOptionIndex];
-	if (currentOptionIndex === optionIndex) color = "#888";
-	else if (ModularItemRequirementCheckMessageMemo(option, currentOption, changeWhenLocked)) color = "pink";
-	return [
-		`${AssetGetInventoryPath(asset)}/${optionName}.png`,
-		`${dialogOptionPrefix}${optionName}`,
-		color,
-	];
+	return [option, currentOption, dialogOptionPrefix];
 }
 
 /**
@@ -342,10 +330,9 @@ function ModularItemDrawCommon(moduleName, buttonDefinitions, { asset, pages, dr
 	const pageStart = pageNumber * ModularItemsPerPage;
 	const page = buttonDefinitions.slice(pageStart, pageStart + 8);
 
-	page.forEach((buttonDefinition, i) => {
-		const x = positions[i][0];
-		const y = positions[i][1];
-		DrawPreviewBox(x, y, buttonDefinition[0], DialogFindPlayer(buttonDefinition[1]), { Background: buttonDefinition[2], Hover: true });
+	page.forEach(([option, currentOption, prefix], i) => {
+		const [x, y] = positions[i];
+		ExtendedItemDrawButton(option, currentOption, prefix, x, y);
 	});
 
 	if (paginate) {
@@ -364,7 +351,7 @@ function ModularItemDrawModule(module, data) {
 	const moduleIndex = data.modules.indexOf(module);
 	const currentValues = ModularItemParseCurrent(data);
 	const buttonDefinitions = module.Options.map(
-		(option, i) => ModularItemMapOptionToButtonDefinition(option, i, module, data, currentValues[moduleIndex]));
+		(option) => ModularItemMapOptionToButtonDefinition(option, module, data, currentValues[moduleIndex]));
 	ModularItemDrawCommon(module.Name, buttonDefinitions, data);
 }
 

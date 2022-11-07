@@ -178,8 +178,8 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 
 /**
  * Draw a single button in the extended item type selection screen.
- * @param {ExtendedItemOption | null} Option - The new extended item option
- * @param {ExtendedItemOption | null} CurrentOption - The current extended item option
+ * @param {ExtendedItemOption | ModularItemOption | ModularItemModule} Option - The new extended item option
+ * @param {ExtendedItemOption | ModularItemOption} CurrentOption - The current extended item option
  * @param {number} X - The X coordinate of the button
  * @param {number} Y - The Y coordinate of the button
  * @param {string} DialogPrefix - The prefix to the dialog keys for the display strings describing each extended type.
@@ -190,21 +190,47 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
  * @see {@link ExtendedItemDraw}
  */
 function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowImages=true, Item=DialogFocusItem, IsSelected=null) {
+	/** @type {[null | string, string, boolean]} */
+	let [OptionType, AssetSource, IsFavorite] = [null, null, false];
 	const Asset = Item.Asset;
 	const C = CharacterGetCurrent();
 	const ImageHeight = ShowImages ? 220 : 0;
-	const OptionType = Option.Property && Option.Property.Type;
-	if (IsSelected == null) {
-		IsSelected = Item.Property.Type == OptionType;
-	}
 	const Hover = MouseIn(X, Y, 225, 55 + ImageHeight) && !CommonIsMobile;
-	const IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, OptionType);
-	const ButtonColor = ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected, Item);
 
+	const StructType = Option.StructType;
+	switch (StructType) {
+		case "ModularItemModule":
+			AssetSource = `${AssetGetInventoryPath(Asset)}/${CurrentOption.Name}.png`;
+			IsSelected = (IsSelected == null) ? false : IsSelected;
+			break;
+		case "ModularItemOption":
+			OptionType = Option.Name;
+			IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, OptionType);
+			AssetSource = `${AssetGetInventoryPath(Asset)}/${Option.Name}.png`;
+			if (IsSelected == null) {
+				IsSelected = (ExtendedItemPermissionMode && OptionType.includes("0")) ? true : Item.Property.Type.includes(OptionType);
+			}
+			break;
+		case "ExtendedItemOption":
+			OptionType = (Option.Property && Option.Property.Type) || null;
+			IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, OptionType);
+			AssetSource = `${AssetGetInventoryPath(Asset)}/${Option.Name}.png`;
+			if (IsSelected == null) {
+				IsSelected = (ExtendedItemPermissionMode && OptionType == null) ? true : Item.Property.Type === OptionType;
+			}
+			break;
+		default:
+			console.warn(`Unkown item module/option "StructType" field value: ${StructType}`)
+			return;
+	}
+
+	const ButtonColor = ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected, Item);
 	DrawButton(X, Y, 225, 55 + ImageHeight, "", ButtonColor, null, null, IsSelected);
 	if (ShowImages) {
-		DrawImage(`${AssetGetInventoryPath(Asset)}/${Option.Name}.png`, X + 2, Y);
-		DrawPreviewIcons(ExtendItemGetIcons(C, Asset, OptionType), X + 2, Y);
+		DrawImageResize(AssetSource, X + 2, Y, 221, 221)
+		if (Option.StructType !== "ModularItemModule") {
+			DrawPreviewIcons(ExtendItemGetIcons(C, Asset, OptionType), X + 2, Y);
+		}
 	}
 	DrawTextFit((IsFavorite && !ShowImages ? "★ " : "") + DialogFindPlayer(DialogPrefix + Option.Name), X + 112, Y + 30 + ImageHeight, 225, "black");
 	if (ControllerActive == true) {
@@ -215,25 +241,50 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 /**
  * Determine the background color for the item option's button
  * @param {Character} C - The character wearing the item
- * @param {ExtendedItemOption} Option - A type for the extended item
- * @param {ExtendedItemOption} CurrentOption - The currently selected option for the item
+ * @param {ExtendedItemOption | ModularItemOption | ModularItemModule} Option - A type for the extended item
+ * @param {ExtendedItemOption | ModularItemOption} CurrentOption - The currently selected option for the item
  * @param {boolean} Hover - TRUE if the mouse cursor is on the button
  * @param {boolean} IsSelected - TRUE if the item's current type matches Option
  * @param {Item} Item - The item in question; defaults to {@link DialogFocusItem}
  * @returns {string} The name or hex code of the color
  */
 function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected, Item=DialogFocusItem) {
-	const IsSelfBondage = C.ID === 0;
+	/** @type {[null | string, boolean, boolean, boolean]} */
+	let [Type, IsFirst, HasSubscreen, FailSkillCheck] = [null, false, false, false];
+
+	// Identify appropriate values for each type of item option/module
+	const StructType = Option.StructType;
+	switch (StructType) {
+		case "ModularItemModule":
+			break;
+		case "ModularItemOption":
+			Type = Option.Name;
+			IsFirst = Type.includes("0");
+			HasSubscreen = Option.HasSubscreen || false;
+			FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Option, CurrentOption);
+			break;
+		case "ExtendedItemOption":
+			Type = (Option.Property && Option.Property.Type) || null;
+			IsFirst = Type == null;
+			HasSubscreen = Option.HasSubscreen || false;
+			FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Option, CurrentOption);
+			break;
+		default:
+			console.warn(`Unkown item module/option "StructType" field value: ${StructType}`);
+			return;
+	}
+
 	let ButtonColor;
 	if (ExtendedItemPermissionMode) {
+		const IsSelfBondage = C.ID === 0;
 		const PlayerBlocked = InventoryIsPermissionBlocked(
-			Player, Item.Asset.DynamicName(Player), Item.Asset.Group.Name, Option.Property.Type,
+			Player, Item.Asset.DynamicName(Player), Item.Asset.Group.Name, Type,
 		);
 		const PlayerLimited = InventoryIsPermissionLimited(
-			Player, Item.Asset.Name, Item.Asset.Group.Name, Option.Property.Type
+			Player, Item.Asset.Name, Item.Asset.Group.Name, Type
 		);
 
-		if (IsSelfBondage && IsSelected) {
+		if ((IsSelfBondage && IsSelected) || IsFirst) {
 			ButtonColor = "#888888";
 		} else if (PlayerBlocked) {
 			ButtonColor = Hover ? "red" : "pink";
@@ -243,16 +294,14 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
 			ButtonColor = Hover ? "green" : "lime";
 		}
 	} else {
-		const BlockedOrLimited = InventoryBlockedOrLimited(C, Item, Option.Property.Type);
-		const FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Option, CurrentOption);
-
-		if (IsSelected && !Option.HasSubscreen) {
+		const BlockedOrLimited = InventoryBlockedOrLimited(C, Item, Type);
+		if (IsSelected && !HasSubscreen) {
 			ButtonColor = "#888888";
 		} else if (BlockedOrLimited) {
 			ButtonColor = "Red";
 		} else if (FailSkillCheck) {
 			ButtonColor = "Pink";
-		} else if (IsSelected && Option.HasSubscreen) {
+		} else if (IsSelected && HasSubscreen) {
 			ButtonColor = Hover ? "Cyan" : "LightGreen";
 		} else {
 			ButtonColor = Hover ? "Cyan" : "White";
