@@ -97,6 +97,8 @@ let KDTilePalette = {
 	'Barrel': {type: "tile", tile: 'L', special: {Type: "Barrel"}},
 	'BarrelAlways': {type: "tile", tile: 'L', special: {Type: "Barrel", Always: true}},
 	'Cage': {type: "tile", tile: 'L', special: {Type: "Cage", Furniture: "Cage"}, jail: {type: "furniture", radius: 1}},
+	'DisplayStand': {type: "tile", tile: 'L', special: {Type: "DisplayStand", Furniture: "DisplayStand"}, jail: {type: "furniture", radius: 1}},
+	'DisplayEgyptian': {type: "tile", tile: 'L', special: {Type: "Furniture", Furniture: "DisplayEgyptian"}, jail: {type: "furniture", radius: 1}},
 	'----Chests----': {type: "none"},
 	'Chest': {type: "tile", tile: 'C', special: {Type: "Chest"}},
 	'ChestRed': {type: "tile", tile: 'C', special: {Type: "Chest", Lock: "Red"}},
@@ -119,6 +121,7 @@ let KDTilePalette = {
 	'----Misc----': {type: "none"},
 	'POI': {type: "POI"},
 	'OffLimits': {type: "offlimits"},
+	'Keyring': {type: "Keyring"},
 };
 
 function KDGetTileIndexImg(index) {
@@ -585,6 +588,16 @@ let KDTE_Brush = {
 			KinkyDungeonTiles.set(KinkyDungeonTargetX + "," + KinkyDungeonTargetY, {OffLimits: true});
 		}
 	},
+	'Keyring': (brush, curr, noSwap) => {
+		let keyringLength = KDGameData.KeyringLocations.length;
+		let filtered = KDGameData.KeyringLocations.filter((e) => {return e.x != KinkyDungeonTargetX || e.y != KinkyDungeonTargetY;});
+		if (filtered.length != keyringLength) {
+			if (!noSwap)
+				KDGameData.KeyringLocations = filtered;
+		} else {
+			KDGameData.KeyringLocations.push({x: KinkyDungeonTargetX, y: KinkyDungeonTargetY});
+		}
+	},
 	"effect": (brush, curr, noSwap) => {
 		if ((brush.wall && KinkyDungeonWallTiles.includes(curr))
 			|| (brush.floor && KinkyDungeonGroundTiles.includes(curr))
@@ -842,6 +855,7 @@ function KDTE_Create(w, h, chkpoint = 'grv') {
 	KinkyDungeonTilesMemory = new Map();
 
 	KinkyDungeonPOI = [];
+	KDGameData.KeyringLocations = [];
 
 	KDEditorTileIndexStore = {};
 	for (let ww = 1; ww <= w; ww++) {
@@ -880,6 +894,13 @@ function KDTE_LoadTile(name) {
 	for (let p of nt.POI) {
 		KinkyDungeonPOI.push(Object.assign({}, p));
 	}
+	KDGameData.KeyringLocations = [];
+	if (nt.Keyring) {
+		for (let k of nt.Keyring) {
+			KDGameData.KeyringLocations.push({x:k.x, y:k.y});
+		}
+	}
+
 	KinkyDungeonTiles = new Map(nt.Tiles);
 	KinkyDungeonTilesSkin = new Map(nt.Skin);
 	KDGameData.JailPoints = [];
@@ -940,6 +961,7 @@ function KDTE_SaveTile(tile) {
 		weight: parseInt(ElementValue("MapTileWeight")) ? parseInt(ElementValue("MapTileWeight")) : 10,
 		grid: KinkyDungeonGrid,
 		POI: KinkyDungeonPOI,
+		Keyring: KDGameData.KeyringLocations,
 		Jail: KDGameData.JailPoints,
 		Tiles: Array.from(KinkyDungeonTiles),
 		effectTiles: array,
