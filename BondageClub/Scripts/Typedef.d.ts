@@ -822,6 +822,7 @@ interface Pose {
 interface Activity {
 	Name: string;
 	MaxProgress: number;
+	MaxProgressSelf?: number;
 	Prerequisite: string[];
 	Target: AssetGroupItemName[];
 	TargetSelf?: AssetGroupItemName[] | true;

@@ -225,7 +225,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 		case "HasVagina":
 			return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
 		case "HasPenisSelf":
-			return InventoryIsItemInList(acting, "Pussy", ["Penis1"]);
+			return InventoryIsItemInList(acting, "Pussy", ["Penis"]);
 		case "HasVaginaSelf":
 			return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
 		case "HasBreasts":
@@ -483,11 +483,12 @@ function ActivitySetArousalTimer(C, Activity, Zone, Progress) {
 	if (Progress < -25) Progress = -25;
 	if (Progress > 25) Progress = 25;
 
-	// Make sure we do not allow orgasms if the activity (MaxProgress) or the zone (AllowOrgasm) doesn't allow it
-	var Max = ((Activity == null || Activity.MaxProgress == null) || (Activity.MaxProgress > 100)) ? 100 : Activity.MaxProgress;
-	if ((Max > 95) && !PreferenceGetZoneOrgasm(C, Zone)) Max = 95;
-	if ((Max > 67) && (Zone == "ActivityOnOther")) Max = 67;
-	if ((Progress > 0) && (C.ArousalSettings.Progress + Progress > Max)) Progress = (Max - C.ArousalSettings.Progress >= 0) ? Max - C.ArousalSettings.Progress : 0;
+	// Make sure we do not allow orgasms if the activity (MaxProgress or MaxProgressSelf) or the zone (AllowOrgasm) doesn't allow it
+	let Max = ((Activity == null || Activity.MaxProgress == null) || (Activity.MaxProgress > 100)) ? 100 : Activity.MaxProgress;
+	if (Zone == "ActivityOnOther") {
+	Max = Activity.MaxProgressSelf != null ? Activity.MaxProgressSelf : 67;
+}
+
 
 	// If we must apply a progress timer change, we publish it
 	if (C.ArousalSettings.ProgressTimer !== Progress) {
