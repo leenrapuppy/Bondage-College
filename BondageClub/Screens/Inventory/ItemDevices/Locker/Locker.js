@@ -1,13 +1,16 @@
 "use strict";
 const InventoryItemDevicesLockerOpacityInputId = "InventoryItemDevicesLockerOpacity";
 
+/** @type {ExtendedItemOption[]} */
 var ItemDevicesLockerOptions = [
 	{
 		Name: "Vents",
-		Property: { Type: null }
+		Property: { Type: null },
+		StructType: "ExtendedItemOption",
 	}, {
 		Name: "Ventless",
-		Property: { Type: "Ventless", Effect: ["GagLight", "BlindHeavy"] }
+		Property: { Type: "Ventless", Effect: ["GagLight", "BlindHeavy"] },
+		StructType: "ExtendedItemOption",
 	}
 ];
 

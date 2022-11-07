@@ -30,7 +30,7 @@ const VariableHeightDataLookup = {};
  * @param {Asset} asset - The asset being registered
  * @param {VariableHeightConfig | undefined} config - The variable height configuration
  * @param {ItemProperties | undefined} property - The default properties to use
- * @param {ExtendedItemOption[]} [parentOptions=null] - The variable height configuration of the option's parent item, if any
+ * @param {ExtendedItemOptionBase[]} [parentOptions=null] - The variable height configuration of the option's parent item, if any
  * @returns {void} - Nothing
  */
 function VariableHeightRegister(asset, config, property, parentOptions = null) {

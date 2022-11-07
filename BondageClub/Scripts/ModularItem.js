@@ -172,13 +172,34 @@ function ModularItemCreateExitFunction(data) {
 }
 
 /**
+ * Parse and convert the passed item modules inplace. Returns the originally passed object.
+ * @param {ModularItemModuleBase[]} Modules - An object describing a single module for a modular item.
+ * @returns {ModularItemModule[]} - The updated modules; same object as `Modules`.
+ */
+function ModularItemUpdateModules(Modules) {
+	for (const mod of Modules) {
+		mod.StructType = "ModularItemModule";
+		mod.Options.forEach((option, i) => {
+			option.Name = `${mod.Key}${i}`;
+			option.StructType = "ModularItemOption";
+		})
+	}
+	return /** @type {ModularItemModule[]} */(Modules);
+}
+
+/**
  * Generates an asset's modular item data
  * @param {Asset} asset - The asset to generate modular item data for
  * @param {ModularItemConfig} config - The item's extended item configuration
  * @returns {ModularItemData} - The generated modular item data for the asset
  */
 function ModularItemCreateModularData(asset,
-	{ Modules, ChatSetting, ChatTags, ChangeWhenLocked, Dialog, ScriptHooks }) {
+	{ Modules, ChatSetting, ChatTags, ChangeWhenLocked, Dialog, ScriptHooks }
+) {
+	// Set the name of all modular item options
+	// Use an external function as typescript does not like the inplace updating of an object's type
+	const ModulesParsed = ModularItemUpdateModules(Modules);
+
 	const key = `${asset.Group.Name}${asset.Name}`;
 	Dialog = Dialog || {};
 	/** @type {ModularItemData} */
@@ -196,10 +217,10 @@ function ModularItemCreateModularData(asset,
 			CommonChatTags.SOURCE_CHAR,
 			CommonChatTags.DEST_CHAR,
 		],
-		modules: Modules,
+		modules: ModulesParsed,
 		currentModule: ModularItemBase,
 		pages: { [ModularItemBase]: 0 },
-		drawData: { [ModularItemBase]: ModularItemCreateDrawData(Modules.length) },
+		drawData: { [ModularItemBase]: ModularItemCreateDrawData(ModulesParsed.length) },
 		changeWhenLocked: typeof ChangeWhenLocked === "boolean" ? ChangeWhenLocked : true,
 		scriptHooks: {
 			load: ScriptHooks ? ScriptHooks.Load : undefined,
@@ -212,7 +233,7 @@ function ModularItemCreateModularData(asset,
 	};
 	data.drawFunctions[ModularItemBase] = ModularItemCreateDrawBaseFunction(data);
 	data.clickFunctions[ModularItemBase] = ModularItemCreateClickBaseFunction(data);
-	for (const module of Modules) {
+	for (const module of ModulesParsed) {
 		data.pages[module.Name] = 0;
 		data.drawData[module.Name] = ModularItemCreateDrawData(module.Options.length);
 		data.drawFunctions[module.Name] = () => ModularItemDrawModule(module, data);

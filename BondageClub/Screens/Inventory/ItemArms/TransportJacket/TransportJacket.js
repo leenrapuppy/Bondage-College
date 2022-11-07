@@ -10,6 +10,7 @@ var InventoryItemArmsTransportJacketOptions = [
 	{
 		Name: "NoShorts",
 		Property: { Type: null, Difficulty: 0 },
+		StructType: "ExtendedItemOption",
 	},
 	{
 		Name: "Shorts",
@@ -19,6 +20,7 @@ var InventoryItemArmsTransportJacketOptions = [
 			Hide: ["Cloth", "ClothLower", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "Panties", "Corset"],
 			HideItemExclude: ["ClothLowerJeans1", "ClothLowerJeans2", "ClothLowerLatexPants1", "ClothLowerLeggings1", "ClothLowerLeggings2", "PantiesHarnessPanties1", "PantiesHarnessPanties2"],
 		},
+		StructType: "ExtendedItemOption",
 	},
 	{
 		Name: "ShortsAndStraps",
@@ -28,6 +30,7 @@ var InventoryItemArmsTransportJacketOptions = [
 			Hide: ["Cloth", "ClothLower", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "Panties", "Corset"],
 			HideItemExclude: ["ClothLowerJeans1", "ClothLowerJeans2", "ClothLowerLatexPants1", "ClothLowerLeggings1", "ClothLowerLeggings2", "PantiesHarnessPanties1", "PantiesHarnessPanties2"],
 		},
+		StructType: "ExtendedItemOption",
 	},
 ];
 

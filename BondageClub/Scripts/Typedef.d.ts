@@ -1637,8 +1637,8 @@ type ExtendedItemGroupConfig = Record<string, AssetArchetypeConfig>;
  */
 type ExtendedItemConfig = Record<string, ExtendedItemGroupConfig>;
 
-/** Defines a single extended item option */
-interface ExtendedItemOption {
+/** Defines a (partially parsed) single extended item option */
+interface ExtendedItemOptionBase {
 	/** The name of the type - used for the preview icon and the translation key in the CSV */
 	Name: string;
 	/** The required bondage skill level for this option */
@@ -1674,7 +1674,15 @@ interface ExtendedItemOption {
 	/** If the option has a subscreen, this can set a particular archetype to use */
 	Archetype?: ExtendedArchetype;
 	/** If the option has an archetype, sets the config to use */
-	ArchetypeConfig?: TypedItemConfig | ModularItemConfig | VibratingItemConfig | VariableHeightConfig
+	ArchetypeConfig?: TypedItemConfig | ModularItemConfig | VibratingItemConfig | VariableHeightConfig;
+	/** A unique (automatically assigned) identifier of the struct type */
+	StructType?: "ExtendedItemOption";
+}
+
+/** Defines a single extended item option */
+interface ExtendedItemOption extends ExtendedItemOptionBase {
+	/** A unique (automatically assigned) identifier of the struct type */
+	StructType: "ExtendedItemOption";
 }
 
 /**
@@ -1759,7 +1767,7 @@ type ModularItemAssetConfig = ExtendedItemAssetConfig<"modular", ModularItemConf
 /** An object defining all of the required configuration for registering a modular item */
 interface ModularItemConfig {
 	/** The module definitions for the item */
-	Modules?: ModularItemModule[];
+	Modules?: ModularItemModuleBase[];
 	/**
 	 * The item's chatroom message setting. Determines the level of
 	 * granularity for chatroom messages when the item's module values change.
@@ -1815,8 +1823,8 @@ interface ModularItemDialogConfig {
 	ChatPrefix?: string | ExtendedItemChatCallback<ModularItemOption>;
 }
 
-/** An object describing a single module for a modular item. */
-interface ModularItemModule {
+/** A (partially parsed) object describing a single module for a modular item. */
+interface ModularItemModuleBase {
 	/** The name of this module - this is usually a human-readable string describing what the
 	 * module represents (e.g. Straps). It is used for display text keys, and should be unique across all of the modules
 	 * for the item.
@@ -1828,13 +1836,23 @@ interface ModularItemModule {
 	 */
 	Key: string;
 	/** The list of option definitions that can be chosen within this module. */
-	Options: ModularItemOption[];
+	Options: ModularItemOptionBase[];
 	/** Whether or not this module can be selected by the wearer */
 	AllowSelfSelect?: boolean;
+	/** A unique (automatically assigned) identifier of the struct type */
+	StructType?: "ModularItemModule";
 }
 
-/** An object describing a single option within a module for a modular item. */
-interface ModularItemOption {
+/** An object describing a single module for a modular item. */
+interface ModularItemModule extends ModularItemModuleBase {
+	/** A unique (automatically assigned) identifier of the struct type */
+	StructType: "ModularItemModule";
+	/** The list of option definitions that can be chosen within this module. */
+	Options: ModularItemOption[];
+}
+
+/** A (partially parsed) object describing a single option within a module for a modular item. */
+interface ModularItemOptionBase {
 	/** The additional difficulty associated with this option - defaults to 0 */
 	Difficulty?: number;
 	/** The required bondage skill level for this option */
@@ -1877,6 +1895,18 @@ interface ModularItemOption {
 	OverridePriority?: number;
 	/** A list of activities enabled by that module */
 	AllowActivity?: string[];
+	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
+	Name?: string;
+	/** A unique (automatically assigned) identifier of the struct type */
+	StructType?: "ModularItemOption";
+}
+
+/** An object describing a single option within a module for a modular item. */
+interface ModularItemOption extends ModularItemOptionBase {
+	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
+	Name: string;
+	/** A unique (automatically assigned) identifier of the struct type */
+	StructType: "ModularItemOption";
 }
 
 /** An object containing modular item configuration for an asset. Contains all of the necessary information for the
@@ -1960,7 +1990,7 @@ type TypedItemAssetConfig = ExtendedItemAssetConfig<"typed", TypedItemConfig>;
 /** An object defining all of the required configuration for registering a typed item */
 interface TypedItemConfig {
 	/** The list of extended item options available for the item */
-	Options?: ExtendedItemOption[];
+	Options?: ExtendedItemOptionBase[];
 	/** The optional text configuration for the item. Custom text keys can be configured within this object */
 	Dialog?: TypedItemDialogConfig;
 	/**

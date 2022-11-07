@@ -8,6 +8,7 @@ var InventoryItemMouthFuturisticPanelGagOptions = [
 			Type: null,
 			Effect: ["BlockMouth"],
 		},
+		StructType: "ExtendedItemOption",
 	},
 	{
 		Name: "LightBall",
@@ -15,6 +16,7 @@ var InventoryItemMouthFuturisticPanelGagOptions = [
 			Type: "LightBall",
 			Effect: ["BlockMouth", "GagVeryLight"],
 		},
+		StructType: "ExtendedItemOption",
 	},
 	{
 		Name: "Ball",
@@ -22,6 +24,7 @@ var InventoryItemMouthFuturisticPanelGagOptions = [
 			Type: "Ball",
 			Effect: ["BlockMouth", "GagMedium"],
 		},
+		StructType: "ExtendedItemOption",
 	},
 	{
 		Name: "Plug",
@@ -29,6 +32,7 @@ var InventoryItemMouthFuturisticPanelGagOptions = [
 			Type: "Plug",
 			Effect: ["BlockMouth", "GagTotal"],
 		},
+		StructType: "ExtendedItemOption",
 	},
 ];
 

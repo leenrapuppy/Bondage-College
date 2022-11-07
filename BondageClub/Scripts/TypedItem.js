@@ -71,6 +71,18 @@ function TypedItemRegister(asset, config) {
 }
 
 /**
+ * Parse and convert the passed item options inplace. Returns the originally passed object.
+ * @param {ExtendedItemOptionBase[]} Options - An object describing a single module for a modular item.
+ * @returns {ExtendedItemOption[]} - The updated options; same object as `Options`
+ */
+ function TypedItemUpdateOptions(Options) {
+	for (const option of Options) {
+		option.StructType = "ExtendedItemOption";
+	}
+	return /** @type {ExtendedItemOption[]} */(Options);
+}
+
+/**
  * Generates an asset's typed item data
  * @param {Asset} asset - The asset to generate modular item data for
  * @param {TypedItemConfig} config - The item's extended item configuration
@@ -79,11 +91,15 @@ function TypedItemRegister(asset, config) {
 function TypedItemCreateTypedItemData(asset,
 	{ Options, Dialog, ChatTags, Dictionary, ChatSetting, DrawImages, ChangeWhenLocked, Validate, ScriptHooks }
 ) {
+	// Set the name of all modular item options
+	// Use an external function as typescript does not like the inplace updating of an object's type
+	const OptionsParsed = TypedItemUpdateOptions(Options);
+
 	Dialog = Dialog || {};
 	const key = `${asset.Group.Name}${asset.Name}`;
 	return TypedItemDataLookup[key] = {
 		asset,
-		options: Options,
+		options: OptionsParsed,
 		key,
 		functionPrefix: `Inventory${key}`,
 		dialog: {
