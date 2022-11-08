@@ -1338,7 +1338,7 @@ function InventoryIsWorn(C, AssetName, AssetGroup) {
  * Toggles an item's permission for the player
  * @param {Item} Item - Appearance item to toggle
  * @param {string} [Type] - Type of the item to toggle
- * @param {boolean} [Worn] - True if the player is changing permissions for an item they're wearing
+ * @param {boolean} [Worn] - True if the player is changing permissions for an item they're wearing or if it's the first option
  * @returns {void} - Nothing
  */
 function InventoryTogglePermission(Item, Type, Worn) {
