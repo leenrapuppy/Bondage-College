@@ -226,10 +226,11 @@ function ModularItemCreateModularData(asset,
  * Generates drawing data for a given module. This includes button positions, whether pagination is necessary, and the
  * total page count for that module.
  * @param {number} itemCount - The number of items in the module
- * @returns {{pageCount: number, paginate: boolean, positions: number[][]}} - An object containing required drawing for
+ * @returns {{pageCount: number, paginate: boolean, positions: [number, number][]}} - An object containing required drawing for
  * a module with the given item count.
  */
 function ModularItemCreateDrawData(itemCount) {
+	/** @type {[number, number][]} */
 	const positions = [];
 	const left = 1000;
 	const width = 1000;
