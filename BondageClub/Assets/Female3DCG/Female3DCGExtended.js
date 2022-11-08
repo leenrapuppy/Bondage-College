@@ -7037,7 +7037,48 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "Suit", AssetName: "Catsuit" },
 		}, // ReverseBunnySuit
+		MaleSeamlessCatsuit: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "Suit", AssetName: "Catsuit" },
+		}, // MaleSeamlessCatsuit
 	}, // Suit
+	SuitLower: {
+		MaleSeamlessCatsuit: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Tucked",
+						Property: {
+							Type: null
+						},
+					},
+					{
+						Name: "Bulge",
+						Property: {
+							Type: "Bulge"
+						},
+					},
+					{
+						Name: "SkinTight",
+						Property: {
+							Type: "SkinTight"
+						},
+					},
+					{
+						Name: "Lock",
+						Property: {
+							Type: "Lock"
+						},
+					},
+				],
+			},
+		}, // MaleSeamlessCatsuit
+		MaleCatsuitPanties: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "SuitLower", AssetName: "MaleSeamlessCatsuit" },
+		}, // MaleCatsuitPanties
+	}, // SuitLower
 	ItemHead: {
 		DuctTape: {
 			Archetype: ExtendedArchetype.TYPED,
