@@ -1,5 +1,8 @@
 "use strict";
 
+/** Time spent in cage before guards start getting teleported */
+let KDMaxCageTime = 100;
+
 function KDAssignGuardAction(guard, xx, yy) {
 	let eventWeightTotal = 0;
 	let eventWeights = [];
@@ -368,10 +371,15 @@ function KinkyDungeonPlaceJailKeys() {
 				jailKeyList.push({x:X, y:Y});
 
 	let i = 0;
+
 	while (jailKeyList.length > 0) {
 		let N = Math.floor(KDRandom()*jailKeyList.length);
-		if (i < 1000 && !KinkyDungeonGroundItems.some((item) => {return item.name == "Keyring" && KDistChebyshev(item.x - jailKeyList[N].x, item.y - jailKeyList[N].y) < KinkyDungeonGridHeight / 3;})) {
-			KinkyDungeonGroundItems.push({x:jailKeyList[N].x, y:jailKeyList[N].y, name: "Keyring"});
+		let slot = jailKeyList[N];
+		if (KDGameData.KeyringLocations && i < KDGameData.KeyringLocations.length) {
+			slot = KDGameData.KeyringLocations[Math.floor(KDRandom() * KDGameData.KeyringLocations.length)];
+		}
+		if (i < 1000 && !KinkyDungeonGroundItems.some((item) => {return item.name == "Keyring" && KDistChebyshev(item.x - slot.x, item.y - slot.y) < KinkyDungeonGridHeight / 3;})) {
+			KinkyDungeonGroundItems.push({x:slot.x, y:slot.y, name: "Keyring"});
 		}
 		i++;
 		return true;
@@ -514,7 +522,15 @@ function KinkyDungeonMissingJailUniform() {
 		let rest = KinkyDungeonGetJailRestraintForGroup(g);
 		let currentItem = KinkyDungeonGetRestraintItem(g);
 		if (rest
-			&& (!currentItem || (KinkyDungeonIsLinkable(KDRestraint(currentItem), rest) && (!currentItem.dynamicLink || !KDDynamicLinkList(currentItem, true).some((item) => {return rest.name == item.name;}))))
+			&& (!currentItem || (
+				KDCanAddRestraint(rest,
+					KinkyDungeonStatsChoice.has("MagicHands") ? true : undefined,
+					undefined,
+					!KinkyDungeonStatsChoice.has("TightRestraints") ? true : undefined,
+					undefined,
+					KinkyDungeonStatsChoice.has("MagicHands") ? true : undefined)
+				&& (!currentItem.dynamicLink || !KDDynamicLinkList(currentItem, true).some((item) => {return rest.name == item.name;})))
+			)
 			&& (KinkyDungeonStatsChoice.get("arousalMode") || !rest.arousalMode)
 			&& (KinkyDungeonStatsChoice.get("arousalModePlug") || rest.Group != "ItemButt")
 			&& (KinkyDungeonStatsChoice.get("arousalModePiercing") || !rest.piercing)) {
@@ -542,7 +558,7 @@ function KinkyDungeonTooMuchRestraint() {
 			|| (rest && currentItem && currentItem && rest.name != currentItem.name
 				&& (KDRestraint(currentItem).power < rest.power || KDRestraint(currentItem).power * lockMult <= Math.max(cutoffpower + 0.1, rest ? rest.power : cutoffpower))) // Wrong item equipped
 		) {
-			if (!currentItem || (!KDRestraint(currentItem).curse && !KDRestraint(currentItem).enchanted))
+			if (!currentItem || (!currentItem.curse && !KDRestraint(currentItem).curse && !KDRestraint(currentItem).enchanted))
 				RemoveGroups.push(g);
 		}
 	}
@@ -592,7 +608,7 @@ function KinkyDungeonHandleLeashTour(xx, yy, type) {
 			if (touchesPlayer) {
 				if (!KinkyDungeonGetRestraintItem("ItemNeck")) {
 					let collar = KinkyDungeonGetRestraintByName("BasicCollar");
-					KinkyDungeonAddRestraintIfWeaker(collar, KinkyDungeonJailGuard().Enemy.power, true, "", undefined, undefined, undefined, KDGetFaction(KinkyDungeonJailGuard()));
+					KinkyDungeonAddRestraintIfWeaker(collar, KinkyDungeonJailGuard().Enemy.power, true, "", undefined, undefined, undefined, KDGetFaction(KinkyDungeonJailGuard()), KinkyDungeonStatsChoice.has("MagicHands") ? true : undefined);
 					let msg = TextGet("KinkyDungeonAddRestraints").replace("EnemyName", TextGet("Name" + KinkyDungeonJailGuard().Enemy.name));
 					msg = msg.replace("NewRestraintName", TextGet("Restraint"+collar.name));
 					KinkyDungeonSendTextMessage(5, msg, "yellow", 1);
@@ -602,7 +618,7 @@ function KinkyDungeonHandleLeashTour(xx, yy, type) {
 					KinkyDungeonJailGuard().gy = KinkyDungeonJailGuard().y;
 				} else {
 					let leash = KinkyDungeonGetRestraintByName("BasicLeash");
-					KinkyDungeonAddRestraintIfWeaker(leash, KinkyDungeonJailGuard().Enemy.power, true, "", undefined, undefined, undefined, KDGetFaction(KinkyDungeonJailGuard()));
+					KinkyDungeonAddRestraintIfWeaker(leash, KinkyDungeonJailGuard().Enemy.power, true, "", undefined, undefined, undefined, KDGetFaction(KinkyDungeonJailGuard()), KinkyDungeonStatsChoice.has("MagicHands") ? true : undefined);
 					let msg = TextGet("KinkyDungeonAddRestraints").replace("EnemyName", TextGet("Name" + KinkyDungeonJailGuard().Enemy.name));
 					msg = msg.replace("NewRestraintName", TextGet("Restraint"+leash.name));
 					KinkyDungeonSendTextMessage(5, msg, "yellow", 1);
@@ -812,6 +828,7 @@ function KDGetJailDoor(x, y) {
 }
 
 function KinkyDungeonDefeat(PutInJail) {
+	KDBreakTether();
 	KDGameData.CurrentDialog = "";
 	KDGameData.CurrentDialogStage = "";
 	KDGameData.KinkyDungeonLeashedPlayer = 0;

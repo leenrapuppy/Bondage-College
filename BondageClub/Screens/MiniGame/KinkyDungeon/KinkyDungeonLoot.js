@@ -516,6 +516,13 @@ function KinkyDungeonLootEvent(Loot, Floor, Replacemsg, Lock) {
 		if (Replacemsg)
 			Replacemsg = Replacemsg.replace("RestraintType", TextGet("RestraintTrapPlug3"));
 	}
+	else if (Loot.name == "trap_plug_thunder") {
+		value = Math.ceil((150 + 50 * KDRandom()) * (1 + Floor/40));
+		KinkyDungeonAddRestraintIfWeaker(KinkyDungeonGetRestraintByName("TrapPlug4"), MiniGameKinkyDungeonLevel / KDLevelsPerCheckpoint, true, "");
+		KinkyDungeonAddRestraintIfWeaker(KinkyDungeonGetRestraintByName("TrapBelt"), MiniGameKinkyDungeonLevel / KDLevelsPerCheckpoint, true, Lock ? Lock : KinkyDungeonGenerateLock(true, undefined, true), undefined, Loot.trap);
+		if (Replacemsg)
+			Replacemsg = Replacemsg.replace("RestraintType", TextGet("RestraintTrapPlug4"));
+	}
 	else if (Loot.name == "trap_nipple") {
 		value = Math.ceil((150 + 50 * KDRandom()) * (1 + Floor/40));
 		KinkyDungeonAddRestraintIfWeaker(KinkyDungeonGetRestraintByName("NippleClamps"), MiniGameKinkyDungeonLevel / KDLevelsPerCheckpoint, true, "");
@@ -562,8 +569,8 @@ function KinkyDungeonLootEvent(Loot, Floor, Replacemsg, Lock) {
 	}
 
 	else if (Loot.name == "lost_items") {
-		if (!KinkyDungeonInventoryGet("OutfitDefault")) {
-			KinkyDungeonInventoryAdd({name: "OutfitDefault", type: Outfit});
+		if (!KinkyDungeonInventoryGet("Default")) {
+			KinkyDungeonInventoryAdd({name: "Default", type: Outfit});
 		}
 		for (let I = 0; I < KinkyDungeonLostItems.length; I++) {
 			let lostitem = KinkyDungeonLostItems[I];
@@ -615,7 +622,13 @@ function KinkyDungeonLootEvent(Loot, Floor, Replacemsg, Lock) {
 			}
 		}
 		KinkyDungeonLostItems = [];
+	} else if (KDLootEvents[Loot.name]) {
+		let ret = KDLootEvents[Loot.name](Loot, Floor, Replacemsg, Lock);
+		if (ret.value) value = ret.value;
+		if (ret.Replacemsg) Replacemsg = ret.Replacemsg;
 	}
+
+
 	if (Loot.trap) {
 		if (!Loot.noSmoke) {
 			KDSmokePuff(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, 2.9, 0.4);
@@ -635,6 +648,7 @@ function KinkyDungeonLootEvent(Loot, Floor, Replacemsg, Lock) {
 function KinkyDungeonAddGold(value) {
 	if (!isNaN(value)) {
 		KinkyDungeonGold += value;
+		// @ts-ignore
 		if (ArcadeDeviousChallenge && KinkyDungeonDeviousDungeonAvailable()) CharacterChangeMoney(Player, Math.round(value/10));
 		let pre = value >= 0 ? "+" : "";
 		KinkyDungeonSendFloater(KinkyDungeonPlayerEntity, pre + `${value} GP`, "white", 3.5);

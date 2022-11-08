@@ -408,6 +408,9 @@ function CraftingDecompressServerData(Data) {
 	try {
 		DecompressedData = LZString.decompressFromUTF16(Data);
 	} catch(err) {
+		DecompressedData = null;
+	}
+	if (DecompressedData == null) {
 		console.warn("An error occured while decompressing Crafting data, entries have been reset.");
 		return [];
 	}

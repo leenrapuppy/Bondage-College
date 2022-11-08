@@ -209,7 +209,7 @@ function KinkyDungeonDressPlayer() {
 					}
 					// Ignored because BC uses string[] as a type!
 					// @ts-ignore
-					CharacterAppearanceSetColorForGroup(KinkyDungeonPlayer, clothes.Color, clothes.Group);
+					KDCharacterAppearanceSetColorForGroup(KinkyDungeonPlayer, clothes.Color, clothes.Group);
 				}
 			}
 
@@ -400,13 +400,31 @@ function KinkyDungeonWearForcedClothes(restraints) {
 							else item.Property.OverridePriority = dress.OverridePriority;
 						}
 					}
-					let color = dress.Color;
+					let color = (typeof dress.Color === "string") ? [dress.Color] : dress.Color;
+					let faction = inv.faction;
+					if (inv.faction)
+						if (dress.factionColor && faction && KinkyDungeonFactionColors[faction]) {
+							for (let ii = 0; ii < dress.factionColor.length; ii++) {
+								for (let n of dress.factionColor[ii]) {
+									color[n] = KinkyDungeonFactionColors[faction][ii]; // 0 is the primary color
+								}
+							}
+						}
+
+					// @ts-ignore
 					if (dress.useHairColor && InventoryGet(KinkyDungeonPlayer, "HairFront")) color = InventoryGet(KinkyDungeonPlayer, "HairFront").Color;
 					// @ts-ignore
-					CharacterAppearanceSetColorForGroup(KinkyDungeonPlayer, color, dress.Group);
+					KDCharacterAppearanceSetColorForGroup(KinkyDungeonPlayer, color, dress.Group);
 				}
 			});
 		}
+	}
+}
+
+function KDCharacterAppearanceSetColorForGroup(Player, Color, Group) {
+	let item = InventoryGet(Player, Group);
+	if (item) {
+		item.Color = Color;
 	}
 }
 
@@ -461,6 +479,7 @@ function KDCharacterAppearanceNaked() {
 
 
 function KDApplyItem(inv, tags) {
+	// @ts-ignore
 	let _ChatRoomCharacterUpdate = ChatRoomCharacterUpdate;
 	// @ts-ignore
 	ChatRoomCharacterUpdate = () => {};
@@ -479,6 +498,7 @@ function KDApplyItem(inv, tags) {
 		}
 
 		let already = InventoryGet(KinkyDungeonPlayer, AssetGroup);
+		let difficulty = already?.Property?.Difficulty || 0;
 
 		let placed = KDAddAppearance(KinkyDungeonPlayer, AssetGroup, AssetGet("3DCGFemale", AssetGroup, restraint.Asset), color, undefined, undefined, undefined, inv);
 
@@ -490,8 +510,8 @@ function KDApplyItem(inv, tags) {
 					type = restraint.changeRenderType[key];
 				}
 			}
-			placed.Property = {Type: type, LockedBy: inv.lock ? "MetalPadlock" : undefined};
-			if (!already && type) {
+			placed.Property = {Type: type, Difficulty: restraint.power, LockedBy: inv.lock ? "MetalPadlock" : undefined};
+			if ((!already || restraint.power > difficulty) && type) {
 				KinkyDungeonPlayer.FocusGroup = AssetGroupGet("Female3DCG", AssetGroup);
 				let options = window["Inventory" + ((AssetGroup.includes("ItemMouth")) ? "ItemMouth" : AssetGroup) + restraint.Asset + "Options"];
 				if (!options) options = TypedItemDataLookup[`${AssetGroup}${restraint.Asset}`].options; // Try again

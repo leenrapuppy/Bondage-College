@@ -6,6 +6,7 @@ var PrivateBedActivityList = [];
 var PrivateBedLog = [];
 var PrivateBedActivityDelay = 4000;
 var PrivateBedActivityMustRefresh = true;
+var PrivateBedLeaveTime = 0;
 
 /**
  * Returns the number of girls in the private bedroom.
@@ -162,12 +163,12 @@ function PrivateBedRun() {
 			if ((MouseX >= C.PrivateBedLeft + 50) && (MouseX <= C.PrivateBedLeft + 150) && (MouseY >= C.PrivateBedTop + 615) && (MouseY <= C.PrivateBedTop + 715) && C.ArousalZoom) { DrawEmptyRect(C.PrivateBedLeft + 50, C.PrivateBedTop + 615, 100, 100, "Cyan", 3); break; }
 			if (MouseIn(C.PrivateBedLeft + 100, C.PrivateBedTop, 300, C.HeightRatio * 1000)) {
 				for (let A = 0; A < AssetGroup.length; A++)
-					if ((AssetGroup[A].Zone != null) && !AssetGroup[A].MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
+					if ((AssetGroup[A].Zone != null) && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
 						for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
 							if ((AssetGroup[A].Zone[Z][0] >= 100) && (AssetGroup[A].Zone[Z][0] < 400)) {
 								let Color = "#FF000040";
 								if (ActivityCanBeDone(C, PrivateBedActivity, AssetGroup[A].Name) && !InventoryGroupIsBlocked(C, AssetGroup[A].Name, true)) Color = "#00FF0040";
-								if (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3])) Color = "Cyan";
+								if (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3])) Color = (Color == "#FF000040") ? "Red" : "Cyan";
 								DrawEmptyRect(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3], Color, 3);
 							}
 				break;
@@ -208,6 +209,26 @@ function PrivateBedActivityStart(Source, Target, Group, Activity) {
 }
 
 /**
+ * Checks if the activity if valid for the group/zone on the target character.
+ * @param {Character} Source - The source character.
+ * @param {Character} Target - The target character.
+ * @param {AssetGroup} Group - The zone / group to target.
+ * @param {Activity} Activity - The activity to do.
+ * @returns {boolean} - TRUE if the activity is valid for the group
+ */
+function PrivateBedGroupActivityIsValid(Source, Target, Group, Activity) {
+	if (Group.Name == "ItemNose") return false; // Skip the noses activities
+	if (Group.Zone == null) return false; // Skip groupes that cannot be clicked
+	if (Group.MirrorActivitiesFrom) return false; // No mirror zones
+	if (!AssetActivitiesForGroup("Female3DCG", Group.Name).length) return false; // Make sure the activity is valid for that group
+	if (!ActivityHasValidTarget(Target, Activity, Group)) return false; // Make sure the target is valid
+	if (!ActivityCheckPrerequisites(Activity, Source, Target, Group)) return false; // Check if the source/target has the proper prerequisites
+	if (!ActivityCheckPermissions(Activity, Source, true) || !ActivityCheckPermissions(Activity, Target, false)) return false; // Check for permissions
+	if (InventoryGroupIsBlocked(Target, Group.Name, true)) return false; // Check if the group is blocked
+	return true;
+}
+
+/**
  * Starts a random activity for a source NPC
  * @param {Character} Source - The source character.
  * @returns {void} - Nothing.
@@ -221,7 +242,7 @@ function PrivateBedNPCActivity(Source) {
 	let ActivityList = [];
 	let MinMaxProgress = ((Target.ArousalSettings != null) && (Target.ArousalSettings.Progress != null) && (Target.ArousalSettings.Progress >= Math.random() * 120)) ? Target.ArousalSettings.Progress : 0;
 	for (let A of ActivityFemale3DCG)
-		if ((A.MaxProgress != null) && (A.MaxProgress >= MinMaxProgress) && !A.Name.includes("Item") && !A.Name.includes("Reverse") && !A.Name.includes("Inject")) {
+		if ((A.MaxProgress != null) && (A.MaxProgress >= MinMaxProgress) && !A.Name.includes("Item") && !A.Name.includes("Reverse") && !A.Name.includes("Inject") && !A.Name.includes("Penetrate")) {
 			if ((A.Name.includes("Gag")) && !Source.IsGagged()) continue; // No gagged activities if ungagged
 			if ((A.Name == "MasturbateFist") && (NPCTraitGet(Source, "Violent") <= 50)) continue; // Only violent NPCs will fist
 			if ((A.Name == "MasturbateFist") && (NPCTraitGet(Source, "Horny") <= 0)) continue; // Only horny NPCs will fist
@@ -257,19 +278,18 @@ function PrivateBedNPCActivity(Source) {
 			if ((A.Name == "Wiggle") && (NPCTraitGet(Source, "Playful") < 0)) continue; // Only playful NPCs will wiggle
 			ActivityList.push(A.Name);
 		}
-	let Activity = CommonRandomItemFromList(null, ActivityList);
+	let Activity = AssetGetActivity(Target.AssetFamily, CommonRandomItemFromList(null, ActivityList));
 
 	// Selects a random location on the body from available locations
 	let GroupList = [];
-	for (let A = 0; A < AssetGroup.length; A++)
-		if ((AssetGroup[A].Zone != null) && (AssetGroup[A].Name != "ItemNose") && !AssetGroup[A].MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
-			if (ActivityCanBeDone(Target, Activity, AssetGroup[A].Name) && ActivityCheckPrerequisites(AssetGetActivity(Target.AssetFamily, Activity), Source, Target, AssetGroup[A]) && !InventoryGroupIsBlocked(Target, AssetGroup[A].Name, true))
-				GroupList.push(AssetGroup[A]);
+	for (let Group of AssetGroup)
+		if (PrivateBedGroupActivityIsValid(Source, Target, Group, Activity))
+			GroupList.push(Group);
 	if (GroupList.length == 0) return;
 	let Group = CommonRandomItemFromList(null, GroupList);
 
 	// Launches the activity
-	PrivateBedActivityStart(Source, Target, Group, Activity);
+	PrivateBedActivityStart(Source, Target, Group, Activity.Name);
 
 }
 
@@ -315,7 +335,7 @@ function PrivateBedClick() {
 		// If we click in an arousal zone, we can trigger that activity
 		if (MouseIn(C.PrivateBedLeft, C.PrivateBedTop, 500, C.HeightRatio * 1000))
 			for (let A = 0; A < AssetGroup.length; A++)
-				if ((AssetGroup[A].Zone != null) && !AssetGroup[A].MirrorActivitiesFrom && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
+				if ((AssetGroup[A].Zone != null) && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
 					if (ActivityCanBeDone(C, PrivateBedActivity, AssetGroup[A].Name) && !InventoryGroupIsBlocked(C, AssetGroup[A].Name, true))
 						for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
 							if ((AssetGroup[A].Zone[Z][0] >= 100) && (AssetGroup[A].Zone[Z][0] < 400))
@@ -331,6 +351,15 @@ function PrivateBedClick() {
  * @returns {void} - Nothing.
  */
 function PrivateBedExit(Type) {
+
+	// Cannot leave if the owner doesn't permit it
+	if (PrivateBedLeaveTime > CommonTime()) {
+		if (PrivateBedLog.length >= 10) PrivateBedLog.splice(0, 1);
+		PrivateBedLog.push(TextGet("CannotLeave"));
+		return;
+	}
+
+	// Refreshes the characters in the private room
 	for (let C of PrivateBedCharacter) {
 		CharacterSetActivePose(C, null);
 		if (C.IsNpc()) {
@@ -340,6 +369,7 @@ function PrivateBedExit(Type) {
 		}
 	}
 	CommonSetScreen("Room", "Private");
+
 }
 
 /**

@@ -1458,7 +1458,7 @@ interface ItemPropertiesBase {
 
 	/* Vibratory-related properties */
 	Mode?: VibratorMode;
-	Intensity?: number;
+	Intensity?: VibratorIntensity;
 	State?: VibratorModeState;
 }
 
@@ -1560,7 +1560,7 @@ interface ItemPropertiesCustom {
 	AccessMode?: string;
 
 	/* Pleasure panties settings */
-	ShockLevel?: number;
+	ShockLevel?: 0 | 1 | 2;
 	LockCrotch?: boolean;
 	OrgasmLock?: number;
 
@@ -1586,6 +1586,10 @@ interface ItemPropertiesCustom {
 
 	/** Allows reverting back to these properties on exiting an extended menu */
 	Revert?: boolean;
+
+	/** Door and padding options for the kennel */
+	Door?: boolean;
+	Padding?: boolean;
 }
 
 interface ItemProperties extends ItemPropertiesBase, ItemPropertiesCustom { }

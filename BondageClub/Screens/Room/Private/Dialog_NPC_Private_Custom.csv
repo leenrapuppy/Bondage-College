@@ -1161,6 +1161,17 @@ ActivityCollegeClothes,ActivityNoChange,(Bow your head and change quickly.),"(Yo
 ActivityCollegeClothes,ActivityNoChange,(Change slowly.),"(You change for her as she smiles.)  You will be my schoolgirl for 5 minutes, you cannot change.",ActivityRun(0),,,
 ActivityCollegeClothes,ActivityNoChange,(Roll your eyes up and change.),"(You change for her as she nods.)  Stay like that schoolgirl, you cannot change for 5 minutes.",ActivityRun(-1),,,
 ActivityCollegeClothes,ActivityNoChange,(Shake your head no.),(She grumbles and forces you to change.)  There!  And you cannot change for 5 minutes schoolgirl.,ActivityRun(-7),,,
+ActivityBedIntro,,,"My girl, it's time to get to bed.  Come with me.",,,DomActivityBedIntro,
+ActivityBedIntro,,,We need to spend more intimate time together my submissive.  Come to bed with me.,,,DomActivityBedIntro,Serious
+ActivityBedIntro,,,It's time to get on your sexy bed my subbie.  Yay!  Come with me.,,,DomActivityBedIntro,Playful
+ActivityBedIntro,,,"My slave, I know you know I have...  (She thinks for a while.)  Forget it, let's have sex in your bed.",,,DomActivityBedIntro,Dumb
+ActivityBedIntro,,,Romance and BDSM can consolidate very well.  Let's experiment it in bed shall we?,,,DomActivityBedIntro,Wise
+ActivityBed,1000,Very well.  (Get in bed.),,ActivityRun(0),Player.CanTalk(),,
+ActivityBed,1000,"Sorry, I don't want to get in bed.",,ActivityRun(-7),Player.CanTalk(),,
+ActivityBed,1000,Oh yes Mistress!  (Get in bed.),,ActivityRun(1),Player.CanTalk(),,
+ActivityBed,1000,(Nod slowly.),,ActivityRun(0),,,
+ActivityBed,1000,(Nod happily.),,ActivityRun(1),,,
+ActivityBed,1000,(Shake your head no.),,ActivityRun(-7),,,
 ActivityNoChange,1000,Easy enough.,"Since it's so easy, let's make it 10 minutes.  I'll make sure you won't change.",BlockChange(10),,DomActivityNoChange1,
 ActivityNoChange,1000,Easy enough.,Too easy?  Let's make it 15 minutes then.  I'll make sure the rule will be enforced.  (She grins.),BlockChange(15),,DomActivityNoChange1,Serious
 ActivityNoChange,1000,Easy enough.,Sure!  It won't take that long.,BlockChange(5),,DomActivityNoChange1,Playful

@@ -63,7 +63,7 @@ function KDProcessInput(type, data) {
 			break;
 		}
 		case "curseUnlock":
-			KinkyDungeonCurseUnlock(data.group, data.curse);
+			KinkyDungeonCurseUnlock(data.group, data.index, data.curse);
 			break;
 		case "toggleSpell":
 			KinkyDungeonSpellChoicesToggle[data.i] = !KinkyDungeonSpellChoicesToggle[data.i];
@@ -134,7 +134,7 @@ function KDProcessInput(type, data) {
 				return msg;
 			} else return "KDCantEquip";
 		case "tryOrgasm":
-			KinkyDungeonDoTryOrgasm();
+			KinkyDungeonDoTryOrgasm(data.bonus);
 			break;
 		case "tryPlay":
 			KinkyDungeonDoPlayWithSelf();
@@ -309,22 +309,12 @@ function KDProcessInput(type, data) {
 					let spell = null;
 					let spellList = [];
 					let maxSpellLevel = 4;
-					for (let sp of KinkyDungeonSpellList.Conjure) {
-						if (KinkyDungeonCheckSpellPrerequisite(sp) && sp.school == "Conjure" && !sp.secret) {
-							for (let iii = 0; iii < maxSpellLevel - sp.level; iii++)
-								spellList.push(sp);
-						}
-					}
-					for (let sp of KinkyDungeonSpellList.Elements) {
-						if (KinkyDungeonCheckSpellPrerequisite(sp) && sp.school == "Elements" && !sp.secret) {
-							for (let iii = 0; iii < maxSpellLevel - sp.level; iii++)
-								spellList.push(sp);
-						}
-					}
-					for (let sp of KinkyDungeonSpellList.Illusion) {
-						if (KinkyDungeonCheckSpellPrerequisite(sp) && sp.school == "Illusion" && !sp.secret) {
-							for (let iii = 0; iii < maxSpellLevel - sp.level; iii++)
-								spellList.push(sp);
+					for (let k of Object.keys(KinkyDungeonSpellList)) {
+						for (let sp of KinkyDungeonSpellList[k]) {
+							if (KinkyDungeonCheckSpellPrerequisite(sp) && sp.school == k && !sp.secret) {
+								for (let iii = 0; iii < maxSpellLevel - sp.level; iii++)
+									spellList.push(sp);
+							}
 						}
 					}
 
@@ -462,7 +452,7 @@ function KDProcessInput(type, data) {
 			if (KinkyDungeonStatsChoice.has("Disorganized")) {
 				KinkyDungeonAdvanceTime(1);
 				KinkyDungeonSlowMoveTurns = 2;
-			} else if (!KinkyDungeonStatsChoice.has("QuickScribe"))
+			} else if (!KinkyDungeonStatsChoice.has("QuickDraw"))
 				KinkyDungeonAdvanceTime(1);
 			break;
 		case "spellRemove":
@@ -476,7 +466,7 @@ function KDProcessInput(type, data) {
 				if (KinkyDungeonStatsChoice.has("Disorganized")) {
 					KinkyDungeonAdvanceTime(1);
 					KinkyDungeonSlowMoveTurns = 2;
-				} else if (!KinkyDungeonStatsChoice.has("QuickScribe"))
+				} else if (!KinkyDungeonStatsChoice.has("QuickDraw"))
 					KinkyDungeonAdvanceTime(1);
 				KinkyDungeonSendActionMessage(5, TextGet("KinkyDungeonSpellTarget" + spell.name).replace("SpellArea", "" + Math.floor(spell.aoe)), "white", 0.1, true);
 			}
@@ -517,7 +507,7 @@ function KDProcessInput(type, data) {
 						if (KinkyDungeonStatsChoice.has("Disorganized")) {
 							KinkyDungeonAdvanceTime(1);
 							KinkyDungeonSlowMoveTurns = 2;
-						} else if (!KinkyDungeonStatsChoice.has("QuickScribe"))
+						} else if (!KinkyDungeonStatsChoice.has("QuickDraw"))
 							KinkyDungeonAdvanceTime(1);
 						if (KinkyDungeonIsPlayer()) {
 							KinkyDungeonPreviewSpell = undefined;
@@ -573,8 +563,9 @@ function KDProcessInput(type, data) {
 						KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonFoodEatenGag"), "#ff8800", 1);
 					} else {
 						// Perform the deed
-						let amount = tile.Amount ? tile.Amount : 2.0;
-						KinkyDungeonChangeWill(amount);
+						let Willmulti = Math.max(KinkyDungeonStatWillMax / KDMaxStatStart);
+						let amount = tile.Amount ? tile.Amount : 1.0;
+						KinkyDungeonChangeWill(amount * Willmulti);
 
 						// Send the message and advance time
 						KinkyDungeonAdvanceTime(1);

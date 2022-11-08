@@ -134,7 +134,11 @@ function KinkyDungeonItemCost(item, noScale, sell) {
 		}
 		return costt;
 	}
-	return 15;
+	let costs = 15;
+	if (KinkyDungeonStatsChoice.has("PriceGouging") && !sell) {
+		costs *= 5;
+	}
+	return costs;
 }
 
 function KinkyDungeonShrineCost(type) {
@@ -548,6 +552,11 @@ function KinkyDungeonDrawOrb() {
 	}
 
 	DrawButtonVis(canvasOffsetX_ui + 525, yPad + canvasOffsetY_ui + spacing * i, 425, 55, TextGet("KinkyDungeonSurpriseMe"), "white");
+	i += 2;
+	DrawButtonKDEx("cancelorb", (bdata) => {
+		KinkyDungeonDrawState = "Game";
+		return true;
+	}, true, canvasOffsetX_ui + 525, yPad + canvasOffsetY_ui + spacing * i, 425, 55, TextGet("KinkyDungeonCancel"), "white");
 
 	MainCanvas.textAlign = "center";
 }
@@ -591,37 +600,20 @@ function KinkyDungeonHandleOrb() {
 				let spell = null;
 				let spellList = [];
 				let maxSpellLevel = 4;
-				for (let sp of KinkyDungeonSpellList.Conjure) {
-					if (KinkyDungeonCheckSpellPrerequisite(sp) && sp.school == "Conjure" && !sp.secret) {
-						for (let iii = 0; iii < maxSpellLevel - sp.level; iii++)
-						{
-							if (sp.level == 1 && KinkyDungeonStatsChoice.get("Novice"))
-								spellList.push(sp);
-							spellList.push(sp);
-						}
 
-					}
-				}
-				for (let sp of KinkyDungeonSpellList.Elements) {
-					if (KinkyDungeonCheckSpellPrerequisite(sp) && sp.school == "Elements" && !sp.secret) {
-						for (let iii = 0; iii < maxSpellLevel - sp.level; iii++)
-						{
-							if (sp.level == 1 && KinkyDungeonStatsChoice.get("Novice"))
+				for (let k of Object.keys(KinkyDungeonSpellList)) {
+					for (let sp of KinkyDungeonSpellList[k]) {
+						if (KinkyDungeonCheckSpellPrerequisite(sp) && sp.school == k && !sp.secret) {
+							for (let iii = 0; iii < maxSpellLevel - sp.level; iii++) {
+								if (sp.level == 1 && KinkyDungeonStatsChoice.get("Novice"))
+									spellList.push(sp);
 								spellList.push(sp);
-							spellList.push(sp);
+							}
+
 						}
 					}
 				}
-				for (let sp of KinkyDungeonSpellList.Illusion) {
-					if (KinkyDungeonCheckSpellPrerequisite(sp) && sp.school == "Illusion" && !sp.secret) {
-						for (let iii = 0; iii < maxSpellLevel - sp.level; iii++)
-						{
-							if (sp.level == 1 && KinkyDungeonStatsChoice.get("Novice"))
-								spellList.push(sp);
-							spellList.push(sp);
-						}
-					}
-				}
+
 
 				for (let sp of KinkyDungeonSpells) {
 					for (let S = 0; S < spellList.length; S++) {

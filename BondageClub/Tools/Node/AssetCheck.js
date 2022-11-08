@@ -13,6 +13,7 @@ const neededFiles = [
 	"Screens/Inventory/Futuristic/Futuristic.js",
 	"Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js",
 	"Screens/Inventory/ItemNeckAccessories/CollarNameTag/CollarNameTag.js",
+	"Screens/Inventory/ItemArms/FullLatexSuit/FullLatexSuit.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"
 ];

@@ -11,7 +11,7 @@ var PrivateReleaseTimer = 0;
 var PrivateActivity = "";
 var PrivateActivityCount = 0;
 var PrivateActivityAffectLove = true;
-var PrivateActivityList = ["Gag", "Ungag", "Restrain", "RestrainOther", "FullRestrain", "FullRestrainOther", "Release", "Unchaste", "Tickle", "Spank", "Pet", "Slap", "Kiss", "Fondle", "Naked", "Underwear", "RandomClothes", "CollegeClothes", "Shibari", "Gift", "PetGirl", "Locks"];
+var PrivateActivityList = ["Gag", "Ungag", "Restrain", "RestrainOther", "FullRestrain", "FullRestrainOther", "Release", "Unchaste", "Tickle", "Spank", "Pet", "Slap", "Kiss", "Fondle", "Naked", "Underwear", "RandomClothes", "CollegeClothes", "Shibari", "Gift", "PetGirl", "Locks", "Bed"];
 var PrivateActivityTarget = null;
 var PrivatePunishment = "";
 var PrivatePunishmentList = ["Cage", "Bound", "BoundPet", "ChastityBelt", "ChastityBra", "ForceNaked", "ConfiscateKey", "ConfiscateCrop", "ConfiscateWhip", "SleepCage", "LockOut", "Cell", "OwnerLocks"];
@@ -1169,6 +1169,7 @@ function PrivateStartActivity() {
 		if ((Act == "Gift") && (Player.Owner != "") && (CurrentCharacter.Love >= 90) && (CurrentTime >= NPCEventGet(CurrentCharacter, "LastGift") + 86400000)) break;
 		if ((Act == "PetGirl") && (InventoryGet(Player, "ItemArms") == null) && (NPCTraitGet(CurrentCharacter, "Peaceful") >= 0)) break;
 		if ((Act == "Locks") && InventoryHasLockableItems(Player)) break;
+		if ((Act == "Bed") && (PrivateBedCount() == 1) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime) && (NPCTraitGet(CurrentCharacter, "Horny") >= 0) && ((LogQuery("BedWhite", "PrivateRoom") || LogQuery("BedBlack", "PrivateRoom") || LogQuery("BedPink", "PrivateRoom")) && (Player.Cage == null))) break;
 
 		// After 100 tries, we give up on picking an activity and the owner ignore the player
 		Count++;
@@ -1289,6 +1290,14 @@ function PrivateActivityRun(LoveFactor) {
 		InventoryWear(Player, "PuppyEars1", "HairAccessory1");
 		InventoryWear(Player, "PuppyTailPlug", "ItemButt");
 		PrivateReleaseTimer = CommonTime() + (Math.random() * 120000) + 120000;
+	}
+
+	// The player can get to her private bed with her owner, and cannot leave for 2 minutes
+	if (PrivateActivity == "Bed") {
+		CurrentCharacter.PrivateBed = true;
+		PrivateBedLeaveTime = CommonTime() + 120000;
+		DialogLeave();
+		CommonSetScreen("Room", "PrivateBed");
 	}
 
 	// After running the activity a few times, we stop
