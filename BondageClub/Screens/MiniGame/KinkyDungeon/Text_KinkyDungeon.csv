@@ -4,8 +4,8 @@ KinkyDungeonDeviantart,News and Updates
 KinkyDungeonPatreon,Support @ Patreon
 KinkyDungeonPatronsList0,"Thank you to the following awesome people for supporting me at patreon.com/ada18980|Alexthymia (for CN translation!)|Song (bound enemy graphics!)|cyberjoel|Samantha Lear|Kara|The-Fisher-King|selly-grim|Dex♪|Churro|Gamefan|Shogo|X27|Blox|Slacker|Nikos S.|WATA|Flame|Alexis Octavia|Finn|Dmitri S.|Noxgarm|Siegfried K.|Hellgete"
 KinkyDungeonPatronsList1,"|||nuzzles|Rest|LoudestQuietPerson|Violet EverGardner|BoopleDoopleson|Dazman1234|linlizheng|Laioken|Mechio|Vikingberserker|PWMRM|devan|LukeB|atetete|Aussie895|0xA4C1B842|Rika|Physicsphail|Loony|Jeremy P.|ItsYahboi9"
-KinkyDungeonPatronsList2,"|AlexisTheFlame|Chen Yu|Sinohisaki|nnm711|Ron lsrp|Miro|Anthony R.|John T.|Geng114514|塵狐|kamil|Iaysakuya|tsang|Somprad|Thatguu|damit damit|Victor|Hjake2|anton A.|Dakra|CuvyanTaylor|hanhan|The_rogue1"
-KinkyDungeonPatronsList3,"|Misa|eddy z.|theshrimpyone"
+KinkyDungeonPatronsList2,"|AlexisTheFlame|Chen Yu|Sinohisaki|nnm711|Ron lsrp|Miro|Anthony R.|John T.|Geng114514|塵狐|kamil|Iaysakuya|tsang|Somprad|Thatguu|damit damit|Victor|Hjake2|anton A.|Dakra|CuvyanTaylor|hanhan|The_rogue1|Tatsuya S.|James K.|"
+KinkyDungeonPatronsList3,"|Misa|eddy z.|theshrimpyone|Eislobo|OTKTamashii|Michael M.|Jose G.|Minescence|HanQing Z.|hanhan"
 KinkyDungeonBack,Back
 KinkyDungeonNext,Next
 KinkyDungeonCreditsList0,"Audio:|Potion drink - Jamius|Click - StrikeWhistler - Modified|StoneDoor_Close - AudioTorpedo - Modified|Footstep - Fission9 - Modified|FireSpell - Julien Matthey|LightSwing - qubodup|Heavy Swing - orangesheepdog|Miss - Brsjak - Modified|Clap - DWSD - Modified|'Door, Front, Closing, A.wav' by InspectorJ (www.jshaw.co.uk) of Freesound.org|'Door, Front, Opening, A.wav' by InspectorJ (www.jshaw.co.uk) of Freesound.org|Chest Open - spookymodem - Modified|Unlock - BeezleFM|Unbuckle - danhelbling|Scissors - qubodup|Rummage - adcbicycle|Fairy Dust - jacksonacademyashmore|Metal Smash - gristi|Door locked.wav - mitchanary - Modified|Coins.wav - Saviraz"
@@ -14,11 +14,13 @@ KinkyDungeonCreditsList1,"Opening the sarcophagus - Breviceps - Modified|Knife S
 Language,Language
 English,English
 Chinese,Chinese
+KDMods,Mods
+KDModsLoaded,Mods Loaded.
 
 RestartNeeded,"Restart required!"
 RestartNeededCN,"需要重启！"
 
-KinkyDungeon,"Kinky Dungeon v3.72"
+KinkyDungeon,"Kinky Dungeon v3.81"
 Intro,"You are an adventurer descending into an ancient underground city of magic."
 Intro2,"Beneath its depths lies the Mistress' Staff, an artifact of untold power."
 Intro3,"Will you prevail against forces unknown, or succumb to its dark secrets?"
@@ -38,6 +40,7 @@ KDBlockedRestraint,Blocked restraint!
 KDWallBump,You bump into a wall.
 
 KDVibeVolume,Toy Volume:
+KDAnimSpeed,Animation Speed:
 
 KinkyDungeonJourney,"Select a journey. This will determine the ordering of game areas."
 KinkyDungeonJourney0,"Standard: The intended experience"
@@ -124,6 +127,9 @@ KinkyDungeonStatDesc30,"Start with high Latex reputation, and all latex restrain
 KinkyDungeonStat31,"Latex Doll"
 KinkyDungeonStatDesc31,"Latex restraints are harder to escape from."
 
+KinkyDungeonStatHogtied,"Hogtied!"
+KinkyDungeonStatDescHogtied,"Start the game trussed up in tight ropes."
+
 KinkyDungeonStat32,"Escapee"
 KinkyDungeonStatDesc32,"Start with high Leather reputation, and all leather restraints are easier to escape from."
 KinkyDungeonStat33,"Leather-Bound"
@@ -189,13 +195,15 @@ KinkyDungeonStat54,"Well-Equipped"
 KinkyDungeonStatDesc54,"Restraints and traps that are limited by level appear sooner, and enemies will stack many restraints."
 
 KinkyDungeonStat55,"Quick-Draw"
-KinkyDungeonStatDesc55,"Switching weapons does not take a turn."
+KinkyDungeonStatDesc55,"Switching weapons and spells does not take a turn."
 KinkyDungeonStat56,"Quick-Scribe"
 KinkyDungeonStatDesc56,"Switching spells and casting from spellbook does not take a turn."
 
 KinkyDungeonStat57,"Disorganized"
 KinkyDungeonStatDesc57,"Switching weapons, learning/choosing spells, and casting from spellbook takes 3 turns."
 
+KinkyDungeonStatMagicHands,"Magic Hands"
+KinkyDungeonStatDescMagicHands,"Enemies can add restraints underneath existing restraints."
 
 KinkyDungeonStatFuukaCollar,"Fuuka's Pet"
 KinkyDungeonStatDescFuukaCollar,"Start with Fuuka's collar and a few restraints."
@@ -294,6 +302,11 @@ KinkyDungeonStatDescSecondWind,"Gain 2 WP every time you remove a non-trivial re
 KinkyDungeonStatDominant,"Dominant"
 KinkyDungeonStatDescDominant,"They're trapped here with you. Ghosts are more helpful, and you can bind enemies that confront you about bondage."
 
+KinkyDungeonStatStranger,"Stranger"
+KinkyDungeonStatDescStranger,"Randomizes your relationship to most factions."
+KinkyDungeonStatWrongNeighborhood,"Wrong Neighborhood"
+KinkyDungeonStatDescWrongNeighborhood,"All factions are hostile and united against you."
+
 KinkyDungeonStatTrespasser,"Trespasser"
 KinkyDungeonStatDescTrespasser,"You lose reputation with the goddesses every time you advance a floor."
 
@@ -305,6 +318,8 @@ KinkyDungeonStatDescRusted,"Most traps have a 25% misfire chance."
 
 KinkyDungeonStatUnmasked,"Unmasked"
 KinkyDungeonStatDescUnmasked,"Hoods and full-face covering masks do not appear, but blindfolds are more powerful."
+KinkyDungeonStatNoNurse,"No Nurses"
+KinkyDungeonStatDescNoNurse,"Nurses will not appear in the game."
 
 KinkyDungeonStatPanic,"Panic!!!"
 KinkyDungeonStatDescPanic,"When you step on a trap, you are stunned for 2 turns."
@@ -411,8 +426,8 @@ KDStatFreeEyes,"Your vision is clear."
 KDStatFreeHands,"Your hands are unobstructed."
 KDStatFreeArms,"Your arms are free to move as you please."
 KDStatFreeLegs,"Your legs are free and unimpeded."
-KDStatGag,"You are gagged! Miscast chance is increased and your potions are less effective!"
-KDStatGagFull,"Your mouth is totally filled! You can't drink potions and have a high miscast chance!"
+KDStatGag,"You are gagged! Verbal miscast chance is increased and your potions are less effective!"
+KDStatGagFull,"Your mouth is totally filled! You can't drink potions and have a high verbal miscast chance!"
 
 KinkyDungeonBuffEmpower,"Spell Empowerment!"
 
@@ -599,8 +614,14 @@ GameConfigKeys,Change Keybindings
 
 KinkyDungeonLoadConfirm,"Load from code"
 KinkyDungeonLoadBack,"Back to main menu"
+KinkyDungeonLoadMod,"Load Mod"
+KinkyDungeonDeleteMod,"Delete Mod"
 KinkyDungeonClearAll,"Clear Perks"
 KinkyDungeonConfig,"Config "
+KinkyDungeonCancel,"Cancel"
+
+KinkyDungeonLoadModWarning1,"DANGER: Loading a mod will execute ARBITRARY CODE on your machine."
+KinkyDungeonLoadModWarning2,"Like connecting to a server, etc. Only load mods from a TRUSTED source."
 
 KinkyDungeonKeyUp,Up
 KinkyDungeonKeyDown,Down
@@ -779,7 +800,7 @@ KinkyDungeonInventoryItemBlueSuitPrison,Scientific Uniform
 KinkyDungeonInventoryItemBlueSuitPrisonDesc,An outfit designed to leave little to the imagination.
 KinkyDungeonInventoryItemBlueSuitPrisonDesc2,"No bonuses, no penalties."
 
-KinkyDungeonInventoryItemBlueSuit,Blue Latex Catsuit
+KinkyDungeonInventoryItemBlueSuit,Latex Catsuit
 KinkyDungeonInventoryItemBlueSuitDesc,An outfit made from heavily processed slime. It is naturally silky and smooth to the touch.
 KinkyDungeonInventoryItemBlueSuitDesc2,"No bonuses, no penalties."
 
@@ -971,7 +992,7 @@ ItemPickupStaffChain,"You pick up a staff of chains. You have fond memories..."
 ItemPickupStaffElectric,"You pick up a staff of the storm. It tingles."
 ItemPickupStaffFlame,"You pick up a staff of flames. It feels warm."
 ItemPickupArcaneCrystal,"You find a purple crystal. You feel your mystic powers flood into it."
-ItemPickupStaffGlue,"You pick up a staff of glue."
+ItemPickupStaffGlue,"You pick up a staff of slime."
 ItemPickupStaffPermafrost,"You pick up a staff of permafrost. It feels icy to the touch."
 
 KinkyDungeonInventoryItemCrop,Crop
@@ -2154,7 +2175,7 @@ KinkyDungeonStruggleLimit,"This is as far as you can struggle. You'll have to re
 KinkyDungeonRemoveLimit,"The item is too tight. You'll need to loosen it somehow first..."
 KinkyDungeonCutLimit,"The item is to tight to get your tool into position. You'll have to first make it looser."
 KinkyDungeonPickLimit,"You can't quite get your pick into position. Maybe if you loosened the item first..."
-KinkyDungeonUnlockLimit,"You can't reach the lock. You'll have to loosen the item somehow first..."
+KinkyDungeonUnlockLimit,"The lock is tucked in securely under straps. You'll have to get it out from under there..."
 
 KinkyDungeonStruggleBarely,"You can feel some ply but can't quite make any progress..."
 KinkyDungeonRemoveBarely,"It's just barely out of reach..."
@@ -2403,6 +2424,7 @@ KinkyDungeonShrineConjure,"Conjuration"
 KinkyDungeonShrineIllusion,"Illusions"
 KinkyDungeonShrineCommerce,"Commerce"
 KinkyDungeonShrineTooltip,"Shrine of "
+KinkyDungeonTabletTooltip,"Tablet of "
 
 KinkyDungeonShrineCursed,"Curses"
 KinkyDungeonShrineDetermination,"Willpower"
@@ -2434,6 +2456,7 @@ KinkyDungeonFactionMushy,Fungal Kingdom
 
 KinkyDungeonFactionRebel,Wanted
 KinkyDungeonFactionDelinquent,Delinquent
+KinkyDungeonFactionWolfhunter,Illegal Poacher
 KinkyDungeonFactionRock,Nature
 KinkyDungeonFactionAmbush,Surprise!
 
@@ -2484,6 +2507,10 @@ KDObsidianDebuff0,"You feel drained of energy..."
 KDObsidianDebuff1,"Your collar tingles and suddenly you feel weaker..."
 KDObsidianDebuff2,"Your collar drains your energy as you struggle..."
 
+KDCrotchRopeBlock0,"The rope between your legs keeps the toy secure..."
+KDCrotchRopeBlock1,"Try as you might, the toy is held in place tight."
+KDCrotchRopeBlock2,"The toy won't wiggle loose. It's kept in place by your restraints."
+
 KDLatexDebuff0,"Your catsuit adheres to latex, making struggling more difficult!"
 KDLatexDebuff1,"The item sticks to your rubber catsuit, making it harder to pull off..."
 KDLatexDebuff2,"The item hugs your catsuit tightly, adhering firmly!"
@@ -2498,6 +2525,9 @@ KDBarrelTrap,"The lid of the barrel suddenly snaps shut as you hide inside!!!"
 RestraintCageTrap,Cage Trap
 RestraintCageTrapDesc,"A booby-trapped cage!"
 RestraintCageTrapDesc2,"Fit for a pretty toy like you~"
+RestraintDisplayTrap,Display Stand
+RestraintDisplayTrapDesc,"A display stand, fit for only the prettiest of trophies!"
+RestraintDisplayTrapDesc2,"Your arms are pinned behind your back and you can barely move!"
 KDCageTrap,"You hear a click as the door shuts behind you..."
 
 KinkyDungeonCage0,You're not fooling anyone...
@@ -2510,8 +2540,18 @@ RestraintBedTrapDesc2,"You have to get out somehow..."
 KDBedTrap,"Belts emerge from underneath the bed and wrap around you, strapping you down tightly!"
 
 RestraintBindingDress,Binding Dress
-RestraintBindingDressDesc,"A devious dress that forces the arms into an elbows-touching position."
-RestraintBindingDressDesc2,"It is extremely strict but it is only fabric. The lacing is intricate and will take a long time to remove."
+RestraintBindingDressDesc,"It's a devious dress! I hope your elbows are flexible~"
+RestraintBindingDressDesc2,"So many laces! It would quite a while to put this on normally. That's what magic is for!"
+RestraintDressCorset,Ornamental Corset
+RestraintDressCorsetDesc,"Your figure looks gorgeous in this~"
+RestraintDressCorsetDesc2,"It's so tight you won't be able to undo the laces yourself, dear!"
+
+RestraintDressGag,Fancy Ball Gag
+RestraintDressGagDesc,"A cute ball gag that fills your mouth right up!"
+RestraintDressGagDesc2,"What's this? it seems to have a magic spell protecting it from harm!"
+RestraintDressMuzzle,Fancy Muzzle
+RestraintDressMuzzleDesc,A muzzle to keep you from spitting out what's underneath.
+RestraintDressMuzzleDesc2,"Sorry dear, there's a mystic seal on there to keep it on nice and tight."
 
 RestraintMikoDress,Red Binding Dress
 RestraintMikoDressDesc,"A devious dress that forces the arms into an elbows-touching position."
@@ -2607,6 +2647,55 @@ KinkyDungeonInventoryItemSlimeWalkers,Slime Walkers
 KinkyDungeonInventoryItemSlimeWalkersDesc,"A pair of heels coated in a nonstick material."
 KinkyDungeonInventoryItemSlimeWalkersDesc2,"They will slow you down, but you can walk on slime without getting stuck!"
 
+
+RestraintBreastplate,"Breastplate"
+RestraintBreastplateDesc,"A steel breastplate secured by many straps"
+RestraintBreastplateDesc2,"Provides +10 armor, but makes it harder to escape your restraints."
+KinkyDungeonInventoryItemBreastplate,"Breastplate"
+KinkyDungeonInventoryItemBreastplateDesc,"A steel breastplate secured by many straps"
+KinkyDungeonInventoryItemBreastplateDesc2,"Provides +10 armor, but makes it harder to escape your restraints."
+LootBreastplate,"You find a steel breastplate"
+
+RestraintGlovesDexterity,"Gloves of Dexterity"
+RestraintGlovesDexterityDesc,"A pair of gloves that makes your hits strike with elven grace--and force."
+RestraintGlovesDexterityDesc2,"Increases accuracy by +50. Reduces melee damage by 30%."
+KinkyDungeonInventoryItemGlovesDexterity,"Gloves of Dexterity"
+KinkyDungeonInventoryItemGlovesDexterityDesc,"A pair of gloves that makes your hits strike with elven grace--and force."
+KinkyDungeonInventoryItemGlovesDexterityDesc2,"Increases accuracy by +50. Reduces melee damage by 30%."
+LootGlovesDexterity,"You find a pair of leather gloves with a magic rune."
+
+RestraintBracersTide,"Bracers of Roaring Tides"
+RestraintBracersTideDesc,"A pair of bracers that conjures a mighty wave upon attacking."
+RestraintBracersTideDesc2,"Creates an AoE delayed explosion on attack that stuns enemies and deals 10 acid damage."
+KinkyDungeonInventoryItemBracersTide,"Bracers of Roaring Tides"
+KinkyDungeonInventoryItemBracersTideDesc,"A pair of bracers that conjures a mighty wave upon attacking."
+KinkyDungeonInventoryItemBracersTideDesc2,"Creates an AoE delayed explosion on attack that stuns enemies and deals 10 acid damage."
+LootBracersTide,"You find a pair of bracers that are transparent like water."
+
+RestraintT,""
+RestraintTDesc,""
+RestraintTDesc2,""
+KinkyDungeonInventoryItemT,""
+KinkyDungeonInventoryItemTDesc,""
+KinkyDungeonInventoryItemTDesc2,""
+LootT,"You find "
+
+RestraintT,""
+RestraintTDesc,""
+RestraintTDesc2,""
+KinkyDungeonInventoryItemT,""
+KinkyDungeonInventoryItemTDesc,""
+KinkyDungeonInventoryItemTDesc2,""
+LootT,"You find "
+
+RestraintT,""
+RestraintTDesc,""
+RestraintTDesc2,""
+KinkyDungeonInventoryItemT,""
+KinkyDungeonInventoryItemTDesc,""
+KinkyDungeonInventoryItemTDesc2,""
+LootT,"You find "
+
 RestraintBasicCollar,Collar
 RestraintBasicCollarDesc,"A classy leather collar."
 RestraintBasicCollarDesc2,"Allows fitting of a leash."
@@ -2616,6 +2705,9 @@ RestraintSteelCollarDesc2,"Allows fitting of a leash."
 RestraintMagicCollar,Enchanted Collar
 RestraintMagicCollarDesc,"A collar made with magically enchanted materials. It is difficult to cut off."
 RestraintMagicCollarDesc2,"Allows fitting of a leash."
+RestraintKittyCollar,Kitty Collar
+RestraintKittyCollarDesc,"A collar made with magically enchanted materials. It is protected by the blessing of Bast."
+RestraintKittyCollarDesc2,"Allows fitting of a leash."
 RestraintBasicLeash,Leash
 RestraintBasicLeashDesc,"A leash made from a strong material."
 RestraintBasicLeashDesc2,"Functions as a handle for moving unruly prisoners."
@@ -2664,6 +2756,9 @@ RestraintDuctTapeLegsMummyDesc2,"It clings, almost of its own accord, but seems 
 RestraintPanelGag,Leather Panel Gag
 RestraintPanelGagDesc,"A gag that seals your lips tightly and stuffs your mouth with a ball."
 RestraintPanelGagDesc2,"The harness is comprehensive and it's locked in place."
+RestraintHarnessGag,Harness Ball Gag
+RestraintHarnessGagDesc,"A gag that stuffs your mouth with a large silicone ball."
+RestraintHarnessGagDesc2,"The harness is comprehensive and it's locked in place."
 
 RestraintKittyGag,Bast Gag
 RestraintKittyGagDesc,"A gag used to silence new initiates of the Bast cult."
@@ -2678,7 +2773,7 @@ RestraintKittyPaws,Bast Paws
 RestraintKittyPawsDesc,"Leather mittens used to pacify new initiates of the Bast cult."
 RestraintKittyPawsDesc2,"They make it hard to manipulate anything at all, but aren't the toughest material."
 RestraintKittySuit,Bast Suit
-RestraintKittySuitDesc,"A leather suit used on unruly initiates of the Bast cult."
+RestraintKittySuitDesc,"A skintight suit used on unruly initiates of the Bast cult."
 RestraintKittySuitDesc2,"It's nearly impossible to escape without help once locked inside."
 RestraintKittyPetSuit,Bast Petsuit
 RestraintKittyPetSuitDesc,"Enhanced suit used for select members of the Bast cult."
@@ -2861,6 +2956,9 @@ RestraintTrapBlindfold,Blindfold
 RestraintTrapBlindfoldDesc,"A leather strap secured onto your face and blocking vision."
 RestraintTrapBlindfoldDesc2,"You can still see through the gap around your nose."
 
+RestraintMagicBelt,Magic Chastity Belt
+RestraintMagicBeltDesc,"A belt protected by a magic seal."
+RestraintMagicBeltDesc2,"The shields will open up to accept new toys, but won't let them out..."
 RestraintTrapBelt,Steel Chastity Belt
 RestraintTrapBeltDesc,"A cruel device used for locking magical vibrators in place."
 RestraintTrapBeltDesc2,"The shields will open up to accept new toys, but won't let them out..."
@@ -2895,6 +2993,9 @@ RestraintTrapPlug2Desc2,"It vibrates weakly periodically."
 RestraintTrapPlug3,Torment Plug
 RestraintTrapPlug3Desc,"A sizeable plug that will make your life unbearably pleasurable..."
 RestraintTrapPlug3Desc2,"It vibrates strongly periodically and has a denial setting."
+RestraintTrapPlug4,Thundering Plug
+RestraintTrapPlug4Desc,"A sizeable plug that will make your life unbearably pleasurable..."
+RestraintTrapPlug4Desc2,"You're going to have the time of your life."
 RestraintMaidVibe,Maid Egg
 RestraintMaidVibeDesc,"An energetic little friend that likes to tease you and takes orders from the head maid."
 RestraintMaidVibeDesc2,"It is charged by residual magic from your spells."
@@ -2944,6 +3045,9 @@ RestraintRopeSnakeHogtieDesc2,"It's very secure. You tug on the rope connecting 
 RestraintRopeSnakeTorso,Rope Belt
 RestraintRopeSnakeTorsoDesc,"A harness acting as a handle to pull you around"
 RestraintRopeSnakeTorsoDesc2,"The ropes squeeze you gently."
+RestraintRopeSnakeHarness,Rope Harness
+RestraintRopeSnakeHarnessDesc,"A harness that secures your other restraints and makes them tighter."
+RestraintRopeSnakeHarnessDesc2,"The ropes squeeze you gently."
 RestraintRopeSnakeCrotch,Crotch Rope
 RestraintRopeSnakeCrotchDesc,"A tight rope impressing upon your most private areas..."
 RestraintRopeSnakeCrotchDesc2,"The ropes squeeze you gently."
@@ -3030,17 +3134,49 @@ RestraintAsylumJacketDesc2,"It has many straps and is very difficult to escape."
 RestraintAsylumLegbinder,Asylum Legbinder
 RestraintAsylumLegbinderDesc,"This legbinder will keep the patient from kicking the nurses."
 RestraintAsylumLegbinderDesc2,"It has both laces and straps."
-RestraintAsylumAnkleCuffs,Leather Ankle Cuffs
-RestraintAsylumAnkleCuffsDesc,"A pair of chained cuffs made of leather. They make patients easier to catch."
+
+
+RestraintAsylumAnkleCuffs,Asylum Ankle Cuffs
+RestraintAsylumAnkleCuffsDesc,"A pair of chained cuffs made of reinforced leather. They make patients easier to catch."
 RestraintAsylumAnkleCuffsDesc2,"They can be thrown from long distances."
 KinkyDungeonLinkAsylumAnkleCuffs,"The enemy attaches your ankle cuffs together!"
 RestraintAsylumAnkleCuffs2,Cuffs Chain
-RestraintAsylumAnkleCuffs2Desc,"A pair of chained cuffs made of leather. They make patients easier to catch."
+RestraintAsylumAnkleCuffs2Desc,"A pair of chained cuffs made of reinforced leather. They make patients easier to catch."
 RestraintAsylumAnkleCuffs2Desc2,"They can be thrown from long distances."
 KinkyDungeonUnLinkAsylumAnkleCuffs2,"The ankle cuff chain detaches!"
+
+RestraintAsylumLegCuffs,Asylum Leg Cuffs
+RestraintAsylumLegCuffsDesc,"A pair of chained cuffs made of reinforced leather. They make patients easier to catch."
+RestraintAsylumLegCuffsDesc2,"They can be thrown from long distances."
+KinkyDungeonLinkAsylumLegCuffs,"The enemy attaches your ankle cuffs together!"
+
+
 RestraintTransportJacket,Transport Jacket
 RestraintTransportJacketDesc,"This jacket goes over a straitjacket to keep the arms trapped."
 RestraintTransportJacketDesc2,"It makes it extraordinarily difficult to escape the jacket it covers."
+
+RestraintAsylumArmCuffs,Asylum Cuffs
+RestraintAsylumArmCuffsDesc,"A pair of leather cuffs that make it easy to restrain you."
+RestraintAsylumArmCuffsDesc2,"They're made of tough cowhide."
+KinkyDungeonLinkAsylumArmCuffs,"The enemy attaches your wrist cuffs together!"
+
+RestraintAsylumArmCuffs2,Wrist Chain
+RestraintAsylumArmCuffs2Desc,"A pair of leather cuffs keeping your arms behind your back."
+RestraintAsylumArmCuffs2Desc2,"They're made of tough cowhide."
+KinkyDungeonUnLinkAsylumArmCuffs2,"Your cuffs detatch!"
+KinkyDungeonLinkAsylumArmCuffs2,"The enemy attaches your elbow cuffs together!"
+
+RestraintAsylumArmCuffs3,Wrist Chain
+RestraintAsylumArmCuffs3Desc,"A full set of leather cuffs keeping your arms in a strict elbow tie!"
+RestraintAsylumArmCuffs3Desc2,"They're made of tough cowhide."
+KinkyDungeonUnLinkAsylumArmCuffs3,"Your wrists detatch, leaving your elbows still bound!"
+
+RestraintAsylumArmCuffs4,Elbow Chain
+RestraintAsylumArmCuffs4Desc,"A pair of leather cuffs keeping your elbows locked together!."
+RestraintAsylumArmCuffs4Desc2,"They're made of tough cowhide."
+KinkyDungeonUnLinkAsylumArmCuffs4,"Your elbows detatch!"
+KinkyDungeonLinkAsylumArmCuffs4,"The enemy attaches your wrist cuffs back together!"
+
 
 RestraintComfyGag,Comfy Muzzle
 RestraintComfyGagDesc,A lovely muzzle that's extraordinarily comfy!
@@ -3127,6 +3263,20 @@ RestraintMagneticAnkleCuffs2Desc,"The magnetic cuffs are rigidly attached!"
 RestraintMagneticAnkleCuffs2Desc2,"They won't budge! There's a button to release them but it's hard to reach..."
 KinkyDungeonUnLinkMagneticAnkleCuffs2,"Your ankle cuffs detatch!"
 
+
+RestraintLeatherAnkleCuffs,Leather Ankle Cuffs
+RestraintLeatherAnkleCuffsDesc,"A pair of chained cuffs made of leather. They make it trickier to run away."
+RestraintLeatherAnkleCuffsDesc2,"They're made of tough cowhide."
+KinkyDungeonLinkLeatherAnkleCuffs,"The enemy attaches your ankle cuffs together!"
+RestraintLeatherAnkleCuffs2,Cuffs Chain
+RestraintLeatherAnkleCuffs2Desc,"A pair of chained cuffs made of leather. They make it trickier to run away."
+RestraintLeatherAnkleCuffs2Desc2,"They're made of tough cowhide."
+KinkyDungeonUnLinkLeatherAnkleCuffs2,"The ankle cuff chain detaches!"
+
+RestraintLeatherLegCuffs,Leather Leg Cuffs
+RestraintLeatherLegCuffsDesc,"A pair of chained cuffs made of leather. They make it trickier to run away."
+RestraintLeatherLegCuffsDesc2,"They're made of tough cowhide."
+KinkyDungeonLinkLeatherLegCuffs,"The enemy attaches your ankle cuffs together!"
 
 RestraintLeatherArmCuffs,Leather Cuffs
 RestraintLeatherArmCuffsDesc,"A pair of leather cuffs that make it easy to restrain you."
@@ -3333,25 +3483,25 @@ RestraintCableHarnessDesc,"Cables made from a high-tech metallized polyfiber. Im
 RestraintCableHarnessDesc2,"They are wrapped methodically around your body!"
 
 RestraintRibbonArms,Magic Ribbons (Arms)
-RestraintRibbonArmsDesc,"Ribbons enchanted with powerful magic. They can't be cut without a magic implement!"
-RestraintRibbonArmsDesc2,"They are wrapped tightly around your body with a bow knot!"
+RestraintRibbonArmsDesc,"Those ribbons will hold you tight~"
+RestraintRibbonArmsDesc2,"I've put a magic seal in that bow-knot to keep it secure!"
 RestraintRibbonLegs,Magic Ribbons (Legs)
-RestraintRibbonLegsDesc,"Ribbons enchanted with powerful magic. They can't be cut without a magic implement!"
-RestraintRibbonLegsDesc2,"They are wrapped tightly around your body with a bow knot!"
+RestraintRibbonLegsDesc,"Those ribbons will hold you tight~"
+RestraintRibbonLegsDesc2,"I've put a magic seal in that bow-knot to keep it secure!"
 RestraintRibbonFeet,Magic Ribbons (Feet)
-RestraintRibbonFeetDesc,"Ribbons enchanted with powerful magic. They can't be cut without a magic implement!"
-RestraintRibbonFeetDesc2,"They are wrapped tightly around your body with a bow knot!"
+RestraintRibbonFeetDesc,"Those ribbons will hold you tight~"
+RestraintRibbonFeetDesc2,"I've put a magic seal in that bow-knot to keep it secure!"
 RestraintRibbonHarness,Magic Ribbons (Harness)
-RestraintRibbonHarnessDesc,"Ribbons enchanted with powerful magic. They can't be cut without a magic implement!"
-RestraintRibbonHarnessDesc2,"They are wrapped tightly around your body with a bow knot!"
+RestraintRibbonHarnessDesc,"Those ribbons will hold you tight~"
+RestraintRibbonHarnessDesc2,"I've put a magic seal in that bow-knot to keep it secure!"
 RestraintRibbonCrotch,Magic Ribbons (Pelvis)
-RestraintRibbonCrotchDesc,"Ribbons enchanted with powerful magic. They can't be cut without a magic implement!"
-RestraintRibbonCrotchDesc2,"They are wrapped tightly around your body with a bow knot!"
+RestraintRibbonCrotchDesc,"Those ribbons will hold you tight~"
+RestraintRibbonCrotchDesc2,"I've put a magic seal in that bow-knot to keep it secure!"
 RestraintRibbonHands,Magic Ribbons (Mittens)
-RestraintRibbonHandsDesc,"Ribbons enchanted with powerful magic. They can't be cut without a magic implement!"
+RestraintRibbonHandsDesc,"Those ribbons will hold you tight~"
 RestraintRibbonHandsDesc2,"They are wrapped tightly around your hands with a bow knot!"
 RestraintRibbonMouth,Magic Ribbons (Gag)
-RestraintRibbonMouthDesc,"Ribbons enchanted with powerful magic. They can't be cut without a magic implement!"
+RestraintRibbonMouthDesc,"Those ribbons will hold you tight~"
 RestraintRibbonMouthDesc2,"They are wrapped tightly around your mouth with a bow knot!"
 
 RestraintIceArms,Ice (Arms)
@@ -3734,6 +3884,7 @@ KinkyDungeonFilterlearnable,Learnable
 KinkyDungeonFilterunlearned,Unlearned
 KinkyDungeonFilternoupgrade,Excl. Upgrades
 KinkyDungeonFilteryesupgrade,Passive
+KinkyDungeonFilterupcast,Upcast
 KinkyDungeonFilterbuff,Buffs
 KinkyDungeonFilterdot,DoT
 KinkyDungeonFilterbolt,Projectiles
@@ -3795,17 +3946,17 @@ KinkyDungeonSpellShadowStrike,Shadowy chains appear from a rift in space!
 KinkyDungeonInfernoBurn,The roaring inferno deals 10 damage to you!
 
 KinkyDungeonSpellApprenticeFire,Flame Novice
-KinkyDungeonSpellDescriptionApprenticeFire,Unlocks fire and arcane spells. Learn Firebolt.
+KinkyDungeonSpellDescriptionApprenticeFire,Unlocks fire spells. Learn Firebolt.
 KinkyDungeonSpellApprenticeLightning,Lightning Novice
-KinkyDungeonSpellDescriptionApprenticeLightning,Unlocks fire and arcane spells. Learn Electrify.
+KinkyDungeonSpellDescriptionApprenticeLightning,Unlocks electrice spells. Learn Electrify.
 KinkyDungeonSpellApprenticeWater,Water Novice
-KinkyDungeonSpellDescriptionApprenticeWater,Unlocks ice and water spells. Learn Water Ball.
+KinkyDungeonSpellDescriptionApprenticeWater,Unlocks water spells. Learn Water Ball.
 KinkyDungeonSpellApprenticeIce,Ice Novice
-KinkyDungeonSpellDescriptionApprenticeIce,Unlocks ice and water spells. Learn Freeze.
+KinkyDungeonSpellDescriptionApprenticeIce,Unlocks ice spells. Learn Freeze.
 KinkyDungeonSpellApprenticeEarth,Earth Novice
-KinkyDungeonSpellDescriptionApprenticeEarth,Unlocks earth and metal spells. Learn Stone Skin.
+KinkyDungeonSpellDescriptionApprenticeEarth,Unlocks earth spells. Learn Stone Skin.
 KinkyDungeonSpellApprenticeAir,Air Novice
-KinkyDungeonSpellDescriptionApprenticeAir,Unlocks air and electric spells. Learn Wind Blast.
+KinkyDungeonSpellDescriptionApprenticeAir,Unlocks air spells. Learn Wind Blast.
 
 KinkyDungeonSpellApprenticeLatex,Latex 101
 KinkyDungeonSpellDescriptionApprenticeLatex,Unlocks latex spells. Learn Slime Ball.
@@ -3929,7 +4080,7 @@ KinkyDungeonSpellTargetChainBolt,Choose aim direction
 
 KinkyDungeonSpellRopeBoltLaunch,Conjure Ropes
 KinkyDungeonSpellRopeBolt,Animated Rope
-KinkyDungeonSpellDescriptionRopeBoltLaunch,Launch 3 ropes that deal DamageDealt chain damage each and add 10 binding.
+KinkyDungeonSpellDescriptionRopeBoltLaunch,Launch 3 ropes that deal DamageDealt chain damage each and add 22 rope binding.
 KinkyDungeonSpellCastRopeBoltLaunch,You animate a bunch of ropes!
 KinkyDungeonSpellTargetRopeBoltLaunch,Choose aim direction
 
@@ -4233,6 +4384,8 @@ KinkyDungeonSpellIcePrison,Frozen Prison
 KinkyDungeonSpellDescriptionIcePrison,"Freezing an enemy applies 10% of the enemy's max hp in binding, plus 10 per turn of freeze."
 KinkyDungeonSpellLightningRod,Lightning Rod
 KinkyDungeonSpellDescriptionLightningRod,"After casting an Air or Storm spell that costs mana, become Conductive and gain 300% electric resist for 3 turns."
+KinkyDungeonSpellFrustration,Frustration
+KinkyDungeonSpellDescriptionFrustration,"When enabled, enemies in chastity become angry Frustrated Pets when becoming helpless."
 
 KinkyDungeonSpellMPUp1,Mana Up I
 KinkyDungeonSpellDescriptionMPUp1,Increases maximum MP by 12
@@ -4271,7 +4424,7 @@ KinkyDungeonSpellCastSnare,You set an invisible trap!
 KinkyDungeonSpellTargetSnare,Select where to put the trap (it will be invisible)
 
 KinkyDungeonSpellRopeStrike,Rope Burst
-KinkyDungeonSpellDescriptionRopeStrike,An explosion of rope deals DamageDealt chain damage in a 3x3 AoE and applies 30 points of binding. Snares for Duration turns.
+KinkyDungeonSpellDescriptionRopeStrike,An explosion of rope deals DamageDealt chain damage in a 3x3 AoE and applies 40 points of rope binding. Snares for Duration turns.
 KinkyDungeonSpellCastRopeStrike,You call forth ropes from the abyss!
 KinkyDungeonSpellTargetRopeStrike,Select center of a a 3x3 AoE
 
@@ -4360,14 +4513,26 @@ KinkyDungeonSpellDescriptionTickleCloud,"For 10 turns, disembodied hands tickle 
 KinkyDungeonSpellCastTickleCloud,A swarm of hands holding feathers appears!
 KinkyDungeonSpellTargetTickleCloud,Choose location
 
+NamePetChastity,Frustrated Pet
+KillPetChastity,The pet collapses in frustration.
+
 NamePet,Mana Pet
 KillPet,The enemy steals your pet from you!
+
+NamePetDisplay,Display Doll
+KillPetDisplay,The enemy steals your doll from you!
 
 KinkyDungeonSpellPetsuit,Conjure Petsuit
 KinkyDungeonSpellDescriptionPetsuit,"Target only Helpless enemies. Transforms them into a pet that follows you and increases your passive mana regen."
 KinkyDungeonSpellCastPetsuit,"You conjure an enchanted petsuit which wraps around your target, forcing her to follow you!"
 KinkyDungeonSpellCastSelfPetsuit,"You watch in horror as your own creation lunges toward you, binding your hands and feet!"
 KinkyDungeonSpellTargetPetsuit,Choose a helpless target
+
+KinkyDungeonSpellDisplayStand,Conjure Display Stand
+KinkyDungeonSpellDescriptionDisplayStand,"Target only Helpless enemies. Creates a fixture that increases passive mana regen, restores 50 Charge, and makes nearby enemies take 50% more charm/psychic damage."
+KinkyDungeonSpellCastDisplayStand,"You conjure a fixture to hold your helpless target in place!"
+KinkyDungeonSpellCastSelfDisplayStand,"You watch in horror as your own creation surrounds you, locking you in place with a hefty click!"
+KinkyDungeonSpellTargetDisplayStand,Choose a helpless target
 
 
 KinkyDungeonSpellFlash,Lesser Flash
@@ -4408,8 +4573,25 @@ KinkyDungeonSpellCastInvisibility,You snap your fingers!
 
 KinkyDungeonSpellLockdown,CMD: Lock
 KinkyDungeonSpellTargetLockdown,Select which creature to lock
-KinkyDungeonSpellDescriptionLockdown,"Locks down a target, preventing them from struggling below the current level of binding for 30 turns."
+KinkyDungeonSpellDescriptionLockdown,"Magically locks down a target, preventing them from struggling below the current level of binding for 15 turns (max 100% binding)."
 KinkyDungeonSpellCastLockdown,"You say a command word, and magical locks bind your target!"
+
+KinkyDungeonSpellChastity,Chastity
+KinkyDungeonSpellTargetChastity,Select which creature to lock in a belt
+KinkyDungeonSpellDescriptionChastity,"Target a creature that's disabled. Adds +DamageDealt binding, and applies Chastity which prevents the target from removing plugs and distracts constantly."
+KinkyDungeonSpellCastChastity,"You conjure a chastity belt, which latches onto your target!"
+KDZoneOfPuritySelf,"Your own spell locks you in chastity!"
+KDZoneOfExcitementSelf,"Something fun enters your body..."
+
+KinkyDungeonSpellZoneOfPurity,Zone of Purity
+KinkyDungeonSpellTargetZoneOfPurity,Select an area
+KinkyDungeonSpellDescriptionZoneOfPurity,"Creates an area which applies Chastity constantly to any enemy over 50% bondage that steps inside."
+KinkyDungeonSpellCastZoneOfPurity,"You conjure a realm of absolute purity."
+
+KinkyDungeonSpellZoneOfExcitement,Zone of Excitement
+KinkyDungeonSpellTargetZoneOfExcitement,Select an area
+KinkyDungeonSpellDescriptionZoneOfExcitement,"Creates an area which adds a conjured vibrating toy to enemies that step inside. Toy lasts 30 turns."
+KinkyDungeonSpellCastZoneOfExcitement,"You conjure a realm of absolute fun!"
 
 KinkyDungeonSpellCommandCapture,CMD: Capture
 KinkyDungeonSpellTargetCommandCapture,Select which creature to bind
@@ -4420,6 +4602,17 @@ KinkyDungeonSpellCommandDisenchant,CMD: Disenchant
 KinkyDungeonSpellTargetCommandDisenchant,Select an area
 KinkyDungeonSpellDescriptionCommandDisenchant,"Target a large area. Permanently slows constructs, reduces attack speed by 50%, and deals 30 shadow damage. Refunds 50% mana at 3 or more targets. Makes magic bindings easier."
 KinkyDungeonSpellCastCommandDisenchant,"You say a command word, siphoning the magic from nearby constructs!"
+
+KinkyDungeonSpellCommandVibrate,CMD: Vibrate
+KinkyDungeonSpellTargetCommandVibrate,Select an area
+KinkyDungeonSpellDescriptionCommandVibrate,"Target a large area. Enemies with plugs or toys are teased for Duration turns, taking charm damage each turn."
+KinkyDungeonSpellCastCommandVibrate,"You say a command word, causing all toys in the area to vibrate!"
+
+KinkyDungeonSpellCommandOrgasm,CMD: Explosive Finish
+KinkyDungeonSpellOrgasmStrike,Explosive Finish
+KinkyDungeonSpellTargetCommandOrgasm,Select an area
+KinkyDungeonSpellDescriptionCommandOrgasm,"Target a large area. Consumes enemy distraction to deal up to DamageDealt charm damage, twice if at 90% distraction or more."
+KinkyDungeonSpellCastCommandOrgasm,"You say a command word, resulting in a surge of energy entering your targets!"
 
 KinkyDungeonSpellCommandRelease,CMD: Release
 KinkyDungeonSpellTargetCommandRelease,Select an area
@@ -4618,7 +4811,7 @@ KinkyDungeonSpellSlime,Slime Blast
 KinkyDungeonSpellSlimePuddle,Apprentice's Slime
 KinkyDungeonSpellWitchSlime,Witch's Slime
 KinkyDungeonSpellMiniSlime,Witch's Slime Ball
-KinkyDungeonSpellDescriptionSlime,A pool of slime deals DamageDealt glue damage to enemies on impact and covers the area in slime.
+KinkyDungeonSpellDescriptionSlime,A pool of slime deals DamageDealt glue damage to enemies on impact and covers the area in temporary slime.
 KinkyDungeonSpellCastSlime,You conjure a pool of slime!
 KinkyDungeonSpellTargetSlime,Select where the slime will appear
 
@@ -4770,7 +4963,7 @@ KinkyDungeonVibing3,Your toys are buzzing strongly!
 KinkyDungeonVibing4,Your toys vibrate intensely!
 KinkyDungeonVibing5,The vibration is torturous!
 KinkyDungeonEndVibe,Your toys stop vibrating.
-KinkyDungeonPlugWalk0,You feel slightly full as you walk...
+KinkyDungeonPlugWalk0,You feel slightly full as you move...
 KinkyDungeonPlugWalk1,Your movement disturbs the plugs inside of you...
 KinkyDungeonPlugWalk2,The large plugs shift(s) around inside of you...
 KinkyDungeonPlugWalk3,The huge plugs rub(s) around constantly inside of you...
@@ -5145,7 +5338,7 @@ KinkyDungeonHuntDownPlayer,You hear movements all around as you realize you are 
 
 KinkyDungeonUnLink,"There is another restraint underneath!"
 
-KinkyDungeonCrotchRope,"Your restraints rub you in sensitive places as you walk..."
+KinkyDungeonCrotchRope,"Your restraints rub you in sensitive places as you move..."
 
 KinkyDungeonRepName,"Indifferent"
 KinkyDungeonRepNameAngered,"Angered"
@@ -5160,8 +5353,8 @@ KinkyDungeonRepNameFactionAngered,"Annoyed"
 KinkyDungeonRepNameFactionEnraged,"Hostile"
 KinkyDungeonRepNameFactionCursed,"Wanted"
 KinkyDungeonRepNameFactionPleased,"Favorable"
-KinkyDungeonRepNameFactionBlessed,"Friendly"
-KinkyDungeonRepNameFactionThankful,"Allied"
+KinkyDungeonRepNameFactionBlessed,"Allied"
+KinkyDungeonRepNameFactionThankful,"Friendly"
 
 KinkyDungeonTetherTooShort,"You run up against the TETHER pulling you back."
 KinkyDungeonTetherPull,"You are yanked back by the TETHER!"
@@ -5328,7 +5521,7 @@ KinkyDungeonCurseStruggleMistressKeyEnchantedBra,"You rub your hands along your 
 
 RestraintEnchantedHeels,Ancient Heels
 LootChestEnchantedHeels,"You find a set of glowing heels, glowing magnificently, along with a strange crystal next to it."
-RestraintEnchantedHeelsDesc2,"A pair of towering heels, enchanted with combat magic. When powered, they reduce slow level by 2, and deal 25 shadow damage on-hit with brief slow."
+RestraintEnchantedHeelsDesc2,"A pair of towering heels, enchanted with combat magic. When powered, they reduce slow level by 1, and deal 25 shadow damage on-hit with brief slow."
 RestraintEnchantedHeelsDesc,"'Shoes of the graceful'"
 KinkyDungeonCurseStruggleMistressKeyEnchantedHeels,"You can barely stand in these heels. They are rigid, metallic, and unbreakable, yet padded on the inside."
 
@@ -5476,6 +5669,7 @@ KinkyDungeonHookHigh,A hook hangs at shoulder height.
 KinkyDungeonHookHighFail,You can't reach that with the hook!
 KinkyDungeonHookLow,There's a hook on the wall.
 KinkyDungeonCrack,The wall is cracked.
+KinkyDungeonPlayCorner,You rub yourself on the corner...
 
 KinkyDungeonRemoveLowLevelRope,"Many ropes emerge around you, removing weaker ropes from your body and binding enemies!"
 
@@ -5766,9 +5960,41 @@ KinkyDungeonRemindJailDressmakerMiss,"A slippery one, aren't you?"
 KinkyDungeonRemindJailDressmakerMissedMe,"Tsk tsk. You can do better, dear~"
 KinkyDungeonRemindJailDressmakerLeash,"I can't wait to dress you up!"
 KinkyDungeonRemindJailDressmakerPull,"So nice of you to join me!"
-KinkyDungeonRemindJailDressmakerStun,"Now let's see, what to dress you in..."
+KinkyDungeonRemindJailDressmakerStun,"Now let's see, what kind of dress..."
 KinkyDungeonRemindJailDressmakerPickpocket,"A gift? Thank you so much!"
 KinkyDungeonRemindJailDressmakerLock,"You won't be getting out of that any time soon!"
+
+
+KinkyDungeonRemindJailPlayLibrarian0,"Shhhhh."
+KinkyDungeonRemindJailPlayLibrarian1,"Be quiet."
+KinkyDungeonRemindJailPlayLibrarian2,"Keep your hands off my books."
+KinkyDungeonRemindJailPlayLibrarianStruggle,"Heh. Serves you right."
+KinkyDungeonRemindJailPlayLibrarianLeash,"Time to lock you away."
+KinkyDungeonRemindJailPlayLibrarianFree,"Don't get your paws on anything important."
+KinkyDungeonRemindJailPlayLibrarianLoot,"I was reading that!"
+KinkyDungeonRemindJailPlayLibrarianKey,"You're not supposed to have that."
+KinkyDungeonRemindJailChaseLibrarianAttack0,"Who are you?"
+KinkyDungeonRemindJailChaseLibrarianAttack1,"You're entering my personal space."
+KinkyDungeonRemindJailChaseLibrarianAttack2,"I'm going to ask you to leave"
+KinkyDungeonRemindJailChaseLibrarianSpell0,"You're ruining the books!"
+KinkyDungeonRemindJailChaseLibrarianSpell1,"Keep the damage under control!"
+KinkyDungeonRemindJailChaseLibrarianSpell2,"Shut up!!!"
+KinkyDungeonRemindJailChaseLibrarianSpellItem,"Put that back!"
+KinkyDungeonRemindJailChaseLibrarianShrine,"There's nothing to learn from that, you ignorant buffon."
+KinkyDungeonRemindJailChaseLibrarianChest,"Don't dive into someone else's belongings!"
+KinkyDungeonRemindJailChaseLibrarianOrb,"You've destroyed an ancient artifact, imbecile!"
+KinkyDungeonRemindJailChaseLibrarianJailbreak,"I wish you'd just stay out of trouble..."
+KinkyDungeonRemindJailLibrarianGrab,"Gotchya."
+KinkyDungeonRemindJailLibrarianDisarm,"You're going to hurt someone with that."
+KinkyDungeonRemindJailLibrarianHit,"My books!"
+KinkyDungeonRemindJailLibrarianHitPlayer,"Stay down."
+KinkyDungeonRemindJailLibrarianMiss,"Get back here--"
+KinkyDungeonRemindJailLibrarianMissedMe,"Why you..."
+KinkyDungeonRemindJailLibrarianLeash,"Time for you to stay out of trouble."
+KinkyDungeonRemindJailLibrarianPull,"Come along."
+KinkyDungeonRemindJailLibrarianStun,"Stay put!"
+KinkyDungeonRemindJailLibrarianPickpocket,"I'll be taking that back."
+KinkyDungeonRemindJailLibrarianLock,"Click."
 
 KinkyDungeonRemindJailPlayNurse0,"It's time for your shot..."
 KinkyDungeonRemindJailPlayNurse1,"Why are you out of your cell?"
@@ -5834,7 +6060,7 @@ KinkyDungeonRemindJailTemplatePickpocket,""
 KinkyDungeonRemindJailTemplateLock,""
 
 
-KinkyDungeonRemindJailPlayElf0,"Well met, mortal!"
+KinkyDungeonRemindJailPlayElf0,"Hello, Outsider."
 KinkyDungeonRemindJailPlayElf1,"You look so... bland."
 KinkyDungeonRemindJailPlayElf2,"Mortals are so picky about what they wear..."
 KinkyDungeonRemindJailPlayElfStruggle,"Tight and secure, as all things should be."
@@ -6227,6 +6453,7 @@ KinkyDungeonSpecialFlamberge,Ignite torches and nearby objects
 KinkyDungeonSpecialStaffFlame,Ignite torches and nearby objects
 KinkyDungeonSpecialStaffIncineration,Ignite torches and nearby objects
 
+KDCategoryToggles,Toggles
 KDCategoryRestraints,Locks and Restraints
 KDCategoryCombat,General Combat
 KDCategoryKinky,Kinks and Preferences
@@ -6364,6 +6591,34 @@ dOfferDressForce_NoGag,"(Shake your head and moan) (PERCENT chance to avoid)"
 
 
 
+rOfferKigu,"(The SPEAKER looks at with a philisophical outlook)|Have you ever felt like you wanted to be...|Transformed?"
+rOfferKiguYes,"(The SPEAKER takes a strange mask from her satchel)|Well, I have the answer right here..."
+rOfferKiguYes_Yes,"(The SPEAKER nods seriously)|My hypothesis was correct..."
+rOfferKiguYes_No,"(The SPEAKER frowns)|Such a philistine. Begone."
+rOfferKiguNo,"(The SPEAKER turns away and thinks deeply)"
+rOfferKiguForce,"(The SPEAKER is lost deep in thought)|Like... become someone else?"
+rOfferKiguForceYes,"(The SPEAKER smiles)|You can be someone else..."
+rOfferKiguForce_No,"(The SPEAKER turns around and keeps pondering)|Hmmm..."
+rOfferKiguForce_Yes,"(The SPEAKER nods)|I see you are a truth seeker after all."
+rOfferKiguForce_Failure,"(The SPEAKER lets you go. But then...)|(You feel her clip a RESTRAINT on you from behind!)|There... I shall now observe your behavior."
+
+dOfferKigu_Yes,"Um, sure?"
+dOfferKigu_YesGag,"(Nod seriously)"
+dOfferKigu_No,"...What?"
+dOfferKigu_NoGag,"(Shake your head)"
+
+dOfferKiguYes_Yes,"Show me the truth."
+dOfferKiguYes_YesGag,"(Nod again)"
+dOfferKiguYes_No,"That's just creepy."
+dOfferKiguYes_NoGag,"(Shake your head)"
+
+dOfferKiguForce_Yes,"Fine, you've convinced me."
+dOfferKiguForce_YesGag,"(Giggle and nod)"
+dOfferKiguForce_No,"I don't have time for this. (PERCENT chance to avoid)"
+dOfferKiguForce_NoGag,"(Shake your head and moan) (PERCENT chance to avoid)"
+
+
+
 rOfferArmor,"(The SPEAKER swings an imaginary sword around)|En guar- Oh, you're unarmored!|Do you want to borrow some of mine?"
 rOfferArmorYes,"(The SPEAKER holds up a RESTRAINT)|I found this near an old suit of armor.|I think it's a helmet or something..."
 rOfferArmorYes_Yes,"(The SPEAKER winks and locks it on)|I feel much safer already~"
@@ -6429,7 +6684,7 @@ rOfferAutoTapeForce,"(The SPEAKER buzzes)|ERROR: Contradiction in answer.|STATEM
 rOfferAutoTapeForceYes,"ERROR: Acceptance expected.|STATEMENT: SPEAKER will add RESTRAINT."
 rOfferAutoTapeForce_No,"(The SPEAKER makes a whirring noise)|ERROR: SPEAKER out of tape.|Returning to routine."
 rOfferAutoTapeForce_Yes,"(The SPEAKER spins around you, releasing tape)|RESTRAINT dispensed.|Have a nice day."
-rOfferAutoTapeForce_Failure,"(The SPEAKER spins around you, releasing tape)|RESTRAINT dispensed.|Have a nice day."
+rOfferAutoTapeForce_Failure,"(The SPEAKER launches tape which catches you as you run)|RESTRAINT dispensed.|Have a nice day."
 
 dOfferAutoTape_Yes,"Uh, affirmative?"
 dOfferAutoTape_YesGag,"(Nod)"
@@ -6444,7 +6699,6 @@ dOfferAutoTapeYes_NoGag,"(Shake your head)"
 dOfferAutoTapeForce_Yes,"If you have to..."
 dOfferAutoTapeForce_YesGag,"(Giggle and nod)"
 dOfferAutoTapeForce_No,"Go away robot! (PERCENT chance to avoid)"
-dOfferAutoTapeForce_NoGag,"(Shake your head rapidly) (PERCENT chance to avoid)"
 dOfferAutoTapeForce_NoGag,"(Shake your head rapidly) (PERCENT chance to avoid)"
 
 
@@ -6473,6 +6727,7 @@ dOfferHiTechCablesYes_NoGag,"(Shake your head)"
 dOfferHiTechCablesForce_Yes,"If you have to..."
 dOfferHiTechCablesForce_YesGag,"(Giggle and nod)"
 dOfferHiTechCablesForce_No,"Go away robot! (PERCENT chance to avoid)"
+dOfferHiTechCablesForce_NoGag,"(Shake your head rapidly) (PERCENT chance to avoid)"
 
 
 
@@ -6483,9 +6738,9 @@ rOfferScarfYes_No,"(The SPEAKER looks away and nods)|Well... maybe next time."
 rOfferScarfNo,"(The SPEAKER shuffles awkwardly)|Oh... well...|Come back if you change your mind~"
 rOfferScarfForce,"(The SPEAKER scowls)|Hey, don't back out!|I promise I'll make it comfortable!"
 rOfferScarfForceYes,"(The SPEAKER frowns)|Too bad, I want to tie someone!"
-rOfferScarfForce_No,"(The SPEAKER sighs and nods)|Okay, sorry.|It would've been soft though~"
+rOfferScarfForce_No,"(The SPEAKER drops her scarves)|Aww, really?|I'll go find someone else then..."
 rOfferScarfForce_Yes,"(The SPEAKER beams a smile)|Yay, thank you!|Feels nice, right?"
-rOfferScarfForce_Failure,"(The SPEAKER drops her scarves)|Aww, really?|I'll go find someone else then..."
+rOfferScarfForce_Failure,"(The SPEAKER tosses a scarf around you like a lasso)|Not so fast! You cannot escape the fluff!"
 
 dOfferScarf_Yes,"Sounds good!"
 dOfferScarf_YesGag,"(Nod quickly)"
@@ -7039,6 +7294,405 @@ dOfferMaidForce_No,"Never! (PERCENT chance to avoid)"
 dOfferMaidForce_NoGag,"(Shake your head and frown) (PERCENT chance to avoid)"
 
 
+rOfferWitch,"(The SPEAKER does a short bow as she sees you)|Greetings.|You seem to possess qualities we can make use of.|I would be glad to offer you a position..."
+rOfferWitchYes,"(The SPEAKER smiles briefly before clearing her throat)|Fantastic!|I have your uniform right here..."
+rOfferWitchYes_Yes,"(The SPEAKER buckles you in, pulling the lacing extra-tight...)|(You hear the click of a few locks going on...)|Wonderful. Your first task is to clean up this floor.|Good luck."
+rOfferWitchYes_No,"(The SPEAKER tilts her head and shrugs)|We are always prepared..."
+rOfferWitchNo,"(The SPEAKER nods)|Fair enough."
+rOfferWitchForce,"(The SPEAKER grins and pulls out a skimpy dress)|Might I remind you that you have made quite a few... enemies?|It would be a shame if you ran into one of them..."
+rOfferWitchForceYes,"(The SPEAKER nods proudly)|We are willing to made some changes to our records~"
+rOfferWitchForce_No,"(The SPEAKER frowns)|You won't know what hit you."
+rOfferWitchForce_Yes,"(The SPEAKER smiles)|I'm glad you made the right decision.|Now, your first task will be to clean up this floor.|Good luck."
+rOfferWitchForce_Failure,"(The SPEAKER suddenly moves faster than you can react)|(You feel a foot pressing on your back as you are forced down)|(She puts a uniform on you and locks it tight...)|You'll require additional training, I suppose..."
+
+dOfferWitch_Yes,"This sounds like an interesting opportunity."
+dOfferWitch_YesGag,"(Nod excitedly)"
+dOfferWitch_No,"No thanks, I know what that entails..."
+dOfferWitch_NoGag,"(Shake your head)"
+
+dOfferWitchYes_Yes,"Gladly!"
+dOfferWitchYes_YesGag,"(Accept the contract)"
+dOfferWitchYes_No,"W-where did you get that uniform? (Refuse)"
+dOfferWitchYes_NoGag,"(Refuse the contract)"
+
+dOfferWitchForce_Yes,"Fine. I'll sign it..."
+dOfferWitchForce_YesGag,"(Moan and nod)"
+dOfferWitchForce_No,"Never! (PERCENT chance to avoid)"
+dOfferWitchForce_NoGag,"(Shake your head and frown) (PERCENT chance to avoid)"
+
+
+
+
+
+rOfferBast,"(The SPEAKER perks her ears as she sees you)|Glory to the blessed kitty!|Are you prepared to join us?"
+rOfferBastYes,"(The SPEAKER nods happily)|Fantastic! You just need to agree to be nice to cats.|And also we own you now."
+rOfferBastYes_Yes,"(The SPEAKER jumps happily)|Wonderful! Here's your collar!"
+rOfferBastYes_No,"(The SPEAKER whimpers and looks at you)|How mean!"
+rOfferBastNo,"(The SPEAKER's ears flop)|Aww... we thought you were cute."
+rOfferBastForce,"(The SPEAKER frowns)|Oh? Well, I guess I'll tell the others~"
+rOfferBastForceYes,"(The SPEAKER grins slyly)|You wouldn't hurt the kitties, would you?"
+rOfferBastForce_No,"(The SPEAKER frowns)|Then we'll have to make sure you don't come to harm anyone!"
+rOfferBastForce_Yes,"(The SPEAKER smiles proudly)|I knew you would pull through!"
+rOfferBastForce_Failure,"(The SPEAKER suddenly moves faster than you can react)|(You feel a foot pressing on your back as you are forced down)|(She puts a uniform on you and locks it tight...)|You'll require additional training, I suppose..."
+
+dOfferBast_Yes,"Yes! I love the blessed kity!"
+dOfferBast_YesGag,"(Nod excitedly)"
+dOfferBast_No,"No, you guys are a bunch of weirdos."
+dOfferBast_NoGag,"(Shake your head)"
+
+dOfferBastYes_Yes,"Yes! I will be nice to the kitties!"
+dOfferBastYes_YesGag,"(Join them)"
+dOfferBastYes_No,"Wait, I didn't agree to that! (Refuse)"
+dOfferBastYes_NoGag,"(Refuse)"
+
+dOfferBastForce_Yes,"Okay fine... I won't hurt the kitties. (Join them)"
+dOfferBastForce_YesGag,"(Moan and nod)"
+dOfferBastForce_No,"Never! (PERCENT chance to avoid)"
+dOfferBastForce_NoGag,"(Shake your head and frown) (PERCENT chance to avoid)"
+
+
+
+
+
+
+rOfferDressmaker,"(The SPEAKER does a curtsy)|Why hello there!|You have a wonderful bod-er, book!|Would you like to help me?"
+rOfferDressmakerYes,"(The SPEAKER smiles briefly)|You have an opportunity to model for me!|I need someone to wear all of my wonderful inventions!"
+rOfferDressmakerYes_Yes,"(The SPEAKER laces you up in the tight fabric...)|(You hear the click of a few locks going on...)|Oh my goodness... So pretty!|You'll make a fine assistant!"
+rOfferDressmakerYes_No,"(The SPEAKER frowns)|Aw..."
+rOfferDressmakerNo,"(The SPEAKER clenches her fist to the ceiling)|Nooooo!!!"
+rOfferDressmakerForce,"(The SPEAKER grins and pulls out a frilly dress)|Don't knock it till you try it!|Trust me, it'll be fun!"
+rOfferDressmakerForceYes,"(The SPEAKER furrows her brow)|Watch your tongue there, little lady.|Or I'll have to plug it for you..."
+rOfferDressmakerForce_No,"(The SPEAKER folds her arms as ribbons rise up around her)|Suit yourself, hehe~"
+rOfferDressmakerForce_Yes,"(The SPEAKER smiles)|Yes! Yes! Wonderful!"
+rOfferDressmakerForce_Failure,"(The SPEAKER suddenly moves faster than you can react)|(You feel a foot pressing on your back as you are forced down)|(She puts a uniform on you and locks it tight...)|You'll require additional training, I suppose..."
+
+dOfferDressmaker_Yes,"Sure!"
+dOfferDressmaker_YesGag,"(Nod excitedly)"
+dOfferDressmaker_No,"Nope."
+dOfferDressmaker_NoGag,"(Shake your head)"
+
+dOfferDressmakerYes_Yes,"Sign me up!"
+dOfferDressmakerYes_YesGag,"(Accept the position)"
+dOfferDressmakerYes_No,"And wear tacky clothes all the time?"
+dOfferDressmakerYes_NoGag,"(Refuse the position)"
+
+dOfferDressmakerForce_Yes,"Fine... sign me up."
+dOfferDressmakerForce_YesGag,"(Moan and nod)"
+dOfferDressmakerForce_No,"Why don't you try it on yourself! (PERCENT chance to avoid)"
+dOfferDressmakerForce_NoGag,"(Shake your head and frown) (PERCENT chance to avoid)"
+
+
+
+
+
+
+
+rOfferAlchemist,"(The SPEAKER runs up to you)|Wow! You make a fine specimen-er, I mean...|Nice to meet you!"
+rOfferAlchemistYes,"(The SPEAKER smiles)|Now, I have something wonderful in store for you.|(She takes out a blue catsuit)|I'd like you to be my assistant!"
+rOfferAlchemistYes_Yes,"(The SPEAKER looks excited)|Awesome! Let me help you get in uniform..."
+rOfferAlchemistYes_No,"(The SPEAKER shrugs)|It was worth a shot..."
+rOfferAlchemistNo,"(The SPEAKER shrugs)|It was worth a shot..."
+rOfferAlchemistForce,"(The SPEAKER looks frustrated)|I'm not... my work is not crazy!|There's just... a lot to do.|That's why I need an assistant."
+rOfferAlchemistForceYes,"(The SPEAKER looks frustrated)|I'm not... my work is not crazy!|We seek only knowledge!"
+rOfferAlchemistForce_No,"(The SPEAKER frowns)|Time for a test run!"
+rOfferAlchemistForce_Yes,"(The SPEAKER looks happy again)|Thank you! I'm super grateful!"
+rOfferAlchemistForce_Failure,"(The SPEAKER tilts her head)|Fine then. You win.|(As you leave, you hear a 'just kidding' as she breaks a glass vial)|(A suit of blue latex envelops you!)"
+
+dOfferAlchemist_Yes,"...Hello?"
+dOfferAlchemist_YesGag,"(Nod excitedly)"
+dOfferAlchemist_No,"You guys are crazy."
+dOfferAlchemist_NoGag,"(Shake your head)"
+
+dOfferAlchemistYes_Yes,"Gladly!"
+dOfferAlchemistYes_YesGag,"(Accept the offer)"
+dOfferAlchemistYes_No,"W-where did you get that uniform? (Refuse)"
+dOfferAlchemistYes_NoGag,"(Refuse the offer)"
+
+dOfferAlchemistForce_Yes,"Fine. I'll be your assistant."
+dOfferAlchemistForce_YesGag,"(Moan and nod)"
+dOfferAlchemistForce_No,"Go find someone else. (PERCENT chance to avoid)"
+dOfferAlchemistForce_NoGag,"(Shake your head and frown) (PERCENT chance to avoid)"
+
+
+
+
+
+
+
+rOfferElf,"(The SPEAKER greets you)|Normally we don't meddle in mortal affairs.|But you, Outsider, are different.|Let's have a conversation."
+rOfferElfYes,"(The SPEAKER smiles warmly)|Outsiders have a lower rank in our society.|But it is a rank all the same.|You will be above your mortal peers.|What do you say?"
+rOfferElfYes_Yes,"(The SPEAKER clasps some 'jewelry' around your limbs)|You look beautiful, my dear.|I will leave you to your own affairs until we meet again."
+rOfferElfYes_No,"(The SPEAKER turns her head away)|Hmph. I offer you a bargain and you refuse."
+rOfferElfNo,"(The SPEAKER turns her head away)|Hmph. As expected."
+rOfferElfForce,"(The SPEAKER folds her arms)|If you are not with us, then you are against us.|You shall face the wrath of the wild."
+rOfferElfForceYes,"(The SPEAKER frowns)|Hardly slavery!|A mere slave would not be allowed to even set foot in our society."
+rOfferElfForce_No,"(The SPEAKER frowns)|We will meet again."
+rOfferElfForce_Yes,"(The SPEAKER nods and smiles)|(She decorates your body with 'jewelry')|I am glad you had a change of heart."
+rOfferElfForce_Failure,"(The SPEAKER scoffs)|(Her magic suddenly binds you tightly in glowing ropes)|Amateur."
+
+dOfferElf_Yes,"I'm interested. (Talk with her)"
+dOfferElf_YesGag,"(Nod excitedly)"
+dOfferElf_No,"No thanks."
+dOfferElf_NoGag,"(Shake your head)"
+
+dOfferElfYes_Yes,"I accept your gracious offer!"
+dOfferElfYes_YesGag,"(Accept)"
+dOfferElfYes_No,"I won't be a slave to you."
+dOfferElfYes_NoGag,"(Refuse)"
+
+dOfferElfForce_Yes,"Fine, fine... I will accept."
+dOfferElfForce_YesGag,"(Moan and nod)"
+dOfferElfForce_No,"No way. (PERCENT chance to avoid)"
+dOfferElfForce_NoGag,"(Shake your head and frown) (PERCENT chance to avoid)"
+
+
+
+
+
+rOfferElemental,"(The SPEAKER smiles at you)|Mortal."
+rOfferElementalYes,"(The SPEAKER points to the ground)|Kneel before me and accept your collar."
+rOfferElementalYes_Yes,"(The SPEAKER snaps her fingers)|(A collar of cold black metal materializes around your neck)|A girl who knows her place! Wonderful..."
+rOfferElementalYes_No,"(The SPEAKER scoffs)|Hmmph. Mortals..."
+rOfferElementalNo,"(The SPEAKER scoffs)|Hmmph. Mortals..."
+rOfferElementalForce,"(The SPEAKER folds her arms)|Well, look who doesn't know her place~"
+rOfferElementalForceYes,"(The SPEAKER folds her arms)|I didn't offer you a choice in the matter.|You're mine, I've decided that."
+rOfferElementalForce_No,"(The SPEAKER's eyes begin to glow)|Looks like we'll do this the fun way!"
+rOfferElementalForce_Yes,"(The SPEAKER smiles)|Wonderful~|Now come along, my pet!"
+rOfferElementalForce_Failure,"(The SPEAKER scoffs and snaps her fingers)|(Metallic restraints come at you from all angles and snap in place tightly)|(A gag forces itself into your mouth)|Now then, what were we saying?"
+
+dOfferElemental_Yes,"Yes?"
+dOfferElemental_YesGag,"(Nod excitedly)"
+dOfferElemental_No,"I don't talk to monsters!"
+dOfferElemental_NoGag,"(Shake your head)"
+
+dOfferElementalYes_Yes,"O-okay. (Kneel)"
+dOfferElementalYes_YesGag,"(Kneel)"
+dOfferElementalYes_No,"I refuse!"
+dOfferElementalYes_NoGag,"(Refuse)"
+
+dOfferElementalForce_Yes,"Then it looks like I have no choice. (Join her)"
+dOfferElementalForce_YesGag,"(Moan and nod)"
+dOfferElementalForce_No,"I will never bow to you! (PERCENT chance to avoid)"
+dOfferElementalForce_NoGag,"(Shake your head and frown) (PERCENT chance to avoid)"
+
+
+
+
+
+
+rOfferBountyhunter,"(The SPEAKER waves)|You seem like an exceptional individual.|What do you think of joining the Guild?"
+rOfferBountyhunterYes,"(The SPEAKER smiles)|Excellent! I'll put in a word with the Guild.|Do note: this will affect your reputation with certain bad actors."
+rOfferBountyhunterYes_Yes,"(The SPEAKER takes out a magic scroll and signs it)|(The scroll vanishes into the aether)|Good luck out there, freelancer."
+rOfferBountyhunterYes_No,"(The SPEAKER nods)|Fair enough. Guild work is not for everyone."
+rOfferBountyhunterNo,"(The SPEAKER nods)|Very well, then I won't bother you."
+rOfferBountyhunterForce,"(The SPEAKER looks dubious)|You know, there's quite a bounty on your head.|I'm sure we could do something about it."
+rOfferBountyhunterForceYes,"(The SPEAKER tilts her head)|Haha, very funny.|We both know that you're not one of those... right?"
+rOfferBountyhunterForce_No,"(The SPEAKER frowns and readies for battle)|My instincts were right."
+rOfferBountyhunterForce_Yes,"(The SPEAKER takes out a magic scroll and signs it)|(The scroll vanishes into the aether)|Good luck out there, freelancer."
+rOfferBountyhunterForce_Failure,"(The SPEAKER suddenly strikes you to the floor)|(You feel a foot on your back as she ties you in a strict rope hogtie...)|(She dusts off her hands)|We'll have a talk when you get out of that, okay?"
+
+dOfferBountyhunter_Yes,"This sounds like an interesting opportunity."
+dOfferBountyhunter_YesGag,"(Nod excitedly)"
+dOfferBountyhunter_No,"I have no interest in joining the guild."
+dOfferBountyhunter_NoGag,"(Shake your head)"
+
+dOfferBountyhunterYes_Yes,"Gladly!"
+dOfferBountyhunterYes_YesGag,"(Accept the offer)"
+dOfferBountyhunterYes_No,"What if I am one of those bad actors? (Refuse)"
+dOfferBountyhunterYes_NoGag,"(Refuse the offer)"
+
+dOfferBountyhunterForce_Yes,"Fine... (Join)"
+dOfferBountyhunterForce_YesGag,"(Moan and nod)"
+dOfferBountyhunterForce_No,"Go away. (PERCENT chance to avoid)"
+dOfferBountyhunterForce_NoGag,"(Frown at her) (PERCENT chance to avoid)"
+
+
+
+
+
+
+
+rOfferAncientRobot,"(The SPEAKER beeps)|Prisoner 74121 identified.|Subject not registered in database."
+rOfferAncientRobotYes,"(The SPEAKER beeps)|Confirming database entry.|Say 'I will be a good girl' to enter database."
+rOfferAncientRobotYes_Yes,"(The SPEAKER beeps and applies tracking gear)|(The metallic cables click into place with a soft beep)|Prisoner 74121 registered. Good girl."
+rOfferAncientRobotYes_No,"(The SPEAKER beeps)|Acknowledged. Be warned:|Lost contact with Sections 98, 97, 96, 95...|(The list goes on...)"
+rOfferAncientRobotNo,"(The SPEAKER beeps)|Acknowledged. Updating records."
+rOfferAncientRobotForce,"(The SPEAKER beeps and flashes its lights)|Target acquired."
+rOfferAncientRobotForceYes,"(The SPEAKER beeps and flashes its lights)|Target has complied. Supplying uniform."
+rOfferAncientRobotForce_No,"(The SPEAKER beeps and flashes its lights)|Engaging capture protocol."
+rOfferAncientRobotForce_Yes,"(The SPEAKER beeps and flashes its lights)|"
+rOfferAncientRobotForce_Failure,"(The SPEAKER blasts you with a stunning ray and captures you)|Target neutralized."
+
+dOfferAncientRobot_Yes,"Please register me."
+dOfferAncientRobot_YesGag,"(Stop to talk to the robot)"
+dOfferAncientRobot_No,"Prisoner 74121? You must be mistaken..."
+dOfferAncientRobot_NoGag,"(Avoid the robot)"
+
+dOfferAncientRobotYes_Yes,"Prisoner 74121 reporting. I will be a good girl."
+dOfferAncientRobotYes_YesGag,"(Accept the contract)"
+dOfferAncientRobotYes_No,"Actually, I am an administrator. (Refuse)"
+dOfferAncientRobotYes_NoGag,"(Refuse the contract)"
+
+dOfferAncientRobotForce_Yes,"I'm sorry, I will be a good girl!"
+dOfferAncientRobotForce_YesGag,"(Moan and nod)"
+dOfferAncientRobotForce_No,"What? (PERCENT chance to avoid)"
+dOfferAncientRobotForce_NoGag,"(Shake your head and frown) (PERCENT chance to avoid)"
+
+
+
+
+
+
+rOfferDragonheart,"(The SPEAKER smiles)|I used to be an adventurer like you.|Then I joined up with the Dragonhearts!"
+rOfferDragonheartYes,"(The SPEAKER clears her throat)|Well, we're actually recruiting!|You're free to join us if you agree to fight for justice!"
+rOfferDragonheartYes_Yes,"(The SPEAKER gives you a firm handshake)|Welcome to the sisterhood, adventurer!"
+rOfferDragonheartYes_No,"(The SPEAKER tilts her head and shrugs)|Ah well. "
+rOfferDragonheartNo,"(The SPEAKER nods)|Fair enough."
+rOfferDragonheartForce,"(The SPEAKER frowns)|What is it?|You're not an enemy of justice, are you?"
+rOfferDragonheartForceYes,"(The SPEAKER frowns)|...If you won't fight for justice, that makes you an enemy of justice."
+rOfferDragonheartForce_No,"(The SPEAKER frowns and cracks her knuckles)|Looks like my suspicions were right!|Looks like you and I are going to have a little chat..."
+rOfferDragonheartForce_Yes,"(The SPEAKER giggles)|Hehe, just messin' with ya.|Anyway, welcome to the sisterhood!"
+rOfferDragonheartForce_Failure,"(The SPEAKER grabs you and ties you up)|You won't be making trouble like that any time soon."
+
+dOfferDragonheart_Yes,"I wish I could join you."
+dOfferDragonheart_YesGag,"(Nod excitedly)"
+dOfferDragonheart_No,"Please go away."
+dOfferDragonheart_NoGag,"(Back away)"
+
+dOfferDragonheartYes_Yes,"Great! Sign me up!"
+dOfferDragonheartYes_YesGag,"(Join)"
+dOfferDragonheartYes_No,"Fight for justice? Sounds restrictive..."
+dOfferDragonheartYes_NoGag,"(Back away)"
+
+dOfferDragonheartForce_Yes,"Actually, justice doesn't sound bad!"
+dOfferDragonheartForce_YesGag,"(Moan and nod)"
+dOfferDragonheartForce_No,"What are you going to do about it? (PERCENT chance to avoid)"
+dOfferDragonheartForce_NoGag,"(Shake your head and frown) (PERCENT chance to avoid)"
+
+
+
+
+rOfferBandit,"(The SPEAKER waves and calls you over)|Looks like you've made a name for yourself.|What do you say to a little agreement?"
+rOfferBanditYes,"(The SPEAKER clears her throat)|Well, you're currently on our turf.|But we're willing to cut you some slack.|You just have to agree not to attack any of us."
+rOfferBanditYes_Yes,"(The SPEAKER gives you a firm handshake)|Welcome to the sisterhood, adventurer!"
+rOfferBanditYes_No,"(The SPEAKER tilts her head and shrugs)|Ah well. "
+rOfferBanditNo,"(The SPEAKER nods)|Fair enough."
+rOfferBanditForce,"(The SPEAKER frowns)|Criminals? Girl, we ARE the law around these parts~"
+rOfferBanditForceYes,"(The SPEAKER grins)|I like your spunk, girl.|But you're kidding, right?"
+rOfferBanditForce_No,"(The SPEAKER raises her fists and smiles)|You're on!"
+rOfferBanditForce_Yes,"(The SPEAKER chuckles)|Here's a toast to a new partnership!"
+rOfferBanditForce_Failure,"(The SPEAKER catches you and trusses you up)|Maybe we'll just have to find you an owner, then!|Hehe."
+
+dOfferBandit_Yes,"I'm all ears."
+dOfferBandit_YesGag,"(Listen closely)"
+dOfferBandit_No,"I don't deal with criminals."
+dOfferBandit_NoGag,"(Back away)"
+
+dOfferBanditYes_Yes,"It's a deal!"
+dOfferBanditYes_YesGag,"(Mumble in agreement)"
+dOfferBanditYes_No,"You don't understand. This is MY turf."
+dOfferBanditYes_NoGag,"(Scoff at her through your gag)"
+
+dOfferBanditForce_Yes,"Haha, just kidding. I'm with you."
+dOfferBanditForce_YesGag,"(Moan and nod)"
+dOfferBanditForce_No,"Put 'em up! (PERCENT chance to avoid)"
+dOfferBanditForce_NoGag,"(Shake your head and frown) (PERCENT chance to avoid)"
+
+
+
+
+
+
+
+
+
+
+rOfferFungal,"(The SPEAKER stops walking and speaks)|You there!|It seems your attunement with magic is high.|Join us."
+rOfferFungalYes,"(The SPEAKER nods calmly)|We will use some special equipment to increase your attunement.|Put these on."
+rOfferFungalYes_Yes,"(The 'equipment' locks in place)|Excellent. Soon you will be much more powerful."
+rOfferFungalYes_No,"(The SPEAKER stops talking and walks away.)"
+rOfferFungalNo,"(The SPEAKER walks away like nothing happened.)"
+rOfferFungalForce,"(The SPEAKER frowns slightly)|We are prepared to use force if need be..."
+rOfferFungalForceYes,"(The SPEAKER stares at you)|Why? Did you not say you wanted to join us?"
+rOfferFungalForce_No,"(The SPEAKER frowns)|We have failed to convince the human."
+rOfferFungalForce_Yes,"(The SPEAKER nods.)|You have made a wise decision."
+rOfferFungalForce_Failure,"(The SPEAKER uses magic to force you.)|There. Try not to succumb to your desires too much."
+
+dOfferFungal_Yes,"Um... sure?"
+dOfferFungal_YesGag,"(Nod excitedly)"
+dOfferFungal_No,"Get away from me!"
+dOfferFungal_NoGag,"(Shake your head)"
+
+dOfferFungalYes_Yes,"Shiny... (Put them on)"
+dOfferFungalYes_YesGag,"(Let her put them on you)"
+dOfferFungalYes_No,"What? No way! (Refuse)"
+dOfferFungalYes_NoGag,"(Refuse the contract)"
+
+dOfferFungalForce_Yes,"Okay, I will wear them..."
+dOfferFungalForce_YesGag,"(Moan and nod)"
+dOfferFungalForce_No,"Monster! (PERCENT chance to avoid)"
+dOfferFungalForce_NoGag,"(Shake your head and frown) (PERCENT chance to avoid)"
+
+
+
+rOfferApprentice,"(The SPEAKER does a short bow as she sees you)|Um... hi!|I have a letter for you..."
+rOfferApprenticeYes,"(The letter is a contract from the College)|(They want you to sign up as an instructor for apprentices)|(The SPEAKER looks at you nervously.)"
+rOfferApprenticeYes_Yes,"(The SPEAKER sighs in relief)|That's good...|(You sign the contract and it vanishes into the aether)"
+rOfferApprenticeYes_No,"(The SPEAKER whimpers)|What will I tell them..."
+rOfferApprenticeNo,"(The SPEAKER whimpers)|What will I tell them..."
+rOfferApprenticeForce,"(The SPEAKER glares at you)|It's an important message concerning your standing!|With the College!"
+rOfferApprenticeForceYes,"(The SPEAKER blushes)|Well...|I was told we would make changes to your academic record,|should you refuse..."
+rOfferApprenticeForce_No,"(The SPEAKER frowns)|They told me to make sure you sign...|by any means necessary!"
+rOfferApprenticeForce_Yes,"(The SPEAKER nods and smiles)|Thank you so much!|I don't know what I would have done if you said no..."
+rOfferApprenticeForce_Failure,"(The SPEAKER frowns and waves her wand)|(A bunch of ropes come out of the ground and restrain you)|Hmmph. I'll tell them you signed it anyway.|I can't go back empty handed."
+
+dOfferApprentice_Yes,"Thank you for delivering it. (Read it)"
+dOfferApprentice_YesGag,"(Read the letter)"
+dOfferApprentice_No,"There's nothing good inside that letter."
+dOfferApprentice_NoGag,"(Shake your head)"
+
+dOfferApprenticeYes_Yes,"Great! Wonderful!"
+dOfferApprenticeYes_YesGag,"(Accept the contract)"
+dOfferApprenticeYes_No,"There is no way I'd accept."
+dOfferApprenticeYes_NoGag,"(Refuse the contract)"
+
+dOfferApprenticeForce_Yes,"Fine. I'll read it. (Join the College as an instructor)"
+dOfferApprenticeForce_YesGag,"(Moan and nod)"
+dOfferApprenticeForce_No,"This is unethical! I refuse! (PERCENT chance to avoid)"
+dOfferApprenticeForce_NoGag,"(Shake your head and frown) (PERCENT chance to avoid)"
+
+
+
+rOfferTemp,"(The SPEAKER does a short bow as she sees you)|Greetings.|You seem to possess qualities we can make use of.|I would be glad to offer you a position..."
+rOfferTempYes,"(The SPEAKER smiles briefly before clearing her throat)|Fantastic!|I have your uniform right here..."
+rOfferTempYes_Yes,"(The SPEAKER buckles you in, pulling the lacing extra-tight...)|(You hear the click of a few locks going on...)|Wonderful. Your first task is to clean up this floor.|Good luck."
+rOfferTempYes_No,"(The SPEAKER tilts her head and shrugs)|We are always prepared..."
+rOfferTempNo,"(The SPEAKER nods)|Fair enough."
+rOfferTempForce,"(The SPEAKER grins and pulls out a skimpy dress)|Might I remind you that you have made quite a few... enemies?|It would be a shame if you ran into one of them..."
+rOfferTempForceYes,"(The SPEAKER nods proudly)|We are willing to made some changes to our records~"
+rOfferTempForce_No,"(The SPEAKER frowns)|You won't know what hit you."
+rOfferTempForce_Yes,"(The SPEAKER smiles)|I'm glad you made the right decision.|Now, your first task will be to clean up this floor.|Good luck."
+rOfferTempForce_Failure,"(The SPEAKER suddenly moves faster than you can react)|(You feel a foot pressing on your back as you are forced down)|(She puts a uniform on you and locks it tight...)|You'll require additional training, I suppose..."
+
+dOfferTemp_Yes,"This sounds like an interesting opportunity."
+dOfferTemp_YesGag,"(Nod excitedly)"
+dOfferTemp_No,"No thanks, I know what that entails..."
+dOfferTemp_NoGag,"(Shake your head)"
+
+dOfferTempYes_Yes,"Gladly!"
+dOfferTempYes_YesGag,"(Accept the contract)"
+dOfferTempYes_No,"W-where did you get that uniform? (Refuse)"
+dOfferTempYes_NoGag,"(Refuse the contract)"
+
+dOfferTempForce_Yes,"Fine. I'll sign it..."
+dOfferTempForce_YesGag,"(Moan and nod)"
+dOfferTempForce_No,"Never! (PERCENT chance to avoid)"
+dOfferTempForce_NoGag,"(Shake your head and frown) (PERCENT chance to avoid)"
+
+
+
+
+
 
 
 rBlacksmithShop,"(The SPEAKER waves)|Greetings,|I manufacture all sorts of goods.|Would you like to buy some?"
@@ -7062,7 +7716,7 @@ rPotionSellPotionStamina,"(The SPEAKER smiles)|Refreshing!"
 rPotionSellPotionFrigid,"(The SPEAKER smiles)|They say a bitter tea cures all ails..."
 rPotionSellPotionInvisibility,"(The SPEAKER smiles)|An empty flask?|...Oh."
 
-rElfCrystalSell,"(The SPEAKER approaches you)|I greet you!|My throat is parched and I seek the bounties of nature.|Do you have what I seek?"
+rElfCrystalSell,"(The SPEAKER approaches you)|My greetings, Outsider!|My throat is parched and I seek the bounties of nature.|Do you have what I seek?"
 rElfCrystalSellAttack,"(The SPEAKER doesn't look surprised)|Then let us have a battle of wits!"
 rElfCrystalSellPotionMana,"(The SPEAKER thanks you)|A kind offering! You have my thanks."
 rElfCrystalSellManaOrb,"(The SPEAKER thanks you)|A magnificent offering! You have my thanks."
@@ -7475,7 +8129,19 @@ dPrisonerJail_Word,Use a command word
 
 KinkyDungeonDiscovered,An enemy found you while you were busy!
 
-rPrisonerRescue,"(A SPEAKER wakes you up by banging on the bars)|Wake up! Let's get out of here!|(She managed to pick the lock on your cell door)"
+rPrisonerRescueBandit,"(A SPEAKER wakes you up by banging on the bars)|Wake up! Let's get out of here!|(She managed to pick the lock on your cell door)"
+rPrisonerRescueBountyhunter,"(You wake up to find a SPEAKER creeping up outside the door)|You've been marked as a person of interest.|We are here to escort you out of this place."
+rPrisonerRescueNevermere,"(A SPEAKER wakes you up by banging on the bars)|Hey wake up!|You should join me and my pals here~|Maybe you'll join them once we're out of here?"
+rPrisonerRescueElf,"(A SPEAKER wakes you up by banging on the bars)|I have been sent to inform you...|...that you are of good standing with the Council.|That being said, I'm only doing this because of procedure."
+rPrisonerRescueBast,"(A SPEAKER wakes you up by banging on the bars)|Greetings, follower of the blessed kitty!|Because of your faith, we have been sent to rescue you!"
+rPrisonerRescueMushy,"(You sense a presence nearby and look up to see a SPEAKER)|Because you are one, we have come to free you.|Do not take this as an excuse|to get yourself into further trouble."
+rPrisonerRescueDressmaker,"(A SPEAKER wakes you up with the sound of copious fabric rustling)|Oh why hello there!|Would you be interested in a trial run of my latest product?|Of course, we'll have to get you out of here first..."
+rPrisonerRescueWitch,"(A SPEAKER wakes you up by banging on the bars)|Hello my pretty~|I thought to myself I'd rather have you than these folk.|Now why don't you come along and follow me..."
+rPrisonerRescueApprentice,"(A SPEAKER wakes you up by banging on the bars)|Um... hello!|I received a quest to help you out of here!|Now, where do we go..."
+rPrisonerRescueMaidforce,"(You wake up to find a SPEAKER whispering to you)|Greetings.|We've been sent to free you.|Let's get moving."
+rPrisonerRescueDragon,"(A SPEAKER wakes you up by banging loudly)|Hey! Good news!|My friends and I came to rescue you!"
+rPrisonerRescueElemental,"(A SPEAKER wakes you up by knocking on the bars)|Hey, wake up.|I happen to like you, so we're going to get you out of here."
+rPrisonerRescueAncientRobot,"(A SPEAKER flashes a bright light in your direction)|Prisoner 74121 located. Commence transfer to different location."
 rAllyRescue,"(A SPEAKER wakes you up)|We came to rescue you. Come on!"
 
 rBed,"(The bed looks comfy and inviting)|(Napping here will restore half of your willpower)|(You can only sleep once per floor)"

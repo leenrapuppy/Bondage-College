@@ -1,5 +1,7 @@
 /** Kinky Dungeon Typedefs*/
 type item = {
+	/** If the item has a different curse from the base curse */
+	curse?: string,
 	/** Name of the item*/
 	name: string,
 	/** Type of the item*/
@@ -22,6 +24,8 @@ type item = {
 	tetherToGuard?: boolean,
 	/** ID of leashing enemy*/
 	tetherEntity?: number,
+	/** Leashing location*/
+	tetherLocation?: {x: number, y: number},
 	/** Location of the tether*/
 	tx?: number,
 	/** Location of the tether*/
@@ -58,6 +62,10 @@ interface consumable {
 	spell?: string,
 	potion?: boolean,
 	noHands?: boolean,
+	/** Requirement that overrides all other requirements */
+	prereq?: string,
+	/** Requirement in addition to all other requirements such as not being gagged for potions, bound, etc */
+	postreq?: string,
 	/** Minimum effectiveness when gagged */
 	gagFloor?: number,
 	needMouth?: boolean,
@@ -268,7 +276,10 @@ type restraint = {
 	failSuffix?: Record<string, string>,
 	/** Changes the dialogue text when you try to struggle completely */
 	specStruggleTypes?: string[],
+	/** List of Groups removed */
 	remove?: string[],
+	/** List of tags removed */
+	removeShrine?: string[],
 	slimeLevel?: number,
 	addTag?: string[],
 	OverridePriority?: number,
@@ -341,6 +352,7 @@ type mapKey = string
 
 interface floorParams {
 	tagModifiers?: Record<string, number>;
+	globalTags?: Record<string, boolean>;
 	shadowColor?: number,
 	lightColor?: number,
 	background : string,
@@ -434,6 +446,8 @@ interface overrideDisplayItem {
 	Group: string,
 	/** Color */
 	Color: string[]|string,
+	/** Faction color index */
+	factionColor?: number[][],
 	/** Whether or not it overrides items already on */
 	override?: boolean,
 	/** Uses the player's hair color as the item color */
@@ -790,6 +804,7 @@ interface weapon {
 	chance: number;
 	type: string;
 	bind?: number;
+	bindType?: string;
 	distract?: number;
 	bindEff?: number;
 	distractEff?: number;
@@ -842,6 +857,7 @@ interface KinkyDungeonEvent {
 	aoe?: number;
 	buffType?: string;
 	time?: number;
+	bindType?: string;
 	chance?: number;
 	buff?: any;
 	lock?: string;
@@ -922,6 +938,7 @@ interface entity {
 	idle?: boolean,
 	summoned?: boolean,
 	boundLevel?: number,
+	specialBoundLevel?: Record<string, number>,
 	distraction?: number,
 	lifetime?: number,
 	maxlifetime?: number,
@@ -1010,6 +1027,8 @@ interface KinkyDialogueTrigger {
 	playRequired?: boolean;
 	/** Require play to be ONGOING */
 	onlyDuringPlay?: boolean;
+	/** Allow this to happen even out of playtime if the player is submissive enough */
+	allowPlayExceptionSub?: boolean;
 	/** If any NPC is in combat in last 3 turns this wont happen */
 	noCombat?: boolean;
 	/** Prevents this from happening if the target is hostile */
@@ -1039,6 +1058,8 @@ interface effectTile {
 	pauseSprite?: string,
 	brightness?: number,
 	skin?: string,
+	/** random = basic effect where it fades in and has a chance to fade out again */
+	fade?: string,
 };
 
 /** For spells */
@@ -1061,12 +1082,19 @@ type KDPerk = {
 	locked?: boolean,
 	outfit?: string,
 	require?: string,
+	costGroup?: string,
 	startPriority?: number,
 }
 
 interface spell {
+	/** Type of binding applied to the power */
+	bindType?: string,
 	/** Stops the spell from moving more than 1 tile */
 	slowStart?: boolean,
+	/** Spinrate of the bullet */
+	bulletSpin?: number,
+	/** Spinrate of the bullet hit */
+	hitSpin?: number,
 	/** Forces spell to move more than 1 tile at beginning */
 	fastStart?: boolean,
 	/** Affects aoe type
@@ -1616,6 +1644,7 @@ type KDMapTile = {
     weight: number;
     grid: string;
     POI: any[];
+    Keyring?: any[];
 	Jail: any[];
     Tiles: [string, any][];
     effectTiles: [string, [string, effectTile][]][];
@@ -1640,6 +1669,18 @@ type KDMapTile = {
 	notTags?: any[],
 }
 
-declare const PIXI: any;
+interface KDBondage {
+	color: string,
+	/** Order in which enemies will struggle */
+	priority: number,
+	/** Multiplier for struggle rate */
+	struggleRate: number,
+	/** Multiplier for the max health component of struggle */
+	healthStruggleBoost: number,
+	/** Multiplier for the power component of struggle */
+	powerStruggleBoost: number,
+}
 
+declare const PIXI: any;
+declare const zip: any;
 
