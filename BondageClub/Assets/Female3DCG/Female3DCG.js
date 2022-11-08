@@ -2967,6 +2967,19 @@ var AssetFemale3DCG = [
 					{ Name: "Lock", LockLayer: true}
 				],
 			},
+			{
+				Name: "TechnoChastityCage", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 50, Effect: ["Chaste"], Hide: ["Pussy"],
+				AllowPose: [],
+				AllowLock: true, DrawLocks: false,
+				DefaultColor: ["Default", "Default", "Default", "#8D8D8D"],
+				Left: 200, Top: 410,
+				Layer: [
+					{ Name: "Ring" },
+					{ Name: "Penis", InheritColor: "Pussy", HideColoring: true },
+					{ Name: "Cage" },
+					{ Name: "Lock", LockLayer: true}
+				],
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
