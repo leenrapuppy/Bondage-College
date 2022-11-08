@@ -507,6 +507,11 @@ function ModularItemMergeModuleValues({ asset, modules }, moduleValues) {
 		if (typeof Property.HeightModifier === "number") mergedProperty.HeightModifier = (mergedProperty.HeightModifier || 0) + Property.HeightModifier;
 		if (Property.OverrideHeight) mergedProperty.OverrideHeight = ModularItemMergeOverrideHeight(mergedProperty.OverrideHeight, Property.OverrideHeight);
 		if (asset.AllowTint && Property.Tint) mergedProperty.Tint = CommonArrayConcatDedupe(mergedProperty.Tint, Property.Tint);
+		if (typeof Property.Door === "boolean") mergedProperty.Door = Property.Door;
+		if (typeof Property.Padding === "boolean") mergedProperty.Padding = Property.Padding;
+		if (typeof Property.ShockLevel === "number") mergedProperty.ShockLevel = Property.ShockLevel;
+		if (typeof Property.TriggerCount === "number") mergedProperty.TriggerCount = Property.TriggerCount;
+		if (typeof Property.ShowText === "boolean") mergedProperty.ShowText = Property.ShowText;
 		return mergedProperty;
 	}, /** @type ItemProperties */({
 		Type: ModularItemConstructType(modules, moduleValues),
@@ -811,4 +816,18 @@ function ModularItemGenerateValidationProperties(data) {
 	}
 	asset.Layer.forEach((layer) => ModularItemGenerateLayerAllowTypes(layer, data));
 	ModularItemGenerateAllowLockType(data);
+}
+
+/**
+ * Check whether a specific module is active for a given modular item.
+ * @param {string} Module - The to be compared module
+ * @param {Item | null} Item - The item in question; defaults to {@link DialogFocusItem}
+ * @returns
+ */
+ function ModularItemModuleIsActive(Module, Item=DialogFocusItem) {
+	if (Item == null) {
+		return false;
+	}
+	const Data = ModularItemDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
+	return Data !== undefined ? (Data.currentModule === Module) : false;
 }

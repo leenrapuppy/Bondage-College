@@ -3723,14 +3723,12 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "FullLatexSuit", Fetish: ["Leather", "Latex"], Value: 200, Difficulty: 15, SelfBondage: 8, Time: 40, RemoveTime: 30, Random: false, AllowLock: true, DefaultColor: "#888888", Prerequisite: ["NotSuspended", "NotKneeling", "NotHogtied", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "NotShackled", "CannotBeSuited"],
+				Name: "FullLatexSuit", Fetish: ["Leather", "Latex"], Value: 200, Difficulty: 15, SelfBondage: 8, Time: 40, RemoveTime: 30, Random: false, AllowLock: true, DefaultColor: "#888888",
+				Prerequisite: ["NotSuspended", "NotKneeling", "NotHogtied", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "NotShackled", "CannotBeSuited"],
 				Hide: ["Socks", "Cloth", "ClothLower", "Bra", "Shoes", "ItemBoots", "ItemLegs", "ItemFeet", "Suit", "SuitLower", "Corset", "Panties", "Garters"],
 				HideItem: ["ItemNipplesLactationPump"],
 				SetPose: ["BackElbowTouch", "LegsClosed"],
 				Effect: ["Block", "Prone", "Freeze", "BlockKneel", "Slow"],
-				AllowBlock: ["ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-				AllowEffect: ["Egged", "Vibrating"],
-				AllowType: ["", "UnZip"],
 				Block: ["ItemBoots", "ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemLegs", "ItemFeet"],
 				Extended: true,
 				Layer: [
@@ -3888,9 +3886,21 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PrisonLockdownSuit", Value: 125, Difficulty: 7, SelfBondage: 7, Time: 50, RemoveTime: 30, Random: false, AllowLock: true, BuyGroup: "PrisonLockdownSuit", DefaultColor: ["#ab5207", "Default"], Hide: ["BodyUpper", "BodyLower", "Cloth", "ClothLower", "Shoes", "Socks", "ItemLegs", "ItemFeet", "ItemPelvis", "ItemBoots", "SuitLower", "Panties", "ItemVulva", "ItemVulvaPiercings", "Garters"], HideItem: ["ItemButtAnalBeads2", "ClothAccessoryPoncho"], SetPose: ["LegsClosed", "BackElbowTouch"], Prerequisite: ["NotSuspended", "NotKneeling", "NotHogtied", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "NotShackled"], Effect: ["Block", "Prone", "Slow", "BlockKneel"], AllowEffect: ["Freeze"], AllowType: ["Ankles", "Thighs", "Full"], Block: ["ItemBreast", "ItemNipplesPiercings", "ItemNipples", "ItemTorso", "ItemTorso2", "ItemPelvis", "ItemHands", "ItemHandheld", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemLegs", "ItemFeet", "ItemBoots"], Extended: true, SelfUnlock: false, Layer: [
-					{ Name: "Suit", AllowTypes: ["", "Ankles", "Thighs", "Full"] },
-					{ Name: "Belts", AllowTypes: ["", "Ankles", "Thighs", "Full"] },
+				Name: "PrisonLockdownSuit", Value: 125, Difficulty: 7, SelfBondage: 7, Time: 50, RemoveTime: 30, Random: false, AllowLock: true, BuyGroup: "PrisonLockdownSuit", DefaultColor: ["#ab5207", "Default"],
+				Hide: ["BodyUpper", "BodyLower", "Cloth", "ClothLower", "Shoes", "Socks", "ItemLegs", "ItemFeet", "ItemPelvis", "ItemBoots", "SuitLower", "Panties", "ItemVulva", "ItemVulvaPiercings", "Garters"],
+				HideItem: ["ItemButtAnalBeads2", "ClothAccessoryPoncho"], SetPose: ["LegsClosed", "BackElbowTouch"], Prerequisite: ["NotSuspended", "NotKneeling", "NotHogtied", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "NotShackled"],
+				Effect: ["Block", "Prone", "Slow", "BlockKneel"], Block: ["ItemBreast", "ItemNipplesPiercings", "ItemNipples", "ItemTorso", "ItemTorso2", "ItemPelvis", "ItemHands", "ItemHandheld", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemLegs", "ItemFeet", "ItemBoots"], Extended: true, SelfUnlock: false,
+				Layer: [
+					// Suits
+					{ Name: "Suit", AllowModuleTypes: ["r0"], HasType: false },
+					{ Name: "Ankles_Suit", AllowModuleTypes: ["r1"], CopyLayerColor: "Suit", HasType: false },
+					{ Name: "Thighs_Suit", AllowModuleTypes: ["r2"], CopyLayerColor: "Suit", HasType: false },
+					{ Name: "Full_Suit", AllowModuleTypes: ["r3"], CopyLayerColor: "Suit", HasType: false },
+					// Belts
+					{ Name: "Belts", AllowModuleTypes: ["r0"], HasType: false },
+					{ Name: "Ankles_Belts", AllowModuleTypes: ["r1"], CopyLayerColor: "Belts", HasType: false },
+					{ Name: "Thighs_Belts", AllowModuleTypes: ["r2"], CopyLayerColor: "Belts", HasType: false },
+					{ Name: "Full_Belts", AllowModuleTypes: ["r3"], CopyLayerColor: "Belts", HasType: false },
 				],
 				Alpha: [{ Group: ["ItemNeck"], Masks: [[0, 213, 500, 60]] }]
 			},
@@ -4656,7 +4666,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "Ball", Fetish: ["Pet"], Value: 5, Difficulty: -50, Time: 5, Prerequisite: "GagUnique", Hide: ["Mouth"], Effect: ["BlockMouth", "GagMedium"], AllowEffect: ["BlockMouth", "GagMedium"], ExpressionTrigger: [{ Name: "DroolSides", Group: "Fluids", Timer: 20 }],
+				Name: "Ball", Fetish: ["Pet"], Value: 5, Difficulty: -50, Time: 5, Prerequisite: "GagUnique", Hide: ["Mouth"], Effect: ["BlockMouth", "GagMedium"], ExpressionTrigger: [{ Name: "DroolSides", Group: "Fluids", Timer: 20 }],
 				DefaultColor: ["#E1D31C", "Default"],
 				Layer: [
 					{ Name: "Base" },
@@ -6916,12 +6926,10 @@ var AssetFemale3DCG = [
 				Prerequisite: ["NotLifted", "NotSuspended", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "CanKneel"],
 				SetPose: ["Kneel"],
 				Block: ["ItemAddon"],
-				AllowType: ["OpenPadding", "ClosedNoPadding", "ClosedPadding"],
-				AllowEffect: ["OneWayEnclose", "Prone", "Freeze"],
 				Effect: ["ForceKneel", "Tethered"],
 				Layer: [
 					{ Name: "Kennel", Priority: 1, HasType: false },
-					{ Name: "Padding", Priority: 1, AllowTypes: ["OpenPadding", "ClosedPadding"], HasType: false },
+					{ Name: "Padding", Priority: 1, AllowTypes: ["d0p1", "d1p1"], HasType: false },
 					{
 						Name: "Frame", HasType: false, Priority: 58,
 						Alpha: [{
