@@ -450,9 +450,19 @@ function TypedItemGetOption(groupName, assetName, optionName) {
  * message informing the player of the requirements that are not met.
  */
 function TypedItemValidateOption(C, item, option, previousOption) {
-	if (option.Property && option.Property.Type && InventoryBlockedOrLimited(C, item, option.Property.Type)) {
+	let PermissionFailure = false;
+	switch (option.StructType) {
+		case "ModularItemOption":
+			PermissionFailure = !option.Name.includes("0") && InventoryBlockedOrLimited(C, item, option.Name);
+			break;
+		default:
+			PermissionFailure = option.Property && option.Property.Type && InventoryBlockedOrLimited(C, item, option.Property.Type);
+			break;
+	}
+	if (PermissionFailure) {
 		return DialogFindPlayer("ExtendedItemNoItemPermission");
 	}
+
 	const validationFunctionName = `Inventory${item.Asset.Group.Name}${item.Asset.Name}Validate`;
 	let validationMessage = CommonCallFunctionByName(validationFunctionName, C, item, option, previousOption);
 	if (!validationMessage || typeof validationMessage !== "string") {

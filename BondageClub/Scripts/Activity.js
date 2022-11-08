@@ -285,12 +285,13 @@ function ActivityGenerateItemActivitiesFromNeed(allowed, acting, acted, needsIte
 
 	let handled = false;
 	for (const item of items) {
-		const type = item.Property ? item.Property.Type : null;
+		const types = !item.Property ? [null] :
+			(item.Asset.Archetype === "Modular" ? ModularItemDeconstructType(item.Property.Type) || [null] : [item.Property.Type]);
 		/** @type {ItemActivityRestriction} */
 		let blocked = null;
-		if (InventoryIsAllowedLimited(acted, item, type)) {
+		if (types.some((type) => InventoryIsAllowedLimited(acted, item, type))) {
 			blocked = "limited";
-		} else if (InventoryBlockedOrLimited(acted, item, type)) {
+		} else if (types.some((type) => InventoryBlockedOrLimited(acted, item, type))) {
 			blocked = "blocked";
 		} else if (InventoryGroupIsBlocked(acting, item.Asset.Group.Name)) {
 			blocked = "unavail";

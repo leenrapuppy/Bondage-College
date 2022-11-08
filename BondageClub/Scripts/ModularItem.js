@@ -325,6 +325,13 @@ function ModularItemDrawCommon(moduleName, buttonDefinitions, { asset, pages, dr
 	DrawAssetPreview(1387, 55, asset, {Icons: locked ? ["Locked"] : undefined});
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 
+	// Permission mode toggle
+	DrawButton(
+		1775, 25, 90, 90, "", "White",
+		ExtendedItemPermissionMode ? "Icons/DialogNormalMode.png" : "Icons/DialogPermissionMode.png",
+		DialogFindPlayer(ExtendedItemPermissionMode ? "DialogNormalMode" : "DialogPermissionMode"),
+	);
+
 	const { paginate, pageCount, positions } = drawData[moduleName];
 	const pageNumber = Math.min(pageCount - 1, pages[moduleName] || 0);
 	const pageStart = pageNumber * ModularItemsPerPage;
@@ -407,7 +414,16 @@ function ModularItemClickModule(module, data) {
 			const pageStart = pageNumber * ModularItemsPerPage;
 			const page = module.Options.slice(pageStart, pageStart + ModularItemsPerPage);
 			const selected = page[i];
-			if (selected) ModularItemSetType(module, pageStart + i, data);
+			if (selected) {
+				if (ExtendedItemPermissionMode) {
+					const C = CharacterGetCurrent();
+					const IsFirst = selected.Name.includes("0");
+					const Worn = C.ID == 0 && DialogFocusItem.Property.Type.includes(selected.Name);
+					InventoryTogglePermission(DialogFocusItem, selected.Name, IsFirst || Worn);
+				} else {
+					ModularItemSetType(module, pageStart + i, data);
+				}
+			}
 		},
 		(delta) => ModularItemChangePage(module.Name, delta, data)
 	);
@@ -432,7 +448,16 @@ function ModularItemClickCommon({ paginate, positions }, exitCallback, itemCallb
 
 	// Exit button
 	if (MouseIn(1885, 25, 90, 90)) {
-		return exitCallback();
+		exitCallback();
+		ExtendedItemPermissionMode = false;
+		return;
+	} else if (MouseIn(1775, 25, 90, 90)) {
+		// Permission toggle button
+		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") {
+			ChatRoomCharacterUpdate(Player);
+		}
+		ExtendedItemPermissionMode = !ExtendedItemPermissionMode;
+		return;
 	} else if (paginate) {
 		if (MouseIn(1665, 240, 90, 90)) return paginateCallback(-1);
 		else if (MouseIn(1775, 240, 90, 90)) return paginateCallback(1);
@@ -563,6 +588,19 @@ function ModularItemConstructType(modules, values) {
 		type += (values[i] || 0);
 	});
 	return type;
+}
+
+/**
+ * Seperate a modular item type string into a list with the types of each individual module.
+ * @param {string} Type - The modular item type string
+ * @returns {string[] | null} - A list with the options of each individual module or `null` if the input type wasn't a string
+ */
+function ModularItemDeconstructType(Type) {
+	if (typeof Type !== "string") {
+		return null;
+	} else {
+		return Type.split(/([a-zA-Z_]+)(\d+)/);
+	}
 }
 
 /**

@@ -956,6 +956,19 @@ interface ScreenFunctions {
 
 //#region Characters
 
+/** A struct for representing an item with special permissions (limited, favorited, etc). */
+interface ItemPermissions {
+	/** The {@link Asset.Name} of the item */
+	Name: string;
+	/** The {@link AssetGroup.Name} of the item */
+	Group: AssetGroupName;
+	/**
+	 * Either the item's {@link ItemProperties.Type} or, in the case of modular items,
+	 * a substring thereof denoting the type of a single module
+	 */
+	Type?: string | null;
+}
+
 interface Character {
 	ID: number;
 	/** Only on `Player` */
@@ -984,9 +997,9 @@ interface Character {
 	MustDraw: boolean;
 	BlinkFactor: number;
 	AllowItem: boolean;
-	BlockItems: any[];
-	FavoriteItems: any[];
-	LimitedItems: any[];
+	BlockItems: ItemPermissions[];
+	FavoriteItems: ItemPermissions[];
+	LimitedItems: ItemPermissions[];
 	WhiteList: number[];
 	HeightModifier: number;
 	MemberNumber?: number;
@@ -1033,7 +1046,7 @@ interface Character {
 	IsLoverOfPlayer: () => boolean;
 	GetLoversNumbers: (MembersOnly?: boolean) => (number | string)[];
 	AllowedActivePose: string[];
-	HiddenItems: any[];
+	HiddenItems: ItemPermissions[];
 	HeightRatio: number;
 	HasHiddenItems: boolean;
 	SavedColors: HSVColor[];
