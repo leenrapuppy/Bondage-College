@@ -24,10 +24,10 @@ function InventoryItemArmsFullLatexSuitDraw(OriginalFunction) {
 	const [X, Y] = ExtendedXY[6][4];
 	const CanEquip = InventoryGet(C, "ItemVulva") == null;
 
-	// Provide 2 pseudo-extended item options with `Type: null`
+	// Provide 2 pseudo-extended item options with a fictional Type
 	ExtendedItemDrawButton(
-		{Name: "Wand", Property: {Type: null}, StructType: "ExtendedItemOption"},
-		{Name: "Wand", Property: {Type: null}, StructType: "ExtendedItemOption"},
+		{Name: "Wand", Property: {Type: "Wand"}, StructType: "ExtendedItemOption"},
+		{Name: "Wand", Property: {Type: "Wand"}, StructType: "ExtendedItemOption"},
 		Prefix, X, Y, true,
 		{Asset: VibeAsset},
 		!CanEquip,
@@ -58,7 +58,7 @@ function InventoryItemArmsFullLatexSuitClick(OriginalFunction) {
 		const VulvaItem = InventoryGet(C, "ItemVulva");
 		if (ExtendedItemPermissionMode) {
 			const Worn = (C.ID === 0 && VulvaItem != null && VulvaItem.Asset.Name === VibeItem.Asset.Name);
-			InventoryTogglePermission(VibeItem, null, Worn);
+			InventoryTogglePermission(VibeItem, "Wand", Worn);
 		} else if (VulvaItem == null) {
 			if (InventoryBlockedOrLimited(C, VibeItem)) {
 				DialogExtendedMessage = DialogFindPlayer("ExtendedItemNoItemPermission");
