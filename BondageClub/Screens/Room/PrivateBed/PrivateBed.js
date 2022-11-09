@@ -132,7 +132,7 @@ function PrivateBedRun() {
 			PrivateBedActivityMustRefresh = false;
 			PrivateBedActivityList = [];
 			for (let A of ActivityFemale3DCG)
-				if ((A.Name != null) && !A.Name.includes("Item") && !A.Name.includes("Reverse") && !A.Name.includes("Inject") && (A.MaxProgress != null) && (A.MaxProgress > 0))
+				if ((A.Name != null) && !A.Name.includes("Item") && !A.Name.includes("Reverse") && !A.Name.includes("Inject") && !A.Name.includes("Penetrate") && !A.Name.includes("Penis") && !A.Name.includes("Pussy") && (A.MaxProgress != null) && (A.MaxProgress > 0))
 					if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseTongue") || !Player.IsGagged())
 						if ((A.Prerequisite == null) || !A.Prerequisite.includes("UseMouth") || !Player.IsGagged())
 							if ((A.Prerequisite == null) || !A.Prerequisite.includes("IsGagged") || Player.IsGagged())
@@ -199,6 +199,8 @@ function PrivateBedActivityStart(Source, Target, Group, Activity) {
 	if (PrivateBedLog.length >= 10) PrivateBedLog.splice(0, 1);
 	Text = Text.replace("SourceCharacter", CharacterNickname(Source));
 	Text = Text.replace("TargetCharacter", CharacterNickname(Target));
+	Text = Text.replace("PronounPossessive", TextGet("Her"));
+	Text = Text.replace("PronounPossessive", TextGet("Her"));
 	PrivateBedLog.push(Text);
 
 	// If the player uses that activity on an NPC, it can raise the love between them
@@ -242,7 +244,7 @@ function PrivateBedNPCActivity(Source) {
 	let ActivityList = [];
 	let MinMaxProgress = ((Target.ArousalSettings != null) && (Target.ArousalSettings.Progress != null) && (Target.ArousalSettings.Progress >= Math.random() * 120)) ? Target.ArousalSettings.Progress : 0;
 	for (let A of ActivityFemale3DCG)
-		if ((A.MaxProgress != null) && (A.MaxProgress >= MinMaxProgress) && !A.Name.includes("Item") && !A.Name.includes("Reverse") && !A.Name.includes("Inject") && !A.Name.includes("Penetrate")) {
+		if ((A.MaxProgress != null) && (A.MaxProgress >= MinMaxProgress) && !A.Name.includes("Item") && !A.Name.includes("Reverse") && !A.Name.includes("Inject") && !A.Name.includes("Penetrate") && !A.Name.includes("Penis") && !A.Name.includes("Pussy")) {
 			if ((A.Name.includes("Gag")) && !Source.IsGagged()) continue; // No gagged activities if ungagged
 			if ((A.Name == "MasturbateFist") && (NPCTraitGet(Source, "Violent") <= 50)) continue; // Only violent NPCs will fist
 			if ((A.Name == "MasturbateFist") && (NPCTraitGet(Source, "Horny") <= 0)) continue; // Only horny NPCs will fist
@@ -382,6 +384,8 @@ function PrivateBedOrgasm(C) {
 	if (PrivateBedLog.length >= 10) PrivateBedLog.splice(0, 1);
 	let Text = ActivityDictionaryText("Orgasm" + Math.floor(Math.random() * 10));
 	Text = Text.replace("SourceCharacter", CharacterNickname(C));
+	Text = Text.replace("PronounPossessive", TextGet("Her"));
+	Text = Text.replace("PronounPossessive", TextGet("Her"));
 	PrivateBedLog.push(Text);
 	if (C.IsNpc()) C.PrivateBedActivityTimer = CommonTime() + 15000 + Math.round(Math.random() * 15000);
 }
