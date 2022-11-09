@@ -572,6 +572,8 @@ function ModularItemSanitizeProperties(Property, mergedProperty, Asset) {
 	if (typeof Property.ShockLevel === "number") mergedProperty.ShockLevel = Property.ShockLevel;
 	if (typeof Property.TriggerCount === "number") mergedProperty.TriggerCount = Property.TriggerCount;
 	if (typeof Property.ShowText === "boolean") mergedProperty.ShowText = Property.ShowText;
+	if (typeof Property.InflateLevel === "number") mergedProperty.InflateLevel = Property.InflateLevel;
+	if (typeof Property.Intensity === "number") mergedProperty.Intensity = Property.Intensity;
 	return mergedProperty;
 }
 
@@ -883,9 +885,9 @@ function ModularItemGenerateValidationProperties(data) {
  * Check whether a specific module is active for a given modular item.
  * @param {string} Module - The to be compared module
  * @param {Item | null} Item - The item in question; defaults to {@link DialogFocusItem}
- * @returns
+ * @returns {boolean} whether the specific module is active
  */
- function ModularItemModuleIsActive(Module, Item=DialogFocusItem) {
+function ModularItemModuleIsActive(Module, Item=DialogFocusItem) {
 	if (Item == null) {
 		return false;
 	}
