@@ -3824,11 +3824,9 @@ var AssetFemale3DCG = [
 				SetPose: ["BackElbowTouch", "Kneel"],
 				Effect: ["Block", "Prone", "ForceKneel", "Slow"],
 				HideItem: ["ItemNipplesLactationPump", "ClothAccessoryPoncho", "NecklaceBodyChainNecklace"],
-				Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
 				AllowActivityOn: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemBreast", "ItemHands", "ItemHandheld"],
 				Extended: true,
 				DrawLocks: false,
-				// HasType: true,
 				Alpha: [{Group: ["BodyLower"], Pose: ["Kneel"], Masks: [[140, 462, 75, 238], [285, 462, 75, 238], [215 ,545, 70, 155]]}],
 				Layer: [
 					{ Name: "Latex", },

@@ -964,23 +964,24 @@ var AssetFemale3DCGExtended = {
 						Name: "Zipped",
 						Property: {
 							Type: null,
-							Block: ["ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-							Hide: ["ItemNipples"],
+							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+							Hide: ["Cloth", "ClothLower", "Bra", "Panties", "Shoes", "Socks", "ItemBoots", "ItemNipplesPiercings", "ItemLegs", "ItemFeet", "Corset", "ItemHands", "ItemHandheld", "Hands", "Gloves", "Garters", "LeftHand", "RightHand"],
 						}
 					},
 					{
 						Name: "Unzipped",
 						Property: {
 							Type: "z1",
-							Block: [],
+							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
+							Hide: ["Cloth", "ClothLower", "Shoes", "Socks", "ItemBoots", "ItemLegs", "ItemFeet", "ItemHands", "ItemHandheld", "Hands", "Gloves", "Garters", "LeftHand", "RightHand"],
 						}
 					},
 					{
 						Name: "Exposed",
 						Property: {
 							Type: "z2",
-							Block: [],
-							Hide: ["Cloth", "ClothLower", "Shoes", "Socks", "ItemBoots", "ItemLegs", "ItemFeet", "ItemHands", "Hands", "Gloves", "Garters"],
+							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
+							Hide: ["Cloth", "ClothLower", "Shoes", "Socks", "ItemBoots", "ItemLegs", "ItemFeet", "ItemHands", "ItemHandheld", "Hands", "Gloves", "Garters", "LeftHand", "RightHand"],
 						}
 					},
 				],
