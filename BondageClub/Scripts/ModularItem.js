@@ -70,9 +70,9 @@ const ModularItemChatSetting = {
 
 /**
  * How many modules/options to show per page of the modular item screen
- * @const {number}
+ * @const {8}
  */
-const ModularItemsPerPage = 8;
+const ModularItemsPerPage = ExtendedXY.length - 1;
 
 /** Memoized requirements check function */
 const ModularItemRequirementCheckMessageMemo = CommonMemoize(ModularItemRequirementMessageCheck);
@@ -254,34 +254,24 @@ function ModularItemCreateModularData(asset, {
  * Generates drawing data for a given module. This includes button positions, whether pagination is necessary, and the
  * total page count for that module.
  * @param {number} itemCount - The number of items in the module
- * @returns {{pageCount: number, paginate: boolean, positions: [number, number][]}} - An object containing required drawing for
+ * @returns {ModularItemDrawData} - An object containing required drawing for
  * a module with the given item count.
  */
 function ModularItemCreateDrawData(itemCount) {
-	/** @type {[number, number][]} */
-	const positions = [];
-	const left = 1000;
-	const width = 1000;
-	const buttonWidth = 225;
-	const rows = itemCount > ModularItemsPerPage / 2 ? 2 : 1;
-	const columns = Math.min(ModularItemsPerPage / 2, Math.ceil(itemCount / rows));
-	const top = rows === 1 ? 500 : 400;
-	const xPadding = Math.floor((width - columns * buttonWidth) / (columns + 1));
-	const xSpacing = buttonWidth + xPadding;
-	const ySpacing = 300;
-
-	for (let i = 0; i < rows; i++) {
-		for (let j = 0; j < columns; j++) {
-			positions.push([
-				left + xPadding + j * xSpacing,
-				top + i * ySpacing,
-			]);
-		}
-	}
-
 	const paginate = itemCount > ModularItemsPerPage;
 	const pageCount = Math.ceil(itemCount / ModularItemsPerPage);
 
+	/** @type {[number, number][]} */
+	const positions = []
+	let i = 0;
+	while (i < itemCount) {
+		i += ModularItemsPerPage;
+		let ItemsPerPage = ModularItemsPerPage;
+		if (i > itemCount) {
+			ItemsPerPage += (itemCount - i);
+		}
+		positions.push(...ExtendedXY[ItemsPerPage]);
+	}
 	return { paginate, pageCount, positions };
 }
 

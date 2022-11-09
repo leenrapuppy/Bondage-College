@@ -2105,6 +2105,16 @@ interface ModularItemOption extends ModularItemOptionBase {
 	OptionType: "ModularItemOption";
 }
 
+/** A struct with drawing data for a given module. */
+interface ModularItemDrawData {
+	/** The number of pages */
+	pageCount: number,
+	/** Whether pagination is required; i.e. if the number of buttons is larger than {@link ModularItemsPerPage} */
+	paginate: boolean,
+	/** An array with two-tuples of X and Y coordinates for the buttons */
+	positions: [number, number][],
+}
+
 /** An object containing modular item configuration for an asset. Contains all of the necessary information for the
  * item's load, draw & click handlers.
  */
@@ -2141,7 +2151,7 @@ interface ModularItemData {
 	/** A lookup for the current page in the extended item menu for each of the item's modules */
 	pages: Record<string, number>;
 	/** A lookup for the draw data for each of the item's modules */
-	drawData: Record<string, { pageCount: number, paginate: boolean, positions: [number, number][] }>;
+	drawData: Record<string, ModularItemDrawData>;
 	/** A lookup for the draw functions for each of the item's modules */
 	drawFunctions: Record<string, () => void>;
 	/** A lookup for the click functions for each of the item's modules */
