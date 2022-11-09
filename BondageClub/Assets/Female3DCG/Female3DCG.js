@@ -307,8 +307,8 @@ var AssetFemale3DCG = [
 					{ Name: "Flowers" }
 				]
 			},
-			{ Name: "FrillyApron", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Lingerie"], ParentGroup: "BodyUpper", Value: -1, Left: 135, Top: 179, BuyGroup: "Maid", AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"] },
-			{ Name: "BunnyCollarCuffs", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Pet"], ParentGroup: "BodyUpper", Value: 10, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"], Extended: true,
+			{ Name: "FrillyApron", Fetish: ["Lingerie"], ParentGroup: "BodyUpper", Value: -1, Left: 135, Top: 179, BuyGroup: "Maid", AllowPose: ["TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"] },
+			{ Name: "BunnyCollarCuffs", Fetish: ["Pet"], ParentGroup: "BodyUpper", Value: 10, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"], Extended: true,
 				Layer: [
 					{ Name: "Collar"},
 					{ Name: "Bow"},
@@ -323,9 +323,9 @@ var AssetFemale3DCG = [
 					{ Name: "Front",  Priority: 41 }
 				]
 			},
-			{ Name: "LeatherStraps", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], ParentGroup: "BodyUpper", Value: 25, AllowPose: ["AllFours"], Extended: true },
+			{ Name: "LeatherStraps", Fetish: ["Leather"], ParentGroup: "BodyUpper", Value: 25, AllowPose: ["AllFours"], Extended: true },
 			{ Name: "FurBolero", Gender: "F", Prerequisite: ["HasBreasts"], Priority: 34, Value: 25, AllowPose: ["AllFours", "BackElbowTouch", "OverTheHead", "Hogtied", "Yoked", "BackCuffs"], },
-			{ Name: "FacePaint", Gender: "F", Prerequisite: ["HasBreasts"], Value: 10, Left: 150, Top: 20, Priority: 7, BuyGroup: "FacePaint", DefaultColor: ["#9A7F76"], Hide: ["Head"] },
+			{ Name: "FacePaint", Value: 10, Left: 150, Top: 20, Priority: 7, BuyGroup: "FacePaint", DefaultColor: ["#9A7F76"], Hide: ["Head"] },
 			{
 				Name: "Bib", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["ABDL"], Priority: 34, Value: 5, Left: 179, Top: 220, Extended: true, DynamicAfterDraw: true,
 				Layer: [
@@ -365,7 +365,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "CatsuitCollar", Gender: "F",Prerequisite: ["HasBreasts"], Priority: 15, Value: -1, BuyGroup: "Catsuit"},
 			{
-				Name: "Poncho", Gender: "F", Prerequisite: ["HasBreasts"], Value: 20, ParentGroup: "BodyUpper", DefaultColor: "#25d",
+				Name: "Poncho", Value: 20, ParentGroup: "BodyUpper", DefaultColor: "#25d",
 				AllowPose: ["Yoked", "OverTheHead", "BackElbowTouch"],
 				HideForPose: ["AllFours"],
 				Layer: [
