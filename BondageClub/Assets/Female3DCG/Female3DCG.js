@@ -1836,16 +1836,16 @@ var AssetFemale3DCG = [
 		PreviewZone: [125, 265, 250, 250],
 		Asset: [
 			// Breast Compatible Clothing
-			{ Name: "BowBand", Gender: "F", Prerequisite: ["HasBreasts"], Value: 20, HideForPose: ["BackCuffs", "BackBoxTie"]},
-			{ Name: "KinkBracelet", Gender: "F", Prerequisite: ["HasBreasts"], Value: 25, HideForPose: ["BackCuffs", "BackBoxTie"]},
-			{ Name: "LesBand", Gender: "F", Prerequisite: ["HasBreasts"], Value: 30, HideForPose: ["BackCuffs", "BackBoxTie"]},
-			{ Name: "SpikeBands", Gender: "F", Prerequisite: ["HasBreasts"], Value: 15, DefaultColor: ["#232323", "#666666"], HideForPose: ["BackBoxTie"], Extended: true, Layer: [
+			{ Name: "BowBand", Value: 20, HideForPose: ["BackCuffs", "BackBoxTie"]},
+			{ Name: "KinkBracelet", Value: 25, HideForPose: ["BackCuffs", "BackBoxTie"]},
+			{ Name: "LesBand", Value: 30, HideForPose: ["BackCuffs", "BackBoxTie"]},
+			{ Name: "SpikeBands", Value: 15, DefaultColor: ["#232323", "#666666"], HideForPose: ["BackBoxTie"], Extended: true, Layer: [
 				{ Name: "Bands" },
 				{ Name: "Spikes" },
 			]
 			},
-			{ Name: "Band1", Gender: "F", Prerequisite: ["HasBreasts"], Value: 25, HideForPose: ["BackCuffs", "BackBoxTie"], Extended: true},
-			{ Name: "LaceBands", Prerequisite: ["HasBreasts"], Value: 20, Priority: 29, DefaultColor: ["Default", "#151515"], Layer: [
+			{ Name: "Band1", Value: 25, HideForPose: ["BackCuffs", "BackBoxTie"], Extended: true},
+			{ Name: "LaceBands", Value: 20, Priority: 29, DefaultColor: ["Default", "#151515"], Layer: [
 				{ Name: "Lace" },
 				{ Name: "Bands" },
 			]
