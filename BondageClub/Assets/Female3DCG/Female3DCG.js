@@ -3507,10 +3507,10 @@ var AssetFemale3DCG = [
 		AllowPose: ["AllFours"],
 		Zone: [[100, 270, 100, 70]],
 		Asset: [
-			{ Name: "NippleClamp", Gender: "F", Fetish: ["Metal", "Masochism"], Value: 25, Time: 10, Prerequisite: ["AccessBreast", "HasBreasts"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 5 }] },
-			{ Name: "VibeNippleClamp", Gender: "F", Fetish: ["Metal", "Masochism"], Value: 40, Time: 10,Prerequisite: ["AccessBreast", "HasBreasts"], Effect: ["Egged", "Wiggling"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 5 }] },
+			{ Name: "NippleClamp", Fetish: ["Metal", "Masochism"], Value: 25, Time: 10, Prerequisite: ["AccessBreast"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 5 }] },
+			{ Name: "VibeNippleClamp", Fetish: ["Metal", "Masochism"], Value: 40, Time: 10,Prerequisite: ["AccessBreast"], Effect: ["Egged", "Wiggling"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 5 }] },
 			{ Name: "VibratorRemote", Value: 50, Wear: false, BuyGroup: "VibratorRemote", Prerequisite: ["RemotesAllowed"], Effect: ["Remote"] },
-			{ Name: "ChainClamp", Gender: "F", Fetish: ["Metal", "Masochism"], Value: 25, Time: 10, Prerequisite: ["AccessBreast", "HasBreasts"], Effect: ["Wiggling"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }], Extended: true,
+			{ Name: "ChainClamp", Fetish: ["Metal", "Masochism"], Value: 25, Time: 10, Prerequisite: ["AccessBreast"], Effect: ["Wiggling"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }], Extended: true,
 				Layer: [
 					{ Name: "Chain", AllowColorize: true , HasType: false, AllowTypes: [""]},
 					{ Name: "Metal", AllowColorize: true , HasType: false},
@@ -3518,35 +3518,35 @@ var AssetFemale3DCG = [
 					{ Name: "Chain2", CopyLayerColor: "Chain", HasType: false, AllowTypes: ["Chain2"]}
 				]
 			},
-			{ Name: "ScrewClamps", Gender: "F", Fetish: ["Metal", "Masochism"], Value: 35, Time: 10, Prerequisite: ["AccessBreast", "HasBreasts"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
-			{ Name: "ChainTassles", Gender: "F", Value: 45, Time: 10, Prerequisite: ["AccessBreast", "HasBreasts"], Hide: ["ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
-			{ Name: "HeartPasties", Gender: "F", Value: 20, Time: 10, DefaultColor: "#800000", Prerequisite: ["AccessBreast", "HasBreasts"], Hide: ["ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
-			{ Name: "TapedVibeEggs", Gender: "F", Fetish: ["Tape"], Value: 30, Time: 5, Prerequisite: ["AccessBreast", "HasBreasts"], Effect: ["Egged"], Layer: [
+			{ Name: "ScrewClamps", Fetish: ["Metal", "Masochism"], Value: 35, Time: 10, Prerequisite: ["AccessBreast"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
+			{ Name: "ChainTassles", Value: 45, Time: 10, Prerequisite: ["AccessBreast"], Hide: ["ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
+			{ Name: "HeartPasties", Value: 20, Time: 10, DefaultColor: "#800000", Prerequisite: ["AccessBreast"], Hide: ["ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
+			{ Name: "TapedVibeEggs",  Fetish: ["Tape"], Value: 30, Time: 5, Prerequisite: ["AccessBreast"], Effect: ["Egged"], Layer: [
 				{ Name: "Egg1", ColorGroup: "Eggs" },
 				{ Name: "Egg2", ColorGroup: "Eggs" },
 				{ Name: "Tape1", ColorGroup: "Tape" },
 				{ Name: "Tape2", ColorGroup: "Tape" }
 
 			] },
-			{ Name: "NippleSuctionCups", Gender: "F", Value: 25, Time: 10, Prerequisite: ["AccessBreast", "HasBreasts"], Hide: ["ItemNipplesPiercings"], Effect: ["Wiggling"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 5 }], Extended: true, HasType: false },
-			{ Name: "NippleTape", Gender: "F", Fetish: ["Tape"], Value: 10, Time: 5, CraftGroup: "DuctTape", Prerequisite: ["AccessBreast", "HasBreasts"], Hide: ["ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
-			{ Name: "ChopStickNippleClamps", Gender: "F", Fetish: ["Rope", "Masochism"], Value: 25, Time: 10, Prerequisite: ["AccessBreast", "HasBreasts"], Effect: ["Wiggling"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
-			{ Name: "KittyPasties", Gender: "F", Value: 20, Time: 10, DefaultColor: "#444444", Prerequisite: ["AccessBreast", "HasBreasts"], Hide: ["ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
-			{ Name: "Clothespins", Gender: "F", Fetish: ["Masochism"], Value: 15, Time: 10, Prerequisite: ["AccessBreast", "HasBreasts"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 5 }] },
-			{ Name: "NippleWeightClamps", Gender: "F", Fetish: ["Metal", "Masochism"], Value: 35, Time: 10, Prerequisite: ["AccessBreast", "HasBreasts"], Effect: ["Wiggling"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 10 }] },
-			{ Name: "BellClamps", Gender: "F", Fetish: ["Metal", "Masochism"], Value: 20, Time: 10, Prerequisite: ["AccessBreast", "HasBreasts"], Audio: "BellSmall", Effect: ["Wiggling"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 10 }] },
+			{ Name: "NippleSuctionCups",  Value: 25, Time: 10, Prerequisite: ["AccessBreast"], Hide: ["ItemNipplesPiercings"], Effect: ["Wiggling"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 5 }], Extended: true, HasType: false },
+			{ Name: "NippleTape", Fetish: ["Tape"], Value: 10, Time: 5, CraftGroup: "DuctTape", Prerequisite: ["AccessBreast"], Hide: ["ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
+			{ Name: "ChopStickNippleClamps", Fetish: ["Rope", "Masochism"], Value: 25, Time: 10, Prerequisite: ["AccessBreast"], Effect: ["Wiggling"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
+			{ Name: "KittyPasties", Value: 20, Time: 10, DefaultColor: "#444444", Prerequisite: ["AccessBreast"], Hide: ["ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
+			{ Name: "Clothespins", Fetish: ["Masochism"], Value: 15, Time: 10, Prerequisite: ["AccessBreast"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 5 }] },
+			{ Name: "NippleWeightClamps", Fetish: ["Metal", "Masochism"], Value: 35, Time: 10, Prerequisite: ["AccessBreast"], Effect: ["Wiggling"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 10 }] },
+			{ Name: "BellClamps", Fetish: ["Metal", "Masochism"], Value: 20, Time: 10, Prerequisite: ["AccessBreast"], Audio: "BellSmall", Effect: ["Wiggling"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 10 }] },
 			{
-				Name: "LactationPump", Gender: "F", Fetish: ["Pet"], Value: 130, Top: 0, Priority: 38, Left: 0, Time: 10, Extended: true, AlwaysExtend: true, HasType: false, DynamicBeforeDraw: true,
-				Prerequisite: ["AccessBreast", "CannotBeSuited", "HasBreasts"],
+				Name: "LactationPump", Fetish: ["Pet"], Value: 130, Top: 0, Priority: 38, Left: 0, Time: 10, Extended: true, AlwaysExtend: true, HasType: false, DynamicBeforeDraw: true,
+				Prerequisite: ["AccessBreast", "CannotBeSuited"],
 				AllowPose: ["AllFours", "Kneel", "Hogtied", "KneelingSpread"],
 				Block: ["ItemNipplesPiercings", "ItemBreast"],
 				Hide: ["ItemNipplesPiercings"],
 				ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 5 }],
 			},
-			{ Name: "ShockClamps", Gender: "F", Fetish: ["Metal", "Masochism"], Value: 60, Time: 10, Extended: true, AlwaysExtend: true, Prerequisite: ["AccessBreast", "HasBreasts"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 10 }], },
-			{Name: "PlateClamps", Gender: "F", Fetish: ["Metal", "Masochism"], Value: 20, Time: 15, Extended: true, Prerequisite: ["AccessBreast", "HasBreasts"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 10 }]},
+			{ Name: "ShockClamps", Fetish: ["Metal", "Masochism"], Value: 60, Time: 10, Extended: true, AlwaysExtend: true, Prerequisite: ["AccessBreast"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 10 }], },
+			{Name: "PlateClamps", Fetish: ["Metal", "Masochism"], Value: 20, Time: 15, Extended: true, Prerequisite: ["AccessBreast"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 10 }]},
 			{
-				Name: "StretchClovers", Gender: "F", Fetish: ["Metal", "Masochism"], Top: 0, Left: 0, Value: 35, Time: 17, Prerequisite: ["AccessBreast", "HasBreasts"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 5 }], HideForPose: ["AllFours"], Layer: [
+				Name: "StretchClovers", Fetish: ["Metal", "Masochism"], Top: 0, Left: 0, Value: 35, Time: 17, Prerequisite: ["AccessBreast"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Angry", Group: "Eyebrows", Timer: 5 }], HideForPose: ["AllFours"], Layer: [
 					{ Name: "Frame" },
 					{ Name: "Clamps" }
 				],
