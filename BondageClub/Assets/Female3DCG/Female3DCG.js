@@ -578,8 +578,8 @@ var AssetFemale3DCG = [
 					{ Name: "Stripe" },
 				],
 				ParentItem: "TennisShirt1" },
-			{ Name: "Jeans1", Gender: "F", Prerequisite: ["HasVagina"], Priority: 23, Hide: ["ItemVulvaPiercings", "Garters"], HideItem: ["ItemButtAnalBeads2", "SocksSocksFur", "SocksSocks6", "ItemVulvaHempRopeBelt", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaHeavyWeightClamp", "ItemVulvaClitAndDildoVibratorbelt", "ItemVulvaShockDildo", "PantiesPoofyDiaper", "PantiesBulkyDiaper"] },
-			{ Name: "Shorts1", Gender: "F", Prerequisite: ["HasVagina"], Hide: ["ItemVulvaPiercings"], HideItem: ["ItemButtAnalBeads2", "ItemVulvaHempRopeBelt", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaHeavyWeightClamp", "ItemVulvaClitAndDildoVibratorbelt", "ItemVulvaShockDildo", "PantiesPoofyDiaper", "PantiesBulkyDiaper"] },
+			{ Name: "Jeans1", Priority: 23, Hide: ["ItemVulvaPiercings", "Garters", "Pussy"], HideItem: ["ItemButtAnalBeads2", "SocksSocksFur", "SocksSocks6", "ItemVulvaHempRopeBelt", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaHeavyWeightClamp", "ItemVulvaClitAndDildoVibratorbelt", "ItemVulvaShockDildo", "PantiesPoofyDiaper", "PantiesBulkyDiaper"] },
+			{ Name: "Shorts1", Hide: ["ItemVulvaPiercings", "Pussy"], HideItem: ["ItemButtAnalBeads2", "ItemVulvaHempRopeBelt", "ItemVulvaVibratingDildo", "ItemVulvaInflatableVibeDildo", "ItemVulvaClitSuctionCup", "ItemVulvaHeavyWeightClamp", "ItemVulvaClitAndDildoVibratorbelt", "ItemVulvaShockDildo", "PantiesPoofyDiaper", "PantiesBulkyDiaper"] },
 			{
 				Name: "Pajama1", Gender: "F", Prerequisite: ["HasVagina"], Priority: 25, Random: false, Hide: ["Garters"], HideItem: ["ItemButtAnalBeads2", "ItemVulvaInflatableVibeDildo", "ItemVulvaHeavyWeightClamp", "ItemVulvaClitAndDildoVibratorbelt", "PantiesPoofyDiaper", "PantiesBulkyDiaper"], Layer: [
 					{ Name: "Cloth" },
