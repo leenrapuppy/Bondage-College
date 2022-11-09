@@ -552,6 +552,8 @@ function CraftingClick() {
 			if (MouseIn(X, Y, 225, 275)) {
 				CraftingSelectedItem.Asset = CraftingItemList[I];
 				CraftingSelectedItem.OverridePriority = CraftingSelectedItem.Asset.DrawingPriority || CraftingSelectedItem.Asset.Group.DrawingPriority;
+				// @ts-ignore
+				CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset);
 				CraftingSelectedItem.Lock = null;
 				CraftingModeSet("Property");
 				ElementRemove("InputSearch");
@@ -634,13 +636,11 @@ function CraftingClick() {
 		} else if (MouseIn(1175, 768, 64, 64)) {
 			CraftingSelectedItem.Private = !CraftingSelectedItem.Private;
 		} else if (MouseIn(1840, 858, 60, 60) && CraftingItemSupportsAutoType()) {
-			if ((CraftingSelectedItem.Type == null) || (CraftingSelectedItem.Type == "") || (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) < 0))
-				CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[0];
-			else
-				if (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) >= CraftingSelectedItem.Asset.AllowType.length - 1)
-					CraftingSelectedItem.Type = "";
-				else
-					CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) + 1];
+			// @ts-ignore
+			if (!CraftingValidationRecord.Type.Validate(CraftingSelectedItem, CraftingSelectedItem.Asset)) {
+				// @ts-ignore
+				CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset);
+			}
 			ElementValue("InputType", CraftingSelectedItem.Type);
 			CraftingUpdatePreview();
 		}
@@ -794,6 +794,7 @@ function CraftingItemListBuild() {
  * A record with tools for validating {@link CraftingItem} properties.
  * @type {Record<string, CratingValidationStruct>}
  * @see {@link CratingValidationStruct}
+ * @todo Let the Validate/GetDefault functions take the respective attribute rather than the entire {@link CraftingItem}
  */
  const CraftingValidationRecord = {
 	Color: {
@@ -883,12 +884,14 @@ function CraftingItemListBuild() {
 	},
 	Type: {
 		Validate: function (c, a) {
-			if ((a == null) || (c.Type === "")) {
+			if (a == null) {
 				return true;
 			} else if ((a.Archetype === ExtendedArchetype.TYPED) && (c.Type === null)) {
 				return true;
-			} else {
+			} else if (a.AllowType != null) {
 				return (a.AllowType && a.AllowType.includes(c.Type));
+			} else {
+				return c.Type === "";
 			}
 		},
 		GetDefault: function (c, a) {
