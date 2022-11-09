@@ -11,9 +11,46 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 
 **Note to contributors:** To avoid merge conflicts, please don't update this file yourself in your PRs - one of the developers will update the changelog with your change before your PR is merged.
 
-* Changelog last updated: 2022-10-17
-* Last recorded PR: [#3652](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3652)
-* Last recorded commit hash: `192132e54490b97c98c44b2515cff89191e38c0c`
+* Changelog last updated: 2022-11-09
+* Last recorded PR: [#3676](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3676)
+* Last recorded commit hash: `3a74aabd257425565bf3e3b42e3424457da9cc8f`
+
+## [R86]
+
+### [Added]
+* Luna - Added the PetSign to the Misc slot ([#3666](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3666))
+* Ada - Kinky Dungeon 3.81 ([#3676](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3676))
+* Ben - Added a Private Bed & "/release" command
+
+### [Removed]
+
+* Nothing this release
+
+### [Changed]
+* bananarama92 - Added proper support for auto typing crafted extended items that lack an archetype ([#3656](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3656))
+* bananarama92 - Added crafting auto-typing support for extended items of the `Vibrating` archetype ([#3658](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3658))
+* Estsanatlehi - Made handheld items real assets ([#3663](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3663))
+* Estsanatlehi - Implemented reverse activities ([#3671](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3671))
+* MAKeevchanin - Updated russian translation ([#3672](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3672))
+* Da'Inihlus - Cn translation ([#3673](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3673))
+* bananarama92 - Added the ability for crafted items to specify their `OverridePriority` ([#3674](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3674))
+
+### [Fixed]
+* bananarama92 - Re-enabled crafting auto types for most futuristic items ([#3648](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3648))
+* bananarama92 - Fixed a bug of being unable to color crafted items equiped on other people ([#3653](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3653))
+* Estsanatlehi - Reenable crafting addons (ropes and blankets) ([#3655](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3655))
+* bananarama92 - Fixed a broken `Asset.Prerequisite` check ([#3660](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3660))
+* bananarama92 - Added validation for `Item.Craft` ([#3662](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3662))
+
+### [Technical]
+* Estsanatlehi - Added a few documentation comments ([#3650](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3650))
+* bananarama92 - Improved crafting-related type annotations ([#3659](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3659))
+* bananarama92 - Converted the futuristic harness into a typed item ([#3661](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3661))
+* bananarama92 - Converted more vibrators to the `Vibrating` archetype ([#3667](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3667))
+* Estsanatlehi - Added eslint-plugin-compat ([#3668](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3668))
+* bananarama92 - Added an archetype to three more extended items ([#3669](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3669))
+* bananarama92 - Converted the collar name tags into Typed items ([#3670](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3670))
+* bananarama92 - Added archetypes to three more extended items ([#3675](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3675))
 
 ## [R85]
 
