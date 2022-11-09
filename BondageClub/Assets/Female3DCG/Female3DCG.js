@@ -1716,11 +1716,11 @@ var AssetFemale3DCG = [
 		PreviewZone: [125, 265, 250, 250],
 		Asset: [
 			// Breast Compatible Clothing
-			{ Name: "Gloves1", Gender: "F", Prerequisite: ["HasBreasts"], HideForPose: ["BackElbowTouch"] },
+			{ Name: "Gloves1", HideForPose: ["BackElbowTouch"] },
 			{ Name: "Gloves2", Gender: "F", Prerequisite: ["HasBreasts"], Alpha: [{ Group: ["BodyUpper"], Pose: ["OverTheHead"], Masks: [[90, 125, 30, 70], [370, 125, 30, 70]] }], HideForPose: ["BackElbowTouch"] },
 			{ Name: "Gloves3", Gender: "F", Prerequisite: ["HasBreasts"], Value: 15, Left: 60, Top: 109, HideForPose: ["BackElbowTouch"] },
 			{ Name: "MistressGloves", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Leather"], Value: -1, HideForPose: ["BackElbowTouch"] },
-			{ Name: "FingerlessGloves", Gender: "F", Prerequisite: ["HasBreasts"], Value: 20, HideForPose: ["BackElbowTouch"] },
+			{ Name: "FingerlessGloves", Value: 20, HideForPose: ["BackElbowTouch"] },
 			{
 				Name: "GlovesFur", Gender: "F", Prerequisite: ["HasBreasts"], Value: 30, DefaultColor: ["#8c2331", "Default"], HideForPose: ["BackElbowTouch"],
 				Layer: [
@@ -1728,9 +1728,9 @@ var AssetFemale3DCG = [
 					{ Name: "Fur" }
 				]
 			},
-			{ Name: "Catsuit", Gender: "F", Prerequisite: ["HasBreasts"], Hide: ["Hands"], Fetish: ["Nylon"], Value: -1, BuyGroup: "Catsuit", HideForPose: ["BackElbowTouch"] },
-			{ Name: "SeethroughSuit", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Nylon"], Value: -1, BuyGroup: "SeethroughSuit", HideForPose: ["BackElbowTouch"] },
-			{ Name: "CowPrintedGloves", Gender: "F", Prerequisite: ["HasBreasts"], Value: 15, Alpha: [{ Group: ["BodyUpper"], Pose: ["OverTheHead"],  Masks: [[90, 125, 30, 70], [370, 125, 30, 70]] }], HideForPose: ["BackElbowTouch"] },
+			{ Name: "Catsuit", Hide: ["Hands"], Fetish: ["Nylon"], Value: -1, BuyGroup: "Catsuit", HideForPose: ["BackElbowTouch"] },
+			{ Name: "SeethroughSuit", Fetish: ["Nylon"], Value: -1, BuyGroup: "SeethroughSuit", HideForPose: ["BackElbowTouch"] },
+			{ Name: "CowPrintedGloves", Value: 15, Alpha: [{ Group: ["BodyUpper"], Pose: ["OverTheHead"],  Masks: [[90, 125, 30, 70], [370, 125, 30, 70]] }], HideForPose: ["BackElbowTouch"] },
 			{ Name: "LatexElbowGloves", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Latex"], Value: 75, HideForPose: ["BackElbowTouch"] },
 			{ Name: "FishnetGloves", Gender: "F", Prerequisite: ["HasBreasts"], Value: 10, DefaultColor: ["#151515"], HideForPose: ["BackElbowTouch"] },
 			{
