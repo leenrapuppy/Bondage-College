@@ -2188,6 +2188,9 @@ function DialogDrawItemMenu(C) {
 		if (DialogInventory == null) DialogInventoryBuild(C);
 
 		// If only activities are allowed, only keep DialogInventory items which can be used for interactions
+		if (!DialogItemPermissionMode && InventoryGroupIsBlocked(C)) {
+			DialogInventory = [];
+		}
 
 		// Draw all possible items in that category (12 per screen)
 		let X = 1000;
