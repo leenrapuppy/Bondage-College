@@ -236,7 +236,7 @@ type AssetGroupBodyName =
 	'Eyes' | 'Eyes2' | 'Fluids' | 'Garters' | 'Glasses' | 'Gloves' |
 	'HairAccessory1' | 'HairAccessory2' | 'HairAccessory3' | 'HairBack' |
 	'HairFront' | 'Hands' | 'Hat' | 'Head' | 'Height' | 'LeftAnklet' | 'LeftHand' | 'Mask' |
-	'Mouth' | 'Necklace' | 'Nipples' | 'Panties' | 'Pussy' | 'RightAnklet' | 'RightHand' |
+	'Mouth' | 'Necklace' | 'Nipples' | 'Panties' | 'Pussy' | 'Pronouns' | 'RightAnklet' | 'RightHand' |
 	'Shoes' | 'Socks' | 'Suit' | 'SuitLower' | 'TailStraps' | 'Wings'
 	;
 
@@ -788,6 +788,7 @@ interface Asset {
 	Tint: TintDefinition[];
 	AllowTint: boolean;
 	DefaultTint?: string;
+	Gender?: string;
 	CraftGroup: string;
 	ColorSuffix: Record<string, string>;
 }
@@ -821,6 +822,7 @@ interface Pose {
 interface Activity {
 	Name: string;
 	MaxProgress: number;
+	MaxProgressSelf?: number;
 	Prerequisite: string[];
 	Target: AssetGroupItemName[];
 	TargetSelf?: AssetGroupItemName[] | true;
@@ -1070,6 +1072,7 @@ interface Character {
 	RegisterHook: (hookName: string, hookInstance: string, callback: any) => boolean | any;
 	UnregisterHook: (hookName: string, hookInstance: string) => boolean;
 	HeightRatioProportion?: number;
+	GetGenders: () => string[];
 	// Properties created in other places
 	ArousalSettings?: {
 		Active: string;
@@ -1308,6 +1311,7 @@ interface PlayerCharacter extends Character {
 	LastChatRoomBan?: any[];
 	LastChatRoomBlockCategory?: string[];
 	LastChatRoomTimer?: any;
+	LastChatRoomSpace?: ChatRoomSpaceType;
 	RestrictionSettings?: {
 		BypassStruggle: boolean;
 		SlowImmunity: boolean;
@@ -1371,6 +1375,10 @@ interface PlayerCharacter extends Character {
 	FriendNames?: Map<number, string>;
 	SubmissivesList?: Set<number>;
 	ChatSearchFilterTerms?: string;
+	GenderSettings: {
+		HideShopItems: GenderSetting;
+		AutoJoinSearch: GenderSetting;
+	};
 }
 
 /** Pandora Player extension */

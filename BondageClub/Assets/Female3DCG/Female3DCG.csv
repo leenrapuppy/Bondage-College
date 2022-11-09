@@ -63,6 +63,7 @@ Cloth,CropTop,Crop Top
 Cloth,Laurel,Laurel Top
 Cloth,SeethroughTop,See-through Top
 Cloth,Jacket,Jacket
+Cloth,MaleTankTop1,Male Cloth Tank-Top
 ClothAccessory,,Cloth Accessory
 ClothAccessory,StudentOutfit3Scarf,Student Scarf
 ClothAccessory,StudentOutfit3Bow1,Student Bow 1
@@ -109,6 +110,7 @@ Suit,SeethroughSuitZip,See-through Zipsuit
 Suit,ReverseBunnySuit,Reverse Bunny Suit
 Suit,Blouse1,Blouse
 Suit,SleevelessSlimLatexLeotard,Slim Latex Leotard (Sleeveless)
+Suit,MaleSeamlessCatsuit,Male Seamless Catsuit
 ClothLower,,Bottom
 ClothLower,Skirt1,Skirt
 ClothLower,Skirt2,Student Skirt
@@ -163,6 +165,8 @@ SuitLower,Stockings1,Stockings Dark
 SuitLower,Stockings2,Stockings Light
 SuitLower,Stockings3,Silky Stockings
 SuitLower,Stockings4,Fishnet Stockings
+SuitLower,MaleSeamlessCatsuit,Male Seamless Catsuit
+SuitLower,MaleCatsuitPanties,Male Catsuit Panties
 Bra,,Bra
 Bra,Bra1,Style 1
 Bra,Bra2,Style 2
@@ -205,7 +209,6 @@ Bra,StuddedHarness,Studded Harness
 Bra,Camisole,Camisole
 Bra,Ribbons,Ribbons
 Bra,LeatherBreastBinder,Leather Breast Binder
-Bra,SilkStraps,Silk Straps
 Bra,FullLatexBra,Full Latex Bra
 Bra,FullLatexBra2,Full Latex Bra (Bright)
 Bra,HaremBra,Harem Bra
@@ -260,7 +263,6 @@ Panties,CowPrintedPanties,Cow Printed Panties
 Panties,LatexPanties2,Latex Panties
 Panties,PilotPanties,Pilot Panties
 Panties,CatsuitPanties,Catsuit Panties
-Panties,SilkStraps,Silk Straps
 Panties,FlowerPanties,Flower Panties
 Panties,FloralPanties2,Floral Panties 2
 Panties,BulkyDiaper,Bulky Diaper
@@ -268,6 +270,7 @@ Panties,PoofyDiaper,Poofy Diaper
 Panties,Thong,Thong 2
 Panties,StringThong,String Thong
 Panties,MicroThong,Micro Thong
+Panties,BoxerShorts,Boxer Shorts
 Socks,,Socks
 Socks,Socks0,Ankle
 Socks,Socks1,Short
@@ -302,6 +305,7 @@ Garters,,Garters
 Garters,GarterBelt,Leather Garter Belts
 Garters,GarterBelt2,Leather Garter Belt
 Garters,Tentacles,Tentacles
+Garters,DropBag,Drop Bag
 Shoes,,Shoes
 Shoes,Shoes1,Style 1
 Shoes,Shoes2,Style 2
@@ -553,6 +557,8 @@ BodyUpper,Small,Small
 BodyUpper,Normal,Normal
 BodyUpper,Large,Large
 BodyUpper,XLarge,Xlarge
+BodyUpper,FlatMedium,Bulky Flat Chest
+BodyUpper,FlatSmall,Flat Chest
 BodyLower,,Lower Body
 BodyLower,Small,Small
 BodyLower,Normal,Normal
@@ -605,6 +611,9 @@ HairFront,HairFront26,Style 26
 HairFront,HairFront27,Style 27
 HairFront,HairFront28,Style 28
 HairFront,HairFront29,Style 29
+HairFront,HairFront30,Style 30
+HairFront,HairFront31,Style 31
+HairFront,HairFront32,Style 32
 HairBack,,Back Hair
 HairBack,HairNone,None
 HairBack,HairBack1,Style 1
@@ -702,13 +711,17 @@ Nipples,,Nipples Style
 Nipples,Nipples1,Small
 Nipples,Nipples2,Large
 Nipples,Nipples3,Light
-Pussy,,Pussy
+Pussy,,Genitalia
 Pussy,PussyLight1,Light 1
 Pussy,PussyLight2,Light 2
 Pussy,PussyLight3,Light 3
 Pussy,PussyDark1,Dark 1
 Pussy,PussyDark2,Dark 2
 Pussy,PussyDark3,Dark 3
+Pussy,Penis,Penis
+Pronouns,,Pronouns
+Pronouns,SheHer,She/Her 
+Pronouns,HeHim,He/Him 
 Blush,,Blush
 Blush,Blush,Blush
 Fluids,,Fluids
@@ -768,7 +781,7 @@ ItemLegs,MedicalBedRestraints,Medical Bed Restraints
 ItemLegs,Ribbons,Ribbons
 ItemLegs,Tentacles,Tentacles
 ItemLegs,Slime,Slime
-ItemVulva,,Vulva
+ItemVulva,,Vulva/Penis Base
 ItemVulva,VibratingEgg,Vibrating Egg
 ItemVulva,VibratorRemote,Vibrating Items Remote
 ItemVulva,VibratingLatexPanties,Vibrating Latex Panties
@@ -791,7 +804,12 @@ ItemVulva,LoversVibrator,Lovers Vibrator
 ItemVulva,LoversVibratorRemote,Lovers Remote
 ItemVulva,DoubleEndDildo,Double Ended Dildo
 ItemVulva,Stitches,Stitches
-ItemVulvaPiercings,,Clitoris
+ItemVulva,BasicCockring,Basic Cock Ring
+ItemVulva,PlasticChastityCage1,Plastic Chastity Cage 1
+ItemVulva,VibeEggPenisBase,Vibrating Egg
+ItemVulva,PlasticChastityCage2,Plastic Chastity Cage 2
+ItemVulva,TechnoChastityCage,Techno Chastity Cage 1
+ItemVulvaPiercings,,Clitoris/Penis Tip
 ItemVulvaPiercings,StraightClitPiercing,Straight Clitoris Piercing
 ItemVulvaPiercings,RoundClitPiercing,Round Clitoris Piercing
 ItemVulvaPiercings,BarbellClitPiercing,Barbell Clitoris Piercing
@@ -864,7 +882,6 @@ ItemPelvis,HempRope,Rope Harness
 ItemPelvis,DiaperHarness,Diaper Harness
 ItemPelvis,PelvisChainLeash,Pelvis Chain Leash
 ItemPelvis,Ribbons,Ribbons
-ItemPelvis,SilkStraps,Silk Straps
 ItemPelvis,BulkyDiaper,Bulky Chastity Diaper
 ItemPelvis,PoofyDiaper,Poofy Chastity Diaper
 ItemPelvis,HybridChastityBelt,Hybrid Chastity Belt
@@ -890,10 +907,10 @@ ItemTorso,CrotchChain, Crotch Chain
 ItemTorso,StuddedHarness,Studded Harness
 ItemTorso,HeavyLatexCorset,Heavy Latex Corset
 ItemTorso,Ribbons,Ribbons
-ItemTorso,SilkStraps,Silk Straps
 ItemTorso,ThinLeatherStraps,Thin Leather Straps
 ItemTorso,LockingSwimsuit,Locking Swimsuit
 ItemTorso,LockingSwimsuit2,Locking Swimsuit 2
+ItemTorso,LeatherChestHarness1,Leather Chest Harness 1
 ItemTorso2,,Torso
 ItemTorso2,LockingSwimsuit,Locking Swimsuit
 ItemTorso2,LeatherStrapHarness,Leather Strap Body Harness
@@ -916,9 +933,9 @@ ItemTorso2,CrotchChain, Crotch Chain
 ItemTorso2,StuddedHarness,Studded Harness
 ItemTorso2,HeavyLatexCorset,Heavy Latex Corset
 ItemTorso2,Ribbons,Ribbons
-ItemTorso2,SilkStraps,Silk Straps
 ItemTorso2,ThinLeatherStraps,Thin Leather Straps
 ItemTorso2,LockingSwimsuit2,Locking Swimsuit 2
+ItemTorso2,LeatherChestHarness1,Leather Chest Harness 1
 ItemNipples,,Nipples
 ItemNipples,NippleClamp,Nipple Clamps
 ItemNipples,VibeNippleClamp,Vibrating Nipple Clamps
@@ -939,6 +956,7 @@ ItemNipples,LactationPump,Lactation Pump
 ItemNipples,ShockClamps,Shock Clamps
 ItemNipples,PlateClamps, Plate Clamps
 ItemNipples,StretchClovers,Nipple Stretchers
+ItemNipples,NippleClamps2, Nipple Clamps 2
 ItemNipplesPiercings,,Nipples
 ItemNipplesPiercings,StraightPiercing,Straight Piercings
 ItemNipplesPiercings,RoundPiercing,Round Piercings
@@ -1029,6 +1047,8 @@ ItemArms,ThinLeatherStraps,Thin Leather Straps
 ItemArms,Tentacles,Tentacles
 ItemArms,Slime,Slime
 ItemArms,BondageBra,Bondage Bra
+ItemArms,SmoothLeatherArmbinder1,Smooth Lacing Leather Armbinder
+ItemArms,CanvasStraitjacket1,Canvas Straitjacket 1
 ItemHands,,Hands
 ItemHands,PaddedMittens,Padded Mittens
 ItemHands,PawMittens,Paw Mittens
@@ -1038,6 +1058,7 @@ ItemHands,PaddedLeatherMittens,Padded Leather Mittens
 ItemHands,PolishedMittens,Polished Steel Mittens
 ItemHands,DuctTape,Duct Tape
 ItemHands,HoofMittens, Hoof Mittens
+ItemHands,SmoothLeatherMittens1,Short Smooth Leather Mittens
 ItemHandheld,,Hands
 ItemHandheld,Crop,Crop
 ItemHandheld,Flogger,Flogger

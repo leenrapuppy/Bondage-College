@@ -712,6 +712,9 @@ function DialogInventoryAdd(C, item, isWorn, sortOrder) {
 		// Do not show keys if they are in the deposit
 		if (LogQuery("KeyDeposit", "Cell") && InventoryIsKey(item)) return;
 
+		// Don't allow gendered assets in the opposite-gender-only space
+		if (!CharacterAppearanceGenderAllowed(asset)) return;
+
 		// Make sure we do not duplicate the item in the list, including crafted items
 		for (let I = 0; I < DialogInventory.length; I++)
 			if ((DialogInventory[I].Asset.Group.Name == asset.Group.Name) && (DialogInventory[I].Asset.Name == asset.Name)) {

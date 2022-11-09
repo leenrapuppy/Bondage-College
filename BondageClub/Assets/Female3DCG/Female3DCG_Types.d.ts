@@ -296,6 +296,7 @@ interface AssetDefinition {
 
 	Tint?: TintDefinition[];
 	DefaultTint?: string;
+	Gender?: string;
 
 	/**
 	 * An identifier that marks the asset as being the same for the purpose of crafting.

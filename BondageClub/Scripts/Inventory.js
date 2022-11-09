@@ -215,6 +215,14 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "NoMaidTray": return InventoryIsItemInList(C, "ItemMisc", ["WoodenMaidTray", "WoodenMaidTrayFull"]) ? "CannotBeUsedWhileServingDrinks" : "";
 		case "CanBeCeilingTethered": return InventoryHasItemInAnyGroup(C, ["ItemArms", "ItemTorso", "ItemPelvis"]) ? "" : "AddItemsToUse";
 
+		// Checks for body
+		case "HasBreasts": return !InventoryIsItemInList(C, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]) ? "MustHaveBreasts" : "";
+		case "HasFlatChest": return !InventoryIsItemInList(C, "BodyUpper", ["FlatSmall", "FlatMedium"]) ? "MustHaveFlatChest" : "";
+
+		// Checks for genitalia
+		case "HasVagina": return !InventoryIsItemInList(C, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]) ? "MustHaveVagina" : "";
+		case "HasPenis": return !InventoryIsItemInList(C, "Pussy", ["Penis"]) ? "MustHavePenis" : "";
+		
 		// Checks for torso access based on clothes
 		case "AccessTorso": return !InventoryDoItemsExposeGroup(C, "ItemTorso", ["Cloth"]) ? "RemoveClothesForItem" : "";
 

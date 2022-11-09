@@ -48,6 +48,8 @@ function InformationSheetRun() {
 		DrawTextFit(TextGet("MemberNumber") + " " + C.MemberNumber.toString(), 550, currentY, 450, "Black", "Gray");
 		currentY += spacing;
 	}
+	DrawTextFit(TextGet("Pronouns") + " " + CharacterPronounDescription(C), 550, currentY, 450, "Black", "Gray");
+	
 	currentY += spacingLarge;
 
 	// Some info are not available for online players

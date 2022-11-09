@@ -10,6 +10,7 @@ var ChatSearchResultOffset = 0;
 var ChatSearchRoomsPerPage = 24;
 var ChatSearchMessage = "";
 var ChatSearchLeaveRoom = "MainHall";
+var ChatSearchLeaveSpace = "Room";
 var ChatSearchSafewordAppearance = null;
 var ChatSearchSafewordPose = null;
 var ChatSearchPreviousActivePose = null;
@@ -263,7 +264,7 @@ function ChatSearchExit() {
 	ChatSearchFilterUnhideConfirm = null;
 	ChatSearchPreviousActivePose = Player.ActivePose;
 	ElementRemove("InputSearch");
-	CommonSetScreen("Room", ChatSearchLeaveRoom);
+	CommonSetScreen(ChatSearchLeaveSpace, ChatSearchLeaveRoom);
 	DrawingGetTextSize.clearCache();
 }
 
@@ -798,7 +799,7 @@ function ChatSearchAutoJoinRoom() {
 						Description: Player.LastChatRoomDesc.trim(),
 						Background: Player.LastChatRoomBG,
 						Private: Player.LastChatRoomPrivate,
-						Space: ChatRoomSpace,
+						Space: Player.LastChatRoomSpace,
 						Game: "",
 						Admin: [Player.MemberNumber],
 						Limit: ("" + Math.min(Math.max(Player.LastChatRoomSize, 2), 10)).trim(),

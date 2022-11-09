@@ -46,10 +46,10 @@ function CharacterAppearanceBuildAssets(C) {
 	// Adds all items with 0 value and from the appearance category
 	CharacterAppearanceAssets = [];
 	for (let A = 0; A < Asset.length; A++)
-		if ((Asset[A].Value == 0) && (Asset[A].Group.Family == C.AssetFamily) && (Asset[A].Group.Category == "Appearance"))
+		if ((Asset[A].Value == 0) && (Asset[A].Group.Family == C.AssetFamily) && (Asset[A].Group.Category == "Appearance") && CharacterAppearanceGenderAllowed(Asset[A]))
 			CharacterAppearanceAssets.push(Asset[A]);
 	for (let A = 0; A < C.Inventory.length; A++)
-		if ((C.Inventory[A].Asset != null) && (C.Inventory[A].Asset.Group.Family == C.AssetFamily) && (C.Inventory[A].Asset.Group.Category == "Appearance"))
+		if ((C.Inventory[A].Asset != null) && (C.Inventory[A].Asset.Group.Family == C.AssetFamily) && (C.Inventory[A].Asset.Group.Category == "Appearance") && CharacterAppearanceGenderAllowed(Asset[A]))
 			CharacterAppearanceAssets.push(C.Inventory[A].Asset);
 
 }
@@ -100,7 +100,6 @@ function CharacterAppearanceValidate(C) {
 function CharacterAppearanceSetDefault(C) {
 
 	// Resets the current appearance and prepares the assets
-	if (!AppearanceGroupAllowed(C, "ALL")) return;
 	C.Appearance = [];
 	C.Pose = [];
 	if (CharacterAppearanceAssets.length == 0) CharacterAppearanceBuildAssets(C);
@@ -169,22 +168,29 @@ function CharacterAppearanceFullRandom(C, ClothOnly=false) {
 	// Clear the current appearance
 	for (let A = C.Appearance.length - 1; A >= 0; A--)
 		if (C.Appearance[A].Asset.Group.Category == "Appearance")
-			if ((!ClothOnly || (C.Appearance[A].Asset.Group.AllowNone)) && AppearanceGroupAllowed(C, C.Appearance[A].Asset.Group.Name))
+			if (!ClothOnly || (C.Appearance[A].Asset.Group.AllowNone)) {
 				C.Appearance.splice(A, 1);
+			}
+
+	// Need to add chest and genitals first to allow associated Has<BodyPart> prerequisites on clothing to pass
+	const firstGroups = ["BodyUpper", "Pussy"];
+	const assetGroupList = ClothOnly ? AssetGroup :
+		AssetGroup.filter(g => firstGroups.includes(g.Name)).concat(AssetGroup.filter(g => !firstGroups.includes(g.Name)))
 
 	// For each item group (non default items only show at a 8% rate, if it can occasionally happen)
-	for (let A = 0; A < AssetGroup.length; A++)
-		if ((AssetGroup[A].Category == "Appearance") && (AssetGroup[A].IsDefault || (AssetGroup[A].Random && Math.random() < 0.08) || CharacterAppearanceRequired(C, AssetGroup[A].Name)) && (!CharacterAppearanceMustHide(C, AssetGroup[A].Name) || !AssetGroup[A].AllowNone) && (CharacterAppearanceGetCurrentValue(C, AssetGroup[A].Name, "Name") == "None") && AppearanceGroupAllowed(C, AssetGroup[A].Name)) {
+	for (let A = 0; A < assetGroupList.length; A++) {
+		const group = assetGroupList[A];
+		if ((group.Category == "Appearance") && (group.IsDefault || (group.Random && Math.random() < 0.08) || CharacterAppearanceRequired(C, group.Name)) && (!CharacterAppearanceMustHide(C, group.Name) || !group.AllowNone) && (CharacterAppearanceGetCurrentValue(C, group.Name, "Name") == "None")) {
 
 			// Get the parent size
 			var ParentSize = "";
-			if (AssetGroup[A].ParentSize != "")
-				ParentSize = CharacterAppearanceGetCurrentValue(C, AssetGroup[A].ParentSize, "Name");
+			if (group.ParentSize != "")
+				ParentSize = CharacterAppearanceGetCurrentValue(C, group.ParentSize, "Name");
 
 			// Check for a parent
 			var R = [];
 			for (let I = 0; I < CharacterAppearanceAssets.length; I++)
-				if ((CharacterAppearanceAssets[I].Group.Name == AssetGroup[A].Name) && (CharacterAppearanceAssets[I].ParentItem != null) && ((ParentSize == "") || (CharacterAppearanceAssets[I].Name == ParentSize)))
+				if ((CharacterAppearanceAssets[I].Group.Name == group.Name) && (CharacterAppearanceAssets[I].ParentItem != null) && ((ParentSize == "") || (CharacterAppearanceAssets[I].Name == ParentSize)))
 					for (let P = 0; P < C.Appearance.length; P++)
 						if (C.Appearance[P].Asset.Name == CharacterAppearanceAssets[I].ParentItem)
 							R.push(CharacterAppearanceAssets[I]);
@@ -192,12 +198,12 @@ function CharacterAppearanceFullRandom(C, ClothOnly=false) {
 			// Since there was no parent, get all the possible items
 			if (R.length == 0)
 				for (let I = 0; I < CharacterAppearanceAssets.length; I++)
-					if ((CharacterAppearanceAssets[I].Group.Name == AssetGroup[A].Name) && CharacterAppearanceAssets[I].Random && (CharacterAppearanceAssets[I].ParentItem == null) && ((ParentSize == "") || (CharacterAppearanceAssets[I].Name == ParentSize)))
+					if ((CharacterAppearanceAssets[I].Group.Name == group.Name) && CharacterAppearanceAssets[I].Random && (CharacterAppearanceAssets[I].ParentItem == null) && ((ParentSize == "") || (CharacterAppearanceAssets[I].Name == ParentSize)))
 						R.push(CharacterAppearanceAssets[I]);
 
 			// Picks a random item and color and add it
 			if (R.length > 0) {
-				var SelectedAsset = InventoryGetRandom(C, AssetGroup[A].Name, R);
+				var SelectedAsset = InventoryGetRandom(C, group.Name, R);
 				// If we found no asset, just move to next group
 				if (!SelectedAsset)
 					continue;
@@ -221,8 +227,8 @@ function CharacterAppearanceFullRandom(C, ClothOnly=false) {
 				};
 				C.Appearance.push(NA);
 			}
-
 		}
+	}
 
 	// Refreshes the character
 	CharacterRefresh(C, false);
@@ -258,7 +264,6 @@ function CharacterAppearanceStripLayer(C) {
 	// Find out what the top layer currently is
 	for (let A = 0; A < C.Appearance.length; A++) {
 		if (!WardrobeGroupAccessible(C, C.Appearance[A].Asset.Group)) continue;
-		if (!AppearanceGroupAllowed(C, C.Appearance[A].Asset.Group.Name)) continue;
 		if (C.Appearance[A].Asset.Group.BodyCosplay || C.Appearance[A].Asset.BodyCosplay) HasBodyCosplay = true;
 		else if (C.Appearance[A].Asset.Group.Underwear) HasUnderwear = true;
 		else if (C.Appearance[A].Asset.Group.Clothing) { HasClothes = true; break; }
@@ -275,8 +280,8 @@ function CharacterAppearanceStripLayer(C) {
 	var RemoveAsset = false;
 	for (let A = C.Appearance.length - 1; A >= 0; A--) {
 		RemoveAsset = false;
+
 		if (!WardrobeGroupAccessible(C, C.Appearance[A].Asset.Group)) continue;
-		if (!AppearanceGroupAllowed(C, C.Appearance[A].Asset.Group.Name)) continue;
 		if (C.Appearance[A].Asset.Group.BodyCosplay || C.Appearance[A].Asset.BodyCosplay) {
 			if (HasBodyCosplay) RemoveAsset = true;
 		}
@@ -286,6 +291,7 @@ function CharacterAppearanceStripLayer(C) {
 		else if (C.Appearance[A].Asset.Group.Clothing) {
 			if (HasClothes) RemoveAsset = true;
 		}
+
 		if (RemoveAsset) {
 			C.Appearance.splice(A, 1);
 		}
@@ -377,6 +383,10 @@ function CharacterAppearanceVisible(C, AssetName, GroupName, Recursive = true) {
 	if (assetToCheck) {
 		const Pose = CommonDrawResolveAssetPose(C, assetToCheck);
 		if (Pose && assetToCheck.HideForPose.includes(Pose)) return false;
+
+		if (!CharacterAppearanceGenderAllowed(assetToCheck)) {
+			return false;
+		}
 	}
 
 	for (const item of C.DrawAppearance) {
@@ -574,7 +584,7 @@ function AppearanceMenuBuild(C) {
 		case "":
 			if (C.ID === 0) {
 				AppearanceMenu.push(LogQuery("Wardrobe", "PrivateRoom") ? "Wardrobe" : "WardrobeDisabled");
-				if (!LogQuery("Wardrobe", "PrivateRoom") && AppearanceGroupAllowed(C, "ALL")) AppearanceMenu.push("Reset");
+				if (!LogQuery("Wardrobe", "PrivateRoom")) AppearanceMenu.push("Reset");
 				if (!DialogItemPermissionMode) AppearanceMenu.push("WearRandom");
 				AppearanceMenu.push("Random");
 			} else AppearanceMenu.push(LogQuery("Wardrobe", "PrivateRoom") ? "Wardrobe" : "WardrobeDisabled");
@@ -707,25 +717,24 @@ function AppearanceRun() {
 		// Creates buttons for all groups
 		for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++)
 			if ((AssetGroup[A].Family == C.AssetFamily) && (AssetGroup[A].Category == "Appearance") && AssetGroup[A].AllowCustomize) {
-				if (AppearanceGroupAllowed(C, AssetGroup[A].Name)) {
-					const Item = InventoryGet(C, AssetGroup[A].Name);
-					const ButtonColor = WardrobeGroupAccessible(C, AssetGroup[A]) ? "White" : "#888";
-					if (AssetGroup[A].AllowNone && (AssetGroup[A].Category == "Appearance") && (Item != null) && WardrobeGroupAccessible(C, AssetGroup[A]))
-						DrawButton(1210, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65, "", ButtonColor, "Icons/Small/Naked.png", TextGet("StripItem"));
-					DrawBackNextButton(1300, 145 + (A - CharacterAppearanceOffset) * 95, 400, 65, AssetGroup[A].Description + ": " + CharacterAppearanceGetCurrentValue(C, AssetGroup[A].Name, "Description"), ButtonColor, "",
-						() => WardrobeGroupAccessible(C, AssetGroup[A]) ? CharacterAppearanceNextItem(C, AssetGroup[A].Name, false, true) : "",
-						() => WardrobeGroupAccessible(C, AssetGroup[A]) ? CharacterAppearanceNextItem(C, AssetGroup[A].Name, true, true) : "",
-						!WardrobeGroupAccessible(C, AssetGroup[A]),
-						AssetGroup[A].AllowNone || AppearancePreviewUseCharacter(AssetGroup[A]) ? 65 : null);
-					var Color = CharacterAppearanceGetCurrentValue(C, AssetGroup[A].Name, "Color");
-					const ColorButtonText = ItemColorGetColorButtonText(Color);
-					const ColorButtonColor = ColorButtonText.startsWith("#") ? ColorButtonText : "#fff";
-					const CanCycleColors = !!Item && WardrobeGroupAccessible(C, AssetGroup[A]) && (Item.Asset.ColorableLayerCount > 0 || Item.Asset.Group.ColorSchema.length > 1) && !InventoryBlockedOrLimited(C, Item);
-					const CanPickColor = CanCycleColors && AssetGroup[A].AllowColorize;
-					const ColorIsSimple = ItemColorIsSimple(Item);
-					DrawButton(1725, 145 + (A - CharacterAppearanceOffset) * 95, 160, 65, ColorButtonText, CanCycleColors ? ColorButtonColor : "#aaa", null, null, !CanCycleColors);
-					DrawButton(1910, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65, "", CanPickColor ? "#fff" : "#aaa", CanPickColor ? ColorIsSimple ? "Icons/Color.png" : "Icons/MultiColor.png" : "Icons/ColorBlocked.png", null, !CanPickColor);
-				} else DrawText(AssetGroup[A].Description + " " + TextGet("OwnerBlock"), 1600, 177 + (A - CharacterAppearanceOffset) * 95, "White", "Silver");
+				const Item = InventoryGet(C, AssetGroup[A].Name);
+				const ButtonColor = WardrobeGroupAccessible(C, AssetGroup[A]) ? "White" : "#888";
+				if (AssetGroup[A].AllowNone && (AssetGroup[A].Category == "Appearance") && (Item != null) && WardrobeGroupAccessible(C, AssetGroup[A]))
+					DrawButton(1210, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65, "", ButtonColor, "Icons/Small/Naked.png", TextGet("StripItem"));
+				DrawBackNextButton(1300, 145 + (A - CharacterAppearanceOffset) * 95, 400, 65, AssetGroup[A].Description + ": " + CharacterAppearanceGetCurrentValue(C, AssetGroup[A].Name, "Description"), ButtonColor, "",
+					() => WardrobeGroupAccessible(C, AssetGroup[A]) ? CharacterAppearanceNextItem(C, AssetGroup[A].Name, false, true) : "",
+					() => WardrobeGroupAccessible(C, AssetGroup[A]) ? CharacterAppearanceNextItem(C, AssetGroup[A].Name, true, true) : "",
+					!WardrobeGroupAccessible(C, AssetGroup[A]),
+					AssetGroup[A].AllowNone || AppearancePreviewUseCharacter(AssetGroup[A]) ? 65 : null);
+				var Color = CharacterAppearanceGetCurrentValue(C, AssetGroup[A].Name, "Color");
+				const ColorButtonText = ItemColorGetColorButtonText(Color);
+				const ColorButtonColor = ColorButtonText.startsWith("#") ? ColorButtonText : "#fff";
+				const CanCycleColors = !!Item && WardrobeGroupAccessible(C, AssetGroup[A]) && (Item.Asset.ColorableLayerCount > 0 || Item.Asset.Group.ColorSchema.length > 1) && !InventoryBlockedOrLimited(C, Item);
+				const CanPickColor = CanCycleColors && AssetGroup[A].AllowColorize;
+				const ColorIsSimple = ItemColorIsSimple(Item);
+
+				DrawButton(1725, 145 + (A - CharacterAppearanceOffset) * 95, 160, 65, ColorButtonText, CanCycleColors ? ColorButtonColor : "#aaa", null, null, !CanCycleColors);
+				DrawButton(1910, 145 + (A - CharacterAppearanceOffset) * 95, 65, 65, "", CanPickColor ? "#fff" : "#aaa", CanPickColor ? ColorIsSimple ? "Icons/Color.png" : "Icons/MultiColor.png" : "Icons/ColorBlocked.png", null, !CanPickColor);
 			}
 	}
 
@@ -934,7 +943,7 @@ function CharacterAppearanceSetItem(C, Group, ItemAsset, NewColor, DifficultyFac
  */
 function CharacterAppearanceNextItem(C, Group, Forward, Description) {
 	var Current = CharacterAppearanceGetCurrentValue(C, Group, "Name");
-	var CAA = CharacterAppearanceAssets.filter(a => a.Group.Name == Group);
+	var CAA = CharacterAppearanceAssets.filter(a => a.Group.Name == Group && InventoryAllow(C, a, a.Prerequisite, false));
 	if (Description == true && CAA.length == 0) return "None";
 	if (Current != "None") {
 		// If we found the item we move forward or backward if possible
@@ -1057,11 +1066,10 @@ function AppearanceClick() {
 		if ((MouseX >= 1210) && (MouseX < 1275) && (MouseY >= 145) && (MouseY < 975))
 			for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++)
 				if ((AssetGroup[A].Family == C.AssetFamily) && (AssetGroup[A].Category == "Appearance") && WardrobeGroupAccessible(C, AssetGroup[A]) && AssetGroup[A].AllowNone && (InventoryGet(C, AssetGroup[A].Name) != null))
-					if ((MouseY >= 145 + (A - CharacterAppearanceOffset) * 95) && (MouseY <= 210 + (A - CharacterAppearanceOffset) * 95)) 
-						if (AppearanceGroupAllowed(C, AssetGroup[A].Name)) {
-							InventoryRemove(C, AssetGroup[A].Name, false);
-							CharacterRefresh(C, false);
-						}
+					if ((MouseY >= 145 + (A - CharacterAppearanceOffset) * 95) && (MouseY <= 210 + (A - CharacterAppearanceOffset) * 95)) {
+						InventoryRemove(C, AssetGroup[A].Name, false);
+						CharacterRefresh(C, false);
+					}
 
 		// If we must enter the cloth selection mode
 		if ((MouseX >= 1300) && (MouseX < 1700) && (MouseY >= 145) && (MouseY < 975)) {
@@ -1069,47 +1077,54 @@ function AppearanceClick() {
 			for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++)
 				if ((AssetGroup[A].Family == C.AssetFamily) && (AssetGroup[A].Category == "Appearance") && WardrobeGroupAccessible(C, AssetGroup[A]))
 					if (MouseYIn(145 + (A - CharacterAppearanceOffset) * 95, 65))
-						if (AppearanceGroupAllowed(C, AssetGroup[A].Name)) {
-							if (!AssetGroup[A].AllowNone && !AppearancePreviewUseCharacter(AssetGroup[A])) {
-								CharacterAppearanceNextItem(C, AssetGroup[A].Name, MouseX > 1500);
-							}
+						if (!AssetGroup[A].AllowNone && !AppearancePreviewUseCharacter(AssetGroup[A])) {
+							CharacterAppearanceNextItem(C, AssetGroup[A].Name, MouseX > 1500);
+						}
+						else {
+							if (MouseXIn(1300, 65)) CharacterAppearanceNextItem(C, AssetGroup[A].Name, false);
+							else if (MouseXIn(1635, 65)) CharacterAppearanceNextItem(C, AssetGroup[A].Name, true);
 							else {
-								if (MouseXIn(1300, 65)) CharacterAppearanceNextItem(C, AssetGroup[A].Name, false);
-								else if (MouseXIn(1635, 65)) CharacterAppearanceNextItem(C, AssetGroup[A].Name, true);
-								else {
-									// Open the clothing group screen
-									C.FocusGroup = AssetGroup[A];
-									DialogInventoryBuild(C, null, true);
-									CharacterAppearanceCloth = InventoryGet(C, C.FocusGroup.Name);
-									CharacterAppearanceMode = "Cloth";
-									return;
-								}
+								// Open the clothing group screen
+								C.FocusGroup = AssetGroup[A];
+								DialogInventoryBuild(C, null, true);
+								CharacterAppearanceCloth = InventoryGet(C, C.FocusGroup.Name);
+								CharacterAppearanceMode = "Cloth";
+								return;
 							}
 						}
-
 		}
+
 
 		// If we must switch to the next color in the assets
 		if ((MouseX >= 1725) && (MouseX < 1885) && (MouseY >= 145) && (MouseY < 975))
 			for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++) {
 				const Item = InventoryGet(C, AssetGroup[A].Name);
-				if ((AssetGroup[A].Family == C.AssetFamily) && (AssetGroup[A].Category == "Appearance") && WardrobeGroupAccessible(C, AssetGroup[A]) && Item && (Item.Asset.ColorableLayerCount > 0 || Item.Asset.Group.ColorSchema.length > 1) && !InventoryBlockedOrLimited(C, Item))
+				if ((AssetGroup[A].Family == C.AssetFamily) &&
+					(AssetGroup[A].Category == "Appearance") &&
+					WardrobeGroupAccessible(C, AssetGroup[A]) &&
+					Item &&
+					(Item.Asset.ColorableLayerCount > 0 || Item.Asset.Group.ColorSchema.length > 1) &&
+					!InventoryBlockedOrLimited(C, Item))
 					if ((MouseY >= 145 + (A - CharacterAppearanceOffset) * 95) && (MouseY <= 210 + (A - CharacterAppearanceOffset) * 95))
-						if (AppearanceGroupAllowed(C, AssetGroup[A].Name))
-							CharacterAppearanceNextColor(C, AssetGroup[A].Name);
+						CharacterAppearanceNextColor(C, AssetGroup[A].Name);
 			}
 
 		// If we must open the color panel
 		if (MouseIn(1910, 145, 65, 830))
 			for (let A = CharacterAppearanceOffset; A < AssetGroup.length && A < CharacterAppearanceOffset + CharacterAppearanceNumPerPage; A++) {
 				const Item = InventoryGet(C, AssetGroup[A].Name);
-				if ((AssetGroup[A].Family == C.AssetFamily) && (AssetGroup[A].Category == "Appearance") && WardrobeGroupAccessible(C, AssetGroup[A]) && AssetGroup[A].AllowColorize && Item && Item.Asset.ColorableLayerCount > 0 && !InventoryBlockedOrLimited(C, Item))
-					if ((MouseY >= 145 + (A - CharacterAppearanceOffset) * 95) && (MouseY <= 210 + (A - CharacterAppearanceOffset) * 95))
-						if (AppearanceGroupAllowed(C, AssetGroup[A].Name))
-							AppearanceItemColor(C, Item, AssetGroup[A].Name, "");
+				if ((AssetGroup[A].Family == C.AssetFamily) &&
+					(AssetGroup[A].Category == "Appearance") &&
+					WardrobeGroupAccessible(C, AssetGroup[A]) &&
+					AssetGroup[A].AllowColorize &&
+					Item &&
+					Item.Asset.ColorableLayerCount > 0 &&
+					!InventoryBlockedOrLimited(C, Item))
+					if ((MouseY >= 145 + (A - CharacterAppearanceOffset) * 95) && (MouseY <= 210 + (A - CharacterAppearanceOffset) * 95)) {
+						AppearanceItemColor(C, Item, AssetGroup[A].Name, "");
+					}
 			}
 		return;
-
 	}
 
 	// In wardrobe mode
@@ -1136,7 +1151,6 @@ function AppearanceClick() {
 					}
 				}
 		return;
-
 	}
 
 	// In cloth selection mode
@@ -1177,7 +1191,6 @@ function AppearanceClick() {
 				Y = Y + 300;
 			}
 		}
-
 	}
 }
 
@@ -1567,4 +1580,12 @@ function CharacterAppearanceResolveSync(C, currentAppearance) {
 		// Merge the synced appearance with the ongoing appearance edits
 		C.Appearance = CharacterAppearanceResolveAppearance(baseAppearance, C.Appearance, currentAppearance);
 	}
+}
+
+/**
+ * Returns whether an asset with a specific gender is allowed in the current chatroom space
+ * @param {Asset} asset
+ */
+function CharacterAppearanceGenderAllowed(asset) {
+	return !asset.Gender || !ServerPlayerIsInChatRoom() || ChatSelectGendersAllowed(ChatRoomSpace, [asset.Gender]);
 }

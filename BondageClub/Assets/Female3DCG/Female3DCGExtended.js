@@ -2276,6 +2276,45 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // PrisonLockdownSuit
+		SmoothLeatherArmbinder1: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "BinderPosition", Key: "b",
+						Options:  [
+							{}, // b0 Left
+							{}, // b1 Back
+							{} // b2 Right
+						]
+					},
+					{ 
+						Name: "ShoulderStraps", Key: "s",
+						Options:[
+							{}, // s0 No Straps
+							{
+								Property: {
+									Difficulty: 20
+								}
+							}, // s1 Basic Shoulder Straps
+							{ 
+								Property: {
+									Difficulty: 30
+								}
+							}, // s2 Wrapping Shoulder Straps
+							{ 
+								Property: {
+									Difficulty: 40
+								}
+							}, // s3 Harness Shoulder Straps
+							
+						],
+						
+						AllowSelfSelect: false
+					}
+				]
+			}
+		}, // SmoothLeatherArmbinder1
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {
@@ -3903,6 +3942,9 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // Stitches
+		VibeEggPenisBase: {
+			Archetype: ExtendedArchetype.VIBRATING
+		}, // VibeEggPenisBase
 	}, // ItemVulva
 	ItemVulvaPiercings: {
 		ClitRing: {
@@ -4466,18 +4508,6 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "Corset", AssetName: "LatexCorset1" },
 		}, //LatexCorset1
-		SilkStraps: {
-			Archetype: ExtendedArchetype.TYPED,
-			Config: {
-				Options: [
-					{ Name: "Crotch", Property: { Type: null } },
-					{ Name: "Waist", Property: { Type: "Waist" } },
-					{ Name: "Harness", Property: { Type: "Harness" } },
-					{ Name: "Star", Property: { Type: "Star" } },
-					{ Name: "Diamond", Property: { Type: "Diamond" } },
-				]
-			},
-		}, // SilkStraps
 		ThinLeatherStraps: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
@@ -4596,10 +4626,6 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemTorso", AssetName: "Ribbons" },
 		}, // Ribbons
-		SilkStraps: {
-			Archetype: ExtendedArchetype.TYPED,
-			CopyConfig: { GroupName: "ItemTorso", AssetName: "SilkStraps" },
-		}, // SilkStraps
 		ThinLeatherStraps: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemTorso", AssetName: "ThinLeatherStraps" },
@@ -6348,17 +6374,6 @@ var AssetFemale3DCGExtended = {
 		},//PetPost
 	}, // ItemMisc
 	ItemPelvis: {
-		SilkStraps: {
-			Archetype: ExtendedArchetype.TYPED,
-			Config: {
-				Options: [
-					{ Name: "Crotch", Property: { Type: null } },
-					{ Name: "OverPanties", Property: { Type: "OverPanties", OverridePriority: 21 } },
-					{ Name: "SwissSeat", Property: { Type: "SwissSeat" } },
-					{ Name: "KikkouHip", Property: { Type: "KikkouHip" } },
-				]
-			},
-		}, // SilkStraps
 		FuturisticChastityBelt: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
@@ -6682,18 +6697,6 @@ var AssetFemale3DCGExtended = {
 		}, // BluetoothEarbuds
 	}, // ItemEars
 	Bra: {
-		SilkStraps: {
-			Archetype: ExtendedArchetype.TYPED,
-			Config: {
-				Options: [
-					{ Name: "Strip", Property: { Type: null } },
-					{ Name: "Wrap", Property: { Type: "Wrap" } },
-					{ Name: "Bra1", Property: { Type: "Bra1" } },
-					{ Name: "Bra2", Property: { Type: "Bra2" } },
-					{ Name: "Swimsuit", Property: { Type: "Swimsuit" } },
-				]
-			}
-		}, // SilkStraps
 		Ribbons: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
@@ -6767,17 +6770,6 @@ var AssetFemale3DCGExtended = {
 		}, // ChineseDress2
 	}, // Bra
 	Panties: {
-		SilkStraps: {
-			Archetype: ExtendedArchetype.TYPED,
-			Config: {
-				Options: [
-					{ Name: "Strips", Property: { Type: null } },
-					{ Name: "Wrap", Property: { Type: "Wrap" } },
-					{ Name: "Thong", Property: { Type: "Thong" } },
-					{ Name: "Panties1", Property: { Type: "Panties1" } },
-				]
-			},
-		}, // SilkStraps
 		Diapers4: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
@@ -7143,7 +7135,48 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "Suit", AssetName: "Catsuit" },
 		}, // ReverseBunnySuit
+		MaleSeamlessCatsuit: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "Suit", AssetName: "Catsuit" },
+		}, // MaleSeamlessCatsuit
 	}, // Suit
+	SuitLower: {
+		MaleSeamlessCatsuit: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Tucked",
+						Property: {
+							Type: null
+						},
+					},
+					{
+						Name: "Bulge",
+						Property: {
+							Type: "Bulge"
+						},
+					},
+					{
+						Name: "SkinTight",
+						Property: {
+							Type: "SkinTight"
+						},
+					},
+					{
+						Name: "Lock",
+						Property: {
+							Type: "Lock"
+						},
+					},
+				],
+			},
+		}, // MaleSeamlessCatsuit
+		MaleCatsuitPanties: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "SuitLower", AssetName: "MaleSeamlessCatsuit" },
+		}, // MaleCatsuitPanties
+	}, // SuitLower
 	ItemHead: {
 		DuctTape: {
 			Archetype: ExtendedArchetype.TYPED,

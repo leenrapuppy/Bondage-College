@@ -351,6 +351,9 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		GetTints: function() {
 			return CharacterGetTints(this);
 		},
+		GetGenders: function () {
+			return this.Appearance.map(asset => asset.Asset.Gender).filter(a => a);
+		},
 		// Adds a new hook with a Name (determines when the hook will happen, an Instance ID (used to differentiate between different hooks happening at the same time), and a function that is run when the hook is called)
 		RegisterHook: function (hookName, hookInstance, callback) {
 			if (!this.Hooks) this.Hooks = new Map();
@@ -1817,7 +1820,7 @@ function CharacterClearOwnership(C) {
  * Returns the nickname of a character, or the name if the nickname isn't valid
  * Also validates if the character is a GGTS drone to alter her name
  * @param {Character} C - The character breaking from their owner
- * @returns {String} - The nickname to return
+ * @returns {string} - The nickname to return
  */
 function CharacterNickname(C) {
 	let Regex = /^[a-zA-Z\s]*$/;
@@ -1829,7 +1832,35 @@ function CharacterNickname(C) {
 }
 
 /**
- * Update the given character's nickname.
+ * Returns dialog text for a character based on their chosen pronouns. Default to She/Her entries
+ * @param {Character} C - The character to fetch dialog for
+ * @param {string} DialogKey - The type of dialog entry to look for
+ * @param {boolean} HideIdentity - Whether to use generic they/them pronouns
+ * @returns {string} - The text to use
+ */
+function CharacterPronoun(C, DialogKey, HideIdentity) {
+	let pronounName;
+	if (HideIdentity && ChatRoomSpace == ChatRoomSpaceType.MIXED) {
+		pronounName = "TheyThem";
+	} else {
+		const pronounItem = C.Appearance.find(A => A.Asset.Group.Name == "Pronouns");
+		pronounName = pronounItem ? pronounItem.Asset.Name : "SheHer";
+	}
+	return DialogFindPlayer("Pronoun" + DialogKey + pronounName);
+}
+
+/**
+ * Returns the description text for the character's chosen pronouns. Default to She/Her
+ * @param {Character} C - The character to fetch text for
+ * @returns {string} - The text to use
+ */
+function CharacterPronounDescription(C) {
+	const pronounItem = C.Appearance.find(A => A.Asset.Group.Name == "Pronouns");
+	const pronounAsset = pronounItem ? pronounItem.Asset : AssetGet(C.AssetFamily, "Pronouns", "SheHer");
+	return pronounAsset.Description;
+}
+
+ /* Update the given character's nickname.
  *
  * Note that changing any nickname but yours (ie. Player) is not supported.
  *

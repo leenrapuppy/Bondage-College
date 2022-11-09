@@ -205,6 +205,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		Tint: Array.isArray(AssetDef.Tint) ? AssetDef.Tint : [],
 		AllowTint: Array.isArray(AssetDef.Tint) && AssetDef.Tint.length > 0,
 		DefaultTint: typeof AssetDef.DefaultTint === "string" ? AssetDef.DefaultTint : undefined,
+		Gender: AssetDef.Gender,
 		CraftGroup: typeof AssetDef.CraftGroup === "string" ? AssetDef.CraftGroup : AssetDef.Name,
 		ColorSuffix: typeof Group.ColorSuffix === "object" ? Group.ColorSuffix : {},
 	}, AssetParsePoseProperties(AssetDef, Group.AllowPose.slice()));

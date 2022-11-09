@@ -611,6 +611,7 @@ function LoginResponse(C) {
 			if (typeof C.LastChatRoomBan == "string")
 				Player.LastChatRoomBan = CommonConvertStringToArray(C.LastChatRoomBan);
 			Player.LastChatRoomBlockCategory = C.LastChatRoomBlockCategory;
+			Player.LastChatRoomSpace = C.LastChatRoomSpace;
 
 			// Loads the ownership data
 			Player.Ownership = C.Ownership;
@@ -640,6 +641,7 @@ function LoginResponse(C) {
 			Player.OnlineSharedSettings = C.OnlineSharedSettings;
 			Player.GraphicsSettings = C.GraphicsSettings;
 			Player.NotificationSettings = C.NotificationSettings;
+			Player.GenderSettings = C.GenderSettings;
 			Player.SavedExpressions = C.SavedExpressions;
 			if (!Array.isArray(Player.SavedExpressions)) {
 				Player.SavedExpressions = [];
