@@ -709,7 +709,7 @@ function CraftingConvertItemToSelected(Craft) {
 		Private: Craft.Private,
 		Type: Craft.Type,
 		Property: Craft.Property,
-		Asset: Player.Inventory.find(a => a.Asset.Name === Craft.Item).Asset,
+		Asset: Player.Inventory.find(a => a.Asset.Name === Craft.Item && a.Asset.Group.Name !== "ItemMisc").Asset,
 		Lock: Craft.Lock ? Player.Inventory.find(a => a.Asset.Group.Name === "ItemMisc" && a.Asset.Name == Craft.Lock).Asset : null,
 		OverridePriority: Craft.OverridePriority,
 	}
