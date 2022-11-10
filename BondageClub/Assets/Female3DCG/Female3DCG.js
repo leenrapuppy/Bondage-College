@@ -2438,8 +2438,8 @@ var AssetFemale3DCG = [
 		AllowNone: false,
 		Asset: [
 		{ Name: "Nipples1"  },
-		{ Name: "Nipples2",Prerequisite: ["HasBreasts"] },
-		{ Name: "Nipples3" ,Prerequisite: ["HasBreasts"] },
+		{ Name: "Nipples2", Prerequisite: ["HasBreasts"] },
+		{ Name: "Nipples3", Prerequisite: ["HasBreasts"] },
 	],
 		Color: ["Default", "#a6665b", "#803d26", "#d68777", "#9b4a2e", "#bb6655"],
 		ColorSuffix: { "White": "Default", "Asian": "Default", "Black": "Default" },
@@ -2453,6 +2453,7 @@ var AssetFemale3DCG = [
 		Top: 500,
 		AllowNone: false,
 		AllowExpression: ["Hard"],
+		ExpressionPrerequisite: ["HasPenis"],
 		Asset: [
 			{ Name: "PussyLight1", Gender: "F" },
 			{ Name: "PussyLight2", Gender: "F" },

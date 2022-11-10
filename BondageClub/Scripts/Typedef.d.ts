@@ -585,6 +585,7 @@ interface AssetGroup {
 	/** A dict mapping colors to custom filename suffices.
 	The "HEX_COLOR" key is special-cased to apply to all color hex codes. */
 	ColorSuffix?: Record<string, string>;
+	ExpressionPrerequisite: string[];
 }
 
 /** An object defining a drawable layer of an asset */
@@ -788,9 +789,10 @@ interface Asset {
 	Tint: TintDefinition[];
 	AllowTint: boolean;
 	DefaultTint?: string;
-	Gender?: string;
+	Gender?: 'F' | 'M';
 	CraftGroup: string;
 	ColorSuffix: Record<string, string>;
+	ExpressionPrerequisite: string[];
 }
 
 //#endregion

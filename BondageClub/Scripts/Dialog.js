@@ -580,6 +580,7 @@ function DialogLeave() {
 	DialogSavedExpressionPreviews = [];
 	DialogFacialExpressionsSelected = -1;
 	ClearButtons();
+	DialogFacialExpressions = [];
 }
 
 /**
@@ -1211,6 +1212,7 @@ function DialogFacialExpressionsBuild() {
 		const PA = Player.Appearance[I];
 		let ExpressionList = PA.Asset.Group.AllowExpression;
 		if (!ExpressionList || !ExpressionList.length || PA.Asset.Group.Name == "Eyes2") continue;
+		if (PA.Asset.ExpressionPrerequisite.length && PA.Asset.ExpressionPrerequisite.some(pre => InventoryPrerequisiteMessage(Player, pre) !== "")) continue;
 		ExpressionList = ExpressionList.slice();
 		if (!ExpressionList.includes(null)) ExpressionList.unshift(null);
 		const Item = {};
