@@ -35,6 +35,7 @@ interface AssetGroupDefinition {
 	DynamicGroupName?: AssetGroupName;
 	MirrorActivitiesFrom?: string;
 	ColorSuffix?: Record<string, string>;
+	ExpressionPrerequisite: string[];
 }
 
 type AssetBonusName = "KidnapDomination" | "KidnapSneakiness" | "KidnapBruteForce";
@@ -304,6 +305,9 @@ interface AssetDefinition {
 	 * Do note that this expects all the assets in the craft group to have compatible layers, color-wise and type-wise.
 	 */
 	CraftGroup?: string;
+
+	/** A list of prerequisite checks that must pass for the group's expressions to be selectable */
+	ExpressionPrerequisite: string[];
 }
 
 interface AssetLayerDefinition {
