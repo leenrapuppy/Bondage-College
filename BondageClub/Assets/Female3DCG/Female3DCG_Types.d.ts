@@ -35,7 +35,7 @@ interface AssetGroupDefinition {
 	DynamicGroupName?: AssetGroupName;
 	MirrorActivitiesFrom?: string;
 	ColorSuffix?: Record<string, string>;
-	ExpressionPrerequisite: string[];
+	ExpressionPrerequisite?: string[];
 }
 
 type AssetBonusName = "KidnapDomination" | "KidnapSneakiness" | "KidnapBruteForce";
@@ -297,7 +297,7 @@ interface AssetDefinition {
 
 	Tint?: TintDefinition[];
 	DefaultTint?: string;
-	Gender?: string;
+	Gender?: "F" | "M";
 
 	/**
 	 * An identifier that marks the asset as being the same for the purpose of crafting.
@@ -307,7 +307,7 @@ interface AssetDefinition {
 	CraftGroup?: string;
 
 	/** A list of prerequisite checks that must pass for the group's expressions to be selectable */
-	ExpressionPrerequisite: string[];
+	ExpressionPrerequisite?: string[];
 }
 
 interface AssetLayerDefinition {
