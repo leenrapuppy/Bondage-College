@@ -352,14 +352,7 @@ function CharacterAppearanceSortLayers(C) {
 		}
 	});
 
-	return layers.sort((l1, l2) => {
-		// If priorities are different, sort by priority
-		if (l1.Priority !== l2.Priority) return l1.Priority - l2.Priority;
-		// If the priorities are identical and the layers belong to the same Asset, ensure layer order is preserved
-		if (l1.Asset === l2.Asset) return l1.Asset.Layer.indexOf(l1) - l1.Asset.Layer.indexOf(l2);
-		// If priorities are identical, sort alphabetically to maintain consistency
-		return (l1.Asset.Group.Name + l1.Asset.Name).localeCompare(l2.Asset.Group.Name + l2.Asset.Name);
-	});
+	return AssetLayerSort(layers);
 }
 
 /**
@@ -621,7 +614,7 @@ function AppearanceMenuBuild(C) {
  * Checks if the appearance is locked for the current player
  * @param {Character} C - The character to validate
  * @param {String} GroupName - The group name to validate, can be "ALL" to check all groups
- * @returns {boolean} - Return TRUE if the appearance group isn't blocked 
+ * @returns {boolean} - Return TRUE if the appearance group isn't blocked
  */
 function AppearanceGroupAllowed(C, GroupName) {
 	if (CurrentScreen != "Appearance") return true;

@@ -645,3 +645,19 @@ function AssetGetPreviewPath(A) {
 function AssetGetInventoryPath(A) {
 	return `Screens/Inventory/${A.DynamicGroupName}/${A.Name}`;
 }
+
+/**
+ * Sort a list of asset layers for the {@link Character.AppearanceLayers } property.
+ * @param {AssetLayer[]} layers - The to-be sorted asset layers
+ * @returns {AssetLayer[]} - The newly sorted asset layers
+ */
+function AssetLayerSort(layers) {
+	return layers.sort((l1, l2) => {
+		// If priorities are different, sort by priority
+		if (l1.Priority !== l2.Priority) return l1.Priority - l2.Priority;
+		// If the priorities are identical and the layers belong to the same Asset, ensure layer order is preserved
+		if (l1.Asset === l2.Asset) return l1.Asset.Layer.indexOf(l1) - l1.Asset.Layer.indexOf(l2);
+		// If priorities are identical, sort alphabetically to maintain consistency
+		return (l1.Asset.Group.Name + l1.Asset.Name).localeCompare(l2.Asset.Group.Name + l2.Asset.Name);
+	});
+}
