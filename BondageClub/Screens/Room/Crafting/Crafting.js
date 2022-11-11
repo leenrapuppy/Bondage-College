@@ -636,11 +636,14 @@ function CraftingClick() {
 		} else if (MouseIn(1175, 768, 64, 64)) {
 			CraftingSelectedItem.Private = !CraftingSelectedItem.Private;
 		} else if (MouseIn(1840, 858, 60, 60) && CraftingItemSupportsAutoType()) {
-			// @ts-ignore
-			if (!CraftingValidationRecord.Type.Validate(CraftingSelectedItem, CraftingSelectedItem.Asset)) {
-				// @ts-ignore
-				CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset);
-			}
+			if ((CraftingSelectedItem.Type == null) || (CraftingSelectedItem.Type == "") || (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) < 0))
+				CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[0];
+			else
+				if (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) >= CraftingSelectedItem.Asset.AllowType.length - 1)
+					// @ts-ignore
+					CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset);
+				else
+					CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) + 1];
 			ElementValue("InputType", CraftingSelectedItem.Type);
 			CraftingUpdatePreview();
 		}
@@ -709,7 +712,7 @@ function CraftingConvertItemToSelected(Craft) {
 		Private: Craft.Private,
 		Type: Craft.Type,
 		Property: Craft.Property,
-		Asset: Player.Inventory.find(a => a.Asset.Name === Craft.Item).Asset,
+		Asset: Player.Inventory.find(a => a.Asset.Name === Craft.Item && a.Asset.Group.Name !== "ItemMisc").Asset,
 		Lock: Craft.Lock ? Player.Inventory.find(a => a.Asset.Group.Name === "ItemMisc" && a.Asset.Name == Craft.Lock).Asset : null,
 		OverridePriority: Craft.OverridePriority,
 	}

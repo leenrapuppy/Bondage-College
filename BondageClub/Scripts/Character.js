@@ -1860,6 +1860,17 @@ function CharacterPronounDescription(C) {
 	return pronounAsset.Description;
 }
 
+/**
+ * Returns TRUE of a character has a penis asset on him/her
+ * @param {Character} C - The character to evaluate
+ * @returns {boolean} - TRUE if a penis is on
+ */
+function CharacterHasPenis(C) {
+	let Item = InventoryGet(C, "Pussy");
+	if ((Item == null) || (Item.Asset == null) || (Item.Asset.Name == null)) return false;
+	return (Item.Asset.Name == "Penis");
+}
+
  /* Update the given character's nickname.
  *
  * Note that changing any nickname but yours (ie. Player) is not supported.
