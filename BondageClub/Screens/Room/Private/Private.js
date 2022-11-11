@@ -357,28 +357,28 @@ function PrivateTitleIs(Title) { return ((CurrentCharacter.Title != null) && (Cu
  * @returns {boolean} - TRUE if she will join
  */
  function PrivateWillJoinBed() {
-	return (PrivateBedCount() <= 3) && !Player.IsGagged() && !CurrentCharacter.PrivateBed && ((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
+	return (PrivateBedCount() <= 3) && !Player.IsGagged() && !CurrentCharacter.IsGagged() && !CurrentCharacter.PrivateBed && ((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
 }
 /**
  * Returns TRUE if the private room friend will not join the player in bed, love must be positive and higher than frigid trait
  * @returns {boolean} - TRUE if she will not join
  */
  function PrivateWillNotJoinBed() {
-	return (PrivateBedCount() <= 3) && !Player.IsGagged() && !CurrentCharacter.PrivateBed && !((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
+	return (PrivateBedCount() <= 3) && !Player.IsGagged() && !CurrentCharacter.IsGagged() && !CurrentCharacter.PrivateBed && !((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
 }
 /**
  * Returns TRUE if the private room friend will join the player in bed, love must be positive and higher than frigid trait (gagged version)
  * @returns {boolean} - TRUE if she will join
  */
  function PrivateWillJoinBedGag() {
-	return (PrivateBedCount() <= 3) && Player.IsGagged() && !CurrentCharacter.PrivateBed && ((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
+	return (PrivateBedCount() <= 3) && (Player.IsGagged() || CurrentCharacter.IsGagged()) && !CurrentCharacter.PrivateBed && ((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
 }
 /**
  * Returns TRUE if the private room friend will not join the player in bed, love must be positive and higher than frigid trait (gagged version)
  * @returns {boolean} - TRUE if she will not join
  */
  function PrivateWillNotJoinBedGag() {
-	return (PrivateBedCount() <= 3) && Player.IsGagged() && !CurrentCharacter.PrivateBed && !((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
+	return (PrivateBedCount() <= 3) && (Player.IsGagged() || CurrentCharacter.IsGagged()) && !CurrentCharacter.PrivateBed && !((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
 }
 
 /**

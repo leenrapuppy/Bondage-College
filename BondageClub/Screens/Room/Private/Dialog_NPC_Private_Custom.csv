@@ -418,16 +418,16 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 0,,Can I invite you to my bed?,(She shakes her head no.)  I'm not in the mood for sexual intercourse.,,WillNotJoinBed(),AskBedNo,Frigid
 0,,Can I invite you to my bed?,No.  Can we do something more productive?,,WillNotJoinBed(),AskBedNo,Serious
 0,,Can I invite you to my bed?,(She takes a deep breath.)  I rarely say no to have bedroom fun.  But not now.,,WillNotJoinBed(),AskBedNo,Playful
-0,70,(Mumble and invite her to your bed.),(She smiles.)  That's a wild idea my friend.  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,
-0,70,(Mumble and invite her to your bed.),(She moans.)  Oh yeah!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,Horny
-0,70,(Mumble and invite her to your bed.),"(She nods.)  Very well, some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBedGag(),AskBedYesGag,Frigid
-0,70,(Mumble and invite her to your bed.),(She ponders and nods.)  Some intimate time with you will strenghten our friendship.  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,Serious
-0,70,(Mumble and invite her to your bed.),(She cheers.)  Pillow fight!  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,Playful
-0,,(Mumble and invite her to your bed.),"Sorry, but I'm not in the mood.",,WillNotJoinBedGag(),AskBedNoGag,
-0,,(Mumble and invite her to your bed.),(She moans and seems tormented.)  Yes?  No?  Maybe later.  I'm tired.,,WillNotJoinBedGag(),AskBedNoGag,Horny
-0,,(Mumble and invite her to your bed.),(She shakes her head no.)  I'm not in the mood for sexual intercourse.,,WillNotJoinBedGag(),AskBedNoGag,Frigid
-0,,(Mumble and invite her to your bed.),No.  Can we do something more productive?,,WillNotJoinBedGag(),AskBedNoGag,Serious
-0,,(Mumble and invite her to your bed.),(She takes a deep breath.)  I rarely say no to have bedroom fun.  But not now.,,WillNotJoinBedGag(),AskBedNoGag,Playful
+0,70,(Invite her to your bed.),(She smiles.)  That's a wild idea my friend.  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,
+0,70,(Invite her to your bed.),(She moans.)  Oh yeah!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,Horny
+0,70,(Invite her to your bed.),"(She nods.)  Very well, some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBedGag(),AskBedYesGag,Frigid
+0,70,(Invite her to your bed.),(She ponders and nods.)  Some intimate time with you will strenghten our friendship.  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,Serious
+0,70,(Invite her to your bed.),(She cheers.)  Pillow fight!  (She gets in bed.),EnterBed(),WillJoinBedGag(),AskBedYesGag,Playful
+0,,(Invite her to your bed.),"Sorry, but I'm not in the mood.",,WillNotJoinBedGag(),AskBedNoGag,
+0,,(Invite her to your bed.),(She moans and seems tormented.)  Yes?  No?  Maybe later.  I'm tired.,,WillNotJoinBedGag(),AskBedNoGag,Horny
+0,,(Invite her to your bed.),(She shakes her head no.)  I'm not in the mood for sexual intercourse.,,WillNotJoinBedGag(),AskBedNoGag,Frigid
+0,,(Invite her to your bed.),No.  Can we do something more productive?,,WillNotJoinBedGag(),AskBedNoGag,Serious
+0,,(Invite her to your bed.),(She takes a deep breath.)  I rarely say no to have bedroom fun.  But not now.,,WillNotJoinBedGag(),AskBedNoGag,Playful
 0,90,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 0,,(Leave her.),,DialogLeave(),,,
 10,,,What's on your mind?,,,,
@@ -759,12 +759,12 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,1070,Would you like to use the bed Mistress?,(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Serious
 1000,1070,Would you like to use the bed Mistress?,(She cheers.)  Yes!  But I get the best pillows my girl.  (She gets in bed.),EnterBed(),WillJoinBed(),DomAskBedYes,Playful
 1000,,Would you like to use the bed Mistress?,"No girl, I'm not in the mood.",,WillNotJoinBed(),,
-1000,1070,(Whimper and invite her to your bed.),(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,
-1000,1070,(Whimper and invite her to your bed.),(She moans.)  Oh yeah!  Time for some spicy fun my girl.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Horny
-1000,1070,(Whimper and invite her to your bed.),"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Frigid
-1000,1070,(Whimper and invite her to your bed.),(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Serious
-1000,1070,(Whimper and invite her to your bed.),(She cheers.)  Yes!  But I get the best pillows my girl.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Playful
-1000,,(Whimper and invite her to your bed.),"No girl, I'm not in the mood.",,WillNotJoinBedGag(),,
+1000,1070,(Invite her to your bed.),(She smiles.)  Now that's a good idea.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,
+1000,1070,(Invite her to your bed.),(She moans.)  Oh yeah!  Time for some spicy fun my girl.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Horny
+1000,1070,(Invite her to your bed.),"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Frigid
+1000,1070,(Invite her to your bed.),(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Serious
+1000,1070,(Invite her to your bed.),(She cheers.)  Yes!  But I get the best pillows my girl.  (She gets in bed.),EnterBed(),WillJoinBedGag(),DomAskBedYesGag,Playful
+1000,,(Invite her to your bed.),"No girl, I'm not in the mood.",,WillNotJoinBedGag(),,
 1000,1090,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 1000,,(Leave her.),,DialogLeave(),,,
 1001,,,(She looks angry.)  What do you want now?,,,DomAngry,
@@ -1432,12 +1432,12 @@ PunishOwnerLocks,1001,(Nod and bow your head.),Good girl.  (She locks all your i
 2000,2075,It's time to get to bed my girl.,(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,Serious
 2000,2075,It's time to get to bed my girl.,(She cheers.)  Yes!  And you can have the best pillows Mistress.  (She gets in bed.),EnterBed(),WillJoinBed(),SubAskBedYes,Playful
 2000,,It's time to get to bed my girl.,"No Mistress.  Sorry, but I'm not in the mood.  Please do not punish me.",,WillNotJoinBed(),,
-2000,2075,(Grumble and invite her to your bed.),(She smiles.)  That's a great idea Mistress.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,
-2000,2075,(Grumble and invite her to your bed.),(She moans.)  Oh yeah Mistress!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Horny
-2000,2075,(Grumble and invite her to your bed.),"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Frigid
-2000,2075,(Grumble and invite her to your bed.),(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Serious
-2000,2075,(Grumble and invite her to your bed.),(She cheers.)  Yes!  And you can have the best pillows Mistress.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Playful
-2000,,(Grumble and invite her to your bed.),"No Mistress.  Sorry, but I'm not in the mood.  Please do not punish me.",,WillNotJoinBedGag(),,
+2000,2075,(Invite her to your bed.),(She smiles.)  That's a great idea Mistress.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,
+2000,2075,(Invite her to your bed.),(She moans.)  Oh yeah Mistress!  Time for some spicy fun.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Horny
+2000,2075,(Invite her to your bed.),"(She nods.)  Alright, I guess some cuddles could be nice.  (She gets in bed.)",EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Frigid
+2000,2075,(Invite her to your bed.),(She ponders and nods.)  Some intimate time with you will strenghten our D/s relationship.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Serious
+2000,2075,(Invite her to your bed.),(She cheers.)  Yes!  And you can have the best pillows Mistress.  (She gets in bed.),EnterBed(),WillJoinBedGag(),SubAskBedYesGag,Playful
+2000,,(Invite her to your bed.),"No Mistress.  Sorry, but I'm not in the mood.  Please do not punish me.",,WillNotJoinBedGag(),,
 2000,2100,(Play with her.),"(You move closer, ready to play with her.)",,AllowRestain(),,
 2000,2090,(Use cheats on her.),(Which cheat would you like to use on her?),,NPCAllowCheat(),,
 2000,,(Leave her.),,DialogLeave(),,,
