@@ -199,8 +199,10 @@ function PrivateBedActivityStart(Source, Target, Group, Activity) {
 	if (PrivateBedLog.length >= 10) PrivateBedLog.splice(0, 1);
 	Text = Text.replace("SourceCharacter", CharacterNickname(Source));
 	Text = Text.replace("TargetCharacter", CharacterNickname(Target));
-	Text = Text.replace("PronounPossessive", TextGet("Her"));
-	Text = Text.replace("PronounPossessive", TextGet("Her"));
+	
+	const subs = ChatRoomPronounSubstitutions(C, "Pronoun", false);
+	Text = ChatRoomMessagePerformSubstitutions(Text, subs);
+
 	PrivateBedLog.push(Text);
 
 	// If the player uses that activity on an NPC, it can raise the love between them
@@ -384,8 +386,10 @@ function PrivateBedOrgasm(C) {
 	if (PrivateBedLog.length >= 10) PrivateBedLog.splice(0, 1);
 	let Text = ActivityDictionaryText("Orgasm" + Math.floor(Math.random() * 10));
 	Text = Text.replace("SourceCharacter", CharacterNickname(C));
-	Text = Text.replace("PronounPossessive", TextGet("Her"));
-	Text = Text.replace("PronounPossessive", TextGet("Her"));
+	
+	const subs = ChatRoomPronounSubstitutions(C, "Pronoun", false);
+	Text = ChatRoomMessagePerformSubstitutions(Text, subs);
+
 	PrivateBedLog.push(Text);
 	if (C.IsNpc()) C.PrivateBedActivityTimer = CommonTime() + 15000 + Math.round(Math.random() * 15000);
 }
