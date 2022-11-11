@@ -318,7 +318,10 @@ function CraftingModeSet(NewMode) {
 		ElementValue("InputName", CraftingSelectedItem.Name || "");
 		ElementValue("InputDescription", CraftingSelectedItem.Description || "");
 		ElementValue("InputColor", CraftingSelectedItem.Color || "Default");
-		ElementValue("InputPriority", CraftingSelectedItem.OverridePriority.toString());
+		ElementValue(
+			"InputPriority",
+			(CraftingSelectedItem.Asset == null) ? "" : AssetLayerSort(CraftingSelectedItem.Asset.Layer)[0].Priority.toString(),
+		);
 		if (CraftingItemSupportsAutoType()) {
 			ElementCreateInput("InputType", "text", "", "20");
 			document.getElementById("InputType").addEventListener('keyup', CraftingKeyUp);
@@ -350,20 +353,19 @@ function CraftingKeyUp() {
 
 /**
  * Helper function for parsing the `InputPriority` HTML element.
- * @returns {number}
+ * @returns {number | null}
  */
 function CraftingParsePriorityElement() {
 	const DrawingPriority = Number.parseInt(ElementValue("InputPriority"));
+	const InitialPriority = AssetLayerSort(CraftingSelectedItem.Asset.Layer)[0].Priority;
 
-	// Plan A, B, C and D
-	if (!Number.isNaN(DrawingPriority)) {
+	// Treat the initial priority as equivalent to null if `OverridePriority` has not been set yet
+	if (InitialPriority === DrawingPriority && CraftingSelectedItem.OverridePriority == null) {
+		return null;
+	} else if (!Number.isNaN(DrawingPriority)) {
 		return DrawingPriority;
-	} else if (CraftingSelectedItem.OverridePriority != null) {
-		return CraftingSelectedItem.OverridePriority;
-	} else if (CraftingSelectedItem.Asset != null) {
-		return CraftingSelectedItem.Asset.DrawingPriority || CraftingSelectedItem.Asset.Group.DrawingPriority;
 	} else {
-		return 0;
+		return null;
 	}
 }
 
@@ -551,7 +553,7 @@ function CraftingClick() {
 			let Y = Math.floor((I - CraftingOffset) / 8) * 290 + 130;
 			if (MouseIn(X, Y, 225, 275)) {
 				CraftingSelectedItem.Asset = CraftingItemList[I];
-				CraftingSelectedItem.OverridePriority = CraftingSelectedItem.Asset.DrawingPriority || CraftingSelectedItem.Asset.Group.DrawingPriority;
+				CraftingSelectedItem.OverridePriority = null;
 				// @ts-ignore
 				CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset);
 				CraftingSelectedItem.Lock = null;
@@ -864,8 +866,8 @@ function CraftingItemListBuild() {
 		StatusCode: CraftingStatusCode.CRITICAL_ERROR,
 	},
 	OverridePriority: {
-		Validate: (c, a) => Number.isInteger(c.OverridePriority),
-		GetDefault: (c, a) => a == null ? null : a.DrawingPriority || a.Group.DrawingPriority,
+		Validate: (c, a) => (c == null) || Number.isInteger(c.OverridePriority),
+		GetDefault: (c, a) => null,
 		StatusCode: CraftingStatusCode.ERROR,
 	},
 	Private: {
