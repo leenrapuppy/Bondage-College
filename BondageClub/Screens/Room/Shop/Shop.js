@@ -150,8 +150,7 @@ function ShopAssetFocusGroup(Asset) {
 		&& (Asset.Value > 0)
 		&& (Asset.Group.Name == ShopVendor.FocusGroup.Name)
 		&& (ShopBuyMode || ShopCanSell(Asset))
-		&& !(ShopBuyMode && Player.GenderSettings.HideShopItems.Female && Asset.Gender == "F")
-		&& !(ShopBuyMode && Player.GenderSettings.HideShopItems.Male && Asset.Gender == "M");
+		&& !(ShopBuyMode && ShopHideGenderedAsset(Asset));
 }
 
 /**
@@ -161,7 +160,17 @@ function ShopAssetFocusGroup(Asset) {
  * @returns {boolean} - Returns TRUE if the item is purchasable and unowned.
  */
 function ShopAssetMissing(Asset) {
-	return (Asset != null) && (Asset.Group != null) && (Asset.Value > 0) && !InventoryAvailable(Player, Asset.Name, Asset.Group.Name);
+	return (Asset != null) && (Asset.Group != null) && (Asset.Value > 0) && !InventoryAvailable(Player, Asset.Name, Asset.Group.Name) && !ShopHideGenderedAsset(Asset);
+}
+
+/**
+ * Check if the player configured settings to hide items only for a specific gender
+ * @param {Asset} Asset - The asset to check
+ * @returns {boolean} - Returns whether the asset should be hidden
+ */
+function ShopHideGenderedAsset(Asset) {
+	return (Player.GenderSettings.HideShopItems.Female && Asset.Gender == "F")
+		|| (Player.GenderSettings.HideShopItems.Male && Asset.Gender == "M");
 }
 
 /**
