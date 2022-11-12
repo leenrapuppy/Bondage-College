@@ -9,6 +9,14 @@ var PrivateBedActivityMustRefresh = true;
 var PrivateBedLeaveTime = 0;
 
 /**
+ * Returns TRUE if the private bed is available.
+ * @returns {boolean} - TRUE if available.
+ */
+ function PrivateBedActive() {
+	return (LogQuery("BedWhite", "PrivateRoom") || LogQuery("BedBlack", "PrivateRoom") || LogQuery("BedPink", "PrivateRoom"));
+}
+
+/**
  * Returns the number of girls in the private bedroom.
  * @returns {Number} - The number of girls.
  */

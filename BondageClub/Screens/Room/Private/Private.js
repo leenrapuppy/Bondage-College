@@ -21,7 +21,7 @@ var PrivateNextLoveYou = 0;
 var PrivateLoverActivity = "";
 var PrivateLoverActivityList = ["Skip1", "Skip2", "Kiss", "FrenchKiss", "Caress", "Rub", "MasturbateHand", "MasturbateTongue", "MasturbatePlayer", "MasturbateSelf", "Underwear", "Naked", "EggInsert", "LockBelt", "UnlockBelt", "EggSpeedUp", "EggSpeedDown", "Bed"];
 var PrivateBeltList = ["LeatherChastityBelt", "SleekLeatherChastityBelt", "StuddedChastityBelt", "MetalChastityBelt", "PolishedChastityBelt", "OrnateChastityBelt", "SteelChastityPanties"];
-var PrivateOwnerCanIntercept = true;
+var PrivateEntryEvent = true;
 
 /**
  * Checks if the player is caged.
@@ -357,28 +357,28 @@ function PrivateTitleIs(Title) { return ((CurrentCharacter.Title != null) && (Cu
  * @returns {boolean} - TRUE if she will join
  */
  function PrivateWillJoinBed() {
-	return (PrivateBedCount() <= 3) && !Player.IsGagged() && !CurrentCharacter.IsGagged() && !CurrentCharacter.PrivateBed && ((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
+	return (PrivateBedActive() && PrivateBedCount() <= 3) && !Player.IsGagged() && !CurrentCharacter.IsGagged() && !CurrentCharacter.PrivateBed && ((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
 }
 /**
  * Returns TRUE if the private room friend will not join the player in bed, love must be positive and higher than frigid trait
  * @returns {boolean} - TRUE if she will not join
  */
  function PrivateWillNotJoinBed() {
-	return (PrivateBedCount() <= 3) && !Player.IsGagged() && !CurrentCharacter.IsGagged() && !CurrentCharacter.PrivateBed && !((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
+	return (PrivateBedActive() && PrivateBedCount() <= 3) && !Player.IsGagged() && !CurrentCharacter.IsGagged() && !CurrentCharacter.PrivateBed && !((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
 }
 /**
  * Returns TRUE if the private room friend will join the player in bed, love must be positive and higher than frigid trait (gagged version)
  * @returns {boolean} - TRUE if she will join
  */
  function PrivateWillJoinBedGag() {
-	return (PrivateBedCount() <= 3) && (Player.IsGagged() || CurrentCharacter.IsGagged()) && !CurrentCharacter.PrivateBed && ((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
+	return (PrivateBedActive() && PrivateBedCount() <= 3) && (Player.IsGagged() || CurrentCharacter.IsGagged()) && !CurrentCharacter.PrivateBed && ((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
 }
 /**
  * Returns TRUE if the private room friend will not join the player in bed, love must be positive and higher than frigid trait (gagged version)
  * @returns {boolean} - TRUE if she will not join
  */
  function PrivateWillNotJoinBedGag() {
-	return (PrivateBedCount() <= 3) && (Player.IsGagged() || CurrentCharacter.IsGagged()) && !CurrentCharacter.PrivateBed && !((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
+	return (PrivateBedActive() && PrivateBedCount() <= 3) && (Player.IsGagged() || CurrentCharacter.IsGagged()) && !CurrentCharacter.PrivateBed && !((NPCTraitGet(CurrentCharacter, "Frigid") <= CurrentCharacter.Love) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime));
 }
 
 /**
@@ -411,7 +411,7 @@ function PrivateLoad() {
 	if (MustSync) ServerPrivateCharacterSync();
 
 	// There's a 20% odds that the owner will interecpt the player as soon as she enters the room
-	if ((Math.random() < 0.2) && PrivateOwnerCanIntercept && Player.IsOwned() && !LogQuery("OwnerBeepActive", "PrivateRoom"))
+	if ((Math.random() < 0.2) && PrivateEntryEvent && Player.IsOwned() && !LogQuery("OwnerBeepActive", "PrivateRoom"))
 		for (let C = 1; C < PrivateCharacter.length; C++)
 			if (PrivateCharacter[C].IsOwner()) {
 				CharacterSetActivePose(Player, "Kneel", true);
@@ -419,11 +419,14 @@ function PrivateLoad() {
 				PrivateCharacter[C].CurrentDialog = DialogFind(CurrentCharacter, "1060");
 				PrivateCharacter[C].Stage = "1061";
 			}
-	PrivateOwnerCanIntercept = false;
 
 	// NPCs can change clothes everyday
 	for (let C = 1; C < PrivateCharacter.length; C++)
 		PrivateNewCloth(PrivateCharacter[C]);
+
+	// Horny NPCs will randomly be in the character bed when the player enters
+	PrivateRandomBed();
+	PrivateEntryEvent = false;
 
 }
 
@@ -591,7 +594,7 @@ function PrivateRun() {
 		if ((Player.Cage == null) && Player.CanWalk()) DrawButton(1885, PrivateButtonTop(2), 90, 90, "", "White", "Icons/Shop.png", TextGet("Shop"));
 		if (Player.CanChangeOwnClothes()) DrawButton(1885, PrivateButtonTop(3), 90, 90, "", "White", "Icons/Dress.png", TextGet("Dress"));
 		if (LogQuery("Wardrobe", "PrivateRoom") && Player.CanChangeOwnClothes()) DrawButton(1885, PrivateButtonTop(4), 90, 90, "", "White", "Icons/Wardrobe.png", TextGet("Wardrobe"));
-		if ((LogQuery("BedWhite", "PrivateRoom") || LogQuery("BedBlack", "PrivateRoom") || LogQuery("BedPink", "PrivateRoom")) && (Player.Cage == null)) DrawButton(1885, PrivateButtonTop(5), 90, 90, "", "White", "Icons/Bed.png", TextGet("Bed"));
+		if (PrivateBedActive() && (Player.Cage == null)) DrawButton(1885, PrivateButtonTop(5), 90, 90, "", "White", "Icons/Bed.png", TextGet("Bed"));
 		if (LogQuery("Expansion", "PrivateRoom")) DrawButton(1885, PrivateButtonTop(6), 90, 90, "", "White", "Icons/Next.png", TextGet("Next"));
 	} else {
 		DrawCharacter(Player, 500, 0, 1);
@@ -793,7 +796,7 @@ function PrivateClick() {
 	if (MouseIn(1885, PrivateButtonTop(2), 90, 90) && LogQuery("RentRoom", "PrivateRoom") && Player.CanWalk() && (Player.Cage == null)) CharacterSetCurrent(PrivateVendor);
 	if (MouseIn(1885, PrivateButtonTop(3), 90, 90) && LogQuery("RentRoom", "PrivateRoom") && Player.CanChangeOwnClothes()) CharacterAppearanceLoadCharacter(Player);
 	if (MouseIn(1885, PrivateButtonTop(4), 90, 90) && LogQuery("RentRoom", "PrivateRoom") && Player.CanChangeOwnClothes() && LogQuery("Wardrobe", "PrivateRoom")) CommonSetScreen("Character", "Wardrobe");
-	if (MouseIn(1885, PrivateButtonTop(5), 90, 90) && LogQuery("RentRoom", "PrivateRoom") && (Player.Cage == null) && (LogQuery("BedWhite", "PrivateRoom") || LogQuery("BedBlack", "PrivateRoom") || LogQuery("BedPink", "PrivateRoom"))) CommonSetScreen("Room", "PrivateBed");
+	if (MouseIn(1885, PrivateButtonTop(5), 90, 90) && LogQuery("RentRoom", "PrivateRoom") && (Player.Cage == null) && PrivateBedActive()) CommonSetScreen("Room", "PrivateBed");
 	if (MouseIn(1885, PrivateButtonTop(6), 90, 90) && LogQuery("RentRoom", "PrivateRoom") && LogQuery("Expansion", "PrivateRoom")) PrivateCharacterOffset = (PrivateCharacterOffset + 4 == PrivateCharacterMax) ? 0 : PrivateCharacterOffset + 4;
 	if (MouseIn(1885, PrivateButtonTop(7), 90, 90) && LogQuery("RentRoom", "PrivateRoom")) {
 		if (Player.VisualSettings == null) Player.VisualSettings = {};
@@ -1169,7 +1172,7 @@ function PrivateStartActivity() {
 		if ((Act == "Gift") && (Player.Owner != "") && (CurrentCharacter.Love >= 90) && (CurrentTime >= NPCEventGet(CurrentCharacter, "LastGift") + 86400000)) break;
 		if ((Act == "PetGirl") && (InventoryGet(Player, "ItemArms") == null) && (NPCTraitGet(CurrentCharacter, "Peaceful") >= 0)) break;
 		if ((Act == "Locks") && InventoryHasLockableItems(Player)) break;
-		if ((Act == "Bed") && (PrivateBedCount() == 1) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime) && (NPCTraitGet(CurrentCharacter, "Horny") >= 0) && ((LogQuery("BedWhite", "PrivateRoom") || LogQuery("BedBlack", "PrivateRoom") || LogQuery("BedPink", "PrivateRoom")) && (Player.Cage == null))) break;
+		if ((Act == "Bed") && (PrivateBedCount() == 1) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime) && (NPCTraitGet(CurrentCharacter, "Horny") >= 0) && PrivateBedActive() && (Player.Cage == null)) break;
 
 		// After 100 tries, we give up on picking an activity and the owner ignore the player
 		Count++;
@@ -1571,7 +1574,7 @@ function PrivateLoveYou() {
 			if ((Act == "UnlockBelt") && CharacterIsNaked(Player) && CurrentCharacter.CanInteract() && Player.IsVulvaChaste() && (InventoryGet(Player, "ItemPelvis") != null) && (InventoryGetLock(InventoryGet(Player, "ItemPelvis")) != null) && (InventoryGetLock(InventoryGet(Player, "ItemPelvis")).Asset.Name == "LoversPadlock") && (Player.Cage == null) && (CurrentCharacter.Cage == null) && !Player.IsEnclose() && !CurrentCharacter.IsEnclose()) break;
 			if ((Act == "EggSpeedUp") && CurrentCharacter.CanInteract() && !CurrentCharacter.IsOwnedByPlayer() && InventoryIsWorn(Player, "VibratingEgg", "ItemVulva") && ((InventoryGet(Player, "ItemVulva").Property == null) || (InventoryGet(Player, "ItemVulva").Property.Intensity < 3))) break;
 			if ((Act == "EggSpeedDown") && CurrentCharacter.CanInteract() && !CurrentCharacter.IsOwnedByPlayer() && InventoryIsWorn(Player, "VibratingEgg", "ItemVulva") && (InventoryGet(Player, "ItemVulva").Property != null) && (InventoryGet(Player, "ItemVulva").Property.Intensity > -1)) break;
-			if ((Act == "Bed") && (PrivateBedCount() == 1) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime) && ((LogQuery("BedWhite", "PrivateRoom") || LogQuery("BedBlack", "PrivateRoom") || LogQuery("BedPink", "PrivateRoom")) && (Player.Cage == null) && (CurrentCharacter.Cage == null))) break;
+			if ((Act == "Bed") && (PrivateBedCount() == 1) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime) && PrivateBedActive() && (Player.Cage == null) && (CurrentCharacter.Cage == null)) break;
 		}
 
 		// For regular sexual activities
@@ -1716,7 +1719,7 @@ function PrivateGetBed(Type) {
  */
 function PrivateExit(Type) {
 	if (CurrentCharacter == null) {
-		PrivateOwnerCanIntercept = true;
+		PrivateEntryEvent = true;
 		CommonSetScreen("Room", "MainHall");
 	}
 }
@@ -1737,4 +1740,19 @@ function PrivateJoinInBed() {
  function PrivateEnterBed() {
 	NPCEventAdd(CurrentCharacter, "NextBed", CurrentTime + 300000 + Math.round(Math.random() * 300000) + NPCTraitGet(CurrentCharacter, "Frigid") * 3000);
 	CurrentCharacter.PrivateBed = true;
+}
+
+/**
+ * Horny NPCs will randomly be in the character bed when the player enters her private room (20% odds).
+ * @returns {void} - Nothing.
+ */
+function PrivateRandomBed() {
+	if (!PrivateEntryEvent) return; // Only when the player enters from the main hall
+	if (!PrivateBedActive()) return; // Only if the bed is purchased
+	for (let C of PrivateCharacter)
+		if (C.IsNpc() && (C.Cage == null) && (Math.random() < 0.2) && (PrivateBedCount() <= 3) && (NPCTraitGet(C, "Horny") > 0) && (NPCEventGet(C, "NextBed") < CurrentTime)) {
+			CurrentCharacter = C;
+			PrivateEnterBed();
+			CurrentCharacter = null;
+		}
 }
