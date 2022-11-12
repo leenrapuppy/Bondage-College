@@ -56,6 +56,14 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "BodyUpper", AssetName: "Small" },
 		},  // XLarge
+		FlatSmall: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "BodyUpper", AssetName: "Small" },
+		},  // FlatSmall
+		FlatMedium: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "BodyUpper", AssetName: "Small" },
+		},  // FlatMedium
 	},
 	Hat: {
 		Bandana: {
@@ -2289,7 +2297,7 @@ var AssetFemale3DCGExtended = {
 							{} // b2 Right
 						]
 					},
-					{ 
+					{
 						Name: "ShoulderStraps", Key: "s",
 						Options:[
 							{}, // s0 No Straps
@@ -2298,19 +2306,19 @@ var AssetFemale3DCGExtended = {
 									Difficulty: 20
 								}
 							}, // s1 Basic Shoulder Straps
-							{ 
+							{
 								Property: {
 									Difficulty: 30
 								}
 							}, // s2 Wrapping Shoulder Straps
-							{ 
+							{
 								Property: {
 									Difficulty: 40
 								}
 							}, // s3 Harness Shoulder Straps
-							
+
 						],
-						
+
 						AllowSelfSelect: false
 					}
 				]
