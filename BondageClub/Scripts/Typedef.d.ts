@@ -2638,7 +2638,7 @@ interface CraftingItem {
 	 */
 	Type: string;
 	/** An integer representing the item layering priority; see {@link ItemPropertiesBase.OverridePriority} */
-	OverridePriority: number;
+	OverridePriority: number | null;
 }
 
 interface CraftingItemSelected {
