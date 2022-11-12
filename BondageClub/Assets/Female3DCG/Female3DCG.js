@@ -4363,8 +4363,8 @@ var AssetFemale3DCG = [
 		MirrorActivitiesFrom: "ItemHands",
 		AllowPose: ["AllFours", "BackBoxTie", "BackCuffs", "BackElbowTouch", "OverTheHead", "Yoked"],
 		Asset: [
-			{ Name: "KeyProp", Value: 10, Priority: 46, Difficulty: -10, Time: 5, IsRestraint: false, AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], },
-			{ Name: "MedicalInjector", Category: ["SciFi"], Value: 75, Priority: 46, Time: 8, IsRestraint: false, AllowActivity: ["InjectItem"], AllowPose: ["Yoked"], HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "AllFours"], },
+			{ Name: "KeyProp", ParentGroup: null, Value: 10, Priority: 46, Difficulty: -10, Time: 5, IsRestraint: false, AllowPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "Yoked", "AllFours"], },
+			{ Name: "MedicalInjector", ParentGroup: null, Category: ["SciFi"], Value: 75, Priority: 46, Time: 8, IsRestraint: false, AllowActivity: ["InjectItem"], AllowPose: ["Yoked"], HideForPose: ["OverTheHead", "BackBoxTie", "BackElbowTouch", "BackCuffs", "AllFours"], },
 			{
 				Name: "Crop", ParentGroup: null, Priority: 46, Value: 20, Random: false, Fetish: ["Sadism"],
 				AllowActivity: ["SpankItem", "RubItem"], ActivityAudio: ["SmackCrop"], BuyGroup: "Crop",
@@ -4586,7 +4586,7 @@ var AssetFemale3DCG = [
 				ActivityExpression: { "RubItem": [{ Group: "Blush", Name: "Low", Timer: 5}, { Group: "Mouth", Name: "LipBite", Timer: 5}, { Group: "Eyes", Name: "Lewd", Timer: 5}, { Group: "Eyebrows", Name: "Raised", Timer: 5}], },
 			},
 			{
-				Name: "PotionBottle", Value: 40, Random: false,
+				Name: "PotionBottle", ParentGroup: null, Value: 40, Random: false,
 				AllowActivity: ["RubItem"],
 			},
 		],
