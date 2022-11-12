@@ -61,12 +61,13 @@ function ChatSelectLoad() {
 		? Player.GenderSettings.AutoJoinSearch.Male ? ChatRoomSpaceType.MIXED : ChatRoomSpaceType.FEMALE_ONLY
 		: Player.GenderSettings.AutoJoinSearch.Male ? ChatRoomSpaceType.MALE_ONLY : null;
 
-	if (autoJoinSpace != null) {
+	const playerGenders = Player.GetGenders();
+
+	if (autoJoinSpace != null && ChatSelectGendersAllowed(autoJoinSpace, playerGenders)) {
 		ChatSelectStartSearch(autoJoinSpace);
 		return;
 	}
 
-	const playerGenders = Player.GetGenders();
 	ChatSelectAllowedInFemaleOnly = ChatSelectGendersAllowed(ChatRoomSpaceType.FEMALE_ONLY, playerGenders);
 	ChatSelectAllowedInMaleOnly = ChatSelectGendersAllowed(ChatRoomSpaceType.MALE_ONLY, playerGenders);
 }
