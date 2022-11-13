@@ -2944,7 +2944,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PlasticChastityCage1", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, Effect: ["Chaste"], Hide: ["Pussy"],
+				Name: "PlasticChastityCage1", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Difficulty: 50, Value: 20, Effect: ["Chaste"], Hide: ["Pussy"],
 				AllowPose: [],
 				AllowLock: true, DrawLocks: false,
 				DefaultColor: ["Default", "Default", "Default", "#8D8D8D"],
@@ -2968,7 +2968,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PlasticChastityCage2", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, Effect: ["Chaste"], Hide: ["Pussy"],
+				Name: "PlasticChastityCage2", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, Difficulty: 50, Effect: ["Chaste"], Hide: ["Pussy"],
 				AllowPose: [],
 				AllowLock: true, DrawLocks: false,
 				DefaultColor: ["Default", "Default", "Default", "#8D8D8D"],
@@ -2981,7 +2981,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "TechnoChastityCage", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 50, Effect: ["Chaste"], Hide: ["Pussy"],
+				Name: "TechnoChastityCage", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 50, Difficulty: 50, Effect: ["Chaste"], Hide: ["Pussy"],
 				AllowPose: [],
 				AllowLock: true, DrawLocks: false,
 				DefaultColor: ["Default", "Default", "Default", "#8D8D8D"],
