@@ -2711,6 +2711,9 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 						? DialogFindPlayer("Someone").toLowerCase()
 						: entry.Text + DialogFindPlayer("'s");
 				substitutions.push([entry.Tag, repl]);
+
+				const pronounRepls = ChatRoomPronounSubstitutions(C, "TargetPronoun", hideIdentity);
+				substitutions = substitutions.concat(pronounRepls);
 			}
 			else if (entry.Tag == "TargetCharacter" || entry.Tag == "TargetCharacterName") {
 				meta.TargetMemberNumber = entry.MemberNumber;
