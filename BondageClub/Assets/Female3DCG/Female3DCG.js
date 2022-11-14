@@ -2289,6 +2289,23 @@ var AssetFemale3DCG = [
 		],
 		Color: ["#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"]
 	},
+	
+	{
+		Group: "FacialHair",
+		Priority: 51,
+		ParentColor: "HairFront",
+		Left: 150,
+		Top: 35,
+		Asset: [
+			{ Name: "Goatee", Random: false,},
+			{ Name: "BigBeard", Random: false, },
+			{ Name: "MediumBeard", Random: false, },
+			{ Name: "Moustache", Random: false, },
+			{ Name: "MoustacheBeard", Random: false,  },
+
+		],
+		Color: ["#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"]
+	},
 
 	{
 		Group: "HairBack",
@@ -6458,7 +6475,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "LeatherHood", Fetish: ["Leather"], Value: 60, Difficulty: 50, Time: 15, AllowLock: true, DefaultColor: ["#404040", "#404040", "#888"], Hide: ["HairFront", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead"], HideItem: ["HatFurHeadband"], Effect: ["BlindHeavy", "DeafLight", "Prone", "GagNormal", "BlockMouth"],
+				Name: "LeatherHood", Fetish: ["Leather"], Value: 60, Difficulty: 50, Time: 15, AllowLock: true, DefaultColor: ["#404040", "#404040", "#888"], Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead"], HideItem: ["HatFurHeadband"], Effect: ["BlindHeavy", "DeafLight", "Prone", "GagNormal", "BlockMouth"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNeck", "ItemHead", "ItemNose"],
 				Prerequisite: ["NotProtrudingFromMouth"],
 				Layer: [
@@ -6470,7 +6487,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "LeatherHoodOpenEyes", Fetish: ["Leather"], Value: 40, Difficulty: 50, Time: 15, AllowLock: true, DefaultColor: "#404040",
 				HideItem: ["HatBand1", "HatBand2", "HatTiara1", "ItemEarsFuturisticEarphones","HatFurHeadband"],
-				Hide: ["HairFront", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3"], Effect: ["GagLight", "BlockMouth"],
+				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3"], Effect: ["GagLight", "BlockMouth"],
 				Block: ["ItemHead", "ItemNose", "ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNeck"],
 				Prerequisite: ["NotProtrudingFromMouth"],
 				Alpha: [{Group: ["ItemHead"], Masks: [[0, 0, 210, 250], [295, 0, 205, 250]]}],
@@ -6479,7 +6496,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "DogHood", Fetish: ["Leather", "Pet"], Value: 60, Difficulty: 50, Time: 15, Random: false, AllowLock: true, DefaultColor: "#404040",
 				HideItem: ["HatBand1", "HatBand2", "HatTiara1", "ItemEarsFuturisticEarphones","HatFurHeadband"],
-				Hide: ["HairFront", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
+				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Effect: ["GagNormal", "BlockMouth"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemHead", "ItemNose"],
 				Alpha: [{Group: ["ItemHead"], Masks: [[0, 0, 210, 250], [295, 0, 205, 250]]}],
@@ -6495,10 +6512,10 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "PonyHood", Fetish: ["Pony"], Value: -1, Difficulty: 50, Time: 15, Random: false, AllowLock: true, DefaultColor: "#404040", Hide: ["HairFront", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead"], HideItem: ["ItemHeadSnorkel","HatFurHeadband"], Effect: ["BlindLight", "GagNormal", "BlockMouth"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNeck", "ItemHead", "ItemNose"] },
 			{
-				Name: "LeatherHoodOpenMouth", Fetish: ["Leather"], Value: 50, Difficulty: 50, Time: 15, AllowLock: true, DefaultColor: "#404040", Hide: ["HairFront", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], HideItem: ["ItemHeadSnorkel", "ItemNosePigNose", "ItemEarsFuturisticEarphones", "HatFurHeadband"], Effect: ["Prone", "BlindHeavy"], Block: ["ItemEars", "ItemHead", "ItemNose"],
+				Name: "LeatherHoodOpenMouth", Fetish: ["Leather"], Value: 50, Difficulty: 50, Time: 15, AllowLock: true, DefaultColor: "#404040", Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], HideItem: ["ItemHeadSnorkel", "ItemNosePigNose", "ItemEarsFuturisticEarphones", "HatFurHeadband"], Effect: ["Prone", "BlindHeavy"], Block: ["ItemEars", "ItemHead", "ItemNose"],
 				Alpha: [{ Group: ["ItemHead"], Masks: [[0, 0, 217, 250], [282, 0, 218, 250]] }],
 			},
-			{ Name: "CanvasHood", Value: 50, Difficulty: 20, Time: 15, AllowLock: true, DefaultColor: ["#a5a095", "#ce7210"], Hide: ["HairFront", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead"], HideItem: ["HatFurHeadband"], Effect: ["Prone", "BlindHeavy", "GagHeavy", "BlockMouth", "DeafLight"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNose", "ItemHead"], Extended: true, DynamicAfterDraw: true,
+			{ Name: "CanvasHood", Value: 50, Difficulty: 20, Time: 15, AllowLock: true, DefaultColor: ["#a5a095", "#ce7210"], Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead"], HideItem: ["HatFurHeadband"], Effect: ["Prone", "BlindHeavy", "GagHeavy", "BlockMouth", "DeafLight"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNose", "ItemHead"], Extended: true, DynamicAfterDraw: true,
 				Prerequisite: ["NotProtrudingFromMouth"],
 				Layer: [
 					{ Name: "Hood" },
@@ -6507,7 +6524,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "Pantyhose", Value: 10, Time: 5, BuyGroup: "Pantyhose",
-				Hide: ["Glasses", "Mask", "HairFront", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
+				Hide: ["Glasses", "Mask", "HairFront", "FacialHair", "HairBack", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
 				HideItem: ["ItemHeadSnorkel", "ItemEarsFuturisticEarphones","HatFurHeadband"],
 				Effect: ["BlindLight", "Prone"],
 				Prerequisite: ["NotProtrudingFromMouth"],
@@ -6533,7 +6550,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "GwenHood", Fetish: ["Leather"], Value: 35, Difficulty: 5, Time: 15, AllowLock: true, DefaultColor: "#404040", Extended: true, HasType: false,
 				Prerequisite: ["NotProtrudingFromMouth"],
-				Hide: ["HairFront", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
+				Hide: ["HairFront", "FacialHair", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars"],
 				Alpha: [
 					// Mask over the neck area
@@ -6578,22 +6595,22 @@ var AssetFemale3DCG = [
 					{ Name: "Lamp" },
 				],
 			},
-			{ Name: "AccentHood", Fetish: ["Latex"], Top: 25, Left: 149, Value: 30, Time: 15, AllowLock: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"] },
+			{ Name: "AccentHood", Fetish: ["Latex"], Top: 25, Left: 149, Value: 30, Time: 15, AllowLock: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"] },
 			{
-				Name: "CollarHood", Fetish: ["Latex"], Top: 23, Left: 150, Value: 50, AllowLock: true, Time: 17, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Layer: [
+				Name: "CollarHood", Fetish: ["Latex"], Top: 23, Left: 150, Value: 50, AllowLock: true, Time: 17, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"], Layer: [
 					{ Name: "Hood" },
 					{ Name: "Collar" }
 				]
 			},
 			{
-				Name: "ZipperHood", Fetish: ["Latex"], Value: 20, DrawLocks: false, AllowLock: true, Time: 15, Extended: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
+				Name: "ZipperHood", Fetish: ["Latex"], Value: 20, DrawLocks: false, AllowLock: true, Time: 15, Extended: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Layer:[
 					{ Name: ""},
 					{ Name: "Lock", LockLayer: true, HasType: false, AllowColorize: false},
 				],
 			},
 			{
-				Name: "LatexHabit", Fetish: ["Latex"], BuyGroup: "LatexHabit", Top: 23, Left: 85, Value: 30, Time: 5, AllowLock: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3",], Block: ["ItemEars"],
+				Name: "LatexHabit", Fetish: ["Latex"], BuyGroup: "LatexHabit", Top: 23, Left: 85, Value: 30, Time: 5, AllowLock: true, HideItem: ["ItemEarsFuturisticEarphones"], Hide: ["HairFront","FacialHair", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3",], Block: ["ItemEars"],
 				Layer:[
 					{ Name: "Cape"},
 					{ Name: "Collar"},
@@ -6603,7 +6620,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "CowHood", Fetish: ["Pet", "Latex"], Value: 30, Difficulty: 5, Time: 15, Top: 25,Left: 124, Random: false, AllowLock: true, DefaultColor: "#404040", Hide: ["HairFront", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead"], HideItem: ["ItemHeadSnorkel","HatFurHeadband"], Effect: ["BlockMouth"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNeck", "ItemHead", "ItemNose"],
+				Name: "CowHood", Fetish: ["Pet", "Latex"], Value: 30, Difficulty: 5, Time: 15, Top: 25,Left: 124, Random: false, AllowLock: true, DefaultColor: "#404040", Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead"], HideItem: ["ItemHeadSnorkel","HatFurHeadband"], Effect: ["BlockMouth"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNeck", "ItemHead", "ItemNose"],
 				Layer:[
 					{Name: "Base"},
 					{Name: "Spots"},
@@ -6626,7 +6643,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "Slime", Category: ["Fantasy"], BuyGroup: "Slime", DefaultColor: ["#57ab5e", "#57ab5e"], Random: false, Value: 200, Difficulty: 4, Time: 15, RemoveTime: 25,
 				Effect: ["BlindLight", "Prone", "DeafHeavy", "BlockMouth", "GagHeavy", "BlurHeavy"],
-				Hide: ["HairFront", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead", "Hat"],
+				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask", "ItemEars", "ItemHead", "Hat"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemEars", "ItemNeck", "ItemHead", "ItemNose"],
 				Layer: [
 					{ Name: "One" },
@@ -6637,7 +6654,7 @@ var AssetFemale3DCG = [
 			{
 				Name: "KittyHood", Fetish: ["Pet"], Random: false, Value: 40, Difficulty: 2, Top: 33, Left: 142,
 				AllowLock: true, Extended: true, DrawLocks: false,
-				Hide: ["HairFront", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
+				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
 				DefaultColor: ["Default", "Default", "Default", "#2D8736", "Default", "Default", "#000000"],
 				Layer: [
 					{ Name: "Base", HasType: false, },
@@ -6660,14 +6677,14 @@ var AssetFemale3DCG = [
 			{
 				Name: "LatexDogHood", Fetish: ["Latex", "Pet"], Random: false, Value: 20, Difficulty: 1, Top: -5, Left: 113,
 				AllowLock: true,
-				Hide: ["HairFront", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
+				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3", "Mask"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
 			},
 			{
 				Name: "OpenMouthPlugHood", Fetish: ["Latex"], Random: false, Value: 40, Difficulty: 3, Top: 0,
 				DrawLocks: false,
 				AllowLock: true,
-				Hide: ["HairFront", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
+				Hide: ["HairFront", "FacialHair", "HairBack", "Glasses", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
 				Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
 				Layer: [
 					{ Name: "FakeMouth", AllowColorize: false },

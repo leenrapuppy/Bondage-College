@@ -63,7 +63,7 @@ Cloth,CropTop,Crop Top
 Cloth,Laurel,Laurel Top
 Cloth,SeethroughTop,See-through Top
 Cloth,Jacket,Jacket
-Cloth,MaleTankTop1,Male Cloth Tank-Top
+Cloth,MaleTankTop1,Male Cloth Tank-Top 
 ClothAccessory,,Cloth Accessory
 ClothAccessory,StudentOutfit3Scarf,Student Scarf
 ClothAccessory,StudentOutfit3Bow1,Student Bow 1
@@ -614,6 +614,13 @@ HairFront,HairFront29,Style 29
 HairFront,HairFront30,Style 30
 HairFront,HairFront31,Style 31
 HairFront,HairFront32,Style 32
+FacialHair,,Facial Hair
+FacialHair,Goatee,Goatee
+FacialHair,BigBeard,Big Beard
+FacialHair,BigBeard,Big Beard
+FacialHair,MediumBeard,Medium Beard
+FacialHair,Moustache,Moustache
+FacialHair,MoustacheBeard,Moustache Beard
 HairBack,,Back Hair
 HairBack,HairNone,None
 HairBack,HairBack1,Style 1
