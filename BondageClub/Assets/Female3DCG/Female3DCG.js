@@ -2461,7 +2461,7 @@ var AssetFemale3DCG = [
 			{ Name: "PussyDark1", Gender: "F" },
 			{ Name: "PussyDark2", Gender: "F" },
 			{ Name: "PussyDark3", Gender: "F" },
-			{ Name: "Penis", Random: false, Left: 200, Top: 410, Gender: "M" }
+			{ Name: "Penis", Random: false, Left: 200, Top: 410, Gender: "M", InheritColor: "BodyUpper" }
 		],
 		Color: ["Default", "#6a3628", "#443330", "#222222"],
 		ColorSuffix: { "White": "Default", "Asian": "Default", "Black": "Default" },
@@ -2950,8 +2950,8 @@ var AssetFemale3DCG = [
 				DefaultColor: ["Default", "Default", "Default", "#8D8D8D"],
 				Left: 200, Top: 410,
 				Layer: [
-					{ Name: "Ring" },
 					{ Name: "Penis", InheritColor: "Pussy", HideColoring: true },
+					{ Name: "Ring" },
 					{ Name: "Cage" },
 					{ Name: "Lock", LockLayer: true}
 				],
@@ -2974,8 +2974,8 @@ var AssetFemale3DCG = [
 				DefaultColor: ["Default", "Default", "Default", "#8D8D8D"],
 				Left: 200, Top: 410,
 				Layer: [
-					{ Name: "Ring" },
 					{ Name: "Penis", InheritColor: "Pussy", HideColoring: true },
+					{ Name: "Ring" },
 					{ Name: "Cage" },
 					{ Name: "Lock", LockLayer: true}
 				],
@@ -2987,8 +2987,8 @@ var AssetFemale3DCG = [
 				DefaultColor: ["Default", "Default", "Default", "#8D8D8D"],
 				Left: 200, Top: 410,
 				Layer: [
-					{ Name: "Ring" },
 					{ Name: "Penis", InheritColor: "Pussy", HideColoring: true },
+					{ Name: "Ring" },
 					{ Name: "Cage" },
 					{ Name: "Lock", LockLayer: true}
 				],
