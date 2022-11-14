@@ -2461,7 +2461,7 @@ var AssetFemale3DCG = [
 			{ Name: "PussyDark1", Gender: "F" },
 			{ Name: "PussyDark2", Gender: "F" },
 			{ Name: "PussyDark3", Gender: "F" },
-			{ Name: "Penis", Random: false, Left: 200, Top: 410, Gender: "M", InheritColor: "BodyUpper" }
+			{ Name: "Penis", Random: false, Left: 200, Top: 410, Gender: "M", InheritColor: "BodyUpper", AllowActivity: ["PenetrateItem"]}
 		],
 		Color: ["Default", "#6a3628", "#443330", "#222222"],
 		ColorSuffix: { "White": "Default", "Asian": "Default", "Black": "Default" },
@@ -7634,7 +7634,6 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
  */
  var ActivityFemale3DCG = [
 	/* Mouth activities */
-	// General
 	{
 		Name: "Whisper",
 		MaxProgress: 20,
@@ -7705,14 +7704,14 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 		Name: "Nibble",
 		MaxProgress: 40,
 		Prerequisite: ["ZoneAccessible", "UseMouth", "ZoneNaked"],
-		Target: ["ItemArms", "ItemBoots", "ItemEars", "ItemFeet", "ItemHands", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2"],
+		Target: ["ItemArms", "ItemBoots", "ItemEars", "ItemFeet", "ItemHands", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: ["ItemArms", "ItemBoots", "ItemHands", "ItemMouth", "ItemNipples"],
 	},
 	{
 		Name: "Lick",
 		MaxProgress: 80,
 		Prerequisite: ["ZoneAccessible", "UseTongue", "ZoneNaked"],
-		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemEars", "ItemFeet", "ItemHands", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2"],
+		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemEars", "ItemFeet", "ItemHands", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: ["ItemArms", "ItemBoots", "ItemBreast", "ItemHands", "ItemMouth", "ItemNipples"],
 	},
 	{
@@ -7726,14 +7725,14 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 		Name: "Kiss",
 		MaxProgress: 50,
 		Prerequisite: ["ZoneAccessible", "UseMouth"],
-		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHands", "ItemHead", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2"],
+		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHands", "ItemHead", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: ["ItemArms", "ItemBoots", "ItemBreast", "ItemHands", "ItemNipples"],
 	},
 	{
 		Name: "GaggedKiss",
 		MaxProgress: 40,
 		Prerequisite: ["IsGagged"],
-		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHands", "ItemHead", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2"],
+		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHands", "ItemHead", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2", "ItemVulva", "ItemVulvaPiercings"],
 	},
 	{
 		Name: "FrenchKiss",
@@ -7752,7 +7751,7 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 		Name: "MasturbateTongue",
 		MaxProgress: 100,
 		Prerequisite: ["ZoneAccessible", "UseTongue", "ZoneNaked"],
-		Target: ["ItemButt"],
+		Target: ["ItemButt", "ItemVulva", "ItemVulvaPiercings"],
 	},
 	{
 		Name: "Bite",
@@ -7768,75 +7767,12 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 		Target: ["ItemVulva", "ItemMouth"],
 		Reverse: true,
 	},
-	// Penis
-	{
-		Name: "NibblePenis",
-		MaxProgress: 40,
-		Prerequisite: ["ZoneAccessible", "UseMouth", "ZoneNaked", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-	},
-	{
-		Name: "LickPenis",
-		MaxProgress: 80,
-		Prerequisite: ["ZoneAccessible", "UseTongue", "ZoneNaked", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-	},
-	{
-		Name: "KissPenis",
-		MaxProgress: 50,
-		Prerequisite: ["ZoneAccessible", "UseMouth", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-	},
-	{
-		Name: "GaggedKissPenis",
-		MaxProgress: 40,
-		Prerequisite: ["IsGagged", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-	},
-	{
-		Name: "MasturbateTonguePenis",
-		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "UseTongue", "ZoneNaked", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-	},
-	// Vulva
-	{
-		Name: "NibblePussy",
-		MaxProgress: 40,
-		Prerequisite: ["ZoneAccessible", "UseMouth", "ZoneNaked", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-	},
-	{
-		Name: "LickPussy",
-		MaxProgress: 80,
-		Prerequisite: ["ZoneAccessible", "UseTongue", "ZoneNaked", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-	},
-	{
-		Name: "KissPussy",
-		MaxProgress: 50,
-		Prerequisite: ["ZoneAccessible", "UseMouth", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-	},
-	{
-		Name: "GaggedKissPussy",
-		MaxProgress: 40,
-		Prerequisite: ["IsGagged", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-	},
-	{
-		Name: "MasturbateTonguePussy",
-		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "UseTongue", "ZoneNaked", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-	},
 	/* Hand activities */
-	// General
 	{
 		Name: "Caress",
 		MaxProgress: 80,
 		Prerequisite: ["ZoneAccessible", "UseHands"],
-		Target: ["ItemArms", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHands", "ItemHead", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2"],
+		Target: ["ItemArms", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHands", "ItemHead", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 	},
 	{
@@ -7892,7 +7828,7 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 		Name: "Slap",
 		MaxProgress: 30,
 		Prerequisite: ["UseHands"],
-		Target: ["ItemBreast", "ItemHead"],
+		Target: ["ItemBreast", "ItemHead", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 	},
 	{
@@ -7920,69 +7856,17 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 		Name: "MasturbateHand",
 		MaxProgress: 100,
 		Prerequisite: ["ZoneAccessible", "UseHands", "ZoneNaked"],
-		Target: ["ItemBreast", "ItemButt"],
+		Target: ["ItemBreast", "ItemButt", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 	},
 	{
 		Name: "MasturbateFist",
 		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "VulvaEmpty", "UseHands", "ZoneNaked"],
-		Target: ["ItemButt"],
-		TargetSelf: true,
-	},
-	// Penis
-	{
-		Name: "CaressPenis",
-		MaxProgress: 80,
-		Prerequisite: ["ZoneAccessible", "UseHands", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-	},
-	{
-		Name: "SlapPenis",
-		MaxProgress: 30,
-		Prerequisite: ["UseHands", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-	},
-	{
-		Name: "MasturbateHandPenis",
-		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "UseHands", "ZoneNaked", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-	},
-	// Vulva
-	{
-		Name: "CaressPussy",
-		MaxProgress: 80,
-		Prerequisite: ["ZoneAccessible", "UseHands", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-	},
-	{
-		Name: "SlapPussy",
-		MaxProgress: 30,
-		Prerequisite: ["UseHands", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-	},
-	{
-		Name: "MasturbateHandPussy",
-		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "UseHands", "ZoneNaked", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-	},
-	{
-		Name: "MasturbateFistPussy",
-		MaxProgress: 100,
 		Prerequisite: ["ZoneAccessible", "VulvaEmpty", "UseHands", "ZoneNaked", "HasVagina"],
-		Target: ["ItemVulva"],
+		Target: ["ItemButt", "ItemVulva"],
 		TargetSelf: true,
 	},
 	/* Feet activities */
-	// General
 	{
 		Name: "MassageFeet",
 		MaxProgress: 40,
@@ -7990,24 +7874,16 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 		Target: ["ItemBoots", "ItemTorso", "ItemTorso2",],
 	},
 	{
+		Name: "MasturbateFoot",
+		MaxProgress: 100,
+		Prerequisite: ["ZoneAccessible", "UseFeet", "ZoneNaked"],
+		Target: ["ItemVulva", "ItemVulvaPiercings"],
+	},
+	{
 		Name: "Step",
 		MaxProgress: 25,
 		Prerequisite: ["UseFeet", "TargetKneeling"],
 		Target: ["ItemBreast", "ItemButt", "ItemHead", "ItemNeck", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2",],
-	},
-	// Penis
-	{
-		Name: "MasturbateFootPenis",
-		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "UseFeet", "ZoneNaked", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-	},
-	// Vulva
-	{
-		Name: "MasturbateFootPussy",
-		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "UseFeet", "ZoneNaked", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
 	},
 	/* Body activities */
 	{
@@ -8053,7 +7929,7 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 	{
 		Name: "ReversePenetratePussy",
 		MaxProgress: 50,
-		Prerequisite: ["ZoneAccessible", "VulvaEmpty", "Needs-PenetrateItem", "ZoneNaked"],
+		Prerequisite: ["ZoneAccessible", "VulvaEmpty", "Needs-PenetrateItem", "ZoneNaked", "HasVagina"],
 		Target: ["ItemVulva", "ItemMouth"],
 		Reverse: true,
 	},
@@ -8081,58 +7957,57 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 		StimulationAction: "Struggle",
 	},
 	/* Item activities */
-	// General
 	{
 		Name: "SpankItem",
 		MaxProgress: 70,
-		Prerequisite: ["Needs-SpankItem"],
-		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemFeet", "ItemLegs", "ItemNipples", "ItemPelvis", "ItemTorso",],
+		Prerequisite: ["Needs-SpankItem", "UseHands"],
+		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemFeet", "ItemLegs", "ItemNipples", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 		ActivityExpression: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Daydream", Timer: 10 }],
 	},
 	{
 		Name: "TickleItem",
 		MaxProgress: 50,
-		Prerequisite: ["Needs-TickleItem"],
-		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHood", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso"],
+		Prerequisite: ["Needs-TickleItem", "UseHands"],
+		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHood", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 		ActivityExpression: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Laughing", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}],
 	},
 	{
 		Name: "RubItem",
 		MaxProgress: 60,
-		Prerequisite: ["Needs-RubItem"],
-		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHood", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso"],
+		Prerequisite: ["Needs-RubItem", "UseHands"],
+		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHood", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 		ActivityExpression: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "LipBite", Timer: 10 }],
 	},
 	{
 		Name: "RollItem",
 		MaxProgress: 30,
-		Prerequisite: ["Needs-RollItem"],
+		Prerequisite: ["Needs-RollItem", "UseHands"],
 		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemPelvis", "ItemTorso"],
 		TargetSelf: true,
 	},
 	{
 		Name: "MasturbateItem",
 		MaxProgress: 100,
-		Prerequisite: ["ZoneNaked", "Needs-MasturbateItem"],
-		Target: ["ItemBreast", "ItemButt", "ItemFeet", "ItemLegs", "ItemNipples", "ItemPelvis"],
+		Prerequisite: ["ZoneNaked", "Needs-MasturbateItem", "UseHands"],
+		Target: ["ItemBreast", "ItemButt", "ItemFeet", "ItemLegs", "ItemNipples", "ItemPelvis", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 		ActivityExpression: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyes", Name: "Dazed", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}, { Group: "Mouth", Name: "HalfOpen", Timer: 10}],
 	},
 	{
 		Name: "PourItem",
 		MaxProgress: 40,
-		Prerequisite: ["Needs-PourItem"],
+		Prerequisite: ["Needs-PourItem", "UseHands"],
 		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemFeet", "ItemLegs", "ItemNipples", "ItemPelvis", "ItemTorso"],
 		TargetSelf: true,
 	},
 	{
 		Name: "ShockItem",
 		MaxProgress: 50,
-		Prerequisite: ["Needs-ShockItem"],
-		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemFeet", "ItemLegs", "ItemNipples", "ItemPelvis", "ItemTorso", "ItemNeck", "ItemNeckAccessories"],
+		Prerequisite: ["Needs-ShockItem", "UseHands"],
+		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemFeet", "ItemLegs", "ItemNipples", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings", "ItemNeck", "ItemNeckAccessories"],
 		TargetSelf: true,
 		ActivityExpression: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }],
 	},
@@ -8140,159 +8015,20 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 		Name: "Inject",
 		MaxProgress: 20,
 		Prerequisite: ["ZoneAccessible", "UseHands", "Needs-InjectItem"],
-		Target: ["ItemNeck", "ItemBreast", "ItemArms", "ItemButt", "ItemLegs", "ItemFeet"],
+		Target: ["ItemNeck", "ItemBreast", "ItemArms", "ItemButt", "ItemVulvaPiercings", "ItemLegs", "ItemFeet"],
 		TargetSelf: true,
 	},
 	{
 		Name: "PenetrateSlow",
 		MaxProgress: 80,
-		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "AssEmpty", "Needs-PenetrateItem", "ZoneNaked"],
-		Target: ["ItemButt", "ItemMouth"],
+		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "AssEmpty", "Needs-PenetrateItem", "ZoneNaked", "HasVagina"],
+		Target: ["ItemButt", "ItemMouth", "ItemVulva"],
 	},
 	{
 		Name: "PenetrateFast",
 		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "AssEmpty", "Needs-PenetrateItem", "ZoneNaked"],
-		Target: ["ItemButt", "ItemMouth"],
-	},
-	// Penis
-	{
-		Name: "SpankItemPenis",
-		MaxProgress: 70,
-		Prerequisite: ["Needs-SpankItem", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-		ActivityExpression: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Daydream", Timer: 10 }],
-	},
-	{
-		Name: "TickleItemPenis",
-		MaxProgress: 50,
-		Prerequisite: ["Needs-TickleItem", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-		ActivityExpression: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Laughing", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}],
-	},
-	{
-		Name: "RubItemPenis",
-		MaxProgress: 60,
-		Prerequisite: ["Needs-RubItem", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-		ActivityExpression: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "LipBite", Timer: 10 }],
-	},
-	{
-		Name: "MasturbateItemPenis",
-		MaxProgress: 100,
-		Prerequisite: ["ZoneNaked", "Needs-MasturbateItem", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-		ActivityExpression: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyes", Name: "Dazed", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}, { Group: "Mouth", Name: "HalfOpen", Timer: 10}],
-	},
-	{
-		Name: "ShockItemPenis",
-		MaxProgress: 50,
-		Prerequisite: ["Needs-ShockItem", "HasPenis"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-		ActivityExpression: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }],
-	},
-	{
-		Name: "InjectPenis",
-		MaxProgress: 20,
-		Prerequisite: ["ZoneAccessible", "UseHands", "Needs-InjectItem", "HasPenis"],
-		Target: ["ItemVulvaPiercings"],
-		TargetSelf: true,
-	},
-	// Vulva
-	{
-		Name: "SpankItemPussy",
-		MaxProgress: 70,
-		Prerequisite: ["Needs-SpankItem", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-		ActivityExpression: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Daydream", Timer: 10 }],
-	},
-	{
-		Name: "TickleItemPussy",
-		MaxProgress: 50,
-		Prerequisite: ["Needs-TickleItem", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-		ActivityExpression: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Laughing", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}],
-	},
-	{
-		Name: "RubItemPussy",
-		MaxProgress: 60,
-		Prerequisite: ["Needs-RubItem", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-		ActivityExpression: [{ Group: "Blush", Name: "Low", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Mouth", Name: "LipBite", Timer: 10 }],
-	},
-	{
-		Name: "MasturbateItemPussy",
-		MaxProgress: 100,
-		Prerequisite: ["ZoneNaked", "Needs-MasturbateItem", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-		ActivityExpression: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyes", Name: "Dazed", Timer: 5 }, { Group: "Eyebrows", Name: "Soft", Timer: 10}, { Group: "Mouth", Name: "HalfOpen", Timer: 10}],
-	},
-	{
-		Name: "ShockItemPussy",
-		MaxProgress: 50,
-		Prerequisite: ["Needs-ShockItem", "HasVagina"],
-		Target: ["ItemVulva", "ItemVulvaPiercings"],
-		TargetSelf: true,
-		ActivityExpression: [{ Group: "Blush", Name: "Medium", Timer: 10 }, { Group: "Eyebrows", Name: "Soft", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 5 }],
-	},
-	{
-		Name: "InjectPussy",
-		MaxProgress: 20,
-		Prerequisite: ["ZoneAccessible", "UseHands", "Needs-InjectItem", "HasVagina"],
-		Target: ["ItemVulvaPiercings"],
-		TargetSelf: true,
-	},
-	{
-		Name: "PenetrateSlowPussy",
-		MaxProgress: 80,
 		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "AssEmpty", "Needs-PenetrateItem", "ZoneNaked", "HasVagina"],
-		Target: ["ItemVulva"],
-	},
-	{
-		Name: "PenetrateFastPussy",
-		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "AssEmpty", "Needs-PenetrateItem", "ZoneNaked", "HasVagina"],
-		Target: ["ItemVulva"],
-	},
-	/* Penis Penetration Activites */
-	// General
-	{
-		Name: "PenisPenetrateSlow",
-		MaxProgress: 80,
-		MaxProgressSelf: 100,
-		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "AssEmpty", "HasPenisSelf", "ZoneNaked"],
-		Target: ["ItemButt", "ItemMouth"],
-	},
-	{
-		Name: "PenisPenetrateFast",
-		MaxProgress: 100,
-		MaxProgressSelf: 100,
-		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "AssEmpty", "HasPenisSelf", "ZoneNaked"],
-		Target: ["ItemButt", "ItemMouth"],
-	},
-	// Vulva
-	{
-		Name: "PenisPenetrateSlowPussy",
-		MaxProgress: 80,
-		MaxProgressSelf: 100,
-		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "AssEmpty", "HasPenisSelf", "ZoneNaked", "HasVagina"],
-		Target: ["ItemVulva"],
-	},
-	{
-		Name: "PenisPenetrateFastPussy",
-		MaxProgress: 100,
-		MaxProgressSelf: 100,
-		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "AssEmpty", "HasPenisSelf", "ZoneNaked", "HasVagina"],
-		Target: ["ItemVulva"],
+		Target: ["ItemButt", "ItemMouth", "ItemVulva"],
 	},
 ];
 
