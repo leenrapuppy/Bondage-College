@@ -2786,8 +2786,10 @@ function ChatRoomMessagePerformSubstitutions(msg, substitutions) {
 	if (typeof msg !== "string")
 		return "";
 
+	substitutions = substitutions.sort((a, b) => b[0].length - a[0].length);
 	for (const [tag, subst] of substitutions) {
-		msg = msg.replace(tag, subst);
+		while (msg.includes(tag))
+			msg = msg.replace(tag, subst);
 	}
 	return msg;
 }
