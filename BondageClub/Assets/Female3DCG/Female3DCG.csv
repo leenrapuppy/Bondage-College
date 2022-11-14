@@ -63,7 +63,7 @@ Cloth,CropTop,Crop Top
 Cloth,Laurel,Laurel Top
 Cloth,SeethroughTop,See-through Top
 Cloth,Jacket,Jacket
-Cloth,MaleTankTop1,Male Cloth Tank-Top
+Cloth,MaleTankTop1,Male Cloth Tank-Top 
 ClothAccessory,,Cloth Accessory
 ClothAccessory,StudentOutfit3Scarf,Student Scarf
 ClothAccessory,StudentOutfit3Bow1,Student Bow 1
@@ -614,6 +614,26 @@ HairFront,HairFront29,Style 29
 HairFront,HairFront30,Style 30
 HairFront,HairFront31,Style 31
 HairFront,HairFront32,Style 32
+HairFront,LongMessy,Long Messy Hair 1
+HairFront,Spikey,Spikey 1
+HairFront,Boxcut,Boxcut 1
+HairFront,SweptBack,Swept-Back 1
+HairFront,Mohawk,Mohawk 1
+HairFront,SideFringe1,Side Fringe Short
+HairFront,SideFringe2,Side Fringe Long
+HairFront,SideSwept,Side Swept 1
+HairFront,DreadLocks1,Dreadlocks 1 Short
+HairFront,DreadLocks2,Dreadlocks 1 Long
+HairFront,DreadLocks3,Dreadlocks 2 Short
+HairFront,DreadLocks4,Dreadlocks 2 Long
+FacialHair,,Facial Hair
+FacialHair,Goatee,Goatee
+FacialHair,BigBeard,Big Beard
+FacialHair,BigBeard,Big Beard
+FacialHair,MediumBeard,Medium Beard
+FacialHair,Moustache,Moustache
+FacialHair,MoustacheBeard,Moustache Beard
+FacialHair,ChinstrapBeard,Chinstrap Beard
 HairBack,,Back Hair
 HairBack,HairNone,None
 HairBack,HairBack1,Style 1
@@ -676,6 +696,7 @@ HairBack,HairBack52,Style 47
 HairBack,HairBack53,Style 48
 HairBack,HairBack54,Style 49
 HairBack,HairBack55,Style 50
+HairBack,DreadLocks1,Dreadlocks 1
 Eyes,,Left eye
 Eyes,Eyes1,Style 1
 Eyes,Eyes2,Style 2
@@ -707,6 +728,7 @@ Eyes2,Eyes13,Style 13
 Mouth,,Mouth
 Mouth,Regular,Regular
 Mouth,Discreet,Discreet
+Mouth,Full,Full Lips
 Nipples,,Nipples Style
 Nipples,Nipples1,Small
 Nipples,Nipples2,Large
@@ -729,7 +751,14 @@ Fluids,Fluids,Fluids
 Emoticon,,Emoticon
 Emoticon,Emoticon,Emoticon
 Eyebrows,,Eyebrows
-Eyebrows,Eyebrows1,Eyebrows
+Eyebrows,Eyebrows1,Eyebrows 1
+Eyebrows,Eyebrows2,Eyebrows 2
+Eyebrows,Eyebrows3,Eyebrows 3
+Eyebrows,Eyebrows4,Eyebrows 4
+Eyebrows,Eyebrows5,Eyebrows 5
+Eyebrows,Eyebrows6,Eyebrows 6
+Eyebrows,Eyebrows7,Eyebrows 7
+Eyebrows,Eyebrows8,Eyebrows 8
 Hands,,Hands
 Hands,Default,Default
 Head,,Head
