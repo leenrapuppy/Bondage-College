@@ -585,7 +585,7 @@ interface AssetGroup {
 	/** A dict mapping colors to custom filename suffices.
 	The "HEX_COLOR" key is special-cased to apply to all color hex codes. */
 	ColorSuffix?: Record<string, string>;
-	ExpressionPrerequisite: string[];
+	ExpressionPrerequisite?: string[];
 }
 
 /** An object defining a drawable layer of an asset */
@@ -792,7 +792,7 @@ interface Asset {
 	Gender?: 'F' | 'M';
 	CraftGroup: string;
 	ColorSuffix: Record<string, string>;
-	ExpressionPrerequisite: string[];
+	ExpressionPrerequisite?: string[];
 }
 
 //#endregion
@@ -2612,7 +2612,10 @@ interface PandoraBaseRoom {
 
 //#region Crafting items
 
-/** A struct with an items crafting-related information; see {@link Item.Craft}. */
+/**
+ * A struct with an items crafting-related information.
+ * @see {@link Item.Craft}
+ */
 interface CraftingItem {
 	/** The name of the crafted item. */
 	Name: string;
@@ -2633,23 +2636,40 @@ interface CraftingItem {
 	/** Whether the crafted item should be private or not. */
 	Private: boolean;
 	/**
-	 * The of the crafted item; only relevant for extended items and should be an empty string otherwise.
-	 * See {@link ItemPropertiesBase.Type}
+	 * The type of the crafted item; only relevant for extended items and should be an empty string otherwise.
+	 * @see {@link ItemPropertiesBase.Type}
 	 */
-	Type: string;
+	Type: string | null;
 	/** An integer representing the item layering priority; see {@link ItemPropertiesBase.OverridePriority} */
 	OverridePriority: number | null;
 }
 
+/**
+ * A currently selected struct with an items crafting-related information.
+ * @see {@link Item.Craft}
+ */
 interface CraftingItemSelected {
+	/** The name of the crafted item. */
 	Name: string;
+	/** The custom item description. */
 	Description: string;
+	/** The comma-separated color(s) of the item. */
 	Color: string;
+	/** The name of the crafted item. */
 	Asset: Asset | null;
+	/** The crafted item propery. */
 	Property: CraftingPropertyType;
+	/** The lock as equiped on the item or, if absent, `null`. */
 	Lock: Asset | null;
+	/** Whether the crafted item should be private or not. */
 	Private: boolean;
+	/**
+	 * The type of the crafted item; only relevant for extended items and should be an empty string otherwise.
+	 * Note that `null` values, which are legal for Typed extended items, *must* be converted to empty strings.
+	 * @see {@link ItemPropertiesBase.Type}
+	 */
 	Type: string;
+	/** An integer representing the item layering priority; see {@link ItemPropertiesBase.OverridePriority} */
 	OverridePriority: number | null;
  }
 

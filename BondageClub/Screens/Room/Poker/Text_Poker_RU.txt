@@ -1,0 +1,70 @@
+Select your options & opponents below or challenge a new girl to unlock her.
+Выберите свои варианты и противников ниже или бросьте вызов новой девушке, чтобы разблокировать ее.
+Return to the main hall
+Вернитесь в главный холл
+Challenge a new girl
+Бросьте вызов новой девушке
+Start a custom game
+Начать пользовательскую игру
+View yourself
+Показать себя
+Texas Hold'em
+Техасский Холдем
+Two Cards
+Две карты
+Visit the artis
+Посетите художника
+None
+Никто
+Private Friends
+Личные друзья
+Картинки
+Иллюстрации
+Real Models
+Реальные модели
+Chip
+Фишка
+Deal
+Договорились!
+Bet
+Ставка
+Raise
+Поднять
+Fold
+Пас
+Watch
+Смотреть
+won
+выиграла
+won the game!
+выиграла игру!
+You won $MoneyAmount and unlocked OpponentName.  You can challenge another girl.
+Вы выиграли $MoneyAmount и разблокировали OpponentName. Вы можете бросить вызов другой девушке.
+Finish this game
+Закончить эту игру
+Ante:
+Вслепую:
+Split pot
+Разделить банк
+Pot:
+Банк:
+High card
+Старшая карта
+One pair
+Одна пара
+Two pairs
+Две пары
+Three of a kind
+Три карты
+Straight
+Стрит
+Flush
+Флеш
+Full house
+Фулл хаус
+Four of a kind
+Каре
+Straight flush
+Стрит флеш
+Royal flush
+Роял флеш
