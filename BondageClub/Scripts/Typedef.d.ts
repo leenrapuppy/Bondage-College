@@ -2636,7 +2636,7 @@ interface CraftingItem {
 	 * The of the crafted item; only relevant for extended items and should be an empty string otherwise.
 	 * See {@link ItemPropertiesBase.Type}
 	 */
-	Type: string;
+	Type: string | null;
 	/** An integer representing the item layering priority; see {@link ItemPropertiesBase.OverridePriority} */
 	OverridePriority: number | null;
 }

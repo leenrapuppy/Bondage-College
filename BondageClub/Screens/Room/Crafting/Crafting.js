@@ -643,7 +643,7 @@ function CraftingClick() {
 			else
 				if (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) >= CraftingSelectedItem.Asset.AllowType.length - 1)
 					// @ts-ignore
-					CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset);
+					CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset) || "";
 				else
 					CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) + 1];
 			ElementValue("InputType", CraftingSelectedItem.Type);
@@ -696,7 +696,7 @@ function CraftingConvertSelectedToItem() {
 		Description: Description,
 		Color: Color,
 		Private: CraftingSelectedItem.Private,
-		Type: Type,
+		Type: (CraftingSelectedItem.Asset.Archetype === ExtendedArchetype.TYPED && Type === "") ? null : Type,
 		OverridePriority: OverridePriority,
 	};
 }
@@ -712,7 +712,7 @@ function CraftingConvertItemToSelected(Craft) {
 		Description: Craft.Description,
 		Color: Craft.Color,
 		Private: Craft.Private,
-		Type: Craft.Type,
+		Type: Craft.Type || "",
 		Property: Craft.Property,
 		Asset: Player.Inventory.find(a => a.Asset.Name === Craft.Item && a.Asset.Group.Name !== "ItemMisc").Asset,
 		Lock: Craft.Lock ? Player.Inventory.find(a => a.Asset.Group.Name === "ItemMisc" && a.Asset.Name == Craft.Lock).Asset : null,
