@@ -86,6 +86,12 @@
 (By default, you struggle using your full evasion skill.  You can use less of your skill and make it harder for you to struggle free.)
 (По умолчанию вы боретесь, используя свой полный навык уклонения. Вы можете использовать меньше своего мастерства, и вам будет труднее освободиться.)
 ###_PLAYER
+(Craft an item.)
+(Создать предмет.)
+###_NPC
+(You can use or remove items by selecting specific body regions on yourself.)
+(Вы можете использовать или удалять предметы, выбирая определенные области тела на себе.)
+###_PLAYER
 (Call the maids for help)
 (Позовите горничных на помощь)
 ###_NPC

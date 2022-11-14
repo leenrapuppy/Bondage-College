@@ -320,7 +320,8 @@ function CraftingModeSet(NewMode) {
 		ElementValue("InputColor", CraftingSelectedItem.Color || "Default");
 		ElementValue(
 			"InputPriority",
-			(CraftingSelectedItem.Asset == null) ? "" : AssetLayerSort(CraftingSelectedItem.Asset.Layer)[0].Priority.toString(),
+			(CraftingSelectedItem.Asset == null) ? "" :
+				(CraftingSelectedItem.OverridePriority == null) ? AssetLayerSort(CraftingSelectedItem.Asset.Layer)[0].Priority.toString() : CraftingSelectedItem.OverridePriority.toString(),
 		);
 		if (CraftingItemSupportsAutoType()) {
 			ElementCreateInput("InputType", "text", "", "20");
@@ -431,7 +432,7 @@ function CraftingDecompressServerData(Data) {
 		Craft.Description = (Element.length >= 5) ? Element[4] : "";
 		Craft.Color = (Element.length >= 6) ? Element[5] : "";
 		Craft.Private = ((Element.length >= 7) && (Element[6] == "T"));
-		Craft.Type = (Element.length >= 8) ? Element[7] : "";
+		Craft.Type = (Element.length >= 8) ? Element[7] || null : null;
 		Craft.OverridePriority = (Element.length >= 9) ? Number.parseInt(Element[8]) : null;
 		if (Craft.Item && Craft.Name && (Craft.Item != "") && (Craft.Name != "")) Crafts.push(Craft);
 		else Crafts.push(null);
@@ -555,7 +556,7 @@ function CraftingClick() {
 				CraftingSelectedItem.Asset = CraftingItemList[I];
 				CraftingSelectedItem.OverridePriority = null;
 				// @ts-ignore
-				CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset);
+				CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset) || "";
 				CraftingSelectedItem.Lock = null;
 				CraftingModeSet("Property");
 				ElementRemove("InputSearch");
@@ -643,7 +644,7 @@ function CraftingClick() {
 			else
 				if (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) >= CraftingSelectedItem.Asset.AllowType.length - 1)
 					// @ts-ignore
-					CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset);
+					CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset) || "";
 				else
 					CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) + 1];
 			ElementValue("InputType", CraftingSelectedItem.Type);
@@ -696,7 +697,7 @@ function CraftingConvertSelectedToItem() {
 		Description: Description,
 		Color: Color,
 		Private: CraftingSelectedItem.Private,
-		Type: Type,
+		Type: Type || null,
 		OverridePriority: OverridePriority,
 	};
 }
@@ -712,7 +713,7 @@ function CraftingConvertItemToSelected(Craft) {
 		Description: Craft.Description,
 		Color: Craft.Color,
 		Private: Craft.Private,
-		Type: Craft.Type,
+		Type: Craft.Type || "",
 		Property: Craft.Property,
 		Asset: Player.Inventory.find(a => a.Asset.Name === Craft.Item && a.Asset.Group.Name !== "ItemMisc").Asset,
 		Lock: Craft.Lock ? Player.Inventory.find(a => a.Asset.Group.Name === "ItemMisc" && a.Asset.Name == Craft.Lock).Asset : null,
@@ -866,7 +867,7 @@ function CraftingItemListBuild() {
 		StatusCode: CraftingStatusCode.CRITICAL_ERROR,
 	},
 	OverridePriority: {
-		Validate: (c, a) => (c == null) || Number.isInteger(c.OverridePriority),
+		Validate: (c, a) => (c.OverridePriority == null) || Number.isInteger(c.OverridePriority),
 		GetDefault: (c, a) => null,
 		StatusCode: CraftingStatusCode.ERROR,
 	},
@@ -891,12 +892,12 @@ function CraftingItemListBuild() {
 		Validate: function (c, a) {
 			if (a == null) {
 				return true;
-			} else if ((a.Archetype === ExtendedArchetype.TYPED) && (c.Type === null)) {
+			} else if ((a.Archetype === ExtendedArchetype.TYPED) && (c.Type == null)) {
 				return true;
 			} else if (a.AllowType != null) {
 				return (a.AllowType && a.AllowType.includes(c.Type));
 			} else {
-				return c.Type === "";
+				return c.Type == null;
 			}
 		},
 		GetDefault: function (c, a) {
@@ -905,7 +906,7 @@ function CraftingItemListBuild() {
 			} else if (a.Archetype === ExtendedArchetype.TYPED) {
 				return null;
 			} else {
-				return (a.AllowType && (a.AllowType.length >= 1)) ? a.AllowType[0] : "";
+				return (a.AllowType && (a.AllowType.length >= 1)) ? a.AllowType[0] : null;
 			}
 		},
 		StatusCode: CraftingStatusCode.ERROR,

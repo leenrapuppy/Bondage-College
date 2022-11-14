@@ -2479,7 +2479,7 @@ var AssetFemale3DCG = [
 			{ Name: "PussyDark1", Gender: "F" },
 			{ Name: "PussyDark2", Gender: "F" },
 			{ Name: "PussyDark3", Gender: "F" },
-			{ Name: "Penis", Random: false, Left: 200, Top: 410, Gender: "M" }
+			{ Name: "Penis", Random: false, Left: 200, Top: 410, Gender: "M", InheritColor: "BodyUpper" }
 		],
 		Color: ["Default", "#6a3628", "#443330", "#222222"],
 		ColorSuffix: { "White": "Default", "Asian": "Default", "Black": "Default" },
@@ -2962,14 +2962,14 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PlasticChastityCage1", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, Effect: ["Chaste"], Hide: ["Pussy"],
+				Name: "PlasticChastityCage1", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Difficulty: 50, Value: 20, Effect: ["Chaste"], Hide: ["Pussy"],
 				AllowPose: [],
 				AllowLock: true, DrawLocks: false,
 				DefaultColor: ["Default", "Default", "Default", "#8D8D8D"],
 				Left: 200, Top: 410,
 				Layer: [
-					{ Name: "Ring" },
 					{ Name: "Penis", InheritColor: "Pussy", HideColoring: true },
+					{ Name: "Ring" },
 					{ Name: "Cage" },
 					{ Name: "Lock", LockLayer: true}
 				],
@@ -2986,27 +2986,27 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "PlasticChastityCage2", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, Effect: ["Chaste"], Hide: ["Pussy"],
+				Name: "PlasticChastityCage2", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 20, Difficulty: 50, Effect: ["Chaste"], Hide: ["Pussy"],
 				AllowPose: [],
 				AllowLock: true, DrawLocks: false,
 				DefaultColor: ["Default", "Default", "Default", "#8D8D8D"],
 				Left: 200, Top: 410,
 				Layer: [
-					{ Name: "Ring" },
 					{ Name: "Penis", InheritColor: "Pussy", HideColoring: true },
+					{ Name: "Ring" },
 					{ Name: "Cage" },
 					{ Name: "Lock", LockLayer: true}
 				],
 			},
 			{
-				Name: "TechnoChastityCage", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 50, Effect: ["Chaste"], Hide: ["Pussy"],
+				Name: "TechnoChastityCage", Gender: "M", Prerequisite: ["AccessVulva", "HasPenis"], Value: 50, Difficulty: 50, Effect: ["Chaste"], Hide: ["Pussy"],
 				AllowPose: [],
 				AllowLock: true, DrawLocks: false,
 				DefaultColor: ["Default", "Default", "Default", "#8D8D8D"],
 				Left: 200, Top: 410,
 				Layer: [
-					{ Name: "Ring" },
 					{ Name: "Penis", InheritColor: "Pussy", HideColoring: true },
+					{ Name: "Ring" },
 					{ Name: "Cage" },
 					{ Name: "Lock", LockLayer: true}
 				],

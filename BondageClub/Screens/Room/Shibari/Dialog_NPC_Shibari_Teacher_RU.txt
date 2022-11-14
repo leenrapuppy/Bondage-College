@@ -268,6 +268,12 @@ How much does it cost?
 It depends on your current knowledge.  It can get quite costly if you want to become the very best.
 Это зависит от ваших текущих знаний. Это может обойтись довольно дорого, если вы хотите стать самой лучшей.
 ###_PLAYER
+Can I train all day long?
+Могу ли я тренироваться весь день?
+###_NPC
+No.  You need to rest and practice between training sessions.  Wait at least one hour before training again.
+Нет. Вам нужно отдыхать и практиковаться между тренировками. Подождите не менее одного часа, прежде чем снова тренироваться.
+###_PLAYER
 I'd like to learn new bondage techniques.
 Я бы хотела научиться новым техникам бондажа.
 ###_NPC
@@ -394,4 +400,6 @@ Alright, but be more careful next time.
 Хорошо, но в следующий раз будь осторожнее.
 ###_NPC
 I will, thanks.  Is there something I can do for you?
-Хорошо, спасибо.  Я могу чем-нибудь тебе помочь?
+Хорошо, спасибо.  Я могу чем-нибудь вам помочь?
+(She shakes her head no.)  You need to rest and practice for at least one hour before I can train you again.
+(Она отрицательно качает головой.) Вам нужно отдохнуть и потренироваться хотя бы час, прежде чем я снова смогу вас тренировать.
