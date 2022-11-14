@@ -192,14 +192,14 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			break;
 		case "VulvaEmpty":
 			if (group.Name === "ItemVulva")
-				return !acted.IsVulvaFull();
+				return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]) && !acted.IsVulvaFull();
 			break;
 		case "AssEmpty":
 			if (group.Name === "ItemButt")
 				return !acted.IsPlugged();
 			break;
 		case "UseVulva":
-			return !acting.IsVulvaFull();
+			return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]) && !acting.IsVulvaFull();
 		case "UseAss":
 			return !acting.IsAssFull();
 		case "MoveHead":
@@ -220,21 +220,21 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			else if (group.Name === "ItemHands")
 				return InventoryPrerequisiteMessage(acted, "NakedHands") === "";
 			break;
-		case "HasPenis":
+		case "TargetHasPenis":
 			return InventoryIsItemInList(acted, "Pussy", ["Penis"]);
+		case "HasPenis":
+			return InventoryIsItemInList(acting, "Pussy", ["Penis"]);
+		case "TargetHasVagina":
+			return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
 		case "HasVagina":
 			return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
-		case "HasPenisSelf":
-			return InventoryIsItemInList(acting, "Pussy", ["Penis"]);
-		case "HasVaginaSelf":
-			return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
-		case "HasBreasts":
+		case "TargetHasBreasts":
 			return InventoryIsItemInList(acted, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
-		case "HasBreastsSelf":
+		case "HasBreasts":
 			return InventoryIsItemInList(acting, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
-		case "HasFlatChest":
+		case "TargetHasFlatChest":
 			return InventoryIsItemInList(acted, "BodyUpper", ["FlatSmall", "FlatMedium"]);
-		case "HasFlatChestSelf":
+		case "HasFlatChest":
 			return InventoryIsItemInList(acting, "BodyUpper", ["FlatSmall", "FlatMedium"]);
 
 		default:
@@ -287,12 +287,13 @@ function ActivityGenerateItemActivitiesFromNeed(allowed, acting, acted, needsIte
 			blocked = "unavail";
 		}
 
-		// FIXME: workaround because those are in a non-activity group
+		// FIXME: workaround for reverse activities because those are in a non-activity group
 		const isStrapon = item.Asset.Group.Name === "ItemDevices" && ["StrapOnSmooth", "StrapOnStuds"].includes(item.Asset.Name);
+		const isPenis = item.Asset.Group.Name === "Pussy" && item.Asset.Name === "Penis";
 
 		if (InventoryItemHasEffect(item, "UseRemote")) {
 			// That item actually needs a remote, so handle it separately
-		} else if (reverse && acted.FocusGroup.Name !== item.Asset.Group.Name && !isStrapon) {
+		} else if (reverse && acted.FocusGroup.Name !== item.Asset.Group.Name && !(isStrapon || isPenis)) {
 			// This is a reverse activity, but we're targetting the wrong slot, just skip
 			handled = true;
 		} else {
@@ -822,7 +823,10 @@ function ActivityRunSelf(Source, Target, Activity) {
  * @param {Activity} activity
  */
 function ActivityBuildChatTag(character, group, activity, is_label = false) {
-	return `${is_label ? "Label-" : ""}${(character.IsPlayer() ? "ChatSelf" : "ChatOther")}-${group.Name}-${activity.Name}`;
+	const groupMap = {"ItemVulva":"ItemPenis", "ItemVulvaPiercings": "ItemGlans"};
+	const realGroup = CharacterHasPenis(character) && groupMap[group.Name] ? groupMap[group.Name] : group.Name;
+
+	return `${is_label ? "Label-" : ""}${(character.IsPlayer() ? "ChatSelf" : "ChatOther")}-${realGroup}-${activity.Name}`;
 }
 
 /**
