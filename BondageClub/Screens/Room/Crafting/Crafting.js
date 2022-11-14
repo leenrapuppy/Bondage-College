@@ -432,7 +432,7 @@ function CraftingDecompressServerData(Data) {
 		Craft.Description = (Element.length >= 5) ? Element[4] : "";
 		Craft.Color = (Element.length >= 6) ? Element[5] : "";
 		Craft.Private = ((Element.length >= 7) && (Element[6] == "T"));
-		Craft.Type = (Element.length >= 8) ? Element[7] : "";
+		Craft.Type = (Element.length >= 8) ? Element[7] || null : null;
 		Craft.OverridePriority = (Element.length >= 9) ? Number.parseInt(Element[8]) : null;
 		if (Craft.Item && Craft.Name && (Craft.Item != "") && (Craft.Name != "")) Crafts.push(Craft);
 		else Crafts.push(null);
@@ -697,7 +697,7 @@ function CraftingConvertSelectedToItem() {
 		Description: Description,
 		Color: Color,
 		Private: CraftingSelectedItem.Private,
-		Type: (CraftingSelectedItem.Asset.Archetype === ExtendedArchetype.TYPED && Type === "") ? null : Type,
+		Type: Type || null,
 		OverridePriority: OverridePriority,
 	};
 }
@@ -892,12 +892,12 @@ function CraftingItemListBuild() {
 		Validate: function (c, a) {
 			if (a == null) {
 				return true;
-			} else if ((a.Archetype === ExtendedArchetype.TYPED) && (c.Type === null)) {
+			} else if ((a.Archetype === ExtendedArchetype.TYPED) && (c.Type == null)) {
 				return true;
 			} else if (a.AllowType != null) {
 				return (a.AllowType && a.AllowType.includes(c.Type));
 			} else {
-				return c.Type === "";
+				return c.Type == null;
 			}
 		},
 		GetDefault: function (c, a) {
@@ -906,7 +906,7 @@ function CraftingItemListBuild() {
 			} else if (a.Archetype === ExtendedArchetype.TYPED) {
 				return null;
 			} else {
-				return (a.AllowType && (a.AllowType.length >= 1)) ? a.AllowType[0] : "";
+				return (a.AllowType && (a.AllowType.length >= 1)) ? a.AllowType[0] : null;
 			}
 		},
 		StatusCode: CraftingStatusCode.ERROR,
