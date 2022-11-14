@@ -320,7 +320,8 @@ function CraftingModeSet(NewMode) {
 		ElementValue("InputColor", CraftingSelectedItem.Color || "Default");
 		ElementValue(
 			"InputPriority",
-			(CraftingSelectedItem.Asset == null) ? "" : AssetLayerSort(CraftingSelectedItem.Asset.Layer)[0].Priority.toString(),
+			(CraftingSelectedItem.Asset == null) ? "" :
+				(CraftingSelectedItem.OverridePriority == null) ? AssetLayerSort(CraftingSelectedItem.Asset.Layer)[0].Priority.toString() : CraftingSelectedItem.OverridePriority.toString(),
 		);
 		if (CraftingItemSupportsAutoType()) {
 			ElementCreateInput("InputType", "text", "", "20");
@@ -555,7 +556,7 @@ function CraftingClick() {
 				CraftingSelectedItem.Asset = CraftingItemList[I];
 				CraftingSelectedItem.OverridePriority = null;
 				// @ts-ignore
-				CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset);
+				CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset) || "";
 				CraftingSelectedItem.Lock = null;
 				CraftingModeSet("Property");
 				ElementRemove("InputSearch");
@@ -866,7 +867,7 @@ function CraftingItemListBuild() {
 		StatusCode: CraftingStatusCode.CRITICAL_ERROR,
 	},
 	OverridePriority: {
-		Validate: (c, a) => (c == null) || Number.isInteger(c.OverridePriority),
+		Validate: (c, a) => (c.OverridePriority == null) || Number.isInteger(c.OverridePriority),
 		GetDefault: (c, a) => null,
 		StatusCode: CraftingStatusCode.ERROR,
 	},
