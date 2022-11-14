@@ -2412,6 +2412,16 @@ var AssetFemale3DCG = [
 		Color: ["Default", "#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"],
 		InheritColor: "HairFront"
 	},
+	
+	{
+		Group: "Eyebrows",
+		Priority: 9,
+		Left: 200,
+		Top: 120,
+		AllowNone: false,
+		AllowExpression: ["Raised", "Lowered", "OneRaised", "Harsh", "Angry", "Soft"],
+		Asset: ["Eyebrows1", "Eyebrows2", "Eyebrows3", "Eyebrows4","Eyebrows5","Eyebrows6","Eyebrows7","Eyebrows8",]
+	},
 
 	{
 		Group: "Eyes",
@@ -2551,17 +2561,7 @@ var AssetFemale3DCG = [
 		],
 	},
 	// Uncolorable body parts
-	{
-		Group: "Eyebrows",
-		Priority: 9,
-		Left: 200,
-		Top: 120,
-		AllowNone: false,
-		AllowColorize: false,
-		AllowCustomize: false,
-		AllowExpression: ["Raised", "Lowered", "OneRaised", "Harsh", "Angry", "Soft"],
-		Asset: ["Eyebrows1"]
-	},
+
 
 	{
 		Group: "Hands",
