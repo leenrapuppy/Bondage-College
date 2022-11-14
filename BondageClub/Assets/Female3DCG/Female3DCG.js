@@ -2302,7 +2302,7 @@ var AssetFemale3DCG = [
 			{ Name: "MediumBeard", Random: false, },
 			{ Name: "Moustache", Random: false, },
 			{ Name: "MoustacheBeard", Random: false,  },
-
+			{ Name: "ChinstrapBeard", Random: false,  },
 		],
 		Color: ["#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"]
 	},
