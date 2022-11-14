@@ -2412,7 +2412,7 @@ var AssetFemale3DCG = [
 		Color: ["Default", "#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"],
 		InheritColor: "HairFront"
 	},
-	
+
 	{
 		Group: "Eyebrows",
 		Priority: 9,
@@ -2469,7 +2469,14 @@ var AssetFemale3DCG = [
 					{ Name: "Inner", AllowColorize: false }
 				]
 			},
-			{ Name: "Discreet" }
+			{ Name: "Discreet" },
+			{
+				Name: "Full",
+				Layer: [
+					{ Name: "Lips", AllowColorize: true },
+					{ Name: "Inner", AllowColorize: false }
+				]
+			}
 		],
 		Color: ["Default", "#803d26", "#aa5555", "#cc3333", "#55aa55", "#5555aa", "#55aaaa", "#aa55aa", "#aaaa55"],
 	},
