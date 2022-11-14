@@ -346,16 +346,17 @@ function ServerPlayerRelationsSync() {
  */
 function ServerAppearanceBundle(Appearance) {
 	var Bundle = [];
-	for (let A = 0; A < Appearance.length; A++) {
-		var N = {};
-		N.Group = Appearance[A].Asset.Group.Name;
-		N.Name = Appearance[A].Asset.Name;
-		if ((Appearance[A].Color != null) && (Appearance[A].Color != "Default")) N.Color = Appearance[A].Color;
-		if ((Appearance[A].Difficulty != null) && (Appearance[A].Difficulty != 0)) N.Difficulty = Appearance[A].Difficulty;
-		if (Appearance[A].Property != null) N.Property = Appearance[A].Property;
-		if (Appearance[A].Craft != null) N.Craft = Appearance[A].Craft;
-		Bundle.push(N);
-	}
+	for (let A = 0; A < Appearance.length; A++) 
+		if (Appearance[A].Asset != null) {
+			var N = {};
+			N.Group = Appearance[A].Asset.Group.Name;
+			N.Name = Appearance[A].Asset.Name;
+			if ((Appearance[A].Color != null) && (Appearance[A].Color != "Default")) N.Color = Appearance[A].Color;
+			if ((Appearance[A].Difficulty != null) && (Appearance[A].Difficulty != 0)) N.Difficulty = Appearance[A].Difficulty;
+			if (Appearance[A].Property != null) N.Property = Appearance[A].Property;
+			if (Appearance[A].Craft != null) N.Craft = Appearance[A].Craft;
+			Bundle.push(N);
+		}
 	return Bundle;
 }
 
