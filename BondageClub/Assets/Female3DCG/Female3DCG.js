@@ -2285,6 +2285,23 @@ var AssetFemale3DCG = [
 			{ Name: "HairFront30" },
 			{ Name: "HairFront31" },
 			{ Name: "HairFront32" },
+			{ Name: "LongMessy", Top: 6, Left: 134,},
+			{ Name: "Spikey" },
+			{ Name: "Boxcut" },
+			{ Name: "SweptBack" },
+			{ Name: "Mohawk" },
+			{ Name: "SideFringe1" },
+			{ Name: "SideFringe2" },
+			{ Name: "SideSwept", 
+				Layer: [
+					{ Name: "Base" },
+					{ Name: "Tips" },
+				],
+			},
+			{ Name: "DreadLocks1" },
+			{ Name: "DreadLocks2", Top: -5, Left: 0 },
+			{ Name: "DreadLocks3" },
+			{ Name: "DreadLocks4", Top: -5, Left: 0  },
 
 		],
 		Color: ["#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"]
