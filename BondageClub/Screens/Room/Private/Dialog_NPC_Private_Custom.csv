@@ -1233,6 +1233,20 @@ ActivityLocks,1000,Very well Mistress.,(She locks your restraints.)  You won't b
 ActivityLocks,1000,(Stay silent.),(She locks your restraints.)  You won't be struggling out easily.,ActivityRun(0),,,
 ActivityLocks,1000,(Present your restraints promptly.),(She smirks and locks your restraints.)  Now you're safe and secure my girl.,ActivityRun(1),,,
 ActivityLocks,1000,(Grumble and try to stop her.),(She shakes her head no and locks your restraints.)  Do not contest my decisions.,ActivityRun(-7),,,
+ActivityAftercareIntro,,,"(She wraps her arms around you for a long and warm hug.)  My girl, I want you to know that I love you.",,,DomActivityAftercareIntro,
+ActivityAftercareIntro,,,"(She wraps her arms around you for a long and warm hug.)  Slave, ya know I love ya to death.",,,DomActivityAftercareIntro,Rude
+ActivityAftercareIntro,,,"(She wraps her arms around you for a long and warm hug.)  My beautiful submissive, I want you to remember that I cherish you.",,,DomActivityAftercareIntro,Polite
+ActivityAftercareIntro,,,"(She wraps her arms around you for a long and warm hug.)  My girl, remember that I'm here for you.",,,DomActivityAftercareIntro,Serious
+ActivityAftercareIntro,,,"(She wraps her arms around you for a long and warm hug.)  My subbie, I hope you know that I love you.",,,DomActivityAftercareIntro,Playful
+ActivityAftercare,,(Stay silent and nod.),(You both stay silent and continue to exchange a loving hug.),ActivityRun(0),,,
+ActivityAftercare,,(Moan with bliss.),"(You both moan with bliss, sharing some sweet BDSM love.)",ActivityRun(1),,,
+ActivityAftercare,,(Cuddle with her.),(You cuddle together silently in a loving embrace.),ActivityRun(0),,,
+ActivityAftercare,,(Roll your eyes up.),(She sees your reaction and frowns but continues to cuddle anyway.),ActivityRun(-1),,,
+ActivityAftercare,,(Act like you're bored.),(She doesn't seem to like the way you act but continues to hug you.),ActivityRun(-1),,,
+ActivityAftercare,,(Rub your body submissively against her.),(Time seems to stand still as you rub your bodies together.  Sharing a wonderful moment.),ActivityRun(1),,,
+ActivityAftercareOutro,,,(She releases you from her embrace.)  That's enough for now my girl.,,,DomActivityAftercareOutro,
+ActivityAftercareOutro,,,"(She releases you from her embrace and smiles.)  That's enough my submissive, but we need to do this again.",,,DomActivityAftercareOutro,Peaceful
+ActivityAftercareOutro,,,(She releases you from her embrace and spanks your butt.)  That's enough slave.,,,DomActivityAftercareOutro,Violent
 PunishIntro,,,(She seems furious.)  That's enough!  You must be punished.,,,DomPunishIntro,
 PunishIntro,,,(She slaps your face.)  Slave!  You must be punished.,,,DomPunishIntro,Violent
 PunishIntro,,,"(She speaks with a calm and menacing voice.)  I'm sorry my precious submissive, but you must be punished.",,,DomPunishIntro,Peaceful
