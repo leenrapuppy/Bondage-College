@@ -3872,7 +3872,6 @@ var AssetFemale3DCG = [
 			{
 				Name: "BitchSuit", Gender: "F", Fetish: ["Latex", "Pet"], Priority: 21, Value: 200, Difficulty: 15, SelfBondage: 8, Time: 40, RemoveTime: 30, Random: false, AllowLock: true, DefaultColor: ["#888888", "Default"], Top: 150,
 				Prerequisite: ["NotSuspended", "NotHogtied", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "CanKneel", "HasBreasts"],
-				Hide: ["Cloth", "ClothLower", "Bra", "Panties", "Shoes", "Socks", "ItemBoots", "ItemNipplesPiercings", "ItemLegs", "ItemFeet", "Corset", "ItemHands", "ItemHandheld", "Hands", "Gloves", "Garters", "LeftHand", "RightHand"],
 				AllowPose: ["BackElbowTouch", "Kneel", "AllFours"],
 				AllowActivePose: ["BackElbowTouch", "Kneel", "AllFours"],
 				SetPose: ["BackElbowTouch", "Kneel"],
