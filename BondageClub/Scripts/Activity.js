@@ -423,9 +423,10 @@ function ActivityEffect(S, C, A, Z, Count, Asset) {
  * @param {string} Z - The group/zone name where the activity was performed
  * @param {number} [Count=1] - If the activity is done repeatedly, this defines the number of times, the activity is done.
  * If you don't want an activity to modify arousal, set this parameter to '0'
+ * @param {Asset} [Asset] - The asset used to perform the activity
  * @return {void} - Nothing
  */
-function ActivityEffectFlat(S, C, Amount, Z, Count) {
+function ActivityEffectFlat(S, C, Amount, Z, Count, Asset) {
 
 	// Converts from activity name to the activity object
 	if ((Amount == null) || (typeof Amount != "number")) return;
@@ -436,8 +437,8 @@ function ActivityEffectFlat(S, C, Amount, Z, Count) {
 	Factor = Factor + (PreferenceGetZoneFactor(C, Z) * 5) - 10; // The zone used also adds from -10 to +10
 	Factor = Factor + ActivityFetishFactor(C) * 2; // Adds a fetish factor based on the character preferences
 	Factor = Factor + Math.round(Factor * (Count - 1) / 3); // if the action is done repeatedly, we apply a multiplication factor based on the count
-	ActivitySetArousalTimer(C, null, Z, Factor);
 
+	ActivitySetArousalTimer(C, null, Z, Factor, Asset);
 }
 
 /**
@@ -474,9 +475,10 @@ function ActivitySetArousal(C, Progress) {
  * @param {object} Activity - The activity for which the timer is for
  * @param {string} Zone - The target zone of the activity
  * @param {number} Progress - Progress to set
+ * @param {Asset} [Asset] - The asset used to perform the activity
  * @return {void} - Nothing
  */
-function ActivitySetArousalTimer(C, Activity, Zone, Progress) {
+function ActivitySetArousalTimer(C, Activity, Zone, Progress, Asset) {
 
 	// If there's already a progress timer running, we add it's value but divide it by 2 to lessen the impact, the progress must be between -25 and 25
 	if ((C.ArousalSettings.ProgressTimer == null) || (typeof C.ArousalSettings.ProgressTimer !== "number") || isNaN(C.ArousalSettings.ProgressTimer)) C.ArousalSettings.ProgressTimer = 0;
@@ -487,8 +489,14 @@ function ActivitySetArousalTimer(C, Activity, Zone, Progress) {
 	// Make sure we do not allow orgasms if the activity (MaxProgress or MaxProgressSelf) or the zone (AllowOrgasm) doesn't allow it
 	let Max = ((Activity == null || Activity.MaxProgress == null) || (Activity.MaxProgress > 100)) ? 100 : Activity.MaxProgress;
 	if (Max > 95 && !PreferenceGetZoneOrgasm(C, Zone)) Max = 95;
+	// For activities on other, it cannot go over 2/3
 	if (Max > 67 && Zone == "ActivityOnOther") {
-		Max = Activity.MaxProgressSelf != null ? Activity.MaxProgressSelf : 67;
+		if (["PenetrateSlow", "PenetrateFast"].includes(Activity.Name) && Asset && Asset.Group.Name === "Pussy" && Asset.Name === "Penis") {
+			// If it's a penis penetration, don't cap it. This makes the cap either 100 or 95, depending on the character orgasm setting
+			Max = PreferenceGetZoneOrgasm(Player, "ItemVulva") ? 100 : 95;
+		} else {
+			Max = Activity.MaxProgressSelf != null ? Activity.MaxProgressSelf : 67;
+		}
 	}
 
 	if (Progress > 0 && (C.ArousalSettings.Progress + Progress) > Max)
@@ -805,14 +813,16 @@ function ActivityVibratorLevel(C, Level) {
  * @param {Character} Source - The character who performed the activity
  * @param {Character} Target - The character on which the activity was performed
  * @param {Activity} Activity - The activity performed
+ * @param {AssetGroup} Group - The group on which the activity is performed
+ * @param {Asset} [Asset] - The asset used to perform the activity
  * @returns {void} - Nothing
  */
-function ActivityRunSelf(Source, Target, Activity) {
+function ActivityRunSelf(Source, Target, Activity, Group, Asset) {
 	if (((Player.ArousalSettings.Active == "Hybrid") || (Player.ArousalSettings.Active == "Automatic")) && (Source.ID == 0) && (Target.ID != 0)) {
 		var Factor = (PreferenceGetActivityFactor(Player, Activity.Name, false) * 5) - 10; // Check how much the player likes the activity, from -10 to +10
 		Factor = Factor + Math.floor((Math.random() * 8)); // Random 0 to 7 bonus
 		if (Target.IsLoverOfPlayer()) Factor = Factor + Math.floor((Math.random() * 8)); // Another random 0 to 7 bonus if the target is the player's lover
-		ActivitySetArousalTimer(Player, Activity, "ActivityOnOther", Factor); // For activities on other, it cannot go over 2/3
+		ActivitySetArousalTimer(Player, Activity, "ActivityOnOther", Factor, Asset);
 	}
 }
 
@@ -837,12 +847,13 @@ function ActivityBuildChatTag(character, group, activity, is_label = false) {
  */
 function ActivityRun(C, ItemActivity) {
 	const Activity = ItemActivity.Activity;
+	const UsedAsset = ItemActivity && ItemActivity.Item ? ItemActivity.Item.Asset : null;
 
 	let group = ActivityGetGroupOrMirror(C.AssetFamily, C.FocusGroup.Name);
 	// If the player does the activity on herself or an NPC, we calculate the result right away
 	if ((C.ArousalSettings.Active == "Hybrid") || (C.ArousalSettings.Active == "Automatic"))
 		if ((C.ID == 0) || C.IsNpc())
-			ActivityEffect(Player, C, Activity, group.Name);
+			ActivityEffect(Player, C, Activity, group.Name, 0, UsedAsset);
 
 	if (C.ID == 0) {
 		if (Activity.MakeSound) {
@@ -852,7 +863,7 @@ function ActivityRun(C, ItemActivity) {
 	}
 
 	// If the player does the activity on someone else, we calculate the progress for the player right away
-	ActivityRunSelf(Player, C, Activity);
+	ActivityRunSelf(Player, C, Activity, group, UsedAsset);
 
 	// Trigger the used item's expression
 	InventoryExpressionTrigger(Player, ItemActivity.Item);
@@ -899,7 +910,7 @@ function ActivityArousalItem(Source, Target, Asset) {
 	var AssetActivity = Asset.DynamicActivity(Source);
 	if (AssetActivity != null) {
 		var Activity = AssetGetActivity(Target.AssetFamily, AssetActivity);
-		if ((Source.ID == 0) && (Target.ID != 0)) ActivityRunSelf(Source, Target, Activity);
+		if ((Source.ID == 0) && (Target.ID != 0)) ActivityRunSelf(Source, Target, Activity, Asset.Group);
 		if (PreferenceArousalAtLeast(Target, "Hybrid") && ((Target.ID == 0) || (Target.IsNpc())))
 			ActivityEffect(Source, Target, AssetActivity, Asset.Group.Name);
 	}
