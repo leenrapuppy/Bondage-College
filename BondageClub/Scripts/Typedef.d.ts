@@ -1650,8 +1650,8 @@ type ExtendedItemGroupConfig = Record<string, AssetArchetypeConfig>;
  */
 type ExtendedItemConfig = Record<string, ExtendedItemGroupConfig>;
 
-/** Defines a (partially parsed) single extended item option */
-interface ExtendedItemOptionBase {
+/** Defines a single extended item option */
+interface ExtendedItemOption {
 	/** The name of the type - used for the preview icon and the translation key in the CSV */
 	Name: string;
 	/** The required bondage skill level for this option */
@@ -1688,14 +1688,12 @@ interface ExtendedItemOptionBase {
 	Archetype?: ExtendedArchetype;
 	/** If the option has an archetype, sets the config to use */
 	ArchetypeConfig?: TypedItemConfig | ModularItemConfig | VibratingItemConfig | VariableHeightConfig;
-	/** A unique (automatically assigned) identifier of the struct type */
+	/**
+	 * A unique (automatically assigned) identifier of the struct type
+	 * @todo consider making an {@link ExtendedItemOption} struct type wherein this field is mandatory once
+	 * more extended items have been assigned an arhcetype
+	 */
 	StructType?: "ExtendedItemOption";
-}
-
-/** Defines a single extended item option */
-interface ExtendedItemOption extends ExtendedItemOptionBase {
-	/** A unique (automatically assigned) identifier of the struct type */
-	StructType: "ExtendedItemOption";
 }
 
 /**
@@ -2003,7 +2001,7 @@ type TypedItemAssetConfig = ExtendedItemAssetConfig<"typed", TypedItemConfig>;
 /** An object defining all of the required configuration for registering a typed item */
 interface TypedItemConfig {
 	/** The list of extended item options available for the item */
-	Options?: ExtendedItemOptionBase[];
+	Options?: ExtendedItemOption[];
 	/** The optional text configuration for the item. Custom text keys can be configured within this object */
 	Dialog?: TypedItemDialogConfig;
 	/**

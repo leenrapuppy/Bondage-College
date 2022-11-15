@@ -6,11 +6,9 @@ var ItemDevicesLockerOptions = [
 	{
 		Name: "Vents",
 		Property: { Type: null },
-		StructType: "ExtendedItemOption",
 	}, {
 		Name: "Ventless",
 		Property: { Type: "Ventless", Effect: ["GagLight", "BlindHeavy"] },
-		StructType: "ExtendedItemOption",
 	}
 ];
 

@@ -26,8 +26,8 @@ function InventoryItemArmsFullLatexSuitDraw(OriginalFunction) {
 
 	// Provide 2 pseudo-extended item options with a fictional Type
 	ExtendedItemDrawButton(
-		{Name: "Wand", Property: {Type: "Wand"}, StructType: "ExtendedItemOption"},
-		{Name: "Wand", Property: {Type: "Wand"}, StructType: "ExtendedItemOption"},
+		{Name: "Wand", Property: {Type: "Wand"}},
+		{Name: "Wand", Property: {Type: "Wand"}},
 		Prefix, X, Y, true,
 		{Asset: VibeAsset},
 		!CanEquip,

@@ -12,28 +12,24 @@ var InventoryItemBreastFuturisticBraOptions = [
 		Property: {
 			Type: null,
 		},
-		StructType: "ExtendedItemOption",
 	},
 	{
 		Name: "Solid",
 		Property: {
 			Type: "Solid",
 		},
-		StructType: "ExtendedItemOption",
 	},
 	{
 		Name: "Show2",
 		Property: {
 			Type: "Show2",
 		},
-		StructType: "ExtendedItemOption",
 	},
 	{
 		Name: "Solid2",
 		Property: {
 			Type: "Solid2",
 		},
-		StructType: "ExtendedItemOption",
 	},
 ];
 

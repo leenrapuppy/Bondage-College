@@ -10,107 +10,86 @@ var InventoryItemNeckSlaveCollarTypes = [
 		Name: "",
 		Image: "SlaveCollar",
 		Property: null,
-		StructType: "ExtendedItemOption",
 	}, {
 		Name: "SteelPosture",
 		Image: "SteelPostureCollar",
 		Property: { Type: "SteelPosture", Effect: ["FixedHead"], Block: [] },
-		StructType: "ExtendedItemOption",
 	}, {
 		Name: "LeatherPosture",
 		Image: "PostureCollar",
 		Property: { Type: "LeatherPosture", Effect: ["FixedHead"], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "PetCollar",
 		Image: "PetCollar",
 		Property: { Type: "PetCollar", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "HighCollar",
 		Image: "HighCollar",
 		Property: { Type: "HighCollar", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "LeatherCollarBell",
 		Image: "LeatherCollarBell",
 		Property: { Type: "LeatherCollarBell", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "LeatherCollarBow",
 		Image: "LeatherCollarBow",
 		Property: { Type: "LeatherCollarBow", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "MaidCollar",
 		Image: "MaidCollar",
 		Property: { Type: "MaidCollar", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "BatCollar",
 		Image: "BatCollar",
 		Property: { Type: "BatCollar", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "HighSecurityCollar",
 		Image: "HighSecurityCollar",
 		Property: { Type: "HighSecurityCollar", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "SpikeCollar",
 		Image: "SpikeCollar",
 		Property: { Type: "SpikeCollar", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "BordelleCollar",
 		Image: "BordelleCollar",
 		Property: { Type: "BordelleCollar", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "LeatherCorsetCollar",
 		Image: "LeatherCorsetCollar",
 		Property: { Type: "LeatherCorsetCollar", Effect: ["GagNormal"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "StrictPostureCollar",
 		Image: "StrictPostureCollar",
 		Property: { Type: "StrictPostureCollar", Effect: ["FixedHead"], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "LatexPostureCollar",
 		Image: "LatexPostureCollar",
 		Property: { Type: "LatexPostureCollar", Effect: ["GagNormal", "FixedHead"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "HeartCollar",
 		Image: "HeartCollar",
 		Property: { Type: "HeartCollar", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "NobleCorsetCollar",
 		Image: "NobleCorsetCollar",
 		Property: { Type: "NobleCorsetCollar", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "OrnateCollar",
 		Image: "OrnateCollar",
 		Property: { Type: "OrnateCollar", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "SlenderSteelCollar",
 		Image: "SlenderSteelCollar",
 		Property: { Type: "SlenderSteelCollar", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "ShinySteelCollar",
 		Image: "ShinySteelCollar",
 		Property: { Type: "ShinySteelCollar", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	},{
 		Name: "HeartLinkChoker",
 		Image: "HeartLinkChoker",
 		Property: { Type: "HeartLinkChoker", Effect: [], Block: [] },
-		StructType: "ExtendedItemOption",
 	}
 ];
 
@@ -124,7 +103,7 @@ function InventoryItemNeckSlaveCollarLoad() {
 			Name: "LoveLeatherCollar",
 			Image: "LoveLeatherCollar",
 			Property: {Type: "LoveLeatherCollar", Effect: [], Block: []},
-			StructType: "ExtendedItemOption",
+
 		});
 	}
 	else if (C && C.IsOwnedByPlayer && !C.IsLoverOfPlayer() && SC) { InventoryItemNeckSlaveCollarTypes.splice(InventoryItemNeckSlaveCollarTypes.indexOf(SC,1)); }

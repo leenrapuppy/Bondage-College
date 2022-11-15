@@ -55,7 +55,6 @@ var VibratorModeSet = {
  *             Intensity: number | (() => number),
  *             Effect: EffectName[] | ((Intensity: number) => EffectName[]),
  *         },
- * 			StructType: "ExtendedItemOption",
  *     })[]
  * }}
  * @constant
@@ -69,7 +68,6 @@ var VibratorModeOptions = {
 				Intensity: -1,
 				Effect: ["Egged"],
 			},
-			StructType: "ExtendedItemOption",
 		},
 		{
 			Name: "Low",
@@ -78,7 +76,6 @@ var VibratorModeOptions = {
 				Intensity: 0,
 				Effect: ["Egged", "Vibrating"],
 			},
-			StructType: "ExtendedItemOption",
 		},
 		{
 			Name: "Medium",
@@ -87,7 +84,6 @@ var VibratorModeOptions = {
 				Intensity: 1,
 				Effect: ["Egged", "Vibrating"],
 			},
-			StructType: "ExtendedItemOption",
 		},
 		{
 			Name: "High",
@@ -96,7 +92,6 @@ var VibratorModeOptions = {
 				Intensity: 2,
 				Effect: ["Egged", "Vibrating"],
 			},
-			StructType: "ExtendedItemOption",
 		},
 		{
 			Name: "Maximum",
@@ -105,7 +100,6 @@ var VibratorModeOptions = {
 				Intensity: 3,
 				Effect: ["Egged", "Vibrating"],
 			},
-			StructType: "ExtendedItemOption",
 		},
 	],
 	[VibratorModeSet.ADVANCED]: [
@@ -116,7 +110,6 @@ var VibratorModeOptions = {
 				Intensity: () => CommonRandomItemFromList(null, [-1, 0, 1, 2, 3]),
 				Effect: (Intensity) => Intensity >= 0 ? ["Egged", "Vibrating"] : ["Egged"],
 			},
-			StructType: "ExtendedItemOption",
 		},
 		{
 			Name: "Escalate",
@@ -125,7 +118,6 @@ var VibratorModeOptions = {
 				Intensity: 0,
 				Effect: ["Egged", "Vibrating"],
 			},
-			StructType: "ExtendedItemOption",
 		},
 		{
 			Name: "Tease",
@@ -134,7 +126,6 @@ var VibratorModeOptions = {
 				Intensity: () => CommonRandomItemFromList(-1, [0, 1, 2, 3]),
 				Effect: ["Egged", "Vibrating"],
 			},
-			StructType: "ExtendedItemOption",
 		},
 		{
 			Name: "Deny",
@@ -143,7 +134,6 @@ var VibratorModeOptions = {
 				Intensity: () => CommonRandomItemFromList(-1, [0, 1, 2, 3]),
 				Effect: ["Egged", "Vibrating", "Edged"],
 			},
-			StructType: "ExtendedItemOption",
 		},
 		{
 			Name: "Edge",
@@ -152,7 +142,6 @@ var VibratorModeOptions = {
 				Intensity: CommonRandomItemFromList(null, [0, 1]),
 				Effect: ["Egged", "Vibrating", "Edged"],
 			},
-			StructType: "ExtendedItemOption",
 		},
 	],
 };

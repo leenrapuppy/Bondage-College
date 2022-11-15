@@ -211,7 +211,7 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 				IsSelected = (ExtendedItemPermissionMode && OptionType.includes("0")) ? true : Item.Property.Type.includes(OptionType);
 			}
 			break;
-		case "ExtendedItemOption":
+		default:  // Assume we're dealing with `ExtendedItemOption` at this point
 			OptionType = (Option.Property && Option.Property.Type) || null;
 			IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, OptionType);
 			AssetSource = `${AssetGetInventoryPath(Asset)}/${Option.Name}.png`;
@@ -219,9 +219,6 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 				IsSelected = (ExtendedItemPermissionMode && OptionType == null) ? true : Item.Property.Type === OptionType;
 			}
 			break;
-		default:
-			console.warn(`Unkown item module/option "StructType" field value: ${StructType}`)
-			return;
 	}
 
 	const ButtonColor = ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected, Item);
@@ -263,15 +260,12 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
 			HasSubscreen = Option.HasSubscreen || false;
 			FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Option, CurrentOption);
 			break;
-		case "ExtendedItemOption":
+		default:  // Assume we're dealing with `ExtendedItemOption` at this point
 			Type = (Option.Property && Option.Property.Type) || null;
 			IsFirst = Type == null;
 			HasSubscreen = Option.HasSubscreen || false;
 			FailSkillCheck = !!ExtendedItemRequirementCheckMessageMemo(Option, CurrentOption);
 			break;
-		default:
-			console.warn(`Unkown item module/option "StructType" field value: ${StructType}`);
-			return;
 	}
 
 	let ButtonColor;

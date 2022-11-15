@@ -8,7 +8,6 @@ var InventoryItemMouthFuturisticBallGagOptions = [
 			Type: null,
 			Effect: ["BlockMouth", "GagLight"],
 		},
-		StructType: "ExtendedItemOption",
 	},
 	{
 		Name: "Ball",
@@ -16,7 +15,6 @@ var InventoryItemMouthFuturisticBallGagOptions = [
 			Type: "Ball",
 			Effect: ["BlockMouth", "GagMedium"],
 		},
-		StructType: "ExtendedItemOption",
 	},
 	{
 		Name: "Plug",
@@ -24,7 +22,6 @@ var InventoryItemMouthFuturisticBallGagOptions = [
 			Type: "Plug",
 			Effect: ["BlockMouth", "GagTotal"],
 		},
-		StructType: "ExtendedItemOption",
 	},
 ];
 

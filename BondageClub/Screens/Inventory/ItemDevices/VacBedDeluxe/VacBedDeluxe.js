@@ -14,7 +14,6 @@ var InventoryItemDevicesVacBedDeluxeOptions = [
 			SetPose: ["BaseLower"],
 		},
 		Prerequisite: ["LegsOpen"],
-		StructType: "ExtendedItemOption",
 	},
 	{
 		Name: "ArmsDownLegsTogether",
@@ -22,7 +21,6 @@ var InventoryItemDevicesVacBedDeluxeOptions = [
 			Type: "ArmsDownLegsTogether",
 			SetPose: ["LegsClosed"]
 		},
-		StructType: "ExtendedItemOption",
 	},
 	{
 		Name: "ArmsUpLegsSpread",
@@ -30,7 +28,6 @@ var InventoryItemDevicesVacBedDeluxeOptions = [
 			Type: "ArmsUpLegsSpread",
 			SetPose: ["Yoked", "BaseLower"]
 		},
-		StructType: "ExtendedItemOption",
 	},
 	{
 		Name: "ArmsUpLegsTogether",
@@ -38,7 +35,6 @@ var InventoryItemDevicesVacBedDeluxeOptions = [
 			Type: "ArmsUpLegsTogether",
 			SetPose: ["Yoked", "LegsClosed"]
 		},
-		StructType: "ExtendedItemOption",
 	},
 ];
 
