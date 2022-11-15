@@ -9,7 +9,7 @@
 (Change her clothes.)
 (更改她的服装)
 (Manage your relationship.)
-(管理你和她的关系)
+(管理你们的关系)
 ###_NPC
 (You can give more access to your items by putting her on your whitelist, or less control by putting her on your blacklist.)
 (你可以将她添加到你的黑名单或白名单来让他获得更少或更多你的物品权限)

@@ -26,6 +26,8 @@
 - 手柄设置 -
 - Notification Preferences -
 - 通知设置 -
+- Gender Preferences -
+- 性别设置 -
 General
 通用
 Difficulty
@@ -52,6 +54,8 @@ Controller
 手柄
 Notifications
 通知
+Gender
+性别
 The difficulty mode enforces BDSM restrictions in multi-player only.  Click for details.
 难度模式仅在多人游戏中使BDSM限制强制生效。点击以了解更多
 Roleplay
@@ -151,7 +155,7 @@ Light
 Dark
 黑暗
  Light 2
- 明亮2
+明亮2
 Dark 2
 黑暗2
 Enter/Leave message style:
@@ -242,8 +246,6 @@ Garble chat room names and descriptions while blind
 失明时隐藏聊天室名和描述
 Sensory deprivation setting
 感觉剥夺设置
-Light
-轻度
 Hide names
 隐藏角色名
 Heavy
@@ -278,8 +280,6 @@ Max
 最高
 High
 高
-Medium
-中
 Low
 低
 Lower
@@ -636,3 +636,11 @@ Allow item tint effects
 启用物品染色效果
 Allow item blur effects (turn off if experiencing frame rate drops)
 启用物品模糊效果（如果遇到帧率降低，请关闭）
+Females
+女性
+Males
+男性
+Automatically enter the chatroom area for: 
+自动加入此类型聊天室区域：
+Hide shop items exclusively for: 
+隐藏商店的此类专门物品：
