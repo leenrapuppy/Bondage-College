@@ -191,32 +191,31 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
  */
 function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowImages=true, Item=DialogFocusItem, IsSelected=null) {
 	/** @type {[null | string, string, boolean]} */
-	let [OptionType, AssetSource, IsFavorite] = [null, null, false];
+	let [Type, AssetSource, IsFavorite] = [null, null, false];
 	const Asset = Item.Asset;
 	const C = CharacterGetCurrent();
 	const ImageHeight = ShowImages ? 220 : 0;
 	const Hover = MouseIn(X, Y, 225, 55 + ImageHeight) && !CommonIsMobile;
 
-	const StructType = Option.StructType;
-	switch (StructType) {
+	switch (Option.OptionType) {
 		case "ModularItemModule":
 			AssetSource = `${AssetGetInventoryPath(Asset)}/${CurrentOption.Name}.png`;
 			IsSelected = (IsSelected == null) ? false : IsSelected;
 			break;
 		case "ModularItemOption":
-			OptionType = Option.Name;
-			IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, OptionType);
+			Type = Option.Name;
+			IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, Type);
 			AssetSource = `${AssetGetInventoryPath(Asset)}/${Option.Name}.png`;
 			if (IsSelected == null) {
-				IsSelected = (ExtendedItemPermissionMode && OptionType.includes("0")) ? true : Item.Property.Type.includes(OptionType);
+				IsSelected = (ExtendedItemPermissionMode && Type.includes("0")) ? true : Item.Property.Type.includes(Type);
 			}
 			break;
 		default:  // Assume we're dealing with `ExtendedItemOption` at this point
-			OptionType = (Option.Property && Option.Property.Type) || null;
-			IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, OptionType);
+			Type = (Option.Property && Option.Property.Type) || null;
+			IsFavorite = InventoryIsFavorite(ExtendedItemPermissionMode ? Player : C, Asset.Name, Asset.Group.Name, Type);
 			AssetSource = `${AssetGetInventoryPath(Asset)}/${Option.Name}.png`;
 			if (IsSelected == null) {
-				IsSelected = (ExtendedItemPermissionMode && OptionType == null) ? true : Item.Property.Type === OptionType;
+				IsSelected = (ExtendedItemPermissionMode && Type == null) ? true : Item.Property.Type === Type;
 			}
 			break;
 	}
@@ -225,8 +224,8 @@ function ExtendedItemDrawButton(Option, CurrentOption, DialogPrefix, X, Y, ShowI
 	DrawButton(X, Y, 225, 55 + ImageHeight, "", ButtonColor, null, null, IsSelected);
 	if (ShowImages) {
 		DrawImageResize(AssetSource, X + 2, Y, 221, 221)
-		if (Option.StructType !== "ModularItemModule") {
-			DrawPreviewIcons(ExtendItemGetIcons(C, Asset, OptionType), X + 2, Y);
+		if (Option.OptionType !== "ModularItemModule") {
+			DrawPreviewIcons(ExtendItemGetIcons(C, Asset, Type), X + 2, Y);
 		}
 	}
 	DrawTextFit((IsFavorite && !ShowImages ? "★ " : "") + DialogFindPlayer(DialogPrefix + Option.Name), X + 112, Y + 30 + ImageHeight, 225, "black");
@@ -250,8 +249,7 @@ function ExtendedItemGetButtonColor(C, Option, CurrentOption, Hover, IsSelected,
 	let [Type, IsFirst, HasSubscreen, FailSkillCheck] = [null, false, false, false];
 
 	// Identify appropriate values for each type of item option/module
-	const StructType = Option.StructType;
-	switch (StructType) {
+	switch (Option.OptionType) {
 		case "ModularItemModule":
 			break;
 		case "ModularItemOption":

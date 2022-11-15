@@ -178,10 +178,10 @@ function ModularItemCreateExitFunction(data) {
  */
 function ModularItemUpdateModules(Modules) {
 	for (const mod of Modules) {
-		mod.StructType = "ModularItemModule";
+		mod.OptionType = "ModularItemModule";
 		mod.Options.forEach((option, i) => {
 			option.Name = `${mod.Key}${i}`;
-			option.StructType = "ModularItemOption";
+			option.OptionType = "ModularItemOption";
 		})
 	}
 	return /** @type {ModularItemModule[]} */(Modules);

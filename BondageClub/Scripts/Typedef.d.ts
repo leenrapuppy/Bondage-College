@@ -1693,7 +1693,7 @@ interface ExtendedItemOption {
 	 * @todo consider making an {@link ExtendedItemOption} struct type wherein this field is mandatory once
 	 * more extended items have been assigned an arhcetype
 	 */
-	StructType?: "ExtendedItemOption";
+	OptionType?: "ExtendedItemOption";
 }
 
 /**
@@ -1851,13 +1851,13 @@ interface ModularItemModuleBase {
 	/** Whether or not this module can be selected by the wearer */
 	AllowSelfSelect?: boolean;
 	/** A unique (automatically assigned) identifier of the struct type */
-	StructType?: "ModularItemModule";
+	OptionType?: "ModularItemModule";
 }
 
 /** An object describing a single module for a modular item. */
 interface ModularItemModule extends ModularItemModuleBase {
 	/** A unique (automatically assigned) identifier of the struct type */
-	StructType: "ModularItemModule";
+	OptionType: "ModularItemModule";
 	/** The list of option definitions that can be chosen within this module. */
 	Options: ModularItemOption[];
 }
@@ -1909,7 +1909,7 @@ interface ModularItemOptionBase {
 	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
 	Name?: string;
 	/** A unique (automatically assigned) identifier of the struct type */
-	StructType?: "ModularItemOption";
+	OptionType?: "ModularItemOption";
 }
 
 /** An object describing a single option within a module for a modular item. */
@@ -1917,7 +1917,7 @@ interface ModularItemOption extends ModularItemOptionBase {
 	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
 	Name: string;
 	/** A unique (automatically assigned) identifier of the struct type */
-	StructType: "ModularItemOption";
+	OptionType: "ModularItemOption";
 }
 
 /** An object containing modular item configuration for an asset. Contains all of the necessary information for the

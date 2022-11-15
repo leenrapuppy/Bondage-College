@@ -80,7 +80,7 @@ function TypedItemCreateTypedItemData(asset,
 	{ Options, Dialog, ChatTags, Dictionary, ChatSetting, DrawImages, ChangeWhenLocked, Validate, ScriptHooks }
 ) {
 	for (const option of Options) {
-		option.StructType = "ExtendedItemOption";
+		option.OptionType = "ExtendedItemOption";
 	}
 
 	Dialog = Dialog || {};
@@ -439,7 +439,7 @@ function TypedItemGetOption(groupName, assetName, optionName) {
  */
 function TypedItemValidateOption(C, item, option, previousOption) {
 	let PermissionFailure = false;
-	switch (option.StructType) {
+	switch (option.OptionType) {
 		case "ModularItemOption":
 			PermissionFailure = !option.Name.includes("0") && InventoryBlockedOrLimited(C, item, option.Name);
 			break;
