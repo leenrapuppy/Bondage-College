@@ -1174,6 +1174,16 @@ interface Character {
 	OrgasmDone?: boolean;
 }
 
+/** Private Room & Private Bed */
+interface Character {
+	PrivateBed?: boolean;
+	PrivateBedActivityTimer?: number;
+	PrivateBedLeft?: number;
+	PrivateBedTop?: number;
+	PrivateBedMoveTimer?: number;
+	PrivateBedAppearance?: string;
+}
+
 interface KidnapCard {
 	Move: number;
 	Value?: number;

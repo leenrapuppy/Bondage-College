@@ -4,7 +4,6 @@ var PrivateVendor = null;
 /** @type {NPCCharacter[]} */
 var PrivateCharacter = [];
 var PrivateCharacterOffset = 0;
-var PrivateCharacterTypeList = ["NPC_Private_VisitorShy", "NPC_Private_VisitorHorny", "NPC_Private_VisitorTough"];
 var PrivateCharacterToSave = 0;
 var PrivateCharacterMax = 4;
 var PrivateReleaseTimer = 0;

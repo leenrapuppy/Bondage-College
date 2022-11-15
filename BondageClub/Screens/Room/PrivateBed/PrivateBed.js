@@ -196,8 +196,9 @@ function PrivateBedRun() {
 function PrivateBedActivityStart(Source, Target, Group, Activity) {
 
 	// If there's no text linked to it, the activity is rejected
-	let GroupName = Group.Name;
-	if (CharacterHasPenis(Target) && ((GroupName == "ItemVulva") || (GroupName == "ItemVulvaPiercings"))) GroupName = "ItemPenis";
+	let GroupName = Group.Name.toString();
+	if (CharacterHasPenis(Target) && (GroupName == "ItemVulva")) GroupName = "ItemPenis";
+	if (CharacterHasPenis(Target) && (GroupName == "ItemVulvaPiercings")) GroupName = "ItemGlans";
 	let Text = ActivityDictionaryText(((Source.ID == Target.ID) ? "ChatSelf" : "ChatOther") + "-" + GroupName + "-" + Activity);
 	if (Text.startsWith("MISSING ACTIVITY DESCRIPTION FOR")) return false;
 
