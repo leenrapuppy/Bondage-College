@@ -128,7 +128,7 @@ See-through Top
 透视上衣
 Jacket
 夹克
-Male Cloth Tank-Top
+Male Cloth Tank-Top 
 男士背心
 Cloth Accessory
 服装配饰
@@ -1054,6 +1054,44 @@ Style 31
 样式 31
 Style 32
 样式 32
+Long Messy Hair 1
+乱长发 1
+Spikey 1
+刺发 1
+Boxcut 1
+方型切 1
+Swept-Back 1
+背梳头 1
+Mohawk 1
+莫霍克 1
+Side Fringe Short
+侧分短发
+Side Fringe Long
+侧分长发
+Side Swept 1
+侧梳头 1
+Dreadlocks 1 Short
+脏辫1短发
+Dreadlocks 1 Long
+脏辫1长发
+Dreadlocks 2 Short
+脏辫2短发
+Dreadlocks 2 Long
+脏辫2长发
+Facial Hair
+胡子
+Goatee
+山羊胡
+Big Beard
+大胡子
+Medium Beard
+中等胡子
+Moustache
+小胡子
+Moustache Beard
+络腮小胡子
+Chinstrap Beard
+脸边络腮胡
 Back Hair
 后发
 None
@@ -1096,6 +1134,8 @@ Style 49
 样式 49
 Style 50
 样式 50
+Dreadlocks 1
+脏辫 1
 Left eye
 左眼
 Right eye
@@ -1104,6 +1144,8 @@ Mouth
 嘴巴
 Discreet
 矜持的
+Full Lips
+厚嘴唇
 Nipples Style
 乳头式样
 Light
@@ -1127,9 +1169,9 @@ Penis
 Pronouns
 称谓
 She/Her 
-她 
-He/Him
-他 
+她
+He/Him 
+他
 Blush
 腮红
 Fluids
@@ -1138,6 +1180,22 @@ Emoticon
 表情图标
 Eyebrows
 眉毛
+Eyebrows 1
+眉毛 1
+Eyebrows 2
+眉毛 2
+Eyebrows 3
+眉毛 3
+Eyebrows 4
+眉毛 4
+Eyebrows 5
+眉毛 5
+Eyebrows 6
+眉毛 6
+Eyebrows 7
+眉毛 7
+Eyebrows 8
+眉毛 8
 Hands
 手
 Default
