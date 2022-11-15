@@ -285,8 +285,16 @@ function ActivityGenerateItemActivitiesFromNeed(allowed, acting, acted, needsIte
 
 	let handled = false;
 	for (const item of items) {
-		const types = !item.Property ? [null] :
-			(item.Asset.Archetype === "Modular" ? ModularItemDeconstructType(item.Property.Type) || [null] : [item.Property.Type]);
+		/** @type {null[] | string[]} */
+		let types;
+		if (!item.Property) {
+			types = [null];
+		} else if (item.Asset.Archetype === "Modular") {
+			types = ModularItemDeconstructType(item.Property.Type) || [null];
+		} else {
+			types = [item.Property.Type];
+		}
+
 		/** @type {ItemActivityRestriction} */
 		let blocked = null;
 		if (types.some((type) => InventoryIsAllowedLimited(acted, item, type))) {
