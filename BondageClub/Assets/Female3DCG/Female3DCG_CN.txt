@@ -128,6 +128,8 @@ See-through Top
 透视上衣
 Jacket
 夹克
+Male Cloth Tank-Top
+男士背心
 Cloth Accessory
 服装配饰
 Student Scarf
@@ -216,6 +218,8 @@ Reverse Bunny Suit
 逆兔女郎装
 Slim Latex Leotard (Sleeveless)
 贴面乳胶紧身衣（无袖）
+Male Seamless Catsuit
+男士无缝紧身衣
 Bottom
 下装
 Skirt
@@ -310,6 +314,8 @@ Silky Stockings
 丝质丝袜
 Fishnet Stockings
 渔网袜
+Male Catsuit Panties
+男士紧身衣内裤
 Bra
 胸罩
 Style 1
@@ -394,8 +400,6 @@ Ribbons
 丝带
 Leather Breast Binder
 皮革裹胸带
-Silk Straps
-丝质束带
 Full Latex Bra
 全乳胶文胸
 Full Latex Bra (Bright)
@@ -498,6 +502,8 @@ String Thong
 系带丁字裤
 Micro Thong
 微型丁字裤
+Boxer Shorts
+四角内裤
 Socks
 袜子
 Ankle
@@ -548,6 +554,8 @@ Leather Garter Belt
 皮革吊袜带
 Tentacles
 触手
+Drop Bag
+水桶包
 Shoes
 鞋子
 Sneakers Light
@@ -952,6 +960,10 @@ Large
 大号
 Xlarge
 超大号
+Bulky Flat Chest
+大块头平胸
+Flat Chest
+平胸
 Lower Body
 下身
 Front Hair
@@ -1036,18 +1048,18 @@ Style 28
 样式 28
 Style 29
 样式 29
-Back Hair
-后发
-None
-无
-Style 15b
-样式 15b
 Style 30
 样式 30
 Style 31
 样式 31
 Style 32
 样式 32
+Back Hair
+后发
+None
+无
+Style 15b
+样式 15b
 Style 33
 样式 33
 Style 34
@@ -1096,8 +1108,8 @@ Nipples Style
 乳头式样
 Light
 浅色
-Pussy
-阴部
+Genitalia
+生殖器
 Light 1
 浅色 1
 Light 2
@@ -1110,6 +1122,14 @@ Dark 2
 深色 2
 Dark 3
 深色 3
+Penis
+阴茎
+Pronouns
+称谓
+She/Her 
+她 
+He/Him
+他 
 Blush
 腮红
 Fluids
@@ -1194,8 +1214,8 @@ Frog-tie Straps
 蟹缚绑带
  Mermaid Tail
 美人鱼尾巴
-Vulva
-前阴
+Vulva/Penis Base
+外阴/阴茎基础
 Vibrating Egg
 跳蛋
 Vibrating Items Remote
@@ -1240,8 +1260,16 @@ Double Ended Dildo
 双头龙
 Stitches
 缝线
-Clitoris
-阴蒂
+Basic Cock Ring
+基础阴茎环
+Plastic Chastity Cage 1
+塑料贞操笼1
+Plastic Chastity Cage 2
+塑料贞操笼3
+Techno Chastity Cage 1
+科技贞操笼1
+Clitoris/Penis Tip
+阴蒂/阴茎顶端
 Straight Clitoris Piercing
 垂直阴蒂穿孔
 Round Clitoris Piercing
@@ -1402,6 +1430,8 @@ Locking Swimsuit
 上锁泳衣
 Locking Swimsuit 2
 上锁泳衣2
+Leather Chest Harness 1
+皮革胸部束带1
 Nipples
 乳头
 Nipple Clamps
@@ -1442,6 +1472,8 @@ Shock Clamps
 板夹
 Nipple Stretchers
 乳头拉扯器
+ Nipple Clamps 2
+乳头夹2
 Straight Piercings
 直穿环
 Round Piercings
@@ -1588,6 +1620,10 @@ Transport Jacket
 转监拘束衣
 Wrapped Blanket
 全包毛毯
+Smooth Lacing Leather Armbinder
+平滑系带皮革单手套
+Canvas Straitjacket 1
+画布拘束衣1
 Padded Mittens
 衬套无指手套
 Paw Mittens
@@ -1600,8 +1636,10 @@ Padded Leather Mittens
 衬套皮革无指手套
 Polished Steel Mittens
 抛光不锈钢无指手套
-Handheld Items
-手持物品
+ Hoof Mittens
+马蹄手套
+Short Smooth Leather Mittens
+短平滑皮革无指手套
 Crop
 硬鞭
 Flogger
@@ -1690,8 +1728,6 @@ Mobile Phone
 手机
 Mobile Phone 2
 手机 2
- Hoof Mittens
-马蹄手套
 Scissors
 剪刀
 Plastic Wrap Roll
@@ -1720,8 +1756,6 @@ Shock Collar
 电击项圈
 Automatic Shock Collar
 自动电击项圈
-Shock Collar Remote
-电击项圈控制器
 Bat Collar
 蝙蝠项圈
 Posture Collar
