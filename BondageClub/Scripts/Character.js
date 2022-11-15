@@ -1840,7 +1840,7 @@ function CharacterNickname(C) {
  */
 function CharacterPronoun(C, DialogKey, HideIdentity) {
 	let pronounName;
-	if (HideIdentity && ChatRoomSpace == ChatRoomSpaceType.MIXED) {
+	if (HideIdentity && ChatRoomSpace == ChatRoomSpaceType.MIXED || C == null) {
 		pronounName = "TheyThem";
 	} else {
 		const pronounItem = C.Appearance.find(A => A.Asset.Group.Name == "Pronouns");
