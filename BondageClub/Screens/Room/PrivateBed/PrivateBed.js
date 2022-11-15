@@ -175,7 +175,7 @@ function PrivateBedRun() {
 						for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
 							if ((AssetGroup[A].Zone[Z][0] >= 100) && (AssetGroup[A].Zone[Z][0] < 400)) {
 								let Color = "#FF000040";
-								if ((ActivityCanBeDone(C, PrivateBedActivity, AssetGroup[A].Name) || ActivityCanBeDone(C, PrivateBedActivity + "Pussy", AssetGroup[A].Name) || ActivityCanBeDone(C, PrivateBedActivity + "Penis", AssetGroup[A].Name)) && !InventoryGroupIsBlocked(C, AssetGroup[A].Name, true)) Color = "#00FF0040";
+								if (ActivityCanBeDone(C, PrivateBedActivity, AssetGroup[A].Name) && !InventoryGroupIsBlocked(C, AssetGroup[A].Name, true)) Color = "#00FF0040";
 								if (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3])) Color = (Color == "#FF000040") ? "Red" : "Cyan";
 								DrawEmptyRect(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3], Color, 3);
 							}
@@ -196,21 +196,21 @@ function PrivateBedRun() {
 function PrivateBedActivityStart(Source, Target, Group, Activity) {
 
 	// If there's no text linked to it, the activity is rejected
-	let Text = ActivityDictionaryText(((Source.ID == Target.ID) ? "ChatSelf" : "ChatOther") + "-" + Group.Name + "-" + Activity);
+	let GroupName = Group.Name;
+	if (CharacterHasPenis(Target) && ((GroupName == "ItemVulva") || (GroupName == "ItemVulvaPiercings"))) GroupName = "ItemPenis";
+	let Text = ActivityDictionaryText(((Source.ID == Target.ID) ? "ChatSelf" : "ChatOther") + "-" + GroupName + "-" + Activity);
 	if (Text.startsWith("MISSING ACTIVITY DESCRIPTION FOR")) return false;
 
 	// Sets the next timer and effect
 	Source.PrivateBedActivityTimer = CommonTime() + PrivateBedActivityDelay + ((Source.IsPlayer()) ? 0 : Math.round(Math.random() * PrivateBedActivityDelay));
-	ActivityEffect(Source, Target, Activity, Group.Name, 1);
+	ActivityEffect(Source, Target, Activity, GroupName, 1);
 
 	// Publishes in the log
 	if (PrivateBedLog.length >= 10) PrivateBedLog.splice(0, 1);
 	Text = Text.replace("SourceCharacter", CharacterNickname(Source));
 	Text = Text.replace("TargetCharacter", CharacterNickname(Target));
-
-	const subs = ChatRoomPronounSubstitutions(C, "Pronoun", false);
+	const subs = ChatRoomPronounSubstitutions(Source, "Pronoun", false);
 	Text = ChatRoomMessagePerformSubstitutions(Text, subs);
-
 	PrivateBedLog.push(Text);
 
 	// If the player uses that activity on an NPC, it can raise the love between them
@@ -361,23 +361,12 @@ function PrivateBedClick() {
 		// If we click in an arousal zone, we can trigger that activity
 		if (MouseIn(C.PrivateBedLeft, C.PrivateBedTop, 500, C.HeightRatio * 1000))
 			for (let A = 0; A < AssetGroup.length; A++)
-				if ((AssetGroup[A].Zone != null) && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length) {
+				if ((AssetGroup[A].Zone != null) && AssetActivitiesForGroup("Female3DCG", AssetGroup[A].Name).length)
 					if (ActivityCanBeDone(C, PrivateBedActivity, AssetGroup[A].Name) && !InventoryGroupIsBlocked(C, AssetGroup[A].Name, true))
 						for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
 							if ((AssetGroup[A].Zone[Z][0] >= 100) && (AssetGroup[A].Zone[Z][0] < 400))
 								if (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3]))
 									return PrivateBedActivityStart(Player, C, AssetGroup[A], PrivateBedActivity);
-					if (ActivityCanBeDone(C, PrivateBedActivity + "Pussy", AssetGroup[A].Name) && !InventoryGroupIsBlocked(C, AssetGroup[A].Name, true))
-						for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
-							if ((AssetGroup[A].Zone[Z][0] >= 100) && (AssetGroup[A].Zone[Z][0] < 400))
-								if (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3]))
-									return PrivateBedActivityStart(Player, C, AssetGroup[A], PrivateBedActivity + "Pussy");
-					if (ActivityCanBeDone(C, PrivateBedActivity + "Penis", AssetGroup[A].Name) && !InventoryGroupIsBlocked(C, AssetGroup[A].Name, true))
-						for (let Z = 0; Z < AssetGroup[A].Zone.length; Z++)
-							if ((AssetGroup[A].Zone[Z][0] >= 100) && (AssetGroup[A].Zone[Z][0] < 400))
-								if (MouseIn(AssetGroup[A].Zone[Z][0] + C.PrivateBedLeft, AssetGroup[A].Zone[Z][1] + C.PrivateBedTop, AssetGroup[A].Zone[Z][2], AssetGroup[A].Zone[Z][3]))
-									return PrivateBedActivityStart(Player, C, AssetGroup[A], PrivateBedActivity + "Penis");
-				}
 
 	}
 
@@ -419,10 +408,8 @@ function PrivateBedOrgasm(C) {
 	if (PrivateBedLog.length >= 10) PrivateBedLog.splice(0, 1);
 	let Text = ActivityDictionaryText("Orgasm" + Math.floor(Math.random() * 10));
 	Text = Text.replace("SourceCharacter", CharacterNickname(C));
-
 	const subs = ChatRoomPronounSubstitutions(C, "Pronoun", false);
 	Text = ChatRoomMessagePerformSubstitutions(Text, subs);
-
 	PrivateBedLog.push(Text);
 	if (C.IsNpc()) C.PrivateBedActivityTimer = CommonTime() + 15000 + Math.round(Math.random() * 15000);
 }
