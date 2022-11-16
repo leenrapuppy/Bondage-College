@@ -669,3 +669,78 @@ function ExtendedItemCreateNpcDialogFunction(Asset, FunctionPrefix, NpcPrefix) {
 		};
 	}
 }
+
+/**
+ * Helper click function for creating custom buttons, including extended item permission support.
+ * @param {string} Name - The name of the button and its pseudo-type
+ * @param {number} X - The X coordinate of the button
+ * @param {number} Y - The Y coordinate of the button
+ * @param {boolean} ShowImages — Denotes wether images should be shown for the specific item
+ * @param {boolean} IsSelected - Whether the button is selected or not
+ * @returns {void} Nothing
+ */
+function ExtendedItemCustomDraw(Name, X, Y, ShowImages=false, IsSelected=false) {
+	// Use a `name` for a "fictional" item option for interfacing with the extended item API
+	/** @type {ExtendedItemOption} */
+	const Option = { OptionType: "ExtendedItemOption", Name: Name, Property: { Type: Name } };
+	return ExtendedItemDrawButton(Option, Option, "", X, Y, ShowImages, DialogFocusItem, IsSelected);
+}
+
+/**
+ * Helper click function for creating custom buttons, including extended item permission support.
+ * @param {string} Name - The name of the button and its pseudo-type
+ * @param {() => void} Callback - A callback to be executed whenever the button is clicked and all requirements are met
+ * @param {boolean} Worn - `true` if the player is changing permissions for an item they're wearing
+ * @returns {boolean} `false` if the item's requirement check failed and `true` otherwise
+ */
+function ExtendedItemCustomClick(Name, Callback, Worn=false) {
+	// Use a `name` for a "fictional" item option for interfacing with the extended item API
+	if (ExtendedItemPermissionMode) {
+		InventoryTogglePermission(DialogFocusItem, Name, Worn);
+		return true;
+	} else {
+		// Check if the option is blocked/limited/etc.
+		/** @type {ExtendedItemOption} */
+		const Option = { OptionType: "ExtendedItemOption", Name: Name, Property: { Type: Name } };
+		const requirementMessage = ExtendedItemRequirementCheckMessage(Option, Option);
+		if (requirementMessage) {
+			DialogExtendedMessage = requirementMessage;
+			return false;
+		} else {
+			// Requirement checks have passed; execute the callback
+			Callback();
+			return true;
+		}
+	}
+}
+
+/**
+ * Helper publish + exit function for creating custom buttons whose clicks exit the dialog menu.
+ *
+ * If exiting the dialog menu is undesirable then something akin to the following example should be used instead:
+ * @example
+ * if (ServerPlayerIsInChatRoom()) {
+ *     ChatRoomPublishCustomAction(Name, false, Dictionary);
+ * }
+ * @param {string} Name - Tag of the action to send
+ * @param {Character} C - The affected character
+ * @param {ChatMessageDictionary | null} Dictionary - Dictionary of tags and data to send to the room (if any).
+ * @returns {void} Nothing
+ */
+function ExtendedItemCustomExit(Name, C, Dictionary=null) {
+	// The logic below is largely adapted from the exiting functionality within `ExtendedItemSetType`
+	if (ServerPlayerIsInChatRoom()) {
+		if (Dictionary != null) {
+			ChatRoomPublishCustomAction(Name, true, Dictionary);
+		} else {
+			DialogLeave();
+		}
+	} else {
+		ExtendedItemExit();
+		if (C.ID === Player.ID) {
+			DialogMenuButtonBuild(C);
+		} else {
+			C.FocusGroup = null;
+		}
+	}
+}

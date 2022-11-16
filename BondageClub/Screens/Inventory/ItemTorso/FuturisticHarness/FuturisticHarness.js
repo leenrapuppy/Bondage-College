@@ -9,11 +9,7 @@ function InventoryItemTorsoFuturisticHarnessDraw(OriginalFunction) {
 	if (!FuturisticAccessDraw(OriginalFunction)) {
 		return;
 	}
-	const C = CharacterGetCurrent();
-	const FuturisticCollarItems = InventoryItemNeckFuturisticCollarGetItems(C);
-	if (FuturisticCollarItems.length > 0) {
-		DrawButton(1385, 800, 225, 55, DialogFindPlayer("FuturisticCollarColor"), "White");
-	}
+	ExtendedItemCustomDraw("FuturisticCollarColor", 1385, 800, false, !InventoryItemTorsoFuturisticHarnessIsColorable());
 }
 
 /**
@@ -26,11 +22,21 @@ function InventoryItemTorsoFuturisticHarnessClick(OriginalFunction) {
 		return;
 	}
 	if (MouseIn(1385, 800, 225, 55)) {
-		const C = CharacterGetCurrent();
-		const FuturisticCollarItems = InventoryItemNeckFuturisticCollarGetItems(C);
-		if (FuturisticCollarItems.length > 0 && DialogFocusItem) {
-			InventoryItemNeckFuturisticCollarColor(C, DialogFocusItem);
-			FuturisticAccessExit();
+		if (ExtendedItemPermissionMode || InventoryItemTorsoFuturisticHarnessIsColorable()) {
+			ExtendedItemCustomClick("FuturisticCollarColor", InventoryItemTorsoFuturisticHarnessColor);
 		}
 	}
+}
+
+/** @type {() => boolean} */
+function InventoryItemTorsoFuturisticHarnessIsColorable() {
+	const C = CharacterGetCurrent();
+	const FuturisticCollarItems = InventoryItemNeckFuturisticCollarGetItems(C);
+	return (FuturisticCollarItems.length > 0);
+}
+
+/** @type {() => void} */
+function InventoryItemTorsoFuturisticHarnessColor() {
+	const C = CharacterGetCurrent();
+	InventoryItemNeckFuturisticCollarColor(C, DialogFocusItem);
 }
