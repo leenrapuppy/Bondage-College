@@ -2292,7 +2292,7 @@ var AssetFemale3DCG = [
 			{ Name: "Mohawk" },
 			{ Name: "SideFringe1" },
 			{ Name: "SideFringe2" },
-			{ Name: "SideSwept", 
+			{ Name: "SideSwept",
 				Layer: [
 					{ Name: "Base" },
 					{ Name: "Tips" },
@@ -2306,10 +2306,11 @@ var AssetFemale3DCG = [
 		],
 		Color: ["#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"]
 	},
-	
+
 	{
 		Group: "FacialHair",
 		Priority: 51,
+		Default: false,
 		ParentColor: "HairFront",
 		Left: 150,
 		Top: 35,
