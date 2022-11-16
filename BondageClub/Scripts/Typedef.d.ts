@@ -84,7 +84,11 @@ type VibratorModeSet = "Standard" | "Advanced";
 
 type VibratorModeState = "Default" | "Deny" | "Orgasm" | "Rest";
 
+type VibratorMode = "Off" | "Low" | "Medium" | "High" | "Maximum" | "Random" | "Escalate" | "Tease" | "Deny" | "Edge";
+
 type VibratorRemoteAvailability = "Available" | "NoRemote" | "NoRemoteOwnerRuleActive" | "NoLoversRemote" | "RemotesBlocked" | "CannotInteract" | "NoAccess" | "InvalidItem";
+
+type ItemVulvaFuturisticVibratorAccessMode = "" | "ProhibitSelf" | "LockMember";
 
 /**
  * @property Freeze - Prevents walking and kneeling unaided. There's a few caveats with the kneeling part.
@@ -1447,48 +1451,163 @@ interface AssetOverrideHeight {
 }
 
 /**
+ * Base properties of extended items derived from their respective {@link Asset} definition.
+ *
+ * Those are the properties the main game code enforces.
+ */
+interface AssetDefinitionProperties {
+	/**
+	 * The difficulty of the item
+	 * @see {@link Asset.Difficulty}
+	 */
+	Difficulty?: number;
+	/**
+	 * ???
+	 * @see {@link Asset.Attribute}
+	 */
+	Attribute?: string[];
+
+	/**
+	 * Override the height of the item
+	 * @see {@link Asset.OverrideHeight}
+	 */
+	OverrideHeight?: AssetOverrideHeight;
+	/**
+	 * How much the character should be moved up
+	 * @see {@link Asset.HeightModifier}
+	 */
+	HeightModifier?: number;
+	/**
+	 * The drawing priority of the item
+	 * @see {@link Asset.OverridePriority}
+	 */
+	OverridePriority?: number;
+	/**
+	 * The default color of the item
+	 * @see {@link Asset.DefaultColor}
+	 */
+	DefaultColor?: ItemColor;
+
+	/**
+	 * A list of allowed activities
+	 * @see {@link Asset.AllowActivity}
+	 */
+	AllowActivity?: string[];
+	/**
+	 * A list of groups allowed activities
+	 * @see {@link Asset.AllowActivityOn}
+	 */
+	AllowActivityOn?: AssetGroupName[];
+
+	/**
+	 * Items that should be hidden by this item
+	 * @see {@link Asset.HideItem}
+	 */
+	HideItem?: string[];
+	/**
+	 * Items that should not be hidden by this item
+	 * @see {@link Asset.HideItemExclude}
+	 */
+	HideItemExclude?: string[];
+	/**
+	 * Items groups that should be hidden by this item
+	 * @see {@link Asset.Hide}
+	 */
+	Hide?: AssetGroupName[];
+
+	/**
+	 * The groups that this item blocks
+	 * @see {@link Asset.Block}
+	 */
+	Block?: AssetGroupItemName[];
+
+	/**
+	 * Effects that are applied by this item
+	 * @see {@link Asset.Effect}
+	 */
+	Effect?: EffectName[];
+
+	/**
+	 * A list of custom tints
+	 * @see {@link Asset.Tint}
+	 */
+	Tint?: TintDefinition[];
+
+	// Pose-related properties
+
+	/**
+	 * A list of poses that should forcefully be set
+	 * @see {@link Asset.SetPose}
+	 */
+	SetPose?: AssetPoseName[];
+	/**
+	 * A list of poses
+	 * @see {@link Asset.AllowActivePose}
+	 */
+	AllowActivePose?: AssetPoseName[];
+	/**
+	 * A list of allowed poses
+	 * @see {@link Asset.AllowPose}
+	 */
+	AllowPose?: AssetPoseName[];
+	/**
+	 * A list of poses
+	 * @see {@link Asset.WhitelistActivePose}
+	 */
+	WhitelistActivePose?: AssetPoseName[];
+	/**
+	 * A list of poses that should be frozen
+	 * @see {@link Asset.FreezeActivePose}
+	 */
+	FreezeActivePose?: AssetPoseName[];
+
+	/**
+	 * Whether an item can be unlocked by the player even if they're restrained
+	 * @see {@link Asset.SelfUnlock}
+	 */
+	SelfUnlock?: boolean;
+
+	/**
+	 * The timer for after how long until a lock should be removed
+	 * @see {@link Asset.RemoveTimer}
+	 */
+	RemoveTimer?: number;
+
+	/**
+	 * The asset's draw opacity
+	 * @see {@link Asset.Opacity}
+	 */
+	Opacity?: number;
+
+	/**
+	 * A custom background for this option that overrides the default
+	 * @see {@link Asset.CustomBlindBackground}
+	 */
+	CustomBlindBackground?: string;
+}
+
+/**
  * Base properties for extended items
  *
  * Those are the properties the main game code enforces.
  */
 interface ItemPropertiesBase {
+	/** A string (or `null`) denoting the state of an extended item. How the type-string translate to concrete properties depends on the Archetype in question. */
 	Type?: string | null;
+
+	/** A facial expression */
 	Expression?: string;
-	Difficulty?: number;
-	OverrideHeight?: AssetOverrideHeight;
-	HeightModifier?: number;
-	OverridePriority?: unknown;
-	DefaultColor?: string;
 
-	Attribute?: string[];
-
-	AllowActivity?: string[];
-	AllowActivityOn?: AssetGroupName[];
-
-	/** Items hidden by this one */
-	HideItem?: string[];
-	HideItemExclude?: string[];
-	Hide?: AssetGroupName[];
-
-	/** The groups that this item blocks */
-	Block?: AssetGroupItemName[];
-
-	Effect?: EffectName[];
+	/** Whether the asset affects should be overriden rather than extended */
 	OverrideAssetEffect?: boolean;
 
-	Tint?: TintDefinition[];
+	// Vibratory-related properties
 
-	/* Pose-related properties */
-
-	SetPose?: AssetPoseName[];
-	AllowActivePose?: AssetPoseName[];
-	AllowPose?: AssetPoseName[];
-	WhitelistActivePose?: AssetPoseName[];
-	FreezeActivePose?: AssetPoseName[];
-
-	/* Vibratory-related properties */
+	/** The vibrator mode */
 	Mode?: VibratorMode;
+	/** The vibrator intensity */
 	Intensity?: VibratorIntensity;
+	/** The vibrator's state; only relevant for advanced vibrator modes */
 	State?: VibratorModeState;
 }
 
@@ -1499,18 +1618,18 @@ interface ItemPropertiesBase {
  * per-item.
  */
 interface ItemPropertiesCustom {
+	/** The member number of the player adding the item */
 	ItemMemberNumber?: number;
 
+	/** The member number of the player adding the item */
 	MemberNumber?: number;
 
-	SelfUnlock?: boolean;
-
 	//#region Lock properties
+
 	/** Asset name of the lock */
 	LockedBy?: AssetLockType;
+	/** The member number of the person that applied the lock */
 	LockMemberNumber?: number | string;
-	/** @see BC_Asset.MaxTimer */
-	RemoveTimer?: number;
 	/** `/^[A-Z]{1,8}$/`, Used by `PasswordPadlock`, `SafewordPadlock` and `TimerPasswordPadlock` lock */
 	Password?: string;
 	/** Comma separated numbers */
@@ -1533,66 +1652,111 @@ interface ItemPropertiesCustom {
 	EnableRandomInput?: boolean;
 	/** List of people who publicly modified time on lock; used by `LoversTimerPadlock`, `MistressTimerPadlock`, `OwnerTimerPadlock`, `TimerPasswordPadlock` */
 	MemberNumberList?: number[];
+
 	//#endregion
 
-	InflateLevel?: number;
+	/** The inflation level of inflatable items */
+	InflateLevel?: 0 | 1 | 2 | 3 | 4;
 
-	SuctionLevel?: number;
+	/** The suction level of items with a suction effect */
+	SuctionLevel?: 0 | 1 | 2 | 3 | 4;
 
 	/** 1st line of text for user-entered text data */
 	Text?: string;
 	/** 2nd line of text for user-entered text data */
 	Text2?: string;
+	/** 3rd line of text for user-entered text data */
+	Text3?: string;
 
+	/** Whether the item blocks access to the butt */
 	LockButt?: boolean;
 
-	/* Futuristic Set open permissions */
+	// #region Futuristic Set open permissions
 
+	/** Whether all players can use futuristic head devices */
 	OpenPermission?: boolean;
+	/** Whether all players can use futuristic arm devices */
 	OpenPermissionArm?: boolean;
+	/** Whether all players can use futuristic leg devices */
 	OpenPermissionLeg?: boolean;
+	/** Whether all players can use futuristic chastity devices */
 	OpenPermissionChastity?: boolean;
+	/** Whether the usage of remotes is blocked */
+	BlockRemotes?: boolean;
+
+	// #endregion
 
 	/** The futuristic bra's heart rate value */
 	HeartRate?: number;
 	/** Is the futuristic bra's heart icon shown */
 	HeartIcon?: boolean;
 
-	/* Futuristic gag & panel gag settings */
-	AutoPunish?: number;
+	// #region Futuristic gag & panel gag settings */
+
+	/** The sensitivity of the gag's auto-inflation */
+	AutoPunish?: 0 | 1 | 2 | 3;
+	/** The remaining time for the gag's auto-inflation */
 	AutoPunishUndoTime?: number;
+	/** The default time for the gag's auto-inflation */
 	AutoPunishUndoTimeSetting?: number;
+	/** The gag's {@link ItemProperties.Type} prior to triggering auto-inflation */
 	OriginalSetting?: "Padded" | "LightBall" | "Ball" | "Plug";
+	/** Whether auto-inflation should trigger a chat message */
 	ChatMessage?: boolean;
-	BlinkState?: number;
+	/** Whether gag's blinking light is on or off */
+	BlinkState?: 0 | 1;
+	/**
+	 * An extended item option
+	 * @todo Investigate whether this property still actually exists
+	 */
 	Option?: ExtendedItemOption;
 
-	BlockRemotes?: boolean;
+	// #endregion
 
-	/* Futuristic chastity settings */
+	// #region Futuristic chastity settings
 
+	/** Whether attempting to remove the belt should result in punishment */
 	PunishStruggle?: boolean;
+	/** Whether attempting to remove an item in general should result in punishment */
 	PunishStruggleOther?: boolean;
+	/** Whether orgasms should result in punishment */
 	PunishOrgasm?: boolean;
+	/** Whether standing up should result in punishment */
 	PunishStandup?: boolean;
-	PunishSpeech?: number;
-	PunishRequiredSpeech?: number;
+	/** The punishment for talking; represents an index of {@link FuturisticTrainingBeltSpeechPunishments} */
+	PunishSpeech?: 0 | 1 | 2 | 3;
+	/** The punishment for not speaking a required word; represents an index of {@link FuturisticTrainingBeltSpeechPunishments} */
+	PunishRequiredSpeech?: 0 | 1 | 2 | 3;
+	/** A string with comma-separated required words */
 	PunishRequiredSpeechWord?: string;
-	PunishProhibitedSpeech?: number;
+	/** The punishment for speaking a prohibited word; represents an index of {@link FuturisticTrainingBeltSpeechPunishments} */
+	PunishProhibitedSpeech?: 0 | 1 | 2 | 3;
+	/** A string with comma-separated prohibited words */
 	PunishProhibitedSpeechWords?: string;
+	/** Internal cooldown timer for automatic shocks */
 	NextShockTime?: number;
+	/** The mode of the belts vibrator; represents an index of {@link FuturisticTrainingBeltModes} */
+	PublicModeCurrent?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+	/** An integer denoting who can access the belt; represents an index of {@link FuturisticTrainingBeltPermissions} */
+	PublicModePermission?: 0 | 1 | 2;
 
-	PublicModeCurrent?: number;
-	PublicModePermission?: number;
+	// #endregion
 
-	/** The futuristic vibrator's trigger words */
+	/** A comma-seperated string with the futuristic vibrator's trigger words */
 	TriggerValues?: string;
-	AccessMode?: string;
+	/** A string denoting who has permission to use the vibrator's trigger words */
+	AccessMode?: ItemVulvaFuturisticVibratorAccessMode;
 
-	/* Pleasure panties settings */
+	// #region Pleasure panties settings
+
+	/** How intense the shock should be */
 	ShockLevel?: 0 | 1 | 2;
+	/** Whether the crotch is accessible */
 	LockCrotch?: boolean;
-	OrgasmLock?: number;
+	/** Whether orgasms are allowed, edged or denied */
+	OrgasmLock?: 0 | 1 | 2;
+
+	// #endregion
 
 	/** The number of inserted beads */
 	InsertedBeads?: 1 | 2 | 3 | 4 | 5;
@@ -1601,12 +1765,7 @@ interface ItemPropertiesCustom {
 	ShowText?: boolean;
 
 	/** How sensitive the item is to whatever its reacting to */
-	Sensitivity?: number;
-
-	/** The asset's draw opacity */
-	Opacity?: number;
-
-	CustomBlindBackground?: string;
+	Sensitivity?: 0 | 1 | 2 | 3;
 
 	/** Number of times the item was triggered; often used by shock collars */
 	TriggerCount?: number;
@@ -1617,12 +1776,13 @@ interface ItemPropertiesCustom {
 	/** Allows reverting back to these properties on exiting an extended menu */
 	Revert?: boolean;
 
-	/** Door and padding options for the kennel */
+	/** Whether the kennel door is open */
 	Door?: boolean;
+	/** Whether the kennel has padding */
 	Padding?: boolean;
 }
 
-interface ItemProperties extends ItemPropertiesBase, ItemPropertiesCustom { }
+interface ItemProperties extends ItemPropertiesBase, AssetDefinitionProperties, ItemPropertiesCustom { }
 
 /**
  * An object containing the extended item definition for an asset.
@@ -2693,10 +2853,10 @@ interface CraftingItem {
 	Private: boolean;
 	/**
 	 * The type of the crafted item; only relevant for extended items and should be an empty string otherwise.
-	 * @see {@link ItemPropertiesBase.Type}
+	 * @see {@link ItemProperties.Type}
 	 */
 	Type: string | null;
-	/** An integer representing the item layering priority; see {@link ItemPropertiesBase.OverridePriority} */
+	/** An integer representing the item layering priority; see {@link ItemProperties.OverridePriority} */
 	OverridePriority: number | null;
 }
 
@@ -2722,10 +2882,10 @@ interface CraftingItemSelected {
 	/**
 	 * The type of the crafted item; only relevant for extended items and should be an empty string otherwise.
 	 * Note that `null` values, which are legal for Typed extended items, *must* be converted to empty strings.
-	 * @see {@link ItemPropertiesBase.Type}
+	 * @see {@link ItemProperties.Type}
 	 */
 	Type: string;
-	/** An integer representing the item layering priority; see {@link ItemPropertiesBase.OverridePriority} */
+	/** An integer representing the item layering priority; see {@link ItemProperties.OverridePriority} */
 	OverridePriority: number | null;
  }
 

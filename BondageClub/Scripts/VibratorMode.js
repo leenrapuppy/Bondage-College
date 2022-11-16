@@ -3,7 +3,7 @@
 /**
  * An enum for the possible vibrator modes
  * @readonly
- * @enum {string}
+ * @type {{OFF: "Off", LOW: "Low", MEDIUM: "Medium", HIGH: "High", MAXIMUM: "Maximum", RANDOM: "Random", ESCALATE: "Escalate", TEASE: "Tease", DENY: "Deny", EDGE: "Edge"}}
  */
 var VibratorMode = {
 	OFF: "Off",

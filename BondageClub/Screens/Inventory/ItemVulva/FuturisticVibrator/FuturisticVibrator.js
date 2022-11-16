@@ -3,6 +3,7 @@
 var ItemVulvaFuturisticVibratorTriggers = ["Increase", "Decrease", "Disable", "Edge", "Random", "Deny", "Tease", "Shock"];
 var ItemVulvaFuturisticVibratorTriggerValues = [];
 
+/** @type {{EVERYONE: "", PROHIBIT_SELF: "ProhibitSelf", LOCK_MEMBER_ONLY: "LockMember"}} */
 const ItemVulvaFuturisticVibratorAccessMode = {
 	EVERYONE: "",
 	PROHIBIT_SELF: "ProhibitSelf",
