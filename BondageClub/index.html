@@ -302,21 +302,11 @@
 <script src="Screens/Inventory/ItemNipples/LactationPump/LactationPump.js"></script>
 <script>
 
-/*
-
-	NEXT VERSION:
-
-	TO DO - Proof-reading
-	TO DO - Patreon Import/Update
-
-*/
-
-
 // When the code is loaded, we start the game engine
 window.onload = function() {
 	ServerURL = CommonGetServer();
 	//CheatImport();
-	GameVersion = "R86Beta4";
+	GameVersion = "R86";
 	console.log("Version: " + GameVersion + ", Server: " + ServerURL);
 	if (!GameVersionFormat.test(GameVersion)) console.error("GameVersion is not valid!");
 	CommonIsMobile = CommonDetectMobile();

@@ -8,13 +8,10 @@ var LoginThankYou = "";
 var LoginThankYouList = [
 	"Aceffect", "Anna", "ArashiSama", "Aylea", "Bjugh", "Bryce", "Christian", "Clash", 
 	"DarkStar", "Desch", "Dini", "Dynilath", "Edwin", "Epona", "Escurse", "FanRunner", 
-	"Greendragon", "JoeyDubDee", "Kimuriel", "Michal", "Michel", "Mike", "Mike", 
-	"Mindtie", "MinxakaFlux", "Misa", "Nick", "Nightcore", "Qrroww", "Queen", 
-	"Rika", "Samuel", "Schrödingers", "Shadow", "SirRobben", "Tam", "Tarram", 
-	"TopHat", "Troubadix", "Xepherio", "Znarf", "ZWilliam"
+	"Greendragon", "JoeyDubDee", "Michal", "Michel", "Miguel", "Mike", "Mike", "Mindtie", 
+	"MinxakaFlux", "Misa", "Nick", "Nightcore", "Qrroww", "Queen", "Rika", "Samuel", 
+	"Schrödingers", "Shadow", "SirRobben", "Tam", "Tarram", "TopHat", "Troubadix", "Xepherio", "William"
 ];
-
-
 
 /* eslint-enable */
 var LoginThankYouNext = 0;
