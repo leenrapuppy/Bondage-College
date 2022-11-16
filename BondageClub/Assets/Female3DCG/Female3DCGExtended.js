@@ -2554,6 +2554,27 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // CollarNameTagLivestock
+		CollarShockUnit: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [
+					CommonChatTags.ASSET_NAME,
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+				],
+				Options: [
+					{ Name: "Low", Property: { Type: null, ShockLevel: 0 } },
+					{ Name: "Medium", Property: { Type: "Medium", ShockLevel: 1 } },
+					{ Name: "High", Property: { Type: "High", ShockLevel: 2 } },
+				],
+				ScriptHooks: {
+					Draw: InventoryItemNeckAccessoriesCollarShockUnitDraw,
+					Click: InventoryItemNeckAccessoriesCollarShockUnitClick,
+				},
+				DrawImages: false,
+				BaselineProperty: { TriggerCount: 0, ShowText: true, BlinkState: false }
+			},
+		}, // CollarShockUnit
 	}, // ItemNeckAccessories
 	ItemNeckRestraints: {
 		PetPost: {

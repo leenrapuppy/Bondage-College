@@ -61,12 +61,13 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitSetIntensity(Modifier) {
 	}
 
 	DialogFocusItem.Property.ShockLevel = DialogFocusItem.Property.ShockLevel + Modifier;
+	const LevelRecord = { 0: "Low", 1: "Medium", 2: "High" };
 	if (DialogFocusItem.Property.ShowText) {
 		var Dictionary = [];
 		Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
 		Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
 		Dictionary.push({Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
-		ChatRoomPublishCustomAction("ShockCollarSet" + DialogFocusItem.Property.ShockLevel, true, Dictionary);
+		ChatRoomPublishCustomAction(`ItemNeckAccessoriesCollarShockUnitSet${LevelRecord[DialogFocusItem.Property.ShockLevel]}`, true, Dictionary);
 	}
 	else
 		DialogLeave();

@@ -1,181 +1,140 @@
 "use strict";
 
-// Loads the item extension properties
-function InventoryItemNeckAccessoriesCollarShockUnitLoad() {
-	if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Intensity: 0, ShowText: true };
-	if (DialogFocusItem.Property.ShockLevel == null) DialogFocusItem.Property.ShockLevel = 0;
-	if (DialogFocusItem.Property.TriggerCount == null) DialogFocusItem.Property.TriggerCount = 0;
-	if (DialogFocusItem.Property.ShowText == null) DialogFocusItem.Property.ShowText = true;
+/**
+ * Draw the item extension screen
+ * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @returns {void} Nothing
+ */
+function InventoryItemNeckAccessoriesCollarShockUnitDraw(OriginalFunction) {
+	OriginalFunction();
+
+	MainCanvas.textAlign = "right";
+	DrawText(DialogFindPlayer("ShockCount"), 1500, 575, "White", "Gray");
+	MainCanvas.textAlign = "left";
+	DrawText(`${DialogFocusItem.Property.TriggerCount}`, 1510, 575, "White", "Gray");
+	MainCanvas.textAlign = "center";
+
+	DrawCheckbox(1175, 618, 64, 64, "", DialogFocusItem.Property.ShowText, ExtendedItemPermissionMode);
+	DrawText(DialogFindPlayer("ShowMessageInChat"), 1420, 648, "White", "Gray");
+	ExtendedItemCustomDraw("ResetShockCount", 1635, 550);
+	ExtendedItemCustomDraw("TriggerShock", 1635, 625);
 }
 
-// Draw the item extension screen
-function InventoryItemNeckAccessoriesCollarShockUnitDraw() {
-	DrawAssetPreview(1387, 225, DialogFocusItem.Asset);
-	DrawText(DialogFindPlayer("Intensity" + DialogFocusItem.Property.ShockLevel.toString()).replace("Item", DialogFocusItem.Asset.Description), 1500, 550, "White", "Gray");
-	DrawText(DialogFindPlayer("ShockCount").replace("ShockCount", DialogFocusItem.Property.TriggerCount), 1500, 600, "White", "Gray");
-	DrawButton(1200, 650, 200, 55, DialogFindPlayer("Low"), DialogFocusItem.Property.ShockLevel > 0 ? "White" : "Gray");
-	DrawButton(1550, 650, 200, 55, DialogFindPlayer("Medium"), (DialogFocusItem.Property.ShockLevel < 1 || DialogFocusItem.Property.ShockLevel > 1) ? "White" : "Gray");
-	DrawButton(1375, 710, 200, 55, DialogFindPlayer("High"), DialogFocusItem.Property.ShockLevel < 2 ? "White" : "Gray");
-	if (CurrentScreen == "ChatRoom") DrawButton(1325, 800, 64, 64, "", "White", DialogFocusItem.Property.ShowText ? "Icons/Checked.png" : "");
-	if (CurrentScreen == "ChatRoom") DrawText(DialogFindPlayer("ShowMessageInChat"), 1570, 833, "White", "Gray");
-	DrawButton(1250, 900, 200, 55, DialogFindPlayer("ResetShockCount"), Player.CanInteract() && DialogFocusItem.Property.TriggerCount > 0 ? "White" : "Gray");
-	DrawButton(1500, 900, 200, 55, DialogFindPlayer("TriggerShock"), Player.CanInteract() ? "White" : "Gray");
-}
+/**
+ * Catches the item extension clicks
+ * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @returns {void} Nothing
+ */
+function InventoryItemNeckAccessoriesCollarShockUnitClick(OriginalFunction) {
+	OriginalFunction();
 
-// Catches the item extension clicks
-function InventoryItemNeckAccessoriesCollarShockUnitClick() {
-	if (MouseIn(1325, 800, 64, 64) && (CurrentScreen == "ChatRoom")) {
+	if (!DialogFocusItem) {
+		return;
+	} else if (MouseIn(1175, 618, 64, 64) && !ExtendedItemPermissionMode) {
 		DialogFocusItem.Property.ShowText = !DialogFocusItem.Property.ShowText;
-		return;
+	} else if (MouseIn(1635, 550, 225, 55)) {
+		ExtendedItemCustomClick("ResetShockCount", InventoryItemNeckAccessoriesCollarShockUnitResetCount);
+	} else if (MouseIn(1635, 625, 225, 55)) {
+		ExtendedItemCustomClick("TriggerShock", InventoryItemNeckAccessoriesCollarShockUnitTrigger);
 	}
-
-	if (MouseIn(1200, 650, 200, 55) && (DialogFocusItem.Property.ShockLevel > 0)) {
-		InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(0 - DialogFocusItem.Property.ShockLevel);
-		return;
-	}
-
-	if (MouseIn(1550, 650, 200, 55) && (DialogFocusItem.Property.ShockLevel < 1 || DialogFocusItem.Property.ShockLevel > 1)) {
-		InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(1 - DialogFocusItem.Property.ShockLevel);
-		return;
-	}
-
-	if (MouseIn(1375, 710, 200, 55) && (DialogFocusItem.Property.ShockLevel < 2)) {
-		InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(2 - DialogFocusItem.Property.ShockLevel);
-		return;
-	}
-
-	if (Player.CanInteract() && MouseIn(1500, 900, 200, 55)) {
-		InventoryItemNeckAccessoriesCollarShockUnitTrigger();
-		return;
-	}
-
-	if (Player.CanInteract() && DialogFocusItem.Property.TriggerCount > 0 && MouseIn(1250, 900, 200, 55)) {
-		InventoryItemNeckAccessoriesCollarShockUnitResetCount();
-		return;
-	}
-
-	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) DialogFocusItem = null;
 }
 
 // Resets the trigger count
 function InventoryItemNeckAccessoriesCollarShockUnitResetCount() {
 	// Gets the current item and character
-	var C = CharacterGetCurrent();
-	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
-		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
-		InventoryItemNeckAccessoriesCollarShockUnitLoad();
-	}
-
 	DialogFocusItem.Property.TriggerCount = 0;
+	const C = CharacterGetCurrent();
+	const Dictionary = [
+		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+		{ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name },
+	];
 
-	var Dictionary = [];
-	Dictionary.push({ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-	Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-	Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
-	Dictionary.push({ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name });
-	Dictionary.push({ AssetName: DialogFocusItem.Asset.Name });
-	Dictionary.push({ AssetGroupName: DialogFocusItem.Asset.Group.Name });
-
-	ChatRoomPublishCustomAction("ShockCountReset", false, Dictionary);
-
-}
-
-// Sets the shock collar intensity
-function InventoryItemNeckAccessoriesCollarShockUnitSetIntensity(Modifier) {
-
-	// Gets the current item and character
-	var C = CharacterGetCurrent();
-	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
-		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
-		InventoryItemNeckAccessoriesCollarShockUnitLoad();
-	}
-
-	DialogFocusItem.Property.ShockLevel = DialogFocusItem.Property.ShockLevel + Modifier;
 	if (DialogFocusItem.Property.ShowText) {
-		var Dictionary = [];
-		Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
-		Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
-		Dictionary.push({Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
-		ChatRoomPublishCustomAction("ShockCollarSet" + DialogFocusItem.Property.ShockLevel, true, Dictionary);
+		ChatRoomPublishCustomAction("ShockCountReset", false, Dictionary);
 	}
-	else
-		DialogLeave();
-
 }
 
 // Trigger a shock from the dialog menu
 function InventoryItemNeckAccessoriesCollarShockUnitTrigger() {
-	// Gets the current item and character
-	var C = CharacterGetCurrent();
-	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
-		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
-		InventoryItemNeckAccessoriesCollarShockUnitLoad();
+	const C = CharacterGetCurrent();
+	if (DialogFocusItem.Property.TriggerCount != null) {
+		DialogFocusItem.Property.TriggerCount++;
 	}
 
-	DialogFocusItem.Property.TriggerCount++;
-
-	/** @type {ChatMessageDictionary} */
-	var Dictionary = [];
-	Dictionary.push({ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-	Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-	Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
-	Dictionary.push({ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
-	Dictionary.push({ Tag: "ActivityName", Text: "ShockItem" });
-	Dictionary.push({ Tag: "ActivityGroup", Text: DialogFocusItem.Asset.Group.Name });
-	Dictionary.push({ ShockIntensity : DialogFocusItem.Property.ShockLevel * 1.5});
-	Dictionary.push({ AssetName: DialogFocusItem.Asset.Name });
-	Dictionary.push({ AssetGroupName: DialogFocusItem.Asset.Group.Name });
-
-	ChatRoomPublishCustomAction("TriggerShock" + DialogFocusItem.Property.ShockLevel, false, Dictionary);
-
-	if (C.ID == Player.ID) {
+	if (C.ID === Player.ID) {
 		// The Player shocks herself
 		ActivityArousalItem(C, C, DialogFocusItem.Asset);
 	}
-	if (CurrentScreen == "ChatRoom")
-		DialogLeave();
-
 	InventoryShockExpression(C);
+
+	const ActionTag = `TriggerShock${DialogFocusItem.Property.ShockLevel}`;
+	const Dictionary = [
+		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+		{ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name },
+		{ Tag: "ActivityName", Text: "ShockItem" },
+		{ Tag: "ActivityGroup", Text: DialogFocusItem.Asset.Group.Name },
+		{ ShockIntensity : DialogFocusItem.Property.ShockLevel * 1.5 },
+		{ AssetName: DialogFocusItem.Asset.Name },
+		{ FocusAssetGroup: DialogFocusItem.Asset.Group.Name },
+	];
+
+	// Manually play audio and flash the screen when not in a chatroom
+	if (CurrentScreen !== "ChatRoom") {
+		AudioPlayInstantSound("Audio/Shocks.mp3");
+		if (C.ID === Player.ID) {
+			const duration = (Math.random() + DialogFocusItem.Property.ShockLevel * 1.5) * 500;
+			DrawFlashScreen("#FFFFFF", duration, 500);
+		}
+	}
+
+	if (DialogFocusItem.Property.ShowText || CurrentScreen !== "ChatRoom") {
+		ExtendedItemCustomExit(ActionTag, C, Dictionary);
+	} else {
+		ChatRoomMessage({ Content: ActionTag, Type: "Action", Sender: Player.MemberNumber, Dictionary: Dictionary });
+		DialogLeave();
+	}
 }
 
 /** @type {DynamicBeforeDrawCallback} */
 function AssetsItemNeckAccessoriesCollarShockUnitBeforeDraw(data) {
 	if (data.L === "_Light") {
-		var persistentData = data.PersistentData();
-		var property = data.Property || {};
-		var Triggered = persistentData.LastTriggerCount < property.TriggerCount;
-		var intensity = property.ShockLevel ? property.ShockLevel : 0;
-		var wasBlinking = property.Type === "Blink";
+		/** @type {{ChangeTime?: number, DisplayCount?: number, LastTriggerCount?: number}} */
+		const persistentData = data.PersistentData();
+		const property = data.Property || {};
+		const Triggered = persistentData.LastTriggerCount < property.TriggerCount;
+		const intensity = property.ShockLevel || 0;
+		const wasBlinking = property.BlinkState;
 		if (wasBlinking && Triggered) persistentData.DisplayCount++;
 		if (persistentData.DisplayCount >= intensity * 1.5 + 3) {
 			persistentData.DisplayCount = 0;
 			persistentData.LastTriggerCount = property.TriggerCount;
 		}
-		return { Color: Triggered ? "#f00" : "#2f0" };
+		return { Color: Triggered ? "#f00" : "#2f0", Opacity: wasBlinking ? 0 : 1 };
 	}
 }
 
 /** @type {DynamicScriptDrawCallback} */
 function AssetsItemNeckAccessoriesCollarShockUnitScriptDraw(data) {
-	var persistentData = data.PersistentData();
+	/** @type {{ChangeTime?: number, DisplayCount?: number, LastTriggerCount?: number}} */
+	const persistentData = data.PersistentData();
 	/** @type {ItemProperties} */
-	var property = (data.Item.Property = data.Item.Property || {});
+	const property = (data.Item.Property = data.Item.Property || {});
 	if (typeof persistentData.ChangeTime !== "number") persistentData.ChangeTime = CommonTime() + 4000;
 	if (typeof persistentData.DisplayCount !== "number") persistentData.DisplayCount = 0;
 	if (typeof persistentData.LastTriggerCount !== "number") persistentData.LastTriggerCount = property.TriggerCount;
 
-
-	var isTriggered = persistentData.LastTriggerCount < property.TriggerCount;
-	var newlyTriggered = isTriggered && persistentData.DisplayCount == 0;
+	const isTriggered = persistentData.LastTriggerCount < property.TriggerCount;
+	const newlyTriggered = isTriggered && persistentData.DisplayCount == 0;
 	if (newlyTriggered)
 		persistentData.ChangeTime = Math.min(persistentData.ChangeTime, CommonTime());
 
 	if (persistentData.ChangeTime < CommonTime()) {
 		if (persistentData.LastTriggerCount > property.TriggerCount) persistentData.LastTriggerCount = 0;
-		var wasBlinking = property.Type === "Blink";
-		property.Type = wasBlinking && !newlyTriggered ? null : "Blink";
-		var timeFactor = isTriggered ? 12 : 1;
-		var timeToNextRefresh = (wasBlinking ? 4000 : 1000) / timeFactor;
+		const wasBlinking = property.BlinkState;
+		property.BlinkState = wasBlinking && !newlyTriggered ? false : true;
+		const timeFactor = isTriggered ? 12 : 1;
+		const timeToNextRefresh = (wasBlinking ? 4000 : 1000) / timeFactor;
 		persistentData.ChangeTime = CommonTime() + timeToNextRefresh;
 		AnimationRequestRefreshRate(data.C, (5000 / timeFactor) - timeToNextRefresh);
 		AnimationRequestDraw(data.C);
@@ -183,10 +142,11 @@ function AssetsItemNeckAccessoriesCollarShockUnitScriptDraw(data) {
 }
 
 /**
+ * @param {IChatRoomMessage} data
  * @returns {[string, number]}
  */
 function InventoryItemNeckAccessoriesCollarShockUnitDynamicAudio(data) {
-	var Modifier = parseInt(data.Content.substr(data.Content.length - 1));
+	let Modifier = parseInt(data.Content.slice(-1));
 	if (isNaN(Modifier)) Modifier = 0;
 	return ["Shocks", Modifier * 3];
 }
