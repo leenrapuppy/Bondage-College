@@ -60,7 +60,13 @@ var AudioList = [
 ];
 
 
-/** @type AudioChatAction[] */
+/**
+ * A list of chat message audio effect "detectors".
+ *
+ * They get checked in the order they're defined, so be careful where you insert new entries.
+ *
+ * @type AudioChatAction[]
+ */
 var AudioActions = [
 	{
 		IsAction: (data) => data.Content === "ActionAddLock",
@@ -97,10 +103,6 @@ var AudioActions = [
 	{
 		IsAction: (data) => ["ActionUse", "ActionSwap"].includes(data.Content) && data.Sender !== Player.MemberNumber,
 		GetSoundEffect: AudioGetSoundFromChatMessage,
-	},
-	{
-		IsAction: (data) => data.Type === "Activity",
-		GetSoundEffect: AudioGetSoundFromChatMessage
 	},
 	{
 		IsAction: (data) => ["KennelSetDC", "KennelSetPADC", "KennelSetPRDC"].some(A => data.Content === A),
@@ -301,7 +303,11 @@ var AudioActions = [
 		IsAction: (data) =>
 			data.Type === "Action" && data.Content === "ItemVulvaPiercingsRoundClitPiercingSetBell",
 		GetSoundEffect: () => "BellSmall",
-	}
+	},
+	{
+		IsAction: (data) => data.Type === "Activity",
+		GetSoundEffect: AudioGetSoundFromChatMessage
+	},
 ];
 
 /**
