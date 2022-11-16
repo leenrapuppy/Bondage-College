@@ -904,3 +904,21 @@ function CommonGetServer() {
 	if (location.protocol !== 'https:') location.replace(`https:${location.href.substring(location.protocol.length)}`);
 	return "https://bondage-club-server.herokuapp.com/";
 }
+
+/**
+ * Performs the required substitutions on the given message
+ *
+ * @param {string} msg - The string to perform the substitutions on.
+ * @param {string[][]} substitutions - An array of {string, replacement} subtitutions.
+ */
+function CommonStringSubstitute(msg, substitutions) {
+	if (typeof msg !== "string")
+		return "";
+
+	substitutions = substitutions.sort((a, b) => b[0].length - a[0].length);
+	for (const [tag, subst] of substitutions) {
+		while (msg.includes(tag))
+			msg = msg.replace(tag, subst);
+	}
+	return msg;
+}

@@ -2780,24 +2780,6 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 }
 
 /**
- * Performs the required substitutions on the given message
- *
- * @param {string} msg - The string to perform the substitutions on.
- * @param {string[][]} substitutions - An array of {string, string} subtitutions.
- */
-function ChatRoomMessagePerformSubstitutions(msg, substitutions) {
-	if (typeof msg !== "string")
-		return "";
-
-	substitutions = substitutions.sort((a, b) => b[0].length - a[0].length);
-	for (const [tag, subst] of substitutions) {
-		while (msg.includes(tag))
-			msg = msg.replace(tag, subst);
-	}
-	return msg;
-}
-
-/**
  * Extracts all metadata and substitutions requested by a message.
  *
  * This goes through ChatRoomMessageExtractors and calls them in order
@@ -2920,7 +2902,7 @@ function ChatRoomMessage(data) {
 	}
 
 	// Apply requested substitutions
-	msg = ChatRoomMessagePerformSubstitutions(msg, substitutions);
+	msg = CommonStringSubstitute(msg, substitutions);
 
 	ChatRoomMessageRunHandlers("post", data, SenderCharacter, msg, metadata);
 }
@@ -4608,7 +4590,7 @@ function ChatRoomOwnerPresenceRule(RuleName, Target) {
  * @param {Character} C - The character that the message key relates to
  * @param {string} key - Key for the dialog entry to use
  * @param {boolean} hideIdentity - Whether to hide details revealing the character's identity
- * @returns {any[]} - The replacement pronoun text for keywords in the original message
+ * @returns {string[][]} - The replacement pronoun text for keywords in the original message
  */
 function ChatRoomPronounSubstitutions(C, key, hideIdentity) {
 	let repls = [];
