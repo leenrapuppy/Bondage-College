@@ -201,25 +201,34 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 		case "UseVulva":
 			return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]) && !acting.IsVulvaFull();
 		case "UseAss":
-			return !acting.IsAssFull();
+			return !acted.IsAssFull();
 		case "MoveHead":
 			if (group.Name === "ItemHead")
 				return !acted.IsFixedHead();
 			break;
 		case "ZoneAccessible":
-			return ActivityGetAllMirrorGroups(acted.AssetFamily, group.Name).some((g) => !InventoryGroupIsBlocked(acted, g.Name, true));
+		case "TargetZoneAccessible": {
+			// FIXME: The original ZoneAccessible should have been prefixed with Target, which is why those are reversed
+			// TargetZoneAccessible is only used for ReverseSuckItem, which is marked as reverse, adding in to the confusion
+			const actor = prereq.startsWith("Target") ? acting : acted;
+			return ActivityGetAllMirrorGroups(actor.AssetFamily, group.Name).some((g) => !InventoryGroupIsBlocked(actor, g.Name, true));
+		}
 		case "ZoneNaked":
+		case "TargetZoneNaked": {
+			// FIXME: Ditto
+			const actor = prereq.startsWith("Target") ? acting : acted;
 			if (group.Name === "ItemButt")
-				return InventoryPrerequisiteMessage(acted, "AccessButt") === "" && !(acted.IsPlugged() || acted.IsButtChaste());
+				return InventoryPrerequisiteMessage(actor, "AccessButt") === "" && !(actor.IsPlugged() || actor.IsButtChaste());
 			else if (group.Name === "ItemVulva")
-				return (InventoryPrerequisiteMessage(acted, "AccessVulva") === "") && !acted.IsVulvaChaste();
+				return (InventoryPrerequisiteMessage(actor, "AccessVulva") === "") && !actor.IsVulvaChaste();
 			else if (group.Name === "ItemBreast" || group.Name === "ItemNipples")
-				return (InventoryPrerequisiteMessage(acted, "AccessBreast") === "") && !acted.IsBreastChaste();
+				return (InventoryPrerequisiteMessage(actor, "AccessBreast") === "") && !actor.IsBreastChaste();
 			else if (group.Name === "ItemBoots")
-				return InventoryPrerequisiteMessage(acted, "NakedFeet") === "";
+				return InventoryPrerequisiteMessage(actor, "NakedFeet") === "";
 			else if (group.Name === "ItemHands")
-				return InventoryPrerequisiteMessage(acted, "NakedHands") === "";
+				return InventoryPrerequisiteMessage(actor, "NakedHands") === "";
 			break;
+		}
 		case "TargetHasPenis":
 			return InventoryIsItemInList(acted, "Pussy", ["Penis"]);
 		case "HasPenis":
@@ -227,7 +236,7 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 		case "TargetHasVagina":
 			return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
 		case "HasVagina":
-			return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
+			return InventoryIsItemInList(acting, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
 		case "TargetHasBreasts":
 			return InventoryIsItemInList(acted, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
 		case "HasBreasts":

@@ -7806,7 +7806,7 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 		Name: "ReverseSuckItem",
 		MaxProgress: 100,
 		MaxProgressSelf: 50,
-		Prerequisite: ["ZoneAccessible", "TargetCanUseTongue", "Needs-PenetrateItem", "ZoneNaked"],
+		Prerequisite: ["TargetZoneAccessible", "CanUseTongue", "Needs-PenetrateItem", "TargetZoneNaked"],
 		Target: ["ItemVulva", "ItemMouth"],
 		Reverse: true,
 	},
