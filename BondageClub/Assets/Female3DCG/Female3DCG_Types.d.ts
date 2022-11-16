@@ -3,11 +3,14 @@ interface AssetGroupDefinition {
 	Group: AssetGroupName;
 	ParentGroup?: string;
 	Category?: 'Appearance' | 'Item';
+	/** Whether the group should have an asset selected at random at character creation. */
 	Default?: boolean;
 	IsRestraint?: boolean;
+	/** Whether the group is allowed to have no asset. Used for body-related characteristics. */
 	AllowNone?: boolean;
 	AllowColorize?: boolean;
 	AllowCustomize?: boolean;
+	/** @see {AssetDefinition.Random} */
 	Random?: boolean;
 	Color?: string[];
 	ParentSize?: string;
