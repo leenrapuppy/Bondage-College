@@ -42,7 +42,7 @@ function InventoryItemMouthFuturisticHarnessBallGagLoad() {
 		if (DialogFocusItem.Property.AutoPunishUndoTimeSetting == null) DialogFocusItem.Property.AutoPunishUndoTimeSetting = 300000;
 		if (DialogFocusItem.Property.OriginalSetting == null) DialogFocusItem.Property.OriginalSetting = null;
 		if (DialogFocusItem.Property.ChatMessage == null) DialogFocusItem.Property.ChatMessage = true;
-		if (DialogFocusItem.Property.BlinkState == null) DialogFocusItem.Property.BlinkState = 0;
+		if (DialogFocusItem.Property.BlinkState == null) DialogFocusItem.Property.BlinkState = false;
 	}
 }
 
@@ -200,7 +200,7 @@ function AssetsItemMouthFuturisticHarnessBallGagScriptDraw(data) {
 	var property = (data.Item.Property = data.Item.Property || {});
 	if (typeof persistentData.UpdateTime !== "number") persistentData.UpdateTime = CommonTime() + 4000;
 	if (typeof persistentData.LastMessageLen !== "number") persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;
-	if (typeof property.BlinkState !== "number") property.BlinkState = 0;
+	if (typeof property.BlinkState !== "boolean") property.BlinkState = false;
 
 	if (ChatRoomLastMessage && ChatRoomLastMessage.length != persistentData.LastMessageLen && data.Item && data.Item.Property && data.Item.Property.Sensitivity > 0)
 		persistentData.ChangeTime = Math.min(persistentData.ChangeTime, CommonTime() + 400); // Trigger shortly after if the user speaks
@@ -213,7 +213,7 @@ function AssetsItemMouthFuturisticHarnessBallGagScriptDraw(data) {
 			persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;
 		}
 
-		property.BlinkState = (property.BlinkState + 1) % 2;
+		property.BlinkState = !property.BlinkState;
 
 		var timeToNextRefresh = 3025;
 		persistentData.UpdateTime = CommonTime() + timeToNextRefresh;
