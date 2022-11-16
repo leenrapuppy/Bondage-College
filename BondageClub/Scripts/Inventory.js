@@ -561,21 +561,20 @@ function InventoryWearCraftMisc(Item, Type) {
 	// Check whether a custom `SetType` function is defined or, if not, try to use the more
 	// generic `ExtendedItemSetType` function with the items Options
 	const Prefix = ExtendedItemFunctionPrefix();
+	CommonCallFunctionByNameWarn(Prefix + "Load");
 	if ((Prefix + "SetType" in window) || !(Prefix + "Options" in window)) {
-		CommonCallFunctionByNameWarn(Prefix + "Load");
 		CommonCallFunctionByName(Prefix + "SetType", Type);
-		CommonCallFunctionByName(Prefix + "Exit");
 	} else {
 		/** @type {ExtendedItemOption[]} */
 		const ItemOptions = window[Prefix + "Options"];
 		const Option = ItemOptions.find((o) => o.Name == Type);
-		if (Option != undefined) {
-			ExtendedItemSetType(C, ItemOptions, Option);
-		} else {
-			CommonCallFunctionByNameWarn(Prefix + "Load");
-			CommonCallFunctionByName(Prefix + "Exit");
+		if (Option !== undefined) {
+			// NOTE: Avoid `ExtendedItemSetType` usage as the `ChatRoomCharacterUpdate` call therein can cause issues with
+			// the applying of crafted item colors (which conventionally happens *after* calling `InventoryWearCraft`)
+			TypedItemSetOption(C, Item, ItemOptions, Option, true);
 		}
 	}
+	CommonCallFunctionByName(Prefix + "Exit");
 
 	C.FocusGroup = null;
 	DialogFocusItem = null;
