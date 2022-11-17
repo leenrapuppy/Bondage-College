@@ -2894,11 +2894,14 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "ShockDildo", Gender: "F", Fetish: ["Masochism"], Priority: 11, Value: 70, Time: 10, Extended: true, AlwaysExtend: true, Prerequisite: ["AccessVulva", "HasVagina"], Effect: ["FillVulva"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
+				Name: "ShockDildo", Gender: "F", Fetish: ["Masochism"], Priority: 11, Value: 70, Time: 10,
+				Extended: true, AlwaysExtend: true, Prerequisite: ["AccessVulva", "HasVagina"],
+				Effect: ["FillVulva"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
+				HasType: false,
 				Layer: [
 					{ Name: "Dildo", AllowColorize: true },
-					{ Name: "Pussy", AllowColorize: false }
-				]
+					{ Name: "Pussy", AllowColorize: false },
+				],
 			},
 			{
 				Name: "VibratingDildo", Gender: "F", Priority: 11, DefaultColor: "#ED4BEE", BuyGroup: "VibratingDildo", Value: 60, Time: 10, Prerequisite: ["AccessVulva", "HasVagina"], Effect: ["FillVulva"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
