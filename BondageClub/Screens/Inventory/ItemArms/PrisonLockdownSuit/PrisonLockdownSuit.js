@@ -16,11 +16,11 @@ function InventoryItemArmsPrisonLockdownSuitShockModule1Draw() {
 
 // Catches the item extension clicks
 function InventoryItemArmsPrisonLockdownSuitShockModule1Click() {
-	InventoryItemNeckAccessoriesCollarShockUnitClick();
-
 	// Exits the screen
 	if (MouseIn(1885, 25, 90, 90)) {
 		InventoryItemArmsPrisonLockdownSuitShockModule1Exit();
+	} else {
+		InventoryItemNeckAccessoriesCollarShockUnitClick();
 	}
 }
 
