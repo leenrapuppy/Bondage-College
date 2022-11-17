@@ -5547,14 +5547,14 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "KittyGag", Fetish: ["Pet"], Value: 20, Difficulty: -4, Time: 10, Random: false, BuyGroup: "KittyGag", Prerequisite: "GagFlat", DefaultColor: ["#FFFFFF", "#000000", "#E496E7"], Hide: ["Mouth"], Effect: ["BlockMouth"], Layer: [
+				Name: "KittyGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Pet"], Value: 20, Difficulty: -4, Time: 10, Random: false, BuyGroup: "KittyGag", DefaultColor: ["#FFFFFF", "#000000", "#E496E7"], Hide: ["Mouth"], Effect: ["BlockMouth"], Layer: [
 					{ Name: "Base", AllowColorize: true, HasType: false },
 					{ Name: "Lines", AllowColorize: true, HasType: false },
 					{ Name: "Mouth", AllowColorize: true, HasType: false },
 				]
 			},
 			{
-				Name: "KittyHarnessPanelGag", Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyHarnessPanelGag", Prerequisite: "GagFlat", Hide: ["Mouth"], Effect: ["BlockMouth", "GagEasy"], Layer: [
+				Name: "KittyHarnessPanelGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyHarnessPanelGag", Hide: ["Mouth"], Effect: ["BlockMouth", "GagEasy"], Layer: [
 					{ Name: "Panel", AllowColorize: true, HasType: false },
 					{ Name: "Straps", AllowColorize: true, HasType: false },
 					{ Name: "Lines", AllowColorize: true, HasType: false },
@@ -5562,7 +5562,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "KittyMuzzleGag", Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Prerequisite: "GagFlat", Hide: ["Mouth"], Layer: [
+				Name: "KittyMuzzleGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Hide: ["Mouth"], Layer: [
 					{ Name: "Muzzle", AllowColorize: true, HasType: false },
 					{ Name: "Straps", AllowColorize: true, HasType: false },
 					{ Name: "Lines", AllowColorize: true, HasType: false },
@@ -5911,14 +5911,14 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "KittyGag", Fetish: ["Pet"], Value: 20, Difficulty: -4, Time: 10, Random: false, BuyGroup: "KittyGag", Prerequisite: "GagFlat", DefaultColor: ["#FFFFFF", "#000000", "#E496E7"], Hide: ["Mouth"], Effect: ["BlockMouth"], Layer: [
+				Name: "KittyGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Pet"], Value: 20, Difficulty: -4, Time: 10, Random: false, BuyGroup: "KittyGag", DefaultColor: ["#FFFFFF", "#000000", "#E496E7"], Hide: ["Mouth"], Effect: ["BlockMouth"], Layer: [
 					{ Name: "Base", AllowColorize: true, HasType: false },
 					{ Name: "Lines", AllowColorize: true, HasType: false },
 					{ Name: "Mouth", AllowColorize: true, HasType: false },
 				]
 			},
 			{
-				Name: "KittyHarnessPanelGag", Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyHarnessPanelGag", Prerequisite: "GagFlat", Hide: ["Mouth"], Effect: ["BlockMouth", "GagEasy"], Layer: [
+				Name: "KittyHarnessPanelGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyHarnessPanelGag", Hide: ["Mouth"], Effect: ["BlockMouth", "GagEasy"], Layer: [
 					{ Name: "Panel", AllowColorize: true, HasType: false },
 					{ Name: "Straps", AllowColorize: true, HasType: false },
 					{ Name: "Lines", AllowColorize: true, HasType: false },
@@ -5926,7 +5926,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "KittyMuzzleGag", Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Prerequisite: "GagFlat", Hide: ["Mouth"], Layer: [
+				Name: "KittyMuzzleGag", Gender: "F", Prerequisite: ["HasBreasts", "HasVagina", "GagFlat"], Fetish: ["Leather", "Pet"], Value: 80, Difficulty: 6, Time: 20, Random: false, AllowLock: true, DefaultColor: ["#FFFFFF", "#FFFFFF", "#000000", "#E496E7"], BuyGroup: "KittyMuzzleGag", Hide: ["Mouth"], Layer: [
 					{ Name: "Muzzle", AllowColorize: true, HasType: false },
 					{ Name: "Straps", AllowColorize: true, HasType: false },
 					{ Name: "Lines", AllowColorize: true, HasType: false },
