@@ -2309,7 +2309,7 @@ var AssetFemale3DCG = [
 
 	{
 		Group: "FacialHair",
-		Priority: 51,
+		Priority: 34,
 		Default: false,
 		ParentColor: "HairFront",
 		Left: 150,
