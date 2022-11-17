@@ -17,7 +17,7 @@ function InventoryItemMiscHighSecurityPadlockLoad() {
 	// Only create the inputs if the zone isn't blocked
 	if (!InventoryGroupIsBlocked(C, C.FocusGroup.Name)) {
 		if (DialogFocusSourceItem != null && ((DialogFocusSourceItem.Property.MemberNumberListKeys && CommonConvertStringToArray("" + DialogFocusSourceItem.Property.MemberNumberListKeys).indexOf(Player.MemberNumber) >= 0))) {
-			if (!(ElementValue("MemberNumberList") && "" + ElementValue("MemberNumberList").length > 1)) { // Only update if there isnt text already..
+			if (!((document.getElementById("MemberNumberList") != null) && ElementValue("MemberNumberList") && "" + ElementValue("MemberNumberList").length > 1)) { // Only update if there isnt text already..
 				ElementCreateTextArea("MemberNumberList");
 				document.getElementById("MemberNumberList").setAttribute("maxLength", 250);
 				document.getElementById("MemberNumberList").setAttribute("autocomplete", "off");
