@@ -4397,6 +4397,18 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // InflVibeButtPlug
+		ShockPlug: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
+			Config: {
+				Dialog: {
+					Load: "ItemNeckAccessoriesCollarShockUnitSelect",
+					TypePrefix: "ItemNeckAccessoriesCollarShockUnit",
+					ChatPrefix: "ItemNeckAccessoriesCollarShockUnitSet",
+					NpcPrefix: "ItemNeckAccessoriesCollarShockUnit",
+				},
+			},
+		}, // ShockPlug
 	}, // ItemButt
 	ItemNipplesPiercings: {
 		RoundPiercing: {
