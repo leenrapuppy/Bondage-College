@@ -2388,6 +2388,18 @@ var AssetFemale3DCGExtended = {
 				],
 			}
 		}, // BonedNeckCorset
+		ShockCollar: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
+			Config: {
+				Dialog: {
+					Load: "ItemNeckAccessoriesCollarShockUnitSelect",
+					TypePrefix: "ItemNeckAccessoriesCollarShockUnit",
+					ChatPrefix: "ItemNeckAccessoriesCollarShockUnitSet",
+					NpcPrefix: "ItemNeckAccessoriesCollarShockUnit",
+				},
+			},
+		}, // ShockCollar
 	}, // ItemNeck
 	ItemNeckAccessories: {
 		CustomCollarTag: {
