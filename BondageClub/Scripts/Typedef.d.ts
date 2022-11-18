@@ -1075,6 +1075,9 @@ interface Character {
 	UnregisterHook: (hookName: string, hookInstance: string) => boolean;
 	HeightRatioProportion?: number;
 	GetGenders: () => string[];
+	HasPenis: () => boolean;
+	HasVagina: () => boolean;
+	IsFlatChested: () => boolean;
 	// Properties created in other places
 	ArousalSettings?: {
 		Active: string;

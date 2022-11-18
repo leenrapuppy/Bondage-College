@@ -192,14 +192,14 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			break;
 		case "VulvaEmpty":
 			if (group.Name === "ItemVulva")
-				return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]) && !acted.IsVulvaFull();
+				return acted.HasVagina() && !acted.IsVulvaFull();
 			break;
 		case "AssEmpty":
 			if (group.Name === "ItemButt")
 				return !acted.IsPlugged();
 			break;
 		case "UseVulva":
-			return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]) && !acting.IsVulvaFull();
+			return acting.HasVagina() && !acting.IsVulvaFull();
 		case "UseAss":
 			return !acted.IsAssFull();
 		case "MoveHead":
@@ -230,21 +230,25 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			break;
 		}
 		case "TargetHasPenis":
-			return InventoryIsItemInList(acted, "Pussy", ["Penis"]);
+			return acted.HasPenis();
 		case "HasPenis":
-			return InventoryIsItemInList(acting, "Pussy", ["Penis"]);
+			return acting.HasPenis();
+		case "CanUsePenis":
+			if (acting.HasPenis())
+				return InventoryPrerequisiteMessage(acting, "AccessVulva") === "";
+			break;
 		case "TargetHasVagina":
-			return InventoryIsItemInList(acted, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
+			return acted.HasVagina();
 		case "HasVagina":
-			return InventoryIsItemInList(acting, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
+			return acting.HasVagina();
 		case "TargetHasBreasts":
-			return InventoryIsItemInList(acted, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
+			return !acted.IsFlatChested();
 		case "HasBreasts":
-			return InventoryIsItemInList(acting, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]);
+			return !acting.IsFlatChested();
 		case "TargetHasFlatChest":
-			return InventoryIsItemInList(acted, "BodyUpper", ["FlatSmall", "FlatMedium"]);
+			return acted.IsFlatChested();
 		case "HasFlatChest":
-			return InventoryIsItemInList(acting, "BodyUpper", ["FlatSmall", "FlatMedium"]);
+			return acting.IsFlatChested();
 
 		default:
 			break;
@@ -843,7 +847,7 @@ function ActivityRunSelf(Source, Target, Activity, Group, Asset) {
  */
 function ActivityBuildChatTag(character, group, activity, is_label = false) {
 	const groupMap = {"ItemVulva":"ItemPenis", "ItemVulvaPiercings": "ItemGlans"};
-	const realGroup = CharacterHasPenis(character) && groupMap[group.Name] ? groupMap[group.Name] : group.Name;
+	const realGroup = character.HasPenis() && groupMap[group.Name] ? groupMap[group.Name] : group.Name;
 
 	return `${is_label ? "Label-" : ""}${(character.IsPlayer() ? "ChatSelf" : "ChatOther")}-${realGroup}-${activity.Name}`;
 }
