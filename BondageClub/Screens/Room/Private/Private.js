@@ -497,9 +497,13 @@ function PrivateNewCloth(C) {
 		PandoraDress(C, "Mistress");
 	} else CharacterAppearanceFullRandom(C, true);
 
-	// Random Santa hat in December (20% odds)
-	if ((new Date().getMonth() == 11) && (Math.random() < 0.2) && (InventoryGet(C, "Hat") == null))
-		InventoryWear(C, "Santa1", "Hat");
+	// Birthday Hat
+	if (PrivateIsPlayerBirthday() && (InventoryGet(C, "Hat") == null))
+		InventoryWear(C, "CollegeDunce", "Hat", CommonRandomItemFromList("", ["#FF0000", "#FFFF00", "#FF00FF", "#00FF00", "#00FFFF", "#0000FF"]));
+
+	// Random December hats (25% odds)
+	if ((new Date().getMonth() == 11) && (Math.random() < 0.25) && (InventoryGet(C, "Hat") == null))
+		InventoryWear(C, CommonRandomItemFromList("", ["Santa1", "ReindeerBand"]), "Hat");
 
 	// Add the new cloth event and syncs
 	NPCEventAdd(C, "NewCloth", CurrentTime);
