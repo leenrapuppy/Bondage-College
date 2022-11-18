@@ -197,8 +197,8 @@ function PrivateBedActivityStart(Source, Target, Group, Activity) {
 
 	// If there's no text linked to it, the activity is rejected
 	let GroupName = Group.Name.toString();
-	if (CharacterHasPenis(Target) && (GroupName == "ItemVulva")) GroupName = "ItemPenis";
-	if (CharacterHasPenis(Target) && (GroupName == "ItemVulvaPiercings")) GroupName = "ItemGlans";
+	if (Target.HasPenis() && (GroupName == "ItemVulva")) GroupName = "ItemPenis";
+	if (Target.HasPenis() && (GroupName == "ItemVulvaPiercings")) GroupName = "ItemGlans";
 	let Text = ActivityDictionaryText(((Source.ID == Target.ID) ? "ChatSelf" : "ChatOther") + "-" + GroupName + "-" + Activity);
 	if (Text.startsWith("MISSING ACTIVITY DESCRIPTION FOR")) return false;
 
@@ -253,7 +253,6 @@ function PrivateBedNPCActivity(Source) {
 
 	// Selects a random target in the room
 	let Target = CommonRandomItemFromList(null, PrivateBedCharacter);
-	let TargetHasPanis = CharacterHasPenis(Target);
 
 	// Selects a random activity (high max progress activities like masturbation will occur more often when arousal progress is high)
 	let ActivityList = [];
@@ -304,9 +303,9 @@ function PrivateBedNPCActivity(Source) {
 	for (let Group of AssetGroup) {
 		if (PrivateBedGroupActivityIsValid(Source, Target, Group, Activity))
 			GroupList.push(Group);
-		else if ((ActivityPussy != null) && !TargetHasPanis && PrivateBedGroupActivityIsValid(Source, Target, Group, ActivityPussy))
+		else if ((ActivityPussy != null) && !Target.HasPenis() && PrivateBedGroupActivityIsValid(Source, Target, Group, ActivityPussy))
 			GroupList.push(Group);
-		else if ((ActivityPenis != null) && TargetHasPanis && PrivateBedGroupActivityIsValid(Source, Target, Group, ActivityPenis))
+		else if ((ActivityPenis != null) && Target.HasPenis() && PrivateBedGroupActivityIsValid(Source, Target, Group, ActivityPenis))
 			GroupList.push(Group);
 	}
 	if (GroupList.length == 0) return;
@@ -314,8 +313,8 @@ function PrivateBedNPCActivity(Source) {
 
 	// Launches the activity
 	if (!PrivateBedActivityStart(Source, Target, Group, Activity.Name)) {
-		if ((ActivityPussy != null) && !TargetHasPanis) PrivateBedActivityStart(Source, Target, Group, ActivityPussy.Name);
-		if ((ActivityPenis != null) && TargetHasPanis) PrivateBedActivityStart(Source, Target, Group, ActivityPenis.Name);
+		if ((ActivityPussy != null) && !Target.HasPenis()) PrivateBedActivityStart(Source, Target, Group, ActivityPussy.Name);
+		if ((ActivityPenis != null) && Target.HasPenis()) PrivateBedActivityStart(Source, Target, Group, ActivityPenis.Name);
 	}
 
 }

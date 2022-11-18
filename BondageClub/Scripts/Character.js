@@ -354,6 +354,15 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		GetGenders: function () {
 			return this.Appearance.map(asset => asset.Asset.Gender).filter(a => a);
 		},
+		HasPenis: function () {
+			return InventoryIsItemInList(this, "Pussy", ["Penis"]);
+		},
+		HasVagina: function () {
+			return InventoryIsItemInList(this, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
+		},
+		IsFlatChested: function () {
+			return InventoryIsItemInList(this, "BodyUpper", ["FlatSmall", "FlatMedium"]);
+		},
 		// Adds a new hook with a Name (determines when the hook will happen, an Instance ID (used to differentiate between different hooks happening at the same time), and a function that is run when the hook is called)
 		RegisterHook: function (hookName, hookInstance, callback) {
 			if (!this.Hooks) this.Hooks = new Map();
@@ -1860,18 +1869,7 @@ function CharacterPronounDescription(C) {
 	return pronounAsset.Description;
 }
 
-/**
- * Returns TRUE of a character has a penis asset on him/her
- * @param {Character} C - The character to evaluate
- * @returns {boolean} - TRUE if a penis is on
- */
-function CharacterHasPenis(C) {
-	let Item = InventoryGet(C, "Pussy");
-	if ((Item == null) || (Item.Asset == null) || (Item.Asset.Name == null)) return false;
-	return (Item.Asset.Name == "Penis");
-}
-
- /* Update the given character's nickname.
+/* Update the given character's nickname.
  *
  * Note that changing any nickname but yours (ie. Player) is not supported.
  *
