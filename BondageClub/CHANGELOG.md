@@ -33,7 +33,6 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * bananarama92 - Added proper support for auto typing crafted extended items that lack an archetype ([#3656](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3656))
 * bananarama92 - Added crafting auto-typing support for extended items of the `Vibrating` archetype ([#3658](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3658))
 * Estsanatlehi - Made handheld items real assets ([#3663](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3663))
-* Estsanatlehi - Implemented reverse activities ([#3671](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3671))
 * MAKeevchanin - Updated russian translation ([#3672](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3672))
 * bananarama92 - Added the ability for crafted items to specify their `OverridePriority` ([#3674](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3674))
 * Da'Inihlus - Updated the chinese translation ([#3673](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3673), [#3700](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3700))
@@ -88,7 +87,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Estsanatlehi - Fixed the missing audio effect on spanks ([#3714](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3714))
 * Estsanatlehi - Silenced a warning by removing a duplicate line ([#3715](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3715))
 * Estsanatlehi - Marked the FacialHair group as a non-default group ([#3717](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3717))
-* Estsanatlehi - Fixed reverse sucking performing accessibility checks on the wrong character ([#3716](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3716))
+Bondage-College/-/merge_requests/3716))
 * Estsanatlehi - Added fixups to preserve the owned handhelds information ([#3718](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3718))
 
 ## [R85]

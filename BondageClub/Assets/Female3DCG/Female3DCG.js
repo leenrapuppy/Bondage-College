@@ -7802,14 +7802,6 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHands", "ItemHead", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemTorso", "ItemTorso2",],
 		TargetSelf: ["ItemArms", "ItemBoots", "ItemFeet", "ItemHands", "ItemLegs", "ItemMouth"],
 	},
-	{
-		Name: "ReverseSuckItem",
-		MaxProgress: 100,
-		MaxProgressSelf: 50,
-		Prerequisite: ["TargetZoneAccessible", "CanUseTongue", "Needs-PenetrateItem", "TargetZoneNaked"],
-		Target: ["ItemVulva", "ItemMouth"],
-		Reverse: true,
-	},
 	/* Hand activities */
 	{
 		Name: "Caress",
@@ -8058,22 +8050,6 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 		MaxProgress: 100,
 		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "AssEmpty", "Needs-PenetrateItem", "ZoneNaked", "HasVagina"],
 		Target: ["ItemButt", "ItemMouth", "ItemVulva"],
-	},
-	{
-		Name: "ReversePenetratePussy",
-		MaxProgress: 100,
-		MaxProgressSelf: 100,
-		Prerequisite: ["ZoneAccessible", "VulvaEmpty", "Needs-PenetrateItem", "ZoneNaked", "HasVagina"],
-		Target: ["ItemVulva", "ItemMouth"],
-		Reverse: true,
-	},
-	{
-		Name: "ReversePenetrateAss",
-		MaxProgress: 100,
-		MaxProgressSelf: 100,
-		Prerequisite: ["ZoneAccessible", "AssEmpty", "Needs-PenetrateItem", "ZoneNaked"],
-		Target: ["ItemVulva", "ItemMouth"],
-		Reverse: true,
 	},
 ];
 
