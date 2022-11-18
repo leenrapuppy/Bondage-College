@@ -5005,6 +5005,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "DusterGag", Fetish: ["Leather"], Priority: 42, Value: -1, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "DusterGag", Bonus: "KidnapBruteForce", Hide: ["Mouth"], Effect: ["BlockMouth", "GagEasy"], Block: ["ItemMouth2", "ItemMouth3"],
+				AllowActivity: ["TickleItem"],
 				Layer: [
 					{ Name: "Duster" },
 					{ Name: "Panel" },
@@ -5525,6 +5526,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "DusterGag", Fetish: ["Leather"], Priority: 42, Value: -1, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "DusterGag", Hide: ["Mouth"], Effect: ["BlockMouth", "GagEasy"], Block: ["ItemMouth", "ItemMouth3"],
+				AllowActivity: ["TickleItem"],
 				Layer: [
 					{ Name: "Duster" },
 					{ Name: "Panel" },
@@ -5889,6 +5891,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "DusterGag", Fetish: ["Leather"], Priority: 42, Value: -1, Difficulty: 4, Time: 20, Random: false, AllowLock: true, BuyGroup: "DusterGag", Hide: ["Mouth"], Effect: ["BlockMouth", "GagEasy"],
+				AllowActivity: ["TickleItem"],
 				Layer: [
 					{ Name: "Duster" },
 					{ Name: "Panel" },
@@ -7989,7 +7992,7 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 	{
 		Name: "TickleItem",
 		MaxProgress: 50,
-		Prerequisite: ["Needs-TickleItem", "UseHands"],
+		Prerequisite: ["Needs-TickleItem"],
 		Target: ["ItemArms", "ItemBoots", "ItemBreast", "ItemButt", "ItemEars", "ItemFeet", "ItemHood", "ItemLegs", "ItemMouth", "ItemNeck", "ItemNipples", "ItemNose", "ItemPelvis", "ItemTorso", "ItemVulva", "ItemVulvaPiercings"],
 		TargetSelf: true,
 		ActivityExpression: [{ Group: "Blush", Name: "High", Timer: 10 }, { Group: "Eyes", Name: "Closed", Timer: 10}, { Group: "Mouth", Name: "Laughing", Timer: 10}, { Group: "Eyebrows", Name: "Soft", Timer: 10}],
