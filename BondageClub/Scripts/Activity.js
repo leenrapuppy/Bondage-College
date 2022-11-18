@@ -233,6 +233,10 @@ function ActivityCheckPrerequisite(prereq, acting, acted, group) {
 			return acted.HasPenis();
 		case "HasPenis":
 			return acting.HasPenis();
+		case "CanUsePenis":
+			if (acting.HasPenis())
+				return InventoryPrerequisiteMessage(acting, "AccessVulva") === "";
+			break;
 		case "TargetHasVagina":
 			return acted.HasVagina();
 		case "HasVagina":

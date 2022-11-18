@@ -8042,13 +8042,13 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 	{
 		Name: "PenetrateSlow",
 		MaxProgress: 80,
-		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "AssEmpty", "Needs-PenetrateItem", "ZoneNaked"],
+		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "AssEmpty", "Needs-PenetrateItem", "ZoneNaked", "CanUsePenis"],
 		Target: ["ItemButt", "ItemMouth", "ItemVulva"],
 	},
 	{
 		Name: "PenetrateFast",
 		MaxProgress: 100,
-		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "AssEmpty", "Needs-PenetrateItem", "ZoneNaked"],
+		Prerequisite: ["ZoneAccessible", "TargetMouthOpen", "VulvaEmpty", "AssEmpty", "Needs-PenetrateItem", "ZoneNaked", "CanUsePenis"],
 		Target: ["ItemButt", "ItemMouth", "ItemVulva"],
 	},
 ];
