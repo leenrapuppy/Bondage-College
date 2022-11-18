@@ -22,7 +22,7 @@ This changelog follows the format outlined in [keepachangelog.com](https://keepa
 * Luna - Added the PetSign to the Misc slot ([#3666](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3666))
 * Ada - Kinky Dungeon 3.81 ([#3676](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3676))
 * Ben - Added a Private Bed & "/release" command
-* Ayesha - Added a bunch of new assets! (hairs, eyebrows and lips) ([#3706](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3706))
+* Ayesha & Kyra - Added a bunch of new assets! (hairs, eyebrows and lips) ([#3706](https://gitgud.io/BondageProjects/Bondage-College/-/merge_requests/3706))
 
 
 ### [Removed]
