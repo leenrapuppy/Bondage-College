@@ -7154,6 +7154,7 @@ var AssetFemale3DCG = [
 				Effect: ["Freeze", "Mounted", "OnBed"],
 				Prerequisite: ["AllFours", "NotSuspended", "NotHogtied"],
 				SetPose: ["BaseLower"],
+				AllowActivePose: ["BaseLower", "LegsClosed", "Kneel", "KneelingSpread"],
 				Layer: [
 					{ Name: "BedFrame" },
 					{ Name: "Mattress" },
