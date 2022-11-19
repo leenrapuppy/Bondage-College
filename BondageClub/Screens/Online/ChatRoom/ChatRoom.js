@@ -2742,7 +2742,7 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 			}
 		}
 
-		else if (entry.TextToLookUp) {
+		else if (entry.Tag && entry.TextToLookUp) {
 			const repl = DialogFindPlayer(entry.TextToLookUp).toLowerCase();
 			substitutions.push([entry.Tag, repl]);
 		}
@@ -2750,16 +2750,20 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 			const A = Asset.find(a => a.Name === entry.AssetName);
 			if (A) {
 				meta.ActivityName = A.DynamicActivity(meta.SourceCharacter || Player);
-				const repl = A.DynamicDescription(meta.SourceCharacter || Player).toLowerCase();
-				substitutions.push([entry.Tag, repl]);
+				if (entry.Tag) {
+					const repl = A.DynamicDescription(meta.SourceCharacter || Player).toLowerCase();
+					substitutions.push([entry.Tag, repl]);
+				}
 			}
 		}
 		else if (entry.AssetGroupName) {
 			const G = AssetGroupGet('Female3DCG', entry.AssetGroupName);
 			if (G) {
 				meta.GroupName = entry.AssetGroupName;
-				const repl = G.Description.toLowerCase();
-				substitutions.push([entry.Tag, repl]);
+				if (entry.Tag) {
+					const repl = G.Description.toLowerCase();
+					substitutions.push([entry.Tag, repl]);
+				}
 			}
 		}
 		else if (entry.Tag === "ActivityName") meta.ActivityName = entry.Text;
@@ -2773,7 +2777,7 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 		else if (entry.ActivityCounter) meta.ActivityCounter = entry.ActivityCounter;
 		else if (entry.Automatic) meta.Automatic = true;
 		else if (entry.ShockIntensity != undefined) meta.ShockIntensity = entry.ShockIntensity;
-		else
+		else if (entry.Tag && entry.Text)
 			substitutions.push([entry.Tag, entry.Text]);
 	}
 	return { metadata: meta, substitutions: substitutions };

@@ -230,9 +230,9 @@ function CharacterAppearanceFullRandom(C, ClothOnly=false) {
 		}
 	}
 
-	// Random Santa hat in December (20% odds)
-	if ((new Date().getMonth() == 11) && (Math.random() < 0.2) && (InventoryGet(C, "Hat") == null))
-		InventoryWear(C, "Santa1", "Hat");
+	// Random December hats (25% odds)
+	if ((new Date().getMonth() == 11) && (Math.random() < 0.25) && (InventoryGet(C, "Hat") == null))
+		InventoryWear(C, CommonRandomItemFromList("", ["Santa1", "ReindeerBand"]), "Hat");
 
 	// Refreshes the character
 	CharacterRefresh(C, false);
