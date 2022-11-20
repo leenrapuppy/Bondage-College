@@ -1,23 +1,6 @@
 "use strict";
 
 /**
- * An object defining a group of layers which can be colored together
- * @typedef {object} ColorGroup
- * @property {string} name - The name of the color group
- * @property {AssetLayer[]} layers - The layers contained within the color group
- * @property {number} colorIndex - The color index for the color group - this is the lowest color index of any of the layers within the
- * color group
- */
-
-/**
- * A callback function that is called when the item color UI exits
- * @callback itemColorExitListener
- * @param {Character} c - The character being colored
- * @param {Item} item - The item being colored
- * @param {boolean} save - Whether the item's appearance changes should be saved
- */
-
-/**
  * A configuration object containing constants used by the ItemColor UI scripts
  * @constant {{
  *     colorPickerButtonWidth: number,
@@ -40,26 +23,39 @@ const ItemColorConfig = {
 /**
  * An enum for the possible item color UI modes
  * @readonly
- * @enum {string}
+ * @type {{DEFAULT: "Default", COLOR_PICKER: "ColorPicker"}}
  */
 const ItemColorMode = {
 	DEFAULT: "Default",
 	COLOR_PICKER: "ColorPicker",
 };
 
+/** @type {Character} */
 let ItemColorCharacter;
+/** @type {Item} */
 let ItemColorItem;
+/** @type {ItemColorMode} */
 let ItemColorCurrentMode = ItemColorMode.DEFAULT;
+/** @type {string} */
 let ItemColorStateKey;
+/** @type {ItemColorStateType} */
 let ItemColorState;
+/** @type {number} */
 let ItemColorPage;
+/** @type {Record<string, number>} */
 let ItemColorLayerPages = {};
+/** @type {string} */
 let ItemColorPickerBackup;
+/** @type {number[]} */
 let ItemColorPickerIndices = [];
+/** @type {itemColorExitListener[]} */
 let ItemColorExitListeners = [];
+/** @type {string} */
 let ItemColorBackup;
 let ItemColorText = new TextCache("Screens/Character/ItemColor/ItemColor.csv");
+/** @type {TextCache} */
 let ItemColorLayerNames;
+/** @type {TextCache} */
 let ItemColorGroupNames;
 
 /**
