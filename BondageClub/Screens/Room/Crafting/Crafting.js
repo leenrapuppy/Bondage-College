@@ -433,7 +433,7 @@ function CraftingDecompressServerData(Data) {
 		Craft.Color = (Element.length >= 6) ? Element[5] : "";
 		Craft.Private = ((Element.length >= 7) && (Element[6] == "T"));
 		Craft.Type = (Element.length >= 8) ? Element[7] || null : null;
-		Craft.OverridePriority = (Element.length >= 9) ? Number.parseInt(Element[8]) : null;
+		Craft.OverridePriority = (Element.length >= 9 && Element[8] !== "") ? Number.parseInt(Element[8]) : null;
 		if (Craft.Item && Craft.Name && (Craft.Item != "") && (Craft.Name != "")) Crafts.push(Craft);
 		else Crafts.push(null);
 	}
