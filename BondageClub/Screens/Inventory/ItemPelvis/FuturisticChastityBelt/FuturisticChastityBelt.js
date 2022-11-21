@@ -80,7 +80,7 @@ function AssetsItemPelvisFuturisticChastityBeltScriptTrigger(C, Item, ShockType,
 		Dictionary.push({ AssetGroupName: Item.Asset.Group.Name });
 		let ShockPhrase = !NoShock ? "Shock" : "Punish"
 		if (!NoShock) Dictionary.push({ ShockIntensity : 2});
-		if (Item.Property && Item.Property.ChatMessage) {
+		if (Item.Property && Item.Property.ShowText) {
 			Dictionary.push({ Automatic: true });
 			ServerSend("ChatRoomChat", { Content: "FuturisticChastityBelt" + ShockPhrase + ShockType, Type: "Action", Dictionary });
 		} else {

@@ -74,7 +74,7 @@ function InventoryItemPelvisObedienceBeltShockModule1Draw() {
 	ExtendedItemDrawHeader(1387, 125);
 
 	MainCanvas.textAlign = "left";
-	DrawCheckbox(1100, 590, 64, 64, DialogFindPlayer("ObedienceBeltShowChatMessage"), DialogFocusItem.Property.ChatMessage, false, "White");
+	DrawCheckbox(1100, 590, 64, 64, DialogFindPlayer("ObedienceBeltShowChatMessage"), DialogFocusItem.Property.ShowText, false, "White");
 	DrawCheckbox(1100, 660, 64, 64, DialogFindPlayer("ObedienceBeltPunishOrgasm"), DialogFocusItem.Property.PunishOrgasm, false, "White");
 	DrawCheckbox(1100, 730, 64, 64, DialogFindPlayer("ObedienceBeltPunishStandup"), DialogFocusItem.Property.PunishStandup, false, "White");
 
@@ -90,7 +90,7 @@ function InventoryItemPelvisObedienceBeltShockModule1Click() {
 
 	const C = CharacterGetCurrent();
 	if (MouseIn(1100, 590, 64, 64)) {
-		DialogFocusItem.Property.ChatMessage = !DialogFocusItem.Property.ChatMessage;
+		DialogFocusItem.Property.ShowText = !DialogFocusItem.Property.ShowText;
 		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 		return;
 	}
@@ -124,7 +124,7 @@ function InventoryItemPelvisObedienceBeltInit(item) {
 	if (!item) return;
 	item.Property = item.Property || {};
 	if (typeof item.Property.Type !== "string") item.Property.Type = "";
-	if (typeof item.Property.ChatMessage !== "boolean") item.Property.ChatMessage = false;
+	if (typeof item.Property.ShowText !== "boolean") item.Property.ShowText = false;
 	if (typeof item.Property.PunishOrgasm !== "boolean") item.Property.PunishOrgasm = false;
 	if (typeof item.Property.PunishStandup !== "boolean") item.Property.PunishStandup = false;
 	if (typeof item.Property.NextShockTime !== "number") item.Property.NextShockTime = 0;
