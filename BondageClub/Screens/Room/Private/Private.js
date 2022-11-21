@@ -406,7 +406,7 @@ function PrivateLoad() {
 		MustSync = (MustSync || UpdateRequired);
 	}
 	MustSync = (MustSync || PrivateRelationDecay());
-	MustSync = (MustSync || PrivateRansomStart());
+	if (PrivateEntryEvent) MustSync = (MustSync || PrivateRansomStart());
 	if (MustSync) ServerPrivateCharacterSync();
 
 	// There's a 20% odds that the owner will interecpt the player as soon as she enters the room
