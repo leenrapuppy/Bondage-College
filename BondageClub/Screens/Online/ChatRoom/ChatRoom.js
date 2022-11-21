@@ -6,8 +6,8 @@
  * @enum {string}
  */
 const ChatRoomSpaceType = {
-	MIXED: "",
-	FEMALE_ONLY: "F",
+	MIXED: "X",
+	FEMALE_ONLY: "",
 	MALE_ONLY: "M",
 	ASYLUM: "Asylum",
 };
