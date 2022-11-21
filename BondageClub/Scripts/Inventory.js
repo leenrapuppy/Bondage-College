@@ -222,7 +222,7 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		// Checks for genitalia
 		case "HasVagina": return !InventoryIsItemInList(C, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]) ? "MustHaveVagina" : "";
 		case "HasPenis": return !InventoryIsItemInList(C, "Pussy", ["Penis"]) ? "MustHavePenis" : "";
-		
+
 		// Checks for torso access based on clothes
 		case "AccessTorso": return !InventoryDoItemsExposeGroup(C, "ItemTorso", ["Cloth"]) ? "RemoveClothesForItem" : "";
 
@@ -470,10 +470,12 @@ function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=tr
 	if (Item.Craft.MemberName == null) Item.Craft.MemberName = CharacterNickname(Source);
 
 	// Set the item priority
-	if (Item.Property == null) {
-		Item.Property = {OverridePriority: Craft.OverridePriority};
-	} else {
-		Item.Property.OverridePriority = Craft.OverridePriority;
+	if (Craft.OverridePriority != null) {
+		if (Item.Property == null) {
+			Item.Property = {OverridePriority: Craft.OverridePriority};
+		} else {
+			Item.Property.OverridePriority = Craft.OverridePriority;
+		}
 	}
 
 	// The properties are only applied on self or NPCs to prevent duplicating the effect

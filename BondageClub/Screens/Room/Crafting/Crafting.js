@@ -433,7 +433,7 @@ function CraftingDecompressServerData(Data) {
 		Craft.Color = (Element.length >= 6) ? Element[5] : "";
 		Craft.Private = ((Element.length >= 7) && (Element[6] == "T"));
 		Craft.Type = (Element.length >= 8) ? Element[7] || null : null;
-		Craft.OverridePriority = (Element.length >= 9) ? Number.parseInt(Element[8]) : null;
+		Craft.OverridePriority = (Element.length >= 9 && Element[8] !== "") ? Number.parseInt(Element[8]) : null;
 		if (Craft.Item && Craft.Name && (Craft.Item != "") && (Craft.Name != "")) Crafts.push(Craft);
 		else Crafts.push(null);
 	}
@@ -811,10 +811,7 @@ function CraftingItemListBuild() {
 				return true
 			} else {
 				const Colors = c.Color.replace(" ", "").split(",");
-				return (
-					Colors.every((c) => CommonIsColor(c) || (c === "Default"))
-					&& (Colors.length <= a.ColorableLayerCount)
-				);
+				return Colors.every((c) => CommonIsColor(c) || (c === "Default"));
 			}
 		},
 		GetDefault: function(c, a) {
@@ -823,7 +820,7 @@ function CraftingItemListBuild() {
 			} else {
 				const Colors = c.Color.replace(" ", "").split(",");
 				const ColorsNew = Colors.map((c) => CommonIsColor(c) ? c : "Default");
-				return ColorsNew.slice(0, a.ColorableLayerCount).join(",");
+				return ColorsNew.join(",");
 			}
 		},
 		StatusCode: CraftingStatusCode.ERROR,
@@ -890,15 +887,9 @@ function CraftingItemListBuild() {
 	},
 	Type: {
 		Validate: function (c, a) {
-			if (a == null) {
-				return true;
-			} else if ((a.Archetype === ExtendedArchetype.TYPED) && (c.Type == null)) {
-				return true;
-			} else if (a.AllowType != null) {
-				return (a.AllowType && a.AllowType.includes(c.Type));
-			} else {
-				return c.Type == null;
-			}
+			// We can't reliably validate w.r.t. `Asset.AllowTypes` here, as there are potentially multiple assets with
+			// the same name but distinct types (e.g. the SturdyLeatherBelt and Ribbons)
+			return (c.Type == null) || (typeof c.Type === "string");
 		},
 		GetDefault: function (c, a) {
 			if (a == null) {

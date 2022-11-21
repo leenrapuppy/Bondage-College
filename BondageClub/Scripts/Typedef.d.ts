@@ -270,6 +270,8 @@ type CraftingPropertyType =
 /** Enum values for {@link CraftingStatusCode}. */
 type CraftingStatusType = 0 | 1 | 2;
 
+type ItemColorMode = "Default" | "ColorPicker";
+
 //#endregion
 
 //#region index.html
@@ -2699,3 +2701,52 @@ interface CratingValidationStruct {
 }
 
 //#endregion
+
+//#region Color
+
+/** An object defining a group of layers which can be colored together */
+interface ColorGroup {
+	/** The name of the color group */
+	name: string;
+	/** The layers contained within the color group */
+	layers: AssetLayer[];
+	/** The color index for the color group - this is the lowest color index of any of the layers within the color group */
+	colorIndex: number;
+}
+
+/**
+ * A callback function that is called when the item color UI exits
+ * @param c - The character being colored
+ * @param item - The item being colored
+ * @param save - Whether the item's appearance changes should be saved
+ */
+type itemColorExitListener = (
+	c: Character,
+	item: Item,
+	save: boolean,
+) => void;
+
+interface ItemColorStateType {
+	colorGroups: ColorGroup[];
+	colors: string[];
+	simpleMode: boolean;
+	paginationButtonX: number;
+	cancelButtonX: number;
+	saveButtonX: number;
+	colorPickerButtonX: number;
+	colorDisplayButtonX: number;
+	contentY: number;
+	groupButtonWidth: number;
+	pageSize: number;
+	pageCount: number;
+	colorInputWidth: number;
+	colorInputX: number;
+	colorInputY: number;
+	exportButtonX: number;
+	importButtonX: number;
+	resetButtonX: number;
+	drawImport: () => Promise<string>;
+	drawExport: (data: string) => Promise<void>;
+}
+
+//#end region
