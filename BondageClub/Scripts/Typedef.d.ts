@@ -958,6 +958,19 @@ interface ScreenFunctions {
 
 //#region Characters
 
+/** A struct for representing an item with special permissions (limited, favorited, etc). */
+interface ItemPermissions {
+	/** The {@link Asset.Name} of the item */
+	Name: string;
+	/** The {@link AssetGroup.Name} of the item */
+	Group: AssetGroupName;
+	/**
+	 * Either the item's {@link ItemProperties.Type} or, in the case of modular items,
+	 * a substring thereof denoting the type of a single module
+	 */
+	Type?: string | null;
+}
+
 interface Character {
 	ID: number;
 	/** Only on `Player` */
@@ -986,9 +999,9 @@ interface Character {
 	MustDraw: boolean;
 	BlinkFactor: number;
 	AllowItem: boolean;
-	BlockItems: any[];
-	FavoriteItems: any[];
-	LimitedItems: any[];
+	BlockItems: ItemPermissions[];
+	FavoriteItems: ItemPermissions[];
+	LimitedItems: ItemPermissions[];
 	WhiteList: number[];
 	HeightModifier: number;
 	MemberNumber?: number;
@@ -1035,7 +1048,7 @@ interface Character {
 	IsLoverOfPlayer: () => boolean;
 	GetLoversNumbers: (MembersOnly?: boolean) => (number | string)[];
 	AllowedActivePose: string[];
-	HiddenItems: any[];
+	HiddenItems: ItemPermissions[];
 	HeightRatio: number;
 	HasHiddenItems: boolean;
 	SavedColors: HSVColor[];
@@ -1679,7 +1692,13 @@ interface ExtendedItemOption {
 	/** If the option has a subscreen, this can set a particular archetype to use */
 	Archetype?: ExtendedArchetype;
 	/** If the option has an archetype, sets the config to use */
-	ArchetypeConfig?: TypedItemConfig | ModularItemConfig | VibratingItemConfig | VariableHeightConfig
+	ArchetypeConfig?: TypedItemConfig | ModularItemConfig | VibratingItemConfig | VariableHeightConfig;
+	/**
+	 * A unique (automatically assigned) identifier of the struct type
+	 * @todo consider making an {@link ExtendedItemOption} struct type wherein this field is mandatory once
+	 * more extended items have been assigned an arhcetype
+	 */
+	OptionType?: "ExtendedItemOption";
 }
 
 /**
@@ -1764,7 +1783,7 @@ type ModularItemAssetConfig = ExtendedItemAssetConfig<"modular", ModularItemConf
 /** An object defining all of the required configuration for registering a modular item */
 interface ModularItemConfig {
 	/** The module definitions for the item */
-	Modules?: ModularItemModule[];
+	Modules?: ModularItemModuleBase[];
 	/**
 	 * The item's chatroom message setting. Determines the level of
 	 * granularity for chatroom messages when the item's module values change.
@@ -1820,8 +1839,8 @@ interface ModularItemDialogConfig {
 	ChatPrefix?: string | ExtendedItemChatCallback<ModularItemOption>;
 }
 
-/** An object describing a single module for a modular item. */
-interface ModularItemModule {
+/** A (partially parsed) object describing a single module for a modular item. */
+interface ModularItemModuleBase {
 	/** The name of this module - this is usually a human-readable string describing what the
 	 * module represents (e.g. Straps). It is used for display text keys, and should be unique across all of the modules
 	 * for the item.
@@ -1833,13 +1852,23 @@ interface ModularItemModule {
 	 */
 	Key: string;
 	/** The list of option definitions that can be chosen within this module. */
-	Options: ModularItemOption[];
+	Options: ModularItemOptionBase[];
 	/** Whether or not this module can be selected by the wearer */
 	AllowSelfSelect?: boolean;
+	/** A unique (automatically assigned) identifier of the struct type */
+	OptionType?: "ModularItemModule";
 }
 
-/** An object describing a single option within a module for a modular item. */
-interface ModularItemOption {
+/** An object describing a single module for a modular item. */
+interface ModularItemModule extends ModularItemModuleBase {
+	/** A unique (automatically assigned) identifier of the struct type */
+	OptionType: "ModularItemModule";
+	/** The list of option definitions that can be chosen within this module. */
+	Options: ModularItemOption[];
+}
+
+/** A (partially parsed) object describing a single option within a module for a modular item. */
+interface ModularItemOptionBase {
 	/** The additional difficulty associated with this option - defaults to 0 */
 	Difficulty?: number;
 	/** The required bondage skill level for this option */
@@ -1882,6 +1911,18 @@ interface ModularItemOption {
 	OverridePriority?: number;
 	/** A list of activities enabled by that module */
 	AllowActivity?: string[];
+	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
+	Name?: string;
+	/** A unique (automatically assigned) identifier of the struct type */
+	OptionType?: "ModularItemOption";
+}
+
+/** An object describing a single option within a module for a modular item. */
+interface ModularItemOption extends ModularItemOptionBase {
+	/** The name of the option; automatically set to {@link ModularItemModule.Key} + the option's index */
+	Name: string;
+	/** A unique (automatically assigned) identifier of the struct type */
+	OptionType: "ModularItemOption";
 }
 
 /** An object containing modular item configuration for an asset. Contains all of the necessary information for the
@@ -1920,7 +1961,7 @@ interface ModularItemData {
 	/** A lookup for the current page in the extended item menu for each of the item's modules */
 	pages: Record<string, number>;
 	/** A lookup for the draw data for each of the item's modules */
-	drawData: Record<string, { pageCount: number, paginate: boolean, positions: number[][] }>;
+	drawData: Record<string, { pageCount: number, paginate: boolean, positions: [number, number][] }>;
 	/** A lookup for the draw functions for each of the item's modules */
 	drawFunctions: Record<string, () => void>;
 	/** A lookup for the click functions for each of the item's modules */
@@ -1944,16 +1985,16 @@ interface ModularItemData {
 	};
 }
 
-/** A 3-tuple (or 2-tuple) containing data for drawing a button in a modular item screen. A button definition takes the
+/** A 3-tuple containing data for drawing a button in a modular item screen. A button definition takes the
  * format:
  * ```
- * [imageUrl, textKey, background]
+ * [moduleOrOption, currentOption, prefix]
  * ```
- * The imageUrl is the URL for the image that should be drawn in the button.
- * The textKey is the CSV key for the text that should be displayed in the button.
- * The background is an optional CSS color string defining the background color for the button.
+ * The moduleOrOption is the to be drawn item module or option.
+ * The currentOption is currently active option within the relevant module.
+ * The prefix is the dialog prefix for the buttons text.
  */
-type ModularItemButtonDefinition = [string, string] | [string, string, string];
+type ModularItemButtonDefinition = [ModularItemOption | ModularItemModule, ModularItemOption, string]
 
 //#endregion
 

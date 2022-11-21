@@ -172,13 +172,34 @@ function ModularItemCreateExitFunction(data) {
 }
 
 /**
+ * Parse and convert the passed item modules inplace. Returns the originally passed object.
+ * @param {ModularItemModuleBase[]} Modules - An object describing a single module for a modular item.
+ * @returns {ModularItemModule[]} - The updated modules; same object as `Modules`.
+ */
+function ModularItemUpdateModules(Modules) {
+	for (const mod of Modules) {
+		mod.OptionType = "ModularItemModule";
+		mod.Options.forEach((option, i) => {
+			option.Name = `${mod.Key}${i}`;
+			option.OptionType = "ModularItemOption";
+		})
+	}
+	return /** @type {ModularItemModule[]} */(Modules);
+}
+
+/**
  * Generates an asset's modular item data
  * @param {Asset} asset - The asset to generate modular item data for
  * @param {ModularItemConfig} config - The item's extended item configuration
  * @returns {ModularItemData} - The generated modular item data for the asset
  */
 function ModularItemCreateModularData(asset,
-	{ Modules, ChatSetting, ChatTags, ChangeWhenLocked, Dialog, ScriptHooks }) {
+	{ Modules, ChatSetting, ChatTags, ChangeWhenLocked, Dialog, ScriptHooks }
+) {
+	// Set the name of all modular item options
+	// Use an external function as typescript does not like the inplace updating of an object's type
+	const ModulesParsed = ModularItemUpdateModules(Modules);
+
 	const key = `${asset.Group.Name}${asset.Name}`;
 	Dialog = Dialog || {};
 	/** @type {ModularItemData} */
@@ -196,10 +217,10 @@ function ModularItemCreateModularData(asset,
 			CommonChatTags.SOURCE_CHAR,
 			CommonChatTags.DEST_CHAR,
 		],
-		modules: Modules,
+		modules: ModulesParsed,
 		currentModule: ModularItemBase,
 		pages: { [ModularItemBase]: 0 },
-		drawData: { [ModularItemBase]: ModularItemCreateDrawData(Modules.length) },
+		drawData: { [ModularItemBase]: ModularItemCreateDrawData(ModulesParsed.length) },
 		changeWhenLocked: typeof ChangeWhenLocked === "boolean" ? ChangeWhenLocked : true,
 		scriptHooks: {
 			load: ScriptHooks ? ScriptHooks.Load : undefined,
@@ -212,7 +233,7 @@ function ModularItemCreateModularData(asset,
 	};
 	data.drawFunctions[ModularItemBase] = ModularItemCreateDrawBaseFunction(data);
 	data.clickFunctions[ModularItemBase] = ModularItemCreateClickBaseFunction(data);
-	for (const module of Modules) {
+	for (const module of ModulesParsed) {
 		data.pages[module.Name] = 0;
 		data.drawData[module.Name] = ModularItemCreateDrawData(module.Options.length);
 		data.drawFunctions[module.Name] = () => ModularItemDrawModule(module, data);
@@ -226,10 +247,11 @@ function ModularItemCreateModularData(asset,
  * Generates drawing data for a given module. This includes button positions, whether pagination is necessary, and the
  * total page count for that module.
  * @param {number} itemCount - The number of items in the module
- * @returns {{pageCount: number, paginate: boolean, positions: number[][]}} - An object containing required drawing for
+ * @returns {{pageCount: number, paginate: boolean, positions: [number, number][]}} - An object containing required drawing for
  * a module with the given item count.
  */
 function ModularItemCreateDrawData(itemCount) {
+	/** @type {[number, number][]} */
 	const positions = [];
 	const left = 1000;
 	const width = 1000;
@@ -263,14 +285,12 @@ function ModularItemCreateDrawData(itemCount) {
  */
 function ModularItemCreateDrawBaseFunction(data) {
 	return () => {
-		const currentModuleValues = ModularItemParseCurrent(data);
-		const buttonDefinitions = data.modules.map((module, i) => (
-			/** @type ModularItemButtonDefinition */([
-				`${AssetGetInventoryPath(data.asset)}/${module.Key}${currentModuleValues[i]}.png`,
-				`${data.dialogModulePrefix}${module.Name}`,
-				CharacterGetCurrent().ID === 0 && module.AllowSelfSelect === false ? "pink" : "white",
-			])
-		));
+		/** @type {ModularItemButtonDefinition[]} */
+		const buttonDefinitions = data.modules.map((module, i) => {
+			const currentValues = ModularItemParseCurrent(data);
+			const currentOption = module.Options[currentValues[i]];
+			return [module, currentOption, data.dialogModulePrefix];
+		});
 		return ModularItemDrawCommon(ModularItemBase, buttonDefinitions, data);
 	};
 }
@@ -278,24 +298,14 @@ function ModularItemCreateDrawBaseFunction(data) {
 /**
  * Maps a modular item option to a button definition for rendering the option's button.
  * @param {ModularItemOption} option - The option to draw a button for
- * @param {number} optionIndex - The option's index within its parent module
  * @param {ModularItemModule} module - A reference to the option's parent module
  * @param {ModularItemData} data - The modular item's data
  * @param {number} currentOptionIndex - The currently selected option index for the module
  * @returns {ModularItemButtonDefinition} - A button definition array representing the provided option
  */
-function ModularItemMapOptionToButtonDefinition(option, optionIndex, module,
-	{ asset, dialogOptionPrefix, changeWhenLocked }, currentOptionIndex) {
-	const optionName = `${module.Key}${optionIndex}`;
-	let color = "#fff";
+function ModularItemMapOptionToButtonDefinition(option, module, { dialogOptionPrefix }, currentOptionIndex) {
 	const currentOption = module.Options[currentOptionIndex];
-	if (currentOptionIndex === optionIndex) color = "#888";
-	else if (ModularItemRequirementCheckMessageMemo(option, currentOption, changeWhenLocked)) color = "pink";
-	return [
-		`${AssetGetInventoryPath(asset)}/${optionName}.png`,
-		`${dialogOptionPrefix}${optionName}`,
-		color,
-	];
+	return [option, currentOption, dialogOptionPrefix];
 }
 
 /**
@@ -315,15 +325,21 @@ function ModularItemDrawCommon(moduleName, buttonDefinitions, { asset, pages, dr
 	DrawAssetPreview(1387, 55, asset, {Icons: locked ? ["Locked"] : undefined});
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 
+	// Permission mode toggle
+	DrawButton(
+		1775, 25, 90, 90, "", "White",
+		ExtendedItemPermissionMode ? "Icons/DialogNormalMode.png" : "Icons/DialogPermissionMode.png",
+		DialogFindPlayer(ExtendedItemPermissionMode ? "DialogNormalMode" : "DialogPermissionMode"),
+	);
+
 	const { paginate, pageCount, positions } = drawData[moduleName];
 	const pageNumber = Math.min(pageCount - 1, pages[moduleName] || 0);
 	const pageStart = pageNumber * ModularItemsPerPage;
 	const page = buttonDefinitions.slice(pageStart, pageStart + 8);
 
-	page.forEach((buttonDefinition, i) => {
-		const x = positions[i][0];
-		const y = positions[i][1];
-		DrawPreviewBox(x, y, buttonDefinition[0], DialogFindPlayer(buttonDefinition[1]), { Background: buttonDefinition[2], Hover: true });
+	page.forEach(([option, currentOption, prefix], i) => {
+		const [x, y] = positions[i];
+		ExtendedItemDrawButton(option, currentOption, prefix, x, y);
 	});
 
 	if (paginate) {
@@ -342,7 +358,7 @@ function ModularItemDrawModule(module, data) {
 	const moduleIndex = data.modules.indexOf(module);
 	const currentValues = ModularItemParseCurrent(data);
 	const buttonDefinitions = module.Options.map(
-		(option, i) => ModularItemMapOptionToButtonDefinition(option, i, module, data, currentValues[moduleIndex]));
+		(option) => ModularItemMapOptionToButtonDefinition(option, module, data, currentValues[moduleIndex]));
 	ModularItemDrawCommon(module.Name, buttonDefinitions, data);
 }
 
@@ -398,7 +414,16 @@ function ModularItemClickModule(module, data) {
 			const pageStart = pageNumber * ModularItemsPerPage;
 			const page = module.Options.slice(pageStart, pageStart + ModularItemsPerPage);
 			const selected = page[i];
-			if (selected) ModularItemSetType(module, pageStart + i, data);
+			if (selected) {
+				if (ExtendedItemPermissionMode) {
+					const C = CharacterGetCurrent();
+					const IsFirst = selected.Name.includes("0");
+					const Worn = C.ID == 0 && DialogFocusItem.Property.Type.includes(selected.Name);
+					InventoryTogglePermission(DialogFocusItem, selected.Name, IsFirst || Worn);
+				} else {
+					ModularItemSetType(module, pageStart + i, data);
+				}
+			}
 		},
 		(delta) => ModularItemChangePage(module.Name, delta, data)
 	);
@@ -423,7 +448,16 @@ function ModularItemClickCommon({ paginate, positions }, exitCallback, itemCallb
 
 	// Exit button
 	if (MouseIn(1885, 25, 90, 90)) {
-		return exitCallback();
+		exitCallback();
+		ExtendedItemPermissionMode = false;
+		return;
+	} else if (MouseIn(1775, 25, 90, 90)) {
+		// Permission toggle button
+		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") {
+			ChatRoomCharacterUpdate(Player);
+		}
+		ExtendedItemPermissionMode = !ExtendedItemPermissionMode;
+		return;
 	} else if (paginate) {
 		if (MouseIn(1665, 240, 90, 90)) return paginateCallback(-1);
 		else if (MouseIn(1775, 240, 90, 90)) return paginateCallback(1);
@@ -554,6 +588,19 @@ function ModularItemConstructType(modules, values) {
 		type += (values[i] || 0);
 	});
 	return type;
+}
+
+/**
+ * Seperate a modular item type string into a list with the types of each individual module.
+ * @param {string} Type - The modular item type string
+ * @returns {string[] | null} - A list with the options of each individual module or `null` if the input type wasn't a string
+ */
+function ModularItemDeconstructType(Type) {
+	if (typeof Type !== "string") {
+		return null;
+	} else {
+		return Type.split(/([a-zA-Z_]+)(\d+)/);
+	}
 }
 
 /**

@@ -54,7 +54,7 @@ var VibratorModeSet = {
  *             Mode: VibratorMode,
  *             Intensity: number | (() => number),
  *             Effect: EffectName[] | ((Intensity: number) => EffectName[]),
- *         }
+ *         },
  *     })[]
  * }}
  * @constant

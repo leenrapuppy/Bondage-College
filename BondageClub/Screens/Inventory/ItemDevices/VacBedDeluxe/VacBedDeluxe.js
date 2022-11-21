@@ -13,28 +13,28 @@ var InventoryItemDevicesVacBedDeluxeOptions = [
 			Type: null,
 			SetPose: ["BaseLower"],
 		},
-		Prerequisite: ["LegsOpen"]
+		Prerequisite: ["LegsOpen"],
 	},
 	{
 		Name: "ArmsDownLegsTogether",
 		Property: {
 			Type: "ArmsDownLegsTogether",
 			SetPose: ["LegsClosed"]
-		}
+		},
 	},
 	{
 		Name: "ArmsUpLegsSpread",
 		Property: {
 			Type: "ArmsUpLegsSpread",
 			SetPose: ["Yoked", "BaseLower"]
-		}
+		},
 	},
 	{
 		Name: "ArmsUpLegsTogether",
 		Property: {
 			Type: "ArmsUpLegsTogether",
 			SetPose: ["Yoked", "LegsClosed"]
-		}
+		},
 	},
 ];
 
