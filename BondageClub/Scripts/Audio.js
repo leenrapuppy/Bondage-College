@@ -105,11 +105,11 @@ var AudioActions = [
 		GetSoundEffect: AudioGetSoundFromChatMessage,
 	},
 	{
-		IsAction: (data) => ["KennelSetDC", "KennelSetPADC", "KennelSetPRDC"].some(A => data.Content === A),
+		IsAction: (data) => ["ItemDevicesKennelSetd1"].some(A => data.Content === A),
 		GetSoundEffect: () => "CageClose"
 	},
 	{
-		IsAction: (data) => ["KennelSetDO", "KennelSetPADO", "KennelSetPRDO"].some(A => data.Content === A),
+		IsAction: (data) => ["ItemDevicesKennelSetd0"].some(A => data.Content === A),
 		GetSoundEffect: () => "CageOpen"
 	},
 	{
