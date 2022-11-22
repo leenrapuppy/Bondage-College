@@ -110,7 +110,7 @@ function ModularItemCreateLoadFunction(data) {
 			CharacterRefresh(C);
 			ChatRoomCharacterItemUpdate(C, data.asset.Group.Name);
 		}
-		DialogExtendedMessage = DialogFindPlayer(`${data.dialogSelectPrefix}${ModularItemBase}`);
+		DialogExtendedMessage = DialogFindPlayer(`${data.dialogSelectPrefix}${data.currentModule}`);
 	};
 	if (data.scriptHooks && data.scriptHooks.load) {
 		window[loadFunctionName] = function () {
