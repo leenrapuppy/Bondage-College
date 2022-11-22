@@ -1283,6 +1283,8 @@ interface PlayerCharacter extends Character {
 		DisableAnimations?: any;
 		/** @deprecated */
 		SearchShowsFullRooms?: any;
+		CensoredWordsList: string;
+		CensoredWordsLevel: number;
 	};
 	VisualSettings?: {
 		ForceFullHeight?: boolean;

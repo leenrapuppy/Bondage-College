@@ -17,6 +17,7 @@ HomepageGeneral,General
 HomepageDifficulty,Difficulty
 HomepageRestriction,Restriction
 HomepageChat,Chat
+HomepageCensoredWords,Censored Words
 HomepageAudio,Audio
 HomepageArousal,Arousal
 HomepageSecurity,Security
@@ -81,8 +82,8 @@ ErrorInvalidColor,Put a valid hex #red-green-blue color
 ColorTheme,Color theme:
 Light,Light
 Dark,Dark
-Light2, Light 2,
-Dark2,Dark 2,
+Light2, Light 2
+Dark2,Dark 2
 EnterLeaveStyle,Enter/Leave message style:
 Normal,Normal
 Smaller,Smaller
@@ -134,7 +135,7 @@ SensDepExtreme,Total
 DoBlindFlash,Flash after blindness
 SmoothZoom,Zoom chatrooms smoothly
 CenterChatrooms,Center players in chatrooms
-AllowPlayerLeashing,"Players can drag you to rooms when leashed"
+AllowPlayerLeashing,Players can drag you to rooms when leashed
 DisableAutoMaid,Maids come automatically when restrained
 DisablePickingLocksOnSelf,Locks on you can't be picked
 BlindDisableExamine,Disable examining when blind
@@ -331,5 +332,13 @@ AllowTints,Allow item tint effects
 AllowBlur,Allow item blur effects (turn off if experiencing frame rate drops)
 GenderFemales,Females
 GenderMales,Males
-GenderAutoJoinSearch,"Automatically enter the chatroom area for: "
-GenderHideShopItems,"Hide shop items exclusively for: "
+GenderAutoJoinSearch,Automatically enter the chatroom area for: 
+GenderHideShopItems,Hide shop items exclusively for: 
+CensorExit,Apply the censoring
+CensorTitle,Select the censorship to apply and the words to censor in both the chat and room labels.
+CensorLevel,Censorship:
+CensorLevel0,Replace the word by ***
+CensorLevel1,Replace the phrase by ***
+CensorLevel2,Hide the phrase or room
+CensorWord,Censored words:
+CensorAdd,Add

@@ -4,7 +4,7 @@ var PreferenceMessage = "";
 var PreferenceSafewordConfirm = false;
 var PreferenceColorPick = "";
 var PreferenceSubscreen = "";
-var PreferenceSubscreenList = ["General", "Difficulty", "Restriction", "Chat", "Audio", "Arousal", "Security", "Online", "Visibility", "Immersion", "Graphics", "Controller", "Notifications", "Gender"];
+var PreferenceSubscreenList = ["General", "Difficulty", "Restriction", "Chat", "CensoredWords", "Audio", "Arousal", "Security", "Online", "Visibility", "Immersion", "Graphics", "Controller", "Notifications", "Gender"];
 var PreferencePageCurrent = 1;
 var PreferenceChatColorThemeList = ["Light", "Dark", "Light2", "Dark2"];
 var PreferenceChatColorThemeIndex = 0;
@@ -62,6 +62,8 @@ var PreferenceGraphicsPowerModeIndex = null;
 var PreferenceGraphicsWebGLOptions = null;
 var PreferenceGraphicsAnimationQualityList = [10000, 2000, 200, 100, 50, 0];
 var PreferenceCalibrationStage = 0;
+var PreferenceCensoredWordsList = [];
+var PreferenceCensoredWordsOffset = 0;
 
 /**
  * An object defining which genders a setting is active for
@@ -371,6 +373,8 @@ function PreferenceInitPlayer() {
 	if (typeof C.ChatSettings.ShowChatHelp !== "boolean") C.ChatSettings.ShowChatHelp = true;
 	if (typeof C.ChatSettings.ShrinkNonDialogue !== "boolean") C.ChatSettings.ShrinkNonDialogue = false;
 	if (typeof C.ChatSettings.WhiteSpace !== "string") C.ChatSettings.WhiteSpace = "Preserve";
+	if (typeof C.ChatSettings.CensoredWordsList !== "string") C.ChatSettings.CensoredWordsList = "";
+	if (typeof C.ChatSettings.CensoredWordsLevel !== "number") C.ChatSettings.CensoredWordsLevel = 0;
 
 	// Visual settings
 	// @ts-ignore: Individual properties validated separately
@@ -700,6 +704,12 @@ function PreferenceLoad() {
 	PreferenceGraphicsAnimationQualityIndex = (PreferenceGraphicsAnimationQualityList.indexOf(Player.GraphicsSettings.AnimationQuality) < 0) ? 0 : PreferenceGraphicsAnimationQualityList.indexOf(Player.GraphicsSettings.AnimationQuality);
 	PreferenceGraphicsWebGLOptions = GLDrawGetOptions();
 	PreferenceGraphicsPowerModeIndex = (PreferenceGraphicsPowerModes.indexOf(PreferenceGraphicsWebGLOptions.powerPreference) < 0) ? 0 : PreferenceGraphicsPowerModes.indexOf(PreferenceGraphicsWebGLOptions.powerPreference);
+
+	// Prepares the censored words list
+	PreferenceCensoredWordsOffset = 0;
+	PreferenceCensoredWordsList = [];
+	if ((Player.ChatSettings.CensoredWordsList != null) && (Player.ChatSettings.CensoredWordsList != "")) PreferenceCensoredWordsList = Player.ChatSettings.CensoredWordsList.split("|");
+
 }
 
 /**
@@ -1151,8 +1161,7 @@ function PreferenceSubscreenAudioRun() {
 }
 
 /**
- * Sets the audio preferences for the player. Redirected to from the main Run function if the player is in the audio
- * settings subscreen
+ * Sets the controller preferences for the player. Redirected to from the main Run function.
  * @returns {void} - Nothing
  */
 function PreferenceSubscreenControllerRun() {
@@ -1222,6 +1231,34 @@ function PreferenceSubscreenControllerRun() {
 	}
 	MainCanvas.textAlign = "center";
 }
+
+/**
+ * Sets the censored words for the player. Redirected to from the main Run function.
+ * @returns {void} - Nothing
+ */
+ function PreferenceSubscreenCensoredWordsRun() {
+
+	// Draw the header
+	DrawText(TextGet("CensorTitle"), 930, 105, "Black", "Silver");
+	DrawButton(1830, 60, 90, 90, "", "White", "Icons/Exit.png", TextGet("CensorExit"));
+	DrawText(TextGet("CensorLevel"), 200, 205, "Black", "Silver");
+	DrawButton(350, 175, 550, 60, TextGet("CensorLevel" + Player.ChatSettings.CensoredWordsLevel), "White");
+	DrawText(TextGet("CensorWord"), 1080, 205, "Black", "Silver");
+	ElementPosition("InputWord", 1385, 200, 300);
+	DrawButton(1550, 175, 180, 60, TextGet("CensorAdd"), "White");
+	if (PreferenceCensoredWordsList.length > 32) DrawButton(1830, 175, 90, 90, "", "White", "Icons/Next.png");
+
+	// List all words with a delete button
+	MainCanvas.textAlign = "left";
+	for (let O = PreferenceCensoredWordsOffset; O < PreferenceCensoredWordsList.length && O < PreferenceCensoredWordsOffset + 32; O++) {
+		let X = 100 + Math.floor((O - PreferenceCensoredWordsOffset)/ 8) * 450;
+		let Y = 270 + ((O % 8) * 84);
+		DrawButton(X, Y, 60, 60, "", "White", "Icons/Small/Remove.png");
+		DrawText(PreferenceCensoredWordsList[O], X + 100, Y + 30, "Black", "Gray");
+	}
+	MainCanvas.textAlign = "center";
+
+ }
 
 /**
  * Sets the chat preferences for the player. Redirected to from the main Run function if the player is in the chat
@@ -1634,7 +1671,7 @@ function PreferenceSubscreenAudioExit() {
 }
 
 /**
- * Handles click events for the audio preference settings.  Redirected from the main Click function.
+ * Handles click events for the controller preference settings.  Redirected from the main Click function.
  * @returns {void} - Nothing
  */
 function PreferenceSubscreenControllerClick() {
@@ -1672,6 +1709,47 @@ function PreferenceSubscreenControllerClick() {
 		}
 	}
 }
+
+/**
+ * Handles click events for the censored words preference settings.  Redirected from the main Click function.
+ * @returns {void} - Nothing
+ */
+ function PreferenceSubscreenCensoredWordsClick() {
+
+	// When the user clicks on the header buttons
+	if (MouseIn(1830, 60, 250, 65)) PreferenceSubscreenCensoredWordsExit();
+	if (MouseIn(1550, 175, 180, 60)) {
+		let Word = ElementValue("InputWord").trim().toUpperCase().replace("|", "");
+		if ((Word != "") && (PreferenceCensoredWordsList.indexOf(Word) < 0)) {
+			PreferenceCensoredWordsList.push(Word);
+			PreferenceCensoredWordsList.sort();
+			ElementValue("InputWord", "");
+		}
+		return;
+	}
+	if (MouseIn(350, 175, 550, 60)) {
+		Player.ChatSettings.CensoredWordsLevel++;
+		if (Player.ChatSettings.CensoredWordsLevel > 2) Player.ChatSettings.CensoredWordsLevel = 0;
+		return;
+	}
+	if (MouseIn(1830, 175, 250, 65)) {
+		PreferenceCensoredWordsOffset = PreferenceCensoredWordsOffset + 32;
+		if (PreferenceCensoredWordsOffset >= PreferenceCensoredWordsList.length) PreferenceCensoredWordsOffset = 0;
+		return;
+	}
+
+	// When the user clicks to delete one of the words
+	for (let O = PreferenceCensoredWordsOffset; O < PreferenceCensoredWordsList.length && O < PreferenceCensoredWordsOffset + 32; O++) {
+		let X = 100 + Math.floor((O - PreferenceCensoredWordsOffset)/ 8) * 450;
+		let Y = 270 + ((O % 8) * 84);
+		if (MouseIn(X, Y, 60, 60)) {
+			PreferenceCensoredWordsList.splice(O, 1);
+			if (PreferenceCensoredWordsOffset >= PreferenceCensoredWordsList.length) PreferenceCensoredWordsOffset = 0;
+			return;
+		}
+	}
+
+ }
 
 /**
  * Handles the click events for the chat settings of a player.  Redirected from the main Click function.
@@ -2118,13 +2196,22 @@ function PreferenceSubscreenDifficultyExit() {
 }
 
 /**
- * Loads the Preferences screen.
+ * Loads the preference security screen.
  * @returns {void} - Nothing
  */
 function PreferenceSubscreenSecurityLoad() {
 	ElementCreateInput("InputEmailOld", "text", "", "100");
 	ElementCreateInput("InputEmailNew", "text", "", "100");
 	ServerSend("AccountQuery", { Query: "EmailStatus" });
+}
+
+/**
+ * Loads the preference censored words screen.
+ * @returns {void} - Nothing
+ */
+ function PreferenceSubscreenCensoredWordsLoad() {
+	PreferenceCensoredWordsOffset = 0;
+	ElementCreateInput("InputWord", "text", "", "50");
 }
 
 /**
@@ -2349,6 +2436,16 @@ function PreferenceSubscreenControllerExit() {
 	PreferenceSubscreen = "";
 	PreferenceCalibrationStage = 0;
 	Calibrating = false;
+}
+
+/**
+ * Exits the preference screen
+ * @returns {void} - Nothing
+ */
+function PreferenceSubscreenCensoredWordsExit() {
+	ElementRemove("InputWord");
+	Player.ChatSettings.CensoredWordsList = PreferenceCensoredWordsList.join("|");
+	PreferenceSubscreen = "";
 }
 
 /**
