@@ -3169,7 +3169,7 @@ var AssetFemale3DCGExtended = {
 									Hide: [],
 								}
 							}, // Blindfold and all gags
-						
+
 						]
 
 					},
@@ -4259,6 +4259,52 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // ShockDildo
+		ClitAndDildoVibratorbelt: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "DildoIntensity",
+						Key: "d",
+						DrawImages: false,
+						Options: [
+							{ Property: { Intensity: -1, Effect: ["Egged"] } }, // d0 - Turn Off
+							{ Property: { Intensity: 0, Effect: ["Egged", "Vibrating"] } }, // d1 - Low
+							{ Property: { Intensity: 1, Effect: ["Egged", "Vibrating"] } }, // d2 - Medium
+							{ Property: { Intensity: 2, Effect: ["Egged", "Vibrating"] } }, // d3 - High
+							{ Property: { Intensity: 3, Effect: ["Egged", "Vibrating"] } }, // d4 - Maximum
+						],
+					},
+					{
+						Name: "EggIntensity",
+						Key: "e",
+						DrawImages: false,
+						Options: [
+							{ Property: { Intensity: -1, Effect: ["Egged"] } }, // e0 - Turn Off
+							{ Property: { Intensity: 0, Effect: ["Egged", "Vibrating"] } }, // e1 - Low
+							{ Property: { Intensity: 1, Effect: ["Egged", "Vibrating"] } }, // e2 - Medium
+							{ Property: { Intensity: 2, Effect: ["Egged", "Vibrating"] } }, // e3 - High
+							{ Property: { Intensity: 3, Effect: ["Egged", "Vibrating"] } }, // e4 - Maximum
+						],
+					},
+				],
+				ScriptHooks: {
+					Draw: InventoryItemVulvaClitAndDildoVibratorbeltDraw,
+					Exit: InventoryItemVulvaClitAndDildoVibratorbeltExit,
+				},
+				Dialog: {
+					ChatPrefix: ({previousOption, newOption}) => {
+						if (DialogFocusItem == null) {
+							return "";
+						}
+						const Prefix = DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name;
+						const Change = Number.parseInt(newOption.Name[1]) - Number.parseInt(previousOption.Name[1]);
+						const StateChange = (Change > 0) ? "Increase" : "Decrease";
+						return `${Prefix}${StateChange}`;
+					},
+				},
+			},
+		}, // ClitAndDildoVibratorbelt
 	}, // ItemVulva
 	ItemVulvaPiercings: {
 		ClitRing: {
@@ -5848,7 +5894,7 @@ var AssetFemale3DCGExtended = {
                 Modules: [
                     {
                         Name: "Filter", Key: "f",
-                        Options: [{}, {}, {}, {}, ] // None,Filter,SmallTubes,LargeTubes 
+                        Options: [{}, {}, {}, {}, ] // None,Filter,SmallTubes,LargeTubes
                     },
                     {
                         Name: "Glow", Key: "g",
@@ -7071,7 +7117,9 @@ var AssetFemale3DCGExtended = {
 				},
 				Dialog: {
 					ChatPrefix: ({previousOption, newOption}) => {
-						// @ts-ignore
+						if (DialogFocusItem == null) {
+							return "";
+						}
 						const Prefix = `${DialogFocusItem.Asset.Group.Name}${DialogFocusItem.Asset.Name}Set`;
 						const IntensityPattern = /^(i)(\d+)$/g;
 						if (!IntensityPattern.test(newOption.Name)) {

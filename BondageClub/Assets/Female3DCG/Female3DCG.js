@@ -2941,11 +2941,13 @@ var AssetFemale3DCG = [
 			{ Name: "HeavyWeightClamp", Gender: "F", Fetish: ["Metal", "Masochism"], Value: 30, Time: 5, Prerequisite: ["AccessVulva", "HasVagina"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
 			{ Name: "FullLatexSuitWand", Gender: "F", Fetish: ["Latex"], Priority: 34, Value: -1, Difficulty: 12, Time: 5, IsRestraint: true, AllowLock: true, Block: ["ItemVulvaPiercings"] },
 			{
-				Name: "ClitAndDildoVibratorbelt", Gender: "F", Fetish: ["Leather"], Priority: 11, Value: 100, Time: 10, AllowLock: true, Prerequisite: ["AccessVulva", "HasVagina"], Hide: ["Panties"], Effect: ["Egged", "FillVulva"], AllowEffect: ["Egged", "Vibrating", "FillVulva", "Edged"], Block: ["ItemPelvis"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
+				Name: "ClitAndDildoVibratorbelt", Gender: "F", Fetish: ["Leather"], Priority: 11, Value: 100, Time: 10, AllowLock: true,
+				Prerequisite: ["AccessVulva", "HasVagina"], Hide: ["Panties"], Effect: ["Egged", "FillVulva"], Block: ["ItemPelvis"],
+				ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
 				Extended: true,
 				Layer: [
-					{ Name: "Belt", AllowColorize: true },
-					{ Name: "Crotch", AllowColorize: false }
+					{ Name: "Belt", AllowColorize: true, HasType: false },
+					{ Name: "Crotch", AllowColorize: false, HasType: false }
 				]
 			},
 			{
