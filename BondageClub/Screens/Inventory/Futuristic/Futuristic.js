@@ -123,7 +123,7 @@ function InventoryItemFuturisticLoadAccessDenied() {
 
 // Draw the futuristic item ACCESS DENIED screen
 function InventoryItemFuturisticDrawAccessDenied() {
-	DrawAssetPreview(1387, 225, DialogFocusItem.Asset);
+	ExtendedItemDrawHeader(1387, 225);
 
 	DrawText(DialogFindPlayer("FuturisticItemLoginScreen"), 1500, 600, "White", "Gray");
 

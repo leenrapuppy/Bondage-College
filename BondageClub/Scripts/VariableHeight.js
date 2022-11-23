@@ -138,8 +138,7 @@ function VariableHeightCreateLoadFunction({ defaultProperty, maxHeight, minHeigh
 function VariableHeightCreateDrawFunction({ functionPrefix, asset, slider }) {
 	const drawFunctionName = `${functionPrefix}Draw`;
 	window[drawFunctionName] = function () {
-		const locked = InventoryItemHasEffect(DialogFocusItem, "Lock", true);
-		DrawAssetPreview(1387, 55, asset, {Icons: locked ? ["Locked"] : undefined});
+		ExtendedItemDrawHeader();
 		DrawText(DialogFindPlayer("VariableHeightSelect"), 1500, 375, "white", "gray");
 
 		ElementPosition(VariableHeightSliderId, 1140, slider.Top + slider.Height / 2, 100, slider.Height);

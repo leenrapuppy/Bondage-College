@@ -32,7 +32,7 @@ function InventoryItemHeadDroneMaskPattern5LoadBase() {
 // Draw extension screen image
 function InventoryItemHeadDroneMaskPattern5Draw() {
     // Draw header and item
-    DrawAssetPreview(1387,125, DialogFocusItem.Asset);
+    ExtendedItemDrawHeader(1387, 125);
 
     // Tag data
     ElementPosition (InventoryItemHeadDroneMaskInputId, 1505, 600, 250);

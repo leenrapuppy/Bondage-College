@@ -302,19 +302,8 @@ function VibratorModeLoad(Options) {
  * @returns {void} - Nothing
  */
 function VibratorModeDraw(Options) {
-	VibratorModeDrawHeader();
+	ExtendedItemDrawHeader(1387, 100);
 	VibratorModeDrawControls(Options);
-}
-
-/**
- * Common draw function for drawing the header of the extended item menu screen for a vibrator
- * @returns {void} - Nothing
- */
-function VibratorModeDrawHeader() {
-	const Asset = DialogFocusItem.Asset;
-	const Vibrating = DialogFocusItem.Property && DialogFocusItem.Property.Intensity != null && DialogFocusItem.Property.Intensity >= 0;
-	const Locked = InventoryItemHasEffect(DialogFocusItem, "Lock", true);
-	DrawAssetPreview(1387, 100, Asset, { Vibrating, Icons: Locked ? ["Locked"] : undefined });
 }
 
 /**
