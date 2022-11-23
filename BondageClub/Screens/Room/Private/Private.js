@@ -742,6 +742,12 @@ function PrivateClickCharacter() {
 				if ((PrivateCharacter[C].ID != 0) && (PrivateCharacter[C].ArousalSettings != null) && (PrivateCharacter[C].ArousalSettings.OrgasmTimer != null) && (PrivateCharacter[C].ArousalSettings.OrgasmTimer > 0))
 					return;
 
+				// Make Sure the NPC owner has the "PlayerCollaring" event set
+				if (PrivateCharacter[C].IsOwner() && (NPCEventGet(PrivateCharacter[C], "PlayerCollaring") <= 0)) {
+					NPCEventAdd(PrivateCharacter[C], "PlayerCollaring", CurrentTime);
+					ServerPrivateCharacterSync();
+				}
+
 				// Sets the new character (1000 if she's owner, 2000 if she's owned)
 				if (PrivateCharacter[C].ID != 0) {
 					PrivateCharacterToSave = C;
@@ -1419,6 +1425,7 @@ function PrivatePlayerCollaring() {
 	CharacterSetActivePose(Player, null);
 	ReputationProgress("Dominant", -20);
 	Player.Owner = "NPC-" + CurrentCharacter.Name;
+	ServerPrivateCharacterSync();
 	ServerPlayerSync();
 	PlayerCollaringMistress = CurrentCharacter;
 	CommonSetScreen("Cutscene", "PlayerCollaring");
@@ -1694,6 +1701,7 @@ function PrivateSubTurnTablesDone() {
 	InventoryRemove(Player, "ItemNeckRestraints");
 	InventoryWear(Player, "SlaveCollar", "ItemNeck");
 	Player.Owner = "NPC-" + CurrentCharacter.Name;
+	ServerPrivateCharacterSync();
 	ServerPlayerSync();
 
 }
