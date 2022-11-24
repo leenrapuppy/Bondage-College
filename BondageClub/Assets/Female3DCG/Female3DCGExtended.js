@@ -3753,6 +3753,42 @@ var AssetFemale3DCGExtended = {
 				ChangeWhenLocked: false,
 			},
 		}, // Kennel
+		Locker: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Vents",
+						Property: { Type: null },
+					},
+					{
+						Name: "Ventless",
+						Property: { Type: "Ventless", Effect: ["GagLight", "BlindHeavy"] },
+					},
+				],
+				BaselineProperty: { Opacity: 0 },
+				ScriptHooks: {
+					Load: InventoryItemDevicesLockerLoad,
+					Draw: InventoryItemDevicesLockerDraw,
+					Exit: InventoryItemDevicesLockerExit,
+				},
+				Dialog: {
+					NpcPrefix: (C, Option, PreviousOption) => `ItemDevicesLocker${Option.Name}`,
+				}
+			},
+		}, // Locker
+		SmallLocker: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemDevices", AssetName: "Locker" },
+			Config: {
+				Dialog: {
+					Load: "ItemDevicesLockerSelect",
+					TypePrefix: "ItemDevicesLocker",
+					ChatPrefix: "ItemDevicesLockerSet",
+					NpcPrefix: (C, Option, PreviousOption) => `ItemDevicesLocker${Option.Name}`,
+				},
+			},
+		}, // SmallLocker
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {

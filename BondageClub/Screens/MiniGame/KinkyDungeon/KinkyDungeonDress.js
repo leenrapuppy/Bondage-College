@@ -525,7 +525,7 @@ function KDApplyItem(inv, tags) {
 				let asset = data.asset;
 				let modules = data.modules;
 				// @ts-ignore
-				placed.Property = ModularItemMergeModuleValues({ asset, modules }, restraint.Modules);
+				placed.Property = ModularItemMergeModuleValues({ asset, modules }, restraint.Modules, data.BaselineProperty);
 				placed.Property.LockedBy = inv.lock ? "MetalPadlock" : undefined;
 			}
 			if (restraint.OverridePriority) {

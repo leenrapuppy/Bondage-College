@@ -1891,6 +1891,19 @@ type ExtendedItemChatCallback<OptionType> = (
 ) => string;
 
 /**
+ * @param {Character} C - The selected NPC
+ * @param {OptionType} Option - The currently selected extended item option
+ * @param {OptionType} PreviousOption - The previously selected extended item option
+ * @returns {string} - The chat prefix that should be used for this type change
+ * @template OptionType
+ */
+type ExtendedItemNPCCallback<OptionType> = (
+	C: Character,
+	Option: OptionType,
+	PreviousOption: OptionType,
+) => string;
+
+/**
  * @param {Character} C - A reference to the character wearing the item
  * @param {Item} Item - The equipped item
  * @param {OptionType} Option - The newly selected option
@@ -1976,6 +1989,11 @@ interface ModularItemConfig {
 		Exit?: () => void;
 		Validate?: ExtendedItemValidateScriptHookCallback<ModularItemOption>;
 	};
+	/**
+	 * To-be initialized properties independant of the selected item module(s).
+	 * Relevant if there are properties that are (near) exclusively managed by {@link ModularItemConfig.ScriptHooks} functions.
+	 */
+	BaselineProperty?: ItemProperties;
 }
 
 interface ModularItemDialogConfig {
@@ -2145,6 +2163,11 @@ interface ModularItemData {
 		exit?: () => void,
 		validate?: ExtendedItemValidateScriptHookCallback<ModularItemOption>,
 	};
+	/**
+	 * To-be initialized properties independant of the selected item module(s).
+	 * Relevant if there are properties that are (near) exclusively managed by {@link ModularItemData.scriptHooks} functions.
+	 */
+	BaselineProperty: ItemProperties | null;
 }
 
 /** A 3-tuple containing data for drawing a button in a modular item screen. A button definition takes the
@@ -2211,6 +2234,11 @@ interface TypedItemConfig {
 		Validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>,
 		PublishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
 	};
+	/**
+	 * To-be initialized properties independant of the selected item module(s).
+	 * Relevant if there are properties that are (near) exclusively managed by {@link TypedItemConfig.ScriptHooks} functions.
+	 */
+	BaselineProperty?: ItemProperties;
 }
 
 interface TypedItemDialogConfig {
@@ -2237,7 +2265,7 @@ interface TypedItemDialogConfig {
 	 * A prefix for text keys for NPC dialog. This will be suffixed with the option name
 	 * to get the final NPC dialogue key (i.e. `"<npcPrefix><optionName>"`. Defaults to `"<groupName><assetName>"`
 	 */
-	NpcPrefix?: string;
+	NpcPrefix?: string | ExtendedItemNPCCallback<ExtendedItemOption>;
 }
 
 /**
@@ -2262,7 +2290,7 @@ interface TypedItemData {
 		/** The prefix used for dialog keys representing the item's chatroom messages when its type is changed */
 		chatPrefix: string | ExtendedItemChatCallback<ExtendedItemOption>;
 		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
-		npcPrefix: string;
+		npcPrefix: string | ExtendedItemNPCCallback<ExtendedItemOption>;
 	};
 	/**
 	 * An array of the chat message tags that should be included in the item's
@@ -2303,6 +2331,11 @@ interface TypedItemData {
 		validate?: ExtendedItemValidateScriptHookCallback<ExtendedItemOption>,
 		publishAction?: ExtendedItemPublishActionCallback<ExtendedItemOption>,
 	};
+	/**
+	 * To-be initialized properties independant of the selected item module(s).
+	 * Relevant if there are properties that are (near) exclusively managed by {@link TypedItemData.scriptHooks} functions.
+	 */
+	BaselineProperty: ItemProperties | null;
 }
 
 /**
@@ -2473,7 +2506,7 @@ interface VariableHeightDialogConfig {
 	 * A prefix for text keys for NPC dialog. This will be suffixed with the option name
 	 * to get the final NPC dialogue key (i.e. `"<npcPrefix><optionName>"`. Defaults to `"<groupName><assetName>"`
 	 */
-	NpcPrefix?: string;
+	NpcPrefix?: string | ExtendedItemNPCCallback<ExtendedItemOption>;
 }
 
 /**
@@ -2500,7 +2533,7 @@ interface VariableHeightData {
 		/** The prefix used for dialog keys representing the item's chatroom messages when its type is changed */
 		chatPrefix: string | ExtendedItemChatCallback<ExtendedItemOption>;
 		/** The prefix used for dialog keys representing an NPC's reactions to item type changes */
-		npcPrefix: string;
+		npcPrefix: string | ExtendedItemNPCCallback<ExtendedItemOption>;
 	};
 	/**
 	 * An array of the chat message tags that should be included in the item's

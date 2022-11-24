@@ -85,9 +85,10 @@ var ExtendedItemSubscreen = null;
  *     in the array should be the default option.
  * @param {string} DialogKey - The dialog key for the message to display prompting the player to select an extended
  *     type
+ * @param {ItemProperties | null} BaselineProperty - To-be initialized properties independent of the selected item types
  * @returns {void} Nothing
  */
-function ExtendedItemLoad(Options, DialogKey) {
+function ExtendedItemLoad(Options, DialogKey, BaselineProperty=null) {
 	if (!DialogFocusItem.Property) {
 		const C = CharacterGetCurrent();
 		// Default to the first option if no property is set
@@ -101,9 +102,13 @@ function ExtendedItemLoad(Options, DialogKey) {
 			if (InitialOption) InitialProperty = InitialOption.Property;
 		}
 
-		// If there is an initial property, set it and update the character
-		if (InitialProperty) {
-			DialogFocusItem.Property = JSON.parse(JSON.stringify(InitialProperty));
+		// If there is an initial and/or baseline property, set it and update the character
+		if (InitialProperty || BaselineProperty) {
+			DialogFocusItem.Property = (BaselineProperty != null) ? JSON.parse(JSON.stringify(BaselineProperty)) : {};
+			DialogFocusItem.Property = Object.assign(
+				DialogFocusItem.Property,
+				(InitialProperty != null) ? JSON.parse(JSON.stringify(InitialProperty)) : {},
+			)
 			const RefreshDialog = (CurrentScreen != "Crafting");
 			CharacterRefresh(C, true, RefreshDialog);
 			ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
@@ -333,7 +338,6 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 
 	// Exit button
 	if (MouseIn(1885, 25, 90, 90)) {
-		DialogFocusItem = null;
 		if (ExtendedItemPermissionMode && CurrentScreen == "ChatRoom") ChatRoomCharacterUpdate(Player);
 		ExtendedItemPermissionMode = false;
 		ExtendedItemExit();
@@ -370,17 +374,26 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 
 /**
  * Exit function for the extended item dialog.
- * Mainly removes the cache from memory
+ *
+ * Used for:
+ *  1. Removing the cache from memory
+ *  2. Calling item-appropriate `Exit` functions
+ *  3. Setting {@link DialogFocusItem} back to `null`
  * @returns {void} - Nothing
  */
 function ExtendedItemExit() {
+	// Check if an `Exit` function has already been called
+	if (DialogFocusItem == null) {
+		return;
+	}
+
 	// invalidate the cache
 	ExtendedItemRequirementCheckMessageMemo.clearCache();
 
 	// Run the subscreen's Exit function if any
-	if (ExtendedItemSubscreen) {
-		CommonCallFunctionByName(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Exit");
-	}
+	const FuncName = ExtendedItemFunctionPrefix() + (ExtendedItemSubscreen || "") + "Exit";
+	CommonCallFunctionByName(FuncName);
+	DialogFocusItem = null;
 }
 
 /**
@@ -416,8 +429,7 @@ function ExtendedItemSetType(C, Options, Option) {
 			// If we're in a chatroom, call the item's publish function to publish a message to the chatroom
 			CommonCallFunctionByName(FunctionPrefix + "PublishAction", C, Option, previousOption);
 		} else {
-			CommonCallFunctionByName(FunctionPrefix + "Exit");
-			DialogFocusItem = null;
+			ExtendedItemExit();
 			if (C.ID === 0) {
 				// Player is using the item on herself
 				DialogMenuButtonBuild(C);
@@ -459,7 +471,6 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
 			CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load", C, Option);
 		} else {
 			ExtendedItemSetType(C, Options, Option);
-			ExtendedItemExit();
 		}
 	}
 }
@@ -625,4 +636,25 @@ function ExtendItemGetIcons(C, Asset, Type=null) {
 		icons.push(FavoriteDetails.Icon);
 	}
 	return icons;
+}
+
+/**
+ * Creates an asset's extended item NPC dialog function
+ * @param {Asset} Asset - The asset for the typed item
+ * @param {string} FunctionPrefix - The prefix of the new `NpcDialog` function
+ * @param {string | ExtendedItemNPCCallback<ExtendedItemOption>} NpcPrefix - A dialog prefix or a function for creating one
+ * @returns {void} - Nothing
+ */
+function ExtendedItemCreateNpcDialogFunction(Asset, FunctionPrefix, NpcPrefix) {
+	const npcDialogFunctionName = `${FunctionPrefix}NpcDialog`;
+	if (typeof NpcPrefix === "function") {
+		window[npcDialogFunctionName] = function (C, Option, PreviousOption) {
+			const Prefix = NpcPrefix(C, Option, PreviousOption);
+			C.CurrentDialog = DialogFind(C, Prefix, Asset.Group.Name);
+		};
+	} else {
+		window[npcDialogFunctionName] = function (C, Option, PreviousOption) {
+			C.CurrentDialog = DialogFind(C, `${NpcPrefix}${Option.Name}`, Asset.Group.Name);
+		};
+	}
 }

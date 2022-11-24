@@ -59,7 +59,7 @@ function TypedItemRegister(asset, config) {
 	TypedItemCreateExitFunction(data);
 	TypedItemCreateValidateFunction(data);
 	TypedItemCreatePublishFunction(data);
-	TypedItemCreateNpcDialogFunction(data);
+	ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialog.npcPrefix);
 	TypedItemCreatePublishActionFunction(data);
 	TypedItemGenerateAllowType(data);
 	TypedItemGenerateAllowEffect(data);
@@ -76,9 +76,18 @@ function TypedItemRegister(asset, config) {
  * @param {TypedItemConfig} config - The item's extended item configuration
  * @returns {TypedItemData} - The generated typed item data for the asset
  */
-function TypedItemCreateTypedItemData(asset,
-	{ Options, Dialog, ChatTags, Dictionary, ChatSetting, DrawImages, ChangeWhenLocked, Validate, ScriptHooks }
-) {
+function TypedItemCreateTypedItemData(asset, {
+	Options,
+	Dialog,
+	ChatTags,
+	Dictionary,
+	ChatSetting,
+	DrawImages,
+	ChangeWhenLocked,
+	Validate,
+	ScriptHooks,
+	BaselineProperty=null,
+}) {
 	for (const option of Options) {
 		option.OptionType = "ExtendedItemOption";
 	}
@@ -113,6 +122,7 @@ function TypedItemCreateTypedItemData(asset,
 		drawImages: typeof DrawImages === "boolean" ? DrawImages : true,
 		changeWhenLocked: typeof ChangeWhenLocked === "boolean" ? ChangeWhenLocked : true,
 		validate: Validate,
+		BaselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
 	};
 }
 
@@ -121,10 +131,10 @@ function TypedItemCreateTypedItemData(asset,
  * @param {TypedItemData} data - The typed item data for the asset
  * @returns {void} - Nothing
  */
-function TypedItemCreateLoadFunction({ options, functionPrefix, dialog, scriptHooks }) {
+function TypedItemCreateLoadFunction({ options, functionPrefix, dialog, scriptHooks, BaselineProperty }) {
 	const loadFunctionName = `${functionPrefix}Load`;
 	const loadFunction = function () {
-		ExtendedItemLoad(options, dialog.load);
+		ExtendedItemLoad(options, dialog.load, BaselineProperty);
 	};
 	if (scriptHooks && scriptHooks.load) {
 		window[loadFunctionName] = function () {
@@ -237,18 +247,6 @@ function TypedItemCreatePublishFunction(typedItemData) {
 
 		const dictionary = TypedItemBuildChatMessageDictionary(chatData, typedItemData);
 		ChatRoomPublishCustomAction(msg, true, dictionary);
-	};
-}
-
-/**
- * Creates an asset's extended item NPC dialog function
- * @param {TypedItemData} data - The typed item data for the asset
- * @returns {void} - Nothing
- */
-function TypedItemCreateNpcDialogFunction({ asset, functionPrefix, dialog }) {
-	const npcDialogFunctionName = `${functionPrefix}NpcDialog`;
-	window[npcDialogFunctionName] = function (C, option) {
-		C.CurrentDialog = DialogFind(C, `${dialog.npcPrefix}${option.Name}`, asset.Group.Name);
 	};
 }
 
