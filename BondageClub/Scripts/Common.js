@@ -922,3 +922,36 @@ function CommonStringSubstitute(msg, substitutions) {
 	}
 	return msg;
 }
+
+/**
+ * Censors a string or words in that string based on the player preferences
+ * @param {string} S - The string to censor
+ * @returns {String} - The censored string
+ */
+function CommonCensor(S) {
+
+	// Validates that we must apply censoring
+	if ((Player.ChatSettings == null) || (Player.ChatSettings.CensoredWordsLevel == null) || (Player.ChatSettings.CensoredWordsList == null)) return S;
+	let WordList = PreferenceCensoredWordsList = Player.ChatSettings.CensoredWordsList.split("|");
+	if (WordList.length <= 0) return S;
+
+	// At level zero, we replace the word with ***
+	if (Player.ChatSettings.CensoredWordsLevel == 0)
+		for (let W of WordList)
+			if ((W != "") && (W != " ") && !W.includes("*") && S.toUpperCase().includes(W.toUpperCase())) {
+				let searchMask = W;
+				let regEx = new RegExp(searchMask, "ig");
+				let replaceMask = "***";
+				S = S.replace(regEx, replaceMask);
+			}
+
+	// At level one, we replace the full phrase with ***, at level two we return a ¶¶¶ string indicating to filter out
+	if (Player.ChatSettings.CensoredWordsLevel >= 1)
+		for (let W of WordList)
+			if ((W != "") && (W != " ") && !W.includes("*") && S.toUpperCase().includes(W.toUpperCase()))
+				return (Player.ChatSettings.CensoredWordsLevel >= 2) ? "¶¶¶" : "***";
+
+	// Returns the mashed string
+	return S;
+
+}

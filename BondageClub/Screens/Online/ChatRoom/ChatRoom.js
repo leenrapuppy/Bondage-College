@@ -2921,6 +2921,11 @@ function ChatRoomMessage(data) {
  * @returns {void}
  */
 function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
+
+	// Censored words are filtered out, ¶¶¶ indicates that we must not display anything on screen
+	msg = CommonCensor(msg);
+	if (msg == "¶¶¶") return;
+
 	// Prepares the HTML tags
 	switch (data.Type) {
 		case "Chat":
