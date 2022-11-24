@@ -2564,9 +2564,7 @@ var AssetFemale3DCG = [
 		AllowColorize: true,
 		AllowCustomize: false,
 		AllowExpression: ["Afk", "Whisper", "Sleep", "Hearts", "Tear", "Hearing", "Confusion", "Exclamation", "Annoyed", "Read", "RaisedHand", "Spectator", "ThumbsDown", "ThumbsUp", "LoveRope", "LoveGag", "LoveLock", "Wardrobe", "Gaming"],
-		Asset: [
-			{ Name: "Emoticon", Extended: true },
-		],
+		Asset: ["Emoticon"],
 	},
 	// Uncolorable body parts
 
