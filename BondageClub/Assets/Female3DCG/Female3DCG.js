@@ -7099,15 +7099,14 @@ var AssetFemale3DCG = [
 				Effect: ["Prone", "Freeze", "Block", "Mounted"],
 				FreezeActivePose: ["BodyUpper", "BodyLower"],
 				DrawLocks: false,
-				AllowType: ["ArmsDownLegsTogether","ArmsUpLegsSpread","ArmsUpLegsTogether"],
-				AllowPose: ["Yoked","BaseLower","LegsClosed"],
-				AllowEffect: ["Prone", "Freeze", "Block", "Mounted"],
 				Layer: [
-					{ Name: "SheetBack", ColorGroup:"Sheet", Priority: 1 },
-					{ Name: "SheetFront", ColorGroup:"Sheet", Priority: 2 },
-					{ Name: "Upper", ColorGroup:"Body", ParentGroup: "BodyUpper" },
-					{ Name: "Lower", ColorGroup:"Body", ParentGroup: "BodyLower" },
-					{ Name: "Frame", MinOpacity: 1, Priority: 3 }
+					{ Name: "SheetBack", ColorGroup:"Sheet", Priority: 1, HasType: false },
+					{ Name: "SheetFront", ColorGroup:"Sheet", Priority: 2, HasType: false },
+					{ Name: "ArmsDown", ColorGroup:"Body", ParentGroup: "BodyUpper", HasType: false, AllowModuleTypes: ["a0"] },
+					{ Name: "ArmsYoked", ColorGroup:"Body", ParentGroup: "BodyUpper", HasType: false, AllowModuleTypes: ["a1"], CopyLayerColor: "ArmsDown" },
+					{ Name: "LegsSpread", ColorGroup:"Body", ParentGroup: "BodyLower", HasType: false, AllowModuleTypes: ["l0"] },
+					{ Name: "LegsClosed", ColorGroup:"Body", ParentGroup: "BodyLower", HasType: false, AllowModuleTypes: ["l1"], CopyLayerColor: "LegsSpread" },
+					{ Name: "Frame", MinOpacity: 1, Priority: 3, HasType: false }
 				]
 			},
 			{

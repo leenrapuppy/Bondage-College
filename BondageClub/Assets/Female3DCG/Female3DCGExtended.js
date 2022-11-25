@@ -3790,6 +3790,41 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // SmallLocker
+		VacBedDeluxe: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Legs",
+						Key: "l",
+						Options: [
+							{
+								Property: { SetPose: ["BaseLower"] },
+								Prerequisite: ["LegsOpen"],
+							}, // l0 - Legs spread
+							{
+								Property: { SetPose: ["LegsClosed"] },
+							}, // l1 - Legs closed
+						],
+					},
+					{
+						Name: "Arms",
+						Key: "a",
+						Options: [
+							{}, // a0 - Arms down
+							{ Property: { SetPose: ["Yoked"] } }, // a1 - Arms yoked
+						],
+					},
+				],
+				BaselineProperty: { Opacity: 1 },
+				ScriptHooks: {
+					Load: OpacityLoad,
+					Draw: InventoryItemDevicesVacBedDeluxeDraw,
+					Exit: OpacityExit,
+					Validate: OpacityValidate,
+				},
+			},
+		}, // VacBedDeluxe
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {
