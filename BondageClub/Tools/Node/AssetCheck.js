@@ -10,11 +10,11 @@ const neededFiles = [
 	"Scripts/ModularItem.js",
 	"Scripts/TypedItem.js",
 	"Scripts/VariableHeight.js",
+	"Scripts/Opacity.js",
 	"Screens/Inventory/Futuristic/Futuristic.js",
 	"Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js",
 	"Screens/Inventory/ItemNeckAccessories/CollarNameTag/CollarNameTag.js",
 	"Screens/Inventory/ItemArms/FullLatexSuit/FullLatexSuit.js",
-	"Screens/Inventory/ItemDevices/Locker/Locker.js",
 	"Screens/Inventory/ItemButt/InflVibeButtPlug/InflVibeButtPlug.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"

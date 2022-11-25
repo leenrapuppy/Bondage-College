@@ -3768,9 +3768,10 @@ var AssetFemale3DCGExtended = {
 				],
 				BaselineProperty: { Opacity: 0 },
 				ScriptHooks: {
-					Load: InventoryItemDevicesLockerLoad,
-					Draw: InventoryItemDevicesLockerDraw,
-					Exit: InventoryItemDevicesLockerExit,
+					Load: OpacityLoad,
+					Draw: OpacityDraw,
+					Exit: OpacityExit,
+					Validate: OpacityValidate,
 				},
 				Dialog: {
 					NpcPrefix: (C, Option, PreviousOption) => `ItemDevicesLocker${Option.Name}`,
