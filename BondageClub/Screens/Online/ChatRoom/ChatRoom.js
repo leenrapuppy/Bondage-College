@@ -4571,9 +4571,10 @@ function ChatRoomOwnerPresenceRule(RuleName, Target) {
  * @param {Character} C - The character that the message key relates to
  * @param {string} key - Key for the dialog entry to use
  * @param {boolean} hideIdentity - Whether to hide details revealing the character's identity
- * @returns {string[][]} - The replacement pronoun text for keywords in the original message
+ * @returns {[string, string][]} - The replacement pronoun text for keywords in the original message
  */
 function ChatRoomPronounSubstitutions(C, key, hideIdentity) {
+	/** @type {[string, string][]} */
 	let repls = [];
 	for (const pronounType of ["Possessive", "Self", "Object"]) {
 		repls.push([key + pronounType, CharacterPronoun(C, pronounType, hideIdentity)]);
