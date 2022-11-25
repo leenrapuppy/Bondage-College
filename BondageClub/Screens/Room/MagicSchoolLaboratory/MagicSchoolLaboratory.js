@@ -560,5 +560,5 @@ function MagicSchoolLaboratoryLearnMastery() {
  * @returns {boolean} - TRUE if it can be waged
  */
 function MagicSchoolLaboratoryCanWageWand() {
-	return ((InventoryGet(MagicSchoolLaboratoryStudent, "ItemHands") != null) && (InventoryGet(MagicSchoolLaboratoryStudent, "ItemHands").Property.Type == "RainbowWand"));
+	return InventoryIsWorn(MagicSchoolLaboratoryStudent, "RainbowWand", "ItemHandheld");
 }

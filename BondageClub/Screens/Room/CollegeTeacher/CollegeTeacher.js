@@ -121,7 +121,7 @@ function CollegeTeacherMildredLoveChange(LoveChange, Event) {
 function CollegeTeacherDressBack() {
 	CharacterRelease(Player);
 	CharacterRelease(CollegeTeacherMildred);
-	InventoryRemove(CollegeTeacherMildred, "ItemHands");
+	InventoryRemove(CollegeTeacherMildred, "ItemHandheld");
 	CollegeEntranceWearStudentClothes(Player);
 	CollegeTeacherMildredClothes();
 }

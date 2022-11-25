@@ -202,7 +202,7 @@ function InfiltrationRandomClothes() {
 	CharacterNaked(Player);
 	CharacterAppearanceFullRandom(Player, true);
 	CharacterRelease(Player);
-	InventoryRemove(Player, "ItemHands");
+	InventoryRemove(Player, "ItemHandheld");
 	PandoraClothes = "Random";
 }
 
@@ -213,7 +213,7 @@ function InfiltrationRandomClothes() {
 function InfiltrationCatBurglarClothes() {
 	CharacterNaked(Player);
 	CharacterRelease(Player);
-	InventoryRemove(Player, "ItemHands");
+	InventoryRemove(Player, "ItemHandheld");
 	if (Math.random() >= 0.5) InventoryWear(Player, "LatexAnkleShoes", "Shoes", "#373636");
 	else InventoryWear(Player, "AnkleStrapShoes", "Shoes", "#282828");
 	if (Math.random() >= 0.5) InventoryWear(Player, "LatexSkirt2", "ClothLower", "#4A4A4A");
