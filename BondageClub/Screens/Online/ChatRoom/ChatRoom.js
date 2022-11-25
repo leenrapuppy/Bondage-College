@@ -2794,8 +2794,11 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 			if (G) {
 				meta.GroupName = entry.AssetGroupName;
 
-				let repl = G.Description.toLowerCase();
-				substitutions.push([entry.Tag, repl]);
+				let repl = G.Description;
+				if (meta.TargetCharacter && meta.TargetCharacter.HasPenis() && ["ItemVulva", "ItemVulvaPiercings"].includes(G.Name)) {
+					repl = G.Name === "ItemVulva" ? DialogFindPlayer("ItemPenis") : DialogFindPlayer("ItemGlans");
+				}
+				substitutions.push([entry.Tag, repl.toLowerCase()]);
 			}
 		}
 		else if (entry.Tag === "ChatRoomName") {
