@@ -2794,10 +2794,7 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 			if (G) {
 				meta.GroupName = entry.AssetGroupName;
 
-				let repl = G.Description;
-				if (meta.TargetCharacter && meta.TargetCharacter.HasPenis() && ["ItemVulva", "ItemVulvaPiercings"].includes(G.Name)) {
-					repl = G.Name === "ItemVulva" ? DialogFindPlayer("ItemPenis") : DialogFindPlayer("ItemGlans");
-				}
+				let repl = DialogActualNameForGroup(meta.TargetCharacter, G);
 				substitutions.push([entry.Tag, repl.toLowerCase()]);
 			}
 		}
