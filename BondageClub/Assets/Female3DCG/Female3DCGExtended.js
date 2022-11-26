@@ -3848,6 +3848,17 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // WoodenBox
+		TransportWoodenBox: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemDevices", AssetName: "WoodenBox" },
+			Config: {
+				Dialog: {
+					Load: "ItemDevicesWoodenBoxSelect",
+					TypePrefix: "ItemDevicesWoodenBox",
+					ChatPrefix: "ItemDeviceWoodenBoxSet",
+				},
+			},
+		}, // TransportWoodenBox
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {
