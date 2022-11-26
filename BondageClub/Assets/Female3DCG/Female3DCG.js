@@ -6904,12 +6904,11 @@ var AssetFemale3DCG = [
 		Zone: [[10, 600, 90, 400], [400, 600, 90, 400]],
 		Asset: [
 			{
-				Name: "WoodenBox", Priority: 58, Value: 60, Difficulty: -2, SelfBondage: 5, Time: 15, RemoveTime: 10, AllowLock: true, Audio: "LockLarge", RemoveAtLogin: true, DefaultColor: ["Default", "#600"], SetPose: ["BaseLower"], Extended: true, DynamicAfterDraw: true, MinOpacity: 0, Opacity: 0, FixedPosition: true,
-				AllowType: ["NWSE"],
+				Name: "WoodenBox", Priority: 58, Value: 60, Difficulty: -2, SelfBondage: 5, Time: 15, RemoveTime: 10, AllowLock: true, Audio: "LockLarge", RemoveAtLogin: true,
+				DefaultColor: ["Default", "#600"], SetPose: ["BaseLower"], Extended: true, DynamicAfterDraw: true, MinOpacity: 0, Opacity: 0, FixedPosition: true,
 				Block: ["ItemAddon"],
 				Prerequisite: ["NotSuspended", "NotHogtied", "NotHorse", "NotLifted"],
 				Effect: ["Prone", "Enclose", "Freeze"],
-				AllowEffect: ["Prone", "Enclose", "BlindNormal", "GagLight", "Freeze"],
 				Layer: [
 					{ Name: "Back", Priority: 1, MinOpacity: 1, HasType: false },
 					{ Name: "Panel", CopyLayerColor: "Back", HasType: false },

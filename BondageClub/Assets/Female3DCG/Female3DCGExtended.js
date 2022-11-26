@@ -3825,6 +3825,29 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // VacBedDeluxe
+		WoodenBox: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR_NAME, CommonChatTags.ASSET_NAME],
+				Options: [
+					{
+						Name: "SWNE",
+						Property: { Type: null, Effect: ["Prone", "Enclose", "Freeze"] },
+					},
+					{
+						Name: "NWSE",
+						Property: { Type: "NWSE", Effect: ["Prone", "Enclose", "Freeze"] },
+					},
+				],
+				BaselineProperty: { Opacity: 0, Text: "" },
+				ScriptHooks: {
+					Load: InventoryItemDevicesWoodenBoxLoad,
+					Draw: InventoryItemDevicesWoodenBoxDraw,
+					Exit: InventoryItemDevicesWoodenBoxExit,
+					Validate: OpacityValidate,
+				},
+			},
+		}, // WoodenBox
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {

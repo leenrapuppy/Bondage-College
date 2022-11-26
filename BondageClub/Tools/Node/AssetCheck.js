@@ -17,6 +17,7 @@ const neededFiles = [
 	"Screens/Inventory/ItemArms/FullLatexSuit/FullLatexSuit.js",
 	"Screens/Inventory/ItemButt/InflVibeButtPlug/InflVibeButtPlug.js",
 	"Screens/Inventory/ItemDevices/VacBedDeluxe/VacBedDeluxe.js",
+	"Screens/Inventory/ItemDevices/WoodenBox/WoodenBox.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"
 ];
