@@ -155,6 +155,8 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		AllowEffect: AssetDef.AllowEffect,
 		AllowBlock: AssetDef.AllowBlock,
 		AllowType: AssetDef.AllowType,
+		AllowHide: AssetDef.AllowHide,
+		AllowHideItem: AssetDef.AllowHideItem,
 		DefaultColor: AssetDef.DefaultColor,
 		Opacity: AssetParseOpacity(AssetDef.Opacity),
 		MinOpacity: typeof AssetDef.MinOpacity === "number" ? AssetParseOpacity(AssetDef.MinOpacity) : 1,

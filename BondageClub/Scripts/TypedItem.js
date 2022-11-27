@@ -64,6 +64,7 @@ function TypedItemRegister(asset, config) {
 	TypedItemGenerateAllowType(data);
 	TypedItemGenerateAllowEffect(data);
 	TypedItemGenerateAllowBlock(data);
+	TypedItemGenerateAllowHide(data);
 	TypedItemGenerateAllowTint(data);
 	TypedItemGenerateAllowLockType(data);
 	TypedItemRegisterSubscreens(asset, config);
@@ -296,6 +297,20 @@ function TypedItemGenerateAllowBlock({asset, options}) {
 	asset.AllowBlock = Array.isArray(asset.Block) ? asset.Block.slice() : [];
 	for (const option of options) {
 		CommonArrayConcatDedupe(asset.AllowBlock, option.Property.Block);
+	}
+}
+
+/**
+ * Generates an asset's AllowHide & AllowHideItem properties based on its typed item data.
+ * @param {TypedItemData} data - The typed item's data
+ * @returns {void} - Nothing
+ */
+function TypedItemGenerateAllowHide({asset, options}) {
+	asset.AllowHide = Array.isArray(asset.Hide) ? asset.Hide.slice() : [];
+	asset.AllowHideItem = Array.isArray(asset.HideItem) ? asset.HideItem.slice() : [];
+	for (const option of options) {
+		CommonArrayConcatDedupe(asset.AllowHide, option.Property.Hide);
+		CommonArrayConcatDedupe(asset.AllowHideItem, option.Property.HideItem);
 	}
 }
 

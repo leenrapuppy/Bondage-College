@@ -1821,7 +1821,15 @@ function CharacterClearOwnership(C) {
 	}
 
 	C.Appearance = C.Appearance.filter(item => !item.Asset.OwnerOnly);
-	C.Appearance.forEach(item => ValidationSanitizeProperties(C, item));
+	C.Appearance.forEach(item => ValidationSanitizeProperties(C, item, {
+		C,
+		fromSelf: true,
+		fromOwner: false,
+		fromLover: false,
+		fromFriend: false,
+		fromWhitelist: false,
+		sourceMemberNumber: C.MemberNumber,
+	}, null));
 	CharacterRefresh(C);
 }
 

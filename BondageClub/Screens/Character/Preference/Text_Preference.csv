@@ -13,6 +13,7 @@ ImmersionPreferences,- Immersion Preferences -
 ControllerPreferences,- Controller Preferences -
 NotificationsPreferences,- Notification Preferences -
 GenderPreferences,- Gender Preferences -
+ScriptsPreferences,- Script Permission Preferences -
 HomepageGeneral,General
 HomepageDifficulty,Difficulty
 HomepageRestriction,Restriction
@@ -28,6 +29,7 @@ HomepageGraphics,Graphics
 HomepageController,Controller
 HomepageNotifications,Notifications
 HomepageGender,Gender
+HomepageScripts,Scripts
 DifficultyTitle,The difficulty mode enforces BDSM restrictions in multi-player only.  Click for details.
 DifficultyLevel0,Roleplay
 Difficulty0Text0,Roleplay - This mode is fully open to customise your experience.
@@ -342,3 +344,18 @@ CensorLevel1,Replace the phrase by ***
 CensorLevel2,Hide the phrase or room
 CensorWord,Censored words:
 CensorAdd,Add
+ScriptsWarningTitle,"WARNING!"
+ScriptsWarning,"Changing the settings on this page can allow people to modify your items and appearance using scripts in ways that are not possible in the core game. If you don't want this, or if you don't know what you're doing, don't touch these settings!"
+ScriptsWarningAccept,"I Accept"
+ScriptsExplanation,"Specify who can modify your worn items using scripts, and what they're allowed to do."
+ScriptsHelpGlobal,"To reduce issues and maintain a baseline level of visual coherence, the Bondage Club contains a series of measures which prevents people from modifying your items in ways that might cause clipping or graphical issues. On this screen you can choose to allow certain people to bypass those restrictions via custom scripts or addons. This can allow for a higher degree of visual customisation for items, but be aware that it can also open the door to severe visual glitches, including invisible items or characters, so use these options at your own risk. To find out more about the properties that you can assign permissions for and what each might do and the associated risks, click the '?' icon next to each one. Be aware that setting permissions to public means that anyone will be able to modify that feature, even trolls, so please use this with caution. Remember that you can remove unwanted script effects at any time by removing all permissions for that effect (including 'Self')."
+ScriptsHelpHide,"Permits scripts to override the default item-hiding behaviour of Bondage Club. This can enhance your game by allowing item combinations that wouldn't normally be possible, or by allowing items to be hidden to achieve a particular look that doesn't necessarily reflect exactly what you're wearing. However, it can also be used to create severe visual glitches, including making items or even your whole character invisible. Use with caution!"
+ScriptsHelpBlock,"Permits scripts to override the default item-blocking behaviour of Bondage Club. This is the functionality that prevents you from equipping items on others, or can prevent sexual activities on blocked zones. Allowing scripts to add custom blocking behaviour can allow for additional restriction, preventing players from removing worn items or adding new ones in a given slot, but can also result in items that you can't remove yourself without the help of a script (or by removing this permission)."
+ScriptsPermissionLevelSelf,Self
+ScriptsPermissionLevelOwner,Owner
+ScriptsPermissionLevelLovers,Lovers
+ScriptsPermissionLevelFriends,Friends
+ScriptsPermissionLevelWhitelist,Whitelist
+ScriptsPermissionLevelPublic,Public
+ScriptsPermissionPropertyHide,Hide
+ScriptsPermissionPropertyBlock,Block

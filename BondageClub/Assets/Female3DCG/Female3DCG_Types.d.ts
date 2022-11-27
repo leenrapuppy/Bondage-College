@@ -209,6 +209,8 @@ interface AssetDefinition {
 
 	AllowEffect?: EffectName[];
 	AllowBlock?: AssetGroupItemName[];
+	AllowHide?: AssetGroupItemName[];
+	AllowHideItem?: string[];
 	AllowType?: string[];
 	DefaultColor?: ItemColor;
 	Opacity?: number;

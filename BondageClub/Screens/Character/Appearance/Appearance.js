@@ -386,6 +386,11 @@ function CharacterAppearanceVisible(C, AssetName, GroupName, Recursive = true) {
 		}
 	}
 
+	const scriptItem = InventoryGet(C, "ItemScript");
+	if (scriptItem && scriptItem.Property && scriptItem.Property.UnHide && scriptItem.Property.UnHide.includes(GroupName)) {
+		return true;
+	}
+
 	for (const item of C.DrawAppearance) {
 		if (CharacterAppearanceItemIsHidden(item.Asset.Name, item.Asset.Group.Name)) continue;
 		let HidingItem = false;
