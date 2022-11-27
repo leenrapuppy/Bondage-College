@@ -433,8 +433,12 @@ interface IChatRoomMessageMetadata {
 	TargetMemberNumber?: number;
 	/** Whether the message is considered game-initiated. Used for automatic vibe changes for example. */
 	Automatic?: boolean;
+	/** The name of the asset used */
+	AssetName?: string;
 	/** The group the message applies to */
 	GroupName?: string;
+	/** The asset used */
+	Asset?: Asset;
 	/** How intense the shock should be */
 	ShockIntensity?: number;
 	ActivityCounter?: number;
@@ -446,6 +450,8 @@ interface IChatRoomMessageMetadata {
 	ActivityAsset?: string;
 	/** The group the asset used is in */
 	ActivityAssetGroup?: string;
+	/** The name of the chatroom, appropriately garbled */
+	ChatRoomName?: string;
 }
 
 /**

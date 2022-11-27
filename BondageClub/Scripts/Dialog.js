@@ -2032,8 +2032,8 @@ function DialogChangeItemColor(C, Color) {
 function DialogDrawActivityMenu(C) {
 
 	// Gets the default text that will reset after 5 seconds
-	var SelectedGroup = (Player.FocusGroup != null) ? Player.FocusGroup.Description : CurrentCharacter.FocusGroup.Description;
-	if (DialogTextDefault == "") DialogTextDefault = DialogFindPlayer("SelectActivityGroup").replace("GroupName", SelectedGroup.toLowerCase());
+	var SelectedGroup = (Player.FocusGroup != null) ? Player.FocusGroup : CurrentCharacter.FocusGroup;
+	if (DialogTextDefault == "") DialogTextDefault = DialogFindPlayer("SelectActivityGroup").replace("GroupName", DialogActualNameForGroup(CharacterGetCurrent(), SelectedGroup).toLowerCase().toLowerCase());
 	if (DialogTextDefaultTimer < CommonTime()) DialogText = DialogTextDefault;
 
 	// Draws the top menu text & icons
@@ -2148,7 +2148,7 @@ function DialogDrawItemMenu(C) {
 	if (DialogColor != null && FocusItem) return ItemColorDraw(C, C.FocusGroup.Name, 1200, 25, 775, 950, true);
 
 	// Gets the default text that will reset after 5 seconds
-	if (DialogTextDefault == "") DialogTextDefault = DialogFindPlayer("SelectItemGroup").replace("GroupName", C.FocusGroup.Description.toLowerCase());
+	if (DialogTextDefault == "") DialogTextDefault = DialogFindPlayer("SelectItemGroup").replace("GroupName", DialogActualNameForGroup(C, C.FocusGroup).toLowerCase());
 	if (DialogTextDefaultTimer < CommonTime()) DialogText = DialogTextDefault;
 
 	// Draws the top menu text & icons
@@ -2633,4 +2633,18 @@ function DialogOpenCraftingScreen() {
 function DialogCanCraft() {
 	if ((CurrentModule != "Online") || (CurrentScreen != "ChatRoom")) return false;
 	return !Player.IsRestrained() || !Player.IsBlind();
+}
+
+/**
+ * Provides a group's real name for male characters
+ *
+ * @param {Character} C
+ * @param {AssetGroup} G
+ */
+function DialogActualNameForGroup(C, G) {
+	let repl = G.Description;
+	if (C && C.HasPenis() && ["ItemVulva", "ItemVulvaPiercings"].includes(G.Name)) {
+		repl = G.Name === "ItemVulva" ? DialogFindPlayer("ItemPenis") : DialogFindPlayer("ItemGlans");
+	}
+	return repl;
 }
