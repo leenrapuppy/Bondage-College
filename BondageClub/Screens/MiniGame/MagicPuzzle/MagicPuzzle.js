@@ -25,7 +25,7 @@ function MagicPuzzleLoad() {
 	MagicPuzzleTimer = (MiniGameDifficulty > 0) ? CommonTime() + 5000 + MiniGameDifficulty * 1000 : 0;
 	MagicPuzzleStarted = false;
 	MiniGameVictory = false;
-	MagicPuzzleTrailRainbow = ((InventoryGet(Player, "ItemHands") != null) && (InventoryGet(Player, "ItemHands").Property != null) && (InventoryGet(Player, "ItemHands").Property.Type == "RainbowWand"));
+	MagicPuzzleTrailRainbow = ((InventoryGet(Player, "ItemHandheld") != null) && (InventoryGet(Player, "ItemHandheld").Asset.Name === "RainbowWand"));
 }
 
 /**

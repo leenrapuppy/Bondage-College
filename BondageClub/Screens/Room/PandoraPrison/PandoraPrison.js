@@ -200,7 +200,7 @@ function PandoraPrisonPlayerChastity(LockType) {
  * @returns {void} - Nothing
  */
 function PandoraPrisonCharacterRemove() {
-	InventoryRemove(CurrentCharacter, "ItemHands");
+	InventoryRemove(CurrentCharacter, "ItemHandheld");
 	PandoraPrisonCharacter = null;
 	PandoraPrisonCharacterTimer = CommonTime() + 30000 + Math.floor(Math.random() * 30000);
 	PandoraPrisonGuard.Stage = "RANDOM";

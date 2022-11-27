@@ -100,7 +100,7 @@ function AsylumTherapyBondageTherapyRestrain() {
 function AsylumTherapyTherapyEnd() {
 	CharacterRelease(Player);
 	if (!Player.IsBreastChaste()) InventoryRemove(Player, "ItemNipples");
-	InventoryRemove(AsylumTherapyNurse, "ItemHands");
+	InventoryRemove(AsylumTherapyNurse, "ItemHandheld");
 	CharacterSetActivePose(Player, null);
 }
 
