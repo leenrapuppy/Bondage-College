@@ -3990,6 +3990,10 @@ var AssetFemale3DCGExtended = {
 		VibeEggPenisBase: {
 			Archetype: ExtendedArchetype.VIBRATING
 		}, // VibeEggPenisBase
+		InflatableVibeDildo: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemButt", AssetName: "InflVibeButtPlug" },
+		}, // InflatableVibeDildo
 	}, // ItemVulva
 	ItemVulvaPiercings: {
 		ClitRing: {
@@ -4233,6 +4237,52 @@ var AssetFemale3DCGExtended = {
 				ChatSetting: TypedItemChatSetting.SILENT,
 			},
 		}, // AnalBeads2
+		InflVibeButtPlug: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR, CommonChatTags.ASSET_NAME],
+				Modules: [
+					{
+						Name: "InflateLevel",
+						Key: "f",
+						DrawImages: false,
+						Options: [
+							{ Property: { InflateLevel: 0 } }, // f0 - Empty
+							{ Property: { InflateLevel: 1 } }, // f1 - Light
+							{ Property: { InflateLevel: 2 } }, // f2 - Inflated
+							{ Property: { InflateLevel: 3 } }, // f3 - Bloated
+							{ Property: { InflateLevel: 4 } }, // f4 - Maximum
+						],
+					},
+					{
+						Name: "Intensity",
+						Key: "i",
+						DrawImages: false,
+						Options: [
+							{ Property: { Intensity: -1, Effect: ["Egged"] } }, // i0 - Turn Off
+							{ Property: { Intensity: 0, Effect: ["Egged", "Vibrating"] } }, // i1 - Low
+							{ Property: { Intensity: 1, Effect: ["Egged", "Vibrating"] } }, // i2 - Medium
+							{ Property: { Intensity: 2, Effect: ["Egged", "Vibrating"] } }, // i3 - High
+							{ Property: { Intensity: 3, Effect: ["Egged", "Vibrating"] } }, // i4 - Maximum
+						],
+					},
+				],
+				ScriptHooks: {
+					Draw: InventoryItemButtInflVibeButtPlugDraw,
+				},
+				Dialog: {
+					Select: "ItemButtInflVibeButtPlugSelect",
+					ModulePrefix: "ItemButtInflVibeButtPlugModule",
+					OptionPrefix: "ItemButtInflVibeButtPlugOption",
+					ChatPrefix: ({previousOption, newOption}) => {
+						const Prefix = "ItemButtInflVibeButtPlug";
+						const Change = Number.parseInt(newOption.Name[1]) - Number.parseInt(previousOption.Name[1]);
+						const StateChange = (Change > 0) ? "Increase" : "Decrease";
+						return `${Prefix}${StateChange}To`;
+					},
+				},
+			},
+		}, // InflVibeButtPlug
 	}, // ItemButt
 	ItemNipplesPiercings: {
 		RoundPiercing: {

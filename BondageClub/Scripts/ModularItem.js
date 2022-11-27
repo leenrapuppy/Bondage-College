@@ -68,12 +68,6 @@ const ModularItemChatSetting = {
 	PER_OPTION: "perOption",
 };
 
-/**
- * How many modules/options to show per page of the modular item screen
- * @const {number}
- */
-const ModularItemsPerPage = 8;
-
 /** Memoized requirements check function */
 const ModularItemRequirementCheckMessageMemo = CommonMemoize(ModularItemRequirementMessageCheck);
 
@@ -179,6 +173,7 @@ function ModularItemCreateExitFunction(data) {
 function ModularItemUpdateModules(Modules) {
 	for (const mod of Modules) {
 		mod.OptionType = "ModularItemModule";
+		mod.DrawImages = typeof mod.DrawImages === "boolean" ? mod.DrawImages : true;
 		mod.Options.forEach((option, i) => {
 			option.Name = `${mod.Key}${i}`;
 			option.OptionType = "ModularItemOption";
@@ -205,6 +200,8 @@ function ModularItemCreateModularData(asset, {
 	// Set the name of all modular item options
 	// Use an external function as typescript does not like the inplace updating of an object's type
 	const ModulesParsed = ModularItemUpdateModules(Modules);
+	// Only enable DrawImages in the base screen if all module-specific DrawImages are true
+	const BaseDrawImages = ModulesParsed.every((m) => m.DrawImages);
 
 	const key = `${asset.Group.Name}${asset.Name}`;
 	Dialog = Dialog || {};
@@ -226,7 +223,7 @@ function ModularItemCreateModularData(asset, {
 		modules: ModulesParsed,
 		currentModule: ModularItemBase,
 		pages: { [ModularItemBase]: 0 },
-		drawData: { [ModularItemBase]: ModularItemCreateDrawData(ModulesParsed.length) },
+		drawData: { [ModularItemBase]: ModularItemCreateDrawData(ModulesParsed.length, asset, BaseDrawImages) },
 		changeWhenLocked: typeof ChangeWhenLocked === "boolean" ? ChangeWhenLocked : true,
 		scriptHooks: {
 			load: ScriptHooks ? ScriptHooks.Load : undefined,
@@ -237,12 +234,13 @@ function ModularItemCreateModularData(asset, {
 		drawFunctions: {},
 		clickFunctions: {},
 		BaselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
+		drawImages: BaseDrawImages,
 	};
 	data.drawFunctions[ModularItemBase] = ModularItemCreateDrawBaseFunction(data);
 	data.clickFunctions[ModularItemBase] = ModularItemCreateClickBaseFunction(data);
 	for (const module of ModulesParsed) {
 		data.pages[module.Name] = 0;
-		data.drawData[module.Name] = ModularItemCreateDrawData(module.Options.length);
+		data.drawData[module.Name] = ModularItemCreateDrawData(module.Options.length, asset, module.DrawImages);
 		data.drawFunctions[module.Name] = () => ModularItemDrawModule(module, data);
 		data.clickFunctions[module.Name] = () => ModularItemClickModule(module, data);
 		data.typeCount *= module.Options.length;
@@ -254,35 +252,29 @@ function ModularItemCreateModularData(asset, {
  * Generates drawing data for a given module. This includes button positions, whether pagination is necessary, and the
  * total page count for that module.
  * @param {number} itemCount - The number of items in the module
- * @returns {{pageCount: number, paginate: boolean, positions: [number, number][]}} - An object containing required drawing for
+ * @param {Asset} asset - The relevant asset
+ * @param {boolean} drawImages - Whether button images should be drawn or not
+ * @returns {ModularItemDrawData} - An object containing required drawing for
  * a module with the given item count.
  */
-function ModularItemCreateDrawData(itemCount) {
+function ModularItemCreateDrawData(itemCount, asset, drawImages) {
+	const XYArray = ExtendedItemGetXY(asset, drawImages);
+	const itemsPerPage = XYArray.length - 1;
+	const paginate = itemCount > itemsPerPage;
+	const pageCount = Math.ceil(itemCount / itemsPerPage);
+
 	/** @type {[number, number][]} */
-	const positions = [];
-	const left = 1000;
-	const width = 1000;
-	const buttonWidth = 225;
-	const rows = itemCount > ModularItemsPerPage / 2 ? 2 : 1;
-	const columns = Math.min(ModularItemsPerPage / 2, Math.ceil(itemCount / rows));
-	const top = rows === 1 ? 500 : 400;
-	const xPadding = Math.floor((width - columns * buttonWidth) / (columns + 1));
-	const xSpacing = buttonWidth + xPadding;
-	const ySpacing = 300;
-
-	for (let i = 0; i < rows; i++) {
-		for (let j = 0; j < columns; j++) {
-			positions.push([
-				left + xPadding + j * xSpacing,
-				top + i * ySpacing,
-			]);
+	const positions = []
+	let i = 0;
+	while (i < itemCount) {
+		i += itemsPerPage;
+		let j = itemsPerPage;
+		if (i > itemCount) {
+			j += (itemCount - i);
 		}
+		positions.push(...XYArray[j]);
 	}
-
-	const paginate = itemCount > ModularItemsPerPage;
-	const pageCount = Math.ceil(itemCount / ModularItemsPerPage);
-
-	return { paginate, pageCount, positions };
+	return { paginate, pageCount, positions, drawImages, itemsPerPage };
 }
 
 /**
@@ -339,14 +331,14 @@ function ModularItemDrawCommon(moduleName, buttonDefinitions, { asset, pages, dr
 		DialogFindPlayer(ExtendedItemPermissionMode ? "DialogNormalMode" : "DialogPermissionMode"),
 	);
 
-	const { paginate, pageCount, positions } = drawData[moduleName];
+	const { paginate, pageCount, positions, drawImages, itemsPerPage } = drawData[moduleName];
 	const pageNumber = Math.min(pageCount - 1, pages[moduleName] || 0);
-	const pageStart = pageNumber * ModularItemsPerPage;
-	const page = buttonDefinitions.slice(pageStart, pageStart + 8);
+	const pageStart = pageNumber * itemsPerPage;
+	const page = buttonDefinitions.slice(pageStart, pageStart + itemsPerPage);
 
 	page.forEach(([option, currentOption, prefix], i) => {
 		const [x, y] = positions[i];
-		ExtendedItemDrawButton(option, currentOption, prefix, x, y);
+		ExtendedItemDrawButton(option, currentOption, prefix, x, y, drawImages);
 	});
 
 	if (paginate) {
@@ -375,10 +367,10 @@ function ModularItemDrawModule(module, data) {
  * @returns {function(): void} - A click handler for the modular item's module selection screen
  */
 function ModularItemCreateClickBaseFunction(data) {
-	const { paginate, pageCount, positions } = data.drawData[ModularItemBase];
+	const DrawData = data.drawData[ModularItemBase];
 	return () => {
 		ModularItemClickCommon(
-			{ paginate, positions },
+			DrawData,
 			() => {
 				ExtendedItemExit();
 				ModularItemRequirementCheckMessageMemo.clearCache();
@@ -387,9 +379,9 @@ function ModularItemCreateClickBaseFunction(data) {
 				DialogMenuButtonBuild(CharacterGetCurrent());
 			},
 			i => {
-				const pageNumber = Math.min(pageCount - 1, data.pages[ModularItemBase] || 0);
-				const pageStart = pageNumber * ModularItemsPerPage;
-				const page = data.modules.slice(pageStart, pageStart + ModularItemsPerPage);
+				const pageNumber = Math.min(DrawData.pageCount - 1, data.pages[ModularItemBase] || 0);
+				const pageStart = pageNumber * DrawData.itemsPerPage;
+				const page = data.modules.slice(pageStart, pageStart + DrawData.itemsPerPage);
 				const module = page[i];
 				if (module) {
 					if (CharacterGetCurrent().ID === 0 && module.AllowSelfSelect === false) {
@@ -411,14 +403,14 @@ function ModularItemCreateClickBaseFunction(data) {
  * @returns {void} - Nothing
  */
 function ModularItemClickModule(module, data) {
-	const { paginate, pageCount, positions } = data.drawData[module.Name];
+	const DrawData = data.drawData[module.Name];
 	ModularItemClickCommon(
-		{ paginate, positions },
+		DrawData,
 		() => ModularItemModuleTransition(ModularItemBase, data),
 		i => {
-			const pageNumber = Math.min(pageCount - 1, data.pages[module.Name] || 0);
-			const pageStart = pageNumber * ModularItemsPerPage;
-			const page = module.Options.slice(pageStart, pageStart + ModularItemsPerPage);
+			const pageNumber = Math.min(DrawData.pageCount - 1, data.pages[module.Name] || 0);
+			const pageStart = pageNumber * DrawData.itemsPerPage;
+			const page = module.Options.slice(pageStart, pageStart + DrawData.itemsPerPage);
 			const selected = page[i];
 			if (selected) {
 				if (ExtendedItemPermissionMode) {
@@ -431,22 +423,20 @@ function ModularItemClickModule(module, data) {
 				}
 			}
 		},
-		(delta) => ModularItemChangePage(module.Name, delta, data)
+		(delta) => ModularItemChangePage(module.Name, delta, data),
 	);
 }
 
 /**
  * A common click handler for modular item screens. Note that pagination is not currently handled, but will be added
  * in the future.
- * @param {object} drawData
- * @param {boolean} drawData.paginate - Whether or not the current screen needs pagination handling
- * @param {number[][]} drawData.positions - The button positions to handle clicks for
+ * @param {ModularItemDrawData} drawData
  * @param {function(): void} exitCallback - A callback to be called when the exit button has been clicked
  * @param {function(number): void} itemCallback - A callback to be called when an item has been clicked
  * @param {function(number): void} paginateCallback - A callback to be called when a pagination button has been clicked
  * @returns {void} - Nothing
  */
-function ModularItemClickCommon({ paginate, positions }, exitCallback, itemCallback, paginateCallback) {
+function ModularItemClickCommon({ paginate, positions, drawImages }, exitCallback, itemCallback, paginateCallback) {
 	if (ExtendedItemSubscreen) {
 		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Click");
 		return;
@@ -469,8 +459,9 @@ function ModularItemClickCommon({ paginate, positions }, exitCallback, itemCallb
 		else if (MouseIn(1775, 240, 90, 90)) return paginateCallback(1);
 	}
 
+	const ImageHeight = (drawImages) ? 275 : 50;
 	positions.some((p, i) => {
-		if (MouseIn(p[0], p[1], 225, 275)) {
+		if (MouseIn(...p, 225, ImageHeight)) {
 			itemCallback(i);
 			return true;
 		}
@@ -581,6 +572,8 @@ function ModularItemSanitizeProperties(Property, mergedProperty, Asset) {
 	if (typeof Property.ShockLevel === "number") mergedProperty.ShockLevel = Property.ShockLevel;
 	if (typeof Property.TriggerCount === "number") mergedProperty.TriggerCount = Property.TriggerCount;
 	if (typeof Property.ShowText === "boolean") mergedProperty.ShowText = Property.ShowText;
+	if (typeof Property.InflateLevel === "number") mergedProperty.InflateLevel = Property.InflateLevel;
+	if (typeof Property.Intensity === "number") mergedProperty.Intensity = Property.Intensity;
 	return mergedProperty;
 }
 
@@ -892,9 +885,9 @@ function ModularItemGenerateValidationProperties(data) {
  * Check whether a specific module is active for a given modular item.
  * @param {string} Module - The to be compared module
  * @param {Item | null} Item - The item in question; defaults to {@link DialogFocusItem}
- * @returns
+ * @returns {boolean} whether the specific module is active
  */
- function ModularItemModuleIsActive(Module, Item=DialogFocusItem) {
+function ModularItemModuleIsActive(Module, Item=DialogFocusItem) {
 	if (Item == null) {
 		return false;
 	}

@@ -15,6 +15,7 @@ const neededFiles = [
 	"Screens/Inventory/ItemNeckAccessories/CollarNameTag/CollarNameTag.js",
 	"Screens/Inventory/ItemArms/FullLatexSuit/FullLatexSuit.js",
 	"Screens/Inventory/ItemDevices/Locker/Locker.js",
+	"Screens/Inventory/ItemButt/InflVibeButtPlug/InflVibeButtPlug.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"
 ];

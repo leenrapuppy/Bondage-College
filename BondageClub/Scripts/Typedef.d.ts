@@ -2037,6 +2037,8 @@ interface ModularItemModuleBase {
 	AllowSelfSelect?: boolean;
 	/** A unique (automatically assigned) identifier of the struct type */
 	OptionType?: "ModularItemModule";
+	/** A boolean indicating whether or not images should be drawn for this particular module. */
+	DrawImages?: boolean;
 }
 
 /** An object describing a single module for a modular item. */
@@ -2045,6 +2047,8 @@ interface ModularItemModule extends ModularItemModuleBase {
 	OptionType: "ModularItemModule";
 	/** The list of option definitions that can be chosen within this module. */
 	Options: ModularItemOption[];
+	/** A boolean indicating whether or not images should be drawn for this particular module. */
+	DrawImages: boolean;
 }
 
 /** A (partially parsed) object describing a single option within a module for a modular item. */
@@ -2105,6 +2109,20 @@ interface ModularItemOption extends ModularItemOptionBase {
 	OptionType: "ModularItemOption";
 }
 
+/** A struct with drawing data for a given module. */
+interface ModularItemDrawData {
+	/** The number of pages */
+	pageCount: number,
+	/** Whether pagination is required; i.e. if the number of buttons is larger than {@link ModularItemDrawData.itemsPerPage} */
+	paginate: boolean,
+	/** An array with two-tuples of X and Y coordinates for the buttons */
+	positions: [number, number][],
+	/** Whether each button should be accompanied by a preview image */
+	drawImages: boolean,
+	/** The number of buttons to be drawn per page */
+	itemsPerPage: number
+}
+
 /** An object containing modular item configuration for an asset. Contains all of the necessary information for the
  * item's load, draw & click handlers.
  */
@@ -2141,7 +2159,7 @@ interface ModularItemData {
 	/** A lookup for the current page in the extended item menu for each of the item's modules */
 	pages: Record<string, number>;
 	/** A lookup for the draw data for each of the item's modules */
-	drawData: Record<string, { pageCount: number, paginate: boolean, positions: [number, number][] }>;
+	drawData: Record<string, ModularItemDrawData>;
 	/** A lookup for the draw functions for each of the item's modules */
 	drawFunctions: Record<string, () => void>;
 	/** A lookup for the click functions for each of the item's modules */
@@ -2168,6 +2186,8 @@ interface ModularItemData {
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ModularItemData.scriptHooks} functions.
 	 */
 	BaselineProperty: ItemProperties | null;
+	/** A boolean indicating whether or not images should be drawn in this item's extended item menu. Automatically generated based on {@link ModularItemModule.drawImage} */
+	drawImages: boolean;
 }
 
 /** A 3-tuple containing data for drawing a button in a modular item screen. A button definition takes the

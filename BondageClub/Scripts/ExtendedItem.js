@@ -39,14 +39,14 @@ const ExtendedXY = [
  */
 const ExtendedXYWithoutImages = [
 	[], //0 placeholder
-	[[1400, 450]], //1 option per page
-	[[1175, 450], [1425, 450]], //2 options per page
-	[[1175, 450], [1425, 450], [1675, 450]], //3 options per page
-	[[1175, 450], [1425, 450], [1175, 525], [1425, 525]], //4 options per page
-	[[1175, 450], [1425, 450], [1675, 450], [1175, 525], [1425, 525]], //5 options per page
-	[[1175, 450], [1425, 450], [1675, 450], [1175, 525], [1425, 525], [1675, 525]], //6 options per page
-	[[1050, 450], [1200, 450], [1450, 450], [1700, 450], [1050, 525], [1200, 525], [1425, 525]], //7 options per page
-	[[1050, 450], [1200, 450], [1450, 450], [1700, 450], [1050, 525], [1200, 525], [1425, 525], [1675, 525]], //8 options per page
+    [[1385, 450]], //1 option per page
+    [[1260, 450], [1510, 450]], //2 options per page
+    [[1135, 450], [1385, 450], [1635, 450]], //3 options per page
+    [[1260, 450], [1510, 450], [1260, 525], [1510, 525]], //4 options per page
+    [[1135, 450], [1385, 450], [1635, 450], [1260, 525], [1510, 525]], //5 options per page
+    [[1135, 450], [1385, 450], [1635, 450], [1135, 525], [1385, 525], [1635, 525]], //6 options per page
+    [[1010, 450], [1260, 450], [1510, 450], [1760, 450], [1135, 525], [1385, 525], [1635, 525]], //7 options per page
+    [[1010, 450], [1260, 450], [1510, 450], [1760, 450], [1010, 525], [1260, 525], [1510, 525], [1760, 525]], //8 options per page
 ];
 
 /**
@@ -78,6 +78,18 @@ var ExtendedItemPermissionMode = false;
  * @type {string|null}
  */
 var ExtendedItemSubscreen = null;
+
+/**
+ * Get an asset-appropriate array with button coordinates, based on the number to be displayed per page.
+ * @param {Asset} Asset - The relevant asset
+ * @param {boolean} ShowImages - Whether images should be shown or not.
+ * Note that whether an asset is clothing-based or not takes priority over this option.
+ * @returns {[number, number][][]} The coordinates array
+ */
+function ExtendedItemGetXY(Asset, ShowImages=true) {
+	const IsCloth = Asset.Group.Clothing;
+	return !IsCloth ? ShowImages ? ExtendedXY : ExtendedXYWithoutImages : ExtendedXYClothes;
+}
 
 /**
  * Loads the item extension properties
@@ -146,7 +158,7 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 	const Asset = DialogFocusItem.Asset;
 	const ItemOptionsOffset = ExtendedItemGetOffset();
 	if (XYPositions === null) {
-		const XYPositionsArray = !Asset.Group.Clothing ? (ShowImages ? ExtendedXY : ExtendedXYWithoutImages) : ExtendedXYClothes;
+		const XYPositionsArray = ExtendedItemGetXY(Asset, ShowImages);
 		OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositionsArray.length - 1);
 		XYPositions = XYPositionsArray[OptionsPerPage];
 	} else {
@@ -326,10 +338,9 @@ function ExtendedItemClick(Options, OptionsPerPage, ShowImages=true, XYPositions
 	}
 
 	const ItemOptionsOffset = ExtendedItemGetOffset();
-	const IsCloth = DialogFocusItem.Asset.Group.Clothing;
 	const ImageHeight = ShowImages ? 220 : 0;
 	if (XYPositions === null) {
-		const XYPositionsArray = !IsCloth ? ShowImages ? ExtendedXY : ExtendedXYWithoutImages : ExtendedXYClothes;
+		const XYPositionsArray = ExtendedItemGetXY(DialogFocusItem.Asset, ShowImages);
 		OptionsPerPage = OptionsPerPage || Math.min(Options.length, XYPositionsArray.length - 1);
 		XYPositions = XYPositionsArray[OptionsPerPage];
 	} else {

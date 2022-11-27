@@ -116,7 +116,8 @@ var AudioActions = [
 		IsAction: (data) => [
 			"pumps",
 			"Suctightens",
-			"InflatableBodyBagSet"
+			"InflatableBodyBagSet",
+			"ItemButtInflVibeButtPlugIncreaseTof",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "Inflation"
 	},
@@ -204,7 +205,8 @@ var AudioActions = [
 	{
 		IsAction: (data) => [
 			"deflates",
-			"Sucloosens"
+			"Sucloosens",
+			"ItemButtInflVibeButtPlugDecreaseTof",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "Deflation"
 	},
@@ -569,8 +571,8 @@ function AudioVibratorSounds(data) {
 		case "Belt":
 		case "Panties": Sound = "VibrationLong1"; break;
 		case "Buttplug":
-		case "InflVibeButtPlug_Vibe":
-		case "InflVibeDildo_Vibe":
+		case "ItemButtInflVibeButtPlugDecreaseToi":
+		case "ItemButtInflVibeButtPlugIncreaseToi":
 		case "HempRopeBelt":
 		case "SpreaderVibratingDildoBar":
 		case "BunnyTailVibe":
