@@ -3258,6 +3258,7 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: null,
 							HideItem: ["ItemMiscTeddyBear"],
+							AllowActivity: ["SpankItem"],
 						},
 					},
 					{
