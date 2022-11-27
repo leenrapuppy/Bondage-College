@@ -346,7 +346,7 @@ function ServerPlayerRelationsSync() {
  */
 function ServerAppearanceBundle(Appearance) {
 	var Bundle = [];
-	for (let A = 0; A < Appearance.length; A++) 
+	for (let A = 0; A < Appearance.length; A++)
 		if (Appearance[A].Asset != null) {
 			var N = {};
 			N.Group = Appearance[A].Asset.Group.Name;
@@ -383,9 +383,9 @@ function ServerAppearanceLoadFromBundle(C, AssetFamily, Bundle, SourceMemberNumb
 	const updateParams = ValidationCreateDiffParams(C, SourceMemberNumber);
 
 	let { appearance, updateValid } = Object.keys(appearanceDiffs)
-		.reduce(({ appearance, updateValid }, key) => {
-			const diff = appearanceDiffs[key];
-			const { item, valid } = ValidationResolveAppearanceDiff(diff[0], diff[1], updateParams);
+		.reduce(({ appearance, updateValid }, groupName) => {
+			const diff = appearanceDiffs[groupName];
+			const { item, valid } = ValidationResolveAppearanceDiff(groupName, diff[0], diff[1], updateParams);
 			if (item) appearance.push(item);
 			updateValid = updateValid && valid;
 			return { appearance, updateValid };

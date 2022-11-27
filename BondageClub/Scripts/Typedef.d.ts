@@ -229,7 +229,7 @@ type AssetGroupItemName =
 	'ItemMouth3' | 'ItemNeck' | 'ItemNeckAccessories' | 'ItemNeckRestraints' |
 	'ItemNipples' | 'ItemNipplesPiercings' | 'ItemNose' | 'ItemPelvis' |
 	'ItemTorso' | 'ItemTorso2'| 'ItemVulva' | 'ItemVulvaPiercings' |
-	'ItemHandheld' |
+	'ItemHandheld' | 'ItemScript' |
 
 	'ItemHidden' /* TODO: investigate, not a real group */
 	;
@@ -755,6 +755,8 @@ interface Asset {
 	RemoveItemOnRemove: { Name: string; Group: string; Type?: string; }[];
 	AllowEffect?: EffectName[];
 	AllowBlock?: AssetGroupItemName[];
+	AllowHide?: AssetGroupItemName[];
+	AllowHideItem?: string[];
 	AllowType?: string[];
 	DefaultColor?: ItemColor;
 	Opacity: number;
@@ -981,6 +983,16 @@ interface ItemPermissions {
 	Type?: string | null;
 }
 
+interface ScriptPermission {
+	permission: number;
+}
+
+type ScriptPermissionProperty = "Hide" | "Block";
+
+type ScriptPermissionLevel = "Self" | "Owner" | "Lovers" | "Friends" | "Whitelist" | "Public";
+
+type ScriptPermissions = Record<ScriptPermissionProperty, ScriptPermission>;
+
 interface Character {
 	ID: number;
 	/** Only on `Player` */
@@ -1139,6 +1151,7 @@ interface Character {
 		DisablePickingLocksOnSelf: boolean;
 		GameVersion: string;
 		ItemsAffectExpressions: boolean;
+		ScriptPermissions: ScriptPermissions;
 	};
 	Game?: {
 		LARP?: GameLARPParameters,
@@ -1788,6 +1801,9 @@ interface ItemPropertiesCustom {
 	Door?: boolean;
 	/** Whether the kennel has padding */
 	Padding?: boolean;
+
+	/** Only available as overrides on the script item */
+	UnHide?: AssetGroupName[];
 }
 
 interface ItemProperties extends ItemPropertiesBase, AssetDefinitionProperties, ItemPropertiesCustom { }
@@ -2401,6 +2417,8 @@ interface AppearanceUpdateParameters {
 	 * lover-only items)
 	 */
 	fromLover: boolean;
+	/** The script permission levels that the source player has with respect to the receiver */
+	permissions: ScriptPermissionLevel[];
 	/** The member number of the source player */
 	sourceMemberNumber: number;
 }

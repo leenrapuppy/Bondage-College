@@ -868,11 +868,15 @@ function ModularItemGenerateValidationProperties(data) {
 	asset.AllowEffect = Array.isArray(asset.AllowEffect) ? asset.AllowEffect.slice() : [];
 	CommonArrayConcatDedupe(asset.AllowEffect, asset.Effect);
 	asset.AllowBlock = Array.isArray(asset.Block) ? asset.Block.slice() : [];
+	asset.AllowHide = Array.isArray(asset.Hide) ? asset.Hide.slice() : [];
+	asset.AllowHideItem = Array.isArray(asset.HideItem) ? asset.HideItem.slice() : [];
 	for (const module of modules) {
 		for (const {Property} of module.Options) {
 			if (Property) {
 				if (Property.Effect) CommonArrayConcatDedupe(asset.AllowEffect, Property.Effect);
 				if (Property.Block) CommonArrayConcatDedupe(asset.AllowBlock, Property.Block);
+				if (Property.Hide) CommonArrayConcatDedupe(asset.AllowHide, Property.Hide);
+				if (Property.HideItem) CommonArrayConcatDedupe(asset.AllowHideItem, Property.HideItem);
 				if (Property.Tint && Array.isArray(Property.Tint) && Property.Tint.length > 0) asset.AllowTint = true;
 			}
 		}
