@@ -973,7 +973,7 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: null,
 							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld", "ItemBreast", "ItemNipples", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt"],
-							Hide: ["Gloves", "Hands", "LeftHand", "RightHand", "ItemHandheld", "ItemHands", "ItemLegs", "ItemNipples", "ItemNipplesPiercings"],
+							Hide: ["Bra", "Panties", "ItemNipples", "ItemNipplesPiercings", "ItemBreast", "Socks", "Suit", "SuitLower"],
 						}
 					},
 					{
@@ -981,7 +981,6 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: "z1",
 							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
-							Hide: ["Gloves", "Hands", "LeftHand", "RightHand", "ItemHandheld", "ItemHands", "ItemLegs"],
 						}
 					},
 					{
@@ -989,7 +988,6 @@ var AssetFemale3DCGExtended = {
 						Property: {
 							Type: "z2",
 							Block: ["ItemPelvis", "ItemTorso", "ItemTorso2", "ItemHands", "ItemHandheld"],
-							Hide: ["Gloves", "Hands", "LeftHand", "RightHand", "ItemHandheld", "ItemHands", "ItemLegs"],
 						}
 					},
 				],
