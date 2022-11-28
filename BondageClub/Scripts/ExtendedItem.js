@@ -453,6 +453,41 @@ function ExtendedItemSetType(C, Options, Option) {
 }
 
 /**
+ * Sets a typed item's type and properties to the option provided.
+ * @param {Character} C - The character on whom the item is equipped
+ * @param {Item} item - The item whose type to set
+ * @param {ItemProperties} previousProperty - The typed item options for the item
+ * @param {ItemProperties} newProperty - The option to set
+ * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
+ * player) - defaults to false.
+ * @returns {void} Nothing
+ */
+function ExtendedItemSetOption(C, item, previousProperty, newProperty, push=false) {
+	// Delete properties added by the previous option
+	const Property = Object.assign({}, item.Property);
+	for (const key of Object.keys(previousProperty)) {
+		delete Property[key];
+	}
+	// Clone the new properties and use them to extend the existing properties
+	Object.assign(Property, newProperty);
+
+	// If the item is locked, ensure it has the "Lock" effect
+	if (Property.LockedBy && !(Property.Effect || []).includes("Lock")) {
+		Property.Effect = (Property.Effect || []);
+		Property.Effect.push("Lock");
+	}
+
+	item.Property = Property;
+
+	if (!InventoryDoesItemAllowLock(item)) {
+		// If the new type does not permit locking, remove the lock
+		ValidationDeleteLock(item.Property, false);
+	}
+
+	CharacterRefresh(C, push);
+}
+
+/**
  * Handler function called when an option on the type selection screen is clicked
  * @param {Character} C - The character wearing the item
  * @param {ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item

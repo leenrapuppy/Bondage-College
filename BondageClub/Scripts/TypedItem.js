@@ -524,6 +524,7 @@ function TypedItemSetOption(C, item, options, option, push = false) {
 	if (!item || !options || !option) return;
 
 	const previousProperty = item.Property || options[0].Property;
+	const newProperty = JSON.parse(JSON.stringify(option.Property));
 	const previousOption = TypedItemFindPreviousOption(item, options);
 
 	const requirementMessage = TypedItemValidateOption(C, item, option, previousOption);
@@ -531,29 +532,7 @@ function TypedItemSetOption(C, item, options, option, push = false) {
 		return requirementMessage;
 	}
 
-	// Create a new Property object based on the previous one
-	const newProperty = Object.assign({}, previousProperty);
-	// Delete properties added by the previous option
-	for (const key of Object.keys(previousOption.Property)) {
-		delete newProperty[key];
-	}
-	// Clone the new properties and use them to extend the existing properties
-	Object.assign(newProperty, JSON.parse(JSON.stringify(option.Property)));
-
-	// If the item is locked, ensure it has the "Lock" effect
-	if (newProperty.LockedBy && !(newProperty.Effect || []).includes("Lock")) {
-		newProperty.Effect = (newProperty.Effect || []);
-		newProperty.Effect.push("Lock");
-	}
-
-	item.Property = newProperty;
-
-	if (!InventoryDoesItemAllowLock(item)) {
-		// If the new type does not permit locking, remove the lock
-		ValidationDeleteLock(item.Property, false);
-	}
-
-	CharacterRefresh(C, push);
+	ExtendedItemSetOption(C, item, previousProperty, newProperty, push);
 }
 
 /**
