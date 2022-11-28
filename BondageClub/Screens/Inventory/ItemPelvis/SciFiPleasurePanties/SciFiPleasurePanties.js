@@ -27,7 +27,7 @@ function InventoryItemPelvisSciFiPleasurePantiesDraw(OriginalFunction) {
 
 		// Display the ShowText checkbox
 		DrawCheckbox(1175, 818, 64, 64, "", DialogFocusItem.Property.ShowText, ExtendedItemPermissionMode);
-		DrawText(DialogFindPlayer("ShowChat"), 1420, 848, "White", "Gray");
+		DrawText(DialogFindPlayer("ShowMessageInChat"), 1420, 848, "White", "Gray");
 
 		// Display the manual shock button
 		ExtendedItemCustomDraw("TriggerShock", 1637, 825, false, false);
