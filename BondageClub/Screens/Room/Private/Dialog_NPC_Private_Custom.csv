@@ -1247,6 +1247,17 @@ ActivityAftercare,,(Rub your body submissively against her.),(Time seems to stan
 ActivityAftercareOutro,,,(She releases you from her embrace.)  That's enough for now my girl.,,,DomActivityAftercareOutro,
 ActivityAftercareOutro,,,"(She releases you from her embrace and smiles.)  That's enough my submissive, but we need to do this again.",,,DomActivityAftercareOutro,Peaceful
 ActivityAftercareOutro,,,(She releases you from her embrace and spanks your butt.)  That's enough slave.,,,DomActivityAftercareOutro,Violent
+ActivityCollarTypeIntro,,,(She inspects your slave collar.)  It's time to change your collar my submissive.,,,DomActivityCollarTypeIntro,
+ActivityCollarTypeIntro,,,"(She grabs your slave collar.)  Do not protest, it's time to change your slave collar.",,,DomActivityCollarTypeIntro,Serious
+ActivityCollarTypeIntro,,,(She looks at your slave collar.)  Time to change your collar my subbie.,,,DomActivityCollarTypeIntro,Playful
+ActivityCollarTypeIntro,,,(She inspects your slave collar.)  This collar needs to be refreshed my submissive.  I will fetch you another model.,,,DomActivityCollarTypeIntro,Polite
+ActivityCollarTypeIntro,,,"(She looks at your slave collar.)  I'm tired of that ol collar slave, I'm getting ya a new one.",,,DomActivityCollarTypeIntro,Rude
+ActivityCollarType,1000,No.  I like my current collar.,"(She seems annoyed.)  Fine, keep your current collar.",ActivityRun(-7),Player.CanTalk(),,
+ActivityCollarType,1000,As you wish.,(She unlocks your collar and picks a new model to lock around your neck.)  There you go.,ActivityRun(1),Player.CanTalk(),,
+ActivityCollarType,1000,Good idea Mistress.,(She unlocks your collar and picks a new model to lock around your neck.)  Good girl.,ActivityRun(0),Player.CanTalk(),,
+ActivityCollarType,1000,(Stay silent.),(She unlocks your collar and picks a new model to lock around your neck.)  There you go.,ActivityRun(0),,,
+ActivityCollarType,1000,(Bow your head slowly.),(She unlocks your collar and picks a new model to lock around your neck.)  Good girl.,ActivityRun(1),,,
+ActivityCollarType,1000,(Grumble and try to stop her.),"(She seems annoyed.)  Fine, keep your current collar.",ActivityRun(-7),,,
 PunishIntro,,,(She seems furious.)  That's enough!  You must be punished.,,,DomPunishIntro,
 PunishIntro,,,(She slaps your face.)  Slave!  You must be punished.,,,DomPunishIntro,Violent
 PunishIntro,,,"(She speaks with a calm and menacing voice.)  I'm sorry my precious submissive, but you must be punished.",,,DomPunishIntro,Peaceful

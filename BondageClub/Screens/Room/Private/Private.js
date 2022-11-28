@@ -10,7 +10,7 @@ var PrivateReleaseTimer = 0;
 var PrivateActivity = "";
 var PrivateActivityCount = 0;
 var PrivateActivityAffectLove = true;
-var PrivateActivityList = ["Gag", "Ungag", "Restrain", "RestrainOther", "FullRestrain", "FullRestrainOther", "Release", "Unchaste", "Tickle", "Spank", "Pet", "Slap", "Kiss", "Fondle", "Naked", "Underwear", "RandomClothes", "CollegeClothes", "Shibari", "Gift", "PetGirl", "Locks", "Bed", "Aftercare"];
+var PrivateActivityList = ["Gag", "Ungag", "Restrain", "RestrainOther", "FullRestrain", "FullRestrainOther", "Release", "Unchaste", "Tickle", "Spank", "Pet", "Slap", "Kiss", "Fondle", "Naked", "Underwear", "RandomClothes", "CollegeClothes", "Shibari", "Gift", "PetGirl", "Locks", "Bed", "Aftercare", "CollarType"];
 var PrivateActivityTarget = null;
 var PrivatePunishment = "";
 var PrivatePunishmentList = ["Cage", "Bound", "BoundPet", "ChastityBelt", "ChastityBra", "ForceNaked", "ConfiscateKey", "ConfiscateCrop", "ConfiscateWhip", "SleepCage", "LockOut", "Cell", "OwnerLocks"];
@@ -1187,6 +1187,7 @@ function PrivateStartActivity() {
 		if ((Act == "Locks") && InventoryHasLockableItems(Player)) break;
 		if ((Act == "Bed") && (PrivateBedCount() == 1) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime) && (NPCTraitGet(CurrentCharacter, "Horny") >= 0) && PrivateBedActive() && (Player.Cage == null)) break;
 		if ((Act == "Aftercare") && (CurrentCharacter.Love >= 50) && (NPCTraitGet(CurrentCharacter, "Wise") >= 0)) break;
+		if ((Act == "CollarType") && Player.IsOwned()) break;
 
 		// After 100 tries, we give up on picking an activity and the owner ignore the player
 		Count++;
@@ -1282,6 +1283,17 @@ function PrivateActivityRun(LoveFactor) {
 	if (PrivateActivity == "Gift") {
 		CharacterChangeMoney(Player, 50);
 		NPCEventAdd(CurrentCharacter, "LastGift", CurrentTime);
+	}
+
+	// In CollarType, the owner will change the slave collar design for the player
+	if (PrivateActivity == "CollarType") {
+		let Item = InventoryGet(Player, "ItemNeck");
+		if (Item != null) {
+			let NewProperty = Item.Property;
+			while (NewProperty == Item.Property)
+				Item.Property = CommonRandomItemFromList(null, InventoryItemNeckSlaveCollarTypes).Property;
+			CharacterRefresh(Player, true);
+		}
 	}
 
 	// In Shibari, the player gets naked and fully roped in hemp
