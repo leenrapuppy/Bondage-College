@@ -3884,7 +3884,7 @@ var AssetFemale3DCG = [
 				Alpha: [{Group: ["BodyLower"], Pose: ["Kneel"], Masks: [[140, 462, 75, 238], [285, 462, 75, 238], [215 ,545, 70, 155]]}],
 				Layer: [
 					{ Name: "Latex", },
-					{ Name: "Straps", HasType: false, AllowPose: ["AllFours"], CopyLayerColor: "Latex", ParentGroup: null, },
+					{ Name: "Straps", HasType: false, AllowPose: ["AllFours"], HideForPose: ["Kneel"], CopyLayerColor: "Latex", ParentGroup: null, },
 					{ Name: "Lock", HasType: false, ParentGroup: null, LockLayer: true },
 				],
 				SelfUnlock: false
