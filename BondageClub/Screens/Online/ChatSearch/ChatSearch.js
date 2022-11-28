@@ -323,7 +323,7 @@ function ChatSearchNormalDraw() {
 			var IsFull = ChatSearchResult[C].MemberCount >= ChatSearchResult[C].MemberLimit;
 			var HasBlock = CharacterHasBlockedItem(Player, ChatSearchResult[C].BlockCategory);
 			DrawButton(X, Y, 630, 85, "", (HasBlock && IsFull ? "#884444" : HasBlock ? "#FF9999" : HasFriends && IsFull ? "#448855" : HasFriends ? "#CFFFCF" : IsFull ? "#666" : "White"), null, null, IsFull);
-			DrawTextFit((ChatSearchResult[C].Friends != null && ChatSearchResult[C].Friends.length > 0 ? "(" + ChatSearchResult[C].Friends.length + ") " : "") + ChatSearchMuffle(ChatSearchResult[C].Name) + " - " + ChatSearchMuffle(ChatSearchResult[C].Creator) + " " + ChatSearchResult[C].MemberCount + "/" + ChatSearchResult[C].MemberLimit + "", X + 315, Y + 25, 620, "black");
+			DrawTextFit((ChatSearchResult[C].Friends != null && ChatSearchResult[C].Friends.length > 0 ? "(" + ChatSearchResult[C].Friends.length + ") " : "") + ChatSearchMuffle(ChatSearchResult[C].DisplayName) + " - " + ChatSearchMuffle(ChatSearchResult[C].Creator) + " " + ChatSearchResult[C].MemberCount + "/" + ChatSearchResult[C].MemberLimit + "", X + 315, Y + 25, 620, "black");
 			DrawTextFit(ChatSearchMuffle(ChatSearchResult[C].Description), X + 315, Y + 62, 620, "black");
 
 			// Moves the next window position
@@ -352,7 +352,7 @@ function ChatSearchNormalDraw() {
 
 				// Builds the friend list as hover text
 				if (MouseIn(X, Y, 630, 85) && ChatSearchResult[C].Friends != null && ChatSearchResult[C].Friends.length > 0) {
-					DrawTextWrap(TextGet("FriendsInRoom") + " " + ChatSearchMuffle(ChatSearchResult[C].Name), (X > 1000) ? 685 : X + 660, ListY, 630, Height, "black", "#FFFF88", 1);
+					DrawTextWrap(TextGet("FriendsInRoom") + " " + ChatSearchMuffle(ChatSearchResult[C].DisplayName), (X > 1000) ? 685 : X + 660, ListY, 630, Height, "black", "#FFFF88", 1);
 					ListY += Height;
 					for (let F = 0; F < ChatSearchResult[C].Friends.length; F++) {
 						DrawTextWrap(ChatSearchMuffle(ChatSearchResult[C].Friends[F].MemberName + " (" + ChatSearchResult[C].Friends[F].MemberNumber + ")"), (X > 1000) ? 685 : X + 660, ListY, 630, Height, "black", "#FFFF88", 1);
@@ -426,7 +426,7 @@ function ChatSearchPermissionDraw() {
 			let Hover = (MouseX >= X) && (MouseX <= X + 630) && (MouseY >= Y) && (MouseY <= Y + 85) && !CommonIsMobile;
 			// Draw the room rectangle
 			DrawRect(X, Y, 630, 85, Hover ? "green" : "lime");
-			DrawTextFit(ChatSearchMuffle(ChatSearchResult[C].Name) + " - " + ChatSearchMuffle(ChatSearchResult[C].Creator) + " (" + ChatSearchResult[C].CreatorMemberNumber + ")", X + 315, Y + 25, 620, "black");
+			DrawTextFit(ChatSearchMuffle(ChatSearchResult[C].DisplayName) + " - " + ChatSearchMuffle(ChatSearchResult[C].Creator) + " (" + ChatSearchResult[C].CreatorMemberNumber + ")", X + 315, Y + 25, 620, "black");
 			DrawTextFit(ChatSearchMuffle(ChatSearchResult[C].Description), X + 315, Y + 62, 620, "black");
 
 			// Moves the next window position
@@ -445,7 +445,7 @@ function ChatSearchPermissionDraw() {
 
 			// Draw the room rectangle
 			DrawRect(X, Y, 630, 85, Hover ? "red" : "pink");
-			DrawTextFit(ChatSearchMuffle(ChatSearchHiddenResult[C].Name) + " - " + ChatSearchMuffle(ChatSearchHiddenResult[C].Creator) + " (" + ChatSearchHiddenResult[C].CreatorMemberNumber + ")", X + 315, Y + 25, 620, "black");
+			DrawTextFit(ChatSearchMuffle(ChatSearchHiddenResult[C].DisplayName) + " - " + ChatSearchMuffle(ChatSearchHiddenResult[C].Creator) + " (" + ChatSearchHiddenResult[C].CreatorMemberNumber + ")", X + 315, Y + 25, 620, "black");
 			DrawTextFit(ChatSearchMuffle(ChatSearchHiddenResult[C].Description), X + 315, Y + 62, 620, "black");
 
 			// Moves the next window position
@@ -679,7 +679,7 @@ function ChatSearchClickUnhideRoom(C, Confirmed) {
 		const MemberLabel = ChatSearchMuffle(ChatSearchHiddenResult[C].Creator) + " (" + ChatSearchHiddenResult[C].CreatorMemberNumber + ")";
 		let UnhideConfirm = {
 			Index: C,
-			RoomLabel: ChatSearchMuffle(ChatSearchHiddenResult[C].Name) + " - " + MemberLabel,
+			RoomLabel: ChatSearchMuffle(ChatSearchHiddenResult[C].DisplayName) + " - " + MemberLabel,
 			MemberLabel: "",
 			WordsLabel: "",
 		};
@@ -731,6 +731,24 @@ function ChatSearchResponse(data) {
 }
 
 /**
+ * Censors the chat search result name and description based on the player preference
+ * @returns {void} - Nothing
+ */
+function ChatSearchCensor() {
+	for (let R = 0; R < ChatSearchResult.length; R++) {
+		let Name = CommonCensor(ChatSearchResult[R].Name);
+		let Description = CommonCensor(ChatSearchResult[R].Description);
+		if ((Name == "¶¶¶") || (Description == "¶¶¶")) {
+			ChatSearchResult.splice(R, 1);
+			R = R - 1;
+		} else {
+			ChatSearchResult[R].DisplayName = Name;
+			ChatSearchResult[R].Description = Description;
+		}
+	}
+}
+
+/**
  * Handles the reception of the server data when it responds to the search query
  * @param {any[]} data - Response from the server, contains the room list matching the query
  * @returns {void} - Nothing
@@ -738,6 +756,7 @@ function ChatSearchResponse(data) {
 function ChatSearchResultResponse(data) {
 	ChatSearchResult = Array.isArray(data) ? data : [];
 	ChatSearchResultOffset = 0;
+	ChatSearchCensor();
 	ChatSearchQuerySort();
 	ChatSearchApplyFilterTerms();
 	ChatSearchAutoJoinRoom();
