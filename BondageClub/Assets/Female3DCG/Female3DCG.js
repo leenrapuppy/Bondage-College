@@ -6906,12 +6906,11 @@ var AssetFemale3DCG = [
 		Zone: [[10, 600, 90, 400], [400, 600, 90, 400]],
 		Asset: [
 			{
-				Name: "WoodenBox", Priority: 58, Value: 60, Difficulty: -2, SelfBondage: 5, Time: 15, RemoveTime: 10, AllowLock: true, Audio: "LockLarge", RemoveAtLogin: true, DefaultColor: ["Default", "#600"], SetPose: ["BaseLower"], Extended: true, DynamicAfterDraw: true, MinOpacity: 0, Opacity: 0, FixedPosition: true,
-				AllowType: ["NWSE"],
+				Name: "WoodenBox", Priority: 58, Value: 60, Difficulty: -2, SelfBondage: 5, Time: 15, RemoveTime: 10, AllowLock: true, Audio: "LockLarge", RemoveAtLogin: true,
+				DefaultColor: ["Default", "#600"], SetPose: ["BaseLower"], Extended: true, DynamicAfterDraw: true, MinOpacity: 0, Opacity: 0, FixedPosition: true,
 				Block: ["ItemAddon"],
 				Prerequisite: ["NotSuspended", "NotHogtied", "NotHorse", "NotLifted"],
 				Effect: ["Prone", "Enclose", "Freeze"],
-				AllowEffect: ["Prone", "Enclose", "BlindNormal", "GagLight", "Freeze"],
 				Layer: [
 					{ Name: "Back", Priority: 1, MinOpacity: 1, HasType: false },
 					{ Name: "Panel", CopyLayerColor: "Back", HasType: false },
@@ -7101,15 +7100,14 @@ var AssetFemale3DCG = [
 				Effect: ["Prone", "Freeze", "Block", "Mounted"],
 				FreezeActivePose: ["BodyUpper", "BodyLower"],
 				DrawLocks: false,
-				AllowType: ["ArmsDownLegsTogether","ArmsUpLegsSpread","ArmsUpLegsTogether"],
-				AllowPose: ["Yoked","BaseLower","LegsClosed"],
-				AllowEffect: ["Prone", "Freeze", "Block", "Mounted"],
 				Layer: [
-					{ Name: "SheetBack", ColorGroup:"Sheet", Priority: 1 },
-					{ Name: "SheetFront", ColorGroup:"Sheet", Priority: 2 },
-					{ Name: "Upper", ColorGroup:"Body", ParentGroup: "BodyUpper" },
-					{ Name: "Lower", ColorGroup:"Body", ParentGroup: "BodyLower" },
-					{ Name: "Frame", MinOpacity: 1, Priority: 3 }
+					{ Name: "SheetBack", ColorGroup:"Sheet", Priority: 1, HasType: false },
+					{ Name: "SheetFront", ColorGroup:"Sheet", Priority: 2, HasType: false },
+					{ Name: "ArmsDown", ColorGroup:"Body", ParentGroup: "BodyUpper", HasType: false, AllowModuleTypes: ["a0"] },
+					{ Name: "ArmsYoked", ColorGroup:"Body", ParentGroup: "BodyUpper", HasType: false, AllowModuleTypes: ["a1"], CopyLayerColor: "ArmsDown" },
+					{ Name: "LegsSpread", ColorGroup:"Body", ParentGroup: "BodyLower", HasType: false, AllowModuleTypes: ["l0"] },
+					{ Name: "LegsClosed", ColorGroup:"Body", ParentGroup: "BodyLower", HasType: false, AllowModuleTypes: ["l1"], CopyLayerColor: "LegsSpread" },
+					{ Name: "Frame", MinOpacity: 1, Priority: 3, HasType: false }
 				]
 			},
 			{
@@ -7254,12 +7252,11 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "TransportWoodenBox", Priority: 58, Value: 60, Difficulty: -2, SelfBondage: 5, Time: 15, RemoveTime: 10, AllowLock: true, Audio: "LockLarge", DefaultColor: ["Default", "Default", "Default", "#600"], Extended: true, RemoveAtLogin: true, SetPose: ["BaseLower"], MinOpacity: 0, Opacity: 0, DynamicAfterDraw: true, FixedPosition: true,
-				AllowType: ["NWSE"],
+				Name: "TransportWoodenBox", Priority: 58, Value: 60, Difficulty: -2, SelfBondage: 5, Time: 15, RemoveTime: 10, AllowLock: true, Audio: "LockLarge",
+				DefaultColor: ["Default", "Default", "Default", "#600"], Extended: true, RemoveAtLogin: true, SetPose: ["BaseLower"], MinOpacity: 0, Opacity: 0, DynamicAfterDraw: true, FixedPosition: true,
 				Block: ["ItemAddon"],
 				Prerequisite: ["NotSuspended", "NotHogtied", "NotLifted"],
 				Effect: ["Prone", "Enclose", "Freeze", "Leash"],
-				AllowEffect: ["Prone", "Enclose", "BlindNormal", "GagLight", "Freeze", "Leash"],
 				Layer: [
 					{ Name: "Back", Priority: 1, MinOpacity: 1, HasType: false },
 					{ Name: "Panel", CopyLayerColor: "Back", HasType: false },

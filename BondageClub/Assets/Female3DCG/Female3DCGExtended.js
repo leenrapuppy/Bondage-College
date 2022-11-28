@@ -3767,9 +3767,10 @@ var AssetFemale3DCGExtended = {
 				],
 				BaselineProperty: { Opacity: 0 },
 				ScriptHooks: {
-					Load: InventoryItemDevicesLockerLoad,
-					Draw: InventoryItemDevicesLockerDraw,
-					Exit: InventoryItemDevicesLockerExit,
+					Load: OpacityLoad,
+					Draw: OpacityDraw,
+					Exit: OpacityExit,
+					Validate: OpacityValidate,
 				},
 				Dialog: {
 					NpcPrefix: (C, Option, PreviousOption) => `ItemDevicesLocker${Option.Name}`,
@@ -3788,6 +3789,75 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // SmallLocker
+		VacBedDeluxe: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Legs",
+						Key: "l",
+						Options: [
+							{
+								Property: { SetPose: ["BaseLower"] },
+								Prerequisite: ["LegsOpen"],
+							}, // l0 - Legs spread
+							{
+								Property: { SetPose: ["LegsClosed"] },
+							}, // l1 - Legs closed
+						],
+					},
+					{
+						Name: "Arms",
+						Key: "a",
+						Options: [
+							{}, // a0 - Arms down
+							{ Property: { SetPose: ["Yoked"] } }, // a1 - Arms yoked
+						],
+					},
+				],
+				BaselineProperty: { Opacity: 1 },
+				ScriptHooks: {
+					Load: OpacityLoad,
+					Draw: InventoryItemDevicesVacBedDeluxeDraw,
+					Exit: OpacityExit,
+					Validate: OpacityValidate,
+				},
+			},
+		}, // VacBedDeluxe
+		WoodenBox: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR_NAME, CommonChatTags.ASSET_NAME],
+				Options: [
+					{
+						Name: "SWNE",
+						Property: { Type: null, Effect: ["Prone", "Enclose", "Freeze"] },
+					},
+					{
+						Name: "NWSE",
+						Property: { Type: "NWSE", Effect: ["Prone", "Enclose", "Freeze"] },
+					},
+				],
+				BaselineProperty: { Opacity: 0, Text: "" },
+				ScriptHooks: {
+					Load: InventoryItemDevicesWoodenBoxLoad,
+					Draw: InventoryItemDevicesWoodenBoxDraw,
+					Exit: InventoryItemDevicesWoodenBoxExit,
+					Validate: OpacityValidate,
+				},
+			},
+		}, // WoodenBox
+		TransportWoodenBox: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemDevices", AssetName: "WoodenBox" },
+			Config: {
+				Dialog: {
+					Load: "ItemDevicesWoodenBoxSelect",
+					TypePrefix: "ItemDevicesWoodenBox",
+					ChatPrefix: "ItemDeviceWoodenBoxSet",
+				},
+			},
+		}, // TransportWoodenBox
 	}, // ItemDevices
 	ItemBoots: {
 		ToeTape: {

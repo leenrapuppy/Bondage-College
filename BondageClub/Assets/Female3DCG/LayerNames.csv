@@ -665,8 +665,10 @@ ItemDevicesPetBowlText,Text
 ItemDevicesVacBedDeluxeSheetBack,Sheet Back
 ItemDevicesVacBedDeluxeSheetFront,Sheet Front
 ItemDevicesVacBedDeluxeSheet,Sheet
-ItemDevicesVacBedDeluxeUpper,Upper
-ItemDevicesVacBedDeluxeLower,Lower
+ItemDevicesVacBedDeluxeArmsDown,Upper
+ItemDevicesVacBedDeluxeArmsYoked,Upper
+ItemDevicesVacBedDeluxeLegsSpread,Lower
+ItemDevicesVacBedDeluxeLegsClosed,Lower
 ItemDevicesVacBedDeluxeBody,Body
 ItemDevicesVacBedDeluxeFrame,Frame
 ItemDevicesFuckMachineCaps,Caps

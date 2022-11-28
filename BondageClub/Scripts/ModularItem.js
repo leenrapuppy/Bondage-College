@@ -574,6 +574,7 @@ function ModularItemSanitizeProperties(Property, mergedProperty, Asset) {
 	if (typeof Property.ShowText === "boolean") mergedProperty.ShowText = Property.ShowText;
 	if (typeof Property.InflateLevel === "number") mergedProperty.InflateLevel = Property.InflateLevel;
 	if (typeof Property.Intensity === "number") mergedProperty.Intensity = Property.Intensity;
+	if (typeof Property.Opacity === "number") mergedProperty.Opacity = Property.Opacity;
 	return mergedProperty;
 }
 
@@ -897,4 +898,25 @@ function ModularItemModuleIsActive(Module, Item=DialogFocusItem) {
 	}
 	const Data = ModularItemDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
 	return Data !== undefined ? (Data.currentModule === Module) : false;
+}
+
+/**
+ * Hide an HTML element if a given module is not active.
+ * @param {string} ID - The id of the element
+ * @param {string} Module - The module that must be active
+ * @returns {boolean} Whether the module is active or not
+ */
+function ModularItemHideElement(ID, Module) {
+	const Element = document.getElementById(ID);
+	if (Element == null) {
+		return ModularItemModuleIsActive(Module);
+	}
+
+    if (ModularItemModuleIsActive(Module)) {
+        Element.style.display = "block";
+        return true;
+    } else {
+        Element.style.display = "none";
+        return false;
+    }
 }

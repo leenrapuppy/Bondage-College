@@ -1,123 +1,50 @@
 "use strict";
+
 const InventoryItemDevicesWoodenBoxMaxLength = 20;
 const InventoryItemDevicesWoodenBoxTextInputId = "InventoryItemDevicesWoodenBoxText";
-const InventoryItemDevicesWoodenBoxOpacityInputId = "InventoryItemDevicesWoodenBoxOpacity";
 const InventoryItemDevicesWoodenBoxFont = "'Saira Stencil One', 'Arial', sans-serif";
 
 let InventoryItemDevicesWoodenBoxOriginalText = null;
 
-var InventoryItemDevicesWoodenBoxOptions = [
-	{
-		Name: "SWNE",
-		Property: { Type: null },
-		from: [0, 1],
-		to: [1, 0],
-	},
-	{
-		Name: "NWSE",
-		Property: { Type: "NWSE" },
-		from: [0, 0],
-		to: [1, 1],
-	},
-];
-
 /**
  * Loads the wooden box's extended item properties
+ * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} - Nothing
  */
-function InventoryItemDevicesWoodenBoxLoad() {
+function InventoryItemDevicesWoodenBoxLoad(OriginalFunction) {
+	OpacityLoad(OriginalFunction);
 	DynamicDrawLoadFont(InventoryItemDevicesWoodenBoxFont);
 
 	const C = CharacterGetCurrent();
-	const item = DialogFocusItem;
-	let mustRefresh = false;
-
-	/** @type {ItemProperties} */
-	const Property = item.Property = item.Property || {};
-	if (typeof Property.Text !== "string") {
-		Property.Text = "";
-		mustRefresh = true;
-	}
-	if (typeof Property.Opacity !== "number") {
-		Property.Opacity = 0;
-		InventoryItemDevicesWoodenBoxSetOpacity(Property, Property.Opacity);
-		mustRefresh = true;
-	}
-	if (!InventoryItemDevicesWoodenBoxOptions.find(option => option.Property.Type === Property.Type)) {
-		Property.Type = InventoryItemDevicesWoodenBoxOptions[0].Property.Type;
-		mustRefresh = true;
-	}
-
-	if (mustRefresh) {
-		CharacterRefresh(C);
-		ChatRoomCharacterItemUpdate(C, item.Asset.Group.Name);
-	}
+	const Property = DialogFocusItem.Property;
 
 	if (InventoryItemDevicesWoodenBoxOriginalText == null) {
 		InventoryItemDevicesWoodenBoxOriginalText = Property.Text;
 	}
 
 	const textInput = ElementCreateInput(
-		InventoryItemDevicesWoodenBoxTextInputId, "text", Property.Text, InventoryItemDevicesWoodenBoxMaxLength);
+		InventoryItemDevicesWoodenBoxTextInputId,
+		"text", Property.Text, InventoryItemDevicesWoodenBoxMaxLength.toString(),
+	);
 	if (textInput) {
 		textInput.pattern = DynamicDrawTextInputPattern;
-		textInput.addEventListener("input", (e) => InventoryItemDevicesWoodenBoxTextChange(C, item, e.target.value));
-	}
-
-	const opacitySlider = ElementCreateRangeInput(InventoryItemDevicesWoodenBoxOpacityInputId, Property.Opacity, item.Asset.MinOpacity, item.Asset.MaxOpacity, 0.01, "blindfold");
-	if (opacitySlider) {
-		opacitySlider.addEventListener("input", (e) => InventoryItemDevicesWoodenBoxOpacityChange(C, item, e.target.value));
+		textInput.addEventListener("input", (e) => InventoryItemDevicesWoodenBoxTextChange(C, DialogFocusItem, e.target.value));
 	}
 }
 
 /**
  * Draw handler for the wooden box's extended item screen
+ * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
  * @returns {void} - Nothing
  */
-function InventoryItemDevicesWoodenBoxDraw() {
-	const asset = DialogFocusItem.Asset;
-
-	// Draw the header and item
-	DrawAssetPreview(1387, 125, asset);
+function InventoryItemDevicesWoodenBoxDraw(OriginalFunction) {
+	OpacityDraw(OriginalFunction);
+	const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
 
 	MainCanvas.textAlign = "right";
-	DrawTextFit(DialogFindPlayer("WoodenBoxOpacityLabel"), 1475, 500, 400, "#fff", "#000");
-	ElementPosition(InventoryItemDevicesWoodenBoxOpacityInputId, 1725, 500, 400);
-
-	DrawTextFit(DialogFindPlayer("WoodenBoxTextLabel"), 1475, 580, 400, "#fff", "#000");
-	ElementPosition(InventoryItemDevicesWoodenBoxTextInputId, 1725, 580, 400);
+	DrawTextFit(DialogFindPlayer(`${Data.dialog.typePrefix}TextLabel`), 1375, 850, 400, "#fff", "#000");
+	ElementPosition(InventoryItemDevicesWoodenBoxTextInputId, 1625, 850, 400);
 	MainCanvas.textAlign = "center";
-
-	DrawTextFit(DialogFindPlayer("WoodenBoxTypeLabel"), 1500, 660, 800, "#fff", "#000");
-
-	InventoryItemDevicesWoodenBoxOptions.forEach((option, i) => {
-		const x = ExtendedXY[InventoryItemDevicesWoodenBoxOptions.length][i][0];
-		const isSelected = DialogFocusItem.Property.Type === option.Property.Type;
-		DrawPreviewBox(x, 700, `${AssetGetInventoryPath(asset)}/${option.Name}.png`, "", {
-			Border: true,
-			Hover: true,
-			Disabled: isSelected,
-		});
-	});
-}
-
-/**
- * Click handler for the wooden box's extended item screen
- * @returns {void} - Nothing
- */
-function InventoryItemDevicesWoodenBoxClick() {
-	// Exits the screen
-	if (MouseIn(1885, 25, 90, 90)) {
-		return InventoryItemDevicesWoodenBoxExit();
-	}
-
-	InventoryItemDevicesWoodenBoxOptions.some((option, i) => {
-		const x = ExtendedXY[InventoryItemDevicesWoodenBoxOptions.length][i][0];
-		if (MouseIn(x, 700, 225, 275)) {
-			DialogFocusItem.Property.Type = option.Property.Type;
-			CharacterRefresh(CharacterGetCurrent(), false);
-		}
-	});
 }
 
 /**
@@ -128,19 +55,21 @@ function InventoryItemDevicesWoodenBoxExit() {
 	const C = CharacterGetCurrent();
 	const item = DialogFocusItem;
 
-	let setOpacity = window[`Inventory${item.Asset.Group.Name}${item.Asset.Name}SetOpacity`] || InventoryItemDevicesWoodenBoxSetOpacity;
-	setOpacity(item.Property, InventoryItemDevicesWoodenBoxGetInputOpacity());
+	// Apply extra opacity-specific effects
+	InventoryItemDevicesWoodenBoxSetOpacity();
+
 	const text = InventoryItemDevicesWoodenBoxGetText();
 	if (DynamicDrawTextRegex.test(text)) item.Property.Text = text;
 
 	if (CurrentScreen === "ChatRoom" && text !== InventoryItemDevicesWoodenBoxOriginalText) {
+		const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
 		const dictionary = [
 			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
 			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 			{ Tag: "NewText", Text: text },
 			{ Tag: "AssetName", AssetName: item.Asset.Name },
 		];
-		const msg = text === "" ? "WoodenBoxTextRemove" : "WoodenBoxTextChange";
+		const msg = text === "" ? `${Data.dialog.chatPrefix}TextRemove` : `${Data.dialog.chatPrefix}TextChange`;
 		ChatRoomPublishCustomAction(msg, false, dictionary);
 	}
 
@@ -148,40 +77,24 @@ function InventoryItemDevicesWoodenBoxExit() {
 	ChatRoomCharacterItemUpdate(C, item.Asset.Group.Name);
 
 	ElementRemove(InventoryItemDevicesWoodenBoxTextInputId);
-	ElementRemove(InventoryItemDevicesWoodenBoxOpacityInputId);
 	InventoryItemDevicesWoodenBoxOriginalText = null;
-	PreferenceMessage = "";
-	DialogFocusItem = null;
-	if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
 }
 
 /**
  * Sets the opacity of the wooden box based, and applies effects based on its opacity value
- * @param {ItemProperties} property - The item's Property object
- * @param {number} opacity - The opacity to set on the item's Property
  * @returns {void} - Nothing
  */
-function InventoryItemDevicesWoodenBoxSetOpacity(property, opacity) {
-	if (opacity !== property.Opacity) property.Opacity = opacity;
-	if (!Array.isArray(property.Effect)) property.Effect = [];
-	const transparent = property.Opacity < 0.15;
-	const effectsToApply = transparent ? ["Prone", "Enclose", "Freeze"] : ["Prone", "Enclose", "BlindNormal", "GagLight", "Freeze"];
-	const effectsToRemoves = transparent ? ["BlindNormal", "GagLight"] : [];
-	property.Effect = property.Effect.filter(e => !effectsToRemoves.includes(e));
-	effectsToApply.forEach(e => {
-		if (!property.Effect.includes(e)) property.Effect.push(e);
-	});
+function InventoryItemDevicesWoodenBoxSetOpacity() {
+	OpacityExit(false);
+	const Property = DialogFocusItem.Property;
+	const Transparent = Property.Opacity < 0.15;
+	const ExtraEffects = ["BlindNormal", "GagLight"];
+	if (Transparent) {
+		Property.Effect = Property.Effect.filter((e) => !ExtraEffects.includes(e))
+	} else {
+		Property.Effect = CommonArrayConcatDedupe(Property.Effect, ExtraEffects);
+	}
 }
-
-/**
- * Handles wooden box opacity changes. Refreshes the character locally
- * @returns {void} - Nothing
- */
-const InventoryItemDevicesWoodenBoxOpacityChange = CommonLimitFunction((C, item, opacity) => {
-	item = DialogFocusItem || item;
-	item.Property.Opacity = Number(opacity);
-	CharacterLoadCanvas(C);
-});
 
 /**
  * Handles wooden box text changes. Refreshes the character locally
@@ -204,14 +117,6 @@ function InventoryItemDevicesWoodenBoxGetText() {
 }
 
 /**
- * Fetches the current opacity input value, parsed to a number
- * @returns {number} - The value of the wooden box's opacity input slider
- */
-function InventoryItemDevicesWoodenBoxGetInputOpacity() {
-	return Number(ElementValue(InventoryItemDevicesWoodenBoxOpacityInputId));
-}
-
-/**
  * Dynamic AfterDraw function. Draws text onto the box.
  * @type {DynamicAfterDrawCallback}
  */
@@ -225,19 +130,15 @@ function AssetsItemDevicesWoodenBoxAfterDraw({ C, A, X, Y, L, Property, drawCanv
 		let text = Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text : "";
 		text = text.substring(0, InventoryItemDevicesWoodenBoxMaxLength);
 
-		let from = [0, 1];
-		let to = [1, 0];
-
-		if (Property && Property.Type) {
-			const option = InventoryItemDevicesWoodenBoxOptions.find(o => o.Property.Type === Property.Type);
-			if (option) {
-				from = option.from;
-				to = option.to;
-			}
+		let from;
+		let to;
+		if (Property && Property.Type === "NWSE") {
+			from = [0, 0];
+			to = [width, height];
+		} else {
+			from = [0, height];
+			to = [width, 0];
 		}
-
-		from = [width * from[0], height * from[1]];
-		to = [width * to[0], height * to[1]];
 
 		const { r, g, b } = DrawHexToRGB(Color);
 		DynamicDrawTextFromTo(text, ctx, from, to, {
