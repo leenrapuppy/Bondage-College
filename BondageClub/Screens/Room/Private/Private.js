@@ -288,6 +288,11 @@ function PrivateCanGetCollegeClothes() { return ((!InventoryAvailable(Player, "C
  */
 function PrivateIsLover() { return CurrentCharacter.IsLoverPrivate(); }
 /**
+ * Checks if the current NPC is a lover of the player and currently on the Fiancée stage.
+ * @returns {boolean} - TRUE if the NPC is a fiancee for the player.
+ */
+ function PrivateIsFiancee() { return CurrentCharacter.IsLoverPrivate() && (NPCEventGet(CurrentCharacter, "Fiancee") > 0) && (NPCEventGet(CurrentCharacter, "Wife") <= 0); }
+ /**
  * Checks if the NPC will take the player as a lover.
  * @returns {boolean} - TRUE if the player can have one more lover, the NPC loves the player enough and the event delay has expired.
  */
@@ -307,6 +312,16 @@ function PrivateWontTakePlayerAsLoverAlreadyDating() { return ((CurrentCharacter
  * @returns {boolean} - TRUE if the NPC is free, but the player has 5 lovers.
  */
 function PrivateWontTakePlayerAsLoverPlayerDating() { return (((CurrentCharacter.Lover == null) || (CurrentCharacter.Lover == "")) && (Player.Lovership.length >= 5)); }
+/**
+ * Checks if the NPC will upgrade her lovership from girlfriend to fiancée
+ * @returns {boolean} - TRUE if the NPC is already a girlfriend, her love is at least 70 and enough time has gone by
+ */
+ function PrivateWillTakePlayerAsFiancee() { return (CurrentCharacter.IsLoverOfPlayer() && (NPCEventGet(CurrentCharacter, "Girlfriend") > 0) && (NPCEventGet(CurrentCharacter, "Fiancee") <= 0) && (CurrentCharacter.Love >= 70) && (CurrentTime >= CheatFactor("SkipTrialPeriod", 0) * NPCEventGet(CurrentCharacter, "Girlfriend") + NPCLongLoverEventDelay(CurrentCharacter))); }
+/**
+ * Checks if the NPC will upgrade her lovership from girlfriend to fiancée
+ * @returns {boolean} - TRUE if the NPC is already a girlfriend, her love is at least 70 and enough time has gone by
+ */
+ function PrivateWontTakePlayerAsFiancee() { return (CurrentCharacter.IsLoverOfPlayer() && (NPCEventGet(CurrentCharacter, "Girlfriend") > 0) && (NPCEventGet(CurrentCharacter, "Fiancee") <= 0) && ((CurrentCharacter.Love < 70) || (CurrentTime < CheatFactor("SkipTrialPeriod", 0) * NPCEventGet(CurrentCharacter, "Girlfriend") + NPCLongLoverEventDelay(CurrentCharacter)))); }
 /**
  * Checks if it's possible for the player to turn the tables against her NPC owner
  * @returns {boolean} - TRUE if turning the tables is possible
@@ -504,6 +519,10 @@ function PrivateNewCloth(C) {
 	// Random December hats (25% odds)
 	if ((new Date().getMonth() == 11) && (Math.random() < 0.25) && (InventoryGet(C, "Hat") == null))
 		InventoryWear(C, CommonRandomItemFromList("", ["Santa1", "ReindeerBand"]), "Hat");
+
+	// Wedding / engagement rings
+	if (NPCEventGet(C, "Wife") > 0) PrivateWearRing(C, "#B0B0B0");
+	else if (NPCEventGet(C, "Fiancee") > 0) PrivateWearRing(C, "#D0D000");
 
 	// Add the new cloth event and syncs
 	NPCEventAdd(C, "NewCloth", CurrentTime);
@@ -1489,6 +1508,33 @@ function PrivateStartGirlfriend() {
 	NPCLoveChange(CurrentCharacter, 20);
 	Player.Lover = "NPC-" + CurrentCharacter.Name;
 	ServerPlayerSync();
+	ServerPrivateCharacterSync();
+}
+
+/**
+ * Puts a wedding ring of a specified color on a specified character
+ * @param {Character} C - The character that must wear the ring.
+ * @param {string} Color - The color of the ring #D0D000 is gold, #B0B0B0 is silver.
+ * @returns {void} - Nothing.
+ */
+function PrivateWearRing(C, Color) {
+	InventoryWear(C, "Rings", "RightHand", Color);
+	let Item = InventoryGet(C, "RightHand");
+	if (Item == null) return;
+	if (Item.Property == null) Item.Property = {};
+	Item.Property.Type = "t0i0m0r2p0";
+	CharacterRefresh(C);
+}
+
+/**
+ * Triggered when the player upgrades her NPC girlfriend to Fiancee
+ * @returns {void} - Nothing.
+ */
+function PrivateStartFiancee() {
+	NPCEventAdd(CurrentCharacter, "Fiancee", CurrentTime);
+	NPCLoveChange(CurrentCharacter, 20);
+	PrivateWearRing(Player, "#B0B0B0");
+	PrivateWearRing(CurrentCharacter, "#B0B0B0");
 	ServerPrivateCharacterSync();
 }
 

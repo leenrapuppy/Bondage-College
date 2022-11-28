@@ -272,6 +272,13 @@ OwnerBeepFail,,,"(She looks angry.)  Little submissive, when I call you, you nee
 OwnerBeepFail,,,"(She slaps your face.)  Slave!  When I beep you, you need to come here quicker.",,,OwnerBeepFail,Serious|Violent
 OwnerBeepFail,,,"Slut!  When I'm wet and I fucking beep your cunt, you better come faster.",,,OwnerBeepFail,Rude|Horny
 OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very disappointing when I summon you and you don't come in a timely manner.",,,OwnerBeepFail,Wise|Peaceful
+0,,,Happy Bondage Club birthday!,,IsPlayerBirthday(),IntroBirthday,
+0,,,Have a great Bondage Club birthday girl.  Get spanked.,,IsPlayerBirthday(),IntroBirthday,Dominant|Violent
+0,,,"Miss, you're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),IntroBirthday,Submissive|Serious
+0,,,Happy BC birthday!  (She sings cheerfully.)  Ya got paddled yet?,,IsPlayerBirthday(),IntroBirthday,Playful|Rude
+0,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday.,,IsPlayerBirthday(),IntroBirthday,Frigid|Peaceful
+0,,,Best wishes for your Bondage Club birthday.  May you stay with us for years upon years.,,IsPlayerBirthday(),IntroBirthday,Polite|Wise
+0,,,Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),IntroBirthday,Horny|Dumb
 0,,,(She pets your head and smiles.)  You're a cute pet.,,CanPet(),IntroPet,
 0,,,"(She looks at your suit in envy.)  Yo!  Your bitch suit looks great, can I have one?",,CanPet(),IntroPet,Submissive|Rude
 0,,,(She slowly and carefully pets you.)  A good pet needs lots of care.,,CanPet(),IntroPet,Serious|Peaceful
@@ -290,6 +297,13 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 0,,,"You look adorable on your knees.  If we kneel next to each other, it might lead to a kinky situation.",,DialogIsKneeling(Player),IntroPlayerKneeling,Submissive|Horny
 0,,,(She gives you a stern look.)  Obedience starts by kneeling and showing proper respect.  This submissive stance exposes your docility.,,DialogIsKneeling(Player),IntroPlayerKneeling,Dominant|Polite
 0,,,"Kneeling is great to stay in the submissive-space.  It's humbling, unprovocative and relaxing.  It can also be used to meditate.",,DialogIsKneeling(Player),IntroPlayerKneeling,Frigid|Wise
+0,,,What's on your mind my fiancée?,,IsFiancee(),IntroFiancee,
+0,,,What's going on bride-to-be?,,IsFiancee(),IntroFiancee,Dominant|Violent
+0,,,Please tell me of your feeling's my fiancée.,,IsFiancee(),IntroFiancee,Submissive|Peaceful
+0,,,"My sexy fiancée, how can we have fun?",,IsFiancee(),IntroFiancee,Horny|Playful
+0,,,What troubles you my fiancée?,,IsFiancee(),IntroFiancee,Frigid|Serious
+0,,,Let's have a tete-a-tete my betrothed.,,IsFiancee(),IntroFiancee,Polite|Wise
+0,,,What's up future wife?,,IsFiancee(),IntroFiancee,Dumb|Rude
 0,,,What's on your mind my love?,,IsLover(),IntroGirlfriend,
 0,,,What's going on hun?,,IsLover(),IntroGirlfriend,Dominant|Violent
 0,,,Please tell me of your feeling's sweetie.,,IsLover(),IntroGirlfriend,Submissive|Peaceful
@@ -297,13 +311,6 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 0,,,What troubles you my dear?,,IsLover(),IntroGirlfriend,Frigid|Serious
 0,,,Let's have a tete-a-tete my love.,,IsLover(),IntroGirlfriend,Polite|Wise
 0,,,What's up luv?,,IsLover(),IntroGirlfriend,Dumb|Rude
-0,,,Happy Bondage Club birthday!,,IsPlayerBirthday(),IntroBirthday,
-0,,,Have a great Bondage Club birthday girl.  Get spanked.,,IsPlayerBirthday(),IntroBirthday,Dominant|Violent
-0,,,"Miss, you're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),IntroBirthday,Submissive|Serious
-0,,,Happy BC birthday!  (She sings cheerfully.)  Ya got paddled yet?,,IsPlayerBirthday(),IntroBirthday,Playful|Rude
-0,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday.,,IsPlayerBirthday(),IntroBirthday,Frigid|Peaceful
-0,,,Best wishes for your Bondage Club birthday.  May you stay with us for years upon years.,,IsPlayerBirthday(),IntroBirthday,Polite|Wise
-0,,,Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),IntroBirthday,Horny|Dumb
 0,,,What's on your mind?,,,Intro,
 0,,,This place is kind of sexy.  What would you like to do?,,,Intro,Horny
 0,,,"Cool room you have there.  So, what's up?",,,Intro,Rude
@@ -558,6 +565,16 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 20,,Do you have a girlfriend?,"I don't, you were lucky to find someone.  It's not that important to me though.",,WontTakePlayerAsLoverPlayerDating(),WontTakePlayerAsLoverPlayerDating,Frigid
 20,,Do you have a girlfriend?,I'm too bossy to get a girlfriend.  You were lucky to find someone.,,WontTakePlayerAsLoverPlayerDating(),WontTakePlayerAsLoverPlayerDating,Dominant
 20,,Do you have a girlfriend?,I might be too shy to find a girlfriend.  You were lucky to find someone.,,WontTakePlayerAsLoverPlayerDating(),WontTakePlayerAsLoverPlayerDating,Submissive
+20,50,"My love, will you be my fiancée?","(She gives you a bright smile.)  Yes my love, I would delighted.",,WillTakePlayerAsFiancee(),WillTakePlayerAsFiancee,
+20,50,"My love, will you be my fiancée?","Yes, yes, yes and YES!!!  (She jumps of joy.)",,WillTakePlayerAsFiancee(),WillTakePlayerAsFiancee,Playful
+20,50,"My love, will you be my fiancée?","(She ponders for a few seconds.)  I knew this question was coming sweetheart, and the answer is yes.",,WillTakePlayerAsFiancee(),WillTakePlayerAsFiancee,Serious
+20,50,"My love, will you be my fiancée?",Yes hun.  If I can still restrain you of course.  (She winks and smiles.),,WillTakePlayerAsFiancee(),WillTakePlayerAsFiancee,Dominant
+20,50,"My love, will you be my fiancée?",Oh yes my love.  Restrain me with your love forever.,,WillTakePlayerAsFiancee(),WillTakePlayerAsFiancee,Submissive
+20,,"My love, will you be my fiancée?",(She sighs and shakes her head no.)  Now is not the best time for that.  Maybe if we know and trust each other better.,,WontTakePlayerAsFiancee(),WontTakePlayerAsFiancee,
+20,,"My love, will you be my fiancée?",(She pulls her tongue at you.)  Not now.  Maybe if we know and enjoy each other better.,,WontTakePlayerAsFiancee(),WontTakePlayerAsFiancee,Playful
+20,,"My love, will you be my fiancée?",(She shakes her head from left to right.)  This is not the right time and the right mood to ask this question.,,WontTakePlayerAsFiancee(),WontTakePlayerAsFiancee,Serious
+20,,"My love, will you be my fiancée?",No girl.  This is not the right time and mood for that.  Hold your horses.,,WontTakePlayerAsFiancee(),WontTakePlayerAsFiancee,Dominant
+20,,"My love, will you be my fiancée?","I'm so sorry sweetie, it's too early in our relationship for that.  We need more durable love.",,WontTakePlayerAsFiancee(),WontTakePlayerAsFiancee,Submissive
 20,10,Let's talk about something else.,(She nods.)  Sure.,,,,
 21,22,Would you consider someone like me?,I might.  Are you sure you're ready to be owned?,,,ConsiderSub,
 21,22,Would you consider someone like me?,That's quite a commitment.  Are you sure you're ready to be owned?,,,ConsiderSub,Serious
@@ -619,6 +636,13 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 42,0,Making love will only be better.,"(She nods slowly.)  It will, sweetie.  What would you like to do now?",,,,
 42,0,I hope we'll never argue.,(She raises an eyebrow.)  Don't talk about that.  What would you like to do now?,NPCInteraction(-3),,,
 42,0,I hope we'll be together forever.,(She smiles at you.)  Let's make it work my love.  What would you like to do now?,NPCInteraction(3),,,
+50,51,I love you DialogCharacterName.  (Exchange rings.),(You exchange engagement rings.)  I love you DialogPlayerName.  I want to be with you for a long long time.,StartFiancee(),,,
+50,51,This is wonderful.  (Exchange rings.),(You exchange engagement rings.)  I love you DialogPlayerName.  The sun always shines when you're around.,StartFiancee(),,,
+50,51,(Kiss her and exchange rings.),(You exchange engagement rings and a long kiss.)  I love you DialogPlayerName.,StartFiancee(),,,
+50,10,Wait!  I wasn't serious.,(She grumbles and pouts.)  Don't tease me like that.,NPCInteraction(-5),,,
+51,0,These rings will prove our love.,"(She nods slowly.)  It will, sweetie.  What would you like to do now?",,,,
+51,0,These rings are so silly.,(She sighs.)  It's a tradition.  You can always remove it if you're not happy.  What would you like to do now?,NPCInteraction(-3),,,
+51,0,I'll never remove that ring.,(She smiles at you.)  Let's make it work my love.  What would you like to do now?,NPCInteraction(3),,,
 70,0,(Join her in bed.),What would you like to do now?,JoinInBed(),,,
 70,0,(Check your room first.),What would you like to do now?,DialogLeave(),,,
 90,,(Make her more Dominant.),(She's now a little more Dominant.),"NPCCheat(""TraitDominant"")",,,
@@ -651,6 +675,13 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 100,,(Masturbate her.),"(You masturbate her with passion as she moans and blushes.)  Miss, it would be an honor to become your love slave one day.",,CanMasturbate(),PlayMasturbate,Submissive|Polite
 100,0,(Stop playing.),(You take a step back.),,,,
 100,,(Leave her.),,DialogLeave(),,,
+1000,,,Happy Bondage Club birthday my girl!,,IsPlayerBirthday(),DomIntroBirthday,
+1000,,,Have a great Bondage Club birthday my slave.  You will get spanked a lot.,,IsPlayerBirthday(),DomIntroBirthday,Dominant|Violent
+1000,,,"You're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),DomIntroBirthday,Submissive|Serious
+1000,,,Happy BC birthday my girl!  (She sings cheerfully.)  Where's the freaking paddle?,,IsPlayerBirthday(),DomIntroBirthday,Playful|Rude
+1000,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday my submissive.,,IsPlayerBirthday(),DomIntroBirthday,Frigid|Peaceful
+1000,,,Best wishes for your Bondage Club birthday.  May you stay well constrained for years upon years.,,IsPlayerBirthday(),DomIntroBirthday,Polite|Wise
+1000,,,Hey slave!  Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),DomIntroBirthday,Horny|Dumb
 1000,,,(She pets your head and smiles.)  You're a cute pet my girl.,,CanPet(),DomIntroPet,
 1000,,,(She pets your head playfully.)  You're the cutest little bitch that I've ever had.  Bark puppy!,,CanPet(),DomIntroPet,Playful|Dumb
 1000,,,(She slowly and carefully pets you.)  A good pet needs lots of care.  I love you my submissive.,,CanPet(),DomIntroPet,Serious|Peaceful
@@ -666,13 +697,6 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,,,What troubles you my little loved one?,,IsLover(),DomIntroGirlfriend,Frigid|Serious
 1000,,,Let's have a tete-a-tete my submissive love.,,IsLover(),DomIntroGirlfriend,Polite|Wise
 1000,,,What's up slave luv?,,IsLover(),DomIntroGirlfriend,Dumb|Rude
-1000,,,Happy Bondage Club birthday my girl!,,IsPlayerBirthday(),DomIntroBirthday,
-1000,,,Have a great Bondage Club birthday my slave.  You will get spanked a lot.,,IsPlayerBirthday(),DomIntroBirthday,Dominant|Violent
-1000,,,"You're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),DomIntroBirthday,Submissive|Serious
-1000,,,Happy BC birthday my girl!  (She sings cheerfully.)  Where's the freaking paddle?,,IsPlayerBirthday(),DomIntroBirthday,Playful|Rude
-1000,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday my submissive.,,IsPlayerBirthday(),DomIntroBirthday,Frigid|Peaceful
-1000,,,Best wishes for your Bondage Club birthday.  May you stay well constrained for years upon years.,,IsPlayerBirthday(),DomIntroBirthday,Polite|Wise
-1000,,,Hey slave!  Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),DomIntroBirthday,Horny|Dumb
 1000,,,What's on your mind my subbie?,,,DomIntro,
 1000,,,Hey there my cute sub.  What's on your mind?,,,DomIntro,Horny
 1000,,,Yo bitch.  What's up?,,,DomIntro,Rude
@@ -1343,6 +1367,13 @@ PunishAsylumIntro,,,Some time in the asylum might fix your attitude.  I'll commi
 PunishAsylum,1000,Alright then.  (Go to the asylum.),,RunPunishment(0),,,
 PunishAsylum,1000,This is insane!  (Go to the asylum.),,RunPunishment(-2),,,
 PunishAsylum,1000,You're right Mistress.  (Go to the asylum.),,RunPunishment(1),,,
+2000,,,Happy Bondage Club birthday Mistress!,,IsPlayerBirthday(),SubIntroBirthday,
+2000,,,Have a great Bondage Club birthday Mistress.  Spank all the subs you want.,,IsPlayerBirthday(),SubIntroBirthday,Dominant|Violent
+2000,,,"Mistress, you're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),SubIntroBirthday,Submissive|Serious
+2000,,,Happy BC birthday Mam!  (She sings cheerfully.)  You can paddle me.  (She giggles.),,IsPlayerBirthday(),SubIntroBirthday,Playful|Rude
+2000,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday Mistress.,,IsPlayerBirthday(),SubIntroBirthday,Frigid|Peaceful
+2000,,,Best wishes for your Bondage Club birthday.  May you stay in control for years upon years.,,IsPlayerBirthday(),SubIntroBirthday,Polite|Wise
+2000,,,Hey Mistress!  Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),SubIntroBirthday,Horny|Dumb
 2000,,,(She seems confused seeing you on your knees.)  Yes Mistress?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,
 2000,,,(She seems confused seeing you on your knees.)  What the fuck?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,Dominant|Rude
 2000,,,(She seems confused seeing you on your knees.)  Is everything alright Mistress?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,Peaceful|Wise
@@ -1353,13 +1384,6 @@ PunishAsylum,1000,You're right Mistress.  (Go to the asylum.),,RunPunishment(1),
 2000,,,(She bows her head and stays silent.),,IsLover(),SubIntroGirlfriend,Frigid|Serious
 2000,,,"Mistress, what do you desire from your loved submissive?",,IsLover(),SubIntroGirlfriend,Polite|Wise
 2000,,,Yes my luv?  Errr... Mistress?,,IsLover(),SubIntroGirlfriend,Dumb|Rude
-2000,,,Happy Bondage Club birthday Mistress!,,IsPlayerBirthday(),SubIntroBirthday,
-2000,,,Have a great Bondage Club birthday Mistress.  Spank all the subs you want.,,IsPlayerBirthday(),SubIntroBirthday,Dominant|Violent
-2000,,,"Mistress, you're not getting older at your Bondage Club birthday, you're getting wiser.",,IsPlayerBirthday(),SubIntroBirthday,Submissive|Serious
-2000,,,Happy BC birthday Mam!  (She sings cheerfully.)  You can paddle me.  (She giggles.),,IsPlayerBirthday(),SubIntroBirthday,Playful|Rude
-2000,,,(She hums a birthday song silently.)  All my blessings on your Bondage Club birthday Mistress.,,IsPlayerBirthday(),SubIntroBirthday,Frigid|Peaceful
-2000,,,Best wishes for your Bondage Club birthday.  May you stay in control for years upon years.,,IsPlayerBirthday(),SubIntroBirthday,Polite|Wise
-2000,,,Hey Mistress!  Have a good BC birthday with lots of orgasms.,,IsPlayerBirthday(),SubIntroBirthday,Horny|Dumb
 2000,,,What would you like to do Mistress?,,,SubIntro,
 2000,,,Is there something kinky you would like to do Mistress?,,,SubIntro,Horny
 2000,,,(She bows her head and stays silent.),,,SubIntro,Frigid
