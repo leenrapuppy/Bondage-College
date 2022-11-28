@@ -1251,7 +1251,7 @@ ActivityCollarTypeIntro,,,(She inspects your slave collar.)  It's time to change
 ActivityCollarTypeIntro,,,"(She grabs your slave collar.)  Do not protest, it's time to change your slave collar.",,,DomActivityCollarTypeIntro,Serious
 ActivityCollarTypeIntro,,,(She looks at your slave collar.)  Time to change your collar my subbie.,,,DomActivityCollarTypeIntro,Playful
 ActivityCollarTypeIntro,,,(She inspects your slave collar.)  This collar needs to be refreshed my submissive.  I will fetch you another model.,,,DomActivityCollarTypeIntro,Polite
-ActivityCollarTypeIntro,,,"(She looks at your slave collar.)  I'm tired of that ol collar slave, I'm getting ya a new one.",,,DomActivityCollarTypeIntro,Rude
+ActivityCollarTypeIntro,,,"(She looks at your slave collar.)  I'm tired of that ol collar slave, I'm gettin ya a new one.",,,DomActivityCollarTypeIntro,Rude
 ActivityCollarType,1000,No.  I like my current collar.,"(She seems annoyed.)  Fine, keep your current collar.",ActivityRun(-7),Player.CanTalk(),,
 ActivityCollarType,1000,As you wish.,(She unlocks your collar and picks a new model to lock around your neck.)  There you go.,ActivityRun(1),Player.CanTalk(),,
 ActivityCollarType,1000,Good idea Mistress.,(She unlocks your collar and picks a new model to lock around your neck.)  Good girl.,ActivityRun(0),Player.CanTalk(),,
@@ -1339,6 +1339,10 @@ PunishOwnerLocks,1001,Is that necessary?,(She nods and smirks.)  It is.  (She lo
 PunishOwnerLocks,1001,That is bullshit!,(She slaps your face.)  Shut up!  (She locks all your items with owner locks and grins.)  You belong to me.,RunPunishment(-2),,,
 PunishOwnerLocks,1001,It will be hard to find help.,You won't get any help.  (She locks all your items with owner locks and grins.)  You belong to me.,RunPunishment(0),,,
 PunishOwnerLocks,1001,(Nod and bow your head.),Good girl.  (She locks all your items with owner locks and smiles.)  You belong to me.,RunPunishment(1),,,
+PunishAsylumIntro,,,Some time in the asylum might fix your attitude.  I'll commit you for fifteen minutes.,,,,
+PunishAsylum,1000,Alright then.  (Go to the asylum.),,RunPunishment(0),,,
+PunishAsylum,1000,This is insane!  (Go to the asylum.),,RunPunishment(-2),,,
+PunishAsylum,1000,You're right Mistress.  (Go to the asylum.),,RunPunishment(1),,,
 2000,,,(She seems confused seeing you on your knees.)  Yes Mistress?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,
 2000,,,(She seems confused seeing you on your knees.)  What the fuck?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,Dominant|Rude
 2000,,,(She seems confused seeing you on your knees.)  Is everything alright Mistress?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,Peaceful|Wise

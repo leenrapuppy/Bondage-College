@@ -13,7 +13,7 @@ var PrivateActivityAffectLove = true;
 var PrivateActivityList = ["Gag", "Ungag", "Restrain", "RestrainOther", "FullRestrain", "FullRestrainOther", "Release", "Unchaste", "Tickle", "Spank", "Pet", "Slap", "Kiss", "Fondle", "Naked", "Underwear", "RandomClothes", "CollegeClothes", "Shibari", "Gift", "PetGirl", "Locks", "Bed", "Aftercare", "CollarType"];
 var PrivateActivityTarget = null;
 var PrivatePunishment = "";
-var PrivatePunishmentList = ["Cage", "Bound", "BoundPet", "ChastityBelt", "ChastityBra", "ForceNaked", "ConfiscateKey", "ConfiscateCrop", "ConfiscateWhip", "SleepCage", "LockOut", "Cell", "OwnerLocks"];
+var PrivatePunishmentList = ["Cage", "Bound", "BoundPet", "ChastityBelt", "ChastityBra", "ForceNaked", "ConfiscateKey", "ConfiscateCrop", "ConfiscateWhip", "SleepCage", "LockOut", "Cell", "OwnerLocks", "Asylum"];
 var PrivateCharacterNewClothes = null;
 var PrivateSlaveImproveType = "";
 var PrivateNextLoveYou = 0;
@@ -1388,6 +1388,7 @@ function PrivateSelectPunishment() {
 		if ((PrivatePunishment == "SleepCage") && LogQuery("Cage", "PrivateRoom") && !LogQuery("SleepCage", "Rule")) break;
 		if ((PrivatePunishment == "LockOut") && (NPCTraitGet(CurrentCharacter, "Serious") >= 0)) break;
 		if ((PrivatePunishment == "OwnerLocks") && Player.IsOwned() && InventoryHasLockableItems(Player)) break;
+		if ((PrivatePunishment == "Asylum") && (ReputationGet("Asylum") < 0)) break;
 		if (PrivatePunishment == "Cell") break;
 
 	}
@@ -1421,6 +1422,7 @@ function PrivateRunPunishment(LoveFactor) {
 	if (PrivatePunishment == "LockOut") { LogAdd("LockOutOfPrivateRoom", "Rule", CurrentTime + 3600000); DialogLeave(); CommonSetScreen("Room", "MainHall"); }
 	if (PrivatePunishment == "Cell") { DialogLeave(); CharacterFullRandomRestrain(Player, "ALL"); CellLock(5); }
 	if (PrivatePunishment == "OwnerLocks") InventoryFullLock(Player, "OwnerPadlock");
+	if (PrivatePunishment == "Asylum") { DialogLeave(); CharacterRelease(Player); AsylumEntranceWearPatientClothes(Player); AsylumEntranceCommitPatient("900000", "1"); CommonSetScreen("Room", "AsylumEntrance"); }
 }
 
 /**
