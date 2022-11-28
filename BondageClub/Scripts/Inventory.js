@@ -559,11 +559,31 @@ function InventoryCraftPropertyIs(Item, Property) {
 */
 function InventoryWearCraftModular(Item, Type) {
 	const Data = ModularItemDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
-	if (Data == undefined) {
+	if (Data === undefined) {
 		return;
 	}
+
+	// Validate that the requirements are met for all chosen options
 	const CurrentModuleValues = ModularItemParseCurrent(Data, Type);
-	Item.Property = ModularItemMergeModuleValues(Data, CurrentModuleValues);
+	CurrentModuleValues.forEach((value, i) => {
+		const Options = Data.modules[i].Options;
+		if (ExtendedItemRequirementCheckMessage(Options[value], Options[0])) {
+			CurrentModuleValues[i] = 0;
+		}
+	});
+
+	// Take a snapshot of the property values that are applied by the current type
+	const currentProperty = ModularItemMergeModuleValues(Data, CurrentModuleValues);
+
+	// Create a shallow copy of the old property, and remove any module-defined keys from it (should only leave any
+	// BaselineProperty keys behind)
+	const newProperty = Object.assign({}, DialogFocusItem.Property);
+	for (const key of Object.keys(currentProperty)) {
+		delete newProperty[key];
+	}
+
+	// Assign the new property data
+	Item.Property = Object.assign(newProperty, ModularItemMergeModuleValues(Data, CurrentModuleValues));
 }
 
 /**

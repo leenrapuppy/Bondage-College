@@ -616,7 +616,8 @@ function ModularItemDeconstructType(Type) {
 	if (typeof Type !== "string") {
 		return null;
 	} else {
-		return Type.split(/([a-zA-Z_]+)(\d+)/);
+		const Iterator = Type.matchAll(/([a-zA-Z]+\d+)/g);
+		return Array.from(Iterator, (m) => m[0]);
 	}
 }
 
@@ -919,4 +920,24 @@ function ModularItemHideElement(ID, Module) {
         Element.style.display = "none";
         return false;
     }
+}
+
+/*
+ * Return {@link ModularItemData.chatMessagePrefix} if it's a string or call it using chat data based on a fictional modular item option.
+ * @param {string} Name - The name of the pseudo-type
+ * @param {ModularItemData} Data - The extended item data
+ * @returns {string} The dialogue prefix for the custom chatroom messages
+ */
+function ModularItemCustomChatPrefix(Name, Data) {
+	if (typeof Data.chatMessagePrefix === "function") {
+		return Data.chatMessagePrefix({
+			C: CharacterGetCurrent(),
+			previousOption: { OptionType: "ModularItemOption", Name: Name },
+			newOption: { OptionType: "ModularItemOption", Name: Name },
+			previousIndex: 0,
+			newIndex: 0,
+		})
+	} else {
+		return Data.chatMessagePrefix;
+	}
 }

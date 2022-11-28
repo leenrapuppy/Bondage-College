@@ -247,7 +247,7 @@ var AudioActions = [
 			"FuturisticCuffsRestrain",
 			"FuturisticLegCuffsRestrain",
 			"FuturisticAnkleCuffsRestrain",
-			"SciFiPleasurePantiesAction"
+			"ItemPelvisSciFiPleasurePantiesSetc",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "SciFiConfigure"
 	},
@@ -255,7 +255,7 @@ var AudioActions = [
 		IsAction: (data) => [
 			"FuturisticTrainingBeltSetGeneric",
 			"FuturisticPanelGagMouthSetAutoPunish",
-			"SciFiPleasurePantiesBeep"
+			"ItemPelvisSciFiPleasurePantiesSeto",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "SciFiBeeps"
 	},
@@ -567,7 +567,7 @@ function AudioVibratorSounds(data) {
 		case "ClitStimulator":
 		case "Egg": Sound = "VibrationShort"; break;
 		case "LoveChastityBeltVibe":
-		case "SciFiPleasurePantiesVibe":
+		case "ItemPelvisSciFiPleasurePantiesVibe":
 		case "Belt":
 		case "Panties": Sound = "VibrationLong1"; break;
 		case "Buttplug":

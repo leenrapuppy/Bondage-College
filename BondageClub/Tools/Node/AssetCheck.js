@@ -19,6 +19,7 @@ const neededFiles = [
 	"Screens/Inventory/ItemDevices/VacBedDeluxe/VacBedDeluxe.js",
 	"Screens/Inventory/ItemDevices/WoodenBox/WoodenBox.js",
 	"Screens/Inventory/ItemDevices/TransportWoodenBox/TransportWoodenBox.js",
+	"Screens/Inventory/ItemPelvis/SciFiPleasurePanties/SciFiPleasurePanties.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"
 ];

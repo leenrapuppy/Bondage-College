@@ -20,18 +20,8 @@ function InventoryItemArmsFullLatexSuitDraw(OriginalFunction) {
 	ExtendedItemDraw(Data.options, Data.dialog.typePrefix, Data.options.length, Data.drawImages, XYCoords);
 
 	const C = CharacterGetCurrent();
-	const VibeAsset = AssetGet(C.AssetFamily, "ItemVulva", "FullLatexSuitWand");
-	const [X, Y] = ExtendedXY[6][4];
 	const CanEquip = InventoryGet(C, "ItemVulva") == null;
-
-	// Provide 2 pseudo-extended item options with a fictional Type
-	ExtendedItemDrawButton(
-		{Name: "Wand", Property: {Type: "Wand"}},
-		{Name: "Wand", Property: {Type: "Wand"}},
-		Prefix, X, Y, true,
-		{Asset: VibeAsset},
-		!CanEquip,
-	);
+	ExtendedItemCustomDraw("Wand", ...ExtendedXY[6][4], true, !CanEquip)
 }
 
 /**
@@ -54,19 +44,9 @@ function InventoryItemArmsFullLatexSuitClick(OriginalFunction) {
 
 	if (MouseIn(...ExtendedXY[6][4], 225, 275)) {
 		const C = CharacterGetCurrent();
-		const VibeItem = InventoryItemCreate(C, "ItemVulva", "FullLatexSuitWand");
 		const VulvaItem = InventoryGet(C, "ItemVulva");
-		if (ExtendedItemPermissionMode) {
-			const Worn = (C.ID === 0 && VulvaItem != null && VulvaItem.Asset.Name === VibeItem.Asset.Name);
-			InventoryTogglePermission(VibeItem, "Wand", Worn);
-		} else if (VulvaItem == null) {
-			if (InventoryBlockedOrLimited(C, VibeItem)) {
-				DialogExtendedMessage = DialogFindPlayer("ExtendedItemNoItemPermission");
-			} else {
-				InventoryItemArmsFullLatexSuitSetWand(C);
-				ExtendedItemExit();
-			}
-		}
+		const Worn = (C.ID === 0 && VulvaItem != null && VulvaItem.Asset.Name === "FullLatexSuitWand");
+		ExtendedItemCustomClick("Wand", () => InventoryItemArmsFullLatexSuitSetWand(C), Worn);
 	}
 }
 
@@ -76,10 +56,11 @@ function InventoryItemArmsFullLatexSuitSetWand(C) {
 	ChatRoomCharacterItemUpdate(C, "ItemVulva");
 	CharacterRefresh(C);
 
-	const Prefix = DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name;
+	const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
 	const Dictionary = [
 		{Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber},
 		{Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber},
 	]
-	ChatRoomPublishCustomAction(`${Prefix}SetWand`, true, Dictionary);
+
+	ExtendedItemCustomExit(`${Data.chatTags}SetWand`, C, Dictionary)
 }
