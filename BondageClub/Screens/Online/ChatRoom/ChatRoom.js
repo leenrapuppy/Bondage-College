@@ -992,6 +992,9 @@ function ChatRoomDrawCharacterOverlay(C, CharX, CharY, Zoom, Pos) {
 		if (Array.isArray(ChatRoomData.Admin) && ChatRoomData.Admin.includes(C.MemberNumber)) {
 			DrawImageResize("Icons/Small/Admin.png", CharX + 125 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
 		}
+		if (C.IsBirthday()) {
+			DrawImageResize("Icons/Small/Birthday.png", CharX + 175 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
+		}
 		if (ChatRoomCarryingBounty(C)) {
 			DrawImageResize("Icons/Small/Money.png", CharX + 225 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
 		}

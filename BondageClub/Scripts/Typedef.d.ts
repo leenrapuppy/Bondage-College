@@ -1093,6 +1093,7 @@ interface Character {
 	IsLoverPrivate: () => boolean;
 	IsEdged: () => boolean;
 	IsPlayer: () => this is PlayerCharacter;
+	IsBirthday: () => boolean;
 	IsOnline: () => boolean;
 	IsNpc: () => boolean;
 	IsSimple: () => boolean;

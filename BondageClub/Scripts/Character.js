@@ -309,6 +309,12 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		IsPlayer: function () {
 			return this.ID === 0;
 		},
+		IsBirthday: function () {
+			if ((this.Creation == null) || (CurrentTime == null)) return false;
+			return ((new Date(this.Creation)).getDate() == (new Date(CurrentTime)).getDate()) &&
+				   ((new Date(this.Creation)).getMonth() == (new Date(CurrentTime)).getMonth()) &&
+				   ((new Date(this.Creation)).getFullYear() != (new Date(CurrentTime)).getFullYear());
+		},
 		IsOnline: function () {
 			return this.Type === CharacterType.ONLINE;
 		},

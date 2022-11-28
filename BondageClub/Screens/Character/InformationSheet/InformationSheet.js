@@ -55,8 +55,8 @@ function InformationSheetRun() {
 	// Some info are not available for online players
 	const OnlinePlayer = C.AccountName.indexOf("Online-") >= 0;
 	if (C.IsPlayer()) {
-		let memberForLine = TextGet("MemberFor") + " " + (Math.floor((CurrentTime - C.Creation) / 86400000)).toString() + " " + TextGet("Days");
-		DrawTextFit(memberForLine, 550, currentY, 450, "Black", "Gray");
+		let memberForLine = TextGet(C.IsBirthday() ? "Birthday" : "MemberFor") + " " + (Math.floor((CurrentTime - C.Creation) / 86400000)).toString() + " " + TextGet("Days");
+		DrawTextFit(memberForLine, 550, currentY, 450, (C.IsBirthday() ? "Blue" : "Black"), "Gray");
 		currentY += spacing;
 
 		let moneyLine = TextGet("Money") + " " + C.Money.toString() + " $";
