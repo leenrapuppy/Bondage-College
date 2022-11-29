@@ -292,6 +292,11 @@ function PrivateIsLover() { return CurrentCharacter.IsLoverPrivate(); }
  * @returns {boolean} - TRUE if the NPC is a fiancee for the player.
  */
  function PrivateIsFiancee() { return CurrentCharacter.IsLoverPrivate() && (NPCEventGet(CurrentCharacter, "Fiancee") > 0) && (NPCEventGet(CurrentCharacter, "Wife") <= 0); }
+/**
+ * Checks if the current NPC is a lover of the player and currently on the Wife stage.
+ * @returns {boolean} - TRUE if the NPC is a fiancee for the player.
+ */
+ function PrivateIsWife() { return CurrentCharacter.IsLoverPrivate() && (NPCEventGet(CurrentCharacter, "Wife") > 0); }
  /**
  * Checks if the NPC will take the player as a lover.
  * @returns {boolean} - TRUE if the player can have one more lover, the NPC loves the player enough and the event delay has expired.
@@ -318,11 +323,21 @@ function PrivateWontTakePlayerAsLoverPlayerDating() { return (((CurrentCharacter
  */
  function PrivateWillTakePlayerAsFiancee() { return (CurrentCharacter.IsLoverOfPlayer() && (NPCEventGet(CurrentCharacter, "Girlfriend") > 0) && (NPCEventGet(CurrentCharacter, "Fiancee") <= 0) && (CurrentCharacter.Love >= 70) && (CurrentTime >= CheatFactor("SkipTrialPeriod", 0) * NPCEventGet(CurrentCharacter, "Girlfriend") + NPCLongLoverEventDelay(CurrentCharacter))); }
 /**
- * Checks if the NPC will upgrade her lovership from girlfriend to fiancée
- * @returns {boolean} - TRUE if the NPC is already a girlfriend, her love is at least 70 and enough time has gone by
+ * Checks if the NPC will not upgrade her lovership from girlfriend to fiancée
+ * @returns {boolean} - TRUE if the NPC is already a girlfriend, her love is below 70 or not enough time has gone by
  */
  function PrivateWontTakePlayerAsFiancee() { return (CurrentCharacter.IsLoverOfPlayer() && (NPCEventGet(CurrentCharacter, "Girlfriend") > 0) && (NPCEventGet(CurrentCharacter, "Fiancee") <= 0) && ((CurrentCharacter.Love < 70) || (CurrentTime < CheatFactor("SkipTrialPeriod", 0) * NPCEventGet(CurrentCharacter, "Girlfriend") + NPCLongLoverEventDelay(CurrentCharacter)))); }
 /**
+ * Checks if the NPC will upgrade her lovership from fiancée to wife
+ * @returns {boolean} - TRUE if the NPC is already a fiancée, her love is at least 90 and enough time has gone by
+ */
+ function PrivateWillTakePlayerAsWife() { return (CurrentCharacter.IsLoverOfPlayer() && (NPCEventGet(CurrentCharacter, "Fiancee") > 0) && (NPCEventGet(CurrentCharacter, "Wife") <= 0) && (CurrentCharacter.Love >= 90) && (CurrentTime >= CheatFactor("SkipTrialPeriod", 0) * NPCEventGet(CurrentCharacter, "Fiancee") + NPCLongLoverEventDelay(CurrentCharacter))); }
+/**
+ * Checks if the NPC will not upgrade her lovership from fiancée to wife
+ * @returns {boolean} - TRUE if the NPC is already a fiancée, her love is below 90 or not enough time has gone by
+ */
+ function PrivateWontTakePlayerAsWife() { return (CurrentCharacter.IsLoverOfPlayer() && (NPCEventGet(CurrentCharacter, "Fiancee") > 0) && (NPCEventGet(CurrentCharacter, "Wife") <= 0) && ((CurrentCharacter.Love < 90) || (CurrentTime < CheatFactor("SkipTrialPeriod", 0) * NPCEventGet(CurrentCharacter, "Fiancee") + NPCLongLoverEventDelay(CurrentCharacter)))); }
+ /**
  * Checks if it's possible for the player to turn the tables against her NPC owner
  * @returns {boolean} - TRUE if turning the tables is possible
  */
@@ -1539,6 +1554,18 @@ function PrivateStartFiancee() {
 }
 
 /**
+ * Triggered when the player upgrades her NPC fiancee to wife
+ * @returns {void} - Nothing.
+ */
+ function PrivateStartWife() {
+	NPCEventAdd(CurrentCharacter, "Wife", CurrentTime);
+	NPCLoveChange(CurrentCharacter, 20);
+	PrivateWearRing(Player, "#D0D000");
+	PrivateWearRing(CurrentCharacter, "#D0D000");
+	ServerPrivateCharacterSync();
+}
+
+/**
  * Processes a love change for a NPC.The NPC love can only reach 60 without a proper relationship, 100 if in a relationship.
  * @param {number} LoveFactor - Amount of love to gain or lose.
  * @returns {void} - Nothing.
@@ -1684,7 +1711,7 @@ function PrivateLoveYou() {
 			PrivateEnterBed();
 			if (CurrentCharacter.Stage == "0") CurrentCharacter.Stage = "70";
 			if (CurrentCharacter.Stage == "1000") CurrentCharacter.Stage = "1070";
-			if (CurrentCharacter.Stage == "2000") CurrentCharacter.Stage = "2075";
+			if (CurrentCharacter.Stage == "2000") CurrentCharacter.Stage = "2095";
 		}
 
 		// Shows the activity text dialog and raise the love a little

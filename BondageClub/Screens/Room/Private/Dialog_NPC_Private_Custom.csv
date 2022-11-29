@@ -297,6 +297,13 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 0,,,"You look adorable on your knees.  If we kneel next to each other, it might lead to a kinky situation.",,DialogIsKneeling(Player),IntroPlayerKneeling,Submissive|Horny
 0,,,(She gives you a stern look.)  Obedience starts by kneeling and showing proper respect.  This submissive stance exposes your docility.,,DialogIsKneeling(Player),IntroPlayerKneeling,Dominant|Polite
 0,,,"Kneeling is great to stay in the submissive-space.  It's humbling, unprovocative and relaxing.  It can also be used to meditate.",,DialogIsKneeling(Player),IntroPlayerKneeling,Frigid|Wise
+0,,,What's on your mind my spouse?,,IsWife(),IntroWife,
+0,,,What's going my wife?,,IsWife(),IntroWife,Dominant|Violent
+0,,,Please tell me of your feeling's my better half.,,IsWife(),IntroWife,Submissive|Peaceful
+0,,,"My sexy wife, how can we have fun?",,IsWife(),IntroWife,Horny|Playful
+0,,,What troubles you my spouse?,,IsWife(),IntroWife,Frigid|Serious
+0,,,Let's discuss on how to improve our matrimonial union my love.,,IsWife(),IntroWife,Polite|Wise
+0,,,What's up wife?,,IsWife(),IntroWife,Dumb|Rude
 0,,,What's on your mind my fiancée?,,IsFiancee(),IntroFiancee,
 0,,,What's going on bride-to-be?,,IsFiancee(),IntroFiancee,Dominant|Violent
 0,,,Please tell me of your feeling's my fiancée.,,IsFiancee(),IntroFiancee,Submissive|Peaceful
@@ -690,6 +697,13 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,,,(She gives you a stern look and nods.)  Your posture shows respect and docility.  What do you need little one?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,Dominant|Polite
 1000,,,(She stays far from you but smiles seeing your position.)  Is there anything you desire my protege?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,Frigid|Wise
 1000,,,"Yes, my sexy subbie?  (She comes closer and pets your head gently.)",,DialogIsKneeling(Player),DomIntroPlayerKneeling,Peaceful|Horny
+1000,,,What's on your mind my submissive spouse?,,IsWife(),DomIntroWife,
+1000,,,What's going my slave-wife?,,IsWife(),DomIntroWife,Dominant|Violent
+1000,,,Please tell me of your feeling's my little better half.,,IsWife(),DomIntroWife,Submissive|Peaceful
+1000,,,"My sexy subbie-wife, how can we have fun?",,IsWife(),DomIntroWife,Horny|Playful
+1000,,,What troubles you my pet spouse?,,IsWife(),DomIntroWife,Frigid|Serious
+1000,,,Let's discuss on how to improve our matrimonial union my submissive.,,IsWife(),DomIntroWife,Polite|Wise
+1000,,,What's up slave-wife?,,IsWife(),DomIntroWife,Dumb|Rude
 1000,,,What's on your mind my submissive fiancée?,,IsFiancee(),DomIntroFiancee,
 1000,,,What's going on little bride-to-be?,,IsFiancee(),DomIntroFiancee,Dominant|Violent
 1000,,,Please tell me of your feeling's my sweet fiancée-pet.,,IsFiancee(),DomIntroFiancee,Submissive|Peaceful
@@ -1401,18 +1415,25 @@ PunishAsylum,1000,You're right Mistress.  (Go to the asylum.),,RunPunishment(1),
 2000,,,(She seems confused seeing you on your knees.)  Yes Mistress?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,
 2000,,,(She seems confused seeing you on your knees.)  What the fuck?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,Dominant|Rude
 2000,,,(She seems confused seeing you on your knees.)  Is everything alright Mistress?,,DialogIsKneeling(Player),SubIntroPlayerKneeling,Peaceful|Wise
+2000,,,How can I serve you my spouse?,,IsWife(),SubIntroWife,
+2000,,,Will you punish your wife today?,,IsWife(),SubIntroWife,Dominant|Violent
+2000,,,"This spouse body is yours to possess, love and care for Mistress.",,IsWife(),SubIntroWife,Submissive|Peaceful
+2000,,,This cunt is ready for her loving Mistress-wife.,,IsWife(),SubIntroWife,Horny|Playful
+2000,,,(Your wife bows her head and stays silent.),,IsWife(),SubIntroWife,Frigid|Serious
+2000,,,"Mistress, what do you desire from your submissive partner?",,IsWife(),SubIntroWife,Polite|Wise
+2000,,,Yes wife?  Errr... Mistress?,,IsWife(),SubIntroWife,Dumb|Rude
 2000,,,How can I serve you my fiancée?,,IsFiancee(),SubIntroFiancee,
-2000,,,Will you punish me my fiancée?,,IsFiancee(),SubIntroFiancee,Dominant|Violent
+2000,,,Will you punish your fiancée today?,,IsFiancee(),SubIntroFiancee,Dominant|Violent
 2000,,,"This wife-to-be body is yours to possess, love and care for Mistress.",,IsFiancee(),SubIntroFiancee,Submissive|Peaceful
 2000,,,This cunt is ready for her loving Mistress-fiancée.,,IsFiancee(),SubIntroFiancee,Horny|Playful
-2000,,,(She bows her head and stays silent.),,IsFiancee(),SubIntroFiancee,Frigid|Serious
+2000,,,(Your fiancée bows her head and stays silent.),,IsFiancee(),SubIntroFiancee,Frigid|Serious
 2000,,,"Mistress, what do you desire from your betrothed submissive?",,IsFiancee(),SubIntroFiancee,Polite|Wise
 2000,,,Yes my future wife?  Errr... Mistress?,,IsFiancee(),SubIntroFiancee,Dumb|Rude
 2000,,,How can I serve you my love?,,IsLover(),SubIntroGirlfriend,
-2000,,,Will you punish me my love?,,IsLover(),SubIntroGirlfriend,Dominant|Violent
+2000,,,Will you punish your girlfriend today?,,IsLover(),SubIntroGirlfriend,Dominant|Violent
 2000,,,"My body is yours to possess, love and care for Mistress.",,IsLover(),SubIntroGirlfriend,Submissive|Peaceful
 2000,,,This cunt is ready for her loving Mistress.,,IsLover(),SubIntroGirlfriend,Horny|Playful
-2000,,,(She bows her head and stays silent.),,IsLover(),SubIntroGirlfriend,Frigid|Serious
+2000,,,(Your girlfriend bows her head and stays silent.),,IsLover(),SubIntroGirlfriend,Frigid|Serious
 2000,,,"Mistress, what do you desire from your loved submissive?",,IsLover(),SubIntroGirlfriend,Polite|Wise
 2000,,,Yes my luv?  Errr... Mistress?,,IsLover(),SubIntroGirlfriend,Dumb|Rude
 2000,,,What would you like to do Mistress?,,,SubIntro,
