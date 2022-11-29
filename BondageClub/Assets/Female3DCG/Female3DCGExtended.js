@@ -5102,7 +5102,34 @@ var AssetFemale3DCGExtended = {
 					TypePrefix: "HairAccessory1ElfEars",
 				},
 			}
-		} // ElfEars
+		}, // ElfEars
+		Halo: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.TARGET_CHAR,
+					CommonChatTags.ASSET_NAME,
+				],
+				Options: [
+					{
+						Name: "Default",
+						Property: { Type: null },
+					},
+					{
+						Name: "Broken",
+						Property: { Type: "Broken" },
+					},
+				],
+				ScriptHooks: {
+					Load: (next) => OpacityLoad(next, "lightbulb"),
+					Draw: (next) => OpacityDraw(next, 0, -50, "Brightness"),
+					Exit: OpacityExit,
+					Validate: OpacityValidate,
+				},
+				BaselineProperty: { Opacity: 0 },
+			},
+		}, // Halo
 	}, // HairAccessory1
 	HairAccessory2: {
 		ElfEars: {
@@ -5110,6 +5137,20 @@ var AssetFemale3DCGExtended = {
 			CopyConfig: { GroupName: "HairAccessory1", AssetName: "ElfEars" },
 		},
 	}, // HairAccessory2
+	HairAccessory3: {
+		Halo: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "HairAccessory1", AssetName: "Halo" },
+			Config: {
+				Dialog: {
+					Load: "HairAccessory1HaloSelect",
+					TypePrefix: "HairAccessory1Halo",
+					ChatPrefix: "HairAccessory1HaloSet",
+					NpcPrefix: "HairAccessory1Halo",
+				},
+			},
+		},
+	}, // HairAccessory3
 	ItemMouth: {
 		ClothGag: {
 			Archetype: ExtendedArchetype.TYPED,
