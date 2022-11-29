@@ -89,30 +89,33 @@ function InventoryItemMiscMistressTimerPadlockClick() {
 
 // When a value is added to the timer, can be a negative one
 function InventoryItemMiscMistressTimerPadlockAdd(TimeToAdd, PlayerMemberNumberToList) {
-    if (PlayerMemberNumberToList) DialogFocusSourceItem.Property.MemberNumberList.push(Player.MemberNumber);
-    var TimerBefore = DialogFocusSourceItem.Property.RemoveTimer;
-    if (DialogFocusItem.Asset.RemoveTimer > 0) DialogFocusSourceItem.Property.RemoveTimer = Math.round(Math.min(DialogFocusSourceItem.Property.RemoveTimer + (TimeToAdd * 1000), CurrentTime + (DialogFocusItem.Asset.MaxTimer * 1000)));
-    var C = CharacterGetCurrent();
-    if (CurrentScreen == "ChatRoom") {
-        var timeAdded = (DialogFocusSourceItem.Property.RemoveTimer - TimerBefore) / (1000 * 60);
-        var msg = ((timeAdded < 0) && DialogFocusSourceItem.Property.ShowTimer ? "TimerRemoveTime" : "TimerAddTime");
+    if (PlayerMemberNumberToList) {
+		DialogFocusSourceItem.Property.MemberNumberList.push(Player.MemberNumber);
+	}
+    const TimerBefore = DialogFocusSourceItem.Property.RemoveTimer;
+    if (DialogFocusItem.Asset.RemoveTimer > 0) {
+		DialogFocusSourceItem.Property.RemoveTimer = Math.round(Math.min(DialogFocusSourceItem.Property.RemoveTimer + (TimeToAdd * 1000), CurrentTime + (DialogFocusItem.Asset.MaxTimer * 1000)));
+	}
+    const C = CharacterGetCurrent();
+    if (CurrentScreen === "ChatRoom") {
+        const timeAdded = (DialogFocusSourceItem.Property.RemoveTimer - TimerBefore) / (1000 * 60);
+		let msg = "TimerAddRemoveUnknownTime";
+		if (DialogFocusSourceItem.Property.ShowTimer) {
+			msg = timeAdded < 0 ? "TimerRemoveTime" : "TimerAddTime";
+		}
         /** @type {ChatMessageDictionary} */
-        var Dictionary = [];
-        Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
-        Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
+        const Dictionary = [
+			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+			{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+			{ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name },
+		];
         if (DialogFocusSourceItem.Property.ShowTimer) {
-            Dictionary.push({ Tag: "TimerTime", Text: Math.round(Math.abs(timeAdded)).toString() });
-            Dictionary.push({ Tag: "TimerUnit", TextToLookUp: "Minutes" });
-        } else {
-            Dictionary.push({ Tag: "TimerTime", TextToLookUp: "TimerAddRemoveUnknownTime" });
-            Dictionary.push({ Tag: "TimerUnit", Text: "" });
+            Dictionary.push(
+				{ Tag: "TimerTime", Text: Math.round(Math.abs(timeAdded)).toString() },
+				{ Tag: "TimerUnit", TextToLookUp: "Minutes" },
+			);
         }
-        Dictionary.push({ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name });
 
-        for (let A = 0; A < C.Appearance.length; A++) {
-            if (C.Appearance[A].Asset.Group.Name == C.FocusGroup.Name)
-                C.Appearance[A] = DialogFocusSourceItem;
-        }
         ChatRoomPublishCustomAction(msg, true, Dictionary);
     } else { CharacterRefresh(C); }
     InventoryItemMiscMistressTimerPadlockExit();
