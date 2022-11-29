@@ -135,9 +135,7 @@ function TypedItemCreateTypedItemData(asset, {
  */
 function TypedItemCreateLoadFunction({ options, functionPrefix, dialog, scriptHooks, BaselineProperty }) {
 	const loadFunctionName = `${functionPrefix}Load`;
-	const loadFunction = function () {
-		ExtendedItemLoad(options, dialog.load, BaselineProperty);
-	};
+	const loadFunction = () => ExtendedItemLoad(dialog.load);
 	if (scriptHooks && scriptHooks.load) {
 		window[loadFunctionName] = function () {
 			scriptHooks.load(loadFunction);
@@ -577,5 +575,47 @@ function TypedItemCustomChatPrefix(Name, Data) {
 		});
 	} else {
 		return Data.dialog.chatPrefix;
+	}
+}
+
+/**
+ * Initialize the typed item properties
+ * @type {ExtendedItemInitCallback}
+ * @see {@link ExtendedItemInit}
+ */
+function TypedItemInit(Item, C, Refresh=true) {
+	const Data = ExtendedItemGetData(Item, ExtendedArchetype.TYPED);
+	if (Data === null) {
+		return;
+	}
+
+	const AllowType = [null, ...Item.Asset.AllowType];
+	if (Item.Property && AllowType.includes(Item.Property.Type)) {
+		return;
+	}
+
+	// Default to the first option if no property is set
+	let InitialProperty = Data.options[0].Property;
+	Item.Property = JSON.parse(JSON.stringify(Data.options[0].Property));
+
+	// If the default type is not the null type, check whether the default type is blocked
+	if (InitialProperty && InitialProperty.Type && InventoryBlockedOrLimited(C, Item, InitialProperty.Type)) {
+		// If the first option is blocked by the character, switch to the null type option
+		const InitialOption = Data.options.find(O => O.Property.Type == null);
+		if (InitialOption) InitialProperty = InitialOption.Property;
+	}
+
+	// If there is an initial and/or baseline property, set it and update the character
+	if (InitialProperty || Data.BaselineProperty) {
+		Item.Property = (Data.BaselineProperty != null) ? JSON.parse(JSON.stringify(Data.BaselineProperty)) : {};
+		Item.Property = Object.assign(
+			Item.Property,
+			(InitialProperty != null) ? JSON.parse(JSON.stringify(InitialProperty)) : {},
+		)
+	}
+
+	if (Refresh) {
+		CharacterRefresh(C, true);
+		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
 	}
 }

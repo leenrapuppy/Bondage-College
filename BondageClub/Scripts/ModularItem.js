@@ -91,6 +91,31 @@ function ModularItemRegister(asset, config) {
 }
 
 /**
+ * Initialize the modular item properties
+ * @type {ExtendedItemInitCallback}
+ * @see {@link ExtendedItemInit}
+ */
+function ModularItemInit(Item, C, Refresh=true) {
+	const Data = ExtendedItemGetData(Item, ExtendedArchetype.MODULAR);
+	if (Data === null) {
+		return;
+	}
+
+	const AllowType = Data.asset.AllowType;
+	if (Item.Property && AllowType.includes(Item.Property.Type)) {
+		return;
+	}
+
+	const currentModuleValues = ModularItemParseCurrent(Data, null);
+	Item.Property = ModularItemMergeModuleValues(Data, currentModuleValues, Data.BaselineProperty);
+
+	if (Refresh) {
+		CharacterRefresh(C);
+		ChatRoomCharacterItemUpdate(C, Data.asset.Group.Name);
+	}
+}
+
+/**
  * Creates an asset's extended item load function
  * @param {ModularItemData} data - The modular item data for the asset
  * @returns {void} - Nothing
@@ -98,15 +123,6 @@ function ModularItemRegister(asset, config) {
 function ModularItemCreateLoadFunction(data) {
 	const loadFunctionName = `${data.functionPrefix}Load`;
 	const loadFunction = function () {
-		const AllowType = DialogFocusItem.Asset.AllowType;
-		if (!DialogFocusItem.Property || !AllowType.includes(DialogFocusItem.Property.Type)) {
-			const C = CharacterGetCurrent();
-			const currentModuleValues = ModularItemParseCurrent(data);
-			DialogFocusItem.Property = ModularItemMergeModuleValues(data, currentModuleValues, data.BaselineProperty);
-			const RefreshDialog = (CurrentScreen !== "Crafting");
-			CharacterRefresh(C, true, RefreshDialog);
-			ChatRoomCharacterItemUpdate(C, data.asset.Group.Name);
-		}
 		DialogExtendedMessage = DialogFindPlayer(`${data.dialogSelectPrefix}${data.currentModule}`);
 	};
 	if (data.scriptHooks && data.scriptHooks.load) {

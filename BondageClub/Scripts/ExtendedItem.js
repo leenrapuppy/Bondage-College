@@ -92,42 +92,75 @@ function ExtendedItemGetXY(Asset, ShowImages=true) {
 }
 
 /**
- * Loads the item extension properties
- * @param {readonly ExtendedItemOption[]} Options - An Array of type definitions for each allowed extended type. The first item
- *     in the array should be the default option.
- * @param {string} DialogKey - The dialog key for the message to display prompting the player to select an extended
- *     type
- * @param {ItemProperties | null} BaselineProperty - To-be initialized properties independent of the selected item types
+ * Initialize the extended item properties
+ * @param {Item} Item - The item in question
+ * @param {Character} C - The character that has the item equiped
+ * @param {boolean} Refresh - Whether the character and relevant item should be refreshed
+ * @param {null | ExtendedArchetype} Archetype - The item's archetype; defaults to {@link Asset.Archetype}.
+ * A value should generally only be provided here if one is initializing an archetypical subscreen.
+ * @param {string} Type - The item's type. Only relevant in the case of {@link VariableHeightData}
  * @returns {void} Nothing
  */
-function ExtendedItemLoad(Options, DialogKey, BaselineProperty=null) {
-	const AllowType = [null, ...DialogFocusItem.Asset.AllowType];
-	if (!DialogFocusItem.Property || !AllowType.includes(DialogFocusItem.Property.Type)) {
-		const C = CharacterGetCurrent();
-		// Default to the first option if no property is set
-		let InitialProperty = Options[0].Property;
-		DialogFocusItem.Property = JSON.parse(JSON.stringify(Options[0].Property));
-
-		// If the default type is not the null type, check whether the default type is blocked
-		if (InitialProperty && InitialProperty.Type && InventoryBlockedOrLimited(C, DialogFocusItem, InitialProperty.Type)) {
-			// If the first option is blocked by the character, switch to the null type option
-			const InitialOption = Options.find(O => O.Property.Type == null);
-			if (InitialOption) InitialProperty = InitialOption.Property;
-		}
-
-		// If there is an initial and/or baseline property, set it and update the character
-		if (InitialProperty || BaselineProperty) {
-			DialogFocusItem.Property = (BaselineProperty != null) ? JSON.parse(JSON.stringify(BaselineProperty)) : {};
-			DialogFocusItem.Property = Object.assign(
-				DialogFocusItem.Property,
-				(InitialProperty != null) ? JSON.parse(JSON.stringify(InitialProperty)) : {},
-			);
-			const RefreshDialog = (CurrentScreen != "Crafting");
-			CharacterRefresh(C, true, RefreshDialog);
-			ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
-		}
+function ExtendedItemInit(Item, C, Refresh=true, Archetype=null, Type=null) {
+	if (Item == null || C == null || !Item.Asset.Extended) {
+		return;
 	}
 
+	Archetype = (Archetype == null) ? Item.Asset.Archetype : Archetype;
+	switch (Archetype) {
+		case ExtendedArchetype.TYPED:
+			return TypedItemInit(Item, C, Refresh);
+		case ExtendedArchetype.MODULAR:
+			return ModularItemInit(Item, C, Refresh);
+		case ExtendedArchetype.VIBRATING:
+			return VibratorModeInit(Item, C, Refresh);
+		case ExtendedArchetype.VARIABLEHEIGHT:
+			if (Type == null) {
+				console.warn(`Cannot initialize ${Item.Asset.Group.Name}${Item.Asset.Name} variable height item data with a null type`);
+			} else {
+				VariableHeightInit(Item, C, Type, Refresh);
+			}
+			return;
+		default: {
+			const initFunctionName = `Inventory${Item.Asset.Group.Name}${Item.Asset.Name}Init`;
+			/** @type {ExtendedItemInitCallback} */
+			const initFunction = window[initFunctionName];
+			if (typeof initFunction === "function") {
+				initFunction(Item, C, Refresh);
+			}
+		}
+	}
+}
+
+/**
+ * Helper init function for extended items without an archetype.
+ * Note that on the long term this function should ideally be removed in favor of adding appropriate archetypes.
+ * @param {Item} Item - The item in question
+ * @param {Character} C - The character that has the item equiped
+ * @param {ItemProperties} Properties - A record that maps property keys to their default value.
+ * 		The type of each value is used for basic validation.
+ * @param {boolean} Refresh - Whether the character and relevant item should be refreshed
+ * @returns {void} Nothing
+ */
+function ExtendedItemInitNoArch(Item, C, Properties, Refresh=true) {
+	if (!Item.Property) {
+		Item.Property = {};
+	}
+	Object.assign(Item.Property, JSON.parse(JSON.stringify(Properties)));
+
+	if (Refresh) {
+		CharacterRefresh(C, true);
+		ChatRoomCharacterItemUpdate(C, Item.Asset.Group.Name);
+	}
+}
+
+/**
+ * Loads the item's extended item menu
+ * @param {string} DialogKey - The dialog key for the message to display prompting the player to select an extended
+ *     type
+ * @returns {void} Nothing
+ */
+function ExtendedItemLoad(DialogKey) {
 	if (ExtendedItemSubscreen) {
 		CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load");
 		return;
@@ -536,6 +569,10 @@ function ExtendedItemHandleOptionClick(C, Options, Option) {
 			DialogExtendedMessage = RequirementMessage;
 		} else if (Option.HasSubscreen) {
 			ExtendedItemSubscreen = Option.Name;
+			if (Option.Archetype) {
+				const Type = (Option.Property && Option.Property.Type) ? Option.Property.Type : "";
+				ExtendedItemInit(DialogFocusItem, C, true, Option.Archetype, Type);
+			}
 			CommonCallFunctionByNameWarn(ExtendedItemFunctionPrefix() + ExtendedItemSubscreen + "Load", C, Option);
 		} else {
 			ExtendedItemSetType(C, Options, Option);
@@ -875,16 +912,17 @@ function ExtendedItemDrawHeader(X=1387, Y=55, Item=DialogFocusItem) {
  * @template {ExtendedArchetype} Archetype
  * @param {Item} Item - The item whose data should be extracted
  * @param {Archetype} Archetype - The archetype corresponding to the lookup table
+ * @param {string} Type - The item's type. Only relevant in the case of {@link VariableHeightData}
  * @returns {null | ExtendedDataLookupStruct[Archetype]} The item's data or `null` if the lookup failed
  */
-function ExtendedItemGetData(Item, Archetype) {
+function ExtendedItemGetData(Item, Archetype, Type=null) {
 	if (Item == null) {
 		return null;
 	}
 
 	/** @type {TypedItemData | ModularItemData | VibratingItemData | VariableHeightData} */
 	let Data;
-	const Key = `${Item.Asset.Group.Name}${Item.Asset.Name}`;
+	const Key = `${Item.Asset.Group.Name}${Item.Asset.Name}${Type == null ? "" : Type}`;
 	switch (Archetype) {
 		case ExtendedArchetype.TYPED:
 			Data = TypedItemDataLookup[Key];
