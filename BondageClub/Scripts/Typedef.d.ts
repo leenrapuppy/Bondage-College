@@ -396,7 +396,10 @@ interface ChatMessageDictionaryEntry {
 	MemberNumber?: number;
 	TextToLookUp?: string;
 	AssetName?: string;
-	AssetGroupName?: string;
+	GroupName?: AssetGroupName;
+	/** @deprecated Use FocusGroupName instead */
+	AssetGroupName?: AssetGroupName;
+	FocusGroupName?: AssetGroupName;
 	Automatic?: boolean;
 	ShockIntensity?: number;
 	ActivityCounter?: number;
@@ -433,12 +436,12 @@ interface IChatRoomMessageMetadata {
 	TargetMemberNumber?: number;
 	/** Whether the message is considered game-initiated. Used for automatic vibe changes for example. */
 	Automatic?: boolean;
-	/** The name of the asset used */
-	AssetName?: string;
-	/** The group the message applies to */
+	/** The group that has been interacted with to trigger the message */
 	GroupName?: string;
-	/** The asset used */
-	Asset?: Asset;
+	/** The assets referenced in the message */
+	Assets?: Record<string, Asset>;
+	/** The groups referenced in the message */
+	Groups?: Record<string, AssetGroup>;
 	/** How intense the shock should be */
 	ShockIntensity?: number;
 	ActivityCounter?: number;

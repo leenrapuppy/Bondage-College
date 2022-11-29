@@ -2143,8 +2143,8 @@ function ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNext
 		// Replaces the action tags to build the phrase
 		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 		Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		if (StruggleProgressPrevItem != null) Dictionary.push({ Tag: "PrevAsset", AssetName: StruggleProgressPrevItem.Asset.Name });
-		if (StruggleProgressNextItem != null) Dictionary.push({ Tag: "NextAsset", AssetName: StruggleProgressNextItem.Asset.Name });
+		if (StruggleProgressPrevItem != null) Dictionary.push({ Tag: "PrevAsset", AssetName: StruggleProgressPrevItem.Asset.Name, GroupName: StruggleProgressPrevItem.Asset.Group.Name });
+		if (StruggleProgressNextItem != null) Dictionary.push({ Tag: "NextAsset", AssetName: StruggleProgressNextItem.Asset.Name, GroupName: StruggleProgressNextItem.Asset.Group.Name });
 		if (C.FocusGroup != null) Dictionary.push({ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name });
 
 		// Prepares the item packet to be sent to other players in the chatroom
@@ -2711,11 +2711,15 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 		}
 
 		if (entry.AssetName) {
-			meta.AssetName = entry.AssetName;
+			if (!meta.Assets) meta.Assets = {};
+			meta.Assets[entry.Tag] = Asset.find(a => a.Name === entry.AssetName && (!entry.GroupName || a.Group.Name === entry.GroupName));
+		} else if (entry.GroupName) {
+			if (!meta.Groups) meta.Groups = {};
+			meta.Groups[entry.Tag] = AssetGroup.find(g => g.Name === entry.GroupName);
 		}
 
-		if (entry.AssetGroupName) {
-			meta.GroupName = entry.AssetGroupName;
+		if (entry.FocusGroupName || entry.AssetGroupName) {
+			meta.GroupName = entry.FocusGroupName || entry.AssetGroupName;
 		}
 
 		if (entry.Tag === "ActivityName") meta.ActivityName = entry.Text;
@@ -2783,7 +2787,7 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 			substitutions.push([entry.Tag, repl]);
 		}
 		else if (entry.AssetName) {
-			const A = Asset.find(a => a.Name === meta.AssetName && (!meta.GroupName || a.Group.Name === meta.GroupName));
+			const A = meta.Assets && meta.Assets[entry.Tag];
 			if (A) {
 				meta.ActivityName = A.DynamicActivity(meta.SourceCharacter || Player);
 				if (entry.Tag) {
@@ -2792,11 +2796,9 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 				}
 			}
 		}
-		else if (entry.AssetGroupName) {
-			const G = AssetGroupGet('Female3DCG', entry.AssetGroupName);
+		else if (entry.FocusGroupName || entry.AssetGroupName) {
+			const G = AssetGroupGet('Female3DCG', meta.GroupName);
 			if (G) {
-				meta.GroupName = entry.AssetGroupName;
-
 				let repl = DialogActualNameForGroup(meta.TargetCharacter, G);
 				substitutions.push([entry.Tag, repl.toLowerCase()]);
 			}
