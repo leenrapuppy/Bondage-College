@@ -6896,6 +6896,7 @@ var AssetFemale3DCGExtended = {
 				},
 				Dialog: {
 					ChatPrefix: ({previousOption, newOption}) => {
+						// @ts-ignore
 						const Prefix = `${DialogFocusItem.Asset.Group.Name}${DialogFocusItem.Asset.Name}Set`;
 						const IntensityPattern = /^(i)(\d+)$/g;
 						if (!IntensityPattern.test(newOption.Name)) {
