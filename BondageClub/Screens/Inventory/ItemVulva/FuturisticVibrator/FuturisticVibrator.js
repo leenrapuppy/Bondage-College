@@ -199,23 +199,6 @@ function InventoryItemVulvaFuturisticVibratorSetMode(C, Item, Option, IgnoreSame
 	}
 }
 
-// Trigger a shock automatically
-function InventoryItemVulvaFuturisticVibratorTriggerShock(C, Item) {
-
-	if (CurrentScreen == "ChatRoom") {
-		/** @type {ChatMessageDictionary} */
-		var Dictionary = [];
-		Dictionary.push({ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		Dictionary.push({ Tag: "AssetName", AssetName: Item.Asset.Name});
-		Dictionary.push({ ShockIntensity : 2});
-
-		ServerSend("ChatRoomChat", { Content: "FuturisticVibratorShockTrigger", Type: "Action", Dictionary });
-	}
-
-	InventoryShockExpression(C);
-}
-
-
 function InventoryItemVulvaFuturisticVibratorHandleChat(C, Item, LastTime) {
 	if (!Item) return;
 	if (!Item.Property) VibratorModeSetProperty(Item, VibratorModeOptions[VibratorModeSet.STANDARD][0].Property);
@@ -245,7 +228,7 @@ function InventoryItemVulvaFuturisticVibratorHandleChat(C, Item, LastTime) {
 			else if (msg.includes("Decrease")) InventoryItemVulvaFuturisticVibratorSetMode(C, Item, VibratorModeGetOption(InventoryItemVulvaFuturisticVibratorGetMode(Item, false)), true);
 
 			//triggered actions
-			if (msg.includes("Shock")) InventoryItemVulvaFuturisticVibratorTriggerShock(C, Item);
+			if (msg.includes("Shock")) ExtendedItemShockPublishAction(C, Item, true);
 		}
 	}
 }

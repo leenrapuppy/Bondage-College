@@ -35,7 +35,7 @@ function InventoryItemNeckAccessoriesCollarShockUnitClick(OriginalFunction) {
 	} else if (MouseIn(1635, 550, 225, 55)) {
 		ExtendedItemCustomClick("ResetShockCount", InventoryItemNeckAccessoriesCollarShockUnitResetCount);
 	} else if (MouseIn(1635, 625, 225, 55)) {
-		ExtendedItemCustomClick("TriggerShock", InventoryItemNeckAccessoriesCollarShockUnitTrigger);
+		ExtendedItemCustomClick("TriggerShock", ExtendedItemShockPublishAction);
 	}
 }
 
@@ -52,45 +52,6 @@ function InventoryItemNeckAccessoriesCollarShockUnitResetCount() {
 
 	if (DialogFocusItem.Property.ShowText) {
 		ChatRoomPublishCustomAction("ShockCountReset", false, Dictionary);
-	}
-}
-
-// Trigger a shock from the dialog menu
-function InventoryItemNeckAccessoriesCollarShockUnitTrigger() {
-	const C = CharacterGetCurrent();
-	if (DialogFocusItem.Property.TriggerCount != null) {
-		DialogFocusItem.Property.TriggerCount++;
-	}
-
-	if (C.ID === Player.ID) {
-		// The Player shocks herself
-		ActivityArousalItem(C, C, DialogFocusItem.Asset);
-	}
-	InventoryShockExpression(C);
-
-	const ActionTag = `TriggerShock${DialogFocusItem.Property.ShockLevel}`;
-	const Dictionary = [
-		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name },
-		{ ShockIntensity : DialogFocusItem.Property.ShockLevel * 1.5 },
-		{ AssetName: DialogFocusItem.Asset.Name },
-		{ FocusAssetGroup: DialogFocusItem.Asset.Group.Name },
-	];
-
-	// Manually play audio and flash the screen when not in a chatroom
-	if (CurrentScreen !== "ChatRoom") {
-		AudioPlayInstantSound("Audio/Shocks.mp3");
-		if (C.ID === Player.ID) {
-			const duration = (Math.random() + DialogFocusItem.Property.ShockLevel * 1.5) * 500;
-			DrawFlashScreen("#FFFFFF", duration, 500);
-		}
-	}
-
-	if (DialogFocusItem.Property.ShowText || CurrentScreen !== "ChatRoom") {
-		ExtendedItemCustomExit(ActionTag, C, Dictionary);
-	} else {
-		ChatRoomMessage({ Content: ActionTag, Type: "Action", Sender: Player.MemberNumber, Dictionary: Dictionary });
-		DialogLeave();
 	}
 }
 
@@ -137,14 +98,4 @@ function AssetsItemNeckAccessoriesCollarShockUnitScriptDraw(data) {
 		AnimationRequestRefreshRate(data.C, (5000 / timeFactor) - timeToNextRefresh);
 		AnimationRequestDraw(data.C);
 	}
-}
-
-/**
- * @param {IChatRoomMessage} data
- * @returns {[string, number]}
- */
-function InventoryItemNeckAccessoriesCollarShockUnitDynamicAudio(data) {
-	let Modifier = parseInt(data.Content.slice(-1));
-	if (isNaN(Modifier)) Modifier = 0;
-	return ["Shocks", Modifier * 3];
 }

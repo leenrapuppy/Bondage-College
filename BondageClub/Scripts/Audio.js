@@ -279,15 +279,9 @@ var AudioActions = [
 	},
 	{
 		IsAction: (data) => [
-			"CollarShockUnitTrigger",
-			"ShockCollarTrigger",
-			"LoveChastityBeltShockTrigger",
-			"SciFiPleasurePantiesShockTrigger",
 			"TriggerShock",
-			"CollarAutoShockUnitTrigger",
-			"FuturisticVibratorShockTrigger"
 		].some(A => data.Content.includes(A)),
-		GetSoundEffect: (data) => InventoryItemNeckAccessoriesCollarShockUnitDynamicAudio(data)
+		GetSoundEffect: (data) => AudioShockSounds(data)
 	},
 	{
 		IsAction: (data) => [
@@ -582,4 +576,15 @@ function AudioVibratorSounds(data) {
 	}
 
 	return [Sound, Level * 3];
+}
+
+/**
+ * Processes the sound for shocks
+ * @param {IChatRoomMessage} data - Represents the chat message received
+ * @returns {[string, number]} - The name of the sound to play, followed by the noise modifier
+ */
+ function AudioShockSounds(data) {
+	let Modifier = parseInt(data.Content.slice(-1));
+	if (isNaN(Modifier)) Modifier = 0;
+	return ["Shocks", Modifier * 3];
 }
