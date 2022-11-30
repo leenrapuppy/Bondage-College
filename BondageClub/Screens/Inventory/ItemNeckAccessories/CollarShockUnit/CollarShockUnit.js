@@ -72,8 +72,6 @@ function InventoryItemNeckAccessoriesCollarShockUnitTrigger() {
 	const Dictionary = [
 		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
 		{ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name },
-		{ Tag: "ActivityName", Text: "ShockItem" },
-		{ Tag: "ActivityGroup", Text: DialogFocusItem.Asset.Group.Name },
 		{ ShockIntensity : DialogFocusItem.Property.ShockLevel * 1.5 },
 		{ AssetName: DialogFocusItem.Asset.Name },
 		{ FocusAssetGroup: DialogFocusItem.Asset.Group.Name },

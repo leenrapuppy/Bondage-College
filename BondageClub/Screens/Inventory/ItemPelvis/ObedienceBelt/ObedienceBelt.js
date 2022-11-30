@@ -147,8 +147,6 @@ function InventoryItemPelvisObedienceBeltScriptTrigger(C, Item, ShockType) {
 		Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
 		Dictionary.push({ Tag: "AssetName", AssetName: Item.Asset.Name});
-		Dictionary.push({ Tag: "ActivityName", Text: "ShockItem" });
-		Dictionary.push({ Tag: "ActivityGroup", Text: Item.Asset.Group.Name });
 		Dictionary.push({ AssetName: Item.Asset.Name });
 		Dictionary.push({ AssetGroupName: Item.Asset.Group.Name });
 		Dictionary.push({ ShockIntensity : 2});
