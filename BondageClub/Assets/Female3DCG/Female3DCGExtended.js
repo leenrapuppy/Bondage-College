@@ -2658,6 +2658,42 @@ var AssetFemale3DCGExtended = {
 				BaselineProperty: { TriggerCount: 0, ShowText: true, BlinkState: false }
 			},
 		}, // CollarShockUnit
+		CollarAutoShockUnit: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatTags: [
+					CommonChatTags.ASSET_NAME,
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+				],
+				Modules: [
+					{
+						Name: "ShockLevel", Key: "s",
+						DrawImages: false,
+						Options: [
+							{ Property: { ShockLevel: 0 } }, // s0 - Level 1
+							{ Property: { ShockLevel: 1 } }, // s1 - Level 2
+							{ Property: { ShockLevel: 2 } }, // s2 - Level 3
+						],
+					},
+					{
+						Name: "Sensitivity", Key: "y",
+						DrawImages: false,
+						Options: [
+							{ Property: { Sensitivity: 0 } }, // y0 - Off
+							{ Property: { Sensitivity: 1 } }, // y1 - Low
+							{ Property: { Sensitivity: 2 } }, // y2 - Medium
+							{ Property: { Sensitivity: 3 } }, // y3 - High
+						]
+					},
+				],
+				ScriptHooks: {
+					Draw: InventoryItemNeckAccessoriesCollarAutoShockUnitDraw,
+					Click: InventoryItemNeckAccessoriesCollarAutoShockUnitClick,
+				},
+				BaselineProperty: { TriggerCount: 0, ShowText: true, BlinkState: false },
+			},
+		}, // CollarAutoShockUnit
 	}, // ItemNeckAccessories
 	ItemNeckRestraints: {
 		PetPost: {

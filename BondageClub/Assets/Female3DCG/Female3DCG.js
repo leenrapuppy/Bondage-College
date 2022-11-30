@@ -4913,10 +4913,13 @@ var AssetFemale3DCG = [
 				], DynamicBeforeDraw: true, DynamicScriptDraw: true,
 			},
 			{
-				Name: "CollarAutoShockUnit", Fetish: ["Masochism"], Value: -1, Difficulty: 6, Time: 5, Random: false, AllowLock: true, BuyGroup: "ShockCollar", Prerequisite: "Collared", Effect: ["ReceiveShock", "UseRemote"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }], AllowType: ["", "Blink", "Sensitivity"], Extended: true, AlwaysExtend: true,
+				Name: "CollarAutoShockUnit", Fetish: ["Masochism"], Value: -1, Difficulty: 6, Time: 5,
+				Random: false, AllowLock: true, BuyGroup: "ShockCollar", Prerequisite: "Collared", HasType: false,
+				Effect: ["ReceiveShock", "UseRemote"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 15 }],
+				Extended: true, AlwaysExtend: true,
 				Layer: [
-					{ Name: "Unit", AllowTypes: ["", "Blink"], HasType: false },
-					{ Name: "Light", AllowTypes: ["Blink"], HideColoring: true },
+					{ Name: "Unit" },
+					{ Name: "Light", HideColoring: true },
 				], DynamicBeforeDraw: true, DynamicScriptDraw: true,
 			},
 			{ Name: "Key", Value: 5, Difficulty: 3, Time: 5, Random: false, AllowLock: true, DrawLocks: false, Prerequisite: "Collared"},
