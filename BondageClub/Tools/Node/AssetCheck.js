@@ -7,6 +7,7 @@ const BASE_PATH = "../../";
 const neededFiles = [
 	"Scripts/Common.js",
 	"Scripts/Dialog.js",
+	"Scripts/Asset.js",
 	"Scripts/ModularItem.js",
 	"Scripts/TypedItem.js",
 	"Scripts/VariableHeight.js",

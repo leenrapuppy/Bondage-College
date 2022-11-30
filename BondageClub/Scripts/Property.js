@@ -204,3 +204,116 @@ function PropertyOpacityValidate(OriginalFunction, C, Item, Option, CurrentOptio
 		ExtendedItemCustomExit(ActionTag, C, null)
 	}
 }
+
+/**
+ * A set of group names whose auto-punishment has successfully been handled by {@link PropertyAutoPunishDetectSpeech}.
+ * If a group name is absent from the set then it's eligible for action-based punishment triggers.
+ * @type {Set<AssetGroupName>}
+ */
+ let PropertyAutoPunishHandled = new Set(AssetGroup.map((a) => a.Name));
+
+/**
+ * A list of keywords that can trigger automatic punishment when included in `/me`- or `*`-based messages
+ * @type {readonly string[]}
+ */
+const PropertyAutoPunishKeywords = [
+	"moan",
+	"whimper",
+	"shout",
+	"scream",
+	"whine",
+	"growl",
+	"laugh",
+	"giggle",
+	"mutter",
+	"stutter",
+	"stammer",
+	"grunt",
+	"hiss",
+	"screech",
+	"bark",
+	"mumble",
+];
+
+/**
+ * Check if a given message warants automatic punishment given the provided sensitivety level
+ * @param {0 | 1 | 2 | 3} Sensitivity - The auto-punishment sensitivety
+ * @param {string} msg - The to-be checked message
+ * @param {boolean} GagAction - Whether a noisy gag action was used or not
+ * @returns {boolean} Whether the passed message should trigger automatic speech-based punishment
+ */
+function PropertyAutoPunishParseMessage(Sensitivity, msg, GagAction=false) {
+	// Conditions which are never punishable
+	if (msg.startsWith("(")) {
+		return false;
+	}
+
+	// Conditions that are always punishable
+	const PunishableSpeech = (
+		msg.includes('!')
+		|| msg.includes('！')
+		|| (msg === msg.toUpperCase() && msg !== msg.toLowerCase())
+	)
+
+	// Check for sensitivity-specific conditions
+	let PunishableKeywords = false;
+	switch (Sensitivity) {
+		case 1:
+			return (
+				!msg.startsWith("*")
+				&& !msg.startsWith("/")
+				&& (msg.replace(/[^\p{P} ~+=^$|\\<>`]+/ug, '') !== msg && PunishableSpeech)
+			);
+		case 2:
+			return (
+				!msg.startsWith("*")
+				&& !msg.startsWith("/")
+				&& (
+					msg.length > 25
+					|| (msg.replace(/[^\p{P} ~+=^$|\\<>`]+/ug, '') !== msg && PunishableSpeech)
+				)
+			);
+		case 3:
+			if (GagAction) {
+				return true;
+			}
+
+			PunishableKeywords = PropertyAutoPunishKeywords.some((k) => msg.includes(k));
+			if (PunishableKeywords && (msg.startsWith("/me") || msg.startsWith("*"))) {
+				return true;
+			}
+
+			return (
+				!msg.startsWith("*")
+				&& !msg.startsWith("/")
+				&& (msg.replace(/[^\p{P} ~+=^$|\\<>`]+/ug, '') !== msg || PunishableSpeech)
+			);
+		default:
+			return false;
+	}
+}
+
+/**
+ * Check whether the last uttered message should trigger automatic punishment from the provided item
+ * @param {Item} Item - The item in question
+ * @param {number | null} LastMessageLen - The length of {@link ChatRoomLastMessage} prior to the last message (if applicable)
+ * @returns {boolean} Whether the last message should trigger automatic speech-based punishment
+ */
+function PropertyAutoPunishDetectSpeech(Item, LastMessageLen=null) {
+	const GroupName = Item.Asset.Group.Name;
+	const GagAction = !PropertyAutoPunishHandled.has(GroupName);
+	PropertyAutoPunishHandled.add(GroupName);
+
+	// Abort on whispers or if the item does not
+	if (ChatRoomTargetMemberNumber != null || !Item.Property || !Item.Property.Sensitivity) {
+		return false;
+	}
+
+	// Abort if no new messages have been submitted
+	if (!ChatRoomLastMessage || ChatRoomLastMessage.length === LastMessageLen) {
+		return false;
+	}
+
+	const msg = ChatRoomLastMessage.at(-1);
+	return PropertyAutoPunishParseMessage(Item.Property.Sensitivity, msg, GagAction);
+}

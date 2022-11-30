@@ -1,8 +1,5 @@
 "use strict";
 
-
-var AutoShockGagActionFlag = false;
-
 /**
  * Draw the item extension screen
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
@@ -51,65 +48,6 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitClick(OriginalFunction) 
 	}
 }
 
-function InventoryItemNeckAccessoriesCollarAutoShockUnitDetectSpeech(Sensitivity, Emote, Keywords, LastMessages) {
-	let msg = ChatRoomLastMessage[ChatRoomLastMessage.length - 1];
-	if (Sensitivity == 3 && (Emote || (ChatRoomLastMessage && ChatRoomLastMessage.length != LastMessages
-		&& !msg.startsWith("(") && !msg.startsWith("*") && (msg.replace(/[^\p{P} ~+=^$|\\<>`]+/ug, '') != msg || (msg.includes('!')))
-		&& (!msg.startsWith("/")
-			|| (Keywords && (msg.startsWith("/me") || msg.startsWith("*")))))))
-			return true;
-	if (Sensitivity == 2 && ChatRoomLastMessage && ChatRoomLastMessage.length != LastMessages
-		&& !msg.startsWith("(") && !msg.startsWith("*") && !msg.startsWith("/")
-		&& (msg.length > 25
-			|| (msg.replace(/[^\p{P} ~+=^$|\\<>`]+/ug, '') != msg && ((msg === msg.toUpperCase() && msg !== msg.toLowerCase())
-				|| (msg.includes('!')) || (msg.includes('！'))))))
-		return true;
-	if (Sensitivity == 1 && ChatRoomLastMessage && ChatRoomLastMessage.length != LastMessages
-		&& !msg.startsWith("(") && !msg.startsWith("*") && !msg.startsWith("/")
-		&& (msg.replace(/[^\p{P} ~+=^$|\\<>`]+/ug, '') != msg && ((msg === msg.toUpperCase() && msg !== msg.toLowerCase())
-			|| (msg.includes('!')) || (msg.includes('！')))))
-		return true;
-	return false;
-}
-
-function InventoryItemNeckAccessoriesCollarAutoShockUnitUpdate(data) {
-	var Item = data.Item;
-	if (Item.Property.Sensitivity < 3)
-		AutoShockGagActionFlag = false;
-
-	// Punish the player if they speak
-	if (Item.Property.Sensitivity && Item.Property.Sensitivity > 0) {
-
-		var LastMessages = data.PersistentData().LastMessageLen;
-		var ShockTriggerPunish = false;
-		var keywords = false;
-		var gagaction = false;
-
-		if (Item.Property.Sensitivity == 3) {
-			if (AutoShockGagActionFlag == true) {
-				gagaction = true;
-				AutoShockGagActionFlag = false;
-			} else for (let K = 0; K < AutoPunishKeywords.length; K++) {
-				if (ChatRoomLastMessage[ChatRoomLastMessage.length-1].includes(AutoPunishKeywords[K])) {
-					keywords = true;
-					break;
-				}
-			}
-		}
-
-		ShockTriggerPunish = InventoryItemNeckAccessoriesCollarAutoShockUnitDetectSpeech(Item.Property.Sensitivity, gagaction, keywords, LastMessages);
-
-		if (ChatRoomTargetMemberNumber != null) {
-			ShockTriggerPunish = false; // No trigger on whispers
-		}
-
-		if (ShockTriggerPunish) {
-			ExtendedItemShockPublishAction(data.C, Item, true);
-			ChatRoomCharacterUpdate(Player);
-		}
-	}
-}
-
 /** @type {DynamicBeforeDrawCallback} */
 function AssetsItemNeckAccessoriesCollarAutoShockUnitBeforeDraw(data) {
 	if (data.L === "_Light") {
@@ -136,9 +74,9 @@ function AssetsItemNeckAccessoriesCollarAutoShockUnitScriptDraw(data) {
 		const timeToNextRefresh = wasBlinking ? 4000 : 1000;
 
 		if (CurrentScreen == "ChatRoom" && data.C == Player) {
-
-			InventoryItemNeckAccessoriesCollarAutoShockUnitUpdate(data);
-
+			if (PropertyAutoPunishDetectSpeech(data.Item, persistentData.LastMessageLen)) {
+				PropertyShockPublishAction(data.C, data.Item, true);
+			}
 			persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;
 		}
 
