@@ -22,6 +22,7 @@ const neededFiles = [
 	"Screens/Inventory/ItemPelvis/SciFiPleasurePanties/SciFiPleasurePanties.js",
 	"Screens/Inventory/ItemNeckAccessories/CollarShockUnit/CollarShockUnit.js",
 	"Screens/Inventory/ItemVulva/ClitAndDildoVibratorbelt/ClitAndDildoVibratorbelt.js",
+	"Screens/Inventory/ItemBreast/FuturisticBra/FuturisticBra.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"
 ];

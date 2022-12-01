@@ -241,7 +241,7 @@ var AudioActions = [
 		IsAction: (data) => [
 			"FuturisticChastityBeltSetClosed",
 			"FuturisticChastityBeltSetOpen",
-			"InventoryItemBreastFuturisticBraSet",
+			"ItemBreastFuturisticBraSet",
 			"FuturisticHeelsSet",
 			"FuturisticArmbinderSet",
 			"FuturisticCuffsRestrain",

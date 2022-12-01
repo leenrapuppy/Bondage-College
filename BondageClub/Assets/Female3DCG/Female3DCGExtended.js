@@ -583,6 +583,38 @@ var AssetFemale3DCGExtended = {
 				}
 			}
 		}, // FuturisticBra2
+		FuturisticBra: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Show",
+						Property: { Type: null },
+					},
+					{
+						Name: "Solid",
+						Property: { Type: "Solid" },
+					},
+					{
+						Name: "Show2",
+						Property: { Type: "Show2" },
+					},
+					{
+						Name: "Solid2",
+						Property: { Type: "Solid2" },
+					},
+				],
+				DrawImages: false,
+				ScriptHooks: {
+					Load: FuturisticAccessLoad,
+					Click: FuturisticAccessClick,
+					Draw: InventoryItemBreastFuturisticBraDraw,
+					Exit: FuturisticAccessExit,
+					Validate: FuturisticAccessValidate,
+				},
+				BaselineProperty: { HeartRate: 0, HeartIcon: false },
+			},
+		}, // FuturisticBra
 	}, // ItemBreast
 	ItemArms: {
 		Web: {
