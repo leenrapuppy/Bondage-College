@@ -7,6 +7,13 @@
  */
 
 /**
+ * A Map that maps opacity slider IDs to the original opacity value is defined in {@link OpacityLoad}.
+ * Used as fallback in case an invalid opacity value is encountered during  {@link OpacityExit}.
+ * @type {Map<string, number>}
+ */
+const OpacityOriginalValue = new Map([]);
+
+/**
  * Construct an item-specific ID for an opacity slider.
  * @param {Item} Item - The item for whom the ID should be constructed; defaults to {@link DialogFocusItem}
  * @returns {string} - The ID of the opacity slider
@@ -36,6 +43,11 @@ function OpacityLoad(OriginalFunction) {
 	OriginalFunction();
 	const ID = OpacityGetID();
 	const Asset = DialogFocusItem.Asset;
+
+	if (!OpacityOriginalValue.has(ID)) {
+		OpacityOriginalValue.set(ID, DialogFocusItem.Property.Opacity);
+	}
+
 	const opacitySlider = ElementCreateRangeInput(
 		ID,
 		DialogFocusItem.Property.Opacity,
@@ -88,11 +100,12 @@ function OpacityExit(Refresh=true) {
 	const C = CharacterGetCurrent();
 	const Opacity = Number(ElementValue(ID));
 
+	// Restore the original opacity if the new opacity is invalid
 	if (!(Opacity <= Asset.MaxOpacity && Opacity >= Asset.MinOpacity)) {
+		DialogFocusItem.Property.Opacity = OpacityOriginalValue.get(ID);
 		ElementRemove(ID);
+		OpacityOriginalValue.delete(ID);
 		return false;
-	} else {
-		DialogFocusItem.Property.Opacity = Opacity;
 	}
 
 	// Remove the element after calling `CharacterRefresh`
@@ -102,6 +115,7 @@ function OpacityExit(Refresh=true) {
 		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 	}
 	ElementRemove(ID);
+	OpacityOriginalValue.delete(ID);
 	return true;
 }
 
