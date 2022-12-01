@@ -76,6 +76,7 @@ function InventoryItemDevicesWoodenBoxExit() {
 	CharacterRefresh(C);
 	ChatRoomCharacterItemUpdate(C, item.Asset.Group.Name);
 
+	ElementRemove(OpacityGetID());
 	ElementRemove(InventoryItemDevicesWoodenBoxTextInputId);
 	InventoryItemDevicesWoodenBoxOriginalText = null;
 }
