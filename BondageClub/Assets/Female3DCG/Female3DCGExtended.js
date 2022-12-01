@@ -2471,6 +2471,18 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // ShockCollar
+		AutoShockCollar: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarAutoShockUnit" },
+			Config: {
+				Dialog: {
+					Select: "ItemNeckAccessoriesCollarAutoShockUnitSelect",
+					ModulePrefix: "ItemNeckAccessoriesCollarAutoShockUnitModule",
+					OptionPrefix: "ItemNeckAccessoriesCollarAutoShockUnitOption",
+					ChatPrefix: "ItemNeckAccessoriesCollarAutoShockUnitSet",
+				},
+			},
+		}, // AutoShockCollar
 	}, // ItemNeck
 	ItemNeckAccessories: {
 		CustomCollarTag: {
