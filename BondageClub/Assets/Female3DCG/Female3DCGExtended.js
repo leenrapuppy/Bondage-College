@@ -2354,6 +2354,45 @@ var AssetFemale3DCGExtended = {
 				]
 			}
 		}, // SmoothLeatherArmbinder1
+		TransportJacket: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+					CommonChatTags.ASSET_NAME,
+				],
+				Options: [
+					{
+						Name: "NoShorts",
+						Property: { Type: null, Difficulty: 0 },
+					},
+					{
+						Name: "Shorts",
+						Property: {
+							Type: "Shorts",
+							Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+							Hide: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "Panties", "Corset"],
+						},
+					},
+					{
+						Name: "ShortsAndStraps",
+						Property: {
+							Type: "ShortsAndStraps",
+							Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+							Hide: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "Panties", "Corset"],
+						},
+					},
+				],
+				BaselineProperty: { Text: "" },
+				ChatSetting: TypedItemChatSetting.FROM_TO,
+				ScriptHooks: {
+					Load: InventoryItemArmsTransportJacketLoad,
+					Draw: InventoryItemArmsTransportJacketDraw,
+					Exit: InventoryItemArmsTransportJacketExit,
+				}
+			},
+		}, // TransportJacket
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {
