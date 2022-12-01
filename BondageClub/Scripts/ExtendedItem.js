@@ -101,7 +101,8 @@ function ExtendedItemGetXY(Asset, ShowImages=true) {
  * @returns {void} Nothing
  */
 function ExtendedItemLoad(Options, DialogKey, BaselineProperty=null) {
-	if (!DialogFocusItem.Property) {
+	const AllowType = [null, ...DialogFocusItem.Asset.AllowType];
+	if (!DialogFocusItem.Property || !AllowType.includes(DialogFocusItem.Property.Type)) {
 		const C = CharacterGetCurrent();
 		// Default to the first option if no property is set
 		let InitialProperty = Options[0].Property;

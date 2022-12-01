@@ -284,12 +284,13 @@ function VibratorModeSetEffect({asset}) {
  * @returns {void} - Nothing
  */
 function VibratorModeLoad(Options) {
-	var Property = DialogFocusItem.Property;
-	if (!Property || !Property.Mode) {
+	const Property = DialogFocusItem.Property;
+	const AllowType = DialogFocusItem.Asset.AllowType;
+	if (!Property || !AllowType.includes(Property.Mode)) {
 		Options = (Options && Options.length) ? Options : [VibratorModeSet.STANDARD];
-		var FirstOption = VibratorModeOptions[Options[0]][0] || VibratorModeOff;
+		const FirstOption = VibratorModeOptions[Options[0]][0] || VibratorModeOff;
 		VibratorModeSetProperty(DialogFocusItem, FirstOption.Property);
-		var C = CharacterGetCurrent();
+		const C = CharacterGetCurrent();
 		CharacterRefresh(C);
 		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 	}
