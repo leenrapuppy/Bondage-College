@@ -102,7 +102,8 @@ function ModularItemCreateLoadFunction(data) {
 			const C = CharacterGetCurrent();
 			const currentModuleValues = ModularItemParseCurrent(data);
 			DialogFocusItem.Property = ModularItemMergeModuleValues(data, currentModuleValues, data.BaselineProperty);
-			CharacterRefresh(C);
+			const RefreshDialog = (CurrentScreen !== "Crafting");
+			CharacterRefresh(C, true, RefreshDialog);
 			ChatRoomCharacterItemUpdate(C, data.asset.Group.Name);
 		}
 		DialogExtendedMessage = DialogFindPlayer(`${data.dialogSelectPrefix}${data.currentModule}`);
