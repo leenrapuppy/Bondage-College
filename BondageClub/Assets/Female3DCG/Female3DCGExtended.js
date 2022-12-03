@@ -2991,6 +2991,157 @@ var AssetFemale3DCGExtended = {
 		DroneMask: {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemHead", AssetName: "DroneMask" },
+			Config: {
+				Modules: [
+					{
+						Name: "Mouth", Key: "m",
+						Options:[
+							{ // m0 - None
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m1 - Onahole
+								Property: { Effect: ["GagMedium","OpenMouth"] }
+							},
+							{ // m2 - Fleshlight
+								Property: { Effect: ["GagMedium","OpenMouth"] }
+							},
+							{ // m3 - Smile
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m4 - Holes
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m5 - Sculpted
+								Property: { Effect: ["BlockMouth"] }
+							},
+							{ // m6 - Subtle
+								Property: { Effect: ["BlockMouth"] }
+							},
+						]
+					},
+					{
+						Name: "Eyes", Key: "e",
+						Options:[
+							{ // e0 - None
+								Property: { Effect: ["BlindLight"] }
+							},
+							{ // e1 - Regular
+								Property: { Effect: [] }
+							},
+							{ // e2 - Spiral
+								Property: { Effect: [] }
+							},
+							{ // e3 - Smile
+								Property: { Effect: [] }
+							},
+							{ // e4 - Holes
+								Property: { Effect: ["BlindLight"] }
+							},
+							{ // e5 - Sculpted
+								Property: { Effect: [] }
+							},
+							{ // e6 - Concave
+								Property: {Effect: ["BlindLight"] }
+							}
+
+						]
+					},
+					{
+						Name: "Pattern", Key: "p",
+						Options:[{},{},{},{},{},{HasSubscreen: true},] // Blank, Barcode, Scarab, Hex, Lines, Text
+					},
+					{
+						Name: "Glow", Key: "g",
+						Options: [{},{},] // Glow Off, Glow On
+					},
+					{
+						Name: "Sight", Key: "s",
+						Options: [
+							{ // s0 - Opaque
+								Property: { Effect: ["BlindHeavy", "Prone"] }
+							},
+							{ // s1 - One Way
+								Property: { Effect: [""] }
+							},
+						]
+					},
+					{
+						Name: "Helmet", Key: "h",
+						Options: [
+							{}, // h0 - Mask
+							{
+								Property: {
+									Hide: ["HairFront", "HairBack",], //"HairAccessory1", "HairAccessory2"],
+									HideItem: [
+										"HatBonnet1", "HatBonnet2", "HatBunnySuccubus2", "HatCrown1", "HatCrown2", "HatCrown4", "HatCrown5", "HatBand1",
+										"HatBand2", "HatPirateBandana1", "HatVeil1","HatVeil2", // Hat items
+										"MaskFuturisticVisor", "MaskShinobiMask", // Mask items
+										"HairAccessory3Ribbons4", // HairAccessory items
+										"HairAccessory1Antennae", "HairAccessory1BunnyEars1", "HairAccessory1BunnyEars2", "HairAccessory1CowHorns", "HairAccessory1ElfEars",
+										"HairAccessory1Ears1", "HairAccessory1Ears2", "HairAccessory1FoxEars1", "HairAccessory1FoxEars2", "HairAccessory1FoxEars3",
+										"HairAccessory1KittenEars1", "HairAccessory1KittenEars2", "HairAccessory1MouseEars1", "HairAccessory1MouseEars2",
+										"HairAccessory1PuppyEars1", "HairAccessory1Ribbons2", "HairAccessory1WolfEars1", "HairAccessory1WolfEars2",
+										"HairAccessory1Ribbons4", // Ear items (HA1)
+										"HairAccessory2Antennae", "HairAccessory2BunnyEars1", "HairAccessory2BunnyEars2", "HairAccessory2CowHorns", "HairAccessory2ElfEars",
+										"HairAccessory2Ears1", "HairAccessory2Ears2", "HairAccessory2FoxEars1", "HairAccessory2FoxEars2", "HairAccessory2FoxEars3",
+										"HairAccessory2KittenEars1", "HairAccessory2KittenEars2", "HairAccessory2MouseEars1", "HairAccessory2MouseEars2",
+										"HairAccessory2PuppyEars1", "HairAccessory2Ribbons2", "HairAccessory2WolfEars1", "HairAccessory2WolfEars2", // Ear items (HA2)
+									], // These items are hidden because they have clear mismatch issues with the hood.
+								},
+							}, // h1 - Helmet (hood)
+							{ // h2 - Helmet ( hood but nothing shows)
+								Property: {
+									Hide: ["HairFront", "HairBack", "Hat", "HairAccessory1", "HairAccessory2", "HairAccessory3"],
+									HideItem: ["MaskFuturisticVisor", "MaskShinobiMask",],
+								},
+							},
+						]
+					},
+					{
+						Name: "Layering", Key: "j",
+						Options: [
+							{
+								Property:{
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead"],
+									Hide: ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead"],
+								}
+							}, // No gags or blindfolds visible
+							{
+								Property:{
+									Block: ["ItemMouth", "ItemMouth2","ItemHead"],
+									Hide: ["ItemMouth", "ItemMouth2","ItemHead"],
+								}
+							}, // Highest layer gag visible
+							{
+								Property:{
+									Block: ["ItemMouth", "ItemHead"],
+									Hide: ["ItemMouth", "ItemHead"],
+								}
+							}, // All gags visible
+							{
+								Property:{
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
+									Hide: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
+								}
+							}, // Blindfold items visible
+							{
+								Property:{
+									Block: ["ItemMouth", "ItemMouth2",],
+									Hide: ["ItemMouth", "ItemMouth2",],
+								}
+							}, // Blindfold and highest layer gag
+							{
+								Property:{
+									Block: [],
+									Hide: [],
+								}
+							}, // Blindfold and all gags
+						
+						]
+
+					},
+				]
+			}
 		}, // DroneMask
 	}, // ItemHood
 	ItemDevices: {
@@ -7900,12 +8051,6 @@ var AssetFemale3DCGExtended = {
 									Hide: ["ItemMouth", "ItemMouth2"],
 								}
 							}, // Highest layer gag visible
-							{
-								Property:{
-									Block: ["ItemMouth"],
-									Hide: ["ItemMouth"],
-								}
-							}, // Both highest and middle gag visible
 							{
 								Property:{
 									Block: [],
