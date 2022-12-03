@@ -5621,6 +5621,30 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, //StitchGag
+		LatexRespirator: {
+            Archetype: ExtendedArchetype.MODULAR,
+            Config: {
+                ChatSetting: ModularItemChatSetting.PER_MODULE,
+                Modules: [
+                    {
+                        Name: "Filter", Key: "f",
+                        Options: [{}, {}, {}, {}, ] // None,Filter,SmallTubes,LargeTubes 
+                    },
+                    {
+                        Name: "Glow", Key: "g",
+                        Options: [ {}, {},] //  Glow off or on
+                    },
+                    {
+                        Name: "Straps", Key: "s",
+                        Options: [ {}, {},] // No Straps, Straps
+                    },
+                    {
+                        Name: "Mask", Key: "m",
+                        Options: [ {}, {},] // Mask, No Mask
+                    },
+                ]
+            }
+        }, //LatexRespirator
 	}, // ItemMouth3
 	Mask: {
 		BunnyMask1: {
@@ -7778,6 +7802,9 @@ var AssetFemale3DCGExtended = {
 							{ // m5 - Sculpted
 								Property: { Effect: ["BlockMouth"] }
 							},
+							{ // m6 - Subtle
+								Property: { Effect: ["BlockMouth"] }
+							},
 						]
 					},
 					{
@@ -7856,6 +7883,35 @@ var AssetFemale3DCGExtended = {
 									HideItem: ["MaskFuturisticVisor", "MaskShinobiMask",],
 								},
 							},
+						]
+					},
+					{
+						Name: "Layering", Key: "j",
+						Options: [
+							{
+								Property:{
+									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
+									Hide: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
+								}
+							}, // No gags visible
+							{
+								Property:{
+									Block: ["ItemMouth", "ItemMouth2"],
+									Hide: ["ItemMouth", "ItemMouth2"],
+								}
+							}, // Highest layer gag visible
+							{
+								Property:{
+									Block: ["ItemMouth"],
+									Hide: ["ItemMouth"],
+								}
+							}, // Both highest and middle gag visible
+							{
+								Property:{
+									Block: [],
+									Hide: [],
+								}
+							}, // All gags visible
 						]
 					},
 				],
