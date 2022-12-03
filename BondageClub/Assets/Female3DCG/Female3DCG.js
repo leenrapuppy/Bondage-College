@@ -6211,7 +6211,34 @@ var AssetFemale3DCG = [
 				Name: "Slime", Category: ["Fantasy"], BuyGroup: "Slime", DefaultColor: ["#57ab5e"], Random: false, Value: 200, Difficulty: 4, Time: 15, RemoveTime: 25, Left: 200, Top: 170, Effect: ["BlockMouth", "GagMedium"],
 			},
 			{ Name: "FurScarf",  Value: 40, Top: 0, Left: 0, Difficulty: 3, BuyGroup: "FurScarf", Effect: ["BlockMouth", "GagLight"] },
-
+			{
+				Name: "LatexRespirator", Value: 50, Difficulty: 2, Time: 10, DefaultColor: ["#333333","#222222","#CCCCCC","#222222","#CCCCCC","#37E21D"], Extended: true, Priority: 47, Top: 20,
+				Block: ["ItemNose", "ItemMouth", "ItemMouth2"],
+				Effect: [ "BlockMouth"],
+				Layer: [ // Color Layers -- Straps, Base, RoundedShine, Filter, FilterFixing
+					
+					{ Name: "Straps", HasType: false, AllowModuleTypes:["s1"],},
+					{ Name: "StrapShade", HasType: false, AllowModuleTypes:["s1"],AllowColorize: false,},
+				
+					{ Name: "Base", HasType: false, AllowModuleTypes:["m0"], },
+					{ Name: "Shade", HasType: false, AllowColorize: false, AllowModuleTypes:["m0"],},
+					{ Name: "RoundedShine", HasType: false, AllowModuleTypes:["m0"],},
+					
+					{ Name: "Filter", HasType: false, AllowModuleTypes: ["f1"], },
+					{ Name: "FilterFixing", HasType: false, AllowModuleTypes: ["f1"], },
+					{ Name: "FilterGlow", HasType: false, AllowModuleTypes: ["f1g1"],},
+					
+					{ Name: "SmallTubeFixing", HasType: false, AllowModuleTypes: ["f2"], CopyLayerColor: "FilterFixing", },
+					{ Name: "SmallTube", HasType: false, AllowModuleTypes: ["f2"], CopyLayerColor: "Filter"},
+					{ Name: "SmallTubeBack", HasType: false, AllowModuleTypes: ["f2"], CopyLayerColor: "Filter", Priority: 6, },
+					{ Name: "SmallTubeGlow", HasType: false, AllowModuleTypes: ["f2g1"], CopyLayerColor: "FilterGlow" },
+					
+					{ Name: "TubeFixing", HasType: false, AllowModuleTypes: ["f3"], CopyLayerColor: "FilterFixing" },
+					{ Name: "Tube", HasType: false, AllowModuleTypes: ["f3"], CopyLayerColor: "Filter" },
+					{ Name: "TubeBack", HasType: false, AllowModuleTypes: ["f3"], CopyLayerColor: "Filter", Priority: 6},
+					{ Name: "TubeGlow", HasType: false, AllowModuleTypes: ["f3g1"], CopyLayerColor: "FilterGlow" },
+				],
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
@@ -6324,8 +6351,8 @@ var AssetFemale3DCG = [
 			{
 				Name: "DroneMask", Category: ["SciFi"], Fetish: ["Latex"], Value: 90, Difficulty: 5, DefaultColor: ["#222222", "#CCCCCC", "#7F7F7F", "#00F4FD", "#E700CA", ], Time: 10, AllowLock: true, DrawLocks: false, Extended: true, DynamicAfterDraw: true,
 				BuyGroup: "DroneMask",
-				Block:["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose"],
-				Hide: ["Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "Blush"],
+				Block:["ItemNose"],
+				Hide: ["Glasses", "Blush"],
 				HideItem: ["HatFacePaint", "MaskFacePaint", "ClothAccessoryFacePaint"],
 				Layer: [ // Colors layer references: Base, Shine, EyeRegular, MouthOnahole, Barcode
 					{ Name: "Base", HasType: false, AllowModuleTypes: ["h0"] },
@@ -6377,6 +6404,8 @@ var AssetFemale3DCG = [
 					{ Name: "MouthHoles", HasType: false, AllowModuleTypes: ["m4"], CopyLayerColor: "MouthOnahole" },
 
 					{ Name: "MouthSculpted", HasType: false, AllowModuleTypes: ["m5"], CopyLayerColor: "MouthOnahole" },
+
+					{ Name: "MouthSubtle", HasType: false, AllowModuleTypes: ["m6"], CopyLayerColor: "MouthOnahole" },
 				],
 			},
 			{
@@ -6745,8 +6774,8 @@ var AssetFemale3DCG = [
 				Name: "DroneMask", Category: ["SciFi"], Fetish: ["Latex"], Value: -1, Difficulty: 5, DefaultColor: ["#222222", "#CCCCCC", "#7F7F7F", "#00F4FD", "#E700CA", ], Time: 10, AllowLock: true, DrawLocks: false, Extended: true, DynamicAfterDraw: true,
 				DynamicGroupName: "ItemHead",
 				BuyGroup: "DroneMask",
-				Block:["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemNose", "ItemHead"],
-				Hide: ["Glasses", "ItemMouth", "ItemMouth2", "ItemMouth3", "Blush", "ItemHead"],
+				Block:["ItemNose"],
+				Hide: ["Glasses", "Blush"],
 				HideItem: ["HatFacePaint", "MaskFacePaint", "ClothAccessoryFacePaint"],
 				Layer: [ // Colors layer references: Base, Shine, EyeRegular, MouthOnahole, Barcode
 					{ Name: "Base", HasType: false, AllowModuleTypes: ["h0"] },
@@ -6798,6 +6827,8 @@ var AssetFemale3DCG = [
 					{ Name: "MouthHoles", HasType: false, AllowModuleTypes: ["m4"], CopyLayerColor: "MouthOnahole" },
 
 					{ Name: "MouthSculpted", HasType: false, AllowModuleTypes: ["m5"], CopyLayerColor: "MouthOnahole" },
+				
+					{ Name: "MouthSubtle", HasType: false, AllowModuleTypes: ["m6"], CopyLayerColor: "MouthOnahole" },
 				],
 			},
 		],
