@@ -47,35 +47,7 @@ function InventoryItemPelvisSciFiPleasurePantiesClick(OriginalFunction) {
 		if (MouseIn(1175, 818, 64, 64) && !ExtendedItemPermissionMode) {
 			DialogFocusItem.Property.ShowText = !DialogFocusItem.Property.ShowText;
 		} else if (MouseIn(1637, 825, 225, 55)) {
-			ExtendedItemCustomClick("TriggerShock", InventoryItemPelvisSciFiPleasurePantiesShockTrigger);
+			ExtendedItemCustomClick("TriggerShock", ExtendedItemShockPublishAction);
 		}
 	}
-}
-
-/**
- * Shock the wearer of the belt
- * @returns {void} - Nothing
- */
-function InventoryItemPelvisSciFiPleasurePantiesShockTrigger() {
-	const C = CharacterGetCurrent();
-	if (C.ID === Player.ID) {
-		// The Player shocks herself
-		ActivityArousalItem(C, C, DialogFocusItem.Asset);
-	}
-
-	const Data = ModularItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
-	const Prefix = ModularItemCustomChatPrefix("ShockTrigger", Data);
-	const ActionTag = `${Prefix}ShockTrigger${DialogFocusItem.Property.ShockLevel}`;
-
-	/** @type {ChatMessageDictionary | null} */
-	let Dictionary = null;
-	if (DialogFocusItem.Property.ShowText) {
-		Dictionary = [
-			{ Tag: "AssetName", Text: DialogFocusItem.Asset.Description.toLowerCase() },
-			{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-			{ ShockIntensity : DialogFocusItem.Property.ShockLevel * 1.5},
-		];
-	}
-	ExtendedItemCustomExit(ActionTag, C, Dictionary);
-	InventoryShockExpression(C);
 }

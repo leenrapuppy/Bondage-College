@@ -2388,6 +2388,18 @@ var AssetFemale3DCGExtended = {
 				],
 			}
 		}, // BonedNeckCorset
+		ShockCollar: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
+			Config: {
+				Dialog: {
+					Load: "ItemNeckAccessoriesCollarShockUnitSelect",
+					TypePrefix: "ItemNeckAccessoriesCollarShockUnit",
+					ChatPrefix: "ItemNeckAccessoriesCollarShockUnitSet",
+					NpcPrefix: "ItemNeckAccessoriesCollarShockUnit",
+				},
+			},
+		}, // ShockCollar
 	}, // ItemNeck
 	ItemNeckAccessories: {
 		CustomCollarTag: {
@@ -2554,6 +2566,27 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // CollarNameTagLivestock
+		CollarShockUnit: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [
+					CommonChatTags.ASSET_NAME,
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+				],
+				Options: [
+					{ Name: "Low", Property: { Type: null, ShockLevel: 0 } },
+					{ Name: "Medium", Property: { Type: "Medium", ShockLevel: 1 } },
+					{ Name: "High", Property: { Type: "High", ShockLevel: 2 } },
+				],
+				ScriptHooks: {
+					Draw: InventoryItemNeckAccessoriesCollarShockUnitDraw,
+					Click: InventoryItemNeckAccessoriesCollarShockUnitClick,
+				},
+				DrawImages: false,
+				BaselineProperty: { TriggerCount: 0, ShowText: true, BlinkState: false }
+			},
+		}, // CollarShockUnit
 	}, // ItemNeckAccessories
 	ItemNeckRestraints: {
 		PetPost: {
@@ -4063,6 +4096,18 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemButt", AssetName: "InflVibeButtPlug" },
 		}, // InflatableVibeDildo
+		ShockDildo: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
+			Config: {
+				Dialog: {
+					Load: "ItemNeckAccessoriesCollarShockUnitSelect",
+					TypePrefix: "ItemNeckAccessoriesCollarShockUnit",
+					ChatPrefix: "ItemNeckAccessoriesCollarShockUnitSet",
+					NpcPrefix: "ItemNeckAccessoriesCollarShockUnit",
+				},
+			},
+		}, // ShockDildo
 	}, // ItemVulva
 	ItemVulvaPiercings: {
 		ClitRing: {
@@ -4352,6 +4397,18 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // InflVibeButtPlug
+		ShockPlug: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
+			Config: {
+				Dialog: {
+					Load: "ItemNeckAccessoriesCollarShockUnitSelect",
+					TypePrefix: "ItemNeckAccessoriesCollarShockUnit",
+					ChatPrefix: "ItemNeckAccessoriesCollarShockUnitSet",
+					NpcPrefix: "ItemNeckAccessoriesCollarShockUnit",
+				},
+			},
+		}, // ShockPlug
 	}, // ItemButt
 	ItemNipplesPiercings: {
 		RoundPiercing: {
@@ -4571,6 +4628,18 @@ var AssetFemale3DCGExtended = {
 		TapedVibeEggs: {
 			Archetype: ExtendedArchetype.VIBRATING,
 		}, // TapedVibeEggs
+		ShockClamps: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarShockUnit" },
+			Config: {
+				Dialog: {
+					Load: "ItemNeckAccessoriesCollarShockUnitSelect",
+					TypePrefix: "ItemNeckAccessoriesCollarShockUnit",
+					ChatPrefix: "ItemNeckAccessoriesCollarShockUnitSet",
+					NpcPrefix: "ItemNeckAccessoriesCollarShockUnit",
+				},
+			},
+		}, // ShockClamps
 	}, // ItemNipples
 	Corset: {
 		LatexCorset1: {
@@ -6827,6 +6896,7 @@ var AssetFemale3DCGExtended = {
 				},
 				Dialog: {
 					ChatPrefix: ({previousOption, newOption}) => {
+						// @ts-ignore
 						const Prefix = `${DialogFocusItem.Asset.Group.Name}${DialogFocusItem.Asset.Name}Set`;
 						const IntensityPattern = /^(i)(\d+)$/g;
 						if (!IntensityPattern.test(newOption.Name)) {

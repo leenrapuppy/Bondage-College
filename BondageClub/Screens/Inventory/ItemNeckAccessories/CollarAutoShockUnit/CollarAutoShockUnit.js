@@ -47,7 +47,7 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitClick() {
 	if ((MouseIn(1500, 700, 150, 55)) && (DialogFocusItem.Property.Sensitivity != 2)) InventoryItemNeckAccessoriesCollarAutoShockUnitSetSensitivity(2 - DialogFocusItem.Property.Sensitivity);
 	if ((MouseIn(1700, 700, 150, 55)) && (DialogFocusItem.Property.Sensitivity != 3)) InventoryItemNeckAccessoriesCollarAutoShockUnitSetSensitivity(3 - DialogFocusItem.Property.Sensitivity);
 
-	if (Player.CanInteract() && (MouseX >= 1600) && (MouseX <= 1800) && (MouseY >= 790) && (MouseY <= 845)) InventoryItemNeckAccessoriesCollarAutoShockUnitTrigger();
+	if (Player.CanInteract() && (MouseX >= 1600) && (MouseX <= 1800) && (MouseY >= 790) && (MouseY <= 845)) ExtendedItemShockPublishAction();
 }
 
 // Sets the shock collar intensity
@@ -61,12 +61,13 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitSetIntensity(Modifier) {
 	}
 
 	DialogFocusItem.Property.ShockLevel = DialogFocusItem.Property.ShockLevel + Modifier;
+	const LevelRecord = { 0: "Low", 1: "Medium", 2: "High" };
 	if (DialogFocusItem.Property.ShowText) {
 		var Dictionary = [];
 		Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
 		Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
 		Dictionary.push({Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
-		ChatRoomPublishCustomAction("ShockCollarSet" + DialogFocusItem.Property.ShockLevel, true, Dictionary);
+		ChatRoomPublishCustomAction(`ItemNeckAccessoriesCollarShockUnitSet${LevelRecord[DialogFocusItem.Property.ShockLevel]}`, true, Dictionary);
 	}
 	else
 		DialogLeave();
@@ -150,60 +151,10 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitUpdate(data) {
 		}
 
 		if (ShockTriggerPunish) {
-			InventoryItemNeckAccessoriesCollarAutoShockUnitTriggerAutomatic(data);
+			ExtendedItemShockPublishAction(data.C, Item, true);
 			ChatRoomCharacterUpdate(Player);
 		}
 	}
-
-
-}
-
-// Trigger a shock outside of the dialog menu
-function InventoryItemNeckAccessoriesCollarAutoShockUnitTriggerAutomatic(data) {
-	var msg = "TriggerShock" + data.Item.Property.ShockLevel;
-	var C = data.C;
-
-
-	if (CurrentScreen == "ChatRoom" && data.Item.Property.ShowText) {
-		var Dictionary = [
-			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-			{ Tag: "AssetName", AssetName: data.Item.Asset.Name },
-			{ ShockIntensity : data.Item.Property.ShockLevel * 1.5},
-		];
-		ServerSend("ChatRoomChat", { Content: msg, Type: "Action", Dictionary });
-		ChatRoomCharacterItemUpdate(C, data.Item.Asset.Group.Name);
-	}
-
-	InventoryShockExpression(C);
-}
-
-// Trigger a shock from the dialog menu
-function InventoryItemNeckAccessoriesCollarAutoShockUnitTrigger(data) {
-	// Gets the current item and character
-	var C = CharacterGetCurrent();
-	if ((CurrentScreen == "ChatRoom") || (DialogFocusItem == null)) {
-		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
-		InventoryItemNeckAccessoriesCollarAutoShockUnitLoad();
-	}
-
-	var Dictionary = [];
-	Dictionary.push({ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-	Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-	Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
-	Dictionary.push({ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name});
-	Dictionary.push({ Tag: "ActivityName", Text: "ShockItem" });
-	Dictionary.push({ Tag: "ActivityGroup", Text: DialogFocusItem.Asset.Group.Name });
-	Dictionary.push({ AssetName: DialogFocusItem.Asset.Name });
-	Dictionary.push({ AssetGroupName: DialogFocusItem.Asset.Group.Name });
-
-	if (C.ID == Player.ID) {
-		// The Player shocks herself
-		ActivityArousalItem(C, C, DialogFocusItem.Asset);
-	}
-
-	ChatRoomPublishCustomAction("TriggerShock" + DialogFocusItem.Property.ShockLevel, true, Dictionary);
-
-	InventoryShockExpression(C);
 }
 
 /** @type {DynamicBeforeDrawCallback} */

@@ -2413,8 +2413,11 @@ var ChatRoomMessageHandlers = [
 				intensity = metadata.ShockIntensity;
 			} else if (data.Type === "Activity" && data.Content.includes("ShockItem")) {
 				let item = InventoryGet(Player, metadata.ActivityGroup);
-				if (item && item.Property)
-					intensity = item.Property.Intensity || 0;
+				if (item && item.Property && item.Property.ShockLevel != null) {
+					intensity = 1.5 * item.Property.ShockLevel;
+				} else {
+					intensity = 1.5;
+				}
 			}
 
 			if (intensity !== null && metadata.TargetCharacter.IsPlayer()) {

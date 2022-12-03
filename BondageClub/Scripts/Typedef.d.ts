@@ -1729,7 +1729,7 @@ interface ItemPropertiesCustom {
 	/** Whether auto-inflation should trigger a chat message */
 	ChatMessage?: boolean;
 	/** Whether gag's blinking light is on or off */
-	BlinkState?: 0 | 1;
+	BlinkState?: boolean;
 	/**
 	 * An extended item option
 	 * @todo Investigate whether this property still actually exists

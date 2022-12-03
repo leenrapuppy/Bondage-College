@@ -72,7 +72,7 @@ function InventoryItemPelvisLoveChastityBeltClick() {
 
     if (DialogFocusItem.Property.Type == "Shock") {
       if (MouseIn(1200, 600, 250, 65)) {
-        InventoryItemPelvisLoveChastityBeltTriggerShock();
+        ExtendedItemShockPublishAction();
         return;
       }
       if (MouseIn(1200, 900, 64, 64) && (MouseY <= 964) && (CurrentScreen == "ChatRoom")) {
@@ -181,18 +181,6 @@ function InventoryItemPelvisLoveChastityBeltIntensityCanDecrease() {
   } else {
     return false;
   }
-}
-
-// triggers the shock
-function InventoryItemPelvisLoveChastityBeltTriggerShock() {
-  InventoryItemPelvisLoveChastityBeltLastAction = "ShockTriggered";
-  InventoryExpressionTrigger(CharacterGetCurrent(), DialogFocusItem);
-  var Dictionary = [];
-  Dictionary.push({Tag: "DestinationCharacterName", Text: CharacterNickname(CharacterGetCurrent()), MemberNumber: CharacterGetCurrent().MemberNumber});
-  Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
-  Dictionary.push({ ShockIntensity : DialogFocusItem.Property.ShockLevel * 1.5});
-
-  ChatRoomPublishCustomAction("LoveChastityBeltShockTrigger" + DialogFocusItem.Property.ShockLevel, true, Dictionary);
 }
 
 // loads the belt into a correct state
