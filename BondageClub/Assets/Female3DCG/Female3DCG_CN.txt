@@ -1272,8 +1272,8 @@ Frog-tie Straps
 蟹缚绑带
  Mermaid Tail
 美人鱼尾巴
-Vulva/Penis Base
-外阴/阴茎基础
+Vulva
+外阴
 Vibrating Egg
 跳蛋
 Vibrating Items Remote
@@ -1326,8 +1326,8 @@ Plastic Chastity Cage 2
 塑料贞操笼3
 Techno Chastity Cage 1
 科技贞操笼1
-Clitoris/Penis Tip
-阴蒂/阴茎顶端
+Clitoris
+阴蒂
 Straight Clitoris Piercing
 垂直阴蒂穿孔
 Round Clitoris Piercing
@@ -2072,6 +2072,8 @@ Bridle Gag
 乳胶隐藏口塞
  Mouthfeature Gag
 嘴内特征口塞
+Latex Respirator
+乳胶呼吸器
 Eyes
 眼睛
 Cloth Blindfold
@@ -2424,3 +2426,5 @@ High Thigh Boots
 高筒靴
 Monoheel
 单跟靴
+Script
+脚本

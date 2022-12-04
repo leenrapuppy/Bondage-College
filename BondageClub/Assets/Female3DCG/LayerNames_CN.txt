@@ -680,6 +680,10 @@ Mouth Shine
 嘴部高光
 Panel Shine
 嵌板高光
+Fixing
+固定圈
+Tubes
+管子
 Cheeks
 面颊
 Nose Gloss

@@ -619,15 +619,15 @@ Press Foot on Chest
 Tickle Tummy
 挠肚皮
 Caress Penis
-轻抚阴茎根部
+轻抚阴茎
 Take in Penis
 送入自己的阴茎
 Push Gag in Penis
 用口塞按压阴茎
 Kiss Penis
-亲吻阴茎根部
+亲吻阴茎
 Lick Penis
-舔阴茎根部
+舔阴茎
 Foot Masturbate Penis
 用脚玩弄阴茎
 Masturbate Penis
@@ -637,15 +637,13 @@ Device on Penis
 Tongue Masturbate Penis
 用舌头玩弄阴茎
 Nibble Penis
-轻咬阴茎根部
+轻咬阴茎
 Rub on Penis
 摩擦阴茎
 Shock Penis
 电击阴茎
-Slap Pussy Penis
-扇阴茎
 Spank Penis
-拍打阴茎根部
+拍打阴茎
 Suck On
 吮吸
 Tickle Penis
@@ -1043,7 +1041,7 @@ SourceCharacter用脚玩弄TargetCharacter的龟头。
 SourceCharacter masturbates TargetCharacter's glans with PronounPossessive fingers.
 SourceCharacter用手指玩弄TargetCharacter的龟头。
 SourceCharacter uses PronounPossessive UsedAsset to masturbate TargetCharacter's glans.
-SourceCharacter用UsedAsset玩弄TargetCharacter的阴蒂。
+SourceCharacter用UsedAsset玩弄TargetCharacter的龟头。
 SourceCharacter masturbates TargetCharacter's glans with PronounPossessive tongue.
 SourceCharacter用舌头玩弄TargetCharacter的龟头。
 SourceCharacter nibbles TargetCharacter's glans.
@@ -1317,15 +1315,15 @@ SourceCharacter亲吻TargetCharacter的阴茎根部。
 SourceCharacter licks TargetCharacter's penis base.
 SourceCharacter舔TargetCharacter的阴茎根部。
 SourceCharacter masturbates TargetCharacter's penis with PronounPossessive foot.
-SourceCharacter用脚玩弄TargetCharacter的阴茎根部。
+SourceCharacter用脚玩弄TargetCharacter的阴茎。
 SourceCharacter masturbates TargetCharacter's penis with PronounPossessive fingers.
 SourceCharacter用手指玩弄TargetCharacter的阴茎。
 SourceCharacter uses PronounPossessive UsedAsset to masturbate TargetCharacter's penis.
-SourceCharacter用UsedAsset玩弄TargetCharacter的阴茎根部。
+SourceCharacter用UsedAsset玩弄TargetCharacter的阴茎。
 SourceCharacter masturbates TargetCharacter's penis with PronounPossessive tongue.
 SourceCharacter用舌头玩弄TargetCharacter的阴茎。
 SourceCharacter nibbles TargetCharacter's penis.
-SourceCharacter轻咬TargetCharacter的阴茎根部。
+SourceCharacter轻咬TargetCharacter的阴茎。
 SourceCharacter rubs TargetCharacter's penis with PronounPossessive UsedAsset.
 SourceCharacter用UsedAsset摩擦TargetCharacter的阴茎。
 SourceCharacter shocks TargetCharacter's penis with PronounPossessive UsedAsset.
@@ -1619,7 +1617,7 @@ SourceCharacter用UsedAsset玩弄自己的龟头。
 SourceCharacter rubs PronounPossessive own glans with PronounPossessive UsedAsset.
 SourceCharacter用UsedAsset摩擦自己的龟头。
 SourceCharacter shocks PronounPossessive own glans with PronounPossessive UsedAsset.
-SourceCharacter用UsedAsset摩擦自己的阴蒂。
+SourceCharacter用UsedAsset摩擦自己的龟头。
 SourceCharacter slaps PronounPossessive glans.
 SourceCharacter扇自己的龟头。
 SourceCharacter hits PronounPossessive glans with PronounPossessive UsedAsset.
@@ -1737,7 +1735,7 @@ SourceCharacter用UsedAsset摩擦自己的脖子。
 SourceCharacter shocks PronounPossessive own neck with PronounPossessive UsedAsset.
 SourceCharacter用UsedAsset电击自己的脖子。
 SourceCharacter tickles PronounPossessive neck.
-SourceCharacter舔了舔自己的后背。
+SourceCharacter挠了挠自己的脖子。
 SourceCharacter tickles PronounPossessive own neck with PronounPossessive UsedAsset.
 SourceCharacter用UsedAsset搔挠自己的脖子。
 SourceCharacter caresses PronounPossessive nipples.
