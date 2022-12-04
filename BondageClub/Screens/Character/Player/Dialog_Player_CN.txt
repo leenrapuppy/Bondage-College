@@ -333,14 +333,14 @@ Must remove clitoris piercings first
 必须先移除阴蒂穿环
 Must empty butt first.
 必须先清空后庭
-Must have breasts.
-必须有乳房。
-Must have a flat chest.
-必须为平胸。
-Must have a vagina.
-必须有阴道。
-Must have a penis.
-必须有阴茎。
+Must have female upper body.
+必须有女性上身。
+Must have male upper body.
+必须有男性上身。
+Must have female genitalia.
+必须有女性生殖器。
+Must have male genitalia.
+必须有男性生殖器。
 The use of remotes is forbidden by your owner
 你的主人禁止你使用遥控器
 Cannot be used over the applied gags.
@@ -512,7 +512,7 @@ Alternate keys A and S to speed up
 Alternate keys A and S or X and Y on a Controller to speed up
 反复点按A和S键或手柄上的X和Y来加速
 Select inflation level
-选择膨胀等级
+选择充气程度
 Select hood style
 选择面罩风格
 Hair out & Accessories out
@@ -548,15 +548,17 @@ Bundled
 SourceCharacter changes the style of DestinationCharacter hood.
 SourceCharacter改变了DestinationCharacter头套的样式。
 Pump gag level: Empty
-充气口塞等级: 空
+口塞等级: 空
 Pump gag level: Light
-充气口塞等级: 少
+口塞充气程度: 少
 Pump gag level: Inflated
-充气口塞等级: 中
+口塞充气程度: 中
 Pump gag level: Bloated
-充气口塞等级: 多
+口塞充气程度: 多
 Pump gag level: Full mouth
-充气口塞等级: 满
+口塞充气程度: 满
+Inflation level:
+充气程度:
 Empty
 空
 Light
@@ -568,15 +570,15 @@ Bloated
 Maximum
 最多
 Inflation level: Empty
-扩张等级: 空
+充气程度: 空
 Inflation level: Light
-扩张等级: 轻度
+充气程度: 轻度
 Inflation level: Inflated
-扩张等级: 中度
+充气程度: 中度
 Inflation level: Bloated
-扩张等级: 重度
+充气程度: 重度
 Inflation level: Max
-扩张等级: 最大
+充气程度: 最大
 Select suction level
 选择吸力等级
 Loose
@@ -613,8 +615,6 @@ Heads
 正面
 Tails
 反面
-TargetPronouns
-TargetPronouns
 her
 她
 him
@@ -1343,10 +1343,10 @@ Restart Timer
 重新启动计时器
 SourceCharacter adds TimerTime TimerUnit to the padlock on DestinationCharacter FocusAssetGroup.
 SourceCharacter在DestinationCharacterFocusAssetGroup上的锁的计时器上增加了TimerTime TimerUnit。
-SourceCharacter removes TimerTime TimerUnit to the padlock on DestinationCharacter FocusAssetGroup.
+SourceCharacter removes TimerTime TimerUnit from the padlock on DestinationCharacter FocusAssetGroup.
 SourceCharacter从DestinationCharacterFocusAssetGroup上的锁的计时器上移除了TimerTime TimerUnit。
-an unknown amount of time
-不知多久
+SourceCharacter adds an unknown amount of time to the padlock on DestinationCharacter FocusAssetGroup
+SourceCharacter在DestinationCharacterFocusAssetGroup上的锁的计时器上增加了不知多久时间。
 The LockName on DestinationCharacterName FocusAssetGroup opens with a click
 DestinationCharacterNameFocusAssetGroup上的LockName咔哒一声打开了
 SourceCharacter updates the key settings for the lock on DestinationCharacter FocusAssetGroup
@@ -1387,8 +1387,6 @@ SourceCharacter changes the voice command settings on DestinationCharacter Focus
 SourceCharacter 更改 DestinationCharacter FocusAssetGroup 的语音命令设置。
 DestinationCharacterName vibrator switches modes!
 DestinationCharacterName振动玩具更改了模式！
-DestinationCharacterName vibrator lets out a sharp jolt!
-DestinationCharacterName振动玩具发出一次猛烈的电击！
 Anyone
 任何人
 Others
@@ -2573,6 +2571,10 @@ Current Training Level:
 目前的训练级别：
 Tracking Signal: Good
 跟踪信号：好
+Tracking Signal:
+跟踪信号：
+Good
+好
 Cover Display
 关闭显示器
 Show Display
@@ -2619,16 +2621,16 @@ SourceCharacter wraps DestinationCharacter head in tape with multiple layers.
 SourceCharacter用许多层胶带包裹住了DestinationCharacter头。
 SourceCharacter wraps DestinationCharacter head in tape with the eyes free. 
 SourceCharacter用胶带包裹住了DestinationCharacter头，但露出眼睛。
-Change Opacity
-改变遮光度
 Select Locker type
 选择储物柜类型
 Vents
 有通风口
 Ventless
 无通风口
-SourceCharacter changes the vents on DestinationCharacter locker.
-SourceCharacter改变了DestinationCharacter储物柜上的通风口。
+SourceCharacter adds vents to DestinationCharacter locker.
+SourceCharacter在DestinationCharacter柜子上添加了通风口。
+SourceCharacter removes vents to DestinationCharacter locker.
+SourceCharacter移除了DestinationCharacter柜子上的通风口。
 Select vacbed type.
 选择真空床类型
 Hair
@@ -2639,10 +2641,28 @@ SourceCharacter reveals DestinationCharacter hair from the vacbed.
 SourceCharacter从DestinationCharacter真空床里拉出了TargetPronounObject的头发。
 SourceCharacter tucks DestinationCharacter hair into the vacbed.
 SourceCharacter把DestinationCharacter头发塞进了真空床里。
-Opacity
-透明度
-SourceCharacter changes DestinationCharacter pose in TargetPronounPossessive Vacuum Bed Deluxe.
-SourceCharacter改变了DestinationCharacter在豪华真空床中的姿势。
+Select options
+选择选项
+Select arm position
+选择手臂姿势
+Select leg position
+选择腿部姿势
+Arm Position
+手臂姿势
+Leg Position
+腿部姿势
+Arms Down
+手臂向上
+Arms Yoked
+手臂轭住
+SourceCharacter puts DestinationCharacter arms down in TargetPronounPossessive Vacuum Bed Deluxe.
+SourceCharacter将DestinationCharacter豪华真空床里的手臂放下。
+SourceCharacter pulls DestinationCharacter arms up in TargetPronounPossessive Vacuum Bed Deluxe.
+SourceCharacter将DestinationCharacter豪华真空床里的手臂抬起。
+SourceCharacter pulls DestinationCharacter legs together in TargetPronounPossessive Vacuum Bed Deluxe.
+SourceCharacter将DestinationCharacter豪华真空床里的双腿放在一起。
+SourceCharacter spreads DestinationCharacter legs in TargetPronounPossessive Vacuum Bed Deluxe.
+SourceCharacter将DestinationCharacter豪华真空床里的双腿分开。
 Select the rope bondage
 选择绳缚方式
 Basic Tie
@@ -2977,10 +2997,12 @@ The obedience belt on SourceCharacter shocks her for standing up.
 SourceCharacter因为站起来，而受到了身上的服从贞操带的电击。
 Reset trigger count
 重置触发计数
-Trigger count: ShockCount
-触发计数：ShockCount
+Trigger count:
+触发计数：
 SourceCharacter resets DestinationCharacter AssetName trigger count.
 SourceCharacter重置了DestinationCharacterAssetName的触发计数。
+Intensity:
+强度：
 Item intensity: Disabled
 物品强度：关闭
 Item intensity: Low
@@ -3001,6 +3023,8 @@ Item sensitivity: High
 物品敏感度：高
 Item sensitivity: Maximum
 物品敏感度：最大
+Egg intensity:
+跳蛋强度：
 Egg item intensity: Disabled
 跳蛋物品强度：关闭
 Egg item intensity: Low
@@ -3011,6 +3035,8 @@ Egg item intensity: High
 跳蛋物品强度：高
 Egg item intensity: Maximum
 跳蛋物品强度：最大
+Dildo intensity:
+假阳具强度：
 Dildo item intensity: Disabled
 假阳具物品强度：关闭
 Dildo item intensity: Low
@@ -3021,12 +3047,20 @@ Dildo item intensity: High
 假阳具物品强度：高
 Dildo item intensity: Maximum
 假阳具物品强度：最大
+Shock level:
+电击强度：
+Crotch shield:
+胯部护盾：
 Increase
 增加
 Decrease
 减少
 Show chat message
 显示聊天消息
+Select shock intensity
+选择电击强度
+High
+高
 SourceCharacter sets DestinationCharacter AssetName to low intensity.
 SourceCharacter将DestinationCharacterAssetName设置为低强度。
 SourceCharacter sets DestinationCharacter AssetName to moderate intensity.
@@ -3111,38 +3145,6 @@ DestinationCharacterName clitoral stimulator starts buzzing strongly!
 DestinationCharacterName阴蒂刺激器猛烈地颤动起来！
 DestinationCharacterName clitoral stimulator jumps up to maximum intensity!
 DestinationCharacterName阴蒂刺激器突然以最大强度振动起来！
-DestinationCharacterName inflatable vibrating dildo stops vibrating.
-DestinationCharacterName充气振动阳具停止振动。
-DestinationCharacterName inflatable vibrating dildo slows down into a light tease.
-DestinationCharacterName充气振动阳具慢下来，仅仅在轻微逗弄。
-DestinationCharacterName inflatable vibrating dildo returns to a moderate pace.
-DestinationCharacterName充气振动阳具恢复了中等的频率。
-DestinationCharacterName inflatable vibrating dildo slows down a tiny bit.
-DestinationCharacterName充气振动阳具稍微慢下来一点。
-DestinationCharacterName inflatable vibrating dildo starts teasing TargetPronounObject lightly.
-DestinationCharacterName充气振动阳具微微逗弄起TargetPronounObject来。
-DestinationCharacterName inflatable vibrating dildo builds up to a moderate pace.
-DestinationCharacterName充气振动阳具逐渐提升到中等的频率。
-DestinationCharacterName inflatable vibrating dildo starts buzzing strongly!
-DestinationCharacterName充气振动阳具猛烈地颤动起来！
-DestinationCharacterName inflatable vibrating dildo jumps up to maximum intensity!
-DestinationCharacterName充气振动阳具突然以最大强度振动起来！
-SourceCharacter deflates DestinationCharacter inflatable vibrating dildo till it's regular sized.
-SourceCharacter对DestinationCharacter充气振动阳具放气，直到它变为通常大小。
-SourceCharacter deflates DestinationCharacter inflatable vibrating dildo till only slighty bulging.
-SourceCharacter对DestinationCharacter充气振动阳具放气，直到它仅仅稍微鼓起。
-SourceCharacter deflates DestinationCharacter inflatable vibrating dildo till it's moderately bulging.
-SourceCharacter对DestinationCharacter充气振动阳具放气，直到它中度地鼓起。
-SourceCharacter deflates DestinationCharacter inflatable vibrating dildo only a tiny bit.
-SourceCharacter对DestinationCharacter充气振动阳具放气，只放了一丁点。
-SourceCharacter inflates DestinationCharacter inflatable vibrating dildo only slightly.
-SourceCharacter对DestinationCharacter充气振动阳具充气，只充了一点点。
-SourceCharacter inflates DestinationCharacter inflatable vibrating dildo till it's moderately bulging.
-SourceCharacter对DestinationCharacter充气振动阳具充气，直到它中度地鼓起。
-SourceCharacter inflates DestinationCharacter inflatable vibrating dildo till it's heavily bulging.
-SourceCharacter对DestinationCharacter充气振动阳具充气，直到它饱满地鼓起。
-SourceCharacter inflates DestinationCharacter inflatable vibrating dildo to it's maximum size.
-SourceCharacter对DestinationCharacter充气振动阳具充气，直到它到达最大尺寸。
 DestinationCharacterName vibrating eggs on TargetPronounPossessive nipples stop vibrating.
 DestinationCharacterName乳头上的跳蛋停止振动。
 DestinationCharacterName vibrating eggs on TargetPronounPossessive nipples slow down into a light tease.
@@ -3287,38 +3289,46 @@ DestinationCharacterName vibrating buttplug starts buzzing strongly!
 DestinationCharacterName振动肛塞猛烈地颤动起来！
 DestinationCharacterName vibrating buttplug jumps up to maximum intensity!
 DestinationCharacterName突然以最大强度振动起来！
-DestinationCharacterName inflatable vibrating butt plug stops vibrating.
-DestinationCharacterName停止振动。
-DestinationCharacterName inflatable vibrating butt plug slows down into a light tease.
-DestinationCharacterName充气式振动肛塞慢下来，仅仅在轻微逗弄。
-DestinationCharacterName inflatable vibrating butt plug returns to a moderate pace.
-DestinationCharacterName充气式振动肛塞恢复了中等的频率。
-DestinationCharacterName inflatable vibrating butt plug slows down a tiny bit.
-DestinationCharacterName充气式振动肛塞稍微慢下来一点。
-DestinationCharacterName inflatable vibrating butt plug starts teasing TargetPronounObject lightly.
-DestinationCharacterName充气式振动肛塞微微逗弄起TargetPronounObject来。
-DestinationCharacterName inflatable vibrating butt plug builds up to a moderate pace.
-DestinationCharacterName充气式振动肛塞逐渐提升到中等的频率。
-DestinationCharacterName inflatable vibrating butt plug starts buzzing strongly!
-DestinationCharacterName充气式振动肛塞猛烈地颤动起来！
-DestinationCharacterName inflatable vibrating butt plug jumps up to maximum intensity!
-DestinationCharacterName充气式振动肛塞突然以最大强度振动起来！
-SourceCharacter deflates DestinationCharacter inflatable vibrating butt plug till it's empty.
-SourceCharacter对DestinationCharacter充气式振动肛塞放气，把它放空。
-SourceCharacter deflates DestinationCharacter inflatable vibrating butt plug till only slightly filled.
-SourceCharacter对DestinationCharacter充气式振动肛塞放气，让它稍稍充气。
-SourceCharacter deflates DestinationCharacter inflatable vibrating butt plug till it's half full.
-SourceCharacter对DestinationCharacter充气式振动肛塞放气，让它充气到一半的程度。
-SourceCharacter deflates DestinationCharacter inflatable vibrating butt plug only a tiny bit.
-SourceCharacter对DestinationCharacter充气式振动肛塞放气，只放了一丁点。
-SourceCharacter inflates DestinationCharacter inflatable vibrating butt plug only slightly.
-SourceCharacter对DestinationCharacter充气式振动肛塞充气，只充了一点点。
-SourceCharacter inflates DestinationCharacter inflatable vibrating butt plug till it's half full.
-SourceCharacter对DestinationCharacter充气式振动肛塞充气，让它充气到一半的程度。
-SourceCharacter inflates DestinationCharacter inflatable vibrating butt plug till three quarters filled.
-SourceCharacter对DestinationCharacter充气式振动肛塞充气，让它充气到四分之三的程度。
-SourceCharacter inflates DestinationCharacter inflatable vibrating butt plug to it's maximum amount.
-SourceCharacter对DestinationCharacter充气式振动肛塞充气，让它充气到最大程度。
+DestinationCharacterName AssetName stops vibrating.
+DestinationCharacterNameAssetName停止振动。
+DestinationCharacterName AssetName slows down into a light tease.
+DestinationCharacterNameAssetName慢下来，仅仅在轻微逗弄。
+DestinationCharacterName AssetName returns to a moderate pace.
+DestinationCharacterNameAssetName恢复了中等的频率。
+DestinationCharacterName AssetName slows down a tiny bit.
+DestinationCharacterNameAssetName稍微慢下来一点。
+DestinationCharacterName AssetName starts teasing TargetPronounObject lightly.
+DestinationCharacterNameAssetName微微逗弄起TargetPronounObject来。
+DestinationCharacterName AssetName builds up to a moderate pace.
+DestinationCharacterNameAssetName逐渐提升到中等的频率。
+DestinationCharacterName AssetName starts buzzing strongly!
+DestinationCharacterNameAssetName猛烈地颤动起来！
+DestinationCharacterName AssetName jumps up to maximum intensity!
+DestinationCharacterNameAssetName突然以最大强度振动起来！
+SourceCharacter deflates DestinationCharacter AssetName till it's empty.
+SourceCharacter对DestinationCharacterAssetName放气，把它放空。
+SourceCharacter deflates DestinationCharacter AssetName till only slightly filled.
+SourceCharacter对DestinationCharacterAssetName放气，让它稍稍充气。
+SourceCharacter deflates DestinationCharacter AssetName till it's half full.
+SourceCharacter对DestinationCharacterAssetName放气，让它充气到一半的程度。
+SourceCharacter deflates DestinationCharacter AssetName only a tiny bit.
+SourceCharacter对DestinationCharacterAssetName放气，只放了一丁点。
+SourceCharacter inflates DestinationCharacter AssetName only slightly.
+SourceCharacter对DestinationCharacterAssetName充气，只充了一点点。
+SourceCharacter inflates DestinationCharacter AssetName till it's half full.
+SourceCharacter对DestinationCharacterAssetName充气，让它充气到一半的程度。
+SourceCharacter inflates DestinationCharacter AssetName till three quarters filled.
+SourceCharacter对DestinationCharacterAssetName充气，让它充气到四分之三的程度。
+SourceCharacter inflates DestinationCharacter AssetName to it's maximum amount.
+SourceCharacter对DestinationCharacterAssetName充气，让它充气到最大程度。
+Select intensity
+选择强度
+Intensity
+强度
+Inflate Level
+充气程度
+Turn Off
+关闭
 Nothing
 无
 Short Chain
@@ -3431,8 +3441,6 @@ SourceCharacter attaches a tube to DestinationCharacter gas mask.
 SourceCharacter在DestinationCharacter防毒面具上添加了配件。
 SourceCharacter attaches a rebreather to DestinationCharacter gas mask.
 SourceCharacter在DestinationCharacter防毒面具上添加了循环呼吸器。
-Select options
-选择选项
 Select blindfold
 选择眼罩
 Select gag
@@ -3481,6 +3489,10 @@ Use Remote
 使用遥控器
 Change Layers
 更换层级
+Penis
+阴茎
+Glans
+龟头
 (You clumsily whip your own breast and tummy.  It would be more painful if someone else did it.)
 （你笨拙地鞭打自己的胸部和小腹。如果其他人对你这么做的话会更疼。）
 (You swing the crop on yourself a few times.  You can feel your breast and tummy becoming more sensitive.)
@@ -3571,10 +3583,6 @@ Exposed
 露出
 SourceCharacter unzips DestinationCharacter suit and fully exposes her breasts and pussy.
 SourceCharacter拉开了DestinationCharacter套装上的拉链，将TargetPronounObject的胸部和阴部完全展示出来。
-Turn Off
-关闭
-High
-高
 SourceCharacter chains DestinationCharacter mittens to the baby harness.
 SourceCharacter用锁链把DestinationCharacter无指手套连接到婴儿束带。
 Unlock Butt
@@ -3619,12 +3627,6 @@ SourceCharacter sets DestinationCharacter love chastity belt to moderate intensi
 SourceCharacter将DestinationCharacter爱人贞操带设置为中强度。
 SourceCharacter sets DestinationCharacter love chastity belt to high intensity.
 SourceCharacter将DestinationCharacter爱人贞操带设置为高强度。
-DestinationCharacterName love chastity belt gives TargetPronounObject a light shock.
-DestinationCharacterName爱人贞操带轻微地电了TargetPronounObject一下。
-DestinationCharacterName love chastity belt lets out a sharp jolt!
-DestinationCharacterName爱人贞操带发出尖锐的电击！
-DestinationCharacterName love chastity belt delivers an intense shock!
-DestinationCharacterName爱人贞操带猛烈地电击了TargetPronounObject！
 SourceCharacter removes shield from DestinationCharacter love chastity belt.
 SourceCharacter移除了DestinationCharacter爱人贞操带上的贞操护盾。
 SourceCharacter locks shield to DestinationCharacter love chastity belt.
@@ -3633,10 +3635,32 @@ SourceCharacter locks vibe to DestinationCharacter love chastity belt.
 SourceCharacter锁定了DestinationCharacter爱人贞操带上的振动棒。
 SourceCharacter locks shock device to DestinationCharacter love chastity belt.
 SourceCharacter锁定了DestinationCharacter爱人贞操带电击装置。
-The rear chastity shield on DestinationCharacterName sci-fi pleasure panties opens.
-DestinationCharacterName高科技快感管理内裤的后贞操护盾打开了。
-The rear chastity shield on DestinationCharacterName sci-fi pleasure panties closes.
-DestinationCharacterName高科技快感管理内裤的后贞操护盾关闭了。
+Select crotch shield
+选择胯部护盾
+Select orgasm lock
+选择高潮锁
+Select shock level
+选择电击强度
+Orgasm Lock
+高潮锁
+Shock Level
+电击强度
+Normal Mode
+通常模式
+Edge Mode
+寸止模式
+Denial Mode
+拒绝模式
+The front and rear chastity shields on DestinationCharacter sci-fi pleasure panties open.
+DestinationCharacter高科技快感管理内裤前部和后部的贞操护盾打开了。
+The front chastity shields on DestinationCharacter sci-fi pleasure panties closes.
+DestinationCharacter高科技快感管理内裤前部的贞操护盾关闭了。
+The read chastity shields on DestinationCharacter sci-fi pleasure panties closes.
+DestinationCharacter高科技快感管理内裤后部的贞操护盾关闭了。
+The rear chastity shields on DestinationCharacter sci-fi pleasure panties closes.
+DestinationCharacter高科技快感管理内裤后部的贞操护盾关闭了。
+The front and rear chastity shields on DestinationCharacter sci-fi pleasure panties close.
+DestinationCharacter高科技快感管理内裤前部和后部的贞操护盾关闭了。
 DestinationCharacterName sci-fi pleasure panties activates tease vibe mode.
 DestinationCharacterName高科技快感管理内裤开始以玩弄模式振动。
 DestinationCharacterName sci-fi pleasure panties builds up to vibration level 1.
@@ -3653,34 +3677,18 @@ DestinationCharacterName sci-fi pleasure panties returns to vibration level 1.
 DestinationCharacterName高科技快感管理内裤的振动强度回到了级别1。
 DestinationCharacterName sci-fi pleasure panties slows down to vibration level 2.
 DestinationCharacterName高科技快感管理内裤的振动强度降低到了级别2。
-DestinationCharacterName sci-fi pleasure panties are set to shock level 1.
-DestinationCharacterName高科技快感管理内裤的电击强度被设定为级别1。
-DestinationCharacterName sci-fi pleasure panties are set to shock level 2.
-DestinationCharacterName高科技快感管理内裤的电击强度被设定为级别2。
-DestinationCharacterName sci-fi pleasure panties are set to shock level 3.
-DestinationCharacterName高科技快感管理内裤的电击强度被设定为级别3。
-DestinationCharacterName sci-fi pleasure panties gives TargetPronounObject a light shock.
-DestinationCharacterName高科技快感管理内裤轻微地电了TargetPronounObject一下。
-DestinationCharacterName sci-fi pleasure panties lets out a sharp jolt!
-DestinationCharacterName高科技快感管理内裤发出尖锐的电击！
-DestinationCharacterName sci-fi pleasure panties delivers an intense shock!
-DestinationCharacterName高科技快感管理内裤猛烈地电击了TargetPronounObject！
-The crotch chastity shield on DestinationCharacterName sci-fi pleasure panties opens.
-DestinationCharacterName高科技快感管理内裤的胯部贞操护盾打开了。
-The crotch chastity shield on DestinationCharacterName sci-fi pleasure panties closes.
-DestinationCharacterName高科技快感管理内裤的胯部贞操护盾关闭了。
-The denial mode on DestinationCharacterName sci-fi pleasure panties activates, teasing them endlessly.
-DestinationCharacterName高科技快感管理内裤的拒绝模式启动了，开始无休止地逗弄。
-The edging mode on DestinationCharacterName sci-fi pleasure panties activates, preventing orgasms no matter what.
-DestinationCharacterName高科技快感管理内裤的寸止模式启动了，无论如何也不会再得到高潮。
-The special mode on DestinationCharacterName sci-fi pleasure panties deactivates, allowing orgasms again.
+The special mode on DestinationCharacter sci-fi pleasure panties deactivates, allowing orgasms again.
 DestinationCharacterName高科技快感管理内裤的特殊模式关闭了，现在允许高潮。
-Normal Mode
-通常模式
-Edge Mode
-寸止模式
-Deny Mode
-拒绝模式
+The edging mode on DestinationCharacter sci-fi pleasure panties activates, preventing orgasms no matter what.
+DestinationCharacterName高科技快感管理内裤的寸止模式启动了，无论如何也不会再得到高潮。
+The denial mode on DestinationCharacter sci-fi pleasure panties activates, teasing them endlessly.
+DestinationCharacterName高科技快感管理内裤的拒绝模式启动了，开始无休止地逗弄。
+DestinationCharacter sci-fi pleasure panties are set to shock level 1.
+DestinationCharacterName高科技快感管理内裤的电击强度设置为级别1。
+DestinationCharacter sci-fi pleasure panties are set to shock level 2.
+DestinationCharacterName高科技快感管理内裤的电击强度设置为级别2。
+DestinationCharacter sci-fi pleasure panties are set to shock level 3.
+DestinationCharacterName高科技快感管理内裤的电击强度设置为级别3。
 Save text
 保存文本
 Select a module.
@@ -3746,7 +3754,7 @@ GagMe
 Goddess
 女神
 Good Girl
-好女号
+好女孩
 Hold Me
 抱我
 Jewel
@@ -4409,6 +4417,8 @@ Blush
 脸红
 Eyebrows
 眉毛
+Opacity
+透明度
 Mask Style
 面罩模式
 Wink
@@ -4451,22 +4461,6 @@ Attached Opaque Gloves
 已穿戴不透明手套
 Attached See-through Gloves
 已穿戴透明手套
-DestinationCharacterName AssetName stops vibrating.
-DestinationCharacterNameAssetName停止振动。
-DestinationCharacterName AssetName slows down into a light tease.
-DestinationCharacterNameAssetName慢下来，仅仅在轻微逗弄。
-DestinationCharacterName AssetName returns to a moderate pace.
-DestinationCharacterNameAssetName恢复了中等的频率。
-DestinationCharacterName AssetName slows down a tiny bit.
-DestinationCharacterNameAssetName稍微慢下来一点。
-DestinationCharacterName AssetName starts teasing TargetPronounObject lightly.
-DestinationCharacterNameAssetName微微逗弄起TargetPronounObject来。
-DestinationCharacterName AssetName builds up to a moderate pace.
-DestinationCharacterNameAssetName逐渐提升到中等的频率。
-DestinationCharacterName AssetName starts buzzing strongly!
-DestinationCharacterNameAssetName猛烈地颤动起来！
-DestinationCharacterName AssetName jumps up to maximum intensity!
-DestinationCharacterNameAssetName突然以最大强度振动起来！
 SourceCharacter changes the settings on DestinationCharacterName AssetName
 SourceCharacter修改了DestinationCharacterNameAssetName的设置
 DestinationCharacterName owner releases TargetPronounObject from the slave collar.
@@ -4503,12 +4497,18 @@ SourceCharacter modifies DestinationCharacterName canvas hood to read "NewText"
 SourceCharacter修改DestinationCharacterName帆布头套上的文本为"NewText"
 Edit Text
 编辑文字
+Select Text Orientation
+选择文字方向
+SW-NE
+西南-东北
+NW-SE
+西北-东南
+SourceCharacter changes the text orientation of DestinationCharacterName AssetName
+SourceCharacter修改DestinationCharacterNameAssetName上的文本方向
 SourceCharacter removes the text from DestinationCharacterName AssetName
 SourceCharacter移除了DestinationCharacterNameAssetName上的文本
 SourceCharacter changes the text on DestinationCharacterName AssetName to read "NewText"
 SourceCharacter修改DestinationCharacterNameAssetName上的文本为"NewText"
-Select Text Orientation
-选择文字方向
 SourceCharacter modifies DestinationCharacter bowl to read "NewText"
 SourceCharacter修改DestinationCharacter宠物碗上的文本为"NewText"
 Select Halo Type
@@ -4517,6 +4517,10 @@ Broken
 损坏
 Brightness
 亮度
+SourceCharacter mends DestinationCharacter AssetName
+SourceCharacter修好了DestinationCharacterAssetName。
+SourceCharacter shatters DestinationCharacter AssetName
+SourceCharacter打碎了DestinationCharacterAssetName。
 Select Features
 选择功能
 Configure Jacket
@@ -5149,6 +5153,8 @@ Onahole
 飞机杯
 Pussy
 外阴
+Subtle
+不明显
 SourceCharacter changes the mouth on DestinationCharacter smooth latex mask.
 SourceCharacter改变了DestinationCharacter平滑乳胶面具的嘴巴。
 Switch Glow Function
@@ -5191,6 +5197,18 @@ Total Hood
 全头套
 SourceCharacter changes the coverage of DestinationCharacter smooth latex mask.
 SourceCharacter改变了DestinationCharacter平滑乳胶面具的覆盖程度。
+Advanced Layering
+进阶图层排序
+Adv. Layering
+进阶图层排序
+Right Gag Visible
+右侧口塞可见
+All GagsVisible
+所有口塞可见
+All Gags Visible
+所有口塞可见
+SourceCharacter adjusts the visibility of gags on DestinationCharacter smooth latex mask.
+SourceCharacter调整了DestinationCharacter平滑乳胶面具的口塞可见程度。
 Freckles
 雀斑
 Nose Freckles
@@ -5239,6 +5257,18 @@ SourceCharacter turns off the lights of DestinationCharacter headbox.
 SourceCharacter关闭了DestinationCharacter头盒里的灯光。
 SourceCharacter turns on the lights of DestinationCharacter headbox.
 SourceCharacter打开了DestinationCharacter头盒里的灯光。
+All Hidden
+全部隐藏
+All Gags Visible
+所有口塞可见
+Blindfold Visible
+眼罩可见
+Blindfold and Right
+眼罩和右侧物品栏
+All Visible
+全部可见
+SourceCharacter adjusts the visibility of gags and blindfolds on DestinationCharacter smooth latex mask.
+SourceCharacter调整了DestinationCharacter平滑乳胶面具上口塞和眼罩的可见性。
 Select bridle Gag Accessories
 选择缰绳口塞配件
 Select Gag Accessory
@@ -5623,6 +5653,34 @@ Choose a ring for the Pinkie
 为小拇指选择一个戒指
 Honor Ring
 荣誉戒指
+Configure Respirator
+配置呼吸器
+Switch Attachments
+切换配件
+Filter
+过滤器
+Big Filters
+大过滤器
+Small Tubes
+小管道
+Large Tubes
+大管道
+SourceCharacter changes the attachments on DestinationCharacter respirator.
+SourceCharacter改变了DestinationCharacter呼吸器上的配件。
+Strap Options
+系带选项
+No Straps
+没有系带
+SourceCharacter adjusts the straps on DestinationCharacter respirator.
+SourceCharacter改变了DestinationCharacter呼吸器上的系带。
+SourceCharacter flicks the glow switch on DestinationCharacter respirator.
+SourceCharacter切换了DestinationCharacter呼吸器上的灯光开关。
+Use Mask
+使用面罩
+No Mask
+没有面罩
+SourceCharacter changes the mask on DestinationCharacter respirator.
+SourceCharacter改变了DestinationCharacter呼吸器上的面罩。
 [GGTS] GGTS control public room.  Be good girl SourceCharacter.
 [GGTS] 该公开房间由GGTS控制。SourceCharacter，做个好姑娘。
 [GGTS] Launching GGTS private room.  Time counts triple.  GGTS more active.  Good girl follow commands.  Three strikes equal punishment.  GGTS in control.  Be good girl SourceCharacter.
@@ -5945,3 +6003,5 @@ Select body overlay.
 选择身体外观。
 Default
 默认
+Change Opacity
+改变遮光度
