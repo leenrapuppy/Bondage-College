@@ -2956,7 +2956,7 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "WiredEgg", Gender: "F", ParentGroup: "BodyLower", Value: 30, Time: 5, Prerequisite: ["AccessVulva", "HasVagina"], AllowPose: ["Kneel", "LegsClosed"],
+				Name: "WiredEgg", Gender: "F", ParentGroup: "BodyLower", Value: 30, Time: 5, Prerequisite: ["AccessVulva", "HasVagina"], AllowPose: ["Kneel", "KneelingSpread", "LegsClosed"],
 				Layer: [
 					{ Name: "Remote" },
 					{ Name: "Strap" }
