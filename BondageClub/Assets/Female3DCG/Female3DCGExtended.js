@@ -3169,7 +3169,7 @@ var AssetFemale3DCGExtended = {
 									Hide: [],
 								}
 							}, // Blindfold and all gags
-						
+
 						]
 
 					},
@@ -5848,7 +5848,7 @@ var AssetFemale3DCGExtended = {
                 Modules: [
                     {
                         Name: "Filter", Key: "f",
-                        Options: [{}, {}, {}, {}, ] // None,Filter,SmallTubes,LargeTubes 
+                        Options: [{}, {}, {}, {}, ] // None,Filter,SmallTubes,LargeTubes
                     },
                     {
                         Name: "Glow", Key: "g",

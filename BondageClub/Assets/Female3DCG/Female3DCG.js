@@ -6216,23 +6216,23 @@ var AssetFemale3DCG = [
 				Block: ["ItemNose", "ItemMouth", "ItemMouth2"],
 				Effect: [ "BlockMouth"],
 				Layer: [ // Color Layers -- Straps, Base, RoundedShine, Filter, FilterFixing
-					
+
 					{ Name: "Straps", HasType: false, AllowModuleTypes:["s1"],},
 					{ Name: "StrapShade", HasType: false, AllowModuleTypes:["s1"],AllowColorize: false,},
-				
+
 					{ Name: "Base", HasType: false, AllowModuleTypes:["m0"], },
 					{ Name: "Shade", HasType: false, AllowColorize: false, AllowModuleTypes:["m0"],},
 					{ Name: "RoundedShine", HasType: false, AllowModuleTypes:["m0"],},
-					
+
 					{ Name: "Filter", HasType: false, AllowModuleTypes: ["f1"], },
 					{ Name: "FilterFixing", HasType: false, AllowModuleTypes: ["f1"], },
 					{ Name: "FilterGlow", HasType: false, AllowModuleTypes: ["f1g1"],},
-					
+
 					{ Name: "SmallTubeFixing", HasType: false, AllowModuleTypes: ["f2"], CopyLayerColor: "FilterFixing", },
 					{ Name: "SmallTube", HasType: false, AllowModuleTypes: ["f2"], CopyLayerColor: "Filter"},
 					{ Name: "SmallTubeBack", HasType: false, AllowModuleTypes: ["f2"], CopyLayerColor: "Filter", Priority: 6, },
 					{ Name: "SmallTubeGlow", HasType: false, AllowModuleTypes: ["f2g1"], CopyLayerColor: "FilterGlow" },
-					
+
 					{ Name: "TubeFixing", HasType: false, AllowModuleTypes: ["f3"], CopyLayerColor: "FilterFixing" },
 					{ Name: "Tube", HasType: false, AllowModuleTypes: ["f3"], CopyLayerColor: "Filter" },
 					{ Name: "TubeBack", HasType: false, AllowModuleTypes: ["f3"], CopyLayerColor: "Filter", Priority: 6},
@@ -6827,7 +6827,7 @@ var AssetFemale3DCG = [
 					{ Name: "MouthHoles", HasType: false, AllowModuleTypes: ["m4"], CopyLayerColor: "MouthOnahole" },
 
 					{ Name: "MouthSculpted", HasType: false, AllowModuleTypes: ["m5"], CopyLayerColor: "MouthOnahole" },
-				
+
 					{ Name: "MouthSubtle", HasType: false, AllowModuleTypes: ["m6"], CopyLayerColor: "MouthOnahole" },
 				],
 			},
