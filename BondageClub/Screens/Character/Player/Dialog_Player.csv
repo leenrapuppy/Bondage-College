@@ -3073,8 +3073,8 @@ ItemHeadDroneMaskOptionh0,,,Mask,,
 ItemHeadDroneMaskOptionh1,,,Hood,,
 ItemHeadDroneMaskOptionh2,,,Total Hood,,
 ItemHeadDroneMaskSetHelmet,,,SourceCharacter changes the coverage of DestinationCharacter smooth latex mask.,,
-ItemHeadDroneMaskSelectLayering,,,Advanced Layering
-ItemHeadDroneMaskModuleLayering,,,Adv. Layering
+ItemHeadDroneMaskSelectLayering,,,Advanced Layering,,
+ItemHeadDroneMaskModuleLayering,,,Adv. Layering,,
 ItemHeadDroneMaskOptionj0,,,Hidden,,
 ItemHeadDroneMaskOptionj1,,,Right Gag Visible,,
 ItemHeadDroneMaskOptionj2,,,All GagsVisible,,
@@ -3167,8 +3167,8 @@ ItemHoodDroneMaskOptionh0,,,Mask,,
 ItemHoodDroneMaskOptionh1,,,Hood,,
 ItemHoodDroneMaskOptionh2,,,Total Hood,,
 ItemHoodDroneMaskSetHelmet,,,SourceCharacter changes the coverage of DestinationCharacter smooth latex mask.,,
-ItemHoodDroneMaskSelectLayering,,,Advanced Layering
-ItemHoodDroneMaskModuleLayering,,,Adv. Layering
+ItemHoodDroneMaskSelectLayering,,,Advanced Layering,,
+ItemHoodDroneMaskModuleLayering,,,Adv. Layering,,
 ItemHoodDroneMaskOptionj0,,,All Hidden,,
 ItemHoodDroneMaskOptionj1,,,Right Gag Visible,,
 ItemHoodDroneMaskOptionj2,,,All Gags Visible,,
