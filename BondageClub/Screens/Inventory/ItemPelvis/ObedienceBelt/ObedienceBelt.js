@@ -15,7 +15,7 @@ function InventoryItemPelvisObedienceBeltEngraving0Load() {
 
 function InventoryItemPelvisObedienceBeltEngraving0Draw() {
 	// Draw the header and item
-	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
+	ExtendedItemDrawHeader(1387, 125);
 
 	const valid = DynamicDrawTextRegex.test(ElementValue("EngraveText"));
 	DrawTextFit(DialogFindPlayer("ObedienceBeltEngraveLabel"), 1505, 560, 550, "#fff", "#000");
@@ -71,7 +71,7 @@ function InventoryItemPelvisObedienceBeltShockModule1Load() {
 
 function InventoryItemPelvisObedienceBeltShockModule1Draw() {
 	// Draw the header and item
-	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
+	ExtendedItemDrawHeader(1387, 125);
 
 	MainCanvas.textAlign = "left";
 	DrawCheckbox(1100, 590, 64, 64, DialogFindPlayer("ObedienceBeltShowChatMessage"), DialogFocusItem.Property.ChatMessage, false, "White");

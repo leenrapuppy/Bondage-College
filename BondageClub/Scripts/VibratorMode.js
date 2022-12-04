@@ -284,12 +284,13 @@ function VibratorModeSetEffect({asset}) {
  * @returns {void} - Nothing
  */
 function VibratorModeLoad(Options) {
-	var Property = DialogFocusItem.Property;
-	if (!Property || !Property.Mode) {
+	const Property = DialogFocusItem.Property;
+	const AllowType = DialogFocusItem.Asset.AllowType;
+	if (!Property || !AllowType.includes(Property.Mode)) {
 		Options = (Options && Options.length) ? Options : [VibratorModeSet.STANDARD];
-		var FirstOption = VibratorModeOptions[Options[0]][0] || VibratorModeOff;
+		const FirstOption = VibratorModeOptions[Options[0]][0] || VibratorModeOff;
 		VibratorModeSetProperty(DialogFocusItem, FirstOption.Property);
-		var C = CharacterGetCurrent();
+		const C = CharacterGetCurrent();
 		CharacterRefresh(C);
 		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 	}
@@ -301,19 +302,8 @@ function VibratorModeLoad(Options) {
  * @returns {void} - Nothing
  */
 function VibratorModeDraw(Options) {
-	VibratorModeDrawHeader();
+	ExtendedItemDrawHeader(1387, 100);
 	VibratorModeDrawControls(Options);
-}
-
-/**
- * Common draw function for drawing the header of the extended item menu screen for a vibrator
- * @returns {void} - Nothing
- */
-function VibratorModeDrawHeader() {
-	const Asset = DialogFocusItem.Asset;
-	const Vibrating = DialogFocusItem.Property && DialogFocusItem.Property.Intensity != null && DialogFocusItem.Property.Intensity >= 0;
-	const Locked = InventoryItemHasEffect(DialogFocusItem, "Lock", true);
-	DrawAssetPreview(1387, 100, Asset, { Vibrating, Icons: Locked ? ["Locked"] : undefined });
 }
 
 /**

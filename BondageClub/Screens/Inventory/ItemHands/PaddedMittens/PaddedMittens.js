@@ -10,7 +10,7 @@ function InventoryItemHandsPaddedMittensLoad() {
 // Draw the item extension screen
 function InventoryItemHandsPaddedMittensDraw() {
 	// Draw the header and item
-	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
+	ExtendedItemDrawHeader(1387, 125);
 
 	// Draw the possible options
 	DrawText(DialogFindPlayer("SelectFeature"), 1500, 500, "white", "gray");

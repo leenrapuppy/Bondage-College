@@ -583,6 +583,38 @@ var AssetFemale3DCGExtended = {
 				}
 			}
 		}, // FuturisticBra2
+		FuturisticBra: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Show",
+						Property: { Type: null },
+					},
+					{
+						Name: "Solid",
+						Property: { Type: "Solid" },
+					},
+					{
+						Name: "Show2",
+						Property: { Type: "Show2" },
+					},
+					{
+						Name: "Solid2",
+						Property: { Type: "Solid2" },
+					},
+				],
+				DrawImages: false,
+				ScriptHooks: {
+					Load: FuturisticAccessLoad,
+					Click: FuturisticAccessClick,
+					Draw: InventoryItemBreastFuturisticBraDraw,
+					Exit: FuturisticAccessExit,
+					Validate: FuturisticAccessValidate,
+				},
+				BaselineProperty: { HeartRate: 0, HeartIcon: false },
+			},
+		}, // FuturisticBra
 	}, // ItemBreast
 	ItemArms: {
 		Web: {
@@ -2322,6 +2354,45 @@ var AssetFemale3DCGExtended = {
 				]
 			}
 		}, // SmoothLeatherArmbinder1
+		TransportJacket: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+					CommonChatTags.ASSET_NAME,
+				],
+				Options: [
+					{
+						Name: "NoShorts",
+						Property: { Type: null, Difficulty: 0 },
+					},
+					{
+						Name: "Shorts",
+						Property: {
+							Type: "Shorts",
+							Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+							Hide: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "Panties", "Corset"],
+						},
+					},
+					{
+						Name: "ShortsAndStraps",
+						Property: {
+							Type: "ShortsAndStraps",
+							Block: ["ItemVulva", "ItemVulvaPiercings", "ItemButt"],
+							Hide: ["ItemVulva", "ItemVulvaPiercings", "ItemButt", "Panties", "Corset"],
+						},
+					},
+				],
+				BaselineProperty: { Text: "" },
+				ChatSetting: TypedItemChatSetting.FROM_TO,
+				ScriptHooks: {
+					Load: InventoryItemArmsTransportJacketLoad,
+					Draw: InventoryItemArmsTransportJacketDraw,
+					Exit: InventoryItemArmsTransportJacketExit,
+				}
+			},
+		}, // TransportJacket
 	}, // ItemArms
 	ItemNeck: {
 		ShinySteelCollar: {
@@ -3169,7 +3240,7 @@ var AssetFemale3DCGExtended = {
 									Hide: [],
 								}
 							}, // Blindfold and all gags
-						
+
 						]
 
 					},
@@ -4259,6 +4330,52 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // ShockDildo
+		ClitAndDildoVibratorbelt: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "DildoIntensity",
+						Key: "d",
+						DrawImages: false,
+						Options: [
+							{ Property: { Intensity: -1, Effect: ["Egged"] } }, // d0 - Turn Off
+							{ Property: { Intensity: 0, Effect: ["Egged", "Vibrating"] } }, // d1 - Low
+							{ Property: { Intensity: 1, Effect: ["Egged", "Vibrating"] } }, // d2 - Medium
+							{ Property: { Intensity: 2, Effect: ["Egged", "Vibrating"] } }, // d3 - High
+							{ Property: { Intensity: 3, Effect: ["Egged", "Vibrating"] } }, // d4 - Maximum
+						],
+					},
+					{
+						Name: "EggIntensity",
+						Key: "e",
+						DrawImages: false,
+						Options: [
+							{ Property: { Intensity: -1, Effect: ["Egged"] } }, // e0 - Turn Off
+							{ Property: { Intensity: 0, Effect: ["Egged", "Vibrating"] } }, // e1 - Low
+							{ Property: { Intensity: 1, Effect: ["Egged", "Vibrating"] } }, // e2 - Medium
+							{ Property: { Intensity: 2, Effect: ["Egged", "Vibrating"] } }, // e3 - High
+							{ Property: { Intensity: 3, Effect: ["Egged", "Vibrating"] } }, // e4 - Maximum
+						],
+					},
+				],
+				ScriptHooks: {
+					Draw: InventoryItemVulvaClitAndDildoVibratorbeltDraw,
+					Exit: InventoryItemVulvaClitAndDildoVibratorbeltExit,
+				},
+				Dialog: {
+					ChatPrefix: ({previousOption, newOption}) => {
+						if (DialogFocusItem == null) {
+							return "";
+						}
+						const Prefix = DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name;
+						const Change = Number.parseInt(newOption.Name[1]) - Number.parseInt(previousOption.Name[1]);
+						const StateChange = (Change > 0) ? "Increase" : "Decrease";
+						return `${Prefix}${StateChange}`;
+					},
+				},
+			},
+		}, // ClitAndDildoVibratorbelt
 	}, // ItemVulva
 	ItemVulvaPiercings: {
 		ClitRing: {
@@ -5056,7 +5173,34 @@ var AssetFemale3DCGExtended = {
 					TypePrefix: "HairAccessory1ElfEars",
 				},
 			}
-		} // ElfEars
+		}, // ElfEars
+		Halo: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.TARGET_CHAR,
+					CommonChatTags.ASSET_NAME,
+				],
+				Options: [
+					{
+						Name: "Default",
+						Property: { Type: null },
+					},
+					{
+						Name: "Broken",
+						Property: { Type: "Broken" },
+					},
+				],
+				ScriptHooks: {
+					Load: (next) => OpacityLoad(next, "lightbulb"),
+					Draw: (next) => OpacityDraw(next, 0, -50, "Brightness"),
+					Exit: OpacityExit,
+					Validate: OpacityValidate,
+				},
+				BaselineProperty: { Opacity: 0 },
+			},
+		}, // Halo
 	}, // HairAccessory1
 	HairAccessory2: {
 		ElfEars: {
@@ -5064,6 +5208,20 @@ var AssetFemale3DCGExtended = {
 			CopyConfig: { GroupName: "HairAccessory1", AssetName: "ElfEars" },
 		},
 	}, // HairAccessory2
+	HairAccessory3: {
+		Halo: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "HairAccessory1", AssetName: "Halo" },
+			Config: {
+				Dialog: {
+					Load: "HairAccessory1HaloSelect",
+					TypePrefix: "HairAccessory1Halo",
+					ChatPrefix: "HairAccessory1HaloSet",
+					NpcPrefix: "HairAccessory1Halo",
+				},
+			},
+		},
+	}, // HairAccessory3
 	ItemMouth: {
 		ClothGag: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -5848,7 +6006,7 @@ var AssetFemale3DCGExtended = {
                 Modules: [
                     {
                         Name: "Filter", Key: "f",
-                        Options: [{}, {}, {}, {}, ] // None,Filter,SmallTubes,LargeTubes 
+                        Options: [{}, {}, {}, {}, ] // None,Filter,SmallTubes,LargeTubes
                     },
                     {
                         Name: "Glow", Key: "g",
@@ -7071,7 +7229,9 @@ var AssetFemale3DCGExtended = {
 				},
 				Dialog: {
 					ChatPrefix: ({previousOption, newOption}) => {
-						// @ts-ignore
+						if (DialogFocusItem == null) {
+							return "";
+						}
 						const Prefix = `${DialogFocusItem.Asset.Group.Name}${DialogFocusItem.Asset.Name}Set`;
 						const IntensityPattern = /^(i)(\d+)$/g;
 						if (!IntensityPattern.test(newOption.Name)) {

@@ -241,7 +241,7 @@ var AudioActions = [
 		IsAction: (data) => [
 			"FuturisticChastityBeltSetClosed",
 			"FuturisticChastityBeltSetOpen",
-			"InventoryItemBreastFuturisticBraSet",
+			"ItemBreastFuturisticBraSet",
 			"FuturisticHeelsSet",
 			"FuturisticArmbinderSet",
 			"FuturisticCuffsRestrain",
@@ -559,7 +559,8 @@ function AudioVibratorSounds(data) {
 		case "NippleEgg":
 		case "TapedClitEgg":
 		case "ClitStimulator":
-		case "Egg": Sound = "VibrationShort"; break;
+		case "ItemVulvaClitAndDildoVibratorbeltIncreaseToe": Sound = "VibrationShort"; break;
+		case "ItemVulvaClitAndDildoVibratorbeltDecreaseToe": Sound = "VibrationShort"; break;
 		case "LoveChastityBeltVibe":
 		case "ItemPelvisSciFiPleasurePantiesVibe":
 		case "Belt":
@@ -571,7 +572,8 @@ function AudioVibratorSounds(data) {
 		case "SpreaderVibratingDildoBar":
 		case "BunnyTailVibe":
 		case "EggVibePlugXXL":
-		case "Dildo": Sound = "VibrationLong2"; break;
+		case "ItemVulvaClitAndDildoVibratorbeltIncreaseTod": Sound = "VibrationLong2"; break;
+		case "ItemVulvaClitAndDildoVibratorbeltDecreaseTod": Sound = "VibrationLong2"; break;
 		case "Sybian": Sound = "Sybian"; break;
 	}
 

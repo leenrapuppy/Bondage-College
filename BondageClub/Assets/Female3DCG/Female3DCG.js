@@ -1534,12 +1534,13 @@ var AssetFemale3DCG = [
 			{ Name: "WeddingVeil1", Priority: 4, Value: -1, BuyGroup: "WeddingVeil1" },
 			{ Name: "HairFeathers1", Value: -1, BuyGroup: "HairFeathers1" },
 			{
-				Name: "Halo", Value: -1, BuyGroup: "Halo", Top: -100, Left: 0, DefaultColor: ["#fff4a0", "#ffee66", "#fffdee"], Extended: true, MinOpacity: 0, Opacity: 0, AllowType: ["Broken"],
+				Name: "Halo", Value: -1, BuyGroup: "Halo", Top: -100, Left: 0,
+				DefaultColor: ["#fff4a0", "#ffee66", "#fffdee"], Extended: true, MinOpacity: 0, Opacity: 0,
 				Layer: [
 					{ Name: "Glow", Opacity: 0 },
 					{ Name: "Base", MinOpacity: 1 },
 					{ Name: "Core", Opacity: 0, }
-				]
+				],
 			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
@@ -1608,12 +1609,13 @@ var AssetFemale3DCG = [
 			{ Name: "ElfEars", Value: 20, BuyGroup: "ElfEars", BodyCosplay: true, InheritColor: "BodyUpper", Extended: true, HasType: false },
 			{ Name: "CowHorns", Fetish: ["Pet"], Value: 15, BuyGroup: "CowHorns", BodyCosplay: true },
 			{
-				Name: "Halo", Value: 20, BuyGroup: "Halo", Top: -100, Left: 0, DefaultColor: ["#fe6", "#fe6", "#fff"], Extended: true, MinOpacity: 0, Opacity: 0, AllowType: ["Broken"],
+				Name: "Halo", Value: 20, BuyGroup: "Halo", Top: -100, Left: 0,
+				DefaultColor: ["#fe6", "#fe6", "#fff"], Extended: true, MinOpacity: 0, Opacity: 0,
 				Layer: [
 					{ Name: "Glow", Opacity: 0 },
 					{ Name: "Base", MinOpacity: 1 },
 					{ Name: "Core", Opacity: 0, }
-				]
+				],
 			},
 			{ Name: "Antennae", Value: 10, BuyGroup: "Antennae", BodyCosplay: true, DefaultColor: "#151A1F" },
 			{ Name: "UnicornHorn", Value: 50, DefaultColor: "#EBAACB", BuyGroup: "UnicornHorn", BodyCosplay: true, AllowActivity: ["PenetrateItem"], Top: -30,
@@ -2912,7 +2914,12 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "FuturisticVibrator", Gender: "F",  DefaultColor: ["#3C724C", "Default"], Value: 70, Difficulty: 3, AllowLock: true, DrawLocks: false, Time: 10, Prerequisite: ["AccessVulva", "HasVagina"], FuturisticRecolor: true, Effect: [ "Egged", "FillVulva"], AllowEffect: ["Egged", "Vibrating", "FillVulva", "Edged"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }], AllowType: ["TriggerValue"], DynamicScriptDraw: true,
+				Name: "FuturisticVibrator", Gender: "F",  DefaultColor: ["#3C724C", "Default"], Value: 70,
+				Difficulty: 3, AllowLock: true, DrawLocks: false, Time: 10, Prerequisite: ["AccessVulva", "HasVagina"],
+				FuturisticRecolor: true, Effect: [ "Egged", "FillVulva"], AllowEffect: ["Egged", "Vibrating", "FillVulva", "Edged"],
+				ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
+				AllowType: ["TurnOff", "Low", "Medium", "High", "Maximum", "Random", "Escalate", "Tease", "Deny", "Edge"],
+				DynamicScriptDraw: true,
 				Extended: true,
 				Layer: [
 					{ Name: "Display", AllowColorize: true },
@@ -2941,11 +2948,13 @@ var AssetFemale3DCG = [
 			{ Name: "HeavyWeightClamp", Gender: "F", Fetish: ["Metal", "Masochism"], Value: 30, Time: 5, Prerequisite: ["AccessVulva", "HasVagina"], ExpressionTrigger: [{ Name: "Closed", Group: "Eyes", Timer: 5 }, { Name: "Soft", Group: "Eyebrows", Timer: 5 }] },
 			{ Name: "FullLatexSuitWand", Gender: "F", Fetish: ["Latex"], Priority: 34, Value: -1, Difficulty: 12, Time: 5, IsRestraint: true, AllowLock: true, Block: ["ItemVulvaPiercings"] },
 			{
-				Name: "ClitAndDildoVibratorbelt", Gender: "F", Fetish: ["Leather"], Priority: 11, Value: 100, Time: 10, AllowLock: true, Prerequisite: ["AccessVulva", "HasVagina"], Hide: ["Panties"], Effect: ["Egged", "FillVulva"], AllowEffect: ["Egged", "Vibrating", "FillVulva", "Edged"], Block: ["ItemPelvis"], ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
+				Name: "ClitAndDildoVibratorbelt", Gender: "F", Fetish: ["Leather"], Priority: 11, Value: 100, Time: 10, AllowLock: true,
+				Prerequisite: ["AccessVulva", "HasVagina"], Hide: ["Panties"], Effect: ["Egged", "FillVulva"], Block: ["ItemPelvis"],
+				ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
 				Extended: true,
 				Layer: [
-					{ Name: "Belt", AllowColorize: true },
-					{ Name: "Crotch", AllowColorize: false }
+					{ Name: "Belt", AllowColorize: true, HasType: false },
+					{ Name: "Crotch", AllowColorize: false, HasType: false }
 				]
 			},
 			{
@@ -2964,6 +2973,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "LoversVibrator", Gender: "F", Value: 75, Time: 5, LoverOnly: true, DefaultColor: "#790c0c", Prerequisite: ["AccessVulva", "HasVagina"],
+				AllowType: ["TurnOff", "Low", "Medium", "High", "Maximum", "Random", "Escalate", "Tease", "Deny", "Edge"],
 				Extended: true,
 				Effect: ["Egged", "FillVulva"], AllowEffect: ["Egged", "Vibrating", "Edged", "FillVulva"], ExpressionTrigger: [{ Name: "Low", Group: "Blush", Timer: 10 }],
 				AllowRemoveExclusive: true, CharacterRestricted: true, DynamicScriptDraw: true},
@@ -3689,14 +3699,21 @@ var AssetFemale3DCG = [
 		Asset: [
 			{ Name: "MetalChastityBra", Gender: "F", Fetish: ["Metal"], Value: 60, Difficulty: 50, Time: 15, AllowLock: true, Audio: "CuffsMetal", Prerequisite: ["AccessBreast", "HasBreasts"], Hide: ["ItemNipples", "ItemNipplesPiercings"], Effect: ["BreastChaste"], Block: ["ItemNipples", "ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }] },
 			{ Name: "PolishedChastityBra", Gender: "F", Fetish: ["Metal"], Value: 100, Difficulty: 50, Time: 15, AllowLock: true, Audio: "CuffsMetal", Prerequisite: ["AccessBreast", "HasBreasts"], Hide: ["ItemNipples", "ItemNipplesPiercings"], Effect: ["BreastChaste"], Block: ["ItemNipples", "ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }] },
-			{ Name: "FuturisticBra", Gender: "F", Category: ["SciFi"], Fetish: ["Metal"], Value: 120, BuyGroup: "FuturisticBra", HideForPose: ["AllFours"], Difficulty: 50, Time: 10, Random: false, AllowLock: true, DrawLocks: false, DefaultColor: ["#50913C", "#FFFFFF", "#889FA7", "Default"], AllowType: ["", "Heart", "Solid", "Show2", "Show2Heart", "Solid2"], Audio: "FuturisticApply", Prerequisite: ["AccessBreast", "HasBreasts"], Hide: ["ItemNipples", "ItemNipplesPiercings"], FuturisticRecolor: true, Effect: [ "BreastChaste", "UseRemote"], Block: ["ItemNipples", "ItemNipplesPiercings"], ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }], Extended: true, DynamicAfterDraw: true,  DynamicScriptDraw: true,
+			{
+				Name: "FuturisticBra", Gender: "F", Category: ["SciFi"], Fetish: ["Metal"], Value: 120,
+				BuyGroup: "FuturisticBra", HideForPose: ["AllFours"], Difficulty: 50, Time: 10, Random: false,
+				AllowLock: true, DrawLocks: false, DefaultColor: ["#50913C", "#FFFFFF", "#889FA7", "Default"],
+				Audio: "FuturisticApply", Prerequisite: ["AccessBreast", "HasBreasts"], Hide: ["ItemNipples", "ItemNipplesPiercings"],
+				FuturisticRecolor: true, Effect: [ "BreastChaste", "UseRemote"], Block: ["ItemNipples", "ItemNipplesPiercings"],
+				ExpressionTrigger: [{ Name: "Soft", Group: "Eyebrows", Timer: 10 }], Extended: true,
+				DynamicAfterDraw: true,  DynamicScriptDraw: true, DynamicBeforeDraw: true,
 				Layer: [
-					{ Name: "Display", AllowColorize: true , HasType: false},
+					{ Name: "Display", AllowColorize: true, HasType: false},
 					{ Name: "Lock", LockLayer: true, AllowColorize: true, HasType: false, ParentGroup: null},
-					{ Name: "Text" , AllowColorize: true , HasType: true, AllowTypes: ["", "Heart", "Show2", "Show2Heart"]},
-					{ Name: "Mesh" , AllowColorize: true , HasType: false, AllowTypes: ["", "Heart", "Solid"]},
-					{ Name: "Mesh2", CopyLayerColor: "Mesh", HasType: false, AllowTypes: ["Show2", "Show2Heart", "Solid2"]},
-					{ Name: "Bra" , AllowColorize: true , AllowTypes: ["", "Heart", "Solid", "Show2", "Show2Heart", "Solid2"]},
+					{ Name: "Text" , AllowColorize: true, HasType: false, AllowTypes: ["", "Show2"]},
+					{ Name: "Mesh" , AllowColorize: true, HasType: false, AllowTypes: ["", "Solid"]},
+					{ Name: "Mesh2", CopyLayerColor: "Mesh", HasType: false, AllowTypes: ["Show2", "Solid2"]},
+					{ Name: "Bra" , AllowColorize: true },
 				]
 			},
 			{ Name: "FuturisticBra2", Gender: "F", Category: ["SciFi"], Fetish: ["Metal"], Value: -1, BuyGroup: "FuturisticBra", Difficulty: 50, Time: 10, Random: false, AllowLock: true, DrawLocks: false, HideForPose: ["AllFours"], DefaultColor: ["#50913C", "Default", "#889FA7","Default",  "#404040"],
@@ -4235,16 +4252,16 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "TransportJacket", Gender: "F", Value: 100, Difficulty: 7, Time: 25, RemoveTime: 15, AllowLock: true, DrawLocks: false, Left: 100, AllowPose: ["Kneel", "LegsClosed", "KneelingSpread", "Spread"], SetPose: ["BackElbowTouch"], Extended: true, DynamicAfterDraw: true,
+				Name: "TransportJacket", Gender: "F", Value: 100, Difficulty: 7, Time: 25, RemoveTime: 15,
+				AllowLock: true, DrawLocks: false, Left: 100, AllowPose: ["Kneel", "LegsClosed", "KneelingSpread", "Spread"],
+				SetPose: ["BackElbowTouch"], Extended: true, DynamicAfterDraw: true,
 				DefaultColor: ["#888", "#801612", "#888", "#eee", "#801612", "#888"],
 				Prerequisite: ["HasBreasts"],
-				AllowType: ["Shorts", "ShortsAndStraps"],
 				Effect: ["Block", "Prone"],
 				Hide: ["Cloth", "ClothLower", "ItemNipplesPiercings"],
 				HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper", "ClothAccessoryPoncho"],
 				HideItemExclude: ["ClothLowerJeans1", "ClothLowerJeans2", "ClothLowerJeansShorts", "ClothLowerLatexPants1", "ClothLowerLeggings1", "ClothLowerLeggings2", "ClothLowerMistressBottom"],
 				Block: ["ItemNipples", "ItemNipplesPiercings", "ItemTorso", "ItemTorso2", "ItemBreast", "ItemHands", "ItemHandheld", "ItemPelvis"],
-				AllowBlock: ["ItemNipples", "ItemNipplesPiercings", "ItemTorso", "ItemTorso2", "ItemBreast", "ItemHands", "ItemHandheld", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemPelvis"],
 				Layer: [
 					{ Name: "Shorts", ColorGroup: "Canvas", ParentGroup: "BodyLower", AllowTypes: ["Shorts", "ShortsAndStraps"], HasType: false, HideForPose: ["KneelingSpread", "Spread"] },
 					{ Name: "StripesLegs", ColorGroup: "Stripes", ParentGroup: null, AllowTypes: ["Shorts", "ShortsAndStraps"], HasType: false, HideForPose: ["KneelingSpread", "Spread"] },
@@ -6216,23 +6233,23 @@ var AssetFemale3DCG = [
 				Block: ["ItemNose", "ItemMouth", "ItemMouth2"],
 				Effect: [ "BlockMouth"],
 				Layer: [ // Color Layers -- Straps, Base, RoundedShine, Filter, FilterFixing
-					
+
 					{ Name: "Straps", HasType: false, AllowModuleTypes:["s1"],},
 					{ Name: "StrapShade", HasType: false, AllowModuleTypes:["s1"],AllowColorize: false,},
-				
+
 					{ Name: "Base", HasType: false, AllowModuleTypes:["m0"], },
 					{ Name: "Shade", HasType: false, AllowColorize: false, AllowModuleTypes:["m0"],},
 					{ Name: "RoundedShine", HasType: false, AllowModuleTypes:["m0"],},
-					
+
 					{ Name: "Filter", HasType: false, AllowModuleTypes: ["f1"], },
 					{ Name: "FilterFixing", HasType: false, AllowModuleTypes: ["f1"], },
 					{ Name: "FilterGlow", HasType: false, AllowModuleTypes: ["f1g1"],},
-					
+
 					{ Name: "SmallTubeFixing", HasType: false, AllowModuleTypes: ["f2"], CopyLayerColor: "FilterFixing", },
 					{ Name: "SmallTube", HasType: false, AllowModuleTypes: ["f2"], CopyLayerColor: "Filter"},
 					{ Name: "SmallTubeBack", HasType: false, AllowModuleTypes: ["f2"], CopyLayerColor: "Filter", Priority: 6, },
 					{ Name: "SmallTubeGlow", HasType: false, AllowModuleTypes: ["f2g1"], CopyLayerColor: "FilterGlow" },
-					
+
 					{ Name: "TubeFixing", HasType: false, AllowModuleTypes: ["f3"], CopyLayerColor: "FilterFixing" },
 					{ Name: "Tube", HasType: false, AllowModuleTypes: ["f3"], CopyLayerColor: "Filter" },
 					{ Name: "TubeBack", HasType: false, AllowModuleTypes: ["f3"], CopyLayerColor: "Filter", Priority: 6},
@@ -6827,7 +6844,7 @@ var AssetFemale3DCG = [
 					{ Name: "MouthHoles", HasType: false, AllowModuleTypes: ["m4"], CopyLayerColor: "MouthOnahole" },
 
 					{ Name: "MouthSculpted", HasType: false, AllowModuleTypes: ["m5"], CopyLayerColor: "MouthOnahole" },
-				
+
 					{ Name: "MouthSubtle", HasType: false, AllowModuleTypes: ["m6"], CopyLayerColor: "MouthOnahole" },
 				],
 			},

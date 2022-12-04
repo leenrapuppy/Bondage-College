@@ -97,7 +97,8 @@ function ModularItemRegister(asset, config) {
 function ModularItemCreateLoadFunction(data) {
 	const loadFunctionName = `${data.functionPrefix}Load`;
 	const loadFunction = function () {
-		if (!DialogFocusItem.Property) {
+		const AllowType = DialogFocusItem.Asset.AllowType;
+		if (!DialogFocusItem.Property || !AllowType.includes(DialogFocusItem.Property.Type)) {
 			const C = CharacterGetCurrent();
 			const currentModuleValues = ModularItemParseCurrent(data);
 			DialogFocusItem.Property = ModularItemMergeModuleValues(data, currentModuleValues, data.BaselineProperty);
@@ -320,8 +321,7 @@ function ModularItemDrawCommon(moduleName, buttonDefinitions, { asset, pages, dr
 		return;
 	}
 
-	const locked = InventoryItemHasEffect(DialogFocusItem, "Lock", true);
-	DrawAssetPreview(1387, 55, asset, {Icons: locked ? ["Locked"] : undefined});
+	ExtendedItemDrawHeader();
 	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
 
 	// Permission mode toggle

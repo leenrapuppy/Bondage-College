@@ -11,7 +11,7 @@ function InventoryItemPelvisSciFiPleasurePantiesDraw(OriginalFunction) {
 	}
 	if (ModularItemModuleIsActive(ModularItemBase)) {
 		const Data = ModularItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
-		const [CrotchShield, Intensity, OrgasmLock, ShockLevel] = ModularItemDeconstructType(DialogFocusItem.Property.Type);
+		const [CrotchShield, Intensity, OrgasmLock, ShockLevel] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 		const IntensitySuffix = (OrgasmLock === "o0") ? "" : ` (${DialogFindPlayer(`${Data.dialogOptionPrefix}${OrgasmLock}`)})`;
 
 		// Display option information

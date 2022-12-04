@@ -101,7 +101,8 @@ function ExtendedItemGetXY(Asset, ShowImages=true) {
  * @returns {void} Nothing
  */
 function ExtendedItemLoad(Options, DialogKey, BaselineProperty=null) {
-	if (!DialogFocusItem.Property) {
+	const AllowType = [null, ...DialogFocusItem.Asset.AllowType];
+	if (!DialogFocusItem.Property || !AllowType.includes(DialogFocusItem.Property.Type)) {
 		const C = CharacterGetCurrent();
 		// Default to the first option if no property is set
 		let InitialProperty = Options[0].Property;
@@ -173,9 +174,7 @@ function ExtendedItemDraw(Options, DialogPrefix, OptionsPerPage, ShowImages=true
 	}
 
 	// Draw the header and item
-	const Locked = InventoryItemHasEffect(DialogFocusItem, "Lock", true);
-	DrawAssetPreview(1387, 55, Asset, {Icons: Locked ? ["Locked"] : undefined});
-	DrawText(DialogExtendedMessage, 1500, 375, "white", "gray");
+	ExtendedItemDrawHeader();
 
 	const CurrentOption = Options.find(O => O.Property.Type === DialogFocusItem.Property.Type);
 
@@ -805,4 +804,21 @@ function ExtendedItemShockPublishAction(C=null, Item=DialogFocusItem, Automatic=
 	if (!Automatic) {
 		ExtendedItemCustomExit(ActionTag, C, null)
 	}
+}
+
+/**
+ * Common draw function for drawing the header of the extended item menu screen.
+ * Automatically applies any Locked and/or Vibrating options to the preview.
+ * @param {number} X - Position of the preview box on the X axis
+ * @param {number} Y - Position of the preview box on the Y axis
+ * @param {Item} Item - The item for whom the preview box should be drawn
+ * @returns {void} Nothing
+ */
+function ExtendedItemDrawHeader(X=1387, Y=55, Item=DialogFocusItem) {
+	if (Item == null) {
+		return;
+	}
+	const Vibrating = Item.Property && Item.Property.Intensity != null && Item.Property.Intensity >= 0;
+	const Locked = InventoryItemHasEffect(Item, "Lock", true);
+	DrawAssetPreview(X, Y, Item.Asset, { Vibrating, Icons: Locked ? ["Locked"] : undefined });
 }
