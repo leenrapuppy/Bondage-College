@@ -2571,6 +2571,10 @@ Current Training Level:
 目前的训练级别：
 Tracking Signal: Good
 跟踪信号：好
+Tracking Signal:
+跟踪信号：
+Good
+好
 Cover Display
 关闭显示器
 Show Display
@@ -3019,6 +3023,8 @@ Item sensitivity: High
 物品敏感度：高
 Item sensitivity: Maximum
 物品敏感度：最大
+Egg intensity:
+跳蛋强度：
 Egg item intensity: Disabled
 跳蛋物品强度：关闭
 Egg item intensity: Low
@@ -3029,6 +3035,8 @@ Egg item intensity: High
 跳蛋物品强度：高
 Egg item intensity: Maximum
 跳蛋物品强度：最大
+Dildo intensity:
+假阳具强度：
 Dildo item intensity: Disabled
 假阳具物品强度：关闭
 Dildo item intensity: Low
@@ -4509,6 +4517,10 @@ Broken
 损坏
 Brightness
 亮度
+SourceCharacter mends DestinationCharacter AssetName
+SourceCharacter修好了DestinationCharacterAssetName。
+SourceCharacter shatters DestinationCharacter AssetName
+SourceCharacter打碎了DestinationCharacterAssetName。
 Select Features
 选择功能
 Configure Jacket
