@@ -3878,7 +3878,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "DuctTape", Gender: "F", Prerequisite: ["HasBreasts"], Fetish: ["Tape"], Value: 50, Difficulty: 5, SelfBondage: 4, Time: 20, RemoveTime: 10, BuyGroup: "DuctTape", Audio: "DuctTapeRoll", HideItem: ["ItemNipplesLactationPump"], AllowPose: ["KneelingSpread"], SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Extended: true },
 			{
-				Name: "BitchSuit", Gender: "F", Fetish: ["Latex", "Pet"], Priority: 21, Value: 200, Difficulty: 15, SelfBondage: 8, Time: 40, RemoveTime: 30, Random: false, AllowLock: true, DefaultColor: ["#888888", "Default"], Top: 150,
+				Name: "BitchSuit", Gender: "F", Fetish: ["Latex", "Pet"], Priority: 21, Value: 200, Difficulty: 15, SelfBondage: 8, Time: 40, RemoveTime: 30, Random: false, AllowLock: true, Top: 150,
 				Prerequisite: ["NotSuspended", "NotHogtied", "NotMounted", "NotKneelingSpread", "NoFeetSpreader", "CanKneel", "HasBreasts"],
 				AllowPose: ["BackElbowTouch", "Kneel", "AllFours"],
 				AllowActivePose: ["BackElbowTouch", "Kneel", "AllFours"],
@@ -3891,10 +3891,17 @@ var AssetFemale3DCG = [
 				Extended: true,
 				DrawLocks: false,
 				Alpha: [{Group: ["BodyLower"], Pose: ["Kneel"], Masks: [[140, 462, 75, 238], [285, 462, 75, 238], [215 ,545, 70, 155]]}],
+				HasType: false,
+				DefaultColor: ["#888888", "Default", "Default", "#9F7316", "Default"],
 				Layer: [
 					{ Name: "Latex", },
-					{ Name: "Straps", HasType: false, AllowPose: ["AllFours"], HideForPose: ["Kneel"], CopyLayerColor: "Latex", ParentGroup: null, },
-					{ Name: "Lock", HasType: false, ParentGroup: null, LockLayer: true },
+					{ Name: "Latex_Closed", AllowTypes: [""], CopyLayerColor: "Latex", },
+					{ Name: "Zips", AllowTypes: [""], },
+					{ Name: "Latex_Open", AllowTypes: ["z1"], CopyLayerColor: "Latex", },
+					{ Name: "Zips_Open", AllowTypes: ["z1"], CopyLayerColor: "Zips", },
+					{ Name: "Straps", },
+					{ Name: "Buckles", },
+					{ Name: "Lock", ParentGroup: null, LockLayer: true },
 				],
 				SelfUnlock: false
 			},
