@@ -240,6 +240,7 @@ var TranslationDictionary = [
 			"Screens/MiniGame/PuppyWalker/Text_PuppyWalker_RU.txt",
 			"Screens/MiniGame/Tennis/Text_Tennis_RU.txt",
 			"Screens/MiniGame/Therapy/Text_Therapy_RU.txt",
+			"Screens/Online/AdvancedRule/Text_AdvancedRule_RU.txt",
 			"Screens/Online/ChatAdmin/Text_ChatAdmin_RU.txt",
 			"Screens/Online/ChatCreate/Text_ChatCreate_RU.txt",
 			"Screens/Online/ChatBlockItem/Text_ChatBlockItem_RU.txt",

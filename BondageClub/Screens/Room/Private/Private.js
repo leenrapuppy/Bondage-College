@@ -294,7 +294,7 @@ function PrivateIsLover() { return CurrentCharacter.IsLoverPrivate(); }
  function PrivateIsFiancee() { return CurrentCharacter.IsLoverPrivate() && (NPCEventGet(CurrentCharacter, "Fiancee") > 0) && (NPCEventGet(CurrentCharacter, "Wife") <= 0); }
 /**
  * Checks if the current NPC is a lover of the player and currently on the Wife stage.
- * @returns {boolean} - TRUE if the NPC is a fiancee for the player.
+ * @returns {boolean} - TRUE if the NPC is a wife for the player.
  */
  function PrivateIsWife() { return CurrentCharacter.IsLoverPrivate() && (NPCEventGet(CurrentCharacter, "Wife") > 0); }
  /**
