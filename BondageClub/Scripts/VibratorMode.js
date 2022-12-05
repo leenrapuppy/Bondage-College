@@ -291,7 +291,8 @@ function VibratorModeLoad(Options) {
 		const FirstOption = VibratorModeOptions[Options[0]][0] || VibratorModeOff;
 		VibratorModeSetProperty(DialogFocusItem, FirstOption.Property);
 		const C = CharacterGetCurrent();
-		CharacterRefresh(C);
+		const RefreshDialog = (CurrentScreen !== "Crafting");
+		CharacterRefresh(C, true, RefreshDialog);
 		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 	}
 }

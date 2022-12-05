@@ -5876,6 +5876,111 @@ var AssetFemale3DCGExtended = {
 				DrawImages: false,
 			},
 		}, //LatexSheathGag
+		FuturisticPanelGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.ASSET_NAME,
+					CommonChatTags.DEST_CHAR,
+				],
+				Modules: [
+					{
+						Name: "Gag", Key: "g",
+						DrawImages: true,
+						Options: [
+							{ Property: { OriginalSetting: 0, Effect: ["BlockMouth"] } }, // g0 - Padded
+							{ Property: { OriginalSetting: 1, Effect: ["BlockMouth", "GagVeryLight"] } }, // g1 - LightBall
+							{ Property: { OriginalSetting: 2, Effect: ["BlockMouth", "GagMedium"] } }, // g2 - Ball
+							{ Property: { OriginalSetting: 3, Effect: ["BlockMouth", "GagTotal"] } }, // g3 - Plug
+						],
+					},
+					{
+						Name: "AutoPunish", Key: "p",
+						DrawImages: false,
+						Options: [
+							{ Property: { AutoPunish: 0 } }, // p0 - Off
+							{ Property: { AutoPunish: 1 } }, // p1 - Low
+							{ Property: { AutoPunish: 2 } }, // p2 - Medium
+							{ Property: { AutoPunish: 3 } }, // p3 - Maximum
+						],
+					},
+					{
+						Name: "DeflationTime", Key: "t",
+						DrawImages: false,
+						Options: [
+							{ Property: { AutoPunishUndoTimeSetting: 120000 } }, // t0 - 2 min
+							{ Property: { AutoPunishUndoTimeSetting: 300000 } }, // t1 - 5 min
+							{ Property: { AutoPunishUndoTimeSetting: 900000 } }, // t2 - 15 min
+							{ Property: { AutoPunishUndoTimeSetting: 3600000 } }, // t3 - 1 hour
+							{ Property: { AutoPunishUndoTimeSetting: 72000000 } }, // t4 - 24 hours
+						],
+					},
+				],
+				BaselineProperty: { ShowText: true, BlinkState: false, AutoPunishUndoTime: 0 },
+				ScriptHooks: {
+					Load: FuturisticAccessLoad,
+					Click: InventoryItemMouthFuturisticPanelGagClick,
+					Draw: InventoryItemMouthFuturisticPanelGagDraw,
+					Exit: FuturisticAccessExit,
+					Validate: FuturisticAccessValidate,
+				},
+				Dialog: {
+					Select: "ItemMouthFuturisticPanelGagSelect",
+					ModulePrefix:"ItemMouthFuturisticPanelGagModule",
+					OptionPrefix: "ItemMouthFuturisticPanelGagOption",
+					ChatPrefix: "ItemMouthFuturisticPanelGagSet",
+				},
+			},
+		}, // FuturisticPanelGag
+		FuturisticHarnessPanelGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticPanelGag" },
+		}, // FuturisticHarnessPanelGag
+		FuturisticHarnessBallGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticPanelGag" },
+			Config: {
+				Modules: [
+					{
+						Name: "Gag", Key: "g",
+						DrawImages: true,
+						Options: [
+							{ Property: { OriginalSetting: 0, Effect: ["BlockMouth", "GagLight"] } }, // g0 - LightBall
+							{ Property: { OriginalSetting: 1, Effect: ["BlockMouth", "GagMedium"] } }, // g1 - Ball
+							{ Property: { OriginalSetting: 2, Effect: ["BlockMouth", "GagTotal"] } }, // g2 - Plug
+						],
+					},
+					{
+						Name: "AutoPunish", Key: "p",
+						DrawImages: false,
+						Options: [
+							{ Property: { AutoPunish: 0 } }, // p0 - Off
+							{ Property: { AutoPunish: 1 } }, // p1 - Low
+							{ Property: { AutoPunish: 2 } }, // p2 - Medium
+							{ Property: { AutoPunish: 3 } }, // p3 - Maximum
+						],
+					},
+					{
+						Name: "DeflationTime", Key: "t",
+						DrawImages: false,
+						Options: [
+							{ Property: { AutoPunishUndoTimeSetting: 120000 } }, // t0 - 2 min
+							{ Property: { AutoPunishUndoTimeSetting: 300000 } }, // t1 - 5 min
+							{ Property: { AutoPunishUndoTimeSetting: 900000 } }, // t2 - 15 min
+							{ Property: { AutoPunishUndoTimeSetting: 3600000 } }, // t3 - 1 hour
+							{ Property: { AutoPunishUndoTimeSetting: 72000000 } }, // t4 - 24 hours
+						],
+					},
+				],
+				Dialog: {
+					Select: "ItemMouthFuturisticPanelGagSelect",
+					ModulePrefix:"ItemMouthFuturisticPanelGagModule",
+					OptionPrefix: "ItemMouthFuturisticHarnessBallGagOption",
+					ChatPrefix: "ItemMouthFuturisticHarnessBallGagSet",
+				},
+			},
+		}, // FuturisticHarnessBallGag
 	}, // ItemMouth
 	ItemMouth2: {
 		ClothGag: {
@@ -5926,6 +6031,18 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "PonyGag" },
 		},
+		FuturisticPanelGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticPanelGag" },
+		},
+		FuturisticHarnessPanelGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticHarnessPanelGag" },
+		},
+		FuturisticHarnessBallGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticHarnessBallGag" },
+		},
 	}, // ItemMouth2
 	ItemMouth3: {
 		ClothGag: {
@@ -5975,6 +6092,18 @@ var AssetFemale3DCGExtended = {
 		PonyGag: {
 			Archetype: ExtendedArchetype.MODULAR,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "PonyGag" },
+		},
+		FuturisticPanelGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticPanelGag" },
+		},
+		FuturisticHarnessPanelGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticHarnessPanelGag" },
+		},
+		FuturisticHarnessBallGag: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "FuturisticHarnessBallGag" },
 		},
 		Stitches: {
 			Archetype: ExtendedArchetype.TYPED,

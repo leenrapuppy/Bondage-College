@@ -51,7 +51,7 @@ function InventoryItemPelvisFuturisticTrainingBeltLoad() {
 		if (DialogFocusItem.Property == null) DialogFocusItem.Property = {
 			Intensity: -1,
 			// Security
-			ChatMessage: false,
+			ShowText: false,
 			NextShockTime: 0,
 			PunishStruggle: false,
 			PunishStruggleOther: false,
@@ -81,7 +81,7 @@ function InventoryItemPelvisFuturisticTrainingBeltLoad() {
 		if (DialogFocusItem.Property.PunishStandup == null) DialogFocusItem.Property.PunishStandup = false;
 		if (DialogFocusItem.Property.PunishStruggleOther == null) DialogFocusItem.Property.PunishStruggleOther = false;
 		if (DialogFocusItem.Property.PunishOrgasm == null) DialogFocusItem.Property.PunishOrgasm = false;
-		if (DialogFocusItem.Property.ChatMessage == null) DialogFocusItem.Property.ChatMessage = false;
+		if (DialogFocusItem.Property.ShowText == null) DialogFocusItem.Property.ShowText = false;
 		if (DialogFocusItem.Property.Intensity == null) DialogFocusItem.Property.Intensity = -1;
 		if (DialogFocusItem.Property.PublicModeCurrent == null) DialogFocusItem.Property.PublicModeCurrent = 0;
 		if (DialogFocusItem.Property.PublicModePermission == null) DialogFocusItem.Property.PublicModePermission = 0;
@@ -123,7 +123,7 @@ function InventoryItemPelvisFuturisticTrainingBeltDraw() {
 
 		if (FuturisticTrainingBeltPage == 0) {
 			MainCanvas.textAlign = "left";
-			DrawCheckbox(1100, 450, 64, 64, DialogFindPlayer("FuturisticChastityBeltPunishChatMessage"), DialogFocusItem.Property.ChatMessage, false, "White");
+			DrawCheckbox(1100, 450, 64, 64, DialogFindPlayer("FuturisticChastityBeltPunishChatMessage"), DialogFocusItem.Property.ShowText, false, "White");
 			DrawCheckbox(1100, 520, 64, 64, DialogFindPlayer("FuturisticChastityBeltPunishStruggle"), DialogFocusItem.Property.PunishStruggle, false, "White");
 			DrawCheckbox(1100, 590, 64, 64, DialogFindPlayer("FuturisticChastityBeltPunishStruggleOther"), DialogFocusItem.Property.PunishStruggleOther, false, "White");
 			DrawCheckbox(1100, 660, 64, 64, DialogFindPlayer("FuturisticChastityBeltPunishOrgasm"), DialogFocusItem.Property.PunishOrgasm, false, "White");
@@ -210,7 +210,7 @@ function InventoryItemPelvisFuturisticTrainingBeltClick() {
 
 		if (FuturisticTrainingBeltPage == 0) {
 			if (MouseIn(1100, 450, 64, 64)) {
-				DialogFocusItem.Property.ChatMessage = !DialogFocusItem.Property.ChatMessage;
+				DialogFocusItem.Property.ShowText = !DialogFocusItem.Property.ShowText;
 				FuturisticChastityBeltConfigure = true;
 			} else if (MouseIn(1100, 520, 64, 64)) {
 				DialogFocusItem.Property.PunishStruggle = !DialogFocusItem.Property.PunishStruggle;
@@ -376,7 +376,7 @@ function InventoryItemPelvisFuturisticTrainingBeltUpdateVibeMode(C, PersistentDa
 			if (FuturisticTrainingBeltStates[PersistentData.DeviceState].includes("Edge") && (OldIntensity >= 0 && OldIntensity < 3))
 				ChatRoomMessage({ Content: Message+"Self", Type: "Action", Sender: Player.MemberNumber, Dictionary: Dictionary  });
 			else {
-				if (Item.Property && Item.Property.ChatMessage) {
+				if (Item.Property && Item.Property.ShowText) {
 					ServerSend("ChatRoomChat", { Content: Message, Type: "Action", Dictionary });
 				} else {
 					ChatRoomMessage({ Content: Message, Type: "Action", Sender: Player.MemberNumber, Dictionary: Dictionary  });

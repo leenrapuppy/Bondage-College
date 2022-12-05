@@ -102,7 +102,8 @@ function ModularItemCreateLoadFunction(data) {
 			const C = CharacterGetCurrent();
 			const currentModuleValues = ModularItemParseCurrent(data);
 			DialogFocusItem.Property = ModularItemMergeModuleValues(data, currentModuleValues, data.BaselineProperty);
-			CharacterRefresh(C);
+			const RefreshDialog = (CurrentScreen !== "Crafting");
+			CharacterRefresh(C, true, RefreshDialog);
 			ChatRoomCharacterItemUpdate(C, data.asset.Group.Name);
 		}
 		DialogExtendedMessage = DialogFindPlayer(`${data.dialogSelectPrefix}${data.currentModule}`);
@@ -575,6 +576,11 @@ function ModularItemSanitizeProperties(Property, mergedProperty, Asset) {
 	if (typeof Property.InflateLevel === "number") mergedProperty.InflateLevel = Property.InflateLevel;
 	if (typeof Property.Intensity === "number") mergedProperty.Intensity = Property.Intensity;
 	if (typeof Property.Opacity === "number") mergedProperty.Opacity = Property.Opacity;
+	if (typeof Property.AutoPunish === "number") mergedProperty.AutoPunish = Property.AutoPunish;
+	if (typeof Property.AutoPunishUndoTimeSetting === "number") mergedProperty.AutoPunishUndoTimeSetting = Property.AutoPunishUndoTimeSetting;
+	if (typeof Property.OriginalSetting === "number") mergedProperty.OriginalSetting = Property.OriginalSetting;
+	if (typeof Property.BlinkState === "boolean") mergedProperty.BlinkState = Property.BlinkState;
+	if (typeof Property.AutoPunishUndoTime === "number") mergedProperty.AutoPunishUndoTime = Property.AutoPunishUndoTime;
 	return mergedProperty;
 }
 
@@ -653,40 +659,22 @@ function ModularItemSetType(module, index, data) {
 	});
 
 	if (changed) {
-		// Take a snapshot of the property values that are applied by the current type
-		const currentProperty = ModularItemMergeModuleValues(data, currentModuleValues);
+		// Do not sync appearance while in the wardrobe
+		const IsCloth = DialogFocusItem.Asset.Group.Clothing;
+		ModularItemSetOption(C, DialogFocusItem, currentModuleValues, newModuleValues, data, !IsCloth);
 
-		// Create a shallow copy of the old property, and remove any module-defined keys from it (should only leave any
-		// lock-related and BaselineProperty keys behind)
-		const newProperty = Object.assign({}, DialogFocusItem.Property);
-		for (const key of Object.keys(currentProperty)) {
-			delete newProperty[key];
-		}
+		if (!IsCloth) {
+			const groupName = data.asset.Group.Name;
+			CharacterRefresh(C);
+			ChatRoomCharacterItemUpdate(C, groupName);
 
-		// Assign the new property data
-		DialogFocusItem.Property = Object.assign(newProperty, ModularItemMergeModuleValues(data, newModuleValues));
-
-		// Reinstate the Lock effect if there's a lock
-		if (newProperty.LockedBy && !(newProperty.Effect || []).includes("Lock")) {
-			newProperty.Effect = (newProperty.Effect || []);
-			newProperty.Effect.push("Lock");
-		}
-
-		if (!InventoryDoesItemAllowLock(DialogFocusItem)) {
-			// If the new type does not permit locking, remove the lock
-			ValidationDeleteLock(DialogFocusItem.Property, false);
-		}
-
-		const groupName = data.asset.Group.Name;
-		CharacterRefresh(C);
-		ChatRoomCharacterItemUpdate(C, groupName);
-
-		if (ServerPlayerIsInChatRoom()) {
-			ModularItemChatRoomMessage(module, currentModuleValues[moduleIndex], index, data);
-		} else if (C.ID === 0) {
-			DialogMenuButtonBuild(C);
-		} else {
-			C.CurrentDialog = DialogFind(C, data.key + DialogFocusItem.Property.Type, groupName);
+			if (ServerPlayerIsInChatRoom()) {
+				ModularItemChatRoomMessage(module, currentModuleValues[moduleIndex], index, data);
+			} else if (C.ID === 0) {
+				DialogMenuButtonBuild(C);
+			} else {
+				C.CurrentDialog = DialogFind(C, data.key + DialogFocusItem.Property.Type, groupName);
+			}
 		}
 	}
 
@@ -697,6 +685,23 @@ function ModularItemSetType(module, index, data) {
 	} else {
 		ModularItemModuleTransition(ModularItemBase, data);
 	}
+}
+
+/**
+ * Sets a modular item's type and properties to the option provided.
+ * @param {Character} C - The character on whom the item is equipped
+ * @param {Item} Item - The item whose type to set
+ * @param {number[]} previousModuleValues - The previous module values
+ * @param {number[]} newModuleValues - The new module values
+ * @param {ModularItemData} data - The modular item data
+ * @param {boolean} [push] - Whether or not appearance updates should be persisted (only applies if the character is the
+ * player) - defaults to false.
+ * @returns {void} Nothing
+ */
+function ModularItemSetOption(C, Item, previousModuleValues, newModuleValues, data, push=false) {
+	const currentProperty = ModularItemMergeModuleValues(data, previousModuleValues);
+	const newProperty = ModularItemMergeModuleValues(data, newModuleValues);
+	ExtendedItemSetOption(C, Item, currentProperty, newProperty, push);
 }
 
 /**
@@ -922,7 +927,7 @@ function ModularItemHideElement(ID, Module) {
     }
 }
 
-/*
+/**
  * Return {@link ModularItemData.chatMessagePrefix} if it's a string or call it using chat data based on a fictional modular item option.
  * @param {string} Name - The name of the pseudo-type
  * @param {ModularItemData} Data - The extended item data

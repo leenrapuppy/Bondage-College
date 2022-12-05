@@ -1723,11 +1723,9 @@ interface ItemPropertiesCustom {
 	/** The remaining time for the gag's auto-inflation */
 	AutoPunishUndoTime?: number;
 	/** The default time for the gag's auto-inflation */
-	AutoPunishUndoTimeSetting?: number;
-	/** The gag's {@link ItemProperties.Type} prior to triggering auto-inflation */
-	OriginalSetting?: "Padded" | "LightBall" | "Ball" | "Plug";
-	/** Whether auto-inflation should trigger a chat message */
-	ChatMessage?: boolean;
+	AutoPunishUndoTimeSetting?: 120000 | 300000 | 900000 | 3600000 | 72000000;
+	/** The gag module-index prior to triggering auto-inflation */
+	OriginalSetting?: 0 | 1 | 2 | 3;
 	/** Whether gag's blinking light is on or off */
 	BlinkState?: boolean;
 	/**
@@ -1778,7 +1776,7 @@ interface ItemPropertiesCustom {
 	/** The number of inserted beads */
 	InsertedBeads?: 1 | 2 | 3 | 4 | 5;
 
-	/** Whether the item displays a chat message or not */
+	/** Whether the item displays a chat message to all other people in the room */
 	ShowText?: boolean;
 
 	/** How sensitive the item is to whatever its reacting to */
