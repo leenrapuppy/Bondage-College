@@ -305,7 +305,7 @@ function PropertyAutoPunishDetectSpeech(Item, LastMessageLen=null) {
 	PropertyAutoPunishHandled.add(GroupName);
 
 	// Abort on whispers or if the item does not
-	if (ChatRoomTargetMemberNumber != null || !Item.Property || !Item.Property.Sensitivity) {
+	if (ChatRoomTargetMemberNumber != null || !Item.Property || !Item.Property.AutoPunish) {
 		return false;
 	}
 
@@ -315,5 +315,5 @@ function PropertyAutoPunishDetectSpeech(Item, LastMessageLen=null) {
 	}
 
 	const msg = ChatRoomLastMessage.at(-1);
-	return PropertyAutoPunishParseMessage(Item.Property.Sensitivity, msg, GagAction);
+	return PropertyAutoPunishParseMessage(Item.Property.AutoPunish, msg, GagAction);
 }

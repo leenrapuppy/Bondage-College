@@ -2689,13 +2689,13 @@ var AssetFemale3DCGExtended = {
 						],
 					},
 					{
-						Name: "Sensitivity", Key: "y",
+						Name: "AutoPunish", Key: "y",
 						DrawImages: false,
 						Options: [
-							{ Property: { Sensitivity: 0 } }, // y0 - Off
-							{ Property: { Sensitivity: 1 } }, // y1 - Low
-							{ Property: { Sensitivity: 2 } }, // y2 - Medium
-							{ Property: { Sensitivity: 3 } }, // y3 - High
+							{ Property: { AutoPunish: 0 } }, // y0 - Off
+							{ Property: { AutoPunish: 1 } }, // y1 - Low
+							{ Property: { AutoPunish: 2 } }, // y2 - Medium
+							{ Property: { AutoPunish: 3 } }, // y3 - High
 						]
 					},
 				],

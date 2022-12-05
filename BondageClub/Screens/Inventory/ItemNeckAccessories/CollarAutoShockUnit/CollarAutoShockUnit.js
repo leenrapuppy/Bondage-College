@@ -9,16 +9,16 @@ function InventoryItemNeckAccessoriesCollarAutoShockUnitDraw(OriginalFunction) {
 	OriginalFunction();
 	if (ModularItemModuleIsActive(ModularItemBase)) {
 		const Data = ModularItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
-		const [ShockLevel, Sensitivity] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
+		const [ShockLevel, AutoPunish] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 
 		// Display option information
 		MainCanvas.textAlign = "right";
 		DrawText(DialogFindPlayer("ShockLevel"), 1500, 550, "White", "Gray");
-		DrawText(DialogFindPlayer("Sensitivity"), 1500, 625, "White", "Gray");
+		DrawText(DialogFindPlayer("AutoPunish"), 1500, 625, "White", "Gray");
 		DrawText(DialogFindPlayer("ShockCount"), 1500, 700, "White", "Gray");
 		MainCanvas.textAlign = "left";
 		DrawText(DialogFindPlayer(`${Data.dialogOptionPrefix}${ShockLevel}`), 1510, 550, "White", "Gray");
-		DrawText(DialogFindPlayer(`${Data.dialogOptionPrefix}${Sensitivity}`), 1510, 625, "White", "Gray");
+		DrawText(DialogFindPlayer(`${Data.dialogOptionPrefix}${AutoPunish}`), 1510, 625, "White", "Gray");
 		DrawText(`${DialogFocusItem.Property.TriggerCount}`, 1510, 700, "White", "Gray");
 		MainCanvas.textAlign = "center";
 
@@ -65,7 +65,7 @@ function AssetsItemNeckAccessoriesCollarAutoShockUnitScriptDraw(data) {
 	if (typeof persistentData.ChangeTime !== "number") persistentData.ChangeTime = CommonTime() + 4000;
 	if (typeof persistentData.LastMessageLen !== "number") persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;
 
-	if (ChatRoomLastMessage && ChatRoomLastMessage.length != persistentData.LastMessageLen && data.Item && data.Item.Property && data.Item.Property.Sensitivity > 0)
+	if (ChatRoomLastMessage && ChatRoomLastMessage.length != persistentData.LastMessageLen && data.Item && data.Item.Property && data.Item.Property.AutoPunish > 0)
 		persistentData.ChangeTime = Math.min(persistentData.ChangeTime, CommonTime()); // Trigger immediately if the user speaks
 
 	if (persistentData.ChangeTime < CommonTime()) {

@@ -580,7 +580,7 @@ function ModularItemSanitizeProperties(Property, mergedProperty, Asset) {
 	if (typeof Property.OriginalSetting === "number") mergedProperty.OriginalSetting = Property.OriginalSetting;
 	if (typeof Property.BlinkState === "boolean") mergedProperty.BlinkState = Property.BlinkState;
 	if (typeof Property.AutoPunishUndoTime === "number") mergedProperty.AutoPunishUndoTime = Property.AutoPunishUndoTime;
-	if (typeof Property.Sensitivity === "number") mergedProperty.Sensitivity = Property.Sensitivity;
+	if (typeof Property.AutoPunish === "number") mergedProperty.AutoPunish = Property.AutoPunish;
 	return mergedProperty;
 }
 
