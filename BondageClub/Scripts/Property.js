@@ -1,25 +1,27 @@
 "use strict";
 
 /**
- * Opacity.js
- * ----------
- * A module with common helper functions for adding opacity related functionalities to extended items.
+ * Property.js
+ * -----------
+ * A module with common helper functions for the handling of specific {@link ItemProperties} properties.
+ * Note that more generic extended item functions should be confined to `ExtendedItem.js`.
  */
 
 /**
- * A Map that maps opacity slider IDs to the original opacity value is defined in {@link OpacityLoad}.
- * Used as fallback in case an invalid opacity value is encountered during  {@link OpacityExit}.
- * @type {Map<string, number>}
+ * A Map that maps input element IDs to their original value is defined in, _.e.g_, {@link PropertyOpacityLoad}.
+ * Used as fallback in case an invalid opacity value is encountered when exiting.
+ * @type {Map<string, any>}
  */
-const OpacityOriginalValue = new Map([]);
+const PropertyOriginalValue = new Map([]);
 
 /**
- * Construct an item-specific ID for an opacity slider.
+ * Construct an item-specific ID for a properties input element (_e.g._ an opacity slider).
+ * @param {string} Name - The name of the input element
  * @param {Item} Item - The item for whom the ID should be constructed; defaults to {@link DialogFocusItem}
- * @returns {string} - The ID of the opacity slider
+ * @returns {string} - The ID of the property
  */
-function OpacityGetID(Item=DialogFocusItem) {
-	return `${Item.Asset.Group.Name}${Item.Asset.Name}OpacitySlider`
+function PropertyGetID(Name, Item=DialogFocusItem) {
+	return `${Item.Asset.Group.Name}${Item.Asset.Name}${Name}`
 }
 
 /**
@@ -29,7 +31,7 @@ function OpacityGetID(Item=DialogFocusItem) {
  * @param {number} Opacity - The new opacity to set on the item
  * @returns {void} - Nothing
  */
- const OpacityChange = CommonLimitFunction((C, Item, Opacity) => {
+ const PropertyOpacityChange = CommonLimitFunction((C, Item, Opacity) => {
 	Item.Property.Opacity = Opacity;
 	CharacterLoadCanvas(C);
 });
@@ -40,13 +42,13 @@ function OpacityGetID(Item=DialogFocusItem) {
  * @param {string} thumbIcon The icon to use for the range input's "thumb" (handle).
  * @returns {HTMLInputElement} - The new or pre-existing range input element of the opacity slider
  */
-function OpacityLoad(OriginalFunction, thumbIcon="blindfold") {
+function PropertyOpacityLoad(OriginalFunction, thumbIcon="blindfold") {
 	OriginalFunction();
-	const ID = OpacityGetID();
+	const ID = PropertyGetID("Opacity");
 	const Asset = DialogFocusItem.Asset;
 
-	if (!OpacityOriginalValue.has(ID)) {
-		OpacityOriginalValue.set(ID, DialogFocusItem.Property.Opacity);
+	if (!PropertyOriginalValue.has(ID)) {
+		PropertyOriginalValue.set(ID, DialogFocusItem.Property.Opacity);
 	}
 
 	const opacitySlider = ElementCreateRangeInput(
@@ -59,7 +61,7 @@ function OpacityLoad(OriginalFunction, thumbIcon="blindfold") {
 
 	if (opacitySlider) {
 		const C = CharacterGetCurrent();
-		opacitySlider.addEventListener("input", (e) => OpacityChange(C, DialogFocusItem, Number(e.target.value)));
+		opacitySlider.addEventListener("input", (e) => PropertyOpacityChange(C, DialogFocusItem, Number(e.target.value)));
 		return opacitySlider;
 	} else {
 		return /** @type {HTMLInputElement} */(document.getElementById(ID));
@@ -74,9 +76,9 @@ function OpacityLoad(OriginalFunction, thumbIcon="blindfold") {
  * @param {string} LabelKeyword - The keyword of the opacity label
  * @returns {void} Nothing
  */
-function OpacityDraw(OriginalFunction, XOffset=0, YOffset=0, LabelKeyword="OpacityLabel") {
+function PropertyOpacityDraw(OriginalFunction, XOffset=0, YOffset=0, LabelKeyword="OpacityLabel") {
 	OriginalFunction();
-	const ID = OpacityGetID();
+	const ID = PropertyGetID("Opacity");
 
 	MainCanvas.textAlign = "right";
 	DrawTextFit(
@@ -96,17 +98,17 @@ function OpacityDraw(OriginalFunction, XOffset=0, YOffset=0, LabelKeyword="Opaci
  * @param {boolean} Refresh - Whether character parameters and the respective item should be refreshed or not
  * @returns {boolean} Whether the opacity was updated or not
  */
-function OpacityExit(Refresh=true) {
+function PropertyOpacityExit(Refresh=true) {
 	const Asset = DialogFocusItem.Asset;
-	const ID = OpacityGetID();
+	const ID = PropertyGetID("Opacity");
 	const C = CharacterGetCurrent();
 	const Opacity = Number(ElementValue(ID));
 
 	// Restore the original opacity if the new opacity is invalid
 	if (!(Opacity <= Asset.MaxOpacity && Opacity >= Asset.MinOpacity)) {
-		DialogFocusItem.Property.Opacity = OpacityOriginalValue.get(ID);
+		DialogFocusItem.Property.Opacity = PropertyOriginalValue.get(ID);
 		ElementRemove(ID);
-		OpacityOriginalValue.delete(ID);
+		PropertyOriginalValue.delete(ID);
 		return false;
 	}
 
@@ -117,7 +119,7 @@ function OpacityExit(Refresh=true) {
 		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 	}
 	ElementRemove(ID);
-	OpacityOriginalValue.delete(ID);
+	PropertyOriginalValue.delete(ID);
 	return true;
 }
 
@@ -131,7 +133,7 @@ function OpacityExit(Refresh=true) {
  * @param {OptionType} CurrentOption - The currently selected option
  * @returns {string} - Set and returns {@link DialogExtendedMessage} if the chosen option is not possible.
  */
-function OpacityValidate(OriginalFunction, C, Item, Option, CurrentOption) {
+function PropertyOpacityValidate(OriginalFunction, C, Item, Option, CurrentOption) {
 	if (Item && Item.Property) {
 		const Asset = Item.Asset;
 		if (!(Item.Property.Opacity <= Asset.MaxOpacity && Item.Property.Opacity >= Asset.MinOpacity)) {

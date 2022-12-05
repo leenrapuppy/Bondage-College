@@ -10,7 +10,7 @@ const neededFiles = [
 	"Scripts/ModularItem.js",
 	"Scripts/TypedItem.js",
 	"Scripts/VariableHeight.js",
-	"Scripts/Opacity.js",
+	"Scripts/Property.js",
 	"Screens/Inventory/Futuristic/Futuristic.js",
 	"Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js",
 	"Screens/Inventory/ItemNeckAccessories/CollarNameTag/CollarNameTag.js",

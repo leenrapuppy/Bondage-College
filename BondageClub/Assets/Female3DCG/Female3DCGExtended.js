@@ -4070,10 +4070,10 @@ var AssetFemale3DCGExtended = {
 				],
 				BaselineProperty: { Opacity: 0 },
 				ScriptHooks: {
-					Load: OpacityLoad,
-					Draw: OpacityDraw,
-					Exit: OpacityExit,
-					Validate: OpacityValidate,
+					Load: PropertyOpacityLoad,
+					Draw: PropertyOpacityDraw,
+					Exit: PropertyOpacityExit,
+					Validate: PropertyOpacityValidate,
 				},
 				Dialog: {
 					NpcPrefix: (C, Option, PreviousOption) => `ItemDevicesLocker${Option.Name}`,
@@ -4120,10 +4120,10 @@ var AssetFemale3DCGExtended = {
 				],
 				BaselineProperty: { Opacity: 1 },
 				ScriptHooks: {
-					Load: OpacityLoad,
+					Load: PropertyOpacityLoad,
 					Draw: InventoryItemDevicesVacBedDeluxeDraw,
-					Exit: OpacityExit,
-					Validate: OpacityValidate,
+					Exit: PropertyOpacityExit,
+					Validate: PropertyOpacityValidate,
 				},
 			},
 		}, // VacBedDeluxe
@@ -4146,7 +4146,7 @@ var AssetFemale3DCGExtended = {
 					Load: InventoryItemDevicesWoodenBoxLoad,
 					Draw: InventoryItemDevicesWoodenBoxDraw,
 					Exit: InventoryItemDevicesWoodenBoxExit,
-					Validate: OpacityValidate,
+					Validate: PropertyOpacityValidate,
 				},
 			},
 		}, // WoodenBox
@@ -5241,10 +5241,10 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ScriptHooks: {
-					Load: (next) => OpacityLoad(next, "lightbulb"),
-					Draw: (next) => OpacityDraw(next, 0, -50, "Brightness"),
-					Exit: OpacityExit,
-					Validate: OpacityValidate,
+					Load: (next) => PropertyOpacityLoad(next, "lightbulb"),
+					Draw: (next) => PropertyOpacityDraw(next, 0, -50, "Brightness"),
+					Exit: PropertyOpacityExit,
+					Validate: PropertyOpacityValidate,
 				},
 				BaselineProperty: { Opacity: 0 },
 			},
