@@ -1542,6 +1542,22 @@ function PrivateWearRing(C, Color) {
 }
 
 /**
+ * Puts a wedding dress on a specified character
+ * @param {Character} C - The character that must wear the ring.
+ * @param {string} Dress - The asset name of wedding dress to wear.
+ * @param {string} Veil - The asset name of the veil to wear.
+ * @returns {void} - Nothing.
+ */
+function PrivateWearWedding(C, Dress, Veil) {
+	CharacterNaked(C);
+	InventoryWear(C, Dress, "Cloth");
+	InventoryWear(C, Veil, "Hat");
+	InventoryWear(C, "Stockings2", "Socks");
+	InventoryWear(C, "Heels1", "Shoes", "#DDDDDD");
+	PrivateWearRing(C, "#D0D000");
+}
+
+/**
  * Triggered when the player upgrades her NPC girlfriend to Fiancee
  * @returns {void} - Nothing.
  */
@@ -1560,9 +1576,13 @@ function PrivateStartFiancee() {
  function PrivateStartWife() {
 	NPCEventAdd(CurrentCharacter, "Wife", CurrentTime);
 	NPCLoveChange(CurrentCharacter, 20);
-	PrivateWearRing(Player, "#D0D000");
-	PrivateWearRing(CurrentCharacter, "#D0D000");
+	InventoryAdd(Player, "WeddingDress1", "Cloth", true);
+	InventoryAdd(Player, "Veil1", "Hat", true);
+	PrivateWearWedding(Player, "WeddingDress1", "Veil1");
+	PrivateWearWedding(CurrentCharacter, "WeddingDress2", "Veil2");
 	ServerPrivateCharacterSync();
+	DialogLeave();
+	// TO DO - Wedding cutscene
 }
 
 /**

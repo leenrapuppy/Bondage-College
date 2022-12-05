@@ -582,6 +582,16 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 20,,"My love, will you be my fiancée?",(She shakes her head from left to right.)  This is not the right time and the right mood to ask this question.,,WontTakePlayerAsFiancee(),WontTakePlayerAsFiancee,Serious
 20,,"My love, will you be my fiancée?",No girl.  This is not the right time and mood for that.  Hold your horses.,,WontTakePlayerAsFiancee(),WontTakePlayerAsFiancee,Dominant
 20,,"My love, will you be my fiancée?","I'm so sorry sweetie, it's too early in our relationship for that.  We need more durable love.",,WontTakePlayerAsFiancee(),WontTakePlayerAsFiancee,Submissive
+20,55,"My love, will you marry me?","(She smiles at you.)  Yes my love, this is a dream come true.",,WillTakePlayerAsWife(),WillTakePlayerAsWife,
+20,55,"My love, will you marry me?",YES!!!  Let's get married right now my love.  (She jumps of joy.),,WillTakePlayerAsWife(),WillTakePlayerAsWife,Playful
+20,55,"My love, will you marry me?","(She nods slowly.)  Yes sweetheart, it's time to declare our eternal love.",,WillTakePlayerAsWife(),WillTakePlayerAsWife,Serious
+20,55,"My love, will you marry me?",Oh yeah!  Our love will be known throughout the club. (She smiles at you.),,WillTakePlayerAsWife(),WillTakePlayerAsWife,Dominant
+20,55,"My love, will you marry me?",(She sheds a few tears.)  Yes my love.  I will be your faithful and devoted wife.,,WillTakePlayerAsWife(),WillTakePlayerAsWife,Submissive
+20,,"My love, will you marry me?",(She shakes her head no.)  Let's not rush our wedding.  We need to make sure we are the perfect pair.,,WontTakePlayerAsWife(),WontTakePlayerAsWife,
+20,,"My love, will you marry me?",(She pulls her tongue at you.)  Don't be so quick!  We need to enjoy our time as lovers first.,,WontTakePlayerAsWife(),WontTakePlayerAsWife,Playful
+20,,"My love, will you marry me?","(She shakes her head from left to right.)  You're too hasty sweetheart, give me more time to know you.",,WontTakePlayerAsWife(),WontTakePlayerAsWife,Serious
+20,,"My love, will you marry me?",Hold your horses girl.  You should know me better and know that I won't rush that.,,WontTakePlayerAsWife(),WontTakePlayerAsWife,Dominant
+20,,"My love, will you marry me?","I'm so sorry sweetie, we need to spend more time together first.  I hope you're not mad at me.",,WontTakePlayerAsWife(),WontTakePlayerAsWife,Submissive
 20,10,Let's talk about something else.,(She nods.)  Sure.,,,,
 21,22,Would you consider someone like me?,I might.  Are you sure you're ready to be owned?,,,ConsiderSub,
 21,22,Would you consider someone like me?,That's quite a commitment.  Are you sure you're ready to be owned?,,,ConsiderSub,Serious
@@ -650,6 +660,10 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 51,0,These rings will prove our love.,"(She nods slowly.)  It will, sweetie.  What would you like to do now?",,,,
 51,0,These rings are so silly.,(She sighs.)  It's a tradition.  You can always remove it if you're not happy.  What would you like to do now?,NPCInteraction(-3),,,
 51,0,I'll never remove that ring.,(She smiles at you.)  Let's make it work my love.  What would you like to do now?,NPCInteraction(3),,,
+55,0,I love you so much DialogCharacterName.  (Get wed.),,StartWife(),,,
+55,0,This is the best day of my life.  (Get wed.),,StartWife(),,,
+55,0,(Give her a French kiss and go get wed.),,StartWife(),,,
+55,10,Wait!  I've changed my mind.,(She grumbles and pouts.)  This is not funny.,NPCInteraction(-10),,,
 70,0,(Join her in bed.),What would you like to do now?,JoinInBed(),,,
 70,0,(Check your room first.),What would you like to do now?,DialogLeave(),,,
 90,,(Make her more Dominant.),(She's now a little more Dominant.),"NPCCheat(""TraitDominant"")",,,
@@ -902,6 +916,16 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1010,,"Mistress, will you be my fiancée?",(She shakes her head from left to right.)  This is not the right time and the right mood to ask this question my slave.,,WontTakePlayerAsFiancee(),DomWontTakePlayerAsFiancee,Serious
 1010,,"Mistress, will you be my fiancée?","No!   Slave girl, this is not the right time and mood for that.  Hold your horses.",,WontTakePlayerAsFiancee(),DomWontTakePlayerAsFiancee,Violent
 1010,,"Mistress, will you be my fiancée?","I'm sorry sweet submissive, but it's too early in our relationship for that.  We need more durable love.",,WontTakePlayerAsFiancee(),DomWontTakePlayerAsFiancee,Peaceful
+1010,1047,"Mistress, will you marry me?","(She smiles at you.)  Yes my girl, this is a dream come true.",,WillTakePlayerAsWife(),DomWillTakePlayerAsWife,
+1010,1047,"Mistress, will you marry me?",YES!!!  Let's get married right now my subbie.  (She jumps of joy.),,WillTakePlayerAsWife(),DomWillTakePlayerAsWife,Playful
+1010,1047,"Mistress, will you marry me?","(She nods slowly.)  Yes my little sweetheart, it's time to declare our eternal love.",,WillTakePlayerAsWife(),DomWillTakePlayerAsWife,Serious
+1010,1047,"Mistress, will you marry me?",Oh yeah!  (She spanks your butt.)  Our love will be known throughout the club.,,WillTakePlayerAsWife(),DomWillTakePlayerAsWife,Violent
+1010,1047,"Mistress, will you marry me?",(She sheds a few tears.)  Yes my submissive.  I want to spend my life with you.,,WillTakePlayerAsWife(),DomWillTakePlayerAsWife,Peaceful
+1010,,"Mistress, will you marry me?",(She shakes her head no.)  Let's not rush our wedding girl.  We need to make sure we are the perfect pair.,,WontTakePlayerAsWife(),DomWontTakePlayerAsWife,
+1010,,"Mistress, will you marry me?",(She pulls her tongue at you.)  Don't be so quick little subbie!  We need to enjoy our time as lovers first.,,WontTakePlayerAsWife(),DomWontTakePlayerAsWife,Playful
+1010,,"Mistress, will you marry me?","(She shakes her head from left to right.)  You're too hasty my slave, give me more time to know you.",,WontTakePlayerAsWife(),DomWontTakePlayerAsWife,Serious
+1010,,"Mistress, will you marry me?",Hold your horses slave girl.  (She pinches your cheek.)  You should know that I won't rush it.,,WontTakePlayerAsWife(),DomWontTakePlayerAsWife,Violent
+1010,,"Mistress, will you marry me?","I'm sorry my submissive, we need to spend more time together first.  Do not be bitter about this.",,WontTakePlayerAsWife(),DomWontTakePlayerAsWife,Peaceful
 1010,1019,Our trial isn't working for me.  Can we stop it?,"I'm sorry to hear that, of course we can stop the trial.  Are you sure you don't want me as your Mistress?",,TrialCanCancel(),DomTrialStopAsk,
 1010,1019,Our trial isn't working for me.  Can we stop it?,It chagrins me to hear that.  We can absolutely stop the trial if you don't want me as your Mistress.,,TrialCanCancel(),DomTrialStopAsk,Polite
 1010,1019,Our trial isn't working for me.  Can we stop it?,"Shit, are you for real?  Bitch, we can scrap the trial if you don't want me as your Mistress.",,TrialCanCancel(),DomTrialStopAsk,Rude
@@ -970,10 +994,14 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1044,1045,I love you Mistress.  (Exchange rings.),"(You exchange engagement rings.)  I love you my girl.  I want to be with you for a long, long time.",StartFiancee(),,,
 1044,1045,This is wonderful.  (Exchange rings.),(You exchange engagement rings.)  I love you my girl.  The sun always shines when you're around.,StartFiancee(),,,
 1044,1045,(Kiss her and exchange rings.),(You exchange engagement rings and a long kiss.)  I love you my girl.,StartFiancee(),,,
-1044,1010,Wait!  I wasn't serious.,(She grumbles.)  Don't tease me like that or you'll get punished.,NPCInteraction(-10),,,
+1044,1010,Please wait!  I wasn't serious.,(She grumbles.)  Don't tease me like that or you'll get punished.,NPCInteraction(-10),,,
 1045,1000,These rings will prove our love.,"(She nods slowly.)  It will, sweetie.  But remember that you're also my submissive.",,,,
 1045,1000,These rings are so silly.,(She sighs.)  It's a tradition my submissive.  You can always remove it if you're not happy.,NPCInteraction(-3),,,
 1045,1000,I'll never remove that ring.,Just like I will never remove your collar.  (She giggles and smiles at you.),NPCInteraction(3),,,
+1047,1000,I love you so much Mistress.  (Get wed.),,StartWife(),,,
+1047,1000,This is the best day of my life.  (Get wed.),,StartWife(),,,
+1047,1000,(Give her a French kiss and go get wed.),,StartWife(),,,
+1047,1010,Please wait!  I've changed my mind.,(She grumbles and pouts.)  This is not funny my girl.,NPCInteraction(-10),,,
 1050,1051,You don't deserve to call me slave.,So you're a Dominant now?  You want to break our bond?,NPCInteraction(-2),,,
 1050,1051,I've grown stronger than you.,So you're a Dominant now?  You want to break our bond?,,,,
 1050,1051,You've been a good owner.,So you're a Dominant now?  You want to break our bond?,NPCInteraction(2),,,
@@ -1615,8 +1643,18 @@ PunishAsylum,1000,You're right Mistress.  (Go to the asylum.),,RunPunishment(1),
 2010,,"My girl, will you be my fiancée?",(She sighs and shakes her head no.)  Now is not the best time for that Mistress.  Maybe if we know and trust each other better.,,WontTakePlayerAsFiancee(),SubWontTakePlayerAsFiancee,
 2010,,"My girl, will you be my fiancée?",(She pulls her tongue at you.)  Not now Mistress.  Maybe if we know and enjoy each other better.,,WontTakePlayerAsFiancee(),SubWontTakePlayerAsFiancee,Playful
 2010,,"My girl, will you be my fiancée?",(She shakes her head from left to right.)  Sorry but I must refuse Mistress.  This is not the right time and mood for this question.,,WontTakePlayerAsFiancee(),SubWontTakePlayerAsFiancee,Serious
-2010,,"My girl, will you be my fiancée?",No Mistress.  This is not the right time and mood for that.  Let's hold our horses.,,WontTakePlayerAsFiancee(),SubWontTakePlayerAsFiancee,Violent
-2010,,"My girl, will you be my fiancée?","I'm so sorry Mistress, it's too early in our relationship for that.  We need more durable love.",,WontTakePlayerAsFiancee(),SubWontTakePlayerAsFiancee,Peaceful
+2010,,"My girl, will you be my fiancée?",No Mistress.  This is not the right time and mood for that.  Let's hold our horses.  You can punish me instead.,,WontTakePlayerAsFiancee(),SubWontTakePlayerAsFiancee,Violent
+2010,,"My girl, will you be my fiancée?","I'm so sorry Mistress, it's too early in our relationship for that.  We need more durable love.  Please don't punish me.",,WontTakePlayerAsFiancee(),SubWontTakePlayerAsFiancee,Peaceful
+2010,2077,"My girl, will you marry me?","(She smiles at you.)  Yes Mistress, this is a dream come true.",,WillTakePlayerAsWife(),SubWillTakePlayerAsWife,
+2010,2077,"My girl, will you marry me?",YES!!!  Let's get married right now Mistress.  (She jumps of joy.),,WillTakePlayerAsWife(),SubWillTakePlayerAsWife,Playful
+2010,2077,"My girl, will you marry me?","(She nods slowly.)  Yes, my Mistress.  It's the perfect timing to declare our eternal love.",,WillTakePlayerAsWife(),SubWillTakePlayerAsWife,Serious
+2010,2077,"My girl, will you marry me?",(She nods rapidly.)  Can someone pinch me please?  Yes!  I love you Mistress!,,WillTakePlayerAsWife(),SubWillTakePlayerAsWife,Violent
+2010,2077,"My girl, will you marry me?",(She cries of joy.)  Yes Mistress.  I want to be your devoted wife and submissive.,,WillTakePlayerAsWife(),SubWillTakePlayerAsWife,Peaceful
+2010,,"My girl, will you marry me?",(She shakes her head no.)  Let's not rush our wedding Mistress.  We need to make sure we are the perfect pair.,,WontTakePlayerAsWife(),SubWontTakePlayerAsWife,
+2010,,"My girl, will you marry me?",(She pulls her tongue at you.)  Don't be so quick Mistress!  We need to enjoy our time as lovers first.,,WontTakePlayerAsWife(),SubWontTakePlayerAsWife,Playful
+2010,,"My girl, will you marry me?","(She shakes her head from left to right.)  Let's not be hasty Mistress, I need a little more time.",,WontTakePlayerAsWife(),SubWontTakePlayerAsWife,Serious
+2010,,"My girl, will you marry me?",No Mistress.  This is going too fast for me.  You can punish me instead.  (She winks at you.),,WontTakePlayerAsWife(),SubWontTakePlayerAsWife,Violent
+2010,,"My girl, will you marry me?","I'm sorry Mistress, but let's not jump too quickly.  We need more durable love.  Please don't punish me.",,WontTakePlayerAsWife(),SubWontTakePlayerAsWife,Peaceful
 2010,,Let's chat.  (Spend time to chat with her.),(You spend some quality time chatting together and she seems to appreciate.),NPCInteraction(1),,SubTimeChitChat,
 2010,,Let's chat.  (Spend time to chat with her.),(You spend some time chit-chatting together.  It's fun but she politely lets you know that you could be more productive.),,,SubTimeChitChat,Serious|Polite
 2010,,Let's chat.  (Spend time to chat with her.),"(You two talk about politic, science and human nature.  It's different from the club kinks but still very interesting.)",NPCInteraction(1),,SubTimeChitChat,Frigid|Wise
@@ -1736,17 +1774,21 @@ PunishAsylum,1000,You're right Mistress.  (Go to the asylum.),,RunPunishment(1),
 2071,2072,I love you my girl.,I love you Mistress.  I hope we can share this love for a long time.,StartGirlfriend(),,,
 2071,2072,This is wonderful.,I love you Mistress.  This is indeed a wonderful day.,StartGirlfriend(),,,
 2071,2072,(Grab and kiss her.),(You grab her and share a long and loving kiss.)  I love you Mistress.,StartGirlfriend(),,,
-2071,2010,Wait!  Let me think about it some more.,(She sighs.)  Please don't torture me like that.,NPCInteraction(-5),,,
+2071,2010,Wait girl!  Let me think about it some more.,(She sighs.)  Please don't torture me like that.,NPCInteraction(-5),,,
 2072,2000,Making love will only be better.,"(She nods slowly.)  It will.  I'm yours, body and soul.",,,,
 2072,2000,I hope we'll never argue.,"(She raises an eyebrow.)  Let's not talk about that.  I'm yours, body and soul.",NPCInteraction(-3),,,
 2072,2000,I hope we'll be together forever.,"(She smiles at you.)  Let's make it work.  I'm yours, body and soul.",NPCInteraction(3),,,
 2074,2075,I love you my submissive.  (Exchange rings.),"(You exchange engagement rings.)  I love you Mistress.  I want to be with you for a long, long time.",StartFiancee(),,,
 2074,2075,This is wonderful.  (Exchange rings.),(You exchange engagement rings.)  I love you Mistress.  The sun always shines when you're around.,StartFiancee(),,,
 2074,2075,(Kiss her and exchange rings.),(You exchange engagement rings and a long kiss.)  I love you Mistress.,StartFiancee(),,,
-2074,2010,Wait!  I wasn't serious.,(She grumbles and sighs.)  Teasing me like that is so unfair.,NPCInteraction(-10),,,
+2074,2010,Wait girl!  I wasn't serious.,(She grumbles and sighs.)  Teasing me like that is so unfair.,NPCInteraction(-10),,,
 2075,2000,These rings will prove our love.,"(She nods slowly.)  It will shine with our love, my wonderful Mistress.",,,,
 2075,2000,These rings are so silly.,(She sighs.)  It's an old tradition I guess.  You can always remove it if you're not happy with it.,NPCInteraction(-3),,,
 2075,2000,I'll never remove that ring.,And I hope you will also never remove my collar.  (She giggles and smiles at you.),NPCInteraction(3),,,
+2077,2000,I love you so much my girl.  (Get wed.),,StartWife(),,,
+2077,2000,This is the best day of my life.  (Get wed.),,StartWife(),,,
+2077,2000,(Give her a French kiss and go get wed.),,StartWife(),,,
+2077,2010,Wait girl!  I've changed my mind.,(She grumbles and pouts.)  This is not funny Mistress.,NPCInteraction(-10),,,
 2080,2081,Turn the tables?  What do you mean?,"Since I'm more Dominant than you, you should wear my collar and not the reverse.",,,,
 2080,2081,(Stay silent and listen to her.),"Since I'm more Dominant than you, you should wear my collar and not the reverse.",,,,
 2080,2000,We will not turn any tables girl.,(She seems disappointed.)  Alright Mistress.  What's on your mind then?,,,,
