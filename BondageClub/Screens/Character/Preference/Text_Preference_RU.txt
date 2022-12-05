@@ -26,6 +26,8 @@
 - Настройки контроллера -
 - Notification Preferences -
 - Настройки уведомлений -
+- Gender Preferences -
+- Гендерные настройки -
 General
 Общие
 Difficulty
@@ -52,6 +54,8 @@ Controller
 Контроллер
 Notifications
 Уведомления
+Gender
+Пол
 The difficulty mode enforces BDSM restrictions in multi-player only.  Click for details.
 Режим сложности применяет ограничения БДСМ только в многопользовательской игре. Нажми для деталей.
 Roleplay
@@ -634,3 +638,11 @@ Allow item tint effects
 Разрешить эффекты оттенка предмета
 Allow item blur effects (turn off if experiencing frame rate drops)
 Разрешить эффекты размытия предмета (отключить, если частота кадров падает)
+Females
+Женщина
+Males
+Мужчина
+Automatically enter the chatroom area for:
+Автоматически входить в зону чата для:
+Hide shop items exclusively for:
+Скрыть товары в магазине исключительно для:

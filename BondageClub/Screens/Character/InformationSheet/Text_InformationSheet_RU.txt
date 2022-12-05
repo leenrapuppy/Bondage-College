@@ -122,6 +122,8 @@ Good Slave
 Хороший раб
 Drone
 Дрон
+Pronouns:
+Местоимения:
 Member Number:
 Номер Участника:
 -
