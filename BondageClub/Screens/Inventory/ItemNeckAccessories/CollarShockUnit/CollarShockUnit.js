@@ -35,7 +35,7 @@ function InventoryItemNeckAccessoriesCollarShockUnitClick(OriginalFunction) {
 	} else if (MouseIn(1635, 550, 225, 55)) {
 		ExtendedItemCustomClick("ResetShockCount", InventoryItemNeckAccessoriesCollarShockUnitResetCount);
 	} else if (MouseIn(1635, 625, 225, 55)) {
-		ExtendedItemCustomClick("TriggerShock", ExtendedItemShockPublishAction);
+		ExtendedItemCustomClick("TriggerShock", PropertyShockPublishAction);
 	}
 }
 

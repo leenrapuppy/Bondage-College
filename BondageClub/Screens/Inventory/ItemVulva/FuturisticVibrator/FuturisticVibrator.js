@@ -228,7 +228,7 @@ function InventoryItemVulvaFuturisticVibratorHandleChat(C, Item, LastTime) {
 			else if (msg.includes("Decrease")) InventoryItemVulvaFuturisticVibratorSetMode(C, Item, VibratorModeGetOption(InventoryItemVulvaFuturisticVibratorGetMode(Item, false)), true);
 
 			//triggered actions
-			if (msg.includes("Shock")) ExtendedItemShockPublishAction(C, Item, true);
+			if (msg.includes("Shock")) PropertyShockPublishAction(C, Item, true);
 		}
 	}
 }

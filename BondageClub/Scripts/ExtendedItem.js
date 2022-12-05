@@ -780,68 +780,6 @@ function ExtendedItemCustomExit(Name, C, Dictionary=null) {
 }
 
 /**
- * Helper fuction for publishing shock-related actions.
- * @param {Character} C - The shocked character; defaults to the {@link CharacterGetCurrent} output
- * @param {Item} Item - The shocking item; defaults to {@link DialogFocusItem}
- * @param {boolean} Automatic - Whether the shock was triggered automatically or otherwise manually
- */
-function ExtendedItemShockPublishAction(C=null, Item=DialogFocusItem, Automatic=false) {
-	if (C == null) {
-		C = CharacterGetCurrent();
-	}
-	if (Item == null) {
-		return;
-	}
-
-	// Get item-specific properties and choose a suitable default if absent
-	const ShockLevel = (Item.Property.ShockLevel != null) ? Item.Property.ShockLevel : 1;
-	const ShowText = (Item.Property.ShowText != null) ? Item.Property.ShowText : true;
-	if (Item.Property.TriggerCount != null) {
-		Item.Property.TriggerCount++;
-	}
-
-	if (C.ID === Player.ID) {
-		// The Player shocks herself
-		ActivityArousalItem(C, C, Item.Asset);
-	}
-	InventoryShockExpression(C);
-
-	/** @type {ChatMessageDictionary} */
-	const Dictionary = [
-		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "AssetName", AssetName: Item.Asset.Name },
-		{ ShockIntensity : ShockLevel * 1.5 },
-		{ AssetName: Item.Asset.Name },
-		{ FocusGroupName: Item.Asset.Group.Name },
-	];
-	if (Automatic) {
-		Dictionary.push({ Automatic: true });
-	}
-	const ActionTag = `TriggerShock${ShockLevel}`;
-
-	// Manually play audio and flash the screen when not in a chatroom
-	if (CurrentScreen !== "ChatRoom") {
-		AudioPlaySoundEffect("Shocks", 3 + (3 * ShockLevel));
-		if (C.ID === Player.ID) {
-			const duration = (Math.random() + ShockLevel * 1.5) * 500;
-			DrawFlashScreen("#FFFFFF", duration, 500);
-		}
-	}
-
-	// Publish the action, be it either quietly or not
-	if (ShowText && CurrentScreen === "ChatRoom") {
-		ChatRoomPublishCustomAction(ActionTag, false, Dictionary);
-	} else if (CurrentScreen === "ChatRoom") {
-		ChatRoomMessage({ Content: ActionTag, Type: "Action", Sender: Player.MemberNumber, Dictionary: Dictionary });
-	}
-
-	// Exit the dialog menu when triggering a manual shock
-	if (!Automatic) {
-		ExtendedItemCustomExit(ActionTag, C, null)
-	}
-}
-
-/**
  * Common draw function for drawing the header of the extended item menu screen.
  * Automatically applies any Locked and/or Vibrating options to the preview.
  * @param {number} X - Position of the preview box on the X axis
