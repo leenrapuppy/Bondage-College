@@ -1,54 +1,27 @@
 "use strict";
-var InventoryItemNeckAccessoriesCustomCollarTagAllowedChars = /^[a-zA-Z0-9 ~!]*$/;
+
 // Loads the item extension properties
 function InventoryItemNeckAccessoriesCustomCollarTagTxt0Load() {
-	ElementCreateInput("TagText", "text", DialogFocusItem.Property.Text || "", "9");
+	PropertyTextLoad();
 }
 
 // Draw the extension screen
 function InventoryItemNeckAccessoriesCustomCollarTagTxt0Draw() {
-	// Draw the header and item
-	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
-
-	// Tag data
-	ElementPosition("TagText", 1375, 680, 250);
-	DrawButton(1500, 651, 350, 64, DialogFindPlayer("CustomTagText"), ElementValue("TagText").match(InventoryItemNeckAccessoriesCustomCollarTagAllowedChars) ? "White" : "#888", "");
+	ExtendedItemDrawHeader(1387, 125);
+	PropertyTextDraw();
 }
 
 // Catches the item extension clicks
 function InventoryItemNeckAccessoriesCustomCollarTagTxt0Click() {
-	if (
-		MouseIn(1500, 651, 350, 64) &&
-		DialogFocusItem.Property.Text !== ElementValue("TagText") &&
-		ElementValue("TagText").match(InventoryItemNeckAccessoriesCustomCollarTagAllowedChars)
-	) {
-		DialogFocusItem.Property.Text = ElementValue("TagText");
-		InventoryItemNeckAccessoriesCustomCollarTagChange();
-	}
-
-	// Exits the screen
 	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemNeckAccessoriesCustomCollarTagExit();
+		InventoryItemNeckAccessoriesCustomCollarTagTxt0Exit();
 	}
 }
 
 // Leaves the extended screen
-function InventoryItemNeckAccessoriesCustomCollarTagExit() {
-	ElementRemove("TagText");
+function InventoryItemNeckAccessoriesCustomCollarTagTxt0Exit() {
+	PropertyTextExit();
 	ExtendedItemSubscreen = null;
-}
-
-// When the tag is changed
-function InventoryItemNeckAccessoriesCustomCollarTagChange() {
-	var C = CharacterGetCurrent();
-	CharacterRefresh(C);
-	if (CurrentScreen == "ChatRoom") {
-		var Dictionary = [];
-		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
-		Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		ChatRoomPublishCustomAction("ChangeCustomTag", false, Dictionary);
-	}
-	InventoryItemNeckAccessoriesCustomCollarTagExit();
 }
 
 /** @type {DynamicAfterDrawCallback} */
@@ -64,7 +37,6 @@ function AssetsItemNeckAccessoriesCustomCollarTagAfterDraw({
 		let Height = 50;
 		let Width = 45;
 		let YOffset = 30;
-		const FontName = "sans-serif";
 		const TempCanvas = AnimationGenerateTempCanvas(C, A, Width, Height);
 
 		if (Type.includes("t1")) {
@@ -77,14 +49,21 @@ function AssetsItemNeckAccessoriesCustomCollarTagAfterDraw({
 			YOffset = 31;
 		}
 
-		const text = Property && typeof Property.Text === "string" && InventoryItemNeckAccessoriesCustomCollarTagAllowedChars.test(Property.Text) ? Property.Text : "Tag";
+		let text = Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text : "Tag";
+		text = text.substring(0, A.TextMaxLength.Text);
+
+        /** @type {DynamicDrawOptions} */
+		const drawOptions = {
+			fontSize: 13,
+			fontFamily: A.TextFont,
+			color: Color,
+			textAlign: "center",
+			width: Width,
+		};
 
 		// We draw the desired info on that canvas
-		let context = TempCanvas.getContext('2d');
-		context.font = "13px " + FontName;
-		context.fillStyle = Color;
-		context.textAlign = "center";
-		context.fillText(text, Width / 2, Width / 2, Width);
+		const ctx = TempCanvas.getContext('2d');
+		DynamicDrawText(text, ctx, Width / 2, Width / 2, drawOptions);
 
 		// We print the canvas to the character based on the asset position
 		drawCanvas(TempCanvas, X + 227.5, Y + YOffset, AlphaMasks);

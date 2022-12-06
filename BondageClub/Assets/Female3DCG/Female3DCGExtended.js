@@ -473,8 +473,9 @@ var AssetFemale3DCGExtended = {
 						Name: "Txt", Key: "x",
 						Options: [{}, { HasSubscreen: true }],
 					},
-				]
-			}
+				],
+				BaselineProperty: { Text: "", Text2: "" },
+			},
 		}, // Bib
 		Scarf: {
 			Archetype: ExtendedArchetype.TYPED,
@@ -2420,9 +2421,9 @@ var AssetFemale3DCGExtended = {
 				BaselineProperty: { Text: "" },
 				ChatSetting: TypedItemChatSetting.FROM_TO,
 				ScriptHooks: {
-					Load: InventoryItemArmsTransportJacketLoad,
+					Load: PropertyTextLoad,
 					Draw: InventoryItemArmsTransportJacketDraw,
-					Exit: InventoryItemArmsTransportJacketExit,
+					Exit: PropertyTextExit,
 				}
 			},
 		}, // TransportJacket
@@ -2540,6 +2541,7 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ChangeWhenLocked: false,
+				BaselineProperty: { Text: "Tag" },
 			},
 		}, // CustomCollarTag
 		CollarNameTag: {
@@ -2800,6 +2802,7 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ChangeWhenLocked: false,
+				BaselineProperty: { Text: "Pet", Text2: "Leashing", Text3: "Post" },
 			},
 		},//PetPost
 	},//ItemNeckRestraints
@@ -3517,14 +3520,14 @@ var AssetFemale3DCGExtended = {
 								}
 							},
 							{// z2 - Closed
-								Property: { 
+								Property: {
 								Effect: ["BlindHeavy","GagEasy","BlockMouth"],
-								Hide: ["HairFront","Mask"], 
+								Hide: ["HairFront","Mask"],
 								Block: ["ItemMouth", "ItemMouth2", "ItemMouth3","ItemHead","ItemNose"],
 								}
 							},
 							{// z3 - Open Transparent
-								Property: { Effect: [""], 
+								Property: { Effect: [""],
 								Hide: ["HairFront"],
 								HideItem: ["MaskOpenFaceHood", "MaskFaceVeil", "MaskFoxMask"],
 								}
@@ -4404,7 +4407,6 @@ var AssetFemale3DCGExtended = {
 					Load: InventoryItemDevicesWoodenBoxLoad,
 					Draw: InventoryItemDevicesWoodenBoxDraw,
 					Exit: InventoryItemDevicesWoodenBoxExit,
-					Validate: PropertyOpacityValidate,
 				},
 			},
 		}, // WoodenBox
@@ -7431,6 +7433,7 @@ var AssetFemale3DCGExtended = {
 		}, // TeddyBear
 		PetPost: {
 			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemNeckRestraints", AssetName: "PetPost" },
 			Config:{
 				Modules: [
 					{
@@ -7472,7 +7475,6 @@ var AssetFemale3DCGExtended = {
 						Options: [{ HasSubscreen: true }],
 					},
 				],
-				ChangeWhenLocked: false,
 				Dialog: {
 					ChatPrefix: "ItemNeckRestraintsPetPost",
 				}
@@ -7698,7 +7700,8 @@ var AssetFemale3DCGExtended = {
 						],
 					}
 				],
-			}
+				BaselineProperty: { Text: "", ShowText: false, PunishOrgasm: false, PunishStandup: false, NextShockTime: 0 },
+			},
 		},
 		SciFiPleasurePanties: {
 			Archetype: ExtendedArchetype.MODULAR,
@@ -8911,10 +8914,11 @@ var AssetFemale3DCGExtended = {
 									Hide: [],
 								}
 							}, // All gags visible
-						]
+						],
 					},
 				],
 				ChangeWhenLocked: false,
+				BaselineProperty: { Text: "" },
 			}
 		}, // DroneMask
 		Stitches: {

@@ -1,13 +1,10 @@
 // Wrap around the itemHead/DroneMask/DroneMask.js code as much as possible
 
 "use strict";
-let InventoryItemHoodDroneMaskOriginalText = "";
-var InventoryItemHoodDroneMaskYOffset = 89; // For testing text position for those with longer hair
 
 // Load item extension properties
 function InventoryItemHoodDroneMaskPattern5Load() {
-	InventoryItemHoodDroneMaskOriginalText = DialogFocusItem.Property.Text;
-	InventoryItemHeadDroneMaskPattern5LoadBase();
+	InventoryItemHeadDroneMaskPattern5Load();
 }
 
 // Draw extension screen image
@@ -17,35 +14,15 @@ function InventoryItemHoodDroneMaskPattern5Draw() {
 
 // Click function
 function InventoryItemHoodDroneMaskPattern5Click() {
-	if (MouseIn(1330, 731, 340, 64)) {
-		InventoryItemHeadDroneMaskPattern5SaveAndExit(InventoryItemHoodDroneMaskOriginalText);
-		InventoryItemHoodDroneMaskPattern5ExitSubscreen();
-	}
-	// Exits screen
-	else if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemHeadDroneMaskPattern5Exit(InventoryItemHoodDroneMaskOriginalText);
-		InventoryItemHoodDroneMaskPattern5ExitSubscreen();
-	}
+	InventoryItemHeadDroneMaskPattern5Click();
 }
 
 // Exit the subscreen
-function InventoryItemHoodDroneMaskPattern5ExitSubscreen() {
-	ElementRemove(InventoryItemHeadDroneMaskInputId);
-	InventoryItemHoodDroneMaskOriginalText = "";
-	ExtendedItemSubscreen = null;
-}
-
-// Exit the item's extended screen
-function InventoryItemHoodDroneMaskExit() {
-	InventoryItemHeadDroneMaskExit();
+function InventoryItemHoodDroneMaskPattern5Exit() {
+	InventoryItemHeadDroneMaskPattern5Exit();
 }
 
 /** @type {DynamicAfterDrawCallback} */
-function AssetsItemHoodDroneMaskAfterDraw({
-    C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color,
-}) {
-	let YOffset = InventoryItemHoodDroneMaskYOffset;
-	AssetsItemHeadDroneMaskAfterDrawBase({
-		C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color, YOffset,
-	})
+function AssetsItemHoodDroneMaskAfterDraw(data) {
+	AssetsItemHeadDroneMaskAfterDraw(data);
 }

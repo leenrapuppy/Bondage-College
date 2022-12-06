@@ -1,26 +1,14 @@
 "use strict";
 
-const InventoryItemPelvisObedienceBeltEngraveFont = "Arial, sans-serif";
-const InventoryItemPelvisObedienceBeltEngraveLength = 13;
-
 function InventoryItemPelvisObedienceBeltEngraving0Load() {
-	// Load the font
-	DynamicDrawLoadFont(InventoryItemPelvisObedienceBeltEngraveFont);
-
-	InventoryItemPelvisObedienceBeltInit(DialogFocusItem);
-
-	const input = ElementCreateInput("EngraveText", "text", DialogFocusItem.Property.Text, InventoryItemPelvisObedienceBeltEngraveLength);
-	if (input) input.pattern = DynamicDrawTextInputPattern;
+	PropertyTextLoad();
 }
 
 function InventoryItemPelvisObedienceBeltEngraving0Draw() {
 	// Draw the header and item
-	ExtendedItemDrawHeader(1387, 125);
-
-	const valid = DynamicDrawTextRegex.test(ElementValue("EngraveText"));
-	DrawTextFit(DialogFindPlayer("ObedienceBeltEngraveLabel"), 1505, 560, 550, "#fff", "#000");
-	ElementPosition("EngraveText", 1510, 620, 300);
-	DrawButton(1375, 740, 250, 64, DialogFindPlayer("ObedienceBeltEngrave"), valid ? "White" : "#888", "");
+	ExtendedItemDrawHeader();
+	DrawText(DialogExtendedMessage, 1500, 375, "#fff", "808080");
+	PropertyTextDraw();
 }
 
 function InventoryItemPelvisObedienceBeltEngraving0Click() {
@@ -28,45 +16,14 @@ function InventoryItemPelvisObedienceBeltEngraving0Click() {
 		InventoryItemPelvisObedienceBeltEngraving0Exit();
 		return;
 	}
-
-	const text = ElementValue("EngraveText");
-	if (MouseIn(1375, 740, 250, 64) && DynamicDrawTextRegex.test(text)) {
-		DialogFocusItem.Property.Text = text;
-		InventoryItemPelvisObedienceBeltEngravingUpdated(text);
-		return;
-	}
 }
 
 function InventoryItemPelvisObedienceBeltEngraving0Exit() {
-	ElementRemove("EngraveText");
+	PropertyTextExit(true, "ObedienceBeltEngravingUpdated", "ObedienceBeltEngravingErased");
 	ExtendedItemSubscreen = null;
 }
 
-/**
- * Handles text changes. Refreshes the character and sends an appropriate chatroom message
- * @param {string} text
- * @returns {void} - Nothing
- */
-function InventoryItemPelvisObedienceBeltEngravingUpdated(text) {
-	var C = CharacterGetCurrent();
-	CharacterRefresh(C);
-	if (CurrentScreen !== "ChatRoom") return;
-
-	const Dictionary = [
-		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "NewText", Text: text }
-	];
-
-	if (text.trim().length > 0) {
-		ChatRoomPublishCustomAction("ObedienceBeltEngravingUpdated", true, Dictionary);
-	} else {
-		ChatRoomPublishCustomAction("ObedienceBeltEngravingErased", true, Dictionary);
-	}
-}
-
 function InventoryItemPelvisObedienceBeltShockModule1Load() {
-	InventoryItemPelvisObedienceBeltInit(DialogFocusItem);
 }
 
 function InventoryItemPelvisObedienceBeltShockModule1Draw() {
@@ -118,20 +75,6 @@ function InventoryItemPelvisObedienceBeltShockModule1Exit() {
 }
 
 /**
- * @param {Item} item
- */
-function InventoryItemPelvisObedienceBeltInit(item) {
-	if (!item) return;
-	item.Property = item.Property || {};
-	if (typeof item.Property.Type !== "string") item.Property.Type = "";
-	if (typeof item.Property.ShowText !== "boolean") item.Property.ShowText = false;
-	if (typeof item.Property.PunishOrgasm !== "boolean") item.Property.PunishOrgasm = false;
-	if (typeof item.Property.PunishStandup !== "boolean") item.Property.PunishStandup = false;
-	if (typeof item.Property.NextShockTime !== "number") item.Property.NextShockTime = 0;
-	if (typeof item.Property.Text !== "string") item.Property.Text = "";
-}
-
-/**
  * @param {Item} Item
  */
 function InventoryObedienceBeltCheckPunish(Item) {
@@ -175,8 +118,6 @@ function AssetsItemPelvisObedienceBeltScriptDraw(data) {
 	if (typeof persistentData.LastMessageLen !== "number") persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;
 	if (typeof persistentData.CheckTime !== "number") persistentData.CheckTime = 0;
 
-	InventoryItemPelvisObedienceBeltInit(data.Item);
-
 	// Trigger a check if a new message is detected
 	let lastMsgIndex = ChatRoomChatLog.length - 1;
 	if (lastMsgIndex >= 0 && ChatRoomChatLog[lastMsgIndex].Time > persistentData.CheckTime)
@@ -203,7 +144,7 @@ function AssetsItemPelvisObedienceBeltAfterDraw({
 	// Fetch the text property and assert that it matches the character
 	// and length requirements
 	let text = Property && typeof Property.Text === "string" && DynamicDrawTextRegex.test(Property.Text) ? Property.Text : "";
-	text = text.substring(0, InventoryItemPelvisObedienceBeltEngraveLength);
+	text = text.substring(0, A.TextMaxLength.Text);
 
 	// Prepare a temporary canvas to draw the text to
 	const height = 60;
@@ -213,7 +154,7 @@ function AssetsItemPelvisObedienceBeltAfterDraw({
 
 	DynamicDrawTextArc(text, ctx, width / 2, 42, {
 		fontSize: 28,
-		fontFamily: InventoryItemPelvisObedienceBeltEngraveFont,
+		fontFamily: A.TextFont,
 		width,
 		color: Color,
 		angle: Math.PI,
