@@ -1558,6 +1558,7 @@ function PrivateStartFiancee() {
  * @returns {void} - Nothing.
  */
  function PrivateStartWife() {
+	NPCEventAdd(CurrentCharacter, "NewCloth", CurrentTime);
 	NPCEventAdd(CurrentCharacter, "Wife", CurrentTime);
 	NPCLoveChange(CurrentCharacter, 20);
 	InventoryAdd(Player, "WeddingDress1", "Cloth", true);

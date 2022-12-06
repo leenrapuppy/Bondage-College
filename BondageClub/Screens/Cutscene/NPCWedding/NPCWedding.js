@@ -23,12 +23,12 @@ var NPCWeddingGirlRight = null;
  * @param {Character} C - The character that must wear the ring.
  * @returns {void} - Nothing.
  */
- function NPCWeddingBridemaid(C) {
+ function NPCWeddingBridesmaid(C) {
 	CharacterNaked(C);
 	InventoryWear(C, "BridesmaidDress1", "Cloth");
 	InventoryWear(C, "Bouquet", "ClothAccessory");
-	InventoryWear(C, "Stockings2", "Socks");
-	InventoryWear(C, "Heels1", "Shoes", "#DDDDDD");
+	InventoryWear(C, "Stockings1", "Socks", "#FF4444");
+	InventoryWear(C, "Heels1", "Shoes", "#800000");
 }
 
 /**
@@ -36,11 +36,16 @@ var NPCWeddingGirlRight = null;
  * @returns {void} - Nothing
  */
 function NPCWeddingLoad() {
+	CharacterRelease(Player);
+	CharacterRelease(NPCWeddingWife);
+	CharacterSetActivePose(Player, null);
+	CharacterSetActivePose(NPCWeddingWife, null);
 	CutsceneStage = 0;
+	NPCWeddingBackground = CommonRandomItemFromList("", ["WeddingRoom", "WeddingArch", "WeddingBeach"])
 	NPCWeddingGirlLeft = CharacterLoadNPC("NPC_NPCWedding_GirlLeft");
-	NPCWeddingBridemaid(NPCWeddingGirlLeft);
+	NPCWeddingBridesmaid(NPCWeddingGirlLeft);
 	NPCWeddingGirlRight = CharacterLoadNPC("NPC_NPCWedding_GirlRight");
-	NPCWeddingBridemaid(NPCWeddingGirlRight);
+	NPCWeddingBridesmaid(NPCWeddingGirlRight);
 }
 
 /**
@@ -50,7 +55,7 @@ function NPCWeddingLoad() {
 function NPCWeddingRun() {
 	DrawCharacter(Player, 500, 0, 1);
 	DrawCharacter(NPCWeddingWife, 1000, 0, 1);
-	if (CutsceneStage >= 2) {
+	if ((CutsceneStage >= 2) && (CutsceneStage <= 8)) {
 		DrawCharacter(NPCWeddingGirlLeft, 0, 0, 1);
 		DrawCharacter(NPCWeddingGirlRight, 1500, 0, 1);
 	} 
@@ -70,14 +75,21 @@ function NPCWeddingClick() {
 	if (CutsceneStage == 4) {
 		PrivateWearRing(Player, "#D0D000");
 		PrivateWearRing(NPCWeddingWife, "#D0D000");
-		InventoryRemove(Player, "HairAccessory1")
-		InventoryRemove(NPCWeddingWife, "HairAccessory1")
 	}
 	if (CutsceneStage == 7) {
 		CharacterFullRandomRestrain(NPCWeddingGirlLeft, "ALL", true);
 		CharacterFullRandomRestrain(NPCWeddingGirlRight, "ALL", true);
 	}
-	if (CutsceneStage > 8) {
+	if (CutsceneStage == 9) {
+		NPCWeddingBackground = CommonRandomItemFromList("", ["BDSMRoomBlue", "BDSMRoomPurple", "BDSMRoomRed"])	
+	}
+	if (CutsceneStage == 10) {
+		CharacterNaked(Player);
+		CharacterNaked(NPCWeddingWife);
+	}
+	if (CutsceneStage > 11) {
+		NPCWeddingDress(Player, "WeddingDress1");
+		NPCWeddingDress(NPCWeddingWife, "WeddingDress2");
 		CommonSetScreen("Room", "Private");
 		ServerPrivateCharacterSync();
 	}
