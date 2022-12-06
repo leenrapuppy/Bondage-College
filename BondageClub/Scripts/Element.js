@@ -62,7 +62,7 @@ function ElementCreateTextArea(ID) {
  * @param {string} ID - The id of the input tag to create.
  * @param {string} Type - Type of the input tag to create.
  * @param {string} Value - Value of the input tag to create.
- * @param {string} [MaxLength] - Maximum input tag of the input to create.
+ * @param {string | number} [MaxLength] - Maximum input tag of the input to create.
  * @returns {HTMLInputElement} - The created HTML input element
  */
 function ElementCreateInput(ID, Type, Value, MaxLength) {
