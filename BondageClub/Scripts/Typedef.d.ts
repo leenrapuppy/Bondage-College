@@ -1024,6 +1024,8 @@ interface Asset {
 	CraftGroup: string;
 	ColorSuffix: Record<string, string>;
 	ExpressionPrerequisite?: string[];
+	TextMaxLength: null | Partial<Record<PropertyTextNames, number>>;
+	TextFont: null | string;
 }
 
 //#endregion
@@ -3274,3 +3276,13 @@ interface ItemColorStateType {
 }
 
 //#end region
+
+// #region property
+
+// NOTE: Use the intersection operator to enforce that the it remains a `keyof ItemProperties` subtype
+/** Property keys of {@link ItemProperties} with text input fields */
+type PropertyTextNames = keyof ItemProperties & (
+	"Text" | "Text2" | "Text3"
+);
+
+// #end region
