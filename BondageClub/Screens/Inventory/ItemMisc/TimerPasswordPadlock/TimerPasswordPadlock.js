@@ -221,16 +221,16 @@ function InventoryItemMiscTimerPasswordPadlockAdd(TimeToAdd, PlayerMemberNumberT
 		if (Property.ShowTimer) {
 			msg = timeAdded < 0 ? "TimerRemoveTime" : "TimerAddTime";
 		}
-		/** @type {ChatMessageDictionary} */
-		const Dictionary = [
-			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-			{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-			{ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name },
-		];
-		if (Property.ShowTimer) {
-			Dictionary.push({ Tag: "TimerTime", Text: Math.round(Math.abs(timeAdded)).toString() });
-			Dictionary.push({ Tag: "TimerUnit", TextToLookUp: "Minutes" });
-		}
+
+		const dictionary = new DictionaryBuilder()
+			.sourceCharacter(Player)
+			.destinationCharacter(C)
+			.focusGroup(C.FocusGroup.Name)
+			.if(Property.ShowTimer)
+				.text("TimerTime", Math.round(Math.abs(timeAdded)).toString())
+				.textLookup("TimerUnit", "Minutes")
+			.endif()
+			.build();
 
 		for (let A = 0; A < C.Appearance.length; A++) {
 			if (C.Appearance[A].Asset.Group.Name == C.FocusGroup.Name) {
@@ -239,7 +239,7 @@ function InventoryItemMiscTimerPasswordPadlockAdd(TimeToAdd, PlayerMemberNumberT
 			}
 		}
 
-		ChatRoomPublishCustomAction(msg, true, Dictionary);
+		ChatRoomPublishCustomAction(msg, true, dictionary);
 	} else {
 		CharacterRefresh(C);
 	}
