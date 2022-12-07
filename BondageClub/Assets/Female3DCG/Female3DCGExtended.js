@@ -7592,6 +7592,10 @@ var AssetFemale3DCGExtended = {
 				],
 			},
 		}, // PoofyDiaper
+		MaleCatsuitPanties: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "SuitLower", AssetName: "MaleSeamlessCatsuit" },
+		}, // MaleCatsuitPanties - Panties
 	}, // Panties
 	Glasses: {
 		EyePatch1: {
@@ -7954,7 +7958,7 @@ var AssetFemale3DCGExtended = {
 		MaleCatsuitPanties: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "SuitLower", AssetName: "MaleSeamlessCatsuit" },
-		}, // MaleCatsuitPanties
+		}, // MaleCatsuitPanties - SuitLower
 	}, // SuitLower
 	ItemHead: {
 		DuctTape: {
