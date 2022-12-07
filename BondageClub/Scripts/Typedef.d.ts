@@ -63,13 +63,6 @@ type ExtendedArchetype = "modular" | "typed" | "vibrating" | "variableheight";
 
 type TypedItemChatSetting = "toOnly" | "fromTo" | "silent";
 type ModularItemChatSetting = "perModule" | "perOption";
-type CommonChatTags =
-	| "SourceCharacter"
-	| "DestinationCharacter"
-	| "DestinationCharacterName"
-	| "TargetCharacter"
-	| "TargetCharacterName"
-	| "AssetName";
 
 type NotificationAudioType = 0 | 1 | 2;
 type NotificationAlertType = 0 | 1 | 3 | 2;
@@ -390,20 +383,188 @@ type MessageActionType = "Action" | "Chat" | "Whisper" | "Emote" | "Activity" | 
 
 type MessageContentType = string;
 
-interface ChatMessageDictionaryEntry {
-	Tag?: CommonChatTags | string;
-	Text?: string;
-	MemberNumber?: number;
-	TextToLookUp?: string;
-	AssetName?: string;
-	GroupName?: AssetGroupName;
-	/** @deprecated Use FocusGroupName instead */
-	AssetGroupName?: AssetGroupName;
-	FocusGroupName?: AssetGroupName;
-	Automatic?: boolean;
-	ShockIntensity?: number;
-	ActivityCounter?: number;
+type CharacterReferenceTag =
+	| "SourceCharacter"
+	| "DestinationCharacter"
+	| "DestinationCharacterName"
+	| "TargetCharacter"
+	| "TargetCharacterName"
+
+type CommonChatTags =
+	| CharacterReferenceTag
+	| "AssetName";
+
+/**
+ * A dictionary entry used to reference a character. The character reference tag will be replaced with the provided
+ * character's name or pronoun. The display format will depend on the tag chosen.
+ * Example substitutions for each tag (assuming the character name is Ben987):
+ * * SourceCharacter: "Ben987"
+ * * DestinationCharacter: "Ben987's" (if character is not self), "her"/"him" (if character is self)
+ * * DestinationCharacterName: "Ben987's"
+ * * TargetCharacter: "Ben987" (if character is not self), "herself"/"himself" (if character is self)
+ * * TargetCharacterName: "Ben987"
+ */
+interface CharacterReferenceDictionaryEntry {
+	/** The member number of the referenced character */
+	MemberNumber: number;
+	/** The character reference tag, determining how the character's name or pronoun will be interpreted */
+	Tag: CharacterReferenceTag;
+	/** The nickname of the referenced character */
+	Text: string;
 }
+
+/**
+ * A dictionary entry which indicates the focused group. This represents the group that was focused or interacted with
+ * when sending a chat message. For example, if the message was caused by performing an activity or modifying an item
+ * on the `ItemArms` group, then it would be appropriate to send this dictionary entry with `ItemArms` as the focus
+ * group name.
+ */
+interface FocusGroupDictionaryEntry {
+	/** The tag to be replaced - this is always FocusAssetGroup. This may be deprecated in the future. */
+	Tag: "FocusAssetGroup";
+	/** The group name representing focused group for the purposes of the sent message */
+	FocusGroupName: AssetGroupName;
+}
+
+/**
+ * A direct text substitution dictionary entry. Any occurrences of the given {@link Tag} string in the associated
+ * message will be directly replaced with the {@link Text} from this dictionary entry (no text lookup will be done).
+ * For example, given the message:
+ * ```
+ * Life is like a box of ConfectionaryName.
+ * ```
+ * and the {@link TextDictionaryEntry}:
+ * ```js
+ * {Tag: "ConfectionaryName", Text: "chocolates"}
+ * ```
+ * The resulting message would be:
+ * ```
+ * Life is like a box of chocolates.
+ * ```
+ */
+interface TextDictionaryEntry {
+	/** The tag that will be replaced in the message */
+	Tag: string;
+	/** The text that will be substituted for the tag */
+	Text: string;
+}
+
+/**
+ * A text substitution dictionary entry with text lookup functionality. Any occurrences of the given {@link Tag} string
+ * in the associated message will be replaced with the {@link Text} from the dictionary entry, but only after a text
+ * lookup has been done on the {@link Text}, meaning that if the text has localisations, the localised version will be
+ * used. The text will be looked up against `Dialog_Player.csv`.
+ * For example, given the message:
+ * ```
+ * Hello, {GreetingObjectName}!
+ * ```
+ * And the {@link TextLookupDictionaryEntry}:
+ * ```js
+ * {Tag: "GreetingObjectName", TextToLookup: "WorldObject"}
+ * ```
+ * And the following in `Dialog_Player.csv`:
+ * ```
+ * WorldObject,,,World,,
+ * ```
+ * The text to lookup (`"WorldObject"`) would be looked up against `Dialog_Player.csv`, resolving to `"World"`. This
+ * would then be used to replace the tag `"GreetingObjectName"` in the message, resulting in:
+ * ```
+ * Hello, World!
+ * ```
+ */
+interface TextLookupDictionaryEntry {
+	/** The tag that will be replaced in the message */
+	Tag: string;
+	/** The text whose lookup will be substituted for the tag */
+	TextToLookUp: string;
+}
+
+/**
+ * A dictionary entry that references an asset group. Note that this is different from
+ * {@link FocusGroupDictionaryEntry}, which denotes the group being acted on. A dictionary should only ever contain
+ * one {@link FocusGroupDictionaryEntry}, whereas it may contain many {@link GroupReferenceDictionaryEntry}s. This
+ * represents any group that might be referenced in the message, but is not necessarily the focused group.
+ * For example, given the message:
+ * ```
+ * Use your BodyPart!
+ * ```
+ * And the {@link GroupReferenceDictionaryEntry}:
+ * ```
+ * {Tag: "BodyPart", GroupName: "ItemHands"}
+ * ```
+ * The name of the `"ItemHands"` group would be looked up, and this would be used to replace the `"BodyPart"` tag. The
+ * resulting message would be:
+ * ```
+ * Use your Hands!
+ * ```
+ */
+interface GroupReferenceDictionaryEntry {
+	/** The tag which should be replaced with the group name */
+	Tag: string;
+	/** The name of the asset group to reference */
+	GroupName: AssetGroupName;
+}
+
+/**
+ * A dictionary entry that references an asset. Note that a dictionary may contain multiple of these entries, one for
+ * each asset mentioned or referenced in the message. For example, a message when swapping two restraints might contain
+ * two of these entries, one for the restraint being removed, and one for the restraint being added.
+ */
+interface AssetReferenceDictionaryEntry extends GroupReferenceDictionaryEntry {
+	/** The name of the asset being referenced */
+	AssetName: string;
+}
+
+/**
+ * A metadata dictionary entry sent with a shock event message including a shock intensity representing the strength
+ * of the shock. This is used to determine the severity of any visual or gameplay effects the shock may have.
+ */
+interface ShockEventDictionaryEntry {
+	/** The intensity of the shock - must be a non-negative number */
+	ShockIntensity: number;
+}
+
+/**
+ * A metadata dictionary entry indicating that the message has been generated due to an automated event. Can be used
+ * to filter out what might otherwise be spammy chat messages (these include things like automatic vibrator intensity
+ * changes and events & messages triggered by some futuristic items).
+ */
+interface AutomaticEventDictionaryEntry {
+	/** Indicates that this message was triggered by an automatic event */
+	Automatic: true;
+}
+
+/**
+ * A metadata dictionary entry carrying a numeric counter for an associated event or activity. Currently only used by
+ * the Anal Beads XL to indicate how many beads were inserted.
+ */
+interface ActivityCounterDictionaryEntry {
+	/** Counter metadata to be sent with a message */
+	ActivityCounter: number;
+}
+
+/**
+ * A dictionary entry for group lookup & replacement. Used ambiguously for both {@link FocusGroupDictionaryEntry} and
+ * {@link GroupReferenceDictionaryEntry}. This dictionary entry type is deprecated, and one of the aforementioned entry
+ * types should be used instead.
+ * @deprecated Use {@link FocusGroupDictionaryEntry}/{@link GroupReferenceDictionaryEntry}
+ */
+interface AssetGroupNameDictionaryEntry {
+	Tag?: string;
+	AssetGroupName: AssetGroupName;
+}
+
+type ChatMessageDictionaryEntry =
+	| CharacterReferenceDictionaryEntry
+	| FocusGroupDictionaryEntry
+	| TextDictionaryEntry
+	| TextLookupDictionaryEntry
+	| GroupReferenceDictionaryEntry
+	| AssetReferenceDictionaryEntry
+	| ShockEventDictionaryEntry
+	| AutomaticEventDictionaryEntry
+	| ActivityCounterDictionaryEntry
+	| AssetGroupNameDictionaryEntry;
 
 type ChatMessageDictionary = ChatMessageDictionaryEntry[];
 
