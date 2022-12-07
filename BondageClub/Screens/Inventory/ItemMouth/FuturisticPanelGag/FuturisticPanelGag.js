@@ -1,26 +1,5 @@
 "use strict";
 
-const AutoPunishKeywords = [
-	"moan",
-	"whimper",
-	"shout",
-	"scream",
-	"whine",
-	"growl",
-	"laugh",
-	"giggle",
-	"mutter",
-	"stutter",
-	"stammer",
-	"grunt",
-	"hiss",
-	"screech",
-	"bark",
-	"mumble",
-];
-
-let AutoPunishGagActionFlag = false;
-
 /**
  * Custom draw function.
  * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
@@ -201,39 +180,13 @@ function InventoryItemMouthFuturisticPanelGagTrigger(C, Item, Deflate) {
 /**  @type {DynamicScriptDrawCallback} */
 function AssetsItemMouthFuturisticPanelGagScriptUpdatePlayer(data) {
 	const Item = data.Item;
-
-	if (Item.Property.AutoPunish === 0) {
-		AutoPunishGagActionFlag = false;
-		return;
-	}
-
 	const LastMessages = data.PersistentData().LastMessageLen;
-	let keywords = false;
-	let gagaction = false;
 
-	if (Item.Property.AutoPunish === 3) {
-		if (AutoPunishGagActionFlag) {
-			gagaction = true;
-		} else {
-			const Message = ChatRoomLastMessage[ChatRoomLastMessage.length - 1];
-			keywords = AutoPunishKeywords.some((i) => Message.includes(i));
-		}
-	}
-	AutoPunishGagActionFlag = false;
-
-	let GagTriggerPunish = false;
-	if (ChatRoomTargetMemberNumber == null) {
-		// No trigger on whispers
-		GagTriggerPunish = InventoryItemNeckAccessoriesCollarAutoShockUnitDetectSpeech(
-			Item.Property.AutoPunish, gagaction, keywords, LastMessages
-		);
-	}
-
-	if (GagTriggerPunish) {
-		InventoryItemMouthFuturisticPanelGagTrigger(Player, Item, false);
+	if (PropertyAutoPunishDetectSpeech(Item, LastMessages)) {
+		InventoryItemMouthFuturisticPanelGagTrigger(data.C, Item, false);
 	} else if (Item.Property.AutoPunishUndoTime - CurrentTime <= 0) {
 		// Deflate the gag back to the original setting after a while
-		InventoryItemMouthFuturisticPanelGagTrigger(Player, Item, true);
+		InventoryItemMouthFuturisticPanelGagTrigger(data.C, Item, true);
 	}
 }
 
@@ -246,7 +199,7 @@ function AssetsItemMouthFuturisticPanelGagScriptDraw(data) {
 	if (typeof persistentData.LastMessageLen !== "number") persistentData.LastMessageLen = (ChatRoomLastMessage) ? ChatRoomLastMessage.length : 0;
 	if (typeof property.BlinkState !== "boolean") property.BlinkState = false;
 
-	if (ChatRoomLastMessage && ChatRoomLastMessage.length != persistentData.LastMessageLen && data.Item && data.Item.Property && data.Item.Property.Sensitivity > 0)
+	if (ChatRoomLastMessage && ChatRoomLastMessage.length != persistentData.LastMessageLen && data.Item && data.Item.Property && data.Item.Property.AutoPunish > 0)
 		persistentData.ChangeTime = Math.min(persistentData.ChangeTime, CommonTime() + 400); // Trigger shortly after if the user speaks
 
 	if (persistentData.UpdateTime < CommonTime() && data.C == Player) {

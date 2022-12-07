@@ -2471,6 +2471,18 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // ShockCollar
+		AutoShockCollar: {
+			Archetype: ExtendedArchetype.MODULAR,
+			CopyConfig: { GroupName: "ItemNeckAccessories", AssetName: "CollarAutoShockUnit" },
+			Config: {
+				Dialog: {
+					Select: "ItemNeckAccessoriesCollarAutoShockUnitSelect",
+					ModulePrefix: "ItemNeckAccessoriesCollarAutoShockUnitModule",
+					OptionPrefix: "ItemNeckAccessoriesCollarAutoShockUnitOption",
+					ChatPrefix: "ItemNeckAccessoriesCollarAutoShockUnitSet",
+				},
+			},
+		}, // AutoShockCollar
 	}, // ItemNeck
 	ItemNeckAccessories: {
 		CustomCollarTag: {
@@ -2658,6 +2670,42 @@ var AssetFemale3DCGExtended = {
 				BaselineProperty: { TriggerCount: 0, ShowText: true, BlinkState: false }
 			},
 		}, // CollarShockUnit
+		CollarAutoShockUnit: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				ChatTags: [
+					CommonChatTags.ASSET_NAME,
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+				],
+				Modules: [
+					{
+						Name: "ShockLevel", Key: "s",
+						DrawImages: false,
+						Options: [
+							{ Property: { ShockLevel: 0 } }, // s0 - Level 1
+							{ Property: { ShockLevel: 1 } }, // s1 - Level 2
+							{ Property: { ShockLevel: 2 } }, // s2 - Level 3
+						],
+					},
+					{
+						Name: "AutoPunish", Key: "y",
+						DrawImages: false,
+						Options: [
+							{ Property: { AutoPunish: 0 } }, // y0 - Off
+							{ Property: { AutoPunish: 1 } }, // y1 - Low
+							{ Property: { AutoPunish: 2 } }, // y2 - Medium
+							{ Property: { AutoPunish: 3 } }, // y3 - High
+						]
+					},
+				],
+				ScriptHooks: {
+					Draw: InventoryItemNeckAccessoriesCollarAutoShockUnitDraw,
+					Click: InventoryItemNeckAccessoriesCollarAutoShockUnitClick,
+				},
+				BaselineProperty: { TriggerCount: 0, ShowText: true, BlinkState: false },
+			},
+		}, // CollarAutoShockUnit
 	}, // ItemNeckAccessories
 	ItemNeckRestraints: {
 		PetPost: {
@@ -4022,10 +4070,10 @@ var AssetFemale3DCGExtended = {
 				],
 				BaselineProperty: { Opacity: 0 },
 				ScriptHooks: {
-					Load: OpacityLoad,
-					Draw: OpacityDraw,
-					Exit: OpacityExit,
-					Validate: OpacityValidate,
+					Load: PropertyOpacityLoad,
+					Draw: PropertyOpacityDraw,
+					Exit: PropertyOpacityExit,
+					Validate: PropertyOpacityValidate,
 				},
 				Dialog: {
 					NpcPrefix: (C, Option, PreviousOption) => `ItemDevicesLocker${Option.Name}`,
@@ -4072,10 +4120,10 @@ var AssetFemale3DCGExtended = {
 				],
 				BaselineProperty: { Opacity: 1 },
 				ScriptHooks: {
-					Load: OpacityLoad,
+					Load: PropertyOpacityLoad,
 					Draw: InventoryItemDevicesVacBedDeluxeDraw,
-					Exit: OpacityExit,
-					Validate: OpacityValidate,
+					Exit: PropertyOpacityExit,
+					Validate: PropertyOpacityValidate,
 				},
 			},
 		}, // VacBedDeluxe
@@ -4098,7 +4146,7 @@ var AssetFemale3DCGExtended = {
 					Load: InventoryItemDevicesWoodenBoxLoad,
 					Draw: InventoryItemDevicesWoodenBoxDraw,
 					Exit: InventoryItemDevicesWoodenBoxExit,
-					Validate: OpacityValidate,
+					Validate: PropertyOpacityValidate,
 				},
 			},
 		}, // WoodenBox
@@ -5193,10 +5241,10 @@ var AssetFemale3DCGExtended = {
 					},
 				],
 				ScriptHooks: {
-					Load: (next) => OpacityLoad(next, "lightbulb"),
-					Draw: (next) => OpacityDraw(next, 0, -50, "Brightness"),
-					Exit: OpacityExit,
-					Validate: OpacityValidate,
+					Load: (next) => PropertyOpacityLoad(next, "lightbulb"),
+					Draw: (next) => PropertyOpacityDraw(next, 0, -50, "Brightness"),
+					Exit: PropertyOpacityExit,
+					Validate: PropertyOpacityValidate,
 				},
 				BaselineProperty: { Opacity: 0 },
 			},

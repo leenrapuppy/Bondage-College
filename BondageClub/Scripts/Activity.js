@@ -879,8 +879,7 @@ function ActivityRun(C, ItemActivity) {
 
 	if (C.ID == 0) {
 		if (Activity.MakeSound) {
-			AutoPunishGagActionFlag = true;
-			AutoShockGagActionFlag = true;
+			PropertyAutoPunishHandled = new Set();
 		}
 	}
 

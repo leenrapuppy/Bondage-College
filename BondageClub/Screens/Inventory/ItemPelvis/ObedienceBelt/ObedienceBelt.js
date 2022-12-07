@@ -108,7 +108,7 @@ function InventoryItemPelvisObedienceBeltShockModule1Click() {
 	}
 
 	if (MouseIn(1387, 800, 225, 55)) {
-		ExtendedItemShockPublishAction();
+		PropertyShockPublishAction();
 		return;
 	}
 }
@@ -158,10 +158,10 @@ function AssetsItemPelvisObedienceBeltUpdate(data, LastTime) {
 	let punishment = InventoryObedienceBeltCheckPunish(Item);
 	switch (punishment) {
 		case "Orgasm":
-			ExtendedItemShockPublishAction(C, Item, true);
+			PropertyShockPublishAction(C, Item, true);
 			break;
 		case "StandUp":
-			ExtendedItemShockPublishAction(C, Item, true);
+			PropertyShockPublishAction(C, Item, true);
 			CharacterSetActivePose(Player, "Kneel");
 			ServerSend("ChatRoomCharacterPoseUpdate", { Pose: Player.ActivePose });
 			break;

@@ -847,7 +847,7 @@ interface Activity {
 	TargetSelf?: AssetGroupItemName[] | true;
 	/** Whether to reverse the prerequisite checks for that one */
 	Reverse?: true;
-	/** used for setting AutoPunishGagActionFlag */
+	/** used for setting {@link ExtendedItemAutoPunishHandled} */
 	MakeSound?: boolean;
 	/** An action that trigger when that activity is used */
 	StimulationAction?: StimulationAction;
@@ -1718,7 +1718,7 @@ interface ItemPropertiesCustom {
 
 	// #region Futuristic gag & panel gag settings */
 
-	/** The sensitivity of the gag's auto-inflation */
+	/** The item's auto-punishment sensitivity */
 	AutoPunish?: 0 | 1 | 2 | 3;
 	/** The remaining time for the gag's auto-inflation */
 	AutoPunishUndoTime?: number;
@@ -1778,9 +1778,6 @@ interface ItemPropertiesCustom {
 
 	/** Whether the item displays a chat message to all other people in the room */
 	ShowText?: boolean;
-
-	/** How sensitive the item is to whatever its reacting to */
-	Sensitivity?: 0 | 1 | 2 | 3;
 
 	/** Number of times the item was triggered; often used by shock collars */
 	TriggerCount?: number;

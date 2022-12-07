@@ -7,10 +7,11 @@ const BASE_PATH = "../../";
 const neededFiles = [
 	"Scripts/Common.js",
 	"Scripts/Dialog.js",
+	"Scripts/Asset.js",
 	"Scripts/ModularItem.js",
 	"Scripts/TypedItem.js",
 	"Scripts/VariableHeight.js",
-	"Scripts/Opacity.js",
+	"Scripts/Property.js",
 	"Screens/Inventory/Futuristic/Futuristic.js",
 	"Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js",
 	"Screens/Inventory/ItemNeckAccessories/CollarNameTag/CollarNameTag.js",
@@ -25,6 +26,7 @@ const neededFiles = [
 	"Screens/Inventory/ItemBreast/FuturisticBra/FuturisticBra.js",
 	"Screens/Inventory/ItemArms/TransportJacket/TransportJacket.js",
 	"Screens/Inventory/ItemMouth/FuturisticPanelGag/FuturisticPanelGag.js",
+	"Screens/Inventory/ItemNeckAccessories/CollarAutoShockUnit/CollarAutoShockUnit.js",
 	"Assets/Female3DCG/Female3DCG.js",
 	"Assets/Female3DCG/Female3DCGExtended.js"
 ];

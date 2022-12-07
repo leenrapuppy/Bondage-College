@@ -12,7 +12,7 @@ let InventoryItemDevicesWoodenBoxOriginalText = null;
  * @returns {void} - Nothing
  */
 function InventoryItemDevicesWoodenBoxLoad(OriginalFunction) {
-	OpacityLoad(OriginalFunction);
+	PropertyOpacityLoad(OriginalFunction);
 	DynamicDrawLoadFont(InventoryItemDevicesWoodenBoxFont);
 
 	const C = CharacterGetCurrent();
@@ -38,7 +38,7 @@ function InventoryItemDevicesWoodenBoxLoad(OriginalFunction) {
  * @returns {void} - Nothing
  */
 function InventoryItemDevicesWoodenBoxDraw(OriginalFunction) {
-	OpacityDraw(OriginalFunction);
+	PropertyOpacityDraw(OriginalFunction);
 	const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
 
 	MainCanvas.textAlign = "right";
@@ -76,7 +76,7 @@ function InventoryItemDevicesWoodenBoxExit() {
 	CharacterRefresh(C);
 	ChatRoomCharacterItemUpdate(C, item.Asset.Group.Name);
 
-	ElementRemove(OpacityGetID());
+	ElementRemove(PropertyGetID("Opacity"));
 	ElementRemove(InventoryItemDevicesWoodenBoxTextInputId);
 	InventoryItemDevicesWoodenBoxOriginalText = null;
 }
@@ -86,7 +86,7 @@ function InventoryItemDevicesWoodenBoxExit() {
  * @returns {void} - Nothing
  */
 function InventoryItemDevicesWoodenBoxSetOpacity() {
-	OpacityExit(false);
+	PropertyOpacityExit(false);
 	const Property = DialogFocusItem.Property;
 	const Transparent = Property.Opacity < 0.15;
 	const ExtraEffects = ["BlindNormal", "GagLight"];

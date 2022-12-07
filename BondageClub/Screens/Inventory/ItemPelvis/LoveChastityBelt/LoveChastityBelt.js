@@ -72,7 +72,7 @@ function InventoryItemPelvisLoveChastityBeltClick() {
 
     if (DialogFocusItem.Property.Type == "Shock") {
       if (MouseIn(1200, 600, 250, 65)) {
-        ExtendedItemShockPublishAction();
+        PropertyShockPublishAction();
         return;
       }
       if (MouseIn(1200, 900, 64, 64) && (MouseY <= 964) && (CurrentScreen == "ChatRoom")) {
