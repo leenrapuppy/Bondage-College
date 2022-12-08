@@ -336,6 +336,8 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 		AllowModuleTypes: Layer.AllowModuleTypes,
 		ColorIndex: 0,
 		PoseMapping: Layer.PoseMapping || A.PoseMapping,
+		HideForAttribute: Array.isArray(Layer.HideForAttribute) ? Layer.HideForAttribute : null,
+		ShowForAttribute: Array.isArray(Layer.ShowForAttribute) ? Layer.ShowForAttribute : null,
 	}, AssetParsePoseProperties(
 		Layer,
 		Array.isArray(A.AllowPose) ? A.AllowPose.slice() : null)
