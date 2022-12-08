@@ -269,7 +269,6 @@ type AssetAttribute =
 	"CanAttachMittens"
 	;
 
-/** Enum values for {@link CraftingStatusCode}. */
 type CraftingStatusType = 0 | 1 | 2;
 
 type ItemColorMode = "Default" | "ColorPicker";
@@ -3070,6 +3069,8 @@ interface PandoraBaseRoom {
 
 //#region Crafting items
 
+type CraftingMode = "Slot" | "Item" | "Property" | "Lock" | "Name" | "Color";
+
 /**
  * A struct with an items crafting-related information.
  * @see {@link Item.Craft}
@@ -3135,7 +3136,7 @@ interface CraftingItemSelected {
  * A struct with tools for validating {@link CraftingItem} properties.
  * @property {function} Validate - The validation function
  * @property {function} GetDefault - A function that creates default values for when the validation fails
- * @property {CraftingStatusType} - The {@link CraftingStatusCode} code for when the validation fails
+ * @property {CraftingStatusType} - The {@link CraftingStatusType} code for when the validation fails
  */
 interface CratingValidationStruct {
 	Validate: (Craft: CraftingItem, Asset: Asset | null) => boolean;
