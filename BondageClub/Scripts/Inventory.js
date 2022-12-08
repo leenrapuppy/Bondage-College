@@ -644,6 +644,7 @@ function InventoryWearCraftVibrating(Item, Type) {
 function InventoryWearCraftExtended(Item, Type, SetTypeCallback) {
 	// Emulate the dialog focus screen so we can safely call `Load`, `SetType` and `Exit`
 	const C = CharacterGetCurrent();
+	const FocusGroupOld = C.FocusGroup;
 	C.FocusGroup = AssetGroup.find((a) => a.Name == Item.Asset.Group.Name);
 	DialogFocusItem = Item;
 
@@ -652,7 +653,7 @@ function InventoryWearCraftExtended(Item, Type, SetTypeCallback) {
 	CommonCallFunctionByNameWarn(`${Prefix}Load`);
 	SetTypeCallback(Item, Type);
 	ExtendedItemExit();
-	C.FocusGroup = null;
+	C.FocusGroup = FocusGroupOld;
 }
 
 /**
