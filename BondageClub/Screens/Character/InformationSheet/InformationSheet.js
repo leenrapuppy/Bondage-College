@@ -17,6 +17,26 @@ function InformationSheetLoad() {
 }
 
 /**
+ * Draw the lover for the character
+ * @param {Character} C - The character whose information sheet should be displayed
+ * @param {number} L - The lover index
+ * @returns {void} - Nothing
+ */
+function InformationSheetDrawLover(C, L) {
+	DrawText(TextGet("Lover") + " " + C.Lovership[L].Name.replace("NPC-", ""), 1200, 200 + L * 150, "Black", "Gray");
+	if (C.IsPlayer() && (PrivateCharacter != null))
+		for (let P of PrivateCharacter)
+			if (P.Name == C.Lovership[L].Name.replace("NPC-", "")) {
+				if (NPCEventGet(P, "Wife") > 0)
+					DrawText(TextGet("MarriedFor") + " " + (Math.floor((CurrentTime - NPCEventGet(P, "Wife")) / 86400000)).toString() + " " + TextGet("Days"), 1200, 260 + L * 150, "Black", "Gray");
+				else if (NPCEventGet(P, "Fiancee") > 0)
+					DrawText(TextGet("EngagedFor") + " " + (Math.floor((CurrentTime - NPCEventGet(P, "Fiancee")) / 86400000)).toString() + " " + TextGet("Days"), 1200, 260 + L * 150, "Black", "Gray");
+				else if (NPCEventGet(P, "Girlfriend") > 0)
+					DrawText(TextGet("DatingFor") + " " + (Math.floor((CurrentTime - NPCEventGet(P, "Girlfriend")) / 86400000)).toString() + " " + TextGet("Days"), 1200, 260 + L * 150, "Black", "Gray");
+			}
+}
+
+/**
  * Main function of the character info screen. It's called continuously, so be careful
  * to add time consuming functions or loops here
  * @returns {void} - Nothing
@@ -145,8 +165,9 @@ function InformationSheetRun() {
 		DrawText(TextGet("Relationships"), 1200, 125, "Black", "Gray");
 		if (C.Lovership.length < 1) DrawText(TextGet("Lover") + " " + TextGet("LoverNone"), 1200, 200, "Black", "Gray");
 		for (let L = 0; L < C.Lovership.length; L++) {
-			if (C.Lovership[L].MemberNumber == null) DrawText(TextGet("Lover") + " " + C.Lovership[L].Name.replace("NPC-", ""), 1200, 200 + L * 150, "Black", "Gray");
-			else {
+			if (C.Lovership[L].MemberNumber == null) {
+				InformationSheetDrawLover(C, L);
+			} else {
 				DrawText(TextGet("Lover") + " " + C.Lovership[L].Name + " (" + C.Lovership[L].MemberNumber + ")", 1200, 200 + L * 150, "Black", "Gray");
 				DrawText(TextGet((C.Lovership[L].Stage == 0) ? "DatingFor" : (C.Lovership[L].Stage == 1) ? "EngagedFor" : "MarriedFor") + " " + (Math.floor((CurrentTime - C.Lovership[L].Start) / 86400000)).toString() + " " + TextGet("Days"), 1200, 260 + L * 150, "Black", "Gray");
 			}

@@ -707,10 +707,6 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,,,(She pets your head playfully.)  You're the cutest little bitch that I've ever had.  Bark puppy!,,CanPet(),DomIntroPet,Playful|Dumb
 1000,,,(She slowly and carefully pets you.)  A good pet needs lots of care.  I love you my submissive.,,CanPet(),DomIntroPet,Serious|Peaceful
 1000,,,(She grabs you by the back of the neck.)  Does this slave puppy need a spanking?,,CanPet(),DomIntroPet,Dominant|Violent
-1000,,,(She smiles seeing you on your knees.)  What's on your mind my subbie?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,
-1000,,,(She gives you a stern look and nods.)  Your posture shows respect and docility.  What do you need little one?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,Dominant|Polite
-1000,,,(She stays far from you but smiles seeing your position.)  Is there anything you desire my protege?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,Frigid|Wise
-1000,,,"Yes, my sexy subbie?  (She comes closer and pets your head gently.)",,DialogIsKneeling(Player),DomIntroPlayerKneeling,Peaceful|Horny
 1000,,,What's on your mind my submissive spouse?,,IsWife(),DomIntroWife,
 1000,,,What's going my slave-wife?,,IsWife(),DomIntroWife,Dominant|Violent
 1000,,,Please tell me of your feeling's my little better half.,,IsWife(),DomIntroWife,Submissive|Peaceful
@@ -732,6 +728,10 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 1000,,,What troubles you my little loved one?,,IsLover(),DomIntroGirlfriend,Frigid|Serious
 1000,,,Let's have a tete-a-tete my submissive love.,,IsLover(),DomIntroGirlfriend,Polite|Wise
 1000,,,What's up slave luv?,,IsLover(),DomIntroGirlfriend,Dumb|Rude
+1000,,,(She smiles seeing you on your knees.)  What's on your mind my subbie?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,
+1000,,,(She gives you a stern look and nods.)  Your posture shows respect and docility.  What do you need little one?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,Dominant|Polite
+1000,,,(She stays far from you but smiles seeing your position.)  Is there anything you desire my protege?,,DialogIsKneeling(Player),DomIntroPlayerKneeling,Frigid|Wise
+1000,,,"Yes, my sexy subbie?  (She comes closer and pets your head gently.)",,DialogIsKneeling(Player),DomIntroPlayerKneeling,Peaceful|Horny
 1000,,,What's on your mind my subbie?,,,DomIntro,
 1000,,,Hey there my cute sub.  What's on your mind?,,,DomIntro,Horny
 1000,,,Yo bitch.  What's up?,,,DomIntro,Rude
