@@ -76,6 +76,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		AllowedActivePose: [],
 		Effect: [],
 		Tints: [],
+		Attribute: [],
 		FocusGroup: null,
 		Canvas: null,
 		CanvasBlink: null,
@@ -356,6 +357,9 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		},
 		GetTints: function() {
 			return CharacterGetTints(this);
+		},
+		HasAttribute: function(attribute) {
+			return this.Attribute.includes(attribute);
 		},
 		GetGenders: function () {
 			return this.Appearance.map(asset => asset.Asset.Gender).filter(a => a);
@@ -956,6 +960,26 @@ function CharacterLoadPose(C) {
 function CharacterLoadEffect(C) {
 	C.Effect = CharacterGetEffects(C);
 	CharacterLoadTints(C);
+	CharacterLoadAttributes(C);
+}
+
+/**
+ * Refreshes the character's attribute list
+ * @param {Character} C
+ * @returns {void} - Nothing
+ */
+function CharacterLoadAttributes(C) {
+	/** @type {Set<AssetAttribute>} */
+	const attributes = new Set();
+	C.Attribute = [];
+	for (const item of C.Appearance) {
+		if (Array.isArray(item.Asset.Attribute)) {
+			for (const attribute of item.Asset.Attribute) {
+				attributes.add(attribute);
+			}
+		}
+	}
+	C.Attribute = Array.from(attributes);
 }
 
 /**

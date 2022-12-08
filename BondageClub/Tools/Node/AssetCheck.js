@@ -194,6 +194,12 @@ function loadCSV(path, expectedWidth) {
 								if (Asset.AllowBlock !== undefined) {
 									error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowBlock (unless they use subscreens)`);
 								}
+								if (Asset.AllowHide !== undefined) {
+									error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowHide (unless they use subscreens)`);
+								}
+								if (Asset.AllowHideItem !== undefined) {
+									error(`Asset ${Group.Group}:${Asset.Name}: Assets using "typed" archetype should NOT set AllowHideItem (unless they use subscreens)`);
+								}
 							}
 						}
 					}
@@ -202,6 +208,19 @@ function loadCSV(path, expectedWidth) {
 					}
 					if (!["modular", "typed", "vibrating"].includes(assetConfig.Archetype)) {
 						error(`Extended asset archetype for ${Group.Group}:${Asset.Name}: Unknown Archetype ${assetConfig.Archetype}`);
+					}
+				}
+			}
+
+			if (Array.isArray(Asset.Layer)) {
+				for (const layerDef of Asset.Layer) {
+					// Check for conflicting layer properties
+					if (Array.isArray(layerDef.HideForAttribute) && Array.isArray(layerDef.ShowForAttribute)) {
+						for (const attribute of layerDef.HideForAttribute) {
+							if (layerDef.ShowForAttribute.includes(attribute)) {
+								error(`Layer ${Group.Group}:${Asset.Name}:${layerDef.Name}: Attribute "${attribute}" should NOT appear in both HideForAttribute and ShowForAttribute`);
+							}
+						}
 					}
 				}
 			}

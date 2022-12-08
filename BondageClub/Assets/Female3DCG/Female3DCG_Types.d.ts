@@ -289,10 +289,10 @@ interface AssetDefinition {
 	FuturisticRecolorDisplay?: boolean;
 
 	/** A list of attributes the asset has */
-	Attribute?: string[];
+	Attribute?: AssetAttribute[];
 
 	/** A list of attributes that causes this one to become hidden. */
-	HideItemAttribute?: string[];
+	HideItemAttribute?: AssetAttribute[];
 
 	/**
 	 * A list of icons the asset preview should show.
@@ -369,4 +369,8 @@ interface AssetLayerDefinition {
 	PoseMapping?: { [index: string]: string };
 	AllowModuleTypes?: string[];
 	ModuleType?: string[];
+	/* Specifies that this layer should not be drawn if the character is wearing any item with the given attributes */
+	HideForAttribute?: AssetAttribute[];
+	/* Specifies that this layer should not be drawn unless the character is wearing an item with one of the given attributes */
+	ShowForAttribute?: AssetAttribute[];
 }

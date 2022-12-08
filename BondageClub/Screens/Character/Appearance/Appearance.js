@@ -306,28 +306,47 @@ function CharacterAppearanceStripLayer(C) {
 }
 
 /**
+ * Determines whether an asset layer should be rendered, assuming the asset itself is visible.
+ * @param {Character} C - The character wearing the item
+ * @param {AssetLayer} layer - The layer to check visibility for
+ * @param {Asset} asset - The asset that the layer belongs to
+ * @param {string} [type] - The item's type, if it has one
+ * @returns {boolean} - TRUE if the layer should be visible, FALSE otherwise
+ */
+function CharacterAppearanceIsLayerVisible(C, layer, asset, type= "") {
+	return (
+		// Only include layers that permit the current type (if AllowTypes is not defined, also include the layer)
+		(!layer.AllowTypes || layer.AllowTypes.includes(type))
+		// Hide the layer if its HideAs proxy asset should be hidden
+		&& (!layer.HideAs || CharacterAppearanceVisible(C, layer.HideAs.Asset, layer.HideAs.Group))
+		// Hide the layer if it should be hidden for the current pose
+		&& (!layer.HideForPose || !layer.HideForPose.includes(CommonDrawResolveAssetPose(C, asset, layer)))
+		// Hide the layer if it should be hidden by an attribute on an item that the character has equipped
+		&& (!layer.HideForAttribute || layer.HideForAttribute.every((attribute) => !C.HasAttribute(attribute)))
+		// Only show the layer if the character has at least one attribute that it requires
+		&& (!layer.ShowForAttribute || layer.ShowForAttribute.some((attribute) => C.HasAttribute(attribute)))
+	);
+}
+
+/**
  * Builds a filtered and sorted set of appearance layers, each representing a drawable layer of a character's current appearance. Layers
  * that will not be drawn (because their asset is not visible or they do not permit the current asset type) are filtered out at this stage.
  * @param {Character} C - The character to build the layers for
  * @return {AssetLayer[]} - A sorted set of layers, sorted by layer drawing priority
  */
 function CharacterAppearanceSortLayers(C) {
-	var groupAlphas = {};
-	var layers = C.DrawAppearance.reduce((layersAcc, item) => {
-		var asset = item.Asset;
+	/** @type {Partial<Record<AssetGroupName, AlphaDefinition[]>>} */
+	const groupAlphas = {};
+	const layers = C.DrawAppearance.reduce((layersAcc, item) => {
+		const asset = item.Asset;
 		// Only include layers for visible assets
 		if (asset.Visible && CharacterAppearanceVisible(C, asset.Name, asset.Group.Name) && InventoryChatRoomAllow(asset.Category)) {
 			// Check if we need to draw a different variation (from type property)
-			var type = (item.Property && item.Property.Type) || "";
-			var layersToDraw = asset.Layer
-				// Only include layers that permit the current type (if AllowTypes is not defined, also include the layer)
-				.filter(layer => !layer.AllowTypes || layer.AllowTypes.includes(type))
-				// Hide the layer if its HideAs proxy asset should be hidden
-				.filter(layer => !layer.HideAs || CharacterAppearanceVisible(C, layer.HideAs.Asset, layer.HideAs.Group))
-				// Hide the layer if it should be hidden for the current pose
-				.filter(layer => !layer.HideForPose || !layer.HideForPose.includes(CommonDrawResolveAssetPose(C, asset, layer)))
+			const type = (item.Property && item.Property.Type) || "";
+			const layersToDraw = asset.Layer
+				.filter(layer => CharacterAppearanceIsLayerVisible(C, layer, asset, type))
 				.map(layer => {
-					var drawLayer = Object.assign({}, layer);
+					const drawLayer = Object.assign({}, layer);
 					// Store any group-level alpha mask definitions
 					drawLayer.Alpha.forEach(alphaDef => {
 						if ((alphaDef.Group && alphaDef.Group.length) && (!alphaDef.Type || !Array.isArray(alphaDef.Type) || alphaDef.Type.includes(type))) {

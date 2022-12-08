@@ -264,6 +264,11 @@ type CraftingPropertyType =
 	"Flexible" | "Nimble" | "Arousing" | "Dull"
 	;
 
+type AssetAttribute =
+	"Skirt" |
+	"CanAttachMittens"
+	;
+
 /** Enum values for {@link CraftingStatusCode}. */
 type CraftingStatusType = 0 | 1 | 2;
 
@@ -818,6 +823,10 @@ interface AssetLayer {
 	GroupAlpha?: AlphaDefinition[];
 	/** A module for which the layer can have types. */
 	ModuleType: string[] | null;
+	/* Specifies that this layer should not be drawn if the character is wearing any item with the given attributes */
+	HideForAttribute: AssetAttribute[] | null;
+	/* Specifies that this layer should not be drawn unless the character is wearing an item with one of the given attributes */
+	ShowForAttribute: AssetAttribute[] | null;
 }
 
 /** An object defining a group of alpha masks to be applied when drawing an asset layer */
@@ -880,7 +889,7 @@ interface Asset {
 	Hide?: string[];
 	HideItem?: string[];
 	HideItemExclude: string[];
-	HideItemAttribute: string[];
+	HideItemAttribute: AssetAttribute[];
 	Require: string[];
 	SetPose?: string[];
 	AllowPose: string[] | null;
@@ -962,7 +971,7 @@ interface Asset {
 	Layer: AssetLayer[];
 	ColorableLayerCount: number;
 	Archetype?: string;
-	Attribute: string[];
+	Attribute: AssetAttribute[];
 	PreviewIcons: InventoryIcon[];
 	Tint: TintDefinition[];
 	AllowTint: boolean;
@@ -1179,6 +1188,7 @@ interface Character {
 	Pose: string[];
 	Effect: string[];
 	Tints: ResolvedTintDefinition[];
+	Attribute: AssetAttribute[];
 	FocusGroup: AssetGroup | null;
 	Canvas: HTMLCanvasElement | null;
 	CanvasBlink: HTMLCanvasElement | null;
@@ -1269,6 +1279,7 @@ interface Character {
 	HasEffect: (Effect: string) => boolean;
 	HasTints: () => boolean;
 	GetTints: () => RGBAColor[];
+	HasAttribute: (attribute: AssetAttribute) => boolean;
 	DrawPose?: string[];
 	DrawAppearance?: Item[];
 	AppearanceLayers?: AssetLayer[];
@@ -1651,7 +1662,7 @@ interface AssetDefinitionProperties {
 	 * ???
 	 * @see {@link Asset.Attribute}
 	 */
-	Attribute?: string[];
+	Attribute?: AssetAttribute[];
 
 	/**
 	 * Override the height of the item
