@@ -584,7 +584,9 @@ function InventoryWearCraftModular(Item, Type) {
 * @returns {void}
 */
 function InventoryWearCraftTyped(Item, Type) {
-	TypedItemSetOptionByName(CharacterGetCurrent(), Item, Type);
+	if (Type != null) {
+		TypedItemSetOptionByName(CharacterGetCurrent(), Item, Type);
+	}
 }
 
 /**
@@ -662,12 +664,7 @@ function InventoryWearCraft(Item, Craft) {
 	if ((Item == null) || (Item.Asset == null) || (Craft == null)) return;
 	Item.Craft = Craft;
 
-	if (
-		(Craft.Type != null)
-		&& (Item.Asset.AllowType != null)
-		&& (Item.Asset.AllowType.indexOf(Craft.Type) >= 0)
-		&& (Item.Asset.Extended)
-	) {
+	if ((Item.Asset.AllowType != null) && (Item.Asset.AllowType.length >= 1)) {
 		const Archetype = Item.Asset.Archetype || "misc";
 		switch(Archetype) {
 			case ExtendedArchetype.TYPED:
