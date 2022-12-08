@@ -59,6 +59,9 @@ ClothLaurelLace,Lace
 ClothSeethroughTopLace,Lace
 ClothSeethroughTopDesign,Design
 ClothJacketBase,Jacket
+ClothButtonShirtTop,Upper Gradient
+ClothButtonShirtBottom,Lower Gradient
+ClothButtonShirtButtons,Buttons
 ClothAccessoryBouquetBase,Holder
 ClothAccessoryBouquetFlowers,Flowers
 ClothAccessoryCapeFront,Front
@@ -89,6 +92,8 @@ SuitSeethroughSuitZipZip,Zip
 SuitSeethroughSuitZipGloves,Gloves
 SuitSeamlessCatsuitSuit,Suit
 SuitSeamlessCatsuitGloves,Gloves
+SuitMaleSeamlessCatsuitBase,Catsuit
+SuitMaleSeamlessCatsuitGloves,Gloves
 SuitSeethroughSuitSuit,Suit
 SuitSeethroughSuitGloves,Gloves
 SuitReverseBunnySuitSuit,Suit
@@ -145,6 +150,10 @@ SuitLowerCatsuitBase,Suit
 SuitLowerCatsuitZip,Zip
 SuitLowerSeethroughSuitZipBase,Suit
 SuitLowerSeethroughSuitZipZip,Zip
+SuitLowerMaleSeamlessCatsuitBase,Catsuit
+SuitLowerMaleSeamlessCatsuitLock,Lock Icon
+SuitLowerMaleCatsuitPantiesBase,Catsuit Panties
+SuitLowerMaleCatsuitPantiesLock,Lock Icon
 PantiesDiapers2Diaper,Diaper
 PantiesDiapers2Cover,Plastic Cover
 PantiesDiapers4Diaper,Diaper

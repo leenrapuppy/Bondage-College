@@ -285,7 +285,15 @@ var AssetFemale3DCG = [
 			// Flat Chest Compatible Clothing
 			{
 				Name: "MaleTankTop1", Gender: "M", Prerequisite: ["HasFlatChest"], HideItem: ["ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump", "BraRibbons", "ItemBreastRibbons"]
-			}
+			},
+			{
+				Name: "ButtonShirt", Gender: "M", Prerequisite: ["HasFlatChest"], Value: 30, DefaultColor: ["#b4b4b4", "#3858aa", "#8c8c8c"], HideItem: ["ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump", "BraRibbons", "ItemBreastRibbons"],
+				Layer: [
+					{ Name: "Bottom", AllowColorize: true },
+					{ Name: "Top", AllowColorize: true },
+					{ Name: "Buttons", AllowColorize: true },
+				],
+			},
 		],
 		Color: ["Default", "#202020", "#808080", "#bbbbbb", "#aa8080", "#80aa80", "#8080aa", "#aaaa80", "#80aaaa", "#aa80aa", "#cc3333", "#33cc33", "#3333cc", "#cccc33", "#33cccc", "#cc33cc"]
 	},
