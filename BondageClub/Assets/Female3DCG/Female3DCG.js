@@ -5250,10 +5250,10 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "HarnessBallGag1", Fetish: ["Leather"], Value: 75, Difficulty: 6, Time: 20, AllowLock: true, BuyGroup: "HarnessBallGag1", Prerequisite: "GagUnique", Hide: ["Mouth"], Effect: ["BlockMouth", "GagHeavy"], ExpressionTrigger: [{ Name: "DroolSides", Group: "Fluids", Timer: 30 }],
+				Name: "HarnessBallGag1", Fetish: ["Leather"], Value: 75, Difficulty: 6, Time: 20, AllowLock: true, BuyGroup: "HarnessBallGag1", Prerequisite: "GagUnique", Hide: ["Mouth"], Effect: ["BlockMouth", "GagHeavy"], ExpressionTrigger: [{ Name: "DroolSides", Group: "Fluids", Timer: 30 }], Extended: true,
 				Layer: [
 					{ Name: "Ball" },
-					{ Name: "Strap" },
+					{ Name: "Strap", HasType: false },
 				]
 			},
 			{
@@ -5713,10 +5713,10 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "HarnessBallGag1", Fetish: ["Leather"], Value: -1, Difficulty: 6, Time: 20, AllowLock: true, BuyGroup: "HarnessBallGag1", Prerequisite: "GagUnique", Hide: ["Mouth"], Effect: ["BlockMouth", "GagHeavy"], ExpressionTrigger: [{ Name: "DroolSides", Group: "Fluids", Timer: 30 }],
+				Name: "HarnessBallGag1", Fetish: ["Leather"], Value: -1, Difficulty: 6, Time: 20, AllowLock: true, BuyGroup: "HarnessBallGag1", Prerequisite: "GagUnique", Hide: ["Mouth"], Effect: ["BlockMouth", "GagHeavy"], ExpressionTrigger: [{ Name: "DroolSides", Group: "Fluids", Timer: 30 }], Extended: true,
 				Layer: [
 					{ Name: "Ball" },
-					{ Name: "Strap" },
+					{ Name: "Strap", HasType: false },
 				]
 			},
 			{
@@ -6078,10 +6078,10 @@ var AssetFemale3DCG = [
 				]
 			},
 			{
-				Name: "HarnessBallGag1", Value: -1, Difficulty: 6, Time: 20, AllowLock: true, BuyGroup: "HarnessBallGag1", Prerequisite: "GagUnique", Hide: ["Mouth"], Effect: ["BlockMouth", "GagHeavy"], ExpressionTrigger: [{ Name: "DroolSides", Group: "Fluids", Timer: 30 }],
+				Name: "HarnessBallGag1", Value: -1, Difficulty: 6, Time: 20, AllowLock: true, BuyGroup: "HarnessBallGag1", Prerequisite: "GagUnique", Hide: ["Mouth"], Effect: ["BlockMouth", "GagHeavy"], ExpressionTrigger: [{ Name: "DroolSides", Group: "Fluids", Timer: 30 }], Extended: true,
 				Layer: [
 					{ Name: "Ball" },
-					{ Name: "Strap" },
+					{ Name: "Strap", HasType: false },
 				]
 			},
 			{

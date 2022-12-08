@@ -5480,6 +5480,32 @@ var AssetFemale3DCGExtended = {
 				},
 			},
 		}, // DuctTape
+		HarnessBallGag1: {
+			Archetype: ExtendedArchetype.TYPED,
+			Config: {
+				Options: [
+					{
+						Name: "Normal",
+						Property: {
+							Type: null,
+							Effect: ["BlockMouth", "GagMedium"],
+						},
+					},
+					{
+						Name: "Tight",
+						Property: {
+							Type: "Tight",
+							Effect: ["BlockMouth", "GagMedium"],
+						},
+					},
+				],
+				Dialog: {
+					Load: "SelectGagType",
+					TypePrefix: "BallGagMouthType",
+					ChatPrefix: "BallGagMouthSet",
+				},
+			},
+		}, // HarnessBallGag1
 		CupholderGag: {
 			Archetype: ExtendedArchetype.TYPED,
 			Config: {
@@ -6063,6 +6089,10 @@ var AssetFemale3DCGExtended = {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "DuctTape" },
 		},
+		HarnessBallGag1: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "HarnessBallGag1" },
+		},
 		CupholderGag: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "CupholderGag" },
@@ -6124,6 +6154,10 @@ var AssetFemale3DCGExtended = {
 		DuctTape: {
 			Archetype: ExtendedArchetype.TYPED,
 			CopyConfig: { GroupName: "ItemMouth", AssetName: "DuctTape" },
+		},
+		HarnessBallGag1: {
+			Archetype: ExtendedArchetype.TYPED,
+			CopyConfig: { GroupName: "ItemMouth", AssetName: "HarnessBallGag1" },
 		},
 		CupholderGag: {
 			Archetype: ExtendedArchetype.TYPED,
