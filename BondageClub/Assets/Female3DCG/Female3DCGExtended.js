@@ -405,10 +405,6 @@ var AssetFemale3DCGExtended = {
 						{}, //c1 - BaseStained
 						{}, //c2 - Torn1
 						{}, //c3 - Torn1Stained
-						/*{}, //c4 - Torn2
-						{}, //c5 - Torn2Stained
-						{}, //c6 - Torn3
-						{}, //c7 - Torn3Stained*/
 						],
 					},
 					{
