@@ -523,7 +523,6 @@ function TypedItemSetOptionByName(C, itemOrGroupName, optionName, push = false) 
 function TypedItemSetOption(C, item, options, option, push = false) {
 	if (!item || !options || !option) return;
 
-	const previousProperty = item.Property || options[0].Property;
 	const newProperty = JSON.parse(JSON.stringify(option.Property));
 	const previousOption = TypedItemFindPreviousOption(item, options);
 
@@ -532,7 +531,7 @@ function TypedItemSetOption(C, item, options, option, push = false) {
 		return requirementMessage;
 	}
 
-	ExtendedItemSetOption(C, item, previousProperty, newProperty, push);
+	ExtendedItemSetOption(C, item, previousOption.Property, newProperty, push);
 }
 
 /**

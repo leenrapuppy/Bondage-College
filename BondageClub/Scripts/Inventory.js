@@ -584,7 +584,9 @@ function InventoryWearCraftModular(Item, Type) {
 * @returns {void}
 */
 function InventoryWearCraftTyped(Item, Type) {
-	TypedItemSetOptionByName(CharacterGetCurrent(), Item, Type);
+	if (Type != null) {
+		TypedItemSetOptionByName(CharacterGetCurrent(), Item, Type);
+	}
 }
 
 /**
@@ -642,6 +644,7 @@ function InventoryWearCraftVibrating(Item, Type) {
 function InventoryWearCraftExtended(Item, Type, SetTypeCallback) {
 	// Emulate the dialog focus screen so we can safely call `Load`, `SetType` and `Exit`
 	const C = CharacterGetCurrent();
+	const FocusGroupOld = C.FocusGroup;
 	C.FocusGroup = AssetGroup.find((a) => a.Name == Item.Asset.Group.Name);
 	DialogFocusItem = Item;
 
@@ -650,7 +653,7 @@ function InventoryWearCraftExtended(Item, Type, SetTypeCallback) {
 	CommonCallFunctionByNameWarn(`${Prefix}Load`);
 	SetTypeCallback(Item, Type);
 	ExtendedItemExit();
-	C.FocusGroup = null;
+	C.FocusGroup = FocusGroupOld;
 }
 
 /**
@@ -662,12 +665,7 @@ function InventoryWearCraft(Item, Craft) {
 	if ((Item == null) || (Item.Asset == null) || (Craft == null)) return;
 	Item.Craft = Craft;
 
-	if (
-		(Craft.Type != null)
-		&& (Item.Asset.AllowType != null)
-		&& (Item.Asset.AllowType.indexOf(Craft.Type) >= 0)
-		&& (Item.Asset.Extended)
-	) {
+	if ((Item.Asset.AllowType != null) && (Item.Asset.AllowType.length >= 1)) {
 		const Archetype = Item.Asset.Archetype || "misc";
 		switch(Archetype) {
 			case ExtendedArchetype.TYPED:

@@ -1,25 +1,61 @@
 "use strict";
-var CraftingBackground = "CraftingWorkshop";
-var CraftingMode = "Slot";
-var CraftingDestroy = false;
-var CraftingSlot = 0;
-/** @type {CraftingItemSelected} */
-var CraftingSelectedItem = null;
-var CraftingOffset = 0;
-/** @type {Asset[]} */
-var CraftingItemList = [];
-var CraftingSlotMax = 40;
-/** @type {Character} */
-var CraftingPreview = null;
-/** @type {boolean} */
-var CraftingNakedPreview = false;
-var CraftingReturnToChatroom = false;
+
+/** The background of the crafting screen. */
+const CraftingBackground = "CraftingWorkshop";
+
+/**
+ * The active subscreen within the crafting screen:
+ * * `"Slot"`: The main crafting screens wherein the {@link CraftingItem} is selected, created or destroyed.
+ * * `"Item"`: The item selection screen wherein the underlying {@link Asset} is selected.
+ * * `"Property"`: The {@link CraftingPropertyType} selection screen.
+ * * `"Lock"`: The {@link CraftingLockList} selection screen.
+ * * `"Name"`: The main menu wherein the crafted item is customized, allowing for the specification of names, descriptions, colors, extended item types, _etc._
+ * * `"Color"`: A dedicated coloring screen for the crafted item.
+ * @type {"Slot" | "Item" | "Property" | "Lock" | "Name" | "Color"}
+ */
+let CraftingMode = "Slot";
+
+/** Whether selecting a crafted item in the crafting screen should destroy it. */
+let CraftingDestroy = false;
+
+/** The index of the selected crafted item within the crafting screen. */
+let CraftingSlot = 0;
+
+/**
+ * The currently selected crafted item in the crafting screen.
+ * @type {CraftingItemSelected | null}
+ */
+let CraftingSelectedItem = null;
+
+/** An offset used for the pagination of {@link CraftingItemList} and all crafted items. */
+let CraftingOffset = 0;
+
+/**
+ * A list of all assets valid for crafting, potentially filtered by a user-provided keyword.
+ * @type {Asset[]}
+ */
+let CraftingItemList = [];
+
+/** The maximum number of crafting slots. */
+let CraftingSlotMax = 40;
+
+/**
+ * The character used for the crafting preview.
+ * @type {Character | null}
+ */
+let CraftingPreview = null;
+
+/** Whether the crafting character preview should be naked or not. */
+let CraftingNakedPreview = false;
+
+/** Whether exiting the crafting menu should return you to the chatroom or, otherwise, the main hall. */
+let CraftingReturnToChatroom = false;
 
 /**
  * Map crafting properties to their respective validation function.
  * @type {Map<CraftingPropertyType, (asset: Asset) => boolean>}
  */
-var CraftingPropertyMap = new Map([
+const CraftingPropertyMap = new Map([
 	["Normal", function(Item) { return true; }],
 	["Large", function(Item) { return CraftingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); }],
 	["Small", function(Item) { return CraftingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); }],
@@ -42,20 +78,24 @@ var CraftingPropertyMap = new Map([
 ]);
 
 /**
- * An enum with {@link CraftingStatusType} status codes for crafting validation.
+ * An enum with status codes for crafting validation.
  * @property OK - The validation proceded without errors
  * @property ERROR - The validation produced one or more errors that were successfully resolved
  * @property CRITICAL_ERROR - The validation produced an unrecoverable error
  * @type {{OK: 2, ERROR: 1, CRITICAL_ERROR: 0}}
  */
-const CraftingStatusCode = {
+const CraftingStatusType = {
 	OK: 2,
 	ERROR: 1,
 	CRITICAL_ERROR: 0,
 }
 
-/** @type {(AssetLockType | "")[]} */
-var CraftingLockList = ["", "MetalPadlock", "IntricatePadlock", "HighSecurityPadlock", "OwnerPadlock", "LoversPadlock", "MistressPadlock", "PandoraPadlock", "ExclusivePadlock"];
+/**
+ * The Names of all locks that can be automatically applied to crafted items.
+ * An empty string implies the absence of a lock.
+ * @type {readonly (AssetLockType | "")[]}
+ */
+const CraftingLockList = ["", "MetalPadlock", "IntricatePadlock", "HighSecurityPadlock", "OwnerPadlock", "LoversPadlock", "MistressPadlock", "PandoraPadlock", "ExclusivePadlock"];
 
 /**
  * Returns TRUE if a crafting item has an effect from a list or allows that effect
@@ -290,7 +330,7 @@ function CraftingRun() {
 
 /**
  * Sets the new mode and creates or removes the inputs
- * @param {string} NewMode - The new mode to set
+ * @param {CraftingMode} NewMode - The new mode to set
  * @returns {void} - Nothing
  */
 function CraftingModeSet(NewMode) {
@@ -453,14 +493,14 @@ function CraftingLoadServer(Packet) {
 	for (const item of data) {
 		// Make sure that the item is a valid craft
 		switch (CraftingValidate(item)) {
-			case CraftingStatusCode.OK:
+			case CraftingStatusType.OK:
 				Player.Crafting.push(item);
 				break;
-			case CraftingStatusCode.ERROR:
+			case CraftingStatusType.ERROR:
 				Player.Crafting.push(item);
 				Refresh = true;
 				break;
-			case CraftingStatusCode.CRITICAL_ERROR:
+			case CraftingStatusType.CRITICAL_ERROR:
 				Player.Crafting.push(null);
 				Refresh = true;
 				break;
@@ -823,17 +863,17 @@ function CraftingItemListBuild() {
 				return ColorsNew.join(",");
 			}
 		},
-		StatusCode: CraftingStatusCode.ERROR,
+		StatusCode: CraftingStatusType.ERROR,
 	},
 	Description: {
 		Validate: (c, a) => typeof c.Description === "string",
 		GetDefault: (c, a) => "",
-		StatusCode: CraftingStatusCode.ERROR,
+		StatusCode: CraftingStatusType.ERROR,
 	},
 	Item: {
 		Validate: (c, a) => Player.Inventory.some((i) => i.Name === c.Item),
 		GetDefault: (c, a) => null,
-		StatusCode: CraftingStatusCode.CRITICAL_ERROR,
+		StatusCode: CraftingStatusType.CRITICAL_ERROR,
 	},
 	Lock: {
 		Validate: function (c, a) {
@@ -846,32 +886,32 @@ function CraftingItemListBuild() {
 			}
 		},
 		GetDefault: (c, a) => "",
-		StatusCode: CraftingStatusCode.ERROR,
+		StatusCode: CraftingStatusType.ERROR,
 	},
 	MemberName: {
 		Validate: (c, a) => c.MemberName == null || typeof c.MemberName === "string",
 		GetDefault: (c, a) => null,
-		StatusCode: CraftingStatusCode.ERROR,
+		StatusCode: CraftingStatusType.ERROR,
 	},
 	MemberNumber: {
 		Validate: (c, a) => c.MemberNumber == null || typeof c.MemberNumber === "number",
 		GetDefault: (c, a) => null,
-		StatusCode: CraftingStatusCode.ERROR,
+		StatusCode: CraftingStatusType.ERROR,
 	},
 	Name: {
 		Validate: (c, a) => typeof c.Name === "string",
 		GetDefault: (c, a) => "",
-		StatusCode: CraftingStatusCode.CRITICAL_ERROR,
+		StatusCode: CraftingStatusType.CRITICAL_ERROR,
 	},
 	OverridePriority: {
 		Validate: (c, a) => (c.OverridePriority == null) || Number.isInteger(c.OverridePriority),
 		GetDefault: (c, a) => null,
-		StatusCode: CraftingStatusCode.ERROR,
+		StatusCode: CraftingStatusType.ERROR,
 	},
 	Private: {
 		Validate: (c, a) => typeof c.Private === "boolean",
 		GetDefault: (c, a) => false,
-		StatusCode: CraftingStatusCode.ERROR,
+		StatusCode: CraftingStatusType.ERROR,
 	},
 	Property: {
 		Validate: function (c, a) {
@@ -883,7 +923,7 @@ function CraftingItemListBuild() {
 			}
 		},
 		GetDefault: (c, a) => "Normal",
-		StatusCode: CraftingStatusCode.ERROR,
+		StatusCode: CraftingStatusType.ERROR,
 	},
 	Type: {
 		Validate: function (c, a) {
@@ -900,7 +940,7 @@ function CraftingItemListBuild() {
 				return (a.AllowType && (a.AllowType.length >= 1)) ? a.AllowType[0] : null;
 			}
 		},
-		StatusCode: CraftingStatusCode.ERROR,
+		StatusCode: CraftingStatusType.ERROR,
 	},
 }
 
@@ -909,11 +949,11 @@ function CraftingItemListBuild() {
  * @param {CraftingItem} Craft - The crafted item properties or `null`
  * @param {Asset | null} Asset - The matching Asset. Will be extracted from the player inventory if `null`
  * @param {boolean} Warn - Whether a warning should logged whenever the crafting validation fails
- * @return {CraftingStatusType} - One of the {@link CraftingStatusCode} status codes; 0 denoting an unrecoverable validation error
+ * @return {CraftingStatusType} - One of the {@link CraftingStatusType} status codes; 0 denoting an unrecoverable validation error
  */
 function CraftingValidate(Craft, Asset=null, Warn=true) {
 	if (Craft == null) {
-		return CraftingStatusCode.CRITICAL_ERROR;
+		return CraftingStatusType.CRITICAL_ERROR;
 	}
 	/** @type {Map<string, CraftingStatusType>} */
 	const StatusMap = new Map();
@@ -923,7 +963,7 @@ function CraftingValidate(Craft, Asset=null, Warn=true) {
 	if (Asset == null) {
 		const Item = Player.Inventory.find((a) => a.Name === Craft.Item);
 		if (Item === undefined) {
-			StatusMap.set("Item", CraftingStatusCode.CRITICAL_ERROR);
+			StatusMap.set("Item", CraftingStatusType.CRITICAL_ERROR);
 		} else {
 			Asset = Item.Asset;
 		}
@@ -943,13 +983,13 @@ function CraftingValidate(Craft, Asset=null, Warn=true) {
 			Craft[AttrName] = GetDefault(Craft, Asset);
 			StatusMap.set(AttrName, StatusCode);
 		} else {
-			StatusMap.set(AttrName, CraftingStatusCode.OK);
+			StatusMap.set(AttrName, CraftingStatusType.OK);
 		}
 	}
 
 	// If the Asset has been explicetly passed then `Craft.Item` errors are fully recoverable
-	if ((Asset != null) && (StatusMap.get("Item") === CraftingStatusCode.CRITICAL_ERROR)) {
-		StatusMap.set("Item", CraftingStatusCode.ERROR);
+	if ((Asset != null) && (StatusMap.get("Item") === CraftingStatusType.CRITICAL_ERROR)) {
+		StatusMap.set("Item", CraftingStatusType.ERROR);
 		Craft.Item = Asset.Name;
 	}
 
@@ -961,7 +1001,7 @@ function CraftingValidate(Craft, Asset=null, Warn=true) {
 				console.warn(`Invalid extra "Craft.${AttrName}" attribute for crafted item "${Name}"`);
 			}
 			delete Craft[AttrName];
-			StatusMap.set(AttrName, CraftingStatusCode.ERROR);
+			StatusMap.set(AttrName, CraftingStatusType.ERROR);
 		}
 	}
 	return /** @type {CraftingStatusType} */(Math.min(...StatusMap.values()));
