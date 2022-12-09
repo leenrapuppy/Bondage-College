@@ -18,7 +18,7 @@ var PrivateCharacterNewClothes = null;
 var PrivateSlaveImproveType = "";
 var PrivateNextLoveYou = 0;
 var PrivateLoverActivity = "";
-var PrivateLoverActivityList = ["Skip1", "Skip2", "Kiss", "FrenchKiss", "Caress", "Rub", "MasturbateHand", "MasturbateTongue", "MasturbatePlayer", "MasturbateSelf", "Underwear", "Naked", "EggInsert", "LockBelt", "UnlockBelt", "EggSpeedUp", "EggSpeedDown", "Bed"];
+var PrivateLoverActivityList = ["Skip1", "Skip2", "Kiss", "FrenchKiss", "Caress", "Rub", "MasturbateHand", "MasturbateTongue", "MasturbatePlayer", "MasturbateSelf", "Underwear", "Naked", "EggInsert", "LockBelt", "UnlockBelt", "EggSpeedUp", "EggSpeedDown", "Bed", "LoverLock", "LoverUnlock"];
 var PrivateBeltList = ["LeatherChastityBelt", "SleekLeatherChastityBelt", "StuddedChastityBelt", "MetalChastityBelt", "PolishedChastityBelt", "OrnateChastityBelt", "SteelChastityPanties"];
 var PrivateEntryEvent = true;
 
@@ -1680,6 +1680,8 @@ function PrivateLoveYou() {
 			if ((Act == "EggSpeedUp") && CurrentCharacter.CanInteract() && !CurrentCharacter.IsOwnedByPlayer() && InventoryIsWorn(Player, "VibratingEgg", "ItemVulva") && ((InventoryGet(Player, "ItemVulva").Property == null) || (InventoryGet(Player, "ItemVulva").Property.Intensity < 3))) break;
 			if ((Act == "EggSpeedDown") && CurrentCharacter.CanInteract() && !CurrentCharacter.IsOwnedByPlayer() && InventoryIsWorn(Player, "VibratingEgg", "ItemVulva") && (InventoryGet(Player, "ItemVulva").Property != null) && (InventoryGet(Player, "ItemVulva").Property.Intensity > -1)) break;
 			if ((Act == "Bed") && (PrivateBedCount() == 1) && (NPCEventGet(CurrentCharacter, "NextBed") < CurrentTime) && PrivateBedActive() && (Player.Cage == null) && (CurrentCharacter.Cage == null)) break;
+			if ((Act == "LoverLock") && CurrentCharacter.CanInteract() && !CurrentCharacter.IsOwnedByPlayer() && InventoryHasLockableItems(Player)) break;
+			if ((Act == "LoverUnlock") && CurrentCharacter.CanInteract() && !CurrentCharacter.IsOwnedByPlayer() && InventoryCharacterHasLoverOnlyRestraint(Player)) break;
 		}
 
 		// For regular sexual activities
@@ -1701,6 +1703,8 @@ function PrivateLoveYou() {
 		if (PrivateLoverActivity == "EggInsert") { InventoryWear(Player, "VibratingEgg", "ItemVulva"); InventoryGet(Player, "ItemVulva").Property = { Intensity: 0 }; }
 		if (PrivateLoverActivity == "LockBelt") { InventoryWearRandom(Player, "ItemPelvis", null, null, false, true, PrivateBeltList, true); InventoryLock(Player, "ItemPelvis", "LoversPadlock", null); }
 		if (PrivateLoverActivity == "UnlockBelt") InventoryRemove(Player, "ItemPelvis");
+		if (PrivateLoverActivity == "LoverLock") InventoryFullLock(Player, "LoversPadlock");
+		if (PrivateLoverActivity == "LoverUnlock") CharacterReleaseFromLock(Player, "LoversPadlock");
 
 		// When the NPC plays with the egg speed
 		if ((PrivateLoverActivity == "EggSpeedUp") || (PrivateLoverActivity == "EggSpeedDown")) {

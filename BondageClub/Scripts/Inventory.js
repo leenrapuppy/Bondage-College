@@ -1248,11 +1248,10 @@ function InventoryDoesItemAllowLock(item) {
 function InventoryLock(C, Item, Lock, MemberNumber, Update = true) {
 	if (typeof Item === 'string') Item = InventoryGet(C, Item);
 	if (typeof Lock === 'string') Lock = { Asset: AssetGet(C.AssetFamily, "ItemMisc", Lock) };
-	if (Item && Lock && Lock.Asset.IsLock && InventoryDoesItemAllowLock(Item)) {
+	if (Item && Lock && Lock.Asset && Lock.Asset.IsLock && InventoryDoesItemAllowLock(Item)) {
 		if (Item.Property == null) Item.Property = {};
 		if (Item.Property.Effect == null) Item.Property.Effect = [];
 		if (Item.Property.Effect.indexOf("Lock") < 0) Item.Property.Effect.push("Lock");
-
 		if (!Item.Property.MemberNumberListKeys && Lock.Asset.Name == "HighSecurityPadlock") Item.Property.MemberNumberListKeys = "" + MemberNumber;
 		Item.Property.LockedBy = /** @type AssetLockType */(Lock.Asset.Name);
 		if (MemberNumber != null) Item.Property.LockMemberNumber = MemberNumber;
