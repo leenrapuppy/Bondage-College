@@ -517,6 +517,12 @@ function PrivateNewCloth(C) {
 		InventoryWear(C, "Panties13", "Panties", "#222222");
 		InventoryWear(C, "Glasses5", "Glasses", "#222222");
 		CharacterArchetypeClothes(C, "Mistress", "#222222");
+	} else if (C.Name == "Mildred") {
+		CollegeTeacherMildredClothes(C);
+	} else if (C.Name == "Yuki") {
+		CollegeDetentionYukiClothes(C);
+	} else if (C.Name == "Julia") {
+		CollegeTheaterJuliaClothes(C);
 	} else if ((C.Title != null) && (C.Title == "Mistress")) {
 		CharacterRandomUnderwear(C);
 		CharacterArchetypeClothes(C, "Mistress");

@@ -29,26 +29,27 @@ function CollegeTheaterGetTeacherKey() { LogAdd("TeacherKey", "College"); }
 
 /**
  * Dresses Julia in her full theater outfit.
+ * @param {Character} C - The character object to dress up
  * @returns {void} - Nothing
  */
-function CollegeTheaterJuliaClothes() {
-	CharacterNaked(CollegeTheaterJulia);
-	InventoryWear(CollegeTheaterJulia, "Yukata1", "Cloth", "#993333");
-	InventoryWear(CollegeTheaterJulia, "PussyDark1", "Pussy", "#e86e37");
-	InventoryWear(CollegeTheaterJulia, "Eyes3", "Eyes", "#f85e27");
-	InventoryWear(CollegeTheaterJulia, "Eyes3", "Eyes2", "#f85e27");
-	InventoryWear(CollegeTheaterJulia, "Mouth", "Mouth", "Default");
-	InventoryWear(CollegeTheaterJulia, "H0990", "Height", "Default");
-	InventoryWear(CollegeTheaterJulia, "XLarge", "BodyUpper", "White");
-	InventoryWear(CollegeTheaterJulia, "XLarge", "BodyLower", "White");
-	InventoryWear(CollegeTheaterJulia, "Default", "Hands", "Default");
-	InventoryWear(CollegeTheaterJulia, "Default", "Head", "Default");
-	InventoryWear(CollegeTheaterJulia, "HairBack5", "HairBack", "#e86e37");
-	InventoryWear(CollegeTheaterJulia, "HairFront6", "HairFront", "#e86e37");
-	InventoryWear(CollegeTheaterJulia, "OuvertPerl1", "Bra", "#BB0000");
-	InventoryWear(CollegeTheaterJulia, "Panties11", "Panties", "#BB0000");
-	InventoryWear(CollegeTheaterJulia, "Pantyhose1", "Socks", "Default");
-	InventoryWear(CollegeTheaterJulia, "Sandals", "Shoes", "Default");
+function CollegeTheaterJuliaClothes(C) {
+	CharacterNaked(C);
+	InventoryWear(C, "Yukata1", "Cloth", "#993333");
+	InventoryWear(C, "PussyDark1", "Pussy", "#e86e37");
+	InventoryWear(C, "Eyes3", "Eyes", "#f85e27");
+	InventoryWear(C, "Eyes3", "Eyes2", "#f85e27");
+	InventoryWear(C, "Mouth", "Mouth", "Default");
+	InventoryWear(C, "H0990", "Height", "Default");
+	InventoryWear(C, "XLarge", "BodyUpper", "White");
+	InventoryWear(C, "XLarge", "BodyLower", "White");
+	InventoryWear(C, "Default", "Hands", "Default");
+	InventoryWear(C, "Default", "Head", "Default");
+	InventoryWear(C, "HairBack5", "HairBack", "#e86e37");
+	InventoryWear(C, "HairFront6", "HairFront", "#e86e37");
+	InventoryWear(C, "OuvertPerl1", "Bra", "#BB0000");
+	InventoryWear(C, "Panties11", "Panties", "#BB0000");
+	InventoryWear(C, "Pantyhose1", "Socks", "Default");
+	InventoryWear(C, "Sandals", "Shoes", "Default");
 }
 
 /**
@@ -71,7 +72,7 @@ function CollegeTheaterLoad() {
 		CollegeTheaterJulia.AllowItem = false;
 		CollegeTheaterJulia.Name = "Julia";
 		CollegeTheaterJulia.GoneAway = false;
-		CollegeTheaterJuliaClothes();
+		CollegeTheaterJuliaClothes(CollegeTheaterJulia);
 		CharacterRefresh(CollegeTheaterJulia);
 
 	}
@@ -182,7 +183,7 @@ function CollegeTheaterDressBack() {
 	CharacterRelease(Player);
 	CharacterRelease(CollegeTheaterJulia);
 	CollegeEntranceWearStudentClothes(Player);
-	CollegeTheaterJuliaClothes();
+	CollegeTheaterJuliaClothes(CollegeTheaterJulia);
 	InventoryRemove(Player, "Hat");
 	InventoryRemove(CollegeTheaterJulia, "Hat");
 }
