@@ -128,6 +128,8 @@ See-through Top
 透视上衣
 Jacket
 夹克
+Male Cloth Tank-Top 
+男士背心
 Cloth Accessory
 服装配饰
 Student Scarf
@@ -216,6 +218,8 @@ Reverse Bunny Suit
 逆兔女郎装
 Slim Latex Leotard (Sleeveless)
 贴面乳胶紧身衣（无袖）
+Male Seamless Catsuit
+男士无缝紧身衣
 Bottom
 下装
 Skirt
@@ -310,6 +314,8 @@ Silky Stockings
 丝质丝袜
 Fishnet Stockings
 渔网袜
+Male Catsuit Panties
+男士紧身衣内裤
 Bra
 胸罩
 Style 1
@@ -394,8 +400,6 @@ Ribbons
 丝带
 Leather Breast Binder
 皮革裹胸带
-Silk Straps
-丝质束带
 Full Latex Bra
 全乳胶文胸
 Full Latex Bra (Bright)
@@ -498,6 +502,8 @@ String Thong
 系带丁字裤
 Micro Thong
 微型丁字裤
+Boxer Shorts
+四角内裤
 Socks
 袜子
 Ankle
@@ -548,6 +554,8 @@ Leather Garter Belt
 皮革吊袜带
 Tentacles
 触手
+Drop Bag
+水桶包
 Shoes
 鞋子
 Sneakers Light
@@ -766,6 +774,12 @@ Harem Gloves
 后宫手套
 Biker Gloves
 单车手套
+Left Hand
+左手
+Rings
+指环
+Right Hand
+右手
 Bracelet
 手镯
 Bow Band
@@ -946,6 +960,10 @@ Large
 大号
 Xlarge
 超大号
+Bulky Flat Chest
+大块头平胸
+Flat Chest
+平胸
 Lower Body
 下身
 Front Hair
@@ -1030,18 +1048,56 @@ Style 28
 样式 28
 Style 29
 样式 29
-Back Hair
-后发
-None
-无
-Style 15b
-样式 15b
 Style 30
 样式 30
 Style 31
 样式 31
 Style 32
 样式 32
+Long Messy Hair 1
+乱长发 1
+Spikey 1
+刺发 1
+Boxcut 1
+方型切 1
+Swept-Back 1
+背梳头 1
+Mohawk 1
+莫霍克 1
+Side Fringe Short
+侧分短发
+Side Fringe Long
+侧分长发
+Side Swept 1
+侧梳头 1
+Dreadlocks 1 Short
+脏辫1短发
+Dreadlocks 1 Long
+脏辫1长发
+Dreadlocks 2 Short
+脏辫2短发
+Dreadlocks 2 Long
+脏辫2长发
+Facial Hair
+胡子
+Goatee
+山羊胡
+Big Beard
+大胡子
+Medium Beard
+中等胡子
+Moustache
+小胡子
+Moustache Beard
+络腮小胡子
+Chinstrap Beard
+脸边络腮胡
+Back Hair
+后发
+None
+无
+Style 15b
+样式 15b
 Style 33
 样式 33
 Style 34
@@ -1078,6 +1134,8 @@ Style 49
 样式 49
 Style 50
 样式 50
+Dreadlocks 1
+脏辫 1
 Left eye
 左眼
 Right eye
@@ -1086,12 +1144,14 @@ Mouth
 嘴巴
 Discreet
 矜持的
+Full Lips
+厚嘴唇
 Nipples Style
 乳头式样
 Light
 浅色
-Pussy
-阴部
+Genitalia
+生殖器
 Light 1
 浅色 1
 Light 2
@@ -1104,6 +1164,14 @@ Dark 2
 深色 2
 Dark 3
 深色 3
+Penis
+阴茎
+Pronouns
+称谓
+She/Her 
+她
+He/Him 
+他
 Blush
 腮红
 Fluids
@@ -1112,6 +1180,22 @@ Emoticon
 表情图标
 Eyebrows
 眉毛
+Eyebrows 1
+眉毛 1
+Eyebrows 2
+眉毛 2
+Eyebrows 3
+眉毛 3
+Eyebrows 4
+眉毛 4
+Eyebrows 5
+眉毛 5
+Eyebrows 6
+眉毛 6
+Eyebrows 7
+眉毛 7
+Eyebrows 8
+眉毛 8
 Hands
 手
 Default
@@ -1189,7 +1273,7 @@ Frog-tie Straps
  Mermaid Tail
 美人鱼尾巴
 Vulva
-前阴
+外阴
 Vibrating Egg
 跳蛋
 Vibrating Items Remote
@@ -1234,6 +1318,14 @@ Double Ended Dildo
 双头龙
 Stitches
 缝线
+Basic Cock Ring
+基础阴茎环
+Plastic Chastity Cage 1
+塑料贞操笼1
+Plastic Chastity Cage 2
+塑料贞操笼3
+Techno Chastity Cage 1
+科技贞操笼1
 Clitoris
 阴蒂
 Straight Clitoris Piercing
@@ -1396,6 +1488,8 @@ Locking Swimsuit
 上锁泳衣
 Locking Swimsuit 2
 上锁泳衣2
+Leather Chest Harness 1
+皮革胸部束带1
 Nipples
 乳头
 Nipple Clamps
@@ -1436,6 +1530,8 @@ Shock Clamps
 板夹
 Nipple Stretchers
 乳头拉扯器
+ Nipple Clamps 2
+乳头夹2
 Straight Piercings
 直穿环
 Round Piercings
@@ -1516,8 +1612,6 @@ Bolero Straitjacket
 波蕾若拘束衣
 Pet Suit
 宠物拘束服
-Pet Suit Exposed
-露出宠物拘束服
 Holding Leash
 牵引绳
 Strait Dress
@@ -1584,6 +1678,10 @@ Transport Jacket
 转监拘束衣
 Wrapped Blanket
 全包毛毯
+Smooth Lacing Leather Armbinder
+平滑系带皮革单手套
+Canvas Straitjacket 1
+画布拘束衣1
 Padded Mittens
 衬套无指手套
 Paw Mittens
@@ -1596,8 +1694,10 @@ Padded Leather Mittens
 衬套皮革无指手套
 Polished Steel Mittens
 抛光不锈钢无指手套
-Handheld Items
-手持物品
+ Hoof Mittens
+马蹄手套
+Short Smooth Leather Mittens
+短平滑皮革无指手套
 Crop
 硬鞭
 Flogger
@@ -1686,8 +1786,6 @@ Mobile Phone
 手机
 Mobile Phone 2
 手机 2
- Hoof Mittens
-马蹄手套
 Scissors
 剪刀
 Plastic Wrap Roll
@@ -1716,8 +1814,6 @@ Shock Collar
 电击项圈
 Automatic Shock Collar
 自动电击项圈
-Shock Collar Remote
-电击项圈控制器
 Bat Collar
 蝙蝠项圈
 Posture Collar
@@ -1976,8 +2072,8 @@ Bridle Gag
 乳胶隐藏口塞
  Mouthfeature Gag
 嘴内特征口塞
-Stitches 
-缝线
+Latex Respirator
+乳胶呼吸器
 Eyes
 眼睛
 Cloth Blindfold
@@ -2330,3 +2426,5 @@ High Thigh Boots
 高筒靴
 Monoheel
 单跟靴
+Script
+脚本

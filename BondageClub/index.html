@@ -25,6 +25,7 @@
 <script src="Backgrounds/Backgrounds.js"></script>
 <script src="Scripts/GLDraw.js"></script>
 <script src="Scripts/Common.js"></script>
+<script src="Scripts/DictionaryBuilder.js"></script>
 <script src="Scripts/CommonDraw.js"></script>
 <script src="Scripts/Animation.js"></script>
 <script src="Scripts/Mouse.js"></script>
@@ -58,12 +59,27 @@
 <script src="Scripts/TypedItem.js"></script>
 <script src="Screens/Character/ItemColor/ItemColor.js"></script>
 <script src="Scripts/VibratorMode.js"></script>
+<script src="Scripts/Property.js"></script>
 <script src="Scripts/DynamicDraw.js"></script>
 <script src="Scripts/Notification.js"></script>
 <script src="Scripts/Graph.js"></script>
 <script src="Scripts/VariableHeight.js"></script>
 <script src="Assets/Female3DCG/Female3DCG.js"></script>
 <script src="Screens/Inventory/Futuristic/Futuristic.js"></script>
+<script src="Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js"></script>
+<script src="Screens/Inventory/ItemNeckAccessories/CollarNameTag/CollarNameTag.js"></script>
+<script src="Screens/Inventory/ItemArms/FullLatexSuit/FullLatexSuit.js"></script>
+<script src="Screens/Inventory/ItemButt/InflVibeButtPlug/InflVibeButtPlug.js"></script>
+<script src="Screens/Inventory/ItemDevices/VacBedDeluxe/VacBedDeluxe.js"></script>
+<script src="Screens/Inventory/ItemDevices/WoodenBox/WoodenBox.js"></script>
+<script src="Screens/Inventory/ItemDevices/TransportWoodenBox/TransportWoodenBox.js"></script>
+<script src="Screens/Inventory/ItemPelvis/SciFiPleasurePanties/SciFiPleasurePanties.js"></script>
+<script src="Screens/Inventory/ItemNeckAccessories/CollarShockUnit/CollarShockUnit.js"></script>
+<script src="Screens/Inventory/ItemVulva/ClitAndDildoVibratorbelt/ClitAndDildoVibratorbelt.js"></script>
+<script src="Screens/Inventory/ItemBreast/FuturisticBra/FuturisticBra.js"></script>
+<script src="Screens/Inventory/ItemArms/TransportJacket/TransportJacket.js"></script>
+<script src="Screens/Inventory/ItemMouth/FuturisticPanelGag/FuturisticPanelGag.js"></script>
+<script src="Screens/Inventory/ItemNeckAccessories/CollarAutoShockUnit/CollarAutoShockUnit.js"></script>
 <script src="Assets/Female3DCG/Female3DCGExtended.js"></script>
 <script src="Screens/Character/Login/Login.js"></script>
 <script src="Screens/Character/Appearance/Appearance.js"></script>
@@ -89,6 +105,7 @@
 <script src="Screens/Room/Empty/Empty.js"></script>
 <script src="Screens/Room/KidnapLeague/KidnapLeague.js"></script>
 <script src="Screens/Room/Private/Private.js"></script>
+<script src="Screens/Room/PrivateBed/PrivateBed.js"></script>
 <script src="Screens/Room/PrivateRansom/PrivateRansom.js"></script>
 <script src="Screens/Room/Management/Management.js"></script>
 <script src="Screens/Room/SlaveMarket/SlaveMarket.js"></script>
@@ -149,7 +166,9 @@
 <script src="Screens/Cutscene/PlayerMistress/PlayerMistress.js"></script>
 <script src="Screens/Cutscene/NPCCollaring/NPCCollaring.js"></script>
 <script src="Screens/Cutscene/NPCSlaveAuction/NPCSlaveAuction.js"></script>
+<script src="Screens/Cutscene/NPCWedding/NPCWedding.js"></script>
 <script src="Screens/Cutscene/SarahIntro/SarahIntro.js"></script>
+<script src="Screens/Online/ChatSelect/ChatSelect.js"></script>
 <script src="Screens/Online/ChatSearch/ChatSearch.js"></script>
 <script src="Screens/Online/ChatCreate/ChatCreate.js"></script>
 <script src="Screens/Online/ChatBlockItem/ChatBlockItem.js"></script>
@@ -161,14 +180,8 @@
 <script src="Screens/Online/Game/OnlineGame.js"></script>
 <script src="Screens/Online/GameLARP/GameLARP.js"></script>
 <script src="Screens/Online/GameMagicBattle/GameMagicBattle.js"></script>
-<script src="Screens/Inventory/ItemNipples/VibeNippleClamp/VibeNippleClamp.js"></script>
-<script src="Screens/Inventory/ItemNipplesPiercings/VibeHeartPiercings/VibeHeartPiercings.js"></script>
-<script src="Screens/Inventory/ItemVulvaPiercings/VibeHeartClitPiercing/VibeHeartClitPiercing.js"></script>
-<script src="Screens/Inventory/ItemVulvaPiercings/TapedClitEgg/TapedClitEgg.js"></script>
 <script src="Screens/Inventory/ItemNeck/ShockCollar/ShockCollar.js"></script>
 <script src="Screens/Inventory/ItemNeck/AutoShockCollar/AutoShockCollar.js"></script>
-<script src="Screens/Inventory/ItemNeckAccessories/CollarShockUnit/CollarShockUnit.js"></script>
-<script src="Screens/Inventory/ItemNeckAccessories/CollarAutoShockUnit/CollarAutoShockUnit.js"></script>
 <script src="Screens/Inventory/ItemArms/HempRope/HempRope.js"></script>
 <script src="Screens/Inventory/ItemArms/NylonRope/NylonRope.js"></script>
 <script src="Screens/Inventory/ItemHands/PaddedMittens/PaddedMittens.js"></script>
@@ -189,63 +202,29 @@
 <script src="Screens/Inventory/ItemMisc/MistressPadlock/MistressPadlock.js"></script>
 <script src="Screens/Inventory/ItemMisc/PandoraPadlock/PandoraPadlock.js"></script>
 <script src="Screens/Inventory/ItemMisc/ExclusivePadlock/ExclusivePadlock.js"></script>
-<script src="Screens/Inventory/ItemMouth/FuturisticPanelGag/FuturisticPanelGag.js"></script>
 <script src="Screens/Inventory/ItemMouth/FuturisticHarnessPanelGag/FuturisticHarnessPanelGag.js"></script>
 <script src="Screens/Inventory/ItemMouth/FuturisticHarnessBallGag/FuturisticHarnessBallGag.js"></script>
 <script src="Screens/Inventory/ItemNeck/FuturisticCollar/FuturisticCollar.js"></script>
-<script src="Screens/Inventory/ItemTorso/FuturisticHarness/FuturisticHarness.js"></script>
-<script src="Screens/Inventory/ItemTorso2/FuturisticHarness/FuturisticHarness.js"></script>
-<script src="Screens/Inventory/ItemHands/SpankingToys/SpankingToy.js"></script>
 <script src="Screens/Inventory/ItemFeet/HempRope/HempRope.js"></script>
 <script src="Screens/Inventory/ItemFeet/NylonRope/NylonRope.js"></script>
 <script src="Screens/Inventory/ItemPelvis/LoveChastityBelt/LoveChastityBelt.js"></script>
-<script src="Screens/Inventory/ItemNeckAccessories/CollarNameTag/CollarNameTag.js"></script>
-<script src="Screens/Inventory/ItemNeckAccessories/CollarNameTagOval/CollarNameTagOval.js"></script>
-<script src="Screens/Inventory/ItemNeckAccessories/CollarNameTagPet/CollarNameTagPet.js"></script>
-<script src="Screens/Inventory/ItemNeckAccessories/CollarNameTagLover/CollarNameTagLover.js"></script>
-<script src="Screens/Inventory/ItemNeckAccessories/CollarNameTagLivestock/CollarNameTagLivestock.js"></script>
 <script src="Screens/Inventory/ItemNeck/SlaveCollar/SlaveCollar.js"></script>
-<script src="Screens/Inventory/ItemButt/VibratingButtplug/VibratingButtplug.js"></script>
-<script src="Screens/Inventory/ItemNipples/TapedVibeEggs/TapedVibeEggs.js"></script>
-<script src="Screens/Inventory/ItemVulva/InflatableVibeDildo/InflatableVibeDildo.js"></script>
 <script src="Screens/Inventory/ItemVulva/LoversVibrator/LoversVibrator.js"></script>
-<script src="Screens/Inventory/ItemButt/InflVibeButtPlug/InflVibeButtPlug.js"></script>
-<script src="Screens/Inventory/ItemDevices/Sybian/Sybian.js"></script>
 <script src="Screens/Inventory/ItemButt/AnalBeads2/AnalBeads2.js"></script>
-<script src="Screens/Inventory/ItemButt/VibratingDildoPlug/VibratingDildoPlug.js"></script>
-<script src="Screens/Inventory/ItemButt/LockingVibePlug/LockingVibePlug.js"></script>
-<script src="Screens/Inventory/ItemArms/FullLatexSuit/FullLatexSuit.js"></script>
 <script src="Screens/Inventory/ItemVulva/FuturisticVibrator/FuturisticVibrator.js"></script>
-<script src="Screens/Inventory/ItemDevices/Locker/Locker.js"></script>
 <script src="Screens/Inventory/ItemDevices/PetBowl/PetBowl.js"></script>
-<script src="Screens/Inventory/ItemDevices/SmallLocker/SmallLocker.js"></script>
-<script src="Screens/Inventory/ItemVulva/ClitAndDildoVibratorbelt/ClitAndDildoVibratorbelt.js"></script>
-<script src="Screens/Inventory/ItemFeet/SpreaderVibratingDildoBar/SpreaderVibratingDildoBar.js"></script>
 <script src="Screens/Inventory/ItemPelvis/FuturisticChastityBelt/FuturisticChastityBelt.js"></script>
 <script src="Screens/Inventory/ItemPelvis/FuturisticTrainingBelt/FuturisticTrainingBelt.js"></script>
-<script src="Screens/Inventory/ItemPelvis/SciFiPleasurePanties/SciFiPleasurePanties.js"></script>
 <script src="Screens/Inventory/ItemPelvis/ObedienceBelt/ObedienceBelt.js"></script>
-<script src="Screens/Inventory/ItemBreast/FuturisticBra/FuturisticBra.js"></script>
-<script src="Screens/Inventory/ItemButt/ShockPlug/ShockPlug.js"></script>
-<script src="Screens/Inventory/ItemVulva/ShockDildo/ShockDildo.js"></script>
-<script src="Screens/Inventory/ItemNipples/ShockClamps/ShockClamps.js"></script>
-<script src="Screens/Inventory/ItemButt/BunnyTailVibePlug/BunnyTailVibePlug.js"></script>
-<script src="Screens/Inventory/ItemButt/EggVibePlugXXL/EggVibePlugXXL.js"></script>
 <script src="Screens/Inventory/ItemArms/PrisonLockdownSuit/PrisonLockdownSuit.js"></script>
 <script src="Screens/Inventory/ItemNeckAccessories/CustomCollarTag/CustomCollarTag.js"></script>
 <script src="Screens/Inventory/ItemNeckAccessories/ElectronicTag/ElectronicTag.js"></script>
-<script src="Screens/Inventory/ItemLegs/MermaidTail/MermaidTail.js"></script>
 <script src="Screens/Inventory/ItemDevices/Kennel/Kennel.js"></script>
 <script src="Screens/Inventory/ItemMisc/WoodenSign/WoodenSign.js"></script>
 <script src="Screens/Inventory/ItemHood/CanvasHood/CanvasHood.js"></script>
-<script src="Screens/Inventory/ItemDevices/WoodenBox/WoodenBox.js"></script>
-<script src="Screens/Inventory/ItemDevices/TransportWoodenBox/TransportWoodenBox.js"></script>
 <script src="Screens/Inventory/ItemDevices/FuturisticCrate/FuturisticCrate.js"></script>
 <script src="Screens/Inventory/ItemDevices/DollBox/DollBox.js"></script>
 <script src="Screens/Inventory/ItemNeckRestraints/PetPost/PetPost.js"></script>
-<script src="Screens/Inventory/HairAccessory3/Halo/Halo.js"></script>
-<script src="Screens/Inventory/HairAccessory1/Halo/Halo.js"></script>
-<script src="Screens/Inventory/ItemArms/TransportJacket/TransportJacket.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonStats.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEditorTiles.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEditor.js"></script>
@@ -275,6 +254,7 @@
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonInput.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonHUD.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDraw.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonFurniture.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMagic.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMagicCode.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMagicList.js"></script>
@@ -300,16 +280,14 @@
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonEvents.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonSpawns.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonJail.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonJailList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonSetpiece.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDialogue.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDialogueList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDialogueTriggers.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonDialogueList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonFactions.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonFactionsList.js"></script>
 <script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonMistress.js"></script>
-<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonTests.js"></script>
-<script src="Screens/Inventory/ItemDevices/VacBedDeluxe/VacBedDeluxe.js"></script>
+<script src="Screens/MiniGame/KinkyDungeon/KinkyDungeonJailList.js"></script>
 <script src="Screens/Inventory/ItemDevices/FuckMachine/FuckMachine.js"></script>
 <script src="Screens/Inventory/ClothAccessory/Bib/Bib.js"></script>
 <script src="Screens/Inventory/Wings/SteampunkWings/SteampunkWings.js"></script>
@@ -319,21 +297,11 @@
 <script src="Screens/Inventory/ItemNipples/LactationPump/LactationPump.js"></script>
 <script>
 
-/*
-
-	NEXT VERSION:
-
-	TO DO - Proof-reading
-	TO DO - Patreon Import/Update
-
-*/
-
-
 // When the code is loaded, we start the game engine
 window.onload = function() {
 	ServerURL = CommonGetServer();
 	//CheatImport();
-	GameVersion = "R85Beta2";
+	GameVersion = "R87Beta1";
 	console.log("Version: " + GameVersion + ", Server: " + ServerURL);
 	if (!GameVersionFormat.test(GameVersion)) console.error("GameVersion is not valid!");
 	CommonIsMobile = CommonDetectMobile();

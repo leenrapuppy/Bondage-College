@@ -346,16 +346,17 @@ function ServerPlayerRelationsSync() {
  */
 function ServerAppearanceBundle(Appearance) {
 	var Bundle = [];
-	for (let A = 0; A < Appearance.length; A++) {
-		var N = {};
-		N.Group = Appearance[A].Asset.Group.Name;
-		N.Name = Appearance[A].Asset.Name;
-		if ((Appearance[A].Color != null) && (Appearance[A].Color != "Default")) N.Color = Appearance[A].Color;
-		if ((Appearance[A].Difficulty != null) && (Appearance[A].Difficulty != 0)) N.Difficulty = Appearance[A].Difficulty;
-		if (Appearance[A].Property != null) N.Property = Appearance[A].Property;
-		if (Appearance[A].Craft != null) N.Craft = Appearance[A].Craft;
-		Bundle.push(N);
-	}
+	for (let A = 0; A < Appearance.length; A++)
+		if (Appearance[A].Asset != null) {
+			var N = {};
+			N.Group = Appearance[A].Asset.Group.Name;
+			N.Name = Appearance[A].Asset.Name;
+			if ((Appearance[A].Color != null) && (Appearance[A].Color != "Default")) N.Color = Appearance[A].Color;
+			if ((Appearance[A].Difficulty != null) && (Appearance[A].Difficulty != 0)) N.Difficulty = Appearance[A].Difficulty;
+			if (Appearance[A].Property != null) N.Property = Appearance[A].Property;
+			if (Appearance[A].Craft != null) N.Craft = Appearance[A].Craft;
+			Bundle.push(N);
+		}
 	return Bundle;
 }
 
@@ -382,9 +383,9 @@ function ServerAppearanceLoadFromBundle(C, AssetFamily, Bundle, SourceMemberNumb
 	const updateParams = ValidationCreateDiffParams(C, SourceMemberNumber);
 
 	let { appearance, updateValid } = Object.keys(appearanceDiffs)
-		.reduce(({ appearance, updateValid }, key) => {
-			const diff = appearanceDiffs[key];
-			const { item, valid } = ValidationResolveAppearanceDiff(diff[0], diff[1], updateParams);
+		.reduce(({ appearance, updateValid }, groupName) => {
+			const diff = appearanceDiffs[groupName];
+			const { item, valid } = ValidationResolveAppearanceDiff(groupName, diff[0], diff[1], updateParams);
 			if (item) appearance.push(item);
 			updateValid = updateValid && valid;
 			return { appearance, updateValid };
@@ -630,7 +631,7 @@ function ServerAccountBeep(data) {
 			}
 		} else if (data.BeepType == "Leash" && ChatRoomLeashPlayer == data.MemberNumber && data.ChatRoomName) {
 			if (Player.OnlineSharedSettings && Player.OnlineSharedSettings.AllowPlayerLeashing != false && ( CurrentScreen != "ChatRoom" || !ChatRoomData || (CurrentScreen == "ChatRoom" && ChatRoomData.Name != data.ChatRoomName))) {
-				if (ChatRoomCanBeLeashedBy(data.MemberNumber, Player)) {
+				if (ChatRoomCanBeLeashedBy(data.MemberNumber, Player) && ChatSelectGendersAllowed(data.ChatRoomSpace, Player.GetGenders())) {
 					ChatRoomJoinLeash = data.ChatRoomName;
 
 					DialogLeave();
@@ -639,7 +640,7 @@ function ServerAccountBeep(data) {
 						ServerSend("ChatRoomLeave", "");
 						CommonSetScreen("Online", "ChatSearch");
 					}
-					else ChatRoomStart("", "", "MainHall", "Introduction", BackgroundsTagList); //CommonSetScreen("Room", "ChatSearch")
+					else ChatRoomStart(data.ChatRoomSpace, "", null, null, "Introduction", BackgroundsTagList); //CommonSetScreen("Room", "ChatSearch")
 				} else {
 					ChatRoomLeashPlayer = null;
 				}

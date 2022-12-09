@@ -1,4 +1,17 @@
 "use strict";
+
+/**
+ * An enum for the options for chat room spaces
+ * @readonly
+ * @enum {string}
+ */
+const ChatRoomSpaceType = {
+	MIXED: "X",
+	FEMALE_ONLY: "",
+	MALE_ONLY: "M",
+	ASYLUM: "Asylum",
+};
+
 var ChatRoomBackground = "";
 /** @type {ChatRoom} */
 let ChatRoomData = {};
@@ -13,7 +26,7 @@ var ChatRoomLovershipOption = "";
 var ChatRoomPlayerCanJoin = false;
 var ChatRoomMoneyForOwner = 0;
 var ChatRoomQuestGiven = [];
-var ChatRoomSpace = "";
+var ChatRoomSpace = ChatRoomSpaceType.MIXED;
 var ChatRoomGame = "";
 var ChatRoomMoveTarget = null;
 var ChatRoomHelpSeen = false;
@@ -36,6 +49,7 @@ var ChatRoomLastDesc = "";
 var ChatRoomLastAdmin = [];
 var ChatRoomLastBan = [];
 var ChatRoomLastBlockCategory = [];
+var ChatRoomLastSpace = "";
 var ChatRoomNewRoomToUpdate = null;
 var ChatRoomNewRoomToUpdateTimer = 0;
 var ChatRoomLeashList = [];
@@ -114,6 +128,7 @@ const ChatRoomArousalMsg_ChanceGagMod = {
 	"StruggleAction" : 0,
 	"Gag" : 0.3,
 };
+
 var ChatRoomHideIconState = 0;
 var ChatRoomMenuButtons = [];
 let ChatRoomFontSize = 30;
@@ -128,12 +143,6 @@ var ChatRoomCharacterX_Lower = 0;
 var ChatRoomCharacterZoom = 1;
 var ChatRoomSlideWeight = 9;
 var ChatRoomCharacterInitialize = true;
-
-/** @type {Map<CommonChatTags | string, number>} */
-var ChatRoomDictionarySortOrder = new Map([
-	[CommonChatTags.TARGET_CHAR, 1],
-	[CommonChatTags.DEST_CHAR, 1],
-]);
 
 /** Sets whether an add/remove for one list automatically triggers an add/remove for another list */
 const ChatRoomListOperationTriggers = () => [
@@ -716,17 +725,30 @@ function ChatRoomClearAllElements() {
 
 /**
  * Starts the chatroom selection screen.
- * @param {string} Space - Name of the chatroom space
+ * @param {ChatRoomSpaceType} Space - Name of the chatroom space
  * @param {string} Game - Name of the chatroom game to play
- * @param {string} LeaveRoom - Name of the room to go too when exiting chatsearch.
+ * @param {string} LeaveRoom - Name of the room to go back to when exiting chatsearch.
+ * @param {string} LeaveSpace - Name of the space to go back to when exiting chatsearch.
  * @param {string} Background - Name of the background to use in chatsearch.
  * @param {Array} BackgroundTagList - List of available backgrounds in the chatroom space.
  * @returns {void} - Nothing.
  */
-function ChatRoomStart(Space, Game, LeaveRoom, Background, BackgroundTagList) {
+function ChatRoomStart(Space, Game, LeaveRoom, LeaveSpace, Background, BackgroundTagList) {
+	if (!LeaveRoom || !LeaveSpace) {
+		if (Player.GenderSettings.AutoJoinSearch.Female || Player.GenderSettings.AutoJoinSearch.Male) {
+			ChatSearchLeaveRoom = "MainHall";
+			ChatSearchLeaveSpace = "Room";
+		} else {
+			ChatSearchLeaveRoom = "ChatSelect";
+			ChatSearchLeaveSpace = "Online";
+		}
+	} else {
+		ChatSearchLeaveRoom = LeaveRoom;
+		ChatSearchLeaveSpace = LeaveSpace;
+	}
+
 	ChatRoomSpace = Space;
 	ChatRoomGame = Game;
-	ChatSearchLeaveRoom = LeaveRoom;
 	ChatSearchBackground = Background;
 	ChatCreateBackgroundList = BackgroundsGenerateList(BackgroundTagList);
 	BackgroundSelectionTagList = BackgroundTagList;
@@ -970,6 +992,9 @@ function ChatRoomDrawCharacterOverlay(C, CharX, CharY, Zoom, Pos) {
 		if (Array.isArray(ChatRoomData.Admin) && ChatRoomData.Admin.includes(C.MemberNumber)) {
 			DrawImageResize("Icons/Small/Admin.png", CharX + 125 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
 		}
+		if (C.IsBirthday()) {
+			DrawImageResize("Icons/Small/Birthday.png", CharX + 175 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
+		}
 		if (ChatRoomCarryingBounty(C)) {
 			DrawImageResize("Icons/Small/Money.png", CharX + 225 * Zoom, CharY, 50 * Zoom, 50 * Zoom);
 		}
@@ -1155,7 +1180,7 @@ function ChatRoomFocusCharacter(C) {
  * @returns {void} - Nothing.
  */
 function ChatRoomCheckRelationships() {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	if (C.ID != 0) ServerSend("AccountOwnership", { MemberNumber: C.MemberNumber });
 	if (C.ID != 0) ServerSend("AccountLovership", { MemberNumber: C.MemberNumber });
 }
@@ -1235,6 +1260,8 @@ function ChatRoomSetLastChatRoom(room) {
 				Player.LastChatRoomBan = ChatRoomData.Ban;
 			if (ChatRoomData && ChatRoomData.BlockCategory)
 				Player.LastChatRoomBlockCategory = [...ChatRoomData.BlockCategory];
+			if (ChatRoomData)
+				Player.LastChatRoomSpace = ChatRoomSpace;
 
 			ChatRoomLastName = ChatRoomData.Name;
 			ChatRoomLastBG = ChatRoomData.Background;
@@ -1245,6 +1272,7 @@ function ChatRoomSetLastChatRoom(room) {
 			ChatRoomLastAdmin = ChatRoomData.Admin;
 			ChatRoomLastBan = ChatRoomData.Ban;
 			ChatRoomLastBlockCategory = [...ChatRoomData.BlockCategory];
+			ChatRoomLastSpace = ChatRoomSpace;
 		}
 	} else {
 		Player.LastChatRoomBG = "";
@@ -1257,6 +1285,7 @@ function ChatRoomSetLastChatRoom(room) {
 		ChatRoomLastAdmin = [];
 		ChatRoomLastBan = [];
 		ChatRoomLastBlockCategory = [];
+		ChatRoomLastSpace = "";
 	}
 	Player.LastChatRoom = room;
 	var P = {
@@ -1269,6 +1298,7 @@ function ChatRoomSetLastChatRoom(room) {
 		LastChatRoomAdmin: Player.LastChatRoomAdmin.toString(),
 		LastChatRoomBan: Player.LastChatRoomBan.toString(),
 		LastChatRoomBlockCategory: [...Player.LastChatRoomBlockCategory],
+		LastChatRoomSpace: Player.LastChatRoomSpace,
 	};
 	ServerAccountUpdate.QueueData(P);
 }
@@ -2113,8 +2143,8 @@ function ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNext
 		// Replaces the action tags to build the phrase
 		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber });
 		Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		if (StruggleProgressPrevItem != null) Dictionary.push({ Tag: "PrevAsset", AssetName: StruggleProgressPrevItem.Asset.Name });
-		if (StruggleProgressNextItem != null) Dictionary.push({ Tag: "NextAsset", AssetName: StruggleProgressNextItem.Asset.Name });
+		if (StruggleProgressPrevItem != null) Dictionary.push({ Tag: "PrevAsset", AssetName: StruggleProgressPrevItem.Asset.Name, GroupName: StruggleProgressPrevItem.Asset.Group.Name });
+		if (StruggleProgressNextItem != null) Dictionary.push({ Tag: "NextAsset", AssetName: StruggleProgressNextItem.Asset.Name, GroupName: StruggleProgressNextItem.Asset.Group.Name });
 		if (C.FocusGroup != null) Dictionary.push({ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name });
 
 		// Prepares the item packet to be sent to other players in the chatroom
@@ -2378,13 +2408,23 @@ var ChatRoomMessageHandlers = [
 		Description: "Handle action visual effects",
 		Priority: 120,
 		Callback: (data, sender, msg, metadata) => {
-			if (data.Type !== "Action")
-				return false;
+			let intensity = null;
+			if (data.Type === "Action" && metadata.ShockIntensity >= 0) {
+				intensity = metadata.ShockIntensity;
+			} else if (data.Type === "Activity" && data.Content.includes("ShockItem")) {
+				let item = InventoryGet(Player, metadata.ActivityGroup);
+				if (item && item.Property && item.Property.ShockLevel != null) {
+					intensity = 1.5 * item.Property.ShockLevel;
+				} else {
+					intensity = 1.5;
+				}
+			}
 
-			if (metadata.ShockIntensity >= 0 && metadata.TargetCharacter == Player) {
-				const duration = (Math.random() + metadata.ShockIntensity) * 500;
+			if (intensity !== null && metadata.TargetCharacter.IsPlayer()) {
+				const duration = (Math.random() + intensity) * 500;
 				DrawFlashScreen("#FFFFFF", duration, 500);
 			}
+
 			return false;
 		}
 	},
@@ -2430,8 +2470,10 @@ var ChatRoomMessageHandlers = [
 
 			// If another player is using an item which applies an activity on the current player, apply the effect here
 			if (arousalEnabled && metadata.ActivityName && metadata.TargetMemberNumber
-					&& (metadata.TargetMemberNumber === Player.MemberNumber) && (sender.MemberNumber !== Player.MemberNumber))
-				ActivityEffect(sender, Player, metadata.ActivityName, ActivityGroup, metadata.ActivityCounter);
+				&& (metadata.TargetMemberNumber === Player.MemberNumber) && (sender.MemberNumber !== Player.MemberNumber)) {
+				const UsedAsset = AssetGet("Female3DCG", metadata.ActivityAssetGroup, metadata.ActivityAsset);
+				ActivityEffect(sender, Player, metadata.ActivityName, ActivityGroup, metadata.ActivityCounter, UsedAsset);
+			}
 			return false;
 		}
 	},
@@ -2466,11 +2508,7 @@ var ChatRoomMessageHandlers = [
 	{
 		Description: "Audio system hook for sound effects",
 		Priority: 500,
-		Callback: (data, sender, msg, metadata) => {
-			if (["Activity", "Action", "ServerMessage"].includes(data.Type))
-				AudioPlaySoundForChatMessage(data);
-			return false;
-		}
+		Callback: (data, sender, msg, metadata) => AudioPlaySoundForChatMessage(data, sender, msg, metadata),
 	},
 	{
 		Description: "Raise a notification if required",
@@ -2634,10 +2672,12 @@ function ChatRoomMessageProcessHidden(data, SenderCharacter) {
  *
  * @param {IChatRoomMessage} data - The message to parse.
  * @param {Character} SenderCharacter - The resolved character that sent that message.
- * @returns {{ metadata: object, substitutions: string[][] }}
+ * @returns {{ metadata: IChatRoomMessageMetadata, substitutions: [string, string][] }}
  */
 function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
-	const substitutions = [];
+	/** @type {[string, string][]} */
+	let substitutions = [];
+	/** @type {IChatRoomMessageMetadata} */
 	const meta = {};
 
 	meta.senderName = CharacterNickname(SenderCharacter);
@@ -2645,95 +2685,135 @@ function ChatRoomMessageDefaultMetadataExtractor(data, SenderCharacter) {
 	if (!data.Dictionary)
 		return { metadata: meta, substitutions: substitutions };
 
-	const dictionary = ChatRoomSortDictionary(data.Dictionary);
-	for (let entry of dictionary) {
 
-		// If there's a member number in the dictionary packet, we use that number to alter the chat message
+	// First pass to extract anything metadata-related
+	for (let entry of data.Dictionary) {
 		if (entry.MemberNumber) {
+			const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
 
-			// Alters the message displayed in the chat room log, and stores the source & target in case they're required later
-			if (["ServerEnter", "ServerLeave", "ServerDisconnect"].includes(data.Content)) {
-				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
-				if (C) {
-					let Nick = CharacterNickname(C);
-					if (Nick != C.Name) Nick = Nick + " [" + C.Name + "]";
-					substitutions.push([entry.Tag, Nick]);
-				}
-			}
-			else if (entry.Tag == "DestinationCharacter" || entry.Tag == "DestinationCharacterName") {
-				meta.TargetMemberNumber = entry.MemberNumber;
-				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
-				if (C)
-					meta.TargetCharacter = C;
-				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "DestinationCharacter")) ? DialogFindPlayer("Her") : (PreferenceIsPlayerInSensDep() && entry.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(entry.Text) + DialogFindPlayer("'s"));
-				substitutions.push([entry.Tag, repl]);
-			}
-			else if (entry.Tag == "TargetCharacter" || entry.Tag == "TargetCharacterName") {
-				meta.TargetMemberNumber = entry.MemberNumber;
-				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
-				if (C)
-					meta.TargetCharacter = C;
-				const repl = ((SenderCharacter.MemberNumber == entry.MemberNumber) && (entry.Tag == "TargetCharacter")) ? DialogFindPlayer("Herself") : (PreferenceIsPlayerInSensDep() && entry.MemberNumber != Player.MemberNumber && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.TargetCharacter)) ? DialogFindPlayer("Someone").toLowerCase() : ChatRoomHTMLEntities(entry.Text));
-				substitutions.push([entry.Tag, repl]);
-			}
-			else if (entry.Tag == "SourceCharacter") {
-				const C = ChatRoomCharacter.find(c => c.MemberNumber == entry.MemberNumber);
-				if (C)
-					meta.SourceCharacter = C;
-				const repl = (PreferenceIsPlayerInSensDep() && (entry.MemberNumber != Player.MemberNumber) && (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(meta.SourceCharacter))) ? DialogFindPlayer("Someone") : ChatRoomHTMLEntities(entry.Text);
-				substitutions.push([entry.Tag, repl]);
+			switch (entry.Tag) {
+				case "DestinationCharacter":
+				case "DestinationCharacterName":
+					meta.TargetMemberNumber = entry.MemberNumber;
+					if (C)
+						meta.TargetCharacter = C;
+					break;
+
+				case "TargetCharacter":
+				case "TargetCharacterName":
+					meta.TargetMemberNumber = entry.MemberNumber;
+					if (C)
+						meta.TargetCharacter = C;
+					break;
+
+				case "SourceCharacter":
+					if (C)
+						meta.SourceCharacter = C;
+					break;
 			}
 		}
 
+		if (entry.AssetName) {
+			if (!meta.Assets) meta.Assets = {};
+			meta.Assets[entry.Tag] = Asset.find(a => a.Name === entry.AssetName && (!entry.GroupName || a.Group.Name === entry.GroupName));
+		} else if (entry.GroupName) {
+			if (!meta.Groups) meta.Groups = {};
+			meta.Groups[entry.Tag] = AssetGroup.find(g => g.Name === entry.GroupName);
+		}
+
+		if (entry.FocusGroupName || entry.AssetGroupName) {
+			meta.GroupName = entry.FocusGroupName || entry.AssetGroupName;
+		}
+
+		if (entry.Tag === "ActivityName") meta.ActivityName = entry.Text;
+		else if (entry.Tag === "ActivityGroup") meta.ActivityGroup = entry.Text;
+		else if (entry.Tag === "ChatRoomName") {
+			meta.ChatRoomName = ChatSearchMuffle(entry.Text);
+		}
+		else if (entry.Tag === "ActivityAsset") meta.ActivityAsset = entry.Text;
+		else if (entry.Tag === "ActivityAssetGroup") meta.ActivityAssetGroup = entry.Text;
+		else if (entry.ActivityCounter) meta.ActivityCounter = entry.ActivityCounter;
+		else if (entry.Automatic) meta.Automatic = true;
+		else if (entry.ShockIntensity != undefined) meta.ShockIntensity = entry.ShockIntensity;
+	}
+
+	// Now go over once more and collect substitutions
+	for (let entry of data.Dictionary) {
+		// Ignore entries that don't have a substitution tag set
+		if (typeof entry.Tag !== "string") continue;
+
+		// Alter server messages to show both the name and the nick
+		if (["ServerEnter", "ServerLeave", "ServerDisconnect"].includes(data.Content)) {
+			if (meta.SourceCharacter) {
+				let Nick = CharacterNickname(meta.SourceCharacter);
+				if (Nick != meta.SourceCharacter.Name) Nick = Nick + " [" + meta.SourceCharacter.Name + "]";
+				substitutions.push([entry.Tag, Nick]);
+			}
+		}
+
+		else if (entry.Tag == "DestinationCharacter" || entry.Tag == "DestinationCharacterName") {
+			const hideIdentity = ChatRoomHideIdentity(meta.TargetCharacter);
+			const repl = ((SenderCharacter.MemberNumber == meta.TargetMemberNumber) && (entry.Tag == "DestinationCharacter"))
+				? CharacterPronoun(meta.TargetCharacter, "Possessive", hideIdentity)
+				: hideIdentity
+					? DialogFindPlayer("Someone").toLowerCase()
+					: entry.Text + DialogFindPlayer("'s");
+			substitutions.push([entry.Tag, repl]);
+
+			const pronounRepls = ChatRoomPronounSubstitutions(meta.TargetCharacter, "TargetPronoun", hideIdentity);
+			substitutions = substitutions.concat(pronounRepls);
+		}
+		else if (entry.Tag == "TargetCharacter" || entry.Tag == "TargetCharacterName") {
+			const hideIdentity = ChatRoomHideIdentity(meta.TargetCharacter);
+			const repl = ((SenderCharacter.MemberNumber == meta.TargetMemberNumber) && (entry.Tag == "TargetCharacter"))
+				? CharacterPronoun(meta.TargetCharacter, "Self", hideIdentity)
+				: hideIdentity
+					? DialogFindPlayer("Someone").toLowerCase()
+					: entry.Text;
+			substitutions.push([entry.Tag, repl]);
+
+			const pronounRepls = ChatRoomPronounSubstitutions(meta.TargetCharacter, "TargetPronoun", hideIdentity);
+			substitutions = substitutions.concat(pronounRepls);
+		}
+		else if (entry.Tag == "SourceCharacter") {
+			const hideIdentity = ChatRoomHideIdentity(meta.SourceCharacter);
+			const repl = hideIdentity
+				? DialogFindPlayer("Someone")
+				: entry.Text;
+			substitutions.push([entry.Tag, repl]);
+
+			const pronounRepls = ChatRoomPronounSubstitutions(meta.SourceCharacter, "Pronoun", hideIdentity);
+			substitutions = substitutions.concat(pronounRepls);
+		}
 		else if (entry.TextToLookUp) {
-			const repl = DialogFindPlayer(ChatRoomHTMLEntities(entry.TextToLookUp)).toLowerCase();
+			const repl = DialogFindPlayer(entry.TextToLookUp).toLowerCase();
 			substitutions.push([entry.Tag, repl]);
 		}
 		else if (entry.AssetName) {
-			const A = Asset.find(a => a.Name === entry.AssetName);
+			const A = meta.Assets && meta.Assets[entry.Tag];
 			if (A) {
 				meta.ActivityName = A.DynamicActivity(meta.SourceCharacter || Player);
-				const repl = A.DynamicDescription(meta.SourceCharacter || Player).toLowerCase();
-				substitutions.push([entry.Tag, repl]);
+				if (entry.Tag) {
+					const repl = A.DynamicDescription(meta.SourceCharacter || Player).toLowerCase();
+					substitutions.push([entry.Tag, repl]);
+				}
 			}
 		}
-		else if (entry.AssetGroupName) {
-			const G = AssetGroupGet('Female3DCG', entry.AssetGroupName);
+		else if (entry.FocusGroupName || entry.AssetGroupName) {
+			const G = AssetGroupGet('Female3DCG', meta.GroupName);
 			if (G) {
-				meta.GroupName = entry.AssetGroupName;
-				const repl = G.Description.toLowerCase();
-				substitutions.push([entry.Tag, repl]);
+				let repl = DialogActualNameForGroup(meta.TargetCharacter, G);
+				substitutions.push([entry.Tag, repl.toLowerCase()]);
 			}
 		}
-		else if (entry.Tag === "ActivityName") meta.ActivityName = entry.Text;
-		else if (entry.Tag === "ActivityGroup") meta.ActivityGroup = entry.Text;
 		else if (entry.Tag === "ChatRoomName") {
 			const repl = ChatSearchMuffle(entry.Text);
 			substitutions.push([entry.Tag, repl]);
 		}
-		else if (entry.ActivityCounter) meta.ActivityCounter = entry.ActivityCounter;
-		else if (entry.Automatic) meta.Automatic = true;
-		else if (entry.ShockIntensity != undefined) meta.ShockIntensity = entry.ShockIntensity;
-		else
-			substitutions.push([entry.Tag, ChatRoomHTMLEntities(entry.Text)]);
+		else if (entry.Text)
+			substitutions.push([entry.Tag, entry.Text]);
 	}
 	return { metadata: meta, substitutions: substitutions };
-}
-
-/**
- * Performs the required substitutions on the given message
- *
- * @param {string} msg - The string to perform the substitutions on.
- * @param {string[][]} substitutions - An array of {string, string} subtitutions.
- */
-function ChatRoomMessagePerformSubstitutions(msg, substitutions) {
-	if (typeof msg !== "string")
-		return "";
-
-	for (const [tag, subst] of substitutions) {
-		msg = msg.replace(tag, subst);
-	}
-	return msg;
 }
 
 /**
@@ -2744,6 +2824,7 @@ function ChatRoomMessagePerformSubstitutions(msg, substitutions) {
  *
  * @param {IChatRoomMessage} data
  * @param {Character} sender
+ * @returns {{ metadata?: IChatRoomMessageMetadata, substitutions?: string[][] }}
  */
 function ChatRoomMessageRunExtractors(data, sender) {
 	if (!data || !sender) return {};
@@ -2825,12 +2906,10 @@ function ChatRoomMessage(data) {
 
 	// Make sure the sender is in the room
 	const SenderCharacter = ChatRoomCharacter.find(c => c.MemberNumber == data.Sender);
-
-	// Sender is not in room, skip message
 	if (!SenderCharacter) return;
 
-	// Replace < and > characters to prevent HTML injections
-	let msg = data.Content ? ChatRoomHTMLEntities(data.Content) : "";
+	// Make a copy of the message for the purpose of substitutions
+	let msg = String(data.Content);
 
 	const preHandlers = ChatRoomMessageRunHandlers("pre", data, SenderCharacter, msg);
 	if (typeof preHandlers === "boolean" && preHandlers)
@@ -2860,7 +2939,7 @@ function ChatRoomMessage(data) {
 	}
 
 	// Apply requested substitutions
-	msg = ChatRoomMessagePerformSubstitutions(msg, substitutions);
+	msg = CommonStringSubstitute(msg, substitutions);
 
 	ChatRoomMessageRunHandlers("post", data, SenderCharacter, msg, metadata);
 }
@@ -2875,6 +2954,11 @@ function ChatRoomMessage(data) {
  * @returns {void}
  */
 function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
+
+	// Censored words are filtered out, ¶¶¶ indicates that we must not display anything on screen
+	msg = CommonCensor(msg);
+	if (msg == "¶¶¶") return;
+
 	// Prepares the HTML tags
 	switch (data.Type) {
 		case "Chat":
@@ -2885,17 +2969,17 @@ function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
 			senderTag += metadata.senderName;
 			senderTag += ':</span> ';
 
-			msg = senderTag + msg;
+			msg = senderTag + ChatRoomHTMLEntities(msg);
 		}
 			break;
 
 		case "Action":
 		case "Activity":
-			msg = "(" + msg + ")";
+			msg = "(" + ChatRoomHTMLEntities(msg) + ")";
 			break;
 
 		case "ServerMessage":
-			msg = "<b>" + msg + "</b>";
+			msg = "<b>" + ChatRoomHTMLEntities(msg) + "</b>";
 			break;
 
 		case "LocalMessage":
@@ -2904,7 +2988,7 @@ function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
 			break;
 
 		case "Emote":
-			msg = "*" + msg + "*";
+			msg = "*" + ChatRoomHTMLEntities(msg) + "*";
 			break;
 
 		default:
@@ -2915,7 +2999,7 @@ function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
 	// Checks if the message is a notification about the user entering or leaving the room
 	let MsgEnterLeave = "";
 	let MsgNonDialogue = "";
-	if ((data.Type == "Action") && (msg.startsWith("ServerEnter") || msg.startsWith("ServerLeave") || msg.startsWith("ServerDisconnect") || msg.startsWith("ServerBan") || msg.startsWith("ServerKick")))
+	if (data.Type === "Action" && ["ServerEnter", "ServerLeave", "ServerDisconnect", "ServerBan", "ServerKick"].some(msg => data.Content.startsWith(msg)))
 		MsgEnterLeave = " ChatMessageEnterLeave";
 	if ((data.Type != "Chat" && data.Type != "Whisper" && data.Type != "Emote"))
 		MsgNonDialogue = " ChatMessageNonDialogue";
@@ -2939,6 +3023,17 @@ function ChatRoomMessageDisplay(data, msg, SenderCharacter, metadata) {
 		if (ShouldScrollDown) ElementScrollToEnd("TextAreaChatLog");
 		if (Refocus) ElementFocus("InputChat");
 	}
+}
+
+/**
+ * Whether to replace message details which reveal information about an unseen/unheard character
+ * @param {Character} C - The character whose identity should remain unknown
+ * @returns {boolean} - Whether the character details should be hidden
+ */
+function ChatRoomHideIdentity(C) {
+	return PreferenceIsPlayerInSensDep()
+		&& C.MemberNumber != Player.MemberNumber
+		&& (!ChatRoomSenseDepBypass || !ChatRoomCharacterDrawlist.includes(C));
 }
 
 /**
@@ -3427,7 +3522,7 @@ function ChatRoomSyncItem(data) {
 			const previousItem = InventoryGet(ChatRoomCharacter[C], data.Item.Group);
 			const newItem = ServerBundledItemToAppearanceItem(ChatRoomCharacter[C].AssetFamily, data.Item);
 
-			let { item, valid } = ValidationResolveAppearanceDiff(previousItem, newItem, updateParams);
+			let { item, valid } = ValidationResolveAppearanceDiff(data.Item.Group, previousItem, newItem, updateParams);
 
 			ChatRoomAllowCharacterUpdate = false;
 
@@ -3442,7 +3537,7 @@ function ChatRoomSyncItem(data) {
 				if (item.Craft != null)
 					for (let Char of ChatRoomCharacter)
 						if (Char.MemberNumber === data.Source)
-							InventoryCraft(Char, ChatRoomCharacter[C], data.Item.Group, item.Craft, false);
+							InventoryCraft(Char, ChatRoomCharacter[C], data.Item.Group, item.Craft, false, false);
 				InventoryGet(ChatRoomCharacter[C], data.Item.Group).Property = item.Property;
 
 				/** @type {AppearanceDiffMap} */
@@ -4342,6 +4437,7 @@ function ChatRoomRecreate() {
 			Game: ChatRoomData.Game,
 			Private: Player.LastChatRoomPrivate,
 			Locked: ChatRoomData.Locked,
+			Space: Player.LastChatRoomSpace,
 		};
 
 		ServerSend("ChatRoomAdmin", { MemberNumber: Player.ID, Room: UpdatedRoom, Action: "Update" });
@@ -4386,7 +4482,8 @@ function ChatRoomDataChanged() {
 		ChatRoomLastDesc != ChatRoomData.Description ||
 		!CommonArraysEqual(ChatRoomLastAdmin, ChatRoomData.Admin) ||
 		!CommonArraysEqual(ChatRoomLastBan, ChatRoomData.Ban) ||
-		!CommonArraysEqual(ChatRoomLastBlockCategory, ChatRoomData.BlockCategory);
+		!CommonArraysEqual(ChatRoomLastBlockCategory, ChatRoomData.BlockCategory) ||
+		ChatRoomLastSpace != ChatRoomSpace;
 }
 
 function ChatRoomRefreshFontSize() {
@@ -4409,22 +4506,6 @@ function ChatRoomShouldBlockGaggedOOCMessage(Message, WhisperTarget) {
 			return false;
 
 	return true;
-}
-
-/**
- * Sorts a chat message dictionary to ensure that tags are handled in the correct order
- * @param {ChatMessageDictionary} dictionary - the dictionary to sort
- * @returns {ChatMessageDictionary} - The sorted dictionary
- */
-function ChatRoomSortDictionary(dictionary) {
-	if (Array.isArray(dictionary)) {
-		return dictionary.sort((e1, e2) => {
-			const order1 = ChatRoomDictionarySortOrder.get(e1.Tag) || 0;
-			const order2 = ChatRoomDictionarySortOrder.get(e2.Tag) || 0;
-			return order1 - order2;
-		});
-	}
-	return [];
 }
 
 /**
@@ -4528,4 +4609,20 @@ function ChatRoomOwnerPresenceRule(RuleName, Target) {
 	// If all validations passed, we enforce the rule
 	return Rule;
 
+}
+
+/**
+ * Replaces pronoun-related tags with the relevant text for the character
+ * @param {Character} C - The character that the message key relates to
+ * @param {string} key - Key for the dialog entry to use
+ * @param {boolean} hideIdentity - Whether to hide details revealing the character's identity
+ * @returns {[string, string][]} - The replacement pronoun text for keywords in the original message
+ */
+function ChatRoomPronounSubstitutions(C, key, hideIdentity) {
+	/** @type {[string, string][]} */
+	let repls = [];
+	for (const pronounType of ["Possessive", "Self", "Object"]) {
+		repls.push([key + pronounType, CharacterPronoun(C, pronounType, hideIdentity)]);
+	}
+	return repls;
 }

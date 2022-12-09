@@ -153,6 +153,8 @@ Yes, you can, but there's a hefty price.  Would you like to get better at using 
 是的，你可以，但价格高昂。你想更好地使用束缚或更顺利地逃脱束缚吗？
 (She looks at you and giggles.)  Your training session will be to get out of that.
 （她看着你，咯咯地笑。）你的训练课程就是从这束缚里逃脱出来。
+(She shakes her head no.)  You need to rest and practice for at least one hour before I can train you again.
+(她摇摇头，表示拒绝。)你需要至少休息并练习一个小时，我才能再次训练你。
 ###_PLAYER
 Let's talk later.  (Leave her.)
 以后再说吧。（离开她。）
@@ -266,6 +268,12 @@ How much does it cost?
 It depends on your current knowledge.  It can get quite costly if you want to become the very best.
 这取决于你目前的知识。如果你想成为最好的，这可能会变得非常昂贵。
 ###_PLAYER
+Can I train all day long?
+我可以一整天都训练吗。
+###_NPC
+No.  You need to rest and practice between training sessions.  Wait at least one hour before training again.
+不。在训练课程之间，你需要休息和练习。等至少一个小时后再训练吧。
+###_PLAYER
 I'd like to learn new bondage techniques.
 我想学习新的束缚技巧。
 ###_NPC
@@ -313,14 +321,14 @@ Very well.  Is there anything else I can do for you?
 Domo Arigato.  You were a great teacher.
 非常感谢（日语）。你是一位好老师。
 ###_NPC
-(She nods.)  It was my pleasure.  Come back anytime if you need more training.
-（她点头。）这是我的荣幸。如果你需要更多训练，请随时回来。
+(She nods.)  It was my pleasure.  Come back in an hour if you need more training.
+（她点头。）这是我的荣幸。如果你需要更多训练，请在一个小时后回来。
 ###_PLAYER
 I can't wait to try this on my slaves.
 我迫不及待想对我的奴隶试试这个。
 ###_NPC
-(She grins.)  Come back anytime if you need more training.
-（她咧嘴笑了起来。）如果你需要更多的训练，随时回来。
+(She grins.)  Come back in an hour if you need more training.
+（她咧嘴笑了起来。）如果你需要更多的训练，请在一个小时后回来。
 Arigato!  (She takes your money and get lots of rope.)  Give me your hands.  You'll become an escape artist very soon.
 感谢（日语）！（她收下你的钱，取来了很多绳子。）把手给我。你很快就会成为一名逃脱艺术家。
 (She teaches you many tips and evasion techniques that you'll be able to use when you're restrained.)
@@ -333,8 +341,8 @@ Arigato!  (She takes your money and gives you lots of rope.)  You'll become a se
 感谢（日语）！（她拿走了你的钱，给了你很多绳子。）你很快就会成为自缚达人。
 (She teaches you about safety and shows you many self-bondage techniques that you'll be able to use on yourself.)
 （她教你安全知识，并向你展示许多你可以在自己身上使用的自我束缚技巧。）
-(She nods.)  It was my pleasure.  Come back anytime if you need more training.  Remember to stay safe.
-（她点点头。）这是我的荣幸。如果你需要更多训练，请随时回来。记住要保持安全。
+(She nods.)  It was my pleasure.  Come back in an hour if you need more training.  Remember to stay safe.
+（她点点头。）这是我的荣幸。如果你需要更多训练，请在一个小时后回来。记住要保持安全。
 ###_PLAYER
 I can't wait to try this on myself.
 我迫不及待想在自己身上尝试一下。

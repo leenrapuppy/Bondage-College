@@ -36,7 +36,7 @@ function InventoryItemHoodCanvasHoodLoad() {
  */
 function InventoryItemHoodCanvasHoodDraw() {
 	// Draw the header and item
-	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
+	ExtendedItemDrawHeader(1387, 125);
 
 	const updateAllowed = InventoryItemHoodCanvasHoodAllowedChars.test(InventoryItemHoodCanvasHoodGetText());
 	DrawTextFit(DialogFindPlayer("CanvasHoodLabel"), 1505, 620, 350, "#fff", "#000");

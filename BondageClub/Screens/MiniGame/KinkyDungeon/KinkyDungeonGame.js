@@ -195,6 +195,7 @@ function KinkyDungeonInitialize(Level, Load) {
 	//Object.assign(KDGameData, KDGameDataBase);
 
 	KinkyDungeonRefreshRestraintsCache();
+	KinkyDungeonRefreshEnemiesCache();
 	KinkyDungeonRefreshOutfitCache();
 	//KinkyDungeonRefreshEnemyCache();
 	KinkyDungeonFlags = new Map();
@@ -313,6 +314,7 @@ function KinkyDungeonCreateMap(MapParams, Floor, testPlacement, seed) {
 		KinkyDungeonBullets = []; // Clear all bullets
 		KDGameData.OfferFatigue = 0;
 		KinkyDungeonEffectTiles = new Map();
+		KDGameData.KeyringLocations = [];
 
 		KinkyDungeonEndPosition = null;
 
@@ -784,9 +786,9 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 	KinkyDungeonFirstSpawn = true;
 	KinkyDungeonSearchTimer = 0;
 
-	let enemyCount = 8 + Math.floor(Math.sqrt(Floor) + width/25 + height/25 + KinkyDungeonDifficulty/10);
+	let enemyCount = 12 + Math.floor(Math.sqrt(Floor) + width/16 + height/16 + KinkyDungeonDifficulty/10);
 	if (KinkyDungeonStatsChoice.get("Stealthy")) enemyCount = Math.round(enemyCount * KDStealthyEnemyCountMult);
-	let neutralCount = 0.5 * (8 + Math.floor(Math.sqrt(Floor) + width/25 + height/25));
+	let neutralCount = 0.4 * enemyCount;
 	let count = 0;
 	let ncount = 0;
 	let tries = 0;
@@ -803,18 +805,22 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 	}
 
 	let factions = Object.keys(KinkyDungeonFactionTag);
-	let randomFaction = factions[Math.floor(KDRandom() * factions.length)];
+	let randomFactions = [
+		factions[Math.floor(KDRandom() * factions.length)],
+		factions[Math.floor(KDRandom() * factions.length)],
+	];
+
+	console.log(randomFactions[0] + "," + randomFactions[1]);
 
 	// These tags are disallowed unless working in the specific box
 	let filterTags = ["boss", "miniboss", "elite", "minor"];
 	let filterTagsCluster = ["boss", "miniboss"];
 
 	let spawnBoxes = [
-		{requiredTags: ["boss"], tags: [], currentCount: 0, maxCount: 0.001},
-		{requiredTags: ["miniboss"], tags: [], currentCount: 0, maxCount: 0.1},
-		{requiredTags: ["elite"], tags: [], currentCount: 0, maxCount: 0.2},
-		{requiredTags: ["minor"], tags: [], currentCount: 0, maxCount: 0.2},
-		{requiredTags: [KinkyDungeonFactionTag[randomFaction]], tags: [KinkyDungeonFactionTag[randomFaction]], currentCount: 0, maxCount: 0.1},
+		{requiredTags: ["boss"], tags: [], currentCount: 0, maxCount: 0.025},
+		{requiredTags: ["miniboss"], tags: [], currentCount: 0, maxCount: 0.075},
+		{requiredTags: ["elite"], tags: [], currentCount: 0, maxCount: 0.15},
+		{requiredTags: ["minor"], tags: [], currentCount: 0, maxCount: 0.1},
 	];
 	if (KDGameData.MapMod) {
 		let mapMod = KDMapMods[KDGameData.MapMod];
@@ -823,6 +829,9 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 				spawnBoxes.unshift(Object.assign({}, m));
 			}
 		}
+	} else {
+		spawnBoxes.push({requiredTags: [KinkyDungeonFactionTag[randomFactions[0]]], tags: [KinkyDungeonFactionTag[randomFactions[0]]], currentCount: 0, maxCount: 0.2});
+		spawnBoxes.push({requiredTags: [KinkyDungeonFactionTag[randomFactions[1]]], tags: [KinkyDungeonFactionTag[randomFactions[1]]], currentCount: 0, maxCount: 0.2});
 	}
 
 	let currentCluster = null;
@@ -837,7 +846,7 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 	// Create a quasirandom distribution
 	// This is to get the enemies more spread out
 	// Higher dd = more spread out
-	let dd = 2.5;
+	let dd = 3.5;
 	for (let X = 1; X < width - 1.01 - dd; X += dd)
 		for (let Y = 1; Y < width - 1.01 - dd; Y += dd) {
 			enemyPoints.push({x: Math.round(X + KDRandom() * dd), y: Math.round(Y + KDRandom() * dd)});
@@ -862,7 +871,7 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 	// Create this number of enemies
 	while (count < enemyCount && tries < 10000) {
 		let spawnBox_filter = spawnBoxes.filter((bb) => {
-			return bb.currentCount < bb.maxCount;
+			return bb.currentCount < bb.maxCount * enemyCount;
 		});
 		let box = null;
 		if (spawnBox_filter.length > 0) {
@@ -901,18 +910,24 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 			currentCluster = null;
 			if (spawns.length > 0 && KinkyDungeonMovableTilesSmartEnemy.includes(KinkyDungeonMapGet(spawns[0].x, spawns[0].y))) {
 				spawnPoint = true;
+				let specific = false;
 				if (spawns[0].required) {
-					required = spawns[0].required;
+					required = Object.assign([], spawns[0].required);
 					for (let t of required) {
 						if (filterTags.includes(t)) filterTags.splice(filterTags.indexOf(t), 1);
 					}
 				}
 
 				if (spawns[0].tags) {
+					specific = true;
 					tags = spawns[0].tags;
 					for (let t of tags) {
 						if (filterTags.includes(t)) filterTags.splice(filterTags.indexOf(t), 1);
 					}
+				}
+
+				if (!specific) {
+					tags.push(randomFactions[Math.floor(randomFactions.length * KDRandom())]);
 				}
 				X = spawns[0].x;
 				Y = spawns[0].y;
@@ -921,19 +936,23 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 			}
 		}
 
-		let playerDist = 5;
+		let playerDist = 8;
 		let PlayerEntity = KinkyDungeonNearestPlayer({x:X, y:Y});
 
-		if (box && !spawnPoint && !currentCluster) {
-			for (let rtag of box.requiredTags) {
-				if (filterTags.includes(rtag)) filterTags.splice(filterTags.indexOf(rtag), 1);
-				required.push(rtag);
+		if (box && (!spawnPoint || box.addToSpawn) && !currentCluster) {
+			if (!spawnPoint) {
+				for (let rtag of box.requiredTags) {
+					if (filterTags.includes(rtag)) filterTags.splice(filterTags.indexOf(rtag), 1);
+					required.push(rtag);
+				}
 			}
 			for (let tag of box.tags) {
 				if (filterTags.includes(tag)) filterTags.splice(filterTags.indexOf(tag), 1);
 				tags.push(tag);
 			}
-		} else box = null;
+		} else {
+			box = null;
+		}
 
 		if ((spawnPoint && KinkyDungeonNoEnemy(X, Y, true)) || ((!KinkyDungeonTiles.get("" + X + "," + Y) || !KinkyDungeonTiles.get("" + X + "," + Y).OffLimits)
 			&& Math.sqrt((X - PlayerEntity.x) * (X - PlayerEntity.x) + (Y - PlayerEntity.y) * (Y - PlayerEntity.y)) > playerDist && KinkyDungeonMovableTilesEnemy.includes(KinkyDungeonMapGet(X, Y))
@@ -968,10 +987,12 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 			for (let t of Tags) {
 				tags.push(t);
 			}
+			if (randomFactions.length > 0 && !box && !currentCluster && !spawnPoint)
+				tags.push(randomFactions[Math.floor(randomFactions.length * KDRandom())]);
 			if (required.length == 0) required = undefined;
 			let Enemy = KinkyDungeonGetEnemy(tags, Floor + KinkyDungeonDifficulty/5, KinkyDungeonMapIndex[MiniGameKinkyDungeonCheckpoint], KinkyDungeonMapGet(X, Y), required, ncount > neutralCount && (!box || !box.ignoreAllyCount), BonusTags, currentCluster ? filterTagsCluster : filterTags);
 			if (box && !Enemy) {
-				box.currentCount += 0.1;
+				box.currentCount += 0.05;
 			}
 			if (Enemy && (!InJail || (Enemy.tags.jailer || Enemy.tags.jail || Enemy.tags.leashing))) {
 				let e = {Enemy: Enemy, id: KinkyDungeonGetEnemyID(), x:X, y:Y, hp: (Enemy.startinghp) ? Enemy.startinghp : Enemy.maxhp, movePoints: 0, attackPoints: 0, AI: AI};
@@ -996,8 +1017,10 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 					KinkyDungeonSetEnemyFlag(e, shop, -1);
 				}
 				if (!spawnPoint && !currentCluster && Enemy.clusterWith) {
-					let clusterChance = 1.0; //1.1 + 0.9 * MiniGameKinkyDungeonLevel/KinkyDungeonMaxLevel;
-					if (Enemy.tags.boss) clusterChance *= 0.4;
+					let clusterChance = 0.2; //1.1 + 0.9 * MiniGameKinkyDungeonLevel/KinkyDungeonMaxLevel;
+					if (Enemy.tags.boss) clusterChance = 0.4;
+					else if (Enemy.tags.miniboss) clusterChance = 1.0;
+					else if (Enemy.tags.elite) clusterChance = 0.55;
 					//else if (Enemy.tags.elite || Enemy.tags.miniboss) clusterChance *= 0.6;
 					if (KDRandom() < clusterChance)
 						currentCluster = {
@@ -1017,9 +1040,7 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 				if (Enemy.tags.boss) {
 					//boss = true;
 				}
-				else if (Enemy.tags.elite)
-					incrementCount += 0.5; // Elite enemies count as 1.5 normal enemies
-				if (Enemy.tags.miniboss) miniboss = true; // Adds miniboss as a tag
+				else if (Enemy.tags.miniboss) miniboss = true; // Adds miniboss as a tag
 				if (Enemy.tags.removeDoorSpawn && KinkyDungeonMapGet(X, Y) == "d") {
 					KinkyDungeonMapSet(X, Y, '0');
 					KinkyDungeonTiles.delete(X + "," + Y);
@@ -1032,12 +1053,13 @@ function KinkyDungeonPlaceEnemies(spawnPoints, InJail, Tags, BonusTags, Floor, w
 							KinkyDungeonSummonEnemy(X, Y, sum.enemy, sum.count, sum.range, sum.strict);
 					}
 				}
-				if (incrementCount) count += spawnPoint ? 0.05 : incrementCount;
-				if (!spawnPoint && box) box.currentCount += 1;
+				if (incrementCount) count += spawnPoint ? 0.025 : incrementCount;
+				if (!spawnPoint && box)
+					box.currentCount += incrementCount;
 				if (KDFactionRelation("Player", KDGetFaction(e)) > -0.5) {
 					ncount += 1;
 				}
-				EnemyNames.push(Enemy.name);
+				EnemyNames.push(Enemy.name + `_${box?`box-${box.requiredTags}, ${box.tags}`:""},${currentCluster?"cluster":""},${spawnPoint}`);
 			}
 		}
 		tries += 1;
@@ -2170,6 +2192,7 @@ function KinkyDungeonReplaceDoodads(Chance, barchance, wallRubblechance, wallhoo
 	}
 
 }
+
 function KinkyDungeonPlaceFurniture(barrelChance, cageChance, width, height, altType) {
 	// Add special stuff
 	if (!altType || !altType.noClutter)
@@ -2188,7 +2211,8 @@ function KinkyDungeonPlaceFurniture(barrelChance, cageChance, width, height, alt
 						|| (KDRandom() < barrelChance && KinkyDungeonMapGet(X, Y+1) == '1' && KinkyDungeonMapGet(X, Y-1) == '0' && KinkyDungeonMapGet(X+1, Y-1) == '0' && KinkyDungeonMapGet(X-1, Y-1) == '0'))) {
 					KinkyDungeonMapSet(X, Y, 'L'); // Barrel
 					if (KDRandom() < cageChance) {
-						KinkyDungeonTiles.set(X + "," + Y, {Furniture: "Cage"});
+						let furn = KDRandom() ? "Cage" : "DisplayStand";
+						KinkyDungeonTiles.set(X + "," + Y, {Furniture: furn});
 						KDGameData.JailPoints.push({x: X, y: Y, type: "furniture", radius: 1}); // , requireFurniture: true Standing in the cage alone will prevent jailbreak--good for stealth!
 					}
 				}
@@ -2592,7 +2616,7 @@ function KinkyDungeonClickGame(Level) {
 	if (KinkyDungeonControlsEnabled() && KinkyDungeonHandleHUD()) {
 		try {
 			if (prevSpell) {
-				if (prevInv) KinkyDungeonShowInventory = false;
+				if (prevInv) KDCloseQuickInv();
 				else KinkyDungeonTargetingSpell = null;
 			}
 			if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/Click.ogg");
@@ -2710,8 +2734,23 @@ function KinkyDungeonListenKeyMove() {
 
 		if (moveDirection) {
 			if (KinkyDungeonLastMoveTimerStart < performance.now() && KinkyDungeonLastMoveTimerStart > 0) {
-				KDSendInput("move", {dir: moveDirection, delta: 1, AllowInteract: KinkyDungeonLastMoveTimer == 0, AutoDoor: KinkyDungeonToggleAutoDoor, AutoPass: KinkyDungeonToggleAutoPass, sprint: KinkyDungeonToggleAutoSprint, SuppressSprint: KinkyDungeonSuppressSprint});
-				KinkyDungeonLastMoveTimer = performance.now() + KinkyDungeonLastMoveTimerCooldown;
+
+				let _CharacterRefresh = CharacterRefresh;
+				let _CharacterAppearanceBuildCanvas = CharacterAppearanceBuildCanvas;
+				// @ts-ignore
+				CharacterRefresh = () => {KDRefresh = true;};
+				// @ts-ignore
+				CharacterAppearanceBuildCanvas = () => {};
+
+				try {
+					KDSendInput("move", {dir: moveDirection, delta: 1, AllowInteract: KinkyDungeonLastMoveTimer == 0, AutoDoor: KinkyDungeonToggleAutoDoor, AutoPass: KinkyDungeonToggleAutoPass, sprint: KinkyDungeonToggleAutoSprint, SuppressSprint: KinkyDungeonSuppressSprint});
+					KinkyDungeonLastMoveTimer = performance.now() + KinkyDungeonLastMoveTimerCooldown;
+				} finally {
+					// @ts-ignore
+					CharacterRefresh = _CharacterRefresh;
+					// @ts-ignore
+					CharacterAppearanceBuildCanvas = _CharacterAppearanceBuildCanvas;
+				}
 			} else if (KinkyDungeonLastMoveTimerStart == 0) {
 				KinkyDungeonLastMoveTimerStart = performance.now()+ KinkyDungeonLastMoveTimerCooldownStart;
 			}
@@ -2995,6 +3034,7 @@ function KinkyDungeonLaunchAttack(Enemy, skip) {
 					distract: KinkyDungeonPlayerDamage.distract,
 					distractEff: KinkyDungeonPlayerDamage.distractEff,
 					bind: KinkyDungeonPlayerDamage.bind,
+					bindType: KinkyDungeonPlayerDamage.bindType,
 					bindEff: KinkyDungeonPlayerDamage.bindEff,
 					boundBonus: KinkyDungeonPlayerDamage.boundBonus,
 					novulnerable: KinkyDungeonPlayerDamage.novulnerable,
@@ -3273,6 +3313,13 @@ let KDLastTick = 0;
 function KinkyDungeonAdvanceTime(delta, NoUpdate, NoMsgTick) {
 
 	KDLastTick = performance.now();
+
+	if (delta > 0 && CommonTime() > lastFloaterRefresh + 1000) {
+		KDEntitiesFloaterRegisty = new Map();
+		lastFloaterRefresh = CommonTime();
+	}
+
+
 	let _CharacterRefresh = CharacterRefresh;
 	let _CharacterAppearanceBuildCanvas = CharacterAppearanceBuildCanvas;
 	// @ts-ignore
@@ -3400,14 +3447,15 @@ function KinkyDungeonAdvanceTime(delta, NoUpdate, NoMsgTick) {
 	KinkyDungeonSendEvent("tickAfter", {delta: delta});
 
 	KinkyDungeonUpdateStats(0);
+
+	KinkyDungeonDressPlayer();
 	KDGetEnemyCache();
-	if (delta > 0)
-		KDEntitiesFloaterRegisty = new Map();
 
 	KDAllowDialogue = true;
 }
 let KDAllowDialogue = true;
 
+let lastFloaterRefresh = 0;
 
 function KinkyDungeonTargetTileMsg() {
 	if (KDObjectMessages[KinkyDungeonTargetTile.Type]) {

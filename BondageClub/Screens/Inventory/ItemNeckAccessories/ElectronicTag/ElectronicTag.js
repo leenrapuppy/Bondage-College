@@ -24,7 +24,7 @@ function InventoryItemNeckAccessoriesElectronicTagLoad() {
 function InventoryItemNeckAccessoriesElectronicTagDraw() {
 	var C = CharacterGetCurrent();
 	// Draw the header and item
-	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
+	ExtendedItemDrawHeader(1387, 125);
 
     // Tag data
 	if (!InventoryItemHasEffect(DialogFocusItem, "Lock", true)) {

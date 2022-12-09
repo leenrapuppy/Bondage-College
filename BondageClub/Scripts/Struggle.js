@@ -25,7 +25,10 @@ var StruggleLockPickTotalTries = 0;
 var StruggleProgressStruggleCount = 0;
 var StruggleProgressAuto = 0;
 var StruggleProgressOperation = "...";
+
+/** @type {Item | null} */
 var StruggleProgressPrevItem = null;
+/** @type {Item | null} */
 var StruggleProgressNextItem = null;
 var StruggleProgressSkill = 0;
 var StruggleProgressLastKeyPress = 0;
@@ -33,7 +36,9 @@ var StruggleProgressChallenge = 0;
 
 
 var StruggleProgressCurrentMinigame = "Strength";
+/** @type {Item | null} */
 var StruggleProgressChoosePrevItem = null;
+/** @type {Item | null} */
 var StruggleProgressChooseNextItem = null;
 
 // For flexibility
@@ -218,12 +223,7 @@ function StruggleProgressCheckEnd(C) {
 			}
 		}
 
-		// Check to open the extended menu of the item.  In a chat room, we publish the result for everyone
-		if ((StruggleProgressNextItem != null) && StruggleProgressNextItem.Asset.Extended && ((StruggleProgressNextItem.Craft == null) || (StruggleProgressNextItem.Craft.Type == null) || (StruggleProgressNextItem.Craft.Type == ""))) {
-			DialogInventoryBuild(C);
-			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, false);
-			DialogExtendItem(InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name));
-		} else ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true);
+		ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true);
 
 		// Reset the the character's position
 		if (CharacterAppearanceForceUpCharacter == C.MemberNumber) {

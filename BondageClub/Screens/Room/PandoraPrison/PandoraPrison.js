@@ -200,7 +200,7 @@ function PandoraPrisonPlayerChastity(LockType) {
  * @returns {void} - Nothing
  */
 function PandoraPrisonCharacterRemove() {
-	InventoryRemove(CurrentCharacter, "ItemHands");
+	InventoryRemove(CurrentCharacter, "ItemHandheld");
 	PandoraPrisonCharacter = null;
 	PandoraPrisonCharacterTimer = CommonTime() + 30000 + Math.floor(Math.random() * 30000);
 	PandoraPrisonGuard.Stage = "RANDOM";
@@ -320,8 +320,7 @@ function PandoraPrisonBribeProcess(Money, Minutes) {
  * @returns {void} - Nothing
  */
 function PandoraPrisonPickWeapon() {
-	InventoryWear(PandoraPrisonGuard, "SpankingToys", "ItemHands");
-	InventoryGet(PandoraPrisonGuard, "ItemHands").Property = { Type: CommonRandomItemFromList("", ["Flogger", "Cane", "Paddle", "WhipPaddle", "Whip", "CattleProd", "Belt"]) };
+	InventoryWear(PandoraPrisonGuard, CommonRandomItemFromList("", ["Flogger", "Cane", "Paddle", "WhipPaddle", "Whip", "CattleProd", "Belt"]), "ItemHandheld");
 	CharacterRefresh(PandoraPrisonGuard);
 }
 
@@ -346,8 +345,7 @@ function PandoraPrisonPlayerBeat(Damage, Blush) {
  */
 function PandoraPrisonPickTickle() {
 	PandoraPrisonPlayerUngag();
-	InventoryWear(PandoraPrisonGuard, "SpankingToys", "ItemHands");
-	InventoryGet(PandoraPrisonGuard, "ItemHands").Property = { Type: CommonRandomItemFromList("", ["Feather", "FeatherDuster", "ElectricToothbrush", "Toothbrush", "Vibrator", "VibratingWand", "SmallVibratingWand"]) };
+	InventoryWear(PandoraPrisonGuard, CommonRandomItemFromList("", ["Feather", "FeatherDuster", "ElectricToothbrush", "Toothbrush", "Vibrator", "VibratingWand", "SmallVibratingWand"]), "ItemHandheld");
 	CharacterRefresh(PandoraPrisonGuard);
 }
 

@@ -59,6 +59,9 @@ ClothLaurelLace,Lace
 ClothSeethroughTopLace,Lace
 ClothSeethroughTopDesign,Design
 ClothJacketBase,Jacket
+ClothButtonShirtTop,Upper Gradient
+ClothButtonShirtBottom,Lower Gradient
+ClothButtonShirtButtons,Buttons
 ClothAccessoryBouquetBase,Holder
 ClothAccessoryBouquetFlowers,Flowers
 ClothAccessoryCapeFront,Front
@@ -93,6 +96,8 @@ SuitSeethroughSuitZipZip,Zip
 SuitSeethroughSuitZipGloves,Gloves
 SuitSeamlessCatsuitSuit,Suit
 SuitSeamlessCatsuitGloves,Gloves
+SuitMaleSeamlessCatsuitBase,Catsuit
+SuitMaleSeamlessCatsuitGloves,Gloves
 SuitSeethroughSuitSuit,Suit
 SuitSeethroughSuitGloves,Gloves
 SuitReverseBunnySuitSuit,Suit
@@ -149,6 +154,10 @@ SuitLowerCatsuitBase,Suit
 SuitLowerCatsuitZip,Zip
 SuitLowerSeethroughSuitZipBase,Suit
 SuitLowerSeethroughSuitZipZip,Zip
+SuitLowerMaleSeamlessCatsuitBase,Catsuit
+SuitLowerMaleSeamlessCatsuitLock,Lock Icon
+SuitLowerMaleCatsuitPantiesBase,Catsuit Panties
+SuitLowerMaleCatsuitPantiesLock,Lock Icon
 PantiesDiapers2Diaper,Diaper
 PantiesDiapers2Cover,Plastic Cover
 PantiesDiapers4Diaper,Diaper
@@ -525,9 +534,10 @@ ItemArmsTransportJacketStripes,Jacket
 ItemArmsTransportJacketStripesLegs,Shorts
 ItemArmsTransportJacketStraps,Straps
 ItemArmsBitchSuitLatex,Suit
+ItemArmsBitchSuitZips,Zippers
+ItemArmsBitchSuitStraps,Straps
+ItemArmsBitchSuitBuckles,Buckles
 ItemArmsBitchSuitLock,Locks
-ItemArmsBitchSuitExposedLatex,Suit
-ItemArmsBitchSuitExposedLock,Locks
 ItemArmsTentaclesLowerInner,Inner
 ItemArmsTentaclesLowerSucker,Suckers
 ItemArmsTentaclesLowerOuter,Outer
@@ -537,6 +547,11 @@ ItemArmsTentaclesSucker,Suckers
 ItemArmsSlimeBaseOne,Color 1
 ItemArmsSlimeBaseTwo,Color 2
 ItemArmsSlimeGirlBack,Slime Girl
+ItemArmsSmoothLeatherArmbinder1BinderLeft,Binder
+ItemArmsSmoothLeatherArmbinder1SeamsLeft,Seams
+ItemArmsSmoothLeatherArmbinder1LacesLeft,Laces
+ItemArmsSmoothLeatherArmbinder1BinderStrapsLeft,Binder Straps
+ItemArmsSmoothLeatherArmbinder1BasicShoulderStraps,Shoulder Straps
 ItemHandsFuturisticMittensBody,Body
 ItemHandsFuturisticMittensMesh,Mesh
 ItemHandsFuturisticMittensDisplay,Display
@@ -611,6 +626,12 @@ ItemMiscWoodenSignRope,Rope
 ItemMiscWoodenSignText,Text
 ItemMiscWoodenSignRope,Rope
 ItemMiscWoodenSignText,Text
+ItemMiscPetPostPole,Pole
+ItemMiscPetPostPlaque,Plaque
+ItemMiscPetPostPlaqueBorder,PlaqueBorder
+ItemMiscPetPostPostit,Postit
+ItemMiscPetPostPaw,Sticker
+ItemMiscPetPostPlaqueBolts,PlaqueBolts
 ItemDevicesBedPillow,Pillow
 ItemDevicesBedMattress,Mattress
 ItemDevicesBedHeadboard,Headboard
@@ -658,8 +679,10 @@ ItemDevicesPetBowlText,Text
 ItemDevicesVacBedDeluxeSheetBack,Sheet Back
 ItemDevicesVacBedDeluxeSheetFront,Sheet Front
 ItemDevicesVacBedDeluxeSheet,Sheet
-ItemDevicesVacBedDeluxeUpper,Upper
-ItemDevicesVacBedDeluxeLower,Lower
+ItemDevicesVacBedDeluxeArmsDown,Upper
+ItemDevicesVacBedDeluxeArmsYoked,Upper
+ItemDevicesVacBedDeluxeLegsSpread,Lower
+ItemDevicesVacBedDeluxeLegsClosed,Lower
 ItemDevicesVacBedDeluxeBody,Body
 ItemDevicesVacBedDeluxeFrame,Frame
 ItemDevicesFuckMachineCaps,Caps
@@ -1097,6 +1120,12 @@ ItemMouth3PonyGagBlinders,Blinders
 ItemMouth3PonyGagPost,Post
 ItemMouth3StitchesFakeMouth,Lips
 ItemMouth3StitchesStraight,Thread
+ItemMouth3LatexRespiratorBase,Base
+ItemMouth3LatexRespiratorRoundedShine,Shine
+ItemMouth3LatexRespiratorStraps,Straps
+ItemMouth3LatexRespiratorFilterFixing,Fixing
+ItemMouth3LatexRespiratorFilter,Tubes
+ItemMouth3LatexRespiratorFilterGlow,Glow
 MaskFoxMaskUpper,Upper
 MaskFoxMaskLower,Lower
 MaskKittyMask3Highlights,Highlights
@@ -1113,6 +1142,10 @@ ItemTorsoFuturisticHarnessBand,Straps
 ItemTorsoFuturisticHarnessDisplay,Display
 ItemTorsoFuturisticHarnessMesh,Module
 ItemTorsoFuturisticHarnessLock,Lock
+ItemTorso2FuturisticHarnessBand,Straps
+ItemTorso2FuturisticHarnessDisplay,Display
+ItemTorso2FuturisticHarnessMesh,Module
+ItemTorso2FuturisticHarnessLock,Lock
 ItemBreastFuturisticBraBra,Body
 ItemBreastFuturisticBraDisplay,Display
 ItemBreastFuturisticBraMesh,Mesh
@@ -1265,7 +1298,53 @@ GlassesGradientSunglassesFrame,Frame
 GlassesGradientSunglassesGlass,Glass
 GlovesBikerGlovesHands,Gloves
 GlovesBikerGlovesStraps,Straps
+ItemTorsoLeatherChestHarness1Ring,Ring
+ItemTorsoLeatherChestHarness1Straps,Straps
+ItemTorso2LeatherChestHarness1Ring,Ring
+ItemTorso2LeatherChestHarness1Straps,Straps
+PantiesBoxerShortsShorts,Shorts
+PantiesBoxerShortsWaistband,Waist Band
+ItemVulvaBasicCockringCockRing,Cock Ring
+ItemVulvaBasicCockringPenis,Penis
 BodyUpperSmall,Body
 BodyUpperNormal,Body
 BodyUpperLarge,Body
 BodyUpperXLarge,Body
+ItemNipplesNippleClamps2Metal,Metal
+ItemNipplesNippleClamps2RubberTips,Rubber Tips
+ItemVulvaPlasticChastityCage1Ring,Ring
+ItemVulvaPlasticChastityCage1Penis,Penis
+ItemVulvaPlasticChastityCage1Cage,Cage
+ItemVulvaPlasticChastityCage1Lock,Lock
+ItemVulvaVibeEggPenisBaseStrap,Strap
+ItemVulvaVibeEggPenisBaseEgg,Vibe Egg
+ItemHandsSmoothLeatherMittens1Mittens,Mittens
+ItemHandsSmoothLeatherMittens1Straps,Straps
+ItemHandsSmoothLeatherMittens1Buckles,Buckles
+ItemHandsSmoothLeatherMittens1Locks,Locks
+ItemArmsCanvasStraitjacket1Straps,Crotch Straps
+ItemArmsCanvasStraitjacket1Jacket,Jacket,
+ItemArmsCanvasStraitjacket1ArmStraps,Arm Strap
+ItemVulvaPlasticChastityCage2Ring,Ring
+ItemVulvaPlasticChastityCage2Penis,Penis
+ItemVulvaPlasticChastityCage2Cage,Cage
+ItemVulvaPlasticChastityCage2Lock,Lock
+ItemVulvaTechnoChastityCageRing,Ring
+ItemVulvaTechnoChastityCageCage,Cage
+ItemVulvaTechnoChastityCageLock,Lock Icon
+HairFrontHairFront38Main,Main
+HairFrontHairFront38Fade,Fade
+HairFrontHairFront40Main,Main
+HairFrontHairFront40Fade,Fade
+HairFrontHairFront42Main,Main
+HairFrontHairFront42Fade,Fade
+HairFrontHairFront43Main,Main
+HairFrontHairFront43Fade,Fade
+HairFrontHairFront44Main,Main
+HairFrontHairFront44Fade,Fade
+HairFrontHairFront45Main,Main
+HairFrontHairFront45Fade,Fade
+HairFrontHairFront46Main,Main
+HairFrontHairFront46Fade,Fade
+HairFrontHairFront47Main,Main
+HairFrontHairFront47Fade,Fade

@@ -1,51 +1,107 @@
 "use strict";
-var CraftingBackground = "CraftingWorkshop";
-var CraftingMode = "Slot";
-var CraftingDestroy = false;
-var CraftingSlot = 0;
-/** @type {{Name?: string, Description?: string, Color?: string, Asset?: Asset, Property?: string, Lock?: Asset, Private?: boolean, Type: String }} */
-var CraftingSelectedItem = null;
-var CraftingOffset = 0;
-/** @type {Asset[]} */
-var CraftingItemList = [];
-var CraftingSlotMax = 40;
-/** @type {Character} */
-var CraftingPreview = null;
-/** @type {boolean} */
-var CraftingNakedPreview = false;
-var CraftingReturnToChatroom = false;
+
+/** The background of the crafting screen. */
+const CraftingBackground = "CraftingWorkshop";
 
 /**
- * @type {{Name: string, Allow: (asset: Asset) => boolean}[]}
+ * The active subscreen within the crafting screen:
+ * * `"Slot"`: The main crafting screens wherein the {@link CraftingItem} is selected, created or destroyed.
+ * * `"Item"`: The item selection screen wherein the underlying {@link Asset} is selected.
+ * * `"Property"`: The {@link CraftingPropertyType} selection screen.
+ * * `"Lock"`: The {@link CraftingLockList} selection screen.
+ * * `"Name"`: The main menu wherein the crafted item is customized, allowing for the specification of names, descriptions, colors, extended item types, _etc._
+ * * `"Color"`: A dedicated coloring screen for the crafted item.
+ * @type {"Slot" | "Item" | "Property" | "Lock" | "Name" | "Color"}
  */
-var CraftingPropertyList = [
-	{ Name: "Normal", Allow : function(Item) { return true; } },
-	{ Name: "Large", Allow : function(Item) { return CraftingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); } },
-	{ Name: "Small", Allow : function(Item) { return CraftingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); } },
-	{ Name: "Thick", Allow : function(Item) { return CraftingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy", "BlindTotal"]); } },
-	{ Name: "Thin", Allow : function(Item) { return CraftingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy", "BlindTotal"]); } },
-	{ Name: "Secure", Allow : function(Item) { return true; } },
-	{ Name: "Loose", Allow : function(Item) { return true; } },
-	{ Name: "Decoy", Allow : function(Item) { return true; } },
-	{ Name: "Malleable", Allow : function(Item) { return true; } },
-	{ Name: "Rigid", Allow : function(Item) { return true; } },
-	{ Name: "Simple", Allow : function(Item) { return Item.AllowLock; } },
-	{ Name: "Puzzling", Allow : function(Item) { return Item.AllowLock; } },
-	{ Name: "Painful", Allow : function(Item) { return true; } },
-	{ Name: "Comfy", Allow : function(Item) { return true; } },
-	{ Name: "Strong", Allow : function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); } },
-	{ Name: "Flexible", Allow : function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); } },
-	{ Name: "Nimble", Allow : function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); } },
-	{ Name: "Arousing", Allow : function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); } },
-	{ Name: "Dull", Allow : function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); } }
-];
-var CraftingLockList = ["", "MetalPadlock", "IntricatePadlock", "HighSecurityPadlock", "OwnerPadlock", "LoversPadlock", "MistressPadlock", "PandoraPadlock", "ExclusivePadlock"];
+let CraftingMode = "Slot";
+
+/** Whether selecting a crafted item in the crafting screen should destroy it. */
+let CraftingDestroy = false;
+
+/** The index of the selected crafted item within the crafting screen. */
+let CraftingSlot = 0;
+
+/**
+ * The currently selected crafted item in the crafting screen.
+ * @type {CraftingItemSelected | null}
+ */
+let CraftingSelectedItem = null;
+
+/** An offset used for the pagination of {@link CraftingItemList} and all crafted items. */
+let CraftingOffset = 0;
+
+/**
+ * A list of all assets valid for crafting, potentially filtered by a user-provided keyword.
+ * @type {Asset[]}
+ */
+let CraftingItemList = [];
+
+/** The maximum number of crafting slots. */
+let CraftingSlotMax = 40;
+
+/**
+ * The character used for the crafting preview.
+ * @type {Character | null}
+ */
+let CraftingPreview = null;
+
+/** Whether the crafting character preview should be naked or not. */
+let CraftingNakedPreview = false;
+
+/** Whether exiting the crafting menu should return you to the chatroom or, otherwise, the main hall. */
+let CraftingReturnToChatroom = false;
+
+/**
+ * Map crafting properties to their respective validation function.
+ * @type {Map<CraftingPropertyType, (asset: Asset) => boolean>}
+ */
+const CraftingPropertyMap = new Map([
+	["Normal", function(Item) { return true; }],
+	["Large", function(Item) { return CraftingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); }],
+	["Small", function(Item) { return CraftingItemHasEffect(Item, ["GagVeryLight", "GagEasy", "GagLight", "GagNormal", "GagMedium", "GagHeavy", "GagVeryHeavy", "GagTotal", "GagTotal2"]); }],
+	["Thick", function(Item) { return CraftingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy", "BlindTotal"]); }],
+	["Thin", function(Item) { return CraftingItemHasEffect(Item, ["BlindLight", "BlindNormal", "BlindHeavy", "BlindTotal"]); }],
+	["Secure", function(Item) { return true; }],
+	["Loose", function(Item) { return true; }],
+	["Decoy", function(Item) { return true; }],
+	["Malleable", function(Item) { return true; }],
+	["Rigid", function(Item) { return true; }],
+	["Simple", function(Item) { return Item.AllowLock; }],
+	["Puzzling", function(Item) { return Item.AllowLock; }],
+	["Painful", function(Item) { return true; }],
+	["Comfy", function(Item) { return true; }],
+	["Strong", function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); }],
+	["Flexible", function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); }],
+	["Nimble", function(Item) { return Item.IsRestraint || (Item.Difficulty > 0); }],
+	["Arousing", function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); }],
+	["Dull", function(Item) { return CraftingItemHasEffect(Item, ["Egged", "Vibrating"]); } ],
+]);
+
+/**
+ * An enum with status codes for crafting validation.
+ * @property OK - The validation proceded without errors
+ * @property ERROR - The validation produced one or more errors that were successfully resolved
+ * @property CRITICAL_ERROR - The validation produced an unrecoverable error
+ * @type {{OK: 2, ERROR: 1, CRITICAL_ERROR: 0}}
+ */
+const CraftingStatusType = {
+	OK: 2,
+	ERROR: 1,
+	CRITICAL_ERROR: 0,
+}
+
+/**
+ * The Names of all locks that can be automatically applied to crafted items.
+ * An empty string implies the absence of a lock.
+ * @type {readonly (AssetLockType | "")[]}
+ */
+const CraftingLockList = ["", "MetalPadlock", "IntricatePadlock", "HighSecurityPadlock", "OwnerPadlock", "LoversPadlock", "MistressPadlock", "PandoraPadlock", "ExclusivePadlock"];
 
 /**
  * Returns TRUE if a crafting item has an effect from a list or allows that effect
  * @param {Asset} Item - The item asset to validate
  * @param {EffectName[]} Effect - The list of effects to validate
- * @returns {Boolean}
+ * @returns {Boolean} - TRUE if the item has that effect
  */
 function CraftingItemHasEffect(Item, Effect) {
 	if (Item.Effect != null)
@@ -60,21 +116,21 @@ function CraftingItemHasEffect(Item, Effect) {
 }
 
 /**
- *
- * @param {boolean} [fromRoom]
+ * Shows the crating screen and remember if the entry came from an online chat room
+ * @param {boolean} FromChatRoom - TRUE if we come from an online chat room
+ * @returns {void} - Nothing
  */
-function CraftingShowScreen(fromRoom) {
-	CraftingReturnToChatroom = fromRoom;
+function CraftingShowScreen(FromChatRoom) {
+	CraftingReturnToChatroom = FromChatRoom;
 	CommonSetScreen("Room", "Crafting");
 }
 
 /**
- * Loads the club crafting room in slot selection mode
+ * Loads the club crafting room in slot selection mode, creates a dummy character for previews
  * @returns {void} - Nothing
  */
 function CraftingLoad() {
 	CraftingModeSet("Slot");
-	// Create a dummy character for previews
 	CraftingPreview = CharacterLoadSimple(`CraftingPreview-${Player.MemberNumber}`);
 	CraftingPreview.Appearance = [...Player.Appearance];
 	CraftingPreview.Crafting = JSON.parse(JSON.stringify(Player.Crafting));
@@ -100,11 +156,29 @@ function CraftingUpdatePreview() {
 		return true;
 	});
 	for (const RelevantAsset of RelevantAssets) {
-		if ((RelevantAsset.Group == null) || (RelevantAsset.Group.Name == null) || (RelevantAsset.Group.Name == "ItemAddon")) continue;
 		InventoryWear(CraftingPreview, RelevantAsset.Name, RelevantAsset.Group.Name, null, null, CraftingPreview.MemberNumber, Craft);
-		InventoryCraft(CraftingPreview, CraftingPreview, RelevantAsset.Group.Name, Craft, false);
+		InventoryCraft(CraftingPreview, CraftingPreview, RelevantAsset.Group.Name, Craft, false, true, false);
+		// Hack for the stuff in ItemAddons, since there's no way to resolve their prerequisites
+		if (RelevantAsset.Prerequisite.includes("OnBed")) {
+			const bedType = RelevantAsset.Name.includes("Medical") ? "MedicalBed" : "Bed";
+			const bed = AssetGet(CraftingPreview.AssetFamily, "ItemDevices", bedType);
+			InventoryWear(CraftingPreview, bed.Name, bed.Group.Name, null, null, CraftingPreview.MemberNumber);
+		}
 	}
 	CharacterRefresh(CraftingPreview);
+}
+
+/**
+ * Check whether the item can safely be used with the crafting auto-type system.
+ * @returns {Boolean}
+ */
+ function CraftingItemSupportsAutoType() {
+	const ItemAsset = CraftingSelectedItem.Asset;
+	if (ItemAsset == null) {
+		return false;
+	} else {
+		return (ItemAsset.AllowType != null) && (ItemAsset.AllowType.length > 0);
+	}
 }
 
 /**
@@ -173,13 +247,13 @@ function CraftingRun() {
 	if (CraftingMode == "Property") {
 		DrawText(TextGet("SelectProperty").replace("AssetDescription", CraftingSelectedItem.Asset.Description), 880, 60, "White", "Black");
 		let Pos = 0;
-		for (let Property of CraftingPropertyList)
-			if (Property.Allow(CraftingSelectedItem.Asset)) {
+		for (const [Name, Allow] of CraftingPropertyMap)
+			if (Allow(CraftingSelectedItem.Asset)) {
 				let X = (Pos % 4) * 500 + 15;
 				let Y = Math.floor(Pos / 4) * 175 + 130;
 				DrawButton(X, Y, 470, 150, "", "White");
-				DrawText(TextGet("Property" + Property.Name), X + 235, Y + 30, "Black", "Silver");
-				DrawTextWrap(TextGet("Description" + Property.Name), X + 20, Y + 50, 440, 100, "Black", null, 2);
+				DrawText(TextGet("Property" + Name), X + 235, Y + 30, "Black", "Silver");
+				DrawTextWrap(TextGet("Description" + Name), X + 20, Y + 50, 440, 100, "Black", null, 2);
 				Pos++;
 			}
 	}
@@ -232,9 +306,11 @@ function CraftingRun() {
 		DrawText(TextGet("EnterColor"), 1550, 550, "White", "Black");
 		ElementPosition("InputColor", 1510, 625, 670);
 		DrawButton(1843, 598, 64, 64, "", "White", "Icons/Color.png");
-		DrawText(TextGet("EnterPrivate"), 1550, 760, "White", "Black");
-		DrawButton(1175, 728, 64, 64, "", "White", CraftingSelectedItem.Private ? "Icons/Checked.png" : "");
-		if ((CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.Name != null) && (CraftingSelectedItem.Asset.Name.substring(0, 10) != "Futuristic") && (CraftingSelectedItem.Asset.AllowType != null) && (CraftingSelectedItem.Asset.AllowType.length > 0)) {
+		DrawText(TextGet("EnterPriority"), 1550, 715, "White", "Black");
+		ElementPosition("InputPriority", 1225, 710, 100);
+		DrawText(TextGet("EnterPrivate"), 1550, 805, "White", "Black");
+		DrawButton(1175, 768, 64, 64, "", "White", CraftingSelectedItem.Private ? "Icons/Checked.png" : "");
+		if (CraftingItemSupportsAutoType()) {
 			DrawText(TextGet("EnterType"), 1335, 890, "White", "Black");
 			ElementPosition("InputType", 1685, 883, 310);
 			DrawButton(1840, 858, 60, 60, "", "White", "Icons/Small/Next.png");
@@ -254,7 +330,7 @@ function CraftingRun() {
 
 /**
  * Sets the new mode and creates or removes the inputs
- * @param {string} NewMode - The new mode to set
+ * @param {CraftingMode} NewMode - The new mode to set
  * @returns {void} - Nothing
  */
 function CraftingModeSet(NewMode) {
@@ -276,10 +352,18 @@ function CraftingModeSet(NewMode) {
 		document.getElementById("InputDescription").addEventListener('keyup', CraftingKeyUp);
 		ElementCreateInput("InputColor", "text", "", "500");
 		document.getElementById("InputColor").addEventListener('keyup', CraftingKeyUp);
+		ElementCreateInput("InputPriority", "number", "", "20");
+		document.getElementById("InputPriority").addEventListener('input', CraftingKeyUp);
+
 		ElementValue("InputName", CraftingSelectedItem.Name || "");
 		ElementValue("InputDescription", CraftingSelectedItem.Description || "");
-		ElementValue("InputColor", CraftingSelectedItem.Color || "");
-		if ((CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.Name != null) && (CraftingSelectedItem.Asset.Name.substring(0, 10) != "Futuristic") && (CraftingSelectedItem.Asset.AllowType != null) && (CraftingSelectedItem.Asset.AllowType.length > 0)) {
+		ElementValue("InputColor", CraftingSelectedItem.Color || "Default");
+		ElementValue(
+			"InputPriority",
+			(CraftingSelectedItem.Asset == null) ? "" :
+				(CraftingSelectedItem.OverridePriority == null) ? AssetLayerSort(CraftingSelectedItem.Asset.Layer)[0].Priority.toString() : CraftingSelectedItem.OverridePriority.toString(),
+		);
+		if (CraftingItemSupportsAutoType()) {
 			ElementCreateInput("InputType", "text", "", "20");
 			document.getElementById("InputType").addEventListener('keyup', CraftingKeyUp);
 			ElementValue("InputType", CraftingSelectedItem.Type || "");
@@ -290,6 +374,7 @@ function CraftingModeSet(NewMode) {
 		ElementRemove("InputDescription");
 		ElementRemove("InputColor");
 		ElementRemove("InputType");
+		ElementRemove("InputPriority");
 	}
 }
 
@@ -303,7 +388,26 @@ function CraftingKeyUp() {
 	if (document.getElementById("InputDescription") != null) CraftingSelectedItem.Description = ElementValue("InputDescription");
 	if (document.getElementById("InputColor") != null) CraftingSelectedItem.Color = ElementValue("InputColor");
 	if (document.getElementById("InputType") != null) CraftingSelectedItem.Type = ElementValue("InputType");
+	if (document.getElementById("InputPriority") != null) CraftingSelectedItem.OverridePriority = CraftingParsePriorityElement();
 	CraftingUpdatePreview();
+}
+
+/**
+ * Helper function for parsing the `InputPriority` HTML element.
+ * @returns {number | null}
+ */
+function CraftingParsePriorityElement() {
+	const DrawingPriority = Number.parseInt(ElementValue("InputPriority"));
+	const InitialPriority = AssetLayerSort(CraftingSelectedItem.Asset.Layer)[0].Priority;
+
+	// Treat the initial priority as equivalent to null if `OverridePriority` has not been set yet
+	if (InitialPriority === DrawingPriority && CraftingSelectedItem.OverridePriority == null) {
+		return null;
+	} else if (!Number.isNaN(DrawingPriority)) {
+		return DrawingPriority;
+	} else {
+		return null;
+	}
 }
 
 /**
@@ -322,7 +426,8 @@ function CraftingSaveServer() {
 			P = P + ((C.Description == null) ? "" : C.Description.replace("¶", " ").replace("§", " ")) + "¶";
 			P = P + ((C.Color == null) ? "" : C.Color.replace("¶", " ").replace("§", " ")) + "¶";
 			P = P + (((C.Private != null) && C.Private) ? "T" : "") + "¶";
-			P = P + ((C.Type == null) ? "" : C.Type.replace("¶", " ").replace("§", " ")) + "§";
+			P = P + ((C.Type == null) ? "" : C.Type.replace("¶", " ").replace("§", " ")) + "¶";
+			P = P + ((C.OverridePriority == null) ? "" : C.OverridePriority.toString()) + "§";
 		} else P = P + "§";
 	while ((P.length >= 1) && (P.substring(P.length - 1) == "§"))
 		P = P.substring(0, P.length - 1);
@@ -346,11 +451,15 @@ function CraftingDecompressServerData(Data) {
 	try {
 		DecompressedData = LZString.decompressFromUTF16(Data);
 	} catch(err) {
+		DecompressedData = null;
+	}
+	if (DecompressedData == null) {
 		console.warn("An error occured while decompressing Crafting data, entries have been reset.");
 		return [];
 	}
 
 	// Builds the craft array to assign to the player
+	/** @type {CraftingItem[]} */
 	const Crafts = [];
 	Data = DecompressedData.split("§");
 	for (let P = 0; P < Data.length; P++) {
@@ -363,7 +472,8 @@ function CraftingDecompressServerData(Data) {
 		Craft.Description = (Element.length >= 5) ? Element[4] : "";
 		Craft.Color = (Element.length >= 6) ? Element[5] : "";
 		Craft.Private = ((Element.length >= 7) && (Element[6] == "T"));
-		Craft.Type = (Element.length >= 8) ? Element[7] : "";
+		Craft.Type = (Element.length >= 8) ? Element[7] || null : null;
+		Craft.OverridePriority = (Element.length >= 9 && Element[8] !== "") ? Number.parseInt(Element[8]) : null;
 		if (Craft.Item && Craft.Name && (Craft.Item != "") && (Craft.Name != "")) Crafts.push(Craft);
 		else Crafts.push(null);
 	}
@@ -378,19 +488,32 @@ function CraftingDecompressServerData(Data) {
  */
 function CraftingLoadServer(Packet) {
 	Player.Crafting = [];
+	let Refresh = false;
 	const data = CraftingDecompressServerData(Packet);
 	for (const item of data) {
-
-		// Make sure we own that item and it's a valid craft
-		let valid = true;
-		if ((item == null) || !item.Name || !item.Item) valid = false;
-		if ((item == null) || !Player.Inventory.find(a => a.Name === item.Item)) valid = false;
-		if (valid) Player.Crafting.push(item);
-		else Player.Crafting.push(null);
+		// Make sure that the item is a valid craft
+		switch (CraftingValidate(item)) {
+			case CraftingStatusType.OK:
+				Player.Crafting.push(item);
+				break;
+			case CraftingStatusType.ERROR:
+				Player.Crafting.push(item);
+				Refresh = true;
+				break;
+			case CraftingStatusType.CRITICAL_ERROR:
+				Player.Crafting.push(null);
+				Refresh = true;
+				break;
+		}
 
 		// Too many items, skip the rest
 		if (Player.Crafting.length >= CraftingSlotMax) break;
-
+	}
+	/**
+	 * One or more validation errors were encountered that were successfully resolved;
+	 * push the fixed items back to the server */
+	if (Refresh) {
+		CraftingSaveServer();
 	}
 }
 
@@ -437,7 +560,17 @@ function CraftingClick() {
 				CraftingModeSet("Name");
 			} else {
 				CraftingSlot = S + CraftingOffset;
-				CraftingSelectedItem = {};
+				CraftingSelectedItem = {
+					Name: "",
+					Description: "",
+					Color: "Default",
+					Asset: null,
+					Property: "Normal",
+					Lock: null,
+					Private: false,
+					Type: "",
+					OverridePriority: null,
+				};
 				CraftingModeSet("Item");
 				CraftingItemListBuild();
 			}
@@ -461,6 +594,9 @@ function CraftingClick() {
 			let Y = Math.floor((I - CraftingOffset) / 8) * 290 + 130;
 			if (MouseIn(X, Y, 225, 275)) {
 				CraftingSelectedItem.Asset = CraftingItemList[I];
+				CraftingSelectedItem.OverridePriority = null;
+				// @ts-ignore
+				CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset) || "";
 				CraftingSelectedItem.Lock = null;
 				CraftingModeSet("Property");
 				ElementRemove("InputSearch");
@@ -472,12 +608,12 @@ function CraftingClick() {
 	// In property mode, the user can select a special property to apply to the item
 	if (CraftingMode == "Property") {
 		let Pos = 0;
-		for (let Property of CraftingPropertyList)
-			if (Property.Allow(CraftingSelectedItem.Asset)) {
+		for (const [Name, Allow] of CraftingPropertyMap)
+			if (Allow(CraftingSelectedItem.Asset)) {
 				let X = (Pos % 4) * 500 + 15;
 				let Y = Math.floor(Pos / 4) * 175 + 130;
 				if (MouseIn(X, Y, 470, 150)) {
-					CraftingSelectedItem.Property = Property.Name;
+					CraftingSelectedItem.Property = Name;
 					if (CraftingSelectedItem.Lock) CraftingModeSet("Name");
 					else CraftingModeSet("Lock");
 					return;
@@ -540,14 +676,15 @@ function CraftingClick() {
 				ElementValue("InputColor", CraftingSelectedItem.Color);
 				CraftingUpdatePreview();
 			});
-		} else if (MouseIn(1175, 728, 64, 64)) {
+		} else if (MouseIn(1175, 768, 64, 64)) {
 			CraftingSelectedItem.Private = !CraftingSelectedItem.Private;
-		} else if (MouseIn(1840, 858, 60, 60) && (CraftingSelectedItem.Asset != null) && (CraftingSelectedItem.Asset.Name != null) && (CraftingSelectedItem.Asset.Name.substring(0, 10) != "Futuristic") && (CraftingSelectedItem.Asset.AllowType != null)) {
+		} else if (MouseIn(1840, 858, 60, 60) && CraftingItemSupportsAutoType()) {
 			if ((CraftingSelectedItem.Type == null) || (CraftingSelectedItem.Type == "") || (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) < 0))
 				CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[0];
 			else
 				if (CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) >= CraftingSelectedItem.Asset.AllowType.length - 1)
-					CraftingSelectedItem.Type = "";
+					// @ts-ignore
+					CraftingSelectedItem.Type = CraftingValidationRecord.Type.GetDefault(CraftingSelectedItem, CraftingSelectedItem.Asset) || "";
 				else
 					CraftingSelectedItem.Type = CraftingSelectedItem.Asset.AllowType[CraftingSelectedItem.Asset.AllowType.indexOf(CraftingSelectedItem.Type) + 1];
 			ElementValue("InputType", CraftingSelectedItem.Type);
@@ -591,34 +728,37 @@ function CraftingConvertSelectedToItem() {
 	let Description = (CraftingMode == "Name") ? ElementValue("InputDescription").trim() : CraftingSelectedItem.Description;
 	let Color = (CraftingMode == "Name") ? ElementValue("InputColor").trim() : CraftingSelectedItem.Color;
 	let Type = ((CraftingMode == "Name") && (document.getElementById("InputType") != null)) ? ElementValue("InputType").trim() : CraftingSelectedItem.Type;
+	let OverridePriority = (CraftingMode == "Name") ? CraftingParsePriorityElement() : CraftingSelectedItem.OverridePriority;
 	return {
 		Item: (CraftingSelectedItem.Asset == null) ? "" : CraftingSelectedItem.Asset.Name,
 		Property: CraftingSelectedItem.Property,
-		Lock: (CraftingSelectedItem.Lock == null) ? "" : CraftingSelectedItem.Lock.Name,
+		Lock: (CraftingSelectedItem.Lock == null) ? "" : /**@type {AssetLockType}*/(CraftingSelectedItem.Lock.Name),
 		Name: Name,
 		Description: Description,
 		Color: Color,
 		Private: CraftingSelectedItem.Private,
-		Type: Type
+		Type: Type || null,
+		OverridePriority: OverridePriority,
 	};
 }
 
 /**
  * Convert a crafting item to its selected format.
  * @param {CraftingItem} Craft
+ * @returns {CraftingItemSelected}
  */
 function CraftingConvertItemToSelected(Craft) {
-	let Obj = {
+	return {
 		Name: Craft.Name,
 		Description: Craft.Description,
 		Color: Craft.Color,
 		Private: Craft.Private,
-		Type: Craft.Type,
+		Type: Craft.Type || "",
 		Property: Craft.Property,
-		Asset: Player.Inventory.find(a => a.Asset.Name === Craft.Item).Asset,
+		Asset: Player.Inventory.find(a => a.Asset.Name === Craft.Item && a.Asset.Group.Name !== "ItemMisc").Asset,
 		Lock: Craft.Lock ? Player.Inventory.find(a => a.Asset.Group.Name === "ItemMisc" && a.Asset.Name == Craft.Lock).Asset : null,
+		OverridePriority: Craft.OverridePriority,
 	}
-	return Obj;
 }
 
 /**
@@ -669,10 +809,10 @@ function CraftingItemListBuild() {
 	// For all assets
 	for (let A of Asset) {
 
-		// That asset must be in the player inventory, not for clothes or spanking toys
-		if (!InventoryAvailable(Player, A.Name, A.Group.Name)) continue;
+		// That asset must be in the player inventory or location-specific, not for clothes or spanking toys
+		if (!InventoryAvailable(Player, A.Name, A.Group.Name) && A.AvailableLocations.length === 0) continue;
 		if (!A.Enable || !A.Wear || !A.Group.Name.startsWith("Item")) continue;
-		if (A.Group.Name === "ItemMisc" || A.Name.startsWith("SpankingToys")) continue;
+		if (A.Group.Name === "ItemMisc") continue;
 
 		// Match against the search term. The empty string matches every string
 		let Match = true;
@@ -694,4 +834,175 @@ function CraftingItemListBuild() {
 	CraftingItemList.sort((a,b) => (a.Description > b.Description) ? 1 : (b.Description > a.Description) ? -1 : 0);
 	if (CraftingOffset >= CraftingItemList.length) CraftingOffset = 0;
 
+}
+
+/**
+ * A record with tools for validating {@link CraftingItem} properties.
+ * @type {Record<string, CratingValidationStruct>}
+ * @see {@link CratingValidationStruct}
+ * @todo Let the Validate/GetDefault functions take the respective attribute rather than the entire {@link CraftingItem}
+ */
+ const CraftingValidationRecord = {
+	Color: {
+		Validate: function(c, a) {
+			if (typeof c.Color !== "string") {
+				return false;
+			} else if ((c.Color === "") || (a == null)) {
+				return true
+			} else {
+				const Colors = c.Color.replace(" ", "").split(",");
+				return Colors.every((c) => CommonIsColor(c) || (c === "Default"));
+			}
+		},
+		GetDefault: function(c, a) {
+			if ((typeof c.Color !== "string") || (a == null)) {
+				return "";
+			} else {
+				const Colors = c.Color.replace(" ", "").split(",");
+				const ColorsNew = Colors.map((c) => CommonIsColor(c) ? c : "Default");
+				return ColorsNew.join(",");
+			}
+		},
+		StatusCode: CraftingStatusType.ERROR,
+	},
+	Description: {
+		Validate: (c, a) => typeof c.Description === "string",
+		GetDefault: (c, a) => "",
+		StatusCode: CraftingStatusType.ERROR,
+	},
+	Item: {
+		Validate: (c, a) => Player.Inventory.some((i) => i.Name === c.Item),
+		GetDefault: (c, a) => null,
+		StatusCode: CraftingStatusType.CRITICAL_ERROR,
+	},
+	Lock: {
+		Validate: function (c, a) {
+			if ((a != null) && (!a.AllowLock)) {
+				return (c.Lock === "");
+			} else if (c.Lock === "") {
+				return true;
+			} else {
+				return CraftingLockList.includes(c.Lock) && Player.Inventory.some((i) => i.Name === c.Lock);
+			}
+		},
+		GetDefault: (c, a) => "",
+		StatusCode: CraftingStatusType.ERROR,
+	},
+	MemberName: {
+		Validate: (c, a) => c.MemberName == null || typeof c.MemberName === "string",
+		GetDefault: (c, a) => null,
+		StatusCode: CraftingStatusType.ERROR,
+	},
+	MemberNumber: {
+		Validate: (c, a) => c.MemberNumber == null || typeof c.MemberNumber === "number",
+		GetDefault: (c, a) => null,
+		StatusCode: CraftingStatusType.ERROR,
+	},
+	Name: {
+		Validate: (c, a) => typeof c.Name === "string",
+		GetDefault: (c, a) => "",
+		StatusCode: CraftingStatusType.CRITICAL_ERROR,
+	},
+	OverridePriority: {
+		Validate: (c, a) => (c.OverridePriority == null) || Number.isInteger(c.OverridePriority),
+		GetDefault: (c, a) => null,
+		StatusCode: CraftingStatusType.ERROR,
+	},
+	Private: {
+		Validate: (c, a) => typeof c.Private === "boolean",
+		GetDefault: (c, a) => false,
+		StatusCode: CraftingStatusType.ERROR,
+	},
+	Property: {
+		Validate: function (c, a) {
+			if (a == null) {
+				return CraftingPropertyMap.has(c.Property);
+			} else {
+				const Allow = CraftingPropertyMap.get(c.Property);
+				return (Allow !== undefined) ? Allow(a) : false;
+			}
+		},
+		GetDefault: (c, a) => "Normal",
+		StatusCode: CraftingStatusType.ERROR,
+	},
+	Type: {
+		Validate: function (c, a) {
+			// We can't reliably validate w.r.t. `Asset.AllowTypes` here, as there are potentially multiple assets with
+			// the same name but distinct types (e.g. the SturdyLeatherBelt and Ribbons)
+			return (c.Type == null) || (typeof c.Type === "string");
+		},
+		GetDefault: function (c, a) {
+			if (a == null) {
+				return c.Type;
+			} else if (a.Archetype === ExtendedArchetype.TYPED) {
+				return null;
+			} else {
+				return (a.AllowType && (a.AllowType.length >= 1)) ? a.AllowType[0] : null;
+			}
+		},
+		StatusCode: CraftingStatusType.ERROR,
+	},
+}
+
+/**
+ * Validate and sanitinize crafting properties of the passed item inplace.
+ * @param {CraftingItem} Craft - The crafted item properties or `null`
+ * @param {Asset | null} Asset - The matching Asset. Will be extracted from the player inventory if `null`
+ * @param {boolean} Warn - Whether a warning should logged whenever the crafting validation fails
+ * @return {CraftingStatusType} - One of the {@link CraftingStatusType} status codes; 0 denoting an unrecoverable validation error
+ */
+function CraftingValidate(Craft, Asset=null, Warn=true) {
+	if (Craft == null) {
+		return CraftingStatusType.CRITICAL_ERROR;
+	}
+	/** @type {Map<string, CraftingStatusType>} */
+	const StatusMap = new Map();
+	const Name = Craft.Name;
+
+	// Manually search for the Asset if it has not been provided
+	if (Asset == null) {
+		const Item = Player.Inventory.find((a) => a.Name === Craft.Item);
+		if (Item === undefined) {
+			StatusMap.set("Item", CraftingStatusType.CRITICAL_ERROR);
+		} else {
+			Asset = Item.Asset;
+		}
+	}
+
+	/**
+	 * Check all legal attributes.
+	 * If `Asset == null` at this point then let all Asset-requiring checks pass, as we
+	 * can't properly validate them. Note that this will introduce the potential for false negatives.
+	 */
+	for (const [AttrName, {Validate, GetDefault, StatusCode}] of Object.entries(CraftingValidationRecord)) {
+		if (!Validate(Craft, Asset)) {
+			const AttrValue = (typeof Craft[AttrName] === "string") ? `"${Craft[AttrName]}"` : Craft[AttrName];
+			if (Warn) {
+				console.warn(`Invalid "Craft.${AttrName}" value for crafted item "${Name}": ${AttrValue}`);
+			}
+			Craft[AttrName] = GetDefault(Craft, Asset);
+			StatusMap.set(AttrName, StatusCode);
+		} else {
+			StatusMap.set(AttrName, CraftingStatusType.OK);
+		}
+	}
+
+	// If the Asset has been explicetly passed then `Craft.Item` errors are fully recoverable
+	if ((Asset != null) && (StatusMap.get("Item") === CraftingStatusType.CRITICAL_ERROR)) {
+		StatusMap.set("Item", CraftingStatusType.ERROR);
+		Craft.Item = Asset.Name;
+	}
+
+	// Check for extra attributes
+	const LegalAttributes = Object.keys(CraftingValidationRecord);
+	for (const AttrName of Object.keys(Craft)) {
+		if (!LegalAttributes.includes(AttrName)) {
+			if (Warn) {
+				console.warn(`Invalid extra "Craft.${AttrName}" attribute for crafted item "${Name}"`);
+			}
+			delete Craft[AttrName];
+			StatusMap.set(AttrName, CraftingStatusType.ERROR);
+		}
+	}
+	return /** @type {CraftingStatusType} */(Math.min(...StatusMap.values()));
 }

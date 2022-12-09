@@ -101,7 +101,7 @@ let KinkyDungeonLootTable = {
 
 		{name: "StaffDoll", minLevel: 5, weight:0.25, weapon: "StaffDoll", goddess: "Latex", goddessWeight: 1.25, noweapon: ["StaffDoll"], message:"LootChestWeapon", messageColor:"lightblue", messageTime: 3, allFloors: true},
 		{name: "StaffIncineration", minLevel: 5, weight:1, weapon: "StaffIncineration", goddess: "Elements", goddessWeight: 0.75, noweapon: ["StaffIncineration"], message:"LootChestWeapon", messageColor:"lightblue", messageTime: 3, allFloors: true},
-		{name: "StaffStorm", minLevel: 5, weight:1, weapon: "StaffGlue", goddess: "Elements", goddessWeight: 0.75, noweapon: ["StaffStorm"], message:"LootChestWeapon", messageColor:"lightblue", messageTime: 3, allFloors: true},
+		{name: "StaffStorm", minLevel: 5, weight:1, weapon: "StaffStorm", goddess: "Elements", goddessWeight: 0.75, noweapon: ["StaffStorm"], message:"LootChestWeapon", messageColor:"lightblue", messageTime: 3, allFloors: true},
 		{name: "StaffFrostbite", minLevel: 5, weight:1, weapon: "StaffElectric", goddess: "Elements", goddessWeight: 0.75, noweapon: ["StaffFrostbite"], message:"LootChestWeapon", messageColor:"lightblue", messageTime: 3, allFloors: true},
 		{name: "StaffBind", minLevel: 5, weight:1, weapon: "StaffBind", goddess: "Rope", goddessWeight: 2.75, noweapon: ["StaffBind"], message:"LootChestWeapon", messageColor:"lightblue", messageTime: 3, allFloors: true},
 
@@ -170,6 +170,7 @@ let KinkyDungeonLootTable = {
 		{name: "trap_plug", arousalMode: true, trap: true, minlevel: 5, weight:1.5, message:"LootChestTrapMagicPlug", messageColor:"#ff0000", messageTime: 3, allFloors: true, prerequisites: ["Group_ItemVulva", "alreadyBelted", "vibe"], power: 3},
 		{name: "trap_plug_tease", arousalMode: true, trap: true, minlevel: 11, weight:1, message:"LootChestTrapMagicPlug", messageColor:"#ff0000", messageTime: 3, allFloors: true, prerequisites: ["Group_ItemVulva", "alreadyBelted", "vibe"], power: 4},
 		{name: "trap_plug_torment", arousalMode: true, trap: true, minlevel: 15, weight:0.5, message:"LootChestTrapMagicPlug", messageColor:"#ff0000", messageTime: 3, allFloors: true, prerequisites: ["Group_ItemVulva", "alreadyBelted", "vibe"], power: 5},
+		{name: "trap_plug_thunder", arousalMode: true, trap: true, minlevel: 15, weight:0.5, message:"LootChestTrapMagicPlug", messageColor:"#ff0000", messageTime: 3, allFloors: true, prerequisites: ["Group_ItemVulva", "alreadyBelted", "vibe"], power: 5},
 		{name: "trap_nipple", arousalMode: true, trap: true, minLevel: 2, weight:2, message:"LootChestTrapMagicNipple", messageColor:"#ff0000", messageTime: 3, allFloors: true, prerequisites: ["Group_ItemNipples", "vibe"], power: 3},
 		//{name: "trap_mitts", trap: true, minlevel: 5, weight:2, message:"LootChestTrapMagic", messageColor:"#ff0000", messageTime: 3, allFloors: true, prerequisites: ["Group_ItemHands", "LightRestraint"], power: 10},
 		{name: "potions_mana", minLevel: 0, weight:3, message:"LootPotionsMana", messageColor:"lightblue", messageTime: 3, allFloors: true, prerequisites: ["lowmanapotions"]},
@@ -179,4 +180,14 @@ let KinkyDungeonLootTable = {
 		{name: "PotionCollar", minLevel: 1, weight:0.5, message:"LootPotionCollar", messageColor:"yellow", messageTime: 3, allFloors: true, norestraint: ["PotionCollar"]},
 	],
 
+};
+
+
+let KDLootEvents = {
+	"Test": (Loot, Floor, Replacemsg, Lock) => {
+		return {
+			value: 0,
+			Replacemsg: Replacemsg,
+		};
+	},
 };

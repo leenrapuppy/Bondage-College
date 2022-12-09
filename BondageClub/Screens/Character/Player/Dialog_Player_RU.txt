@@ -86,6 +86,12 @@
 (By default, you struggle using your full evasion skill.  You can use less of your skill and make it harder for you to struggle free.)
 (По умолчанию вы боретесь, используя свой полный навык уклонения. Вы можете использовать меньше своего мастерства, и вам будет труднее освободиться.)
 ###_PLAYER
+(Craft an item.)
+(Создать предмет.)
+###_NPC
+(You can use or remove items by selecting specific body regions on yourself.)
+(Вы можете использовать или удалять предметы, выбирая определенные области тела на себе.)
+###_PLAYER
 (Call the maids for help)
 (Позовите горничных на помощь)
 ###_NPC
@@ -175,7 +181,7 @@
 (No, don't call the maids.)
 (Нет, не зови горничных.)
 (Revert Character.)
-(Вернуть персонажа.)
+(Вернуть облик персонажа.)
 ###_NPC
 (This will revert your character's clothes and restraints back to how they were when you entered the lobby. Use this if you were forced into restraints against your consent. Are you sure you want to revert your character?)
 (Это вернет одежду и наручники вашего персонажа в то состояние, в котором они были, когда вы вошли в вестибюль. Используйте это, если вас принудили к ограничениям против вашего согласия. Вы уверены, что хотите вернуть своего персонажа?)
@@ -189,9 +195,9 @@
 (Don't use Safeword.)
 (Не используйте Стоп-слова.)
 (Yes, revert Character.)
-(Да, вернуть Характер.)
+(Да, вернуть облик Персонажа.)
 (No, don't revert Character.)
-(Нет, не меняйте Характер.)
+(Нет, не вовращать облик Персонажа.)
 (Yes, I want to be released.)
 (Да, я хочу, чтобы меня освободили.)
 (No, don't release me.)
@@ -205,8 +211,8 @@ The vibrators deny you a chance to finish, stopping abruptly.
 Вибраторы лишают вас шанса кончить, резко останавливаясь.
 SourceCharacter quit a game of Kinky Dungeon at level KinkyDungeonLevel
 SourceCharacter вышел из игры Kinky Dungeon на уровне KinkyDungeonLevel
-SourceCharacter met her defeat in Kinky Dungeon! She made it to level KinkyDungeonLevel before succumbing.
-SourceCharacter встретил свое поражение в Kinky Dungeon! Она добралась до уровня KinkyDungeonLevel прежде чем сдаться.
+SourceCharacter met TargetPronounPossessive defeat in Kinky Dungeon! She made it to level KinkyDungeonLevel before succumbing.
+SourceCharacter встретил TargetPronounPossessive поражение в Kinky Dungeon! Она добралась до уровня KinkyDungeonLevel прежде чем сдаться.
 Save
 Сохранить
 Load
@@ -229,9 +235,9 @@ Fully Wrapped
 Полностью Завернутый
 SourceCharacter wraps TargetCharacter in a blanket.
 SourceCharacter заворачивает TargetCharacter в одеяло.
-SourceCharacter wraps TargetCharacter with her shoulders in a blanket.
+SourceCharacter wraps TargetCharacter with TargetPronounPossessive shoulders in a blanket.
 SourceCharacter укутывает TargetCharacter одеялом до плеч.
-SourceCharacter wraps TargetCharacter with her feet in a blanket.
+SourceCharacter wraps TargetCharacter with TargetPronounPossessive feet in a blanket.
 SourceCharacter заворачивает TargetCharacter с ногами в одеяло.
 SourceCharacter fully wraps TargetCharacter in a blanket.
 SourceCharacter полностью обертывает TargetCharacter в одеяло.
@@ -328,7 +334,15 @@ Must empty vulva first.
 Must remove clitoris piercings first
 Сначала необходимо удалить пирсинг клитора
 Must empty butt first.
-Сначала нужно опустошить задницу.
+Сначала нужно освободить задницу.
+Must have female upper body.
+Должна быть женская верхняя часть тела.
+Must have male upper body.
+Должна быть мужская верхняя часть тела.
+Must have female genitalia.
+Должны быть женские гениталии.
+Must have male genitalia.
+Должны быть мужские гениталии.
 The use of remotes is forbidden by your owner
 Использование пультов дистанционного управления запрещено вашим владельцем
 Cannot be used over the applied gags.
@@ -580,31 +594,43 @@ Heads
 Tails
 Хвосты
 her
-ее
+ее/ей
+him
+ему/его
+them
+им
+his
+его/ему
+their
+их
 herself
 сама
+himself
+сам
+themself
+себя
 Someone
 Кто-то
 SourceCharacter kneels down
 SourceCharacter опускается на колени
 SourceCharacter stands up
 SourceCharacter встает
-SourceCharacter carefully lowers herself down.
-SourceCharacter осторожно опускается вниз.
-SourceCharacter manages to get to her feet.
-SourceCharacter удается подняться на ноги.
-SourceCharacter almost loses her balance trying to kneel down!
-SourceCharacter чуть не теряет равновесие, пытаясь опуститься на колени!
-SourceCharacter tries to stand up but loses her balance and falls!
-SourceCharacter пытается встать, но теряет равновесие и падает!
+SourceCharacter carefully lowers PronounSelf down.
+SourceCharacter осторожно опускает PronounSelf вниз.
+SourceCharacter manages to get to PronounPossessive feet.
+SourceCharacter удается подняться на PronounPossessive ноги.
+SourceCharacter almost loses PronounPossessive balance trying to kneel down!
+SourceCharacter чуть не теряет PronounPossessive равновесие, пытаясь опуститься на колени!
+SourceCharacter tries to stand up but loses PronounPossessive balance and falls!
+SourceCharacter пытается встать, но теряет PronounPossessive равновесие и падает!
 SourceCharacter helps TargetCharacter to kneel down
 SourceCharacter помогает TargetCharacter опуститься на колени
 SourceCharacter helps TargetCharacter to stand up
 SourceCharacter помогает TargetCharacter встать на ноги
 SourceCharacter changes DestinationCharacter clothes.
 SourceCharacter меняет одежду DestinationCharacter .
-SourceCharacter selects her team and class.
-Sourceвыбирает свою команду и класс.
+SourceCharacter selects PronounPossessive team and class.
+SourceCharacter выбирает PronounPossessive команду и класс.
 SourceCharacter has started the LARP game.
 SourceCharacter начал игру в LARP.
 SourceCharacter has started the Magic Battle.
@@ -960,18 +986,18 @@ Blocked due to item permissions
 Заблокирован из-за разрешений на предметы
 (As you enter the luxurious hallway, a maid comes to greet you.)  Welcome to the Bondage Club, is this your first visit?
 (Когда вы входите в роскошный коридор, вам навстречу выходит горничная.) Добро пожаловать в Клуб Бондажа, это ваш первый визит?
-SourceCharacter is offering you to start a trial period as her submissive.  Click on her and manage your relationship to accept, don't do anything to refuse.
-SourceCharacter предлагает вам начать испытательный срок в качестве ее сабмиссива. Нажмите на нее и управляйте своими отношениями, чтобы принять, не делайте ничего, чтобы отказаться.
+SourceCharacter is offering you to start a trial period as  PronounPossessive submissive.  Click on PronounObject and manage your relationship to accept, don't do anything to refuse.
+SourceCharacter предлагает вам начать испытательный срок в качестве  PronounPossessive сабмиссива. Нажмите на PronounObject и управляйте своими отношениями, чтобы принять, не делайте ничего, чтобы отказаться.
 The Bondage Club is pleased to announce that SourceCharacter is starting a 7 days minimum trial period as a submissive.
 The Bondage Club рад сообщить, что SourceCharacter начинает минимальный 7-дневный испытательный срок в качестве сабмиссива.
-SourceCharacter has prepared a great collaring ceremony.  A maid brings a slave collar, which her submissive must consent to wear.
-SourceCharacter подготовила великолепную церемонию ошейника. Горничная приносит рабский ошейник, который ее сабмиссив должен согласиться носить.
+SourceCharacter has prepared a great collaring ceremony.  A maid brings a slave collar, which PronounPossessive submissive must consent to wear.
+SourceCharacter подготовила великолепную церемонию ошейника. Горничная приносит рабский ошейник, который PronounPossessive сабмиссив должен согласиться носить.
 The Bondage Club announces that SourceCharacter canceled the trial ownership of TargetCharacter.
 The Bondage Club объявляет, что SourceCharacter отменил пробное владение TargetCharacter.
-The Bondage Club announces that SourceCharacter released TargetCharacter from her ownership.
-The Bondage Club объявляет, что SourceCharacter освободил TargetCharacter от ее владения.
-The Bondage Club is proud to announce that SourceCharacter is now fully collared.  Her fate is in her Mistress hands.
-The Bondage Club с гордостью сообщает, что SourceCharacter теперь полностью в ошейнике. Ее судьба в руках ее Госпожи.
+The Bondage Club announces that SourceCharacter released TargetCharacter from PronounPossessive ownership.
+The Bondage Club объявляет, что SourceCharacter освободил TargetCharacter от PronounPossessive владения.
+The Bondage Club is proud to announce that SourceCharacter is now fully collared.  PronounPossessive fate is in PronounPossessive owners hands.
+The Bondage Club с гордостью сообщает, что SourceCharacter теперь полностью в ошейнике. PronounPossessive судьба в руках PronounPossessive owners Госпожи.
 Your owner is now allowing you to access your wardrobe and change clothes.
 Ваша хозяйка теперь позволяет вам получить доступ к своему гардеробу и переодеться.
 Your owner has blocked your wardrobe access for an hour.  You won't be able to change clothes.
@@ -1042,18 +1068,24 @@ Your lover is now allowing your owner to use lovers locks on you.
 Ваша возлюбленная теперь позволяет вашему владельцу использовать замки любовников на вашем.
 Your lover is now preventing your owner from using lovers locks on you.
 Ваша возлюбленная теперь запрещает вашему владельцу использовать замки любовников на вашем компьютере.
-SourceCharacter is asking you to be her girlfriend.  Click on her and manage your relationship to accept, don't do anything to refuse.
-SourceCharacter просит вас стать ее девушкой. Нажмите на нее и управляйте своими отношениями, чтобы принять, не делайте ничего, чтобы отказаться.
+SourceCharacter is asking you to be PronounPossessive lover.  Click on PronounObject and manage your relationship to accept, don't do anything to refuse.
+SourceCharacter просит вас стать PronounPossessive любовью. Нажмите на PronounObject и управляйте своими отношениями, чтобы принять, не делайте ничего, чтобы отказаться.
 The Bondage Club is pleased to announce that SourceCharacter and TargetCharacter are starting a 7 days minimum period as lovers.
 The Bondage Club рад сообщить, что SourceCharacter и TargetCharacter начинают минимальный 7-дневный период в качестве любовников.
-SourceCharacter is asking you to become her fiancée.  Click on her and manage your relationship to accept, don't do anything to refuse.
-SourceCharacter просит вас стать ее невестой. Нажмите на нее и управляйте своими отношениями, чтобы принять, не делайте ничего, чтобы отказаться.
+SourceCharacter is asking you to become PronounPossessive fiancée.  Click on PronounObject and manage your relationship to accept, don't do anything to refuse.
+SourceCharacter просит вас стать PronounPossessive невестой. Нажмите на PronounObject и управляйте своими отношениями, чтобы принять, не делайте ничего, чтобы отказаться.
 The Bondage Club is pleased to announce that SourceCharacter and TargetCharacter are now engaged and are starting a 7 days minimum period as fiancées.
 The Bondage Club рад сообщить, что SourceCharacter и TargetCharacter теперь помолвлены и начинают минимальный 7-дневный период в качестве женихов.
-SourceCharacter is proposing you to become her wife.  Click on her and manage your relationship to accept, don't do anything to refuse.
-SourceCharacter предлагает вам стать ее женой. Нажмите на нее и управляйте своими отношениями, чтобы принять, не делайте ничего, чтобы отказаться.
+SourceCharacter is proposing you to become PronounPossessive wife.  Click on PronounObject and manage your relationship to accept, don't do anything to refuse.
+SourceCharacter предлагает вам стать PronounPossessive женой. Нажмите на PronounObject и управляйте своими отношениями, чтобы принять, не делайте ничего, чтобы отказаться.
 The Bondage Club is proud to announce that SourceCharacter and TargetCharacter are now married. Long may it last.
 The Bondage Club  с гордостью сообщает, что SourceCharacter и TargetCharacter теперь женаты. Пусть это продлится долго.
+Your submissive is now fully released from your ownership.
+Ваш сабмиссив теперь полностью освобожден от вашего владения.
+The member number is invalid or you do not own this submissive.
+Номер участника недействителен или вы не являетесь владельцем этого сабмиссива.
+Your owner has released you.  You're free from all ownership.
+Ваш хозяин освободил вас. Вы свободны от всякого владения.
 SourceCharacter entered.
 SourceCharacter входит.
 SourceCharacter left.
@@ -1148,8 +1180,8 @@ The vibrator inside your butt teases you constantly.
 Вибратор внутри твоей задницы постоянно дразнит тебя.
 Type /help for a list of commands
 Введите /help для получения списка команд
-You are not on that member's friendlist; ask her to friend you before leashing her.
-Вас нет в списке друзей этого участника; попросите ее подружиться с вами, прежде чем привязывать ее.
+You are not on that member's friendlist; ask TargetPronounObject to friend you before leashing TargetPronounObject.
+Вас нет в списке друзей этого участника; попросите TargetPronounObject подружиться с вами, прежде чем привязывать TargetPronounObject.
 SourceCharacter swaps a PrevAsset for a NextAsset on DestinationCharacter FocusAssetGroup.
 SourceCharacter меняет местами PrevAsset на NextAsset на DestinationCharacter FocusAssetGroup.
 SourceCharacter uses a NextAsset on DestinationCharacter FocusAssetGroup.
@@ -1214,8 +1246,8 @@ SourceCharacter gets in the way of TargetCharacter
 SourceCharacter встаёт на пути TargetCharacter
 SourceCharacter tries to help TargetCharacter to struggle free.
 SourceCharacter пытается помочь TargetCharacter освободится.
-SourceCharacter gives TargetCharacter some lockpicks to help herself with.
-SourceCharacter даёт TargetCharacter несколько отмычек, чтобы помочь ей.
+SourceCharacter gives TargetCharacter some lockpicks to help TargetType2Pronouns with.
+SourceCharacter даёт TargetCharacter несколько отмычек, чтобы помочь TargetType2Pronouns.
 SourceCharacter grabs the leash of TargetCharacter.
 SourceCharacter хватает поводок на TargetCharacter.
 SourceCharacter releases the leash of TargetCharacter.
@@ -1394,10 +1426,10 @@ Select an item attachment
 Выберите вложение предмета
 Select the piercing attachment
 Выберите насадку для пирсинга
-A victim cannot unlock herself if her elbows are bound
-Жертва не может разблокировать себя, если ее локти связаны
-DestinationCharacterName jammed a lock and broke her lockpick!
-DestinationCharacterName заклинил замок и сломал отмычку!
+A victim cannot unlock TargetType2Pronouns if TargetPronounPossessive elbows are bound
+Жертва не может разблокировать TargetType2Pronouns, если TargetPronounPossessive локти связаны
+DestinationCharacterName jammed a lock and broke TargetPronounPossessive lockpick!
+DestinationCharacterName заклинил замок и сломал TargetPronounPossessive отмычку!
 Remaining tries: 
 Оставшиеся попытки: 
 Failing or quitting will break your lockpick for 1 minute
@@ -1426,16 +1458,16 @@ You can restart the timer but cannot unlock
 "Если сначала у вас не получится..."
 "Never forget who you belong to"
 "Никогда не забывай, кому ты принадлежишь"
-Can only be locked or unlocked by her owner
-Может быть заблокирована или разблокирована только её хозяйкой
-Can only be unlocked or extended by her owner
-Может быть разблокирована или продлена только её хозяйкой
+Can only be locked or unlocked by TargetPronounPossessive owner
+Может быть заблокирована или разблокирована только TargetPronounPossessive хозяйкой
+Can only be unlocked or extended by TargetPronounPossessive owner
+Может быть разблокирована или продлена только TargetPronounPossessive хозяйкой
 "A loving embrace"
 "Любящие объятия"
-Can only be locked or unlocked by her lover
-Может быть заблокирована или разблокирована только её возлюбленной
-Can only be unlocked or extended by her lover
-Может быть разблокирована или продлена только её возлюбленной
+Can only be locked or unlocked by TargetPronounPossessive lover
+Может быть заблокирована или разблокирована только TargetPronounPossessive любовью
+Can only be unlocked or extended by TargetPronounPossessive lover
+Может быть разблокирована или продлена только TargetPronounPossessive любовью
 Can only be locked or unlocked by a Club Mistress
 Может быть заблокирована или разблокирована только Хозяйкой Клуба.
 "Once inside the Box, you may never leave."
@@ -1464,8 +1496,8 @@ Over the head
 Над головой
 SourceCharacter lowers the ceiling shackles on TargetCharacter a bit.
 SourceCharacter немного снижает потолочные кандалы на TargetCharacter .
-SourceCharacter raises the ceiling shackles on TargetCharacter over her head.
-SourceCharacter поднимает кандалы потолка на TargetCharacter над головой.
+SourceCharacter raises the ceiling shackles on TargetCharacter over TargetPronounPossessive head.
+SourceCharacter поднимает кандалы потолка на TargetCharacter над TargetPronounPossessive головой.
 SourceCharacter detaches the shackles on TargetCharacter from the floor.
 SourceCharacter снимает кандалы на TargetCharacter с пола.
 SourceCharacter attaches the shackles on TargetCharacter to the floor.
@@ -1498,8 +1530,8 @@ SourceCharacter attaches the leather cuffs wrist and elbow chains behind Destina
 SourceCharacter прикрепляет кожаные манжеты на запястья и локтевые цепи за спиной DestinationCharacter .
 SourceCharacter detaches DestinationCharacter steel cuffs.
 SourceCharacter снимает с DestinationCharacter стальные манжеты.
-SourceCharacter attaches DestinationCharacter steel cuffs behind her back.
-SourceCharacter прикрепляет к DestinationCharacter стальные наручники за спиной.
+SourceCharacter attaches DestinationCharacter steel cuffs behind TargetPronounPossessive back.
+SourceCharacter прикрепляет к DestinationCharacter стальные наручники за TargetPronounPossessive спиной.
 SourceCharacter detaches the chain from DestinationCharacter futuristic cuffs.
 SourceCharacter снимает цепочку с футуристических манжет DestinationCharacter .
 SourceCharacter attaches the futuristic cuffs wrist chain behind DestinationCharacter back.
@@ -1542,10 +1574,10 @@ SourceCharacter uses the tentacles to bind DestinationCharacter ankles together.
 SourceCharacter использует щупальца, чтобы связать вместе лодыжки DestinationCharacter .
 SourceCharacter uses the tentacles to spread DestinationCharacter legs apart.
 SourceCharacter персонаж использует щупальца, чтобы расставить ноги DestinationCharacter .
-SourceCharacter uses the tentacles to bind DestinationCharacter arms behind her back.
-SourceCharacter использует щупальца, чтобы связать руки DestinationCharacter за спиной.
-SourceCharacter uses the tentacles to hold DestinationCharacter arms above her head.
-SourceCharacter использует щупальца, чтобы держать руки DestinationCharacter над головой.
+SourceCharacter uses the tentacles to bind DestinationCharacter arms behind TargetPronounPossessive back.
+SourceCharacter использует щупальца, чтобы связать руки DestinationCharacter за TargetPronounPossessive спиной.
+SourceCharacter uses the tentacles to hold DestinationCharacter arms above TargetPronounPossessive head.
+SourceCharacter использует щупальца, чтобы держать руки DestinationCharacter над TargetPronounPossessive головой.
 SourceCharacter detaches the chain from DestinationCharacter Ornate cuffs.
 SourceCharacter отсоединяет цепочку от изысканных манжет DestinationCharacter .
 SourceCharacter attaches the Ornate cuffs wrist chain behind DestinationCharacter back.
@@ -1682,16 +1714,16 @@ SourceCharacter wraps duct tape around DestinationCharacter hands.
 SourceCharacter обматывает руки DestinationCharacter изолентой.
 SourceCharacter removes some of the duct tape from DestinationCharacter torso.
 SourceCharacter удаляет часть клейкой ленты с туловища DestinationCharacter .
-SourceCharacter creates a duct tape skirt on TargetCharacter and traps her hands in it.
-SourceCharacter создает юбку из клейкой ленты на TargetCharacter и захватывает в нее свои руки.
-SourceCharacter creates a duct tape top on TargetCharacter and traps her arms in it.
-SourceCharacter наматывает на TargetCharacter верхнюю часть клейкой ленты и заключает в нее ее руки.
-SourceCharacter creates a duct tape mummy on TargetCharacter and traps her arms in it.
-SourceCharacter создает мумию из клейкой ленты на TargetCharacter и заключает в ловушку ее руки.
-SourceCharacter creates a completed duct tape mummy on TargetCharacter and traps her entire upper body in it.
-SourceCharacter создает готовую мумию из клейкой ленты на TargetCharacter и заключает в нее всю ее верхнюю часть тела.
-SourceCharacter creates a completed duct tape mummy on TargetCharacter and cuts a hole so that her breasts are exposed.
-SourceCharacter создает готовую мумию из клейкой ленты на TargetCharacter и вырезает дыру, чтобы ее грудь была видна.
+SourceCharacter creates a duct tape skirt on TargetCharacter and traps TargetPronounPossessive hands in it.
+SourceCharacter создает юбку из клейкой ленты на TargetCharacter и захватывает в нее TargetPronounPossessive руки.
+SourceCharacter creates a duct tape top on TargetCharacter and traps TargetPronounPossessive arms in it.
+SourceCharacter наматывает на TargetCharacter верхнюю часть клейкой ленты и заключает в нее TargetPronounPossessive руки.
+SourceCharacter creates a duct tape mummy on TargetCharacter and traps TargetPronounPossessive arms in it.
+SourceCharacter создает мумию из клейкой ленты на TargetCharacter и заключает в ловушку TargetPronounPossessive руки.
+SourceCharacter creates a completed duct tape mummy on TargetCharacter and traps TargetPronounPossessive entire upper body in it.
+SourceCharacter создает готовую мумию из клейкой ленты на TargetCharacter и заключает в нее всю TargetPronounPossessive верхнюю часть тела.
+SourceCharacter creates a completed duct tape mummy on TargetCharacter and cuts a hole so that TargetPronounPossessive breasts are exposed.
+SourceCharacter создает готовую мумию из клейкой ленты на TargetCharacter и вырезает дыру, чтобы TargetPronounPossessive грудь была видна.
 SourceCharacter folds DestinationCharacter arms and wraps duct tape around them.
 SourceCharacter складывает руки DestinationCharacter и обматывает их изолентой.
 Above head
@@ -1768,8 +1800,8 @@ Open
 Открытый
 SourceCharacter plugs up DestinationCharacter mouth.
 SourceCharacter персонаж затыкает рот DestinationCharacter .
-SourceCharacter pulls out DestinationCharacter plug from her gag.
-SourceCharacter вытаскивает пробку из кляпа DestinationCharacter .
+SourceCharacter pulls out DestinationCharacter plug from TargetPronounPossessive gag.
+SourceCharacter вытаскивает пробку из кляпа DestinationCharacter.
 SourceCharacter configures DestinationCharacter visor to be transparent.
 SourceCharacter настраивает визор DestinationCharacter так, чтобы он был прозрачным.
 SourceCharacter configures DestinationCharacter visor to be fully opaque.
@@ -1788,8 +1820,8 @@ Heavy Tint
 Сильно затемнён
 Select the type of visor
 Выберите тип визора
-SourceCharacter logs DestinationCharacter headset into the virtual world as her real self.
-SourceCharacter регистрирует гарнитуру DestinationCharacter в виртуальном мире как свое реальное "я".
+SourceCharacter logs DestinationCharacter headset into the virtual world as TargetPronounPossessive real self.
+SourceCharacter регистрирует гарнитуру DestinationCharacter в виртуальном мире как TargetPronounPossessive реальное "я".
 SourceCharacter logs DestinationCharacter headset into the virtual world as a custom avatar.
 SourceCharacter регистрирует гарнитуру DestinationCharacter в виртуальном мире в качестве пользовательского аватара.
 SourceCharacter configures DestinationCharacter headset to display the surroundings through a camera feed.
@@ -1980,14 +2012,14 @@ SourceCharacter opens the observation port on DestinationCharacter crate.
 SourceCharacter  открывает смотровое окно на ящике DestinationCharacter .
 SourceCharacter seals DestinationCharacter crate.
 SourceCharacter запечатывает ящик с DestinationCharacter .
-SourceCharacter releases DestinationCharacter arms from her crate's restraints.
-SourceCharacter выпускает руки DestinationCharacter из ограничителей её ящика.
-SourceCharacter straps in DestinationCharacter arms behind her back.
-SourceCharacter пристегивает руки DestinationCharacter за спиной.
-SourceCharacter straps in DestinationCharacter arms over her head.
-SourceCharacter пристегивает руки DestinationCharacter над головой.
-SourceCharacter releases DestinationCharacter legs from her crate's restraints.
-SourceCharacter освобождает ноги DestinationCharacter от ограничителей ящика.
+SourceCharacter releases DestinationCharacter arms from TargetPronounPossessive crate's restraints.
+SourceCharacter выпускает руки DestinationCharacter из ограничителей TargetPronounPossessive ящика.
+SourceCharacter straps in DestinationCharacter arms behind TargetPronounPossessive back.
+SourceCharacter пристегивает руки DestinationCharacter за TargetPronounPossessive спиной.
+SourceCharacter straps in DestinationCharacter arms over TargetPronounPossessive head.
+SourceCharacter пристегивает руки DestinationCharacter над TargetPronounPossessive головой.
+SourceCharacter releases DestinationCharacter legs from TargetPronounPossessive crate's restraints.
+SourceCharacter освобождает ноги DestinationCharacter от ограничителей TargetPronounPossessive ящика.
 SourceCharacter straps in DestinationCharacter legs in a suspended kneeling position.
 SourceCharacter пристёгивает ноги DestinationCharacter в подвешенном положении на коленях.
 SourceCharacter straps in DestinationCharacter legs together.
@@ -2040,10 +2072,10 @@ Hands in front + chastity
 Руки впереди + целомудрие
 Hands behind + chasity
 Руки сзади + целомудрие
-SourceCharacter configures DestinationCharacter mittens to relax and leave her hands free
-SourceCharacter настраивает рукавицы DestinationCharacter чтобы они расслаблялись и оставляли ее руки свободными
-SourceCharacter configures DestinationCharacter mittens to clasp her hands tightly into fists.
-SourceCharacter настраивает рукавицы DestinationCharacter так, чтобы она крепко сжимала руки в кулаки.
+SourceCharacter configures DestinationCharacter mittens to relax and leave TargetPronounPossessive hands free
+SourceCharacter настраивает рукавицы DestinationCharacter чтобы они расслаблялись и оставляли TargetPronounPossessive руки свободными
+SourceCharacter configures DestinationCharacter mittens to clasp TargetPronounPossessive hands tightly into fists.
+SourceCharacter настраивает рукавицы DestinationCharacter так, чтобы TargetPronounPossessive руки были крепко сжаты в кулаки.
 Gloves Mode
 Режим перчаток
 Mittens Mode
@@ -2100,22 +2132,22 @@ DestinationCharacterName gag inflates into a soft ball.
 Кляп DestinationCharacterName надувается в мягкий шарик.
 DestinationCharacterName gag inflates into a mouth-filling ball.
 Кляп DestinationCharacterName раздувается в большой шар. занимающий веь рот.
-DestinationCharacterName gag inflates into a large dildo that forces its way down her throat.
-Кляп DestinationCharacterName надувается в большой фаллоимитатор, который проталкивается ей в горло.
+DestinationCharacterName gag inflates into a large dildo that forces its way down TargetPronounPossessive throat.
+Кляп DestinationCharacterName надувается в большой фаллоимитатор, который проталкивается TargetPronounPossessive в горло.
 DestinationCharacterName gag deflates into padded mode.
 Кляп DestinationCharacterName сдувается в мягкий режим.
 DestinationCharacterName gag deflates into a soft ball.
 Кляп DestinationCharacterName сдувается в мягкий шарик.
 DestinationCharacterName gag deflates into a mouth-filling ball.
 Кляп DestinationCharacterName сдувается в большорй мяч.
-SourceCharacter configures DestinationCharacter gag to not punish her for speaking.
-SourceCharacter настраивает кляп DestinationCharacter чтобы он не наказывать ее за высказывания.
-SourceCharacter configures DestinationCharacter gag to punish her for shouting.
-SourceCharacter настраивает кляп DestinationCharacter чтобы он наказывал ее за крик.
-SourceCharacter configures DestinationCharacter gag to punish her for saying long sentences.
-SourceCharacter настраивает кляп DestinationCharacter чтобы он наказывал ее за длинные предложения.
-SourceCharacter configures DestinationCharacter gag to punish her for speaking.
-SourceCharacter настраивает кляп DestinationCharacter чтобы он наказывал ее за то, что она говорит.
+SourceCharacter configures DestinationCharacter gag to not punish TargetPronounObject for speaking.
+SourceCharacter настраивает кляп DestinationCharacter чтобы он не наказывать TargetPronounObject за высказывания.
+SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for shouting.
+SourceCharacter настраивает кляп DestinationCharacter чтобы он наказывал TargetPronounObject за крик.
+SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for saying long sentences.
+SourceCharacter настраивает кляп DestinationCharacter чтобы он наказывал TargetPronounObject за длинные предложения.
+SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for speaking.
+SourceCharacter настраивает кляп DestinationCharacter чтобы он наказывал TargetPronounObject за то, что говорит.
 SourceCharacter configures DestinationCharacter gag to deflate 2 minutes after triggering.
 SourceCharacter настраивает кляп DestinationCharacter чтобы он сдувался через 2 минуты после срабатывания.
 SourceCharacter configures DestinationCharacter gag to deflate 5 minutes after triggering.
@@ -2128,8 +2160,8 @@ SourceCharacter configures DestinationCharacter gag to deflate 20 hours after tr
 SourceCharacter настраивает кляп DestinationCharacter чтобы он сдувался через 20 часов после срабатывания.
 SourceCharacter plugs up DestinationCharacter mouth with the dildo plug.
 SourceCharacter затыкает рот DestinationCharacter заглушкой для фаллоимитатора.
-SourceCharacter pulls out DestinationCharacter dildo plug from her gag.
-SourceCharacter вытаскивает фаллоимитатор DestinationCharacter из её кляпа.
+SourceCharacter pulls out DestinationCharacter dildo plug from TargetPronounPossessive gag.
+SourceCharacter вытаскивает фаллоимитатор DestinationCharacter из TargetPronounPossessive кляпа.
 SourceCharacter loosens the gag on DestinationCharacter mouth.
 SourceCharacter ослабляет кляп на рту у DestinationCharacter .
 SourceCharacter polishes the gag on DestinationCharacter mouth.
@@ -2182,10 +2214,10 @@ Your belt starts pulsating strongly!
 Ваш пояс начинает сильно пульсировать!
 The plugs inside of you start buzzing intensely!
 Пробки внутри вас начинают интенсивно гудеть!
-DestinationCharacterName belt starts to tease her gently...
-Пояс на DestinationCharacterName начинает нежно дразнить ее...
-DestinationCharacterName belt starts teasing her...
-Пояс на DestinationCharacterName начинает дразнить ее...
+DestinationCharacterName belt starts to tease TargetPronounObject gently...
+Пояс на DestinationCharacterName начинает нежно дразнить TargetPronounObject...
+DestinationCharacterName belt starts teasing TargetPronounObject...
+Пояс на DestinationCharacterName начинает дразнить TargetPronounObject...
 DestinationCharacterName belt vibrates suddenly!
 Пояс на DestinationCharacterName внезапно вибрирует!
 DestinationCharacterName belt vibrates intensely!
@@ -2198,10 +2230,10 @@ DestinationCharacterName belt vibrates gently.
 Пояс на DestinationCharacterName мягко вибрирует.
 DestinationCharacterName belt slows down to a weak buzz...
 Пояс на DestinationCharacterName замедляется до слабого гудения...
-DestinationCharacterName belt edges her strongly!
-Пояс на DestinationCharacterName удерживает ее на краю!
-DestinationCharacterName belt brings her close to the edge!
-Пояс на DestinationCharacterName подводит ее вплотную к краю!
+DestinationCharacterName belt edges TargetPronounObject strongly!
+Пояс на DestinationCharacterName удерживает TargetPronounObject на краю!
+DestinationCharacterName belt brings TargetPronounObject close to the edge!
+Пояс на DestinationCharacterName подводит TargetPronounObject вплотную к краю!
 Your belt slows down to a weak buzz...
 Ваш пояс замедляется до слабого жужжания...
 Your belt edges you strongly!
@@ -2294,30 +2326,30 @@ Time until recharged:
 Время до перезарядки:
 Punishment Charged
 Назначенное наказание
-DestinationCharacterName belt shocks her for standing up without permission!
-Пояс на DestinationCharacterName шокирует её за то, что она встала без разрешения!
-DestinationCharacterName belt shocks her for speaking too much!
-Пояс на DestinationCharacterName шокирует её за то, что она слишком много говорит!
-DestinationCharacterName belt shocks her for not saying 'ReplacementWord!'
-Пояс на DestinationCharacterName шокирует её за то, что она не сказала 'ReplacementWord!'
-DestinationCharacterName belt shocks her for saying 'ReplacementWord!'
-Пояс на DestinationCharacterName шокирует её за то, что она сказала 'ReplacementWord!'
-DestinationCharacterName belt punishes her for speaking too much!
-Пояс на DestinationCharacterName наказывает ее за то, что она слишком много говорит!
+DestinationCharacterName belt shocks TargetPronounObject for standing up without permission!
+Пояс на DestinationCharacterName шокирует TargetPronounObject за то, что встал/а без разрешения!
+DestinationCharacterName belt shocks TargetPronounObject for speaking too much!
+Пояс на DestinationCharacterName шокирует её за то, что TargetPronounObject слишком много говорит!
+DestinationCharacterName belt shocks TargetPronounObject for not saying 'ReplacementWord!'
+Пояс на DestinationCharacterName шокирует TargetPronounObject за то, что не сказал/а 'ReplacementWord!'
+DestinationCharacterName belt shocks TargetPronounObject for saying 'ReplacementWord!'
+Пояс на DestinationCharacterName шокирует TargetPronounObject за то, что сказал/а 'ReplacementWord!'
+DestinationCharacterName belt punishes TargetPronounObject for speaking too much!
+Пояс на DestinationCharacterName наказывает TargetPronounObject за то, что слишком много говорит!
 DestinationCharacterName belt punishes her for not saying 'ReplacementWord!'
 Пояс на DestinationCharacterName наказывает ее за то, что она не произнесла 'ReplacementWord!'
-DestinationCharacterName belt punishes her for saying 'ReplacementWord!'
-Пояс на DestinationCharacterName наказывает ее за то, что она произнесла 'ReplacementWord!'
-DestinationCharacterName belt detects an orgasm and shocks her!
-Пояс на DestinationCharacterName обнаруживает оргазм и шокирует ее!
-DestinationCharacterName belt detects tampering and shocks her!
-Пояс на DestinationCharacterName обнаруживает вмешательство и бьет ее током!
-DestinationCharacterName belt detects her struggling and delivers an intense shock!
-Пояс на DestinationCharacterName обнаруживает её борьбу и наносит сильный удар!
-DestinationCharacterName bindings tighten around her body with a hiss as they lock themselves automatically.
-Привязки на DestinationCharacterName затягиваются вокруг ее тела с шипением, автоматически фиксируясь.
-DestinationCharacterName bindings release her with a hiss.
-Привязки на DestinationCharacterName освобождают её с шипением.
+DestinationCharacterName belt punishes TargetPronounObject for saying 'ReplacementWord!'
+Пояс на DestinationCharacterName наказывает TargetPronounObject за то, что произнес/ла 'ReplacementWord!'
+DestinationCharacterName belt detects an orgasm and shocks TargetPronounObject!
+Пояс на DestinationCharacterName обнаруживает оргазм и шокирует TargetPronounObject!
+DestinationCharacterName belt detects tampering and shocks TargetPronounObject!
+Пояс на DestinationCharacterName обнаруживает вмешательство и бьет TargetPronounObject током!
+DestinationCharacterName belt detects TargetPronounObject struggling and delivers an intense shock!
+Пояс на DestinationCharacterName обнаруживает TargetPronounObject борьбу и наносит сильный удар!
+DestinationCharacterName bindings tighten around TargetPronounObject body with a hiss as they lock themselves automatically.
+Привязки на DestinationCharacterName затягиваются вокруг TargetPronounObject тела с шипением, автоматически фиксируясь.
+DestinationCharacterName bindings release TargetPronounObject with a hiss.
+Привязки на DestinationCharacterName с шипением освобождают TargetPronounObject.
 DestinationCharacterName bindings reboot with different colors.
 Привязки на DestinationCharacterName перезагружаются с разными цветами.
 Let all players use head device features
@@ -2506,8 +2538,8 @@ Wrap
 Обертка
 Open Mummy
 Открытая мумия
-SourceCharacter takes a piece of duct tape for TargetCharacter and places it on her face.
-SourceCharacter берет кусок клейкой ленты для TargetCharacter и заклеивает ее глаза.
+SourceCharacter takes a piece of duct tape for TargetCharacter and places it on TargetPronounPossessive face.
+SourceCharacter берет кусок клейкой ленты для TargetCharacter и заклеивает TargetPronounPossessive глаза.
 SourceCharacter wraps some duct tape onto DestinationCharacter face.
 SourceCharacter обматывает лицо DestinationCharacter скотчем.
 SourceCharacter wraps DestinationCharacter head in tape with multiple layers. 
@@ -2536,8 +2568,8 @@ SourceCharacter tucks DestinationCharacter hair into the vacbed.
 SourceCharacter заправляет волосы DestinationCharacter в вакуумную кровать.
 Opacity
 Непрозрачность
-SourceCharacter changes DestinationCharacter pose in her Vacuum Bed Deluxe.
-SourceCharacter меняет позу DestinationCharacter pose в её вакуумной кровати Deluxe.
+SourceCharacter changes DestinationCharacter pose in TargetPronounPossessive Vacuum Bed Deluxe.
+SourceCharacter меняет позу DestinationCharacter pose в TargetPronounPossessive вакуумной кровати Deluxe.
 Select the rope bondage
 Выберите веревочный бондаж
 Basic Tie
@@ -2618,50 +2650,50 @@ Kneeling Hogtie
 Кабанчик на коленях
 Frogtie
 Лягушонок
-SourceCharacter uses the zipties on TargetCharacter to lightly bind her elbows and wrists.
-SourceCharacter использует стяжки на TargetCharacter чтобы слегка связать ее локти и запястья.
-SourceCharacter uses the zipties on TargetCharacter to half bind her elbows and wrists.
-SourceCharacter использует стяжки на TargetCharacter чтобы наполовину связать ей локти и запястья.
-SourceCharacter uses the zipties on TargetCharacter to fully bind her elbows and wrists.
-SourceCharacter использует стяжки на TargetCharacter чтобы полностью связать ее локти и запястья.
-SourceCharacter uses the zipties on TargetCharacter to bind her elbows and wrists.
-SourceCharacter использует стяжки на TargetCharacter чтобы связать ей локти и запястья.
-SourceCharacter uses the zipties on TargetCharacter to lightly bind her wrists.
-SourceCharacter использует стяжки на TargetCharacter чтобы слегка связать ее запястья.
-SourceCharacter uses the zipties on TargetCharacter to half bind her wrists.
-SourceCharacter использует стяжки на TargetCharacter чтобы наполовину связать ее запястья.
-SourceCharacter uses the zipties on TargetCharacter to fully bind her wrists.
-SourceCharacter использует стяжки на TargetCharacter чтобы полностью связать ее запястья.
-SourceCharacter uses the zipties on TargetCharacter to bind her wrists behind her back.
-SourceCharacter использует стяжки на TargetCharacter связать ей запястья за спиной.
-SourceCharacter uses the zipties on TargetCharacter to hogtie her.
-SourceCharacter использует стяжки на TargetCharacter чтобы связать ее.
-SourceCharacter uses the zipties on TargetCharacter to hogtie her on her knees.
-SourceCharacter использует стяжки на TargetCharacter чтобы связать ее на коленях.
-SourceCharacter uses the zipties on TargetCharacter bind her on all fours.
-SourceCharacter использует стяжки на TargetCharacter чтобы связать ее на четвереньки.
-SourceCharacter uses the zipties on TargetCharacter to lighty bind her legs.
-SourceCharacter использует стяжки на TargetCharacter чтобы слегка связать ей лодыжки.
-SourceCharacter uses the zipties on TargetCharacter to half bind her legs.
-SourceCharacter использует стяжки на TargetCharacter чтобы наполовину связать ей лодыжки.
-SourceCharacter uses the zipties on TargetCharacter to fully bind her legs.
-SourceCharacter использует стяжки на TargetCharacter чтобы полностью связать ее лодыжки.
-SourceCharacter uses the zipties on TargetCharacter to frogtie her.
-SourceCharacter использует стяжки на TargetCharacter чтобы связать её по лягушачи.
-SourceCharacter uses the zipties on TargetCharacter to lightly bind her feet.
-SourceCharacter использует стяжки на TargetCharacter чтобы слегка связать ее ступни.
-SourceCharacter uses the zipties on TargetCharacter to half bind her feet.
-SourceCharacter использует стяжки на TargetCharacter чтобы наполовину связать ей ступни.
-SourceCharacter uses the zipties on TargetCharacter to fully bind her feet.
-SourceCharacter используетстяжки на TargetCharacter чтобы полностью связать ее ступни.
+SourceCharacter uses the zipties on TargetCharacter to lightly bind TargetPronounPossessive elbows and wrists.
+SourceCharacter использует стяжки на TargetCharacter чтобы слегка связать TargetPronounPossessive локти и запястья.
+SourceCharacter uses the zipties on TargetCharacter to half bind TargetPronounPossessive elbows and wrists.
+SourceCharacter использует стяжки на TargetCharacter чтобы наполовину связать TargetPronounPossessive локти и запястья.
+SourceCharacter uses the zipties on TargetCharacter to fully bind TargetPronounPossessive elbows and wrists.
+SourceCharacter использует стяжки на TargetCharacter чтобы полностью связать TargetPronounPossessive локти и запястья.
+SourceCharacter uses the zipties on TargetCharacter to bind TargetPronounPossessive elbows and wrists.
+SourceCharacter использует стяжки на TargetCharacter чтобы связать TargetPronounPossessive локти и запястья.
+SourceCharacter uses the zipties on TargetCharacter to lightly bind TargetPronounPossessive wrists.
+SourceCharacter использует стяжки на TargetCharacter чтобы слегка связать TargetPronounPossessive запястья.
+SourceCharacter uses the zipties on TargetCharacter to half bind TargetPronounPossessive wrists.
+SourceCharacter использует стяжки на TargetCharacter чтобы наполовину связать TargetPronounPossessive запястья.
+SourceCharacter uses the zipties on TargetCharacter to fully bind TargetPronounPossessive wrists.
+SourceCharacter использует стяжки на TargetCharacter чтобы полностью связать TargetPronounPossessive запястья.
+SourceCharacter uses the zipties on TargetCharacter to bind TargetPronounPossessive wrists behind TargetPronounPossessive back.
+SourceCharacter использует стяжки на TargetCharacter связать TargetPronounPossessive запястья за TargetPronounPossessive спиной.
+SourceCharacter uses the zipties on TargetCharacter to hogtie TargetPronounObject.
+SourceCharacter использует стяжки на TargetCharacter чтобы связать TargetPronounObject.
+SourceCharacter uses the zipties on TargetCharacter to hogtie TargetPronounObject on TargetPronounObject knees.
+SourceCharacter использует стяжки на TargetCharacter чтобы связать TargetPronounObject на TargetPronounObject коленях.
+SourceCharacter uses the zipties on TargetCharacter bind TargetPronounObject on all fours.
+SourceCharacter использует стяжки на TargetCharacter чтобы связать TargetPronounObject на четвереньки.
+SourceCharacter uses the zipties on TargetCharacter to lighty bind TargetPronounPossessive legs.
+SourceCharacter использует стяжки на TargetCharacter чтобы слегка связать TargetPronounPossessive лодыжки.
+SourceCharacter uses the zipties on TargetCharacter to half bind TargetPronounPossessive legs.
+SourceCharacter использует стяжки на TargetCharacter чтобы наполовину связать TargetPronounPossessive лодыжки.
+SourceCharacter uses the zipties on TargetCharacter to fully bind TargetPronounPossessive legs.
+SourceCharacter использует стяжки на TargetCharacter чтобы полностью связать TargetPronounPossessive лодыжки.
+SourceCharacter uses the zipties on TargetCharacter to frogtie TargetPronounObject.
+SourceCharacter использует стяжки на TargetCharacter чтобы связать TargetPronounObject по лягушачи.
+SourceCharacter uses the zipties on TargetCharacter to lightly bind TargetPronounPossessive feet.
+SourceCharacter использует стяжки на TargetCharacter чтобы слегка связать TargetPronounPossessive ступни.
+SourceCharacter uses the zipties on TargetCharacter to half bind TargetPronounPossessive feet.
+SourceCharacter использует стяжки на TargetCharacter чтобы наполовину связать TargetPronounPossessive ступни.
+SourceCharacter uses the zipties on TargetCharacter to fully bind TargetPronounPossessive feet.
+SourceCharacter используетстяжки на TargetCharacter чтобы полностью связать TargetPronounPossessive ступни.
 Toes
 Пальцы ног
-SourceCharacter uses the tape on TargetCharacter to tie her toes together with tape.
-SourceCharacter использует ленту на TargetCharacter чтобы связать ей пальцы ног.
-SourceCharacter uses the tape on TargetCharacter to fully wrap her feet with tape.
-SourceCharacter использует ленту на TargetCharacter полностью обмотать ее ступни скотчем.
+SourceCharacter uses the tape on TargetCharacter to tie TargetPronounPossessive toes together with tape.
+SourceCharacter использует ленту на TargetCharacter чтобы связать TargetPronounPossessive пальцы ног.
+SourceCharacter uses the tape on TargetCharacter to fully wrap TargetPronounPossessive feet with tape.
+SourceCharacter использует ленту на TargetCharacter полностью обмотать TargetPronounPossessive ступни скотчем.
 Suspension Tie
-Подвесной связывание
+Подвесное связывание
 Wrist and Elbow Tie
 Связывание запястья и локтя
 Wrist Tie
@@ -2708,8 +2740,8 @@ SourceCharacter uses the rope on TargetCharacter to do a body harness.
 SourceCharacter использует веревку на TargetCharacter чтобы сделать обвязку тела.
 SourceCharacter uses the rope on TargetCharacter to tie a star harness.
 SourceCharacter использует веревку на TargetCharacter чтобы связать звездную обвязку.
-SourceCharacter uses the rope on TargetCharacter to tie a waist rope on her.
-SourceCharacter использует веревку на TargetCharacter чтобы сделать поясную обвязку.
+SourceCharacter uses the rope on TargetCharacter to tie a waist rope on TargetPronounObject.
+SourceCharacter использует веревку на TargetCharacter чтобы сделать TargetPronounObject поясную обвязку.
 SourceCharacter uses the rope on TargetCharacter to do a diamond style harness.
 SourceCharacter использует веревку на TargetCharacter сделать сбрую в алмазном стиле.
 SourceCharacter uses the rope on TargetCharacter to do a basic tie.
@@ -2738,18 +2770,18 @@ SourceCharacter uses rope on TargetCharacter to do a crossed boxtie.
 SourceCharacter использует веревку на TargetCharacter сделать перекрестный коробочное связывание.
 SourceCharacter uses rope to hogtie TargetCharacter.
 SourceCharacter использует веревку, чтобы связать TargetCharacter кабанчиком.
-SourceCharacter uses rope to tie DestinationCharacter wrists and elbows together behind her back.
-SourceCharacter использует веревку, чтобы связать запястья и локти DestinationCharacter за спиной.
-SourceCharacter uses rope to tie DestinationCharacter wrists together behind her back.
-SourceCharacter использует веревку, чтобы связать запястья DestinationCharacter вместе за спиной.
+SourceCharacter uses rope to tie DestinationCharacter wrists and elbows together behind TargetPronounPossessive back.
+SourceCharacter использует веревку, чтобы связать запястья и локти DestinationCharacter за TargetPronounPossessive спиной.
+SourceCharacter uses rope to tie DestinationCharacter wrists together behind TargetPronounPossessive back.
+SourceCharacter использует веревку, чтобы связать запястья DestinationCharacter вместе за TargetPronounPossessive спиной.
 SourceCharacter uses rope to tie rope cuffs on DestinationCharacter wrists
 SourceCharacter чтобы завязать веревочные манжеты на запястьях DestinationCharacter
-SourceCharacter uses rope to tie DestinationCharacter wrists and elbows in a harness behind her back.
-SourceCharacter использует веревку, чтобы связать запястья и локти в сбрую DestinationCharacter за спиной.
-SourceCharacter uses rope on TargetCharacter to have her crawling on all fours.
-SourceCharacter использует веревку на TargetCharacter чтобы она ползала на четвереньках.
-SourceCharacter uses rope to hogtie TargetCharacter on her knees.
-SourceCharacter использует веревку, чтобы связать TargetCharacter на коленях.
+SourceCharacter uses rope to tie DestinationCharacter wrists and elbows in a harness behind TargetPronounPossessive back.
+SourceCharacter использует веревку, чтобы связать запястья и локти в сбрую DestinationCharacter за TargetPronounPossessive спиной.
+SourceCharacter uses rope on TargetCharacter to have TargetPronounObject crawling on all fours.
+SourceCharacter использует веревку на TargetCharacter чтобы TargetPronounObject ползала на четвереньках.
+SourceCharacter uses rope to hogtie TargetCharacter on TargetPronounPossessive knees.
+SourceCharacter использует веревку, чтобы связать TargetCharacter на TargetPronounPossessive коленях.
 SourceCharacter uses rope to tie DestinationCharacter arms to the bedposts.
 SourceCharacter использует веревку, чтобы привязать руки DestinationCharacter к стойкам кровати.
 Select Rope Bondage.
@@ -2758,16 +2790,16 @@ Lowered
 Опущенный
 Suspended
 Подвешенный
-SourceCharacter uses the rope on TargetCharacter to suspend her.
-SourceCharacter использует веревку на TargetCharacter чтобы подвесить её.
-SourceCharacter uses the rope on TargetCharacter to lower her.
-SourceCharacter использует веревку на TargetCharacter чтобы спустить её.
+SourceCharacter uses the rope on TargetCharacter to suspend TargetPronounObject.
+SourceCharacter использует веревку на TargetCharacter чтобы подвесить TargetPronounObject.
+SourceCharacter uses the rope on TargetCharacter to lower TargetPronounObject.
+SourceCharacter использует веревку на TargetCharacter чтобы опустить TargetPronounObject.
 Select Chain Bondage.
 Выберите Цепное связывание.
-SourceCharacter uses the chain on TargetCharacter to suspend her.
-SourceCharacter использует цепочку на TargetCharacter чтобы подвесить её.
-SourceCharacter uses the chain on TargetCharacter to lower her.
-SourceCharacter использует цепочку на TargetCharacter чтобы спустить её.
+SourceCharacter uses the chain on TargetCharacter to suspend TargetPronounObject.
+SourceCharacter использует цепочку на TargetCharacter чтобы подвесить TargetPronounObject.
+SourceCharacter uses the chain on TargetCharacter to lower TargetPronounObject.
+SourceCharacter использует цепочку на TargetCharacter чтобы опустить TargetPronounObject.
 How much do you want to inflate the strait leotard?
 Насколько сильно вы хотите надуть облегающий купальник?
 SourceCharacter adjusts DestinationCharacter inflatable strait leotard to be only lightly filled.
@@ -2778,8 +2810,8 @@ SourceCharacter adjusts DestinationCharacter inflatable strait leotard to three 
 SourceCharacter настраивает надувной купальник DestinationCharacter на заполнение на три четверти.
 SourceCharacter adjusts DestinationCharacter inflatable strait leotard to fill the maximum amount.
 SourceCharacter настраивает надувной купальник DestinationCharacter чтобы заполнить максимальное количество.
-SourceCharacter uses the rope on TargetCharacter to do a crotch rope tie over her panties.
-SourceCharacter спользует веревку на TargetCharacter чтобы завязать веревку в промежности поверх ее трусиков.
+SourceCharacter uses the rope on TargetCharacter to do a crotch rope tie over TargetPronounPossessive panties.
+SourceCharacter спользует веревку на TargetCharacter чтобы завязать веревку в промежности поверх TargetPronounPossessive трусиков.
 SourceCharacter uses the rope on TargetCharacter to do a swiss seat style rope tie.
 SourceCharacter спользует веревку на TargetCharacter чтобы завязать веревку в стиле швейцарского сиденья.
 SourceCharacter uses the rope on TargetCharacter to do a kikkou hip style rope tie.
@@ -2858,8 +2890,8 @@ SourceCharacter sets DestinationCharacter AssetName to medium sensitivity.
 SourceCharacter устанавливает для свойства DestinationCharacter AssetName среднюю чувствительность.
 SourceCharacter sets DestinationCharacter AssetName to maximum sensitivity.
 SourceCharacter устанавливает для DestinationCharacter AssetName максимальную чувствительность.
-DestinationCharacterName AssetName gives her a light shock.
-DestinationCharacterName AssetName вызывает у нее легкий шок.
+DestinationCharacterName AssetName gives TargetPronounObject a light shock.
+DestinationCharacterName AssetName вызывает у TargetPronounObject легкий шок.
 DestinationCharacterName AssetName lets out a sharp jolt!
 DestinationCharacterName AssetName производит резкий толчок!
 DestinationCharacterName AssetName delivers an intense shock!
@@ -2878,8 +2910,8 @@ DestinationCharacterName vibrating egg returns to a moderate pace.
 Вибрирующее яйцо DestinationCharacterName возвращается к умеренному темпу.
 DestinationCharacterName vibrating egg slows down a tiny bit.
 Вибрирующее яйцо DestinationCharacterName немного замедляется.
-DestinationCharacterName vibrating egg starts teasing her lightly.
-Вибрирующее яйцо DestinationCharacterName начинает слегка дразнить ее.
+DestinationCharacterName vibrating egg starts teasing TargetPronounObject lightly.
+Вибрирующее яйцо DestinationCharacterName начинает слегка дразнить TargetPronounObject.
 DestinationCharacterName vibrating egg builds up to a moderate pace.
 Вибрирующее яйцо DestinationCharacterName набирает умеренную скорость.
 DestinationCharacterName vibrating egg starts buzzing strongly!
@@ -2894,8 +2926,8 @@ DestinationCharacterName sybian returns to a moderate pace.
 Сибиан DestinationCharacterName возвращается к умеренному темпу.
 DestinationCharacterName sybian slows down a tiny bit.
 Сибиан DestinationCharacterName немного замедляется.
-DestinationCharacterName sybian starts teasing her lightly.
-Сибиан DestinationCharacterName начинает слегка дразнить ее.
+DestinationCharacterName sybian starts teasing TargetPronounObject lightly.
+Сибиан DestinationCharacterName начинает слегка дразнить TargetPronounObject.
 DestinationCharacterName sybian builds up to a moderate pace.
 Сибиан DestinationCharacterName набирает средний темп.
 DestinationCharacterName sybian starts buzzing strongly!
@@ -2910,8 +2942,8 @@ DestinationCharacterName vibrating dildo returns to a moderate pace.
 Вибрирующий фаллоимитатор DestinationCharacterName возвращается к умеренному темпу.
 DestinationCharacterName vibrating dildo slows down a tiny bit.
 Вибрирующий фаллоимитатор DestinationCharacterName немного замедляется.
-DestinationCharacterName vibrating dildo starts teasing her lightly.
-Вибрирующий фаллоимитатор DestinationCharacterName начинает слегка дразнить ее.
+DestinationCharacterName vibrating dildo starts teasing TargetPronounObject lightly.
+Вибрирующий фаллоимитатор DestinationCharacterName начинает слегка дразнить TargetPronounObject.
 DestinationCharacterName vibrating dildo builds up to a moderate pace.
 Вибрирующий фаллоимитатор DestinationCharacterName набирает умеренную скорость.
 DestinationCharacterName vibrating dildo starts buzzing strongly!
@@ -2926,8 +2958,8 @@ DestinationCharacterName clitoral stimulator returns to a moderate pace.
 Клиторальный стимулятор DestinationCharacterName возвращается к умеренному темпу.
 DestinationCharacterName clitoral stimulator slows down a tiny bit.
 Клиторальный стимулятор DestinationCharacterName немного замедляется.
-DestinationCharacterName clitoral stimulator starts teasing her lightly.
-Клиторальный стимулятор DestinationCharacterName начинает слегка дразнить ее.
+DestinationCharacterName clitoral stimulator starts teasing TargetPronounObject lightly.
+Клиторальный стимулятор DestinationCharacterName начинает слегка дразнить TargetPronounObject.
 DestinationCharacterName clitoral stimulator builds up to a moderate pace.
 Клиторальный стимулятор DestinationCharacterName наращивает до умеренного темпа.
 DestinationCharacterName clitoral stimulator starts buzzing strongly!
@@ -2966,38 +2998,38 @@ SourceCharacter inflates DestinationCharacter inflatable vibrating dildo till it
 SourceCharacter надувает надувной вибрирующий фаллоимитатор DestinationCharacter пока он не станет сильно выпирать.
 SourceCharacter inflates DestinationCharacter inflatable vibrating dildo to it's maximum size.
 SourceCharacter надувает надувной вибрирующий фаллоимитатор DestinationCharacter до максимального размера.
-DestinationCharacterName vibrating eggs on her nipples stop vibrating.
-DestinationCharacterName вибрирующие яйца на ее сосках перестают вибрировать.
-DestinationCharacterName vibrating eggs on her nipples slow down into a light tease.
-DestinationCharacterName Вибрирующие яйца на ее сосках замедляются до легкого дразнения.
-DestinationCharacterName vibrating eggs on her nipples return to a moderate pace.
-DestinationCharacterName вибрирующие яйца на ее сосках возвращаются к умеренному темпу.
-DestinationCharacterName vibrating eggs on her nipples slow down a tiny bit.
-DestinationCharacterName вибрирующие яйца на ее сосках немного замедляются.
-DestinationCharacterName vibrating eggs on her nipples start teasing her lightly.
-DestinationCharacterName вибрирующие яйца на ее сосках начинают слегка ее дразнить.
-DestinationCharacterName vibrating eggs on her nipples build up to a moderate pace.
-DestinationCharacterName вибрирующие яйца на ее сосках нарастают в умеренном темпе.
-DestinationCharacterName vibrating eggs on her nipples start buzzing strongly!
-DestinationCharacterName вибрирующие яйца на ее сосках начинают сильно гудеть!
-DestinationCharacterName vibrating eggs on her nipples jump up to maximum intensity!
-DestinationCharacterName вибрирующие яйца на ее сосках подпрыгивают до максимальной интенсивности!
-DestinationCharacterName vibrating egg on her clitoris stops vibrating.
+DestinationCharacterName vibrating eggs on TargetPronounPossessive nipples stop vibrating.
+DestinationCharacterName вибрирующие яйца на TargetPronounPossessive сосках перестают вибрировать.
+DestinationCharacterName vibrating eggs on TargetPronounPossessive nipples slow down into a light tease.
+DestinationCharacterName Вибрирующие яйца на TargetPronounPossessive сосках замедляются до легкого дразнения.
+DestinationCharacterName vibrating eggs on TargetPronounPossessive nipples return to a moderate pace.
+DestinationCharacterName вибрирующие яйца на TargetPronounPossessive сосках возвращаются к умеренному темпу.
+DestinationCharacterName vibrating eggs on TargetPronounPossessive nipples slow down a tiny bit.
+DestinationCharacterName вибрирующие яйца на TargetPronounPossessive сосках немного замедляются.
+DestinationCharacterName vibrating eggs on TargetPronounPossessive nipples start teasing TargetPronounObject lightly.
+DestinationCharacterName вибрирующие яйца на TargetPronounPossessive сосках начинают слегка TargetPronounObject дразнить.
+DestinationCharacterName vibrating eggs on TargetPronounPossessive nipples build up to a moderate pace.
+DestinationCharacterName вибрирующие яйца на TargetPronounPossessive сосках нарастают в умеренном темпе.
+DestinationCharacterName vibrating eggs on TargetPronounPossessive nipples start buzzing strongly!
+DestinationCharacterName вибрирующие яйца на TargetPronounPossessive сосках начинают сильно гудеть!
+DestinationCharacterName vibrating eggs on TargetPronounPossessive nipples jump up to maximum intensity!
+DestinationCharacterName вибрирующие яйца на TargetPronounPossessive сосках подпрыгивают до максимальной интенсивности!
+DestinationCharacterName vibrating egg on TargetPronounPossessive clitoris stops vibrating.
 Вибрирующее яйцо на клиторе DestinationCharacterName перестает вибрировать.
-DestinationCharacterName vibrating egg on her clitoris slows down into a light tease.
+DestinationCharacterName vibrating egg on TargetPronounPossessive clitoris slows down into a light tease.
 DestinationCharacterName Вибрирующее яйцо на ее клиторе замедляется до легкого поддразнивания.
-DestinationCharacterName vibrating egg on her clitoris returns to a moderate pace.
-DestinationCharacterName вибрирующее яйцо на ее клиторе возвращается к умеренному темпу.
-DestinationCharacterName vibrating egg on her clitoris slows down a tiny bit.
-DestinationCharacterName Вибрирующее яйцо на ее клиторе немного замедляется.
-DestinationCharacterName vibrating egg on her clitoris starts teasing her lightly.
-DestinationCharacterName вибрирующее яйцо на ее клиторе начинает слегка дразнить ее.
-DestinationCharacterName vibrating egg on her clitoris builds up to a moderate pace.
-Вибрирующее яйцо DestinationCharacterName на ее клиторе нарастает до умеренной скорости.
-DestinationCharacterName vibrating egg on her clitoris starts buzzing strongly!
-DestinationCharacterName вибрирующее яйцо на ее клиторе начинает сильно гудеть!
-DestinationCharacterName vibrating egg on her clitoris jumps up to maximum intensity!
-Вибрирующее яйцо DestinationCharacterName на ее клиторе подпрыгивает до максимальной интенсивности!
+DestinationCharacterName vibrating egg on TargetPronounPossessive clitoris returns to a moderate pace.
+DestinationCharacterName вибрирующее яйцо на TargetPronounPossessive клиторе возвращается к умеренному темпу.
+DestinationCharacterName vibrating egg on TargetPronounPossessive clitoris slows down a tiny bit.
+DestinationCharacterName Вибрирующее яйцо на TargetPronounPossessive клиторе немного замедляется.
+DestinationCharacterName vibrating egg on TargetPronounPossessive clitoris starts teasing TargetPronounObject lightly.
+DestinationCharacterName вибрирующее яйцо на TargetPronounPossessive клиторе начинает слегка дразнить TargetPronounObject.
+DestinationCharacterName vibrating egg on TargetPronounPossessive clitoris builds up to a moderate pace.
+Вибрирующее яйцо DestinationCharacterName на TargetPronounPossessive клиторе нарастает до умеренной скорости.
+DestinationCharacterName vibrating egg on TargetPronounPossessive clitoris starts buzzing strongly!
+DestinationCharacterName вибрирующее яйцо на TargetPronounPossessive клиторе начинает сильно гудеть!
+DestinationCharacterName vibrating egg on TargetPronounPossessive clitoris jumps up to maximum intensity!
+Вибрирующее яйцо DestinationCharacterName на TargetPronounPossessive клиторе подпрыгивает до максимальной интенсивности!
 SourceCharacter loosens DestinationCharacter nipple suction cups until they hang loosely.
 SourceCharacter ослабляет присоски сосков DestinationCharacter , пока они не свисают свободно.
 SourceCharacter loosens DestinationCharacter nipple suction cups to a light amount of suction.
@@ -3006,14 +3038,14 @@ SourceCharacter loosens DestinationCharacter nipple suction cups to a moderate a
 SourceCharacter ослабляет присоски сосков DestinationCharacter до умеренной степени всасывания.
 SourceCharacter loosens DestinationCharacter nipple suction cups a bit to a heavy amount of suction.
 SourceCharacter немного ослабляет присоски сосков DestinationCharacter до сильного всасывания.
-SourceCharacter tweaks DestinationCharacter nipple suction cups sucking in her nipples lightly.
-SourceCharacter настраивает присоски для сосков DestinationCharacter , слегка всасывая ее соски.
-SourceCharacter tweaks DestinationCharacter nipple suction cups sucking in her nipples firmly.
-SourceCharacter настраивает присоски для сосков DestinationCharacter , крепко всасывая ее соски.
-SourceCharacter tweaks DestinationCharacter nipple suction cups sucking in her nipples heavily.
-SourceCharacter настраивает присоски для сосков DestinationCharacter , сильно всасывая ее соски.
-SourceCharacter tweaks DestinationCharacter nipple suction cups sucking in her nipples entirely.
-SourceCharacter настраивает присоски для сосков DestinationCharacter , полностью всасывающие ее соски.
+SourceCharacter tweaks DestinationCharacter nipple suction cups sucking in TargetPronounPossessive nipples lightly.
+SourceCharacter настраивает присоски для сосков DestinationCharacter , слегка всасывая TargetPronounPossessive соски.
+SourceCharacter tweaks DestinationCharacter nipple suction cups sucking in TargetPronounPossessive nipples firmly.
+SourceCharacter настраивает присоски для сосков DestinationCharacter , крепко всасывая TargetPronounPossessive соски.
+SourceCharacter tweaks DestinationCharacter nipple suction cups sucking in TargetPronounPossessive nipples heavily.
+SourceCharacter настраивает присоски для сосков DestinationCharacter , сильно всасывая TargetPronounPossessive соски.
+SourceCharacter tweaks DestinationCharacter nipple suction cups sucking in TargetPronounPossessive nipples entirely.
+SourceCharacter настраивает присоски для сосков DestinationCharacter , полностью всасывающие TargetPronounPossessive соски.
 SourceCharacter loosens DestinationCharacter clitoris suction cup until it hangs loosely.
 SourceCharacter ослабляет присоску клитора DestinationCharacter , пока она свободно не свисает.
 SourceCharacter loosens DestinationCharacter clitoris suction cup to a light amount of suction.
@@ -3022,14 +3054,14 @@ SourceCharacter loosens DestinationCharacter clitoris suction cup to a moderate 
 SourceCharacter ослабляет присоску клитора DestinationCharacter до умеренной степени всасывания.
 SourceCharacter loosens DestinationCharacter clitoris suction cup a bit to a heavy amount of suction.
 SourceCharacter немного ослабляет присоску клитора DestinationCharacter до сильного присасывания.
-SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in her clitoris lightly.
-SourceCharacter настраивает присоску для клитора DestinationCharacter , слегка всасывая ее клитор.
-SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in her clitoris firmly.
-SourceCharacter настраивает присоску для клитора DestinationCharacter , плотно всасывая ее клитор.
-SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in her clitoris heavily.
-SourceCharacter настраивает присоску клитора DestinationCharacter , сильно всасывая ее клитор.
-SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in her clitoris entirely.
-SourceCharacter настраивает присоску клитора DestinationCharacter , полностью всасывая ее клитор.
+SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in TargetPronounPossessive clitoris lightly.
+SourceCharacter настраивает присоску для клитора DestinationCharacter , слегка всасывая TargetPronounPossessive клитор.
+SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in TargetPronounPossessive clitoris firmly.
+SourceCharacter настраивает присоску для клитора DestinationCharacter , плотно всасывая TargetPronounPossessive клитор.
+SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in TargetPronounPossessive clitoris heavily.
+SourceCharacter настраивает присоску клитора DestinationCharacter , сильно всасывая TargetPronounPossessive клитор.
+SourceCharacter tweaks DestinationCharacter clitoris suction cup sucking in TargetPronounPossessive clitoris entirely.
+SourceCharacter настраивает присоску клитора DestinationCharacter , полностью всасывая TargetPronounPossessive клитор.
 DestinationCharacterName vibrating latex panties stops vibrating.
 Вибрирующие латексные трусики DestinationCharacterName перестают вибрировать.
 DestinationCharacterName vibrating latex panties slows down into a light tease.
@@ -3038,8 +3070,8 @@ DestinationCharacterName vibrating latex panties returns to a moderate pace.
 Вибрирующие латексные трусики DestinationCharacterName возвращаются к умеренному темпу.
 DestinationCharacterName vibrating latex panties slows down a tiny bit.
 Вибрирующие латексные трусики DestinationCharacterName немного замедляются.
-DestinationCharacterName vibrating latex panties starts teasing her lightly.
-Вибрирующие латексные трусики DestinationCharacterName начинают слегка дразнить ее.
+DestinationCharacterName vibrating latex panties starts teasing TargetPronounObject lightly.
+Вибрирующие латексные трусики DestinationCharacterName начинают слегка дразнить TargetPronounObject.
 DestinationCharacterName vibrating latex panties builds up to a moderate pace.
 Вибрирующие латексные трусики DestinationCharacterName нарастают до умеренного темпа.
 DestinationCharacterName vibrating latex panties starts buzzing strongly!
@@ -3054,8 +3086,8 @@ DestinationCharacterName vibrating wand returns to a moderate pace.
 Вибрирующая палочка DestinationCharacterName возвращается к умеренному темпу.
 DestinationCharacterName vibrating wand slows down a tiny bit.
 Вибрирующая палочка DestinationCharacterName немного замедляется.
-DestinationCharacterName vibrating wand starts teasing her lightly.
-Вибрирующая палочка DestinationCharacterName начинает слегка дразнить ее.
+DestinationCharacterName vibrating wand starts teasing TargetPronounObject lightly.
+Вибрирующая палочка DestinationCharacterName начинает слегка дразнить TargetPronounObject.
 DestinationCharacterName vibrating wand builds up to a moderate pace.
 Вибрация палочки DestinationCharacterName нарастает до умеренной скорости.
 DestinationCharacterName vibrating wand starts buzzing strongly!
@@ -3070,8 +3102,8 @@ The dildo on DestinationCharacterName Vibrating Spreader Dildo Bar returns to a 
 Фаллоимитатор на Вибрационный фаллоимитатор разбрасывателя у DestinationCharacterName возвращается к умеренному темпу.
 The dildo on DestinationCharacterName Vibrating Spreader Dildo Bar slows down a tiny bit.
 Фаллоимитатор на Вибрационный фаллоимитатор разбрасывателя у DestinationCharacterName немного замедляется.
-The dildo on DestinationCharacterName Vibrating Spreader Dildo Bar starts teasing her lightly.
-Фаллоимитатор на Вибрационный фаллоимитатор разбрасывателя у DestinationCharacterName начинает слегка дразнить ее.
+The dildo on DestinationCharacterName Vibrating Spreader Dildo Bar starts teasing TargetPronounObject lightly.
+Фаллоимитатор на Вибрационный фаллоимитатор разбрасывателя у DestinationCharacterName начинает слегка дразнить TargetPronounObject.
 The dildo on DestinationCharacterName Vibrating Spreader Dildo Bar builds up to a moderate pace.
 Фаллоимитатор на Вибрационный фаллоимитатор разбрасывателя у DestinationCharacterName набирает умеренную скорость.
 The dildo on DestinationCharacterName Vibrating Spreader Dildo Bar starts buzzing strongly!
@@ -3102,8 +3134,8 @@ DestinationCharacterName vibrating buttplug returns to a moderate pace.
 Вибрирующая анальная пробка в DestinationCharacterName возвращается к умеренному темпу.
 DestinationCharacterName vibrating buttplug slows down a tiny bit.
 Вибрирующая анальная пробка в DestinationCharacterName немного замедляется.
-DestinationCharacterName vibrating buttplug starts teasing her lightly.
-Вибрирующая анальная пробка в DestinationCharacterName начинает слегка дразнить ее.
+DestinationCharacterName vibrating buttplug starts teasing TargetPronounObject lightly.
+Вибрирующая анальная пробка в DestinationCharacterName начинает слегка дразнить TargetPronounObject.
 DestinationCharacterName vibrating buttplug builds up to a moderate pace.
 Вибрация анальной пробки в DestinationCharacterName нарастает до умеренной скорости.
 DestinationCharacterName vibrating buttplug starts buzzing strongly!
@@ -3118,8 +3150,8 @@ DestinationCharacterName inflatable vibrating butt plug returns to a moderate pa
 Надувная вибрирующая анальная пробка в DestinationCharacterName возвращается к умеренному темпу.
 DestinationCharacterName inflatable vibrating butt plug slows down a tiny bit.
 Надувная вибрирующая анальная пробка в DestinationCharacterName немного замедляется.
-DestinationCharacterName inflatable vibrating butt plug starts teasing her lightly.
-Надувная вибрирующая анальная пробка в DestinationCharacterName начинает слегка дразнить ее.
+DestinationCharacterName inflatable vibrating butt plug starts teasing TargetPronounObject lightly.
+Надувная вибрирующая анальная пробка в DestinationCharacterName начинает слегка дразнить TargetPronounObject.
 DestinationCharacterName inflatable vibrating butt plug builds up to a moderate pace.
 Надувная вибрирующая анальная пробка в DestinationCharacterName нарастает до умеренного темпа.
 DestinationCharacterName inflatable vibrating butt plug starts buzzing strongly!
@@ -3161,7 +3193,9 @@ SourceCharacter отсоединяет анальный крючок от Destin
 SourceCharacter attaches a chain to DestinationCharacter anal hook.
 SourceCharacter прикрепляет цепочку к анальному крючку у DestinationCharacter.
 SourceCharacter attaches DestinationCharacter anal hook to her hair.
-SourceCharacter прикрепляет анальный крючок к волосам DestinationCharacter .
+SourceCharacter прикрепляет анальный крючок к волосам DestinationCharacter.
+SourceCharacter inserts a bead in DestinationCharacter butt
+SourceCharacter вставляет бусину в попку DestinationCharacter
 Inserted Beads Count: 
 Количество вставленных бусин:
 Insert One
@@ -3186,6 +3220,32 @@ SourceCharacter inserts all five beads in DestinationCharacter butt
 SourceCharacter вставляет все пять бусин в задницу DestinationCharacter
 SourceCharacter pulls all but one bead from DestinationCharacter butt
 SourceCharacter вытягивает все, кроме одной бусины, из задницы DestinationCharacter
+SourceCharacter inserts two beads in DestinationCharacter butt
+SourceCharacter вставляет две бусины в задницу DestinationCharacter
+SourceCharacter inserts three beads in DestinationCharacter butt
+SourceCharacter вставляет три бусины в задницу DestinationCharacter
+SourceCharacter inserts all beads in DestinationCharacter butt
+SourceCharacter вставляет все бусины в задницу DestinationCharacter
+SourceCharacter pulls a bead from DestinationCharacter butt
+SourceCharacter вытягивает бусину из задницы DestinationCharacter
+SourceCharacter pulls two beads from DestinationCharacter butt
+SourceCharacter вытягивает две бусины из задницы DestinationCharacter
+SourceCharacter pulls three beads from DestinationCharacter butt
+SourceCharacter вытягивает три бусины из задницы DestinationCharacter
+SourceCharacter pulls all but one bead from DestinationCharacter butt
+SourceCharacter вытягивает все, кроме одной бусины, из задницы DestinationCharacter
+Select the number of inserted beads
+Выберите количество вставляемых бусин
+1 Bead
+1 Бусина
+2 Beads
+2 Бусины
+3 Beads
+3 Бусины
+4 Beads
+4 Бусины
+5 Beads
+5 Бусин
 SourceCharacter deflates DestinationCharacter gag fully till it's empty.
 SourceCharacter полностью сдувает кляп DestinationCharacter , пока он не станет пустым.
 SourceCharacter deflates DestinationCharacter gag till only slighty filled.
@@ -3346,8 +3406,8 @@ mittens to the baby harness
 варежки к детской шлейке
 She must be wearing a baby harness to chain the mittens.
 Она должна быть одета в детскую шлейку, чтобы пристегнуть варежки.
-You must free her arms before attaching mitten chains.
-Вы должны освободить ее руки, прежде чем надевать цепи на варежки.
+You must free TargetPronounPossessive arms before attaching mitten chains.
+Вы должны освободить TargetPronounPossessive руки, прежде чем надевать цепи на варежки.
 Facial expression
 Выражение лица
 Select a handheld item
@@ -3516,8 +3576,8 @@ SourceCharacter unlocks DestinationCharacter love chastity belt butt.
 SourceCharacter открывает на DestinationCharacter , любовный пояс верности.
 SourceCharacter locks DestinationCharacter love chastity belt butt.
 SourceCharacter закрывает на DestinationCharacter , любовный пояс верности.
-DestinationCharacterName love chastity belt starts teasing her lightly.
-Любовный пояс верности на DestinationCharacterName начинает слегка дразнить ее.
+DestinationCharacterName love chastity belt starts teasing TargetPronounObject lightly.
+Любовный пояс верности на DestinationCharacterName начинает слегка дразнить TargetPronounObject.
 DestinationCharacterName love chastity belt builds up to a moderate pace.
 Любовный пояс верности на DestinationCharacterName нарастает в умеренном темпе.
 DestinationCharacterName love chastity belt starts buzzing strongly!
@@ -3538,8 +3598,8 @@ SourceCharacter sets DestinationCharacter love chastity belt to moderate intensi
 SourceCharacter устанавливает для DestinationCharacter любовный пояс целомудрия на умеренную интенсивность.
 SourceCharacter sets DestinationCharacter love chastity belt to high intensity.
 SourceCharacter устанавливает высокую интенсивность пояса целомудрия любви для DestinationCharacter.
-DestinationCharacterName love chastity belt gives her a light shock.
-Любовный пояс верности на DestinationCharacterName вызывает у нее легкий шок.
+DestinationCharacterName love chastity belt gives TargetPronounObject a light shock.
+Любовный пояс верности на DestinationCharacterName вызывает у TargetPronounObject легкий шок.
 DestinationCharacterName love chastity belt lets out a sharp jolt!
 Любовный пояс верности на DestinationCharacterName испускает резкий толчок!
 DestinationCharacterName love chastity belt delivers an intense shock!
@@ -3578,8 +3638,8 @@ DestinationCharacterName sci-fi pleasure panties are set to shock level 2.
 Научно-фантастические трусики для удовольствия на DestinationCharacterName настроены на уровень шока 2.
 DestinationCharacterName sci-fi pleasure panties are set to shock level 3.
 Научно-фантастические трусики для удовольствия на DestinationCharacterName настроены на уровень шока 3.
-DestinationCharacterName sci-fi pleasure panties gives her a light shock.
-Научно-фантастические трусики для удовольствия на DestinationCharacterName вызывают у нее легкий шок.
+DestinationCharacterName sci-fi pleasure panties gives TargetPronounObject a light shock.
+Научно-фантастические трусики для удовольствия на DestinationCharacterName вызывают у TargetPronounObject легкий шок.
 DestinationCharacterName sci-fi pleasure panties lets out a sharp jolt!
 Научно-фантастические трусики удовольствия на DestinationCharacterName выпускают резкий толчок!
 DestinationCharacterName sci-fi pleasure panties delivers an intense shock!
@@ -3846,12 +3906,12 @@ Weight and Chain
 Вес и цепь
 SourceCharacter detaches extras from DestinationCharacter round piercings.
 SourceCharacter отделяет дополнения от пирсинга на DestinationCharacter .
-SourceCharacter attaches a chain from DestinationCharacter round piercings to her collar.
-SourceCharacter прикрепляет цепочку из круглых пирсингов на DestinationCharacter к своему ошейнику .
+SourceCharacter attaches a chain from DestinationCharacter round piercings to TargetPronounPossessive collar.
+SourceCharacter прикрепляет цепочку из круглых пирсингов на DestinationCharacter к TargetPronounPossessive ошейнику.
 SourceCharacter adds weights to DestinationCharacter round piercings.
 SourceCharacter добавляет веса к пирсингу на DestinationCharacter.
-SourceCharacter adds weights and attaches a chain from DestinationCharacter round piercings to her collar.
-SourceCharacter добавляет вес и прикрепляет цепочку из круглых пирсингов на DestinationCharacter к ее ошейнику.
+SourceCharacter adds weights and attaches a chain from DestinationCharacter round piercings to TargetPronounPossessive collar.
+SourceCharacter добавляет вес и прикрепляет цепочку из круглых пирсингов на DestinationCharacter к TargetPronounPossessive ошейнику.
 adds
 Добавляет
 detaches
@@ -3964,6 +4024,24 @@ SourceCharacter uses the chain on TargetCharacter to do a strict tie.
 SourceCharacter использует цепочку для TargetCharacter , чтобы сделать строгий бондаж.
 SourceCharacter uses the chain on TargetCharacter to do a suspension tie.
 SourceCharacter использует цепочку на TargetCharacter для подвесной бондаж.
+Select door and padding state
+Выберите состояние двери и подстилки
+Select door state
+Выберите состояние двери
+Select padding state
+Выберите состояние подстилки
+Door
+Дверь
+Padding
+Подстилка
+Remove Padding
+Удалить подстилку
+Add Padding
+Добавить подстилку
+Open Door
+Открытая дверь
+Close Door
+Закрытая дверь
 Open without padding
 Открыть без подстилки
 Open with padding
@@ -3994,18 +4072,18 @@ SourceCharacter uses chains on TargetCharacter to do a box tie.
 SourceCharacter использует цепи на TargetCharacter для квадратной привязки.
 SourceCharacter uses chains to hogtie TargetCharacter.
 SourceCharacter использует цепи, чтобы связать TargetCharacter .
-SourceCharacter uses chains to tie DestinationCharacter wrists and elbows together behind her back.
-SourceCharacter использует цепи, чтобы связать запястья и локти DestinationCharacter за спиной.
-SourceCharacter uses chains to tie DestinationCharacter wrists together behind her back.
-SourceCharacter использует цепи, чтобы связать запястья DestinationCharacter за спиной.
+SourceCharacter uses chains to tie DestinationCharacter wrists and elbows together behind TargetPronounPossessive back.
+SourceCharacter использует цепи, чтобы связать запястья и локти DestinationCharacter за TargetPronounPossessive спиной.
+SourceCharacter uses chains to tie DestinationCharacter wrists together behind TargetPronounPossessive back.
+SourceCharacter использует цепи, чтобы связать запястья DestinationCharacter за TargetPronounPossessive спиной.
 SourceCharacter uses chains to tie chain cuffs on DestinationCharacter wrists.
 SourceCharacter использует цепи, чтобы завязать цепные манжеты на запястьях DestinationCharacter.
-SourceCharacter uses chains on TargetCharacter to have her crawling on all fours.
-SourceCharacter использует цепи на TargetCharacter , чтобы она ползала на четвереньках.
-SourceCharacter uses chains to tie DestinationCharacter wrists and elbows in a harness behind her back.
-SourceCharacter использует цепи, чтобы связать запястья и локти DestinationCharacter за спиной.
-SourceCharacter uses chains to hogtie TargetCharacter on her knees.
-SourceCharacter использует цепи, чтобы связать TargetCharacter на коленях.
+SourceCharacter uses chains on TargetCharacter to have TargetPronounPossessive crawling on all fours.
+SourceCharacter использует цепи на TargetCharacter, чтобы TargetPronounPossessive ползал/а на четвереньках.
+SourceCharacter uses chains to tie DestinationCharacter wrists and elbows in a harness behind TargetPronounPossessive back.
+SourceCharacter использует цепи, чтобы связать запястья и локти DestinationCharacter за TargetPronounPossessive спиной.
+SourceCharacter uses chains to hogtie TargetCharacter on TargetPronounPossessive knees.
+SourceCharacter использует цепи, чтобы связать TargetCharacter на TargetPronounPossessive коленях.
 Select suit type
 Выберите тип костюма
 Selected chastity belt backing
@@ -4044,12 +4122,12 @@ SourceCharacter Action the webbing on TargetCharacter, forming a cocoon
 SourceCharacter Применяет паутину на TargetCharacter, формируя кокон
 SourceCharacter wraps TargetCharacter in webbing, forming a hogtie
 SourceCharacter оборачивает TargetCharacter паутиной, образуя кабанчик.
-SourceCharacter fully wraps TargetCharacter in webbing and uses it to suspend her
-SourceCharacter полностью оборачивает TargetCharacter паутиной и использует ее, чтобы подвесить ее.
-SourceCharacter cocoons TargetCharacter in webbing and hangs her from the ceiling
-SourceCharacter закутывает TargetCharacter в паутину и подвешивает ее к потолку.
-SourceCharacter hogties TargetCharacter with the webbing and uses it to suspend her
-SourceCharacter связывает TargetCharacter паутиной и использует ее, чтобы подвесить ее.
+SourceCharacter fully wraps TargetCharacter in webbing and uses it to suspend TargetPronounObject
+SourceCharacter полностью оборачивает TargetCharacter паутиной и использует ее, чтобы подвесить TargetPronounObject.
+SourceCharacter cocoons TargetCharacter in webbing and hangs TargetPronounObject from the ceiling
+SourceCharacter закутывает TargetCharacter в паутину и подвешивает TargetPronounObject к потолку.
+SourceCharacter hogties TargetCharacter with the webbing and uses it to suspend TargetPronounObject
+SourceCharacter связывает TargetCharacter паутиной и использует ее, чтобы подвесить TargetPronounObject.
 tightens
 Натягивать
 loosens
@@ -4088,11 +4166,11 @@ Held up
 Поднять
 Held up high
 Поднять высоко
-SourceCharacter rests DestinationCharacter bottle on her chest.
+SourceCharacter rests DestinationCharacter bottle on TargetPronounPossessive chest.
 SourceCharacter кладет бутылку на грудь DestinationCharacter .
 SourceCharacter holds DestinationCharacter bottle up.
 SourceCharacter держит бутылку над ртом DestinationCharacter .
-SourceCharacter holds DestinationCharacter bottle high above her head.
+SourceCharacter holds DestinationCharacter bottle high above TargetPronounPossessive head.
 SourceCharacter держит бутылку высоко над головой DestinationCharacter .
 Select a corset style.
 Выберите стиль корсета.
@@ -4122,8 +4200,8 @@ DestinationCharacterName vibrating bunny vibe returns to a moderate pace.
 Вибратор кролик на DestinationCharacterName возвращается к умеренному темпу.
 DestinationCharacterName vibrating bunny vibe slows down a tiny bit.
 Вибратор кролик на DestinationCharacterName немного замедляется.
-DestinationCharacterName vibrating bunny vibe starts teasing her lightly.
-Вибратор кролик на DestinationCharacterName начинает слегка дразнить ее.
+DestinationCharacterName vibrating bunny vibe starts teasing TargetPronounObject lightly.
+Вибратор кролик на DestinationCharacterName начинает слегка дразнить TargetPronounObject.
 DestinationCharacterName vibrating bunny vibe builds up to a moderate pace.
 Вибратор кролик на DestinationCharacterName нарастает до умеренного темпа.
 DestinationCharacterName vibrating bunny vibe starts buzzing strongly!
@@ -4138,8 +4216,8 @@ DestinationCharacterName vibrating XXL egg slows down into a modest pace.
 Вибрирующее яйцо XXL в DestinationCharacterName замедляется до скромного темпа.
 DestinationCharacterName vibrating XXL egg slows down slightly.
 Вибрирующее яйцо XXL в DestinationCharacterName немного замедляется.
-DestinationCharacterName vibrating XXL egg starts to tease her pleasantly.
-Вибрирующее яйцо XXL в DestinationCharacterName начинает приятно дразнить ее.
+DestinationCharacterName vibrating XXL egg starts to tease TargetPronounObject pleasantly.
+Вибрирующее яйцо XXL в DestinationCharacterName начинает приятно дразнить TargetPronounObject.
 DestinationCharacterName vibrating XXL egg builds up to a mild pace.
 Вибрирующее яйцо XXL в DestinationCharacterName нарастает до умеренного темпа.
 DestinationCharacterName vibrating XXL egg starts buzzing strongly!
@@ -4174,6 +4252,8 @@ Select suit options
 Выберите варианты костюма
 Configure suit restraints
 Настройка ограничений костюма
+Configure shock module
+Настроить шоковый модуль
 Restraints
 Ограничения
 Shock Collar
@@ -4236,10 +4316,10 @@ SourceCharacter adds a crotch panel to DestinationCharacter straitjacket
 SourceCharacter добавляет панель промежности к смирительной рубашке DestinationCharacter .
 SourceCharacter unbuckles the sleeves of DestinationCharacter straitjacket
 SourceCharacter расстегивает рукава смирительной рубашки DestinationCharacter
-SourceCharacter secures the arms of DestinationCharacter straitjacket in front of her
-SourceCharacter защищает руки смирительной рубашки DestinationCharacter перед собой
-SourceCharacter secures the arms of DestinationCharacter straitjacket behind her
-SourceCharacter защищает руки смирительной рубашки DestinationCharacter позади нее
+SourceCharacter secures the arms of DestinationCharacter straitjacket in front of TargetPronounObject
+SourceCharacter защищает руки смирительной рубашки DestinationCharacter перед TargetPronounObject
+SourceCharacter secures the arms of DestinationCharacter straitjacket behind TargetPronounObject
+SourceCharacter защищает руки смирительной рубашки DestinationCharacter позади TargetPronounObject
 SourceCharacter removes the crotch straps from DestinationCharacter straitjacket
 SourceCharacter снимает промежностные ремни со смирительной рубашки DestinationCharacter .
 SourceCharacter secures DestinationCharacter straitjacket with a single crotch strap
@@ -4380,8 +4460,8 @@ DestinationCharacterName AssetName returns to a moderate pace.
 DestinationCharacterName AssetName возвращается к умеренному темпу.
 DestinationCharacterName AssetName slows down a tiny bit.
 DestinationCharacterName AssetName немного замедляет работу.
-DestinationCharacterName AssetName starts teasing her lightly.
-DestinationCharacterName AssetName начинает слегка дразнить ее.
+DestinationCharacterName AssetName starts teasing TargetPronounObject lightly.
+DestinationCharacterName AssetName начинает слегка дразнить TargetPronounObject.
 DestinationCharacterName AssetName builds up to a moderate pace.
 DestinationCharacterName AssetName нарастает в умеренном темпе.
 DestinationCharacterName AssetName starts buzzing strongly!
@@ -4390,10 +4470,10 @@ DestinationCharacterName AssetName jumps up to maximum intensity!
 DestinationCharacterName AssetName подскакивает до максимальной интенсивности!
 SourceCharacter changes the settings on DestinationCharacterName AssetName
 SourceCharacter изменяет настройки AssetName для DestinationCharacterName
-DestinationCharacterName owner releases her from the slave collar.
-Хозяйка DestinationCharacterName освобождает ее от рабского ошейника.
-TargetCharacterName is given her slave collar again.
-TargetCharacterName снова получает свой рабский ошейник.
+DestinationCharacterName owner releases TargetPronounObject from the slave collar.
+Хозяйка DestinationCharacterName освобождает TargetPronounObject от рабского ошейника.
+TargetCharacterName is given TargetPronounObject slave collar again.
+TargetCharacterName снова получает TargetPronounObject рабский ошейник.
 Active Rules
 Активные правила
 No active rules
@@ -4736,8 +4816,8 @@ Crotch Strap (Over Panties)
 Промежностный ремень (поверх трусиков)
 SourceCharacter uses the silk on DestinationCharacter to create a crotch strap.
 SourceCharacter использует шелк DestinationCharacter для создания промежностного ремня.
-SourceCharacter uses the silk on DestinationCharacter to create a crotch strap over her panties.
-SourceCharacter использует шелк на DestinationCharacter , чтобы создать ремешок поверх ее трусиков.
+SourceCharacter uses the silk on DestinationCharacter to create a crotch strap over TargetPronounPossessive panties.
+SourceCharacter использует шелк на DestinationCharacter , чтобы создать ремешок поверх TargetPronounPossessive трусиков.
 SourceCharacter uses the silk on DestinationCharacter to create a swiss seat pattern.
 SourceCharacter использует шелк на DestinationCharacter для создания швейцарского шаблона сиденья.
 SourceCharacter uses the silk on DestinationCharacter to create a kikkou hip pattern.
@@ -4802,10 +4882,10 @@ Normal slime
 Обычная слизь
 Slime girl
 Девушка-слизь
-The slime around DestinationCharacter body contracts until it is only restraining her arms.
-Слизь вокруг тела DestinationCharacter сжимается до тех пор, пока не ограничивает только ее руки.
-The slime around DestinationCharacter arms expands to encase her whole body.
-Слизь вокруг рук DestinationCharacter расширяется, покрывая все ее тело.
+The slime around DestinationCharacter body contracts until it is only restraining TargetPronounPossessive arms.
+Слизь вокруг тела DestinationCharacter сжимается до тех пор, пока не ограничивает только TargetPronounPossessive руки.
+The slime around DestinationCharacter arms expands to encase TargetPronounPossessive whole body.
+Слизь вокруг рук DestinationCharacter расширяется, покрывая все TargetPronounPossessive тело.
 The slime girl recedes back into the slime on TargetCharacter.
 Девушка-слизь возвращается в слизь на TargetCharacter.
 A slime girl emerges from the slime around TargetCharacter.
@@ -5669,7 +5749,9 @@ SourceCharacter меняет латексную оболочку для рта D
 [GGTS] SourceCharacter program faster pace for TargetCharacter.
 [GGTS] SourceCharacter программирует более быстрый темп для TargetCharacter.
 Choose the sign configuration
-Выбери конфигурацию знака
+Выберите конфигурацию знака
+Choose the sign design
+Выберите дизайн знака
 Leather Leash
 Кожаный поводок
 Sign
@@ -5702,6 +5784,8 @@ No Swimming
 Купаться запрещено
 SourceCharacter changes DestinationCharacter sign design.
 SourceCharacter изменят дизайн знака на DestinationCharacter .
+Choose the dirt on the sign
+Выберите грязь на знаке
 SourceCharacter changes DestinationCharacter sign for a clean one.
 SourceCharacter изменяет знак на DestinationCharacter на чистый.
 SourceCharacter changes DestinationCharacter sign for a dirty one.
@@ -5732,7 +5816,10 @@ SourceCharacter puts a post it on DestinationCharacter sign.
 SourceCharacter размещает объявление на знаке DestinationCharacter .
 SourceCharacter removes the postit on DestinationCharacter sign.
 SourceCharacter удаляет объявление со знака DestinationCharacter .
+SourceCharacter changes DestinationCharacter sign message.
 SourceCharacter изменяет текст на знаке DestinationCharacter .
+Choose the sticker on the sign
+Выберите наклейку на знаке
 Select Shine
 Выберите блеск
 Dull
@@ -5757,9 +5844,9 @@ Hogtied.
 Жесткий галстук.
 SourceCharacter uses wooden cuffs to lock DestinationCharacter hands in front.
 SourceCharacter использует деревянные манжеты чтобы запереть руки DestinationCharacter спереди.
-SourceCharacter uses wooden cuffs to lock DestinationCharacter hands behind her back.
+SourceCharacter uses wooden cuffs to lock DestinationCharacter hands behind TargetPronounPossessive back.
 SourceCharacter использует деревянные манжеты чтобы запереть руки DestinationCharacter сзади.
-SourceCharacter uses wooden cuffs to lock DestinationCharacter hands next to her head.
+SourceCharacter uses wooden cuffs to lock DestinationCharacter hands next to TargetPronounPossessive head.
 SourceCharacter использует деревянные манжеты чтобы запереть руки DestinationCharacter над головой.
 SourceCharacter uses wooden cuffs to lock DestinationCharacter in a rigid hogtie.
 SourceCharacter использует деревянные манжеты чтобы запереть DestinationCharacter в жестком галстуке.
@@ -5891,6 +5978,36 @@ SourceCharacter stitches DestinationCharacter left eye with a spiraling thread.
 SourceCharacter зашивает DestinationCharacter веки левого глаза спиралевидным швом.
 SourceCharacter stitches DestinationCharacter left eye with crossed threads.
 SourceCharacter зашивает DestinationCharacter веки левого глаза перекрещенным швом.
+Choose your rings
+Выбери свои кольца
+Thumb
+Большой палец
+Choose a ring for the Thumb
+Выбрать кольцо на большой палец
+None
+Нет
+Steel Ring
+Стальное кольцо
+Index
+Указательный палец
+Choose a ring for the Index
+Выбрать кольцо для указательного пальца
+Middle finger
+Средний палец
+Choose a ring for the Middle finger
+Выбрать кольцо на средний палец
+Ring finger
+Безымянный палец
+Choose a ring for the Ring finger
+Выбрать кольцо на безымянный палец
+Wedding Ring
+Обручальное кольцо
+Pinkie
+Мизинец
+Choose a ring for the Pinkie
+Выбрать кольцо для мизинца
+Honor Ring
+Кольцо чести
 You choke momentarily on the AssetName inside your throat.
 Ты задыхаешься на мгновение от AssetName внутри твоего горла.
 It is difficult to breath with the AssetName pushing inside your throat.
@@ -5942,3 +6059,43 @@ You feel a sharp pain in your AssetGroup as the AssetName wiggle slightly.
 Вы чувствуете острую боль в своей AssetGroup, когда AssetName слегка покачивается.
 The AssetName hanging from your AssetGroup get shuffled as you move around.
 AssetName, свисающий с вашей AssetGroup, покачивается, когда вы двигаетесь.
+Select Armbinder Configuration.
+Выберите конфигурацию армбиндера.
+Select Armbinder Position.
+Выберите положение армбиндера.
+Select Shoulder Straps.
+Выберите плечевые ремни.
+Shoulder Straps
+Плечевые ремни
+Back
+Сзади
+Wrapping
+Обмотка
+SourceCharacter shifts DestinationCharacter armbinder to the left of TargetPronounObject.
+SourceCharacter смещает DestinationCharacter армбиндер налево  TargetPronounObject.
+SourceCharacter shifts DestinationCharacter armbinder behind TargetPronounObject.
+SourceCharacter смещает DestinationCharacter армбиндер сзади TargetPronounObject.
+SourceCharacter shifts DestinationCharacter armbinder to the right of TargetPronounObject.
+SourceCharacter смещает DestinationCharacter армюбиндер направо TargetPronounObject.
+SourceCharacter removes any shoulder straps from DestinationCharacter armbinder.
+SourceCharacter снимает все плечевые ремни с армбиндера DestinationCharacter .
+SourceCharacter adds basic shoulder straps to DestinationCharacter armbinder.
+SourceCharacter добавляет базовые плечевые ремни к армбиндеру DestinationCharacter .
+SourceCharacter adds wrapping shoulder straps to DestinationCharacter armbinder.
+SourceCharacter добавляет обмоточный плечевой ремень на армбиндер DestinationCharacter .
+SourceCharacter adds harness shoulder straps to DestinationCharacter armbinder.
+SourceCharacter добавляет ремни упряжи к арминдеру DestinationCharacter .
+Select Bulge Type.
+Выберите тип прогиба.
+Tucked
+Подвернутый
+Round Bulge
+Круглый прогиб
+Skin Tight Bulge
+Плотный кожаный прогиб
+Null Bulge
+Нулевой прогиб
+Select body overlay.
+Выберите наложение тела.
+Default
+По умолчанию

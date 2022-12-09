@@ -9,7 +9,7 @@
 (Change her clothes.)
 (更改她的服装)
 (Manage your relationship.)
-(管理你和她的关系)
+(管理你们的关系)
 ###_NPC
 (You can give more access to your items by putting her on your whitelist, or less control by putting her on your blacklist.)
 (你可以将她添加到你的黑名单或白名单来让他获得更少或更多你的物品权限)
@@ -364,6 +364,12 @@
 (Select the option.)
 (选择本选项)
 ###_PLAYER
+(Advanced rules.)
+(高级规则。)
+###_NPC
+(Select the advanced rule to configure.)
+(选择要配置的高级规则。)
+###_PLAYER
 (Allow her wardrobe access.)
 (允许她使用衣柜)
 ###_NPC
@@ -643,6 +649,30 @@
 ###_NPC
 (She will be able to change her nickname.)
 (即刻起她将可以更改她的昵称)
+###_PLAYER
+(Restrict Bondage Club areas.)
+(限制束缚俱乐部区域。)
+###_NPC
+(The areas you've selected will be blocked for your submissive.)
+(你的顺从者将无法进入你选择的区域。)
+###_PLAYER
+(Lock specific appearance zones.)
+(锁定特定外观区域。)
+###_NPC
+(The appearance zones you've selected will be locked for your submissive.)
+(你的顺从者的你所选的外观区域会被锁定。)
+###_PLAYER
+(Lock specific item zones.)
+(锁定特定物品区域。)
+###_NPC
+(The item zones you've selected will be locked for your submissive.)
+(你的顺从者的你所选的物品区域会被锁定。)
+###_PLAYER
+(Forbidden words list.)
+(禁止词列表。)
+###_NPC
+(The forbidden words list for your submissive has been updated.)
+(你的顺从者的禁止词列表已经更新。)
 ###_PLAYER
 (Allow her to use lovers locks on herself.)
 (允许她对自己使用恋人锁)

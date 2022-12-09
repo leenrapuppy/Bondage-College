@@ -32,7 +32,7 @@ function InventoryItemHeadDroneMaskPattern5LoadBase() {
 // Draw extension screen image
 function InventoryItemHeadDroneMaskPattern5Draw() {
     // Draw header and item
-    DrawAssetPreview(1387,125, DialogFocusItem.Asset);
+    ExtendedItemDrawHeader(1387, 125);
 
     // Tag data
     ElementPosition (InventoryItemHeadDroneMaskInputId, 1505, 600, 250);
@@ -90,9 +90,9 @@ function InventoryItemHeadDroneMaskPattern5Exit(OriginalText) {
 
 // Exit the item's extended screen
 function InventoryItemHeadDroneMaskExit() {
-	DialogFocusItem = null;
-	if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
-	return ExtendedItemExit();
+	if (DialogInventory != null) {
+		DialogMenuButtonBuild(CharacterGetCurrent());
+	}
 }
 
 // Referenced from TransportJacket for dynamic display

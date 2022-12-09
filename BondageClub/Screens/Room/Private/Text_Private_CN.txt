@@ -2,6 +2,8 @@ On rental for a day
 租用一天
 At the asylum for a day
 在收容所呆了一天
+Is in your bed
+在你的床上
 An orgasm is coming!
 高潮即将来临!
 Resist!
@@ -12,7 +14,21 @@ Surrender
 投降
 Recovering from an orgasm...
 从高潮中恢复...
-Select main hall background
+Return to the main hall
+回到大厅
+Kneel / Stand
+跪下/站立
+Private room vendor
+私人房间销售员
+Change your clothes
+改变你的衣服
+Your wardrobe
+你的衣柜
+Lay on your bed
+躺在你的床上
+Next four friends
+后四个朋友
+ Select main hall background
 选择主厅背景
-Select private room background
+ Select private room background
 选择私人房间背景

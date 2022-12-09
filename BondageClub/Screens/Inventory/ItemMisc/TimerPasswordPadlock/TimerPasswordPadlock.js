@@ -207,26 +207,30 @@ function InventoryItemMiscTimerPasswordPadlockAdd(TimeToAdd, PlayerMemberNumberT
 	const Property = DialogFocusSourceItem.Property;
 	const C = CharacterGetCurrent();
 
-	if (PlayerMemberNumberToList) Property.MemberNumberList.push(Player.MemberNumber);
+	if (PlayerMemberNumberToList) {
+		Property.MemberNumberList.push(Player.MemberNumber);
+	}
 	const TimerBefore = Property.RemoveTimer;
-	if (DialogFocusItem.Asset.RemoveTimer > 0) Property.RemoveTimer = Math.round(
-		Math.min(Property.RemoveTimer + (TimeToAdd * 1000), CurrentTime + (DialogFocusItem.Asset.MaxTimer * 1000)));
+	if (DialogFocusItem.Asset.RemoveTimer > 0) {
+		Property.RemoveTimer = Math.round(
+			Math.min(Property.RemoveTimer + (TimeToAdd * 1000), CurrentTime + (DialogFocusItem.Asset.MaxTimer * 1000)));
+	}
 	if (CurrentScreen === "ChatRoom") {
 		const timeAdded = (Property.RemoveTimer - TimerBefore) / (1000 * 60);
-		const msg = ((timeAdded < 0) && Property.ShowTimer ? "TimerRemoveTime" : "TimerAddTime");
-		/** @type {ChatMessageDictionary} */
-		const Dictionary = [
-			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-			{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-			{ Tag: "FocusAssetGroup", AssetGroupName: C.FocusGroup.Name },
-		];
+		let msg = "TimerAddRemoveUnknownTime";
 		if (Property.ShowTimer) {
-			Dictionary.push({ Tag: "TimerTime", Text: Math.round(Math.abs(timeAdded)).toString() });
-			Dictionary.push({ Tag: "TimerUnit", TextToLookUp: "Minutes" });
-		} else {
-			Dictionary.push({ Tag: "TimerTime", TextToLookUp: "TimerAddRemoveUnknownTime" });
-			Dictionary.push({ Tag: "TimerUnit", Text: "" });
+			msg = timeAdded < 0 ? "TimerRemoveTime" : "TimerAddTime";
 		}
+
+		const dictionary = new DictionaryBuilder()
+			.sourceCharacter(Player)
+			.destinationCharacter(C)
+			.focusGroup(C.FocusGroup.Name)
+			.if(Property.ShowTimer)
+				.text("TimerTime", Math.round(Math.abs(timeAdded)).toString())
+				.textLookup("TimerUnit", "Minutes")
+			.endif()
+			.build();
 
 		for (let A = 0; A < C.Appearance.length; A++) {
 			if (C.Appearance[A].Asset.Group.Name == C.FocusGroup.Name) {
@@ -235,7 +239,7 @@ function InventoryItemMiscTimerPasswordPadlockAdd(TimeToAdd, PlayerMemberNumberT
 			}
 		}
 
-		ChatRoomPublishCustomAction(msg, true, Dictionary);
+		ChatRoomPublishCustomAction(msg, true, dictionary);
 	} else {
 		CharacterRefresh(C);
 	}

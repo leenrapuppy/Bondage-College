@@ -9,87 +9,87 @@ var InventoryItemNeckSlaveCollarTypes = [
 	{
 		Name: "",
 		Image: "SlaveCollar",
-		Property: null
+		Property: null,
 	}, {
 		Name: "SteelPosture",
 		Image: "SteelPostureCollar",
-		Property: { Type: "SteelPosture", Effect: ["FixedHead"], Block: [] }
+		Property: { Type: "SteelPosture", Effect: ["FixedHead"], Block: [] },
 	}, {
 		Name: "LeatherPosture",
 		Image: "PostureCollar",
-		Property: { Type: "LeatherPosture", Effect: ["FixedHead"], Block: [] }
+		Property: { Type: "LeatherPosture", Effect: ["FixedHead"], Block: [] },
 	},{
 		Name: "PetCollar",
 		Image: "PetCollar",
-		Property: { Type: "PetCollar", Effect: [], Block: [] }
+		Property: { Type: "PetCollar", Effect: [], Block: [] },
 	},{
 		Name: "HighCollar",
 		Image: "HighCollar",
-		Property: { Type: "HighCollar", Effect: [], Block: [] }
+		Property: { Type: "HighCollar", Effect: [], Block: [] },
 	},{
 		Name: "LeatherCollarBell",
 		Image: "LeatherCollarBell",
-		Property: { Type: "LeatherCollarBell", Effect: [], Block: [] }
+		Property: { Type: "LeatherCollarBell", Effect: [], Block: [] },
 	},{
 		Name: "LeatherCollarBow",
 		Image: "LeatherCollarBow",
-		Property: { Type: "LeatherCollarBow", Effect: [], Block: [] }
+		Property: { Type: "LeatherCollarBow", Effect: [], Block: [] },
 	},{
 		Name: "MaidCollar",
 		Image: "MaidCollar",
-		Property: { Type: "MaidCollar", Effect: [], Block: [] }
+		Property: { Type: "MaidCollar", Effect: [], Block: [] },
 	},{
 		Name: "BatCollar",
 		Image: "BatCollar",
-		Property: { Type: "BatCollar", Effect: [], Block: [] }
+		Property: { Type: "BatCollar", Effect: [], Block: [] },
 	},{
 		Name: "HighSecurityCollar",
 		Image: "HighSecurityCollar",
-		Property: { Type: "HighSecurityCollar", Effect: [], Block: [] }
+		Property: { Type: "HighSecurityCollar", Effect: [], Block: [] },
 	},{
 		Name: "SpikeCollar",
 		Image: "SpikeCollar",
-		Property: { Type: "SpikeCollar", Effect: [], Block: [] }
+		Property: { Type: "SpikeCollar", Effect: [], Block: [] },
 	},{
 		Name: "BordelleCollar",
 		Image: "BordelleCollar",
-		Property: { Type: "BordelleCollar", Effect: [], Block: [] }
+		Property: { Type: "BordelleCollar", Effect: [], Block: [] },
 	},{
 		Name: "LeatherCorsetCollar",
 		Image: "LeatherCorsetCollar",
-		Property: { Type: "LeatherCorsetCollar", Effect: ["GagNormal"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"] }
+		Property: { Type: "LeatherCorsetCollar", Effect: ["GagNormal"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"] },
 	},{
 		Name: "StrictPostureCollar",
 		Image: "StrictPostureCollar",
-		Property: { Type: "StrictPostureCollar", Effect: ["FixedHead"], Block: [] }
+		Property: { Type: "StrictPostureCollar", Effect: ["FixedHead"], Block: [] },
 	},{
 		Name: "LatexPostureCollar",
 		Image: "LatexPostureCollar",
-		Property: { Type: "LatexPostureCollar", Effect: ["GagNormal", "FixedHead"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"] }
+		Property: { Type: "LatexPostureCollar", Effect: ["GagNormal", "FixedHead"], Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"] },
 	},{
 		Name: "HeartCollar",
 		Image: "HeartCollar",
-		Property: { Type: "HeartCollar", Effect: [], Block: [] }
+		Property: { Type: "HeartCollar", Effect: [], Block: [] },
 	},{
 		Name: "NobleCorsetCollar",
 		Image: "NobleCorsetCollar",
-		Property: { Type: "NobleCorsetCollar", Effect: [], Block: [] }
+		Property: { Type: "NobleCorsetCollar", Effect: [], Block: [] },
 	},{
 		Name: "OrnateCollar",
 		Image: "OrnateCollar",
-		Property: { Type: "OrnateCollar", Effect: [], Block: [] }
+		Property: { Type: "OrnateCollar", Effect: [], Block: [] },
 	},{
 		Name: "SlenderSteelCollar",
 		Image: "SlenderSteelCollar",
-		Property: { Type: "SlenderSteelCollar", Effect: [], Block: [] }
+		Property: { Type: "SlenderSteelCollar", Effect: [], Block: [] },
 	},{
 		Name: "ShinySteelCollar",
 		Image: "ShinySteelCollar",
-		Property: { Type: "ShinySteelCollar", Effect: [], Block: [] }
+		Property: { Type: "ShinySteelCollar", Effect: [], Block: [] },
 	},{
 		Name: "HeartLinkChoker",
 		Image: "HeartLinkChoker",
-		Property: { Type: "HeartLinkChoker", Effect: [], Block: [] }
+		Property: { Type: "HeartLinkChoker", Effect: [], Block: [] },
 	}
 ];
 
@@ -102,7 +102,8 @@ function InventoryItemNeckSlaveCollarLoad() {
 		InventoryItemNeckSlaveCollarTypes.push({
 			Name: "LoveLeatherCollar",
 			Image: "LoveLeatherCollar",
-			Property: {Type: "LoveLeatherCollar", Effect: [], Block: []}
+			Property: {Type: "LoveLeatherCollar", Effect: [], Block: []},
+
 		});
 	}
 	else if (C && C.IsOwnedByPlayer && !C.IsLoverOfPlayer() && SC) { InventoryItemNeckSlaveCollarTypes.splice(InventoryItemNeckSlaveCollarTypes.indexOf(SC,1)); }
@@ -207,9 +208,12 @@ function InventoryItemNeckSlaveCollarClick() {
 
 }
 
-// Sets the slave collar model
+/**
+ * Sets the slave collar model
+ * @type {TypedItemSetTypeCallback}
+ */
 function InventoryItemNeckSlaveCollarSetType(NewType) {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	var C = CharacterGetCurrent();
 	var Type = InventoryItemNeckSlaveCollarTypes.find(Collar => Collar.Name == NewType) || InventoryItemNeckSlaveCollarTypes[0];
 	DialogFocusItem.Property = Type.Property;
 	var Dictionary = [];

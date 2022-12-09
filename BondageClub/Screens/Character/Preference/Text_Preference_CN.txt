@@ -26,6 +26,10 @@
 - 手柄设置 -
 - Notification Preferences -
 - 通知设置 -
+- Gender Preferences -
+- 性别设置 -
+- Script Permission Preferences -
+- 脚本权限设置 -
 General
 通用
 Difficulty
@@ -34,6 +38,8 @@ Restriction
 束缚
 Chat
 聊天
+Censored Words
+屏蔽词
 Audio
 音频
 Arousal
@@ -52,6 +58,10 @@ Controller
 手柄
 Notifications
 通知
+Gender
+性别
+Scripts
+脚本
 The difficulty mode enforces BDSM restrictions in multi-player only.  Click for details.
 难度模式仅在多人游戏中使BDSM限制强制生效。点击以了解更多
 Roleplay
@@ -151,7 +161,7 @@ Light
 Dark
 黑暗
  Light 2
- 明亮2
+明亮2
 Dark 2
 黑暗2
 Enter/Leave message style:
@@ -242,8 +252,6 @@ Garble chat room names and descriptions while blind
 失明时隐藏聊天室名和描述
 Sensory deprivation setting
 感觉剥夺设置
-Light
-轻度
 Hide names
 隐藏角色名
 Heavy
@@ -278,8 +286,6 @@ Max
 最高
 High
 高
-Medium
-中
 Low
 低
 Lower
@@ -636,3 +642,47 @@ Allow item tint effects
 启用物品染色效果
 Allow item blur effects (turn off if experiencing frame rate drops)
 启用物品模糊效果（如果遇到帧率降低，请关闭）
+Females
+女性
+Males
+男性
+Automatically enter the chatroom area for: 
+自动加入此类型聊天室区域：
+Hide shop items exclusively for: 
+隐藏商店的此类专门物品：
+Apply the censoring
+应用屏蔽
+Select the censorship to apply and the words to censor in both the chat and room labels.
+选择在聊天和房间标签中应用的屏蔽词。
+Censorship:
+屏蔽方式：
+Replace the word by ***
+将这词替换为***
+Replace the phrase by ***
+将这句话替换为***
+Hide the phrase or room
+隐藏这句话或者房间
+Censored words:
+屏蔽词：
+Add
+添加
+WARNING!
+警告！
+Changing the settings on this page can allow people to modify your items and appearance using scripts in ways that are not possible in the core game. If you don't want this, or if you don't know what you're doing, don't touch these settings!
+更改此页面上的设置可以让人们使用脚本以核心游戏中无法做到的方式修改你的物品和外观。如果您不想要这个，或者如果您不知道自己在做什么，请不要修改这些设置！
+I Accept
+我同意
+Specify who can modify your worn items using scripts, and what they're allowed to do.
+指定谁可以使用脚本修改你穿戴的物品，以及允许他们做什么。
+To reduce issues and maintain a baseline level of visual coherence, the Bondage Club contains a series of measures which prevents people from modifying your items in ways that might cause clipping or graphical issues. On this screen you can choose to allow certain people to bypass those restrictions via custom scripts or addons. This can allow for a higher degree of visual customisation for items, but be aware that it can also open the door to severe visual glitches, including invisible items or characters, so use these options at your own risk. To find out more about the properties that you can assign permissions for and what each might do and the associated risks, click the '?' icon next to each one. Be aware that setting permissions to public means that anyone will be able to modify that feature, even trolls, so please use this with caution. Remember that you can remove unwanted script effects at any time by removing all permissions for that effect (including 'Self').
+为了减少问题并保持视觉效果统一的基准水平，束缚俱乐部包含一系列措施，可防止人们以可能导致错误或显示问题的方式修改你的物品。在此屏幕上，你可以选择允许某些人通过自定义脚本或插件绕过这些限制。这可以允许对项目进行更高程度的图形定制，但请注意，它也可能导致严重的显示错误，包括导致物品或角色不可见，因此使用这些选项需要你自担风险。要了解有关你可以为其分配权限的属性以及每个属性可能执行的操作以及相关风险的更多信息，请单击每个“？”旁边的图标。 请注意，将权限设置为公开意味着任何人都可以修改该功能，甚至是故意破坏者，因此请谨慎使用。请记住，你可以随时通过删除该效果的所有权限（包括“自身”）来删除不需要的脚本效果。
+Permits scripts to override the default item-hiding behaviour of Bondage Club. This can enhance your game by allowing item combinations that wouldn't normally be possible, or by allowing items to be hidden to achieve a particular look that doesn't necessarily reflect exactly what you're wearing. However, it can also be used to create severe visual glitches, including making items or even your whole character invisible. Use with caution!
+允许脚本覆盖束缚俱乐部的默认项目隐藏行为。这可以让你用通常无法实现的物品组合来增强你的游戏体验，或者通过隐藏物品来使得你的外观不反映你身上的物品穿戴。但是，这也可以用来制造严重的显示问题，包括让物品甚至你的整个角色不可见。谨慎使用！
+Permits scripts to override the default item-blocking behaviour of Bondage Club. This is the functionality that prevents you from equipping items on others, or can prevent sexual activities on blocked zones. Allowing scripts to add custom blocking behaviour can allow for additional restriction, preventing players from removing worn items or adding new ones in a given slot, but can also result in items that you can't remove yourself without the help of a script (or by removing this permission).
+允许脚本覆盖束缚俱乐部的默认物品阻挡。此功能可以防止你在他人身上装备物品，也可以防止在阻挡的区域进行互动。允许脚本添加自定义阻挡，可以带来额外的限制，防止玩家移除旧物品或在给定物品栏中添加新物品，但也可能导致你无法自行移除物品，除非获得脚本的帮助（或删除此权限）。
+Self
+自身
+Whitelist
+白名单
+Public
+公开

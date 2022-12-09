@@ -105,8 +105,7 @@ function CollegeTeacherMildredLoveChange(LoveChange, Event) {
 	if (Event == "Pillory") InventoryWear(Player, "Pillory", "ItemArms");
 	if (Event == "Lock") InventoryLock(Player, "ItemArms", "IntricatePadlock", -1);
 	if (Event == "Crop") {
-		InventoryWear(CollegeTeacherMildred, "SpankingToys", "ItemHands");
-		InventoryGet(CollegeTeacherMildred, "ItemHands").Property = { Type: "Crop" };
+		InventoryWear(CollegeTeacherMildred, "Crop", "ItemHandheld");
 	}
 	if (Event == "Hit") {
 		CharacterSetFacialExpression(Player, "Eyes", "Closed", 3);
@@ -122,7 +121,7 @@ function CollegeTeacherMildredLoveChange(LoveChange, Event) {
 function CollegeTeacherDressBack() {
 	CharacterRelease(Player);
 	CharacterRelease(CollegeTeacherMildred);
-	InventoryRemove(CollegeTeacherMildred, "ItemHands");
+	InventoryRemove(CollegeTeacherMildred, "ItemHandheld");
 	CollegeEntranceWearStudentClothes(Player);
 	CollegeTeacherMildredClothes();
 }

@@ -32,6 +32,8 @@ Engrave a description
 雕刻描述
 Enter or pick the colors
 输入或者选择颜色
+Item drawing priority
+物品绘图优先级
 Private (only you can use it)
 私用（只有你能使用它）
 Automatic selection:

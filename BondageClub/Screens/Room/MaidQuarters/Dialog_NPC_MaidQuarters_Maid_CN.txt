@@ -11,6 +11,12 @@ I think something went wrong at the Gambling Hall.  Can you go there to help the
 我想赌场那边可能遇上了些麻烦，你可以去帮帮那边的顾客吗？
 Guard the prison cell so that nothing happens there.
 好好的看守住牢房，确保不要有意外。
+You must at least wear your maid hairband.
+你必须至少戴上你的女仆发箍。
+You are either not wearing the dress, or covering too much.
+你要么没穿制服，要么覆盖得太多了。
+Does your outfit look like mine?
+你的衣服看起来像我的吗？
 (You come back to DialogCharacterName with an empty drink platter.)  Well done!
 （你带着空的饮料托盘回到了DialogCharacterName的身边）好样的！
 (You come back to DialogCharacterName with spilled drinks all over your uniform.)
@@ -571,7 +577,7 @@ I'll change first.  (Wear the maid uniform.)
 （你穿上了女仆装）完美！那接下来让我绑住你吧。
 ###_PLAYER
 I'll change first. (Leave her.)
-我先换下衣服（离开她）
+我先换下衣服。（离开她。）
 ###_NPC
 Are you ready? Our guests are thirsty.
 你准备好了吗？客人们都很饥渴。
@@ -732,8 +738,10 @@ You'll have to patrol around the club and release members that are stuck.  I'll 
 ###_PLAYER
 Is my outfit suitable for a rescue missiong?
 我得着装适合解救任务吗？
+I’ll change first. (Leave her.)
+我先换下衣服。（离开她。）
 ###_NPC
-Are you ready ? I’ll give you a specific location to monitor.
+Are you ready ? I’ll give you a specific location to monitor.
 你准备好了吗？我会给你指定一个位置去监视。
 ###_PLAYER
 Where should I go?
@@ -956,12 +964,12 @@ Thank you for the instructions.
 (List of songs)
 （歌单）
 ###_PLAYER
-見えない何かに怯える夜(LV 2)
-見えない何かに怯える夜(LV 2)
-見えない何かに怯える夜(LV 5)
-見えない何かに怯える夜(LV 5)
-見えない何かに怯える夜(LV 7)
-見えない何かに怯える夜(LV 7)
+見えない何かに怯える夜 (LV 2)
+見えない何かに怯える夜 (LV 2)
+見えない何かに怯える夜 (LV 5)
+見えない何かに怯える夜 (LV 5)
+見えない何かに怯える夜 (LV 7)
+見えない何かに怯える夜 (LV 7)
 (Want more songs?)
 （想要更多的曲目）
 ###_NPC

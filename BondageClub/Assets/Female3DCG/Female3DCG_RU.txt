@@ -354,6 +354,10 @@ Frame Bra Style 2
 каркас Бюстгальтер Стиль 2
 Bondage Bra
 Бондаж Бюстгальтер
+Smooth Lacing Leather Armbinder
+Гладкий кожаный армбидер
+Canvas Straitjacket 1
+Холщовая смирительная рубашка 1
 Latex Bra
 Латексный Бюстгальтер
 Bondage Harness
@@ -556,6 +560,8 @@ Leather Garter Belt
 Кожаный пояс с подвязками
 Tentacles
 Тентакли
+Drop Bag
+Сумка на бедро
 Shoes
 Обувь
 Sneakers Light
@@ -773,6 +779,12 @@ Harem Gloves
 Гаремные перчатки
 Biker Gloves
 Байкерские перчатки
+Left Hand
+Левая рука
+Right Hand
+Правая рука
+Rings
+Кольца
 Bracelet
 Браслет на руку
 Bow Band
@@ -953,6 +965,10 @@ Large
 Большая
 Xlarge
 Очень большая
+Bulky Flat Chest
+Объемная плоская грудь
+Flat Chest
+Плоская грудь
 Lower Body
 нижняя часть тела
 Hands
@@ -962,7 +978,7 @@ Default
 Back Hair
 Волосы сзади
 None
-нет
+Нет
 Front Hair
 передние волосы
 Style 1b
@@ -1011,6 +1027,84 @@ Style 14b
 Стиль 14b
 Style 15
 Стиль 15
+Style 16
+Стиль 16
+Style 17
+Стиль 17
+Style 17b
+Стиль 17b
+Style 18
+Стиль 18
+Style 19
+Стиль 19
+Style 20
+Стиль 20
+Style 21
+Стиль 21
+Style 22
+Стиль 22
+Style 22b
+Стиль 22b
+Style 23
+Стиль 23
+Style 23b
+Стиль 23b
+Style 24
+Стиль 24
+Style 25
+Стиль 25
+Style 26
+Стиль 26
+Style 27
+Стиль 27
+Style 28
+Стиль 28
+Style 29
+Стиль 29
+Style 30
+Стиль 30
+Style 31
+Стиль 31
+Style 32
+Стиль 32
+Long Messy Hair 1
+длинные растрепанные волосы 1
+Spikey 1
+Спайки 1
+Boxcut 1
+Полубокс 1
+Swept-Back 1
+Задняя стрелка 1
+Mohawk 1
+ирокез 1
+Side Fringe Short
+Короткая боковая челка
+Side Fringe Long
+Длинная боковая челка
+Side Swept 1
+Боковая стрелка 1
+Dreadlocks 1 Short
+Дреды короткие 1
+Dreadlocks 1 Long
+Дреды длинные 1
+Dreadlocks 2 Short
+Дреды короткие 2
+Dreadlocks 2 Long
+Дреды длинные 2
+Facial Hair
+Волосы на лице
+Goatee
+Эспаньолка
+Big Beard
+большая борода
+Medium Beard
+Средняя борода
+Moustache
+Усы
+Moustache Beard
+Усы и бородка
+Chinstrap Beard
+Подбородочная борода
 Eyes
 Глаза
 Style 16
@@ -1089,6 +1183,12 @@ Style 47
 Стиль 47
 Style 48
 Стиль 48
+Style 49
+Стиль 49
+Style 50
+Стиль 50
+Dreadlocks 1
+Дреды 1
 Left eye
 Левый глаз
 Right eye
@@ -1097,10 +1197,14 @@ Mouth
 Рот
 Discreet
 Сдержанный
+Full Lips
+Пухлые губы
 Nipples Style
 Тип сосков
 Light
 Светлые
+Genitalia
+Гениталии
 Pussy
 Киска
 Light 1
@@ -1115,8 +1219,32 @@ Dark 2
 Темная 2
 Dark 3
 Темная 3
+Penis
+Пенис
+Pronouns
+Местоимения
+She/Her
+Она/Ее
+He/Him
+Он/Его
 Eyebrows
 Брови
+Eyebrows 1
+Брови 1
+Eyebrows 2
+Брови 2
+Eyebrows 3
+Брови 3
+Eyebrows 4
+Брови 4
+Eyebrows 5
+Брови 5
+Eyebrows 6
+Брови 6
+Eyebrows 7
+Брови 7
+Eyebrows 8
+Брови 8
 Blush
 Румянец
 Fluids
@@ -1253,6 +1381,14 @@ Double Ended Dildo
 Двусторонний дилдо
 Stitches
 Нитки для швов
+Basic Cock Ring
+Кольцо для основания члена
+Plastic Chastity Cage 1
+Пластиковая клетка верности 1
+Plastic Chastity Cage 2
+Пластиковая клетка верности 2
+Techno Chastity Cage 1
+Техно клетка верности 1
 Clitoris
 Клитор
 Straight Clitoris Piercing
@@ -1423,6 +1559,8 @@ Locking Swimsuit
 Запирающийся купальник
 Locking Swimsuit 2
 Запирающийся купальник 2
+Leather Chest Harness 1
+Кожаный нагрудный ремень 1
 Nipples
 Соски
 Nipple Clamps
@@ -1463,6 +1601,8 @@ Plate Clamps
 Пластинчатые зажимы
 Nipple Stretchers
 Растяжки для сосков
+Nipple Clamps 2
+Зажимы для сосков 2
 Straight Piercings
 Прямой Пирсинг
 Round Piercings
@@ -1717,8 +1857,10 @@ Mobile Phone
 Мобильный телефон
 Mobile Phone 2
 Мобильный телефон 2
- Hoof Mittens
- Рукавицы-копыта
+Hoof Mittens
+Рукавицы-копыта
+Short Smooth Leather Mittens
+Короткие кожаные рукавицы
 Scissors
 Ножницы
 Plastic Wrap Roll

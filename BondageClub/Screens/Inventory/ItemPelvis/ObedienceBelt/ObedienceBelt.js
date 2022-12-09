@@ -15,7 +15,7 @@ function InventoryItemPelvisObedienceBeltEngraving0Load() {
 
 function InventoryItemPelvisObedienceBeltEngraving0Draw() {
 	// Draw the header and item
-	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
+	ExtendedItemDrawHeader(1387, 125);
 
 	const valid = DynamicDrawTextRegex.test(ElementValue("EngraveText"));
 	DrawTextFit(DialogFindPlayer("ObedienceBeltEngraveLabel"), 1505, 560, 550, "#fff", "#000");
@@ -71,10 +71,10 @@ function InventoryItemPelvisObedienceBeltShockModule1Load() {
 
 function InventoryItemPelvisObedienceBeltShockModule1Draw() {
 	// Draw the header and item
-	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
+	ExtendedItemDrawHeader(1387, 125);
 
 	MainCanvas.textAlign = "left";
-	DrawCheckbox(1100, 590, 64, 64, DialogFindPlayer("ObedienceBeltShowChatMessage"), DialogFocusItem.Property.ChatMessage, false, "White");
+	DrawCheckbox(1100, 590, 64, 64, DialogFindPlayer("ObedienceBeltShowChatMessage"), DialogFocusItem.Property.ShowText, false, "White");
 	DrawCheckbox(1100, 660, 64, 64, DialogFindPlayer("ObedienceBeltPunishOrgasm"), DialogFocusItem.Property.PunishOrgasm, false, "White");
 	DrawCheckbox(1100, 730, 64, 64, DialogFindPlayer("ObedienceBeltPunishStandup"), DialogFocusItem.Property.PunishStandup, false, "White");
 
@@ -90,7 +90,7 @@ function InventoryItemPelvisObedienceBeltShockModule1Click() {
 
 	const C = CharacterGetCurrent();
 	if (MouseIn(1100, 590, 64, 64)) {
-		DialogFocusItem.Property.ChatMessage = !DialogFocusItem.Property.ChatMessage;
+		DialogFocusItem.Property.ShowText = !DialogFocusItem.Property.ShowText;
 		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 		return;
 	}
@@ -108,7 +108,7 @@ function InventoryItemPelvisObedienceBeltShockModule1Click() {
 	}
 
 	if (MouseIn(1387, 800, 225, 55)) {
-		InventoryItemPelvisObedienceBeltScriptTrigger(C, DialogFocusItem, "Trigger");
+		PropertyShockPublishAction();
 		return;
 	}
 }
@@ -124,45 +124,12 @@ function InventoryItemPelvisObedienceBeltInit(item) {
 	if (!item) return;
 	item.Property = item.Property || {};
 	if (typeof item.Property.Type !== "string") item.Property.Type = "";
-	if (typeof item.Property.ChatMessage !== "boolean") item.Property.ChatMessage = false;
+	if (typeof item.Property.ShowText !== "boolean") item.Property.ShowText = false;
 	if (typeof item.Property.PunishOrgasm !== "boolean") item.Property.PunishOrgasm = false;
 	if (typeof item.Property.PunishStandup !== "boolean") item.Property.PunishStandup = false;
 	if (typeof item.Property.NextShockTime !== "number") item.Property.NextShockTime = 0;
 	if (typeof item.Property.Text !== "string") item.Property.Text = "";
 }
-
-/**
- * Trigger a shock automatically
- * @param {Character} C
- * @param {Item} Item
- * @param {string} ShockType
- */
-function InventoryItemPelvisObedienceBeltScriptTrigger(C, Item, ShockType) {
-
-	if (!(CurrentScreen == "ChatRoom")) {
-		AudioPlayInstantSound("Audio/Shocks.mp3");
-	} else {
-		const Dictionary = [];
-		Dictionary.push({ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		Dictionary.push({ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		Dictionary.push({ Tag: "SourceCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber });
-		Dictionary.push({ Tag: "AssetName", AssetName: Item.Asset.Name});
-		Dictionary.push({ Tag: "ActivityName", Text: "ShockItem" });
-		Dictionary.push({ Tag: "ActivityGroup", Text: Item.Asset.Group.Name });
-		Dictionary.push({ AssetName: Item.Asset.Name });
-		Dictionary.push({ AssetGroupName: Item.Asset.Group.Name });
-		Dictionary.push({ ShockIntensity : 2});
-		if (Item.Property && Item.Property.ChatMessage) {
-			if (ShockType !== "Trigger")
-				Dictionary.push({ Automatic: true });
-			ServerSend("ChatRoomChat", { Content: "ObedienceBeltShock" + ShockType, Type: "Action", Dictionary });
-		} else {
-			ChatRoomMessage({ Content: "ObedienceBeltShock" + ShockType, Type: "Action", Sender: Player.MemberNumber, Dictionary: Dictionary  });
-		}
-	}
-	InventoryShockExpression(C);
-}
-
 
 /**
  * @param {Item} Item
@@ -191,10 +158,10 @@ function AssetsItemPelvisObedienceBeltUpdate(data, LastTime) {
 	let punishment = InventoryObedienceBeltCheckPunish(Item);
 	switch (punishment) {
 		case "Orgasm":
-			InventoryItemPelvisObedienceBeltScriptTrigger(C, Item, "Orgasm");
+			PropertyShockPublishAction(C, Item, true);
 			break;
 		case "StandUp":
-			InventoryItemPelvisObedienceBeltScriptTrigger(C, Item, "Standup");
+			PropertyShockPublishAction(C, Item, true);
 			CharacterSetActivePose(Player, "Kneel");
 			ServerSend("ChatRoomCharacterPoseUpdate", { Pose: Player.ActivePose });
 			break;

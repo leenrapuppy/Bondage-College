@@ -206,7 +206,7 @@ const KinkyDungeonMapParams = {
 			{Type: "SmallAltar", Weight: 20},
 			{Type: "GuardedChest", Weight: 10},
 			{Type: "LargeGuardedChest", Weight: 20},
-			{Type: "JungleLight", Weight: 20},
+			{Type: "JungleLight", Weight: 8},
 			{Type: "Fireflies", Weight: 40},
 		],
 
@@ -378,6 +378,9 @@ const KinkyDungeonMapParams = {
 			"jungle": 0,
 			"cavern": 0,
 		},
+		globalTags: {
+			"egyptian": true,
+		},
 
 		"shortcuts": [
 			{Level: 4, checkpoint: "cry", chance: 1.0},
@@ -402,7 +405,7 @@ const KinkyDungeonMapParams = {
 		"max_height" : 8,
 
 		enemyTags: ["mummy", "ghost"],
-		"defeat_outfit": "Egyptian",
+		"defeat_outfit": "Bast",
 		"shrines": [
 			{Type: "Latex", Weight: 3},
 			{Type: "Commerce", Weight: 0},

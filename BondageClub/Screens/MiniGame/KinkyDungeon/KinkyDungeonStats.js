@@ -36,8 +36,8 @@ let KinkyDungeonMiscastChance = 0;
 let KinkyDungeonVibeLevel = 0;
 let KinkyDungeonTeaseLevel = 0;
 let KinkyDungeonOrgasmVibeLevel = 0;
-let KinkyDungeonDistractionPerVibe = 0.5; // How much distraction per turn per vibe energy cost
-let KinkyDungeonDistractionPerPlug = 0.25; // How much distraction per move per plug level
+let KinkyDungeonDistractionPerVibe = 0.05; // How much distraction per turn per vibe energy cost
+let KinkyDungeonDistractionPerPlug = 0.1; // How much distraction per move per plug level
 let KinkyDungeonVibeCostPerIntensity = 0.15;
 
 let KinkyDungeonStatWillpowerExhaustion = 0;
@@ -312,6 +312,8 @@ function KinkyDungeonDefaultStats(Load) {
 	CharacterRefresh(KinkyDungeonPlayer);
 }
 
+let KDMaxVisionDist = 8;
+
 function KinkyDungeonGetVisionRadius() {
 	let data = {
 		brightness: KinkyDungeonMapBrightness,
@@ -319,7 +321,7 @@ function KinkyDungeonGetVisionRadius() {
 		noperipheral: KinkyDungeonDeaf || KinkyDungeonStatBlind > 0
 	};
 	KinkyDungeonSendEvent("calcVision", data);
-	return (KDGameData.SleepTurns > 2) ? 1 : (Math.max((data.noperipheral) ? 1 : 2, Math.round(8-data.blindlevel)));
+	return (KDGameData.SleepTurns > 2) ? 1 : (Math.max((data.noperipheral) ? 1 : 2, Math.round(KDMaxVisionDist-data.blindlevel)));
 }
 
 function KinkyDungeonInterruptSleep() {
@@ -334,6 +336,7 @@ let KDBaseDamageTypes = {
 	distractionTypesWeakNeg: ["pain", "acid"],
 	distractionTypesWeak:[],
 	distractionTypesStrong:["tickle", "grope", "charm", "souldrain", "happygas"],
+	teaseTypes: ["grope", "charm"],
 	staminaTypesWeak:["drain", "stun", "fire", "glue", "chain", "tickle", "electric"],
 	staminaTypesStrong:["ice", "frost", "poison", "crush", "souldrain"],
 	manaTypesWeak:["electric", "drain"],
@@ -367,6 +370,7 @@ function KinkyDungeonDealDamage(Damage, bullet, noAlreadyHit) {
 		arouseMod: 1,
 		arouseTypes: Object.assign([], KDBaseDamageTypes.arouseTypes),
 		distractionTypesWeakNeg: Object.assign([], KDBaseDamageTypes.distractionTypesWeakNeg),
+		teaseTypes: Object.assign([], KDBaseDamageTypes.teaseTypes),
 		distractionTypesWeak: Object.assign([], KDBaseDamageTypes.distractionTypesWeak),
 		distractionTypesStrong: Object.assign([], KDBaseDamageTypes.distractionTypesStrong),
 		staminaTypesWeak: Object.assign([], KDBaseDamageTypes.staminaTypesWeak),
@@ -382,11 +386,14 @@ function KinkyDungeonDealDamage(Damage, bullet, noAlreadyHit) {
 	};
 
 	if (KinkyDungeonStatsChoice.get("Masochist")) {
-		data.distractionTypesStrong.push("pain");
+		let types = ["pain", "electric", "slash", "pierce", "crush", "fire", "ice", "frost", "acid"];
+		data.distractionTypesStrong.push(...types);
 		data.arouseMod = Math.max(data.arouseMod, 2.0);
-		data.arouseTypes.push("pain");
+		data.arouseTypes.push(...types);
 		if (data.distractionTypesWeakNeg.includes("pain"))
 			data.distractionTypesWeakNeg = data.distractionTypesWeakNeg.splice(data.distractionTypesWeakNeg.indexOf("pain"), 1);
+		if (data.distractionTypesWeakNeg.includes("acid"))
+			data.distractionTypesWeakNeg = data.distractionTypesWeakNeg.splice(data.distractionTypesWeakNeg.indexOf("acid"), 1);
 	}
 
 	if (data.arouseTypes.includes(data.type) && !data.arouseAmount) {
@@ -424,12 +431,16 @@ function KinkyDungeonDealDamage(Damage, bullet, noAlreadyHit) {
 			KinkyDungeonStatStamina,
 		];
 
+	if (data.teaseTypes.includes(data.type)) {
+		let amt = data.dmg;
+		KinkyDungeonTeaseLevel += amt;
+	}
+
 	if (data.distractionTypesWeak.includes(data.type)) {
 		let amt = data.dmg/2 * data.arouseMod;
 		if (str) str = str + ", ";
 		str = str + `${Math.round(amt*10)}dp`;
 		KinkyDungeonChangeDistraction(amt, true, data.arouseAmount);
-		KinkyDungeonTeaseLevel += amt;
 	}
 	if (data.distractionTypesWeakNeg.includes(data.type)) {
 		let amt = -data.dmg/2 * data.arouseMod;
@@ -442,7 +453,6 @@ function KinkyDungeonDealDamage(Damage, bullet, noAlreadyHit) {
 		if (str) str = str + ", ";
 		str = str + `${Math.round(amt*10)}dp`;
 		KinkyDungeonChangeDistraction(amt, true, data.arouseAmount);
-		KinkyDungeonTeaseLevel += amt;
 	}
 	if (data.staminaTypesStrong.includes(data.type)) {
 		let amt = -data.dmg;
@@ -568,6 +578,7 @@ function KinkyDungeonSendDialogue(entity, dialogue, color, duration, priority, f
 let KDOrigStamina = KDMaxStatStart*10;
 let KDOrigMana = KDMaxStatStart*10;
 let KDOrigWill = KDMaxStatStart*10;
+let KDOrigCharge = 1000;
 let KDOrigDistraction = 0;
 
 function KinkyDungeonChangeDistraction(Amount, NoFloater, lowerPerc) {
@@ -643,6 +654,16 @@ function KinkyDungeonChangeWill(Amount, NoFloater) {
 	if (!NoFloater && Math.abs(KDOrigWill - Math.floor(KinkyDungeonStatWill * 10)) >= 0.99) {
 		KinkyDungeonSendFloater(KinkyDungeonPlayerEntity, Math.floor(KinkyDungeonStatWill * 10) - KDOrigWill, "#ff4444", undefined, undefined, " wp");
 		KDOrigWill = Math.floor(KinkyDungeonStatWill * 10);
+	}
+}
+
+
+function KinkyDungeonChangeCharge(Amount, NoFloater) {
+	if (!KDGameData.AncientEnergyLevel) KDGameData.AncientEnergyLevel = 0;
+	KDGameData.AncientEnergyLevel = Math.min(1, KDGameData.AncientEnergyLevel + Amount);
+	if (!NoFloater && Math.abs(KDOrigCharge - Math.floor(KDGameData.AncientEnergyLevel * 1000)) >= 0.99) {
+		KinkyDungeonSendFloater(KinkyDungeonPlayerEntity, Math.floor(KDGameData.AncientEnergyLevel * 1000 * 10) - KDOrigCharge, "#ffff44", undefined, undefined, " charge");
+		KDOrigCharge = Math.floor(KDGameData.AncientEnergyLevel * 1000);
 	}
 }
 
@@ -766,7 +787,7 @@ function KinkyDungeonUpdateStats(delta) {
 
 	KinkyDungeonPlayers = [KinkyDungeonPlayerEntity];
 
-	KDBlindnessCap = 6;
+	KDBlindnessCap = 7;
 	KinkyDungeonSendEvent("calcStats", {});
 	// Initialize
 	KinkyDungeonCalculateVibeLevel(delta);
@@ -776,19 +797,21 @@ function KinkyDungeonUpdateStats(delta) {
 	}
 	KinkyDungeonDifficulty = KinkyDungeonNewGame * 20;
 	if (KinkyDungeonStatsChoice.get("hardMode")) KinkyDungeonDifficulty += 10;
+	KinkyDungeonTeaseLevel = KinkyDungeonTeaseLevel * KinkyDungeonChastityMult();
 	if (KinkyDungeonVibeLevel > 0 || KinkyDungeonTeaseLevel > 0) {
 		KDGameData.OrgasmNextStageTimer = Math.min(KDOrgasmStageTimerMax, KDGameData.OrgasmNextStageTimer + delta);
-		if (KDGameData.OrgasmNextStageTimer >= KDOrgasmStageTimerMax && KDRandom() < KDOrgasmStageTimerMaxChance && KinkyDungeonControlsEnabled()) {
+		let Chance = (KDGameData.OrgasmStage >= KinkyDungeonMaxOrgasmStage) ? 1.0 : (KDOrgasmStageTimerMaxChance + (1 - KinkyDungeonStatWill/KinkyDungeonStatWillMax) * KinkyDungeonStatDistractionLower / KinkyDungeonStatDistractionMax);
+		if ((KinkyDungeonTeaseLevel > 0 || KDGameData.OrgasmNextStageTimer >= KDOrgasmStageTimerMax) && (KDRandom() < Chance && KinkyDungeonControlsEnabled())) {
 			if (KDGameData.OrgasmStage < KinkyDungeonMaxOrgasmStage) {
-				if (KinkyDungeonCanPlayWithSelf() && (!KinkyDungeonInDanger() || !KinkyDungeonHasWill(0.01))) {
+				if (KinkyDungeonCanPlayWithSelf() && !KinkyDungeonInDanger()) {
 					KinkyDungeonDoPlayWithSelf(KinkyDungeonTeaseLevel);
 					KinkyDungeonSendTextMessage(5, TextGet("KinkyDungeonPlaySelfAutomatic" + (KinkyDungeonIsArmsBound() ? "Bound" : "")), "#FF5BE9", 5);
 				}
 				KDGameData.OrgasmStage += 1;
 				KDGameData.OrgasmNextStageTimer = 1;
 			} else {
-				if (KinkyDungeonCanOrgasm()) {
-					KinkyDungeonDoTryOrgasm();
+				if (KinkyDungeonCanOrgasm() && KDGameData.OrgasmStamina < 0.5 && KDGameData.PlaySelfTurns < 1) {
+					KinkyDungeonDoTryOrgasm(KinkyDungeonTeaseLevel);
 					KinkyDungeonSendTextMessage(5, TextGet("KinkyDungeonOrgasmAutomatic"), "#FF5BE9", KinkyDungeonOrgasmStunTime + 1);
 					KDGameData.OrgasmNextStageTimer = 1;
 				}
@@ -848,8 +871,6 @@ function KinkyDungeonUpdateStats(delta) {
 	KinkyDungeonPlayerDamage = KinkyDungeonGetPlayerWeaponDamage(KinkyDungeonCanUseWeapon());
 
 	KinkyDungeonUpdateStruggleGroups();
-
-	KinkyDungeonDressPlayer();
 	// Slowness calculation
 	KinkyDungeonCalculateSlowLevel();
 	let sleepRate = KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "Sleepiness");
@@ -895,10 +916,13 @@ function KinkyDungeonUpdateStats(delta) {
 
 	KDOrigDistraction = Math.floor(KinkyDungeonStatDistraction/KinkyDungeonStatDistractionMax * 100);
 	KDOrigStamina = Math.floor(KinkyDungeonStatStamina * 10);
+	KDOrigMana = Math.floor(KinkyDungeonStatMana * 10);
 
 	KinkyDungeonCalculateMiscastChance();
 
 	KinkyDungeonHasCrotchRope = false;
+	let drains = [];
+
 
 	for (let item of KinkyDungeonFullInventory()) {
 		if (item.type == Restraint) {
@@ -907,10 +931,23 @@ function KinkyDungeonUpdateStats(delta) {
 			}
 			if (KDRestraint(item).crotchrope) KinkyDungeonHasCrotchRope = true;
 			if (KDRestraint(item).enchantedDrain) {
-				if (KDGameData.AncientEnergyLevel > 0) KDGameData.AncientEnergyLevel = Math.max(0, KDGameData.AncientEnergyLevel - KDRestraint(item).enchantedDrain * delta);
+				if (KDGameData.AncientEnergyLevel > 0) {
+					//maxDrain = Math.max(maxDrain, KDRestraint(item).enchantedDrain);
+					drains.push(KDRestraint(item).enchantedDrain);
+				}
+				//KDGameData.AncientEnergyLevel = Math.max(0, KDGameData.AncientEnergyLevel - KDRestraint(item).enchantedDrain * delta);
 			}
 		}
 	}
+	if (drains.length > 0 && delta > 0) {
+		drains = drains.sort().reverse();
+		for (let i = 0; i < drains.length; i++) {
+			KDGameData.AncientEnergyLevel = Math.max(0, KDGameData.AncientEnergyLevel - (
+				drains[i]/(i + 1)
+			) * delta);
+		}
+	}
+
 	KinkyDungeonSubmissiveMult = KinkyDungeonCalculateSubmissiveMult();
 
 	if (!KDGameData.TimeSinceLastVibeEnd) KDGameData.TimeSinceLastVibeEnd = {};
@@ -930,6 +967,9 @@ function KinkyDungeonUpdateStats(delta) {
 	if (delta > 0) {
 		KinkyDungeonTeaseLevel = 0;
 	}
+
+	if (KinkyDungeonSlowLevel > 9) KDGameData.CagedTime = (KDGameData.CagedTime || 0) + delta;
+	else KDGameData.CagedTime = 0;
 }
 
 let KDDamageAmpPerks = 0;
@@ -997,7 +1037,7 @@ function KinkyDungeonCanKneel() {
 	return true;
 }
 
-function KinkyDungeonCalculateSlowLevel() {
+function KinkyDungeonCalculateSlowLevel(delta) {
 	KinkyDungeonSlowLevel = 0;
 	if (KinkyDungeonAllRestraint().some((r) => {return KDRestraint(r).immobile;})) {KinkyDungeonSlowLevel += 100; KinkyDungeonMovePoints = -1;}
 	else {
@@ -1020,7 +1060,7 @@ function KinkyDungeonCalculateSlowLevel() {
 	if (KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "SlowLevel")) KinkyDungeonSlowLevel += KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "SlowLevel");
 	if (KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "MoveSpeed")) KinkyDungeonSlowLevel = Math.max(0, KinkyDungeonSlowLevel - KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "MoveSpeed"));
 	KinkyDungeonSlowLevel = Math.max(0, KinkyDungeonSlowLevel);
-	if (KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "SlowLevelEnergyDrain")) KDGameData.AncientEnergyLevel =
+	if (delta > 0 && KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "SlowLevelEnergyDrain")) KDGameData.AncientEnergyLevel =
 		Math.max(0, KDGameData.AncientEnergyLevel - Math.max(0, origSlowLevel - KinkyDungeonSlowLevel) * KinkyDungeonGetBuffedStat(KinkyDungeonPlayerBuffs, "SlowLevelEnergyDrain"));
 }
 /**
@@ -1077,11 +1117,25 @@ function KinkyDungeonCanTryOrgasm() {
 	return KinkyDungeonStatDistraction >= KinkyDungeonStatDistractionMax - 0.01 && (KinkyDungeonHasStamina(-KinkyDungeonOrgasmCost) || KDGameData.OrgasmStage > 3) && KDGameData.OrgasmStamina < 1;
 }
 
-function KinkyDungeonDoPlayWithSelf(tease) {
-	KinkyDungeonAlert = 3; // Alerts nearby enemies because of your moaning~
+/**
+ * @param {number} [tease] - The teasing power
+ * @returns {{orig: number, final: number}}
+ */
+function KDGetPlaySelfPower(tease) {
 	let OrigAmount = Math.max(tease ? Math.min(KinkyDungeonPlayWithSelfPowerMax, tease) : 0, KinkyDungeonPlayWithSelfPowerMin + (KinkyDungeonPlayWithSelfPowerMax - KinkyDungeonPlayWithSelfPowerMin)*KDRandom());
 	let amount = Math.max(0, OrigAmount - KinkyDungeonChastityMult() * KinkyDungeonPlayWithSelfChastityPenalty);
-	if (KinkyDungeonIsArmsBound()) amount = Math.max(0, Math.min(amount, OrigAmount - KinkyDungeonPlayWithSelfBoundPenalty));
+
+	return {orig: OrigAmount, final: amount};
+}
+
+function KinkyDungeonDoPlayWithSelf(tease) {
+	let affinity = KinkyDungeonGetAffinity(false, "Edge");
+	KinkyDungeonAlert = 3; // Alerts nearby enemies because of your moaning~
+	let power = KDGetPlaySelfPower(tease);
+	let OrigAmount = power.orig;
+	let amount = power.final;
+	let bound = KinkyDungeonIsArmsBound();
+	if (bound && !affinity) amount = Math.max(0, Math.min(amount, OrigAmount - KinkyDungeonPlayWithSelfBoundPenalty));
 	if (KinkyDungeonPlayerDamage && KinkyDungeonPlayerDamage.playSelfBonus) amount += KinkyDungeonPlayerDamage.playSelfBonus;
 	KinkyDungeonChangeDistraction(amount * KinkyDungeonPlayWithSelfMult, false, 0.05);
 	KinkyDungeonChangeStamina(KinkyDungeonPlayCost);
@@ -1094,6 +1148,10 @@ function KinkyDungeonDoPlayWithSelf(tease) {
 		KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonChastityDeny"), "#FF5BE9", 4);
 	} else KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonPlaySelf"), "#FF5BE9", 4);
 	KDGameData.PlaySelfTurns = 3;
+
+	if (affinity) {
+		KinkyDungeonSendTextMessage(8, TextGet("KinkyDungeonPlayCorner"), "#88FF00", 4);
+	}
 	return amount;
 }
 
@@ -1122,6 +1180,7 @@ let KDOrgasmStageTimerMaxChance = 0.1; // Chance for the event to happen
 let KDWillpowerMultiplier = 0.5;
 
 let KinkyDungeonOrgasmCost = -8;
+let KinkyDungeonOrgasmCostPercent = 0.7;
 let KinkyDungeonOrgasmWillpowerCost = -2;
 let KinkyDungeonEdgeCost = -1;
 let KinkyDungeonPlayCost = -0.05;
@@ -1129,26 +1188,32 @@ let KinkyDungeonPlayCost = -0.05;
 let KinkyDungeonOrgasmStunTime = 4;
 let KinkyDungeonPlayWithSelfMult = 0.25;
 
-function KinkyDungeonDoTryOrgasm() {
-	let amount = KinkyDungeonOrgasmVibeLevel * KinkyDungeonOrgasmVibeLevelMult;
-	let playSelfAmount = KinkyDungeonDoPlayWithSelf();
+/**
+ * Try to let go...
+ * @param {number} [Bonus]
+ */
+function KinkyDungeonDoTryOrgasm(Bonus) {
+	let chance = KinkyDungeonOrgasmChanceBase + KinkyDungeonOrgasmChanceScaling*(KDGameData.OrgasmTurns/KinkyDungeonOrgasmTurnsMax);
+	let denied = KinkyDungeonVibratorsDeny(chance);
+
+	let amount = denied ? 0 : KinkyDungeonOrgasmVibeLevel * KinkyDungeonOrgasmVibeLevelMult;
+	let playSelfAmount = Bonus != undefined ? Bonus : KinkyDungeonDoPlayWithSelf();
 	//if (playSelfAmount > KinkyDungeonOrgasmVibeLevel) {
 	amount += playSelfAmount;
 	//}
-	let chance = KinkyDungeonOrgasmChanceBase + KinkyDungeonOrgasmChanceScaling*(KDGameData.OrgasmTurns/KinkyDungeonOrgasmTurnsMax);
 	let msg = "KinkyDungeonOrgasm";
 	let msgTime = 4;
 
-	let denied = KinkyDungeonVibratorsDeny(chance);
-	if (!denied && amount > KinkyDungeonPlaySelfOrgasmThreshold && KDRandom() < chance) {
+	if (amount > KinkyDungeonPlaySelfOrgasmThreshold && KDRandom() < chance) {
 		// You finally shudder and tremble as a wave of pleasure washes over you...
 		KinkyDungeonStatBlind = 6;
 		KinkyDungeonOrgasmStunTime = 4;
 		KDGameData.OrgasmStamina = KinkyDungeonStatDistraction;
-		KinkyDungeonChangeStamina(KinkyDungeonOrgasmCost);
+		KinkyDungeonChangeStamina(Math.min(KinkyDungeonOrgasmCost, -KinkyDungeonOrgasmCostPercent * KinkyDungeonStatStamina));
 		KinkyDungeonChangeWill(KinkyDungeonOrgasmWillpowerCost);
 		KinkyDungeonStatDistractionLower = 0;
 		KinkyDungeonAlert = 7; // Alerts nearby enemies because of your moaning~
+		KDGameData.PlaySelfTurns = 3;
 	} else {
 		KinkyDungeonChangeStamina(KinkyDungeonEdgeCost);
 		// You close your eyes and breath rapidly in anticipation...

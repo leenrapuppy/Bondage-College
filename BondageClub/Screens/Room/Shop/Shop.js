@@ -145,7 +145,12 @@ function ShopRun() {
  * @returns {boolean} - Returns TRUE if the item is purchasable and part of the focus group.
  */
 function ShopAssetFocusGroup(Asset) {
-	return (Asset != null) && (Asset.Group != null) && (Asset.Value > 0) && (Asset.Group.Name == ShopVendor.FocusGroup.Name) && (ShopBuyMode || ShopCanSell(Asset));
+	return (Asset != null)
+		&& (Asset.Group != null)
+		&& (Asset.Value > 0)
+		&& (Asset.Group.Name == ShopVendor.FocusGroup.Name)
+		&& (ShopBuyMode || ShopCanSell(Asset))
+		&& !(ShopBuyMode && ShopHideGenderedAsset(Asset));
 }
 
 /**
@@ -155,7 +160,17 @@ function ShopAssetFocusGroup(Asset) {
  * @returns {boolean} - Returns TRUE if the item is purchasable and unowned.
  */
 function ShopAssetMissing(Asset) {
-	return (Asset != null) && (Asset.Group != null) && (Asset.Value > 0) && !InventoryAvailable(Player, Asset.Name, Asset.Group.Name);
+	return (Asset != null) && (Asset.Group != null) && (Asset.Value > 0) && !InventoryAvailable(Player, Asset.Name, Asset.Group.Name) && !ShopHideGenderedAsset(Asset);
+}
+
+/**
+ * Check if the player configured settings to hide items only for a specific gender
+ * @param {Asset} Asset - The asset to check
+ * @returns {boolean} - Returns whether the asset should be hidden
+ */
+function ShopHideGenderedAsset(Asset) {
+	return (Player.GenderSettings.HideShopItems.Female && Asset.Gender == "F")
+		|| (Player.GenderSettings.HideShopItems.Male && Asset.Gender == "M");
 }
 
 /**
@@ -247,7 +262,7 @@ function ShopBuyItem(asset) {
 	if (InventoryAvailable(Player, asset.Name, asset.Group.Name)) ShopText = TextGet("AlreadyOwned");
 	else if (asset.Value > Player.Money) ShopText = TextGet("NotEnoughMoney");
 	else if (LogQuery("BlockKey", "OwnerRule") && (Player.Ownership != null) && (Player.Ownership.Stage == 1) && ((asset.Name == "Lockpicks") || (asset.Name == "MetalCuffsKey") || (asset.Name == "MetalPadlockKey") || (asset.Name == "IntricatePadlockKey") || (asset.Name == "HighSecurityPadlockKey"))) ShopText = TextGet("CannotSellKey");
-	else if (LogQuery("BlockRemote", "OwnerRule") && (Player.Ownership != null) && (Player.Ownership.Stage == 1) && (asset.Name == "VibratorRemote" || asset.Name == "LoversVibratorRemote" || asset.Name === "SpankingToysVibeRemote")) ShopText = TextGet("CannotSellRemote");
+	else if (LogQuery("BlockRemote", "OwnerRule") && (Player.Ownership != null) && (Player.Ownership.Stage == 1) && (asset.Name == "VibratorRemote" || asset.Name == "LoversVibratorRemote" || asset.Name === "VibeRemote")) ShopText = TextGet("CannotSellRemote");
 	else {
 
 		// Add the item and removes the money

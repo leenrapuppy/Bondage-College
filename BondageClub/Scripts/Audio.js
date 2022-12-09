@@ -60,7 +60,13 @@ var AudioList = [
 ];
 
 
-/** @type AudioChatAction[] */
+/**
+ * A list of chat message audio effect "detectors".
+ *
+ * They get checked in the order they're defined, so be careful where you insert new entries.
+ *
+ * @type AudioChatAction[]
+ */
 var AudioActions = [
 	{
 		IsAction: (data) => data.Content === "ActionAddLock",
@@ -99,22 +105,19 @@ var AudioActions = [
 		GetSoundEffect: AudioGetSoundFromChatMessage,
 	},
 	{
-		IsAction: (data) => data.Content.indexOf("ActionActivity") == 0,
-		GetSoundEffect: AudioGetSoundFromChatMessage
-	},
-	{
-		IsAction: (data) => ["KennelSetDC", "KennelSetPADC", "KennelSetPRDC"].some(A => data.Content === A),
+		IsAction: (data) => ["ItemDevicesKennelSetd1"].some(A => data.Content === A),
 		GetSoundEffect: () => "CageClose"
 	},
 	{
-		IsAction: (data) => ["KennelSetDO", "KennelSetPADO", "KennelSetPRDO"].some(A => data.Content === A),
+		IsAction: (data) => ["ItemDevicesKennelSetd0"].some(A => data.Content === A),
 		GetSoundEffect: () => "CageOpen"
 	},
 	{
 		IsAction: (data) => [
 			"pumps",
 			"Suctightens",
-			"InflatableBodyBagSet"
+			"InflatableBodyBagSet",
+			"ItemButtInflVibeButtPlugIncreaseTof",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "Inflation"
 	},
@@ -192,17 +195,15 @@ var AudioActions = [
 	},
 	{
 		IsAction: (data) => [
-			"FuturisticPanelGagMouthSetLightBall",
-			"FuturisticPanelGagMouthSetBall",
-			"FuturisticPanelGagMouthSetPadded",
-			"FuturisticPanelGagMouthSetPlug"
+			"ItemMouthFuturisticPanelGagSetg",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "SciFiPump"
 	},
 	{
 		IsAction: (data) => [
 			"deflates",
-			"Sucloosens"
+			"Sucloosens",
+			"ItemButtInflVibeButtPlugDecreaseTof",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "Deflation"
 	},
@@ -237,33 +238,34 @@ var AudioActions = [
 		IsAction: (data) => [
 			"FuturisticChastityBeltSetClosed",
 			"FuturisticChastityBeltSetOpen",
-			"InventoryItemBreastFuturisticBraSet",
+			"ItemBreastFuturisticBraSet",
 			"FuturisticHeelsSet",
 			"FuturisticArmbinderSet",
 			"FuturisticCuffsRestrain",
 			"FuturisticLegCuffsRestrain",
 			"FuturisticAnkleCuffsRestrain",
-			"SciFiPleasurePantiesAction"
+			"ItemPelvisSciFiPleasurePantiesSetc",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "SciFiConfigure"
 	},
 	{
 		IsAction: (data) => [
 			"FuturisticTrainingBeltSetGeneric",
-			"FuturisticPanelGagMouthSetAutoPunish",
-			"SciFiPleasurePantiesBeep"
+			"ItemMouthFuturisticPanelGagSetp",
+			"ItemMouthFuturisticPanelGagSett",
+			"ItemPelvisSciFiPleasurePantiesSeto",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "SciFiBeeps"
 	},
 	{
 		IsAction: (data) => [
-			"FuturisticPanelGagMouthSetAutoInflate"
+			"ItemMouthFuturisticPanelGagSetPumpInflate",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "Inflation"
 	},
 	{
 		IsAction: (data) => [
-			"FuturisticPanelGagMouthSetAutoDeflate"
+			"ItemMouthFuturisticPanelGagSetPumpDeflate",
 		].some(A => data.Content.includes(A)),
 		GetSoundEffect: () => "Deflation"
 	},
@@ -275,15 +277,9 @@ var AudioActions = [
 	},
 	{
 		IsAction: (data) => [
-			"CollarShockUnitTrigger",
-			"ShockCollarTrigger",
-			"LoveChastityBeltShockTrigger",
-			"SciFiPleasurePantiesShockTrigger",
 			"TriggerShock",
-			"CollarAutoShockUnitTrigger",
-			"FuturisticVibratorShockTrigger"
 		].some(A => data.Content.includes(A)),
-		GetSoundEffect: (data) => InventoryItemNeckAccessoriesCollarShockUnitDynamicAudio(data)
+		GetSoundEffect: (data) => AudioShockSounds(data)
 	},
 	{
 		IsAction: (data) => [
@@ -301,7 +297,11 @@ var AudioActions = [
 		IsAction: (data) =>
 			data.Type === "Action" && data.Content === "ItemVulvaPiercingsRoundClitPiercingSetBell",
 		GetSoundEffect: () => "BellSmall",
-	}
+	},
+	{
+		IsAction: (data) => data.Type === "Activity",
+		GetSoundEffect: AudioGetSoundFromChatMessage
+	},
 ];
 
 /**
@@ -382,11 +382,14 @@ function AudioShouldSilenceSound(IsPlayerInvolved = false) {
 /**
  * Takes the received data dictionary content and identifies the audio to be played
  * @param {IChatRoomMessage} data - Data received
- * @returns {void} - Nothing
+ * @param {Character} sender
+ * @param {string} msg
+ * @param {any} metadata
+ * @returns {boolean}
  */
-function AudioPlaySoundForChatMessage(data) {
-	// Exits right away if we are missing content data
-	if (!data.Dictionary || !data.Dictionary.length) return;
+function AudioPlaySoundForChatMessage(data, sender, msg, metadata) {
+	if (!data || !sender || !metadata || !["Activity", "Action", "ServerMessage"].includes(data.Type))
+		return false;
 
 	if (AudioShouldSilenceSound(ChatRoomMessageInvolvesPlayer(data))) return;
 
@@ -395,22 +398,23 @@ function AudioPlaySoundForChatMessage(data) {
 	/** @type AudioSoundEffect */
 	let soundEffect = null;
 	if (Action) {
-		let snd = Action.GetSoundEffect(data);
+		let snd = Action.GetSoundEffect(data, metadata);
 		if (typeof snd === "string")
 			soundEffect = [snd, 0];
 		else
 			soundEffect = snd;
 	}
 
+	const Target = metadata.TargetCharacter;
+	if (!soundEffect || !Target) return false;
+
 	// Update noise level depending on who the interaction took place between.  Sensory isolation increases volume for self, decreases for others.
-	var Target = data.Dictionary.find((el) => el.Tag == "DestinationCharacter" || el.Tag == "DestinationCharacterName" || el.Tag == "TargetCharacter");
-
-	if (!soundEffect || !Target || !Target.MemberNumber) return;
-
 	if (Target.MemberNumber == Player.MemberNumber) soundEffect[1] += 3;
 	else if (data.Sender != Player.MemberNumber) soundEffect[1] -= 3;
 
 	AudioPlaySoundEffect(soundEffect);
+
+	return false;
 }
 
 /**
@@ -502,14 +506,35 @@ function AudioGetFileName(sound) {
  * @param {IChatRoomMessage} data - Data content triggering the potential sound
  * @returns {AudioSoundEffect?} - The name of the sound to play, followed by the noise modifier
  */
-function AudioGetSoundFromChatMessage(data) {
-	var NextAsset = data.Dictionary.find((el) => el.Tag == "NextAsset");
-	var NextAssetGroup = data.Dictionary.find((el) => el.Tag == "FocusAssetGroup");
-	var Char = ChatRoomCharacter.find((C) => C.MemberNumber == data.Sender);
+function AudioGetSoundFromChatMessage(data, metadata) {
+	const sender = metadata.SourceCharacter;
+	if (!data || !sender) return null;
 
-	if (!NextAsset || !NextAsset.AssetName || !NextAssetGroup || !NextAssetGroup.AssetGroupName || !Char) return null;
+	if (data.Type === "Activity") {
+		let item = InventoryGet(sender, metadata.ActivityAssetGroup);
+		if (!item || item.Asset.Name !== metadata.ActivityAsset) return;
 
-	return AudioGetSoundFromAsset(Char, NextAssetGroup.AssetGroupName, NextAsset.AssetName);
+		// Workaround for the shock remote; select the item on the target instead
+		if (item.Asset.Name === "ShockRemote") {
+			item = InventoryGet(metadata.TargetCharacter, metadata.ActivityGroup);
+		}
+
+		if (!item || !item.Asset.ActivityAudio) return;
+
+		const idx = item.Asset.AllowActivity.findIndex(a => a === metadata.ActivityName);
+		const soundEffect = item.Asset.ActivityAudio[idx];
+
+		if (!soundEffect) return;
+
+		return [soundEffect, 0];
+	} else if (data.Type === "Action") {
+		const NextAsset = data.Dictionary.find((el) => el.Tag == "NextAsset");
+		const NextAssetGroup = data.Dictionary.find((el) => el.Tag == "FocusAssetGroup");
+
+		if (!NextAsset || !NextAsset.AssetName || !NextAssetGroup || !NextAssetGroup.AssetGroupName) return null;
+
+		return AudioGetSoundFromAsset(sender, NextAssetGroup.AssetGroupName, NextAsset.AssetName);
+	}
 }
 
 /**
@@ -532,21 +557,34 @@ function AudioVibratorSounds(data) {
 		case "NippleEgg":
 		case "TapedClitEgg":
 		case "ClitStimulator":
-		case "Egg": Sound = "VibrationShort"; break;
+		case "ItemVulvaClitAndDildoVibratorbeltIncreaseToe": Sound = "VibrationShort"; break;
+		case "ItemVulvaClitAndDildoVibratorbeltDecreaseToe": Sound = "VibrationShort"; break;
 		case "LoveChastityBeltVibe":
-		case "SciFiPleasurePantiesVibe":
+		case "ItemPelvisSciFiPleasurePantiesVibe":
 		case "Belt":
 		case "Panties": Sound = "VibrationLong1"; break;
 		case "Buttplug":
-		case "InflVibeButtPlug_Vibe":
-		case "InflVibeDildo_Vibe":
+		case "ItemButtInflVibeButtPlugDecreaseToi":
+		case "ItemButtInflVibeButtPlugIncreaseToi":
 		case "HempRopeBelt":
 		case "SpreaderVibratingDildoBar":
 		case "BunnyTailVibe":
 		case "EggVibePlugXXL":
-		case "Dildo": Sound = "VibrationLong2"; break;
+		case "ItemVulvaClitAndDildoVibratorbeltIncreaseTod": Sound = "VibrationLong2"; break;
+		case "ItemVulvaClitAndDildoVibratorbeltDecreaseTod": Sound = "VibrationLong2"; break;
 		case "Sybian": Sound = "Sybian"; break;
 	}
 
 	return [Sound, Level * 3];
+}
+
+/**
+ * Processes the sound for shocks
+ * @param {IChatRoomMessage} data - Represents the chat message received
+ * @returns {[string, number]} - The name of the sound to play, followed by the noise modifier
+ */
+ function AudioShockSounds(data) {
+	let Modifier = parseInt(data.Content.slice(-1));
+	if (isNaN(Modifier)) Modifier = 0;
+	return ["Shocks", Modifier * 3];
 }
