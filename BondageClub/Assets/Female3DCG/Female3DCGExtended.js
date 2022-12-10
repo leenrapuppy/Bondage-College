@@ -6229,8 +6229,12 @@ var AssetFemale3DCGExtended = {
                     },
                     {
                         Name: "Mask", Key: "m",
-                        Options: [ {}, {},] // Mask, No Mask
+                        Options: [ {Effect:["BlockMouth"]}, {},] // Mask, No Mask
                     },
+					{
+						Name: "Length", Key: "l",
+						Options: [{},{}] // Behind Hair, Over Hair
+					},
                 ]
             }
         }, //LatexRespirator
