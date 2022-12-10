@@ -4,19 +4,23 @@
 var FuturisticCollarPage = 0;
 var FuturisticCollarMaxPage = 2;
 
+function InventoryItemNeckFuturisticCollarInit(Item, C, Refresh) {
+	const Property = {
+		OpenPermission: false,
+		OpenPermissionChastity: false,
+		OpenPermissionArm: false,
+		OpenPermissionLeg: false,
+		BlockRemotes: false,
+	};
+	ExtendedItemInitNoArch(Item, C, Property, Refresh);
+}
+
 // Loads the item extension properties
 function InventoryItemNeckFuturisticCollarLoad() {
 	var C = CharacterGetCurrent();
 	if (InventoryItemFuturisticValidate(C) !== "") {
 		InventoryItemFuturisticLoadAccessDenied();
 	} else {
-		if (DialogFocusItem.Property == null) DialogFocusItem.Property = { OpenPermission: false };
-		if (DialogFocusItem.Property.OpenPermission == null) DialogFocusItem.Property.OpenPermission = false;
-		if (DialogFocusItem.Property.OpenPermissionChastity == null) DialogFocusItem.Property.OpenPermissionChastity = false;
-		if (DialogFocusItem.Property.OpenPermissionArm == null) DialogFocusItem.Property.OpenPermissionArm = false;
-		if (DialogFocusItem.Property.OpenPermissionLeg == null) DialogFocusItem.Property.OpenPermissionLeg = false;
-		if (DialogFocusItem.Property.BlockRemotes == null) DialogFocusItem.Property.BlockRemotes = false;
-
 		ElementCreateInput("FutureCollarPasswordField", "text", "", "8");
 		ElementCreateInput("FutureCollarTimeField", "text", "", "4");
 	}

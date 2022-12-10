@@ -1,10 +1,11 @@
 "use strict";
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemDevicesFuturisticCrateDevice1Init(Item, C, Refresh) {
+	VibratorModeInit(Item, C, Refresh, [VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
+}
+
 function InventoryItemDevicesFuturisticCrateDevice1Load() {
-	if (DialogFocusItem && DialogFocusItem.Property) {
-		if (DialogFocusItem.Property.Intensity == undefined) DialogFocusItem.Property.Intensity = -1;
-	}
-	VibratorModeLoad([VibratorModeSet.STANDARD, VibratorModeSet.ADVANCED]);
 }
 
 function InventoryItemDevicesFuturisticCrateDevice1Draw() {

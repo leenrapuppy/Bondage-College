@@ -3,7 +3,6 @@ var InventoryItemHandsPawMittensMsg = null;
 
 // Loads the item extension properties
 function InventoryItemHandsPawMittensLoad() {
-	if (DialogFocusItem.Property == null) DialogFocusItem.Property = {};
 	InventoryItemHandsPawMittensMsg = null;
 }
 

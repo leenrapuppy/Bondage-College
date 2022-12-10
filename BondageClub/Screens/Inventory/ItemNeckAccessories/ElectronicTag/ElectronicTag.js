@@ -1,20 +1,12 @@
 "use strict";
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemNeckAccessoriesElectronicTagInit(Item, C, Refresh) {
+	ExtendedItemInitNoArch(Item, C, { Text: "Tag" }, Refresh);
+}
+
 // Loads the item extension properties
 function InventoryItemNeckAccessoriesElectronicTagLoad() {
-	var C = CharacterGetCurrent();
-	var MustRefresh = false;
-
-	if (DialogFocusItem.Property == null) DialogFocusItem.Property = {};
-	if (DialogFocusItem.Property.Text == null) {
-		DialogFocusItem.Property.Text = "Tag";
-		MustRefresh = true;
-	}
-	if (MustRefresh) {
-		CharacterRefresh(C);
-		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
-	}
-
 	// Only create the inputs if the item isn't locked
 	if (!InventoryItemHasEffect(DialogFocusItem, "Lock", true)) {
 		PropertyTextLoad();

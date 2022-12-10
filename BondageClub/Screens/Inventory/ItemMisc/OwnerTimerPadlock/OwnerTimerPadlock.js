@@ -3,14 +3,19 @@
 const OwnerTimerChooseList = [1, 2, 4, 8, 16, 24, 48, 72, 96, 120, 144, 168, -144, -72, -48, -24, -8, -4];
 let OwnerTimerChooseIndex = 0;
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemMiscOwnerTimerPadlockInit(Item, C) {
+	const PropRecord = {
+		RemoveItem: false,
+		ShowTimer: true,
+		EnableRandomInput: false,
+		MemberNumberList: [],
+	};
+	ExtendedItemInitNoArch(Item, C, PropRecord, false);
+}
+
 // Loads the item extension properties
 function InventoryItemMiscOwnerTimerPadlockLoad() {
-	if (!DialogFocusSourceItem) return;
-	if (!DialogFocusSourceItem.Property) DialogFocusSourceItem.Property = {};
-	if (DialogFocusSourceItem.Property.RemoveItem == null) DialogFocusSourceItem.Property.RemoveItem = false;
-	if (DialogFocusSourceItem.Property.ShowTimer == null) DialogFocusSourceItem.Property.ShowTimer = true;
-	if (DialogFocusSourceItem.Property.EnableRandomInput == null) DialogFocusSourceItem.Property.EnableRandomInput = false;
-	if (DialogFocusSourceItem.Property.MemberNumberList == null) DialogFocusSourceItem.Property.MemberNumberList = [];
 }
 
 // Draw the extension screen

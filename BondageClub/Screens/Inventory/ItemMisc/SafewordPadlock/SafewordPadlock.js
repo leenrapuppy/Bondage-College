@@ -1,16 +1,21 @@
 "use strict";
 
+/** @type {ExtendedItemInitCallback} */
+function InventoryItemMiscSafewordPadlockInit(Item, C) {
+	const PropRecord = {
+		Password: "PLEASE",
+		Hint: "Say the magic word...",
+		LockSet: false,
+		RemoveOnUnlock: false,
+	};
+	ExtendedItemInitNoArch(Item, C, PropRecord, false);
+}
+
 // Loads the item extension properties
 function InventoryItemMiscSafewordPadlockLoad() {
 	if (!DialogFocusItem || !DialogFocusSourceItem) return InventoryItemMiscSafewordPadlockExit();
-
-	if (!DialogFocusSourceItem.Property) DialogFocusSourceItem.Property = {};
 	const Property = DialogFocusSourceItem.Property;
 	const C = CharacterGetCurrent();
-
-	if (Property.Password == null) Property.Password = "PLEASE";
-	if (Property.Hint == null) Property.Hint = "Say the magic word...";
-	if (Property.LockSet == null) Property.LockSet = false;
 
 	if (InventoryItemMiscPasswordPadlockIsSet()) {
 		// Normal lock interface
