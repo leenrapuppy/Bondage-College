@@ -792,7 +792,7 @@ ChatOther-ItemMouth-Bite,SourceCharacter bites TargetCharacter's lips.
 ChatOther-ItemMouth-Caress,SourceCharacter caresses and cleans TargetCharacter's mouth.
 ChatOther-ItemMouth-FrenchKiss,SourceCharacter shares a long French kiss with TargetCharacter.
 ChatOther-ItemMouth-GaggedKiss,SourceCharacter gives a gagged kiss on TargetCharacter's cheek.
-ChatOther-ItemMouth-GagKiss,SourceCharacter gives TargetCharacter a kiss on PronounPossessive gag.
+ChatOther-ItemMouth-GagKiss,SourceCharacter gives TargetCharacter a kiss on TargetPronounPossessive gag.
 ChatOther-ItemMouth-HandGag,SourceCharacter clamps PronounPossessive hand over TargetCharacter's mouth.
 ChatOther-ItemMouth-Kiss,SourceCharacter kisses TargetCharacter's lips.
 ChatOther-ItemMouth-Lick,SourceCharacter licks TargetCharacter's lips.
