@@ -19,27 +19,28 @@ function CollegeTeacherMildredLoveIs(LoveLevel) { return (CollegeTeacherMildredL
 
 /**
  * Fully dress-up Mildred
+ * @param {Character} C - The character object to dress up
  * @returns {void} - Nothing
  */
-function CollegeTeacherMildredClothes() {
-	CharacterNaked(CollegeTeacherMildred);
-	InventoryWear(CollegeTeacherMildred, "TeacherOutfit1", "Cloth", "Default");
-	InventoryWear(CollegeTeacherMildred, "PussyDark3", "Pussy", "#333333");
-	InventoryWear(CollegeTeacherMildred, "Eyes1", "Eyes", "#a57b78");
-	InventoryWear(CollegeTeacherMildred, "Eyes1", "Eyes2", "#a57b78");
-	InventoryWear(CollegeTeacherMildred, "Glasses4", "Glasses", "#333333");
-	InventoryWear(CollegeTeacherMildred, "Mouth", "Mouth", "Default");
-	InventoryWear(CollegeTeacherMildred, "H0940", "Height", "Default");
-	InventoryWear(CollegeTeacherMildred, "Normal", "BodyUpper", "White");
-	InventoryWear(CollegeTeacherMildred, "Normal", "BodyLower", "White");
-	InventoryWear(CollegeTeacherMildred, "Default", "Hands", "Default");
-	InventoryWear(CollegeTeacherMildred, "Default", "Head", "Default");
-	InventoryWear(CollegeTeacherMildred, "HairBack21", "HairBack", "#626060");
-	InventoryWear(CollegeTeacherMildred, "HairFront3", "HairFront", "#626060");
-	InventoryWear(CollegeTeacherMildred, "Bra1", "Bra", "#2222AA");
-	InventoryWear(CollegeTeacherMildred, "Panties11", "Panties", "#2222AA");
-	InventoryWear(CollegeTeacherMildred, "Socks5", "Socks", "#111111");
-	InventoryWear(CollegeTeacherMildred, "Heels1", "Shoes", "#222222");
+function CollegeTeacherMildredClothes(C) {
+	CharacterNaked(C);
+	InventoryWear(C, "TeacherOutfit1", "Cloth", "Default");
+	InventoryWear(C, "PussyDark3", "Pussy", "#333333");
+	InventoryWear(C, "Eyes1", "Eyes", "#a57b78");
+	InventoryWear(C, "Eyes1", "Eyes2", "#a57b78");
+	InventoryWear(C, "Glasses4", "Glasses", "#333333");
+	InventoryWear(C, "Mouth", "Mouth", "Default");
+	InventoryWear(C, "H0940", "Height", "Default");
+	InventoryWear(C, "Normal", "BodyUpper", "White");
+	InventoryWear(C, "Normal", "BodyLower", "White");
+	InventoryWear(C, "Default", "Hands", "Default");
+	InventoryWear(C, "Default", "Head", "Default");
+	InventoryWear(C, "HairBack21", "HairBack", "#626060");
+	InventoryWear(C, "HairFront3", "HairFront", "#626060");
+	InventoryWear(C, "Bra1", "Bra", "#2222AA");
+	InventoryWear(C, "Panties11", "Panties", "#2222AA");
+	InventoryWear(C, "Socks5", "Socks", "#111111");
+	InventoryWear(C, "Heels1", "Shoes", "#222222");
 }
 
 // Generates Mildred
@@ -63,7 +64,7 @@ function CollegeTeacherLoad() {
 		CollegeTeacherMildred.AllowItem = false;
 		CollegeTeacherMildred.Name = "Mildred";
 		CollegeTeacherMildred.GoneAway = false;
-		CollegeTeacherMildredClothes();
+		CollegeTeacherMildredClothes(CollegeTeacherMildred);
 		CharacterRefresh(CollegeTeacherMildred);
 
 	}
@@ -123,7 +124,7 @@ function CollegeTeacherDressBack() {
 	CharacterRelease(CollegeTeacherMildred);
 	InventoryRemove(CollegeTeacherMildred, "ItemHandheld");
 	CollegeEntranceWearStudentClothes(Player);
-	CollegeTeacherMildredClothes();
+	CollegeTeacherMildredClothes(CollegeTeacherMildred);
 }
 
 /**
