@@ -39,7 +39,10 @@ function InventoryItemArmsTransportJacketLoad(OriginalFunction, ID=InventoryItem
  */
 function InventoryItemArmsTransportJacketDraw(OriginalFunction, ID=InventoryItemArmsTransportJacketInputId) {
 	OriginalFunction();
-	const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
+	if (Data == null) {
+		return;
+	}
 	const Prefix = Data.dialog.typePrefix;
 
 	MainCanvas.textAlign = "right";
@@ -70,8 +73,8 @@ const InventoryItemArmsTransportJacketTextChange = CommonLimitFunction((C, item,
 function InventoryItemArmsTransportJacketExit(ID=InventoryItemArmsTransportJacketInputId) {
 	const C = CharacterGetCurrent();
 	const item = DialogFocusItem;
-	const Data = TypedItemDataLookup[item.Asset.Group.Name + item.Asset.Name];
-	const Prefix = Data.dialog.chatPrefix;
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
+	const Prefix = (Data == null) ? "" : TypedItemCustomChatPrefix("Text", Data);
 
 	// Check if the text has changed and whether it's a valid string or not
 	const text = ElementValue(ID).substring(0, InventoryItemArmsTransportJacketMaxLength);
