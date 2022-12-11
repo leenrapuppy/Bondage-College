@@ -1640,6 +1640,14 @@ interface NPCTrait {
 
 //#region Extended items
 
+/** A struct-type that maps archetypes to their respective extended item data.  */
+interface ExtendedDataLookupStruct {
+	[ExtendedArchetype.TYPED]: TypedItemData;
+	[ExtendedArchetype.MODULAR]: ModularItemData;
+	[ExtendedArchetype.VIBRATING]: VibratingItemData;
+	[ExtendedArchetype.VARIABLEHEIGHT]: VariableHeightData;
+}
+
 interface AssetOverrideHeight {
 	Height: number;
 	Priority: number;

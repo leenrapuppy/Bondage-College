@@ -10,8 +10,8 @@ function InventoryItemMouthFuturisticPanelGagDraw(OriginalFunction) {
 		return;
 	}
 
-	if (ModularItemModuleIsActive(ModularItemBase)) {
-		const Data = ModularItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+	if (ModularItemModuleIsActive(ModularItemBase) && Data != null) {
 		const [Gag, AutoPunish, AutoPunishUndoTimeSetting] = ModularItemDeconstructType(DialogFocusItem.Property.Type) || [];
 		const AutoPunishUndoTime = DialogFocusItem.Property.AutoPunishUndoTime;
 		const UndoTimer =  DialogFindPlayer(`${Data.dialogOptionPrefix}${AutoPunishUndoTimeSetting}`);
@@ -38,7 +38,11 @@ function InventoryItemMouthFuturisticPanelGagDraw(OriginalFunction) {
  * @returns {void} - Nothing
  */
 function InventoryItemMouthFuturisticPanelGagClick(OriginalFunction) {
-	const Data = ModularItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+	if (Data == null) {
+		return;
+	}
+
 	const GagBefore = ModularItemParseCurrent(Data)[0];
 	if (!FuturisticAccessClick(OriginalFunction) || !DialogFocusItem) {
 		return;
@@ -72,8 +76,8 @@ function InventoryItemMouthFuturisticPanelGagClick(OriginalFunction) {
  * @return {void} Nothing
  */
 function InventoryItemMouthFuturisticPanelGagPublishActionTrigger(C, Item, OptionName, Deflate) {
-	const Data = ModularItemDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
-	const Prefix = ModularItemCustomChatPrefix("Pump", Data);
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+	const Prefix = (Data == null) ? "" : ModularItemCustomChatPrefix("Pump", Data);
 	const ActionTag = `${Prefix}Pump${Deflate ? "Deflate" : "Inflate"}${OptionName}`;
 
 	/** @type {ChatMessageDictionary} */
@@ -102,7 +106,11 @@ function InventoryItemMouthFuturisticPanelGagPublishActionTrigger(C, Item, Optio
  * @return {number[]} - The new module values
  */
 function InventoryItemMouthFuturisticPanelGagTriggerGetOptions(C, Item, Deflate, PreviousModuleValues) {
-	const Data = ModularItemDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+	if (Data == null) {
+		return PreviousModuleValues;
+	}
+
 	const GagOptions = Data.modules[0].Options;
 	let GagIndex = PreviousModuleValues[0];
 	const GagIndexMax = GagOptions.length - 1;
@@ -147,7 +155,10 @@ function InventoryItemMouthFuturisticPanelGagTriggerGetOptions(C, Item, Deflate,
  */
 function InventoryItemMouthFuturisticPanelGagTrigger(C, Item, Deflate) {
 	// Construct the new module values following the deflation/inflation
-	const Data = ModularItemDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+	if (Data == null) {
+		return;
+	}
 	const PreviousModuleValues = ModularItemParseCurrent(Data, Item.Property.Type);
 	const NewModuleValues = InventoryItemMouthFuturisticPanelGagTriggerGetOptions(C, Item, Deflate, PreviousModuleValues);
 

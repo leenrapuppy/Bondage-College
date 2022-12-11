@@ -43,7 +43,10 @@ function InventoryItemBreastFuturisticBraDraw(OriginalFunction) {
 		return;
 	}
 
-	const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
+	if (Data == null) {
+		return;
+	}
 	const Prefix = Data.dialog.typePrefix;
 	const C = CharacterGetCurrent();
 	const {bpm, breathing, temp} = InventoryItemBreastFuturisticBraUpdate(C);

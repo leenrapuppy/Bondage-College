@@ -10,8 +10,8 @@ function InventoryItemNeckAccessoriesCollarNameTagDraw(OriginalFunction) {
 		return;
 	}
 
-	const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
-	if (Data === undefined) {
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
+	if (Data == null) {
 		return;
 	}
 	const XYCoords = InventoryItemNeckAccessoriesCollarNameTagGetXY(Data.options.length);
@@ -28,8 +28,8 @@ function InventoryItemNeckAccessoriesCollarNameTagClick(OriginalFunction) {
 		return;
 	}
 
-	const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
-	if (Data === undefined) {
+	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.TYPED);
+	if (Data == null) {
 		return;
 	}
 	const XYCoords = InventoryItemNeckAccessoriesCollarNameTagGetXY(Data.options.length);
