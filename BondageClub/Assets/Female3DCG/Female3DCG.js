@@ -4381,6 +4381,19 @@ var AssetFemale3DCG = [
 				Block: ["ItemHands", "ItemHandheld"],
 				Prerequisite: ["HasBreasts"],
 			},
+			{ Name: "SleepSac", Gender: "F", Fetish: ["Latex"], Value: 150, Difficulty: 10, SelfBondage: 6, Time: 30, RemoveTime: 40, Left: 0, Top: 0, AllowLock: true, DrawLocks: false, Random: false,
+				SetPose: ["BackElbowTouch", "LegsClosed"],
+				Effect: ["Block", "Prone"],
+				Prerequisite: ["NotHogtied", "NotMounted", "NoFeetSpreader", "HasBreasts"],
+				Hide: ["Cloth", "Suit", "ClothLower", "SuitLower", "Shoes", "BodyLower", "Socks", "Panties", "ItemPelvis", "Garters", "LeftHand", "RightHand", "ItemBoots", "ItemLegs", "ItemFeet", "ItemButt"],
+				HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper", "ClothAccessoryPoncho"],
+				SelfUnlock: false,
+				Block: ["ItemBreast", "ItemButt", "ItemFeet", "ItemHands", "ItemHandheld", "ItemLegs", "ItemNipples", "ItemNipplesPiercings", "ItemPelvis", "ItemTorso", "ItemTorso2", "ItemVulva", "ItemVulvaPiercings", "ItemBoots"],
+				Layer: [
+					{ Name: "", AllowColorize: true },
+					{ Name: "Lock", LockLayer: true, AllowColorize: false },
+				],
+			},
 			// Flat Chest Compatible Items
 			{
 				Name: "SmoothLeatherArmbinder1", Fetish: ["Leather"], Priority: 6, Value: 70, Difficulty: 10, SelfBondage: 7, Time: 25, RemoveTime: 10, AllowLock: true, SetPose: ["BackElbowTouch"], Effect: ["Block", "Prone"], Block: ["ItemHands"], SelfUnlock: false,
