@@ -2360,6 +2360,7 @@ var AssetFemale3DCGExtended = {
 				ChatTags: [
 					CommonChatTags.SOURCE_CHAR,
 					CommonChatTags.DEST_CHAR,
+					CommonChatTags.DEST_CHAR_NAME,
 					CommonChatTags.ASSET_NAME,
 				],
 				Options: [
@@ -4381,6 +4382,7 @@ var AssetFemale3DCGExtended = {
 		ClitAndDildoVibratorbelt: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatTags: [CommonChatTags.DEST_CHAR_NAME],
 				Modules: [
 					{
 						Name: "DildoIntensity",
@@ -4670,7 +4672,12 @@ var AssetFemale3DCGExtended = {
 		InflVibeButtPlug: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR, CommonChatTags.ASSET_NAME],
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+					CommonChatTags.DEST_CHAR_NAME,
+					CommonChatTags.ASSET_NAME,
+				],
 				Modules: [
 					{
 						Name: "InflateLevel",
@@ -5957,6 +5964,7 @@ var AssetFemale3DCGExtended = {
 					CommonChatTags.SOURCE_CHAR,
 					CommonChatTags.ASSET_NAME,
 					CommonChatTags.DEST_CHAR,
+					CommonChatTags.DEST_CHAR_NAME,
 				],
 				Modules: [
 					{
@@ -7374,6 +7382,11 @@ var AssetFemale3DCGExtended = {
 		SciFiPleasurePanties: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+					CommonChatTags.DEST_CHAR_NAME,
+				],
 				Modules: [
 					{
 						Name: "CrotchShield", Key: "c",
