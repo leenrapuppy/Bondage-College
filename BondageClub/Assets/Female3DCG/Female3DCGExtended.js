@@ -3260,30 +3260,35 @@ var AssetFemale3DCGExtended = {
 							}, // No gags or blindfolds visible
 							{
 								Property:{
+									OverridePriority: 12,									
 									Block: ["ItemMouth", "ItemMouth2","ItemHead"],
 									Hide: ["ItemMouth", "ItemMouth2","ItemHead"],
 								}
 							}, // Highest layer gag visible
 							{
 								Property:{
+									OverridePriority: 12,									
 									Block: ["ItemMouth", "ItemHead"],
 									Hide: ["ItemMouth", "ItemHead"],
 								}
 							}, // All gags visible
 							{
 								Property:{
+									OverridePriority: 12,									
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
 									Hide: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
 								}
 							}, // Blindfold items visible
 							{
 								Property:{
+									OverridePriority: 12,									
 									Block: ["ItemMouth", "ItemMouth2",],
 									Hide: ["ItemMouth", "ItemMouth2",],
 								}
 							}, // Blindfold and highest layer gag
 							{
 								Property:{
+									OverridePriority: 12,									
 									Block: [],
 									Hide: [],
 								}
@@ -6229,8 +6234,12 @@ var AssetFemale3DCGExtended = {
                     },
                     {
                         Name: "Mask", Key: "m",
-                        Options: [ {}, {},] // Mask, No Mask
+                        Options: [ {Effect:["BlockMouth"]}, {},] // Mask, No Mask
                     },
+					{
+						Name: "Length", Key: "l",
+						Options: [{},{}] // Behind Hair, Over Hair
+					},
                 ]
             }
         }, //LatexRespirator
@@ -8492,12 +8501,14 @@ var AssetFemale3DCGExtended = {
 							}, // No gags visible
 							{
 								Property:{
+									OverridePriority: 12,
 									Block: ["ItemMouth", "ItemMouth2"],
 									Hide: ["ItemMouth", "ItemMouth2"],
 								}
 							}, // Highest layer gag visible
 							{
 								Property:{
+									OverridePriority: 12,
 									Block: [],
 									Hide: [],
 								}
