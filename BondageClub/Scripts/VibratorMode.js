@@ -62,7 +62,7 @@ var VibratorModeSet = {
 var VibratorModeOptions = {
 	[VibratorModeSet.STANDARD]: [
 		{
-			Name: "TurnOff",
+			Name: "Off",
 			Property: {
 				Mode: VibratorMode.OFF,
 				Intensity: -1,
@@ -249,7 +249,6 @@ function VibratorModeSetAssetProperties(data) {
 	const { asset } = data;
 	asset.DynamicScriptDraw = true;
 	asset.AllowType = Object.values(VibratorMode);
-	asset.AllowType[0] = "TurnOff";
 	asset.Extended = true;
 	VibratorModeSetAllowEffect(data);
 	VibratorModeSetEffect(data);

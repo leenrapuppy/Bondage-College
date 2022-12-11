@@ -2968,7 +2968,7 @@ var AssetFemale3DCG = [
 				Difficulty: 3, AllowLock: true, DrawLocks: false, Time: 10, Prerequisite: ["AccessVulva", "HasVagina"],
 				FuturisticRecolor: true, Effect: [ "Egged", "FillVulva"], AllowEffect: ["Egged", "Vibrating", "FillVulva", "Edged"],
 				ExpressionTrigger: [{ Name: "Medium", Group: "Blush", Timer: 10 }],
-				AllowType: ["TurnOff", "Low", "Medium", "High", "Maximum", "Random", "Escalate", "Tease", "Deny", "Edge"],
+				AllowType: ["Off", "Low", "Medium", "High", "Maximum", "Random", "Escalate", "Tease", "Deny", "Edge"],
 				DynamicScriptDraw: true,
 				Extended: true,
 				Layer: [
@@ -3023,7 +3023,7 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "LoversVibrator", Gender: "F", Value: 75, Time: 5, LoverOnly: true, DefaultColor: "#790c0c", Prerequisite: ["AccessVulva", "HasVagina"],
-				AllowType: ["TurnOff", "Low", "Medium", "High", "Maximum", "Random", "Escalate", "Tease", "Deny", "Edge"],
+				AllowType: ["Off", "Low", "Medium", "High", "Maximum", "Random", "Escalate", "Tease", "Deny", "Edge"],
 				Extended: true,
 				Effect: ["Egged", "FillVulva"], AllowEffect: ["Egged", "Vibrating", "Edged", "FillVulva"], ExpressionTrigger: [{ Name: "Low", Group: "Blush", Timer: 10 }],
 				AllowRemoveExclusive: true, CharacterRestricted: true, DynamicScriptDraw: true},
