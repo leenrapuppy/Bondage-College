@@ -223,7 +223,14 @@ function StruggleProgressCheckEnd(C) {
 			}
 		}
 
-		ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true);
+		// Check to open the extended menu of the item.  In a chat room, we publish the result for everyone
+		if ((StruggleProgressNextItem != null) && StruggleProgressNextItem.Asset.Extended && StruggleProgressNextItem.Craft == null) {
+			DialogInventoryBuild(C);
+			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, false);
+			DialogExtendItem(InventoryGet(C, StruggleProgressNextItem.Asset.Group.Name));
+		} else {
+			ChatRoomPublishAction(C, StruggleProgressPrevItem, StruggleProgressNextItem, true);
+		}
 
 		// Reset the the character's position
 		if (CharacterAppearanceForceUpCharacter == C.MemberNumber) {

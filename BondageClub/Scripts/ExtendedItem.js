@@ -795,3 +795,44 @@ function ExtendedItemDrawHeader(X=1387, Y=55, Item=DialogFocusItem) {
 	const Locked = InventoryItemHasEffect(Item, "Lock", true);
 	DrawAssetPreview(X, Y, Item.Asset, { Vibrating, Icons: Locked ? ["Locked"] : undefined });
 }
+
+/**
+ * Extract the passed item's data from one of the extended item lookup tables
+ * @template {ExtendedArchetype} Archetype
+ * @param {Item} Item - The item whose data should be extracted
+ * @param {Archetype} Archetype - The archetype corresponding to the lookup table
+ * @returns {null | ExtendedDataLookupStruct[Archetype]} The item's data or `null` if the lookup failed
+ */
+function ExtendedItemGetData(Item, Archetype) {
+	if (Item == null) {
+		return null;
+	}
+
+	/** @type {TypedItemData | ModularItemData | VibratingItemData | VariableHeightData} */
+	let Data;
+	const Key = `${Item.Asset.Group.Name}${Item.Asset.Name}`;
+	switch (Archetype) {
+		case ExtendedArchetype.TYPED:
+			Data = TypedItemDataLookup[Key];
+			break;
+		case ExtendedArchetype.MODULAR:
+			Data = ModularItemDataLookup[Key];
+			break;
+		case ExtendedArchetype.VIBRATING:
+			Data = VibratorModeDataLookup[Key];
+			break;
+		case ExtendedArchetype.VARIABLEHEIGHT:
+			Data = VariableHeightDataLookup[Key];
+			break;
+		default:
+			console.warn(`Unsupported archetype: "${Archetype}"`);
+			return null;
+	}
+
+	if (Data === undefined) {
+		console.warn(`No key "${Key}" in "${Archetype}" lookup table`);
+		return null;
+	} else {
+		return Data;
+	}
+}

@@ -2384,6 +2384,7 @@ var AssetFemale3DCGExtended = {
 				ChatTags: [
 					CommonChatTags.SOURCE_CHAR,
 					CommonChatTags.DEST_CHAR,
+					CommonChatTags.DEST_CHAR_NAME,
 					CommonChatTags.ASSET_NAME,
 				],
 				Options: [
@@ -3284,30 +3285,35 @@ var AssetFemale3DCGExtended = {
 							}, // No gags or blindfolds visible
 							{
 								Property:{
+									OverridePriority: 12,									
 									Block: ["ItemMouth", "ItemMouth2","ItemHead"],
 									Hide: ["ItemMouth", "ItemMouth2","ItemHead"],
 								}
 							}, // Highest layer gag visible
 							{
 								Property:{
+									OverridePriority: 12,									
 									Block: ["ItemMouth", "ItemHead"],
 									Hide: ["ItemMouth", "ItemHead"],
 								}
 							}, // All gags visible
 							{
 								Property:{
+									OverridePriority: 12,									
 									Block: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
 									Hide: ["ItemMouth", "ItemMouth2", "ItemMouth3"],
 								}
 							}, // Blindfold items visible
 							{
 								Property:{
+									OverridePriority: 12,									
 									Block: ["ItemMouth", "ItemMouth2",],
 									Hide: ["ItemMouth", "ItemMouth2",],
 								}
 							}, // Blindfold and highest layer gag
 							{
 								Property:{
+									OverridePriority: 12,									
 									Block: [],
 									Hide: [],
 								}
@@ -4405,6 +4411,7 @@ var AssetFemale3DCGExtended = {
 		ClitAndDildoVibratorbelt: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatTags: [CommonChatTags.DEST_CHAR_NAME],
 				Modules: [
 					{
 						Name: "DildoIntensity",
@@ -4694,7 +4701,12 @@ var AssetFemale3DCGExtended = {
 		InflVibeButtPlug: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
-				ChatTags: [CommonChatTags.SOURCE_CHAR, CommonChatTags.DEST_CHAR, CommonChatTags.ASSET_NAME],
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+					CommonChatTags.DEST_CHAR_NAME,
+					CommonChatTags.ASSET_NAME,
+				],
 				Modules: [
 					{
 						Name: "InflateLevel",
@@ -5981,6 +5993,7 @@ var AssetFemale3DCGExtended = {
 					CommonChatTags.SOURCE_CHAR,
 					CommonChatTags.ASSET_NAME,
 					CommonChatTags.DEST_CHAR,
+					CommonChatTags.DEST_CHAR_NAME,
 				],
 				Modules: [
 					{
@@ -6253,8 +6266,12 @@ var AssetFemale3DCGExtended = {
                     },
                     {
                         Name: "Mask", Key: "m",
-                        Options: [ {}, {},] // Mask, No Mask
+                        Options: [ {Effect:["BlockMouth"]}, {},] // Mask, No Mask
                     },
+					{
+						Name: "Length", Key: "l",
+						Options: [{},{}] // Behind Hair, Over Hair
+					},
                 ]
             }
         }, //LatexRespirator
@@ -7398,6 +7415,11 @@ var AssetFemale3DCGExtended = {
 		SciFiPleasurePanties: {
 			Archetype: ExtendedArchetype.MODULAR,
 			Config: {
+				ChatTags: [
+					CommonChatTags.SOURCE_CHAR,
+					CommonChatTags.DEST_CHAR,
+					CommonChatTags.DEST_CHAR_NAME,
+				],
 				Modules: [
 					{
 						Name: "CrotchShield", Key: "c",
@@ -8516,12 +8538,14 @@ var AssetFemale3DCGExtended = {
 							}, // No gags visible
 							{
 								Property:{
+									OverridePriority: 12,
 									Block: ["ItemMouth", "ItemMouth2"],
 									Hide: ["ItemMouth", "ItemMouth2"],
 								}
 							}, // Highest layer gag visible
 							{
 								Property:{
+									OverridePriority: 12,
 									Block: [],
 									Hide: [],
 								}

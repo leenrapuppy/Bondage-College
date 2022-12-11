@@ -8,8 +8,8 @@
 function InventoryItemButtInflVibeButtPlugDraw(OriginalFunction) {
     OriginalFunction();
 
-    if (ModularItemModuleIsActive(ModularItemBase)) {
-        const Data = ModularItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
+    const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+    if (ModularItemModuleIsActive(ModularItemBase) && Data != null) {
         const [InflateLevel, Intensity] = ModularItemParseCurrent(Data);
 
         // Display option information

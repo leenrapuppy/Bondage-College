@@ -501,7 +501,7 @@ function ModularItemModuleTransition(newModule, data) {
  */
 function ModularItemParseCurrent({ asset, modules }, type=null) {
 	if (type == null) {
-		type = (DialogFocusItem.Property && DialogFocusItem.Property.Type) || ModularItemConstructType(modules);
+		type = (DialogFocusItem && DialogFocusItem.Property && DialogFocusItem.Property.Type) || ModularItemConstructType(modules);
 	}
 	return modules.map(module => {
 		const index = type.indexOf(module.Key);

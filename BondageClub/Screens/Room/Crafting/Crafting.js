@@ -1,7 +1,8 @@
 "use strict";
 
+// NOTE: Keep as `var` to enable `window`-based lookup
 /** The background of the crafting screen. */
-const CraftingBackground = "CraftingWorkshop";
+var CraftingBackground = "CraftingWorkshop";
 
 /**
  * The active subscreen within the crafting screen:
