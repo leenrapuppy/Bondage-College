@@ -112,7 +112,7 @@ Thank you very much Miss.
 非常感谢你，小姐。
 ###_NPC
 You're a good subbie.  (She smiles.)  Is there anything else I can do?
-You're a good subbie.  (She smiles.)  Is there anything else I can do?
+你是个乖孩子。（她笑起来。）有其他我能做的事情吗？
 ###_PLAYER
 You better not lose them.
 别弄丢了。
