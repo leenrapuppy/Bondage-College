@@ -70,6 +70,10 @@ ClothAccessoryBibBase,Bib
 ClothAccessoryBibTrim,Trim
 ClothAccessoryBibPacis,Pattern
 ClothAccessoryBibText,Text
+ClothSlaveRagsBase,Base
+ClothSlaveRagsBaseStains,Stains
+ClothSlaveRagsRope,Rope
+ClothSlaveRagsChains,Chains
 NecklaceNecklaceLockChain,Chain
 NecklaceNecklaceLockLock,Lock
 NecklaceNecklaceKeyChain,Chain

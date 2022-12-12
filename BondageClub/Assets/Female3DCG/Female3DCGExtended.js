@@ -394,6 +394,30 @@ var AssetFemale3DCGExtended = {
 				]
 			}
 		}, // Jacket
+		SlaveRags: {
+			Archetype: ExtendedArchetype.MODULAR,
+			Config: {
+				Modules: [
+					{
+						Name: "Cloth", Key: "c",
+						Options: [
+						{}, //c0 - Base
+						{}, //c1 - BaseStained
+						{}, //c2 - Torn1
+						{}, //c3 - Torn1Stained
+						],
+					},
+					{
+						Name: "Belt", Key: "b",
+						Options: [
+						{}, //b0
+						{}, //b1
+						{}, //b2
+						],
+					},
+				],
+			},
+		}, //SlaveRags
 	}, // Cloth
 	ClothAccessory: {
 		LeatherStraps: {

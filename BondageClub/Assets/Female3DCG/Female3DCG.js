@@ -282,6 +282,17 @@ var AssetFemale3DCG = [
 					{ Name: "Hood", HasType: false, Priority: 54, AllowTypes: ["Hooded", "HoodedEarsOut"], AllowPose: [], CopyLayerColor: "Base", },
 				],
 			},
+			{
+				Name: "SlaveRags", Gender: "F", Value: 5, BuyGroup: "SlaveRags", Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"], DefaultColor: ["#886D5D", "#886D58", "#8B6945", "Default"],
+				Layer: [
+				{Name: "Base", HasType: false, AllowModuleTypes: ["c0", "c1"]},
+				{Name: "BaseStains", HasType: false, AllowModuleTypes: ["c1"]},
+				{Name: "Torn1", HasType: false, AllowModuleTypes: ["c2", "c3"], CopyLayerColor: "Base"},
+				{Name: "Torn1Stains", HasType: false, AllowModuleTypes:["c3"], CopyLayerColor: "BaseStains"},
+				{Name: "Rope", HasType: false, AllowModuleTypes: ["b1"]},
+				{Name: "Chains", HasType: false, AllowModuleTypes: ["b2"]},
+				],
+			},
 			// Flat Chest Compatible Clothing
 			{
 				Name: "MaleTankTop1", Gender: "M", Prerequisite: ["HasFlatChest"], HideItem: ["ItemNipplesPiercingsRoundPiercing", "ItemNipplesPiercingsNecklacePiercingChain", "ItemNipplesLactationPump", "BraRibbons", "ItemBreastRibbons"]
