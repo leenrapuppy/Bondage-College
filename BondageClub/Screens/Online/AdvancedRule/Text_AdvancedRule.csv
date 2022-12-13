@@ -61,12 +61,15 @@ BlockAppearance0,Height
 BlockAppearance1,Upper Body
 BlockAppearance2,Lower Body
 BlockAppearance3,Front Hair
+BlockAppearance?,Facial Hair
 BlockAppearance4,Back Hair
+BlockAppearance*,Eyebrow
 BlockAppearance5,Left Eye
 BlockAppearance6,Right Eye
 BlockAppearance7,Mouth
 BlockAppearance8,Nipples
-BlockAppearance9,Pussy
+BlockAppearance9,Pussy/Penis
+BlockAppearance%,Pronoun
 BlockItemGroupA,Feet & Toes
 BlockItemGroupB,Lower Legs
 BlockItemGroupC,Upper Legs
