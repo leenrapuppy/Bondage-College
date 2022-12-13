@@ -6339,9 +6339,9 @@ var AssetFemale3DCG = [
 					{ Name: "Straps", HasType: false, AllowModuleTypes:["s1"],},
 					{ Name: "StrapShade", HasType: false, AllowModuleTypes:["s1"],AllowColorize: false,},
 
-					{ Name: "Base", HasType: false, AllowModuleTypes:["m0"], },
-					{ Name: "Shade", HasType: false, AllowColorize: false, AllowModuleTypes:["m0"],},
-					{ Name: "RoundedShine", HasType: false, AllowModuleTypes:["m0"],},
+					{ Name: "Base", HasType: false, AllowModuleTypes:["m0","m1"], },
+					{ Name: "Shade", HasType: false, AllowColorize: false, AllowModuleTypes:["m0","m1"],},
+					{ Name: "RoundedShine", HasType: false, AllowModuleTypes:["m0","m1"],},
 
 					{ Name: "Filter", HasType: false, AllowModuleTypes: ["f1l0"]},
 					{ Name: "FilterFixing", HasType: false, AllowModuleTypes: ["f1l0"]},
