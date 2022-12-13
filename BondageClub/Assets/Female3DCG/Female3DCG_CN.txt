@@ -130,6 +130,10 @@ Jacket
 夹克
 Male Cloth Tank-Top 
 男士背心
+Button Shirt
+纽扣衬衫
+Slave Rags
+奴隶破布
 Cloth Accessory
 服装配饰
 Student Scarf
@@ -1054,50 +1058,6 @@ Style 31
 样式 31
 Style 32
 样式 32
-Long Messy Hair 1
-乱长发 1
-Spikey 1
-刺发 1
-Boxcut 1
-方型切 1
-Swept-Back 1
-背梳头 1
-Mohawk 1
-莫霍克 1
-Side Fringe Short
-侧分短发
-Side Fringe Long
-侧分长发
-Side Swept 1
-侧梳头 1
-Dreadlocks 1 Short
-脏辫1短发
-Dreadlocks 1 Long
-脏辫1长发
-Dreadlocks 2 Short
-脏辫2短发
-Dreadlocks 2 Long
-脏辫2长发
-Facial Hair
-胡子
-Goatee
-山羊胡
-Big Beard
-大胡子
-Medium Beard
-中等胡子
-Moustache
-小胡子
-Moustache Beard
-络腮小胡子
-Chinstrap Beard
-脸边络腮胡
-Back Hair
-后发
-None
-无
-Style 15b
-样式 15b
 Style 33
 样式 33
 Style 34
@@ -1130,12 +1090,32 @@ Style 47
 样式 47
 Style 48
 样式 48
+Facial Hair
+胡子
+Goatee
+山羊胡
+Big Beard
+大胡子
+Medium Beard
+中等胡子
+Moustache
+小胡子
+Moustache Beard
+络腮小胡子
+Chinstrap Beard
+脸边络腮胡
+Back Hair
+后发
+None
+无
+Style 15b
+样式 15b
 Style 49
 样式 49
 Style 50
 样式 50
-Dreadlocks 1
-脏辫 1
+Style 51
+样式 51
 Left eye
 左眼
 Right eye
@@ -1682,6 +1662,8 @@ Smooth Lacing Leather Armbinder
 平滑系带皮革单手套
 Canvas Straitjacket 1
 画布拘束衣1
+Sleep Sac
+睡袋
 Padded Mittens
 衬套无指手套
 Paw Mittens
