@@ -6266,7 +6266,12 @@ var AssetFemale3DCGExtended = {
                     },
                     {
                         Name: "Mask", Key: "m",
-                        Options: [ {Effect:["BlockMouth"]}, {},] // Mask, No Mask
+                        Options: [ 
+							{Property: {Effect: ["BlockMouth"]}}, 
+							{Property: {Effect: ["BlockMouth", "GagVeryLight"]}}, 
+							{Property: {Effect:[""]}},
+					
+						] // Mask, Thick Filters, No Mask
                     },
 					{
 						Name: "Length", Key: "l",
