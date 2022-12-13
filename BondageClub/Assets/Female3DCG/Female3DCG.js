@@ -283,7 +283,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "SlaveRags", Gender: "F", Prerequisite: ["HasBreasts"], Value: 5, BuyGroup: "SlaveRags", Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"], DefaultColor: ["#886D5D", "#886D58", "#8B6945", "Default"],
+				Name: "SlaveRags", Gender: "F", Prerequisite: ["HasBreasts"], Value: 5, BuyGroup: "SlaveRags", Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead", "Suspension"], DefaultColor: ["#886D5D", "#886D58", "#8B6945", "Default"],
 				Layer: [
 				{Name: "Base", HasType: false, AllowModuleTypes: ["c0", "c1"]},
 				{Name: "BaseStains", HasType: false, AllowModuleTypes: ["c1"]},
