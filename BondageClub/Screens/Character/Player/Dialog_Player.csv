@@ -3591,7 +3591,7 @@ ItemMouth3LatexRespiratorOptionl0,,,Beneath Hair,,
 ItemMouth3LatexRespiratorOptionl1,,,Over Hair,,
 ItemMouthLatexRespiratorSetLength,,,SourceCharacter adjusts the fit of the filters on DestinationCharacter respirator,,
 ClothSlaveRagsSelectBase,,,Choose how the rags will look like,,
-ClothSlaveRagsModuleCloth,,,Rag State
+ClothSlaveRagsModuleCloth,,,Rag State,,
 ClothSlaveRagsSelectCloth,,,Choose the tear and filthyness of the rags,,
 ClothSlaveRagsOptionc0,,,Old Rags,,
 ClothSlaveRagsOptionc1,,,Filthy Old Rags,,
@@ -3601,7 +3601,7 @@ ClothSlaveRagsSetc0,,,SourceCharacter puts some old rags over DestinationCharact
 ClothSlaveRagsSetc1,,,SourceCharacter puts some old and filthy rags over DestinationCharacter body.,,
 ClothSlaveRagsSetc2,,,SourceCharacter puts some torn rags over DestinationCharacter body.,,
 ClothSlaveRagsSetc3,,,SourceCharacter puts some torn and filthy rags over DestinationCharacter body.,,
-ClothSlaveRagsModuleBelt,,,Belt
+ClothSlaveRagsModuleBelt,,,Belt,,
 ClothSlaveRagsSelectBelt,,,Choose how to tie the rags,,
 ClothSlaveRagsOptionb0,,,Nothing,,
 ClothSlaveRagsOptionb1,,,Rope,,
