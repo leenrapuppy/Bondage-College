@@ -2153,46 +2153,56 @@ Gloves Mode
 手套模式
 Mittens Mode
 连指手套模式
-Timer: 2 min
-计时器: 2 分钟
-Timer: 5 min
-计时器: 5 分钟
-Timer: 15 min
-计时器：15分钟
-Timer: 1 hour
-计时器：1小时
-Timer: 20 hours
-计时器：20小时
-2 min
-2分钟
-5 min
-5分钟
-15 min
-15分钟
-1 hour
-1小时
-20 hours
-20小时
-Trigger Inflation
-触发膨胀
-Time until deflation:
-放气前时间：
-Show chat message 
-显示聊天消息
 Auto-inflation sensitivity:
 自动充气灵敏度:
+Time until deflation:
+放气前时间：
 Gag configuration:
 口塞设置：
+Select Options
+选择选项
+Select Gag Inflation
+选择口塞充气
+Select Auto-Inflation Sensitivity:
+选择自动充气敏感度：
+Select Deflation Timer
+选择排气计时器
+Gag Inflation
+口塞充气
+Auto-Inflation
+自动充气
+Deflation Timer
+排气计时器
+2 Min
+2分钟
+5 Min
+5分钟
+15 Min
+15分钟
+1 Hour
+1小时
+20 Hours
+20小时
 Padded
 板状
-Small Plug
-小塞子
 Ball
 球形
 Large Ball
 大球形
 Dildo
 阳具形
+Low
+低
+SourceCharacter configures DestinationCharacter gag to deflate 2 minutes after triggering.
+SourceCharacter将DestinationCharacter口塞配置为在触发后2分钟排气。
+SourceCharacter configures DestinationCharacter gag to deflate 5 minutes after triggering.
+SourceCharacter将DestinationCharacter口塞配置为在触发后5分钟排气。
+SourceCharacter configures DestinationCharacter gag to deflate 15 minutes after triggering.
+SourceCharacter将DestinationCharacter口塞配置为在触发后15分钟排气。
+SourceCharacter configures DestinationCharacter gag to deflate 1 hour after triggering.
+SourceCharacter将DestinationCharacter口塞配置为在触发后1小时排气。
+SourceCharacter configures DestinationCharacter gag to deflate 20 hours after triggering.
+SourceCharacter将DestinationCharacter口塞配置为在触发后20小时排气。
 SourceCharacter configures DestinationCharacter gag to padded mode.
 SourceCharacter将DestinationCharacter口塞设置为板状。
 SourceCharacter configures DestinationCharacter gag to a soft ball.
@@ -2201,6 +2211,14 @@ SourceCharacter configures DestinationCharacter gag to a mouth-filling ball.
 SourceCharacter将DestinationCharacter口塞设置为充满嘴的球。
 SourceCharacter configures DestinationCharacter gag to a long dildo.
 SourceCharacter将DestinationCharacter口塞设置为长长的假阳具。
+SourceCharacter configures DestinationCharacter gag to not punish TargetPronounObject for speaking.
+SourceCharacter将DestinationCharacter口塞配置为停止惩罚TargetPronounObject的说话行为。
+SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for shouting.
+SourceCharacter将DestinationCharacter口塞配置为惩罚TargetPronounObject的尖叫行为。
+SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for saying long sentences.
+SourceCharacter将DestinationCharacter口塞配置为惩罚TargetPronounObject的说复杂句子行为。
+SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for speaking.
+SourceCharacter将DestinationCharacter口塞配置为惩罚TargetPronounObject的说话行为。
 DestinationCharacterName gag inflates into a soft ball.
 DestinationCharacterName口塞充气变为软球。
 DestinationCharacterName gag inflates into a mouth-filling ball.
@@ -2213,24 +2231,20 @@ DestinationCharacterName gag deflates into a soft ball.
 DestinationCharacterName口塞泄气变为软球。
 DestinationCharacterName gag deflates into a mouth-filling ball.
 DestinationCharacterName口塞泄气变为充满嘴的球。
-SourceCharacter configures DestinationCharacter gag to not punish TargetPronounObject for speaking.
-SourceCharacter将DestinationCharacter口塞配置为停止惩罚TargetPronounObject的说话行为。
-SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for shouting.
-SourceCharacter将DestinationCharacter口塞配置为惩罚TargetPronounObject的尖叫行为。
-SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for saying long sentences.
-SourceCharacter将DestinationCharacter口塞配置为惩罚TargetPronounObject的说复杂句子行为。
-SourceCharacter configures DestinationCharacter gag to punish TargetPronounObject for speaking.
-SourceCharacter将DestinationCharacter口塞配置为惩罚TargetPronounObject的说话行为。
-SourceCharacter configures DestinationCharacter gag to deflate 2 minutes after triggering.
-SourceCharacter将DestinationCharacter口塞配置为在触发后2分钟排气。
-SourceCharacter configures DestinationCharacter gag to deflate 5 minutes after triggering.
-SourceCharacter将DestinationCharacter口塞配置为在触发后5分钟排气。
-SourceCharacter configures DestinationCharacter gag to deflate 15 minutes after triggering.
-SourceCharacter将DestinationCharacter口塞配置为在触发后15分钟排气。
-SourceCharacter configures DestinationCharacter gag to deflate 1 hour after triggering.
-SourceCharacter将DestinationCharacter口塞配置为在触发后1小时排气。
-SourceCharacter configures DestinationCharacter gag to deflate 20 hours after triggering.
-SourceCharacter将DestinationCharacter口塞配置为在触发后20小时排气。
+Show chat message
+显示聊天消息
+Trigger Inflation
+触发膨胀
+SourceCharacter configures DestinationCharacter gag to not punish her for speaking.
+SourceCharacter将DestinationCharacter口塞配置为停止惩罚她的说话行为。
+SourceCharacter configures DestinationCharacter gag to punish her for shouting.
+SourceCharacter将DestinationCharacter口塞配置为惩罚她的尖叫行为。
+SourceCharacter configures DestinationCharacter gag to punish her for saying long sentences.
+SourceCharacter将DestinationCharacter口塞配置为惩罚她的说复杂句子行为。
+SourceCharacter configures DestinationCharacter gag to punish her for speaking.
+SourceCharacter将DestinationCharacter口塞配置为惩罚她的说话行为。
+DestinationCharacterName gag inflates into a large dildo that forces its way down her throat.
+DestinationCharacterName口塞充气变为大号的假阳具，强行深入她的喉咙。
 SourceCharacter plugs up DestinationCharacter mouth with the dildo plug.
 SourceCharacter使用假阳具塞子塞住了DestinationCharacter嘴。
 SourceCharacter pulls out DestinationCharacter dildo plug from TargetPronounPossessive gag.
@@ -2263,8 +2277,6 @@ Club Mistresses
 俱乐部女主人
 Current Public Mode: 
 目前公开模式：
-Low
-低
 Deny
 拒绝
 Random Teasing
@@ -2569,8 +2581,6 @@ Current Heart Rate:
 当前心率:
 Current Training Level:
 目前的训练级别：
-Tracking Signal: Good
-跟踪信号：好
 Tracking Signal:
 跟踪信号：
 Good
@@ -3049,14 +3059,14 @@ Dildo item intensity: Maximum
 假阳具物品强度：最大
 Shock level:
 电击强度：
+Sensitivity:
+敏感度：
 Crotch shield:
 胯部护盾：
 Increase
 增加
 Decrease
 减少
-Show chat message
-显示聊天消息
 Select shock intensity
 选择电击强度
 High
@@ -3067,6 +3077,12 @@ SourceCharacter sets DestinationCharacter AssetName to moderate intensity.
 SourceCharacter将DestinationCharacterAssetName设置为中强度。
 SourceCharacter sets DestinationCharacter AssetName to high intensity.
 SourceCharacter将DestinationCharacterAssetName设置为高强度。
+Select auto-shock sensitivity
+选择自动电击敏感度
+Shock Intensity
+电击强度
+Auto-shock Sensitivity
+自动电击强度
 SourceCharacter sets DestinationCharacter AssetName to manual mode.
 SourceCharacter将DestinationCharacterAssetName设置为手动模式。
 SourceCharacter sets DestinationCharacter AssetName to low sensitivity.
@@ -3583,6 +3599,14 @@ Exposed
 露出
 SourceCharacter unzips DestinationCharacter suit and fully exposes her breasts and pussy.
 SourceCharacter拉开了DestinationCharacter套装上的拉链，将TargetPronounObject的胸部和阴部完全展示出来。
+Select egg intensity
+选择跳蛋强度
+Select dildo intensity
+选择假阳具强度
+Egg Intensity
+跳蛋强度
+Dildo Intensity
+假阳具强度
 SourceCharacter chains DestinationCharacter mittens to the baby harness.
 SourceCharacter用锁链把DestinationCharacter无指手套连接到婴儿束带。
 Unlock Butt
@@ -3656,8 +3680,6 @@ DestinationCharacter高科技快感管理内裤前部和后部的贞操护盾打
 The front chastity shields on DestinationCharacter sci-fi pleasure panties closes.
 DestinationCharacter高科技快感管理内裤前部的贞操护盾关闭了。
 The read chastity shields on DestinationCharacter sci-fi pleasure panties closes.
-DestinationCharacter高科技快感管理内裤后部的贞操护盾关闭了。
-The rear chastity shields on DestinationCharacter sci-fi pleasure panties closes.
 DestinationCharacter高科技快感管理内裤后部的贞操护盾关闭了。
 The front and rear chastity shields on DestinationCharacter sci-fi pleasure panties close.
 DestinationCharacter高科技快感管理内裤前部和后部的贞操护盾关闭了。
@@ -4515,12 +4537,12 @@ Select Halo Type
 选择光环类型
 Broken
 损坏
-Brightness
-亮度
 SourceCharacter mends DestinationCharacter AssetName
 SourceCharacter修好了DestinationCharacterAssetName。
 SourceCharacter shatters DestinationCharacter AssetName
 SourceCharacter打碎了DestinationCharacterAssetName。
+Brightness
+亮度
 Select Features
 选择功能
 Configure Jacket
@@ -5203,8 +5225,6 @@ Adv. Layering
 进阶图层排序
 Right Gag Visible
 右侧口塞可见
-All GagsVisible
-所有口塞可见
 All Gags Visible
 所有口塞可见
 SourceCharacter adjusts the visibility of gags on DestinationCharacter smooth latex mask.
@@ -5259,8 +5279,6 @@ SourceCharacter turns on the lights of DestinationCharacter headbox.
 SourceCharacter打开了DestinationCharacter头盒里的灯光。
 All Hidden
 全部隐藏
-All Gags Visible
-所有口塞可见
 Blindfold Visible
 眼罩可见
 Blindfold and Right
@@ -5681,6 +5699,46 @@ No Mask
 没有面罩
 SourceCharacter changes the mask on DestinationCharacter respirator.
 SourceCharacter改变了DestinationCharacter呼吸器上的面罩。
+Select Filter Position
+选择过滤器位置
+Filter Position
+过滤器位置
+Beneath Hair
+头发下面
+Over Hair
+头发上面
+SourceCharacter adjusts the fit of the filters on DestinationCharacter respirator
+SourceCharacter调整了DestinationCharacter呼吸器过滤器的位置。
+Choose how the rags will look like
+选择破布看起来的样式
+Rag State
+破布状态
+Choose the tear and filthyness of the rags
+选择破布的撕扯和污渍
+Old Rags
+旧破布
+Filthy Old Rags
+肮脏的旧破布
+Torn Rags
+扯坏的破布
+Stained Torn Rags
+污染的扯坏破布
+SourceCharacter puts some old rags over DestinationCharacter body.
+SourceCharacter在DestinationCharacter身体上搭了一些旧破布。
+SourceCharacter puts some old and filthy rags over DestinationCharacter body.
+SourceCharacter在DestinationCharacter身体上搭了一些又旧又脏的破布。
+SourceCharacter puts some torn rags over DestinationCharacter body.
+SourceCharacter在DestinationCharacter身体上搭了一些扯坏的破布。
+SourceCharacter puts some torn and filthy rags over DestinationCharacter body.
+SourceCharacter在DestinationCharacter身体上搭了一些肮脏的扯坏的破布。
+Choose how to tie the rags
+选择如何系住破布
+SourceCharacter doesnt tie DestinationCharacter rags.
+SourceCharacter没有系上DestinationCharacter破布。
+SourceCharacter loosely ties a rope around DestinationCharacter rags.
+SourceCharacter在DestinationCharacter破布上松垮地系上绳子。
+SourceCharacter locks a chain to hold DestinationCharacter rags.
+SourceCharacter在DestinationCharacter破布上锁上链条。
 [GGTS] GGTS control public room.  Be good girl SourceCharacter.
 [GGTS] 该公开房间由GGTS控制。SourceCharacter，做个好姑娘。
 [GGTS] Launching GGTS private room.  Time counts triple.  GGTS more active.  Good girl follow commands.  Three strikes equal punishment.  GGTS in control.  Be good girl SourceCharacter.

@@ -283,7 +283,7 @@ var AssetFemale3DCG = [
 				],
 			},
 			{
-				Name: "SlaveRags", Gender: "F", Value: 5, BuyGroup: "SlaveRags", Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead"], DefaultColor: ["#886D5D", "#886D58", "#8B6945", "Default"],
+				Name: "SlaveRags", Gender: "F", Prerequisite: ["HasBreasts"], Value: 5, BuyGroup: "SlaveRags", Extended: true, AllowPose: ["AllFours", "TapedHands", "BackBoxTie", "BackCuffs", "BackElbowTouch", "Yoked", "Hogtied", "OverTheHead", "Suspension"], DefaultColor: ["#886D5D", "#886D58", "#8B6945", "Default"],
 				Layer: [
 				{Name: "Base", HasType: false, AllowModuleTypes: ["c0", "c1"]},
 				{Name: "BaseStains", HasType: false, AllowModuleTypes: ["c1"]},
@@ -1361,7 +1361,8 @@ var AssetFemale3DCG = [
 			{ Name: "AnkleStrapShoes", Priority: 22, Value: 30, HideForPose: ["Kneel", "KneelingSpread"], Alpha: [{ Group: ["Socks"], Masks: [[130, 925, 270, 130]] }], Height: 4 },
 			{ Name: "Shoes5", Value: 30, HideForPose: ["Kneel", "KneelingSpread"], Alpha: [{ Group: ["Socks"], Masks: [[130, 925, 270, 130]] }], Height: 4 },
 			{ Name: "FuturisticHeels2", Value: 50, Difficulty: 7, Time: 10, RemoveTime: 20,
-				Left: 75, DefaultColor: ["Default", "#50913C", "Default", "Default", "Default", "#aaaaaa", "Default"], Random: false, AllowLock: true, DrawLocks: false, Audio: "FuturisticApply", BuyGroup: "FuturisticHeels", DynamicGroupName: "ItemBoots", Extended: true, FuturisticRecolor: true, Effect: [],
+				Left: 75, DefaultColor: ["Default", "#50913C", "Default", "Default", "Default", "#aaaaaa", "Default"], Random: false, AllowLock: false,
+				DrawLocks: false, Audio: "FuturisticApply", BuyGroup: "FuturisticHeels", DynamicGroupName: "ItemBoots", Extended: true, FuturisticRecolor: true, Effect: [],
 				AllowPose: ["LegsClosed", "Kneel", "Hogtied", "Spread"],
 				HideForPose: ["Kneel", "KneelingSpread"],
 				Layer: [
@@ -1370,7 +1371,6 @@ var AssetFemale3DCG = [
 					{ Name: "Cuffs", ParentGroup: null, HasType: false },
 					{ Name: "Trim", ParentGroup: null, HasType: false },
 					{ Name: "Soles", ParentGroup: null, HasType: false },
-					{ Name: "Lock", LockLayer: true, HasType: false ,AllowColorize: true, ParentGroup: null},
 				], Alpha: [
 					{ Group: ["BodyLower", "Socks", "SuitLower"], Masks: [[75, 860, 350, 120]] },
 					{ Group: ["BodyLower", "Socks", "SuitLower"], Pose: ["LegsClosed"], Masks: [[75, 870, 350, 150]] },
@@ -6339,9 +6339,9 @@ var AssetFemale3DCG = [
 					{ Name: "Straps", HasType: false, AllowModuleTypes:["s1"],},
 					{ Name: "StrapShade", HasType: false, AllowModuleTypes:["s1"],AllowColorize: false,},
 
-					{ Name: "Base", HasType: false, AllowModuleTypes:["m0"], },
-					{ Name: "Shade", HasType: false, AllowColorize: false, AllowModuleTypes:["m0"],},
-					{ Name: "RoundedShine", HasType: false, AllowModuleTypes:["m0"],},
+					{ Name: "Base", HasType: false, AllowModuleTypes:["m0","m1"], },
+					{ Name: "Shade", HasType: false, AllowColorize: false, AllowModuleTypes:["m0","m1"],},
+					{ Name: "RoundedShine", HasType: false, AllowModuleTypes:["m0","m1"],},
 
 					{ Name: "Filter", HasType: false, AllowModuleTypes: ["f1l0"]},
 					{ Name: "FilterFixing", HasType: false, AllowModuleTypes: ["f1l0"]},
