@@ -2425,11 +2425,6 @@ interface TypedItemConfig {
 	 */
 	ChangeWhenLocked?: boolean;
 	/**
-	 * An optional validation callback function which can be used by
-	 * items to run additional validation for cases that aren't covered by configuration
-	 */
-	Validate?: ExtendedItemValidateCallback<ExtendedItemOption>;
-	/**
 	 * Contains custom dictionary entries in the event that the base ones do not suffice.
 	 */
 	Dictionary?: TypedItemDictionaryCallback[];
@@ -2525,11 +2520,6 @@ interface TypedItemData {
 	 * item is locked (if set to false, the player must be able to unlock the item to change its type). Defaults to `true`
 	 */
 	changeWhenLocked?: boolean;
-	/**
-	 * An optional validation callback function which can be used by
-	 * items to run additional validation for cases that aren't covered by configuration
-	 */
-	validate?: ExtendedItemValidateCallback<ExtendedItemOption>;
 	/**
 	 * A recond containing functions that are run on load, click, draw, exit, validate and publishaction,
 	 * with the original archetype function and parameters passed on to them. If undefined, these are ignored.
