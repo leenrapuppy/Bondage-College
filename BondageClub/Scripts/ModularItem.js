@@ -86,6 +86,7 @@ function ModularItemRegister(asset, config) {
 	ModularItemCreateDrawFunction(data);
 	ModularItemCreateClickFunction(data);
 	ModularItemCreateExitFunction(data);
+	ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate, data.changeWhenLocked);
 	ModularItemGenerateValidationProperties(data);
 }
 
