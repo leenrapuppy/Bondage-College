@@ -601,13 +601,14 @@ function ExtendedItemValidate(C, Item, { Prerequisite, Property }, CurrentOption
 }
 
 /**
- * Simple getter for the function prefix used for the currently focused extended item - used for calling standard
+ * Simple getter for the function prefix used for the passed extended item - used for calling standard
  * extended item functions (e.g. if the currently focused it is the hemp rope arm restraint, this will return
  * "InventoryItemArmsHempRope", allowing functions like InventoryItemArmsHempRopeLoad to be called)
+ * @param {Item} Item - The extended item in question; defaults to {@link DialogFocusItem}
  * @returns {string} The extended item function prefix for the currently focused item
  */
-function ExtendedItemFunctionPrefix() {
-	var Asset = DialogFocusItem.Asset;
+function ExtendedItemFunctionPrefix(Item=DialogFocusItem) {
+	const Asset = Item.Asset;
 	return "Inventory" + Asset.Group.Name + Asset.Name;
 }
 
