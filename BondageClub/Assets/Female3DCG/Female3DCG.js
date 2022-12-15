@@ -4393,7 +4393,7 @@ var AssetFemale3DCG = [
 			},
 			{ Name: "SleepSac", Gender: "F", Fetish: ["Latex"], Value: 150, Difficulty: 10, SelfBondage: 6, Time: 30, RemoveTime: 40, Left: 0, Top: 0, AllowLock: true, DrawLocks: false, Random: false,
 				SetPose: ["BackElbowTouch", "LegsClosed"],
-				Effect: ["Block", "Prone"],
+				Effect: ["Block", "Prone", "Slow"],
 				Prerequisite: ["NotHogtied", "NotMounted", "NoFeetSpreader", "HasBreasts"],
 				Hide: ["Cloth", "Suit", "ClothLower", "SuitLower", "Shoes", "BodyLower", "Socks", "Panties", "ItemPelvis", "Garters", "LeftHand", "RightHand", "ItemBoots", "ItemLegs", "ItemFeet", "ItemButt", "TailStraps", "Wings"],
 				HideItem: ["PantiesPoofyDiaper", "PantiesBulkyDiaper", "ItemPelvisPoofyDiaper", "ItemPelvisBulkyDiaper", "ClothAccessoryPoncho"],
