@@ -20,7 +20,7 @@ function InventoryItemArmsFullLatexSuitDraw(OriginalFunction) {
 
 	const C = CharacterGetCurrent();
 	const CanEquip = InventoryGet(C, "ItemVulva") == null;
-	ExtendedItemCustomDraw("Wand", ...ExtendedXY[6][4], true, !CanEquip)
+	ExtendedItemCustomDraw(`${Data.dialog.typePrefix}Wand`, ...ExtendedXY[6][4], true, !CanEquip);
 }
 
 /**
