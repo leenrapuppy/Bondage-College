@@ -400,8 +400,10 @@ function KinkyDungeonLock(item, lock) {
 			if (lock == "Gold") item.lockTimer = Math.min(KinkyDungeonMaxLevel - 1, MiniGameKinkyDungeonLevel + 2);
 			InventoryLock(KinkyDungeonPlayer, InventoryGet(KinkyDungeonPlayer, KDRestraint(item).AssetGroup ? KDRestraint(item).AssetGroup : KDRestraint(item).Group), "IntricatePadlock", Player.MemberNumber, true);
 			item.pickProgress = 0;
-			if (InventoryGet(KinkyDungeonPlayer,  KDRestraint(item).AssetGroup ? KDRestraint(item).AssetGroup : KDRestraint(item).Group) && !KinkyDungeonRestraintsLocked.includes(KDRestraint(item).AssetGroup ? KDRestraint(item).AssetGroup : KDRestraint(item).Group))
-				InventoryLock(Player, InventoryGet(Player,  KDRestraint(item).AssetGroup ? KDRestraint(item).AssetGroup : KDRestraint(item).Group), "IntricatePadlock", null, true);
+			if (ArcadeDeviousChallenge && InventoryGet(KinkyDungeonPlayer,  KDRestraint(item).AssetGroup ? KDRestraint(item).AssetGroup : KDRestraint(item).Group) && !KinkyDungeonRestraintsLocked.includes(KDRestraint(item).AssetGroup ? KDRestraint(item).AssetGroup : KDRestraint(item).Group)) {
+				InventoryLock(Player, InventoryGet(Player,  KDRestraint(item).AssetGroup ? KDRestraint(item).AssetGroup : KDRestraint(item).Group), "IntricatePadlock", null, false);
+				KinkyDungeonPlayerNeedsRefresh = true;
+			}
 		}
 	} else {
 		item.lock = lock;
@@ -2405,8 +2407,12 @@ function KinkyDungeonAddRestraint(restraint, Tightness, Bypass, Lock, Keep, Link
 					Player, placed.Asset) &&
 					(!InventoryGetLock(InventoryGet(Player, AssetGroup))
 					|| (InventoryGetLock(InventoryGet(Player, AssetGroup)).Asset.OwnerOnly == false && InventoryGetLock(InventoryGet(Player, AssetGroup)).Asset.LoverOnly == false))) {
-					InventoryWear(Player, restraint.Asset, AssetGroup, color);
-					placedOnPlayer = true;
+					const asset = AssetGet(Player.AssetFamily, AssetGroup, restraint.Asset);
+					if (asset) {
+						placedOnPlayer = true;
+						CharacterAppearanceSetItem(Player, AssetGroup, asset, color || asset.DefaultColor, 0, null, false);
+						KinkyDungeonPlayerNeedsRefresh = true;
+					}
 				}
 				if (placed && !placed.Property) placed.Property = {};
 				if (restraint.Type) {
@@ -2416,9 +2422,11 @@ function KinkyDungeonAddRestraint(restraint, Tightness, Bypass, Lock, Keep, Link
 					const option = options.find(o => o.Name === restraint.Type);
 					ExtendedItemSetType(KinkyDungeonPlayer, options, option);
 					if (placedOnPlayer) {
-						Player.FocusGroup = AssetGroupGet("Female3DCG", AssetGroup);
-						ExtendedItemSetType(Player, options, option);
-						Player.FocusGroup = null;
+						const playerItem = InventoryGet(Player, AssetGroup);
+						if (playerItem) {
+							TypedItemSetOption(Player, playerItem, options, option, false);
+							KinkyDungeonPlayerNeedsRefresh = true;
+						}
 					}
 					KinkyDungeonPlayer.FocusGroup = null;
 				}
@@ -2524,11 +2532,12 @@ function KinkyDungeonRemoveRestraint(Group, Keep, Add, NoEvent, Shrine, UnLink) 
 				if (ArcadeDeviousChallenge && KinkyDungeonDeviousDungeonAvailable() && !KinkyDungeonRestraintsLocked.includes(AssetGroup) && InventoryGet(Player, AssetGroup) &&
 					(!InventoryGetLock(InventoryGet(Player, AssetGroup)) || (InventoryGetLock(InventoryGet(Player, AssetGroup)).Asset.OwnerOnly == false && InventoryGetLock(InventoryGet(Player, Group)).Asset.LoverOnly == false))
 					&& Group != "ItemHead") {
-					InventoryRemove(Player, AssetGroup);
+					InventoryRemove(Player, AssetGroup, false);
 					if (Group == "ItemNeck" && !Add) {
-						InventoryRemove(Player, "ItemNeckAccessories");
-						InventoryRemove(Player, "ItemNeckRestraints");
+						InventoryRemove(Player, "ItemNeckAccessories", false);
+						InventoryRemove(Player, "ItemNeckRestraints", false);
 					}
+					KinkyDungeonPlayerNeedsRefresh = true;
 				}
 
 				if (rest.inventory && (Keep || rest.enchanted || rest.alwaysKeep)) {
