@@ -2347,6 +2347,8 @@ interface ModularItemOptionBase {
 	Name?: string;
 	/** A unique (automatically assigned) identifier of the struct type */
 	OptionType?: "ModularItemOption";
+	/** Trigger this expression when changing to this option */
+	Expression?: ExpressionTrigger[];
 }
 
 /** An object describing a single option within a module for a modular item. */

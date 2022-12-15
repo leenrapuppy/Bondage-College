@@ -665,6 +665,11 @@ function ModularItemSetType(module, index, data) {
 
 		if (!IsCloth) {
 			const groupName = data.asset.Group.Name;
+
+			// If the item triggers an expression, start the expression change
+			if (option.Expression) {
+				InventoryExpressionTriggerApply(C, option.Expression);
+			}
 			CharacterRefresh(C);
 			ChatRoomCharacterItemUpdate(C, groupName);
 
