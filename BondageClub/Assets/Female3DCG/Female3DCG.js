@@ -8098,6 +8098,12 @@ var PoseFemale3DCGNames = PoseFemale3DCG.map(pose => pose.Name);
 		Prerequisite: ["UseFeet", "TargetKneeling"],
 		Target: ["ItemBreast", "ItemButt", "ItemHead", "ItemNeck", "ItemNose", "ItemPelvis", "ItemTorso", "ItemTorso2",],
 	},
+	{
+		Name: "Kick",
+		MaxProgress: 25,
+		Prerequisite: ["UseFeet"],
+		Target: ["ItemButt", "ItemLegs", "ItemBoots", "ItemFeet", "ItemVulva", "ItemVulvaPiercings"],
+	},
 	/* Body activities */
 	{
 		Name: "Cuddle",
