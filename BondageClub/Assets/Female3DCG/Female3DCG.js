@@ -1554,13 +1554,37 @@ var AssetFemale3DCG = [
 		PreviewZone: [125, 0, 250, 250],
 		DynamicGroupName: "HairAccessory1",
 		Asset: [
-			{ Name: "Ribbons1", Priority: 4, BuyGroup: "Ribbons1" },
-			{ Name: "Ribbons2", Priority: 4, Value: -1, BuyGroup: "Ribbons2" },
-			{ Name: "Ribbons3", BuyGroup: "Ribbons3" },
-			{ Name: "Ribbons4", BuyGroup: "Ribbons4" },
-			{ Name: "GiantBow1", Priority: 4, BuyGroup: "GiantBow1" },
-			{ Name: "HairFlower1", Value: -1, BuyGroup: "HairFlower1" },
-			{ Name: "WeddingVeil1", Priority: 4, Value: -1, BuyGroup: "WeddingVeil1" },
+			{ Name: "Ribbons1", Priority: 4, BuyGroup: "Ribbons1"},
+			{ Name: "Ribbons2", Priority: 4, Value: -1, BuyGroup: "Ribbons2", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 90}
+				]
+			},
+			{ Name: "Ribbons3", BuyGroup: "Ribbons3", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 90}
+				]
+			},
+			{ Name: "Ribbons4", BuyGroup: "Ribbons4", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 88}
+				]
+			},
+			{ Name: "GiantBow1", Priority: 4, BuyGroup: "GiantBow1", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 90}
+				]
+			},
+			{ Name: "HairFlower1", Value: -1, BuyGroup: "HairFlower1", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 0, Left: 94}
+				]
+			},
+			{ Name: "WeddingVeil1", Priority: 4, Value: -1, BuyGroup: "WeddingVeil1", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 90}
+				]
+			},
 			{ Name: "HairFeathers1", Value: -1, BuyGroup: "HairFeathers1" },
 			{
 				Name: "Halo", Value: -1, BuyGroup: "Halo", Top: -100, Left: 0,
@@ -1585,58 +1609,164 @@ var AssetFemale3DCG = [
 		Top: 0,
 		PreviewZone: [125, 0, 250, 250],
 		Asset: [
-			{ Name: "Ears1", Fetish: ["Pet"], BodyCosplay: true },
-			{ Name: "Ears2", Fetish: ["Pet"], BodyCosplay: true },
-			{ Name: "PonyEars1", Fetish: ["Pony"], BodyCosplay: true },
+			{ Name: "Ears1", Fetish: ["Pet"], BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 30, Left: 90}
+				]
+			},
+			{ Name: "Ears2", Fetish: ["Pet"], BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 23, Left: 102}
+				]
+			},
+			{ Name: "PonyEars1", Fetish: ["Pony"], BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 90}
+				]
+			},
 			{ Name: "Ribbons1", Priority: 4, BuyGroup: "Ribbons1" },
-			{ Name: "Ribbons2", Priority: 4, Value: -1, BuyGroup: "Ribbons2" },
-			{ Name: "Ribbons3", BuyGroup: "Ribbons3" },
-			{ Name: "Ribbons4", BuyGroup: "Ribbons4" },
-			{ Name: "GiantBow1", Priority: 4, BuyGroup: "GiantBow1" },
-			{ Name: "BunnyEars1", Fetish: ["Pet"], Value: 10, BuyGroup: "BunnyEars1", BodyCosplay: true },
+			{ Name: "Ribbons2", Priority: 4, Value: -1, BuyGroup: "Ribbons2", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 90}
+				]
+			},
+			{ Name: "Ribbons3", BuyGroup: "Ribbons3", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 90}
+				]
+			},
+			{ Name: "Ribbons4", BuyGroup: "Ribbons4", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 88}
+				]
+			},
+			{ Name: "GiantBow1", Priority: 4, BuyGroup: "GiantBow1", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 90}
+				]
+			},
+			{ Name: "BunnyEars1", Fetish: ["Pet"], Value: 10, BuyGroup: "BunnyEars1", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], Priority: 12, CopyLayerColor: "Long" , Top: 30, Left: 95}
+				]
+			},
 			{
 				Name: "BunnyEars2", Fetish: ["Pet"], Value: 20, BuyGroup: "BunnyEars2", BodyCosplay: true, Layer: [
-					{ Name: "Outer" },
-					{ Name: "Inner" },
+					{ Name: "Outer", HideForAttribute: ["ShortHair"] },
+					{ Name: "Inner", HideForAttribute: ["ShortHair"] },
+					{ Name: "OuterShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Outer" , Top: 23, Left: 90},
+					{ Name: "InnerShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Inner" , Top: 23, Left: 90}
 				]
 			},
-			{ Name: "PuppyEars1", Fetish: ["Pet"], Priority: 6, Value: 20, BuyGroup: "PuppyEars1", BodyCosplay: true },
-			{ Name: "SuccubusHorns", Fetish: ["Pet"], Value: 15, BuyGroup: "SuccubusHorns", BodyCosplay: true },
-			{ Name: "Horns", Fetish: ["Pet"], Value: 20, BuyGroup: "Horns", BodyCosplay: true },
+			{ Name: "PuppyEars1", Fetish: ["Pet"], Priority: 6, Value: 20, BuyGroup: "PuppyEars1", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 88}
+				]
+			},
+			{ Name: "SuccubusHorns", Fetish: ["Pet"], Value: 15, BuyGroup: "SuccubusHorns", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 90}
+				]
+			},
+			{ Name: "Horns", Fetish: ["Pet"], Value: 20, BuyGroup: "Horns", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 90}
+				]
+			},
 			{ Name: "Horns2", Fetish: ["Pet"], Value: 15, BuyGroup: "Horns2", BodyCosplay: true },
-			{ Name: "Horns3", Fetish: ["Pet"], Value: 15, BuyGroup: "Horns3", BodyCosplay: true },
-			{ Name: "HairFlower1", Value: 10, BuyGroup: "HairFlower1" },
-			{ Name: "FoxEars1", Fetish: ["Pet"], Value: 15, BuyGroup: "FoxEars1", BodyCosplay: true },
-			{ Name: "BatWings", Fetish: ["Pet"], Value: 20, BuyGroup: "BatWings", BodyCosplay: true },
+			{ Name: "Horns3", Fetish: ["Pet"], Value: 15, BuyGroup: "Horns3", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 93}
+				]
+			},
+			{ Name: "HairFlower1", Value: 10, BuyGroup: "HairFlower1", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 0, Left: 94}
+				]
+			},
+			{ Name: "FoxEars1", Fetish: ["Pet"], Value: 15, BuyGroup: "FoxEars1", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 21, Left: 91}
+				]
+			},
+			{ Name: "BatWings", Fetish: ["Pet"], Value: 20, BuyGroup: "BatWings", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 89}
+				]
+			},
 			{ Name: "KittenEars1", Fetish: ["Pet"], Value: 20, BuyGroup: "KittenEars1", BodyCosplay: true,
 				Layer: [
-					{ Name: "Outer" },
-					{ Name: "Inner" },
+					{ Name: "Outer", HideForAttribute: ["ShortHair"] },
+					{ Name: "Inner", HideForAttribute: ["ShortHair"] },
+					{ Name: "OuterShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Outer" , Top: 30, Left: 115},
+					{ Name: "InnerShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Inner" , Top: 30, Left: 115}
 				]
 			},
-			{ Name: "KittenEars2", Fetish: ["Pet"], Value: 20, BuyGroup: "KittenEars2", BodyCosplay: true },
-			{ Name: "WolfEars1", Fetish: ["Pet"], Value: 20, BuyGroup: "WolfEars1", BodyCosplay: true },
-			{ Name: "WolfEars2", Fetish: ["Pet"], Value: 20, BuyGroup: "WolfEars2", BodyCosplay: true },
+			{ Name: "KittenEars2", Fetish: ["Pet"], Value: 20, BuyGroup: "KittenEars2", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 28, Left: 90}
+				]
+			},
+			{ Name: "WolfEars1", Fetish: ["Pet"], Value: 20, BuyGroup: "WolfEars1", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 25, Left: 94}
+				]
+			},
+			{ Name: "WolfEars2", Fetish: ["Pet"], Value: 20, BuyGroup: "WolfEars2", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 15, Left: 90}
+				]
+			},
 			{ Name: "FoxEars2", Fetish: ["Pet"], Value: 20, BuyGroup: "FoxEars2", BodyCosplay: true,
 				Layer: [
-					{ Name: "Outer" },
-					{ Name: "Inner" },
+					{ Name: "Outer", HideForAttribute: ["ShortHair"] },
+					{ Name: "Inner", HideForAttribute: ["ShortHair"] },
+					{ Name: "OuterShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Outer" , Top: 17, Left: 91},
+					{ Name: "InnerShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Inner" , Top: 17, Left: 91}
 				]
 			},
 			{ Name: "FoxEars3", Fetish: ["Pet"], Value: 20, BuyGroup: "FoxEars3", BodyCosplay: true, Layer:[
-				{ Name: "EarOuter"},
-				{ Name: "EarInner"},
-				{ Name: "Strap"},
-				{ Name: "Bell"}
+				{ Name: "EarOuter", HideForAttribute: ["ShortHair"] },
+				{ Name: "EarInner", HideForAttribute: ["ShortHair"] },
+				{ Name: "Strap", HideForAttribute: ["ShortHair"] },
+				{ Name: "Bell", HideForAttribute: ["ShortHair"] },
+				{ Name: "EarOuterShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "EarOuter" , Top: 22, Left: 92},
+				{ Name: "EarInnerShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "EarInner" , Top: 22, Left: 92},
+				{ Name: "StrapShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Strap" , Top: 22, Left: 92},
+				{ Name: "BellShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Bell" , Top: 22, Left: 92}
 			]},
-			{ Name: "PuppyEars2", Fetish: ["Pet"], Value: 20, BuyGroup: "PuppyEars2", BodyCosplay: true },
-			{ Name: "RaccoonEars1", Fetish: ["Pet"], Value: 15, BuyGroup: "RaccoonEars1", BodyCosplay: true },
-			{ Name: "WeddingVeil1", Priority: 4, Value: 30, BuyGroup: "WeddingVeil1" },
+			{ Name: "PuppyEars2", Fetish: ["Pet"], Value: 20, BuyGroup: "PuppyEars2", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 15, Left: 90}
+				]
+			},
+			{ Name: "RaccoonEars1", Fetish: ["Pet"], Value: 15, BuyGroup: "RaccoonEars1", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 15, Left: 94}
+				]
+			},
+			{ Name: "WeddingVeil1", Priority: 4, Value: 30, BuyGroup: "WeddingVeil1", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 90}
+				]
+			},
 			{ Name: "HairFeathers1", Value: 10, BuyGroup: "HairFeathers1" },
-			{ Name: "MouseEars1", Fetish: ["Pet"], Value: 20, BuyGroup: "MouseEars1", BodyCosplay: true },
-			{ Name: "MouseEars2", Fetish: ["Pet"], Value: 20, BuyGroup: "MouseEars2", BodyCosplay: true },
+			{ Name: "MouseEars1", Fetish: ["Pet"], Value: 20, BuyGroup: "MouseEars1", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 12, Left: 85}
+				]
+			},
+			{ Name: "MouseEars2", Fetish: ["Pet"], Value: 20, BuyGroup: "MouseEars2", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 17, Left: 93}
+				]
+			},
 			{ Name: "ElfEars", Value: 20, BuyGroup: "ElfEars", BodyCosplay: true, InheritColor: "BodyUpper", Extended: true, HasType: false },
-			{ Name: "CowHorns", Fetish: ["Pet"], Value: 15, BuyGroup: "CowHorns", BodyCosplay: true },
+			{ Name: "CowHorns", Fetish: ["Pet"], Value: 15, BuyGroup: "CowHorns", BodyCosplay: true, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 15, Left: 89}
+				]
+			},
 			{
 				Name: "Halo", Value: 20, BuyGroup: "Halo", Top: -100, Left: 0,
 				DefaultColor: ["#fe6", "#fe6", "#fff"], Extended: true, MinOpacity: 0, Opacity: 0,
@@ -1646,7 +1776,11 @@ var AssetFemale3DCG = [
 					{ Name: "Core", Opacity: 0, }
 				],
 			},
-			{ Name: "Antennae", Value: 10, BuyGroup: "Antennae", BodyCosplay: true, DefaultColor: "#151A1F" },
+			{ Name: "Antennae", Value: 10, BuyGroup: "Antennae", BodyCosplay: true, DefaultColor: "#151A1F", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 21, Left: 89}
+				]
+			},
 			{ Name: "UnicornHorn", Value: 50, DefaultColor: "#EBAACB", BuyGroup: "UnicornHorn", BodyCosplay: true, AllowActivity: ["PenetrateItem"], Top: -30,
 				Layer: [
 					{ Name: "Base"},
@@ -1675,53 +1809,138 @@ var AssetFemale3DCG = [
 		PreviewZone: [125, 0, 250, 250],
 		DynamicGroupName: "HairAccessory1",
 		Asset: [
-			{ Name: "Ears1", Fetish: ["Pet"] },
-			{ Name: "Ears2", Fetish: ["Pet"] },
-			{ Name: "PonyEars1", Fetish: ["Pony"] },
-			{ Name: "BunnyEars1", Fetish: ["Pet"], Value: -1, BuyGroup: "BunnyEars1" },
+			{ Name: "Ears1", Fetish: ["Pet"], Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 30, Left: 90}
+				]
+			},
+			{ Name: "Ears2", Fetish: ["Pet"], Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 23, Left: 102}
+				]
+			},
+			{ Name: "PonyEars1", Fetish: ["Pony"], Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 90}
+				]
+			},
+			{ Name: "BunnyEars1", Fetish: ["Pet"], Value: -1, BuyGroup: "BunnyEars1", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], Priority: 12, CopyLayerColor: "Long" , Top: 30, Left: 95}
+				]
+			},
 			{
 				Name: "BunnyEars2", Fetish: ["Pet"], Value: -1, BuyGroup: "BunnyEars2", Layer: [
-					{ Name: "Outer" },
-					{ Name: "Inner" },
+					{ Name: "Outer", HideForAttribute: ["ShortHair"] },
+					{ Name: "Inner", HideForAttribute: ["ShortHair"] },
+					{ Name: "OuterShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Outer" , Top: 23, Left: 90},
+					{ Name: "InnerShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Inner" , Top: 23, Left: 90}
 				]
 			},
-			{ Name: "PuppyEars1", Fetish: ["Pet"], Priority: 29, Value: -1, BuyGroup: "PuppyEars1" },
-			{ Name: "SuccubusHorns", Fetish: ["Pet"], Value: -1, BuyGroup: "SuccubusHorns" },
-			{ Name: "Horns", Fetish: ["Pet"], Value: -1, BuyGroup: "Horns" },
+			{ Name: "PuppyEars1", Fetish: ["Pet"], Priority: 29, Value: -1, BuyGroup: "PuppyEars1", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 88}
+				]
+			},
+			{ Name: "SuccubusHorns", Fetish: ["Pet"], Value: -1, BuyGroup: "SuccubusHorns", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 90}
+				]
+			},
+			{ Name: "Horns", Fetish: ["Pet"], Value: -1, BuyGroup: "Horns", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 90}
+				]
+			},
 			{ Name: "Horns2", Fetish: ["Pet"], Value: -1, BuyGroup: "Horns2" },
-			{ Name: "Horns3", Fetish: ["Pet"], Value: -1, BuyGroup: "Horns3" },
-			{ Name: "FoxEars1", Fetish: ["Pet"], Value: -1, BuyGroup: "FoxEars1" },
-			{ Name: "BatWings", Fetish: ["Pet"], Value: -1, BuyGroup: "BatWings" },
+			{ Name: "Horns3", Fetish: ["Pet"], Value: -1, BuyGroup: "Horns3", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 93}
+				]
+			},
+			{ Name: "FoxEars1", Fetish: ["Pet"], Value: -1, BuyGroup: "FoxEars1", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 21, Left: 91}
+				]
+			},
+			{ Name: "BatWings", Fetish: ["Pet"], Value: -1, BuyGroup: "BatWings", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 20, Left: 89}
+				]
+			},
 			{ Name: "KittenEars1", Fetish: ["Pet"], Value: -1, BuyGroup: "KittenEars1",
 				Layer: [
-					{ Name: "Outer" },
-					{ Name: "Inner" },
+					{ Name: "Outer", HideForAttribute: ["ShortHair"] },
+					{ Name: "Inner", HideForAttribute: ["ShortHair"] },
+					{ Name: "OuterShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Outer" , Top: 30, Left: 115},
+					{ Name: "InnerShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Inner" , Top: 30, Left: 115}
 				],
 			},
-			{ Name: "KittenEars2", Fetish: ["Pet"], Value: -1, BuyGroup: "KittenEars2" },
-			{ Name: "WolfEars1", Fetish: ["Pet"], Value: -1, BuyGroup: "WolfEars1" },
-			{ Name: "WolfEars2", Fetish: ["Pet"], Value: -1, BuyGroup: "WolfEars2" },
-			{ Name: "FoxEars2", Fetish: ["Pet"], Value: -1, BuyGroup: "FoxEars2",
-				Layer: [
-					{ Name: "Outer" },
-					{ Name: "Inner" },
-				],
-			},
-			{ Name: "FoxEars3", Fetish: ["Pet"], Value: -1, BuyGroup: "FoxEars3",
-				Layer:[
-					{ Name: "EarOuter"},
-					{ Name: "EarInner"},
-					{ Name: "Strap"},
-					{ Name: "Bell"}
+			{ Name: "KittenEars2", Fetish: ["Pet"], Value: -1, BuyGroup: "KittenEars2", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 28, Left: 90}
 				]
 			},
-			{ Name: "PuppyEars2", Fetish: ["Pet"], Value: -1, BuyGroup: "PuppyEars2" },
-			{ Name: "RaccoonEars1", Fetish: ["Pet"], Value: -1, BuyGroup: "RaccoonEars1" },
-			{ Name: "MouseEars1", Fetish: ["Pet"], Value: -1, BuyGroup: "MouseEars1" },
-			{ Name: "MouseEars2", Fetish: ["Pet"], Value: -1, BuyGroup: "MouseEars2" },
+			{ Name: "WolfEars1", Fetish: ["Pet"], Value: -1, BuyGroup: "WolfEars1", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 25, Left: 94}
+				]
+			},
+			{ Name: "WolfEars2", Fetish: ["Pet"], Value: -1, BuyGroup: "WolfEars2", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 15, Left: 90}
+				]
+			},
+			{ Name: "FoxEars2", Fetish: ["Pet"], Value: -1, BuyGroup: "FoxEars2",
+				Layer: [
+					{ Name: "Outer", HideForAttribute: ["ShortHair"] },
+					{ Name: "Inner", HideForAttribute: ["ShortHair"] },
+					{ Name: "OuterShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Outer" , Top: 17, Left: 91},
+					{ Name: "InnerShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Inner" , Top: 17, Left: 91}
+				]
+			},
+			{ Name: "FoxEars3", Fetish: ["Pet"], Value: -1, BuyGroup: "FoxEars3", Layer:[
+					{ Name: "EarOuter", HideForAttribute: ["ShortHair"] },
+					{ Name: "EarInner", HideForAttribute: ["ShortHair"] },
+					{ Name: "Strap", HideForAttribute: ["ShortHair"] },
+					{ Name: "Bell", HideForAttribute: ["ShortHair"] },
+					{ Name: "EarOuterShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "EarOuter" , Top: 22, Left: 92},
+					{ Name: "EarInnerShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "EarInner" , Top: 22, Left: 92},
+					{ Name: "StrapShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Strap" , Top: 22, Left: 92},
+					{ Name: "BellShort", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Bell" , Top: 22, Left: 92}
+				]
+			},
+			{ Name: "PuppyEars2", Fetish: ["Pet"], Value: -1, BuyGroup: "PuppyEars2", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 15, Left: 90}
+				]
+			},
+			{ Name: "RaccoonEars1", Fetish: ["Pet"], Value: -1, BuyGroup: "RaccoonEars1", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 15, Left: 94}
+				]
+			},
+			{ Name: "MouseEars1", Fetish: ["Pet"], Value: -1, BuyGroup: "MouseEars1", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 12, Left: 85}
+				]
+			},
+			{ Name: "MouseEars2", Fetish: ["Pet"], Value: -1, BuyGroup: "MouseEars2", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 17, Left: 93}
+				]
+			},
 			{ Name: "ElfEars", Value: -1, BuyGroup: "ElfEars", InheritColor: "BodyUpper", Extended: true, HasType: false },
-			{ Name: "CowHorns", Fetish: ["Pet"], Value: -1, BuyGroup: "CowHorns" },
-			{ Name: "Antennae", Value: -1, BuyGroup: "Antennae", BodyCosplay: true, DefaultColor: "#151A1F" },
+			{ Name: "CowHorns", Fetish: ["Pet"], Value: -1, BuyGroup: "CowHorns", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 15, Left: 89}
+				]
+			},
+			{ Name: "Antennae", Value: -1, BuyGroup: "Antennae", BodyCosplay: true, DefaultColor: "#151A1F", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" , Top: 21, Left: 89}
+				]
+			},
 			{ Name: "UnicornHorn", Value: -1, DefaultColor: ["#EBAACB"], BuyGroup: "UnicornHorn", BodyCosplay: true,
 				Layer: [
 					{ Name: "Base"},
@@ -2316,55 +2535,55 @@ var AssetFemale3DCG = [
 			{ Name: "HairFront30" },
 			{ Name: "HairFront31" },
 			{ Name: "HairFront32" },
-			{ Name: "HairFront33", Random: false, Top: 33, Left: 150 },
-			{ Name: "HairFront34", Random: false, Priority: 8, Top: 33, Left: 150 },
-			{ Name: "HairFront35", Random: false, Priority: 8, Top: 33, Left: 150 },
-			{ Name: "HairFront36", Random: false, Priority: 8, Top: 33, Left: 150 },
-			{ Name: "HairFront37", Random: false, Top: 33, Left: 150 },
+			{ Name: "HairFront33", Random: false, Top: 33, Attribute: ["ShortHair"], Left: 150 },
+			{ Name: "HairFront34", Random: false, Priority: 8, Attribute: ["ShortHair"], Top: 33, Left: 150 },
+			{ Name: "HairFront35", Random: false, Priority: 8, Attribute: ["ShortHair"], Top: 33, Left: 150 },
+			{ Name: "HairFront36", Random: false, Priority: 8, Attribute: ["ShortHair"], Top: 33, Left: 150 },
+			{ Name: "HairFront37", Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150 },
 			{ Name: "HairFront38",
 			Layer: [
 				{ Name: "Main" },
 				{ Name: "Fade", Priority: 8 },
-			], Random: false, Top: 33, Left: 150 },
-			{ Name: "HairFront39", Random: false, Top: 33, Left: 100 },
+			], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150 },
+			{ Name: "HairFront39", Random: false, Attribute: ["ShortHair"], Top: 33, Left: 100 },
 			{ Name: "HairFront40",
 			Layer: [
 				{ Name: "Main" },
 				{ Name: "Fade", Priority: 8 },
-			], Random: false, Top: 33, Left: 100 },
-			{ Name: "HairFront41", Random: false, Top: 33, Left: 150 },
+			], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 100 },
+			{ Name: "HairFront41", Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150 },
 			{ Name: "HairFront42",
 			Layer: [
 				{ Name: "Main" },
 				{ Name: "Fade", Priority: 8 },
-			], Random: false, Top: 33, Left: 150 },
+			], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150 },
 			{ Name: "HairFront43",
 			Layer: [
 				{ Name: "Main" },
 				{ Name: "Fade", Priority: 8 },
-			], Random: false, Top: 33, Left: 150 },
+			], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150 },
 			{ Name: "HairFront44",
 			Layer: [
 				{ Name: "Main" },
 				{ Name: "Fade", Priority: 8 },
-			], Random: false, Top: 33, Left: 150 },
+			], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150 },
 			{ Name: "HairFront45",
 			Layer: [
 				{ Name: "Main" },
 				{ Name: "Fade", Priority: 8 },
 				{ Name: "Tint", Priority: 54 },
-			], Random: false, Top: 33, Left: 150 },
+			], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150 },
 			{ Name: "HairFront46",
 			Layer: [
 				{ Name: "Main" },
 				{ Name: "Fade", Priority: 8 },
-			], Random: false, Top: 33, Left: 150 },
+			], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150 },
 			{ Name: "HairFront47",
 			Layer: [
 				{ Name: "Main" },
 				{ Name: "Fade", Priority: 8 },
-			], Random: false, Top: 33, Left: 150 },
-			{ Name: "HairFront48", Priority: 8, Random: false, Top: 33, Left: 150 },
+			], Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150 },
+			{ Name: "HairFront48", Priority: 8, Random: false, Attribute: ["ShortHair"], Top: 33, Left: 150 },
 
 		],
 		Color: ["#6a3628", "#202020", "#dcc787", "#6c2132", "#999999", "#dddddd", "#e781b1", "#81e7b1", "#81b1e7", "#eeee99", "#ee9999", "#ee99ee"]
