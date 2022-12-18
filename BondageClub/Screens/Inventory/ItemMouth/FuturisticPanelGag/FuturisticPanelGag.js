@@ -76,7 +76,7 @@ function InventoryItemMouthFuturisticPanelGagClick(OriginalFunction) {
  * @return {void} Nothing
  */
 function InventoryItemMouthFuturisticPanelGagPublishActionTrigger(C, Item, OptionName, Deflate) {
-	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+	const Data = ExtendedItemGetData(Item, ExtendedArchetype.MODULAR);
 	const Prefix = (Data == null) ? "" : ModularItemCustomChatPrefix("Pump", Data);
 	const ActionTag = `${Prefix}Pump${Deflate ? "Deflate" : "Inflate"}${OptionName}`;
 
@@ -106,7 +106,7 @@ function InventoryItemMouthFuturisticPanelGagPublishActionTrigger(C, Item, Optio
  * @return {number[]} - The new module values
  */
 function InventoryItemMouthFuturisticPanelGagTriggerGetOptions(C, Item, Deflate, PreviousModuleValues) {
-	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+	const Data = ExtendedItemGetData(Item, ExtendedArchetype.MODULAR);
 	if (Data == null) {
 		return PreviousModuleValues;
 	}
@@ -155,7 +155,7 @@ function InventoryItemMouthFuturisticPanelGagTriggerGetOptions(C, Item, Deflate,
  */
 function InventoryItemMouthFuturisticPanelGagTrigger(C, Item, Deflate) {
 	// Construct the new module values following the deflation/inflation
-	const Data = ExtendedItemGetData(DialogFocusItem, ExtendedArchetype.MODULAR);
+	const Data = ExtendedItemGetData(Item, ExtendedArchetype.MODULAR);
 	if (Data == null) {
 		return;
 	}
