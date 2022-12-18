@@ -3293,8 +3293,8 @@ var AssetFemale3DCGExtended = {
 							{
 								Property:{
 									OverridePriority: 12,									
-									Block: ["ItemMouth", "ItemHead"],
-									Hide: ["ItemMouth", "ItemHead"],
+									Block: ["ItemHead"],
+									Hide: ["ItemHead"],
 								}
 							}, // All gags visible
 							{
