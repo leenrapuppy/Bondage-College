@@ -4465,7 +4465,7 @@ var AssetFemale3DCGExtended = {
 					{
 						Name: "Base",
 						Property: {
-							Type: "",
+							Type: null,
 							Effect: [],
 						},
 					},
