@@ -638,7 +638,7 @@ OwnerBeepFail,,,"(She shakes her head from left to right.)  My girl, it's very d
 30,31,I could take you as my sub.,It would be awesome Miss.  Do you really want to start a D/s trial period with me?,,DialogIsKneeling(CurrentCharacter),KneelingToSubmitToPlayer,
 30,31,I could take you as my sub.,I'm all fucking wet now.  You want to start a D/s trial period with me?,,DialogIsKneeling(CurrentCharacter),KneelingToSubmitToPlayer,Horny|Rude
 30,31,I could take you as my sub.,"My soul is shivering, it's like a dream that comes to fruition.  Do you really want to begin a D/s trial period with me?",,DialogIsKneeling(CurrentCharacter),KneelingToSubmitToPlayer,Frigid|Polite
-30,,Give me some time to think about it.,Of course Miss.,,,,
+30,0,Give me some time to think about it.,Of course Miss.  We can talk about something else.,,,,
 31,32,"Yes, we'll do a trial period.",Yes Miss.  And for how long should it last?,,,TrialPeriodPlayerAsDom,
 31,32,"Yes, we'll do a trial period.","Absolutely, trial periods are very important Miss.",,,TrialPeriodPlayerAsDom,Serious
 31,32,"Yes, we'll do a trial period.","Trial periods are boring, but I guess we can do a short one Miss.",,,TrialPeriodPlayerAsDom,Playful
