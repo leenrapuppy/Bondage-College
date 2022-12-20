@@ -38,12 +38,14 @@ function PropertyGetID(Name, Item=DialogFocusItem) {
 
 /**
  * Load function for items with opacity sliders. Constructs the opacity slider.
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @param {string} thumbIcon The icon to use for the range input's "thumb" (handle).
  * @returns {HTMLInputElement} - The new or pre-existing range input element of the opacity slider
  */
-function PropertyOpacityLoad(OriginalFunction, thumbIcon="blindfold") {
-	OriginalFunction();
+function PropertyOpacityLoad(OriginalFunction=null, thumbIcon="blindfold") {
+	if (OriginalFunction != null) {
+		OriginalFunction();
+	}
 	const ID = PropertyGetID("Opacity");
 	const Asset = DialogFocusItem.Asset;
 
@@ -70,14 +72,16 @@ function PropertyOpacityLoad(OriginalFunction, thumbIcon="blindfold") {
 
 /**
  * Draw function for items with opacity sliders. Draws the opacity slider and further opacity-related information.
- * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @param {null | (() => void)} OriginalFunction - The function that is normally called when an archetypical item reaches this point (if any).
  * @param {number} XOffset - An offset for all text and slider X coordinates
  * @param {number} YOffset - An offset for all text and slider Y coordinates
  * @param {string} LabelKeyword - The keyword of the opacity label
  * @returns {void} Nothing
  */
-function PropertyOpacityDraw(OriginalFunction, XOffset=0, YOffset=0, LabelKeyword="OpacityLabel") {
-	OriginalFunction();
+function PropertyOpacityDraw(OriginalFunction=null, XOffset=0, YOffset=0, LabelKeyword="OpacityLabel") {
+	if (OriginalFunction != null) {
+		OriginalFunction();
+	}
 	const ID = PropertyGetID("Opacity");
 
 	MainCanvas.textAlign = "right";
