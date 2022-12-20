@@ -2331,12 +2331,20 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "ShockModule", Key: "s",
+						DrawImages: false,
 						Options: [
-							{}, // s0 No Shock Module
-							{ HasSubscreen: true }, // s1 Shock Module
+							{ Property: { ShockLevel: 0 } },
+							{ Property: { ShockLevel: 1 } },
+							{ Property: { ShockLevel: 2 } },
 						],
 					},
 				],
+				BaselineProperty: { TriggerCount: 0, ShowText: true },
+				ScriptHooks: {
+					Click: InventoryItemArmsPrisonLockdownSuitClick,
+					Draw: InventoryItemArmsPrisonLockdownSuitDraw,
+				},
+				DrawImages: true,
 			},
 		}, // PrisonLockdownSuit
 		SmoothLeatherArmbinder1: {
@@ -2462,13 +2470,20 @@ var AssetFemale3DCGExtended = {
 					},
 					{
 						Name: "ShockModule", Key: "s",
+						DrawImages: false,
 						Options: [
-							{}, // s0 No Shock Module
-							{ HasSubscreen: true }, // s1 Shock Module
+							{ Property: { ShockLevel: 0 } },
+							{ Property: { ShockLevel: 1 } },
+							{ Property: { ShockLevel: 2 } },
 						],
 					},
 				],
-				ChangeWhenLocked: false,
+				BaselineProperty: { TriggerCount: 0, ShowText: true },
+				ScriptHooks: {
+					Click: InventoryItemArmsPrisonLockdownSuitClick,
+					Draw: InventoryItemArmsPrisonLockdownSuitDraw,
+				},
+				DrawImages: true,
 			},
 		}, //TechnoCollar
 		ComboHarness: {
@@ -2688,11 +2703,11 @@ var AssetFemale3DCGExtended = {
 					{ Name: "High", Property: { Type: "High", ShockLevel: 2 } },
 				],
 				ScriptHooks: {
-					Draw: InventoryItemNeckAccessoriesCollarShockUnitDraw,
-					Click: InventoryItemNeckAccessoriesCollarShockUnitClick,
+					Draw: InventoryItemNeckAccessoriesCollarShockUnitDrawFunc,
+					Click: InventoryItemNeckAccessoriesCollarShockUnitClickFunc,
 				},
 				DrawImages: false,
-				BaselineProperty: { TriggerCount: 0, ShowText: true, BlinkState: false }
+				BaselineProperty: { TriggerCount: 0, ShowText: true, BlinkState: false },
 			},
 		}, // CollarShockUnit
 		CollarAutoShockUnit: {
