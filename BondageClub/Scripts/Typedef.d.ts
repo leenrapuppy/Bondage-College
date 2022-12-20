@@ -2186,6 +2186,8 @@ interface ModularItemConfig {
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ModularItemConfig.ScriptHooks} functions.
 	 */
 	BaselineProperty?: ItemProperties;
+	/** A boolean indicating whether or not images should be drawn for the module selection screen. */
+	DrawImages?: boolean;
 }
 
 interface ModularItemDialogConfig {
@@ -2229,7 +2231,7 @@ interface ModularItemModuleBase {
 	AllowSelfSelect?: boolean;
 	/** A unique (automatically assigned) identifier of the struct type */
 	OptionType?: "ModularItemModule";
-	/** A boolean indicating whether or not images should be drawn for this particular module. */
+	/** A boolean indicating whether or not images should be drawn within this particular module. */
 	DrawImages?: boolean;
 }
 
@@ -2239,7 +2241,7 @@ interface ModularItemModule extends ModularItemModuleBase {
 	OptionType: "ModularItemModule";
 	/** The list of option definitions that can be chosen within this module. */
 	Options: ModularItemOption[];
-	/** A boolean indicating whether or not images should be drawn for this particular module. */
+	/** A boolean indicating whether or not images should be drawn within this particular module. */
 	DrawImages: boolean;
 }
 
@@ -2378,7 +2380,10 @@ interface ModularItemData {
 	 * Relevant if there are properties that are (near) exclusively managed by {@link ModularItemData.scriptHooks} functions.
 	 */
 	BaselineProperty: ItemProperties | null;
-	/** A boolean indicating whether or not images should be drawn in this item's extended item menu. Automatically generated based on {@link ModularItemModule.drawImage} */
+	/**
+	 * A boolean indicating whether or not images should be drawn for the module selection screen.
+	 * Automatically generated based on {@link ModularItemModule.DrawImages} if not explicitly specified.
+	 */
 	drawImages: boolean;
 }
 
