@@ -7468,7 +7468,7 @@ var AssetFemale3DCGExtended = {
 						Options: [
 							{}, // o0 - Normal
 							{ Property: { Effect: ["DenialMode"] } }, // o1 - Edge
-							{ Property: { Effect: ["RuinOrgasms"] } }, // o2 - Deny
+							{ Property: { Effect: ["DenialMode", "RuinOrgasms"] } }, // o2 - Deny
 						],
 					},
 					{
