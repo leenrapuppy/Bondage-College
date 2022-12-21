@@ -1205,6 +1205,12 @@ var AssetFemale3DCG = [
 			{ Name: "ReverseBunnySuit", Fetish: ["Nylon", "Pet"], Left: 95, Top: 380, Value: 100, DynamicGroupName: "SuitLower", BuyGroup: "ReverseBunnySuit" },
 			{ Name: "LeatherSocks1", Fetish: ["Leather"], Value: 20, HideForPose: ["KneelingSpread"] },
 			{ Name: "Pantyhose2", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Value: 10, BuyGroup: "Pantyhose2" },
+			{ Name: "GradientPantyhose", Gender: "F", Prerequisite: ["HasVagina"], Fetish: ["Nylon"], Value: 49, DefaultColor: ['#8D7B7B', '#433BA3'],
+				Layer:[
+					{ Name: "Upper", HideForPose: ["Hogtied"]},
+					{ Name: "Lower", HideForPose: ["Kneel", "KneelingSpread"] }
+				]
+			},
 			{ Name: "CowPrintedSocks", Fetish: ["Nylon"], Value: 15 },
 			{
 				Name: "HaremStockings", Fetish: ["Nylon"], Value: 25,
