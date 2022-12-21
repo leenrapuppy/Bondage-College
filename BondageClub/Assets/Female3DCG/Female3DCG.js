@@ -4504,8 +4504,8 @@ var AssetFemale3DCG = [
 			{
 				Name: "WoodenCuffs", Gender: "F", Prerequisite: ["HasBreasts"], Value: 30, Top: 0 ,Left: 0, Difficulty: 2, Time: 5, Random: false, AllowLock: true, Audio: "WoodenCuffs", BuyGroup: "WoodenCuffs", Effect: ["Block", "Prone"], AllowPose: ["Yoked", "BackCuffs","Hogtied"], HideItem: ["ClothFurCoat"], Extended: true, HasType: false,
 				Layer:[
-					{ Name: "", Priority: 50, HasType: false, AllowColorize: true },
-					{ Name: "bgnd", Priority: 1, HasType: false, AllowColorize: false, CopyLayerColor: "", AllowTypes: ["Hogtied"] },
+					{ Name: "Main", Priority: 50, HasType: false, AllowColorize: true },
+					{ Name: "Bgnd", Priority: 1, HasType: false, CopyLayerColor: "Main", AllowTypes: ["Hogtied"] },
 				]
 			},
 			{
