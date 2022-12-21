@@ -1410,52 +1410,96 @@ var AssetFemale3DCG = [
 		Top: 0,
 		PreviewZone: [140, 0, 220, 220],
 		Asset: [
-			"Band1", "Band2",
-			{ Name: "Beret1", HideForPose: ["Suspension"] },
-			{ Name: "MaidHairband1", Fetish: ["Lingerie"], Value: -1 },
-			{ Name: "NurseCap", Value: -1 },
+			{ Name: "Band1", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long", Top: 25 },
+				]
+			},
+			{ Name: "Band2", Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long", Top: 25 },
+				]
+			},
+			{ Name: "Beret1", HideForPose: ["Suspension"], Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long", Top: 10 },
+				]
+			},
+			{ Name: "MaidHairband1", Fetish: ["Lingerie"], Value: -1, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long", Top: 30 },
+				]
+			},
+			{ Name: "NurseCap", Value: -1, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long", Top: 20 },
+				]
+			},
 			{
 				Name: "Santa1", Value: 20, HideForPose: ["Suspension"],
 				Layer: [
-					{ Name: "Fabric" },
-					{ Name: "Fur" }
+					{ Name: "Fabric", HideForAttribute: ["ShortHair"] },
+					{ Name: "Fur", HideForAttribute: ["ShortHair"] },
+					{ Name: "FabricShort", CopyLayerColor: "Fabric", ShowForAttribute: ["ShortHair"] },
+					{ Name: "FurShort", CopyLayerColor: "Fur", ShowForAttribute: ["ShortHair"] },
+					{ Name: "BackShort", CopyLayerColor: "Fur", Priority: 6, ShowForAttribute: ["ShortHair"] }
 				]
 			},
 			{
 				Name: "CaptainHat1", Value: 25, HideForPose: ["Suspension"], Layer: [
-					{ Name: "Top" },
-					{ Name: "Insignia" },
-					{ Name: "Rope" },
-					{ Name: "Brim" },
+					{ Name: "Top", HideForAttribute: ["ShortHair"] },
+					{ Name: "Insignia", HideForAttribute: ["ShortHair"] },
+					{ Name: "Rope", HideForAttribute: ["ShortHair"] },
+					{ Name: "Brim", HideForAttribute: ["ShortHair"] },
+					{ Name: "TopShort", CopyLayerColor: "Top", ShowForAttribute: ["ShortHair"], Top: 20 },
+					{ Name: "InsigniaShort", CopyLayerColor: "Insignia", ShowForAttribute: ["ShortHair"], Top: 20 },
+					{ Name: "RopeShort", CopyLayerColor: "Rope", ShowForAttribute: ["ShortHair"], Top: 20 },
+					{ Name: "BrimShort", CopyLayerColor: "Brim", ShowForAttribute: ["ShortHair"], Top: 20 },
 				]
 			},
-			{ Name: "BunnySuccubus2", Fetish: ["Pet"], Value: 35 },
+			{ Name: "BunnySuccubus2", Fetish: ["Pet"], Value: 35, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long" },
+				]
+			},
 			{
 				Name: "WitchHat1", Value: 40, HideForPose: ["Suspension"],
 				Layer: [
-					{ Name: "Hat" },
-					{ Name: "Band" },
+					{ Name: "Hat", HideForAttribute: ["ShortHair"] },
+					{ Name: "Band", HideForAttribute: ["ShortHair"] },
+					{ Name: "HatShort", CopyLayerColor: "Hat", ShowForAttribute: ["ShortHair"], Top: 10 },
+					{ Name: "BandShort", CopyLayerColor: "Band", ShowForAttribute: ["ShortHair"], Top: 10 },
 				]
 			},
 			{
 				Name: "PirateBandana1", Value: 15, Layer: [
-					{ Name: "Bandana" },
-					{ Name: "Skull" },
-					{ Name: "Dots" },
+					{ Name: "Bandana", HideForAttribute: ["ShortHair"] },
+					{ Name: "Skull", HideForAttribute: ["ShortHair"] },
+					{ Name: "Dots", HideForAttribute: ["ShortHair"] },
+					{ Name: "BandanaShort", CopyLayerColor: "Bandana", ShowForAttribute: ["ShortHair"], Top: 10 },
+					{ Name: "SkullShort", CopyLayerColor: "Skull", ShowForAttribute: ["ShortHair"], Top: 10 },
+					{ Name: "DotsShort", CopyLayerColor: "Dots", ShowForAttribute: ["ShortHair"], Top: 10 },
+					{ Name: "BandanaBackShort", CopyLayerColor: "Bandana", Priority: 6, ShowForAttribute: ["ShortHair"], Top: 10 },
 				]
 			},
 			{
 				Name: "Bandana", Value: 20, Left: 76, Top: -20, DefaultColor: ["#DC3434", "#FFFFFF"], AllowPose: [], Extended: true, Layer: [
-					{ Name: "Band", HasType: false, CopyLayerColor: "Bow" },
-					{ Name: "Bow", Priority: 6, HasType: false },
-					{ Name: "BandPattern", CopyLayerColor: "BowPattern", AllowTypes: ["Circles", "Flowers", "PolkaDots", "Triangles"] },
-					{ Name: "BowPattern", Priority: 6, AllowTypes: ["Circles", "Flowers", "PolkaDots", "Triangles"] },
+					{ Name: "Band", HasType: false, CopyLayerColor: "Bow", HideForAttribute: ["ShortHair"] },
+					{ Name: "Bow", Priority: 6, HasType: false, HideForAttribute: ["ShortHair"] },
+					{ Name: "BandPattern", CopyLayerColor: "BowPattern", AllowTypes: ["Circles", "Flowers", "PolkaDots", "Triangles"], HideForAttribute: ["ShortHair"] },
+					{ Name: "BowPattern", Priority: 6, AllowTypes: ["Circles", "Flowers", "PolkaDots", "Triangles"], HideForAttribute: ["ShortHair"] },
+					{ Name: "BandShort", CopyLayerColor: "Band", HasType: false, CopyLayerColor: "Bow", ShowForAttribute: ["ShortHair"], Top: -5 },
+					{ Name: "BowShort", CopyLayerColor: "Bow", Priority: 6, HasType: false, ShowForAttribute: ["ShortHair"] },
+					{ Name: "BandPatternShort", CopyLayerColor: "BowPattern", AllowTypes: ["Circles", "Flowers", "PolkaDots", "Triangles"], ShowForAttribute: ["ShortHair"], Top: -5 },
+					{ Name: "BowPatternShort", CopyLayerColor: "BowPattern", Priority: 6, AllowTypes: ["Circles", "Flowers", "PolkaDots", "Triangles"], ShowForAttribute: ["ShortHair"] },
 				]
 			},
 			{
 				Name: "PoliceWomanHat", Value: 40, AllowPose: [], Layer: [
-					{ Name: "Badge" },
-					{ Name: "Hat" }
+					{ Name: "Badge", HideForAttribute: ["ShortHair"] },
+					{ Name: "Hat", HideForAttribute: ["ShortHair"] },
+					{ Name: "BadgeShort", CopyLayerColor: "Badge", ShowForAttribute: ["ShortHair"], Top: 15 },
+					{ Name: "HatShort", CopyLayerColor: "Hat", ShowForAttribute: ["ShortHair"], Top: 15 }
 				]
 			},
 			{ Name: "HeadTowel1", Value: 15, Hide: ["HairFront", "HairBack"] },
@@ -1464,31 +1508,73 @@ var AssetFemale3DCG = [
 			{
 				Name: "Bonnet1", Value: 20,
 				Layer: [
-					{ Name: "Base" },
-					{ Name: "Lace" }
+					{ Name: "Base", HideForAttribute: ["ShortHair"] },
+					{ Name: "Lace", HideForAttribute: ["ShortHair"] },
+					{ Name: "BaseShort", CopyLayerColor: "Base", ShowForAttribute: ["ShortHair"], Top: 25 },
+					{ Name: "LaceShort", CopyLayerColor: "Lace", ShowForAttribute: ["ShortHair"], Top: 25 }
 				]
 			},
-			{ Name: "Bonnet2", Value: 20 },
-			{ Name: "Crown1", Value: 20, HideForPose: ["Suspension"] },
+			{ Name: "Bonnet2", Value: 20, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long", Top: 25 },
+				]
+			},
+			{ Name: "Crown1", Value: 20, HideForPose: ["Suspension"], Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long", Top: 25 },
+				]
+			},
 			{
 				Name: "Crown2", Value: 20, HideForPose: ["Suspension"], Layer: [
-					{ Name: "Crown" },
-					{ Name: "Jewels" }
+					{ Name: "Crown", HideForAttribute: ["ShortHair"] },
+					{ Name: "Jewels", HideForAttribute: ["ShortHair"] },
+					{ Name: "CrownShort", CopyLayerColor: "Crown", ShowForAttribute: ["ShortHair"], Top: 25 },
+					{ Name: "JewelsShort", CopyLayerColor: "Jewels", ShowForAttribute: ["ShortHair"], Top: 25 }
 				]
 			},
 			{
 				Name: "Crown3", Value: 20, HideForPose: ["Suspension"], Layer: [
-					{ Name: "Crown" },
-					{ Name: "Jewels" }
+					{ Name: "Crown", HideForAttribute: ["ShortHair"] },
+					{ Name: "Jewels", HideForAttribute: ["ShortHair"] },
+					{ Name: "CrownShort", CopyLayerColor: "Crown", ShowForAttribute: ["ShortHair"], Top: 25 },
+					{ Name: "JewelsShort", CopyLayerColor: "Jewels", ShowForAttribute: ["ShortHair"], Top: 25 }
 				]
 			},
-			{ Name: "Crown4", Value: 20, HideForPose: ["Suspension"] },
-			{ Name: "Crown5", Value: 20, HideForPose: ["Suspension"] },
-			{ Name: "SmallHat1", Value: 30, HideForPose: ["Suspension"] },
-			{ Name: "Veil1", Fetish: ["Lingerie"], Value: 40 },
-			{ Name: "Veil2", Fetish: ["Lingerie"], Value: 40 },
-			{ Name: "BakerBoyHat", Value: 40, HideForPose: ["Suspension"] },
-			{ Name: "ReindeerBand", Value: 10 },
+			{ Name: "Crown4", Value: 20, HideForPose: ["Suspension"], Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long", Top: 25 },
+				]
+			},
+			{ Name: "Crown5", Value: 20, HideForPose: ["Suspension"], Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long", Top: 25 },
+				]
+			},
+			{ Name: "SmallHat1", Value: 30, HideForPose: ["Suspension"], Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long", Top: 20 },
+				]
+			},
+			{ Name: "Veil1", Fetish: ["Lingerie"], Value: 40, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long", Top: 20 },
+				]
+			},
+			{ Name: "Veil2", Fetish: ["Lingerie"], Value: 40, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long", Top: 20 },
+				]
+			},
+			{ Name: "BakerBoyHat", Value: 40, HideForPose: ["Suspension"], Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], Top: 35 },
+				]
+			},
+			{ Name: "ReindeerBand", Value: 10, Layer: [
+					{ Name: "Long", HideForAttribute: ["ShortHair"] },
+					{ Name: "Short", ShowForAttribute: ["ShortHair"], CopyLayerColor: "Long", Top: 10 },
+				]
+			},
 			{ Name: "FurHeadband", Value: 5},
 			{ Name: "FacePaint", Value: 10, Left: 150, Top: 20, Priority: 7, BuyGroup: "FacePaint", DefaultColor: ["#9A7F76"], Hide: ["Head"] },
 			{
@@ -1524,23 +1610,36 @@ var AssetFemale3DCG = [
 			},
 			{
 				Name: "BallCapBack", Value: -1, Left: 150, Top: 45, BuyGroup: "BallCap", DefaultColor: ["#3B3B3B", "#CCCC32", "#424242", "#3B3B3B"], Extended: true, Layer: [
-					{ Name: "PanelLeft", HasType: false },
-					{ Name: "PanelRight", CopyLayerColor: "PanelLeft", HasType: false },
-					{ Name: "Button", HasType: false },
-					{ Name: "SideLeft", HasType: false },
-					{ Name: "SideRight", CopyLayerColor: "SideLeft", HasType: false },
-					{ Name: "Strap", Priority: 55, AllowTypes: ["StrapOver"], HasType: false },
-					{ Name: "StrapUnder", CopyLayerColor: "Strap", Priority: 50, HasType: false }
+					{ Name: "PanelLeft", HasType: false, HideForAttribute: ["ShortHair"] },
+					{ Name: "PanelRight", CopyLayerColor: "PanelLeft", HasType: false, HideForAttribute: ["ShortHair"] },
+					{ Name: "Button", HasType: false, HideForAttribute: ["ShortHair"] },
+					{ Name: "SideLeft", HasType: false, HideForAttribute: ["ShortHair"] },
+					{ Name: "SideRight", CopyLayerColor: "SideLeft", HasType: false, HideForAttribute: ["ShortHair"] },
+					{ Name: "Strap", Priority: 55, AllowTypes: ["StrapOver"], HasType: false, HideForAttribute: ["ShortHair"] },
+					{ Name: "StrapUnder", CopyLayerColor: "Strap", Priority: 50, HasType: false, HideForAttribute: ["ShortHair"] },
+					{ Name: "PanelLeftShort", CopyLayerColor: "PanelLeft", HasType: false, ShowForAttribute: ["ShortHair"], Top: 60, },
+					{ Name: "PanelRightShort", CopyLayerColor: "PanelLeft", HasType: false, ShowForAttribute: ["ShortHair"], Top: 60 },
+					{ Name: "ButtonShort", CopyLayerColor: "Button", HasType: false, ShowForAttribute: ["ShortHair"], Top: 60 },
+					{ Name: "SideLeftShort", CopyLayerColor: "SideLeft", HasType: false, ShowForAttribute: ["ShortHair"], Top: 60 },
+					{ Name: "SideRightShort", CopyLayerColor: "SideLeft", HasType: false, ShowForAttribute: ["ShortHair"], Top: 60 },
+					{ Name: "StrapShort", CopyLayerColor: "Strap", Priority: 55, AllowTypes: ["StrapOver"], HasType: false, ShowForAttribute: ["ShortHair"], Top: 60 },
+					{ Name: "StrapUnderShort", CopyLayerColor: "Strap", Priority: 50, HasType: false, ShowForAttribute: ["ShortHair"], Top: 60 }
 				],
 			},
 			{
 				Name: "BallCapFront", Value: 30, Left: 150, Top: 45, BuyGroup: "BallCap", DefaultColor: ["#3B3B3B", "#3B3B3B", "#3B3B3B", "#CCCC32", "#424242", "Default"], Extended: true, Layer: [
-					{ Name: "Panel", HasType: false },
-					{ Name: "PanelLeft", HasType: false },
-					{ Name: "PanelRight", HasType: false },
-					{ Name: "Button", HasType: false },
-					{ Name: "Visor", HasType: false },
-					{ Name: "Print", AllowTypes: ["BCLogo", "BDSM", "BG", "Chain", "Gag", "Knot", "Monogram", "Rock", "Smile", "Sun", "Tick"], AllowColorize: true, ParentGroup: null },
+					{ Name: "Panel", HasType: false, HideForAttribute: ["ShortHair"] },
+					{ Name: "PanelLeft", HasType: false, HideForAttribute: ["ShortHair"] },
+					{ Name: "PanelRight", HasType: false, HideForAttribute: ["ShortHair"] },
+					{ Name: "Button", HasType: false, HideForAttribute: ["ShortHair"] },
+					{ Name: "Visor", HasType: false, HideForAttribute: ["ShortHair"] },
+					{ Name: "Print", AllowTypes: ["BCLogo", "BDSM", "BG", "Chain", "Gag", "Knot", "Monogram", "Rock", "Smile", "Sun", "Tick"], AllowColorize: true, ParentGroup: null, HideForAttribute: ["ShortHair"] },
+					{ Name: "PanelShort", CopyLayerColor: "Panel", HasType: false, ShowForAttribute: ["ShortHair"], Top: 60 },
+					{ Name: "PanelLeftShort", CopyLayerColor: "PanelLeft", HasType: false, ShowForAttribute: ["ShortHair"], Top: 60 },
+					{ Name: "PanelRightShort", CopyLayerColor: "PanelRight", HasType: false, ShowForAttribute: ["ShortHair"], Top: 60 },
+					{ Name: "ButtonShort", CopyLayerColor: "Button", HasType: false, ShowForAttribute: ["ShortHair"], Top: 60 },
+					{ Name: "VisorShort", CopyLayerColor: "Visor", HasType: false, ShowForAttribute: ["ShortHair"], Top: 60 },
+					{ Name: "PrintShort", CopyLayerColor: "Print", AllowTypes: ["BCLogo", "BDSM", "BG", "Chain", "Gag", "Knot", "Monogram", "Rock", "Smile", "Sun", "Tick"], AllowColorize: true, ParentGroup: null, ShowForAttribute: ["ShortHair"], Top: 60 },
 				],
 			},
 		],
