@@ -114,6 +114,11 @@ function InventoryItemMouthFuturisticPanelGagTriggerGetOptions(C, Item, Deflate,
 	const GagOptions = Data.modules[0].Options;
 	let GagIndex = PreviousModuleValues[0];
 	const GagIndexMax = GagOptions.length - 1;
+	let OriginalSetting = Item.Property.OriginalSetting;
+	if (GagOptions[OriginalSetting] === undefined) {
+		console.warn(`[${Item.Asset.Group.Name}:${Item.Asset.Name}] Sanitizing illegal "OriginalSetting" property value: ${OriginalSetting}`);
+		OriginalSetting = Item.Property.OriginalSetting = 0;
+	}
 
 	/**
 	 * Increment or decrement the gag level, clipping it to an appropriate interval.
@@ -121,8 +126,8 @@ function InventoryItemMouthFuturisticPanelGagTriggerGetOptions(C, Item, Deflate,
 	 * keep incrementing/decrementing until a non-blocked gag-level is reached
 	 */
 	if (Deflate) {
-		GagIndex = Math.max(Item.Property.OriginalSetting, GagIndex - 1);
-		while (GagIndex > Item.Property.OriginalSetting) {
+		GagIndex = Math.max(OriginalSetting, GagIndex - 1);
+		while (GagIndex > OriginalSetting) {
 			if (InventoryBlockedOrLimited(C, Item, GagOptions[GagIndex].Name)) {
 				GagIndex -= 1;
 			} else {
