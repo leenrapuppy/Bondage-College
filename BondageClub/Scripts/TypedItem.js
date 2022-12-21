@@ -57,7 +57,7 @@ function TypedItemRegister(asset, config) {
 	TypedItemCreateDrawFunction(data);
 	TypedItemCreateClickFunction(data);
 	TypedItemCreateExitFunction(data);
-	TypedItemCreateValidateFunction(data);
+	ExtendedItemCreateValidateFunction(data.functionPrefix, data.scriptHooks.validate, data.changeWhenLocked);
 	TypedItemCreatePublishFunction(data);
 	ExtendedItemCreateNpcDialogFunction(data.asset, data.functionPrefix, data.dialog.npcPrefix);
 	TypedItemCreatePublishActionFunction(data);
@@ -85,7 +85,6 @@ function TypedItemCreateTypedItemData(asset, {
 	ChatSetting,
 	DrawImages,
 	ChangeWhenLocked,
-	Validate,
 	ScriptHooks,
 	BaselineProperty=null,
 }) {
@@ -122,7 +121,6 @@ function TypedItemCreateTypedItemData(asset, {
 		chatSetting: ChatSetting || TypedItemChatSetting.TO_ONLY,
 		drawImages: typeof DrawImages === "boolean" ? DrawImages : true,
 		changeWhenLocked: typeof ChangeWhenLocked === "boolean" ? ChangeWhenLocked : true,
-		validate: Validate,
 		BaselineProperty: typeof BaselineProperty === "object" ? BaselineProperty : null,
 	};
 }
@@ -190,33 +188,6 @@ function TypedItemCreateExitFunction({ functionPrefix, scriptHooks}) {
 			scriptHooks.exit();
 		};
 	}
-}
-
-/**
- *
- * @param {TypedItemData} data - The typed item data for the asset
- */
-function TypedItemCreateValidateFunction({ changeWhenLocked, options, functionPrefix, validate, scriptHooks }) {
-	const validateFunctionName = `${functionPrefix}Validate`;
-	const validateFunction = function (C, item, option, currentOption) {
-		let message = "";
-
-		if (typeof validate === "function") {
-			message = validate(C, item, option, currentOption);
-		}
-
-		const itemLocked = item && item.Property && item.Property.LockedBy;
-		if (!message && !changeWhenLocked && itemLocked && !DialogCanUnlock(C, item)) {
-			message = DialogFindPlayer("CantChangeWhileLocked");
-		}
-
-		return message;
-	};
-	if (scriptHooks && scriptHooks.validate) {
-		window[validateFunctionName] = function (C, item, option, currentOption) {
-			scriptHooks.validate(validateFunction, C, item, option, currentOption);
-		};
-	} else window[validateFunctionName] = validateFunction;
 }
 
 /**
@@ -464,12 +435,13 @@ function TypedItemValidateOption(C, item, option, previousOption) {
 		return DialogFindPlayer("ExtendedItemNoItemPermission");
 	}
 
-	const validationFunctionName = `Inventory${item.Asset.Group.Name}${item.Asset.Name}Validate`;
-	let validationMessage = CommonCallFunctionByName(validationFunctionName, C, item, option, previousOption);
-	if (!validationMessage || typeof validationMessage !== "string") {
-		validationMessage = ExtendedItemValidate(C, item, option, previousOption);
+	const validationFunctionName = `${ExtendedItemFunctionPrefix(item)}Validate`;
+	const validationMessage = CommonCallFunctionByName(validationFunctionName, C, item, option, previousOption);
+	if (typeof validationMessage === "string") {
+		return validationMessage;
+	} else {
+		return ExtendedItemValidate(C, item, option, previousOption);
 	}
-	return validationMessage;
 }
 
 /**
