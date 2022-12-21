@@ -196,12 +196,13 @@ function ModularItemCreateModularData(asset, {
 	Dialog,
 	ScriptHooks,
 	BaselineProperty=null,
+	DrawImages=null,
 }) {
 	// Set the name of all modular item options
 	// Use an external function as typescript does not like the inplace updating of an object's type
 	const ModulesParsed = ModularItemUpdateModules(Modules);
 	// Only enable DrawImages in the base screen if all module-specific DrawImages are true
-	const BaseDrawImages = ModulesParsed.every((m) => m.DrawImages);
+	const BaseDrawImages = (typeof DrawImages !== "boolean") ? ModulesParsed.every((m) => m.DrawImages) : DrawImages;
 
 	const key = `${asset.Group.Name}${asset.Name}`;
 	Dialog = Dialog || {};
