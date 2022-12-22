@@ -727,7 +727,7 @@ function ExtendedItemCreateValidateFunction(functionPrefix, ValidationCallback, 
 
 	if (ValidationCallback) {
 		window[validateFunctionName] = function (C, item, option, currentOption) {
-			ValidationCallback(validateFunction, C, item, option, currentOption);
+			return ValidationCallback(validateFunction, C, item, option, currentOption);
 		};
 	} else {
 		window[validateFunctionName] = validateFunction;

@@ -231,6 +231,7 @@ function ModularItemCreateModularData(asset, {
 			click: ScriptHooks ? ScriptHooks.Click : undefined,
 			draw: ScriptHooks ? ScriptHooks.Draw : undefined,
 			exit: ScriptHooks ? ScriptHooks.Exit : undefined,
+			validate: ScriptHooks ? ScriptHooks.Validate : undefined,
 		},
 		drawFunctions: {},
 		clickFunctions: {},
