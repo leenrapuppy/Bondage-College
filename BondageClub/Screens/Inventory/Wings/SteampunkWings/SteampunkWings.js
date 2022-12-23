@@ -1,5 +1,6 @@
 'use strict';
 
+/** @type {DynamicBeforeDrawCallback} */
 function AssetsWingsSteampunkWingsBeforeDraw({ PersistentData, L, LayerType: lt }) {
 	const MaxFrame = 8;
 	const MaxFrameGears = 2;
@@ -38,6 +39,7 @@ function AssetsWingsSteampunkWingsBeforeDraw({ PersistentData, L, LayerType: lt 
 	return { LayerType };
 }
 
+/** @type {DynamicScriptDrawCallback} */
 function AssetsWingsSteampunkWingsScriptDraw({ C, Item, PersistentData }) {
 	const Type = (Item.Property || {}).Type;
 	if (Type !== "On") return;

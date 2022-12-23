@@ -123,11 +123,11 @@ function MaidQuartersPlayerCanChangeForRescue() {
  */
 function MaidQuartersAdviceMaidUniform() {
 	if (!(CharacterAppearanceGetCurrentValue(Player, "Hat", "Name") == "MaidHairband1")) {
-		MaidQuartersMaid.CurrentDialog = "You must at least wear your maid hairband.";
+		MaidQuartersMaid.CurrentDialog = DialogFind(MaidQuartersMaid, "NoHairband");
 	} else if (CharacterAppearanceGetCurrentValue(Player, "Bra", "Name") == "MaidBra1" && CharacterAppearanceGetCurrentValue(Player, "Panties", "Name") == "MaidPanties2") {
-		MaidQuartersMaid.CurrentDialog = "You are either not wearing the dress, or covering too much.";
+		MaidQuartersMaid.CurrentDialog = DialogFind(MaidQuartersMaid, "NoDress");
 	} else {
-		MaidQuartersMaid.CurrentDialog = "Does your outfit look like mine?";
+		MaidQuartersMaid.CurrentDialog = DialogFind(MaidQuartersMaid, "WrongOutfit");
 	}
 }
 

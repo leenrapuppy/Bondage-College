@@ -30,13 +30,13 @@ Cancel
 Отменить
 Wins
 Выигрывает
-Remove her cloth
+Remove her clothes
 Сними с нее одежду
 Use a collar item
 Используй ошейник
-Use a feet item
+Tie her feet
 Используй предмет на стопы
-Use a gag item
+Use a gag
 Используй кляп
 Dress back up
 Одевайся обратно
@@ -104,7 +104,7 @@ On your knees girl!
 На колени, девочка!
 No!  You get on your knees!
 Нет! Ты встань на колени!
-(She tries to tickle you, but get stunned by your presence and kneels for you.)
+(She tries to tickle you, but gets stunned by your presence and kneels for you.)
 (Она пытается вас пощекотать, но ошеломлена вашим присутствием и становится перед вами на колени.)
 This is your place: on your knees.
 Это твое место: на коленях.

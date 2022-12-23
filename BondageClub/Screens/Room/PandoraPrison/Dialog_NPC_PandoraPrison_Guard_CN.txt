@@ -98,7 +98,7 @@ So, what's up?
 （在口塞里咕哝着。）
 ###_NPC
 Here you go.  (She removes your gag.)  Don't piss me off or that gag is coming back.
-干得好。（她摘下你的口塞。）别惹我生气，不然我会把口塞塞回去。
+干得好。（她摘下你的口塞）别惹我生气，不然我会把口塞塞回去。
 ###_PLAYER
 (Leave her.)
 （离开她。）

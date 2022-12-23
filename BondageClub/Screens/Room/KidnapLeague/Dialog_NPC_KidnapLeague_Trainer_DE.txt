@@ -150,7 +150,7 @@ Ich hab's mir anders überlegt.
 It's fine.  Would you like to talk then?
 Schon Gut. Wollen wir uns dann unterhalten?
 ###_PLAYER
-Tell me of the rules.
+Tell me the rules.
 Erkläre mir die Regeln.
 ###_NPC
 First, all league members can kidnap and be kidnapped at any time in the Bondage Club.  Do you agree to that?
@@ -231,13 +231,13 @@ Der Beitritt kostet nichts, und wenn du Geld brauchst, kannst du auf Kopfgeldjag
 Can members leave the league?
 Können Mitglieder die Liga verlassen?
 ###_NPC
-Of course.  Though you will lose any reputation gained in the league before.
+Of course.  Though you will lose any reputation you gained in the league.
 Selbstverständlich. Allerdings geht dabei der Rang verloren, den du dir zuvor in der Liga verdient hast.
 ###_PLAYER
-That's enough.
+That's everything I need to know.
 Das reicht.
 ###_NPC
-Very good.  Can I help you with anything else?
+Excellent.  Can I help you with anything else?
 Sehr gut. Kann ich dir sonst noch irgendwie helfen?
 ###_PLAYER
 How do I kidnap?
@@ -282,7 +282,7 @@ Kann ich Dinge benutzen, die keine Fesseln sind?
 Yes, if you have items such as whips, crops, or vibrators. They will give you a starting advantage on various moves.
 Ja, wenn du Sachen wie Peitschen, Gerten oder Vibratoren hast. Sie geben dir einen Startvorteil für bestimmte Aktionen.
 ###_PLAYER
-I know everything I need.
+That's everything I need to know.
 Mehr muss ich nicht wissen.
 ###_NPC
 Excellent.  Can I help you with anything else?
@@ -338,19 +338,19 @@ Ich gebe mein Bestes.
 Alright, good luck.  Come back when you've kidnapped her for your reward.
 Alles klar, viel Glück. Komm zurück, wenn du sie gefangen hast, um deine Belohnung zu holen.
 ###_PLAYER
-Yeah, she did put quite a fight.
+Yeah, she put up quite a fight.
 Ja, sie hat tapfer gekämpft.
 ###_NPC
 That was to be expected of her.  Would you like to take another bounty?
 Das war von ihr zu erwarten. Möchtest du noch ein Kopfgeld?
 ###_PLAYER
-No problem, I represent the league.
+It was no problem, I represent the league.
 Kein Problem, ich vertrete die Liga.
 ###_NPC
 Very good, I like your attitude.  Would you like to take another bounty then?
 Sehr gut, deine Einstellung gefällt mir. Möchtest du noch ein Kopfgeld?
 ###_PLAYER
-It was fair and fun fight.
+It was a fair and fun fight.
 Der Kampf war fair und hat Spaß gemacht.
 ###_NPC
 That's what we aim for in the league.  Would you like to take another bounty?

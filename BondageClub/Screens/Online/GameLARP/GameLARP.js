@@ -38,6 +38,7 @@ var GameLARPEntryClass = "";
 var GameLARPEntryTeam = "";
 var GameLARPProgress = [];
 var GameLARPPlayer = [];
+/** @type {GameLARPOption[]} */
 var GameLARPOption = [];
 var GameLARPAction = "";
 var GameLARPInventory = [];
@@ -110,11 +111,11 @@ function GameLARPLoad() {
 	if (Player.Game == null) Player.Game = {};
 	let game = Player.Game.LARP;
 	Player.Game.LARP = {
-		Class: (game && typeof game.Class !== undefined ? game.Class : GameLARPClass[0].Name),
-		Team: (game && typeof game.Team !== undefined ? game.Team : GameLARPTeamList[0]),
-		TimerDelay: (game && typeof game.TimerDelay !== undefined ? game.TimerDelay : GameLARPTimerDelay[0]),
+		Class: (game && typeof game.Class === "string" ? game.Class : GameLARPClass[0].Name),
+		Team: (game && typeof game.Team === "string" ? game.Team : GameLARPTeamList[0]),
+		TimerDelay: (game && typeof game.TimerDelay === "number" ? game.TimerDelay : GameLARPTimerDelay[0]),
 		Status: "",
-		Level: (game && typeof game.Level != undefined ? game.Level : []),
+		Level: (game && Array.isArray(game.Level) ? game.Level : []),
 	};
 
 	GameLARPEntryClass = Player.Game.LARP.Class;
@@ -201,7 +202,7 @@ function GameLARPRunProcess() {
 			// Draw all the possible options
 			DrawCharacter(GameLARPTurnFocusCharacter, 500, 0, 1);
 			for (let O = 0; O < GameLARPOption.length; O++)
-				DrawButton(50, 35 + (O * 100), 400, 65, OnlineGameDictionaryText("Option" + GameLARPOption[O].Name).replace("OptionOdds", Math.round(GameLARPOption[O].Odds * 100)), "White");
+				DrawButton(50, 35 + (O * 100), 400, 65, OnlineGameDictionaryText("Option" + GameLARPOption[O].Name).replace("OptionOdds", Math.round(GameLARPOption[O].Odds * 100).toString()), "White");
 			DrawButton(50, 900, 400, 65, OnlineGameDictionaryText("BackToCharacters"), "White");
 
 			// Draw the timer
@@ -606,7 +607,7 @@ function GameLARPBuildOptionAbility(Source, Target, Option, Ability) {
  * Builds the available options a character can perform on another for the LARP menu.
  * @param {Character} Source - Character about to do an action.
  * @param {Character} Target - The character on which an action is about to be done.
- * @returns {Array.<{ Name: string, Odds: number}>} - Options the character can perform
+ * @returns {GameLARPOption[]} - Options the character can perform
  */
 function GameLARPBuildOption(Source, Target) {
 

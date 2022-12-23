@@ -42,8 +42,8 @@ I'm a good girl Sir.
 (A green light starts to blink.)  Are you consenting to prove good girl?
 （电脑上的绿灯开始闪烁。）你愿意证明你是个好姑娘么？
 ###_PLAYER
-Yeah.
-是的。
+(Nod.)
+（点头。）
 Why do you ask?
 为什么这么问？
 Not really.
@@ -56,12 +56,14 @@ I'm bad to the bone.
 我已经坏到骨子里了。
 Good and evil is subjective
 好与坏只是一人之言罢了
-I can prove it.
-我能自证的。
+(Nod slowly.)
+（慢慢点头。）
 ###_NPC
 Complete GGTS to prove good girl.  Register to GGTS?
 完成GGTS项目来证明是好姑娘。是否注册GGTS？
 ###_PLAYER
+I can prove it.
+我能自证的。
 Sure, you can test me.
 没问题。你可以测试我。
 How can I prove that?
@@ -142,6 +144,8 @@ I want to register to GGTS.
 Registry validation.  Good girl know all rules?  Good girl consent to GGTS control?
 注册验证中。好姑娘是否熟记所有规则？好姑娘是否自愿被GGTS控制？
 ###_PLAYER
+(Nod in agreement.)
+（点头同意。）
 (Listen.)
 （听下去。）
 ###_NPC
@@ -168,6 +172,8 @@ I know the rules and I consent.
 (A drawer opens in the wall behind you.  There's a set of futuristic arms cuffs and mittens in it.)
 （你身后墙内的抽屉突然打开。里面有一副未来臂铐和未来无指手套。）
 ###_PLAYER
+(Nod to consent.)
+（点头表示愿意。）
 Let me review the rules again.
 让我再看一遍规则。
 ###_NPC
@@ -258,6 +264,8 @@ I have three strikes.
 Three strikes equal punishment.  GGTS level reboot.  Punishment mode.  Good girl sorry?
 三次记过等于惩罚。GGTS进度重置。进入惩罚模式。好姑娘是否有歉意？
 ###_PLAYER
+(Bow your head.)
+（低下你的头。）
 (Whimper and beg in your gag.)
 （带着口球呜咽着求饶。）
 ###_NPC
@@ -330,6 +338,16 @@ Touch me and I'll unplug you.
 Punishment selected.  Good girl learn from lock down.  Sentence 9 minutes.  Asylum crew alert.  (A siren rings.)
 惩罚已选择。好姑娘去禁闭室反省。长度为9分钟。所有收容所员工注意。（警报响了起来。）
 ###_PLAYER
+(Get on your knees and cry.)
+(跪下来并哭泣。)
+(Bow your head slowly.)
+(慢慢地低下头。)
+(Roll your eyes up.)
+(抬起你的眼镜。)
+(Grumble in your gag.)
+(在你的口塞里嘟囔。)
+(Curse at the machine in your gag.)
+(在你的口塞里咒骂那机器。)
 This is too much!
 太过分了啊！
 ###_NPC
@@ -560,7 +578,7 @@ I want freedom from GGTS.
 GGTS，我想要自由。
 ###_NPC
 (The computer stays silent for a few seconds.)  Quit authorisation granted.  Good girl can quit GGTS.  Lose all progress.  Girl confirm quit?
-（电脑沉默了几秒。）退出请求通过。好姑娘可退出GGTS。将丢失所有进度。女孩是否确认退出？ 
+（电脑沉默了几秒。）退出请求通过。好姑娘可退出GGTS。将丢失所有进度。女孩是否确认退出？
 ###_PLAYER
 Nothing can make me happy.
 没有什么东西可以让我开心了。
@@ -1009,10 +1027,6 @@ GGTS主人不需要金钱。好女奴永远属于GGTS。
 （电脑沉默了几秒。）没有好姑娘能替代好女奴。
 Good slave already does what Master GGTS wants.  Good slave GGTS forever.
 好女奴已经是GGTS主人梦中所想之物。好女奴永远属于GGTS。
-###_PLAYER
-(Nod.)
-（点头。）
-###_NPC
 When Master GGTS query: "Slave, spell GGTS acronym.".  Good slave answer: "Good Girl Training System.".
 当GGTS主人问道：“女奴，说出GGTS代表什么？”时，必须回答"Good  Girl Training System."。
 ###_PLAYER

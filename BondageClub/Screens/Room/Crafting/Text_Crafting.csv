@@ -5,15 +5,19 @@ Cancel,Cancel
 Previous,Previous
 Next,Next
 NoLock,No lock
-SelectSlot,Select a slot for your new crafted item.  The previous item in that slot will be replaced.
+SelectSlot,"Select an empty slot to craft a new item, or click on the item to edit."
 SelectDestroy,Select a crafted item slot to destroy.
 SelectItem,Select an item to craft or search on your left.
 SelectProperty,Select a property for your AssetDescription.
 SelectLock,Select a lock to use with your PropertyName AssetDescription.
 SelectName,Enter a name and description for your PropertyName AssetDescription.
+SelectColor,Pick the item colors
 EnterName,Name of the crafted item
 EnterDescription,Engrave a description
-EnterColor,Color schema (Use commas to split colors)
+EnterColor,Enter or pick the colors
+EnterPriority,Item drawing priority
+EnterPrivate,Private (only you can use it)
+EnterType,Automatic selection:
 EmptySlot,Empty
 PropertyNormal,Normal
 PropertyLarge,Large
@@ -23,6 +27,10 @@ PropertyThin,Thin
 PropertySecure,Secure
 PropertyLoose,Loose
 PropertyDecoy,Decoy
+PropertyMalleable,Malleable
+PropertyRigid,Rigid
+PropertySimple,Simple
+PropertyPuzzling,Puzzling
 PropertyPainful,Painful
 PropertyComfy,Comfy
 PropertyStrong,Strong
@@ -38,6 +46,10 @@ DescriptionThin,Easier to see through.
 DescriptionSecure,Harder to struggle out.
 DescriptionLoose,Easier to struggle out.
 DescriptionDecoy,Can always struggle out.
+DescriptionMalleable,Takes less time to wear and remove.
+DescriptionRigid,Takes more time to wear and remove.
+DescriptionSimple,Easier to picklock.
+DescriptionPuzzling,Harder to picklock.
 DescriptionPainful,More painful for the wearer.
 DescriptionComfy,Comfier for the wearer.
 DescriptionStrong,Cannot use brute force to struggle out.
@@ -45,3 +57,4 @@ DescriptionFlexible,Cannot use squeeze out to struggle out.
 DescriptionNimble,Cannot use unfasten to struggle out.
 DescriptionArousing,Harder to resist an orgasm.
 DescriptionDull,Easier to resist an orgasm.
+OpenColorpicker,Open Colorpicker

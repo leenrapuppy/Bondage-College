@@ -68,8 +68,8 @@ function GameMagicBattleLoad() {
 	let game = Player.Game.MagicBattle;
 	Player.Game.MagicBattle = {
 		Status: "",
-		House: (game && typeof game.House !== undefined ? game.House : "NotPlaying"),
-		TeamType: (game && typeof game.TeamType !== undefined ? game.TeamType : "House"),
+		House: (game && typeof game.House === "string" ? game.House : "NotPlaying"),
+		TeamType: (game && ["FreeForAll", "House"].includes(game.TeamType) ? game.TeamType : "House"),
 	};
 }
 

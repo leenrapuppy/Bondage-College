@@ -26,6 +26,8 @@
 - Настройки контроллера -
 - Notification Preferences -
 - Настройки уведомлений -
+- Gender Preferences -
+- Гендерные настройки -
 General
 Общие
 Difficulty
@@ -52,6 +54,8 @@ Controller
 Контроллер
 Notifications
 Уведомления
+Gender
+Пол
 The difficulty mode enforces BDSM restrictions in multi-player only.  Click for details.
 Режим сложности применяет ограничения БДСМ только в многопользовательской игре. Нажми для деталей.
 Roleplay
@@ -63,7 +67,7 @@ It allows you to choose which restrictions or mechanisms to ignore.
 You can select this mode any time, but you won't be able
 Вы можете выбрать этот режим в любое время, но не сможете
 to select the Hardcore or Extreme mode for seven days.
-выбрать режим Hardcore или Extreme в течении семи дней.
+выбрать режим Хардкор или Экстрим в течении семи дней.
 
 
 Regular
@@ -89,7 +93,7 @@ You cannot select this if you've changed mode in the last seven days.
 Extreme
 Экстрим
 Extreme - This mode is built for players wanting to be full slaves.
-Extreme — этот режим создан для игроков, желающих быть полными рабами.
+Экстрим — этот режим создан для игроков, желающих быть полными рабами.
 No safeword can be used and you cannot leave your owner.
 Нельзя использовать стоп-слова, и вы не можете покинуть свою хозяйку.
 All immersion settings are maxed, and you cannot block any item.
@@ -97,19 +101,19 @@ All immersion settings are maxed, and you cannot block any item.
 Easy mode - Restrictions and game mechanisms
 Легкий режим - Ограничения и игровые механизмы
 can be ignored with toggles.  For pure roleplayers.
-можно игнорировать с помощью переключателей. Для чистых ролевиков.
+можно игнорировать с помощью переключателей. Для ролевиков.
 Normal mode - Basic restrictions are enforced, 
 Обычный режим — применяются основные ограничения,
 many options to protect you.  For most players.
 много вариантов, чтобы защитить вас. Для большинства игроков.
 Hard mode - No rescue maids, no safeword and no 
-Жесткий режим — без спасательных горничных, без стоп-слов и без
+Жесткий режим — без спасательных горничных, без стоп-слов и
 help from any NPC.  For players that want trouble.
-помощи от любого NPC. Для игроков, которые хотят неприятностей.
+без помощи от NPC. Для игроков, которые хотят неприятностей.
 Slavery mode - No maids, no safeword, no NPC help, 
 Режим рабства - без горничных, без стоп-слов, без помощи NPC, 
 no blocked items, cannot leave owner.  Fully helpless.
-нет заблокированных предметов, не может покинуть владельца. Полностью беспомощен.
+нет заблокированных предметов, не может покинуть хозяйку.
 You're already playing on that difficulty mode.
 Вы уже играете на этом уровне сложности.
 You need to wait NumberOfHours hours before you can activate this mode.
@@ -123,7 +127,7 @@ You can configure game restrictions to bypass in the multi-player environment.
 Players using the Roleplay difficulty can configure multi-player restrictions to bypass.
 Игроки, использующие уровень сложности «Ролевая игра», могут обойти ограничения многопользовательской игры.
 Bypass the struggling mini-game.
-Обойти борющуюся мини-игру.
+Обойти мини-игру борьбы с ограничениями.
 Cannot be slowed down from leaving a room.
 Нельзя замедлить выход из комнаты.
 Skip punishment when calling maids from chat room
@@ -152,8 +156,8 @@ Light
 Светлая
 Dark
 Темная
- Light 2
- Светлая 2
+Light 2
+Светлая 2
 Dark 2
 Темная 2
 Enter/Leave message style:
@@ -197,11 +201,11 @@ Show sexual activities & orgasms
 Use : as alias for /me and *
 Использовать : как псевдоним для /me и *
 Ban blacklist when creating a room
-Запретить блэклист при создании комнаты
+Запретить блэклист при создании комнат
 Ban ghostlist when creating a room
-Запретить призрачный список при создании комнаты
+Запретить список призраков при создании комнат
 Display full chatrooms
-Отображение полных чатов
+Отображение полных чат-комнат
 Order rooms by number of friends
 Упорядочить комнаты по количеству друзей
 Disable scripted assets on others
@@ -239,11 +243,11 @@ Prevent OOC & whispers while gagged
 Hide non-adjacent players while partially blind
 Скрыть не соседних игроков, пока частично слепа
 Events while plugged or vibed
-События пока с затычкой или вибратором
+События когда вы с затычкой или под вибрацией
 Garble chat room names and descriptions while blind
-Искажайте названия и описания комнат чата, пока вы слепы
+Искажать названия и описания комнат чата, пока вы слепы
 Sensory deprivation setting
-Настройки Сенсорной депривации
+Настройки сенсорной депривации
 Hide names
 Скрыть имена
 Heavy
@@ -261,7 +265,7 @@ Players can drag you to rooms when leashed
 Maids come automatically when restrained
 Горничные приходят автоматически, когда вы в ограничениях
 Locks on you can't be picked
-Замки на вас не могут быть выбраны
+Замки на вас не могут быть взломаны
 Disable examining when blind
 Отключить осмотр вслепую
 Keep all restraints when relogging
@@ -313,7 +317,7 @@ New email:
 No email saved, write here to add one
 Электронная почта не сохранена, напишите здесь, чтобы добавить ее
 An email is linked, write it here to update it
-Электронная почта связана, напишите здесь, чтобы обновить ее
+Электронная почта привязана, напишите здесь, чтобы обновить ее
 Your email has been updated.
 Ваша электронная почта была обновлена.
 Current email does not match
@@ -433,7 +437,7 @@ Configure this zone to be erogenous or not
 Block all activities on this zone
 Блокировать все действия в этой зоне
 Dislike this zone, it's a turn-off
-Не нравится эта зона, это отключение
+Не нравится эта зона, она отключение
 This zone isn't special for you
 Эта зона не является для вас особенной
 Like this zone, it turns you on
@@ -445,7 +449,7 @@ This zone can give you an orgasm
 Feet & Toes
 Ступни и пальцы ног
 Lower Legs
-Голень
+Лодыжки
 Upper Legs
 Верхние части ног
 Pussy & Vagina
@@ -465,7 +469,7 @@ Breast
 Arms & Shoulders
 Руки и плечи
 Hands
-Руки
+Кисти
 Neck
 Шея
 Mouth & Lips
@@ -634,3 +638,11 @@ Allow item tint effects
 Разрешить эффекты оттенка предмета
 Allow item blur effects (turn off if experiencing frame rate drops)
 Разрешить эффекты размытия предмета (отключить, если частота кадров падает)
+Females
+Женщина
+Males
+Мужчина
+Automatically enter the chatroom area for:
+Автоматически входить в зону чата для:
+Hide shop items exclusively for:
+Скрыть товары в магазине исключительно для:

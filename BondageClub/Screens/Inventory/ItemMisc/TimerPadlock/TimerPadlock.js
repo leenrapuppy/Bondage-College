@@ -37,7 +37,7 @@ function InventoryItemMiscTimerPadlockClick() {
 function InventoryItemMiscTimerPadlockReset() {
 	if (DialogFocusItem.Asset.RemoveTimer > 0) DialogFocusSourceItem.Property.RemoveTimer = Math.round(CurrentTime + (DialogFocusItem.Asset.RemoveTimer * 1000));
 	if (CurrentScreen == "ChatRoom") {
-		var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
+		var C = CharacterGetCurrent();
 		var msg = "TimerRestart";
 		/** @type {ChatMessageDictionary} */
 		var Dictionary = [];
@@ -52,5 +52,5 @@ function InventoryItemMiscTimerPadlockReset() {
 // Exits the extended menu
 function InventoryItemMiscTimerPadlockExit() {
 	DialogFocusItem = null;
-	if (DialogInventory != null) DialogMenuButtonBuild((Player.FocusGroup != null) ? Player : CurrentCharacter);
+	if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
 }

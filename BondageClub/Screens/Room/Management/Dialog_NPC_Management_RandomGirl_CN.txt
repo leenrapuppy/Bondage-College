@@ -2,7 +2,7 @@
 Club slaves are so much better when they are gagged.
 被塞住嘴的俱乐部奴隶更好。
 (She licks her lips seeing the gag and allows you to silence her easily.)
-（她舔了舔嘴唇，看到了口塞，让你毫不费力地让她安静下来。）
+（她看到了口塞，舔了舔嘴唇，让你轻松地塞住她的嘴。）
 (You remove her gag and she sighs.)  I hope you have another gag for me Miss.
 （你取下她的口塞，她叹了口气。）我希望你再给我一个口塞，女士。
 (She moans of pleasure as you restrain her arms.)  I'm glad you've found me Miss.
@@ -364,7 +364,7 @@ Did you make it?  Are you fully free?
 You've failed girl.  The time is up.
 你失败了女孩。时间到了。
 Don't look at me.  Struggle girl!
-别看我。挣扎吧，VN还！
+别看我。挣扎吧，女孩！
 ###_PLAYER
 I've did it!
 我做到了！
@@ -1160,19 +1160,19 @@ Can I become a club slave?
 It's only for true submissives, go to the club management and ask if you're eligible.
 这仅适用于真正的顺从者，请前往俱乐部管理，并询问你是否有资格。
 ###_PLAYER
-What's the limit with you?
+What are your limits?
 你有什么限制？
 ###_NPC
 The usual limits Miss.  No blood or any permanent harm.  You can restrain me or have sex with me.
 通常的限制，女士。没有血，没有永久性伤害。你可以束缚我或与我性爱。
 ###_PLAYER
-Who's slut are you?
+Whose slut are you?
 你是谁的荡妇？
 ###_NPC
 (She blushes and bows her head in shame.)  I'm your slut Miss.
 （她羞红了脸，低下头。）我是你的荡妇女士。
 ###_PLAYER
-Enough chit-chat.
+That's all I wanted to talk about.
 闲聊够了。
 ###_NPC
 Very well.  Is there anything else I can do for you Miss?

@@ -1,73 +1,85 @@
 "use strict";
 
-// Loads the item extension properties
-function InventoryItemNeckAccessoriesCollarNameTagLoad() {
-	if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Type: null };
+/**
+ * Draw the item extension screen
+ * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @returns {void} - Nothing
+ */
+function InventoryItemNeckAccessoriesCollarNameTagDraw(OriginalFunction) {
+	if (!DialogFocusItem) {
+		return;
+	}
+
+	const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
+	if (Data === undefined) {
+		return;
+	}
+	const XYCoords = InventoryItemNeckAccessoriesCollarNameTagGetXY(Data.options.length);
+	ExtendedItemDraw(Data.options, Data.dialog.typePrefix, Data.options.length, Data.drawImages, XYCoords);
 }
 
-// Draw the item extension screen
-function InventoryItemNeckAccessoriesCollarNameTagDraw() {
-	// Draw the header and item
-	DrawAssetPreview(1387, 125, DialogFocusItem.Asset);
+/**
+ * Catches the item extension clicks
+ * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @returns {void} - Nothing
+ */
+function InventoryItemNeckAccessoriesCollarNameTagClick(OriginalFunction) {
+	if (!DialogFocusItem) {
+		return;
+	}
 
-	// Draw the possible tags
-	if (!InventoryItemHasEffect(DialogFocusItem, "Lock", true)) {
-		DrawText(DialogFindPlayer("SelectCollarNameTagType"), 1500, 500, "white", "gray");
-		var List = DialogFocusItem.Asset.AllowType;
-		var X = 955;
-		var Y = 530;
-		for (let T = 0; T < List.length; T++) {
-			if ((DialogFocusItem.Property.Type != List[T])) DrawButton(X, Y, 200, 55, DialogFindPlayer("CollarNameTagType" + List[T]), "White");
-			X = X + 210;
-			if (T % 5 == 4) {
-				X = 955;
-				Y = Y + 60;
-			}
+	const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
+	if (Data === undefined) {
+		return;
+	}
+	const XYCoords = InventoryItemNeckAccessoriesCollarNameTagGetXY(Data.options.length);
+	ExtendedItemClick(Data.options, Data.options.length, Data.drawImages, XYCoords);
+}
+
+/**
+ * Construct an array with X & Y coordinates for the name tag extended item menu.
+ * @param {number} Count - The number of buttons
+ * @returns {[number, number][]} - The array with X & Y coordinates
+ */
+function InventoryItemNeckAccessoriesCollarNameTagGetXY(Count, X=1000, Y=400) {
+	/** @type {[number, number][]} */
+	const XYCoords = [];
+	const xStart = X;
+	for (let T = 0; T < Count; T++) {
+		XYCoords.push([X, Y]);
+		X += 250;
+		if (T % 4 == 3) {
+			X = xStart;
+			Y += 60;
 		}
 	}
-	else {
-		DrawText(DialogFindPlayer("SelectCollarNameTagTypeLocked"), 1500, 500, "white", "gray");
-	}
+	return XYCoords;
 }
 
-// Catches the item extension clicks
-function InventoryItemNeckAccessoriesCollarNameTagClick() {
-	if ((MouseX >= 1885) && (MouseX <= 1975) && (MouseY >= 25) && (MouseY <= 110)) { DialogFocusItem = null; return; }
-	if (!InventoryItemHasEffect(DialogFocusItem, "Lock", true)) {
-		var List = DialogFocusItem.Asset.AllowType;
-		var X = 955;
-		var Y = 530;
-		for (let T = 0; T < List.length; T++) {
-			if ((MouseX >= X) && (MouseX <= X + 200) && (MouseY >= Y) && (MouseY <= Y + 55) && (DialogFocusItem.Property.Type != List[T]))
-				InventoryItemNeckAccessoriesCollarNameTagSetType(List[T]);
-			X = X + 210;
-			if (T % 5 == 4) {
-				X = 955;
-				Y = Y + 60;
-			}
-		}
+/**
+ * Custom publish action function
+ * @param {Character} C - The character wearing the item
+ * @param {ExtendedItemOption} Option - The currently selected item option
+ * @param {ExtendedItemOption} PreviousOption - The previously selected item option
+ * @return {void} - Nothing
+ */
+function InventoryItemNeckAccessoriesCollarNameTagPublishAction(C, Option, PreviousOption) {
+	if (!DialogFocusItem) {
+		return;
 	}
-}
 
-// Sets the type of tag
-function InventoryItemNeckAccessoriesCollarNameTagSetType(NewType) {
-	var C = (Player.FocusGroup != null) ? Player : CurrentCharacter;
-	if (CurrentScreen == "ChatRoom") {
-		DialogFocusItem = InventoryGet(C, C.FocusGroup.Name);
-		InventoryItemNeckAccessoriesCollarNameTagLoad();
-	}
-	DialogFocusItem.Property.Type = NewType;
-	DialogFocusItem.Property.Effect = [];
+	/** @type {ChatMessageDictionary} */
+	const Dictionary = [
+		{Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber},
+		{Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber},
 
-	// Refreshes the character and chatroom
-	CharacterRefresh(C);
-	var Dictionary = [];
-	Dictionary.push({Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber});
-	Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
-	Dictionary.push({Tag: "NameTagType", TextToLookUp: "CollarNameTagType" + ((NewType) ? NewType : "")});
-	ChatRoomPublishCustomAction("CollarNameTagSet", true, Dictionary);
-	if (DialogInventory != null) {
-		DialogFocusItem = null;
-		DialogMenuButtonBuild(C);
+	];
+
+	const Prefix = DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name;
+	if (Option.Name === "Blank") {
+		Dictionary.push({Tag: "NameTagType", Text: "blank"});
+	} else {
+		Dictionary.push({Tag: "NameTagType", TextToLookUp: `${Prefix}${Option.Name}`});
 	}
+	ChatRoomPublishCustomAction(`${Prefix}Set`, true, Dictionary);
 }

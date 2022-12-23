@@ -25,7 +25,7 @@ function MagicPuzzleLoad() {
 	MagicPuzzleTimer = (MiniGameDifficulty > 0) ? CommonTime() + 5000 + MiniGameDifficulty * 1000 : 0;
 	MagicPuzzleStarted = false;
 	MiniGameVictory = false;
-	MagicPuzzleTrailRainbow = ((InventoryGet(Player, "ItemHands") != null) && (InventoryGet(Player, "ItemHands").Property != null) && (InventoryGet(Player, "ItemHands").Property.Type == "RainbowWand"));
+	MagicPuzzleTrailRainbow = ((InventoryGet(Player, "ItemHandheld") != null) && (InventoryGet(Player, "ItemHandheld").Asset.Name === "RainbowWand"));
 }
 
 /**
@@ -192,8 +192,7 @@ function MagicPuzzleDrawTrail() {
 		
 		MagicPuzzleTrail.reduce((prevSquares, currSquare, index) => {
 			const startingColor = MagicPuzzleTrailRainbow ? ColorPickerHSVToCSS({ H: Math.random(), S: 1, V: 1 }) : "#0000FF";
-			const pseudoIndex = index + (MagicPuzzleTrailLimit - MagicPuzzleTrail.length);
-			const fadePercentage = pseudoIndex * 0.8 / MagicPuzzleTrail.length;
+			const fadePercentage = 0.8 * index / MagicPuzzleTrail.length;
 			const squareColor = MagicPuzzleTransitionToColor(startingColor, "#FFFFFF", fadePercentage);
 
 			DrawLineCorner(currSquare.X, currSquare.Y,

@@ -111,6 +111,16 @@ function MainHallHasSlaveCollarAndMaidsNotDisabled() { return MainHallHasSlaveCo
 function MainHallPlayerNeedsHelpAndHasNoOwnerOrLoverItemAndMaidsNotDisabled() { return  MainHallPlayerNeedsHelpAndHasNoOwnerOrLoverItem() && !MainHallIsMaidsDisabled(); }
 
 /**
+ * Returns TRUE if the main hall sub-screen is allowed for the player, check for owner rules
+ * @param {string} ID - The screen ID to validate (A is club shop)
+ * @returns {boolean} - Returns true, if the screen is allowed
+ */
+function MainHallAllow(ID) {
+	if (Player.IsOwned() == false) return true;
+	return !LogContain("BlockScreen", "OwnerRule", ID);
+}
+
+/**
  * Loads the main hall by setting up the NPCs, CSVs and global variables required.
  * @returns {void} - Nothing
  */
@@ -163,7 +173,7 @@ function MainHallRun() {
 		if (Player.ImmersionSettings && Player.LastChatRoom && (Player.LastChatRoom != "") && (AsylumGGTSGetLevel(Player) <= 5) && ((MainHallMaid === null) || (MainHallMaid.Stage === "0"))) {
 			if (MainHallFirstFrame) {
 				if (Player.ImmersionSettings.ReturnToChatRoom) {
-					ChatRoomStart("", "", "MainHall", "Introduction", BackgroundsTagList);
+					ChatRoomStart(Player.LastChatRoomSpace, "", null, null, "Introduction", BackgroundsTagList);
 					return;
 				} else ChatRoomSetLastChatRoom("");
 			} else MainHallFirstFrame = true;
@@ -219,50 +229,50 @@ function MainHallRun() {
 	if (Player.CanWalk() && (!Player.IsRestrained() || !Player.GameplaySettings.OfflineLockedRestrained)) {
 
 		// Shop & Private Room
-		DrawButton(1765, 145, 90, 90, "", "White", "Icons/Shop.png", TextGet("Shop"));
-		if (!LogQuery("LockOutOfPrivateRoom", "Rule")) DrawButton(1885, 145, 90, 90, "", "White", "Icons/Private.png", TextGet("PrivateRoom"));
+		if (MainHallAllow("A")) DrawButton(1765, 145, 90, 90, "", "White", "Icons/Shop.png", TextGet("Shop"));
+		if (!LogQuery("LockOutOfPrivateRoom", "Rule") && MainHallAllow("B")) DrawButton(1885, 145, 90, 90, "", "White", "Icons/Private.png", TextGet("PrivateRoom"));
 
 		// Introduction, Maid & Management
-		DrawButton(1645, 265, 90, 90, "", "White", "Icons/Introduction.png", TextGet("IntroductionClass"));
-		DrawButton(1765, 265, 90, 90, "", "White", "Icons/Maid.png", TextGet("MaidQuarters"));
+		if (MainHallAllow("C")) DrawButton(1645, 265, 90, 90, "", "White", "Icons/Introduction.png", TextGet("IntroductionClass"));
+		if (MainHallAllow("D")) DrawButton(1765, 265, 90, 90, "", "White", "Icons/Maid.png", TextGet("MaidQuarters"));
 		DrawButton(1885, 265, 90, 90, "", "White", "Icons/Management.png", TextGet("ClubManagement"));
 
 		// Kidnap League, Dojo, Explore/Sarah
-		DrawButton(1645, 385, 90, 90, "", "White", "Icons/Kidnap.png", TextGet("KidnapLeague"));
-		DrawButton(1765, 385, 90, 90, "", "White", "Icons/Dojo.png", TextGet("ShibariDojo"));
-		if (SarahRoomAvailable) DrawButton(1885, 385, 90, 90, "", "White", "Icons/Explore.png", TextGet(SarahRoomLabel()));
+		if (MainHallAllow("E")) DrawButton(1645, 385, 90, 90, "", "White", "Icons/Kidnap.png", TextGet("KidnapLeague"));
+		if (MainHallAllow("F")) DrawButton(1765, 385, 90, 90, "", "White", "Icons/Dojo.png", TextGet("ShibariDojo"));
+		if (SarahRoomAvailable && MainHallAllow("G")) DrawButton(1885, 385, 90, 90, "", "White", "Icons/Explore.png", TextGet(SarahRoomLabel()));
 
 		// Cell, Slave Market & Look for trouble
-		DrawButton(1525, 505, 90, 90, "", "White", "Icons/Crafting.png", TextGet("Crafting"));
-		DrawButton(1645, 505, 90, 90, "", "White", "Icons/Question.png", TextGet("LookForTrouble"));
-		DrawButton(1765, 505, 90, 90, "", "White", "Icons/Gavel.png", TextGet("SlaveMarket"));
-		DrawButton(1885, 505, 90, 90, "", "White", "Icons/Cell.png", TextGet("Cell"));
+		if (MainHallAllow("S")) DrawButton(1525, 505, 90, 90, "", "White", "Icons/Crafting.png", TextGet("Crafting"));
+		if (MainHallAllow("H")) DrawButton(1645, 505, 90, 90, "", "White", "Icons/Question.png", TextGet("LookForTrouble"));
+		if (MainHallAllow("I")) DrawButton(1765, 505, 90, 90, "", "White", "Icons/Gavel.png", TextGet("SlaveMarket"));
+		if (MainHallAllow("J")) DrawButton(1885, 505, 90, 90, "", "White", "Icons/Cell.png", TextGet("Cell"));
 
 		// Asylum, College & LARP battles
-		if (!ManagementIsClubSlave()) DrawButton(1525, 625, 90, 90, "", "White", "Icons/Platform.png", TextGet("Platform"));
-		if (!ManagementIsClubSlave()) DrawButton(1645, 625, 90, 90, "", "White", "Icons/Battle.png", TextGet("LARPBattle"));
-		if (!ManagementIsClubSlave()) DrawButton(1765, 625, 90, 90, "", "White", "Icons/College.png", TextGet("College"));
-		if (MainHallAsylumOpen) DrawButton(1885, 625, 90, 90, "", "White", "Icons/Asylum.png", TextGet("Asylum"));
+		if (!ManagementIsClubSlave() && MainHallAllow("R")) DrawButton(1525, 625, 90, 90, "", "White", "Icons/Platform.png", TextGet("Platform"));
+		if (!ManagementIsClubSlave() && MainHallAllow("K")) DrawButton(1645, 625, 90, 90, "", "White", "Icons/Battle.png", TextGet("LARPBattle"));
+		if (!ManagementIsClubSlave() && MainHallAllow("L")) DrawButton(1765, 625, 90, 90, "", "White", "Icons/College.png", TextGet("College"));
+		if (MainHallAsylumOpen && MainHallAllow("M")) DrawButton(1885, 625, 90, 90, "", "White", "Icons/Asylum.png", TextGet("Asylum"));
 
 		// Movie Studio (Must be able to change to enter it)
-		if (Player.CanChangeOwnClothes()) DrawButton(1525, 745, 90, 90, "", "White", "Icons/MagicSchool.png", TextGet("MagicSchool"));
-		if (Player.CanChangeOwnClothes() && Player.CanTalk()) DrawButton(1645, 745, 90, 90, "", "White", "Icons/Poker.png", TextGet("Poker"));
-		if (Player.CanChangeOwnClothes()) DrawButton(1765, 745, 90, 90, "", "White", "Icons/Infiltration.png", TextGet("Infiltration"));
-		if (Player.CanChangeOwnClothes()) DrawButton(1885, 745, 90, 90, "", "White", "Icons/MovieStudio.png", TextGet("MovieStudio"));
+		if (Player.CanChangeOwnClothes() && MainHallAllow("Q")) DrawButton(1525, 745, 90, 90, "", "White", "Icons/MagicSchool.png", TextGet("MagicSchool"));
+		if (Player.CanChangeOwnClothes() && Player.CanTalk() && MainHallAllow("N")) DrawButton(1645, 745, 90, 90, "", "White", "Icons/Poker.png", TextGet("Poker"));
+		if (Player.CanChangeOwnClothes() && MainHallAllow("O")) DrawButton(1765, 745, 90, 90, "", "White", "Icons/Infiltration.png", TextGet("Infiltration"));
+		if (Player.CanChangeOwnClothes() && MainHallAllow("P")) DrawButton(1885, 745, 90, 90, "", "White", "Icons/MovieStudio.png", TextGet("MovieStudio"));
 
 		// Draws the custom content rooms - Gambling, Prison & Photographic
-		DrawButton(265, 25, 90, 90, "", "White", "Icons/Camera.png", TextGet("Photographic"));
-		DrawButton(145, 25, 90, 90, "", "White", "Icons/Cage.png", TextGet("Prison"));
-		DrawButton(25, 25, 90, 90, "", "White", "Icons/Random.png", TextGet("Gambling"));
+		if (MainHallAllow("2")) DrawButton(265, 25, 90, 90, "", "White", "Icons/Camera.png", TextGet("Photographic"));
+		if (MainHallAllow("1")) DrawButton(145, 25, 90, 90, "", "White", "Icons/Cage.png", TextGet("Prison"));
+		if (MainHallAllow("0")) DrawButton(25, 25, 90, 90, "", "White", "Icons/Random.png", TextGet("Gambling"));
 
 		// Stable, Magic-Theater & Nursery
-		DrawButton(265, 145, 90, 90, "", "White", "Icons/Diaper.png", TextGet("Nursery"));
-		DrawButton(145, 145, 90, 90, "", "White", "Icons/Magic.png", TextGet("Magic"));
-		DrawButton(25, 145, 90, 90, "", "White", "Icons/Horse.png", TextGet("Stable"));
+		if (MainHallAllow("5")) DrawButton(265, 145, 90, 90, "", "White", "Icons/Diaper.png", TextGet("Nursery"));
+		if (MainHallAllow("4")) DrawButton(145, 145, 90, 90, "", "White", "Icons/Magic.png", TextGet("Magic"));
+		if (MainHallAllow("3")) DrawButton(25, 145, 90, 90, "", "White", "Icons/Horse.png", TextGet("Stable"));
 
 		// Cafe, Arcade
-		DrawButton(145, 265, 90, 90, "", "White", "Icons/Arcade.png", TextGet("Arcade"));
-		DrawButton(25, 265, 90, 90, "", "White", "Icons/Refreshsments.png", TextGet("Cafe"));
+		if (MainHallAllow("7")) DrawButton(145, 265, 90, 90, "", "White", "Icons/Arcade.png", TextGet("Arcade"));
+		if (MainHallAllow("6")) DrawButton(25, 265, 90, 90, "", "White", "Icons/Refreshsments.png", TextGet("Cafe"));
 
 	} else {
 
@@ -367,56 +377,57 @@ function MainHallClick() {
 			window.location = window.location;
 		}
 	}
-	if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 145) && (MouseY < 235)) ChatRoomStart("", "", "MainHall", "Introduction", BackgroundsTagList);
+	
+	if (MouseIn(1645, 145, 90, 90)) MainHallMoveToChatSelect()
 
 	// The options below are only available if the player can move
 	if (Player.CanWalk() && (!Player.IsRestrained() || !Player.GameplaySettings.OfflineLockedRestrained)) {
 
 		// Chat, Shop & Private Room
-		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 145) && (MouseY < 235)) MainHallWalk("Shop");
-		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 145) && (MouseY < 235) && !LogQuery("LockOutOfPrivateRoom", "Rule")) MainHallWalk("Private");
+		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 145) && (MouseY < 235) && MainHallAllow("A")) MainHallWalk("Shop");
+		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 145) && (MouseY < 235) && !LogQuery("LockOutOfPrivateRoom", "Rule") && MainHallAllow("B")) MainHallWalk("Private");
 
 		// Introduction, Maid & Management
-		if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 265) && (MouseY < 355)) MainHallWalk("Introduction");
-		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 265) && (MouseY < 355)) MainHallWalk("MaidQuarters");
+		if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 265) && (MouseY < 355) && MainHallAllow("C")) MainHallWalk("Introduction");
+		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 265) && (MouseY < 355) && MainHallAllow("D")) MainHallWalk("MaidQuarters");
 		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 265) && (MouseY < 355)) MainHallWalk("Management");
 
 		// Kidnap League, Dojo & Explore/Sarah
-		if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 385) && (MouseY < 475)) MainHallWalk("KidnapLeague");
-		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 385) && (MouseY < 475)) MainHallWalk("Shibari");
-		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 385) && (MouseY < 475) && SarahRoomAvailable) MainHallWalk("Sarah");
+		if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 385) && (MouseY < 475) && MainHallAllow("E")) MainHallWalk("KidnapLeague");
+		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 385) && (MouseY < 475) && MainHallAllow("F")) MainHallWalk("Shibari");
+		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 385) && (MouseY < 475) && SarahRoomAvailable && MainHallAllow("G")) MainHallWalk("Sarah");
 
 		// Cell, Slave Market & Look for trouble
-		if ((MouseX >= 1525) && (MouseX < 1615) && (MouseY >= 505) && (MouseY < 595)) MainHallWalk("Crafting");
-		if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 505) && (MouseY < 595)) MainHallWalk("Trouble");
-		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 505) && (MouseY < 595)) MainHallWalk("SlaveMarket");
-		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 505) && (MouseY < 595)) MainHallWalk("Cell");
+		if ((MouseX >= 1525) && (MouseX < 1615) && (MouseY >= 505) && (MouseY < 595) && MainHallAllow("S")) CraftingShowScreen(false);
+		if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 505) && (MouseY < 595) && MainHallAllow("H")) MainHallWalk("Trouble");
+		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 505) && (MouseY < 595) && MainHallAllow("I")) MainHallWalk("SlaveMarket");
+		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 505) && (MouseY < 595) && MainHallAllow("J")) MainHallWalk("Cell");
 
 		// Asylum & College
-		if ((MouseX >= 1525) && (MouseX < 1615) && (MouseY >= 625) && (MouseY < 715) && !ManagementIsClubSlave()) MainHallWalk("PlatformIntro");
-		if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 625) && (MouseY < 715) && !ManagementIsClubSlave()) MainHallWalk("LARP");
-		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 625) && (MouseY < 715) && !ManagementIsClubSlave()) MainHallWalk("CollegeEntrance");
-		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 625) && (MouseY < 715) && MainHallAsylumOpen) MainHallWalk("AsylumEntrance");
+		if ((MouseX >= 1525) && (MouseX < 1615) && (MouseY >= 625) && (MouseY < 715) && !ManagementIsClubSlave() && MainHallAllow("R")) MainHallWalk("PlatformIntro");
+		if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 625) && (MouseY < 715) && !ManagementIsClubSlave() && MainHallAllow("K")) MainHallWalk("LARP");
+		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 625) && (MouseY < 715) && !ManagementIsClubSlave() && MainHallAllow("L")) MainHallWalk("CollegeEntrance");
+		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 625) && (MouseY < 715) && MainHallAsylumOpen && MainHallAllow("M")) MainHallWalk("AsylumEntrance");
 
 		// Movie Studio (Must be able to change to enter it)
-		if ((MouseX >= 1525) && (MouseX < 1615) && (MouseY >= 745) && (MouseY < 855) && Player.CanChangeOwnClothes()) MainHallWalk("MagicSchoolLaboratory");
-		if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 745) && (MouseY < 855) && Player.CanChangeOwnClothes() && !Player.IsRestrained() && Player.CanTalk()) MainHallWalk("Poker");
-		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 745) && (MouseY < 855) && Player.CanChangeOwnClothes()) MainHallWalk("Infiltration");
-		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 745) && (MouseY < 855) && Player.CanChangeOwnClothes()) MainHallWalk("MovieStudio");
+		if ((MouseX >= 1525) && (MouseX < 1615) && (MouseY >= 745) && (MouseY < 855) && Player.CanChangeOwnClothes() && MainHallAllow("Q")) MainHallWalk("MagicSchoolLaboratory");
+		if ((MouseX >= 1645) && (MouseX < 1735) && (MouseY >= 745) && (MouseY < 855) && Player.CanChangeOwnClothes() && !Player.IsRestrained() && Player.CanTalk() && MainHallAllow("N")) MainHallWalk("Poker");
+		if ((MouseX >= 1765) && (MouseX < 1855) && (MouseY >= 745) && (MouseY < 855) && Player.CanChangeOwnClothes() && MainHallAllow("O")) MainHallWalk("Infiltration");
+		if ((MouseX >= 1885) && (MouseX < 1975) && (MouseY >= 745) && (MouseY < 855) && Player.CanChangeOwnClothes() && MainHallAllow("P")) MainHallWalk("MovieStudio");
 
 		// Custom content rooms - Gambling, Prison & Photographic
-		if ((MouseX >=   25) && (MouseX <  115) && (MouseY >=  25) && (MouseY < 115)) MainHallWalk("Gambling");
-		if ((MouseX >=  145) && (MouseX <  235) && (MouseY >=  25) && (MouseY < 115)) MainHallWalk("Prison");
-		if ((MouseX >=  265) && (MouseX <  355) && (MouseY >=  25) && (MouseY < 115)) MainHallWalk("Photographic");
+		if ((MouseX >=   25) && (MouseX <  115) && (MouseY >=  25) && (MouseY < 115) && MainHallAllow("0")) MainHallWalk("Gambling");
+		if ((MouseX >=  145) && (MouseX <  235) && (MouseY >=  25) && (MouseY < 115) && MainHallAllow("1")) MainHallWalk("Prison");
+		if ((MouseX >=  265) && (MouseX <  355) && (MouseY >=  25) && (MouseY < 115) && MainHallAllow("2")) MainHallWalk("Photographic");
 
 		// Stable, Magic-Theater & Nursery
-		if ((MouseX >=   25) && (MouseX <  115) && (MouseY >= 145) && (MouseY < 235)) MainHallWalk("Stable");
-		if ((MouseX >=  145) && (MouseX <  235) && (MouseY >= 145) && (MouseY < 235)) MainHallWalk("Magic");
-		if ((MouseX >=  265) && (MouseX <  355) && (MouseY >= 145) && (MouseY < 235)) MainHallWalk("Nursery");
+		if ((MouseX >=   25) && (MouseX <  115) && (MouseY >= 145) && (MouseY < 235) && MainHallAllow("3")) MainHallWalk("Stable");
+		if ((MouseX >=  145) && (MouseX <  235) && (MouseY >= 145) && (MouseY < 235) && MainHallAllow("4")) MainHallWalk("Magic");
+		if ((MouseX >=  265) && (MouseX <  355) && (MouseY >= 145) && (MouseY < 235) && MainHallAllow("5")) MainHallWalk("Nursery");
 
 		// Cafe, Arcade
-		if ((MouseX >=   25) && (MouseX <  115) && (MouseY >= 265) && (MouseY < 355)) MainHallWalk("Cafe");
-		if ((MouseX >=   145) && (MouseX <  235) && (MouseY >= 265) && (MouseY < 355)) MainHallWalk("Arcade");
+		if ((MouseX >=   25) && (MouseX <  115) && (MouseY >= 265) && (MouseY < 355) && MainHallAllow("6")) MainHallWalk("Cafe");
+		if ((MouseX >=   145) && (MouseX <  235) && (MouseY >= 265) && (MouseY < 355) && MainHallAllow("7")) MainHallWalk("Arcade");
 
 	} else {
 
@@ -763,4 +774,8 @@ function MainHallMaidIntroductionDone() {
 function MainHallSetMaidsDisabled(minutes) {
 	var millis = minutes * 60000;
 	LogAdd("MaidsDisabled", "Maid", CurrentTime + millis);
+}
+
+function MainHallMoveToChatSelect() {
+	CommonSetScreen("Online", "ChatSelect")
 }

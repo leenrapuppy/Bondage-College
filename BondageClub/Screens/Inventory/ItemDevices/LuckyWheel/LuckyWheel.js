@@ -9,6 +9,11 @@ var ItemDevicesLuckyWheelAnimationMinSpeed = 4;
 var ItemDevicesLuckyWheelAnimationSpeedStep = 1;
 var ItemDevicesLuckyWheelAnimationFrameTime = 80;
 
+/**
+ * Helper to generate section labels
+ * @param {number} num
+ * @returns {string}
+ */
 function ItemDevicesLuckyWheelLabelForNum(num) {
 	return DialogFindPlayer("LuckyWheelSectionDefaultLabel").replace("NUM", num.toString());
 }
@@ -33,16 +38,27 @@ function InventoryItemDevicesLuckyWheelClickHook(next) {
 	next();
 }
 
-function InventoryItemDevicesLuckyWheelGame0Load() {
+/*
+ *
+ * @param {Item} Item
+ */
+function InventoryItemDevicesLuckyWheelInit(Item) {
 	DynamicDrawLoadFont(ItemDevicesLuckyWheelFont);
 
-	if (!DialogFocusItem.Property) DialogFocusItem.Property = {};
-	if (typeof DialogFocusItem.Property.TargetAngle !== "number") DialogFocusItem.Property.TargetAngle = 0;
-	if (!Array.isArray(DialogFocusItem.Property.Texts)) DialogFocusItem.Property.Texts = [];
-	if (DialogFocusItem.Property.Texts.length > ItemDevicesLuckyWheelMaxTexts)
-		DialogFocusItem.Property.Texts = DialogFocusItem.Property.Texts.splice(0, ItemDevicesLuckyWheelMaxTexts);
-	if (typeof DialogFocusItem.Property.Texts[0] !== "string") DialogFocusItem.Property.Texts[0] = ItemDevicesLuckyWheelLabelForNum(1);
-	if (typeof DialogFocusItem.Property.Texts[1] !== "string") DialogFocusItem.Property.Texts[1] = ItemDevicesLuckyWheelLabelForNum(2);
+	if (!Item.Property) Item.Property = {};
+	if (typeof Item.Property.TargetAngle !== "number") Item.Property.TargetAngle = 0;
+	if (!Array.isArray(Item.Property.Texts)) Item.Property.Texts = [];
+	if (Item.Property.Texts.length > ItemDevicesLuckyWheelMaxTexts)
+		Item.Property.Texts = Item.Property.Texts.splice(0, ItemDevicesLuckyWheelMaxTexts);
+	if (typeof Item.Property.Texts[0] !== "string") Item.Property.Texts[0] = ItemDevicesLuckyWheelLabelForNum(1);
+	if (typeof Item.Property.Texts[1] !== "string") Item.Property.Texts[1] = ItemDevicesLuckyWheelLabelForNum(2);
+}
+
+/**
+ * Lucky Wheel Game subscreen load handler
+ */
+function InventoryItemDevicesLuckyWheelGame0Load() {
+	InventoryItemDevicesLuckyWheelInit(DialogFocusItem);
 
 	for (let num = 0; num < DialogFocusItem.Property.Texts.length; num++) {
 		const input = ElementCreateInput(`LuckyWheelText${num}`, "input", DialogFocusItem.Property.Texts[num] || "", ItemDevicesLuckyWheelMaxTextLength);
@@ -86,7 +102,6 @@ function InventoryItemDevicesLuckyWheelGame0Click() {
 		return;
 	}
 
-
 	if (MouseIn(1360, 720, 120, 48)) {
 		if (DialogFocusItem.Property.Texts.length >= ItemDevicesLuckyWheelMaxTexts) return;
 
@@ -116,23 +131,19 @@ function InventoryItemDevicesLuckyWheelGame0Click() {
 function InventoryItemDevicesLuckyWheelGame0Exit() {
 	if (!DialogFocusItem) return;
 
-	let needsUpdate = false;
 	for (let num = 0; num < ItemDevicesLuckyWheelMaxTexts; num++) {
 		if (num < DialogFocusItem.Property.Texts.length) {
 			const text = ElementValue(`LuckyWheelText${num}`);
 			if (text != DialogFocusItem.Property.Texts[num]) {
 				DialogFocusItem.Property.Texts[num] = text;
-				needsUpdate = true;
 			}
 		}
 
 		ElementRemove(`LuckyWheelText${num}`);
 	}
 
-	if (needsUpdate) {
-		CharacterRefresh(CharacterGetCurrent(), false);
-		ChatRoomCharacterItemUpdate(CharacterGetCurrent());
-	}
+	ChatRoomCharacterItemUpdate(CharacterGetCurrent());
+	CharacterRefresh(CharacterGetCurrent(), true);
 
 	ExtendedItemSubscreen = null;
 }
@@ -155,16 +166,39 @@ function InventoryItemDevicesLuckyWheelTrigger() {
 	ChatRoomPublishCustomAction("LuckyWheelStartTurning", true, Dictionary);
 }
 
+function InventoryItemDevicesLuckyWheelStoppedTurning(C, Item, Angle) {
+	if (!C.IsPlayer() || Item.Asset.Name !== "LuckyWheel") return;
+
+	let storedTexts = Item.Property.Texts && Array.isArray(Item.Property.Texts) ? Item.Property.Texts.filter(T => typeof T === "string") : [];
+	storedTexts = storedTexts.map(T => T.substring(0, ItemDevicesLuckyWheelMaxTextLength));
+	const nbTexts = Math.max(Math.min(ItemDevicesLuckyWheelMaxTextLength, storedTexts.length), ItemDevicesLuckyWheelMinTexts);
+	const sectorAngleSize = 360 / nbTexts;
+
+	const landedIn = Math.round((Angle + 270) / sectorAngleSize);
+	const section = storedTexts[landedIn];
+
+	/** @type {ChatMessageDictionary} */
+	let Dictionary = [
+		{ Tag: "SourceCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+		{ Tag: "SectionName", Text: section },
+	];
+	ChatRoomPublishCustomAction("LuckyWheelStoppedTurning", true, Dictionary);
+}
+
+/** @type {DynamicScriptDrawCallback} */
 function AssetsItemDevicesLuckyWheelScriptDraw({ C, PersistentData, Item }) {
 	const Data = PersistentData();
 	const Properties = Item.Property || {};
 	const TargetAngle = Math.min(Math.max(Properties.TargetAngle || 0, 0), 360);
 	const FrameTime = ItemDevicesLuckyWheelAnimationFrameTime;
 
+	InventoryItemDevicesLuckyWheelInit(Item);
+
 	// Initialized to a non-spinning value (aka target value), to avoid "misfires" on asset load
 	if (typeof Data.AnimationAngleState !== "number") Data.AnimationAngleState = TargetAngle;
 	if (typeof Data.AnimationSpeed !== "number" || Data.AnimationAngleState == TargetAngle) Data.AnimationSpeed = ItemDevicesLuckyWheelAnimationMaxSpeed;
 	if (typeof Data.ChangeTime !== "number") Data.ChangeTime = CommonTime() + FrameTime;
+	if (typeof Data.LightStep !== "number" || isNaN(Data.LightStep)) Data.LightStep = 0;
 
 	if (Data.AnimationAngleState != TargetAngle && Data.ChangeTime < CommonTime()) {
 		Data.AnimationSpeed = Math.max(Data.AnimationSpeed - ItemDevicesLuckyWheelAnimationSpeedStep, ItemDevicesLuckyWheelAnimationMinSpeed);
@@ -173,6 +207,7 @@ function AssetsItemDevicesLuckyWheelScriptDraw({ C, PersistentData, Item }) {
 		// Stop detected
 		if (Data.AnimationSpeed == ItemDevicesLuckyWheelAnimationMinSpeed && Math.abs(Data.AnimationAngleState - TargetAngle) <= ItemDevicesLuckyWheelAnimationMinSpeed) {
 			Data.AnimationAngleState = TargetAngle;
+			InventoryItemDevicesLuckyWheelStoppedTurning(C, Item, TargetAngle);
 		}
 
 		Data.ChangeTime = CommonTime() + FrameTime;
@@ -181,7 +216,44 @@ function AssetsItemDevicesLuckyWheelScriptDraw({ C, PersistentData, Item }) {
 	}
 }
 
+/** @type {DynamicAfterDrawCallback} */
 function AssetsItemDevicesLuckyWheelAfterDraw({ C, PersistentData, A, X, Y, L, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color, Opacity }) {
+	const height = 500;
+	const width = 500;
+
+	if (L === "_BlinkingLights") {
+		const Data = PersistentData();
+		const CurrentAngle = Data.AnimationAngleState;
+		const Properties = Property || {};
+
+		/** Only draw lights when spinning */
+		if (!Properties.TargetAngle || Properties.TargetAngle === CurrentAngle)
+			return;
+
+		const tmpCanvas = AnimationGenerateTempCanvas(C, A, width, height);
+		const ctx = tmpCanvas.getContext("2d");
+
+		if (Data.AnimationSpeed < 2 * ItemDevicesLuckyWheelAnimationMinSpeed) {
+			// Start blinking
+			Data.LightStep = (++Data.LightStep) % 2;
+
+			if (Data.LightStep === 0)
+				return;
+
+			const image = "Assets/Female3DCG/ItemDevices/LuckyWheel_BlinkingLights_All.png";
+			DrawImageCanvas(image, ctx, 0, 0, AlphaMasks);
+		} else {
+			// Light trace
+			Data.LightStep = (++Data.LightStep) % 3;
+
+			const image = "Assets/Female3DCG/ItemDevices/LuckyWheel_BlinkingLights_" + (Data.LightStep + 1) + ".png";
+			DrawImageCanvas(image, ctx, 0, 0, AlphaMasks);
+		}
+
+		drawCanvas(tmpCanvas, X, Y, AlphaMasks);
+		drawCanvasBlink(tmpCanvas, X, Y, AlphaMasks);
+	}
+
 	if (L === "_Text") {
 		const Data = PersistentData();
 		const CurrentAngle = Data.AnimationAngleState;
@@ -196,8 +268,6 @@ function AssetsItemDevicesLuckyWheelAfterDraw({ C, PersistentData, A, X, Y, L, P
 		const nbTexts = Math.max(Math.min(ItemDevicesLuckyWheelMaxTextLength, storedTexts.length), ItemDevicesLuckyWheelMinTexts);
 
 		// Draw
-		const height = 500;
-		const width = 500;
 		const diameter = height / 2;
 		const degreeToRadians = (degrees) => degrees * Math.PI / 180;
 		const tmpCanvas = AnimationGenerateTempCanvas(C, A, width, height);
@@ -236,7 +306,7 @@ function AssetsItemDevicesLuckyWheelAfterDraw({ C, PersistentData, A, X, Y, L, P
 		// Validate & Draw Texts
 		for (let i = 0; i < nbTexts; i++) {
 			// Validate
-			const validatedText = (storedTexts[i] && DynamicDrawTextRegex.test(storedTexts[i]) ? storedTexts[i] : "Prize " + 1);
+			const validatedText = (storedTexts[i] && DynamicDrawTextRegex.test(storedTexts[i]) ? storedTexts[i] : ItemDevicesLuckyWheelLabelForNum(i + 1));
 
 			// Print text at an angle
 			const sectorAngleSize = 360 / nbTexts;

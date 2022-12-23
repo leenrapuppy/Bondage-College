@@ -3,7 +3,7 @@
 /**
  * An enum for the possible vibrator modes
  * @readonly
- * @enum {string}
+ * @type {{OFF: "Off", LOW: "Low", MEDIUM: "Medium", HIGH: "High", MAXIMUM: "Maximum", RANDOM: "Random", ESCALATE: "Escalate", TEASE: "Tease", DENY: "Deny", EDGE: "Edge"}}
  */
 var VibratorMode = {
 	OFF: "Off",
@@ -49,11 +49,12 @@ var VibratorModeSet = {
  * @type {{
  *     Standard: ExtendedItemOption[],
  *     Advanced: (ExtendedItemOption | {
+ *         Name: string,
  *         Property: {
  *             Mode: VibratorMode,
  *             Intensity: number | (() => number),
  *             Effect: EffectName[] | ((Intensity: number) => EffectName[]),
- *         }
+ *         },
  *     })[]
  * }}
  * @constant
@@ -144,6 +145,11 @@ var VibratorModeOptions = {
 		},
 	],
 };
+
+/**
+ * An alias for the vibrators OFF mode. See {@link VibratorModeOptions}.
+ */
+const VibratorModeOff = VibratorModeOptions[VibratorModeSet.STANDARD][0];
 
 /**
  * A lookup for the vibrator configurations for each registered vibrator item
@@ -242,6 +248,9 @@ function VibratorModeCreateScriptDrawFunction({ dynamicAssetsFunctionPrefix }) {
 function VibratorModeSetAssetProperties(data) {
 	const { asset } = data;
 	asset.DynamicScriptDraw = true;
+	asset.AllowType = Object.values(VibratorMode);
+	asset.AllowType[0] = "TurnOff";
+	asset.Extended = true;
 	VibratorModeSetAllowEffect(data);
 	VibratorModeSetEffect(data);
 }
@@ -275,13 +284,15 @@ function VibratorModeSetEffect({asset}) {
  * @returns {void} - Nothing
  */
 function VibratorModeLoad(Options) {
-	var Property = DialogFocusItem.Property;
-	if (!Property || !Property.Mode) {
+	const Property = DialogFocusItem.Property;
+	const AllowType = DialogFocusItem.Asset.AllowType;
+	if (!Property || !AllowType.includes(Property.Mode)) {
 		Options = (Options && Options.length) ? Options : [VibratorModeSet.STANDARD];
-		var FirstOption = VibratorModeOptions[Options[0]][0] || VibratorModeOptions[VibratorModeSet.STANDARD][0];
+		const FirstOption = VibratorModeOptions[Options[0]][0] || VibratorModeOff;
 		VibratorModeSetProperty(DialogFocusItem, FirstOption.Property);
-		var C = CharacterGetCurrent();
-		CharacterRefresh(C);
+		const C = CharacterGetCurrent();
+		const RefreshDialog = (CurrentScreen !== "Crafting");
+		CharacterRefresh(C, true, RefreshDialog);
 		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
 	}
 }
@@ -292,19 +303,8 @@ function VibratorModeLoad(Options) {
  * @returns {void} - Nothing
  */
 function VibratorModeDraw(Options) {
-	VibratorModeDrawHeader();
+	ExtendedItemDrawHeader(1387, 100);
 	VibratorModeDrawControls(Options);
-}
-
-/**
- * Common draw function for drawing the header of the extended item menu screen for a vibrator
- * @returns {void} - Nothing
- */
-function VibratorModeDrawHeader() {
-	const Asset = DialogFocusItem.Asset;
-	const Vibrating = DialogFocusItem.Property && DialogFocusItem.Property.Intensity != null && DialogFocusItem.Property.Intensity >= 0;
-	const Locked = InventoryItemHasEffect(DialogFocusItem, "Lock", true);
-	DrawAssetPreview(1387, 100, Asset, { Vibrating, Icons: Locked ? ["Locked"] : undefined });
 }
 
 /**
@@ -383,7 +383,7 @@ function VibratorModeGetOption(ModeName) {
 	});
 
 	if (result) return result;
-	return VibratorModeOptions.Standard[0];
+	return VibratorModeOff;
 
 }
 
@@ -439,8 +439,7 @@ function VibratorModeSetDynamicProperties(Property) {
  * Common dynamic script draw function for vibrators. This function is called every frame. TO make use of dynamic script draw on vibrators,
  * ensure your item has a `Assets<AssetGroup><AssetName>ScriptDraw` function defined that calls this function, and that your asset
  * definition in Female3DCG.js has `DynamicScriptDraw: true` set. See the Heart Piercings for examples.
- * @param {{ C: Character, Item: Item, PersistentData: function }} Data - The script draw data for the item
- * @returns {void} - Nothing
+ * @type {DynamicScriptDrawCallback}
  */
 function VibratorModeScriptDraw(Data) {
 	var C = Data.C;

@@ -101,8 +101,8 @@ function KinkyDungeonGetShopItem(Level, Rarity, Shop) {
 
 /**
  *
- * @param consumable {consumable}
- * @param Quantity {number}
+ * @param {consumable} consumable
+ * @param {number} Quantity
  * @return {boolean}
  */
 function KinkyDungeonChangeConsumable(consumable, Quantity) {
@@ -123,32 +123,13 @@ function KinkyDungeonChangeConsumable(consumable, Quantity) {
 }
 
 function KinkyDungeonConsumableEffect(Consumable) {
-	if (Consumable.type == "restore") {
-		let multi = 1.0;
-		if (Consumable.scaleWithMaxSP) {
-			multi = Math.max(KinkyDungeonStatStaminaMax / 36);
-		}
-		let Manamulti = 1.0;
-		if (Consumable.scaleWithMaxMP) {
-			Manamulti = Math.max(KinkyDungeonStatManaMax / 36);
-		}
-		let gagMult = Math.max(0, 1 - Math.max(0, KinkyDungeonGagTotal(true)));
-		if (gagMult < 0.999) {
-			KinkyDungeonSendTextMessage(8, TextGet("KinkyDungeonConsumableLessEffective"), "red", 2);
-		}
-		if (Consumable.mp_instant) KinkyDungeonChangeMana(Consumable.mp_instant * Manamulti * gagMult);
-		if (Consumable.sp_instant) KinkyDungeonChangeStamina(Consumable.sp_instant * multi * gagMult);
-		if (Consumable.ap_instant) KinkyDungeonChangeDistraction(Consumable.ap_instant * gagMult, false, Consumable.arousalRatio ? Consumable.arousalRatio : 0);
-
-		KinkyDungeonCalculateMiscastChance();
-
-		if (Consumable.mp_gradual) KinkyDungeonApplyBuff(KinkyDungeonPlayerBuffs, {id: "PotionMana", type: "restore_mp", power: Consumable.mp_gradual/Consumable.duration * gagMult * Manamulti, duration: Consumable.duration});
-		if (Consumable.sp_gradual) KinkyDungeonApplyBuff(KinkyDungeonPlayerBuffs, {id: "PotionStamina", type: "restore_sp", power: Consumable.sp_gradual/Consumable.duration * gagMult * multi, duration: Consumable.duration});
-		if (Consumable.ap_gradual) KinkyDungeonApplyBuff(KinkyDungeonPlayerBuffs, {id: "PotionFrigid", type: "restore_ap", power: Consumable.ap_gradual/Consumable.duration * gagMult, duration: Consumable.duration});
+	if (KDConsumableEffects[Consumable.type]) {
+		KDConsumableEffects[Consumable.type](Consumable);
 	} else if (Consumable.type == "spell") {
 		KinkyDungeonCastSpell(KinkyDungeonPlayerEntity.x, KinkyDungeonPlayerEntity.y, KinkyDungeonFindSpell(Consumable.spell, true), undefined, undefined, undefined);
 		KinkyDungeonAdvanceTime(1);
 	} else if (Consumable.type == "targetspell") {
+		KDCloseQuickInv();
 		KinkyDungeonTargetingSpell = KinkyDungeonFindSpell(Consumable.spell, true);
 		KinkyDungeonTargetingSpellItem = Consumable;
 	} else if (Consumable.type == "charge") {
@@ -172,11 +153,10 @@ function KinkyDungeonConsumableEffect(Consumable) {
 }
 
 function KinkyDungeonPotionCollar() {
-	let minCost = 0;
 	for (let r of KinkyDungeonAllRestraint()) {
-		if (KDRestraint(r).potionAncientCost && (KDRestraint(r).potionAncientCost < minCost || minCost == 0)) minCost = KDRestraint(r).potionAncientCost;
+		if (KDRestraint(r).potionCollar) return true;
 	}
-	return minCost;
+	return false;
 }
 
 function KinkyDungeonCanDrink() {
@@ -190,22 +170,31 @@ function KinkyDungeonAttemptConsumable(Name, Quantity) {
 	if (KDGameData.SleepTurns > 0 || KinkyDungeonSlowMoveTurns > 0) return false;
 	let item = KinkyDungeonGetInventoryItem(Name, Consumable);
 	if (!item) return false;
+
+
+	if (KDConsumable(item).prereq && KDConsumablePrereq[KDConsumable(item).prereq]) {
+		if (KDConsumablePrereq[KDConsumable(item).prereq](item, Quantity)) {
+			KinkyDungeonUseConsumable(Name, Quantity);
+			return true;
+		} else return false;
+	}
+
 	if (item.item && KDConsumable(item.item) && KDConsumable(item.item).type == "unusuable") {
-		KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonUnusable"), "red", 1);
+		KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonUnusable"), "#ff0000", 1);
 		return false;
 	}
 	if (item.item && KDConsumable(item.item) && KDConsumable(item.item).type == "goldKey") {
 		if (KinkyDungeonPlayerGetRestraintsWithLocks(["Gold"]).length == 0) {
-			KinkyDungeonSendActionMessage(8, TextGet("KinkyDungeonMistressKeyFail"), "red", 1);
+			KinkyDungeonSendActionMessage(8, TextGet("KinkyDungeonMistressKeyFail"), "#ff0000", 1);
 			return false;
 		}
 	}
 	if (item.item && KDConsumable(item.item) && KDConsumable(item.item).type == "charge" && KDGameData.AncientEnergyLevel >= 1) {
-		KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonFullpower"), "red", 1);
+		KinkyDungeonSendActionMessage(10, TextGet("KinkyDungeonFullpower"), "#ff0000", 1);
 		return false;
 	}
 	if (item.item && KDConsumable(item.item) && KDConsumable(item.item).type == "recharge") {
-		KinkyDungeonSendActionMessage(8, TextGet("KinkyDungeonInventoryItemAncientPowerSourceSpentUseFail"), "red", 1);
+		KinkyDungeonSendActionMessage(8, TextGet("KinkyDungeonInventoryItemAncientPowerSourceSpentUseFail"), "#ff0000", 1);
 		return false;
 	}
 
@@ -214,17 +203,17 @@ function KinkyDungeonAttemptConsumable(Name, Quantity) {
 		return false;
 	}
 
-	let needMouth = item.item && KDConsumable(item.item) && (KDConsumable(item.item).potion || KDConsumable(item.item).needMouth);
+	let needMouth = item.item && KDConsumable(item.item) && ((KDConsumable(item.item).potion && !KDConsumable(item.item).gagFloor) || KDConsumable(item.item).needMouth);
 	let needArms = !(item.item && KDConsumable(item.item) && KDConsumable(item.item).noHands);
 	let strictness = KinkyDungeonStrictness(false, "ItemHands");
 	let maxStrictness = (item.item && KDConsumable(item.item) && KDConsumable(item.item).maxStrictness) ? KDConsumable(item.item).maxStrictness : 1000;
 
 	if (needMouth && ((!KDConsumable(item.item).potion && !KinkyDungeonCanTalk(true)) || (KDConsumable(item.item).potion && !KinkyDungeonCanDrink()))) {
-		let energyCost = KinkyDungeonPotionCollar();
-		if (KDConsumable(item.item).potion && energyCost && KDGameData.AncientEnergyLevel > energyCost) {
-			KDGameData.AncientEnergyLevel = Math.max(0, KDGameData.AncientEnergyLevel - energyCost);
+		let allowPotions = KinkyDungeonPotionCollar();
+		if (KDConsumable(item.item).potion && allowPotions) {
+			//KDGameData.AncientEnergyLevel = Math.max(0, KDGameData.AncientEnergyLevel - energyCost);
 		} else {
-			KinkyDungeonSendActionMessage(7, TextGet("KinkyDungeonPotionGagged"), "red", 1);
+			KinkyDungeonSendActionMessage(7, TextGet("KinkyDungeonPotionGagged"), "#ff0000", 1);
 
 			if (KinkyDungeonTextMessageTime > 0)
 				KinkyDungeonDrawState = "Game";
@@ -232,13 +221,25 @@ function KinkyDungeonAttemptConsumable(Name, Quantity) {
 			return false;
 		}
 	}
-	if (!(KinkyDungeonHasGhostHelp() || KinkyDungeonHasAllyHelp()) && needArms && !KinkyDungeonStatsChoice.get("Psychic") && !(item.item && KDConsumable(item.item).potion && !KinkyDungeonIsArmsBound()) && KinkyDungeonIsHandsBound() && !KinkyDungeonCanUseFeet()) {
-		let energyCost = KinkyDungeonPotionCollar();
-		if (KDConsumable(item.item).potion && energyCost && KDGameData.AncientEnergyLevel > energyCost) {
-			KDGameData.AncientEnergyLevel = Math.max(0, KDGameData.AncientEnergyLevel - energyCost);
-		} else {
+	if (!(KinkyDungeonHasGhostHelp() || KinkyDungeonHasAllyHelp()) && needArms && !KinkyDungeonStatsChoice.get("Psychic") && !(item.item && KDConsumable(item.item).potion && !KinkyDungeonIsArmsBound() && (!KinkyDungeonStatsChoice.has("WeakGrip") || !KinkyDungeonIsHandsBound(false, false))) && (KinkyDungeonIsHandsBound(false, true) || (KinkyDungeonStatsChoice.has("WeakGrip") && item.item && KDConsumable(item.item).potion)) && !KinkyDungeonCanUseFeet()) {
+		let allowPotions = KinkyDungeonPotionCollar();
+		let nohands = KinkyDungeonIsHandsBound(false, true);
+		if (KDConsumable(item.item).potion && allowPotions) {
+			//KDGameData.AncientEnergyLevel = Math.max(0, KDGameData.AncientEnergyLevel - energyCost);
+		} else if (!nohands && KinkyDungeonCanKneel() && KDGameData.KneelTurns < 1) {
+			if (!KDGameData.KneelTurns) KDGameData.KneelTurns = 2;
+			else KDGameData.KneelTurns = Math.max(KDGameData.KneelTurns, 2);
+			KinkyDungeonSendActionMessage(7, TextGet("KinkyDungeonCantUsePotionsKneel"), "#ffff00", 1);
+
+			if (KinkyDungeonTextMessageTime > 0)
+				KinkyDungeonDrawState = "Game";
+
+			KinkyDungeonAdvanceTime(1, true, true);
+
+			return false;
+		} else if (nohands || KDGameData.KneelTurns < 1) {
 			//KinkyDungeonAdvanceTime(1);
-			KinkyDungeonSendActionMessage(7, TextGet("KinkyDungeonCantUsePotions"), "red", 1);
+			KinkyDungeonSendActionMessage(7, TextGet("KinkyDungeonCantUsePotions"), "#ff0000", 1);
 
 			if (KinkyDungeonTextMessageTime > 0)
 				KinkyDungeonDrawState = "Game";
@@ -249,13 +250,19 @@ function KinkyDungeonAttemptConsumable(Name, Quantity) {
 
 	if (strictness >= maxStrictness) {
 		//KinkyDungeonAdvanceTime(1);
-		KinkyDungeonSendActionMessage(7, TextGet("KinkyDungeonCantUsePotionsStrict"), "red", 1);
+		KinkyDungeonSendActionMessage(7, TextGet("KinkyDungeonCantUsePotionsStrict"), "#ff0000", 1);
 
 		if (KinkyDungeonTextMessageTime > 0)
 			KinkyDungeonDrawState = "Game";
 		return false;
 	}
 
+	if (KDConsumable(item).postreq && KDConsumablePrereq[KDConsumable(item).postreq]) {
+		if (KDConsumablePrereq[KDConsumable(item).postreq](item, Quantity)) {
+			KinkyDungeonUseConsumable(Name, Quantity);
+			return true;
+		} else return false;
+	}
 	KinkyDungeonUseConsumable(Name, Quantity);
 	return true;
 }
@@ -272,7 +279,7 @@ function KinkyDungeonUseConsumable(Name, Quantity) {
 
 	KinkyDungeonSendActionMessage(9, TextGet("KinkyDungeonInventoryItem" + Name + "Use"), "#88FF88", 1);
 	if (KDConsumable(item.item).sfx) {
-		if (KinkyDungeonSound) AudioPlayInstantSound(KinkyDungeonRootDirectory + "/Audio/" + KDConsumable(item.item).sfx + ".ogg");
+		if (KinkyDungeonSound) AudioPlayInstantSoundKD(KinkyDungeonRootDirectory + "/Audio/" + KDConsumable(item.item).sfx + ".ogg");
 	}
 	return true;
 }

@@ -6,6 +6,7 @@
 let KDObjectMessages = {
 	"Ghost": () => KinkyDungeonGhostMessage(),
 	"Angel": () => KinkyDungeonAngelMessage(),
+	"Food": () => KinkyDungeonFoodMessage(),
 };
 /**
  * @type {Record<string,() => boolean>}
@@ -20,15 +21,17 @@ let KDObjectDraw = {
 	"Ghost": () => KinkyDungeonDrawGhost(),
 	"Angel": () => KinkyDungeonDrawAngel(),
 	"Charger": () => KinkyDungeonDrawCharger(),
+	"Tablet": () => KinkyDungeonDrawTablet(),
+	"Food": () => KinkyDungeonDrawFood(),
 };
 
 function KinkyDungeonDrawGhost() {
 	if (KDGameData.CurrentDialog) return;
-	if (KinkyDungeonTargetTile.GhostDecision == 0) DrawText(TextGet("KinkyDungeonDrawGhostHelpful"), KDModalArea_x + 200, KDModalArea_y + 50, "white", "silver");
-	else DrawText(TextGet("KinkyDungeonDrawGhostUnhelpful"), KDModalArea_x + 200, KDModalArea_y + 50, "white", "silver");
+	if (KinkyDungeonTargetTile.GhostDecision == 0) DrawTextKD(TextGet("KinkyDungeonDrawGhostHelpful"), KDModalArea_x + 200, KDModalArea_y + 50, "white", KDTextGray2);
+	else DrawTextKD(TextGet("KinkyDungeonDrawGhostUnhelpful"), KDModalArea_x + 200, KDModalArea_y + 50, "white", KDTextGray2);
 }
 function KinkyDungeonDrawAngel() {
-	DrawText(TextGet("KinkyDungeonDrawAngelHelpful"), KDModalArea_x + 200, KDModalArea_y + 50, "white", "silver");
+	DrawTextKD(TextGet("KinkyDungeonDrawAngelHelpful"), KDModalArea_x + 200, KDModalArea_y + 50, "white", KDTextGray2);
 }
 
 function KinkyDungeonGhostMessage() {
@@ -81,6 +84,17 @@ function KinkyDungeonAngelMessage() {
 	}
 }
 
+function KinkyDungeonFoodMessage() {
+	if (KinkyDungeonTargetTile) {
+		let msg = TextGet("KinkyDungeonFood" + (KinkyDungeonTargetTile.Food ? KinkyDungeonTargetTile.Food : ""));
+
+		if (msg) {
+			KinkyDungeonSendActionMessage(3, msg, "white", 3);
+		}
+	}
+
+}
+
 function KinkyDungeonMakeGhostDecision() {
 	for (let tile of KinkyDungeonTiles.values()) {
 		if (tile.Type == "Ghost") {
@@ -101,18 +115,46 @@ function KinkyDungeonMakeGhostDecision() {
 
 function KinkyDungeonDrawCharger() {
 	KDModalArea = true;
-	//DrawText(TextGet("KinkyDungeonCharger"), KDModalArea_x + 200, KDModalArea_y + 50, "white", "silver");
+	//DrawTextKD(TextGet("KinkyDungeonCharger"), KDModalArea_x + 200, KDModalArea_y + 50, "white", KDTextGray2);
 	if (KinkyDungeonTargetTile && KinkyDungeonTargetTile.Light == KDChargerLight) {
-		DrawButton(KDModalArea_x + 25, KDModalArea_y + 25, 400, 60, TextGet("KinkyDungeonChargerRemoveCrystal"), "#white", "", "");
+		DrawButtonVis(KDModalArea_x + 25, KDModalArea_y + 25, 400, 60, TextGet("KinkyDungeonChargerRemoveCrystal"), "white", "", "");
 	} else {
-		DrawButton(KDModalArea_x + 250, KDModalArea_y + 25, 200, 60, TextGet("KinkyDungeonChargerCharge"), KinkyDungeonInventoryGet("AncientPowerSourceSpent") ? "white" : "#888888", "", "");
-		DrawButton(KDModalArea_x + 25, KDModalArea_y + 25, 200, 60, TextGet("KinkyDungeonChargerPlaceCrystal"), KinkyDungeonInventoryGet("AncientPowerSource") ? "white" : "#888888", "", "");
+		DrawButtonVis(KDModalArea_x + 250, KDModalArea_y + 25, 200, 60, TextGet("KinkyDungeonChargerCharge"), KinkyDungeonInventoryGet("AncientPowerSourceSpent") ? "white" : "#888888", "", "");
+		DrawButtonVis(KDModalArea_x + 25, KDModalArea_y + 25, 200, 60, TextGet("KinkyDungeonChargerPlaceCrystal"), KinkyDungeonInventoryGet("AncientPowerSource") ? "white" : "#888888", "", "");
 	}
 
 
 }
 
-let KDChargerLight = 4;
+function KinkyDungeonDrawTablet() {
+	KDModalArea = true;
+	//DrawTextKD(TextGet("KinkyDungeonCharger"), KDModalArea_x + 200, KDModalArea_y + 50, "white", KDTextGray2);
+	if (KinkyDungeonTargetTile) {
+		DrawButtonKDEx("Tablet",(bdata) => {
+			KDSendInput("tabletInteract", {action: "read", targetTile: KinkyDungeonTargetTileLocation});
+			KinkyDungeonTargetTile = null;
+			KinkyDungeonTargetTileLocation = "";
+			return true;
+		}, true, KDModalArea_x + 25, KDModalArea_y + 25, 400, 60, TextGet("KinkyDungeonTabletRead"), "white", "", "");
+	}
+}
+
+function KinkyDungeonDrawFood() {
+	KDModalArea = true;
+	if (KinkyDungeonTargetTile && KinkyDungeonTargetTile.Food && KinkyDungeonTargetTile.Food != "Plate") {
+		DrawButtonKDEx("Food",(bdata) => {
+			KDSendInput("foodInteract", {action: "eat", targetTile: KinkyDungeonTargetTileLocation});
+			KinkyDungeonTargetTile = null;
+			KinkyDungeonTargetTileLocation = "";
+			return true;
+		}, true, KDModalArea_x + 25, KDModalArea_y + 25, 400, 60, TextGet("KinkyDungeonFoodEat"), "white", "", "");
+	}
+}
+
+let KDChargerLight = 6.5;
+let KDChargerColor = 0xffee83;
+let KDLeylineLightColor = 0x4477ff;
+let KDLeylineLight = 8;
 
 function KinkyDungeonHandleCharger() {
 	if (KinkyDungeonTargetTile && KinkyDungeonTargetTile.Light == KDChargerLight) {

@@ -105,6 +105,31 @@ function InventoryDelete(C, DelItemName, DelItemGroup, Push) {
 }
 
 /**
+ * Deletes all currently-owned items from a given group.
+ *
+ * @param {Character} C - The character to remove items from
+ * @param {AssetGroupName} group - The group name to clear
+ * @param {boolean} [push=true] - Whether to send an update to the server
+ * @return {InventoryItem[]} The list of deleted items
+ */
+function InventoryDeleteGroup(C, group, push) {
+	const deleted = [];
+
+	for (let I = 0; I < C.Inventory.length; I++) {
+		let item = C.Inventory[I];
+		if (item.Group != group) continue;
+
+		deleted.push(item);
+		C.Inventory.splice(I, 1);
+	}
+
+	if (deleted.length > 0 && (C.ID == 0) && ((push == null) || push))
+		ServerPlayerInventorySync();
+
+	return deleted;
+}
+
+/**
 * Loads the current inventory for a character, can be loaded from an object of Name/Group or a compressed array using
 * LZString
 * @param {Character} C - The character on which we should load the inventory
@@ -136,12 +161,12 @@ function InventoryLoad(C, Inventory) {
 /**
 * Checks if the character has the inventory available
 * @param {Character} C - The character on which we should remove the item
-* @param {String} InventoryName - The name of the item to validate
+* @param {String|'*'} InventoryName - The name of the item to validate, * means any
 * @param {String} InventoryGroup - The group name of the item to validate
 */
 function InventoryAvailable(C, InventoryName, InventoryGroup) {
 	for (let I = 0; I < C.Inventory.length; I++)
-		if ((C.Inventory[I].Name == InventoryName) && (C.Inventory[I].Group == InventoryGroup))
+		if ((C.Inventory[I].Name == InventoryName || InventoryName === "*") && (C.Inventory[I].Group == InventoryGroup))
 			return true;
 	return false;
 }
@@ -189,6 +214,14 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 		case "NoClothLower": return InventoryHasItemInAnyGroup(C, ["ClothLower"]) ? "RemoveClothesForItem" : "";
 		case "NoMaidTray": return InventoryIsItemInList(C, "ItemMisc", ["WoodenMaidTray", "WoodenMaidTrayFull"]) ? "CannotBeUsedWhileServingDrinks" : "";
 		case "CanBeCeilingTethered": return InventoryHasItemInAnyGroup(C, ["ItemArms", "ItemTorso", "ItemPelvis"]) ? "" : "AddItemsToUse";
+
+		// Checks for body
+		case "HasBreasts": return !InventoryIsItemInList(C, "BodyUpper", ["XLarge", "Large", "Normal", "Small"]) ? "MustHaveBreasts" : "";
+		case "HasFlatChest": return !InventoryIsItemInList(C, "BodyUpper", ["FlatSmall", "FlatMedium"]) ? "MustHaveFlatChest" : "";
+
+		// Checks for genitalia
+		case "HasVagina": return !InventoryIsItemInList(C, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]) ? "MustHaveVagina" : "";
+		case "HasPenis": return !InventoryIsItemInList(C, "Pussy", ["Penis"]) ? "MustHavePenis" : "";
 
 		// Checks for torso access based on clothes
 		case "AccessTorso": return !InventoryDoItemsExposeGroup(C, "ItemTorso", ["Cloth"]) ? "RemoveClothesForItem" : "";
@@ -248,6 +281,8 @@ function InventoryPrerequisiteMessage(C, Prerequisite) {
 
 		// There's something in the mouth that's too large to allow that item on
 		case "NotProtrudingFromMouth": return C.Effect.includes("ProtrudingMouth") ? "CannotBeUsedOverGag" : "";
+
+		case "NeedsNippleRings": return !InventoryIsItemInList(C, "ItemNipplesPiercings", ["RoundPiercing"]) ? "NeedsNippleRings" : "";
 
 		// Returns no message, indicating that all prerequisites are fine
 		default: return "";
@@ -408,36 +443,43 @@ function InventoryGet(C, AssetGroup) {
 * @param {Character} Source - The character that used the item
 * @param {Character} Target - The character on which the item is used
 * @param {String} GroupName - The name of the asset group to scan
-* @param {Object} Craft - The crafted properties to apply
+* @param {CraftingItem} Craft - The crafted properties to apply
 * @param {Boolean} Refresh - TRUE if we must refresh the character
+* @param {Boolean} ApplyColor - TRUE if the items color must be (re-)applied
+* @param {Boolean} CraftWarn - Whether a warning should logged whenever the crafting validation fails
 * @returns {void}
 */
-function InventoryCraft(Source, Target, GroupName, Craft, Refresh) {
-
+function InventoryCraft(Source, Target, GroupName, Craft, Refresh, ApplyColor=true, CraftWarn=true) {
 	// Gets the item first
-	if ((Source == null) || (Target == null) || (GroupName == null) || (Craft == null)) return;
+	if ((Source == null) || (Target == null) || (GroupName == null)) return;
 	let Item = InventoryGet(Target, GroupName);
-	if (Item == null) return;
+	if ((Item == null) || !CraftingValidate(Craft, Item.Asset, CraftWarn)) return;
 	if (Item.Craft == null) Item.Craft = Craft;
 
 	// Applies the color schema, separated by commas
-	if ((Craft.Color != null) && (Craft.Color.indexOf(",") > 0)) {
+	if (ApplyColor) {
 		Item.Color = Craft.Color.replace(" ", "").split(",");
-		for (let C of Item.Color)
-			if (CommonIsColor(C) == false)
-				C = "default";
 	}
 
 	// Applies a lock to the item
-	if ((Craft.Lock != null) && (Craft.Lock != ""))
+	if (Craft.Lock != "")
 		InventoryLock(Target, Item, Craft.Lock, Source.MemberNumber, false);
 
 	// Sets the crafter name and ID
 	if (Item.Craft.MemberNumber == null) Item.Craft.MemberNumber = Source.MemberNumber;
 	if (Item.Craft.MemberName == null) Item.Craft.MemberName = CharacterNickname(Source);
 
+	// Set the item priority
+	if (Craft.OverridePriority != null) {
+		if (Item.Property == null) {
+			Item.Property = {OverridePriority: Craft.OverridePriority};
+		} else {
+			Item.Property.OverridePriority = Craft.OverridePriority;
+		}
+	}
+
 	// The properties are only applied on self or NPCs to prevent duplicating the effect
-	if ((Craft.Property != null) && (Target.IsPlayer() || Target.IsNpc())) {
+	if (Target.IsPlayer() || Target.IsNpc()) {
 
 		// The secure property adds 5 to the difficulty rating to struggle out
 		if (Craft.Property === "Secure") {
@@ -510,6 +552,139 @@ function InventoryCraftPropertyIs(Item, Property) {
 }
 
 /**
+* Helper function for `InventoryWearCraft` for handling Modular items
+* @param {Item} Item - The item being applied
+* @param {string} Type - The type string for a modular item
+* @returns {void}
+*/
+function InventoryWearCraftModular(Item, Type) {
+	const Data = ModularItemDataLookup[Item.Asset.Group.Name + Item.Asset.Name];
+	if (Data === undefined) {
+		return;
+	}
+
+	// Validate that the requirements are met for all chosen options
+	const NewModuleValues = ModularItemParseCurrent(Data, Type);
+	const PreviousModuleValues = NewModuleValues.map((value) => 0);
+	NewModuleValues.forEach((value, i) => {
+		const Options = Data.modules[i].Options;
+		if (ExtendedItemRequirementCheckMessage(Options[value], Options[0])) {
+			NewModuleValues[i] = 0;
+		}
+	});
+
+	const C = CharacterGetCurrent();
+	ModularItemSetOption(C, Item, PreviousModuleValues, NewModuleValues, Data);
+}
+
+/**
+* Helper function for `InventoryWearCraft` for handling Typed items
+* @param {Item} Item - The item being applied
+* @param {string} Type - The type string for a modular item
+* @returns {void}
+*/
+function InventoryWearCraftTyped(Item, Type) {
+	if (Type != null) {
+		TypedItemSetOptionByName(CharacterGetCurrent(), Item, Type);
+	}
+}
+
+/**
+* Helper function for `InventoryWearCraft` for handling extended items that lack an archetype
+* @param {Item} Item - The item being applied
+* @param {string} Type - The type string for a modular item
+* @returns {void}
+*/
+function InventoryWearCraftMisc(Item, Type) {
+	const Prefix = ExtendedItemFunctionPrefix();
+	if (typeof window[`${Prefix}SetType`] === "function") {
+		CommonCallFunctionByName(Prefix + "SetType", Type);
+	} else if (Array.isArray(window[`${Prefix}Options`])) {
+		/** @type {ExtendedItemOption[]} */
+		const ItemOptions = window[Prefix + "Options"];
+		const Option = ItemOptions.find((o) => o.Name == Type);
+		const C = CharacterGetCurrent();
+		if (Option !== undefined) {
+			// NOTE: Avoid `ExtendedItemSetType` usage as the `ChatRoomCharacterUpdate` call therein can cause issues with
+			// the applying of crafted item colors (which conventionally happens *after* calling `InventoryWearCraft`)
+			TypedItemSetOption(C, Item, ItemOptions, Option, true);
+		}
+	}
+}
+
+/**
+* Helper function for `InventoryWearCraft` for handling Vibrating items
+* @param {Item} Item - The item being applied
+* @param {string} Type - The type string for a modular item
+* @returns {void}
+*/
+function InventoryWearCraftVibrating(Item, Type) {
+	let IsAdvanced = true;
+	let Option = VibratorModeOptions.Advanced.find((o) => o.Name == Type);
+	if (Option == undefined) {
+		IsAdvanced = false;
+		Option = VibratorModeOptions.Standard.find((o) => o.Name == Type);
+	}
+
+	const C = CharacterGetCurrent();
+	if ((Option == undefined) || (IsAdvanced && C.ArousalSettings && C.ArousalSettings.DisableAdvancedVibes)) {
+		VibratorModeSetProperty(Item, VibratorModeOff);
+	} else {
+		VibratorModeSetProperty(Item, Option.Property);
+	}
+}
+
+/**
+* Helper function for `InventoryWearCraft` for handling extended items
+* @param {Item} Item - The item being applied
+* @param {string} Type - The type string for a modular item
+* @param {(Item: Item, Type: string) => void} SetTypeCallback - A callback for setting the extend item's type
+* @returns {void}
+*/
+function InventoryWearCraftExtended(Item, Type, SetTypeCallback) {
+	// Emulate the dialog focus screen so we can safely call `Load`, `SetType` and `Exit`
+	const C = CharacterGetCurrent();
+	const FocusGroupOld = C.FocusGroup;
+	C.FocusGroup = AssetGroup.find((a) => a.Name == Item.Asset.Group.Name);
+	DialogFocusItem = Item;
+
+	// Call `Load`, `SetType` and `Exit`
+	const Prefix = ExtendedItemFunctionPrefix();
+	CommonCallFunctionByNameWarn(`${Prefix}Load`);
+	SetTypeCallback(Item, Type);
+	ExtendedItemExit();
+	C.FocusGroup = FocusGroupOld;
+}
+
+/**
+* Sets the craft and type on the item, uses the achetype properties if possible
+* @param {Item} Item - The item being applied
+* @param {CraftingItem} [Craft] - The crafting properties of the item
+*/
+function InventoryWearCraft(Item, Craft) {
+	if ((Item == null) || (Item.Asset == null) || (Craft == null)) return;
+	Item.Craft = Craft;
+
+	if ((Item.Asset.AllowType != null) && (Item.Asset.AllowType.length >= 1)) {
+		const Archetype = Item.Asset.Archetype || "misc";
+		switch(Archetype) {
+			case ExtendedArchetype.TYPED:
+				InventoryWearCraftExtended(Item, Craft.Type, InventoryWearCraftTyped);
+				break;
+			case ExtendedArchetype.MODULAR:
+				InventoryWearCraftExtended(Item, Craft.Type, InventoryWearCraftModular);
+				break;
+			case ExtendedArchetype.VIBRATING:
+				InventoryWearCraftExtended(Item, Craft.Type, InventoryWearCraftVibrating);
+				break;
+			case "misc":
+				InventoryWearCraftExtended(Item, Craft.Type, InventoryWearCraftMisc);
+				break;
+		}
+	}
+}
+
+/**
 * Makes the character wear an item on a body area
 * @param {Character} C - The character that must wear the item
 * @param {string} AssetName - The name of the asset to wear
@@ -517,15 +692,15 @@ function InventoryCraftPropertyIs(Item, Property) {
 * @param {string | string[]} [ItemColor] - The hex color of the item, can be undefined or "Default"
 * @param {number} [Difficulty] - The difficulty, on top of the base asset difficulty, to assign to the item
 * @param {number} [MemberNumber] - The member number of the character putting the item on - defaults to -1
-* @param {Object} [Craft] - The crafting properties of the item
+* @param {CraftingItem} [Craft] - The crafting properties of the item
 */
 function InventoryWear(C, AssetName, AssetGroup, ItemColor, Difficulty, MemberNumber, Craft) {
 	const A = AssetGet(C.AssetFamily, AssetGroup, AssetName);
 	if (!A) return;
 	CharacterAppearanceSetItem(C, AssetGroup, A, ((ItemColor == null || ItemColor == "Default") && A.DefaultColor != null) ? A.DefaultColor : ItemColor, Difficulty, MemberNumber, false);
-	CharacterRefresh(C, true);
 	let Item = InventoryGet(C, AssetGroup);
-	if (Craft != null) Item.Craft = Craft;
+	InventoryWearCraft(Item, Craft);
+	CharacterRefresh(C, true);
 	InventoryExpressionTrigger(C, Item);
 }
 
@@ -787,17 +962,69 @@ function InventoryGroupIsBlockedForCharacter(C, GroupName, Activity) {
 }
 
 /**
+* Returns TRUE if the body area is blocked by an owner rule
+* @param {Character} C - The character on which we validate the group
+* @param {AssetGroupName} [GroupName] - The name of the asset group (body area)
+* @returns {boolean} - TRUE if the group is blocked
+*/
+function InventoryGroupIsBlockedByOwnerRule(C, GroupName) {
+	if (!C.IsPlayer()) return false;
+	if (!Player.IsOwned()) return false;
+	if (CurrentCharacter == null) return false;
+	if (GroupName == null) GroupName = C.FocusGroup.Name;
+	const Dict = [
+		["A", "ItemBoots"],
+		["B", "ItemFeet"],
+		["C", "ItemLegs"],
+		["D", "ItemVulva"],
+		["E", "ItemVulvaPiercings"],
+		["F", "ItemButt"],
+		["G", "ItemPelvis"],
+		["H", "ItemTorso"],
+		["I", "ItemTorso2"],
+		["J", "ItemNipples"],
+		["K", "ItemNipplesPiercings"],
+		["L", "ItemBreast"],
+		["M", "ItemHands"],
+		["N", "ItemArms"],
+		["O", "ItemNeck"],
+		["P", "ItemNeckAccessories"],
+		["Q", "ItemNeckRestraints"],
+		["R", "ItemMouth"],
+		["S", "ItemMouth2"],
+		["T", "ItemMouth3"],
+		["U", "ItemNose"],
+		["V", "ItemEars"],
+		["W", "ItemHead"],
+		["X", "ItemHood"],
+		["0", "ItemMisc"],
+		["1", "ItemDevices"],
+		["2", "ItemAddon"]
+	];
+	for (let D of Dict)
+		if (D[1] == GroupName)
+			return LogContain("BlockItemGroup", "OwnerRule", D[0]);
+	return false;
+}
+
+/**
 * Returns TRUE if the body area (Asset Group) for a character is blocked and cannot be used
 * Similar to InventoryGroupIsBlockedForCharacter but also blocks groups on all characters if the player is enclosed.
 * @param {Character} C - The character on which we validate the group
-* @param {string} [GroupName] - The name of the asset group (body area)
+* @param {AssetGroupName} [GroupName] - The name of the asset group (body area)
 * @param {boolean} [Activity] - if TRUE check if activity is allowed on the asset group
 * @returns {boolean} - TRUE if the group is blocked
 */
 function InventoryGroupIsBlocked(C, GroupName, Activity) {
+
+	// Checks for regular blocks
 	if (InventoryGroupIsBlockedForCharacter(C, GroupName, Activity)) return true;
+
 	// If the player is enclosed, all groups for another character are blocked
 	if ((C.ID != 0) && Player.IsEnclose()) return true;
+
+	// Checks if there's an owner rule that blocks the group
+	if (InventoryGroupIsBlockedByOwnerRule(C, GroupName)) return true;
 
 	// Nothing is preventing the group from being used
 	return false;
@@ -840,7 +1067,7 @@ function InventoryItemIsPickable(Item) {
 
 /**
  * Returns the value of a given property of an appearance item, prioritizes the Property object.
- * @param {object} Item - The appearance item to scan
+ * @param {Item} Item - The appearance item to scan
  * @param {string} PropertyName - The property name to get.
  * @param {boolean} [CheckGroup=false] - Whether or not to fall back to the item's group if the property is not found on
  * Property or Asset.
@@ -1021,11 +1248,10 @@ function InventoryDoesItemAllowLock(item) {
 function InventoryLock(C, Item, Lock, MemberNumber, Update = true) {
 	if (typeof Item === 'string') Item = InventoryGet(C, Item);
 	if (typeof Lock === 'string') Lock = { Asset: AssetGet(C.AssetFamily, "ItemMisc", Lock) };
-	if (Item && Lock && Lock.Asset.IsLock && InventoryDoesItemAllowLock(Item)) {
+	if (Item && Lock && Lock.Asset && Lock.Asset.IsLock && InventoryDoesItemAllowLock(Item)) {
 		if (Item.Property == null) Item.Property = {};
 		if (Item.Property.Effect == null) Item.Property.Effect = [];
 		if (Item.Property.Effect.indexOf("Lock") < 0) Item.Property.Effect.push("Lock");
-
 		if (!Item.Property.MemberNumberListKeys && Lock.Asset.Name == "HighSecurityPadlock") Item.Property.MemberNumberListKeys = "" + MemberNumber;
 		Item.Property.LockedBy = /** @type AssetLockType */(Lock.Asset.Name);
 		if (MemberNumber != null) Item.Property.LockMemberNumber = MemberNumber;
@@ -1080,6 +1306,18 @@ function InventoryFullLockRandom(C, FromOwner) {
 }
 
 /**
+* Applies a specific lock  on each character items that can be locked
+* @param {Character} C - The character on which the items must be locked
+* @param {String} LockType - The lock type to apply
+*/
+function InventoryFullLock(C, LockType) {
+	if ((C != null) && (LockType != null))
+		for (let I = 0; I < C.Appearance.length; I++)
+			if (InventoryDoesItemAllowLock(C.Appearance[I]))
+				InventoryLock(C, C.Appearance[I], LockType, null);
+}
+
+/**
 * Removes all common keys from the player inventory
 */
 function InventoryConfiscateKey() {
@@ -1097,7 +1335,7 @@ function InventoryConfiscateRemote() {
 	InventoryDelete(Player, "VibratorRemote", "ItemVulva");
 	InventoryDelete(Player, "VibratorRemote", "ItemNipples");
 	InventoryDelete(Player, "LoversVibratorRemote", "ItemVulva");
-	InventoryDelete(Player, "SpankingToysVibeRemote", "ItemHands");
+	InventoryDelete(Player, "VibeRemote", "ItemHandheld");
 }
 
 /**
@@ -1119,7 +1357,7 @@ function InventoryIsWorn(C, AssetName, AssetGroup) {
  * Toggles an item's permission for the player
  * @param {Item} Item - Appearance item to toggle
  * @param {string} [Type] - Type of the item to toggle
- * @param {boolean} [Worn] - True if the player is changing permissions for an item they're wearing
+ * @param {boolean} [Worn] - True if the player is changing permissions for an item they're wearing or if it's the first option
  * @returns {void} - Nothing
  */
 function InventoryTogglePermission(Item, Type, Worn) {

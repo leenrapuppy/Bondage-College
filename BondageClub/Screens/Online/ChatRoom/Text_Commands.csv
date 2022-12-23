@@ -8,6 +8,7 @@ blacklistremove,[MemberNumber]: Remove the player from your blacklist
 blush,"[0-5], ”+”, ”-” or ”b” or ”blue”: Remove blush with ”0”, set red blush intensity with ”1” to ”5” or increase and decrease it with ”+” and ”-”, or set blue blush with ”b” or ”blue”. Giving no blush opens the blush menu."
 bot,[Message]: sends hidden message to bots
 coin,: Toss a coin
+craft,: Open the crafting menu
 demote,[MemberNumber]: Demote the player from room administrator
 dice,[Number]: Roll a 6-sided die. Adding “[Number]” after the command for any number between 2 and 100 will roll a die of that many sides instead. Adding “[Number]d[Number]” will roll multiple dice and sum the total.
 expr,[0-5]: Clear or load facial expression. ”0” after the command will clear current expression. ”1” to ”5” will load expression from the saved slot. Giving no number opens the saved expression menu.
@@ -30,3 +31,5 @@ openfriendlist,: Open the friendlist screen
 unban,[MemberNumber]: Remove a ban on a player
 whitelistadd,[MemberNumber]: Add a player to your whitelist
 whitelistremove,[MemberNumber]: Remove a player from your whitelist
+forbiddenwords,Display your forbidden words set by your owner
+release,[MemberNumber]: Release a submissive from your ownership

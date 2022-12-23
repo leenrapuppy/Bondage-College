@@ -35,7 +35,6 @@ function OnlneGameDictionaryLoad() {
 				}
 					
 			});
-		OnlineGameTranslate(TranslationPath);
 	}
 }
 function OnlineGameTranslate(CachePath) {
@@ -131,6 +130,7 @@ function OnlineGameLoadStatus() {
 function OnlineGameReset() {
 	if (ChatRoomGame != "LARP") GameLARPReset();
 	if (ChatRoomGame != "MagicBattle") GameMagicBattleReset();
+	if (ChatRoomGame == "GGTS") AsylumGGTSReset();
 }
 
 /**

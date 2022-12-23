@@ -1,127 +1,105 @@
 "use strict";
 
+/** @type {null | string} */
 let InventoryItemArmsTransportJacketOriginalText = null;
-const InventoryItemArmsTransportJacketInputId = "TransportJacketText";
+const InventoryItemArmsTransportJacketInputId = "InventoryItemArmsTransportJacketTextField";
 const InventoryItemArmsTransportJacketMaxLength = 14;
 const InventoryItemArmsTransportJacketFont = "'Saira Stencil One', 'Arial', sans-serif";
 
-/** @type ExtendedItemOption[] */
-const InventoryItemArmsTransportJacketOptions = [
-	{
-		Name: "NoShorts",
-		Property: { Type: null, Difficulty: 0 },
-	},
-	{
-		Name: "Shorts",
-		Property: {
-			Type: "Shorts",
-			Block: ["ItemNipples", "ItemNipplesPiercings", "ItemTorso", "ItemBreast", "ItemHands", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemPelvis"],
-			Hide: ["Cloth", "ClothLower", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "Panties", "Corset"],
-			HideItemExclude: ["ClothLowerJeans1", "ClothLowerJeans2", "ClothLowerLatexPants1", "ClothLowerLeggings1", "ClothLowerLeggings2", "PantiesHarnessPanties1", "PantiesHarnessPanties2"],
-		},
-	},
-	{
-		Name: "ShortsAndStraps",
-		Property: {
-			Type: "ShortsAndStraps",
-			Block: ["ItemNipples", "ItemNipplesPiercings", "ItemTorso", "ItemBreast", "ItemHands", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "ItemPelvis"],
-			Hide: ["Cloth", "ClothLower", "ItemNipplesPiercings", "ItemVulva", "ItemVulvaPiercings", "ItemButt", "Panties", "Corset"],
-			HideItemExclude: ["ClothLowerJeans1", "ClothLowerJeans2", "ClothLowerLatexPants1", "ClothLowerLeggings1", "ClothLowerLeggings2", "PantiesHarnessPanties1", "PantiesHarnessPanties2"],
-		},
-	},
-];
+/**
+ * Loads the item's extended item properties
+ * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @param {string} ID - The ID of the text input field; see {@link InventoryItemArmsTransportJacketInputId}
+ * @returns {void} - Nothing
+ */
+function InventoryItemArmsTransportJacketLoad(OriginalFunction, ID=InventoryItemArmsTransportJacketInputId) {
+	OriginalFunction();
 
-function InventoryItemArmsTransportJacketLoad() {
-	ExtendedItemLoad(InventoryItemArmsTransportJacketOptions, "ItemArmsTransportJacketSelect");
-
-	const C = CharacterGetCurrent();
-
-	let refresh = false;
-	if (!DialogFocusItem.Property) DialogFocusItem.Property = {};
-	if (DialogFocusItem.Property.Text == null) {
-		DialogFocusItem.Property.Text = "";
-		refresh = true;
-	}
-	if (refresh) {
-		CharacterRefresh(C);
-		ChatRoomCharacterItemUpdate(C, DialogFocusItem.Asset.Group.Name);
-	}
-
-	if (InventoryItemArmsTransportJacketOriginalText == null) {
+	if (InventoryItemArmsTransportJacketOriginalText === null) {
 		InventoryItemArmsTransportJacketOriginalText = DialogFocusItem.Property.Text;
 	}
 
 	const input = ElementCreateInput(
-		InventoryItemArmsTransportJacketInputId, "text", DialogFocusItem.Property.Text, InventoryItemArmsTransportJacketMaxLength);
+		ID, "text", DialogFocusItem.Property.Text,
+		InventoryItemArmsTransportJacketMaxLength.toString(),
+	);
+
 	if (input) {
+		const C = CharacterGetCurrent();
 		input.pattern = DynamicDrawTextInputPattern;
 		input.addEventListener("input", (e) => InventoryItemArmsTransportJacketTextChange(C, DialogFocusItem, e.target.value));
 	}
 }
 
-function InventoryItemArmsTransportJacketDraw() {
-	ExtendedItemDraw(InventoryItemArmsTransportJacketOptions, "ItemArmsTransportJacket", 3);
+/**
+ * Draw handler for the item's extended item screen
+ * @param {() => void} OriginalFunction - The function that is normally called when an archetypical item reaches this point.
+ * @param {string} ID - The ID of the text input field; see {@link InventoryItemArmsTransportJacketInputId}
+ * @returns {void} - Nothing
+ */
+function InventoryItemArmsTransportJacketDraw(OriginalFunction, ID=InventoryItemArmsTransportJacketInputId) {
+	OriginalFunction();
+	const Data = TypedItemDataLookup[DialogFocusItem.Asset.Group.Name + DialogFocusItem.Asset.Name];
+	const Prefix = Data.dialog.typePrefix;
 
 	MainCanvas.textAlign = "right";
-	DrawTextFit(DialogFindPlayer("ItemArmsTransportJacketTextLabel"), 1475, 860, 400, "#fff", "#000");
-	ElementPosition(InventoryItemArmsTransportJacketInputId, 1725, 860, 400);
+	DrawTextFit(DialogFindPlayer(`${Prefix}TextLabel`), 1475, 860, 400, "#fff", "#000");
+	ElementPosition(ID, 1725, 860, 400);
 	MainCanvas.textAlign = "center";
 }
 
-function InventoryItemArmsTransportJacketClick() {
-	// Exits the screen
-	if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemArmsTransportJacketExit();
-		return ExtendedItemExit();
-	}
-
-	ExtendedItemClick(InventoryItemArmsTransportJacketOptions, 3);
-}
-
-function InventoryItemArmsTransportJacketPublishAction(C, Option, PreviousOption) {
-	var msg = "ItemArmsTransportJacketSet" + PreviousOption.Name + Option.Name;
-	var Dictionary = [
-		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-		{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-		{ Tag: "AssetName", AssetName: DialogFocusItem.Asset.Name },
-	];
-	ChatRoomPublishCustomAction(msg, true, Dictionary);
-}
-
+/**
+ * Throttled callback for text input field changes
+ * @param {Character} C - The character being modified
+ * @param {Item} item - The item being modified
+ * @param {string} Text - The custom text
+ * @returns {void} - Nothing
+ */
 const InventoryItemArmsTransportJacketTextChange = CommonLimitFunction((C, item, text) => {
-	item = DialogFocusItem || item;
 	if (DynamicDrawTextRegex.test(text)) {
 		item.Property.Text = text.substring(0, InventoryItemArmsTransportJacketMaxLength);
 		CharacterLoadCanvas(C);
 	}
 });
 
-function InventoryItemArmsTransportJacketExit() {
+/**
+ * Exit handler for the item's extended item screen
+ * @param {string} ID - The ID of the text input field; see {@link InventoryItemArmsTransportJacketInputId}
+ * @returns {void} - Nothing
+ */
+function InventoryItemArmsTransportJacketExit(ID=InventoryItemArmsTransportJacketInputId) {
 	const C = CharacterGetCurrent();
 	const item = DialogFocusItem;
+	const Data = TypedItemDataLookup[item.Asset.Group.Name + item.Asset.Name];
+	const Prefix = Data.dialog.chatPrefix;
 
-	const text = ElementValue(InventoryItemArmsTransportJacketInputId).substring(0, InventoryItemArmsTransportJacketMaxLength);
-	if (DynamicDrawTextRegex.test(text)) item.Property.Text = text;
-	if (CurrentScreen === "ChatRoom" && text !== InventoryItemArmsTransportJacketOriginalText) {
-		const dictionary = [
-			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
-			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
-			{ Tag: "NewText", Text: text },
-			{ Tag: "AssetName", AssetName: item.Asset.Name },
-		];
-		const msg = text === "" ? "ItemArmsTransportJacketTextRemove" : "ItemArmsTransportJacketTextChange";
-		ChatRoomPublishCustomAction(msg, false, dictionary);
+	// Check if the text has changed and whether it's a valid string or not
+	const text = ElementValue(ID).substring(0, InventoryItemArmsTransportJacketMaxLength);
+	if (!DynamicDrawTextRegex.test(text) || text === InventoryItemArmsTransportJacketOriginalText) {
+		item.Property.Text = InventoryItemArmsTransportJacketOriginalText || "";
+		ElementRemove(ID);
+		InventoryItemArmsTransportJacketOriginalText = null;
+		return;
 	}
 
+	// Publish an action for the changed text
+	const dictionary = [
+		{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
+		{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+		{ Tag: "NewText", Text: text },
+		{ Tag: "AssetName", AssetName: item.Asset.Name },
+	];
+	const ActionTag = text === "" ? `${Prefix}TextRemove` : `${Prefix}TextChange`;
+	ChatRoomPublishCustomAction(ActionTag, false, dictionary);
+
+	// Refresh the character/item and remove the text input field
 	CharacterRefresh(C);
 	ChatRoomCharacterItemUpdate(C, item.Asset.Group.Name);
-
-	ElementRemove(InventoryItemArmsTransportJacketInputId);
+	ElementRemove(ID);
 	InventoryItemArmsTransportJacketOriginalText = null;
-	DialogFocusItem = null;
-	if (DialogInventory != null) DialogMenuButtonBuild(C);
 }
 
+/** @type {DynamicAfterDrawCallback} */
 function AssetsItemArmsTransportJacketAfterDraw({ C, A, X, Y, L, Pose, Property, drawCanvas, drawCanvasBlink, AlphaMasks, Color }) {
 	if (L === "_Text") {
 		const width = 150;

@@ -962,13 +962,211 @@ Spell Balance:
 3.42
 - Spells now have prerequisite spells instead of shrine levels
 - Elemental, Conjuration, and Illusion shrines now give an arcane buff instead.
+- New spell: Shock Orb
+- New spell: Light
+- New spell: Thunderstorm
+- New spell: Water Ball
+- New spell: Static Sphere
+- New spell: Lightning Rune
+- New upgrade: Temperature Play
+- New upgrade: Lightning Rod
+- Water now drenches you, same debuff as Water Ball
+- Firebolt damage to 40 from 45
+- Crackle damage to 40 from 45
+- Lightning bolt stuns for 2 turns instead of 1
+- CHanges to map enemy spawning
+- Now 5 levels per floor instead of 6
+- Frigid potions now always work at at least 50% effectiveness
+- Damaging an enemy that isn't aware of you will deal bonus damage
+- Removed Levitate; added a sprint feature instead!
+- Enter hotkey now lets you select spells in the inventory. To quickly learn a spell, click on it in the spell list and double tap Enter!
+- You now have 21 spell slots, split among 3 pages. Check the keybindings as there are new ones added!
+- Shift, control, and other keys now work as keybindings
+- Spell progression
+- New enemy: Flame witch
+
+3.5
+- Fixed command word not working on layered items
+- New spell indicators for AoE spells
+- New Spell: Boulder
+- New Spell: Earthshape
+- Ice Storm -> Field of Frost
+- New Spell: Winterblast
+- New Spell: Tidal Sphere
+- New spell: Earth Kick
+- New spell: Flash Freeze
+- Moved Shield (now called Runic Ward) and Barrier (now called Barrier Runes) to verbal column
+- Barrier runes range to 2.99 from 2.0
+- Perk balance: Quickdraw/scribe to 1 from 2, Rigger to 2 from 1, Slayer/Magician/Conjurer to 3 from 5, Blessed to 1 from 3, maid start to 2 from 3
+- Distraction cap no longer lowers in sleep
+- Water now evaporates into steam in the presence of flame spells
+- New upgrade: Fire Hazard
+- New upgrade: Frozen Prison
+- New Spell: Hailstorm
+- New Spell: Snowball
+- New Spell: Ice Lance
+- New Spell: Raincloud
+- New Spell: Freeze Rune
+- New Spell: Volcanism
+- Started cacheing pathfinding. Let me know if there are performance improvements!
+- New Spell: Windblast
+- Some nerfs to divine gift weapons (dragonslaver, bondage buster, metamorphosis)
+- New divine gift weapon: Moirai's Scissors (Rope goddess)
+- New divine gift weapon: Messenger of Love (Restoration goddess)
+- New divine gift weapon: Dreamcatcher (Illusion goddess)
+- Ice cube now does 1.5 damage
+- Dollmaker dolls now decay slowly and have 80 hp from 100
+- New divine gift weapon: Four Seasons (Elements goddess)
+- New divine gift weapon: The Arbiter (Conjuration goddess)
+- New spell: Firecracker
+- New spell: Flame Rune
+- New spell: Tremor
+- New spell: Earthquake
+
+3.51
+More balance:
+- Rope stamina cost 0.5, binding and damage increased
+- Vibe wand stuns for 2 turns, but only 20% of the time
+- Dreamcatcher deals half the bonus damage on vulnerable enemies if they are aware, and costs 8 SP instead of 7.5
+- Moirai's Scissors cost 8 SP/atk instead of 10
+- Arbiter damage increased to 40 from 30
+- Dollmaker staff can only have 3 controlled dolls now
+- Tremor now makes enemies vulnerable as well
+- Being a champion now only provides rep, no mana
+- Reduced chance of getting mana potions from enemies
+
+QoL
+- New 'switch weapon' hotkey!
+- Frozen Prison: Now adds binding UPON freezing
+
+Features
+- Tablets! They give you power!!!
+- New enemies: Earth, Ice, Water witch
+- Enemies can now be distracted
+- Major UI reskin and overhaul of the health bar area
+- You can now wait until interrupted, useful if you are being dragged to jail or if you are waiting for something to happen
+- New spell: Feather Cloud
+
+3.52
+- Updated the lighting engine so that embers from spells and such will now produce light, but you can't see an area unless you have line of sight
+- PIXI.js rendering, which is much more performant!
+- You can use Command Word to unlock naturally spawned ancient crystals in their brazier
+- Moved lost items chest to the transition tunnel
+- Slime is now flammable!
+- New weapons: Dagger, Foil, Rapier, Crop
+- New weapons: Katana, Shadow's Edge, Stormbreaker
+- Fire elemental graphics changed, mana cost now 15, renamed to Fire Mote
+- New spells: Earth Mote, Water Mote, Air Mote
+
+3.53
+- Enemies will now take you to cages and play with you
+- Conjure Gag changed mechanically, now a delayed projectile (very fast)
+- New spells: Summon Blindfold, Armbinder
+
+3.6
+- MAJOR rebalance, adding a new stat (willpower)
+- Added food in the halls of the dungeon, waiting to be munched on by the hungry adventurer (restores will)
+- Removed sleep as now stamina regenerates quickly
+- Max enemies capturable for rep reduced to 12 per floor from 25, but now gives 2x the rep
+- Added food which restores willpower
+
+3.61 (August 21)
+- Holding toggle hotkeys now automatically untoggles them on releasing the key
+- New spells: Summon Harness, Summon Legbinder, Summon Cuffs, Call Rope
+- Binding Chain is now a damage dealer spell
+- Fixed bugs with enemies ignoring you forever in a cage
+- Prevent barrels and cages from spawning in setpieces/cells
+- Added visual effect when enemies are summoned
+- Fixed issue where the enemy never puts you in jail even though she is standing next to it
+- Added some variety in jailers and restraints used in jail
+- Added kigurumi mask when starting as a Latex Doll
+- Added the ability to make noise and attract enemies
+- Reintroduced sleep as a once-per-floor thing to do on beds
+- Made the starting scenarios considerably more difficult, with items that punish struggling and/or make it more difficult
+- New spell: Summon Straitjacket
+- Lockdown changed, now locks the struggle bar at current level for 30 turns
+- Capturing costs 0 stamina
+- Frozen prison now freezes enemies for 300 turns if they are helpless (mostly thematic)
+- Stamina regens slower when kneeling
+- You no longer kneel when at low stamina, but do get knocked down when tugged by a leash (future attacks may knock you down as well)
+- You are more likely to get leash grabbed now if your willpower is 0 or if you are kneeling
+- Bondage offers now only happen DURING play
+- New perks: Butterfingers, Weak Grip, and Can't Hear You!
+- Perk menu has been updated to look nicer and be infinitely extendable
+- Replaced most (but not all) traps with enemy summons!
+- You can cast binding spells point blank
+- Enemies shouldnt aggro when you cast a spell if they're unaware
+- Mana cost reduced on most of the conjure leather restraints spells
+- Status durations increased a lot on blindfold and gag
+- Enemies struggle more slowly out of blind, silence, and disarm if they are tied.... unless they are Unstoppable or Unflinching in which case they tick it down 4x or 2x as fast than other enemies
+- Nerfed tickle cloud, buffed Feather Burst
+- New spells: Command: Capture, Commmand: Bind, Command: Release, Command: Disenchant
+- StormBreaker is now AoE
+- StormBreaker and IceBreaker cost less stamina to swing
+
+3.7 (August 22+)
+- Mana now has a pool (4x max mana) which you can regen from. This basically multiplies your max mana by 5x, which may be too much. Needs testing.
+- Teleport spells are cheaper because sprinting exists
+- Completely revammped world generation, and added a tile editor so you can contribute your own tiles if you desire
+- Fix setpieces spawning offset in some tiles
+- Fix sprinting over traps not setting them off
+- Made it so capture can only happen when you intentionally click
+- Reworked the way buffs and statuses are displayed, now using icons. Some icons are still missing
+- Some UI changes, moved many buttons to bottom bar and reformatted
+- There is now a spell empowering system. At the moment, this just makes it so some spells are upgraded versions of others that you have to charge up. Examples of spells affected:
+-- Fireball = Firebolt++
+-- Lightning Bolt = Crackle++
+-- Winterblast = Snowball+
+-- Boulder = Rock++
+-- Ice Breath = Hailstorm+
+-- Tidal Sphere = Water Ball+
+-- Static Sphere = Electric Field++
+-- Earthquake = Tremor++
+-- Incinerate = Firecracker+
+-- The flash spells
+-- Blink and Portal
+- Refactored spell schools so now there are 6 elements (for lore reasons)
+- New spell: Conjure Leather Cuffs
+- Removed aid and penance. The gods will not help you now.
+- New spell: Wall of Slime, Coalesce, Engulf, Solidify, Slime Eruption + Slime Splash, Elastic Grip
+- New spell: Conjure Petsuit
+
+3.71
+- New upgrades: One with Slime, Slime Resistance, Leather Burst
+- New spell: Awaken, Animate Slime, Greater Animate, Spread, Remove Slime, Steel Rain, Steel Torrent
+- CMD: Disenchant now makes magic restraints easier to escape
+- Vulnerable is consumed on hit
+- Pulling enemies through their own projectiles with Elastic Grip now hits them
+- New perk section with a lot of perks (Damage and resists)
+
+3.72 (October 2022)
+- Fixed a bug where you couldnt use bolas
+- Fixed a bug where Arcane Protection would attack enemies that are non-hostile trying to play with you
+- More perks: Kinky Prison, Unfair Doors
+- Added a perk room with a choice of 3 perk combinations!
+
+3.8 (October 2022)
+- Added mod API
+- Enemies are eager which makes them faster when they are playing with you, but also applies vulnerable
+
+3.81
+- Golem armor reduced from 25 to 20
+- Buffed enchanted restraints by reducing their drain over time
+- Binding has been rebalanced with different bind types
+- Added two new perks, Stranger and Wrong Neighborhood
+- You can now hide items in the quick inventory
+- Electricity now conducts along water! Watch your step!
+- Being rescued in jail now depends on having factions in good standing.
+- Added offer dialogues for all major factions except Fungals
+- added display frame and spell
+- New spell: Chastity, Frustration, Zone of Purity, CMD: Vibrate, CMD: Explosive Finish, Zone of Excitement
+- Blindfold changes to be more 'immersive'
 
 TODO ValidationFindBlockCycles to prevent bugs
 
 TODO: Mushrooms in the jungle
 
 TODO
-Deputy (slaps on handcuffs only)
 Warden (more comprehensive cuffs)
 Detective (Stealth, wanders around laying traps throughout the level)
 Nurse (applies straitjackets and stuff)
@@ -982,21 +1180,15 @@ Future content planned:
 - Wand item which reduces mana costs but is terrible for melee
 - Slimes which clean up items, dissolve doors, and potentially corrupt traps and such
 - Slimes that catch your sword and trap it
-- Perk system with perks that allow you to decrease or increase spawns of certain restraints, affect your stats, etc.
-	- One Punch: Melee based perk that drastically increases melee damage but drastically reduces your ability to cast magic
 - Exit stair puzzles (like for example a button or special key somewhere in the level, maybe with a high likelihood of traps)
 - Rats should have a kleptomaniac AI that steals items and holds them, drops them on death, and runs away from the player when confronted
 - Tranquilizer/stamina drain from an enemy (bandits? raiders?)
-- Boss rooms every few floors
 - Latex witches that cast latex imprisonment spells at you from a distance
 - New shrine: chastity goddess. Places you in a set of magic cuffs that prevent you from being restrained in those slots. However if your stamina falls below half, the cuffs snap together until you get back to full stamina!
-- Bomb consumables
 - locked doors that trigger when you step on an obvious looking brickwork that's only generated on tiles you can avoid, maybe with some sort of sleep gas hazard or something to force a time limit if you cant progress
 - Monster Encyclopedia
 - Heels of avoiding traps: Causes all traps and dangerous terrain (slime, ice) to not affect the player
 
 Spell Ideas:
 - Divine Cuffs, a spell which gives you glowing arm and leg cuffs that block low level restraints from being put on you. Lasts for the whole floor.
-- Ice Storm, a temporary AoE which has a chance to deal damage and stun creatures inside. Drains player willpower but does not slow or restraint the player.
 - Sleep, puts nearby creatures with low willpower to sleep until they take damage. Works on zombies, and also the player if the player is at low stamina.
-- Clairvoyance: Cost a lot of mana to be able to see inside of a chest

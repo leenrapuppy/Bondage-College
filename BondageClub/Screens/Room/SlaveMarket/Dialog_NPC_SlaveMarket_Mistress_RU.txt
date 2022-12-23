@@ -54,7 +54,7 @@ We need to sell this one first.  You can wait a little while for the next girl.
 ###_PLAYER
 I need to go.  (Leave her.)
 Мне нужно идти.  (Оставь ее.)
-How does the market works?
+How does the market work?
 Как работает рынок?
 ###_NPC
 Owners can sell their own slaves or free submissives can sell themselves for profit.  They get sold through an auction.
@@ -113,7 +113,7 @@ Yes, she will be auctioned today.  You will be able to bet on her if you like, a
 Why doesn't she talk with me?
 Почему она не разговаривает со мной?
 ###_NPC
-I run the auction, not her.  Don't speak with the merchandize.
+I run the auction, not her.  Don't speak with the merchandise.
 Аукцион веду я, а не она.  Не разговаривайте с товаром.
 ###_PLAYER
 What if I buy her?

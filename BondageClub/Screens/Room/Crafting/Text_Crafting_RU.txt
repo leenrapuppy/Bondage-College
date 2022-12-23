@@ -1,5 +1,7 @@
 Return to the main hall
 Вернутся в главный зал
+Destroy an item
+Уничтожить предмет
 Craft your item
 Создайте свой предмет
 Cancel
@@ -10,24 +12,38 @@ Next
 Следующий
 No lock
 Без замка
+Select an empty slot to craft a new item, or click on the item to edit.
+Выбери пустую ячейку, чтобы создать предмет, или нажми на него, чтобы отредактировать.
+Select a crafted item slot to destroy.
+Выбери созданный предмет, который нужно уничтожить.
 Select a slot for your new crafted item.  The previous item in that slot will be replaced.
-Выберите слот для вашего нового созданного предмета. Предыдущий предмет в этом слоте будет заменен.
+Выбери слот для нового созданного предмета. Предыдущий предмет в этом слоте будет заменен.
 Select an item to craft or search on your left.
-Выберите предмет для изготовления или найдите его слева.
+Выберите предмет для изготовления или найдите его.
 Select a property for your AssetDescription.
 Выберите свойство для вашего AssetDescription.
 Select a lock to use with your PropertyName AssetDescription.
 Выберите замок, который будет использоваться с вашим PropertyName AssetDescription.
 Enter a name and description for your PropertyName AssetDescription.
 Введите имя и описание для вашего PropertyName AssetDescription.
+Pick the item colors
+Выберите цвета элемента
 Name of the crafted item
 Название созданного предмета
+Engrave a description
+Выгравировать описание
+Enter or pick the colors
+Введите или выберите цвета
+Private (only you can use it)
+Личный (только ты може использовать)
+Automatic selection:
+Автоматический выбор:
 Description of the crafted item
 Описание созданного предмета
 Empty
 Пустой
 Normal
-Нормальный
+Обычный
 Large
 Большой
 Small
@@ -37,17 +53,25 @@ Thick
 Thin
 Тонкий
 Secure
-Безопасный
+Надежный
 Loose
-Свободный
+Небрежный
 Decoy
-Приманка
+Макет
+Malleable
+Податливый
+Rigid
+Стойкий
+Simple
+Несложный
+Puzzling
+Головоломный
 Painful
 Болезненный
 Comfy
 Удобный
 Strong
-Сильный
+Прочный
 Flexible
 Гибкий
 Nimble
@@ -55,12 +79,12 @@ Nimble
 Arousing
 Возбуждающий
 Dull
-Тупой
+Успокаивающий
 No special property.
 Нет специального свойства.
-Harder to understand gagged speach.
+Harder to understand gagged speech.
 Сложнее понять речь с кляпом во рту.
-Easier to understand gagged speach.
+Easier to understand gagged speech.
 Легче понять речь с кляпом во рту.
 Harder to see through.
 Сложнее видеть.
@@ -72,6 +96,18 @@ Easier to struggle out.
 Легче бороться.
 Can always struggle out.
 Всегда может вырваться.
+Takes less time to wear and remove.
+Требуется меньше времени на надевание и снятие.
+Takes more time to wear and remove.
+Требуется больше времени нанадевание и снятие.
+Easier to picklock.
+Легче взломать.
+Harder to picklock.
+Сложнее взломать.
+More painful for the wearer.
+Более болезненно для владельца.
+Comfier for the wearer.
+Комфортней для владельца.
 Painfuller for the wearer.
 Болезненно для ношения.
 Comfier for the wearer
@@ -82,7 +118,9 @@ Cannot use squeeze out to struggle out.
 Невозможно использовать выдавливание, чтобы вырваться.
 Cannot use unfasten to struggle out.
 Невозможно использовать отстегнуть, чтобы вырваться.
-Harder to resist an orgasm
-Сложнее сопротивляться оргазму
-Easier to resist an orgasm
-Легче сопротивляться оргазму
+Harder to resist an orgasm.
+Сложнее сопротивляться оргазму.
+Easier to resist an orgasm.
+Легче сопротивляться оргазму.
+Open Colorpicker
+Открыть палитру цветов

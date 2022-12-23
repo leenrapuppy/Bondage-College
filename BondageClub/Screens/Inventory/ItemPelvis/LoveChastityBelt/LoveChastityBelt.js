@@ -1,12 +1,19 @@
 "use strict";
 
 var InventoryItemPelvisLoveChastityBeltLastAction = "";
+const InventoryItemPelvisLoveChastityBeltMessages = new Map([
+  ["Open", "LoveChastityBeltRemoveShieldMessage"],
+  ["Closed", "LoveChastityBeltAddShieldMessage"],
+  ["Vibe", "LoveChastityBeltAddVibeMessage"],
+  ["Shock", "LoveChastityBeltAddShockMessage"],
+]);
 
 // Loads the item extension properties
 function InventoryItemPelvisLoveChastityBeltLoad() {
-  if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Type: "Open", Intensity: -1, ShowText: true, LockButt: false };
+  if (DialogFocusItem.Property == null) DialogFocusItem.Property = { Type: "Open", Intensity: -1, ShockLevel: 0, ShowText: true, LockButt: false };
   if (DialogFocusItem.Property.Type == null) DialogFocusItem.Property.Type = "Open";
   if (DialogFocusItem.Property.Intensity == null) DialogFocusItem.Property.Intensity = -1;
+  if (DialogFocusItem.Property.ShockLevel == null) DialogFocusItem.Property.ShockLevel = 0;
   if (DialogFocusItem.Property.ShowText == null) DialogFocusItem.Property.ShowText = true;
   if (DialogFocusItem.Property.LockButt == null) DialogFocusItem.Property.LockButt = false;
   InventoryItemPelvisLoveChastityBeltLoadType();
@@ -25,7 +32,7 @@ function InventoryItemPelvisLoveChastityBeltDraw() {
     if (DialogFocusItem.Property.Type == "Shock") {
       DrawButton(1200, 600, 250, 65, DialogFindPlayer("TriggerShock"), "White");
       DrawButton(1200, 900, 64, 64, "", "White", DialogFocusItem.Property.ShowText ? "Icons/Checked.png" : "");
-      DrawText(DialogFindPlayer("ShockCollarShowChat"), 1445, 933, "White", "Gray");
+      DrawText(DialogFindPlayer("ShowMessageInChat"), 1445, 933, "White", "Gray");
     }
     if (InventoryItemPelvisLoveChastityBeltIntensityCanDecrease()) DrawButton(1200, 700, 250, 65, DialogFindPlayer("Decrease"), "White");
     if (InventoryItemPelvisLoveChastityBeltIntensityCanIncrease()) DrawButton(1550, 700, 250, 65, DialogFindPlayer("Increase"), "White");
@@ -65,7 +72,7 @@ function InventoryItemPelvisLoveChastityBeltClick() {
 
     if (DialogFocusItem.Property.Type == "Shock") {
       if (MouseIn(1200, 600, 250, 65)) {
-        InventoryItemPelvisLoveChastityBeltTriggerShock();
+        PropertyShockPublishAction();
         return;
       }
       if (MouseIn(1200, 900, 64, 64) && (MouseY <= 964) && (CurrentScreen == "ChatRoom")) {
@@ -97,21 +104,21 @@ function InventoryItemPelvisLoveChastityBeltClick() {
     if ((DialogFocusItem.Property.Type == "Closed") || (DialogFocusItem.Property.Type == "Vibe") || (DialogFocusItem.Property.Type == "Shock")) {
       if (MouseIn(1200, 800, 250, 65)) {
         DialogFocusItem.Property.Intensity = -1;
-        InventoryItemPelvisLoveChastityBeltSetTypeTo("Open", "LoveChastityBeltRemoveShieldMessage");
+        InventoryItemPelvisLoveChastityBeltSetType("Open");
         return;
       }
     } else {
       if (MouseIn(1200, 800, 250, 65)) {
-        InventoryItemPelvisLoveChastityBeltSetTypeTo("Closed", "LoveChastityBeltAddShieldMessage");
+        InventoryItemPelvisLoveChastityBeltSetType("Closed");
         return;
       }
       if (InventoryItemPelvisLoveChastityBeltCanInsert(C)) {
         if (MouseIn(1200, 900, 250, 65)) {
-          InventoryItemPelvisLoveChastityBeltSetTypeTo("Vibe", "LoveChastityBeltAddVibeMessage");
+          InventoryItemPelvisLoveChastityBeltSetType("Vibe");
           return;
         }
         if (MouseIn(1550, 900, 250, 65)) {
-          InventoryItemPelvisLoveChastityBeltSetTypeTo("Shock", "LoveChastityBeltAddShockMessage");
+          InventoryItemPelvisLoveChastityBeltSetType("Shock");
           return;
         }
       }
@@ -131,10 +138,14 @@ function InventoryItemPelvisLoveChastityBeltCanInsert(C) {
   return true;
 }
 
-// set the type on the belt
-function InventoryItemPelvisLoveChastityBeltSetTypeTo(Type, Message) {
-  InventoryItemPelvisLoveChastityBeltLastAction = Type;
-  DialogFocusItem.Property.Type = Type;
+/**
+ * Set the type on the belt
+ * @type {TypedItemSetTypeCallback}
+ */
+function InventoryItemPelvisLoveChastityBeltSetType(NewType) {
+  const Message = InventoryItemPelvisLoveChastityBeltMessages.get(NewType);
+  InventoryItemPelvisLoveChastityBeltLastAction = NewType;
+  DialogFocusItem.Property.Type = NewType;
   InventoryItemPelvisLoveChastityBeltUpdate();
   InventoryExpressionTrigger(CharacterGetCurrent(), DialogFocusItem);
   var Dictionary = [];
@@ -155,7 +166,7 @@ function InventoryItemPelvisLoveChastityBeltIntensityCanIncrease() {
   if (DialogFocusItem.Property.Type == "Vibe") {
     return DialogFocusItem.Property.Intensity < 3;
   } else if (DialogFocusItem.Property.Type == "Shock") {
-    return DialogFocusItem.Property.Intensity < 2;
+    return DialogFocusItem.Property.ShockLevel < 2;
   } else {
     return false;
   }
@@ -166,22 +177,10 @@ function InventoryItemPelvisLoveChastityBeltIntensityCanDecrease() {
   if (DialogFocusItem.Property.Type == "Vibe") {
     return DialogFocusItem.Property.Intensity > -1;
   } else if (DialogFocusItem.Property.Type == "Shock") {
-    return DialogFocusItem.Property.Intensity > 0;
+    return DialogFocusItem.Property.ShockLevel > 0;
   } else {
     return false;
   }
-}
-
-// triggers the shock
-function InventoryItemPelvisLoveChastityBeltTriggerShock() {
-  InventoryItemPelvisLoveChastityBeltLastAction = "ShockTriggered";
-  InventoryExpressionTrigger(CharacterGetCurrent(), DialogFocusItem);
-  var Dictionary = [];
-  Dictionary.push({Tag: "DestinationCharacterName", Text: CharacterNickname(CharacterGetCurrent()), MemberNumber: CharacterGetCurrent().MemberNumber});
-  Dictionary.push({Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber});
-  Dictionary.push({ ShockIntensity : DialogFocusItem.Property.Intensity * 1.5});
-
-  ChatRoomPublishCustomAction("LoveChastityBeltShockTrigger" + DialogFocusItem.Property.Intensity, true, Dictionary);
 }
 
 // loads the belt into a correct state
@@ -200,8 +199,8 @@ function InventoryItemPelvisLoveChastityBeltLoadType() {
       DialogFocusItem.Property.Effect.push("Egged");
       if (DialogFocusItem.Property.Intensity >= 0) DialogFocusItem.Property.Effect.push("Vibrating");
     } else if (DialogFocusItem.Property.Type == "Shock") {
-      if (DialogFocusItem.Property.Intensity < 0) DialogFocusItem.Property.Intensity = 0;
-      if (DialogFocusItem.Property.Intensity > 2) DialogFocusItem.Property.Intensity = 2;
+      if (DialogFocusItem.Property.ShockLevel < 0) DialogFocusItem.Property.ShockLevel = 0;
+      if (DialogFocusItem.Property.ShockLevel > 2) DialogFocusItem.Property.ShockLevel = 2;
     }
   }
 }

@@ -4,6 +4,16 @@ var Character = [];
 var CharacterNextId = 1;
 
 /** @type Map<EffectName, number> */
+const CharacterBlindLevels = new Map([
+	/** Reserve `BlindTotal` for situations where the blindness level should never
+	 *  be lowered by crafted properties (e.g. while in VR) */
+	["BlindTotal", 99],
+	["BlindHeavy", 3],
+	["BlindNormal", 2],
+	["BlindLight", 1],
+]);
+
+/** @type Map<EffectName, number> */
 const CharacterDeafLevels = new Map([
 	["DeafTotal", 4],
 	["DeafHeavy", 3],
@@ -66,6 +76,7 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		AllowedActivePose: [],
 		Effect: [],
 		Tints: [],
+		Attribute: [],
 		FocusGroup: null,
 		Canvas: null,
 		CanvasBlink: null,
@@ -83,19 +94,10 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		HasHiddenItems: false,
 		SavedColors: GetDefaultSavedColors(),
 		CanTalk: function () {
-			return (
-				(this.Effect.indexOf("GagVeryLight") < 0) &&
-				(this.Effect.indexOf("GagLight") < 0) &&
-				(this.Effect.indexOf("GagEasy") < 0) &&
-				(this.Effect.indexOf("GagNormal") < 0) &&
-				(this.Effect.indexOf("GagMedium") < 0) &&
-				(this.Effect.indexOf("GagHeavy") < 0) &&
-				(this.Effect.indexOf("GagVeryHeavy") < 0) &&
-				(this.Effect.indexOf("GagTotal") < 0) &&
-				(this.Effect.indexOf("GagTotal2") < 0) &&
-				(this.Effect.indexOf("GagTotal3") < 0) &&
-				(this.Effect.indexOf("GagTotal4") < 0)
-			);
+			let GagEffect = SpeechGetGagLevel(this, ["ItemMouth", "ItemMouth2", "ItemMouth3", "ItemHead", "ItemHood", "ItemNeck", "ItemDevices"]);
+			GagEffect += InventoryCraftCount(this, "Large") * 2;
+			GagEffect -= InventoryCraftCount(this, "Small") * 2;
+			return (GagEffect <= 0);
 		},
 		CanWalk: function () {
 			return (
@@ -155,16 +157,17 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 				}
 			}
 			if (!eyesOnly) {
-				if (this.Effect.includes("BlindHeavy")) blindLevel += 3;
-				else if (this.Effect.includes("BlindNormal")) blindLevel += 2;
-				else if (this.Effect.includes("BlindLight")) blindLevel += 1;
-				if (InventoryCraftCount(this, "Thick") > 0) blindLevel++;
-				if (InventoryCraftCount(this, "Thin") > 0) blindLevel--;
+				const effects = CharacterGetEffects(this, ["ItemHead", "ItemHood", "ItemNeck", "ItemDevices"], true)
+				blindLevel += effects.reduce((Start, EffectName) => Start + (CharacterBlindLevels.get(EffectName) || 0), 0);
+				blindLevel += InventoryCraftCount(this, "Thick");
+				blindLevel -= InventoryCraftCount(this, "Thin");
 			}
-			blindLevel = Math.min(3, blindLevel);
 			// Light sensory deprivation setting limits blindness
-			if (this.IsPlayer() && this.GameplaySettings && this.GameplaySettings.SensDepChatLog == "SensDepLight") blindLevel = Math.min(2, blindLevel);
-			return blindLevel;
+			if (this.IsPlayer() && this.GameplaySettings && this.GameplaySettings.SensDepChatLog == "SensDepLight") {
+				return Math.max(0, Math.min(2, blindLevel));
+			} else {
+				return Math.max(0, Math.min(3, blindLevel));
+			}
 		},
 		GetBlurLevel: function() {
 			if ((this.IsPlayer() && this.GraphicsSettings && !this.GraphicsSettings.AllowBlur) || CommonPhotoMode) {
@@ -202,6 +205,9 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		IsPlugged: function () {
 			return (this.Effect.indexOf("IsPlugged") >= 0);
 		},
+		IsButtChaste: function () {
+			return this.Effect.includes("ButtChaste");
+		},
 		IsBreastChaste: function () {
 			return (this.Effect.indexOf("BreastChaste") >= 0);
 		},
@@ -225,6 +231,9 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		},
 		IsVulvaFull: function () {
 			return this.Effect.indexOf("FillVulva") >= 0;
+		},
+		IsAssFull: function () {
+			return this.Effect.includes("IsPlugged");
 		},
 		IsFixedHead: function () {
 			return this.Effect.includes("FixedHead");
@@ -288,6 +297,10 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		IsDeaf: function () {
 			return this.GetDeafLevel() > 0;
 		},
+		/* Check if one or more gag effects are active (thus bypassing the crafted small/large properties) */
+		IsGagged: function () {
+			return this.Effect.some(effect => effect in SpeechGagLevelLookup);
+		},
 		HasNoItem: function () {
 			return CharacterHasNoItem(this);
 		},
@@ -296,6 +309,12 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		},
 		IsPlayer: function () {
 			return this.ID === 0;
+		},
+		IsBirthday: function () {
+			if ((this.Creation == null) || (CurrentTime == null)) return false;
+			return ((new Date(this.Creation)).getDate() == (new Date(CurrentTime)).getDate()) &&
+				   ((new Date(this.Creation)).getMonth() == (new Date(CurrentTime)).getMonth()) &&
+				   ((new Date(this.Creation)).getFullYear() != (new Date(CurrentTime)).getFullYear());
 		},
 		IsOnline: function () {
 			return this.Type === CharacterType.ONLINE;
@@ -338,6 +357,21 @@ function CharacterReset(CharacterID, CharacterAssetFamily, Type = CharacterType.
 		},
 		GetTints: function() {
 			return CharacterGetTints(this);
+		},
+		HasAttribute: function(attribute) {
+			return this.Attribute.includes(attribute);
+		},
+		GetGenders: function () {
+			return this.Appearance.map(asset => asset.Asset.Gender).filter(a => a);
+		},
+		HasPenis: function () {
+			return InventoryIsItemInList(this, "Pussy", ["Penis"]);
+		},
+		HasVagina: function () {
+			return InventoryIsItemInList(this, "Pussy", ["PussyLight1", "PussyLight2", "PussyLight3", "PussyDark1", "PussyDark2", "PussyDark3"]);
+		},
+		IsFlatChested: function () {
+			return InventoryIsItemInList(this, "BodyUpper", ["FlatSmall", "FlatMedium"]);
 		},
 		// Adds a new hook with a Name (determines when the hook will happen, an Instance ID (used to differentiate between different hooks happening at the same time), and a function that is run when the hook is called)
 		RegisterHook: function (hookName, hookInstance, callback) {
@@ -493,12 +527,13 @@ function CharacterArchetypeClothes(C, Archetype, ForceColor) {
 	// Maid archetype
 	if (Archetype == "Maid") {
 		InventoryAdd(C, "MaidOutfit1", "Cloth", false);
-		CharacterAppearanceSetItem(C, "Cloth", C.Inventory[C.Inventory.length - 1].Asset);
-		CharacterAppearanceSetColorForGroup(C, "Default", "Cloth");
+		InventoryWear(C, "MaidOutfit1", "Cloth");
 		InventoryAdd(C, "MaidHairband1", "Hat", false);
-		CharacterAppearanceSetItem(C, "Hat", C.Inventory[C.Inventory.length - 1].Asset);
-		CharacterAppearanceSetColorForGroup(C, "Default", "Hat");
+		InventoryWear(C, "MaidHairband1", "Hat");
 		InventoryAdd(C, "MaidOutfit2", "Cloth", false);
+		if (InventoryGet(C, "Socks") == null) InventoryWear(C, "Socks4", "Socks", "#AAAAAA");
+		if (InventoryGet(C, "Shoes") == null) InventoryWear(C, "Shoes2", "Shoes", "#222222");
+		if ((InventoryGet(C, "Gloves") == null) && (Math.random() > 0.5)) InventoryWear(C, "Gloves1", "Gloves", "#AAAAAA");
 		InventoryRemove(C, "ClothAccessory");
 		InventoryRemove(C, "HairAccessory1");
 		InventoryRemove(C, "HairAccessory2");
@@ -613,6 +648,7 @@ function CharacterOnlineRefresh(Char, data, SourceMemberNumber) {
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.ArousalSettings == null))) Char.ArousalSettings = data.ArousalSettings;
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.OnlineSharedSettings == null))) Char.OnlineSharedSettings = data.OnlineSharedSettings;
 	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.Game == null))) Char.Game = data.Game;
+	if ((Char.ID != 0) && ((Char.MemberNumber == SourceMemberNumber) || (Char.Crafting == null))) Char.Crafting = data.Crafting;
 	Char.Ownership = data.Ownership;
 	Char.Lovership = data.Lovership;
 	for (let L = Char.Lovership.length - 1; L >= 0; L--) {
@@ -734,6 +770,7 @@ function CharacterLoadOnline(data, SourceMemberNumber) {
 		if (!Refresh && (JSON.stringify(Char.ArousalSettings) !== JSON.stringify(data.ArousalSettings))) Refresh = true;
 		if (!Refresh && (JSON.stringify(Char.OnlineSharedSettings) !== JSON.stringify(data.OnlineSharedSettings))) Refresh = true;
 		if (!Refresh && (JSON.stringify(Char.Game) !== JSON.stringify(data.Game))) Refresh = true;
+		if (!Refresh && (JSON.stringify(Char.Crafting) !== JSON.stringify(data.Crafting))) Refresh = true;
 		if (!Refresh && Array.isArray(data.WhiteList) && (JSON.stringify(Char.WhiteList) !== JSON.stringify(data.WhiteList))) Refresh = true;
 		if (!Refresh && Array.isArray(data.BlackList) && (JSON.stringify(Char.BlackList) !== JSON.stringify(data.BlackList))) Refresh = true;
 		if (!Refresh && (data.BlockItems != null) && (Char.BlockItems.length != data.BlockItems.length)) Refresh = true;
@@ -923,6 +960,26 @@ function CharacterLoadPose(C) {
 function CharacterLoadEffect(C) {
 	C.Effect = CharacterGetEffects(C);
 	CharacterLoadTints(C);
+	CharacterLoadAttributes(C);
+}
+
+/**
+ * Refreshes the character's attribute list
+ * @param {Character} C
+ * @returns {void} - Nothing
+ */
+function CharacterLoadAttributes(C) {
+	/** @type {Set<AssetAttribute>} */
+	const attributes = new Set();
+	C.Attribute = [];
+	for (const item of C.Appearance) {
+		if (Array.isArray(item.Asset.Attribute)) {
+			for (const attribute of item.Asset.Attribute) {
+				attributes.add(attribute);
+			}
+		}
+	}
+	C.Attribute = Array.from(attributes);
 }
 
 /**
@@ -1451,8 +1508,13 @@ function CharacterResetFacialExpression(C) {
  * @returns {Character|null} - Currently selected character
  */
 function CharacterGetCurrent() {
-	if (CurrentScreen == "Appearance" && CharacterAppearanceSelection) return CharacterAppearanceSelection;
-	return (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	if (CurrentScreen == "Appearance" && CharacterAppearanceSelection) {
+		return CharacterAppearanceSelection;
+	} else if (CurrentScreen == "Crafting") {
+		return CraftingPreview;
+	} else {
+		return (Player.FocusGroup != null) ? Player : CurrentCharacter;
+	}
 }
 
 /**
@@ -1498,16 +1560,39 @@ function CharacterDecompressWardrobe(Wardrobe) {
 }
 
 /**
+ * Checks if the character is wearing an item that has a specific attribute
+ * @param {Character} C - The character to test for
+ * @param {string} Attribute - The name of the attribute that must be allowed
+ * @returns {boolean} - TRUE if at least one item has that attribute
+ */
+ function CharacterHasItemWithAttribute(C, Attribute) {
+	return C.Appearance.some(item => {
+		const attrs = InventoryGetItemProperty(item, "Attribute");
+		return attrs && attrs.includes(Attribute);
+	});
+}
+
+/**
  * Checks if the character is wearing an item that allows for a specific activity
  * @param {Character} C - The character to test for
- * @param {string} Attribute - The name of the activity that must be allowed
+ * @param {string} Activity - The name of the activity that must be allowed
+ * @returns {Item[]} - A list of items allowing that activity
+ */
+function CharacterItemsForActivity(C, Activity) {
+	return C.Appearance.filter(item => {
+		const allowed = InventoryGetItemProperty(item, "AllowActivity");
+		return allowed && allowed.includes(Activity);
+	});
+}
+
+/**
+ * Checks if the character is wearing an item that allows for a specific activity
+ * @param {Character} C - The character to test for
+ * @param {String} Activity - The name of the activity that must be allowed
  * @returns {boolean} - TRUE if at least one item allows that activity
  */
-function CharacterHasItemWithAttribute(C, Attribute) {
-	return C.Appearance.some(item =>
-		(item.Asset && item.Asset.Attribute.includes(Attribute))
-		|| (item.Property && Array.isArray(item.Property.Attribute) && item.Property.Attribute.includes(Attribute))
-	);
+function CharacterHasItemForActivity(C, Activity) {
+	return CharacterItemsForActivity(C, Activity).length > 0;
 }
 
 /**
@@ -1766,7 +1851,15 @@ function CharacterClearOwnership(C) {
 	}
 
 	C.Appearance = C.Appearance.filter(item => !item.Asset.OwnerOnly);
-	C.Appearance.forEach(item => ValidationSanitizeProperties(C, item));
+	C.Appearance.forEach(item => ValidationSanitizeProperties(C, item, {
+		C,
+		fromSelf: true,
+		fromOwner: false,
+		fromLover: false,
+		fromFriend: false,
+		fromWhitelist: false,
+		sourceMemberNumber: C.MemberNumber,
+	}, null));
 	CharacterRefresh(C);
 }
 
@@ -1774,7 +1867,7 @@ function CharacterClearOwnership(C) {
  * Returns the nickname of a character, or the name if the nickname isn't valid
  * Also validates if the character is a GGTS drone to alter her name
  * @param {Character} C - The character breaking from their owner
- * @returns {String} - The nickname to return
+ * @returns {string} - The nickname to return
  */
 function CharacterNickname(C) {
 	let Regex = /^[a-zA-Z\s]*$/;
@@ -1783,4 +1876,72 @@ function CharacterNickname(C) {
 	Nick = Nick.trim().substring(0, 20);
 	if ((Nick == "") || !Regex.test(Nick)) Nick = C.Name;
 	return AsylumGGTSCharacterName(C, Nick);
+}
+
+/**
+ * Returns dialog text for a character based on their chosen pronouns. Default to She/Her entries
+ * @param {Character} C - The character to fetch dialog for
+ * @param {string} DialogKey - The type of dialog entry to look for
+ * @param {boolean} HideIdentity - Whether to use generic they/them pronouns
+ * @returns {string} - The text to use
+ */
+function CharacterPronoun(C, DialogKey, HideIdentity) {
+	let pronounName;
+	if (HideIdentity && ChatRoomSpace == ChatRoomSpaceType.MIXED || C == null) {
+		pronounName = "TheyThem";
+	} else {
+		const pronounItem = C.Appearance.find(A => A.Asset.Group.Name == "Pronouns");
+		pronounName = pronounItem ? pronounItem.Asset.Name : "SheHer";
+	}
+	return DialogFindPlayer("Pronoun" + DialogKey + pronounName);
+}
+
+/**
+ * Returns the description text for the character's chosen pronouns. Default to She/Her
+ * @param {Character} C - The character to fetch text for
+ * @returns {string} - The text to use
+ */
+function CharacterPronounDescription(C) {
+	const pronounItem = C.Appearance.find(A => A.Asset.Group.Name == "Pronouns");
+	const pronounAsset = pronounItem ? pronounItem.Asset : AssetGet(C.AssetFamily, "Pronouns", "SheHer");
+	return pronounAsset.Description;
+}
+
+/* Update the given character's nickname.
+ *
+ * Note that changing any nickname but yours (ie. Player) is not supported.
+ *
+ * @param {Character} C - The character to change the nickname of.
+ * @param {string} Nick - The name to use as the new nickname. An empty string uses the character's real name.
+ * @return {string} null if the nickname was valid, or an explanation for why the nickname was rejected.
+ */
+function CharacterSetNickname(C, Nick) {
+	if (!C.IsPlayer()) return null;
+
+	Nick = Nick.trim();
+	if (Nick.length > 20) return "NicknameTooLong";
+
+	if (Nick.length > 0 && !ServerCharacterNicknameRegex.test(Nick)) return "NicknameInvalidChars";
+
+	if (C.Nickname != Nick) {
+		const oldNick = C.Nickname || C.Name;
+		C.Nickname = Nick;
+		if (C.IsPlayer()) {
+			ServerAccountUpdate.QueueData({ Nickname: Nick });
+		}
+
+		if (ServerPlayerIsInChatRoom()) {
+			// When in a chatroom, send a notification that the player updated their nick
+			const Dictionary = [
+				{ Tag: "SourceCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+				{ Tag: "DestinationCharacter", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
+				{ Tag: "OldNick", Text: oldNick },
+				{ Tag: "NewNick", Text: CharacterNickname(C) },
+			];
+
+			ServerSend("ChatRoomChat", { Content: "CharacterNicknameUpdated", Type: "Action", Dictionary: Dictionary });
+		}
+	}
+
+	return null;
 }

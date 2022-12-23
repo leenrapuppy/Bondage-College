@@ -10,10 +10,13 @@ var InventoryItemHeadDroneMaskYOffset = 89; // For testing text position for tho
 
 // Load item extension properties
 function InventoryItemHeadDroneMaskPattern5Load() {
+	InventoryItemHeadDroneMaskOriginalText = DialogFocusItem.Property.Text;
+	InventoryItemHeadDroneMaskPattern5LoadBase();
+}
+
+function InventoryItemHeadDroneMaskPattern5LoadBase() {
 
 	const C = CharacterGetCurrent();
-
-	InventoryItemHeadDroneMaskOriginalText = DialogFocusItem.Property.Text;
 
 	// Dynamically displayed input
 	const input = ElementCreateInput(
@@ -29,7 +32,7 @@ function InventoryItemHeadDroneMaskPattern5Load() {
 // Draw extension screen image
 function InventoryItemHeadDroneMaskPattern5Draw() {
     // Draw header and item
-    DrawAssetPreview(1387,125, DialogFocusItem.Asset);
+    ExtendedItemDrawHeader(1387, 125);
 
     // Tag data
     ElementPosition (InventoryItemHeadDroneMaskInputId, 1505, 600, 250);
@@ -39,11 +42,13 @@ function InventoryItemHeadDroneMaskPattern5Draw() {
 // Click function
 function InventoryItemHeadDroneMaskPattern5Click() {
 	if (MouseIn(1330, 731, 340, 64)) {
-		InventoryItemHeadDroneMaskPattern5SaveAndExit();
+		InventoryItemHeadDroneMaskPattern5SaveAndExit(InventoryItemHeadDroneMaskOriginalText);
+		InventoryItemHeadDroneMaskPattern5ExitSubscreen();
 	}
 	// Exits screen
 	else if (MouseIn(1885, 25, 90, 90)) {
-		InventoryItemHeadDroneMaskPattern5Exit();
+		InventoryItemHeadDroneMaskPattern5Exit(InventoryItemHeadDroneMaskOriginalText);
+		InventoryItemHeadDroneMaskPattern5ExitSubscreen();
 	}
 }
 
@@ -55,7 +60,7 @@ function InventoryItemHeadDroneMaskPattern5ExitSubscreen() {
 }
 
 // Save text changes and exit subscreen
-function InventoryItemHeadDroneMaskPattern5SaveAndExit() {
+function InventoryItemHeadDroneMaskPattern5SaveAndExit(OriginalText) {
 	const C = CharacterGetCurrent();
 	const item = DialogFocusItem;
 
@@ -63,7 +68,7 @@ function InventoryItemHeadDroneMaskPattern5SaveAndExit() {
 	if (InventoryItemHeadDroneMaskAllowedChars.test(text)) {
 		item.Property.Text = text;
 	}
-	if (CurrentScreen === "ChatRoom" && text !== InventoryItemHeadDroneMaskOriginalText) {
+	if (CurrentScreen === "ChatRoom" && text !== OriginalText) {
 		const dictionary = [
 			{ Tag: "SourceCharacter", Text: CharacterNickname(Player), MemberNumber: Player.MemberNumber },
 			{ Tag: "DestinationCharacterName", Text: CharacterNickname(C), MemberNumber: C.MemberNumber },
@@ -75,21 +80,19 @@ function InventoryItemHeadDroneMaskPattern5SaveAndExit() {
 	}
 	CharacterRefresh(C);
 	ChatRoomCharacterItemUpdate(C, item.Asset.Group.Name);
-	InventoryItemHeadDroneMaskPattern5ExitSubscreen();
 }
 
 // Revert text changes and exit subscreen
-function InventoryItemHeadDroneMaskPattern5Exit() {
-	DialogFocusItem.Property.Text = InventoryItemHeadDroneMaskOriginalText;
+function InventoryItemHeadDroneMaskPattern5Exit(OriginalText) {
+	DialogFocusItem.Property.Text = OriginalText;
 	CharacterLoadCanvas(CharacterGetCurrent());
-	InventoryItemHeadDroneMaskPattern5ExitSubscreen();
 }
 
 // Exit the item's extended screen
 function InventoryItemHeadDroneMaskExit() {
-	DialogFocusItem = null;
-	if (DialogInventory != null) DialogMenuButtonBuild(CharacterGetCurrent());
-	return ExtendedItemExit();
+	if (DialogInventory != null) {
+		DialogMenuButtonBuild(CharacterGetCurrent());
+	}
 }
 
 // Referenced from TransportJacket for dynamic display
@@ -101,9 +104,18 @@ const InventoryItemHeadDroneMaskTextChange = CommonLimitFunction((C, item, text)
 	}
 });
 
-// Drawing function for tag text
+/** @type {DynamicAfterDrawCallback} */
 function AssetsItemHeadDroneMaskAfterDraw({
     C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color
+}) {
+	const YOffset = InventoryItemHeadDroneMaskYOffset;
+	AssetsItemHeadDroneMaskAfterDrawBase({
+		C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color, YOffset,
+	})
+}
+
+function AssetsItemHeadDroneMaskAfterDrawBase({
+    C, A, X, Y, Property, drawCanvas, drawCanvasBlink, AlphaMasks, L, Color, YOffset,
 }) {
 	if (L === "_Text"){
 		const Properties = Property || {};
@@ -133,7 +145,7 @@ function AssetsItemHeadDroneMaskAfterDraw({
 		DynamicDrawText(text, ctx, Width/2, Height/ (isAlone? 2: 2.5), drawOptions);
 
 		//And print the canvas onto the character based on the above positions
-		drawCanvas(TempCanvas, X+ XOffset, Y + InventoryItemHeadDroneMaskYOffset, AlphaMasks);
-		drawCanvasBlink(TempCanvas, X + XOffset, Y + InventoryItemHeadDroneMaskYOffset, AlphaMasks);
+		drawCanvas(TempCanvas, X+ XOffset, Y + YOffset, AlphaMasks);
+		drawCanvasBlink(TempCanvas, X + XOffset, Y + YOffset, AlphaMasks);
 	}
 }

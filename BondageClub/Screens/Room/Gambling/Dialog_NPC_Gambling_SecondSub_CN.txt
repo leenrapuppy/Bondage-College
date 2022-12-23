@@ -1,0 +1,551 @@
+###_NPC
+Blessed those who have nothing to say and yet remain silent. 
+祝福那些无话可说却保持沉默的人。
+(She shakes her head but you're able to gag and silence her.)
+（她摇着头，但你还是给她戴上口塞，让她安静下来。）
+(You remove her gag and she stretches her mouth.)  Thanks, that was getting uncomfortable.
+（你摘下她的口塞，她张开嘴。）谢谢，这开始不舒服了。
+(You put some earplugs into place.) Oh, everything is so muffled, hehe.
+（你把耳塞塞进去。）哦，一切都那么闷闷不乐，呵呵。
+(You pull the earplugs out.) Oh, I can hear you clearly again.
+（你把耳塞拔出来）哦，我又能清楚地听到你的声音了。
+(She grumbles but complies as you restrain her arms.)  How am I supposed to roll the dice like this?
+（她咕哝着，但服从地让你束缚她的手臂。）我怎么能像这样掷骰子？
+(You free her arms and she gives you a thumbs up.)  That's better, thanks!
+（你松开她的手臂，她竖起大拇指。）这样更好，谢谢！
+(She sighs and lets you restrain her hands.) I'm not going be able to throw dice like this.
+（她叹了口气，让你束缚住她的手。）我不能像这样掷骰子。
+(You slowly release her hands.)  That's better, thanks.
+（你慢慢松开她的手。）这样更好，谢谢。
+(She looks down as you restrain her legs securely.)  I'm not going anywhere anyway.
+（她低下头，你牢牢地束缚住她的腿。）反正我哪儿也不去。
+(You release her legs from the restraint.)  You're quite good with restraints Miss.
+（你把她的腿从束缚中解开。）你对束缚很擅长，女士。
+(She looks puzzled as you restrain her feet.)  I don't plan on leaving Miss.
+（你束缚她的脚，她露出困惑的表情。）我不打算离开，女士。
+(You release her feet.)  Wonderful!
+（你松开她的脚。）太好了！
+(She struggles as you strap the collar around her neck.)  I'm not looking for an owner.
+（你把项圈系在她脖子上，她挣扎着。）我没准备找个主人。
+(You remove the collar from her neck.)  Yes!  This is much better.
+（你取下她脖子上的项圈。）是的！好多了。
+(She struggles as you lock the device on her.)  No, please!  I don't have the key for that!
+（你把贞操带锁在她身上，她挣扎着。）不，拜托！我没有那个钥匙！
+(She looks really happy as you unlock the device.)  Thank you so much Miss DialogPlayerName.
+（你解开贞操带，她看起来非常高兴。）非常感谢，DialogPlayerName女士。
+(You put the device as she shakes her head.)  Ow!  You've made my day much more awful.
+（你把道具用在她身上，她摇摇头。）噢！你让我的日子更糟糕了。
+(You remove the device and she nods rapidly.)  Thanks a million, this is much better.
+（你取下道具，她迅速点头。）百万份谢谢，这好多了。
+(She trembles of pain as you whip her breast.) This is a gambling hall, not a torture chamber.
+（你鞭打她的乳房，她因疼痛而颤抖。）这是赌场，而不是酷刑室。
+(You swing the crop on her torso as she moans.) Oh, that's not a game anymore.
+（你向她的躯干挥下硬鞭，她呻吟着。）哦，这不再是游戏了。
+(You whip her butt as she jumps from the pain.) I do not find that funny.
+（你抽打她的屁股，她因为疼痛而跳起来。）我不觉得这很有趣。
+(She moans each time the crop lands on it.) How will I be able to sit like this?
+（每当硬鞭落在身上时，她都会呻吟一下。）我现在这样怎么坐啊？
+I like my clothes better.
+我更喜欢我的衣服了。
+I cannot concentrate this way.
+我这样没法集中注意力。
+Oof, it's finally over.
+呼，终于结束了。
+Oh, is that really necessary?
+哦，真的有必要吗？
+(She looks at you satisfied.)
+（她满意地看着你。）
+You will pay for this.
+你将为此付出代价。
+I want to play with dice, not with eggs.
+我想玩骰子，而不是跳蛋。
+Thanks, now I can concentrate on what matters.
+谢谢，现在我可以专注于重要的事情了。
+Woe to the vanquished.
+败者有祸。
+Finally, I'm back on firm ground.
+终于，我回到了地面上了。
+Welcome to the Gambling Hall. Shall we play a game?
+欢迎来到赌博大厅。我们要来局游戏吗？
+###_PLAYER
+Hello, I'm DialogPlayerName.  Pleased to meet you.
+你好，我是DialogPlayerName。很高兴见到你。
+###_NPC
+Pleased to meet you too.  I'm DialogCharacterName.
+也很高兴认识你。我是DialogCharacterName。
+###_PLAYER
+I'd like to ask you some questions.
+我想问你一些问题。
+###_NPC
+What do you want to know?
+你想知道什么？
+###_PLAYER
+(Play by your own rules.)
+（按你自己的规则玩。）
+###_NPC
+(She looks expectant.)
+（她看起来很期待。）
+###_PLAYER
+Let's play Catch the Fox.
+让我们玩捉狐狸吧。
+###_NPC
+Would you like to be the fox or the hunter?
+你想做狐狸还是猎人？
+###_PLAYER
+Let's play Street to Roissy.
+让我们玩鲁瓦西街吧。
+###_NPC
+OK, you're on.
+好的，你开始了。
+###_PLAYER
+Let's play Dare Six.
+让我们玩赌六吧。
+###_NPC
+I'm ready, let's go.
+我准备好了，我们走吧。
+###_PLAYER
+(Struggle in your restraints.)
+（在你的束缚中挣扎。）
+###_NPC
+Do you need help?
+你需要帮助吗？
+###_PLAYER
+Let's talk later. (Leave her.)
+以后再说吧。（离开她。）
+Which games can I play with you?
+我可以和你一起玩哪些游戏？
+###_NPC
+Depending on reputation and money: Catch the Fox, Street to Roissy or Dare Six.
+取决于名誉和金钱，我们可以玩：捉狐狸、鲁瓦西街或赌六。
+###_PLAYER
+Can you explain the rules to me?
+你能给我解释一下规则吗？
+###_NPC
+Not until you have a high enough reputation and some money.
+除非你有足够高的声誉和一些钱。
+Sure. Which game?
+当然。哪个游戏？
+###_PLAYER
+Can I tie you up?
+我可以绑你吗？
+###_NPC
+Only if you win a game.
+只要你赢了一场比赛。
+###_PLAYER
+Will you restrain me?
+你会束缚我吗？
+###_NPC
+You bet your ass I will, if I win or if you run out of money.
+如果我赢了或者你的钱用完了，你大可相信我会的。
+###_PLAYER
+I don't have any more questions.
+我没有更多的问题了。
+###_NPC
+Alright. Shall we play a game?
+好吧。我们要来局游戏吗？
+###_PLAYER
+What are the rules of Catch the Fox?
+捉狐狸的规则是什么？
+###_NPC
+One player is the fox, the other is the hunter. The hunter pays a hunting lease of $5.
+一个玩家是狐狸，另一个是猎人。猎人支付$5的狩猎租约金。
+###_PLAYER
+What are the rules of Street to Roissy?
+鲁瓦西街的规则是什么？
+###_NPC
+Both players roll the dice simultaneously. Each player must roll a 1 first, then 2, 3, 4, 5, and finally 6.
+两名玩家同时掷骰子。每个玩家必须先掷出1，然后掷出2、3、4、5，最后掷出6。
+###_PLAYER
+What are the rules of Dare Six?
+赌六的规则是什么？
+###_NPC
+In each round, you roll a dice as many times as you want and count the points together.
+在每一轮中，你可以根据需要多次掷骰子并一起计算点数。
+###_PLAYER
+I have another question.
+我有另一个问题。
+###_NPC
+OK, go ahead.
+好的，继续吧。
+###_PLAYER
+(Listen.)
+（听。）
+###_NPC
+The fox tries to catch them as prey. The fox and the hunter take turns throwing dice.
+尝试抓住狐狸，变成猎物。狐狸和猎人轮流掷骰子。
+The fox gets a dice lead and needs to reach a total of 30 to escape the hunter.
+狐狸总是先掷骰子，并且总点数达到30就能逃脱猎人。
+If the hunter's score is equal to or as high as the fox's score, they catch the fox and get the lease back.
+如果猎人的点数等于或超过狐狸的点数，猎人就会抓住狐狸并赢回租约金。
+If a player rolls the wrong number, they pay $1 and roll again.
+如果玩家掷错数字，她需要支付$1并再次掷骰。
+If a player rolls the correct number, the opponent takes a step towards Roissy and either remove clothes or add restraints.
+如果玩家掷出正确的数字，对手会向鲁瓦西迈出一步，这意味着要么脱掉衣服，要么增加束缚。
+The first person to reach Roissy loses, and the winner takes all the money.
+第一个到达鲁瓦西的人就输了，赢家拿走所有的钱。
+Then I roll the dice. Whoever has more points wins the round.
+然后我掷骰子。谁有更多的点数赢得这一轮。
+However, if you throw a 6, you instantly lose the round.
+但是，如果你掷出6，你会立即输掉这一轮。
+The first player to lose 6 rounds loses the game.
+先输掉6轮的玩家输掉这一局游戏。
+###_PLAYER
+(Tickle her.)
+（给她挠痒痒。）
+###_NPC
+(You tickle her behind the knees and feet.  She squirms around laughing and trying to escape.)
+（你在她的膝盖和脚后搔她痒。她笑着扭来扭去，并尝试逃跑。）
+###_PLAYER
+(Kiss her.)
+（亲她。）
+###_NPC
+(You grab a clump of her hair and place a firm and passionate kiss on her lips.)
+（你抓起她的一撮头发，在她的嘴唇上留下一个坚定而热情的吻。）
+###_PLAYER
+(Fondle her.)
+（抚弄她。）
+###_NPC
+(You fondle her breasts and butt, making her moan softly.)
+（你抚弄她的乳房和臀部，让她轻轻发出呻吟。）
+###_PLAYER
+(Slap her.)
+（扇她一巴掌。）
+###_NPC
+(You slap her firmly in the face. She gasps from the pain and bows her head.)
+（你狠狠地扇了她一巴掌。她痛得喘不过气来，低下头。）
+###_PLAYER
+(Spank her.)
+（拍打她。）
+###_NPC
+(You spank her hard and she yelps from the pain.)
+（你狠狠地拍打她，她因疼痛而大叫。）
+###_PLAYER
+(End the game.)
+（结束游戏。）
+###_NPC
+(You take a step back and she looks surprised.)
+（你退后一步，她看起来很惊讶。）
+###_PLAYER
+(Nod yes.)
+（点头同意。）
+###_NPC
+Are you ready to pay $25?
+你准备好支付$25了吗？
+###_PLAYER
+Yes, can you release me?
+是的，你能放开我吗？
+(Shake your head.)
+（摇头。）
+###_NPC
+Tough luck then.
+刚才真倒霉。
+###_PLAYER
+No, thanks.
+不，谢谢。
+###_NPC
+Fair enough, but I'm not letting you out.
+足够了，但我不会让你出去的。
+(She release you and takes the money.)
+（她解开你并拿走钱。）
+You don't have enough money girl.  Get a job.
+你没有足够的钱，女孩。找份工作吧。
+(She checks your items and shakes her head no.)  Sorry, I cannot unlock that.
+（她检查了你的物品并摇头拒绝。）对不起，我无法解开这个锁。
+Up to you.
+由你决定。
+###_PLAYER
+No way, not a chance! (Leave her.)
+不可能，没有机会！（离开她。）
+I'll play as the fox.
+我会玩狐狸。
+###_NPC
+You roll first then.
+那你先掷骰。
+###_PLAYER
+I'll play as the hunter.
+我会玩猎人。
+###_NPC
+Ok, I'll roll first then.
+好的，那我先掷骰。
+###_PLAYER
+Next roll.
+下一次掷骰。
+###_NPC
+Ok.
+好的。
+###_PLAYER
+The fox has escaped! (Take the win.)
+狐狸逃走了！（赢得胜利。）
+###_NPC
+(She gives you the profit of $REPLACEMONEY.)
+（她给你$REPLACEMONEY的利润。）
+###_PLAYER
+Congratulations! (Give her the win.)
+恭喜！（让她赢得胜利。）
+###_NPC
+(She quickly takes the money.)
+（她迅速拿了钱。）
+###_PLAYER
+Uh oh, you caught me!
+哦哦，你抓到我了！
+###_NPC
+(She ties you up.)
+（她把你绑起来。）
+###_PLAYER
+Ahah! You can't escape me!
+啊啊！你逃不掉我的！
+###_NPC
+(She gives you the $REPLACEMONEY back.)
+（她把$REPLACEMONEY还给你。）
+###_PLAYER
+(Roll the dice.)
+（掷骰子。）
+###_NPC
+(You both roll the dice.)
+（你们俩都掷骰子。）
+###_PLAYER
+(Cheer.)
+（欢呼。）
+###_NPC
+(She mumbles into the gag.)
+（她在口塞里咕哝着。）
+###_PLAYER
+I walk the line.
+我一路向前。
+###_NPC
+Can you see the place to be?
+你能看出要去的地方吗？
+###_PLAYER
+(Struggle.)
+（挣扎。）
+###_NPC
+Are you enjoying yourself there?
+你玩得开心吗？
+###_PLAYER
+We walk side by side.
+我们并肩走。
+###_NPC
+On a long street.
+在一条长街上。
+###_PLAYER
+Both right. Take off your accessories.
+两个都对。脱掉你的配饰。
+###_NPC
+(She takes her accessories off while you both move towards Roissy.)
+（你们都走向鲁瓦西，她脱下了配饰。）
+###_PLAYER
+Both right. Take off your clothes.
+两个都对。脱掉你的衣服。
+###_NPC
+(She takes her clothes off while you both move towards Roissy.)
+（你们都走向鲁瓦西，她脱掉衣服。）
+###_PLAYER
+Both right. Take off your underwear.
+两个都对。脱掉你的内衣。
+###_NPC
+(She takes her underwear off while you both move towards Roissy.)
+（你们都走向鲁瓦西，她脱掉了内衣。）
+###_PLAYER
+Both right. You'll have to start hopping!
+两个都对。你要开始并腿跳了！
+###_NPC
+(She nods slowly while you tie her legs and then you both move towards Roissy.)
+（你们俩都走向鲁瓦西，你绑住她的腿，她慢慢地点点头。）
+###_PLAYER
+Both right. Rolling might get difficult now...
+两个都对。现在掷骰子可能会变得困难了……
+###_NPC
+(She struggles while you bind her arms and then you both move towards Roissy.)
+（你们俩都走向鲁瓦西，你绑住她的手臂，她挣扎着。）
+###_PLAYER
+I win. Time to gag you.
+我赢了。是时候给你戴上口塞了。
+###_NPC
+(She mumbles as you stuff the gag into her mouth and you step towards Roissy.)
+（你走向鲁瓦西，你把口塞塞进她嘴里，她咕哝着。）
+###_PLAYER
+There can only be one winner!
+只能有一个赢家！
+###_NPC
+Lets roll the dice again.
+我们再次掷骰子吧。
+###_PLAYER
+Oh, I lost. (Take off your accessories.)
+哦，我输了。（脱下你的配饰。）
+###_NPC
+I like where this is going.
+我喜欢这个发展。
+###_PLAYER
+Oh, I lost. (Take off your clothes.)
+哦，我输了。（脱掉衣服。）
+###_NPC
+Hurry up!
+赶快！
+###_PLAYER
+Oh, I lost. (Take off your underwear.)
+哦，我输了。（脱掉你的内衣。）
+###_NPC
+Feeling exposed?
+感觉到暴露身体了吗？
+###_PLAYER
+Oh, I lost. (Let her tie your legs.)
+哦，我输了。（让她绑住你的腿。）
+###_NPC
+Don't lose your balance now.
+现在不要失去平衡。
+###_PLAYER
+Oh, I lost. (Let her tie your arms.)
+哦，我输了。（让她绑住你的胳膊。）
+###_NPC
+Just a little bit more to go...
+就差一点点了……
+###_PLAYER
+Oh, I lost. (Try to resist her putting the gag in.)
+哦，我输了。（试着阻止她给你戴上口塞。）
+###_NPC
+Oh no you don't!  (She forces the gag into your mouth and takes the $REPLACEMONEY winnings.)
+哦，不，你没有！（她把口塞进你的嘴里，然后拿走了$REPLACEMONEY的奖金。）
+###_PLAYER
+I win. Take off your accessories.
+我赢了。脱掉你的配饰。
+###_NPC
+(She takes her accessories off.)
+（她脱下配饰。）
+###_PLAYER
+I win. Lose the clothes.
+我赢了。扔掉衣服。
+###_NPC
+(She takes her clothes off.)
+（她脱掉衣服。）
+###_PLAYER
+I win. Time for you to get naked.
+我赢了。是时候让你赤身裸体了。
+###_NPC
+(She takes her underwear off.)
+（她脱下内衣。）
+###_PLAYER
+I win. Let's tie up those legs, shall we?
+我赢了。把腿绑起来吧，好吗？
+###_NPC
+(She nods slowly as you bind her legs.)
+（你绑住她的腿，她慢慢地点点头。）
+###_PLAYER
+I win. You don't need those arms to roll the dice.
+我赢了。你接下里掷骰子不需要手了。
+###_NPC
+(She struggles as you tie her arms behind her.)
+（你把她的手臂绑在她身后，她挣扎着。）
+###_PLAYER
+I win. Time for the final touch!
+我赢了。是时候进行最后一步了！
+###_NPC
+(She mumbles as you gag her, and then you take the $REPLACEMONEY winnings.)
+（你给她戴上口塞，她喃喃自语，然后你拿走了$REPLACEMONEY的奖金。）
+###_PLAYER
+I want to add a die.
+我想加一个骰子。
+###_NPC
+(She gives you another die.)
+（她给了你另一个骰子。）
+###_PLAYER
+That's enough.
+够了。
+###_NPC
+(She nods slowly and rolls her dice.)
+（她慢慢地点点头，掷骰子。）
+(She smiles menacingly.)
+（她险恶地微笑。）
+Quickly now!
+现在快点！
+I hope you're not too cold!
+希望你不会太冷！
+Looking better already, don't you think?
+看起来已经够好了，你不觉得吗？
+Hey, you look great like this...
+嘿，你这个样子真好看……
+###_PLAYER
+Oh, I lost. (Open your mouth.)
+哦，我输了。（张开嘴。）
+###_NPC
+This gag is perfect for you. (She takes the $REPLACEMONEY winnings.)
+这个口塞非常适合你。（她拿走了$REPLACEMONEY的奖金。）
+###_PLAYER
+I win. Take off those accessories.
+我赢了。脱掉那些配饰。
+###_NPC
+(She removes her accessories.)
+（她取下她的配饰。）
+###_PLAYER
+I win. Let's see some underwear.
+我赢了。让我们看看内衣吧。
+###_NPC
+(She drops her clothes to the floor.)
+（她把衣服扔在地上。）
+###_PLAYER
+I win. Lose the bra and panties.
+我赢了。丢掉胸罩和内裤吧。
+###_NPC
+(She removes her underwear.)
+（她脱下内衣。）
+###_PLAYER
+I win. Let's get those legs tied up.
+我赢了。来双腿绑起来吧。
+###_NPC
+(She nods slowly as you tie her legs together.)
+（你把她的腿绑在一起，她慢慢地点点头。）
+###_PLAYER
+I win. Time to keep those arms out of the way.
+我赢了。是时候让这些手臂不会碍事了。
+###_NPC
+(She looks down as you tie her arms behind her.)
+（你把她的手臂绑在她身后，她低下头。）
+###_PLAYER
+I win. Open wide!
+我赢了。张大嘴！
+###_NPC
+(She opens her mouth slowly and you gag her, and then take the $REPLACEMONEY winnings.)
+（她慢慢张开嘴，你给她戴上口塞，然后拿走$REPLACEMONEY的奖金。）
+###_PLAYER
+(Mumble into the gag.)
+（在口塞里咕哝。）
+###_NPC
+(She cheers.)
+（她欢呼。）
+(She shows you her restraints.) I would like to, but...
+（她向你展示了她的束缚。）我愿意，但是……
+(She struggles in her restraints.)  Can you release me?
+（她在束缚中挣扎。）你能放开我吗？
+###_PLAYER
+I'll go get help.  (Leave her.)
+我去寻求帮助。（离开她。）
+What happened here?
+这里发生了什么？
+###_NPC
+I lost a game and the winner just left me all tied up!
+我输了一场游戏，赢家把我绑在这里不管了！
+Yes please, can you release us?
+是的，你能释放我们吗？
+###_PLAYER
+Is everything alright now?
+现在一切都好吗？
+###_NPC
+Yes, much better now, thanks.  Please thank the maids sorority for me!.
+是的，现在好多了，谢谢。请为我感谢女仆联谊会！
+###_PLAYER
+Great!  A chore well done.
+太棒了！工作完成。
+###_NPC
+Absolutely.  Is there something I can do for you?
+当然。有什么我可以为你做的吗？
+###_PLAYER
+No problem.  We are here to serve you Miss.
+没问题。我们在这里为你服务，女士。
+###_NPC
+That's great to hear!  Is there something I can do for you?
+听到这我很高兴！有什么我可以为你做的吗？
+###_PLAYER
+Alright, but take more care next time.
+好的，但下次要多加注意。
+###_NPC
+I will, thanks.  Is there something I can do for you?
+我会的。谢谢。有什么我可以为你做的吗？

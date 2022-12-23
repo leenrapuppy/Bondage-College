@@ -5,12 +5,18 @@ Can you go check on the Introduction Class?  Sometimes new members get out of co
 你可以去新手课堂看看吗？有时候新成员可能会让场面失控。
 I've heard rumors of trouble going on at the Shibari Dojo.  Can you make sure everyone is fine?
 我听说在紧缚道场发生了一些麻烦事，你可以帮我去那边看看以确保大家都没事吗？
-I think that something went wrong at the store.  Can you go there to help the vendor?
+I think something went wrong at the store.  Can you go there to help the vendor?
 我想商店那边可能遇上麻烦了，你可以去那边帮帮售货员吗？
-I think that something went wrong at the Gambling Hall.  Can you go there to help the players?
+I think something went wrong at the Gambling Hall.  Can you go there to help the players?
 我想赌场那边可能遇上了些麻烦，你可以去帮帮那边的顾客吗？
 Guard the prison cell so that nothing happens there.
 好好的看守住牢房，确保不要有意外。
+You must at least wear your maid hairband.
+你必须至少戴上你的女仆发箍。
+You are either not wearing the dress, or covering too much.
+你要么没穿制服，要么覆盖得太多了。
+Does your outfit look like mine?
+你的衣服看起来像我的吗？
 (You come back to DialogCharacterName with an empty drink platter.)  Well done!
 （你带着空的饮料托盘回到了DialogCharacterName的身边）好样的！
 (You come back to DialogCharacterName with spilled drinks all over your uniform.)
@@ -21,7 +27,7 @@ What happened to your tray, girl?  The club members are thirsty! Here, have anot
 你的托盘怎么了？现在会员们都很渴欸！行吧，我帮你换个托盘（你需要向五位不同的在线玩家提供饮料）
 (She checks your empty tray.)  Well done!  Our members were satisfied?
 （她查看了空托盘）干得好！会员们都满意吗？
-(DialogCharacterName gets you back to the maid quarters and smiles.)  You've did it!
+(DialogCharacterName gets you back to the maid quarters and smiles.)  You've done it!
 （DialogCharacterName微笑着带着你回到了女仆宿舍）你做到了！
 (DialogCharacterName gets you back to the maid quarters and frowns.)  You failed to clean up in time.
 (DialogCharacterName皱着眉头带着你回到了女仆宿舍)你完全没有打扫干净欸
@@ -123,7 +129,7 @@ Aww, so pretty. You tied yourself for the cleaning chore.  I'll drag you to your
 Hello, I'm DialogPlayerName.  Pleased to meet you.
 你好，我是DialogPlayerName，很高兴遇见你~
 ###_NPC
-Pleased to meet you too.  I'm DialogCharacterName, I'm responsible to find work for maids.
+Pleased to meet you too.  I'm DialogCharacterName, I'm responsible for finding work for maids.
 很高兴遇见你。我是DialogCharacterName，在这里负责帮女仆介绍工作。
 ###_PLAYER
 What's going on in here?
@@ -132,7 +138,7 @@ What's going on in here?
 Maids come here to get job assignments.  They can earn some money by working for the club.
 女仆可以来我们这找工作，由此从俱乐部那边赚一点钱。
 ###_PLAYER
-What kind of chores do maid do in the club?
+What kind of chores do maids do in the club?
 女仆在俱乐部负责什么工作呀？
 ###_NPC
 Cleaning, serving drinks, testing new devices, rescuing helpless people and more.
@@ -172,7 +178,7 @@ Tell me about the club.
 请和我讲讲俱乐部。
 ###_NPC
 The Bondage Club has a long history.  It was a secret club back then when BDSM was taboo and forbidden.
-捆绑俱乐部已经存在了很长一段时间了。因为以前BDSM是被禁止的，所以俱乐部一直保持着秘密的状态。
+束缚俱乐部已经存在了很长一段时间了。因为以前BDSM是被禁止的，所以俱乐部一直保持着秘密的状态。
 ###_PLAYER
 As head maid, I have a task for you.
 作为女仆长，我有个任务给你。
@@ -315,7 +321,7 @@ Sweet!  Who will fuck me first?  (Strip naked.)
 No way!  Can't I stay clothed?
 为什么啊！我不能穿着衣服吗？
 ###_NPC
-Strip girl, we've all did it before.  
+Strip girl, we've all done it before.
 快脱，孩子。我们之前都这么做过。
 ###_PLAYER
 I'll need some help to undress.
@@ -346,7 +352,7 @@ Restrain me?  I'm already naked.  Isn't that enough?
 绑我？我已经脱光了欸！这还不够吗！？
 ###_NPC
 You're in the Bondage Club sweetie, it's a regular initiation.
-你现在可是在捆绑俱乐部欸亲爱的，这可是基础操作。
+你现在可是在束缚俱乐部欸亲爱的，这可是基础操作。
 ###_PLAYER
 Very well.  (Allow them to restrain you.)
 那行吧（让他们拘束你）
@@ -571,7 +577,7 @@ I'll change first.  (Wear the maid uniform.)
 （你穿上了女仆装）完美！那接下来让我绑住你吧。
 ###_PLAYER
 I'll change first. (Leave her.)
-我先换下衣服（离开她）
+我先换下衣服。（离开她。）
 ###_NPC
 Are you ready? Our guests are thirsty.
 你准备好了吗？客人们都很饥渴。
@@ -610,7 +616,7 @@ Wait!  Restrain me?  Why?
 等等？！绑我干嘛？
 ###_NPC
 You're in the Bondage Club sweetie.  Waitresses need to be restrained.
-孩子你这是在捆绑俱乐部，这里的服务生都得被好好绑着❤~
+孩子你这是在束缚俱乐部，这里的服务生都得被好好绑着❤~
 ###_PLAYER
 Very well Miss.  (Blush and allow her to restrain you.)
 好吧女士。（脸红，但是让她继续绑你）
@@ -649,7 +655,7 @@ This is so kinky.
 Yes please.
 来吧。
 ###_NPC
-(She straps a drink platter on you.)  Get used to balance the platter with your body, you don't want to make a mess.
+(She straps a drink platter on you.)  Get used to balancing the platter with your body, you don't want to make a mess.
 （她在你身上绑了个饮料托盘）你要习惯用身体来平衡托盘，你不会想弄洒它们的。
 ###_PLAYER
 Make sure it won't tip.
@@ -732,8 +738,10 @@ You'll have to patrol around the club and release members that are stuck.  I'll 
 ###_PLAYER
 Is my outfit suitable for a rescue missiong?
 我得着装适合解救任务吗？
+I’ll change first. (Leave her.)
+我先换下衣服。（离开她。）
 ###_NPC
-Are you ready ? I’ll give you a specific location to monitor.
+Are you ready ? I’ll give you a specific location to monitor.
 你准备好了吗？我会给你指定一个位置去监视。
 ###_PLAYER
 Where should I go?
@@ -742,7 +750,7 @@ Where should I go?
 Did you go to the Introduction Class?  Is there anything to report?
 你去过新手课堂了嘛？有什么需要报告的嘛？
 ###_PLAYER
-Everything is under control.
+It's all better now.
 一切尽在掌握之中。
 ###_NPC
 Perfect!  Let me pay you for your efforts then.  (She gives you $REPLACEMONEY.)
@@ -763,13 +771,13 @@ Have you inspected the Shibari Dojo?  Is everything alright?
 I'll go check the Shibari Dojo.  (Leave her.)
 我去看看紧缚道场（离开她）
 ###_NPC
-What's going on at the Bondage Club store?  Did the vendor got in trouble?
+What's going on at the Bondage Club store?  Did the vendor get in trouble?
 你可以去俱乐部商店看看吗？那边的店员还好吗？
 ###_PLAYER
 I'll go check the Bondage Club store.  (Leave her.)
 我这就去俱乐部商店看看。（离开她）
 ###_NPC
-What's going on at the Gambling Hall?  Did some Player got in trouble?
+What's going on at the Gambling Hall?  Did some players get in trouble?
 你可以去赌场看看吗？那边的客人还好吗？
 ###_PLAYER
 I'll go check the Gambling Hall.  (Leave her.)
@@ -851,7 +859,7 @@ Very well, you can tie my feet.
 I should have guessed.
 我应该猜得到。
 ###_NPC
-(She giggles and restrains your legs.)  Next is your arms, you won't need either.
+(She giggles and restrains your legs.)  Next is your arms, you won't need them either.
 （她笑着绑住了你的腿）接着是你的手臂，反正你也用不上。
 ###_PLAYER
 You really enjoy your job, don't you?
@@ -862,7 +870,7 @@ This is ridiculous!  How will I be able to clean?
 You will understand soon.  Give me your arms girl.
 你很快就会明白的。现在把你的手臂交给我吧。
 ###_PLAYER
-Fine, you can tie my arms.
+Sure, you can tie my arms.
 好吧，把我的手臂绑起来吧。
 ###_NPC
 (She restrains your arms behind your back.)  How does it feel to be restrained for work?
@@ -901,9 +909,9 @@ Very well, you can gag me.
 （她拿起了一个连着掸子的口塞，然后把它绑在了你的头上）准备好了吗？
 (She looks at you and laughs.)  You're learning the job pretty fast.  Are you ready now?
 （她看着你，然后笑出声来）你学的还挺快XD，现在准备好了吗？
-Come sweetie!  I'll drag you to your workspace.  You need to clean the room before I come to get your back.
+Come sweetie!  I'll drag you to your workspace.  You need to clean the room before I come to get you back.
 来吧宝贝！我会带你去你工作的地方。你需要在我回来之前打扫完房间。
-Come sweetie!  I'll drag you to your workspace.  You need to clean your area before I come to get your back.
+Come sweetie!  I'll drag you to your workspace.  You need to clean your area before I come to get you back.
 来吧宝贝！我会带你去你工作的地方。你需要在我回来之前打扫完你负责的区域。
 ###_PLAYER
 (Pick an easy place to clean.)
@@ -939,33 +947,33 @@ You should hit " S D K L " on your keyboard when the musical notes drop from the
 ###_NPC
 Each hit is judged with "PERFECT", "GREAT", or "MISS"; if you release your key early in case of a long note, you get an "END MISS".
 每一次点击都会伴随着"PERFECT", "GREAT", 或者 "MISS"的判定。如果你你在长音符时过早释放了按键，你会得到一次“END MISS”的判定。
-You break your combo if you get a "MISS" or "END MISS", and audience will eventually become unhappy.
+You'll break your combo if you get a "MISS" or "END MISS", and the audience will eventually become unhappy.
 每次你断连击的时候，你都会得到一次“MISS”或者“END MISS”，听众也会因此感到不开心。
-Audience will tie you up when they couldn't enjoy the music, because that's part of the entertainment for them.
+The audience will tie you up if they don't enjoy the music, because that's part of the entertainment for them.
 如果你的音乐无法打动他们，他们便会把你绑起来，因为他们得换个方法来得到乐趣。
-If you finished the play, you will be awarded based on your performance.
+When you finish the play, you will be awarded based on your performance.
 如果你完成了演出，你的付出将为你带来回报。
 That's basically everything, and you will find out more during the play.
 差不多就这些了，你在演出时可以积累更多的经验。
 ###_PLAYER
-Thank you for the instruction.
+Thank you for the instructions.
 谢谢你的指导。
-Select song.
+(Select song.)
 选择曲目
 ###_NPC
 (List of songs)
 （歌单）
 ###_PLAYER
-見えない何かに怯える夜(LV 2)
-見えない何かに怯える夜(LV 2)
-見えない何かに怯える夜(LV 5)
-見えない何かに怯える夜(LV 5)
-見えない何かに怯える夜(LV 7)
-見えない何かに怯える夜(LV 7)
-(Want more Songs)
+見えない何かに怯える夜 (LV 2)
+見えない何かに怯える夜 (LV 2)
+見えない何かに怯える夜 (LV 5)
+見えない何かに怯える夜 (LV 5)
+見えない何かに怯える夜 (LV 7)
+見えない何かに怯える夜 (LV 7)
+(Want more songs?)
 （想要更多的曲目）
 ###_NPC
-We are adding more contents to this minigame. If you have royalty free songs or wish to create charts, you are welcomed to contact the dev for more information.
+(We're adding more content to this minigame. If you have royalty free songs or wish to create charts, you're welcome to contact the dev for more information.)
 我们会持续为这个小游戏增加新的曲目。如果你有免版权音乐或者想为我们写谱，欢迎与开发者联系以取得更多的信息。
 (She releases you.)  All set!  Are you ready for more chores?
 （她放开了你）完工！现在打算继续干活吗？

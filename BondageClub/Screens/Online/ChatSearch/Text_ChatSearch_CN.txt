@@ -26,12 +26,58 @@ Entering the room...
 正在进入房间...
 Duplicate join request
 重复的加入请求
-Filter Rooms
-过滤房间
+Remove unwanted rooms
+移除不需要的房间
+Temp Hide on click
+临时隐藏点击的房间
+Ghost player on click
+幽灵玩家为点击的房间
+Show hidden rooms
+显示隐藏的房间
 Return to room view
 返回房间界面
+Return to previous view
+返回上一视图
+Filtered because:
+过滤原因：
+Contains filtered word
+包含过滤单词
+Temp Hidden
+临时隐藏
+Creator on ghostlist
+幽灵名单上的创造者
 Filter out terms (comma-separated):
 过滤条件(以逗号分隔):
+Help
+帮助
+Close help
+关闭帮助
+In filter mode you can remove rooms you do not wish to see.
+在过滤模式下，您可以移除不希望看到的房间。
+A room will be hidden if it meets one or more of the following criteria: it is not in your selected language, it contains a filtered out word, it has been Temp Hidden (see below), or its creator is ghostlisted.
+如果房间符合以下一个或多个条件，则该房间将被隐藏：它不是您选择的语言，它包含一个过滤掉的单词，它已被临时隐藏（请参见下文），或者它的创建者在幽灵列表中。
+The Language filter allows to view only rooms in a particular language. Other filters can be used to remove objectionable content from your view.
+语言过滤器仅允许以特定语言查看房间。其他过滤器可用于从视图中删除不良内容。
+Use "Filter out terms" to hide all rooms containing those words. Note this only checks the room name, not the description.
+使用“过滤条件”隐藏包含词语的所有房间。注意：这只检查房间名称，不检查描述。
+Click on a room in this view to instantly Temp Hide that one room (until next login) and/or ghostlist the player who made the room (saved permanently until you remove them from ghostlist). Use the buttons at bottom right to select which action to take.
+单击此视图中的某个房间可立即临时隐藏该房间（直到下次登录）和/或 将创建该房间的玩家列入幽灵列表（永久保存，直到您将其从幽灵列表中删除）。使用右下角的按钮选择要采取的操作。
+Use "Show hidden rooms" to show all the normally hidden rooms in case you want to unhide a particular room. Note that rooms hidden because of the language setting will not show here, but all other hidden rooms will.
+如果要取消隐藏特定房间，请使用“显示隐藏房间”显示所有通常隐藏的房间。请注意，此处不会显示由于语言设置而隐藏的房间，但所有其他隐藏房间都会显示。
+Clicking a hidden room will unhide it. If the room is just Temp Hidden it will be unhidden instantly. Otherwise you will be asked to confirm if you want to unghostlist the creator and/or remove some filter words to allow the room to be shown.
+单击隐藏的房间将取消隐藏。如果房间只是临时隐藏，它将立即被取消隐藏。否则，将要求您确认是否要取消列出幽灵列表的创建者和/或删除一些过滤词以显示房间。
+In order to unhide "{RoomLabel}" you are also about to:
+为了取消隐藏"{RoomLabel}"，您还需要：
+Remove "{MemberLabel}" from your ghostlist
+从您的幽灵列表中移除 "{MemberLabel}"
+Remove "{WordsLabel}" from your filtered words
+从您的过滤词中移除 "{WordsLabel}"
+Are you sure you want to do this?
+你确定要这样做吗？
+Cancel
+取消
+Do it
+是的
 Refresh rooms
 刷新房间
 Leave room search

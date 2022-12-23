@@ -41,7 +41,7 @@ Visit the College
 LARP Battles
 体感对战 (LARP)
 Movie Studio
-电影公司
+电影工作室
 Infiltration
 间谍潜入
 Bondage Poker
@@ -67,7 +67,7 @@ Photographic by git4nick
 Stable by git4nick
 马驹训练场 by git4nick
 The Nursery by wildsj
-托儿所 by wildsj
+育婴室 by wildsj
 Houdini's Theater by git4nick
 逃脱剧场 by git4nick
 Cafe by wildsj

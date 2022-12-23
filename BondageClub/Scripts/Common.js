@@ -549,10 +549,11 @@ function CommonColorsEqual(C1, C2) {
  * order, as determined by === comparison
  * @param {*[]} a1 - The first array to compare
  * @param {*[]} a2 - The second array to compare
+ * @param {boolean} [ignoreOrder] - Whether to ignore item order when considering equality
  * @returns {boolean} - TRUE if both arrays have the same length and contain the same items in the same order, FALSE otherwise
  */
-function CommonArraysEqual(a1, a2) {
-	return a1.length === a2.length && a1.every((item, i) => item === a2[i]);
+function CommonArraysEqual(a1, a2, ignoreOrder = false) {
+	return a1.length === a2.length && a1.every((item, i) => ignoreOrder ? a2.includes(item) : item === a2[i]);
 }
 
 /**
@@ -900,7 +901,58 @@ function CommonNoop() {
  * @returns {String} - Returns the proper server to use in production or test
  */
 function CommonGetServer() {
-	if ((location.href.indexOf("bondageprojects") < 0) && (location.href.indexOf("bondage-europe") < 0)) return "https://bc-server-test.herokuapp.com/";
+	if ((location.href.indexOf("bondageprojects") < 0) && (location.href.indexOf("bondage-europe") < 0)) return "https://bondage-club-server-test.herokuapp.com/";
 	if (location.protocol !== 'https:') location.replace(`https:${location.href.substring(location.protocol.length)}`);
 	return "https://bondage-club-server.herokuapp.com/";
+}
+
+/**
+ * Performs the required substitutions on the given message
+ *
+ * @param {string} msg - The string to perform the substitutions on.
+ * @param {string[][]} substitutions - An array of {string, replacement} subtitutions.
+ */
+function CommonStringSubstitute(msg, substitutions) {
+	if (typeof msg !== "string")
+		return "";
+
+	substitutions = substitutions.sort((a, b) => b[0].length - a[0].length);
+	for (const [tag, subst] of substitutions) {
+		while (msg.includes(tag))
+			msg = msg.replace(tag, subst);
+	}
+	return msg;
+}
+
+/**
+ * Censors a string or words in that string based on the player preferences
+ * @param {string} S - The string to censor
+ * @returns {String} - The censored string
+ */
+function CommonCensor(S) {
+
+	// Validates that we must apply censoring
+	if ((Player.ChatSettings == null) || (Player.ChatSettings.CensoredWordsLevel == null) || (Player.ChatSettings.CensoredWordsList == null)) return S;
+	let WordList = PreferenceCensoredWordsList = Player.ChatSettings.CensoredWordsList.split("|");
+	if (WordList.length <= 0) return S;
+
+	// At level zero, we replace the word with ***
+	if (Player.ChatSettings.CensoredWordsLevel == 0)
+		for (let W of WordList)
+			if ((W != "") && (W != " ") && !W.includes("*") && S.toUpperCase().includes(W.toUpperCase())) {
+				let searchMask = W;
+				let regEx = new RegExp(searchMask, "ig");
+				let replaceMask = "***";
+				S = S.replace(regEx, replaceMask);
+			}
+
+	// At level one, we replace the full phrase with ***, at level two we return a ¶¶¶ string indicating to filter out
+	if (Player.ChatSettings.CensoredWordsLevel >= 1)
+		for (let W of WordList)
+			if ((W != "") && (W != " ") && !W.includes("*") && S.toUpperCase().includes(W.toUpperCase()))
+				return (Player.ChatSettings.CensoredWordsLevel >= 2) ? "¶¶¶" : "***";
+
+	// Returns the mashed string
+	return S;
+
 }

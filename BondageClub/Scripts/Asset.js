@@ -60,6 +60,8 @@ function AssetGroupAdd(Family, GroupDef) {
 		PreviewZone: GroupDef.PreviewZone,
 		DynamicGroupName: GroupDef.DynamicGroupName || GroupDef.Group,
 		MirrorActivitiesFrom: GroupDef.MirrorActivitiesFrom || null,
+		ColorSuffix: GroupDef.ColorSuffix,
+		ExpressionPrerequisite: GroupDef.ExpressionPrerequisite || [],
 	};
 	AssetGroupMap.set(A.Name, A);
 	AssetActivityMirrorGroupSet(A);
@@ -103,8 +105,10 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		Visible: (AssetDef.Visible == null) ? true : AssetDef.Visible,
 		Wear: (AssetDef.Wear == null) ? true : AssetDef.Wear,
 		Activity: (typeof AssetDef.Activity === "string" ? AssetDef.Activity : null),
+		ActivityAudio: Array.isArray(AssetDef.ActivityAudio) ? AssetDef.ActivityAudio : [],
 		AllowActivity: Array.isArray(AssetDef.AllowActivity) ? AssetDef.AllowActivity : [],
 		AllowActivityOn: Array.isArray(AssetDef.AllowActivityOn) ? AssetDef.AllowActivityOn : [],
+		ActivityExpression: Array.isArray(AssetDef.ActivityExpression) ? AssetDef.ActivityExpression : {},
 		BuyGroup: AssetDef.BuyGroup,
 		PrerequisiteBuyGroups: AssetDef.PrerequisiteBuyGroups,
 		Effect: (AssetDef.Effect == null) ? Group.Effect : AssetDef.Effect,
@@ -115,7 +119,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		HideItem: AssetDef.HideItem,
 		HideItemExclude: AssetDef.HideItemExclude || [],
 		HideItemAttribute: AssetDef.HideItemAttribute || [],
-		Require: AssetDef.Require,
+		Require: (!Array.isArray(AssetDef.Require) ? [] : AssetDef.Require),
 		SetPose: (AssetDef.SetPose == null) ? Group.SetPose : AssetDef.SetPose,
 		AllowActivePose: AssetDef.AllowActivePose,
 		WhitelistActivePose: AssetDef.WhitelistActivePose,
@@ -136,7 +140,7 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		HeightModifier: (AssetDef.Height == null) ? 0 : AssetDef.Height,
 		ZoomModifier: (AssetDef.Zoom == null) ? 1 : AssetDef.Zoom,
 		Alpha: AssetDef.Alpha,
-		Prerequisite: AssetDef.Prerequisite,
+		Prerequisite: (typeof AssetDef.Prerequisite === "string" ? [AssetDef.Prerequisite] : Array.isArray(AssetDef.Prerequisite) ? AssetDef.Prerequisite : []),
 		Extended: (AssetDef.Extended == null) ? false : AssetDef.Extended,
 		AlwaysExtend: (AssetDef.AlwaysExtend == null) ? false : AssetDef.AlwaysExtend,
 		AlwaysInteract: (AssetDef.AlwaysInteract == null) ? false : AssetDef.AlwaysInteract,
@@ -151,6 +155,8 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		AllowEffect: AssetDef.AllowEffect,
 		AllowBlock: AssetDef.AllowBlock,
 		AllowType: AssetDef.AllowType,
+		AllowHide: AssetDef.AllowHide,
+		AllowHideItem: AssetDef.AllowHideItem,
 		DefaultColor: AssetDef.DefaultColor,
 		Opacity: AssetParseOpacity(AssetDef.Opacity),
 		MinOpacity: typeof AssetDef.MinOpacity === "number" ? AssetParseOpacity(AssetDef.MinOpacity) : 1,
@@ -202,6 +208,10 @@ function AssetAdd(Group, AssetDef, ExtendedConfig) {
 		Tint: Array.isArray(AssetDef.Tint) ? AssetDef.Tint : [],
 		AllowTint: Array.isArray(AssetDef.Tint) && AssetDef.Tint.length > 0,
 		DefaultTint: typeof AssetDef.DefaultTint === "string" ? AssetDef.DefaultTint : undefined,
+		Gender: AssetDef.Gender,
+		CraftGroup: typeof AssetDef.CraftGroup === "string" ? AssetDef.CraftGroup : AssetDef.Name,
+		ColorSuffix: typeof Group.ColorSuffix === "object" ? Group.ColorSuffix : {},
+		ExpressionPrerequisite: Array.isArray(AssetDef.ExpressionPrerequisite) ? AssetDef.ExpressionPrerequisite : Group.ExpressionPrerequisite,
 	}, AssetParsePoseProperties(AssetDef, Group.AllowPose.slice()));
 
 	// Ensure opacity value is valid
@@ -284,7 +294,7 @@ function AssetFindExtendedConfig(ExtendedConfig, GroupName, AssetName) {
  * @return {AssetLayer[]} - An array of layer objects representing the drawable layers of the asset
  */
 function AssetBuildLayer(AssetDefinition, A) {
-	var Layers = Array.isArray(AssetDefinition.Layer) ? AssetDefinition.Layer : [{}];
+	const Layers = Array.isArray(AssetDefinition.Layer) ? AssetDefinition.Layer : /** @type {AssetLayerDefinition[]} */([{}]);
 	return Layers.map((Layer, I) => AssetMapLayer(Layer, AssetDefinition, A, I));
 }
 
@@ -326,6 +336,8 @@ function AssetMapLayer(Layer, AssetDefinition, A, I) {
 		AllowModuleTypes: Layer.AllowModuleTypes,
 		ColorIndex: 0,
 		PoseMapping: Layer.PoseMapping || A.PoseMapping,
+		HideForAttribute: Array.isArray(Layer.HideForAttribute) ? Layer.HideForAttribute : null,
+		ShowForAttribute: Array.isArray(Layer.ShowForAttribute) ? Layer.ShowForAttribute : null,
 	}, AssetParsePoseProperties(
 		Layer,
 		Array.isArray(A.AllowPose) ? A.AllowPose.slice() : null)
@@ -636,4 +648,20 @@ function AssetGetPreviewPath(A) {
  */
 function AssetGetInventoryPath(A) {
 	return `Screens/Inventory/${A.DynamicGroupName}/${A.Name}`;
+}
+
+/**
+ * Sort a list of asset layers for the {@link Character.AppearanceLayers } property.
+ * @param {AssetLayer[]} layers - The to-be sorted asset layers
+ * @returns {AssetLayer[]} - The newly sorted asset layers
+ */
+function AssetLayerSort(layers) {
+	return layers.sort((l1, l2) => {
+		// If priorities are different, sort by priority
+		if (l1.Priority !== l2.Priority) return l1.Priority - l2.Priority;
+		// If the priorities are identical and the layers belong to the same Asset, ensure layer order is preserved
+		if (l1.Asset === l2.Asset) return l1.Asset.Layer.indexOf(l1) - l1.Asset.Layer.indexOf(l2);
+		// If priorities are identical, sort alphabetically to maintain consistency
+		return (l1.Asset.Group.Name + l1.Asset.Name).localeCompare(l2.Asset.Group.Name + l2.Asset.Name);
+	});
 }
